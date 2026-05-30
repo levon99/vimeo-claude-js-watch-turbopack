@@ -8,8 +8,9 @@
     _v5 = _v0.i(474),
     _v6 = _v0.i(0),
     _v7 = _v0.i(0),
-    _v8 = _v0.i(0);
-  let _v9 = ({
+    _v8 = _v0.i(0),
+    _v9 = _v0.i(0);
+  let _v10 = ({
     fromUrl: _v0,
     toUrl: _v1,
     currentPath: _v2,
@@ -19,11 +20,11 @@
     from: _v0,
     to: _v1
   });
-  var _v10 = _v0.i(0),
-    _v11 = _v0.i(0),
+  var _v11 = _v0.i(0),
     _v12 = _v0.i(0),
-    _v13 = _v0.i(0);
-  let _v14 = () => {
+    _v13 = _v0.i(0),
+    _v14 = _v0.i(0);
+  let _v15 = () => {
     let {
       fromUrl: _v0,
       toUrl: _v1,
@@ -37,14 +38,14 @@
           id: _v1
         } = (0, _v7.useParams)(),
         _v2 = (0, _v7.useLocation)(),
-        _v3 = `${_v13.ShowcaseRouteMap.BASE_URL}${_v1}${_v13.ShowcaseRouteMap.DEFAULT}`,
-        _v4 = `${_v13.ShowcaseRouteMap.BASE_URL}${_v1}${_v13.ShowcaseRouteMap.INFO}`,
-        _v5 = _v13.ShowcaseRouteMap.BASE_URL + _v1,
-        _v6 = (0, _v2.useMemo)(() => (_v0 ? [..._v12.extendedRoutingSideDrawerMap, ..._v12.routingSideDrawerMap.filter(_v0 => _v0.path !== _v13.ShowcaseRouteMap.CUSTOMIZATION)] : _v12.allowedMobileRoutes).map(_v0 => ({
+        _v3 = `${_v14.ShowcaseRouteMap.BASE_URL}${_v1}${_v14.ShowcaseRouteMap.DEFAULT}`,
+        _v4 = `${_v14.ShowcaseRouteMap.BASE_URL}${_v1}${_v14.ShowcaseRouteMap.INFO}`,
+        _v5 = _v14.ShowcaseRouteMap.BASE_URL + _v1,
+        _v6 = (0, _v2.useMemo)(() => (_v0 ? [..._v13.extendedRoutingSideDrawerMap, ..._v13.routingSideDrawerMap.filter(_v0 => _v0.path !== _v14.ShowcaseRouteMap.CUSTOMIZATION)] : _v13.allowedMobileRoutes).map(_v0 => ({
           ..._v0,
           path: _v5 + _v0.path
         })), [_v0, _v5]),
-        _v7 = (0, _v2.useMemo)(() => _v0 ? _v12.routingMainContentMap.map(_v0 => ({
+        _v7 = (0, _v2.useMemo)(() => _v0 ? _v13.routingMainContentMap.map(_v0 => ({
           ..._v0,
           path: _v5 + _v0.path
         })) : [], [_v0, _v5]);
@@ -53,19 +54,19 @@
         toUrl: _v4,
         changedSideDrawerRoutingMap: _v6,
         changedMainContentRoutingMap: _v7,
-        changedRightDrawerRoutingMap: (0, _v2.useMemo)(() => !1 === _v0 ? [] : _v12.routingAnalyticsMap.map(_v0 => ({
+        changedRightDrawerRoutingMap: (0, _v2.useMemo)(() => !1 === _v0 ? [] : _v13.routingAnalyticsMap.map(_v0 => ({
           ..._v0,
           path: _v5 + _v0.path
         })), [_v0, _v5]),
         pathConfig: (0, _v2.useMemo)(() => ({
           currentPath: `/${_v2?.pathname?.split("/").pop() || ""}`,
-          routesNotToRedirect: _v0 ? _v12.allowedDesktopRoutes.filter(_v0 => _v0 !== _v13.ShowcaseRouteMap.LIST) : _v12.allowedMobileRoutes.map(_v0 => _v0.path)
+          routesNotToRedirect: _v0 ? _v13.allowedDesktopRoutes.filter(_v0 => _v0 !== _v14.ShowcaseRouteMap.LIST) : _v13.allowedMobileRoutes.map(_v0 => _v0.path)
         }), [_v0, _v2?.pathname])
       };
     })();
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.Suspense, {
-        fallback: (0, _v1.jsx)(_v11.SidebarDrawerLoading, {
+        fallback: (0, _v1.jsx)(_v12.SidebarDrawerLoading, {
           location: "left"
         }),
         children: (0, _v1.jsxs)(_v7.Switch, {
@@ -76,7 +77,7 @@
             path: _v0,
             component: _v1,
             exact: !0
-          }, _v0)), (0, _v1.jsx)(_v9, {
+          }, _v0)), (0, _v1.jsx)(_v10, {
             fromUrl: _v0,
             toUrl: _v1,
             currentPath: _v5?.currentPath,
@@ -84,7 +85,7 @@
           })]
         })
       }), _v3.length > 0 && (0, _v1.jsx)(_v2.Suspense, {
-        fallback: (0, _v1.jsx)(_v10.MainContentLoading, {}),
+        fallback: (0, _v1.jsx)(_v11.MainContentLoading, {}),
         children: (0, _v1.jsx)(_v7.Switch, {
           children: _v3.map(({
             path: _v0,
@@ -95,7 +96,7 @@
           }, _v0))
         })
       }), _v4.length > 0 && (0, _v1.jsx)(_v2.Suspense, {
-        fallback: (0, _v1.jsx)(_v11.SidebarDrawerLoading, {
+        fallback: (0, _v1.jsx)(_v12.SidebarDrawerLoading, {
           location: "right"
         }),
         children: (0, _v1.jsx)(_v7.Switch, {
@@ -110,23 +111,22 @@
       })]
     });
   };
-  var _v15 = _v0.i(0),
-    _v16 = _v0.i(0),
+  var _v16 = _v0.i(0),
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
-  let _v20 = () => {
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
+  let _v21 = () => {
     let {
       name: _v0
-    } = (0, _v19.useSavedName)();
-    return (0, _v6.isEmpty)(_v0) ? null : (0, _v1.jsx)(_v18.default, {
+    } = (0, _v20.useSavedName)();
+    return (0, _v6.isEmpty)(_v0) ? null : (0, _v1.jsx)(_v19.default, {
       children: (0, _v1.jsx)("title", {
         children: _v0
       })
     });
   };
-  var _v21 = _v0.i(0),
-    _v22 = _v0.i(0),
+  var _v22 = _v0.i(0),
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
@@ -188,7 +188,7 @@
     };
   var _v29 = _v0.i(0);
   let _v30 = `repeat(2, minmax(${(0, _v22.rem)(32)}, min-content))`,
-    _v31 = () => (0, _v1.jsxs)(_v17.Navigation.LeftContent, {
+    _v31 = () => (0, _v1.jsxs)(_v18.Navigation.LeftContent, {
       gap: {
         base: "sm",
         md: (0, _v22.rem)(23)
@@ -196,13 +196,13 @@
       "data-id": "showcase-home-header-left",
       gridTemplateColumns: _v30,
       display: "grid",
-      children: [(0, _v1.jsx)(_v28, {}), (0, _v1.jsx)(_v21.Flex, {
+      children: [(0, _v1.jsx)(_v28, {}), (0, _v1.jsx)(_v8.Flex, {
         position: "relative",
         top: {
           base: 0,
           md: (0, _v22.rem)(-3)
         },
-        children: (0, _v1.jsx)(_v17.Navigation.VimeoLogo, {})
+        children: (0, _v1.jsx)(_v18.Navigation.VimeoLogo, {})
       }), (0, _v1.jsx)(_v29.ShowcaseBreadcrumbs, {})]
     });
   var _v32 = _v0.i(0),
@@ -216,7 +216,7 @@
   let _v40 = ({
     onClick: _v0
   }) => {
-    let _v1 = (0, _v7.useHistory)().location.pathname.includes(_v13.ShowcaseRouteMap.ANALYTICS) ? "secondary" : "minimal",
+    let _v1 = (0, _v7.useHistory)().location.pathname.includes(_v14.ShowcaseRouteMap.ANALYTICS) ? "secondary" : "minimal",
       _v2 = (0, _v25.translate)({
         singular: "Showcase Analytics",
         dictionary: {
@@ -312,9 +312,9 @@
           }
         } = (0, _v3.useStore)(_v0 => _v0.commonStore);
       return (0, _v2.useCallback)(() => {
-        let _v0 = `${_v13.ShowcaseRouteMap.BASE_URL}${_v2}`,
+        let _v0 = `${_v14.ShowcaseRouteMap.BASE_URL}${_v2}`,
           _v1 = _v0.location.pathname,
-          _v2 = _v1.includes(_v13.ShowcaseRouteMap.ANALYTICS) ? `${_v0}${_v13.ShowcaseRouteMap.INFO}` : `${_v0}${_v13.ShowcaseRouteMap.ANALYTICS}`;
+          _v2 = _v1.includes(_v14.ShowcaseRouteMap.ANALYTICS) ? `${_v0}${_v14.ShowcaseRouteMap.INFO}` : `${_v0}${_v14.ShowcaseRouteMap.ANALYTICS}`;
         _v1 !== _v2 && _v0.replace(_v2), _v1("vimeo.showcase_analytics_drawer_open", "top_navigation_bar", "analytics");
       }, [_v0, _v2]);
     })();
@@ -596,7 +596,7 @@
               _v11({
                 showcaseId: _v12,
                 showcaseManageOverflowAction: "delete"
-              }), _v6(_v13.ModalType.DELETE_SHOWCASE), _v10("vimeo.showcase_delete_modal_open", "sidebar", "delete showcase");
+              }), _v6(_v14.ModalType.DELETE_SHOWCASE), _v10("vimeo.showcase_delete_modal_open", "sidebar", "delete showcase");
             },
             children: (0, _v25.translate)({
               singular: "Delete showcase",
@@ -834,7 +834,7 @@
       "data-id": "share-button-mobile",
       icon: (0, _v1.jsx)(_v72.Share, {}),
       variant: "primary",
-      onClick: () => _v0(_v13.ModalType.RESOURCE_SHARE_MODAL),
+      onClick: () => _v0(_v14.ModalType.RESOURCE_SHARE_MODAL),
       size: "sm",
       hideFrom: "sm"
     });
@@ -991,7 +991,7 @@
       return {
         isPrivacyTooltipOpen: _v0,
         onShareClick: (0, _v2.useCallback)(() => {
-          _v1(!1), _v2(_v13.ModalType.RESOURCE_SHARE_MODAL);
+          _v1(!1), _v2(_v14.ModalType.RESOURCE_SHARE_MODAL);
         }, [_v2]),
         privacyTooltipFields: _v7,
         setIsPrivacyTooltipOpen: _v1
@@ -1044,7 +1044,7 @@
           size: _v0 ? "md" : "sm",
           children: [(0, _v1.jsx)(_v55.Tooltip, {
             maxW: "fit-content",
-            label: (0, _v1.jsxs)(_v21.Flex, {
+            label: (0, _v1.jsxs)(_v8.Flex, {
               align: "flex-start",
               direction: "column",
               textAlign: "left",
@@ -1183,7 +1183,7 @@
         children: [(0, _v1.jsx)(_v55.Tooltip, {
           variant: "speech-bubble",
           placement: "bottom",
-          label: _v13.UndoRedoBtnEnum.UNDO,
+          label: _v14.UndoRedoBtnEnum.UNDO,
           children: (0, _v1.jsx)(_v23.IconButton, {
             icon: (0, _v1.jsx)(_v84.Undo, {}),
             onClick: _v0,
@@ -1195,7 +1195,7 @@
         }), (0, _v1.jsx)(_v55.Tooltip, {
           variant: "speech-bubble",
           placement: "bottom",
-          label: _v13.UndoRedoBtnEnum.REDO,
+          label: _v14.UndoRedoBtnEnum.REDO,
           children: (0, _v1.jsx)(_v23.IconButton, {
             icon: (0, _v1.jsx)(_v83.Redo, {}),
             onClick: _v1,
@@ -1233,7 +1233,7 @@
         _v4 = (0, _v3.useStore)(_v0 => _v0.commonStore.showcaseConfig.showcaseId),
         _v5 = !!_v0 && !_v2();
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v17.Navigation.RightContent, {
+        children: [(0, _v1.jsxs)(_v18.Navigation.RightContent, {
           "data-id": "showcase-home-header-right",
           display: _v5 ? "none" : "flex",
           gap: {
@@ -1242,13 +1242,13 @@
           },
           flexGrow: 1,
           justifyContent: "flex-end",
-          children: [(0, _v1.jsx)(_v17.Navigation.Upgrade, {
+          children: [(0, _v1.jsx)(_v18.Navigation.Upgrade, {
             viewer: _v1
           }), (0, _v1.jsx)(_v42, {}), (0, _v1.jsx)(_v86, {
             resourceUri: `showcases/${_v4}`,
             onAddPeopleClick: _v3
           }), (0, _v1.jsx)(_v82, {}), (0, _v1.jsx)(_v61, {}), (0, _v1.jsx)(_v68, {}), (0, _v1.jsx)(_v35.AccountMenu, {})]
-        }), (0, _v1.jsxs)(_v17.Navigation.RightContent, {
+        }), (0, _v1.jsxs)(_v18.Navigation.RightContent, {
           "data-id": "showcase-home-header-right",
           display: _v5 ? "flex" : "none",
           gap: {
@@ -1266,9 +1266,9 @@
       borderRadius: "sm",
       ..._v0
     }),
-    _v90 = () => (0, _v1.jsxs)(_v17.Navigation, {
-      ..._v12.loaderAriaProperties,
-      children: [(0, _v1.jsxs)(_v17.Navigation.LeftContent, {
+    _v90 = () => (0, _v1.jsxs)(_v18.Navigation, {
+      ..._v13.loaderAriaProperties,
+      children: [(0, _v1.jsxs)(_v18.Navigation.LeftContent, {
         gap: {
           base: "sm",
           md: (0, _v22.rem)(23)
@@ -1290,7 +1290,7 @@
           w: (0, _v22.rem)(220),
           h: "xs"
         })]
-      }), (0, _v1.jsxs)(_v17.Navigation.RightContent, {
+      }), (0, _v1.jsxs)(_v18.Navigation.RightContent, {
         gap: {
           base: "sm",
           md: "md"
@@ -1323,9 +1323,9 @@
       let {
         showcaseOwnerId: _v0
       } = (0, _v3.useStore)(_v0 => _v0.commonStore);
-      return (0, _v6.isEmpty)(_v0) ? (0, _v1.jsx)(_v90, {}) : (0, _v1.jsxs)(_v16.ErrorBoundary, {
+      return (0, _v6.isEmpty)(_v0) ? (0, _v1.jsx)(_v90, {}) : (0, _v1.jsxs)(_v17.ErrorBoundary, {
         errorPage: _v90,
-        children: [(0, _v1.jsx)(_v20, {}), (0, _v1.jsxs)(_v17.Navigation, {
+        children: [(0, _v1.jsx)(_v21, {}), (0, _v1.jsxs)(_v18.Navigation, {
           id: "header",
           gap: {
             base: "md",
@@ -1380,14 +1380,14 @@
             trackShowcaseManageTabSwitched: _v3
           } = (0, _v45.useShowcaseManageTracking)(),
           _v4 = {
-            [_v13.ShowcaseRouteMap.INFO]: "settings",
-            [_v13.ShowcaseRouteMap.LAYOUT]: "layout",
-            [_v13.ShowcaseRouteMap.PLAYBACK]: "playback"
+            [_v14.ShowcaseRouteMap.INFO]: "settings",
+            [_v14.ShowcaseRouteMap.LAYOUT]: "layout",
+            [_v14.ShowcaseRouteMap.PLAYBACK]: "playback"
           };
         return {
           handleSidebarItemClick: _v0 => () => {
-            let _v0 = _v12.sidebarItemsRouteMapping[_v0](_v13.ShowcaseRouteMap.INDEX + (0, _v6.getCurrentPath)(_v0?.location?.pathname));
-            _v0.replace(`${_v13.ShowcaseRouteMap.BASE_URL}${_v1}${_v0}`), _v2(_v0);
+            let _v0 = _v13.sidebarItemsRouteMapping[_v0](_v14.ShowcaseRouteMap.INDEX + (0, _v6.getCurrentPath)(_v0?.location?.pathname));
+            _v0.replace(`${_v14.ShowcaseRouteMap.BASE_URL}${_v1}${_v0}`), _v2(_v0);
             let _v1 = _v4[_v0];
             _v1 && _v3({
               showcaseId: String(_v1),
@@ -1402,7 +1402,7 @@
           }
         };
       })();
-      return (0, _v1.jsx)(_v21.Flex, {
+      return (0, _v1.jsx)(_v8.Flex, {
         hideBelow: "md",
         "data-id": "showcase-sidebar",
         justify: "center",
@@ -1412,7 +1412,7 @@
         gap: "md",
         position: "relative",
         ml: "sm",
-        children: _v12.sidebarItems.filter(_v0 => _v0.visible).map(({
+        children: _v13.sidebarItems.filter(_v0 => _v0.visible).map(({
           ariaLabel: _v0,
           Icon: _v1,
           path: _v2,
@@ -1455,7 +1455,7 @@
       });
     };
   var _v100 = _v0.i(0);
-  let _v101 = () => (0, _v1.jsx)(_v21.Flex, {
+  let _v101 = () => (0, _v1.jsx)(_v8.Flex, {
       hideBelow: "md",
       "data-id": "showcase-sidebar",
       justify: "center",
@@ -1465,7 +1465,7 @@
       gap: "md",
       position: "relative",
       ml: "sm",
-      ..._v12.loaderAriaProperties,
+      ..._v13.loaderAriaProperties,
       children: Array.from({
         length: 3
       }).map((_v0, _v1) => (0, _v1.jsx)(_v88.Skeleton, {
@@ -1476,7 +1476,7 @@
     _v102 = ({
       children: _v0,
       isLoading: _v1
-    }) => (0, _v1.jsx)(_v21.Flex, {
+    }) => (0, _v1.jsx)(_v8.Flex, {
       position: "relative",
       h: "100%",
       overflowX: "hidden",
@@ -1487,7 +1487,7 @@
     }),
     _v103 = ({
       children: _v0
-    }) => (0, _v1.jsx)(_v21.Flex, {
+    }) => (0, _v1.jsx)(_v8.Flex, {
       position: "relative",
       h: "100%",
       flexGrow: "1",
@@ -1497,7 +1497,7 @@
     }),
     _v104 = ({
       children: _v0
-    }) => (0, _v1.jsx)(_v21.Flex, {
+    }) => (0, _v1.jsx)(_v8.Flex, {
       position: "relative",
       flexGrow: "1",
       direction: "column",
@@ -1531,28 +1531,28 @@
         };
       }, [_v0]), !_v1) return null;
       switch (_v2) {
-        case _v13.ModalType.ADD_VIDEO_TO_SHOWCASE:
-        case _v13.ModalType.SET_SHOWCASE_FEATURED_CONTENT:
+        case _v14.ModalType.ADD_VIDEO_TO_SHOWCASE:
+        case _v14.ModalType.SET_SHOWCASE_FEATURED_CONTENT:
           return (0, _v1.jsx)(_v105, {
             modalType: _v2
           });
-        case _v13.ModalType.DELETE_SHOWCASE:
+        case _v14.ModalType.DELETE_SHOWCASE:
           return (0, _v1.jsx)(_v106, {});
-        case _v13.ModalType.RESOURCE_SHARE_MODAL:
+        case _v14.ModalType.RESOURCE_SHARE_MODAL:
           return (0, _v1.jsx)(_v107, {});
-        case _v13.ModalType.EVENT_CREATION_MODAL_UPGRADE:
-        case _v13.ModalType.UPGRADE_PLAN:
+        case _v14.ModalType.EVENT_CREATION_MODAL_UPGRADE:
+        case _v14.ModalType.UPGRADE_PLAN:
           return (0, _v1.jsx)(_v108, {});
-        case _v13.ModalType.DELETE_EVENT:
+        case _v14.ModalType.DELETE_EVENT:
           return (0, _v1.jsx)(_v109, {});
-        case _v13.ModalType.EVENT_CREATION_MODAL:
+        case _v14.ModalType.EVENT_CREATION_MODAL:
           return (0, _v1.jsx)(_v110, {});
-        case _v13.ModalType.SAVE_WITHOUT_PREMIUM:
+        case _v14.ModalType.SAVE_WITHOUT_PREMIUM:
           return (0, _v1.jsx)(_v111, {
             handleSaveWithoutPremium: _v3,
             handleCancelWithoutPremium: _v4
           });
-        case _v13.ModalType.MOBILE_SETTINGS_VIEW:
+        case _v14.ModalType.MOBILE_SETTINGS_VIEW:
           return (0, _v1.jsx)(_v112, {});
         default:
           return null;
@@ -1565,9 +1565,8 @@
     _v118 = _v0.i(0),
     _v119 = _v0.i(0),
     _v120 = _v0.i(0),
-    _v121 = _v0.i(0),
-    _v122 = _v0.i(0);
-  let _v123 = (0, _v7.withRouter)(_v0 => {
+    _v121 = _v0.i(0);
+  let _v122 = (0, _v7.withRouter)(_v0 => {
     let _v1,
       _v2,
       _v3,
@@ -1579,7 +1578,7 @@
       } = (0, _v64.useForm)();
       (0, _v2.useEffect)(() => {
         let _v0 = _v0 => {
-          if (!_v0()) return _v0.preventDefault(), _v0.returnValue = _v12.PreventWindowCloseMsg, _v12.PreventWindowCloseMsg;
+          if (!_v0()) return _v0.preventDefault(), _v0.returnValue = _v13.PreventWindowCloseMsg, _v13.PreventWindowCloseMsg;
         };
         return window.addEventListener("beforeunload", _v0), () => {
           window.removeEventListener("beforeunload", _v0);
@@ -1632,7 +1631,7 @@
     } = (() => {
       let [_v0, _v1] = (0, _v2.useState)(!0),
         _v2 = (0, _v36.useViewer)(),
-        _v3 = Object.keys(_v12.initialCapabilitiesConfig),
+        _v3 = Object.keys(_v13.initialCapabilitiesConfig),
         _v4 = (0, _v3.useStore)(_v0 => _v0.commonStore.actions.setCapabilities),
         _v5 = (0, _v3.useStore)(_v0 => _v0.commonStore.showcaseOwnerId);
       return (0, _v2.useEffect)(() => {
@@ -1659,7 +1658,7 @@
           loading: _v3,
           error: _v4,
           data: _v5
-        }] = (0, _v122.useGetUserTeamLazy)();
+        }] = (0, _v121.useGetUserTeamLazy)();
       (0, _v2.useEffect)(() => {
         (0, _v6.isEmpty)(_v0?.userId) || _v2({
           select: ["id", "uri", "ownerId", "teamName", "logoUri", "pictures", "accentColor", "teamShowcaseId"],
@@ -1717,7 +1716,7 @@
         where: {
           albumId: Number(_v0)
         },
-        select: _v12.albumFields
+        select: _v13.albumFields
       }, {
         revalidateOnFocus: !1,
         errorRetryCount: 0
@@ -1735,10 +1734,10 @@
         loading: _v10
       };
     })();
-    _v1 = (0, _v3.useStore)(_v0 => _v0.commonStore.deltaValues), _v2 = (0, _v3.useStore)(_v0 => _v0.timelineStore.timeline), _v3 = (0, _v3.useStore)(_v0 => _v0.timelineStore.actions.timelineReset), (0, _v2.useEffect)(() => {
+    return _v1 = (0, _v3.useStore)(_v0 => _v0.commonStore.deltaValues), _v2 = (0, _v3.useStore)(_v0 => _v0.timelineStore.timeline), _v3 = (0, _v3.useStore)(_v0 => _v0.timelineStore.actions.timelineReset), (0, _v2.useEffect)(() => {
       (0, _v6.isEmpty)(_v1) && null !== _v2.headId && _v3();
     }, [_v1, _v2.headId]), _v4 = (0, _v3.useStore)(_v0 => _v0.appearanceStore.layout), (0, _v2.useEffect)(() => {
-      _v4 !== _v13.AppearanceLayoutEnum.PLAYLIST && sessionStorage.setItem(_v12.sessionStorageKeys.DEFAULT_LAYOUT, _v4);
+      _v4 !== _v14.AppearanceLayoutEnum.PLAYLIST && sessionStorage.setItem(_v13.sessionStorageKeys.DEFAULT_LAYOUT, _v4);
     }, [_v4]), (() => {
       let {
           sendShowcaseManagePageImpressionEvent: _v0
@@ -1750,11 +1749,11 @@
         } = (0, _v45.useShowcaseManageTracking)();
       (0, _v2.useEffect)(() => {
         _v1.current || (_v1.current = !0, _v0());
-      }, [_v0]), (0, _v121.usePicoEffect)(() => {
+      }, [_v0]), (0, _v120.usePicoEffect)(() => {
         var _v0;
         _v3({
           showcaseId: _v2,
-          showcaseManageTab: (_v0 = window.location.pathname, _v13.DRAWER_ROUTES.LAYOUT.some(_v0 => _v0.includes(_v0)) ? "layout" : _v13.DRAWER_ROUTES.PLAYBACK.some(_v0 => _v0.includes(_v0)) ? "playback" : "settings")
+          showcaseManageTab: (_v0 = window.location.pathname, _v14.DRAWER_ROUTES.LAYOUT.some(_v0 => _v0.includes(_v0)) ? "layout" : _v14.DRAWER_ROUTES.PLAYBACK.some(_v0 => _v0.includes(_v0)) ? "playback" : "settings")
         });
       }, [_v2], {
         once: !0
@@ -1772,7 +1771,7 @@
           error: _v6,
           mutate: _v7
         } = (0, _v115.useGetAlbumVideos)(() => _v3 ? {
-          select: _v12.videoFields,
+          select: _v13.videoFields,
           where: {
             albumId: _v3
           },
@@ -1782,7 +1781,7 @@
             getFeatured: !0
           },
           headers: {
-            Accept: `application/vnd.vimeo.*+json;version=${_v12.VIDEOS_API_VERSION}`
+            Accept: `application/vnd.vimeo.*+json;version=${_v13.VIDEOS_API_VERSION}`
           }
         } : null, {
           revalidateOnFocus: !1,
@@ -1825,36 +1824,26 @@
           _v2(null);
         }
       }, [_v4, _v5, _v6]);
-    })();
-    let {
-      hasColdStorage: _v8
-    } = (() => {
-      let _v0 = (0, _v36.useViewer)(),
-        _v1 = _v0?.user?.id ?? null,
-        _v2 = (0, _v3.useStore)(_v0 => _v0.commonStore.showcaseOwnerId),
-        _v3 = (0, _v3.useStore)(_v0 => _v0.videoListStore.videoList),
-        _v4 = null !== _v1 && Number(_v2) === _v1,
-        {
-          lockedVideoUris: _v5
-        } = (0, _v120.useStorageLimitLocking)({
-          userId: _v1
-        });
-      return _v4 && _v3?.length ? {
-        hasColdStorage: _v3.some(_v0 => _v0?.isColdStorage || _v0?.uri && _v5.has(_v0.uri))
-      } : {
-        hasColdStorage: !1
-      };
-    })();
-    return (0, _v1.jsxs)(_v1.Fragment, {
+    })(), (0, _v1.jsxs)(_v9.UpsellModalProvider, {
       children: [(0, _v1.jsxs)(_v103, {
         children: [(0, _v1.jsxs)(_v104, {
-          children: [(0, _v1.jsx)(_v91, {}), (0, _v1.jsx)(_v99, {}), _v8 && (0, _v1.jsx)(_v8.ColdStorageBanner, {
-            surface: "showcase"
-          }), (0, _v1.jsxs)(_v102, {
+          children: [(0, _v1.jsx)(_v91, {}), (0, _v1.jsx)(_v99, {}), (0, _v1.jsxs)(_v102, {
             isLoading: _v6 || _v7,
-            children: [(0, _v1.jsx)(_v95, {}), (0, _v1.jsx)(_v14, {})]
+            children: [(0, _v1.jsx)(_v95, {}), (0, _v1.jsx)(_v8.Flex, {
+              direction: "column",
+              flex: "1",
+              minW: 0,
+              overflow: "hidden",
+              children: (0, _v1.jsx)(_v8.Flex, {
+                flex: "1",
+                minH: 0,
+                overflow: "hidden",
+                w: "100%",
+                children: (0, _v1.jsx)(_v15, {})
+              })
+            })]
           })]
-        }), (0, _v1.jsx)(_v15.Footer, {})]
+        }), (0, _v1.jsx)(_v16.Footer, {})]
       }), (0, _v1.jsx)(_v113, {})]
     });
   });
@@ -1884,7 +1873,7 @@
       uri: _v5,
       userId: _v6
     } = _v4;
-    return (0, _v1.jsx)(_v123, {
+    return (0, _v1.jsx)(_v122, {
       uri: _v5,
       userId: _v6,
       ..._v0

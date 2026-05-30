@@ -1,0 +1,64 @@
+{
+  "use strict";
+
+  var _v1 = _v0.i(0),
+    _v2 = _v0.i(0);
+  function _v3(_v0) {
+    return Object.keys(_v0);
+  }
+  async function _v4({
+    apiUrl: _v0,
+    capabilities: _v1,
+    headers: _v2,
+    jwt: _v3,
+    userId: _v4
+  }) {
+    let _v5,
+      _v6 = _v1.reduce((_v0, _v1) => {
+        let _v2 = _v1.match(/^(can|has)(.+)/)?.[2];
+        return _v0[_v2 ? _v2[0].toLowerCase() + _v2.slice(1) : _v1] = _v1, _v0;
+      }, {}),
+      _v7 = {
+        select: _v3(_v6),
+        headers: {
+          Authorization: `jwt ${_v3}`,
+          "Content-Type": "application/json",
+          ...(_v2 || {})
+        },
+        baseUrl: _v0.startsWith("https://") ? _v0 : `https://${_v0}`
+      };
+    return Object.keys(_v5 = null != _v4 ? await (0, _v2.getUserCapabilities)({
+      ..._v7,
+      where: {
+        userId: _v4
+      }
+    }) : await (0, _v1.getMeCapabilities)(_v7)).reduce((_v0, _v1) => {
+      let _v2 = _v5[_v1];
+      if ("boolean" == typeof _v2 && _v6[_v1]) _v0[_v6[_v1]] = _v2;else throw Error("response is not well formed");
+      return _v0;
+    }, {});
+  }
+  _v0.s(["getCapabilitiesByStatus", 0, function (_v0, _v1) {
+    return _v0.reduce((_v0, _v1) => {
+      switch (_v1.currentCapabilities[_v1]) {
+        case void 0:
+          return _v0.missing = [..._v0.missing, _v1], _v0;
+        case "queued":
+          return _v0.queued = [..._v0.queued, _v1], _v0;
+        case !0:
+        case !1:
+          return _v0.received = [..._v0.received, _v1], _v0;
+      }
+    }, {
+      missing: [],
+      queued: [],
+      received: []
+    });
+  }, "getKeys", 0, _v3, "getUserId", 0, function (_v0) {
+    if (!_v0) return null;
+    let _v1 = _v0.match(/^([0-9]+)$/);
+    if (_v1) return Number(_v1[1]);
+    let _v2 = _v0.match(/users\/([0-9]+)/);
+    return _v2 ? Number(_v2[1]) : null;
+  }], 0), _v0.s(["fetchAndFormatCapabilties", 0, _v4], 0);
+}
