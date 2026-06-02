@@ -1460,21 +1460,25 @@
       {
         openBulkAiModal: _v33
       } = (0, _v22.useBulkAiModal)(),
-      _v34 = (0, _v116.useCanUpSell)(),
-      _v35 = (0, _v137.useReviewLinkCopiedToast)(),
-      _v36 = (0, _v130.useCreateAndCopyFolderReviewLink)((0, _v4.useCallback)((_v0, _v1) => {
-        _v35(() => _v27?.(_v0, "sidebar", "CREATE_REVIEW_LINK_MODAL", _v1));
-      }, [_v35, _v27])),
-      _v37 = (0, _v46.useActivityCenterStore)(_v0 => _v0.handleNewTranslationJob),
+      _v34 = (0, _v24.useEnableFolderBulkPrivacy)(),
       {
-        trackLibraryFolderContextMenuActionClicked: _v38,
-        trackLibraryFolderOpened: _v39
+        openBulkPrivacyModal: _v35
+      } = (0, _v23.useBulkPrivacyModal)(),
+      _v36 = (0, _v116.useCanUpSell)(),
+      _v37 = (0, _v137.useReviewLinkCopiedToast)(),
+      _v38 = (0, _v130.useCreateAndCopyFolderReviewLink)((0, _v4.useCallback)((_v0, _v1) => {
+        _v37(() => _v27?.(_v0, "sidebar", "CREATE_REVIEW_LINK_MODAL", _v1));
+      }, [_v37, _v27])),
+      _v39 = (0, _v46.useActivityCenterStore)(_v0 => _v0.handleNewTranslationJob),
+      {
+        trackLibraryFolderContextMenuActionClicked: _v40,
+        trackLibraryFolderOpened: _v41
       } = (0, _v113.useLibraryTracking)(),
       {
-        data: _v40,
-        size: _v41,
-        setSize: _v42,
-        error: _v43
+        data: _v42,
+        size: _v43,
+        setSize: _v44,
+        error: _v45
       } = (0, _v112.useGetUserProjectsInfinite)(() => _v4 ? {
         where: {
           userId: _v4
@@ -1489,22 +1493,22 @@
         revalidateAll: !0
       }),
       {
-        isLoadingMore: _v44,
-        isDone: _v45
+        isLoadingMore: _v46,
+        isDone: _v47
       } = (0, _v78.getInfiniteRequestLoadingState)({
-        data: _v40,
-        error: _v43,
-        size: _v41,
+        data: _v42,
+        error: _v45,
+        size: _v43,
         itemsPerPage: 100
       });
     (0, _v4.useEffect)(() => {
-      !_v40 || _v45 || _v44 || _v42(_v41 + 1);
-    }, [_v40, _v45, _v44, _v41, _v42]);
-    let _v46 = _v40?.filter(_v0 => !!_v0)?.flatMap(_v0 => _v0.data)?.filter(_v0 => !!_v0),
-      _v47 = () => {
+      !_v42 || _v47 || _v46 || _v44(_v43 + 1);
+    }, [_v42, _v47, _v46, _v43, _v44]);
+    let _v48 = _v42?.filter(_v0 => !!_v0)?.flatMap(_v0 => _v0.data)?.filter(_v0 => !!_v0),
+      _v49 = () => {
         _v11(), _v15();
       },
-      _v48 = (0, _v4.useCallback)(({
+      _v50 = (0, _v4.useCallback)(({
         uri: _v0,
         folder: _v1,
         defaultPanel: _v2,
@@ -1537,7 +1541,7 @@
           }
         });
       }, [_v26, _v27, _v25, _v16.canSeeUpsellModalOnShare]),
-      _v49 = (0, _v4.useCallback)(({
+      _v51 = (0, _v4.useCallback)(({
         folder: _v0
       }) => {
         _v7({
@@ -1590,7 +1594,7 @@
         flexDirection: "column",
         gap: "2px",
         "data-id": "library_side_nav_folder_container",
-        children: _v46 ? _v46.map(_v0 => {
+        children: _v48 ? _v48.map(_v0 => {
           let {
               canDelete: _v1,
               canEdit: _v2,
@@ -1607,7 +1611,7 @@
             _v10 = parseInt(_v6.split("/")?.[2]),
             _v11 = parseInt(_v6.split("/").pop() ?? ""),
             _v12 = !!_v16.hasContentSpaceEnabled,
-            _v13 = _v0 => _v38({
+            _v13 = _v0 => _v40({
               isPrivateToUser: _v8,
               libraryFolderId: String(_v11),
               libraryFolderContextMenuAction: _v0
@@ -1625,7 +1629,7 @@
               hasReviewLinkCapabilities: _v17,
               hasMultipleReviewLinks: !!_v16.hasMultipleReviewLinks,
               reviewLinks: _v0.reviewLinks,
-              canUpsell: _v34,
+              canUpsell: _v36,
               getReviewPageUrl: _v0 => (0, _v115.getFolderReviewPageUrl)(_v0, _v11, _v10)
             }),
             _v22 = _v0 ? _v31("folder", _v0) : {
@@ -1670,7 +1674,7 @@
                   canTranslateDubbing: _v19,
                   onComplete: () => {
                     let _v0 = _v6?.teamUser?.ownerId ?? _v6?.user?.id;
-                    _v0 && _v37(_v0);
+                    _v0 && _v39(_v0);
                   }
                 });
               },
@@ -1694,7 +1698,7 @@
               },
               canShare: _v4 || _v16.canSeeUpsellModalOnShare,
               onShare: () => {
-                _v13("share"), _v48({
+                _v13("share"), _v50({
                   uri: _v6,
                   folder: _v0
                 });
@@ -1723,7 +1727,7 @@
                   parentFolderUri: _v9?.uri,
                   currentFolderUri: _v6,
                   location: "sidebar",
-                  onSettingsChange: _v47,
+                  onSettingsChange: _v49,
                   isEditingFolder: !0,
                   initialColor: _v0?.settings?.color
                 }), _v9.BigPictureClient.sendEvent(new _v9.Event("vimeo.click", 148, {
@@ -1830,11 +1834,20 @@
                   target_path: null
                 }));
               },
+              canBulkPrivacyChange: _v2 && _v34,
+              onBulkPrivacyChange: () => {
+                _v35({
+                  userId: _v10,
+                  folderUris: [_v6],
+                  folderName: _v5,
+                  onSuccess: () => {}
+                });
+              },
               canEdit: _v2,
               analyticsPageLink: _v16,
               folderLink: _v15,
               onCopyLink: () => {
-                _v13("copy_link"), _v49({
+                _v13("copy_link"), _v51({
                   folder: _v0
                 });
               },
@@ -1895,7 +1908,7 @@
               } : void 0,
               canCreateReviewLink: _v18,
               onCreateReviewLink: () => {
-                _v13("create_review_link"), _v48({
+                _v13("create_review_link"), _v50({
                   uri: _v6,
                   folder: _v0,
                   defaultPanel: "CREATE_REVIEW_LINK_MODAL"
@@ -1906,17 +1919,17 @@
               onCopyReviewPageLink: () => {
                 if (_v13("copy_review_link"), _v21) {
                   let _v0 = _v0.reviewLinks?.[0]?.uri;
-                  _v35(_v0 ? () => _v48({
+                  _v37(_v0 ? () => _v50({
                     uri: _v6,
                     folder: _v0,
                     defaultPanel: "CREATE_REVIEW_LINK_MODAL",
                     editReviewLinkUri: _v0
                   }) : void 0);
-                } else _v36(_v11, _v10, _v6);
+                } else _v38(_v11, _v10, _v6);
               },
               canManageReviewLinks: _v20,
               onManageReviewLinks: () => {
-                _v13("manage_review_links"), _v48({
+                _v13("manage_review_links"), _v50({
                   uri: _v6,
                   folder: _v0,
                   defaultPanel: "REVIEW_LINKS_PANEL"
@@ -1938,7 +1951,7 @@
             dropTarget: _v0,
             loadingSideNavFolderURIs: _v2,
             onClick: () => {
-              _v1 && _v0?.(), _v39({
+              _v1 && _v0?.(), _v41({
                 isPrivateToUser: _v8,
                 folderUri: _v6
               }), _v9.BigPictureClient.sendEvent(new _v9.Event("vimeo.click_folder_title", 2, {
@@ -1968,7 +1981,7 @@
             uploadClipProperties: _v21
           }, _v0.uri);
         }) : (0, _v1.jsx)(_v147, {})
-      }), !!(_v40 && _v44) && (0, _v1.jsx)(_v108.Spinner, {
+      }), !!(_v42 && _v46) && (0, _v1.jsx)(_v108.Spinner, {
         size: "sm",
         marginTop: "1rem",
         marginLeft: "2.75rem"

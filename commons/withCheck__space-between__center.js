@@ -2047,10 +2047,7 @@
         value: !1,
         isSectionTitle: !0,
         isParentPreference: !0,
-        type: _v80,
-        sectionVisibility: {
-          capabilitiesToCheck: ["hasLiveAutoCcEnhanced"]
-        }
+        type: _v80
       }, {
         key: _v31.userRolePermissionAiLiveCaptions,
         value: _v27,

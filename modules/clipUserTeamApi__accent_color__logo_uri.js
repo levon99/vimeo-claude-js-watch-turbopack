@@ -35735,8 +35735,8 @@
         } = (0, _v174.useVideoPageCustomizationModalTracking)(),
         _v111 = (0, _v29.useRef)(!1);
       (0, _v29.useEffect)(() => {
-        !_v111.current && _v103 && _v91 && (_v111.current = !0, _v106());
-      }, [_v103, _v91, _v106]), (0, _v74.usePicoEffect)(() => {
+        !_v111.current && _v103 && _v91 && !_v44 && (_v111.current = !0, _v106());
+      }, [_v103, _v91, _v44, _v106]), (0, _v74.usePicoEffect)(() => {
         if (!_v105) return !1;
         _v108({
           clipId: String(_v15),

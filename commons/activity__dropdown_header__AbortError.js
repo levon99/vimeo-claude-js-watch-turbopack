@@ -2320,7 +2320,7 @@
     }, [_v1]), (0, _v1.jsx)(_v22.Button, {
       variant: "tertiary",
       as: "a",
-      href: "/plans",
+      href: "/upgrade-plan",
       onClick: () => {
         _v1({
           actionType: "click",

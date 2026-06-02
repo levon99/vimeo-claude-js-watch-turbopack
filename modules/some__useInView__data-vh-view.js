@@ -180,36 +180,40 @@
     children: _v0
   }), _v19.MobileDrawer = ({
     children: _v0,
-    playerContainerRef: _v1
+    playerContainerRef: _v1,
+    containerStyle: _v2,
+    contentStyle: _v3
   }) => {
     let {
-        isMobileDrawerOpen: _v2,
-        setActiveMobileDrawer: _v3
+        isMobileDrawerOpen: _v4,
+        setActiveMobileDrawer: _v5
       } = (0, _v15.useLayout)(),
-      [_v4] = (0, _v11.useToken)("space", ["space.200"]),
-      _v5 = _v1.current?.getBoundingClientRect()?.bottom || 0,
-      _v6 = _v6(_v1, {
+      [_v6] = (0, _v11.useToken)("space", ["space.200"]),
+      _v7 = _v1.current?.getBoundingClientRect()?.bottom || 0,
+      _v8 = _v6(_v1, {
         margin: `-${_v14.NAV_HEIGHT}px 0px 0px 0px`
       }),
-      _v7 = Math.max(_v5, _v14.NAV_HEIGHT),
-      _v8 = (0, _v3.useCallback)(() => {
-        _v2 && _v3?.("");
-      }, [_v2, _v3]);
+      _v9 = Math.max(_v7, _v14.NAV_HEIGHT),
+      _v10 = (0, _v3.useCallback)(() => {
+        _v4 && _v5?.("");
+      }, [_v4, _v5]);
     return (0, _v3.useEffect)(() => {
       let _v0 = document.getElementById("global-nav");
-      return _v0 && _v0.addEventListener("click", _v8), () => {
-        _v0 && _v0.removeEventListener("click", _v8);
+      return _v0 && _v0.addEventListener("click", _v10), () => {
+        _v0 && _v0.removeEventListener("click", _v10);
       };
-    }, [_v8]), (0, _v1.jsx)(_v8.Drawer, {
-      isOpen: _v2,
-      onClose: () => _v3?.(""),
+    }, [_v10]), (0, _v1.jsx)(_v8.Drawer, {
+      isOpen: _v4,
+      onClose: () => _v5?.(""),
       placement: "bottom",
       blockScrollOnMount: !0,
       closeOnOverlayClick: !1,
       trapFocus: !1,
       children: (0, _v1.jsx)(_v9.DrawerContent, {
+        style: _v3,
         containerProps: {
-          top: _v6 ? `calc(min(calc(${(0, _v12.rem)(_v7)} + ${_v4}), calc(100vh - 350px)))` : (0, _v12.rem)(_v7),
+          style: _v2,
+          top: _v8 ? `calc(min(calc(${(0, _v12.rem)(_v9)} + ${_v6}), calc(100vh - 350px)))` : (0, _v12.rem)(_v9),
           bottom: 0
         },
         sx: {

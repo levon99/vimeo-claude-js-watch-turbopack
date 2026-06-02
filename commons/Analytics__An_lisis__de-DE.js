@@ -1024,15 +1024,13 @@
       target: _v5 ? "_blank" : void 0,
       href: _v5,
       isDisabled: _v4,
-      icon: _v1,
       children: (0, _v1.jsxs)(_v97.Flex, {
         align: "center",
-        justify: "space-between",
         gap: "sm",
-        paddingLeft: _v1 && (0, _v14.rem)(10),
+        justify: "space-between",
         width: "100%",
         minWidth: 0,
-        children: [(0, _v1.jsx)(_v16.Text, {
+        children: [_v1, (0, _v1.jsx)(_v16.Text, {
           flex: "1 1",
           minWidth: 0,
           overflow: "hidden",
@@ -1088,20 +1086,16 @@
           }), (0, _v1.jsx)(_v100.ChevronRightSmall, {})]
         }) : (0, _v1.jsxs)(_v97.Flex, {
           align: "center",
-          gap: (0, _v14.rem)(10),
+          gap: "sm",
+          justify: "space-between",
           width: "100%",
-          children: [_v0, (0, _v1.jsxs)(_v97.Flex, {
-            align: "center",
-            justify: "space-between",
-            flex: "1",
-            paddingLeft: (0, _v14.rem)(10),
-            children: [(0, _v1.jsx)(_v16.Text, {
-              variant: "body-xl",
-              fontSize: (0, _v14.rem)(14),
-              lineHeight: (0, _v14.rem)(20),
-              children: _v1
-            }), (0, _v1.jsx)(_v100.ChevronRightSmall, {})]
-          })]
+          children: [_v0, (0, _v1.jsx)(_v16.Text, {
+            flex: "1 1",
+            variant: "body-xl",
+            fontSize: (0, _v14.rem)(14),
+            lineHeight: (0, _v14.rem)(20),
+            children: _v1
+          }), (0, _v1.jsx)(_v100.ChevronRightSmall, {})]
         })
       }), (0, _v1.jsx)(_v98.NestedMenuPortal, {
         children: (0, _v1.jsx)(_v15.NestedMenuPositioner, {

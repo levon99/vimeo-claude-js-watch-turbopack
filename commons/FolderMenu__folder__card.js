@@ -338,6 +338,7 @@
       canBulkPrivacyChange: _v52 && _v22,
       onBulkPrivacyChange: () => {
         _v23({
+          userId: _v49,
           folderUris: [_v35],
           folderName: _v36,
           onSuccess: () => {}

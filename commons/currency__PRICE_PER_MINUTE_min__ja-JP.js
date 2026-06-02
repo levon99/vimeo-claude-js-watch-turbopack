@@ -510,33 +510,32 @@
       _v13 = (0, _v27.useCanEnableLiveCaptionsForLiveEvent)(_v12),
       {
         capabilities: _v14
-      } = (0, _v15.useCapability)(["hasEntitlementAiCredits", "hasLiveAutoCcEnhanced", "hasLiveAutoCcAiCredits", "hasLiveAutoTranslation"], _v12 || null),
-      _v15 = !!_v14.hasLiveAutoCcEnhanced,
-      _v16 = !!_v14.hasLiveAutoCcAiCredits,
-      _v17 = !!_v14.hasLiveAutoTranslation,
-      _v18 = !!_v14.hasEntitlementAiCredits,
+      } = (0, _v15.useCapability)(["hasEntitlementAiCredits", "hasLiveAutoCcAiCredits", "hasLiveAutoTranslation"], _v12 || null),
+      _v15 = !!_v14.hasLiveAutoCcAiCredits,
+      _v16 = !!_v14.hasLiveAutoTranslation,
+      _v17 = !!_v14.hasEntitlementAiCredits,
       {
-        data: _v19
-      } = (0, _v16.useGetUser)(() => _v12 && _v16 ? {
+        data: _v18
+      } = (0, _v16.useGetUser)(() => _v12 && _v15 ? {
         select: ["aiCreditsQuota"],
         where: {
           userId: _v12
         }
       } : null),
-      _v20 = _v19?.aiCreditsQuota?.remaining ?? 0,
-      _v21 = !(0, _v29.useIsSalesAssistedTier)(_v12),
-      _v22 = _v3?.autoCcTranslationLanguages?.length ?? 0,
+      _v19 = _v18?.aiCreditsQuota?.remaining ?? 0,
+      _v20 = !(0, _v29.useIsSalesAssistedTier)(_v12),
+      _v21 = _v3?.autoCcTranslationLanguages?.length ?? 0,
       {
-        data: _v23
-      } = (0, _v17.useGetUserAiCreditsBillingInfo)(() => _v12 && _v21 ? {
+        data: _v22
+      } = (0, _v17.useGetUserAiCreditsBillingInfo)(() => _v12 && _v20 ? {
         select: ["unitAmount", "currency"],
         where: {
           userId: String(_v12)
         }
       } : null),
       {
-        modal: _v24,
-        open: _v25
+        modal: _v23,
+        open: _v24
       } = function ({
         translationLanguageCount: _v0,
         unitAmount: _v1,
@@ -558,36 +557,32 @@
           isOpen: _v3
         };
       }({
-        translationLanguageCount: _v22,
-        unitAmount: _v23?.unitAmount ?? null,
-        currency: _v23?.currency ?? null
+        translationLanguageCount: _v21,
+        unitAmount: _v22?.unitAmount ?? null,
+        currency: _v22?.currency ?? null
       }),
-      _v26 = (0, _v3.useCallback)(() => {
+      _v25 = (0, _v3.useCallback)(() => {
         (0, _v34.trackUpgradeAutoCc)(_v26.vimeoConfig.PATH.CONTACT_US_FORM_EVENT), _v7();
       }, [_v7]),
-      _v27 = (0, _v3.useCallback)(_v0 => {
+      _v26 = (0, _v3.useCallback)(_v0 => {
         _v0.enabled !== _v3?.autoCcEnabled && ((0, _v33.trackEnabledAutoCc)(_v0.enabled), _v6({
           liveStreamNewStatus: _v0.enabled
-        })), null !== _v0.language && _v0.language !== _v3?.autoCcLanguage && (0, _v33.trackSelectAutoCcLanguage)(_v0.language), _v15 ? _v4({
+        })), null !== _v0.language && _v0.language !== _v3?.autoCcLanguage && (0, _v33.trackSelectAutoCcLanguage)(_v0.language), _v4({
           autoCcEnabled: _v0.enabled,
           ...(null !== _v0.language ? {
             autoCcLanguage: _v0.language
           } : {}),
           autoCcKeywords: _v3?.autoCcKeywords
-        }, []) : _v4({
-          autoCcEnabled: _v0.enabled,
-          autoCcLanguage: _v0.language ?? _v3?.autoCcLanguage,
-          autoCcKeywords: _v3?.autoCcKeywords
         }, []);
-      }, [_v3?.autoCcEnabled, _v3?.autoCcLanguage, _v3?.autoCcKeywords, _v4, _v6, _v15]),
-      _v28 = (0, _v3.useCallback)(_v0 => {
+      }, [_v3?.autoCcEnabled, _v3?.autoCcLanguage, _v3?.autoCcKeywords, _v4, _v6]),
+      _v27 = (0, _v3.useCallback)(_v0 => {
         (0, _v33.trackEnterAutoCcKeywords)(), _v4({
           autoCcKeywords: _v0.join(","),
           autoCcEnabled: _v3?.autoCcEnabled,
           autoCcLanguage: _v3?.autoCcLanguage
         }, []);
       }, [_v3?.autoCcEnabled, _v3?.autoCcLanguage, _v4]),
-      _v29 = (0, _v3.useCallback)(_v0 => {
+      _v28 = (0, _v3.useCallback)(_v0 => {
         _v4({
           autoCcEnabled: _v3?.autoCcEnabled,
           ...(_v3?.autoCcLanguage ? {
@@ -607,25 +602,25 @@
       borderRadius: (0, _v12.rem)(4)
     });
     let {
-        autoCcKeywords: _v30,
-        autoCcLanguage: _v31,
-        autoCcEnabled: _v32,
-        autoCcTranslationLanguages: _v33,
-        autoCcLimit: _v34,
-        autoCcRemaining: _v35,
-        unlimitedAutoCc: _v36,
-        latency: _v37
+        autoCcKeywords: _v29,
+        autoCcLanguage: _v30,
+        autoCcEnabled: _v31,
+        autoCcTranslationLanguages: _v32,
+        autoCcLimit: _v33,
+        autoCcRemaining: _v34,
+        unlimitedAutoCc: _v35,
+        latency: _v36
       } = _v3,
-      _v38 = _v5.isSessionLive,
-      _v39 = _v33?.length ?? 0,
-      _v40 = _v39 * _v22.AUTO_CC_TRANSLATION_CREDITS_PER_MINUTE;
-    if (_v16) {
-      let _v0 = _v40 + (_v36 ? 0 : _v22.AUTO_CC_CREDITS_PER_MINUTE),
-        _v1 = !_v36 && !_v21 && _v20 <= 0,
-        _v2 = _v37 === _v36.EEventLatency.Low || _v1 || _v9 || !_v13,
-        _v3 = _v32 && !_v1 && !_v9,
-        _v4 = _v3 && !_v36 && !_v11,
-        _v5 = (0, _v38.inline)(() => _v38 ? _v35.T_AUTO_CC_LOCKED_WHILE_LIVE : _v9 ? _v35.T_AUTO_CC_IS_NOT_AVAILABLE_FOR_DEMO : _v1 ? _v35.T_AUTO_CC_PLAN_LIMIT_REACHED : _v13 ? _v37 === _v36.EEventLatency.Low ? (0, _v35.T_AUTO_CC_LOW_LATENCY_STREAM_TIP)() : "" : (0, _v18.translate)({
+      _v37 = _v5.isSessionLive,
+      _v38 = _v32?.length ?? 0,
+      _v39 = _v38 * _v22.AUTO_CC_TRANSLATION_CREDITS_PER_MINUTE;
+    if (_v15) {
+      let _v0 = _v39 + (_v35 ? 0 : _v22.AUTO_CC_CREDITS_PER_MINUTE),
+        _v1 = !_v35 && !_v20 && _v19 <= 0,
+        _v2 = _v36 === _v36.EEventLatency.Low || _v1 || _v9 || !_v13,
+        _v3 = _v31 && !_v1 && !_v9,
+        _v4 = _v3 && !_v35 && !_v11,
+        _v5 = (0, _v38.inline)(() => _v37 ? _v35.T_AUTO_CC_LOCKED_WHILE_LIVE : _v9 ? _v35.T_AUTO_CC_IS_NOT_AVAILABLE_FOR_DEMO : _v1 ? _v35.T_AUTO_CC_PLAN_LIMIT_REACHED : _v13 ? _v36 === _v36.EEventLatency.Low ? (0, _v35.T_AUTO_CC_LOW_LATENCY_STREAM_TIP)() : "" : (0, _v18.translate)({
           singular: "You are not permitted to enable auto CC for live events. Please ask your team owner to change this if needed.",
           dictionary: {
             es: {
@@ -723,7 +718,7 @@
               fontSize: "inherit",
               textDecoration: "underline",
               cursor: "pointer",
-              onClick: _v25,
+              onClick: _v24,
               children: _v0
             }, "self-serve-learn-more")
           },
@@ -798,7 +793,7 @@
         direction: "column",
         maxWidth: "100%",
         width: "100%",
-        children: [_v38 ? (0, _v1.jsx)(_v4.Alert, {
+        children: [_v37 ? (0, _v1.jsx)(_v4.Alert, {
           status: "warning",
           marginBottom: (0, _v12.rem)(16),
           children: (0, _v1.jsx)(_v13.AlertDescription, {
@@ -832,20 +827,19 @@
           })
         }) : null, (0, _v1.jsx)(_v23.AutoCc, {
           location: _v36.ESettingsLocation.Settings,
-          value: _v32 && !_v1,
-          language: _v31,
+          value: _v31 && !_v1,
+          language: _v30,
           isDisabled: _v2,
-          isLocked: _v38,
+          isLocked: _v37,
           isLoading: _v10,
           disabledTip: _v5,
-          onChange: _v27,
-          hasExpandedLanguages: _v15
+          onChange: _v26
         }), _v3 ? (0, _v1.jsx)(_v24.AutoCcKeywords, {
           isLoading: _v10,
-          isDisabled: _v38,
-          keywords: _v30 ? _v30.split(",") : [],
-          onChange: _v28
-        }) : null, _v32 && _v36 ? (0, _v1.jsx)(_v7.Flex, {
+          isDisabled: _v37,
+          keywords: _v29 ? _v29.split(",") : [],
+          onChange: _v27
+        }) : null, _v31 && _v35 ? (0, _v1.jsx)(_v7.Flex, {
           backgroundColor: "fill-component-secondary",
           marginTop: (0, _v12.rem)(8),
           paddingY: (0, _v12.rem)(4),
@@ -915,18 +909,18 @@
               })
             })]
           })
-        }) : null, _v32 && _v36 ? (0, _v1.jsx)(_v9.Paragraph, {
+        }) : null, _v31 && _v35 ? (0, _v1.jsx)(_v9.Paragraph, {
           size: "sm",
           margin: `${(0, _v12.rem)(8)} 0`,
           color: "text-secondary",
           children: _v9
-        }) : null, _v17 ? (0, _v1.jsx)(_v25.CaptionsTranslations, {
-          isDisabled: _v38 || !_v3,
-          disabledTip: _v38 ? _v35.T_AUTO_CC_LOCKED_WHILE_LIVE : void 0,
-          selectedLanguages: _v33 ?? [],
-          sourceLanguage: _v31,
-          onChange: _v29
-        }) : null, _v4 || _v17 && _v32 ? (0, _v1.jsxs)(_v7.Flex, {
+        }) : null, _v16 ? (0, _v1.jsx)(_v25.CaptionsTranslations, {
+          isDisabled: _v37 || !_v3,
+          disabledTip: _v37 ? _v35.T_AUTO_CC_LOCKED_WHILE_LIVE : void 0,
+          selectedLanguages: _v32 ?? [],
+          sourceLanguage: _v30,
+          onChange: _v28
+        }) : null, _v4 || _v16 && _v31 ? (0, _v1.jsxs)(_v7.Flex, {
           direction: "column",
           alignSelf: "stretch",
           marginTop: (0, _v12.rem)(16),
@@ -942,7 +936,7 @@
               alignItems: "center",
               paddingX: (0, _v12.rem)(16),
               paddingTop: (0, _v12.rem)(8),
-              paddingBottom: _v17 && _v39 > 0 ? (0, _v12.rem)(8) : (0, _v12.rem)(16),
+              paddingBottom: _v16 && _v38 > 0 ? (0, _v12.rem)(8) : (0, _v12.rem)(16),
               children: [(0, _v1.jsx)(_v11.Text, {
                 variant: "body-md",
                 color: "text-secondary",
@@ -997,7 +991,7 @@
                   })
                 })]
               })]
-            }) : null, _v17 && _v39 > 0 ? (0, _v1.jsxs)(_v7.Flex, {
+            }) : null, _v16 && _v38 > 0 ? (0, _v1.jsxs)(_v7.Flex, {
               width: "100%",
               justifyContent: "space-between",
               alignItems: "center",
@@ -1009,9 +1003,9 @@
                 children: (0, _v18.translate)({
                   singular: "{COUNT} translation",
                   plural: "{COUNT} translations",
-                  count: _v39,
+                  count: _v38,
                   replacements: {
-                    COUNT: _v39
+                    COUNT: _v38
                   },
                   dictionary: {
                     es: {
@@ -1056,7 +1050,7 @@
                   children: (0, _v18.translate)({
                     singular: "{RATE}/min",
                     replacements: {
-                      RATE: _v40
+                      RATE: _v39
                     },
                     dictionary: {
                       "ja-JP": {
@@ -1069,7 +1063,7 @@
                   })
                 })]
               })]
-            }) : null, _v32 ? (0, _v1.jsxs)(_v7.Flex, {
+            }) : null, _v31 ? (0, _v1.jsxs)(_v7.Flex, {
               alignItems: "center",
               justifyContent: "center",
               gap: (0, _v12.rem)(6),
@@ -1084,7 +1078,7 @@
                 children: (0, _v18.translate)({
                   singular: "{AMOUNT} credits remaining",
                   replacements: {
-                    AMOUNT: Math.max(_v20, 0).toLocaleString()
+                    AMOUNT: Math.max(_v19, 0).toLocaleString()
                   },
                   dictionary: {
                     es: {
@@ -1112,17 +1106,17 @@
                 })
               })]
             }) : null]
-          }), _v0 > _v20 && _v18 ? (0, _v1.jsx)(_v4.Alert, {
+          }), _v0 > _v19 && _v17 ? (0, _v1.jsx)(_v4.Alert, {
             status: "warning",
             children: (0, _v1.jsx)(_v13.AlertDescription, {
               fontSize: "body-sm",
               children: _v6
             })
-          }) : null, _v32 ? (0, _v1.jsx)(_v11.Text, {
+          }) : null, _v31 ? (0, _v1.jsx)(_v11.Text, {
             variant: "body-sm",
             color: "text-secondary",
-            children: _v21 ? _v8 : _v7
-          }) : null, _v32 ? (0, _v1.jsx)(_v11.Text, {
+            children: _v20 ? _v8 : _v7
+          }) : null, _v31 ? (0, _v1.jsx)(_v11.Text, {
             variant: "body-sm",
             color: "text-secondary",
             children: (0, _v18.translate)({
@@ -1152,13 +1146,13 @@
               }
             })
           }) : null]
-        }) : null, _v24]
+        }) : null, _v23]
       });
     }
-    let _v41 = Number((100 - (_v35 ?? 0) / (_v34 ?? 1) * 100).toFixed(2)),
-      _v42 = !!(!_v36 && (_v35 ?? 1) <= 0),
-      _v43 = _v37 === _v36.EEventLatency.Low || _v42 || _v9 || !_v13,
-      _v44 = (0, _v38.inline)(() => _v38 ? _v35.T_AUTO_CC_LOCKED_WHILE_LIVE : _v9 ? _v35.T_AUTO_CC_IS_NOT_AVAILABLE_FOR_DEMO : _v42 ? _v35.T_AUTO_CC_PLAN_LIMIT_REACHED : _v13 ? _v37 === _v36.EEventLatency.Low ? (0, _v35.T_AUTO_CC_LOW_LATENCY_STREAM_TIP)() : "" : (0, _v18.translate)({
+    let _v40 = Number((100 - (_v34 ?? 0) / (_v33 ?? 1) * 100).toFixed(2)),
+      _v41 = !!(!_v35 && (_v34 ?? 1) <= 0),
+      _v42 = _v36 === _v36.EEventLatency.Low || _v41 || _v9 || !_v13,
+      _v43 = (0, _v38.inline)(() => _v37 ? _v35.T_AUTO_CC_LOCKED_WHILE_LIVE : _v9 ? _v35.T_AUTO_CC_IS_NOT_AVAILABLE_FOR_DEMO : _v41 ? _v35.T_AUTO_CC_PLAN_LIMIT_REACHED : _v13 ? _v36 === _v36.EEventLatency.Low ? (0, _v35.T_AUTO_CC_LOW_LATENCY_STREAM_TIP)() : "" : (0, _v18.translate)({
         singular: "You are not permitted to enable auto CC for live events. Please ask your team owner to change this if needed.",
         dictionary: {
           es: {
@@ -1190,7 +1184,7 @@
       direction: "column",
       maxWidth: "100%",
       width: "100%",
-      children: [_v38 ? (0, _v1.jsx)(_v4.Alert, {
+      children: [_v37 ? (0, _v1.jsx)(_v4.Alert, {
         status: "warning",
         marginBottom: (0, _v12.rem)(16),
         children: (0, _v1.jsx)(_v13.AlertDescription, {
@@ -1224,20 +1218,19 @@
         })
       }) : null, (0, _v1.jsx)(_v23.AutoCc, {
         location: _v36.ESettingsLocation.Settings,
-        value: _v32 && !_v42,
-        language: _v31,
-        isDisabled: _v43,
-        isLocked: _v38,
+        value: _v31 && !_v41,
+        language: _v30,
+        isDisabled: _v42,
+        isLocked: _v37,
         isLoading: _v10,
-        disabledTip: _v44,
-        onChange: _v27,
-        hasExpandedLanguages: _v15
-      }), !_v32 || _v42 || _v9 ? null : (0, _v1.jsx)(_v24.AutoCcKeywords, {
+        disabledTip: _v43,
+        onChange: _v26
+      }), !_v31 || _v41 || _v9 ? null : (0, _v1.jsx)(_v24.AutoCcKeywords, {
         isLoading: _v10,
-        isDisabled: _v38,
-        keywords: _v30 ? _v30.split(",") : [],
-        onChange: _v28
-      }), _v36 || _v9 || _v11 ? null : (0, _v1.jsxs)(_v7.Flex, {
+        isDisabled: _v37,
+        keywords: _v29 ? _v29.split(",") : [],
+        onChange: _v27
+      }), _v35 || _v9 || _v11 ? null : (0, _v1.jsxs)(_v7.Flex, {
         direction: "column",
         alignItems: "flex-start",
         alignSelf: "stretch",
@@ -1251,7 +1244,7 @@
           size: "md",
           color: "text-primary",
           fontWeight: "bold",
-          children: (0, _v39.getFormattedTimecodeFromSeconds)(Math.max(_v35 ?? 0, 0), _v39.TimecodeFormats.LongWithoutDays, {
+          children: (0, _v39.getFormattedTimecodeFromSeconds)(Math.max(_v34 ?? 0, 0), _v39.TimecodeFormats.LongWithoutDays, {
             shouldShowZero: !0
           })
         }), (0, _v1.jsx)(_v10.Progress, {
@@ -1260,7 +1253,7 @@
           margin: `${(0, _v12.rem)(4)} 0`,
           size: "sm",
           variant: "neutral",
-          value: _v41,
+          value: _v40,
           sx: {
             "& > div": {
               background: "upsell-primary"
@@ -1281,13 +1274,13 @@
         }), (0, _v1.jsx)(_v9.Paragraph, {
           size: "md",
           color: "text-secondary",
-          children: _v42 ? _v35.T_AUTO_CC_UPSELL_REACHED : _v35.T_AUTO_CC_UPSELL
+          children: _v41 ? _v35.T_AUTO_CC_UPSELL_REACHED : _v35.T_AUTO_CC_UPSELL
         }), (0, _v1.jsx)(_v5.Button, {
           size: "sm",
           width: "100%",
           marginTop: (0, _v12.rem)(12),
           variant: "upsell",
-          onClick: _v26,
+          onClick: _v25,
           children: _v35.T_CONTACT_SALES
         })]
       }), _v8]

@@ -42,13 +42,14 @@
   let _v24 = ["download.height", "download.link", "download.quality", "download.rendition", "download.type", "download.width", "download.sizeShort", "download.publicName", "download.videoFileId"];
   var _v25 = _v0.i(0),
     _v26 = _v0.i(0),
-    _v27 = _v0.i(0);
-  class _v28 extends Error {
+    _v27 = _v0.i(0),
+    _v28 = _v0.i(0);
+  class _v29 extends Error {
     _data;
     constructor(_v0, _v1 = "General error.") {
       let _v2,
         _v3 = ["Video tagging error.", _v1];
-      if (_v0 instanceof _v28) _v3 = [_v0.message], _v2 = _v0;else if (_v0 instanceof Error) _v3.push(_v0.message), _v2 = _v0;else if ("object" == typeof _v0) try {
+      if (_v0 instanceof _v29) _v3 = [_v0.message], _v2 = _v0;else if (_v0 instanceof Error) _v3.push(_v0.message), _v2 = _v0;else if ("object" == typeof _v0) try {
         _v3.push(JSON.stringify(_v0, null, 2));
       } catch {} else "string" == typeof _v0 && _v3.push(_v0);
       super(_v3.join(" "), {
@@ -59,7 +60,7 @@
       return this._data;
     }
   }
-  let _v29 = async (_v0, _v1, _v2, _v3, _v4) => {
+  let _v30 = async (_v0, _v1, _v2, _v3, _v4) => {
       let _v5 = await fetch(`//${_v1}/videos/${_v0}/tag_job`, {
         method: "POST",
         headers: {
@@ -73,16 +74,16 @@
       });
       if (_v5.ok) {
         let _v0 = await _v5.json();
-        return (0, _v27.camelizeDeep)(_v0);
+        return (0, _v28.camelizeDeep)(_v0);
       }
       {
         let _v0 = (await _v5.json()).catch(() => ({
           empty: !0
         }));
-        throw _v0.status = _v5.status, new _v28(_v0, "Bad response.");
+        throw _v0.status = _v5.status, new _v29(_v0, "Bad response.");
       }
     },
-    _v30 = async (_v0, _v1, _v2, _v3, _v4) => {
+    _v31 = async (_v0, _v1, _v2, _v3, _v4) => {
       let _v5 = await fetch(`//${_v1}/videos/${_v0}/tag_job/${_v3}?filename=${_v4}`, {
         method: "GET",
         headers: {
@@ -91,17 +92,16 @@
       });
       if (_v5.ok) {
         let _v0 = await _v5.json();
-        return (0, _v27.camelizeDeep)(_v0);
+        return (0, _v28.camelizeDeep)(_v0);
       }
       {
         let _v0 = (await _v5.json()).catch(() => ({
           empty: !0
         }));
-        throw _v0.status = _v5.status, new _v28(_v0, "Bad response.");
+        throw _v0.status = _v5.status, new _v29(_v0, "Bad response.");
       }
     };
-  var _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
+  var _v32 = _v0.i(0),
     _v33 = _v0.i(0),
     _v34 = _v0.i(0),
     _v35 = _v0.i(0),
@@ -113,7 +113,8 @@
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
     _v43 = _v0.i(0),
-    _v44 = _v0.i(0);
+    _v44 = _v0.i(0),
+    _v45 = _v0.i(0);
   _v0.s(["DownloadFilesContent", 0, ({
     files: _v0,
     handleClick: _v1,
@@ -212,7 +213,7 @@
       isUserInAudioTrackSelectorTest: _v7 = null
     }, _v8 = !0) {
       (0, _v2.useEffect)(() => {
-        (0, _v43.updateTrackingConfig)({
+        (0, _v44.updateTrackingConfig)({
           APP_TYPE: _v0,
           USER_ID: _v3,
           USER_LOCALE: _v4,
@@ -221,10 +222,10 @@
           VIDEO_ID: _v5,
           ALLOW_AUDIOTRACK_SELECTOR: _v6,
           IS_AB_TEST: _v7
-        }), _v8 && (0, _v43.updateDatadogGlobals)((0, _v43.getApplicationGlobals)());
+        }), _v8 && (0, _v44.updateDatadogGlobals)((0, _v44.getApplicationGlobals)());
       }, [_v0, _v8, _v1, _v2, _v3, _v4, _v5, _v6, _v7]);
     }({
-      appType: _v41.APP_TYPE,
+      appType: _v42.APP_TYPE,
       userId: _v20?.user?.id,
       userLocale: _v20?.locale,
       modalLocation: _v5 ?? _v7,
@@ -253,29 +254,29 @@
             let [_v0, _v1] = (0, _v2.useState)({}),
               _v2 = (0, _v2.useCallback)((_v0, _v1, _v2, _v3, _v4, _v5) => new Promise((_v0, _v1) => {
                 let _v2 = null;
-                _v30(_v0, _v1, _v2, _v3, _v4).then(_v0 => {
+                _v31(_v0, _v1, _v2, _v3, _v4).then(_v0 => {
                   "success" === _v0.status && _v0.downloadUrl ? (_v1({
                     ..._v0,
                     [_v5]: _v0.downloadUrl
-                  }), _v2 && clearTimeout(_v2), _v0(_v0.downloadUrl)) : "failed" === _v0.status ? _v1(new _v28(_v0, 'Received status is "failed".')) : _v2 = setTimeout(() => _v2(_v0, _v1, _v2, _v3, _v4, _v5).then(_v0 => _v0(_v0)).catch(_v0 => _v1(_v0)), 500);
-                }).catch(_v0 => _v1(new _v28(_v0, "Failed to fetch tagging job status.")));
+                  }), _v2 && clearTimeout(_v2), _v0(_v0.downloadUrl)) : "failed" === _v0.status ? _v1(new _v29(_v0, 'Received status is "failed".')) : _v2 = setTimeout(() => _v2(_v0, _v1, _v2, _v3, _v4, _v5).then(_v0 => _v0(_v0)).catch(_v0 => _v1(_v0)), 500);
+                }).catch(_v0 => _v1(new _v29(_v0, "Failed to fetch tagging job status.")));
               }), [_v0]);
             return {
               shouldTagVideo: (_v0, _v1) => "svv" === _v1 && _v0.size && _v0.size <= 0,
               tagVideo: (0, _v2.useCallback)((_v0, _v1, _v2, _v3, _v4) => new Promise((_v0, _v1) => {
                 let _v2 = _v0[_v3];
-                _v2 ? _v0(_v2) : _v29(_v2, _v0, _v1, _v3, _v4).then(_v0 => {
-                  "failed" === _v0.status && _v1(new _v28(_v0, 'Received status is "failed".')), _v0.downloadUrl ? (_v1({
+                _v2 ? _v0(_v2) : _v30(_v2, _v0, _v1, _v3, _v4).then(_v0 => {
+                  "failed" === _v0.status && _v1(new _v29(_v0, 'Received status is "failed".')), _v0.downloadUrl ? (_v1({
                     ..._v0,
                     [_v3]: _v0.downloadUrl
-                  }), _v0(_v0.downloadUrl)) : _v2(_v2, _v0, _v1, _v0.id, _v0.filename, _v3).then(_v0 => _v0(_v0)).catch(_v0 => _v1(new _v28(_v0, "Failed to fetch job status.")));
-                }).catch(_v0 => _v1(new _v28(_v0, "Failed to trigger tagging job.")));
+                  }), _v0(_v0.downloadUrl)) : _v2(_v2, _v0, _v1, _v0.id, _v0.filename, _v3).then(_v0 => _v0(_v0)).catch(_v0 => _v1(new _v29(_v0, "Failed to fetch job status.")));
+                }).catch(_v0 => _v1(new _v29(_v0, "Failed to trigger tagging job.")));
               }), [_v2, _v0])
             };
           }(),
           {
             trackVideoDownloadStarted: _v10
-          } = (_v5 = (0, _v26.usePico)(), {
+          } = (_v5 = (0, _v27.usePico)(), {
             trackVideoDownloadStarted: (0, _v2.useCallback)(_v0 => {
               null !== _v5 && _v5.track("video_download_started", {
                 video_id: null != _v0.videoId ? String(_v0.videoId) : null,
@@ -284,19 +285,55 @@
               });
             }, [_v5])
           }),
-          _v11 = (0, _v2.useContext)(_v32.ViewerContext),
-          _v12 = (0, _v25.useRouter)().asPath;
+          _v11 = (0, _v2.useContext)(_v33.ViewerContext),
+          _v12 = (0, _v25.useRouter)().asPath,
+          _v13 = (0, _v26.useToast)(),
+          _v14 = (0, _v2.useCallback)(() => {
+            let _v0 = "download-files-download-started";
+            _v13.isActive(_v0) || _v13({
+              id: _v0,
+              title: (0, _v10.translate)({
+                singular: "Download started",
+                dictionary: {
+                  es: {
+                    singular: "Descarga iniciada"
+                  },
+                  "de-DE": {
+                    singular: "Download gestartet"
+                  },
+                  "fr-FR": {
+                    singular: "Téléchargement lancé"
+                  },
+                  "ja-JP": {
+                    singular: "ダウンロードが開始されました"
+                  },
+                  "ko-KR": {
+                    singular: "다운로드가 시작되었습니다"
+                  },
+                  "pt-BR": {
+                    singular: "Download iniciado"
+                  },
+                  "zh-CN": {
+                    singular: "下载已开始"
+                  }
+                }
+              }),
+              variant: "success",
+              duration: 0,
+              isClosable: !0
+            });
+          }, [_v13]);
         return {
           onDownloadClick: (0, _v2.useCallback)((_v0, _v1) => _v0 => {
             var _v1, _v2, _v3, _v4;
             let _v5, _v6, _v7, _v8, _v9, _v10, _v11, _v12, _v13;
-            _v1 = _v3 ?? 0, _v2 = _v0.quality, _v3 = _v0.rendition, _v4 = _v11?.teamUser, _v5 = (0, _v34.buildActionBpContext)({
+            _v1 = _v3 ?? 0, _v2 = _v0.quality, _v3 = _v0.rendition, _v4 = _v11?.teamUser, _v5 = (0, _v35.buildActionBpContext)({
               action_type: "click",
               feature: null
-            }), _v6 = (0, _v36.buildVideoBpContext)({
+            }), _v6 = (0, _v37.buildVideoBpContext)({
               video_id: _v1,
               video_owner_id: _v4?.ownerId ?? null
-            }), _v7 = (0, _v35.buildProductAnalyticsBpContext)({
+            }), _v7 = (0, _v36.buildProductAnalyticsBpContext)({
               product: "distribution",
               feature: "download",
               location: "modal",
@@ -306,8 +343,8 @@
               is_user_facing_data: !1,
               entity_type: "video",
               copy: null,
-              device_type: (0, _v33.default)()
-            }), _v8 = (0, _v39.buildThirdPartyIntegrationBpContext)({
+              device_type: (0, _v34.default)()
+            }), _v8 = (0, _v40.buildThirdPartyIntegrationBpContext)({
               is_integration: !1,
               integration_id: null,
               integration_name: null,
@@ -316,7 +353,7 @@
               integration_type: null,
               partner_bucket: null,
               is_partner: null
-            }), _v9 = (0, _v40.buildWebBpContext)({
+            }), _v9 = (0, _v41.buildWebBpContext)({
               page_name: _v1 ?? "viewer_home",
               referrer_page_name: "svv" === _v0 ? "single_video_view" : null,
               target: null,
@@ -329,7 +366,7 @@
               if ("Contributor" === _v0.plainTextPermissionLevel) return "contributor";
               if ("ContributorPlus" === _v0.plainTextPermissionLevel) return "contributor_plus";
               if ("Viewer" === _v0.plainTextPermissionLevel) return "viewer";else return null;
-            })(_v4), _v11 = (0, _v38.buildTeamBpContext)({
+            })(_v4), _v11 = (0, _v39.buildTeamBpContext)({
               is_team_member: !!_v4?.ownerId,
               team_owner_id: _v4?.ownerId ?? null,
               team_id: _v4?.teamId ?? null,
@@ -369,21 +406,21 @@
               sharee_entity_permission: null,
               sharee_id: null,
               sharee_team_permission: null
-            }, (0, _v37.sendBpEventWithContexts)("vimeo.distribute_content", _v12, 18, _v13), _v10({
+            }, (0, _v38.sendBpEventWithContexts)("vimeo.distribute_content", _v12, 18, _v13), _v10({
               videoId: null != _v3 ? String(_v3) : null,
               fileQuality: _v0.quality ?? null,
               fileRendition: _v0.rendition ?? null
-            }), _v2 && _v2(_v0), _v11?.apiUrl && _v11?.jwt && _v0 && _v3 && !_v4 && _v8(_v0, _v0) && (_v0.preventDefault(), _v7([..._v6, _v0.link]), _v9(_v11.apiUrl, _v11.jwt, _v3, _v0.videoFileId?.toString() ?? "").then(_v0 => {
-              _v0 ? (0, _v31.downloadFile)(_v0) : (0, _v31.downloadFile)(`${_v0.link}`), _v7([..._v6.filter(_v0 => _v0 !== _v0.link)]);
+            }), _v2 && _v2(_v0), _v14(), _v11?.apiUrl && _v11?.jwt && _v0 && _v3 && !_v4 && _v8(_v0, _v0) && (_v0.preventDefault(), _v7([..._v6, _v0.link]), _v9(_v11.apiUrl, _v11.jwt, _v3, _v0.videoFileId?.toString() ?? "").then(_v0 => {
+              _v0 ? (0, _v32.downloadFile)(_v0) : (0, _v32.downloadFile)(`${_v0.link}`), _v7([..._v6.filter(_v0 => _v0 !== _v0.link)]);
             }).catch(_v0 => {
-              (0, _v42.trackError)(_v0, {
+              (0, _v43.trackError)(_v0, {
                 videoID: _v3,
                 audiotrackUri: _v4,
                 hint: "Failed to complete video-tagging job.",
-                trackingTag: _v41.TRACKED_ERRORS.FAILED_VIDEO_TAGGING
-              }), (0, _v31.downloadFile)(`${_v0.link}`), _v7([..._v6.filter(_v0 => _v0 !== _v0.link)]);
+                trackingTag: _v42.TRACKED_ERRORS.FAILED_VIDEO_TAGGING
+              }), (0, _v32.downloadFile)(`${_v0.link}`), _v7([..._v6.filter(_v0 => _v0 !== _v0.link)]);
             }));
-          }, [_v4, _v2, _v6, _v0, _v1, _v12, _v8, _v9, _v10, _v3, _v11?.apiUrl, _v11?.jwt, _v11?.teamUser]),
+          }, [_v4, _v2, _v6, _v0, _v1, _v12, _v8, _v14, _v9, _v10, _v3, _v11?.apiUrl, _v11?.jwt, _v11?.teamUser]),
           loadingButtons: _v6
         };
       }({
@@ -573,61 +610,61 @@
       (0, _v2.useEffect)(() => {
         if (_v9 && !_v4) {
           let _v0 = "Video ID is missing.";
-          (0, _v42.trackError)(Error(_v0), {
+          (0, _v43.trackError)(Error(_v0), {
             versionId: _v5,
             videoID: _v4,
             hint: _v0,
-            trackingTag: _v41.TRACKED_ERRORS.VIDEO_ID_MISSING
+            trackingTag: _v42.TRACKED_ERRORS.VIDEO_ID_MISSING
           });
         }
       }, [_v4, _v5, _v9]), (0, _v2.useEffect)(() => {
         if (_v3) {
           let _v0 = _v6.split("/").pop();
-          (0, _v42.trackError)(_v3, {
+          (0, _v43.trackError)(_v3, {
             videoID: _v4,
             versionId: _v5,
             selectedAudioTrack: _v6,
             trackId: _v0,
             hint: "Failed to fetch DL links for video and audio-track.",
             method: "useGetVideoVersionDownloads",
-            trackingTag: _v41.TRACKED_ERRORS.FETCH_DL_LINKS_FAILED
+            trackingTag: _v42.TRACKED_ERRORS.FETCH_DL_LINKS_FAILED
           });
         }
       }, [_v6, _v3, _v4, _v5]), (0, _v2.useEffect)(() => {
-        _v2 && (0, _v42.trackError)(_v2, {
+        _v2 && (0, _v43.trackError)(_v2, {
           videoID: _v4,
           hint: "Failed to fetch main DL links for video.",
           method: "useGetVideo",
-          trackingTag: _v41.TRACKED_ERRORS.FETCH_CLIP_FAILED
+          trackingTag: _v42.TRACKED_ERRORS.FETCH_CLIP_FAILED
         });
       }, [_v2, _v4]), (0, _v2.useEffect)(() => {
-        _v9 && _v1 && (0, _v42.trackError)(_v1, {
+        _v9 && _v1 && (0, _v43.trackError)(_v1, {
           versionId: _v5,
           videoID: _v4,
           hint: "Failed to fetch clip's metadata.",
           method: "useGetVideoMetadata",
-          trackingTag: _v41.TRACKED_ERRORS.FETCH_CLIP_METADATA_FAILED
+          trackingTag: _v42.TRACKED_ERRORS.FETCH_CLIP_METADATA_FAILED
         });
       }, [_v9, _v1, _v5, _v4]), (0, _v2.useEffect)(() => {
         if (_v9 && _v0) {
           let _v0 = "Version ID is missing.";
-          (0, _v42.trackError)(Error(_v0), {
+          (0, _v43.trackError)(Error(_v0), {
             versionIsMissing: _v0,
             videoID: _v4,
             hint: _v0,
-            trackingTag: _v41.TRACKED_ERRORS.VIDEO_VERSION_ID_MISSING
+            trackingTag: _v42.TRACKED_ERRORS.VIDEO_VERSION_ID_MISSING
           });
         }
       }, [_v9, _v0, _v4]), (0, _v2.useEffect)(() => {
         if (_v9 && (_v8 || _v7)) {
           let _v0 = _v8 ? "No download links to show." : "Used fallback links.";
-          (0, _v42.trackError)(Error(_v0), {
+          (0, _v43.trackError)(Error(_v0), {
             videoID: _v4,
             versionId: _v5,
             isNoLinksToShow: _v8,
             isFallbackLinksUsed: _v7,
             selectedAudioTrack: _v6,
-            trackingTag: _v8 ? _v41.TRACKED_ERRORS.UI_NO_LINKS_TO_SHOW : _v41.TRACKED_ERRORS.UI_USED_FALLBACK_LINKS
+            trackingTag: _v8 ? _v42.TRACKED_ERRORS.UI_NO_LINKS_TO_SHOW : _v42.TRACKED_ERRORS.UI_USED_FALLBACK_LINKS
           });
         }
       }, [_v9, _v8, _v5, _v4, _v6, _v7]);
@@ -655,16 +692,16 @@
         _v40(), _v46();
       }, [_v46, _v40]),
       _v59 = (0, _v2.useCallback)(() => {
-        _v16 && _v36 ? _v57() : (_v58(), _v17(!0)), _v44.trackingHandle.downloadLinks.userRetriesGetLinks({
+        _v16 && _v36 ? _v57() : (_v58(), _v17(!0)), _v45.trackingHandle.downloadLinks.userRetriesGetLinks({
           audiotrackUri: _v36
         });
       }, [_v36, _v57, _v58, _v16]),
       _v60 = (0, _v2.useCallback)(_v0 => {
-        _v44.trackingHandle.audioTrackSelector.userSelectedAudioTrack(_v0), _v12(_v0);
+        _v45.trackingHandle.audioTrackSelector.userSelectedAudioTrack(_v0), _v12(_v0);
       }, []),
       _v61 = _v21 && _v56 && _v45;
     return (0, _v2.useEffect)(() => {
-      _v61 && _v44.trackingHandle.downloadLinks.onLinksRetryRendered();
+      _v61 && _v45.trackingHandle.downloadLinks.onLinksRetryRendered();
     }, [_v61]), (0, _v1.jsxs)(_v1.Fragment, {
       children: [(_v23 || _v8) && (0, _v1.jsx)(_v14.DrmAlert, {}), (0, _v1.jsxs)(_v6.Flex, {
         gap: "1.75rem",
