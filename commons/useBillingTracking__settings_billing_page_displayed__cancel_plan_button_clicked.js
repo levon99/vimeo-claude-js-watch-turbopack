@@ -22,7 +22,8 @@
       _v3 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("cancel_subscription_popup_displayed", {
           tier: _v0?.tier ?? null,
-          periodicity: _v0?.periodicity ?? null
+          periodicity: _v0?.periodicity ?? null,
+          flow_variant: _v0?.flowVariant ?? null
         });
       }, [_v0]),
       _v4 = (0, _v1.useCallback)(_v0 => {
@@ -148,23 +149,58 @@
           new_periodicity: _v0.newPeriodicity
         });
       }, [_v0]),
-      _v29 = (0, _v1.useCallback)(() => {
-        null !== _v0 && _v0.track("cancel_subscription_dowgrade_modal_displayed", {});
+      _v29 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("cancel_subscription_dowgrade_modal_displayed", {
+          tier: _v0?.tier ?? null,
+          periodicity: _v0?.periodicity ?? null,
+          offer_kind: _v0?.offerKind ?? null,
+          target_tier: _v0?.targetTier ?? null,
+          discount_percent: _v0?.discountPercent ?? null
+        });
       }, [_v0]),
       _v30 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("cancel_subscription_dowgrade_clicked", {
           new_plan: _v0.newPlan,
-          new_periodicity: _v0.newPeriodicity
+          new_periodicity: _v0.newPeriodicity,
+          offer_kind: _v0.offerKind ?? null,
+          discount_percent: _v0.discountPercent ?? null
         });
       }, [_v0]),
-      _v31 = (0, _v1.useCallback)(() => {
-        null !== _v0 && _v0.track("cancel_subscription_dowgrade_skipped", {});
+      _v31 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("cancel_subscription_dowgrade_skipped", {
+          tier: _v0?.tier ?? null,
+          periodicity: _v0?.periodicity ?? null,
+          offer_kind: _v0?.offerKind ?? null,
+          target_tier: _v0?.targetTier ?? null
+        });
       }, [_v0]),
-      _v32 = (0, _v1.useCallback)(() => {
+      _v32 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("cancellation_confirmed", {
+          tier: _v0?.tier ?? null,
+          periodicity: _v0?.periodicity ?? null,
+          flow_variant: _v0?.flowVariant ?? null,
+          had_downgrade_offer: _v0?.hadDowngradeOffer ?? !1
+        });
+      }, [_v0]),
+      _v33 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("cancellation_keep_plan_clicked", {
+          tier: _v0?.tier ?? null,
+          periodicity: _v0?.periodicity ?? null,
+          step: _v0?.step ?? null
+        });
+      }, [_v0]),
+      _v34 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("cancellation_back_clicked", {
+          tier: _v0?.tier ?? null,
+          periodicity: _v0?.periodicity ?? null,
+          from_step: _v0?.fromStep ?? null
+        });
+      }, [_v0]),
+      _v35 = (0, _v1.useCallback)(() => {
         null !== _v0 && _v0.track("account_menu_billing_clicked", {});
       }, [_v0]);
     return {
-      trackAccountMenuBillingClicked: _v32,
+      trackAccountMenuBillingClicked: _v35,
       trackBillingPageDisplayed: _v1,
       trackCancelPlanButtonClicked: _v2,
       trackCancelSubscriptionPopupDisplayed: _v3,
@@ -196,6 +232,9 @@
       trackCancelSubscriptionDowngradeModalDisplayed: _v29,
       trackCancelSubscriptionDowngradeClicked: _v30,
       trackCancelSubscriptionDowngradeSkipped: _v31,
+      trackCancellationConfirmed: _v32,
+      trackCancellationKeepPlanClicked: _v33,
+      trackCancellationBackClicked: _v34,
       trackUpdatePaymentMethodPageDisplayed: (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("update_payment_method_page_displayed", {
           payment_form_type: _v0.paymentFormType

@@ -12057,48 +12057,47 @@
     updatePublicVideosCount: _v12,
     setSectionHasNext: _v13
   }) {
-    let _v14 = (0, _v25.useContext)(_v35.ViewerContext),
-      {
-        editMode: _v15
+    let {
+        editMode: _v14
       } = (0, _v25.useContext)(_v46.default),
-      [_v16, _v17] = (0, _v25.useState)([]),
-      [_v18, _v19] = (0, _v25.useState)(null),
-      [_v20, _v21] = (0, _v25.useState)(!1),
-      [_v22, _v23] = (0, _v25.useState)(!1),
-      [_v24, _v25] = (0, _v25.useState)(!1),
+      [_v15, _v16] = (0, _v25.useState)([]),
+      [_v17, _v18] = (0, _v25.useState)(null),
+      [_v19, _v20] = (0, _v25.useState)(!1),
+      [_v21, _v22] = (0, _v25.useState)(!1),
+      [_v23, _v24] = (0, _v25.useState)(!1),
       {
-        addVideosToSection: _v26,
-        createSection: _v27,
-        data: _v28,
-        error: _v29,
-        isValidating: _v30,
-        moveSection: _v31,
-        onDrop: _v32,
-        removeSection: _v33,
-        removeVideoFromSection: _v34,
-        setSize: _v35,
-        toggleVideoData: _v36,
-        updateSectionTitle: _v37,
-        videoLoading: _v38
+        addVideosToSection: _v25,
+        createSection: _v26,
+        data: _v27,
+        error: _v28,
+        isValidating: _v29,
+        moveSection: _v30,
+        onDrop: _v31,
+        removeSection: _v32,
+        removeVideoFromSection: _v33,
+        setSize: _v34,
+        toggleVideoData: _v35,
+        updateSectionTitle: _v36,
+        videoLoading: _v37
       } = _v517(_v0.uri, _v0.videos.data, _v0.videos.total),
-      _v39 = (0, _v25.useMemo)(() => _v28 ? (0, _v53.convertToArray)(_v28) : [], [_v28]),
-      _v40 = (0, _v25.useMemo)(() => _v4 ? [] : function (_v0) {
+      _v38 = (0, _v25.useMemo)(() => _v27 ? (0, _v53.convertToArray)(_v27) : [], [_v27]),
+      _v39 = (0, _v25.useMemo)(() => _v4 ? [] : function (_v0) {
         let _v1 = [],
           _v2 = 0;
         for (let _v0 = 1; _v0 < _v0.length; _v0++) _v670(_v0[_v0 - 1], _v0[_v0], _v0, _v2) && (_v1.push(_v0), _v2 = _v0);
         return _v1;
-      }(_v39), [_v4, _v39]),
-      _v41 = (0, _v25.useMemo)(() => _v39.length > 0 && (0, _v53.hasNext)(_v28), [_v28, _v39]),
-      _v42 = (0, _v25.useMemo)(() => _v28 ? !_v28[0] && _v30 && !_v29 : !_v29, [_v28, _v29, _v30]),
-      _v43 = (0, _v25.useMemo)(() => _v15 && !_v30 && !_v38, [_v15, _v30, _v38]),
-      _v44 = (0, _v25.useMemo)(() => 1 === _v39.length && null != _v0.title, [_v39, _v0]),
-      _v45 = (0, _v25.useCallback)((_v0, _v1) => {
+      }(_v38), [_v4, _v38]),
+      _v40 = (0, _v25.useMemo)(() => _v38.length > 0 && (0, _v53.hasNext)(_v27), [_v27, _v38]),
+      _v41 = (0, _v25.useMemo)(() => _v27 ? !_v27[0] && _v29 && !_v28 : !_v28, [_v27, _v28, _v29]),
+      _v42 = (0, _v25.useMemo)(() => _v14 && !_v29 && !_v37, [_v14, _v29, _v37]),
+      _v43 = (0, _v25.useMemo)(() => 1 === _v38.length && null != _v0.title, [_v38, _v0]),
+      _v44 = (0, _v25.useCallback)((_v0, _v1) => {
         let _v2 = _v1.map(_v0 => _v0.uri);
-        return _v26(_v0.uri, _v0, _v2, _v12).then(_v0 => {
-          _v17(_v0);
+        return _v25(_v0.uri, _v0, _v2, _v12).then(_v0 => {
+          _v16(_v0);
         });
-      }, [_v26, _v0.uri, _v12]),
-      _v46 = (0, _v316.default)(_v0 => {
+      }, [_v25, _v0.uri, _v12]),
+      _v45 = (0, _v316.default)(_v0 => {
         (0, _v321.default)(_v8, {
           sectionIndex: _v1,
           videoIndex: _v0
@@ -12107,69 +12106,69 @@
           videoIndex: _v0
         });
       }, 300),
-      _v47 = (0, _v25.useCallback)(() => {
-        _v21(!0), _v35(_v28 ? _v28.length + 1 : 1).catch(() => void 0);
-      }, [_v35, _v28]);
+      _v46 = (0, _v25.useCallback)(() => {
+        _v20(!0), _v34(_v27 ? _v27.length + 1 : 1).catch(() => void 0);
+      }, [_v34, _v27]);
     return (0, _v25.useEffect)(() => {
       let _v0 = null;
-      return _v16 && _v16.length && (_v0 = setTimeout(() => {
-        _v17([]);
+      return _v15 && _v15.length && (_v0 = setTimeout(() => {
+        _v16([]);
       }, 0)), () => {
         _v0 && clearTimeout(_v0);
       };
-    }, [_v16]), (0, _v25.useEffect)(() => {
-      _v13(_v0.uri, !!_v41);
-    }, [_v41, _v0.uri, _v13]), (0, _v25.useEffect)(() => {
-      _v30 || _v21(!1);
-    }, [_v30]), (0, _v25.useEffect)(() => () => _v13(_v0.uri, !1), [_v0.uri, _v13]), (0, _v14.jsxs)(_v693, {
+    }, [_v15]), (0, _v25.useEffect)(() => {
+      _v13(_v0.uri, !!_v40);
+    }, [_v40, _v0.uri, _v13]), (0, _v25.useEffect)(() => {
+      _v29 || _v20(!1);
+    }, [_v29]), (0, _v25.useEffect)(() => () => _v13(_v0.uri, !1), [_v0.uri, _v13]), (0, _v14.jsxs)(_v693, {
       isFirstSection: 0 === _v1,
-      children: [null == _v0.title && _v15 ? (0, _v14.jsx)(_v685, {
+      children: [null == _v0.title && _v14 ? (0, _v14.jsx)(_v685, {
         shouldAutoAddVideos: _v9,
         toggleAutoAddVideos: _v10,
-        addSectionVideo: _v0 => _v45(0, _v0),
+        addSectionVideo: _v0 => _v44(0, _v0),
         isTitleLess: 0 === _v1 && null == _v0.title,
-        createSection: _v0 => _v37(_v0.uri, _v0),
+        createSection: _v0 => _v36(_v0.uri, _v0),
         showAutoAddVideosNotification: _v11,
-        disableButtons: _v38 || _v30
+        disableButtons: _v37 || _v29
       }) : null, null != _v0.title ? (0, _v14.jsx)(_v674, {
         title: _v0.title || "",
         disableDownwardMovement: _v2 || !1,
         disableUpwardMovement: _v3 || !1,
-        onSubmit: _v0 => _v37(_v0.uri, _v0),
-        moveSection: _v0 => _v31(_v1, _v0),
-        removeSection: () => _v33(_v1)
+        onSubmit: _v0 => _v36(_v0.uri, _v0),
+        moveSection: _v0 => _v30(_v1, _v0),
+        removeSection: () => _v32(_v1)
       }) : null, (0, _v14.jsxs)(_v694, {
         isFirstAndTitleLess: 0 === _v1 && null == _v0.title,
-        editMode: _v15,
-        children: [_v39.map((_v0, _v1) => {
-          let _v2 = -1 !== _v40.indexOf(_v1),
+        editMode: _v14,
+        children: [_v38.map((_v0, _v1) => {
+          let _v2 = -1 !== _v39.indexOf(_v1),
             _v3 = null != _v0 && (_v0.showFeaturedComment && null != _v0.featuredComment || "2" === _v0.columnWidth),
-            _v4 = _v4 ? null != _v0.title && 0 === _v1 : null != _v0.title && _v1 < _v40[0];
+            _v4 = _v4 ? null != _v0.title && 0 === _v1 : null != _v0.title && _v1 < _v39[0];
           return (0, _v14.jsxs)(_v14.Fragment, {
-            children: [_v15 && (_v2 || _v44) ? (0, _v14.jsx)(_v697, {
-              isSingleVideoSection: _v44,
+            children: [_v14 && (_v2 || _v43) ? (0, _v14.jsx)(_v697, {
+              isSingleVideoSection: _v43,
               children: (0, _v14.jsx)(_v685, {
-                addSectionVideo: _v0 => _v45(_v1, _v0),
-                createSection: _v0 => _v27(_v0.uri, _v0.clip.uri, _v0),
+                addSectionVideo: _v0 => _v44(_v1, _v0),
+                createSection: _v0 => _v26(_v0.uri, _v0.clip.uri, _v0),
                 shouldAutoAddVideos: _v9,
                 toggleAutoAddVideos: _v10,
                 showAutoAddVideosNotification: _v11,
-                disableButtons: _v38 || _v30,
-                setCreatingSection: _v0 => _v25(_v0),
-                hideCreateSection: null != _v0.title && _v44
+                disableButtons: _v37 || _v29,
+                setCreatingSection: _v0 => _v24(_v0),
+                hideCreateSection: null != _v0.title && _v43
               }, `divider_${_v1}_${_v1}`)
             }) : null, (0, _v14.jsx)(_v696, {
-              top: _v24 && _v44 ? 75 : 0,
+              top: _v23 && _v43 ? 75 : 0,
               isFirst: _v2 || 0 === _v1,
               isExpanded: _v3,
               hideTopPadding: _v4,
               isDraggedOver: _v8?.videoIndex === _v1,
-              editMode: _v15,
-              draggable: _v43,
+              editMode: _v14,
+              draggable: _v42,
               dragStarted: null != _v8,
-              isBeingDragged: _v18 === _v1,
+              isBeingDragged: _v17 === _v1,
               onDragStart: _v0 => {
-                _v43 && (_v19(_v1), _v5(_v0, {
+                _v42 && (_v18(_v1), _v5(_v0, {
                   video: _v0,
                   videoIndex: _v1,
                   sectionIndex: _v1,
@@ -12177,13 +12176,13 @@
                 }));
               },
               onDragOver: _v0 => {
-                _v43 && (_v0.preventDefault(), (null != _v8 || _v18 !== _v1) && _v46(_v1));
+                _v42 && (_v0.preventDefault(), (null != _v8 || _v17 !== _v1) && _v45(_v1));
               },
               onDrop: _v0 => {
-                if (_v43) {
+                if (_v42) {
                   _v0.preventDefault();
                   let _v0 = JSON.parse(_v0.dataTransfer.getData("Text"));
-                  _v0.sectionIndex === _v1 && (_v7(null), _v6(), _v19(null)), _v32(_v0, {
+                  _v0.sectionIndex === _v1 && (_v7(null), _v6(), _v18(null)), _v31(_v0, {
                     video: _v0,
                     videoIndex: _v1,
                     sectionIndex: _v1,
@@ -12192,26 +12191,25 @@
                 }
               },
               onDragEnd: _v0 => {
-                _v0.preventDefault(), _v19(null), _v6(), _v15 && _v8 && _v7(null);
+                _v0.preventDefault(), _v18(null), _v6(), _v14 && _v8 && _v7(null);
               },
               children: (0, _v14.jsx)(_v385, {
                 video: _v0,
                 viewType: _v52.ViewType.GRID,
                 videoIndex: _v1,
-                removeVideo: () => _v34(_v0.uri, _v0.clip.uri, _v12),
-                setExpanded: _v0 => _v36(_v0, void 0, _v0 ? "2" : "1"),
+                removeVideo: () => _v33(_v0.uri, _v0.clip.uri, _v12),
+                setExpanded: _v0 => _v35(_v0, void 0, _v0 ? "2" : "1"),
                 hasComments: !!_v0.clip.metadata.connections.comments.total,
-                newlyAdded: -1 !== _v16.indexOf(_v0.clip.uri),
-                addOrUpdateFeaturedComment: _v0 => _v36(_v0, _v0),
-                loading: _v38 || _v30,
-                isOFCOM: _v14?.ofcomQualifies && !_v14.user
+                newlyAdded: -1 !== _v15.indexOf(_v0.clip.uri),
+                addOrUpdateFeaturedComment: _v0 => _v35(_v0, _v0),
+                loading: _v37 || _v29
               })
             }, _v0.clip.uri)]
           });
-        }), (_v20 || _v42 || _v30) && !_v22 ? (0, _v14.jsx)(_v417, {
-          count: _v42 ? 6 : 2
-        }) : null, !_v41 || _v20 || _v30 ? null : (0, _v14.jsx)(_v318, {
-          onClick: _v47
+        }), (_v19 || _v41 || _v29) && !_v21 ? (0, _v14.jsx)(_v417, {
+          count: _v41 ? 6 : 2
+        }) : null, !_v40 || _v19 || _v29 ? null : (0, _v14.jsx)(_v318, {
+          onClick: _v46
         })]
       })]
     });
@@ -12379,39 +12377,38 @@
   }) {
     var _v13;
     let _v14,
-      _v15 = (0, _v25.useContext)(_v35.ViewerContext),
       {
-        editMode: _v16,
-        userId: _v17
+        editMode: _v15,
+        userId: _v16
       } = (0, _v25.useContext)(_v46.default),
-      [_v18, _v19] = (0, _v25.useState)(null),
-      [_v20, _v21] = (0, _v25.useState)([]),
-      [_v22, _v23] = (0, _v25.useState)(null),
-      [_v24, _v25] = (0, _v25.useState)(!1),
-      [_v26, _v27] = (0, _v25.useState)(!1),
-      [_v28, _v29] = (0, _v25.useState)(!1),
+      [_v17, _v18] = (0, _v25.useState)(null),
+      [_v19, _v20] = (0, _v25.useState)([]),
+      [_v21, _v22] = (0, _v25.useState)(null),
+      [_v23, _v24] = (0, _v25.useState)(!1),
+      [_v25, _v26] = (0, _v25.useState)(!1),
+      [_v27, _v28] = (0, _v25.useState)(!1),
       {
-        addVideosToSection: _v30,
-        createSection: _v31,
-        data: _v32,
-        error: _v33,
-        isValidating: _v34,
-        moveSection: _v35,
-        onDrop: _v36,
-        removeSection: _v37,
-        removeVideoFromSection: _v38,
-        setSize: _v39,
-        toggleVideoData: _v40,
-        updateSectionTitle: _v41,
-        videoLoading: _v42
+        addVideosToSection: _v29,
+        createSection: _v30,
+        data: _v31,
+        error: _v32,
+        isValidating: _v33,
+        moveSection: _v34,
+        onDrop: _v35,
+        removeSection: _v36,
+        removeVideoFromSection: _v37,
+        setSize: _v38,
+        toggleVideoData: _v39,
+        updateSectionTitle: _v40,
+        videoLoading: _v41
       } = _v517(_v0.uri, _v0.videos.data, _v0.videos.total),
       {
-        width: _v43
+        width: _v42
       } = (0, _v63.useWindowSize)(),
-      _v44 = (0, _v25.useMemo)(() => _v700(_v43), [_v43]),
-      [_v45, _v46] = (0, _v699.useClientRect)(["width"], [_v43]),
-      _v47 = (0, _v25.useMemo)(() => _v32 ? (0, _v53.convertToArray)(_v32) : [], [_v32]),
-      _v48 = (_v13 = _v45?.width || 0, _v14 = _v700(_v43), _v47.map(_v0 => {
+      _v43 = (0, _v25.useMemo)(() => _v700(_v42), [_v42]),
+      [_v44, _v45] = (0, _v699.useClientRect)(["width"], [_v42]),
+      _v46 = (0, _v25.useMemo)(() => _v31 ? (0, _v53.convertToArray)(_v31) : [], [_v31]),
+      _v47 = (_v13 = _v44?.width || 0, _v14 = _v700(_v42), _v46.map(_v0 => {
         let {
           videoWidth: _v1,
           updatedHeight: _v2
@@ -12428,8 +12425,8 @@
             videoWidth: _v4,
             updatedHeight: _v7
           };
-        })(_v0, _v43, _v13);
-        if (_v2 += 32, _v2 += _v14, (0, _v53.getIdFromUri)(_v0.clip.user.uri) !== _v17 && (_v2 += 24), _v0.showFeaturedComment && _v0.featuredComment) {
+        })(_v0, _v42, _v13);
+        if (_v2 += 32, _v2 += _v14, (0, _v53.getIdFromUri)(_v0.clip.user.uri) !== _v16 && (_v2 += 24), _v0.showFeaturedComment && _v0.featuredComment) {
           let _v0;
           _v2 += ((_v0, _v1, _v2) => {
             let _v3 = 0,
@@ -12447,7 +12444,7 @@
               }
             }
             return 0;
-          })(_v0, _v43, _v1), _v2 += (_v0 = _v52.COMMENT_USER_DETAIL_GAP.DEFAULT, _v43 >= _v64.BreakPoints.sm && (_v0 = _v52.COMMENT_USER_DETAIL_GAP.SM), _v43 >= _v64.BreakPoints.md && (_v0 = _v52.COMMENT_USER_DETAIL_GAP.MD), _v43 >= _v64.BreakPoints.hd && (_v0 = _v52.COMMENT_USER_DETAIL_GAP.HD), 20 + _v0), _v16 && (_v2 += 17);
+          })(_v0, _v42, _v1), _v2 += (_v0 = _v52.COMMENT_USER_DETAIL_GAP.DEFAULT, _v42 >= _v64.BreakPoints.sm && (_v0 = _v52.COMMENT_USER_DETAIL_GAP.SM), _v42 >= _v64.BreakPoints.md && (_v0 = _v52.COMMENT_USER_DETAIL_GAP.MD), _v42 >= _v64.BreakPoints.hd && (_v0 = _v52.COMMENT_USER_DETAIL_GAP.HD), 20 + _v0), _v15 && (_v2 += 17);
         }
         return {
           videoWidth: _v1,
@@ -12455,8 +12452,8 @@
         };
       })),
       {
-        height: _v49,
-        bounds: _v50
+        height: _v48,
+        bounds: _v49
       } = ((_v0, _v1, _v2) => {
         let _v3 = _v700(_v2),
           _v4 = [];
@@ -12501,21 +12498,21 @@
             bounds: _v4
           };
         }
-      })(_v47, _v48, _v43),
-      _v51 = (0, _v25.useMemo)(() => _v47.length > 0 && (0, _v53.hasNext)(_v32), [_v32, _v47]),
-      _v52 = (0, _v25.useMemo)(() => _v16 && !_v34 && !_v42, [_v16, _v34, _v42]),
-      _v53 = (0, _v25.useMemo)(() => !_v0.title && "" !== _v0.title, [_v0.title]),
-      _v54 = (0, _v25.useMemo)(() => _v32 ? !_v32[0] && _v34 && !_v33 : !_v33, [_v32, _v33, _v34]),
-      _v55 = (0, _v25.useCallback)((_v0, _v1) => {
+      })(_v46, _v47, _v42),
+      _v50 = (0, _v25.useMemo)(() => _v46.length > 0 && (0, _v53.hasNext)(_v31), [_v31, _v46]),
+      _v51 = (0, _v25.useMemo)(() => _v15 && !_v33 && !_v41, [_v15, _v33, _v41]),
+      _v52 = (0, _v25.useMemo)(() => !_v0.title && "" !== _v0.title, [_v0.title]),
+      _v53 = (0, _v25.useMemo)(() => _v31 ? !_v31[0] && _v33 && !_v32 : !_v32, [_v31, _v32, _v33]),
+      _v54 = (0, _v25.useCallback)((_v0, _v1) => {
         let _v2 = _v1.map(_v0 => _v0.uri);
-        return _v30(_v0.uri, _v0, _v2, _v8).then(_v0 => {
-          _v21(_v0);
+        return _v29(_v0.uri, _v0, _v2, _v8).then(_v0 => {
+          _v20(_v0);
         });
-      }, [_v30, _v0.uri, _v8]),
-      _v56 = (0, _v25.useCallback)(() => {
-        _v25(!0), _v39?.(_v32 ? _v32.length + 1 : 0).catch(() => void 0);
-      }, [_v39, _v32]),
-      _v57 = (0, _v316.default)(_v0 => {
+      }, [_v29, _v0.uri, _v8]),
+      _v55 = (0, _v25.useCallback)(() => {
+        _v24(!0), _v38?.(_v31 ? _v31.length + 1 : 0).catch(() => void 0);
+      }, [_v38, _v31]),
+      _v56 = (0, _v316.default)(_v0 => {
         (0, _v321.default)(_v5, {
           sectionIndex: _v1,
           videoIndex: _v0
@@ -12524,56 +12521,56 @@
           videoIndex: _v0
         });
       }, 300),
-      _v58 = (0, _v25.useCallback)((_v0, _v1) => (0 === _v0 && _v53 ? _v41(_v0.uri, _v1) : _v31(_v0.uri, _v47[_v0].clip.uri, _v1)).then(() => _v19(null)), [_v31, _v53, _v0.uri, _v47, _v41]);
+      _v57 = (0, _v25.useCallback)((_v0, _v1) => (0 === _v0 && _v52 ? _v40(_v0.uri, _v1) : _v30(_v0.uri, _v46[_v0].clip.uri, _v1)).then(() => _v18(null)), [_v30, _v52, _v0.uri, _v46, _v40]);
     return (0, _v25.useEffect)(() => {
       let _v0 = null;
-      return _v20 && _v20.length && (_v0 = setTimeout(() => {
-        _v21([]);
+      return _v19 && _v19.length && (_v0 = setTimeout(() => {
+        _v20([]);
       }, 0)), () => {
         _v0 && clearTimeout(_v0);
       };
-    }, [_v20]), (0, _v25.useEffect)(() => {
-      _v12(_v0.uri, !!_v51);
-    }, [_v51, _v0.uri, _v12]), (0, _v25.useEffect)(() => () => _v12(_v0.uri, !1), [_v0.uri, _v12]), (0, _v25.useEffect)(() => {
-      !_v28 && _v47.length > 0 && setTimeout(() => _v29(!0), 100);
-    }, [_v28, _v46, _v47]), (0, _v25.useEffect)(() => {
-      _v34 || _v25(!1);
-    }, [_v34]), (0, _v14.jsxs)(_v702, {
-      hasNext: !!_v51,
-      isSectionTitleLess: _v53,
-      children: [_v53 ? null : (0, _v14.jsx)(_v674, {
+    }, [_v19]), (0, _v25.useEffect)(() => {
+      _v12(_v0.uri, !!_v50);
+    }, [_v50, _v0.uri, _v12]), (0, _v25.useEffect)(() => () => _v12(_v0.uri, !1), [_v0.uri, _v12]), (0, _v25.useEffect)(() => {
+      !_v27 && _v46.length > 0 && setTimeout(() => _v28(!0), 100);
+    }, [_v27, _v45, _v46]), (0, _v25.useEffect)(() => {
+      _v33 || _v24(!1);
+    }, [_v33]), (0, _v14.jsxs)(_v702, {
+      hasNext: !!_v50,
+      isSectionTitleLess: _v52,
+      children: [_v52 ? null : (0, _v14.jsx)(_v674, {
         title: _v0.title || "",
         disableDownwardMovement: _v2 || !1,
         disableUpwardMovement: _v3 || !1,
-        onSubmit: _v0 => _v41(_v0.uri, _v0),
-        moveSection: _v0 => _v35(_v1, _v0),
-        removeSection: () => _v37(_v1)
+        onSubmit: _v0 => _v40(_v0.uri, _v0),
+        moveSection: _v0 => _v34(_v1, _v0),
+        removeSection: () => _v36(_v1)
       }), (0, _v14.jsx)(_v703, {
-        ref: _v46,
-        clipsRendered: _v28,
-        height: _v49 + 90 * (null != _v18),
-        children: _v47.map((_v0, _v1) => {
-          let _v2 = _v50[_v1],
+        ref: _v45,
+        clipsRendered: _v27,
+        height: _v48 + 90 * (null != _v17),
+        children: _v46.map((_v0, _v1) => {
+          let _v2 = _v49[_v1],
             {
               videoWidth: _v3,
               updatedHeight: _v4
-            } = _v48[_v1],
-            _v5 = null != _v18 && _v18 <= _v1 ? 0 === _v18 ? 90 - _v44 : 90 : 0,
+            } = _v47[_v1],
+            _v5 = null != _v17 && _v17 <= _v1 ? 0 === _v17 ? 90 - _v43 : 90 : 0,
             _v6 = 0 === _v1,
-            _v7 = !!_v16 && (_v6 ? _v53 || 1 === _v47.length : null != _v2.showDivider);
+            _v7 = !!_v15 && (_v6 ? _v52 || 1 === _v46.length : null != _v2.showDivider);
           return (0, _v14.jsxs)(_v14.Fragment, {
             children: [_v7 ? (0, _v14.jsx)(_v705, {
-              top: (_v2.showDivider?.top || 0) + 90 * (null != _v18 && _v18 < _v1),
+              top: (_v2.showDivider?.top || 0) + 90 * (null != _v17 && _v17 < _v1),
               children: (0, _v14.jsx)(_v685, {
                 shouldAutoAddVideos: _v9,
                 toggleAutoAddVideos: _v10,
-                addSectionVideo: _v0 => _v55(0, _v0),
+                addSectionVideo: _v0 => _v54(0, _v0),
                 isTitleLess: 0 === _v1 && null == _v0.title,
-                createSection: _v0 => _v58(_v1, _v0),
+                createSection: _v0 => _v57(_v1, _v0),
                 showAutoAddVideosNotification: _v11,
-                setCreatingSection: _v0 => _v0 ? _v19(_v1) : _v19(null),
-                disableButtons: _v42 || _v34,
-                hideCreateSection: !_v53 && 1 === _v47.length,
+                setCreatingSection: _v0 => _v0 ? _v18(_v1) : _v18(null),
+                disableButtons: _v41 || _v33,
+                hideCreateSection: !_v52 && 1 === _v46.length,
                 isMasonry: !0
               })
             }) : null, (0, _v14.jsx)(_v704, {
@@ -12581,13 +12578,13 @@
               videoWidth: _v3,
               top: _v2.top + _v5,
               videoHeight: _v4,
-              draggable: _v52,
+              draggable: _v51,
               dragStarted: null != _v5,
               isDraggedOver: _v5?.videoIndex === _v1,
-              isBeingDragged: _v22 === _v1,
-              clipsRendered: _v28,
+              isBeingDragged: _v21 === _v1,
+              clipsRendered: _v27,
               onDragStart: _v0 => {
-                _v52 && (_v23(_v1), _v4(_v0, {
+                _v51 && (_v22(_v1), _v4(_v0, {
                   video: _v0,
                   videoIndex: _v1,
                   sectionIndex: _v1,
@@ -12595,13 +12592,13 @@
                 }));
               },
               onDragOver: _v0 => {
-                _v52 && (_v0.preventDefault(), (null != _v5 || _v22 !== _v1) && _v57(_v1));
+                _v51 && (_v0.preventDefault(), (null != _v5 || _v21 !== _v1) && _v56(_v1));
               },
               onDrop: _v0 => {
-                if (_v52) {
+                if (_v51) {
                   _v0.preventDefault();
                   let _v0 = JSON.parse(_v0.dataTransfer.getData("Text"));
-                  _v0.sectionIndex === _v1 && (_v7(null), _v6(), _v23(null)), _v36(_v0, {
+                  _v0.sectionIndex === _v1 && (_v7(null), _v6(), _v22(null)), _v35(_v0, {
                     video: _v0,
                     videoIndex: _v1,
                     sectionIndex: _v1,
@@ -12610,29 +12607,28 @@
                 }
               },
               onDragEnd: _v0 => {
-                _v0.preventDefault(), _v23(null), _v6(), _v16 && _v5 && _v7(null);
+                _v0.preventDefault(), _v22(null), _v6(), _v15 && _v5 && _v7(null);
               },
               children: (0, _v14.jsx)(_v385, {
                 video: _v0,
                 viewType: _v52.ViewType.MASONRY,
                 videoIndex: _v1,
-                removeVideo: () => _v38(_v0.uri, _v0.clip.uri, _v8),
-                setExpanded: _v0 => _v40(_v0, void 0, _v0 ? "2" : "1"),
+                removeVideo: () => _v37(_v0.uri, _v0.clip.uri, _v8),
+                setExpanded: _v0 => _v39(_v0, void 0, _v0 ? "2" : "1"),
                 hasComments: !!_v0.clip.metadata.connections.comments.total,
-                addOrUpdateFeaturedComment: _v0 => _v40(_v0, _v0),
+                addOrUpdateFeaturedComment: _v0 => _v39(_v0, _v0),
                 className: "masonary-video-card",
-                loading: _v42 || _v34,
-                newlyAdded: -1 !== _v20.indexOf(_v0.clip.uri),
-                isOFCOM: _v15?.ofcomQualifies && !_v15.user
+                loading: _v41 || _v33,
+                newlyAdded: -1 !== _v19.indexOf(_v0.clip.uri)
               })
             })]
           });
         })
-      }), (_v24 || _v54 || _v34) && !_v26 ? (0, _v14.jsx)(_v417, {
-        count: _v54 ? 6 : 2
-      }) : null, !_v51 || _v24 || _v34 ? null : (0, _v14.jsx)(_v706, {
+      }), (_v23 || _v53 || _v33) && !_v25 ? (0, _v14.jsx)(_v417, {
+        count: _v53 ? 6 : 2
+      }) : null, !_v50 || _v23 || _v33 ? null : (0, _v14.jsx)(_v706, {
         children: (0, _v14.jsx)(_v318, {
-          onClick: _v56
+          onClick: _v55
         })
       })]
     });
@@ -23670,7 +23666,7 @@
         where: {
           userId: _v2 ?? _v3
         },
-        select: ["profileDiscovery", "isOwner", "link", "uri", "metadata.connections.viewProfile.disabled", "metadata.connections.viewProfile.modOverride"],
+        select: ["profileDiscovery", "isOwner", "link", "uri", "metadata.connections.viewProfile.disabled", "metadata.connections.viewProfile.modOverride", "metadata.connections.videos.total"],
         baseUrl: _v0.baseUrl,
         headers: _v0.headers
       });
@@ -23709,20 +23705,20 @@
         _v1 = Number.isFinite(_v0) && _v0 > 0,
         _v2 = null;
       if (_v1) try {
-        _v2 = ((await _v22({
+        let _v0 = (await _v22({
           where: {
             userId: _v0
           },
-          select: ["total"],
+          select: ["videos"],
           query: {
-            includeVideos: !1,
             perPage: 100
           },
           baseUrl: _v0.baseUrl,
           headers: _v0.headers
-        })).data ?? []).reduce((_v0, _v1) => _v0 + (_v1.total ?? 0), 0);
+        })).data ?? [];
+        _v0.length > 0 && (_v2 = _v0.reduce((_v0, _v1) => _v0 + (_v1.videos?.total ?? 0), 0));
       } catch {}
-      0 === _v2 && _v0.res.setHeader("X-Robots-Tag", "noindex, follow"), _v1 && (0, _v16.setCacheHeaders)(_v0.req, _v0.res, {
+      (0 === _v2 || null === _v2 && (_v4.metadata?.connections?.videos?.total ?? 0) === 0) && _v0.res.setHeader("X-Robots-Tag", "noindex, follow"), _v1 && (0, _v16.setCacheHeaders)(_v0.req, _v0.res, {
         keys: {
           user: _v0
         }

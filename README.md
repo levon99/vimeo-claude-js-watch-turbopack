@@ -227,6 +227,7 @@
 - https://vimeo.com/user/[userId]/survey/[surveyType]
 - https://vimeo.com/user/[userId]/team-settings
 - https://vimeo.com/video/[clipId]
+- https://vimeo.com/video/[clipId]/report
 - https://vimeo.com/video/[clipId]/[clipHash]
 - https://vimeo.com/videos/[clipId]/versions/[versionId]
 - https://vimeo.com/videos/[clipId]/[clipHash]/versions/[versionId]

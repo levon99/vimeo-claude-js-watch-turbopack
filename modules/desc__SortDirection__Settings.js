@@ -1573,8 +1573,56 @@
         fontWeight: "bold",
         children: _v0
       })
+    },
+    dictionary: {
+      es: {
+        singular: "{B}Esto es solo una vista previa.{/B} Para publicar sus ajustes de SEO, actualice su cuenta."
+      },
+      "de-DE": {
+        singular: "{B}Dies ist nur eine Vorschau.{/B} Um Ihre SEO-Einstellungen zu veröffentlichen, führen Sie ein Upgrade Ihres Kontos durch."
+      },
+      "fr-FR": {
+        singular: "{B}Ceci n'est qu'un aperçu.{/B} Pour publier vos paramètres SEO, mettez votre compte à niveau."
+      },
+      "ja-JP": {
+        singular: "{B}これはプレビューに過ぎません。{/B} SEO設定を公開するには、アカウントをアップグレードしてください。"
+      },
+      "ko-KR": {
+        singular: "{B}이것은 미리보기일 뿐입니다.{/B} SEO 설정을 게시하려면 계정을 업그레이드하세요."
+      },
+      "pt-BR": {
+        singular: "{B}Isto é apenas uma prévia.{/B} Para publicar suas configurações de SEO, atualize sua conta."
+      },
+      "zh-CN": {
+        singular: "{B}这只是预览。{/B} 要发布您的 SEO 设置，请升级您的账户。"
+      }
     }
-  }), (0, _v12.translate)("This is a preview of your customizations. To save them upgrade your account."), (0, _v12.translate)({
+  }), (0, _v12.translate)({
+    singular: "This is a preview of your customizations. To save them upgrade your account.",
+    dictionary: {
+      es: {
+        singular: "Esta es una vista previa de sus personalizaciones. Para guardarlas, actualice su cuenta."
+      },
+      "de-DE": {
+        singular: "Dies ist eine Vorschau Ihrer Anpassungen. Um sie zu speichern, führen Sie ein Upgrade Ihres Kontos durch."
+      },
+      "fr-FR": {
+        singular: "Ceci est un aperçu de vos personnalisations. Pour les enregistrer, mettez votre compte à niveau."
+      },
+      "ja-JP": {
+        singular: "これはカスタマイズのプレビューです。保存するにはアカウントをアップグレードしてください。"
+      },
+      "ko-KR": {
+        singular: "이것은 맞춤 설정 미리보기입니다. 저장하려면 계정을 업그레이드하세요."
+      },
+      "pt-BR": {
+        singular: "Esta é uma prévia das suas personalizações. Para salvá-las, atualize sua conta."
+      },
+      "zh-CN": {
+        singular: "这是对您自定义设置的预览。要保存它们请升级您的账户。"
+      }
+    }
+  }), (0, _v12.translate)({
     singular: "Upgrade to starter to access more customizations",
     dictionary: {
       es: {
@@ -1599,7 +1647,32 @@
         singular: "升级到入门版以访问更多自定义选项。"
       }
     }
-  }), (0, _v12.translate)("Upgrade to standard to access more features"), (0, _v12.translate)({
+  }), (0, _v12.translate)({
+    singular: "Upgrade to standard to access more features",
+    dictionary: {
+      es: {
+        singular: "Actualice a Standard para acceder a más funciones"
+      },
+      "de-DE": {
+        singular: "Wechseln Sie zu Standard, um auf weitere Funktionen zuzugreifen"
+      },
+      "fr-FR": {
+        singular: "Passez à Standard pour accéder à davantage de fonctionnalités"
+      },
+      "ja-JP": {
+        singular: "より多くの機能にアクセスするには、standard にアップグレードしてください"
+      },
+      "ko-KR": {
+        singular: "더 많은 기능에 액세스하려면 standard로 업그레이드하세요"
+      },
+      "pt-BR": {
+        singular: "Atualize para o plano Standard para acessar mais recursos"
+      },
+      "zh-CN": {
+        singular: "升级到标准版以访问更多功能"
+      }
+    }
+  }), (0, _v12.translate)({
     singular: "Unlock more customizations",
     dictionary: {
       es: {
