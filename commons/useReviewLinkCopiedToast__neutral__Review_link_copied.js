@@ -45,6 +45,12 @@
                 }
               })
             }), _v0 && (0, _v1.jsx)(_v4.ToastButton, {
+              bgColor: "text-secondary",
+              color: "text-button-inverted",
+              fontWeight: "medium",
+              _hover: {
+                bgColor: "text-primary"
+              },
               onClick: () => {
                 _v0.closeAll(), _v0();
               },

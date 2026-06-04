@@ -79,7 +79,11 @@
           }), _v7({
             clipId: String(_v1),
             source: _v8(_v0)
-          }), _v10.current(_v11.current, !0, _v2, _v3);
+          }), _v10.current({
+            video: _v11.current,
+            durationSuffix: _v2,
+            onReset: _v3
+          });
         } else _v14.current?.();
         _v17.current = null;
       }
@@ -93,7 +97,9 @@
         (0, _v4.default)(`${_v1}${_v2}share=copy`) ? (_v7({
           clipId: String(_v0),
           source: _v8(_v0)
-        }), _v10.current(_v11.current, !0)) : _v14.current?.(), _v17.current = null;
+        }), _v10.current({
+          video: _v11.current
+        })) : _v14.current?.(), _v17.current = null;
       }
     }, [_v5, _v0, _v7]), (0, _v1.useCallback)((_v0, _v1, _v2) => {
       _v17.current = {

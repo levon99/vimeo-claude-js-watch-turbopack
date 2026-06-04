@@ -315,6 +315,16 @@
   function _v44(_v0) {
     return (0, _v4.useMemo)(() => Object.values(_v0).slice(-_v9.interactionToolsConfig.CHAT.IN_MEMORY_MESSAGES_LIMIT), [_v0]);
   }
+  function _v45(_v0, _v1) {
+    return `vimeo.live.chat-draft:${_v0}:${_v1}`;
+  }
+  function _v46() {
+    try {
+      return window.sessionStorage;
+    } catch {
+      return null;
+    }
+  }
   _v0.s(["useChatHistoryMessages", 0, _v44], 0), _v0.s(["ChatHistory", 0, function ({
     id: _v0 = (0, _v15.createDomName)("chat-history"),
     className: _v1 = (0, _v15.createDomName)("chat-history"),
@@ -542,5 +552,18 @@
       description: _v13.T_CHAT_PLACEHOLDER[_v2].text,
       control: null
     });
+  }], 0), _v0.s(["readDraft", 0, function (_v0, _v1) {
+    let _v2 = _v46();
+    if (!_v2) return "";
+    try {
+      return _v2.getItem(_v45(_v0, _v1)) || "";
+    } catch {
+      return "";
+    }
+  }, "writeDraft", 0, function (_v0, _v1, _v2) {
+    let _v3 = _v46();
+    if (_v3) try {
+      _v2 ? _v3.setItem(_v45(_v0, _v1), _v2) : _v3.removeItem(_v45(_v0, _v1));
+    } catch {}
   }], 0);
 }

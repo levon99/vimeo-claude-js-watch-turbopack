@@ -22,7 +22,8 @@
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
-    _v22 = _v0.i(0);
+    _v22 = _v0.i(0),
+    _v23 = _v0.i(0);
   _v0.s(["TopRightDecoration", 0, ({
     video: _v0,
     shouldUpdateSideNavStars: _v1,
@@ -36,23 +37,30 @@
     onRename: _v9,
     pageName: _v10 = ""
   }) => {
-    let _v11 = (0, _v22.useViewer)(),
+    let _v11 = (0, _v23.useViewer)(),
       {
         capabilities: _v12
       } = (0, _v10.useCapability)(["hasLibrarySidePanel"]),
       {
         getVideoShareLoopTrackingParams: _v13
-      } = (0, _v19.useShareLoopTrackingParams)(),
-      _v14 = (0, _v20.usePageName)(),
+      } = (0, _v20.useShareLoopTrackingParams)(),
+      _v14 = (0, _v21.usePageName)(),
       {
         reviewId: _v15
       } = (0, _v2.useContext)(_v13.ReviewLinkContext),
       _v16 = (0, _v18.useCopyVideoLinkToast)(),
+      _v17 = !!_v0.metadata?.interactions?.edit?.uri,
+      _v18 = (0, _v19.useManageShareAction)({
+        canEdit: _v17,
+        entityUri: _v0.uri,
+        location: "card" === _v2 ? "VL_video_card_hover" : "VL_video_list_hover",
+        panel: "COPY_LINK_PANEL"
+      }),
       {
-        trackVideoLinkCopied: _v17
+        trackVideoLinkCopied: _v19
       } = (0, _v12.useDistributionTracking)();
     if (_v0?.isColdStorage) return (0, _v1.jsx)(_v1.Fragment, {});
-    let _v18 = (0, _v21.useVideoShareClick)({
+    let _v20 = (0, _v22.useVideoShareClick)({
         video: _v0,
         analytics: {
           feature: _v6?.feature || "video_library",
@@ -67,7 +75,7 @@
         parentFolder: _v0.parentProject ?? void 0,
         canShare: _v5
       }),
-      _v19 = _v7 ? (0, _v1.jsx)(_v5.Tooltip, {
+      _v21 = _v7 ? (0, _v1.jsx)(_v5.Tooltip, {
         label: (0, _v11.translate)({
           singular: "Video info",
           dictionary: {
@@ -138,20 +146,24 @@
           }
         })
       }) : null,
-      _v20 = _v7 || _v12?.hasLibrarySidePanel || _v15 ? null : (0, _v1.jsx)(_v16.StarredIconContainer, {
+      _v22 = _v7 || _v12?.hasLibrarySidePanel || _v15 ? null : (0, _v1.jsx)(_v16.StarredIconContainer, {
         type: "video",
         uri: _v0.uri,
         entity: _v0,
         shouldUpdateSideNav: _v1,
         buttonVariant: _v3
       }),
-      _v21 = (0, _v2.useCallback)(_v0 => {
+      _v23 = (0, _v2.useCallback)(_v0 => {
         _v0.preventDefault(), _v0.stopPropagation();
         let _v1 = _v13(_v10, !!_v0?.parentProject?.isPrivateToUser),
           _v2 = "";
         _v2 = _v15 ? `${_v11?.vimeoHttpsUrl}/reviews/${_v15}${_v0.uri}${_v1}` : /http/.test(_v0?.link) ? `${_v0?.link}${_v1}` : `${_v11?.vimeoHttpsUrl}${_v0?.link}${_v1}`;
         let _v3 = (0, _v14.default)(_v2);
-        _v16(_v0, _v3), _v3 && _v17({
+        _v16({
+          video: _v0,
+          isSuccess: _v3,
+          onManage: _v18
+        }), _v3 && _v19({
           clipId: _v0.uri?.split("/").pop() ?? "",
           source: "video_thumbnail"
         }), _v15.BPAnalyticsV2.copyVideoShareLink({
@@ -161,8 +173,8 @@
           folder: _v0.parentProject,
           video: _v0
         });
-      }, [_v13, _v2, _v10, _v0, _v11?.teamUser, _v11?.vimeoHttpsUrl, _v15, _v16, _v17]),
-      _v22 = _v5 && _v18 ? (0, _v1.jsx)(_v5.Tooltip, {
+      }, [_v13, _v2, _v10, _v0, _v11?.teamUser, _v11?.vimeoHttpsUrl, _v15, _v16, _v18, _v19]),
+      _v24 = _v5 && _v20 ? (0, _v1.jsx)(_v5.Tooltip, {
         label: (0, _v11.translate)({
           singular: "Share",
           dictionary: {
@@ -231,7 +243,7 @@
             opacity: 1
           },
           onClick: _v0 => {
-            _v0.currentTarget.blur(), _v18(), _v0.preventDefault(), _v0.stopPropagation();
+            _v0.currentTarget.blur(), _v20(), _v0.preventDefault(), _v0.stopPropagation();
           }
         })
       }) : null;
@@ -241,7 +253,7 @@
       right: "0",
       gap: "50",
       direction: _v4,
-      children: ["column" === _v4 ? _v7 ? _v19 : _v20 : _v22, _v9 && (0, _v1.jsx)(_v5.Tooltip, {
+      children: ["column" === _v4 ? _v7 ? _v21 : _v22 : _v24, _v9 && (0, _v1.jsx)(_v5.Tooltip, {
         label: (0, _v11.translate)({
           singular: "Rename",
           dictionary: {
@@ -381,9 +393,9 @@
           _groupHover: {
             opacity: 1
           },
-          onClick: _v21
+          onClick: _v23
         })
-      }), "column" === _v4 ? _v22 : _v7 ? _v19 : _v20]
+      }), "column" === _v4 ? _v24 : _v7 ? _v21 : _v22]
     });
   }]);
 }

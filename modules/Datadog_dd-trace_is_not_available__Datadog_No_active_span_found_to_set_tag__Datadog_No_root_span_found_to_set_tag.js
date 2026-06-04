@@ -13183,11 +13183,13 @@
               case "eq":
                 if ("bool" === _v2) return "true" === _v1 || "1" === _v1 ? "is_true" : "is_false";
                 if ("int" === _v2) return "equals";
-                if ("select" === _v2 || "multi-select" === _v2) return "is_any_of";
+                if ("select" === _v2) return "is_any_of";
+                if ("multi-select" === _v2) return "contains";
                 return "is";
               case "ne":
                 if ("int" === _v2) return "not_equal";
-                if ("select" === _v2 || "multi-select" === _v2) return "is_none_of";
+                if ("select" === _v2) return "is_none_of";
+                if ("multi-select" === _v2) return "not_contains";
                 return "is_not";
               case "gt":
                 return "date" === _v2 ? "after" : "greater_than";
@@ -13217,7 +13219,7 @@
       date: ["is", "before", "after", "is_empty", "is_not_empty"],
       bool: ["is_true", "is_false"],
       select: ["is_any_of", "is_none_of", "is_empty", "is_not_empty"],
-      "multi-select": ["is_any_of", "is_none_of", "is_empty", "is_not_empty"]
+      "multi-select": ["contains", "not_contains", "is_empty", "is_not_empty"]
     },
     _v433 = {
       contains: () => _v421.CONTAINS,

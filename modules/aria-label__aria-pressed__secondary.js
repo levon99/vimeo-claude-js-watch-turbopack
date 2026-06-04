@@ -52,10 +52,11 @@
     sortTriggerDataId: _v10,
     isLayoutToggleDisabled: _v11 = !1,
     isInitialLoadInProgress: _v12 = !1,
-    layoutSelector: _v13
+    shouldHideLayoutSelector: _v13 = !1,
+    layoutSelector: _v14
   }) => {
-    var _v14;
-    let _v15 = (0, _v5.usePageName)();
+    var _v15;
+    let _v16 = (0, _v5.usePageName)();
     return (0, _v1.jsxs)(_v3.Flex, {
       justifyContent: "space-between",
       gap: ".5rem",
@@ -73,7 +74,7 @@
         gap: ".5rem",
         children: [_v1, !!_v9 && !!_v5 && !!_v6 && !_v12 && (0, _v1.jsx)(_v4.SortSelect, {
           sortOptions: _v9,
-          selectedSort: (_v14 = _v5).type.toLowerCase() + (_v14.direction ? `_${_v14.direction.toLowerCase()}` : ""),
+          selectedSort: (_v15 = _v5).type.toLowerCase() + (_v15.direction ? `_${_v15.direction.toLowerCase()}` : ""),
           onSortOptionClick: _v0 => {
             let _v1 = {
               direction: _v9[_v0].sortDirection,
@@ -86,7 +87,7 @@
               feature: "sort",
               location: "sort_dropdown",
               name: "apply_sort",
-              page: _v15,
+              page: _v16,
               path: window.location.pathname,
               target: null,
               target_path: null,
@@ -95,7 +96,7 @@
             }));
           },
           triggerDataId: _v10
-        }), _v4, !_v12 && (_v13 || (0, _v1.jsx)(_v12, {
+        }), _v4, !_v12 && !_v13 && (_v14 || (0, _v1.jsx)(_v12, {
           layout: _v2,
           isDisabled: _v11,
           onLayoutChange: _v0 => {
@@ -106,7 +107,7 @@
               feature: "layout",
               location: "filter_sort_bar",
               name: "click_view_mode",
-              page: _v15,
+              page: _v16,
               path: window.location.pathname,
               target: _v0,
               target_path: null,

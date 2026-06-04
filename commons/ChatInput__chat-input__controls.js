@@ -20,7 +20,8 @@
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
-    _v20 = _v0.i(0);
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0);
   _v0.s(["ChatInput", 0, function ({
     id: _v0 = (0, _v18.createDomName)("chat-input"),
     className: _v1 = (0, _v18.createDomName)("chat-input"),
@@ -31,32 +32,39 @@
       isEnabled: _v5,
       chatActions: {
         sendMessage: _v6
+      },
+      config: {
+        roomId: _v7
       }
     } = (0, _v2.useManager)(_v13.ChatManager)
   }) {
-    let _v7 = (0, _v3.useRef)(null),
-      [_v8, _v9] = (0, _v3.useState)(""),
-      [_v10, _v11] = (0, _v3.useState)(!1),
-      _v12 = (0, _v3.useCallback)(_v0 => {
-        _v9(_v0.target.value);
+    let _v8 = (0, _v3.useRef)(null),
+      [_v9, _v10] = (0, _v3.useState)(() => _v7 !== _v13.UNINITIALIZED_ROOM_ID ? (0, _v19.readDraft)(_v7, _v2) : ""),
+      [_v11, _v12] = (0, _v3.useState)(() => _v7 !== _v13.UNINITIALIZED_ROOM_ID ? _v7 : null),
+      [_v13, _v14] = (0, _v3.useState)(!1);
+    _v7 !== _v13.UNINITIALIZED_ROOM_ID && _v7 !== _v11 && (_v12(_v7), _v10(_v0 => _v0 || (0, _v19.readDraft)(_v7, _v2))), (0, _v3.useEffect)(() => {
+      _v7 !== _v13.UNINITIALIZED_ROOM_ID && (0, _v19.writeDraft)(_v7, _v2, _v9);
+    }, [_v7, _v2, _v9]);
+    let _v15 = (0, _v3.useCallback)(_v0 => {
+        _v10(_v0.target.value);
       }, []),
-      _v13 = (0, _v3.useCallback)(_v0 => {
-        _v0.preventDefault(), _v0.stopPropagation(), _v7.current?.focus({
+      _v16 = (0, _v3.useCallback)(_v0 => {
+        _v0.preventDefault(), _v0.stopPropagation(), _v8.current?.focus({
           preventScroll: !0
-        }), _v8.length && !(_v8.length > _v12.interactionToolsConfig.CHAT.MAX_MESSAGE_LENGTH) && (_v10 || (_v11(!0), setTimeout(() => _v11(!1), _v12.interactionToolsConfig.CHAT.MESSAGE_SENDING_THROTTLE), _v9(""), _v6(_v2, _v8), _v2 === _v16.EChatType.PUBLIC ? (0, _v14.trackSendMessage)() : (0, _v14.trackSendBackstageMessage)()));
-      }, [_v2, _v8, _v10, _v6]),
-      _v14 = (0, _v3.useCallback)(_v0 => {
-        if (_v7.current) {
-          let _v0 = _v7.current.selectionStart || 0,
-            _v1 = _v7.current.value,
+        }), _v9.length && !(_v9.length > _v12.interactionToolsConfig.CHAT.MAX_MESSAGE_LENGTH) && (_v13 || (_v14(!0), setTimeout(() => _v14(!1), _v12.interactionToolsConfig.CHAT.MESSAGE_SENDING_THROTTLE), _v10(""), _v6(_v2, _v9), _v2 === _v16.EChatType.PUBLIC ? (0, _v14.trackSendMessage)() : (0, _v14.trackSendBackstageMessage)()));
+      }, [_v2, _v9, _v13, _v6]),
+      _v17 = (0, _v3.useCallback)(_v0 => {
+        if (_v8.current) {
+          let _v0 = _v8.current.selectionStart || 0,
+            _v1 = _v8.current.value,
             _v2 = _v0 + _v0.native.length;
-          _v9(_v1.slice(0, _v0) + _v0.native + _v1.slice(_v0, _v1.length)), _v7.current.focus(), _v7.current.setSelectionRange(_v2, _v2);
+          _v10(_v1.slice(0, _v0) + _v0.native + _v1.slice(_v0, _v1.length)), _v8.current.focus(), _v8.current.setSelectionRange(_v2, _v2);
         }
-      }, [_v9]),
-      _v15 = _v2 !== _v16.EChatType.PUBLIC || !!_v5,
-      _v16 = !_v3 && _v15,
-      _v17 = !!(_v16 && _v8.length && !_v10),
-      _v18 = _v4 || (_v15 ? _v15.T_CHAT_PLACEHOLDER[_v2].input : _v15.T_CHAT_DISABLED_NO_DOT);
+      }, [_v10]),
+      _v18 = _v2 !== _v16.EChatType.PUBLIC || !!_v5,
+      _v19 = !_v3 && _v18,
+      _v20 = !!(_v19 && _v9.length && !_v13),
+      _v21 = _v4 || (_v18 ? _v15.T_CHAT_PLACEHOLDER[_v2].input : _v15.T_CHAT_DISABLED_NO_DOT);
     return (0, _v1.jsx)(_v9.Box, {
       width: "100%",
       padding: (0, _v4.rem)(2),
@@ -68,37 +76,37 @@
         width: "100%",
         borderRadius: "xs",
         transition: "background-color 170ms ease-in-out",
-        onSubmit: _v13,
+        onSubmit: _v16,
         onKeyUp: _v17.stopEventPropagation,
         onKeyDown: _v17.stopEventPropagation,
         onKeyPress: _v17.stopEventPropagation,
         children: [_v11.browserConfig.BROWSER?.isMobile ? null : (0, _v1.jsx)(_v7.InputLeftElement, {
-          children: (0, _v1.jsx)(_v20.EmojiButton, {
+          children: (0, _v1.jsx)(_v21.EmojiButton, {
             id: (0, _v18.createDomName)(_v0, "emoji-button"),
             className: (0, _v18.createDomName)(_v1, "emoji-button"),
-            inputRef: _v7,
-            isSubmitted: _v10,
+            inputRef: _v8,
+            isSubmitted: _v13,
             placement: "top-start",
-            isDisabled: !_v16,
-            onEmojiSelect: _v14
+            isDisabled: !_v19,
+            onEmojiSelect: _v17
           })
         }), (0, _v1.jsx)(_v8.Input, {
           id: (0, _v18.createDomName)(_v0, "input"),
           className: (0, _v18.createDomName)(_v1, "input"),
-          ref: _v7,
+          ref: _v8,
           maxLength: _v12.interactionToolsConfig.CHAT.MAX_MESSAGE_LENGTH,
-          placeholder: _v18,
-          value: _v8,
+          placeholder: _v21,
+          value: _v9,
           autoComplete: "off",
-          isDisabled: !_v16,
-          fontFamily: _v19.EMOJI_FONT_FAMILY,
+          isDisabled: !_v19,
+          fontFamily: _v20.EMOJI_FONT_FAMILY,
           fontSize: (0, _v4.rem)(_v11.browserConfig.BROWSER?.isMobile ? 16 : 14),
           lineHeight: (0, _v4.rem)(22),
           _disabled: {
             cursor: "not-allowed",
             backgroundColor: "background-blur"
           },
-          onChange: _v12
+          onChange: _v15
         }), (0, _v1.jsx)(_v7.InputRightElement, {
           children: (0, _v1.jsx)(_v5.IconButton, {
             id: (0, _v18.createDomName)(_v0, "send-button"),
@@ -109,7 +117,7 @@
             size: "sm",
             variant: "tertiary",
             icon: (0, _v1.jsx)(_v10.Send, {}),
-            isDisabled: !_v17,
+            isDisabled: !_v20,
             transition: "none",
             _hover: {
               backgroundColor: "transparent!important"
@@ -119,14 +127,14 @@
       })
     });
   }], 0);
-  var _v21 = _v0.i(0),
-    _v22 = _v0.i(0),
-    _v23 = _v0.i(0);
+  var _v22 = _v0.i(0),
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0);
   _v0.s(["ChatPreloader", 0, function ({
     id: _v0 = (0, _v18.createDomName)("chat-preloader"),
     className: _v1 = (0, _v18.createDomName)("chat-preloader")
   }) {
-    return (0, _v1.jsx)(_v21.Flex, {
+    return (0, _v1.jsx)(_v22.Flex, {
       id: _v0,
       className: _v1,
       flexDirection: "column",
@@ -134,7 +142,7 @@
       width: "100%",
       flexGrow: 1,
       overflow: "hidden",
-      children: (0, _v1.jsx)(_v21.Flex, {
+      children: (0, _v1.jsx)(_v22.Flex, {
         id: (0, _v18.createDomName)(_v0, "history"),
         className: (0, _v18.createDomName)(_v1, "history"),
         width: "100%",
@@ -142,7 +150,7 @@
         flexDirection: "column",
         height: "100%",
         padding: `0 ${(0, _v4.rem)(16)}`,
-        children: (0, _v22.range)(20).map(_v0 => (0, _v1.jsx)(_v23.BokehSkeleton, {
+        children: (0, _v23.range)(20).map(_v0 => (0, _v1.jsx)(_v24.BokehSkeleton, {
           className: (0, _v18.createDomName)(_v1, "message"),
           marginBottom: (0, _v4.rem)(16),
           padding: (0, _v4.rem)(20),

@@ -166,6 +166,32 @@
           }
         }
       }),
+      addFromGoogleSlides: (0, _v6.translate)({
+        singular: "Add from Google Slides",
+        dictionary: {
+          es: {
+            singular: "Agregar desde Google Slides"
+          },
+          "de-DE": {
+            singular: "Aus Google Slides hinzufügen"
+          },
+          "fr-FR": {
+            singular: "Ajouter depuis Google Slides"
+          },
+          "ja-JP": {
+            singular: "Google スライドから追加"
+          },
+          "ko-KR": {
+            singular: "Google Slides에서 가져오기"
+          },
+          "pt-BR": {
+            singular: "Adicionar a partir do Google Slides"
+          },
+          "zh-CN": {
+            singular: "从 Google 幻灯片导入"
+          }
+        }
+      }),
       addImage: (0, _v6.translate)({
         singular: "Add image",
         dictionary: {
@@ -9217,6 +9243,58 @@
           },
           "zh-CN": {
             singular: "所选文件将转换为静态幻灯片。任何动画或特效都将被删除，视频也将无法播放。"
+          }
+        }
+      }),
+      slidesGoogleImportError: (0, _v6.translate)({
+        singular: "Something went wrong importing from Google Slides. Please try again.",
+        dictionary: {
+          es: {
+            singular: "Algo salió mal al importar desde Google Slides. Por favor, inténtelo de nuevo."
+          },
+          "de-DE": {
+            singular: "Beim Importieren aus Google Slides ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+          },
+          "fr-FR": {
+            singular: "Une erreur s'est produite lors de l'importation depuis Google Slides. Veuillez réessayer."
+          },
+          "ja-JP": {
+            singular: "Google スライドからの読み込み中に問題が発生しました。もう一度お試しください。"
+          },
+          "ko-KR": {
+            singular: "Google Slides에서 가져오는 동안 문제가 발생했습니다. 다시 시도해 주세요."
+          },
+          "pt-BR": {
+            singular: "Algo deu errado ao importar do Google Slides. Por favor, tente novamente."
+          },
+          "zh-CN": {
+            singular: "从 Google 幻灯片导入时出现问题。请再试一次。"
+          }
+        }
+      }),
+      slidesGoogleTooLarge: (0, _v6.translate)({
+        singular: "This deck is too large to import. Try exporting it as a PDF and uploading the PDF instead.",
+        dictionary: {
+          es: {
+            singular: "Esta presentación es demasiado grande para importar. Intente exportarla como un PDF y subir el PDF en su lugar."
+          },
+          "de-DE": {
+            singular: "Dieses Deck ist zu groß, um es zu importieren. Versuchen Sie stattdessen, es als PDF zu exportieren und die PDF-Datei hochzuladen."
+          },
+          "fr-FR": {
+            singular: "Cette présentation est trop volumineuse pour être importée. Essayez de l'exporter au format PDF et de téléverser le PDF à la place."
+          },
+          "ja-JP": {
+            singular: "このデッキはインポートするには大きすぎます。PDFとしてエクスポートし、代わりにそのPDFをアップロードしてください。"
+          },
+          "ko-KR": {
+            singular: "이 덱은 가져오기에는 너무 큽니다. 대신 PDF로 내보낸 다음 그 PDF를 업로드해 보세요."
+          },
+          "pt-BR": {
+            singular: "Este deck é grande demais para importar. Tente exportá-lo como PDF e fazer upload do PDF em vez disso."
+          },
+          "zh-CN": {
+            singular: "该演示文稿过大，无法导入。请尝试将其导出为 PDF，然后上传该 PDF。"
           }
         }
       }),
