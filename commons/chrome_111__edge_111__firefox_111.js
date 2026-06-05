@@ -1,5 +1,0 @@
-{
-  "use strict";
-
-  _v1.exports = ["chrome 111", "edge 111", "firefox 111", "safari 16.4"];
-}
