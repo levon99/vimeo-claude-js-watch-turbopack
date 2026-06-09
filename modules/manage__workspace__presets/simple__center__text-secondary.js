@@ -7775,8 +7775,9 @@
     endpoint: "/users/:userId/page_presets/:pagePresetId",
     method: "PATCH"
   });
-  var _v233 = _v0.i(0);
-  let _v234 = _v0 => ({
+  var _v233 = _v0.i(0),
+    _v234 = _v0.i(0);
+  let _v235 = _v0 => ({
       askAi: _v0.askAi,
       categories: _v0.categories,
       chapters: _v0.chapters,
@@ -7825,8 +7826,8 @@
         volume: _v0.volume
       }
     }),
-    _v235 = ["name", "uri", "settings", "createdOn", "modifiedOn"],
-    _v236 = ({
+    _v236 = ["name", "uri", "settings", "createdOn", "modifiedOn"],
+    _v237 = ({
       defaultPresetId: _v0,
       isVimeoDefault: _v1,
       isSubmitting: _v2,
@@ -8064,7 +8065,7 @@
         })]
       });
     },
-    _v237 = () => {
+    _v238 = () => {
       let _v0 = _v45(),
         _v1 = (0, _v5.useToast)(),
         {
@@ -8110,7 +8111,7 @@
               where: {
                 userId: _v1
               },
-              select: _v235,
+              select: _v236,
               query: {
                 perPage: 10
               },
@@ -8135,10 +8136,10 @@
                   ..._v1,
                   ..._v2,
                   colors: {
-                    colorOne: _v2?.colors?.colorOne ? `#${_v2?.colors?.colorOne}` : _v27.colorOne,
-                    colorTwo: _v2?.colors?.colorTwo ? `#${_v2?.colors?.colorTwo}` : _v27.colorTwo,
-                    colorThree: _v2?.colors?.colorThree ? `#${_v2?.colors?.colorThree}` : _v27.colorThree,
-                    colorFour: _v2?.colors?.colorFour ? `#${_v2?.colors?.colorFour}` : _v27.colorFour
+                    colorOne: _v2?.colors?.colorOne ? (0, _v234.withHashPrefix)(_v2.colors.colorOne) : _v27.colorOne,
+                    colorTwo: _v2?.colors?.colorTwo ? (0, _v234.withHashPrefix)(_v2.colors.colorTwo) : _v27.colorTwo,
+                    colorThree: _v2?.colors?.colorThree ? (0, _v234.withHashPrefix)(_v2.colors.colorThree) : _v27.colorThree,
+                    colorFour: _v2?.colors?.colorFour ? (0, _v234.withHashPrefix)(_v2.colors.colorFour) : _v27.colorFour
                   },
                   customLogo: {
                     active: _v2?.logos?.custom?.active || !1,
@@ -8176,7 +8177,7 @@
                 },
                 variables: {
                   name: _v0.draft.presetName,
-                  page: _v234(_v0.draft),
+                  page: _v235(_v0.draft),
                   applyToAll: _v0.applyToAll
                 },
                 select: ["uri"]
@@ -8191,7 +8192,7 @@
                 },
                 variables: {
                   name: _v0.draft.presetName,
-                  page: _v234(_v0.draft),
+                  page: _v235(_v0.draft),
                   applyToAll: _v0.applyToAll
                 },
                 select: ["uri"]
@@ -8322,7 +8323,7 @@
             _v2(_v0), _v22();
           },
           onSetAsDefault: _v28
-        }), _v21 && (0, _v2.jsx)(_v236, {
+        }), _v21 && (0, _v2.jsx)(_v237, {
           defaultPresetId: _v25,
           onClose: _v27,
           onSave: _v31,
@@ -8331,15 +8332,15 @@
         })]
       });
     };
-  var _v238 = _v0.i(0),
-    _v239 = _v0.i(0),
+  var _v239 = _v0.i(0),
     _v240 = _v0.i(0),
     _v241 = _v0.i(0),
     _v242 = _v0.i(0),
     _v243 = _v0.i(0),
     _v244 = _v0.i(0),
-    _v245 = _v0.i(0);
-  let _v246 = {
+    _v245 = _v0.i(0),
+    _v246 = _v0.i(0);
+  let _v247 = {
       barebone_js: "",
       chromeless_css: "",
       chromeless_js: "",
@@ -8347,11 +8348,11 @@
       js: "",
       player_url: ""
     },
-    _v247 = ({
+    _v248 = ({
       playerAssetUrls: _v0
     }) => {
       let _v1 = (0, _v3.useMemo)(() => ({
-        title: (0, _v239.translate)({
+        title: (0, _v240.translate)({
           singular: "Presets",
           dictionary: {
             es: {
@@ -8377,7 +8378,7 @@
             }
           }
         }),
-        description: (0, _v239.translate)({
+        description: (0, _v240.translate)({
           singular: "Manage settings that anyone in your workspace can reuse across multiple videos",
           dictionary: {
             es: {
@@ -8404,26 +8405,26 @@
           }
         })
       }), []);
-      return (0, _v2.jsx)(_v242.PlayerContextProvider, {
-        type: _v243.PlayerType.VimeoPlayer,
-        assetUrls: _v0 ?? _v246,
+      return (0, _v2.jsx)(_v243.PlayerContextProvider, {
+        type: _v244.PlayerType.VimeoPlayer,
+        assetUrls: _v0 ?? _v247,
         children: (0, _v2.jsxs)(_v50.Box, {
-          maxW: _v240.SETTING_PAGES_MAX_WIDTH,
+          maxW: _v241.SETTING_PAGES_MAX_WIDTH,
           w: "100%",
           mx: "auto",
           py: "lg",
-          children: [(0, _v2.jsx)(_v241.SettingsPageContentHeader, {
+          children: [(0, _v2.jsx)(_v242.SettingsPageContentHeader, {
             title: _v1.title,
             description: _v1.description
           }), (0, _v2.jsxs)(_v9.Flex, {
             direction: "column",
             gap: "xl",
-            children: [(0, _v2.jsx)(_v218, {}), (0, _v2.jsx)(_v237, {}), (0, _v2.jsx)(_v228, {})]
+            children: [(0, _v2.jsx)(_v218, {}), (0, _v2.jsx)(_v238, {}), (0, _v2.jsx)(_v228, {})]
           })]
         })
       });
     };
-  (0, _v238.withPageSetup)(_v245.getWspServerSideProps, {
+  (0, _v239.withPageSetup)(_v246.getWspServerSideProps, {
     requireLogin: !0
-  }), _v247.getLayout = (_v0, _v1) => (0, _v244.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v247], 0);
+  }), _v248.getLayout = (_v0, _v1) => (0, _v245.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v248], 0);
 }

@@ -12,7 +12,7 @@
   _v0.s(["getDeviceType", 0, () => {
     let _v0 = navigator.userAgent;
     return /(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(_v0) ? "tablet" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(_v0) ? "mobile" : "desktop";
-  }], 0), (_v1 = {}).DELETE_VIDEO = "workflow.delete_video", _v1.OPEN_DELETE_MODAL = "workflow.open_delete_modal", _v1.DELETE_VIDEO_CANCELLED = "workflow.delete_video_cancelled", _v1.ADD_VIDEO_TO_FOLDER = "add_video_to_folder", _v1.CLICK_VIDEO_CARD_MENU = "vimeo.click_video_card_menu", _v1.OPEN_DOWNLOAD_MODAL = "workflow.open_download_modal", _v1.DOWNLOAD_VIDEO_FILE = "workflow.download_video_file", _v1.COPY_VIDEO_SHARE_LINK = "workflow.copy_video_share_link", _v1.SEARCH_IN_MOVE_VIDEO_MODAL = "vimeo.search_in_move_video_modal", _v1.SEARCH_IN_MOVE_FOLDER_MODAL = "vimeo.search_in_move_folder_modal", _v1.DELETE_FOLDER = "delete_folder", _v1.CREATE_FOLDER = "create_folder", _v1.CLICK_VIDEO_MANAGER_LINK = "vimeo.click_video_manager_link", _v1.ADD_ITEMS_TO_FOLDER = "vimeo.add_items_to_folder", _v1.CLICK = "vimeo.click", _v1.OPEN_FOLDER_OVERFLOW = "open_folder_overflow", _v1.CLICK_FOLDER_CARD = "vimeo.click_folder_card", _v1.UPDATE_FOLDER_SETTINGS = "update_folder_settings", _v1.CONFIRM_MOVE_FOLDER = "vimeo.confirm_move_folder", _v1.CLICK_LOGO = "vimeo.click_logo", _v1.CLICK_NEW_CONTENT = "vimeo.click_new_content", _v1.BULK_CHANGE_COMMENT_PRIVACY = "vimeo.bulk_change_comment_privacy", _v1.BULK_CHANGE_DOWNLOAD_PRIVACY = "vimeo.bulk_change_download_privacy", _v1.BULK_CHANGE_EMBED_PRIVACY = "vimeo.bulk_change_embed_privacy", _v1.BULK_CHANGE_LINK_PRIVACY = "vimeo.bulk_change_link_privacy", _v1.OPEN_VIDEO_SHARE = "vimeo.open_video_share";
+  }], 0), (_v1 = {}).DELETE_VIDEO = "workflow.delete_video", _v1.OPEN_DELETE_MODAL = "workflow.open_delete_modal", _v1.DELETE_VIDEO_CANCELLED = "workflow.delete_video_cancelled", _v1.ADD_VIDEO_TO_FOLDER = "add_video_to_folder", _v1.CLICK_VIDEO_CARD_MENU = "vimeo.click_video_card_menu", _v1.OPEN_DOWNLOAD_MODAL = "workflow.open_download_modal", _v1.DOWNLOAD_VIDEO_FILE = "workflow.download_video_file", _v1.COPY_VIDEO_SHARE_LINK = "workflow.copy_video_share_link", _v1.SEARCH_IN_MOVE_VIDEO_MODAL = "vimeo.search_in_move_video_modal", _v1.SEARCH_IN_MOVE_FOLDER_MODAL = "vimeo.search_in_move_folder_modal", _v1.DELETE_FOLDER = "delete_folder", _v1.CREATE_FOLDER = "create_folder", _v1.CLICK_VIDEO_MANAGER_LINK = "vimeo.click_video_manager_link", _v1.ADD_ITEMS_TO_FOLDER = "vimeo.add_items_to_folder", _v1.CLICK = "vimeo.click", _v1.OPEN_FOLDER_OVERFLOW = "open_folder_overflow", _v1.CLICK_FOLDER_CARD = "vimeo.click_folder_card", _v1.UPDATE_FOLDER_SETTINGS = "update_folder_settings", _v1.CONFIRM_MOVE_FOLDER = "vimeo.confirm_move_folder", _v1.CLICK_LOGO = "vimeo.click_logo", _v1.CLICK_NEW_CONTENT = "vimeo.click_new_content", _v1.BULK_CHANGE_COMMENT_PRIVACY = "vimeo.bulk_change_comment_privacy", _v1.BULK_CHANGE_DOWNLOAD_PRIVACY = "vimeo.bulk_change_download_privacy", _v1.BULK_CHANGE_EMBED_PRIVACY = "vimeo.bulk_change_embed_privacy", _v1.BULK_CHANGE_LINK_PRIVACY = "vimeo.bulk_change_link_privacy", _v1.OPEN_VIDEO_SHARE = "vimeo.open_video_share", _v1.BULK_DELETE_ITEMS = "vimeo.bulk_delete_items";
   let _v9 = {
     VIDEO_LIBRARY: "video_library",
     EVENTS: "events",
@@ -323,9 +323,9 @@
       ..._v8.nullUploadContextData,
       location: null
     }
-  }), "genericClick", 0, _v0 => ({
+  }), "genericClick", 0, (_v0, _v1 = 122) => ({
     eventName: "vimeo.click",
-    version: 122,
+    version: _v1,
     fields: _v0,
     defaultEventFields: {
       click_type: null,

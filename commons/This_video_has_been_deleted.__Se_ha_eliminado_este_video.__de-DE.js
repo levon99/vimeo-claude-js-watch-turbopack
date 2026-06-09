@@ -979,7 +979,44 @@
         }
       }
     });
-  }, "linkCopyFailed", 0, _v8, "linkCopySuccess", 0, _v7, "venueStartTimeText", 0, function (_v0) {
+  }, "linkCopyFailed", 0, _v8, "linkCopySuccess", 0, _v7, "numItemsText", 0, _v0 => (0, _v3.translate)({
+    singular: "{NUM_ITEMS} item",
+    plural: "{NUM_ITEMS} items",
+    count: _v0,
+    replacements: {
+      NUM_ITEMS: _v0
+    },
+    dictionary: {
+      es: {
+        singular: "{NUM_ITEMS} elemento",
+        plural: "{NUM_ITEMS} elementos"
+      },
+      "de-DE": {
+        singular: "{NUM_ITEMS} Element",
+        plural: "{NUM_ITEMS} Elemente"
+      },
+      "fr-FR": {
+        singular: "{NUM_ITEMS} élément",
+        plural: "{NUM_ITEMS} éléments"
+      },
+      "ja-JP": {
+        singular: "{NUM_ITEMS} 件のアイテム",
+        plural: "{NUM_ITEMS} 件のアイテム"
+      },
+      "ko-KR": {
+        singular: "{NUM_ITEMS}개 항목",
+        plural: "{NUM_ITEMS}개 항목"
+      },
+      "pt-BR": {
+        singular: "{NUM_ITEMS} iten",
+        plural: "{NUM_ITEMS} itens"
+      },
+      "zh-CN": {
+        singular: "{NUM_ITEMS} 项",
+        plural: "{NUM_ITEMS} 项"
+      }
+    }
+  }), "venueStartTimeText", 0, function (_v0) {
     return (0, _v3.translate)({
       singular: "Venue opens {DATE}",
       replacements: {

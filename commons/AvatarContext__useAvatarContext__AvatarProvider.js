@@ -290,6 +290,52 @@
       "2xl": "3rem",
       "3xl": "4rem",
       auto: "100%"
+    },
+    _v38 = {
+      xs: "0.375rem",
+      sm: "0.5rem",
+      md: "0.5rem",
+      lg: "0.75rem",
+      xl: "1rem",
+      "2xl": "1rem",
+      "3xl": "1.25rem",
+      auto: "25%"
+    },
+    _v39 = {
+      xs: "0.0625rem",
+      sm: "0.0625rem",
+      md: "0.0625rem",
+      lg: "0.125rem",
+      xl: "0.125rem",
+      "2xl": "0.1875rem",
+      "3xl": "0.1875rem",
+      auto: "0.125rem"
+    },
+    _v40 = (_v0, _v1) => Array.isArray(_v0) ? _v0.map(_v0 => null == _v0 ? _v0 : _v1[_v0]) : _v0 && "object" == typeof _v0 ? Object.fromEntries(Object.entries(_v0).map(([_v0, _v1]) => [_v0, null == _v1 ? _v1 : _v1[_v1]])) : _v1[_v0 ?? "md"],
+    _v41 = ({
+      size: _v0 = "md",
+      shape: _v1 = "full",
+      zIndex: _v2
+    }) => {
+      let _v3 = "full" === _v1,
+        _v4 = _v3 ? "14.64%" : "0";
+      return (0, _v1.jsx)(_v27.Box, {
+        "data-testid": "avatar-badge",
+        "aria-hidden": !0,
+        position: "absolute",
+        zIndex: _v2,
+        bottom: _v4,
+        insetInlineEnd: _v4,
+        transform: _v3 ? "translate(50%, 50%)" : "translate(25%, 25%)",
+        boxSizing: "content-box",
+        width: _v40(_v0, _v38),
+        height: _v40(_v0, _v38),
+        borderRadius: "100%",
+        bg: "green.500",
+        borderStyle: "solid",
+        borderWidth: _v40(_v0, _v39),
+        borderColor: "surface"
+      });
     };
   _v0.s(["Avatar", 0, ({
     size: _v0 = "md",
@@ -300,15 +346,16 @@
     loading: _v5,
     sx: _v6,
     shape: _v7 = "full",
-    ..._v8
+    hasBadge: _v8,
+    ..._v9
   }) => {
-    let _v9 = (0, _v26.useStyleConfig)("Avatar", {
+    let _v10 = (0, _v26.useStyleConfig)("Avatar", {
         size: _v0
       }),
       {
-        useInitialsFallback: _v10
+        useInitialsFallback: _v11
       } = (0, _v5.useContext)(_v33),
-      _v11 = "full" === _v7 ? "100%" : {
+      _v12 = "full" === _v7 ? "100%" : {
         xs: "6px",
         sm: "6px",
         md: "8px",
@@ -318,17 +365,17 @@
         "3xl": "12px",
         auto: "10px"
       }[_v0],
-      _v12 = _v10 && !!_v1 && /\/portrait\/defaults?-(blue|gray)/.test(_v1),
-      _v13 = _v4 && _v4.name.length > 0 && (_v10 || _v4.color) ? _v4 : null,
-      _v14 = _v13 ? {
-        name: _v13.name,
-        color: _v13.color ?? function (_v0) {
+      _v13 = _v11 && !!_v1 && /\/portrait\/defaults?-(blue|gray)/.test(_v1),
+      _v14 = _v4 && _v4.name.length > 0 && (_v11 || _v4.color) ? _v4 : null,
+      _v15 = _v14 ? {
+        name: _v14.name,
+        color: _v14.color ?? function (_v0) {
           let _v1 = 0;
           for (let _v0 = 0; _v0 < _v0.length; _v0++) _v1 = (_v1 << 5) - _v1 + _v0.charCodeAt(_v0) | 0;
           return _v32[Math.abs(_v1) % _v32.length];
-        }(_v13.name)
+        }(_v14.name)
       } : null,
-      _v15 = _v14 && (({
+      _v16 = _v15 && (({
         theme: _v0,
         color: _v1,
         colorMode: _v2
@@ -338,24 +385,24 @@
         return _v3 === _v4 ? (0, _v29.toRgba)(_v1) : "object" == typeof _v4 ? "light" === _v2 ? String(_v4.default) : String(_v4._dark) : String(_v3);
       })({
         theme: _v31.bokehTheme,
-        color: _v14.color,
+        color: _v15.color,
         colorMode: "light"
       }),
-      _v16 = _v14 ? (0, _v1.jsx)(_v27.Box, {
-        __css: _v9,
+      _v17 = _v15 ? (0, _v1.jsx)(_v27.Box, {
+        __css: _v10,
         sx: _v6,
-        borderRadius: _v11,
+        borderRadius: _v12,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        bg: _v14.color,
-        color: (0, _v29.readableColor)(_v15 ?? ""),
+        bg: _v15.color,
+        color: (0, _v29.readableColor)(_v16 ?? ""),
         fontSize: _v37[_v0],
-        children: _v14.name.charAt(0).toUpperCase()
+        children: _v15.name.charAt(0).toUpperCase()
       }) : (0, _v1.jsx)(_v27.Box, {
-        __css: _v9,
+        __css: _v10,
         sx: _v6,
-        borderRadius: _v11,
+        borderRadius: _v12,
         bg: "#C4F4FF",
         display: "flex",
         alignItems: "center",
@@ -364,29 +411,33 @@
           size: _v0
         })
       }),
-      _v17 = _v14 && _v12;
+      _v18 = _v15 && _v13;
     return (0, _v1.jsxs)(_v25.Root, {
       style: {
-        display: "unset",
+        display: "inline-block",
         position: "relative"
       },
-      ..._v8,
+      ..._v9,
       children: [(0, _v1.jsx)(_v25.Fallback, {
         asChild: !0,
-        children: _v16
+        children: _v17
       }), (0, _v1.jsx)(_v25.Image, {
         asChild: !0,
         children: (0, _v1.jsx)(_v27.Box, {
           as: "img",
-          position: !_v1 || _v17 ? "absolute" : "relative",
-          src: _v17 ? void 0 : _v1,
-          srcSet: _v17 ? void 0 : _v2,
+          position: !_v1 || _v18 ? "absolute" : "relative",
+          src: _v18 ? void 0 : _v1,
+          srcSet: _v18 ? void 0 : _v2,
           alt: _v3,
           loading: _v5,
-          __css: _v9,
+          __css: _v10,
           sx: _v6,
-          borderRadius: _v11
+          borderRadius: _v12
         })
+      }), _v8 && (0, _v1.jsx)(_v41, {
+        size: _v0,
+        shape: _v7,
+        zIndex: _v6?.zIndex
       })]
     });
   }, "AvatarConfigProvider", 0, _v34], 0);

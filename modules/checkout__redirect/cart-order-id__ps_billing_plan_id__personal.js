@@ -797,8 +797,9 @@
     _v46 = _v0.i(0),
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
-    _v49 = _v0.i(0);
-  let _v50 = {
+    _v49 = _v0.i(0),
+    _v50 = _v0.i(0);
+  let _v51 = {
       autorenewalOptInRequirement: null,
       billingPlan: void 0,
       checkoutType: "purchase",
@@ -817,12 +818,12 @@
       errorMessage: void 0,
       storePaymentMethod: !1
     },
-    _v51 = (0, _v12.createContext)({
-      state: _v50,
+    _v52 = (0, _v12.createContext)({
+      state: _v51,
       dispatch: () => void 0
     }),
-    _v52 = () => (0, _v12.useContext)(_v51),
-    _v53 = {
+    _v53 = () => (0, _v12.useContext)(_v52),
+    _v54 = {
       loading: !1,
       data: null,
       error: null,
@@ -830,27 +831,27 @@
       callCount: 0,
       lastCalled: null
     },
-    _v54 = {
-      orderPreview: _v53,
-      submitOrder: _v53
+    _v55 = {
+      orderPreview: _v54,
+      submitOrder: _v54
     },
-    _v55 = (0, _v12.createContext)({
-      state: _v54,
+    _v56 = (0, _v12.createContext)({
+      state: _v55,
       dispatch: () => void 0
     }),
-    _v56 = () => (0, _v12.useContext)(_v55);
-  _v0.s(["ApiStateContext", 0, _v55, "StateContext", 0, _v51, "initialApiState", 0, _v54, "initialState", 0, _v50, "useApiStateContext", 0, _v56, "useStateContext", 0, _v52], 0);
-  var _v57 = _v0.i(0),
-    _v58 = _v0.i(0),
+    _v57 = () => (0, _v12.useContext)(_v56);
+  _v0.s(["ApiStateContext", 0, _v56, "StateContext", 0, _v52, "initialApiState", 0, _v55, "initialState", 0, _v51, "useApiStateContext", 0, _v57, "useStateContext", 0, _v53], 0);
+  var _v58 = _v0.i(0),
     _v59 = _v0.i(0),
     _v60 = _v0.i(0),
     _v61 = _v0.i(0),
     _v62 = _v0.i(0),
     _v63 = _v0.i(0),
-    _v64 = _v0.i(0);
-  let _v65 = ["advanced", "business", "enterprise", "live_business", "live_premium", "live_pro", "plus", "pro", "pro_custom", "pro_unlimited", "producer", "standard", "starter"],
-    _v66 = ["advanced", "plus", "pro", "standard", "starter", "ondemand", "stock", "live", "seat_subscription"],
-    _v67 = ({
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0);
+  let _v66 = ["advanced", "business", "enterprise", "live_business", "live_premium", "live_pro", "plus", "pro", "pro_custom", "pro_unlimited", "producer", "standard", "starter"],
+    _v67 = ["advanced", "plus", "pro", "standard", "starter", "ondemand", "stock", "live", "seat_subscription"],
+    _v68 = ({
       actionType: _v0,
       location: _v1,
       errorId: _v2,
@@ -862,9 +863,9 @@
       let _v7 = _v4.order?.items?.[0].quantity ?? 1,
         _v8 = _v4.order?.promoCode,
         _v9 = _v4?.billingPlan?.id,
-        _v10 = _v65.includes(_v4.tier) ? _v4.tier : null,
-        _v11 = _v66.includes(_v4.tier) ? _v4.tier : "seat_subscription";
-      _v57.BigPictureClient.sendEvent(new _v57.Event("vimeo.checkout_form_action", 18, {
+        _v10 = _v66.includes(_v4.tier) ? _v4.tier : null,
+        _v11 = _v67.includes(_v4.tier) ? _v4.tier : "seat_subscription";
+      _v58.BigPictureClient.sendEvent(new _v58.Event("vimeo.checkout_form_action", 18, {
         action_type: _v0,
         bot_score: 0,
         checkout_product_ids: [],
@@ -894,7 +895,7 @@
         billing_plan_id: _v9 || null
       }));
     },
-    _v68 = ({
+    _v69 = ({
       order: _v0,
       errorResponse: _v1,
       selectedPaymentMethod: _v2,
@@ -903,7 +904,7 @@
       let _v4 = {};
       _v2 && _v2.card ? (_v4.billing_address_state = _v2.card?.billingAddress?.state, _v4.billing_address_postal_code = _v2.card?.billingAddress?.postalCode, _v4.billing_address_country = _v2.card?.billingAddress?.country, _v4.credit_card_brand = _v2.card?.brand, _v4.credit_card_bin = _v2.card?.bin) : (_v4.billing_address_state = _v0.billingAddress?.state, _v4.billing_address_postal_code = _v0.billingAddress?.postalCode, _v4.billing_address_country = _v0.billingAddress?.country);
       let _v5 = _v0.items.map(_v0 => {
-          let _v1 = (0, _v64.transformToOrderItemOptions)(_v0);
+          let _v1 = (0, _v65.transformToOrderItemOptions)(_v0);
           return {
             billing_plan_id: _v1.billingPlanId ?? "",
             quantity: _v1.quantity
@@ -916,7 +917,7 @@
         } = _v1,
         _v9 = _v8 ? _v8.responseMessage : _v7,
         _v10 = _v8 ? _v8.responseCode : _v6;
-      _v57.BigPictureClient.sendEvent(new _v57.Event("vimeo.order_failure", 4, {
+      _v58.BigPictureClient.sendEvent(new _v58.Event("vimeo.order_failure", 4, {
         client_error_message: _v8 ? null : _v7,
         client_error_code: _v8 ? null : _v6,
         gateway_response_message: _v8 ? _v8.responseMessage : null,
@@ -945,7 +946,7 @@
         error_code: _v10 ?? void 0
       });
     },
-    _v69 = ({
+    _v70 = ({
       user_id: _v0,
       hpm_session_id: _v1,
       flow_type: _v2,
@@ -955,7 +956,7 @@
       payment_method_id: _v6,
       zuora_order_id: _v7
     }) => {
-      _v57.BigPictureClient.sendEvent(new _v57.Event("vimeo.zuora_purchase_steps", 1, {
+      _v58.BigPictureClient.sendEvent(new _v58.Event("vimeo.zuora_purchase_steps", 1, {
         user_id: _v0,
         unix_time: Date.now(),
         hpm_session_id: _v1,
@@ -969,25 +970,25 @@
       }));
     };
   _v0.s(["trackAddPaymentMethodAddClick", 0, _v0 => {
-    (0, _v63.sendBpEventWithContexts)("vimeo.add_payment_method_add_click", {
-      ...(0, _v62.buildViewBpContext)({
+    (0, _v64.sendBpEventWithContexts)("vimeo.add_payment_method_add_click", {
+      ...(0, _v63.buildViewBpContext)({
         view_type: "pageview",
         feature: null
       }),
-      ...(0, _v59.buildProductAnalyticsBpContext)({
+      ...(0, _v60.buildProductAnalyticsBpContext)({
         location: "content_area",
         feature: "checkout",
         product: "payments"
       }),
-      ...(0, _v60.buildTeamBpContext)({
+      ...(0, _v61.buildTeamBpContext)({
         is_team_member: !0
       }),
-      ...(0, _v61.buildThirdPartyIntegrationBpContext)({
+      ...(0, _v62.buildThirdPartyIntegrationBpContext)({
         integration_id: null,
         integration_name: null,
         is_partner: null
       }),
-      ...(0, _v58.buildActionBpContext)({
+      ...(0, _v59.buildActionBpContext)({
         action_type: "click",
         feature: null
       })
@@ -995,25 +996,25 @@
       is_grace_period: _v0
     });
   }, "trackAddPaymentMethodCancelClick", 0, _v0 => {
-    (0, _v63.sendBpEventWithContexts)("vimeo.add_payment_method_cancel_click", {
-      ...(0, _v62.buildViewBpContext)({
+    (0, _v64.sendBpEventWithContexts)("vimeo.add_payment_method_cancel_click", {
+      ...(0, _v63.buildViewBpContext)({
         view_type: "pageview",
         feature: null
       }),
-      ...(0, _v59.buildProductAnalyticsBpContext)({
+      ...(0, _v60.buildProductAnalyticsBpContext)({
         location: "content_area",
         feature: "checkout",
         product: "payments"
       }),
-      ...(0, _v60.buildTeamBpContext)({
+      ...(0, _v61.buildTeamBpContext)({
         is_team_member: !0
       }),
-      ...(0, _v61.buildThirdPartyIntegrationBpContext)({
+      ...(0, _v62.buildThirdPartyIntegrationBpContext)({
         integration_id: null,
         integration_name: null,
         is_partner: null
       }),
-      ...(0, _v58.buildActionBpContext)({
+      ...(0, _v59.buildActionBpContext)({
         action_type: "click",
         feature: null
       })
@@ -1021,20 +1022,20 @@
       is_grace_period: _v0
     });
   }, "trackAddPaymentMethodError", 0, (_v0, _v1) => {
-    (0, _v63.sendBpEventWithContexts)("vimeo.add_payment_method_error", {
-      ...(0, _v62.buildViewBpContext)({
+    (0, _v64.sendBpEventWithContexts)("vimeo.add_payment_method_error", {
+      ...(0, _v63.buildViewBpContext)({
         view_type: "pageview",
         feature: null
       }),
-      ...(0, _v59.buildProductAnalyticsBpContext)({
+      ...(0, _v60.buildProductAnalyticsBpContext)({
         location: "not_applicable_server",
         feature: "checkout",
         product: "payments"
       }),
-      ...(0, _v60.buildTeamBpContext)({
+      ...(0, _v61.buildTeamBpContext)({
         is_team_member: !0
       }),
-      ...(0, _v61.buildThirdPartyIntegrationBpContext)({
+      ...(0, _v62.buildThirdPartyIntegrationBpContext)({
         integration_id: null,
         integration_name: null,
         is_partner: null
@@ -1044,20 +1045,20 @@
       error_copy: _v1
     });
   }, "trackAddPaymentMethodPageview", 0, _v0 => {
-    (0, _v63.sendBpEventWithContexts)("vimeo.add_payment_method_pageview", {
-      ...(0, _v62.buildViewBpContext)({
+    (0, _v64.sendBpEventWithContexts)("vimeo.add_payment_method_pageview", {
+      ...(0, _v63.buildViewBpContext)({
         view_type: "pageview",
         feature: null
       }),
-      ...(0, _v59.buildProductAnalyticsBpContext)({
+      ...(0, _v60.buildProductAnalyticsBpContext)({
         location: "not_applicable_pageview",
         feature: "checkout",
         product: "payments"
       }),
-      ...(0, _v60.buildTeamBpContext)({
+      ...(0, _v61.buildTeamBpContext)({
         is_team_member: !0
       }),
-      ...(0, _v61.buildThirdPartyIntegrationBpContext)({
+      ...(0, _v62.buildThirdPartyIntegrationBpContext)({
         integration_id: null,
         integration_name: null,
         is_partner: null
@@ -1066,20 +1067,20 @@
       is_grace_period: _v0
     });
   }, "trackAddPaymentMethodSuccess", 0, _v0 => {
-    (0, _v63.sendBpEventWithContexts)("vimeo.add_payment_method_success", {
-      ...(0, _v62.buildViewBpContext)({
+    (0, _v64.sendBpEventWithContexts)("vimeo.add_payment_method_success", {
+      ...(0, _v63.buildViewBpContext)({
         view_type: "pageview",
         feature: null
       }),
-      ...(0, _v59.buildProductAnalyticsBpContext)({
+      ...(0, _v60.buildProductAnalyticsBpContext)({
         location: "not_applicable_server",
         feature: "checkout",
         product: "payments"
       }),
-      ...(0, _v60.buildTeamBpContext)({
+      ...(0, _v61.buildTeamBpContext)({
         is_team_member: !0
       }),
-      ...(0, _v61.buildThirdPartyIntegrationBpContext)({
+      ...(0, _v62.buildThirdPartyIntegrationBpContext)({
         integration_id: null,
         integration_name: null,
         is_partner: null
@@ -1087,11 +1088,11 @@
     }, 1, {
       is_grace_period: _v0
     });
-  }, "trackCheckoutFormAction", 0, _v67, "trackFailedOrder", 0, _v68, "trackOrderFailure", 0, ({
+  }, "trackCheckoutFormAction", 0, _v68, "trackFailedOrder", 0, _v69, "trackOrderFailure", 0, ({
     userId: _v0,
     description: _v1
   }) => {
-    _v57.BigPictureClient.sendEvent(new _v57.Event("vimeo.order_failure", 4, {
+    _v58.BigPictureClient.sendEvent(new _v58.Event("vimeo.order_failure", 4, {
       client_error_message: _v1,
       client_error_code: null,
       gateway_response_message: null,
@@ -1113,22 +1114,22 @@
       location: "frontend",
       order_items: []
     }));
-  }, "trackZuoraOrderStep", 0, _v69], 0);
-  var _v70 = _v0.i(0),
-    _v71 = _v0.i(0);
-  let _v72 = {
+  }, "trackZuoraOrderStep", 0, _v70], 0);
+  var _v71 = _v0.i(0),
+    _v72 = _v0.i(0);
+  let _v73 = {
       PAYPAL_CONNECTION: "paypal_connection",
       SIFT_ERROR: "sift_error",
       ZUORA_HPM_841: "zuora_hpm_841"
     },
-    _v73 = _v0 => {
+    _v74 = _v0 => {
       switch (_v0) {
-        case _v72.SIFT_ERROR:
+        case _v73.SIFT_ERROR:
           let _v0 = document.location.origin + "/help/contact?question=%20&category=cf_billing_membership&subcategory=cf_s_error_with_checkout_page";
           return (0, _v1.translate)({
             singular: "We were unable to process this transaction. Please {A}contact us{/A} directly.",
             replacements: {
-              A: _v0 => (0, _v70.jsx)(_v71.Link, {
+              A: _v0 => (0, _v71.jsx)(_v72.Link, {
                 href: _v0,
                 target: "_blank",
                 variant: "inline-primary",
@@ -1141,7 +1142,7 @@
               }
             }
           });
-        case _v72.PAYPAL_CONNECTION:
+        case _v73.PAYPAL_CONNECTION:
           return (0, _v1.translate)({
             singular: "Unable to connect to PayPal.",
             dictionary: {
@@ -1168,7 +1169,7 @@
               }
             }
           });
-        case _v72.ZUORA_HPM_841:
+        case _v73.ZUORA_HPM_841:
           let {
               pathname: _v1,
               search: _v2
@@ -1179,7 +1180,7 @@
           return (0, _v1.translate)({
             singular: "There seems to be a problem with the card you are trying to use. If you intend to pay with JCB, please click {A}here{/A} to refresh your currency to USD (prices may vary). Otherwise, please try a different method of payment.",
             replacements: {
-              A: _v0 => (0, _v70.jsx)(_v71.Link, {
+              A: _v0 => (0, _v71.jsx)(_v72.Link, {
                 href: _v4,
                 variant: "inline-primary",
                 children: _v0
@@ -1238,11 +1239,11 @@
           });
       }
     };
-  _v0.s(["ERROR_TYPE", 0, _v72, "getErrorMessage", 0, _v73], 0);
-  var _v74 = _v0.i(0);
-  let _v75 = () => {
-      let _v0 = (0, _v49.useViewer)(),
-        _v1 = _v78(),
+  _v0.s(["ERROR_TYPE", 0, _v73, "getErrorMessage", 0, _v74], 0);
+  var _v75 = _v0.i(0);
+  let _v76 = () => {
+      let _v0 = (0, _v50.useViewer)(),
+        _v1 = _v79(),
         {
           settings: _v2
         } = (0, _v46.useOrionSettings)(),
@@ -1259,56 +1260,56 @@
             creatorProductId: _v11,
             creatorProductAction: _v12
           }
-        } = _v52(),
+        } = _v53(),
         {
           dispatch: _v13,
           state: {
             orderPreview: _v14
           }
-        } = _v56(),
+        } = _v57(),
         [, _v15] = (0, _v13.default)(_v2, void 0),
         [_v16, _v17] = _v28(),
         [_v18, _v19] = _v32();
       return ((0, _v12.useEffect)(function () {
         let _v0;
         if (_v17.called ? _v0 = _v17 : _v19.called && (_v0 = _v19), _v0 && (_v13({
-          type: _v74.ApiActionTypes.ORDER_PREVIEW,
+          type: _v75.ApiActionTypes.ORDER_PREVIEW,
           payload: _v0
         }), _v0.data)) {
           let _v0 = _v0.data?.error;
           _v4({
-            type: _v74.ActionTypes.PAYMENT_ALERT,
+            type: _v75.ActionTypes.PAYMENT_ALERT,
             payload: void 0
           }), _v0 ? _v13({
-            type: _v74.ApiActionTypes.ORDER_PREVIEW,
+            type: _v75.ApiActionTypes.ORDER_PREVIEW,
             payload: {
               ..._v0,
               data: null,
               error: Error(_v0)
             }
           }) : (_v13({
-            type: _v74.ApiActionTypes.ORDER_PREVIEW,
+            type: _v75.ApiActionTypes.ORDER_PREVIEW,
             payload: _v0
           }), _v0.loading || (_v4({
-            type: _v74.ActionTypes.ORDER_PREVIEW,
+            type: _v75.ActionTypes.ORDER_PREVIEW,
             payload: _v0.data
           }), _v15(_v0.data.id)));
         }
       }, [_v13, _v17, _v19, _v4, _v15]), (0, _v12.useEffect)(function () {
         let _v0 = _v14.data;
         if (!_v0?.billingAddress?.postalCode && !_v0?.location && !_v0?.billingAddress?.country) return;
-        let _v1 = !!_v0?.billingAddress?.postalCode && (0, _v64.isZipCodeIsRequiredAutorenewalOptInRange)(_v0?.billingAddress?.postalCode),
+        let _v1 = !!_v0?.billingAddress?.postalCode && (0, _v65.isZipCodeIsRequiredAutorenewalOptInRange)(_v0?.billingAddress?.postalCode),
           _v2 = _v0?.location === "DE" || _v0?.billingAddress?.country === "DE",
           _v3 = !!_v12 && "subscribe" !== _v12,
           _v4 = (!!_v2 && !_v8 && !_v9 || !!_v3) && null;
         _v4({
-          type: _v74.ActionTypes.TOOGLE_AUTORENEWAL_OPT_IN,
+          type: _v75.ActionTypes.TOOGLE_AUTORENEWAL_OPT_IN,
           payload: _v1 || "subscribe" === _v12 ? {
             hasOptedInToAutorenew: _v4,
             hasAgreedToTerms: _v3
           } : null
         });
-      }, [_v0?.location, _v8, _v9, _v14.data, _v4]), _v10 && (0, _v64.isCreatorProductTier)(_v10)) ? [_v0 => _v16({
+      }, [_v0?.location, _v8, _v9, _v14.data, _v4]), _v10 && (0, _v65.isCreatorProductTier)(_v10)) ? [_v0 => _v16({
         select: [],
         variables: {
           useJuno: _v3,
@@ -1322,7 +1323,7 @@
           items: [{
             productId: _v11 ?? void 0,
             quantity: 1
-          }].map(_v64.transformToOrderItemOptions)
+          }].map(_v65.transformToOrderItemOptions)
         }
       }), _v14] : "upgrade" === _v6 && _v7 && _v5 ? [(_v0, _v1) => _v18({
         select: [],
@@ -1344,17 +1345,17 @@
           couponCode: _v0.couponCode,
           vatId: _v0.vatId,
           isTrial: _v0.isTrial,
-          items: (_v0.items || []).map(_v64.transformToOrderItemOptions)
+          items: (_v0.items || []).map(_v65.transformToOrderItemOptions)
         }
       }), _v14];
     },
-    _v76 = (_v0 = 600) => {
-      let [_v1, _v2] = _v75();
+    _v77 = (_v0 = 600) => {
+      let [_v1, _v2] = _v76();
       return [(0, _v9.default)(_v1, _v0), _v2];
     },
-    _v77 = () => {
+    _v78 = () => {
       let _v0 = (0, _v11.useRouter)(),
-        _v1 = (0, _v49.useViewer)(),
+        _v1 = (0, _v50.useViewer)(),
         _v2 = (0, _v10.useSearchParams)(),
         {
           settings: _v3
@@ -1379,20 +1380,20 @@
             defaultPaymentType: _v20
           },
           dispatch: _v21
-        } = _v52(),
+        } = _v53(),
         {
           state: {
             submitOrder: _v22
           },
           dispatch: _v23
-        } = _v56(),
+        } = _v57(),
         [_v24, _v25] = (0, _v36.usePatchMePreferences)(),
         {
           trackCheckoutFailed: _v26
         } = (0, _v47.useCheckoutTracking)(),
         _v27 = (0, _v48.usePico)(),
         _v28 = (0, _v12.useRef)(!1),
-        _v29 = _v11?.isCreatorProduct ? (0, _v64.getPlanType)(_v16) : _v13 ? "monthly" : "annual",
+        _v29 = _v11?.isCreatorProduct ? (0, _v65.getPlanType)(_v16) : _v13 ? "monthly" : "annual",
         _v30 = (0, _v12.useCallback)((_v0, _v1) => {
           _v28.current || null === _v27 || void 0 === _v12 || (_v28.current = !0, _v26({
             tier: _v12,
@@ -1413,12 +1414,12 @@
           };
         if (_v32.called ? _v0 = _v32 : _v34.called && (_v0 = _v34), _v0) {
           if (_v23({
-            type: _v74.ApiActionTypes.SUBMIT_ORDER,
+            type: _v75.ApiActionTypes.SUBMIT_ORDER,
             payload: _v0
           }), _v0.error) {
-            let _v0 = _v73();
+            let _v0 = _v74();
             _v21({
-              type: _v74.ActionTypes.PAYMENT_ALERT,
+              type: _v75.ActionTypes.PAYMENT_ALERT,
               payload: {
                 status: "error",
                 message: _v0
@@ -1428,48 +1429,48 @@
             let _v0 = _v0.data?.error;
             if (_v0) {
               _v23({
-                type: _v74.ApiActionTypes.SUBMIT_ORDER,
+                type: _v75.ApiActionTypes.SUBMIT_ORDER,
                 payload: {
                   ..._v0,
                   data: null,
                   error: Error(_v0)
                 }
               });
-              let _v0 = _v73();
+              let _v0 = _v74();
               _v21({
-                type: _v74.ActionTypes.PAYMENT_ALERT,
+                type: _v75.ActionTypes.PAYMENT_ALERT,
                 payload: {
                   status: "error",
                   message: _v0
                 }
               }), _v30(_v0), "renew" === _v9 && _v1();
             } else if (_v0.data?.shouldBlockPurchase) {
-              let _v0 = _v73(_v72.SIFT_ERROR);
+              let _v0 = _v74(_v73.SIFT_ERROR);
               _v23({
-                type: _v74.ApiActionTypes.SUBMIT_ORDER,
+                type: _v75.ApiActionTypes.SUBMIT_ORDER,
                 payload: {
                   ..._v0,
                   data: null,
                   error: Error(_v0)
                 }
               }), _v21({
-                type: _v74.ActionTypes.PAYMENT_ALERT,
+                type: _v75.ActionTypes.PAYMENT_ALERT,
                 payload: {
                   status: "error",
                   message: _v0
                 }
               }), _v30("SIFT_ERROR", "sift_error"), "renew" === _v9 && _v1();
             } else _v23({
-              type: _v74.ApiActionTypes.SUBMIT_ORDER,
+              type: _v75.ApiActionTypes.SUBMIT_ORDER,
               payload: {
                 ..._v0,
                 loading: !0
               }
             }), _v21({
-              type: _v74.ActionTypes.ORDER_SUBMIT,
+              type: _v75.ActionTypes.ORDER_SUBMIT,
               payload: _v0.data
             }), _v21({
-              type: _v74.ActionTypes.PAYMENT_ALERT,
+              type: _v75.ActionTypes.PAYMENT_ALERT,
               payload: void 0
             });
           }
@@ -1485,7 +1486,7 @@
         if (_v22.called && _v22.data && _v25.called && _v25.data && !_v25.loading && _v11) if (_v5(null), _v6 && _v7(void 0), "renew" === _v9) window.location.href = "/manage/team/billing?rns=1";else if (_v19) window.opener ? window.location.href = `/store/ondemand/popup/${_v17}?ssl=1&player=1` : parent.location.reload();else {
           let _v0 = _v2 ? `&${_v2.toString()}` : "",
             _v1 = _v22.data.orderId,
-            _v2 = _v11.isCreatorProduct ? (0, _v64.getPlanType)(_v16) : _v13 ? "monthly" : "annual",
+            _v2 = _v11.isCreatorProduct ? (0, _v65.getPlanType)(_v16) : _v13 ? "monthly" : "annual",
             _v3 = `/onboarding${_v0.query?.token ? "/mobile" : ""}?product_name=${_v11.name}&user_email=${_v1?.user ? _v1.user.email : ""}&order_id=${_v1}${_v0}`;
           if ("purchase" === _v9) {
             let _v0 = `${_v11.tier}-${_v2}-${_v22.data.isTrial ? "free" : "paid"}`;
@@ -1506,7 +1507,10 @@
             }));
             _v3 += `&extole_event_data=${_v0}`;
           }
-          window.location.href = _v11.isCreatorProduct ? _v18 || "/home" : _v3;
+          if (_v11.isCreatorProduct) window.location.href = _v18 || "/home";else {
+            let _v0 = _v49.postCheckoutUrl.read();
+            _v0 ? (_v49.postCheckoutUrl.clear(), window.location.href = _v0) : window.location.href = _v3;
+          }
         }
       }, [_v22, _v25, _v5, _v11, _v0, _v23, _v6, _v7, _v9, _v16, _v13]), "renew" === _v9 && _v10) ? [_v0 => {
         _v33({
@@ -1567,14 +1571,14 @@
         });
       }, _v22];
     },
-    _v78 = () => {
-      let _v0 = (0, _v49.useViewer)();
+    _v79 = () => {
+      let _v0 = (0, _v50.useViewer)();
       return {
         firstName: _v0?.user?.name?.split(" ")[0] || "_",
         lastName: _v0?.user?.name?.split(" ").slice(1).join(" ") || "_"
       };
     },
-    _v79 = () => {
+    _v80 = () => {
       let _v0 = (0, _v7.useStripe)(),
         _v1 = (0, _v7.useElements)();
       return [async ({
@@ -1620,7 +1624,7 @@
         };
       }];
     },
-    _v80 = () => {
+    _v81 = () => {
       let _v0 = (0, _v7.useStripe)(),
         _v1 = (0, _v7.useElements)();
       return [async ({
@@ -1667,12 +1671,12 @@
       }];
     };
   _v0.s(["useAddStripePaymentMethod", 0, () => {
-    let _v0 = (0, _v49.useViewer)(),
+    let _v0 = (0, _v50.useViewer)(),
       _v1 = (0, _v7.useStripe)(),
       _v2 = (0, _v7.useElements)(),
       [_v3, _v4] = (0, _v12.useState)(!1),
-      [_v5] = _v79(),
-      [_v6] = _v80();
+      [_v5] = _v80(),
+      [_v6] = _v81();
     return [_v3, async ({
       billingName: _v0,
       billingAddress: _v1,
@@ -1862,7 +1866,7 @@
           creatorProductAction: _v7,
           creatorProductId: _v8
         }
-      } = _v52(),
+      } = _v53(),
       {
         settings: _v9
       } = (0, _v46.useOrionSettings)(),
@@ -1871,9 +1875,9 @@
       _v13 = (0, _v11.useRouter)();
     return (0, _v12.useEffect)(function () {
       if (_v12.error) {
-        let _v0 = _v73(_v72.PAYPAL_CONNECTION);
+        let _v0 = _v74(_v73.PAYPAL_CONNECTION);
         _v0({
-          type: _v74.ActionTypes.PAYMENT_ALERT,
+          type: _v75.ActionTypes.PAYMENT_ALERT,
           payload: {
             status: "error",
             message: _v0
@@ -1894,7 +1898,9 @@
         _v3 = `${window.location.origin}/payments/paypal/authorized?product_name=${_v1}&checkout_type=${_v2}&user_entity=${_v0}${_v2}`;
       _v10 && (_v3 += "&use_juno=1"), "purchase" === _v2 ? _v3 += `&order_id=${_v5?.id}` : _v3 += `&subscription_id=${_v3?.id}&billing_plan_id=${_v4?.id}`;
       let _v4 = _v7 && _v8 ? `/checkout/ondemand?action=${_v7}&product=${_v8}` : `/checkout/${_v1.toLowerCase()}?${_v2.substring(1)}`;
-      _v3 += `&error_redirect=${encodeURIComponent(_v4)}`, _v11({
+      _v3 += `&error_redirect=${encodeURIComponent(_v4)}`;
+      let _v5 = _v49.postCheckoutUrl.read();
+      _v5 && (_v3 += `&post_checkout_url=${encodeURIComponent(_v5)}`), _v11({
         variables: {
           cancelUrl: window.location.href,
           notifyUrl: "/",
@@ -1909,7 +1915,7 @@
     return [({
       hasOpenInvoice: _v0 = !1
     }) => {
-      let _v1 = _v2.query?.token && !(0, _v64.isPayPalToken)(_v2.query?.token) ? `&token=${_v2.query?.token}&mwru=${_v2.query?.mwru}` : "",
+      let _v1 = _v2.query?.token && !(0, _v65.isPayPalToken)(_v2.query?.token) ? `&token=${_v2.query?.token}&mwru=${_v2.query?.mwru}` : "",
         _v2 = `${_v1 ? `?${_v1.substring(1)}` : ""}`,
         _v3 = `${_v0 ? `${_v1 ? "&" : "?"}open_invoice=1` : ""}`,
         _v4 = `${_v2}${_v3}`,
@@ -1938,14 +1944,14 @@
           campaign: _v9,
           fakeDoorConfig: _v10
         }
-      } = _v52(),
+      } = _v53(),
       _v11 = (0, _v45.useCampaignIdOverride)() ?? _v9,
-      _v12 = (0, _v49.useViewer)(),
+      _v12 = (0, _v50.useViewer)(),
       [_v13, _v14] = (0, _v13.default)(_v3, void 0),
-      _v15 = _v1 && (0, _v64.isCreatorProductTier)(_v1),
-      _v16 = (0, _v64.getErrorRedirectPath)(_v1, _v8, _v10),
+      _v15 = _v1 && (0, _v65.isCreatorProductTier)(_v1),
+      _v16 = (0, _v65.getErrorRedirectPath)(_v1, _v8, _v10),
       _v17 = _v41(() => _v12 && _v1 && (!_v15 || _v7) ? _v15 ? {
-        select: _v74.SUBSCRIPTION_PRODUCT_FIELDS,
+        select: _v75.SUBSCRIPTION_PRODUCT_FIELDS,
         query: {
           country: _v12.location,
           legacyProductId: String(_v7),
@@ -1956,7 +1962,7 @@
           })
         }
       } : {
-        select: _v74.SUBSCRIPTION_PRODUCT_FIELDS,
+        select: _v75.SUBSCRIPTION_PRODUCT_FIELDS,
         query: {
           country: _v12.location,
           tiers: [_v1],
@@ -1980,23 +1986,23 @@
       }
       if (_v17.data && _v18 && !_v3) {
         let _v0 = _v2 ? "monthly" : "annual",
-          _v1 = _v15 ? _v18.plans[(0, _v64.getPlanType)(_v6)] : _v18.plans[_v0];
+          _v1 = _v15 ? _v18.plans[(0, _v65.getPlanType)(_v6)] : _v18.plans[_v0];
         _v1 && "available" === _v1.metadata.status || _v10 || (_v14(void 0), window.location.href = window.location.origin + _v16), _v0({
-          type: _v74.ActionTypes.FETCH_PRODUCT,
+          type: _v75.ActionTypes.FETCH_PRODUCT,
           payload: _v18
         }), _v0({
-          type: _v74.ActionTypes.SET_BILLING_PLAN,
+          type: _v75.ActionTypes.SET_BILLING_PLAN,
           payload: _v1
         }), _v18.creatorProductUrls && (_v0({
-          type: _v74.ActionTypes.SET_CREATOR_PRODUCT_THUMBNAIL_URL,
+          type: _v75.ActionTypes.SET_CREATOR_PRODUCT_THUMBNAIL_URL,
           payload: _v18.creatorProductUrls.thumbnail
         }), _v0({
-          type: _v74.ActionTypes.SET_CREATOR_PRODUCT_TITLE_PAGE_URL,
+          type: _v75.ActionTypes.SET_CREATOR_PRODUCT_TITLE_PAGE_URL,
           payload: _v18.creatorProductUrls.clipPage
         }));
       }
       _v17.data && _v18 && _v3 && _v0({
-        type: _v74.ActionTypes.FETCH_PRODUCT,
+        type: _v75.ActionTypes.FETCH_PRODUCT,
         payload: _v18
       });
     }, [_v0, _v17.data, _v17.error, _v18, _v2, _v14, _v3]), {
@@ -2004,7 +2010,7 @@
       data: _v18
     };
   }, "useGetFormattedDate", 0, (_v0, _v1 = !1) => {
-    let _v2 = (0, _v49.useViewer)(),
+    let _v2 = (0, _v50.useViewer)(),
       _v3 = _v0 ? new Date(_v0) : new Date();
     return new Intl.DateTimeFormat(_v2.locale, {
       year: "numeric",
@@ -2035,9 +2041,9 @@
           order: _v15,
           defaultPromoCodeId: _v16
         }
-      } = _v52(),
-      _v17 = (0, _v49.useViewer)(),
-      _v18 = _v78(),
+      } = _v53(),
+      _v17 = (0, _v50.useViewer)(),
+      _v18 = _v79(),
       [_v19, _v20] = (0, _v13.default)(_v2, null),
       [_v21, _v22] = _v32(),
       [_v23, _v24] = _v28(),
@@ -2049,7 +2055,7 @@
         error: _v32
       } = _v29 || {},
       [_v33, _v34] = (0, _v12.useState)(null),
-      _v35 = _v12 && (0, _v64.isCreatorProductTier)(_v12);
+      _v35 = _v12 && (0, _v65.isCreatorProductTier)(_v12);
     return (0, _v12.useEffect)(() => {
       if (_v16 && _v28.error && !_v28.loading) return void _v34(_v16);
       if (_v16) {
@@ -2127,7 +2133,7 @@
         ..._v0,
         data: _v0.data ?? null
       }), _v0.data && (_v2({
-        type: _v74.ActionTypes.ORDER_PREVIEW,
+        type: _v75.ActionTypes.ORDER_PREVIEW,
         payload: _v0.data
       }), _v20(_v0.data.id)));
     }, [_v2, _v26, _v24, _v22, _v20]), (0, _v12.useEffect)(function () {
@@ -2135,13 +2141,13 @@
         if (_v10.isCreatorProduct || _v10.isBandwidthProduct) return;
         let _v0 = _v3?.id;
         ("purchase" !== _v4 || _v31.currency === _v3?.price?.currency) && _v31.isTrial == _v6 && (_v31.items?.find(_v0 => _v0.billingPlanId === _v0) || _v8) || (_v20(null), _v2({
-          type: _v74.ActionTypes.ORDER_PREVIEW,
+          type: _v75.ActionTypes.ORDER_PREVIEW,
           payload: null
         }));
       }
     }, [_v3, _v2, _v6, _v7, _v8, _v31, _v20, _v10, _v4]), (0, _v12.useEffect)(function () {
       _v32 && (404 === _v32.status ? (_v20(null), _v2({
-        type: _v74.ActionTypes.ORDER_PREVIEW,
+        type: _v75.ActionTypes.ORDER_PREVIEW,
         payload: null
       })) : 400 === _v32.status && (async () => {
         let _v0 = "";
@@ -2165,7 +2171,7 @@
           _v2 = _v28.data?.code;
         if (_v1 && _v2) {
           _v2({
-            type: _v74.ActionTypes.ORDER_PREVIEW,
+            type: _v75.ActionTypes.ORDER_PREVIEW,
             payload: null
           }), _v34(_v2);
           return;
@@ -2173,13 +2179,13 @@
       })());
     }, [_v2, _v32, _v20, _v28.data?.code]), (0, _v12.useEffect)(function () {
       if (!_v31?.billingAddress?.postalCode && !_v17?.location && !_v31?.billingAddress?.country) return;
-      let _v0 = !!_v31?.billingAddress?.postalCode && (0, _v64.isZipCodeIsRequiredAutorenewalOptInRange)(_v31?.billingAddress?.postalCode),
+      let _v0 = !!_v31?.billingAddress?.postalCode && (0, _v65.isZipCodeIsRequiredAutorenewalOptInRange)(_v31?.billingAddress?.postalCode),
         _v1 = _v17?.location === "DE" || _v31?.billingAddress?.country === "DE",
         _v2 = !!_v13 && "subscribe" !== _v13,
         _v3 = _v0 || "subscribe" === _v13,
         _v4 = (!!_v1 && !_v7 && !_v9 || !!_v2) && null;
       _v2({
-        type: _v74.ActionTypes.TOOGLE_AUTORENEWAL_OPT_IN,
+        type: _v75.ActionTypes.TOOGLE_AUTORENEWAL_OPT_IN,
         payload: _v3 ? {
           hasOptedInToAutorenew: _v4,
           hasAgreedToTerms: _v2
@@ -2193,27 +2199,27 @@
   }, "useGetPaymentMethods", 0, () => {
     let {
         dispatch: _v0
-      } = _v52(),
+      } = _v53(),
       {
         isLoading: _v1,
         data: _v2
       } = (0, _v33.useGetMePaymentMethods)({
-        select: _v74.PAYMENT_METHOD_FIELDS,
+        select: _v75.PAYMENT_METHOD_FIELDS,
         query: {
           showDisabled: !1
         }
       });
     return (0, _v12.useEffect)(() => {
       if (_v2 && _v2.data) {
-        let _v0 = _v2.data.filter(_v64.filterSavedPaymentMethods);
+        let _v0 = _v2.data.filter(_v65.filterSavedPaymentMethods);
         if (_v0.length > 0) {
           _v0({
-            type: _v74.ActionTypes.PAYMENT_METHODS,
+            type: _v75.ActionTypes.PAYMENT_METHODS,
             payload: _v0
           });
           let _v0 = _v0.find(_v0 => _v0.isDefault) || _v0[0];
           _v0 && _v0({
-            type: _v74.ActionTypes.SELECT_PAYMENT_METHOD,
+            type: _v75.ActionTypes.SELECT_PAYMENT_METHOD,
             payload: _v0
           });
         }
@@ -2231,7 +2237,7 @@
       data: _v0?.data?.ue
     };
   }, "useGetUserSubscription", 0, () => {
-    let _v0 = (0, _v49.useViewer)(),
+    let _v0 = (0, _v50.useViewer)(),
       {
         dispatch: _v1,
         state: {
@@ -2239,19 +2245,19 @@
           isRenewNow: _v3,
           tier: _v4
         }
-      } = _v52(),
+      } = _v53(),
       [_v5, _v6] = (0, _v12.useState)(),
       {
         data: _v7
       } = (0, _v42.useGetMeSubscriptions)({
-        select: _v74.SUBSCRIPTION_FIELDS,
+        select: _v75.SUBSCRIPTION_FIELDS,
         query: {
           status: "SUBSCRIPTION_STATUS_ACTIVE",
           types: ["SUBSCRIPTION_TYPE_BASE"]
         }
       });
     return (0, _v12.useEffect)(function () {
-      let _v0 = _v4 && (0, _v64.isCreatorProductTier)(_v4);
+      let _v0 = _v4 && (0, _v65.isCreatorProductTier)(_v4);
       if (_v7?.data) {
         _v7.data.length > 1 && window.DD_RUM && window.DD_RUM.onReady(() => {
           window.DD_RUM.addError("Multiple active subscriptions found for user", {
@@ -2261,10 +2267,10 @@
         });
         let _v0 = _v7.data[0] ?? null;
         _v6(_v0), _v1({
-          type: _v74.ActionTypes.FETCH_SUBSCRIPTION,
+          type: _v75.ActionTypes.FETCH_SUBSCRIPTION,
           payload: _v0
         }), _v1({
-          type: _v74.ActionTypes.SET_CHECKOUT_TYPE,
+          type: _v75.ActionTypes.SET_CHECKOUT_TYPE,
           payload: _v0 && !_v0 ? _v3 ? "renew" : "upgrade" : "purchase"
         });
       }
@@ -2275,7 +2281,7 @@
     paymentFormType: _v0
   }) => {
     let _v1,
-      _v2 = (0, _v49.useViewer)(),
+      _v2 = (0, _v50.useViewer)(),
       [_v3, _v4] = (0, _v12.useState)(void 0),
       [_v5, _v6] = (0, _v12.useState)(void 0),
       [_v7, _v8] = (0, _v12.useState)(void 0),
@@ -2332,7 +2338,7 @@
             }
           }
         };
-      if (_v0 === _v74.PaymentFormTypes.TYPE_STRIPE) return _v1(), () => {
+      if (_v0 === _v75.PaymentFormTypes.TYPE_STRIPE) return _v1(), () => {
         _v0.abort();
       };
     }, [_v3, _v0, _v2?.xsrft]), !_v10.current && _v3 && (_v10.current = (0, _v8.loadStripe)(_v3)), _v10.current && _v7 && _v3 && _v5 && (_v1 = {
@@ -2344,7 +2350,7 @@
     let _v0 = (0, _v7.useStripe)(),
       _v1 = (0, _v7.useElements)(),
       [_v2, _v3] = (0, _v12.useState)(!1),
-      [_v4] = _v79();
+      [_v4] = _v80();
     return [_v2, async ({
       clientSecret: _v0,
       billingName: _v1,
@@ -2443,8 +2449,8 @@
           paymentMethods: _v0
         },
         dispatch: _v1
-      } = _v52(),
-      [_v2] = _v76();
+      } = _v53(),
+      [_v2] = _v77();
     return (_v0, _v1) => {
       let _v2 = _v0?.find(_v0 => _v0.id === _v0);
       if (!_v0 || !_v2) throw Error("Invalid payment method selected.");
@@ -2453,16 +2459,16 @@
         paymentMethodId: _v2.id,
         billingAddress: _v2.card.billingAddress
       }), _v1({
-        type: _v74.ActionTypes.SELECT_PAYMENT_METHOD,
+        type: _v75.ActionTypes.SELECT_PAYMENT_METHOD,
         payload: _v2
       });
     };
-  }, "useSubmitOrder", 0, _v77, "useSubmitPaymentMethod", 0, () => {
-    let _v0 = (0, _v49.useViewer)(),
+  }, "useSubmitOrder", 0, _v78, "useSubmitPaymentMethod", 0, () => {
+    let _v0 = (0, _v50.useViewer)(),
       _v1 = (0, _v11.useRouter)(),
       [_v2, _v3] = (0, _v33.usePostMePaymentMethods)();
     return [_v0?.user?.id || _v1.query?.token ? (_v0, _v1, _v2, _v3, _v4, _v5, _v6) => {
-      _v0 && _v0.user && _v69({
+      _v0 && _v0.user && _v70({
         user_id: `${_v0.user.id}`,
         hpm_session_id: _v0.xsrft,
         step_name: "Received vendor token",
@@ -2478,7 +2484,7 @@
           hpmSessionId: _v6,
           attemptSyncPayment: _v5 ?? !0
         }
-      }), _v0 && _v0.user && _v69({
+      }), _v0 && _v0.user && _v70({
         user_id: `${_v0.user.id}`,
         hpm_session_id: _v0.xsrft,
         step_name: "Passed vendor token to API",
@@ -2497,22 +2503,22 @@
           subscriptionProduct: _v6,
           creatorProductAction: _v7
         }
-      } = _v52(),
-      _v8 = (0, _v49.useViewer)(),
+      } = _v53(),
+      _v8 = (0, _v50.useViewer)(),
       {
         firstName: _v9,
         lastName: _v10
-      } = _v78(),
+      } = _v79(),
       _v11 = (0, _v7.useStripe)(),
       _v12 = (0, _v7.useElements)(),
-      [_v13] = _v77(),
-      [_v14] = _v79(),
-      [_v15] = _v80(),
+      [_v13] = _v78(),
+      [_v14] = _v80(),
+      [_v15] = _v81(),
       [_v16, _v17] = (0, _v12.useState)(!1),
       {
         trackCheckoutFailed: _v18
       } = (0, _v47.useCheckoutTracking)(),
-      _v19 = _v6?.isCreatorProduct ? (0, _v64.getPlanType)(_v7) : _v4 ? "monthly" : "annual",
+      _v19 = _v6?.isCreatorProduct ? (0, _v65.getPlanType)(_v7) : _v4 ? "monthly" : "annual",
       _v20 = (0, _v12.useCallback)(() => ({
         trackCheckoutFailed: _v18,
         tier: _v3 ?? "unknown",
@@ -2530,12 +2536,12 @@
       } = await _v12.submit();
       if (_v4?.message) {
         _v0({
-          type: _v74.ActionTypes.PAYMENT_ALERT,
+          type: _v75.ActionTypes.PAYMENT_ALERT,
           payload: {
             status: "error",
             message: _v4.message
           }
-        }), _v17(!1), _v68({
+        }), _v17(!1), _v69({
           order: _v1,
           selectedPaymentMethod: void 0,
           errorResponse: {
@@ -2559,7 +2565,7 @@
           first_name: _v9,
           last_name: _v10,
           currency: _v1.currency,
-          items: _v1.items.map(_v64.transformToOrderItemOptions),
+          items: _v1.items.map(_v65.transformToOrderItemOptions),
           billing_address: _v1.billingAddress,
           is_trial: _v1.isTrial,
           vat_id: _v1.vatId,
@@ -2568,7 +2574,7 @@
       });
       if (!_v5.ok) {
         _v0({
-          type: _v74.ActionTypes.PAYMENT_ALERT,
+          type: _v75.ActionTypes.PAYMENT_ALERT,
           payload: {
             status: "error",
             message: (0, _v1.translate)({
@@ -2607,7 +2613,7 @@
       } = await _v5.json();
       if (!_v7 || !_v6) {
         _v0({
-          type: _v74.ActionTypes.PAYMENT_ALERT,
+          type: _v75.ActionTypes.PAYMENT_ALERT,
           payload: {
             status: "error",
             message: (0, _v1.translate)({
@@ -2642,7 +2648,7 @@
       }
       if (!_v0) {
         _v0({
-          type: _v74.ActionTypes.PAYMENT_ALERT,
+          type: _v75.ActionTypes.PAYMENT_ALERT,
           payload: {
             status: "error",
             message: (0, _v1.translate)({
@@ -2700,12 +2706,12 @@
       let _v11 = _v2 || _v1;
       if (_v3?.message) {
         _v0({
-          type: _v74.ActionTypes.PAYMENT_ALERT,
+          type: _v75.ActionTypes.PAYMENT_ALERT,
           payload: {
             status: "error",
             message: _v3.message
           }
-        }), _v17(!1), _v68({
+        }), _v17(!1), _v69({
           order: _v1,
           selectedPaymentMethod: void 0,
           errorResponse: {
@@ -2718,7 +2724,7 @@
       }
       if (!_v11?.id) {
         _v0({
-          type: _v74.ActionTypes.PAYMENT_ALERT,
+          type: _v75.ActionTypes.PAYMENT_ALERT,
           payload: {
             status: "error",
             message: (0, _v1.translate)({
@@ -2748,7 +2754,7 @@
               }
             })
           }
-        }), _v17(!1), _v68({
+        }), _v17(!1), _v69({
           order: _v1,
           selectedPaymentMethod: void 0,
           errorResponse: {
@@ -2780,25 +2786,25 @@
           order: _v1,
           subscriptionProduct: _v2
         }
-      } = _v52(),
-      [_v3] = _v76(100),
+      } = _v53(),
+      [_v3] = _v77(100),
       _v4 = _v2?.plans?.annual,
       _v5 = _v2?.plans?.altAnnual;
     return _v0 => {
       let _v1 = _v0 ? _v5 : _v4;
       _v1 && _v5 && _v1 && (_v0({
-        type: _v74.ActionTypes.SET_BILLING_PLAN,
+        type: _v75.ActionTypes.SET_BILLING_PLAN,
         payload: _v1
       }), _v3(_v1, _v1.id));
     };
   }, "useTrackCheckoutFormAction", 0, () => {
     let {
         state: _v0
-      } = _v52(),
-      _v1 = (0, _v49.useViewer)(),
+      } = _v53(),
+      _v1 = (0, _v50.useViewer)(),
       _v2 = (0, _v10.useSearchParams)();
     return [(_v0, _v1, _v2, _v3) => {
-      _v67({
+      _v68({
         actionType: _v0,
         location: _v1,
         errorId: _v2,
@@ -2808,8 +2814,8 @@
         searchParams: _v2
       });
     }];
-  }, "useUpdateOrderPreview", 0, _v75, "useZuoraRedirectAssignment", 0, function () {
-    let _v0 = (0, _v49.useViewer)(),
+  }, "useUpdateOrderPreview", 0, _v76, "useZuoraRedirectAssignment", 0, function () {
+    let _v0 = (0, _v50.useViewer)(),
       _v1 = (0, _v11.useRouter)(),
       _v2 = _v0?.user?.id ?? 0,
       _v3 = !!_v1.query?.token,

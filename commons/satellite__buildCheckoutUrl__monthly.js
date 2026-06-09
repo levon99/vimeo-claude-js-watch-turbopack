@@ -20,6 +20,9 @@
         paywall_location: _v0.paywallLocation,
         paywall_type: _v0.paywallType ?? "popup",
         paywall_feature: _v0.paywallFeature,
+        ...(_v0.postCheckoutUrl ? {
+          post_checkout_url: _v0.postCheckoutUrl
+        } : void 0),
         ..._v4(),
         ..._v1
       });

@@ -1306,8 +1306,9 @@
     _v161 = _v0.i(0),
     _v162 = _v0.i(0),
     _v163 = _v0.i(0),
-    _v164 = _v0.i(0);
-  function _v165({
+    _v164 = _v0.i(0),
+    _v165 = _v0.i(0);
+  function _v166({
     id: _v0 = (0, _v79.createDomName)("preview-pause"),
     className: _v1 = (0, _v79.createDomName)("preview-pause")
   }) {
@@ -1334,15 +1335,15 @@
       })
     });
   }
-  var _v166 = _v0.i(0),
-    _v167 = _v0.i(0),
+  var _v167 = _v0.i(0),
     _v168 = _v0.i(0),
     _v169 = _v0.i(0),
     _v170 = _v0.i(0),
     _v171 = _v0.i(0),
     _v172 = _v0.i(0),
-    _v173 = _v0.i(0);
-  async function _v174({
+    _v173 = _v0.i(0),
+    _v174 = _v0.i(0);
+  async function _v175({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1351,31 +1352,31 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v172.measureLatency)("getLiveEventVideoStats", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v2}/video_stats?${(0, _v173.searchQueryString)(_v3)}&fields=${_v1.map(_v173.intoSnakeCase).join(",")}`, {
+    return (0, _v173.measureLatency)("getLiveEventVideoStats", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v2}/video_stats?${(0, _v174.searchQueryString)(_v3)}&fields=${_v1.map(_v174.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v173.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v174.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v173.deepCamelCase)(_v1);
+      return (0, _v174.deepCamelCase)(_v1);
     });
   }
-  var _v175 = _v0.i(0),
-    _v176 = _v0.i(0),
+  var _v176 = _v0.i(0),
     _v177 = _v0.i(0),
-    _v178 = _v0.i(0);
-  function _v179(_v0, _v1) {
+    _v178 = _v0.i(0),
+    _v179 = _v0.i(0);
+  function _v180(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v178.useGctlConfig)();
-    return (0, _v175.default)(_v2 ? `/live_events/${_v2.where.liveEventId}/video_stats${(0, _v177.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v174({
+      } = (0, _v179.useGctlConfig)();
+    return (0, _v176.default)(_v2 ? `/live_events/${_v2.where.liveEventId}/video_stats${(0, _v178.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v175({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -1387,26 +1388,26 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v171.default.env.STORYBOOK && (0, _v177.assignMswData)(_v179, {
+  "true" === _v172.default.env.STORYBOOK && (0, _v178.assignMswData)(_v180, {
     endpoint: "/live_events/:liveEventId/video_stats",
     method: "GET"
-  }), "true" === _v171.default.env.STORYBOOK && (0, _v177.assignMswData)(function () {
+  }), "true" === _v172.default.env.STORYBOOK && (0, _v178.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v176.useSWRConfig)(),
+      } = (0, _v177.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v178.useGctlConfig)(),
-      [_v5, _v6] = (0, _v177.useInternalState)();
+      } = (0, _v179.useGctlConfig)(),
+      [_v5, _v6] = (0, _v178.useInternalState)();
     return [(0, _v10.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/live_events/${_v0.where.liveEventId}/video_stats${(0, _v177.serializeQuery)(_v0)}`, _v174({
+        let _v0 = await _v0(`/live_events/${_v0.where.liveEventId}/video_stats${(0, _v178.serializeQuery)(_v0)}`, _v175({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -1432,8 +1433,8 @@
     endpoint: "/live_events/:liveEventId/video_stats",
     method: "GET"
   });
-  var _v180 = _v0.i(0);
-  function _v181({
+  var _v181 = _v0.i(0);
+  function _v182({
     id: _v0 = (0, _v79.createDomName)("guest-viewers-count"),
     className: _v1 = (0, _v79.createDomName)("guest-viewers-count")
   } = {}) {
@@ -1447,7 +1448,7 @@
       } = (0, _v16.useManager)(_v64.GuestSessionManager),
       {
         data: _v4
-      } = _v179(() => _v2 && _v3 ? {
+      } = _v180(() => _v2 && _v3 ? {
         where: {
           liveEventId: String(_v3)
         },
@@ -1463,13 +1464,13 @@
           peak: _v4.viewers.peak
         }
       } : null, [_v4]);
-    return _v2 ? (0, _v6.jsx)(_v180.PreviewWatchersCount, {
+    return _v2 ? (0, _v6.jsx)(_v181.PreviewWatchersCount, {
       id: _v0,
       className: _v1,
       stats: _v5
     }) : null;
   }
-  function _v182({
+  function _v183({
     id: _v0 = (0, _v79.createDomName)("preview-scene"),
     className: _v1 = (0, _v79.createDomName)("preview-scene"),
     guestSessionContext: {
@@ -1538,24 +1539,24 @@
       _v28 = _v4.isRecordStarted(),
       _v29 = _v4.isStreaming(),
       _v30 = _v4.isEnded(),
-      _v31 = (0, _v168.useSceneScreenShare)(_v24, _v19?.screen.uid || null, _v18 !== _v85.EClientRole.HOST || _v26.isMuted ? null : _v26.track, _v6, _v22),
+      _v31 = (0, _v169.useSceneScreenShare)(_v24, _v19?.screen.uid || null, _v18 !== _v85.EClientRole.HOST || _v26.isMuted ? null : _v26.track, _v6, _v22),
       _v32 = _v25.isMuted ? null : _v25.track,
-      _v33 = (0, _v170.getSceneOverlayColorNew)(_v29, _v30, !!_v5, !0, _v16),
+      _v33 = (0, _v171.getSceneOverlayColorNew)(_v29, _v30, !!_v5, !0, _v16),
       _v34 = (0, _v10.useCallback)(_v0 => _v23.setBulkMediaQuality(_v0), [_v23]),
-      _v35 = (0, _v169.useSceneStatusLabel)(!!_v5, _v29, _v28, _v16);
-    if ((0, _v167.useCanvasPreviewScaleObserver)(_v27, _v24.graphicsConfig.SCENE.LAYOUT_HEIGHT_LIVE, void 0, void 0, _v2.isFullscreenMode), _v30) return (0, _v6.jsx)(_v164.PreviewLayout, {
+      _v35 = (0, _v170.useSceneStatusLabel)(!!_v5, _v29, _v28, _v16);
+    if ((0, _v168.useCanvasPreviewScaleObserver)(_v27, _v24.graphicsConfig.SCENE.LAYOUT_HEIGHT_LIVE, void 0, void 0, _v2.isFullscreenMode), _v30) return (0, _v6.jsx)(_v165.PreviewLayout, {
       ref: _v27,
       id: _v0,
       className: _v1,
       isFullscreenMode: _v2.isFullscreenMode,
-      children: (0, _v6.jsx)(_v163.PreviewCanvas, {
+      children: (0, _v6.jsx)(_v164.PreviewCanvas, {
         id: (0, _v79.createDomName)(_v0, "canvas"),
         className: (0, _v79.createDomName)(_v1, "canvas"),
         background: _v80.NEUTRAL_PREVIEW_CANVAS_BACKGROUND,
         children: (0, _v6.jsx)(_v120.PreviewSizer, {
           id: (0, _v79.createDomName)(_v0, "sizer"),
           className: (0, _v79.createDomName)(_v1, "sizer"),
-          children: (0, _v6.jsx)(_v161.Center, {
+          children: (0, _v6.jsx)(_v162.Center, {
             id: (0, _v79.createDomName)(_v0, "event-ended-notification"),
             position: "absolute",
             inset: 0,
@@ -1572,12 +1573,12 @@
     });
     let _v36 = _v29 && _v16,
       _v37 = !!_v35;
-    return (0, _v6.jsx)(_v164.PreviewLayout, {
+    return (0, _v6.jsx)(_v165.PreviewLayout, {
       ref: _v27,
       id: _v0,
       className: _v1,
       isFullscreenMode: _v2.isFullscreenMode,
-      children: (0, _v6.jsx)(_v163.PreviewCanvas, {
+      children: (0, _v6.jsx)(_v164.PreviewCanvas, {
         id: (0, _v79.createDomName)(_v0, "canvas"),
         className: (0, _v79.createDomName)(_v1, "canvas"),
         background: _v6?.meta?.background,
@@ -1590,24 +1591,24 @@
             width: "100%",
             height: "100%",
             zIndex: 1,
-            children: (0, _v6.jsx)(_v165, {})
+            children: (0, _v6.jsx)(_v166, {})
           }) : null, _v37 ? (0, _v6.jsxs)(_v46.Flex, {
             position: "absolute",
             left: (0, _v47.rem)(12),
             top: (0, _v47.rem)(12),
             gap: (0, _v47.rem)(8),
             zIndex: _v24.graphicsConfig.GRAPHICS_POSITIONING.Z_INDEX.SCENE_LABEL,
-            children: [(0, _v6.jsx)(_v166.PreviewStateLabel, {
+            children: [(0, _v6.jsx)(_v167.PreviewStateLabel, {
               id: (0, _v79.createDomName)(_v0, "scene-state-label"),
               className: (0, _v79.createDomName)(_v1, "scene-state-label"),
               color: _v33,
               position: "static",
               children: _v35
-            }), _v35 === _v78.T_LIVE ? (0, _v6.jsx)(_v181, {
+            }), _v35 === _v78.T_LIVE ? (0, _v6.jsx)(_v182, {
               id: (0, _v79.createDomName)(_v0, "viewers-count"),
               className: (0, _v79.createDomName)(_v1, "viewers-count")
             }) : null]
-          }) : null, _v6 ? (0, _v6.jsx)(_v162.SceneRenderer, {
+          }) : null, _v6 ? (0, _v6.jsx)(_v163.SceneRenderer, {
             canEdit: !1,
             emptyStatePlaceholder: null,
             isInProgram: !0,
@@ -1650,8 +1651,7 @@
       })
     });
   }
-  var _v183 = _v0.i(0),
-    _v184 = _v0.i(0),
+  var _v184 = _v0.i(0),
     _v185 = _v0.i(0),
     _v186 = _v0.i(0),
     _v187 = _v0.i(0),
@@ -1665,8 +1665,9 @@
     _v195 = _v0.i(0),
     _v196 = _v0.i(0),
     _v197 = _v0.i(0),
-    _v198 = ((_v1 = _v198 || {})[_v1.PUBLIC_CHAT = 1] = "PUBLIC_CHAT", _v1[_v1.BACKSTAGE_CHAT = 2] = "BACKSTAGE_CHAT", _v1[_v1.QNA = 3] = "QNA", _v1);
-  function _v199({
+    _v198 = _v0.i(0),
+    _v199 = ((_v1 = _v199 || {})[_v1.PUBLIC_CHAT = 1] = "PUBLIC_CHAT", _v1[_v1.BACKSTAGE_CHAT = 2] = "BACKSTAGE_CHAT", _v1[_v1.QNA = 3] = "QNA", _v1);
+  function _v200({
     id: _v0 = (0, _v79.createDomName)("guest-chat-tab"),
     className: _v1 = (0, _v79.createDomName)("guest-chat-tab"),
     chatContext: {
@@ -1682,7 +1683,7 @@
       streamMode: _v5
     } = (0, _v16.useManager)(_v38.ComposerSessionStatusManager)
   }) {
-    let _v6 = (0, _v197.useLogger)("GuestChatTab"),
+    let _v6 = (0, _v198.useLogger)("GuestChatTab"),
       {
         initialState: _v7
       } = (0, _v54.useLiveGlobals)(),
@@ -1717,12 +1718,12 @@
       id: _v0,
       className: _v1,
       height: "100%",
-      sx: (0, _v196.createTabWrapperStyle)(),
-      children: [(0, _v6.jsx)(_v195.RightPanelHeader, {
+      sx: (0, _v197.createTabWrapperStyle)(),
+      children: [(0, _v6.jsx)(_v196.RightPanelHeader, {
         label: _v78.T_CHAT,
-        rightControls: (0, _v6.jsx)(_v194.RightPanelDismiss, {})
-      }), (0, _v6.jsx)(_v193.RightPanelContent, {
-        children: (0, _v6.jsx)(_v191.ChatPreloader, {
+        rightControls: (0, _v6.jsx)(_v195.RightPanelDismiss, {})
+      }), (0, _v6.jsx)(_v194.RightPanelContent, {
+        children: (0, _v6.jsx)(_v192.ChatPreloader, {
           id: (0, _v79.createDomName)(_v0, "preloader"),
           className: (0, _v79.createDomName)(_v1, "preloader")
         })
@@ -1731,12 +1732,12 @@
       id: _v0,
       className: _v1,
       height: "100%",
-      sx: (0, _v196.createTabWrapperStyle)(),
-      children: [(0, _v6.jsx)(_v195.RightPanelHeader, {
+      sx: (0, _v197.createTabWrapperStyle)(),
+      children: [(0, _v6.jsx)(_v196.RightPanelHeader, {
         label: _v78.T_CHAT,
-        rightControls: (0, _v6.jsx)(_v194.RightPanelDismiss, {})
-      }), (0, _v6.jsx)(_v193.RightPanelContent, {
-        children: (0, _v6.jsxs)(_v185.Tabs, {
+        rightControls: (0, _v6.jsx)(_v195.RightPanelDismiss, {})
+      }), (0, _v6.jsx)(_v194.RightPanelContent, {
+        children: (0, _v6.jsxs)(_v186.Tabs, {
           id: (0, _v79.createDomName)(_v0, "tabs"),
           className: (0, _v79.createDomName)(_v1, "tabs"),
           index: _v8,
@@ -1747,21 +1748,21 @@
           maxWidth: "100%",
           size: "sm",
           onChange: _v13,
-          children: [_v12.length ? (0, _v6.jsxs)(_v186.TabList, {
+          children: [_v12.length ? (0, _v6.jsxs)(_v187.TabList, {
             children: [_v12.map(({
               panelId: _v0,
               label: _v1,
               chatType: _v2
-            }, _v3) => (0, _v6.jsx)(_v184.Tab, {
+            }, _v3) => (0, _v6.jsx)(_v185.Tab, {
               className: (0, _v79.createDomName)(_v0, _v0, "tab"),
-              children: (0, _v6.jsx)(_v192.ChatTabLabel, {
+              children: (0, _v6.jsx)(_v193.ChatTabLabel, {
                 className: (0, _v79.createDomName)(_v0, "tab-label"),
                 isSelected: _v3 === _v8,
                 chatType: _v2,
                 label: _v1
               })
-            }, _v0)), (0, _v6.jsx)(_v185.TabIndicator, {}, _v12.length)]
-          }) : null, (0, _v6.jsx)(_v188.TabPanels, {
+            }, _v0)), (0, _v6.jsx)(_v186.TabIndicator, {}, _v12.length)]
+          }) : null, (0, _v6.jsx)(_v189.TabPanels, {
             position: "relative",
             display: "flex",
             flexDirection: "column",
@@ -1769,7 +1770,7 @@
             children: _v12.map(({
               panelId: _v0,
               chatType: _v1
-            }) => (0, _v6.jsx)(_v187.TabPanel, {
+            }) => (0, _v6.jsx)(_v188.TabPanel, {
               className: (0, _v79.createDomName)(_v0, _v0, "tab-panel"),
               display: "flex",
               flexBasis: 0,
@@ -1783,10 +1784,10 @@
                 overflow: "hidden",
                 flexBasis: 0,
                 grow: 1,
-                children: [(0, _v6.jsx)(_v189.ChatHistory, {
+                children: [(0, _v6.jsx)(_v190.ChatHistory, {
                   chatType: _v1,
                   currentUserId: _v10
-                }), (0, _v6.jsx)(_v190.ChatInput, {
+                }), (0, _v6.jsx)(_v191.ChatInput, {
                   chatType: _v1,
                   isDisabled: !_v4
                 })]
@@ -1797,22 +1798,22 @@
       })]
     });
   }
-  function _v200({
+  function _v201({
     id: _v0 = (0, _v79.createDomName)("guest-panel-right"),
     className: _v1 = (0, _v79.createDomName)("guest-panel-right")
   }) {
     let _v2 = (0, _v10.useMemo)(() => [{
       id: _v138.ERightPanelId.CHAT,
-      content: _v199,
+      content: _v200,
       isVisible: !0
     }], []);
-    return (0, _v6.jsx)(_v183.RightPanel, {
+    return (0, _v6.jsx)(_v184.RightPanel, {
       id: _v0,
       className: _v1,
       items: _v2
     });
   }
-  function _v201({
+  function _v202({
     id: _v0 = (0, _v79.createDomName)("guest-fullscreen-layout"),
     className: _v1 = (0, _v79.createDomName)("guest-fullscreen-layout"),
     composerSessionStatusContext: {
@@ -1861,8 +1862,8 @@
           _v0.cancel(), _v1.unobserve(_v0);
         };
       }
-      throw new _v159.LiveError("Failed to find resizing element.");
-    }, [_v5, _v8]), (0, _v160.default)(_v10, () => _v7(!1)), (0, _v6.jsxs)(_v46.Flex, {
+      throw new _v160.LiveError("Failed to find resizing element.");
+    }, [_v5, _v8]), (0, _v161.default)(_v10, () => _v7(!1)), (0, _v6.jsxs)(_v46.Flex, {
       id: _v0,
       className: _v1,
       alignItems: "center",
@@ -1892,6 +1893,12 @@
         children: (0, _v6.jsx)(_v96, {
           withTopBorder: !1
         })
+      }), (0, _v6.jsx)(_v159.SpeakingWhileMutedBanner, {
+        position: "absolute",
+        top: (0, _v47.rem)(92),
+        left: "50%",
+        transform: "translateX(-50%)",
+        zIndex: 103
       }), (0, _v6.jsxs)(_v46.Flex, {
         justifyContent: "center",
         wrap: "unset",
@@ -1920,7 +1927,7 @@
             onMouseEnter: () => _v7(!0)
           }), (0, _v6.jsx)(_v46.Flex, {
             ref: _v9,
-            children: (0, _v6.jsx)(_v182, {})
+            children: (0, _v6.jsx)(_v183, {})
           }), (0, _v6.jsx)(_v46.Flex, {
             justifyContent: "center",
             alignItems: "center",
@@ -1932,16 +1939,15 @@
               isSlidesControlsEnabled: !0
             })
           })]
-        }), _v14 ? (0, _v6.jsx)(_v200, {}) : null]
+        }), _v14 ? (0, _v6.jsx)(_v201, {}) : null]
       })]
     });
   }
-  var _v202 = _v0.i(0),
-    _v203 = _v0.i(0),
+  var _v203 = _v0.i(0),
     _v204 = _v0.i(0);
   function _v205(_v0, _v1, _v2) {
     if (!_v2) return [null, null];
-    let _v3 = (0, _v170.pickSortedScenesList)(_v0, _v1),
+    let _v3 = (0, _v171.pickSortedScenesList)(_v0, _v1),
       _v4 = _v3.findIndex(_v0 => _v0.id === _v2);
     return [_v3[_v4] ?? null, _v3[_v4 + 1] ?? null];
   }
@@ -2095,7 +2101,7 @@
       alignItems: "center",
       grow: 1,
       gap: (0, _v47.rem)(4),
-      children: [(0, _v6.jsxs)(_v46.Flex, {
+      children: [(0, _v6.jsx)(_v46.Flex, {
         id: (0, _v79.createDomName)(_v0, "content"),
         className: (0, _v79.createDomName)(_v1, "content"),
         grow: 1,
@@ -2103,12 +2109,22 @@
         justify: "center",
         alignItems: "center",
         width: "100%",
-        children: [(0, _v6.jsx)(_v152, {
-          id: _v0,
-          isStandaloneBlock: !0
-        }), (0, _v6.jsx)(_v182, {}), (0, _v6.jsx)(_v208, {})]
-      }), (0, _v6.jsx)(_v202.SpeakingWhileMutedBanner, {
-        marginBottom: (0, _v47.rem)(16)
+        children: (0, _v6.jsxs)(_v46.Flex, {
+          position: "relative",
+          direction: "column",
+          alignItems: "center",
+          width: "100%",
+          children: [(0, _v6.jsx)(_v159.SpeakingWhileMutedBanner, {
+            position: "absolute",
+            bottom: "100%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            marginBottom: (0, _v47.rem)(32)
+          }), (0, _v6.jsx)(_v152, {
+            id: _v0,
+            isStandaloneBlock: !0
+          }), (0, _v6.jsx)(_v183, {}), (0, _v6.jsx)(_v208, {})]
+        })
       }), (0, _v6.jsx)(_v154, {
         isScreenSharingEnabled: !0
       })]
@@ -2159,33 +2175,33 @@
       id: _v0,
       className: _v1,
       height: "100%",
-      sx: (0, _v196.createTabWrapperStyle)(),
+      sx: (0, _v197.createTabWrapperStyle)(),
       children: [(0, _v6.jsx)(_v221.LeftPanelHeader, {
         label: _v78.T_QNA,
         controls: (0, _v6.jsx)(_v220.LeftPanelDismiss, {})
       }), (0, _v6.jsxs)(_v219.LeftPanelContent, {
-        children: [(0, _v6.jsxs)(_v185.Tabs, {
+        children: [(0, _v6.jsxs)(_v186.Tabs, {
           size: "sm",
-          sx: _v196.TABS_STYLES,
+          sx: _v197.TABS_STYLES,
           index: _v9(_v6),
           onChange: _v10,
-          children: [(0, _v6.jsxs)(_v186.TabList, {
+          children: [(0, _v6.jsxs)(_v187.TabList, {
             children: [_v5.map(({
               id: _v0,
               label: _v1
-            }) => (0, _v6.jsx)(_v184.Tab, {
+            }) => (0, _v6.jsx)(_v185.Tab, {
               className: (0, _v79.createDomName)(_v0, _v0, "tab"),
               children: _v1
-            }, _v0)), (0, _v6.jsx)(_v185.TabIndicator, {})]
-          }), (0, _v6.jsx)(_v188.TabPanels, {
-            sx: _v196.TAB_PANELS_STYLES,
+            }, _v0)), (0, _v6.jsx)(_v186.TabIndicator, {})]
+          }), (0, _v6.jsx)(_v189.TabPanels, {
+            sx: _v197.TAB_PANELS_STYLES,
             position: "relative",
             children: _v5.map(({
               id: _v0,
               questions: _v1
-            }) => (0, _v6.jsx)(_v187.TabPanel, {
+            }) => (0, _v6.jsx)(_v188.TabPanel, {
               className: (0, _v79.createDomName)(_v0, _v0, "tab-panel"),
-              sx: _v196.TAB_PANEL_STYLES,
+              sx: _v197.TAB_PANEL_STYLES,
               children: (0, _v6.jsx)(_v217.QuestionsList, {
                 id: (0, _v79.createDomName)(_v0, _v0, "questions-list"),
                 scrollBackground: "surface",
@@ -2193,7 +2209,7 @@
                 questions: _v1,
                 pinnedQuestionId: _v3,
                 itemRenderer: _v0 => (0, _v6.jsx)(_v81.Box, {
-                  sx: _v196.TAB_LIST_COLUMN_FULL_ITEM_STYLE,
+                  sx: _v197.TAB_LIST_COLUMN_FULL_ITEM_STYLE,
                   children: (0, _v6.jsx)(_v216.NewQuestionViewItem, {
                     question: _v0,
                     isPinned: _v0.id === _v3,
@@ -2352,7 +2368,7 @@
       id: _v0,
       className: _v1,
       height: "100%",
-      sx: (0, _v196.createTabWrapperStyle)(),
+      sx: (0, _v197.createTabWrapperStyle)(),
       children: [(0, _v6.jsx)(_v221.LeftPanelHeader, {
         label: _v22.header,
         controls: (0, _v6.jsx)(_v220.LeftPanelDismiss, {})
@@ -2368,18 +2384,18 @@
         }), (0, _v6.jsx)(_v81.Box, {
           id: (0, _v79.createDomName)(_v0, "sources-list"),
           sx: {
-            ...(0, _v196.createTabListScrollStyle)(),
+            ...(0, _v197.createTabListScrollStyle)(),
             ..._v25
           },
           children: (0, _v6.jsx)(_v81.Box, {
-            sx: (0, _v196.createTabListColumnStyle)(!1),
+            sx: (0, _v197.createTabListColumnStyle)(!1),
             children: _v23.map(_v0 => {
               let _v1 = _v0.isBroadcaster ? !!(_v24?.video && String(_v18).startsWith(_v85.EAgoraConnectionType.BROADCASTER_SCREEN)) : _v0.isMe ? !!(_v10.track && String(_v18).endsWith((0, _v102.parseUidFromAgora)(_v0.uid))) : !!(_v24?.video && String(_v18).endsWith((0, _v102.parseUidFromAgora)(_v0.uid))),
                 _v2 = _v0.isBroadcaster ? _v35.translations.broadcasterNameLabel(_v0.name) : _v0.isMe ? _v35.translations.meNameLabel(_v0.name) : _v0.name;
               return (0, _v6.jsxs)("div", {
                 children: [(0, _v6.jsx)(_v81.Box, {
                   id: (0, _v79.createDomName)(_v0, "speakers-card"),
-                  sx: (0, _v196.createTabListColumnHalfItemStyle)(),
+                  sx: (0, _v197.createTabListColumnHalfItemStyle)(),
                   children: (0, _v6.jsxs)(_v46.Flex, {
                     direction: "column",
                     alignItems: "center",
@@ -2552,7 +2568,7 @@
             component: "LiveComposerFooter",
             children: (0, _v6.jsx)(_v75.LiveComposerFooter, {})
           })]
-        }), (0, _v6.jsx)(_v200, {})]
+        }), (0, _v6.jsx)(_v201, {})]
       })]
     });
   }
@@ -2561,7 +2577,7 @@
       mediaSettings: _v0
     } = (0, _v16.useManager)(_v64.GuestSessionManager)
   }) {
-    return _v0.isFullscreenMode ? (0, _v6.jsx)(_v201, {}) : (0, _v6.jsx)(_v238, {});
+    return _v0.isFullscreenMode ? (0, _v6.jsx)(_v202, {}) : (0, _v6.jsx)(_v238, {});
   }
   function _v240({
     guestSessionContext: {

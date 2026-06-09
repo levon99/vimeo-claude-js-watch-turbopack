@@ -79,6 +79,7 @@
 - https://vimeo.com/lead/[entity]/[entityId]/email
 - https://vimeo.com/lead/[entity]/[entityId]/register
 - https://vimeo.com/library
+- https://vimeo.com/library/event_series
 - https://vimeo.com/library/events
 - https://vimeo.com/library/showcases
 - https://vimeo.com/live/broadcaster/[sessionType]/[sessionId]

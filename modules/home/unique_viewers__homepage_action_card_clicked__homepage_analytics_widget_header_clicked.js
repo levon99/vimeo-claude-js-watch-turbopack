@@ -13780,256 +13780,8 @@
     children: _v0
   }) : _v0;
   var _v454 = _v0.i(0),
-    _v455 = _v0.i(0),
-    _v456 = _v0.i(0);
-  let _v457 = new Date("2026-03-20T00:00:00Z"),
-    _v458 = () => {
-      let _v0,
-        _v1,
-        _v2 = (0, _v20.useViewer)(),
-        _v3 = _v2?.user?.id,
-        _v4 = _v2?.user?.account === "free",
-        _v5 = (0, _v63.useCampaignIdOverride)(),
-        {
-          data: _v6,
-          isLoading: _v7
-        } = (0, _v455.useGetUserSettingsBillingMembership)(() => _v3 && _v4 ? {
-          select: ["productId"],
-          where: {
-            userId: Number(_v3)
-          }
-        } : null),
-        {
-          trackRepackageFreeWelcomeDisplayed: _v8,
-          trackRepackageFreeWelcomeDismissed: _v9,
-          trackRepackageFreeWelcomeDiscoverMoreClicked: _v10
-        } = (_v0 = (0, _v7.usePico)(), _v1 = (0, _v2.useCallback)(() => null !== _v0 && (_v0.track("repackage_free_welcome_displayed", {}), !0), [_v0]), {
-          trackRepackageFreeWelcomeDisplayed: _v1,
-          trackRepackageFreeWelcomeDismissed: (0, _v2.useCallback)(() => {
-            null !== _v0 && _v0.track("repackage_free_welcome_dismissed", {});
-          }, [_v0]),
-          trackRepackageFreeWelcomeDiscoverMoreClicked: (0, _v2.useCallback)(() => {
-            null !== _v0 && _v0.track("repackage_free_welcome_discover_more_clicked", {});
-          }, [_v0])
-        }),
-        [_v11, _v12] = (0, _v2.useState)(!1),
-        _v13 = (0, _v2.useRef)(null),
-        _v14 = _v6?.productId === 0,
-        _v15 = !!_v2?.user?.createdTime && new Date(_v2.user.createdTime) < _v457;
-      (0, _v2.useEffect)(() => {
-        if (_v7 || !_v3) return;
-        let _v0 = `repackage_free_welcome_dismissed_${_v3}`,
-          _v1 = "true" === window.localStorage.getItem(_v0);
-        _v4 && _v14 && _v15 && !_v1 && (_v12(!0), _v13.current !== _v3 && _v8() && (_v13.current = _v3));
-      }, [_v7, _v3, _v4, _v14, _v15, _v8]);
-      let _v16 = (0, _v2.useCallback)(() => {
-          _v12(!1), _v3 && window.localStorage.setItem(`repackage_free_welcome_dismissed_${_v3}`, "true");
-        }, [_v3]),
-        _v17 = (0, _v2.useCallback)(() => {
-          _v9(), _v16();
-        }, [_v9, _v16]),
-        _v18 = (0, _v2.useCallback)(() => {
-          _v10(), _v16();
-        }, [_v10, _v16]),
-        _v19 = (0, _v152.useColorModeValue)("https://i.vimeocdn.com/custom_asset/d1392ad233336f37feeb85c227db91fe", "https://i.vimeocdn.com/custom_asset/b3ac2145d2c6a82b489960c3244c99e4");
-      return _v11 ? (0, _v1.jsxs)(_v30.Modal, {
-        isOpen: !0,
-        onClose: _v17,
-        size: ["full", "md"],
-        scrollBehavior: "outside",
-        children: [(0, _v1.jsx)(_v35.ModalOverlay, {}), (0, _v1.jsxs)(_v33.ModalContent, {
-          maxWidth: {
-            base: "100vw",
-            md: "480px"
-          },
-          width: {
-            base: "100vw",
-            md: "480px"
-          },
-          height: {
-            base: "100dvh",
-            md: "auto"
-          },
-          minH: {
-            base: "100dvh",
-            md: "auto"
-          },
-          borderRadius: {
-            base: "0",
-            md: "20px"
-          },
-          margin: {
-            base: "0",
-            md: "auto"
-          },
-          overflow: "hidden",
-          position: "relative",
-          children: [(0, _v1.jsx)(_v32.ModalCloseButton, {
-            zIndex: 1
-          }), (0, _v1.jsx)(_v23.Flex, {
-            width: "100%",
-            height: "306px",
-            alignItems: "center",
-            justifyContent: "center",
-            flexShrink: 0,
-            overflow: "hidden",
-            children: (0, _v1.jsx)(_v25.Box, {
-              as: "img",
-              src: _v19,
-              alt: "",
-              width: "100%",
-              height: "100%",
-              objectFit: "cover"
-            })
-          }), (0, _v1.jsxs)(_v31.ModalBody, {
-            px: "24px",
-            pt: "0",
-            pb: "0",
-            children: [(0, _v1.jsxs)(_v37.Text, {
-              variant: "heading-md",
-              mb: "16px",
-              children: [(0, _v456.translate)({
-                singular: "New: Updated storage and more tools",
-                dictionary: {
-                  es: {
-                    singular: "Nuevo: almacenamiento actualizado y más herramientas"
-                  },
-                  "de-DE": {
-                    singular: "Neu: Aktualisierter Speicher und mehr Tools"
-                  },
-                  "fr-FR": {
-                    singular: "Nouveau : stockage mis à jour et plus d'outils"
-                  },
-                  "ja-JP": {
-                    singular: "新機能: ストレージの更新と追加ツール"
-                  },
-                  "ko-KR": {
-                    singular: "새 소식: 저장 용량 업데이트 및 추가 도구"
-                  },
-                  "pt-BR": {
-                    singular: "Novo: Armazenamento atualizado e mais ferramentas"
-                  },
-                  "zh-CN": {
-                    singular: "新：存储已更新，新增更多工具"
-                  }
-                }
-              }), " 🎉"]
-            }), (0, _v1.jsx)(_v37.Text, {
-              variant: "body-md",
-              color: "text-primary",
-              children: (0, _v456.translate)({
-                singular: "You now have {BOLD}7TB of total storage{/BOLD} for public videos. Your previous storage limit (1GB) now only applies to embeddable and non-public videos. Plus, {BOLD}Vimeo's Free plan now includes 14 formerly-paid features and benefits{/BOLD}.",
-                replacements: {
-                  BOLD: _v0 => (0, _v1.jsx)(_v37.Text, {
-                    as: "span",
-                    variant: "heading-xs",
-                    children: _v0
-                  })
-                },
-                dictionary: {
-                  es: {
-                    singular: "Ahora tienes {BOLD}7TB de almacenamiento total{/BOLD} para videos públicos. Tu límite de almacenamiento anterior (1GB) ahora solo se aplica a los videos incrustables y no públicos. Además, {BOLD}el plan gratuito de Vimeo ahora incluye 14 funciones y beneficios que antes eran de pago{/BOLD}."
-                  },
-                  "de-DE": {
-                    singular: "Sie haben jetzt {BOLD}7TB Gesamtspeicher{/BOLD} für öffentliche Videos. Ihr vorheriges Speicherlimit (1GB) gilt jetzt nur noch für einbettbare und nicht-öffentliche Videos. Außerdem enthält {BOLD}Vimeos kostenloser Tarif jetzt 14 zuvor kostenpflichtige Funktionen und Vorteile{/BOLD}."
-                  },
-                  "fr-FR": {
-                    singular: "Vous disposez désormais de {BOLD}7 To de stockage total{/BOLD} pour les vidéos publiques. Votre ancienne limite de stockage (1 Go) ne s'applique désormais qu'aux vidéos intégrables et non publiques. De plus, {BOLD}le plan Free de Vimeo inclut désormais 14 fonctionnalités et avantages auparavant payants{/BOLD}."
-                  },
-                  "ja-JP": {
-                    singular: "公開動画に対して、{BOLD}合計7TBのストレージを利用できます{/BOLD}。以前のストレージ制限（1GB）は、埋め込み可能な動画および非公開の動画にのみ適用されます。さらに、{BOLD}Vimeoの無料プランには以前有料だった14の機能と特典が含まれるようになりました{/BOLD}。"
-                  },
-                  "ko-KR": {
-                    singular: "공개 동영상에 대해 {BOLD}총 7TB의 저장 용량{/BOLD}을 보유하고 있습니다. 이전 저장 용량 제한(1GB)은 이제 임베드 가능한 동영상과 비공개 동영상에만 적용됩니다. 또한, {BOLD}Vimeo의 무료 요금제에는 이전에 유료였던 기능 및 혜택 14개가 포함됩니다{/BOLD}."
-                  },
-                  "pt-BR": {
-                    singular: "Você agora tem {BOLD}7TB de armazenamento total{/BOLD} para vídeos públicos. Seu limite de armazenamento anterior (1GB) agora se aplica apenas a vídeos incorporáveis e não públicos. Além disso, {BOLD}o plano Free do Vimeo agora inclui 14 recursos e benefícios que antes eram pagos{/BOLD}."
-                  },
-                  "zh-CN": {
-                    singular: "您现在拥有 {BOLD}7TB 的公开视频总存储空间{/BOLD}。您之前的存储限制（1GB）现在仅适用于可嵌入和非公开视频。此外，{BOLD}Vimeo 的免费计划现在包含此前付费的 14 项功能和权益{/BOLD}。"
-                  }
-                }
-              })
-            })]
-          }), (0, _v1.jsx)(_v43.ModalFooter, {
-            px: "24px",
-            pt: "16px",
-            pb: "24px",
-            children: (0, _v1.jsxs)(_v23.Flex, {
-              gap: "12px",
-              justifyContent: "flex-end",
-              alignItems: "center",
-              width: "100%",
-              children: [(0, _v1.jsx)(_v26.Button, {
-                as: "a",
-                href: "01KGEWQ5SAS6NW735YSBYK68XG" === _v5 ? "https://vimeo.com/new-plans-feb-2026-50" : "https://vimeo.com/new-plans-feb-2026-30",
-                target: "_blank",
-                variant: "ghost",
-                size: "md",
-                onClick: _v18,
-                children: (0, _v456.translate)({
-                  singular: "Discover more",
-                  dictionary: {
-                    es: {
-                      singular: "Descubre más"
-                    },
-                    "de-DE": {
-                      singular: "Mehr entdecken"
-                    },
-                    "fr-FR": {
-                      singular: "En savoir plus"
-                    },
-                    "ja-JP": {
-                      singular: "もっと見る"
-                    },
-                    "ko-KR": {
-                      singular: "더 알아보기"
-                    },
-                    "pt-BR": {
-                      singular: "Descubra mais"
-                    },
-                    "zh-CN": {
-                      singular: "了解更多"
-                    }
-                  }
-                })
-              }), (0, _v1.jsx)(_v26.Button, {
-                variant: "primary",
-                size: "md",
-                onClick: _v17,
-                children: (0, _v456.translate)({
-                  singular: "Let's go!",
-                  dictionary: {
-                    es: {
-                      singular: "¡Vamos!"
-                    },
-                    "de-DE": {
-                      singular: "Los geht's!"
-                    },
-                    "fr-FR": {
-                      singular: "C'est parti !"
-                    },
-                    "ja-JP": {
-                      singular: "さあ、始めましょう！"
-                    },
-                    "ko-KR": {
-                      singular: "시작해볼까요!"
-                    },
-                    "pt-BR": {
-                      singular: "Vamos lá!"
-                    },
-                    "zh-CN": {
-                      singular: "开始吧！"
-                    }
-                  }
-                })
-              })]
-            })
-          })]
-        })]
-      }) : null;
-    },
-    _v459 = () => {
+    _v455 = _v0.i(0);
+  let _v456 = () => {
       let _v0,
         _v1,
         _v2,
@@ -14146,7 +13898,7 @@
               children: [(0, _v1.jsx)(_v37.Text, {
                 variant: "heading-md",
                 mb: "8px",
-                children: (0, _v456.translate)({
+                children: (0, _v455.translate)({
                   singular: "Thanks for using Vimeo!",
                   dictionary: {
                     es: {
@@ -14175,7 +13927,7 @@
               }), (0, _v1.jsx)(_v37.Text, {
                 variant: "body-md",
                 color: "text-primary",
-                children: (0, _v456.translate)({
+                children: (0, _v455.translate)({
                   singular: "Would you be willing to leave us a review? It helps us get better!",
                   dictionary: {
                     es: {
@@ -14215,7 +13967,7 @@
                   variant: "ghost",
                   size: "md",
                   onClick: _v28,
-                  children: (0, _v456.translate)({
+                  children: (0, _v455.translate)({
                     singular: "Not now",
                     dictionary: {
                       es: {
@@ -14246,7 +13998,7 @@
                   size: "md",
                   onClick: _v30,
                   isLoading: _v21,
-                  children: (0, _v456.translate)({
+                  children: (0, _v455.translate)({
                     singular: "Continue",
                     dictionary: {
                       es: {
@@ -14282,7 +14034,7 @@
             children: [(0, _v1.jsx)(_v37.Text, {
               variant: "heading-md",
               mb: "4px",
-              children: (0, _v456.translate)({
+              children: (0, _v455.translate)({
                 singular: "Leave a review below!",
                 dictionary: {
                   es: {
@@ -14312,7 +14064,7 @@
               variant: "body-sm",
               color: "text-secondary",
               mb: "16px",
-              children: (0, _v456.translate)({
+              children: (0, _v455.translate)({
                 singular: "Scroll down within the form to submit your review.",
                 dictionary: {
                   es: {
@@ -14360,8 +14112,8 @@
         })]
       });
     },
-    _v460 = "pico-new-update-card-tracking",
-    _v461 = ({
+    _v457 = "pico-new-update-card-tracking",
+    _v458 = ({
       playerAssetUrls: _v0
     }) => {
       !function () {
@@ -14460,8 +14212,8 @@
           onGuideDisplayed: _v0 => _v4(_v0.guideName),
           onClick: _v0 => _v5(_v0.guide?.guideName),
           onGuideDismiss: _v0 => _v6(_v0.guide?.guideName)
-        }, _v460), () => {
-          _v6.PendoClient.removeHandler(_v460);
+        }, _v457), () => {
+          _v6.PendoClient.removeHandler(_v457);
         };
       }, [_v2, _v4, _v5, _v6]);
       let {
@@ -14475,7 +14227,7 @@
         }
       });
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v458, {}), (0, _v1.jsx)(_v459, {}), (0, _v1.jsx)(_v17, {}), _v12, (0, _v1.jsx)(_v452, {
+        children: [(0, _v1.jsx)(_v456, {}), (0, _v1.jsx)(_v17, {}), _v12, (0, _v1.jsx)(_v452, {
           canCustomizeHomepage: !!_v7.customizeHomepage,
           playerAssetUrls: _v0,
           banner: _v11
@@ -14491,11 +14243,11 @@
   }), {
     requireLogin: !0,
     noIndex: !0
-  }), _v461.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v19.VideoLibraryLayout, {
+  }), _v458.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v19.VideoLibraryLayout, {
     hasSideNav: !0,
     sideNavContent: (0, _v1.jsx)(_v18.HomeSideNavContent, {}),
     playerAssetUrls: _v1.playerAssetUrls,
     hasUploader: _v1.hasUploader,
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v461], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v458], 0);
 }

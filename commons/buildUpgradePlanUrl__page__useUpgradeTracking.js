@@ -9,6 +9,9 @@
       paywall_location: _v0.paywallLocation,
       paywall_type: "page",
       paywall_feature: _v0.paywallFeature,
+      ...(_v0.postCheckoutUrl ? {
+        post_checkout_url: _v0.postCheckoutUrl
+      } : void 0),
       ..._v1
     });
     return `/upgrade-plan?${_v2.toString()}`;

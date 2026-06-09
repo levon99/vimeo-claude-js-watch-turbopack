@@ -481,7 +481,7 @@
       return _v0;
     }, {});
   }
-  let _v76 = location.host.endsWith(".ci.vimeows.com"),
+  let _v76 = location.host.endsWith(".ci.vimeows.com") || location.host.endsWith(".vimeows.work"),
     _v77 = /^(?!-)[a-z0-9-]+(?<!-)\.vimeo\.work$/.test(window.location.hostname),
     _v78 = _v76 && _v75("localRecording", !0).isLocalRecording,
     _v79 = "https://recordwidget.vimeocdn.com/recordwidget/studio/resources/loading.mp4",
@@ -7561,7 +7561,7 @@
                         {
                           uploadApproach: _v3
                         } = _v283("uploadApproach", !1);
-                      return _v2 && _v3 && _v73.uploadApproach?.includes(_v3) ? _v0.current = _v3 : _v0.current = _v77 ? "ipb" : "live", _v0;
+                      return _v2 && _v3 && _v73.uploadApproach?.includes(_v3) ? _v0.current = _v3 : _v0.current = "live", _v0;
                     })(),
                     _v11 = _v10.current,
                     _v12 = (0, _v26.useRef)(void 0),

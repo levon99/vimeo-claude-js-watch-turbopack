@@ -1424,6 +1424,7 @@
     MVV: "/user/[userId]/folder/[folderId]",
     SharedWithMe: "/shared-with-me",
     Showcases: "/library/showcases",
+    EventSeries: "/library/event_series",
     TeamLibrary: "/library",
     Watch: "/watch",
     IntegrationsCenter: "/integrations-center/[[...slug]]",

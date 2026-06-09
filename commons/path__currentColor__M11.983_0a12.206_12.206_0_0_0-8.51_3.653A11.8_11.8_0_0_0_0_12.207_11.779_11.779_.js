@@ -145,20 +145,24 @@
       info: "blue.500",
       success: "green.500",
       error: "red.500",
-      warning: "yellow.500"
+      warning: "yellow.500",
+      upsell: "upsell-primary"
     },
     _v27 = {
-      info: (0, _v1.jsx)(_v24.InfoCircleFilled, {}),
-      success: (0, _v1.jsx)(_v23.CircleCheckFilled, {}),
-      error: (0, _v1.jsx)(_v22.CircleExclamationFilled, {}),
-      warning: (0, _v1.jsx)(_v22.CircleExclamationFilled, {})
+      info: (0, _v1.jsx)(_v22.InfoCircleFilled, {}),
+      success: (0, _v1.jsx)(_v24.CircleCheckFilled, {}),
+      error: (0, _v1.jsx)(_v23.CircleExclamationFilled, {}),
+      warning: (0, _v1.jsx)(_v23.CircleExclamationFilled, {}),
+      upsell: (0, _v1.jsx)(_v22.InfoCircleFilled, {})
     },
     _v28 = (0, _v2.forwardRef)(({
       children: _v0,
-      ..._v1
-    }, _v2) => (0, _v1.jsx)(_v20, {
-      ref: _v2,
-      ..._v1,
+      status: _v1,
+      ..._v2
+    }, _v3) => (0, _v1.jsx)(_v20, {
+      ref: _v3,
+      status: "upsell" === _v1 ? void 0 : _v1,
+      ..._v2,
       children: _v0
     })),
     _v29 = _v0 => {

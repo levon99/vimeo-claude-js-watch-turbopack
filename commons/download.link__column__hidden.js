@@ -835,13 +835,11 @@
           },
           query: {
             uris: _v0,
-            shouldDeleteItems: !0
-          },
-          ...(_v25.has_recently_deleted ? {
-            variables: {
+            shouldDeleteItems: !0,
+            ...(_v25.has_recently_deleted ? {
               sendToRecentlyDeleted: !0
-            }
-          } : {})
+            } : {})
+          }
         }).finally(() => {
           _v17.size > 1 ? _v42.gtm.trackBulkDelete() : _v42.gtm.trackVideoDelete(), _v52?.();
         }), _v26(_v60({
@@ -883,13 +881,11 @@
             userId: _v18
           },
           query: {
-            uris: _v0
-          },
-          ...(_v25.has_recently_deleted ? {
-            variables: {
+            uris: _v0,
+            ...(_v25.has_recently_deleted ? {
               sendToRecentlyDeleted: !0
-            }
-          } : {})
+            } : {})
+          }
         }).finally(() => {
           _v17.size > 1 ? _v42.gtm.trackBulkDelete() : _v42.gtm.trackVideoDelete(), _v52?.();
         }), _v26(_v60({

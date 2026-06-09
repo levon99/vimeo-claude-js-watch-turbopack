@@ -5382,21 +5382,13 @@
     };
   var _v346 = _v0.i(0),
     _v347 = _v0.i(0),
-    _v348 = _v0.i(0);
-  let _v349 = _v0 => (0, _v16.jsx)(_v348.Icon, {
-    viewBox: "0 0 24 24",
-    ..._v0,
-    fill: "none",
-    children: (0, _v16.jsx)("path", {
-      d: "M15 11h-2V7a1 1 0 0 0-2 0v5a1 1 0 0 0 1 1h3a1 1 0 0 0 0-2Zm-3-9a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8 8.01 8.01 0 0 1-8 8Z",
-      fill: "currentColor"
-    })
-  });
-  var _v350 = _v0.i(0),
+    _v348 = _v0.i(0),
+    _v349 = _v0.i(0),
+    _v350 = _v0.i(0),
     _v351 = _v0.i(0),
     _v352 = _v0.i(0),
     _v353 = _v0.i(0);
-  let _v354 = _v0 => (0, _v16.jsx)(_v348.Icon, {
+  let _v354 = _v0 => (0, _v16.jsx)(_v353.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -8191,7 +8183,7 @@
   });
   var _v431 = _v0.i(0),
     _v432 = _v0.i(0);
-  let _v433 = _v0 => (0, _v16.jsx)(_v348.Icon, {
+  let _v433 = _v0 => (0, _v16.jsx)(_v353.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -10940,7 +10932,7 @@
         },
         _v77 = [!_v1 && (0, _v16.jsxs)(_v492, {
           dataTestId: "download-menu-item",
-          icon: (0, _v16.jsx)(_v351.DownloadImport, {
+          icon: (0, _v16.jsx)(_v350.DownloadImport, {
             boxSize: _v493
           }),
           onClick: () => {
@@ -11004,7 +10996,7 @@
           children: [_v388.move, "…"]
         }, "move-menu-item"), _v33.enable_copy_button_video && _v66 && (0, _v16.jsx)(_v492, {
           dataTestId: "copy-video-menu-item-legacy",
-          icon: (0, _v16.jsx)(_v350.CopyPortrait, {
+          icon: (0, _v16.jsx)(_v349.CopyPortrait, {
             boxSize: _v493
           }),
           onClick: () => {
@@ -11070,7 +11062,7 @@
           includeTip: "available" !== _v31.status,
           children: (0, _v16.jsx)(_v492, {
             dataTestId: "copy-video-menu-item",
-            icon: (0, _v16.jsx)(_v350.CopyPortrait, {
+            icon: (0, _v16.jsx)(_v349.CopyPortrait, {
               boxSize: _v493
             }),
             isDisabled: "available" !== _v31.status,
@@ -11109,7 +11101,7 @@
           })
         }, "copy-video-menu-item-tip"), (0, _v16.jsx)(_v346.MenuDivider, {}, "divider-1"), (0, _v16.jsx)(_v492, {
           dataTestId: "view-video-page-menu-item",
-          icon: (0, _v16.jsx)(_v353.Eye, {
+          icon: (0, _v16.jsx)(_v352.Eye, {
             boxSize: _v493
           }),
           onClick: () => {
@@ -11136,7 +11128,7 @@
           includeTip: _v31?.embed.interactive,
           children: (0, _v16.jsx)(_v492, {
             dataTestId: "version-history-menu-item",
-            icon: (0, _v16.jsx)(_v349, {
+            icon: (0, _v16.jsx)(_v348.ClockThree, {
               boxSize: _v493
             }),
             onClick: () => {
@@ -11350,7 +11342,7 @@
             as: _v182.IconButton,
             isDisabled: _v2,
             "data-testid": "file-actions-button",
-            icon: (0, _v16.jsx)(_v352.EllipsisV, {}),
+            icon: (0, _v16.jsx)(_v351.EllipsisV, {}),
             onClick: () => {
               _v0 || (_v5((0, _v331.openSVVModal)({
                 modal: "file_actions_menu"
@@ -22758,7 +22750,7 @@
                   variant: "secondary",
                   size: "lg",
                   sx: _v14,
-                  leftIcon: (0, _v16.jsx)(_v351.DownloadImport, {}),
+                  leftIcon: (0, _v16.jsx)(_v350.DownloadImport, {}),
                   tabIndex: 0,
                   onKeyDown: _v0 => {
                     "Enter" === _v0.key && _v12(_v0);
@@ -24735,7 +24727,7 @@
     _v716 = _v0.i(0),
     _v717 = _v0.i(0),
     _v718 = _v0.i(0);
-  let _v719 = _v0 => (0, _v16.jsx)(_v348.Icon, {
+  let _v719 = _v0 => (0, _v16.jsx)(_v353.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -25666,7 +25658,7 @@
         })]
       });
     },
-    _v741 = _v0 => (0, _v16.jsx)(_v348.Icon, {
+    _v741 = _v0 => (0, _v16.jsx)(_v353.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -25849,7 +25841,7 @@
             children: (0, _v16.jsxs)(_v336.Menu, {
               children: [(0, _v16.jsx)(_v183.MenuButton, {
                 as: _v182.IconButton,
-                icon: (0, _v16.jsx)(_v352.EllipsisV, {}),
+                icon: (0, _v16.jsx)(_v351.EllipsisV, {}),
                 size: "sm",
                 variant: "tertiary",
                 "aria-label": "isVisible button"
@@ -32046,7 +32038,7 @@
       scrollbarWidth: "auto"
     }
   });
-  let _v874 = _v0 => (0, _v16.jsxs)(_v348.Icon, {
+  let _v874 = _v0 => (0, _v16.jsxs)(_v353.Icon, {
       viewBox: "0 0 20 20",
       ..._v0,
       fill: "currentColor",

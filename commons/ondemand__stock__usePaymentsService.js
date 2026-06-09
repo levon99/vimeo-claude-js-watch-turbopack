@@ -20,8 +20,10 @@
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
-  let _v20 = (0, _v2.default)(async () => {
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0);
+  let _v22 = (0, _v2.default)(async () => {
       let {
         Checkout: _v0
       } = await _v0.A(0);
@@ -33,7 +35,7 @@
         modules: [0]
       }
     }),
-    _v21 = {
+    _v23 = {
       promo: _v5.StringParam,
       currency: _v5.StringParam,
       action: _v5.StringParam,
@@ -45,10 +47,10 @@
       bandwidthPlanBSelected: _v5.StringParam,
       fdsource: _v5.StringParam
     },
-    _v22 = _v0 => {
-      let _v1 = (0, _v18.useViewer)(),
+    _v24 = _v0 => {
+      let _v1 = (0, _v20.useViewer)(),
         _v2 = (0, _v3.useRouter)(),
-        [_v3] = (0, _v6.useQueryParams)(_v21),
+        [_v3] = (0, _v6.useQueryParams)(_v23),
         {
           trackCheckoutOpen: _v4
         } = (0, _v15.useCheckoutTracking)(),
@@ -97,16 +99,22 @@
         once: !0
       });
       let _v26 = _v21 || !_v11;
-      return ((0, _v16.usePicoEffect)(() => {
+      if ((0, _v16.usePicoEffect)(() => {
         if (_v26 || !_v11) return !1;
         _v5(_v11);
       }, [_v26, _v11], {
         once: !0
-      }), _v20 && !_v11 && _v2.push((0, _v14.buildUpgradePlanUrl)({
-        paywallTrigger: "checkout_lapsed_or_trial_upgrade_redirect",
-        paywallLocation: "checkout",
-        paywallFeature: "subscription"
-      })), _v7 && (_v16 && !_v8 && (window.location.href = "/settings/billing/membership_plan"), !_v13 && void 0 !== _v14 && !_v18 && (_v8 || "custom_self_serve" === _v7 || _v14) && (!_v8 || _v9 && _v10))) ? (0, _v1.jsx)(_v20, {
+      }), _v20 && !_v11) {
+        let _v0 = "string" == typeof _v2.query.post_checkout_url ? _v2.query.post_checkout_url : void 0,
+          _v1 = _v0 && (0, _v17.isVimeoRedirectableUrl)(_v0) ? _v0 : void 0;
+        _v2.push((0, _v14.buildUpgradePlanUrl)({
+          paywallTrigger: "checkout_lapsed_or_trial_upgrade_redirect",
+          paywallLocation: "checkout",
+          paywallFeature: "subscription",
+          postCheckoutUrl: _v1
+        }));
+      }
+      return _v7 && (_v16 && !_v8 && (window.location.href = "/settings/billing/membership_plan"), !_v13 && void 0 !== _v14 && !_v18 && (_v8 || "custom_self_serve" === _v7 || _v14) && (!_v8 || _v9 && _v10)) ? (0, _v1.jsx)(_v22, {
         ..._v0,
         defaultPaymentType: _v24,
         defaultPromoCodeId: _v3.promo ?? void 0,
@@ -124,7 +132,7 @@
     };
   _v0.s(["default", 0, _v0 => {
     let _v1 = (0, _v3.useRouter)(),
-      _v2 = (0, _v4.useContext)(_v17.ViewerContext),
+      _v2 = (0, _v4.useContext)(_v19.ViewerContext),
       _v3 = (0, _v4.useMemo)(() => {
         if (!_v1.query?.token) return null;
         try {
@@ -133,15 +141,17 @@
           return null;
         }
       }, [_v1.query?.token]);
-    return _v1.isReady && _v2 ? _v2?.user || _v1.query?.token ? (0, _v1.jsx)(_v11.GctlProvider, {
+    return ((0, _v4.useEffect)(() => {
+      _v1.isReady && _v18.postCheckoutUrl.sync(_v1.query.post_checkout_url ?? null);
+    }, [_v1.isReady, _v1.query.post_checkout_url]), _v1.isReady && _v2) ? _v2?.user || _v1.query?.token ? (0, _v1.jsx)(_v11.GctlProvider, {
       xVimeoPage: _v1.pathname,
       jwt: _v1.query?.token && !(0, _v7.isPayPalToken)(String(_v1.query?.token)) ? String(_v1.query?.token) : _v2?.jwt,
       baseUrl: _v2 ? `https://${_v2.apiUrl}` : "",
       locale: _v2?.locale,
-      children: (0, _v1.jsx)(_v19.QueryParamProvider, {
+      children: (0, _v1.jsx)(_v21.QueryParamProvider, {
         children: (0, _v1.jsx)(_v4.Suspense, {
           fallback: null,
-          children: (0, _v1.jsx)(_v22, {
+          children: (0, _v1.jsx)(_v24, {
             ..._v0,
             iosUserId: _v3?.user_id
           })

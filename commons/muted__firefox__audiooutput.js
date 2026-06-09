@@ -64,7 +64,8 @@
     devices: _v1,
     deviceId: _v2,
     isMuted: _v3 = !1,
-    isHardMuteEnabled: _v4 = !1
+    isHardMuteEnabled: _v4 = !1,
+    onTrackEnded: _v5
   }) {
     return _v0.createMicrophoneAudioTrack({
       microphoneId: _v2 && (0, _v4.isDeviceInList)(_v1, _v2) ? _v2 : void 0,
@@ -78,7 +79,7 @@
       AEC: _v2.liveMediaConfig.LOCAL_AUDIO.ECHO_CANCELLATION,
       AGC: _v2.liveMediaConfig.LOCAL_AUDIO.AUTO_GAIN,
       ANS: _v2.liveMediaConfig.LOCAL_AUDIO.NOISE_SUPPRESSION
-    }).then(_v0 => (_v8.set(_v0.getTrackId(), _v0), (_v4 ? _v0.setEnabled(!_v3) : _v0.setMuted(_v3)).then(() => _v0))).catch(_v0 => _v0);
+    }).then(_v0 => (_v5 && _v0.on("track-ended", _v5), _v8.set(_v0.getTrackId(), _v0), (_v4 ? _v0.setEnabled(!_v3) : _v0.setMuted(_v3)).then(() => _v0))).catch(_v0 => _v0);
   }, "createScreenTrackSafely", 0, function ({
     agoraSDK: _v0,
     onTrackEnded: _v1
