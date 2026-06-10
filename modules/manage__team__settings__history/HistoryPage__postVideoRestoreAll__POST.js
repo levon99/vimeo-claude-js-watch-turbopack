@@ -1,7 +1,7 @@
 {
   "use strict";
 
-  _v0.s([], 0), _v0.s(["HistoryPage", () => _v57], 0);
+  _v0.s([], 0), _v0.s(["HistoryPage", () => _v58], 0);
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
     _v3 = _v0.i(0),
@@ -276,14 +276,57 @@
     };
   var _v30 = _v0.i(0),
     _v31 = _v0.i(0);
-  let _v32 = (_v0, _v1) => !!_v0 && !!_v1 && _v0.getFullYear() === _v1.getFullYear() && _v0.getMonth() === _v1.getMonth() && _v0.getDate() === _v1.getDate();
-  var _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
+  function _v32() {
+    let {
+        mutate: _v0
+      } = (0, _v12.useSWRConfig)(),
+      {
+        baseUrl: _v1,
+        jwt: _v2,
+        xVimeoPage: _v3,
+        locale: _v4
+      } = (0, _v13.useGctlConfig)(),
+      [_v5, _v6] = (0, _v8.useInternalState)();
+    return [(0, _v2.useCallback)(async _v0 => {
+      _v6({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await _v0(`/videos/restore${(0, _v8.serializeQuery)(_v0)}`, (0, _v31.postVideosRestore)({
+          ..._v0,
+          baseUrl: _v1,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v2 ? `jwt ${_v2}` : "",
+            "Vimeo-Page": `${_v3}`,
+            "Accept-Language": _v4 ?? "en"
+          }
+        }), !1);
+        _v6({
+          type: "SUCCESS",
+          payload: _v0
+        });
+      } catch (_v0) {
+        _v6({
+          type: "FAILURE",
+          payload: _v0
+        });
+      }
+    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+  }
+  "true" === _v7.default.env.STORYBOOK && (0, _v8.assignMswData)(_v32, {
+    endpoint: "/videos/restore",
+    method: "POST"
+  });
+  let _v33 = (_v0, _v1) => !!_v0 && !!_v1 && _v0.getFullYear() === _v1.getFullYear() && _v0.getMonth() === _v1.getMonth() && _v0.getDate() === _v1.getDate();
+  var _v34 = _v0.i(0),
     _v35 = _v0.i(0),
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
-    _v38 = _v0.i(0);
-  let _v39 = ({
+    _v38 = _v0.i(0),
+    _v39 = _v0.i(0);
+  let _v40 = ({
       thumbnailUrl: _v0,
       title: _v1,
       reasonName: _v2,
@@ -296,41 +339,41 @@
     }) => {
       let _v9 = _v0 || _v15.EMPTY_THUMBNAIL_SRC;
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v37.TeamSettingsTableCell, {
+        children: [(0, _v1.jsx)(_v38.TeamSettingsTableCell, {
           overflow: "hidden",
           children: (0, _v1.jsxs)(_v3.Flex, {
             alignItems: "center",
             gap: "200",
-            children: [(0, _v1.jsx)(_v36.Thumbnail, {
+            children: [(0, _v1.jsx)(_v37.Thumbnail, {
               image: _v9
-            }), (0, _v1.jsx)(_v38.ShrinkableText, {
+            }), (0, _v1.jsx)(_v39.ShrinkableText, {
               variant: "body-md",
               children: _v1
             })]
           })
-        }), (0, _v1.jsx)(_v37.TeamSettingsTableCell, {
+        }), (0, _v1.jsx)(_v38.TeamSettingsTableCell, {
           overflow: "hidden",
-          children: (0, _v1.jsx)(_v38.ShrinkableText, {
+          children: (0, _v1.jsx)(_v39.ShrinkableText, {
             variant: "body-md",
             children: _v2
           })
-        }), (0, _v1.jsx)(_v37.TeamSettingsTableCell, {
+        }), (0, _v1.jsx)(_v38.TeamSettingsTableCell, {
           overflow: "hidden",
-          children: (0, _v1.jsx)(_v38.ShrinkableText, {
+          children: (0, _v1.jsx)(_v39.ShrinkableText, {
             variant: "body-md",
             children: _v3
           })
-        }), (0, _v1.jsx)(_v37.TeamSettingsTableCell, {
+        }), (0, _v1.jsx)(_v38.TeamSettingsTableCell, {
           overflow: "hidden",
-          children: (0, _v1.jsx)(_v38.ShrinkableText, {
+          children: (0, _v1.jsx)(_v39.ShrinkableText, {
             variant: "body-md",
             children: (0, _v18.formatDateToNeededLocale)({
               date: new Date(_v4)
             })
           })
-        }), _v6 && (0, _v1.jsx)(_v37.TeamSettingsTableCell, {
+        }), _v6 && (0, _v1.jsx)(_v38.TeamSettingsTableCell, {
           textAlign: "right",
-          children: (0, _v1.jsx)(_v35.Button, {
+          children: (0, _v1.jsx)(_v36.Button, {
             maxWidth: "100%",
             variant: "secondary",
             className: "recover-video-btn",
@@ -339,7 +382,7 @@
             onClick: () => {
               _v5(_v7);
             },
-            children: (0, _v1.jsx)(_v38.ShrinkableText, {
+            children: (0, _v1.jsx)(_v39.ShrinkableText, {
               variant: "heading-xs",
               children: _v19.T.RecoverVideo
             })
@@ -347,7 +390,7 @@
         })]
       });
     },
-    _v40 = [{
+    _v41 = [{
       title: _v19.T.VideoTitle,
       width: "43%"
     }, {
@@ -360,7 +403,7 @@
       title: _v19.T.DeletedOn,
       width: "14%"
     }],
-    _v41 = ({
+    _v42 = ({
       onPopOverClick: _v0,
       loadingVideoId: _v1,
       list: _v2,
@@ -369,18 +412,18 @@
       toolBar: _v5,
       placeholder: _v6
     }) => {
-      let _v7 = (0, _v2.useMemo)(() => _v3 ? _v40.concat({
+      let _v7 = (0, _v2.useMemo)(() => _v3 ? _v41.concat({
         title: "",
-        width: (0, _v33.rem)(118)
-      }) : _v40, [_v3]);
-      return (0, _v1.jsx)(_v34.TeamSettingsTable, {
+        width: (0, _v34.rem)(118)
+      }) : _v41, [_v3]);
+      return (0, _v1.jsx)(_v35.TeamSettingsTable, {
         columns: _v7,
         pagination: _v4,
         rows: _v2,
         defaultIndexKey: "videoId",
         renderRow: ({
           row: _v0
-        }) => (0, _v1.jsx)(_v39, {
+        }) => (0, _v1.jsx)(_v40, {
           loadingVideoId: _v1,
           isRecoveredStatus: _v3,
           onPopOverClick: _v0,
@@ -390,41 +433,41 @@
         toolBar: _v5
       });
     };
-  var _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
+  var _v43 = _v0.i(0),
     _v44 = _v0.i(0),
     _v45 = _v0.i(0),
     _v46 = _v0.i(0),
     _v47 = _v0.i(0),
-    _v48 = _v0.i(0);
-  let _v49 = ({
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0);
+  let _v50 = ({
     isModalOpen: _v0,
     onModalClick: _v1,
     onModalClose: _v2
-  }) => (0, _v1.jsxs)(_v42.Modal, {
+  }) => (0, _v1.jsxs)(_v43.Modal, {
     size: "md",
     isOpen: _v0,
     onClose: () => void 0,
-    children: [(0, _v1.jsx)(_v47.ModalOverlay, {}), (0, _v1.jsxs)(_v44.ModalContent, {
-      children: [(0, _v1.jsxs)(_v46.ModalHeader, {
+    children: [(0, _v1.jsx)(_v48.ModalOverlay, {}), (0, _v1.jsxs)(_v45.ModalContent, {
+      children: [(0, _v1.jsxs)(_v47.ModalHeader, {
         position: "relative",
         children: [(0, _v1.jsx)(_v4.Header, {
           size: "md",
           children: _v19.T.RecoverVideo
-        }), (0, _v1.jsx)(_v48.ModalCloseButton, {
+        }), (0, _v1.jsx)(_v49.ModalCloseButton, {
           onClick: () => _v2()
         })]
-      }), (0, _v1.jsx)(_v43.ModalBody, {
+      }), (0, _v1.jsx)(_v44.ModalBody, {
         children: (0, _v1.jsx)(_v5.Paragraph, {
           size: "md",
           children: _v19.T.ModalText
         })
-      }), (0, _v1.jsxs)(_v45.ModalFooter, {
-        children: [(0, _v1.jsx)(_v35.Button, {
+      }), (0, _v1.jsxs)(_v46.ModalFooter, {
+        children: [(0, _v1.jsx)(_v36.Button, {
           variant: "secondary",
           onClick: () => _v2(),
           children: _v19.T.ModalHeaderButtonCancelText
-        }), (0, _v1.jsx)(_v35.Button, {
+        }), (0, _v1.jsx)(_v36.Button, {
           variant: "primary",
           onClick: () => _v1(),
           children: _v19.T.ModalHeaderButtonAcceptText
@@ -432,12 +475,12 @@
       })]
     })]
   });
-  var _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
+  var _v51 = _v0.i(0),
     _v52 = _v0.i(0),
     _v53 = _v0.i(0),
-    _v54 = _v0.i(0);
-  let _v55 = ({
+    _v54 = _v0.i(0),
+    _v55 = _v0.i(0);
+  let _v56 = ({
       setRecoveredStatus: _v0,
       isRecoveredStatus: _v1,
       exportUri: _v2,
@@ -451,7 +494,7 @@
       return (0, _v1.jsxs)(_v3.Flex, {
         justifyContent: "space-between",
         alignItems: "center",
-        children: [(0, _v1.jsx)(_v51.Tabs, {
+        children: [(0, _v1.jsx)(_v52.Tabs, {
           variant: "inlay",
           onChange: _v0 => {
             _v0(0 === _v0);
@@ -463,69 +506,69 @@
               fontSize: "body-md"
             }
           },
-          children: (0, _v1.jsxs)(_v52.TabList, {
-            children: [(0, _v1.jsx)(_v50.Tab, {
+          children: (0, _v1.jsxs)(_v53.TabList, {
+            children: [(0, _v1.jsx)(_v51.Tab, {
               children: _v19.T.LastThirtyDays
-            }), (0, _v1.jsx)(_v50.Tab, {
+            }), (0, _v1.jsx)(_v51.Tab, {
               children: _v19.T.PastThirtyDays
-            }), (0, _v1.jsx)(_v51.TabIndicator, {})]
+            }), (0, _v1.jsx)(_v52.TabIndicator, {})]
           })
         }), _v1 ? (0, _v1.jsxs)(_v3.Flex, {
           gap: "200",
-          children: [(0, _v1.jsx)(_v35.Button, {
+          children: [(0, _v1.jsx)(_v36.Button, {
             variant: "primary",
             onClick: _v6,
             isDisabled: _v3 || _v7,
             children: _v7 ? _v19.T.RecoveringAllVideos : _v19.T.RecoverAll
-          }), (0, _v1.jsx)(_v53.ExportCsvButton, {
+          }), (0, _v1.jsx)(_v54.ExportCsvButton, {
             disabled: _v3,
             variant: "primary",
             uri: _v2
           })]
         }) : (0, _v1.jsxs)(_v3.Flex, {
           gap: "md",
-          children: [(0, _v1.jsx)(_v54.RangePicker, {
+          children: [(0, _v1.jsx)(_v55.RangePicker, {
             value: _v5,
             onDateChange: _v4,
             maxDate: _v8,
             defaultButtonText: _v19.T.SelectDate
-          }), (0, _v1.jsx)(_v53.ExportCsvButton, {
+          }), (0, _v1.jsx)(_v54.ExportCsvButton, {
             variant: "primary",
             uri: _v2
           })]
         })]
       });
     },
-    _v56 = ({
+    _v57 = ({
       isModalOpen: _v0,
       onModalClick: _v1,
       onModalClose: _v2,
       isLoading: _v3
-    }) => (0, _v1.jsxs)(_v42.Modal, {
+    }) => (0, _v1.jsxs)(_v43.Modal, {
       size: "md",
       isOpen: _v0,
       onClose: _v2,
-      children: [(0, _v1.jsx)(_v47.ModalOverlay, {}), (0, _v1.jsxs)(_v44.ModalContent, {
-        children: [(0, _v1.jsxs)(_v46.ModalHeader, {
+      children: [(0, _v1.jsx)(_v48.ModalOverlay, {}), (0, _v1.jsxs)(_v45.ModalContent, {
+        children: [(0, _v1.jsxs)(_v47.ModalHeader, {
           position: "relative",
           children: [(0, _v1.jsx)(_v4.Header, {
             size: "md",
             children: _v19.T.RecoverAllVideosModalHeader
-          }), (0, _v1.jsx)(_v48.ModalCloseButton, {
+          }), (0, _v1.jsx)(_v49.ModalCloseButton, {
             onClick: _v2
           })]
-        }), (0, _v1.jsx)(_v43.ModalBody, {
+        }), (0, _v1.jsx)(_v44.ModalBody, {
           children: (0, _v1.jsx)(_v5.Paragraph, {
             size: "md",
             children: _v19.T.RecoverAllVideosModalText
           })
-        }), (0, _v1.jsxs)(_v45.ModalFooter, {
-          children: [(0, _v1.jsx)(_v35.Button, {
+        }), (0, _v1.jsxs)(_v46.ModalFooter, {
+          children: [(0, _v1.jsx)(_v36.Button, {
             variant: "secondary",
             onClick: _v2,
             disabled: _v3,
             children: _v19.T.ModalHeaderButtonCancelText
-          }), (0, _v1.jsx)(_v35.Button, {
+          }), (0, _v1.jsx)(_v36.Button, {
             variant: "primary",
             onClick: _v1,
             isLoading: _v3,
@@ -534,7 +577,7 @@
         })]
       })]
     }),
-    _v57 = ({
+    _v58 = ({
       userId: _v0
     }) => {
       let [_v1, _v2] = (0, _v2.useState)(!0),
@@ -615,7 +658,7 @@
               startDate: _v0,
               endDate: _v1
             }) => {
-              _v32(_v0, _v5.startDate) && _v32(_v1, _v5.endDate) || (_v6({
+              _v33(_v0, _v5.startDate) && _v33(_v1, _v5.endDate) || (_v6({
                 startDate: _v0,
                 endDate: _v1
               }), _v4(!0), _v7({
@@ -686,7 +729,7 @@
                   error: _v8,
                   callCount: _v9,
                   loading: _v10
-                }] = (0, _v31.usePostVideosRestore)();
+                }] = _v32();
               return (0, _v2.useEffect)(() => {
                 _v8 && _v0(_v27.failedRecover);
               }, [_v8]), (0, _v2.useEffect)(() => {
@@ -771,14 +814,14 @@
         children: [(0, _v1.jsx)(_v16.SettingsPageContentHeader, {
           title: _v19.T.HistoryAndRecovery,
           description: _v1 ? _v19.T.RecoveredVideosText(30) : _v19.T.NotRecoveredVideosText(30)
-        }), (0, _v1.jsx)(_v41, {
+        }), (0, _v1.jsx)(_v42, {
           loadingVideoId: _v25,
           pagination: _v29,
           isRecoveredStatus: _v1,
           list: _v27,
           onPopOverClick: _v19,
           placeholder: !_v28 && (_v16 || _v22) ? (0, _v1.jsx)(_v17.LoadSpinner, {}) : _v30,
-          toolBar: (0, _v1.jsx)(_v55, {
+          toolBar: (0, _v1.jsx)(_v56, {
             setRecoveredStatus: _v2,
             isRecoveredStatus: _v1,
             exportUri: _v26,
@@ -788,11 +831,11 @@
             onRecoverAllClick: () => _v4(!0),
             recovering: _v5 > 0
           })
-        }), (0, _v1.jsx)(_v49, {
+        }), (0, _v1.jsx)(_v50, {
           isModalOpen: _v18,
           onModalClick: _v23,
           onModalClose: _v20
-        }), _v3 && (0, _v1.jsx)(_v56, {
+        }), _v3 && (0, _v1.jsx)(_v57, {
           isModalOpen: _v3,
           onModalClick: _v11,
           onModalClose: () => _v4(!1),

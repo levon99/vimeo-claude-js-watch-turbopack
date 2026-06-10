@@ -1103,7 +1103,7 @@
             singular: "Ihr Mikrofon wurde getrennt. Auf ein anderes verfügbares Gerät umgeschaltet."
           },
           "fr-FR": {
-            singular: "Votre microphone a été déconnecté. Il a été basculé vers un autre appareil disponible."
+            singular: "Votre microphone a été déconnecté. Le système a basculé sur un autre appareil disponible."
           },
           "ja-JP": {
             singular: "マイクが切断されました。別の利用可能なデバイスに切り替えました。"

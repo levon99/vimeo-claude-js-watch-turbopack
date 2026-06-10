@@ -75,7 +75,7 @@
   }], 0);
   var _v7 = _v0.i(0),
     _v8 = _v0.i(0);
-  _v0.s(["getPrivacyLabel", 0, (_v0, _v1, _v2) => {
+  let _v9 = (_v0, _v1, _v2) => {
     let _v3 = ("cold_storage" === _v0 || "purgatory" === _v0) && _v2 ? _v2 : _v0;
     if ("team" === _v3) return (0, _v8.getTeamPrivacyTranslation)(_v1?.teamName, _v1?.isWorkspace);
     let _v4 = _v7.DEFAULT_PRIVACY_OPTIONS.find(_v0 => _v0.privacy === _v3)?.title;
@@ -105,5 +105,16 @@
         }
       }
     }) : _v3);
+  };
+  _v0.s(["getPrivacyLabel", 0, _v9], 0);
+  let _v10 = (0, _v7.videoPrivacyIcons)("12px");
+  _v0.s(["getPrivacyTypeIconAndLabel", 0, (_v0, _v1, _v2) => {
+    let _v3 = ("cold_storage" === _v0 || "purgatory" === _v0) && _v2 ? _v2 : _v0,
+      _v4 = _v9(_v0, _v1, _v2),
+      _v5 = _v10["cold_storage" === _v3 ? "purgatory" : _v3]?.icon;
+    return _v4 && _v5 ? {
+      label: _v4,
+      icon: _v5
+    } : void 0;
   }], 0);
 }

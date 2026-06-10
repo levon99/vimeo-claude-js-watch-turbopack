@@ -134,7 +134,8 @@
       }), _v19, (0, _v1.jsx)(_v14.ContentCard.VideoPrivacyBadge, {
         videoPrivacy: _v20,
         variant: _v21,
-        onClick: _v22
+        onClick: _v22,
+        layout: "overlay"
       }), (0, _v1.jsx)(_v14.ContentCard.Badge, {
         variant: _v24,
         sx: _v25,

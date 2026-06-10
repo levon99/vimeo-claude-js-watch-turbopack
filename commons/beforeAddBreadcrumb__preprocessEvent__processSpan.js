@@ -4493,7 +4493,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "9c7e026626519309fa815fce0ce8398e08f9427b",
+      release: "19b1c830b60d5751a5dd6ec5508edb77a130f780",
       ..._v0
     };
     !function (_v0) {
@@ -4574,8 +4574,18 @@ Error:`, _v0);
     dsn: "https://0a37e74b815884a9b93905d42fd36619@o6787.ingest.us.sentry.io/4511274141876224",
     environment: _v284,
     tracesSampleRate: _v285 ? .01 : 1,
+    ignoreErrors: ["fresnel-events.vimeocdn.com", "browser-intake-datadoghq.com"],
     beforeBreadcrumb: _v0 => "xhr" === _v0.category && "string" == typeof _v0.data?.url && _v0.data.url.includes("vimeocdn.com") && 200 === _v0.data.status_code ? null : _v0,
     beforeSend(_v0, _v1) {
+      let _v2 = _v0.exception?.values?.[0];
+      if (_v2?.type === "SyntaxError") {
+        let _v0 = _v2.stacktrace?.frames,
+          _v1 = _v2.mechanism?.type === "auto.browser.global_handlers.onerror" || _v2.mechanism?.type === "onerror";
+        if (_v0?.length === 1) {
+          let _v0 = _v0[0].filename ?? _v0[0].abs_path ?? "";
+          if (_v0.startsWith("app:///") && !_v0.includes("_next/static") && _v1) return null;
+        }
+      }
       if (_v0.exception?.values?.[0]?.type === "UnhandledRejection" && void 0 === _v1.originalException) {
         let _v0 = document.querySelector("[data-ready]");
         _v0.extra = {

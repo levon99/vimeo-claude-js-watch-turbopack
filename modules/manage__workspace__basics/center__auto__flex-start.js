@@ -1182,11 +1182,7 @@
         _v11 = (0, _v13.useViewer)(),
         {
           allowedPrivacies: _v12
-        } = (0, _v48.useAllowedPrivacies)({
-          teamOwnerId: _v11?.teamUser?.ownerId,
-          userId: _v11?.user?.id,
-          isMsTeamsApp: !1
-        }),
+        } = (0, _v48.useUserAllowedPrivacies)(),
         {
           settings: _v13
         } = (0, _v46.useOrionSettings)(),
@@ -1199,7 +1195,7 @@
         _v18 = (0, _v3.useMemo)(() => _v63(), []),
         _v19 = "password" === _v9.view,
         _v20 = "whitelist" === _v9.embed,
-        _v21 = (0, _v50.useEmbedPrivacyOptions)();
+        _v21 = (0, _v50.useEmbedPrivacyOptions)(!0);
       (0, _v3.useEffect)(() => {
         _v3 && _v6({
           view: _v3.privacy?.view,
@@ -1263,8 +1259,7 @@
         },
         _v25 = (0, _v49.useDefaultPrivacyOptions)(_v11, !0).map(_v0 => ({
           ..._v0,
-          isDisabled: !_v12.includes(_v0.privacy),
-          showUpsell: "team" !== _v0.privacy && !_v12.includes(_v0.privacy)
+          isDisabled: !_v12.includes(_v0.privacy)
         }));
       return (0, _v1.jsxs)(_v28.Modal, {
         isOpen: _v0,

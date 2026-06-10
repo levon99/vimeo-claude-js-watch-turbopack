@@ -45,17 +45,5 @@
       editableTitle: _v13,
       isEditingContentTitle: _v6
     });
-  }], 0);
-  var _v6 = _v0.i(0),
-    _v7 = _v0.i(0);
-  let _v8 = (0, _v6.videoPrivacyIcons)("12px");
-  _v0.s(["getPrivacyTypeIconAndLabel", 0, (_v0, _v1, _v2) => {
-    let _v3 = ("cold_storage" === _v0 || "purgatory" === _v0) && _v2 ? _v2 : _v0,
-      _v4 = (0, _v7.getPrivacyLabel)(_v0, _v1, _v2),
-      _v5 = _v8["cold_storage" === _v3 ? "purgatory" : _v3]?.icon;
-    return _v4 && _v5 ? {
-      label: _v4,
-      icon: _v5
-    } : void 0;
-  }], 0);
+  }]);
 }

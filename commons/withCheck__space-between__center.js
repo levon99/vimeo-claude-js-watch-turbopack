@@ -958,28 +958,39 @@
           }
         }),
         description: (0, _v41.translate)({
-          singular: "Team members can enable live captions and translations for live events.",
+          replacements: {
+            LINK: _v0 => (0, _v1.jsx)("a", {
+              href: "https://vimeo.com/legal/transparency/ai/live-caption-translations",
+              target: "_blank",
+              rel: "noopener noreferrer",
+              style: {
+                textDecoration: "underline"
+              },
+              children: _v0
+            }, "live-captions-learn-more")
+          },
+          singular: "Team members can enable live captions and translations for live events. {LINK}Learn more{/LINK}",
           dictionary: {
             es: {
-              singular: "Los miembros del equipo pueden habilitar subtítulos en directo y traducciones para eventos en directo."
+              singular: "Los miembros del equipo pueden habilitar subtítulos en vivo y traducciones para eventos en vivo. {LINK}Más información{/LINK}"
             },
             "de-DE": {
-              singular: "Teammitglieder können Live-Untertitel und Übersetzungen für Live-Events aktivieren."
+              singular: "Teammitglieder können für Live-Events Live-Untertitel und Übersetzungen aktivieren. {LINK}Mehr erfahren{/LINK}"
             },
             "fr-FR": {
-              singular: "Les membres de l'équipe peuvent activer les sous-titres en direct et les traductions pour les événements en direct."
+              singular: "Les membres de l'équipe peuvent activer les sous-titres et les traductions en direct pour les événements en direct. {LINK}En savoir plus{/LINK}"
             },
             "ja-JP": {
-              singular: "チームメンバーはライブイベントでライブキャプションと翻訳を有効にできます。"
+              singular: "チームメンバーはライブイベントでライブキャプションと翻訳を有効にできます。 {LINK}詳細を見る{/LINK}"
             },
             "ko-KR": {
-              singular: "팀 구성원은 라이브 이벤트에서 실시간 자막 및 번역을 활성화할 수 있습니다."
+              singular: "팀 구성원은 라이브 이벤트에서 실시간 자막 및 번역을 활성화할 수 있습니다. {LINK}자세히 알아보기{/LINK}"
             },
             "pt-BR": {
-              singular: "Os membros da equipe podem ativar legendas ao vivo e traduções para eventos ao vivo."
+              singular: "Membros da equipe podem ativar legendas ao vivo e traduções para eventos ao vivo. {LINK}Saiba mais{/LINK}"
             },
             "zh-CN": {
-              singular: "团队成员可以为直播活动启用实时字幕和翻译。"
+              singular: "团队成员可以为直播活动启用实时字幕和翻译。 {LINK}了解更多{/LINK}"
             }
           }
         })

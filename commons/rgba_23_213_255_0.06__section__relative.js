@@ -182,20 +182,75 @@
       opacity: 1
     },
     children: _v0
-  }), _v20.VideoPrivacyBadge = ({
+  });
+  let _v21 = {
+      badge: {
+        position: "absolute",
+        bottom: (0, _v13.rem)(8),
+        left: (0, _v13.rem)(8)
+      },
+      grid: {
+        gap: "0",
+        _groupHover: {
+          gap: "0.4em"
+        },
+        _groupFocusWithin: {
+          gap: "0.4em"
+        },
+        transition: "gap 120ms cubic-bezier(0.4, 0, 1, 1)"
+      },
+      label: {
+        width: "0",
+        opacity: "0",
+        transition: "opacity 120ms ease, width 180ms cubic-bezier(0.4, 0, 1, 1) 120ms",
+        _groupHover: {
+          width: "max-content",
+          opacity: 1,
+          transition: "width 180ms cubic-bezier(0.4, 0, 1, 1), opacity 180ms ease 120ms"
+        },
+        _groupFocusWithin: {
+          width: "max-content",
+          opacity: 1,
+          transition: "width 180ms cubic-bezier(0.4, 0, 1, 1), opacity 180ms ease 120ms"
+        }
+      },
+      defaultVariantColors: {},
+      defaultVariantHover: {
+        backgroundColor: "gray.600",
+        borderColor: "gray.600"
+      }
+    },
+    _v22 = {
+      badge: {},
+      grid: {
+        gap: "0.4em"
+      },
+      label: {},
+      defaultVariantColors: {
+        backgroundColor: "button-secondary-default",
+        borderColor: "transparent",
+        color: "text-primary"
+      },
+      defaultVariantHover: {
+        backgroundColor: "button-secondary-hover",
+        borderColor: "transparent"
+      }
+    };
+  _v20.VideoPrivacyBadge = ({
     videoPrivacy: _v0,
     onClick: _v1,
-    variant: _v2 = "default"
+    variant: _v2 = "default",
+    layout: _v3
   }) => {
     let {
-      label: _v3,
-      icon: _v4
+      label: _v4,
+      icon: _v5
     } = _v0 || {};
-    return _v3 && _v4 ? "coldStorage" === _v2 ? (0, _v1.jsx)(_v11.Badge, {
-      position: "absolute",
+    if (!_v4) return null;
+    let _v6 = "overlay" === _v3 ? _v21 : _v22;
+    return "coldStorage" === _v2 ? (0, _v1.jsx)(_v11.Badge, {
+      ..._v6.badge,
       size: "sm",
-      bottom: (0, _v13.rem)(8),
-      left: (0, _v13.rem)(8),
       right: "auto",
       height: "auto",
       padding: (0, _v13.rem)(3),
@@ -219,61 +274,38 @@
         display: "inline-grid",
         gridAutoFlow: "column",
         alignItems: "center",
-        gap: "0",
-        _groupHover: {
-          gap: "0.4em"
-        },
-        _groupFocusWithin: {
-          gap: "0.4em"
-        },
-        transition: "gap 120ms cubic-bezier(0.4, 0, 1, 1)",
-        children: [(0, _v1.jsx)(_v5.Box, {
+        ..._v6.grid,
+        children: [_v5 && (0, _v1.jsx)(_v5.Box, {
           flexShrink: 0,
           lineHeight: 0,
           color: "status-caution-primary",
-          children: _v4
+          children: _v5
         }), (0, _v1.jsx)(_v5.Box, {
           as: "span",
           flexShrink: 0,
           whiteSpace: "nowrap",
-          width: "0",
-          opacity: "0",
           lineHeight: "1",
-          transition: "opacity 120ms ease, width 180ms cubic-bezier(0.4, 0, 1, 1) 120ms",
-          _groupHover: {
-            width: "max-content",
-            opacity: 1,
-            transition: "width 180ms cubic-bezier(0.4, 0, 1, 1), opacity 180ms ease 120ms"
-          },
-          _groupFocusWithin: {
-            width: "max-content",
-            opacity: 1,
-            transition: "width 180ms cubic-bezier(0.4, 0, 1, 1), opacity 180ms ease 120ms"
-          },
+          ..._v6.label,
           children: (0, _v1.jsx)(_v10.Text, {
             as: "span",
             variant: "body-sm",
             fontWeight: 500,
             color: "status-caution-primary",
-            children: _v3
+            children: _v4
           })
         })]
       })
     }) : (0, _v1.jsx)(_v11.Badge, {
-      position: "absolute",
+      ..._v6.badge,
       size: "sm",
-      bottom: (0, _v13.rem)(8),
-      left: (0, _v13.rem)(8),
       padding: (0, _v13.rem)(4),
       height: "auto",
+      ..._v6.defaultVariantColors,
       ...(_v1 && {
         as: "button",
         type: "button",
         cursor: "pointer",
-        _hover: {
-          backgroundColor: "grayscale.600",
-          borderColor: "grayscale.600"
-        },
+        _hover: _v6.defaultVariantHover,
         onClick: _v0 => {
           _v0.stopPropagation(), _v0.preventDefault(), _v1(_v0);
         }
@@ -282,38 +314,19 @@
         display: "inline-grid",
         gridAutoFlow: "column",
         alignItems: "center",
-        gap: "0",
-        _groupHover: {
-          gap: "0.4em"
-        },
-        _groupFocusWithin: {
-          gap: "0.4em"
-        },
-        transition: "gap 120ms cubic-bezier(0.4, 0, 1, 1)",
-        children: [_v4, (0, _v1.jsx)(_v5.Box, {
+        ..._v6.grid,
+        children: [_v5, (0, _v1.jsx)(_v5.Box, {
           as: "span",
           flexShrink: "0",
           whiteSpace: "nowrap",
-          width: "0",
-          opacity: "0",
           lineHeight: "1",
-          transition: "opacity 120ms ease, width 180ms cubic-bezier(0.4, 0, 1, 1) 120ms",
-          _groupHover: {
-            width: "max-content",
-            opacity: 1,
-            transition: "width 180ms cubic-bezier(0.4, 0, 1, 1), opacity 180ms ease 120ms"
-          },
-          _groupFocusWithin: {
-            width: "max-content",
-            opacity: 1,
-            transition: "width 180ms cubic-bezier(0.4, 0, 1, 1), opacity 180ms ease 120ms"
-          },
-          children: _v3
+          ..._v6.label,
+          children: _v4
         })]
       })
-    }) : null;
+    });
   };
-  let _v21 = {
+  let _v23 = {
     display: {
       base: "none",
       md: "flex"
@@ -339,8 +352,8 @@
       onToggleSelected: _v2
     } = (0, _v4.useContext)(_v19);
     return (0, _v1.jsx)(_v7.Checkbox, {
-      ..._v21,
-      opacity: _v21.opacity(_v1),
+      ..._v23,
+      opacity: _v23.opacity(_v1),
       size: _v0,
       isChecked: _v1,
       onChange: _v2,
@@ -355,8 +368,8 @@
       onToggleSelected: _v2
     } = (0, _v4.useContext)(_v19);
     return (0, _v1.jsx)(_v14.Radio, {
-      ..._v21,
-      opacity: _v21.opacity(_v1),
+      ..._v23,
+      opacity: _v23.opacity(_v1),
       size: _v0,
       isChecked: _v1,
       onChange: _v2,
@@ -380,7 +393,7 @@
     overflow: "hidden",
     backgroundColor: "background",
     onClick: _v5 ? void 0 : _v6,
-    children: [_v5 && (0, _v1.jsx)(_v23, {}), (0, _v1.jsx)(_v5.Box, {
+    children: [_v5 && (0, _v1.jsx)(_v25, {}), (0, _v1.jsx)(_v5.Box, {
       as: "img",
       alt: _v0,
       src: _v1,
@@ -421,9 +434,9 @@
     _groupFocusWithin: _v3,
     border: _v4,
     onClick: _v5 ? void 0 : _v6,
-    children: [_v5 && (0, _v1.jsx)(_v23, {}), _v0]
+    children: [_v5 && (0, _v1.jsx)(_v25, {}), _v0]
   });
-  let _v22 = ({
+  let _v24 = ({
     children: _v0,
     creator: _v1,
     showCard: _v2,
@@ -485,7 +498,7 @@
           grow: "1",
           gap: "sm",
           width: "100%",
-          children: [!!_v1 && (0, _v1.jsx)(_v22, {
+          children: [!!_v1 && (0, _v1.jsx)(_v24, {
             creator: _v4,
             showCard: !!_v13,
             showOverflow: !1,
@@ -536,7 +549,7 @@
                   children: _v3
                 })
               })
-            }), _v4?.name && (0, _v1.jsx)(_v22, {
+            }), _v4?.name && (0, _v1.jsx)(_v24, {
               creator: _v4,
               showCard: !!_v13,
               showOverflow: !_v13,
@@ -662,7 +675,7 @@
     justifyContent: "space-between",
     children: _v0
   });
-  let _v23 = () => (0, _v1.jsxs)(_v5.Box, {
+  let _v25 = () => (0, _v1.jsxs)(_v5.Box, {
     position: "absolute",
     width: "100%",
     height: "100%",
