@@ -1379,181 +1379,8 @@
     });
   _v0.s(["HelpCTA", 0, _v89], 0);
   var _v90 = _v0.i(0),
-    _v91 = _v0.i(0),
-    _v92 = _v0.i(0),
-    _v93 = _v0.i(0);
-  let _v94 = "control",
-    _v95 = {
-      [_v94]: {
-        desktopCopy: "Join",
-        desktopTranslation: (0, _v18.translate)({
-          singular: "Join",
-          dictionary: {
-            es: {
-              singular: "Unirse"
-            },
-            "de-DE": {
-              singular: "Registrieren"
-            },
-            "fr-FR": {
-              singular: "S'inscrire"
-            },
-            "ja-JP": {
-              singular: "登録"
-            },
-            "ko-KR": {
-              singular: "가입"
-            },
-            "pt-BR": {
-              singular: "Inscrever-se"
-            },
-            "zh-CN": {
-              singular: "加入"
-            }
-          }
-        }),
-        mobileCopy: "Join",
-        mobileTranslation: (0, _v18.translate)({
-          singular: "Join",
-          dictionary: {
-            es: {
-              singular: "Unirse"
-            },
-            "de-DE": {
-              singular: "Registrieren"
-            },
-            "fr-FR": {
-              singular: "S'inscrire"
-            },
-            "ja-JP": {
-              singular: "登録"
-            },
-            "ko-KR": {
-              singular: "가입"
-            },
-            "pt-BR": {
-              singular: "Inscrever-se"
-            },
-            "zh-CN": {
-              singular: "加入"
-            }
-          }
-        })
-      },
-      "variant-get": {
-        desktopCopy: "Get Vimeo for Free",
-        desktopTranslation: (0, _v18.translate)({
-          singular: "Get Vimeo for Free",
-          dictionary: {
-            es: {
-              singular: "Obtenga Vimeo gratis"
-            },
-            "de-DE": {
-              singular: "Holen Sie sich Vimeo kostenlos"
-            },
-            "fr-FR": {
-              singular: "Obtenez Vimeo gratuitement"
-            },
-            "ja-JP": {
-              singular: "Vimeoを無料で入手"
-            },
-            "ko-KR": {
-              singular: "Vimeo 무료로 이용하기"
-            },
-            "pt-BR": {
-              singular: "Obtenha o Vimeo gratuitamente"
-            },
-            "zh-CN": {
-              singular: "免费获取 Vimeo"
-            }
-          }
-        }),
-        mobileCopy: "Get for Free",
-        mobileTranslation: (0, _v18.translate)({
-          singular: "Get for Free",
-          dictionary: {
-            es: {
-              singular: "Obtenga gratis"
-            },
-            "de-DE": {
-              singular: "Kostenlos erhalten"
-            },
-            "fr-FR": {
-              singular: "Obtenez gratuitement"
-            },
-            "ja-JP": {
-              singular: "無料で入手"
-            },
-            "ko-KR": {
-              singular: "무료로 이용하기"
-            },
-            "pt-BR": {
-              singular: "Obtenha gratuitamente"
-            },
-            "zh-CN": {
-              singular: "免费获取"
-            }
-          }
-        })
-      },
-      "variant-join": {
-        desktopCopy: "Join Vimeo for Free",
-        desktopTranslation: (0, _v18.translate)({
-          singular: "Join Vimeo for Free",
-          dictionary: {
-            es: {
-              singular: "Únase a Vimeo gratis"
-            },
-            "de-DE": {
-              singular: "Kostenlose Anmeldung bei Vimeo!"
-            },
-            "fr-FR": {
-              singular: "Inscrivez-vous gratuitement à Vimeo"
-            },
-            "ja-JP": {
-              singular: "Vimeo に無料登録しよう"
-            },
-            "ko-KR": {
-              singular: "Vimeo 무료 가입"
-            },
-            "pt-BR": {
-              singular: "Cadastre-se no Vimeo de graça"
-            },
-            "zh-CN": {
-              singular: "免费加入 Vimeo"
-            }
-          }
-        }),
-        mobileCopy: "Join for Free",
-        mobileTranslation: (0, _v18.translate)({
-          singular: "Join for Free",
-          dictionary: {
-            es: {
-              singular: "Únase gratis"
-            },
-            "de-DE": {
-              singular: "Kostenlos anmelden"
-            },
-            "fr-FR": {
-              singular: "Inscrivez-vous gratuitement"
-            },
-            "ja-JP": {
-              singular: "無料で登録"
-            },
-            "ko-KR": {
-              singular: "무료 가입"
-            },
-            "pt-BR": {
-              singular: "Inscreva-se gratuitamente"
-            },
-            "zh-CN": {
-              singular: "免费加入"
-            }
-          }
-        })
-      }
-    },
-    _v96 = () => {
+    _v91 = _v0.i(0);
+  let _v92 = () => {
       let {
           setModal: _v0
         } = (0, _v91.useLoginJoinModalContext)(),
@@ -1606,94 +1433,16 @@
         })
       });
     },
-    _v97 = () => {
+    _v93 = () => {
       let _v0 = (0, _v12.useTrackNavigationEvent)(),
-        {
-          ctaText: _v1,
-          ctaTextTranslated: _v2
-        } = (() => {
-          let _v0 = (0, _v3.useContext)(_v34.ViewerContext),
-            _v1 = _v0?.vuid || 0,
-            _v2 = document.referrer,
-            _v3 = (0, _v43.getPageNameFromPath)(`/${document.referrer}`),
-            _v4 = "/top-nav",
-            _v5 = "other";
-          _v4 = window.location?.pathname, _v5 = (0, _v43.getPageNameFromPath)(_v4);
-          let _v6 = {
-              key: _v1,
-              keyType: _v92.SubjectKeyTypes.VUID
-            },
-            _v7 = {
-              product_analytics_context: {
-                device_type: (0, _v44.default)(),
-                feature: "join",
-                location: "top_navigation_bar",
-                product: "community"
-              },
-              web_context: {
-                page_name: _v5,
-                path: _v4,
-                referrer: _v2,
-                referrer_page_name: _v3
-              }
-            },
-            {
-              assignment: _v8
-            } = (0, _v93.useEppoAssignment)({
-              flagKey: "join-vimeo-ctas",
-              subject: _v6,
-              bigPictureOverrides: _v7,
-              defaultAssignment: _v94,
-              assignmentType: _v92.VariationTypes.STRING,
-              disabled: !_v1
-            }),
-            _v9 = (0, _v6.useBreakpointValue)({
-              base: !0,
-              md: !1
-            }, {
-              fallback: "md"
-            }),
-            _v10 = "Join",
-            _v11 = (0, _v18.translate)({
-              singular: "Join",
-              dictionary: {
-                es: {
-                  singular: "Unirse"
-                },
-                "de-DE": {
-                  singular: "Registrieren"
-                },
-                "fr-FR": {
-                  singular: "S'inscrire"
-                },
-                "ja-JP": {
-                  singular: "登録"
-                },
-                "ko-KR": {
-                  singular: "가입"
-                },
-                "pt-BR": {
-                  singular: "Inscrever-se"
-                },
-                "zh-CN": {
-                  singular: "加入"
-                }
-              }
-            });
-          return _v9 && _v95[_v8] ? (_v10 = _v95[_v8].mobileCopy, _v11 = _v95[_v8].mobileTranslation) : _v95[_v8] && (_v10 = _v95[_v8].desktopCopy, _v11 = _v95[_v8].desktopTranslation), {
-            assignment: _v8,
-            ctaText: _v10,
-            ctaTextTranslated: _v11
-          };
-        })(),
-        _v3 = (0, _v90.useRouter)();
+        _v1 = (0, _v90.useRouter)();
       return (0, _v1.jsx)(_v22.Button, {
         variant: "primary",
         onClick: () => {
           _v0({
             feature: "join",
             element: "button",
-            copy: _v1,
+            copy: "Join",
             additionalFields: {
               interface_type: "page",
               auth_type: "join"
@@ -1701,28 +1450,53 @@
             product: "onboarding",
             eventName: "vimeo.trigger_auth_flow",
             version: 2
-          }), _v3.push("/join");
+          }), _v1.push("/join");
         },
         size: {
           base: "sm",
           sm: "md"
         },
-        children: _v2
+        children: (0, _v18.translate)({
+          singular: "Join",
+          dictionary: {
+            es: {
+              singular: "Unirse"
+            },
+            "de-DE": {
+              singular: "Registrieren"
+            },
+            "fr-FR": {
+              singular: "S'inscrire"
+            },
+            "ja-JP": {
+              singular: "登録"
+            },
+            "ko-KR": {
+              singular: "가입"
+            },
+            "pt-BR": {
+              singular: "Inscrever-se"
+            },
+            "zh-CN": {
+              singular: "加入"
+            }
+          }
+        })
       });
     };
-  var _v98 = _v0.i(0),
+  var _v94 = _v0.i(0),
+    _v95 = _v0.i(0),
+    _v96 = _v0.i(0),
+    _v97 = _v0.i(0),
+    _v98 = _v0.i(0),
     _v99 = _v0.i(0),
     _v100 = _v0.i(0),
     _v101 = _v0.i(0),
     _v102 = _v0.i(0),
     _v103 = _v0.i(0),
     _v104 = _v0.i(0),
-    _v105 = _v0.i(0),
-    _v106 = _v0.i(0),
-    _v107 = _v0.i(0),
-    _v108 = _v0.i(0),
-    _v109 = _v0.i(0);
-  let _v110 = (0, _v18.translate)({
+    _v105 = _v0.i(0);
+  let _v106 = (0, _v18.translate)({
       singular: "Untitled showcase",
       dictionary: {
         es: {
@@ -1748,18 +1522,18 @@
         }
       }
     }),
-    _v111 = (0, _v2.default)(() => _v0.A(0), {
+    _v107 = (0, _v2.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v112 = (0, _v2.default)(() => _v0.A(0), {
+    _v108 = (0, _v2.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       },
       ssr: !1
     }),
-    _v113 = (0, _v2.default)(async () => {
+    _v109 = (0, _v2.default)(async () => {
       let {
         EventCreationWizardModal: _v0
       } = await _v0.A(0);
@@ -1772,7 +1546,7 @@
       },
       ssr: !1
     }),
-    _v114 = (0, _v2.default)(async () => {
+    _v110 = (0, _v2.default)(async () => {
       let {
         MobileContentMenu: _v0
       } = await _v0.A(0);
@@ -1785,16 +1559,16 @@
       },
       ssr: !1
     });
-  function _v115({
+  function _v111({
     hasUploader: _v0
   }) {
     let _v1 = (0, _v11.useViewer)();
-    return !_v1 || _v1.teamUser?.plainTextPermissionLevel === "Viewer" || _v1.isSimplifiedSite ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsx)(_v116, {
+    return !_v1 || _v1.teamUser?.plainTextPermissionLevel === "Viewer" || _v1.isSimplifiedSite ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsx)(_v112, {
       viewer: _v1,
       hasUploader: _v0
     });
   }
-  function _v116({
+  function _v112({
     viewer: _v0,
     hasUploader: _v1
   }) {
@@ -1832,7 +1606,7 @@
         isOpen: _v27,
         onOpen: _v28,
         onClose: _v29
-      } = (0, _v99.useDisclosure)(),
+      } = (0, _v95.useDisclosure)(),
       {
         canCreateShowcase: _v30,
         isCreatingShowcase: _v31,
@@ -1843,7 +1617,7 @@
         canManageTeamCollections: _v0,
         viewer: _v1
       }) => {
-        let _v2 = (0, _v107.useToast)(),
+        let _v2 = (0, _v103.useToast)(),
           [_v3, _v4] = (0, _v3.useState)(!1),
           _v5 = _v1?.teamUser?.ownerId || _v1?.user?.id,
           {
@@ -1868,7 +1642,7 @@
               data: _v5,
               error: _v6,
               loading: _v7
-            }] = (0, _v109.usePostUserAlbums)();
+            }] = (0, _v105.usePostUserAlbums)();
             return (0, _v3.useEffect)(() => {
               _v4 && !_v7 && (_v5 && _v1?.({
                 uri: _v5.uri
@@ -1880,7 +1654,7 @@
                 },
                 select: ["uri"],
                 variables: {
-                  name: _v110
+                  name: _v106
                 }
               });
             }, {
@@ -1916,7 +1690,7 @@
                   }
                 }),
                 variant: "warning",
-                icon: (0, _v1.jsx)(_v108.CircleExclamationFilled, {
+                icon: (0, _v1.jsx)(_v104.CircleExclamationFilled, {
                   color: "status-destructive-primary"
                 }),
                 isClosable: !1
@@ -1957,11 +1731,11 @@
         trackHeaderCreateMenuItemClicked: _v36
       } = (0, _v10.useHeaderTracking)();
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsxs)(_v100.NestedMenu, {
+      children: [(0, _v1.jsxs)(_v96.NestedMenu, {
         positioning: {
           placement: "bottom-end"
         },
-        children: [(0, _v1.jsx)(_v100.NestedMenuTrigger, {
+        children: [(0, _v1.jsx)(_v96.NestedMenuTrigger, {
           onClick: _v0 => {
             _v2 && (_v0.preventDefault(), _v28()), (0, _v12.trackNavigationActionEvent)({
               copy: "new",
@@ -1976,7 +1750,7 @@
             sm: "md"
           },
           "data-id": "new_content_menu_button",
-          leftIcon: (0, _v1.jsx)(_v106.PlusSmall, {}),
+          leftIcon: (0, _v1.jsx)(_v102.PlusSmall, {}),
           children: (0, _v18.translate)({
             singular: "Create",
             dictionary: {
@@ -2003,13 +1777,13 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v100.NestedMenuPositioner, {
-          children: (0, _v1.jsxs)(_v100.NestedMenuContent, {
+        }), (0, _v1.jsx)(_v96.NestedMenuPositioner, {
+          children: (0, _v1.jsxs)(_v96.NestedMenuContent, {
             minWidth: (0, _v5.rem)(202),
-            children: [(0, _v1.jsxs)(_v100.NestedMenuItem, {
+            children: [(0, _v1.jsxs)(_v96.NestedMenuItem, {
               id: "upload",
               value: "upload",
-              as: _v98.default,
+              as: _v94.default,
               href: _v20,
               prefetch: !1,
               onClick: () => {
@@ -2026,7 +1800,7 @@
                   createMenuItem: "upload"
                 });
               },
-              children: [(0, _v1.jsx)(_v102.Upload, {}), " ", (0, _v18.translate)({
+              children: [(0, _v1.jsx)(_v98.Upload, {}), " ", (0, _v18.translate)({
                 singular: "Upload",
                 dictionary: {
                   es: {
@@ -2052,7 +1826,7 @@
                   }
                 }
               })]
-            }), _v1 ? (0, _v1.jsxs)(_v100.NestedMenuItem, {
+            }), _v1 ? (0, _v1.jsxs)(_v96.NestedMenuItem, {
               id: "import",
               value: "import",
               onClick: () => {
@@ -2060,7 +1834,7 @@
                   createMenuItem: "import"
                 });
               },
-              children: [(0, _v1.jsx)(_v105.DownloadImport, {}), " ", (0, _v18.translate)({
+              children: [(0, _v1.jsx)(_v101.DownloadImport, {}), " ", (0, _v18.translate)({
                 singular: "Import",
                 dictionary: {
                   es: {
@@ -2086,10 +1860,10 @@
                   }
                 }
               })]
-            }) : null, (0, _v1.jsx)(_v100.NestedMenuDivider, {}), _v7 && (0, _v1.jsxs)(_v100.NestedMenuItem, {
+            }) : null, (0, _v1.jsx)(_v96.NestedMenuDivider, {}), _v7 && (0, _v1.jsxs)(_v96.NestedMenuItem, {
               id: "create",
               value: "create",
-              as: _v98.default,
+              as: _v94.default,
               href: _v26,
               prefetch: !1,
               onClick: () => {
@@ -2105,7 +1879,7 @@
                   createMenuItem: "video_project"
                 });
               },
-              children: [(0, _v1.jsx)(_v104.ClapperBoard, {}), " ", (0, _v18.translate)({
+              children: [(0, _v1.jsx)(_v100.ClapperBoard, {}), " ", (0, _v18.translate)({
                 singular: "Video project",
                 dictionary: {
                   es: {
@@ -2131,10 +1905,10 @@
                   }
                 }
               })]
-            }), (0, _v1.jsxs)(_v100.NestedMenuItem, {
+            }), (0, _v1.jsxs)(_v96.NestedMenuItem, {
               id: "record",
               value: "record",
-              as: _v98.default,
+              as: _v94.default,
               href: _v25,
               prefetch: !1,
               onClick: () => {
@@ -2150,7 +1924,7 @@
                   createMenuItem: "recording"
                 });
               },
-              children: [(0, _v1.jsx)(_v103.Record, {}), " ", (0, _v18.translate)({
+              children: [(0, _v1.jsx)(_v99.Record, {}), " ", (0, _v18.translate)({
                 singular: "Recording",
                 dictionary: {
                   es: {
@@ -2176,7 +1950,7 @@
                   }
                 }
               })]
-            }), _v16 && (0, _v1.jsxs)(_v100.NestedMenuItem, {
+            }), _v16 && (0, _v1.jsxs)(_v96.NestedMenuItem, {
               id: "host",
               value: "host",
               onClick: () => {
@@ -2214,7 +1988,7 @@
                   }
                 }
               })]
-            }), _v30 && (0, _v1.jsxs)(_v100.NestedMenuItem, {
+            }), _v30 && (0, _v1.jsxs)(_v96.NestedMenuItem, {
               id: "showcase",
               value: "showcase",
               disabled: _v31,
@@ -2223,7 +1997,7 @@
                   createMenuItem: "showcase"
                 }), _v33();
               },
-              children: [(0, _v1.jsx)(_v101._3GridLeftLayout, {}), " ", (0, _v18.translate)({
+              children: [(0, _v1.jsx)(_v97._3GridLeftLayout, {}), " ", (0, _v18.translate)({
                 singular: "Showcase",
                 dictionary: {
                   es: {
@@ -2251,11 +2025,11 @@
               })]
             })]
           })
-        }), (0, _v1.jsx)(_v113, {
+        }), (0, _v1.jsx)(_v109, {
           active: _v9,
           activeSet: _v10
         })]
-      }), (0, _v1.jsx)(_v114, {
+      }), (0, _v1.jsx)(_v110, {
         isOpen: _v27,
         onClose: _v29,
         canCreateLiveEvents: !0,
@@ -2269,7 +2043,7 @@
         ...(_v7 && {
           creationLink: _v26
         })
-      }), _v32 && (0, _v1.jsx)(_v111, {
+      }), _v32 && (0, _v1.jsx)(_v107, {
         apiUrl: _v0?.apiUrl,
         onClose: () => _v34(!1),
         templateType: "default",
@@ -2294,7 +2068,7 @@
         modalConfig: {
           mkcCode: "unified-top-nav-legacy"
         }
-      }), _v11 ? (0, _v1.jsx)(_v112, {
+      }), _v11 ? (0, _v1.jsx)(_v108, {
         isOpen: _v11,
         setIsOpen: _v12,
         referrerPage: "create_menu",
@@ -2302,7 +2076,7 @@
       }) : null]
     });
   }
-  let _v117 = () => {
+  let _v113 = () => {
     let _v0 = (0, _v3.useRef)(!1),
       _v1 = (0, _v12.useTrackNavigationEvent)();
     return (0, _v3.useEffect)(() => {
@@ -2370,17 +2144,17 @@
       })
     });
   };
-  _v0.s(["PricingCTA", 0, _v117], 0);
-  var _v118 = _v0.i(0),
-    _v119 = _v0.i(0);
-  let _v120 = ({
+  _v0.s(["PricingCTA", 0, _v113], 0);
+  var _v114 = _v0.i(0),
+    _v115 = _v0.i(0);
+  let _v116 = ({
     isSideNavActive: _v0,
     setIsSideNavActive: _v1
   }) => {
     let _v2 = (0, _v11.useViewer)();
     return (0, _v1.jsx)(_v14.IconButton, {
       "aria-label": "open-sidenav",
-      icon: (0, _v1.jsx)(_v119.Menu, {}),
+      icon: (0, _v1.jsx)(_v115.Menu, {}),
       variant: "tertiary",
       display: _v0 ? "none" : "flex",
       onClick: () => {
@@ -2398,8 +2172,8 @@
       "data-testid": "open-sidenav"
     });
   };
-  _v0.s(["SideNavToggle", 0, _v120], 0);
-  let _v121 = ({
+  _v0.s(["SideNavToggle", 0, _v116], 0);
+  let _v117 = ({
       itemsCount: _v0
     }) => {
       let _v1 = (0, _v12.useTrackNavigationEvent)();
@@ -2444,7 +2218,7 @@
         })
       }) : (0, _v1.jsx)(_v1.Fragment, {});
     },
-    _v122 = (0, _v2.default)(async () => ({
+    _v118 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).LoginJoinModal
     }), {
       loadableGenerated: {
@@ -2500,12 +2274,12 @@
           base: "sm",
           md: "md"
         },
-        children: [_v4 && (0, _v1.jsx)(_v120, {
+        children: [_v4 && (0, _v1.jsx)(_v116, {
           isSideNavActive: !!_v3,
           setIsSideNavActive: _v4
         }), (0, _v1.jsx)(_v7.Navigation.VimeoLogo, {
           display: _v3 ? "none" : "flex"
-        }), _v1 && _v11 && (0, _v1.jsx)(_v118.Search, {})]
+        }), _v1 && _v11 && (0, _v1.jsx)(_v114.Search, {})]
       }), (0, _v1.jsx)(_v7.Navigation.RightContent, {
         justifyContent: "end",
         width: _v11 ? "unset" : "100%",
@@ -2528,20 +2302,20 @@
             justifyContent: "end",
             children: [!_v15 && (0, _v1.jsx)(_v7.Navigation.Upgrade, {
               viewer: _v7
-            }), _v1 && !_v11 && (0, _v1.jsx)(_v118.Search, {
+            }), _v1 && !_v11 && (0, _v1.jsx)(_v114.Search, {
               withToggle: !0,
               updateGlobalNavSearchState: _v10
             }), !_v14 && !_v18 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v89, {}), (0, _v1.jsx)(_v13, {}), (0, _v1.jsx)(_v121, {
+              children: [(0, _v1.jsx)(_v89, {}), (0, _v1.jsx)(_v13, {}), (0, _v1.jsx)(_v117, {
                 itemsCount: _v7?.cart?.itemsCount
               })]
             }), _v7 && !_v8 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [!_v15 && !_v19 && (0, _v1.jsx)(_v117, {}), !(_v13 && _v9) && (0, _v1.jsx)(_v96, {})]
-            }), !_v14 && (_v8 ? (0, _v1.jsx)(_v115, {
+              children: [!_v15 && !_v19 && (0, _v1.jsx)(_v113, {}), !(_v13 && _v9) && (0, _v1.jsx)(_v92, {})]
+            }), !_v14 && (_v8 ? (0, _v1.jsx)(_v111, {
               hasUploader: _v5
-            }) : _v7 && !_v19 && (0, _v1.jsx)(_v97, {})), !(_v13 && _v9) && (0, _v1.jsx)(_v8.AccountMenu, {
+            }) : _v7 && !_v19 && (0, _v1.jsx)(_v93, {})), !(_v13 && _v9) && (0, _v1.jsx)(_v8.AccountMenu, {
               hasThemeSupport: _v2
-            }), _v7 && !_v8 && _v16 && (0, _v1.jsx)(_v122, {})]
+            }), _v7 && !_v8 && _v16 && (0, _v1.jsx)(_v118, {})]
           })
         })
       })]

@@ -201,34 +201,25 @@
       autoplay: 1
     },
     _v47 = "(max-width: 768px)",
-    _v48 = {
-      product_analytics_context: {
-        product: "search",
-        feature: "library_search"
-      },
-      web_context: {
-        page_name: "search_result_page"
-      }
-    },
-    _v49 = ["clip.name", "clip.pictures", "clip.user.name", "clip.user.pictures.sizes", "clip.metadata.connections", "clip.metadata.interactions.watchlater.added", "clip.uri", "clip.stats.plays", "clip.duration", "clip.createdTime", "clip.link", "clip.badge.type", "facet.type"],
-    _v50 = ["ondemand.link", "ondemand.name", "ondemand.pictures.sizes", "ondemand.metadata.interactions.buy", "ondemand.metadata.interactions.rent", "ondemand.uri"],
-    _v51 = ["people.name", "people.locationDetails.formattedAddress", "people.metadata.publicVideos.total", "people.pictures.sizes", "people.link", "people.metadata.connections.followers.total", "people.skills.name", "people.skills.uri", "people.backgroundVideo", "people.uri"],
-    _v52 = ["channel.name", "channel.metadata.connections.users.total", "channel.metadata.connections.videos.total", "channel.pictures.sizes", "channel.link", "channel.uri"],
-    _v53 = ["group.name", "group.metadata.connections.users.total", "group.metadata.connections.videos.total", "group.pictures.sizes", "group.link", "group.uri"],
-    _v54 = ["folder.name", "folder.uri", "folder.isPrivateToUser", "folder.lastUserActionEventDate", "folder.createdTime", "folder.modifiedTime", "folder.settings", "folder.metadata.connections.items.total", "folder.metadata.connections.folders.total", "folder.metadata.connections.ancestorPath", "folder.metadata.connections.parentFolder", "folder.metadata.connections.videos", "folder.metadata.interactions.invite", "folder.metadata.interactions.delete", "folder.metadata.interactions.editSettings", "folder.metadata.interactions.edit", "video.name", "video.uri", "video.user.uri", "video.user.uploadQuota.lifetime", "video.user.uploadQuota.periodic", "video.user.uploadQuota.space.unit", "video.user.metadata.connections.projects.options", "video.createdTime", "video.customMetadata", "video.lastUserActionEventDate", "video.modifiedTime", "video.link", "video.privacy", "video.type", "video.download", "video.pictures", "video.description", "video.metadata.interactions.edit", "video.metadata.interactions.delete", "video.parentProject.isPrivateToUser", "video.parentProject.metadata.connections.ancestorPath", "video.parentProject.metadata.interactions.edit", "video.parentProject.metadata.interactions.moveVideo", "video.parentProject.name", "video.parentProject.uri", "video.manageLink", "video.canMoveToProject", "video.metadata.interactions.edit", "video.metadata.interactions.delete", "video.metadata.interactions.invite.uri", "video.duration", "video.allowedPrivacies", "video.reviewPage", "video.reviewLinks.uri", "video.embed", "video.playerEmbedUrl", "showcase.createdTime", "showcase.name", "showcase.link", "showcase.privacy", "showcase.uri", "showcase.embed", "showcase.pictures", "showcase.metadata.connections.videos.total", "showcase.hasChosenThumbnail", "showcase.privacy", "showcase.modifiedTime", "showcase.metadata.interactions.delete", "liveEvent.createdTime", "liveEvent.hasRegistration", "liveEvent.metadata.connections.liveVideo.status", "liveEvent.metadata.interactions.delete", "liveEvent.metadata.interactions.edit", "liveEvent.nextOccurrenceTime", "liveEvent.link", "liveEvent.pictures.uri", "liveEvent.pictures.sizes", "liveEvent.title", "liveEvent.uri", "liveEvent.user.uri", "liveEvent.status", "liveEvent.streamPrivacy", "liveEvent.viewLink", "liveEvent.settingsLink", "liveEvent.parentFolder.uri", "liveEvent.parentFolder.name", "liveEvent.parentFolder.isPrivateToUser", "liveEvent.embed.html", "liveEvent.eventType", "meta", "type"],
-    _v55 = ["contents", "contentsHighlight", "id", "startTime", "endTime", "thumbnail", "type", "url", "metadata", "attributes"],
-    _v56 = ["folder.name", "folder.uri", "folder.metadata.connections.ancestorPath"],
-    _v57 = "filters",
-    _v58 = "sort",
-    _v59 = "moments",
-    _v60,
-    _v61 = (0, _v3.createContext)({}),
-    _v62 = ({
+    _v48 = ["clip.name", "clip.pictures", "clip.user.name", "clip.user.pictures.sizes", "clip.metadata.connections", "clip.metadata.interactions.watchlater.added", "clip.uri", "clip.stats.plays", "clip.duration", "clip.createdTime", "clip.link", "clip.badge.type", "facet.type"],
+    _v49 = ["ondemand.link", "ondemand.name", "ondemand.pictures.sizes", "ondemand.metadata.interactions.buy", "ondemand.metadata.interactions.rent", "ondemand.uri"],
+    _v50 = ["people.name", "people.locationDetails.formattedAddress", "people.metadata.publicVideos.total", "people.pictures.sizes", "people.link", "people.metadata.connections.followers.total", "people.skills.name", "people.skills.uri", "people.backgroundVideo", "people.uri"],
+    _v51 = ["channel.name", "channel.metadata.connections.users.total", "channel.metadata.connections.videos.total", "channel.pictures.sizes", "channel.link", "channel.uri"],
+    _v52 = ["group.name", "group.metadata.connections.users.total", "group.metadata.connections.videos.total", "group.pictures.sizes", "group.link", "group.uri"],
+    _v53 = ["folder.name", "folder.uri", "folder.isPrivateToUser", "folder.lastUserActionEventDate", "folder.createdTime", "folder.modifiedTime", "folder.settings", "folder.metadata.connections.items.total", "folder.metadata.connections.folders.total", "folder.metadata.connections.ancestorPath", "folder.metadata.connections.parentFolder", "folder.metadata.connections.videos", "folder.metadata.interactions.invite", "folder.metadata.interactions.delete", "folder.metadata.interactions.editSettings", "folder.metadata.interactions.edit", "video.name", "video.uri", "video.user.uri", "video.user.uploadQuota.lifetime", "video.user.uploadQuota.periodic", "video.user.uploadQuota.space.unit", "video.user.metadata.connections.projects.options", "video.createdTime", "video.customMetadata", "video.lastUserActionEventDate", "video.modifiedTime", "video.link", "video.privacy", "video.type", "video.download", "video.pictures", "video.description", "video.metadata.interactions.edit", "video.metadata.interactions.delete", "video.parentProject.isPrivateToUser", "video.parentProject.metadata.connections.ancestorPath", "video.parentProject.metadata.interactions.edit", "video.parentProject.metadata.interactions.moveVideo", "video.parentProject.name", "video.parentProject.uri", "video.manageLink", "video.canMoveToProject", "video.metadata.interactions.edit", "video.metadata.interactions.delete", "video.metadata.interactions.invite.uri", "video.duration", "video.allowedPrivacies", "video.reviewPage", "video.reviewLinks.uri", "video.embed", "video.playerEmbedUrl", "showcase.createdTime", "showcase.name", "showcase.link", "showcase.privacy", "showcase.uri", "showcase.embed", "showcase.pictures", "showcase.metadata.connections.videos.total", "showcase.hasChosenThumbnail", "showcase.privacy", "showcase.modifiedTime", "showcase.metadata.interactions.delete", "liveEvent.createdTime", "liveEvent.hasRegistration", "liveEvent.metadata.connections.liveVideo.status", "liveEvent.metadata.interactions.delete", "liveEvent.metadata.interactions.edit", "liveEvent.nextOccurrenceTime", "liveEvent.link", "liveEvent.pictures.uri", "liveEvent.pictures.sizes", "liveEvent.title", "liveEvent.uri", "liveEvent.user.uri", "liveEvent.status", "liveEvent.streamPrivacy", "liveEvent.viewLink", "liveEvent.settingsLink", "liveEvent.parentFolder.uri", "liveEvent.parentFolder.name", "liveEvent.parentFolder.isPrivateToUser", "liveEvent.embed.html", "liveEvent.eventType", "meta", "type"],
+    _v54 = ["contents", "contentsHighlight", "id", "startTime", "endTime", "thumbnail", "type", "url", "metadata", "attributes"],
+    _v55 = ["folder.name", "folder.uri", "folder.metadata.connections.ancestorPath"],
+    _v56 = "filters",
+    _v57 = "sort",
+    _v58 = "moments",
+    _v59,
+    _v60 = (0, _v3.createContext)({}),
+    _v61 = ({
       children: _v0
     }) => {
       let _v1 = (0, _v25.useBreakpointValue)({
-          base: _v60,
-          lg: _v57
+          base: _v59,
+          lg: _v56
         }),
         [_v2, _v3] = (0, _v3.useState)(_v1),
         [_v4, _v5] = (0, _v3.useState)(_v45),
@@ -245,21 +236,21 @@
       return (0, _v3.useEffect)(() => {
         _v3(_v1);
       }, [_v1]), (0, _v3.useEffect)(() => {
-        _v2 !== _v59 && _v4.momentEmbedUrl && _v5(_v45);
+        _v2 !== _v58 && _v4.momentEmbedUrl && _v5(_v45);
       }, [_v4.momentEmbedUrl, _v2]), (0, _v3.useEffect)(() => {
         for (let _v0 = 0; _v0 < _v8.length; _v0++) {
           if (_v8[_v0].loading) return;
           if (_v8[_v0].hasMoments) return void _v7(_v0);
         }
-      }, [_v8]), (0, _v1.jsx)(_v61.Provider, {
+      }, [_v8]), (0, _v1.jsx)(_v60.Provider, {
         value: {
           panelStatus: _v2,
           togglePanel: _v0 => {
-            _v2 === _v60 || _v0 !== _v2 ? _v3(_v0) : _v3(_v60);
+            _v2 === _v59 || _v0 !== _v2 ? _v3(_v0) : _v3(_v59);
           },
           panelMoments: _v4,
           setPanelMoments: _v0 => {
-            _v5(_v0), _v3(_v59);
+            _v5(_v0), _v3(_v58);
           },
           hasDrawer: _v10,
           isDrawerOpen: _v11,
@@ -292,86 +283,66 @@
         children: _v0
       });
     };
-  var _v63 = _v0.i(0),
+  var _v62 = _v0.i(0),
+    _v63 = _v0.i(0),
     _v64 = _v0.i(0),
-    _v65 = _v0.i(0),
-    _v66 = _v0.i(0),
-    _v67 = _v0.i(0);
-  let _v68 = () => {
-    let _v0 = (0, _v3.useContext)(_v67.ViewerContext),
-      _v1 = (0, _v66.shouldShowInDevelopmentFeature)("show_ask_library", !0),
-      _v2 = (0, _v66.shouldShowInDevelopmentFeature)("show_new_moments", !0),
-      _v3 = (0, _v66.shouldShowInDevelopmentFeature)("reframe_override", !0),
-      _v4 = (0, _v66.shouldShowInDevelopmentFeature)("dedupe", !0),
-      _v5 = (0, _v66.shouldShowInDevelopmentFeature)("chapter_fallback", !0),
+    _v65 = _v0.i(0);
+  let _v66 = () => {
+    let _v0 = (0, _v3.useContext)(_v65.ViewerContext),
       {
-        assignment: _v6
-      } = (0, _v64.useCuidEppoAssignment)({
-        flagKey: "ask-your-library",
-        assignmentType: _v65.VariationTypes.BOOLEAN,
-        bigPictureOverrides: _v48,
-        defaultAssignment: !1,
-        additionalData: {
-          ownerId: _v0?.teamUser?.ownerId ?? _v0?.user?.id ?? 0
-        }
-      }),
+        settings: _v1
+      } = (0, _v63.useOrionSettings)(),
+      _v2 = (0, _v64.shouldShowInDevelopmentFeature)("show_ask_library", !0),
+      _v3 = (0, _v64.shouldShowInDevelopmentFeature)("show_new_moments", !0),
+      _v4 = (0, _v64.shouldShowInDevelopmentFeature)("reframe_override", !0),
+      _v5 = (0, _v64.shouldShowInDevelopmentFeature)("dedupe", !0),
+      _v6 = (0, _v64.shouldShowInDevelopmentFeature)("chapter_fallback", !0),
       {
-        assignment: _v7
-      } = (0, _v64.useCuidEppoAssignment)({
-        flagKey: "new-moments",
-        assignmentType: _v65.VariationTypes.BOOLEAN,
-        bigPictureOverrides: _v48,
-        defaultAssignment: !1,
-        additionalData: {
-          ownerId: _v0?.teamUser?.ownerId ?? _v0?.user?.id ?? 0
-        }
-      }),
-      {
-        loading: _v8,
+        loading: _v7,
         capabilities: {
-          hasPaid: _v9
+          hasPaid: _v8
         }
-      } = (0, _v63.useCapability)(["hasPaid"]),
+      } = (0, _v62.useCapability)(["hasPaid"]),
       {
-        loading: _v10,
-        ready: _v11,
+        loading: _v9,
+        ready: _v10,
         capabilities: {
-          hasPublicSearchDisabled: _v12 = !0,
-          hasEnterprise: _v13,
-          hasAutoClosedCaptions: _v14,
-          canManageTeamCollections: _v15,
-          hasLiveSubscription: _v16,
-          hasContentSpaceEnabled: _v17,
-          hasVideoReviewPageDemo: _v18,
-          canSeeUpsellModalOnShare: _v19,
-          hasMultipleReviewLinks: _v20,
-          hasTeamPrivacy: _v21
+          hasPublicSearchDisabled: _v11 = !0,
+          hasEnterprise: _v12,
+          hasAutoClosedCaptions: _v13,
+          canManageTeamCollections: _v14,
+          hasLiveSubscription: _v15,
+          hasContentSpaceEnabled: _v16,
+          hasVideoReviewPageDemo: _v17,
+          canSeeUpsellModalOnShare: _v18,
+          hasMultipleReviewLinks: _v19,
+          hasTeamPrivacy: _v20
         }
-      } = (0, _v63.useCapability)(["hasPublicSearchDisabled", "hasEnterprise", "hasAutoClosedCaptions", "canManageTeamCollections", "hasLiveSubscription", "hasContentSpaceEnabled", "hasVideoReviewPageDemo", "canSeeUpsellModalOnShare", "hasMultipleReviewLinks", "hasTeamPrivacy"], _v0?.teamUser?.ownerId);
+      } = (0, _v62.useCapability)(["hasPublicSearchDisabled", "hasEnterprise", "hasAutoClosedCaptions", "canManageTeamCollections", "hasLiveSubscription", "hasContentSpaceEnabled", "hasVideoReviewPageDemo", "canSeeUpsellModalOnShare", "hasMultipleReviewLinks", "hasTeamPrivacy"], _v0?.teamUser?.ownerId);
     return {
-      hasEnterprise: _v13,
-      hasPublicSearchDisabled: !(!_v12 && !_v0?.isFromCopyrightRestrictedRegion && !_v0?.isEnterpriseSite && !_v0?.isSimplifiedSite),
-      hasAutoClosedCaptions: _v14,
-      hasAiSearch: _v6 || _v1,
-      hasNewMoments: _v7 || _v2,
-      hasReframeOverride: _v3,
-      isLoading: _v8 || _v10,
-      hasPaid: _v9,
-      canManageTeamCollections: _v15,
-      hasLiveSubscription: _v16,
-      hasContentSpaceEnabled: _v17,
-      hasVideoReviewPageDemo: _v18,
-      hasTeamPrivacy: _v21,
-      canSeeUpsellModalOnShare: _v19,
-      hasMultipleReviewLinks: _v20,
-      dedupeMoments: _v4 || void 0,
-      chapterFallback: _v5 || void 0,
-      ready: _v11
+      hasEnterprise: _v12,
+      hasPublicSearchDisabled: !(!_v11 && !_v0?.isFromCopyrightRestrictedRegion && !_v0?.isEnterpriseSite && !_v0?.isSimplifiedSite),
+      hasAutoClosedCaptions: _v13,
+      hasAiSearch: _v1.ask_your_library_enabled || _v2,
+      hasNewMoments: _v1.new_moments_enabled || _v3,
+      hasReframeOverride: _v4,
+      isLoading: _v7 || _v9,
+      hasPaid: _v8,
+      canManageTeamCollections: _v14,
+      hasLiveSubscription: _v15,
+      hasContentSpaceEnabled: _v16,
+      hasVideoReviewPageDemo: _v17,
+      hasTeamPrivacy: _v20,
+      canSeeUpsellModalOnShare: _v18,
+      hasMultipleReviewLinks: _v19,
+      dedupeMoments: _v5 || void 0,
+      chapterFallback: _v6 || void 0,
+      ready: _v10
     };
   };
-  var _v69 = _v0.i(0),
-    _v70 = _v0.i(0);
-  let _v71 = _v0 => (0, _v1.jsx)(_v70.Icon, {
+  var _v67 = _v0.i(0),
+    _v68 = _v0.i(0);
+  let _v69 = _v0 => (0, _v1.jsx)(_v68.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -392,8 +363,8 @@
       })]
     })
   });
-  var _v72 = _v0.i(0);
-  let _v73 = _v0 => (0, _v1.jsx)(_v70.Icon, {
+  var _v70 = _v0.i(0);
+  let _v71 = _v0 => (0, _v1.jsx)(_v68.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -404,15 +375,15 @@
       fill: "currentColor"
     })
   });
-  var _v74 = _v0.i(0),
+  var _v72 = _v0.i(0),
+    _v73 = _v0.i(0),
+    _v74 = _v0.i(0),
     _v75 = _v0.i(0),
     _v76 = _v0.i(0),
-    _v77 = _v0.i(0),
-    _v78 = _v0.i(0),
-    _v79 = _v0.i(0);
-  let _v80 = {
+    _v77 = _v0.i(0);
+  let _v78 = {
       get ANY() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Any",
           dictionary: {
             es: {
@@ -440,7 +411,7 @@
         });
       },
       get ALL() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "All",
           dictionary: {
             es: {
@@ -468,7 +439,7 @@
         });
       },
       get GENRES() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Genres",
           dictionary: {
             es: {
@@ -493,7 +464,7 @@
         });
       },
       get CATEGORIES() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Categories",
           dictionary: {
             es: {
@@ -521,7 +492,7 @@
         });
       },
       get CONTENT_FILTER() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Mature content",
           dictionary: {
             es: {
@@ -549,7 +520,7 @@
         });
       },
       get SHOW_MORE() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Show more",
           dictionary: {
             es: {
@@ -577,7 +548,7 @@
         });
       },
       get SHOW_LESS() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Show less",
           dictionary: {
             es: {
@@ -605,7 +576,7 @@
         });
       },
       get REMOVE_WATCH_LATER() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Remove from Watch Later",
           dictionary: {
             es: {
@@ -633,7 +604,7 @@
         });
       },
       get ADD_WATCH_LATER() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Add to Watch Later",
           dictionary: {
             es: {
@@ -661,7 +632,7 @@
         });
       },
       get FILTERS() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Filters",
           dictionary: {
             es: {
@@ -689,7 +660,7 @@
         });
       },
       get SORT() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Sort",
           dictionary: {
             es: {
@@ -717,7 +688,7 @@
         });
       },
       get VIEW_PROFILE() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "View profile",
           dictionary: {
             es: {
@@ -745,7 +716,7 @@
         });
       },
       get NO_FILTER_RESULTS() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "No matching results",
           dictionary: {
             es: {
@@ -773,7 +744,7 @@
         });
       },
       get NO_PUBLIC_RESULTS() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "No matching results on Vimeo",
           dictionary: {
             es: {
@@ -801,7 +772,7 @@
         });
       },
       get NO_LIBRARY_RESULTS() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "No matching results in Library",
           dictionary: {
             es: {
@@ -829,7 +800,7 @@
         });
       },
       get HIGH_RESULT_COUNT_MOMENTS() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "100+ results in this video",
           dictionary: {
             es: {
@@ -857,7 +828,7 @@
         });
       },
       get TRY_ANOTHER_SEARCH() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Try another search",
           dictionary: {
             es: {
@@ -885,7 +856,7 @@
         });
       },
       get TRY_AGAIN_OR_SEARCH_VIMEO() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Try another search or search all of Vimeo",
           dictionary: {
             es: {
@@ -913,7 +884,7 @@
         });
       },
       get RESET() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Clear",
           dictionary: {
             es: {
@@ -941,7 +912,7 @@
         });
       },
       get RESET_ALL() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Clear all",
           dictionary: {
             es: {
@@ -969,7 +940,7 @@
         });
       },
       get UNABLE_LOAD_RESULTS() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Unable to load results",
           dictionary: {
             es: {
@@ -997,7 +968,7 @@
         });
       },
       get SEARCH_ALL_VIMEO() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Search all of Vimeo",
           dictionary: {
             es: {
@@ -1025,7 +996,7 @@
         });
       },
       get SELECT_USERS() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Select users",
           dictionary: {
             es: {
@@ -1053,7 +1024,7 @@
         });
       },
       get SELECT_FOLDERS() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Select folders",
           dictionary: {
             es: {
@@ -1081,7 +1052,7 @@
         });
       },
       get LAST_MODIFIED() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Last modified",
           dictionary: {
             es: {
@@ -1109,7 +1080,7 @@
         });
       },
       get LAST_ACTIVE() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Last active",
           dictionary: {
             es: {
@@ -1134,7 +1105,7 @@
         });
       },
       get PROFILE_PICTURE() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Profile picture",
           dictionary: {
             es: {
@@ -1162,7 +1133,7 @@
         });
       },
       get DEACTIVATED() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Deactivated",
           dictionary: {
             es: {
@@ -1190,7 +1161,7 @@
         });
       },
       get SEARCH() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Search",
           dictionary: {
             es: {
@@ -1218,7 +1189,7 @@
         });
       },
       get CLEAR() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Clear",
           dictionary: {
             es: {
@@ -1246,7 +1217,7 @@
         });
       },
       get TITLE() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Title",
           dictionary: {
             es: {
@@ -1274,7 +1245,7 @@
         });
       },
       get LOCATION() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Location",
           dictionary: {
             es: {
@@ -1302,7 +1273,7 @@
         });
       },
       get MODIFIED() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Modified",
           dictionary: {
             es: {
@@ -1330,7 +1301,7 @@
         });
       },
       get ADDED() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Added",
           dictionary: {
             es: {
@@ -1358,7 +1329,7 @@
         });
       },
       get SEARCH_FOLDERS() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Search folders",
           dictionary: {
             es: {
@@ -1386,7 +1357,7 @@
         });
       },
       get APPLY() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Apply",
           dictionary: {
             es: {
@@ -1414,10 +1385,10 @@
         });
       },
       get PUBLIC() {
-        return (0, _v78.translate)("Vimeo");
+        return (0, _v76.translate)("Vimeo");
       },
       get LIBRARY() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Library",
           dictionary: {
             es: {
@@ -1445,7 +1416,7 @@
         });
       },
       get LINK_COPIED() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Link copied",
           dictionary: {
             es: {
@@ -1473,7 +1444,7 @@
         });
       },
       get COMMENT_LINK_COPIED() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Comment link copied",
           dictionary: {
             es: {
@@ -1501,7 +1472,7 @@
         });
       },
       get EMBED_CODE_COPIED() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Embed code copied",
           dictionary: {
             es: {
@@ -1529,7 +1500,7 @@
         });
       },
       get GENERIC_ERROR() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Sorry, something weird happened. Please try again.",
           dictionary: {
             es: {
@@ -1557,7 +1528,7 @@
         });
       },
       get PRIVACY_EMBED() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Hide from Vimeo",
           dictionary: {
             es: {
@@ -1585,7 +1556,7 @@
         });
       },
       get PRIVACY_NOBODY() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Private",
           dictionary: {
             es: {
@@ -1613,7 +1584,7 @@
         });
       },
       get PRIVACY_PASSWORD() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Password",
           dictionary: {
             es: {
@@ -1641,7 +1612,7 @@
         });
       },
       get PRIVACY_PUBLIC() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Public",
           dictionary: {
             es: {
@@ -1666,7 +1637,7 @@
         });
       },
       get PRIVACY_TEAM() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Team",
           dictionary: {
             es: {
@@ -1691,7 +1662,7 @@
         });
       },
       get PRIVACY_UNLISTED() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Unlisted",
           dictionary: {
             es: {
@@ -1719,7 +1690,7 @@
         });
       },
       get SHOWCASES() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Showcases",
           dictionary: {
             es: {
@@ -1747,7 +1718,7 @@
         });
       },
       get AI_OVERVIEW() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "AI overview",
           dictionary: {
             es: {
@@ -1775,7 +1746,7 @@
         });
       },
       get GO_TO_VIDEO() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Go to video",
           dictionary: {
             es: {
@@ -1803,7 +1774,7 @@
         });
       },
       get GO_TO_MOMENT() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Go to moment",
           dictionary: {
             es: {
@@ -1831,7 +1802,7 @@
         });
       },
       get COPY_LINK_TO_CLIP() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Copy link to clip",
           dictionary: {
             es: {
@@ -1859,7 +1830,7 @@
         });
       },
       get COPY_LINK_TO_COMMENT() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Copy link to comment",
           dictionary: {
             es: {
@@ -1887,7 +1858,7 @@
         });
       },
       get VIEW_FULL_VIDEO() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "View full video",
           dictionary: {
             es: {
@@ -1915,7 +1886,7 @@
         });
       },
       get CLIP_LINK_COPIED() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Clip link copied",
           dictionary: {
             es: {
@@ -1943,7 +1914,7 @@
         });
       },
       get SEARCHING_AI() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Searching...",
           dictionary: {
             es: {
@@ -1971,7 +1942,7 @@
         });
       },
       get NO_AI_RESULTS() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "An AI overview isn't available. Try rephrasing your question or asking a different one.",
           dictionary: {
             es: {
@@ -1999,7 +1970,7 @@
         });
       },
       get THANKS_FOR_FEEDBACK() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Thank you for your feedback",
           dictionary: {
             es: {
@@ -2027,7 +1998,7 @@
         });
       },
       get DESCRIPTION_AI_GENERATED() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Description generated by Vimeo AI",
           dictionary: {
             es: {
@@ -2055,7 +2026,7 @@
         });
       },
       get TRANSCRIPT() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Transcript",
           dictionary: {
             es: {
@@ -2083,7 +2054,7 @@
         });
       },
       get MOMENT() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Moment",
           dictionary: {
             es: {
@@ -2105,7 +2076,7 @@
         });
       },
       get CHAPTER() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Chapter",
           dictionary: {
             es: {
@@ -2133,7 +2104,7 @@
         });
       },
       get COMMENT() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Comment",
           dictionary: {
             es: {
@@ -2161,7 +2132,7 @@
         });
       },
       get SEGMENT() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Segment",
           dictionary: {
             es: {
@@ -2186,7 +2157,7 @@
         });
       },
       get SHOT() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Shot",
           dictionary: {
             es: {
@@ -2211,7 +2182,7 @@
         });
       },
       get SLIDE() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Slide",
           dictionary: {
             es: {
@@ -2236,7 +2207,7 @@
         });
       },
       get SCENE() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Scene",
           dictionary: {
             es: {
@@ -2264,7 +2235,7 @@
         });
       },
       get VISUAL_MOMENT() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Visual moment",
           dictionary: {
             es: {
@@ -2292,7 +2263,7 @@
         });
       },
       get PREVIOUS_MOMENT() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Previous moment",
           dictionary: {
             es: {
@@ -2320,7 +2291,7 @@
         });
       },
       get NEXT_MOMENT() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Next moment",
           dictionary: {
             es: {
@@ -2348,7 +2319,7 @@
         });
       },
       get CONTACT_US() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Contact us",
           dictionary: {
             es: {
@@ -2376,7 +2347,7 @@
         });
       },
       get UPGRADE() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Upgrade",
           dictionary: {
             es: {
@@ -2401,7 +2372,7 @@
         });
       },
       get START_FREE_DEMO() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Start free demo",
           dictionary: {
             es: {
@@ -2429,7 +2400,7 @@
         });
       },
       get UPSELL_HEADER() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Create engaging events with ease",
           dictionary: {
             es: {
@@ -2457,7 +2428,7 @@
         });
       },
       get UPSELL_MODAL_SUBHEADER() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Host any event type, from webinars to town halls, team trainings, and more.",
           dictionary: {
             es: {
@@ -2485,7 +2456,7 @@
         });
       },
       get UPSELL_SUBHEADER() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Host events of all kinds, from webinars to live broadcasts, team events, and more.",
           dictionary: {
             es: {
@@ -2513,7 +2484,7 @@
         });
       },
       get ADVANCED_PLAN_SUBHEADER() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Stream high-quality events and webinars",
           dictionary: {
             es: {
@@ -2541,7 +2512,7 @@
         });
       },
       get ADVANCED_PLAN_FEATURES_LIST() {
-        return [(0, _v78.translate)({
+        return [(0, _v76.translate)({
           singular: "Virtual events and webinars",
           dictionary: {
             es: {
@@ -2566,7 +2537,7 @@
               singular: "虚拟活动与网络研讨会"
             }
           }
-        }), (0, _v78.translate)({
+        }), (0, _v76.translate)({
           singular: "Streaming to multiple destinations",
           dictionary: {
             es: {
@@ -2591,7 +2562,7 @@
               singular: "串流至多个目的地"
             }
           }
-        }), (0, _v78.translate)({
+        }), (0, _v76.translate)({
           singular: "Live chat, Q&A, and polls",
           dictionary: {
             es: {
@@ -2616,7 +2587,7 @@
               singular: "在线聊天、问答和投票"
             }
           }
-        }), (0, _v78.translate)({
+        }), (0, _v76.translate)({
           singular: "Registration (100 attendees per event)",
           dictionary: {
             es: {
@@ -2641,7 +2612,7 @@
               singular: "注册（每场活动可注册 100 名出席者）"
             }
           }
-        }), (0, _v78.translate)({
+        }), (0, _v76.translate)({
           singular: "CRM integrations with viewer-level analytics",
           dictionary: {
             es: {
@@ -2669,7 +2640,7 @@
         })];
       },
       get ENTERPRISE_PLAN_SUBHEADER() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Advanced event capabilities, superior quality, and support",
           dictionary: {
             es: {
@@ -2697,7 +2668,7 @@
         });
       },
       get ENTERPRISE_PLAN_FEATURES_LIST() {
-        return [(0, _v78.translate)({
+        return [(0, _v76.translate)({
           singular: "Breakout rooms and visible audience participation",
           dictionary: {
             es: {
@@ -2722,7 +2693,7 @@
               singular: "分组讨论室和可见的观众参与"
             }
           }
-        }), (0, _v78.translate)({
+        }), (0, _v76.translate)({
           singular: "Backup streams, fail-safe streaming, and eCDN",
           dictionary: {
             es: {
@@ -2747,7 +2718,7 @@
               singular: "备份流、自动防故障的直播和 eCDN"
             }
           }
-        }), (0, _v78.translate)({
+        }), (0, _v76.translate)({
           singular: "Moderated live Q&A",
           dictionary: {
             es: {
@@ -2772,7 +2743,7 @@
               singular: "经审核的在线问答"
             }
           }
-        }), (0, _v78.translate)({
+        }), (0, _v76.translate)({
           singular: "Advanced viewer-level analytics",
           dictionary: {
             es: {
@@ -2797,7 +2768,7 @@
               singular: "高级观众级分析"
             }
           }
-        }), (0, _v78.translate)({
+        }), (0, _v76.translate)({
           singular: "Production support",
           dictionary: {
             es: {
@@ -2822,7 +2793,7 @@
               singular: "制作支持"
             }
           }
-        }), (0, _v78.translate)({
+        }), (0, _v76.translate)({
           singular: "Additional security, control, and dedicated support",
           dictionary: {
             es: {
@@ -2850,7 +2821,7 @@
         })];
       },
       get BETA() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "BETA",
           dictionary: {
             "ja-JP": {
@@ -2865,7 +2836,7 @@
           }
         });
       },
-      deletedShowcase: _v0 => (0, _v78.translate)({
+      deletedShowcase: _v0 => (0, _v76.translate)({
         singular: "Deleted {SHOWCASE_NAME}",
         replacements: {
           SHOWCASE_NAME: _v0
@@ -2894,7 +2865,7 @@
           }
         }
       }),
-      filtersCount: _v0 => (0, _v78.translate)({
+      filtersCount: _v0 => (0, _v76.translate)({
         singular: "Filters ({COUNT})",
         replacements: {
           COUNT: _v0
@@ -2923,7 +2894,7 @@
           }
         }
       }),
-      videoCount: _v0 => (0, _v78.translate)({
+      videoCount: _v0 => (0, _v76.translate)({
         singular: "{COUNT} video",
         plural: "{COUNT} videos",
         count: _v0 ?? 0,
@@ -2957,7 +2928,7 @@
           }
         }
       }),
-      userCount: (_v0, _v1) => _v0 === _v86.options.channel.value ? (0, _v78.translate)({
+      userCount: (_v0, _v1) => _v0 === _v84.options.channel.value ? (0, _v76.translate)({
         singular: "{COUNT} follower",
         plural: "{COUNT} followers",
         count: _v1 ?? 0,
@@ -2994,7 +2965,7 @@
             plural: "{COUNT} 名粉丝"
           }
         }
-      }) : (0, _v78.translate)({
+      }) : (0, _v76.translate)({
         singular: "{COUNT} member",
         plural: "{COUNT} members",
         count: _v1 ?? 0,
@@ -3032,7 +3003,7 @@
           }
         }
       }),
-      resultsCount: (_v0, _v1) => (0, _v78.translate)({
+      resultsCount: (_v0, _v1) => (0, _v76.translate)({
         singular: "{COUNT} result on Vimeo",
         plural: "{COUNT} results on Vimeo",
         count: _v0 ?? 0,
@@ -3070,7 +3041,7 @@
           }
         }
       }),
-      libraryResultsCount: (_v0, _v1) => (0, _v78.translate)({
+      libraryResultsCount: (_v0, _v1) => (0, _v76.translate)({
         singular: "{COUNT} result in Library",
         plural: "{COUNT} results in Library",
         count: _v0 ?? 0,
@@ -3108,7 +3079,7 @@
           }
         }
       }),
-      momentsInVideo: (_v0, _v1) => (0, _v78.translate)({
+      momentsInVideo: (_v0, _v1) => (0, _v76.translate)({
         singular: "{COUNT} moment from {VIDEO_TITLE}",
         plural: "{COUNT} moments from {VIDEO_TITLE}",
         count: _v0 ?? 0,
@@ -3147,7 +3118,7 @@
           }
         }
       }),
-      momentsResultCount: _v0 => (0, _v78.translate)({
+      momentsResultCount: _v0 => (0, _v76.translate)({
         singular: "1 result in this video",
         plural: "{COUNT} results in this video",
         count: _v0,
@@ -3186,7 +3157,7 @@
         }
       })
     },
-    _v81 = {
+    _v79 = {
       page: 1,
       query: void 0,
       uploaded: void 0,
@@ -3204,7 +3175,7 @@
       updated: void 0,
       sort: void 0
     },
-    _v82 = {
+    _v80 = {
       query: void 0,
       page: 1,
       type: void 0,
@@ -3217,11 +3188,11 @@
       date: void 0,
       customMetadata: void 0
     },
-    _v83 = "filter_custom_metadata",
-    _v84 = {
+    _v81 = "filter_custom_metadata",
+    _v82 = {
       name: "uploaded",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Date uploaded",
           dictionary: {
             es: {
@@ -3252,13 +3223,13 @@
       options: {
         default: {
           value: "default",
-          text: _v80.ANY,
+          text: _v78.ANY,
           untranslatedText: "Any"
         },
         thisYear: {
           value: "this-year",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Last 365 days",
               dictionary: {
                 es: {
@@ -3290,7 +3261,7 @@
         thisMonth: {
           value: "this-month",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Last 30 days",
               dictionary: {
                 es: {
@@ -3322,7 +3293,7 @@
         thisWeek: {
           value: "this-week",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Last 7 days",
               dictionary: {
                 es: {
@@ -3354,7 +3325,7 @@
         today: {
           value: "today",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Last 24 hours",
               dictionary: {
                 es: {
@@ -3385,10 +3356,10 @@
         }
       }
     },
-    _v85 = {
+    _v83 = {
       name: "updated",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Last updated",
           dictionary: {
             es: {
@@ -3416,12 +3387,12 @@
         });
       },
       untranslatedCopy: "Last updated",
-      options: _v84.options
+      options: _v82.options
     },
-    _v86 = {
+    _v84 = {
       name: "type",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Type",
           dictionary: {
             es: {
@@ -3450,7 +3421,7 @@
         clip: {
           value: "clip",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Videos",
               dictionary: {
                 "fr-FR": {
@@ -3476,7 +3447,7 @@
         ondemand: {
           value: "ondemand",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "On Demand",
               dictionary: {
                 "ja-JP": {
@@ -3493,7 +3464,7 @@
         people: {
           value: "people",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "People",
               dictionary: {
                 es: {
@@ -3525,7 +3496,7 @@
         channel: {
           value: "channel",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Channels",
               dictionary: {
                 es: {
@@ -3557,7 +3528,7 @@
         group: {
           value: "group",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Groups",
               dictionary: {
                 es: {
@@ -3588,10 +3559,10 @@
         }
       }
     },
-    _v87 = {
+    _v85 = {
       name: "live",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Live events",
           dictionary: {
             es: {
@@ -3622,13 +3593,13 @@
       options: {
         default: {
           value: "default",
-          text: _v80.ANY,
+          text: _v78.ANY,
           untranslatedText: "Any"
         },
         now: {
           value: "now",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Live now",
               dictionary: {
                 es: {
@@ -3659,19 +3630,19 @@
         }
       }
     },
-    _v88 = {
+    _v86 = {
       name: "hdr",
       nameCopy: "HDR",
       options: {
         default: {
           value: "default",
-          text: _v80.ANY,
+          text: _v78.ANY,
           untranslatedText: "Any"
         },
         hdr: {
           value: "hdr",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Any HDR",
               dictionary: {
                 es: {
@@ -3714,19 +3685,19 @@
         }
       }
     },
-    _v89 = {
+    _v87 = {
       name: "vimeo360",
       nameCopy: "Vimeo 360°",
       options: {
         default: {
           value: "default",
-          text: _v80.ANY,
+          text: _v78.ANY,
           untranslatedText: "Any"
         },
         spatial: {
           value: "spatial",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Spatial",
               dictionary: {
                 es: {
@@ -3758,10 +3729,10 @@
         }
       }
     },
-    _v90 = {
+    _v88 = {
       name: "price",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Price",
           dictionary: {
             es: {
@@ -3792,13 +3763,13 @@
       options: {
         default: {
           value: "default",
-          text: _v80.ANY,
+          text: _v78.ANY,
           untranslatedText: "Any"
         },
         free: {
           value: "free",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Free",
               dictionary: {
                 es: {
@@ -3827,7 +3798,7 @@
         paid: {
           value: "paid",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Paid",
               dictionary: {
                 es: {
@@ -3858,10 +3829,10 @@
         }
       }
     },
-    _v91 = {
+    _v89 = {
       name: "license",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "License",
           dictionary: {
             es: {
@@ -3892,7 +3863,7 @@
       options: {
         default: {
           value: "default",
-          text: _v80.ANY,
+          text: _v78.ANY,
           untranslatedText: "Any"
         },
         byNcNd: {
@@ -3925,10 +3896,10 @@
         }
       }
     },
-    _v92 = {
+    _v90 = {
       name: "resolution",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Resolution",
           dictionary: {
             es: {
@@ -3959,7 +3930,7 @@
       options: {
         default: {
           value: "default",
-          text: _v80.ANY,
+          text: _v78.ANY,
           untranslatedText: "Any"
         },
         "4k": {
@@ -3968,10 +3939,10 @@
         }
       }
     },
-    _v93 = {
+    _v91 = {
       name: "duration",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Duration",
           dictionary: {
             es: {
@@ -4002,13 +3973,13 @@
       options: {
         default: {
           value: "default",
-          text: _v80.ANY,
+          text: _v78.ANY,
           untranslatedText: "Any"
         },
         short: {
           value: "short",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Short (less than 4 minutes)",
               dictionary: {
                 es: {
@@ -4040,7 +4011,7 @@
         medium: {
           value: "medium",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Medium (4-10 minutes)",
               dictionary: {
                 es: {
@@ -4072,7 +4043,7 @@
         long: {
           value: "long",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Long (over 10 minutes)",
               dictionary: {
                 es: {
@@ -4103,10 +4074,10 @@
         }
       }
     },
-    _v94 = {
+    _v92 = {
       name: "collection",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Vimeo collections",
           dictionary: {
             es: {
@@ -4137,13 +4108,13 @@
       options: {
         default: {
           value: "default",
-          text: _v80.ANY,
+          text: _v78.ANY,
           untranslatedText: "Any"
         },
         staffpick: {
           value: "staffpick",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Staff Picks",
               dictionary: {
                 "ja-JP": {
@@ -4159,10 +4130,10 @@
         }
       }
     },
-    _v95 = {
+    _v93 = {
       name: "follow",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Followers",
           dictionary: {
             es: {
@@ -4194,7 +4165,7 @@
         follow: {
           value: "true",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Only people I follow",
               dictionary: {
                 es: {
@@ -4225,10 +4196,10 @@
         }
       }
     },
-    _v96 = {
+    _v94 = {
       default: {
         value: "default",
-        text: _v80.ANY,
+        text: _v78.ANY,
         untranslatedText: "Any"
       },
       instructional: {
@@ -4400,11 +4371,11 @@
         text: "Video School"
       }
     },
-    _v97 = "live_event",
-    _v98 = {
-      name: _v86.name,
+    _v95 = "live_event",
+    _v96 = {
+      name: _v84.name,
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Type",
           dictionary: {
             es: {
@@ -4432,13 +4403,13 @@
       options: {
         default: {
           value: "default",
-          text: _v80.ALL,
+          text: _v78.ALL,
           untranslatedText: "All"
         },
         video: {
           value: "video",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Videos",
               dictionary: {
                 "fr-FR": {
@@ -4464,7 +4435,7 @@
         folder: {
           value: "folder",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Folders",
               dictionary: {
                 es: {
@@ -4496,7 +4467,7 @@
         showcase: {
           value: "showcase",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Showcases",
               dictionary: {
                 es: {
@@ -4526,9 +4497,9 @@
           untranslatedText: "Showcases"
         },
         live_event: {
-          value: _v97,
+          value: _v95,
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Live events",
               dictionary: {
                 es: {
@@ -4559,11 +4530,11 @@
         }
       }
     };
-  _v86.name, _v80.ALL;
-  let _v99 = {
+  _v84.name, _v78.ALL;
+  let _v97 = {
       name: "query_fields",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Appears in",
           dictionary: {
             es: {
@@ -4595,7 +4566,7 @@
         title: {
           value: "title",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Title",
               dictionary: {
                 es: {
@@ -4627,7 +4598,7 @@
         transcript: {
           value: "captions",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Audio transcript",
               dictionary: {
                 es: {
@@ -4659,7 +4630,7 @@
         description: {
           value: "description",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Description",
               dictionary: {
                 es: {
@@ -4688,7 +4659,7 @@
         tags: {
           value: "tags",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Tags",
               dictionary: {
                 es: {
@@ -4717,7 +4688,7 @@
         chapter: {
           value: "chapters",
           get text() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Chapters",
               dictionary: {
                 es: {
@@ -4748,11 +4719,11 @@
         }
       }
     },
-    _v100 = "1.25rem",
-    _v101 = _v0 => ({
+    _v98 = "1.25rem",
+    _v99 = _v0 => ({
       name: "filter_privacy",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Privacy",
           dictionary: {
             es: {
@@ -4780,9 +4751,9 @@
         });
       },
       untranslatedCopy: "Privacy",
-      options: Object.fromEntries(_v79.DEFAULT_PRIVACY_OPTIONS.filter(_v0 => "team" !== _v0.privacy).map(_v0 => [_v0.privacy, {
+      options: Object.fromEntries(_v77.DEFAULT_PRIVACY_OPTIONS.filter(_v0 => "team" !== _v0.privacy).map(_v0 => [_v0.privacy, {
         value: "disable" === _v0.privacy ? "hide-from-vimeo" : _v0.title.toLowerCase(),
-        text: _v0 && "disable" === _v0.privacy ? (0, _v78.translate)({
+        text: _v0 && "disable" === _v0.privacy ? (0, _v76.translate)({
           singular: "Embed only",
           dictionary: {
             es: {
@@ -4809,15 +4780,15 @@
           }
         }) : _v0.title,
         untranslatedText: _v0.title,
-        icon: _v0 && "disable" === _v0.privacy ? (0, _v1.jsx)(_v77.Code, {
-          boxSize: _v100
-        }) : (0, _v79.videoPrivacyIcons)(_v100)[_v0.privacy].icon
+        icon: _v0 && "disable" === _v0.privacy ? (0, _v1.jsx)(_v75.Code, {
+          boxSize: _v98
+        }) : (0, _v77.videoPrivacyIcons)(_v98)[_v0.privacy].icon
       }]))
     }),
-    _v102 = {
+    _v100 = {
       name: "filter_uploader",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Created by",
           dictionary: {
             es: {
@@ -4846,11 +4817,11 @@
       },
       untranslatedCopy: "Created by"
     },
-    _v103 = {
+    _v101 = {
       folderIncludedName: "filter_folder_include",
       folderExcludedName: "filter_folder_exclude",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Folders",
           dictionary: {
             es: {
@@ -4879,10 +4850,10 @@
       },
       untranslatedCopy: "Folders"
     },
-    _v104 = {
+    _v102 = {
       name: "filter_date",
       get nameCopy() {
-        return (0, _v78.translate)({
+        return (0, _v76.translate)({
           singular: "Date modified",
           dictionary: {
             es: {
@@ -4913,7 +4884,7 @@
       options: {
         today: {
           get label() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Today",
               dictionary: {
                 es: {
@@ -4945,7 +4916,7 @@
         },
         yesterday: {
           get label() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Yesterday",
               dictionary: {
                 es: {
@@ -4977,7 +4948,7 @@
         },
         lastWeek: {
           get label() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Last 7 days",
               dictionary: {
                 es: {
@@ -5013,7 +4984,7 @@
         },
         lastMonth: {
           get label() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Last 30 days",
               dictionary: {
                 es: {
@@ -5049,7 +5020,7 @@
         },
         lastYear: {
           get label() {
-            return (0, _v78.translate)({
+            return (0, _v76.translate)({
               singular: "Last 365 days",
               dictionary: {
                 es: {
@@ -5085,11 +5056,11 @@
         }
       }
     },
-    _v105 = {
+    _v103 = {
       relevance: {
         value: "relevance",
         get text() {
-          return (0, _v78.translate)({
+          return (0, _v76.translate)({
             singular: "Relevance",
             dictionary: {
               es: {
@@ -5121,7 +5092,7 @@
       uploaded: {
         value: "latest_desc",
         get text() {
-          return (0, _v78.translate)({
+          return (0, _v76.translate)({
             singular: "Recently uploaded",
             dictionary: {
               es: {
@@ -5153,7 +5124,7 @@
       updated: {
         value: "update_date_desc",
         get text() {
-          return (0, _v78.translate)({
+          return (0, _v76.translate)({
             singular: "Recently updated",
             dictionary: {
               es: {
@@ -5185,7 +5156,7 @@
       popularity: {
         value: "popularity_desc",
         get text() {
-          return (0, _v78.translate)({
+          return (0, _v76.translate)({
             singular: "Most popular",
             dictionary: {
               es: {
@@ -5217,7 +5188,7 @@
       titleAsc: {
         value: "alphabetical_asc",
         get text() {
-          return (0, _v78.translate)({
+          return (0, _v76.translate)({
             singular: "Title, A to Z",
             dictionary: {
               es: {
@@ -5249,7 +5220,7 @@
       titleDesc: {
         value: "alphabetical_desc",
         get text() {
-          return (0, _v78.translate)({
+          return (0, _v76.translate)({
             singular: "Title, Z to A",
             dictionary: {
               es: {
@@ -5281,7 +5252,7 @@
       nameAsc: {
         value: "alphabetical_asc",
         get text() {
-          return (0, _v78.translate)({
+          return (0, _v76.translate)({
             singular: "Name, A to Z",
             dictionary: {
               es: {
@@ -5313,7 +5284,7 @@
       nameDesc: {
         value: "alphabetical_desc",
         get text() {
-          return (0, _v78.translate)({
+          return (0, _v76.translate)({
             singular: "Name, Z to A",
             dictionary: {
               es: {
@@ -5345,7 +5316,7 @@
       longest: {
         value: "duration_desc",
         get text() {
-          return (0, _v78.translate)({
+          return (0, _v76.translate)({
             singular: "Longest",
             dictionary: {
               es: {
@@ -5377,7 +5348,7 @@
       shortest: {
         value: "duration_asc",
         get text() {
-          return (0, _v78.translate)({
+          return (0, _v76.translate)({
             singular: "Shortest",
             dictionary: {
               es: {
@@ -5409,7 +5380,7 @@
       lastModified: {
         value: "last_user_action_event_date_desc",
         get text() {
-          return (0, _v78.translate)({
+          return (0, _v76.translate)({
             singular: "Last modified",
             dictionary: {
               es: {
@@ -5441,7 +5412,7 @@
       firstModified: {
         value: "last_user_action_event_date_asc",
         get text() {
-          return (0, _v78.translate)({
+          return (0, _v76.translate)({
             singular: "First modified",
             dictionary: {
               es: {
@@ -5473,7 +5444,7 @@
       lastAdded: {
         value: "date_desc",
         get text() {
-          return (0, _v78.translate)({
+          return (0, _v76.translate)({
             singular: "Last added",
             dictionary: {
               es: {
@@ -5505,7 +5476,7 @@
       firstAdded: {
         value: "date_asc",
         get text() {
-          return (0, _v78.translate)({
+          return (0, _v76.translate)({
             singular: "First added",
             dictionary: {
               es: {
@@ -5536,114 +5507,114 @@
       }
     },
     {
-      relevance: _v106,
-      uploaded: _v107,
-      updated: _v108,
-      popularity: _v109,
-      titleAsc: _v110,
-      titleDesc: _v111,
-      nameAsc: _v112,
-      nameDesc: _v113,
-      longest: _v114,
-      shortest: _v115,
-      lastModified: _v116,
-      firstModified: _v117,
-      lastAdded: _v118,
-      firstAdded: _v119
-    } = _v105,
-    _v120 = {
+      relevance: _v104,
+      uploaded: _v105,
+      updated: _v106,
+      popularity: _v107,
+      titleAsc: _v108,
+      titleDesc: _v109,
+      nameAsc: _v110,
+      nameDesc: _v111,
+      longest: _v112,
+      shortest: _v113,
+      lastModified: _v114,
+      firstModified: _v115,
+      lastAdded: _v116,
+      firstAdded: _v117
+    } = _v103,
+    _v118 = {
       clip: {
-        relevance: _v106,
-        uploaded: _v107,
-        popularity: _v109,
-        titleAsc: _v110,
-        titleDesc: _v111,
-        longest: _v114,
-        shortest: _v115
+        relevance: _v104,
+        uploaded: _v105,
+        popularity: _v107,
+        titleAsc: _v108,
+        titleDesc: _v109,
+        longest: _v112,
+        shortest: _v113
       },
       ondemand: {
-        relevance: _v106,
-        uploaded: _v107,
-        popularity: _v109,
-        titleAsc: _v110,
-        titleDesc: _v111
+        relevance: _v104,
+        uploaded: _v105,
+        popularity: _v107,
+        titleAsc: _v108,
+        titleDesc: _v109
       },
       people: {
-        relevance: _v106,
-        popularity: _v109,
-        nameAsc: _v112,
-        nameDesc: _v113
+        relevance: _v104,
+        popularity: _v107,
+        nameAsc: _v110,
+        nameDesc: _v111
       },
       channel: {
-        relevance: _v106,
-        updated: _v108,
-        popularity: _v109,
-        nameAsc: _v112,
-        nameDesc: _v113
+        relevance: _v104,
+        updated: _v106,
+        popularity: _v107,
+        nameAsc: _v110,
+        nameDesc: _v111
       },
       group: {
-        relevance: _v106,
-        updated: _v108,
-        popularity: _v109,
-        nameAsc: _v112,
-        nameDesc: _v113
+        relevance: _v104,
+        updated: _v106,
+        popularity: _v107,
+        nameAsc: _v110,
+        nameDesc: _v111
       }
     },
-    _v121 = {
-      relevance: _v106,
-      titleAsc: _v110,
-      titleDesc: _v111,
-      lastModified: _v116,
-      firstModified: _v117,
-      lastAdded: _v118,
-      firstAdded: _v119,
-      longest: _v114,
-      shortest: _v115
+    _v119 = {
+      relevance: _v104,
+      titleAsc: _v108,
+      titleDesc: _v109,
+      lastModified: _v114,
+      firstModified: _v115,
+      lastAdded: _v116,
+      firstAdded: _v117,
+      longest: _v112,
+      shortest: _v113
     },
+    _v120 = {
+      relevance: _v104,
+      uploaded: _v105,
+      updated: _v106,
+      popularity: _v107,
+      titleAsc: _v108,
+      titleDesc: _v109,
+      nameAsc: _v110,
+      nameDesc: _v111,
+      longest: _v112,
+      shortest: _v113
+    },
+    _v121 = "video",
     _v122 = {
-      relevance: _v106,
-      uploaded: _v107,
-      updated: _v108,
-      popularity: _v109,
-      titleAsc: _v110,
-      titleDesc: _v111,
-      nameAsc: _v112,
-      nameDesc: _v113,
-      longest: _v114,
-      shortest: _v115
-    },
-    _v123 = "video",
-    _v124 = {
       clip: "video",
       ondemand: "ondemand",
       people: "user",
       group: "group",
       channel: "channel"
     },
-    _v125 = {
+    _v123 = {
       transcript: "transcript-single-index",
       chapter: "chapters",
       comment: "private-comments",
       commentReply: "private-comment-replies",
       vis: "ai-vis-prod"
     },
-    _v126 = _v0 => _v0 ? parseInt(_v0.split("/").slice(-1)[0]) : 0,
-    _v127 = (_v0, _v1) => "string" == typeof _v0 && Object.values(_v1).map(_v0 => _v0.value).includes(_v0),
-    _v128 = (_v0, _v1) => {
+    _v124 = _v0 => _v0 ? parseInt(_v0.split("/").slice(-1)[0]) : 0,
+    _v125 = (_v0, _v1) => "string" == typeof _v0 && Object.values(_v1).map(_v0 => _v0.value).includes(_v0),
+    _v126 = (_v0, _v1) => {
       if ("string" != typeof _v0) return !1;
       let _v2 = _v0.split(","),
         _v3 = Object.values(_v1).map(_v0 => _v0.value);
       return _v2.every(_v0 => _v3.includes(_v0));
     },
-    _v129 = _v0 => !!_v0 && /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/.test(_v0),
-    _v130 = (_v0, _v1) => {
+    _v127 = _v0 => !!_v0 && /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/.test(_v0),
+    _v128 = (_v0, _v1) => {
       _v0.push({
         query: _v1
       }, void 0, {
         shallow: !0
       });
     },
-    _v131 = ({
+    _v129 = ({
       type: _v0,
       query: _v1,
       page: _v2,
@@ -5664,39 +5635,39 @@
       let _v17 = {},
         _v18 = [];
       if (_v0 && (_v17.type = _v0), _v1 && (_v17.q = _v1), _v2 > 1 && (_v17.page = _v2), _v3) {
-        let _v0 = _v84.options[_v3].value;
+        let _v0 = _v82.options[_v3].value;
         _v17.uploaded = _v0, _v18.push(`Uploaded=${_v0}`);
       }
       if (_v4) {
-        let _v0 = _v87.options[_v4].value;
+        let _v0 = _v85.options[_v4].value;
         _v17.live = _v0, _v18.push(`Live=${_v0}`);
       }
       if (_v5) {
-        let _v0 = _v88.options[_v5].value;
+        let _v0 = _v86.options[_v5].value;
         _v17.hdr = _v0, _v18.push(`Hdr=${_v0}`);
       }
       if (_v6) {
-        let _v0 = _v89.options[_v6].value;
+        let _v0 = _v87.options[_v6].value;
         _v17.vimeo360 = _v0, _v18.push(`Vimeo-360=${_v0}`);
       }
       if (_v7) {
-        let _v0 = _v90.options[_v7].value;
+        let _v0 = _v88.options[_v7].value;
         _v17.price = _v0, _v18.push(`Price=${_v0}`);
       }
       if (_v8) {
-        let _v0 = _v91.options[_v8].value;
+        let _v0 = _v89.options[_v8].value;
         _v17.license = _v0, _v18.push(`License=${_v0}`);
       }
       if (_v9) {
-        let _v0 = _v92.options[_v9].value;
+        let _v0 = _v90.options[_v9].value;
         _v17.resolution = _v0, _v18.push(`Resolution=${_v0}`);
       }
       if (_v10) {
-        let _v0 = _v93.options[_v10].value;
+        let _v0 = _v91.options[_v10].value;
         _v17.duration = _v0, _v18.push(`Duration=${_v0}`);
       }
-      if (_v11 && (_v17.collection = _v94.options[_v11].value, _v18.push("Staffpicked=true")), _v12 && (_v17.category = _v12, _v18.push(`Category=${_v12}`)), _v13 && (_v17.follow = _v13, _v16 && _v18.push(`Follows=${_v16}`)), _v14) {
-        let _v0 = _v84.options[_v14].value;
+      if (_v11 && (_v17.collection = _v92.options[_v11].value, _v18.push("Staffpicked=true")), _v12 && (_v17.category = _v12, _v18.push(`Category=${_v12}`)), _v13 && (_v17.follow = _v13, _v16 && _v18.push(`Follows=${_v16}`)), _v14) {
+        let _v0 = _v82.options[_v14].value;
         _v17.updated = _v0, _v18.push(`Last-updated=${_v0}`);
       }
       return _v15 && (_v17.sort = _v15), {
@@ -5704,7 +5675,7 @@
         bpFilters: _v18
       };
     },
-    _v132 = ({
+    _v130 = ({
       query: _v0,
       page: _v1,
       type: _v2,
@@ -5720,55 +5691,55 @@
       let _v11 = {
         slug: [_v35]
       };
-      return _v0 && (_v11.q = _v0), _v1 > 1 && (_v11.page = _v1), _v2 && (_v11.type = _v98.options[_v2].value), _v3 && (_v11.query_fields = _v3), _v4 && (_v11.filter_privacy = _v4), _v5 && (_v11.sort = _v5), _v6 && (_v11.filter_uploader = _v6), _v7 && (_v11.filter_folder_include = _v7), _v8 && (_v11.filter_folder_exclude = _v8), _v9 && (_v11.filter_date = _v9), _v10 && (_v11.filter_custom_metadata = _v10), {
+      return _v0 && (_v11.q = _v0), _v1 > 1 && (_v11.page = _v1), _v2 && (_v11.type = _v96.options[_v2].value), _v3 && (_v11.query_fields = _v3), _v4 && (_v11.filter_privacy = _v4), _v5 && (_v11.sort = _v5), _v6 && (_v11.filter_uploader = _v6), _v7 && (_v11.filter_folder_include = _v7), _v8 && (_v11.filter_folder_exclude = _v8), _v9 && (_v11.filter_date = _v9), _v10 && (_v11.filter_custom_metadata = _v10), {
         url: _v11
       };
     },
-    _v133 = (_v0, _v1 = "en-US") => new Date(_v0).toLocaleDateString(_v1, {
+    _v131 = (_v0, _v1 = "en-US") => new Date(_v0).toLocaleDateString(_v1, {
       month: "short",
       day: "numeric",
       year: "numeric",
       hour: "numeric",
       minute: "2-digit"
     }),
-    _v134 = _v0 => {
+    _v132 = _v0 => {
       let _v1 = Object.assign({}, _v0);
       return delete _v1.page, delete _v1.query, delete _v1.type, delete _v1.sort, _v1;
     },
-    _v135 = _v0 => "video" === _v0.type && _v0?.video?.parentProject ? {
+    _v133 = _v0 => "video" === _v0.type && _v0?.video?.parentProject ? {
       name: _v0.video.parentProject?.name,
-      href: _v136(_v0.video.parentProject?.uri)
+      href: _v134(_v0.video.parentProject?.uri)
     } : "live_event" === _v0.type && _v0?.liveEvent?.parentFolder ? {
       name: _v0.liveEvent.parentFolder?.name,
-      href: _v136(_v0.liveEvent.parentFolder?.uri)
+      href: _v134(_v0.liveEvent.parentFolder?.uri)
     } : "folder" === _v0.type && _v0?.folder?.metadata?.connections?.ancestorPath?.[0] ? {
       name: _v0?.folder?.metadata?.connections?.ancestorPath?.[0]?.name,
-      href: _v136(_v0?.folder?.metadata?.connections?.ancestorPath?.[0]?.uri)
+      href: _v134(_v0?.folder?.metadata?.connections?.ancestorPath?.[0]?.uri)
     } : {
       name: "-"
     },
-    _v136 = _v0 => _v0.replace("users", "user").replace("projects", "folder"),
-    _v137 = _v0 => {
+    _v134 = _v0 => _v0.replace("users", "user").replace("projects", "folder"),
+    _v135 = _v0 => {
       if (!_v0) return [];
       let _v1 = _v0.lastIndexOf("_");
       return -1 === _v1 ? [_v0] : [_v0.substring(0, _v1), _v0.substring(_v1 + 1)];
     },
-    _v138 = (_v0, _v1, _v2, _v3, _v4) => {
+    _v136 = (_v0, _v1, _v2, _v3, _v4) => {
       if (_v3) {
         let _v0 = `${_v0}?tq=${_v2}#t=${Math.floor(_v1 / 0)}`;
         return _v4 && (_v0 += `&end=${Math.floor(_v4 / 0)}`), _v0;
       }
       return `${_v0}/transcript?ts=${_v1}`;
     },
-    _v139 = _v0 => _v0.match("<b>(.*?)</b>")?.[1],
-    _v140 = (_v0, _v1, _v2 = 20, _v3 = 50) => {
+    _v137 = _v0 => _v0.match("<b>(.*?)</b>")?.[1],
+    _v138 = (_v0, _v1, _v2 = 20, _v3 = 50) => {
       let _v4 = _v0.length,
         _v5 = _v0.toLowerCase(),
         _v6 = _v1.toLowerCase();
       if (_v4 <= _v2 + _v3 || "" === _v1.trim() || !_v5.includes(_v6)) return _v0;
       {
         let _v0 = _v0.replace(/\s+/g, " "),
-          _v1 = _v141(_v1),
+          _v1 = _v139(_v1),
           _v2 = RegExp(`(^|\\s).{0,${_v2}}${_v1}.{0,${_v3}}(\\s|$)`, "i"),
           _v3 = _v0.match(_v2),
           _v4 = _v3 ? _v3[0].trim() : "",
@@ -5777,19 +5748,19 @@
         return `${0 === _v5 ? "" : "..."}${_v4}${_v6}`;
       }
     },
-    _v141 = (_v0 = "") => _v0.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&").trim(),
-    _v142 = (_v0, _v1) => {
+    _v139 = (_v0 = "") => _v0.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&").trim(),
+    _v140 = (_v0, _v1) => {
       for (let _v0 of Object.values(_v0)) if (_v0.value === _v1) return _v0.untranslatedText ?? _v0.text;
       return null;
     },
-    _v143 = (_v0, _v1) => _v0.hasOwnProperty(_v1) ? _v0[_v1]?.split(",") : [],
-    _v144 = _v0 => _v0 ? "title,captions,description,tags,chapters" : "title,description,tags,chapters",
-    _v145 = _v0 => {
+    _v141 = (_v0, _v1) => _v0.hasOwnProperty(_v1) ? _v0[_v1]?.split(",") : [],
+    _v142 = _v0 => _v0 ? "title,captions,description,tags,chapters" : "title,description,tags,chapters",
+    _v143 = _v0 => {
       if (!_v0) return !1;
       let _v1 = _v0.match(/(\w+)/g);
       return (!_v1 || !(_v1.length < 3)) && !!_v0.match(/^(what|when|who|where|how|why)|\?$/i);
     },
-    _v146 = _v0 => {
+    _v144 = _v0 => {
       if (!(_v0 instanceof Array)) return {};
       let _v1 = {};
       for (let {
@@ -5798,62 +5769,62 @@
       } of _v0) _v1[_v0] = _v1;
       return _v1;
     },
-    _v147 = _v0 => {
+    _v145 = _v0 => {
       let _v1 = _v0 ? new Date(`${_v0}T00:00:00`) : new Date();
-      return new _v69.BokehDate.CalendarDate(_v1.getFullYear(), _v1.getMonth() + 1, _v1.getDate());
+      return new _v67.BokehDate.CalendarDate(_v1.getFullYear(), _v1.getMonth() + 1, _v1.getDate());
     },
-    _v148 = (_v0, _v1) => {
+    _v146 = (_v0, _v1) => {
       switch (_v0) {
-        case _v125.transcript:
+        case _v123.transcript:
           return {
             get label() {
-              return _v80.TRANSCRIPT;
+              return _v78.TRANSCRIPT;
+            },
+            Icon: _v69
+          };
+        case _v123.chapter:
+          return {
+            get label() {
+              return _v78.CHAPTER;
+            },
+            Icon: _v70.ListUlFilled
+          };
+        case _v123.comment:
+          return {
+            get label() {
+              return _v78.COMMENT;
             },
             Icon: _v71
           };
-        case _v125.chapter:
+        case _v123.commentReply:
           return {
             get label() {
-              return _v80.CHAPTER;
+              return _v78.COMMENT;
             },
-            Icon: _v72.ListUlFilled
+            Icon: _v71
           };
-        case _v125.comment:
+        case _v123.vis:
           return {
             get label() {
-              return _v80.COMMENT;
+              if (_v1.includes("chapters")) return _v78.SEGMENT;
+              if (_v1.includes("is_slide")) return _v78.SLIDE;
+              if (_v1.includes("shots")) return _v78.SHOT;
+              if (_v1.includes("scenes")) return _v78.SCENE;
+              if (_v1.includes("is_visual")) return _v78.VISUAL_MOMENT;
+              return _v78.MOMENT;
             },
-            Icon: _v73
-          };
-        case _v125.commentReply:
-          return {
-            get label() {
-              return _v80.COMMENT;
-            },
-            Icon: _v73
-          };
-        case _v125.vis:
-          return {
-            get label() {
-              if (_v1.includes("chapters")) return _v80.SEGMENT;
-              if (_v1.includes("is_slide")) return _v80.SLIDE;
-              if (_v1.includes("shots")) return _v80.SHOT;
-              if (_v1.includes("scenes")) return _v80.SCENE;
-              if (_v1.includes("is_visual")) return _v80.VISUAL_MOMENT;
-              return _v80.MOMENT;
-            },
-            Icon: _v74.AiSparklesFilled
+            Icon: _v72.AiSparklesFilled
           };
       }
     },
-    _v149 = "library",
-    _v150 = "public",
-    _v151 = {
-      [_v149]: "library_search",
-      [_v150]: "public_search"
+    _v147 = "library",
+    _v148 = "public",
+    _v149 = {
+      [_v147]: "library_search",
+      [_v148]: "public_search"
     },
-    _v152 = (0, _v3.createContext)({}),
-    _v153 = ({
+    _v150 = (0, _v3.createContext)({}),
+    _v151 = ({
       children: _v0
     }) => {
       let _v1 = (0, _v2.useRouter)(),
@@ -5861,17 +5832,17 @@
           hasPublicSearchDisabled: _v2,
           isLoading: _v3,
           ready: _v4
-        } = _v68(),
-        [_v5, _v6] = (0, _v3.useState)(() => _v1.query.slug?.[0] === _v35 ? _v149 : _v150),
+        } = _v66(),
+        [_v5, _v6] = (0, _v3.useState)(() => _v1.query.slug?.[0] === _v35 ? _v147 : _v148),
         [_v7, _v8] = (0, _v3.useState)(!0);
       return (0, _v3.useEffect)(() => {
-        _v4 && !_v3 && _v2 && _v1.query.slug?.[0] !== _v35 && (_v6(_v149), _v130(_v1, {
+        _v4 && !_v3 && _v2 && _v1.query.slug?.[0] !== _v35 && (_v6(_v147), _v128(_v1, {
           q: _v1.query.q,
           slug: [_v35]
         }));
       }, [_v4, _v3, _v2, _v1]), (0, _v3.useEffect)(() => {
-        _v6(() => _v1.query.slug?.[0] === _v35 ? _v149 : _v150);
-      }, [_v1.query?.slug]), (0, _v1.jsx)(_v152.Provider, {
+        _v6(() => _v1.query.slug?.[0] === _v35 ? _v147 : _v148);
+      }, [_v1.query?.slug]), (0, _v1.jsx)(_v150.Provider, {
         value: {
           searchType: _v5,
           toggleSearchType: _v0 => {
@@ -5879,7 +5850,7 @@
               _v2 = _v0?.detail.filter,
               _v3 = {},
               _v4 = null;
-            if (_v5 === _v150 ? (_v4 = _v37, _v6(_v149), _v3.slug = [_v35], _v2 && (_v3[_v2.name] = _v2.value)) : (_v6(_v150), _v4 = _v38), (_v1 ?? _v1.query.q) && (_v3.q = _v1 ?? _v1.query.q), _v130(_v1, _v3), !_v1) {
+            if (_v5 === _v148 ? (_v4 = _v37, _v6(_v147), _v3.slug = [_v35], _v2 && (_v3[_v2.name] = _v2.value)) : (_v6(_v148), _v4 = _v38), (_v1 ?? _v1.query.q) && (_v3.q = _v1 ?? _v1.query.q), _v128(_v1, _v3), !_v1) {
               let _v0 = new CustomEvent("SearchTypeChange", {
                 detail: {
                   searchType: _v4
@@ -5888,19 +5859,19 @@
               document.dispatchEvent(_v0);
             }
           },
-          feature: _v151[_v5],
+          feature: _v149[_v5],
           showAiAnimation: _v7,
           setShowAiAnimation: _v8
         },
         children: _v0
       });
     },
-    _v154 = (0, _v3.createContext)({}),
-    _v155 = ({
+    _v152 = (0, _v3.createContext)({}),
+    _v153 = ({
       children: _v0
     }) => {
       let [_v1, _v2] = (0, _v3.useState)(!0);
-      return (0, _v1.jsx)(_v154.Provider, {
+      return (0, _v1.jsx)(_v152.Provider, {
         value: {
           showAnimation: _v1,
           setShowAnimation: _v2
@@ -5908,7 +5879,9 @@
         children: _v0
       });
     };
-  var _v156 = _v0.i(0),
+  var _v154 = _v0.i(0),
+    _v155 = _v0.i(0),
+    _v156 = _v0.i(0),
     _v157 = _v0.i(0),
     _v158 = _v0.i(0),
     _v159 = _v0.i(0),
@@ -5917,25 +5890,23 @@
     _v162 = _v0.i(0),
     _v163 = _v0.i(0),
     _v164 = _v0.i(0),
-    _v165 = _v0.i(0),
-    _v166 = _v0.i(0),
-    _v167 = _v0.i(0);
-  let _v168 = "thumbs_up",
-    _v169 = "thumbs_down",
-    _v170 = {
+    _v165 = _v0.i(0);
+  let _v166 = "thumbs_up",
+    _v167 = "thumbs_down",
+    _v168 = {
       thumbsUp: !1,
       thumbsDown: !1,
       providedFeedback: !1
     };
-  function _v171(_v0, _v1) {
+  function _v169(_v0, _v1) {
     switch (_v1.type) {
-      case _v168:
+      case _v166:
         return {
           thumbsUp: !_v0.thumbsUp,
           thumbsDown: !1,
           providedFeedback: !0
         };
-      case _v169:
+      case _v167:
         return {
           thumbsDown: !_v0.thumbsDown,
           thumbsUp: !1,
@@ -5945,107 +5916,107 @@
         return _v0;
     }
   }
-  var _v172 = _v0.i(0),
-    _v172 = _v172,
-    _v173 = _v0.i(0),
-    _v174 = _v0.i(0);
-  let _v175 = () => {
+  var _v170 = _v0.i(0),
+    _v170 = _v170,
+    _v171 = _v0.i(0),
+    _v172 = _v0.i(0);
+  let _v173 = () => {
     var _v0;
     let _v1,
       _v2 = (0, _v2.useRouter)(),
       _v3 = (_v0 = _v2.query, _v1 = {
-        ..._v81
-      }, "string" == typeof _v0.q && (_v1.query = _v0.q), Number(_v0.page) && (_v1.page = Number(_v0.page)), _v127(_v0.uploaded, _v84.options) && (_v1.uploaded = (0, _v75.camelizeString)(_v0.uploaded)), _v127(_v0.updated, _v85.options) && (_v1.updated = (0, _v75.camelizeString)(_v0.updated)), _v127(_v0.type, _v86.options) ? _v1.type = _v0.type : _v1.type = _v86.options.clip.value, _v127(_v0.live, _v87.options) && (_v1.live = _v0.live), _v127(_v0.hdr, _v88.options) && (_v1.hdr = (0, _v75.camelizeString)(_v0.hdr)), _v127(_v0.vimeo360, _v89.options) && (_v1.vimeo360 = "360" === _v0.vimeo360 ? "vimeo360" : _v0.vimeo360), _v127(_v0.price, _v90.options) && (_v1.price = _v0.price), _v127(_v0.license, _v91.options) && (_v1.license = (0, _v75.camelizeString)(_v0.license)), _v127(_v0.resolution, _v92.options) && (_v1.resolution = _v0.resolution), _v127(_v0.duration, _v93.options) && (_v1.duration = _v0.duration), _v127(_v0.collection, _v94.options) && (_v1.collection = _v0.collection), _v127(_v0.category, _v96) && (_v1.category = _v0.category), "true" === _v0.follow && (_v1.follow = _v0.follow), _v127(_v0.sort, _v122) && (_v1.sort = _v0.sort), _v1),
+        ..._v79
+      }, "string" == typeof _v0.q && (_v1.query = _v0.q), Number(_v0.page) && (_v1.page = Number(_v0.page)), _v125(_v0.uploaded, _v82.options) && (_v1.uploaded = (0, _v73.camelizeString)(_v0.uploaded)), _v125(_v0.updated, _v83.options) && (_v1.updated = (0, _v73.camelizeString)(_v0.updated)), _v125(_v0.type, _v84.options) ? _v1.type = _v0.type : _v1.type = _v84.options.clip.value, _v125(_v0.live, _v85.options) && (_v1.live = _v0.live), _v125(_v0.hdr, _v86.options) && (_v1.hdr = (0, _v73.camelizeString)(_v0.hdr)), _v125(_v0.vimeo360, _v87.options) && (_v1.vimeo360 = "360" === _v0.vimeo360 ? "vimeo360" : _v0.vimeo360), _v125(_v0.price, _v88.options) && (_v1.price = _v0.price), _v125(_v0.license, _v89.options) && (_v1.license = (0, _v73.camelizeString)(_v0.license)), _v125(_v0.resolution, _v90.options) && (_v1.resolution = _v0.resolution), _v125(_v0.duration, _v91.options) && (_v1.duration = _v0.duration), _v125(_v0.collection, _v92.options) && (_v1.collection = _v0.collection), _v125(_v0.category, _v94) && (_v1.category = _v0.category), "true" === _v0.follow && (_v1.follow = _v0.follow), _v125(_v0.sort, _v120) && (_v1.sort = _v0.sort), _v1),
       {
         isDrawerOpen: _v4
-      } = (0, _v3.useContext)(_v61),
+      } = (0, _v3.useContext)(_v60),
       _v5 = (0, _v3.useRef)(null),
       _v6 = _v5?.current?.href === _v2.asPath;
     return _v4 || (_v5.current = {
-      ..._v131(_v3),
+      ..._v129(_v3),
       href: _v2.asPath
     }), {
       ..._v3,
       filters: _v3,
       onFilterChange: (_v0, _v1) => {
-        if (_v0 === _v86.name) {
+        if (_v0 === _v84.name) {
           let _v0 = {
             q: _v3.query
           };
-          _v86.options.clip.value !== _v1 && (_v0.type = _v1), _v130(_v2, _v0);
+          _v84.options.clip.value !== _v1 && (_v0.type = _v1), _v128(_v2, _v0);
         } else {
           let {
             url: _v0
-          } = _v131({
+          } = _v129({
             ..._v3,
             page: 1
           });
-          "default" === _v1 || _v0 === _v36 && _v1 === _v120.clip.relevance.value ? delete _v0[_v0] : _v0[_v0] = _v1, _v130(_v2, _v0);
+          "default" === _v1 || _v0 === _v36 && _v1 === _v118.clip.relevance.value ? delete _v0[_v0] : _v0[_v0] = _v1, _v128(_v2, _v0);
         }
       },
-      appliedFiltersCount: Object.keys(_v134(_v3)).filter(_v0 => void 0 !== _v3[_v0]).length,
+      appliedFiltersCount: Object.keys(_v132(_v3)).filter(_v0 => void 0 !== _v3[_v0]).length,
       clearFilters: () => {
         let {
           url: _v0
-        } = _v131({
-          ..._v81,
+        } = _v129({
+          ..._v79,
           page: _v3.page,
           query: _v3.query,
           sort: _v3.sort,
           type: _v5.current?.url.type ?? _v3.type
         });
-        _v130(_v2, _v0);
+        _v128(_v2, _v0);
       },
       updatePage: _v0 => {
         let {
           url: _v1
-        } = _v131({
+        } = _v129({
           ..._v3,
           page: _v0
         });
-        _v130(_v2, _v1);
+        _v128(_v2, _v1);
       },
       appliedFiltersSortAndQuery: JSON.stringify(_v2.query),
       keepPreviousUrl: () => {
-        _v5.current && _v130(_v2, _v5.current.url);
+        _v5.current && _v128(_v2, _v5.current.url);
       },
       isApplyButtonDisabled: _v6
     };
   };
-  var _v176 = _v0.i(0),
-    _v177 = _v0.i(0),
-    _v178 = _v0.i(0);
-  async function _v179({
+  var _v174 = _v0.i(0),
+    _v175 = _v0.i(0),
+    _v176 = _v0.i(0);
+  async function _v177({
     baseUrl: _v0,
     select: _v1,
     query: _v2,
     ..._v3
   }) {
-    return (0, _v177.measureLatency)("getSearch", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/search?${(0, _v178.searchQueryString)(_v2)}&fields=${_v1.map(_v178.intoSnakeCase).join(",")}`, {
+    return (0, _v175.measureLatency)("getSearch", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/search?${(0, _v176.searchQueryString)(_v2)}&fields=${_v1.map(_v176.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v178.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v176.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v178.deepCamelCase)(_v1);
+      return (0, _v176.deepCamelCase)(_v1);
     });
   }
-  var _v180 = _v0.i(0),
-    _v181 = _v0.i(0),
-    _v182 = _v0.i(0),
-    _v183 = _v0.i(0);
-  function _v184(_v0, _v1) {
+  var _v178 = _v0.i(0),
+    _v179 = _v0.i(0),
+    _v180 = _v0.i(0),
+    _v181 = _v0.i(0);
+  function _v182(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v183.useGctlConfig)();
-    return (0, _v180.default)(_v2 ? `/search${(0, _v182.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v179({
+      } = (0, _v181.useGctlConfig)();
+    return (0, _v178.default)(_v2 ? `/search${(0, _v180.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v177({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -6057,26 +6028,26 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v176.default.env.STORYBOOK && (0, _v182.assignMswData)(_v184, {
+  "true" === _v174.default.env.STORYBOOK && (0, _v180.assignMswData)(_v182, {
     endpoint: "/search",
     method: "GET"
-  }), "true" === _v176.default.env.STORYBOOK && (0, _v182.assignMswData)(function () {
+  }), "true" === _v174.default.env.STORYBOOK && (0, _v180.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v181.useSWRConfig)(),
+      } = (0, _v179.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v183.useGctlConfig)(),
-      [_v5, _v6] = (0, _v182.useInternalState)();
+      } = (0, _v181.useGctlConfig)(),
+      [_v5, _v6] = (0, _v180.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/search${(0, _v182.serializeQuery)(_v0)}`, _v179({
+        let _v0 = await _v0(`/search${(0, _v180.serializeQuery)(_v0)}`, _v177({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -6102,8 +6073,8 @@
     endpoint: "/search",
     method: "GET"
   });
-  var _v185 = _v0.i(0);
-  let _v186 = () => {
+  var _v183 = _v0.i(0);
+  let _v184 = () => {
       let _v0 = (0, _v2.useRouter)(),
         [_v1, _v2] = (0, _v3.useState)(!1);
       return (0, _v3.useEffect)(() => {
@@ -6118,17 +6089,17 @@
         };
       }, [_v0]), _v1;
     },
-    _v187 = () => {
+    _v185 = () => {
       let _v0 = (0, _v2.useRouter)(),
-        _v1 = (0, _v3.useContext)(_v67.ViewerContext),
+        _v1 = (0, _v3.useContext)(_v65.ViewerContext),
         {
           searchType: _v2
-        } = (0, _v3.useContext)(_v152),
+        } = (0, _v3.useContext)(_v150),
         {
           isDrawerOpen: _v3
-        } = (0, _v3.useContext)(_v61),
-        _v4 = _v186(),
-        _v5 = (0, _v185.useOrion)().identity.settings.enable_fuzzy_public_search,
+        } = (0, _v3.useContext)(_v60),
+        _v4 = _v184(),
+        _v5 = (0, _v183.useOrion)().identity.settings.enable_fuzzy_public_search,
         {
           query: _v6,
           page: _v7,
@@ -6146,57 +6117,57 @@
           follow: _v19,
           updated: _v20,
           sort: _v21
-        } = _v175(),
+        } = _v173(),
         _v22 = _v1?.user?.id,
-        _v23 = _v2 === _v150,
+        _v23 = _v2 === _v148,
         {
           data: _v24,
           isLoading: _v25,
           mutate: _v26,
           error: _v27
-        } = _v184(() => {
+        } = _v182(() => {
           if (!_v0.isReady || !_v1?.apiUrl || !_v23 || _v3 || _v4) return null;
-          let [_v0, _v1] = _v137(_v21);
+          let [_v0, _v1] = _v135(_v21);
           return {
             select: (_v0 => {
               switch (_v0) {
-                case _v86.options.ondemand.value:
-                  return _v50;
-                case _v86.options.people.value:
-                  return _v51;
-                case _v86.options.channel.value:
-                  return _v52;
-                case _v86.options.group.value:
-                  return _v53;
-                default:
+                case _v84.options.ondemand.value:
                   return _v49;
+                case _v84.options.people.value:
+                  return _v50;
+                case _v84.options.channel.value:
+                  return _v51;
+                case _v84.options.group.value:
+                  return _v52;
+                default:
+                  return _v48;
               }
             })(_v9),
             headers: {
               Accept: "application/vnd.vimeo.*+json;version=3.3"
             },
             query: {
-              filterType: _v9 ? _v86.options[_v9].value : _v86.options.clip.value,
+              filterType: _v9 ? _v84.options[_v9].value : _v84.options.clip.value,
               query: _v6,
               page: _v7,
               perPage: 24,
-              filterUploaded: _v8 && _v84.options[_v8].value,
-              filterLive: _v10 && _v87.options[_v10].value,
-              filterHdr: _v11 && _v88.options[_v11].value,
-              filterVimeo_360: _v12 && _v89.options[_v12].value,
-              filterPrice: _v13 && _v90.options[_v13].value,
-              filterLicense: _v14 && _v91.options[_v14].value,
-              filterResolution: _v15 && _v92.options[_v15].value,
+              filterUploaded: _v8 && _v82.options[_v8].value,
+              filterLive: _v10 && _v85.options[_v10].value,
+              filterHdr: _v11 && _v86.options[_v11].value,
+              filterVimeo_360: _v12 && _v87.options[_v12].value,
+              filterPrice: _v13 && _v88.options[_v13].value,
+              filterLicense: _v14 && _v89.options[_v14].value,
+              filterResolution: _v15 && _v90.options[_v15].value,
               filterStaffpicked: _v17 && !0,
-              filterDuration: _v16 && _v93.options[_v16].value,
+              filterDuration: _v16 && _v91.options[_v16].value,
               filterCategory: _v18,
               filterFollows: _v19 && _v22,
-              filterLastUpdated: _v20 && _v85.options[_v20].value,
-              sizes: _v9 === _v86.options.ondemand.value ? ["296x744"] : void 0,
+              filterLastUpdated: _v20 && _v83.options[_v20].value,
+              sizes: _v9 === _v84.options.ondemand.value ? ["296x744"] : void 0,
               sort: _v0,
               direction: _v1,
               facets: "type",
-              fetchUserProfile: _v9 === _v86.options.people.value ? "1" : void 0,
+              fetchUserProfile: _v9 === _v84.options.people.value ? "1" : void 0,
               precision: 0,
               fuzzy: _v5
             }
@@ -6224,17 +6195,17 @@
         })(_v24?.facets?.type?.options)
       };
     },
-    _v188 = () => {
+    _v186 = () => {
       let _v0,
         _v1,
         _v2 = (0, _v2.useRouter)(),
         _v3 = (_v0 => {
           let _v1 = {
-            ..._v82
+            ..._v80
           };
-          if ("string" == typeof _v0.q && (_v1.query = _v0.q), Number(_v0.page) && (_v1.page = Number(_v0.page)), _v127(_v0.filter_type, _v98.options) && (_v1.type = _v0.filter_type), _v127(_v0.type, _v98.options) && (_v1.type = _v0.type), _v128(_v0.query_fields, _v99.options) && (_v1.queryFields = _v0.query_fields), _v128(_v0.filter_privacy, _v101().options) && (_v1.privacy = _v0.filter_privacy), _v127(_v0.sort, _v121) && (_v1.sort = _v0.sort), "string" == typeof _v0.filter_uploader && (_v1.uploader = _v0.filter_uploader), "string" == typeof _v0.filter_folder_include && (_v1.folderIncluded = _v0.filter_folder_include), _v1.folderIncluded && "string" == typeof _v0.filter_folder_exclude && (_v1.folderExcluded = _v0.filter_folder_exclude), _v0.filter_date) {
+          if ("string" == typeof _v0.q && (_v1.query = _v0.q), Number(_v0.page) && (_v1.page = Number(_v0.page)), _v125(_v0.filter_type, _v96.options) && (_v1.type = _v0.filter_type), _v125(_v0.type, _v96.options) && (_v1.type = _v0.type), _v126(_v0.query_fields, _v97.options) && (_v1.queryFields = _v0.query_fields), _v126(_v0.filter_privacy, _v99().options) && (_v1.privacy = _v0.filter_privacy), _v125(_v0.sort, _v119) && (_v1.sort = _v0.sort), "string" == typeof _v0.filter_uploader && (_v1.uploader = _v0.filter_uploader), "string" == typeof _v0.filter_folder_include && (_v1.folderIncluded = _v0.filter_folder_include), _v1.folderIncluded && "string" == typeof _v0.filter_folder_exclude && (_v1.folderExcluded = _v0.filter_folder_exclude), _v0.filter_date) {
             let [_v0, _v1] = _v0.filter_date.split(",");
-            _v129(_v0) && _v129(_v1) && (_v1.date = _v0.filter_date);
+            _v127(_v0) && _v127(_v1) && (_v1.date = _v0.filter_date);
           }
           return "string" == typeof _v0.filter_custom_metadata && _v0.filter_custom_metadata && (_v0 => {
             try {
@@ -6252,36 +6223,36 @@
         })(_v2.query),
         {
           isDrawerOpen: _v4
-        } = (0, _v3.useContext)(_v61),
+        } = (0, _v3.useContext)(_v60),
         _v5 = (0, _v3.useRef)(null),
         _v6 = _v5?.current?.href === _v2.asPath;
       return _v4 || (_v5.current = {
-        ..._v132(_v3),
+        ..._v130(_v3),
         href: _v2.asPath
       }), {
         ..._v3,
         filters: _v3,
         onLibraryFilterChange: (_v0, _v1) => {
-          if (_v0 === _v98.name) {
+          if (_v0 === _v96.name) {
             let _v0 = {
               slug: [_v35],
               q: _v3.query
             };
-            _v1 !== _v98.options.default.value && (_v0.type = _v1), _v130(_v2, _v0);
+            _v1 !== _v96.options.default.value && (_v0.type = _v1), _v128(_v2, _v0);
             return;
           }
           let {
             url: _v2
-          } = _v132({
+          } = _v130({
             ..._v3,
             page: 1
           });
-          "default" === _v1 || _v0 === _v36 && _v1 === _v121.relevance.value ? delete _v2[_v0] : _v2[_v0] = _v1, _v130(_v2, _v2);
+          "default" === _v1 || _v0 === _v36 && _v1 === _v119.relevance.value ? delete _v2[_v0] : _v2[_v0] = _v1, _v128(_v2, _v2);
         },
         onCheckboxChange: _v0 => {
           let {
             url: _v1
-          } = _v132({
+          } = _v130({
             ..._v3,
             page: 1
           });
@@ -6290,41 +6261,41 @@
             value: _v1,
             isChecked: _v2
           }) => {
-            let _v3 = _v143(_v1, _v0);
+            let _v3 = _v141(_v1, _v0);
             _v1.hasOwnProperty(_v0) && _v1[_v0]?.split(",");
             let _v4 = 1 === _v3.length;
-            _v2 ? _v4 ? (delete _v1[_v0], _v0 === _v103.folderIncludedName && delete _v1[_v103.folderExcludedName]) : _v1[_v0] = _v3.filter(_v0 => _v0 !== _v1).join(",") : (_v3.push(_v1), _v1[_v0] = _v3.join(","));
-          }), _v130(_v2, _v1), _v1;
+            _v2 ? _v4 ? (delete _v1[_v0], _v0 === _v101.folderIncludedName && delete _v1[_v101.folderExcludedName]) : _v1[_v0] = _v3.filter(_v0 => _v0 !== _v1).join(",") : (_v3.push(_v1), _v1[_v0] = _v3.join(","));
+          }), _v128(_v2, _v1), _v1;
         },
         onClearFilter: _v0 => {
           let {
             url: _v1
-          } = _v132({
+          } = _v130({
             ..._v3,
             page: 1
           });
           (Array.isArray(_v0) ? _v0 : [_v0]).forEach(_v0 => {
             delete _v1[_v0];
-          }), _v130(_v2, _v1);
+          }), _v128(_v2, _v1);
         },
         updatePage: _v0 => {
           let {
             url: _v1
-          } = _v132({
+          } = _v130({
             ..._v3,
             page: _v0
           });
-          _v130(_v2, _v1);
+          _v128(_v2, _v1);
         },
         clearLibraryFilters: () => {
           let {
             url: _v0
-          } = _v132({
-            ..._v82,
+          } = _v130({
+            ..._v80,
             query: _v3.query,
             sort: _v3.sort
           });
-          _v130(_v2, _v0);
+          _v128(_v2, _v0);
         },
         onOmnisearchChange: _v0 => {
           let {
@@ -6333,7 +6304,7 @@
             } = _v0.detail,
             {
               url: _v3
-            } = _v132({
+            } = _v130({
               ..._v3,
               page: 1
             }),
@@ -6341,34 +6312,33 @@
               ..._v3,
               slug: [_v35]
             };
-          _v1?.trim() ? _v4.q = _v1 : _v4.sort = _v121.lastModified.value, _v2 && (_v4[_v2.name] = _v2.value), _v130(_v2, _v4);
+          _v1?.trim() ? _v4.q = _v1 : _v4.sort = _v119.lastModified.value, _v2 && (_v4[_v2.name] = _v2.value), _v128(_v2, _v4);
         },
-        appliedFiltersCount: (_v0 = _v134(_v3), _v1 = 0, Object.keys(_v0).map(_v0 => {
+        appliedFiltersCount: (_v0 = _v132(_v3), _v1 = 0, Object.keys(_v0).map(_v0 => {
           let _v1 = _v0[_v0];
           _v1 && ("folderIncluded" !== _v0 && "privacy" !== _v0 && "uploader" !== _v0 && "queryFields" !== _v0 ? _v1 += 1 : _v1 += _v1.split(",").length);
         }), _v1),
         keepPreviousLibraryUrl: () => {
-          _v5.current && _v130(_v2, _v5.current.url);
+          _v5.current && _v128(_v2, _v5.current.url);
         },
         isLibraryApplyButtonDisabled: _v6
       };
     };
-  var _v189 = _v0.i(0),
-    _v190 = _v0.i(0);
-  let _v191 = () => {
+  var _v187 = _v0.i(0);
+  let _v188 = () => {
       let _v0 = (0, _v2.useRouter)(),
         {
           cache: _v1,
           mutate: _v2
-        } = (0, _v181.useSWRConfig)(),
-        _v3 = (0, _v3.useContext)(_v67.ViewerContext),
+        } = (0, _v179.useSWRConfig)(),
+        _v3 = (0, _v3.useContext)(_v65.ViewerContext),
         {
           searchType: _v4
-        } = (0, _v3.useContext)(_v152),
+        } = (0, _v3.useContext)(_v150),
         {
           isDrawerOpen: _v5
-        } = (0, _v3.useContext)(_v61),
-        _v6 = _v186(),
+        } = (0, _v3.useContext)(_v60),
+        _v6 = _v184(),
         {
           query: _v7,
           page: _v8,
@@ -6381,26 +6351,26 @@
           folderIncluded: _v15,
           folderExcluded: _v16,
           customMetadata: _v17
-        } = _v188(),
+        } = _v186(),
         {
           hasAutoClosedCaptions: _v18,
           hasNewMoments: _v19
-        } = _v68(),
+        } = _v66(),
         {
           settings: _v20
-        } = (0, _v190.useOrionSettings)(),
+        } = (0, _v63.useOrionSettings)(),
         _v21 = _v20.show_custom_metadata ? _v17 : void 0,
-        _v22 = _v21 ? _v144(!1) : _v10 || _v144(_v18),
-        _v23 = _v4 === _v149,
+        _v22 = _v21 ? _v142(!1) : _v10 || _v142(_v18),
+        _v23 = _v4 === _v147,
         _v24 = _v19 ? _v46 : {},
         {
           data: _v25,
           error: _v26,
           isLoading: _v27,
           mutate: _v28
-        } = (0, _v189.useGetUserItems)(() => {
+        } = (0, _v187.useGetUserItems)(() => {
           if (!_v0.isReady || !_v3?.user || !_v23 || _v5 || _v6) return null;
-          let [_v0, _v1] = _v137(_v12),
+          let [_v0, _v1] = _v135(_v12),
             [_v2, _v3] = _v14?.split(",") ?? [void 0, void 0];
           return {
             query: {
@@ -6424,7 +6394,7 @@
               facetType: !0,
               ..._v24
             },
-            select: _v54,
+            select: _v53,
             where: {
               userId: _v3?.teamUser?.ownerId || _v3?.user.id
             },
@@ -6465,7 +6435,7 @@
         mutate: _v28
       };
     },
-    _v192 = {
+    _v189 = {
       search_text: null,
       default_search_type: null,
       suggestions_qty: null,
@@ -6485,7 +6455,7 @@
       value_name: null,
       order_by: null
     },
-    _v193 = {
+    _v190 = {
       search_text: null,
       search_id: null,
       order_by: null,
@@ -6496,18 +6466,18 @@
       results_page_number: null,
       filters: null
     },
-    _v194 = {
+    _v191 = {
       notification_name: null,
       error_id: null,
       error_name: null,
       checkbox_copy: null,
       notification_copy: null
     },
-    _v195 = {
-      ..._v194,
+    _v192 = {
+      ..._v191,
       is_marked_checkbox: null
     },
-    _v196 = () => {
+    _v193 = () => {
       let {
           defaultSearchType: _v0,
           feature: _v1,
@@ -6519,8 +6489,8 @@
           isAiRequest: _v7,
           filters: _v8,
           searchType: _v9
-        } = _v197(),
-        _v10 = (0, _v173.useAnalyticsEvent)(),
+        } = _v194(),
+        _v10 = (0, _v171.useAnalyticsEvent)(),
         {
           trackSearchResultsPage: _v11,
           trackSearchResultHover: _v12,
@@ -6548,8 +6518,8 @@
           position: _v1,
           uri: _v2
         }) => {
-          let _v3 = (0, _v172.default)(_v6, _v28),
-            _v4 = _v126(_v2);
+          let _v3 = (0, _v170.default)(_v6, _v28),
+            _v4 = _v124(_v2);
           _v24.withTeamCtx().withActionCtx({
             action_type: "hover"
           }).withWebCtx({}).withProductAnalyticsCtx({
@@ -6560,7 +6530,7 @@
             eventName: "vimeo.search_result_hover",
             version: 4,
             additionalFields: {
-              ..._v192,
+              ..._v189,
               search_text: _v2,
               default_search_type: _v0,
               search_id: _v3,
@@ -6589,8 +6559,8 @@
           position: _v1,
           uri: _v2
         }) => {
-          let _v3 = (0, _v172.default)(_v6, _v28),
-            _v4 = _v126(_v2);
+          let _v3 = (0, _v170.default)(_v6, _v28),
+            _v4 = _v124(_v2);
           _v24.withTeamCtx().withActionCtx({}).withWebCtx({}).withProductAnalyticsCtx({
             entity_type: _v0,
             element: "card",
@@ -6599,7 +6569,7 @@
             eventName: "vimeo.search_result_click",
             version: 4,
             additionalFields: {
-              ..._v192,
+              ..._v189,
               search_text: _v2,
               default_search_type: _v0,
               search_id: _v3,
@@ -6627,10 +6597,10 @@
           position: _v0,
           entityId: _v1
         }) => {
-          let _v2 = (0, _v172.default)(_v6, _v28);
+          let _v2 = (0, _v170.default)(_v6, _v28);
           _v24.withTeamCtx().withActionCtx({}).withWebCtx({}).withProductAnalyticsCtx({
             flow: "search_moments",
-            entity_type: _v123,
+            entity_type: _v121,
             element: "button",
             location: "modal",
             feature: _v1
@@ -6638,7 +6608,7 @@
             eventName: "vimeo.search_result_click",
             version: 4,
             additionalFields: {
-              ..._v192,
+              ..._v189,
               search_text: _v2,
               default_search_type: _v0,
               search_id: _v2,
@@ -6654,7 +6624,7 @@
             defaultSearchType: _v0,
             resultPosition: _v0,
             entityId: _v1,
-            entityType: _v123,
+            entityType: _v121,
             orderBy: _v3,
             resultsQty: _v5,
             isAiRequest: _v7
@@ -6665,8 +6635,8 @@
           position: _v1,
           uri: _v2
         }) => {
-          let _v3 = (0, _v172.default)(_v6, _v28),
-            _v4 = _v126(_v2);
+          let _v3 = (0, _v170.default)(_v6, _v28),
+            _v4 = _v124(_v2);
           _v24.withTeamCtx().withActionCtx({}).withWebCtx({}).withProductAnalyticsCtx({
             entity_type: _v0,
             element: "icon"
@@ -6674,7 +6644,7 @@
             eventName: "vimeo.search_watch_later",
             version: 4,
             additionalFields: {
-              ..._v192,
+              ..._v189,
               search_text: _v2,
               default_search_type: _v0,
               search_id: _v3,
@@ -6702,7 +6672,7 @@
           valueName: _v2,
           previousValue: _v3
         }) => {
-          let _v4 = (0, _v172.default)(_v6, _v28);
+          let _v4 = (0, _v170.default)(_v6, _v28);
           _v24.withTeamCtx().withActionCtx({}).withWebCtx({}).withProductAnalyticsCtx({
             copy: _v0,
             element: "button",
@@ -6711,7 +6681,7 @@
             eventName: "vimeo.search_filter",
             version: 4,
             additionalFields: {
-              ..._v192,
+              ..._v189,
               search_text: _v2,
               default_search_type: _v0,
               search_id: _v4,
@@ -6741,7 +6711,7 @@
           value: _v1,
           previousValue: _v2
         }) => {
-          let _v3 = (0, _v172.default)(_v6, _v28);
+          let _v3 = (0, _v170.default)(_v6, _v28);
           _v24.withTeamCtx().withActionCtx({}).withWebCtx({}).withProductAnalyticsCtx({
             copy: _v0,
             element: "button",
@@ -6750,7 +6720,7 @@
             eventName: "vimeo.search_sorting",
             version: 4,
             additionalFields: {
-              ..._v192,
+              ..._v189,
               search_text: _v2,
               default_search_type: _v0,
               search_id: _v3,
@@ -6778,7 +6748,7 @@
         sendSearchResultsPage: _v0 => {
           let _v1 = Object.keys(_v8).filter(_v0 => void 0 !== _v8[_v0]),
             _v2 = _v1.map(_v0 => _v8[_v0]),
-            _v3 = (0, _v172.default)(_v6, _v28),
+            _v3 = (0, _v170.default)(_v6, _v28),
             _v4 = _v0 ? null : _v4,
             _v5 = _v1.length && !_v0 ? _v1 : null,
             _v6 = _v2.length && !_v0 ? _v2 : null;
@@ -6788,7 +6758,7 @@
             eventName: "vimeo.search_results_page",
             version: 5,
             additionalFields: {
-              ..._v193,
+              ..._v190,
               search_text: _v2,
               search_id: _v3,
               results_page_number: _v4,
@@ -6810,7 +6780,7 @@
         sendModeSwitchEvent: ({
           copy: _v0
         }) => {
-          let _v1 = (0, _v172.default)(_v6, _v28);
+          let _v1 = (0, _v170.default)(_v6, _v28);
           _v24.withTeamCtx().withActionCtx({}).withWebCtx({}).withProductAnalyticsCtx({
             flow: "search",
             copy: _v0,
@@ -6820,7 +6790,7 @@
             eventName: "vimeo.search_mode_switch",
             version: 4,
             additionalFields: {
-              ..._v192,
+              ..._v189,
               search_text: _v2,
               default_search_type: _v0,
               search_id: _v1,
@@ -6841,7 +6811,7 @@
             eventName: "vimeo.notification_view",
             version: 3,
             additionalFields: {
-              ..._v194,
+              ..._v191,
               notification_name: "search_load_error",
               notification_copy: _v29
             }
@@ -6858,7 +6828,7 @@
             eventName: "vimeo.notification_action",
             version: 3,
             additionalFields: {
-              ..._v195,
+              ..._v192,
               notification_name: "search_load_error",
               notification_copy: _v29
             }
@@ -6885,7 +6855,7 @@
           }), _v20();
         },
         sendViewAiSearch: (_v0, _v1) => {
-          let _v2 = _v126(_v0 || "");
+          let _v2 = _v124(_v0 || "");
           _v24.withTeamCtx().withViewCtx().withWebCtx().withProductAnalyticsCtx({
             flow: "ai",
             element: "widget",
@@ -6906,7 +6876,7 @@
           });
         },
         sendSelectAiSearch: (_v0, _v1) => {
-          let _v2 = _v126(_v1);
+          let _v2 = _v124(_v1);
           _v24.withTeamCtx().withActionCtx().withWebCtx().withProductAnalyticsCtx({
             flow: "ai",
             element: "link",
@@ -6923,7 +6893,7 @@
           });
         },
         sendAiSearchAction: (_v0, _v1) => {
-          let _v2 = _v126(_v1);
+          let _v2 = _v124(_v1);
           _v24.withTeamCtx().withActionCtx().withWebCtx().withProductAnalyticsCtx({
             flow: "ai",
             copy: _v0,
@@ -6940,7 +6910,7 @@
           });
         },
         sendThumbsRate: (_v0, _v1) => {
-          let _v2 = _v126(_v1);
+          let _v2 = _v124(_v1);
           _v24.withTeamCtx().withActionCtx().withWebCtx().withProductAnalyticsCtx({
             flow: "ai",
             element: "icon",
@@ -6987,7 +6957,7 @@
           position: _v0,
           entityId: _v1 = null
         }) => {
-          let _v2 = (0, _v172.default)(_v6, _v28);
+          let _v2 = (0, _v170.default)(_v6, _v28);
           _v24.withTeamCtx().withActionCtx({}).withWebCtx({}).withProductAnalyticsCtx({
             entity_type: "moment",
             element: "card",
@@ -6997,7 +6967,7 @@
             eventName: "vimeo.moments_timeline_clicks",
             version: 4,
             additionalFields: {
-              ..._v192,
+              ..._v189,
               search_id: _v2,
               results_page_number: _v4,
               result_position: _v0,
@@ -7014,7 +6984,7 @@
           copy: _v0,
           entityId: _v1 = null
         }) => {
-          let _v2 = (0, _v172.default)(_v6, _v28);
+          let _v2 = (0, _v170.default)(_v6, _v28);
           _v24.withTeamCtx().withActionCtx({}).withWebCtx({}).withProductAnalyticsCtx({
             entity_type: "moment",
             copy: _v0,
@@ -7025,7 +6995,7 @@
             eventName: "vimeo.moments_panel_clicks_interactions",
             version: 4,
             additionalFields: {
-              ..._v192,
+              ..._v189,
               search_id: _v2,
               results_page_number: _v4,
               entity_id: _v1,
@@ -7039,14 +7009,14 @@
           });
         },
         sendMomentsResultsImpressions: () => {
-          let _v0 = (0, _v172.default)(_v6, _v28);
+          let _v0 = (0, _v170.default)(_v6, _v28);
           _v24.withTeamCtx().withViewCtx().withWebCtx().withProductAnalyticsCtx({
             feature: _v1
           }).withThirdPartyIntegrationCtx().send({
             eventName: "vimeo.moments_results_impressions",
             version: 5,
             additionalFields: {
-              ..._v193,
+              ..._v190,
               search_id: _v0,
               results_page_number: _v4
             }
@@ -7056,14 +7026,14 @@
           });
         },
         sendMomentsTimelineImpressions: () => {
-          let _v0 = (0, _v172.default)(_v6, _v28);
+          let _v0 = (0, _v170.default)(_v6, _v28);
           _v24.withTeamCtx().withViewCtx().withWebCtx().withProductAnalyticsCtx({
             feature: _v1
           }).withThirdPartyIntegrationCtx().send({
             eventName: "vimeo.moments_timeline_impressions",
             version: 5,
             additionalFields: {
-              ..._v193,
+              ..._v190,
               search_id: _v0,
               results_page_number: _v4
             }
@@ -7073,14 +7043,14 @@
           });
         },
         sendMomentsPanelImpressions: () => {
-          let _v0 = (0, _v172.default)(_v6, _v28);
+          let _v0 = (0, _v170.default)(_v6, _v28);
           _v24.withTeamCtx().withViewCtx().withWebCtx().withProductAnalyticsCtx({
             feature: _v1
           }).withThirdPartyIntegrationCtx().send({
             eventName: "vimeo.moments_panel_impressions",
             version: 5,
             additionalFields: {
-              ..._v193,
+              ..._v190,
               search_id: _v0,
               results_page_number: _v4
             }
@@ -7090,7 +7060,7 @@
           });
         },
         sendDeleteVideo: () => {
-          _v10(_v174.VideoActionAnalytics.clickDeleteVideo({
+          _v10(_v172.VideoActionAnalytics.clickDeleteVideo({
             live_event_id: null,
             origin_folder_id: null,
             origin_type: null,
@@ -7100,16 +7070,16 @@
         }
       };
     },
-    _v197 = () => {
-      let _v0 = (0, _v3.useContext)(_v67.ViewerContext),
+    _v194 = () => {
+      let _v0 = (0, _v3.useContext)(_v65.ViewerContext),
         {
           searchType: _v1,
           feature: _v2
-        } = (0, _v3.useContext)(_v152),
+        } = (0, _v3.useContext)(_v150),
         {
           hasEnterprise: _v3,
           hasPublicSearchDisabled: _v4
-        } = _v68(),
+        } = _v66(),
         {
           filters: {
             query: _v5 = null,
@@ -7117,10 +7087,10 @@
             page: _v7,
             ..._v8
           }
-        } = _v175(),
+        } = _v173(),
         {
           data: _v9
-        } = _v187(),
+        } = _v185(),
         {
           filters: {
             query: _v10 = null,
@@ -7128,19 +7098,19 @@
             page: _v12,
             ..._v13
           }
-        } = _v188(),
+        } = _v186(),
         {
           data: _v14
-        } = _v191(),
+        } = _v188(),
         _v15 = () => {
-          if (!_v0?.user) return _v150;
-          if (!_v4) return _v149;
+          if (!_v0?.user) return _v148;
+          if (!_v4) return _v147;
           let _v0 = _v0.user.account.toLowerCase();
-          return "free" !== _v0 && "basic" !== _v0 || _v3 || _v0?.teamUser?.ownerId ? _v149 : _v150;
+          return "free" !== _v0 && "basic" !== _v0 || _v3 || _v0?.teamUser?.ownerId ? _v147 : _v148;
         };
-      return _v1 === _v149 ? {
+      return _v1 === _v147 ? {
         query: _v10,
-        sort: _v11 ?? _v105.relevance.value,
+        sort: _v11 ?? _v103.relevance.value,
         page: _v12,
         total: _v14?.total ?? null,
         uuidStr: _v10 || "",
@@ -7151,7 +7121,7 @@
         searchType: _v1
       } : {
         query: _v5,
-        sort: _v6 ?? _v105.relevance.value,
+        sort: _v6 ?? _v103.relevance.value,
         page: _v7,
         total: _v9?.total ?? null,
         uuidStr: _v5 || "",
@@ -7162,26 +7132,26 @@
         searchType: _v1
       };
     },
-    _v198 = ({
+    _v195 = ({
       isExpanded: _v0,
       handleToggle: _v1,
       displayShowMore: _v2,
       videoLink: _v3
     }) => {
-      let [_v4, _v5] = (0, _v3.useReducer)(_v171, _v170),
-        _v6 = (0, _v163.useToast)(),
+      let [_v4, _v5] = (0, _v3.useReducer)(_v169, _v168),
+        _v6 = (0, _v161.useToast)(),
         {
           sendThumbsRate: _v7,
           sendAiSearchAction: _v8
-        } = _v196();
+        } = _v193();
       return (0, _v3.useEffect)(() => {
         _v4.providedFeedback && (_v7(_v4, _v3), _v6({
-          title: _v80.THANKS_FOR_FEEDBACK,
+          title: _v78.THANKS_FOR_FEEDBACK,
           variant: "neutral",
           isClosable: !1
         }));
       }, [_v4]), (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v2 && (0, _v1.jsx)(_v161.Button, {
+        children: [_v2 && (0, _v1.jsx)(_v159.Button, {
           variant: "secondary",
           size: {
             base: "md",
@@ -7190,38 +7160,38 @@
           onClick: () => {
             _v8(_v0 ? "Show less" : "Show more", _v3), _v1();
           },
-          children: _v0 ? _v80.SHOW_LESS : _v80.SHOW_MORE
-        }), (0, _v1.jsx)(_v162.IconButton, {
+          children: _v0 ? _v78.SHOW_LESS : _v78.SHOW_MORE
+        }), (0, _v1.jsx)(_v160.IconButton, {
           size: {
             base: "md",
             md: "sm"
           },
           variant: "tertiary",
-          icon: _v4.thumbsUp ? (0, _v1.jsx)(_v165.ThumbUpFilled, {}) : (0, _v1.jsx)(_v164.ThumbUp, {}),
+          icon: _v4.thumbsUp ? (0, _v1.jsx)(_v163.ThumbUpFilled, {}) : (0, _v1.jsx)(_v162.ThumbUp, {}),
           onClick: () => _v5({
-            type: _v168
+            type: _v166
           }),
           "aria-label": "thumbs up"
-        }), (0, _v1.jsx)(_v162.IconButton, {
+        }), (0, _v1.jsx)(_v160.IconButton, {
           size: {
             base: "md",
             md: "sm"
           },
           variant: "tertiary",
-          icon: _v4.thumbsDown ? (0, _v1.jsx)(_v167.ThumbDownFilled, {}) : (0, _v1.jsx)(_v166.ThumbDown, {}),
+          icon: _v4.thumbsDown ? (0, _v1.jsx)(_v165.ThumbDownFilled, {}) : (0, _v1.jsx)(_v164.ThumbDown, {}),
           onClick: () => _v5({
-            type: _v169
+            type: _v167
           }),
           "aria-label": "thumbs down"
         })]
       });
     };
-  var _v199 = _v0.i(0);
-  let _v200 = ({
+  var _v196 = _v0.i(0);
+  let _v197 = ({
     showAnimation: _v0,
     ..._v1
   }) => {
-    let _v2 = (0, _v199.useColorModeValue)("linear-gradient(360deg,rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 0.82) 96%, rgba(255, 255, 255, 0.4) 100%)", "linear-gradient(360deg,rgba(24, 30, 35, 1) 0%, rgba(24, 30, 35, 1) 90%, rgba(24, 30, 35, 0.82) 96%, rgba(24, 30, 35, 0.4) 100%)"),
+    let _v2 = (0, _v196.useColorModeValue)("linear-gradient(360deg,rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 0.82) 96%, rgba(255, 255, 255, 0.4) 100%)", "linear-gradient(360deg,rgba(24, 30, 35, 1) 0%, rgba(24, 30, 35, 1) 90%, rgba(24, 30, 35, 0.82) 96%, rgba(24, 30, 35, 0.4) 100%)"),
       _v3 = (0, _v27.keyframes)({
         "0%": {
           transform: `translateY(${(0, _v9.rem)(-80)})`,
@@ -7247,7 +7217,7 @@
         animation: `${_v3} 3s ease-in`,
         overflow: "hidden"
       };
-    return (0, _v1.jsx)(_v159.GridItem, {
+    return (0, _v1.jsx)(_v157.GridItem, {
       paddingTop: (0, _v9.rem)(4),
       gridColumn: {
         base: "1/5",
@@ -7262,15 +7232,15 @@
       ..._v1
     });
   };
-  var _v201 = _v0.i(0),
+  var _v198 = _v0.i(0),
+    _v199 = _v0.i(0),
+    _v200 = _v0.i(0),
+    _v201 = _v0.i(0),
     _v202 = _v0.i(0),
     _v203 = _v0.i(0),
     _v204 = _v0.i(0),
-    _v205 = _v0.i(0),
-    _v206 = _v0.i(0),
-    _v207 = _v0.i(0),
-    _v208 = _v0.i(0);
-  let _v209 = ({
+    _v205 = _v0.i(0);
+  let _v206 = ({
       onClick: _v0,
       copy: _v1,
       paddingY: _v2 = "md",
@@ -7278,8 +7248,8 @@
     }) => {
       let {
         hasReframeOverride: _v4
-      } = _v68();
-      return (0, _v1.jsxs)(_v157.PanelHeader, {
+      } = _v66();
+      return (0, _v1.jsxs)(_v155.PanelHeader, {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
@@ -7290,24 +7260,24 @@
           base: (0, _v9.rem)(12),
           md: (0, _v9.rem)(20)
         },
-        children: [(0, _v1.jsx)(_v208.AiSparkles, {
+        children: [(0, _v1.jsx)(_v205.AiSparkles, {
           boxSize: "xs"
-        }), (0, _v1.jsxs)(_v160.Text, {
+        }), (0, _v1.jsxs)(_v158.Text, {
           variant: _v3,
           as: "h1",
           width: "100%",
           display: "flex",
           alignItems: "center",
           gap: "sm",
-          children: [_v1, !_v4 && (0, _v1.jsx)(_v207.Badge, {
+          children: [_v1, !_v4 && (0, _v1.jsx)(_v204.Badge, {
             variant: "warning",
             size: "xs",
             height: (0, _v9.rem)(14),
             borderWidth: "0",
             pt: "1px",
-            children: _v80.BETA
+            children: _v78.BETA
           })]
-        }), (0, _v1.jsx)(_v206.CloseButton, {
+        }), (0, _v1.jsx)(_v203.CloseButton, {
           size: "sm",
           variant: "tertiary",
           "aria-label": "close ask your library button",
@@ -7315,27 +7285,27 @@
         })]
       });
     },
-    _v210 = ({
+    _v207 = ({
       children: _v0,
       videoLink: _v1 = "",
       ..._v2
     }) => {
       let {
           panelStatus: _v3
-        } = (0, _v3.useContext)(_v61),
+        } = (0, _v3.useContext)(_v60),
         [_v4, _v5] = (0, _v3.useState)(!0),
         {
           sendAiSearchAction: _v6
-        } = _v196(),
-        _v7 = (0, _v199.useColorModeValue)("var(--vimeo-colors-lightBlueAlpha-200)", "var(--vimeo-colors-darkBlueAlpha-200)");
-      return (0, _v1.jsx)(_v156.Box, {
+        } = _v193(),
+        _v7 = (0, _v196.useColorModeValue)("var(--vimeo-colors-lightBlueAlpha-200)", "var(--vimeo-colors-darkBlueAlpha-200)");
+      return (0, _v1.jsx)(_v154.Box, {
         marginLeft: "sm",
         marginRight: _v3 ? 0 : "sm",
         marginBottom: _v4 ? {
           base: "md",
           sm: "lg"
         } : 0,
-        children: (0, _v1.jsxs)(_v157.Panel, {
+        children: (0, _v1.jsxs)(_v155.Panel, {
           isVisible: _v4,
           sx: {
             width: "100%",
@@ -7343,7 +7313,7 @@
             "--panel-border-style": "solid",
             "--panel-border-color": _v7
           },
-          children: [(0, _v1.jsx)(_v209, {
+          children: [(0, _v1.jsx)(_v206, {
             onClick: () => {
               _v6("close", _v1), _v5(!1);
             },
@@ -7352,14 +7322,14 @@
         })
       });
     };
-  var _v211 = _v0.i(0);
-  let _v212 = () => {
+  var _v208 = _v0.i(0);
+  let _v209 = () => {
       let {
           isSideNavOpen: _v0
-        } = (0, _v3.useContext)(_v211.VideoLibraryLayoutContext),
+        } = (0, _v3.useContext)(_v208.VideoLibraryLayoutContext),
         {
           panelStatus: _v1
-        } = (0, _v3.useContext)(_v61),
+        } = (0, _v3.useContext)(_v60),
         _v2 = (0, _v25.useBreakpointValue)(_v33, {
           ssr: !1
         }),
@@ -7378,93 +7348,93 @@
         thumbnailColumnWidth: _v8
       };
     },
-    _v213 = () => {
+    _v210 = () => {
       let _v0 = (0, _v25.useBreakpointValue)({
           base: !0,
           md: !1
         }) || !1,
         {
           gridColumns: _v1
-        } = _v212(),
+        } = _v209(),
         {
           sendGenerateAiSearch: _v2
-        } = _v196();
+        } = _v193();
       return (0, _v3.useEffect)(() => {
         _v2();
-      }, []), (0, _v1.jsx)(_v210, {
-        copy: _v80.SEARCHING_AI,
-        children: (0, _v1.jsxs)(_v203.VStack, {
+      }, []), (0, _v1.jsx)(_v207, {
+        copy: _v78.SEARCHING_AI,
+        children: (0, _v1.jsxs)(_v200.VStack, {
           paddingX: {
             base: "md",
             md: "lg"
           },
           paddingY: "sm",
-          children: [(0, _v1.jsxs)(_v158.Grid, {
+          children: [(0, _v1.jsxs)(_v156.Grid, {
             width: "100%",
             gridTemplateColumns: _v1,
             gap: (0, _v9.rem)(12),
             paddingBottom: (0, _v9.rem)(12),
-            children: [(0, _v1.jsx)(_v214, {
+            children: [(0, _v1.jsx)(_v211, {
               gridColumn: {
                 base: "1/4",
                 sm: "1/5",
                 md: "1/4"
               }
-            }), (0, _v1.jsx)(_v214, {
+            }), (0, _v1.jsx)(_v211, {
               gridColumn: {
                 base: "1/4",
                 sm: "1/5",
                 md: "1/4"
               }
-            }), (0, _v1.jsx)(_v214, {
+            }), (0, _v1.jsx)(_v211, {
               gridColumn: {
                 base: "1/4",
                 sm: "1/5",
                 md: "1/4"
               },
               width: "82%"
-            }), _v0 && (0, _v1.jsx)(_v214, {
+            }), _v0 && (0, _v1.jsx)(_v211, {
               w: (0, _v9.rem)(100),
               marginTop: "lg",
               gridColumn: "1"
             })]
-          }), (0, _v1.jsxs)(_v202.HStack, {
+          }), (0, _v1.jsxs)(_v199.HStack, {
             w: "100%",
             marginY: "lg",
-            children: [(0, _v1.jsx)(_v214, {
+            children: [(0, _v1.jsx)(_v211, {
               w: (0, _v9.rem)(100)
-            }), (0, _v1.jsx)(_v214, {
+            }), (0, _v1.jsx)(_v211, {
               w: (0, _v9.rem)(32)
-            }), (0, _v1.jsx)(_v214, {
+            }), (0, _v1.jsx)(_v211, {
               w: (0, _v9.rem)(32)
-            }), (0, _v1.jsx)(_v214, {
+            }), (0, _v1.jsx)(_v211, {
               w: (0, _v9.rem)(32)
             })]
           })]
         })
       });
     },
-    _v214 = _v0 => {
-      let _v1 = (0, _v204.useStyleConfig)("Skeleton", {
+    _v211 = _v0 => {
+      let _v1 = (0, _v201.useStyleConfig)("Skeleton", {
         variant: "text"
       });
-      return _v1.background = "linear-gradient(282.43deg, rgba(23, 213, 255, 0.733333) 0%, #17D5FF 25%, #9E00FF 50%, #743ED9 75%, rgba(23, 213, 255, 0.733333) 100%);", _v1.animationDuration = "5s", (0, _v1.jsx)(_v205.LightMode, {
-        children: (0, _v1.jsx)(_v201.Skeleton, {
+      return _v1.background = "linear-gradient(282.43deg, rgba(23, 213, 255, 0.733333) 0%, #17D5FF 25%, #9E00FF 50%, #743ED9 75%, rgba(23, 213, 255, 0.733333) 100%);", _v1.animationDuration = "5s", (0, _v1.jsx)(_v202.LightMode, {
+        children: (0, _v1.jsx)(_v198.Skeleton, {
           __css: _v1,
           ..._v0
         })
       });
     };
-  var _v215 = _v0.i(0);
-  let _v216 = ({
+  var _v212 = _v0.i(0);
+  let _v213 = ({
     tooltipLabel: _v0,
     showHover: _v1 = !0,
     ..._v2
-  }) => (0, _v1.jsx)(_v215.Tooltip, {
+  }) => (0, _v1.jsx)(_v212.Tooltip, {
     label: _v0,
     placement: "top",
     isDisabled: !_v1,
-    children: (0, _v1.jsx)(_v161.Button, {
+    children: (0, _v1.jsx)(_v159.Button, {
       as: "a",
       variant: "tertiary",
       display: "flex",
@@ -7481,9 +7451,9 @@
       ..._v2
     })
   });
-  var _v217 = _v0.i(0),
-    _v218 = _v0.i(0);
-  let _v219 = ({
+  var _v214 = _v0.i(0),
+    _v215 = _v0.i(0);
+  let _v216 = ({
       quotes: _v0,
       videoUrl: _v1,
       isExpanded: _v2,
@@ -7498,22 +7468,22 @@
         }),
         {
           sendSelectAiSearch: _v6
-        } = _v196();
+        } = _v193();
       if (!_v0) return null;
       let _v7 = Array.isArray(_v0) ? _v0 : [_v0],
         _v8 = _v7[1]?.thumbnailUrl ?? "",
         _v9 = _v7.length,
         _v10 = _v7[0];
-      return (0, _v1.jsx)(_v156.Box, {
-        children: _v2 || 1 === _v9 ? (0, _v1.jsx)(_v156.Box, {
+      return (0, _v1.jsx)(_v154.Box, {
+        children: _v2 || 1 === _v9 ? (0, _v1.jsx)(_v154.Box, {
           children: _v7.map(({
             quote: _v0,
             timecode: _v1,
             thumbnailUrl: _v2
-          }, _v3) => (0, _v1.jsxs)(_v216, {
+          }, _v3) => (0, _v1.jsxs)(_v213, {
             href: `${_v1}?tq=#t=${_v1}`,
-            tooltipLabel: _v80.GO_TO_MOMENT,
-            animation: 1 === _v3 ? `${_v225} .5s ease-in` : void 0,
+            tooltipLabel: _v78.GO_TO_MOMENT,
+            animation: 1 === _v3 ? `${_v222} .5s ease-in` : void 0,
             paddingX: _v5 ? "0" : "sm",
             showHover: !_v5,
             onClick: () => _v6("moment", _v1),
@@ -7521,16 +7491,16 @@
             children: [(0, _v1.jsxs)(_v8.Flex, {
               alignItems: "center",
               gap: (0, _v9.rem)(12),
-              children: [(0, _v1.jsx)(_v220, {
+              children: [(0, _v1.jsx)(_v217, {
                 src: _v2 ?? ""
-              }), (0, _v1.jsx)(_v217.Paragraph, {
+              }), (0, _v1.jsx)(_v214.Paragraph, {
                 variant: "body-md",
                 noOfLines: 2,
                 height: "fit-content",
                 children: _v0
               })]
-            }), (0, _v1.jsx)(_v222, {
-              children: (0, _v218.secondsToDisplay)(_v1)
+            }), (0, _v1.jsx)(_v219, {
+              children: (0, _v215.secondsToDisplay)(_v1)
             })]
           }, _v1))
         }) : (0, _v1.jsxs)(_v8.Flex, {
@@ -7541,15 +7511,15 @@
           gap: "md",
           onClick: _v4,
           cursor: "pointer",
-          children: [(0, _v1.jsxs)(_v221, {
+          children: [(0, _v1.jsxs)(_v218, {
             secondThumbnail: _v8,
             showAnimation: _v3,
-            children: [(0, _v1.jsx)(_v223, {
+            children: [(0, _v1.jsx)(_v220, {
               children: _v9
-            }), (0, _v1.jsx)(_v220, {
+            }), (0, _v1.jsx)(_v217, {
               src: _v10.thumbnailUrl ?? ""
             })]
-          }), (0, _v1.jsx)(_v217.Paragraph, {
+          }), (0, _v1.jsx)(_v214.Paragraph, {
             variant: "body-md",
             noOfLines: 2,
             width: "100%",
@@ -7558,7 +7528,7 @@
         })
       });
     },
-    _v220 = _v0 => (0, _v1.jsx)(_v156.Box, {
+    _v217 = _v0 => (0, _v1.jsx)(_v154.Box, {
       as: "img",
       width: (0, _v9.rem)(100),
       position: "relative",
@@ -7569,7 +7539,7 @@
       borderColor: "stroke",
       ..._v0
     }),
-    _v221 = _v0 => (0, _v1.jsx)(_v156.Box, {
+    _v218 = _v0 => (0, _v1.jsx)(_v154.Box, {
       position: "relative",
       _before: {
         content: '""',
@@ -7583,11 +7553,11 @@
         transform: "rotate(4deg)",
         borderRadius: "sm",
         bgImage: `url(${_v0.secondThumbnail})`,
-        animation: _v0.showAnimation ? `${_v224} 300ms ease-in 0s` : void 0
+        animation: _v0.showAnimation ? `${_v221} 300ms ease-in 0s` : void 0
       },
       ..._v0
     }),
-    _v222 = _v0 => (0, _v1.jsx)(_v156.Box, {
+    _v219 = _v0 => (0, _v1.jsx)(_v154.Box, {
       backgroundColor: "fill-component",
       display: "flex",
       height: (0, _v9.rem)(24),
@@ -7597,7 +7567,7 @@
       borderRadius: "xs",
       ..._v0
     }),
-    _v223 = _v0 => (0, _v1.jsx)(_v207.Badge, {
+    _v220 = _v0 => (0, _v1.jsx)(_v204.Badge, {
       position: "absolute",
       size: "xs",
       variant: "neutral",
@@ -7609,7 +7579,7 @@
       border: "none",
       ..._v0
     }),
-    _v224 = (0, _v27.keyframes)({
+    _v221 = (0, _v27.keyframes)({
       "0%": {
         opacity: "0"
       },
@@ -7620,7 +7590,7 @@
         opacity: "60%"
       }
     }),
-    _v225 = (0, _v27.keyframes)({
+    _v222 = (0, _v27.keyframes)({
       "0%": {
         opacity: "0"
       },
@@ -7631,7 +7601,7 @@
         opacity: "100%"
       }
     });
-  async function _v226({
+  async function _v223({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -7640,27 +7610,27 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v177.measureLatency)("getUserQuestions", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/questions?${(0, _v178.searchQueryString)(_v3)}&fields=${_v1.map(_v178.intoSnakeCase).join(",")}`, {
+    return (0, _v175.measureLatency)("getUserQuestions", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/questions?${(0, _v176.searchQueryString)(_v3)}&fields=${_v1.map(_v176.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v178.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v176.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v178.deepCamelCase)(_v1);
+      return (0, _v176.deepCamelCase)(_v1);
     });
   }
-  function _v227(_v0, _v1) {
+  function _v224(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v183.useGctlConfig)();
-    return (0, _v180.default)(_v2 ? `/users/${_v2.where.userId}/questions${(0, _v182.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v226({
+      } = (0, _v181.useGctlConfig)();
+    return (0, _v178.default)(_v2 ? `/users/${_v2.where.userId}/questions${(0, _v180.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v223({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -7672,26 +7642,26 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v176.default.env.STORYBOOK && (0, _v182.assignMswData)(_v227, {
+  "true" === _v174.default.env.STORYBOOK && (0, _v180.assignMswData)(_v224, {
     endpoint: "/users/:userId/questions",
     method: "GET"
-  }), "true" === _v176.default.env.STORYBOOK && (0, _v182.assignMswData)(function () {
+  }), "true" === _v174.default.env.STORYBOOK && (0, _v180.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v181.useSWRConfig)(),
+      } = (0, _v179.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v183.useGctlConfig)(),
-      [_v5, _v6] = (0, _v182.useInternalState)();
+      } = (0, _v181.useGctlConfig)(),
+      [_v5, _v6] = (0, _v180.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/questions${(0, _v182.serializeQuery)(_v0)}`, _v226({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/questions${(0, _v180.serializeQuery)(_v0)}`, _v223({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -7717,16 +7687,16 @@
     endpoint: "/users/:userId/questions",
     method: "GET"
   });
-  let _v228 = () => {
+  let _v225 = () => {
       let [_v0, _v1] = (0, _v3.useState)(!1),
         [_v2, _v3] = (0, _v3.useState)(!1),
         {
           showAnimation: _v4,
           setShowAnimation: _v5
-        } = (0, _v3.useContext)(_v154),
+        } = (0, _v3.useContext)(_v152),
         {
           gridColumns: _v6
-        } = _v212(),
+        } = _v209(),
         _v7 = (0, _v25.useBreakpointValue)({
           base: !0,
           md: !1
@@ -7735,11 +7705,11 @@
         }),
         {
           query: _v8
-        } = _v188(),
+        } = _v186(),
         {
           sendViewAiSearch: _v9,
           sendSelectAiSearch: _v10
-        } = _v196(),
+        } = _v193(),
         {
           data: _v11,
           error: _v12,
@@ -7752,7 +7722,7 @@
               error: _v3,
               isLoading: _v4,
               isValidating: _v5
-            } = _v227(() => _v1?.user ? {
+            } = _v224(() => _v1?.user ? {
               select: ["question.question", "question.answer", "question.relevantQuotes", "question.relatedQuestions", "metadata.connections.video.name", "metadata.connections.video.link", "metadata.connections.video.pictures"],
               where: {
                 userId: _v1?.teamUser?.ownerId || _v1?.user.id
@@ -7782,10 +7752,10 @@
       let _v18 = (0, _v3.useCallback)(_v0 => {
         _v0 && _v3(_v0?.scrollHeight > _v0.offsetHeight);
       }, []);
-      return _v13 ? (0, _v1.jsx)(_v213, {}) : _v11 ? (0, _v1.jsx)(_v210, {
-        copy: _v80.AI_OVERVIEW,
+      return _v13 ? (0, _v1.jsx)(_v210, {}) : _v11 ? (0, _v1.jsx)(_v207, {
+        copy: _v78.AI_OVERVIEW,
         videoLink: _v17,
-        children: (0, _v1.jsx)(_v157.PanelBody, {
+        children: (0, _v1.jsx)(_v155.PanelBody, {
           paddingX: {
             base: "md",
             md: "lg"
@@ -7795,13 +7765,13 @@
             md: "lg"
           },
           pt: "0",
-          children: (0, _v1.jsxs)(_v158.Grid, {
+          children: (0, _v1.jsxs)(_v156.Grid, {
             gridTemplateColumns: _v6,
             rowGap: "sm",
-            children: [(0, _v1.jsx)(_v200, {
+            children: [(0, _v1.jsx)(_v197, {
               onAnimationEnd: () => _v5(!1),
               showAnimation: _v4,
-              children: (0, _v1.jsx)(_v160.Text, {
+              children: (0, _v1.jsx)(_v158.Text, {
                 ref: _v18,
                 variant: "body-md",
                 lineHeight: "1.4",
@@ -7812,7 +7782,7 @@
                 position: "relative",
                 children: _v11?.question?.answer || ""
               })
-            }), !_v16 && (0, _v1.jsx)(_v159.GridItem, {
+            }), !_v16 && (0, _v1.jsx)(_v157.GridItem, {
               animation: _v4 ? _v43 : void 0,
               gridColumn: {
                 base: "1/5",
@@ -7822,14 +7792,14 @@
                 base: "0",
                 md: "md"
               },
-              children: (0, _v1.jsx)(_v219, {
+              children: (0, _v1.jsx)(_v216, {
                 quotes: _v11.question.relevantQuotes,
                 videoUrl: _v17,
                 isExpanded: _v0,
                 showAnimation: _v4,
                 handleExpand: () => _v1(!0)
               })
-            }), (0, _v1.jsx)(_v159.GridItem, {
+            }), (0, _v1.jsx)(_v157.GridItem, {
               display: "flex",
               gap: "sm",
               animation: _v4 ? _v43 : void 0,
@@ -7839,13 +7809,13 @@
                 md: "1/1"
               },
               paddingTop: "sm",
-              children: (0, _v1.jsx)(_v198, {
+              children: (0, _v1.jsx)(_v195, {
                 isExpanded: _v0,
                 displayShowMore: _v2 || _v15 > 1,
                 handleToggle: () => _v1(!_v0),
                 videoLink: _v17
               })
-            }), _v11?.question.relevantQuotes?.length && (0, _v1.jsx)(_v159.GridItem, {
+            }), _v11?.question.relevantQuotes?.length && (0, _v1.jsx)(_v157.GridItem, {
               whiteSpace: "nowrap",
               overflow: "hidden",
               display: "flex",
@@ -7863,9 +7833,9 @@
                 md: "4/7"
               },
               gridRow: "2",
-              children: _v80.momentsInVideo(_v11?.question.relevantQuotes?.length, (0, _v1.jsxs)(_v216, {
+              children: _v78.momentsInVideo(_v11?.question.relevantQuotes?.length, (0, _v1.jsxs)(_v213, {
                 href: _v17,
-                tooltipLabel: _v80.GO_TO_VIDEO,
+                tooltipLabel: _v78.GO_TO_VIDEO,
                 pr: "sm",
                 pl: "xs",
                 height: {
@@ -7879,10 +7849,10 @@
                 showHover: !_v7,
                 onClick: () => _v10("video", _v17),
                 onContextMenu: () => _v10("video", _v17),
-                children: [(0, _v1.jsx)(_v229, {
+                children: [(0, _v1.jsx)(_v226, {
                   src: _v11?.metadata.connections.video?.pictures?.sizes[1].link ?? "",
                   alt: "video thumbnail"
-                }), (0, _v1.jsx)(_v156.Box, {
+                }), (0, _v1.jsx)(_v154.Box, {
                   fontSize: "heading-xs",
                   color: "text-primary",
                   fontWeight: "medium",
@@ -7894,13 +7864,13 @@
             })]
           })
         })
-      }) : (0, _v1.jsx)(_v210, {
-        copy: _v80.NO_AI_RESULTS,
+      }) : (0, _v1.jsx)(_v207, {
+        copy: _v78.NO_AI_RESULTS,
         paddingY: "md",
         variant: "body-md"
       });
     },
-    _v229 = _v0 => (0, _v1.jsx)(_v156.Box, {
+    _v226 = _v0 => (0, _v1.jsx)(_v154.Box, {
       as: "img",
       width: (0, _v9.rem)(30),
       height: (0, _v9.rem)(20),
@@ -7910,16 +7880,19 @@
       borderRadius: "xs",
       ..._v0
     }),
-    _v230 = () => {
+    _v227 = () => {
       let {
           query: _v0
-        } = _v188(),
+        } = _v186(),
         {
           hasAiSearch: _v1
-        } = _v68();
-      return _v1 && _v145(_v0) ? (0, _v1.jsx)(_v228, {}) : (0, _v1.jsx)(_v1.Fragment, {});
+        } = _v66();
+      return _v1 && _v143(_v0) ? (0, _v1.jsx)(_v225, {}) : (0, _v1.jsx)(_v1.Fragment, {});
     };
-  var _v231 = _v0.i(0),
+  var _v228 = _v0.i(0),
+    _v229 = _v0.i(0),
+    _v230 = _v0.i(0),
+    _v231 = _v0.i(0),
     _v232 = _v0.i(0),
     _v233 = _v0.i(0),
     _v234 = _v0.i(0),
@@ -7929,20 +7902,17 @@
     _v238 = _v0.i(0),
     _v239 = _v0.i(0),
     _v240 = _v0.i(0),
-    _v241 = _v0.i(0),
-    _v242 = _v0.i(0),
-    _v243 = _v0.i(0),
-    _v244 = _v0.i(0);
-  let _v245 = ({
+    _v241 = _v0.i(0);
+  let _v242 = ({
       onClose: _v0,
       redirectUrl: _v1
-    }) => (0, _v1.jsxs)(_v240.Modal, {
+    }) => (0, _v1.jsxs)(_v237.Modal, {
       isOpen: !0,
       onClose: _v0,
-      children: [(0, _v1.jsx)(_v243.ModalOverlay, {}), (0, _v1.jsxs)(_v242.ModalContent, {
+      children: [(0, _v1.jsx)(_v240.ModalOverlay, {}), (0, _v1.jsxs)(_v239.ModalContent, {
         width: (0, _v9.rem)(592),
         maxW: "unset",
-        children: [(0, _v1.jsx)(_v241.ModalCloseButton, {}), (0, _v1.jsx)(_v244.AuthModal, {
+        children: [(0, _v1.jsx)(_v238.ModalCloseButton, {}), (0, _v1.jsx)(_v241.AuthModal, {
           authType: "login",
           redirectUrl: _v1,
           minH: "unset",
@@ -7951,52 +7921,52 @@
         })]
       })]
     }),
-    _v246 = (0, _v3.createContext)({}),
-    _v247 = ({
+    _v243 = (0, _v3.createContext)({}),
+    _v244 = ({
       children: _v0
     }) => {
       let _v1 = (0, _v2.useRouter)(),
         [_v2, _v3] = (0, _v3.useState)(!1),
         [_v4, _v5] = (0, _v3.useState)(),
         [_v6, _v7] = (0, _v3.useState)();
-      return (0, _v1.jsxs)(_v246.Provider, {
+      return (0, _v1.jsxs)(_v243.Provider, {
         value: {
           isOpen: _v2,
           openAuthModal: (_v0, _v1) => {
             _v0 && _v5(_v0), _v1 && _v7(_v1), _v3(!0);
           }
         },
-        children: [_v2 && (0, _v1.jsx)(_v245, {
+        children: [_v2 && (0, _v1.jsx)(_v242, {
           onClose: () => {
-            _v3(!1), _v6 && _v130(_v1, _v6);
+            _v3(!1), _v6 && _v128(_v1, _v6);
           },
           redirectUrl: _v4
         }), _v0]
       });
     },
-    _v248 = [{
-      text: _v80.PUBLIC,
+    _v245 = [{
+      text: _v78.PUBLIC,
       untranslatedText: "Vimeo"
     }, {
-      text: _v80.LIBRARY,
+      text: _v78.LIBRARY,
       untranslatedText: "Library"
     }],
-    _v249 = () => {
+    _v246 = () => {
       let {
           searchType: _v0,
           toggleSearchType: _v1
-        } = (0, _v3.useContext)(_v152),
-        _v2 = (0, _v3.useContext)(_v67.ViewerContext),
+        } = (0, _v3.useContext)(_v150),
+        _v2 = (0, _v3.useContext)(_v65.ViewerContext),
         {
           openAuthModal: _v3
-        } = (0, _v3.useContext)(_v246),
+        } = (0, _v3.useContext)(_v243),
         {
           panelStatus: _v4,
           togglePanel: _v5
-        } = (0, _v3.useContext)(_v61),
+        } = (0, _v3.useContext)(_v60),
         {
           sendModeSwitchEvent: _v6
-        } = _v196();
+        } = _v193();
       return (0, _v1.jsx)(_v8.Flex, {
         alignItems: "center",
         gridColumn: {
@@ -8011,51 +7981,51 @@
           base: "100%",
           sm: "fit-content"
         },
-        children: (0, _v1.jsx)(_v237.Tabs, {
-          index: +(_v0 !== _v150),
+        children: (0, _v1.jsx)(_v234.Tabs, {
+          index: +(_v0 !== _v148),
           onChange: _v0 => {
             _v6({
-              copy: _v248[_v0].untranslatedText
+              copy: _v245[_v0].untranslatedText
             }), _v2?.user ? (_v4 === _v32 && _v5(), _v1()) : _v3();
           },
           width: "100%",
           size: "sm",
-          children: (0, _v1.jsxs)(_v235.TabList, {
-            children: [(0, _v1.jsxs)(_v236.Tab, {
+          children: (0, _v1.jsxs)(_v232.TabList, {
+            children: [(0, _v1.jsxs)(_v233.Tab, {
               "data-testId": "vimeo-tab",
-              children: [(0, _v1.jsx)(_v238.Globe, {
+              children: [(0, _v1.jsx)(_v235.Globe, {
                 boxSize: (0, _v9.rem)(20)
-              }), (0, _v1.jsx)(_v160.Text, {
+              }), (0, _v1.jsx)(_v158.Text, {
                 variant: "heading-xs",
                 marginLeft: (0, _v9.rem)(6),
-                children: _v248[0].text
+                children: _v245[0].text
               })]
-            }, _v248[0].text), (0, _v1.jsxs)(_v236.Tab, {
+            }, _v245[0].text), (0, _v1.jsxs)(_v233.Tab, {
               "data-testId": "library-tab",
-              children: [(0, _v1.jsx)(_v239.MyLibrary, {
+              children: [(0, _v1.jsx)(_v236.MyLibrary, {
                 boxSize: (0, _v9.rem)(20)
-              }), (0, _v1.jsx)(_v160.Text, {
+              }), (0, _v1.jsx)(_v158.Text, {
                 variant: "heading-xs",
                 marginLeft: (0, _v9.rem)(6),
-                children: _v248[1].text
+                children: _v245[1].text
               })]
-            }, _v248[1].text), (0, _v1.jsx)(_v237.TabIndicator, {})]
+            }, _v245[1].text), (0, _v1.jsx)(_v234.TabIndicator, {})]
           })
         })
       });
     };
-  var _v250 = _v0.i(0),
-    _v251 = _v0.i(0);
-  let _v252 = _v0 => {
+  var _v247 = _v0.i(0),
+    _v248 = _v0.i(0);
+  let _v249 = _v0 => {
     let {
       isActive: _v1,
       sortDirection: _v2
     } = _v0;
-    return _v1 && _v2 ? "asc" === _v2 ? (0, _v1.jsx)(_v251.ArrowUp, {}) : (0, _v1.jsx)(_v250.ArrowDown, {}) : null;
+    return _v1 && _v2 ? "asc" === _v2 ? (0, _v1.jsx)(_v248.ArrowUp, {}) : (0, _v1.jsx)(_v247.ArrowDown, {}) : null;
   };
-  var _v253 = _v0.i(0),
-    _v254 = _v0.i(0);
-  let _v255 = _v0 => {
+  var _v250 = _v0.i(0),
+    _v251 = _v0.i(0);
+  let _v252 = _v0 => {
       let [_v1, _v2] = (0, _v3.useState)(!1),
         _v3 = (0, _v3.useRef)(null);
       return (0, _v3.useEffect)(() => {
@@ -8068,34 +8038,34 @@
         };
       }, [_v3, _v0]), [_v3, _v1];
     },
-    _v256 = ({
+    _v253 = ({
       showLoader: _v0
     }) => {
       let [_v1, _v2] = (0, _v3.useState)("none"),
         _v3 = (0, _v3.useRef)(null),
         {
           sendFilterEvent: _v4
-        } = _v196(),
+        } = _v193(),
         {
           type: _v5,
           onLibraryFilterChange: _v6,
           query: _v7
-        } = _v188(),
+        } = _v186(),
         {
           type: _v8,
           onFilterChange: _v9
-        } = _v175(),
+        } = _v173(),
         {
           hasReframeOverride: _v10
-        } = _v68(),
+        } = _v66(),
         {
           libraryResultCount: _v11
         } = (() => {
           let _v0 = (0, _v2.useRouter)(),
-            _v1 = (0, _v3.useContext)(_v67.ViewerContext),
+            _v1 = (0, _v3.useContext)(_v65.ViewerContext),
             {
               searchType: _v2
-            } = (0, _v3.useContext)(_v152),
+            } = (0, _v3.useContext)(_v150),
             [_v3, _v4] = (0, _v3.useState)({
               default: 0,
               video: 0,
@@ -8106,25 +8076,25 @@
             {
               query: _v5,
               type: _v6
-            } = _v188(),
+            } = _v186(),
             {
               data: _v7,
               isLoading: _v8
-            } = _v191(),
+            } = _v188(),
             {
               hasAutoClosedCaptions: _v9
-            } = _v68(),
-            _v10 = _v2 === _v149,
+            } = _v66(),
+            _v10 = _v2 === _v147,
             {
               data: _v11,
               error: _v12,
               isLoading: _v13
-            } = (0, _v189.useGetUserItems)(() => _v0.isReady && _v1?.user && _v10 ? {
+            } = (0, _v187.useGetUserItems)(() => _v0.isReady && _v1?.user && _v10 ? {
               query: {
                 perPage: 1,
                 filter: "folder,video,showcase,live_event",
                 query: _v5,
-                queryFields: _v144(_v9),
+                queryFields: _v142(_v9),
                 filterLivePlaceholder: !1,
                 precision: 3,
                 facetType: !0
@@ -8143,8 +8113,8 @@
             });
           return (0, _v3.useEffect)(() => {
             let _v0,
-              _v1 = _v146(_v11?.meta?.facets?.facetType),
-              _v2 = _v146(_v7?.meta?.facets?.facetType);
+              _v1 = _v144(_v11?.meta?.facets?.facetType),
+              _v2 = _v144(_v7?.meta?.facets?.facetType);
             (_v0 = _v6 ? {
               ..._v1,
               ..._v2
@@ -8160,41 +8130,41 @@
         })(),
         {
           publicResultCount: _v12
-        } = _v187(),
+        } = _v185(),
         {
           data: _v13
-        } = _v191(),
+        } = _v188(),
         {
           searchType: _v14
-        } = (0, _v3.useContext)(_v152),
+        } = (0, _v3.useContext)(_v150),
         _v15 = (0, _v14.useViewer)(),
         _v16 = (0, _v25.useBreakpointValue)({
           base: !0,
           sm: !1
         }),
-        _v17 = _v14 === _v149,
-        [_v18, _v19] = _v255({
+        _v17 = _v14 === _v147,
+        [_v18, _v19] = _v252({
           threshold: 1
         }),
-        [_v20, _v21] = _v255({
+        [_v20, _v21] = _v252({
           threshold: 1
         }),
         {
           options: _v22,
           nameCopy: _v23,
           untranslatedCopy: _v24
-        } = _v17 ? _v98 : _v86,
+        } = _v17 ? _v96 : _v84,
         _v25 = Object.keys(_v22),
         _v26 = _v17 ? _v6 : _v9,
         _v27 = _v17 ? _v5 : _v8,
         _v28 = _v17 ? _v11 : _v12,
         _v29 = !_v13?.data || _v13?.data.length === 0,
-        _v30 = _v10 && _v145(_v7) && _v29,
+        _v30 = _v10 && _v143(_v7) && _v29,
         _v31 = _v27 ? _v22[_v27].value : _v22?.default?.value,
         _v32 = _v0 => {
           _v3.current && (_v3.current.scrollLeft += _v0);
         };
-      return (0, _v1.jsx)(_v156.Box, {
+      return (0, _v1.jsx)(_v154.Box, {
         position: "relative",
         children: (0, _v1.jsxs)(_v8.Flex, {
           gap: "sm",
@@ -8210,22 +8180,22 @@
           sx: {
             scrollbarWidth: "none"
           },
-          children: [!_v19 && !_v16 && (0, _v1.jsx)(_v257, {
+          children: [!_v19 && !_v16 && (0, _v1.jsx)(_v254, {
             onClick: () => _v32(-150),
-            icon: (0, _v1.jsx)(_v254.ChevronLeftSmall, {}),
+            icon: (0, _v1.jsx)(_v251.ChevronLeftSmall, {}),
             display: _v1,
             "aria-label": "left-scroll-button"
-          }), (0, _v1.jsx)(_v258, {
-            background: _v259.leftLight,
+          }), (0, _v1.jsx)(_v255, {
+            background: _v256.leftLight,
             _dark: {
-              background: _v259.leftDark
+              background: _v256.leftDark
             },
             display: _v19 ? "none" : "block"
           }), _v25.map((_v0, _v1) => {
             let _v2 = _v22[_v0].value,
               _v3 = _v28?.[_v2] || 0,
               _v4 = _v2 === _v31;
-            return (0, _v1.jsxs)(_v161.Button, {
+            return (0, _v1.jsxs)(_v159.Button, {
               ref: 0 === _v1 ? _v18 : _v1 === _v25.length - 1 ? _v20 : void 0,
               onClick: () => {
                 _v4({
@@ -8238,13 +8208,13 @@
               size: "sm",
               variant: "secondary",
               isActive: _v4,
-              children: [_v22[_v0].text, (0, _v1.jsx)(_v160.Text, {
+              children: [_v22[_v0].text, (0, _v1.jsx)(_v158.Text, {
                 variant: "body-md",
                 color: _v4 ? "text-primary" : "text-secondary",
-                children: _v0 || _v30 ? "" : ` ${((_v0, _v1 = "en-US") => _v0 <= 0 ? (0, _v76.formatNumber)({
+                children: _v0 || _v30 ? "" : ` ${((_v0, _v1 = "en-US") => _v0 <= 0 ? (0, _v74.formatNumber)({
                   value: _v0,
                   locale: _v1
-                }) : (0, _v76.formatNumber)({
+                }) : (0, _v74.formatNumber)({
                   value: _v0,
                   locale: _v1,
                   notation: "compact",
@@ -8253,29 +8223,29 @@
                 }))(_v3, _v15?.locale)}`
               })]
             }, _v1);
-          }), (0, _v1.jsx)(_v258, {
-            background: _v259.rightLight,
+          }), (0, _v1.jsx)(_v255, {
+            background: _v256.rightLight,
             right: "0",
             _dark: {
-              background: _v259.rightDark
+              background: _v256.rightDark
             },
             display: _v21 ? "none" : "block"
-          }), !_v21 && !_v16 && (0, _v1.jsx)(_v257, {
+          }), !_v21 && !_v16 && (0, _v1.jsx)(_v254, {
             right: "0",
             onClick: () => _v32(150),
-            icon: (0, _v1.jsx)(_v253.ChevronRightSmall, {}),
+            icon: (0, _v1.jsx)(_v250.ChevronRightSmall, {}),
             display: _v1,
             "aria-label": "right-scroll-button"
           })]
         })
       });
     },
-    _v257 = _v0 => {
+    _v254 = _v0 => {
       let {
         onClick: _v1,
         ..._v2
       } = _v0;
-      return (0, _v1.jsx)(_v162.IconButton, {
+      return (0, _v1.jsx)(_v160.IconButton, {
         position: "absolute",
         size: "sm",
         onClick: _v1,
@@ -8283,12 +8253,12 @@
         ..._v2
       });
     },
-    _v258 = _v0 => {
+    _v255 = _v0 => {
       let {
         display: _v1,
         ..._v2
       } = _v0;
-      return (0, _v1.jsx)(_v156.Box, {
+      return (0, _v1.jsx)(_v154.Box, {
         height: (0, _v9.rem)(32),
         width: (0, _v9.rem)(60),
         position: "absolute",
@@ -8297,50 +8267,50 @@
         ..._v2
       });
     },
-    _v259 = {
+    _v256 = {
       leftLight: "linear-gradient(90deg, #F4F6F8 0%, rgba(244, 246, 248, 0) 100%)",
       leftDark: "linear-gradient(90deg, #0E1216 0%, rgba(14, 18, 22, 0) 100%)",
       rightLight: "linear-gradient(90deg, rgba(244, 246, 248, 0) 0%, #F4F6F8 100%)",
       rightDark: "linear-gradient(90deg, rgba(14, 18, 22, 0) 0%, #0E1216 100%)"
     },
-    _v260 = () => {
-      (0, _v3.useContext)(_v67.ViewerContext);
+    _v257 = () => {
+      (0, _v3.useContext)(_v65.ViewerContext);
       let {
           hasPublicSearchDisabled: _v0
-        } = _v68(),
+        } = _v66(),
         {
-          type: _v1 = _v86.options.clip.value,
+          type: _v1 = _v84.options.clip.value,
           sort: _v2,
           appliedFiltersCount: _v3
-        } = _v175(),
+        } = _v173(),
         {
           sort: _v4,
           appliedFiltersCount: _v5
-        } = _v188(),
+        } = _v186(),
         {
           data: _v6,
           isLoading: _v7
-        } = _v187(),
+        } = _v185(),
         {
           data: _v8,
           isLoading: _v9
-        } = _v191(),
+        } = _v188(),
         {
           panelStatus: _v10,
           togglePanel: _v11
-        } = (0, _v3.useContext)(_v61),
+        } = (0, _v3.useContext)(_v60),
         {
           searchType: _v12
-        } = (0, _v3.useContext)(_v152),
-        _v13 = _v12 === _v149,
+        } = (0, _v3.useContext)(_v150),
+        _v13 = _v12 === _v147,
         _v14 = _v13 ? _v5 : _v3,
         _v15 = _v14 > 0,
         _v16 = !_v0,
-        [_v17, _v18] = _v137(_v4),
-        [_v19, _v20] = _v137(_v2);
+        [_v17, _v18] = _v135(_v4),
+        [_v19, _v20] = _v135(_v2);
       _v13 ? _v8?.total : _v6?.total;
       let _v21 = _v13 ? _v9 || !_v8 : _v7 || !_v6;
-      return (0, _v1.jsxs)(_v158.Grid, {
+      return (0, _v1.jsxs)(_v156.Grid, {
         templateColumns: "repeat(3, minmax(auto, max-content))",
         templateRows: {
           base: "repeat(2, max-content)",
@@ -8361,13 +8331,13 @@
           base: 0,
           sm: "sm"
         },
-        children: [_v16 && (0, _v1.jsx)(_v249, {}), (0, _v1.jsx)(_v156.Box, {
+        children: [_v16 && (0, _v1.jsx)(_v246, {}), (0, _v1.jsx)(_v154.Box, {
           gridArea: {
             base: _v16 ? "2/1" : "1/2",
             md: "2/1",
             lg: "1/2"
           },
-          children: (0, _v1.jsx)(_v256, {
+          children: (0, _v1.jsx)(_v253, {
             showLoader: _v21
           })
         }), (0, _v1.jsxs)(_v8.Flex, {
@@ -8383,7 +8353,7 @@
             sm: "2/4",
             lg: "1/4"
           },
-          children: [(0, _v1.jsx)(_v161.Button, {
+          children: [(0, _v1.jsx)(_v159.Button, {
             size: "sm",
             variant: "tertiary",
             display: {
@@ -8394,43 +8364,43 @@
             _hover: {
               background: "transparent !important"
             },
-            rightIcon: (0, _v1.jsx)(_v252, {
+            rightIcon: (0, _v1.jsx)(_v249, {
               isActive: _v17 === _v39 || _v19 === _v39,
               sortDirection: _v18 || _v20
             }),
-            children: _v80.TITLE
+            children: _v78.TITLE
           }), (0, _v1.jsxs)(_v8.Flex, {
             marginLeft: {
               base: "0",
               sm: "md"
             },
-            children: [(0, _v1.jsx)(_v261, {
-              onClick: () => _v11(_v58),
-              rightIcon: (0, _v1.jsx)(_v234.SortSmall, {}),
-              isActive: _v10 === _v58,
+            children: [(0, _v1.jsx)(_v258, {
+              onClick: () => _v11(_v57),
+              rightIcon: (0, _v1.jsx)(_v231.SortSmall, {}),
+              isActive: _v10 === _v57,
               dataTestId: "sort-button",
               children: (() => {
                 let _v0 = _v13 ? _v4 : _v2;
-                if (!_v0) return _v105.relevance.text;
+                if (!_v0) return _v103.relevance.text;
                 {
-                  let _v0 = _v13 ? _v121 : _v120[_v1],
+                  let _v0 = _v13 ? _v119 : _v118[_v1],
                     _v1 = Object.keys(_v0).find(_v0 => _v0[_v0].value === _v0);
                   return _v0[_v1].text;
                 }
               })()
-            }), (0, _v1.jsx)(_v261, {
-              onClick: () => _v11(_v57),
-              rightIcon: (0, _v1.jsx)(_v233.Filter, {}),
-              isActive: _v10 === _v57,
+            }), (0, _v1.jsx)(_v258, {
+              onClick: () => _v11(_v56),
+              rightIcon: (0, _v1.jsx)(_v230.Filter, {}),
+              isActive: _v10 === _v56,
               isApplied: _v15,
               dataTestId: "filter-button",
-              children: _v15 ? _v80.filtersCount(_v14) : _v80.FILTERS
+              children: _v15 ? _v78.filtersCount(_v14) : _v78.FILTERS
             })]
           })]
         })]
       });
     },
-    _v261 = _v0 => {
+    _v258 = _v0 => {
       let {
           isActive: _v1,
           children: _v2,
@@ -8454,10 +8424,10 @@
           },
           ..._v6
         };
-      return (0, _v1.jsx)(_v232.Menu, {
+      return (0, _v1.jsx)(_v229.Menu, {
         isLazy: !0,
-        children: (0, _v1.jsx)(_v231.MenuButton, {
-          as: _v161.Button,
+        children: (0, _v1.jsx)(_v228.MenuButton, {
+          as: _v159.Button,
           size: "sm",
           rightIcon: _v3,
           "data-testid": _v5,
@@ -8466,15 +8436,15 @@
         })
       });
     };
-  var _v262 = _v0.i(0),
-    _v263 = _v0.i(0),
-    _v264 = _v0.i(0),
-    _v265 = _v0.i(0),
-    _v266 = _v0.i(0);
-  let _v267 = () => {
+  var _v259 = _v0.i(0),
+    _v260 = _v0.i(0),
+    _v261 = _v0.i(0),
+    _v262 = _v0.i(0),
+    _v263 = _v0.i(0);
+  let _v264 = () => {
       let {
         sendNotificationView: _v0
-      } = _v196();
+      } = _v193();
       return (0, _v3.useEffect)(() => {
         _v0();
       }, []), (0, _v1.jsxs)(_v8.Flex, {
@@ -8488,31 +8458,31 @@
         textAlign: "center",
         gap: "md",
         overflow: "hidden",
-        children: [(0, _v1.jsx)(_v266.CircleExclamation, {
+        children: [(0, _v1.jsx)(_v263.CircleExclamation, {
           boxSize: {
             base: "xl",
             sm: "2xl"
           }
-        }), (0, _v1.jsx)(_v160.Text, {
+        }), (0, _v1.jsx)(_v158.Text, {
           variant: {
             base: "heading-lg",
             sm: "heading-xl"
           },
-          children: _v80.UNABLE_LOAD_RESULTS
-        }), (0, _v1.jsx)(_v160.Text, {
+          children: _v78.UNABLE_LOAD_RESULTS
+        }), (0, _v1.jsx)(_v158.Text, {
           variant: "body-lg",
-          children: (0, _v1.jsx)(_v268, {})
+          children: (0, _v1.jsx)(_v265, {})
         })]
       });
     },
-    _v268 = () => {
+    _v265 = () => {
       let {
         sendNotificationAction: _v0
-      } = _v196();
-      return (0, _v78.translate)({
+      } = _v193();
+      return (0, _v76.translate)({
         singular: "Refresh to try again or {STYLE}contact support{/STYLE}",
         replacements: {
-          STYLE: _v0 => (0, _v1.jsx)(_v265.Link, {
+          STYLE: _v0 => (0, _v1.jsx)(_v262.Link, {
             href: "/help/contact",
             variant: "inline-secondary",
             onClick: () => _v0(),
@@ -8544,8 +8514,8 @@
         }
       });
     };
-  var _v269 = _v0.i(0);
-  let _v270 = ({
+  var _v266 = _v0.i(0);
+  let _v267 = ({
     scrollContainer: _v0,
     page: _v1,
     pageSize: _v2,
@@ -8562,7 +8532,7 @@
     }, [_v4, _v1]), !_v5 || _v5 <= _v2) ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsx)(_v8.Flex, {
       w: "100%",
       justifyContent: "center",
-      children: (0, _v1.jsx)(_v269.PaginationRoot, {
+      children: (0, _v1.jsx)(_v266.PaginationRoot, {
         page: _v1,
         count: _v5,
         pageSize: _v2,
@@ -8572,18 +8542,21 @@
         },
         size: _v7,
         children: _v0 => (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v269.PaginationPrevTrigger, {}), _v0.pages.map((_v0, _v1) => {
+          children: [(0, _v1.jsx)(_v266.PaginationPrevTrigger, {}), _v0.pages.map((_v0, _v1) => {
             let _v2 = Math.min(_v0.totalPages - 2, _v1) - 3,
               _v3 = Math.max(_v1, 3) + 3;
-            return "page" === _v0.type && (_v0.value === _v1 || _v0.value > _v2 && _v0.value < _v3) ? (0, _v1.jsx)(_v269.PaginationItem, {
+            return "page" === _v0.type && (_v0.value === _v1 || _v0.value > _v2 && _v0.value < _v3) ? (0, _v1.jsx)(_v266.PaginationItem, {
               ..._v0
             }, _v1) : null;
-          }), (0, _v1.jsx)(_v269.PaginationNextTrigger, {})]
+          }), (0, _v1.jsx)(_v266.PaginationNextTrigger, {})]
         })
       })
     });
   };
-  var _v271 = _v0.i(0),
+  var _v268 = _v0.i(0),
+    _v269 = _v0.i(0),
+    _v270 = _v0.i(0),
+    _v271 = _v0.i(0),
     _v272 = _v0.i(0),
     _v273 = _v0.i(0),
     _v274 = _v0.i(0),
@@ -8599,17 +8572,14 @@
     _v284 = _v0.i(0),
     _v285 = _v0.i(0),
     _v286 = _v0.i(0),
-    _v287 = _v0.i(0),
-    _v288 = _v0.i(0),
-    _v289 = _v0.i(0),
-    _v290 = _v0.i(0);
-  let _v291 = "vimeo.click",
-    _v292 = "general",
-    _v293 = "click",
-    _v294 = "showcases",
-    _v295 = "search_result_page",
-    _v296 = "showcase_list",
-    _v297 = () => _v264.BigPictureClient.sendEvent(new _v264.Event("vimeo.click", 129, {
+    _v287 = _v0.i(0);
+  let _v288 = "vimeo.click",
+    _v289 = "general",
+    _v290 = "click",
+    _v291 = "showcases",
+    _v292 = "search_result_page",
+    _v293 = "showcase_list",
+    _v294 = () => _v261.BigPictureClient.sendEvent(new _v261.Event("vimeo.click", 129, {
       name: "start_free_live_demo",
       feature: "search",
       location: "empty_state",
@@ -8623,12 +8593,12 @@
       target_path: null,
       third_party_integration: null
     }));
-  var _v298 = _v0.i(0),
-    _v299 = _v0.i(0),
-    _v300 = _v0.i(0),
-    _v301 = _v0.i(0),
-    _v302 = _v0.i(0);
-  async function _v303({
+  var _v295 = _v0.i(0),
+    _v296 = _v0.i(0),
+    _v297 = _v0.i(0),
+    _v298 = _v0.i(0),
+    _v299 = _v0.i(0);
+  async function _v300({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -8637,28 +8607,28 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v177.measureLatency)("getVideoMoments", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v2}/moments?${(0, _v178.searchQueryString)(_v3)}&fields=${_v1.map(_v178.intoSnakeCase).join(",")}`, {
+    return (0, _v175.measureLatency)("getVideoMoments", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v2}/moments?${(0, _v176.searchQueryString)(_v3)}&fields=${_v1.map(_v176.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v178.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v176.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v178.deepCamelCase)(_v1);
+      return (0, _v176.deepCamelCase)(_v1);
     });
   }
-  var _v304 = _v0.i(0);
-  function _v305(_v0, _v1) {
+  var _v301 = _v0.i(0);
+  function _v302(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v183.useGctlConfig)();
-    return (0, _v180.default)(_v2 ? `/videos/${_v2.where.videoId}/moments${(0, _v182.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v303({
+      } = (0, _v181.useGctlConfig)();
+    return (0, _v178.default)(_v2 ? `/videos/${_v2.where.videoId}/moments${(0, _v180.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v300({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -8670,26 +8640,26 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v176.default.env.STORYBOOK && (0, _v182.assignMswData)(_v305, {
+  "true" === _v174.default.env.STORYBOOK && (0, _v180.assignMswData)(_v302, {
     endpoint: "/videos/:videoId/moments",
     method: "GET"
-  }), "true" === _v176.default.env.STORYBOOK && (0, _v182.assignMswData)(function () {
+  }), "true" === _v174.default.env.STORYBOOK && (0, _v180.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v181.useSWRConfig)(),
+      } = (0, _v179.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v183.useGctlConfig)(),
-      [_v5, _v6] = (0, _v182.useInternalState)();
+      } = (0, _v181.useGctlConfig)(),
+      [_v5, _v6] = (0, _v180.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/videos/${_v0.where.videoId}/moments${(0, _v182.serializeQuery)(_v0)}`, _v303({
+        let _v0 = await _v0(`/videos/${_v0.where.videoId}/moments${(0, _v180.serializeQuery)(_v0)}`, _v300({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -8714,15 +8684,15 @@
   }, {
     endpoint: "/videos/:videoId/moments",
     method: "GET"
-  }), "true" === _v176.default.env.STORYBOOK && (0, _v182.assignMswData)(function (_v0, _v1) {
+  }), "true" === _v174.default.env.STORYBOOK && (0, _v180.assignMswData)(function (_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v183.useGctlConfig)();
-    return (0, _v304.default)((_v0, _v1) => {
+      } = (0, _v181.useGctlConfig)();
+    return (0, _v301.default)((_v0, _v1) => {
       if (null === _v2 || _v1 && !_v1.paging.next) return null;
       let {
           perPage: _v2 = 25,
@@ -8732,7 +8702,7 @@
         _v5 = _v2.select.join(","),
         _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
       return [`/videos/${_v2.where.videoId}/moments?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v303({
+    }, null !== _v2 ? ([_v0, _v1]) => _v300({
       ..._v2,
       baseUrl: _v3,
       headers: {
@@ -8751,9 +8721,9 @@
     endpoint: "/videos/:videoId/moments",
     method: "GET"
   });
-  var _v306 = _v0.i(0),
-    _v307 = _v0.i(0);
-  let _v308 = (0, _v3.forwardRef)(({
+  var _v303 = _v0.i(0),
+    _v304 = _v0.i(0);
+  let _v305 = (0, _v3.forwardRef)(({
       onClose: _v0,
       moments: _v1,
       videoLink: _v2,
@@ -8762,12 +8732,12 @@
     }, _v5) => {
       let {
           query: _v6 = ""
-        } = _v188(),
+        } = _v186(),
         {
           sendMomentClickEvent: _v7
-        } = _v196(),
-        _v8 = (0, _v3.useContext)(_v67.ViewerContext),
-        _v9 = (0, _v289.useTheme)(),
+        } = _v193(),
+        _v8 = (0, _v3.useContext)(_v65.ViewerContext),
+        _v9 = (0, _v286.useTheme)(),
         _v10 = _v9?.fonts?.heading,
         _v11 = !_v8?.isSimplifiedSite,
         _v12 = (0, _v3.useRef)(null),
@@ -8782,11 +8752,11 @@
           });
         },
         _v16 = window.innerHeight < 765;
-      return (0, _v1.jsxs)(_v309, {
+      return (0, _v1.jsxs)(_v306, {
         ref: _v5,
-        children: [(0, _v1.jsxs)(_v310, {
+        children: [(0, _v1.jsxs)(_v307, {
           children: [(0, _v1.jsx)("span", {
-            children: _v14 > 100 ? (0, _v78.translate)({
+            children: _v14 > 100 ? (0, _v76.translate)({
               singular: "Showing {COUNT} of 100+ results",
               count: _v13.length,
               replacements: {
@@ -8815,7 +8785,7 @@
                   singular: "正在显示 {COUNT}/100+ 个结果"
                 }
               }
-            }) : (0, _v78.translate)({
+            }) : (0, _v76.translate)({
               singular: "Showing 1 of 1 result",
               plural: "Showing {COUNT} of {TOTAL} results",
               count: _v14,
@@ -8854,16 +8824,16 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v162.IconButton, {
+          }), (0, _v1.jsx)(_v160.IconButton, {
             "aria-label": "close moments popover",
             variant: "tertiary",
-            icon: (0, _v1.jsx)(_v306.ChevronUpSmall, {
+            icon: (0, _v1.jsx)(_v303.ChevronUpSmall, {
               boxSize: "xs"
             }),
             size: "sm",
             onClick: _v0
           })]
-        }), (0, _v1.jsx)(_v311, {
+        }), (0, _v1.jsx)(_v308, {
           ref: _v12,
           hasOverflow: (_v0 => {
             if (_v0) return _v0.scrollHeight > _v0.clientHeight;
@@ -8876,17 +8846,17 @@
             contentsHighlight: _v3,
             startTime: _v4
           }) => {
-            let _v5 = _v139(_v3) || _v6;
-            return (0, _v1.jsxs)(_v312, {
+            let _v5 = _v137(_v3) || _v6;
+            return (0, _v1.jsxs)(_v309, {
               "data-id": _v0,
-              href: _v138(_v2, _v4, _v5, _v11),
+              href: _v136(_v2, _v4, _v5, _v11),
               onClick: _v15,
-              children: [(0, _v1.jsx)(_v313, {
+              children: [(0, _v1.jsx)(_v310, {
                 src: _v1?.url,
                 alt: "moment thumbnail"
-              }), (0, _v1.jsx)(_v314, {
-                children: (0, _v218.secondsToDisplay)(Math.floor(_v4 / 0))
-              }), (0, _v1.jsx)(_v217.Paragraph, {
+              }), (0, _v1.jsx)(_v311, {
+                children: (0, _v215.secondsToDisplay)(Math.floor(_v4 / 0))
+              }), (0, _v1.jsx)(_v214.Paragraph, {
                 size: "sm",
                 margin: "0",
                 display: "-webkit-box",
@@ -8896,7 +8866,7 @@
                   "-webkit-box-orient": "vertical",
                   "-webkit-line-clamp": "2"
                 },
-                children: (0, _v1.jsx)(_v288.Highlight, {
+                children: (0, _v1.jsx)(_v285.Highlight, {
                   query: _v5,
                   styles: {
                     fontFamily: _v10,
@@ -8904,26 +8874,26 @@
                     bgColor: "transparent !important",
                     padding: "0"
                   },
-                  children: _v140(_v2, _v5)
+                  children: _v138(_v2, _v5)
                 })
               })]
             }, _v0);
           })
-        }), _v14 > 4 && (0, _v1.jsx)(_v156.Box, {
+        }), _v14 > 4 && (0, _v1.jsx)(_v154.Box, {
           display: "flex",
           justifyContent: "flex-end",
           paddingRight: "lg",
           paddingY: "md",
-          children: (0, _v1.jsx)(_v161.Button, {
+          children: (0, _v1.jsx)(_v159.Button, {
             variant: "secondary",
-            rightIcon: (0, _v1.jsx)(_v307.ArrowRight, {
+            rightIcon: (0, _v1.jsx)(_v304.ArrowRight, {
               boxSize: "2xs"
             }),
             size: "md",
             as: "a",
-            href: _v138(_v2, _v13[0].startTime, _v6, _v11),
+            href: _v136(_v2, _v13[0].startTime, _v6, _v11),
             onClick: _v15,
-            children: _v14 > 10 ? (0, _v78.translate)({
+            children: _v14 > 10 ? (0, _v76.translate)({
               singular: "See video for all results",
               dictionary: {
                 es: {
@@ -8948,7 +8918,7 @@
                   singular: "查看所有结果的视频"
                 }
               }
-            }) : (0, _v78.translate)({
+            }) : (0, _v76.translate)({
               singular: "See video",
               dictionary: {
                 es: {
@@ -8978,13 +8948,13 @@
         })]
       });
     }),
-    _v309 = _v0 => (0, _v1.jsx)(_v8.Flex, {
+    _v306 = _v0 => (0, _v1.jsx)(_v8.Flex, {
       flexDirection: "column",
       width: (0, _v9.rem)(432),
       padding: `${(0, _v9.rem)(8)} 0 0 ${(0, _v9.rem)(16)}`,
       ..._v0
     }),
-    _v310 = _v0 => (0, _v1.jsx)(_v8.Flex, {
+    _v307 = _v0 => (0, _v1.jsx)(_v8.Flex, {
       justifyContent: "space-between",
       alignItems: "center",
       padding: `0 ${(0, _v9.rem)(16)} 0 ${(0, _v9.rem)(6)}`,
@@ -8995,11 +8965,11 @@
       color: "text-primary",
       ..._v0
     }),
-    _v311 = (0, _v3.forwardRef)(({
+    _v308 = (0, _v3.forwardRef)(({
       hasOverflow: _v0,
       isWindowHeightSmall: _v1,
       ..._v2
-    }, _v3) => (0, _v1.jsx)(_v156.Box, {
+    }, _v3) => (0, _v1.jsx)(_v154.Box, {
       ref: _v3,
       maxHeight: _v1 ? (0, _v9.rem)(182) : (0, _v9.rem)(260),
       overflowY: "scroll",
@@ -9019,7 +8989,7 @@
       },
       ..._v2
     })),
-    _v312 = _v0 => (0, _v1.jsx)(_v161.Button, {
+    _v309 = _v0 => (0, _v1.jsx)(_v159.Button, {
       as: "a",
       display: "flex",
       alignItems: "center",
@@ -9035,7 +9005,7 @@
       variant: "tertiary",
       ..._v0
     }),
-    _v313 = _v0 => (0, _v1.jsx)(_v156.Box, {
+    _v310 = _v0 => (0, _v1.jsx)(_v154.Box, {
       as: "img",
       width: (0, _v9.rem)(80),
       height: (0, _v9.rem)(49.6),
@@ -9043,7 +9013,7 @@
       borderRadius: "sm",
       ..._v0
     }),
-    _v314 = _v0 => (0, _v1.jsx)(_v8.Flex, {
+    _v311 = _v0 => (0, _v1.jsx)(_v8.Flex, {
       color: "text-primary",
       backgroundColor: "fill-component",
       height: (0, _v9.rem)(24),
@@ -9053,7 +9023,7 @@
       borderRadius: "xs",
       ..._v0
     });
-  function _v315({
+  function _v312({
     videoId: _v0,
     videoLink: _v1,
     position: _v2,
@@ -9061,9 +9031,9 @@
   }) {
     let {
         query: _v4
-      } = _v188(),
+      } = _v186(),
       [_v5, _v6] = (0, _v3.useState)(!1),
-      [_v7, _v8] = _v255({
+      [_v7, _v8] = _v252({
         threshold: 1
       }),
       _v9 = (0, _v3.useRef)(null),
@@ -9071,8 +9041,8 @@
         data: _v10,
         isLoading: _v11,
         error: _v12
-      } = _v305({
-        select: _v55,
+      } = _v302({
+        select: _v54,
         where: {
           videoId: _v0
         },
@@ -9101,26 +9071,26 @@
       }
       return "bottom-start";
     }, [_v7, _v5]);
-    (0, _v301.useOutsideClick)({
+    (0, _v298.useOutsideClick)({
       ref: _v9,
       handler: () => _v6(!1)
     });
     let _v15 = _v10?.data?.slice(0, 1)[0]?.thumbnail?.url;
     if (_v11 || !_v10 || 0 === _v10.data.length) return null;
     let _v16 = _v10.data.length < 3 ? _v10?.data.length - 1 : 2;
-    return (0, _v1.jsxs)(_v298.Popover, {
+    return (0, _v1.jsxs)(_v295.Popover, {
       placement: _v14,
       isOpen: _v5,
       offset: [0, -25],
       flip: !1,
       strategy: "fixed",
-      children: [(0, _v1.jsx)(_v300.PopoverTrigger, {
-        children: (0, _v1.jsx)(_v161.Button, {
+      children: [(0, _v1.jsx)(_v297.PopoverTrigger, {
+        children: (0, _v1.jsx)(_v159.Button, {
           ref: _v7,
           onClick: _v0 => {
             _v13(_v0), _v6(!_v5);
           },
-          rightIcon: (0, _v1.jsx)(_v302.ChevronDownSmall, {}),
+          rightIcon: (0, _v1.jsx)(_v299.ChevronDownSmall, {}),
           size: "xs",
           padding: "xs",
           "data-id": "moments-trigger-button",
@@ -9131,15 +9101,15 @@
           children: (0, _v1.jsxs)(_v8.Flex, {
             gap: "xs",
             alignItems: "center",
-            children: [(0, _v1.jsxs)(_v318, {
-              children: [(0, _v1.jsx)(_v156.Box, {
-                ..._v316
-              }), [...Array(_v16)].map((_v0, _v1) => (0, _v1.jsx)(_v319, {}, _v1)), _v15 && (0, _v1.jsx)(_v317, {
+            children: [(0, _v1.jsxs)(_v315, {
+              children: [(0, _v1.jsx)(_v154.Box, {
+                ..._v313
+              }), [...Array(_v16)].map((_v0, _v1) => (0, _v1.jsx)(_v316, {}, _v1)), _v15 && (0, _v1.jsx)(_v314, {
                 src: _v15,
                 alt: "moment thumbnail"
               })]
             }), (0, _v1.jsx)("div", {
-              children: _v10 && _v10?.total > 100 ? (0, _v78.translate)({
+              children: _v10 && _v10?.total > 100 ? (0, _v76.translate)({
                 singular: "100+ results in this video",
                 dictionary: {
                   es: {
@@ -9164,7 +9134,7 @@
                     singular: "此视频中有 100 多个结果"
                   }
                 }
-              }) : (0, _v78.translate)({
+              }) : (0, _v76.translate)({
                 singular: "1 result in this video",
                 plural: "{COUNT} results in this video",
                 count: _v10?.total,
@@ -9205,12 +9175,12 @@
             })]
           })
         })
-      }), (0, _v1.jsx)(_v299.PopoverContent, {
+      }), (0, _v1.jsx)(_v296.PopoverContent, {
         borderRadius: "xl",
         backgroundColor: "fill-blur",
         padding: "0",
         onClick: _v0 => _v0.stopPropagation(),
-        children: _v10 && (0, _v1.jsx)(_v308, {
+        children: _v10 && (0, _v1.jsx)(_v305, {
           ref: _v9,
           onClose: _v0 => {
             _v13(_v0), _v6(!1);
@@ -9223,27 +9193,27 @@
       })]
     });
   }
-  let _v316 = {
+  let _v313 = {
       width: (0, _v9.rem)(22),
       height: (0, _v9.rem)(16),
       borderRadius: "3px",
       background: "blackAlpha.300"
     },
-    _v317 = _v0 => (0, _v1.jsx)(_v156.Box, {
-      ..._v316,
+    _v314 = _v0 => (0, _v1.jsx)(_v154.Box, {
+      ..._v313,
       as: "img",
       position: "absolute",
       "z-index": "100",
       "border-width": "0.5px",
       ..._v0
     }),
-    _v318 = _v0 => (0, _v1.jsx)(_v8.Flex, {
+    _v315 = _v0 => (0, _v1.jsx)(_v8.Flex, {
       alignItems: "center",
       position: "relative",
       overflow: "hidden",
       ..._v0
     }),
-    _v319 = () => (0, _v1.jsx)(_v70.Icon, {
+    _v316 = () => (0, _v1.jsx)(_v68.Icon, {
       color: "blackAlpha.300",
       width: "4px !important",
       height: "16px",
@@ -9253,16 +9223,16 @@
         fill: "currentColor"
       })
     });
-  var _v320 = _v0.i(0),
-    _v321 = _v0.i(0);
-  let _v322 = ({
+  var _v317 = _v0.i(0),
+    _v318 = _v0.i(0);
+  let _v319 = ({
     children: _v0,
     query: _v1,
     ..._v2
   }) => {
-    let _v3 = (0, _v289.useTheme)(),
+    let _v3 = (0, _v286.useTheme)(),
       _v4 = _v3?.fonts?.heading;
-    return (0, _v1.jsx)(_v288.Highlight, {
+    return (0, _v1.jsx)(_v285.Highlight, {
       ..._v2,
       query: _v1,
       styles: {
@@ -9274,7 +9244,7 @@
       children: _v0
     });
   };
-  function _v323({
+  function _v320({
     moments: _v0,
     videoId: _v1,
     position: _v2,
@@ -9284,37 +9254,37 @@
   }) {
     let {
         query: _v6 = ""
-      } = _v188(),
+      } = _v186(),
       {
         sendMomentClickEvent: _v7,
         sendMomentsTimelineClick: _v8
-      } = _v196(),
+      } = _v193(),
       {
         setPanelMoments: _v9,
         panelMoments: _v10
-      } = (0, _v3.useContext)(_v61),
+      } = (0, _v3.useContext)(_v60),
       {
         currentIdx: _v11,
         currentVidId: _v12
       } = _v10,
       _v13 = _v1 === _v12,
-      [_v14, _v15] = _v255({
+      [_v14, _v15] = _v252({
         threshold: 1
       }),
-      [_v16, _v17] = _v255({
+      [_v16, _v17] = _v252({
         threshold: 1
       });
-    return (0, _v1.jsxs)(_v156.Box, {
+    return (0, _v1.jsxs)(_v154.Box, {
       position: "relative",
-      children: [(0, _v1.jsx)(_v328, {
-        background: _v329.leftLight,
+      children: [(0, _v1.jsx)(_v325, {
+        background: _v326.leftLight,
         _dark: {
-          background: _v329.leftDark
+          background: _v326.leftDark
         },
         _groupHover: {
-          background: _v329.leftLightHover,
+          background: _v326.leftLightHover,
           _dark: {
-            background: _v329.leftDarkHover
+            background: _v326.leftDarkHover
           }
         },
         display: _v17 ? "none" : "block"
@@ -9341,12 +9311,12 @@
           type: _v6,
           attributes: _v7
         }, _v8) => {
-          let _v9 = _v139(_v3) || _v6,
+          let _v9 = _v137(_v3) || _v6,
             _v10 = _v13 && _v11 !== _v8,
             _v11 = _v13 && _v8 === _v11,
             _v12 = 0 === _v8 ? _v16 : _v8 === _v0.data.length - 1 ? _v14 : void 0,
-            _v13 = _v6 === _v125.comment || _v6 === _v125.commentReply;
-          return (0, _v1.jsxs)(_v324, {
+            _v13 = _v6 === _v123.comment || _v6 === _v123.commentReply;
+          return (0, _v1.jsxs)(_v321, {
             "data-id": _v0,
             ref: _v12,
             onClick: () => {
@@ -9376,24 +9346,24 @@
               base: (0, _v9.rem)(116),
               md: (0, _v9.rem)(144)
             },
-            children: [(0, _v1.jsx)(_v326, {
+            children: [(0, _v1.jsx)(_v323, {
               width: {
                 base: (0, _v9.rem)(100),
                 md: (0, _v9.rem)(128)
               },
-              children: (0, _v1.jsxs)(_v160.Text, {
+              children: (0, _v1.jsxs)(_v158.Text, {
                 variant: "body-sm",
                 color: _v11 ? "text-primary" : "text-secondary",
                 noOfLines: 1,
                 whiteSpace: "nowrap",
                 textOverflow: "ellipsis",
                 display: "block",
-                children: [(0, _v218.secondsToDisplay)(Math.floor(_v4 / 0)), !_v13 && "- " + (0, _v218.secondsToDisplay)(Math.floor(_v5 / 0))]
+                children: [(0, _v215.secondsToDisplay)(Math.floor(_v4 / 0)), !_v13 && "- " + (0, _v215.secondsToDisplay)(Math.floor(_v5 / 0))]
               })
-            }), (0, _v1.jsx)(_v325, {
+            }), (0, _v1.jsx)(_v322, {
               src: _v1?.url,
               alt: "moment thumbnail"
-            }), (0, _v1.jsx)(_v217.Paragraph, {
+            }), (0, _v1.jsx)(_v214.Paragraph, {
               size: "sm",
               margin: "0",
               w: "100%",
@@ -9405,33 +9375,33 @@
               variant: "body-md",
               height: (0, _v9.rem)(36),
               color: _v10 ? "text-secondary" : "text-primary",
-              children: (0, _v1.jsx)(_v322, {
+              children: (0, _v1.jsx)(_v319, {
                 query: _v9,
-                children: _v140(_v2, _v9, 10, 20)
+                children: _v138(_v2, _v9, 10, 20)
               })
-            }), (0, _v1.jsx)(_v327, {
+            }), (0, _v1.jsx)(_v324, {
               type: _v6,
               attributes: _v7
             })]
           }, _v0);
         })
-      }), (0, _v1.jsx)(_v328, {
-        background: _v329.rightLight,
+      }), (0, _v1.jsx)(_v325, {
+        background: _v326.rightLight,
         right: "0",
         _dark: {
-          background: _v329.rightDark
+          background: _v326.rightDark
         },
         _groupHover: {
-          background: _v329.rightLightHover,
+          background: _v326.rightLightHover,
           _dark: {
-            background: _v329.rightDarkHover
+            background: _v326.rightDarkHover
           }
         },
         display: _v15 ? "none" : "block"
       })]
     });
   }
-  let _v324 = (0, _v3.forwardRef)((_v0, _v1) => (0, _v1.jsx)(_v161.Button, {
+  let _v321 = (0, _v3.forwardRef)((_v0, _v1) => (0, _v1.jsx)(_v159.Button, {
       display: "flex",
       flexDir: "column",
       alignItems: "center",
@@ -9451,7 +9421,7 @@
       ref: _v1,
       ..._v0
     })),
-    _v325 = _v0 => (0, _v1.jsx)(_v156.Box, {
+    _v322 = _v0 => (0, _v1.jsx)(_v154.Box, {
       as: _v0.src ? "img" : "div",
       width: {
         base: (0, _v9.rem)(100),
@@ -9465,7 +9435,7 @@
       borderColor: "stroke",
       ..._v0
     }),
-    _v326 = _v0 => (0, _v1.jsx)(_v8.Flex, {
+    _v323 = _v0 => (0, _v1.jsx)(_v8.Flex, {
       color: "text-secondary",
       height: (0, _v9.rem)(20),
       paddingX: "xs",
@@ -9474,15 +9444,15 @@
       alignSelf: "flex-start",
       ..._v0
     }),
-    _v327 = ({
+    _v324 = ({
       type: _v0,
       attributes: _v1
     }) => {
       let {
         label: _v2,
         Icon: _v3
-      } = _v148(_v0, _v1);
-      return (0, _v1.jsxs)(_v202.HStack, {
+      } = _v146(_v0, _v1);
+      return (0, _v1.jsxs)(_v199.HStack, {
         gap: "xs",
         paddingX: "xs",
         w: "100%",
@@ -9490,19 +9460,19 @@
         children: [(0, _v1.jsx)(_v3, {
           boxSize: `${(0, _v9.rem)(12)} !important`,
           color: "text-secondary"
-        }), (0, _v1.jsx)(_v160.Text, {
+        }), (0, _v1.jsx)(_v158.Text, {
           variant: "body-sm",
           color: "text-secondary",
           children: _v2
         })]
       });
     },
-    _v328 = _v0 => {
+    _v325 = _v0 => {
       let {
         display: _v1,
         ..._v2
       } = _v0;
-      return (0, _v1.jsx)(_v156.Box, {
+      return (0, _v1.jsx)(_v154.Box, {
         height: "100%",
         width: {
           base: (0, _v9.rem)(48),
@@ -9515,7 +9485,7 @@
         ..._v2
       });
     },
-    _v329 = {
+    _v326 = {
       leftLight: "linear-gradient(270deg, rgba(244, 246, 248, 0.00) 0%, rgba(244, 246, 248, 0.30) 50%, #F4F6F8 100%)",
       leftDark: "linear-gradient(270deg, rgba(14, 18, 22, 0.00) 0%, rgba(14, 18, 22, 0.30) 50%, #0E1216 100%)",
       leftLightHover: "linear-gradient(270deg, rgba(232, 235, 239, 0.00) 0%, rgba(232, 235, 239, 0.30) 50%, #E8EBEF 100%)",
@@ -9525,7 +9495,7 @@
       rightLightHover: "linear-gradient(90deg, rgba(232, 235, 239, 0.00) 0%, rgba(232, 235, 239, 0.30) 50%, #E8EBEF 100%)",
       rightDarkHover: "linear-gradient(90deg, rgba(28, 35, 40, 0.00) 0%, rgba(28, 35, 40, 0.30) 50%, #1C2328 100%)"
     };
-  function _v330({
+  function _v327({
     videoId: _v0,
     videoLink: _v1,
     position: _v2,
@@ -9536,34 +9506,34 @@
     let {
         query: _v6,
         page: _v7
-      } = _v188(),
+      } = _v186(),
       [_v8, _v9] = (0, _v3.useState)(!1),
       _v10 = (0, _v3.useRef)(!1),
       {
         firstVideoWithMoments: _v11,
         onMomentsRequest: _v12,
         onMomentsResponse: _v13
-      } = (0, _v3.useContext)(_v61),
+      } = (0, _v3.useContext)(_v60),
       {
         sendMomentsTimelineImpressions: _v14,
         sendMomentsResultsImpressions: _v15
-      } = _v196(),
+      } = _v193(),
       {
         dedupeMoments: _v16,
         chapterFallback: _v17
-      } = _v68(),
+      } = _v66(),
       {
         data: _v18,
         isLoading: _v19,
         error: _v20
-      } = _v305({
-        select: _v55,
+      } = _v302({
+        select: _v54,
         where: {
           videoId: _v0
         },
         query: {
           perPage: 10,
-          filterType: Object.values(_v125).join(","),
+          filterType: Object.values(_v123).join(","),
           filterAttributes: "chapter,comment,reply,transcript,visual",
           query: _v6,
           sort: "chronological",
@@ -9591,13 +9561,13 @@
       gap: "0",
       w: "100%",
       overflow: "auto",
-      children: [(0, _v1.jsx)(_v161.Button, {
+      children: [(0, _v1.jsx)(_v159.Button, {
         onClick: _v0 => {
           _v0.preventDefault(), _v0.stopPropagation(), _v9(!_v8);
         },
-        rightIcon: _v8 ? (0, _v1.jsx)(_v321.ChevronUp, {
+        rightIcon: _v8 ? (0, _v1.jsx)(_v318.ChevronUp, {
           boxSize: `${(0, _v9.rem)(20)} !important`
-        }) : (0, _v1.jsx)(_v320.ChevronDown, {
+        }) : (0, _v1.jsx)(_v317.ChevronDown, {
           boxSize: `${(0, _v9.rem)(20)} !important`
         }),
         size: "sm",
@@ -9627,28 +9597,28 @@
         children: (0, _v1.jsxs)(_v8.Flex, {
           gap: "sm",
           alignItems: "center",
-          children: [!_v8 && (0, _v1.jsxs)(_v333, {
-            children: [(0, _v1.jsx)(_v156.Box, {
-              ..._v331,
+          children: [!_v8 && (0, _v1.jsxs)(_v330, {
+            children: [(0, _v1.jsx)(_v154.Box, {
+              ..._v328,
               borderWidth: ".5px",
               borderColor: "stroke"
-            }), [...Array(_v22)].map((_v0, _v1) => (0, _v1.jsx)(_v334, {}, _v1)), _v21 && (0, _v1.jsx)(_v332, {
+            }), [...Array(_v22)].map((_v0, _v1) => (0, _v1.jsx)(_v331, {}, _v1)), _v21 && (0, _v1.jsx)(_v329, {
               src: _v21,
               alt: "moment thumbnail"
             })]
-          }), (0, _v1.jsx)(_v160.Text, {
+          }), (0, _v1.jsx)(_v158.Text, {
             variant: "body-md",
-            children: _v23 ? _v80.HIGH_RESULT_COUNT_MOMENTS : _v80.momentsResultCount(_v18?.total)
-          }), (0, _v1.jsx)(_v207.Badge, {
+            children: _v23 ? _v78.HIGH_RESULT_COUNT_MOMENTS : _v78.momentsResultCount(_v18?.total)
+          }), (0, _v1.jsx)(_v204.Badge, {
             variant: "warning",
             size: "xs",
             height: (0, _v9.rem)(14),
             borderWidth: "0",
             pt: "1px",
-            children: _v80.BETA
+            children: _v78.BETA
           })]
         })
-      }), _v18 && _v8 && (0, _v1.jsx)(_v323, {
+      }), _v18 && _v8 && (0, _v1.jsx)(_v320, {
         moments: _v18,
         position: _v2,
         videoId: _v0,
@@ -9658,7 +9628,7 @@
       })]
     });
   }
-  let _v331 = {
+  let _v328 = {
       width: (0, _v9.rem)(40),
       height: (0, _v9.rem)(24),
       borderRadius: (0, _v9.rem)(6),
@@ -9667,21 +9637,21 @@
         background: "whiteAlpha.300"
       }
     },
-    _v332 = _v0 => (0, _v1.jsx)(_v156.Box, {
-      ..._v331,
+    _v329 = _v0 => (0, _v1.jsx)(_v154.Box, {
+      ..._v328,
       as: "img",
       position: "absolute",
       "z-index": "100",
       ..._v0
     }),
-    _v333 = _v0 => (0, _v1.jsx)(_v8.Flex, {
+    _v330 = _v0 => (0, _v1.jsx)(_v8.Flex, {
       alignItems: "center",
       position: "relative",
       overflow: "hidden",
       marginRight: "xs",
       ..._v0
     }),
-    _v334 = () => (0, _v1.jsx)(_v70.Icon, {
+    _v331 = () => (0, _v1.jsx)(_v68.Icon, {
       color: "blackAlpha.300",
       width: "5px !important",
       height: "24px !important",
@@ -9695,7 +9665,7 @@
         fill: "currentColor"
       })
     }),
-    _v335 = ({
+    _v332 = ({
       title: _v0,
       subTitle: _v1,
       timestamp: _v2,
@@ -9721,23 +9691,23 @@
       let {
           sendHoverEvent: _v21,
           sendClickEvent: _v22
-        } = _v196(),
+        } = _v193(),
         _v23 = (0, _v3.useRef)(void 0),
-        _v24 = (0, _v3.useContext)(_v67.ViewerContext),
+        _v24 = (0, _v3.useContext)(_v65.ViewerContext),
         {
           capabilities: {
             hasInVideoSearch: _v25
           }
-        } = (0, _v63.useCapability)(["hasInVideoSearch"], _v24?.teamUser?.ownerId),
+        } = (0, _v62.useCapability)(["hasInVideoSearch"], _v24?.teamUser?.ownerId),
         {
           query: _v26 = ""
-        } = _v188(),
-        _v27 = (0, _v289.useTheme)(),
+        } = _v186(),
+        _v27 = (0, _v286.useTheme)(),
         _v28 = _v27?.fonts?.heading,
         _v29 = "video" === _v17,
-        _v30 = _v29 ? _v126(_v9) : void 0,
+        _v30 = _v29 ? _v124(_v9) : void 0,
         [_v31, _v32] = (0, _v3.useState)(!!_v30 && _v25 && !!_v26),
-        _v33 = _v17 === _v97 ? "events" : _v17,
+        _v33 = _v17 === _v95 ? "events" : _v17,
         _v34 = () => {
           _v22({
             entityType: _v33,
@@ -9745,7 +9715,7 @@
             uri: _v9
           });
         };
-      return (0, _v1.jsxs)(_v272.ContentRow, {
+      return (0, _v1.jsxs)(_v269.ContentRow, {
         listGridColumns: "auto",
         isSelected: _v7,
         onToggleSelected: _v10,
@@ -9763,21 +9733,21 @@
           }, 500);
         },
         onMouseLeave: () => clearTimeout(_v23.current),
-        children: [(0, _v1.jsxs)(_v158.Grid, {
+        children: [(0, _v1.jsxs)(_v156.Grid, {
           w: "100%",
           gridTemplateColumns: _v16,
           alignItems: "center",
           padding: "sm",
           gap: ".5rem",
-          children: [_v13 && (0, _v1.jsx)(_v272.ContentRow.Column, {
-            children: (_v29 || _v17 === _v97) && (0, _v1.jsx)(_v272.ContentRow.SelectCheckbox, {
+          children: [_v13 && (0, _v1.jsx)(_v269.ContentRow.Column, {
+            children: (_v29 || _v17 === _v95) && (0, _v1.jsx)(_v269.ContentRow.SelectCheckbox, {
               size: "md",
               isDisabled: !_v6
             })
-          }), (0, _v1.jsx)(_v272.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v269.ContentRow.Column, {
             href: _v5,
             children: _v3
-          }), (0, _v1.jsx)(_v272.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v269.ContentRow.Column, {
             href: _v5,
             overflow: "hidden",
             margin: `0 0 0 ${(0, _v9.rem)(4)}`,
@@ -9785,13 +9755,13 @@
               flexDir: "column",
               gap: "sm",
               width: "100%",
-              children: [(0, _v1.jsx)(_v160.Text, {
+              children: [(0, _v1.jsx)(_v158.Text, {
                 variant: "body-lg",
                 noOfLines: 1,
                 whiteSpace: "nowrap",
                 textOverflow: "ellipsis",
                 display: "block",
-                children: (0, _v1.jsx)(_v288.Highlight, {
+                children: (0, _v1.jsx)(_v285.Highlight, {
                   query: _v26,
                   styles: {
                     fontFamily: _v28,
@@ -9801,14 +9771,14 @@
                   },
                   children: _v0
                 })
-              }), _v1 && (0, _v1.jsx)(_v160.Text, {
+              }), _v1 && (0, _v1.jsx)(_v158.Text, {
                 variant: "body-sm",
                 color: "text-secondary",
                 noOfLines: 1,
                 whiteSpace: "nowrap",
                 textOverflow: "ellipsis",
                 display: "block",
-                children: (0, _v1.jsx)(_v288.Highlight, {
+                children: (0, _v1.jsx)(_v285.Highlight, {
                   query: _v26,
                   styles: {
                     fontFamily: _v28,
@@ -9818,14 +9788,14 @@
                   },
                   children: _v1
                 })
-              }), _v31 && !_v18 && (0, _v1.jsx)(_v315, {
+              }), _v31 && !_v18 && (0, _v1.jsx)(_v312, {
                 videoId: _v30,
                 videoLink: _v5,
                 position: _v8,
                 handleNoMoments: () => _v32(!1)
               })]
             })
-          }), _v14 && (0, _v1.jsx)(_v272.ContentRow.Column, {
+          }), _v14 && (0, _v1.jsx)(_v269.ContentRow.Column, {
             href: _v4?.href || _v5,
             overflow: "auto",
             margin: `0 0 0 ${(0, _v9.rem)(24)}`,
@@ -9833,7 +9803,7 @@
               _v0.stopPropagation(), (({
                 position: _v0
               }) => {
-                _v264.BigPictureClient.sendEvent(new _v264.Event("vimeo.click_folder_card", 3, {
+                _v261.BigPictureClient.sendEvent(new _v261.Event("vimeo.click_folder_card", 3, {
                   path: window.location.pathname,
                   page: "search_result_page",
                   product: "search",
@@ -9861,7 +9831,7 @@
             children: (0, _v1.jsx)(_v8.Flex, {
               alignItems: "center",
               width: "100%",
-              children: (0, _v1.jsx)(_v160.Text, {
+              children: (0, _v1.jsx)(_v158.Text, {
                 variant: "body-md",
                 color: "text-secondary",
                 noOfLines: 1,
@@ -9875,10 +9845,10 @@
                 children: _v4?.name
               })
             })
-          }), _v15 && (0, _v1.jsx)(_v272.ContentRow.Column, {
+          }), _v15 && (0, _v1.jsx)(_v269.ContentRow.Column, {
             href: _v5,
             overflow: "hidden",
-            children: (0, _v1.jsx)(_v160.Text, {
+            children: (0, _v1.jsx)(_v158.Text, {
               width: "100%",
               variant: "body-md",
               color: "text-secondary",
@@ -9888,13 +9858,13 @@
               display: "block",
               children: _v2
             })
-          }), (0, _v1.jsxs)(_v272.ContentRow.Column, {
+          }), (0, _v1.jsxs)(_v269.ContentRow.Column, {
             justifyColumn: "flex-end",
-            children: [(0, _v1.jsx)(_v156.Box, {
+            children: [(0, _v1.jsx)(_v154.Box, {
               children: _v12
             }), _v15 && _v11]
           })]
-        }), _v31 && _v18 && (0, _v1.jsx)(_v330, {
+        }), _v31 && _v18 && (0, _v1.jsx)(_v327, {
           videoId: _v30,
           videoLink: _v5,
           position: _v8,
@@ -9904,20 +9874,20 @@
         })]
       });
     },
-    _v336 = ({
+    _v333 = ({
       liveEventItem: _v0,
       index: _v1,
       onToggleSelected: _v2
     }) => {
-      let _v3 = _v212(),
+      let _v3 = _v209(),
         _v4 = (0, _v14.useViewer)(),
-        [_v5] = (0, _v271.useMediaQuery)(_v47),
+        [_v5] = (0, _v268.useMediaQuery)(_v47),
         {
           getEventShareLoopTrackingParams: _v6
-        } = (0, _v287.useShareLoopTrackingParams)(),
+        } = (0, _v284.useShareLoopTrackingParams)(),
         {
           revalidateAll: _v7
-        } = _v191(),
+        } = _v188(),
         _v8 = _v0.liveEvent,
         {
           createdTime: _v9,
@@ -9935,13 +9905,13 @@
         } = _v8,
         _v21 = !!_v10?.interactions?.edit?.uri,
         _v22 = !!_v13?.uri,
-        _v23 = !!_v11 && (0, _v284.getHasDatePassed)(_v11),
-        _v24 = (0, _v286.useEventScheduledAt)(_v8, _v4?.locale),
-        _v25 = (0, _v285.idFromUri)(_v16.uri),
-        _v26 = _v6(_v281.PAGE.SEARCH),
+        _v23 = !!_v11 && (0, _v281.getHasDatePassed)(_v11),
+        _v24 = (0, _v283.useEventScheduledAt)(_v8, _v4?.locale),
+        _v25 = (0, _v282.idFromUri)(_v16.uri),
+        _v26 = _v6(_v278.PAGE.SEARCH),
         _v27 = `${_v4?.vimeoHttpsUrl + _v18}${_v26}`;
-      return (0, _v1.jsx)(_v335, {
-        type: _v97,
+      return (0, _v1.jsx)(_v332, {
+        type: _v95,
         href: _v21 ? _v19 : _v12,
         title: _v14,
         position: _v1,
@@ -9949,7 +9919,7 @@
         isSelectable: _v0.isSelectable,
         isSelected: _v0.isSelected,
         onToggleSelected: () => _v2(_v15),
-        thumbnail: (0, _v1.jsx)(_v282.EventThumbnail, {
+        thumbnail: (0, _v1.jsx)(_v279.EventThumbnail, {
           thumbnail: _v22 ? _v13.sizes[3].link : "",
           nextOccurrenceTime: _v11,
           isLive: _v10?.connections?.liveVideo?.status === "streaming",
@@ -9959,10 +9929,10 @@
           minWidth: (0, _v9.rem)(_v5 ? "114" : "142")
         }),
         subTitle: _v24,
-        timestamp: _v133(_v9, _v4?.locale),
-        location: _v135(_v0),
+        timestamp: _v131(_v9, _v4?.locale),
+        location: _v133(_v0),
         ..._v3,
-        menuButton: (0, _v1.jsx)(_v283.EventMenu, {
+        menuButton: (0, _v1.jsx)(_v280.EventMenu, {
           liveEvent: _v8,
           folder: {
             uri: _v20?.uri,
@@ -9981,7 +9951,7 @@
         })
       }, _v15);
     },
-    _v337 = ({
+    _v334 = ({
       showCheckboxColumn: _v0,
       showLocationColumn: _v1,
       showModifiedColumn: _v2,
@@ -9989,32 +9959,32 @@
     }) => {
       let {
           sendSortEvent: _v4
-        } = _v196(),
+        } = _v193(),
         {
           sort: _v5,
           onLibraryFilterChange: _v6,
           type: _v7
-        } = _v188(),
-        [_v8, _v9] = _v137(_v5),
+        } = _v186(),
+        [_v8, _v9] = _v135(_v5),
         _v10 = _v8 === _v41,
-        _v11 = _v7 === _v98.options.showcase.value,
-        _v12 = _v5 || _v121.relevance.value,
+        _v11 = _v7 === _v96.options.showcase.value,
+        _v12 = _v5 || _v119.relevance.value,
         _v13 = _v0 => {
           let _v1 = _v8 === _v0 ? `${_v0}_${"asc" === _v9 ? "desc" : "asc"}` : (_v0 => {
             switch (_v0) {
               case _v39:
-                return _v105.titleAsc.value;
+                return _v103.titleAsc.value;
               case _v40:
-                return _v105.lastModified.value;
+                return _v103.lastModified.value;
               case _v41:
-                return _v105.lastAdded.value;
+                return _v103.lastAdded.value;
               default:
-                return _v105.relevance.value;
+                return _v103.relevance.value;
             }
           })(_v0);
           _v6(_v36, _v1);
           let _v2 = null;
-          for (let _v0 of Object.values(_v121)) if (_v0.value === _v1) {
+          for (let _v0 of Object.values(_v119)) if (_v0.value === _v1) {
             _v2 = _v0.untranslatedText;
             break;
           }
@@ -10024,8 +9994,8 @@
             previousValue: _v12
           });
         },
-        _v14 = _v10 ? _v80.ADDED : _v80.MODIFIED;
-      return (0, _v1.jsxs)(_v272.ContentRow, {
+        _v14 = _v10 ? _v78.ADDED : _v78.MODIFIED;
+      return (0, _v1.jsxs)(_v269.ContentRow, {
         listGridColumns: _v3,
         disableHover: !0,
         position: "sticky",
@@ -10036,40 +10006,40 @@
         zIndex: "10",
         height: (0, _v9.rem)("40"),
         alignContent: "center",
-        children: [_v0 && (0, _v1.jsx)(_v272.ContentRow.Column, {
-          children: (0, _v1.jsx)(_v161.Button, {
+        children: [_v0 && (0, _v1.jsx)(_v269.ContentRow.Column, {
+          children: (0, _v1.jsx)(_v159.Button, {
             size: "sm",
             variant: "tertiary",
             marginLeft: (0, _v9.rem)(-14),
             onClick: () => _v13(_v39),
-            rightIcon: (0, _v1.jsx)(_v252, {
+            rightIcon: (0, _v1.jsx)(_v249, {
               isActive: _v8 === _v39,
               sortDirection: _v9
             }),
-            children: _v80.TITLE
+            children: _v78.TITLE
           })
-        }), (0, _v1.jsx)(_v272.ContentRow.Column, {
+        }), (0, _v1.jsx)(_v269.ContentRow.Column, {
           margin: "10px",
-          children: !_v0 && (0, _v1.jsx)(_v161.Button, {
+          children: !_v0 && (0, _v1.jsx)(_v159.Button, {
             size: "sm",
             variant: "tertiary",
             marginLeft: (0, _v9.rem)(-32),
             onClick: () => _v13(_v39),
-            rightIcon: (0, _v1.jsx)(_v252, {
+            rightIcon: (0, _v1.jsx)(_v249, {
               isActive: _v8 === _v39,
               sortDirection: _v9
             }),
-            children: _v80.TITLE
+            children: _v78.TITLE
           })
-        }), (0, _v1.jsx)(_v272.ContentRow.Column, {
+        }), (0, _v1.jsx)(_v269.ContentRow.Column, {
           overflow: "hidden",
           children: "--"
-        }), _v1 && (0, _v1.jsx)(_v272.ContentRow.Column, {
+        }), _v1 && (0, _v1.jsx)(_v269.ContentRow.Column, {
           overflow: "hidden",
           margin: `0 0 0 ${(0, _v9.rem)(24)}`,
-          children: (0, _v1.jsx)(_v160.Text, {
+          children: (0, _v1.jsx)(_v158.Text, {
             variant: "heading-xs",
-            children: _v11 ? (0, _v78.translate)({
+            children: _v11 ? (0, _v76.translate)({
               singular: "Privacy",
               dictionary: {
                 es: {
@@ -10094,49 +10064,49 @@
                   singular: "隐私"
                 }
               }
-            }) : _v80.LOCATION
+            }) : _v78.LOCATION
           })
-        }), _v2 && (0, _v1.jsx)(_v272.ContentRow.Column, {
-          children: (0, _v1.jsx)(_v161.Button, {
+        }), _v2 && (0, _v1.jsx)(_v269.ContentRow.Column, {
+          children: (0, _v1.jsx)(_v159.Button, {
             size: "sm",
             variant: "tertiary",
             marginLeft: (0, _v9.rem)(-12),
-            rightIcon: (0, _v1.jsx)(_v252, {
+            rightIcon: (0, _v1.jsx)(_v249, {
               isActive: _v8 === _v41 || _v8 === _v40,
               sortDirection: _v9
             }),
             onClick: () => _v10 ? _v13(_v41) : _v13(_v40),
             children: _v14
           })
-        }), (0, _v1.jsx)(_v272.ContentRow.Column, {
+        }), (0, _v1.jsx)(_v269.ContentRow.Column, {
           children: "--"
         })]
       });
     };
-  var _v338 = _v0.i(0),
-    _v339 = _v0.i(0),
-    _v340 = _v0.i(0),
-    _v341 = _v0.i(0),
-    _v342 = _v0.i(0);
-  let _v343 = ({
+  var _v335 = _v0.i(0),
+    _v336 = _v0.i(0),
+    _v337 = _v0.i(0),
+    _v338 = _v0.i(0),
+    _v339 = _v0.i(0);
+  let _v340 = ({
       thumbnails: _v0
     }) => {
-      let [_v1] = (0, _v271.useMediaQuery)(_v47),
+      let [_v1] = (0, _v268.useMediaQuery)(_v47),
         _v2 = _v1 ? "114" : "142";
-      return _v0?.[0] ? (0, _v1.jsx)(_v272.ContentRow.Thumbnail, {
+      return _v0?.[0] ? (0, _v1.jsx)(_v269.ContentRow.Thumbnail, {
         src: _v0[0],
         alt: "showcase thumbnail",
         minWidth: (0, _v9.rem)(_v2)
-      }) : (0, _v1.jsx)(_v272.ContentRow.DefaultThumbnail, {
+      }) : (0, _v1.jsx)(_v269.ContentRow.DefaultThumbnail, {
         minWidth: (0, _v9.rem)(_v2),
-        children: (0, _v1.jsx)(_v342.VideosStackFilled, {
+        children: (0, _v1.jsx)(_v339.VideosStackFilled, {
           color: "text-tertiary",
           boxSize: "sm",
           opacity: "60%"
         })
       });
     },
-    _v344 = ({
+    _v341 = ({
       showcase: _v0,
       index: _v1
     }) => {
@@ -10144,21 +10114,21 @@
       let _v4,
         _v5,
         _v6,
-        _v7 = _v212(),
+        _v7 = _v209(),
         _v8 = (0, _v14.useViewer)(),
-        _v9 = (0, _v173.useAnalyticsEvent)(),
+        _v9 = (0, _v171.useAnalyticsEvent)(),
         {
           type: _v10,
           sort: _v11
-        } = _v188(),
+        } = _v186(),
         {
           revalidateAll: _v12
-        } = _v191(),
-        _v13 = (0, _v280.useNotification)(),
-        _v14 = (0, _v341.useShowcaseDeleteModal)(),
+        } = _v188(),
+        _v13 = (0, _v277.useNotification)(),
+        _v14 = (0, _v338.useShowcaseDeleteModal)(),
         {
           getShowcaseShareLoopTrackingParams: _v15
-        } = (0, _v287.useShareLoopTrackingParams)(),
+        } = (0, _v284.useShareLoopTrackingParams)(),
         {
           createdTime: _v16,
           embed: _v17,
@@ -10170,7 +10140,7 @@
           privacy: _v23,
           modifiedTime: _v24
         } = _v0,
-        _v25 = _v10 === _v98.options.showcase.value,
+        _v25 = _v10 === _v96.options.showcase.value,
         _v26 = (_v2 = _v21, _v3 = !!_v17, (_v6 = ((_v5 = _v2.match(/albums\/\d+/g)) && (_v4 = _v5[0].split("/").pop()), _v4)) ? _v3 ? `/manage/showcases/${_v6}` : `/showcase/${_v6}` : "/library/showcases"),
         _v27 = _v20.slice(0, 3).map(_v0 => {
           let _v1 = _v0?.sizes?.[1]?.link;
@@ -10180,10 +10150,10 @@
           }
           return "";
         }),
-        _v28 = (0, _v340.useDeleteShowcase)({
+        _v28 = (0, _v337.useDeleteShowcase)({
           onFailure: () => {
             _v14.setIsLoading(!1), _v13({
-              content: _v80.GENERIC_ERROR,
+              content: _v78.GENERIC_ERROR,
               status: "error"
             });
           },
@@ -10192,20 +10162,20 @@
             uri: _v1
           }) => {
             _v13({
-              content: _v80.deletedShowcase(_v0)
+              content: _v78.deletedShowcase(_v0)
             }), _v12(new Set(_v1)), _v14.setIsLoading(!1), _v14.close();
           }
         });
-      return (0, _v1.jsx)(_v335, {
+      return (0, _v1.jsx)(_v332, {
         type: "showcase",
         href: _v26,
         title: _v19,
         position: _v1,
         uri: _v21,
-        thumbnail: (0, _v1.jsx)(_v343, {
+        thumbnail: (0, _v1.jsx)(_v340, {
           thumbnails: _v27
         }),
-        subTitle: (0, _v78.translate)({
+        subTitle: (0, _v76.translate)({
           singular: "{NUM} video",
           plural: "{NUM} videos",
           count: _v18.connections.videos.total,
@@ -10239,61 +10209,61 @@
             }
           }
         }),
-        timestamp: _v133(_v11 === _v41 ? _v16 : _v24, _v8?.locale),
+        timestamp: _v131(_v11 === _v41 ? _v16 : _v24, _v8?.locale),
         location: {
-          name: _v25 ? _v345[_v23.view] ?? _v23.view : _v80.SHOWCASES
+          name: _v25 ? _v342[_v23.view] ?? _v23.view : _v78.SHOWCASES
         },
         ..._v7,
-        menuButton: (0, _v1.jsx)(_v338.ShowcaseMenu, {
+        menuButton: (0, _v1.jsx)(_v335.ShowcaseMenu, {
           canDelete: !!_v0?.metadata?.interactions?.delete,
           hasEmbedCode: !!_v0?.embed?.html,
           hasEmbedOnlyPrivacy: _v0?.privacy?.view === "embed_only",
           onClick: () => {
             _v9({
-              eventName: _v291,
+              eventName: _v288,
               version: 110,
               fields: {},
               defaultEventFields: {
-                click_type: _v293,
+                click_type: _v290,
                 copy: null,
-                device_type: (0, _v290.getDeviceType)(),
-                feature: _v294,
-                location: _v296,
+                device_type: (0, _v287.getDeviceType)(),
+                feature: _v291,
+                location: _v293,
                 name: "showcase_menu",
-                page: _v295,
+                page: _v292,
                 path: window.location.pathname,
                 target: "overflow menu",
                 target_path: null,
                 third_party_integration: null,
-                type: _v292
+                type: _v289
               },
               globalAnalyticsToInclude: ["page", "path"]
             });
           },
           onCopyLink: () => {
             let _v0;
-            _v0 = _v15(_v281.PAGE.SEARCH), (0, _v339.default)(`${_v22}${_v0}`) ? _v13({
-              content: _v80.LINK_COPIED
+            _v0 = _v15(_v278.PAGE.SEARCH), (0, _v336.default)(`${_v22}${_v0}`) ? _v13({
+              content: _v78.LINK_COPIED
             }) : _v13({
-              content: _v80.GENERIC_ERROR,
+              content: _v78.GENERIC_ERROR,
               status: "error"
             }), _v9({
-              eventName: _v291,
+              eventName: _v288,
               version: 110,
               fields: {},
               defaultEventFields: {
-                click_type: _v293,
+                click_type: _v290,
                 copy: "copy link",
-                device_type: (0, _v290.getDeviceType)(),
-                feature: _v294,
-                location: _v296,
+                device_type: (0, _v287.getDeviceType)(),
+                feature: _v291,
+                location: _v293,
                 name: "showcase_copy_link",
-                page: _v295,
+                page: _v292,
                 path: window.location.pathname,
                 target: "copy link",
                 target_path: null,
                 third_party_integration: null,
-                type: _v292
+                type: _v289
               },
               globalAnalyticsToInclude: ["page", "path"]
             });
@@ -10301,28 +10271,28 @@
           onCopyEmbed: () => {
             if (_v17?.html) {
               var _v0;
-              _v0 = _v17?.html, (0, _v339.default)(_v0) ? _v13({
-                content: _v80.EMBED_CODE_COPIED
+              _v0 = _v17?.html, (0, _v336.default)(_v0) ? _v13({
+                content: _v78.EMBED_CODE_COPIED
               }) : _v13({
-                content: _v80.GENERIC_ERROR,
+                content: _v78.GENERIC_ERROR,
                 status: "error"
               }), _v9({
-                eventName: _v291,
+                eventName: _v288,
                 version: 110,
                 fields: {},
                 defaultEventFields: {
-                  click_type: _v293,
+                  click_type: _v290,
                   copy: "copy embed code",
-                  device_type: (0, _v290.getDeviceType)(),
-                  feature: _v294,
-                  location: _v296,
+                  device_type: (0, _v287.getDeviceType)(),
+                  feature: _v291,
+                  location: _v293,
                   name: "showcase_copy_embed_code",
-                  page: _v295,
+                  page: _v292,
                   path: window.location.pathname,
                   target: "copy embed code",
                   target_path: null,
                   third_party_integration: null,
-                  type: _v292
+                  type: _v289
                 },
                 globalAnalyticsToInclude: ["page", "path"]
               });
@@ -10330,22 +10300,22 @@
           },
           onClickViewShowcase: () => {
             window.open(_v22, "_blank"), _v9({
-              eventName: _v291,
+              eventName: _v288,
               version: 110,
               fields: {},
               defaultEventFields: {
-                click_type: _v293,
+                click_type: _v290,
                 copy: "view showcase",
-                device_type: (0, _v290.getDeviceType)(),
-                feature: _v294,
-                location: _v296,
+                device_type: (0, _v287.getDeviceType)(),
+                feature: _v291,
+                location: _v293,
                 name: "view_showcase",
-                page: _v295,
+                page: _v292,
                 path: window.location.pathname,
                 target: "view showcase",
                 target_path: "/showcase/id",
                 third_party_integration: null,
-                type: _v292
+                type: _v289
               },
               globalAnalyticsToInclude: ["page", "path"]
             });
@@ -10354,22 +10324,22 @@
             _v14.open({
               onConfirm: () => {
                 _v14.setIsLoading(!0), _v28(_v0), _v9({
-                  eventName: _v291,
+                  eventName: _v288,
                   version: 110,
                   fields: {},
                   defaultEventFields: {
-                    click_type: _v293,
+                    click_type: _v290,
                     copy: "delete",
-                    device_type: (0, _v290.getDeviceType)(),
-                    feature: _v294,
+                    device_type: (0, _v287.getDeviceType)(),
+                    feature: _v291,
                     location: "delete_modal",
                     name: "confirm_delete_showcase",
-                    page: _v295,
+                    page: _v292,
                     path: window.location.pathname,
                     target: "delete",
                     target_path: null,
                     third_party_integration: null,
-                    type: _v292
+                    type: _v289
                   },
                   globalAnalyticsToInclude: ["page", "path"]
                 });
@@ -10379,22 +10349,22 @@
               },
               name: _v0.name
             }), _v9({
-              eventName: _v291,
+              eventName: _v288,
               version: 110,
               fields: {},
               defaultEventFields: {
-                click_type: _v293,
+                click_type: _v290,
                 copy: "delete showcase",
-                device_type: (0, _v290.getDeviceType)(),
-                feature: _v294,
-                location: _v296,
+                device_type: (0, _v287.getDeviceType)(),
+                feature: _v291,
+                location: _v293,
                 name: "delete_showcase",
-                page: _v295,
+                page: _v292,
                 path: window.location.pathname,
                 target: "delete showcase",
                 target_path: null,
                 third_party_integration: null,
-                type: _v292
+                type: _v289
               },
               globalAnalyticsToInclude: ["page", "path"]
             });
@@ -10402,46 +10372,46 @@
         })
       }, _v21);
     },
-    _v345 = {
-      anybody: _v80.PRIVACY_PUBLIC,
-      embed_only: _v80.PRIVACY_EMBED,
-      nobody: _v80.PRIVACY_NOBODY,
-      password: _v80.PRIVACY_PASSWORD,
-      team: _v80.PRIVACY_TEAM,
-      unlisted: _v80.PRIVACY_UNLISTED
+    _v342 = {
+      anybody: _v78.PRIVACY_PUBLIC,
+      embed_only: _v78.PRIVACY_EMBED,
+      nobody: _v78.PRIVACY_NOBODY,
+      password: _v78.PRIVACY_PASSWORD,
+      team: _v78.PRIVACY_TEAM,
+      unlisted: _v78.PRIVACY_UNLISTED
     },
-    _v346 = ({
+    _v343 = ({
       items: _v0,
       onToggleSelected: _v1,
       showNewMoments: _v2
     }) => {
-      let _v3 = (0, _v3.useContext)(_v67.ViewerContext),
+      let _v3 = (0, _v3.useContext)(_v65.ViewerContext),
         {
           revalidateAll: _v4,
           mutate: _v5
-        } = _v191(),
+        } = _v188(),
         {
           openCopyVideoModal: _v6,
           copyVideoModal: _v7
-        } = (0, _v279.useCopyVideoFlow)({
+        } = (0, _v276.useCopyVideoFlow)({
           onAfterCopySuccess: () => _v4()
         }),
         {
           sort: _v8
-        } = _v188(),
+        } = _v186(),
         {
           sendDeleteVideo: _v9
-        } = _v196(),
+        } = _v193(),
         {
           notifyItemMoveSuccess: _v10
-        } = (0, _v280.useNotifications)(),
+        } = (0, _v277.useNotifications)(),
         {
           hasVideoReviewPageDemo: _v11,
           canSeeUpsellModalOnShare: _v12,
           hasContentSpaceEnabled: _v13,
           hasMultipleReviewLinks: _v14
-        } = _v68(),
-        _v15 = _v13 ? (0, _v78.translate)({
+        } = _v66(),
+        _v15 = _v13 ? (0, _v76.translate)({
           singular: "Team library",
           dictionary: {
             es: {
@@ -10466,7 +10436,7 @@
               singular: "团队视频库"
             }
           }
-        }) : (0, _v78.translate)({
+        }) : (0, _v76.translate)({
           singular: "Library",
           dictionary: {
             es: {
@@ -10492,10 +10462,10 @@
             }
           }
         }),
-        _v16 = _v212(),
-        [_v17] = (0, _v271.useMediaQuery)(_v47),
+        _v16 = _v209(),
+        [_v17] = (0, _v268.useMediaQuery)(_v47),
         _v18 = _v17 ? "114" : "142",
-        [_v19] = _v137(_v8),
+        [_v19] = _v135(_v8),
         _v20 = _v19 === _v41,
         _v21 = ({
           selectedDestination: _v0,
@@ -10503,7 +10473,7 @@
         }) => {
           _v4(), _v10(_v1.name, {
             label: "root" === _v0 ? _v15 : _v0.name,
-            link: "root" === _v0 ? "/library" : _v136(_v0.uri)
+            link: "root" === _v0 ? "/library" : _v134(_v0.uri)
           });
         },
         _v22 = ({
@@ -10529,9 +10499,9 @@
           }));
         };
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [!_v17 && (0, _v1.jsx)(_v337, {
+        children: [!_v17 && (0, _v1.jsx)(_v334, {
           ..._v16
-        }), (0, _v1.jsx)(_v156.Box, {
+        }), (0, _v1.jsx)(_v154.Box, {
           display: "flex",
           flexDir: "column",
           gap: (0, _v9.rem)(4),
@@ -10552,20 +10522,20 @@
                   reviewPage: _v8
                 } = _v0,
                 _v9 = _v20 ? _v0.createdTime : _v0.lastUserActionEventDate || "";
-              return (0, _v1.jsx)(_v335, {
+              return (0, _v1.jsx)(_v332, {
                 type: _v0.type,
                 title: _v3,
                 subTitle: _v6 || "",
                 position: _v1,
                 uri: _v5,
-                thumbnail: (0, _v1.jsx)(_v272.ContentRow.Thumbnail, {
+                thumbnail: (0, _v1.jsx)(_v269.ContentRow.Thumbnail, {
                   alt: "",
                   src: _v4?.sizes[3].link,
-                  badgeText: (0, _v218.secondsToDisplay)(_v1),
+                  badgeText: (0, _v215.secondsToDisplay)(_v1),
                   minWidth: (0, _v9.rem)(_v18)
                 }),
-                timestamp: _v133(_v9, _v3?.locale),
-                location: _v135(_v0),
+                timestamp: _v131(_v9, _v3?.locale),
+                location: _v133(_v0),
                 href: _v2,
                 embedUrl: _v7,
                 isSelectable: _v0.isSelectable,
@@ -10574,17 +10544,16 @@
                 ..._v16,
                 onToggleSelected: () => _v1(_v5),
                 showNewMoments: _v2,
-                hoverActions: (0, _v1.jsx)(_v275.ListViewHoverActionsContainer, {
-                  children: (0, _v1.jsx)(_v273.TopRightDecoration, {
+                hoverActions: (0, _v1.jsx)(_v272.ListViewHoverActionsContainer, {
+                  children: (0, _v1.jsx)(_v270.TopRightDecoration, {
                     video: _v0,
-                    shouldUpdateSideNavStars: !0,
                     buttonVariant: "minimal",
                     flexDirection: "row",
                     location: "video_list",
-                    pageName: _v281.PAGE.SEARCH
+                    pageName: _v278.PAGE.SEARCH
                   })
                 }),
-                menuButton: (0, _v1.jsx)(_v277.VideoMenu, {
+                menuButton: (0, _v1.jsx)(_v274.VideoMenu, {
                   video: _v0,
                   parentFolder: _v0.video.parentProject ?? void 0,
                   feature: "search",
@@ -10618,17 +10587,17 @@
                   metadata: _v5
                 } = _v1,
                 _v6 = _v20 ? _v1.createdTime : _v1.lastUserActionEventDate || "";
-              return (0, _v1.jsx)(_v335, {
+              return (0, _v1.jsx)(_v332, {
                 type: _v0.type,
-                href: _v136(_v2),
+                href: _v134(_v2),
                 title: _v3,
                 position: _v1,
                 uri: _v2,
-                thumbnail: (0, _v1.jsx)(_v278.FolderRowThumbnail, {
+                thumbnail: (0, _v1.jsx)(_v275.FolderRowThumbnail, {
                   backgroundColor: _v4?.color,
                   minWidth: (0, _v9.rem)(_v18)
                 }),
-                subTitle: (_v0 = _v5?.connections?.items?.total, (0, _v78.translate)({
+                subTitle: (_v0 = _v5?.connections?.items?.total, (0, _v76.translate)({
                   singular: "{ITEMS} item",
                   plural: "{ITEMS} items",
                   count: _v0,
@@ -10666,18 +10635,18 @@
                     }
                   }
                 })),
-                timestamp: _v133(_v6, _v3?.locale),
-                location: _v135(_v0),
+                timestamp: _v131(_v6, _v3?.locale),
+                location: _v133(_v0),
                 ..._v16,
-                hoverActions: (0, _v1.jsx)(_v275.ListViewHoverActionsContainer, {
-                  children: (0, _v1.jsx)(_v274.FolderTopRightDecoration, {
+                hoverActions: (0, _v1.jsx)(_v272.ListViewHoverActionsContainer, {
+                  children: (0, _v1.jsx)(_v271.FolderTopRightDecoration, {
                     folder: _v1,
                     buttonVariant: "minimal",
                     flexDirection: "row",
                     location: "video_list"
                   })
                 }),
-                menuButton: (0, _v1.jsx)(_v276.FolderMenu, {
+                menuButton: (0, _v1.jsx)(_v273.FolderMenu, {
                   folder: _v1,
                   analytics: {
                     product: "Workflow",
@@ -10690,10 +10659,10 @@
                 })
               }, _v2);
             }
-            return _v0?.showcase?.uri ? (0, _v1.jsx)(_v344, {
+            return _v0?.showcase?.uri ? (0, _v1.jsx)(_v341, {
               showcase: _v0.showcase,
               index: _v1
-            }, _v0.showcase.uri) : _v0?.liveEvent?.uri ? (0, _v1.jsx)(_v336, {
+            }, _v0.showcase.uri) : _v0?.liveEvent?.uri ? (0, _v1.jsx)(_v333, {
               liveEventItem: _v0,
               index: _v1,
               onToggleSelected: _v1
@@ -10702,12 +10671,12 @@
         }), _v7]
       });
     };
-  var _v347 = _v0.i(0),
-    _v348 = _v0.i(0),
-    _v349 = _v0.i(0);
-  let _v350 = () => {
-      let _v0 = (0, _v3.useContext)(_v67.ViewerContext),
-        _v1 = (0, _v348.useUpsellModal)(),
+  var _v344 = _v0.i(0),
+    _v345 = _v0.i(0),
+    _v346 = _v0.i(0);
+  let _v347 = () => {
+      let _v0 = (0, _v3.useContext)(_v65.ViewerContext),
+        _v1 = (0, _v345.useUpsellModal)(),
         _v2 = _v0?.teamUser ? "enterprise" === _v0.teamUser.accountType : _v0?.user?.account === "enterprise";
       return (0, _v1.jsx)(_v8.Flex, {
         width: "100%",
@@ -10715,22 +10684,22 @@
         justifyContent: "center",
         alignItems: "center",
         overflow: "hidden",
-        children: (0, _v1.jsx)(_v349.EmptyState, {
+        children: (0, _v1.jsx)(_v346.EmptyState, {
           cta: (0, _v1.jsxs)(_v8.Flex, {
             gap: "lg",
-            children: [(0, _v1.jsx)(_v161.Button, {
+            children: [(0, _v1.jsx)(_v159.Button, {
               variant: "secondary",
               as: "a",
               href: "/live/select",
-              onClick: _v297,
-              children: _v80.START_FREE_DEMO
-            }), (0, _v1.jsx)(_v161.Button, {
+              onClick: _v294,
+              children: _v78.START_FREE_DEMO
+            }), (0, _v1.jsx)(_v159.Button, {
               variant: "upsell",
               as: "a",
               href: _v2 ? "/enterprise/contact?mkc=%230920" : void 0,
               cursor: "pointer",
               onClick: () => {
-                _v2 || (_v264.BigPictureClient.sendEvent(new _v264.Event("vimeo.upgrade_action", 21, {
+                _v2 || (_v261.BigPictureClient.sendEvent(new _v261.Event("vimeo.upgrade_action", 21, {
                   action_type: "click",
                   page: "search_result_page",
                   location: "empty_state",
@@ -10770,36 +10739,36 @@
                   onClose: () => _v1.close(),
                   modalConfig: {
                     mkcCode: "ent-upgrade-bottom",
-                    headerText: _v80.UPSELL_HEADER,
-                    subHeaderText: _v80.UPSELL_MODAL_SUBHEADER,
+                    headerText: _v78.UPSELL_HEADER,
+                    subHeaderText: _v78.UPSELL_MODAL_SUBHEADER,
                     excludePlans: ["starter", "standard", "creator"],
                     planOverrides: {
                       ADVANCE: {
-                        subHeading: _v80.ADVANCED_PLAN_SUBHEADER,
-                        featuresList: _v80.ADVANCED_PLAN_FEATURES_LIST
+                        subHeading: _v78.ADVANCED_PLAN_SUBHEADER,
+                        featuresList: _v78.ADVANCED_PLAN_FEATURES_LIST
                       },
                       ENTERPRISE: {
-                        subHeading: _v80.ENTERPRISE_PLAN_SUBHEADER,
-                        featuresList: _v80.ENTERPRISE_PLAN_FEATURES_LIST
+                        subHeading: _v78.ENTERPRISE_PLAN_SUBHEADER,
+                        featuresList: _v78.ENTERPRISE_PLAN_FEATURES_LIST
                       }
                     }
                   },
                   templateType: "default"
                 }));
               },
-              children: _v2 ? _v80.CONTACT_US : _v80.UPGRADE
+              children: _v2 ? _v78.CONTACT_US : _v78.UPGRADE
             })]
           }),
-          header: _v80.UPSELL_HEADER,
-          subheader: _v80.UPSELL_SUBHEADER,
-          icon: (0, _v1.jsx)(_v347.CameraOn, {
+          header: _v78.UPSELL_HEADER,
+          subheader: _v78.UPSELL_SUBHEADER,
+          icon: (0, _v1.jsx)(_v344.CameraOn, {
             boxSize: "2xl"
           })
         })
       });
     },
-    _v351 = () => {
-      let _v0 = _v212(),
+    _v348 = () => {
+      let _v0 = _v209(),
         {
           showCheckboxColumn: _v1,
           showLocationColumn: _v2,
@@ -10811,10 +10780,10 @@
         direction: "column",
         width: "100%",
         gap: "sm",
-        children: (0, _v1.jsxs)(_v156.Box, {
-          children: [(0, _v1.jsx)(_v337, {
+        children: (0, _v1.jsxs)(_v154.Box, {
+          children: [(0, _v1.jsx)(_v334, {
             ..._v0
-          }), [,,,,].fill(null).map((_v0, _v1) => (0, _v1.jsxs)(_v272.ContentRow, {
+          }), [,,,,].fill(null).map((_v0, _v1) => (0, _v1.jsxs)(_v269.ContentRow, {
             listGridColumns: _v4,
             isSelected: !1,
             role: "group",
@@ -10822,18 +10791,18 @@
             width: "100%",
             padding: "sm",
             gap: ".5rem",
-            children: [_v1 && (0, _v1.jsx)(_v272.ContentRow.Column, {
+            children: [_v1 && (0, _v1.jsx)(_v269.ContentRow.Column, {
               children: (0, _v1.jsx)(_v1.Fragment, {})
-            }), (0, _v1.jsx)(_v272.ContentRow.Column, {
-              children: (0, _v1.jsx)(_v156.Box, {
+            }), (0, _v1.jsx)(_v269.ContentRow.Column, {
+              children: (0, _v1.jsx)(_v154.Box, {
                 aspectRatio: 16 / 9,
                 width: _v5,
-                children: (0, _v1.jsx)(_v201.Skeleton, {
+                children: (0, _v1.jsx)(_v198.Skeleton, {
                   height: "100%",
                   width: "100%"
                 })
               })
-            }), (0, _v1.jsx)(_v272.ContentRow.Column, {
+            }), (0, _v1.jsx)(_v269.ContentRow.Column, {
               width: "100%",
               children: (0, _v1.jsxs)(_v8.Flex, {
                 direction: "column",
@@ -10841,55 +10810,55 @@
                 justifyContent: "left",
                 paddingLeft: "0.5rem",
                 width: "100%",
-                children: [(0, _v1.jsx)(_v201.Skeleton, {
+                children: [(0, _v1.jsx)(_v198.Skeleton, {
                   variant: "text",
                   width: "85%"
-                }), (0, _v1.jsx)(_v201.Skeleton, {
+                }), (0, _v1.jsx)(_v198.Skeleton, {
                   variant: "text",
                   maxWidth: "20%"
                 })]
               })
-            }), _v2 && (0, _v1.jsx)(_v272.ContentRow.Column, {
+            }), _v2 && (0, _v1.jsx)(_v269.ContentRow.Column, {
               children: (0, _v1.jsx)(_v8.Flex, {
                 margin: `0 0 0 ${(0, _v9.rem)(24)}`,
-                children: (0, _v1.jsx)(_v201.Skeleton, {
+                children: (0, _v1.jsx)(_v198.Skeleton, {
                   variant: "text",
                   width: "4rem"
                 })
               })
-            }), _v3 && (0, _v1.jsx)(_v272.ContentRow.Column, {
+            }), _v3 && (0, _v1.jsx)(_v269.ContentRow.Column, {
               children: (0, _v1.jsx)(_v8.Flex, {
-                children: (0, _v1.jsx)(_v201.Skeleton, {
+                children: (0, _v1.jsx)(_v198.Skeleton, {
                   variant: "text",
                   w: "5rem",
                   alignItems: "flex-end"
                 })
               })
-            }), (0, _v1.jsx)(_v272.ContentRow.Column, {
+            }), (0, _v1.jsx)(_v269.ContentRow.Column, {
               children: (0, _v1.jsx)(_v1.Fragment, {})
             })]
           }, `loading-state-skeleton-card-list-${_v1}`))]
         })
       });
     };
-  var _v352 = _v0.i(0);
-  let _v353 = () => {
+  var _v349 = _v0.i(0);
+  let _v350 = () => {
       let _v0,
-        _v1 = (0, _v3.useContext)(_v67.ViewerContext),
+        _v1 = (0, _v3.useContext)(_v65.ViewerContext),
         {
           searchType: _v2,
           toggleSearchType: _v3
-        } = (0, _v3.useContext)(_v152),
+        } = (0, _v3.useContext)(_v150),
         {
           capabilities: {
             hasEnterprise: _v4,
             hasPublicSearchDisabled: _v5
           }
-        } = (0, _v63.useCapability)(["hasEnterprise", "hasPublicSearchDisabled"], _v1?.teamUser?.ownerId),
-        _v6 = _v2 === _v149,
+        } = (0, _v62.useCapability)(["hasEnterprise", "hasPublicSearchDisabled"], _v1?.teamUser?.ownerId),
+        _v6 = _v2 === _v147,
         _v7 = !1 === _v4 && !1 === _v5,
-        _v8 = _v6 ? _v80.NO_LIBRARY_RESULTS : _v80.NO_PUBLIC_RESULTS,
-        _v9 = _v6 && _v7 ? _v80.TRY_AGAIN_OR_SEARCH_VIMEO : _v80.TRY_ANOTHER_SEARCH;
+        _v8 = _v6 ? _v78.NO_LIBRARY_RESULTS : _v78.NO_PUBLIC_RESULTS,
+        _v9 = _v6 && _v7 ? _v78.TRY_AGAIN_OR_SEARCH_VIMEO : _v78.TRY_ANOTHER_SEARCH;
       return (0, _v1.jsxs)(_v8.Flex, {
         width: "100%",
         height: "100%",
@@ -10902,26 +10871,26 @@
         gap: "md",
         color: "text-primary",
         overflow: "hidden",
-        children: [(0, _v1.jsx)(_v352.SearchMagnifier, {
+        children: [(0, _v1.jsx)(_v349.SearchMagnifier, {
           boxSize: {
             base: "xl",
             sm: "2xl"
           }
-        }), (0, _v1.jsx)(_v160.Text, {
+        }), (0, _v1.jsx)(_v158.Text, {
           variant: {
             base: "heading-lg",
             sm: "heading-xl"
           },
           children: _v8
-        }), (0, _v1.jsx)(_v160.Text, {
+        }), (0, _v1.jsx)(_v158.Text, {
           variant: "body-lg",
           color: "text-secondary",
           children: _v9
-        }), _v6 && _v7 && (0, _v1.jsx)(_v161.Button, {
+        }), _v6 && _v7 && (0, _v1.jsx)(_v159.Button, {
           size: "md",
           variant: "primary",
           onClick: () => _v3(),
-          children: (0, _v78.translate)({
+          children: (0, _v76.translate)({
             singular: "Search all of Vimeo",
             dictionary: {
               es: {
@@ -10947,15 +10916,15 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v160.Text, {
+        }), (0, _v1.jsx)(_v158.Text, {
           variant: "body-lg",
           color: "text-secondary",
           position: "absolute",
           bottom: "0",
-          children: (_v0 = _v1?.locale, (0, _v78.translate)({
+          children: (_v0 = _v1?.locale, (0, _v76.translate)({
             singular: "Looking for {STYLE}account or billing help{/STYLE}?",
             replacements: {
-              STYLE: _v0 => (0, _v1.jsx)(_v265.Link, {
+              STYLE: _v0 => (0, _v1.jsx)(_v262.Link, {
                 href: `/help/sso?redirect_to=https://help.vimeo.com/hc/${(_v0 => {
                   switch (_v0) {
                     case "es":
@@ -11005,23 +10974,23 @@
         })]
       });
     },
-    _v354 = () => {
-      let _v0 = (0, _v3.useContext)(_v67.ViewerContext),
+    _v351 = () => {
+      let _v0 = (0, _v3.useContext)(_v65.ViewerContext),
         _v1 = (0, _v3.useRef)(null),
         {
           canManageTeamCollections: _v2,
           hasLiveSubscription: _v3,
           hasNewMoments: _v4,
           hasReframeOverride: _v5
-        } = _v68(),
+        } = _v66(),
         [_v6, _v7] = (0, _v3.useState)(new Set()),
-        _v8 = (0, _v173.useAnalyticsEvent)(),
+        _v8 = (0, _v171.useAnalyticsEvent)(),
         {
           data: _v9,
           error: _v10,
           isLoading: _v11,
           revalidateAll: _v12
-        } = _v191(),
+        } = _v188(),
         {
           sort: _v13,
           page: _v14,
@@ -11030,18 +10999,18 @@
           filters: _v17,
           type: _v18,
           query: _v19
-        } = _v188(),
+        } = _v186(),
         _v20 = (0, _v3.useRef)(_v13),
         {
           sendSearchResultsPage: _v21
-        } = _v196(),
+        } = _v193(),
         {
           toggleSearchType: _v22
-        } = (0, _v3.useContext)(_v152),
+        } = (0, _v3.useContext)(_v150),
         {
           resetMomentsStatus: _v23
-        } = (0, _v3.useContext)(_v61),
-        _v24 = _v5 && _v145(_v19),
+        } = (0, _v3.useContext)(_v60),
+        _v24 = _v5 && _v143(_v19),
         {
           allItems: _v25,
           canMoveSelection: _v26,
@@ -11053,7 +11022,7 @@
           hasReachedMaxSelectionForPrivacy: _v32,
           hasReachedMaxSelectionForSentimentWidget: _v33,
           hasReachedMaxSelectionForShowcases: _v34
-        } = (0, _v263.useBulkItems)({
+        } = (0, _v260.useBulkItems)({
           canDeleteItem: _v0 => !!_v0?.video?.metadata?.interactions?.delete || !!_v0?.liveEvent?.metadata?.interactions?.delete,
           canMoveItem: _v0 => !!_v0?.video?.canMoveToProject || !!_v0?.liveEvent?.metadata?.interactions?.edit,
           canChangeItemPrivacy: _v0 => !!_v0?.video?.metadata?.interactions?.edit,
@@ -11063,7 +11032,7 @@
         }),
         {
           capabilities: _v35
-        } = (0, _v63.useCapability)(["canPerformBulkTranslations", "canGenerateClipTranslation", "canGenerateClipTextTranslation"], _v0?.teamUser?.ownerId),
+        } = (0, _v62.useCapability)(["canPerformBulkTranslations", "canGenerateClipTranslation", "canGenerateClipTextTranslation"], _v0?.teamUser?.ownerId),
         _v36 = !!_v35.canGenerateClipTextTranslation,
         _v37 = (!!_v35.canGenerateClipTranslation || _v36) && !!_v35.canPerformBulkTranslations;
       return ((0, _v3.useEffect)(() => {
@@ -11075,11 +11044,11 @@
         _v9?.data && _v20.current === _v13 ? _v21() : _v20.current = _v13;
       }, [_v9?.data]), (0, _v3.useEffect)(() => {
         _v23();
-      }, [_v14]), _v10) ? (0, _v1.jsx)(_v267, {}) : _v11 || !_v9 ? (0, _v1.jsx)(_v156.Box, {
+      }, [_v14]), _v10) ? (0, _v1.jsx)(_v264, {}) : _v11 || !_v9 ? (0, _v1.jsx)(_v154.Box, {
         width: "100%",
         minHeight: (0, _v9.rem)(450),
-        children: (0, _v1.jsx)(_v351, {})
-      }) : _v9?.data && _v9?.data.length !== 0 ? (0, _v1.jsxs)(_v156.Box, {
+        children: (0, _v1.jsx)(_v348, {})
+      }) : _v9?.data && _v9?.data.length !== 0 ? (0, _v1.jsxs)(_v154.Box, {
         width: "100%",
         children: [(0, _v1.jsxs)(_v8.Flex, {
           flexDir: "column",
@@ -11088,7 +11057,7 @@
             base: "3xl",
             sm: "lg"
           },
-          children: [(0, _v1.jsx)(_v346, {
+          children: [(0, _v1.jsx)(_v343, {
             items: _v25,
             onToggleSelected: _v0 => {
               let _v1 = new Set(_v6),
@@ -11115,14 +11084,14 @@
               }), _v7(_v1);
             },
             showNewMoments: _v4
-          }), (0, _v1.jsx)(_v270, {
+          }), (0, _v1.jsx)(_v267, {
             scrollContainer: _v1.current,
             updatePage: _v15,
             page: _v14,
             pageSize: 10,
             data: _v9
           })]
-        }), (0, _v1.jsx)(_v262.BulkActions, {
+        }), (0, _v1.jsx)(_v259.BulkActions, {
           canUseBulkTranslation: _v37,
           canAddToShowcases: _v2,
           canMoveSelection: _v26,
@@ -11140,10 +11109,10 @@
           selectedItemURIs: _v6,
           teamOwnerId: _v0?.teamUser?.ownerId || _v0?.user?.id
         })]
-      }) : _v24 ? (0, _v1.jsx)(_v156.Box, {}) : _v3 || _v18 !== _v98.options.live_event.value ? (0, _v1.jsx)(_v353, {}) : (0, _v1.jsx)(_v350, {});
+      }) : _v24 ? (0, _v1.jsx)(_v154.Box, {}) : _v3 || _v18 !== _v96.options.live_event.value ? (0, _v1.jsx)(_v350, {}) : (0, _v1.jsx)(_v347, {});
     };
-  var _v172 = _v172;
-  let _v355 = {
+  var _v170 = _v170;
+  let _v352 = {
       base: 1,
       sm: 2,
       md: 3,
@@ -11151,12 +11120,12 @@
       xl: 4,
       "2xl": 5
     },
-    _v356 = () => (0, _v1.jsxs)(_v8.Flex, {
+    _v353 = () => (0, _v1.jsxs)(_v8.Flex, {
       width: "100%",
       padding: "sm",
       flexDir: "column",
       height: "min-content",
-      children: [(0, _v1.jsx)(_v201.Skeleton, {
+      children: [(0, _v1.jsx)(_v198.Skeleton, {
         h: "100%",
         borderRadius: "md",
         aspectRatio: 16 / 9
@@ -11164,35 +11133,35 @@
         flexDir: "column",
         gap: "3",
         marginTop: "md",
-        children: [(0, _v1.jsx)(_v201.Skeleton, {
+        children: [(0, _v1.jsx)(_v198.Skeleton, {
           variant: "text",
           w: "60%"
-        }), (0, _v1.jsx)(_v201.Skeleton, {
+        }), (0, _v1.jsx)(_v198.Skeleton, {
           variant: "text",
           w: "45%"
         })]
       })]
     }),
-    _v357 = {
-      clip: _v356,
+    _v354 = {
+      clip: _v353,
       people: () => (0, _v25.useBreakpointValue)({
         base: !0,
         sm: !1
-      }) ? (0, _v1.jsxs)(_v202.HStack, {
+      }) ? (0, _v1.jsxs)(_v199.HStack, {
         width: "100%",
-        children: [(0, _v1.jsx)(_v201.Skeleton, {
+        children: [(0, _v1.jsx)(_v198.Skeleton, {
           variant: "circle",
           w: (0, _v9.rem)(64),
           h: (0, _v9.rem)(64)
-        }), (0, _v1.jsxs)(_v203.VStack, {
+        }), (0, _v1.jsxs)(_v200.VStack, {
           justifyContent: "center",
           alignItems: "start",
           gap: "4",
           flexGrow: "1",
-          children: [(0, _v1.jsx)(_v201.Skeleton, {
+          children: [(0, _v1.jsx)(_v198.Skeleton, {
             variant: "text",
             w: "45%"
-          }), (0, _v1.jsx)(_v201.Skeleton, {
+          }), (0, _v1.jsx)(_v198.Skeleton, {
             variant: "text",
             w: "65%"
           })]
@@ -11203,7 +11172,7 @@
         padding: "sm",
         flexDir: "column",
         alignItems: "center",
-        children: [(0, _v1.jsx)(_v201.Skeleton, {
+        children: [(0, _v1.jsx)(_v198.Skeleton, {
           variant: "circle",
           w: (0, _v9.rem)(96),
           h: (0, _v9.rem)(96)
@@ -11213,10 +11182,10 @@
           marginTop: "md",
           w: "100%",
           alignItems: "center",
-          children: [(0, _v1.jsx)(_v201.Skeleton, {
+          children: [(0, _v1.jsx)(_v198.Skeleton, {
             variant: "text",
             w: "45%"
-          }), (0, _v1.jsx)(_v201.Skeleton, {
+          }), (0, _v1.jsx)(_v198.Skeleton, {
             variant: "text",
             w: "65%"
           })]
@@ -11227,33 +11196,33 @@
         padding: "sm",
         flexDir: "column",
         height: "min-content",
-        children: [(0, _v1.jsx)(_v201.Skeleton, {
+        children: [(0, _v1.jsx)(_v198.Skeleton, {
           h: "100%",
           borderRadius: "md",
           aspectRatio: 2 / 3
-        }), (0, _v1.jsx)(_v201.Skeleton, {
+        }), (0, _v1.jsx)(_v198.Skeleton, {
           marginTop: "md",
           marginBottom: "sm",
           variant: "text"
         })]
       }),
-      channel: _v356,
-      group: _v356
+      channel: _v353,
+      group: _v353
     },
-    _v358 = () => {
+    _v355 = () => {
       let {
-          type: _v0 = _v86.options.clip.value
-        } = _v175(),
-        _v1 = _v357[_v0];
+          type: _v0 = _v84.options.clip.value
+        } = _v173(),
+        _v1 = _v354[_v0];
       return (0, _v1.jsx)(_v1.Fragment, {
         children: [1, 2, 3].map((_v0, _v1) => (0, _v1.jsx)(_v1, {}, _v1))
       });
     };
-  var _v359 = _v0.i(0),
-    _v360 = _v0.i(0),
-    _v361 = _v0.i(0),
-    _v362 = _v0.i(0);
-  let _v363 = ({
+  var _v356 = _v0.i(0),
+    _v357 = _v0.i(0),
+    _v358 = _v0.i(0),
+    _v359 = _v0.i(0);
+  let _v360 = ({
       item: _v0,
       onClick: _v1,
       isSmallScreen: _v2,
@@ -11266,8 +11235,8 @@
           link: _v7,
           locationDetails: _v8
         } = _v0,
-        [_v9, _v10] = (0, _v362.getAvatarImages)(_v6?.sizes);
-      return (0, _v1.jsxs)(_v203.VStack, {
+        [_v9, _v10] = (0, _v359.getAvatarImages)(_v6?.sizes);
+      return (0, _v1.jsxs)(_v200.VStack, {
         as: "a",
         justifyContent: "center",
         href: _v7,
@@ -11282,13 +11251,13 @@
         onMouseEnter: _v3,
         onMouseLeave: _v4,
         "data-testid": "people-result",
-        children: [(0, _v1.jsx)(_v156.Box, {
+        children: [(0, _v1.jsx)(_v154.Box, {
           h: (0, _v9.rem)(96),
           w: (0, _v9.rem)(96),
           borderRadius: "100%",
           border: "1px solid",
           borderColor: "stroke",
-          children: (0, _v1.jsx)(_v360.Avatar, {
+          children: (0, _v1.jsx)(_v357.Avatar, {
             size: "auto",
             alt: _v5,
             src: _v9,
@@ -11297,22 +11266,22 @@
               name: _v5
             }
           })
-        }), (0, _v1.jsx)(_v160.Text, {
+        }), (0, _v1.jsx)(_v158.Text, {
           variant: "heading-sm",
           isTruncated: !0,
           maxWidth: "85%",
           children: _v5
-        }), (0, _v1.jsx)(_v202.HStack, {
+        }), (0, _v1.jsx)(_v199.HStack, {
           height: (0, _v9.rem)(24),
           gap: "1",
           textAlign: "center",
           isTruncated: !0,
           maxWidth: "85%",
           children: _v8?.formattedAddress && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v361.UserLocation, {
+            children: [(0, _v1.jsx)(_v358.UserLocation, {
               boxSize: "xs",
               color: "text-secondary"
-            }), (0, _v1.jsx)(_v160.Text, {
+            }), (0, _v1.jsx)(_v158.Text, {
               variant: "body-md",
               color: "text-secondary",
               children: _v8?.formattedAddress
@@ -11321,7 +11290,7 @@
         })]
       });
     },
-    _v364 = ({
+    _v361 = ({
       item: _v0,
       onClick: _v1
     }) => {
@@ -11331,8 +11300,8 @@
           link: _v4,
           locationDetails: _v5
         } = _v0,
-        [_v6, _v7] = (0, _v362.getAvatarImages)(_v3?.sizes);
-      return (0, _v1.jsxs)(_v202.HStack, {
+        [_v6, _v7] = (0, _v359.getAvatarImages)(_v3?.sizes);
+      return (0, _v1.jsxs)(_v199.HStack, {
         as: "a",
         href: _v4,
         borderRadius: "sm",
@@ -11343,13 +11312,13 @@
         _hover: {
           backgroundColor: "fill-component-hover"
         },
-        children: ["+", (0, _v1.jsx)(_v156.Box, {
+        children: ["+", (0, _v1.jsx)(_v154.Box, {
           h: (0, _v9.rem)(64),
           w: (0, _v9.rem)(64),
           borderRadius: "100%",
           border: "1px solid",
           borderColor: "stroke",
-          children: (0, _v1.jsx)(_v360.Avatar, {
+          children: (0, _v1.jsx)(_v357.Avatar, {
             size: "auto",
             alt: _v2,
             src: _v6,
@@ -11358,21 +11327,21 @@
               name: _v2
             }
           })
-        }), (0, _v1.jsxs)(_v203.VStack, {
+        }), (0, _v1.jsxs)(_v200.VStack, {
           justifyContent: "center",
           alignItems: "start",
-          children: [(0, _v1.jsx)(_v160.Text, {
+          children: [(0, _v1.jsx)(_v158.Text, {
             variant: "heading-sm",
             fontWeight: "medium",
             isTruncated: !0,
             children: _v2
-          }), _v5?.formattedAddress && (0, _v1.jsx)(_v160.Text, {
+          }), _v5?.formattedAddress && (0, _v1.jsx)(_v158.Text, {
             variant: "body-sm",
             color: "text-secondary",
             isTruncated: !0,
             children: _v5?.formattedAddress
           })]
-        }), (0, _v1.jsx)(_v161.Button, {
+        }), (0, _v1.jsx)(_v159.Button, {
           as: "a",
           href: _v4,
           variant: "secondary",
@@ -11381,14 +11350,14 @@
           paddingX: "3",
           marginLeft: "auto",
           onClick: _v1,
-          children: _v80.VIEW_PROFILE
+          children: _v78.VIEW_PROFILE
         })]
       });
     };
-  var _v365 = _v0.i(0),
-    _v366 = _v0.i(0),
-    _v367 = _v0.i(0);
-  let _v368 = _v0 => (0, _v1.jsx)(_v367.Card, {
+  var _v362 = _v0.i(0),
+    _v363 = _v0.i(0),
+    _v364 = _v0.i(0);
+  let _v365 = _v0 => (0, _v1.jsx)(_v364.Card, {
       as: "a",
       overflow: "hidden",
       direction: "column",
@@ -11404,7 +11373,7 @@
       width: "100%",
       ..._v0
     }),
-    _v369 = ({
+    _v366 = ({
       item: _v0,
       type: _v1,
       onClick: _v2,
@@ -11417,7 +11386,7 @@
         pictures: _v7,
         link: _v8
       } = _v0;
-      return (0, _v1.jsxs)(_v368, {
+      return (0, _v1.jsxs)(_v365, {
         href: _v8,
         borderRadius: "lg",
         onClick: _v2,
@@ -11425,37 +11394,37 @@
         onMouseEnter: _v3,
         onMouseLeave: _v4,
         "data-testid": "channel-group-result",
-        children: [(0, _v1.jsx)(_v365.AspectRatio, {
+        children: [(0, _v1.jsx)(_v362.AspectRatio, {
           ratio: 16 / 9,
-          children: _v7?.sizes[3].link ? (0, _v1.jsx)(_v156.Box, {
+          children: _v7?.sizes[3].link ? (0, _v1.jsx)(_v154.Box, {
             as: "img",
             src: _v7?.sizes[3].link,
             alt: "thumbnail",
             borderRadius: "md"
-          }) : (0, _v1.jsx)(_v156.Box, {
+          }) : (0, _v1.jsx)(_v154.Box, {
             bgColor: "slate.100",
             borderRadius: "md"
           })
-        }), (0, _v1.jsxs)(_v366.Stack, {
+        }), (0, _v1.jsxs)(_v363.Stack, {
           gap: "xs",
           paddingX: "xs",
-          children: [(0, _v1.jsx)(_v160.Text, {
+          children: [(0, _v1.jsx)(_v158.Text, {
             variant: "heading-sm",
             children: _v5
-          }), (0, _v1.jsxs)(_v160.Text, {
+          }), (0, _v1.jsxs)(_v158.Text, {
             variant: "body-sm",
             color: "text-secondary",
-            children: [_v80.videoCount(_v6?.connections?.videos?.total), " ·", " ", _v80.userCount(_v1, _v6?.connections?.users?.total)]
+            children: [_v78.videoCount(_v6?.connections?.videos?.total), " ·", " ", _v78.userCount(_v1, _v6?.connections?.users?.total)]
           })]
         })]
       });
     };
-  var _v370 = _v0.i(0),
-    _v371 = _v0.i(0),
-    _v372 = _v0.i(0),
-    _v373 = _v0.i(0),
-    _v374 = _v0.i(0);
-  let _v375 = () => (0, _v1.jsx)("svg", {
+  var _v367 = _v0.i(0),
+    _v368 = _v0.i(0),
+    _v369 = _v0.i(0),
+    _v370 = _v0.i(0),
+    _v371 = _v0.i(0);
+  let _v372 = () => (0, _v1.jsx)("svg", {
     width: "32px",
     height: "32px",
     viewBox: "0 0 32 32",
@@ -11495,8 +11464,8 @@
       })]
     })
   });
-  var _v376 = _v0.i(0);
-  let _v377 = {
+  var _v373 = _v0.i(0);
+  let _v374 = {
       clip: ({
         item: _v0,
         onClick: _v1,
@@ -11504,13 +11473,13 @@
         onMouseLeave: _v3,
         position: _v4
       }) => {
-        let _v5 = (0, _v3.useContext)(_v67.ViewerContext),
+        let _v5 = (0, _v3.useContext)(_v65.ViewerContext),
           {
             openAuthModal: _v6
-          } = (0, _v3.useContext)(_v246),
+          } = (0, _v3.useContext)(_v243),
           {
             sendWatchLaterEvent: _v7
-          } = _v196(),
+          } = _v193(),
           {
             metadata: _v8,
             name: _v9,
@@ -11524,16 +11493,16 @@
             badge: _v17
           } = _v0,
           _v18 = _v8?.interactions?.watchlater?.added || !1,
-          _v19 = _v18 ? _v80.REMOVE_WATCH_LATER : _v80.ADD_WATCH_LATER,
-          _v20 = _v126(_v15),
+          _v19 = _v18 ? _v78.REMOVE_WATCH_LATER : _v78.ADD_WATCH_LATER,
+          _v20 = _v124(_v15),
           {
             updateWatchLater: _v21
           } = function (_v0) {
             let {
                 mutate: _v1
-              } = _v187(),
-              [_v2] = (0, _v376.usePutMeWatchlater)(),
-              [_v3] = (0, _v376.useDeleteMeWatchlater)();
+              } = _v185(),
+              [_v2] = (0, _v373.usePutMeWatchlater)(),
+              [_v3] = (0, _v373.useDeleteMeWatchlater)();
             return {
               updateWatchLater: async _v0 => {
                 await (_v0 ? _v3 : _v2)({
@@ -11544,14 +11513,14 @@
               }
             };
           }(_v20);
-        return (0, _v1.jsx)(_v368, {
+        return (0, _v1.jsx)(_v365, {
           as: "div",
           borderRadius: "lg",
           onClick: _v1,
           onContextMenu: _v1,
           onMouseEnter: _v2,
           onMouseLeave: _v3,
-          children: (0, _v1.jsx)(_v374.VideoCard, {
+          children: (0, _v1.jsx)(_v371.VideoCard, {
             as: "a",
             target: "_blank",
             _focusVisible: {
@@ -11573,14 +11542,14 @@
               year: "numeric"
             }))(_v14, _v5?.locale) : void 0,
             duration: _v12,
-            topLeftDecoration: _v17?.type?.includes("staffpick") ? (0, _v1.jsx)(_v375, {}) : void 0,
-            topRightDecoration: (0, _v1.jsx)(_v215.Tooltip, {
+            topLeftDecoration: _v17?.type?.includes("staffpick") ? (0, _v1.jsx)(_v372, {}) : void 0,
+            topRightDecoration: (0, _v1.jsx)(_v212.Tooltip, {
               label: _v19,
               placement: "top",
-              children: (0, _v1.jsx)(_v162.IconButton, {
+              children: (0, _v1.jsx)(_v160.IconButton, {
                 onClick: _v0 => {
                   _v0.stopPropagation(), _v0.preventDefault(), _v5?.user ? _v21(_v18) : _v6(), _v7({
-                    entityType: _v124.clip,
+                    entityType: _v122.clip,
                     position: _v4,
                     uri: _v15
                   });
@@ -11593,7 +11562,7 @@
                 _dark: {
                   background: "#3D4751A3"
                 },
-                icon: _v18 ? (0, _v1.jsx)(_v373.ClockFilled, {}) : (0, _v1.jsx)(_v370.Clock, {}),
+                icon: _v18 ? (0, _v1.jsx)(_v370.ClockFilled, {}) : (0, _v1.jsx)(_v367.Clock, {}),
                 opacity: 0,
                 transition: "opacity 200ms ease-in-out",
                 _groupHover: {
@@ -11602,12 +11571,12 @@
               })
             }),
             bottomLeftDecoration: (0, _v1.jsxs)(_v8.Flex, {
-              children: [(0, _v1.jsx)(_v161.Button, {
+              children: [(0, _v1.jsx)(_v159.Button, {
                 "aria-label": "likes",
                 variant: "tertiary",
                 size: "xs",
                 color: "gray.50",
-                leftIcon: (0, _v1.jsx)(_v372.Heart, {}),
+                leftIcon: (0, _v1.jsx)(_v369.Heart, {}),
                 opacity: 0,
                 transition: "opacity 200ms ease-in-out",
                 _groupHover: {
@@ -11618,12 +11587,12 @@
                   _hover: {}
                 },
                 children: _v8?.connections?.likes?.total
-              }), (0, _v1.jsx)(_v161.Button, {
+              }), (0, _v1.jsx)(_v159.Button, {
                 "aria-label": "comments",
                 variant: "tertiary",
                 size: "xs",
                 color: "gray.50",
-                leftIcon: (0, _v1.jsx)(_v371.CommentList, {}),
+                leftIcon: (0, _v1.jsx)(_v368.CommentList, {}),
                 opacity: 0,
                 transition: "opacity 200ms ease-in-out",
                 _groupHover: {
@@ -11673,7 +11642,7 @@
           base: !1,
           lg: !0
         });
-        return (0, _v1.jsxs)(_v368, {
+        return (0, _v1.jsxs)(_v365, {
           href: _v13,
           borderRadius: "xl",
           onClick: _v1,
@@ -11681,18 +11650,18 @@
           onMouseEnter: _v2,
           onMouseLeave: _v3,
           "data-testid": "ondemand-result",
-          children: [(0, _v1.jsxs)(_v156.Box, {
+          children: [(0, _v1.jsxs)(_v154.Box, {
             position: "relative",
-            children: [(0, _v1.jsx)(_v365.AspectRatio, {
+            children: [(0, _v1.jsx)(_v362.AspectRatio, {
               ratio: 2 / 3,
-              children: (0, _v1.jsx)(_v156.Box, {
+              children: (0, _v1.jsx)(_v154.Box, {
                 as: "img",
                 src: _v12?.sizes[0].link,
                 alt: _v11,
                 borderRadius: "md"
               })
-            }), _v15 && (0, _v1.jsx)(_v205.DarkMode, {
-              children: (0, _v1.jsx)(_v160.Text, {
+            }), _v15 && (0, _v1.jsx)(_v202.DarkMode, {
+              children: (0, _v1.jsx)(_v158.Text, {
                 as: "span",
                 variant: "body-sm",
                 background: "blackAlpha.800",
@@ -11706,14 +11675,14 @@
                 children: _v15
               })
             })]
-          }), (0, _v1.jsx)(_v215.Tooltip, {
-            label: (0, _v1.jsx)(_v156.Box, {
+          }), (0, _v1.jsx)(_v212.Tooltip, {
+            label: (0, _v1.jsx)(_v154.Box, {
               maxW: (0, _v9.rem)(600),
               children: _v11
             }),
             placement: "top",
             isDisabled: !(_v8 && _v16),
-            children: (0, _v1.jsx)(_v160.Text, {
+            children: (0, _v1.jsx)(_v158.Text, {
               variant: "heading-sm",
               noOfLines: 1,
               whiteSpace: "nowrap",
@@ -11741,25 +11710,25 @@
             sm: !0,
             lg: !1
           }) || !1;
-        return _v4 ? (0, _v1.jsx)(_v364, {
+        return _v4 ? (0, _v1.jsx)(_v361, {
           item: _v0,
           onClick: _v1
-        }) : _v5 ? (0, _v1.jsx)(_v363, {
+        }) : _v5 ? (0, _v1.jsx)(_v360, {
           item: _v0,
           isSmallScreen: !0,
           onClick: _v1,
           onMouseEnter: _v2,
           onMouseLeave: _v3
-        }) : (0, _v1.jsx)(_v359.UserCard, {
+        }) : (0, _v1.jsx)(_v356.UserCard, {
           user: _v0,
           profileUrl: _v0.link,
           offset: [0, -210],
           placement: "bottom",
           flip: !1,
           onProfileClick: _v1,
-          children: (0, _v1.jsx)(_v156.Box, {
+          children: (0, _v1.jsx)(_v154.Box, {
             height: "min-content",
-            children: (0, _v1.jsx)(_v363, {
+            children: (0, _v1.jsx)(_v360, {
               item: _v0,
               onMouseEnter: _v2,
               onMouseLeave: _v3
@@ -11767,10 +11736,10 @@
           })
         });
       },
-      channel: _v369,
-      group: _v369
+      channel: _v366,
+      group: _v366
     },
-    _v378 = () => {
+    _v375 = () => {
       let _v0 = (0, _v3.useRef)(null),
         _v1 = (0, _v3.useRef)(void 0),
         {
@@ -11781,26 +11750,26 @@
           filters: _v6,
           onFilterChange: _v7,
           updatePage: _v8
-        } = _v175(),
+        } = _v173(),
         {
           isLoading: _v9,
           data: _v10,
           error: _v11
-        } = _v187(),
+        } = _v185(),
         _v12 = (0, _v3.useRef)(_v4),
         _v13 = (() => {
-          let _v0 = (0, _v25.useBreakpointValue)(_v355, {
+          let _v0 = (0, _v25.useBreakpointValue)(_v352, {
               ssr: !1
             }),
             {
               isSideNavOpen: _v1
-            } = (0, _v3.useContext)(_v211.VideoLibraryLayoutContext),
+            } = (0, _v3.useContext)(_v208.VideoLibraryLayoutContext),
             {
               panelStatus: _v2
-            } = (0, _v3.useContext)(_v61),
+            } = (0, _v3.useContext)(_v60),
             {
-              type: _v3 = _v86.options.clip.value
-            } = _v175(),
+              type: _v3 = _v84.options.clip.value
+            } = _v173(),
             _v4 = (0, _v25.useBreakpointValue)(_v33),
             _v5 = _v4 === _v33.lg,
             _v6 = _v4 === _v33.xl,
@@ -11822,27 +11791,27 @@
               (_v8 || _v1) && _v0--;
           }
           switch (_v3) {
-            case _v86.options.ondemand.value:
+            case _v84.options.ondemand.value:
               !(_v5 && _v1 && _v8) && _v0++, _v7 && _v1 !== _v8 && _v0++;
               break;
-            case _v86.options.people.value:
+            case _v84.options.people.value:
               if (_v4 === _v33.base) return "1fr";
               (_v7 || _v6 && !(_v1 && _v8)) && _v0++;
           }
           return `repeat(${_v0}, minmax(0, 1fr))`;
         })(),
-        _v14 = (0, _v3.useContext)(_v67.ViewerContext),
+        _v14 = (0, _v3.useContext)(_v65.ViewerContext),
         {
           sendHoverEvent: _v15,
           sendClickEvent: _v16,
           sendSearchResultsPage: _v17
-        } = _v196(),
+        } = _v193(),
         {
           toggleSearchType: _v18
-        } = (0, _v3.useContext)(_v152),
-        _v19 = _v10?.parameters?.filters?.type?.values[0] || _v86.options.clip.value,
-        _v20 = _v377[_v19],
-        _v21 = _v19 === _v86.options.people.value;
+        } = (0, _v3.useContext)(_v150),
+        _v19 = _v10?.parameters?.filters?.type?.values[0] || _v84.options.clip.value,
+        _v20 = _v374[_v19],
+        _v21 = _v19 === _v84.options.people.value;
       return ((0, _v3.useEffect)(() => {
         let _v0 = _v0 => {
           let _v1 = _v0.detail;
@@ -11851,10 +11820,10 @@
         return document.addEventListener("omnisearchQueryChange", _v0), () => document.removeEventListener("omnisearchQueryChange", _v0);
       }, [_v6]), (0, _v3.useEffect)(() => {
         if (_v10?.data) {
-          let _v0 = (0, _v172.default)(_v2, _v28),
+          let _v0 = (0, _v170.default)(_v2, _v28),
             {
               bpFilters: _v1
-            } = _v131(_v6, _v14?.user?.id);
+            } = _v129(_v6, _v14?.user?.id);
           (({
             searchId: _v0,
             data: _v1,
@@ -11874,7 +11843,7 @@
               ownerId: _v5,
               query: _v6,
               type: _v7
-            }) => _v264.BigPictureClient.sendEvent(new _v264.Event("search_request", 16, {
+            }) => _v261.BigPictureClient.sendEvent(new _v261.Event("search_request", 16, {
               ip: null,
               search_type: `search.${_v7}`,
               hits: _v0,
@@ -11916,10 +11885,10 @@
                 searchId: _v2,
                 ownerId: _v3,
                 resultUri: _v4
-              }) => _v264.BigPictureClient.sendEvent(new _v264.Event("search_result", 14, {
+              }) => _v261.BigPictureClient.sendEvent(new _v261.Event("search_result", 14, {
                 position: _v0 + 1,
                 score: 0,
-                result_id: _v126(_v4).toString() ?? null,
+                result_id: _v124(_v4).toString() ?? null,
                 result_type: _v1,
                 search_id: _v2,
                 params: null,
@@ -11948,7 +11917,7 @@
             ownerId: _v14?.teamUser?.ownerId
           }), _v12.current === _v4 ? _v17() : _v12.current = _v4;
         }
-      }, [_v10]), _v11) ? (0, _v1.jsx)(_v267, {}) : !_v10 || _v9 || _v10.data && _v10.data?.length !== 0 ? (0, _v1.jsxs)(_v8.Flex, {
+      }, [_v10]), _v11) ? (0, _v1.jsx)(_v264, {}) : !_v10 || _v9 || _v10.data && _v10.data?.length !== 0 ? (0, _v1.jsxs)(_v8.Flex, {
         justifyContent: "space-between",
         overflowY: "auto",
         flexDir: "column",
@@ -11963,7 +11932,7 @@
           scrollbarWidth: "thin",
           scrollbarColor: `${_v34} transparent`
         },
-        children: [(0, _v1.jsx)(_v158.Grid, {
+        children: [(0, _v1.jsx)(_v156.Grid, {
           templateColumns: _v13,
           gap: "sm",
           marginBottom: {
@@ -11971,7 +11940,7 @@
             lg: _v21 ? (0, _v9.rem)(112) : void 0
           },
           position: "relative",
-          children: _v9 || !_v10 ? (0, _v1.jsx)(_v358, {}) : (0, _v1.jsx)(_v1.Fragment, {
+          children: _v9 || !_v10 ? (0, _v1.jsx)(_v355, {}) : (0, _v1.jsx)(_v1.Fragment, {
             children: _v10?.data?.map((_v0, _v1) => (0, _v1.jsx)(_v20, {
               item: _v0[_v19],
               type: _v19,
@@ -11983,8 +11952,8 @@
                   type: _v2,
                   resultUri: _v3
                 }) => {
-                  _v264.BigPictureClient.sendEvent(new _v264.Event("search_result_interaction", 8, {
-                    result_id: _v126(_v3).toString() ?? null,
+                  _v261.BigPictureClient.sendEvent(new _v261.Event("search_result_interaction", 8, {
+                    result_id: _v124(_v3).toString() ?? null,
                     result_type: _v2,
                     action: "click",
                     search_id: _v0,
@@ -11995,12 +11964,12 @@
                     source: "public"
                   }));
                 })({
-                  searchId: (0, _v172.default)(_v2, _v28),
+                  searchId: (0, _v170.default)(_v2, _v28),
                   ownerId: _v14?.teamUser?.ownerId,
                   type: _v19,
                   resultUri: _v0[_v19].uri
                 }), _v16({
-                  entityType: _v124[_v19],
+                  entityType: _v122[_v19],
                   position: _v1,
                   uri: _v0[_v19].uri
                 });
@@ -12008,7 +11977,7 @@
               onMouseEnter: () => {
                 _v1.current = setTimeout(() => {
                   _v15({
-                    entityType: _v124[_v19],
+                    entityType: _v122[_v19],
                     position: _v1,
                     uri: _v0[_v19].uri
                   });
@@ -12017,33 +11986,33 @@
               onMouseLeave: () => clearTimeout(_v1.current)
             }, _v1))
           })
-        }), (0, _v1.jsx)(_v270, {
+        }), (0, _v1.jsx)(_v267, {
           scrollContainer: _v0.current,
           updatePage: _v8,
           page: _v5,
           pageSize: 24,
           data: _v10
         })]
-      }) : (0, _v1.jsx)(_v353, {});
+      }) : (0, _v1.jsx)(_v350, {});
     };
-  var _v379 = _v0.i(0),
-    _v380 = _v0.i(0),
-    _v381 = _v0.i(0),
-    _v382 = _v0.i(0),
-    _v383 = _v0.i(0);
-  let _v384 = () => {
+  var _v376 = _v0.i(0),
+    _v377 = _v0.i(0),
+    _v378 = _v0.i(0),
+    _v379 = _v0.i(0),
+    _v380 = _v0.i(0);
+  let _v381 = () => {
       let [_v0, _v1] = (0, _v3.useState)(""),
         {
           onFilterChange: _v2
-        } = _v175(),
+        } = _v173(),
         {
           sendSearchResultsPage: _v3
-        } = _v196(),
+        } = _v193(),
         {
           data: _v4
-        } = (0, _v383.useGetVideo)({
+        } = (0, _v380.useGetVideo)({
           where: {
-            videoId: _v387
+            videoId: _v384
           },
           query: {
             noPadding: !0,
@@ -12055,8 +12024,8 @@
         _v3(!0);
       }, []);
       let _v5 = _v4?.pictures?.sizes[0]?.link;
-      return (0, _v1.jsx)(_v205.DarkMode, {
-        children: (0, _v1.jsxs)(_v158.Grid, {
+      return (0, _v1.jsx)(_v202.DarkMode, {
+        children: (0, _v1.jsxs)(_v156.Grid, {
           flex: "1",
           placeItems: "center",
           borderRadius: "3xl",
@@ -12071,7 +12040,7 @@
             onSubmit: _v0 => {
               _v0.preventDefault(), _v0 && _v2("q", _v0);
             },
-            children: (0, _v1.jsxs)(_v380.InputGroup, {
+            children: (0, _v1.jsxs)(_v377.InputGroup, {
               borderRadius: "md",
               size: "lg",
               width: {
@@ -12079,10 +12048,10 @@
                 sm: (0, _v9.rem)(334),
                 md: (0, _v9.rem)(480)
               },
-              children: [(0, _v1.jsx)(_v379.Input, {
+              children: [(0, _v1.jsx)(_v376.Input, {
                 onChange: _v0 => _v1(_v0.target.value),
                 value: _v0,
-                placeholder: _v80.SEARCH_ALL_VIMEO,
+                placeholder: _v78.SEARCH_ALL_VIMEO,
                 role: "search",
                 type: "search",
                 autoComplete: "false",
@@ -12095,14 +12064,14 @@
                     WebkitAppearance: "none"
                   }
                 }
-              }), (0, _v1.jsxs)(_v381.InputRightElement, {
+              }), (0, _v1.jsxs)(_v378.InputRightElement, {
                 width: "fit-content",
-                children: [_v0 && (0, _v1.jsx)(_v382.CloseXCircleFilled, {
+                children: [_v0 && (0, _v1.jsx)(_v379.CloseXCircleFilled, {
                   color: "text-primary",
                   boxSize: "xs",
                   marginRight: (0, _v9.rem)(8),
                   onClick: () => _v1("")
-                }), (0, _v1.jsx)(_v352.SearchMagnifier, {
+                }), (0, _v1.jsx)(_v349.SearchMagnifier, {
                   color: "text-primary",
                   boxSize: "xs",
                   marginRight: (0, _v9.rem)(16)
@@ -12122,19 +12091,19 @@
             _hover: {
               background: "rgba(61,71,81, 0.40)"
             },
-            children: [(0, _v1.jsx)(_v360.Avatar, {
+            children: [(0, _v1.jsx)(_v357.Avatar, {
               size: "xs",
               alt: _v4?.user?.name,
               src: _v4?.user?.pictures?.sizes[0].link,
               nameProps: {
                 name: _v4?.user?.name ?? ""
               }
-            }), (0, _v1.jsxs)(_v203.VStack, {
+            }), (0, _v1.jsxs)(_v200.VStack, {
               marginLeft: "sm",
               marginRight: "xs",
               gap: "0",
               alignItems: "flex-start",
-              children: [_v4.name && (0, _v1.jsx)(_v160.Text, {
+              children: [_v4.name && (0, _v1.jsx)(_v158.Text, {
                 variant: "heading-sm",
                 isTruncated: !0,
                 maxWidth: {
@@ -12142,7 +12111,7 @@
                   md: (0, _v9.rem)(428)
                 },
                 children: _v4.name
-              }), _v4.user.name && (0, _v1.jsx)(_v160.Text, {
+              }), _v4.user.name && (0, _v1.jsx)(_v158.Text, {
                 variant: "body-sm",
                 isTruncated: !0,
                 maxWidth: {
@@ -12156,42 +12125,42 @@
         })
       });
     },
-    _v385 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    _v386 = Math.floor(Math.random() * _v385.length),
-    _v387 = _v385[_v386];
-  var _v388 = _v0.i(0),
-    _v389 = _v0.i(0),
-    _v390 = _v0.i(0),
-    _v391 = _v0.i(0);
-  let _v392 = _v0 => (0, _v1.jsx)(_v391.AccordionItem, {
+    _v382 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    _v383 = Math.floor(Math.random() * _v382.length),
+    _v384 = _v382[_v383];
+  var _v385 = _v0.i(0),
+    _v386 = _v0.i(0),
+    _v387 = _v0.i(0),
+    _v388 = _v0.i(0);
+  let _v389 = _v0 => (0, _v1.jsx)(_v388.AccordionItem, {
     ..._v0
   });
-  var _v393 = _v0.i(0);
-  let _v394 = ({
+  var _v390 = _v0.i(0);
+  let _v391 = ({
     isExpanded: _v0,
     nameCopy: _v1
-  }) => (0, _v1.jsxs)(_v393.AccordionButton, {
+  }) => (0, _v1.jsxs)(_v390.AccordionButton, {
     height: {
       base: (0, _v9.rem)(44),
       md: "unset"
     },
-    children: [(0, _v1.jsx)(_v160.Text, {
+    children: [(0, _v1.jsx)(_v158.Text, {
       variant: {
         base: "heading-sm",
         md: "heading-xs"
       },
       isTruncated: !0,
       children: _v1
-    }), (0, _v1.jsx)(_v202.HStack, {
-      children: _v0 ? (0, _v1.jsx)(_v306.ChevronUpSmall, {
+    }), (0, _v1.jsx)(_v199.HStack, {
+      children: _v0 ? (0, _v1.jsx)(_v303.ChevronUpSmall, {
         boxSize: "xs"
-      }) : (0, _v1.jsx)(_v302.ChevronDownSmall, {
+      }) : (0, _v1.jsx)(_v299.ChevronDownSmall, {
         boxSize: "xs"
       })
     })]
   });
-  var _v395 = _v0.i(0);
-  let _v396 = _v0 => (0, _v1.jsx)(_v395.AccordionPanel, {
+  var _v392 = _v0.i(0);
+  let _v393 = _v0 => (0, _v1.jsx)(_v392.AccordionPanel, {
       pt: {
         base: 0,
         md: "sm"
@@ -12203,13 +12172,13 @@
       paddingX: "md",
       ..._v0
     }),
-    _v397 = ({
+    _v394 = ({
       filterDetails: _v0,
       selectedValues: _v1
     }) => {
       let {
           sendFilterEvent: _v2
-        } = _v196(),
+        } = _v193(),
         _v3 = (0, _v25.useBreakpointValue)({
           base: "md",
           md: "sm"
@@ -12217,7 +12186,7 @@
         {
           onCheckboxChange: _v4,
           onClearFilter: _v5
-        } = _v188(),
+        } = _v186(),
         {
           options: _v6,
           name: _v7,
@@ -12235,39 +12204,39 @@
             previousValue: _v2.length ? _v2 : null
           });
         };
-      return (0, _v1.jsx)(_v392, {
+      return (0, _v1.jsx)(_v389, {
         children: ({
           isExpanded: _v0
         }) => (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v394, {
+          children: [(0, _v1.jsx)(_v391, {
             isExpanded: _v0,
             nameCopy: _v8,
             showResetButton: _v11,
             onResetClick: () => {
               _v5(_v7), _v12(_v30, null);
             }
-          }), (0, _v1.jsx)(_v396, {
-            children: (0, _v1.jsx)(_v366.Stack, {
+          }), (0, _v1.jsx)(_v393, {
+            children: (0, _v1.jsx)(_v363.Stack, {
               direction: "column",
               gap: "0",
               children: _v10.map((_v0, _v1) => {
                 let _v2 = !!_v1?.[_v6[_v0].value],
                   _v3 = _v6[_v0]?.icon;
-                return (0, _v1.jsx)(_v390.Checkbox, {
+                return (0, _v1.jsx)(_v387.Checkbox, {
                   value: _v6[_v0].value,
                   isChecked: _v2,
                   onChange: () => {
                     var _v0;
                     let _v1;
-                    return _v1 = _v143(_v4({
+                    return _v1 = _v141(_v4({
                       name: _v7,
                       value: _v0 = _v6[_v0].value,
                       isChecked: _v2
-                    }), _v7), void _v12(_v142(_v6, _v0), _v1);
+                    }), _v7), void _v12(_v140(_v6, _v0), _v1);
                   },
                   paddingY: "sm",
                   size: _v3,
-                  children: (0, _v1.jsxs)(_v160.Text, {
+                  children: (0, _v1.jsxs)(_v158.Text, {
                     variant: {
                       base: "body-lg",
                       md: "body-md"
@@ -12284,48 +12253,48 @@
         })
       });
     };
-  var _v398 = _v0.i(0),
-    _v399 = _v0.i(0),
-    _v400 = _v0.i(0);
-  let _v401 = () => {
+  var _v395 = _v0.i(0),
+    _v396 = _v0.i(0),
+    _v397 = _v0.i(0);
+  let _v398 = () => {
     let {
         onLibraryFilterChange: _v0,
         onClearFilter: _v1,
         customMetadata: _v2
-      } = _v188(),
+      } = _v186(),
       {
         trackFilterByCustomMetadata: _v3
-      } = (0, _v400.useLibraryTracking)();
-    return (0, _v1.jsx)(_v398.CustomMetadataFilterAccordion, {
+      } = (0, _v397.useLibraryTracking)();
+    return (0, _v1.jsx)(_v395.CustomMetadataFilterAccordion, {
       serializedFilter: _v2,
       onChange: _v0 => {
-        null === _v0 ? _v1(_v83) : (_v0(_v83, _v0), _v3({
-          appliedFilters: (0, _v399.countCustomMetadataClauses)(_v0)
+        null === _v0 ? _v1(_v81) : (_v0(_v81, _v0), _v3({
+          appliedFilters: (0, _v396.countCustomMetadataClauses)(_v0)
         }));
       }
     });
   };
-  var _v402 = _v0.i(0);
-  let _v403 = () => {
+  var _v399 = _v0.i(0);
+  let _v400 = () => {
     let {
         sendFilterEvent: _v0
-      } = _v196(),
-      _v1 = (0, _v3.useContext)(_v67.ViewerContext),
+      } = _v193(),
+      _v1 = (0, _v3.useContext)(_v65.ViewerContext),
       [_v2, _v3] = (0, _v3.useState)("custom"),
       {
         onLibraryFilterChange: _v4,
         onClearFilter: _v5,
         date: _v6
-      } = _v188(),
+      } = _v186(),
       [_v7, _v8] = _v6?.split(",") ?? [],
-      _v9 = _v7 && _v8 ? [_v147(_v7), _v147(_v8)] : void 0,
+      _v9 = _v7 && _v8 ? [_v145(_v7), _v145(_v8)] : void 0,
       [_v10, _v11] = (0, _v3.useState)(_v9),
       {
         options: _v12,
         name: _v13,
         nameCopy: _v14,
         untranslatedCopy: _v15
-      } = _v104,
+      } = _v102,
       _v16 = () => {
         _v5(_v13), _v0({
           copy: _v30,
@@ -12367,25 +12336,25 @@
           label: _v0
         }) => _v0 === _v1?.label)?.label || "custom"), _v11(_v0);
       };
-    return (0, _v1.jsx)(_v392, {
+    return (0, _v1.jsx)(_v389, {
       children: ({
         isExpanded: _v0
       }) => (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v394, {
+        children: [(0, _v1.jsx)(_v391, {
           isExpanded: _v0,
           nameCopy: _v14,
           showResetButton: !!_v6,
           onResetClick: _v16
-        }), (0, _v1.jsx)(_v396, {
+        }), (0, _v1.jsx)(_v393, {
           pb: {
             base: "md",
             md: "3"
           },
-          children: (0, _v1.jsx)(_v402.DateRangePicker, {
+          children: (0, _v1.jsx)(_v399.DateRangePicker, {
             value: _v10,
             locale: _v1?.locale ?? "en-US",
-            maxDate: _v147(),
-            minDate: _v147("1980-01-01"),
+            maxDate: _v145(),
+            minDate: _v145("1980-01-01"),
             isMobile: !0,
             presetValues: _v17,
             onValueChange: _v18,
@@ -12399,19 +12368,19 @@
       })
     });
   };
-  var _v404 = _v0.i(0);
-  let _v405 = ({
+  var _v401 = _v0.i(0);
+  let _v402 = ({
     searchTerm: _v0,
     onInputChange: _v1,
     onClearClick: _v2,
-    placeholder: _v3 = _v80.SEARCH
-  }) => (0, _v1.jsxs)(_v380.InputGroup, {
+    placeholder: _v3 = _v78.SEARCH
+  }) => (0, _v1.jsxs)(_v377.InputGroup, {
     size: {
       base: "md",
       md: "sm"
     },
     marginBottom: "sm",
-    children: [(0, _v1.jsx)(_v379.Input, {
+    children: [(0, _v1.jsx)(_v376.Input, {
       className: "peer",
       placeholder: _v3,
       onChange: _v1,
@@ -12431,7 +12400,7 @@
           paddingY: 0
         }
       }
-    }), (0, _v1.jsx)(_v381.InputLeftElement, {
+    }), (0, _v1.jsx)(_v378.InputLeftElement, {
       width: "max-content",
       paddingLeft: {
         base: (0, _v9.rem)(16),
@@ -12443,13 +12412,13 @@
       _peerFocus: {
         color: "text-primary"
       },
-      children: (0, _v1.jsx)(_v352.SearchMagnifier, {
+      children: (0, _v1.jsx)(_v349.SearchMagnifier, {
         boxSize: {
           base: (0, _v9.rem)(20),
           md: (0, _v9.rem)(14)
         }
       })
-    }), !!_v0 && (0, _v1.jsx)(_v381.InputRightElement, {
+    }), !!_v0 && (0, _v1.jsx)(_v378.InputRightElement, {
       width: "max-content",
       height: "100%",
       paddingLeft: (0, _v9.rem)(8),
@@ -12457,35 +12426,35 @@
         base: (0, _v9.rem)(16),
         md: (0, _v9.rem)(12)
       },
-      children: (0, _v1.jsx)(_v382.CloseXCircleFilled, {
+      children: (0, _v1.jsx)(_v379.CloseXCircleFilled, {
         boxSize: {
           base: (0, _v9.rem)(20),
           md: (0, _v9.rem)(14)
         },
-        "aria-label": _v80.CLEAR,
+        "aria-label": _v78.CLEAR,
         onClick: _v2
       })
     })]
   });
-  var _v406 = _v0.i(0);
-  let _v407 = ({
+  var _v403 = _v0.i(0);
+  let _v404 = ({
       height: _v0
-    }) => (0, _v1.jsx)(_v203.VStack, {
+    }) => (0, _v1.jsx)(_v200.VStack, {
       width: "100%",
       height: _v0,
       justifyContent: "center",
       alignItems: "center",
-      children: (0, _v1.jsx)(_v406.Spinner, {
+      children: (0, _v1.jsx)(_v403.Spinner, {
         "data-testid": "loader-icon",
         size: "md"
       })
     }),
-    _v408 = ({
+    _v405 = ({
       selectedLength: _v0,
       headerCopy: _v1,
       onSelectedCountClick: _v2
     }) => (0, _v1.jsx)(_v1.Fragment, {
-      children: _v0 > 0 ? (0, _v1.jsx)(_v161.Button, {
+      children: _v0 > 0 ? (0, _v1.jsx)(_v159.Button, {
         onClick: _v2,
         size: "md",
         variant: "tertiary",
@@ -12496,7 +12465,7 @@
           _hover: {},
           _active: {}
         },
-        children: (0, _v1.jsx)(_v160.Text, {
+        children: (0, _v1.jsx)(_v158.Text, {
           variant: "heading-xs",
           height: (0, _v9.rem)(40),
           lineHeight: (0, _v9.rem)(40),
@@ -12504,7 +12473,7 @@
           _hover: {
             color: "text-secondary"
           },
-          children: (0, _v78.translate)({
+          children: (0, _v76.translate)({
             singular: "1 selected",
             plural: "{COUNT} selected",
             count: _v0,
@@ -12543,7 +12512,7 @@
             }
           })
         })
-      }) : (0, _v1.jsx)(_v160.Text, {
+      }) : (0, _v1.jsx)(_v158.Text, {
         variant: "heading-xs",
         height: (0, _v9.rem)(40),
         lineHeight: (0, _v9.rem)(40),
@@ -12551,23 +12520,23 @@
         children: _v1
       })
     }),
-    _v409 = () => (0, _v1.jsxs)(_v203.VStack, {
+    _v406 = () => (0, _v1.jsxs)(_v200.VStack, {
       width: "100%",
       height: (0, _v9.rem)(136),
       justifyContent: "center",
       alignItems: "center",
-      children: [(0, _v1.jsx)(_v160.Text, {
+      children: [(0, _v1.jsx)(_v158.Text, {
         "aria-live": "polite",
         variant: "heading-sm",
-        children: _v80.NO_FILTER_RESULTS
-      }), (0, _v1.jsx)(_v160.Text, {
+        children: _v78.NO_FILTER_RESULTS
+      }), (0, _v1.jsx)(_v158.Text, {
         "aria-live": "polite",
         variant: "body-sm",
         color: "text-secondary",
-        children: _v80.TRY_ANOTHER_SEARCH
+        children: _v78.TRY_ANOTHER_SEARCH
       })]
     }),
-    _v410 = _v0 => (0, _v1.jsx)(_v161.Button, {
+    _v407 = _v0 => (0, _v1.jsx)(_v159.Button, {
       size: "xs",
       variant: "tertiary",
       color: "text-secondary",
@@ -12582,31 +12551,31 @@
       },
       ..._v0
     }),
-    _v411 = () => {
-      let _v0 = (0, _v3.useContext)(_v67.ViewerContext),
+    _v408 = () => {
+      let _v0 = (0, _v3.useContext)(_v65.ViewerContext),
         {
           sendFilterEvent: _v1
-        } = _v196(),
+        } = _v193(),
         {
           onCheckboxChange: _v2,
           onClearFilter: _v3,
           folderIncluded: _v4,
           folderExcluded: _v5
-        } = _v188(),
+        } = _v186(),
         [_v6, {
           data: _v7
-        }] = (0, _v189.useGetUserItemsLazy)(),
+        }] = (0, _v187.useGetUserItemsLazy)(),
         [_v8, _v9] = (0, _v3.useState)(""),
         [_v10, _v11] = (0, _v3.useState)({}),
         [_v12, _v13] = (0, _v3.useState)(!!_v4),
         [_v14, _v15] = (0, _v3.useState)(!1),
         [_v16, _v17] = (0, _v3.useState)({}),
         _v18 = (0, _v3.useRef)(!1),
-        _v19 = (0, _v404.useDebouncedValue)(_v8, 500),
+        _v19 = (0, _v401.useDebouncedValue)(_v8, 500),
         {
           data: _v20,
           isLoading: _v21
-        } = (0, _v189.useGetUserItems)(() => _v0?.user ? {
+        } = (0, _v187.useGetUserItems)(() => _v0?.user ? {
           where: {
             userId: _v0?.teamUser?.ownerId || _v0?.user?.id
           },
@@ -12617,7 +12586,7 @@
             query: _v19,
             includeFolderIds: _v18.current ? void 0 : _v4
           },
-          select: _v56
+          select: _v55
         } : null, {
           revalidateOnFocus: !1,
           revalidateIfStale: !1,
@@ -12665,7 +12634,7 @@
               sort: "last_user_action_event_date",
               direction: "desc"
             },
-            select: _v56
+            select: _v55
           });
         },
         _v24 = _v12 ? Object.values(_v10) : _v20?.data,
@@ -12678,8 +12647,8 @@
           folderExcludedName: _v30,
           nameCopy: _v31,
           untranslatedCopy: _v32
-        } = _v103,
-        _v33 = _v19 && _v24 ? _v80.SELECT_FOLDERS : _v80.LAST_MODIFIED,
+        } = _v101,
+        _v33 = _v19 && _v24 ? _v78.SELECT_FOLDERS : _v78.LAST_MODIFIED,
         _v34 = () => {
           _v9(""), _v25 > 0 && _v13(!0);
         },
@@ -12695,31 +12664,31 @@
             previousValue: _v36(_v4, _v5)
           });
         };
-      return (0, _v1.jsx)(_v392, {
+      return (0, _v1.jsx)(_v389, {
         children: ({
           isExpanded: _v0
         }) => (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v394, {
+          children: [(0, _v1.jsx)(_v391, {
             isExpanded: _v0,
             nameCopy: _v31,
             showResetButton: _v28,
             onResetClick: _v37
-          }), (0, _v1.jsxs)(_v396, {
-            children: [(0, _v1.jsx)(_v405, {
+          }), (0, _v1.jsxs)(_v393, {
+            children: [(0, _v1.jsx)(_v402, {
               searchTerm: _v8,
               onInputChange: _v35,
               onClearClick: _v34,
-              placeholder: _v80.SEARCH_FOLDERS
+              placeholder: _v78.SEARCH_FOLDERS
             }), (0, _v1.jsx)(_v1.Fragment, {
-              children: _v21 || !_v20 ? (0, _v1.jsx)(_v407, {
+              children: _v21 || !_v20 ? (0, _v1.jsx)(_v404, {
                 height: (0, _v9.rem)(136)
               }) : (0, _v1.jsx)(_v1.Fragment, {
-                children: _v20?.data?.length === 0 ? (0, _v1.jsx)(_v409, {}) : (0, _v1.jsxs)(_v1.Fragment, {
-                  children: [(0, _v1.jsx)(_v408, {
+                children: _v20?.data?.length === 0 ? (0, _v1.jsx)(_v406, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+                  children: [(0, _v1.jsx)(_v405, {
                     selectedLength: _v25,
                     headerCopy: _v33,
                     onSelectedCountClick: () => _v13(!0)
-                  }), (0, _v1.jsx)(_v203.VStack, {
+                  }), (0, _v1.jsx)(_v200.VStack, {
                     gap: "0",
                     alignItems: "flex-start",
                     children: _v27?.map((_v0, _v1) => {
@@ -12729,7 +12698,7 @@
                       if (!_v2) return;
                       let _v3 = _v2?.uri.split("/")[4],
                         _v4 = !!_v22?.[_v3] || !!_v16[_v3];
-                      return (0, _v1.jsx)(_v412, {
+                      return (0, _v1.jsx)(_v409, {
                         onChange: () => {
                           let _v0, _v1;
                           _v0 = {
@@ -12767,15 +12736,15 @@
                   })]
                 })
               })
-            }), _v26 && (0, _v1.jsx)(_v410, {
+            }), _v26 && (0, _v1.jsx)(_v407, {
               onClick: () => _v15(!_v14),
-              children: _v14 ? _v80.SHOW_LESS : _v80.SHOW_MORE
+              children: _v14 ? _v78.SHOW_LESS : _v78.SHOW_MORE
             })]
           })]
         })
       });
     },
-    _v412 = ({
+    _v409 = ({
       folderName: _v0,
       isChecked: _v1,
       onChange: _v2
@@ -12784,16 +12753,16 @@
         base: "md",
         md: "sm"
       });
-      return (0, _v1.jsx)(_v390.Checkbox, {
+      return (0, _v1.jsx)(_v387.Checkbox, {
         isChecked: _v1,
         onChange: _v2,
         paddingY: "sm",
         size: _v3,
-        children: (0, _v1.jsx)(_v203.VStack, {
+        children: (0, _v1.jsx)(_v200.VStack, {
           justifyContent: "space-between",
           alignItems: "start",
           gap: "xs",
-          children: (0, _v1.jsx)(_v160.Text, {
+          children: (0, _v1.jsx)(_v158.Text, {
             variant: {
               base: "body-lg",
               md: "body-md"
@@ -12805,28 +12774,28 @@
         })
       });
     };
-  var _v413 = _v0.i(0);
-  let _v414 = ["active", "user.name", "user.pictures.sizes", "user.uri"],
-    _v415 = () => {
-      let _v0 = (0, _v3.useContext)(_v67.ViewerContext),
+  var _v410 = _v0.i(0);
+  let _v411 = ["active", "user.name", "user.pictures.sizes", "user.uri"],
+    _v412 = () => {
+      let _v0 = (0, _v3.useContext)(_v65.ViewerContext),
         {
           sendFilterEvent: _v1
-        } = _v196(),
+        } = _v193(),
         {
           onCheckboxChange: _v2,
           onClearFilter: _v3,
           uploader: _v4
-        } = _v188(),
+        } = _v186(),
         [_v5, _v6] = (0, _v3.useState)(""),
         [_v7, _v8] = (0, _v3.useState)({}),
         [_v9, _v10] = (0, _v3.useState)(!!_v4),
         [_v11, _v12] = (0, _v3.useState)(!1),
         _v13 = (0, _v3.useRef)(!1),
-        _v14 = (0, _v404.useDebouncedValue)(_v5, 500),
+        _v14 = (0, _v401.useDebouncedValue)(_v5, 500),
         {
           data: _v15,
           isLoading: _v16
-        } = (0, _v413.useGetUserTeammembers)(() => _v0?.user ? {
+        } = (0, _v410.useGetUserTeammembers)(() => _v0?.user ? {
           where: {
             userId: _v0?.teamUser?.ownerId || _v0?.user?.id
           },
@@ -12836,7 +12805,7 @@
             query: _v14,
             users: _v13.current ? void 0 : _v4
           },
-          select: _v414
+          select: _v411
         } : null, {
           revalidateOnFocus: !1,
           revalidateIfStale: !1,
@@ -12853,13 +12822,13 @@
         _v19 = _v4?.split(",")?.length || 0,
         _v20 = (_v18?.length ?? 0) > 5,
         _v21 = _v11 ? _v18 : _v18?.slice(0, 5),
-        _v22 = _v14 && _v18 ? _v80.SELECT_USERS : _v80.LAST_ACTIVE,
+        _v22 = _v14 && _v18 ? _v78.SELECT_USERS : _v78.LAST_ACTIVE,
         _v23 = !!_v17,
         {
           name: _v24,
           nameCopy: _v25,
           untranslatedCopy: _v26
-        } = _v102,
+        } = _v100,
         _v27 = () => {
           _v6(""), _v19 > 0 && _v10(!0);
         },
@@ -12874,30 +12843,30 @@
             previousValue: Object.keys(_v7)
           });
         };
-      return (0, _v1.jsx)(_v392, {
+      return (0, _v1.jsx)(_v389, {
         children: ({
           isExpanded: _v0
         }) => (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v394, {
+          children: [(0, _v1.jsx)(_v391, {
             isExpanded: _v0,
             nameCopy: _v25,
             showResetButton: _v23,
             onResetClick: _v29
-          }), (0, _v1.jsxs)(_v396, {
-            children: [(0, _v1.jsx)(_v405, {
+          }), (0, _v1.jsxs)(_v393, {
+            children: [(0, _v1.jsx)(_v402, {
               searchTerm: _v5,
               onInputChange: _v28,
               onClearClick: _v27
             }), (0, _v1.jsx)(_v1.Fragment, {
-              children: _v16 ? (0, _v1.jsx)(_v407, {
+              children: _v16 ? (0, _v1.jsx)(_v404, {
                 height: (0, _v9.rem)(136)
               }) : (0, _v1.jsx)(_v1.Fragment, {
-                children: _v15?.data?.length === 0 ? (0, _v1.jsx)(_v409, {}) : (0, _v1.jsxs)(_v1.Fragment, {
-                  children: [(0, _v1.jsx)(_v408, {
+                children: _v15?.data?.length === 0 ? (0, _v1.jsx)(_v406, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+                  children: [(0, _v1.jsx)(_v405, {
                     selectedLength: _v19,
                     headerCopy: _v22,
                     onSelectedCountClick: () => _v10(!0)
-                  }), (0, _v1.jsx)(_v203.VStack, {
+                  }), (0, _v1.jsx)(_v200.VStack, {
                     gap: "0",
                     alignItems: "flex-start",
                     children: _v21?.map((_v0, _v1) => {
@@ -12907,7 +12876,7 @@
                       if (!_v2) return;
                       let _v3 = _v2?.uri.split("/")[2],
                         _v4 = !!_v17?.[_v3];
-                      return (0, _v1.jsx)(_v416, {
+                      return (0, _v1.jsx)(_v413, {
                         onChange: () => {
                           let _v0;
                           _v2({
@@ -12933,15 +12902,15 @@
                   })]
                 })
               })
-            }), _v20 && (0, _v1.jsx)(_v410, {
+            }), _v20 && (0, _v1.jsx)(_v407, {
               onClick: () => _v12(!_v11),
-              children: _v11 ? _v80.SHOW_LESS : _v80.SHOW_MORE
+              children: _v11 ? _v78.SHOW_LESS : _v78.SHOW_MORE
             })]
           })]
         })
       });
     },
-    _v416 = ({
+    _v413 = ({
       userInfo: _v0,
       isChecked: _v1,
       onChange: _v2
@@ -12954,23 +12923,23 @@
           active: _v4,
           user: _v5
         } = _v0;
-      return (0, _v1.jsx)(_v390.Checkbox, {
+      return (0, _v1.jsx)(_v387.Checkbox, {
         isChecked: _v1,
         onChange: _v2,
         paddingY: "sm",
         size: _v3,
-        children: (0, _v1.jsxs)(_v202.HStack, {
+        children: (0, _v1.jsxs)(_v199.HStack, {
           gap: "0",
-          children: [(0, _v1.jsx)(_v360.Avatar, {
+          children: [(0, _v1.jsx)(_v357.Avatar, {
             size: "sm",
-            alt: _v80.PROFILE_PICTURE,
+            alt: _v78.PROFILE_PICTURE,
             src: _v5?.pictures?.sizes?.[0]?.link,
             nameProps: {
               name: _v5?.name ?? ""
             }
-          }), (0, _v1.jsxs)(_v202.HStack, {
+          }), (0, _v1.jsxs)(_v199.HStack, {
             justifyContent: "space-between",
-            children: [(0, _v1.jsx)(_v160.Text, {
+            children: [(0, _v1.jsx)(_v158.Text, {
               variant: {
                 base: "body-lg",
                 md: "body-md"
@@ -12979,55 +12948,55 @@
               width: _v4 ? (0, _v9.rem)(120) : (0, _v9.rem)(50),
               marginLeft: "sm",
               children: _v5?.name
-            }), !_v4 && (0, _v1.jsx)(_v207.Badge, {
+            }), !_v4 && (0, _v1.jsx)(_v204.Badge, {
               color: "text-secondary",
               backgroundColor: "stroke",
               size: "sm",
-              children: _v80.DEACTIVATED
+              children: _v78.DEACTIVATED
             })]
           })]
         })
       });
     },
-    _v417 = () => {
+    _v414 = () => {
       let {
           type: _v0,
           queryFields: _v1,
           privacy: _v2
-        } = _v188(),
+        } = _v186(),
         {
           hasAutoClosedCaptions: _v3,
           hasTeamPrivacy: _v4
-        } = _v68(),
+        } = _v66(),
         {
           settings: _v5
-        } = (0, _v190.useOrionSettings)(),
+        } = (0, _v63.useOrionSettings)(),
         {
           fields: _v6,
           isLoading: _v7
-        } = (0, _v389.useTeamCustomMetadataFields)({
+        } = (0, _v386.useTeamCustomMetadataFields)({
           enabled: _v5.show_custom_metadata
         }),
         _v8 = _v6.length > 0,
         _v9 = _v5.show_custom_metadata && !_v7 && _v8,
-        _v10 = ((_v0, _v1 = _v98.options.default.value) => {
-          let _v2 = structuredClone(_v99);
+        _v10 = ((_v0, _v1 = _v96.options.default.value) => {
+          let _v2 = structuredClone(_v97);
           switch (_v1) {
-            case _v98.options.default.value:
-            case _v98.options.folder.value:
+            case _v96.options.default.value:
+            case _v96.options.folder.value:
               _v2.options = {
                 title: _v2.options.title
               };
               break;
-            case _v98.options.showcase.value:
-            case _v98.options.live_event.value:
+            case _v96.options.showcase.value:
+            case _v96.options.live_event.value:
               _v2.options = {
                 title: _v2.options.title,
                 description: _v2.options.description,
                 tags: _v2.options.tags
               };
               break;
-            case _v98.options.video.value:
+            case _v96.options.video.value:
               _v0 || delete _v2.options.transcript;
           }
           return _v2;
@@ -13036,10 +13005,10 @@
           ..._v0,
           [_v1]: !0
         }), {}),
-        _v12 = _v0 !== _v98.options.folder.value,
-        _v13 = _v0 !== _v98.options.showcase.value,
-        _v14 = _v101(_v5.privacy_settings_new_copy);
-      return _v4 || (_v14.options = Object.fromEntries(Object.entries(_v14.options).filter(([_v0]) => _v0 !== _v79.DEFAULT_PRIVACY_VALUES.TEAM))), (0, _v1.jsxs)(_v388.Accordion, {
+        _v12 = _v0 !== _v96.options.folder.value,
+        _v13 = _v0 !== _v96.options.showcase.value,
+        _v14 = _v99(_v5.privacy_settings_new_copy);
+      return _v4 || (_v14.options = Object.fromEntries(Object.entries(_v14.options).filter(([_v0]) => _v0 !== _v77.DEFAULT_PRIVACY_VALUES.TEAM))), (0, _v1.jsxs)(_v385.Accordion, {
         allowMultiple: !0,
         allowToggle: !0,
         defaultIndex: [...Array(_v9 ? 12 : 11).keys()],
@@ -13048,33 +13017,33 @@
           base: "md",
           md: "sm"
         },
-        children: [(0, _v1.jsx)(_v397, {
+        children: [(0, _v1.jsx)(_v394, {
           selectedValues: _v11(_v1),
           filterDetails: _v10
-        }), _v13 && (0, _v1.jsx)(_v411, {}), (0, _v1.jsx)(_v403, {}), _v12 && (0, _v1.jsx)(_v397, {
+        }), _v13 && (0, _v1.jsx)(_v408, {}), (0, _v1.jsx)(_v400, {}), _v12 && (0, _v1.jsx)(_v394, {
           selectedValues: _v11(_v2),
           filterDetails: _v14
-        }), (0, _v1.jsx)(_v415, {}), _v9 && (0, _v1.jsx)(_v401, {})]
+        }), (0, _v1.jsx)(_v412, {}), _v9 && (0, _v1.jsx)(_v398, {})]
       });
     };
-  var _v418 = _v0.i(0),
-    _v419 = _v0.i(0);
-  let _v420 = () => {
+  var _v415 = _v0.i(0),
+    _v416 = _v0.i(0);
+  let _v417 = () => {
     let {
         sendSortEvent: _v0
-      } = _v196(),
+      } = _v193(),
       {
         sort: _v1,
         onLibraryFilterChange: _v2
-      } = _v188(),
-      _v3 = _v1 || _v121.relevance.value;
-    return (0, _v1.jsx)(_v232.Menu, {
-      children: (0, _v1.jsx)(_v418.MenuOptionGroup, {
+      } = _v186(),
+      _v3 = _v1 || _v119.relevance.value;
+    return (0, _v1.jsx)(_v229.Menu, {
+      children: (0, _v1.jsx)(_v415.MenuOptionGroup, {
         defaultValue: _v3,
         type: "radio",
         onChange: _v0 => {
           let _v1 = null;
-          for (let _v0 of Object.values(_v121)) if (_v0.value === _v0) {
+          for (let _v0 of Object.values(_v119)) if (_v0.value === _v0) {
             _v1 = _v0.untranslatedText;
             break;
           }
@@ -13084,37 +13053,37 @@
             previousValue: _v3
           }), _v2(_v36, _v0);
         },
-        children: Object.keys(_v121).map((_v0, _v1) => (0, _v1.jsx)(_v419.MenuItemOption, {
-          value: _v121[_v0].value,
-          children: _v121[_v0].text
+        children: Object.keys(_v119).map((_v0, _v1) => (0, _v1.jsx)(_v416.MenuItemOption, {
+          value: _v119[_v0].value,
+          children: _v119[_v0].text
         }, _v1))
       })
     });
   };
-  var _v421 = _v0.i(0),
-    _v422 = _v0.i(0);
-  let _v423 = () => {
+  var _v418 = _v0.i(0),
+    _v419 = _v0.i(0);
+  let _v420 = () => {
     let _v0,
       _v1 = (0, _v2.useRouter)(),
-      _v2 = (0, _v3.useContext)(_v67.ViewerContext),
+      _v2 = (0, _v3.useContext)(_v65.ViewerContext),
       {
         searchType: _v3
-      } = (0, _v3.useContext)(_v152),
+      } = (0, _v3.useContext)(_v150),
       {
         query: _v4,
         type: _v5
-      } = _v175(),
-      _v6 = _v86.options.people.value,
-      _v7 = _v86.options.clip.value,
+      } = _v173(),
+      _v6 = _v84.options.people.value,
+      _v7 = _v84.options.clip.value,
       _v8 = _v5 !== _v6,
-      _v9 = _v3 === _v150,
+      _v9 = _v3 === _v148,
       {
         data: _v10,
         isLoading: _v11
-      } = _v184(() => _v1.isReady && _v2?.apiUrl && _v8 && _v9 ? {
+      } = _v182(() => _v1.isReady && _v2?.apiUrl && _v8 && _v9 ? {
         select: ["clip.name"],
         query: {
-          filterType: _v5 ? _v86.options[_v5].value : _v7,
+          filterType: _v5 ? _v84.options[_v5].value : _v7,
           query: _v4,
           facets: !0
         }
@@ -13127,7 +13096,7 @@
       categoryFilter: _v12 && (_v0 = {
         default: {
           value: "default",
-          text: _v80.ANY
+          text: _v78.ANY
         }
       }, _v12.options.forEach(_v0 => {
         _v0.total > 0 && (_v0[_v0.name] = {
@@ -13135,15 +13104,15 @@
           text: _v0.text
         });
       }), {
-        nameCopy: _v5 === _v86.options.ondemand.value ? _v80.GENRES : _v80.CATEGORIES,
+        nameCopy: _v5 === _v84.options.ondemand.value ? _v78.GENRES : _v78.CATEGORIES,
         name: _v12.name,
         options: _v0
       })
     };
   };
-  var _v424 = _v0.i(0),
-    _v425 = _v0.i(0);
-  let _v426 = ({
+  var _v421 = _v0.i(0),
+    _v422 = _v0.i(0);
+  let _v423 = ({
       value: _v0,
       filterDetails: _v1,
       onChange: _v2
@@ -13155,10 +13124,10 @@
         }),
         {
           onFilterChange: _v6
-        } = _v175(),
+        } = _v173(),
         {
           sendFilterEvent: _v7
-        } = _v196(),
+        } = _v193(),
         {
           options: _v8,
           name: _v9,
@@ -13167,16 +13136,16 @@
         } = _v1,
         _v12 = _v8.default?.value,
         _v13 = _v0 && _v8[_v0] ? _v8[_v0].value : _v12,
-        _v14 = _v9 === _v86.name,
+        _v14 = _v9 === _v84.name,
         _v15 = Object.keys(_v8),
         _v16 = _v15.length > 8,
         _v17 = _v3 ? _v15 : _v15.slice(0, 8),
         _v18 = !_v14 && void 0 !== _v0;
-      return (0, _v1.jsx)(_v392, {
+      return (0, _v1.jsx)(_v389, {
         children: ({
           isExpanded: _v0
         }) => (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v394, {
+          children: [(0, _v1.jsx)(_v391, {
             isExpanded: _v0,
             nameCopy: _v10,
             showResetButton: _v18,
@@ -13188,11 +13157,11 @@
                 previousValue: [_v13]
               });
             }
-          }), (0, _v1.jsxs)(_v396, {
-            children: [(0, _v1.jsx)(_v424.RadioGroup, {
+          }), (0, _v1.jsxs)(_v393, {
+            children: [(0, _v1.jsx)(_v421.RadioGroup, {
               onChange: _v0 => {
                 _v7({
-                  copy: _v142(_v8, _v0),
+                  copy: _v140(_v8, _v0),
                   value: [_v0],
                   valueName: _v11 ?? _v10,
                   previousValue: [_v13]
@@ -13200,14 +13169,14 @@
               },
               value: _v13,
               defaultValue: _v12,
-              children: (0, _v1.jsx)(_v366.Stack, {
+              children: (0, _v1.jsx)(_v363.Stack, {
                 direction: "column",
                 gap: "0",
-                children: _v17.map(_v0 => (0, _v1.jsx)(_v425.Radio, {
+                children: _v17.map(_v0 => (0, _v1.jsx)(_v422.Radio, {
                   size: _v5,
                   value: _v8[_v0].value,
                   paddingY: (0, _v9.rem)(8),
-                  children: (0, _v1.jsx)(_v160.Text, {
+                  children: (0, _v1.jsx)(_v158.Text, {
                     variant: {
                       base: "body-lg",
                       md: "body-md"
@@ -13218,33 +13187,33 @@
                   })
                 }, _v0))
               })
-            }), _v16 && (0, _v1.jsx)(_v410, {
+            }), _v16 && (0, _v1.jsx)(_v407, {
               onClick: () => _v4(!_v3),
-              children: _v3 ? _v80.SHOW_LESS : _v80.SHOW_MORE
+              children: _v3 ? _v78.SHOW_LESS : _v78.SHOW_MORE
             })]
           })]
         })
       });
     },
-    _v427 = () => {
+    _v424 = () => {
       let {
           updated: _v0,
           category: _v1
-        } = _v175(),
+        } = _v173(),
         {
           categoryFilter: _v2
-        } = _v423();
+        } = _v420();
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v426, {
+        children: [(0, _v1.jsx)(_v423, {
           value: _v0,
-          filterDetails: _v85
-        }), _v2 && (0, _v1.jsx)(_v426, {
+          filterDetails: _v83
+        }), _v2 && (0, _v1.jsx)(_v423, {
           value: _v1,
           filterDetails: _v2
         })]
       });
     },
-    _v428 = () => {
+    _v425 = () => {
       let {
           live: _v0,
           hdr: _v1,
@@ -13256,166 +13225,166 @@
           collection: _v7,
           uploaded: _v8,
           category: _v9
-        } = _v175(),
+        } = _v173(),
         {
           categoryFilter: _v10
-        } = _v423();
+        } = _v420();
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v10 && (0, _v1.jsx)(_v426, {
+        children: [_v10 && (0, _v1.jsx)(_v423, {
           value: _v9,
           filterDetails: _v10
-        }), (0, _v1.jsx)(_v426, {
+        }), (0, _v1.jsx)(_v423, {
           value: _v0,
-          filterDetails: _v87
-        }), (0, _v1.jsx)(_v426, {
+          filterDetails: _v85
+        }), (0, _v1.jsx)(_v423, {
           value: _v1,
-          filterDetails: _v88
-        }), (0, _v1.jsx)(_v426, {
+          filterDetails: _v86
+        }), (0, _v1.jsx)(_v423, {
           value: _v2,
-          filterDetails: _v89
-        }), (0, _v1.jsx)(_v426, {
+          filterDetails: _v87
+        }), (0, _v1.jsx)(_v423, {
           value: _v3,
-          filterDetails: _v90
-        }), (0, _v1.jsx)(_v426, {
+          filterDetails: _v88
+        }), (0, _v1.jsx)(_v423, {
           value: _v4,
-          filterDetails: _v91
-        }), (0, _v1.jsx)(_v426, {
+          filterDetails: _v89
+        }), (0, _v1.jsx)(_v423, {
           value: _v5,
-          filterDetails: _v92
-        }), (0, _v1.jsx)(_v426, {
+          filterDetails: _v90
+        }), (0, _v1.jsx)(_v423, {
           value: _v6,
-          filterDetails: _v93
-        }), (0, _v1.jsx)(_v426, {
+          filterDetails: _v91
+        }), (0, _v1.jsx)(_v423, {
           value: _v7,
-          filterDetails: _v94
-        }), (0, _v1.jsx)(_v426, {
+          filterDetails: _v92
+        }), (0, _v1.jsx)(_v423, {
           value: _v8,
-          filterDetails: _v84
+          filterDetails: _v82
         })]
       });
     },
-    _v429 = () => {
+    _v426 = () => {
       let {
           category: _v0
-        } = _v175(),
+        } = _v173(),
         {
           categoryFilter: _v1
-        } = _v423();
+        } = _v420();
       return (0, _v1.jsx)(_v1.Fragment, {
-        children: _v1 && (0, _v1.jsx)(_v426, {
+        children: _v1 && (0, _v1.jsx)(_v423, {
           value: _v0,
           filterDetails: _v1
         })
       });
     },
-    _v430 = () => {
+    _v427 = () => {
       let {
           category: _v0
-        } = _v175(),
+        } = _v173(),
         {
           categoryFilter: _v1
-        } = _v423();
+        } = _v420();
       return (0, _v1.jsx)(_v1.Fragment, {
-        children: _v1 && (0, _v1.jsx)(_v426, {
+        children: _v1 && (0, _v1.jsx)(_v423, {
           value: _v0,
           filterDetails: _v1
         })
       });
     },
-    _v431 = () => {
-      let _v0 = (0, _v3.useContext)(_v67.ViewerContext),
+    _v428 = () => {
+      let _v0 = (0, _v3.useContext)(_v65.ViewerContext),
         {
           follow: _v1,
           onFilterChange: _v2
-        } = _v175(),
+        } = _v173(),
         {
           sendFilterEvent: _v3
-        } = _v196(),
+        } = _v193(),
         _v4 = (0, _v25.useBreakpointValue)({
           base: "md",
           md: "sm"
         });
       return (0, _v1.jsx)(_v1.Fragment, {
-        children: _v0?.user && (0, _v1.jsx)(_v392, {
+        children: _v0?.user && (0, _v1.jsx)(_v389, {
           children: ({
             isExpanded: _v0
           }) => (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v394, {
+            children: [(0, _v1.jsx)(_v391, {
               isExpanded: _v0,
-              nameCopy: _v95.nameCopy,
+              nameCopy: _v93.nameCopy,
               showResetButton: !!_v1,
               onResetClick: () => {
-                _v2(_v95.name, _v95.options.default.value), _v3({
+                _v2(_v93.name, _v93.options.default.value), _v3({
                   copy: _v30,
-                  value: [_v95.options.default.value],
-                  valueName: _v95.untranslatedCopy ?? _v95.nameCopy,
+                  value: [_v93.options.default.value],
+                  valueName: _v93.untranslatedCopy ?? _v93.nameCopy,
                   previousValue: [_v1]
                 });
               }
-            }), (0, _v1.jsx)(_v396, {
-              children: (0, _v1.jsx)(_v390.Checkbox, {
+            }), (0, _v1.jsx)(_v393, {
+              children: (0, _v1.jsx)(_v387.Checkbox, {
                 isChecked: !!_v1,
                 paddingY: "sm",
                 size: _v4,
                 onChange: () => {
-                  let _v0 = !0 == !!_v1 ? _v95.options.default.value : _v95.options.follow.value;
+                  let _v0 = !0 == !!_v1 ? _v93.options.default.value : _v93.options.follow.value;
                   _v2("follow", _v0), _v3({
-                    copy: _v95.options.follow.untranslatedText,
+                    copy: _v93.options.follow.untranslatedText,
                     value: [_v0],
-                    valueName: _v95.untranslatedCopy ?? _v95.nameCopy,
-                    previousValue: [_v1 ?? _v95.options.default.value]
+                    valueName: _v93.untranslatedCopy ?? _v93.nameCopy,
+                    previousValue: [_v1 ?? _v93.options.default.value]
                   });
                 },
-                children: _v95.options.follow.text
+                children: _v93.options.follow.text
               })
             })]
           })
         })
       });
     },
-    _v432 = () => {
+    _v429 = () => {
       let {
           type: _v0
-        } = _v175(),
-        _v1 = (0, _v3.useContext)(_v67.ViewerContext),
+        } = _v173(),
+        _v1 = (0, _v3.useContext)(_v65.ViewerContext),
         [_v2, _v3] = (0, _v3.useState)(!1),
-        _v4 = _v86.options.clip.value,
-        _v5 = _v86.options.channel.value,
-        _v6 = _v86.options.people.value,
-        _v7 = _v86.options.group.value,
-        _v8 = _v86.options.ondemand.value;
+        _v4 = _v84.options.clip.value,
+        _v5 = _v84.options.channel.value,
+        _v6 = _v84.options.people.value,
+        _v7 = _v84.options.group.value,
+        _v8 = _v84.options.ondemand.value;
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v388.Accordion, {
+        children: [(0, _v1.jsx)(_v385.Accordion, {
           allowMultiple: !0,
           allowToggle: !0,
           defaultIndex: [...Array(11).keys()],
           children: (_v0 => {
             switch (_v0) {
               case _v6:
-                return (0, _v1.jsx)(_v431, {});
-              case _v5:
-                return (0, _v1.jsx)(_v427, {});
-              case _v7:
-                return (0, _v1.jsx)(_v429, {});
-              case _v4:
                 return (0, _v1.jsx)(_v428, {});
+              case _v5:
+                return (0, _v1.jsx)(_v424, {});
+              case _v7:
+                return (0, _v1.jsx)(_v426, {});
+              case _v4:
+                return (0, _v1.jsx)(_v425, {});
               case _v8:
-                return (0, _v1.jsx)(_v430, {});
+                return (0, _v1.jsx)(_v427, {});
               default:
                 return;
             }
           })(_v0)
-        }), (0, _v1.jsx)(_v161.Button, {
+        }), (0, _v1.jsx)(_v159.Button, {
           size: "md",
           variant: "tertiary",
           backgroundColor: "fill-component",
           onClick: () => _v3(!0),
           width: "100%",
-          leftIcon: (0, _v1.jsx)(_v421.SettingsGear, {}),
+          leftIcon: (0, _v1.jsx)(_v418.SettingsGear, {}),
           marginY: "sm",
           justifyContent: "flex-start",
-          children: _v80.CONTENT_FILTER
-        }), _v1 && (0, _v1.jsx)(_v422.MatureContentModal, {
+          children: _v78.CONTENT_FILTER
+        }), _v1 && (0, _v1.jsx)(_v419.MatureContentModal, {
           open: _v2,
           onClose: () => _v3(!1),
           token: _v1.xsrft,
@@ -13423,19 +13392,19 @@
         })]
       });
     },
-    _v433 = () => {
+    _v430 = () => {
       let {
-          type: _v0 = _v86.options.clip.value,
+          type: _v0 = _v84.options.clip.value,
           onFilterChange: _v1,
           sort: _v2
-        } = _v175(),
+        } = _v173(),
         {
           sendSortEvent: _v3
-        } = _v196(),
-        _v4 = _v120[_v0],
-        _v5 = _v2 ?? _v120.clip.relevance.value;
-      return (0, _v1.jsx)(_v232.Menu, {
-        children: (0, _v1.jsx)(_v418.MenuOptionGroup, {
+        } = _v193(),
+        _v4 = _v118[_v0],
+        _v5 = _v2 ?? _v118.clip.relevance.value;
+      return (0, _v1.jsx)(_v229.Menu, {
+        children: (0, _v1.jsx)(_v415.MenuOptionGroup, {
           defaultValue: _v5,
           type: "radio",
           onChange: _v0 => {
@@ -13451,50 +13420,50 @@
               previousValue: _v5
             });
           },
-          children: Object.keys(_v4).map((_v0, _v1) => (0, _v1.jsx)(_v419.MenuItemOption, {
+          children: Object.keys(_v4).map((_v0, _v1) => (0, _v1.jsx)(_v416.MenuItemOption, {
             value: _v4[_v0].value,
             children: _v4[_v0].text
           }, _v1))
         })
       });
     };
-  var _v434 = _v0.i(0),
+  var _v431 = _v0.i(0),
+    _v432 = _v0.i(0),
+    _v433 = _v0.i(0),
+    _v434 = _v0.i(0),
     _v435 = _v0.i(0),
     _v436 = _v0.i(0),
     _v437 = _v0.i(0),
-    _v438 = _v0.i(0),
-    _v439 = _v0.i(0),
-    _v440 = _v0.i(0),
-    _v441 = _v0.i(0);
-  let _v442 = () => {
+    _v438 = _v0.i(0);
+  let _v439 = () => {
       let {
           clearFilters: _v0,
           keepPreviousUrl: _v1
-        } = _v175(),
+        } = _v173(),
         {
           clearLibraryFilters: _v2,
           keepPreviousLibraryUrl: _v3
-        } = _v188(),
+        } = _v186(),
         {
           panelStatus: _v4,
           togglePanel: _v5,
           isDrawerOpen: _v6
-        } = (0, _v3.useContext)(_v61),
+        } = (0, _v3.useContext)(_v60),
         {
           searchType: _v7
-        } = (0, _v3.useContext)(_v152),
+        } = (0, _v3.useContext)(_v150),
         _v8 = _v4 === _v31,
-        _v9 = _v7 === _v149,
+        _v9 = _v7 === _v147,
         _v10 = () => {
           if (_v8) return _v9 ? _v3() : _v1();
         };
-      return (0, _v1.jsxs)(_v436.Drawer, {
+      return (0, _v1.jsxs)(_v433.Drawer, {
         placement: "bottom",
         isOpen: _v6,
         onClose: () => {
           _v10(), _v5();
         },
-        children: [(0, _v1.jsx)(_v441.DrawerOverlay, {}), (0, _v1.jsx)(_v434.motion.div, {
+        children: [(0, _v1.jsx)(_v438.DrawerOverlay, {}), (0, _v1.jsx)(_v431.motion.div, {
           drag: "y",
           dragConstraints: {
             top: 0,
@@ -13503,7 +13472,7 @@
           onDragEnd: (_v0, _v1) => {
             _v1.offset.y < 0 || (_v10(), _v5());
           },
-          children: (0, _v1.jsxs)(_v437.DrawerContent, {
+          children: (0, _v1.jsxs)(_v434.DrawerContent, {
             maxHeight: `calc(100vh - ${(0, _v9.rem)(64)})`,
             borderBottomRightRadius: "0",
             borderBottomLeftRadius: "0",
@@ -13512,7 +13481,7 @@
                 maxW: "100vw"
               }
             },
-            children: [(0, _v1.jsx)(_v435.bokeh.hr, {
+            children: [(0, _v1.jsx)(_v432.bokeh.hr, {
               backgroundColor: "text-tertiary",
               alignSelf: "center",
               paddingY: (0, _v9.rem)(2),
@@ -13520,7 +13489,7 @@
               border: "none",
               borderRadius: (0, _v9.rem)(10),
               my: "sm"
-            }), (0, _v1.jsxs)(_v438.DrawerHeader, {
+            }), (0, _v1.jsxs)(_v435.DrawerHeader, {
               display: "flex",
               justifyContent: "space-between",
               width: "100%",
@@ -13528,10 +13497,10 @@
               pr: (0, _v9.rem)(28),
               pb: "md",
               pl: (0, _v9.rem)(32),
-              children: [(0, _v1.jsx)(_v160.Text, {
+              children: [(0, _v1.jsx)(_v158.Text, {
                 variant: "heading-sm",
-                children: _v8 ? _v80.FILTERS : _v80.SORT
-              }), (0, _v1.jsx)(_v206.CloseButton, {
+                children: _v8 ? _v78.FILTERS : _v78.SORT
+              }), (0, _v1.jsx)(_v203.CloseButton, {
                 "aria-label": "close button",
                 size: "sm",
                 variant: "tertiary",
@@ -13539,24 +13508,24 @@
                   _v10(), _v5();
                 }
               })]
-            }), (0, _v1.jsx)(_v439.DrawerBody, {
+            }), (0, _v1.jsx)(_v436.DrawerBody, {
               sx: {
                 "&&": {
                   pt: "0"
                 }
               },
-              children: _v8 ? _v9 ? (0, _v1.jsx)(_v417, {}) : (0, _v1.jsx)(_v432, {}) : _v9 ? (0, _v1.jsx)(_v420, {}) : (0, _v1.jsx)(_v433, {})
-            }), _v8 && (0, _v1.jsx)(_v440.DrawerFooter, {
+              children: _v8 ? _v9 ? (0, _v1.jsx)(_v414, {}) : (0, _v1.jsx)(_v429, {}) : _v9 ? (0, _v1.jsx)(_v417, {}) : (0, _v1.jsx)(_v430, {})
+            }), _v8 && (0, _v1.jsx)(_v437.DrawerFooter, {
               boxSizing: "border-box",
               padding: "0",
-              children: (0, _v1.jsxs)(_v158.Grid, {
+              children: (0, _v1.jsxs)(_v156.Grid, {
                 templateColumns: "repeat(2, 1fr)",
                 gridGap: "md",
                 width: "100%",
                 height: (0, _v9.rem)(72),
                 alignItems: "center",
                 paddingX: "md",
-                children: [(0, _v1.jsx)(_v161.Button, {
+                children: [(0, _v1.jsx)(_v159.Button, {
                   size: "md",
                   width: "100%",
                   variant: "tertiary",
@@ -13564,14 +13533,14 @@
                   onClick: () => {
                     _v9 ? _v2() : _v0(), _v5();
                   },
-                  children: _v80.RESET_ALL
-                }), (0, _v1.jsx)(_v161.Button, {
+                  children: _v78.RESET_ALL
+                }), (0, _v1.jsx)(_v159.Button, {
                   size: "md",
                   variant: "primary",
                   width: "100%",
                   marginRight: "xs",
                   onClick: () => {
-                    _v264.BigPictureClient.sendEvent(new _v264.Event("vimeo.click", 151, {
+                    _v261.BigPictureClient.sendEvent(new _v261.Event("vimeo.click", 151, {
                       name: "apply_search_filters_mobile",
                       feature: "search",
                       location: "filter_bar",
@@ -13586,7 +13555,7 @@
                       third_party_integration: null
                     })), _v5();
                   },
-                  children: _v80.APPLY
+                  children: _v78.APPLY
                 })]
               })
             })]
@@ -13594,29 +13563,29 @@
         })]
       });
     },
-    _v443 = () => {
+    _v440 = () => {
       let {
           clearFilters: _v0,
           appliedFiltersCount: _v1
-        } = _v175(),
+        } = _v173(),
         {
           clearLibraryFilters: _v2,
           appliedFiltersCount: _v3
-        } = _v188(),
+        } = _v186(),
         {
           panelStatus: _v4,
           hasDrawer: _v5,
           togglePanel: _v6
-        } = (0, _v3.useContext)(_v61),
+        } = (0, _v3.useContext)(_v60),
         {
           searchType: _v7
-        } = (0, _v3.useContext)(_v152),
+        } = (0, _v3.useContext)(_v150),
         _v8 = (0, _v25.useBreakpointValue)(_v33),
-        _v9 = _v7 === _v149,
+        _v9 = _v7 === _v147,
         _v10 = _v4 === _v31,
         _v11 = _v8 === _v33.sm ? 10 : 40;
       return (0, _v1.jsx)(_v1.Fragment, {
-        children: _v5 ? (0, _v1.jsx)(_v442, {}) : (0, _v1.jsxs)(_v157.Panel, {
+        children: _v5 ? (0, _v1.jsx)(_v439, {}) : (0, _v1.jsxs)(_v155.Panel, {
           isVisible: !!_v4,
           display: "flex",
           alignItems: "center",
@@ -13650,25 +13619,25 @@
             flex: "1 0 auto",
             maxWidth: _v44
           },
-          children: [(0, _v1.jsxs)(_v157.PanelHeader, {
+          children: [(0, _v1.jsxs)(_v155.PanelHeader, {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
             width: "100%",
             padding: "sm",
             pr: "md",
-            children: [(0, _v1.jsx)(_v160.Text, {
+            children: [(0, _v1.jsx)(_v158.Text, {
               variant: "heading-sm",
-              children: _v10 ? _v80.FILTERS : _v80.SORT
-            }), (0, _v1.jsx)(_v156.Box, {
-              children: (0, _v1.jsx)(_v206.CloseButton, {
+              children: _v10 ? _v78.FILTERS : _v78.SORT
+            }), (0, _v1.jsx)(_v154.Box, {
+              children: (0, _v1.jsx)(_v203.CloseButton, {
                 "aria-label": "close button",
                 size: "sm",
                 variant: "tertiary",
                 onClick: () => _v6()
               })
             })]
-          }), (0, _v1.jsx)(_v157.PanelBody, {
+          }), (0, _v1.jsx)(_v155.PanelBody, {
             overflowY: "auto",
             padding: "0",
             pt: "sm",
@@ -13677,42 +13646,42 @@
               scrollbarWidth: "thin",
               scrollbarColor: `${_v34} transparent`
             },
-            children: (0, _v1.jsx)(_v156.Box, {
+            children: (0, _v1.jsx)(_v154.Box, {
               width: 256,
-              children: _v10 ? _v9 ? (0, _v1.jsx)(_v417, {}) : (0, _v1.jsx)(_v432, {}) : _v9 ? (0, _v1.jsx)(_v420, {}) : (0, _v1.jsx)(_v433, {})
+              children: _v10 ? _v9 ? (0, _v1.jsx)(_v414, {}) : (0, _v1.jsx)(_v429, {}) : _v9 ? (0, _v1.jsx)(_v417, {}) : (0, _v1.jsx)(_v430, {})
             })
-          }), (_v9 ? _v3 > 0 : _v1 > 0) && _v10 && (0, _v1.jsx)(_v203.VStack, {
+          }), (_v9 ? _v3 > 0 : _v1 > 0) && _v10 && (0, _v1.jsx)(_v200.VStack, {
             py: "sm",
             pr: "sm",
             alignSelf: "stretch",
-            children: (0, _v1.jsx)(_v161.Button, {
+            children: (0, _v1.jsx)(_v159.Button, {
               size: "sm",
               variant: "tertiary",
               width: "100%",
               onClick: () => _v9 ? _v2() : _v0(),
-              children: _v80.RESET_ALL
+              children: _v78.RESET_ALL
             })
           })]
         })
       });
     };
-  var _v444 = _v0.i(0);
-  let _v445 = "thumbs_up",
-    _v446 = "thumbs_down",
-    _v447 = {
+  var _v441 = _v0.i(0);
+  let _v442 = "thumbs_up",
+    _v443 = "thumbs_down",
+    _v444 = {
       thumbsUp: !1,
       thumbsDown: !1,
       providedFeedback: !1
     };
-  function _v448(_v0, _v1) {
+  function _v445(_v0, _v1) {
     switch (_v1.type) {
-      case _v445:
+      case _v442:
         return {
           thumbsUp: !_v0.thumbsUp,
           thumbsDown: !1,
           providedFeedback: !0
         };
-      case _v446:
+      case _v443:
         return {
           thumbsDown: !_v0.thumbsDown,
           thumbsUp: !1,
@@ -13722,37 +13691,37 @@
         return _v0;
     }
   }
-  let _v449 = ({
+  let _v446 = ({
       onThumbsRate: _v0,
       ..._v1
     }) => {
-      let [_v2, _v3] = (0, _v3.useReducer)(_v448, _v447);
+      let [_v2, _v3] = (0, _v3.useReducer)(_v445, _v444);
       return (0, _v3.useEffect)(() => {
         _v2.providedFeedback && _v0?.(_v2);
       }, [_v2]), (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v162.IconButton, {
+        children: [(0, _v1.jsx)(_v160.IconButton, {
           variant: "tertiary",
-          icon: _v2.thumbsUp ? (0, _v1.jsx)(_v165.ThumbUpFilled, {}) : (0, _v1.jsx)(_v164.ThumbUp, {}),
+          icon: _v2.thumbsUp ? (0, _v1.jsx)(_v163.ThumbUpFilled, {}) : (0, _v1.jsx)(_v162.ThumbUp, {}),
           onClick: () => _v3({
-            type: _v445
+            type: _v442
           }),
           ..._v1,
           "aria-label": "thumbs up"
-        }), (0, _v1.jsx)(_v162.IconButton, {
+        }), (0, _v1.jsx)(_v160.IconButton, {
           variant: "tertiary",
-          icon: _v2.thumbsDown ? (0, _v1.jsx)(_v167.ThumbDownFilled, {}) : (0, _v1.jsx)(_v166.ThumbDown, {}),
+          icon: _v2.thumbsDown ? (0, _v1.jsx)(_v165.ThumbDownFilled, {}) : (0, _v1.jsx)(_v164.ThumbDown, {}),
           onClick: () => _v3({
-            type: _v446
+            type: _v443
           }),
           ..._v1,
           "aria-label": "thumbs down"
         })]
       });
     },
-    _v450 = () => {
+    _v447 = () => {
       let {
           panelMoments: _v0
-        } = (0, _v3.useContext)(_v61),
+        } = (0, _v3.useContext)(_v60),
         {
           moments: _v1,
           currentIdx: _v2 = 0,
@@ -13760,7 +13729,7 @@
         } = _v0,
         {
           query: _v4 = ""
-        } = _v188();
+        } = _v186();
       if (!_v1) return (0, _v1.jsx)(_v1.Fragment, {});
       let _v5 = _v1[_v2],
         {
@@ -13770,49 +13739,49 @@
           contents: _v9,
           type: _v10
         } = _v5,
-        _v11 = `${(0, _v218.secondsToDisplay)(Math.floor(_v6 / 0))} - ${(0, _v218.secondsToDisplay)(Math.floor(_v7 / 0))}`,
-        _v12 = _v139(_v8) || _v4;
-      return _v10 === _v125.vis ? (0, _v1.jsx)(_v453, {
+        _v11 = `${(0, _v215.secondsToDisplay)(Math.floor(_v6 / 0))} - ${(0, _v215.secondsToDisplay)(Math.floor(_v7 / 0))}`,
+        _v12 = _v137(_v8) || _v4;
+      return _v10 === _v123.vis ? (0, _v1.jsx)(_v450, {
         content: _v9,
         timestamp: _v11,
         query: _v12
-      }) : _v10 === _v125.comment || _v10 === _v125.commentReply ? (0, _v1.jsx)(_v451, {
+      }) : _v10 === _v123.comment || _v10 === _v123.commentReply ? (0, _v1.jsx)(_v448, {
         currentMoment: _v5,
         type: _v10,
         query: _v4,
         link: _v3
-      }) : (0, _v1.jsxs)(_v156.Box, {
+      }) : (0, _v1.jsxs)(_v154.Box, {
         mx: "sm",
-        children: [(0, _v1.jsx)(_v452, {
+        children: [(0, _v1.jsx)(_v449, {
           mr: "sm",
           children: _v11
-        }), (0, _v1.jsx)(_v217.Paragraph, {
+        }), (0, _v1.jsx)(_v214.Paragraph, {
           variant: "body-lg",
           display: "inline",
-          children: (0, _v1.jsx)(_v322, {
+          children: (0, _v1.jsx)(_v319, {
             query: _v12,
-            children: _v140(_v9, _v12, 30, 80)
+            children: _v138(_v9, _v12, 30, 80)
           })
         })]
       });
     },
-    _v451 = ({
+    _v448 = ({
       currentMoment: _v0,
       query: _v1,
       type: _v2,
       link: _v3 = ""
     }) => {
-      let _v4 = (0, _v280.useNotification)(),
+      let _v4 = (0, _v277.useNotification)(),
         {
           contents: _v5,
           contentsHighlight: _v6,
           metadata: _v7,
           startTime: _v8
         } = _v0,
-        _v9 = _v139(_v6) || _v1,
-        _v10 = `${(0, _v218.secondsToDisplay)(Math.floor(_v8 / 0))}`,
-        _v11 = _v2 === _v125.comment ? _v7.connections.privateComment : _v7.connections.privateCommentReply;
-      return (0, _v1.jsxs)(_v202.HStack, {
+        _v9 = _v137(_v6) || _v1,
+        _v10 = `${(0, _v215.secondsToDisplay)(Math.floor(_v8 / 0))}`,
+        _v11 = _v2 === _v123.comment ? _v7.connections.privateComment : _v7.connections.privateCommentReply;
+      return (0, _v1.jsxs)(_v199.HStack, {
         borderRadius: "md",
         padding: "sm",
         role: "group",
@@ -13820,9 +13789,9 @@
         _hover: {
           background: "fill-component-hover"
         },
-        children: [(0, _v1.jsx)(_v156.Box, {
+        children: [(0, _v1.jsx)(_v154.Box, {
           alignSelf: "flex-start",
-          children: (0, _v1.jsx)(_v360.Avatar, {
+          children: (0, _v1.jsx)(_v357.Avatar, {
             size: "sm",
             alt: "user avatar",
             src: _v11.user?.pictures?.sizes[1]?.link,
@@ -13830,32 +13799,32 @@
               name: String(_v11.user?.name ?? "")
             }
           })
-        }), (0, _v1.jsxs)(_v203.VStack, {
+        }), (0, _v1.jsxs)(_v200.VStack, {
           w: "100%",
           gap: "0",
-          children: [(0, _v1.jsxs)(_v202.HStack, {
+          children: [(0, _v1.jsxs)(_v199.HStack, {
             justifyContent: "space-between",
             w: "100%",
-            children: [(0, _v1.jsxs)(_v202.HStack, {
-              children: [(0, _v1.jsx)(_v160.Text, {
+            children: [(0, _v1.jsxs)(_v199.HStack, {
+              children: [(0, _v1.jsx)(_v158.Text, {
                 variant: "heading-xs",
                 children: _v11.user?.name || 0
-              }), (0, _v1.jsx)(_v160.Text, {
+              }), (0, _v1.jsx)(_v158.Text, {
                 variant: "body-md",
                 color: "text-secondary",
-                children: (0, _v218.fromNow)(new Date(_v11.createdOn), {
+                children: (0, _v215.fromNow)(new Date(_v11.createdOn), {
                   shorten: !0
                 })
               })]
-            }), (0, _v1.jsx)(_v215.Tooltip, {
+            }), (0, _v1.jsx)(_v212.Tooltip, {
               placement: "top",
-              label: _v80.COPY_LINK_TO_COMMENT,
-              children: (0, _v1.jsx)(_v162.IconButton, {
+              label: _v78.COPY_LINK_TO_COMMENT,
+              children: (0, _v1.jsx)(_v160.IconButton, {
                 size: "xs",
                 variant: "tertiary",
-                icon: (0, _v1.jsx)(_v444.Link, {}),
+                icon: (0, _v1.jsx)(_v441.Link, {}),
                 opacity: "0",
-                "aria-label": _v80.COPY_LINK_TO_COMMENT,
+                "aria-label": _v78.COPY_LINK_TO_COMMENT,
                 _hover: {
                   color: "text-primary",
                   background: "button-secondary-default"
@@ -13865,20 +13834,20 @@
                 },
                 onClick: () => {
                   _v4({
-                    content: _v80.COMMENT_LINK_COPIED
-                  }), (0, _v339.default)(_v3);
+                    content: _v78.COMMENT_LINK_COPIED
+                  }), (0, _v336.default)(_v3);
                 }
               })
             })]
-          }), (0, _v1.jsxs)(_v156.Box, {
+          }), (0, _v1.jsxs)(_v154.Box, {
             alignSelf: "flex-start",
-            children: [(0, _v1.jsx)(_v452, {
+            children: [(0, _v1.jsx)(_v449, {
               mr: "sm",
               children: _v10
-            }), (0, _v1.jsx)(_v217.Paragraph, {
+            }), (0, _v1.jsx)(_v214.Paragraph, {
               variant: "body-lg",
               display: "inline",
-              children: (0, _v1.jsx)(_v322, {
+              children: (0, _v1.jsx)(_v319, {
                 query: _v9,
                 children: _v5
               })
@@ -13887,7 +13856,7 @@
         })]
       });
     },
-    _v452 = _v0 => (0, _v1.jsx)(_v160.Text, {
+    _v449 = _v0 => (0, _v1.jsx)(_v158.Text, {
       variant: "heading-2xs",
       background: "fill-component",
       width: "fit-content",
@@ -13898,7 +13867,7 @@
       alignItems: "center",
       ..._v0
     }),
-    _v453 = ({
+    _v450 = ({
       timestamp: _v0,
       content: _v1,
       query: _v2
@@ -13907,30 +13876,30 @@
         [_v5, _v6] = (0, _v3.useState)(!1),
         {
           sendMomentsThumbsRate: _v7
-        } = _v196(),
-        _v8 = (0, _v280.useNotification)(),
+        } = _v193(),
+        _v8 = (0, _v277.useNotification)(),
         _v9 = (0, _v3.useCallback)(_v0 => {
           _v0 && _v6(_v0?.scrollHeight > _v0.clientHeight + 2);
         }, []);
-      return (0, _v1.jsxs)(_v203.VStack, {
+      return (0, _v1.jsxs)(_v200.VStack, {
         gap: "sm",
         alignItems: "flex-start",
         h: "100%",
         mx: "sm",
-        children: [(0, _v1.jsx)(_v452, {
+        children: [(0, _v1.jsx)(_v449, {
           mr: "sm",
           children: _v0
-        }), (0, _v1.jsx)(_v160.Text, {
+        }), (0, _v1.jsx)(_v158.Text, {
           ref: _v9,
           variant: "body-lg",
           maxHeight: _v3 ? "max-content" : (0, _v9.rem)(178),
           noOfLines: _v3 ? void 0 : 8,
           overflow: _v3 ? "visible" : "hidden",
-          children: (0, _v1.jsx)(_v322, {
+          children: (0, _v1.jsx)(_v319, {
             query: _v2,
             children: _v1
           })
-        }), _v5 && (0, _v1.jsx)(_v161.Button, {
+        }), _v5 && (0, _v1.jsx)(_v159.Button, {
           variant: "secondary",
           size: {
             base: "md",
@@ -13938,24 +13907,24 @@
           },
           onClick: () => _v4(!_v3),
           flex: "0 0 auto",
-          children: _v3 ? _v80.SHOW_LESS : _v80.SHOW_MORE
-        }), (0, _v1.jsxs)(_v202.HStack, {
+          children: _v3 ? _v78.SHOW_LESS : _v78.SHOW_MORE
+        }), (0, _v1.jsxs)(_v199.HStack, {
           h: (0, _v9.rem)(24),
           w: "100%",
           marginTop: _v3 ? "md" : (0, _v9.rem)(36),
           alignSelf: "center",
           justifyContent: "space-between",
-          children: [(0, _v1.jsx)(_v160.Text, {
+          children: [(0, _v1.jsx)(_v158.Text, {
             variant: "heading-2xs",
             color: "text-secondary",
-            children: _v80.DESCRIPTION_AI_GENERATED
-          }), (0, _v1.jsx)(_v202.HStack, {
-            children: (0, _v1.jsx)(_v449, {
+            children: _v78.DESCRIPTION_AI_GENERATED
+          }), (0, _v1.jsx)(_v199.HStack, {
+            children: (0, _v1.jsx)(_v446, {
               size: "xs",
               color: "text-secondary",
               onThumbsRate: _v0 => {
                 _v7(_v0), _v8({
-                  content: _v80.THANKS_FOR_FEEDBACK
+                  content: _v78.THANKS_FOR_FEEDBACK
                 });
               }
             })
@@ -13963,10 +13932,10 @@
         })]
       });
     },
-    _v454 = ({
+    _v451 = ({
       isOpen: _v0,
       ..._v1
-    }) => (0, _v1.jsx)(_v157.Panel, {
+    }) => (0, _v1.jsx)(_v155.Panel, {
       isVisible: _v0,
       display: "flex",
       alignItems: "center",
@@ -13996,7 +13965,7 @@
         maxWidth: (0, _v9.rem)(480),
         background: "fill-surface"
       },
-      children: (0, _v1.jsx)(_v157.PanelBody, {
+      children: (0, _v1.jsx)(_v155.PanelBody, {
         padding: "0",
         height: "calc(100vh - 215px)",
         position: "relative",
@@ -14007,20 +13976,20 @@
         ..._v1
       })
     }),
-    _v455 = ({
+    _v452 = ({
       isOpen: _v0,
       ..._v1
     }) => {
       let {
         togglePanel: _v2
-      } = (0, _v3.useContext)(_v61);
-      return (0, _v1.jsxs)(_v436.Drawer, {
+      } = (0, _v3.useContext)(_v60);
+      return (0, _v1.jsxs)(_v433.Drawer, {
         placement: "bottom",
         isOpen: _v0,
         onClose: () => {
           _v2();
         },
-        children: [(0, _v1.jsx)(_v441.DrawerOverlay, {}), (0, _v1.jsx)(_v434.motion.div, {
+        children: [(0, _v1.jsx)(_v438.DrawerOverlay, {}), (0, _v1.jsx)(_v431.motion.div, {
           drag: "y",
           dragConstraints: {
             top: 0,
@@ -14029,7 +13998,7 @@
           onDragEnd: (_v0, _v1) => {
             _v1.offset.y < 0 || _v2();
           },
-          children: (0, _v1.jsxs)(_v437.DrawerContent, {
+          children: (0, _v1.jsxs)(_v434.DrawerContent, {
             height: `calc(100vh - ${(0, _v9.rem)(64)})`,
             borderBottomRightRadius: "0",
             borderBottomLeftRadius: "0",
@@ -14040,7 +14009,7 @@
                 maxW: "100vw"
               }
             },
-            children: [(0, _v1.jsx)(_v435.bokeh.hr, {
+            children: [(0, _v1.jsx)(_v432.bokeh.hr, {
               backgroundColor: "text-tertiary",
               alignSelf: "center",
               paddingY: (0, _v9.rem)(2),
@@ -14048,7 +14017,7 @@
               border: "none",
               borderRadius: (0, _v9.rem)(10),
               my: "sm"
-            }), (0, _v1.jsx)(_v439.DrawerBody, {
+            }), (0, _v1.jsx)(_v436.DrawerBody, {
               sx: {
                 "&&": {
                   pt: "0"
@@ -14063,19 +14032,19 @@
         })]
       });
     };
-  var _v456 = _v0.i(0),
-    _v457 = _v0.i(0),
-    _v458 = _v0.i(0),
-    _v459 = _v0.i(0);
-  let _v460 = () => {
+  var _v453 = _v0.i(0),
+    _v454 = _v0.i(0),
+    _v455 = _v0.i(0),
+    _v456 = _v0.i(0);
+  let _v457 = () => {
       let {
           panelMoments: _v0,
           togglePanel: _v1,
           setPanelMoments: _v2
-        } = (0, _v3.useContext)(_v61),
+        } = (0, _v3.useContext)(_v60),
         {
           sendMomentsPanelClick: _v3
-        } = _v196(),
+        } = _v193(),
         {
           moments: _v4,
           currentIdx: _v5 = 0,
@@ -14088,7 +14057,7 @@
           endTime: _v9,
           type: _v10
         } = _v4[_v5],
-        _v11 = _v10 === _v125.comment || _v10 === _v125.commentReply,
+        _v11 = _v10 === _v123.comment || _v10 === _v123.commentReply,
         _v12 = `${_v6}&watch_full_video=0#start=${Math.floor(_v8 / 0)}&end=${Math.floor((_v11 ? _v9 + 0 : _v9) / 0)}`,
         _v13 = _v0 => {
           _v2({
@@ -14114,15 +14083,15 @@
         overflow: "hidden",
         position: "relative",
         role: "group",
-        children: [(0, _v1.jsx)(_v201.Skeleton, {
+        children: [(0, _v1.jsx)(_v198.Skeleton, {
           height: "100%",
           width: "100%"
-        }), (0, _v1.jsx)(_v156.Box, {
+        }), (0, _v1.jsx)(_v154.Box, {
           background: "fill-surface",
           height: "100%",
           width: "100%",
           position: "absolute",
-          children: (0, _v1.jsx)(_v459.EmbedPlayer, {
+          children: (0, _v1.jsx)(_v456.EmbedPlayer, {
             title: "side-panel-player",
             src: _v12
           }, _v12)
@@ -14141,25 +14110,25 @@
           _groupHover: {
             opacity: 1
           },
-          children: [(0, _v1.jsx)(_v202.HStack, {
+          children: [(0, _v1.jsx)(_v199.HStack, {
             children: _v4.length > 1 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v461, {
-                tooltipLabel: _v80.PREVIOUS_MOMENT,
-                "aria-label": _v80.PREVIOUS_MOMENT,
-                icon: (0, _v1.jsx)(_v457.ChevronLeft, {}),
+              children: [(0, _v1.jsx)(_v458, {
+                tooltipLabel: _v78.PREVIOUS_MOMENT,
+                "aria-label": _v78.PREVIOUS_MOMENT,
+                icon: (0, _v1.jsx)(_v454.ChevronLeft, {}),
                 isDisabled: 0 === _v5,
                 onClick: () => _v13(-1)
-              }), (0, _v1.jsx)(_v461, {
-                tooltipLabel: _v80.NEXT_MOMENT,
-                "aria-label": _v80.NEXT_MOMENT,
-                icon: (0, _v1.jsx)(_v458.ChevronRight, {}),
+              }), (0, _v1.jsx)(_v458, {
+                tooltipLabel: _v78.NEXT_MOMENT,
+                "aria-label": _v78.NEXT_MOMENT,
+                icon: (0, _v1.jsx)(_v455.ChevronRight, {}),
                 isDisabled: _v5 === _v4.length - 1,
                 onClick: () => _v13(1)
               })]
             })
-          }), (0, _v1.jsx)(_v461, {
+          }), (0, _v1.jsx)(_v458, {
             "aria-label": "Close panel",
-            icon: (0, _v1.jsx)(_v456.CloseXSmall, {}),
+            icon: (0, _v1.jsx)(_v453.CloseXSmall, {}),
             onClick: () => {
               _v3({
                 entityId: _v7,
@@ -14170,14 +14139,14 @@
         })]
       });
     },
-    _v461 = ({
+    _v458 = ({
       tooltipLabel: _v0,
       ..._v1
-    }) => (0, _v1.jsx)(_v215.Tooltip, {
+    }) => (0, _v1.jsx)(_v212.Tooltip, {
       label: _v0,
       isDisabled: !_v0,
       placement: "top",
-      children: (0, _v1.jsx)(_v162.IconButton, {
+      children: (0, _v1.jsx)(_v160.IconButton, {
         blur: "md",
         color: "white",
         background: "rgba(0, 0, 0, 0.9)",
@@ -14193,12 +14162,12 @@
         ..._v1
       })
     }),
-    _v462 = () => {
+    _v459 = () => {
       let {
           panelStatus: _v0,
           hasDrawer: _v1,
           panelMoments: _v2
-        } = (0, _v3.useContext)(_v61),
+        } = (0, _v3.useContext)(_v60),
         {
           moments: _v3,
           currentIdx: _v4 = 0,
@@ -14207,10 +14176,10 @@
         } = _v2,
         {
           query: _v7 = ""
-        } = _v188(),
+        } = _v186(),
         {
           sendMomentsPanelImpressions: _v8
-        } = _v196(),
+        } = _v193(),
         _v9 = !!_v0;
       if ((0, _v3.useEffect)(() => {
         _v9 && _v8();
@@ -14221,10 +14190,10 @@
           type: _v12,
           attributes: _v13
         } = _v3[_v4],
-        _v14 = _v138(_v5, _v10, _v7, !0, _v11);
-      return (0, _v1.jsxs)(_v1 ? _v455 : _v454, {
+        _v14 = _v136(_v5, _v10, _v7, !0, _v11);
+      return (0, _v1.jsxs)(_v1 ? _v452 : _v451, {
         isOpen: _v9,
-        children: [(0, _v1.jsx)(_v460, {}), (0, _v1.jsx)(_v203.VStack, {
+        children: [(0, _v1.jsx)(_v457, {}), (0, _v1.jsx)(_v200.VStack, {
           justifyContent: "space-between",
           flexGrow: "1",
           overflowY: "auto",
@@ -14242,37 +14211,37 @@
             flexDir: "column",
             width: "100%",
             height: "100%",
-            children: [(0, _v1.jsx)(_v463, {
+            children: [(0, _v1.jsx)(_v460, {
               type: _v12,
               attributes: _v13,
               marginBottom: "sm",
               momentLink: _v14,
               videoId: _v6
-            }), (0, _v1.jsx)(_v450, {}, _v14)]
+            }), (0, _v1.jsx)(_v447, {}, _v14)]
           })
-        }), (0, _v1.jsx)(_v464, {
+        }), (0, _v1.jsx)(_v461, {
           momentLink: _v14,
           videoLink: _v5,
           videoId: _v6
         })]
       });
     },
-    _v463 = ({
+    _v460 = ({
       type: _v0,
       attributes: _v1,
       momentLink: _v2,
       videoId: _v3,
       ..._v4
     }) => {
-      let _v5 = (0, _v280.useNotification)(),
+      let _v5 = (0, _v277.useNotification)(),
         {
           sendMomentsPanelClick: _v6
-        } = _v196(),
+        } = _v193(),
         {
           label: _v7,
           Icon: _v8
-        } = _v148(_v0, _v1);
-      return (0, _v1.jsxs)(_v202.HStack, {
+        } = _v146(_v0, _v1);
+      return (0, _v1.jsxs)(_v199.HStack, {
         gap: "xs",
         w: "100%",
         height: (0, _v9.rem)(20),
@@ -14282,25 +14251,25 @@
         mx: "sm",
         children: [(0, _v1.jsx)(_v8, {
           boxSize: `${(0, _v9.rem)(16)} !important`
-        }), (0, _v1.jsx)(_v160.Text, {
+        }), (0, _v1.jsx)(_v158.Text, {
           variant: "heading-sm",
           lineHeight: "inherit",
           children: _v7
-        }), (0, _v1.jsx)(_v207.Badge, {
+        }), (0, _v1.jsx)(_v204.Badge, {
           variant: "warning",
           size: "xs",
           height: (0, _v9.rem)(14),
           borderWidth: "0",
           pt: "1px",
           ml: "xs",
-          children: _v80.BETA
-        }), (0, _v1.jsx)(_v215.Tooltip, {
+          children: _v78.BETA
+        }), (0, _v1.jsx)(_v212.Tooltip, {
           placement: "top",
-          label: _v80.COPY_LINK_TO_CLIP,
-          children: (0, _v1.jsx)(_v162.IconButton, {
+          label: _v78.COPY_LINK_TO_CLIP,
+          children: (0, _v1.jsx)(_v160.IconButton, {
             size: "xs",
             variant: "tertiary",
-            icon: (0, _v1.jsx)(_v444.Link, {}),
+            icon: (0, _v1.jsx)(_v441.Link, {}),
             color: "text-secondary",
             display: "none",
             "aria-label": "copy link",
@@ -14313,8 +14282,8 @@
             },
             onClick: () => {
               _v5({
-                content: _v80.CLIP_LINK_COPIED
-              }), (0, _v339.default)(_v2), _v6({
+                content: _v78.CLIP_LINK_COPIED
+              }), (0, _v336.default)(_v2), _v6({
                 entityId: _v3,
                 copy: "Clip link copied"
               });
@@ -14323,15 +14292,15 @@
         })]
       });
     },
-    _v464 = ({
+    _v461 = ({
       videoLink: _v0,
       momentLink: _v1,
       videoId: _v2
     }) => {
-      let _v3 = (0, _v280.useNotification)(),
+      let _v3 = (0, _v277.useNotification)(),
         {
           sendMomentsPanelClick: _v4
-        } = _v196();
+        } = _v193();
       return (0, _v1.jsxs)(_v8.Flex, {
         flexDir: {
           base: "column",
@@ -14351,7 +14320,7 @@
         },
         gap: (0, _v9.rem)(12),
         w: "100%",
-        children: [(0, _v1.jsx)(_v161.Button, {
+        children: [(0, _v1.jsx)(_v159.Button, {
           size: "md",
           variant: "secondary",
           as: "a",
@@ -14365,15 +14334,15 @@
             base: "auto",
             md: "50%"
           },
-          children: _v80.VIEW_FULL_VIDEO
-        }), (0, _v1.jsx)(_v161.Button, {
+          children: _v78.VIEW_FULL_VIDEO
+        }), (0, _v1.jsx)(_v159.Button, {
           size: "md",
-          leftIcon: (0, _v1.jsx)(_v444.Link, {}),
+          leftIcon: (0, _v1.jsx)(_v441.Link, {}),
           variant: "primary",
           onClick: () => {
             _v3({
-              content: _v80.CLIP_LINK_COPIED
-            }), (0, _v339.default)(_v1), _v4({
+              content: _v78.CLIP_LINK_COPIED
+            }), (0, _v336.default)(_v1), _v4({
               entityId: _v2,
               copy: "Copy link to clip"
             });
@@ -14382,30 +14351,30 @@
             base: "auto",
             md: "50%"
           },
-          children: _v80.COPY_LINK_TO_CLIP
+          children: _v78.COPY_LINK_TO_CLIP
         })]
       });
     },
-    _v465 = () => {
+    _v462 = () => {
       let {
           panelStatus: _v0,
           togglePanel: _v1
-        } = (0, _v3.useContext)(_v61),
+        } = (0, _v3.useContext)(_v60),
         {
           query: _v2 = "",
           type: _v3
-        } = _v188(),
+        } = _v186(),
         _v4 = _v0 === _v32;
       return ((0, _v3.useEffect)(() => {
         _v4 && _v1();
       }, [_v2, _v3]), _v0) ? (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(_v0 === _v31 || "sort" === _v0) && (0, _v1.jsx)(_v443, {}), _v4 && (0, _v1.jsx)(_v462, {})]
+        children: [(_v0 === _v31 || "sort" === _v0) && (0, _v1.jsx)(_v440, {}), _v4 && (0, _v1.jsx)(_v459, {})]
       }) : (0, _v1.jsx)(_v1.Fragment, {});
     },
-    _v466 = () => {
+    _v463 = () => {
       let {
           searchType: _v0
-        } = (0, _v3.useContext)(_v152),
+        } = (0, _v3.useContext)(_v150),
         _v1 = (0, _v2.useRouter)(),
         _v2 = (0, _v14.useViewer)(),
         {
@@ -14415,7 +14384,7 @@
       (0, _v3.useEffect)(() => {
         _v24.init(_v2?.teamUser);
       }, [_v2?.teamUser]);
-      let _v5 = _v0 === _v150;
+      let _v5 = _v0 === _v148;
       return ((0, _v11.usePicoEffect)(() => {
         if (!_v1.isReady || !_v1.query.q || !_v2) return;
         let _v0 = _v1.query.q;
@@ -14428,7 +14397,7 @@
           searchResultType: _v1 && "default" !== _v1 ? _v1 : "all",
           searchPageViewerAuthStatus: (0, _v10.deriveViewerAuthStatus)(_v2)
         });
-      }, [_v1.isReady, _v1.query.q, _v5, _v2]), (_v2?.isFromCopyrightRestrictedRegion || _v2?.isSimplifiedSite) && _v5) ? (0, _v1.jsx)(_v13.PageNotAvailablePage, {}) : _v1.isReady ? !_v1.query.q && _v5 ? (0, _v1.jsx)(_v384, {}) : (0, _v1.jsx)(_v8.Flex, {
+      }, [_v1.isReady, _v1.query.q, _v5, _v2]), (_v2?.isFromCopyrightRestrictedRegion || _v2?.isSimplifiedSite) && _v5) ? (0, _v1.jsx)(_v13.PageNotAvailablePage, {}) : _v1.isReady ? !_v1.query.q && _v5 ? (0, _v1.jsx)(_v381, {}) : (0, _v1.jsx)(_v8.Flex, {
         flexDir: "column",
         paddingBottom: {
           base: "md",
@@ -14451,9 +14420,9 @@
         maxWidth: (0, _v9.rem)(0),
         width: "100%",
         alignSelf: "center",
-        children: (0, _v1.jsx)(_v62, {
-          children: (0, _v1.jsxs)(_v155, {
-            children: [(0, _v1.jsx)(_v260, {}), (0, _v1.jsxs)(_v8.Flex, {
+        children: (0, _v1.jsx)(_v61, {
+          children: (0, _v1.jsxs)(_v153, {
+            children: [(0, _v1.jsx)(_v257, {}), (0, _v1.jsxs)(_v8.Flex, {
               justifyContent: "space-between",
               flexGrow: "1",
               overflow: "hidden",
@@ -14461,7 +14430,7 @@
                 base: "md",
                 md: "lg"
               },
-              children: [_v5 ? (0, _v1.jsx)(_v378, {}) : (0, _v1.jsxs)(_v8.Flex, {
+              children: [_v5 ? (0, _v1.jsx)(_v375, {}) : (0, _v1.jsxs)(_v8.Flex, {
                 flexDir: "column",
                 height: "100%",
                 overflow: "scroll",
@@ -14471,29 +14440,29 @@
                   scrollbarWidth: "thin",
                   scrollbarColor: `${_v34} transparent`
                 },
-                children: [(0, _v1.jsx)(_v230, {}), (0, _v1.jsx)(_v354, {})]
-              }), (0, _v1.jsx)(_v465, {})]
+                children: [(0, _v1.jsx)(_v227, {}), (0, _v1.jsx)(_v351, {})]
+              }), (0, _v1.jsx)(_v462, {})]
             })]
           })
         })
       }) : null;
     },
-    _v467 = () => (0, _v1.jsx)(_v247, {
-      children: (0, _v1.jsx)(_v153, {
-        children: (0, _v1.jsx)(_v466, {})
+    _v464 = () => (0, _v1.jsx)(_v244, {
+      children: (0, _v1.jsx)(_v151, {
+        children: (0, _v1.jsx)(_v463, {})
       })
     });
-  var _v468 = _v0.i(0),
-    _v469 = _v0.i(0);
-  let _v470 = () => {
-    let _v0 = (0, _v3.useContext)(_v67.ViewerContext),
+  var _v465 = _v0.i(0),
+    _v466 = _v0.i(0);
+  let _v467 = () => {
+    let _v0 = (0, _v3.useContext)(_v65.ViewerContext),
       _v1 = (0, _v2.useRouter)();
     return (0, _v3.useEffect)(() => {
       let {
         slug: _v0,
         ..._v1
       } = _v1.query;
-      _v1.isReady && _v0?.[0] === _v149 && !_v1.q && _v1.push({
+      _v1.isReady && _v0?.[0] === _v147 && !_v1.q && _v1.push({
         query: {
           sort: "last_user_action_event_date_desc",
           ..._v1,
@@ -14503,7 +14472,7 @@
         shallow: !0
       });
     }, [_v1.isReady]), (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v467, {}), _v0 && (0, _v1.jsx)(_v468.EssentialFooter, {
+      children: [(0, _v1.jsx)(_v464, {}), _v0 && (0, _v1.jsx)(_v465.EssentialFooter, {
         ..._v0,
         enableQuotaMenu: !1
       })]
@@ -14512,7 +14481,7 @@
   (0, _v7.withPageSetup)(async _v0 => {
     let _v1 = _v0.req?.url?.split("?")[0],
       _v2 = _v1?.split("/").pop() || "";
-    return ["search", "ondemand", "people", "channel", "group", "library"].includes(_v2) ? _v2 === _v149 && _v0.req && (0, _v6.isLoggedOut)(_v0.req) ? {
+    return ["search", "ondemand", "people", "channel", "group", "library"].includes(_v2) ? _v2 === _v147 && _v0.req && (0, _v6.isLoggedOut)(_v0.req) ? {
       redirect: {
         destination: "/log_in",
         permanent: !1
@@ -14529,18 +14498,18 @@
     }), {
       notFound: !0
     });
-  }), _v470.getLayout = _v0 => {
+  }), _v467.getLayout = _v0 => {
     let _v1;
     {
       let _v0 = new URLSearchParams(window.location.search).get("q"),
-        _v1 = window.location.pathname.includes(`/${_v149}`);
+        _v1 = window.location.pathname.includes(`/${_v147}`);
       _v1 = !!_v0 || _v1;
     }
-    return (0, _v1.jsx)(_v211.VideoLibraryLayout, {
+    return (0, _v1.jsx)(_v208.VideoLibraryLayout, {
       hasSideNav: !0,
       hasGlobalSearch: _v1,
-      sideNavContent: (0, _v1.jsx)(_v469.HomeSideNavContent, {}),
+      sideNavContent: (0, _v1.jsx)(_v466.HomeSideNavContent, {}),
       children: _v0
     });
-  }, _v0.s(["__N_SSP", 0, !0, "default", 0, _v470], 0);
+  }, _v0.s(["__N_SSP", 0, !0, "default", 0, _v467], 0);
 }

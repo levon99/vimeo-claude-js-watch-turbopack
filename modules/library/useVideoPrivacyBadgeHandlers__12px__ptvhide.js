@@ -17,7 +17,9 @@
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0),
+    _v19 = _v0.i(0);
   _v0.s(["useVideoPrivacyBadgeHandlers", 0, function ({
     surface: _v0
   }) {
@@ -25,47 +27,50 @@
       {
         settings: _v2
       } = (0, _v7.useOrionSettings)(),
-      _v3 = (0, _v11.useStorageLimitLockedVideoPaywall)(),
+      _v3 = (0, _v12.useStorageLimitLockedVideoPaywall)(),
+      _v4 = (0, _v11.useColdPrivacyVideoPaywall)(),
       {
-        openVideoPrivacyModal: _v4
-      } = (0, _v14.useVideoPrivacyModal)(),
-      _v5 = (0, _v12.useUpdateVideoPrivacyCache)(),
-      _v6 = (0, _v4.useToast)(),
-      _v7 = (0, _v2.useRouter)(),
-      _v8 = `video_${_v0}`,
-      _v9 = `cold_storage_video_${_v0}_locked_video_button`;
+        openVideoPrivacyModal: _v5
+      } = (0, _v15.useVideoPrivacyModal)(),
+      _v6 = (0, _v13.useUpdateVideoPrivacyCache)(),
+      _v7 = (0, _v4.useToast)(),
+      _v8 = (0, _v2.useRouter)(),
+      _v9 = `video_${_v0}`,
+      _v10 = `cold_storage_video_${_v0}_locked_video_button`;
     return _v0 => {
       let _v1 = _v0.isColdStorage ?? !1,
-        _v2 = !!_v0.metadata?.interactions?.edit?.uri,
-        _v3 = (0, _v15.isVideoMetadataLocked)(_v0),
-        _v4 = _v8.DEFAULT_PRIVACY_OPTIONS.find(_v0 => _v0.privacy === _v0.privacy?.view),
-        _v5 = _v4 ? (0, _v9.getNewPrivacyCopy)("12px", _v1?.teamUser?.teamName, _v1?.teamUser?.isWorkspace)(_v4) : null,
-        _v6 = (0, _v16.getPrivacyTypeIconAndLabel)(_v0.privacy?.view, _v1?.teamUser, _v0.privacy?.originalView),
-        _v7 = _v0.privacy?.view === "ptv" || _v0.privacy?.view === "ptvhide",
-        _v8 = _v1 ? {
+        _v2 = _v0.privacy?.originalView,
+        _v3 = (_v2.cold_privacy_enabled ?? !1) && (_v0.isColdPrivacyRestricted ?? !1) && !_v1,
+        _v4 = !!_v0.metadata?.interactions?.edit?.uri,
+        _v5 = (0, _v16.isVideoMetadataLocked)(_v0),
+        _v6 = _v8.DEFAULT_PRIVACY_OPTIONS.find(_v0 => _v0.privacy === _v0.privacy?.view),
+        _v7 = _v6 ? (0, _v9.getNewPrivacyCopy)("12px", _v1?.teamUser?.teamName, _v1?.teamUser?.isWorkspace)(_v6) : null,
+        _v8 = (0, _v18.getPrivacyTypeIconAndLabel)(_v0.privacy?.view, _v1?.teamUser, _v2),
+        _v9 = _v0.privacy?.view === "ptv" || _v0.privacy?.view === "ptvhide",
+        _v10 = _v3 ? {
           label: (0, _v6.translate)({
-            singular: "Locked",
+            singular: "Private",
             dictionary: {
               es: {
-                singular: "Bloqueado"
+                singular: "Privado"
               },
               "de-DE": {
-                singular: "Gesperrt"
+                singular: "Privat"
               },
               "fr-FR": {
-                singular: "Verrouillé"
+                singular: "Privé"
               },
               "ja-JP": {
-                singular: "ロック済み"
+                singular: "プライベート"
               },
               "ko-KR": {
-                singular: "잠김"
+                singular: "비공개"
               },
               "pt-BR": {
-                singular: "Bloqueado"
+                singular: "Privado"
               },
               "zh-CN": {
-                singular: "已锁定"
+                singular: "私密"
               }
             }
           }),
@@ -73,7 +78,7 @@
             boxSize: "2xs",
             color: "status-caution-primary"
           })
-        } : _v7 ? {
+        } : _v9 ? {
           label: (0, _v6.translate)({
             singular: "VOD",
             dictionary: {
@@ -82,37 +87,41 @@
               }
             }
           })
-        } : _v2.privacy_settings_new_copy && _v5 ? {
-          label: _v5.title,
-          icon: _v5.icon
-        } : _v6,
-        _v9 = () => _v3({
-          location: _v8,
-          paywallTrigger: _v9
+        } : _v2.privacy_settings_new_copy && _v7 ? {
+          label: _v7.title,
+          icon: _v7.icon
+        } : _v8,
+        _v11 = () => _v3({
+          location: _v9,
+          paywallTrigger: _v10
         }),
-        _v10 = _v1 ? _v9 : _v3 && _v2 && _v2.enable_privacy_badge_modal ? () => (0, _v13.showVideoMetadataLockedToast)({
-          toast: _v6,
-          router: _v7,
-          managePath: (0, _v13.getVideoManagePath)(_v0)
-        }) : _v2 && _v2.enable_privacy_badge_modal ? () => _v4({
-          videoId: (0, _v17.idFromUri)(_v0.uri),
+        _v12 = _v1 ? _v11 : _v3 ? () => _v4({
+          location: _v9,
+          originalView: _v2
+        }) : _v5 && _v4 && _v2.enable_privacy_badge_modal ? () => (0, _v14.showVideoMetadataLockedToast)({
+          toast: _v7,
+          router: _v8,
+          managePath: (0, _v14.getVideoManagePath)(_v0)
+        }) : _v4 && _v2.enable_privacy_badge_modal ? () => _v5({
+          videoId: (0, _v19.idFromUri)(_v0.uri),
           videoName: _v0.name,
           currentPrivacy: _v0.privacy?.view ?? "",
           currentPassword: _v0.password ?? "",
           onSuccess: ({
             privacy: _v0,
             password: _v1
-          }) => _v5({
+          }) => _v6({
             uri: _v0.uri,
             privacy: _v0,
             password: _v1
           })
         }) : void 0;
       return {
-        videoPrivacy: _v8,
-        variant: _v1 ? "coldStorage" : "default",
-        onPrivacyBadgeClick: _v10,
-        openLockedVideoPaywall: _v9
+        videoPrivacy: _v10,
+        variant: _v3 ? "coldPrivacy" : "default",
+        onPrivacyBadgeClick: _v12,
+        openLockedVideoPaywall: _v11,
+        tooltipLabel: _v3 ? (0, _v17.getColdPrivacyTooltipLabel)(_v2) : void 0
       };
     };
   }]);

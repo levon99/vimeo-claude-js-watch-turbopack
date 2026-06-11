@@ -30,18 +30,20 @@
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
-    _v30 = _v0.i(0);
-  let _v31 = "recently-deleted-bulk-toast";
-  function _v32({
+    _v30 = _v0.i(0),
+    _v31 = _v0.i(0),
+    _v32 = _v0.i(0);
+  let _v33 = "recently-deleted-bulk-toast";
+  function _v34({
     numSelected: _v0,
     onDelete: _v1,
     onRestore: _v2,
     onClear: _v3
   }) {
-    let [_v4, _v5] = (0, _v7.useState)(!1),
+    let [_v4, _v5] = (0, _v10.useState)(!1),
       {
         colorMode: _v6
-      } = (0, _v27.useColorMode)(),
+      } = (0, _v29.useColorMode)(),
       _v7 = async () => {
         if (!_v4) {
           _v5(!0);
@@ -52,19 +54,19 @@
           }
         }
       },
-      _v8 = "dark" === _v6 ? _v24.LightMode : _v24.DarkMode;
+      _v8 = "dark" === _v6 ? _v27.LightMode : _v27.DarkMode;
     return (0, _v1.jsx)(_v8, {
-      children: (0, _v1.jsx)(_v30.BulkActionsBar.ActionBar, {
+      children: (0, _v1.jsx)(_v32.BulkActionsBar.ActionBar, {
         isActive: _v0 > 0,
-        targetElementId: _v31,
-        children: (0, _v1.jsxs)(_v8.Flex, {
+        targetElementId: _v33,
+        children: (0, _v1.jsxs)(_v11.Flex, {
           alignItems: "center",
           gap: "0.5rem",
-          children: [(0, _v1.jsx)(_v26.Text, {
+          children: [(0, _v1.jsx)(_v4.Text, {
             color: "text-primary",
             variant: "body-lg",
             marginRight: "3rem",
-            children: (0, _v13.translate)({
+            children: (0, _v16.translate)({
               singular: "{COUNT} video selected",
               plural: "{COUNT} videos selected",
               count: _v0,
@@ -102,9 +104,9 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v30.BulkActionsBar.ActionButton, {
-            icon: (0, _v1.jsx)(_v29.History, {}),
-            label: (0, _v13.translate)({
+          }), (0, _v1.jsx)(_v32.BulkActionsBar.ActionButton, {
+            icon: (0, _v1.jsx)(_v31.History, {}),
+            label: (0, _v16.translate)({
               singular: "Restore",
               dictionary: {
                 es: {
@@ -132,9 +134,9 @@
             }),
             disabled: _v4,
             onClick: _v7
-          }), (0, _v1.jsx)(_v30.BulkActionsBar.ActionButton, {
-            icon: (0, _v1.jsx)(_v12.TrashBin, {}),
-            label: (0, _v13.translate)({
+          }), (0, _v1.jsx)(_v32.BulkActionsBar.ActionButton, {
+            icon: (0, _v1.jsx)(_v15.TrashBin, {}),
+            label: (0, _v16.translate)({
               singular: "Delete forever",
               dictionary: {
                 es: {
@@ -161,8 +163,8 @@
               }
             }),
             onClick: _v1
-          }), (0, _v1.jsx)(_v25.IconButton, {
-            "aria-label": (0, _v13.translate)({
+          }), (0, _v1.jsx)(_v28.IconButton, {
+            "aria-label": (0, _v16.translate)({
               singular: "Deselect all",
               dictionary: {
                 es: {
@@ -189,52 +191,51 @@
               }
             }),
             onClick: _v3,
-            icon: (0, _v1.jsx)(_v28.CloseX, {}),
+            icon: (0, _v1.jsx)(_v30.CloseX, {}),
             variant: "tertiary"
           })]
         })
       })
     });
   }
-  var _v33 = _v0.i(0);
-  function _v34({
+  function _v35({
     icon: _v0,
     title: _v1,
     description: _v2
   }) {
-    return (0, _v1.jsxs)(_v8.Flex, {
+    return (0, _v1.jsxs)(_v11.Flex, {
       alignItems: "center",
       justifyContent: "center",
       flexDirection: "column",
       w: "100%",
       h: "100%",
-      children: [_v0, (0, _v1.jsx)(_v26.Text, {
+      children: [_v0, (0, _v1.jsx)(_v4.Text, {
         variant: "heading-lg",
-        margin: `${(0, _v33.rem)(16)} 0`,
+        margin: `${(0, _v5.rem)(16)} 0`,
         children: _v1
-      }), (0, _v1.jsx)(_v26.Text, {
+      }), (0, _v1.jsx)(_v4.Text, {
         variant: "body-lg",
         color: "text-secondary",
-        maxW: (0, _v33.rem)(300),
+        maxW: (0, _v5.rem)(300),
         children: _v2
       })]
     });
   }
-  var _v35 = _v0.i(0),
-    _v36 = _v0.i(0),
+  var _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
     _v39 = _v0.i(0),
     _v40 = _v0.i(0),
-    _v41 = _v0.i(0);
-  function _v42({
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0);
+  function _v43({
     isOpen: _v0,
     onClose: _v1,
     onConfirm: _v2,
     numItemsToDelete: _v3,
     title: _v4
   }) {
-    let [_v5, _v6] = (0, _v7.useState)(!1),
+    let [_v5, _v6] = (0, _v10.useState)(!1),
       _v7 = async () => {
         _v6(!0);
         try {
@@ -243,7 +244,7 @@
           _v6(!1);
         }
       },
-      _v8 = _v4 && 1 === _v3 ? (0, _v13.translate)({
+      _v8 = _v4 && 1 === _v3 ? (0, _v16.translate)({
         singular: "{TITLE} will be deleted forever. This action can't be undone.",
         replacements: {
           TITLE: _v4
@@ -271,7 +272,7 @@
             singular: "{TITLE} 将被永久删除。此操作不可撤销。"
           }
         }
-      }) : (0, _v13.translate)({
+      }) : (0, _v16.translate)({
         singular: "This video will be deleted forever. This action can't be undone.",
         plural: "{COUNT} videos will be deleted forever. This action can't be undone.",
         count: _v3,
@@ -309,16 +310,16 @@
           }
         }
       });
-    return (0, _v1.jsxs)(_v36.Modal, {
+    return (0, _v1.jsxs)(_v37.Modal, {
       isOpen: _v0,
       onClose: _v1,
-      children: [(0, _v1.jsx)(_v41.ModalOverlay, {}), (0, _v1.jsxs)(_v38.ModalContent, {
+      children: [(0, _v1.jsx)(_v42.ModalOverlay, {}), (0, _v1.jsxs)(_v39.ModalContent, {
         borderRadius: "md",
-        children: [(0, _v1.jsx)(_v40.ModalHeader, {
+        children: [(0, _v1.jsx)(_v41.ModalHeader, {
           padding: "lg",
           fontSize: "heading-md",
           color: "text-primary",
-          children: (0, _v13.translate)({
+          children: (0, _v16.translate)({
             singular: "Permanently delete?",
             dictionary: {
               es: {
@@ -344,18 +345,18 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v37.ModalBody, {
+        }), (0, _v1.jsx)(_v38.ModalBody, {
           padding: "0.5rem 1.5rem",
           fontSize: "body-md",
           color: "text-primary",
           children: _v8
-        }), (0, _v1.jsxs)(_v39.ModalFooter, {
+        }), (0, _v1.jsxs)(_v40.ModalFooter, {
           border: "0",
           padding: "lg",
-          children: [(0, _v1.jsx)(_v35.Button, {
+          children: [(0, _v1.jsx)(_v36.Button, {
             onClick: _v1,
             variant: "tertiary",
-            children: (0, _v13.translate)({
+            children: (0, _v16.translate)({
               singular: "Cancel",
               dictionary: {
                 es: {
@@ -381,12 +382,12 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v35.Button, {
+          }), (0, _v1.jsx)(_v36.Button, {
             onClick: _v7,
             variant: "destructive",
             isDisabled: _v5,
             isLoading: _v5,
-            children: (0, _v13.translate)({
+            children: (0, _v16.translate)({
               singular: "Delete forever",
               dictionary: {
                 es: {
@@ -417,19 +418,19 @@
       })]
     });
   }
-  var _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
+  var _v44 = _v0.i(0),
     _v45 = _v0.i(0),
     _v46 = _v0.i(0),
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
     _v49 = _v0.i(0),
-    _v50 = _v0.i(0);
-  function _v51({
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0);
+  function _v52({
     onDelete: _v0,
     onRestore: _v1
   }) {
-    let [_v2, _v3] = (0, _v7.useState)(!1),
+    let [_v2, _v3] = (0, _v10.useState)(!1),
       _v4 = async () => {
         if (_v1 && !_v2) {
           _v3(!0);
@@ -440,15 +441,15 @@
           }
         }
       };
-    return (0, _v1.jsxs)(_v8.Flex, {
-      gap: (0, _v33.rem)(4),
+    return (0, _v1.jsxs)(_v11.Flex, {
+      gap: (0, _v5.rem)(4),
       opacity: 0,
       _groupHover: {
         opacity: 1
       },
       transition: "opacity 0.2s ease",
-      children: [(0, _v1.jsx)(_v50.Tooltip, {
-        label: (0, _v13.translate)({
+      children: [(0, _v1.jsx)(_v51.Tooltip, {
+        label: (0, _v16.translate)({
           singular: "Restore file",
           dictionary: {
             es: {
@@ -475,8 +476,8 @@
           }
         }),
         placement: "top",
-        children: (0, _v1.jsx)(_v25.IconButton, {
-          "aria-label": (0, _v13.translate)({
+        children: (0, _v1.jsx)(_v28.IconButton, {
+          "aria-label": (0, _v16.translate)({
             singular: "Restore file",
             dictionary: {
               es: {
@@ -502,15 +503,15 @@
               }
             }
           }),
-          icon: (0, _v1.jsx)(_v29.History, {}),
+          icon: (0, _v1.jsx)(_v31.History, {}),
           variant: "blur",
           size: "xs",
           isDisabled: _v2,
           isLoading: _v2,
           onClick: _v4
         })
-      }), (0, _v1.jsx)(_v50.Tooltip, {
-        label: (0, _v13.translate)({
+      }), (0, _v1.jsx)(_v51.Tooltip, {
+        label: (0, _v16.translate)({
           singular: "Delete forever",
           dictionary: {
             es: {
@@ -537,8 +538,8 @@
           }
         }),
         placement: "top",
-        children: (0, _v1.jsx)(_v25.IconButton, {
-          "aria-label": (0, _v13.translate)({
+        children: (0, _v1.jsx)(_v28.IconButton, {
+          "aria-label": (0, _v16.translate)({
             singular: "Delete forever",
             dictionary: {
               es: {
@@ -564,7 +565,7 @@
               }
             }
           }),
-          icon: (0, _v1.jsx)(_v12.TrashBin, {}),
+          icon: (0, _v1.jsx)(_v15.TrashBin, {}),
           variant: "blur",
           size: "xs",
           isDisabled: _v2,
@@ -573,8 +574,8 @@
       })]
     });
   }
-  let _v52 = `${(0, _v33.rem)(32)} ${(0, _v33.rem)(150)} 6fr 2fr 3fr 2fr ${(0, _v33.rem)(80)}`;
-  function _v53({
+  let _v53 = `${(0, _v5.rem)(32)} ${(0, _v5.rem)(150)} 6fr 2fr 3fr 2fr ${(0, _v5.rem)(80)}`;
+  function _v54({
     videos: _v0,
     viewerUserId: _v1,
     selectedUris: _v2,
@@ -585,9 +586,9 @@
     return (0, _v1.jsx)(_v1.Fragment, {
       children: _v0.map(_v0 => {
         let _v1,
-          _v2 = _v0.filesSize && _v0.filesSize.totalSize > 0 ? (0, _v48.bytesToSize)(_v0.filesSize.totalSize) : "—",
-          _v3 = _v0.deletedBy?.uri ? (0, _v49.idFromUri)(_v0.deletedBy.uri) : null,
-          _v4 = _v0.modifiedTime ? (_v1 = Math.ceil((new Date(_v0.modifiedTime).getTime() + 0 - Date.now()) / 0)) <= 0 ? (0, _v13.translate)({
+          _v2 = _v0.filesSize && _v0.filesSize.totalSize > 0 ? (0, _v49.bytesToSize)(_v0.filesSize.totalSize) : "—",
+          _v3 = _v0.deletedBy?.uri ? (0, _v50.idFromUri)(_v0.deletedBy.uri) : null,
+          _v4 = _v0.modifiedTime ? (_v1 = Math.ceil((new Date(_v0.modifiedTime).getTime() + 0 - Date.now()) / 0)) <= 0 ? (0, _v16.translate)({
             singular: "< 1 day",
             dictionary: {
               es: {
@@ -612,7 +613,7 @@
                 singular: "< 1 天"
               }
             }
-          }) : (0, _v13.translate)({
+          }) : (0, _v16.translate)({
             singular: "{daysRemaining} day",
             plural: "{daysRemaining} days",
             replacements: {
@@ -650,39 +651,39 @@
               }
             }
           }) : "—";
-        return (0, _v1.jsxs)(_v45.ContentRow, {
-          listGridColumns: _v52,
+        return (0, _v1.jsxs)(_v46.ContentRow, {
+          listGridColumns: _v53,
           isSelected: !!_v0.uri && _v2.has(_v0.uri),
           onToggleSelected: _v0.uri ? () => _v3(_v0.uri) : void 0,
-          children: [(0, _v1.jsx)(_v45.ContentRow.Column, {
-            children: (0, _v1.jsx)(_v45.ContentRow.SelectCheckbox, {
+          children: [(0, _v1.jsx)(_v46.ContentRow.Column, {
+            children: (0, _v1.jsx)(_v46.ContentRow.SelectCheckbox, {
               size: "md"
             })
-          }), (0, _v1.jsx)(_v45.ContentRow.Column, {
-            children: (0, _v1.jsx)(_v46.VideoThumbnail, {
+          }), (0, _v1.jsx)(_v46.ContentRow.Column, {
+            children: (0, _v1.jsx)(_v47.VideoThumbnail, {
               alt: _v0.name ?? "",
-              badgeText: (0, _v47.secondsToDisplay)(_v0.duration),
+              badgeText: (0, _v48.secondsToDisplay)(_v0.duration),
               isDefaultPicture: _v0.pictures?.defaultPicture,
               thumbnailSrc: _v0.pictures?.sizes[3]?.link
             })
-          }), (0, _v1.jsx)(_v45.ContentRow.Column, {
-            children: (0, _v1.jsx)(_v26.Text, {
+          }), (0, _v1.jsx)(_v46.ContentRow.Column, {
+            children: (0, _v1.jsx)(_v4.Text, {
               variant: "heading-xs",
               noOfLines: 1,
-              paddingLeft: (0, _v33.rem)(8),
+              paddingLeft: (0, _v5.rem)(8),
               children: _v0.name
             })
-          }), (0, _v1.jsx)(_v45.ContentRow.Column, {
-            children: (0, _v1.jsx)(_v26.Text, {
+          }), (0, _v1.jsx)(_v46.ContentRow.Column, {
+            children: (0, _v1.jsx)(_v4.Text, {
               variant: "body-md",
               color: "text-secondary",
               children: _v2
             })
-          }), (0, _v1.jsx)(_v45.ContentRow.Column, {
-            children: _v3 && _v3 === _v1 ? (0, _v1.jsx)(_v26.Text, {
+          }), (0, _v1.jsx)(_v46.ContentRow.Column, {
+            children: _v3 && _v3 === _v1 ? (0, _v1.jsx)(_v4.Text, {
               variant: "body-md",
               color: "text-secondary",
-              children: (0, _v13.translate)({
+              children: (0, _v16.translate)({
                 singular: "You",
                 dictionary: {
                   es: {
@@ -708,12 +709,12 @@
                   }
                 }
               })
-            }) : _v0.deletedBy ? (0, _v1.jsxs)(_v8.Flex, {
+            }) : _v0.deletedBy ? (0, _v1.jsxs)(_v11.Flex, {
               alignItems: "center",
-              gap: (0, _v33.rem)(8),
-              children: [(0, _v1.jsx)(_v44.Avatar, {
+              gap: (0, _v5.rem)(8),
+              children: [(0, _v1.jsx)(_v45.Avatar, {
                 size: "sm",
-                alt: (0, _v13.translate)({
+                alt: (0, _v16.translate)({
                   singular: "Display picture",
                   dictionary: {
                     es: {
@@ -743,26 +744,26 @@
                 nameProps: {
                   name: _v0.deletedBy.name
                 }
-              }), (0, _v1.jsx)(_v26.Text, {
+              }), (0, _v1.jsx)(_v4.Text, {
                 variant: "body-md",
                 color: "text-secondary",
                 noOfLines: 1,
                 children: _v0.deletedBy.name
               })]
-            }) : (0, _v1.jsx)(_v26.Text, {
+            }) : (0, _v1.jsx)(_v4.Text, {
               variant: "body-md",
               color: "text-secondary",
               children: "—"
             })
-          }), (0, _v1.jsx)(_v45.ContentRow.Column, {
-            children: (0, _v1.jsx)(_v26.Text, {
+          }), (0, _v1.jsx)(_v46.ContentRow.Column, {
+            children: (0, _v1.jsx)(_v4.Text, {
               variant: "body-md",
               color: "text-secondary",
               children: _v4
             })
-          }), (0, _v1.jsx)(_v45.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v46.ContentRow.Column, {
             justifyColumn: "flex-end",
-            children: (0, _v1.jsx)(_v51, {
+            children: (0, _v1.jsx)(_v52, {
               onRestore: () => _v4(_v0.uri),
               onDelete: () => _v5(_v0.uri)
             })
@@ -771,16 +772,16 @@
       })
     });
   }
-  function _v54({
+  function _v55({
     videos: _v0,
     selectedUris: _v1,
     onToggleSelected: _v2,
     onRestoreVideo: _v3,
     onDeleteVideo: _v4
   }) {
-    let _v5 = (0, _v43.useViewer)(),
+    let _v5 = (0, _v44.useViewer)(),
       _v6 = _v5?.user?.id;
-    return (0, _v1.jsx)(_v53, {
+    return (0, _v1.jsx)(_v54, {
       videos: _v0,
       viewerUserId: _v6,
       selectedUris: _v1,
@@ -789,9 +790,9 @@
       onDeleteVideo: _v4
     });
   }
-  function _v55() {
-    return (0, _v1.jsxs)(_v45.ContentRow, {
-      listGridColumns: _v52,
+  function _v56() {
+    return (0, _v1.jsxs)(_v46.ContentRow, {
+      listGridColumns: _v53,
       cursor: "initial",
       disableHover: !0,
       backgroundColor: "fill-component",
@@ -802,15 +803,15 @@
         base: "none",
         sm: "grid"
       },
-      children: [(0, _v1.jsx)(_v45.ContentRow.Column, {
+      children: [(0, _v1.jsx)(_v46.ContentRow.Column, {
         children: (0, _v1.jsx)(_v1.Fragment, {})
-      }), (0, _v1.jsx)(_v45.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v46.ContentRow.Column, {
         children: (0, _v1.jsx)(_v1.Fragment, {})
-      }), (0, _v1.jsx)(_v45.ContentRow.Column, {
-        children: (0, _v1.jsx)(_v26.Text, {
+      }), (0, _v1.jsx)(_v46.ContentRow.Column, {
+        children: (0, _v1.jsx)(_v4.Text, {
           variant: "label-sm",
           color: "text-secondary",
-          children: (0, _v13.translate)({
+          children: (0, _v16.translate)({
             singular: "Title",
             dictionary: {
               es: {
@@ -837,11 +838,11 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v45.ContentRow.Column, {
-        children: (0, _v1.jsx)(_v26.Text, {
+      }), (0, _v1.jsx)(_v46.ContentRow.Column, {
+        children: (0, _v1.jsx)(_v4.Text, {
           variant: "label-sm",
           color: "text-secondary",
-          children: (0, _v13.translate)({
+          children: (0, _v16.translate)({
             singular: "Size",
             dictionary: {
               es: {
@@ -868,11 +869,11 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v45.ContentRow.Column, {
-        children: (0, _v1.jsx)(_v26.Text, {
+      }), (0, _v1.jsx)(_v46.ContentRow.Column, {
+        children: (0, _v1.jsx)(_v4.Text, {
           variant: "label-sm",
           color: "text-secondary",
-          children: (0, _v13.translate)({
+          children: (0, _v16.translate)({
             singular: "Deleted by",
             dictionary: {
               es: {
@@ -899,11 +900,11 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v45.ContentRow.Column, {
-        children: (0, _v1.jsx)(_v26.Text, {
+      }), (0, _v1.jsx)(_v46.ContentRow.Column, {
+        children: (0, _v1.jsx)(_v4.Text, {
           variant: "label-sm",
           color: "text-secondary",
-          children: (0, _v13.translate)({
+          children: (0, _v16.translate)({
             singular: "Time remaining",
             dictionary: {
               es: {
@@ -930,41 +931,41 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v45.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v46.ContentRow.Column, {
         children: (0, _v1.jsx)(_v1.Fragment, {})
       })]
     });
   }
-  var _v56 = _v0.i(0),
-    _v57 = _v0.i(0);
-  let _v58 = ["video.createdTime", "video.deletedBy", "video.deletedBy.name", "video.deletedBy.pictures", "video.deletedBy.uri", "video.duration", "video.filesSize", "video.filesSize.fileSizeType", "video.filesSize.totalSize", "video.modifiedTime", "video.name", "video.pictures.defaultPicture", "video.pictures.sizes", "video.pictures.uri", "video.uri"];
-  var _v59 = _v0.i(0),
-    _v60 = _v0.i(0);
-  async function _v61({
+  var _v57 = _v0.i(0),
+    _v58 = _v0.i(0);
+  let _v59 = ["video.createdTime", "video.deletedBy", "video.deletedBy.name", "video.deletedBy.pictures", "video.deletedBy.uri", "video.duration", "video.filesSize", "video.filesSize.fileSizeType", "video.filesSize.totalSize", "video.modifiedTime", "video.name", "video.pictures.defaultPicture", "video.pictures.sizes", "video.pictures.uri", "video.uri"];
+  var _v60 = _v0.i(0),
+    _v61 = _v0.i(0);
+  async function _v62({
     baseUrl: _v0,
     variables: _v1,
     ..._v2
   }) {
-    return (0, _v59.measureLatency)("postVideosPermanentDeletion", "POST", async () => {
+    return (0, _v60.measureLatency)("postVideosPermanentDeletion", "POST", async () => {
       let _v0 = await fetch(`${_v0}/videos/permanent-deletion`, {
         ..._v2,
         method: "POST",
-        body: JSON.stringify((0, _v60.deepSnakeCase)(_v1))
+        body: JSON.stringify((0, _v61.deepSnakeCase)(_v1))
       });
-      if (!_v0.ok) throw new _v60.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v61.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v60.deepCamelCase)(_v1);
+      return (0, _v61.deepCamelCase)(_v1);
     });
   }
-  var _v62 = _v0.i(0),
-    _v63 = _v0.i(0);
-  function _v64() {
-    let [_v0, _v1] = (0, _v7.useState)([]),
-      [_v2, _v3] = (0, _v7.useState)(_v17.DEFAULT_RECENTLY_DELETED_SORT),
-      [_v4, _v5] = (0, _v7.useState)([]),
-      [_v6, _v7] = (0, _v7.useState)(""),
+  var _v63 = _v0.i(0),
+    _v64 = _v0.i(0);
+  function _v65() {
+    let [_v0, _v1] = (0, _v10.useState)([]),
+      [_v2, _v3] = (0, _v10.useState)(_v20.DEFAULT_RECENTLY_DELETED_SORT),
+      [_v4, _v5] = (0, _v10.useState)([]),
+      [_v6, _v7] = (0, _v10.useState)(""),
       {
         videos: _v8,
         total: _v9,
@@ -974,7 +975,7 @@
         loadMore: _v13,
         mutate: _v14
       } = function (_v0, _v1 = []) {
-        let _v2 = (0, _v43.useViewer)(),
+        let _v2 = (0, _v44.useViewer)(),
           _v3 = _v2?.teamUser?.ownerId ?? _v2?.user?.id,
           _v4 = !_v2?.teamUser || _v2.teamUser.permissionLevel <= 2,
           _v5 = _v1.length > 0 ? _v1.map(_v0 => _v0.userId).join(",") : void 0,
@@ -983,11 +984,11 @@
             mutate: _v7,
             setSize: _v8,
             size: _v9
-          } = (0, _v56.useGetUserFoldersRootInfinite)(() => _v3 ? {
+          } = (0, _v57.useGetUserFoldersRootInfinite)(() => _v3 ? {
             where: {
               userId: _v3
             },
-            select: _v58,
+            select: _v59,
             query: {
               filter: "video",
               includeOnlyDeletedClips: !0,
@@ -1001,12 +1002,12 @@
               Accept: "application/vnd.vimeo.*+json;version=3.4"
             }
           } : null),
-          _v10 = (0, _v7.useMemo)(() => _v6?.flatMap(_v0 => _v0?.data ?? []).flatMap(_v0 => _v0.video ? [_v0.video] : []) ?? [], [_v6]),
+          _v10 = (0, _v10.useMemo)(() => _v6?.flatMap(_v0 => _v0?.data ?? []).flatMap(_v0 => _v0.video ? [_v0.video] : []) ?? [], [_v6]),
           {
             isDone: _v11,
             isLoadingInitialData: _v12,
             isLoadingMore: _v13
-          } = (0, _v57.getInfiniteRequestLoadingState)({
+          } = (0, _v58.getInfiniteRequestLoadingState)({
             data: _v6,
             itemsPerPage: 25,
             size: _v9
@@ -1028,24 +1029,24 @@
         isDone: _v18,
         setSize: _v19,
         size: _v20
-      } = (0, _v21.useUserTeamMembers)(_v6),
-      [_v21, _v22] = (0, _v7.useState)(new Set()),
-      _v23 = (0, _v7.useCallback)(() => _v22(new Set()), []),
-      _v24 = (0, _v7.useCallback)(() => _v22(new Set(_v8.map(_v0 => _v0.uri).filter(_v0 => !!_v0))), [_v8]),
-      _v25 = (0, _v7.useCallback)(_v0 => {
+      } = (0, _v24.useUserTeamMembers)(_v6),
+      [_v21, _v22] = (0, _v10.useState)(new Set()),
+      _v23 = (0, _v10.useCallback)(() => _v22(new Set()), []),
+      _v24 = (0, _v10.useCallback)(() => _v22(new Set(_v8.map(_v0 => _v0.uri).filter(_v0 => !!_v0))), [_v8]),
+      _v25 = (0, _v10.useCallback)(_v0 => {
         _v22(_v0 => {
           let _v1 = new Set(_v0);
           return _v1.has(_v0) ? _v1.delete(_v0) : _v1.add(_v0), _v1;
         });
       }, []),
-      _v26 = (0, _v1.jsx)(_v19.CheckboxItemCount, {
+      _v26 = (0, _v1.jsx)(_v22.CheckboxItemCount, {
         hasCheckbox: _v9 > 0,
         isLoading: _v10,
         onChange: () => {
           _v21.size ? _v23() : _v24();
         },
         selectedItemCount: _v21.size,
-        subtitle: !!_v9 && (_v4.length > 0 ? (0, _v13.translate)({
+        subtitle: !!_v9 && (_v4.length > 0 ? (0, _v16.translate)({
           count: _v9,
           singular: "{NUM_ITEMS} result",
           plural: "{NUM_ITEMS} results",
@@ -1082,7 +1083,7 @@
               plural: "{NUM_ITEMS} 个结果"
             }
           }
-        }) : (0, _v13.translate)({
+        }) : (0, _v16.translate)({
           count: _v9,
           singular: "{NUM_ITEMS} item",
           plural: "{NUM_ITEMS} items",
@@ -1121,16 +1122,16 @@
           }
         }))
       }),
-      _v27 = (0, _v1.jsx)(_v18.FilterSortBar, {
+      _v27 = (0, _v1.jsx)(_v21.FilterSortBar, {
         checkbox: _v26,
         sort: _v2,
         setSort: _v3,
-        sortOptions: _v17.RECENTLY_DELETED_SORT_OPTIONS,
+        sortOptions: _v20.RECENTLY_DELETED_SORT_OPTIONS,
         layout: "LIST_LAYOUT",
         setLayout: () => {},
         isLayoutToggleDisabled: !0,
         shouldHideLayoutSelector: !0,
-        children: (0, _v1.jsx)(_v20.DeletedByFilter, {
+        children: (0, _v1.jsx)(_v23.DeletedByFilter, {
           filter: _v4,
           options: _v15,
           setFilter: _v5,
@@ -1142,16 +1143,16 @@
           onLoadMore: () => _v19(_v20 + 1)
         })
       }),
-      _v28 = (0, _v22.useNotification)(),
-      _v29 = (0, _v10.useToast)(),
+      _v28 = (0, _v25.useNotification)(),
+      _v29 = (0, _v13.useToast)(),
       _v30 = function () {
         let {
           baseUrl: _v0,
           jwt: _v1,
           xVimeoPage: _v2,
           locale: _v3
-        } = (0, _v62.useGctlConfig)();
-        return async _v0 => (await (0, _v63.postVideosRestore)({
+        } = (0, _v63.useGctlConfig)();
+        return async _v0 => (await (0, _v64.postVideosRestore)({
           variables: {
             uris: _v0
           },
@@ -1170,7 +1171,7 @@
           _v1 = await _v30(_v0);
         } catch {
           _v28({
-            content: (0, _v13.translate)({
+            content: (0, _v16.translate)({
               singular: "Error restoring files",
               dictionary: {
                 es: {
@@ -1203,7 +1204,7 @@
         let _v2 = _v1.filter(_v0 => "restored" === _v0.status),
           _v3 = _v1.filter(_v0 => "not_found" === _v0.status || "error" === _v0.status).length;
         if (_v3 > 0) _v28({
-          content: (0, _v13.translate)({
+          content: (0, _v16.translate)({
             singular: "Error restoring 1 file",
             plural: "Error restoring {COUNT} files",
             count: _v3,
@@ -1245,7 +1246,7 @@
         });else if (1 === _v2.length) {
           let _v0 = _v8.find(_v0 => _v0.uri === _v2[0].uri)?.name,
             _v1 = _v2[0].folderUri,
-            _v2 = _v0 ? (0, _v13.translate)({
+            _v2 = _v0 ? (0, _v16.translate)({
               singular: '"{TITLE}" restored',
               replacements: {
                 TITLE: _v0
@@ -1273,7 +1274,7 @@
                   singular: '"{TITLE}" 已恢复'
                 }
               }
-            }) : (0, _v13.translate)({
+            }) : (0, _v16.translate)({
               singular: "1 file restored",
               dictionary: {
                 es: {
@@ -1302,8 +1303,8 @@
           _v29({
             title: (0, _v1.jsxs)(_v1.Fragment, {
               children: [_v2, _v1 && (0, _v1.jsx)("button", {
-                onClick: () => window.location.href = (0, _v23.getFolderPageUriFromApiUri)(_v1),
-                children: (0, _v13.translate)({
+                onClick: () => window.location.href = (0, _v26.getFolderPageUriFromApiUri)(_v1),
+                children: (0, _v16.translate)({
                   singular: "Show file location",
                   dictionary: {
                     es: {
@@ -1332,13 +1333,13 @@
               })]
             }),
             variant: "success",
-            icon: (0, _v1.jsx)(_v11.CircleCheckFilled, {
+            icon: (0, _v1.jsx)(_v14.CircleCheckFilled, {
               color: "status-positive-primary"
             }),
             isClosable: !0
           });
         } else _v2.length > 1 && _v28({
-          content: (0, _v13.translate)({
+          content: (0, _v16.translate)({
             singular: "{COUNT} files restored",
             replacements: {
               COUNT: _v2.length
@@ -1377,8 +1378,8 @@
           jwt: _v1,
           xVimeoPage: _v2,
           locale: _v3
-        } = (0, _v62.useGctlConfig)();
-        return async _v0 => (await _v61({
+        } = (0, _v63.useGctlConfig)();
+        return async _v0 => (await _v62({
           variables: {
             uris: _v0
           },
@@ -1397,7 +1398,7 @@
           _v0 = await _v32(_v0);
         } catch {
           _v28({
-            content: (0, _v13.translate)({
+            content: (0, _v16.translate)({
               singular: "Error deleting files",
               dictionary: {
                 es: {
@@ -1430,7 +1431,7 @@
         let _v1 = _v0.filter(_v0 => "deleted" === _v0.status).length,
           _v2 = _v0.filter(_v0 => "error" === _v0.status).length;
         _v2 > 0 ? _v28({
-          content: (0, _v13.translate)({
+          content: (0, _v16.translate)({
             singular: "Error deleting 1 file",
             plural: "Error deleting {COUNT} files",
             count: _v2,
@@ -1470,7 +1471,7 @@
           }),
           status: "error"
         }) : _v1 > 0 && _v28({
-          content: (0, _v13.translate)({
+          content: (0, _v16.translate)({
             singular: "File deleted forever",
             plural: "Files deleted forever",
             count: _v1,
@@ -1508,12 +1509,12 @@
           status: "success"
         }), _v1([]), _v23(), await _v14();
       };
-    return (0, _v1.jsx)(_v15.Page, {
-      children: (0, _v1.jsxs)(_v15.Page.Main, {
-        children: [(0, _v1.jsxs)(_v15.Page.StickyTop, {
-          children: [(0, _v1.jsx)(_v16.PageHeader, {
+    return (0, _v1.jsx)(_v18.Page, {
+      children: (0, _v1.jsxs)(_v18.Page.Main, {
+        children: [(0, _v1.jsxs)(_v18.Page.StickyTop, {
+          children: [(0, _v1.jsx)(_v19.PageHeader, {
             bottomBar: _v27,
-            title: (0, _v13.translate)({
+            title: (0, _v16.translate)({
               singular: "Recently deleted",
               dictionary: {
                 es: {
@@ -1539,25 +1540,25 @@
                 }
               }
             })
-          }), (_v10 || _v4.length > 0 || _v9 > 0) && (0, _v1.jsx)(_v55, {})]
-        }), _v10 && (0, _v1.jsx)(_v8.Flex, {
+          }), (_v10 || _v4.length > 0 || _v9 > 0) && (0, _v1.jsx)(_v56, {})]
+        }), _v10 && (0, _v1.jsx)(_v11.Flex, {
           justifyContent: "center",
           alignItems: "center",
           height: "100%",
-          children: (0, _v1.jsx)(_v9.Spinner, {})
-        }), !_v10 && (_v9 > 0 ? (0, _v1.jsx)(_v54, {
+          children: (0, _v1.jsx)(_v12.Spinner, {})
+        }), !_v10 && (_v9 > 0 ? (0, _v1.jsx)(_v55, {
           videos: _v8,
           selectedUris: _v21,
           onToggleSelected: _v25,
           onRestoreVideo: _v0 => _v31([_v0]),
           onDeleteVideo: _v0 => _v1([_v0])
-        }) : (0, _v1.jsx)(_v34, {
-          icon: (0, _v1.jsx)(_v12.TrashBin, {
+        }) : (0, _v1.jsx)(_v35, {
+          icon: (0, _v1.jsx)(_v15.TrashBin, {
             width: "lg",
             height: "lg",
             color: "text-primary"
           }),
-          title: _v4.length > 0 ? (0, _v13.translate)({
+          title: _v4.length > 0 ? (0, _v16.translate)({
             singular: "No results found",
             dictionary: {
               es: {
@@ -1582,7 +1583,7 @@
                 singular: "未找到结果"
               }
             }
-          }) : (0, _v13.translate)({
+          }) : (0, _v16.translate)({
             singular: "No deleted files",
             dictionary: {
               es: {
@@ -1608,7 +1609,7 @@
               }
             }
           }),
-          description: (0, _v13.translate)({
+          description: (0, _v16.translate)({
             singular: "Items you delete will appear here for {RETENTION_DAYS} days before being permanently removed.",
             replacements: {
               RETENTION_DAYS: 30
@@ -1637,39 +1638,113 @@
               }
             }
           })
-        })), !_v12 && !_v11 && (0, _v1.jsx)(_v14.InfiniteScrollTrigger, {
+        })), !_v12 && !_v11 && (0, _v1.jsx)(_v17.InfiniteScrollTrigger, {
           isLoading: !!_v11,
           onLoadMore: _v13
-        }), (0, _v1.jsx)(_v42, {
+        }), (0, _v1.jsx)(_v43, {
           isOpen: _v0.length > 0,
           onClose: () => _v1([]),
           onConfirm: _v33,
           numItemsToDelete: _v0.length,
           title: _v0.length > 1 ? void 0 : _v8.find(_v0 => _v0.uri === _v0[0])?.name
-        }), (0, _v1.jsx)(_v32, {
+        }), (0, _v1.jsx)(_v34, {
           numSelected: _v21.size,
           onDelete: () => _v1(Array.from(_v21)),
           onRestore: () => _v31(Array.from(_v21)),
           onClear: _v23
         }), (0, _v1.jsx)("div", {
-          id: _v31
+          id: _v33
         })]
       })
     });
   }
-  var _v65 = _v0.i(0),
-    _v66 = _v0.i(0),
-    _v67 = _v0.i(0);
-  let _v68 = () => {
-    let _v0 = (0, _v43.useViewer)(),
+  var _v66 = _v0.i(0),
+    _v67 = _v0.i(0),
+    _v68 = _v0.i(0);
+  let _v69 = () => {
+    let _v0 = (0, _v44.useViewer)(),
       {
         settings: _v1,
         isLoadingResponse: _v2
-      } = (0, _v6.useOrionSettings)();
-    return _v2 || !_v0 ? null : _v1.has_recently_deleted ? (0, _v1.jsxs)(_v1.Fragment, {
+      } = (0, _v9.useOrionSettings)();
+    if (_v2 || !_v0) return null;
+    if (!_v1.has_recently_deleted) return (0, _v1.jsx)(_v66.ErrorPage, {
+      error: new _v6.ResourceNotFoundError()
+    });
+    let _v3 = !_v0?.teamUser || _v0.teamUser.permissionLevel <= 2;
+    return _v0?.user?.capabilities.hasEnterprise && !_v3 ? (0, _v1.jsxs)(_v3.Box, {
+      textAlign: "center",
+      marginTop: "500",
+      children: [(0, _v1.jsx)(_v4.Text, {
+        variant: "heading-xl",
+        as: "h1",
+        marginBottom: "100",
+        children: (0, _v8.translate)({
+          singular: "Permission denied",
+          dictionary: {
+            es: {
+              singular: "Permiso denegado"
+            },
+            "de-DE": {
+              singular: "Zugriff verweigert"
+            },
+            "fr-FR": {
+              singular: "Accès refusé"
+            },
+            "ja-JP": {
+              singular: "権限がありません"
+            },
+            "ko-KR": {
+              singular: "권한이 거부되었습니다"
+            },
+            "pt-BR": {
+              singular: "Permissão negada"
+            },
+            "zh-CN": {
+              singular: "权限被拒绝"
+            }
+          }
+        })
+      }), (0, _v1.jsx)(_v3.Box, {
+        margin: "0 auto",
+        maxWidth: (0, _v5.rem)(660),
+        paddingX: "200",
+        paddingBottom: "100",
+        children: (0, _v1.jsx)(_v4.Text, {
+          variant: "body-md",
+          color: "text-secondary",
+          children: (0, _v8.translate)({
+            singular: "Restore and permanently delete capabilities are available to your team or workspace admins. Contact your admins to restore or remove recently deleted videos.",
+            dictionary: {
+              es: {
+                singular: "Las funciones de restauración y eliminación permanente están disponibles para los administradores de su equipo o espacio de trabajo. Póngase en contacto con sus administradores para restaurar o eliminar vídeos eliminados recientemente."
+              },
+              "de-DE": {
+                singular: "Wiederherstellungs- und permanente Löschfunktionen stehen den Administratoren Ihres Teams oder Ihres Arbeitsbereichs zur Verfügung. Wenden Sie sich an Ihre Administratoren, um kürzlich gelöschte Videos wiederherzustellen oder zu entfernen."
+              },
+              "fr-FR": {
+                singular: "Les fonctionnalités de restauration et de suppression définitive sont disponibles pour les administrateurs de votre équipe ou de votre espace de travail. Contactez vos administrateurs pour restaurer ou supprimer les vidéos récemment supprimées."
+              },
+              "ja-JP": {
+                singular: "復元および完全削除の機能はチームまたはワークスペースの管理者が利用できます。最近削除された動画を復元または完全に削除するには、管理者にお問い合わせください。"
+              },
+              "ko-KR": {
+                singular: "복원 및 영구 삭제 기능은 팀 또는 워크스페이스 관리자에게 제공됩니다. 최근에 삭제된 동영상을 복원하거나 영구 삭제하려면 관리자에게 문의하세요."
+              },
+              "pt-BR": {
+                singular: "Os recursos de restauração e de exclusão permanente estão disponíveis para os administradores da sua equipe ou do workspace. Entre em contato com seus administradores para restaurar ou remover vídeos excluídos recentemente."
+              },
+              "zh-CN": {
+                singular: "恢复和永久删除功能仅对您的团队或工作区管理员可用。请联系管理员以恢复或移除最近删除的视频。"
+              }
+            }
+          })
+        })
+      })]
+    }) : (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
-          children: (0, _v5.translate)({
+          children: (0, _v8.translate)({
             singular: "Recently deleted",
             dictionary: {
               es: {
@@ -1696,22 +1771,20 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v64, {})]
-    }) : (0, _v1.jsx)(_v65.ErrorPage, {
-      error: new _v3.ResourceNotFoundError()
+      }), (0, _v1.jsx)(_v65, {})]
     });
   };
-  _v68.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v67.VideoLibraryLayout, {
+  _v69.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v68.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
-    sideNavContent: (0, _v1.jsx)(_v66.HomeSideNavContent, {}),
+    sideNavContent: (0, _v1.jsx)(_v67.HomeSideNavContent, {}),
     children: _v0
-  }), (0, _v4.withPageSetup)(() => ({
+  }), (0, _v7.withPageSetup)(() => ({
     props: {
       hasThemeSupport: !0,
       hasUploader: !1
     }
   }), {
     requireLogin: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v68], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v69], 0);
 }

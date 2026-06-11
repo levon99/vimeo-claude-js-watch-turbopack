@@ -3236,7 +3236,7 @@
     _v156 = _v0 => "storage_limit" === _v0 ? "storage" : "privacy" === _v0 || "showcase_privacy" === _v0 ? "privacy" : "generic",
     _v157 = _v0 => {
       let _v1 = _v0?.toLowerCase();
-      return _v1 ? _v1.includes("unlisted_privacy") ? "unlisted" : _v1.includes("disable_privacy") ? "hide_from_vimeo" : _v1.includes("password_privacy") ? "password" : null : null;
+      return _v1 ? _v1.includes("unlisted_privacy") ? "unlisted" : _v1.includes("disable_privacy") ? "hide_from_vimeo" : _v1.includes("password_privacy") ? "password" : _v1.includes("cold_privacy") ? "generic" : null : null;
     },
     _v158 = (_v0, _v1) => (_v44.PLANS_ORDER[_v0] ?? -1) > (_v44.PLANS_ORDER[_v1] ?? -1),
     _v159 = ({
@@ -3362,23 +3362,24 @@
       _v17 = _v156(_v13),
       _v18 = "privacy" !== _v17 || _v16 ? _v17 : "generic",
       _v19 = "limits_only_bsp" === _v4.late_stage_paywall_kind && "generic" === _v18,
-      _v20 = _v14?.toLowerCase().includes("cold_storage") ? _v4.cold_storage_trigger_paywall_tier : _v4.limit_based_paywall_tier,
-      _v21 = _v5.userData?.membership?.type && _v5.plansData ? _v159({
+      _v20 = _v14?.toLowerCase() ?? "",
+      _v21 = _v20.includes("cold_storage") || _v20.includes("cold_privacy") ? _v4.cold_storage_trigger_paywall_tier : _v4.limit_based_paywall_tier,
+      _v22 = _v5.userData?.membership?.type && _v5.plansData ? _v159({
         currentTier: _v5.userData?.membership?.type,
-        tierSetting: _v20,
+        tierSetting: _v21,
         plansData: _v5.plansData,
         excludePlans: _v0.modalConfig?.excludePlans,
         variant: _v18
       }) : null,
-      _v22 = "bsp_cards_generic_and_bsp_limits" === _v4.late_stage_paywall_kind || "bsp_table_generic_and_bsp_limits" === _v4.late_stage_paywall_kind,
-      _v23 = "generic" === _v18 && _v22 && ![_v44.PLANS.STARTER, _v44.PLANS.STANDARD, _v44.PLANS.ADVANCED].includes(_v21),
-      _v24 = "generic" === _v18 && _v22 ? "760px" : "560px",
-      _v25 = _v15 && "default" === _v0.templateType && "enterprise" !== _v12 && !!_v21 && !_v19 && !_v23,
-      _v26 = _v0.tracking.paywallTracking,
-      _v27 = !!_v5.userData && _v48(_v5.userData);
+      _v23 = "bsp_cards_generic_and_bsp_limits" === _v4.late_stage_paywall_kind || "bsp_table_generic_and_bsp_limits" === _v4.late_stage_paywall_kind,
+      _v24 = "generic" === _v18 && _v23 && ![_v44.PLANS.STARTER, _v44.PLANS.STANDARD, _v44.PLANS.ADVANCED].includes(_v22),
+      _v25 = "generic" === _v18 && _v23 ? "760px" : "560px",
+      _v26 = _v15 && "default" === _v0.templateType && "enterprise" !== _v12 && !!_v22 && !_v19 && !_v24,
+      _v27 = _v0.tracking.paywallTracking,
+      _v28 = !!_v5.userData && _v48(_v5.userData);
     switch (_v12) {
       case "default":
-        _v1 = _v25 && _v21 ? (0, _v1.jsxs)(_v4.Modal, {
+        _v1 = _v26 && _v22 ? (0, _v1.jsxs)(_v4.Modal, {
           isOpen: !0,
           onClose: _v10,
           size: ["full", "md"],
@@ -3391,11 +3392,11 @@
             },
             maxWidth: {
               base: "100vw",
-              md: _v24
+              md: _v25
             },
             width: {
               base: "100vw",
-              md: _v24
+              md: _v25
             },
             height: {
               base: "100dvh",
@@ -3476,12 +3477,12 @@
                   }
                 })({
                   kind: _v4.late_stage_paywall_kind,
-                  paywallTracking: _v26,
+                  paywallTracking: _v27,
                   variant: _v18,
-                  tier: _v21,
+                  tier: _v22,
                   currentTier: _v5.userData?.membership?.type ?? null,
                   privacyOption: _v16,
-                  isUserEligibleForFreeTrial: _v27
+                  isUserEligibleForFreeTrial: _v28
                 })
               })
             })]

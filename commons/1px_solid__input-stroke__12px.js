@@ -71,22 +71,24 @@
     paywallTracking: _v2,
     isUserEligibleForFreeTrial: _v3 = !1
   }) {
-    let {
-        settings: _v4
+    let _v4 = "generic" === _v1,
+      {
+        settings: _v5
       } = (0, _v11.useOrionSettings)(),
-      _v5 = (0, _v15.useViewer)(),
-      _v6 = (0, _v14.useGetSubscriptionPlansData)([_v0], void 0, !1),
-      _v7 = _v6?.find(_v0 => _v0.tier === _v0) ?? _v6?.[0],
-      _v8 = !!_v7?.metadata?.interactions?.purchase?.uri?.freeTrial,
-      _v9 = _v7?.name ?? (_v0 ? (0, _v2.default)(`${_v0}`) : ""),
-      _v10 = (0, _v7.useColorModeValue)("https://i.vimeocdn.com/custom_asset/967fe8edf9f28375f1d3988ed28585d9?region=us", "https://i.vimeocdn.com/custom_asset/fd161e8907c7bd204bcdd8ca6379312a?region=us"),
-      _v11 = _v12.DEFAULT_PRIVACY_OPTIONS.filter(_v0 => _v12.DEFAULT_UPSELL_PRIVACIES.includes(_v0.privacy)).map(_v0 => _v4.privacy_settings_new_copy ? (0, _v13.getNewPrivacyCopy)("xs", _v5?.teamUser?.teamName, _v5?.teamUser?.isWorkspace)(_v0) : _v0).map(_v0 => ({
+      _v6 = (0, _v15.useViewer)(),
+      _v7 = (0, _v14.useGetSubscriptionPlansData)([_v0], void 0, !1),
+      _v8 = _v7?.find(_v0 => _v0.tier === _v0) ?? _v7?.[0],
+      _v9 = !!_v8?.metadata?.interactions?.purchase?.uri?.freeTrial,
+      _v10 = _v8?.name ?? (_v0 ? (0, _v2.default)(`${_v0}`) : ""),
+      _v11 = (0, _v7.useColorModeValue)("https://i.vimeocdn.com/custom_asset/967fe8edf9f28375f1d3988ed28585d9?region=us", "https://i.vimeocdn.com/custom_asset/fd161e8907c7bd204bcdd8ca6379312a?region=us"),
+      _v12 = _v12.DEFAULT_PRIVACY_OPTIONS.filter(_v0 => _v12.DEFAULT_UPSELL_PRIVACIES.includes(_v0.privacy)).map(_v0 => _v5.privacy_settings_new_copy ? (0, _v13.getNewPrivacyCopy)("xs", _v6?.teamUser?.teamName, _v6?.teamUser?.isWorkspace)(_v0) : _v0).map(_v0 => ({
         ..._v0,
         key: _v0.privacy === _v12.DEFAULT_PRIVACY_VALUES.HIDE_FROM_VIMEO ? "hide_from_vimeo" : _v0.privacy,
-        icon: _v4.privacy_settings_new_copy ? _v0.icon : _v12.VIDEO_PRIVACY_ICON_MAP[_v0.privacy].icon
+        icon: _v5.privacy_settings_new_copy ? _v0.icon : _v12.VIDEO_PRIVACY_ICON_MAP[_v0.privacy].icon
       })),
-      _v12 = _v11.find(_v0 => _v0.key === _v1) ?? _v11[0],
-      _v13 = [..._v11.filter(_v0 => _v0.key !== _v12.key), _v12];
+      _v13 = _v4 ? "unlisted" : _v1,
+      _v14 = _v12.find(_v0 => _v0.key === _v13) ?? _v12[0],
+      _v15 = [..._v12.filter(_v0 => _v0.key !== _v14.key), _v14];
     return (0, _v1.jsxs)(_v4.Flex, {
       direction: "column",
       alignItems: "center",
@@ -124,7 +126,7 @@
           height: "140px",
           minHeight: "93px",
           flex: "1 1 140px",
-          backgroundImage: `url(${_v10})`,
+          backgroundImage: `url(${_v11})`,
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -141,10 +143,35 @@
               md: "heading-2xl"
             },
             textAlign: "center",
-            children: (0, _v10.translate)({
+            children: _v4 ? (0, _v10.translate)({
+              singular: "Your plan doesn’t support all privacy settings",
+              dictionary: {
+                es: {
+                  singular: "Su plan no admite todas las configuraciones de privacidad"
+                },
+                "de-DE": {
+                  singular: "Ihr Plan unterstützt nicht alle Datenschutzeinstellungen"
+                },
+                "fr-FR": {
+                  singular: "Votre forfait ne prend pas en charge tous les paramètres de confidentialité"
+                },
+                "ja-JP": {
+                  singular: "お使いのプランではすべてのプライバシー設定に対応していません"
+                },
+                "ko-KR": {
+                  singular: "현재 요금제에서는 모든 개인정보 보호 설정을 지원하지 않습니다"
+                },
+                "pt-BR": {
+                  singular: "Seu plano não oferece suporte a todas as configurações de privacidade"
+                },
+                "zh-CN": {
+                  singular: "您的计划不支持所有隐私设置"
+                }
+              }
+            }) : (0, _v10.translate)({
               singular: "{FEATURE_NAME} is not available",
               replacements: {
-                FEATURE_NAME: _v12.title
+                FEATURE_NAME: _v14.title
               },
               dictionary: {
                 es: {
@@ -175,11 +202,36 @@
             color: "text-primary",
             textAlign: "center",
             paddingX: "16px",
-            children: (0, _v10.translate)({
+            children: _v4 ? (0, _v10.translate)({
+              singular: "Some privacy settings aren’t included in your current plan. All instances have been set to private.",
+              dictionary: {
+                es: {
+                  singular: "Algunas configuraciones de privacidad no están incluidas en su plan actual. Todas las instancias se han configurado como privadas."
+                },
+                "de-DE": {
+                  singular: "Einige Datenschutzeinstellungen sind in Ihrem aktuellen Plan nicht enthalten. Alle Instanzen wurden auf privat gesetzt."
+                },
+                "fr-FR": {
+                  singular: "Certaines options de confidentialité ne sont pas incluses dans votre forfait actuel. Toutes les instances ont été définies comme privées."
+                },
+                "ja-JP": {
+                  singular: "いくつかのプライバシー設定は現在のプランに含まれていません。すべてのインスタンスはプライベートに設定されました。"
+                },
+                "ko-KR": {
+                  singular: "일부 개인정보 보호 설정은 현재 요금제에 포함되어 있지 않습니다. 모든 인스턴스가 비공개로 설정되었습니다."
+                },
+                "pt-BR": {
+                  singular: "Algumas configurações de privacidade não estão incluídas no seu plano atual. Todas as instâncias foram definidas como privadas."
+                },
+                "zh-CN": {
+                  singular: "某些隐私设置不包含在您当前的计划中。所有实例已设置为私有。"
+                }
+              }
+            }) : (0, _v10.translate)({
               singular: "This privacy feature isn’t included in your current plan. Upgrade to {PLAN_NAME} to use {FEATURE_NAME}.",
               replacements: {
-                PLAN_NAME: _v9,
-                FEATURE_NAME: _v12.title
+                PLAN_NAME: _v10,
+                FEATURE_NAME: _v14.title
               },
               dictionary: {
                 es: {
@@ -213,7 +265,7 @@
           pt: "24px",
           px: "24px",
           gap: "0",
-          children: [_v13.map((_v0, _v1) => (0, _v1.jsx)(_v19, {
+          children: [_v15.map((_v0, _v1) => (0, _v1.jsx)(_v19, {
             icon: _v0.icon,
             title: _v0.title,
             description: _v0.description ?? "",
@@ -232,8 +284,8 @@
       }), (0, _v1.jsxs)(_v17.PaywallCTAsWrapper, {
         children: [(0, _v1.jsx)(_v18.PurchaseButton, {
           subscriptionTier: _v0,
-          isTrial: _v8 && _v3,
-          planName: _v9,
+          isTrial: _v9 && _v3,
+          planName: _v10,
           paywallTracking: _v2
         }), (0, _v1.jsx)(_v16.OtherPlansButton, {
           paywallTracking: _v2

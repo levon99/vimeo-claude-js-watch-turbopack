@@ -179,7 +179,8 @@
     isolation: "isolate",
     children: [_v10 && (0, _v1.jsx)(_v18, {
       iconSize: _v11,
-      iconPadding: _v12
+      iconPadding: _v12,
+      borderRadius: _v7
     }), (0, _v1.jsx)(_v4.Box, {
       as: "img",
       alt: _v0,
@@ -248,10 +249,12 @@
   });
   let _v18 = ({
     iconSize: _v0,
-    iconPadding: _v1
+    iconPadding: _v1,
+    borderRadius: _v2
   } = {}) => (0, _v1.jsx)(_v13.ColdStorageThumbnailLockOverlay, {
     iconSize: _v0,
-    iconPadding: _v1
+    iconPadding: _v1,
+    borderRadius: _v2
   });
   _v0.s(["ContentRow", 0, _v15]);
 }

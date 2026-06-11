@@ -10282,7 +10282,17 @@
         dispatch: _v2
       } = _v0,
       [_v3] = (0, _v8.useMediaQuery)("(min-width: 780px)"),
-      [_v4] = (0, _v8.useMediaQuery)("(min-width: 1040px)");
+      [_v4] = (0, _v8.useMediaQuery)("(min-width: 1040px)"),
+      {
+        settings: _v5
+      } = (0, _v92.useOrionSettings)(),
+      _v6 = _v1.filters[_v1.reportGroup],
+      _v7 = _v5.analytics_freshness_refactor_main ? {
+        ..._v6,
+        endDate: _v16.DateTime.min(_v6.endDate, _v16.DateTime.utc().minus({
+          hours: 1
+        })).startOf("minute")
+      } : _v6;
     return (0, _v4.useEffect)(() => {
       _v2({
         type: _v80.REPORT_ACTION_TYPE.UPDATE_LOADING_STATE,
@@ -10314,11 +10324,11 @@
             marginX: 0,
             showFilterPanel: !0
           }), (0, _v3.jsx)(_v287, {
-            filters: _v1.filters[_v1.reportGroup],
+            filters: _v7,
             metrics: ["views", "uniqueViewers", "totalTimeWatched"],
             userId: _v1.userInUse.id
           }), (0, _v3.jsx)(_v290.Overview, {
-            filters: _v1.filters[_v1.reportGroup],
+            filters: _v7,
             userId: _v1.userInUse.id
           }), (0, _v3.jsxs)(_v6.Flex, {
             flexDirection: "column",
@@ -10326,10 +10336,10 @@
             display: _v4 ? "grid" : "inherit",
             gridTemplateColumns: _v4 ? "2fr 1fr" : "none",
             children: [(0, _v3.jsx)(_v299, {
-              filters: _v1.filters[_v1.reportGroup],
+              filters: _v7,
               userId: _v1.userInUse.id
             }), (0, _v3.jsx)(_v279, {
-              filters: _v1.filters[_v1.reportGroup],
+              filters: _v7,
               userId: _v1.userInUse.id
             })]
           }), (0, _v3.jsxs)(_v6.Flex, {
@@ -10338,10 +10348,10 @@
             display: _v4 ? "grid" : "inherit",
             gridTemplateColumns: _v4 ? "repeat(2, minmax(0, 1fr))" : "none",
             children: [(0, _v3.jsx)(_v302, {
-              filters: _v1.filters[_v1.reportGroup],
+              filters: _v7,
               userId: _v1.userInUse.id
             }), (0, _v3.jsx)(_v315, {
-              filters: _v1.filters[_v1.reportGroup],
+              filters: _v7,
               userId: _v1.userInUse.id
             })]
           })]
@@ -10935,14 +10945,20 @@
       errorRetryCount: 1
     },
     _v383 = (_v0, _v1, _v2, _v3, _v4, _v5) => {
-      let _v6 = (0, _v4.useMemo)(() => void 0 === _v4 ? void 0 : {
+      let {
+          settings: _v6
+        } = (0, _v92.useOrionSettings)(),
+        _v7 = _v6.analytics_freshness_refactor_main ? _v16.DateTime.min(_v1.endDate, _v16.DateTime.utc().minus({
+          hours: 1
+        })).startOf("minute").toISO() : _v1.endDate.toISO(),
+        _v8 = (0, _v4.useMemo)(() => void 0 === _v4 ? void 0 : {
           select: _v4.flatMap(_v0 => _v0.metrics).concat(_v3.initialCell.fields),
           where: {
             userId: _v0
           },
           query: {
             from: _v1.startDate.toISO(),
-            to: _v1.endDate.toISO(),
+            to: _v7,
             dimensions: _v3.initialCell.dimensions,
             direction: "desc",
             sort: _v2,
@@ -10951,35 +10967,35 @@
             dimension: "country",
             ..._v3.initialCell.extraParams
           }
-        }, [_v1, _v4, _v3, _v2, _v0]),
+        }, [_v1, _v4, _v3, _v2, _v0, _v7]),
         {
-          data: _v7,
-          isValidating: _v8,
-          error: _v9,
-          setSize: _v10
-        } = (0, _v97.useGetUserAnalyticsInfinite)(() => _v6 || null, {
+          data: _v9,
+          isValidating: _v10,
+          error: _v11,
+          setSize: _v12
+        } = (0, _v97.useGetUserAnalyticsInfinite)(() => _v8 || null, {
           ..._v382,
           revalidateFirstPage: !1
         }),
-        _v11 = (0, _v4.useMemo)(() => _v7?.flatMap(_v0 => _v0.data), [_v7]),
+        _v13 = (0, _v4.useMemo)(() => _v9?.flatMap(_v0 => _v0.data), [_v9]),
         {
-          rows: _v12,
-          thumbnailsLoading: _v13
+          rows: _v14,
+          thumbnailsLoading: _v15
         } = _v384({
           expandedColumn: _v3,
-          fetchOptions: _v6,
+          fetchOptions: _v8,
           dimensionToFetch: _v3.initialCell,
-          data: _v11,
+          data: _v13,
           localSort: _v5
         });
       return {
-        rows: _v12,
-        _analyticsData: _v11,
-        isLoading: _v8 || _v13,
-        isError: !!_v9,
-        hasNextPage: (0, _v4.useMemo)(() => !!_v7?.[_v7.length - 1]?.paging?.next, [_v7]),
-        loadNextPage: () => _v10(_v0 => _v0 + 1),
-        exportLink: _v12?.length > 0 ? _v7?.[0]?.exportLink : void 0
+        rows: _v14,
+        _analyticsData: _v13,
+        isLoading: _v10 || _v15,
+        isError: !!_v11,
+        hasNextPage: (0, _v4.useMemo)(() => !!_v9?.[_v9.length - 1]?.paging?.next, [_v9]),
+        loadNextPage: () => _v12(_v0 => _v0 + 1),
+        exportLink: _v14?.length > 0 ? _v9?.[0]?.exportLink : void 0
       };
     },
     _v384 = ({
@@ -11108,8 +11124,14 @@
           return _v0 || _v1 ? _v380 : _v3;
         }, [_v2, _v1, _v3]),
         {
-          data: _v7,
-          error: _v8
+          settings: _v7
+        } = (0, _v92.useOrionSettings)(),
+        _v8 = _v7.analytics_freshness_refactor_main ? _v16.DateTime.min(_v1.endDate, _v16.DateTime.utc().minus({
+          hours: 1
+        })).startOf("minute").toISO() : _v1.endDate.toISO(),
+        {
+          data: _v9,
+          error: _v10
         } = (0, _v97.useGetUserAnalytics)({
           select: _v6.flatMap(_v0 => _v0.metrics),
           where: {
@@ -11117,7 +11139,7 @@
           },
           query: {
             from: _v1.startDate.toISO(),
-            to: _v1.endDate.toISO(),
+            to: _v8,
             dimension: "total",
             direction: "desc",
             ...(0, _v128.getFiltersObject)(_v212, _v1.filterLists),
@@ -11126,18 +11148,18 @@
             perPage: 31
           }
         }, _v382),
-        _v9 = _v7?.data?.[0],
-        _v10 = (0, _v4.useMemo)(() => void 0 === _v7 ? void 0 : _v6.filter(_v0 => (0, _v170.default)(_v9, _v0.metrics[0]) || !_v0.hideWhenEmpty), [_v6, _v7, _v9]);
-      return _v10 && !_v10.some(_v0 => _v0.sort === _v4) && _v5({
+        _v11 = _v9?.data?.[0],
+        _v12 = (0, _v4.useMemo)(() => void 0 === _v9 ? void 0 : _v6.filter(_v0 => (0, _v170.default)(_v11, _v0.metrics[0]) || !_v0.hideWhenEmpty), [_v6, _v9, _v11]);
+      return _v12 && !_v12.some(_v0 => _v0.sort === _v4) && _v5({
         type: _v80.REPORT_ACTION_TYPE.SET_PRIMARY_DIMENSION,
         payload: {
-          metric: _v10[0].sort,
+          metric: _v12[0].sort,
           reportGroup: _v80.ReportGroup.VIMEO
         }
       }), {
-        totalsRow: _v9,
-        hasError: !!_v8,
-        overriddenMetrics: _v10
+        totalsRow: _v11,
+        hasError: !!_v10,
+        overriddenMetrics: _v12
       };
     };
   var _v391 = _v0.i(0),
@@ -11790,9 +11812,15 @@
         endDate: _v14,
         filterLists: _v15
       } = _v1.filters[_v1.reportGroup],
-      _v16 = (0, _v4.useMemo)(() => _v4.map(_v0 => _v0.filterKey), [_v4]),
-      _v17 = (0, _v4.useMemo)(() => (0, _v128.getFiltersObject)(_v16, _v15), [_v16, _v15]),
-      _v18 = (0, _v4.useMemo)(() => {
+      {
+        settings: _v16
+      } = (0, _v92.useOrionSettings)(),
+      _v17 = (_v16.analytics_freshness_refactor_main ? _v16.DateTime.min(_v14, _v16.DateTime.utc().minus({
+        hours: 1
+      })).startOf("minute") : _v14).toISO(),
+      _v18 = (0, _v4.useMemo)(() => _v4.map(_v0 => _v0.filterKey), [_v4]),
+      _v19 = (0, _v4.useMemo)(() => (0, _v128.getFiltersObject)(_v18, _v15), [_v18, _v15]),
+      _v20 = (0, _v4.useMemo)(() => {
         switch (_v0) {
           case _v80.Reports.VIDEO:
             return "video";
@@ -11810,34 +11838,34 @@
             return "total";
         }
       }, [_v0]),
-      _v19 = [...(_v80.AggregateIntervalType.WEEK ? ["startDate", "endDate"] : ["startDate"]), _v10, ...(_v3.length ? _v3 : [])],
-      _v20 = _v76.REPORT_GROUP_BY_FILTER_MAP[_v0],
-      _v21 = {
-        [`filter_${_v20}`]: _v11.filter(_v0 => _v0.id !== _v76.TOTAL_ROW_ID).map(_v0 => `${_v0.prepend}${_v0.id}`).join(",").split(",")
+      _v21 = [...(_v80.AggregateIntervalType.WEEK ? ["startDate", "endDate"] : ["startDate"]), _v10, ...(_v3.length ? _v3 : [])],
+      _v22 = _v76.REPORT_GROUP_BY_FILTER_MAP[_v0],
+      _v23 = {
+        [`filter_${_v22}`]: _v11.filter(_v0 => _v0.id !== _v76.TOTAL_ROW_ID).map(_v0 => `${_v0.prepend}${_v0.id}`).join(",").split(",")
       },
-      _v22 = _v11.find(_v0 => _v0.id === _v76.TOTAL_ROW_ID),
-      _v23 = Math.ceil(_v14.diff(_v13, "days").toObject().days ?? 0),
-      _v24 = _v11.length * _v23,
+      _v24 = _v11.find(_v0 => _v0.id === _v76.TOTAL_ROW_ID),
+      _v25 = Math.ceil(_v14.diff(_v13, "days").toObject().days ?? 0),
+      _v26 = _v11.length * _v25,
       {
-        data: _v25,
-        isLoading: _v26,
-        error: _v27
+        data: _v27,
+        isLoading: _v28,
+        error: _v29
       } = (0, _v97.useGetUserAnalytics)(() => !_v11.length || _v5 ? null : {
-        select: _v19,
+        select: _v21,
         where: {
           userId: _v1.userInUse.id
         },
         query: {
           from: _v13.toISO(),
-          to: _v14.toISO(),
-          dimension: _v18,
+          to: _v17,
+          dimension: _v20,
           direction: "desc",
-          ..._v17,
-          ..._v21,
+          ..._v19,
+          ..._v23,
           timeInterval: _v12,
           sort: "time",
           page: 1,
-          perPage: _v24
+          perPage: _v26
         }
       }, {
         revalidateOnFocus: !1,
@@ -11845,39 +11873,39 @@
         errorRetryCount: 1
       }),
       {
-        data: _v28,
-        isLoading: _v29,
-        error: _v30
-      } = (0, _v97.useGetUserAnalytics)(() => _v22 && _v11.length && !_v5 ? {
-        select: _v19,
+        data: _v30,
+        isLoading: _v31,
+        error: _v32
+      } = (0, _v97.useGetUserAnalytics)(() => _v24 && _v11.length && !_v5 ? {
+        select: _v21,
         where: {
           userId: _v1.userInUse.id
         },
         query: {
           from: _v13.toISO(),
-          to: _v14.toISO(),
+          to: _v17,
           dimension: "total",
           direction: "desc",
-          ..._v17,
+          ..._v19,
           timeInterval: _v12,
           sort: "time",
           page: 1,
-          perPage: _v24
+          perPage: _v26
         }
       } : null, {
         revalidateOnFocus: !1,
         errorRetryInterval: 0,
         errorRetryCount: 1
       }),
-      _v31 = _v19.filter(_v0 => "startDate" !== _v0 && "endDate" !== _v0).reduce((_v0, _v1) => ({
+      _v33 = _v21.filter(_v0 => "startDate" !== _v0 && "endDate" !== _v0).reduce((_v0, _v1) => ({
         ..._v0,
         [_v1]: "00"
       }), {}),
-      _v32 = "none" === _v12 ? "day" : _v12,
-      _v33 = (0, _v4.useMemo)(() => (0, _v427.getZeroFilledGraphData)(_v13, _v14, _v25?.data, _v31, _v32), [_v25?.data, _v14, _v13, _v31, _v32]),
-      _v34 = (0, _v4.useMemo)(() => _v22 ? (0, _v427.getZeroFilledGraphData)(_v13, _v14, _v28?.data, _v31, _v32) : [], [_v28?.data, _v14, _v13, _v31, _v32, _v22]);
+      _v34 = "none" === _v12 ? "day" : _v12,
+      _v35 = (0, _v4.useMemo)(() => (0, _v427.getZeroFilledGraphData)(_v13, _v14, _v27?.data, _v33, _v34), [_v27?.data, _v14, _v13, _v33, _v34]),
+      _v36 = (0, _v4.useMemo)(() => _v24 ? (0, _v427.getZeroFilledGraphData)(_v13, _v14, _v30?.data, _v33, _v34) : [], [_v30?.data, _v14, _v13, _v33, _v34, _v24]);
     return {
-      graphData: (_v6 = _v2(_v10, _v33), _v7 = _v34 && _v34?.length ? _v34.reduce((_v0, _v1) => {
+      graphData: (_v6 = _v2(_v10, _v35), _v7 = _v36 && _v36?.length ? _v36.reduce((_v0, _v1) => {
         let _v2 = _v16.DateTime.fromISO(_v1?.startDate, {
             zone: "utc"
           }).toISODate(),
@@ -11909,8 +11937,8 @@
           }
         });
       }), _v9.sort((_v0, _v1) => (0, _v224.getDateObjFromFormat)(_v0.date, "YYYY-MM-DD") > (0, _v224.getDateObjFromFormat)(_v1.date, "YYYY-MM-DD") ? 1 : -1), _v9),
-      isLoading: _v26 || _v29,
-      isError: !!_v27 || !!_v30
+      isLoading: _v28 || _v31,
+      isError: !!_v29 || !!_v32
     };
   }
   let _v429 = (0, _v31.default)(async () => {
@@ -13061,31 +13089,37 @@
                   startDate: _v3,
                   endDate: _v4
                 } = _v2,
-                _v5 = `${_v3.toISO()}-${_v4.toISO()}`,
-                [_v6, _v7] = (0, _v4.useState)({
+                {
+                  settings: _v5
+                } = (0, _v92.useOrionSettings)(),
+                _v6 = (_v5.analytics_freshness_refactor_main ? _v16.DateTime.min(_v4, _v16.DateTime.utc().minus({
+                  hours: 1
+                })).startOf("minute") : _v4).toISO(),
+                _v7 = `${_v3.toISO()}-${_v6}`,
+                [_v8, _v9] = (0, _v4.useState)({
                   dateRange: "",
                   data: {}
                 }),
-                _v8 = (0, _v4.useMemo)(() => _v6.dateRange === _v5 ? _v6.data : {}, [_v6, _v5]),
-                _v9 = (0, _v4.useMemo)(() => _v1 && 0 !== _v1.length ? _v1.filter(_v0 => !(_v0 in _v8)) : [], [_v1, _v8]),
+                _v10 = (0, _v4.useMemo)(() => _v8.dateRange === _v7 ? _v8.data : {}, [_v8, _v7]),
+                _v11 = (0, _v4.useMemo)(() => _v1 && 0 !== _v1.length ? _v1.filter(_v0 => !(_v0 in _v10)) : [], [_v1, _v10]),
                 {
-                  data: _v10
-                } = (0, _v445.useGetUserAnalyticsEngagement)(() => _v9.length > 0 ? {
+                  data: _v12
+                } = (0, _v445.useGetUserAnalyticsEngagement)(() => _v11.length > 0 ? {
                   select: ["viewerRetentionNormalized", "metadata.connections.video.uri"],
                   where: {
                     userId: _v0
                   },
                   query: {
                     from: _v3.toISO(),
-                    to: _v4.toISO(),
-                    filterContent: _v9.map(_v0 => `/videos/${_v0}`)
+                    to: _v6,
+                    filterContent: _v11.map(_v0 => `/videos/${_v0}`)
                   }
                 } : null, {
                   revalidateOnFocus: !1,
                   revalidateIfStale: !1
                 });
               return (0, _v4.useEffect)(() => {
-                let _v0 = _v10?.data;
+                let _v0 = _v12?.data;
                 if (!_v0) return;
                 let _v1 = {};
                 for (let _v0 of _v0) {
@@ -13097,14 +13131,14 @@
                   for (let _v0 of _v2) _v0.timePercentage >= 1 && _v0.timePercentage <= 100 && (_v3[_v0.timePercentage - 1] = _v0.views);
                   _v1[_v1] = _v3;
                 }
-                Object.keys(_v1).length > 0 && _v7(_v0 => ({
-                  dateRange: _v5,
-                  data: _v0.dateRange === _v5 ? {
+                Object.keys(_v1).length > 0 && _v9(_v0 => ({
+                  dateRange: _v7,
+                  data: _v0.dateRange === _v7 ? {
                     ..._v0.data,
                     ..._v1
                   } : _v1
                 }));
-              }, [_v10, _v5]), _v8;
+              }, [_v12, _v7]), _v10;
             })(_v0, (0, _v4.useMemo)(() => _v3?.map(_v0 => _v446(_v0.metadata?.connections?.video?.uri)).filter(_v0 => void 0 !== _v0), [_v3]), _v1),
             _v9 = (0, _v4.useMemo)(() => {
               if (!_v2) return;

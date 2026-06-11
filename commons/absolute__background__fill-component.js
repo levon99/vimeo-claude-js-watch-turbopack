@@ -52,11 +52,12 @@
       videoPrivacy: _v20,
       privacyBadgeVariant: _v21,
       onPrivacyBadgeClick: _v22,
-      tagText: _v23,
-      tagTextVariant: _v24,
-      tagTextStyles: _v25,
-      topLeftDecoration: _v26,
-      progress: _v27
+      privacyBadgeTooltip: _v23,
+      tagText: _v24,
+      tagTextVariant: _v25,
+      tagTextStyles: _v26,
+      topLeftDecoration: _v27,
+      progress: _v28
     }) => (0, _v1.jsxs)(_v1.Fragment, {
       children: [_v0 && (0, _v1.jsx)(_v1.Fragment, {
         children: (0, _v1.jsx)(_v6.Box, {
@@ -135,25 +136,26 @@
         videoPrivacy: _v20,
         variant: _v21,
         onClick: _v22,
-        layout: "overlay"
+        layout: "overlay",
+        tooltipLabel: _v23
       }), (0, _v1.jsx)(_v14.ContentCard.Badge, {
-        variant: _v24,
-        sx: _v25,
-        children: _v23
-      }), _v26 && (0, _v1.jsx)(_v14.ContentCard.Badge, {
+        variant: _v25,
+        sx: _v26,
+        children: _v24
+      }), _v27 && (0, _v1.jsx)(_v14.ContentCard.Badge, {
         bgColor: "transparent",
         backdropFilter: "none",
         top: (0, _v11.rem)(16),
         left: (0, _v11.rem)(8),
         border: "none",
-        children: _v26
-      }), _v27 > 0 && (0, _v1.jsx)(_v8.Progress, {
-        "aria-label": `${_v27}% complete`,
+        children: _v27
+      }), _v28 > 0 && (0, _v1.jsx)(_v8.Progress, {
+        "aria-label": `${_v28}% complete`,
         bottom: "0",
         left: "4px",
         position: "absolute",
         size: "xs",
-        value: _v27,
+        value: _v28,
         width: "calc(100% - 8px)",
         sx: {
           bgColor: "gray.500",
@@ -206,16 +208,17 @@
     videoPrivacy: _v40,
     privacyBadgeVariant: _v41 = "default",
     onPrivacyBadgeClick: _v42,
-    editableTitle: _v43,
-    isEditingContentTitle: _v44
+    privacyBadgeTooltip: _v43,
+    editableTitle: _v44,
+    isEditingContentTitle: _v45
   }) => {
     let {
-        settings: _v45
+        settings: _v46
       } = (0, _v13.useOrionSettings)(),
-      [_v46, _v47] = (0, _v3.useState)(!1),
-      [_v48, _v49] = (0, _v3.useState)(!1),
-      _v50 = "sm" === _v26,
-      _v51 = () => {
+      [_v47, _v48] = (0, _v3.useState)(!1),
+      [_v49, _v50] = (0, _v3.useState)(!1),
+      _v51 = "sm" === _v26,
+      _v52 = () => {
         _v4.BigPictureClient.sendEvent(new _v4.Event("vimeo.click", 151, {
           copy: _v0,
           feature: "video_library",
@@ -231,7 +234,7 @@
           third_party_integration: null
         }));
       },
-      _v52 = null;
+      _v53 = null;
     if (_v8) {
       let _v0 = (0, _v1.jsx)(_v5.Avatar, {
         alt: _v7 || "",
@@ -241,7 +244,7 @@
           name: _v7 || ""
         }
       });
-      _v52 = _v7 && _v45.enable_uploader_tooltip ? (0, _v1.jsx)(_v10.Tooltip, {
+      _v53 = _v7 && _v46.enable_uploader_tooltip ? (0, _v1.jsx)(_v10.Tooltip, {
         label: _v7,
         children: (0, _v1.jsx)(_v6.Box, {
           display: "inline-flex",
@@ -260,42 +263,43 @@
       shouldUseNextLink: _v32,
       hoverZIndex: _v38 && _v39 ? 25 : void 0,
       onMouseEnter: _v0 => {
-        _v18?.(_v0), _v34 && _v49(!0);
+        _v18?.(_v0), _v34 && _v50(!0);
       },
       onMouseLeave: _v34 ? () => {
-        _v49(!1);
+        _v50(!1);
       } : void 0,
-      isEditingContentTitle: _v44,
+      isEditingContentTitle: _v45,
       children: (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v14.ContentCard.Body, {
           aspectRatio: _v25,
           children: _v38 && _v39 ? (0, _v1.jsx)(_v15.ColdStorageThumbTooltip, {
             label: _v39,
-            compactGridTooltip: _v50,
+            compactGridTooltip: _v51,
             children: (0, _v1.jsx)(_v17, {
               hasPlayOnHover: _v34,
               clipId: _v21,
               configUrl: _v22,
               playerInitEvent: _v19,
-              isHovering: _v48,
+              isHovering: _v49,
               quality: _v23,
               objectFit: _v24,
-              setIsPlayerReady: _v47,
+              setIsPlayerReady: _v48,
               isDefaultPicture: !!_v3,
               thumbnailSrc: _v4,
               thumbnailSrcSet: _v5,
               aspectRatio: _v25,
-              isPlayerReady: _v46,
+              isPlayerReady: _v47,
               isColdStorage: _v38,
               spinnerSize: _v26,
               defaultIconProps: _v29,
-              thumbnailClickEvent: _v51,
+              thumbnailClickEvent: _v52,
               isSelectable: _v14,
               selectionType: _v20,
               hoverActions: _v13,
               videoPrivacy: _v40,
               privacyBadgeVariant: _v41,
               onPrivacyBadgeClick: _v42,
+              privacyBadgeTooltip: _v43,
               tagText: _v9,
               tagTextVariant: _v11,
               tagTextStyles: _v10,
@@ -307,25 +311,26 @@
             clipId: _v21,
             configUrl: _v22,
             playerInitEvent: _v19,
-            isHovering: _v48,
+            isHovering: _v49,
             quality: _v23,
             objectFit: _v24,
-            setIsPlayerReady: _v47,
+            setIsPlayerReady: _v48,
             isDefaultPicture: !!_v3,
             thumbnailSrc: _v4,
             thumbnailSrcSet: _v5,
             aspectRatio: _v25,
-            isPlayerReady: _v46,
+            isPlayerReady: _v47,
             isColdStorage: _v38,
             spinnerSize: _v26,
             defaultIconProps: _v29,
-            thumbnailClickEvent: _v51,
+            thumbnailClickEvent: _v52,
             isSelectable: _v14,
             selectionType: _v20,
             hoverActions: _v13,
             videoPrivacy: _v40,
             privacyBadgeVariant: _v41,
             onPrivacyBadgeClick: _v42,
+            privacyBadgeTooltip: _v43,
             tagText: _v9,
             tagTextVariant: _v11,
             tagTextStyles: _v10,
@@ -334,7 +339,7 @@
           })
         }), (0, _v1.jsx)(_v14.ContentCard.Footer, {
           actions: _v12,
-          avatar: _v52,
+          avatar: _v53,
           title: _v0,
           subtitle: _v1,
           isLocked: _v38,
@@ -356,8 +361,8 @@
               third_party_integration: null
             }));
           },
-          editableTitle: _v43,
-          isEditingContentTitle: _v44,
+          editableTitle: _v44,
+          isEditingContentTitle: _v45,
           hasFollow: _v36,
           followSource: _v37
         })]

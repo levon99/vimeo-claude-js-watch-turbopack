@@ -7,28 +7,28 @@
     _v4 = _v0.i(0),
     _v5 = _v0.i(0);
   let _v6 = (0, _v2.translate)({
-      singular: "Locked",
+      singular: "Restricted",
       dictionary: {
         es: {
-          singular: "Bloqueado"
+          singular: "Restringido"
         },
         "de-DE": {
-          singular: "Gesperrt"
+          singular: "Eingeschränkt"
         },
         "fr-FR": {
-          singular: "Verrouillé"
+          singular: "Restreint"
         },
         "ja-JP": {
-          singular: "ロック済み"
+          singular: "制限付き"
         },
         "ko-KR": {
-          singular: "잠김"
+          singular: "제한됨"
         },
         "pt-BR": {
-          singular: "Bloqueado"
+          singular: "Restrito"
         },
         "zh-CN": {
-          singular: "已锁定"
+          singular: "受限"
         }
       }
     }),

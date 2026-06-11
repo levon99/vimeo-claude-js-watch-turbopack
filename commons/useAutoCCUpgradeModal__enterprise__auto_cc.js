@@ -85,7 +85,6 @@
     return (0, _v2.jsxs)(_v9.Flex, {
       direction: "column",
       rowGap: (0, _v10.rem)(8),
-      marginTop: (0, _v10.rem)(16),
       "data-testid": "auto-cc-keywords",
       children: [(0, _v2.jsx)(_v17.Text, {
         variant: "heading-xs",
@@ -186,7 +185,7 @@
             letterSpacing: "-0.04em",
             lineHeight: "140%",
             children: (0, _v31.translate)({
-              singular: "Captions Translations",
+              singular: "Captions translations",
               dictionary: {
                 es: {
                   singular: "Traducciones de subtítulos"
@@ -226,7 +225,7 @@
               fontSize: "text-sm",
               color: "text-primary",
               children: (0, _v31.translate)({
-                singular: "Captions Translations",
+                singular: "Captions translations",
                 dictionary: {
                   es: {
                     singular: "Traducciones de subtítulos"
@@ -607,14 +606,13 @@
       }, [_v7, _v2]);
     return (0, _v2.jsxs)(_v9.Flex, {
       direction: "column",
-      marginTop: (0, _v10.rem)(16),
       width: "100%",
       children: [(0, _v2.jsx)(_v17.Text, {
         variant: "heading-xs",
         color: "text-primary",
         marginBottom: (0, _v10.rem)(8),
         children: (0, _v31.translate)({
-          singular: "Captions Translations",
+          singular: "Captions translations",
           dictionary: {
             es: {
               singular: "Traducciones de subtítulos"

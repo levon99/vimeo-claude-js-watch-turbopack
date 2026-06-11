@@ -8,41 +8,42 @@
     _v5 = _v0.i(0),
     _v6 = _v0.i(0),
     _v7 = _v0.i(0),
-    _v8 = _v0.i(0);
-  let _v9 = {
+    _v8 = _v0.i(0),
+    _v9 = _v0.i(0);
+  let _v10 = {
       TITLE: "alphabetical",
       MODIFIED: "last_user_action_event_date",
       CREATED: "date",
       DURATION: "duration"
     },
-    _v10 = {
-      TITLE: _v9.TITLE,
+    _v11 = {
+      TITLE: _v10.TITLE,
       SHARED_DATE: "shared_date",
       SHARED_USER_NAME: "shared_user_name"
     },
-    _v11 = {
-      TITLE: _v9.TITLE,
-      LAST_MODIFIED: "last_modified",
-      CREATED: _v9.CREATED
-    },
     _v12 = {
-      TITLE: _v9.TITLE,
-      MODIFIED: _v9.MODIFIED,
-      DURATION: _v9.DURATION
+      TITLE: _v10.TITLE,
+      LAST_MODIFIED: "last_modified",
+      CREATED: _v10.CREATED
     },
     _v13 = {
+      TITLE: _v10.TITLE,
+      MODIFIED: _v10.MODIFIED,
+      DURATION: _v10.DURATION
+    },
+    _v14 = {
       ASC: "asc",
       DESC: "desc"
     },
-    _v14 = {
+    _v15 = {
       LIST: "LIST_LAYOUT",
       GRID: "GRID_LAYOUT"
     },
-    _v15 = {
-      [_v14.LIST]: {
+    _v16 = {
+      [_v15.LIST]: {
         name: "list",
-        Icon: _v4.ListUl,
-        tooltipText: (0, _v6.translate)({
+        Icon: _v5.ListUl,
+        tooltipText: (0, _v7.translate)({
           singular: "View list",
           dictionary: {
             es: {
@@ -69,10 +70,10 @@
           }
         })
       },
-      [_v14.GRID]: {
+      [_v15.GRID]: {
         name: "grid",
-        Icon: _v3.GridView,
-        tooltipText: (0, _v6.translate)({
+        Icon: _v4.GridView,
+        tooltipText: (0, _v7.translate)({
           singular: "View grid",
           dictionary: {
             es: {
@@ -100,21 +101,21 @@
         })
       }
     },
-    _v16 = _v9.MODIFIED,
-    _v17 = _v13.DESC,
-    _v18 = _v9.CREATED,
-    _v19 = _v9.CREATED,
-    _v20 = _v12.MODIFIED,
-    _v21 = _v9.CREATED,
-    _v22 = [_v9.TITLE, _v9.MODIFIED, _v9.CREATED, _v9.DURATION],
-    _v23 = [_v9.TITLE, _v9.CREATED],
-    _v24 = [_v10.TITLE, _v10.SHARED_DATE, _v10.SHARED_USER_NAME],
-    _v25 = [_v11.TITLE, _v11.LAST_MODIFIED, _v11.CREATED],
-    _v26 = {
+    _v17 = _v10.MODIFIED,
+    _v18 = _v14.DESC,
+    _v19 = _v10.CREATED,
+    _v20 = _v10.CREATED,
+    _v21 = _v13.MODIFIED,
+    _v22 = _v10.CREATED,
+    _v23 = [_v10.TITLE, _v10.MODIFIED, _v10.CREATED, _v10.DURATION],
+    _v24 = [_v10.TITLE, _v10.CREATED],
+    _v25 = [_v11.TITLE, _v11.SHARED_DATE, _v11.SHARED_USER_NAME],
+    _v26 = [_v12.TITLE, _v12.LAST_MODIFIED, _v12.CREATED],
+    _v27 = {
       alphabetical_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v9.TITLE,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v10.TITLE,
+        text: (0, _v7.translate)({
           singular: "Title, A to Z",
           dictionary: {
             es: {
@@ -142,9 +143,9 @@
         })
       },
       alphabetical_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v9.TITLE,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v10.TITLE,
+        text: (0, _v7.translate)({
           singular: "Title, Z to A",
           dictionary: {
             es: {
@@ -172,9 +173,9 @@
         })
       },
       last_user_action_event_date_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v9.MODIFIED,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v10.MODIFIED,
+        text: (0, _v7.translate)({
           singular: "Last modified",
           dictionary: {
             es: {
@@ -202,9 +203,9 @@
         })
       },
       last_user_action_event_date_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v9.MODIFIED,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v10.MODIFIED,
+        text: (0, _v7.translate)({
           singular: "First modified",
           dictionary: {
             es: {
@@ -232,9 +233,9 @@
         })
       },
       date_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v9.CREATED,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v10.CREATED,
+        text: (0, _v7.translate)({
           singular: "Last added",
           dictionary: {
             es: {
@@ -262,9 +263,9 @@
         })
       },
       date_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v9.CREATED,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v10.CREATED,
+        text: (0, _v7.translate)({
           singular: "First added",
           dictionary: {
             es: {
@@ -292,9 +293,9 @@
         })
       },
       duration_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v9.DURATION,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v10.DURATION,
+        text: (0, _v7.translate)({
           singular: "Longest",
           dictionary: {
             es: {
@@ -322,9 +323,9 @@
         })
       },
       duration_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v9.DURATION,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v10.DURATION,
+        text: (0, _v7.translate)({
           singular: "Shortest",
           dictionary: {
             es: {
@@ -352,11 +353,11 @@
         })
       }
     },
-    _v27 = {
+    _v28 = {
       alphabetical_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v9.TITLE,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v10.TITLE,
+        text: (0, _v7.translate)({
           singular: "Title, A to Z",
           dictionary: {
             es: {
@@ -384,9 +385,9 @@
         })
       },
       alphabetical_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v9.TITLE,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v10.TITLE,
+        text: (0, _v7.translate)({
           singular: "Title, Z to A",
           dictionary: {
             es: {
@@ -414,9 +415,9 @@
         })
       },
       date_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v9.CREATED,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v10.CREATED,
+        text: (0, _v7.translate)({
           singular: "Last added",
           dictionary: {
             es: {
@@ -444,9 +445,9 @@
         })
       },
       date_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v9.CREATED,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v10.CREATED,
+        text: (0, _v7.translate)({
           singular: "First added",
           dictionary: {
             es: {
@@ -474,11 +475,11 @@
         })
       }
     },
-    _v28 = {
+    _v29 = {
       alphabetical_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v9.TITLE,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v10.TITLE,
+        text: (0, _v7.translate)({
           singular: "Title, A to Z",
           dictionary: {
             es: {
@@ -506,9 +507,9 @@
         })
       },
       alphabetical_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v9.TITLE,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v10.TITLE,
+        text: (0, _v7.translate)({
           singular: "Title, Z to A",
           dictionary: {
             es: {
@@ -536,9 +537,9 @@
         })
       },
       shared_date_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v10.SHARED_DATE,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v11.SHARED_DATE,
+        text: (0, _v7.translate)({
           singular: "Last shared",
           dictionary: {
             es: {
@@ -566,9 +567,9 @@
         })
       },
       shared_date_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v10.SHARED_DATE,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v11.SHARED_DATE,
+        text: (0, _v7.translate)({
           singular: "First shared",
           dictionary: {
             es: {
@@ -596,9 +597,9 @@
         })
       },
       shared_user_name_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v10.SHARED_USER_NAME,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v11.SHARED_USER_NAME,
+        text: (0, _v7.translate)({
           singular: "Shared by, A to Z",
           dictionary: {
             es: {
@@ -626,9 +627,9 @@
         })
       },
       shared_user_name_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v10.SHARED_USER_NAME,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v11.SHARED_USER_NAME,
+        text: (0, _v7.translate)({
           singular: "Shared by, Z to A",
           dictionary: {
             es: {
@@ -656,11 +657,11 @@
         })
       }
     },
-    _v29 = {
+    _v30 = {
       alphabetical_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v11.TITLE,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v12.TITLE,
+        text: (0, _v7.translate)({
           singular: "Title, A to Z",
           dictionary: {
             es: {
@@ -688,9 +689,9 @@
         })
       },
       alphabetical_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v11.TITLE,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v12.TITLE,
+        text: (0, _v7.translate)({
           singular: "Title, Z to A",
           dictionary: {
             es: {
@@ -718,9 +719,9 @@
         })
       },
       last_modified_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v11.LAST_MODIFIED,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v12.LAST_MODIFIED,
+        text: (0, _v7.translate)({
           singular: "Last modified",
           dictionary: {
             es: {
@@ -748,9 +749,9 @@
         })
       },
       last_modified_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v11.LAST_MODIFIED,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v12.LAST_MODIFIED,
+        text: (0, _v7.translate)({
           singular: "First modified",
           dictionary: {
             es: {
@@ -778,9 +779,9 @@
         })
       },
       date_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v11.CREATED,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v12.CREATED,
+        text: (0, _v7.translate)({
           singular: "Last added",
           dictionary: {
             es: {
@@ -808,9 +809,9 @@
         })
       },
       date_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v11.CREATED,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v12.CREATED,
+        text: (0, _v7.translate)({
           singular: "First added",
           dictionary: {
             es: {
@@ -838,11 +839,11 @@
         })
       }
     },
-    _v30 = {
+    _v31 = {
       alphabetical_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v12.TITLE,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v13.TITLE,
+        text: (0, _v7.translate)({
           singular: "Title, A to Z",
           dictionary: {
             es: {
@@ -870,9 +871,9 @@
         })
       },
       alphabetical_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v12.TITLE,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v13.TITLE,
+        text: (0, _v7.translate)({
           singular: "Title, Z to A",
           dictionary: {
             es: {
@@ -900,9 +901,9 @@
         })
       },
       last_user_action_event_date_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v12.MODIFIED,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v13.MODIFIED,
+        text: (0, _v7.translate)({
           singular: "Latest deleted",
           dictionary: {
             es: {
@@ -930,9 +931,9 @@
         })
       },
       last_user_action_event_date_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v12.MODIFIED,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v13.MODIFIED,
+        text: (0, _v7.translate)({
           singular: "Earliest deleted",
           dictionary: {
             es: {
@@ -960,9 +961,9 @@
         })
       },
       duration_desc: {
-        sortDirection: _v13.DESC,
-        sortBy: _v12.DURATION,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.DESC,
+        sortBy: _v13.DURATION,
+        text: (0, _v7.translate)({
           singular: "Longest",
           dictionary: {
             es: {
@@ -990,9 +991,9 @@
         })
       },
       duration_asc: {
-        sortDirection: _v13.ASC,
-        sortBy: _v12.DURATION,
-        text: (0, _v6.translate)({
+        sortDirection: _v14.ASC,
+        sortBy: _v13.DURATION,
+        text: (0, _v7.translate)({
           singular: "Shortest",
           dictionary: {
             es: {
@@ -1020,9 +1021,9 @@
         })
       }
     },
-    _v31 = {
+    _v32 = {
       all: {
-        label: (0, _v6.translate)({
+        label: (0, _v7.translate)({
           singular: "All",
           dictionary: {
             es: {
@@ -1051,7 +1052,7 @@
         value: "all"
       },
       folder: {
-        label: (0, _v6.translate)({
+        label: (0, _v7.translate)({
           singular: "Folders",
           dictionary: {
             es: {
@@ -1080,7 +1081,7 @@
         value: "folder"
       },
       showcase: {
-        label: (0, _v6.translate)({
+        label: (0, _v7.translate)({
           singular: "Showcases",
           dictionary: {
             es: {
@@ -1109,7 +1110,7 @@
         value: "showcase"
       },
       video: {
-        label: (0, _v6.translate)({
+        label: (0, _v7.translate)({
           singular: "Videos",
           dictionary: {
             "fr-FR": {
@@ -1132,11 +1133,11 @@
         value: "video"
       }
     },
-    _v32 = (0, _v2.rem)(0),
     _v33 = (0, _v2.rem)(0),
     _v34 = (0, _v2.rem)(0),
-    _v35 = (0, _v2.rem)(300),
-    _v36 = (0, _v6.translate)({
+    _v35 = (0, _v2.rem)(0),
+    _v36 = (0, _v2.rem)(300),
+    _v37 = (0, _v7.translate)({
       singular: "Shared with me",
       dictionary: {
         es: {
@@ -1161,219 +1162,231 @@
           singular: "与我分享"
         }
       }
-    });
-  (0, _v6.translate)({
-    singular: "Public",
-    dictionary: {
-      es: {
-        singular: "Público"
-      },
-      "de-DE": {
-        singular: "Öffentlich"
-      },
-      "ja-JP": {
-        singular: "一般公開"
-      },
-      "ko-KR": {
-        singular: "공개"
-      },
-      "pt-BR": {
-        singular: "Público"
-      },
-      "zh-CN": {
-        singular: "公开"
-      }
-    }
-  }), (0, _v6.translate)({
-    singular: "Hide from Vimeo",
-    dictionary: {
-      es: {
-        singular: "Ocultar de Vimeo"
-      },
-      "de-DE": {
-        singular: "Bei Vimeo ausblenden"
-      },
-      "fr-FR": {
-        singular: "Masquer dans Vimeo"
-      },
-      "ja-JP": {
-        singular: "Vimeoで非表示にする"
-      },
-      "ko-KR": {
-        singular: "Vimeo에서 숨기기"
-      },
-      "pt-BR": {
-        singular: "Ocultar do Vimeo"
-      },
-      "zh-CN": {
-        singular: "从 Vimeo 隐藏"
-      }
-    }
-  }), (0, _v6.translate)({
-    singular: "Private",
-    dictionary: {
-      es: {
-        singular: "Privado"
-      },
-      "de-DE": {
-        singular: "Privat"
-      },
-      "fr-FR": {
-        singular: "Privé"
-      },
-      "ja-JP": {
-        singular: "プライベート"
-      },
-      "ko-KR": {
-        singular: "비공개"
-      },
-      "pt-BR": {
-        singular: "Privado"
-      },
-      "zh-CN": {
-        singular: "私密"
-      }
-    }
-  }), (0, _v6.translate)({
-    singular: "Password",
-    dictionary: {
-      es: {
-        singular: "Contraseña"
-      },
-      "de-DE": {
-        singular: "Kennwort"
-      },
-      "fr-FR": {
-        singular: "Mot de passe "
-      },
-      "ja-JP": {
-        singular: "パスワード"
-      },
-      "ko-KR": {
-        singular: "비밀번호"
-      },
-      "pt-BR": {
-        singular: "Senha"
-      },
-      "zh-CN": {
-        singular: "密码"
-      }
-    }
-  }), (0, _v6.translate)({
-    singular: "Unlisted",
-    dictionary: {
-      es: {
-        singular: "Sin listar"
-      },
-      "de-DE": {
-        singular: "Nicht gelistet"
-      },
-      "fr-FR": {
-        singular: "Non répertorié"
-      },
-      "ja-JP": {
-        singular: "限定公開"
-      },
-      "ko-KR": {
-        singular: "일부 공개"
-      },
-      "pt-BR": {
-        singular: "Não listado"
-      },
-      "zh-CN": {
-        singular: "未公开发布"
-      }
-    }
-  }), (0, _v6.translate)({
-    singular: "VOD",
-    dictionary: {
-      "zh-CN": {
-        singular: "视频点播"
-      }
-    }
-  }), (0, _v6.translate)({
-    singular: "VOD",
-    dictionary: {
-      "zh-CN": {
-        singular: "视频点播"
-      }
-    }
-  }), (0, _v6.translate)({
-    singular: "People I follow",
-    dictionary: {
-      es: {
-        singular: "Las personas que sigo"
-      },
-      "de-DE": {
-        singular: "Leute, denen ich folge"
-      },
-      "fr-FR": {
-        singular: "Les personnes que je suis"
-      },
-      "ja-JP": {
-        singular: "自分がフォローしている人"
-      },
-      "ko-KR": {
-        singular: "내가 팔로우하는 사람"
-      },
-      "pt-BR": {
-        singular: "Pessoas que eu sigo"
-      },
-      "zh-CN": {
-        singular: "我关注的人"
-      }
-    }
-  }), (0, _v6.translate)({
-    singular: "People I choose",
-    dictionary: {
-      es: {
-        singular: "Las personas que elijo"
-      },
-      "de-DE": {
-        singular: "Von mir ausgewählte Leute"
-      },
-      "fr-FR": {
-        singular: "Personnes de mon choix"
-      },
-      "ja-JP": {
-        singular: "選択した人のみ"
-      },
-      "ko-KR": {
-        singular: "내가 선택한 사람"
-      },
-      "pt-BR": {
-        singular: "Pessoas que eu escolher"
-      },
-      "zh-CN": {
-        singular: "我选择的人"
-      }
-    }
-  }), (0, _v6.translate)({
-    singular: "Locked",
-    dictionary: {
-      es: {
-        singular: "Bloqueado"
-      },
-      "de-DE": {
-        singular: "Gesperrt"
-      },
-      "fr-FR": {
-        singular: "Verrouillé"
-      },
-      "ja-JP": {
-        singular: "ロック済み"
-      },
-      "ko-KR": {
-        singular: "잠김"
-      },
-      "pt-BR": {
-        singular: "Bloqueado"
-      },
-      "zh-CN": {
-        singular: "已锁定"
-      }
-    }
-  }), _v0.s(["ACTIONS_MENU_Z_INDEX", 0, 0, "BP_EVENT_COPY", 0, {
+    }),
+    _v38 = {
+      anybody: (0, _v7.translate)({
+        singular: "Public",
+        dictionary: {
+          es: {
+            singular: "Público"
+          },
+          "de-DE": {
+            singular: "Öffentlich"
+          },
+          "ja-JP": {
+            singular: "一般公開"
+          },
+          "ko-KR": {
+            singular: "공개"
+          },
+          "pt-BR": {
+            singular: "Público"
+          },
+          "zh-CN": {
+            singular: "公开"
+          }
+        }
+      }),
+      disable: (0, _v7.translate)({
+        singular: "Hide from Vimeo",
+        dictionary: {
+          es: {
+            singular: "Ocultar de Vimeo"
+          },
+          "de-DE": {
+            singular: "Bei Vimeo ausblenden"
+          },
+          "fr-FR": {
+            singular: "Masquer dans Vimeo"
+          },
+          "ja-JP": {
+            singular: "Vimeoで非表示にする"
+          },
+          "ko-KR": {
+            singular: "Vimeo에서 숨기기"
+          },
+          "pt-BR": {
+            singular: "Ocultar do Vimeo"
+          },
+          "zh-CN": {
+            singular: "从 Vimeo 隐藏"
+          }
+        }
+      }),
+      nobody: (0, _v7.translate)({
+        singular: "Private",
+        dictionary: {
+          es: {
+            singular: "Privado"
+          },
+          "de-DE": {
+            singular: "Privat"
+          },
+          "fr-FR": {
+            singular: "Privé"
+          },
+          "ja-JP": {
+            singular: "プライベート"
+          },
+          "ko-KR": {
+            singular: "비공개"
+          },
+          "pt-BR": {
+            singular: "Privado"
+          },
+          "zh-CN": {
+            singular: "私密"
+          }
+        }
+      }),
+      password: (0, _v7.translate)({
+        singular: "Password",
+        dictionary: {
+          es: {
+            singular: "Contraseña"
+          },
+          "de-DE": {
+            singular: "Kennwort"
+          },
+          "fr-FR": {
+            singular: "Mot de passe "
+          },
+          "ja-JP": {
+            singular: "パスワード"
+          },
+          "ko-KR": {
+            singular: "비밀번호"
+          },
+          "pt-BR": {
+            singular: "Senha"
+          },
+          "zh-CN": {
+            singular: "密码"
+          }
+        }
+      }),
+      unlisted: (0, _v7.translate)({
+        singular: "Unlisted",
+        dictionary: {
+          es: {
+            singular: "Sin listar"
+          },
+          "de-DE": {
+            singular: "Nicht gelistet"
+          },
+          "fr-FR": {
+            singular: "Non répertorié"
+          },
+          "ja-JP": {
+            singular: "限定公開"
+          },
+          "ko-KR": {
+            singular: "일부 공개"
+          },
+          "pt-BR": {
+            singular: "Não listado"
+          },
+          "zh-CN": {
+            singular: "未公开发布"
+          }
+        }
+      }),
+      ptv: (0, _v7.translate)({
+        singular: "VOD",
+        dictionary: {
+          "zh-CN": {
+            singular: "视频点播"
+          }
+        }
+      }),
+      ptvhide: (0, _v7.translate)({
+        singular: "VOD",
+        dictionary: {
+          "zh-CN": {
+            singular: "视频点播"
+          }
+        }
+      }),
+      contacts: (0, _v7.translate)({
+        singular: "People I follow",
+        dictionary: {
+          es: {
+            singular: "Las personas que sigo"
+          },
+          "de-DE": {
+            singular: "Leute, denen ich folge"
+          },
+          "fr-FR": {
+            singular: "Les personnes que je suis"
+          },
+          "ja-JP": {
+            singular: "自分がフォローしている人"
+          },
+          "ko-KR": {
+            singular: "내가 팔로우하는 사람"
+          },
+          "pt-BR": {
+            singular: "Pessoas que eu sigo"
+          },
+          "zh-CN": {
+            singular: "我关注的人"
+          }
+        }
+      }),
+      users: (0, _v7.translate)({
+        singular: "People I choose",
+        dictionary: {
+          es: {
+            singular: "Las personas que elijo"
+          },
+          "de-DE": {
+            singular: "Von mir ausgewählte Leute"
+          },
+          "fr-FR": {
+            singular: "Personnes de mon choix"
+          },
+          "ja-JP": {
+            singular: "選択した人のみ"
+          },
+          "ko-KR": {
+            singular: "내가 선택한 사람"
+          },
+          "pt-BR": {
+            singular: "Pessoas que eu escolher"
+          },
+          "zh-CN": {
+            singular: "我选择的人"
+          }
+        }
+      }),
+      purgatory: (0, _v7.translate)({
+        singular: "Locked",
+        dictionary: {
+          es: {
+            singular: "Restringido"
+          },
+          "de-DE": {
+            singular: "Gesperrt"
+          },
+          "fr-FR": {
+            singular: "Verrouillée"
+          },
+          "ja-JP": {
+            singular: "ロック"
+          },
+          "ko-KR": {
+            singular: "잠겼습니다."
+          },
+          "pt-BR": {
+            singular: "Bloqueado"
+          },
+          "zh-CN": {
+            singular: "已锁定"
+          }
+        }
+      })
+    };
+  _v0.s(["ACTIONS_MENU_Z_INDEX", 0, 0, "BP_EVENT_COPY", 0, {
     alphabetical_asc: "title, a to z",
     alphabetical_desc: "title, z to a",
     last_user_action_event_date_desc: "last modified",
@@ -1386,24 +1399,24 @@
     shared_date_asc: "first shared",
     shared_user_name_asc: "shared by, a to z",
     shared_user_name_desc: "shared by, z to a"
-  }, "CONTENT_CARD_TITLE_MAX_WIDTH", 0, _v35, "CONTENT_TYPE", 0, {
+  }, "CONTENT_CARD_TITLE_MAX_WIDTH", 0, _v36, "CONTENT_TYPE", 0, {
     FOLDER: "folder",
     VIDEO: "video",
     LIVE_EVENT: "live_event",
     SHOWCASE: "showcase"
-  }, "CONTENT_TYPE_FILTER_OPTIONS_BY_VALUE", 0, _v31, "DEFAULT_DATE_DISPLAY", 0, _v21, "DEFAULT_EVENTS_SORT", 0, {
-    type: _v18,
-    direction: _v17
-  }, "DEFAULT_EVENTS_SORT_OPTION", 0, _v18, "DEFAULT_RECENTLY_DELETED_SORT", 0, {
-    type: _v20,
-    direction: _v17
-  }, "DEFAULT_RECENTLY_DELETED_SORT_OPTION", 0, _v20, "DEFAULT_SHOWCASES_SORT", 0, {
+  }, "CONTENT_TYPE_FILTER_OPTIONS_BY_VALUE", 0, _v32, "DEFAULT_DATE_DISPLAY", 0, _v22, "DEFAULT_EVENTS_SORT", 0, {
     type: _v19,
-    direction: _v17
-  }, "DEFAULT_SHOWCASES_SORT_OPTION", 0, _v19, "DEFAULT_SORT", 0, {
-    type: _v16,
-    direction: _v17
-  }, "DEFAULT_SORT_DIRECTION", 0, _v17, "DEFAULT_SORT_OPTION", 0, _v16, "EVENTS_SORT_OPTIONS", 0, _v27, "GET_USER_PROJECT_API_FIELDS", 0, ["metadata.connections.ancestorPath"], "HIDE_DATE_COLUMN_BREAKPOINT", 0, _v34, "HIDE_FILE_SIZE_COLUMN_BREAKPOINT", 0, _v33, "HIDE_PRIVACY_COLUMN_BREAKPOINT", 0, _v32, "LAYOUT", 0, _v14, "LAYOUT_CONFIG", 0, _v15, "MAX_SELECTION_FOR_BULK_ADD_TO_SHOWCASES", 0, 100, "MAX_SELECTION_FOR_BULK_MOVE", 0, 50, "MAX_SELECTION_FOR_BULK_PRIVACY", 0, 50, "PAGE", 0, {
+    direction: _v18
+  }, "DEFAULT_EVENTS_SORT_OPTION", 0, _v19, "DEFAULT_RECENTLY_DELETED_SORT", 0, {
+    type: _v21,
+    direction: _v18
+  }, "DEFAULT_RECENTLY_DELETED_SORT_OPTION", 0, _v21, "DEFAULT_SHOWCASES_SORT", 0, {
+    type: _v20,
+    direction: _v18
+  }, "DEFAULT_SHOWCASES_SORT_OPTION", 0, _v20, "DEFAULT_SORT", 0, {
+    type: _v17,
+    direction: _v18
+  }, "DEFAULT_SORT_DIRECTION", 0, _v18, "DEFAULT_SORT_OPTION", 0, _v17, "EVENTS_SORT_OPTIONS", 0, _v28, "GET_USER_PROJECT_API_FIELDS", 0, ["metadata.connections.ancestorPath"], "HIDE_DATE_COLUMN_BREAKPOINT", 0, _v35, "HIDE_FILE_SIZE_COLUMN_BREAKPOINT", 0, _v34, "HIDE_PRIVACY_COLUMN_BREAKPOINT", 0, _v33, "LAYOUT", 0, _v15, "LAYOUT_CONFIG", 0, _v16, "MAX_SELECTION_FOR_BULK_ADD_TO_SHOWCASES", 0, 100, "MAX_SELECTION_FOR_BULK_MOVE", 0, 50, "MAX_SELECTION_FOR_BULK_PRIVACY", 0, 50, "PAGE", 0, {
     MVV: "mvv",
     ELIHP: "elihp",
     SHOWCASES: "library_showcases",
@@ -1414,7 +1427,7 @@
     SVV: "svv",
     UNKNOWN: "",
     SHARED_WITH_ME: "shared_with_me"
-  }, "Path", 0, {
+  }, "PRIVACY_TO_LABEL", 0, _v38, "Path", 0, {
     AccountSettings: "/settings/account/general",
     Analytics: "/analytics",
     Home: "/home",
@@ -1429,51 +1442,81 @@
     Watch: "/watch",
     IntegrationsCenter: "/integrations-center/[[...slug]]",
     RecentlyDeleted: "/recently-deleted"
-  }, "RECENTLY_DELETED_SORT_OPTIONS", 0, _v30, "SHARED_WITH_ME_DIR_NAME", 0, _v36, "SHARED_WITH_ME_SORT_OPTIONS", 0, _v28, "SHOWCASES_SORT_OPTION", 0, _v11, "SHOWCASES_SORT_OPTIONS", 0, _v29, "SORT_DIRECTION", 0, _v13, "SORT_OPTION", 0, _v9, "SORT_OPTIONS", 0, _v26, "USER_PREFERENCE_ID", 0, {
+  }, "RECENTLY_DELETED_SORT_OPTIONS", 0, _v31, "SHARED_WITH_ME_DIR_NAME", 0, _v37, "SHARED_WITH_ME_SORT_OPTIONS", 0, _v29, "SHOWCASES_SORT_OPTION", 0, _v12, "SHOWCASES_SORT_OPTIONS", 0, _v30, "SORT_DIRECTION", 0, _v14, "SORT_OPTION", 0, _v10, "SORT_OPTIONS", 0, _v27, "USER_PREFERENCE_ID", 0, {
     PREF_ORGANIZATION_UUID: "orguid",
     PREF_WORKSPACE_UUID: "wspuid"
-  }, "VL_DATE_LOCAL_STORAGE_KEY", 0, "vl_date", "VL_EVENTS_SORT_LOCAL_STORAGE_KEY", 0, "vl_events_sort", "VL_EVENTS_SORT_OPTIONS", 0, _v23, "VL_SHOWCASES_SORT_LOCAL_STORAGE_KEY", 0, "vl_showcases_sort", "VL_SHOWCASES_SORT_OPTIONS", 0, _v25, "VL_SORT_LOCAL_STORAGE_KEY", 0, "vl_sort", "VL_SORT_OPTIONS", 0, _v22, "VL_SWM_SORT_LOCAL_STORAGE_KEY", 0, "vl_swm_sort", "VL_SWM_SORT_OPTIONS", 0, _v24, "getPrivacyTypeFilterOptionsByValue", 0, (_v0, _v1) => {
-    let _v2 = Object.fromEntries(Object.entries(_v7.DEFAULT_PRIVACY_VALUES).map(([_v0, _v1]) => [_v1, _v0.toLowerCase()]));
+  }, "VL_DATE_LOCAL_STORAGE_KEY", 0, "vl_date", "VL_EVENTS_SORT_LOCAL_STORAGE_KEY", 0, "vl_events_sort", "VL_EVENTS_SORT_OPTIONS", 0, _v24, "VL_SHOWCASES_SORT_LOCAL_STORAGE_KEY", 0, "vl_showcases_sort", "VL_SHOWCASES_SORT_OPTIONS", 0, _v26, "VL_SORT_LOCAL_STORAGE_KEY", 0, "vl_sort", "VL_SORT_OPTIONS", 0, _v23, "VL_SWM_SORT_LOCAL_STORAGE_KEY", 0, "vl_swm_sort", "VL_SWM_SORT_OPTIONS", 0, _v25, "getPrivacyTypeFilterOptionsByValue", 0, (_v0, _v1) => {
+    let _v2 = Object.fromEntries(Object.entries(_v8.DEFAULT_PRIVACY_VALUES).map(([_v0, _v1]) => [_v1, _v0.toLowerCase()]));
     return {
-      ...Object.fromEntries(_v7.DEFAULT_PRIVACY_OPTIONS.flatMap(_v0 => {
+      ...Object.fromEntries(_v8.DEFAULT_PRIVACY_OPTIONS.flatMap(_v0 => {
         let _v1 = _v2[_v0.privacy];
         if (!_v1) return [];
-        let _v2 = _v7.VIDEO_PRIVACY_ICON_MAP[_v0.privacy]?.icon;
+        let _v2 = _v8.VIDEO_PRIVACY_ICON_MAP[_v0.privacy]?.icon;
         return [[_v1, {
-          label: _v0.privacy === _v7.DEFAULT_PRIVACY_VALUES.TEAM ? (0, _v8.getTeamPrivacyTranslation)(_v0, _v1) : _v0.title,
+          label: _v0.privacy === _v8.DEFAULT_PRIVACY_VALUES.TEAM ? (0, _v9.getTeamPrivacyTranslation)(_v0, _v1) : _v0.title,
           value: _v1,
           icon: _v1.default.isValidElement(_v2) ? _v2.type : void 0
         }]];
       })),
       locked: {
-        label: (0, _v6.translate)({
-          singular: "Locked",
+        label: (0, _v7.translate)({
+          singular: "Restricted",
           dictionary: {
             es: {
-              singular: "Bloqueado"
+              singular: "Restringido"
             },
             "de-DE": {
-              singular: "Gesperrt"
+              singular: "Eingeschränkt"
             },
             "fr-FR": {
-              singular: "Verrouillé"
+              singular: "Restreint"
             },
             "ja-JP": {
-              singular: "ロック済み"
+              singular: "制限付き"
             },
             "ko-KR": {
-              singular: "잠김"
+              singular: "제한됨"
             },
             "pt-BR": {
-              singular: "Bloqueado"
+              singular: "Restrito"
             },
             "zh-CN": {
-              singular: "已锁定"
+              singular: "受限"
             }
           }
         }),
         value: "locked",
-        icon: _v5.ColdStorageVideoLockedIcon
+        icon: _v6.ColdStorageVideoLockedIcon
+      },
+      cold_privacy: {
+        label: (0, _v7.translate)({
+          singular: "Forced to Private",
+          dictionary: {
+            es: {
+              singular: "Forzado a privado"
+            },
+            "de-DE": {
+              singular: "Auf „Privat“ gesetzt"
+            },
+            "fr-FR": {
+              singular: "Forcé en privé"
+            },
+            "ja-JP": {
+              singular: "強制的に非公開"
+            },
+            "ko-KR": {
+              singular: "비공개로 강제 설정됨"
+            },
+            "pt-BR": {
+              singular: "Forçado para Privado"
+            },
+            "zh-CN": {
+              singular: "强制设为私有"
+            }
+          }
+        }),
+        value: "cold_privacy",
+        icon: _v3.CircleExclamation
       }
     };
   }]);

@@ -652,13 +652,13 @@
               singular: "Enter name",
               dictionary: {
                 es: {
-                  singular: "Escribe un nombre "
+                  singular: "Introduce el nombre"
                 },
                 "de-DE": {
                   singular: "Namen eingeben"
                 },
                 "fr-FR": {
-                  singular: "Saisissez un nom"
+                  singular: "Entrez votre nom"
                 },
                 "ja-JP": {
                   singular: "名前を入力"
@@ -667,10 +667,10 @@
                   singular: "이름 입력"
                 },
                 "pt-BR": {
-                  singular: "Digite um nome"
+                  singular: "Digite seu nome"
                 },
                 "zh-CN": {
-                  singular: "输入名称"
+                  singular: "输入姓名"
                 }
               }
             })

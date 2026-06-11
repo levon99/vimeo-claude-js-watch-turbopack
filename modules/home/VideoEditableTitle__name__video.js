@@ -80,28 +80,28 @@
     if ("team" === _v3) return (0, _v8.getTeamPrivacyTranslation)(_v1?.teamName, _v1?.isWorkspace);
     let _v4 = _v7.DEFAULT_PRIVACY_OPTIONS.find(_v0 => _v0.privacy === _v3)?.title;
     return _v4 || ("purgatory" === _v3 || "cold_storage" === _v3 ? (0, _v4.translate)({
-      singular: "Locked",
+      singular: "Restricted",
       dictionary: {
         es: {
-          singular: "Bloqueado"
+          singular: "Restringido"
         },
         "de-DE": {
-          singular: "Gesperrt"
+          singular: "Eingeschränkt"
         },
         "fr-FR": {
-          singular: "Verrouillé"
+          singular: "Restreint"
         },
         "ja-JP": {
-          singular: "ロック済み"
+          singular: "制限付き"
         },
         "ko-KR": {
-          singular: "잠김"
+          singular: "제한됨"
         },
         "pt-BR": {
-          singular: "Bloqueado"
+          singular: "Restrito"
         },
         "zh-CN": {
-          singular: "已锁定"
+          singular: "受限"
         }
       }
     }) : _v3);

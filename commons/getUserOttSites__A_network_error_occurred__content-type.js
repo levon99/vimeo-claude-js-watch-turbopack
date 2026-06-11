@@ -73,42 +73,6 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  function _v13() {
-    let {
-        baseUrl: _v0,
-        jwt: _v1,
-        xVimeoPage: _v2,
-        locale: _v3
-      } = (0, _v11.useGctlConfig)(),
-      [_v4, _v5] = (0, _v2.useInternalState)();
-    return [(0, _v7.useCallback)(async _v0 => {
-      _v5({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v6({
-          ..._v0,
-          baseUrl: _v0,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v1 ? `jwt ${_v1}` : "",
-            "Vimeo-Page": `${_v2}`,
-            "Accept-Language": _v3 ?? "en"
-          }
-        });
-        _v5({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v5({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v0, _v2, _v1, _v3, _v5]), _v4];
-  }
   "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(_v12, {
     endpoint: "/users/:userId/ott_sites",
     method: "GET"
@@ -189,8 +153,43 @@
   }, {
     endpoint: "/users/:userId/ott_sites",
     method: "GET"
-  }), "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(_v13, {
+  }), "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(function () {
+    let {
+        baseUrl: _v0,
+        jwt: _v1,
+        xVimeoPage: _v2,
+        locale: _v3
+      } = (0, _v11.useGctlConfig)(),
+      [_v4, _v5] = (0, _v2.useInternalState)();
+    return [(0, _v7.useCallback)(async _v0 => {
+      _v5({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await _v6({
+          ..._v0,
+          baseUrl: _v0,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v1 ? `jwt ${_v1}` : "",
+            "Vimeo-Page": `${_v2}`,
+            "Accept-Language": _v3 ?? "en"
+          }
+        });
+        _v5({
+          type: "SUCCESS",
+          payload: _v0
+        });
+      } catch (_v0) {
+        _v5({
+          type: "FAILURE",
+          payload: _v0
+        });
+      }
+    }, [_v0, _v2, _v1, _v3, _v5]), _v4];
+  }, {
     endpoint: "/users/:userId/ott_sites",
     method: "POST"
-  }), _v0.s(["useGetUserOttSites", 0, _v12, "usePostUserOttSites", 0, _v13], 0);
+  }), _v0.s(["useGetUserOttSites", 0, _v12], 0);
 }

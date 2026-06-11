@@ -18,55 +18,42 @@
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
-    _v18 = _v0.i(0),
-    _v19 = _v0.i(0),
-    _v20 = _v0.i(0);
+    _v18 = _v0.i(0);
   _v0.s(["FolderTopRightDecoration", 0, ({
     folder: _v0,
     shareEventAnalyticsOverride: _v1,
-    shouldUpdateSideNavStars: _v2,
-    buttonVariant: _v3 = "transparent",
-    flexDirection: _v4 = "column",
-    location: _v5,
-    onRename: _v6
+    buttonVariant: _v2 = "transparent",
+    flexDirection: _v3 = "column",
+    location: _v4,
+    onRename: _v5
   }) => {
-    let {
-        capabilities: _v7
-      } = (0, _v8.useCapability)(["hasLibrarySidePanel"]),
-      _v8 = (0, _v14.useCopyFolderLinkToast)(),
-      _v9 = (0, _v15.useManageShareAction)({
-        canEdit: (0, _v19.getFolderPermissions)(_v0).canEditSettings,
+    let _v6 = (0, _v13.useCopyFolderLinkToast)(),
+      _v7 = (0, _v14.useManageShareAction)({
+        canEdit: (0, _v18.getFolderPermissions)(_v0).canEditSettings,
         entityUri: _v0.uri,
-        location: _v12.SHARE_RESOURCE_FOLDER_CARD_HOVER_ENTRY_POINT,
+        location: _v11.SHARE_RESOURCE_FOLDER_CARD_HOVER_ENTRY_POINT,
         panel: "INVITE_PANEL"
       }),
-      _v10 = (0, _v18.usePageName)(),
-      _v11 = (0, _v17.useFolderShareClick)({
+      _v8 = (0, _v17.usePageName)(),
+      _v9 = (0, _v16.useFolderShareClick)({
         folder: _v0,
         analytics: {
-          feature: _v1?.feature || _v12.AnalyticsFeatures.VIDEO_LIBRARY,
-          location: _v1?.location || _v12.AnalyticsLocations.FOLDER_CARD,
+          feature: _v1?.feature || _v11.AnalyticsFeatures.VIDEO_LIBRARY,
+          location: _v1?.location || _v11.AnalyticsLocations.FOLDER_CARD,
           page: _v1?.page,
-          shareModalEntryPoint: _v1?.shareModalEntryPoint || _v12.SHARE_RESOURCE_FOLDER_CARD_HOVER_ENTRY_POINT
+          shareModalEntryPoint: _v1?.shareModalEntryPoint || _v11.SHARE_RESOURCE_FOLDER_CARD_HOVER_ENTRY_POINT
         },
         analyticsV2: {
-          location: _v5,
+          location: _v4,
           element: "icon"
         }
       }),
-      _v12 = (0, _v11.useViewer)(),
+      _v10 = (0, _v10.useViewer)(),
       {
-        getFolderShareLoopTrackingParams: _v13
-      } = (0, _v16.useShareLoopTrackingParams)(),
-      _v14 = _v7?.hasLibrarySidePanel ? null : (0, _v1.jsx)(_v20.StarredIconContainer, {
-        type: "folder",
-        uri: _v0.uri,
-        entity: _v0,
-        shouldUpdateSideNav: _v2,
-        buttonVariant: _v3
-      }),
-      _v15 = _v11 ? (0, _v1.jsx)(_v4.Tooltip, {
-        label: (0, _v9.translate)({
+        getFolderShareLoopTrackingParams: _v11
+      } = (0, _v15.useShareLoopTrackingParams)(),
+      _v12 = _v9 ? (0, _v1.jsx)(_v4.Tooltip, {
+        label: (0, _v8.translate)({
           singular: "Share",
           dictionary: {
             es: {
@@ -94,7 +81,7 @@
         }),
         placement: "top",
         children: (0, _v1.jsx)(_v3.IconButton, {
-          "aria-label": (0, _v9.translate)({
+          "aria-label": (0, _v8.translate)({
             singular: "Share",
             dictionary: {
               es: {
@@ -126,7 +113,7 @@
             boxSize: "sm"
           }),
           size: "sm",
-          variant: _v3,
+          variant: _v2,
           zIndex: 1,
           opacity: 0,
           transition: "opacity 200ms ease-in-out",
@@ -134,7 +121,7 @@
             opacity: 1
           },
           onClick: _v0 => {
-            _v0.currentTarget.blur(), _v11(), _v0.preventDefault(), _v0.stopPropagation();
+            _v0.currentTarget.blur(), _v9(), _v0.preventDefault(), _v0.stopPropagation();
           }
         })
       }) : null;
@@ -143,10 +130,10 @@
       top: "0",
       right: "0",
       gap: "50",
-      direction: _v4,
+      direction: _v3,
       zIndex: 10,
-      children: ["column" === _v4 ? _v14 : _v15, _v6 && (0, _v1.jsx)(_v4.Tooltip, {
-        label: (0, _v9.translate)({
+      children: ["column" === _v3 ? null : _v12, _v5 && (0, _v1.jsx)(_v4.Tooltip, {
+        label: (0, _v8.translate)({
           singular: "Rename",
           dictionary: {
             es: {
@@ -174,7 +161,7 @@
         }),
         placement: "top",
         children: (0, _v1.jsx)(_v3.IconButton, {
-          "aria-label": (0, _v9.translate)({
+          "aria-label": (0, _v8.translate)({
             singular: "Rename",
             dictionary: {
               es: {
@@ -206,7 +193,7 @@
             boxSize: "sm"
           }),
           size: "sm",
-          variant: _v3,
+          variant: _v2,
           zIndex: 1,
           opacity: 0,
           transition: "opacity 200ms ease-in-out",
@@ -214,11 +201,11 @@
             opacity: 1
           },
           onClick: _v0 => {
-            _v0.currentTarget.blur(), _v6(), _v0.preventDefault(), _v0.stopPropagation();
+            _v0.currentTarget.blur(), _v5(), _v0.preventDefault(), _v0.stopPropagation();
           }
         })
       }), (0, _v1.jsx)(_v4.Tooltip, {
-        label: (0, _v9.translate)({
+        label: (0, _v8.translate)({
           singular: "Copy link",
           dictionary: {
             es: {
@@ -246,7 +233,7 @@
         }),
         placement: "top",
         children: (0, _v1.jsx)(_v3.IconButton, {
-          "aria-label": (0, _v9.translate)({
+          "aria-label": (0, _v8.translate)({
             singular: "Copy link",
             dictionary: {
               es: {
@@ -278,7 +265,7 @@
             boxSize: "sm"
           }),
           size: "sm",
-          variant: _v3,
+          variant: _v2,
           zIndex: 1,
           opacity: 0,
           transition: "opacity 200ms ease-in-out",
@@ -287,15 +274,15 @@
           },
           onClick: _v0 => {
             let _v1 = _v0.uri.split("/"),
-              _v2 = _v13(_v10, !!_v0.isPrivateToUser),
+              _v2 = _v11(_v8, !!_v0.isPrivateToUser),
               _v3 = `${window.location.protocol}//${window.location.hostname}/user/${_v1[2]}/folder/${_v1[4]}${_v2}`;
-            _v8({
-              isSuccess: (0, _v10.default)(_v3),
-              onManage: _v9
-            }), _v0.preventDefault(), _v0.stopPropagation(), _v13.BPAnalyticsV2.copyFolderLink({
-              location: _v5,
+            _v6({
+              isSuccess: (0, _v9.default)(_v3),
+              onManage: _v7
+            }), _v0.preventDefault(), _v0.stopPropagation(), _v12.BPAnalyticsV2.copyFolderLink({
+              location: _v4,
               element: "icon",
-              teamUser: _v12?.teamUser,
+              teamUser: _v10?.teamUser,
               folder: _v0,
               webCtx: {
                 path: window.location.pathname,
@@ -304,7 +291,7 @@
             });
           }
         })
-      }), "column" === _v4 ? _v15 : _v14]
+      }), "column" === _v3 ? _v12 : null]
     });
   }]);
 }

@@ -1569,7 +1569,7 @@
           }, _v0))
         })
       }), (0, _v17.jsx)(_v95.Flex, {
-        grow: 1
+        grow: .2
       }), (0, _v17.jsx)(_v186.BokehSkeleton, {
         className: (0, _v96.createDomName)(_v1, "bottom"),
         width: (0, _v61.rem)(216),
@@ -6410,29 +6410,39 @@
       sx: _v97.FULL_WIDTH_ABSOLUTE_STYLE,
       children: [(0, _v17.jsx)(_v95.Flex, {
         grow: 1
-      }), (0, _v17.jsx)(_v109.SpeakingWhileMutedBanner, {
-        marginBottom: (0, _v61.rem)(16)
-      }), (0, _v17.jsx)(_v329, {
-        ref: _v10,
-        id: (0, _v65.createLiveDomName)(_v0, "controls"),
-        className: (0, _v65.createLiveDomName)(_v1, "controls")
-      }), _v12 ? (0, _v17.jsx)(_v191, {
-        ref: _v8,
-        id: (0, _v65.createLiveDomName)(_v0, "scene"),
-        className: (0, _v65.createLiveDomName)(_v1, "scene"),
-        isPageActive: _v7,
-        isRtmpCloudSession: _v4.isRtmpMode,
-        streamMode: _v3
-      }) : (0, _v17.jsx)(_v185, {
-        ref: _v8,
-        id: (0, _v65.createLiveDomName)(_v0, "scene"),
-        className: (0, _v65.createLiveDomName)(_v1, "scene")
-      }), (0, _v17.jsx)(_v397, {
-        ref: _v9,
-        id: (0, _v65.createLiveDomName)(_v0, "scenes-list"),
-        className: (0, _v65.createLiveDomName)(_v1, "scenes-list")
+      }), (0, _v17.jsxs)(_v95.Flex, {
+        position: "relative",
+        direction: "column",
+        alignItems: "center",
+        width: "100%",
+        children: [(0, _v17.jsx)(_v109.SpeakingWhileMutedBanner, {
+          position: "absolute",
+          bottom: "100%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          marginBottom: (0, _v61.rem)(12)
+        }), (0, _v17.jsx)(_v329, {
+          ref: _v10,
+          id: (0, _v65.createLiveDomName)(_v0, "controls"),
+          className: (0, _v65.createLiveDomName)(_v1, "controls")
+        }), _v12 ? (0, _v17.jsx)(_v191, {
+          ref: _v8,
+          id: (0, _v65.createLiveDomName)(_v0, "scene"),
+          className: (0, _v65.createLiveDomName)(_v1, "scene"),
+          isPageActive: _v7,
+          isRtmpCloudSession: _v4.isRtmpMode,
+          streamMode: _v3
+        }) : (0, _v17.jsx)(_v185, {
+          ref: _v8,
+          id: (0, _v65.createLiveDomName)(_v0, "scene"),
+          className: (0, _v65.createLiveDomName)(_v1, "scene")
+        }), (0, _v17.jsx)(_v397, {
+          ref: _v9,
+          id: (0, _v65.createLiveDomName)(_v0, "scenes-list"),
+          className: (0, _v65.createLiveDomName)(_v1, "scenes-list")
+        })]
       }), (0, _v17.jsx)(_v95.Flex, {
-        grow: 1
+        grow: .2
       }), (0, _v17.jsx)(_v220, {
         id: (0, _v65.createLiveDomName)(_v0, "controls"),
         className: (0, _v65.createLiveDomName)(_v1, "controls")
