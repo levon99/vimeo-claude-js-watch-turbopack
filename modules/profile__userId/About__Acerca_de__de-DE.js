@@ -84,25 +84,25 @@
       singular: "Add bio",
       dictionary: {
         es: {
-          singular: "Agregar biografía"
+          singular: "Añadir biografía"
         },
         "de-DE": {
           singular: "Bio hinzufügen"
         },
         "fr-FR": {
-          singular: "Ajouter une bio"
+          singular: "Ajouter une biographie"
         },
         "ja-JP": {
-          singular: "経歴を追加"
+          singular: "自己紹介を追加"
         },
         "ko-KR": {
-          singular: "소개 추가"
+          singular: "약력 추가"
         },
         "pt-BR": {
           singular: "Adicionar biografia"
         },
         "zh-CN": {
-          singular: "添加自我介绍"
+          singular: "添加个人简介"
         }
       }
     }),
@@ -110,22 +110,22 @@
       singular: "Add collaborators in video settings",
       dictionary: {
         es: {
-          singular: "Agregar colaboradores en la configuración de video"
+          singular: "Añadir colaboradores en la configuración del vídeo"
         },
         "de-DE": {
-          singular: "Kollaborateure in Video-Einstellungen hinzufügen"
+          singular: "Fügen Sie Mitwirkende in den Videoeinstellungen hinzu"
         },
         "fr-FR": {
-          singular: "Ajouter des collaborateurs dans les paramètres vidéo"
+          singular: "Ajoutez des collaborateurs dans les paramètres de la vidéo"
         },
         "ja-JP": {
           singular: "動画設定でコラボレーターを追加"
         },
         "ko-KR": {
-          singular: "동영상 설정에서 협업자를 추가하세요"
+          singular: "비디오 설정에서 협업자 추가"
         },
         "pt-BR": {
-          singular: "Adicionar colaboradores nas configurações de vídeo"
+          singular: "Adicione colaboradores nas configurações do vídeo"
         },
         "zh-CN": {
           singular: "在视频设置中添加合作者"
@@ -136,19 +136,19 @@
       singular: "Add a cover video",
       dictionary: {
         es: {
-          singular: "Agregar un video de portada"
+          singular: "Añadir un vídeo de portada"
         },
         "de-DE": {
           singular: "Cover-Video hinzufügen"
         },
         "fr-FR": {
-          singular: "Ajouter une vidéo de couv'"
+          singular: "Ajouter une vidéo de couverture"
         },
         "ja-JP": {
           singular: "カバー動画を追加"
         },
         "ko-KR": {
-          singular: "커버 동영상 추가"
+          singular: "커버 비디오 추가"
         },
         "pt-BR": {
           singular: "Adicionar um vídeo de capa"
@@ -240,25 +240,25 @@
       singular: "Add location",
       dictionary: {
         es: {
-          singular: "Agregar ubicación"
+          singular: "Añadir ubicación"
         },
         "de-DE": {
-          singular: "Standort hinzufügen"
+          singular: "Ort hinzufügen"
         },
         "fr-FR": {
           singular: "Ajouter un lieu"
         },
         "ja-JP": {
-          singular: "位置情報を追加"
+          singular: "所在地を追加"
         },
         "ko-KR": {
           singular: "위치 추가"
         },
         "pt-BR": {
-          singular: "Adicionar localização"
+          singular: "Adicionar local"
         },
         "zh-CN": {
-          singular: "添加地点"
+          singular: "添加位置"
         }
       }
     }),
@@ -396,10 +396,10 @@
       singular: "Back to videos",
       dictionary: {
         es: {
-          singular: "Volver a videos"
+          singular: "Volver a vídeos"
         },
         "de-DE": {
-          singular: "Zurück zu den Videos"
+          singular: "Zurück zu Videos"
         },
         "fr-FR": {
           singular: "Retour aux vidéos"
@@ -411,7 +411,7 @@
           singular: "동영상으로 돌아가기"
         },
         "pt-BR": {
-          singular: "Voltar aos vídeos"
+          singular: "Voltar para vídeos"
         },
         "zh-CN": {
           singular: "返回视频"
@@ -422,22 +422,22 @@
       singular: "Bad videos",
       dictionary: {
         es: {
-          singular: "Videos inapropiados"
+          singular: "Vídeos malos"
         },
         "de-DE": {
-          singular: "Unakzeptable Videos"
+          singular: "Schlechte Videos"
         },
         "fr-FR": {
-          singular: "Vidéos inappropriées"
+          singular: "Mauvaises vidéos"
         },
         "ja-JP": {
-          singular: "動画が悪質"
+          singular: "不適切な動画"
         },
         "ko-KR": {
-          singular: "부적절한 동영상"
+          singular: "문제가 있는 동영상"
         },
         "pt-BR": {
-          singular: "Vídeos inapropriados"
+          singular: "Vídeos ruins"
         },
         "zh-CN": {
           singular: "不良视频"
@@ -601,25 +601,25 @@
       singular: "Credited videos",
       dictionary: {
         es: {
-          singular: "Videos acreditados"
+          singular: "Vídeos acreditados"
         },
         "de-DE": {
-          singular: "Videos mit Erwähnung in den Credits"
+          singular: "Videos mit Namensnennung"
         },
         "fr-FR": {
-          singular: "Génériques où vous êtes mentionné(e)"
+          singular: "Vidéos créditées"
         },
         "ja-JP": {
-          singular: "クレジットされた動画"
+          singular: "クレジットされている動画"
         },
         "ko-KR": {
-          singular: "크레딧으로 추가된 동영상"
+          singular: "크레딧된 동영상"
         },
         "pt-BR": {
           singular: "Vídeos creditados"
         },
         "zh-CN": {
-          singular: "已致谢视频"
+          singular: "署名视频"
         }
       }
     }),
@@ -627,25 +627,25 @@
       singular: "You haven't been credited on any public videos.",
       dictionary: {
         es: {
-          singular: "No se te incluyó en los créditos de ningún video público."
+          singular: "No has sido acreditado en ningún vídeo público."
         },
         "de-DE": {
-          singular: "Du wurdest nicht in anderen öffentlichen Videos in den Credits erwähnt."
+          singular: "Sie wurden in keinen öffentlichen Videos genannt."
         },
         "fr-FR": {
-          singular: "Vous n'avez été mentionné(e) dans aucun générique de vidéo publique."
+          singular: "Vous n'avez été crédité sur aucune vidéo publique."
         },
         "ja-JP": {
-          singular: "クレジットされた公開動画がまだありません。"
+          singular: "公開動画でクレジットされていません。"
         },
         "ko-KR": {
-          singular: "공개 동영상에 회원님이 크레딧으로 추가된 동영상이 아직 없습니다."
+          singular: "공개 동영상에서 크레딧을 받은 적이 없습니다."
         },
         "pt-BR": {
-          singular: "Você não recebeu créditos em nenhum vídeo público."
+          singular: "Você não foi creditado em nenhum vídeo público."
         },
         "zh-CN": {
-          singular: "您尚未列入任何公开视频的演职人员名单。"
+          singular: "你尚未在任何公开视频中获得署名。"
         }
       }
     }),
@@ -653,25 +653,25 @@
       singular: "Creepy",
       dictionary: {
         es: {
-          singular: "Acosador"
+          singular: "Perturbador"
         },
         "de-DE": {
-          singular: "Unakzeptables Verhalten"
+          singular: "Unheimlich"
         },
         "fr-FR": {
-          singular: "Comportement inapproprié"
+          singular: "Inquiétant"
         },
         "ja-JP": {
-          singular: "言動が不快"
+          singular: "不気味"
         },
         "ko-KR": {
-          singular: "스토킹"
+          singular: "섬뜩함"
         },
         "pt-BR": {
-          singular: "Assustador"
+          singular: "Inquietante"
         },
         "zh-CN": {
-          singular: "怪异"
+          singular: "令人不安"
         }
       }
     }),
@@ -679,25 +679,25 @@
       singular: "This person has sexually harassed you, sent you unwanted inappropriate messages, or otherwise acted in a way that makes you feel uncomfortable.",
       dictionary: {
         es: {
-          singular: "Esta persona te ha acosado sexualmente, te ha enviado mensajes inapropiados o ha actuado de un manera que te hace sentir incómodo(a)."
+          singular: "Esta persona te ha acosado sexualmente, te ha enviado mensajes inapropiados no solicitados o ha actuado de alguna otra manera que te hace sentir incómodo."
         },
         "de-DE": {
-          singular: "Diese Person hat dich sexuell belästigt, dir unerwünschte, unangebrachte Nachrichten geschickt, oder in sonstiger Hinsicht mit ihrem Benehmen bewirkt, dass du dich unbehaglich fühlst."
+          singular: "Diese Person hat Sie sexuell belästigt, Ihnen unerwünschte unangemessene Nachrichten gesendet oder sich auf andere Weise so verhalten, dass Sie sich unwohl fühlen."
         },
         "fr-FR": {
-          singular: "Cette personne vous a harcelé sexuellement, vous a envoyé des messages inappropriés ou s'est comportée d'une manière vous ayant mis mal à l'aise ."
+          singular: "Cette personne vous a harcelé sexuellement, vous a envoyé des messages inappropriés non sollicités, ou s'est comportée d'une manière qui vous met mal à l'aise."
         },
         "ja-JP": {
-          singular: "性的な嫌がらせや、不要かつ不適切なメッセージの送信など、不快な言動を取っている。"
+          singular: "この人物は性的嫌がらせを行った、望ましくない不適切なメッセージを送った、またはその他あなたが不快に感じる行為をしました。"
         },
         "ko-KR": {
-          singular: "이 사용자는 나를 성추행했거나 나에게 원치 않는 부적절한 메시지를 전송했거나 불쾌감을 주는 행동을 보였습니다."
+          singular: "이 사람이 성희롱을 했거나, 원치 않는 부적절한 메시지를 보냈거나, 그 밖에 불편함을 느끼게 하는 행동을 했습니다."
         },
         "pt-BR": {
-          singular: "Esta pessoa lhe assediou sexualmente, lhe enviou mensagens indesejadas e inapropriadas ou agiu de maneira que lhe causou constrangimento."
+          singular: "Esta pessoa o(a) assediou sexualmente, enviou mensagens inapropriadas não solicitadas ou agiu de outra forma que o(a) deixou desconfortável."
         },
         "zh-CN": {
-          singular: "此人对您进行了性骚扰，向您发送了令人厌恶的不当信息，或以其他方式做出了让您感到不舒服的行为。"
+          singular: "此人对你进行性骚扰、发送不受欢迎的不当信息，或以其他方式让你感到不适。"
         }
       }
     }),
@@ -708,22 +708,22 @@
           singular: "Recortar miniatura"
         },
         "de-DE": {
-          singular: "Thumbnail schneiden"
+          singular: "Vorschaubild zuschneiden"
         },
         "fr-FR": {
           singular: "Rogner la vignette"
         },
         "ja-JP": {
-          singular: "サムネイルを切り抜く"
+          singular: "サムネイルをトリミング"
         },
         "ko-KR": {
-          singular: "섬네일 자르기"
+          singular: "썸네일 자르기"
         },
         "pt-BR": {
-          singular: "Recortar miniatura"
+          singular: "Cortar miniatura"
         },
         "zh-CN": {
-          singular: "裁切缩略图"
+          singular: "裁剪缩略图"
         }
       }
     }),
@@ -913,13 +913,13 @@
       singular: "Invalid link",
       dictionary: {
         es: {
-          singular: "Vínculo no válido"
+          singular: "Enlace no válido"
         },
         "de-DE": {
           singular: "Ungültiger Link"
         },
         "fr-FR": {
-          singular: "Lien non valide"
+          singular: "Lien invalide"
         },
         "ja-JP": {
           singular: "無効なリンク"
@@ -931,7 +931,7 @@
           singular: "Link inválido"
         },
         "zh-CN": {
-          singular: "无效链接"
+          singular: "无效的链接"
         }
       }
     }),
@@ -1000,10 +1000,10 @@
           singular: "Signaler cette personne"
         },
         "ja-JP": {
-          singular: "このメンバーを通報する"
+          singular: "この人物を報告"
         },
         "ko-KR": {
-          singular: "사용자 신고하기"
+          singular: "이 사람 신고"
         },
         "pt-BR": {
           singular: "Denunciar esta pessoa"
@@ -1092,25 +1092,25 @@
       singular: "Sorry, you can't follow yourself.",
       dictionary: {
         es: {
-          singular: "Lamentablemente, no puedes seguirte a ti mismo."
+          singular: "Lo siento, no puedes seguirte a ti mismo."
         },
         "de-DE": {
-          singular: "Leider kannst du dir nicht selbst folgen."
+          singular: "Sie können sich nicht selbst folgen."
         },
         "fr-FR": {
-          singular: "Désolé, vous ne pouvez pas vous suivre vous-même."
+          singular: "Désolé, vous ne pouvez pas vous suivre."
         },
         "ja-JP": {
-          singular: "自分をフォローすることはできません。"
+          singular: "申し訳ありませんが、自分自身をフォローすることはできません。"
         },
         "ko-KR": {
-          singular: "죄송합니다, 자신을 팔로우할 수 없습니다."
+          singular: "죄송합니다. 자신을 팔로우할 수 없습니다."
         },
         "pt-BR": {
-          singular: "Desculpe, você não pode seguir você mesmo."
+          singular: "Desculpe, você não pode seguir a si mesmo."
         },
         "zh-CN": {
-          singular: "抱歉，您不能关注您自己"
+          singular: "抱歉，你不能关注自己。"
         }
       }
     }),
@@ -1152,25 +1152,25 @@
         },
         dictionary: {
           es: {
-            singular: "Su perfil está oculto. Para permitir que otros vean esta página, {A}actualice su configuración de visibilidad{/A}."
+            singular: "Tu perfil está oculto. Para permitir que otros vean esta página, {A}actualiza tus ajustes de visibilidad{/A}."
           },
           "de-DE": {
-            singular: "Ihr Profil ist versteckt. Damit andere Einstellungen diese Seite anzeigen können, {A}aktualisieren Sie Ihre Sichtbarkeitseinstellungen{/A}."
+            singular: "Ihr Profil ist verborgen. Damit andere diese Seite sehen können, {A}aktualisieren Sie Ihre Sichtbarkeitseinstellungen{/A}."
           },
           "fr-FR": {
-            singular: "Votre profil est masqué. Pour permettre à d'autres personnes de voir cette page, {A}mettez à jour vos paramètres de visibilité{/A}."
+            singular: "Votre profil est masqué. Pour permettre aux autres de voir cette page, {A}mettez à jour vos paramètres de visibilité{/A}."
           },
           "ja-JP": {
-            singular: "あなたのプロフィールは非表示です。他のユーザーがこのページを閲覧できるようにするには、{A}公開設定を更新します{/A}。"
+            singular: "あなたのプロフィールは非表示です。他の人がこのページを閲覧できるようにするには、{A}表示設定を更新{/A}してください。"
           },
           "ko-KR": {
-            singular: "프로필이 숨겨져 있습니다. 다른 사람이 이 페이지를 볼 수 있도록 하려면 {A}공개 설정을 업데이트하세요{/A}."
+            singular: "프로필이 숨겨져 있습니다. 다른 사람이 이 페이지를 보도록 허용하려면 {A}가시성 설정을 업데이트{/A}하세요."
           },
           "pt-BR": {
-            singular: "Seu perfil está oculto. Para permitir que outras pessoas visualizem esta página, {A}atualize suas configurações de visibilidade{/A}."
+            singular: "Seu perfil está oculto. Para permitir que outros vejam esta página, {A}atualize suas configurações de visibilidade{/A}."
           },
           "zh-CN": {
-            singular: "您的个人资料已被隐藏。如要允许其他人查看此页面，{A}请更新您的可见性设置{/A}。"
+            singular: "你的个人资料已被隐藏。要允许他人查看此页面，{A}更新你的可见性设置{/A}。"
           }
         }
       });
@@ -1182,13 +1182,13 @@
           singular: "Ocultar del perfil"
         },
         "de-DE": {
-          singular: "Vom Profil ausblenden"
+          singular: "Vom Profil verbergen"
         },
         "fr-FR": {
           singular: "Masquer sur le profil"
         },
         "ja-JP": {
-          singular: "プロフィールで非表示にする"
+          singular: "プロフィールから非表示"
         },
         "ko-KR": {
           singular: "프로필에서 숨기기"
@@ -1197,7 +1197,7 @@
           singular: "Ocultar do perfil"
         },
         "zh-CN": {
-          singular: "从个人资料隐藏"
+          singular: "在个人资料中隐藏"
         }
       }
     }),
@@ -1208,19 +1208,19 @@
           singular: "Suplantación de identidad"
         },
         "de-DE": {
-          singular: " Identitätsbetrug"
+          singular: "Identitätsvortäuschung"
         },
         "fr-FR": {
-          singular: "Faux profil"
+          singular: "Usurpation d'identité"
         },
         "ja-JP": {
-          singular: "偽アカウント"
+          singular: "なりすまし"
         },
         "ko-KR": {
           singular: "사칭"
         },
         "pt-BR": {
-          singular: "Imitação"
+          singular: "Falsificação de identidade"
         },
         "zh-CN": {
           singular: "冒充"
@@ -1231,25 +1231,25 @@
       singular: "This person’s profile is fake and does not seem to belong to the person they are claiming to be.",
       dictionary: {
         es: {
-          singular: "El perfil de esta persona es falso y no parece pertenecer a la persona que dice ser."
+          singular: "El perfil de esta persona es falso y no parece pertenecer a quien dice ser."
         },
         "de-DE": {
-          singular: "Das Profil dieser Person ist unecht und scheint nicht zu derjenigen Person zu gehören, als die sie sich ausgibt."
+          singular: "Das Profil dieser Person ist gefälscht und scheint nicht zu der Person zu gehören, die sie vorgibt zu sein."
         },
         "fr-FR": {
-          singular: "Ce profil est bidon et ne semble pas appartenir à la personne qui l'utilise."
+          singular: "Le profil de cette personne est faux et ne semble pas appartenir à la personne qu'elle prétend être."
         },
         "ja-JP": {
-          singular: "プロフィールが偽物、書かれている内容と本人が一致していない。"
+          singular: "この人物のプロフィールは偽造で、主張している本人のものではないように見えます。"
         },
         "ko-KR": {
-          singular: "이 사용자의 프로필은 허위이며 본인이 주장하는 사람이 아닌 것 같습니다."
+          singular: "이 사람의 프로필은 가짜이며 본인이 주장하는 사람의 것 같지 않습니다."
         },
         "pt-BR": {
-          singular: "O perfil desta pessoa é falso e não parece pertencer a quem ela alega ser."
+          singular: "O perfil desta pessoa é falso e não parece pertencer à pessoa que ela afirma ser."
         },
         "zh-CN": {
-          singular: "此人的个人资料是假的，似乎不是资料中声称的那个人。"
+          singular: "此人的个人资料为虚假，似乎并非其声称的本人。"
         }
       }
     }),
@@ -1260,13 +1260,13 @@
           singular: "Avatar inapropiado"
         },
         "de-DE": {
-          singular: "Unangemessener Avatar"
+          singular: "Unangemessenes Profilbild"
         },
         "fr-FR": {
           singular: "Avatar inapproprié"
         },
         "ja-JP": {
-          singular: "アバターが不適切"
+          singular: "不適切なアバター"
         },
         "ko-KR": {
           singular: "부적절한 아바타"
@@ -1275,7 +1275,7 @@
           singular: "Avatar inapropriado"
         },
         "zh-CN": {
-          singular: "头像不合适"
+          singular: "不当头像"
         }
       }
     }),
@@ -1283,25 +1283,25 @@
       singular: "This person’s avatar contains nudity, gore, or other inappropriate imagery.",
       dictionary: {
         es: {
-          singular: "El avatar de esta persona muestra desnudos, violencia u otra imagen inapropiada."
+          singular: "El avatar de esta persona contiene desnudos, gore u otras imágenes inapropiadas."
         },
         "de-DE": {
-          singular: "Der Avatar dieser Person enthält pornographische, exzessiv brutale oder ansonsten unakzeptable visuelle Darstellungen."
+          singular: "Das Avatarbild dieser Person enthält Nacktheit, Gewalt oder andere unangemessene Bilder."
         },
         "fr-FR": {
-          singular: "L'avatar de cette personne contient de la nudité, de la violence ou d'autres éléments inappropriés."
+          singular: "L'avatar de cette personne contient de la nudité, des scènes de gore ou d'autres images inappropriées."
         },
         "ja-JP": {
-          singular: "裸や流血など、不適切な画像がアバターとして使用されている。"
+          singular: "この人物のアバターにはヌード、流血、またはその他不適切な画像が含まれています。"
         },
         "ko-KR": {
-          singular: "이 사용자의 아바타에 나체, 보기 불쾌한 것 또는 기타 부적절한 이미지가 포함되어 있습니다."
+          singular: "이 사람의 아바타에 누드, 잔혹 장면 또는 기타 부적절한 이미지가 포함되어 있습니다."
         },
         "pt-BR": {
-          singular: "O avatar desta pessoa contém nudez, sanguinolência ou outras imagens inapropriadas."
+          singular: "O avatar desta pessoa contém nudez, violência gráfica ou outra imagem inadequada."
         },
         "zh-CN": {
-          singular: "此人的头像包含裸露、血腥或其他不恰当的图像。"
+          singular: "此人的头像包含裸露、血腥或其他不当图像。"
         }
       }
     }),
@@ -1309,16 +1309,16 @@
       singular: "Invalid",
       dictionary: {
         es: {
-          singular: "No válido"
+          singular: "Inválido"
         },
         "de-DE": {
           singular: "Ungültig"
         },
         "fr-FR": {
-          singular: "Non valide"
+          singular: "Invalide"
         },
         "ja-JP": {
-          singular: "無効です"
+          singular: "無効"
         },
         "ko-KR": {
           singular: "유효하지 않음"
@@ -1335,25 +1335,25 @@
       singular: "Hm, that doesn't look like a real domain. Check your spelling, then try again.",
       dictionary: {
         es: {
-          singular: "Vaya, parece que este no es un dominio de verdad. Revisa que lo hayas escrito de forma correcta y vuelve a intentarlo."
+          singular: "Hm, eso no parece un dominio real. Revisa la ortografía e inténtalo de nuevo."
         },
         "de-DE": {
-          singular: "Hm, das sieht aber nicht wie eine echte Domäne aus. Schau nochmal nach, ob du das richtig buchstabiert hast, und dann probier's nochmal."
+          singular: "Hm, das sieht nicht nach einer gültigen Domain aus. Überprüfen Sie die Rechtschreibung und versuchen Sie es erneut."
         },
         "fr-FR": {
-          singular: "Hum... on ne dirait pas un vrai domaine. Veuillez vérifier l'orthographe et essayer à nouveau."
+          singular: "Hum, cela ne ressemble pas à un domaine réel. Vérifiez l'orthographe, puis réessayez."
         },
         "ja-JP": {
-          singular: "あれ？このドメインな偽物のようです。綴りを確認してからもう一回試してみてください。"
+          singular: "うーん、それは有効なドメインに見えません。綴りを確認して、もう一度お試しください。"
         },
         "ko-KR": {
-          singular: "유효한 도메인이 아닙니다. 정확히 입력했는지 확인 후 재시도해주세요."
+          singular: "음, 실제 도메인처럼 보이지 않습니다. 철자를 확인한 다음 다시 시도하세요."
         },
         "pt-BR": {
-          singular: "Hum, isso não parece ser um domínio de verdade. Verifique a ortografia e tente novamente."
+          singular: "Hm, isso não parece um domínio real. Verifique a ortografia e tente novamente."
         },
         "zh-CN": {
-          singular: "哎呀，这个域名似乎不太对。请检查拼写，然后重试。"
+          singular: "嗯，这看起来不像一个真实的域名。检查拼写后重试。"
         }
       }
     }),
@@ -1386,6 +1386,24 @@
     JoinExperts: (0, _v3.translate)({
       singular: "Join Experts",
       dictionary: {
+        es: {
+          singular: "Únete a Experts"
+        },
+        "de-DE": {
+          singular: "Vimeo Experts beitreten"
+        },
+        "fr-FR": {
+          singular: "Rejoindre Vimeo Experts"
+        },
+        "ja-JP": {
+          singular: "Expertsに参加"
+        },
+        "ko-KR": {
+          singular: "Experts에 가입"
+        },
+        "pt-BR": {
+          singular: "Entrar no Experts"
+        },
         "zh-CN": {
           singular: "加入 Experts"
         }
@@ -1394,16 +1412,52 @@
     JoinExpertsInfoModalTitle: (0, _v3.translate)({
       singular: "Vimeo has a brand new program for video pros, Vimeo Experts.",
       dictionary: {
+        es: {
+          singular: "Vimeo tiene un nuevo programa para profesionales del vídeo, Vimeo Experts."
+        },
+        "de-DE": {
+          singular: "Vimeo hat ein brandneues Programm für Video-Profis: Vimeo Experts."
+        },
+        "fr-FR": {
+          singular: "Vimeo a un tout nouveau programme pour les pros de la vidéo, Vimeo Experts."
+        },
+        "ja-JP": {
+          singular: "Vimeoには動画プロ向けの新しいプログラム、Vimeo Expertsがあります。"
+        },
+        "ko-KR": {
+          singular: "Vimeo에는 동영상 전문가를 위한 새로운 프로그램인 Vimeo Experts가 있습니다."
+        },
+        "pt-BR": {
+          singular: "O Vimeo tem um programa totalmente novo para profissionais de vídeo, o Vimeo Experts."
+        },
         "zh-CN": {
-          singular: "Vimeo 为视频专业人士推出了一个全新的计划：Vimeo Experts。"
+          singular: "Vimeo 推出了全新的面向视频专业人士的项目：Vimeo Experts。"
         }
       }
     }),
     JoinExpertsInfoModalContent: (0, _v3.translate)({
       singular: "Get certified on Vimeo’s products, learn how to work better with your clients, and grow your business.",
       dictionary: {
+        es: {
+          singular: "Certifícate en los productos de Vimeo, aprende a trabajar mejor con tus clientes y haz crecer tu negocio."
+        },
+        "de-DE": {
+          singular: "Lassen Sie sich für die Produkte von Vimeo zertifizieren, lernen Sie, besser mit Ihren Kunden zu arbeiten, und vergrößern Sie Ihr Geschäft."
+        },
+        "fr-FR": {
+          singular: "Obtenez une certification sur les produits Vimeo, apprenez à mieux travailler avec vos clients et développez votre activité."
+        },
+        "ja-JP": {
+          singular: "Vimeoの製品の認定を受け、クライアントとの仕事の進め方を学び、ビジネスを成長させましょう。"
+        },
+        "ko-KR": {
+          singular: "Vimeo 제품에 대한 인증을 받고, 클라이언트와 더 효율적으로 일하는 방법을 배우며 비즈니스를 성장시키세요."
+        },
+        "pt-BR": {
+          singular: "Obtenha certificação nos produtos do Vimeo, aprenda a trabalhar melhor com seus clientes e faça seu negócio crescer."
+        },
         "zh-CN": {
-          singular: "获得 Vimeo 产品认证，了解如何更好地与客户合作并发展您的业务。"
+          singular: "获取 Vimeo 产品认证，学习如何更好地与客户合作，并拓展你的业务。"
         }
       }
     }),
@@ -1437,19 +1491,19 @@
       singular: "Learn how to report other types of violations.",
       dictionary: {
         es: {
-          singular: "Entérate de cómo denunciar otros tipos de infracciones."
+          singular: "Aprende a denunciar otros tipos de infracciones."
         },
         "de-DE": {
-          singular: "Hier erklären wir, wie du andere Arten von Verstößen melden kannst."
+          singular: "Erfahren Sie, wie Sie andere Arten von Verstößen melden."
         },
         "fr-FR": {
-          singular: "Apprenez à signaler d'autres types de violations."
+          singular: "Découvrez comment signaler d'autres types de violations."
         },
         "ja-JP": {
-          singular: "他の違反を通報する 。"
+          singular: "他の種類の違反の報告方法について学ぶ。"
         },
         "ko-KR": {
-          singular: "다른 위반 유형을 신고하는 방법을 알아보세요 ."
+          singular: "다른 유형의 위반 사항을 신고하는 방법을 알아보세요."
         },
         "pt-BR": {
           singular: "Saiba como denunciar outros tipos de violações."
@@ -1489,22 +1543,22 @@
       singular: "URL must not exceed 256 characters",
       dictionary: {
         es: {
-          singular: "La URL no debe exceder los 256 caracteres"
+          singular: "La URL no puede exceder los 256 caracteres"
         },
         "de-DE": {
-          singular: "URL darf nicht mehr als 256 Zeichen haben"
+          singular: "Die URL darf 256 Zeichen nicht überschreiten"
         },
         "fr-FR": {
-          singular: "L'URL ne doit pas dépasser 256 caractères"
+          singular: "L'URL ne doit pas dépasser 256 caractères"
         },
         "ja-JP": {
-          singular: "URLは256文字以内にしてください"
+          singular: "URLは256文字以内で入力してください"
         },
         "ko-KR": {
-          singular: "URL은 256자를 초과할 수 없습니다."
+          singular: "URL은 256자를 초과할 수 없습니다"
         },
         "pt-BR": {
-          singular: "URL não deve exceder 256 caracteres"
+          singular: "A URL não pode exceder 256 caracteres"
         },
         "zh-CN": {
           singular: "URL 不得超过 256 个字符"
@@ -1564,45 +1618,33 @@
           singular: "Weitere Abschnitte laden"
         },
         "fr-FR": {
-          singular: "Charger plus de sections"
+          singular: "Afficher plus de sections"
         },
         "ja-JP": {
-          singular: "さらにセクションを読み込む"
+          singular: "セクションをさらに読み込む"
         },
         "ko-KR": {
-          singular: "더 많은 섹션 불러오기"
+          singular: "섹션 더 불러오기"
         },
         "pt-BR": {
           singular: "Carregar mais seções"
         },
         "zh-CN": {
-          singular: "加载更多章节"
+          singular: "加载更多区块"
         }
       }
     }),
     Masonry: (0, _v3.translate)({
       singular: "Masonry",
       dictionary: {
-        es: {
-          singular: "Albañilería"
-        },
-        "de-DE": {
-          singular: "Geschachtelte Ansicht"
-        },
-        "fr-FR": {
-          singular: "Vue imbriquée"
-        },
         "ja-JP": {
           singular: "メイソンリー"
         },
         "ko-KR": {
           singular: "메이슨리"
         },
-        "pt-BR": {
-          singular: "Lado a lado"
-        },
         "zh-CN": {
-          singular: "砖石"
+          singular: "瀑布流"
         }
       }
     }),
@@ -1610,10 +1652,10 @@
       singular: "Membership plan",
       dictionary: {
         es: {
-          singular: "Plan de la membresía"
+          singular: "Plan de membresía"
         },
         "de-DE": {
-          singular: "Mitgliedschaft"
+          singular: "Mitgliedschaftsplan"
         },
         "fr-FR": {
           singular: "Abonnement"
@@ -1622,13 +1664,13 @@
           singular: "メンバーシッププラン"
         },
         "ko-KR": {
-          singular: "멤버십 유형"
+          singular: "멤버십 플랜"
         },
         "pt-BR": {
-          singular: "Plano de Assinatura"
+          singular: "Plano de assinatura"
         },
         "zh-CN": {
-          singular: "会员套餐"
+          singular: "会员计划"
         }
       }
     }),
@@ -1636,7 +1678,7 @@
       singular: "Member since",
       dictionary: {
         es: {
-          singular: "Inicio de la membresía"
+          singular: "Miembro desde"
         },
         "de-DE": {
           singular: "Mitglied seit"
@@ -1645,16 +1687,16 @@
           singular: "Membre depuis"
         },
         "ja-JP": {
-          singular: "メンバー登録"
+          singular: "メンバー登録日"
         },
         "ko-KR": {
-          singular: "가입 시기"
+          singular: "회원 가입일"
         },
         "pt-BR": {
-          singular: "Assinante desde"
+          singular: "Membro desde"
         },
         "zh-CN": {
-          singular: "会员资格起始时间"
+          singular: "注册于"
         }
       }
     }),
@@ -1668,7 +1710,7 @@
           singular: "Nach unten verschieben"
         },
         "fr-FR": {
-          singular: "Déplacer vers le bas"
+          singular: "Descendre"
         },
         "ja-JP": {
           singular: "下へ移動"
@@ -1680,7 +1722,7 @@
           singular: "Mover para baixo"
         },
         "zh-CN": {
-          singular: "向下移动"
+          singular: "下移"
         }
       }
     }),
@@ -1694,7 +1736,7 @@
           singular: "Nach oben verschieben"
         },
         "fr-FR": {
-          singular: "Déplacer vers le haut"
+          singular: "Monter"
         },
         "ja-JP": {
           singular: "上へ移動"
@@ -1706,7 +1748,7 @@
           singular: "Mover para cima"
         },
         "zh-CN": {
-          singular: "向上移动"
+          singular: "上移"
         }
       }
     }),
@@ -1714,7 +1756,7 @@
       singular: "My public videos",
       dictionary: {
         es: {
-          singular: "Mis videos públicos"
+          singular: "Mis vídeos públicos"
         },
         "de-DE": {
           singular: "Meine öffentlichen Videos"
@@ -1723,7 +1765,7 @@
           singular: "Mes vidéos publiques"
         },
         "ja-JP": {
-          singular: "自分の公開動画"
+          singular: "私の公開動画"
         },
         "ko-KR": {
           singular: "내 공개 동영상"
@@ -1743,22 +1785,22 @@
           singular: "El nombre es obligatorio"
         },
         "de-DE": {
-          singular: "Name ist ein Pflichtfeld"
+          singular: "Name ist erforderlich"
         },
         "fr-FR": {
           singular: "Le nom est requis"
         },
         "ja-JP": {
-          singular: "名前を入力してください"
+          singular: "名前は必須です"
         },
         "ko-KR": {
-          singular: "이름은 필수 항목입니다"
+          singular: "이름은 필수입니다"
         },
         "pt-BR": {
-          singular: "O nome é necessário"
+          singular: "Nome é obrigatório"
         },
         "zh-CN": {
-          singular: "名称为必填项"
+          singular: "姓名为必填项"
         }
       }
     }),
@@ -1795,22 +1837,22 @@
           singular: "No, gracias"
         },
         "de-DE": {
-          singular: "Nein danke"
+          singular: "Nein, danke"
         },
         "fr-FR": {
-          singular: "Non merci"
+          singular: "Non, merci"
         },
         "ja-JP": {
-          singular: "結構です"
+          singular: "いいえ、結構です"
         },
         "ko-KR": {
-          singular: "아니요"
+          singular: "아니요, 괜찮습니다"
         },
         "pt-BR": {
           singular: "Não, obrigado"
         },
         "zh-CN": {
-          singular: "不用了，谢谢"
+          singular: "不了，谢谢"
         }
       }
     }),
@@ -1844,22 +1886,22 @@
       singular: "This person has behaved in an abusive, bullying, or disrespectful manner.",
       dictionary: {
         es: {
-          singular: "Esta persona se comportó de manera abusiva, acosadora o irrespetuosa."
+          singular: "Esta persona se ha comportado de forma abusiva, acosadora o irrespetuosa."
         },
         "de-DE": {
-          singular: "Diese Person hat sich dir gegenüber respektlos oder schikanierend verhalten oder dich gemobbt."
+          singular: "Diese Person hat sich missbräuchlich, tyrannisch oder respektlos verhalten."
         },
         "fr-FR": {
-          singular: "Cette personne s'est comportée de manière abusive, agressive ou irrespectueuse."
+          singular: "Cette personne s'est comportée de façon abusive, intimidante ou irrespectueuse."
         },
         "ja-JP": {
-          singular: "攻撃的、悪意的、または失礼なふるまいをしている。"
+          singular: "この人物は暴力的、いじめ、または失礼な行為を行いました。"
         },
         "ko-KR": {
-          singular: "이 사용자는 모욕적, 폭력적 또는 무례한 행동을 보였습니다."
+          singular: "이 사람은 학대적이거나 괴롭힘 또는 무례한 행동을 했습니다."
         },
         "pt-BR": {
-          singular: "Esta pessoa tem se comportado de maneira abusiva, intimidadora ou desrespeitosa."
+          singular: "Essa pessoa se comportou de maneira abusiva, intimidadora ou desrespeitosa."
         },
         "zh-CN": {
           singular: "此人有辱骂、欺凌或不尊重他人的行为。"
@@ -1922,7 +1964,7 @@
       singular: "On-demand videos aren't supported.",
       dictionary: {
         es: {
-          singular: "No se admiten los videos a pedido."
+          singular: "Los vídeos bajo demanda no son compatibles."
         },
         "de-DE": {
           singular: "On-Demand-Videos werden nicht unterstützt."
@@ -1931,10 +1973,10 @@
           singular: "Les vidéos à la demande ne sont pas prises en charge."
         },
         "ja-JP": {
-          singular: "オンデマンド動画には対応しておりません。"
+          singular: "オンデマンド動画はサポートされていません。"
         },
         "ko-KR": {
-          singular: "온디맨드 동영상은 지원되지 않습니다."
+          singular: "주문형 동영상은 지원되지 않습니다."
         },
         "pt-BR": {
           singular: "Vídeos sob demanda não são suportados."
@@ -1951,7 +1993,7 @@
           singular: "Enlace de la página"
         },
         "de-DE": {
-          singular: "Link"
+          singular: "Seitenlink"
         },
         "fr-FR": {
           singular: "Lien de la page"
@@ -1974,25 +2016,25 @@
       singular: "Choose a video to play at the top of your page",
       dictionary: {
         es: {
-          singular: "Elige un video para reproducir en la parte superior de tu página"
+          singular: "Elige un vídeo para reproducir en la parte superior de tu página"
         },
         "de-DE": {
-          singular: "Suche dir ein Video aus, das oben auf deiner Seite abgespielt werden soll"
+          singular: "Wählen Sie ein Video, das oben auf Ihrer Seite abgespielt wird"
         },
         "fr-FR": {
           singular: "Choisissez une vidéo à lire en haut de votre page"
         },
         "ja-JP": {
-          singular: "ページトップで再生する動画を選択"
+          singular: "ページ上部で再生する動画を選択"
         },
         "ko-KR": {
-          singular: "페이지 맨 위에서 재생할 동영상을 선택하세요."
+          singular: "페이지 상단에서 재생할 동영상을 선택하세요"
         },
         "pt-BR": {
-          singular: "Escolha um vídeo para passar na parte superior da sua página"
+          singular: "Escolha um vídeo para tocar no topo da sua página"
         },
         "zh-CN": {
-          singular: "选择您的页面顶部要播放的视频"
+          singular: "选择一个视频在你的页面顶部播放"
         }
       }
     }),
@@ -2026,25 +2068,25 @@
       singular: "Your public videos are already being added to your profile by default",
       dictionary: {
         es: {
-          singular: "Tus videos públicos ya se agregan al perfil de forma predeterminada"
+          singular: "Tus vídeos públicos ya se están añadiendo a tu perfil por defecto"
         },
         "de-DE": {
-          singular: "Deine öffentlichen Videos werden bereits automatisch deinem Profil hinzugefügt"
+          singular: "Ihre öffentlichen Videos werden standardmäßig bereits zu Ihrem Profil hinzugefügt"
         },
         "fr-FR": {
-          singular: "Vos vidéos publiques sont déjà en cours d'ajout à votre profil par défaut"
+          singular: "Vos vidéos publiques sont déjà ajoutées à votre profil par défaut"
         },
         "ja-JP": {
-          singular: "公開動画はデフォルトでプロフィールにすでに追加されています"
+          singular: "公開動画は既定で既にプロフィールに追加されています"
         },
         "ko-KR": {
-          singular: "공개 동영상은 이미 프로필에 기본적으로 추가되어 있습니다."
+          singular: "공개 동영상이 기본적으로 이미 프로필에 추가되고 있습니다"
         },
         "pt-BR": {
           singular: "Seus vídeos públicos já estão sendo adicionados ao seu perfil por padrão"
         },
         "zh-CN": {
-          singular: "您的公开视频已默认添加到您的个人资料中"
+          singular: "你的公开视频已默认添加到你的个人资料中"
         }
       }
     }),
@@ -2078,25 +2120,25 @@
       singular: "Do you want to automatically add public videos to the top of your profile?",
       dictionary: {
         es: {
-          singular: "¿Deseas agregar videos públicos automáticamente en la parte superior de tu perfil?"
+          singular: "¿Quieres añadir automáticamente los vídeos públicos a la parte superior de tu perfil?"
         },
         "de-DE": {
-          singular: "Möchtest du automatisch öffentliche Videos ganz oben zu deinem Profil hinzufügen?"
+          singular: "Möchten Sie öffentliche Videos automatisch oben in Ihrem Profil hinzufügen?"
         },
         "fr-FR": {
-          singular: "Souhaitez-vous ajouter automatiquement des vidéos publiques en haut de votre profil ?"
+          singular: "Souhaitez-vous ajouter automatiquement les vidéos publiques en haut de votre profil ?"
         },
         "ja-JP": {
-          singular: "プロフィールの一番上に公開動画を自動的に追加しますか？"
+          singular: "公開動画をプロフィールのトップに自動で追加しますか？"
         },
         "ko-KR": {
-          singular: "공개 동영상을 프로필 상단에 자동으로 추가할까요?"
+          singular: "공개 동영상을 프로필 상단에 자동으로 추가하시겠습니까?"
         },
         "pt-BR": {
-          singular: "Quer adicionar vídeos públicos automaticamente no topo do seu perfil?"
+          singular: "Deseja adicionar automaticamente vídeos públicos ao topo do seu perfil?"
         },
         "zh-CN": {
-          singular: "您想将公开视频自动添加到个人资料的顶部吗？"
+          singular: "你想自动将公开视频添加到个人资料顶部吗？"
         }
       }
     }),
@@ -2104,7 +2146,7 @@
       singular: "Automatically add public videos",
       dictionary: {
         es: {
-          singular: "Agregar automáticamente videos públicos"
+          singular: "Añadir automáticamente vídeos públicos"
         },
         "de-DE": {
           singular: "Öffentliche Videos automatisch hinzufügen"
@@ -2113,10 +2155,10 @@
           singular: "Ajouter automatiquement les vidéos publiques"
         },
         "ja-JP": {
-          singular: "公開動画を自動的に追加する"
+          singular: "公開動画を自動で追加"
         },
         "ko-KR": {
-          singular: "공개 동영상 자동 추가"
+          singular: "공개 동영상을 자동으로 추가"
         },
         "pt-BR": {
           singular: "Adicionar vídeos públicos automaticamente"
@@ -2185,13 +2227,13 @@
           singular: "Reordenar contenido"
         },
         "de-DE": {
-          singular: "Inhalte neu anordnen"
+          singular: "Inhalt neu anordnen"
         },
         "fr-FR": {
           singular: "Réorganiser le contenu"
         },
         "ja-JP": {
-          singular: "コンテンツの並べ替え"
+          singular: "コンテンツを並べ替え"
         },
         "ko-KR": {
           singular: "콘텐츠 재정렬"
@@ -2260,25 +2302,25 @@
       singular: "Remove this video from your profile?",
       dictionary: {
         es: {
-          singular: "¿Deseas quitar este video de tu perfil?"
+          singular: "¿Eliminar este vídeo de tu perfil?"
         },
         "de-DE": {
-          singular: "Dieses Video aus deinem Profil entfernen?"
+          singular: "Dieses Video aus Ihrem Profil entfernen?"
         },
         "fr-FR": {
-          singular: "Supprimer cette vidéo de votre profil ?"
+          singular: "Supprimer cette vidéo de votre profil ?"
         },
         "ja-JP": {
-          singular: "プロフィールからこの動画を削除しますか？"
+          singular: "この動画をプロフィールから削除しますか？"
         },
         "ko-KR": {
-          singular: "프로필에서 이 동영상을 삭제할까요?"
+          singular: "이 동영상을 프로필에서 제거하시겠습니까?"
         },
         "pt-BR": {
           singular: "Remover este vídeo do seu perfil?"
         },
         "zh-CN": {
-          singular: "从您的个人资料中移除此视频？"
+          singular: "要将此视频从你的个人资料中移除吗？"
         }
       }
     }),
@@ -2312,16 +2354,16 @@
       singular: "Report account",
       dictionary: {
         es: {
-          singular: "Denuncia esta cuenta"
+          singular: "Denunciar cuenta"
         },
         "de-DE": {
-          singular: "Konto angeben"
+          singular: "Konto melden"
         },
         "fr-FR": {
           singular: "Signaler le compte"
         },
         "ja-JP": {
-          singular: "アカウントを通報する"
+          singular: "アカウントを報告"
         },
         "ko-KR": {
           singular: "계정 신고"
@@ -2330,7 +2372,7 @@
           singular: "Denunciar conta"
         },
         "zh-CN": {
-          singular: "报告帐户"
+          singular: "举报账户"
         }
       }
     }),
@@ -2347,10 +2389,10 @@
           singular: "Signaler cette personne"
         },
         "ja-JP": {
-          singular: "このメンバーを通報する"
+          singular: "この人物を報告"
         },
         "ko-KR": {
-          singular: "사용자 신고하기"
+          singular: "이 사람 신고"
         },
         "pt-BR": {
           singular: "Denunciar esta pessoa"
@@ -2393,16 +2435,16 @@
           singular: "Cambios guardados"
         },
         "de-DE": {
-          singular: "Gespeicherte Änderungen"
+          singular: "Änderungen gespeichert"
         },
         "fr-FR": {
-          singular: "Modifications sauvegardées"
+          singular: "Modifications enregistrées"
         },
         "ja-JP": {
-          singular: "保存した変更"
+          singular: "変更を保存しました"
         },
         "ko-KR": {
-          singular: "변경 사항 저장됨"
+          singular: "변경사항이 저장되었습니다"
         },
         "pt-BR": {
           singular: "Alterações salvas"
@@ -2442,13 +2484,13 @@
       singular: "Search results",
       dictionary: {
         es: {
-          singular: "Resultados de la búsqueda"
+          singular: "Resultados de búsqueda"
         },
         "de-DE": {
           singular: "Suchergebnisse"
         },
         "fr-FR": {
-          singular: "Résultats de la recherche"
+          singular: "Résultats de recherche"
         },
         "ja-JP": {
           singular: "検索結果"
@@ -2457,7 +2499,7 @@
           singular: "검색 결과"
         },
         "pt-BR": {
-          singular: "Resultados de Pesquisa"
+          singular: "Resultados da pesquisa"
         },
         "zh-CN": {
           singular: "搜索结果"
@@ -2647,7 +2689,7 @@
       singular: "Shrink",
       dictionary: {
         es: {
-          singular: "Contraer"
+          singular: "Reducir"
         },
         "de-DE": {
           singular: "Verkleinern"
@@ -2659,13 +2701,13 @@
           singular: "縮小"
         },
         "ko-KR": {
-          singular: "줄이기"
+          singular: "축소"
         },
         "pt-BR": {
-          singular: "Diminuir"
+          singular: "Reduzir"
         },
         "zh-CN": {
-          singular: "收缩"
+          singular: "收起"
         }
       }
     }),
@@ -2699,25 +2741,25 @@
       singular: "Spammy",
       dictionary: {
         es: {
-          singular: "Spammer"
-        },
-        "de-DE": {
           singular: "Spam"
         },
+        "de-DE": {
+          singular: "Spam-verdächtig"
+        },
         "fr-FR": {
-          singular: "Spammeur"
+          singular: "Spam"
         },
         "ja-JP": {
-          singular: "スパムアカウント"
+          singular: "スパム行為"
         },
         "ko-KR": {
           singular: "스팸성"
         },
         "pt-BR": {
-          singular: "Spammer"
+          singular: "Indesejado"
         },
         "zh-CN": {
-          singular: "垃圾邮件"
+          singular: "垃圾信息"
         }
       }
     }),
@@ -2725,25 +2767,25 @@
       singular: "This person’s profile, comments, or messages include misleading or deceptive links, or repetitive, irrelevant, or random text that seems designed primarily to drive traffic to third-party sites.",
       dictionary: {
         es: {
-          singular: "El perfil, los comentarios o los mensajes de esta persona incluyen vínculos falsos o engañosos, o texto repetitivo, irrelevante o aleatorio que parece estar diseñado principalmente para conducir el tráfico a sitios web de terceros."
+          singular: "El perfil, los comentarios o los mensajes de esta persona incluyen enlaces engañosos o fraudulentos, o texto repetitivo, irrelevante o aleatorio que parece estar diseñado principalmente para dirigir tráfico a sitios de terceros."
         },
         "de-DE": {
-          singular: "Das Profil, die Kommentare oder Nachrichten dieser Person enthalten irreführende oder arglistige Links oder Texte, die durch Wiederholungen oder Irrelevanz auffallen oder dem Anschein nach dazu dienen, den Traffic anderer Websites zu erhöhen."
+          singular: "Das Profil, die Kommentare oder Nachrichten dieser Person enthalten irreführende oder betrügerische Links oder wiederholten, irrelevanten oder zufälligen Text, der offensichtlich in erster Linie dazu dient, Traffic auf Drittanbieterseiten zu lenken."
         },
         "fr-FR": {
-          singular: "Le profil, les commentaires ou les messages de cette personne incluent des liens trompeurs ou du texte répétitif, sans rapport avec le site, ou bien aléatoire, semblant servir à générer du trafic vers des sites Web tiers."
+          singular: "Le profil, les commentaires ou les messages de cette personne incluent des liens trompeurs ou mensongers, ou du texte répétitif, hors sujet ou aléatoire, apparemment conçu principalement pour diriger le trafic vers des sites tiers."
         },
         "ja-JP": {
-          singular: "プロフィールやコメント、メッセージに、まぎらわしいリンクや偽のリンク、または主に他サイトへの誘導を目的としたような、脈絡のない文章を度々投稿している。"
+          singular: "この人物のプロフィール、コメント、またはメッセージには、誤解を招くまたは詐欺的なリンク、あるいは主に第三者サイトへのトラフィックを誘導することを目的とした反復的・無関係またはランダムなテキストが含まれています。"
         },
         "ko-KR": {
-          singular: "이 사용자의 프로필, 소감 또는 메시지에 오해의 소지가 있거나 기만적인 링크 또는 타사 사이트로 트래픽을 유발하려는 것으로 보이는 반복적이거나 무관한 내용이 포함되어 있습니다."
+          singular: "이 사람의 프로필, 댓글 또는 메시지에는 오해의 소지가 있거나 기만적인 링크가 포함되어 있거나, 주로 제3자 사이트로 트래픽을 유도하기 위한 반복적이거나 관련이 없거나 무작위의 텍스트가 포함되어 있습니다."
         },
         "pt-BR": {
-          singular: "O perfil, os comentários ou as mensagens desta pessoa incluem links enganosos ou textos repetitivos, irrelevantes ou aleatórios, que parecem ter como objetivo principal gerar tráfego para sites de terceiros."
+          singular: "O perfil, comentários ou mensagens desta pessoa incluem links enganosos ou fraudulentos, ou texto repetitivo, irrelevante ou aleatório que parece ter como principal objetivo direcionar tráfego para sites de terceiros."
         },
         "zh-CN": {
-          singular: "此人的个人资料、评论或消息中包含误导性或欺骗性链接，或包含似乎主要旨在向第三方网站引流的重复性、不相关或随机的文本。"
+          singular: "此人的个人资料、评论或消息包含误导性或欺诈性链接，或重复、无关或随机的文本，似乎主要用于为第三方网站牵引流量。"
         }
       }
     }),
@@ -2777,22 +2819,22 @@
           singular: "Cuéntale a la gente sobre ti"
         },
         "de-DE": {
-          singular: "Erzähle den Menschen etwas von dir"
+          singular: "Erzählen Sie den Leuten von sich"
         },
         "fr-FR": {
-          singular: "Présentez-vous"
+          singular: "Parlez de vous aux autres"
         },
         "ja-JP": {
-          singular: "自己紹介しましょう"
+          singular: "自分について伝える"
         },
         "ko-KR": {
-          singular: "자신을 소개하세요"
+          singular: "자신에 대해 알려주세요"
         },
         "pt-BR": {
           singular: "Conte às pessoas sobre você"
         },
         "zh-CN": {
-          singular: "向他人介绍自己"
+          singular: "向他人介绍你自己"
         }
       }
     }),
@@ -2803,22 +2845,22 @@
           singular: "Gracias por tu denuncia."
         },
         "de-DE": {
-          singular: "Vielen Dank für deine Meldung."
+          singular: "Danke für Ihre Meldung."
         },
         "fr-FR": {
           singular: "Merci pour votre signalement."
         },
         "ja-JP": {
-          singular: "ご報告ありがとうございます。"
+          singular: "通報ありがとうございます。"
         },
         "ko-KR": {
-          singular: "신고해주셔서 감사합니다."
+          singular: "신고해 주셔서 감사합니다."
         },
         "pt-BR": {
-          singular: "Agradecemos por sua denúncia."
+          singular: "Obrigado pelo seu relato."
         },
         "zh-CN": {
-          singular: "感谢您的报告。"
+          singular: "感谢你的举报。"
         }
       }
     }),
@@ -2878,16 +2920,16 @@
       singular: "Name must not exceed 32 characters",
       dictionary: {
         es: {
-          singular: "El nombre no debe exceder los 32 caracteres"
+          singular: "El nombre no puede exceder los 32 caracteres"
         },
         "de-DE": {
-          singular: "Name darf nicht länger als 32 Zeichen sein"
+          singular: "Name darf 32 Zeichen nicht überschreiten"
         },
         "fr-FR": {
-          singular: "Le nom ne peut dépasser 32 caractères"
+          singular: "Le nom ne doit pas dépasser 32 caractères"
         },
         "ja-JP": {
-          singular: "名前は32文字以下で記入してください"
+          singular: "名前は32文字以内で入力してください"
         },
         "ko-KR": {
           singular: "이름은 32자를 초과할 수 없습니다"
@@ -2896,7 +2938,7 @@
           singular: "O nome não pode exceder 32 caracteres"
         },
         "zh-CN": {
-          singular: "名称不得超过 32 个字符"
+          singular: "姓名不得超过 32 个字符"
         }
       }
     }),
@@ -2904,25 +2946,25 @@
       singular: "You've followed too many people too quickly. Please wait a while before following more.",
       dictionary: {
         es: {
-          singular: "Seguiste a muchas personas muy rápido. Espera un poco antes de seguir a más usuarios."
+          singular: "Has seguido a demasiadas personas en poco tiempo. Espera un rato antes de seguir a más."
         },
         "de-DE": {
-          singular: "Du bist zu schnell zu vielen Leuten gefolgt. Warte eine Weile, bevor du weiteren Leuten folgst."
+          singular: "Sie haben zu schnell zu vielen Personen gefolgt. Bitte warten Sie eine Weile, bevor Sie weiteren Personen folgen."
         },
         "fr-FR": {
-          singular: "Vous avez commencez à suivre trop de personnes trop rapidement. Merci de bien vouloir attendre un peu avant de commencer à en suivre d'autres."
+          singular: "Vous avez suivi trop de personnes trop rapidement. Veuillez attendre un moment avant d'en suivre d'autres."
         },
         "ja-JP": {
-          singular: "一度に多くの人をフォローし過ぎたようです。申し訳ありませんが、しばらく経ってからもう一度フォローしてください。"
+          singular: "短時間で多くの人をフォローしました。しばらく待ってから再度フォローしてください。"
         },
         "ko-KR": {
-          singular: "너무 빠른 시간 안에 여러 사용자를 팔로우했습니다. 더 팔로우하기 전에 조금 기다려주세요."
+          singular: "너무 빨리 너무 많은 사람을 팔로우했습니다. 잠시 기다린 후 다시 팔로우하세요."
         },
         "pt-BR": {
-          singular: "Você seguiu muitas pessoas muito rapidamente. Por favor, espere um pouco antes de seguir pessoas novamente."
+          singular: "Você seguiu muitas pessoas muito rapidamente. Aguarde um pouco antes de seguir mais."
         },
         "zh-CN": {
-          singular: "您太快关注太多人了。请等待一段时间再关注更多人。"
+          singular: "你关注的人过多且过于频繁。请稍作等待再继续关注。"
         }
       }
     }),
@@ -2930,10 +2972,10 @@
       singular: "Unable to follow",
       dictionary: {
         es: {
-          singular: "No puedes seguirlo(a)"
+          singular: "No se puede seguir"
         },
         "de-DE": {
-          singular: "Nicht in der Lage zu folgen"
+          singular: "Folgen nicht möglich"
         },
         "fr-FR": {
           singular: "Impossible de suivre"
@@ -2942,10 +2984,10 @@
           singular: "フォローできません"
         },
         "ko-KR": {
-          singular: "팔로우 불가"
+          singular: "팔로우할 수 없습니다"
         },
         "pt-BR": {
-          singular: "Não é possível seguir"
+          singular: "Não foi possível seguir"
         },
         "zh-CN": {
           singular: "无法关注"
@@ -2991,7 +3033,7 @@
           singular: "Section sans titre"
         },
         "ja-JP": {
-          singular: "無題のセクション"
+          singular: "タイトルなしのセクション"
         },
         "ko-KR": {
           singular: "제목 없는 섹션"
@@ -3000,7 +3042,7 @@
           singular: "Seção sem título"
         },
         "zh-CN": {
-          singular: "未命名章节"
+          singular: "未命名区块"
         }
       }
     }),
@@ -3008,16 +3050,16 @@
       singular: "UPCOMING",
       dictionary: {
         es: {
-          singular: "PRÓXIMAMENTE"
+          singular: "PRÓXIMOS"
         },
         "de-DE": {
-          singular: "IN KÜRZE"
+          singular: "ANSTEHEND"
         },
         "fr-FR": {
           singular: "À VENIR"
         },
         "ja-JP": {
-          singular: "近日配信"
+          singular: "近日公開"
         },
         "ko-KR": {
           singular: "예정"
@@ -3026,7 +3068,7 @@
           singular: "EM BREVE"
         },
         "zh-CN": {
-          singular: "即将推出"
+          singular: "即将到来"
         }
       }
     }),
@@ -3034,25 +3076,25 @@
       singular: "Upcoming videos aren't supported.",
       dictionary: {
         es: {
-          singular: "No se admiten los videos programados."
+          singular: "Los vídeos programados no son compatibles."
         },
         "de-DE": {
-          singular: "Geplante Videos werden nicht unterstützt."
+          singular: "Anstehende Videos werden nicht unterstützt."
         },
         "fr-FR": {
-          singular: "Les vidéos programmées ne sont pas prises en charge."
+          singular: "Les vidéos à venir ne sont pas prises en charge."
         },
         "ja-JP": {
-          singular: "公開予定の動画には対応しておりません。"
+          singular: "今後公開される動画はサポートされていません。"
         },
         "ko-KR": {
           singular: "예정된 동영상은 지원되지 않습니다."
         },
         "pt-BR": {
-          singular: "Vídeos que ainda não estejam ao vivo não são suportados."
+          singular: "Vídeos futuros não são suportados."
         },
         "zh-CN": {
-          singular: "不支持即将发布的视频。"
+          singular: "不支持即将到来的视频。"
         }
       }
     }),
@@ -3086,10 +3128,10 @@
       singular: "Upload picture",
       dictionary: {
         es: {
-          singular: "Subir foto"
+          singular: "Subir imagen"
         },
         "de-DE": {
-          singular: "Bild aktualisieren"
+          singular: "Bild hochladen"
         },
         "fr-FR": {
           singular: "Importer une image"
@@ -3101,7 +3143,7 @@
           singular: "사진 업로드"
         },
         "pt-BR": {
-          singular: "Carregar imagem"
+          singular: "Enviar imagem"
         },
         "zh-CN": {
           singular: "上传图片"
@@ -3112,25 +3154,25 @@
       singular: "Please verify your account",
       dictionary: {
         es: {
-          singular: "Verifica tu cuenta"
+          singular: "Por favor, verifica tu cuenta"
         },
         "de-DE": {
-          singular: "Bitte deine Kontoinformationen bestätigen"
+          singular: "Bitte verifizieren Sie Ihr Konto"
         },
         "fr-FR": {
           singular: "Veuillez vérifier votre compte"
         },
         "ja-JP": {
-          singular: "アカウントを承認してください"
+          singular: "アカウントを確認してください"
         },
         "ko-KR": {
-          singular: "계정을 검증해주세요"
+          singular: "계정을 확인해 주세요"
         },
         "pt-BR": {
           singular: "Por favor, verifique sua conta"
         },
         "zh-CN": {
-          singular: "请验证您的账户"
+          singular: "请验证你的账户"
         }
       }
     }),
@@ -3164,7 +3206,7 @@
       singular: "Vertical videos aren't supported.",
       dictionary: {
         es: {
-          singular: "Los videos verticales no son compatibles."
+          singular: "Los vídeos verticales no son compatibles."
         },
         "de-DE": {
           singular: "Vertikale Videos werden nicht unterstützt."
@@ -3173,7 +3215,7 @@
           singular: "Les vidéos verticales ne sont pas prises en charge."
         },
         "ja-JP": {
-          singular: "縦向き動画には対応しておりません。"
+          singular: "縦型動画はサポートされていません。"
         },
         "ko-KR": {
           singular: "세로 동영상은 지원되지 않습니다."
@@ -3230,22 +3272,22 @@
       singular: "Choose which part of the video to loop",
       dictionary: {
         es: {
-          singular: "Elige qué parte del video reproducir en bucle"
+          singular: "Elige qué parte del vídeo reproducir en bucle"
         },
         "de-DE": {
-          singular: "Wähle aus, welcher Teil deines Videos in Dauerschleife abgespielt werden soll"
+          singular: "Wählen Sie, welchen Teil des Videos wiederholt werden soll"
         },
         "fr-FR": {
-          singular: "Choisissez un passage de la vidéo à lire en boucle"
+          singular: "Choisissez quelle partie de la vidéo mettre en boucle"
         },
         "ja-JP": {
-          singular: "ループさせる動画の部分を選択"
+          singular: "ループする動画の部分を選択"
         },
         "ko-KR": {
-          singular: "반복 재생할 동영상 부분을 선택하세요."
+          singular: "비디오의 반복할 구간을 선택하세요"
         },
         "pt-BR": {
-          singular: "Escolha qual parte do vídeo passará em loop"
+          singular: "Escolha qual parte do vídeo será reproduzida em loop"
         },
         "zh-CN": {
           singular: "选择要循环播放的视频部分"
@@ -3282,25 +3324,25 @@
       singular: "We’re looking into it.",
       dictionary: {
         es: {
-          singular: "Lo estamos revisando."
+          singular: "Estamos investigándolo."
         },
         "de-DE": {
-          singular: "Wir kümmern uns sofort darum."
+          singular: "Wir untersuchen das."
         },
         "fr-FR": {
-          singular: "Nous nous y intéressons de près."
+          singular: "Nous sommes en train d'examiner cela."
         },
         "ja-JP": {
-          singular: "こちらで調査させていただきます。"
+          singular: "調査中です。"
         },
         "ko-KR": {
-          singular: "조사를 진행 중입니다."
+          singular: "조사 중입니다."
         },
         "pt-BR": {
-          singular: "Estamos investigando."
+          singular: "Estamos verificando."
         },
         "zh-CN": {
-          singular: "我们会立即调查。"
+          singular: "我们正在调查此事。"
         }
       }
     }),
@@ -3308,25 +3350,25 @@
       singular: "Why are you reporting this person?",
       dictionary: {
         es: {
-          singular: "¿Por qué denuncias a esta persona?"
+          singular: "¿Por qué estás denunciando a esta persona?"
         },
         "de-DE": {
-          singular: "Warum beschwerst du dich über diese Person?"
+          singular: "Warum melden Sie diese Person?"
         },
         "fr-FR": {
-          singular: "Pourquoi signalez-vous cette personne ?"
+          singular: "Pourquoi signalez-vous cette personne ?"
         },
         "ja-JP": {
-          singular: "通報の理由"
+          singular: "なぜこの人物を通報しますか？"
         },
         "ko-KR": {
-          singular: "이 사용자를 신고하는 이유는 무엇입니까?"
+          singular: "왜 이 사람을 신고하시나요?"
         },
         "pt-BR": {
           singular: "Por que você está denunciando esta pessoa?"
         },
         "zh-CN": {
-          singular: "您为什么要举报这个人？"
+          singular: "你为什么要举报此人？"
         }
       }
     }),

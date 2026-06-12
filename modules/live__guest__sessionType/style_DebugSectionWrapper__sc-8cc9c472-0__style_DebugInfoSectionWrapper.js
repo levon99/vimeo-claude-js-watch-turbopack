@@ -2560,13 +2560,13 @@
         singular: "Invalid link",
         dictionary: {
           es: {
-            singular: "Vínculo no válido"
+            singular: "Enlace no válido"
           },
           "de-DE": {
             singular: "Ungültiger Link"
           },
           "fr-FR": {
-            singular: "Lien non valide"
+            singular: "Lien invalide"
           },
           "ja-JP": {
             singular: "無効なリンク"
@@ -2578,7 +2578,7 @@
             singular: "Link inválido"
           },
           "zh-CN": {
-            singular: "无效链接"
+            singular: "无效的链接"
           }
         }
       }),

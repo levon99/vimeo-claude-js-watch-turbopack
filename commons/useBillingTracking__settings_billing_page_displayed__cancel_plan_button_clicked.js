@@ -160,6 +160,7 @@
       }, [_v0]),
       _v30 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("cancel_subscription_dowgrade_clicked", {
+          current_plan: _v0.currentPlan ?? null,
           new_plan: _v0.newPlan,
           new_periodicity: _v0.newPeriodicity,
           offer_kind: _v0.offerKind ?? null,

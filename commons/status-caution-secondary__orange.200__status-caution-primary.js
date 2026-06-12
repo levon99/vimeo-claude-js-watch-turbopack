@@ -17,10 +17,11 @@
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  let _v18 = "status-caution-secondary",
-    _v19 = "orange.200",
-    _v20 = {
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0);
+  let _v19 = "status-caution-secondary",
+    _v20 = "orange.200",
+    _v21 = {
       bgColor: "status-caution-primary",
       color: "white",
       _hover: {
@@ -45,27 +46,39 @@
     planName: _v3 = "Advanced",
     hasColdStorage: _v4 = !0,
     hasColdPrivacy: _v5 = !1,
-    className: _v6
+    hasColdPrivacyForTracking: _v6,
+    isColdPrivacyLoading: _v7 = !1,
+    className: _v8
   }) => {
     let {
-        trackColdStorageUxDisplayed: _v7,
-        trackColdStorageUxClicked: _v8
+        trackColdStorageUxDisplayed: _v9,
+        trackColdStorageUxClicked: _v10
       } = (0, _v15.useColdStorageTracking)(),
-      _v9 = _v5 && !_v4;
-    (0, _v2.useEffect)(() => {
-      _v7({
-        surface: _v0
+      _v11 = _v5 && !_v4,
+      _v12 = _v6 ?? _v5,
+      _v13 = (0, _v2.useMemo)(() => (0, _v15.deriveColdStorageRestrictions)({
+        hasColdStorage: _v4,
+        hasColdPrivacy: _v12
+      }), [_v4, _v12]);
+    (0, _v16.usePicoEffect)(() => {
+      if (_v7) return !1;
+      _v9({
+        surface: _v0,
+        restrictions: _v13
       });
-    }, [_v0, _v7]);
-    let _v10 = () => {
-        (_v8({
-          element: "learn_more"
-        }), _v1) ? _v1() : window.dispatchEvent(new Event(_v16.COLD_STORAGE_INTRO_MODAL_FORCE_OPEN_EVENT));
+    }, [_v0, _v13, _v7, _v9], {
+      once: !0
+    });
+    let _v14 = () => {
+        (_v10({
+          element: "learn_more",
+          restrictions: _v13
+        }), _v1) ? _v1() : window.dispatchEvent(new Event(_v17.COLD_STORAGE_INTRO_MODAL_FORCE_OPEN_EVENT));
       },
-      _v11 = _v0 => (0, _v1.jsx)(_v8.Link, {
+      _v15 = _v0 => (0, _v1.jsx)(_v8.Link, {
         as: "button",
         type: "button",
-        onClick: _v10,
+        onClick: _v14,
         background: "transparent",
         border: "none",
         padding: 0,
@@ -91,33 +104,34 @@
         },
         children: _v0
       }),
-      _v12 = (_v0, _v1) => (0, _v1.jsx)(_v17.default, {
+      _v16 = (_v0, _v1) => (0, _v1.jsx)(_v18.default, {
         size: _v0,
         noMargin: !0,
         style: _v1 ? {
-          ..._v20,
+          ..._v21,
           ..._v1
-        } : _v20,
+        } : _v21,
         name: "cold_storage_banner_upgrade_button",
         location: `cold_storage_banner_${_v0}`,
         onClick: () => {
-          _v8({
-            element: "upgrade_button"
+          _v10({
+            element: "upgrade_button",
+            restrictions: _v13
           });
         },
         modalConfig: {},
         modalTracking: {
           params: {
             page: _v0,
-            feature: _v9 ? "privacy" : "storage",
+            feature: _v11 ? "privacy" : "storage",
             location: `cold_storage_banner_${_v0}`,
             upsell_name: "cold_storage_banner"
           },
           paywallTracking: {
-            paywallTrigger: _v9 ? `cold_privacy_banner_upgrade_${_v0}` : `cold_storage_banner_upgrade_${_v0}`,
+            paywallTrigger: _v11 ? `cold_privacy_banner_upgrade_${_v0}` : `cold_storage_banner_upgrade_${_v0}`,
             paywallLocation: `cold_storage_banner_${_v0}`,
             paywallType: "popup",
-            paywallFeature: _v9 ? "privacy" : "storage_limit"
+            paywallFeature: _v11 ? "privacy" : "storage_limit"
           }
         },
         children: (0, _v14.translate)({
@@ -145,7 +159,8 @@
         })
       });
     if ("homepage" === _v0) {
-      let _v0 = _v0 => (0, _v1.jsx)(_v5.Box, {
+      let _v0 = _v4 && _v5,
+        _v1 = _v0 => (0, _v1.jsx)(_v5.Box, {
           alignItems: "center",
           background: "status-caution-primary",
           borderRadius: "md",
@@ -160,7 +175,7 @@
             boxSize: (0, _v10.rem)(32)
           })
         }),
-        _v1 = (0, _v1.jsxs)(_v7.Flex, {
+        _v2 = (0, _v1.jsxs)(_v7.Flex, {
           alignItems: "center",
           gap: "sm",
           justifyContent: "center",
@@ -171,8 +186,9 @@
             height: (0, _v10.rem)(40),
             minHeight: (0, _v10.rem)(40),
             onClick: () => {
-              _v8({
-                element: "view_videos"
+              _v10({
+                element: "view_videos",
+                restrictions: _v13
               }), _v2?.();
             },
             children: (0, _v14.translate)({
@@ -201,14 +217,14 @@
                 }
               }
             })
-          }), _v12("md", {
+          }), _v16("md", {
             height: (0, _v10.rem)(40),
             minHeight: (0, _v10.rem)(40)
           })]
         });
-      if (_v4 && _v5) return (0, _v1.jsx)(_v3.AlertRoot, {
-        className: _v6,
-        backgroundColor: _v18,
+      if (_v0) return (0, _v1.jsx)(_v3.AlertRoot, {
+        className: _v8,
+        backgroundColor: _v19,
         color: "black",
         borderRadius: "lg",
         padding: (0, _v10.rem)(32),
@@ -221,7 +237,7 @@
           width: "100%",
           alignItems: "center",
           textAlign: "center",
-          children: [_v0(_v11.CircleExclamation), (0, _v1.jsx)(_v9.Text, {
+          children: [_v1(_v11.CircleExclamation), (0, _v1.jsx)(_v9.Text, {
             variant: "heading-xl",
             color: "black",
             children: (0, _v14.translate)({
@@ -267,7 +283,7 @@
                 md: (0, _v10.rem)(360)
               },
               flexShrink: 0,
-              backgroundColor: _v19,
+              backgroundColor: _v20,
               borderRadius: "md",
               padding: (0, _v10.rem)(20),
               textAlign: "left",
@@ -309,7 +325,7 @@
                 children: (0, _v14.translate)({
                   singular: "You've reached the storage limit on your current plan. {LINK}Learn more{/LINK} or upgrade to restore your videos.",
                   replacements: {
-                    LINK: _v11
+                    LINK: _v15
                   },
                   dictionary: {
                     es: {
@@ -344,7 +360,7 @@
                 md: (0, _v10.rem)(360)
               },
               flexShrink: 0,
-              backgroundColor: _v19,
+              backgroundColor: _v20,
               borderRadius: "md",
               padding: (0, _v10.rem)(20),
               textAlign: "left",
@@ -386,7 +402,7 @@
                 children: (0, _v14.translate)({
                   singular: "Your plan doesn't support some privacy settings, so these videos are now private. {LINK}Learn more{/LINK} or upgrade to restore your original privacy settings.",
                   replacements: {
-                    LINK: _v11
+                    LINK: _v15
                   },
                   dictionary: {
                     es: {
@@ -414,13 +430,13 @@
                 })
               })]
             })]
-          }), _v1]
+          }), _v2]
         })
       });
       let {
-        Icon: _v2,
-        heading: _v3,
-        body: _v4
+        Icon: _v3,
+        heading: _v4,
+        body: _v5
       } = _v5 ? {
         Icon: _v13.Eye,
         heading: (0, _v14.translate)({
@@ -452,7 +468,7 @@
         body: (0, _v14.translate)({
           singular: "Your plan doesn't support some privacy settings, so these videos are now private. {LINK}Learn more{/LINK} or upgrade to restore your previous settings.",
           replacements: {
-            LINK: _v11
+            LINK: _v15
           },
           dictionary: {
             es: {
@@ -509,7 +525,7 @@
         body: (0, _v14.translate)({
           singular: "You've reached the storage limit on your current plan. {LINK}Learn more{/LINK} or upgrade to {PLAN} for more storage.",
           replacements: {
-            LINK: _v11,
+            LINK: _v15,
             PLAN: _v3
           },
           dictionary: {
@@ -538,8 +554,8 @@
         })
       };
       return (0, _v1.jsx)(_v3.AlertRoot, {
-        className: _v6,
-        backgroundColor: _v18,
+        className: _v8,
+        backgroundColor: _v19,
         color: "black",
         borderRadius: "lg",
         padding: (0, _v10.rem)(32),
@@ -552,7 +568,7 @@
           width: "100%",
           alignItems: "center",
           textAlign: "center",
-          children: [_v0(_v2), (0, _v1.jsxs)(_v7.Flex, {
+          children: [_v1(_v3), (0, _v1.jsxs)(_v7.Flex, {
             direction: "column",
             gap: (0, _v10.rem)(8),
             alignItems: "center",
@@ -560,44 +576,44 @@
             children: [(0, _v1.jsx)(_v9.Text, {
               variant: "heading-xl",
               color: "black",
-              children: _v3
+              children: _v4
             }), (0, _v1.jsx)(_v9.Text, {
               variant: "body-lg",
               color: "text-secondary",
-              children: _v4
+              children: _v5
             })]
-          }), _v1]
+          }), _v2]
         })
       });
     }
     let {
-      Icon: _v13,
-      text: _v14
+      Icon: _v17,
+      text: _v18
     } = _v5 && _v4 ? {
       Icon: _v11.CircleExclamation,
       text: (0, _v14.translate)({
         singular: "Some videos are restricted due to privacy and storage limits on your plan.",
         dictionary: {
           es: {
-            singular: "Algunos videos están restringidos debido a los límites de privacidad y almacenamiento de su plan."
+            singular: "Algunos videos están restringidos debido a las limitaciones de privacidad y almacenamiento de su plan."
           },
           "de-DE": {
-            singular: "Einige Videos sind aufgrund von Datenschutz- und Speicherbeschränkungen in Ihrem Tarif eingeschränkt."
+            singular: "Einige Videos sind aufgrund von Datenschutzeinstellungen und Speicherbegrenzungen in Ihrem Tarif eingeschränkt."
           },
           "fr-FR": {
             singular: "Certaines vidéos sont restreintes en raison des limites de confidentialité et de stockage de votre forfait."
           },
           "ja-JP": {
-            singular: "一部の動画は、プランのプライバシー設定およびストレージ制限により制限されています。"
+            singular: "お使いのプランのプライバシー設定およびストレージの制限により、一部の動画へのアクセスが制限されています。"
           },
           "ko-KR": {
-            singular: "귀하의 요금제에 설정된 개인정보 및 저장 용량 제한으로 인해 일부 동영상의 이용이 제한됩니다."
+            singular: "일부 동영상은 귀하의 요금제에 따른 개인정보 보호 및 저장 한도로 인해 제한됩니다."
           },
           "pt-BR": {
-            singular: "Alguns vídeos estão restritos devido a limites de privacidade e de armazenamento do seu plano."
+            singular: "Alguns vídeos estão restritos devido a limites de privacidade e armazenamento no seu plano."
           },
           "zh-CN": {
-            singular: "由于您的计划在隐私和存储方面的限制，部分视频受到限制。"
+            singular: "由于您当前套餐的隐私设置和存储限制，部分视频受到限制。"
           }
         }
       })
@@ -659,8 +675,8 @@
       })
     };
     return (0, _v1.jsx)(_v3.AlertRoot, {
-      className: _v6,
-      backgroundColor: _v18,
+      className: _v8,
+      backgroundColor: _v19,
       color: "black",
       borderRadius: "lg",
       padding: (0, _v10.rem)(12),
@@ -684,13 +700,13 @@
           gap: "sm",
           flex: "1",
           minWidth: 0,
-          children: [(0, _v1.jsx)(_v13, {
+          children: [(0, _v1.jsx)(_v17, {
             boxSize: (0, _v10.rem)(20),
             color: "#c46500"
           }), (0, _v1.jsx)(_v9.Text, {
             variant: "heading-xs",
             color: "text-primary",
-            children: _v14
+            children: _v18
           })]
         }), (0, _v1.jsxs)(_v7.Flex, {
           alignItems: "center",
@@ -705,7 +721,7 @@
             size: "sm",
             height: (0, _v10.rem)(24),
             minHeight: (0, _v10.rem)(24),
-            onClick: _v10,
+            onClick: _v14,
             backgroundColor: "white",
             _hover: {
               backgroundColor: "white"
@@ -739,7 +755,7 @@
                 }
               }
             })
-          }), _v12("sm", {
+          }), _v16("sm", {
             height: (0, _v10.rem)(24),
             minHeight: (0, _v10.rem)(24)
           })]

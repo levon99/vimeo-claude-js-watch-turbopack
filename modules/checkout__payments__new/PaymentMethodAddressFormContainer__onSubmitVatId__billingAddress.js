@@ -20,7 +20,7 @@
       onCountryChange: _v0 => {
         if (_v2({
           country: _v0
-        }), window?.Z && _v4) {
+        }), window?.Z && _v4 && document.getElementById(_v4.ZUORA_HPM_IFRAME_ID)) {
           let _v0 = _v5.countries[_v0]?.iso3;
           window.Z.post(_v4.ZUORA_HPM_IFRAME_ID, `setField(creditCardCountry:${_v0})`);
         }
@@ -31,7 +31,7 @@
         _v0.length < _v1 ? _v6(!0) : _v6(!1), _v2({
           ..._v1,
           postalCode: _v0
-        }), window?.Z && _v4 && window.Z.post(_v4.ZUORA_HPM_IFRAME_ID, `setField(creditCardPostalCode:${_v0})`);
+        }), window?.Z && _v4 && document.getElementById(_v4.ZUORA_HPM_IFRAME_ID) && window.Z.post(_v4.ZUORA_HPM_IFRAME_ID, `setField(creditCardPostalCode:${_v0})`);
       },
       onSubmitVatId: _v0,
       postalCodeIsInvalid: _v5,

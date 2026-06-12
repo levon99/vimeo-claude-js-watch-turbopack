@@ -5,12 +5,17 @@
     free: 0,
     creator: 1,
     starter: 1,
+    plus: 1,
     professional: 2,
     standard: 2,
+    pro: 2,
     studio: 3,
     advanced: 3,
+    proUnlimited: 3,
     production: 4,
-    enterprise: 5
+    business: 4,
+    livePremium: 5,
+    enterprise: 6
   }, "breakPoints", 0, {
     mobile: "20rem",
     mobileEx: "375px",

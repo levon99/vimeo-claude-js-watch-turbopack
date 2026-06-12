@@ -938,22 +938,22 @@
             singular: "El nombre es obligatorio"
           },
           "de-DE": {
-            singular: "Name ist ein Pflichtfeld"
+            singular: "Name ist erforderlich"
           },
           "fr-FR": {
             singular: "Le nom est requis"
           },
           "ja-JP": {
-            singular: "名前を入力してください"
+            singular: "名前は必須です"
           },
           "ko-KR": {
-            singular: "이름은 필수 항목입니다"
+            singular: "이름은 필수입니다"
           },
           "pt-BR": {
-            singular: "O nome é necessário"
+            singular: "Nome é obrigatório"
           },
           "zh-CN": {
-            singular: "名称为必填项"
+            singular: "姓名为必填项"
           }
         }
       }),

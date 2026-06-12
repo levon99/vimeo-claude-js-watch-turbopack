@@ -119,7 +119,7 @@
     _v20 = _v0.i(0);
   class _v21 extends _v2.ContextManager {
     static EVENT_SETTINGS_PRODUCTION_FIELDS = ["autoCcEnabled", "autoCcLimit", "autoCcRemaining", "disableAutoArchiving", "dvr", "latency", "preferredStreamMethod", "streamingAutoStop", "unlimitedDuration"];
-    static EVENT_SETTINGS_FETCH_FIELDS = [..._v21.EVENT_SETTINGS_PRODUCTION_FIELDS, "album", "allowedPrivacies", "autoCcKeywords", "autoCcLanguage", "contentRating", "dashLink", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "fromShowcase", "hasRegistration", "link", "parentFolder.isPrivateToUser", "rtmpLink", "rtmpPreview", "rtmpsLink", "schedule", "scheduledPlayback", "srtEncryptionEnabled", "srtLink", "srtPassphrase", "status", "streamDescription", "streamKey", "streamPassword", "streamPrivacy", "title", "unlimitedAutoCc", "uri"];
+    static EVENT_SETTINGS_FETCH_FIELDS = [..._v21.EVENT_SETTINGS_PRODUCTION_FIELDS, "album", "allowedPrivacies", "autoCcKeywords", "autoCcLanguage", "autoCcTranslationEnabled", "autoCcTranslationLanguages", "contentRating", "dashLink", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "fromShowcase", "hasRegistration", "link", "parentFolder.isPrivateToUser", "rtmpLink", "rtmpPreview", "rtmpsLink", "schedule", "scheduledPlayback", "srtEncryptionEnabled", "srtLink", "srtPassphrase", "status", "streamDescription", "streamKey", "streamPassword", "streamPrivacy", "title", "unlimitedAutoCc", "uri"];
     context = {
       isInitialized: !1,
       settings: (0, _v2.createLoadable)(null, !0),

@@ -3698,10 +3698,13 @@
         setLeadUuid: _v12
       } = (0, _v7.useLeadCaptureRegistration)(_v9),
       _v13 = (0, _v9.useSSGShowcaseSignature)(_v9),
-      [_v14, _v15] = (0, _v3.useState)(!1);
+      [_v14, _v15] = (0, _v3.useState)(!1),
+      _v16 = (0, _v3.useCallback)(() => {
+        _v15(!0), _v7();
+      }, [_v7]);
     if (_v8?.status === 404) return (0, _v1.jsx)(_v11.ErrorPage, {});
     if (!(_v3?.authData || _v3?.authError || !_v6 && (_v4 || _v8)) || _v11 || !_v9) return (0, _v1.jsx)(_v13.LoadingPage, {});
-    let _v16 = window.location.hostname === _v4?.metadata?.domain || window.location.hostname === _v8?.res?.metadata?.domain;
+    let _v17 = window.location.hostname === _v4?.metadata?.domain || window.location.hostname === _v8?.res?.metadata?.domain;
     if (_v8) switch (_v8?.res?.errorCode) {
       case _v8.ShowcaseAuthErrorCode.passwordPrivacy:
         return (0, _v1.jsx)(_v16.AlbumStoreProvider, {
@@ -3709,16 +3712,14 @@
           isShowcaseEmbedded: _v1,
           children: (0, _v1.jsx)(_v14.PasswordPage, {
             isCookiesDisabled: _v14,
-            onSuccess: () => {
-              _v15(!0), _v7();
-            }
+            onSuccess: _v16
           })
         });
       case _v8.ShowcaseAuthErrorCode.teamPrivacy:
         return (0, _v1.jsx)(_v16.AlbumStoreProvider, {
           albumId: _v9,
           isShowcaseEmbedded: _v1,
-          isOffsite: _v16,
+          isOffsite: _v17,
           children: (0, _v1.jsx)(_v10.BrandedLoginPage, {
             ...(_v8?.res?.metadata ?? {})
           })
@@ -3741,7 +3742,7 @@
       albumSignature: _v13,
       hashedPass: _v4?.hashedPass || "",
       isShowcaseEmbedded: _v1,
-      isOffsite: _v16,
+      isOffsite: _v17,
       showcaseHash: _v2 || "",
       children: [_v4?.metadata?.name && (0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {

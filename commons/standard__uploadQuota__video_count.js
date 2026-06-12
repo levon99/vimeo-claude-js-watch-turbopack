@@ -3208,7 +3208,7 @@
       throw _v4;
     },
     _v151 = ["01KGPR56B56Z9H89TBK6NENWDQ", "01KGPR56B56Z9H89TBK87BF9BS"],
-    _v152 = new Set([..._v44.DEFAULT_SEAT_PLANS.filter(_v0 => _v0 !== _v44.PLANS.ENTERPRISE), ..._v44.LEGACY_PLANS.filter(_v0 => _v0 !== _v44.PLANS.ENTERPRISE), _v44.PLANS.FREE, ..._v44.NEW_PLANS]),
+    _v152 = new Set([..._v44.DEFAULT_SEAT_PLANS.filter(_v0 => _v0 !== _v44.PLANS.ENTERPRISE), ..._v44.LEGACY_PLANS.filter(_v0 => _v0 !== _v44.PLANS.ENTERPRISE), _v44.PLANS.FREE, ..._v44.NEW_PLANS.filter(_v0 => _v0 !== _v44.PLANS.PRODUCTION)]),
     _v153 = {
       standard: {
         default: _v44.PLANS.STANDARD,
@@ -3354,7 +3354,7 @@
     }, [_v0.tracking, _v5.userData?.membership?.type, _v5.hasTrackedImpression]);
     let _v11 = _v5.userData?.membership?.type,
       _v12 = _v0.templateType;
-    _v160.includes(_v0.templateType) || _v11 !== _v44.PLANS.ADVANCED && _v11 !== _v44.PLANS.PREMIUM && _v11 !== _v44.PLANS.TEAM_LIVE && _v11 !== _v44.PLANS.CUSTOM_SELF_SERVE || _v67(_v0.modalConfig) && _v0.modalConfig?.displayPlan || (_v12 = "enterprise");
+    _v160.includes(_v0.templateType) || _v11 !== _v44.PLANS.ADVANCED && _v11 !== _v44.PLANS.PREMIUM && _v11 !== _v44.PLANS.TEAM_LIVE && _v11 !== _v44.PLANS.CUSTOM_SELF_SERVE && _v11 !== _v44.PLANS.STUDIO && _v11 !== _v44.PLANS.PRODUCTION || _v67(_v0.modalConfig) && _v0.modalConfig?.displayPlan || (_v12 = "enterprise");
     let _v13 = _v0.tracking.paywallTracking.paywallFeature,
       _v14 = _v0.tracking.paywallTracking.paywallTrigger,
       _v15 = _v155(_v4.late_stage_paywall_kind),

@@ -22,6 +22,8 @@
         return _v3.VL_EVENTS_SORT_OPTIONS.includes(_v0);
       case _v3.VL_SHOWCASES_SORT_LOCAL_STORAGE_KEY:
         return _v3.VL_SHOWCASES_SORT_OPTIONS.includes(_v0);
+      case _v3.VL_EVENT_SERIES_SORT_LOCAL_STORAGE_KEY:
+        return _v3.VL_EVENT_SERIES_SORT_OPTIONS.includes(_v0);
       case _v3.VL_SWM_SORT_LOCAL_STORAGE_KEY:
         return _v3.VL_SWM_SORT_OPTIONS.includes(_v0);
       default:

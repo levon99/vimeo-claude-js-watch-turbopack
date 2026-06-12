@@ -5,7 +5,8 @@
     _v2 = _v0.i(0),
     _v3 = _v0.i(0),
     _v4 = _v0.i(0),
-    _v5 = _v0.i(0);
+    _v5 = _v0.i(0),
+    _v5 = _v5;
   let _v6 = _v3.createGlobalStyle`
   *,
   *::before,
@@ -158,7 +159,7 @@
       theme: _v8,
       children: (0, _v1.jsxs)(_v8.Provider, {
         value: _v10,
-        children: [(0, _v1.jsx)(_v6, {}), (0, _v1.jsx)(_v5.default, {
+        children: [(0, _v1.jsx)(_v6, {}), (0, _v1.jsx)(_v5.BokehProvider, {
           colorMode: _v5 || _v8.name,
           children: _v0
         })]

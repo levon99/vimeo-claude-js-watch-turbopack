@@ -63,7 +63,7 @@
       return (0, _v2.useEffect)(() => {
         !_v3 && _v5?.location && _v11(_v5.location);
       }, [_v3, _v5, _v11]), (0, _v2.useEffect)(() => {
-        if (_v2 && _v3 && _v2.billingAddress?.postalCode === _v3.postalCode && _v9(!1), window?.Z && _v0 && _v2) {
+        if (_v2 && _v3 && _v2.billingAddress?.postalCode === _v3.postalCode && _v9(!1), window?.Z && _v0 && _v2 && document.getElementById(_v5.ZUORA_HPM_IFRAME_ID)) {
           window.Z.post(_v5.ZUORA_HPM_IFRAME_ID, `setField(creditCardPostalCode:${_v2?.billingAddress?.postalCode ?? ""})`), window.Z.post(_v5.ZUORA_HPM_IFRAME_ID, `setField(creditCardState:${_v2?.billingAddress?.state ?? ""})`);
           let _v0 = _v6.countries[_v2?.billingAddress?.country]?.iso3;
           window.Z.post(_v5.ZUORA_HPM_IFRAME_ID, `setField(creditCardCountry:${_v0})`);

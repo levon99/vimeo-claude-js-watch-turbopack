@@ -16,8 +16,8 @@
       premium: _v2.PLANS.PREMIUM,
       creator: _v2.PLANS.PROFESSIONAL,
       professional: _v2.PLANS.STUDIO,
-      studio: _v2.PLANS.PRODUCTION,
-      production: _v2.PLANS.PRODUCTION
+      studio: _v2.PLANS.ENTERPRISE,
+      production: _v2.PLANS.ENTERPRISE
     },
     _v5 = {
       standard: _v2.PLANS.STANDARD,

@@ -21,7 +21,10 @@
     }),
     label: _v3,
     onClick: () => {
-      _v5 ? _v5() : ((0, _v4.default)(_v1), _v4?.());
+      if (_v5) _v5();else {
+        let _v0 = (0, _v4.default)(_v1);
+        _v4?.(_v0);
+      }
     }
   })]);
 }

@@ -1697,13 +1697,13 @@
                   singular: "Anterior"
                 },
                 "de-DE": {
-                  singular: "Vorherige"
+                  singular: "Zurück"
                 },
                 "fr-FR": {
                   singular: "Précédent"
                 },
                 "ja-JP": {
-                  singular: "前へ"
+                  singular: "前"
                 },
                 "ko-KR": {
                   singular: "이전"
@@ -1712,7 +1712,7 @@
                   singular: "Anterior"
                 },
                 "zh-CN": {
-                  singular: "上一页"
+                  singular: "上一个"
                 }
               }
             }),

@@ -839,7 +839,8 @@
         })
       }
     },
-    _v31 = {
+    _v31 = [...new Set(Object.values(_v30).map(_v0 => _v0.sortBy))],
+    _v32 = {
       alphabetical_asc: {
         sortDirection: _v14.ASC,
         sortBy: _v13.TITLE,
@@ -1021,7 +1022,7 @@
         })
       }
     },
-    _v32 = {
+    _v33 = {
       all: {
         label: (0, _v7.translate)({
           singular: "All",
@@ -1133,11 +1134,11 @@
         value: "video"
       }
     },
-    _v33 = (0, _v2.rem)(0),
     _v34 = (0, _v2.rem)(0),
     _v35 = (0, _v2.rem)(0),
-    _v36 = (0, _v2.rem)(300),
-    _v37 = (0, _v7.translate)({
+    _v36 = (0, _v2.rem)(0),
+    _v37 = (0, _v2.rem)(300),
+    _v38 = (0, _v7.translate)({
       singular: "Shared with me",
       dictionary: {
         es: {
@@ -1163,7 +1164,7 @@
         }
       }
     }),
-    _v38 = {
+    _v39 = {
       anybody: (0, _v7.translate)({
         singular: "Public",
         dictionary: {
@@ -1399,12 +1400,12 @@
     shared_date_asc: "first shared",
     shared_user_name_asc: "shared by, a to z",
     shared_user_name_desc: "shared by, z to a"
-  }, "CONTENT_CARD_TITLE_MAX_WIDTH", 0, _v36, "CONTENT_TYPE", 0, {
+  }, "CONTENT_CARD_TITLE_MAX_WIDTH", 0, _v37, "CONTENT_TYPE", 0, {
     FOLDER: "folder",
     VIDEO: "video",
     LIVE_EVENT: "live_event",
     SHOWCASE: "showcase"
-  }, "CONTENT_TYPE_FILTER_OPTIONS_BY_VALUE", 0, _v32, "DEFAULT_DATE_DISPLAY", 0, _v22, "DEFAULT_EVENTS_SORT", 0, {
+  }, "CONTENT_TYPE_FILTER_OPTIONS_BY_VALUE", 0, _v33, "DEFAULT_DATE_DISPLAY", 0, _v22, "DEFAULT_EVENTS_SORT", 0, {
     type: _v19,
     direction: _v18
   }, "DEFAULT_EVENTS_SORT_OPTION", 0, _v19, "DEFAULT_RECENTLY_DELETED_SORT", 0, {
@@ -1416,7 +1417,7 @@
   }, "DEFAULT_SHOWCASES_SORT_OPTION", 0, _v20, "DEFAULT_SORT", 0, {
     type: _v17,
     direction: _v18
-  }, "DEFAULT_SORT_DIRECTION", 0, _v18, "DEFAULT_SORT_OPTION", 0, _v17, "EVENTS_SORT_OPTIONS", 0, _v28, "GET_USER_PROJECT_API_FIELDS", 0, ["metadata.connections.ancestorPath"], "HIDE_DATE_COLUMN_BREAKPOINT", 0, _v35, "HIDE_FILE_SIZE_COLUMN_BREAKPOINT", 0, _v34, "HIDE_PRIVACY_COLUMN_BREAKPOINT", 0, _v33, "LAYOUT", 0, _v15, "LAYOUT_CONFIG", 0, _v16, "MAX_SELECTION_FOR_BULK_ADD_TO_SHOWCASES", 0, 100, "MAX_SELECTION_FOR_BULK_MOVE", 0, 50, "MAX_SELECTION_FOR_BULK_PRIVACY", 0, 50, "PAGE", 0, {
+  }, "DEFAULT_SORT_DIRECTION", 0, _v18, "DEFAULT_SORT_OPTION", 0, _v17, "EVENTS_SORT_OPTIONS", 0, _v28, "EVENT_SERIES_SORT_OPTIONS", 0, _v30, "GET_USER_PROJECT_API_FIELDS", 0, ["metadata.connections.ancestorPath"], "HIDE_DATE_COLUMN_BREAKPOINT", 0, _v36, "HIDE_FILE_SIZE_COLUMN_BREAKPOINT", 0, _v35, "HIDE_PRIVACY_COLUMN_BREAKPOINT", 0, _v34, "LAYOUT", 0, _v15, "LAYOUT_CONFIG", 0, _v16, "MAX_SELECTION_FOR_BULK_ADD_TO_SHOWCASES", 0, 100, "MAX_SELECTION_FOR_BULK_MOVE", 0, 50, "MAX_SELECTION_FOR_BULK_PRIVACY", 0, 50, "PAGE", 0, {
     MVV: "mvv",
     ELIHP: "elihp",
     SHOWCASES: "library_showcases",
@@ -1427,7 +1428,7 @@
     SVV: "svv",
     UNKNOWN: "",
     SHARED_WITH_ME: "shared_with_me"
-  }, "PRIVACY_TO_LABEL", 0, _v38, "Path", 0, {
+  }, "PRIVACY_TO_LABEL", 0, _v39, "Path", 0, {
     AccountSettings: "/settings/account/general",
     Analytics: "/analytics",
     Home: "/home",
@@ -1442,10 +1443,10 @@
     Watch: "/watch",
     IntegrationsCenter: "/integrations-center/[[...slug]]",
     RecentlyDeleted: "/recently-deleted"
-  }, "RECENTLY_DELETED_SORT_OPTIONS", 0, _v31, "SHARED_WITH_ME_DIR_NAME", 0, _v37, "SHARED_WITH_ME_SORT_OPTIONS", 0, _v29, "SHOWCASES_SORT_OPTION", 0, _v12, "SHOWCASES_SORT_OPTIONS", 0, _v30, "SORT_DIRECTION", 0, _v14, "SORT_OPTION", 0, _v10, "SORT_OPTIONS", 0, _v27, "USER_PREFERENCE_ID", 0, {
+  }, "RECENTLY_DELETED_SORT_OPTIONS", 0, _v32, "SHARED_WITH_ME_DIR_NAME", 0, _v38, "SHARED_WITH_ME_SORT_OPTIONS", 0, _v29, "SHOWCASES_SORT_OPTION", 0, _v12, "SHOWCASES_SORT_OPTIONS", 0, _v30, "SORT_DIRECTION", 0, _v14, "SORT_OPTION", 0, _v10, "SORT_OPTIONS", 0, _v27, "USER_PREFERENCE_ID", 0, {
     PREF_ORGANIZATION_UUID: "orguid",
     PREF_WORKSPACE_UUID: "wspuid"
-  }, "VL_DATE_LOCAL_STORAGE_KEY", 0, "vl_date", "VL_EVENTS_SORT_LOCAL_STORAGE_KEY", 0, "vl_events_sort", "VL_EVENTS_SORT_OPTIONS", 0, _v24, "VL_SHOWCASES_SORT_LOCAL_STORAGE_KEY", 0, "vl_showcases_sort", "VL_SHOWCASES_SORT_OPTIONS", 0, _v26, "VL_SORT_LOCAL_STORAGE_KEY", 0, "vl_sort", "VL_SORT_OPTIONS", 0, _v23, "VL_SWM_SORT_LOCAL_STORAGE_KEY", 0, "vl_swm_sort", "VL_SWM_SORT_OPTIONS", 0, _v25, "getPrivacyTypeFilterOptionsByValue", 0, (_v0, _v1) => {
+  }, "VL_DATE_LOCAL_STORAGE_KEY", 0, "vl_date", "VL_EVENTS_SORT_LOCAL_STORAGE_KEY", 0, "vl_events_sort", "VL_EVENTS_SORT_OPTIONS", 0, _v24, "VL_EVENT_SERIES_SORT_LOCAL_STORAGE_KEY", 0, "vl_event_series_sort", "VL_EVENT_SERIES_SORT_OPTIONS", 0, _v31, "VL_SHOWCASES_SORT_LOCAL_STORAGE_KEY", 0, "vl_showcases_sort", "VL_SHOWCASES_SORT_OPTIONS", 0, _v26, "VL_SORT_LOCAL_STORAGE_KEY", 0, "vl_sort", "VL_SORT_OPTIONS", 0, _v23, "VL_SWM_SORT_LOCAL_STORAGE_KEY", 0, "vl_swm_sort", "VL_SWM_SORT_OPTIONS", 0, _v25, "getPrivacyTypeFilterOptionsByValue", 0, (_v0, _v1) => {
     let _v2 = Object.fromEntries(Object.entries(_v8.DEFAULT_PRIVACY_VALUES).map(([_v0, _v1]) => [_v1, _v0.toLowerCase()]));
     return {
       ...Object.fromEntries(_v8.DEFAULT_PRIVACY_OPTIONS.flatMap(_v0 => {

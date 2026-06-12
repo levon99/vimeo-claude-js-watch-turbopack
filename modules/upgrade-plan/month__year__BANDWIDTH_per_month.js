@@ -927,16 +927,16 @@
         singular: "AI-generated video details and summaries",
         dictionary: {
           es: {
-            singular: "Detalles y resúmenes de videos generados con IA"
+            singular: "Detalles y resúmenes de videos generados por IA"
           },
           "de-DE": {
             singular: "KI-generierte Videodetails und Zusammenfassungen"
           },
           "fr-FR": {
-            singular: "Détails et résumés des vidéos générés par l'IA"
+            singular: "Détails et résumés de vidéos générés par l'IA"
           },
           "ja-JP": {
-            singular: "AIが生成した動画の詳細と概要"
+            singular: "AI生成の動画詳細と要約"
           },
           "ko-KR": {
             singular: "AI가 생성한 동영상 세부 정보 및 요약"
@@ -945,7 +945,7 @@
             singular: "Detalhes e resumos de vídeos gerados por IA"
           },
           "zh-CN": {
-            singular: "人工智能生成的视频详情和摘要"
+            singular: "AI 生成的视频详情与摘要"
           }
         }
       }),
@@ -1423,22 +1423,22 @@
             singular: "Herramientas de transmisión de eventos"
           },
           "de-DE": {
-            singular: "Broadcasting-Tools für Events"
+            singular: "Tools für Event-Übertragungen"
           },
           "fr-FR": {
             singular: "Outils de diffusion d'événements"
           },
           "ja-JP": {
-            singular: "イベント放送ツール"
+            singular: "イベント配信ツール"
           },
           "ko-KR": {
             singular: "이벤트 방송 도구"
           },
           "pt-BR": {
-            singular: "Ferramentas de transmissão de evento"
+            singular: "Ferramentas de transmissão de eventos"
           },
           "zh-CN": {
-            singular: "活动广播工具"
+            singular: "活动直播工具"
           }
         }
       }),
@@ -4477,13 +4477,13 @@
         singular: "Event analytics",
         dictionary: {
           es: {
-            singular: "Análisis de eventos"
+            singular: "Analítica de eventos"
           },
           "de-DE": {
-            singular: "Event-Analytik"
+            singular: "Event-Analysen"
           },
           "fr-FR": {
-            singular: "Analyse des événements"
+            singular: "Analyses d'événements"
           },
           "ja-JP": {
             singular: "イベント分析"
@@ -4492,7 +4492,7 @@
             singular: "이벤트 분석"
           },
           "pt-BR": {
-            singular: "Análise estatística de eventos"
+            singular: "Análises de eventos"
           },
           "zh-CN": {
             singular: "活动分析"
@@ -8361,25 +8361,25 @@
       singular: "Player branding",
       dictionary: {
         es: {
-          singular: "Presencia de la marca en el reproductor"
+          singular: "Personalización del reproductor"
         },
         "de-DE": {
           singular: "Player-Branding"
         },
         "fr-FR": {
-          singular: "Personnalisation du player à votre image"
+          singular: "Personnalisation du lecteur"
         },
         "ja-JP": {
-          singular: "プレーヤーのブランディング"
+          singular: "プレーヤーブランディング"
         },
         "ko-KR": {
           singular: "플레이어 브랜딩"
         },
         "pt-BR": {
-          singular: "Player com sua marca"
+          singular: "Personalização do player"
         },
         "zh-CN": {
-          singular: "播放器品牌设计"
+          singular: "播放器品牌化"
         }
       }
     }),
