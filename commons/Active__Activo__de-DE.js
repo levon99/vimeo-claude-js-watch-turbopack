@@ -1058,6 +1058,23 @@
           }
         }
       }),
+      audio: (0, _v6.translate)({
+        singular: "Audio",
+        dictionary: {
+          "ja-JP": {
+            singular: "オーディオ"
+          },
+          "ko-KR": {
+            singular: "오디오"
+          },
+          "pt-BR": {
+            singular: "Áudio"
+          },
+          "zh-CN": {
+            singular: "音频"
+          }
+        }
+      }),
       auto: (0, _v6.translate)({
         singular: "Auto",
         dictionary: {
@@ -2113,6 +2130,32 @@
           })
         }
       },
+      checkYourAudio: (0, _v6.translate)({
+        singular: "Check your audio",
+        dictionary: {
+          es: {
+            singular: "Comprueba tu audio"
+          },
+          "de-DE": {
+            singular: "Überprüfen Sie Ihr Audio"
+          },
+          "fr-FR": {
+            singular: "Vérifiez votre audio"
+          },
+          "ja-JP": {
+            singular: "音声を確認してください"
+          },
+          "ko-KR": {
+            singular: "오디오를 확인하세요"
+          },
+          "pt-BR": {
+            singular: "Verifique seu áudio"
+          },
+          "zh-CN": {
+            singular: "检查您的音频"
+          }
+        }
+      }),
       clickHereToStart: (0, _v6.translate)({
         singular: "Click here to start",
         dictionary: {
@@ -5988,6 +6031,32 @@
           }
         }
       }),
+      microphoneLevel: (0, _v6.translate)({
+        singular: "Microphone level",
+        dictionary: {
+          es: {
+            singular: "Nivel del micrófono"
+          },
+          "de-DE": {
+            singular: "Mikrofonpegel"
+          },
+          "fr-FR": {
+            singular: "Niveau du microphone"
+          },
+          "ja-JP": {
+            singular: "マイクレベル"
+          },
+          "ko-KR": {
+            singular: "마이크 레벨"
+          },
+          "pt-BR": {
+            singular: "Nível do microfone"
+          },
+          "zh-CN": {
+            singular: "麦克风电平"
+          }
+        }
+      }),
       missingPaymentMethodForCaptions: (0, _v6.translate)({
         singular: "You need to set a default payment method to go live. Additional costs may apply based on credits consumed.",
         dictionary: {
@@ -9269,6 +9338,32 @@
           },
           "zh-CN": {
             singular: "从 Google 幻灯片导入时出现问题。请再试一次。"
+          }
+        }
+      }),
+      slidesGoogleImportingLargeDeck: (0, _v6.translate)({
+        singular: "Importing a large deck — this can take a little longer.",
+        dictionary: {
+          es: {
+            singular: "Importando una presentación grande — esto puede llevar un poco más de tiempo."
+          },
+          "de-DE": {
+            singular: "Ein großes Deck wird importiert — das kann etwas länger dauern."
+          },
+          "fr-FR": {
+            singular: "Importation d'une grande présentation — cela peut prendre un peu plus de temps."
+          },
+          "ja-JP": {
+            singular: "大きなデッキをインポートしています — 少し時間がかかる場合があります。"
+          },
+          "ko-KR": {
+            singular: "대용량 덱을 가져오는 중입니다 — 이 작업은 다소 시간이 더 걸릴 수 있습니다."
+          },
+          "pt-BR": {
+            singular: "Importando um deck grande — isso pode demorar um pouco mais."
+          },
+          "zh-CN": {
+            singular: "正在导入大型演示文稿 — 这可能需要更长时间."
           }
         }
       }),

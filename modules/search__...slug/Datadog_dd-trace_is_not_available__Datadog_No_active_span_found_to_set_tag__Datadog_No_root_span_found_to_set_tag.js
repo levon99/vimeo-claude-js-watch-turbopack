@@ -11018,23 +11018,25 @@
           selectedItems: _v28,
           canChangePrivacySelection: _v29,
           canAddToShowcasesSelection: _v30,
-          hasReachedMaxSelectionForMove: _v31,
-          hasReachedMaxSelectionForPrivacy: _v32,
-          hasReachedMaxSelectionForSentimentWidget: _v33,
-          hasReachedMaxSelectionForShowcases: _v34
+          hasColdStorageSelection: _v31,
+          hasReachedMaxSelectionForMove: _v32,
+          hasReachedMaxSelectionForPrivacy: _v33,
+          hasReachedMaxSelectionForSentimentWidget: _v34,
+          hasReachedMaxSelectionForShowcases: _v35
         } = (0, _v260.useBulkItems)({
           canDeleteItem: _v0 => !!_v0?.video?.metadata?.interactions?.delete || !!_v0?.liveEvent?.metadata?.interactions?.delete,
           canMoveItem: _v0 => !!_v0?.video?.canMoveToProject || !!_v0?.liveEvent?.metadata?.interactions?.edit,
           canChangeItemPrivacy: _v0 => !!_v0?.video?.metadata?.interactions?.edit,
           canAddToShowcases: _v0 => !!_v0?.video?.metadata?.interactions?.edit,
           items: _v9?.data,
-          selectedURIs: _v6
+          selectedURIs: _v6,
+          allowColdStorageDeletion: !0
         }),
         {
-          capabilities: _v35
+          capabilities: _v36
         } = (0, _v62.useCapability)(["canPerformBulkTranslations", "canGenerateClipTranslation", "canGenerateClipTextTranslation"], _v0?.teamUser?.ownerId),
-        _v36 = !!_v35.canGenerateClipTextTranslation,
-        _v37 = (!!_v35.canGenerateClipTranslation || _v36) && !!_v35.canPerformBulkTranslations;
+        _v37 = !!_v36.canGenerateClipTextTranslation,
+        _v38 = (!!_v36.canGenerateClipTranslation || _v37) && !!_v36.canPerformBulkTranslations;
       return ((0, _v3.useEffect)(() => {
         let _v0 = _v0 => {
           _v0.detail.searchType === _v38 ? _v22(_v0) : _v16(_v0);
@@ -11092,17 +11094,18 @@
             data: _v9
           })]
         }), (0, _v1.jsx)(_v259.BulkActions, {
-          canUseBulkTranslation: _v37,
+          canUseBulkTranslation: _v38,
           canAddToShowcases: _v2,
           canMoveSelection: _v26,
           canDeleteSelection: _v27,
           canChangePrivacySelection: _v29,
           canAddToShowcasesSelection: _v30,
+          hasColdStorageSelection: _v31,
           deselectAllItems: () => _v7(new Set()),
-          hasReachedMaxSelectionForMove: _v31,
-          hasReachedMaxSelectionForPrivacy: _v32,
-          hasReachedMaxSelectionForSentimentWidget: _v33,
-          hasReachedMaxSelectionForShowcases: _v34,
+          hasReachedMaxSelectionForMove: _v32,
+          hasReachedMaxSelectionForPrivacy: _v33,
+          hasReachedMaxSelectionForSentimentWidget: _v34,
+          hasReachedMaxSelectionForShowcases: _v35,
           removeItems: () => _v12(_v6),
           revalidateItems: _v12,
           selectedItems: _v28,

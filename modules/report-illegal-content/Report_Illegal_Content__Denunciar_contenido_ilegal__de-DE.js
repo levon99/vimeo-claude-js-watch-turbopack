@@ -3146,10 +3146,9 @@
     _v34 = "reasonExplanation",
     _v35 = "reason",
     _v36 = "United States",
-    _v37 = "United Kingdom",
-    _v38 = "European Union (EU)",
-    _v39 = "European Economic Area (EEA)",
-    _v40 = ({
+    _v37 = "European Union (EU)",
+    _v38 = "European Economic Area (EEA)",
+    _v39 = ({
       declaration: _v0,
       onDeclarationChange: _v1,
       isSubmitting: _v2,
@@ -3200,20 +3199,20 @@
         })]
       });
     };
-  var _v41 = _v0.i(0),
-    _v42 = _v0.i(0);
-  function _v43(_v0) {
+  var _v40 = _v0.i(0),
+    _v41 = _v0.i(0);
+  function _v42(_v0) {
     return _v0.map(_v0 => ({
       value: _v0,
       label: _v0
     }));
   }
-  let _v44 = _v43(["United States", "European Union (EU)", "European Economic Area (EEA)", "United Kingdom", "Canada", "Australia", "Japan", "India", "Brazil", "China", "Other"]),
-    _v45 = _v43(["Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovakia", "Slovenia", "Spain", "Sweden"]),
-    _v46 = [..._v43(["Iceland", "Liechtenstein", "Norway"]), ..._v45],
-    _v47 = _v43(["Federal", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]),
-    _v48 = _v43([_v24, _v23, "Terrorism", "Other"]);
-  function _v49({
+  let _v43 = _v42(["United States", "European Union (EU)", "European Economic Area (EEA)", "United Kingdom", "Canada", "Australia", "Japan", "India", "Brazil", "China", "Other"]),
+    _v44 = _v42(["Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovakia", "Slovenia", "Spain", "Sweden"]),
+    _v45 = [..._v42(["Iceland", "Liechtenstein", "Norway"]), ..._v44],
+    _v46 = _v42(["Federal", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]),
+    _v47 = _v42([_v24, _v23, "Terrorism", "Other"]);
+  function _v48({
     id: _v0,
     label: _v1,
     placeholder: _v2,
@@ -3228,15 +3227,15 @@
       children: [(0, _v1.jsx)(_v15.FormLabel, {
         htmlFor: _v0,
         children: _v1
-      }), (0, _v1.jsx)(_v42.Select, {
+      }), (0, _v1.jsx)(_v41.Select, {
         id: _v0,
         placeholder: _v2,
         items: _v3,
         value: _v4 ? [_v4] : [],
         onValueChange: _v0 => _v5(_v0.value[0]),
         invalid: _v6,
-        children: _v0 => (0, _v1.jsx)(_v42.SelectItem, {
-          children: (0, _v1.jsx)(_v42.SelectItemText, {
+        children: _v0 => (0, _v1.jsx)(_v41.SelectItem, {
+          children: (0, _v1.jsx)(_v41.SelectItemText, {
             children: _v0.label
           })
         })
@@ -3245,39 +3244,25 @@
       })]
     });
   }
-  function _v50({
+  function _v49({
     config: _v0,
     conditionalFields: _v1,
     onConditionalFieldChange: _v2,
     regionError: _v3,
-    reasonError: _v4,
-    hasSubmitted: _v5
+    hasSubmitted: _v4
   }) {
-    return (0, _v1.jsxs)(_v6.VStack, {
-      spacing: "md",
-      align: "stretch",
-      children: [(0, _v1.jsx)(_v49, {
-        id: `${_v0.regionIdPrefix}-region`,
-        label: _v0.regionLabel,
-        placeholder: _v0.regionPlaceholder,
-        items: _v0.regionOptions,
-        value: _v1[_v0.regionFieldName],
-        onValueChange: _v0 => _v2(_v0.regionFieldName, _v0),
-        hasError: _v5 && !!_v3,
-        errorMessage: _v3
-      }), (0, _v1.jsx)(_v49, {
-        id: `${_v0.regionIdPrefix}-reason`,
-        label: _v19().ReasonFieldLabel,
-        placeholder: _v19().ReasonFieldPlaceholder,
-        items: _v48,
-        value: _v1.reason,
-        onValueChange: _v0 => _v2(_v35, _v0),
-        hasError: _v5 && !!_v4,
-        errorMessage: _v4
-      })]
+    return (0, _v1.jsx)(_v48, {
+      id: `${_v0.regionIdPrefix}-region`,
+      label: _v0.regionLabel,
+      placeholder: _v0.regionPlaceholder,
+      items: _v0.regionOptions,
+      value: _v1[_v0.regionFieldName],
+      onValueChange: _v0 => _v2(_v0.regionFieldName, _v0),
+      hasError: _v4 && !!_v3,
+      errorMessage: _v3
     });
   }
-  let _v51 = ({
+  let _v50 = ({
       reportDetails: _v0,
       onUrlChange: _v1,
       onCountryChange: _v2,
@@ -3312,7 +3297,7 @@
             children: [(0, _v1.jsx)(_v15.FormLabel, {
               htmlFor: "report-url",
               children: _v13.UrlFieldLabel
-            }), (0, _v1.jsx)(_v41.Textarea, {
+            }), (0, _v1.jsx)(_v40.Textarea, {
               id: "report-url",
               placeholder: _v13.UrlFieldPlaceholder,
               value: _v0[_v32],
@@ -3326,15 +3311,15 @@
             children: [(0, _v1.jsx)(_v15.FormLabel, {
               htmlFor: "country-breach",
               children: _v13.CountryFieldLabel
-            }), (0, _v1.jsx)(_v42.Select, {
+            }), (0, _v1.jsx)(_v41.Select, {
               id: "country-breach",
               placeholder: _v13.CountryFieldPlaceholder,
-              items: _v44,
+              items: _v43,
               value: _v0[_v33] ? [_v0[_v33]] : [],
               onValueChange: _v0 => _v2(_v0.value[0]),
               invalid: _v5 && !!_v7,
-              children: _v0 => (0, _v1.jsx)(_v42.SelectItem, {
-                children: (0, _v1.jsx)(_v42.SelectItemText, {
+              children: _v0 => (0, _v1.jsx)(_v41.SelectItem, {
+                children: (0, _v1.jsx)(_v41.SelectItemText, {
                   children: _v0.label
                 })
               })
@@ -3347,60 +3332,57 @@
               conditionalFields: _v1
             } = _v0;
             return _v0 === _v37 ? (0, _v1.jsx)(_v49, {
-              id: "uk-reason",
-              label: _v13.ReasonFieldLabel,
-              placeholder: _v13.ReasonFieldPlaceholder,
-              items: _v48,
-              value: _v1.reason,
-              onValueChange: _v0 => _v3(_v35, _v0),
-              hasError: _v5 && !!_v12,
-              errorMessage: _v12
-            }) : _v0 === _v38 ? (0, _v1.jsx)(_v50, {
               config: {
                 regionFieldName: "euMemberState",
                 regionLabel: _v13.MemberStateFieldLabel,
                 regionPlaceholder: _v13.EuMemberStatePlaceholder,
-                regionOptions: _v45,
+                regionOptions: _v44,
                 regionIdPrefix: "eu"
               },
               conditionalFields: _v1,
               onConditionalFieldChange: _v3,
               regionError: _v9,
-              reasonError: _v12,
               hasSubmitted: _v5
-            }) : _v0 === _v39 ? (0, _v1.jsx)(_v50, {
+            }) : _v0 === _v38 ? (0, _v1.jsx)(_v49, {
               config: {
                 regionFieldName: "eeaMemberState",
                 regionLabel: _v13.MemberStateFieldLabel,
                 regionPlaceholder: _v13.EeaMemberStatePlaceholder,
-                regionOptions: _v46,
+                regionOptions: _v45,
                 regionIdPrefix: "eea"
               },
               conditionalFields: _v1,
               onConditionalFieldChange: _v3,
               regionError: _v10,
-              reasonError: _v12,
               hasSubmitted: _v5
-            }) : _v0 === _v36 ? (0, _v1.jsx)(_v50, {
+            }) : _v0 === _v36 ? (0, _v1.jsx)(_v49, {
               config: {
                 regionFieldName: "usState",
                 regionLabel: _v13.StateFieldLabel,
                 regionPlaceholder: _v13.UsStatePlaceholder,
-                regionOptions: _v47,
+                regionOptions: _v46,
                 regionIdPrefix: "us"
               },
               conditionalFields: _v1,
               onConditionalFieldChange: _v3,
               regionError: _v11,
-              reasonError: _v12,
               hasSubmitted: _v5
             }) : null;
-          })(), (0, _v1.jsxs)(_v14.FormControl, {
+          })(), (0, _v1.jsx)(_v48, {
+            id: "reason",
+            label: _v13.ReasonFieldLabel,
+            placeholder: _v13.ReasonFieldPlaceholder,
+            items: _v47,
+            value: _v0.conditionalFields.reason,
+            onValueChange: _v0 => _v3(_v35, _v0),
+            hasError: _v5 && !!_v12,
+            errorMessage: _v12
+          }), (0, _v1.jsxs)(_v14.FormControl, {
             isInvalid: _v5 && !!_v8,
             children: [(0, _v1.jsx)(_v15.FormLabel, {
               htmlFor: "report-reason",
               children: _v13.ReasonExplanationLabel
-            }), (0, _v1.jsx)(_v41.Textarea, {
+            }), (0, _v1.jsx)(_v40.Textarea, {
               id: "report-reason",
               placeholder: _v13.ReasonExplanationPlaceholder,
               value: _v0[_v34],
@@ -3413,40 +3395,40 @@
         })]
       });
     },
-    _v52 = {
+    _v51 = {
       [_v30]: "",
       [_v31]: ""
     },
-    _v53 = {
+    _v52 = {
       [_v32]: "",
       [_v33]: _v36,
       [_v28]: {},
       [_v34]: ""
     },
-    _v54 = {
+    _v53 = {
       [_v29]: !1
     };
-  function _v55(_v0) {
+  function _v54(_v0) {
     let _v1 = {
-      ..._v52
+      ..._v51
     };
     return _v0 && (_v1[_v31] = _v0), {
       [_v25]: _v1,
-      [_v26]: _v53,
-      [_v27]: _v54
+      [_v26]: _v52,
+      [_v27]: _v53
     };
   }
-  let _v56 = "contactDetails.name",
-    _v57 = "contactDetails.email",
-    _v58 = "reportDetails.urlOrIdentifier",
-    _v59 = "reportDetails.countryOfBreach",
-    _v60 = "reportDetails.reasonExplanation",
-    _v61 = "reportDetails.conditionalFields.euMemberState",
-    _v62 = "reportDetails.conditionalFields.eeaMemberState",
-    _v63 = "reportDetails.conditionalFields.usState",
-    _v64 = "reportDetails.conditionalFields.reason",
-    _v65 = "declaration.goodFaithDeclaration",
-    _v66 = () => {
+  let _v55 = "contactDetails.name",
+    _v56 = "contactDetails.email",
+    _v57 = "reportDetails.urlOrIdentifier",
+    _v58 = "reportDetails.countryOfBreach",
+    _v59 = "reportDetails.reasonExplanation",
+    _v60 = "reportDetails.conditionalFields.euMemberState",
+    _v61 = "reportDetails.conditionalFields.eeaMemberState",
+    _v62 = "reportDetails.conditionalFields.usState",
+    _v63 = "reportDetails.conditionalFields.reason",
+    _v64 = "declaration.goodFaithDeclaration",
+    _v65 = () => {
       let _v0 = _v19();
       return {
         NAME_REQUIRED: _v0.ValidationNameRequired,
@@ -3462,7 +3444,7 @@
         DECLARATION_REQUIRED: _v0.ValidationDeclarationRequired
       };
     },
-    _v67 = async (_v0, _v1) => {
+    _v66 = async (_v0, _v1) => {
       try {
         let _v0 = ((_v0, _v1) => {
             var _v2, _v3, _v4;
@@ -3540,13 +3522,13 @@
         };
       }
     },
-    _v68 = ({
+    _v67 = ({
       xsrft: _v0,
       userEmail: _v1,
       onSubmitSuccess: _v2,
       onSubmitError: _v3
     } = {}) => {
-      let [_v4, _v5] = (0, _v4.useState)(_v55(_v1)),
+      let [_v4, _v5] = (0, _v4.useState)(_v54(_v1)),
         [_v6, _v7] = (0, _v4.useState)({}),
         [_v8, _v9] = (0, _v4.useState)(!1),
         [_v10, _v11] = (0, _v4.useState)(!1),
@@ -3576,13 +3558,13 @@
           _v9(!0), _v13(null);
           let _v0 = (_v0 => {
             let _v1 = {};
-            if (_v0.contactDetails?.name?.trim() || (_v1[_v56] = _v66().NAME_REQUIRED), _v0.reportDetails?.conditionalFields?.reason !== _v23) {
+            if (_v0.contactDetails?.name?.trim() || (_v1[_v55] = _v65().NAME_REQUIRED), _v0.reportDetails?.conditionalFields?.reason !== _v23) {
               let _v0 = _v0.contactDetails?.email?.trim() ?? "";
-              if (_v0) /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(_v0) || (_v1[_v57] = _v66().EMAIL_INVALID);else _v1[_v57] = _v66().EMAIL_REQUIRED;
+              if (_v0) /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(_v0) || (_v1[_v56] = _v65().EMAIL_INVALID);else _v1[_v56] = _v65().EMAIL_REQUIRED;
             }
-            _v0.reportDetails?.urlOrIdentifier?.trim() || (_v1[_v58] = _v66().URL_REQUIRED), _v0.reportDetails?.countryOfBreach || (_v1[_v59] = _v66().COUNTRY_REQUIRED), _v0.reportDetails?.reasonExplanation?.trim() || (_v1[_v60] = _v66().REASON_EXPLANATION_REQUIRED), _v0.declaration?.goodFaithDeclaration || (_v1[_v65] = _v66().DECLARATION_REQUIRED);
+            _v0.reportDetails?.urlOrIdentifier?.trim() || (_v1[_v57] = _v65().URL_REQUIRED), _v0.reportDetails?.countryOfBreach || (_v1[_v58] = _v65().COUNTRY_REQUIRED), _v0.reportDetails?.conditionalFields?.reason || (_v1[_v63] = _v65().CONDITIONAL_REASON_REQUIRED), _v0.reportDetails?.reasonExplanation?.trim() || (_v1[_v59] = _v65().REASON_EXPLANATION_REQUIRED), _v0.declaration?.goodFaithDeclaration || (_v1[_v64] = _v65().DECLARATION_REQUIRED);
             let _v2 = _v0.reportDetails?.countryOfBreach;
-            return _v2 === _v38 && (_v0.reportDetails?.conditionalFields?.euMemberState || (_v1[_v61] = _v66().EU_MEMBER_STATE_REQUIRED), _v0.reportDetails?.conditionalFields?.reason || (_v1[_v64] = _v66().CONDITIONAL_REASON_REQUIRED)), _v2 === _v39 && (_v0.reportDetails?.conditionalFields?.eeaMemberState || (_v1[_v62] = _v66().EEA_MEMBER_STATE_REQUIRED), _v0.reportDetails?.conditionalFields?.reason || (_v1[_v64] = _v66().CONDITIONAL_REASON_REQUIRED)), _v2 === _v36 && (_v0.reportDetails?.conditionalFields?.usState || (_v1[_v63] = _v66().US_STATE_REQUIRED), _v0.reportDetails?.conditionalFields?.reason || (_v1[_v64] = _v66().CONDITIONAL_REASON_REQUIRED)), _v2 !== _v37 || _v0.reportDetails?.conditionalFields?.reason || (_v1[_v64] = _v66().CONDITIONAL_REASON_REQUIRED), {
+            return _v2 !== _v37 || _v0.reportDetails?.conditionalFields?.euMemberState || (_v1[_v60] = _v65().EU_MEMBER_STATE_REQUIRED), _v2 !== _v38 || _v0.reportDetails?.conditionalFields?.eeaMemberState || (_v1[_v61] = _v65().EEA_MEMBER_STATE_REQUIRED), _v2 !== _v36 || _v0.reportDetails?.conditionalFields?.usState || (_v1[_v62] = _v65().US_STATE_REQUIRED), {
               isValid: 0 === Object.keys(_v1).length,
               errors: _v1
             };
@@ -3594,8 +3576,8 @@
           }
           _v11(!0);
           try {
-            let _v0 = await _v67(_v4, _v0);
-            if (_v0.success) _v15(!0), _v9(!1), _v2?.(), _v5(_v55(_v1));else if (_v13(_v0.error || "An unexpected error occurred. Please try again."), _v3?.(_v0.error || "Submission failed"), _v0.validationErrors) {
+            let _v0 = await _v66(_v4, _v0);
+            if (_v0.success) _v15(!0), _v9(!1), _v2?.(), _v5(_v54(_v1));else if (_v13(_v0.error || "An unexpected error occurred. Please try again."), _v3?.(_v0.error || "Submission failed"), _v0.validationErrors) {
               let _v0 = {};
               Object.entries(_v0.validationErrors).forEach(([_v0, _v1]) => {
                 _v0[_v0] = _v1.join(", ");
@@ -3634,7 +3616,7 @@
             size: "lg",
             variant: "secondary",
             onClick: () => {
-              _v15(!1), _v5(_v55(_v1));
+              _v15(!1), _v5(_v54(_v1));
             },
             children: _v16.SubmitAnotherReport
           })]
@@ -3688,9 +3670,9 @@
               onNameChange: _v0 => _v17(_v30, _v0),
               onEmailChange: _v0 => _v17(_v31, _v0),
               hasSubmitted: _v8,
-              nameError: _v19(_v56),
-              emailError: _v19(_v57)
-            }), (0, _v1.jsx)(_v51, {
+              nameError: _v19(_v55),
+              emailError: _v19(_v56)
+            }), (0, _v1.jsx)(_v50, {
               reportDetails: _v4.reportDetails,
               onUrlChange: _v0 => _v18(_v32, _v0),
               onCountryChange: _v0 => {
@@ -3699,7 +3681,9 @@
                   [_v26]: {
                     ..._v0[_v26],
                     [_v33]: _v0,
-                    [_v28]: {}
+                    [_v28]: {
+                      [_v35]: _v0[_v26][_v28][_v35]
+                    }
                   }
                 })), _v9(!1), _v7({});
               },
@@ -3723,14 +3707,14 @@
               },
               onReasonChange: _v0 => _v18(_v34, _v0),
               hasSubmitted: _v8,
-              urlError: _v19(_v58),
-              countryError: _v19(_v59),
-              reasonExplanationError: _v19(_v60),
-              euMemberStateError: _v19(_v61),
-              eeaMemberStateError: _v19(_v62),
-              usStateError: _v19(_v63),
-              conditionalReasonError: _v19(_v64)
-            }), (0, _v1.jsx)(_v40, {
+              urlError: _v19(_v57),
+              countryError: _v19(_v58),
+              reasonExplanationError: _v19(_v59),
+              euMemberStateError: _v19(_v60),
+              eeaMemberStateError: _v19(_v61),
+              usStateError: _v19(_v62),
+              conditionalReasonError: _v19(_v63)
+            }), (0, _v1.jsx)(_v39, {
               declaration: _v4.declaration,
               onDeclarationChange: _v0 => {
                 _v5(_v0 => ({
@@ -3743,30 +3727,30 @@
               },
               isSubmitting: _v10,
               hasSubmitted: _v8,
-              declarationError: _v19(_v65),
+              declarationError: _v19(_v64),
               reason: _v4.reportDetails.conditionalFields.reason
             })]
           })
         })
       });
     };
-  var _v69 = _v0.i(0),
-    _v70 = _v0.i(0);
+  var _v68 = _v0.i(0),
+    _v69 = _v0.i(0);
   (0, _v2.withPageSetup)({
     requireLogin: !1
   });
-  let _v71 = () => {
-    let _v0 = (0, _v70.useViewer)();
+  let _v70 = () => {
+    let _v0 = (0, _v69.useViewer)();
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v68, {
+      children: [(0, _v1.jsx)(_v67, {
         xsrft: _v0?.xsrft,
         userEmail: _v0?.user?.email
-      }), _v0 && (0, _v1.jsx)(_v69.EssentialFooter, {
+      }), _v0 && (0, _v1.jsx)(_v68.EssentialFooter, {
         ..._v0
       })]
     });
   };
-  _v71.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
+  _v70.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v3.DefaultNavigation, {}), _v0]
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v71], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v70], 0);
 }

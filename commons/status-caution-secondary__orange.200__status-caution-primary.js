@@ -595,25 +595,25 @@
         singular: "Some videos are restricted due to privacy and storage limits on your plan.",
         dictionary: {
           es: {
-            singular: "Algunos videos están restringidos debido a las limitaciones de privacidad y almacenamiento de su plan."
+            singular: "Algunos videos están restringidos debido a las limitaciones de privacidad y de almacenamiento en su plan."
           },
           "de-DE": {
-            singular: "Einige Videos sind aufgrund von Datenschutzeinstellungen und Speicherbegrenzungen in Ihrem Tarif eingeschränkt."
+            singular: "Einige Videos sind aufgrund von Datenschutz- und Speicherbeschränkungen in Ihrem Tarif eingeschränkt."
           },
           "fr-FR": {
             singular: "Certaines vidéos sont restreintes en raison des limites de confidentialité et de stockage de votre forfait."
           },
           "ja-JP": {
-            singular: "お使いのプランのプライバシー設定およびストレージの制限により、一部の動画へのアクセスが制限されています。"
+            singular: "お使いのプランのプライバシー設定およびストレージの制限により、一部の動画が制限されています。"
           },
           "ko-KR": {
-            singular: "일부 동영상은 귀하의 요금제에 따른 개인정보 보호 및 저장 한도로 인해 제한됩니다."
+            singular: "일부 동영상은 귀하의 요금제에서 설정된 공개 설정 및 저장 용량 제한으로 인해 이용이 제한됩니다."
           },
           "pt-BR": {
             singular: "Alguns vídeos estão restritos devido a limites de privacidade e armazenamento no seu plano."
           },
           "zh-CN": {
-            singular: "由于您当前套餐的隐私设置和存储限制，部分视频受到限制。"
+            singular: "由于您的计划在隐私和存储方面的限制，某些视频受到限制。"
           }
         }
       })

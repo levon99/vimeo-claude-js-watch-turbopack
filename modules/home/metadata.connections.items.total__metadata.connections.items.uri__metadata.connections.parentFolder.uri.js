@@ -66,49 +66,48 @@
       }] = (0, _v33.usePostUserProjects)(),
       {
         capabilities: _v14
-      } = (0, _v30.useCapability)(["hasContentSpaceEnabled", "hasFolderSettings", "hasEnterprise"], _v0),
-      _v15 = !!_v14.hasEnterprise,
-      [_v16, {
-        called: _v17,
-        data: _v18,
-        error: _v19,
-        loading: _v20
+      } = (0, _v30.useCapability)(["hasContentSpaceEnabled", "hasFolderSettings"], _v0),
+      [_v15, {
+        called: _v16,
+        data: _v17,
+        error: _v18,
+        loading: _v19
       }] = (0, _v32.usePatchUserProject)(),
-      _v21 = _v3 ? _v3.split("/").pop() : "",
-      _v22 = _v21 ? parseInt(_v21) : 0,
+      _v20 = _v3 ? _v3.split("/").pop() : "",
+      _v21 = _v20 ? parseInt(_v20) : 0,
       {
-        data: _v23,
-        mutate: _v24
+        data: _v22,
+        mutate: _v23
       } = (0, _v32.useGetUserProject)(() => _v0 && _v3 && _v6 ? {
         where: {
           userId: _v0,
-          projectId: _v22
+          projectId: _v21
         },
         select: _v40
       } : null),
-      _v25 = (0, _v10.useRef)(null),
-      _v26 = (0, _v42.default)(),
-      _v27 = (0, _v36.useAnalyticsEvent)(),
-      _v28 = (0, _v9.useRouter)(),
-      _v29 = (0, _v10.useContext)(_v11.ThemeContext),
-      _v30 = (0, _v34.useWindowSize)(),
-      _v31 = _v30.height <= _v35.BreakPoints.sm,
-      _v32 = _v30.width <= _v35.BreakPoints.sm,
-      _v33 = _v23?.settings?.color,
-      _v34 = _v29?.name === "dark" ? _v39 : _v38,
-      _v35 = _v23 && _v33 ? _v33 : _v8 || _v34,
-      _v36 = _v23 && _v23?.name ? _v23?.name : "",
-      [_v37, _v38] = (0, _v10.useState)(""),
-      [_v39, _v40] = (0, _v10.useState)(!1),
-      _v41 = (0, _v43.useNotification)(),
-      _v42 = (0, _v44.usePageName)(),
-      _v43 = () => {
-        _v26(_v3 && !_v7 ? `.*${_v3}/items.*filter=folder.*` : `.*/users/${_v0}/projects.*`), _v49();
+      _v24 = (0, _v10.useRef)(null),
+      _v25 = (0, _v42.default)(),
+      _v26 = (0, _v36.useAnalyticsEvent)(),
+      _v27 = (0, _v9.useRouter)(),
+      _v28 = (0, _v10.useContext)(_v11.ThemeContext),
+      _v29 = (0, _v34.useWindowSize)(),
+      _v30 = _v29.height <= _v35.BreakPoints.sm,
+      _v31 = _v29.width <= _v35.BreakPoints.sm,
+      _v32 = _v22?.settings?.color,
+      _v33 = _v28?.name === "dark" ? _v39 : _v38,
+      _v34 = _v22 && _v32 ? _v32 : _v8 || _v33,
+      _v35 = _v22 && _v22?.name ? _v22?.name : "",
+      [_v36, _v37] = (0, _v10.useState)(""),
+      [_v38, _v39] = (0, _v10.useState)(!1),
+      _v40 = (0, _v43.useNotification)(),
+      _v41 = (0, _v44.usePageName)(),
+      _v42 = () => {
+        _v25(_v3 && !_v7 ? `.*${_v3}/items.*filter=folder.*` : `.*/users/${_v0}/projects.*`), _v48();
       },
-      _v44 = (0, _v31.useForm)({
+      _v43 = (0, _v31.useForm)({
         initialValues: {
-          folder_name: _v23 ? _v23?.name : "",
-          folder_color: _v23 ? _v23?.settings?.color : ""
+          folder_name: _v22 ? _v22?.name : "",
+          folder_color: _v22 ? _v22?.settings?.color : ""
         },
         onSubmit: async ({
           folder_name: _v0,
@@ -117,28 +116,29 @@
           if (_v6 && _v3) {
             var _v2, _v3;
             let _v0,
-              _v1 = _v46.meta.dirty ? _v1 : _v35;
-            if (!_v45.meta.dirty && !_v46.meta.dirty) return void _v49();
-            (_v1 === _v38 || _v1 === _v39) && (_v1 = ""), _v45.meta.dirty || (_v0 = _v36);
+              _v1 = _v45.meta.dirty ? _v1 : _v34;
+            if (!_v44.meta.dirty && !_v45.meta.dirty) return void _v48();
+            (_v1 === _v38 || _v1 === _v39) && (_v1 = ""), _v44.meta.dirty || (_v0 = _v35);
             let _v2 = {
-              name: _v0
+              name: _v0,
+              color: _v1
             };
-            _v15 && (_v2.color = _v1), await _v16({
+            await _v15({
               where: {
                 userId: _v0,
-                projectId: _v22
+                projectId: _v21
               },
               select: ["name", "uri", "settings"],
               variables: _v2
             }).finally(() => {
               _v46.gtm.trackFolderChangeSettings();
-            }), _v24({
+            }), _v23({
               variables: {
                 name: _v2 = _v0,
                 color: _v3 = _v1
               },
               where: {
-                userId: parseInt((_v0 = _v23.uri.split("/"))[2]),
+                userId: parseInt((_v0 = _v22.uri.split("/"))[2]),
                 projectId: parseInt(_v0[4])
               },
               select: _v40
@@ -147,8 +147,8 @@
               settings: {
                 color: _v3
               },
-              uri: _v23.uri,
-              parentFolder: _v23.metadata.connections.parentFolder
+              uri: _v22.uri,
+              parentFolder: _v22.metadata.connections.parentFolder
             });
           } else await _v9({
             where: {
@@ -158,17 +158,17 @@
             variables: {
               name: _v0,
               parentFolderUri: _v3 ?? void 0,
-              color: _v14.hasFolderSettings && _v15 ? _v1 : void 0
+              color: _v14.hasFolderSettings ? _v1 : void 0
             }
           });
         }
       }),
-      _v45 = (0, _v31.useField)(_v44, "folder_name"),
-      _v46 = (0, _v31.useField)(_v44, "folder_color"),
-      _v47 = _v45.input.value?.length || _v36.length || 0;
+      _v44 = (0, _v31.useField)(_v43, "folder_name"),
+      _v45 = (0, _v31.useField)(_v43, "folder_color"),
+      _v46 = _v44.input.value?.length || _v35.length || 0;
     (0, _v10.useEffect)(() => {
       if (_v10 && !_v12 && !_v13 && _v11) {
-        _v43(), _v41({
+        _v42(), _v40({
           content: (0, _v6.translate)({
             singular: "Folder ‘{FOLDER}’ has been created.",
             replacements: {
@@ -201,7 +201,7 @@
         });
         let _v0 = _v11?.settings?.color,
           _v1 = [_v41.AnalyticsFolderSettingsCustomizations.name];
-        _v0 && _v1.push(_v41.AnalyticsFolderSettingsCustomizations.color), _v27((0, _v41.createFolderViaFolderSettings)({
+        _v0 && _v1.push(_v41.AnalyticsFolderSettingsCustomizations.color), _v26((0, _v41.createFolderViaFolderSettings)({
           location: _v5,
           folder_id: parseInt(_v11.uri.split("/").pop()),
           folder_name: _v11?.name,
@@ -209,13 +209,13 @@
           feature: "video_library",
           settings_changed: _v1,
           is_my_videos: (_v11.isPrivateToUser && !!_v14.hasContentSpaceEnabled) ?? null
-        })), _v28.push((0, _v45.getFolderPageUriFromApiUri)(_v11.uri));
-      } else if (_v17 && !_v19 && !_v20 && _v18) {
-        _v43(), _v41({
+        })), _v27.push((0, _v45.getFolderPageUriFromApiUri)(_v11.uri));
+      } else if (_v16 && !_v18 && !_v19 && _v17) {
+        _v42(), _v40({
           content: (0, _v6.translate)({
             singular: "Updated folder {FOLDER_NAME}",
             replacements: {
-              FOLDER_NAME: _v18.name
+              FOLDER_NAME: _v17.name
             },
             dictionary: {
               es: {
@@ -242,37 +242,36 @@
             }
           })
         });
-        let _v0 = _v36 !== _v18?.name,
-          _v1 = _v35 !== _v18?.settings?.color,
+        let _v0 = _v35 !== _v17?.name,
+          _v1 = _v34 !== _v17?.settings?.color,
           _v2 = [];
-        _v0 && _v2.push(_v41.AnalyticsFolderSettingsCustomizations.name), _v1 && _v2.push(_v41.AnalyticsFolderSettingsCustomizations.color), _v27((0, _v41.updateFolderSettings)({
+        _v0 && _v2.push(_v41.AnalyticsFolderSettingsCustomizations.name), _v1 && _v2.push(_v41.AnalyticsFolderSettingsCustomizations.color), _v26((0, _v41.updateFolderSettings)({
           product: _v41.AnalyticsProducts.WORKFLOW,
           location: _v5,
-          folder_id: parseInt(_v18.uri.split("/").pop()),
+          folder_id: parseInt(_v17.uri.split("/").pop()),
           is_subfolder: !!_v2,
-          feature: "vls" === _v42 ? "search" : "video_library",
+          feature: "vls" === _v41 ? "search" : "video_library",
           settings_changed: _v2,
-          is_my_videos: !!_v23?.isPrivateToUser && !!_v14.hasContentSpaceEnabled
+          is_my_videos: !!_v22?.isPrivateToUser && !!_v14.hasContentSpaceEnabled
         }));
       }
-    }, [_v10, _v12, _v13, _v11, _v17, _v19, _v20, _v18]);
-    let _v48 = (0, _v10.useCallback)(() => {
-        _v45.handlers.setValue(""), _v25 && _v25.current && (_v25.current.value = "");
-      }, [_v45, _v25]),
-      _v49 = (0, _v10.useCallback)(() => {
-        _v1(), _v48();
-      }, [_v1, _v48]),
-      [_v50, _v51] = (0, _v10.useState)(_v36);
+    }, [_v10, _v12, _v13, _v11, _v16, _v18, _v19, _v17]);
+    let _v47 = (0, _v10.useCallback)(() => {
+        _v44.handlers.setValue(""), _v24 && _v24.current && (_v24.current.value = "");
+      }, [_v44, _v24]),
+      _v48 = (0, _v10.useCallback)(() => {
+        _v1(), _v47();
+      }, [_v1, _v47]),
+      [_v49, _v50] = (0, _v10.useState)(_v35);
     (0, _v10.useEffect)(() => {
-      _v45.input.value !== _v36 && ("" === _v45.input.value || void 0 === _v45.input.value) ? _v51(_v36) : _v51(_v45.input.value);
-    }, [_v36, _v50, _v45.input.value]);
-    let _v52 = _v37 || _v35,
-      _v53 = (0, _v10.useCallback)(_v0 => {
+      _v44.input.value !== _v35 && ("" === _v44.input.value || void 0 === _v44.input.value) ? _v50(_v35) : _v50(_v44.input.value);
+    }, [_v35, _v49, _v44.input.value]);
+    let _v51 = _v36 || _v34,
+      _v52 = (0, _v10.useCallback)(_v0 => {
         var _v1;
         let _v2 = "RGB" === ((_v1 = _v0.valueAsString).startsWith("#") ? "HEX" : _v1.startsWith("rgb") ? "RGB" : _v1.startsWith("hsl") ? "HSL" : void 0) ? (0, _v26.toHex)(_v0.valueAsString) : _v0.valueAsString;
-        _v38(_v2), _v46.handlers.setValue(_v2);
-      }, [_v46.handlers]),
-      _v54 = (0, _v7.shouldShowInDevelopmentFeature)("change_color", !0);
+        _v37(_v2), _v45.handlers.setValue(_v2);
+      }, [_v45.handlers]);
     return (0, _v1.jsxs)(_v23.ModalBody, {
       py: "sm",
       px: "lg",
@@ -284,33 +283,33 @@
           position: "relative",
           width: "100%",
           children: (0, _v1.jsx)(_v29.FolderCardThumbnail, {
-            backgroundColor: _v52
+            backgroundColor: _v51
           })
-        }), _v14.hasFolderSettings && _v15 && (0, _v1.jsxs)(_v14.ColorPickerRoot, {
-          defaultValue: (0, _v27.parseColor)(_v52),
-          onValueChange: _v53,
+        }), _v14.hasFolderSettings && (0, _v1.jsxs)(_v14.ColorPickerRoot, {
+          defaultValue: (0, _v27.parseColor)(_v51),
+          onValueChange: _v52,
           positioning: {
-            placement: _v31 && !_v32 ? "left" : "bottom"
+            placement: _v30 && !_v31 ? "left" : "bottom"
           },
-          open: _v39,
-          onInteractOutside: () => _v40(!_v39),
+          open: _v38,
+          onInteractOutside: () => _v39(!_v38),
           children: [(0, _v1.jsx)(_v12.Box, {
             width: "100%",
             paddingTop: "sm",
             children: (0, _v1.jsx)(_v15.ColorPickerControl, {
               children: (0, _v1.jsx)(_v14.ColorPickerTrigger, {
-                onClick: () => _v40(!_v39),
+                onClick: () => _v39(!_v38),
                 children: (0, _v1.jsxs)(_v21.InputGroup, {
                   children: [(0, _v1.jsx)(_v22.InputLeftElement, {
                     children: (0, _v1.jsx)(_v12.Box, {
                       borderRadius: "pill",
                       w: "xs",
                       h: "xs",
-                      bgColor: _v52
+                      bgColor: _v51
                     })
                   }), (0, _v1.jsx)(_v20.Input, {
-                    defaultValue: _v52,
-                    value: _v52,
+                    defaultValue: _v51,
+                    value: _v51,
                     cursor: "pointer",
                     readOnly: !0
                   }), (0, _v1.jsx)(_v22.InputRightElement, {
@@ -348,7 +347,7 @@
                         size: "sm",
                         variant: "tertiary",
                         onClick: () => {
-                          _v38(_v35), _v46.handlers.setValue(_v35);
+                          _v37(_v34), _v45.handlers.setValue(_v34);
                         }
                       })
                     })
@@ -373,7 +372,7 @@
               })]
             })
           })]
-        }), !_v54 && (0, _v1.jsxs)(_v17.FormControl, {
+        }), (0, _v1.jsxs)(_v17.FormControl, {
           children: [(0, _v1.jsx)(_v18.FormLabel, {
             fontWeight: "bold",
             color: "text-primary",
@@ -404,12 +403,12 @@
               }
             })
           }), (0, _v1.jsx)(_v20.Input, {
-            defaultValue: _v36,
+            defaultValue: _v35,
             name: "folder_name",
             maxLength: 32,
-            onChange: _v45.iris.onChange,
-            onBlur: _v45.iris.onBlur,
-            onFocus: _v45.iris.onFocus,
+            onChange: _v44.iris.onChange,
+            onBlur: _v44.iris.onBlur,
+            onFocus: _v44.iris.onFocus,
             placeholder: (0, _v6.translate)({
               singular: "Folder name",
               dictionary: {
@@ -436,18 +435,18 @@
                 }
               }
             }),
-            ref: _v25,
+            ref: _v24,
             autoFocus: !0
-          }, _v36), (0, _v1.jsx)(_v17.FormHelperText, {
-            color: _v45.input.value?.length >= 27 ? "status-caution-primary" : "text-tertiary",
-            fontWeight: _v45.input.value?.length >= 27 ? "bold" : "normal",
+          }, _v35), (0, _v1.jsx)(_v17.FormHelperText, {
+            color: _v44.input.value?.length >= 27 ? "status-caution-primary" : "text-tertiary",
+            fontWeight: _v44.input.value?.length >= 27 ? "bold" : "normal",
             display: "flex",
             justifyContent: "flex-end",
             paddingTop: "xs",
             children: (0, _v6.translate)({
               singular: "{COUNT}/32 characters",
               replacements: {
-                COUNT: _v47
+                COUNT: _v46
               },
               dictionary: {
                 es: {
@@ -482,7 +481,7 @@
         px: "0",
         children: [(0, _v1.jsx)(_v13.Button, {
           onClick: _v0 => {
-            _v49(), _v0.stopPropagation();
+            _v48(), _v0.stopPropagation();
           },
           variant: "tertiary",
           "aria-label": (0, _v6.translate)({
@@ -538,11 +537,11 @@
             }
           })
         }), (0, _v1.jsx)(_v13.Button, {
-          isDisabled: _v45.input.value?.length > 32 || "" === _v36 && void 0 === _v45.meta.dirty || _v45.input.value?.length === 0 && void 0 !== _v45.meta.dirty,
+          isDisabled: _v44.input.value?.length > 32 || "" === _v35 && void 0 === _v44.meta.dirty || _v44.input.value?.length === 0 && void 0 !== _v44.meta.dirty,
           onClick: _v0 => {
-            _v44.handleSubmit(_v0);
+            _v43.handleSubmit(_v0);
           },
-          isLoading: _v13 || _v20,
+          isLoading: _v13 || _v19,
           "aria-label": (0, _v6.translate)({
             singular: "Confirm",
             dictionary: {

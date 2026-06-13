@@ -4918,14 +4918,14 @@
       _v24(_v150("workflow.visit_svv_recipient", 7, {
         customizations: null,
         referer: window.location.href,
-        speed_controls_enabled: _v9.embed?.speed || null,
+        speed_controls_enabled: _v9?.embed?.speed || null,
         live_event_id: _v4 || null,
         live_event_privacy: _v3.streamPrivacy?.view || null,
         live_event_embed_privacy: _v3.streamPrivacy?.embed || null,
         is_live_chat_enabled: _v13,
         is_mobile_web: _v22
       }));
-    }, [_v13, _v9.embed?.speed, _v3.streamPrivacy?.embed, _v3.streamPrivacy?.view, _v4, _v22, _v24]), (!_v36 || _v35) && _v7) ? (0, _v7.jsxs)(_v7.Fragment, {
+    }, [_v13, _v9?.embed?.speed, _v3.streamPrivacy?.embed, _v3.streamPrivacy?.view, _v4, _v22, _v24]), (!_v36 || _v35) && _v7) ? (0, _v7.jsxs)(_v7.Fragment, {
       children: [_v20 && !_v22 && (0, _v7.jsx)(_v263, {
         href: _v15
       }), _v34 ? (0, _v7.jsx)(_v115.LeadCaptureView, {
