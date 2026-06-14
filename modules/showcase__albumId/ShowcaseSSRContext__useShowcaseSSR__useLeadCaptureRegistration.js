@@ -1049,30 +1049,19 @@
       _v18 = "boolean" == typeof _v12?.seoAllowIndexed ? _v12?.seoAllowIndexed : null,
       _v19 = _v12?.privacy?.view || null,
       _v20 = _v12?.user?.uri?.split("/").pop(),
+      _v21 = "?share=copy&fl=sc&fe=fs",
       {
-        hasShareLoopTrackingParams: _v21
-      } = (() => {
-        let [_v0, _v1] = (0, _v1.useState)(null);
-        return (0, _v1.useEffect)(() => {
-          let _v0 = document.querySelector('meta[name="share-loop-tracking-params"]');
-          _v0?.getAttribute("content") === "1" ? _v1(!0) : _v1(!1);
-        }, []), {
-          hasShareLoopTrackingParams: _v0
-        };
-      })(),
-      _v22 = _v21 ? "?share=copy&fl=sc&fe=fs" : "?share=copy",
-      {
-        banner: _v23,
-        layout: _v24,
-        playback: _v25,
-        showVideoDetails: _v26,
-        showVideoPlayerCards: _v27
+        banner: _v22,
+        layout: _v23,
+        playback: _v24,
+        showVideoDetails: _v25,
+        showVideoPlayerCards: _v26
       } = _v12?.config || {},
-      _v28 = (0, _v1.useCallback)(_v0 => !!(0, _v10.getConfigProperty)(_v25?.[_v0]), [_v25]),
-      _v29 = (0, _v1.useCallback)((_v0, _v1) => {
-        let _v2 = _v10 ? _v25?.[_v0] : _v24?.[_v1];
+      _v27 = (0, _v1.useCallback)(_v0 => !!(0, _v10.getConfigProperty)(_v24?.[_v0]), [_v24]),
+      _v28 = (0, _v1.useCallback)((_v0, _v1) => {
+        let _v2 = _v10 ? _v24?.[_v0] : _v23?.[_v1];
         return !!(0, _v10.getConfigProperty)(_v2);
-      }, [_v10, _v24, _v25]);
+      }, [_v10, _v23, _v24]);
     (0, _v1.useEffect)(() => {
       "number" == typeof _v17 && _v5(_v17);
     }, [_v5, _v17]), (0, _v1.useEffect)(() => {
@@ -1082,7 +1071,7 @@
     }, [_v19, _v7]), (0, _v1.useEffect)(() => {
       _v20 && _v8(Number(_v20) || 0);
     }, [_v20, _v8]);
-    let _v30 = !!(0, _v10.getConfigProperty)(_v27);
+    let _v29 = !!(0, _v10.getConfigProperty)(_v26);
     return {
       allowContinuousPlay: !0,
       user: _v12?.user,
@@ -1108,31 +1097,31 @@
       allowDownloads: _v12?.allowDownloads,
       hideUpcoming: _v12?.hideUpcoming,
       hasFeaturedContent: _v12?.hasFeaturedContent,
-      shareLink: _v3 && _v12?.domain ? `${_v12.domain}${_v22}` : `${_v11.vimeoHttpsUrl}/showcase/${_v12?.url ?? _v0}${_v22}`,
-      gridSize: _v10 ? (0, _v10.getConfigProperty)(_v25?.playbackGridSize) : (0, _v10.getConfigProperty)(_v24?.gridSize),
+      shareLink: _v3 && _v12?.domain ? `${_v12.domain}${_v21}` : `${_v11.vimeoHttpsUrl}/showcase/${_v12?.url ?? _v0}${_v21}`,
+      gridSize: _v10 ? (0, _v10.getConfigProperty)(_v24?.playbackGridSize) : (0, _v10.getConfigProperty)(_v23?.gridSize),
       playback: {
-        enableAskAi: _v28("enableAskAi"),
-        enableComments: _v28("enableComments"),
-        enableLike: _v28("enableLike"),
-        enableShare: _v28("enableShare"),
-        showDateAdded: _v28("showPlaybackAddedDate"),
-        showDescription: _v28("showPlaybackVideoDescription"),
-        showProfileImage: _v28("showPlaybackProfileImage"),
-        showProfileName: _v28("showPlaybackProfileName"),
-        showTitle: _v28("showPlaybackVideoTitle"),
-        showViews: _v28("showPlaybackViews")
+        enableAskAi: _v27("enableAskAi"),
+        enableComments: _v27("enableComments"),
+        enableLike: _v27("enableLike"),
+        enableShare: _v27("enableShare"),
+        showDateAdded: _v27("showPlaybackAddedDate"),
+        showDescription: _v27("showPlaybackVideoDescription"),
+        showProfileImage: _v27("showPlaybackProfileImage"),
+        showProfileName: _v27("showPlaybackProfileName"),
+        showTitle: _v27("showPlaybackVideoTitle"),
+        showViews: _v27("showPlaybackViews")
       },
-      showGridProfileImage: _v29("showPlaybackGridProfileImage", "showGridProfileImage"),
-      showGridProfileName: _v29("showPlaybackGridProfileName", "showGridProfileName"),
-      showGridVideoTitle: _v29("showPlaybackGridVideoTitle", "showGridVideoTitles"),
-      showVideoCount: _v29("showPlaybackVideoCount", "showGridVideoCount"),
-      showGridVideoCard: _v10 ? !!(0, _v10.getConfigProperty)(_v25?.showPlaybackGridVideoCard) : _v30,
-      showVideoDetails: !!(0, _v10.getConfigProperty)(_v26),
-      showBannerDescription: !!(0, _v10.getConfigProperty)(_v23?.showBannerDescription),
-      showBannerTitle: !!(0, _v10.getConfigProperty)(_v23?.showBannerTitle),
+      showGridProfileImage: _v28("showPlaybackGridProfileImage", "showGridProfileImage"),
+      showGridProfileName: _v28("showPlaybackGridProfileName", "showGridProfileName"),
+      showGridVideoTitle: _v28("showPlaybackGridVideoTitle", "showGridVideoTitles"),
+      showVideoCount: _v28("showPlaybackVideoCount", "showGridVideoCount"),
+      showGridVideoCard: _v10 ? !!(0, _v10.getConfigProperty)(_v24?.showPlaybackGridVideoCard) : _v29,
+      showVideoDetails: !!(0, _v10.getConfigProperty)(_v25),
+      showBannerDescription: !!(0, _v10.getConfigProperty)(_v22?.showBannerDescription),
+      showBannerTitle: !!(0, _v10.getConfigProperty)(_v22?.showBannerTitle),
       showSearchBar: !!(0, _v10.getConfigProperty)(_v12?.config?.navigation?.showSearchBar),
-      showBannerHeader: !!(0, _v10.getConfigProperty)(_v23?.showBannerHeader),
-      showStartWatchingButton: !!(0, _v10.getConfigProperty)(_v23?.showStartWatchingButton),
+      showBannerHeader: !!(0, _v10.getConfigProperty)(_v22?.showBannerHeader),
+      showStartWatchingButton: !!(0, _v10.getConfigProperty)(_v22?.showStartWatchingButton),
       textCtaAlignment: String((0, _v10.getConfigProperty)(_v12?.config?.textCtaAlignment))
     };
   }], 0);

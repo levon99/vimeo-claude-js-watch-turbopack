@@ -14,15 +14,12 @@
       [_v1, _v2] = (0, _v2.useState)(!1),
       [_v3, _v4] = (0, _v2.useState)(!1),
       {
-        capabilities: {
-          hasShareLoopTrackingParams: _v5
-        },
-        link: _v6,
-        url: _v7
+        link: _v5,
+        url: _v6
       } = (0, _v8.useStore)(_v0 => _v0.commonStore),
       {
-        isEmbedDisabled: _v8,
-        onCopyEmbedCode: _v9
+        isEmbedDisabled: _v7,
+        onCopyEmbedCode: _v8
       } = (() => {
         let _v0 = (0, _v3.useToast)(),
           {
@@ -97,12 +94,12 @@
         };
       })(),
       {
-        sendOpenDistributionMenuEvent: _v10,
-        sendDistributeContentClickEvents: _v11
+        sendOpenDistributionMenuEvent: _v9,
+        sendDistributeContentClickEvents: _v10
       } = (0, _v7.useBpEventService)(),
-      _v12 = (0, _v2.useCallback)(async () => {
-        let _v0 = new URL(_v7 ? `${window.location.protocol}//${window.location.hostname}/showcase/${_v7}` : _v6 || "");
-        _v0.searchParams.append("share", "copy"), _v5 && (_v0.searchParams.append("fl", "sm"), _v0.searchParams.append("fe", "fs"));
+      _v11 = (0, _v2.useCallback)(async () => {
+        let _v0 = new URL(_v6 ? `${window.location.protocol}//${window.location.hostname}/showcase/${_v6}` : _v5 || "");
+        _v0.searchParams.append("share", "copy"), _v0.searchParams.append("fl", "sm"), _v0.searchParams.append("fe", "fs");
         try {
           await navigator.clipboard.writeText(_v0.toString()), _v0({
             title: (0, _v6.translate)({
@@ -131,7 +128,7 @@
                 }
               }
             })
-          }), _v11("copy link", "share_link");
+          }), _v10("copy link", "share_link");
         } catch (_v0) {
           _v0({
             title: (0, _v6.translate)({
@@ -162,17 +159,17 @@
             })
           });
         }
-      }, [_v5, _v6, _v0, _v7, _v11]),
-      _v13 = (0, _v2.useCallback)(() => _v4(!1), []),
-      _v14 = (0, _v2.useCallback)(() => {
-        _v4(!0), _v10();
+      }, [_v5, _v0, _v6, _v10]),
+      _v12 = (0, _v2.useCallback)(() => _v4(!1), []),
+      _v13 = (0, _v2.useCallback)(() => {
+        _v4(!0), _v9();
       }, []);
     return {
       isTooltipOpen: _v1,
       menuState: {
         isOpen: _v3,
-        onClose: _v13,
-        onOpen: _v14
+        onClose: _v12,
+        onOpen: _v13
       },
       onMoreSharingOptionsClick: (0, _v2.useCallback)(() => _v2(!1), []),
       setIsTooltipOpen: _v2,
@@ -203,7 +200,7 @@
             }
           }
         }),
-        onClick: _v12,
+        onClick: _v11,
         icon: (0, _v1.jsx)(_v4.Link, {
           boxSize: "2xs"
         })
@@ -234,13 +231,13 @@
             }
           }
         }),
-        onClick: _v9,
+        onClick: _v8,
         icon: (0, _v1.jsx)(_v5.Code, {
           boxSize: "2xs"
         }),
-        disabled: _v8
-      }], [_v8, _v9, _v12]),
-      onCopyClick: _v12
+        disabled: _v7
+      }], [_v7, _v8, _v11]),
+      onCopyClick: _v11
     };
   }], 0);
 }

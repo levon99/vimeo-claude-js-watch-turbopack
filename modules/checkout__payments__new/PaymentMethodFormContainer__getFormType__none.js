@@ -448,59 +448,51 @@
           dispatch: _v22
         } = (0, _v26.useStateContext)(),
         _v23 = (0, _v28.useRouter)(),
-        _v24 = (0, _v36.useZuoraRedirectAssignment)(),
         {
-          trackCheckoutFailed: _v25
+          trackCheckoutFailed: _v24
         } = (0, _v30.useCheckoutTracking)(),
-        _v26 = (0, _v29.useRef)(!1),
-        _v27 = _v20?.isCreatorProduct ? (0, _v35.getPlanType)(_v21) : _v18 ? "monthly" : "annual",
-        _v28 = (0, _v29.useCallback)(_v0 => {
-          !_v26.current && _v17 && (_v26.current = !0, _v25({
+        _v25 = (0, _v29.useRef)(!1),
+        _v26 = _v20?.isCreatorProduct ? (0, _v35.getPlanType)(_v21) : _v18 ? "monthly" : "annual",
+        _v27 = (0, _v29.useCallback)(_v0 => {
+          !_v25.current && _v17 && (_v25.current = !0, _v24({
             tier: _v17,
-            periodicity: _v27,
+            periodicity: _v26,
             isFreeTrial: _v19,
             error_message: _v0
           }));
-        }, [_v25, _v17, _v27, _v19]),
-        _v29 = _v23.query?.token ? String(_v23.query?.token) : void 0,
-        [_v30, _v31] = (0, _v29.useState)(!!window.Z),
-        [_v32, _v33] = (0, _v29.useState)(),
-        [_v34, _v35] = (0, _v29.useState)(),
-        [_v36, _v37] = (0, _v29.useState)(!1),
-        _v38 = (0, _v29.useRef)(null),
-        [_v39, _v40] = (0, _v29.useState)(!0),
-        _v41 = (0, _v29.useRef)(null),
-        _v42 = "";
-      _v42 = (_v16?.locale || "en").replace(/-/g, "_").replace(/_([a-z])/g, (_v0, _v1) => `_${_v1.toUpperCase()}`), _v42 = _v37.includes(_v42) ? _v42 : "en";
-      let _v43 = (0, _v29.useCallback)(_v0 => {
+        }, [_v24, _v17, _v26, _v19]),
+        _v28 = _v23.query?.token ? String(_v23.query?.token) : void 0,
+        [_v29, _v30] = (0, _v29.useState)(!!window.Z),
+        [_v31, _v32] = (0, _v29.useState)(),
+        [_v33, _v34] = (0, _v29.useState)(),
+        [_v35, _v36] = (0, _v29.useState)(!1),
+        _v37 = (0, _v29.useRef)(null),
+        [_v38, _v39] = (0, _v29.useState)(!0),
+        _v40 = (0, _v29.useRef)(null),
+        _v41 = "";
+      _v41 = (_v16?.locale || "en").replace(/-/g, "_").replace(/_([a-z])/g, (_v0, _v1) => `_${_v1.toUpperCase()}`), _v41 = _v37.includes(_v41) ? _v41 : "en";
+      let _v42 = (0, _v29.useCallback)(_v0 => {
         _v0.success = "true" === _v0.success || !0 === _v0.success, _v16 && _v16 && (0, _v32.trackZuoraOrderStep)({
           hpm_session_id: _v16.xsrft,
           user_id: `${_v16.user?.id}`,
           step_name: "HPM On Submit Callback",
           step_message: _v0.success ? "success" : "failure"
-        }), _v35(_v0);
+        }), _v34(_v0);
       }, []);
       (0, _v29.useEffect)(() => {
-        if (_v34 && !_v36) {
+        if (_v33 && !_v35) {
           let {
-              refId: _v0,
-              success: _v1,
-              redirectUrl: _v2
-            } = _v34,
-            _v3 = _v2;
-          if (_v24 && _v2) {
-            let _v0 = new URL(_v2);
-            _v0.searchParams.delete("token"), _v3 = _v0.toString();
-          }
-          if (_v37(!0), _v16 && (0, _v32.trackZuoraOrderStep)({
+            refId: _v0,
+            success: _v1
+          } = _v33;
+          if (_v36(!0), _v16 && (0, _v32.trackZuoraOrderStep)({
             hpm_session_id: _v16.xsrft,
             user_id: `${_v16.user?.id}`,
             step_name: "HPM onSubmissionComplete",
             payment_method_id: _v0
           }), _v8({
             refId: _v0,
-            success: _v1,
-            redirectUrl: _v24 ? _v3 : void 0
+            success: _v1
           }), !1 === _v1) return void _v22({
             type: _v34.ActionTypes.PAYMENT_ALERT,
             payload: {
@@ -533,99 +525,99 @@
               })
             }
           });
-          _v35(void 0);
+          _v34(void 0);
         }
-      }, [_v34, _v8, _v36, _v22]), (0, _v29.useEffect)(() => {
-        if (_v30) return;
+      }, [_v33, _v8, _v35, _v22]), (0, _v29.useEffect)(() => {
+        if (_v29) return;
         _v16 && (0, _v32.trackZuoraOrderStep)({
           hpm_session_id: _v16.xsrft,
           user_id: `${_v16.user?.id}`,
-          flow_type: _v24 ? "redirect" : "classic",
+          flow_type: "classic",
           step_name: "HPM script loaded"
         });
         let _v0 = document.createElement("script");
         _v0.src = "https://static.zuora.com/Resources/libs/hosted/1.3.1/zuora-min.js", _v0.async = !0;
         let _v1 = () => {
-          _v31(!0);
+          _v30(!0);
         };
         return _v0.addEventListener("load", _v1), document.body.appendChild(_v0), () => {
-          _v0.removeEventListener("load", _v1), _v30 || document.body.removeChild(_v0);
+          _v0.removeEventListener("load", _v1), _v29 || document.body.removeChild(_v0);
         };
-      }, [_v30]);
-      let _v44 = async () => {
-        _v38.current && (_v38.current.innerHTML = ""), _v40(!0);
+      }, [_v29]);
+      let _v43 = async () => {
+        _v37.current && (_v37.current.innerHTML = ""), _v39(!0);
         try {
           await _v38({
             paymentType: _v34.PaymentFormTypes.TYPE_CREDIT_CARD,
             includeAddressFields: _v4,
-            onSubmit: _v43,
+            onSubmit: _v42,
             requireAccountId: _v11,
             token: _v16.xsrft,
-            onSubmitError: _v45,
+            onSubmitError: _v44,
             currency: _v1,
-            userLocale: _v42,
-            iosJwt: _v29
+            userLocale: _v41,
+            iosJwt: _v28
           });
         } catch (_v0) {
-          _v40(!1), _v5?.(Error("Unable to re-render form"));
+          _v39(!1), _v5?.(Error("Unable to re-render form"));
         }
       };
       (0, _v29.useEffect)(() => {
-        _v41.current = _v32 || null;
-      }, [_v32]);
-      let _v45 = (..._v0) => {
-        let _v1 = _v41.current,
+        _v40.current = _v31 || null;
+      }, [_v31]);
+      let _v44 = (..._v0) => {
+        let _v1 = _v40.current,
           _v2 = _v0[2];
-        _v1?.type === _v34.PaymentFormTypes.TYPE_CREDIT_CARD && _v2 && _v2.includes("ThreeDs2_Authentication_Exception") && _v44(), _v10(..._v0);
+        _v1?.type === _v34.PaymentFormTypes.TYPE_CREDIT_CARD && _v2 && _v2.includes("ThreeDs2_Authentication_Exception") && _v43(), _v10(..._v0);
       };
       return ((0, _v29.useEffect)(() => {
-        _v30 && _v16 && window.Z && !_v32 && (window.Z.setEventHandler("onloadCallback", () => {
-          _v40(!1), window?.Z?.setFieldValue("callbackFunctionEnabled", "true"), _v16 && (0, _v32.trackZuoraOrderStep)({
+        _v29 && _v16 && window.Z && !_v31 && (window.Z.setEventHandler("onloadCallback", () => {
+          _v39(!1), window?.Z?.setFieldValue("callbackFunctionEnabled", "true"), _v16 && (0, _v32.trackZuoraOrderStep)({
             hpm_session_id: _v16.xsrft,
             user_id: `${_v16.user?.id}`,
             step_name: "HPM - OnLoadCallback"
           });
-          let _v0 = _v41.current?.type ?? _v2;
+          let _v0 = _v40.current?.type ?? _v2;
           _v0 && _v6?.(_v0);
         }), window.Z.setEventHandler("onSubmit", () => {
           _v22({
             type: _v34.ActionTypes.PAYMENT_ALERT,
             payload: void 0
-          }), _v37(!1), _v16 && (0, _v32.trackZuoraOrderStep)({
+          }), _v36(!1), _v16 && (0, _v32.trackZuoraOrderStep)({
             hpm_session_id: _v16.xsrft,
             user_id: `${_v16.user?.id}`,
             step_name: "HPM Submit Started"
           }), _v9?.(), setTimeout(() => {
-            _v36 || (_v16 && (0, _v32.trackZuoraOrderStep)({
+            _v35 || (_v16 && (0, _v32.trackZuoraOrderStep)({
               hpm_session_id: _v16.xsrft,
               user_id: `${_v16.user?.id}`,
               step_name: "Vimeo defined HPM Timeout"
             }), (0, _v32.trackOrderFailure)({
               userId: Number(_v16?.user?.id),
               description: "Timed out. Did not receive a response from Zuora"
-            }), _v28("Timed out. Did not receive a response from Zuora"), _v43({
+            }), _v27("Timed out. Did not receive a response from Zuora"), _v42({
               refId: "",
               success: !1
             }));
           }, 0);
-        }), _v33({
+        }), _v32({
           type: _v2,
           data: _v40(_v2)
-        }), _v2 === _v34.PaymentFormTypes.TYPE_PAYPAL ? (_v40(!1), _v2 && _v6?.(_v2)) : _v38({
+        }), _v2 === _v34.PaymentFormTypes.TYPE_PAYPAL ? (_v39(!1), _v2 && _v6?.(_v2)) : _v38({
           paymentType: _v2,
           includeAddressFields: _v4,
-          onSubmit: _v43,
+          onSubmit: _v42,
           requireAccountId: _v11,
           token: _v16.xsrft,
-          onSubmitError: _v45,
+          onSubmitError: _v44,
           currency: _v1,
-          userLocale: _v42,
-          iosJwt: _v29
+          userLocale: _v41,
+          iosJwt: _v28
         }).catch(() => {
-          _v40(!1), _v5?.(Error("Unable to render form"));
+          _v39(!1), _v5?.(Error("Unable to render form"));
         }));
-      }, [_v2, _v30, _v4, _v6, _v9, _v43, _v32, _v11, _v40, _v36, _v16, _v10, _v1, _v5, _v22, _v42, _v29]), _v30) ? (0, _v1.jsxs)(_v23, {
-        formIsLoading: _v39,
+      }, [_v2, _v29, _v4, _v6, _v9, _v42, _v31, _v11, _v39, _v35, _v16, _v10, _v1, _v5, _v22, _v41, _v28]), _v29) ? (0, _v1.jsxs)(_v23, {
+        formIsLoading: _v38,
         formAlert: _v3?.message ? _v3 : void 0,
         formTypes: _v13 ? [{
           type: _v34.PaymentFormTypes.TYPE_CREDIT_CARD,
@@ -637,20 +629,20 @@
           type: _v34.PaymentFormTypes.TYPE_CREDIT_CARD,
           data: _v40(_v34.PaymentFormTypes.TYPE_CREDIT_CARD)
         }],
-        renderedFormType: _v32,
+        renderedFormType: _v31,
         bspStyling: _v14,
         onPaymentTypeChanged: _v0 => {
           let _v1 = _v40(_v0);
-          _v15(_v33.CHECKOUT_FORM_ACTION_TYPE_CLICK, _v0 === _v34.PaymentFormTypes.TYPE_PAYPAL ? _v33.CHECKOUT_FORM_ACTION_LOCATION_PAYMENT_TYPE_PAYPAL : _v33.CHECKOUT_FORM_ACTION_LOCATION_PAYMENT_TYPE_CREDIT_CARD), _v7?.(_v0), _v38.current && (_v38.current.innerHTML = ""), _v22({
+          _v15(_v33.CHECKOUT_FORM_ACTION_TYPE_CLICK, _v0 === _v34.PaymentFormTypes.TYPE_PAYPAL ? _v33.CHECKOUT_FORM_ACTION_LOCATION_PAYMENT_TYPE_PAYPAL : _v33.CHECKOUT_FORM_ACTION_LOCATION_PAYMENT_TYPE_CREDIT_CARD), _v7?.(_v0), _v37.current && (_v37.current.innerHTML = ""), _v22({
             type: _v34.ActionTypes.PAYMENT_ALERT,
             payload: void 0
-          }), _v40(!0), _v33({
+          }), _v39(!0), _v32({
             type: _v0,
             data: _v1
-          }), _v0 === _v34.PaymentFormTypes.TYPE_PAYPAL ? (_v40(!1), _v6?.(_v0)) : _v38({
+          }), _v0 === _v34.PaymentFormTypes.TYPE_PAYPAL ? (_v39(!1), _v6?.(_v0)) : _v38({
             paymentType: _v0,
             includeAddressFields: _v4,
-            onSubmit: _v43,
+            onSubmit: _v42,
             requireAccountId: _v11,
             token: _v16?.xsrft || "",
             onSubmitError: (..._v0) => {
@@ -659,18 +651,18 @@
                 user_id: `${_v16.user?.id}`,
                 step_name: "HPM onSubmitError",
                 step_message: JSON.stringify(_v0)
-              }), _v45(..._v0);
+              }), _v44(..._v0);
             },
             currency: _v1,
-            userLocale: _v42,
-            iosJwt: _v29
+            userLocale: _v41,
+            iosJwt: _v28
           }).catch(() => {
-            _v40(!1), _v5?.(Error("Unable to render form"));
+            _v39(!1), _v5?.(Error("Unable to render form"));
           });
         },
         showExistingPaymentMethods: _v12,
         children: [(0, _v1.jsx)(_v3.Box, {
-          ref: _v38,
+          ref: _v37,
           width: "100%",
           sx: {
             "& > iframe": {

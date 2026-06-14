@@ -59,7 +59,7 @@
         data: _v2
       } = _v9(),
       _v3 = _v2?.user?.uri,
-      _v4 = (0, _v2.useCapability)(_v3 ? ["canAddCustomUrl", "canAllowDownloads", "canCreateEmbeddedPlaylists", "canCreateLiveEvents", "canCustomizeAlbums", "canHideVideos", "canLmsExport", "canSeeUpsellModalOnShare", "canUnlistVideo", "canUsePaymentsService", "contentSpaceEnabled", "hasEnterprise", "hasExtraEmbedOptions", "hasPerSeatPricingModelTeamMember", "hasPrivateModeOff", "hasRestrictedPrivacyOptions", "hasShowcasePasswordPrivacyUpsell", "hasShowcaseTeamPrivacy", "hasSunsetHideFromVimeo", "hasTeamInvite", "hasUpsellsForFlatRateTiers", "hasVideoInEmail", "hasVideoPasswordPrivacyUpsell", "regionalDeliveryPublishContentToChina", "hasShareLoopTrackingParams", "hasMultipleReviewLinks", "hasProhibitMultipleReviewLinks"] : [], _v3 ?? "skip");
+      _v4 = (0, _v2.useCapability)(_v3 ? ["canAddCustomUrl", "canAllowDownloads", "canCreateEmbeddedPlaylists", "canCreateLiveEvents", "canCustomizeAlbums", "canHideVideos", "canLmsExport", "canSeeUpsellModalOnShare", "canUnlistVideo", "canUsePaymentsService", "contentSpaceEnabled", "hasEnterprise", "hasExtraEmbedOptions", "hasPerSeatPricingModelTeamMember", "hasPrivateModeOff", "hasRestrictedPrivacyOptions", "hasShowcasePasswordPrivacyUpsell", "hasShowcaseTeamPrivacy", "hasSunsetHideFromVimeo", "hasTeamInvite", "hasUpsellsForFlatRateTiers", "hasVideoInEmail", "hasVideoPasswordPrivacyUpsell", "regionalDeliveryPublishContentToChina", "hasMultipleReviewLinks", "hasProhibitMultipleReviewLinks"] : [], _v3 ?? "skip");
     return (0, _v1.useEffect)(() => {
       _v4.ready && _v3 && _v0();
     }, [_v4.ready, _v3, _v0]), {
