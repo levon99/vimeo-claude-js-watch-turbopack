@@ -925,6 +925,32 @@
         }
       }
     }),
+    FolderItemsPrivacyUpdated: (0, _v1.translate)({
+      singular: "Folder items privacy updated",
+      dictionary: {
+        es: {
+          singular: "Privacidad de los elementos de la carpeta actualizada"
+        },
+        "de-DE": {
+          singular: "Privatsphäre der Ordnerelemente aktualisiert"
+        },
+        "fr-FR": {
+          singular: "Confidentialité des éléments du dossier mise à jour"
+        },
+        "ja-JP": {
+          singular: "フォルダ内のアイテムのプライバシーが更新されました"
+        },
+        "ko-KR": {
+          singular: "폴더 항목의 공개 설정이 업데이트되었습니다"
+        },
+        "pt-BR": {
+          singular: "Privacidade dos itens da pasta atualizada"
+        },
+        "zh-CN": {
+          singular: "文件夹项目的隐私设置已更新"
+        }
+      }
+    }),
     FolderDeleted: (0, _v1.translate)({
       singular: "Folder deleted",
       dictionary: {

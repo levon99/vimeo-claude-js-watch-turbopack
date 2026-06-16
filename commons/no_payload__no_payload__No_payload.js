@@ -83,7 +83,7 @@
         isTeamInfoLoading: _v1.payload?.shouldShowLoading
       }),
       FetchTeamInfoComplete: (_v0, _v1) => {
-        if (!_v1.payload || !_v1.payload.viewer || !_v1.payload?.teamsInfo) throw "no payload";
+        if (!_v1.payload || !_v1.payload.viewer || !_v1.payload?.teamsInfo) throw Error("no payload");
         let _v2 = _v1.payload.viewer.teamUser?.ownerId,
           _v3 = _v1.payload.teamsInfo.data.filter(_v34),
           _v4 = _v3.find(({
@@ -142,7 +142,7 @@
         teamMembersApiCallCount: _v0.teamMembersApiCallCount + 1
       }),
       FetchTeamMembersComplete: (_v0, _v1) => {
-        if (!_v1.payload || !_v1.payload?.teamMembers) throw "no payload";
+        if (!_v1.payload || !_v1.payload?.teamMembers) throw Error("no payload");
         let {
             data: _v2,
             total: _v3
@@ -179,7 +179,7 @@
         };
       },
       FetchTeamMemberInit: (_v0, _v1) => {
-        if (!_v1.payload) throw "no payload";
+        if (!_v1.payload) throw Error("no payload");
         let _v2 = _v0.teamMembers.map(_v0 => _v0.uri === _v1.payload?.teamMemberUri ? {
           ..._v0,
           isLoading: !0
@@ -191,7 +191,7 @@
         };
       },
       FetchTeamMemberComplete: (_v0, _v1) => {
-        if (!_v1.payload || !_v1.payload?.teamMember) throw "no payload";
+        if (!_v1.payload || !_v1.payload?.teamMember) throw Error("no payload");
         let _v2 = _v1.payload.teamMember,
           _v3 = _v0.teamMembers.map(_v0 => _v0.uri === _v2.uri ? {
             ..._v2,
@@ -210,7 +210,7 @@
         }
       } : _v0,
       UpdateSearchQuery: (_v0, _v1) => {
-        if (!_v1.payload) throw "no payload";
+        if (!_v1.payload) throw Error("no payload");
         let _v2 = _v1.payload?.searchQuery.length === 0 && _v0.searchQuery.length > 0;
         return {
           ..._v0,
@@ -228,7 +228,7 @@
         };
       },
       UpdateGroupMembersSearchQuery: (_v0, _v1) => {
-        if (!_v1.payload) throw "no payload";
+        if (!_v1.payload) throw Error("no payload");
         return {
           ..._v0,
           groupMembersPreviousSearchQuery: _v0.groupMembersSearchQuery,
@@ -256,7 +256,7 @@
         currentPage: 1
       }),
       UpdateCurrentPage: (_v0, _v1) => {
-        if (!_v1.payload) throw "no payload";
+        if (!_v1.payload) throw Error("no payload");
         return {
           ..._v0,
           currentPage: _v1.payload?.currentPage || 1,
@@ -264,7 +264,7 @@
         };
       },
       UpdateTeamMemberInit: (_v0, _v1) => {
-        if (!_v1.payload) throw "no payload";
+        if (!_v1.payload) throw Error("no payload");
         let _v2 = _v0.teamMembers.map(_v0 => _v0.uri === _v1.payload?.updatedMemberUri ? {
           ..._v0,
           isLoading: !0
@@ -276,7 +276,7 @@
         };
       },
       UpdateTeamMemberComplete: (_v0, _v1) => {
-        if (!_v1.payload || !_v1.payload.updatedMember) throw "no payload";
+        if (!_v1.payload || !_v1.payload.updatedMember) throw Error("no payload");
         let _v2 = _v0.teamMembers.map(_v0 => _v0.uri === _v1.payload?.updatedMember.uri ? {
           ..._v1.payload.updatedMember,
           isLoading: !1
@@ -287,7 +287,7 @@
         };
       },
       UpdateTeamMemberCancel: (_v0, _v1) => {
-        if (!_v1.payload) throw "no payload";
+        if (!_v1.payload) throw Error("no payload");
         let _v2 = _v0.teamMembers.map(_v0 => (_v0.uri === _v1.payload?.teamMemberUri && (_v0.isLoading = !1), _v0));
         return {
           ..._v0,
@@ -296,7 +296,7 @@
         };
       },
       DeleteTeamMemberComplete: (_v0, _v1) => {
-        if (!_v1.payload || !_v1.payload.teamMemberUri) throw "no payload!";
+        if (!_v1.payload || !_v1.payload.teamMemberUri) throw Error("no payload!");
         return {
           ..._v0,
           teamMembers: _v0.teamMembers.filter(_v0 => _v0.uri !== _v1.payload?.teamMemberUri),
@@ -320,7 +320,7 @@
         groupUsersError: _v1.payload?.hasError || !1
       }),
       NotificationForOwnerAdmin: (_v0, _v1) => {
-        if (!_v1.payload) throw "No payload!";
+        if (!_v1.payload) throw Error("No payload!");
         let _v2 = _v1.payload;
         return {
           ..._v0,
@@ -329,7 +329,7 @@
       },
       FetchTeamShowcaseInit: (_v0, _v1) => {},
       FetchTeamShowcaseComplete: (_v0, _v1) => {
-        if (!_v1.payload || !_v1.payload?.albums) throw "no payload";
+        if (!_v1.payload || !_v1.payload?.albums) throw Error("no payload");
         let {
           data: _v2,
           total: _v3
@@ -441,7 +441,7 @@
         planData: _v1.payload
       }),
       UpdateSeatCount: (_v0, _v1) => {
-        if (!_v1.payload) throw "no payload";
+        if (!_v1.payload) throw Error("no payload");
         return {
           ..._v0,
           seatCount: _v1.payload?.seatCount || 1,
@@ -449,7 +449,7 @@
         };
       },
       UpdateRolesFilter: (_v0, _v1) => {
-        if (!_v1.payload) throw "no payload";
+        if (!_v1.payload) throw Error("no payload");
         return (0, _v31.default)(_v1.payload?.rolesFilter, _v0.rolesFilter) ? _v0 : {
           ..._v0,
           rolesFilter: _v1.payload?.rolesFilter || [],
@@ -459,7 +459,7 @@
         };
       },
       UpdateStatusesFilter: (_v0, _v1) => {
-        if (!_v1.payload) throw "no payload";
+        if (!_v1.payload) throw Error("no payload");
         return {
           ..._v0,
           statusesFilter: _v1.payload?.statusesFilter || [],
@@ -469,7 +469,7 @@
         };
       },
       UpdateAccessFilter: (_v0, _v1) => {
-        if (!_v1.payload) throw "no payload";
+        if (!_v1.payload) throw Error("no payload");
         return {
           ..._v0,
           accessFilter: _v1.payload?.accessFilter || [],
@@ -479,7 +479,7 @@
         };
       },
       RemoveUnassignedSeats: (_v0, _v1) => {
-        if (!_v1.payload) throw "no payload";
+        if (!_v1.payload) throw Error("no payload");
         return {
           ..._v0,
           invitesRemaining: _v1.payload?.seatCount,
@@ -557,7 +557,7 @@
         cancelConfirmationInfo: _v1.payload?.cancelConfirmationInfo
       }),
       UpdateIsSSOAvailable: (_v0, _v1) => {
-        if (!_v1.payload) throw "No payload!";
+        if (!_v1.payload) throw Error("No payload!");
         return {
           ..._v0,
           isSSOAvailable: _v1.payload.isSSOAvailable

@@ -665,6 +665,7 @@
           "data-id": "rolesMenuOption",
           onClick: () => {
             _v6(!1), _v3(_v0), (_v0 => {
+              if (!_v4) return;
               let {
                 oldPermission: _v1,
                 newPermission: _v2

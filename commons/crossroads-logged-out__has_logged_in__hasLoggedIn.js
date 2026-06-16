@@ -14,14 +14,41 @@
   var _v6 = _v0.i(0);
   let _v7 = (_v0, _v1, _v2) => globalThis.__metrics?.histogram(_v0, _v1, _v2),
     _v8 = (_v0, _v1) => globalThis.__metrics?.counter(_v0, _v1),
-    _v9 = async () => await _v3.default.getConfig();
+    _v9 = async () => await _v3.default.getConfig(),
+    _v10 = ["cookie", "crossroads-jwt", "crossroads-language", "crossroads-logged-out", "user-agent"];
+  async function _v11(_v0) {
+    let _v1 = _v0.vimeoConfig.get("vimeo_url");
+    if (!_v1) return null;
+    let _v2 = {
+      ..._v0.headers,
+      Accept: "application/json"
+    };
+    for (let _v0 of _v10) {
+      let _v0 = _v0.req.headers[_v0];
+      _v0 && (_v2[_v0] = Array.isArray(_v0) ? _v0.join("; ") : _v0);
+    }
+    try {
+      let _v0 = await fetch(`https://${_v1}/_next/viewer`, {
+        headers: _v2
+      });
+      if (!_v0.ok) return null;
+      let _v1 = await _v0.json();
+      if (!_v1 || "object" != typeof _v1 || Array.isArray(_v1)) return null;
+      return _v1;
+    } catch (_v0) {
+      return console.warn("withPageSetup: failed to fetch viewer for inline bootstrap", _v0), null;
+    }
+  }
   _v0.s(["withPageSetup", 0, function (_v0, _v1) {
     let _v2, _v3;
-    function _v4(_v0, _v1) {
+    function _v4(_v0, _v1, _v2) {
       return "props" in _v0 ? {
         ..._v0,
         props: {
           ..._v0.props,
+          ...(_v2 ? {
+            viewerBootstrap: _v2
+          } : {}),
           withPageSetup: _v1
         }
       } : _v0;
@@ -103,11 +130,12 @@
           });
         if (!_v3?.requireLogin && !_v3?.capability && !_v3?.staffOnly) {
           _v8 = _v4();
-          let _v0 = await _v2(_v5),
-            _v1 = "redirect" in _v0 ? _v6(_v0.redirect) : "notFound" in _v0 ? "404" : "200";
-          return _v5(_v1, "success", _v8), _v4(_v0, {
+          let _v0 = _v3?.inlineViewer && _v5.jwt && !_v4(_v5.req) ? _v11(_v5) : null,
+            _v1 = await _v2(_v5),
+            _v2 = "redirect" in _v1 ? _v6(_v1.redirect) : "notFound" in _v1 ? "404" : "200";
+          return _v5(_v2, "success", _v8), _v4(_v1, {
             locale: _v3
-          });
+          }, _v0 ? await _v0 : null);
         }
         if (_v4(_v5.req)) {
           console.log("requireLogin: User is logged-out");
@@ -144,11 +172,12 @@
           return console.log("Failed to fetch capabilities ", _v0), _v7("capability_fetch_failed", _v3?.redirect ?? "/log_in");
         }
         _v5.capabilities = _v6, _v8 = _v4();
-        let _v7 = await _v2(_v5),
-          _v8 = "redirect" in _v7 ? _v6(_v7.redirect) : "notFound" in _v7 ? "404" : "200";
-        return _v5(_v8, "success", _v8), _v4(_v7, {
+        let _v7 = _v3?.inlineViewer ? _v11(_v5) : null,
+          _v8 = await _v2(_v5),
+          _v9 = "redirect" in _v8 ? _v6(_v8.redirect) : "notFound" in _v8 ? "404" : "200";
+        return _v5(_v9, "success", _v8), _v4(_v8, {
           locale: _v3
-        });
+        }, _v7 ? await _v7 : null);
       } catch (_v0) {
         throw _v5("500", "error", _v8 ?? _v4()), _v0;
       } finally {

@@ -534,12 +534,12 @@
       _v14 = (0, _v3.useCallback)(() => _v4(!1), []),
       _v15 = (0, _v3.useCallback)(() => _v4(!0), []),
       _v16 = (0, _v3.useCallback)(async () => {
-        _v7.refreshJwt && (await _v7.refreshJwt(), await (0, _v60.nextAsyncQueue)(), await _v11()), _v4(!1);
+        _v7?.refreshJwt && (await _v7.refreshJwt(), await (0, _v60.nextAsyncQueue)(), await _v11()), _v4(!1);
       }, [_v7, _v11]);
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [_v12 ? (0, _v1.jsx)(_v61.LoginJoinModal, {
         type: _v5,
-        xsrft: _v7.xsrft,
+        xsrft: _v7?.xsrft ?? "",
         isShowing: _v3,
         onDismiss: _v14,
         onSuccess: _v16,

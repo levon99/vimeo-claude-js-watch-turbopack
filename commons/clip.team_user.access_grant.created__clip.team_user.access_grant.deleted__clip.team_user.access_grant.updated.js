@@ -45,6 +45,10 @@
       value: "folder.created",
       applied: !1
     }, {
+      label: _v2.T.FolderItemsPrivacyUpdated,
+      value: "folder_items_privacy.updated",
+      applied: !1
+    }, {
       label: _v2.T.FolderDeleted,
       value: "folder.deleted",
       applied: !1

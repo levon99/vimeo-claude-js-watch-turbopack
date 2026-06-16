@@ -1091,7 +1091,7 @@
                   },
                   globalAnalyticsToInclude: ["page", "path"]
                 }), _v53({
-                  teamUser: _v4.teamUser,
+                  teamUser: _v4?.teamUser,
                   flow: "empty_state"
                 }), _v1();
               },

@@ -24,8 +24,8 @@
     teamUserId: _v1
   }) => {
     let _v2 = (0, _v16.useViewer)(),
-      _v3 = _v2.teamUser?.ownerId ?? _v2.user?.id,
-      _v4 = _v2.teamUser?.permissionLevel,
+      _v3 = _v2?.teamUser?.ownerId ?? _v2?.user?.id,
+      _v4 = _v2?.teamUser?.permissionLevel,
       {
         userId: _v5,
         email: _v6,
@@ -35,8 +35,8 @@
       _v9 = _v4 === _v15.TEAM_PERMISSION.OWNER,
       _v10 = _v9 ? "owner" : "admin",
       _v11 = {
-        apiUrl: _v2.apiUrl || "",
-        jwt: _v2.jwt || "",
+        apiUrl: _v2?.apiUrl || "",
+        jwt: _v2?.jwt || "",
         ownerUri: _v3 ? `/users/${_v3}` : "",
         ownerId: _v3 || 0
       },

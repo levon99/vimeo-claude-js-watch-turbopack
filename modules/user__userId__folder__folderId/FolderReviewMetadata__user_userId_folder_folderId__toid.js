@@ -15,18 +15,19 @@
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
-    _v15 = _v0.i(0);
-  let _v16 = ({
+    _v15 = _v0.i(0),
+    _v16 = _v0.i(0);
+  let _v17 = ({
     playerAssetUrls: _v0,
     userId: _v1,
     folderId: _v2,
     folderData: _v3
   }) => {
-    let _v4 = (0, _v2.useContext)(_v15.ViewerContext);
+    let _v4 = (0, _v2.useContext)(_v16.ViewerContext);
     if (!_v4) return null;
-    if (!_v3) return _v4?.user ? (0, _v1.jsx)(_v13.ErrorPage, {
+    if (!_v3) return _v4?.user ? (0, _v1.jsx)(_v14.ErrorPage, {
       error: new _v4.ResourceNotFoundError()
-    }) : (0, _v1.jsx)(_v12.BrandedLogin, {
+    }) : (0, _v1.jsx)(_v13.BrandedLogin, {
       metaUrl: `/sso/project/${_v2}/meta`,
       errorConstructor: _v4.UnauthorizedError
     });
@@ -39,15 +40,15 @@
         revalidateOnFocus: !1,
         revalidateOnReconnect: !1
       },
-      children: (0, _v1.jsx)(_v7.ConfigContext.Provider, {
+      children: (0, _v1.jsxs)(_v7.ConfigContext.Provider, {
         value: _v5,
-        children: (0, _v1.jsx)(_v6.App, {
+        children: [(0, _v1.jsx)(_v6.App, {
           folderId: _v2,
           folderData: _v3,
           playerAssetUrls: _v0,
           userId: _v1,
           viewer: _v4
-        })
+        }), (0, _v1.jsx)(_v12.ManagedAccountsPromo, {})]
       })
     });
   };
@@ -134,8 +135,8 @@
     return {
       props: _v5
     };
-  }), _v16.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v14.VideoLibraryLayout, {
+  }), _v17.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v15.VideoLibraryLayout, {
     hasUploader: _v1.hasUploader,
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v16], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v17], 0);
 }

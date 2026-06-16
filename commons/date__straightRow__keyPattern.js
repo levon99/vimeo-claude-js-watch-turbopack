@@ -2247,7 +2247,7 @@
               "register.form_page": document.location.href,
               "register.is_mobile_device": _v48,
               "register.vuid": (0, _v77.loadCookie)("vuid") || "",
-              "register.country_code": _v45.location || ""
+              "register.country_code": _v45?.location || ""
             })), _v6 && _v6(_v0);
           } catch (_v0) {
             let _v1 = (0, _v7.translate)({

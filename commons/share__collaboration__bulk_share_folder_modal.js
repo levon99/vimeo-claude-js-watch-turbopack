@@ -40,67 +40,65 @@
       collection_type: null
     },
     _v24 = () => {
-      let {
-        webContext: _v0,
-        actionContext: _v1,
-        teamContext: _v2,
-        thirdPartyIntegrationContext: _v3,
-        viewContext: _v4,
-        productContext: _v5
-      } = (() => {
-        let {
-            teamUser: _v0,
-            team: _v1
-          } = (0, _v22.useViewer)(),
-          _v2 = (0, _v17.buildProductAnalyticsBpContext)({
-            product: "collaboration",
-            feature: "share",
-            modal_name: "bulk_share_folder_modal",
-            location: "modal",
-            device_type: (0, _v15.default)(),
-            is_user_facing_data: !1,
-            entity_type: "folder",
-            element: "button",
-            flow: "bulk_share_folder"
-          }),
-          _v3 = document.referrer ? new URL(document.referrer).pathname : null,
-          _v4 = (0, _v21.buildWebBpContext)({
-            page_name: "team_manager",
-            path: window.location.href,
-            referrer: document.referrer,
-            referrer_page_name: _v3 ? function (_v0) {
-              let _v1 = "other";
-              _v0.match(/\/live\/broadcaster(\/event)?\/[0-9]+.*/) ? _v1 = "live_browser_studio" : _v0.match(/\/live\/rtmp\/event\/[0-9]+.*/) ? _v1 = "live_event_rtmp_page" : _v0.match(/\/events?\/[0-9]+.*/) || _v0.match(/\/live\/(guest\/)?([0-9a-zA-Z])?(\/)?.*/) ? _v1 = "live_event_view_page" : _v0.match(/^\/upload(\/.*)?$/) ? _v1 = "upload_page" : _v0.match(/\/manage\/folders/) ? _v1 = "video_library" : _v0.match(/^\/(home)?/) && (_v1 = "self_serve_logged_in_homepage");
-              let _v2 = _v0.match(/\/manage\/(videos|events|showcases|webinars)/);
-              if (_v2) switch (_v2[1]) {
-                case "videos":
-                  _v1 = "video_library";
-                  break;
-                case "showcases":
-                  _v1 = "showcases_library";
-                  break;
-                case "events":
-                  _v1 = "event_library";
-                  break;
-                case "webinars":
-                  _v1 = "webinars_library";
-                  break;
-                default:
-                  _v1 = "other";
-              }
-              return _v1;
-            }(_v3) : null
-          }),
-          _v5 = _v0 ? (0, _v18.buildTeamBpContextFromTeamUser)(_v0) : (0, _v18.buildTeamBpContextFromTeam)(_v1),
-          _v6 = (0, _v16.buildActionBpContext)({
-            action_type: "click",
-            feature: null
-          });
-        return {
-          productContext: _v2,
-          webContext: _v4,
-          teamContext: _v5,
-          actionContext: _v6,
+      let _v0,
+        _v1,
+        _v2,
+        _v3,
+        _v4,
+        _v5,
+        _v6,
+        _v7,
+        {
+          webContext: _v8,
+          actionContext: _v9,
+          teamContext: _v10,
+          thirdPartyIntegrationContext: _v11,
+          viewContext: _v12,
+          productContext: _v13
+        } = (_v0 = (0, _v22.useViewer)(), _v1 = _v0?.teamUser, _v2 = _v0?.team, _v3 = (0, _v17.buildProductAnalyticsBpContext)({
+          product: "collaboration",
+          feature: "share",
+          modal_name: "bulk_share_folder_modal",
+          location: "modal",
+          device_type: (0, _v15.default)(),
+          is_user_facing_data: !1,
+          entity_type: "folder",
+          element: "button",
+          flow: "bulk_share_folder"
+        }), _v4 = document.referrer ? new URL(document.referrer).pathname : null, _v5 = (0, _v21.buildWebBpContext)({
+          page_name: "team_manager",
+          path: window.location.href,
+          referrer: document.referrer,
+          referrer_page_name: _v4 ? function (_v0) {
+            let _v1 = "other";
+            _v0.match(/\/live\/broadcaster(\/event)?\/[0-9]+.*/) ? _v1 = "live_browser_studio" : _v0.match(/\/live\/rtmp\/event\/[0-9]+.*/) ? _v1 = "live_event_rtmp_page" : _v0.match(/\/events?\/[0-9]+.*/) || _v0.match(/\/live\/(guest\/)?([0-9a-zA-Z])?(\/)?.*/) ? _v1 = "live_event_view_page" : _v0.match(/^\/upload(\/.*)?$/) ? _v1 = "upload_page" : _v0.match(/\/manage\/folders/) ? _v1 = "video_library" : _v0.match(/^\/(home)?/) && (_v1 = "self_serve_logged_in_homepage");
+            let _v2 = _v0.match(/\/manage\/(videos|events|showcases|webinars)/);
+            if (_v2) switch (_v2[1]) {
+              case "videos":
+                _v1 = "video_library";
+                break;
+              case "showcases":
+                _v1 = "showcases_library";
+                break;
+              case "events":
+                _v1 = "event_library";
+                break;
+              case "webinars":
+                _v1 = "webinars_library";
+                break;
+              default:
+                _v1 = "other";
+            }
+            return _v1;
+          }(_v4) : null
+        }), _v6 = _v1 ? (0, _v18.buildTeamBpContextFromTeamUser)(_v1) : (0, _v18.buildTeamBpContextFromTeam)(_v2), _v7 = (0, _v16.buildActionBpContext)({
+          action_type: "click",
+          feature: null
+        }), {
+          productContext: _v3,
+          webContext: _v5,
+          teamContext: _v6,
+          actionContext: _v7,
           viewContext: (0, _v20.buildViewBpContext)({
             view_type: "impression",
             feature: null
@@ -112,8 +110,7 @@
             managed_user_id: null,
             is_partner: null
           })
-        };
-      })();
+        });
       return {
         sendDistributionAnalyticsEvent: ({
           eventName: _v0,
@@ -126,9 +123,9 @@
         }) => {
           let _v5 = {
               product_analytics_context: {
-                ..._v5.product_analytics_context,
+                ..._v13.product_analytics_context,
                 fields: {
-                  ..._v5.product_analytics_context.fields,
+                  ..._v13.product_analytics_context.fields,
                   ..._v2
                 }
               }
@@ -136,18 +133,18 @@
             _v6 = {
               ...{
                 web_context: {
-                  ..._v0.web_context,
+                  ..._v8.web_context,
                   fields: {
-                    ..._v0.web_context.fields,
+                    ..._v8.web_context.fields,
                     ..._v3
                   }
                 }
               },
               ..._v5,
-              ..._v2,
-              ..._v1,
-              ..._v4,
-              ..._v3
+              ..._v10,
+              ..._v9,
+              ..._v12,
+              ..._v11
             };
           _v4 && (_v6 = {
             ..._v6,

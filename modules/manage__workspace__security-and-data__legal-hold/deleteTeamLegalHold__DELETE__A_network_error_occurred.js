@@ -503,39 +503,36 @@
     setUploading: _v3,
     currentPage: _v4
   }) => {
-    let {
-        user: _v5,
-        apiUrl: _v6,
-        jwt: _v7,
-        teamUser: _v8
-      } = (0, _v6.useContext)(_v61.ViewerContext),
-      [_v9, _v10] = (0, _v6.useState)(_v30.Apply),
-      [_v11, _v12] = (0, _v6.useState)(!1),
-      _v13 = (0, _v6.useRef)(null),
-      _v14 = (0, _v6.useRef)(null),
-      _v15 = (0, _v52.useToast)();
+    let _v5 = (0, _v61.useViewer)(),
+      [_v6, _v7] = (0, _v6.useState)(_v30.Apply),
+      [_v8, _v9] = (0, _v6.useState)(!1),
+      _v10 = (0, _v6.useRef)(null),
+      _v11 = (0, _v6.useRef)(null),
+      _v12 = (0, _v52.useToast)();
     (0, _v53.useOutsideClick)({
-      enabled: _v11,
-      ref: _v13,
+      enabled: _v8,
+      ref: _v10,
       handler: _v0 => {
-        _v14.current && _v0.target && (_v14.current == _v0.target || _v14.current?.contains(_v0.target)) || _v12(!1);
+        _v11.current && _v0.target && (_v11.current == _v0.target || _v11.current?.contains(_v0.target)) || _v9(!1);
       }
     });
-    let _v16 = _v8?.ownerId || _v5.id,
-      _v17 = `//${_v6}/teams/${_v16}/legal_holds?jwt_token=${_v7}`,
-      _v18 = `//${_v6}/teams/${_v16}/legal_hold/clips/export?jwt_token=${_v7}&filter=csv`,
-      _v19 = _v9 === _v30.Apply,
-      _v20 = _v9 === _v30.Release,
-      _v21 = _v0 => {
+    let _v13 = _v5?.teamUser?.ownerId || _v5?.user?.id,
+      _v14 = _v5?.apiUrl ?? "",
+      _v15 = _v5?.jwt ?? "",
+      _v16 = `//${_v14}/teams/${_v13}/legal_holds?jwt_token=${_v15}`,
+      _v17 = `//${_v14}/teams/${_v13}/legal_hold/clips/export?jwt_token=${_v15}&filter=csv`,
+      _v18 = _v6 === _v30.Apply,
+      _v19 = _v6 === _v30.Release,
+      _v20 = _v0 => {
         _v0.preventDefault();
         let {
           target: {
             files: _v1
           }
         } = _v0;
-        _v1 && _v1.length > 0 && (_v12(!1), _v3(!0), _v47(_v1[0], ["video_url"]).then(_v0 => {
-          fetch(`${_v17}`, {
-            method: _v19 ? _v31.Post : _v31.Delete,
+        _v1 && _v1.length > 0 && (_v9(!1), _v3(!0), _v47(_v1[0], ["video_url"]).then(_v0 => {
+          _v5 ? fetch(`${_v16}`, {
+            method: _v18 ? _v31.Post : _v31.Delete,
             headers: {
               "Content-Type": "application/json"
             },
@@ -544,17 +541,17 @@
             if (!_v0.ok) throw Error(_v0.statusText);
             return _v0;
           }).then(_v0 => {
-            let _v1 = _v19 ? _v32.CreatedOk : _v32.DeletedOk;
+            let _v1 = _v18 ? _v32.CreatedOk : _v32.DeletedOk;
             if (_v0.status !== _v1) _v2(_v13.T.ReuploadFileError);else {
-              let _v0 = _v20 ? 1 : _v4;
+              let _v0 = _v19 ? 1 : _v4;
               _v0(_v0).then(() => {
-                _v1(_v0), _v15({
+                _v1(_v0), _v12({
                   variant: "success",
                   duration: 0,
-                  title: _v19 ? _v13.T.LegalHoldApplied : _v13.T.LegalHoldRemoved
+                  title: _v18 ? _v13.T.LegalHoldApplied : _v13.T.LegalHoldRemoved
                 });
               }), _v14.BigPictureClient.sendEvent(new _v14.Event("vimeo.legal_hold_event", 1, {
-                name: _v20 ? "released" : "created",
+                name: _v19 ? "released" : "created",
                 object_type: "video",
                 objects_count: _v0.length,
                 feature: "data_retention_policy"
@@ -563,7 +560,7 @@
             _v3(!1);
           }).catch(() => {
             _v2(_v13.T.ReuploadFileError), _v3(!1);
-          });
+          }) : console.warn("Viewer is not available for ToolBar uploadRequest");
         }).catch(_v0 => {
           _v2(_v0 instanceof _v46 ? _v0.getMessage() : _v13.T.ReuploadFileError), _v3(!1);
         }));
@@ -573,17 +570,17 @@
       justifyContent: "flex-end",
       children: [(0, _v5.jsx)(_v51.Button, {
         as: "a",
-        href: _v18,
+        href: _v17,
         id: "download-csv-btn",
         variant: "tertiary",
         leftIcon: (0, _v5.jsx)(_v60.DownloadImport, {}),
         children: _v13.T.DownloadCsv
       }), (0, _v5.jsxs)(_v54.Popover, {
-        isOpen: _v11,
+        isOpen: _v8,
         placement: "bottom-end",
         children: [(0, _v5.jsx)(_v58.Portal, {
           children: (0, _v5.jsxs)(_v56.PopoverContent, {
-            ref: _v13,
+            ref: _v10,
             sx: {
               "& label": {
                 width: "100%"
@@ -593,33 +590,33 @@
               id: "legal-hold-apply-btn",
               variant: "minimal",
               onClick: () => {
-                _v10(_v30.Apply);
+                _v7(_v30.Apply);
               },
-              onChange: _v21,
+              onChange: _v20,
               label: _v13.T.ApplyLH,
               accept: ".csv"
             }, "apply"), (0, _v5.jsx)(_v57.FileInput, {
               id: "legal-hold-release-btn",
               variant: "minimal",
               onClick: () => {
-                _v10(_v30.Release);
+                _v7(_v30.Release);
               },
-              onChange: _v21,
+              onChange: _v20,
               label: _v13.T.RemoveLH,
               accept: ".csv"
             }, "remove")]
           })
         }), (0, _v5.jsx)(_v55.PopoverTrigger, {
           children: (0, _v5.jsx)(_v51.Button, {
-            ref: _v14,
+            ref: _v11,
             id: "upload-csv-btn",
             variant: "primary",
             rightIcon: (0, _v5.jsx)(_v59.ChevronDownSmall, {
-              transform: _v11 ? "rotate(0)" : "rotate(180deg)",
+              transform: _v8 ? "rotate(0)" : "rotate(180deg)",
               width: "xs",
               height: "xs"
             }),
-            onClick: () => _v12(!_v11),
+            onClick: () => _v9(!_v8),
             children: _v13.T.UploadCsv
           })
         })]

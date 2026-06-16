@@ -50,7 +50,7 @@
         _v1 = 0 * _v0.durationAmount;
         break;
       default:
-        throw "Invalid duration units";
+        throw Error("Invalid duration units");
     }
     return {
       uri: _v0.uri,
@@ -217,7 +217,7 @@
           }
         });
       default:
-        throw "Unsupported unit";
+        throw Error("Unsupported unit");
     }
   }]);
 }

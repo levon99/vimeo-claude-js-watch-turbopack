@@ -27,7 +27,7 @@
       } = (0, _v2.useGetUser)(() => {
         let _v0 = _v0?.teamUser?.ownerId ?? _v0?.user?.id;
         return _v0 ? {
-          select: ["uploadQuota", "aiCreditsQuota", "drmLicensesQuota", "bandwidthQuota"],
+          select: ["uploadQuota", "aiCreditsQuota", "drmLicensesQuota"],
           where: {
             userId: _v0
           }
@@ -68,7 +68,6 @@
         ..._v6?.aiCreditsQuota
       },
       drmLicensesQuota: _v1?.drmLicensesQuota,
-      bandwidthQuota: _v1?.bandwidthQuota,
       ..._v2
     };
   }], 0);

@@ -908,59 +908,58 @@
       ssr: !1
     }),
     _v78 = () => {
-      let {
-          user: _v0,
-          teamUser: _v1
-        } = (0, _v32.useViewer)(),
-        _v2 = (0, _v9.useRouter)(),
-        [_v3, _v4] = (0, _v10.useState)(),
-        _v5 = (0, _v8.useSearchParams)(),
-        _v6 = (0, _v6.getTranslations)(),
-        _v7 = (0, _v15.useToast)(),
-        _v8 = (0, _v10.useCallback)((_v0, _v1 = "neutral") => {
-          _v7({
+      let _v0 = (0, _v32.useViewer)(),
+        _v1 = _v0?.user,
+        _v2 = _v0?.teamUser,
+        _v3 = (0, _v9.useRouter)(),
+        [_v4, _v5] = (0, _v10.useState)(),
+        _v6 = (0, _v8.useSearchParams)(),
+        _v7 = (0, _v6.getTranslations)(),
+        _v8 = (0, _v15.useToast)(),
+        _v9 = (0, _v10.useCallback)((_v0, _v1 = "neutral") => {
+          _v8({
             duration: 0,
             title: _v0,
             variant: _v1
           });
-        }, [_v7]),
+        }, [_v8]),
         {
-          isOpen: _v9,
-          onOpen: _v10,
-          onClose: _v11
+          isOpen: _v10,
+          onOpen: _v11,
+          onClose: _v12
         } = (0, _v14.useDisclosure)(),
         {
-          isOpen: _v12,
-          onOpen: _v13,
-          onClose: _v14
+          isOpen: _v13,
+          onOpen: _v14,
+          onClose: _v15
         } = (0, _v14.useDisclosure)(),
         {
-          isOpen: _v15,
-          onOpen: _v16,
-          onClose: _v17
+          isOpen: _v16,
+          onOpen: _v17,
+          onClose: _v18
         } = (0, _v14.useDisclosure)(),
         {
-          isLoading: _v18,
-          workspaceUuid: _v19
+          isLoading: _v19,
+          workspaceUuid: _v20
         } = (0, _v55.useCurrentWorkspaceDetails)(),
         {
-          data: _v20,
-          isLoading: _v21,
-          mutate: _v22,
+          data: _v21,
+          isLoading: _v22,
+          mutate: _v23,
           parsedFilters: {
-            query: _v23
+            query: _v24
           }
         } = _v59({
-          workspaceUuid: _v19
+          workspaceUuid: _v20
         }),
-        _v24 = (0, _v18.useGetMePreferences)({
+        _v25 = (0, _v18.useGetMePreferences)({
           select: ["toid"]
         }),
-        _v25 = _v24.data?.toid ?? 0,
+        _v26 = _v25.data?.toid ?? 0,
         {
-          isLoading: _v26,
-          data: _v27
-        } = (0, _v19.useGetUserProjects)(() => _v25 ? {
+          isLoading: _v27,
+          data: _v28
+        } = (0, _v19.useGetUserProjects)(() => _v26 ? {
           query: {
             excludePrivateToMeFolder: !0,
             perPage: 1,
@@ -969,71 +968,71 @@
           },
           select: ["isPrivateToUser", "name", "privacy", "uri"],
           where: {
-            userId: _v25
+            userId: _v26
           }
         } : null),
-        _v28 = !_v26 && (_v27?.total ?? 0) > 0,
-        _v29 = (0, _v10.useCallback)(_v0 => {
-          _v4(_v0), _v16();
-        }, [_v16]),
+        _v29 = !_v27 && (_v28?.total ?? 0) > 0,
+        _v30 = (0, _v10.useCallback)(_v0 => {
+          _v5(_v0), _v17();
+        }, [_v17]),
         {
-          data: _v30,
-          mutate: _v31,
-          isLoading: _v32
-        } = (0, _v20.useGetWorkspace)(() => _v19 ? {
+          data: _v31,
+          mutate: _v32,
+          isLoading: _v33
+        } = (0, _v20.useGetWorkspace)(() => _v20 ? {
           select: ["displayName", "membershipCount.admins", "membershipCount.members", "rolesCount"],
           where: {
-            workspaceUuid: _v19
+            workspaceUuid: _v20
           }
         } : null),
-        _v33 = (0, _v41.getUserIdFromUri)(_v0?.uri),
+        _v34 = (0, _v41.getUserIdFromUri)(_v1?.uri),
         {
-          data: _v34
-        } = _v30(() => _v19 && _v33 ? {
+          data: _v35
+        } = _v30(() => _v20 && _v34 ? {
           select: ["orgPermissionLevel", "permissionLevel"],
           where: {
-            workspaceUuid: _v19,
-            workspaceUserId: _v33
+            workspaceUuid: _v20,
+            workspaceUserId: _v34
           }
         } : null),
-        _v35 = _v34 ? _v34.orgPermissionLevel : _v40.ORGANIZATION_ROLES.MEMBER,
-        _v36 = _v34 ? _v34.permissionLevel : _v40.WORKSPACE_ROLES.VIEWER,
+        _v36 = _v35 ? _v35.orgPermissionLevel : _v40.ORGANIZATION_ROLES.MEMBER,
+        _v37 = _v35 ? _v35.permissionLevel : _v40.WORKSPACE_ROLES.VIEWER,
         {
-          handleRoleChange: _v37,
-          loading: _v38
+          handleRoleChange: _v38,
+          loading: _v39
         } = _v47({
-          member: _v3,
-          revalidateWorkspaceMembers: _v22,
-          revalidateWorkspaceMemberCount: _v31,
-          onSuccess: _v14
+          member: _v4,
+          revalidateWorkspaceMembers: _v23,
+          revalidateWorkspaceMemberCount: _v32,
+          onSuccess: _v15
         }),
         {
           capabilities: {
-            hasContentSpaceEnabled: _v39
+            hasContentSpaceEnabled: _v40
           },
-          ready: _v40
-        } = (0, _v17.useCapability)(["hasContentSpaceEnabled"], _v1?.ownerId ?? _v0?.id),
-        _v41 = (0, _v10.useCallback)(_v0 => {
-          _v4(_v0), _v10();
-        }, [_v10]),
+          ready: _v41
+        } = (0, _v17.useCapability)(["hasContentSpaceEnabled"], _v2?.ownerId ?? _v1?.id),
         _v42 = (0, _v10.useCallback)(_v0 => {
-          if (!_v40) return;
+          _v5(_v0), _v11();
+        }, [_v11]),
+        _v43 = (0, _v10.useCallback)(_v0 => {
+          if (!_v41) return;
           let {
               workspaceMemberId: _v1
             } = (0, _v41.parseWorkspaceMemberUri)(_v0.uri),
-            _v2 = _v39 ? `/manage/workspace/members/${_v1}/team-library` : `/manage/workspace/members/${_v1}/shared-resources`;
-          _v2.push(_v2);
-        }, [_v39, _v40, _v2]),
-        _v43 = (0, _v10.useCallback)(_v0 => !!(_v0.status === _v40.INVITE_STATUS.ACCEPTED && _v0?.user?.uri), []),
-        _v44 = (0, _v10.useCallback)(_v0 => {
-          _v43(_v0) ? _v2.push(`/analytics/teams/${_v25}${_v0?.user?.uri}`) : _v8(_v6.MemberDoesNotHaveActivityHistory, "warning");
-        }, [_v8, _v43, _v2, _v6, _v25]),
+            _v2 = _v40 ? `/manage/workspace/members/${_v1}/team-library` : `/manage/workspace/members/${_v1}/shared-resources`;
+          _v3.push(_v2);
+        }, [_v40, _v41, _v3]),
+        _v44 = (0, _v10.useCallback)(_v0 => !!(_v0.status === _v40.INVITE_STATUS.ACCEPTED && _v0?.user?.uri), []),
         _v45 = (0, _v10.useCallback)(_v0 => {
-          _v0 && ((0, _v31.default)(window.location.origin + _v0) ? _v8(_v6.InviteLinkCopied, "neutral") : _v8(_v6.CopyInviteLinkError, "warning"));
-        }, [_v8, _v6]),
+          _v44(_v0) ? _v3.push(`/analytics/teams/${_v26}${_v0?.user?.uri}`) : _v9(_v7.MemberDoesNotHaveActivityHistory, "warning");
+        }, [_v9, _v44, _v3, _v7, _v26]),
+        _v46 = (0, _v10.useCallback)(_v0 => {
+          _v0 && ((0, _v31.default)(window.location.origin + _v0) ? _v9(_v7.InviteLinkCopied, "neutral") : _v9(_v7.CopyInviteLinkError, "warning"));
+        }, [_v9, _v7]),
         {
-          triggerReminderEmail: _v46,
-          isSending: _v47
+          triggerReminderEmail: _v47,
+          isSending: _v48
         } = (({
           onError: _v0,
           onSuccess: _v1
@@ -1068,7 +1067,7 @@
           };
         })({
           onSuccess: (0, _v10.useCallback)(_v0 => {
-            _v8(_v6.ReminderEmailSent), _v22(void 0, {
+            _v9(_v7.ReminderEmailSent), _v23(void 0, {
               populateCache: (_v0, _v1) => ({
                 ..._v1,
                 data: _v1.data.map(_v0 => _v0.uri === _v0 && "pending" === _v0.status ? {
@@ -1078,60 +1077,60 @@
               }),
               revalidate: !1
             });
-          }, [_v8, _v6.ReminderEmailSent, _v22]),
+          }, [_v9, _v7.ReminderEmailSent, _v23]),
           onError: (0, _v10.useCallback)(() => {
-            _v8(_v6.ErrorSendingReminderEmail, "warning");
-          }, [_v8, _v6])
+            _v9(_v7.ErrorSendingReminderEmail, "warning");
+          }, [_v9, _v7])
         }),
-        _v48 = (0, _v10.useCallback)(_v0 => "pending" === _v0.status ? (0, _v1.jsx)(_v38, {
-          onClickCopyInviteLink: () => _v45(_v0.inviteUrl),
+        _v49 = (0, _v10.useCallback)(_v0 => "pending" === _v0.status ? (0, _v1.jsx)(_v38, {
+          onClickCopyInviteLink: () => _v46(_v0.inviteUrl),
           reminderAlreadySent: _v0.recentlyReminded,
-          onClickRemoveFromWorkspace: () => _v41(_v0),
-          onClickResendInvite: () => _v46(_v0.uri),
-          onClickShareFolder: () => _v29(_v0),
-          isShareFolderDisabled: !_v28,
+          onClickRemoveFromWorkspace: () => _v42(_v0),
+          onClickResendInvite: () => _v47(_v0.uri),
+          onClickShareFolder: () => _v30(_v0),
+          isShareFolderDisabled: !_v29,
           isShareFolderVisible: _v0.permissionLevel !== _v40.WORKSPACE_ROLES.ADMIN,
-          isSendingReminder: _v47
+          isSendingReminder: _v48
         }) : _v0.orgPermissionLevel === _v40.ORGANIZATION_ROLES.ADMIN ? (0, _v1.jsx)(_v37, {
-          onClickViewAccess: () => _v42(_v0),
-          onClickViewActivity: () => _v44(_v0)
+          onClickViewAccess: () => _v43(_v0),
+          onClickViewActivity: () => _v45(_v0)
         }) : (0, _v1.jsx)(_v36, {
-          onClickShareFolder: () => _v29(_v0),
-          onClickViewAccess: () => _v42(_v0),
-          onClickViewActivity: () => _v44(_v0),
-          onClickRemoveFromWorkspace: () => _v41(_v0),
-          isShareFolderDisabled: !_v28,
+          onClickShareFolder: () => _v30(_v0),
+          onClickViewAccess: () => _v43(_v0),
+          onClickViewActivity: () => _v45(_v0),
+          onClickRemoveFromWorkspace: () => _v42(_v0),
+          isShareFolderDisabled: !_v29,
           isShareFolderVisible: _v0.permissionLevel !== _v40.WORKSPACE_ROLES.ADMIN,
-          isViewActivityVisible: _v43(_v0)
-        }), [_v41, _v47, _v29, _v42, _v44, _v43, _v45, _v46, _v28]),
-        _v49 = (0, _v10.useCallback)(_v0 => {
-          if (_v0.user?.uri === _v0?.uri) return !1;
+          isViewActivityVisible: _v44(_v0)
+        }), [_v42, _v48, _v30, _v43, _v45, _v44, _v46, _v47, _v29]),
+        _v50 = (0, _v10.useCallback)(_v0 => {
+          if (_v0.user?.uri === _v1?.uri) return !1;
           let _v1 = _v0.status === _v40.INVITE_STATUS.ACCEPTED,
             _v2 = _v0.orgPermissionLevel,
             _v3 = _v1 && _v2 === _v40.ORGANIZATION_ROLES.ADMIN,
             _v4 = _v2 === _v40.ORGANIZATION_ROLES.MEMBER,
             _v5 = _v3 || _v4;
-          switch (_v35) {
+          switch (_v36) {
             case _v40.ORGANIZATION_ROLES.OWNER:
               return _v1 || _v4;
             case _v40.ORGANIZATION_ROLES.ADMIN:
               return _v5;
             default:
-              return _v36 === _v40.WORKSPACE_ROLES.ADMIN && _v5;
+              return _v37 === _v40.WORKSPACE_ROLES.ADMIN && _v5;
           }
-        }, [_v35, _v36, _v0?.uri]),
-        _v50 = (0, _v10.useCallback)(_v0 => {
-          _v4(_v0), _v13();
-        }, [_v13]),
-        _v51 = (0, _v10.useCallback)(_v0 => (0, _v1.jsx)(_v16.Td, {
+        }, [_v36, _v37, _v1?.uri]),
+        _v51 = (0, _v10.useCallback)(_v0 => {
+          _v5(_v0), _v14();
+        }, [_v14]),
+        _v52 = (0, _v10.useCallback)(_v0 => (0, _v1.jsx)(_v16.Td, {
           children: (0, _v1.jsx)(_v51, {
             member: _v0,
-            revalidateWorkspaceMembers: _v22,
-            revalidateWorkspaceMemberCount: _v31,
-            setConfirmationModalOpen: _v50
+            revalidateWorkspaceMembers: _v23,
+            revalidateWorkspaceMemberCount: _v32,
+            setConfirmationModalOpen: _v51
           })
-        }), [_v22, _v31, _v50]),
-        _v52 = !_v21 && _v20?.data.length === 0;
+        }), [_v23, _v32, _v51]),
+        _v53 = !_v22 && _v21?.data.length === 0;
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v2.VStack, {
           width: "100%",
@@ -1154,18 +1153,18 @@
                 children: (0, _v1.jsx)(_v72, {})
               }), (0, _v1.jsx)(_v12.HStack, {
                 gap: "md",
-                children: (0, _v1.jsx)(_v62, {}, _v5.toString())
+                children: (0, _v1.jsx)(_v62, {}, _v6.toString())
               })]
             })
           }), (0, _v1.jsx)(_v73.SelectionProvider, {
             initTotalCount: 0,
-            children: _v52 ? (0, _v1.jsx)(_v11.Box, {
+            children: _v53 ? (0, _v1.jsx)(_v11.Box, {
               backgroundColor: "surface",
               borderBottomLeftRadius: "lg",
               borderBottomRightRadius: "lg",
               width: "100%",
               children: (0, _v1.jsx)(_v76.NoResults, {
-                query: _v23
+                query: _v24
               })
             }) : (0, _v1.jsx)(_v11.Box, {
               p: "md",
@@ -1176,48 +1175,48 @@
               borderBottomRightRadius: "lg",
               children: (0, _v1.jsx)(_v74.MembersList, {
                 showCheckboxes: !1,
-                members: _v20?.data ?? [],
-                shouldShowOptionsMenu: _v49,
-                getMemberAdditionalActions: _v51,
-                getMenuContent: _v48,
+                members: _v21?.data ?? [],
+                shouldShowOptionsMenu: _v50,
+                getMemberAdditionalActions: _v52,
+                getMenuContent: _v49,
                 headerSlot: (0, _v1.jsx)(_v67, {}),
-                isLoading: _v18 || _v21,
+                isLoading: _v19 || _v22,
                 loadingMemberSkeletonCount: _v40.WORKSPACE_MEMBERS_PER_PAGE_ITEM_COUNT,
                 isHeaderSticky: !0,
                 headerHeight: (0, _v13.rem)(64)
               })
             })
           })]
-        }), (0, _v1.jsx)(_v69, {}), _v9 && _v3 && (0, _v1.jsx)(_v43, {
-          isOpen: _v9,
-          isLoading: _v32,
-          selectedMember: _v3,
-          workspaceName: _v30?.displayName ?? "",
-          onClose: _v11,
-          revalidateWorkspaceMembers: _v22,
-          revalidateWorkspaceMemberCount: _v31
-        }), _v12 && (0, _v1.jsx)(_v75.ConfirmationModal, {
-          isOpen: _v12,
+        }), (0, _v1.jsx)(_v69, {}), _v10 && _v4 && (0, _v1.jsx)(_v43, {
+          isOpen: _v10,
+          isLoading: _v33,
+          selectedMember: _v4,
+          workspaceName: _v31?.displayName ?? "",
+          onClose: _v12,
+          revalidateWorkspaceMembers: _v23,
+          revalidateWorkspaceMemberCount: _v32
+        }), _v13 && (0, _v1.jsx)(_v75.ConfirmationModal, {
+          isOpen: _v13,
           modalHeaderContent: (0, _v1.jsx)(_v3.Text, {
             variant: "body-xl",
             fontSize: (0, _v13.rem)(20),
-            children: _v6.MakeWorkspaceAdminOption(_v3?.user?.name ?? _v3?.email)
+            children: _v7.MakeWorkspaceAdminOption(_v4?.user?.name ?? _v4?.email)
           }),
-          onClose: _v14,
+          onClose: _v15,
           onConfirmAction: () => {
-            _v37(_v40.ALLOWED_ROLES_FOR_INVITE.ADMIN, _v3);
+            _v38(_v40.ALLOWED_ROLES_FOR_INVITE.ADMIN, _v4);
           },
-          isLoading: _v38,
+          isLoading: _v39,
           children: (0, _v1.jsx)(_v3.Text, {
             variant: "body-md",
-            children: _v6.MakeWorkspaceAdminDescription(_v3?.user?.name ?? _v3?.email, _v30?.displayName ?? "")
+            children: _v7.MakeWorkspaceAdminDescription(_v4?.user?.name ?? _v4?.email, _v31?.displayName ?? "")
           })
-        }), _v15 && _v3 && (0, _v1.jsx)(_v77, {
-          displayToast: _v8,
-          isOpen: _v15,
-          onClose: _v17,
-          workspaceMemberUri: _v3.uri,
-          workspaceOwnerId: _v25
+        }), _v16 && _v4 && (0, _v1.jsx)(_v77, {
+          displayToast: _v9,
+          isOpen: _v16,
+          onClose: _v18,
+          workspaceMemberUri: _v4.uri,
+          workspaceOwnerId: _v26
         })]
       });
     };

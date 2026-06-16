@@ -2188,7 +2188,7 @@
   _v0.s(["ActionErrorType", 0, _v81, "ManageTeamActionTypes", 0, _v82], 0);
   let _v83 = {
       NotificationForOwnerAdmin: (_v0, _v1) => {
-        if (!_v1.payload) throw "No payload!";
+        if (!_v1.payload) throw Error("No payload!");
         let _v2 = _v1.payload.notification;
         return {
           ..._v0,

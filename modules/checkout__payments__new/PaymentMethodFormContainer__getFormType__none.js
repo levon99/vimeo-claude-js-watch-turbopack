@@ -552,7 +552,7 @@
             includeAddressFields: _v4,
             onSubmit: _v42,
             requireAccountId: _v11,
-            token: _v16.xsrft,
+            token: _v16?.xsrft || "",
             onSubmitError: _v44,
             currency: _v1,
             userLocale: _v41,

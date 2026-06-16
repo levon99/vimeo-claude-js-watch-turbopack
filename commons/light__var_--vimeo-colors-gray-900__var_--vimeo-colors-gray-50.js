@@ -182,10 +182,40 @@
         modules: [0]
       }
     }),
-    _v12 = _v0 => {
+    _v12 = (0, _v2.default)(async () => ({
+      default: (await _v0.A(0)).ManagedAccountsInviteFlow
+    }), {
+      loadableGenerated: {
+        modules: [0]
+      }
+    }),
+    _v13 = (0, _v2.default)(async () => ({
+      default: (await _v0.A(0)).PromoPopup
+    }), {
+      loadableGenerated: {
+        modules: [0]
+      }
+    }),
+    _v14 = _v0 => {
       let _v1 = (0, _v4.useIsBokeh)(),
         _v2 = (0, _v6.useViewer)(),
-        [_v3, _v4] = (0, _v3.useState)(null);
+        [_v3, _v4] = (0, _v3.useState)(null),
+        [_v5, _v6] = (0, _v3.useState)("navbar"),
+        _v7 = (0, _v3.useCallback)(() => {
+          let _v0 = _v2?.xsrft;
+          fetch("/log_out", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams(_v0 ? {
+              token: _v0
+            } : {}).toString(),
+            credentials: "same-origin"
+          }).catch(() => void 0).finally(() => {
+            window.location.href = "/";
+          });
+        }, [_v2?.xsrft]);
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v8, {
           isBokeh: _v1
@@ -196,13 +226,13 @@
           activeSet: _v0 => _v4(_v0),
           token: _v2.xsrft,
           contentViewingPrefs: _v2.contentViewingPrefs
-        }), "language" === _v3 && (0, _v1.jsx)(_v10, {
+        }), "language" === _v3 && _v2 && (0, _v1.jsx)(_v10, {
           active: !0,
           activeSet: _v0 => _v4(_v0),
-          locale: _v2?.locale,
-          locales: _v2?.locales,
-          localeLabels: _v2?.localeLabels,
-          token: _v2?.xsrft
+          locale: _v2.locale,
+          locales: _v2.locales,
+          localeLabels: _v2.localeLabels,
+          token: _v2.xsrft
         }), "upsell" === _v3 && (0, _v1.jsx)(_v11, {
           apiUrl: _v2?.apiUrl,
           onClose: () => _v4(null),
@@ -229,10 +259,21 @@
           modalConfig: {
             mkcCode: "unified-top-nav-legacy"
           }
+        }), "add_client_account" === _v3 && (0, _v1.jsx)(_v12, {
+          ctaSource: _v5,
+          onClose: () => {
+            _v4(null), _v6("navbar");
+          }
+        }), "logout_promo" === _v3 && (0, _v1.jsx)(_v13, {
+          isOpen: !0,
+          onClose: _v7,
+          onCtaClick: () => {
+            _v6("logout_promo"), _v4("add_client_account");
+          }
         })]
       });
     },
-    _v13 = (0, _v2.default)(async () => {
+    _v15 = (0, _v2.default)(async () => {
       let {
         AccountMenu: _v0
       } = await _v0.A(0);
@@ -247,10 +288,10 @@
   _v0.s(["AccountMenuWithModals", 0, ({
     hasThemeSupport: _v0 = !0,
     onConfirmTeamSwitch: _v1
-  }) => (0, _v1.jsx)(_v12, {
+  }) => (0, _v1.jsx)(_v14, {
     children: ({
       setModal: _v0
-    }) => (0, _v1.jsx)(_v13, {
+    }) => (0, _v1.jsx)(_v15, {
       setModal: _v0 => _v0(_v0),
       hasThemeSupport: _v0,
       onConfirmTeamSwitch: _v1

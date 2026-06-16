@@ -2634,7 +2634,7 @@
       sessionApplicationType: _v4.sessionApplicationType,
       sessionType: _v4.sessionType,
       sessionId: _v4.sessionId,
-      userId: _v1.user?.id,
+      userId: _v1?.user?.id,
       userLocale: _v1?.locale
     }), (0, _v31.isAgoraSupportedInBrowser)() && (!_v23.browserConfig.BROWSER?.isMobile || _v25.liveApplicationConfig.FEATURE.USE_MOBILE_ACCESS)) ? (0, _v6.jsx)(_v16.ScopeProvider, {
       children: (0, _v6.jsx)(_v22.ScopeErrorBoundary, {

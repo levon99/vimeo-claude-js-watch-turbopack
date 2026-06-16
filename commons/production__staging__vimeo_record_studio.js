@@ -10779,10 +10779,10 @@
       return (0, _v25.jsxs)(_v370.Provider, {
         value: _v13,
         children: [_v1 && (0, _v25.jsx)(_v371, {
-          apiUrl: _v5.apiUrl,
+          apiUrl: _v5?.apiUrl,
           userConfig: {
-            jwt: _v5.jwt,
-            userId: _v5.user?.id
+            jwt: _v5?.jwt,
+            userId: _v5?.user?.id
           },
           templateType: "default",
           modalConfig: {

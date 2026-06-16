@@ -1710,7 +1710,7 @@
             })({
               layout: "LIST_LAYOUT" === _v7 ? "list" : "grid",
               showcase_id: (0, _v100.idFromUri)(_v1.uri).toString()
-            }), _v14 && _v17) _v14 !== (0, _v100.idFromUri)(_v1.user.uri) && _v17.some(_v0 => _v0.uri === _v1.user.uri) && (_v0.preventDefault(), _v6({
+            }), _v0 && _v14 && _v17) _v14 !== (0, _v100.idFromUri)(_v1.user.uri) && _v17.some(_v0 => _v0.uri === _v1.user.uri) && (_v0.preventDefault(), _v6({
               isOpen: !0,
               teamName: _v19(_v1.user.uri)
             }), fetch("/manage/videos?action=SWITCH_TEAMS", {

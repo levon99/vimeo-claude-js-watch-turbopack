@@ -55,7 +55,7 @@
         if (_v1 < _v0.length) if (!_v4) return _v30.OUT_OF_SEATS_ACTION.CONTACT_OWNER;else return _v0.length + _v6 < _v30.MAX_TEAM_SIZE_FOR_PRICING_PLAN ? _v8 ? _v30.OUT_OF_SEATS_ACTION.CONTACT_US : _v30.OUT_OF_SEATS_ACTION.PURCHASE_SEATS : _v30.OUT_OF_SEATS_ACTION.CONTACT_US;
       } else if (!(_v0.length + _v6 < _v30.MAX_TEAM_SIZE_FOR_PRICING_PLAN)) return _v4 ? _v30.OUT_OF_SEATS_ACTION.CONTACT_US : _v30.OUT_OF_SEATS_ACTION.CONTACT_OWNER;
     } else {
-      let _v0 = _v9.user?.account;
+      let _v0 = _v9?.user?.account;
       if ("plus" === _v0 || "pro" === _v0) {
         if (_v1 < _v0.length) return _v4 ? _v30.OUT_OF_SEATS_ACTION.UPGRADE_LEGACY_PLAN : _v30.OUT_OF_SEATS_ACTION.CONTACT_OWNER;
       } else if (_v1 < _v0.length) return _v4 ? _v30.OUT_OF_SEATS_ACTION.CONTACT_US_LEGACY : _v30.OUT_OF_SEATS_ACTION.CONTACT_OWNER;

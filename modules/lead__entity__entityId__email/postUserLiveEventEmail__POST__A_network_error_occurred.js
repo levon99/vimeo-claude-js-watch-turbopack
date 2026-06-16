@@ -111,44 +111,43 @@
   let _v45 = ({
     clearAllTextSelections: _v0
   }) => {
-    let {
-        user: _v1
-      } = (0, _v18.useViewer)(),
+    let _v1 = (0, _v18.useViewer)(),
+      _v2 = _v1?.user,
       {
-        emailState: _v2,
-        dispatch: _v3
+        emailState: _v3,
+        dispatch: _v4
       } = (0, _v20.useEmailCustomization)(),
-      _v4 = (0, _v34.useToast)(),
-      [_v5, {
-        data: _v6
+      _v5 = (0, _v34.useToast)(),
+      [_v6, {
+        data: _v7
       }] = (0, _v35.useGetUserLazy)(),
-      _v7 = (0, _v29.useConfigStore)(_v0 => _v0.entityId),
-      [_v8, {
-        loading: _v9,
-        error: _v10,
-        data: _v11
+      _v8 = (0, _v29.useConfigStore)(_v0 => _v0.entityId),
+      [_v9, {
+        loading: _v10,
+        error: _v11,
+        data: _v12
       }] = _v43(),
       {
-        sentRegistrationEmailActionEvent: _v12,
-        sentRegistrationEmailLayoutChangeEvent: _v13
+        sentRegistrationEmailActionEvent: _v13,
+        sentRegistrationEmailLayoutChangeEvent: _v14
       } = (0, _v25.useAnalytics)();
     return (0, _v2.useEffect)(() => {
-      _v5({
+      _v6({
         where: {
-          userId: (0, _v44.getUserIdFromUri)(_v1?.uri)
+          userId: (0, _v44.getUserIdFromUri)(_v2?.uri)
         },
         select: ["email"]
       });
-    }, [_v1?.uri]), (0, _v2.useEffect)(() => {
-      !_v9 && (_v10 ? _v4({
+    }, [_v2?.uri]), (0, _v2.useEffect)(() => {
+      !_v10 && (_v11 ? _v5({
         title: _v30.default.SomethingWentWrong,
         status: "error"
-      }) : _v11 && _v4({
+      }) : _v12 && _v5({
         status: "success",
         title: (0, _v13.translate)({
           singular: "Successfully sent to {EMAIL}",
           replacements: {
-            EMAIL: _v6?.email
+            EMAIL: _v7?.email
           },
           dictionary: {
             "fr-FR": {
@@ -166,28 +165,28 @@
           }
         })
       }));
-    }, [_v9, _v10, _v11]), (0, _v1.jsxs)(_v7.Flex, {
+    }, [_v10, _v11, _v12]), (0, _v1.jsxs)(_v7.Flex, {
       children: [(0, _v1.jsx)(_v32.Button, {
         size: "sm",
         variant: "tertiary",
         mr: (0, _v12.rem)(10),
-        isDisabled: !_v2.isContentModified?.[_v2.emailTemplateType],
+        isDisabled: !_v3.isContentModified?.[_v3.emailTemplateType],
         onClick: () => {
-          _v3({
+          _v4({
             type: _v28.ACTION_TYPE.RESET,
-            payload: _v2.emailTemplateType
-          }), _v13({
+            payload: _v3.emailTemplateType
+          }), _v14({
             actionName: _v27.BP_ACTION_NAMES.RESET,
-            type: _v27.BP_TYPE[_v2.emailTemplateType]
+            type: _v27.BP_TYPE[_v3.emailTemplateType]
           });
         },
         children: _v30.default.Reset
       }), (0, _v1.jsx)(_v33.Tooltip, {
         fontSize: "body-md",
-        label: _v6?.email?.length ? (0, _v13.translate)({
+        label: _v7?.email?.length ? (0, _v13.translate)({
           singular: "Test email will be sent to the email associated with your account {EMAIL}",
           replacements: {
-            EMAIL: _v6?.email
+            EMAIL: _v7?.email
           },
           dictionary: {
             "fr-FR": {
@@ -209,22 +208,22 @@
             size: "sm",
             variant: "secondary",
             onClick: () => {
-              _v7 && (_v0(), _v8({
+              _v8 && (_v0(), _v9({
                 where: {
-                  userId: (0, _v44.getUserIdFromUri)(_v1?.uri),
-                  liveEventId: parseInt(_v7)
+                  userId: (0, _v44.getUserIdFromUri)(_v2?.uri),
+                  liveEventId: parseInt(_v8)
                 },
                 variables: {
-                  type: _v24.TEST_EMAIL_TEMPLATE[_v2.emailTemplateType],
+                  type: _v24.TEST_EMAIL_TEMPLATE[_v3.emailTemplateType],
                   test: !0
                 }
-              }), _v12({
+              }), _v13({
                 actionName: "trigger_test",
-                type: _v27.BP_TYPE[_v2.emailTemplateType]
+                type: _v27.BP_TYPE[_v3.emailTemplateType]
               }));
             },
-            isLoading: _v9,
-            isDisabled: _v9,
+            isLoading: _v10,
+            isDisabled: _v10,
             children: _v30.default.SendTest
           })
         })
@@ -612,9 +611,8 @@
         teamName: _v1,
         isLoading: _v2
       } = (0, _v59.useTeamStore)(),
-      {
-        user: _v3
-      } = (0, _v18.useViewer)();
+      _v3 = (0, _v18.useViewer)(),
+      _v4 = _v3?.user;
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v7.Flex, {
         p: "sm",
@@ -625,7 +623,7 @@
       }), (0, _v1.jsxs)(_v7.Flex, {
         p: "sm",
         justifyContent: "center",
-        children: [`This email was sent to you by ${_v1 && !_v2 ? _v1 : _v3?.name}.`, _v0.useReplyEmail && _v0?.replyEmail && `You can respond to the sender at ${_v0?.replyEmail}.`]
+        children: [`This email was sent to you by ${_v1 && !_v2 ? _v1 : _v4?.name}.`, _v0.useReplyEmail && _v0?.replyEmail && `You can respond to the sender at ${_v0?.replyEmail}.`]
       }), _v0.useSenderAddress && _v0?.senderAddress && (0, _v1.jsx)(_v7.Flex, {
         p: "sm",
         justifyContent: "center",

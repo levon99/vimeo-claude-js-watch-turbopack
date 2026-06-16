@@ -69,28 +69,26 @@
       {
         sendBpEvent: _v14
       } = (0, _v21.useAnalytics)(),
+      _v15 = (0, _v20.useViewer)(),
+      _v16 = _v15?.user,
       {
-        user: _v15
-      } = (0, _v20.useViewer)(),
-      {
-        fetchAndDownload: _v16,
-        isLoading: _v17,
-        error: _v18
+        fetchAndDownload: _v17,
+        isLoading: _v18,
+        error: _v19
       } = (() => {
         let [_v0, _v1] = (0, _v2.useState)(!1),
           [_v2, _v3] = (0, _v2.useState)(null),
+          _v4 = (0, _v20.useViewer)(),
+          _v5 = _v4?.jwt,
+          _v6 = _v4?.locale,
+          _v7 = _v4?.apiUrl,
+          _v8 = _v4?.teamUser,
+          _v9 = _v4?.user,
           {
-            jwt: _v4,
-            locale: _v5,
-            apiUrl: _v6,
-            teamUser: _v7,
-            user: _v8
-          } = (0, _v20.useViewer)(),
-          {
-            data: _v9,
-            isLoading: _v10
+            data: _v10,
+            isLoading: _v11
           } = (0, _v22.useGetUser)(() => {
-            let _v0 = _v7?.ownerId;
+            let _v0 = _v8?.ownerId;
             return _v0 ? {
               select: ["metadata.connections.leadCaptureForm"],
               where: {
@@ -98,7 +96,7 @@
               }
             } : null;
           }),
-          _v11 = (0, _v2.useCallback)((_v0, _v1) => {
+          _v12 = (0, _v2.useCallback)((_v0, _v1) => {
             try {
               let _v0 = window.URL.createObjectURL(_v0),
                 _v1 = document.createElement("a");
@@ -107,15 +105,15 @@
               throw console.error("Download file error:", _v0), _v0;
             }
           }, []),
-          _v12 = (0, _v2.useCallback)(_v0 => {
+          _v13 = (0, _v2.useCallback)(_v0 => {
             let _v1 = _v0.headers.get("Content-Type") || "";
             return _v1.includes("application/json") ? "json" : _v1.includes("text/csv") ? "csv" : "unknown";
           }, []);
         return {
           fetchAndDownload: (0, _v2.useCallback)(async (_v0, _v1, _v2 = {}) => {
-            _v1(!0), _v3(null);
-            let _v3 = _v9?.metadata?.connections?.leadCaptureForm?.options?.length ? _v7?.ownerId ?? _v8?.id : _v8?.id,
-              _v4 = `//${_v6}/users/${_v3}/lead_capture/registrants/export?jwt_token=${_v4}&report_type=form_submission_report&locale=${_v5}`;
+            if (_v1(!0), _v3(null), !_v7 || !_v5 || !_v6) return _v1(!1), null;
+            let _v3 = _v10?.metadata?.connections?.leadCaptureForm?.options?.length ? _v8?.ownerId ?? _v9?.id : _v9?.id,
+              _v4 = `//${_v7}/users/${_v3}/lead_capture/registrants/export?jwt_token=${_v5}&report_type=form_submission_report&locale=${_v6}`;
             _v0 && _v1 && (_v4 = `${_v4}&from=${_v0}&to=${_v1}`);
             try {
               let _v0 = new URL(_v4, window.location.origin).toString(),
@@ -133,7 +131,7 @@
                 let _v0 = Error(`HTTP error! status: ${_v2.status}`);
                 throw _v0.status = _v2.status, _v0;
               }
-              switch (_v12(_v2)) {
+              switch (_v13(_v2)) {
                 case "json":
                   if (202 === _v2.status) {
                     let _v0 = await _v2.json();
@@ -152,7 +150,7 @@
                       year: "numeric"
                     }).format(new Date()), `All Vimeo registration data – ${_v0}.csv`),
                     _v2 = await _v2.blob();
-                  return _v11(_v2, _v1), {
+                  return _v12(_v2, _v1), {
                     responseType: "csv",
                     filename: _v1,
                     contentType: _v2.headers.get("Content-Type")
@@ -165,15 +163,15 @@
             } finally {
               _v1(!1);
             }
-          }, [_v11, _v12, _v9, _v10]),
+          }, [_v12, _v13, _v10, _v11]),
           isLoading: _v0,
           error: _v2
         };
       })(),
-      _v19 = async () => {
+      _v20 = async () => {
         let _v0 = _v8?.toDate("UTC")?.toISOString(),
           _v1 = _v10?.toDate("UTC")?.toISOString(),
-          _v2 = await _v16(_v0, _v1);
+          _v2 = await _v17(_v0, _v1);
         _v2 && (_v13.close(_v30), "csv" === _v2.responseType ? _v13({
           title: _v29.default.YourDownloadWillBeReady,
           isClosable: !1
@@ -182,7 +180,7 @@
             singular: "Emailing CSV file to: {UL}{/UL}",
             replacements: {
               UL: () => (0, _v1.jsx)("u", {
-                children: _v15?.email
+                children: _v16?.email
               })
             },
             dictionary: {
@@ -213,11 +211,11 @@
         }));
       };
     (0, _v2.useEffect)(() => {
-      _v17 && _v13({
+      _v18 && _v13({
         title: _v29.default.ExportingData,
         id: _v30,
         isClosable: !1
-      }), _v18 && (_v13.close(_v30), _v13({
+      }), _v19 && (_v13.close(_v30), _v13({
         title: (0, _v19.translate)({
           singular: "Couldn’t export data. Try again or {LINK}contact us{/LINK} for help.",
           replacements: {
@@ -256,22 +254,22 @@
         variant: "warning",
         isClosable: !1
       }));
-    }, [_v17, _v18]);
-    let _v20 = () => {
+    }, [_v18, _v19]);
+    let _v21 = () => {
         _v3(_v24.ALL_TIME), _v1();
       },
-      _v21 = _v0 => {
+      _v22 = _v0 => {
         let _v1 = document.querySelectorAll(`[id*="${_v0}::"][id*="::positioner"]`);
         if (_v1) for (let _v0 of _v1) _v0.style.zIndex = "10000";
       };
     return (0, _v2.useEffect)(() => {
       let _v0;
-      _v21("datepicker"), _v0 = /^datePicker::[a-zA-Z0-9]+::input:\d+$/i, document.querySelectorAll('[id*="datepicker::"]').forEach(_v0 => {
+      _v22("datepicker"), _v0 = /^datePicker::[a-zA-Z0-9]+::input:\d+$/i, document.querySelectorAll('[id*="datepicker::"]').forEach(_v0 => {
         let _v1 = _v0.id;
         _v0.test(_v1) && (_v0.disabled = !0, _v0.style.opacity = "1", _v0.style.cursor = "default");
       });
     }, [_v4]), (0, _v2.useEffect)(() => {
-      _v21("select");
+      _v22("select");
     }, [_v6]), (0, _v2.useEffect)(() => {
       if (_v2) switch (_v2) {
         case _v24.ALL_TIME:
@@ -332,7 +330,7 @@
     }, [_v2]), (0, _v1.jsx)(_v1.Fragment, {
       children: (0, _v1.jsxs)(_v7.Modal, {
         isOpen: _v0,
-        onClose: _v20,
+        onClose: _v21,
         children: [(0, _v1.jsx)(_v12.ModalOverlay, {}), (0, _v1.jsxs)(_v9.ModalContent, {
           maxWidth: (0, _v13.rem)(480),
           containerProps: {
@@ -408,7 +406,7 @@
             paddingTop: "md",
             children: [(0, _v1.jsx)(_v4.Button, {
               variant: "tertiary",
-              onClick: _v20,
+              onClick: _v21,
               children: _v29.default.Cancel
             }), (0, _v1.jsx)(_v4.Button, {
               variant: "primary",
@@ -419,7 +417,7 @@
                   location: _v28.LOCATION.TOP_TOOLBAR,
                   copy: _v28.COPY.EXPORT_CSV,
                   pageName: _v28.PAGE_NAMES.REGISTRATION_MANAGER
-                }), _v19(), _v20();
+                }), _v20(), _v21();
               },
               children: _v29.default.ExportData
             })]

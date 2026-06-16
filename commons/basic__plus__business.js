@@ -375,7 +375,7 @@
           null != _v0.sessionId ? (_v5(_v0), _v11(_v0.response.activePackage.vimeoAccountEligibility), _v13({
             ..._v0.response.activePackage,
             ..._v0.response.user?.capabilities
-          }), _v15(_v0.response.labelledProducts), _v1(_v0)) : (_v7("auth has no vmosessionid."), _v2());
+          }), _v15(_v0.response.labelledProducts), _v1(_v0)) : (_v7("auth has no vmosessionid."), _v2(Error("Magisto auth has no vmosessionid.")));
         } catch (_v0) {
           _v28(_v0, _v2);
         } finally {

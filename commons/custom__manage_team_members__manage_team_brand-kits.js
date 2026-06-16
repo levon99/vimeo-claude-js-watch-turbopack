@@ -192,7 +192,7 @@
         });
       }, [_v3])),
       _v5 = async (_v0 = !0) => {
-        if (!_v2) throw "no viewer";
+        if (!_v2) throw Error("no viewer");
         _v1({
           type: _v8.ManageTeamActionTypes.FetchTeamInfoInit,
           payload: {
@@ -210,9 +210,9 @@
       },
       _v6 = (0, _v2.useRef)(new AbortController()),
       _v7 = async _v0 => {
-        if (!_v2) throw "no viewer";
+        if (!_v2) throw Error("no viewer");
         if (_v0.isTeamInfoLoading) return;
-        if (!_v0.teamInfo.isSufficientRole) throw "Not sufficient permissions";
+        if (!_v0.teamInfo.isSufficientRole) throw Error("Not sufficient permissions");
         _v1({
           type: _v8.ManageTeamActionTypes.FetchTeamMembersInit,
           payload: !0
@@ -231,7 +231,7 @@
           payload: {
             teamMemberUri: _v0
           }
-        }), !_v2) throw "no viewer";
+        }), !_v2) throw Error("no viewer");
         try {
           (await _v25(_v0, _v2?.xsrft)).ok ? _v9(_v9.T.ReminderSent) : _v9(_v9.T.PleaseTryAgain);
         } catch (_v0) {
@@ -255,7 +255,7 @@
         }), 0);
       }, [_v1]),
       _v10 = async _v0 => {
-        if (!_v2) throw "no viewer";
+        if (!_v2) throw Error("no viewer");
         let _v1 = await (0, _v24.requestTeamMember)(_v2, _v0);
         _v1({
           type: _v8.ManageTeamActionTypes.FetchTeamMemberComplete,
@@ -394,7 +394,7 @@
         }
       }, [_v2, _v0.teamMembers]),
       _v16 = async () => {
-        if (!_v2) throw "no viewer";
+        if (!_v2) throw Error("no viewer");
         if (_v0.isTeamInfoLoading) return;
         let {
           teamInfo: {
@@ -416,7 +416,7 @@
         }
       },
       _v17 = async () => {
-        if (!_v2) throw "no viewer";
+        if (!_v2) throw Error("no viewer");
         if (_v0.isTeamInfoLoading) return;
         let _v0 = _v0.albums.currentPage + 1,
           _v1 = await (0, _v24.requestAlbums)(_v2, _v0.teamInfo.owner.uri, _v0);

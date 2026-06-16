@@ -207,10 +207,10 @@
         [_v5, _v6] = (0, _v3.useState)(!1),
         [_v7, _v8] = (0, _v3.useState)(!1),
         [_v9, _v10] = (0, _v3.useState)(void 0);
-      if (!_v0) return null;
+      if (!_v0 || !_v2?.vatConfig?.countries) return null;
       let _v11 = ((_v0, _v1) => {
         for (let _v0 in _v1 = (_v1 + "").toLowerCase(), _v0) if (_v0.hasOwnProperty(_v0) && _v1 == (_v0 + "").toLowerCase()) return _v0[_v0];
-      })(_v2.vatConfig?.countries, _v0);
+      })(_v2.vatConfig.countries, _v0);
       if (!_v11 || 1 !== _v11) return null;
       async function _v12(_v0, _v1) {
         let _v2 = JSON.stringify({
@@ -272,7 +272,7 @@
       !_v12.loading && _v3 && _v13 !== _v12.callCount && (_v12.error && _v6(!0), _v4(!1), _v14(_v12.callCount));
     }, [_v12, _v12.error, _v3, _v13]);
     let _v15 = _v8?.country ?? _v7?.billingAddress?.country;
-    if (!_v7 || !_v15) return null;
+    if (!_v0 || !_v7 || !_v15) return null;
     let _v16 = ((_v0, _v1) => {
       for (let _v0 in _v1 = (_v1 + "").toLowerCase(), _v0) if (_v0.hasOwnProperty(_v0) && _v1 == (_v0 + "").toLowerCase()) return _v0[_v0];
     })(_v0.vatConfig?.countries, _v15);

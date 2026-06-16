@@ -9906,10 +9906,10 @@
         _v21 = !!_v10?.interactions?.edit?.uri,
         _v22 = !!_v13?.uri,
         _v23 = !!_v11 && (0, _v281.getHasDatePassed)(_v11),
-        _v24 = (0, _v283.useEventScheduledAt)(_v8, _v4?.locale),
+        _v24 = (0, _v283.useEventScheduledAt)(_v8, _v4?.locale ?? "en-US"),
         _v25 = (0, _v282.idFromUri)(_v16.uri),
         _v26 = _v6(_v278.PAGE.SEARCH),
-        _v27 = `${_v4?.vimeoHttpsUrl + _v18}${_v26}`;
+        _v27 = `${_v4?.vimeoHttpsUrl ?? ""}${_v18}${_v26}`;
       return (0, _v1.jsx)(_v332, {
         type: _v95,
         href: _v21 ? _v19 : _v12,

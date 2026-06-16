@@ -90,7 +90,7 @@
             path: window.location.pathname
           }),
           _v5 = _v2({
-            teamUser: _v6.teamUser
+            teamUser: _v6?.teamUser
           });
         (0, _v2.sendBpEventWithContexts)(_v4.EVENTS.CLICK_IN_ACCOUNT_MANAGEMENT_NAV_BAR, {
           ..._v2,
@@ -142,7 +142,7 @@
             path: window.location.pathname
           }),
           _v7 = _v2({
-            teamUser: _v6.teamUser
+            teamUser: _v6?.teamUser
           });
         (0, _v2.sendBpEventWithContexts)(_v4.EVENTS.CLICK_IN_TEAM_MEMBER_MENU, {
           ..._v4,
@@ -192,7 +192,7 @@
             path: window.location.pathname
           }),
           _v5 = _v2({
-            teamUser: _v6.teamUser
+            teamUser: _v6?.teamUser
           });
         (0, _v2.sendBpEventWithContexts)(_v4.EVENTS.OPEN_TEAM_MEMBER_MENU, {
           ..._v2,
@@ -246,7 +246,7 @@
             path: window.location.pathname
           }),
           _v9 = _v2({
-            teamUser: _v6.teamUser
+            teamUser: _v6?.teamUser
           });
         (0, _v2.sendBpEventWithContexts)(_v4.EVENTS.INVITE_MEMBERS_TO_TEAM, {
           ..._v6,
@@ -300,7 +300,7 @@
             path: window.location.pathname
           }),
           _v9 = _v2({
-            teamUser: _v6.teamUser
+            teamUser: _v6?.teamUser
           });
         (0, _v2.sendBpEventWithContexts)(_v4.EVENTS.CHANGE_IN_ACCOUNT_SETTINGS, {
           ..._v6,
@@ -339,7 +339,7 @@
             path: window.location.pathname
           }),
           _v2 = _v2({
-            teamUser: _v6.teamUser
+            teamUser: _v6?.teamUser
           }),
           _v3 = _v1({
             feature: _v4.FEATURE.ACCOUNT_MANAGEMENT,
@@ -365,7 +365,7 @@
         direction: _v1
       }) => _v1.BigPictureClient.sendEvent(new _v1.Event(_v4.EVENTS.SORT_TEAM_MEMBERS_LIST, 1, {
         product: "accounts",
-        user_id: _v6.user?.id?.toString() ?? null,
+        user_id: _v6?.user?.id?.toString() ?? null,
         field: _v0,
         direction: _v1
       })),
@@ -374,7 +374,7 @@
         filterValues: _v1
       }) => _v1.BigPictureClient.sendEvent(new _v1.Event(_v4.EVENTS.FILTER_TEAM_MEMBERS_LIST, 4, {
         product: "accounts",
-        user_id: _v6.user?.id?.toString() ?? null,
+        user_id: _v6?.user?.id?.toString() ?? null,
         filter: _v0,
         filter_values: _v1
       })),

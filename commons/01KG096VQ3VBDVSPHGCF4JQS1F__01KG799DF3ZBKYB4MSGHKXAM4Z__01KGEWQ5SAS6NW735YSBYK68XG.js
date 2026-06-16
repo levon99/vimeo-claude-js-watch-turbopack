@@ -17,6 +17,6 @@
       } = (0, _v2.useOrionSettings)(),
       _v2 = (0, _v1.useViewer)(),
       _v3 = _v1.campaign_id_override;
-    return "pi_2026" === _v3 && (_v3 = ["basic", "plus", "pro", "pro_unlimited", "pro_custom", "business", "live_business", "live_pro", "live_premium"].includes(_v2.teamUser?.accountType?.toString() ?? _v2.user?.account?.toString() ?? "") ? "pi_2026_legacy_plans" : "pi_2026_storage_seat"), (_v0 = _v3) && "null" !== _v0 && _v3.hasOwnProperty(_v0) ? _v3[_v0] : null;
+    return "pi_2026" === _v3 && (_v3 = ["basic", "plus", "pro", "pro_unlimited", "pro_custom", "business", "live_business", "live_pro", "live_premium"].includes(_v2?.teamUser?.accountType?.toString() ?? _v2?.user?.account?.toString() ?? "") ? "pi_2026_legacy_plans" : "pi_2026_storage_seat"), (_v0 = _v3) && "null" !== _v0 && _v3.hasOwnProperty(_v0) ? _v3[_v0] : null;
   }]);
 }

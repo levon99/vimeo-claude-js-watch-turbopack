@@ -17,8 +17,7 @@
     SET_CREATOR_PRODUCT_THUMBNAIL_URL: "set_creator_product_thumbnail_url",
     SET_CREATOR_PRODUCT_TITLE_PAGE_URL: "set_creator_product_title_page_url",
     SET_CREATOR_PRODUCT_PURCHASE_OPTIONS: "set_creator_product_purchase_options",
-    TOGGLE_STORE_PAYMENT_METHOD: "toggle_store_payment_method",
-    TOGGLE_IS_ALT_ANNUAL_PLAN_SELECTED: "toggle_is_alt_annual_plan_selected"
+    TOGGLE_STORE_PAYMENT_METHOD: "toggle_store_payment_method"
   }, "ApiActionTypes", 0, {
     ORDER_PREVIEW: "order_preview",
     SUBMIT_ORDER: "submit_order"

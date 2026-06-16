@@ -1476,31 +1476,30 @@
         } = (0, _v21.useGetCurrentOrganizationSize)({
           organizationUuid: _v0
         }),
+        _v9 = (0, _v7.useViewer)(),
+        _v10 = _v9?.user,
         {
-          user: _v9
-        } = (0, _v7.useViewer)(),
-        {
-          sendClickInTeamMemberMenuEvent: _v10,
-          sendOpenMemberMenuEvent: _v11
+          sendClickInTeamMemberMenuEvent: _v11,
+          sendOpenMemberMenuEvent: _v12
         } = (0, _v37.useTrackEvents)(),
         {
-          data: _v12
+          data: _v13
         } = (0, _v17.useGetSsoConnections)(() => _v7?.internalId ? {
           where: {
             userId: _v7.internalId
           },
           select: ["isActive"]
         } : null),
-        _v13 = (0, _v2.useMemo)(() => !!_v12?.data.some(_v0 => _v0.isActive), [_v12?.data]),
+        _v14 = (0, _v2.useMemo)(() => !!_v13?.data.some(_v0 => _v0.isActive), [_v13?.data]),
         {
-          data: _v14,
-          mutate: _v15,
-          isValidating: _v16,
-          parsedFilters: _v17
+          data: _v15,
+          mutate: _v16,
+          isValidating: _v17,
+          parsedFilters: _v18
         } = (0, _v22.useOrganizationMembersWithFilters)({
           organizationUuid: _v0
         }),
-        _v18 = (0, _v2.useCallback)((_v0, _v1 = "neutral") => {
+        _v19 = (0, _v2.useCallback)((_v0, _v1 = "neutral") => {
           _v1({
             duration: 0,
             title: _v0,
@@ -1508,8 +1507,8 @@
           });
         }, [_v1]),
         {
-          triggerReminderEmail: _v19,
-          isSendingReminder: _v20
+          triggerReminderEmail: _v20,
+          isSendingReminder: _v21
         } = (({
           onError: _v0,
           onSuccess: _v1
@@ -1544,7 +1543,7 @@
           };
         })({
           onSuccess: (0, _v2.useCallback)(_v0 => {
-            _v18(_v2.ReminderEmailSent), _v15(void 0, {
+            _v19(_v2.ReminderEmailSent), _v16(void 0, {
               populateCache: (_v0, _v1) => ({
                 ..._v1,
                 data: _v1.data.map(_v0 => _v0.uri === _v0 && "pending" === _v0.status ? {
@@ -1554,22 +1553,22 @@
               }),
               revalidate: !1
             });
-          }, [_v18, _v2.ReminderEmailSent, _v15]),
+          }, [_v19, _v2.ReminderEmailSent, _v16]),
           onError: (0, _v2.useCallback)(() => {
-            _v18(_v2.ErrorSendingReminderEmail, "warning");
-          }, [_v18, _v2])
+            _v19(_v2.ErrorSendingReminderEmail, "warning");
+          }, [_v19, _v2])
         }),
-        _v21 = (0, _v2.useCallback)(_v0 => {
-          _v0 && ((0, _v19.default)(window.location.origin + _v0) ? _v18(_v2.InviteLinkCopied, "neutral") : _v18(_v2.CopyInviteLinkError, "warning"));
-        }, [_v18, _v2]),
+        _v22 = (0, _v2.useCallback)(_v0 => {
+          _v0 && ((0, _v19.default)(window.location.origin + _v0) ? _v19(_v2.InviteLinkCopied, "neutral") : _v19(_v2.CopyInviteLinkError, "warning"));
+        }, [_v19, _v2]),
         {
-          mutate: _v22
+          mutate: _v23
         } = (0, _v21.useGetCurrentOrganizationSeatDetails)({
           organizationUuid: _v0
         }),
         {
-          openRoleChangeModalForMemberAndRole: _v23,
-          confirmationModalProps: _v24
+          openRoleChangeModalForMemberAndRole: _v24,
+          confirmationModalProps: _v25
         } = ((_v0, _v1) => {
           let {
               isOpen: _v2,
@@ -1659,7 +1658,7 @@
           };
         })(_v0, {
           onRoleChangeSuccess: _v0 => {
-            (_v22(), !_v17.roles?.length || (_v0.permissionLevel !== _v20.ORGANIZATION_ROLES.MEMBER || _v17.roles.includes(_v20.ALLOWED_ROLES_FOR_INVITE.VIEWER)) && (_v0.permissionLevel !== _v20.ORGANIZATION_ROLES.ADMIN || _v17.roles.includes(_v20.ALLOWED_ROLES_FOR_INVITE.ADMIN))) ? (_v15(void 0, {
+            (_v23(), !_v18.roles?.length || (_v0.permissionLevel !== _v20.ORGANIZATION_ROLES.MEMBER || _v18.roles.includes(_v20.ALLOWED_ROLES_FOR_INVITE.VIEWER)) && (_v0.permissionLevel !== _v20.ORGANIZATION_ROLES.ADMIN || _v18.roles.includes(_v20.ALLOWED_ROLES_FOR_INVITE.ADMIN))) ? (_v16(void 0, {
               populateCache: (_v0, _v1) => ({
                 ..._v1,
                 data: _v1.data.map(_v0 => _v0.uri === _v0.uri ? {
@@ -1673,12 +1672,12 @@
               title: _v2.RoleUpdated,
               variant: "neutral",
               isClosable: !0
-            })) : _v15();
+            })) : _v16();
           }
         }),
         {
-          openRemoveMemberConfirmationModal: _v25,
-          removalConfirmationModalProps: _v26
+          openRemoveMemberConfirmationModal: _v26,
+          removalConfirmationModalProps: _v27
         } = ((_v0, _v1) => {
           let {
               isOpen: _v2,
@@ -1756,22 +1755,22 @@
           };
         })(_v0, {
           onMemberDeleteSuccess: () => {
-            _v22(), _v8(), _v15(), _v1({
+            _v23(), _v8(), _v16(), _v1({
               title: _v2.MemberRemoved,
               variant: "neutral",
               isClosable: !0
             });
           }
         }),
-        _v27 = (0, _v2.useCallback)(_v0 => {
+        _v28 = (0, _v2.useCallback)(_v0 => {
           _v6({
             isOpen: !0,
             member: _v0
           });
         }, []),
         {
-          switchSSO: _v28,
-          switchSSOLoading: _v29
+          switchSSO: _v29,
+          switchSSOLoading: _v30
         } = ((_v0, _v1, _v2) => {
           let _v3 = (0, _v2.useRef)(!1),
             _v4 = (0, _v2.useRef)(null),
@@ -1804,7 +1803,7 @@
             switchSSOLoading: _v7
           };
         })(_v0, (0, _v2.useCallback)((_v0, _v1) => {
-          _v15(void 0, {
+          _v16(void 0, {
             populateCache: (_v0, _v1) => ({
               ..._v1,
               data: _v1.data.map(_v0 => _v0.uri === _v0.uri ? {
@@ -1817,15 +1816,15 @@
             title: _v2.SSOUpdatedMessage(_v0.user?.name ?? "", _v1),
             variant: "neutral"
           });
-        }, [_v15, _v1, _v2]), (0, _v2.useCallback)(() => {
+        }, [_v16, _v1, _v2]), (0, _v2.useCallback)(() => {
           _v1({
             title: _v2.SomethingWentWrong,
             variant: "warning"
           });
         }, [_v1, _v2])),
         {
-          onClickManageWorkspaces: _v30,
-          ..._v31
+          onClickManageWorkspaces: _v31,
+          ..._v32
         } = (() => {
           let [_v0, _v1] = (0, _v2.useState)(null),
             {
@@ -1848,20 +1847,20 @@
             onClickManageWorkspaces: _v5
           };
         })(),
-        _v32 = !_v16 && _v14?.data?.length === 0,
+        _v33 = !_v17 && _v15?.data?.length === 0,
         {
-          query: _v33
-        } = _v17,
-        _v34 = (0, _v2.useCallback)(_v0 => _v0.permissionLevel !== _v20.ORGANIZATION_ROLES.OWNER && _v0.user?.uri !== _v9?.uri, [_v9?.uri]),
-        _v35 = (0, _v2.useCallback)(_v0 => _v0.permissionLevel !== _v20.ORGANIZATION_ROLES.OWNER && _v0.user?.uri !== _v9?.uri, [_v9?.uri]),
-        _v36 = _v14?.data?.filter(_v34).length ?? 0,
-        _v37 = (0, _v2.useCallback)(_v0 => {
+          query: _v34
+        } = _v18,
+        _v35 = (0, _v2.useCallback)(_v0 => _v0.permissionLevel !== _v20.ORGANIZATION_ROLES.OWNER && _v0.user?.uri !== _v10?.uri, [_v10?.uri]),
+        _v36 = (0, _v2.useCallback)(_v0 => _v0.permissionLevel !== _v20.ORGANIZATION_ROLES.OWNER && _v0.user?.uri !== _v10?.uri, [_v10?.uri]),
+        _v37 = _v15?.data?.filter(_v35).length ?? 0,
+        _v38 = (0, _v2.useCallback)(_v0 => {
           let {
               orgMemberId: _v1
             } = (0, _v36.parseOrganizationMemberUri)(_v0.uri),
             _v2 = {
               onClickManageWorkspaces: () => {
-                _v30(_v0), _v10({
+                _v31(_v0), _v11({
                   actionName: "manage_workspace_access",
                   buttonText: "Manage workspace access",
                   memberId: String(_v1),
@@ -1869,7 +1868,7 @@
                 });
               },
               onClickMakeOrganizationAdmin: () => {
-                _v23(_v0, _v20.ORGANIZATION_ROLE_CHANGE_OPTIONS.ADMIN), _v10({
+                _v24(_v0, _v20.ORGANIZATION_ROLE_CHANGE_OPTIONS.ADMIN), _v11({
                   actionName: "make_organization_admin",
                   buttonText: "Make Organization admin",
                   memberId: String(_v1),
@@ -1877,22 +1876,22 @@
                 });
               },
               onClickRemoveFromOrganization: () => {
-                _v25([_v0]), _v10({
+                _v26([_v0]), _v11({
                   actionName: "remove_member_from_organization",
                   buttonText: "Remove from organization",
                   memberId: String(_v1),
                   memberName: (_v0.user?.name || _v0.email) ?? null
                 });
               },
-              onClickManageGroups: () => _v27(_v0),
-              onToggleSSO: () => _v28(_v0, !_v0.excludeSso),
+              onClickManageGroups: () => _v28(_v0),
+              onToggleSSO: () => _v29(_v0, !_v0.excludeSso),
               isSSOEnabled: !_v0.excludeSso,
-              isSSOAvailable: _v13,
-              isSSOSwitchLoading: _v29
+              isSSOAvailable: _v14,
+              isSSOSwitchLoading: _v30
             },
             _v3 = {
               onClickRemoveFromOrganizationAdmins: () => {
-                _v23(_v0, _v20.ORGANIZATION_ROLE_CHANGE_OPTIONS.ORGANIZATION_MEMBER), _v10({
+                _v24(_v0, _v20.ORGANIZATION_ROLE_CHANGE_OPTIONS.ORGANIZATION_MEMBER), _v11({
                   actionName: "set_default_role",
                   buttonText: "Remove from Organization admins",
                   memberId: String(_v1),
@@ -1900,22 +1899,22 @@
                 });
               },
               onClickRemoveFromOrganization: () => {
-                _v25([_v0]), _v10({
+                _v26([_v0]), _v11({
                   actionName: "remove_member_from_organization",
                   buttonText: "Remove from organization",
                   memberId: String(_v1),
                   memberName: (_v0.user?.name || _v0.email) ?? null
                 });
               },
-              onClickManageGroups: () => _v27(_v0),
-              onToggleSSO: () => _v28(_v0, !_v0.excludeSso),
+              onClickManageGroups: () => _v28(_v0),
+              onToggleSSO: () => _v29(_v0, !_v0.excludeSso),
               isSSOEnabled: !_v0.excludeSso,
-              isSSOAvailable: _v13,
-              isSSOSwitchLoading: _v29
+              isSSOAvailable: _v14,
+              isSSOSwitchLoading: _v30
             },
             _v4 = {
               onClickCopyInviteLink: () => {
-                _v21(_v0.inviteUrl), _v10({
+                _v22(_v0.inviteUrl), _v11({
                   actionName: "copy_invite_link",
                   buttonText: "Copy invite link",
                   memberId: String(_v1),
@@ -1923,14 +1922,14 @@
                 });
               },
               onClickResendInvite: () => {
-                _v19(_v0.uri), _v10({
+                _v20(_v0.uri), _v11({
                   actionName: "resend_invite",
                   buttonText: "Resend invite",
                   memberId: String(_v1),
                   memberName: _v0.email
                 });
               },
-              isSendingReminder: _v20,
+              isSendingReminder: _v21,
               reminderAlreadySent: _v0.recentlyReminded
             };
           return _v0.permissionLevel === _v20.ORGANIZATION_ROLES.MEMBER && "pending" === _v0.status ? (0, _v1.jsx)(_v113, {
@@ -1944,10 +1943,10 @@
           }) : _v0.permissionLevel === _v20.ORGANIZATION_ROLES.ADMIN && "accepted" === _v0.status ? (0, _v1.jsx)(_v116, {
             ..._v3
           }) : null;
-        }, [_v30, _v27, _v21, _v25, _v23, _v10, _v19, _v20, _v28, _v13, _v29]);
+        }, [_v31, _v28, _v22, _v26, _v24, _v11, _v20, _v21, _v29, _v14, _v30]);
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v39.SelectionProvider, {
-          initTotalCount: _v36,
+          initTotalCount: _v37,
           children: [(0, _v1.jsxs)(_v3.VStack, {
             width: "100%",
             p: "md",
@@ -1966,26 +1965,26 @@
                 children: (0, _v1.jsx)(_v102, {}, _v4.toString())
               })]
             }), (0, _v1.jsx)(_v95, {
-              organizationMembers: _v14?.data ?? [],
+              organizationMembers: _v15?.data ?? [],
               organizationUuid: _v0,
-              revalidateOrgMembers: _v15
-            }), _v32 ? (0, _v1.jsx)(_v42.NoResults, {
-              query: _v33
+              revalidateOrgMembers: _v16
+            }), _v33 ? (0, _v1.jsx)(_v42.NoResults, {
+              query: _v34
             }) : (0, _v1.jsx)(_v40.MembersList, {
-              members: _v14?.data ?? [],
+              members: _v15?.data ?? [],
               showCheckboxes: !0,
               shouldShowBadge: _v118,
               getBadge: _v0 => _v3[_v0.permissionLevel] ?? null,
-              shouldBeSelectable: _v34,
-              shouldShowOptionsMenu: _v35,
-              getMenuContent: _v37,
-              isLoading: _v16,
+              shouldBeSelectable: _v35,
+              shouldShowOptionsMenu: _v36,
+              getMenuContent: _v38,
+              isLoading: _v17,
               headerSlot: (0, _v1.jsx)(_v107, {}),
               onOpenMemberOptionsMenu: _v0 => {
                 let {
                   orgMemberId: _v1
                 } = (0, _v36.parseOrganizationMemberUri)(_v0.uri);
-                _v11({
+                _v12({
                   memberId: String(_v1),
                   memberName: (_v0.user?.name || _v0.email) ?? null
                 });
@@ -1993,13 +1992,13 @@
             })]
           }), (0, _v1.jsx)(_v109, {})]
         }), (0, _v1.jsx)(_v41.ConfirmationModal, {
-          ..._v24
+          ..._v25
         }), (0, _v1.jsx)(_v43.RemovalConfirmationModal, {
-          ..._v26
-        }), !!_v31.member && (0, _v1.jsx)(_v117, {
-          displayToast: _v18,
-          ..._v31,
-          member: _v31.member
+          ..._v27
+        }), !!_v32.member && (0, _v1.jsx)(_v117, {
+          displayToast: _v19,
+          ..._v32,
+          member: _v32.member
         }), _v5.isOpen && _v5.member?.user && _v7?.internalId && (0, _v1.jsx)(_v18.UserGroupsModal, {
           teamMemberUri: _v5.member?.uri,
           ownerId: _v7.internalId,

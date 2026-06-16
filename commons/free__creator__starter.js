@@ -153,25 +153,24 @@
     _v45 = "FetchTeamMemberComplete",
     _v46 = "team_manager",
     _v47 = () => {
-      let {
-          teamUser: _v0,
-          user: _v1
-        } = (0, _v43.useViewer)(),
-        _v2 = (0, _v2.useCallback)(() => (0, _v40.buildTeamBpContextFromTeamUser)(_v0), [_v0]),
-        _v3 = (0, _v2.useCallback)(_v0 => (0, _v41.buildWebBpContext)({
-          page_name: (0, _v36.getPageNameFromPath)(window.location.pathname, _v1),
-          referrer_page_name: (0, _v36.getPageNameFromPath)(document.referrer, _v1),
+      let _v0 = (0, _v43.useViewer)(),
+        _v1 = _v0?.teamUser,
+        _v2 = _v0?.user,
+        _v3 = (0, _v2.useCallback)(() => (0, _v40.buildTeamBpContextFromTeamUser)(_v1), [_v1]),
+        _v4 = (0, _v2.useCallback)(_v0 => (0, _v41.buildWebBpContext)({
+          page_name: (0, _v36.getPageNameFromPath)(window.location.pathname, _v2),
+          referrer_page_name: (0, _v36.getPageNameFromPath)(document.referrer, _v2),
           referrer: document.referrer || window.location.href,
           path: document.location.pathname,
           ..._v0
-        }), [_v1]),
-        _v4 = (0, _v2.useCallback)(_v0 => (0, _v39.buildProductAnalyticsBpContext)({
+        }), [_v2]),
+        _v5 = (0, _v2.useCallback)(_v0 => (0, _v39.buildProductAnalyticsBpContext)({
           product: "collaboration",
           feature: "teams",
           device_type: (0, _v37.default)(),
           ..._v0
         }), []),
-        _v5 = (0, _v2.useCallback)(_v0 => (0, _v38.buildActionBpContext)({
+        _v6 = (0, _v2.useCallback)(_v0 => (0, _v38.buildActionBpContext)({
           action_type: "click",
           feature: null,
           ..._v0
@@ -180,26 +179,26 @@
         trackOpenTeamInviteModal: (0, _v2.useCallback)(() => {
           let _v0 = (0, _v36.getPageNameFromPath)(window.location.pathname) === _v46;
           (0, _v42.sendBpEventWithContexts)("vimeo.open_team_invite_modal", {
-            ..._v2(),
-            ..._v5(),
-            ..._v3({
+            ..._v3(),
+            ..._v6(),
+            ..._v4({
               copy: "invite_members"
             }),
-            ..._v4({
+            ..._v5({
               location: _v0 ? "header" : "top_navigation_bar",
               element: _v0 ? "button" : "dropdown"
             })
           }, 4, {});
-        }, [_v2, _v5, _v3, _v4]),
+        }, [_v3, _v6, _v4, _v5]),
         trackInviteMembersToTeam: (0, _v2.useCallback)(_v0 => {
           let _v1 = (0, _v36.getPageNameFromPath)(window.location.pathname) === _v46;
           (0, _v42.sendBpEventWithContexts)("vimeo.invite_members_to_team", {
-            ..._v2(),
-            ..._v5(),
-            ..._v3({
+            ..._v3(),
+            ..._v6(),
+            ..._v4({
               copy: "invite_members"
             }),
-            ..._v4({
+            ..._v5({
               location: _v1 ? "header" : "top_navigation_bar",
               element: _v1 ? "button" : "dropdown"
             })
@@ -207,7 +206,7 @@
             action_name: "manage_members",
             ..._v0
           });
-        }, [_v2, _v5, _v3, _v4])
+        }, [_v3, _v6, _v4, _v5])
       };
     };
   var _v48 = _v0.i(0);
@@ -2576,20 +2575,19 @@
         [_v32, _v33] = (0, _v2.useState)([]),
         [_v34, _v35] = (0, _v2.useState)([]),
         [_v36, _v37] = (0, _v2.useState)(!1),
-        {
-          locale: _v38
-        } = (0, _v43.useViewer)(),
-        _v39 = _v9?.owner?.account === "custom",
-        _v40 = _v6.seatCapTrial || _v9.seatDetails?.basePlanCount || 0,
-        _v41 = _v9.maxTeamSize || _v6.seatCount,
-        _v42 = _v9.seatDetails?.currentUnassignedCount ?? _v6.currentUnassignedSeatCount,
-        _v43 = _v9.seatDetails ? _v9.seatDetails.currentAssignedCount + _v9.seatDetails.currentUnassignedCount : _v41,
-        _v44 = _v106({
+        _v38 = (0, _v43.useViewer)(),
+        _v39 = _v38?.locale,
+        _v40 = _v9?.owner?.account === "custom",
+        _v41 = _v6.seatCapTrial || _v9.seatDetails?.basePlanCount || 0,
+        _v42 = _v9.maxTeamSize || _v6.seatCount,
+        _v43 = _v9.seatDetails?.currentUnassignedCount ?? _v6.currentUnassignedSeatCount,
+        _v44 = _v9.seatDetails ? _v9.seatDetails.currentAssignedCount + _v9.seatDetails.currentUnassignedCount : _v42,
+        _v45 = _v106({
           hasPerSeatPricingModelTeamMember: _v12,
           teamInfo: _v9
         }),
-        _v45 = _v6.isFreeTrial && _v44 <= 10,
-        _v46 = (0, _v60.useForm)({
+        _v46 = _v6.isFreeTrial && _v45 <= 10,
+        _v47 = (0, _v60.useForm)({
           validationSchema: _v50.object({
             role: _v50.string().required()
           }),
@@ -2603,8 +2601,8 @@
           onSubmit: async _v0 => {
             var _v1, _v2;
             _v37(!0);
-            let _v3 = (_v1 = _v7.length, _v2 = _v0.role ?? "", _v12 && _v45 && _v2 !== _v15.TeamUserPermissionLevel.Viewer ? Math.min(_v1, _v40 - (_v9.seatDetails?.basePlanCount ?? 0) + (_v9.seatDetails?.currentUnassignedCount ?? 0)) : _v1),
-              _v4 = await Promise.allSettled(_v7.slice(0, _v3).map(_v0 => _v105(_v0, _v0.role, _v0.customMessage, _v0.region, _v0.permissionPolicies, `https://${_v8.apiUrl}${_v8.ownerUri}/teammembers`, _v8.jwt, _v38)));
+            let _v3 = (_v1 = _v7.length, _v2 = _v0.role ?? "", _v12 && _v46 && _v2 !== _v15.TeamUserPermissionLevel.Viewer ? Math.min(_v1, _v41 - (_v9.seatDetails?.basePlanCount ?? 0) + (_v9.seatDetails?.currentUnassignedCount ?? 0)) : _v1),
+              _v4 = await Promise.allSettled(_v7.slice(0, _v3).map(_v0 => _v105(_v0, _v0.role, _v0.customMessage, _v0.region, _v0.permissionPolicies, `https://${_v8.apiUrl}${_v8.ownerUri}/teammembers`, _v8.jwt, _v39)));
             _v37(!1);
             let _v5 = [];
             _v4.forEach((_v0, _v1) => {
@@ -2612,7 +2610,7 @@
                 id: "invite-failed-toast",
                 title: _v49.ServerError,
                 variant: "warning"
-              }), _v1(_v48.input.value ?? "");else if (_v0.value.errorCode) {
+              }), _v1(_v49.input.value ?? "");else if (_v0.value.errorCode) {
                 let _v0 = _v0.value.errorCode;
                 0 === _v0 ? _v19({
                   id: "invite-failed-toast",
@@ -2630,9 +2628,9 @@
                   id: "invite-failed-toast",
                   title: _v49.ServerError,
                   variant: "warning"
-                }), _v1(_v48.input.value ?? "");
+                }), _v1(_v49.input.value ?? "");
               } else _v5.push(_v0.value);
-            }), _v5.length === _v4.length && (_v0(_v48.input.value !== _v15.TeamUserPermissionLevel.Admin && _v48.input.value !== _v15.TeamUserPermissionLevel.Uploader ? _v5 : []), _v18({
+            }), _v5.length === _v4.length && (_v0(_v49.input.value !== _v15.TeamUserPermissionLevel.Admin && _v49.input.value !== _v15.TeamUserPermissionLevel.Uploader ? _v5 : []), _v18({
               number_of_users_invited: _v7.length,
               new_role: _v0.role?.toLowerCase() ?? null,
               includes_message: !!_v0.customMessage
@@ -2641,25 +2639,25 @@
           validateOnFirstRun: !1
         });
       (0, _v2.useEffect)(() => {
-        _v47.handlers.setValue(null);
+        _v48.handlers.setValue(null);
       }, [_v7]), (0, _v2.useImperativeHandle)(_v3, () => ({
         submitForm: _v0 => {
-          _v46.handleSubmit(_v0);
+          _v47.handleSubmit(_v0);
         }
       }));
-      let _v47 = (0, _v60.useField)(_v46, "email"),
-        _v48 = (0, _v60.useField)(_v46, "role"),
-        _v49 = (0, _v60.useField)(_v46, "customMessage"),
-        _v50 = (0, _v60.useField)(_v46, "region"),
-        _v51 = (0, _v60.useField)(_v46, "permissionPolicies"),
-        _v52 = _v48.input.value !== _v15.TeamUserPermissionLevel.Viewer,
-        _v53 = _v52 ? Math.max(0, _v7.length - _v42) : 0,
-        _v54 = _v6.seatCapPaid > 0 && _v6.seatCapPaid < _v44 && _v43 >= _v6.seatCapPaid,
-        _v55 = (0, _v2.useMemo)(() => _v7.length && _v52 && _v6.seatCapPaid && !(_v53 <= 0) && !_v28 && _v54 ? _v49.PaidSeatLimitReached(_v6.seatCapPaid) : null, [_v7.length, _v53, _v54, _v52, _v6.seatCapPaid, _v28]),
-        _v56 = (0, _v2.useMemo)(() => !!_v7.length && _v12 && _v53 > 0 && _v52 && !_v55 && (!_v45 && !_v28 || _v45 && _v6.seatCount < _v40), [_v7.length, _v12, _v53, _v52, _v55, _v45, _v6.seatCount, _v28, _v40]),
-        _v57 = (0, _v2.useMemo)(() => {
+      let _v48 = (0, _v60.useField)(_v47, "email"),
+        _v49 = (0, _v60.useField)(_v47, "role"),
+        _v50 = (0, _v60.useField)(_v47, "customMessage"),
+        _v51 = (0, _v60.useField)(_v47, "region"),
+        _v52 = (0, _v60.useField)(_v47, "permissionPolicies"),
+        _v53 = _v49.input.value !== _v15.TeamUserPermissionLevel.Viewer,
+        _v54 = _v53 ? Math.max(0, _v7.length - _v43) : 0,
+        _v55 = _v6.seatCapPaid > 0 && _v6.seatCapPaid < _v45 && _v44 >= _v6.seatCapPaid,
+        _v56 = (0, _v2.useMemo)(() => _v7.length && _v53 && _v6.seatCapPaid && !(_v54 <= 0) && !_v28 && _v55 ? _v49.PaidSeatLimitReached(_v6.seatCapPaid) : null, [_v7.length, _v54, _v55, _v53, _v6.seatCapPaid, _v28]),
+        _v57 = (0, _v2.useMemo)(() => !!_v7.length && _v12 && _v54 > 0 && _v53 && !_v56 && (!_v46 && !_v28 || _v46 && _v6.seatCount < _v41), [_v7.length, _v12, _v54, _v53, _v56, _v46, _v6.seatCount, _v28, _v41]),
+        _v58 = (0, _v2.useMemo)(() => {
           if (_v11) return 10;
-          if (_v12 && _v45) return Math.max(0, 10 - _v9.currentTeamSize);
+          if (_v12 && _v46) return Math.max(0, 10 - _v9.currentTeamSize);
           let _v0 = (({
             currentTeamSize: _v0,
             subtractOwner: _v1 = !0,
@@ -2667,31 +2665,31 @@
           }) => Math.max(0, _v2 - _v0 - !!_v1))({
             currentTeamSize: _v9.currentTeamSize,
             subtractOwner: _v12,
-            totalTeamMembersCap: _v44
+            totalTeamMembersCap: _v45
           });
           return _v0 >= 10 ? 10 : _v0;
-        }, [_v11, _v45, _v9.currentTeamSize, _v44, _v12]),
-        _v58 = Math.max(0, _v57 - _v7.length),
-        _v59 = (0, _v2.useMemo)(() => !!_v11 && _v48.input.value === _v15.TeamUserPermissionLevel.Admin && !!_v9.teamSeats && _v9.teamSeats.adminSeats > 0 && _v9.teamSeats.adminSeats < _v9.teamMembersCount.admin + _v7.length, [_v7, _v9, _v48.input.value, _v11]);
+        }, [_v11, _v46, _v9.currentTeamSize, _v45, _v12]),
+        _v59 = Math.max(0, _v58 - _v7.length),
+        _v60 = (0, _v2.useMemo)(() => !!_v11 && _v49.input.value === _v15.TeamUserPermissionLevel.Admin && !!_v9.teamSeats && _v9.teamSeats.adminSeats > 0 && _v9.teamSeats.adminSeats < _v9.teamMembersCount.admin + _v7.length, [_v7, _v9, _v49.input.value, _v11]);
       (0, _v2.useEffect)(() => {
-        let _v0 = _v48.input.value,
+        let _v0 = _v49.input.value,
           _v1 = !1,
           _v2 = !1;
-        !_v11 && _v12 && _v9.currentTeamSize + 1 >= _v44 && (_v1 = !0), !_v11 && _v12 && _v9.currentTeamSize + 1 + _v42 >= _v44 && _v0 === _v15.TeamUserPermissionLevel.Viewer && (_v2 = !0), _v29(_v1), _v31(_v2);
-      }, [_v9, _v12, _v48.input.value, _v42, _v7, _v11, _v44]), (0, _v2.useEffect)(() => {
+        !_v11 && _v12 && _v9.currentTeamSize + 1 >= _v45 && (_v1 = !0), !_v11 && _v12 && _v9.currentTeamSize + 1 + _v43 >= _v45 && _v0 === _v15.TeamUserPermissionLevel.Viewer && (_v2 = !0), _v29(_v1), _v31(_v2);
+      }, [_v9, _v12, _v49.input.value, _v43, _v7, _v11, _v45]), (0, _v2.useEffect)(() => {
         _v11 || _v12 || _v4 || _v23(_v9.currentTeamSize >= _v9.maxTeamSize);
       }, [_v7, _v9, _v4, _v11, _v12]), (0, _v2.useEffect)(() => {
-        let _v0 = _v48.input.value;
-        if (_v12 && _v45) {
-          if ((_v9.seatDetails?.currentAssignedCount ?? 0) + _v7.length > _v40 + (_v9.seatDetails?.additionalPurchasedCount ?? 0) && _v0 !== _v15.TeamUserPermissionLevel.Viewer && _v9.teamMembersCount.viewer < 5) return void _v25(!0);
-          if (_v9.teamMembersCount.viewer + _v7.length > 5 && _v0 === _v15.TeamUserPermissionLevel.Viewer && (_v9.seatDetails?.currentAssignedCount ?? 0) < _v40) return void _v21(!0);
-          if ((_v9.seatDetails?.currentAssignedCount ?? 0) === _v40 && _v7.length + _v9.teamMembersCount.viewer > 5 || 5 === _v9.teamMembersCount.viewer && _v7.length + (_v9.seatDetails?.currentAssignedCount ?? 0) > _v40) return void _v27(!0);
+        let _v0 = _v49.input.value;
+        if (_v12 && _v46) {
+          if ((_v9.seatDetails?.currentAssignedCount ?? 0) + _v7.length > _v41 + (_v9.seatDetails?.additionalPurchasedCount ?? 0) && _v0 !== _v15.TeamUserPermissionLevel.Viewer && _v9.teamMembersCount.viewer < 5) return void _v25(!0);
+          if (_v9.teamMembersCount.viewer + _v7.length > 5 && _v0 === _v15.TeamUserPermissionLevel.Viewer && (_v9.seatDetails?.currentAssignedCount ?? 0) < _v41) return void _v21(!0);
+          if ((_v9.seatDetails?.currentAssignedCount ?? 0) === _v41 && _v7.length + _v9.teamMembersCount.viewer > 5 || 5 === _v9.teamMembersCount.viewer && _v7.length + (_v9.seatDetails?.currentAssignedCount ?? 0) > _v41) return void _v27(!0);
           _v27(!1), _v25(!1), _v21(!1);
         }
-      }, [_v12, _v45, _v6, _v48.input.value, _v9, _v7, _v40]);
-      let _v60 = (0, _v2.useCallback)(() => {
-        let _v0 = _v47.input.value?.trim() || "";
-        if (_v58 <= 0) return void _v47.handlers.setValue(null);
+      }, [_v12, _v46, _v6, _v49.input.value, _v9, _v7, _v41]);
+      let _v61 = (0, _v2.useCallback)(() => {
+        let _v0 = _v48.input.value?.trim() || "";
+        if (_v59 <= 0) return void _v48.handlers.setValue(null);
         let _v1 = !0;
         _v0 && (_v61.EMAIL_REGEX.test(_v0) || (_v1 = !1, _v35([..._v34, {
           [_v0]: _v49.EmailNotAValidDomain(_v0)
@@ -2699,8 +2697,8 @@
           [_v0]: _v49.EmailEnteredTwice(_v0)
         }])), _v9.owner.email === _v0 && (_v1 = !1, _v35([..._v34, {
           [_v0]: _v49.EmailAlreadyATeamMember(_v0)
-        }])), _v33([..._v32, _v1]), _v14(_v0)), _v47.handlers.setValue(null);
-      }, [_v14, _v47, _v34, _v32, _v7, _v58, _v9.owner.email]);
+        }])), _v33([..._v32, _v1]), _v14(_v0)), _v48.handlers.setValue(null);
+      }, [_v14, _v48, _v34, _v32, _v7, _v59, _v9.owner.email]);
       (0, _v2.useEffect)(() => {
         if (_v32[_v32.length - 1] && _v10?.length && _v10.find(_v0 => _v7.includes(_v0.email))) {
           let _v0 = _v7[_v7.length - 1];
@@ -2709,14 +2707,14 @@
           }]);
         }
       }, [_v10]);
-      let _v61 = (0, _v2.useCallback)(_v0 => {
+      let _v62 = (0, _v2.useCallback)(_v0 => {
         let _v1 = _v7[_v0];
         _v33(_v32.filter((_v0, _v1) => _v1 !== _v0)), _v35(_v34.filter(_v0 => !_v0[_v1])), _v16(_v0);
       }, [_v7, _v34, _v32]);
       (0, _v2.useEffect)(() => {
-        let _v0 = _v47.input.value?.trim() || "",
+        let _v0 = _v48.input.value?.trim() || "",
           _v1 = [];
-        _v0.includes(",") ? _v1 = _v0.split(",").filter(_v0 => !!_v0.trim()) : _v0.includes(";") ? _v1 = _v0.split(";").filter(_v0 => !!_v0.trim()) : _v0.includes(" ") && (_v1 = _v0.split(" ").filter(_v0 => !!_v0.trim())), _v1.length > _v58 && (_v1 = _v1.slice(0, _v58));
+        _v0.includes(",") ? _v1 = _v0.split(",").filter(_v0 => !!_v0.trim()) : _v0.includes(";") ? _v1 = _v0.split(";").filter(_v0 => !!_v0.trim()) : _v0.includes(" ") && (_v1 = _v0.split(" ").filter(_v0 => !!_v0.trim())), _v1.length > _v59 && (_v1 = _v1.slice(0, _v59));
         let _v2 = [],
           _v3 = [],
           _v4 = [],
@@ -2730,13 +2728,13 @@
           })), _v9.owner.email === _v0 && (_v1 = !1, _v2.push({
             [_v0]: _v49.EmailAlreadyATeamMember(_v0)
           })), _v3.push(_v1), _v4.push(_v0)), _v5.push(_v0);
-        }), _v1.length && (_v35([..._v34, ..._v2]), _v33([..._v32, ..._v3]), _v15([..._v4]), _v47.handlers.setValue(null));
-      }, [_v47.input.value, _v47.handlers, _v34, _v32, _v7, _v58, _v35, _v33, _v9.owner.email, _v15]);
-      let _v62 = (_v28 || _v30) && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner,
-        _v63 = !!_v56 && !_v17 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && _v48.input.value !== _v15.TeamUserPermissionLevel.Viewer,
-        _v64 = (!!_v55 || !!_v56 && _v17) && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner,
-        _v65 = _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner ? _v49.UpgradeTierForPaidMembers : _v49.ContactOwnerUpgradeTierForPaidMembers,
-        _v66 = _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner;
+        }), _v1.length && (_v35([..._v34, ..._v2]), _v33([..._v32, ..._v3]), _v15([..._v4]), _v48.handlers.setValue(null));
+      }, [_v48.input.value, _v48.handlers, _v34, _v32, _v7, _v59, _v35, _v33, _v9.owner.email, _v15]);
+      let _v63 = (_v28 || _v30) && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner,
+        _v64 = !!_v57 && !_v17 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && _v49.input.value !== _v15.TeamUserPermissionLevel.Viewer,
+        _v65 = (!!_v56 || !!_v57 && _v17) && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner,
+        _v66 = _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner ? _v49.UpgradeTierForPaidMembers : _v49.ContactOwnerUpgradeTierForPaidMembers,
+        _v67 = _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner;
       return (0, _v1.jsxs)(_v6.Box, {
         mt: "sm",
         children: [_v4 ? (0, _v1.jsx)(_v23.Skeleton, {
@@ -2760,28 +2758,28 @@
                 children: [" ", _v49.AddEmails, " "]
               }), (0, _v1.jsx)(_v108, {
                 isOptional: !0,
-                children: _v49.MaxOf(_v57)
+                children: _v49.MaxOf(_v58)
               })]
             })
           }), (0, _v1.jsxs)(_v17.Flex, {
             gap: "sm",
             children: [(0, _v1.jsx)(_v59, {
-              onChange: _v47.handlers.setValue,
-              onTabPress: _v60,
+              onChange: _v48.handlers.setValue,
+              onTabPress: _v61,
               values: _v7,
               invalidIndices: _v32,
-              inputValue: _v47.input.value,
-              handleTagClose: _v61,
+              inputValue: _v48.input.value,
+              handleTagClose: _v62,
               placeholder: _v49.TypeOrPasteEmails,
-              disableInput: _v58 <= 0,
+              disableInput: _v59 <= 0,
               hasError: !!_v34.length
             }), (0, _v1.jsx)(_v78, {
-              onSelect: _v48.handlers.setValue,
+              onSelect: _v49.handlers.setValue,
               hasLiveSubscription: !!_v13,
-              region: _v50.input.value,
-              onRegionChange: _v50.handlers.setValue,
-              permissionPolicies: _v51.input.value,
-              onPermissionPoliciesChange: _v51.handlers.setValue
+              region: _v51.input.value,
+              onRegionChange: _v51.handlers.setValue,
+              permissionPolicies: _v52.input.value,
+              onPermissionPoliciesChange: _v52.handlers.setValue
             })]
           })]
         }), !!_v34.length && _v34.map(_v0 => (0, _v1.jsx)(_v52.Paragraph, {
@@ -2790,10 +2788,10 @@
           display: "block",
           size: "md",
           children: Object.values(_v0)?.[0]
-        }, Object.keys(_v0)?.[0])), !_v4 && _v7.length >= _v57 && !_v39 && (0, _v1.jsx)(_v6.Box, {
+        }, Object.keys(_v0)?.[0])), !_v4 && _v7.length >= _v58 && !_v40 && (0, _v1.jsx)(_v6.Box, {
           mb: "sm",
           children: (0, _v1.jsx)(_v93, {})
-        }), !_v4 && _v59 && (0, _v1.jsx)(_v94, {}), (0, _v1.jsx)(_v6.Box, {
+        }), !_v4 && _v60 && (0, _v1.jsx)(_v94, {}), (0, _v1.jsx)(_v6.Box, {
           width: "100%",
           mt: "md",
           children: _v4 ? (0, _v1.jsx)(_v23.Skeleton, {
@@ -2802,51 +2800,51 @@
             width: (0, _v22.rem)(390),
             height: (0, _v22.rem)(100)
           }) : (0, _v1.jsx)(_v64, {
-            onChange: _v49.handlers.setValue
+            onChange: _v50.handlers.setValue
           })
         }), (0, _v1.jsxs)(_v17.Flex, {
           flexDir: "column",
           gap: "sm",
-          children: [_v20 && (0, _v1.jsx)(_v91, {}), !_v63 && _v24 && (0, _v1.jsx)(_v89, {}), _v26 && (0, _v1.jsx)(_v90, {}), _v22 && !_v11 && !_v39 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Admin && (0, _v1.jsx)(_v95, {
+          children: [_v20 && (0, _v1.jsx)(_v91, {}), !_v64 && _v24 && (0, _v1.jsx)(_v89, {}), _v26 && (0, _v1.jsx)(_v90, {}), _v22 && !_v11 && !_v40 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Admin && (0, _v1.jsx)(_v95, {
             maxTeamSize: _v9.maxTeamSize
-          }), _v22 && !_v11 && !_v39 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && (0, _v1.jsxs)(_v1.Fragment, {
+          }), _v22 && !_v11 && !_v40 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v97, {
               maxTeamSize: _v9.maxTeamSize
             }), (0, _v1.jsx)(_v51.Divider, {
               orientation: "horizontal",
               borderColor: "stroke"
             })]
-          }), _v22 && _v39 && (0, _v1.jsx)(_v96, {
+          }), _v22 && _v40 && (0, _v1.jsx)(_v96, {
             isOwner: _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner
-          }), _v56 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && (0, _v1.jsxs)(_v1.Fragment, {
+          }), _v57 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v86, {}), (0, _v1.jsx)(_v51.Divider, {
               orientation: "horizontal",
               borderColor: "stroke"
             })]
-          }), !!_v55 && (0, _v1.jsxs)(_v1.Fragment, {
+          }), !!_v56 && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v87, {
-              title: _v55,
-              description: _v65,
-              isUpsell: _v66
-            }), _v66 && (0, _v1.jsx)(_v51.Divider, {
+              title: _v56,
+              description: _v66,
+              isUpsell: _v67
+            }), _v67 && (0, _v1.jsx)(_v51.Divider, {
               orientation: "horizontal",
               borderColor: "stroke"
             })]
-          }), _v56 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Admin && (0, _v1.jsx)(_v83, {}), _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && _v28 && (0, _v1.jsx)(_v88, {
-            maxTeamSize: _v44
+          }), _v57 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Admin && (0, _v1.jsx)(_v83, {}), _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && _v28 && (0, _v1.jsx)(_v88, {
+            maxTeamSize: _v45
           }), _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && _v30 && (0, _v1.jsx)(_v92, {
-            maxTeamSize: _v44
+            maxTeamSize: _v45
           }), _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Admin && _v28 && (0, _v1.jsx)(_v84, {
-            maxTeamSize: _v44
+            maxTeamSize: _v45
           }), _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Admin && _v30 && (0, _v1.jsx)(_v85, {
-            maxTeamSize: _v44
+            maxTeamSize: _v45
           })]
         }), (0, _v1.jsx)(_v2, {
-          submitDisabled: _v28 || _v30 || _v56 || !!_v55 || _v7.length <= 0 || _v34.length > 0 || _v20 || _v24 || _v26 || _v22 || _v5 || !_v46.valid || _v59,
+          submitDisabled: _v28 || _v30 || _v57 || !!_v56 || _v7.length <= 0 || _v34.length > 0 || _v20 || _v24 || _v26 || _v22 || _v5 || !_v47.valid || _v60,
           isLoading: _v36,
-          showPurchase: _v63,
-          showUpgrade: _v64,
-          showContact: _v62
+          showPurchase: _v64,
+          showUpgrade: _v65,
+          showContact: _v63
         })]
       });
     }),
@@ -3281,7 +3279,7 @@
         isTeamInfoLoading: !0
       }),
       FetchTeamInfoComplete: (_v0, _v1) => {
-        if (!_v1.payload || !_v1.payload.viewer || !_v1.payload?.teamsInfo) throw "no payload";
+        if (!_v1.payload || !_v1.payload.viewer || !_v1.payload?.teamsInfo) throw Error("no payload");
         let _v2 = _v1.payload.viewer.teamUser?.ownerId,
           _v3 = _v1.payload.teamsInfo.data.filter(_v113),
           _v4 = _v3.find(({
@@ -3333,7 +3331,7 @@
         isTeamMemberLoading: !0
       }),
       FetchTeamMemberComplete: (_v0, _v1) => {
-        if (!_v1.payload || !_v1.payload?.teamMember) throw "no payload";
+        if (!_v1.payload || !_v1.payload?.teamMember) throw Error("no payload");
         let {
           data: _v2
         } = _v1.payload.teamMember;
@@ -3344,7 +3342,7 @@
         };
       },
       UpdateTeamApiConfig: (_v0, _v1) => {
-        if (!_v1.payload || !_v1.payload?.apiConfig) throw "no payload";
+        if (!_v1.payload || !_v1.payload?.apiConfig) throw Error("no payload");
         return {
           ..._v0,
           teamApiConfig: {
@@ -3373,7 +3371,7 @@
         };
       },
       UpdateEmails: (_v0, _v1) => {
-        if (!_v1.payload || !_v1.payload?.newEmails) throw "no payload";
+        if (!_v1.payload || !_v1.payload?.newEmails) throw Error("no payload");
         return {
           ..._v0,
           newEmails: [..._v0.newEmails, ..._v1.payload.newEmails],
@@ -3381,7 +3379,7 @@
         };
       },
       AddEmail: (_v0, _v1) => {
-        if (!_v1.payload || !_v1.payload?.newEmail) throw "no payload";
+        if (!_v1.payload || !_v1.payload?.newEmail) throw Error("no payload");
         return {
           ..._v0,
           newEmails: [..._v0.newEmails, _v1.payload.newEmail],
@@ -3431,7 +3429,7 @@
         _v5 = (0, _v2.useContext)(_v16.ViewerContext),
         [_v6, _v7] = (0, _v2.useReducer)(_v115, _v32()),
         _v8 = (_v1 = async () => {
-          if (!_v5) throw "no viewer";
+          if (!_v5) throw Error("no viewer");
           _v7({
             type: "FetchTeamInfoInit",
             payload: !0
@@ -3443,7 +3441,7 @@
             }
           }), _v4();
         }, _v2 = async (_v0, _v1) => {
-          if (!_v5) throw "no viewer";
+          if (!_v5) throw Error("no viewer");
           _v7({
             type: "UpdateEmails",
             payload: {
@@ -3468,7 +3466,7 @@
             });
           });
         }, _v3 = async (_v0, _v1) => {
-          if (!_v5) throw "no viewer";
+          if (!_v5) throw Error("no viewer");
           _v6.isTeamInfoLoading || !_v0 || (_v7({
             type: "AddEmail",
             payload: {

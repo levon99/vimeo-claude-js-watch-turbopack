@@ -17217,7 +17217,7 @@
                           singular: "Bande passante"
                         },
                         "ja-JP": {
-                          singular: "帯域幅"
+                          singular: "転送量"
                         },
                         "ko-KR": {
                           singular: "대역폭"

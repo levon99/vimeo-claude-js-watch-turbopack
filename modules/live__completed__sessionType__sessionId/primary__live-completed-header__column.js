@@ -563,7 +563,7 @@
           }
         });
       } : _v18,
-      _v20 = _v6.user?.email,
+      _v20 = _v6?.user?.email,
       _v21 = (0, _v71.useScrollbarStyles)();
     return (0, _v1.jsxs)(_v25.Box, {
       id: _v0,
@@ -905,7 +905,7 @@
       sessionApplicationType: _v3.sessionApplicationType,
       sessionType: _v3.sessionType,
       sessionId: _v3.sessionId,
-      userId: _v1.user?.id,
+      userId: _v1?.user?.id,
       userLocale: _v1?.locale
     }), _v16.browserConfig.BROWSER?.isMobile) ? (0, _v1.jsx)(_v14.MobileUnsupportedModal, {}) : (0, _v1.jsx)(_v13.ScopeProvider, {
       children: (0, _v1.jsx)(_v15.ScopeErrorBoundary, {

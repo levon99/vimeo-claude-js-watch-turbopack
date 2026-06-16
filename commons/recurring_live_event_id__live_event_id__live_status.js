@@ -54,7 +54,7 @@
         _v12 = (0, _v35.useGlobalStore)(_v0 => _v0.leadCapture.background?.isActive),
         _v13 = (0, _v35.useGlobalStore)(_v0 => _v0.leadCapture.layout),
         _v14 = (0, _v35.useGlobalStore)(_v0 => _v0.leadCapture.isSkippable) ?? !1,
-        _v15 = (0, _v32.useViewer)().teamUser,
+        _v15 = (0, _v32.useViewer)()?.teamUser,
         {
           dropdownFieldsCount: _v16,
           textFieldsCount: _v17
@@ -1309,25 +1309,24 @@
     }) => {
       let _v1 = (0, _v35.useGlobalStore)(_v0 => _v0.entityOwnerId),
         [_v2, _v3] = (0, _v2.useState)(_v88),
-        {
-          user: _v4
-        } = (0, _v32.useViewer)(),
-        _v5 = _v4?.id || 0,
-        [_v6, {
-          data: _v7,
-          loading: _v8
+        _v4 = (0, _v32.useViewer)(),
+        _v5 = _v4?.user,
+        _v6 = _v5?.id || 0,
+        [_v7, {
+          data: _v8,
+          loading: _v9
         }] = (0, _v87.useGetUserTeamRoleLazy)();
       return (0, _v2.useEffect)(() => {
-        (_v5 || _v1) && _v6({
+        (_v6 || _v1) && _v7({
           where: {
-            userId: _v1 || _v5
+            userId: _v1 || _v6
           },
           select: ["role", "permissionLevel", "uri"]
         });
-      }, [_v1, _v5]), (0, _v2.useEffect)(() => {
-        if (!_v8 && _v7) {
-          let _v0 = _v7.role === _v34.TeamUserPermissionLevel.Owner,
-            _v1 = _v7.permissionLevel === _v34.TeamUserPermissionLevel.Admin,
+      }, [_v1, _v6]), (0, _v2.useEffect)(() => {
+        if (!_v9 && _v8) {
+          let _v0 = _v8.role === _v34.TeamUserPermissionLevel.Owner,
+            _v1 = _v8.permissionLevel === _v34.TeamUserPermissionLevel.Admin,
             _v2 = _v0 || _v1;
           _v3(() => ({
             isOwner: _v0,
@@ -1338,7 +1337,7 @@
             hasBackgroundPermission: _v2
           }));
         }
-      }, [_v8, _v7]), (0, _v1.jsx)(_v89.Provider, {
+      }, [_v9, _v8]), (0, _v1.jsx)(_v89.Provider, {
         value: _v2,
         children: _v0
       });

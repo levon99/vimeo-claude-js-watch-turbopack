@@ -8657,7 +8657,7 @@
             [_v4, _v5] = (0, _v9.useState)(!1),
             _v6 = _v0?.live?.status === "streaming";
           return (0, _v9.useEffect)(function () {
-            if (_v6) {
+            if (_v6 && _v1) {
               let _v0 = _v0?.live?.chat.roomId;
               setTimeout(async () => {
                 try {
@@ -8675,7 +8675,7 @@
               return () => clearInterval(_v1);
             }
             _v3(!1);
-          }, [_v6, _v1.jwt]), (0, _v9.useEffect)(function () {
+          }, [_v6, _v1?.jwt]), (0, _v9.useEffect)(function () {
             _v5(!!(_v6 && _v2));
           }, [_v6, _v2]), [_v4];
         }(_v2),

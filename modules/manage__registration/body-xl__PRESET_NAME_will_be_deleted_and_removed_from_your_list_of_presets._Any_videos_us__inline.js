@@ -164,26 +164,25 @@
       });
     },
     _v33 = () => {
-      let {
-          user: _v0,
-          teamUser: _v1,
-          locale: _v2
-        } = (0, _v16.useViewer)(),
-        [_v3, _v4] = (0, _v4.useState)(!1),
-        [_v5, _v6] = (0, _v4.useState)(null),
-        [_v7, {
-          data: _v8
+      let _v0 = (0, _v16.useViewer)(),
+        _v1 = _v0?.user,
+        _v2 = _v0?.teamUser,
+        _v3 = _v0?.locale,
+        [_v4, _v5] = (0, _v4.useState)(!1),
+        [_v6, _v7] = (0, _v4.useState)(null),
+        [_v8, {
+          data: _v9
         }] = (0, _v15.useGetUserLeadCaptureFormsLazy)(),
-        [_v9, _v10] = (0, _v4.useState)(null),
-        _v11 = (0, _v13.useIsBokeh)(),
+        [_v10, _v11] = (0, _v4.useState)(null),
+        _v12 = (0, _v13.useIsBokeh)(),
         {
-          sendBpEvent: _v12
+          sendBpEvent: _v13
         } = (0, _v17.useAnalytics)(),
         {
-          data: _v13,
-          isLoading: _v14
+          data: _v14,
+          isLoading: _v15
         } = (0, _v14.useGetUser)(() => {
-          let _v0 = _v1?.ownerId;
+          let _v0 = _v2?.ownerId;
           return _v0 ? {
             select: ["metadata.connections.leadCaptureForm"],
             where: {
@@ -191,7 +190,7 @@
             }
           } : null;
         }),
-        _v15 = {
+        _v16 = {
           month: "short",
           day: "2-digit",
           year: "numeric",
@@ -200,8 +199,8 @@
           hour12: !0
         };
       return ((0, _v4.useEffect)(() => {
-        let _v0 = _v13?.metadata?.connections?.leadCaptureForm?.options?.length ? _v1?.ownerId ?? _v0?.id : _v0?.id;
-        _v14 || _v7({
+        let _v0 = _v14?.metadata?.connections?.leadCaptureForm?.options?.length ? _v2?.ownerId ?? _v1?.id : _v1?.id;
+        _v15 || _v8({
           where: {
             userId: _v0
           },
@@ -212,17 +211,17 @@
             filter: "preset"
           }
         });
-      }, [_v7, _v1?.ownerId, _v0?.id, _v13, _v14]), (0, _v4.useEffect)(() => {
-        _v8?.data && _v10(_v8.data.filter(_v0 => !_v0.isDefault));
-      }, [_v8?.data]), (0, _v4.useEffect)(() => {
-        _v12({
+      }, [_v8, _v2?.ownerId, _v1?.id, _v14, _v15]), (0, _v4.useEffect)(() => {
+        _v9?.data && _v11(_v9.data.filter(_v0 => !_v0.isDefault));
+      }, [_v9?.data]), (0, _v4.useEffect)(() => {
+        _v13({
           eventName: _v18.BP_EVENT_NAMES.PRESET_MANAGEMENT_PAGEVIEW,
           copy: null,
           pageName: _v18.PAGE_NAMES.USER_SETTINGS,
           location: _v18.LOCATION.PAGE_AREA,
           element: null
         });
-      }, []), null === _v9 || _v9 && _v9?.length === 0) ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+      }, []), null === _v10 || _v10 && _v10?.length === 0) ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v5.Card, {
           padding: "lg",
           children: [(0, _v1.jsxs)(_v3.Box, {
@@ -243,7 +242,7 @@
             }), (0, _v1.jsxs)(_v6.Grid, {
               templateColumns: "repeat(9, 1fr)",
               alignItems: "center",
-              marginY: _v11 ? "3" : "100",
+              marginY: _v12 ? "3" : "100",
               children: [(0, _v1.jsx)(_v7.GridItem, {
                 colSpan: 6,
                 children: (0, _v1.jsx)(_v9.Text, {
@@ -265,9 +264,9 @@
               height: "calc(100vh - 42rem)",
               overflow: "auto"
             },
-            children: _v9?.map(_v0 => {
+            children: _v10?.map(_v0 => {
               let _v1 = new Date(_v0.formCreatedOn),
-                _v2 = new Intl.DateTimeFormat(_v2 || "en-US", _v15).format(_v1);
+                _v2 = new Intl.DateTimeFormat(_v3 || "en-US", _v16).format(_v1);
               return (0, _v1.jsxs)(_v6.Grid, {
                 sx: {
                   height: 56,
@@ -300,7 +299,7 @@
                     fontSize: 14,
                     children: (0, _v1.jsx)(_v8.IconButton, {
                       onClick: () => {
-                        _v6(_v0), _v4(!0);
+                        _v7(_v0), _v5(!0);
                       },
                       variant: "tertiary",
                       icon: (0, _v1.jsx)(_v12.TrashBin, {
@@ -315,14 +314,14 @@
               }, _v0.formCreatedOn);
             })
           })]
-        }), _v5 && (0, _v1.jsx)(_v31, {
-          isActive: _v3,
-          data: _v5,
+        }), _v6 && (0, _v1.jsx)(_v31, {
+          isActive: _v4,
+          data: _v6,
           onDelete: () => {
-            _v9 && _v5 && _v10(_v9.filter(_v0 => _v0.uuid !== _v5?.uuid));
+            _v10 && _v6 && _v11(_v10.filter(_v0 => _v0.uuid !== _v6?.uuid));
           },
           onDismiss: () => {
-            _v4(!1), _v6(null);
+            _v5(!1), _v7(null);
           }
         })]
       });

@@ -61,20 +61,6 @@
       return _v2?.pathname;
     } catch (_v0) {}
     return "/upgrade";
-  }, "getExtraQuotaInfo", 0, _v0 => {
-    let _v1 = {
-      extraQuota: 0,
-      extraQuotaPrice: 0
-    };
-    if (!_v0?.isBandwidthProduct || !_v0?.plans?.altAnnual) return _v1;
-    let _v2 = _v0?.plans?.altAnnual?.features?.bandwidth?.periodicQuota?.split("TB")[0] || "",
-      _v3 = _v0?.plans?.annual?.features?.bandwidth?.periodicQuota?.split("TB")[0] || "",
-      _v4 = Number(_v2) - Number(_v3),
-      _v5 = _v0?.plans?.altAnnual?.price?.amount - _v0?.plans?.annual?.price?.amount;
-    return _v4 > 0 && _v5 > 0 ? {
-      extraQuota: _v4,
-      extraQuotaPrice: _v5
-    } : _v1;
   }, "getFinalProductName", 0, (_v0, _v1) => {
     if (!_v0) return "";
     let {

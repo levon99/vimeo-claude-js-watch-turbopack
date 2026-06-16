@@ -24,37 +24,36 @@
         user: _v1,
         emailQuota: _v2
       } = (0, _v7.useEntityStore)(),
+      _v3 = (0, _v6.useViewer)(),
+      _v4 = _v3?.user,
+      _v5 = (0, _v5.getUserIdFromUri)(_v1?.uri) || _v4?.id || 0,
       {
-        user: _v3
-      } = (0, _v6.useViewer)(),
-      _v4 = (0, _v5.getUserIdFromUri)(_v1?.uri) || _v3?.id || 0,
-      {
-        data: _v5,
-        isLoading: _v6
+        data: _v6,
+        isLoading: _v7
       } = (0, _v3.useGetUserCapabilities)({
         where: {
-          userId: _v4
+          userId: _v5
         },
         select: ["liveEventLeadUpsell", "enterprise", "leadEmailEdit", "addPlayerLogo", "extraEmbedOptions"]
       }),
       {
-        liveEventLeadUpsell: _v7,
-        enterprise: _v8,
-        leadEmailEdit: _v9,
-        addPlayerLogo: _v10,
-        extraEmbedOptions: _v11
-      } = _v5 || {},
-      _v12 = (0, _v2.useMemo)(() => ({
-        hasEnterprise: _v8,
-        hasUpsell: !!_v7,
-        loading: _v6,
-        isStaff: _v3?.badge.type === "staff",
-        hasEmailEditAccess: _v9,
-        canAccessCustomLogo: _v10 || _v11,
-        hasEmailQuotaUsed: !!_v2 && !_v8 && _v2.capping - _v2.total <= 0
-      }), [_v8, _v7, _v6, _v3?.badge.type, _v9, _v10, _v11, _v2]);
-    return _v6 && !_v5 ? (0, _v1.jsx)(_v4.FullScreenLoader, {}) : (0, _v1.jsx)(_v8.Provider, {
-      value: _v12,
+        liveEventLeadUpsell: _v8,
+        enterprise: _v9,
+        leadEmailEdit: _v10,
+        addPlayerLogo: _v11,
+        extraEmbedOptions: _v12
+      } = _v6 || {},
+      _v13 = (0, _v2.useMemo)(() => ({
+        hasEnterprise: _v9,
+        hasUpsell: !!_v8,
+        loading: _v7,
+        isStaff: _v4?.badge.type === "staff",
+        hasEmailEditAccess: _v10,
+        canAccessCustomLogo: _v11 || _v12,
+        hasEmailQuotaUsed: !!_v2 && !_v9 && _v2.capping - _v2.total <= 0
+      }), [_v9, _v8, _v7, _v4?.badge.type, _v10, _v11, _v12, _v2]);
+    return _v7 && !_v6 ? (0, _v1.jsx)(_v4.FullScreenLoader, {}) : (0, _v1.jsx)(_v8.Provider, {
+      value: _v13,
       children: _v0
     });
   }, "useEntityCapability", 0, () => (0, _v2.useContext)(_v8)]);

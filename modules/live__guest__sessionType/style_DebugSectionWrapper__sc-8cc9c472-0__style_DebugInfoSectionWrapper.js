@@ -4114,7 +4114,7 @@
       sessionApplicationType: _v2.sessionApplicationType,
       sessionType: _v2.sessionType,
       sessionId: _v2.sessionId,
-      userId: _v1.user?.id,
+      userId: _v1?.user?.id,
       userLocale: _v1?.locale
     }), (0, _v10.jsx)(_v16.ScopeProvider, {
       children: (0, _v10.jsx)(_v194, {

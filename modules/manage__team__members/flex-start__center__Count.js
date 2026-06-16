@@ -1728,7 +1728,7 @@
   var _v131 = _v0.i(0),
     _v132 = _v0.i(0);
   let _v133 = async (_v0, _v1, _v2, _v3, _v4 = null) => {
-      if (!_v3) throw "no viewer";
+      if (!_v3) throw Error("no viewer");
       let _v5 = _v2 ?? _v3.user?.id,
         _v6 = encodeURIComponent(_v131.RoleUpgradeField.join(",")),
         _v7 = `/teams/${_v5}/role_upgrade/${_v0.id}?fields=${_v6}`;
@@ -1739,7 +1739,7 @@
     },
     _v134 = async (_v0, _v1, _v2, _v3) => {
       let _v4, _v5;
-      if (!_v1) throw "no viewer";
+      if (!_v1) throw Error("no viewer");
       return (0, _v132.makeApiCall)((_v4 = _v2 ?? _v1.user?.id, _v5 = encodeURIComponent(_v131.RoleUpgradeField.join(",")), `/teams/${_v4}/role_upgrades?fields=${_v5}`), _v1).then(_v0 => {
         _v0(_v0.data.filter(_v0 => _v0.user && _v0.teamUser)), _v3();
       });

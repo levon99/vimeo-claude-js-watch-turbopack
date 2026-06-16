@@ -882,11 +882,13 @@
             userId: _v19
           },
           query: {
-            uris: _v0,
-            ...(_v26.has_recently_deleted ? {
+            uris: _v0
+          },
+          ...(_v26.has_recently_deleted ? {
+            variables: {
               sendToRecentlyDeleted: !0
-            } : {})
-          }
+            }
+          } : {})
         }).finally(() => {
           _v18.size > 1 ? _v42.gtm.trackBulkDelete() : _v42.gtm.trackVideoDelete(), _v53?.();
         }), _v27(_v60({

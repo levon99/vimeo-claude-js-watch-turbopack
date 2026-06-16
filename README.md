@@ -96,6 +96,7 @@
 - https://vimeo.com/lms/content/[customerId]/video/[clipId]/[clipHash]
 - https://vimeo.com/log_in
 - https://vimeo.com/login/custom
+- https://vimeo.com/manage/event_series/[...slug]
 - https://vimeo.com/manage/events/[eventId]/appearance
 - https://vimeo.com/manage/organization/analytics/[[...slug]]
 - https://vimeo.com/manage/organization/brand-kits
@@ -171,6 +172,7 @@
 - https://vimeo.com/manage/workspace/security-and-data/legal-hold
 - https://vimeo.com/manage/workspace/security-and-data/privacy-restrictions
 - https://vimeo.com/manage/workspace/security-and-data/review-page-settings
+- https://vimeo.com/managed-accounts/accept/user/[userId]
 - https://vimeo.com/my-feed
 - https://vimeo.com/oauth/auth
 - https://vimeo.com/oauth/error

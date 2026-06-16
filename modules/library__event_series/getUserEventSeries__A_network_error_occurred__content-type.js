@@ -229,8 +229,14 @@
     endpoint: "/users/:userId/event_series",
     method: "POST"
   });
-  let _v50 = ["uri", "name"],
-    _v51 = ({
+  let _v50 = /\/event_series\/(\d+)/,
+    _v51 = _v0 => {
+      let _v1,
+        _v2 = (_v1 = _v0.match(_v50)) ? Number(_v1[1]) : null;
+      return _v2 ? `/manage/event_series/${_v2}/info` : null;
+    },
+    _v52 = ["uri", "name"],
+    _v53 = ({
       onClose: _v0,
       ownerId: _v1,
       onCreated: _v2
@@ -241,92 +247,94 @@
         [_v8, {
           loading: _v9,
           error: _v10,
-          callCount: _v11
+          callCount: _v11,
+          data: _v12
         }] = _v49(),
-        _v12 = (0, _v6.useRef)(0),
-        _v13 = _v4.trim(),
-        _v14 = _v13.length > 0 && !_v9 && !!_v1;
+        _v13 = (0, _v6.useRef)(0),
+        _v14 = _v4.trim(),
+        _v15 = _v14.length > 0 && !_v9 && !!_v1;
       (0, _v6.useEffect)(() => {
-        if (0 !== _v11 && !_v9 && _v11 !== _v12.current) {
-          if (_v12.current = _v11, _v10) return void _v3({
-            isClosable: !0,
-            title: (0, _v15.translate)({
-              singular: "Something went wrong. Your event series was not created.",
-              dictionary: {
-                es: {
-                  singular: "Algo salió mal. No se creó su serie de eventos."
-                },
-                "de-DE": {
-                  singular: "Etwas ist schiefgelaufen. Ihre Eventreihe wurde nicht erstellt."
-                },
-                "fr-FR": {
-                  singular: "Un problème est survenu. Votre série d’événements n’a pas été créée."
-                },
-                "ja-JP": {
-                  singular: "問題が発生しました。イベントシリーズは作成されませんでした。"
-                },
-                "ko-KR": {
-                  singular: "문제가 발생했습니다. 이벤트 시리즈가 생성되지 않았습니다."
-                },
-                "pt-BR": {
-                  singular: "Algo deu errado. Sua série de eventos não foi criada."
-                },
-                "zh-CN": {
-                  singular: "出现问题。您的活动系列未创建。"
-                }
+        if (0 === _v11 || _v9 || _v11 === _v13.current) return;
+        if (_v13.current = _v11, _v10) return void _v3({
+          isClosable: !0,
+          title: (0, _v15.translate)({
+            singular: "Something went wrong. Your event series was not created.",
+            dictionary: {
+              es: {
+                singular: "Algo salió mal. No se creó su serie de eventos."
+              },
+              "de-DE": {
+                singular: "Etwas ist schiefgelaufen. Ihre Eventreihe wurde nicht erstellt."
+              },
+              "fr-FR": {
+                singular: "Un problème est survenu. Votre série d’événements n’a pas été créée."
+              },
+              "ja-JP": {
+                singular: "問題が発生しました。イベントシリーズは作成されませんでした。"
+              },
+              "ko-KR": {
+                singular: "문제가 발생했습니다. 이벤트 시리즈가 생성되지 않았습니다."
+              },
+              "pt-BR": {
+                singular: "Algo deu errado. Sua série de eventos não foi criada."
+              },
+              "zh-CN": {
+                singular: "出现问题。您的活动系列未创建。"
               }
-            }),
-            variant: "warning"
-          });
-          _v3({
-            isClosable: !0,
-            title: (0, _v15.translate)({
-              singular: "Event series created",
-              dictionary: {
-                es: {
-                  singular: "Serie de eventos creada"
-                },
-                "de-DE": {
-                  singular: "Eventreihe erstellt"
-                },
-                "fr-FR": {
-                  singular: "Série d’événements créée"
-                },
-                "ja-JP": {
-                  singular: "イベントシリーズが作成されました"
-                },
-                "ko-KR": {
-                  singular: "이벤트 시리즈가 생성되었습니다."
-                },
-                "pt-BR": {
-                  singular: "Série de eventos criada"
-                },
-                "zh-CN": {
-                  singular: "活动系列已创建"
-                }
+            }
+          }),
+          variant: "warning"
+        });
+        _v3({
+          isClosable: !0,
+          title: (0, _v15.translate)({
+            singular: "Event series created",
+            dictionary: {
+              es: {
+                singular: "Serie de eventos creada"
+              },
+              "de-DE": {
+                singular: "Eventreihe erstellt"
+              },
+              "fr-FR": {
+                singular: "Série d’événements créée"
+              },
+              "ja-JP": {
+                singular: "イベントシリーズが作成されました"
+              },
+              "ko-KR": {
+                singular: "이벤트 시리즈가 생성되었습니다."
+              },
+              "pt-BR": {
+                singular: "Série de eventos criada"
+              },
+              "zh-CN": {
+                singular: "活动系列已创建"
               }
-            })
-          }), _v2();
-        }
-      }, [_v11, _v9, _v10, _v3, _v2]);
-      let _v15 = () => {
+            }
+          })
+        });
+        let _v0 = _v12?.uri ? _v51(_v12.uri) : null;
+        _v0 ? window.location.assign(_v0) : _v2();
+      }, [_v11, _v9, _v10, _v3, _v2, _v12]);
+      let _v16 = () => {
         _v9 || _v0();
       };
       return (0, _v1.jsxs)(_v30.Modal, {
         isOpen: !0,
-        onClose: _v15,
+        onClose: _v16,
         children: [(0, _v1.jsx)(_v35.ModalOverlay, {}), (0, _v1.jsx)(_v32.ModalContent, {
           children: (0, _v1.jsxs)("form", {
             onSubmit: _v0 => {
-              if (_v0?.preventDefault(), !_v14 || !_v1) return;
+              if (_v0?.preventDefault(), !_v15 || !_v1) return;
               let _v1 = _v6.trim();
               _v8({
                 where: {
                   userId: _v1
                 },
-                select: _v50,
+                select: _v52,
                 variables: {
-                  name: _v13,
+                  name: _v14,
                   ...(_v1 ? {
                     description: _v1
                   } : {})
@@ -463,7 +471,7 @@
                           singular: "Worum geht es in dieser Eventreihe?"
                         },
                         "fr-FR": {
-                          singular: "De quoi parle cette série d’événements ?"
+                          singular: "De quoi parle cette série d’événements ?"
                         },
                         "ja-JP": {
                           singular: "このイベントシリーズは何についてのものですか？"
@@ -487,7 +495,7 @@
               children: (0, _v1.jsxs)(_v28.HStack, {
                 spacing: "0.5rem",
                 children: [(0, _v1.jsx)(_v8.Button, {
-                  onClick: _v15,
+                  onClick: _v16,
                   type: "button",
                   variant: "tertiary",
                   children: (0, _v15.translate)({
@@ -517,7 +525,7 @@
                     }
                   })
                 }), (0, _v1.jsx)(_v8.Button, {
-                  isDisabled: !_v14,
+                  isDisabled: !_v15,
                   isLoading: _v9,
                   type: "submit",
                   variant: "primary",
@@ -554,9 +562,9 @@
         })]
       });
     };
-  var _v52 = _v0.i(0),
-    _v53 = _v0.i(0);
-  let _v54 = ({
+  var _v54 = _v0.i(0),
+    _v55 = _v0.i(0);
+  let _v56 = ({
     isCreateDisabled: _v0 = !0,
     onCreate: _v1
   }) => (0, _v1.jsx)(_v9.Flex, {
@@ -565,7 +573,7 @@
     gap: "lg",
     justify: "center",
     padding: "md",
-    children: (0, _v1.jsx)(_v53.EmptyState, {
+    children: (0, _v1.jsx)(_v55.EmptyState, {
       cta: (0, _v1.jsx)(_v8.Button, {
         isDisabled: _v0,
         onClick: _v1,
@@ -624,7 +632,7 @@
           }
         }
       }),
-      icon: (0, _v1.jsx)(_v52.BrowserWindow, {
+      icon: (0, _v1.jsx)(_v54.BrowserWindow, {
         height: "2xl",
         width: "2xl"
       }),
@@ -656,9 +664,7 @@
       })
     })
   });
-  var _v55 = _v0.i(0),
-    _v56 = _v0.i(0),
-    _v57 = _v0.i(0),
+  var _v57 = _v0.i(0),
     _v58 = _v0.i(0),
     _v59 = _v0.i(0),
     _v60 = _v0.i(0),
@@ -669,218 +675,11 @@
     _v65 = _v0.i(0),
     _v66 = _v0.i(0),
     _v67 = _v0.i(0),
-    _v68 = _v0.i(0);
-  async function _v69({
-    baseUrl: _v0,
-    select: _v1,
-    where: {
-      userId: _v2,
-      eventSeriesId: _v3
-    },
-    ..._v4
-  }) {
-    return (0, _v40.measureLatency)("getUserEventSery", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/event_series/${_v3}?fields=${_v1.map(_v41.intoSnakeCase).join(",")}`, {
-        ..._v4,
-        method: "GET"
-      });
-      if (!_v0.ok) throw new _v41.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v41.deepCamelCase)(_v1);
-    });
-  }
-  async function _v70({
-    baseUrl: _v0,
-    where: {
-      userId: _v1,
-      eventSeriesId: _v2
-    },
-    ..._v3
-  }) {
-    return (0, _v40.measureLatency)("deleteUserEventSery", "DELETE", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v1}/event_series/${_v2}`, {
-        ..._v3,
-        method: "DELETE"
-      });
-      if (!_v0.ok) throw new _v41.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v41.deepCamelCase)(_v1);
-    });
-  }
-  async function _v71({
-    baseUrl: _v0,
-    select: _v1,
-    variables: _v2,
-    where: {
-      userId: _v3,
-      eventSeriesId: _v4
-    },
-    ..._v5
-  }) {
-    return (0, _v40.measureLatency)("patchUserEventSery", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/event_series/${_v4}?fields=${_v1.map(_v41.intoSnakeCase).join(",")}`, {
-        ..._v5,
-        method: "PATCH",
-        body: JSON.stringify((0, _v41.deepSnakeCase)(_v2))
-      });
-      if (!_v0.ok) throw new _v41.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v41.deepCamelCase)(_v1);
-    });
-  }
-  function _v72() {
-    let {
-        mutate: _v0
-      } = (0, _v45.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v47.useGctlConfig)(),
-      [_v5, _v6] = (0, _v39.useInternalState)();
-    return [(0, _v6.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/event_series/${_v0.where.eventSeriesId}${(0, _v39.serializeQuery)(_v0)}`, _v70({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v38.default.env.STORYBOOK && (0, _v39.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v47.useGctlConfig)();
-    return (0, _v44.default)(_v2 ? `/users/${_v2.where.userId}/event_series/${_v2.where.eventSeriesId}${(0, _v39.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v69({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/users/:userId/event_series/:eventSeriesId",
-    method: "GET"
-  }), "true" === _v38.default.env.STORYBOOK && (0, _v39.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v45.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v47.useGctlConfig)(),
-      [_v5, _v6] = (0, _v39.useInternalState)();
-    return [(0, _v6.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/event_series/${_v0.where.eventSeriesId}${(0, _v39.serializeQuery)(_v0)}`, _v69({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/users/:userId/event_series/:eventSeriesId",
-    method: "GET"
-  }), "true" === _v38.default.env.STORYBOOK && (0, _v39.assignMswData)(_v72, {
-    endpoint: "/users/:userId/event_series/:eventSeriesId",
-    method: "DELETE"
-  }), "true" === _v38.default.env.STORYBOOK && (0, _v39.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v45.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v47.useGctlConfig)(),
-      [_v5, _v6] = (0, _v39.useInternalState)();
-    return [(0, _v6.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/event_series/${_v0.where.eventSeriesId}${(0, _v39.serializeQuery)(_v0)}`, _v71({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/users/:userId/event_series/:eventSeriesId",
-    method: "PATCH"
-  });
+    _v68 = _v0.i(0),
+    _v69 = _v0.i(0),
+    _v70 = _v0.i(0),
+    _v71 = _v0.i(0),
+    _v72 = _v0.i(0);
   let _v73 = ({
       onClose: _v0,
       onDeleted: _v1,
@@ -893,7 +692,7 @@
           loading: _v7,
           error: _v8,
           callCount: _v9
-        }] = _v72(),
+        }] = (0, _v72.useDeleteUserEventSery)(),
         _v10 = (0, _v6.useRef)(0);
       (0, _v6.useEffect)(() => {
         if (0 !== _v9 && !_v7 && _v9 !== _v10.current) {
@@ -980,7 +779,7 @@
                   singular: "Eventreihe löschen?"
                 },
                 "fr-FR": {
-                  singular: "Supprimer la série d’événements ?"
+                  singular: "Supprimer la série d’événements ?"
                 },
                 "ja-JP": {
                   singular: "イベントシリーズを削除しますか？"
@@ -1117,14 +916,15 @@
         _v9 = (_v5 = _v1.match(/\/users\/(\d+)\/event_series\/(\d+)/)) ? {
           userId: Number(_v5[1]),
           eventSeriesId: Number(_v5[2])
-        } : null;
+        } : null,
+        _v10 = _v51(_v1);
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v7.Box, {
           onClick: _v0 => {
             _v0.preventDefault(), _v0.stopPropagation();
           },
-          children: (0, _v1.jsxs)(_v59.Menu, {
-            children: [(0, _v1.jsx)(_v60.MenuButton, {
+          children: (0, _v1.jsxs)(_v61.Menu, {
+            children: [(0, _v1.jsx)(_v62.MenuButton, {
               "aria-label": (0, _v15.translate)({
                 singular: "Menu",
                 dictionary: {
@@ -1146,14 +946,45 @@
                 }
               }),
               as: _v10.IconButton,
-              icon: (0, _v1.jsx)(_v64.EllipsisV, {}),
+              icon: (0, _v1.jsx)(_v67.EllipsisV, {}),
               size: _v4,
               variant: "tertiary"
-            }), (0, _v1.jsxs)(_v63.MenuList, {
-              children: [(0, _v1.jsx)(_v62.MenuItem, {
-                icon: (0, _v1.jsx)(_v66.Link, {}),
+            }), (0, _v1.jsxs)(_v65.MenuList, {
+              children: [_v10 && (0, _v1.jsx)(_v64.MenuItem, {
+                icon: (0, _v1.jsx)(_v66.EditPencil, {}),
                 onClick: () => {
-                  _v6((0, _v68.default)(_v0) ? {
+                  _v10 && window.location.assign(_v10);
+                },
+                children: (0, _v15.translate)({
+                  singular: "Edit",
+                  dictionary: {
+                    es: {
+                      singular: "Editar"
+                    },
+                    "de-DE": {
+                      singular: "Bearbeiten"
+                    },
+                    "fr-FR": {
+                      singular: "Modifier"
+                    },
+                    "ja-JP": {
+                      singular: "編集"
+                    },
+                    "ko-KR": {
+                      singular: "편집"
+                    },
+                    "pt-BR": {
+                      singular: "Editar"
+                    },
+                    "zh-CN": {
+                      singular: "编辑"
+                    }
+                  }
+                })
+              }), (0, _v1.jsx)(_v64.MenuItem, {
+                icon: (0, _v1.jsx)(_v69.Link, {}),
+                onClick: () => {
+                  _v6((0, _v71.default)(_v0) ? {
                     isClosable: !0,
                     title: (0, _v15.translate)({
                       singular: "Link copied to clipboard",
@@ -1238,8 +1069,8 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v62.MenuItem, {
-                icon: (0, _v1.jsx)(_v65.Eye, {}),
+              }), (0, _v1.jsx)(_v64.MenuItem, {
+                icon: (0, _v1.jsx)(_v68.Eye, {}),
                 onClick: () => {
                   window.open(_v0, "_blank", "noopener,noreferrer");
                 },
@@ -1270,8 +1101,8 @@
                   }
                 })
               }), _v9 && (0, _v1.jsxs)(_v1.Fragment, {
-                children: [(0, _v1.jsx)(_v61.MenuDivider, {}), (0, _v1.jsx)(_v62.MenuItem, {
-                  icon: (0, _v1.jsx)(_v67.TrashBin, {}),
+                children: [(0, _v1.jsx)(_v63.MenuDivider, {}), (0, _v1.jsx)(_v64.MenuItem, {
+                  icon: (0, _v1.jsx)(_v70.TrashBin, {}),
                   onClick: () => _v8(!0),
                   children: (0, _v15.translate)({
                     singular: "Delete",
@@ -1318,9 +1149,9 @@
       series: _v0,
       isLoading: _v1 = !1,
       onSeriesDeleted: _v2
-    }) => (0, _v1.jsx)(_v58.ContentGrid, {
-      children: (0, _v1.jsxs)(_v58.ContentGrid.Body, {
-        children: [_v0.map(_v0 => (0, _v1.jsx)(_v56.ShowcaseCard, {
+    }) => (0, _v1.jsx)(_v60.ContentGrid, {
+      children: (0, _v1.jsxs)(_v60.ContentGrid.Body, {
+        children: [_v0.map(_v0 => (0, _v1.jsx)(_v58.ShowcaseCard, {
           actionsMenu: (0, _v1.jsx)(_v74, {
             link: _v0.link,
             name: _v0.name,
@@ -1328,12 +1159,12 @@
             size: "sm",
             uri: _v0.uri
           }),
-          href: _v0.link,
+          href: _v51(_v0.uri) ?? _v0.link,
           showGrid: !1,
-          subtitle: (0, _v57.getDisplayDate)(_v0.createdTime),
+          subtitle: (0, _v59.getDisplayDate)(_v0.createdTime),
           thumbnails: [],
           title: _v0.name
-        }, _v0.uri)), _v1 && (0, _v1.jsx)(_v55.LoadingCardsGrid, {})]
+        }, _v0.uri)), _v1 && (0, _v1.jsx)(_v57.LoadingCardsGrid, {})]
       })
     });
   var _v76 = _v0.i(0),
@@ -1429,12 +1260,12 @@
       width: "100%",
       children: [(0, _v1.jsx)(_v80, {}), _v0.map(_v0 => (0, _v1.jsxs)(_v77.ContentRow, {
         cursor: "pointer",
-        href: _v0.link,
+        href: _v51(_v0.uri) ?? _v0.link,
         listGridColumns: _v79,
         children: [(0, _v1.jsx)(_v77.ContentRow.Column, {
           children: (0, _v1.jsx)(_v77.ContentRow.DefaultThumbnail, {
             minWidth: (0, _v76.rem)(120),
-            children: (0, _v1.jsx)(_v52.BrowserWindow, {
+            children: (0, _v1.jsx)(_v54.BrowserWindow, {
               color: "text-tertiary",
               boxSize: "lg",
               opacity: "60%"
@@ -1460,7 +1291,7 @@
             textOverflow: "ellipsis",
             variant: "body-md",
             whiteSpace: "nowrap",
-            children: (0, _v57.getDisplayDate)(_v0.createdTime)
+            children: (0, _v59.getDisplayDate)(_v0.createdTime)
           })
         }), (0, _v1.jsx)(_v77.ContentRow.Column, {
           justifyColumn: "flex-end",
@@ -1807,7 +1638,7 @@
           }) : _v19 ? (0, _v1.jsx)(_v9.Flex, {
             flex: "1",
             justify: "center",
-            children: (0, _v1.jsx)(_v54, {
+            children: (0, _v1.jsx)(_v56, {
               isCreateDisabled: !1,
               onCreate: _v20
             })
@@ -1823,7 +1654,7 @@
             isLoading: _v11,
             onLoadMore: _v14
           })]
-        }), _v5 && (0, _v1.jsx)(_v51, {
+        }), _v5 && (0, _v1.jsx)(_v53, {
           onClose: () => _v6(!1),
           onCreated: () => {
             _v15(), _v6(!1);

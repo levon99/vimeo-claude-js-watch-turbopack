@@ -26,16 +26,12 @@
       }) => {
         if (_v0 && _v2) {
           let _v0;
-          if (_v0 = _v0.type.split("/")[1], !_v7.includes(_v0)) throw {
-            ...Error(),
-            code: 415,
-            message: "Invalid file type. Only PNG and JPEG are allowed."
-          };
-          if (_v0.size > 0) throw {
-            ...Error(),
-            code: 413,
-            message: "File too large. Maximum size is 10 MB."
-          };
+          if (_v0 = _v0.type.split("/")[1], !_v7.includes(_v0)) throw Object.assign(Error("Invalid file type. Only PNG and JPEG are allowed."), {
+            code: 415
+          });
+          if (_v0.size > 0) throw Object.assign(Error("File too large. Maximum size is 10 MB."), {
+            code: 413
+          });
           try {
             let {
                 uploadLink: _v0

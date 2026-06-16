@@ -176,9 +176,9 @@
         return {
           kitUuid: _v1?.toString() || "",
           userId: _v0,
-          baseUrl: `//${_v2.apiUrl}`,
+          baseUrl: `//${_v2?.apiUrl ?? ""}`,
           headers: {
-            Authorization: `jwt ${_v2.jwt}`,
+            Authorization: `jwt ${_v2?.jwt ?? ""}`,
             "Content-Type": "application/json"
           }
         };

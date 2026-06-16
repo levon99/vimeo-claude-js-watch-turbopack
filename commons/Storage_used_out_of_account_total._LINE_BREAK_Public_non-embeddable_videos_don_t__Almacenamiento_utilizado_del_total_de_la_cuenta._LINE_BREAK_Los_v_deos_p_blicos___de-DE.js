@@ -23,10 +23,9 @@
       quotaPeriod: _v2,
       quotaUnit: _v3,
       showLastUpdatedDate: _v4,
-      showLastUpdatedBandwidthDate: _v5,
-      isRestrictedQuota: _v6
+      isRestrictedQuota: _v5
     }) => {
-      if (_v6) return (0, _v10.translate)({
+      if (_v5) return (0, _v10.translate)({
         singular: "Storage used out of account total.{LINE_BREAK}Public, non-embeddable videos don't count.",
         replacements: {
           LINE_BREAK: () => (0, _v1.jsx)("br", {})
@@ -55,7 +54,7 @@
           }
         }
       });
-      let _v7 = Intl.DateTimeFormat(_v0, {
+      let _v6 = Intl.DateTimeFormat(_v0, {
           year: "numeric",
           month: "long",
           day: "numeric",
@@ -63,65 +62,23 @@
           minute: "numeric",
           timeZoneName: "short"
         }),
-        _v8 = Intl.DateTimeFormat(_v0, {
+        _v7 = Intl.DateTimeFormat(_v0, {
           year: "numeric",
           month: "short",
           day: "numeric"
         }),
-        _v9 = Intl.DateTimeFormat(_v0, {
+        _v8 = Intl.DateTimeFormat(_v0, {
           hour: "numeric",
           minute: "numeric",
           timeZoneName: "short"
         });
-      if (_v5) {
-        let _v0 = new Date();
-        _v0.setDate(_v0.getDate() - 3);
-        let _v1 = new Date();
-        _v1.setDate(1), _v1.setMonth(_v1.getMonth() + 1);
-        let _v2 = Intl.DateTimeFormat(_v0, {
-          month: "short",
-          day: "numeric"
-        });
-        return (0, _v10.translate)({
-          singular: "Renews on {DATE} at {TIME}.{LINE_BREAK}Last updated as of {UPDATED_DATE}",
-          replacements: {
-            DATE: _v8.format(_v1),
-            TIME: "12:00 am UTC",
-            UPDATED_DATE: _v16(_v2.format(_v0), _v0),
-            LINE_BREAK: () => (0, _v1.jsx)("br", {})
-          },
-          dictionary: {
-            es: {
-              singular: "Se renueva el {DATE} a las {TIME}.{LINE_BREAK}Se actualizó por última vez el {UPDATED_DATE}."
-            },
-            "de-DE": {
-              singular: "Verlängert sich am {DATE} um {TIME}.{LINE_BREAK}Zuletzt aktualisiert am {UPDATED_DATE}"
-            },
-            "fr-FR": {
-              singular: "Renouvellement le {DATE} à {TIME}.{LINE_BREAK}Dernière mise à jour le {UPDATED_DATE}"
-            },
-            "ja-JP": {
-              singular: "{DATE}{TIME}に更新されます。{LINE_BREAK}最終更新日：{UPDATED_DATE}"
-            },
-            "ko-KR": {
-              singular: "{DATE} {TIME}에 갱신됩니다.{LINE_BREAK}{UPDATED_DATE} 기준으로 마지막으로 업데이트되었습니다."
-            },
-            "pt-BR": {
-              singular: "Renova em {DATE} às {TIME}.{LINE_BREAK}Última atualização em {UPDATED_DATE}"
-            },
-            "zh-CN": {
-              singular: "将于 {DATE} {TIME} 续订。{LINE_BREAK}上次更新日期为 {UPDATED_DATE}。"
-            }
-          }
-        });
-      }
       if (_v4) return (0, _v10.translate)({
         singular: "Renews on {DATE} at {TIME}. Updated as of {UPDATED_DATE} at {UPDATED_TIME}",
         replacements: {
-          DATE: _v8.format(_v1),
-          TIME: _v16(_v9.format(_v1), _v0),
-          UPDATED_DATE: _v16(_v9.format(new Date()), _v0),
-          UPDATED_TIME: _v16(_v9.format(new Date()), _v0)
+          DATE: _v7.format(_v1),
+          TIME: _v16(_v8.format(_v1), _v0),
+          UPDATED_DATE: _v16(_v8.format(new Date()), _v0),
+          UPDATED_TIME: _v16(_v8.format(new Date()), _v0)
         },
         dictionary: {
           es: {
@@ -154,8 +111,8 @@
           return (0, _v10.translate)({
             singular: "Limit will reset on {DATE} at {TIME}",
             replacements: {
-              DATE: _v8.format(_v1),
-              TIME: _v16(_v9.format(_v1), _v0)
+              DATE: _v7.format(_v1),
+              TIME: _v16(_v8.format(_v1), _v0)
             },
             dictionary: {
               es: {
@@ -186,8 +143,8 @@
           return (0, _v10.translate)({
             singular: "Expires on {DATE} at {TIME}",
             replacements: {
-              DATE: _v8.format(_v1),
-              TIME: _v16(_v9.format(_v1), _v0)
+              DATE: _v7.format(_v1),
+              TIME: _v16(_v8.format(_v1), _v0)
             },
             dictionary: {
               es: {
@@ -243,7 +200,7 @@
           return (0, _v10.translate)({
             singular: "DRM licenses used out of account total.{LINE_BREAK}Renews on {DATETIME}",
             replacements: {
-              DATETIME: _v7.format(_v1),
+              DATETIME: _v6.format(_v1),
               LINE_BREAK: () => (0, _v1.jsx)("br", {})
             },
             dictionary: {
@@ -511,24 +468,22 @@
       quotaUnit: _v3,
       isMobile: _v4,
       showLastUpdatedDate: _v5,
-      showLastUpdatedBandwidthDate: _v6,
-      isRestrictedQuota: _v7
+      isRestrictedQuota: _v6
     }) => {
-      let [_v8, _v9] = (0, _v2.useState)(!1),
-        _v10 = _v17({
+      let [_v7, _v8] = (0, _v2.useState)(!1),
+        _v9 = _v17({
           locale: _v1,
           resetTimestamp: new Date(_v0 ?? ""),
           quotaPeriod: _v2,
           quotaUnit: _v3,
           showLastUpdatedDate: _v5,
-          showLastUpdatedBandwidthDate: _v6,
-          isRestrictedQuota: _v7
+          isRestrictedQuota: _v6
         });
-      return _v10 ? (0, _v1.jsx)(_v8.Tooltip, {
-        isOpen: _v8,
+      return _v9 ? (0, _v1.jsx)(_v8.Tooltip, {
+        isOpen: _v7,
         textAlign: "left",
         placement: _v4 ? "top" : "right",
-        label: _v10,
+        label: _v9,
         children: (0, _v1.jsx)(_v4.Flex, {
           height: "xs",
           width: "xs",
@@ -536,9 +491,9 @@
           justifyContent: "center",
           alignItems: "center",
           children: (0, _v1.jsx)(_v23.InfoCircle, {
-            onMouseEnter: () => _v9(!0),
-            onMouseLeave: () => _v9(!1),
-            onClick: () => _v9(_v0 => !_v0),
+            onMouseEnter: () => _v8(!0),
+            onMouseLeave: () => _v8(!1),
+            onClick: () => _v8(_v0 => !_v0),
             height: "2xs",
             width: "2xs"
           })
@@ -584,40 +539,39 @@
       icon: _v17,
       hideQuotaTooltip: _v18,
       limitLabel: _v19,
-      showBandwidthVariant: _v20,
-      showColdStorageWarning: _v21,
-      isRestrictedQuota: _v22,
-      highlightedValue: _v23,
-      compact: _v24
+      showColdStorageWarning: _v20,
+      isRestrictedQuota: _v21,
+      highlightedValue: _v22,
+      compact: _v23
     }) => {
       let {
-        trackColdStorageUxClicked: _v25
+        trackColdStorageUxClicked: _v24
       } = (0, _v13.useColdStorageTracking)();
       _v10 = (!!_v7 && _v10) ?? !1;
-      let _v26 = null,
+      let _v25 = null,
+        _v26 = null,
         _v27 = null,
-        _v28 = null,
-        _v29 = null;
+        _v28 = null;
       if (null !== _v3 && null !== _v2 && null !== _v8) {
-        _v26 = _v3 && _v18(_v3, _v8), _v27 = _v2 && _v18(_v2, _v8);
+        _v25 = _v3 && _v18(_v3, _v8), _v26 = _v2 && _v18(_v2, _v8);
         let _v0 = _v3 / _v2 * 100;
-        _v28 = Math.min(100, Math.max(+(_v0 > 0), Math.round(_v0))), _v29 = _v14 && _v18(_v14, _v8);
+        _v27 = Math.min(100, Math.max(+(_v0 > 0), Math.round(_v0))), _v28 = _v14 && _v18(_v14, _v8);
       }
-      let _v30 = null,
-        _v31 = null,
-        _v32 = null;
+      let _v29 = null,
+        _v30 = null,
+        _v31 = null;
       if (null !== _v4 && null !== _v5 && null !== _v7) {
-        _v30 = _v4 && _v18(_v4, _v7), _v31 = _v5 && _v18(_v5, _v7);
+        _v29 = _v4 && _v18(_v4, _v7), _v30 = _v5 && _v18(_v5, _v7);
         let _v0 = _v4 / _v5 * 100;
-        _v32 = Math.min(100, Math.max(+(_v0 > 0), Math.round(_v0))), _v29 = _v14 && _v18(_v14, _v7);
+        _v31 = Math.min(100, Math.max(+(_v0 > 0), Math.round(_v0))), _v28 = _v14 && _v18(_v14, _v7);
       }
-      let _v33 = _v28;
-      null === _v33 && null !== _v32 && (_v33 = _v32, _v26 = _v30, _v27 = _v31), _v26 = Number.isFinite(Number(_v26)) ? Number(_v26).toLocaleString() : _v26, _v27 = Number.isFinite(Number(_v27)) ? Number(_v27).toLocaleString() : _v27;
-      let _v34 = _v19 || _v19(_v8 || _v7),
-        _v35 = _v13 ? (0, _v10.translate)({
+      let _v32 = _v27;
+      null === _v32 && null !== _v31 && (_v32 = _v31, _v25 = _v29, _v26 = _v30), _v25 = Number.isFinite(Number(_v25)) ? Number(_v25).toLocaleString() : _v25, _v26 = Number.isFinite(Number(_v26)) ? Number(_v26).toLocaleString() : _v26;
+      let _v33 = _v19 || _v19(_v8 || _v7),
+        _v34 = _v13 ? (0, _v10.translate)({
           singular: "{WORKSPACE_USED} used",
           replacements: {
-            WORKSPACE_USED: _v26
+            WORKSPACE_USED: _v25
           },
           dictionary: {
             es: {
@@ -645,8 +599,8 @@
         }) : (0, _v10.translate)({
           singular: "{USED} of {LIMIT}",
           replacements: {
-            USED: _v26,
-            LIMIT: _v27
+            USED: _v25,
+            LIMIT: _v26
           },
           dictionary: {
             es: {
@@ -672,24 +626,24 @@
             }
           }
         }),
-        _v36 = null !== _v33 && _v33 >= 100,
-        _v37 = !_v20 && "video_size" === (_v8 || _v7) && null !== _v33 && _v33 >= 95 ? "storage_limit" : "quota",
-        _v38 = (0, _v12.buildUpgradePlanUrl)({
+        _v35 = null !== _v32 && _v32 >= 100,
+        _v36 = "video_size" === (_v8 || _v7) && null !== _v32 && _v32 >= 95 ? "storage_limit" : "quota",
+        _v37 = (0, _v12.buildUpgradePlanUrl)({
           paywallTrigger: "quota_meter_upgrade_button",
           paywallLocation: "quota_meter",
-          paywallFeature: _v37
+          paywallFeature: _v36
         }, {
           upsell: "quota_meter",
           integration: "none",
-          feature: _v36 ? "Storage_at_limit" : "Storage_general",
+          feature: _v35 ? "Storage_at_limit" : "Storage_general",
           paywall: "1",
           upsellFeatureCategory: "Storage",
-          upsellSpecificFeature: _v36 ? "Storage_at_limit" : "Storage_general"
+          upsellSpecificFeature: _v35 ? "Storage_at_limit" : "Storage_general"
         }),
-        _v39 = (0, _v2.useCallback)(() => {
-          _v1?.(_v8 || _v7, _v33);
-        }, [_v1, _v8, _v7, _v33]),
-        _v40 = () => (0, _v1.jsx)(_v8.Tooltip, {
+        _v38 = (0, _v2.useCallback)(() => {
+          _v1?.(_v8 || _v7, _v32);
+        }, [_v1, _v8, _v7, _v32]),
+        _v39 = () => (0, _v1.jsx)(_v8.Tooltip, {
           label: (0, _v10.translate)({
             singular: "You're over your storage limit. Delete videos to unlock uploads.",
             dictionary: {
@@ -721,7 +675,7 @@
             as: "a",
             href: "/library",
             onClick: () => {
-              _v25({
+              _v24({
                 element: "quota_meter_lock"
               });
             },
@@ -759,51 +713,49 @@
             })
           })
         }),
-        _v41 = null !== _v28 && _v28 >= 95 || null !== _v33 && _v33 >= 95,
-        _v42 = _v20 || !_v12 && !_v18,
-        _v43 = _v21 ? "red.500" : _v20(_v33),
-        _v44 = _v21 ? "red.700" : _v21(_v33);
+        _v40 = null !== _v27 && _v27 >= 95 || null !== _v32 && _v32 >= 95,
+        _v41 = _v20 ? "red.500" : _v20(_v32),
+        _v42 = _v20 ? "red.700" : _v21(_v32);
       return (0, _v1.jsx)(_v1.Fragment, {
         children: (0, _v1.jsxs)(_v3.Box, {
           gap: "sm",
           display: "flex",
           flexDirection: "column",
-          ...(!_v24 && {
+          ...(!_v23 && {
             paddingX: "md"
           }),
           paddingY: "sm",
           children: [(0, _v1.jsxs)(_v3.Box, {
             gap: "sm",
             display: "flex",
-            flexDirection: _v24 ? "row" : "column",
+            flexDirection: _v23 ? "row" : "column",
             justifyContent: "space-between",
-            alignItems: _v24 ? "center" : "flex-start",
+            alignItems: _v23 ? "center" : "flex-start",
             width: "100%",
             children: [(0, _v1.jsxs)(_v3.Box, {
               display: "flex",
               justifyContent: "space-between",
-              ...(!_v24 && {
+              ...(!_v23 && {
                 width: "100%"
               }),
               children: [(0, _v1.jsxs)(_v7.Text, {
                 display: "flex",
                 variant: "heading-2xs",
                 alignItems: "center",
-                children: [_v34, _v42 && (0, _v1.jsx)(_v24, {
+                children: [_v33, !_v12 && !_v18 && (0, _v1.jsx)(_v24, {
                   quotaResetDate: _v9 ?? "",
                   locale: (0, _v10.getCurrentLocale)(),
                   quotaPeriod: _v6,
                   quotaUnit: _v8 || _v7,
                   isMobile: _v0,
-                  showLastUpdatedBandwidthDate: _v20,
-                  isRestrictedQuota: _v22
+                  isRestrictedQuota: _v21
                 })]
               }), _v11 && !_v0 && (0, _v1.jsx)(_v11.UpgradeBadge, {
                 style: {
                   marginRight: 0
                 },
-                href: _v1 ? void 0 : _v38,
-                onClick: _v39,
+                href: _v1 ? void 0 : _v37,
+                onClick: _v38,
                 name: "quota_meter_upgrade_button",
                 location: "quota_meter"
               })]
@@ -820,8 +772,8 @@
                 })
               })
             }), !_v12 && (_v13 ? (0, _v1.jsx)(() => {
-              let _v0 = Number(_v29),
-                _v1 = Number.isFinite(_v0) ? _v0.toLocaleString() : _v29;
+              let _v0 = Number(_v28),
+                _v1 = Number.isFinite(_v0) ? _v0.toLocaleString() : _v28;
               return _v15 ? (0, _v1.jsx)(_v4.Flex, {
                 justifyContent: "space-between",
                 width: "100%",
@@ -838,8 +790,8 @@
                     children: (0, _v10.translate)({
                       singular: "{WORKSPACE_USED} of {WORKSPACE_LIMIT} limit",
                       replacements: {
-                        WORKSPACE_USED: _v26,
-                        WORKSPACE_LIMIT: _v27
+                        WORKSPACE_USED: _v25,
+                        WORKSPACE_LIMIT: _v26
                       },
                       dictionary: {
                         es: {
@@ -879,7 +831,7 @@
                   display: "flex",
                   alignItems: "center",
                   marginBottom: 0,
-                  children: _v35
+                  children: _v34
                 }), (0, _v1.jsxs)(_v4.Flex, {
                   width: "100%",
                   gap: "xs",
@@ -923,7 +875,7 @@
             }, {}) : (0, _v1.jsx)(() => (0, _v1.jsxs)(_v4.Flex, {
               alignItems: "center",
               width: "100%",
-              ...(_v21 ? {
+              ...(_v20 ? {
                 justifyContent: "space-between"
               } : {
                 gap: "xs"
@@ -935,7 +887,7 @@
                   "data-testid": "periodic-quota-info",
                   variant: "body-sm",
                   textAlign: "left",
-                  color: _v41 ? "red.500" : "text-secondary",
+                  color: _v40 ? "red.500" : "text-secondary",
                   display: "flex",
                   alignItems: "center",
                   marginBottom: 0,
@@ -964,11 +916,11 @@
                         singular: "每周"
                       }
                     }
-                  }), " ", _v35]
+                  }), " ", _v34]
                 })]
-              }), _v21 && (0, _v1.jsx)(_v40, {})]
+              }), _v20 && (0, _v1.jsx)(_v39, {})]
             }), {}))]
-          }), Number.isFinite(_v33) && _v16 && !_v12 && (_v23 && _v2 ? (0, _v1.jsxs)(_v3.Box, {
+          }), Number.isFinite(_v32) && _v16 && !_v12 && (_v22 && _v2 ? (0, _v1.jsxs)(_v3.Box, {
             "data-testid": "mobile-quota-bar",
             position: "relative",
             height: (0, _v9.rem)(6),
@@ -982,14 +934,14 @@
               left: 0,
               top: 0,
               height: "100%",
-              width: `${Math.min(100, Math.max(0, _v33 - _v23 / _v2 * 100))}%`,
-              bgColor: _v43,
+              width: `${Math.min(100, Math.max(0, _v32 - _v22 / _v2 * 100))}%`,
+              bgColor: _v41,
               borderRadius: "999px"
             }), (0, _v1.jsx)(_v8.Tooltip, {
               label: (0, _v10.translate)({
                 singular: "This video: {SIZE}",
                 replacements: {
-                  SIZE: (0, _v14.bytesToSize)(_v23).toString()
+                  SIZE: (0, _v14.bytesToSize)(_v22).toString()
                 },
                 dictionary: {
                   es: {
@@ -1018,11 +970,11 @@
               placement: "top",
               children: (0, _v1.jsx)(_v3.Box, {
                 position: "absolute",
-                left: `${Math.min(100, Math.max(0, _v33 - _v23 / _v2 * 100))}%`,
+                left: `${Math.min(100, Math.max(0, _v32 - _v22 / _v2 * 100))}%`,
                 top: 0,
                 height: "100%",
-                width: `${Math.min(_v23 / _v2 * 100, 100)}%`,
-                bgColor: _v44,
+                width: `${Math.min(_v22 / _v2 * 100, 100)}%`,
+                bgColor: _v42,
                 borderTopRightRadius: "999px",
                 borderBottomRightRadius: "999px",
                 cursor: "default"
@@ -1030,15 +982,15 @@
             })]
           }) : (0, _v1.jsx)(_v6.Progress, {
             "data-testid": "mobile-quota-bar",
-            value: _v33,
+            value: _v32,
             size: "xs",
             sx: {
               "[role=progressbar]": {
-                bgColor: _v43
+                bgColor: _v41
               }
             },
             marginBottom: (0, _v9.rem)(4)
-          })), _v10 && null !== _v32 && (0, _v1.jsx)(_v3.Box, {
+          })), _v10 && null !== _v31 && (0, _v1.jsx)(_v3.Box, {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
@@ -1049,14 +1001,14 @@
               "data-testid": "total-quota-info",
               variant: "body-xs",
               textAlign: "left",
-              color: _v32 >= 95 ? "red.500" : "text-tertiary",
+              color: _v31 >= 95 ? "red.500" : "text-tertiary",
               display: "flex",
               alignItems: "center",
               children: (0, _v10.translate)({
                 singular: "Total {USED} of {LIMIT}",
                 replacements: {
-                  USED: _v30,
-                  LIMIT: _v31
+                  USED: _v29,
+                  LIMIT: _v30
                 },
                 dictionary: {
                   es: {
@@ -1091,7 +1043,7 @@
               href: (0, _v12.buildUpgradePlanUrl)({
                 paywallTrigger: "quota_meter_mobile_upgrade_button",
                 paywallLocation: "quota_meter",
-                paywallFeature: _v37
+                paywallFeature: _v36
               }, {
                 upsell: "quota_meter",
                 integration: "none",

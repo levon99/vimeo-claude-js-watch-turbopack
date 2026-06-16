@@ -1524,33 +1524,34 @@
     };
   function _v71({
     title: _v0,
-    subTitle: _v1,
-    onSuccess: _v2,
-    handleSSOLogin: _v3,
-    target: _v4,
-    redirectUrl: _v5,
-    hasF2PVariant: _v6,
-    type: _v7,
-    switchToggle: _v8,
-    redirectUrlAfterSocialLogin: _v9,
-    redirectUrlAfterSocialJoin: _v10,
-    showFBCreativeConnectJoinModal: _v11,
-    redirectUrlFbForm: _v12,
-    switchScreen: _v13,
-    disableDismiss: _v14,
-    handleCloseClick: _v15,
-    isTwoStep: _v16 = !1,
-    isFullScreen: _v17,
-    isSimplifiedSite: _v18,
-    bpData: _v19
+    hideTitle: _v1,
+    subTitle: _v2,
+    onSuccess: _v3,
+    handleSSOLogin: _v4,
+    target: _v5,
+    redirectUrl: _v6,
+    hasF2PVariant: _v7,
+    type: _v8,
+    switchToggle: _v9,
+    redirectUrlAfterSocialLogin: _v10,
+    redirectUrlAfterSocialJoin: _v11,
+    showFBCreativeConnectJoinModal: _v12,
+    redirectUrlFbForm: _v13,
+    switchScreen: _v14,
+    disableDismiss: _v15,
+    handleCloseClick: _v16,
+    isTwoStep: _v17 = !1,
+    isFullScreen: _v18,
+    isSimplifiedSite: _v19,
+    bpData: _v20
   }) {
-    let [_v20, _v21] = (0, _v3.useState)(""),
-      [_v22, _v23] = (0, _v3.useState)(!1),
-      [_v24, _v25] = (0, _v3.useState)(!1),
-      [_v26, _v27] = (0, _v3.useState)(_v38.ssoDataInitialState),
-      [_v28, _v29] = (0, _v3.useState)(_v26.SSO),
-      _v30 = (0, _v3.useContext)(_v11.ViewerContext),
-      _v31 = _v22 && _v7 === _v19 ? _v17 ? (0, _v10.translate)({
+    let [_v21, _v22] = (0, _v3.useState)(""),
+      [_v23, _v24] = (0, _v3.useState)(!1),
+      [_v25, _v26] = (0, _v3.useState)(!1),
+      [_v27, _v28] = (0, _v3.useState)(_v38.ssoDataInitialState),
+      [_v29, _v30] = (0, _v3.useState)(_v27.SSO),
+      _v31 = (0, _v3.useContext)(_v11.ViewerContext),
+      _v32 = _v23 && _v8 === _v19 ? _v18 ? _v1 ? void 0 : (0, _v10.translate)({
         singular: "Join Vimeo for free and share high-quality videos in seconds",
         dictionary: {
           es: {
@@ -1600,7 +1601,7 @@
             singular: "通过电子邮件继续"
           }
         }
-      }) : _v24 ? (0, _v10.translate)({
+      }) : _v25 ? (0, _v10.translate)({
         singular: "Check your email",
         dictionary: {
           es: {
@@ -1625,12 +1626,12 @@
             singular: "检查您的电子邮件"
           }
         }
-      }) : _v0,
-      _v32 = _v22 && _v7 === _v19 ? _v17 ? void 0 : (0, _v10.translate)({
+      }) : _v1 ? void 0 : _v0,
+      _v33 = _v23 && _v8 === _v19 ? _v18 ? void 0 : (0, _v10.translate)({
         singular: "Sign up with {EMAIL}",
         replacements: {
           EMAIL: () => (0, _v1.jsx)(_v77, {
-            children: _v20
+            children: _v21
           })
         },
         dictionary: {
@@ -1656,7 +1657,7 @@
             singular: "使用 {EMAIL} 注册"
           }
         }
-      }) : _v24 ? (0, _v10.translate)({
+      }) : _v25 ? (0, _v10.translate)({
         singular: "To finish signing up, follow the instructions we sent to:",
         dictionary: {
           es: {
@@ -1681,23 +1682,23 @@
             singular: "要完成注册，请按照我们发送的说明进行操作："
           }
         }
-      }) : _v1;
-    _v5 && (0, _v35.isVimeoRedirectableUrl)(_v5) && sessionStorage.setItem("redirectUrl", _v5);
-    let _v33 = _v11 && -1 !== window.location.pathname.indexOf("/create"),
-      _v34 = _v0 => (_v21(_v0), (0, _v21.default)(() => (0, _v38.validateSSOEmail)(_v0, _v27), 500)()),
-      _v35 = _v0 => {
-        _v21(""), _v29(_v0);
-      },
+      }) : _v2;
+    _v6 && (0, _v35.isVimeoRedirectableUrl)(_v6) && sessionStorage.setItem("redirectUrl", _v6);
+    let _v34 = _v12 && -1 !== window.location.pathname.indexOf("/create"),
+      _v35 = _v0 => (_v22(_v0), (0, _v21.default)(() => (0, _v38.validateSSOEmail)(_v0, _v28), 500)()),
       _v36 = _v0 => {
-        _v7 === _v19 && (window.sessionStorage.setItem("upsellModal-dismissed", "joinWithGoogle"), window.localStorage.setItem("upsellModal-dismissed", "joinWithGoogle")), _v17 || (_v31({
+        _v22(""), _v30(_v0);
+      },
+      _v37 = _v0 => {
+        _v8 === _v19 && (window.sessionStorage.setItem("upsellModal-dismissed", "joinWithGoogle"), window.localStorage.setItem("upsellModal-dismissed", "joinWithGoogle")), _v18 || (_v31({
           name: "continue",
           target: "google_auth",
           target_path: "/",
           copy: "join with google",
           source: "modal"
-        }), (0, _v12.trackJoinWithGoogleClick)(_v0, _v5));
+        }), (0, _v12.trackJoinWithGoogleClick)(_v0, _v6));
       },
-      _v37 = _v33(_v18, _v17);
+      _v38 = _v33(_v19, _v18);
     return (0, _v3.useEffect)(() => {
       let _v0;
       _v0 = (0, _v30.getPathName)(), _v29.BigPictureClient.sendEvent(new _v29.Event("vimeo.impression", 28, {
@@ -1710,35 +1711,35 @@
         path: _v0
       }));
     }, []), (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v14 ? null : (0, _v1.jsx)(_v54, {
-        type: _v7,
-        handleCloseClick: _v15,
-        hideInMobile: _v22 && _v7 === _v19,
-        isTwoStep: _v16
-      }), _v16 && _v22 && _v7 === _v19 && !_v17 && (0, _v1.jsx)(_v78, {
+      children: [_v15 ? null : (0, _v1.jsx)(_v54, {
+        type: _v8,
+        handleCloseClick: _v16,
+        hideInMobile: _v23 && _v8 === _v19,
+        isTwoStep: _v17
+      }), _v17 && _v23 && _v8 === _v19 && !_v18 && (0, _v1.jsx)(_v78, {
         children: (0, _v1.jsx)(_v53, {
           handleClick: () => {
-            _v23(!1), (0, _v12.trackGoBackToPrevScreenCTAClick)();
+            _v24(!1), (0, _v12.trackGoBackToPrevScreenCTAClick)();
           }
         })
-      }), _v31 && (0, _v1.jsx)(_v1.Fragment, {
-        children: _v17 ? (0, _v1.jsx)(_v22.Text, {
+      }), _v32 && (0, _v1.jsx)(_v1.Fragment, {
+        children: _v18 ? (0, _v1.jsx)(_v22.Text, {
           variant: "heading-md",
-          marginBottom: _v32 ? (0, _v2.rem)(8) : (0, _v2.rem)(12),
+          marginBottom: _v33 ? (0, _v2.rem)(8) : (0, _v2.rem)(12),
           textAlign: "center",
-          children: _v31
+          children: _v32
         }) : (0, _v1.jsx)(_v73, {
           element: "h2",
-          hasSubTitle: !!_v32,
-          alignCenter: _v33 && _v7 === _v19,
-          children: _v31
+          hasSubTitle: !!_v33,
+          alignCenter: _v34 && _v8 === _v19,
+          children: _v32
         })
-      }), _v17 && (0, _v1.jsx)(_v22.Text, {
+      }), _v18 && (0, _v1.jsx)(_v22.Text, {
         variant: "body-md",
         color: "text-secondary",
         marginBottom: (0, _v2.rem)(20),
         textAlign: "center",
-        children: _v7 === _v19 ? (0, _v10.translate)({
+        children: _v8 === _v19 ? (0, _v10.translate)({
           singular: "Already have an account? {LINK}Log in{/LINK}",
           replacements: {
             LINK: _v0 => (0, _v1.jsx)(_v22.Text, {
@@ -1754,8 +1755,8 @@
                   event_name: "join_or_log_in",
                   copy: "already_have_an_account?_log_in",
                   target: "login_modal",
-                  location: _v22 ? "join_page_step_2" : "join_page_step_1"
-                }), _v17 ? window.location.href = "/log_in" + window.location.search : _v13 && _v13(_v16);
+                  location: _v23 ? "join_page_step_2" : "join_page_step_1"
+                }), _v18 ? window.location.href = "/log_in" + window.location.search : _v14 && _v14(_v17);
               },
               children: _v0
             }, "already_have_an_account_log_in")
@@ -1795,7 +1796,7 @@
               cursor: "pointer",
               display: "inline",
               onClick: _v0 => {
-                _v0.preventDefault(), _v17 ? window.location.href = "/join" + window.location.search : _v13 && _v13(_v16);
+                _v0.preventDefault(), _v18 ? window.location.href = "/join" + window.location.search : _v14 && _v14(_v17);
               },
               children: _v0
             }, "dont_have_an_account_join")
@@ -1824,48 +1825,48 @@
             }
           }
         })
-      }), _v32 && (0, _v1.jsx)(_v74, {
-        alignCenter: _v33 && _v7 === _v19,
-        isFullScreen: _v17,
-        children: _v32
+      }), _v33 && (0, _v1.jsx)(_v74, {
+        alignCenter: _v34 && _v8 === _v19,
+        isFullScreen: _v18,
+        children: _v33
       }), (0, _v1.jsxs)(_v75, {
-        isFullScreen: _v17,
-        children: [!_v26.bypassSSO && (_v26.SSO || _v28) ? (0, _v1.jsx)(_v37.default, {
-          email: _v20,
-          isSSO: _v26.SSO,
-          onEmailChange: _v34,
-          handleSSOLogin: () => _v3 ? _v3(_v26.connection, _v26.customDomain || "", _v5) : (0, _v38.loginViaSSO)(_v26.connection, "", _v26.customDomain || ""),
-          checkInProgress: _v26.checkInProgress,
-          onSSOFlowChoice: _v35,
-          firstTimeSSOLogin: _v26.firstTimeSSOLogin,
-          customDomain: _v26.customDomain,
-          switchType: _v8,
-          termsAndConditions: _v37
-        }) : _v7 === _v19 ? _v33 ? (0, _v1.jsx)(_v36.ConnectToFbForm, {
-          onSuccess: _v2,
-          xsrft: _v30?.xsrft || "",
-          shouldOptIntoMarketing: _v30?.shouldOptIntoMarketing,
-          redirectUrl: _v12 || void 0,
-          target: _v4
-        }) : _v16 ? (0, _v1.jsxs)(_v1.Fragment, {
+        isFullScreen: _v18,
+        children: [!_v27.bypassSSO && (_v27.SSO || _v29) ? (0, _v1.jsx)(_v37.default, {
+          email: _v21,
+          isSSO: _v27.SSO,
+          onEmailChange: _v35,
+          handleSSOLogin: () => _v4 ? _v4(_v27.connection, _v27.customDomain || "", _v6) : (0, _v38.loginViaSSO)(_v27.connection, "", _v27.customDomain || ""),
+          checkInProgress: _v27.checkInProgress,
+          onSSOFlowChoice: _v36,
+          firstTimeSSOLogin: _v27.firstTimeSSOLogin,
+          customDomain: _v27.customDomain,
+          switchType: _v9,
+          termsAndConditions: _v38
+        }) : _v8 === _v19 ? _v34 ? (0, _v1.jsx)(_v36.ConnectToFbForm, {
+          onSuccess: _v3,
+          xsrft: _v31?.xsrft || "",
+          shouldOptIntoMarketing: _v31?.shouldOptIntoMarketing,
+          redirectUrl: _v13 || void 0,
+          target: _v5
+        }) : _v17 ? (0, _v1.jsxs)(_v1.Fragment, {
           children: [(0, _v1.jsx)(_v70, {
-            xsrft: _v30?.xsrft || "",
-            target: _v4,
-            enteredEmail: _v20,
-            onEmailChange: _v34,
-            redirectUrl: _v5 || void 0,
-            isSimplifiedSite: _v18,
-            redirectUrlAfterSocialLogin: _v9 || _v5 || void 0,
-            redirectUrlAfterSocialJoin: _v10 || _v5 || void 0,
-            termsAndConditions: _v37,
-            shouldOptIntoMarketing: _v30?.shouldOptIntoMarketing,
-            onSuccess: _v2,
-            isJoinSecondScreen: _v22,
-            setIsJoinSecondScreen: _v23,
-            isCheckEmailVerifyScreen: _v24,
-            setIsCheckEmailVerifyScreen: _v25,
-            hideName: _v30?.isSimplifiedSite,
-            socialSubmitBtn: _v17 ? (0, _v1.jsx)(_v23.Button, {
+            xsrft: _v31?.xsrft || "",
+            target: _v5,
+            enteredEmail: _v21,
+            onEmailChange: _v35,
+            redirectUrl: _v6 || void 0,
+            isSimplifiedSite: _v19,
+            redirectUrlAfterSocialLogin: _v10 || _v6 || void 0,
+            redirectUrlAfterSocialJoin: _v11 || _v6 || void 0,
+            termsAndConditions: _v38,
+            shouldOptIntoMarketing: _v31?.shouldOptIntoMarketing,
+            onSuccess: _v3,
+            isJoinSecondScreen: _v23,
+            setIsJoinSecondScreen: _v24,
+            isCheckEmailVerifyScreen: _v25,
+            setIsCheckEmailVerifyScreen: _v26,
+            hideName: _v31?.isSimplifiedSite,
+            socialSubmitBtn: _v18 ? (0, _v1.jsx)(_v23.Button, {
               type: "submit",
               w: "100%",
               variant: "tertiary",
@@ -1881,7 +1882,7 @@
                   event_name: "join_with_google",
                   copy: "join_with_google",
                   target: "google_auth_join"
-                }), _v36(!0);
+                }), _v37(!0);
               },
               children: (0, _v10.translate)({
                 singular: "Continue with Google",
@@ -1915,9 +1916,9 @@
               fluid: !0,
               size: "lg",
               onClick: () => {
-                _v36(!0), (0, _v12.trackProgressInAuthFlow)({
+                _v37(!0), (0, _v12.trackProgressInAuthFlow)({
                   copy: "continue with gmail",
-                  ..._v19
+                  ..._v20
                 });
               },
               children: (0, _v10.translate)({
@@ -1947,29 +1948,29 @@
                 }
               })
             }),
-            isFullScreen: _v17
-          }), !_v17 && (0, _v1.jsx)(_v47, {
+            isFullScreen: _v18
+          }), !_v18 && (0, _v1.jsx)(_v47, {
             showTnC: !0,
-            isTwoStep: _v16,
+            isTwoStep: _v17,
             switchScreen: () => {
-              _v13 && _v13(_v16);
+              _v14 && _v14(_v17);
             },
             type: _v19,
-            isFullScreen: _v17,
-            isSimplifiedSite: _v18,
-            isCheckEmailVerifyScreen: _v24,
-            bpData: _v19,
-            email: _v20
+            isFullScreen: _v18,
+            isSimplifiedSite: _v19,
+            isCheckEmailVerifyScreen: _v25,
+            bpData: _v20,
+            email: _v21
           })]
         }) : (0, _v1.jsx)(_v36.JoinForm, {
-          email: _v20,
-          xsrft: _v30?.xsrft || "",
-          target: _v4,
-          redirectUrl: _v5 || void 0,
-          redirectUrlAfterSocialLogin: _v9 || _v5 || void 0,
-          redirectUrlAfterSocialJoin: _v10 || _v5 || void 0,
-          shouldOptIntoMarketing: _v30?.shouldOptIntoMarketing,
-          onEmailChange: _v34,
+          email: _v21,
+          xsrft: _v31?.xsrft || "",
+          target: _v5,
+          redirectUrl: _v6 || void 0,
+          redirectUrlAfterSocialLogin: _v10 || _v6 || void 0,
+          redirectUrlAfterSocialJoin: _v11 || _v6 || void 0,
+          shouldOptIntoMarketing: _v31?.shouldOptIntoMarketing,
+          onEmailChange: _v35,
           placeholder: {
             email: (0, _v10.translate)({
               singular: "Email",
@@ -2050,15 +2051,15 @@
               }
             })
           },
-          onSuccess: _v2,
-          onSSOFlowChoice: _v35,
-          termsAndConditions: _v37,
+          onSuccess: _v3,
+          onSSOFlowChoice: _v36,
+          termsAndConditions: _v38,
           socialSubmitBtn: (0, _v1.jsx)(_v76, {
             icon: (0, _v1.jsx)(_v27.GoogleGColor, {}),
             format: "secondary",
             fluid: !0,
             size: "lg",
-            onClick: () => _v36(!1),
+            onClick: () => _v37(!1),
             children: (0, _v10.translate)({
               singular: "Join with Google",
               dictionary: {
@@ -2086,22 +2087,22 @@
               }
             })
           }),
-          hasF2PVariant: _v6
-        }) : _v7 === _v20 && (0, _v1.jsxs)(_v1.Fragment, {
+          hasF2PVariant: _v7
+        }) : _v8 === _v20 && (0, _v1.jsxs)(_v1.Fragment, {
           children: [(0, _v1.jsx)(_v36.LoginForm, {
-            className: `${_v16 && "styledCta"} f2pPilotRegLogin`,
-            isTwoStep: _v16,
-            xsrft: _v30?.xsrft || "",
-            target: _v4,
-            email: _v20,
-            isSimplifiedSite: _v18,
-            redirectUrl: _v33 ? _v12 : _v5 || void 0,
-            onSuccess: _v2,
-            redirectUrlAfterSocialLogin: _v9 || "/",
-            redirectUrlAfterSocialJoin: _v10 || "/",
-            onEmailChange: _v34,
+            className: `${_v17 && "styledCta"} f2pPilotRegLogin`,
+            isTwoStep: _v17,
+            xsrft: _v31?.xsrft || "",
+            target: _v5,
+            email: _v21,
+            isSimplifiedSite: _v19,
+            redirectUrl: _v34 ? _v13 : _v6 || void 0,
+            onSuccess: _v3,
+            redirectUrlAfterSocialLogin: _v10 || "/",
+            redirectUrlAfterSocialJoin: _v11 || "/",
+            onEmailChange: _v35,
             placeholder: {
-              email: _v16 ? (0, _v10.translate)({
+              email: _v17 ? (0, _v10.translate)({
                 singular: "you@email.com",
                 dictionary: {
                   "de-DE": {
@@ -2190,24 +2191,24 @@
                 }
               }
             }),
-            onSSOFlowChoice: _v35,
+            onSSOFlowChoice: _v36,
             isF2PVariant: !0,
-            isFullScreen: _v17
-          }), _v16 && !_v18 && (0, _v1.jsx)(_v47, {
+            isFullScreen: _v18
+          }), _v17 && !_v19 && (0, _v1.jsx)(_v47, {
             type: _v20,
-            isFullScreen: _v17,
+            isFullScreen: _v18,
             isTwoStep: !0,
             switchScreen: () => {
-              _v13 && _v13(_v16);
+              _v14 && _v14(_v17);
             },
-            redirectUrl: _v5,
-            bpData: _v19,
-            email: _v20
+            redirectUrl: _v6,
+            bpData: _v20,
+            email: _v21
           })]
-        }), _v17 && _v24 && (0, _v1.jsx)(_v24.Center, {
+        }), _v18 && _v25 && (0, _v1.jsx)(_v24.Center, {
           marginTop: "md",
           children: (0, _v1.jsx)(_v46, {
-            email: _v20
+            email: _v21
           })
         })]
       })]
@@ -2412,23 +2413,24 @@
     disableDismiss: _v9,
     isFullScreen: _v10,
     bpData: _v11,
-    ..._v12
+    banner: _v12,
+    ..._v13
   }) {
-    let _v13,
-      _v14 = (0, _v3.useContext)(_v11.ViewerContext),
-      _v15 = "mobile" === (0, _v14.default)() ? "/welcome" : "/home",
-      [_v16, _v17] = (0, _v3.useState)(_v0),
-      [_v18, _v19] = (0, _v3.useState)(_v6),
-      [_v20, _v21] = (0, _v3.useState)(),
-      [_v22, _v23] = (0, _v3.useState)(),
-      [_v24, _v25] = (0, _v3.useState)(!0),
-      _v26 = _v14?.isSimplifiedSite ?? !1;
+    let _v14,
+      _v15 = (0, _v3.useContext)(_v11.ViewerContext),
+      _v16 = "mobile" === (0, _v14.default)() ? "/welcome" : "/home",
+      [_v17, _v18] = (0, _v3.useState)(_v0),
+      [_v19, _v20] = (0, _v3.useState)(_v6),
+      [_v21, _v22] = (0, _v3.useState)(),
+      [_v23, _v24] = (0, _v3.useState)(),
+      [_v25, _v26] = (0, _v3.useState)(!0),
+      _v27 = _v15?.isSimplifiedSite ?? !1;
     (0, _v3.useEffect)(() => {
-      _v16 && _v24 && (_v16 === _v20 ? (0, _v12.trackLoginModalImpression)(!0) : _v16 === _v19 && (_v10 ? (0, _v12.trackJoinPageImpressionRegFlow0625)() : (0, _v12.trackJoinModalImpression)(!0)), _v25(!1));
-    }, [_v16]);
-    let _v27 = (0, _v30.useIsModalInIframe)();
+      _v17 && _v25 && (_v17 === _v20 ? (0, _v12.trackLoginModalImpression)(!0) : _v17 === _v19 && (_v10 ? (0, _v12.trackJoinPageImpressionRegFlow0625)() : (0, _v12.trackJoinModalImpression)(!0)), _v26(!1));
+    }, [_v17]);
+    let _v28 = (0, _v30.useIsModalInIframe)();
     (0, _v3.useEffect)(() => {
-      if (_v27) {
+      if (_v28) {
         let _v0 = new URLSearchParams(window.location.search),
           {
             redirect: _v1,
@@ -2436,32 +2438,32 @@
             socialLoginRedirect: _v3,
             joinRedirect: _v4
           } = (0, _v30.getRedirectAndTypeFromQueryParams)(_v0);
-        _v21(_v3 || _v3), _v23(_v4 || _v1 || _v6 || _v15), _v2 === _v20 || "log_in" === _v2 ? (_v17(_v20), _v19(_v1 || _v6 || (0, _v30.getReferrerPath)())) : (_v17(_v19), _v19(_v4 || _v1 || _v6 || _v15)), "/welcome-survey?type=segment&vimeoHref=/create/templates" === _v1 && _v19("/create/templates");
+        _v22(_v3 || _v3), _v24(_v4 || _v1 || _v6 || _v16), _v2 === _v20 || "log_in" === _v2 ? (_v18(_v20), _v20(_v1 || _v6 || (0, _v30.getReferrerPath)())) : (_v18(_v19), _v20(_v4 || _v1 || _v6 || _v16)), "/welcome-survey?type=segment&vimeoHref=/create/templates" === _v1 && _v20("/create/templates");
       }
-    }, [_v15, _v27, _v3, _v6, _v17, _v19, _v21, _v23]), (0, _v3.useEffect)(() => {
-      if (_v27) {
+    }, [_v16, _v28, _v3, _v6, _v18, _v20, _v22, _v24]), (0, _v3.useEffect)(() => {
+      if (_v28) {
         let {
           redirect: _v0,
           joinRedirect: _v1
         } = (0, _v30.getRedirectAndTypeFromQueryParams)(new URLSearchParams(window.location.search));
-        _v16 === _v20 ? _v19(_v0 || (0, _v30.getReferrerPath)()) : _v19(_v1 || _v0 || _v15);
+        _v17 === _v20 ? _v20(_v0 || (0, _v30.getReferrerPath)()) : _v20(_v1 || _v0 || _v16);
       }
-    }, [_v15, _v27, _v16]), (0, _v3.useEffect)(() => {
-      if (_v27) return;
+    }, [_v16, _v28, _v17]), (0, _v3.useEffect)(() => {
+      if (_v28) return;
       let {
         redirect: _v0,
         joinRedirect: _v1
       } = (0, _v30.getRedirectAndTypeFromQueryParams)(new URLSearchParams(window.location.search));
-      if (_v21(_v3 ?? _v0 ?? void 0), _v23(_v1 || _v0 || _v6 || (_v10 ? _v79 : _v15)), (_v16 || _v0) === _v20) {
+      if (_v22(_v3 ?? _v0 ?? void 0), _v24(_v1 || _v0 || _v6 || (_v10 ? _v79 : _v16)), (_v17 || _v0) === _v20) {
         let _v0 = ["/log_in", "/login-auth-modal", "/login-auth-popup"].includes(window.location.pathname) ? (0, _v30.getReferrerPath)() : window.location.pathname;
-        _v19(_v0 || _v6 || _v0);
-      } else _v16 && _v16 !== _v0 ? _v19(_v15) : _v19(_v1 || _v0 || _v6 || (_v10 ? _v79 : _v15));
-    }, [_v15, _v27, _v0, _v16, _v6, _v3, _v10]);
-    let _v28 = (0, _v3.useCallback)(_v0 => {
-        _v17(_v0 => _v0 === _v20 ? (_v2 && _v2("join"), _v19) : (_v2 && _v2("login"), _v20)), _v16 === _v19 ? (0, _v12.trackLoginWithinJoinModalClick)(!!_v0) : (0, _v12.trackJoinWithinLoginModalClick)(!!_v0);
-      }, [_v2, _v16]),
-      _v29 = (0, _v3.useCallback)(() => _v17(_v19), []),
-      _v30 = _v16 === _v19 ? _v10 && (_v13 = document.referrer) && /^https:\/\/(.*\.)?(livestream\.com|lsops\.org)(\/.*)?$/.test(_v13) ? (0, _v10.translate)({
+        _v20(_v0 || _v6 || _v0);
+      } else _v17 && _v17 !== _v0 ? _v20(_v16) : _v20(_v1 || _v0 || _v6 || (_v10 ? _v79 : _v16));
+    }, [_v16, _v28, _v0, _v17, _v6, _v3, _v10]);
+    let _v29 = (0, _v3.useCallback)(_v0 => {
+        _v18(_v0 => _v0 === _v20 ? (_v2 && _v2("join"), _v19) : (_v2 && _v2("login"), _v20)), _v17 === _v19 ? (0, _v12.trackLoginWithinJoinModalClick)(!!_v0) : (0, _v12.trackJoinWithinLoginModalClick)(!!_v0);
+      }, [_v2, _v17]),
+      _v30 = (0, _v3.useCallback)(() => _v18(_v19), []),
+      _v31 = _v17 === _v19 ? _v10 && (_v14 = document.referrer) && /^https:\/\/(.*\.)?(livestream\.com|lsops\.org)(\/.*)?$/.test(_v14) ? (0, _v10.translate)({
         singular: "Livestream is now Vimeo. Join now.",
         dictionary: {
           es: {
@@ -2486,7 +2488,7 @@
             singular: "现在，Livestream 即 Vimeo。立即加入。"
           }
         }
-      }) : _v26 ? (0, _v10.translate)({
+      }) : _v27 ? (0, _v10.translate)({
         singular: "Join VideoJi",
         dictionary: {
           es: {
@@ -2561,7 +2563,7 @@
             singular: "免费加入 Vimeo"
           }
         }
-      }) : _v26 ? (0, _v10.translate)({
+      }) : _v27 ? (0, _v10.translate)({
         singular: "Log in to VideoJi",
         dictionary: {
           es: {
@@ -2612,7 +2614,7 @@
           }
         }
       }),
-      _v31 = _v16 === _v19 ? _v10 ? "" : (0, _v10.translate)({
+      _v32 = _v17 === _v19 ? _v10 ? "" : (0, _v10.translate)({
         singular: "Create and share videos in seconds.",
         dictionary: {
           es: {
@@ -2638,7 +2640,7 @@
           }
         }
       }) : "";
-    return _v14 ? _v10 ? (0, _v1.jsxs)(_v6.Flex, {
+    return _v15 ? _v10 ? (0, _v1.jsxs)(_v6.Flex, {
       w: "100%",
       minH: "100vh",
       justifyContent: "space-between",
@@ -2656,7 +2658,7 @@
             height: "32",
             width: "74"
           })
-        }), (0, _v1.jsx)(_v5.Box, {
+        }), (0, _v1.jsxs)(_v5.Box, {
           padding: {
             base: "lg",
             lg: "0"
@@ -2668,30 +2670,34 @@
             base: `${(0, _v2.rem)(20)} 0`,
             lg: "auto 0"
           },
-          children: (0, _v1.jsx)(_v71, {
+          children: [_v12 && (0, _v1.jsx)(_v5.Box, {
+            marginBottom: (0, _v2.rem)(24),
+            children: _v12
+          }), (0, _v1.jsx)(_v71, {
             isTwoStep: !0,
             isFullScreen: _v10,
-            isSimplifiedSite: _v26,
-            type: _v16,
-            switchToggle: _v29,
+            isSimplifiedSite: _v27,
+            type: _v17,
+            switchToggle: _v30,
             handleCloseClick: _v8,
             disableDismiss: _v9,
-            title: _v30,
-            subTitle: _v31,
-            switchScreen: _v28,
-            redirectUrl: _v18,
+            title: _v31,
+            hideTitle: !!_v12,
+            subTitle: _v32,
+            switchScreen: _v29,
+            redirectUrl: _v19,
             handleSSOLogin: _v30.handleSSOLogin,
             showFBCreativeConnectJoinModal: _v4,
             redirectUrlFbForm: _v5,
             target: _v7,
-            redirectUrlAfterSocialLogin: _v20,
-            redirectUrlAfterSocialJoin: _v22,
+            redirectUrlAfterSocialLogin: _v21,
+            redirectUrlAfterSocialJoin: _v23,
             onSuccess: _v0 => {
-              (0, _v30.handlePreRedirectTask)(_v16), (0, _v30.handleRedirect)(_v1, _v0, _v16);
+              (0, _v30.handlePreRedirectTask)(_v17), (0, _v30.handleRedirect)(_v1, _v0, _v17);
             },
             hasF2PVariant: !0
-          })
-        }), _v16 === _v20 && (0, _v1.jsx)(_v5.Box, {
+          })]
+        }), _v17 === _v20 && (0, _v1.jsx)(_v5.Box, {
           marginBottom: (0, _v2.rem)(32),
           alignSelf: "center",
           children: (0, _v1.jsx)(_v7.Link, {
@@ -2758,9 +2764,9 @@
       direction: "column",
       overflow: "hidden",
       background: "var(--vimeo-colors-fill-surface)",
-      ..._v12,
+      ..._v13,
       $_css: _v10 && `background: var(--fill-background, ${_v9.bokehTheme.colors.gray["50"]})`,
-      children: [_v10 && !_v26 && (0, _v1.jsx)(_v83, {
+      children: [_v10 && !_v27 && (0, _v1.jsx)(_v83, {
         onClick: () => window.location.href = "/",
         children: (0, _v1.jsx)(_v15, {})
       }), (0, _v1.jsx)(_v80, {
@@ -2770,23 +2776,23 @@
           children: (0, _v1.jsx)(_v71, {
             isTwoStep: !0,
             isFullScreen: _v10,
-            isSimplifiedSite: _v26,
-            type: _v16,
-            switchToggle: _v29,
+            isSimplifiedSite: _v27,
+            type: _v17,
+            switchToggle: _v30,
             handleCloseClick: _v8,
             disableDismiss: _v9,
-            title: _v30,
-            subTitle: _v31,
-            switchScreen: _v28,
-            redirectUrl: _v18,
+            title: _v31,
+            subTitle: _v32,
+            switchScreen: _v29,
+            redirectUrl: _v19,
             handleSSOLogin: _v30.handleSSOLogin,
             showFBCreativeConnectJoinModal: _v4,
             redirectUrlFbForm: _v5,
             target: _v7,
-            redirectUrlAfterSocialLogin: _v20,
-            redirectUrlAfterSocialJoin: _v22,
+            redirectUrlAfterSocialLogin: _v21,
+            redirectUrlAfterSocialJoin: _v23,
             onSuccess: _v0 => {
-              (0, _v30.handlePreRedirectTask)(_v16), (0, _v30.handleRedirect)(_v1, _v0, _v16);
+              (0, _v30.handlePreRedirectTask)(_v17), (0, _v30.handleRedirect)(_v1, _v0, _v17);
             },
             hasF2PVariant: !0,
             bpData: _v11

@@ -18333,8 +18333,8 @@
     _v20 || _v21 || _v4 || _v22 || _v0.push(_v2.home()), _v23 || _v0.push("/manage/videos");
     let _v32 = (0, _v8.useMemo)(() => /iphone|ipod|ipad|android|webos|blackberry|windows phone|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()) || "MacIntel" === navigator.platform && navigator.maxTouchPoints > 1, []),
       _v33 = (0, _v8.useMemo)(() => {
-        let _v0 = window.magistoResourceUrls.apiProdUrl;
-        return window.magistoResourceUrls.apiDevUrl, `//${_v0}`;
+        let _v0 = window.magistoResourceUrls?.apiProdUrl;
+        return window.magistoResourceUrls?.apiDevUrl, `//${_v0}`;
       }, []),
       _v34 = _v12 ? {
         app: _v12?.app,

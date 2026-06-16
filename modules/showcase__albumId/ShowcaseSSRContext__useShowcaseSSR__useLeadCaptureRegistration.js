@@ -1097,7 +1097,7 @@
       allowDownloads: _v12?.allowDownloads,
       hideUpcoming: _v12?.hideUpcoming,
       hasFeaturedContent: _v12?.hasFeaturedContent,
-      shareLink: _v3 && _v12?.domain ? `${_v12.domain}${_v21}` : `${_v11.vimeoHttpsUrl}/showcase/${_v12?.url ?? _v0}${_v21}`,
+      shareLink: _v3 && _v12?.domain ? `${_v12.domain}${_v21}` : `${_v11?.vimeoHttpsUrl ?? ""}/showcase/${_v12?.url ?? _v0}${_v21}`,
       gridSize: _v10 ? (0, _v10.getConfigProperty)(_v24?.playbackGridSize) : (0, _v10.getConfigProperty)(_v23?.gridSize),
       playback: {
         enableAskAi: _v27("enableAskAi"),

@@ -1310,7 +1310,7 @@
       }, [_v0?.location, _v8, _v9, _v14.data, _v4]), _v10 && (0, _v63.isCreatorProductTier)(_v10)) ? [_v0 => _v16({
         select: [],
         variables: {
-          useJuno: _v3,
+          useJuno: !1,
           billingAddress: _v0.billingAddress,
           currency: _v0.currency,
           firstName: _v1.firstName,
@@ -1352,81 +1352,76 @@
       return [(0, _v9.default)(_v1, _v0), _v2];
     },
     _v76 = () => {
-      let _v0 = (0, _v11.useRouter)(),
-        _v1 = (0, _v48.useViewer)(),
-        _v2 = (0, _v10.useSearchParams)(),
+      let _v0 = (0, _v48.useViewer)(),
         {
-          settings: _v3
+          settings: _v1
         } = (0, _v44.useOrionSettings)(),
-        _v4 = _v3.use_juno_billing,
-        [, _v5] = (0, _v13.default)(_v2, void 0),
-        [_v6, _v7] = (0, _v13.default)(_v3, void 0),
+        _v2 = _v1.use_juno_billing,
+        _v3 = _v1.enable_sift_on_free_trials,
         {
           state: {
-            billingPlan: _v8,
-            checkoutType: _v9,
-            currentSubscription: _v10,
-            subscriptionProduct: _v11,
-            tier: _v12,
-            isMonthly: _v13,
-            isFreeTrial: _v14,
-            isBusinessUserEntity: _v15,
-            creatorProductAction: _v16,
-            creatorProductId: _v17,
-            creatorProductTitlePageUrl: _v18,
-            inPlayer: _v19,
-            defaultPaymentType: _v20
+            billingPlan: _v4,
+            checkoutType: _v5,
+            currentSubscription: _v6,
+            subscriptionProduct: _v7,
+            tier: _v8,
+            isMonthly: _v9,
+            isFreeTrial: _v10,
+            isBusinessUserEntity: _v11,
+            creatorProductAction: _v12,
+            creatorProductId: _v13,
+            defaultPaymentType: _v14
           },
-          dispatch: _v21
+          dispatch: _v15
         } = _v51(),
+        _v16 = _v8 && (0, _v63.isCreatorProductTier)(_v8),
         {
           state: {
-            submitOrder: _v22
+            submitOrder: _v17
           },
-          dispatch: _v23
+          dispatch: _v18
         } = _v55(),
-        [_v24, _v25] = (0, _v34.usePatchMePreferences)(),
         {
-          trackCheckoutFailed: _v26
+          trackCheckoutFailed: _v19
         } = (0, _v45.useCheckoutTracking)(),
-        _v27 = (0, _v46.usePico)(),
-        _v28 = (0, _v12.useRef)(!1),
-        _v29 = _v11?.isCreatorProduct ? (0, _v63.getPlanType)(_v16) : _v13 ? "monthly" : "annual",
-        _v30 = (0, _v12.useCallback)((_v0, _v1) => {
-          _v28.current || null === _v27 || void 0 === _v12 || (_v28.current = !0, _v26({
-            tier: _v12,
-            periodicity: _v29,
-            isFreeTrial: _v14,
+        _v20 = (0, _v46.usePico)(),
+        _v21 = (0, _v12.useRef)(!1),
+        _v22 = _v7?.isCreatorProduct ? (0, _v63.getPlanType)(_v12) : _v9 ? "monthly" : "annual",
+        _v23 = (0, _v12.useCallback)((_v0, _v1) => {
+          _v21.current || null === _v20 || void 0 === _v8 || (_v21.current = !0, _v19({
+            tier: _v8,
+            periodicity: _v22,
+            isFreeTrial: _v10,
             error_message: _v0,
             ...(_v1 && {
               error_code: _v1
             })
           }));
-        }, [_v27, _v29, _v12, _v14, _v26]),
-        [_v31, _v32] = _v24(),
-        [_v33, _v34] = _v28();
+        }, [_v20, _v22, _v8, _v10, _v19]),
+        [_v24, _v25] = _v24(),
+        [_v26, _v27] = _v28();
       return ((0, _v12.useEffect)(function () {
         let _v0,
           _v1 = () => {
             window.location.href = "/manage/team/billing?rns=0";
           };
-        if (_v32.called ? _v0 = _v32 : _v34.called && (_v0 = _v34), _v0) {
-          if (_v23({
+        if (_v25.called ? _v0 = _v25 : _v27.called && (_v0 = _v27), _v0) {
+          if (_v18({
             type: _v73.ApiActionTypes.SUBMIT_ORDER,
             payload: _v0
           }), _v0.error) {
             let _v0 = _v72();
-            _v21({
+            _v15({
               type: _v73.ActionTypes.PAYMENT_ALERT,
               payload: {
                 status: "error",
                 message: _v0
               }
-            }), _v30(_v0.error.message), "renew" === _v9 && _v1();
+            }), _v23(_v0.error.message), "renew" === _v5 && _v1();
           } else if (_v0.data) {
             let _v0 = _v0.data?.error;
             if (_v0) {
-              _v23({
+              _v18({
                 type: _v73.ApiActionTypes.SUBMIT_ORDER,
                 payload: {
                   ..._v0,
@@ -1435,139 +1430,103 @@
                 }
               });
               let _v0 = _v72();
-              _v21({
+              _v15({
                 type: _v73.ActionTypes.PAYMENT_ALERT,
                 payload: {
                   status: "error",
                   message: _v0
                 }
-              }), _v30(_v0), "renew" === _v9 && _v1();
+              }), _v23(_v0), "renew" === _v5 && _v1();
             } else if (_v0.data?.shouldBlockPurchase) {
               let _v0 = _v72(_v71.SIFT_ERROR);
-              _v23({
+              _v18({
                 type: _v73.ApiActionTypes.SUBMIT_ORDER,
                 payload: {
                   ..._v0,
                   data: null,
                   error: Error(_v0)
                 }
-              }), _v21({
+              }), _v15({
                 type: _v73.ActionTypes.PAYMENT_ALERT,
                 payload: {
                   status: "error",
                   message: _v0
                 }
-              }), _v30("SIFT_ERROR", "sift_error"), "renew" === _v9 && _v1();
-            } else _v23({
+              }), _v23("SIFT_ERROR", "sift_error"), "renew" === _v5 && _v1();
+            } else _v18({
               type: _v73.ApiActionTypes.SUBMIT_ORDER,
               payload: {
                 ..._v0,
                 loading: !0
               }
-            }), _v21({
+            }), _v15({
               type: _v73.ActionTypes.ORDER_SUBMIT,
               payload: _v0.data
-            }), _v21({
+            }), _v15({
               type: _v73.ActionTypes.PAYMENT_ALERT,
               payload: void 0
             });
           }
         }
-      }, [_v23, _v21, _v32, _v34, _v9, _v30]), (0, _v12.useEffect)(() => {
-        _v22.called && _v22.data && _v24({
-          select: [],
-          variables: {
-            ue: _v15 ? _v5 : _v4
-          }
-        });
-      }, [_v22, _v15, _v24]), (0, _v12.useEffect)(() => {
-        if (_v22.called && _v22.data && _v25.called && _v25.data && !_v25.loading && _v11) if (_v5(null), _v6 && _v7(void 0), "renew" === _v9) window.location.href = "/manage/team/billing?rns=1";else if (_v19) window.opener ? window.location.href = `/store/ondemand/popup/${_v17}?ssl=1&player=1` : parent.location.reload();else {
-          let _v0 = _v2 ? `&${_v2.toString()}` : "",
-            _v1 = _v22.data.orderId,
-            _v2 = _v11.isCreatorProduct ? (0, _v63.getPlanType)(_v16) : _v13 ? "monthly" : "annual",
-            _v3 = `/onboarding${_v0.query?.token ? "/mobile" : ""}?product_name=${_v11.name}&user_email=${_v1?.user ? _v1.user.email : ""}&order_id=${_v1}${_v0}`;
-          if ("purchase" === _v9) {
-            let _v0 = `${_v11.tier}-${_v2}-${_v22.data.isTrial ? "free" : "paid"}`;
-            _v3 += `&product_id=${_v0}`;
-          }
-          if (_v22.data.promoCode && _v1.user?.email && _v22.data.orderId && !_v22.data.isTrial) {
-            let _v0 = encodeURIComponent(JSON.stringify({
-              event: "extole_conversion_tracking",
-              extole_purchase_v2: {
-                first_name: _v22.data.firstName,
-                last_name: _v22.data.lastName,
-                email: _v1.user.email,
-                partner_conversion_id: _v22.data.userId,
-                cart_value: _v22.data.items.reduce((_v0, _v1) => _v0 + (_v1.subtotalAmount?.amount ?? 0), 0),
-                coupon_code: _v22.data.promoCode.code,
-                products: _v22.data.items.map(_v0 => _v0.id).join()
-              }
-            }));
-            _v3 += `&extole_event_data=${_v0}`;
-          }
-          if (_v11.isCreatorProduct) window.location.href = _v18 || "/home";else {
-            let _v0 = _v47.postCheckoutUrl.read();
-            _v0 ? (_v47.postCheckoutUrl.clear(), window.location.href = _v0) : window.location.href = _v3;
-          }
-        }
-      }, [_v22, _v25, _v5, _v11, _v0, _v23, _v6, _v7, _v9, _v16, _v13]), "renew" === _v9 && _v10) ? [_v0 => {
-        _v33({
+      }, [_v18, _v15, _v25, _v27, _v5, _v23]), "renew" === _v5 && _v6) ? [_v0 => {
+        _v26({
           select: [],
           where: {
-            subscriptionId: _v10?.id
+            subscriptionId: _v6?.id
           },
           variables: {
-            type: _v9,
+            type: _v5,
             billingPlanId: "",
             paymentMethodId: _v0.paymentMethodId,
             couponCode: _v0.couponCode,
             orderId: _v0.id,
-            userEntity: _v15 ? _v5 : _v4
+            userEntity: _v11 ? _v5 : _v4
           }
         });
-      }, _v22] : "upgrade" === _v9 && _v10 && _v8 ? [_v0 => {
-        _v33({
+      }, _v17] : "upgrade" === _v5 && _v6 && _v4 ? [_v0 => {
+        _v26({
           select: [],
           where: {
-            subscriptionId: _v10?.id
+            subscriptionId: _v6?.id
           },
           variables: {
-            type: _v9,
-            billingPlanId: _v8.id,
+            type: _v5,
+            billingPlanId: _v4.id,
             paymentMethodId: _v0.paymentMethodId,
             couponCode: _v0.couponCode,
             orderId: _v0.id,
-            userEntity: _v15 ? _v5 : _v4
+            userEntity: _v11 ? _v5 : _v4
           }
         });
-      }, _v22] : [_v0 => {
-        _v0.firstName && _v0.lastName && _v0.billingAddress && _v0.paymentMethodId && _v31({
+      }, _v17] : [_v0 => {
+        _v0.firstName && _v0.lastName && _v0.billingAddress && _v0.paymentMethodId && _v24({
           variables: {
-            useJuno: _v4,
+            useJuno: !_v16 && _v2,
+            billingAddressPresent: _v3,
             billingAddress: _v0.billingAddress,
             currency: _v0.currency,
             firstName: _v0.firstName,
             isTrial: !!_v0.isTrial,
             items: function (_v0) {
-              if (_v16 && _v17) {
+              if (_v12 && _v13) {
                 let _v0 = _v0.items[0];
-                _v0.billingPlanId = "", _v0.productId = Number(_v17);
+                _v0.billingPlanId = "", _v0.productId = Number(_v13);
               }
               return _v0.items;
             }(_v0),
             lastName: _v0.lastName,
             paymentMethodId: _v0.paymentMethodId,
-            paymentFormType: _v20,
+            paymentFormType: _v14,
             couponCode: _v0.couponCode,
             vatId: _v0.vatId,
             orderId: _v0.id,
             timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-            userEntity: _v15 ? _v5 : _v4,
-            hpmSessionId: _v1?.xsrft ?? ""
+            userEntity: _v11 ? _v5 : _v4,
+            hpmSessionId: _v0?.xsrft ?? ""
           },
           select: []
         });
-      }, _v22];
+      }, _v17];
     },
     _v77 = () => {
       let _v0 = (0, _v48.useViewer)();
@@ -1699,7 +1658,7 @@
           "X-Requested-With": "XMLHttpRequest"
         },
         body: JSON.stringify({
-          token: _v0.xsrft
+          token: _v0?.xsrft ?? ""
         })
       });
       if (!_v8.ok) {
@@ -1861,18 +1820,20 @@
           billingPlan: _v4,
           order: _v5,
           isBusinessUserEntity: _v6,
-          creatorProductAction: _v7,
-          creatorProductId: _v8
+          tier: _v7,
+          creatorProductAction: _v8,
+          creatorProductId: _v9
         }
       } = _v51(),
       {
-        settings: _v9
+        settings: _v10
       } = (0, _v44.useOrionSettings)(),
-      _v10 = _v9.use_juno_billing,
-      [_v11, _v12] = _v33(),
-      _v13 = (0, _v11.useRouter)();
+      _v11 = _v10.use_juno_billing,
+      _v12 = _v7 && (0, _v63.isCreatorProductTier)(_v7),
+      [_v13, _v14] = _v33(),
+      _v15 = (0, _v11.useRouter)();
     return (0, _v12.useEffect)(function () {
-      if (_v12.error) {
+      if (_v14.error) {
         let _v0 = _v72(_v71.PAYPAL_CONNECTION);
         _v0({
           type: _v73.ActionTypes.PAYMENT_ALERT,
@@ -1882,23 +1843,23 @@
           }
         });
       }
-    }, [_v12.error, _v0]), (0, _v12.useEffect)(function () {
-      if (_v12.data) {
+    }, [_v14.error, _v0]), (0, _v12.useEffect)(function () {
+      if (_v14.data) {
         let {
           redirectUrl: _v0
-        } = _v12.data;
+        } = _v14.data;
         window.location.href = _v0;
       }
-    }, [_v12.data]), [() => {
+    }, [_v14.data]), [() => {
       let _v0 = _v6 ? _v5 : _v4,
         _v1 = _v1?.name ? encodeURIComponent(_v1?.name) : "",
-        _v2 = _v13.query?.token ? `&token=${_v13.query?.token}&mwru=${_v13.query?.mwru}` : "",
+        _v2 = _v15.query?.token ? `&token=${_v15.query?.token}&mwru=${_v15.query?.mwru}` : "",
         _v3 = `${window.location.origin}/payments/paypal/authorized?product_name=${_v1}&checkout_type=${_v2}&user_entity=${_v0}${_v2}`;
-      _v10 && (_v3 += "&use_juno=1"), "purchase" === _v2 ? _v3 += `&order_id=${_v5?.id}` : _v3 += `&subscription_id=${_v3?.id}&billing_plan_id=${_v4?.id}`;
-      let _v4 = _v7 && _v8 ? `/checkout/ondemand?action=${_v7}&product=${_v8}` : `/checkout/${_v1.toLowerCase()}?${_v2.substring(1)}`;
+      _v11 && !_v12 && (_v3 += "&use_juno=1"), "purchase" === _v2 ? _v3 += `&order_id=${_v5?.id}` : _v3 += `&subscription_id=${_v3?.id}&billing_plan_id=${_v4?.id}`;
+      let _v4 = _v8 && _v9 ? `/checkout/ondemand?action=${_v8}&product=${_v9}` : `/checkout/${_v1.toLowerCase()}?${_v2.substring(1)}`;
       _v3 += `&error_redirect=${encodeURIComponent(_v4)}`;
       let _v5 = _v47.postCheckoutUrl.read();
-      _v5 && (_v3 += `&post_checkout_url=${encodeURIComponent(_v5)}`), _v11({
+      _v5 && (_v3 += `&post_checkout_url=${encodeURIComponent(_v5)}`), _v13({
         variables: {
           cancelUrl: window.location.href,
           notifyUrl: "/",
@@ -1906,7 +1867,7 @@
         },
         select: ["redirectUrl"]
       });
-    }, _v12];
+    }, _v14];
   }, "useAuthorizePaypalForAddPaymentMethod", 0, () => {
     let [_v0, _v1] = _v33(),
       _v2 = (0, _v11.useRouter)();
@@ -2010,7 +1971,7 @@
   }, "useGetFormattedDate", 0, (_v0, _v1 = !1) => {
     let _v2 = (0, _v48.useViewer)(),
       _v3 = _v0 ? new Date(_v0) : new Date();
-    return new Intl.DateTimeFormat(_v2.locale, {
+    return new Intl.DateTimeFormat(_v2?.locale, {
       year: "numeric",
       month: _v1 ? "short" : "long",
       day: "2-digit",
@@ -2072,14 +2033,11 @@
       _v1 && "string" == typeof _v1.batchCode && _v1.batchCode && (_v0 = _v1.batchCode), _v0 && _v0 === _v33 && (_v0 = void 0);
       let _v2 = _v0 || void 0;
       if (_v17 && _v10 && (_v3 || _v8) && void 0 !== _v5 && _v19 !== _v31?.id && (!_v35 || _v14) && !_v24.loading) if (_v35) {
-        let _v0 = _v11 && "PAYMENT_METHOD_TYPES_CARD" === _v11.type ? _v11.card?.billingAddress : _v1 && _v17?.location ? {
-          country: _v17.location,
-          postalCode: "00000-0000"
-        } : void 0;
+        let _v0 = _v11 && "PAYMENT_METHOD_TYPES_CARD" === _v11.type ? _v11.card?.billingAddress : void 0;
         _v23({
           select: [],
           variables: {
-            useJuno: _v1,
+            useJuno: !1,
             firstName: _v18.firstName,
             lastName: _v18.lastName,
             currency: _v3?.price?.currency || "",
@@ -2113,10 +2071,6 @@
           firstName: _v18.firstName,
           lastName: _v18.lastName,
           currency: _v3?.price?.currency ?? "",
-          billingAddress: _v1 && _v17?.location ? {
-            country: _v17.location,
-            postalCode: "00000-0000"
-          } : void 0,
           isTrial: _v6,
           items: [{
             billingPlanId: _v3?.id,
@@ -2344,6 +2298,70 @@
       publishableKey: _v3,
       paymentMethodConfigId: _v5
     }), [_v1, _v10.current];
+  }, "useOrderSuccessRedirect", 0, () => {
+    let _v0 = (0, _v11.useRouter)(),
+      _v1 = (0, _v48.useViewer)(),
+      _v2 = (0, _v10.useSearchParams)(),
+      [, _v3] = (0, _v13.default)(_v2, void 0),
+      [_v4, _v5] = (0, _v13.default)(_v3, void 0),
+      {
+        state: {
+          checkoutType: _v6,
+          subscriptionProduct: _v7,
+          isMonthly: _v8,
+          isBusinessUserEntity: _v9,
+          creatorProductAction: _v10,
+          creatorProductId: _v11,
+          creatorProductTitlePageUrl: _v12,
+          inPlayer: _v13
+        }
+      } = _v51(),
+      {
+        state: {
+          submitOrder: _v14
+        },
+        dispatch: _v15
+      } = _v55(),
+      [_v16, _v17] = (0, _v34.usePatchMePreferences)(),
+      _v18 = (0, _v12.useRef)(!1);
+    (0, _v12.useEffect)(() => {
+      _v14.called && _v14.data && _v16({
+        select: [],
+        variables: {
+          ue: _v9 ? _v5 : _v4
+        }
+      });
+    }, [_v14, _v9, _v16]), (0, _v12.useEffect)(() => {
+      if (!_v18.current && _v14.called && _v14.data && _v17.called && _v17.data && !_v17.loading && _v7) if (_v18.current = !0, _v3(null), _v4 && _v5(void 0), "renew" === _v6) window.location.href = "/manage/team/billing?rns=1";else if (_v13) window.opener ? window.location.href = `/store/ondemand/popup/${_v11}?ssl=1&player=1` : parent.location.reload();else {
+        let _v0 = _v2 ? `&${_v2.toString()}` : "",
+          _v1 = _v14.data.orderId,
+          _v2 = _v7.isCreatorProduct ? (0, _v63.getPlanType)(_v10) : _v8 ? "monthly" : "annual",
+          _v3 = `/onboarding${_v0.query?.token ? "/mobile" : ""}?product_name=${_v7.name}&user_email=${_v1?.user ? _v1.user.email : ""}&order_id=${_v1}${_v0}`;
+        if ("purchase" === _v6) {
+          let _v0 = `${_v7.tier}-${_v2}-${_v14.data.isTrial ? "free" : "paid"}`;
+          _v3 += `&product_id=${_v0}`;
+        }
+        if (_v14.data.promoCode && _v1?.user?.email && _v14.data.orderId && !_v14.data.isTrial) {
+          let _v0 = encodeURIComponent(JSON.stringify({
+            event: "extole_conversion_tracking",
+            extole_purchase_v2: {
+              first_name: _v14.data.firstName,
+              last_name: _v14.data.lastName,
+              email: _v1?.user?.email,
+              partner_conversion_id: _v14.data.userId,
+              cart_value: _v14.data.items.reduce((_v0, _v1) => _v0 + (_v1.subtotalAmount?.amount ?? 0), 0),
+              coupon_code: _v14.data.promoCode.code,
+              products: _v14.data.items.map(_v0 => _v0.id).join()
+            }
+          }));
+          _v3 += `&extole_event_data=${_v0}`;
+        }
+        if (_v7.isCreatorProduct) window.location.href = _v12 || "/home";else {
+          let _v0 = _v47.postCheckoutUrl.read();
+          _v0 ? (_v47.postCheckoutUrl.clear(), window.location.href = _v0) : window.location.href = _v3;
+        }
+      }
+    }, [_v14, _v17, _v3, _v7, _v0, _v15, _v4, _v5, _v6, _v10, _v8]);
   }, "usePayStripeBalance", 0, () => {
     let _v0 = (0, _v7.useStripe)(),
       _v1 = (0, _v7.useElements)(),
@@ -2558,7 +2576,7 @@
           "X-Requested-With": "XMLHttpRequest"
         },
         body: JSON.stringify((0, _v14.deepSnakeCase)({
-          token: _v8.xsrft,
+          token: _v8?.xsrft ?? "",
           store_payment_method: _v2,
           first_name: _v9,
           last_name: _v10,
@@ -2802,7 +2820,7 @@
       _v1 = (0, _v48.useViewer)(),
       _v2 = (0, _v10.useSearchParams)();
     return [(_v0, _v1, _v2, _v3) => {
-      _v66({
+      _v1 && _v66({
         actionType: _v0,
         location: _v1,
         errorId: _v2,

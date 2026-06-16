@@ -611,7 +611,7 @@
         accountlessCommentRedesignEnabled: _v51,
         commentTimeCode: _v55,
         pausePlayer: _v58
-      }), _v44 && (0, _v1.jsx)(_v12.default, {
+      }), _v44 && _v48 && (0, _v1.jsx)(_v12.default, {
         apiUrl: _v48.apiUrl,
         userConfig: {
           jwt: _v48.jwt,

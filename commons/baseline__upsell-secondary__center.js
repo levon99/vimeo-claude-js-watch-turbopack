@@ -1979,26 +1979,25 @@
         [_v14, _v15] = (0, _v3.useState)(""),
         [_v16, _v17] = (0, _v3.useState)(!0),
         _v18 = (0, _v110.useDebouncedValue)(_v12, 50),
-        {
-          teamUser: _v19,
-          user: _v20
-        } = (0, _v18.useViewer)(),
-        _v21 = _v19?.ownerId || _v20?.id,
-        _v22 = 1 === _v6 ? _v2 : _v4,
-        _v23 = 1 === _v6 ? _v3 : _v5,
-        [_v24, _v25] = (0, _v109.usePostVideoPictures)(),
-        _v26 = () => {
+        _v19 = (0, _v18.useViewer)(),
+        _v20 = _v19?.teamUser,
+        _v21 = _v19?.user,
+        _v22 = _v20?.ownerId || _v21?.id,
+        _v23 = 1 === _v6 ? _v2 : _v4,
+        _v24 = 1 === _v6 ? _v3 : _v5,
+        [_v25, _v26] = (0, _v109.usePostVideoPictures)(),
+        _v27 = () => {
           _v7(0), _v1();
         };
       (0, _v3.useEffect)(() => {
-        _v25.data && (_v7(0), _v0());
-      }, [_v25]);
-      let _v27 = (0, _v3.useMemo)(() => 1 === _v6 ? _v10 || !_v8 : 2 === _v6 && (!_v14 || _v25?.loading), [_v14, _v25, _v6, _v10, _v8]);
+        _v26.data && (_v7(0), _v0());
+      }, [_v26]);
+      let _v28 = (0, _v3.useMemo)(() => 1 === _v6 ? _v10 || !_v8 : 2 === _v6 && (!_v14 || _v26?.loading), [_v14, _v26, _v6, _v10, _v8]);
       return (0, _v3.useEffect)(() => {
         _v8 && _v116(_v8).then(_v0 => _v15(_v0));
       }, [_v8]), (0, _v1.jsxs)(_v96.Modal, {
         isOpen: _v6 > 0,
-        onClose: _v26,
+        onClose: _v27,
         size: "lg",
         children: [(0, _v1.jsx)(_v101.ModalOverlay, {}), (0, _v1.jsxs)(_v98.ModalContent, {
           p: "lg",
@@ -2007,10 +2006,10 @@
           children: [(0, _v1.jsx)(_v107.ModalCloseButton, {}), (0, _v1.jsx)(_v11.Header, {
             size: "md",
             mb: (0, _v6.rem)(14),
-            children: "string" == typeof _v22 ? _v22 : (0, _v1.jsx)(_v22, {})
+            children: "string" == typeof _v23 ? _v23 : (0, _v1.jsx)(_v23, {})
           }), (0, _v1.jsx)(_v108.Paragraph, {
             mb: "sm",
-            children: "string" == typeof _v23 ? _v23 : (0, _v1.jsx)(_v23, {})
+            children: "string" == typeof _v24 ? _v24 : (0, _v1.jsx)(_v24, {})
           }), 1 === _v6 ? (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v118, {
               query: _v12,
@@ -2019,7 +2018,7 @@
               query: _v18,
               setTempSelected: _v9,
               tempSelected: _v8,
-              ownerId: _v21,
+              ownerId: _v22,
               setIsLoading: _v11
             })]
           }) : _v14 ? (0, _v1.jsx)(_v114, {
@@ -2029,9 +2028,9 @@
             setPlayButton: _v17,
             primaryButtonText: _v113.UseThisFrame,
             secondaryButtonText: _v113.Back,
-            disablePrimary: _v27,
+            disablePrimary: _v28,
             onSubmit: _v0 => {
-              _v24({
+              _v25({
                 select: ["sizes", "baseLink"],
                 where: {
                   videoId: _v8 || 0
@@ -2054,7 +2053,7 @@
             pt: (0, _v6.rem)(20),
             children: [(0, _v1.jsx)(_v10.Button, {
               variant: "secondary",
-              onClick: _v26,
+              onClick: _v27,
               mr: "sm",
               minW: (0, _v6.rem)(150),
               children: _v113.Cancel
@@ -2063,7 +2062,7 @@
               onClick: () => _v7(2),
               mr: "sm",
               minW: (0, _v6.rem)(150),
-              isDisabled: _v27,
+              isDisabled: _v28,
               children: _v113.Next
             })]
           })]
@@ -6127,7 +6126,7 @@
           sendRegistrationActionBP: _v8
         } = _v67(),
         _v9 = (0, _v18.useViewer)(),
-        _v10 = _v1 === _v9.user?.id,
+        _v10 = _v1 === _v9?.user?.id,
         {
           colorMode: _v11
         } = (0, _v34.useColorMode)(),
@@ -6252,14 +6251,14 @@
                 onSubmit: _v14,
                 onCancel: _v4,
                 width: (0, _v6.rem)(320),
-                ownerId: _v9.user?.id || 0
+                ownerId: _v9?.user?.id || 0
               })
             })]
           }), (0, _v1.jsx)(_v240, {
-            userId: _v9.user?.id || 0,
+            userId: _v9?.user?.id || 0,
             providerId: Number(_v0.serviceType),
             listCount: _v5?.length || 0,
-            connectionOwnerName: _v9.user?.name || "",
+            connectionOwnerName: _v9?.user?.name || "",
             onConfirmRemove: _v15
           })]
         }), (0, _v1.jsx)(_v247, {
@@ -6273,7 +6272,7 @@
         _v1 = (0, _v19.useGlobalStore)(_v0 => _v0.leadCapture.memberConnections),
         _v2 = (0, _v19.useGlobalStore)(_v0 => _v0.entityOwnerId),
         _v3 = (0, _v18.useViewer)(),
-        _v4 = _v2 === _v3.user?.id,
+        _v4 = _v2 === _v3?.user?.id,
         _v5 = (0, _v3.useMemo)(() => {
           let _v0 = new Set();
           return _v1?.forEach(({

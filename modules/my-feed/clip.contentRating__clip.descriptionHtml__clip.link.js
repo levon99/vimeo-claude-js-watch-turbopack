@@ -4637,7 +4637,7 @@
       thumbnail: _v12
     }) => {
       let _v13 = (0, _v5.useViewer)(),
-        [_v14, _v15] = (0, _v2.useState)(((_v0, _v1) => {
+        [_v14, _v15] = (0, _v2.useState)(!!_v13 && ((_v0, _v1) => {
           let _v2 = JSON.stringify([_v1, _v0?.user?.id]),
             _v3 = _v34.get(_v2);
           if (void 0 !== _v3) return _v3;

@@ -92,7 +92,7 @@
             variant: "inline-primary",
             href: _v1,
             onClick: _v0 => {
-              _v2.user || ((0, _v15.emitBPEvent)({
+              _v2?.user || ((0, _v15.emitBPEvent)({
                 copy: "free_plans",
                 location: "upgrade_header",
                 target: "join_page",

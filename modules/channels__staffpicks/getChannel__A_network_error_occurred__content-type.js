@@ -1363,7 +1363,7 @@
                         widgetName: "channel_video_hero",
                         widgetPlacement: 1,
                         viewer: _v4
-                      }), _v4.user ? (await (_v9 ? _v13 : _v11)({
+                      }), _v4?.user ? (await (_v9 ? _v13 : _v11)({
                         where: {
                           channelId: _v1
                         }
