@@ -206,6 +206,8 @@
 - https://vimeo.com/reviews/[reviewId]/videos/[clipId]/versions/[versionId]
 - https://vimeo.com/rights-management
 - https://vimeo.com/rights-management/appeal/[videoId]/[contentMatchId]
+- https://vimeo.com/satellite/auth-complete
+- https://vimeo.com/satellite/upload
 - https://vimeo.com/satellite-onboarding
 - https://vimeo.com/search/[[...slug]]
 - https://vimeo.com/settings/apps/ms-teams

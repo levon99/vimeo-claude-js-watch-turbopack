@@ -22,10 +22,9 @@
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
-    _v22 = _v0.i(0),
-    _v23 = _v0.i(0);
-  let _v24 = () => {
-      let _v0 = (0, _v19.getFormType)(_v23.PaymentFormTypes.TYPE_PAYPAL);
+    _v22 = _v0.i(0);
+  let _v23 = () => {
+      let _v0 = (0, _v18.getFormType)(_v22.PaymentFormTypes.TYPE_PAYPAL);
       return (0, _v1.jsxs)(_v12.Flex, {
         align: "center",
         justify: "center",
@@ -71,7 +70,7 @@
         })]
       });
     },
-    _v25 = _v0 => {
+    _v24 = _v0 => {
       let {
         canSavePaymentMethod: _v1,
         currency: _v2,
@@ -99,43 +98,35 @@
         formLoaded: _v24
       } = _v0;
       (0, _v3.useEffect)(() => {
-        _v8 || (0, _v22.trackAddPaymentMethodPageview)(!!_v6);
+        _v8 || (0, _v21.trackAddPaymentMethodPageview)(!!_v6);
       }, [_v6, _v8]);
-      let {
-          assignment: _v25
-        } = (0, _v16.useCuidEppoAssignment)({
-          flagKey: "grace-period-optimization",
-          assignmentType: "BOOLEAN",
-          defaultAssignment: !1,
-          disabled: !_v6
-        }),
-        _v26 = (0, _v6.translate)({
-          singular: "Add payment method",
-          dictionary: {
-            es: {
-              singular: "Añadir método de pago"
-            },
-            "de-DE": {
-              singular: "Zahlungsmethode hinzufügen"
-            },
-            "fr-FR": {
-              singular: "Ajouter un mode de paiement"
-            },
-            "ja-JP": {
-              singular: "支払方法を追加"
-            },
-            "ko-KR": {
-              singular: "결제 수단 추가"
-            },
-            "pt-BR": {
-              singular: "Adicionar método de pagamento"
-            },
-            "zh-CN": {
-              singular: "添加付款方式"
-            }
+      let _v25 = (0, _v6.translate)({
+        singular: "Add payment method",
+        dictionary: {
+          es: {
+            singular: "Añadir método de pago"
+          },
+          "de-DE": {
+            singular: "Zahlungsmethode hinzufügen"
+          },
+          "fr-FR": {
+            singular: "Ajouter un mode de paiement"
+          },
+          "ja-JP": {
+            singular: "支払方法を追加"
+          },
+          "ko-KR": {
+            singular: "결제 수단 추가"
+          },
+          "pt-BR": {
+            singular: "Adicionar método de pagamento"
+          },
+          "zh-CN": {
+            singular: "添加付款方式"
           }
-        });
-      _v3 ? _v26 = (0, _v6.translate)({
+        }
+      });
+      _v3 ? _v25 = (0, _v6.translate)({
         singular: "Pay balance",
         dictionary: {
           es: {
@@ -160,7 +151,7 @@
             singular: "支付余额"
           }
         }
-      }) : _v25 && (_v26 = (0, _v6.translate)({
+      }) : _v6 && (_v25 = (0, _v6.translate)({
         singular: "Update payment method",
         dictionary: {
           es: {
@@ -186,8 +177,8 @@
           }
         }
       }));
-      let _v27 = _v26;
-      _v4 !== _v23.PaymentFormTypes.TYPE_PAYPAL || _v3 || (_v27 = (0, _v6.translate)({
+      let _v26 = _v25;
+      _v4 !== _v22.PaymentFormTypes.TYPE_PAYPAL || _v3 || (_v26 = (0, _v6.translate)({
         singular: "Continue to PayPal",
         dictionary: {
           es: {
@@ -213,7 +204,7 @@
           }
         }
       }));
-      let _v28 = _v4 === _v23.PaymentFormTypes.TYPE_STRIPE;
+      let _v27 = _v4 === _v22.PaymentFormTypes.TYPE_STRIPE;
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [_v7 && (0, _v1.jsx)(_v12.Flex, {
           align: "center",
@@ -236,38 +227,7 @@
           children: [(0, _v1.jsx)(_v13.Header, {
             size: "xl",
             marginBottom: "20",
-            children: _v26
-          }), _v6 && !_v3 && !_v25 && (0, _v1.jsx)(_v9.Alert, {
-            maxW: (0, _v15.rem)(468),
-            status: "info",
-            children: (0, _v1.jsx)(_v10.AlertDescription, {
-              children: (0, _v6.translate)({
-                singular: "Once you add your new payment method, we'll automatically retry your payment and renew your plan. This will prevent your account from being downgraded to a free plan.",
-                dictionary: {
-                  es: {
-                    singular: "Una vez que agregue su nuevo método de pago, intentaremos volver a procesar su pago y renovar su plan automáticamente para evitar que su cuenta baje de categoría a un plan gratuito."
-                  },
-                  "de-DE": {
-                    singular: "Sobald Sie Ihre neue Zahlungsmethode hinzugefügt haben, werden wir automatisch versuchen, die Zahlung erneut abzubuchen und Ihren Plan zu verlängern. Dies wird verhindern, dass Ihr Konto auf einen kostenlosen Tarif herabgestuft wird."
-                  },
-                  "fr-FR": {
-                    singular: "Une fois que vous aurez ajouté votre nouveau mode de paiement, nous réessayerons automatiquement de traiter votre paiement et renouvellerons votre abonnement. Cela empêchera votre compte d'être rétrogradé à un abonnement gratuit."
-                  },
-                  "ja-JP": {
-                    singular: "新しいお支払い方法を追加すると、自動的にお支払いが再試行され、プランが更新されます。これにより、アカウントがFreeプランにダウングレードされることがなくなります。"
-                  },
-                  "ko-KR": {
-                    singular: "새로운 결제 수단을 추가하면 자동으로 결제가 이루어지고 요금제가 갱신됩니다. 이렇게 하면 계정이 무료 요금제로 다운그레이드되는 것을 방지할 수 있습니다."
-                  },
-                  "pt-BR": {
-                    singular: "Depois que você adicionar seu novo método de pagamento, automaticamente tentaremos processar o pagamento novamente e renovar seu plano. Isso evitará que sua conta passe para o plano Free."
-                  },
-                  "zh-CN": {
-                    singular: "添加新的支付方式后，我们将自动重新尝试处理您的付款并续订您的套餐。这将防止您的账户降级为免费套餐。"
-                  }
-                }
-              })
-            })
+            children: _v25
           }), _v3 && (0, _v1.jsx)(_v9.Alert, {
             maxW: (0, _v15.rem)(468),
             status: "info",
@@ -310,7 +270,7 @@
             borderRadius: "input-lg",
             padding: "xl",
             gap: "md",
-            children: [(0, _v1.jsxs)(_v19.PaymentMethodFormContainer, {
+            children: [(0, _v1.jsxs)(_v18.PaymentMethodFormContainer, {
               currency: _v2,
               defaultPaymentFormType: _v4,
               formAlert: _v5 ? {
@@ -328,45 +288,45 @@
               onSubmissionStart: _v15,
               requireAccountId: !0,
               onSubmitError: _v17,
-              children: [_v4 === _v23.PaymentFormTypes.TYPE_PAYPAL ? (0, _v1.jsx)(_v24, {}) : (0, _v1.jsxs)(_v1.Fragment, {
-                children: [(0, _v1.jsx)(_v18.PaymentMethodAddressFormContainer, {
+              children: [_v4 === _v22.PaymentFormTypes.TYPE_PAYPAL ? (0, _v1.jsx)(_v23, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+                children: [(0, _v1.jsx)(_v17.PaymentMethodAddressFormContainer, {
                   onSubmitVatId: _v18,
                   billingAddress: _v19,
                   setBillingAddress: _v20,
                   paymentFormType: _v4,
                   formLoaded: _v24
-                }), (0, _v1.jsx)(_v20.SetDefaultPaymentMethodContainer, {
+                }), (0, _v1.jsx)(_v19.SetDefaultPaymentMethodContainer, {
                   isChecked: _v21,
                   onChecked: _v22,
-                  showCheckbox: !_v28,
+                  showCheckbox: !_v27,
                   blockCheckbox: _v23
                 })]
-              }), _v28 && (0, _v1.jsx)(_v21.UserConsentContainer, {
+              }), _v27 && (0, _v1.jsx)(_v20.UserConsentContainer, {
                 onChecked: _v0 => _v11(_v0)
               })]
-            }), (0, _v1.jsx)(_v17.AddPaymentMethodButtonContainer, {
+            }), (0, _v1.jsx)(_v16.AddPaymentMethodButtonContainer, {
               isDisabled: _v7,
               isLoading: _v8,
-              canSave: !_v28 || _v1,
+              canSave: !_v27 || _v1,
               onSubmit: () => {
-                _v16(), (0, _v22.trackAddPaymentMethodAddClick)(!_v6);
+                _v16(), (0, _v21.trackAddPaymentMethodAddClick)(!_v6);
               },
-              onCancel: () => (0, _v22.trackAddPaymentMethodCancelClick)(!_v6),
-              buttonText: _v27
+              onCancel: () => (0, _v21.trackAddPaymentMethodCancelClick)(!_v6),
+              buttonText: _v26
             })]
           })]
         })]
       });
     };
-  var _v26 = _v0.i(0),
-    _v27 = _v0.i(0);
-  let _v28 = _v0 => {
+  var _v25 = _v0.i(0),
+    _v26 = _v0.i(0);
+  let _v27 = _v0 => {
     switch (_v0) {
-      case _v23.PaymentFormTypes.TYPE_CREDIT_CARD:
+      case _v22.PaymentFormTypes.TYPE_CREDIT_CARD:
         return "credit_card";
-      case _v23.PaymentFormTypes.TYPE_PAYPAL:
+      case _v22.PaymentFormTypes.TYPE_PAYPAL:
         return "paypal";
-      case _v23.PaymentFormTypes.TYPE_STRIPE:
+      case _v22.PaymentFormTypes.TYPE_STRIPE:
         return "stripe";
       default:
         return "unknown";
@@ -394,7 +354,7 @@
       [_v29, _v30] = (0, _v3.useState)(() => {
         {
           let _v0 = new URLSearchParams(window.location.search);
-          if (_v0.has("payPalCancel") || _v0.has("ba_token") || _v0.has("token")) return _v23.PaymentFormTypes.TYPE_PAYPAL;
+          if (_v0.has("payPalCancel") || _v0.has("ba_token") || _v0.has("token")) return _v22.PaymentFormTypes.TYPE_PAYPAL;
         }
         return _v0;
       }),
@@ -410,13 +370,13 @@
     let _v38 = (0, _v3.useRef)(!1);
     (0, _v3.useEffect)(function () {
       _v38.current || (_v38.current = !0, _v35({
-        paymentFormType: _v28(_v37.current)
+        paymentFormType: _v27(_v37.current)
       }));
     }, [_v35]);
     let _v39 = (0, _v3.useCallback)((_v0, _v1) => {
         _v36({
           success: _v0,
-          paymentFormType: _v28(_v37.current),
+          paymentFormType: _v27(_v37.current),
           errorMessage: _v1
         });
       }, [_v36]),
@@ -450,21 +410,21 @@
       });
     }, [_v33, _v46, _v47, _v45]), (0, _v3.useEffect)(() => {
       let _v0 = _v46?.data || [],
-        _v1 = (0, _v26.getActiveValidPaymentMethod)(_v0);
+        _v1 = (0, _v25.getActiveValidPaymentMethod)(_v0);
       if (_v43?.paymentMethod ?? _v43?.suggestedPaymentMethod ?? _v1) {
         _v27(!1), _v28.current || (_v25(!0), _v28.current = !0);
         return;
       }
       _v44 || !_v43 || _v47 || !_v46 || (_v27(!0), _v25(!0), _v28.current = !0);
     }, [_v46, _v47, _v43, _v44]);
-    let [_v49, _v50] = (0, _v27.useAddStripePaymentMethod)(),
-      [_v51, _v52] = (0, _v27.usePayStripeBalance)(),
-      [_v53, _v54] = (0, _v27.useAuthorizePaypalForAddPaymentMethod)(),
+    let [_v49, _v50] = (0, _v26.useAddStripePaymentMethod)(),
+      [_v51, _v52] = (0, _v26.usePayStripeBalance)(),
+      [_v53, _v54] = (0, _v26.useAuthorizePaypalForAddPaymentMethod)(),
       _v55 = _v54.loading;
     (0, _v3.useEffect)(function () {
       _v54.error && (_v11(_v54.error), _v9(!1), _v41(_v54.error, !1, _v54.error.message));
     }, [_v54.error, _v41]), (0, _v3.useEffect)(function () {
-      _v34.isReady && !_v31 && (_v34.query.payPalCancel || _v34.query.ba_token || _v34.query.token) && (_v32(!0), _v29 !== _v23.PaymentFormTypes.TYPE_PAYPAL && _v30(_v23.PaymentFormTypes.TYPE_PAYPAL), "true" === _v34.query.payPalCancel && (_v11(Error((0, _v6.translate)({
+      _v34.isReady && !_v31 && (_v34.query.payPalCancel || _v34.query.ba_token || _v34.query.token) && (_v32(!0), _v29 !== _v22.PaymentFormTypes.TYPE_PAYPAL && _v30(_v22.PaymentFormTypes.TYPE_PAYPAL), "true" === _v34.query.payPalCancel && (_v11(Error((0, _v6.translate)({
         singular: "You canceled the PayPal authorization. You can try again.",
         dictionary: {
           es: {
@@ -512,15 +472,15 @@
         data: _v59,
         loading: _v60,
         error: _v61
-      }] = (0, _v27.useSubmitPaymentMethod)(),
+      }] = (0, _v26.useSubmitPaymentMethod)(),
       [_v62, {
         data: _v63,
         loading: _v64,
         error: _v65
-      }] = (0, _v27.useSubmitStripePayment)();
+      }] = (0, _v26.useSubmitStripePayment)();
     (0, _v3.useEffect)(function () {
       if (_v61) {
-        (0, _v22.trackOrderFailure)({
+        (0, _v21.trackOrderFailure)({
           userId: Number(_v33?.user?.id),
           description: `On-session invoice payment failed: ${_v61.message}`
         });
@@ -556,7 +516,7 @@
       _v59 && !_v60 && (_v41(_v59, !0), _v57 ? window.location.href = "/manage/team/billing?invoice_paid=1" : window.location.href = `${_v3}?added_payment_method=1`);
     }, [_v59, _v60, _v61, _v3, _v33, _v57, _v41]), (0, _v3.useEffect)(function () {
       if (_v65) {
-        (0, _v22.trackOrderFailure)({
+        (0, _v21.trackOrderFailure)({
           userId: Number(_v33?.user?.id),
           description: `Stripe on-session invoice payment failed: ${_v65.message}`
         });
@@ -657,7 +617,7 @@
         }
         _v9(!0), _v62(_v0);
       };
-    return (0, _v1.jsx)(_v25, {
+    return (0, _v1.jsx)(_v24, {
       currency: _v43?.currency,
       balanceAmount: _v56,
       paymentFormType: _v29,
@@ -673,14 +633,14 @@
       onBillingName: _v0 => _v21(_v0),
       onCanSavePaymentMethod: _v19,
       onErrorLoadingForm: (..._v0) => {
-        _v33 && _v33.user && (0, _v22.trackZuoraOrderStep)({
+        _v33 && _v33.user && (0, _v21.trackZuoraOrderStep)({
           user_id: `${_v33.user.id}`,
           hpm_session_id: _v33.xsrft,
           step_name: "error loading HPM form"
         }), _v17(..._v0);
       },
       onFormLoaded: () => {
-        _v33 && _v33.user && (0, _v22.trackZuoraOrderStep)({
+        _v33 && _v33.user && (0, _v21.trackZuoraOrderStep)({
           user_id: `${_v33.user.id}`,
           hpm_session_id: _v33.xsrft,
           step_name: "HPM onFormLoaded"
@@ -690,7 +650,7 @@
         _v30(_v0), _v11(void 0), _v9(!1);
       },
       onSubmissionComplete: _v0 => {
-        if (_v33 && _v33.user && (0, _v22.trackZuoraOrderStep)({
+        if (_v33 && _v33.user && (0, _v21.trackZuoraOrderStep)({
           user_id: `${_v33.user.id}`,
           hpm_session_id: _v33.xsrft,
           step_name: "HPM onSubmissionComplete",
@@ -705,14 +665,14 @@
         if (!0 === _v0.success && _v58 && _v0.refId) {
           _v23(_v0.refId);
           try {
-            _v33 && _v33.user && (0, _v22.trackZuoraOrderStep)({
+            _v33 && _v33.user && (0, _v21.trackZuoraOrderStep)({
               user_id: `${_v33.user.id}`,
               hpm_session_id: _v33.xsrft,
               step_name: "HPM onSubmissionComplete success",
               payment_method_id: _v0.refId
-            }), _v58(_v0.refId, _v29, _v24, _v12, _v14, _v57), (0, _v22.trackAddPaymentMethodSuccess)(_v48);
+            }), _v58(_v0.refId, _v29, _v24, _v12, _v14, _v57), (0, _v21.trackAddPaymentMethodSuccess)(_v48);
           } catch (_v0) {
-            _v33 && _v33.user && (0, _v22.trackZuoraOrderStep)({
+            _v33 && _v33.user && (0, _v21.trackZuoraOrderStep)({
               user_id: `${_v33.user.id}`,
               hpm_session_id: _v33.xsrft,
               step_name: "HPM onSubmissionComplete error",
@@ -742,20 +702,20 @@
                   singular: "无法提交付款方式"
                 }
               }
-            }))), (0, _v22.trackOrderFailure)({
+            }))), (0, _v21.trackOrderFailure)({
               userId: Number(_v33?.user?.id),
               description: `Error submitting payment method for refId ${_v0.refId}: ${_v0.message}`
-            }), (0, _v22.trackAddPaymentMethodError)(_v48, _v0.message), _v39(!1, _v0.message);
+            }), (0, _v21.trackAddPaymentMethodError)(_v48, _v0.message), _v39(!1, _v0.message);
           }
-        } else _v33 && _v33.user && (0, _v22.trackZuoraOrderStep)({
+        } else _v33 && _v33.user && (0, _v21.trackZuoraOrderStep)({
           user_id: `${_v33.user.id}`,
           hpm_session_id: _v33.xsrft,
           step_name: "HPM onSubmissionComplete error",
           step_message: "Unable to submit payment method"
-        }), _v9(!1), _v11(Error("Unable to submit payment method")), (0, _v22.trackAddPaymentMethodError)(_v48, "Unable to submit payment method"), _v39(!1, "Unable to submit payment method");
+        }), _v9(!1), _v11(Error("Unable to submit payment method")), (0, _v21.trackAddPaymentMethodError)(_v48, "Unable to submit payment method"), _v39(!1, "Unable to submit payment method");
       },
       onSubmissionStart: () => {
-        _v33 && _v33.user && (0, _v22.trackZuoraOrderStep)({
+        _v33 && _v33.user && (0, _v21.trackZuoraOrderStep)({
           user_id: `${_v33.user.id}`,
           hpm_session_id: _v33.xsrft,
           step_name: "HPM onSubmissionStart"
@@ -763,7 +723,7 @@
       },
       onSubmit: () => {
         if (_v22 && _v58) {
-          _v33 && _v33.user && (0, _v22.trackZuoraOrderStep)({
+          _v33 && _v33.user && (0, _v21.trackZuoraOrderStep)({
             user_id: `${_v33.user.id}`,
             hpm_session_id: _v33.xsrft,
             step_name: "HPM onSubmit"
@@ -771,19 +731,19 @@
           return;
         }
         switch (_v29) {
-          case _v23.PaymentFormTypes.TYPE_CREDIT_CARD:
-            _v33 && _v33.user && (0, _v22.trackZuoraOrderStep)({
+          case _v22.PaymentFormTypes.TYPE_CREDIT_CARD:
+            _v33 && _v33.user && (0, _v21.trackZuoraOrderStep)({
               user_id: `${_v33.user.id}`,
               hpm_session_id: _v33.xsrft,
               step_name: "Calling Z.Submit"
-            }), window.Z?.submit(), _v33 && _v33.user && (0, _v22.trackZuoraOrderStep)({
+            }), window.Z?.submit(), _v33 && _v33.user && (0, _v21.trackZuoraOrderStep)({
               user_id: `${_v33.user.id}`,
               hpm_session_id: _v33.xsrft,
               step_name: "Z.Submit Done"
             });
             break;
-          case _v23.PaymentFormTypes.TYPE_PAYPAL:
-            _v33 && _v33.user && (0, _v22.trackZuoraOrderStep)({
+          case _v22.PaymentFormTypes.TYPE_PAYPAL:
+            _v33 && _v33.user && (0, _v21.trackZuoraOrderStep)({
               user_id: `${_v33.user.id}`,
               hpm_session_id: _v33.xsrft,
               step_name: "PayPal Authorization Started"
@@ -791,7 +751,7 @@
               hasOpenInvoice: !!_v2
             });
             break;
-          case _v23.PaymentFormTypes.TYPE_STRIPE:
+          case _v22.PaymentFormTypes.TYPE_STRIPE:
             _v1?.balance && _v1.clientSecret ? _v52({
               clientSecret: _v1.clientSecret,
               billingName: _v20,
@@ -807,7 +767,7 @@
         }
       },
       onSubmitError: (_v0, _v1, _v2) => {
-        _v33 && _v33.user && (0, _v22.trackZuoraOrderStep)({
+        _v33 && _v33.user && (0, _v21.trackZuoraOrderStep)({
           user_id: `${_v33.user.id}`,
           hpm_session_id: _v33.xsrft,
           step_name: "HPM onSubmitError",
@@ -843,10 +803,10 @@
             }
           }
         });
-        _v11(Error(`${_v3} (${_v2})`)), (0, _v22.trackAddPaymentMethodError)(_v48, _v2), _v39(!1, _v2);
+        _v11(Error(`${_v3} (${_v2})`)), (0, _v21.trackAddPaymentMethodError)(_v48, _v2), _v39(!1, _v2);
       },
       onSubmitVatId: _v0 => {
-        _v33 && _v33.user && (0, _v22.trackZuoraOrderStep)({
+        _v33 && _v33.user && (0, _v21.trackZuoraOrderStep)({
           user_id: `${_v33.user.id}`,
           hpm_session_id: _v33.xsrft,
           step_name: "HPM onSubmitVatId",

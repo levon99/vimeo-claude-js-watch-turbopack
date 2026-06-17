@@ -2028,10 +2028,11 @@
       _v17 = (0, _v3.useCallback)(_v0 => {
         _v4(_v0);
       }, []),
-      _v18 = _v11.filter(_v0 => _v0.applied),
-      _v19 = (0, _v8.formatDateForAuditLogExport)(_v7.startDate),
-      _v20 = (0, _v8.formatDateForAuditLogExport)(_v7.endDate),
-      _v21 = ((_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7) => {
+      _v18 = (0, _v3.useMemo)(() => _v11.filter(_v0 => _v0.applied), [_v11]),
+      _v19 = (0, _v3.useMemo)(() => _v18.map(_v0 => _v0.value), [_v18]),
+      _v20 = (0, _v8.formatDateForAuditLogExport)(_v7.startDate),
+      _v21 = (0, _v8.formatDateForAuditLogExport)(_v7.endDate),
+      _v22 = ((_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7) => {
         let _v8 = (0, _v55.useViewer)(),
           _v9 = _v8?.apiUrl,
           _v10 = _v8?.jwt,
@@ -2043,8 +2044,8 @@
         }
         if (_v5) return `//${_v9}/workspaces/${_v5}/audit_logs/export?date_from=${_v0}&date_to=${_v1}&search=${_v11}&jwt_token=${_v10}&filter=csv&event_name=${_v6?.join(",")}`;
         throw Error("Cannot determine export URL.");
-      })(_v19, _v20, _v9, _v0, _v1, _v2, _v11.filter(_v0 => _v0.applied).map(_v0 => _v0.value), _v13),
-      _v22 = () => {
+      })(_v20, _v21, _v9, _v0, _v1, _v2, _v19, _v13),
+      _v23 = () => {
         _v12(_v27.EVENT_NAMES_FILTER_LIST);
       };
     return (0, _v3.useEffect)(() => {
@@ -2077,7 +2078,7 @@
               onFiltersApplied: _v0 => {
                 _v11.some((_v0, _v1) => _v0.applied !== _v0[_v1].applied) && _v12(_v0);
               },
-              onClearFilters: _v22
+              onClearFilters: _v23
             }), _v1 && (0, _v1.jsx)(_v54, {
               orgUuid: _v1,
               disabled: _v15,
@@ -2109,7 +2110,7 @@
                   name: "audit_logs_export_csv_click",
                   page: "audit_logs_export",
                   target: null,
-                  target_path: _v21,
+                  target_path: _v22,
                   path: window.location.pathname,
                   type: "general",
                   click_type: null,
@@ -2117,8 +2118,8 @@
                   third_party_integration: null
                 }));
               },
-              disabled: _v15 || !_v21,
-              uri: _v15 ? "javascript:void(0);" : _v21,
+              disabled: _v15 || !_v22,
+              uri: _v15 ? "javascript:void(0);" : _v22,
               variant: "primary"
             })]
           })]
@@ -2127,13 +2128,13 @@
         orgUuid: _v1,
         workspaceUuid: _v2,
         areAuditLogsEnabled: _v5,
-        dateFrom: _v19,
-        dateTo: _v20,
+        dateFrom: _v20,
+        dateTo: _v21,
         workspaceUris: _v9,
-        eventNameFilters: _v18.map(_v0 => _v0.value),
+        eventNameFilters: _v19,
         searchString: _v13,
         resetView: () => {
-          _v22(), _v14(""), _v10([]), _v8({
+          _v23(), _v14(""), _v10([]), _v8({
             startDate: (0, _v8.getDateMinusCurrent)(30),
             endDate: new Date()
           });

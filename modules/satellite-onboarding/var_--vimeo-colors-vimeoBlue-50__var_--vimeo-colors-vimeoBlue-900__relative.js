@@ -279,25 +279,25 @@
               singular: "All the tools to create, manage, and showcase video.",
               dictionary: {
                 es: {
-                  singular: "Todas las herramientas para crear, gestionar y presentar videos."
+                  singular: "Todas las herramientas para crear, gestionar y mostrar vídeo."
                 },
                 "de-DE": {
-                  singular: "Alle Tools zum Erstellen, Verwalten und Präsentieren von Videos."
+                  singular: "Alle Tools, mit denen Sie Videos erstellen, verwalten und präsentieren können."
                 },
                 "fr-FR": {
-                  singular: "Tous les outils pour créer, gérer et présenter des vidéos."
+                  singular: "Tous les outils pour créer, gérer et mettre en valeur la vidéo."
                 },
                 "ja-JP": {
-                  singular: "動画の作成・管理・公開に必要なツールがすべて揃っています。"
+                  singular: "動画を作成、管理、公開するためのすべてのツール。"
                 },
                 "ko-KR": {
-                  singular: "동영상을 제작 및 관리하고 선보일 수 있는 모든 도구를"
+                  singular: "비디오를 제작, 관리 및 전시할 수 있는 모든 도구."
                 },
                 "pt-BR": {
-                  singular: "Todas as ferramentas para criar, gerenciar e mostrar seus vídeos."
+                  singular: "Todas as ferramentas para criar, gerenciar e exibir vídeos."
                 },
                 "zh-CN": {
-                  singular: "用于创建、管理和展示视频的所有工具。"
+                  singular: "创建、管理和展示视频的所有工具。"
                 }
               }
             })
@@ -363,7 +363,7 @@
                       singular: "Prueba gratuita activada"
                     },
                     "de-DE": {
-                      singular: "Kostenlose Testversion aktiviert."
+                      singular: "Kostenlose Testversion aktiviert"
                     },
                     "fr-FR": {
                       singular: "Essai gratuit activé"
@@ -372,38 +372,38 @@
                       singular: "無料トライアルが有効になりました"
                     },
                     "ko-KR": {
-                      singular: "무료 체험이 시작되었습니다"
+                      singular: "무료 체험 활성화됨"
                     },
                     "pt-BR": {
-                      singular: "Experimente grátis ativado"
+                      singular: "Avaliação gratuita ativada"
                     },
                     "zh-CN": {
-                      singular: "已开启免费试用。"
+                      singular: "已启用免费试用"
                     }
                   }
                 }) : (0, _v10.translate)({
                   singular: "Not sure yet?",
                   dictionary: {
                     es: {
-                      singular: "¿Todavía no está seguro?"
+                      singular: "¿Todavía no estás seguro?"
                     },
                     "de-DE": {
-                      singular: "Sind Sie noch nicht sicher?"
+                      singular: "Noch nicht sicher?"
                     },
                     "fr-FR": {
-                      singular: "Vous n'êtes pas encore sûr ?"
+                      singular: "Pas encore sûr ?"
                     },
                     "ja-JP": {
-                      singular: "まだ決め手に欠けますか？"
+                      singular: "まだ決めていませんか？"
                     },
                     "ko-KR": {
-                      singular: "아직 확신하기 어려운가요?"
+                      singular: "아직 확실하지 않으신가요?"
                     },
                     "pt-BR": {
-                      singular: "Ainda não tem certeza, o senhor?"
+                      singular: "Ainda não tem certeza?"
                     },
                     "zh-CN": {
-                      singular: "还要再考虑一下？"
+                      singular: "还不确定？"
                     }
                   }
                 })
@@ -414,7 +414,7 @@
                   singular: "Enable free trial",
                   dictionary: {
                     es: {
-                      singular: "Activar prueba gratuita"
+                      singular: "Activar la prueba gratuita"
                     },
                     "de-DE": {
                       singular: "Kostenlose Testversion aktivieren"
@@ -426,13 +426,13 @@
                       singular: "無料トライアルを有効にする"
                     },
                     "ko-KR": {
-                      singular: "무료 체험을 시작해 보세요"
+                      singular: "무료 체험 활성화"
                     },
                     "pt-BR": {
-                      singular: "Ativar teste gratuito"
+                      singular: "Ativar avaliação gratuita"
                     },
                     "zh-CN": {
-                      singular: "开启免费试用。"
+                      singular: "启用免费试用"
                     }
                   }
                 })
@@ -464,25 +464,25 @@
                 },
                 dictionary: {
                   es: {
-                    singular: "{amount} vence(n) hoy"
+                    singular: "{amount} a pagar hoy"
                   },
                   "de-DE": {
                     singular: "{amount} heute fällig"
                   },
                   "fr-FR": {
-                    singular: "{amount} prévu aujourd’hui"
+                    singular: "{amount} à payer aujourd'hui"
                   },
                   "ja-JP": {
-                    singular: "{amount}の期限は今日です"
+                    singular: "{amount} が本日請求されます"
                   },
                   "ko-KR": {
-                    singular: "오늘 {amount} 마감"
+                    singular: "{amount} 오늘 결제 예정"
                   },
                   "pt-BR": {
-                    singular: "{amount} vencem hoje"
+                    singular: "{amount} devido hoje"
                   },
                   "zh-CN": {
-                    singular: "今日待支付 {amount}。"
+                    singular: "{amount} 今日应付"
                   }
                 }
               })
@@ -499,13 +499,16 @@
                     singular: "Kostenlos"
                   },
                   "fr-FR": {
-                    singular: "Gratuit "
+                    singular: "Gratuit"
                   },
                   "ja-JP": {
                     singular: "無料"
                   },
                   "ko-KR": {
                     singular: "무료"
+                  },
+                  "pt-BR": {
+                    singular: "Grátis"
                   },
                   "zh-CN": {
                     singular: "免费"
@@ -534,22 +537,22 @@
                   singular: "Anual"
                 },
                 "de-DE": {
-                  singular: "jährlich"
+                  singular: "Jährlich"
                 },
                 "fr-FR": {
-                  singular: "annuel"
+                  singular: "Annuel"
                 },
                 "ja-JP": {
-                  singular: "年間"
+                  singular: "年額"
                 },
                 "ko-KR": {
                   singular: "연간"
                 },
                 "pt-BR": {
-                  singular: "anual"
+                  singular: "Anual"
                 },
                 "zh-CN": {
-                  singular: "每年"
+                  singular: "按年"
                 }
               }
             }),
@@ -588,22 +591,22 @@
                   singular: "Más popular"
                 },
                 "de-DE": {
-                  singular: "Besonders beliebt"
+                  singular: "Am beliebtesten"
                 },
                 "fr-FR": {
-                  singular: "Plus populaire"
+                  singular: "Le plus populaire"
                 },
                 "ja-JP": {
-                  singular: "最も人気なプラン"
+                  singular: "一番人気"
                 },
                 "ko-KR": {
-                  singular: "인기"
+                  singular: "가장 인기 있는"
                 },
                 "pt-BR": {
-                  singular: "Mais Popular"
+                  singular: "Mais popular"
                 },
                 "zh-CN": {
-                  singular: "最热门"
+                  singular: "最受欢迎"
                 }
               }
             })
@@ -628,16 +631,16 @@
                   singular: "Mensuel"
                 },
                 "ja-JP": {
-                  singular: "月間"
+                  singular: "月額"
                 },
                 "ko-KR": {
-                  singular: "월별"
+                  singular: "월간"
                 },
                 "pt-BR": {
-                  singular: "Mensalmente"
+                  singular: "Mensal"
                 },
                 "zh-CN": {
-                  singular: "每月"
+                  singular: "按月"
                 }
               }
             }),
@@ -752,22 +755,22 @@
             singular: "Try for free",
             dictionary: {
               es: {
-                singular: "Probar gratis"
+                singular: "Prueba gratuita"
               },
               "de-DE": {
-                singular: "Gratis-Angebot"
+                singular: "Kostenlos testen"
               },
               "fr-FR": {
-                singular: "Essai gratuit"
+                singular: "Essayer gratuitement"
               },
               "ja-JP": {
                 singular: "無料で試す"
               },
               "ko-KR": {
-                singular: "무료 체험하기"
+                singular: "무료로 체험해 보기"
               },
               "pt-BR": {
-                singular: "Teste gratuitamente"
+                singular: "Experimente grátis"
               },
               "zh-CN": {
                 singular: "免费试用"

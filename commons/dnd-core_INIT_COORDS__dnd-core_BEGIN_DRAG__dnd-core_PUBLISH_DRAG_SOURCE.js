@@ -2267,12 +2267,9 @@
     _v123 = _v0.i(0),
     _v124 = _v0.i(0),
     _v125 = _v0.i(0),
-    _v126 = _v0.i(0);
-  let _v127 = () => (0, _v5.useContext)(_v126.ViewerContext);
-  _v0.s(["useViewer", 0, _v127], 0);
-  var _v128 = _v0.i(0),
-    _v129 = _v0.i(0);
-  let _v130 = {
+    _v126 = _v0.i(0),
+    _v127 = _v0.i(0);
+  let _v128 = {
     view: void 0,
     password: void 0
   };
@@ -2286,7 +2283,7 @@
     page: _v6,
     isPrivateModeOn: _v7
   }) => {
-    let _v8 = _v127(),
+    let _v8 = (0, _v72.useViewer)(),
       _v9 = (0, _v113.useRouter)(),
       {
         settings: _v10
@@ -2294,7 +2291,7 @@
       {
         mutate: _v11
       } = (0, _v118.useUserQuotaApi)(),
-      _v12 = (0, _v129.getLinkPrivacyOptionsMap)(_v8?.teamUser?.teamName, _v8?.teamUser?.isWorkspace, _v10.privacy_settings_new_copy),
+      _v12 = (0, _v127.getLinkPrivacyOptionsMap)(_v8?.teamUser?.teamName, _v8?.teamUser?.isWorkspace, _v10.privacy_settings_new_copy),
       {
         uploads: _v13,
         uploaderSummary: _v14
@@ -2304,12 +2301,12 @@
         open: _v16,
         close: _v17
       } = (0, _v124.useUpsellModal)(),
-      [_v18, _v19] = (0, _v5.useState)(_v130),
+      [_v18, _v19] = (0, _v5.useState)(_v128),
       [_v20, _v21] = (0, _v5.useState)(0),
       [_v22, _v23] = (0, _v5.useState)(null),
       [_v24, _v25] = (0, _v5.useState)({
         clipId: "",
-        privacy: _v130.view
+        privacy: _v128.view
       }),
       {
         showEmbedToggle: _v26,
@@ -2438,7 +2435,7 @@
                 video_embed_privacy: null,
                 is_preset_applied: null,
                 is_video_password_protected: !!_v1,
-                video_app_id: (0, _v128.idFromUri)(_v31?.app?.uri) ? String((0, _v128.idFromUri)(_v31?.app?.uri)) : null,
+                video_app_id: (0, _v126.idFromUri)(_v31?.app?.uri) ? String((0, _v126.idFromUri)(_v31?.app?.uri)) : null,
                 team_owner_id: _v5,
                 team_size: null,
                 team_subscription_type: null,
@@ -2481,13 +2478,13 @@
           setPrivacy: _v0 => {
             _v38(_v0.view, _v0.password), _v25({
               clipId: "",
-              privacy: _v130.view
+              privacy: _v128.view
             });
           },
           onClose: () => {
-            _v3(!1), _v19(_v130), _v2(""), _v25({
+            _v3(!1), _v19(_v128), _v2(""), _v25({
               clipId: "",
-              privacy: _v130.view
+              privacy: _v128.view
             }), _v29();
           },
           onPrivacyUpsellClick: _v37,
@@ -2518,15 +2515,15 @@
       })]
     });
   }], 0);
-  let _v131 = (0, _v0.i(0).default)(() => _v0.A(0).then(_v0 => _v0.ReorderFeaturedFoldersModal), {
+  let _v129 = (0, _v0.i(0).default)(() => _v0.A(0).then(_v0 => _v0.ReorderFeaturedFoldersModal), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v132 = (0, _v5.createContext)({
+    _v130 = (0, _v5.createContext)({
       setModalContextState: () => console.log("noop")
     });
-  _v0.s(["ModalContextDispatch", 0, _v132, "ReorderFeaturedFOldersModalContextProvider", 0, ({
+  _v0.s(["ModalContextDispatch", 0, _v130, "ReorderFeaturedFOldersModalContextProvider", 0, ({
     children: _v0
   }) => {
     let [_v1, _v2] = (0, _v5.useState)({
@@ -2537,11 +2534,11 @@
         isOpen: _v3,
         state: _v4
       } = _v1;
-    return (0, _v4.jsxs)(_v132.Provider, {
+    return (0, _v4.jsxs)(_v130.Provider, {
       value: {
         setModalContextState: _v2
       },
-      children: [_v0, _v3 && (0, _v4.jsx)(_v131, {
+      children: [_v0, _v3 && (0, _v4.jsx)(_v129, {
         ..._v4,
         isOpen: !0,
         setIsOpen: () => _v2({

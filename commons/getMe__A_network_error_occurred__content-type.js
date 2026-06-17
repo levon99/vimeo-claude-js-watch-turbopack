@@ -57,6 +57,7 @@
       return (0, _v4.deepCamelCase)(_v1);
     });
   }
+  _v0.s(["deleteMe", 0, _v6, "getMe", 0, _v5, "patchMe", 0, _v7], 0);
   var _v8 = _v0.i(0),
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),

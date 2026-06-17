@@ -51,6 +51,7 @@
       GUEST_PAGE_LEARN_MORE: "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12426959504401",
       DEVICE_PERMISSIONS: "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12426959565457",
       SCREEN_USAGE: "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12426962678545",
+      MULTIPLE_AUDIO_TRACKS_LIVE: "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/47511438056209-About-multiple-audio-tracks-for-live-events",
       UPGRADE_YOUR_PLAN: "/help/sso?redirect_to=https://vimeo.com/enterprise/contact-us",
       UPGRADE_YOUR_PLAN_DIRECT: "/enterprise/contact-us",
       CONTACT_SALES_EMAIL: "mailto:accountmanagement@vimeo.com"

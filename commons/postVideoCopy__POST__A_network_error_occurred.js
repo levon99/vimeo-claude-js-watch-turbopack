@@ -104,11 +104,9 @@
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
-    _v18 = _v0.i(0);
-  let _v19 = ["free", "starter", "standard", "advanced"],
-    _v20 = _v0 => !!_v0 && _v19.includes(_v0);
-  _v0.s(["isPerSeatSelfServeTier", 0, _v20], 0);
-  let _v21 = (_v0, _v1) => !!_v0 && !!_v1.user?.uri && _v0 === _v1.user.uri;
+    _v18 = _v0.i(0),
+    _v19 = _v0.i(0);
+  let _v20 = (_v0, _v1) => !!_v0 && !!_v1.user?.uri && _v0 === _v1.user.uri;
   _v0.s(["isCopyableVideoContent", 0, _v0 => "stock" !== _v0.type && "live" !== _v0.type && _v0.privacy?.view !== "ptv" && _v0.privacy?.view !== "ptvhide", "useCopyVideoFlow", 0, ({
     onAfterCopySuccess: _v0
   } = {}) => {
@@ -144,7 +142,7 @@
         });
       }, [_v4, _v5, _v3]),
       _v12 = (0, _v2.useCallback)(_v0 => {
-        _v20(_v2?.user?.account) ? _v11(_v0) : window.location.assign((0, _v4.buildUpgradePlanUrl)({
+        (0, _v19.isPerSeatSelfServeTier)(_v2?.user?.account) ? _v11(_v0) : window.location.assign((0, _v4.buildUpgradePlanUrl)({
           paywallTrigger: `${_v3}_copy_video_quota_limit_button`,
           paywallLocation: _v3,
           paywallFeature: _v0
@@ -232,7 +230,7 @@
             case "quota_count":
             case "quota_size":
             case "restricted_storage":
-              if (_v10(), _v6 && !_v21(_v2?.user?.uri, _v6)) return void _v13();
+              if (_v10(), _v6 && !_v20(_v2?.user?.uri, _v6)) return void _v13();
               _v12("quota_count" === _v0 ? "quota" : "storage_limit");
               return;
             case "not_ready":
@@ -335,7 +333,7 @@
         let _v1 = _v0.user?.uploadQuota,
           _v2 = _v1?.lifetime?.free === 0,
           _v3 = _v1?.periodic?.free === 0;
-        if (_v2 || _v3) return _v21(_v2?.user?.uri, _v0) ? void _v12(_v1?.space?.unit === "video_size" ? "storage_limit" : "quota") : void _v13();
+        if (_v2 || _v3) return _v20(_v2?.user?.uri, _v0) ? void _v12(_v1?.space?.unit === "video_size" ? "storage_limit" : "quota") : void _v13();
         _v7(_v0), _v9((0, _v18.buildCopyPrefilledTitle)(_v0.name ?? ""));
       }, [_v13, _v12, _v2?.user?.uri]),
       _v18 = (0, _v2.useCallback)(_v0 => {

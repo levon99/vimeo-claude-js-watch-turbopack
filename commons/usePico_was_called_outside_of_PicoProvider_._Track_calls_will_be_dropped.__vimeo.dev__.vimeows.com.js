@@ -19,46 +19,47 @@
   _v0.s(["PicoProvider", 0, ({
     children: _v0,
     syncIntervalMilliseconds: _v1 = 0,
-    isDevelopment: _v2
+    isDevelopment: _v2,
+    surface: _v3 = "main"
   }) => {
-    let _v3 = (0, _v3.useViewer)(),
+    let _v4 = (0, _v3.useViewer)(),
       {
-        user_id: _v4,
-        vuid: _v5,
-        team_id: _v6,
-        team_owner_id: _v7,
-        actor_id: _v8,
-        organization_id: _v9,
-        account_type: _v10,
-        is_team_user: _v11,
-        is_free_trial: _v12,
-        country: _v13,
-        is_mobile: _v14
-      } = (0, _v5.extractSafeViewerInfo)(_v3),
-      _v15 = null != _v3,
-      _v16 = (0, _v2.useMemo)(() => _v15 ? {
-        user_id: _v4,
-        vuid: _v5,
-        team_id: _v6,
-        team_owner_id: _v7,
-        actor_id: _v8,
-        organization_id: _v9
-      } : null, [_v4, _v5, _v6, _v7, _v8, _v9, _v15]),
-      _v17 = (0, _v2.useMemo)(() => _v15 ? {
-        account_type: _v10,
-        is_team_user: _v11,
-        is_free_trial: _v12,
-        country: _v13,
-        is_mobile: _v14,
+        user_id: _v5,
+        vuid: _v6,
+        team_id: _v7,
+        team_owner_id: _v8,
+        actor_id: _v9,
+        organization_id: _v10,
+        account_type: _v11,
+        is_team_user: _v12,
+        is_free_trial: _v13,
+        country: _v14,
+        is_mobile: _v15
+      } = (0, _v5.extractSafeViewerInfo)(_v4),
+      _v16 = null != _v4,
+      _v17 = (0, _v2.useMemo)(() => _v16 ? {
+        user_id: _v5,
+        vuid: _v6,
+        team_id: _v7,
+        team_owner_id: _v8,
+        actor_id: _v9,
+        organization_id: _v10
+      } : null, [_v5, _v6, _v7, _v8, _v9, _v10, _v16]),
+      _v18 = (0, _v2.useMemo)(() => _v16 ? {
+        account_type: _v11,
+        is_team_user: _v12,
+        is_free_trial: _v13,
+        country: _v14,
+        is_mobile: _v15,
         is_in_grace_period: null
-      } : null, [_v10, _v11, _v12, _v13, _v14, _v15]),
-      _v18 = (0, _v2.useRef)(_v16),
-      _v19 = (0, _v2.useRef)(_v17);
-    _v18.current = _v16, _v19.current = _v17;
+      } : null, [_v11, _v12, _v13, _v14, _v15, _v16]),
+      _v19 = (0, _v2.useRef)(_v17),
+      _v20 = (0, _v2.useRef)(_v18);
+    _v19.current = _v17, _v20.current = _v18;
     let {
-      proxy: _v20,
-      bind: _v21,
-      fail: _v22
+      proxy: _v21,
+      bind: _v22,
+      fail: _v23
     } = (0, _v2.useMemo)(() => {
       let _v0;
       return _v0 = {
@@ -96,15 +97,16 @@
       };
     }, []);
     return (0, _v2.useEffect)(() => {
-      if (!_v15) return;
+      if (!_v16) return;
       let _v0 = () => ({
-          ...(_v18.current ?? {})
+          ...(_v19.current ?? {})
         }),
         _v1 = () => {
           let _v0 = null;
           return {
             page: _v0 = window.location.pathname,
-            ...(_v19.current ?? {}),
+            surface: _v3,
+            ...(_v20.current ?? {}),
             is_in_grace_period: (0, _v5.deriveIsInGracePeriod)()
           };
         },
@@ -126,13 +128,13 @@
             syncIntervalMilliseconds: _v1,
             endpoint: _v3
           });
-          _v21(_v0);
+          _v22(_v0);
         } catch (_v0) {
-          console.error("Error initializing PicoX client", _v0), _v22(_v0);
+          console.error("Error initializing PicoX client", _v0), _v23(_v0);
         }
       })();
-    }, [_v15]), (0, _v1.jsx)(_v6.Provider, {
-      value: _v20,
+    }, [_v16]), (0, _v1.jsx)(_v6.Provider, {
+      value: _v21,
       children: _v0
     });
   }, "usePico", 0, () => (0, _v2.useContext)(_v6)]);

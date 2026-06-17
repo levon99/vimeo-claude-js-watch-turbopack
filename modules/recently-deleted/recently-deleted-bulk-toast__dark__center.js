@@ -33,33 +33,36 @@
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
     _v32 = _v0.i(0),
-    _v33 = _v0.i(0);
-  let _v34 = "recently-deleted-bulk-toast";
-  function _v35({
+    _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0);
+  let _v36 = "recently-deleted-bulk-toast";
+  function _v37({
     numSelected: _v0,
     onDelete: _v1,
     onRestore: _v2,
-    onClear: _v3
+    onClear: _v3,
+    isRestoreDisabled: _v4
   }) {
-    let [_v4, _v5] = (0, _v10.useState)(!1),
+    let [_v5, _v6] = (0, _v10.useState)(!1),
       {
-        colorMode: _v6
-      } = (0, _v30.useColorMode)(),
-      _v7 = async () => {
-        if (!_v4) {
-          _v5(!0);
+        colorMode: _v7
+      } = (0, _v32.useColorMode)(),
+      _v8 = async () => {
+        if (!_v5) {
+          _v6(!0);
           try {
             await _v2();
           } finally {
-            _v5(!1);
+            _v6(!1);
           }
         }
       },
-      _v8 = "dark" === _v6 ? _v28.LightMode : _v28.DarkMode;
-    return (0, _v1.jsx)(_v8, {
-      children: (0, _v1.jsx)(_v33.BulkActionsBar.ActionBar, {
+      _v9 = "dark" === _v7 ? _v29.LightMode : _v29.DarkMode;
+    return (0, _v1.jsx)(_v9, {
+      children: (0, _v1.jsx)(_v35.BulkActionsBar.ActionBar, {
         isActive: _v0 > 0,
-        targetElementId: _v34,
+        targetElementId: _v36,
         children: (0, _v1.jsxs)(_v11.Flex, {
           alignItems: "center",
           gap: "0.5rem",
@@ -105,37 +108,65 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v33.BulkActionsBar.ActionButton, {
-            icon: (0, _v1.jsx)(_v32.History, {}),
-            label: (0, _v15.translate)({
-              singular: "Restore",
+          }), (0, _v1.jsx)(_v31.Tooltip, {
+            label: _v4 ? (0, _v15.translate)({
+              singular: "Your storage is full. Permanently delete files to free up space.",
               dictionary: {
                 es: {
-                  singular: "Restaurar"
+                  singular: "Tu almacenamiento está lleno. Elimina archivos de forma permanente para liberar espacio."
                 },
                 "de-DE": {
-                  singular: "Wiederherstellen"
+                  singular: "Ihr Speicher ist voll. Löschen Sie Dateien endgültig, um Speicherplatz freizugeben."
                 },
                 "fr-FR": {
-                  singular: "Réinstaurer"
+                  singular: "Votre espace de stockage est plein. Supprimez définitivement des fichiers pour libérer de l'espace."
                 },
                 "ja-JP": {
-                  singular: "復元"
+                  singular: "ストレージがいっぱいです. 空き容量を確保するにはファイルを完全に削除してください."
                 },
                 "ko-KR": {
-                  singular: "복원"
+                  singular: "저장 공간이 가득 찼습니다. 공간을 확보하려면 파일을 영구 삭제하세요."
                 },
                 "pt-BR": {
-                  singular: "Restaure"
+                  singular: "Seu armazenamento está cheio. Exclua arquivos permanentemente para liberar espaço."
                 },
                 "zh-CN": {
-                  singular: "恢复"
+                  singular: "您的存储已满。永久删除文件以释放空间。"
                 }
               }
-            }),
-            disabled: _v4,
-            onClick: _v7
-          }), (0, _v1.jsx)(_v33.BulkActionsBar.ActionButton, {
+            }) : void 0,
+            children: (0, _v1.jsx)(_v35.BulkActionsBar.ActionButton, {
+              icon: (0, _v1.jsx)(_v34.History, {}),
+              label: (0, _v15.translate)({
+                singular: "Restore",
+                dictionary: {
+                  es: {
+                    singular: "Restaurar"
+                  },
+                  "de-DE": {
+                    singular: "Wiederherstellen"
+                  },
+                  "fr-FR": {
+                    singular: "Réinstaurer"
+                  },
+                  "ja-JP": {
+                    singular: "復元"
+                  },
+                  "ko-KR": {
+                    singular: "복원"
+                  },
+                  "pt-BR": {
+                    singular: "Restaure"
+                  },
+                  "zh-CN": {
+                    singular: "恢复"
+                  }
+                }
+              }),
+              disabled: _v5 || !!_v4,
+              onClick: _v8
+            })
+          }), (0, _v1.jsx)(_v35.BulkActionsBar.ActionButton, {
             icon: (0, _v1.jsx)(_v13.TrashBin, {}),
             label: (0, _v15.translate)({
               singular: "Delete forever",
@@ -164,7 +195,7 @@
               }
             }),
             onClick: _v1
-          }), (0, _v1.jsx)(_v29.IconButton, {
+          }), (0, _v1.jsx)(_v30.IconButton, {
             "aria-label": (0, _v15.translate)({
               singular: "Deselect all",
               dictionary: {
@@ -192,33 +223,35 @@
               }
             }),
             onClick: _v3,
-            icon: (0, _v1.jsx)(_v31.CloseX, {}),
+            icon: (0, _v1.jsx)(_v33.CloseX, {}),
             variant: "tertiary"
           })]
         })
       })
     });
   }
-  var _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
+  var _v38 = _v0.i(0),
     _v39 = _v0.i(0),
     _v40 = _v0.i(0),
     _v41 = _v0.i(0),
-    _v42 = _v0.i(0);
-  function _v43() {
-    let _v0 = (0, _v27.useViewer)(),
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0),
+    _v44 = _v0.i(0);
+  function _v45() {
+    let _v0 = (0, _v28.useViewer)(),
       {
         capabilities: _v1
-      } = (0, _v42.useCapability)(["hasDataRetention"], _v0?.teamUser?.ownerId);
-    return _v1?.hasDataRetention ? (0, _v1.jsxs)(_v38.AlertRoot, {
-      variant: "info",
+      } = (0, _v44.useCapability)(["hasDataRetention"], _v0?.teamUser?.ownerId);
+    return _v1?.hasDataRetention ? (0, _v1.jsxs)(_v40.AlertRoot, {
       size: "sm",
-      children: [(0, _v1.jsx)(_v37.AlertIcon, {
-        children: (0, _v1.jsx)(_v41.ShieldInfo, {})
+      backgroundColor: "fill-component",
+      children: [(0, _v1.jsx)(_v39.AlertIcon, {
+        children: (0, _v1.jsx)(_v43.ShieldInfo, {
+          color: "text-primary"
+        })
       }), (0, _v1.jsxs)(_v3.Box, {
-        children: [(0, _v1.jsx)(_v39.AlertTitle, {
-          color: "status-info-primary",
+        children: [(0, _v1.jsx)(_v41.AlertTitle, {
+          color: "text-primary",
           children: (0, _v15.translate)({
             singular: "Looking for videos removed by your data retention policy?",
             dictionary: {
@@ -245,16 +278,16 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v36.AlertDescription, {
-          color: "status-info-primary",
+        }), (0, _v1.jsx)(_v38.AlertDescription, {
+          color: "text-primary",
           children: (0, _v15.translate)({
             singular: "This page only shows videos manually deleted by team members. Videos removed automatically by your organization's retention policy live in {LINK}Data retention history{/LINK}.",
             replacements: {
-              LINK: _v0 => (0, _v1.jsxs)(_v40.Link, {
+              LINK: _v0 => (0, _v1.jsxs)(_v42.Link, {
                 href: "/manage/team/settings/history",
                 target: "_blank",
                 variant: "inline-secondary",
-                color: "status-info-primary",
+                color: "text-primary",
                 fontSize: "inherit",
                 children: [_v0, " ↗"]
               }, "data-retention-link")
@@ -287,7 +320,7 @@
       })]
     }) : null;
   }
-  function _v44({
+  function _v46({
     icon: _v0,
     title: _v1,
     description: _v2
@@ -310,20 +343,20 @@
       })]
     });
   }
-  var _v45 = _v0.i(0);
-  function _v46({
+  var _v47 = _v0.i(0);
+  function _v48({
     onEmptyTrash: _v0,
     recentlyDeletedDiskSpace: _v1
   }) {
     let _v2 = (0, _v18.bytesToSize)(_v1, 1);
-    return (0, _v1.jsx)(_v38.AlertRoot, {
+    return (0, _v1.jsx)(_v40.AlertRoot, {
       backgroundColor: "status-info-secondary",
       borderRadius: "md",
       p: "sm",
       pl: "md",
       marginBottom: "0",
       alignItems: "center",
-      children: (0, _v1.jsx)(_v36.AlertDescription, {
+      children: (0, _v1.jsx)(_v38.AlertDescription, {
         width: "100%",
         children: (0, _v1.jsxs)(_v11.Flex, {
           width: "100%",
@@ -389,7 +422,7 @@
                 }
               }
             })]
-          }), (0, _v1.jsx)(_v45.Button, {
+          }), (0, _v1.jsx)(_v47.Button, {
             variant: "secondary",
             size: "sm",
             onClick: _v0,
@@ -426,13 +459,13 @@
       })
     });
   }
-  var _v47 = _v0.i(0),
-    _v48 = _v0.i(0),
-    _v49 = _v0.i(0),
+  var _v49 = _v0.i(0),
     _v50 = _v0.i(0),
     _v51 = _v0.i(0),
-    _v52 = _v0.i(0);
-  function _v53({
+    _v52 = _v0.i(0),
+    _v53 = _v0.i(0),
+    _v54 = _v0.i(0);
+  function _v55({
     isOpen: _v0,
     onClose: _v1,
     onConfirm: _v2,
@@ -584,12 +617,12 @@
           }
         }
       });
-    return (0, _v1.jsxs)(_v47.Modal, {
+    return (0, _v1.jsxs)(_v49.Modal, {
       isOpen: _v0,
       onClose: _v1,
-      children: [(0, _v1.jsx)(_v52.ModalOverlay, {}), (0, _v1.jsxs)(_v49.ModalContent, {
+      children: [(0, _v1.jsx)(_v54.ModalOverlay, {}), (0, _v1.jsxs)(_v51.ModalContent, {
         borderRadius: "md",
-        children: [(0, _v1.jsx)(_v51.ModalHeader, {
+        children: [(0, _v1.jsx)(_v53.ModalHeader, {
           padding: "lg",
           fontSize: "heading-md",
           color: "text-primary",
@@ -619,15 +652,15 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v48.ModalBody, {
+        }), (0, _v1.jsx)(_v50.ModalBody, {
           padding: "0.5rem 1.5rem",
           fontSize: "body-md",
           color: "text-primary",
           children: _v6 ?? _v11
-        }), (0, _v1.jsxs)(_v50.ModalFooter, {
+        }), (0, _v1.jsxs)(_v52.ModalFooter, {
           border: "0",
           padding: "lg",
-          children: [(0, _v1.jsx)(_v45.Button, {
+          children: [(0, _v1.jsx)(_v47.Button, {
             onClick: _v1,
             variant: "tertiary",
             children: (0, _v15.translate)({
@@ -656,7 +689,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v45.Button, {
+          }), (0, _v1.jsx)(_v47.Button, {
             onClick: _v10,
             variant: "destructive",
             isDisabled: _v8,
@@ -692,23 +725,23 @@
       })]
     });
   }
-  var _v54 = _v0.i(0),
-    _v55 = _v0.i(0),
-    _v56 = _v0.i(0),
+  var _v56 = _v0.i(0),
     _v57 = _v0.i(0),
-    _v58 = _v0.i(0);
-  function _v59({
+    _v58 = _v0.i(0),
+    _v59 = _v0.i(0);
+  function _v60({
     onDelete: _v0,
-    onRestore: _v1
+    onRestore: _v1,
+    isRestoreDisabled: _v2
   }) {
-    let [_v2, _v3] = (0, _v10.useState)(!1),
-      _v4 = async () => {
-        if (_v1 && !_v2) {
-          _v3(!0);
+    let [_v3, _v4] = (0, _v10.useState)(!1),
+      _v5 = async () => {
+        if (_v1 && !_v3) {
+          _v4(!0);
           try {
             await _v1();
           } finally {
-            _v3(!1);
+            _v4(!1);
           }
         }
       };
@@ -719,8 +752,33 @@
         opacity: 1
       },
       transition: "opacity 0.2s ease",
-      children: [(0, _v1.jsx)(_v58.Tooltip, {
-        label: (0, _v15.translate)({
+      children: [(0, _v1.jsx)(_v31.Tooltip, {
+        label: _v2 ? (0, _v15.translate)({
+          singular: "Your storage is full. Permanently delete files to free up space.",
+          dictionary: {
+            es: {
+              singular: "Tu almacenamiento está lleno. Elimina archivos de forma permanente para liberar espacio."
+            },
+            "de-DE": {
+              singular: "Ihr Speicher ist voll. Löschen Sie Dateien endgültig, um Speicherplatz freizugeben."
+            },
+            "fr-FR": {
+              singular: "Votre espace de stockage est plein. Supprimez définitivement des fichiers pour libérer de l'espace."
+            },
+            "ja-JP": {
+              singular: "ストレージがいっぱいです. 空き容量を確保するにはファイルを完全に削除してください."
+            },
+            "ko-KR": {
+              singular: "저장 공간이 가득 찼습니다. 공간을 확보하려면 파일을 영구 삭제하세요."
+            },
+            "pt-BR": {
+              singular: "Seu armazenamento está cheio. Exclua arquivos permanentemente para liberar espaço."
+            },
+            "zh-CN": {
+              singular: "您的存储已满。永久删除文件以释放空间。"
+            }
+          }
+        }) : (0, _v15.translate)({
           singular: "Restore file",
           dictionary: {
             es: {
@@ -747,7 +805,7 @@
           }
         }),
         placement: "top",
-        children: (0, _v1.jsx)(_v29.IconButton, {
+        children: (0, _v1.jsx)(_v30.IconButton, {
           "aria-label": (0, _v15.translate)({
             singular: "Restore file",
             dictionary: {
@@ -774,14 +832,14 @@
               }
             }
           }),
-          icon: (0, _v1.jsx)(_v32.History, {}),
+          icon: (0, _v1.jsx)(_v34.History, {}),
           variant: "blur",
           size: "xs",
-          isDisabled: _v2,
-          isLoading: _v2,
-          onClick: _v4
+          isDisabled: _v3 || !!_v2,
+          isLoading: _v3,
+          onClick: _v5
         })
-      }), (0, _v1.jsx)(_v58.Tooltip, {
+      }), (0, _v1.jsx)(_v31.Tooltip, {
         label: (0, _v15.translate)({
           singular: "Delete forever",
           dictionary: {
@@ -809,7 +867,7 @@
           }
         }),
         placement: "top",
-        children: (0, _v1.jsx)(_v29.IconButton, {
+        children: (0, _v1.jsx)(_v30.IconButton, {
           "aria-label": (0, _v15.translate)({
             singular: "Delete forever",
             dictionary: {
@@ -839,26 +897,27 @@
           icon: (0, _v1.jsx)(_v13.TrashBin, {}),
           variant: "blur",
           size: "xs",
-          isDisabled: _v2,
+          isDisabled: _v3,
           onClick: _v0
         })
       })]
     });
   }
-  let _v60 = `${(0, _v5.rem)(32)} ${(0, _v5.rem)(150)} 6fr 2fr 3fr 2fr ${(0, _v5.rem)(80)}`;
-  function _v61({
+  let _v61 = `${(0, _v5.rem)(32)} ${(0, _v5.rem)(150)} 6fr 2fr 3fr 2fr ${(0, _v5.rem)(80)}`;
+  function _v62({
     videos: _v0,
     viewerUserId: _v1,
     selectedUris: _v2,
     onToggleSelected: _v3,
     onRestoreVideo: _v4,
-    onDeleteVideo: _v5
+    onDeleteVideo: _v5,
+    isRestoreDisabled: _v6
   }) {
     return (0, _v1.jsx)(_v1.Fragment, {
       children: _v0.map(_v0 => {
         let _v1,
           _v2 = _v0.filesSize && _v0.filesSize.totalSize > 0 ? (0, _v18.bytesToSize)(_v0.filesSize.totalSize) : "—",
-          _v3 = _v0.deletedBy?.uri ? (0, _v26.idFromUri)(_v0.deletedBy.uri) : null,
+          _v3 = _v0.deletedBy?.uri ? (0, _v27.idFromUri)(_v0.deletedBy.uri) : null,
           _v4 = _v0.modifiedTime ? (_v1 = Math.ceil((new Date(_v0.modifiedTime).getTime() + 0 - Date.now()) / 0)) <= 0 ? (0, _v15.translate)({
             singular: "< 1 day",
             dictionary: {
@@ -922,35 +981,35 @@
               }
             }
           }) : "—";
-        return (0, _v1.jsxs)(_v55.ContentRow, {
-          listGridColumns: _v60,
+        return (0, _v1.jsxs)(_v57.ContentRow, {
+          listGridColumns: _v61,
           isSelected: !!_v0.uri && _v2.has(_v0.uri),
           onToggleSelected: _v0.uri ? () => _v3(_v0.uri) : void 0,
-          children: [(0, _v1.jsx)(_v55.ContentRow.Column, {
-            children: (0, _v1.jsx)(_v55.ContentRow.SelectCheckbox, {
+          children: [(0, _v1.jsx)(_v57.ContentRow.Column, {
+            children: (0, _v1.jsx)(_v57.ContentRow.SelectCheckbox, {
               size: "md"
             })
-          }), (0, _v1.jsx)(_v55.ContentRow.Column, {
-            children: (0, _v1.jsx)(_v56.VideoThumbnail, {
+          }), (0, _v1.jsx)(_v57.ContentRow.Column, {
+            children: (0, _v1.jsx)(_v58.VideoThumbnail, {
               alt: _v0.name ?? "",
-              badgeText: (0, _v57.secondsToDisplay)(_v0.duration),
+              badgeText: (0, _v59.secondsToDisplay)(_v0.duration),
               isDefaultPicture: _v0.pictures?.defaultPicture,
               thumbnailSrc: _v0.pictures?.sizes[3]?.link
             })
-          }), (0, _v1.jsx)(_v55.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v57.ContentRow.Column, {
             children: (0, _v1.jsx)(_v4.Text, {
               variant: "heading-xs",
               noOfLines: 1,
               paddingLeft: (0, _v5.rem)(8),
               children: _v0.name
             })
-          }), (0, _v1.jsx)(_v55.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v57.ContentRow.Column, {
             children: (0, _v1.jsx)(_v4.Text, {
               variant: "body-md",
               color: "text-secondary",
               children: _v2
             })
-          }), (0, _v1.jsx)(_v55.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v57.ContentRow.Column, {
             children: _v3 && _v3 === _v1 ? (0, _v1.jsx)(_v4.Text, {
               variant: "body-md",
               color: "text-secondary",
@@ -983,7 +1042,7 @@
             }) : _v0.deletedBy ? (0, _v1.jsxs)(_v11.Flex, {
               alignItems: "center",
               gap: (0, _v5.rem)(8),
-              children: [(0, _v1.jsx)(_v54.Avatar, {
+              children: [(0, _v1.jsx)(_v56.Avatar, {
                 size: "sm",
                 alt: (0, _v15.translate)({
                   singular: "Display picture",
@@ -1026,44 +1085,47 @@
               color: "text-secondary",
               children: "—"
             })
-          }), (0, _v1.jsx)(_v55.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v57.ContentRow.Column, {
             children: (0, _v1.jsx)(_v4.Text, {
               variant: "body-md",
               color: "text-secondary",
               children: _v4
             })
-          }), (0, _v1.jsx)(_v55.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v57.ContentRow.Column, {
             justifyColumn: "flex-end",
-            children: (0, _v1.jsx)(_v59, {
+            children: (0, _v1.jsx)(_v60, {
               onRestore: () => _v4(_v0.uri),
-              onDelete: () => _v5(_v0.uri)
+              onDelete: () => _v5(_v0.uri),
+              isRestoreDisabled: _v6
             })
           })]
         }, _v0.uri);
       })
     });
   }
-  function _v62({
+  function _v63({
     videos: _v0,
     selectedUris: _v1,
     onToggleSelected: _v2,
     onRestoreVideo: _v3,
-    onDeleteVideo: _v4
+    onDeleteVideo: _v4,
+    isRestoreDisabled: _v5
   }) {
-    let _v5 = (0, _v27.useViewer)(),
-      _v6 = _v5?.user?.id;
-    return (0, _v1.jsx)(_v61, {
+    let _v6 = (0, _v28.useViewer)(),
+      _v7 = _v6?.user?.id;
+    return (0, _v1.jsx)(_v62, {
       videos: _v0,
-      viewerUserId: _v6,
+      viewerUserId: _v7,
       selectedUris: _v1,
       onToggleSelected: _v2,
       onRestoreVideo: _v3,
-      onDeleteVideo: _v4
+      onDeleteVideo: _v4,
+      isRestoreDisabled: _v5
     });
   }
-  function _v63() {
-    return (0, _v1.jsxs)(_v55.ContentRow, {
-      listGridColumns: _v60,
+  function _v64() {
+    return (0, _v1.jsxs)(_v57.ContentRow, {
+      listGridColumns: _v61,
       cursor: "initial",
       disableHover: !0,
       backgroundColor: "fill-component",
@@ -1074,11 +1136,11 @@
         base: "none",
         sm: "grid"
       },
-      children: [(0, _v1.jsx)(_v55.ContentRow.Column, {
+      children: [(0, _v1.jsx)(_v57.ContentRow.Column, {
         children: (0, _v1.jsx)(_v1.Fragment, {})
-      }), (0, _v1.jsx)(_v55.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v57.ContentRow.Column, {
         children: (0, _v1.jsx)(_v1.Fragment, {})
-      }), (0, _v1.jsx)(_v55.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v57.ContentRow.Column, {
         children: (0, _v1.jsx)(_v4.Text, {
           variant: "label-sm",
           color: "text-secondary",
@@ -1109,7 +1171,7 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v55.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v57.ContentRow.Column, {
         children: (0, _v1.jsx)(_v4.Text, {
           variant: "label-sm",
           color: "text-secondary",
@@ -1140,7 +1202,7 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v55.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v57.ContentRow.Column, {
         children: (0, _v1.jsx)(_v4.Text, {
           variant: "label-sm",
           color: "text-secondary",
@@ -1171,7 +1233,7 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v55.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v57.ContentRow.Column, {
         children: (0, _v1.jsx)(_v4.Text, {
           variant: "label-sm",
           color: "text-secondary",
@@ -1202,13 +1264,13 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v55.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v57.ContentRow.Column, {
         children: (0, _v1.jsx)(_v1.Fragment, {})
       })]
     });
   }
-  var _v64 = _v0.i(0);
-  function _v65({
+  var _v65 = _v0.i(0);
+  function _v66({
     total: _v0,
     selectedCount: _v1,
     videoCount: _v2,
@@ -1218,7 +1280,7 @@
     onDeselectAll: _v6,
     onTrackAllSelected: _v7
   }) {
-    return (0, _v1.jsx)(_v64.CheckboxItemCount, {
+    return (0, _v1.jsx)(_v65.CheckboxItemCount, {
       hasCheckbox: _v0 > 0,
       isChecked: !!_v1,
       isIndeterminate: !!_v1 && _v1 < _v2,
@@ -1332,52 +1394,129 @@
       }))
     });
   }
-  var _v66 = _v0.i(0),
-    _v67 = _v0.i(0);
-  let _v68 = ["video.createdTime", "video.deletedBy", "video.deletedBy.name", "video.deletedBy.pictures", "video.deletedBy.uri", "video.duration", "video.filesSize", "video.filesSize.fileSizeType", "video.filesSize.totalSize", "video.modifiedTime", "video.name", "video.pictures.defaultPicture", "video.pictures.sizes", "video.pictures.uri", "video.uri"];
+  var _v67 = _v0.i(0);
+  function _v68({
+    source: _v0,
+    onClose: _v1
+  }) {
+    return (0, _v1.jsx)(_v67.UpsellModal, {
+      userConfig: {},
+      onClose: _v1,
+      templateType: "default",
+      modalConfig: {
+        headerText: (0, _v15.translate)({
+          singular: "Upgrade to unlock more storage",
+          dictionary: {
+            es: {
+              singular: "Actualice su plan para desbloquear más almacenamiento"
+            },
+            "de-DE": {
+              singular: "Upgrade durchführen, um mehr Speicherplatz freizuschalten"
+            },
+            "fr-FR": {
+              singular: "Mettez votre abonnement à niveau pour obtenir plus d'espace de stockage"
+            },
+            "ja-JP": {
+              singular: "アップグレードしてストレージを増量"
+            },
+            "ko-KR": {
+              singular: "업그레이드하고 더 많은 저장 공간을 확보하세요."
+            },
+            "pt-BR": {
+              singular: "Faça upgrade para ter acesso a mais armazenamento"
+            },
+            "zh-CN": {
+              singular: "升级以解锁更多存储空间"
+            }
+          }
+        }),
+        subHeaderText: (0, _v15.translate)({
+          singular: "Upgrade for full access to creation tools and more storage for your videos.",
+          dictionary: {
+            es: {
+              singular: "Cambie de plan para tener acceso completo a las herramientas de creación y más espacio de almacenamiento para sus videos."
+            },
+            "de-DE": {
+              singular: "Mit einem Upgrade erhältst du vollen Zugriff auf die Erstellungstools und mehr Speicherplatz für deine Videos."
+            },
+            "fr-FR": {
+              singular: "Passez au niveau supérieur pour obtenir le plein accès aux outils de création et à plus de stockage pour vos vidéos."
+            },
+            "ja-JP": {
+              singular: "アップグレードして動画用の作成ツールとより大きなストレージ容量をフル活用しましょう。"
+            },
+            "ko-KR": {
+              singular: "업그레이드하여 전체 제작 도구와 동영상을 위한 더 많은 저장 공간을 이용하세요."
+            },
+            "pt-BR": {
+              singular: "Faça upgrade para ter acesso completo às ferramentas de criação e mais espaço de armazenamento para seus vídeos."
+            }
+          }
+        }),
+        mkcCode: "108511"
+      },
+      tracking: {
+        params: {
+          page: "recently_deleted",
+          feature: "quota",
+          location: _v0,
+          upsell_name: "at_limit_quota_restore"
+        },
+        paywallTracking: {
+          paywallTrigger: "recently_deleted_quota_limit_button",
+          paywallLocation: "recently_deleted",
+          paywallType: "popup",
+          paywallFeature: "quota"
+        }
+      }
+    });
+  }
   var _v69 = _v0.i(0),
-    _v70 = _v0.i(0),
-    _v71 = _v0.i(0),
-    _v72 = _v0.i(0),
+    _v70 = _v0.i(0);
+  let _v71 = ["video.createdTime", "video.deletedBy", "video.deletedBy.name", "video.deletedBy.pictures", "video.deletedBy.uri", "video.duration", "video.filesSize", "video.filesSize.fileSizeType", "video.filesSize.totalSize", "video.modifiedTime", "video.name", "video.pictures.defaultPicture", "video.pictures.sizes", "video.pictures.uri", "video.uri"];
+  var _v72 = _v0.i(0),
     _v73 = _v0.i(0),
-    _v74 = _v0.i(0);
-  async function _v75({
+    _v74 = _v0.i(0),
+    _v75 = _v0.i(0),
+    _v76 = _v0.i(0),
+    _v77 = _v0.i(0);
+  async function _v78({
     baseUrl: _v0,
     variables: _v1,
     ..._v2
   }) {
-    return (0, _v73.measureLatency)("postVideosPermanentDeletion", "POST", async () => {
+    return (0, _v76.measureLatency)("postVideosPermanentDeletion", "POST", async () => {
       let _v0 = await fetch(`${_v0}/videos/permanent-deletion`, {
         ..._v2,
         method: "POST",
-        body: JSON.stringify((0, _v74.deepSnakeCase)(_v1))
+        body: JSON.stringify((0, _v77.deepSnakeCase)(_v1))
       });
-      if (!_v0.ok) throw new _v74.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v77.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v74.deepCamelCase)(_v1);
+      return (0, _v77.deepCamelCase)(_v1);
     });
   }
-  var _v76 = _v0.i(0);
-  async function _v77({
+  var _v79 = _v0.i(0);
+  async function _v80({
     baseUrl: _v0,
     ..._v1
   }) {
-    return (0, _v73.measureLatency)("postVideosPermanentDeletionAll", "POST", async () => {
+    return (0, _v76.measureLatency)("postVideosPermanentDeletionAll", "POST", async () => {
       let _v0 = await fetch(`${_v0}/videos/permanent-deletion/all`, {
         ..._v1,
         method: "POST"
       });
-      if (!_v0.ok) throw new _v74.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v77.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v74.deepCamelCase)(_v1);
+      return (0, _v77.deepCamelCase)(_v1);
     });
   }
-  var _v78 = _v0.i(0);
-  function _v79() {
+  var _v81 = _v0.i(0);
+  function _v82() {
     let _v0,
       _v1,
       _v2,
@@ -1385,7 +1524,7 @@
       _v4,
       _v5,
       _v6,
-      _v7 = (0, _v27.useViewer)(),
+      _v7 = (0, _v28.useViewer)(),
       _v8 = _v7?.teamUser?.ownerId ?? _v7?.user?.id,
       {
         data: _v9,
@@ -1394,22 +1533,24 @@
         where: {
           userId: _v8
         },
-        select: ["uploadQuota.recentlyDeletedDiskSpace"]
+        select: ["uploadQuota.recentlyDeletedDiskSpace", "uploadQuota.space.free", "uploadQuota.space.unit"]
       } : null),
       [_v11, _v12] = (0, _v10.useState)("row_hover"),
-      [_v13, _v14] = (0, _v10.useState)(_v22.DEFAULT_RECENTLY_DELETED_SORT),
-      [_v15, _v16] = (0, _v10.useState)([]),
-      [_v17, _v18] = (0, _v10.useState)(""),
+      [_v13, _v14] = (0, _v10.useState)(!1),
+      [_v15, _v16] = (0, _v10.useState)("row_hover"),
+      [_v17, _v18] = (0, _v10.useState)(_v22.DEFAULT_RECENTLY_DELETED_SORT),
+      [_v19, _v20] = (0, _v10.useState)([]),
+      [_v21, _v22] = (0, _v10.useState)(""),
       {
-        videos: _v19,
-        total: _v20,
-        isLoading: _v21,
-        isLoadingMore: _v22,
-        isDone: _v23,
-        loadMore: _v24,
-        mutate: _v25
+        videos: _v23,
+        total: _v24,
+        isLoading: _v25,
+        isLoadingMore: _v26,
+        isDone: _v27,
+        loadMore: _v28,
+        mutate: _v29
       } = function (_v0, _v1 = []) {
-        let _v2 = (0, _v27.useViewer)(),
+        let _v2 = (0, _v28.useViewer)(),
           _v3 = _v2?.teamUser?.ownerId ?? _v2?.user?.id,
           _v4 = !_v2?.teamUser || _v2.teamUser.permissionLevel <= 2,
           _v5 = _v1.length > 0 ? _v1.map(_v0 => _v0.userId).join(",") : void 0,
@@ -1418,11 +1559,11 @@
             mutate: _v7,
             setSize: _v8,
             size: _v9
-          } = (0, _v66.useGetUserFoldersRootInfinite)(() => _v3 ? {
+          } = (0, _v69.useGetUserFoldersRootInfinite)(() => _v3 ? {
             where: {
               userId: _v3
             },
-            select: _v68,
+            select: _v71,
             query: {
               filter: "video",
               includeOnlyDeletedClips: !0,
@@ -1441,7 +1582,7 @@
             isDone: _v11,
             isLoadingInitialData: _v12,
             isLoadingMore: _v13
-          } = (0, _v67.getInfiniteRequestLoadingState)({
+          } = (0, _v70.getInfiniteRequestLoadingState)({
             data: _v6,
             itemsPerPage: 25,
             size: _v9
@@ -1455,27 +1596,27 @@
           loadMore: () => _v8(_v9 + 1),
           mutate: _v7
         };
-      }(_v13, _v15),
+      }(_v17, _v19),
       {
-        users: _v26,
-        isLoadingMore: _v27,
-        isLoadingInitialData: _v28,
-        isDone: _v29,
-        setSize: _v30,
-        size: _v31
-      } = (0, _v25.useUserTeamMembers)(_v17),
-      [_v32, _v33] = (0, _v10.useState)(new Set()),
-      _v34 = (0, _v10.useCallback)(() => _v33(new Set()), []),
-      _v35 = (0, _v10.useCallback)(() => _v33(new Set(_v19.map(_v0 => _v0.uri).filter(_v0 => !!_v0))), [_v19]),
+        users: _v30,
+        isLoadingMore: _v31,
+        isLoadingInitialData: _v32,
+        isDone: _v33,
+        setSize: _v34,
+        size: _v35
+      } = (0, _v26.useUserTeamMembers)(_v21),
+      [_v36, _v37] = (0, _v10.useState)(new Set()),
+      _v38 = (0, _v10.useCallback)(() => _v37(new Set()), []),
+      _v39 = (0, _v10.useCallback)(() => _v37(new Set(_v23.map(_v0 => _v0.uri).filter(_v0 => !!_v0))), [_v23]),
       {
-        trackPageDisplayed: _v36,
-        trackPermaDelete: _v37,
-        trackRestoreAsk: _v38,
-        trackItemSelected: _v39,
-        trackSortChanged: _v40,
-        trackFilterChanged: _v41,
-        trackEmptyTrash: _v42,
-        trackAllSelected: _v43
+        trackPageDisplayed: _v40,
+        trackPermaDelete: _v41,
+        trackRestoreAsk: _v42,
+        trackItemSelected: _v43,
+        trackSortChanged: _v44,
+        trackFilterChanged: _v45,
+        trackEmptyTrash: _v46,
+        trackAllSelected: _v47
       } = (_v0 = (0, _v17.usePico)(), _v1 = (0, _v10.useCallback)(_v0 => {
         null !== _v0 && _v0.track("recently_deleted_page_displayed", {
           itemCount: _v0
@@ -1530,26 +1671,26 @@
         }, [_v0])
       });
     (0, _v16.usePicoEffect)(() => {
-      _v21 || _v36(_v20);
-    }, [_v21]);
-    let _v44 = (0, _v10.useCallback)(_v0 => {
-        let _v1 = !_v32.has(_v0);
-        _v39(_v1 ? _v32.size + 1 : _v32.size - 1, _v1, (0, _v26.idFromUri)(_v0)), _v33(_v0 => {
+      _v25 || _v40(_v24);
+    }, [_v25]);
+    let _v48 = (0, _v10.useCallback)(_v0 => {
+        let _v1 = !_v36.has(_v0);
+        _v43(_v1 ? _v36.size + 1 : _v36.size - 1, _v1, (0, _v27.idFromUri)(_v0)), _v37(_v0 => {
           let _v1 = new Set(_v0);
           return _v1.has(_v0) ? _v1.delete(_v0) : _v1.add(_v0), _v1;
         });
-      }, [_v32, _v39]),
+      }, [_v36, _v43]),
       {
-        handleRestore: _v45,
-        handleDeletePermanently: _v46,
-        handleEmptyTrashConfirm: _v47,
-        handleEmptyTrashClick: _v48,
-        handleSetSort: _v49,
-        handleSetFilteredTeamUsers: _v50,
-        pendingDeleteUris: _v51,
-        setPendingDeleteUris: _v52,
-        isEmptyTrashModalOpen: _v53,
-        setIsEmptyTrashModalOpen: _v54
+        handleRestore: _v49,
+        handleDeletePermanently: _v50,
+        handleEmptyTrashConfirm: _v51,
+        handleEmptyTrashClick: _v52,
+        handleSetSort: _v53,
+        handleSetFilteredTeamUsers: _v54,
+        pendingDeleteUris: _v55,
+        setPendingDeleteUris: _v56,
+        isEmptyTrashModalOpen: _v57,
+        setIsEmptyTrashModalOpen: _v58
       } = function ({
         videos: _v0,
         mutate: _v1,
@@ -1563,15 +1704,15 @@
         trackEmptyTrash: _v9,
         trackPermaDeleteAsk: _v10
       }) {
-        let _v11 = (0, _v72.useNotification)(),
-          _v12 = (0, _v69.useToast)(),
+        let _v11 = (0, _v75.useNotification)(),
+          _v12 = (0, _v72.useToast)(),
           _v13 = function () {
             let {
               baseUrl: _v0,
               jwt: _v1,
               xVimeoPage: _v2,
               locale: _v3
-            } = (0, _v76.useGctlConfig)();
+            } = (0, _v79.useGctlConfig)();
             return async _v0 => {
               let _v1 = {
                   baseUrl: _v0,
@@ -1584,7 +1725,7 @@
                 },
                 _v2 = [];
               for (let _v0 = 0; _v0 < _v0.length; _v0 += 25) {
-                let _v0 = await (0, _v78.postVideosRestore)({
+                let _v0 = await (0, _v81.postVideosRestore)({
                   variables: {
                     uris: _v0.slice(_v0, _v0 + 25)
                   },
@@ -1601,7 +1742,7 @@
               jwt: _v1,
               xVimeoPage: _v2,
               locale: _v3
-            } = (0, _v76.useGctlConfig)();
+            } = (0, _v79.useGctlConfig)();
             return async _v0 => {
               let _v1 = {
                   baseUrl: _v0,
@@ -1614,7 +1755,7 @@
                 },
                 _v2 = [];
               for (let _v0 = 0; _v0 < _v0.length; _v0 += 25) {
-                let _v0 = await _v75({
+                let _v0 = await _v78({
                   variables: {
                     uris: _v0.slice(_v0, _v0 + 25)
                   },
@@ -1631,9 +1772,9 @@
               jwt: _v1,
               xVimeoPage: _v2,
               locale: _v3
-            } = (0, _v76.useGctlConfig)();
+            } = (0, _v79.useGctlConfig)();
             return async () => {
-              await _v77({
+              await _v80({
                 baseUrl: _v0,
                 headers: {
                   "Content-Type": "application/json",
@@ -1794,7 +1935,10 @@
               _v12({
                 title: (0, _v1.jsxs)(_v1.Fragment, {
                   children: [_v2, _v1 && (0, _v1.jsx)("button", {
-                    onClick: () => window.location.href = (0, _v71.getFolderPageUriFromApiUri)(_v1),
+                    style: {
+                      marginLeft: "0.5rem"
+                    },
+                    onClick: () => window.location.href = (0, _v74.getFolderPageUriFromApiUri)(_v1),
                     children: (0, _v15.translate)({
                       singular: "Show file location",
                       dictionary: {
@@ -1824,7 +1968,7 @@
                   })]
                 }),
                 variant: "success",
-                icon: (0, _v1.jsx)(_v70.CircleCheckFilled, {
+                icon: (0, _v1.jsx)(_v73.CircleCheckFilled, {
                   color: "status-positive-primary"
                 }),
                 isClosable: !0
@@ -2033,7 +2177,7 @@
                     singular: "ゴミ箱を空にしています"
                   },
                   "ko-KR": {
-                    singular: "휴지통 비우는 중"
+                    singular: "휴지통 비우기"
                   },
                   "pt-BR": {
                     singular: "Esvaziando a lixeira"
@@ -2043,43 +2187,15 @@
                   }
                 }
               }),
-              duration: null
-            });
+              variant: "success",
+              icon: (0, _v1.jsx)(_v73.CircleCheckFilled, {
+                color: "status-positive-primary"
+              }),
+              duration: 0
+            }), _v1();
             let _v0 = Date.now();
             _v21.current = setInterval(() => {
-              if (Date.now() - _v0 > 0) {
-                clearInterval(_v21.current), void 0 !== _v20.current && _v12.close(_v20.current), _v11({
-                  content: (0, _v15.translate)({
-                    singular: "Error deleting files",
-                    dictionary: {
-                      es: {
-                        singular: "Error al eliminar archivos"
-                      },
-                      "de-DE": {
-                        singular: "Fehler beim Löschen von Dateien"
-                      },
-                      "fr-FR": {
-                        singular: "Erreur lors de la suppression des fichiers"
-                      },
-                      "ja-JP": {
-                        singular: "ファイルの削除中にエラーが発生しました"
-                      },
-                      "ko-KR": {
-                        singular: "파일 삭제 오류"
-                      },
-                      "pt-BR": {
-                        singular: "Erro ao excluir arquivos"
-                      },
-                      "zh-CN": {
-                        singular: "删除文件时出错"
-                      }
-                    }
-                  }),
-                  status: "error"
-                });
-                return;
-              }
-              if (0 === _v22.current) {
+              if (Date.now() - _v0 > 0 || 0 === _v22.current) {
                 clearInterval(_v21.current), void 0 !== _v20.current && _v12.close(_v20.current), _v2();
                 return;
               }
@@ -2099,62 +2215,64 @@
           setIsEmptyTrashModalOpen: _v19
         };
       }({
-        videos: _v19,
-        mutate: _v25,
+        videos: _v23,
+        mutate: _v29,
         mutateUser: _v10,
-        total: _v20,
-        deselectAllItems: _v34,
-        setSort: _v14,
-        setFilteredTeamUsers: _v16,
-        trackSortChanged: _v40,
-        trackFilterChanged: _v41,
-        trackEmptyTrash: _v42,
-        trackPermaDeleteAsk: _v0 => _v37("ask", "empty_trash", _v0)
+        total: _v24,
+        deselectAllItems: _v38,
+        setSort: _v18,
+        setFilteredTeamUsers: _v20,
+        trackSortChanged: _v44,
+        trackFilterChanged: _v45,
+        trackEmptyTrash: _v46,
+        trackPermaDeleteAsk: _v0 => _v41("ask", "empty_trash", _v0)
       }),
-      _v55 = _v9?.uploadQuota?.recentlyDeletedDiskSpace ?? 0,
-      _v56 = _v51.reduce((_v0, _v1) => {
-        let _v2 = _v19.find(_v0 => _v0.uri === _v1);
+      _v59 = _v9?.uploadQuota?.recentlyDeletedDiskSpace ?? 0,
+      _v60 = (_v9?.uploadQuota?.space?.free ?? 0) <= 0,
+      _v61 = (0, _v25.isPerSeatSelfServeTier)(_v7?.user?.account),
+      _v62 = _v55.reduce((_v0, _v1) => {
+        let _v2 = _v23.find(_v0 => _v0.uri === _v1);
         return _v0 + (_v2?.filesSize?.totalSize ?? 0);
       }, 0),
-      _v57 = (0, _v1.jsx)(_v23.FilterSortBar, {
-        checkbox: (0, _v1.jsx)(_v65, {
-          total: _v20,
-          selectedCount: _v32.size,
-          videoCount: _v19.length,
-          isLoading: _v21,
-          hasFilters: _v15.length > 0,
-          onSelectAll: _v35,
-          onDeselectAll: _v34,
-          onTrackAllSelected: _v43
+      _v63 = (0, _v1.jsx)(_v23.FilterSortBar, {
+        checkbox: (0, _v1.jsx)(_v66, {
+          total: _v24,
+          selectedCount: _v36.size,
+          videoCount: _v23.length,
+          isLoading: _v25,
+          hasFilters: _v19.length > 0,
+          onSelectAll: _v39,
+          onDeselectAll: _v38,
+          onTrackAllSelected: _v47
         }),
-        sort: _v13,
-        setSort: _v49,
+        sort: _v17,
+        setSort: _v53,
         sortOptions: _v22.RECENTLY_DELETED_SORT_OPTIONS,
         layout: "LIST_LAYOUT",
         setLayout: () => {},
         isLayoutToggleDisabled: !0,
         shouldHideLayoutSelector: !0,
         children: (0, _v1.jsx)(_v24.DeletedByFilter, {
-          filter: _v15,
-          options: _v26,
-          setFilter: _v50,
-          searchQuery: _v17,
-          setSearchQuery: _v18,
-          isLoadingMore: _v27,
-          isLoadingInitialData: _v28,
-          isDone: _v29,
-          onLoadMore: () => _v30(_v31 + 1)
+          filter: _v19,
+          options: _v30,
+          setFilter: _v54,
+          searchQuery: _v21,
+          setSearchQuery: _v22,
+          isLoadingMore: _v31,
+          isLoadingInitialData: _v32,
+          isDone: _v33,
+          onLoadMore: () => _v34(_v35 + 1)
         })
       }),
-      _v58 = _v53 ? {
+      _v64 = _v57 ? {
         isOpen: !0,
         onClose: () => {
-          _v37("cancel", "empty_trash", _v20), _v54(!1);
+          _v41("cancel", "empty_trash", _v24), _v58(!1);
         },
         onConfirm: () => {
-          _v37("confirm", "empty_trash", _v20), _v47();
+          _v41("confirm", "empty_trash", _v24), _v51();
         },
-        numItemsToDelete: _v20,
+        numItemsToDelete: _v24,
         headerText: (0, _v15.translate)({
           singular: "Permanently delete all files?",
           dictionary: {
@@ -2181,10 +2299,10 @@
             }
           }
         }),
-        bodyText: _v15.length > 0 ? _v7?.teamUser ? (0, _v15.translate)({
+        bodyText: _v19.length > 0 ? _v7?.teamUser ? (0, _v15.translate)({
           singular: "All your organization's deleted files will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
           replacements: {
-            STORAGE: (0, _v18.bytesToSize)(_v55, 1)
+            STORAGE: (0, _v18.bytesToSize)(_v59, 1)
           },
           dictionary: {
             es: {
@@ -2212,7 +2330,7 @@
         }) : (0, _v15.translate)({
           singular: "All your deleted files will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
           replacements: {
-            STORAGE: (0, _v18.bytesToSize)(_v55, 1)
+            STORAGE: (0, _v18.bytesToSize)(_v59, 1)
           },
           dictionary: {
             es: {
@@ -2240,8 +2358,8 @@
         }) : (0, _v15.translate)({
           singular: "All {COUNT} files in your trash will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
           replacements: {
-            COUNT: _v20,
-            STORAGE: (0, _v18.bytesToSize)(_v55, 1)
+            COUNT: _v24,
+            STORAGE: (0, _v18.bytesToSize)(_v59, 1)
           },
           dictionary: {
             es: {
@@ -2268,20 +2386,20 @@
           }
         })
       } : {
-        isOpen: _v51.length > 0,
+        isOpen: _v55.length > 0,
         onClose: () => {
-          _v51.length > 0 && _v37("cancel", _v11, _v51.length), _v52([]);
+          _v55.length > 0 && _v41("cancel", _v11, _v55.length), _v56([]);
         },
-        onConfirm: () => (_v37("confirm", _v11, _v51.length), _v46()),
-        numItemsToDelete: _v51.length,
-        title: _v51.length > 1 ? void 0 : _v19.find(_v0 => _v0.uri === _v51[0])?.name,
-        storageSize: (0, _v18.bytesToSize)(_v56, 1)
+        onConfirm: () => (_v41("confirm", _v11, _v55.length), _v50()),
+        numItemsToDelete: _v55.length,
+        title: _v55.length > 1 ? void 0 : _v23.find(_v0 => _v0.uri === _v55[0])?.name,
+        storageSize: (0, _v18.bytesToSize)(_v62, 1)
       };
     return (0, _v1.jsx)(_v20.Page, {
       children: (0, _v1.jsxs)(_v20.Page.Main, {
         children: [(0, _v1.jsxs)(_v20.Page.StickyTop, {
           children: [(0, _v1.jsx)(_v21.PageHeader, {
-            bottomBar: _v57,
+            bottomBar: _v63,
             title: (0, _v15.translate)({
               singular: "Recently deleted",
               dictionary: {
@@ -2308,34 +2426,39 @@
                 }
               }
             })
-          }), (_v21 || _v15.length > 0 || _v20 > 0) && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(!_v7?.teamUser || _v7.teamUser.permissionLevel <= 2) && (0, _v1.jsx)(_v46, {
-              onEmptyTrash: _v48,
-              recentlyDeletedDiskSpace: _v55
-            }), (0, _v1.jsx)(_v63, {})]
+          }), (_v25 || _v19.length > 0 || _v23.length > 0) && (0, _v1.jsxs)(_v1.Fragment, {
+            children: [(!_v7?.teamUser || _v7.teamUser.permissionLevel <= 2) && (0, _v1.jsx)(_v48, {
+              onEmptyTrash: _v52,
+              recentlyDeletedDiskSpace: _v59
+            }), (0, _v1.jsx)(_v45, {}), (0, _v1.jsx)(_v64, {})]
           })]
-        }), (0, _v1.jsx)(_v43, {}), _v21 && (0, _v1.jsx)(_v11.Flex, {
+        }), _v25 && (0, _v1.jsx)(_v11.Flex, {
           justifyContent: "center",
           alignItems: "center",
           height: "100%",
           children: (0, _v1.jsx)(_v12.Spinner, {})
-        }), !_v21 && (_v20 > 0 ? (0, _v1.jsx)(_v62, {
-          videos: _v19,
-          selectedUris: _v32,
-          onToggleSelected: _v44,
+        }), !_v25 && (_v23.length > 0 ? (0, _v1.jsx)(_v63, {
+          videos: _v23,
+          selectedUris: _v36,
+          onToggleSelected: _v48,
+          isRestoreDisabled: _v60 && !_v61,
           onRestoreVideo: _v0 => {
-            _v38("row_hover", 1), _v45([_v0]);
+            if (_v60 && _v61) {
+              _v16("row_hover"), _v14(!0);
+              return;
+            }
+            _v42("row_hover", 1), _v49([_v0]);
           },
           onDeleteVideo: _v0 => {
-            _v37("ask", "row_hover", 1), _v12("row_hover"), _v52([_v0]);
+            _v41("ask", "row_hover", 1), _v12("row_hover"), _v56([_v0]);
           }
-        }) : (0, _v1.jsx)(_v44, {
+        }) : (0, _v1.jsx)(_v46, {
           icon: (0, _v1.jsx)(_v13.TrashBin, {
             width: "lg",
             height: "lg",
             color: "text-primary"
           }),
-          title: _v15.length > 0 ? (0, _v15.translate)({
+          title: _v19.length > 0 ? (0, _v15.translate)({
             singular: "No results found",
             dictionary: {
               es: {
@@ -2415,37 +2538,45 @@
               }
             }
           })
-        })), !_v23 && !_v22 && (0, _v1.jsx)(_v19.InfiniteScrollTrigger, {
-          isLoading: !!_v22,
-          onLoadMore: _v24
-        }), (0, _v1.jsx)(_v53, {
-          ..._v58
-        }), (0, _v1.jsx)(_v35, {
-          numSelected: _v32.size,
+        })), !_v27 && !_v26 && (0, _v1.jsx)(_v19.InfiniteScrollTrigger, {
+          isLoading: !!_v26,
+          onLoadMore: _v28
+        }), (0, _v1.jsx)(_v55, {
+          ..._v64
+        }), (0, _v1.jsx)(_v37, {
+          numSelected: _v36.size,
+          isRestoreDisabled: _v60 && !_v61,
           onDelete: () => {
-            _v37("ask", "bulk_toast", _v32.size, Array.from(_v32).map(_v26.idFromUri)), _v12("bulk_toast"), _v52(Array.from(_v32));
+            _v41("ask", "bulk_toast", _v36.size, Array.from(_v36).map(_v27.idFromUri)), _v12("bulk_toast"), _v56(Array.from(_v36));
           },
           onRestore: () => {
-            _v38("bulk_toast", _v32.size, Array.from(_v32).map(_v26.idFromUri)), _v45(Array.from(_v32));
+            if (_v60 && _v61) {
+              _v16("bulk_toast"), _v14(!0);
+              return;
+            }
+            _v42("bulk_toast", _v36.size, Array.from(_v36).map(_v27.idFromUri)), _v49(Array.from(_v36));
           },
-          onClear: _v34
+          onClear: _v38
         }), (0, _v1.jsx)("div", {
-          id: _v34
+          id: _v36
+        }), _v13 && (0, _v1.jsx)(_v68, {
+          source: _v15,
+          onClose: () => _v14(!1)
         })]
       })
     });
   }
-  var _v80 = _v0.i(0),
-    _v81 = _v0.i(0),
-    _v82 = _v0.i(0);
-  let _v83 = () => {
-    let _v0 = (0, _v27.useViewer)(),
+  var _v83 = _v0.i(0),
+    _v84 = _v0.i(0),
+    _v85 = _v0.i(0);
+  let _v86 = () => {
+    let _v0 = (0, _v28.useViewer)(),
       {
         settings: _v1,
         isLoadingResponse: _v2
       } = (0, _v9.useOrionSettings)();
     if (_v2 || !_v0) return null;
-    if (!_v1.has_recently_deleted) return (0, _v1.jsx)(_v80.ErrorPage, {
+    if (!_v1.has_recently_deleted) return (0, _v1.jsx)(_v83.ErrorPage, {
       error: new _v6.ResourceNotFoundError()
     });
     let _v3 = !_v0?.teamUser || _v0.teamUser.permissionLevel <= 2;
@@ -2548,13 +2679,13 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v79, {})]
+      }), (0, _v1.jsx)(_v82, {})]
     });
   };
-  _v83.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v82.VideoLibraryLayout, {
+  _v86.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v85.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
-    sideNavContent: (0, _v1.jsx)(_v81.HomeSideNavContent, {}),
+    sideNavContent: (0, _v1.jsx)(_v84.HomeSideNavContent, {}),
     children: _v0
   }), (0, _v7.withPageSetup)(() => ({
     props: {
@@ -2563,5 +2694,5 @@
     }
   }), {
     requireLogin: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v83], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v86], 0);
 }

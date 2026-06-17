@@ -305,16 +305,16 @@
                     singular: "Mensuel"
                   },
                   "ja-JP": {
-                    singular: "月間"
+                    singular: "月額"
                   },
                   "ko-KR": {
-                    singular: "월별"
+                    singular: "월간"
                   },
                   "pt-BR": {
-                    singular: "Mensalmente"
+                    singular: "Mensal"
                   },
                   "zh-CN": {
-                    singular: "每月"
+                    singular: "按月"
                   }
                 }
               })

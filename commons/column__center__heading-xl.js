@@ -2119,25 +2119,25 @@
               singular: "All the tools to create, manage, and showcase video.",
               dictionary: {
                 es: {
-                  singular: "Todas las herramientas para crear, gestionar y presentar videos."
+                  singular: "Todas las herramientas para crear, gestionar y mostrar vídeo."
                 },
                 "de-DE": {
-                  singular: "Alle Tools zum Erstellen, Verwalten und Präsentieren von Videos."
+                  singular: "Alle Tools, mit denen Sie Videos erstellen, verwalten und präsentieren können."
                 },
                 "fr-FR": {
-                  singular: "Tous les outils pour créer, gérer et présenter des vidéos."
+                  singular: "Tous les outils pour créer, gérer et mettre en valeur la vidéo."
                 },
                 "ja-JP": {
-                  singular: "動画の作成・管理・公開に必要なツールがすべて揃っています。"
+                  singular: "動画を作成、管理、公開するためのすべてのツール。"
                 },
                 "ko-KR": {
-                  singular: "동영상을 제작 및 관리하고 선보일 수 있는 모든 도구를"
+                  singular: "비디오를 제작, 관리 및 전시할 수 있는 모든 도구."
                 },
                 "pt-BR": {
-                  singular: "Todas as ferramentas para criar, gerenciar e mostrar seus vídeos."
+                  singular: "Todas as ferramentas para criar, gerenciar e exibir vídeos."
                 },
                 "zh-CN": {
-                  singular: "用于创建、管理和展示视频的所有工具。"
+                  singular: "创建、管理和展示视频的所有工具。"
                 }
               }
             })

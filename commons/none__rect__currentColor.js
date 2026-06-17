@@ -2646,8 +2646,9 @@
     _v133 = _v0.i(0),
     _v134 = _v0.i(0),
     _v135 = _v0.i(0),
-    _v136 = _v0.i(0);
-  let _v137 = ({
+    _v136 = _v0.i(0),
+    _v137 = _v0.i(0);
+  let _v138 = ({
     isActive: _v0,
     setActive: _v1,
     isLoading: _v2,
@@ -2658,7 +2659,7 @@
     isCentered: !0,
     size: "md",
     children: [(0, _v2.jsx)(_v19.ModalOverlay, {}), (0, _v2.jsxs)(_v20.ModalContent, {
-      children: [(0, _v2.jsx)(_v136.ModalCloseButton, {}), (0, _v2.jsx)(_v24.ModalHeader, {
+      children: [(0, _v2.jsx)(_v137.ModalCloseButton, {}), (0, _v2.jsx)(_v24.ModalHeader, {
         children: (0, _v44.translate)({
           singular: "Show comments on the video page",
           dictionary: {
@@ -2775,11 +2776,11 @@
       })]
     })]
   });
-  var _v138 = _v0.i(0),
-    _v139 = _v0.i(0),
+  var _v139 = _v0.i(0),
     _v140 = _v0.i(0),
-    _v141 = _v0.i(0);
-  async function _v142({
+    _v141 = _v0.i(0),
+    _v142 = _v0.i(0);
+  async function _v143({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -2790,38 +2791,38 @@
     query: _v5,
     ..._v6
   }) {
-    return (0, _v140.measureLatency)("postVideoPrivateCommentReactions", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v3}/private_comments/${_v4}/reactions?${(0, _v141.searchQueryString)(_v5)}&fields=${_v1.map(_v141.intoSnakeCase).join(",")}`, {
+    return (0, _v141.measureLatency)("postVideoPrivateCommentReactions", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v3}/private_comments/${_v4}/reactions?${(0, _v142.searchQueryString)(_v5)}&fields=${_v1.map(_v142.intoSnakeCase).join(",")}`, {
         ..._v6,
         method: "POST",
-        body: JSON.stringify((0, _v141.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v142.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v141.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v142.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v141.deepCamelCase)(_v1);
+      return (0, _v142.deepCamelCase)(_v1);
     });
   }
-  var _v143 = _v0.i(0),
-    _v144 = _v0.i(0);
-  function _v145() {
+  var _v144 = _v0.i(0),
+    _v145 = _v0.i(0);
+  function _v146() {
     let {
         mutate: _v0
-      } = (0, _v143.useSWRConfig)(),
+      } = (0, _v144.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v144.useGctlConfig)(),
-      [_v5, _v6] = (0, _v139.useInternalState)();
+      } = (0, _v145.useGctlConfig)(),
+      [_v5, _v6] = (0, _v140.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/videos/${_v0.where.videoId}/private_comments/${_v0.where.commentId}/reactions${(0, _v139.serializeQuery)(_v0)}`, _v142({
+        let _v0 = await _v0(`/videos/${_v0.where.videoId}/private_comments/${_v0.where.commentId}/reactions${(0, _v140.serializeQuery)(_v0)}`, _v143({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -2844,7 +2845,7 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  async function _v146({
+  async function _v147({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -2856,36 +2857,36 @@
     query: _v6,
     ..._v7
   }) {
-    return (0, _v140.measureLatency)("postVideoPrivateCommentReplyReactions", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v3}/private_comments/${_v4}/replies/${_v5}/reactions?${(0, _v141.searchQueryString)(_v6)}&fields=${_v1.map(_v141.intoSnakeCase).join(",")}`, {
+    return (0, _v141.measureLatency)("postVideoPrivateCommentReplyReactions", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v3}/private_comments/${_v4}/replies/${_v5}/reactions?${(0, _v142.searchQueryString)(_v6)}&fields=${_v1.map(_v142.intoSnakeCase).join(",")}`, {
         ..._v7,
         method: "POST",
-        body: JSON.stringify((0, _v141.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v142.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v141.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v142.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v141.deepCamelCase)(_v1);
+      return (0, _v142.deepCamelCase)(_v1);
     });
   }
-  function _v147() {
+  function _v148() {
     let {
         mutate: _v0
-      } = (0, _v143.useSWRConfig)(),
+      } = (0, _v144.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v144.useGctlConfig)(),
-      [_v5, _v6] = (0, _v139.useInternalState)();
+      } = (0, _v145.useGctlConfig)(),
+      [_v5, _v6] = (0, _v140.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/videos/${_v0.where.videoId}/private_comments/${_v0.where.commentId}/replies/${_v0.where.replyId}/reactions${(0, _v139.serializeQuery)(_v0)}`, _v146({
+        let _v0 = await _v0(`/videos/${_v0.where.videoId}/private_comments/${_v0.where.commentId}/replies/${_v0.where.replyId}/reactions${(0, _v140.serializeQuery)(_v0)}`, _v147({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -2908,22 +2909,22 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(_v145, {
+  "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(_v146, {
     endpoint: "/videos/:videoId/private_comments/:commentId/reactions",
     method: "POST"
-  }), "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(_v147, {
+  }), "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(_v148, {
     endpoint: "/videos/:videoId/private_comments/:commentId/replies/:replyId/reactions",
     method: "POST"
   });
-  var _v148 = _v0.i(0),
-    _v149 = _v0.i(0),
+  var _v149 = _v0.i(0),
     _v150 = _v0.i(0),
     _v151 = _v0.i(0),
     _v152 = _v0.i(0),
-    _v153 = _v0.i(0);
-  let _v154 = ["reactionCode", "uri", "isByCurrentUser", "userDisplayName"];
-  var _v155 = _v0.i(0);
-  async function _v156({
+    _v153 = _v0.i(0),
+    _v154 = _v0.i(0);
+  let _v155 = ["reactionCode", "uri", "isByCurrentUser", "userDisplayName"];
+  var _v156 = _v0.i(0);
+  async function _v157({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -2935,36 +2936,36 @@
     query: _v6,
     ..._v7
   }) {
-    return (0, _v140.measureLatency)("postAlbumVideoCommentReplies", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/albums/${_v3}/videos/${_v4}/comments/${_v5}/replies?${(0, _v141.searchQueryString)(_v6)}&fields=${_v1.map(_v141.intoSnakeCase).join(",")}`, {
+    return (0, _v141.measureLatency)("postAlbumVideoCommentReplies", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/albums/${_v3}/videos/${_v4}/comments/${_v5}/replies?${(0, _v142.searchQueryString)(_v6)}&fields=${_v1.map(_v142.intoSnakeCase).join(",")}`, {
         ..._v7,
         method: "POST",
-        body: JSON.stringify((0, _v141.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v142.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v141.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v142.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v141.deepCamelCase)(_v1);
+      return (0, _v142.deepCamelCase)(_v1);
     });
   }
-  function _v157() {
+  function _v158() {
     let {
         mutate: _v0
-      } = (0, _v143.useSWRConfig)(),
+      } = (0, _v144.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v144.useGctlConfig)(),
-      [_v5, _v6] = (0, _v139.useInternalState)();
+      } = (0, _v145.useGctlConfig)(),
+      [_v5, _v6] = (0, _v140.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/albums/${_v0.where.albumId}/videos/${_v0.where.videoId}/comments/${_v0.where.commentId}/replies${(0, _v139.serializeQuery)(_v0)}`, _v156({
+        let _v0 = await _v0(`/albums/${_v0.where.albumId}/videos/${_v0.where.videoId}/comments/${_v0.where.commentId}/replies${(0, _v140.serializeQuery)(_v0)}`, _v157({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -2987,7 +2988,7 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  async function _v158({
+  async function _v159({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -2997,19 +2998,19 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v140.measureLatency)("getVideoCommentReplies", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v2}/comments/${_v3}/replies?${(0, _v141.searchQueryString)(_v4)}&fields=${_v1.map(_v141.intoSnakeCase).join(",")}`, {
+    return (0, _v141.measureLatency)("getVideoCommentReplies", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v2}/comments/${_v3}/replies?${(0, _v142.searchQueryString)(_v4)}&fields=${_v1.map(_v142.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v141.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v142.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v141.deepCamelCase)(_v1);
+      return (0, _v142.deepCamelCase)(_v1);
     });
   }
-  async function _v159({
+  async function _v160({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -3020,39 +3021,39 @@
     query: _v5,
     ..._v6
   }) {
-    return (0, _v140.measureLatency)("postVideoCommentReplies", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v3}/comments/${_v4}/replies?${(0, _v141.searchQueryString)(_v5)}&fields=${_v1.map(_v141.intoSnakeCase).join(",")}`, {
+    return (0, _v141.measureLatency)("postVideoCommentReplies", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v3}/comments/${_v4}/replies?${(0, _v142.searchQueryString)(_v5)}&fields=${_v1.map(_v142.intoSnakeCase).join(",")}`, {
         ..._v6,
         method: "POST",
-        body: JSON.stringify((0, _v141.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v142.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v141.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v142.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v141.deepCamelCase)(_v1);
+      return (0, _v142.deepCamelCase)(_v1);
     });
   }
-  "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(_v157, {
+  "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(_v158, {
     endpoint: "/albums/:albumId/videos/:videoId/comments/:commentId/replies",
     method: "POST"
   });
-  var _v160 = _v0.i(0),
-    _v161 = _v0.i(0);
-  function _v162() {
+  var _v161 = _v0.i(0),
+    _v162 = _v0.i(0);
+  function _v163() {
     let {
         baseUrl: _v0,
         jwt: _v1,
         xVimeoPage: _v2,
         locale: _v3
-      } = (0, _v144.useGctlConfig)(),
-      [_v4, _v5] = (0, _v139.useInternalState)();
+      } = (0, _v145.useGctlConfig)(),
+      [_v4, _v5] = (0, _v140.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v5({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v159({
+        let _v0 = await _v160({
           ..._v0,
           baseUrl: _v0,
           headers: {
@@ -3074,32 +3075,32 @@
         });
       }
     }, [_v0, _v2, _v1, _v3, _v5]), _v4];
-  }
-  async function _v163({
-    baseUrl: _v0,
-    select: _v1,
-    where: {
-      videoId: _v2,
-      commentId: _v3
-    },
-    query: _v4,
-    ..._v5
-  }) {
-    return (0, _v140.measureLatency)("getVideoPrivateCommentReplies", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v2}/private_comments/${_v3}/replies?${(0, _v141.searchQueryString)(_v4)}&fields=${_v1.map(_v141.intoSnakeCase).join(",")}`, {
-        ..._v5,
-        method: "GET"
-      });
-      if (!_v0.ok) throw new _v141.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v141.deepCamelCase)(_v1);
-    });
   }
   async function _v164({
     baseUrl: _v0,
     select: _v1,
+    where: {
+      videoId: _v2,
+      commentId: _v3
+    },
+    query: _v4,
+    ..._v5
+  }) {
+    return (0, _v141.measureLatency)("getVideoPrivateCommentReplies", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v2}/private_comments/${_v3}/replies?${(0, _v142.searchQueryString)(_v4)}&fields=${_v1.map(_v142.intoSnakeCase).join(",")}`, {
+        ..._v5,
+        method: "GET"
+      });
+      if (!_v0.ok) throw new _v142.NetworkError("A network error occurred", _v0.status, _v0);
+      if (204 === _v0.status) return null;
+      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
+      let _v1 = await _v0.json();
+      return (0, _v142.deepCamelCase)(_v1);
+    });
+  }
+  async function _v165({
+    baseUrl: _v0,
+    select: _v1,
     variables: _v2,
     where: {
       videoId: _v3,
@@ -3108,33 +3109,33 @@
     query: _v5,
     ..._v6
   }) {
-    return (0, _v140.measureLatency)("postVideoPrivateCommentReplies", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v3}/private_comments/${_v4}/replies?${(0, _v141.searchQueryString)(_v5)}&fields=${_v1.map(_v141.intoSnakeCase).join(",")}`, {
+    return (0, _v141.measureLatency)("postVideoPrivateCommentReplies", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v3}/private_comments/${_v4}/replies?${(0, _v142.searchQueryString)(_v5)}&fields=${_v1.map(_v142.intoSnakeCase).join(",")}`, {
         ..._v6,
         method: "POST",
-        body: JSON.stringify((0, _v141.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v142.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v141.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v142.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v141.deepCamelCase)(_v1);
+      return (0, _v142.deepCamelCase)(_v1);
     });
   }
-  function _v165() {
+  function _v166() {
     let {
         baseUrl: _v0,
         jwt: _v1,
         xVimeoPage: _v2,
         locale: _v3
-      } = (0, _v144.useGctlConfig)(),
-      [_v4, _v5] = (0, _v139.useInternalState)();
+      } = (0, _v145.useGctlConfig)(),
+      [_v4, _v5] = (0, _v140.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v5({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v164({
+        let _v0 = await _v165({
           ..._v0,
           baseUrl: _v0,
           headers: {
@@ -3157,15 +3158,15 @@
       }
     }, [_v0, _v2, _v1, _v3, _v5]), _v4];
   }
-  "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(function (_v0, _v1) {
+  "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(function (_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v144.useGctlConfig)();
-    return (0, _v160.default)(_v2 ? `/videos/${_v2.where.videoId}/comments/${_v2.where.commentId}/replies${(0, _v139.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v158({
+      } = (0, _v145.useGctlConfig)();
+    return (0, _v161.default)(_v2 ? `/videos/${_v2.where.videoId}/comments/${_v2.where.commentId}/replies${(0, _v140.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v159({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -3179,23 +3180,23 @@
   }, {
     endpoint: "/videos/:videoId/comments/:commentId/replies",
     method: "GET"
-  }), "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(function () {
+  }), "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v143.useSWRConfig)(),
+      } = (0, _v144.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v144.useGctlConfig)(),
-      [_v5, _v6] = (0, _v139.useInternalState)();
+      } = (0, _v145.useGctlConfig)(),
+      [_v5, _v6] = (0, _v140.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/videos/${_v0.where.videoId}/comments/${_v0.where.commentId}/replies${(0, _v139.serializeQuery)(_v0)}`, _v158({
+        let _v0 = await _v0(`/videos/${_v0.where.videoId}/comments/${_v0.where.commentId}/replies${(0, _v140.serializeQuery)(_v0)}`, _v159({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -3220,15 +3221,15 @@
   }, {
     endpoint: "/videos/:videoId/comments/:commentId/replies",
     method: "GET"
-  }), "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(function (_v0, _v1) {
+  }), "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(function (_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v144.useGctlConfig)();
-    return (0, _v161.default)((_v0, _v1) => {
+      } = (0, _v145.useGctlConfig)();
+    return (0, _v162.default)((_v0, _v1) => {
       if (null === _v2 || _v1 && !_v1.paging.next) return null;
       let {
           perPage: _v2 = 25,
@@ -3238,7 +3239,7 @@
         _v5 = _v2.select.join(","),
         _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
       return [`/videos/${_v2.where.videoId}/comments/${_v2.where.commentId}/replies?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v158({
+    }, null !== _v2 ? ([_v0, _v1]) => _v159({
       ..._v2,
       baseUrl: _v3,
       headers: {
@@ -3256,18 +3257,18 @@
   }, {
     endpoint: "/videos/:videoId/comments/:commentId/replies",
     method: "GET"
-  }), "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(_v162, {
+  }), "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(_v163, {
     endpoint: "/videos/:videoId/comments/:commentId/replies",
     method: "POST"
-  }), "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(function (_v0, _v1) {
+  }), "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(function (_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v144.useGctlConfig)();
-    return (0, _v160.default)(_v2 ? `/videos/${_v2.where.videoId}/private_comments/${_v2.where.commentId}/replies${(0, _v139.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v163({
+      } = (0, _v145.useGctlConfig)();
+    return (0, _v161.default)(_v2 ? `/videos/${_v2.where.videoId}/private_comments/${_v2.where.commentId}/replies${(0, _v140.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v164({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -3281,23 +3282,23 @@
   }, {
     endpoint: "/videos/:videoId/private_comments/:commentId/replies",
     method: "GET"
-  }), "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(function () {
+  }), "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v143.useSWRConfig)(),
+      } = (0, _v144.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v144.useGctlConfig)(),
-      [_v5, _v6] = (0, _v139.useInternalState)();
+      } = (0, _v145.useGctlConfig)(),
+      [_v5, _v6] = (0, _v140.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/videos/${_v0.where.videoId}/private_comments/${_v0.where.commentId}/replies${(0, _v139.serializeQuery)(_v0)}`, _v163({
+        let _v0 = await _v0(`/videos/${_v0.where.videoId}/private_comments/${_v0.where.commentId}/replies${(0, _v140.serializeQuery)(_v0)}`, _v164({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -3322,15 +3323,15 @@
   }, {
     endpoint: "/videos/:videoId/private_comments/:commentId/replies",
     method: "GET"
-  }), "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(function (_v0, _v1) {
+  }), "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(function (_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v144.useGctlConfig)();
-    return (0, _v161.default)((_v0, _v1) => {
+      } = (0, _v145.useGctlConfig)();
+    return (0, _v162.default)((_v0, _v1) => {
       if (null === _v2 || _v1 && !_v1.paging.next) return null;
       let {
           perPage: _v2 = 25,
@@ -3340,7 +3341,7 @@
         _v5 = _v2.select.join(","),
         _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
       return [`/videos/${_v2.where.videoId}/private_comments/${_v2.where.commentId}/replies?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v163({
+    }, null !== _v2 ? ([_v0, _v1]) => _v164({
       ..._v2,
       baseUrl: _v3,
       headers: {
@@ -3358,15 +3359,15 @@
   }, {
     endpoint: "/videos/:videoId/private_comments/:commentId/replies",
     method: "GET"
-  }), "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(_v165, {
+  }), "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(_v166, {
     endpoint: "/videos/:videoId/private_comments/:commentId/replies",
     method: "POST"
   });
-  var _v166 = _v0.i(0),
-    _v167 = _v0.i(0),
+  var _v167 = _v0.i(0),
     _v168 = _v0.i(0),
-    _v169 = _v0.i(0);
-  async function _v170({
+    _v169 = _v0.i(0),
+    _v170 = _v0.i(0);
+  async function _v171({
     baseUrl: _v0,
     where: {
       videoId: _v1,
@@ -3376,35 +3377,35 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v140.measureLatency)("deleteVideoPrivateCommentReaction", "DELETE", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v1}/private_comments/${_v2}/reactions/${_v3}?${(0, _v141.searchQueryString)(_v4)}`, {
+    return (0, _v141.measureLatency)("deleteVideoPrivateCommentReaction", "DELETE", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v1}/private_comments/${_v2}/reactions/${_v3}?${(0, _v142.searchQueryString)(_v4)}`, {
         ..._v5,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v141.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v142.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v141.deepCamelCase)(_v1);
+      return (0, _v142.deepCamelCase)(_v1);
     });
   }
-  function _v171() {
+  function _v172() {
     let {
         mutate: _v0
-      } = (0, _v143.useSWRConfig)(),
+      } = (0, _v144.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v144.useGctlConfig)(),
-      [_v5, _v6] = (0, _v139.useInternalState)();
+      } = (0, _v145.useGctlConfig)(),
+      [_v5, _v6] = (0, _v140.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/videos/${_v0.where.videoId}/private_comments/${_v0.where.commentId}/reactions/${_v0.where.reactionId}${(0, _v139.serializeQuery)(_v0)}`, _v170({
+        let _v0 = await _v0(`/videos/${_v0.where.videoId}/private_comments/${_v0.where.commentId}/reactions/${_v0.where.reactionId}${(0, _v140.serializeQuery)(_v0)}`, _v171({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -3427,7 +3428,7 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  async function _v172({
+  async function _v173({
     baseUrl: _v0,
     where: {
       videoId: _v1,
@@ -3438,35 +3439,35 @@
     query: _v5,
     ..._v6
   }) {
-    return (0, _v140.measureLatency)("deleteVideoPrivateCommentReplyReaction", "DELETE", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v1}/private_comments/${_v2}/replies/${_v3}/reactions/${_v4}?${(0, _v141.searchQueryString)(_v5)}`, {
+    return (0, _v141.measureLatency)("deleteVideoPrivateCommentReplyReaction", "DELETE", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v1}/private_comments/${_v2}/replies/${_v3}/reactions/${_v4}?${(0, _v142.searchQueryString)(_v5)}`, {
         ..._v6,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v141.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v142.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v141.deepCamelCase)(_v1);
+      return (0, _v142.deepCamelCase)(_v1);
     });
   }
-  function _v173() {
+  function _v174() {
     let {
         mutate: _v0
-      } = (0, _v143.useSWRConfig)(),
+      } = (0, _v144.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v144.useGctlConfig)(),
-      [_v5, _v6] = (0, _v139.useInternalState)();
+      } = (0, _v145.useGctlConfig)(),
+      [_v5, _v6] = (0, _v140.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/videos/${_v0.where.videoId}/private_comments/${_v0.where.commentId}/replies/${_v0.where.replyId}/reactions/${_v0.where.reactionId}${(0, _v139.serializeQuery)(_v0)}`, _v172({
+        let _v0 = await _v0(`/videos/${_v0.where.videoId}/private_comments/${_v0.where.commentId}/replies/${_v0.where.replyId}/reactions/${_v0.where.reactionId}${(0, _v140.serializeQuery)(_v0)}`, _v173({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -3489,18 +3490,18 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(_v171, {
+  "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(_v172, {
     endpoint: "/videos/:videoId/private_comments/:commentId/reactions/:reactionId",
     method: "DELETE"
-  }), "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(_v173, {
+  }), "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(_v174, {
     endpoint: "/videos/:videoId/private_comments/:commentId/replies/:replyId/reactions/:reactionId",
     method: "DELETE"
   });
-  var _v174 = _v0.i(0),
-    _v175 = _v0.i(0),
+  var _v175 = _v0.i(0),
     _v176 = _v0.i(0),
-    _v177 = _v0.i(0);
-  async function _v178({
+    _v177 = _v0.i(0),
+    _v178 = _v0.i(0);
+  async function _v179({
     baseUrl: _v0,
     where: {
       videoId: _v1,
@@ -3510,19 +3511,19 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v140.measureLatency)("deleteVideoPrivateCommentReply", "DELETE", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v1}/private_comments/${_v2}/replies/${_v3}?${(0, _v141.searchQueryString)(_v4)}`, {
+    return (0, _v141.measureLatency)("deleteVideoPrivateCommentReply", "DELETE", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v1}/private_comments/${_v2}/replies/${_v3}?${(0, _v142.searchQueryString)(_v4)}`, {
         ..._v5,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v141.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v142.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v141.deepCamelCase)(_v1);
+      return (0, _v142.deepCamelCase)(_v1);
     });
   }
-  async function _v179({
+  async function _v180({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -3534,75 +3535,36 @@
     query: _v6,
     ..._v7
   }) {
-    return (0, _v140.measureLatency)("patchVideoPrivateCommentReply", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v3}/private_comments/${_v4}/replies/${_v5}?${(0, _v141.searchQueryString)(_v6)}&fields=${_v1.map(_v141.intoSnakeCase).join(",")}`, {
+    return (0, _v141.measureLatency)("patchVideoPrivateCommentReply", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v3}/private_comments/${_v4}/replies/${_v5}?${(0, _v142.searchQueryString)(_v6)}&fields=${_v1.map(_v142.intoSnakeCase).join(",")}`, {
         ..._v7,
         method: "PATCH",
-        body: JSON.stringify((0, _v141.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v142.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v141.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v142.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v141.deepCamelCase)(_v1);
+      return (0, _v142.deepCamelCase)(_v1);
     });
-  }
-  function _v180() {
-    let {
-        mutate: _v0
-      } = (0, _v143.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v144.useGctlConfig)(),
-      [_v5, _v6] = (0, _v139.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/videos/${_v0.where.videoId}/private_comments/${_v0.where.commentId}/replies/${_v0.where.replyId}${(0, _v139.serializeQuery)(_v0)}`, _v178({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
   function _v181() {
     let {
         mutate: _v0
-      } = (0, _v143.useSWRConfig)(),
+      } = (0, _v144.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v144.useGctlConfig)(),
-      [_v5, _v6] = (0, _v139.useInternalState)();
+      } = (0, _v145.useGctlConfig)(),
+      [_v5, _v6] = (0, _v140.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/videos/${_v0.where.videoId}/private_comments/${_v0.where.commentId}/replies/${_v0.where.replyId}${(0, _v139.serializeQuery)(_v0)}`, _v179({
+        let _v0 = await _v0(`/videos/${_v0.where.videoId}/private_comments/${_v0.where.commentId}/replies/${_v0.where.replyId}${(0, _v140.serializeQuery)(_v0)}`, _v179({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -3625,39 +3587,78 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(_v180, {
+  function _v182() {
+    let {
+        mutate: _v0
+      } = (0, _v144.useSWRConfig)(),
+      {
+        baseUrl: _v1,
+        jwt: _v2,
+        xVimeoPage: _v3,
+        locale: _v4
+      } = (0, _v145.useGctlConfig)(),
+      [_v5, _v6] = (0, _v140.useInternalState)();
+    return [(0, _v3.useCallback)(async _v0 => {
+      _v6({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await _v0(`/videos/${_v0.where.videoId}/private_comments/${_v0.where.commentId}/replies/${_v0.where.replyId}${(0, _v140.serializeQuery)(_v0)}`, _v180({
+          ..._v0,
+          baseUrl: _v1,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v2 ? `jwt ${_v2}` : "",
+            "Vimeo-Page": `${_v3}`,
+            "Accept-Language": _v4 ?? "en"
+          }
+        }), !1);
+        _v6({
+          type: "SUCCESS",
+          payload: _v0
+        });
+      } catch (_v0) {
+        _v6({
+          type: "FAILURE",
+          payload: _v0
+        });
+      }
+    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+  }
+  "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(_v181, {
     endpoint: "/videos/:videoId/private_comments/:commentId/replies/:replyId",
     method: "DELETE"
-  }), "true" === _v138.default.env.STORYBOOK && (0, _v139.assignMswData)(_v181, {
+  }), "true" === _v139.default.env.STORYBOOK && (0, _v140.assignMswData)(_v182, {
     endpoint: "/videos/:videoId/private_comments/:commentId/replies/:replyId",
     method: "PATCH"
   });
-  var _v182 = _v0.i(0),
-    _v183 = _v0.i(0),
+  var _v183 = _v0.i(0),
     _v184 = _v0.i(0),
     _v185 = _v0.i(0),
     _v186 = _v0.i(0),
-    _v187 = _v0.i(0);
-  function _v188(_v0, _v1, _v2, _v3, _v4) {
-    let _v5 = (0, _v149.extractDeeplinkNoteId)(),
+    _v187 = _v0.i(0),
+    _v188 = _v0.i(0);
+  function _v189(_v0, _v1, _v2, _v3, _v4) {
+    let _v5 = (0, _v150.extractDeeplinkNoteId)(),
       _v6 = function (_v0, _v1, _v2, _v3, _v4) {
         let [_v5, _v6] = (0, _v3.useState)(!1),
-          _v7 = (0, _v186.useGetVideoComments)(() => {
+          _v7 = (0, _v187.useGetVideoComments)(() => {
             if (_v5 || !_v1 || !_v3?.shouldFetch || _v4) return null;
-            let _v0 = (0, _v166.getPasswordHashFromCookie)(_v0);
+            let _v0 = (0, _v167.getPasswordHashFromCookie)(_v0);
             return {
-              query: (0, _v149.getDeepLinkPublicCommentsQuery)(_v1, _v0, _v2),
+              query: (0, _v150.getDeepLinkPublicCommentsQuery)(_v1, _v0, _v2),
               where: {
                 videoId: _v0
               },
               select: ["uri"]
             };
           }),
-          _v8 = (0, _v185.useGetAlbumVideoComments)(() => {
+          _v8 = (0, _v186.useGetAlbumVideoComments)(() => {
             if (_v5 || !_v1 || !_v3?.shouldFetch || !_v4) return null;
-            let _v0 = (0, _v149.getShowcasePasswordHashFromCookie)(_v4);
+            let _v0 = (0, _v150.getShowcasePasswordHashFromCookie)(_v4);
             return {
-              query: (0, _v149.getDeepLinkPublicCommentsQuery)(_v1, _v0, _v2),
+              query: (0, _v150.getDeepLinkPublicCommentsQuery)(_v1, _v0, _v2),
               where: {
                 albumId: _v4,
                 videoId: _v0
@@ -3689,11 +3690,11 @@
       }, _v3),
       _v7 = function (_v0, _v1, _v2, _v3, _v4) {
         let [_v5, _v6] = (0, _v3.useState)(!1),
-          _v7 = (0, _v149.getReviewPasswordHashFromCookie)(_v4),
+          _v7 = (0, _v150.getReviewPasswordHashFromCookie)(_v4),
           {
             data: _v8,
             error: _v9
-          } = (0, _v187.useGetVideoPrivateComments)(() => !_v5 && _v1 && _v3?.shouldFetch ? {
+          } = (0, _v188.useGetVideoPrivateComments)(() => !_v5 && _v1 && _v3?.shouldFetch ? {
             query: {
               noteId: _v1,
               sort: _v2?.type,
@@ -3728,18 +3729,18 @@
       }, _v4);
     return _v1 ? _v6 : _v7;
   }
-  _v0.s(["useGetCommentsDeeplink", 0, _v188], 0);
-  var _v189 = _v0.i(0);
-  let _v190 = ({
+  _v0.s(["useGetCommentsDeeplink", 0, _v189], 0);
+  var _v190 = _v0.i(0);
+  let _v191 = ({
     children: _v0
   }) => {
-    let _v1 = (0, _v152.useAuthenticatedViewer)(),
-      _v2 = (0, _v144.useGctlConfig)(),
+    let _v1 = (0, _v153.useAuthenticatedViewer)(),
+      _v2 = (0, _v145.useGctlConfig)(),
       {
         guestUser: _v3
-      } = (0, _v3.useContext)(_v151.guestLoginModalContext),
+      } = (0, _v3.useContext)(_v152.guestLoginModalContext),
       _v4 = _v3 ? JSON.parse(_v3)?.guestUserJwt : null;
-    return (0, _v2.jsx)(_v144.GctlProvider, {
+    return (0, _v2.jsx)(_v145.GctlProvider, {
       xVimeoPage: _v2.xVimeoPage,
       baseUrl: _v2.baseUrl,
       locale: _v2.locale,
@@ -3747,9 +3748,9 @@
       children: _v0
     });
   };
-  var _v191 = _v0.i(0),
-    _v192 = _v0.i(0);
-  let _v193 = (0, _v151.withGuestLoginModal)((_v1 = ({
+  var _v192 = _v0.i(0),
+    _v193 = _v0.i(0);
+  let _v194 = (0, _v152.withGuestLoginModal)((_v1 = ({
     clipRequestId: _v0,
     clipId: _v1,
     isPublic: _v2,
@@ -3778,7 +3779,7 @@
   }) => {
     let _v25,
       _v26 = (0, _v8.useToast)(),
-      _v27 = (0, _v152.useViewer)(),
+      _v27 = (0, _v133.useViewer)(),
       _v28 = function () {
         let [_v0, _v1] = (0, _v3.useState)("");
         return (0, _v3.useEffect)(() => {
@@ -3789,9 +3790,9 @@
       {
         videoData: _v29,
         videoDataLoading: _v30
-      } = (0, _v169.useVideoData)(_v0, _v14, _v15),
+      } = (0, _v170.useVideoData)(_v0, _v14, _v15),
       [_v31, _v32] = ((_v0, _v1) => {
-        let [_v2, _v3] = (0, _v191.default)(_v1, _v0),
+        let [_v2, _v3] = (0, _v192.default)(_v1, _v0),
           [_v4, _v5] = (0, _v3.useState)(_v2);
         return [_v4, (0, _v3.useCallback)(_v0 => {
           _v5(_v0), _v3(_v0);
@@ -3841,8 +3842,8 @@
         initialPageLoading: _v39,
         deeplinkNoteId: _v40,
         deeplinkDataError: _v41
-      } = _v188(_v0, _v2, _v31, _v14, _v15),
-      _v42 = (0, _v149.extractDeepLinkReplyId)(),
+      } = _v189(_v0, _v2, _v31, _v14, _v15),
+      _v42 = (0, _v150.extractDeepLinkReplyId)(),
       {
         comments: _v43,
         commentsLoading: _v44,
@@ -3852,11 +3853,11 @@
         page: _v48,
         copyComment: _v49,
         commentsError: _v50
-      } = (0, _v153.useGetComments)(_v0, _v2, _v31, _v34, _v14, _v15),
+      } = (0, _v154.useGetComments)(_v0, _v2, _v31, _v34, _v14, _v15),
       {
         commentsCount: _v51,
         changeCommentsCount: _v52
-      } = (0, _v134.useGetCommentsCount)(_v0, _v2, {
+      } = (0, _v135.useGetCommentsCount)(_v0, _v2, {
         videoVersionUri: _v10,
         targetApiVersion: _v11
       }, _v14, _v15);
@@ -3865,13 +3866,13 @@
     }, [_v51, _v21, _v2]);
     let {
         privacy: _v53
-      } = (0, _v177.useVideoPrivacy)(_v0, _v14, _v15),
+      } = (0, _v178.useVideoPrivacy)(_v0, _v14, _v15),
       {
         guestUser: _v54,
         modalState: {
           isActive: _v55
         }
-      } = (0, _v3.useContext)(_v151.guestLoginModalContext),
+      } = (0, _v3.useContext)(_v152.guestLoginModalContext),
       {
         filteredComments: _v56,
         matchCount: _v57
@@ -3879,16 +3880,16 @@
         if (_v25) return {
           filteredComments: _v43
         };
-        let _v0 = (0, _v184.default)(_v43),
+        let _v0 = (0, _v185.default)(_v43),
           _v1 = _v3 && _v3?.toLowerCase() || "",
           _v2 = 0;
         return {
           filteredComments: _v0?.filter(_v0 => {
             if (_v0.deletedOn && _v0?.replies?.length === 0) return !1;
-            let _v1 = !_v0.deletedOn && (0, _v149.matchCommentRichText)(_v1, _v0.text);
+            let _v1 = !_v0.deletedOn && (0, _v150.matchCommentRichText)(_v1, _v0.text);
             _v1 && _v2++;
             let _v2 = _v0.replies?.filter(_v0 => {
-                let _v1 = (0, _v149.matchCommentRichText)(_v1, _v0.text);
+                let _v1 = (0, _v150.matchCommentRichText)(_v1, _v0.text);
                 return _v1 && _v2++, _v1;
               }),
               _v3 = _v2 && _v2.length > 0;
@@ -3902,7 +3903,7 @@
             capabilities: _v2
           } = (0, _v56.useCapability)(["hasCommentsTrackingEnabled"]),
           _v3 = _v2?.hasCommentsTrackingEnabled === !0,
-          _v4 = (0, _v3.useContext)(_v183.CommentsTrackingContext);
+          _v4 = (0, _v3.useContext)(_v184.CommentsTrackingContext);
         return (0, _v3.useMemo)(() => {
           if (!_v0 || !_v3 || !_v4 || !_v4.collaboratorUnreadCommentsIds) return _v0;
           let {
@@ -3938,12 +3939,12 @@
       }(!_v47 && !_v44 && !_v46 && !_v3, _v48),
       _v64 = (0, _v3.useRef)(null),
       [_v65, _v66] = (0, _v3.useState)(_v42 || _v40),
-      _v67 = (0, _v150.getStorageInstance)(),
+      _v67 = (0, _v151.getStorageInstance)(),
       {
         value: _v68,
         set: _v69,
         remove: _v70
-      } = (0, _v132.default)(_v148.STASHED_COMMENTS_KEY, null, void 0, _v67),
+      } = (0, _v132.default)(_v149.STASHED_COMMENTS_KEY, null, void 0, _v67),
       [_v71, _v72] = (0, _v3.useState)(_v18);
     (0, _v3.useEffect)(() => {
       _v72(_v18);
@@ -3999,7 +4000,7 @@
     let {
         setComments: _v76,
         setActiveComment: _v77
-      } = (0, _v3.useContext)(_v133.CommentsContext),
+      } = (0, _v3.useContext)(_v134.CommentsContext),
       _v78 = (0, _v3.useCallback)((_v0, _v1) => {
         _v1 && _v77(_v1), _v4(_v0);
       }, [_v4, _v77]);
@@ -4012,40 +4013,40 @@
         postComment: _v79,
         postCommentLoading: _v80,
         postCommentError: _v81
-      } = (0, _v155.usePostComments)(_v0, _v2, _v31, _v5, _v34, _v14, _v15, _v24),
+      } = (0, _v156.usePostComments)(_v0, _v2, _v31, _v5, _v34, _v14, _v15, _v24),
       {
         deleteComment: _v82,
         deleteCommentLoading: _v83
       } = function (_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7) {
         let {
           videoData: _v8
-        } = (0, _v169.useVideoData)(_v0, _v6, _v7);
+        } = (0, _v170.useVideoData)(_v0, _v6, _v7);
         return (_v2 ? function (_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
-          let [_v7, _v8] = (0, _v175.useDeleteVideoComment)(),
-            [_v9, _v10] = (0, _v174.useDeleteAlbumVideoComment)(),
+          let [_v7, _v8] = (0, _v176.useDeleteVideoComment)(),
+            [_v9, _v10] = (0, _v175.useDeleteAlbumVideoComment)(),
             {
               loading: _v11,
               error: _v12
             } = _v6 ? _v10 : _v8,
             {
               privacy: _v13
-            } = (0, _v177.useVideoPrivacy)(_v0, _v6),
+            } = (0, _v178.useVideoPrivacy)(_v0, _v6),
             {
               revalidateComments: _v14
-            } = (0, _v153.usePublicComments)(_v0, _v3, _v5, _v6),
+            } = (0, _v154.usePublicComments)(_v0, _v3, _v5, _v6),
             {
               revalidateCommentCount: _v15
-            } = (0, _v134.useGetPublicCommentsCount)(_v0, {
+            } = (0, _v135.useGetPublicCommentsCount)(_v0, {
               shouldFetch: !0
             }, _v6),
-            _v16 = (0, _v152.useViewer)(),
-            _v17 = (0, _v149.getVideoIdFromClipRequestId)(_v0),
-            _v18 = (0, _v166.getPasswordHashFromCookie)(_v0),
+            _v16 = (0, _v133.useViewer)(),
+            _v17 = (0, _v150.getVideoIdFromClipRequestId)(_v0),
+            _v18 = (0, _v167.getPasswordHashFromCookie)(_v0),
             _v19 = async _v0 => {
               await _v7({
                 where: {
                   videoId: _v0,
-                  commentId: (0, _v149.idFromUri)(_v0)
+                  commentId: (0, _v150.idFromUri)(_v0)
                 },
                 ...(_v18 ? {
                   query: {
@@ -4056,12 +4057,12 @@
             },
             _v20 = async _v0 => {
               if (!_v6) return;
-              let _v1 = (0, _v149.getShowcasePasswordHashFromCookie)(_v6);
+              let _v1 = (0, _v150.getShowcasePasswordHashFromCookie)(_v6);
               await _v9({
                 where: {
                   albumId: _v6,
                   videoId: _v0,
-                  commentId: (0, _v149.idFromUri)(_v0)
+                  commentId: (0, _v150.idFromUri)(_v0)
                 },
                 ...(_v1 ? {
                   query: {
@@ -4076,11 +4077,11 @@
                   let _v0 = {
                     ..._v4,
                     commentContextFields: {
-                      comment_id: (0, _v149.idFromUri)(_v0),
+                      comment_id: (0, _v150.idFromUri)(_v0),
                       is_reply: !1
                     }
                   };
-                  (0, _v167.bpDeleteComment)(_v17, _v13?.view, !0, _v0, _v16, null, _v2?.uploader?.link);
+                  (0, _v168.bpDeleteComment)(_v17, _v13?.view, !0, _v0, _v16, null, _v2?.uploader?.link);
                 }
                 _v14(), _v15();
               }
@@ -4094,29 +4095,29 @@
           let [_v8, {
               loading: _v9,
               error: _v10
-            }] = (0, _v176.useDeleteVideoPrivateComment)(),
+            }] = (0, _v177.useDeleteVideoPrivateComment)(),
             {
               privacy: _v11
-            } = (0, _v177.useVideoPrivacy)(_v0, void 0, _v7),
+            } = (0, _v178.useVideoPrivacy)(_v0, void 0, _v7),
             {
               revalidateComments: _v12
-            } = (0, _v153.usePrivateComments)(_v0, _v3, _v5, void 0, _v7),
+            } = (0, _v154.usePrivateComments)(_v0, _v3, _v5, void 0, _v7),
             {
               revalidateCommentCount: _v13
-            } = (0, _v134.useGetPrivateCommentsCount)(_v0, {
+            } = (0, _v135.useGetPrivateCommentsCount)(_v0, {
               shouldFetch: !0,
               videoVersionUri: _v5?.videoVersionUri,
               targetApiVersion: _v5?.targetApiVersion
             }, _v7),
-            _v14 = (0, _v152.useViewer)(),
-            _v15 = (0, _v149.getVideoIdFromClipRequestId)(_v0),
-            _v16 = (0, _v149.getReviewPasswordHashFromCookie)(_v7);
+            _v14 = (0, _v133.useViewer)(),
+            _v15 = (0, _v150.getVideoIdFromClipRequestId)(_v0),
+            _v16 = (0, _v150.getReviewPasswordHashFromCookie)(_v7);
           return {
             deleteComment: async (_v0, _v1) => {
               await _v8({
                 where: {
                   videoId: _v0,
-                  commentId: (0, _v149.idFromUri)(_v0)
+                  commentId: (0, _v150.idFromUri)(_v0)
                 },
                 query: {
                   reviewId: _v7,
@@ -4128,11 +4129,11 @@
                     let _v0 = {
                       ..._v4,
                       commentContextFields: {
-                        comment_id: (0, _v149.idFromUri)(_v0),
+                        comment_id: (0, _v150.idFromUri)(_v0),
                         is_reply: !1
                       }
                     };
-                    (0, _v167.bpDeleteComment)(_v15, _v11?.view, !1, _v0, _v14, _v1, _v2?.uploader?.link);
+                    (0, _v168.bpDeleteComment)(_v15, _v11?.view, !1, _v0, _v14, _v1, _v2?.uploader?.link);
                   }
                   _v12(), _v13();
                 }
@@ -4147,31 +4148,31 @@
         deleteReply: _v84,
         deleteReplyLoading: _v85
       } = (_v2 ? function (_v0, _v1, _v2, _v3, _v4, _v5) {
-        let _v6 = (0, _v152.useViewer)(),
-          _v7 = (0, _v149.getVideoIdFromClipRequestId)(_v0),
+        let _v6 = (0, _v133.useViewer)(),
+          _v7 = (0, _v150.getVideoIdFromClipRequestId)(_v0),
           {
             privacy: _v8
-          } = (0, _v177.useVideoPrivacy)(_v0, _v5),
-          [_v9, _v10] = (0, _v175.useDeleteVideoComment)(),
-          [_v11, _v12] = (0, _v174.useDeleteAlbumVideoComment)(),
+          } = (0, _v178.useVideoPrivacy)(_v0, _v5),
+          [_v9, _v10] = (0, _v176.useDeleteVideoComment)(),
+          [_v11, _v12] = (0, _v175.useDeleteAlbumVideoComment)(),
           {
             loading: _v13,
             error: _v14
           } = _v5 ? _v12 : _v10,
           {
             revalidateComments: _v15
-          } = (0, _v153.usePublicComments)(_v0, _v2, _v4, _v5),
+          } = (0, _v154.usePublicComments)(_v0, _v2, _v4, _v5),
           {
             revalidateCommentCount: _v16
-          } = (0, _v134.useGetPublicCommentsCount)(_v0, {
+          } = (0, _v135.useGetPublicCommentsCount)(_v0, {
             shouldFetch: !0
           }, _v5),
-          _v17 = (0, _v166.getPasswordHashFromCookie)(_v0),
+          _v17 = (0, _v167.getPasswordHashFromCookie)(_v0),
           _v18 = async _v0 => {
             await _v9({
               where: {
                 videoId: _v0,
-                commentId: (0, _v149.idFromUri)(_v0)
+                commentId: (0, _v150.idFromUri)(_v0)
               },
               ...(_v17 ? {
                 query: {
@@ -4182,12 +4183,12 @@
           },
           _v19 = async _v0 => {
             if (!_v5) return;
-            let _v1 = (0, _v149.getShowcasePasswordHashFromCookie)(_v5);
+            let _v1 = (0, _v150.getShowcasePasswordHashFromCookie)(_v5);
             await _v11({
               where: {
                 albumId: _v5,
                 videoId: _v0,
-                commentId: (0, _v149.idFromUri)(_v0)
+                commentId: (0, _v150.idFromUri)(_v0)
               },
               ...(_v1 ? {
                 query: {
@@ -4201,11 +4202,11 @@
               let _v0 = {
                 ..._v3,
                 commentContextFields: {
-                  comment_id: (0, _v149.idFromUri)(_v0),
+                  comment_id: (0, _v150.idFromUri)(_v0),
                   is_reply: !0
                 }
               };
-              (0, _v167.bpDeleteComment)(_v7, _v8?.view, !0, _v0, _v6, null);
+              (0, _v168.bpDeleteComment)(_v7, _v8?.view, !0, _v0, _v6, null);
             }
             _v15(), _v16();
           };
@@ -4215,33 +4216,33 @@
           deleteReplyError: _v14
         };
       } : function (_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
-        let _v7 = (0, _v152.useViewer)(),
-          _v8 = (0, _v149.getVideoIdFromClipRequestId)(_v0),
+        let _v7 = (0, _v133.useViewer)(),
+          _v8 = (0, _v150.getVideoIdFromClipRequestId)(_v0),
           {
             privacy: _v9
-          } = (0, _v177.useVideoPrivacy)(_v0, void 0, _v6),
+          } = (0, _v178.useVideoPrivacy)(_v0, void 0, _v6),
           [_v10, {
             loading: _v11,
             error: _v12
-          }] = _v180(),
+          }] = _v181(),
           {
             revalidateComments: _v13
-          } = (0, _v153.usePrivateComments)(_v0, _v2, _v4, void 0, _v6),
+          } = (0, _v154.usePrivateComments)(_v0, _v2, _v4, void 0, _v6),
           {
             revalidateCommentCount: _v14
-          } = (0, _v134.useGetPrivateCommentsCount)(_v0, {
+          } = (0, _v135.useGetPrivateCommentsCount)(_v0, {
             shouldFetch: !0,
             videoVersionUri: _v4?.videoVersionUri,
             targetApiVersion: _v4?.targetApiVersion
           }, _v6),
-          _v15 = (0, _v149.getReviewPasswordHashFromCookie)(_v6);
+          _v15 = (0, _v150.getReviewPasswordHashFromCookie)(_v6);
         return {
           deleteReply: async (_v0, _v1) => {
             await _v10({
               where: {
                 videoId: _v0,
-                replyId: (0, _v149.idFromUri)(_v0),
-                commentId: (0, _v149.getParentCommentIdFromUri)(_v0)
+                replyId: (0, _v150.idFromUri)(_v0),
+                commentId: (0, _v150.getParentCommentIdFromUri)(_v0)
               },
               query: {
                 reviewId: _v6,
@@ -4253,11 +4254,11 @@
                   let _v0 = {
                     ..._v3,
                     commentContextFields: {
-                      comment_id: (0, _v149.idFromUri)(_v0),
+                      comment_id: (0, _v150.idFromUri)(_v0),
                       is_reply: !0
                     }
                   };
-                  (0, _v167.bpDeleteComment)(_v8, _v9?.view, !1, _v0, _v7, _v1);
+                  (0, _v168.bpDeleteComment)(_v8, _v9?.view, !1, _v0, _v7, _v1);
                 }
                 _v13(), _v14();
               }
@@ -4273,7 +4274,7 @@
         updateCommentText: _v88,
         editCommentLoading: _v89,
         editCommentError: _v90
-      } = (0, _v182.useEditComment)(_v0, _v2, _v31, _v5, _v34, _v14, _v15),
+      } = (0, _v183.useEditComment)(_v0, _v2, _v31, _v5, _v34, _v14, _v15),
       {
         patchReply: _v91,
         patchReplyLoading: _v92,
@@ -4281,34 +4282,34 @@
       } = function (_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
         let {
           videoData: _v7
-        } = (0, _v169.useVideoData)(_v0, _v5, _v6);
+        } = (0, _v170.useVideoData)(_v0, _v5, _v6);
         return (_v1 ? function (_v0, _v1, _v2, _v3, _v4, _v5) {
-          let _v6 = (0, _v152.useViewer)(),
-            _v7 = (0, _v149.getVideoIdFromClipRequestId)(_v0),
+          let _v6 = (0, _v133.useViewer)(),
+            _v7 = (0, _v150.getVideoIdFromClipRequestId)(_v0),
             {
               privacy: _v8
-            } = (0, _v177.useVideoPrivacy)(_v0, _v5),
-            [_v9, _v10] = (0, _v175.usePatchVideoComment)(),
-            [_v11, _v12] = (0, _v174.usePatchAlbumVideoComment)(),
+            } = (0, _v178.useVideoPrivacy)(_v0, _v5),
+            [_v9, _v10] = (0, _v176.usePatchVideoComment)(),
+            [_v11, _v12] = (0, _v175.usePatchAlbumVideoComment)(),
             {
               loading: _v13,
               error: _v14
             } = _v5 ? _v12 : _v10,
             {
               revalidateComments: _v15
-            } = (0, _v153.usePublicComments)(_v0, _v2, _v4, _v5),
+            } = (0, _v154.usePublicComments)(_v0, _v2, _v4, _v5),
             [_v16, _v17] = (0, _v3.useState)(null),
-            _v18 = (0, _v166.getPasswordHashFromCookie)(_v0),
+            _v18 = (0, _v167.getPasswordHashFromCookie)(_v0),
             _v19 = async (_v0, _v1) => {
               _v17(_v0), await _v9({
                 where: {
                   videoId: _v0,
-                  commentId: (0, _v149.idFromUri)(_v0)
+                  commentId: (0, _v150.idFromUri)(_v0)
                 },
                 variables: {
                   richtext: _v1
                 },
-                select: _v148.EDIT_PUBLIC_REPLY_FIELDS,
+                select: _v149.EDIT_PUBLIC_REPLY_FIELDS,
                 ...(_v18 ? {
                   query: {
                     password: _v18
@@ -4319,17 +4320,17 @@
             _v20 = async (_v0, _v1) => {
               if (!_v5) return;
               _v17(_v0);
-              let _v2 = (0, _v149.getShowcasePasswordHashFromCookie)(_v5);
+              let _v2 = (0, _v150.getShowcasePasswordHashFromCookie)(_v5);
               await _v11({
                 where: {
                   albumId: _v5,
                   videoId: _v0,
-                  commentId: (0, _v149.idFromUri)(_v0)
+                  commentId: (0, _v150.idFromUri)(_v0)
                 },
                 variables: {
                   richtext: _v1
                 },
-                select: _v148.EDIT_PUBLIC_REPLY_FIELDS,
+                select: _v149.EDIT_PUBLIC_REPLY_FIELDS,
                 ...(_v2 ? {
                   query: {
                     password: _v2
@@ -4340,17 +4341,17 @@
             _v21 = (_v0, _v1) => {
               if (!_v13 && !_v14) {
                 if (_v3) {
-                  let _v0 = (0, _v149.checkForMention)(_v1),
+                  let _v0 = (0, _v150.checkForMention)(_v1),
                     _v1 = {
                       ..._v3,
                       commentContextFields: {
-                        comment_id: (0, _v149.idFromUri)(_v0),
+                        comment_id: (0, _v150.idFromUri)(_v0),
                         is_reply: !0,
                         comment_length: _v1?.length,
                         is_mention: _v0
                       }
                     };
-                  (0, _v167.bpSaveEditComment)(_v7, _v8?.view, !0, _v1, _v6, !1, _v1?.uploader?.link);
+                  (0, _v168.bpSaveEditComment)(_v7, _v8?.view, !0, _v1, _v6, !1, _v1?.uploader?.link);
                 }
                 _v15(_v0 => _v0?.filter(_v0 => !!_v0).map(_v0 => ({
                   ..._v0,
@@ -4398,25 +4399,25 @@
             } : null
           };
         } : function (_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
-          let _v7 = (0, _v152.useViewer)(),
+          let _v7 = (0, _v133.useViewer)(),
             [_v8, {
               loading: _v9,
               error: _v10
-            }] = _v181(),
+            }] = _v182(),
             {
               privacy: _v11
-            } = (0, _v177.useVideoPrivacy)(_v0, void 0, _v6),
+            } = (0, _v178.useVideoPrivacy)(_v0, void 0, _v6),
             {
               revalidateComments: _v12
-            } = (0, _v153.usePrivateComments)(_v0, _v2, _v4, void 0, _v6),
+            } = (0, _v154.usePrivateComments)(_v0, _v2, _v4, void 0, _v6),
             [_v13, _v14] = (0, _v3.useState)(null),
-            _v15 = (0, _v149.getReviewPasswordHashFromCookie)(_v6),
+            _v15 = (0, _v150.getReviewPasswordHashFromCookie)(_v6),
             _v16 = async (_v0, _v1) => {
               _v14(_v0), await _v8({
                 where: {
                   videoId: _v0,
-                  commentId: (0, _v149.getParentCommentIdFromUri)(_v0),
-                  replyId: (0, _v149.idFromUri)(_v0)
+                  commentId: (0, _v150.getParentCommentIdFromUri)(_v0),
+                  replyId: (0, _v150.idFromUri)(_v0)
                 },
                 variables: {
                   richtext: _v1
@@ -4428,21 +4429,21 @@
                 }
               }), _v18(_v0, _v1);
             },
-            _v17 = (0, _v149.getVideoIdFromClipRequestId)(_v0),
+            _v17 = (0, _v150.getVideoIdFromClipRequestId)(_v0),
             _v18 = (_v0, _v1) => {
               if (!_v9 && !_v10) {
                 if (_v3) {
-                  let _v0 = (0, _v149.checkForMention)(_v1),
+                  let _v0 = (0, _v150.checkForMention)(_v1),
                     _v1 = {
                       ..._v3,
                       commentContextFields: {
-                        comment_id: (0, _v149.idFromUri)(_v0),
+                        comment_id: (0, _v150.idFromUri)(_v0),
                         is_reply: !0,
                         comment_length: _v1?.length,
                         is_mention: _v0
                       }
                     };
-                  (0, _v167.bpSaveEditComment)(_v17, _v11?.view, !1, _v1, _v7, !1, _v1?.uploader?.link);
+                  (0, _v168.bpSaveEditComment)(_v17, _v11?.view, !1, _v1, _v7, !1, _v1?.uploader?.link);
                 }
                 _v12(_v0 => _v0?.filter(_v0 => !!_v0).map(_v0 => ({
                   ..._v0,
@@ -4496,12 +4497,12 @@
         postReplyLoading: _v95,
         postReplyError: _v96
       } = (_v2 ? function (_v0, _v1, _v2, _v3, _v4) {
-        let _v5 = (0, _v149.getVideoIdFromClipRequestId)(_v0),
+        let _v5 = (0, _v150.getVideoIdFromClipRequestId)(_v0),
           {
             revalidateComments: _v6
-          } = (0, _v153.usePublicComments)(_v0, _v1, _v3, _v4),
-          [_v7, _v8] = _v162(),
-          [_v9, _v10] = _v157(),
+          } = (0, _v154.usePublicComments)(_v0, _v1, _v3, _v4),
+          [_v7, _v8] = _v163(),
+          [_v9, _v10] = _v158(),
           {
             data: _v11,
             loading: _v12,
@@ -4509,19 +4510,19 @@
           } = _v4 ? _v10 : _v8,
           {
             videoData: _v14
-          } = (0, _v169.useVideoData)(_v0, _v4),
+          } = (0, _v170.useVideoData)(_v0, _v4),
           _v15 = _v14?.privacy.view,
-          _v16 = (0, _v152.useAuthenticatedViewer)(),
+          _v16 = (0, _v153.useAuthenticatedViewer)(),
           {
             toggleGuestLoginModal: _v17,
             guestUser: _v18
-          } = (0, _v3.useContext)(_v151.guestLoginModalContext),
+          } = (0, _v3.useContext)(_v152.guestLoginModalContext),
           _v19 = _v16 || !!_v18,
           {
             toggleLoginModal: _v20,
             setRedirectUrl: _v21
-          } = (0, _v168.useLoginModal)(),
-          _v22 = (0, _v166.getPasswordHashFromCookie)(_v0),
+          } = (0, _v169.useLoginModal)(),
+          _v22 = (0, _v167.getPasswordHashFromCookie)(_v0),
           [_v23, _v24] = (0, _v3.useState)(null),
           _v25 = async (_v0, _v1) => {
             if (!_v19 && "unlisted" === _v15) return void _v17(!0);
@@ -4533,14 +4534,14 @@
               richtext: _v0
             };
             if (_v24(_v1), _v4) {
-              let _v0 = (0, _v149.getShowcasePasswordHashFromCookie)(_v4);
+              let _v0 = (0, _v150.getShowcasePasswordHashFromCookie)(_v4);
               await _v9({
                 where: {
                   albumId: _v4,
                   videoId: _v0,
-                  commentId: (0, _v149.idFromUri)(_v1)
+                  commentId: (0, _v150.idFromUri)(_v1)
                 },
-                select: _v148.POST_PUBLIC_REPLY_FIELDS,
+                select: _v149.POST_PUBLIC_REPLY_FIELDS,
                 variables: _v2,
                 ...(_v0 ? {
                   query: {
@@ -4551,9 +4552,9 @@
             } else await _v7({
               where: {
                 videoId: _v0,
-                commentId: (0, _v149.idFromUri)(_v1)
+                commentId: (0, _v150.idFromUri)(_v1)
               },
-              select: _v148.POST_PUBLIC_REPLY_FIELDS,
+              select: _v149.POST_PUBLIC_REPLY_FIELDS,
               variables: _v2,
               ...(_v22 ? {
                 query: {
@@ -4569,12 +4570,12 @@
               ..._v0,
               data: _v0.data?.map(_v0 => {
                 if (_v0.uri === _v23) {
-                  let _v0 = (0, _v149.checkForMention)(_v11.text || "");
+                  let _v0 = (0, _v150.checkForMention)(_v11.text || "");
                   if (_v2) {
                     let _v0 = {
                       ..._v2,
                       commentContextFields: {
-                        comment_id: (0, _v149.idFromUri)(_v11.uri),
+                        comment_id: (0, _v150.idFromUri)(_v11.uri),
                         is_reply: !0,
                         comment_owner_id: _v16?.user?.id ?? -1,
                         comment_length: _v11.text.length,
@@ -4582,7 +4583,7 @@
                         existing_reply_counts: _v0.replies.length
                       }
                     };
-                    (0, _v167.bpPostComment)(_v5, _v15, _v0, _v0, _v16);
+                    (0, _v168.bpPostComment)(_v5, _v15, _v0, _v0, _v16);
                   }
                   _v0.replies = [..._v0.replies, _v11];
                 }
@@ -4625,26 +4626,26 @@
           } : null
         };
       } : function (_v0, _v1, _v2, _v3, _v4, _v5) {
-        let _v6 = (0, _v152.useAuthenticatedViewer)(),
-          _v7 = (0, _v149.getVideoIdFromClipRequestId)(_v0),
+        let _v6 = (0, _v153.useAuthenticatedViewer)(),
+          _v7 = (0, _v150.getVideoIdFromClipRequestId)(_v0),
           [_v8, _v9] = (0, _v3.useState)(null),
           [_v10, {
             data: _v11,
             loading: _v12,
             error: _v13
-          }] = _v165(),
+          }] = _v166(),
           {
             revalidateComments: _v14
-          } = (0, _v153.usePrivateComments)(_v0, _v1, _v3, void 0, _v5),
+          } = (0, _v154.usePrivateComments)(_v0, _v1, _v3, void 0, _v5),
           {
             videoData: _v15
-          } = (0, _v169.useVideoData)(_v0, void 0, _v5),
+          } = (0, _v170.useVideoData)(_v0, void 0, _v5),
           {
             toggleGuestLoginModal: _v16,
             guestUser: _v17
-          } = (0, _v3.useContext)(_v151.guestLoginModalContext),
+          } = (0, _v3.useContext)(_v152.guestLoginModalContext),
           _v18 = _v6 || !!_v17,
-          _v19 = (0, _v149.getReviewPasswordHashFromCookie)(_v5),
+          _v19 = (0, _v150.getReviewPasswordHashFromCookie)(_v5),
           _v20 = _v17 ? JSON.parse(_v17)?.guestUserName : null,
           _v21 = _v17 ? JSON.parse(_v17)?.guestUserId : null,
           _v22 = async (_v0, _v1, _v2) => {
@@ -4653,7 +4654,7 @@
             _v9(_v1), await _v10({
               where: {
                 videoId: _v0,
-                commentId: (0, _v149.idFromUri)(_v1)
+                commentId: (0, _v150.idFromUri)(_v1)
               },
               select: ["text", "richtext", "uri", "metadata.connections.user", "createdTime", "metadata", "timeCode", "userName"],
               variables: {
@@ -4676,11 +4677,11 @@
               data: _v0.data?.map(_v0 => {
                 if (_v0.uri === _v8) {
                   if (_v2) {
-                    let _v0 = (0, _v149.checkForMention)(_v11?.richtext || _v11?.text || ""),
+                    let _v0 = (0, _v150.checkForMention)(_v11?.richtext || _v11?.text || ""),
                       _v1 = {
                         ..._v2,
                         commentContextFields: {
-                          comment_id: (0, _v149.idFromUri)(_v11.uri),
+                          comment_id: (0, _v150.idFromUri)(_v11.uri),
                           is_reply: !0,
                           comment_owner_id: _v6?.user?.id ?? -1,
                           comment_length: _v11.text.length,
@@ -4688,7 +4689,7 @@
                           existing_reply_counts: _v0.replies.length
                         }
                       };
-                    (0, _v167.bpPostComment)(_v7, _v1, _v0, _v1, _v6, !1, !1);
+                    (0, _v168.bpPostComment)(_v7, _v1, _v0, _v1, _v6, !1, !1);
                   }
                   _v0.replies = [..._v0.replies, _v11], "closed" === _v0.status && (_v0.status = "open");
                 }
@@ -4738,26 +4739,26 @@
           addReaction: async (_v0, _v1, _v2, _v3) => {}
         };
       } : function (_v0, _v1, _v2, _v3) {
-        let [_v4] = _v145(),
-          [_v5] = _v147(),
+        let [_v4] = _v146(),
+          [_v5] = _v148(),
           {
             revalidateComments: _v6
-          } = (0, _v153.usePrivateComments)(_v0, _v1, _v2, void 0, _v3),
-          _v7 = (0, _v152.useViewer)(),
-          _v8 = (0, _v152.useAuthenticatedViewer)(),
+          } = (0, _v154.usePrivateComments)(_v0, _v1, _v2, void 0, _v3),
+          _v7 = (0, _v133.useViewer)(),
+          _v8 = (0, _v153.useAuthenticatedViewer)(),
           {
             toggleGuestLoginModal: _v9,
             guestUser: _v10,
             modalState: _v11
-          } = (0, _v3.useContext)(_v151.guestLoginModalContext),
+          } = (0, _v3.useContext)(_v152.guestLoginModalContext),
           _v12 = !!_v8 || !!_v10,
-          _v13 = (0, _v149.getReviewPasswordHashFromCookie)(_v3),
-          _v14 = (0, _v150.getStorageInstance)(),
+          _v13 = (0, _v150.getReviewPasswordHashFromCookie)(_v3),
+          _v14 = (0, _v151.getStorageInstance)(),
           {
             value: _v15,
             set: _v16,
             remove: _v17
-          } = (0, _v132.default)(_v148.STASHED_REACTION_KEY, null, void 0, _v14);
+          } = (0, _v132.default)(_v149.STASHED_REACTION_KEY, null, void 0, _v14);
         (0, _v3.useEffect)(() => {
           _v11.isActive || _v12 || !_v15 || _v17();
         }, [_v11.isActive, _v12, _v15]), (0, _v3.useEffect)(() => {
@@ -4793,8 +4794,8 @@
             _v2 && _v3 ? await _v5({
               where: {
                 videoId: _v0,
-                commentId: (0, _v149.idFromUri)(_v3),
-                replyId: (0, _v149.idFromUri)(_v0)
+                commentId: (0, _v150.idFromUri)(_v3),
+                replyId: (0, _v150.idFromUri)(_v0)
               },
               ...(_v3 || _v13 ? {
                 query: {
@@ -4802,14 +4803,14 @@
                   password: _v13
                 }
               } : {}),
-              select: _v154,
+              select: _v155,
               variables: {
                 reactionCode: _v1
               }
             }) : await _v4({
               where: {
                 videoId: _v0,
-                commentId: (0, _v149.idFromUri)(_v0)
+                commentId: (0, _v150.idFromUri)(_v0)
               },
               ...(_v3 || _v13 ? {
                 query: {
@@ -4817,7 +4818,7 @@
                   password: _v13
                 }
               } : {}),
-              select: _v154,
+              select: _v155,
               variables: {
                 reactionCode: _v1
               }
@@ -4906,16 +4907,16 @@
           removeReaction: async (_v0, _v1, _v2, _v3) => {}
         };
       } : function (_v0, _v1, _v2, _v3) {
-        let [_v4] = _v171(),
-          [_v5] = _v173(),
+        let [_v4] = _v172(),
+          [_v5] = _v174(),
           {
             revalidateComments: _v6
-          } = (0, _v153.usePrivateComments)(_v0, _v1, _v2, void 0, _v3),
-          _v7 = (0, _v149.getReviewPasswordHashFromCookie)(_v3);
+          } = (0, _v154.usePrivateComments)(_v0, _v1, _v2, void 0, _v3),
+          _v7 = (0, _v150.getReviewPasswordHashFromCookie)(_v3);
         return {
           removeReaction: async (_v0, _v1, _v2, _v3) => {
             let _v4,
-              _v5 = (0, _v149.idFromUri)(_v1),
+              _v5 = (0, _v150.idFromUri)(_v1),
               _v6 = (_v0, _v1) => _v0 ? _v0.map(_v0 => ({
                 ..._v0,
                 data: _v0.data.map(_v0 => _v2 && _v3 && _v0.uri === _v3 ? {
@@ -4936,8 +4937,8 @@
               _v2 && _v3 ? await _v5({
                 where: {
                   videoId: _v0,
-                  commentId: (0, _v149.idFromUri)(_v3),
-                  replyId: (0, _v149.idFromUri)(_v0),
+                  commentId: (0, _v150.idFromUri)(_v3),
+                  replyId: (0, _v150.idFromUri)(_v0),
                   reactionId: _v5
                 },
                 ...(_v3 || _v7 ? {
@@ -4949,7 +4950,7 @@
               }) : await _v4({
                 where: {
                   videoId: _v0,
-                  commentId: (0, _v149.idFromUri)(_v0),
+                  commentId: (0, _v150.idFromUri)(_v0),
                   reactionId: _v5
                 },
                 ...(_v3 || _v7 ? {
@@ -4969,7 +4970,7 @@
           }
         };
       })(_v0, _v31, _v34, _v15),
-      _v99 = (0, _v3.useCallback)(_v0 => (0, _v2.jsx)(_v135.CommentMentionModule, {
+      _v99 = (0, _v3.useCallback)(_v0 => (0, _v2.jsx)(_v136.CommentMentionModule, {
         clipRequestId: _v0,
         ..._v0,
         analyticsProps: _v5,
@@ -4980,7 +4981,7 @@
       {
         canEdit: _v100,
         canReactToCollabComments: _v101
-      } = (0, _v192.useUserPermissions)(_v0, _v14, _v15),
+      } = (0, _v193.useUserPermissions)(_v0, _v14, _v15),
       _v102 = _v0 => {
         _v63(1), _v35({
           ..._v34,
@@ -4999,10 +5000,10 @@
         let [_v3, {
             loading: _v4,
             error: _v5
-          }] = (0, _v189.usePatchUnlockedVideo)(),
+          }] = (0, _v190.usePatchUnlockedVideo)(),
           {
             mutate: _v6
-          } = (0, _v169.useVideoData)(_v0, _v1, _v2);
+          } = (0, _v170.useVideoData)(_v0, _v1, _v2);
         return {
           saveViewerPageCommentPreference: async _v0 => _v3({
             where: {
@@ -5035,7 +5036,7 @@
         children: [_v60 && (0, _v2.jsx)(_v129, {
           showResolved: _v34?.status !== "open",
           updateFilterOptions: _v0 => {
-            _v102(_v0), _v5 && (0, _v167.bpToggleShowResolvedComments)(!_v0.status, _v1, _v53?.view, _v5, _v27);
+            _v102(_v0), _v5 && (0, _v168.bpToggleShowResolvedComments)(!_v0.status, _v1, _v53?.view, _v5, _v27);
           }
         }), (0, _v2.jsxs)(_v5.Flex, {
           children: [(0, _v2.jsx)(_v126, {
@@ -5045,12 +5046,12 @@
               _v32(_v0);
             },
             onSortSelect: _v0 => {
-              _v5 && (0, _v167.bpSortComment)(_v0.value, _v1, _v53?.view, _v29?.uploader.link, _v2, _v5, _v27);
+              _v5 && (0, _v168.bpSortComment)(_v0.value, _v1, _v53?.view, _v29?.uploader.link, _v2, _v5, _v27);
             }
           }), (0, _v2.jsx)(_v131, {
             filterOptions: _v34,
             updateFilterOptions: _v0 => {
-              _v5 && (0, _v167.bpFilterComments)(_v149.FilterToBPOptionMap[_v0.userType ?? "mentions_replies"].option, _v149.FilterToBPOptionMap[_v0.userType ?? "mentions_replies"].copy, _v1, _v2, _v53?.view, _v5, _v27), _v102(_v0);
+              _v5 && (0, _v168.bpFilterComments)(_v150.FilterToBPOptionMap[_v0.userType ?? "mentions_replies"].option, _v150.FilterToBPOptionMap[_v0.userType ?? "mentions_replies"].copy, _v1, _v2, _v53?.view, _v5, _v27), _v102(_v0);
             },
             onUnreadFilterToggle: _v0 => _v37(_v0),
             showOnlyUnread: _v36,
@@ -5187,7 +5188,7 @@
         },
         isPublic: _v2,
         addReply: (_v0, _v1, _v2) => {
-          let _v3 = (0, _v149.sanitiseSpaceInRichtext)(_v1);
+          let _v3 = (0, _v150.sanitiseSpaceInRichtext)(_v1);
           _v27?.user || _v54 || _v69(JSON.stringify({
             text: _v3,
             isReply: !0,
@@ -5202,10 +5203,10 @@
           _v84(_v0, _v1), _v66(null);
         },
         editComment: (_v0, _v1) => {
-          _v88(_v0, (0, _v149.sanitiseSpaceInRichtext)(_v1)), _v66(null);
+          _v88(_v0, (0, _v150.sanitiseSpaceInRichtext)(_v1)), _v66(null);
         },
         editReply: (_v0, _v1) => {
-          _v91(_v0, (0, _v149.sanitiseSpaceInRichtext)(_v1)), _v66(null);
+          _v91(_v0, (0, _v150.sanitiseSpaceInRichtext)(_v1)), _v66(null);
         },
         lastElementRef: _v62,
         listContainerRef: _v64,
@@ -5218,37 +5219,37 @@
         richCommentComponent: _v99,
         onCopyClick: (_v0, _v1, _v2, _v3, _v4) => {
           _v49(_v0, _v3);
-          let _v5 = (0, _v149.checkForMention)(_v4);
+          let _v5 = (0, _v150.checkForMention)(_v4);
           _v5 && (_v5 = {
             ..._v5,
             commentContextFields: {
-              comment_id: (0, _v149.idFromUri)(_v0),
+              comment_id: (0, _v150.idFromUri)(_v0),
               is_reply: !!_v3,
-              comment_owner_id: (0, _v149.idFromUri)(_v1),
+              comment_owner_id: (0, _v150.idFromUri)(_v1),
               is_mention: _v5
             }
-          }, (0, _v167.bpCopyCommentLink)(_v1, _v53?.view, _v29?.uploader.link, _v2, _v5, _v27, _v2));
+          }, (0, _v168.bpCopyCommentLink)(_v1, _v53?.view, _v29?.uploader.link, _v2, _v5, _v27, _v2));
         },
         onOpenCommentOptionsClick: (_v0, _v1, _v2, _v3) => {
           _v5 && (_v5 = {
             ..._v5,
             commentContextFields: {
-              comment_id: (0, _v149.idFromUri)(_v0),
+              comment_id: (0, _v150.idFromUri)(_v0),
               is_reply: _v1,
-              comment_owner_id: (0, _v149.idFromUri)(_v2)
+              comment_owner_id: (0, _v150.idFromUri)(_v2)
             }
-          }, (0, _v167.bpOpenCommentOptions)(_v1, _v53?.view, _v29?.uploader.link, _v2, _v5, _v27, _v3));
+          }, (0, _v168.bpOpenCommentOptions)(_v1, _v53?.view, _v29?.uploader.link, _v2, _v5, _v27, _v3));
         },
         isUserProfileClickable: _v6,
         onUserProfileClick: (_v0, _v1, _v2) => {
           _v5 && (_v5 = {
             ..._v5,
             commentContextFields: {
-              comment_id: (0, _v149.idFromUri)(_v0),
+              comment_id: (0, _v150.idFromUri)(_v0),
               is_reply: _v1,
-              comment_owner_id: (0, _v149.idFromUri)(_v2)
+              comment_owner_id: (0, _v150.idFromUri)(_v2)
             }
-          }, (0, _v167.bpProfileLink)(_v1, _v28, _v5, _v27));
+          }, (0, _v168.bpProfileLink)(_v1, _v28, _v5, _v27));
         },
         commentsFetchingError: _v50 || _v41,
         editCommentError: _v90,
@@ -5276,7 +5277,7 @@
         isLoading: _v80,
         isPublic: _v2,
         onSubmit: _v0 => {
-          let _v1 = (0, _v149.sanitiseSpaceInRichtext)(_v0),
+          let _v1 = (0, _v150.sanitiseSpaceInRichtext)(_v0),
             _v2 = _v71 ? (_v19 ?? 0) === 0 ? .001 : _v19 : void 0;
           _v27?.user || _v54 || _v69(JSON.stringify({
             text: _v1,
@@ -5296,11 +5297,11 @@
         toggleTimeCode: _v73,
         timeCode: _v19,
         onCommentStarted: _v74,
-        overlayContent: _v23 && _v22 && _v55 ? (0, _v2.jsx)(_v151.GuestLoginModal, {
+        overlayContent: _v23 && _v22 && _v55 ? (0, _v2.jsx)(_v152.GuestLoginModal, {
           isInlinePrompt: !0,
           canReactToCollabComments: _v101
         }) : void 0
-      }), (0, _v2.jsx)(_v137, {
+      }), (0, _v2.jsx)(_v138, {
         isActive: _v103,
         setActive: _v104,
         isLoading: _v106,
@@ -5401,10 +5402,10 @@
         }
       })]
     });
-  }, _v0 => (0, _v2.jsx)(_v190, {
+  }, _v0 => (0, _v2.jsx)(_v191, {
     children: (0, _v2.jsx)(_v1, {
       ..._v0
     })
   })));
-  _v0.s(["CommentsContainer", 0, _v193], 0);
+  _v0.s(["CommentsContainer", 0, _v194], 0);
 }
