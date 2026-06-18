@@ -418,7 +418,7 @@
         })
       });
     },
-    _v45 = () => Promise.reject("not implemented yet"),
+    _v45 = () => Promise.reject(Error("not implemented yet")),
     _v46 = {
       folderId: -1,
       isOpen: !1,

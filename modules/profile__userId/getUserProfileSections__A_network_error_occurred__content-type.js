@@ -1989,29 +1989,24 @@
   function _v151({
     collaborator: _v0
   }) {
-    let _v1 = (0, _v113.useViewer)(),
-      _v2 = _v1?.isFromCopyrightRestrictedRegion,
-      [_v3, _v4] = (0, _v150.getAvatarImages)(_v0.pictures?.sizes),
-      _v5 = (0, _v6.jsx)(_v119.Avatar, {
-        src: _v3,
-        srcSet: _v4,
+    let [_v1, _v2] = (0, _v150.getAvatarImages)(_v0.pictures?.sizes),
+      _v3 = (0, _v6.jsx)(_v119.Avatar, {
+        src: _v1,
+        srcSet: _v2,
         alt: _v0.name,
         size: "md",
         nameProps: {
           name: _v0.name ?? ""
         }
       });
-    return _v2 ? (0, _v6.jsx)(_v52.Box, {
-      as: "span",
-      children: _v5
-    }) : (0, _v6.jsx)(_v149.UserCard, {
+    return (0, _v6.jsx)(_v149.UserCard, {
       user: _v0,
       profileUrl: _v0.link,
       openDelay: 500,
       children: (0, _v6.jsx)(_v52.Box, {
         as: "a",
         href: _v0.link,
-        children: _v5
+        children: _v3
       })
     });
   }
@@ -3674,7 +3669,7 @@
       submitting: !1,
       isFollowing: !1,
       isUserFollowing: !1,
-      onFollowUser: () => Promise.reject("Not implemented"),
+      onFollowUser: () => Promise.reject(Error("Not implemented")),
       onUnfollowUser: _v228,
       onLoginSuccess: _v228
     });

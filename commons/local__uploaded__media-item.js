@@ -68,32 +68,33 @@
     }) => {
       let _v7 = (0, _v14.useAppSelector)(_v13.videoSessionIdSelector),
         _v8 = (0, _v14.useAppSelector)(_v37.loadingMediaSelector),
-        [_v9, _v10] = (0, _v2.useState)([]),
-        _v11 = (0, _v2.useRef)(null),
-        _v12 = (0, _v2.useRef)(1),
+        _v9 = (0, _v14.useAppSelector)(_v13.durationSelector),
+        [_v10, _v11] = (0, _v2.useState)([]),
+        _v12 = (0, _v2.useRef)(null),
+        _v13 = (0, _v2.useRef)(1),
         {
-          isReplacing: _v13
+          isReplacing: _v14
         } = (0, _v11.useReplaceElement)(),
         {
-          uploadMedia: _v14
+          uploadMedia: _v15
         } = (0, _v33.useUploadQueue)(),
         {
-          handleMediaItemClickOrDrag: _v15
+          handleMediaItemClickOrDrag: _v16
         } = (0, _v32.useMediaItemClick)(),
         {
-          addMediaItemToStoryboard: _v16,
-          retryUploadLocalMediaFile: _v17,
-          deleteFailedLocalMediaFile: _v18
+          addMediaItemToStoryboard: _v17,
+          retryUploadLocalMediaFile: _v18,
+          deleteFailedLocalMediaFile: _v19
         } = (0, _v31.useLocalFile)(),
         {
-          alertCannotDeleteMedia: _v19
+          alertCannotDeleteMedia: _v20
         } = (0, _v30.useAlerts)(),
-        [_v20, {
-          data: _v21,
-          isLoading: _v22
+        [_v21, {
+          data: _v22,
+          isLoading: _v23
         }] = (0, _v36.useLazyFetchMediaUploadsQuery)(),
-        [_v23] = (0, _v36.useDeleteMediaUploadMutation)(),
-        _v24 = (0, _v2.useMemo)(() => _v8.filter(_v0 => !_v9.includes(_v0.id)).map(_v0 => ({
+        [_v24] = (0, _v36.useDeleteMediaUploadMutation)(),
+        _v25 = (0, _v2.useMemo)(() => _v8.filter(_v0 => !_v10.includes(_v0.id)).map(_v0 => ({
           id: _v0.id,
           uploadType: _v55,
           mediaType: _v0.data.type,
@@ -101,8 +102,8 @@
           width: _v0.data.width,
           height: _v0.data.height,
           data: _v0
-        })).reverse(), [_v9, _v8]),
-        _v25 = (0, _v2.useMemo)(() => (_v21?.items || []).map(_v0 => {
+        })).reverse(), [_v10, _v8]),
+        _v26 = (0, _v2.useMemo)(() => (_v22?.items || []).map(_v0 => {
           let {
             width: _v1 = 1,
             height: _v2 = 1
@@ -116,40 +117,40 @@
             height: _v2,
             data: _v0
           };
-        }), [_v21]),
-        _v26 = (0, _v2.useMemo)(() => {
-          let _v0 = [..._v24, ..._v25];
-          return _v1 !== _v7.MediaUploadsType.ALL && (_v0 = _v0.filter(_v0 => _v0.mediaType === _v1)), _v0 !== _v7.MediaUploadsOrientation.ALL && (_v0 = _v0.filter(_v0 => _v0.orientation && _v42.OrientationMap[_v0.orientation] === _v0)), _v0 = _v0.filter(_v0 => !_v9.includes(_v0.id));
-        }, [_v24, _v25, _v1, _v0, _v9]),
-        _v27 = !_v22 && (!_v26 || 0 === _v26.length),
-        _v28 = (0, _v2.useCallback)(async ({
+        }), [_v22]),
+        _v27 = (0, _v2.useMemo)(() => {
+          let _v0 = [..._v25, ..._v26];
+          return _v1 !== _v7.MediaUploadsType.ALL && (_v0 = _v0.filter(_v0 => _v0.mediaType === _v1)), _v0 !== _v7.MediaUploadsOrientation.ALL && (_v0 = _v0.filter(_v0 => _v0.orientation && _v42.OrientationMap[_v0.orientation] === _v0)), _v0 = _v0.filter(_v0 => !_v10.includes(_v0.id));
+        }, [_v25, _v26, _v1, _v0, _v10]),
+        _v28 = !_v23 && (!_v27 || 0 === _v27.length),
+        _v29 = (0, _v2.useCallback)(async ({
           mediaItem: _v0,
           element: _v1
         }) => {
           (0, _v51.trackUploadStart)(_v0, _v7);
           let {
             status: _v2
-          } = await _v14({
+          } = await _v15({
             origin: _v44.UploadMediaOrigin.MEDIALIB,
             mediaItem: _v0,
-            isReplacing: _v13,
+            isReplacing: _v14,
             elementSourceHash: _v1.sourceHash
           });
           (0, _v51.trackUploadFinish)(_v0, _v2, _v7);
-        }, [_v13, _v14, _v7]),
-        _v29 = (0, _v2.useCallback)(async _v0 => {
+        }, [_v14, _v15, _v7]),
+        _v30 = (0, _v2.useCallback)(async _v0 => {
           try {
-            let _v0 = _v24.find(_v0 => _v0.data.data.id === _v0);
-            _v0 ? (await _v23({
+            let _v0 = _v25.find(_v0 => _v0.data.data.id === _v0);
+            _v0 ? (await _v24({
               mediaHash: _v0.data.id
-            }), _v10(_v0 => [..._v0, _v0.id])) : (await _v23({
+            }), _v11(_v0 => [..._v0, _v0.id])) : (await _v24({
               mediaHash: _v0
-            }), _v10(_v0 => [..._v0, _v0]));
+            }), _v11(_v0 => [..._v0, _v0]));
           } catch (_v0) {
-            _v19();
+            _v20();
           }
-        }, [_v19, _v23, _v24]),
-        _v30 = (0, _v2.useCallback)(({
+        }, [_v20, _v24, _v25]),
+        _v31 = (0, _v2.useCallback)(({
           item: _v0,
           index: _v1,
           isUploading: _v2,
@@ -167,7 +168,7 @@
             testid: _v6,
             ...(!(_v2 || _v4) && {
               isShowPlusButton: !0,
-              onDelete: () => _v29(_v0.id)
+              onDelete: () => _v30(_v0.id)
             }),
             ...(_v3 && {
               overlay: (0, _v1.jsxs)(_v17.Box, {
@@ -258,7 +259,7 @@
                     position: "absolute",
                     right: "0",
                     margin: "4px",
-                    onClick: () => _v18(_v26[_v1].data)
+                    onClick: () => _v19(_v27[_v1].data)
                   })
                 }), (0, _v1.jsx)(_v20.Tooltip, {
                   label: (0, _v25.translate)({
@@ -298,21 +299,21 @@
                     position: "absolute",
                     left: "0",
                     margin: "4px",
-                    onClick: () => _v17(_v26[_v1].data)
+                    onClick: () => _v18(_v27[_v1].data)
                   })
                 })]
               })
             })
           };
-        }, [_v18, _v29, _v26, _v17]),
-        _v31 = (0, _v2.useCallback)((_v0, _v1, _v2, _v3) => {
+        }, [_v19, _v30, _v27, _v18]),
+        _v32 = (0, _v2.useCallback)((_v0, _v1, _v2, _v3) => {
           let _v4 = _v0.data,
             _v5 = _v0.sourceHash,
             _v6 = _v0.status === _v43.STATUS.PROGRESS,
             _v7 = !_v0.canBeUseLocally,
             _v8 = _v0.status === _v43.STATUS.ERROR,
             _v9 = _v0.status === _v43.STATUS.DONE,
-            _v10 = _v30({
+            _v10 = _v31({
               item: _v4,
               index: _v1,
               isUploading: _v6,
@@ -336,7 +337,7 @@
                 type: _v38.DnDItemType.GRID_ELEMENT_MEDIA,
                 createElement: ({
                   time: _v0
-                }) => _v16({
+                }) => _v17({
                   mediaItem: _v4,
                   sourceHash: _v5,
                   time: _v0,
@@ -344,9 +345,10 @@
                 })
               },
               onExpand: _v3,
-              onClick: () => _v16({
+              onClick: () => _v17({
                 mediaItem: _v4,
                 sourceHash: _v5,
+                time: _v3 ? void 0 : _v9,
                 addItemAsHotspot: _v3
               })
             }),
@@ -396,9 +398,9 @@
             },
             isCrossOrigin: !0
           });
-        }, [_v30, _v16, _v3]),
-        _v32 = (0, _v2.useCallback)((_v0, _v1, _v2, _v3) => {
-          let _v4 = _v30({
+        }, [_v31, _v17, _v3, _v9]),
+        _v33 = (0, _v2.useCallback)((_v0, _v1, _v2, _v3) => {
+          let _v4 = _v31({
             item: _v0,
             index: _v1
           });
@@ -412,26 +414,26 @@
               id: _v0.id,
               data: _v0,
               type: _v38.DnDItemType.GRID_ELEMENT_MEDIA,
-              createElement: _v0 => _v15({
+              createElement: _v0 => _v16({
                 mediaItem: _v0,
                 draggableData: _v0,
                 createElement: _v5,
-                handleElementAdded: _v28
+                handleElementAdded: _v29
               }),
               onElementAdded: ({
                 element: _v0
               }) => {
-                _v28({
+                _v29({
                   mediaItem: _v0,
                   element: _v0
                 });
               }
             },
             onExpand: _v3,
-            onClick: () => _v15({
+            onClick: () => _v16({
               mediaItem: _v0,
               createElement: _v5,
-              handleElementAdded: _v28
+              handleElementAdded: _v29
             }),
             expandedItemData: {
               id: _v0.id,
@@ -445,24 +447,24 @@
               orientation: _v0.orientation
             }
           });
-        }, [_v5, _v30, _v28, _v15]),
-        _v33 = (0, _v2.useCallback)((_v0, _v1, _v2) => {
-          let _v3 = _v26[_v0];
-          if (_v3.uploadType === _v55) return _v31(_v3.data, _v0, _v1, _v2);
-          if (_v3.uploadType === _v56) return _v32(_v3.data, _v0, _v1, _v2);
+        }, [_v5, _v31, _v29, _v16]),
+        _v34 = (0, _v2.useCallback)((_v0, _v1, _v2) => {
+          let _v3 = _v27[_v0];
+          if (_v3.uploadType === _v55) return _v32(_v3.data, _v0, _v1, _v2);
+          if (_v3.uploadType === _v56) return _v33(_v3.data, _v0, _v1, _v2);
           throw Error(_v27.SOMETHING_WENT_WRONG);
-        }, [_v26, _v31, _v32]);
+        }, [_v27, _v32, _v33]);
       return ((0, _v2.useEffect)(() => {
-        _v12.current = 1, _v35.default.vimeoSessionId && _v20({
-          page: _v12.current,
+        _v13.current = 1, _v35.default.vimeoSessionId && _v21({
+          page: _v13.current,
           vsid: _v7,
           limit: 30,
           service: "all",
           isImage: _v1,
           orientation: _v0,
           fetchHotspotUploads: _v4
-        }), _v11?.current?.scrollToIndex(0);
-      }, [_v1, _v0, _v7, _v20, _v4]), _v27) ? (0, _v1.jsxs)(_v1.Fragment, {
+        }), _v12?.current?.scrollToIndex(0);
+      }, [_v1, _v0, _v7, _v21, _v4]), _v28) ? (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v50.default, {
           type: _v39.EmptyInspectorView.UPLOADS,
           title: _v8.translations.emptyMediaTitle,
@@ -479,13 +481,13 @@
       }) : (0, _v1.jsx)(_v52.MediaGridContainer, {
         padRight: !1,
         children: (0, _v1.jsx)(_v54.Grid, {
-          ref: _v11,
-          itemRenderer: _v33,
+          ref: _v12,
+          itemRenderer: _v34,
           styleType: _v40.GridStyleType.LANDSCAPE,
-          items: _v26,
+          items: _v27,
           loadMoreItems: () => {
-            _v21 && !(_v21.itemsCount <= _v21.items.length) && (_v12.current++, _v20({
-              page: _v12.current,
+            _v22 && !(_v22.itemsCount <= _v22.items.length) && (_v13.current++, _v21({
+              page: _v13.current,
               vsid: _v7,
               limit: 30,
               service: "all",
@@ -494,8 +496,8 @@
               fetchHotspotUploads: _v4
             }));
           },
-          isLoading: _v22,
-          onDelete: _v29
+          isLoading: _v23,
+          onDelete: _v30
         })
       });
     });
@@ -504,59 +506,60 @@
   }) => {
     let _v1 = (0, _v14.useAppSelector)(_v12.isEditingInteractiveOverlaySelector),
       _v2 = (0, _v14.useAppSelector)(_v13.storyboardIdSelector),
+      _v3 = (0, _v14.useAppSelector)(_v13.durationSelector),
       {
-        trackEditorMediaAdded: _v3,
-        trackEditorMediaFilterApplied: _v4
+        trackEditorMediaAdded: _v4,
+        trackEditorMediaFilterApplied: _v5
       } = (0, _v4.useEditorTracking)(),
-      _v5 = _v1 ? _v7.MediaUploadsType.IMAGE : _v7.MediaUploadsType.ALL,
-      [_v6, _v7] = (0, _v2.useState)(_v7.MediaUploadsOrientation.ALL),
-      [_v8, _v9] = (0, _v2.useState)(_v5),
+      _v6 = _v1 ? _v7.MediaUploadsType.IMAGE : _v7.MediaUploadsType.ALL,
+      [_v7, _v8] = (0, _v2.useState)(_v7.MediaUploadsOrientation.ALL),
+      [_v9, _v10] = (0, _v2.useState)(_v6),
       {
-        createOrReplaceMediaElement: _v10
+        createOrReplaceMediaElement: _v11
       } = (0, _v10.useMediaElement)(),
       {
-        createOrReplaceHotspotFromMedia: _v11
+        createOrReplaceHotspotFromMedia: _v12
       } = (0, _v9.useHotspot)(),
       {
-        isReplacing: _v12
+        isReplacing: _v13
       } = (0, _v11.useReplaceElement)(),
-      _v13 = !_v1,
-      _v14 = (0, _v2.useCallback)((_v0, _v1) => {
+      _v14 = !_v1,
+      _v15 = (0, _v2.useCallback)((_v0, _v1) => {
         let {
           time: _v2
         } = _v1 || {};
         return (0, _v16.sendTrackAddMedia)({
-          mediaSelectionAction: _v12 ? "replace" : "add",
+          mediaSelectionAction: _v13 ? "replace" : "add",
           mediaSource: "uploads",
           mediaType: _v0.type
-        }), _v3({
+        }), _v4({
           editorSessionId: _v2,
           editorMediaSource: "uploads",
           editorMediaType: _v0.type
-        }), _v1 ? _v11(_v0, _v1, {
+        }), _v1 ? _v12(_v0, _v1, {
           ..._v6.NO_ACTION_PRESET
-        }) : _v10({
+        }) : _v11({
           mediaItem: _v0,
           isAddToStoryboard: !1,
-          time: _v2
+          time: _v2 ?? _v3
         });
-      }, [_v11, _v10, _v1, _v12, _v2, _v3]);
+      }, [_v12, _v11, _v1, _v13, _v2, _v3, _v4]);
     return (0, _v1.jsxs)(_v3.Flex, {
       h: "100%",
       direction: "column",
       children: [(0, _v1.jsx)(_v5.default, {
         onChange: (_v0, _v1) => {
-          _v0 === _v15.MediaUploadsFiltersType.ORIENTATION ? _v7(_v1) : _v0 === _v15.MediaUploadsFiltersType.MEDIA_TYPE && _v9(_v1), _v4({
+          _v0 === _v15.MediaUploadsFiltersType.ORIENTATION ? _v8(_v1) : _v0 === _v15.MediaUploadsFiltersType.MEDIA_TYPE && _v10(_v1), _v5({
             editorSessionId: _v2,
             filterKey: _v0
           });
         },
-        shouldShowTypeFilter: _v13
+        shouldShowTypeFilter: _v14
       }), (0, _v1.jsx)(_v57, {
-        orientation: _v6,
-        mediaType: _v8,
+        orientation: _v7,
+        mediaType: _v9,
         emptyStateText: _v8.translations.emptyMediaState,
-        createOrReplaceElement: _v14,
+        createOrReplaceElement: _v15,
         handleFileUpload: _v0,
         addItemAsHotspot: _v1,
         fetchHotspotUploads: !1

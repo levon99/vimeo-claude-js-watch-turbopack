@@ -313,7 +313,7 @@
           });
         });
       }
-      return Promise.reject("PlaceId is missing");
+      return Promise.reject(Error("PlaceId is missing"));
     }
     getNameAndIsoCode(_v0, _v1, _v2) {
       _v0[_v1] = _v2.long_name, _v2.short_name.length < 10 && (_v0[`${_v1}IsoCode`] = _v2.short_name);
@@ -382,7 +382,7 @@
         },
         _v31 = _v0 => {
           var _v1;
-          _v25.current?.focus(), _v27(_v0.formattedAddress), (_v1 = _v0.placeId, _v9 ? new _v41(_v9).getLocation(_v1) : Promise.reject("It seems Google API is not set in context or initialized properly")).then(_v0 => {
+          _v25.current?.focus(), _v27(_v0.formattedAddress), (_v1 = _v0.placeId, _v9 ? new _v41(_v9).getLocation(_v1) : Promise.reject(Error("It seems Google API is not set in context or initialized properly"))).then(_v0 => {
             _v0 && (_v13(_v0), _v1(_v0));
           }).catch(_v0 => {
             _v13(null), _v15(""), _v1(), _v17(0), _v22(_v0);

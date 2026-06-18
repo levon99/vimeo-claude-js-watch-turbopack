@@ -7,7 +7,7 @@
     _v4 = _v0.i(0),
     _v5 = _v0.i(0),
     _v6 = _v0.i(0);
-  let _v7 = () => Promise.reject("not implemented yet"),
+  let _v7 = () => Promise.reject(Error("not implemented yet")),
     _v8 = {
       REVIEW_LINKS_PANEL: _v4.ShareModalState.Review,
       INVITE_PANEL: _v4.ShareModalState.Default,

@@ -184,9 +184,11 @@
     let _v16 = (0, _v2.useCallback)(_v0 => {
       (/mac/i.test(navigator.platform) ? _v0.metaKey : _v0.ctrlKey) && "k" === _v0.key && (_v0.preventDefault(), _v8 && _v2(_v0 => !_v0));
     }, [_v8]);
-    return ((0, _v2.useEffect)(() => (document.addEventListener("keydown", _v16), () => {
-      document.removeEventListener("keydown", _v16);
-    }), [_v16]), _v5) ? _v13 ? (0, _v1.jsx)(_v1.Fragment, {}) : _v8 ? (0, _v1.jsx)(_v3.Flex, {
+    return ((0, _v2.useEffect)(() => {
+      if (!_v13) return document.addEventListener("keydown", _v16), () => {
+        document.removeEventListener("keydown", _v16);
+      };
+    }, [_v16, _v13]), _v5) ? _v13 ? (0, _v1.jsx)(_v1.Fragment, {}) : _v8 ? (0, _v1.jsx)(_v3.Flex, {
       justifyContent: "flex-end",
       marginLeft: _v0.showRefreshedLihpChanges ? (0, _v5.rem)(14) : "unset",
       grow: _v1 ? 1 : "unset",

@@ -404,7 +404,7 @@
       }
     }
     getNewAccessToken() {
-      return Promise.reject("getNewAccessToken mocked, cannot retrieve new token");
+      return Promise.reject(Error("getNewAccessToken mocked, cannot retrieve new token"));
     }
     clearTokenRefreshTimer() {
       this.tokenRefreshTimer && (window.clearTimeout(this.tokenRefreshTimer), this.tokenRefreshTimer = null);

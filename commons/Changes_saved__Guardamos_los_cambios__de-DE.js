@@ -35,7 +35,7 @@
       status: "neutral"
     },
     _v5 = _v2.default.createContext(_v4),
-    _v6 = _v2.default.createContext(() => Promise.reject("not implemented yet"));
+    _v6 = _v2.default.createContext(() => Promise.reject(Error("not implemented yet")));
   _v0.s(["NotificationOptionsContext", 0, _v5, "default", 0, function ({
     children: _v0
   }) {

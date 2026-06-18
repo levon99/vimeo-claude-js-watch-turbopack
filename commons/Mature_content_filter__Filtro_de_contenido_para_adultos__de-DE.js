@@ -29,20 +29,21 @@
     _v26 = _v0.i(0),
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
-    _v29 = _v0.i(0);
-  let _v30 = ({
+    _v29 = _v0.i(0),
+    _v30 = _v0.i(0);
+  let _v31 = ({
     open: _v0,
     onClose: _v1,
     selected: _v2,
     filters: _v3,
     customFilters: _v4,
     token: _v5
-  }) => (0, _v1.jsx)(_v25.Modal, {
+  }) => (0, _v1.jsx)(_v26.Modal, {
     isOpen: _v0,
     onClose: _v1,
-    children: (0, _v1.jsxs)(_v26.ModalContent, {
-      children: [(0, _v1.jsx)(_v27.ModalHeader, {
-        children: (0, _v19.translate)({
+    children: (0, _v1.jsxs)(_v27.ModalContent, {
+      children: [(0, _v1.jsx)(_v28.ModalHeader, {
+        children: (0, _v20.translate)({
           singular: "Mature content filter",
           dictionary: {
             es: {
@@ -68,7 +69,7 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v28.ModalCloseButton, {}), (0, _v1.jsx)(_v29.ContentViewingPrefsForm, {
+      }), (0, _v1.jsx)(_v29.ModalCloseButton, {}), (0, _v1.jsx)(_v30.ContentViewingPrefsForm, {
         token: _v5,
         selected: _v2,
         filters: _v3,
@@ -77,17 +78,17 @@
       })]
     })
   });
-  _v0.s(["MatureContentModal", 0, _v30], 0);
-  var _v31 = _v0.i(0);
-  let _v32 = {
-      ICON: (0, _v1.jsx)(_v31.HeartFilled, {
+  _v0.s(["MatureContentModal", 0, _v31], 0);
+  var _v32 = _v0.i(0);
+  let _v33 = {
+      ICON: (0, _v1.jsx)(_v32.HeartFilled, {
         color: "red.500",
         marginX: "xs"
       }, "heart-filled")
     },
-    _v33 = [(0, _v19.translate)({
+    _v34 = [(0, _v20.translate)({
       singular: "Made with {ICON} in Bangalore",
-      replacements: _v32,
+      replacements: _v33,
       dictionary: {
         es: {
           singular: "Hecho con {ICON} en Bangalore"
@@ -111,9 +112,9 @@
           singular: "在班加罗尔用 {ICON} 制作"
         }
       }
-    }), (0, _v19.translate)({
+    }), (0, _v20.translate)({
       singular: "Made with {ICON} in Tel Aviv",
-      replacements: _v32,
+      replacements: _v33,
       dictionary: {
         es: {
           singular: "Hecho con {ICON} en Tel Aviv"
@@ -137,9 +138,9 @@
           singular: "在特拉维夫用 {ICON} 制作"
         }
       }
-    }), (0, _v19.translate)({
+    }), (0, _v20.translate)({
       singular: "Made with {ICON} in NYC",
-      replacements: _v32,
+      replacements: _v33,
       dictionary: {
         es: {
           singular: "Hecho con {ICON} en NYC"
@@ -163,9 +164,9 @@
           singular: "在纽约用 {ICON} 制作"
         }
       }
-    }), (0, _v19.translate)({
+    }), (0, _v20.translate)({
       singular: "Made with {ICON} in Zaporizhzhia",
-      replacements: _v32,
+      replacements: _v33,
       dictionary: {
         es: {
           singular: "Hecho con {ICON} en Zaporizhzhia"
@@ -189,9 +190,9 @@
           singular: "在扎波罗热用 {ICON} 制作"
         }
       }
-    }), (0, _v19.translate)({
+    }), (0, _v20.translate)({
       singular: "Made with {ICON} in London",
-      replacements: _v32,
+      replacements: _v33,
       dictionary: {
         es: {
           singular: "Hecho con {ICON} en Londres"
@@ -215,9 +216,9 @@
           singular: "在伦敦用 {ICON} 制作"
         }
       }
-    }), (0, _v19.translate)({
+    }), (0, _v20.translate)({
       singular: "Made with {ICON} at home",
-      replacements: _v32,
+      replacements: _v33,
       dictionary: {
         es: {
           singular: "Hecho con {ICON} en casa"
@@ -241,9 +242,9 @@
           singular: "在家用 {ICON} 制作"
         }
       }
-    }), (0, _v19.translate)({
+    }), (0, _v20.translate)({
       singular: "Made with {ICON} in Kyiv",
-      replacements: _v32,
+      replacements: _v33,
       dictionary: {
         es: {
           singular: "Hecho con {ICON} en Kyiv"
@@ -268,7 +269,7 @@
         }
       }
     })],
-    _v34 = () => {
+    _v35 = () => {
       let [_v0, _v1] = (0, _v2.useState)(0);
       (0, _v2.useEffect)(() => {
         let _v0 = setInterval(() => {
@@ -276,7 +277,7 @@
         }, 0);
         return () => clearInterval(_v0);
       }, []);
-      let _v2 = _v33[_v0 % _v33.length];
+      let _v2 = _v34[_v0 % _v34.length];
       return (0, _v1.jsx)(_v6.MenuItem, {
         _hover: {
           bg: "transparent",
@@ -291,8 +292,8 @@
         })
       });
     },
-    _v35 = "255px",
-    _v36 = ({
+    _v36 = "255px",
+    _v37 = ({
       children: _v0
     }) => (0, _v1.jsxs)(_v8.Flex, {
       width: "100%",
@@ -300,7 +301,7 @@
       justifyContent: "space-between",
       children: [_v0, (0, _v1.jsx)(_v15.ChevronRight, {})]
     }),
-    _v37 = ({
+    _v38 = ({
       children: _v0
     }) => (0, _v1.jsxs)(_v8.Flex, {
       width: "100%",
@@ -324,7 +325,7 @@
     let _v11 = (0, _v9.useToast)(),
       [_v12, _v13] = (0, _v2.useState)(!1),
       [_v14, _v15] = (0, _v2.useState)("main"),
-      _v16 = (0, _v2.useContext)(_v21.ViewerContext),
+      _v16 = (0, _v2.useContext)(_v22.ViewerContext),
       _v17 = _v16?.isSimplifiedSite,
       _v18 = _v16?.user,
       _v19 = _v16?.teamUser,
@@ -352,7 +353,7 @@
         closeOnSelect: !1,
         onClose: () => _v25("main"),
         children: [_v0 || (0, _v1.jsx)(_v13.Tooltip, {
-          label: (0, _v19.translate)({
+          label: (0, _v20.translate)({
             singular: "Language & content",
             dictionary: {
               es: {
@@ -388,11 +389,11 @@
             backgroundColor: "transparent"
           })
         }), "main" === _v14 && (0, _v1.jsx)(() => (0, _v1.jsxs)(_v4.MenuList, {
-          width: _v35,
+          width: _v36,
           children: [_v10, (0, _v1.jsx)(_v6.MenuItem, {
             onClick: () => _v25("language"),
-            children: (0, _v1.jsx)(_v36, {
-              children: (0, _v19.translate)({
+            children: (0, _v1.jsx)(_v37, {
+              children: (0, _v20.translate)({
                 singular: "Language",
                 dictionary: {
                   es: {
@@ -426,8 +427,8 @@
                 display: "none"
               }
             },
-            children: (0, _v1.jsx)(_v36, {
-              children: (0, _v19.translate)({
+            children: (0, _v1.jsx)(_v37, {
+              children: (0, _v20.translate)({
                 singular: "Legal",
                 dictionary: {
                   "de-DE": {
@@ -456,8 +457,8 @@
               _v13(!0), _v9?.();
             },
             closeOnSelect: !0,
-            children: (0, _v1.jsx)(_v36, {
-              children: (0, _v19.translate)({
+            children: (0, _v1.jsx)(_v37, {
+              children: (0, _v20.translate)({
                 singular: "Mature content filter",
                 dictionary: {
                   es: {
@@ -489,7 +490,7 @@
             href: "/help",
             target: "_blank",
             rel: "noreferrer",
-            children: (0, _v19.translate)({
+            children: (0, _v20.translate)({
               singular: "Help",
               dictionary: {
                 es: {
@@ -517,7 +518,7 @@
             })
           }), _v24 && (0, _v1.jsx)(_v6.MenuItem, {
             as: "a",
-            href: (0, _v20.buildUpgradePlanUrl)({
+            href: (0, _v21.buildUpgradePlanUrl)({
               paywallTrigger: "footer_menu_upgrade_button",
               paywallLocation: "footer_menu",
               paywallFeature: "general"
@@ -534,7 +535,7 @@
             _dark: {
               color: "upsell-primary"
             },
-            children: (0, _v19.translate)({
+            children: (0, _v20.translate)({
               singular: "Upgrade",
               dictionary: {
                 es: {
@@ -557,13 +558,13 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v7.MenuDivider, {}), (0, _v1.jsx)(_v34, {})]
+          }), (0, _v1.jsx)(_v7.MenuDivider, {}), (0, _v1.jsx)(_v35, {})]
         }), {}), "language" === _v14 && (0, _v1.jsx)(() => (0, _v1.jsxs)(_v4.MenuList, {
-          width: _v35,
+          width: _v36,
           children: [(0, _v1.jsx)(_v6.MenuItem, {
             onClick: () => _v25("main"),
-            children: (0, _v1.jsx)(_v37, {
-              children: (0, _v19.translate)({
+            children: (0, _v1.jsx)(_v38, {
+              children: (0, _v20.translate)({
                 singular: "Language",
                 dictionary: {
                   es: {
@@ -594,12 +595,12 @@
             defaultValue: _v2,
             type: "radio",
             onChange: _v0 => {
-              (0, _v22.setLanguage)({
+              (0, _v23.setLanguage)({
                 token: _v5,
                 locale: _v0
               }).then(_v0 => {
-                _v0.ok ? window.location.reload() : _v11({
-                  title: (0, _v19.translate)({
+                _v0.ok ? (0, _v19.applyLanguageChange)(_v0) : _v11({
+                  title: (0, _v20.translate)({
                     singular: "Sorry, something went wrong. Please try again.",
                     dictionary: {
                       es: {
@@ -635,11 +636,11 @@
             }, _v0))
           })]
         }), {}), "legal" === _v14 && (0, _v1.jsx)(() => (0, _v1.jsxs)(_v4.MenuList, {
-          width: _v35,
+          width: _v36,
           children: [(0, _v1.jsx)(_v6.MenuItem, {
             onClick: () => _v25("main"),
-            children: (0, _v1.jsx)(_v37, {
-              children: (0, _v19.translate)({
+            children: (0, _v1.jsx)(_v38, {
+              children: (0, _v20.translate)({
                 singular: "Legal",
                 dictionary: {
                   "de-DE": {
@@ -663,18 +664,18 @@
                 }
               })
             })
-          }), (0, _v24.getLegalLinks)().filter(_v0 => (!!_v1 || "Impressum" !== _v0.title) && (!_v17 || _v0.forSimplifiedSite === _v17)).map(_v0 => (0, _v1.jsx)(_v6.MenuItem, {
+          }), (0, _v25.getLegalLinks)().filter(_v0 => (!!_v1 || "Impressum" !== _v0.title) && (!_v17 || _v0.forSimplifiedSite === _v17)).map(_v0 => (0, _v1.jsx)(_v6.MenuItem, {
             as: "a",
             href: _v0.href,
             target: "_blank",
             rel: "noreferrer",
             children: _v0.label
-          }, _v0.label)), (0, _v1.jsx)(_v23.default, {
+          }, _v0.label)), (0, _v1.jsx)(_v24.default, {
             footerType: "essential",
             isDoNotSellReady: _v7
           })]
         }), {})]
-      }), (0, _v1.jsx)(_v30, {
+      }), (0, _v1.jsx)(_v31, {
         open: _v12,
         onClose: () => _v13(!1),
         token: _v5,

@@ -5705,6 +5705,84 @@
           }
         }
       }),
+      liveTrialBlockButton: (0, _v6.translate)({
+        singular: "Got it",
+        dictionary: {
+          es: {
+            singular: "Entendido"
+          },
+          "de-DE": {
+            singular: "Alles klar"
+          },
+          "fr-FR": {
+            singular: "J'ai compris"
+          },
+          "ja-JP": {
+            singular: "了解"
+          },
+          "ko-KR": {
+            singular: "확인"
+          },
+          "pt-BR": {
+            singular: "Entendi"
+          },
+          "zh-CN": {
+            singular: "明白"
+          }
+        }
+      }),
+      liveTrialBlockMessage: (0, _v6.translate)({
+        singular: "Live streaming becomes available when your free trial converts to paid Advanced.",
+        dictionary: {
+          es: {
+            singular: "La transmisión en vivo estará disponible cuando su prueba gratuita se convierta en Advanced de pago."
+          },
+          "de-DE": {
+            singular: "Live-Streaming ist verfügbar, sobald Ihre kostenlose Testversion in ein kostenpflichtiges Advanced-Abonnement umgewandelt wird."
+          },
+          "fr-FR": {
+            singular: "La diffusion en direct devient disponible lorsque votre période d’essai gratuite est convertie en Advanced payant."
+          },
+          "ja-JP": {
+            singular: "無料トライアルが有料のAdvancedに切り替わると、ライブ配信が利用可能になります。"
+          },
+          "ko-KR": {
+            singular: "무료 체험이 유료 Advanced로 전환되면 라이브 스트리밍을 이용할 수 있습니다."
+          },
+          "pt-BR": {
+            singular: "A transmissão ao vivo fica disponível quando sua avaliação gratuita for convertida para o Advanced pago."
+          },
+          "zh-CN": {
+            singular: "当您的免费试用升级为付费 Advanced 后，即可使用直播功能。"
+          }
+        }
+      }),
+      liveTrialBlockTitle: (0, _v6.translate)({
+        singular: "Live streaming is available on paid Advanced",
+        dictionary: {
+          es: {
+            singular: "La transmisión en vivo está disponible en Advanced de pago"
+          },
+          "de-DE": {
+            singular: "Live-Streaming ist im kostenpflichtigen Advanced-Abonnement verfügbar"
+          },
+          "fr-FR": {
+            singular: "La diffusion en direct est disponible sur Advanced payant"
+          },
+          "ja-JP": {
+            singular: "ライブ配信は有料のAdvancedで利用可能です。"
+          },
+          "ko-KR": {
+            singular: "유료 Advanced에서 라이브 스트리밍을 이용할 수 있습니다"
+          },
+          "pt-BR": {
+            singular: "A transmissão ao vivo está disponível no Advanced pago"
+          },
+          "zh-CN": {
+            singular: "付费 Advanced 可使用直播功能"
+          }
+        }
+      }),
       logo: (0, _v6.translate)({
         singular: "Logo",
         dictionary: {

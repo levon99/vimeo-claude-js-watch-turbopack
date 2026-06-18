@@ -40,7 +40,7 @@
         color: "text-primary",
         width: "74px"
       }), (0, _v1.jsx)(_v13.PlansComparisonPaywallNavigation, {
-        dismissButtonPosition: "responsive",
+        dismissButtonPosition: "top_right",
         onDismiss: _v6
       }), (0, _v1.jsx)(_v11.Flex, {
         flex: "1",

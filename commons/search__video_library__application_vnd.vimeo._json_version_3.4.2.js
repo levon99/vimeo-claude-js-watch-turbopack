@@ -125,7 +125,7 @@
     },
     _v18 = _v2.default.createContext({
       state: _v17,
-      openDeleteFolderModal: () => Promise.reject("not implemented yet")
+      openDeleteFolderModal: () => Promise.reject(Error("not implemented yet"))
     });
   _v0.s(["DeleteFolderModalContext", 0, _v18, "default", 0, function ({
     children: _v0

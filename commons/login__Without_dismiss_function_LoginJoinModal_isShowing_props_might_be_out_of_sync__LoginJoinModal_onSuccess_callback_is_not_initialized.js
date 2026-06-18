@@ -448,7 +448,7 @@
             plainText: _v0.text,
             user: {
               name: _v0.metadata?.connections?.user?.name || _v0.metadata?.connections?.guestUser?.name || null,
-              link: !_v4?.isFromCopyrightRestrictedRegion && _v0.metadata?.connections?.user?.link ? _v0.metadata?.connections?.user?.link : null,
+              link: _v0.metadata?.connections?.user?.link || null,
               pictures: _v0.metadata?.connections?.user?.pictures || null,
               id: _v0.metadata?.connections?.user?.uri || null,
               badge: _v0.metadata?.connections?.user?.badge || null,
@@ -469,7 +469,7 @@
           ..._v0(_v0),
           replies: _v0.replies?.map(_v0 => _v0(_v0))
         }));
-      }, [_v11, _v5, _v6, _v4?.user, _v4?.isFromCopyrightRestrictedRegion, _v8]),
+      }, [_v11, _v5, _v6, _v4?.user, _v8]),
       totalComments: _v11 ? _v11[0]?.filteredTotal : 0,
       commentsLoading: _v13,
       commentsError: _v14,
@@ -545,7 +545,7 @@
             plainText: _v0.text,
             user: {
               name: _v0.userName || null,
-              link: !_v8?.isFromCopyrightRestrictedRegion && _v0.metadata?.connections?.user?.link ? _v0.metadata.connections?.user?.link : null,
+              link: _v0.metadata?.connections?.user?.link || null,
               pictures: _v0.metadata?.connections?.user?.pictures || null,
               id: _v0.metadata?.connections?.user?.uri || null,
               isStaffPicked: _v0.metadata?.connections?.user?.isStaffPicked || !1,
@@ -569,7 +569,7 @@
           replies: _v0.replies?.map(_v0 => _v0(_v0)) || [],
           ..._v0(_v0)
         })) || [];
-      }, [_v5, _v6, _v13, _v8?.user, _v8?.isFromCopyrightRestrictedRegion, _v11]),
+      }, [_v5, _v6, _v13, _v8?.user, _v11]),
       totalComments: _v13 ? _v13[0]?.total : 0,
       commentsLoading: _v14 || _v20,
       commentsError: _v15,
