@@ -334,6 +334,7 @@
     endDate: _v0.endDate,
     originalEndDate: _v0.originalEndDate,
     gracePeriodType: _v0.gracePeriodType,
+    isStorageEntitlementSuspended: _v0.isStorageEntitlementSuspended ?? !1,
     pricePerSeat: _v0.pricePerSeat,
     pricePerSeatForDisplay: _v0.pricePerSeatForDisplay,
     additionalSeatPrice: _v0.additionalSeatPrice ?? null,

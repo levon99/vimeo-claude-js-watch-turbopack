@@ -92,6 +92,10 @@
         clip_id: _v0.clipId,
         sharing_link_copied_surface: _v0.surface,
         interval_days: _v0.intervalDays
+      }), !0), [_v0]),
+      _v17 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("video_link_copied", {
+        clip_id: _v0.clipId,
+        video_link_copied_source: _v0.source
       }), !0), [_v0]);
     return {
       trackSharePublishButtonClicked: _v1,
@@ -110,10 +114,7 @@
       trackReviewLinksToggled: _v14,
       trackEmbedCodeCopied: _v15,
       trackSharingLinkCopied: _v16,
-      trackVideoLinkCopied: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("video_link_copied", {
-        clip_id: _v0.clipId,
-        video_link_copied_source: _v0.source
-      }), !0), [_v0]),
+      trackVideoLinkCopied: _v17,
       trackSharingLinkExpirationValueChanged: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("sharing_link_expiration_value_changed", {
         video_id: _v0.videoId,
         from_value: _v0.fromValue,
@@ -121,6 +122,10 @@
         default_value_shown: _v0.defaultValueShown,
         entry_point: _v0.entryPoint,
         is_first_link_value: _v0.isFirstLinkValue
+      }), !0), [_v0]),
+      trackSharingLinkExpirationReset: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("sharing_link_expiration_reset", {
+        video_id: _v0.videoId,
+        entry_point: _v0.entryPoint
       }), !0), [_v0])
     };
   }]);

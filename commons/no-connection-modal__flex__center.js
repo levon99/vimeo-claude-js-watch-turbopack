@@ -8491,28 +8491,29 @@
     graphicsContext: {
       graphicsActions: _v5,
       lowerthirdList: _v6,
-      globalList: _v7
+      globalList: _v7,
+      additionalInformation: _v8
     } = (0, _v28.useManager)(_v82.GraphicsManager),
     guestsContext: {
-      guests: _v8,
-      guestsActions: _v9
+      guests: _v9,
+      guestsActions: _v10
     } = (0, _v28.useManager)(_v146.GuestsManager),
     composerSessionStatusContext: {
-      ingestStatus: _v10
+      ingestStatus: _v11
     } = (0, _v28.useManager)(_v48.ComposerSessionStatusManager, ({
       ingestStatus: _v0
     }) => [_v0])
   }) {
-    let _v11 = (0, _v28.useScope)(),
+    let _v12 = (0, _v28.useScope)(),
       {
-        setIsHeaderEnabled: _v12
+        setIsHeaderEnabled: _v13
       } = (0, _v447.useResponsiveSidebarContext)(),
-      [_v13, _v14] = (0, _v21.useState)(null),
-      [_v15, _v16] = (0, _v21.useState)(0),
-      [_v17, _v18] = (0, _v21.useState)(_v485),
-      [_v19, _v20] = (0, _v21.useState)(!1),
-      _v21 = (0, _v21.useMemo)(() => Object.values(_v6).sort(_v421.graphicsComparator), [_v6]),
-      _v22 = (0, _v21.useMemo)(() => _v8 ? Object.values(_v8).reduce((_v0, _v1) => (_v0.push({
+      [_v14, _v15] = (0, _v21.useState)(null),
+      [_v16, _v17] = (0, _v21.useState)(0),
+      [_v18, _v19] = (0, _v21.useState)(_v485),
+      [_v20, _v21] = (0, _v21.useState)(!1),
+      _v22 = (0, _v21.useMemo)(() => Object.values(_v6).sort(_v421.graphicsComparator), [_v6]),
+      _v23 = (0, _v21.useMemo)(() => _v9 ? Object.values(_v9).reduce((_v0, _v1) => (_v0.push({
         id: (0, _v147.formatConnectionUidByType)(_v38.EAgoraConnectionType.GUEST, _v1.id),
         line: _v1.name,
         subLine: _v1.title,
@@ -8520,68 +8521,65 @@
         imageFileName: "",
         createdAt: _v1.createdAt,
         mail: _v1.mail
-      }), _v0), []) : [], [_v8]),
-      _v23 = (0, _v21.useMemo)(() => _v7[_v74.graphicsConfig.BROADCASTER.LOWERTHIRD_KEY], [_v7]),
-      _v24 = (0, _v21.useMemo)(() => {
-        let _v0 = _v7[_v74.graphicsConfig.BROADCASTER.LOWERTHIRD_KEY];
-        return {
-          name: _v0?.line ?? "",
-          title: _v0?.subLine ?? "",
-          mail: "",
-          createdAt: 0,
-          isAudioMuted: !1,
-          isVideoMuted: !1,
-          id: "BROADCASTER"
-        };
-      }, [_v7]),
-      _v25 = (0, _v21.useMemo)(() => [{
+      }), _v0), []) : [], [_v9]),
+      _v24 = (0, _v21.useMemo)(() => _v7[_v74.graphicsConfig.BROADCASTER.LOWERTHIRD_KEY], [_v7]),
+      _v25 = (0, _v21.useMemo)(() => ({
+        name: _v24?.line ?? "",
+        title: _v8.broadcaster.title,
+        mail: "",
+        createdAt: 0,
+        isAudioMuted: !1,
+        isVideoMuted: !1,
+        id: "BROADCASTER"
+      }), [_v24, _v8]),
+      _v26 = (0, _v21.useMemo)(() => [{
         tabLabel: _v66.translations.scenes,
         tabId: "scenes-lowerthird",
         isGuests: !1,
-        graphicsList: _v21
+        graphicsList: _v22
       }, {
         tabLabel: _v66.translations.speakers,
         tabId: "guests-lowerthird",
         isGuests: !0,
-        graphicsList: _v23 ? [_v23, ..._v22] : _v22
-      }], [_v21, _v22, _v23]),
-      _v26 = (0, _v21.useCallback)(() => {
-        _v12(!1), _v20(!0);
-      }, [_v12]),
-      _v27 = (0, _v21.useCallback)(_v0 => {
-        _v18(_v0), _v26();
-      }, [_v26]),
-      _v28 = (0, _v21.useCallback)(_v0 => {
-        _v14(_v13 === _v0 ? null : _v0);
+        graphicsList: _v24 ? [_v24, ..._v23] : _v23
+      }], [_v22, _v23, _v24]),
+      _v27 = (0, _v21.useCallback)(() => {
+        _v13(!1), _v21(!0);
       }, [_v13]),
-      _v29 = (0, _v21.useCallback)(() => {
-        _v14(null);
+      _v28 = (0, _v21.useCallback)(_v0 => {
+        _v19(_v0), _v27();
+      }, [_v27]),
+      _v29 = (0, _v21.useCallback)(_v0 => {
+        _v15(_v14 === _v0 ? null : _v0);
+      }, [_v14]),
+      _v30 = (0, _v21.useCallback)(() => {
+        _v15(null);
       }, []),
-      _v30 = (0, _v21.useCallback)(async (_v0, _v1) => {
-        await _v9.updateGuest(_v0, _v1);
-      }, [_v9]),
-      _v31 = (0, _v21.useCallback)(async _v0 => {
+      _v31 = (0, _v21.useCallback)(async (_v0, _v1) => {
+        await _v10.updateGuest(_v0, _v1);
+      }, [_v10]),
+      _v32 = (0, _v21.useCallback)(async _v0 => {
         await _v5.updateBroadcasterLowerThird(_v0);
       }, [_v5]),
-      _v32 = (0, _v21.useCallback)(() => {
-        _v27(_v485), (0, _v449.trackClickAddOtherLowerThird)();
-      }, [_v27]),
-      _v33 = _v164(_v88.EGraphicsDescriptorType.LOWER_THIRD, _v2, _v4, _v126.ETtrackingAddGraphicLocations.LEFT_PANEL),
-      _v34 = (0, _v21.useCallback)(({
+      _v33 = (0, _v21.useCallback)(() => {
+        _v28(_v485), (0, _v449.trackClickAddOtherLowerThird)();
+      }, [_v28]),
+      _v34 = _v164(_v88.EGraphicsDescriptorType.LOWER_THIRD, _v2, _v4, _v126.ETtrackingAddGraphicLocations.LEFT_PANEL),
+      _v35 = (0, _v21.useCallback)(({
         id: _v0,
         type: _v1
       }) => _v5.removeGraphic(_v1, _v0), [_v5]),
-      _v35 = (0, _v21.useCallback)(_v0 => {
-        _v16(_v0);
+      _v36 = (0, _v21.useCallback)(_v0 => {
+        _v17(_v0);
       }, []),
-      _v36 = (0, _v21.useCallback)(() => {
-        _v11.emitSignal({
+      _v37 = (0, _v21.useCallback)(() => {
+        _v12.emitSignal({
           type: _v51.ELiveSignal.LIVE_PANEL_TAB_CHANGE_REQUEST,
           data: _v102.SPEAKERS
         });
-      }, [_v11]),
-      _v37 = (0, _v314.useScrollbarStyles)();
-    return _v19 ? (0, _v17.jsx)(_v106.Box, {
+      }, [_v12]),
+      _v38 = (0, _v314.useScrollbarStyles)();
+    return _v20 ? (0, _v17.jsx)(_v106.Box, {
       id: _v0,
       className: _v1,
       sx: (0, _v416.createTabWrapperStyle)({
@@ -8592,9 +8590,9 @@
         children: (0, _v17.jsx)(_v477, {
           id: (0, _v65.createLiveDomName)(_v0, "form"),
           onFormClose: () => {
-            _v20(!1), _v12(!0), _v18(_v485);
+            _v21(!1), _v13(!0), _v19(_v485);
           },
-          defaultGraphic: _v17
+          defaultGraphic: _v18
         })
       })
     }) : (0, _v17.jsxs)(_v106.Box, {
@@ -8615,7 +8613,7 @@
             variant: "tertiary",
             placement: "bottom",
             label: _v66.translations.addLowerThird,
-            onClick: _v32
+            onClick: _v33
           }), (0, _v17.jsx)(_v414.LeftPanelDismiss, {
             id: (0, _v65.createLiveDomName)(_v0, "dismiss-button"),
             className: (0, _v65.createLiveDomName)(_v1, "dismiss-button")
@@ -8624,14 +8622,14 @@
       }), (0, _v17.jsx)(_v413.LeftPanelContent, {
         children: (0, _v17.jsxs)(_v439.Tabs, {
           id: (0, _v65.createLiveDomName)(_v0, "tabs"),
-          index: _v15,
+          index: _v16,
           size: "sm",
           sx: _v416.TABS_STYLES,
           flexGrow: 1,
           position: "relative",
-          onChange: _v35,
+          onChange: _v36,
           children: [(0, _v17.jsxs)(_v440.TabList, {
-            children: [_v25.map(({
+            children: [_v26.map(({
               tabLabel: _v0,
               tabId: _v1
             }) => (0, _v17.jsx)(_v441.Tab, {
@@ -8640,7 +8638,7 @@
             }, _v1)), (0, _v17.jsx)(_v439.TabIndicator, {})]
           }), (0, _v17.jsx)(_v443.TabPanels, {
             sx: _v416.TAB_PANELS_STYLES,
-            children: _v25.map(({
+            children: _v26.map(({
               tabId: _v0,
               isGuests: _v1,
               graphicsList: _v2
@@ -8659,25 +8657,25 @@
                   id: (0, _v65.createLiveDomName)(_v0, "list"),
                   sx: {
                     ...(0, _v416.createTabListScrollStyle)(),
-                    ..._v37
+                    ..._v38
                   },
                   children: (0, _v17.jsxs)(_v106.Box, {
                     id: (0, _v65.createLiveDomName)(_v0, "columns"),
                     sx: (0, _v416.createTabListColumnStyle)(!1),
                     children: [_v2.map(_v0 => {
                       let _v1 = (0, _v91.isGraphicAlreadyInScene)(_v0.id, _v2),
-                        _v2 = _v448(_v0.id, _v2, _v3, _v10),
-                        _v3 = _v0.id === _v13,
+                        _v2 = _v448(_v0.id, _v2, _v3, _v11),
+                        _v3 = _v0.id === _v14,
                         _v4 = (0, _v17.jsxs)(_v17.Fragment, {
                           children: [(0, _v17.jsx)(_v484, {
                             item: _v0,
                             overlayColor: _v2,
                             isInScene: _v1,
                             isGuests: _v1,
-                            onEdit: _v27,
-                            onGuestEdit: _v3 ? _v29 : _v28,
-                            onDelete: _v34,
-                            onToggleInScene: _v33
+                            onEdit: _v28,
+                            onGuestEdit: _v3 ? _v30 : _v29,
+                            onDelete: _v35,
+                            onToggleInScene: _v34
                           }, _v0.id), (0, _v17.jsx)(_v312.SceneItemOverlay, {
                             color: _v2,
                             width: 2,
@@ -8697,17 +8695,17 @@
                       if (_v0.id === _v38.EAgoraConnectionType.BROADCASTER) return (0, _v17.jsx)(_v106.Box, {
                         sx: _v416.TAB_LIST_COLUMN_FULL_ITEM_STYLE,
                         children: (0, _v17.jsx)(_v470, {
-                          broadcasterInfo: _v24,
+                          broadcasterInfo: _v25,
                           isEditing: _v3,
-                          onEditBroadcaster: _v31,
-                          onCloseEditForm: _v29,
+                          onEditBroadcaster: _v32,
+                          onCloseEditForm: _v30,
                           children: (0, _v17.jsx)("div", {
                             children: _v4
                           })
                         })
                       }, "form");
                       let _v5 = (0, _v147.parseUidFromAgora)(_v0.id),
-                        _v6 = Object.values(_v8).find(_v0 => _v0.id === _v5);
+                        _v6 = Object.values(_v9).find(_v0 => _v0.id === _v5);
                       return _v6 ? (0, _v17.jsx)(_v106.Box, {
                         sx: _v416.TAB_LIST_COLUMN_FULL_ITEM_STYLE,
                         children: (0, _v17.jsx)(_v468, {
@@ -8716,8 +8714,8 @@
                           guest: _v6,
                           inviteUrl: null,
                           isEditing: _v3,
-                          onCancelEditing: _v29,
-                          onUpdateGuest: _v30,
+                          onCancelEditing: _v30,
+                          onUpdateGuest: _v31,
                           onCreateGuest: _v64.CallablePlaceholderAsync,
                           onSendInvite: _v64.CallablePlaceholderAsync,
                           children: (0, _v17.jsx)("div", {
@@ -8735,7 +8733,7 @@
                         fontSize: "text-xs",
                         textDecoration: "underline",
                         cursor: "pointer",
-                        onClick: _v36,
+                        onClick: _v37,
                         children: _v66.translations.viewGuestSources
                       })
                     }) : null, 0 !== _v2.length || _v1 ? null : (0, _v17.jsx)(_v445.EmptyStatePlaceholder, {
@@ -8746,7 +8744,7 @@
                       buttonLeftIcon: (0, _v17.jsx)(_v369.Plus, {}),
                       buttonLabel: _v66.translations.addLowerThird,
                       description: _v66.translations.addLowerThirdDescription,
-                      onButtonClick: _v32
+                      onButtonClick: _v33
                     })]
                   })
                 }), (0, _v17.jsx)(_v106.Box, {

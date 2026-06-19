@@ -2077,7 +2077,19 @@
         }
       })
     },
-    _v130 = () => {
+    _v130 = _v0 => (0, _v3.jsx)(_v114.Link, {
+      href: "/settings/account/team_members",
+      target: "_blank",
+      onClick: () => {
+        _v12.BigPictureClient.sendEvent(new _v12.Event("onboarding.click_account_settings_error", 2, {
+          product: "Onboarding",
+          path: window.parent.location.pathname,
+          location: "onboarding"
+        }));
+      },
+      children: _v0
+    }),
+    _v131 = () => {
       var _v0, _v1, _v2, _v3, _v4, _v5;
       let {
           team: _v6
@@ -2244,56 +2256,145 @@
                 type: _v21.Actions.STEP_FORWARD
               });
             } catch (_v0) {
-              if (-1 !== _v0.message.indexOf(_v29.BAD_REQUEST_ERROR)) {
-                let _v0 = _v0.message.split(": ")[1],
-                  _v1 = (0, _v31.translate)({
-                    singular: "There was a problem inviting {EMAIL}. Make sure they aren't already on your team. If the problem persists, you can invite them from your {A}account settings{/A}.",
-                    replacements: {
-                      EMAIL: _v0,
-                      A: _v0 => (0, _v3.jsx)(_v114.Link, {
-                        href: "/settings/account/team_members",
-                        target: "_blank",
-                        onClick: () => {
-                          _v12.BigPictureClient.sendEvent(new _v12.Event("onboarding.click_account_settings_error", 2, {
-                            product: "Onboarding",
-                            path: window.parent.location.pathname,
-                            location: "onboarding"
-                          }));
+              if ((0, _v29.isTeamInviteError)(_v0)) {
+                let {
+                  email: _v0,
+                  errorCode: _v1
+                } = _v0;
+                _v20(((_v0, _v1) => {
+                  switch (_v1) {
+                    case _v29.InviteErrorCode.AlreadyJoined:
+                      return (0, _v31.translate)({
+                        singular: "{BOLD}'{EMAIL}'{/BOLD} is already part of your team.",
+                        replacements: {
+                          EMAIL: _v0,
+                          BOLD: _v0 => (0, _v3.jsx)("b", {
+                            children: _v0
+                          })
                         },
-                        children: _v0
-                      })
-                    },
-                    dictionary: {
-                      es: {
-                        singular: "Se produjo un problema al invitar a {EMAIL}. Asegúrate de que esta persona ya no forme parte de tu equipo. Si el problema continúa, puedes invitarla desde la {A}configuración de la cuenta{/A}."
-                      },
-                      "de-DE": {
-                        singular: "Beim Einladen von {EMAIL} ist ein Problem aufgetreten. Überprüfe, ob diese Person eventuell bereits Teil deines Teams ist. Sollte das Problem weiterhin bestehen, kannst du die Person stattdessen über deine {A}Kontoeinstellungen{/A} einladen."
-                      },
-                      "fr-FR": {
-                        singular: "Un problème est survenu lors de l'invitation de {EMAIL}. Veuillez vous assurer que cette personne ne fait pas déjà partie de votre équipe. Si le problème persiste, vous pouvez l'inviter depuis vos {A}paramètres du compte{/A}."
-                      },
-                      "ja-JP": {
-                        singular: "{EMAIL} を招待する際に問題が発生しました。メンバーが既にチームに登録済されていないかご確認ください。問題が解決しない場合は、{A}アカウント設定{/A}から招待できます。"
-                      },
-                      "ko-KR": {
-                        singular: "{EMAIL} 초대 중 문제가 발생했습니다. 이미 팀에 속한 회원은 아닌지 확인하세요. 문제가 지속되는 경우 {A}계정 설정{/A}에서 초대할 수 있습니다."
-                      },
-                      "pt-BR": {
-                        singular: "Houve um problema ao convidar {EMAIL}. Certifique-se de que eles já não estão na sua equipe. Se o problema persistir, você pode convidá-los a partir das configurações da sua {A}conta{/A}."
-                      },
-                      "zh-CN": {
-                        singular: "邀请 {EMAIL} 时出现问题。确保他们还没有加入您的团队。如果问题仍然存在，您可以通过从{A}账户设置{/A}中邀请他们。"
-                      }
-                    }
-                  }),
-                  _v2 = _v13.map(_v0 => _v0.email === _v0 ? {
-                    ..._v0,
-                    isEmailValid: !1
-                  } : _v0);
-                _v20(_v1), _v14(_v2);
-              }
-              _v18(_v29.TOAST_OOPS), _v16(!1);
+                        dictionary: {
+                          es: {
+                            singular: "{BOLD}'{EMAIL}'{/BOLD} ya es parte de tu equipo."
+                          },
+                          "de-DE": {
+                            singular: "{BOLD}„{EMAIL}“{/BOLD} gehört deinem Team bereits an."
+                          },
+                          "fr-FR": {
+                            singular: "{BOLD}« {EMAIL} »{/BOLD} fait déjà partie de votre équipe."
+                          },
+                          "ja-JP": {
+                            singular: "{BOLD}「{EMAIL}」{/BOLD}はすでにチームメンバーです。"
+                          },
+                          "ko-KR": {
+                            singular: "{BOLD}'{EMAIL}'{/BOLD}은(는) 이미 팀에 속해 있습니다."
+                          },
+                          "pt-BR": {
+                            singular: "{BOLD}'{EMAIL}'{/BOLD} já faz parte da sua equipe."
+                          },
+                          "zh-CN": {
+                            singular: "{BOLD}“{EMAIL}”{/BOLD}已是您的团队成员。"
+                          }
+                        }
+                      });
+                    case _v29.InviteErrorCode.AlreadyInvited:
+                      return (0, _v31.translate)({
+                        singular: "{BOLD}'{EMAIL}'{/BOLD} is already invited and is yet to respond.",
+                        replacements: {
+                          EMAIL: _v0,
+                          BOLD: _v0 => (0, _v3.jsx)("b", {
+                            children: _v0
+                          })
+                        },
+                        dictionary: {
+                          es: {
+                            singular: "Ya se invitó a {BOLD}'{EMAIL}'{/BOLD} y aún no respondió."
+                          },
+                          "de-DE": {
+                            singular: "{BOLD}„{EMAIL}“{/BOLD} wurde bereits eingeladen und hat noch nicht geantwortet."
+                          },
+                          "fr-FR": {
+                            singular: "{BOLD}« {EMAIL} »{/BOLD} a déjà reçu une invitation et n'a pas encore répondu."
+                          },
+                          "ja-JP": {
+                            singular: "{BOLD}「{EMAIL}」{/BOLD}はすでに招待済み・返答待ちです。"
+                          },
+                          "ko-KR": {
+                            singular: "{BOLD}'{EMAIL}'{/BOLD}은(는) 이미 초대되었으며 아직 응답하지 않았습니다."
+                          },
+                          "pt-BR": {
+                            singular: "{BOLD}'{EMAIL}'{/BOLD} já recebeu o convite e ainda não respondeu."
+                          },
+                          "zh-CN": {
+                            singular: "{BOLD}“{EMAIL}”{/BOLD}已被邀请，但尚未回复。"
+                          }
+                        }
+                      });
+                    case _v29.InviteErrorCode.MemberLimitReached:
+                    case _v29.InviteErrorCode.SeatLimitReached:
+                      return (0, _v31.translate)({
+                        singular: "You hit your maximum number of invites.",
+                        dictionary: {
+                          es: {
+                            singular: "Has alcanzado el número máximo de invitaciones."
+                          },
+                          "de-DE": {
+                            singular: "Du hast deine Maximalzahl an Einladungen erreicht."
+                          },
+                          "fr-FR": {
+                            singular: "Vous avez atteint votre nombre maximum d'invitations."
+                          },
+                          "ja-JP": {
+                            singular: "追加できるメンバー数の上限に達しました。"
+                          },
+                          "ko-KR": {
+                            singular: "보낸 초대장 수가 최대 한도에 도달했습니다."
+                          },
+                          "pt-BR": {
+                            singular: "Você atingiu o número máximo de convites."
+                          },
+                          "zh-CN": {
+                            singular: "您已达到最大邀请数。"
+                          }
+                        }
+                      });
+                    default:
+                      return (0, _v31.translate)({
+                        singular: "There was a problem inviting {EMAIL}. Make sure they aren't already on your team. If the problem persists, you can invite them from your {A}account settings{/A}.",
+                        replacements: {
+                          EMAIL: _v0,
+                          A: _v130
+                        },
+                        dictionary: {
+                          es: {
+                            singular: "Hubo un problema al invitar a {EMAIL}. Asegúrate de que no estén ya en tu equipo. Si el problema persiste, puedes invitarlos desde tus {A}ajustes de la cuenta{/A}."
+                          },
+                          "de-DE": {
+                            singular: "Beim Einladen von {EMAIL} ist ein Problem aufgetreten. Stellen Sie sicher, dass diese Person nicht bereits in Ihrem Team ist. Wenn das Problem weiterhin besteht, können Sie sie über Ihre {A}Kontoeinstellungen{/A} einladen."
+                          },
+                          "fr-FR": {
+                            singular: "Un problème est survenu lors de l’invitation de {EMAIL}. Assurez-vous qu’ils ne font pas déjà partie de votre équipe. Si le problème persiste, vous pouvez les inviter depuis vos {A}paramètres du compte{/A}."
+                          },
+                          "ja-JP": {
+                            singular: "{EMAIL}を招待する際に問題が発生しました。既にチームに所属していないか確認してください。問題が解決しない場合は、{A}アカウント設定{/A}から招待できます。"
+                          },
+                          "ko-KR": {
+                            singular: "{EMAIL}을 초대하는 데 문제가 발생했습니다. 해당 사용자가 이미 팀에 속해 있지 않은지 확인하세요. 문제가 계속되면 {A}계정 설정{/A}에서 초대할 수 있습니다."
+                          },
+                          "pt-BR": {
+                            singular: "Ocorreu um problema ao convidar {EMAIL}. Verifique se essa pessoa ainda não faz parte da sua equipe. Se o problema persistir, você pode convidar essa pessoa nas {A}configurações da conta{/A}."
+                          },
+                          "zh-CN": {
+                            singular: "邀请 {EMAIL} 时出现问题。请确保他们尚未加入您的团队。如果问题仍然存在，您可以从您的{A}帐户设置{/A}邀请他们。"
+                          }
+                        }
+                      });
+                  }
+                })(_v0, _v1)), (_v1 === _v29.InviteErrorCode.AlreadyInvited || _v1 === _v29.InviteErrorCode.AlreadyJoined) && _v14(_v0 => _v0.map(_v0 => _v0.email === _v0 ? {
+                  ..._v0,
+                  isEmailValid: !1
+                } : _v0));
+              } else _v18(_v29.TOAST_OOPS);
+              _v16(!1);
             }
           }
         }, [_v13, _v21]),
@@ -2356,7 +2457,7 @@
                 singular: "购买额外席位以邀请管理员和贡献者。或免费邀请观众。"
               }
             }
-          })} `, (0, _v3.jsx)(_v140, {
+          })} `, (0, _v3.jsx)(_v141, {
             format: "soft",
             href: "https://vimeo.zendesk.com/hc/en-us/articles/8550140484877-Manage-the-number-of-seats-on-your-Vimeo-account",
             target: "_blank",
@@ -2522,7 +2623,7 @@
             }
           })
         }),
-        children: (0, _v3.jsxs)(_v131, {
+        children: (0, _v3.jsxs)(_v132, {
           children: [_v19 && (0, _v3.jsx)(_v111.Notice, {
             format: "negative",
             onClose: () => {
@@ -2532,11 +2633,11 @@
               size: "2",
               children: _v19
             })
-          }), (0, _v3.jsx)(_v132, {
-            children: (0, _v3.jsxs)(_v133, {
+          }), (0, _v3.jsx)(_v133, {
+            children: (0, _v3.jsxs)(_v134, {
               children: [_v13.map((_v0, _v1) => {
                 let _v2, _v3;
-                return (0, _v3.jsxs)(_v136, {
+                return (0, _v3.jsxs)(_v137, {
                   children: [(0, _v3.jsx)(_v102.Input, {
                     autoComplete: "off",
                     autoFocus: 0 === _v1,
@@ -2634,7 +2735,7 @@
                     status: _v0.isEmailValid ? "neutral" : "negative",
                     type: "email",
                     variant: "underline"
-                  }), (0, _v3.jsx)(_v137, {
+                  }), (0, _v3.jsx)(_v138, {
                     children: (0, _v3.jsx)(_v117.default, {
                       format: "alternative",
                       variant: "minimalTransparent",
@@ -2947,15 +3048,15 @@
                     })
                   })]
                 });
-              }), !_v30 && _v31 && (0, _v3.jsx)(_v139, {
+              }), !_v30 && _v31 && (0, _v3.jsx)(_v140, {
                 children: (0, _v3.jsx)(_v128, {
                   accentColor: _v6.accentColor,
                   invitationsOutstanding: (_v35 ? _v29.MAX_INVITE_COUNT : _v9) - _v25,
                   isSingleSeatOnboarding: _v11,
                   isTrialPlan: _v35
                 })
-              }), (0, _v3.jsxs)(_v134, {
-                children: [_v30 && (0, _v3.jsx)(_v135, {
+              }), (0, _v3.jsxs)(_v135, {
+                children: [_v30 && (0, _v3.jsx)(_v136, {
                   icon: (0, _v3.jsx)(_v113, {}),
                   format: "basic",
                   onClick: () => {
@@ -3022,7 +3123,7 @@
                       }
                     }
                   })
-                }), !(_v29 >= _v29.MAX_INVITE_COUNT && _v31) && (0, _v3.jsx)(_v138, {
+                }), !(_v29 >= _v29.MAX_INVITE_COUNT && _v31) && (0, _v3.jsx)(_v139, {
                   children: (0, _v3.jsx)(_v125, {
                     isSingleSeatOnboarding: _v11,
                     invitationsOutstanding: _v11 && _v35 ? _v29.MAX_INVITE_COUNT - _v25 : _v9 - _v25,
@@ -3352,7 +3453,7 @@
         })
       });
     },
-    _v131 = _v11.default.div.withConfig({
+    _v132 = _v11.default.div.withConfig({
       displayName: "TeamInvites__OuterWrapper",
       componentId: "sc-4c1c7007-0"
     })`
@@ -3364,7 +3465,7 @@
   padding: 0 ${(0, _v30.rem)(2)};
   width: 100%;
 `,
-    _v132 = _v11.default.div.withConfig({
+    _v133 = _v11.default.div.withConfig({
       displayName: "TeamInvites__InnerWrapper",
       componentId: "sc-4c1c7007-1"
     })`
@@ -3372,14 +3473,14 @@
   display: flex;
   justify-content: center;
 `,
-    _v133 = _v11.default.div.withConfig({
+    _v134 = _v11.default.div.withConfig({
       displayName: "TeamInvites__ContentWrapper",
       componentId: "sc-4c1c7007-2"
     })`
   max-height: 100%;
   width: 100%;
 `,
-    _v134 = _v11.default.div.withConfig({
+    _v135 = _v11.default.div.withConfig({
       displayName: "TeamInvites__ControlsWrapper",
       componentId: "sc-4c1c7007-3"
     })`
@@ -3387,7 +3488,7 @@
   justify-content: space-between;
   padding: ${(0, _v30.rem)(30)} 0 ${(0, _v30.rem)(20)} 0;
 `,
-    _v135 = (0, _v11.default)(_v42.Button).withConfig({
+    _v136 = (0, _v11.default)(_v42.Button).withConfig({
       displayName: "TeamInvites__AddMoreButton",
       componentId: "sc-4c1c7007-4"
     })`
@@ -3398,7 +3499,7 @@
     margin-right: ${(0, _v30.rem)(8)};
   }
 `,
-    _v136 = _v11.default.div.withConfig({
+    _v137 = _v11.default.div.withConfig({
       displayName: "TeamInvites__EmailInputWrapperStyled",
       componentId: "sc-4c1c7007-5"
     })`
@@ -3406,7 +3507,7 @@
   ${_v105};
   height: ${(0, _v30.rem)(80)};
 `,
-    _v137 = _v11.default.div.withConfig({
+    _v138 = _v11.default.div.withConfig({
       displayName: "TeamInvites__RoleMenuWrapper",
       componentId: "sc-4c1c7007-6"
     })`
@@ -3414,20 +3515,20 @@
   right: 0;
   top: ${(0, _v30.rem)(-5)};
 `,
-    _v138 = _v11.default.div.withConfig({
+    _v139 = _v11.default.div.withConfig({
       displayName: "TeamInvites__InviteCountWrapper",
       componentId: "sc-4c1c7007-7"
     })`
   display: flex;
   margin-left: auto;
 `,
-    _v139 = _v11.default.div.withConfig({
+    _v140 = _v11.default.div.withConfig({
       displayName: "TeamInvites__MaxInvitesSentNotificationWrapper",
       componentId: "sc-4c1c7007-8"
     })`
   padding-bottom: ${(0, _v30.rem)(20)};
 `,
-    _v140 = (0, _v11.default)(_v114.Link).withConfig({
+    _v141 = (0, _v11.default)(_v114.Link).withConfig({
       displayName: "TeamInvites__CustomLink",
       componentId: "sc-4c1c7007-9"
     })`
@@ -3436,8 +3537,8 @@
     color: ${(0, _v16.slate)(540)};
   }
 `;
-  var _v141 = _v0.i(0);
-  let _v142 = _v0 => {
+  var _v142 = _v0.i(0);
+  let _v143 = _v0 => {
       let {
           data: _v1,
           error: _v2
@@ -3448,12 +3549,12 @@
           }
         }),
         _v3 = 0;
-      return _v2 ? console.error(_v2) : _v3 = _v29.MAX_SINGLE_SEAT_INVITE_COUNT - (_v1?.data?.[0]?.teamMembersCount?.viewer || 0), (0, _v3.jsx)(_v143, {
+      return _v2 ? console.error(_v2) : _v3 = _v29.MAX_SINGLE_SEAT_INVITE_COUNT - (_v1?.data?.[0]?.teamMembersCount?.viewer || 0), (0, _v3.jsx)(_v144, {
         ..._v0,
         remainingInviteCount: _v3
       });
     },
-    _v143 = _v0 => {
+    _v144 = _v0 => {
       let _v1,
         _v2,
         _v3,
@@ -3470,7 +3571,7 @@
           user: _v9,
           remainingInviteCount: _v10
         } = _v0,
-        [_v11, _v12] = (0, _v5.useReducer)(_v25, (_v1 = [_v141.WelcomePage], _v3 = [_v1, _v2 = [_v110]], _v10 > 0 && _v2.push(_v130), {
+        [_v11, _v12] = (0, _v5.useReducer)(_v25, (_v1 = [_v142.WelcomePage], _v3 = [_v1, _v2 = [_v110]], _v10 > 0 && _v2.push(_v131), {
           ..._v22.defaultState,
           flow: _v3
         })),
@@ -3522,7 +3623,7 @@
             value: _v11,
             children: (0, _v3.jsxs)(_v22.DispatchContext.Provider, {
               value: _v12,
-              children: [(0, _v3.jsx)(_v144, {
+              children: [(0, _v3.jsx)(_v145, {
                 animate: !1,
                 size: "xs",
                 background: _v11.team.accentColor
@@ -3532,7 +3633,7 @@
         })
       });
     },
-    _v144 = (0, _v11.default)(_v17.Ribbon).withConfig({
+    _v145 = (0, _v11.default)(_v17.Ribbon).withConfig({
       displayName: "_components__StyledRibbon",
       componentId: "sc-2dc44614-0"
     })`
@@ -3541,8 +3642,8 @@
   left: 0;
   ${_v0 => _v0.background !== (0, _v16.blue)(500) && `background: ${_v0.background};`}
 `;
-  var _v145 = _v0.i(0),
-    _v146 = _v0.i(0);
+  var _v146 = _v0.i(0),
+    _v147 = _v0.i(0);
   (0, _v7.withPageSetup)(() => ({
     props: {
       layoutOptions: {
@@ -3554,7 +3655,7 @@
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => {
     let _v0 = (0, _v4.useRouter)(),
       _v1 = (0, _v5.useContext)(_v9.ViewerContext),
-      _v2 = "string" == typeof _v0.query[_v145.SATELLITE_ONBOARDING_NEXT_PARAM] ? _v0.query[_v145.SATELLITE_ONBOARDING_NEXT_PARAM] : void 0,
+      _v2 = "string" == typeof _v0.query[_v146.SATELLITE_ONBOARDING_NEXT_PARAM] ? _v0.query[_v146.SATELLITE_ONBOARDING_NEXT_PARAM] : void 0,
       _v3 = _v2 && _v2.startsWith("/") && (0, _v8.isVimeoRedirectableUrl)(_v2) ? _v2 : void 0;
     (0, _v5.useEffect)(() => {
       _v0.isReady && _v3 && _v0.replace(_v3);
@@ -3567,14 +3668,14 @@
       } = (0, _v6.useCapability)(["hasAddATeamMemberPage"]),
       _v6 = _v1?.user?.account && ["plus", "producer"].includes(_v1?.user?.account);
     return !_v3 && _v1?.user && (_v1?.team || _v6) && !_v5 && void 0 !== _v4 ? _v4 || _v6 ? (0, _v3.jsxs)(_v3.Fragment, {
-      children: [(0, _v3.jsx)(_v146.ExtoleConversionTracker, {}), (0, _v3.jsx)(_v142, {
+      children: [(0, _v3.jsx)(_v147.ExtoleConversionTracker, {}), (0, _v3.jsx)(_v143, {
         user: _v1.user,
         jwt: _v1.jwt,
         apiUrl: _v1.apiUrl,
         isSingleSeatOnboarding: !0
       })]
     }) : (0, _v3.jsxs)(_v3.Fragment, {
-      children: [(0, _v3.jsx)(_v146.ExtoleConversionTracker, {}), (0, _v3.jsx)(_v143, {
+      children: [(0, _v3.jsx)(_v147.ExtoleConversionTracker, {}), (0, _v3.jsx)(_v144, {
         user: _v1.user,
         jwt: _v1.jwt,
         apiUrl: _v1.apiUrl,

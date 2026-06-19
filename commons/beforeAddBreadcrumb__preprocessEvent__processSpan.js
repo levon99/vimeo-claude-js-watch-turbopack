@@ -4493,7 +4493,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "65d8e350cc2facab21b4483c0a624a4cad16d18d",
+      release: "bcd8a2038c38cbdc7deff4dfcc27d926f2021fc1",
       ..._v0
     };
     !function (_v0) {
@@ -4577,10 +4577,12 @@ Error:`, _v0);
     ignoreErrors: ["fresnel-events.vimeocdn.com", "browser-intake-datadoghq.com"],
     beforeBreadcrumb: _v0 => "xhr" === _v0.category && "string" == typeof _v0.data?.url && _v0.data.url.includes("vimeocdn.com") && 200 === _v0.data.status_code ? null : _v0,
     beforeSend(_v0, _v1) {
-      let _v2 = _v0.exception?.values?.[0];
-      if (_v2?.type === "SyntaxError") {
-        let _v0 = _v2.stacktrace?.frames,
-          _v1 = _v2.mechanism?.type === "auto.browser.global_handlers.onerror" || _v2.mechanism?.type === "onerror";
+      let _v2 = _v1.originalException;
+      if ("u" > typeof Event && _v2 instanceof Event && "error" === _v2.type && _v2.target instanceof Element && ["LINK", "SCRIPT", "IMG"].includes(_v2.target.tagName)) return null;
+      let _v3 = _v0.exception?.values?.[0];
+      if (_v3?.type === "SyntaxError") {
+        let _v0 = _v3.stacktrace?.frames,
+          _v1 = _v3.mechanism?.type === "auto.browser.global_handlers.onerror" || _v3.mechanism?.type === "onerror";
         if (_v0?.length === 1) {
           let _v0 = _v0[0].filename ?? _v0[0].abs_path ?? "";
           if (_v0.startsWith("app:///") && !_v0.includes("_next/static") && _v1) return null;

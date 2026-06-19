@@ -88,7 +88,9 @@
           boxShadow: "0px 4px 32px 0px rgba(11, 26, 41, 0.12)",
           padding: (0, _v11.rem)(16),
           border: "none",
-          zIndex: "popover",
+          rootProps: {
+            zIndex: "tooltip"
+          },
           sx: {
             "--popper-arrow-shadow-color": "transparent"
           },

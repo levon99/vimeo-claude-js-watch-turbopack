@@ -169,14 +169,98 @@
           search_id: _v0.searchId,
           results_page_number: _v0.resultsPageNumber
         });
-      }, [_v0]);
-    return {
-      trackSearchPageDisplayed: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("search_page_displayed", {
+      }, [_v0]),
+      _v20 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("search_page_displayed", {
         search_query: _v0.searchQuery,
         search_active_tab: _v0.searchActiveTab,
         search_result_type: _v0.searchResultType,
         search_page_viewer_auth_status: _v0.searchPageViewerAuthStatus
       }), !0), [_v0]),
+      _v21 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("agentic_search_button_clicked", {
+          search_id: _v0.searchId,
+          new_state: _v0.newState
+        });
+      }, [_v0]),
+      _v22 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("agentic_search_submitted", {
+          search_id: _v0.searchId,
+          search_request_id: _v0.searchRequestId,
+          search_text: _v0.searchText,
+          max_results: _v0.maxResults
+        });
+      }, [_v0]),
+      _v23 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("agentic_search_response", {
+          search_id: _v0.searchId,
+          search_request_id: _v0.searchRequestId,
+          search_text: _v0.searchText,
+          status: _v0.status,
+          results_qty: _v0.resultsQty,
+          other_results_qty: _v0.otherResultsQty,
+          strategies_used: _v0.strategiesUsed,
+          partial: _v0.partial,
+          cited_qty: _v0.citedQty,
+          latency_ms: _v0.latencyMs,
+          error_message: _v0.errorMessage
+        });
+      }, [_v0]),
+      _v24 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("agentic_search_result_click", {
+          search_id: _v0.searchId,
+          search_request_id: _v0.searchRequestId,
+          entity_type: "clip",
+          entity_id: _v0.clipId,
+          clicked_item: _v0.clickedItem,
+          clicked_item_id: _v0.clickedItemId,
+          result_position: _v0.resultPosition,
+          start_time_seconds: _v0.startTimeSeconds
+        });
+      }, [_v0]),
+      _v25 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("agentic_search_interaction", {
+          search_id: _v0.searchId,
+          search_request_id: _v0.searchRequestId,
+          value_name: _v0.valueName,
+          entity_id: _v0.entityId
+        });
+      }, [_v0]),
+      _v26 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("agentic_search_rated", {
+          search_id: _v0.searchId,
+          search_request_id: _v0.searchRequestId,
+          is_positive: _v0.isPositive
+        });
+      }, [_v0]),
+      _v27 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("agentic_search_feedback", {
+          search_id: _v0.searchId,
+          search_request_id: _v0.searchRequestId,
+          is_positive: _v0.isPositive,
+          comment: _v0.comment
+        });
+      }, [_v0]);
+    return {
+      trackSearchPageDisplayed: _v20,
+      trackAgenticSearchButtonClicked: _v21,
+      trackAgenticSearchSubmitted: _v22,
+      trackAgenticSearchResponse: _v23,
+      trackAgenticSearchResultClick: _v24,
+      trackAgenticSearchInteraction: _v25,
+      trackAgenticSearchRated: _v26,
+      trackAgenticSearchFeedback: _v27,
+      trackAgenticSearchFeedbackDismissed: (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("agentic_search_feedback_dismissed", {
+          search_id: _v0.searchId,
+          search_request_id: _v0.searchRequestId,
+          is_positive: _v0.isPositive
+        });
+      }, [_v0]),
+      trackAgenticSearchEntryClicked: (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("agentic_search_entry_clicked", {
+          location: _v0.location
+        });
+      }, [_v0]),
       trackSearchResultsPage: _v1,
       trackSearchResultHover: _v2,
       trackSearchResultClick: _v3,
@@ -197,18 +281,5 @@
       trackMomentsTimelineImpressions: _v18,
       trackMomentsPanelImpressions: _v19
     };
-  }], 0);
-  var _v3 = _v0.i(0),
-    _v4 = _v0.i(0);
-  _v0.s(["ThumbDownFilled", 0, _v0 => (0, _v3.jsx)(_v4.Icon, {
-    viewBox: "0 0 24 24",
-    ..._v0,
-    fill: "none",
-    children: (0, _v3.jsx)("path", {
-      fillRule: "evenodd",
-      clipRule: "evenodd",
-      d: "M16.668 14.8h1.75a2.6 2.6 0 0 0 2.6-2.6V6.6a2.6 2.6 0 0 0-2.6-2.6H6.728A2.6 2.6 0 0 0 4.133 6.21v.001l-1.105 7.2a2.6 2.6 0 0 0 2.594 2.99h3.795v2.2a3.4 3.4 0 0 0 3.4 3.4 1 1 0 0 0 .914-.594l2.936-6.606Zm1.75-2a.6.6 0 0 0 .6-.6V6.6a.6.6 0 0 0-.6-.6h-1.4v6.8h1.4Z",
-      fill: "currentColor"
-    })
-  })], 0);
+  }]);
 }

@@ -1257,7 +1257,7 @@
                     singular: "Privacy settings have been updated",
                     dictionary: {
                       es: {
-                        singular: "Se ha actualizado la configuración de privacidad"
+                        singular: "La configuración de privacidad se ha actualizado"
                       },
                       "de-DE": {
                         singular: "Die Datenschutzeinstellungen wurden aktualisiert"
@@ -1269,7 +1269,7 @@
                         singular: "プライバシー設定が更新されました"
                       },
                       "ko-KR": {
-                        singular: "프라이버시 설정이 업데이트되었습니다."
+                        singular: "프라이버시 설정이 업데이트되었습니다"
                       },
                       "pt-BR": {
                         singular: "As configurações de privacidade foram atualizadas"

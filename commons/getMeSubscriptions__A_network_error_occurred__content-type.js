@@ -22,6 +22,7 @@
       return (0, _v3.deepCamelCase)(_v1);
     });
   }
+  _v0.s(["getMeSubscriptions", 0, _v4], 0);
   var _v5 = _v0.i(0),
     _v6 = _v0.i(0),
     _v7 = _v0.i(0),

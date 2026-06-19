@@ -927,6 +927,58 @@
               singular: "交互性"
             }
           }
+        }),
+        redesignTitle: (0, _v124.translate)({
+          singular: "Add elements",
+          dictionary: {
+            es: {
+              singular: "Agregar elementos"
+            },
+            "de-DE": {
+              singular: "Elemente hinzufügen"
+            },
+            "fr-FR": {
+              singular: "Ajouter des éléments"
+            },
+            "ja-JP": {
+              singular: "要素を追加"
+            },
+            "ko-KR": {
+              singular: "요소 추가"
+            },
+            "pt-BR": {
+              singular: "Adicionar elementos"
+            },
+            "zh-CN": {
+              singular: "添加元素"
+            }
+          }
+        }),
+        subtitle: (0, _v124.translate)({
+          singular: "Use interactive elements to keep viewers engaged and drive them to take action.",
+          dictionary: {
+            es: {
+              singular: "Utilice elementos interactivos para mantener a los espectadores comprometidos y motivarlos a actuar."
+            },
+            "de-DE": {
+              singular: "Verwenden Sie interaktive Elemente, um Zuschauer zu binden und sie zu Aktionen zu bewegen."
+            },
+            "fr-FR": {
+              singular: "Utilisez des éléments interactifs pour maintenir l'engagement des spectateurs et les inciter à passer à l'action."
+            },
+            "ja-JP": {
+              singular: "インタラクティブ要素を活用して視聴者のエンゲージメントを維持し、行動を促します。"
+            },
+            "ko-KR": {
+              singular: "인터랙티브 요소를 사용해 시청자의 참여를 유지하고 행동을 유도하세요."
+            },
+            "pt-BR": {
+              singular: "Use elementos interativos para manter os espectadores engajados e incentivá-los a agir."
+            },
+            "zh-CN": {
+              singular: "使用互动元素以保持观众参与并促使他们采取行动。"
+            }
+          }
         })
       },
       [_v125.CHAPTERS]: {
@@ -26666,6 +26718,8 @@
       }, [_v10, _v106]);
       let _v107 = (0, _v30.useMemo)(() => _v84 && _v142(_v84) ? {
           title: _v126[_v84].title,
+          subtitle: _v126[_v84].subtitle,
+          redesignTitle: _v126[_v84].redesignTitle,
           backButton: _v126[_v84].backButton,
           name: _v84,
           id: `sidebar_panel__${_v84}`
@@ -26855,110 +26909,80 @@
                 onSearchClick: _v136,
                 searchInputRef: _v133
               }) : (0, _v16.jsxs)(_v108.Flex, {
-                gap: "xs",
-                alignItems: "center",
-                justifyContent: "space-between",
-                height: "sm",
+                flexDirection: "column",
+                gap: "sm",
+                width: "100%",
                 children: [(0, _v16.jsxs)(_v108.Flex, {
-                  alignItems: "center",
-                  gap: "sm",
-                  minWidth: 0,
-                  children: [_v108?.backButton && (0, _v16.jsx)(_v182.IconButton, {
-                    size: "sm",
-                    variant: "tertiary",
-                    icon: (0, _v16.jsx)(_v717.ChevronLeft, {}),
-                    "aria-label": (0, _v124.translate)({
-                      singular: "back",
-                      dictionary: {
-                        es: {
-                          singular: "Atrás"
-                        },
-                        "de-DE": {
-                          singular: "Zurück"
-                        },
-                        "fr-FR": {
-                          singular: "Retour"
-                        },
-                        "ja-JP": {
-                          singular: "戻る"
-                        },
-                        "ko-KR": {
-                          singular: "뒤로"
-                        },
-                        "pt-BR": {
-                          singular: "voltar"
-                        },
-                        "zh-CN": {
-                          singular: "返回"
-                        }
-                      }
-                    }),
-                    onClick: _v121
-                  }), (0, _v16.jsxs)(_v412.Header, {
-                    variant: "heading-sm",
-                    size: "xl",
-                    display: "flex",
-                    alignItems: "center",
-                    ...(_v108?.name === _v125.TRACK_EDIT_BOKEH && {
-                      whiteSpace: "nowrap",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis"
-                    }),
-                    children: [_v108?.name === _v125.TRACK_EDIT_BOKEH && (0, _v16.jsx)("span", {
-                      children: _v80
-                    }), _v108?.name !== _v125.TRACK_EDIT_BOKEH && !_v774(_v108?.name) && (0, _v16.jsx)("span", {
-                      children: _v108?.title
-                    }), _v774(_v108?.name) && (0, _v16.jsx)(_v750, {
-                      name: _v108?.name,
-                      title: _v108?.title
-                    })]
-                  })]
-                }), (0, _v16.jsxs)(_v108.Flex, {
                   gap: "xs",
-                  children: [_v108?.name === _v125.LANGUAGES && (0, _v16.jsx)(_v755, {
-                    videoId: _v16,
-                    languagePanelRef: _v86
-                  }), _v108?.name === _v125.TRACK_EDIT_BOKEH && (0, _v16.jsx)(_v756, {
-                    textTrackEditRef: _v87
-                  }), (0, _v16.jsx)(_v107.Box, {
-                    ref: _v135,
-                    children: (0, _v16.jsx)(_v184.Tooltip, {
-                      label: (0, _v124.translate)({
-                        singular: "Close",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  height: "sm",
+                  children: [(0, _v16.jsxs)(_v108.Flex, {
+                    alignItems: "center",
+                    gap: "sm",
+                    minWidth: 0,
+                    children: [_v108?.backButton && (0, _v16.jsx)(_v182.IconButton, {
+                      size: "sm",
+                      variant: "tertiary",
+                      icon: (0, _v16.jsx)(_v717.ChevronLeft, {}),
+                      "aria-label": (0, _v124.translate)({
+                        singular: "back",
                         dictionary: {
                           es: {
-                            singular: "Cerrar"
+                            singular: "Atrás"
                           },
                           "de-DE": {
-                            singular: "Schließen"
+                            singular: "Zurück"
                           },
                           "fr-FR": {
-                            singular: "Fermer "
+                            singular: "Retour"
                           },
                           "ja-JP": {
-                            singular: "閉じる"
+                            singular: "戻る"
                           },
                           "ko-KR": {
-                            singular: "닫기"
+                            singular: "뒤로"
                           },
                           "pt-BR": {
-                            singular: "Fechar"
+                            singular: "voltar"
                           },
                           "zh-CN": {
-                            singular: "关闭"
+                            singular: "返回"
                           }
                         }
                       }),
-                      placement: "top",
-                      shouldWrapChildren: !0,
-                      portalProps: {
-                        containerRef: _v135
-                      },
-                      children: (0, _v16.jsx)(_v411.CloseButton, {
-                        size: "sm",
-                        variant: "tertiary",
-                        "aria-label": (0, _v124.translate)({
-                          singular: "close",
+                      onClick: _v121
+                    }), (0, _v16.jsxs)(_v412.Header, {
+                      variant: "heading-sm",
+                      size: "xl",
+                      display: "flex",
+                      alignItems: "center",
+                      ...(_v108?.name === _v125.TRACK_EDIT_BOKEH && {
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis"
+                      }),
+                      children: [_v108?.name === _v125.TRACK_EDIT_BOKEH && (0, _v16.jsx)("span", {
+                        children: _v80
+                      }), _v108?.name !== _v125.TRACK_EDIT_BOKEH && !_v774(_v108?.name) && (0, _v16.jsx)("span", {
+                        children: _v108?.title
+                      }), _v774(_v108?.name) && (0, _v16.jsx)(_v750, {
+                        name: _v108?.name,
+                        title: _v17.enable_svv_redesign && _v108?.redesignTitle ? _v108.redesignTitle : _v108?.title
+                      })]
+                    })]
+                  }), (0, _v16.jsxs)(_v108.Flex, {
+                    gap: "xs",
+                    children: [_v108?.name === _v125.LANGUAGES && (0, _v16.jsx)(_v755, {
+                      videoId: _v16,
+                      languagePanelRef: _v86
+                    }), _v108?.name === _v125.TRACK_EDIT_BOKEH && (0, _v16.jsx)(_v756, {
+                      textTrackEditRef: _v87
+                    }), (0, _v16.jsx)(_v107.Box, {
+                      ref: _v135,
+                      children: (0, _v16.jsx)(_v184.Tooltip, {
+                        label: (0, _v124.translate)({
+                          singular: "Close",
                           dictionary: {
                             es: {
                               singular: "Cerrar"
@@ -26967,7 +26991,7 @@
                               singular: "Schließen"
                             },
                             "fr-FR": {
-                              singular: "fermer"
+                              singular: "Fermer "
                             },
                             "ja-JP": {
                               singular: "閉じる"
@@ -26976,17 +27000,57 @@
                               singular: "닫기"
                             },
                             "pt-BR": {
-                              singular: "fechar"
+                              singular: "Fechar"
                             },
                             "zh-CN": {
                               singular: "关闭"
                             }
                           }
                         }),
-                        onClick: () => _v122()
+                        placement: "top",
+                        shouldWrapChildren: !0,
+                        portalProps: {
+                          containerRef: _v135
+                        },
+                        children: (0, _v16.jsx)(_v411.CloseButton, {
+                          size: "sm",
+                          variant: "tertiary",
+                          "aria-label": (0, _v124.translate)({
+                            singular: "close",
+                            dictionary: {
+                              es: {
+                                singular: "Cerrar"
+                              },
+                              "de-DE": {
+                                singular: "Schließen"
+                              },
+                              "fr-FR": {
+                                singular: "fermer"
+                              },
+                              "ja-JP": {
+                                singular: "閉じる"
+                              },
+                              "ko-KR": {
+                                singular: "닫기"
+                              },
+                              "pt-BR": {
+                                singular: "fechar"
+                              },
+                              "zh-CN": {
+                                singular: "关闭"
+                              }
+                            }
+                          }),
+                          onClick: () => _v122()
+                        })
                       })
-                    })
+                    })]
                   })]
+                }), _v17.enable_svv_redesign && _v108?.subtitle && (0, _v16.jsx)(_v387.Paragraph, {
+                  size: "md",
+                  color: "text-secondary",
+                  "data-testid": "drawer-header-subtitle",
+                  children: _v108.subtitle
                 })]
               })
             }), (0, _v16.jsxs)(_v112.PanelBody, {
@@ -28295,7 +28359,6 @@
         })
       });
     };
-  _v0.i(0);
   var _v807 = _v0.i(0),
     _v808 = _v0.i(0),
     _v809 = _v0.i(0),
@@ -28454,24 +28517,23 @@
               endDate: _v6
             } = _v2,
             {
-              settings: _v7
-            } = (0, _v172.useOrionSettings)(),
-            _v8 = (_v7.analytics_freshness_refactor_main ? _v807.DateTime.min(_v6, _v807.DateTime.utc().minus({
-              hours: 1
-            })).startOf("minute") : _v6).toISO(),
+              isOrionLoading: _v7,
+              queryParam: _v8
+            } = (0, _v809.useAnalyticsFreshness)(),
             {
               data: _v9,
               isLoading: _v10,
               error: _v11
-            } = (0, _v809.useGetUserAnalyticsEngagement)({
+            } = (0, _v808.useGetUserAnalyticsEngagement)(() => _v7 ? null : {
               select: ["viewerRetention"],
               where: {
                 userId: _v1
               },
               query: {
                 from: _v5.toISO(),
-                to: _v8,
-                filterContent: [`/videos/${_v0}`]
+                to: _v6.toISO(),
+                filterContent: [`/videos/${_v0}`],
+                ..._v8
               }
             }, {
               revalidateOnFocus: !1,
@@ -28482,16 +28544,17 @@
               data: _v12,
               isLoading: _v13,
               error: _v14
-            } = (0, _v808.useGetUserAnalytics)({
+            } = (0, _v807.useGetUserAnalytics)(() => _v7 ? null : {
               select: ["views"],
               where: {
                 userId: _v1
               },
               query: {
                 from: _v5.toISO(),
-                to: _v8,
+                to: _v6.toISO(),
                 dimension: "total",
-                filterContent: `/videos/${_v0}`
+                filterContent: `/videos/${_v0}`,
+                ..._v8
               }
             }, {
               revalidateOnFocus: !1,
@@ -35920,7 +35983,6 @@
         }) {
           return (0, _v179.useGracePeriodBillingUi)({
             orionFlag: "enable_video_page_grace_period_notifications",
-            adminDismissStorageKey: "grace_period_modal_video_page_dismissed_until",
             layout: {
               type: "manage",
               videoTitle: _v0 ?? "",
@@ -36600,97 +36662,104 @@
       firstClipFetchError: _v20
     } = (({
       clipId: _v0,
-      initialVideoData: _v1
+      clipHash: _v1,
+      initialVideoData: _v2
     }) => {
-      let _v2 = (0, _v85.useAppSelector)(_v84.clipIsInitializedSelector),
-        _v3 = (0, _v85.useAppSelector)(_v98.clipUserUriSelector),
-        _v4 = (0, _v85.useAppSelector)(_v95.clipTranscodeStatusSelector),
-        _v5 = (0, _v85.useAppSelector)(_v97),
-        _v6 = (0, _v85.useAppSelector)(_v90.clipEditSessionSelector),
-        _v7 = (0, _v85.useAppSelector)(_v95.clipStatusSelector),
-        _v8 = (0, _v85.useAppSelector)(_v95.clipIsPlayableSelector),
-        _v9 = (0, _v85.useAppSelector)(_v94),
-        _v10 = (0, _v85.useAppSelector)(_v91.clipMetadataIsVimeoCreateSelector),
-        _v11 = (0, _v85.useAppSelector)(_v90.isClipEditedByTveSelector),
-        _v12 = (0, _v85.useAppSelector)(_v91.clipMetadataConnectionsVersionsTotalSelector),
-        _v13 = (0, _v85.useAppSelector)(_v91.clipMetadataConnectionslatestVersionUriSelector),
-        _v14 = (0, _v80.useDispatch)(),
-        [_v15, _v16] = (0, _v30.useState)(null),
-        _v17 = (0, _v30.useRef)(null),
-        [_v18] = (0, _v37.useLazyFetchClipWithFieldsQuery)(),
-        [_v19, {
-          data: _v20
+      let _v3 = (0, _v85.useAppSelector)(_v84.clipIsInitializedSelector),
+        _v4 = (0, _v85.useAppSelector)(_v98.clipUserUriSelector),
+        _v5 = (0, _v85.useAppSelector)(_v95.clipTranscodeStatusSelector),
+        _v6 = (0, _v85.useAppSelector)(_v97),
+        _v7 = (0, _v85.useAppSelector)(_v90.clipEditSessionSelector),
+        _v8 = (0, _v85.useAppSelector)(_v95.clipStatusSelector),
+        _v9 = (0, _v85.useAppSelector)(_v95.clipIsPlayableSelector),
+        _v10 = (0, _v85.useAppSelector)(_v94),
+        _v11 = (0, _v85.useAppSelector)(_v91.clipMetadataIsVimeoCreateSelector),
+        _v12 = (0, _v85.useAppSelector)(_v90.isClipEditedByTveSelector),
+        _v13 = (0, _v85.useAppSelector)(_v91.clipMetadataConnectionsVersionsTotalSelector),
+        _v14 = (0, _v85.useAppSelector)(_v91.clipMetadataConnectionslatestVersionUriSelector),
+        _v15 = (0, _v80.useDispatch)(),
+        [_v16, _v17] = (0, _v30.useState)(null),
+        _v18 = (0, _v30.useRef)(null),
+        [_v19] = (0, _v37.useLazyFetchClipWithFieldsQuery)(),
+        [_v20, {
+          data: _v21
         }] = _v43(),
-        _v21 = (0, _v89.getClipIdentifiersFromVideoData)(_v1).clipId,
+        _v22 = (0, _v89.getClipIdentifiersFromVideoData)(_v2).clipId,
         {
-          uploadFileState: _v22
+          uploadFileState: _v23
         } = _v86();
       (0, _v30.useEffect)(() => {
-        _v1 && _v21 === _v0 && _v17.current !== _v0 ? (_v17.current = _v0, _v14(_v48.clipSlice.actions.hydrateFromSSR(_v1))) : _v21 !== _v0 && _v17.current !== _v0 && (_v17.current = null);
-      }, [_v1, _v21, _v0, _v14]);
-      let _v23 = (0, _v30.useMemo)(() => void 0 !== _v8 && !_v8 && !(_v12 > 1) && ("error" !== _v4 || "error" !== _v5), [_v8, _v4, _v5, _v12]),
-        _v24 = (0, _v30.useMemo)(() => {
+        _v2 && _v22 === _v0 && _v18.current !== _v0 ? (_v18.current = _v0, _v15(_v48.clipSlice.actions.hydrateFromSSR(_v2))) : _v22 !== _v0 && _v18.current !== _v0 && (_v18.current = null);
+      }, [_v2, _v22, _v0, _v15]);
+      let _v24 = (0, _v30.useMemo)(() => void 0 !== _v9 && !_v9 && !(_v13 > 1) && ("error" !== _v5 || "error" !== _v6), [_v9, _v5, _v6, _v13]),
+        _v25 = (0, _v30.useMemo)(() => {
           let _v0;
-          return void 0 !== _v10 && (_v0 = _v6?.versionUri === _v13, _v10 && "complete" !== _v4 && !_v9 && !_v0);
-        }, [_v13, _v6, _v10, _v9, _v4]),
-        _v25 = (0, _v30.useMemo)(() => !!_v6 && "done" !== _v6.status, [_v6]),
-        _v26 = (0, _v30.useMemo)(() => void 0 !== _v8 && void 0 !== _v7 && (!_v8 || "available" !== _v7), [_v8, _v7]),
-        _v27 = (0, _v30.useCallback)(async () => {
-          if (_v17.current === _v0) return void (await _v18({
+          return void 0 !== _v11 && (_v0 = _v7?.versionUri === _v14, _v11 && "complete" !== _v5 && !_v10 && !_v0);
+        }, [_v14, _v7, _v11, _v10, _v5]),
+        _v26 = (0, _v30.useMemo)(() => !!_v7 && "done" !== _v7.status, [_v7]),
+        _v27 = (0, _v30.useMemo)(() => void 0 !== _v9 && void 0 !== _v8 && (!_v9 || "available" !== _v8), [_v9, _v8]),
+        _v28 = (0, _v30.useCallback)(async () => {
+          if (_v18.current === _v0) return void (await _v19({
             clipId: _v0,
+            clipHash: _v1,
             fields: _v99,
             ..._v100
           }));
-          let _v0 = await _v18({
+          let _v0 = await _v19({
             clipId: _v0,
+            clipHash: _v1,
             fields: _v88.initialClipFetchFields,
             ..._v100
           });
-          (0, _v40.isErrorResponse)(_v0?.error) && _v16(_v0.error), _v14(_v48.clipSlice.actions.setInitialized());
-        }, [_v18, _v0, _v14]),
-        _v28 = (0, _v30.useCallback)(() => {
-          _v18({
+          (0, _v40.isErrorResponse)(_v0?.error) && _v17(_v0.error), _v15(_v48.clipSlice.actions.setInitialized());
+        }, [_v19, _v0, _v1, _v15]),
+        _v29 = (0, _v30.useCallback)(() => {
+          _v19({
             clipId: _v0,
+            clipHash: _v1,
             fields: _v88.initialClipFetchFields,
             ..._v100
           });
-        }, [_v0, _v18]),
-        _v29 = (0, _v30.useCallback)(async () => {
-          _v18({
+        }, [_v0, _v1, _v19]),
+        _v30 = (0, _v30.useCallback)(async () => {
+          _v19({
             clipId: _v0,
+            clipHash: _v1,
             fields: _v88.statusPollingClipFetchFields,
             ..._v100
           });
-        }, [_v0, _v18]),
-        _v30 = (0, _v30.useCallback)(_v0 => {
-          _v0 && _v28();
-        }, [_v28]);
+        }, [_v0, _v1, _v19]),
+        _v31 = (0, _v30.useCallback)(_v0 => {
+          _v0 && _v29();
+        }, [_v29]);
       return (0, _v30.useEffect)(() => {
-        _v3 && _v19({
-          userUri: _v3
+        _v4 && _v20({
+          userUri: _v4
         });
-      }, [_v3, _v19]), (0, _v30.useEffect)(() => {
-        _v20 && _v88.secondaryClipFetchFields.length && _v18({
+      }, [_v4, _v20]), (0, _v30.useEffect)(() => {
+        _v21 && _v88.secondaryClipFetchFields.length && _v19({
           clipId: _v0,
+          clipHash: _v1,
           fields: _v88.secondaryClipFetchFields,
           ..._v100
         });
-      }, [_v0, _v20, _v18]), (0, _v30.useEffect)(() => {
-        (_v10 || _v11) && setTimeout(() => {
-          _v29();
+      }, [_v0, _v1, _v21, _v19]), (0, _v30.useEffect)(() => {
+        (_v11 || _v12) && setTimeout(() => {
+          _v30();
         }, 0);
-      }, [_v11, _v10, _v29]), (0, _v30.useEffect)(() => {
-        [_v82.STATES.COMPLETED, _v82.STATES.FAILED, _v82.STATES.CANCELED].includes(_v22) && _v29();
-      }, [_v29, _v22]), _v87(_v30), (0, _v81.usePoll)(_v29, _v26 || _v23 || _v24 || _v25, {
+      }, [_v12, _v11, _v30]), (0, _v30.useEffect)(() => {
+        [_v82.STATES.COMPLETED, _v82.STATES.FAILED, _v82.STATES.CANCELED].includes(_v23) && _v30();
+      }, [_v30, _v23]), _v87(_v31), (0, _v81.usePoll)(_v30, _v27 || _v24 || _v25 || _v26, {
         interval: 0
       }), {
-        firstClipFetchError: _v15,
-        isClipInitialized: _v2,
-        initFirstClipFetch: _v27,
-        refetchClipData: _v28
+        firstClipFetchError: _v16,
+        isClipInitialized: _v3,
+        initFirstClipFetch: _v28,
+        refetchClipData: _v29
       };
     })({
       clipId: _v0,
+      clipHash: _v1,
       initialVideoData: _v2
     });
     _v3 = _v6.user?.uri, _v4 = (0, _v30.useContext)(_v33.ViewerContext), _v5 = (0, _v30.useRef)(!1), (0, _v30.useEffect)(() => {

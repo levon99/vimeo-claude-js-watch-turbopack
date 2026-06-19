@@ -296,13 +296,13 @@
                   singular: "Video hosting and playback",
                   dictionary: {
                     es: {
-                      singular: "Alojamiento y reproducción de video"
+                      singular: "Alojamiento y reproducción de videos"
                     },
                     "de-DE": {
                       singular: "Video-Hosting und Wiedergabe"
                     },
                     "fr-FR": {
-                      singular: "Hébergement et lecture de vidéos"
+                      singular: "Hébergement et lecture vidéo"
                     },
                     "ja-JP": {
                       singular: "動画のホスティングと再生"
@@ -311,7 +311,7 @@
                       singular: "동영상 호스팅 및 재생"
                     },
                     "pt-BR": {
-                      singular: "Hospedagem e reprodução de vídeo"
+                      singular: "Hospedagem e reprodução de vídeos"
                     },
                     "zh-CN": {
                       singular: "视频托管与播放"
@@ -331,7 +331,7 @@
                       singular: "pour l'ensemble de votre contenu"
                     },
                     "ja-JP": {
-                      singular: "すべてのコンテンツ向け"
+                      singular: "すべてのコンテンツについて"
                     },
                     "ko-KR": {
                       singular: "모든 콘텐츠에 대해"
@@ -340,7 +340,7 @@
                       singular: "para todo o seu conteúdo"
                     },
                     "zh-CN": {
-                      singular: "适用于您所有的内容"
+                      singular: "适用于您所有内容"
                     }
                   }
                 })
@@ -402,22 +402,22 @@
                   singular: "Team member access",
                   dictionary: {
                     es: {
-                      singular: "Acceso para miembros del equipo"
+                      singular: "Acceso de los miembros del equipo"
                     },
                     "de-DE": {
                       singular: "Zugriff für Teammitglieder"
                     },
                     "fr-FR": {
-                      singular: "Accès pour les membres de l'équipe"
+                      singular: "Accès des membres de l'équipe"
                     },
                     "ja-JP": {
-                      singular: "チームメンバーのアクセス権"
+                      singular: "チームメンバーのアクセス"
                     },
                     "ko-KR": {
-                      singular: "팀 멤버 접근 권한"
+                      singular: "팀원 접근 권한"
                     },
                     "pt-BR": {
-                      singular: "Acesso para membros da equipe"
+                      singular: "Acesso dos membros da equipe"
                     },
                     "zh-CN": {
                       singular: "团队成员访问权限"
@@ -431,10 +431,10 @@
                       singular: "y funciones de colaboración"
                     },
                     "de-DE": {
-                      singular: "und Kollaborationsfunktionen"
+                      singular: "und Funktionen zur Zusammenarbeit"
                     },
                     "fr-FR": {
-                      singular: "et des fonctionnalités de collaboration"
+                      singular: "et les fonctionnalités de collaboration"
                     },
                     "ja-JP": {
                       singular: "およびコラボレーション機能"

@@ -246,6 +246,7 @@
         endDate: "",
         originalEndDate: "",
         gracePeriodType: null,
+        isStorageEntitlementSuspended: !1,
         productId: 0,
         pricePerSeat: 0,
         pricePerSeatForDisplay: "",

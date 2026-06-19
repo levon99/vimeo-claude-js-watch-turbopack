@@ -204,7 +204,10 @@
     loadConfig() {
       return this.assertNotDestroyed("loadConfig"), this.loadConfigPromise || (this.loadConfigPromise = (async () => {
         try {
-          return this.tryToLoadConfigFromStorage(), this.config || (await this.loadConfigFromHostWindow()), this.config;
+          return this.tryToLoadConfigFromStorage(), await this.loadConfigFromHostWindow(), this.config;
+        } catch (_v0) {
+          if (!this.config) throw _v0;
+          return this.log.warn("Failed to load config from host window, using cached config"), this.config;
         } finally {
           this.loadConfigPromise = null;
         }

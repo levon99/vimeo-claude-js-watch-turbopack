@@ -19,6 +19,7 @@
 - https://vimeo.com/cancel/reason
 - https://vimeo.com/channels/staffpicks
 - https://vimeo.com/checkout/payments/new
+- https://vimeo.com/checkout/payments/verify
 - https://vimeo.com/checkout/redirect
 - https://vimeo.com/checkout/[plan]
 - https://vimeo.com/checkout/[plan]/monthly
