@@ -1339,20 +1339,21 @@
       id: `${_v1 ? "private-to-me" : "library"}-new-folder-button`
     })
   });
-  var _v154 = _v0.i(0);
-  let _v155 = {
+  var _v154 = _v0.i(0),
+    _v155 = _v0.i(0);
+  let _v156 = {
     view: "nobody",
     embed: "private",
     comments: "nobody",
     add: !1,
     download: !1
   };
-  function _v156(_v0) {
+  function _v157(_v0) {
     let _v1 = (0, _v4.useContext)(_v78.ViewerContext),
       _v2 = _v1?.user?.teamUserPermissionLevel === "Uploader",
       {
         data: _v3
-      } = (0, _v154.useGetUser)(() => _v0 ? {
+      } = (0, _v155.useGetUser)(() => _v0 ? {
         select: ["preferences.videos"],
         where: {
           userId: _v0
@@ -1367,7 +1368,7 @@
       _v5 = _v3?.preferences?.videos?.privacy;
     return (0, _v4.useMemo)(() => {
       if (_v0) return _v2 ? {
-        privacy: _v155,
+        privacy: _v156,
         spatial: {}
       } : {
         content_rating: _v3?.preferences?.videos?.rating,
@@ -1380,9 +1381,9 @@
       };
     }, [_v0, _v2, _v3, _v5, _v4.canAllowDownloads]);
   }
-  _v0.s(["useTeamUploadClipProperties", 0, _v156], 0);
-  var _v157 = _v0.i(0);
-  let _v158 = ({
+  _v0.s(["useTeamUploadClipProperties", 0, _v157], 0);
+  var _v158 = _v0.i(0);
+  let _v159 = ({
     closeSideNav: _v0,
     isMobile: _v1,
     loadingSideNavFolderURIs: _v2 = new Set(),
@@ -1411,7 +1412,7 @@
       _v18 = !!_v16.canGenerateClipTextTranslation,
       _v19 = !!_v16.canGenerateClipTranslation,
       _v20 = (_v19 || _v18) && !!_v16.canPerformBulkTranslations,
-      _v21 = _v156(_v4),
+      _v21 = _v157(_v4),
       _v22 = _v17 ? _v16?.hasContentSpaceEnabled ? (0, _v55.translate)({
         singular: "Team library",
         dictionary: {
@@ -1503,21 +1504,22 @@
       {
         openBulkPrivacyModal: _v38
       } = (0, _v24.useBulkPrivacyModal)(),
-      _v39 = (0, _v115.useCanUpSell)(),
-      _v40 = (0, _v138.useReviewLinkCopiedToast)(),
-      _v41 = (0, _v130.useCreateAndCopyFolderReviewLink)((0, _v4.useCallback)((_v0, _v1) => {
-        _v40(() => _v27?.(_v0, "sidebar", "CREATE_REVIEW_LINK_MODAL", _v1));
-      }, [_v40, _v27])),
-      _v42 = (0, _v46.useActivityCenterStore)(_v0 => _v0.handleNewTranslationJob),
+      _v39 = (0, _v154.useRevalidateVideoListCaches)(),
+      _v40 = (0, _v115.useCanUpSell)(),
+      _v41 = (0, _v138.useReviewLinkCopiedToast)(),
+      _v42 = (0, _v130.useCreateAndCopyFolderReviewLink)((0, _v4.useCallback)((_v0, _v1) => {
+        _v41(() => _v27?.(_v0, "sidebar", "CREATE_REVIEW_LINK_MODAL", _v1));
+      }, [_v41, _v27])),
+      _v43 = (0, _v46.useActivityCenterStore)(_v0 => _v0.handleNewTranslationJob),
       {
-        trackLibraryFolderContextMenuActionClicked: _v43,
-        trackLibraryFolderOpened: _v44
+        trackLibraryFolderContextMenuActionClicked: _v44,
+        trackLibraryFolderOpened: _v45
       } = (0, _v112.useLibraryTracking)(),
       {
-        data: _v45,
-        size: _v46,
-        setSize: _v47,
-        error: _v48
+        data: _v46,
+        size: _v47,
+        setSize: _v48,
+        error: _v49
       } = (0, _v111.useGetUserProjectsInfinite)(() => _v4 ? {
         where: {
           userId: _v4
@@ -1532,19 +1534,19 @@
         revalidateOnFocus: !1
       }),
       {
-        isLoadingMore: _v49,
-        isDone: _v50
+        isLoadingMore: _v50,
+        isDone: _v51
       } = (0, _v77.getInfiniteRequestLoadingState)({
-        data: _v45,
-        error: _v48,
-        size: _v46,
+        data: _v46,
+        error: _v49,
+        size: _v47,
         itemsPerPage: 100
       }),
-      _v51 = _v45?.filter(_v0 => !!_v0)?.flatMap(_v0 => _v0.data)?.filter(_v0 => !!_v0),
-      _v52 = () => {
+      _v52 = _v46?.filter(_v0 => !!_v0)?.flatMap(_v0 => _v0.data)?.filter(_v0 => !!_v0),
+      _v53 = () => {
         _v11(), _v15();
       },
-      _v53 = (0, _v4.useCallback)(({
+      _v54 = (0, _v4.useCallback)(({
         uri: _v0,
         folder: _v1,
         defaultPanel: _v2,
@@ -1577,7 +1579,7 @@
           }
         });
       }, [_v26, _v27, _v25, _v16.canSeeUpsellModalOnShare]),
-      _v54 = (0, _v4.useCallback)(({
+      _v55 = (0, _v4.useCallback)(({
         folder: _v0,
         canEditSettings: _v1
       }) => {
@@ -1598,9 +1600,9 @@
           }
         });
       }, [_v28, _v29, _v6?.teamUser]),
-      _v55 = (0, _v4.useCallback)(() => {
-        _v47(_v0 => _v0 + 1);
-      }, [_v47]);
+      _v56 = (0, _v4.useCallback)(() => {
+        _v48(_v0 => _v0 + 1);
+      }, [_v48]);
     return (0, _v1.jsxs)(_v10.Flex, {
       flexDirection: "column",
       gap: "2px",
@@ -1639,7 +1641,7 @@
         flexDirection: "column",
         gap: "2px",
         "data-id": "library_side_nav_folder_container",
-        children: _v51 ? _v51.map(_v0 => {
+        children: _v52 ? _v52.map(_v0 => {
           let {
               canDelete: _v1,
               canEdit: _v2,
@@ -1656,7 +1658,7 @@
             _v10 = parseInt(_v6.split("/")?.[2]),
             _v11 = parseInt(_v6.split("/").pop() ?? ""),
             _v12 = !!_v16.hasContentSpaceEnabled,
-            _v13 = _v0 => _v43({
+            _v13 = _v0 => _v44({
               isPrivateToUser: _v8,
               libraryFolderId: String(_v11),
               libraryFolderContextMenuAction: _v0
@@ -1674,7 +1676,7 @@
               hasReviewLinkCapabilities: _v17,
               hasMultipleReviewLinks: !!_v16.hasMultipleReviewLinks,
               reviewLinks: _v0.reviewLinks,
-              canUpsell: _v39,
+              canUpsell: _v40,
               getReviewPageUrl: _v0 => (0, _v114.getFolderReviewPageUrl)(_v0, _v11, _v10)
             }),
             _v22 = _v0 ? _v33("folder", _v0) : {
@@ -1696,7 +1698,7 @@
                 label: _v4,
                 workspaceName: _v3
               }, () => {
-                _v6 && (0, _v157.switchTeam)(_v2, _v6.xsrft).finally(() => {
+                _v6 && (0, _v158.switchTeam)(_v2, _v6.xsrft).finally(() => {
                   window.location.href = _v5;
                 });
               }) : _v9(_v1[0].name, {
@@ -1719,7 +1721,7 @@
                   canTranslateDubbing: _v19,
                   onComplete: () => {
                     let _v0 = _v6?.teamUser?.ownerId ?? _v6?.user?.id;
-                    _v0 && _v42(_v0);
+                    _v0 && _v43(_v0);
                   }
                 });
               },
@@ -1743,7 +1745,7 @@
               },
               canShare: _v4 || _v16.canSeeUpsellModalOnShare,
               onShare: () => {
-                _v13("share"), _v53({
+                _v13("share"), _v54({
                   uri: _v6,
                   folder: _v0
                 });
@@ -1772,7 +1774,7 @@
                   parentFolderUri: _v9?.uri,
                   currentFolderUri: _v6,
                   location: "sidebar",
-                  onSettingsChange: _v52,
+                  onSettingsChange: _v53,
                   isEditingFolder: !0,
                   initialColor: _v0?.settings?.color
                 }), _v9.BigPictureClient.sendEvent(new _v9.Event("vimeo.click", 148, {
@@ -1887,14 +1889,16 @@
                   folderName: _v5,
                   location: "side_nav_folder_menu",
                   variant: _v37,
-                  onSuccess: () => {}
+                  onSuccess: () => {
+                    _v39();
+                  }
                 });
               },
               canEdit: _v2,
               analyticsPageLink: _v16,
               folderLink: _v15,
               onCopyLink: () => {
-                _v13("copy_link"), _v54({
+                _v13("copy_link"), _v55({
                   folder: _v0,
                   canEditSettings: _v3
                 });
@@ -1956,7 +1960,7 @@
               } : void 0,
               canCreateReviewLink: _v18,
               onCreateReviewLink: () => {
-                _v13("create_review_link"), _v53({
+                _v13("create_review_link"), _v54({
                   uri: _v6,
                   folder: _v0,
                   defaultPanel: "CREATE_REVIEW_LINK_MODAL"
@@ -1967,17 +1971,17 @@
               onCopyReviewPageLink: () => {
                 if (_v13("copy_review_link"), _v21) {
                   let _v0 = _v0.reviewLinks?.[0]?.uri;
-                  _v40(_v0 ? () => _v53({
+                  _v41(_v0 ? () => _v54({
                     uri: _v6,
                     folder: _v0,
                     defaultPanel: "CREATE_REVIEW_LINK_MODAL",
                     editReviewLinkUri: _v0
                   }) : void 0);
-                } else _v41(_v11, _v10, _v6);
+                } else _v42(_v11, _v10, _v6);
               },
               canManageReviewLinks: _v20,
               onManageReviewLinks: () => {
-                _v13("manage_review_links"), _v53({
+                _v13("manage_review_links"), _v54({
                   uri: _v6,
                   folder: _v0,
                   defaultPanel: "REVIEW_LINKS_PANEL"
@@ -1999,7 +2003,7 @@
             dropTarget: _v0,
             loadingSideNavFolderURIs: _v2,
             onClick: () => {
-              _v1 && _v0?.(), _v44({
+              _v1 && _v0?.(), _v45({
                 isPrivateToUser: _v8,
                 folderUri: _v6
               }), _v9.BigPictureClient.sendEvent(new _v9.Event("vimeo.click_folder_title", 2, {
@@ -2029,18 +2033,18 @@
             uploadClipProperties: _v21
           }, _v0.uri);
         }) : (0, _v1.jsx)(_v149, {})
-      }), !!_v45 && !_v50 && !_v49 && (0, _v1.jsx)(_v147, {
-        onVisible: _v55,
+      }), !!_v46 && !_v51 && !_v50 && (0, _v1.jsx)(_v147, {
+        onVisible: _v56,
         "data-testid": "infinite-loading-zone"
-      }, `folders-loading-zone-${_v51?.length}`), !!(_v45 && _v49) && (0, _v1.jsx)(_v107.Spinner, {
+      }, `folders-loading-zone-${_v52?.length}`), !!(_v46 && _v50) && (0, _v1.jsx)(_v107.Spinner, {
         size: "sm",
         marginTop: "1rem",
         marginLeft: "2.75rem"
       })]
     });
   };
-  var _v159 = _v0.i(0);
-  let _v160 = _v0 => (0, _v1.jsx)(_v109.Icon, {
+  var _v160 = _v0.i(0);
+  let _v161 = _v0 => (0, _v1.jsx)(_v109.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -2055,8 +2059,8 @@
       })]
     })
   });
-  var _v161 = _v0.i(0);
-  let _v162 = ({
+  var _v162 = _v0.i(0);
+  let _v163 = ({
       closeSideNav: _v0,
       hasContentSpaceEnabled: _v1,
       isMobile: _v2,
@@ -2075,7 +2079,7 @@
         } = (0, _v112.useLibraryTracking)(),
         {
           data: _v12
-        } = (0, _v161.useGetUserFoldersPrivateToMe)({
+        } = (0, _v162.useGetUserFoldersPrivateToMe)({
           where: {
             ownerId: _v5
           },
@@ -2098,7 +2102,7 @@
           }),
           closeSideNav: _v0,
           label: _v3,
-          icon: _v1 ? (0, _v1.jsx)(_v160, {}) : (0, _v1.jsx)(_v159.PersonUser, {}),
+          icon: _v1 ? (0, _v1.jsx)(_v161, {}) : (0, _v1.jsx)(_v160.PersonUser, {}),
           isMobile: _v2,
           isOpen: _v8,
           onClick: () => {
@@ -2137,7 +2141,7 @@
         }, "private_to_me") : (0, _v1.jsx)(_v149, {})
       });
     },
-    _v163 = ({
+    _v164 = ({
       closeSideNav: _v0,
       loadingSideNavFolderURIs: _v1,
       teamOwnerId: _v2
@@ -2254,7 +2258,7 @@
               }));
             }
           }) : (0, _v1.jsx)(_v1.Fragment, {
-            children: _v24 ? _v9 ? (0, _v1.jsx)(_v162, {
+            children: _v24 ? _v9 ? (0, _v1.jsx)(_v163, {
               closeSideNav: _v0,
               hasContentSpaceEnabled: !!_v5.hasContentSpaceEnabled,
               isMobile: _v13,
@@ -2286,7 +2290,7 @@
               }),
               loadingSideNavFolderURIs: _v1,
               teamOwnerId: _v2 ?? 0
-            }) : (0, _v1.jsx)(_v158, {
+            }) : (0, _v1.jsx)(_v159, {
               closeSideNav: _v0,
               isMobile: _v13,
               loadingSideNavFolderURIs: _v1,
@@ -2297,9 +2301,9 @@
         })
       });
     };
-  _v0.s(["LibrarySideNavContent", 0, _v163], 0);
-  var _v164 = _v0.i(0);
-  function _v165({
+  _v0.s(["LibrarySideNavContent", 0, _v164], 0);
+  var _v165 = _v0.i(0);
+  function _v166({
     featuresList: _v0
   }) {
     return (0, _v1.jsx)(_v10.Flex, {
@@ -2308,7 +2312,7 @@
         margin: `${(0, _v54.rem)(8)} 0`,
         color: "white",
         fontWeight: 500,
-        children: [(0, _v1.jsx)(_v164.Checkmark, {
+        children: [(0, _v1.jsx)(_v165.Checkmark, {
           position: "relative",
           top: (0, _v54.rem)(4),
           width: (0, _v54.rem)(20),
@@ -2319,7 +2323,7 @@
       }, `feature-${_v1}`))
     });
   }
-  let _v166 = ({
+  let _v167 = ({
       isOpen: _v0,
       isMobile: _v1,
       loadingSideNavFolderURIs: _v2,
@@ -2336,7 +2340,7 @@
           close: _v11
         } = (0, _v99.useUpsellModal)(),
         _v12 = (0, _v100.useWayfinderPageName)();
-      return (0, _v1.jsx)(_v167, {
+      return (0, _v1.jsx)(_v168, {
         type: _v96.PlayerType.BarebonePlayer,
         assetUrls: _v8,
         children: (0, _v1.jsx)(_v98.WayfinderSideNav, {
@@ -2347,7 +2351,7 @@
           page: _v12,
           onUpgradeClick: (_v0, _v1 = 0) => {
             let _v2 = _v9?.user?.account === "enterprise",
-              _v3 = _v168(_v1),
+              _v3 = _v169(_v1),
               _v4 = null !== _v1 && _v1 >= 100,
               _v5 = "video_size" === _v0 && null !== _v1 && _v1 >= 95;
             _v0 = "ai_token" === (_v0 = "default" === _v3 ? "default" : _v0 || "default") ? "ai_token" : "storage", _v10({
@@ -2369,12 +2373,12 @@
               modalConfig: _v2 ? {
                 mkcCode: "108877",
                 enterpriseTitle: _v101.enterpriseHeader[_v3]?.[_v0] || "",
-                enterpriseSubtitle: _v169(_v3, _v0),
-                customFeaturesList: "default" === _v3 ? (0, _v1.jsx)(_v165, {
+                enterpriseSubtitle: _v170(_v3, _v0),
+                customFeaturesList: "default" === _v3 ? (0, _v1.jsx)(_v166, {
                   featuresList: _v101.enterpriseDefaultFeaturesList
-                }) : "ai_token" === _v0 ? (0, _v1.jsx)(_v165, {
+                }) : "ai_token" === _v0 ? (0, _v1.jsx)(_v166, {
                   featuresList: _v101.enterpriseAiFeaturesList
-                }) : (0, _v1.jsx)(_v165, {
+                }) : (0, _v1.jsx)(_v166, {
                   featuresList: _v101.enterpriseStorageFeaturesList
                 })
               } : _v4 ? _v97.quotaModalAtLimitConfig : _v97.quotaModalConfig,
@@ -2383,7 +2387,7 @@
           },
           showWatchMenuItem: _v6 && !!_v5,
           teamOwnerId: _v7,
-          children: _v5 ?? (0, _v1.jsx)(_v163, {
+          children: _v5 ?? (0, _v1.jsx)(_v164, {
             closeSideNav: _v3,
             loadingSideNavFolderURIs: _v2,
             teamOwnerId: _v7
@@ -2391,7 +2395,7 @@
         })
       });
     },
-    _v167 = ({
+    _v168 = ({
       children: _v0,
       assetUrls: _v1,
       type: _v2
@@ -2400,16 +2404,16 @@
       type: _v2,
       children: _v0
     }) : _v0,
-    _v168 = _v0 => null === _v0 || _v0 < 75 ? "default" : _v0 < 95 ? "reaching" : "reached",
-    _v169 = (_v0, _v1) => "default" === _v0 ? _v101.enterpriseDefaultDescription : "ai_token" === _v1 ? _v101.enterpriseAiDescription : _v101.enterpriseStorageDescription,
-    _v170 = (0, _v2.default)(async () => ({
+    _v169 = _v0 => null === _v0 || _v0 < 75 ? "default" : _v0 < 95 ? "reaching" : "reached",
+    _v170 = (_v0, _v1) => "default" === _v0 ? _v101.enterpriseDefaultDescription : "ai_token" === _v1 ? _v101.enterpriseAiDescription : _v101.enterpriseStorageDescription,
+    _v171 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).DefaultNavigation
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v171 = (0, _v4.createContext)({
+    _v172 = (0, _v4.createContext)({
       isPersonalTeamFolderAdminView: !1,
       setIsPersonalTeamFolderAdminView: () => {},
       isSideNavOpen: !1,
@@ -2582,7 +2586,7 @@
               children: [(0, _v1.jsx)(_v85, {
                 children: (0, _v1.jsx)(_v74, {
                   children: (0, _v1.jsx)(_v69, {
-                    children: (0, _v1.jsx)(_v171.Provider, {
+                    children: (0, _v1.jsx)(_v172.Provider, {
                       value: {
                         isSideNavOpen: !!_v26,
                         setIsSideNavOpen: _v27,
@@ -2597,7 +2601,7 @@
                         overflow: "hidden",
                         height: "100vh",
                         width: "100vw",
-                        children: [_v35 && (0, _v1.jsx)(_v166, {
+                        children: [_v35 && (0, _v1.jsx)(_v167, {
                           isOpen: !!_v26,
                           isMobile: _v14,
                           loadingSideNavFolderURIs: _v39,
@@ -2618,7 +2622,7 @@
                             minHeight: "100vh",
                             position: "relative",
                             overflowY: _v47 ? "hidden" : "auto",
-                            children: [(0, _v1.jsx)(_v170, {
+                            children: [(0, _v1.jsx)(_v171, {
                               hasSearch: _v2,
                               alwaysMinimiseSearch: _v8,
                               isSideNavActive: !!_v26,
@@ -2657,5 +2661,5 @@
         })
       }), (0, _v1.jsx)(_v20.DragPreview, {})]
     });
-  }, "VideoLibraryLayoutContext", 0, _v171], 0);
+  }, "VideoLibraryLayoutContext", 0, _v172], 0);
 }

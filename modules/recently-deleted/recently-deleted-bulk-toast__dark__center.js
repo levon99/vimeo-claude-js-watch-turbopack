@@ -245,6 +245,7 @@
     return _v1?.hasDataRetention ? (0, _v1.jsxs)(_v40.AlertRoot, {
       size: "sm",
       backgroundColor: "fill-component",
+      borderRadius: "md",
       children: [(0, _v1.jsx)(_v39.AlertIcon, {
         children: (0, _v1.jsx)(_v43.ShieldInfo, {
           color: "text-primary"
@@ -918,7 +919,7 @@
         let _v1,
           _v2 = _v0.filesSize && _v0.filesSize.totalSize > 0 ? (0, _v18.bytesToSize)(_v0.filesSize.totalSize) : "—",
           _v3 = _v0.deletedBy?.uri ? (0, _v27.idFromUri)(_v0.deletedBy.uri) : null,
-          _v4 = _v0.modifiedTime ? (_v1 = Math.ceil((new Date(_v0.modifiedTime).getTime() + 0 - Date.now()) / 0)) <= 0 ? (0, _v15.translate)({
+          _v4 = _v0.modifiedTime ? (_v1 = Math.min(Math.ceil((new Date(_v0.modifiedTime).getTime() + 0 - Date.now()) / 0), 30)) <= 0 ? (0, _v15.translate)({
             singular: "< 1 day",
             dictionary: {
               es: {
@@ -1479,44 +1480,45 @@
     _v74 = _v0.i(0),
     _v75 = _v0.i(0),
     _v76 = _v0.i(0),
-    _v77 = _v0.i(0);
-  async function _v78({
+    _v77 = _v0.i(0),
+    _v78 = _v0.i(0);
+  async function _v79({
     baseUrl: _v0,
     variables: _v1,
     ..._v2
   }) {
-    return (0, _v76.measureLatency)("postVideosPermanentDeletion", "POST", async () => {
+    return (0, _v77.measureLatency)("postVideosPermanentDeletion", "POST", async () => {
       let _v0 = await fetch(`${_v0}/videos/permanent-deletion`, {
         ..._v2,
         method: "POST",
-        body: JSON.stringify((0, _v77.deepSnakeCase)(_v1))
+        body: JSON.stringify((0, _v78.deepSnakeCase)(_v1))
       });
-      if (!_v0.ok) throw new _v77.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v78.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v77.deepCamelCase)(_v1);
+      return (0, _v78.deepCamelCase)(_v1);
     });
   }
-  var _v79 = _v0.i(0);
-  async function _v80({
+  var _v80 = _v0.i(0);
+  async function _v81({
     baseUrl: _v0,
     ..._v1
   }) {
-    return (0, _v76.measureLatency)("postVideosPermanentDeletionAll", "POST", async () => {
+    return (0, _v77.measureLatency)("postVideosPermanentDeletionAll", "POST", async () => {
       let _v0 = await fetch(`${_v0}/videos/permanent-deletion/all`, {
         ..._v1,
         method: "POST"
       });
-      if (!_v0.ok) throw new _v77.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v78.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v77.deepCamelCase)(_v1);
+      return (0, _v78.deepCamelCase)(_v1);
     });
   }
-  var _v81 = _v0.i(0);
-  function _v82() {
+  var _v82 = _v0.i(0);
+  function _v83() {
     let _v0,
       _v1,
       _v2,
@@ -1704,15 +1706,15 @@
         trackEmptyTrash: _v9,
         trackPermaDeleteAsk: _v10
       }) {
-        let _v11 = (0, _v75.useNotification)(),
-          _v12 = (0, _v72.useToast)(),
+        let _v11 = (0, _v76.useNotification)(),
+          _v12 = (0, _v73.useToast)(),
           _v13 = function () {
             let {
               baseUrl: _v0,
               jwt: _v1,
               xVimeoPage: _v2,
               locale: _v3
-            } = (0, _v79.useGctlConfig)();
+            } = (0, _v80.useGctlConfig)();
             return async _v0 => {
               let _v1 = {
                   baseUrl: _v0,
@@ -1725,7 +1727,7 @@
                 },
                 _v2 = [];
               for (let _v0 = 0; _v0 < _v0.length; _v0 += 25) {
-                let _v0 = await (0, _v81.postVideosRestore)({
+                let _v0 = await (0, _v82.postVideosRestore)({
                   variables: {
                     uris: _v0.slice(_v0, _v0 + 25)
                   },
@@ -1742,7 +1744,7 @@
               jwt: _v1,
               xVimeoPage: _v2,
               locale: _v3
-            } = (0, _v79.useGctlConfig)();
+            } = (0, _v80.useGctlConfig)();
             return async _v0 => {
               let _v1 = {
                   baseUrl: _v0,
@@ -1755,7 +1757,7 @@
                 },
                 _v2 = [];
               for (let _v0 = 0; _v0 < _v0.length; _v0 += 25) {
-                let _v0 = await _v78({
+                let _v0 = await _v79({
                   variables: {
                     uris: _v0.slice(_v0, _v0 + 25)
                   },
@@ -1772,9 +1774,9 @@
               jwt: _v1,
               xVimeoPage: _v2,
               locale: _v3
-            } = (0, _v79.useGctlConfig)();
+            } = (0, _v80.useGctlConfig)();
             return async () => {
-              await _v80({
+              await _v81({
                 baseUrl: _v0,
                 headers: {
                   "Content-Type": "application/json",
@@ -1933,45 +1935,51 @@
                   }
                 });
               _v12({
-                title: (0, _v1.jsxs)(_v1.Fragment, {
-                  children: [_v2, _v1 && (0, _v1.jsx)("button", {
-                    style: {
-                      marginLeft: "0.5rem"
-                    },
-                    onClick: () => window.location.href = (0, _v74.getFolderPageUriFromApiUri)(_v1),
-                    children: (0, _v15.translate)({
-                      singular: "Show file location",
-                      dictionary: {
-                        es: {
-                          singular: "Mostrar la ubicación del archivo"
-                        },
-                        "de-DE": {
-                          singular: "Dateispeicherort anzeigen"
-                        },
-                        "fr-FR": {
-                          singular: "Afficher l'emplacement du fichier"
-                        },
-                        "ja-JP": {
-                          singular: "ファイルの場所を表示"
-                        },
-                        "ko-KR": {
-                          singular: "파일 위치 표시"
-                        },
-                        "pt-BR": {
-                          singular: "Mostrar localização do arquivo"
-                        },
-                        "zh-CN": {
-                          singular: "显示文件位置"
+                isClosable: !0,
+                render: _v0 => (0, _v1.jsx)(_v73.ToastRoot, {
+                  ..._v0,
+                  variant: "success",
+                  children: (0, _v1.jsxs)(_v72.Center, {
+                    gap: "sm",
+                    children: [(0, _v1.jsx)(_v73.ToastIcon, {}), (0, _v1.jsx)(_v73.ToastTitle, {
+                      children: _v2
+                    }), _v1 && (0, _v1.jsx)(_v73.ToastButton, {
+                      bgColor: "text-secondary",
+                      color: "text-button-inverted",
+                      fontWeight: "medium",
+                      _hover: {
+                        bgColor: "text-primary"
+                      },
+                      onClick: () => window.location.href = (0, _v75.getFolderPageUriFromApiUri)(_v1),
+                      children: (0, _v15.translate)({
+                        singular: "Show file location",
+                        dictionary: {
+                          es: {
+                            singular: "Mostrar la ubicación del archivo"
+                          },
+                          "de-DE": {
+                            singular: "Dateispeicherort anzeigen"
+                          },
+                          "fr-FR": {
+                            singular: "Afficher l'emplacement du fichier"
+                          },
+                          "ja-JP": {
+                            singular: "ファイルの場所を表示"
+                          },
+                          "ko-KR": {
+                            singular: "파일 위치 표시"
+                          },
+                          "pt-BR": {
+                            singular: "Mostrar localização do arquivo"
+                          },
+                          "zh-CN": {
+                            singular: "显示文件位置"
+                          }
                         }
-                      }
-                    })
-                  })]
-                }),
-                variant: "success",
-                icon: (0, _v1.jsx)(_v73.CircleCheckFilled, {
-                  color: "status-positive-primary"
-                }),
-                isClosable: !0
+                      })
+                    })]
+                  })
+                })
               });
             } else _v2.length > 1 && _v11({
               content: (0, _v15.translate)({
@@ -2188,7 +2196,7 @@
                 }
               }),
               variant: "success",
-              icon: (0, _v1.jsx)(_v73.CircleCheckFilled, {
+              icon: (0, _v1.jsx)(_v74.CircleCheckFilled, {
                 color: "status-positive-primary"
               }),
               duration: 0
@@ -2566,17 +2574,17 @@
       })
     });
   }
-  var _v83 = _v0.i(0),
-    _v84 = _v0.i(0),
-    _v85 = _v0.i(0);
-  let _v86 = () => {
+  var _v84 = _v0.i(0),
+    _v85 = _v0.i(0),
+    _v86 = _v0.i(0);
+  let _v87 = () => {
     let _v0 = (0, _v28.useViewer)(),
       {
         settings: _v1,
         isLoadingResponse: _v2
       } = (0, _v9.useOrionSettings)();
     if (_v2 || !_v0) return null;
-    if (!_v1.has_recently_deleted) return (0, _v1.jsx)(_v83.ErrorPage, {
+    if (!_v1.has_recently_deleted) return (0, _v1.jsx)(_v84.ErrorPage, {
       error: new _v6.ResourceNotFoundError()
     });
     let _v3 = !_v0?.teamUser || _v0.teamUser.permissionLevel <= 2;
@@ -2679,13 +2687,13 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v82, {})]
+      }), (0, _v1.jsx)(_v83, {})]
     });
   };
-  _v86.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v85.VideoLibraryLayout, {
+  _v87.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v86.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
-    sideNavContent: (0, _v1.jsx)(_v84.HomeSideNavContent, {}),
+    sideNavContent: (0, _v1.jsx)(_v85.HomeSideNavContent, {}),
     children: _v0
   }), (0, _v7.withPageSetup)(() => ({
     props: {
@@ -2694,5 +2702,5 @@
     }
   }), {
     requireLogin: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v86], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v87], 0);
 }

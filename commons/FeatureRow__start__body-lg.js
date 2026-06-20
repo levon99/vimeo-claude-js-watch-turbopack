@@ -53,13 +53,14 @@
     isTrial: _v0,
     planName: _v1,
     paywallTracking: _v2,
-    subscriptionTier: _v3
+    subscriptionTier: _v3,
+    postCheckoutUrl: _v4
   }) {
-    let _v4 = _v1 ?? (_v3 ? (0, _v6.default)(`${_v3}`) : ""),
-      _v5 = _v4 ? _v0 ? (0, _v8.translate)({
+    let _v5 = _v1 ?? (_v3 ? (0, _v6.default)(`${_v3}`) : ""),
+      _v6 = _v5 ? _v0 ? (0, _v8.translate)({
         singular: "Try {PLAN_NAME} for free",
         replacements: {
-          PLAN_NAME: _v4
+          PLAN_NAME: _v5
         },
         dictionary: {
           es: {
@@ -87,7 +88,7 @@
       }) : (0, _v8.translate)({
         singular: "Join Vimeo {PLAN_NAME}",
         replacements: {
-          PLAN_NAME: _v4
+          PLAN_NAME: _v5
         },
         dictionary: {
           es: {
@@ -172,11 +173,12 @@
         let _v0 = (0, _v9.buildCheckoutUrl)({
           ..._v2,
           tier: _v3,
-          isTrial: _v0
+          isTrial: _v0,
+          postCheckoutUrl: _v4
         });
         window.location.assign(_v0);
       },
-      children: _v5
+      children: _v6
     });
   }], 0);
 }

@@ -737,25 +737,25 @@
           singular: "Copy review link",
           dictionary: {
             es: {
-              singular: "Copiar vínculo de revisión"
+              singular: "Copiar enlace de revisión"
             },
             "de-DE": {
-              singular: "Link zum Prüfen kopieren"
+              singular: "Review-Link kopieren"
             },
             "fr-FR": {
-              singular: "Copier le lien d'avis"
+              singular: "Copier le lien de révision"
             },
             "ja-JP": {
               singular: "レビューリンクをコピー"
             },
             "ko-KR": {
-              singular: "리뷰 링크 복사"
+              singular: "검토용 링크 복사"
             },
             "pt-BR": {
-              singular: "Copiar o link de revisão"
+              singular: "Copiar link para revisão"
             },
             "zh-CN": {
-              singular: "复制评论链接"
+              singular: "复制评审链接"
             }
           }
         }),

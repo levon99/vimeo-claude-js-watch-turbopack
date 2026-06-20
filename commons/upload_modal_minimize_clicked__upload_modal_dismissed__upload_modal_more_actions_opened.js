@@ -3157,8 +3157,9 @@
       tabIndex: 0,
       gap: "sm",
       flexDirection: "column",
-      maxHeight: (0, _v12.rem)(650),
+      maxHeight: "calc(100vh - 17rem)",
       overflowX: "hidden",
+      overflowY: "auto",
       maxWidth: (0, _v12.rem)(466),
       paddingBottom: "md",
       children: _v0.map(_v0 => (0, _v1.jsx)(_v92, {
@@ -3399,6 +3400,7 @@
       boxShadow: "var(--vimeo-shadows-md)",
       width: (0, _v12.rem)(400),
       minHeight: (0, _v12.rem)(45),
+      maxHeight: "calc(100vh - 15rem)",
       overflow: "hidden",
       children: [(0, _v1.jsxs)(_v8.Flex, {
         alignItems: "center",

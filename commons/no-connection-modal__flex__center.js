@@ -10944,32 +10944,109 @@ ${_v9}
           onSlidesSelected: _v2,
           onError: _v3,
           handleClose: _v4,
-          scope: _v5 = "https://www.googleapis.com/auth/drive.file",
-          enabled: _v6 = !0
+          enabled: _v5 = !0
         }) {
-          let [_v7, _v8] = (0, _v489.useScript)("https://apis.google.com/js/api.js", !_v6),
-            [_v9, _v10] = (0, _v489.useScript)("https://accounts.google.com/gsi/client", !_v6),
-            [_v11, _v12] = (0, _v21.useState)(!1),
-            [_v13, _v14] = (0, _v21.useState)(!1),
-            _v15 = (0, _v21.useRef)(""),
-            _v16 = (0, _v21.useRef)(void 0),
-            _v17 = (0, _v21.useRef)(() => void 0),
-            _v18 = (0, _v21.useRef)(void 0),
-            _v19 = (0, _v21.useContext)(_v488.ViewerContext),
-            _v20 = _v19?.locale || "en",
-            _v21 = _v19?.isEnterpriseSite,
-            _v22 = window.gapi;
+          let [_v6, _v7] = (0, _v489.useScript)("https://apis.google.com/js/api.js", !_v5),
+            [_v8, _v9] = (0, _v21.useState)(!1),
+            [_v10, _v11] = (0, _v21.useState)(!1),
+            _v12 = (0, _v21.useRef)(""),
+            _v13 = (0, _v21.useRef)(!1),
+            _v14 = (0, _v21.useRef)({}),
+            _v15 = (0, _v21.useRef)(void 0),
+            _v16 = (0, _v21.useContext)(_v488.ViewerContext),
+            _v17 = _v16?.locale || "en",
+            _v18 = window.gapi;
           (0, _v21.useEffect)(() => {
-            _v22 && _v7 && !_v8 && _v22.load("picker", {});
-          }, [_v7, _v8, _v22]);
-          let _v23 = (0, _v21.useCallback)(async _v0 => {
+            _v18 && _v6 && !_v7 && _v18.load("picker", {});
+          }, [_v6, _v7, _v18]);
+          let _v19 = (0, _v21.useCallback)(async () => {
+            try {
+              let _v0 = await fetch("/google_drive/token", {
+                headers: {
+                  "X-Requested-With": "XMLHttpRequest"
+                }
+              });
+              if (!_v0.ok) return null;
+              let _v1 = await _v0.json();
+              return _v1?.access_token ?? null;
+            } catch {
+              return null;
+            }
+          }, []);
+          (0, _v21.useEffect)(() => {
+            if (!_v5) return;
+            let _v0 = !1;
+            return _v19().then(_v0 => {
+              !_v0 && _v0 && (_v13.current = !0);
+            }), () => {
+              _v0 = !0;
+            };
+          }, [_v5, _v19]);
+          let _v20 = (0, _v21.useCallback)(_v0 => new Promise(_v0 => {
+            if (!_v0) return void _v0(null);
+            try {
+              _v0.location.href = "/google_drive/connect";
+            } catch {
+              _v0(null);
+              return;
+            }
+            let _v1 = Date.now(),
+              _v2 = !1,
+              _v3 = !1,
+              _v4 = _v0 => {
+                if (!_v2) {
+                  _v2 = !0, clearInterval(_v5), _v14.current = {};
+                  try {
+                    _v0.close();
+                  } catch {}
+                  _v0(_v0);
+                }
+              },
+              _v5 = setInterval(() => {
+                if (_v3) return;
+                let _v0 = Date.now() - _v1 > 0,
+                  _v1 = _v0.closed;
+                _v3 = !0, _v19().then(_v0 => {
+                  _v3 = !1, _v0 ? _v4(_v0) : (_v1 || _v0) && _v4(null);
+                });
+              }, 700);
+            _v14.current = {
+              timer: _v5,
+              popup: _v0
+            };
+          }), [_v19]);
+          (0, _v21.useEffect)(() => () => {
+            _v14.current.timer && clearInterval(_v14.current.timer);
+            try {
+              _v14.current.popup?.close();
+            } catch {}
+          }, []);
+          let _v21 = (0, _v21.useCallback)(async _v0 => {
+              let _v1 = await _v19();
+              if (_v1) {
+                try {
+                  _v0?.close();
+                } catch {}
+                return _v1;
+              }
+              return _v20(_v0);
+            }, [_v19, _v20]),
+            _v22 = (0, _v21.useCallback)(async _v0 => {
+              let _v1 = await _v19();
+              if (!_v1) {
+                _v13.current = !1, _v4?.();
+                return;
+              }
+              _v12.current = _v1, _v0();
+            }, [_v19, _v4]),
+            _v23 = (0, _v21.useCallback)(async _v0 => {
               let _v1 = new AbortController(),
                 _v2 = setTimeout(() => _v1.abort(new DOMException("export timed out", "TimeoutError")), 0);
               try {
                 let _v0 = await fetch(`https://www.googleapis.com/drive/v3/files/${_v0}/export?mimeType=${encodeURIComponent(_v500)}`, {
                   method: "GET",
                   headers: {
-                    Authorization: `Bearer ${_v15.current}`
+                    Authorization: `Bearer ${_v12.current}`
                   },
                   signal: _v1.signal
                 });
@@ -10990,42 +11067,30 @@ ${_v9}
                 clearTimeout(_v2);
               }
             }, []),
-            _v24 = (0, _v21.useCallback)((_v0 = "") => {
-              let _v1 = encodeURI(window?.location?.origin + "/oauth/token/popup-callback"),
-                _v2 = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${_v0}&scope=${_v5}&redirect_uri=https://integrations-redirect.vimeo.work/oauth_redirect_fragmented&state=${_v1}&response_type=token&include_granted_scopes=true&enable_granular_consent=true&prompt=${_v0}`;
-              window.connectCallback = _v0 => {
-                _v0.access_token && (_v15.current = _v0.access_token, _v17.current());
-              }, window.open(_v2);
-            }, [_v0, _v5]),
-            _v25 = (0, _v21.useCallback)(_v0 => {
-              _v17.current = _v0, _v21 ? _v24("consent") : _v16.current?.requestAccessToken({
-                prompt: ""
-              });
-            }, [_v21, _v24]),
-            _v26 = (0, _v21.useRef)(() => Promise.resolve()),
-            _v27 = (0, _v21.useCallback)(async (_v0, _v1, _v2 = !1) => {
-              _v12(!0);
+            _v24 = (0, _v21.useRef)(() => Promise.resolve()),
+            _v25 = (0, _v21.useCallback)(async (_v0, _v1, _v2 = !1) => {
+              _v9(!0);
               try {
                 let _v0 = await _v23(_v0),
                   _v1 = new File([_v0], `${_v1}.pdf`, {
                     type: _v500
                   });
-                _v12(!1), _v2(_v1, _v1);
+                _v9(!1), _v2(_v1, _v1);
               } catch (_v0) {
                 if ("EXPORT_TOO_LARGE" === _v0) {
-                  _v14(!0);
+                  _v11(!0);
                   let _v0 = new AbortController();
-                  _v18.current = _v0;
+                  _v15.current = _v0;
                   try {
-                    let _v0 = await _v499(_v0, _v15.current, _v1, _v0.signal);
-                    _v14(!1), _v12(!1), _v2(_v0, _v1);
+                    let _v0 = await _v499(_v0, _v12.current, _v1, _v0.signal);
+                    _v11(!1), _v9(!1), _v2(_v0, _v1);
                   } catch (_v0) {
                     if (_v0.signal.aborted) return;
-                    if (_v14(!1), "AUTH_EXPIRED" === _v0 && !_v2) {
-                      _v12(!1), _v25(() => void _v26.current(_v0, _v1, !0));
+                    if (_v11(!1), "AUTH_EXPIRED" === _v0 && !_v2) {
+                      _v9(!1), _v22(() => void _v24.current(_v0, _v1, !0));
                       return;
                     }
-                    _v12(!1), "AUTH_EXPIRED" !== _v0 && "TOO_MANY_PAGES" !== _v0 && (0, _v86.trackLiveError)(_v0, {
+                    _v9(!1), "AUTH_EXPIRED" !== _v0 && "TOO_MANY_PAGES" !== _v0 && (0, _v86.trackLiveError)(_v0, {
                       category: _v85.ELiveErrorCategory.MEDIA,
                       method: "useGoogleSlidesPicker.exportAndDeliver.fallback"
                     }), _v3?.("EXPORT_TOO_LARGE");
@@ -11033,59 +11098,47 @@ ${_v9}
                   return;
                 }
                 if ("AUTH_EXPIRED" === _v0 && !_v2) {
-                  _v12(!1), _v25(() => void _v26.current(_v0, _v1, !0));
+                  _v9(!1), _v22(() => void _v24.current(_v0, _v1, !0));
                   return;
                 }
-                _v12(!1);
+                _v9(!1);
                 let _v1 = "AUTH_EXPIRED" === _v0 ? _v0 : "GENERIC";
                 "GENERIC" === _v1 && (0, _v86.trackLiveError)(_v0, {
                   category: _v85.ELiveErrorCategory.MEDIA,
                   method: "useGoogleSlidesPicker.exportAndDeliver"
                 }), _v3?.(_v1);
               }
-            }, [_v23, _v2, _v3, _v25]);
+            }, [_v23, _v2, _v3, _v22]);
           (0, _v21.useEffect)(() => {
-            _v26.current = _v27;
-          }, [_v27]), (0, _v21.useEffect)(() => () => _v18.current?.abort(), []);
-          let _v28 = (0, _v21.useCallback)(_v0 => {
+            _v24.current = _v25;
+          }, [_v25]), (0, _v21.useEffect)(() => () => _v15.current?.abort(), []);
+          let _v26 = (0, _v21.useCallback)(_v0 => {
               if (!_v0) return;
               let _v1 = Array.isArray(_v0) ? _v0[0] : _v0;
-              _v1?.id && _v27(_v1.id, _v1.name ?? "Google Slides");
-            }, [_v27]),
-            _v29 = (0, _v21.useCallback)(_v0 => {
-              _v0[google.picker.Response.ACTION] === google.picker.Action.CANCEL ? _v4?.() : _v0[google.picker.Response.ACTION] === google.picker.Action.PICKED && _v28(_v0[google.picker.Response.DOCUMENTS]);
-            }, [_v28, _v4]),
-            _v30 = (0, _v21.useCallback)(() => {
+              _v1?.id && _v25(_v1.id, _v1.name ?? "Google Slides");
+            }, [_v25]),
+            _v27 = (0, _v21.useCallback)(_v0 => {
+              _v0[google.picker.Response.ACTION] === google.picker.Action.CANCEL ? _v4?.() : _v0[google.picker.Response.ACTION] === google.picker.Action.PICKED && _v26(_v0[google.picker.Response.DOCUMENTS]);
+            }, [_v26, _v4]),
+            _v28 = (0, _v21.useCallback)(() => {
               let _v0 = new google.picker.DocsView(google.picker.ViewId.PRESENTATIONS);
-              _v0.setMimeTypes("application/vnd.google-apps.presentation"), _v0.setMode(google.picker.DocsViewMode.LIST), new google.picker.PickerBuilder().addView(_v0).enableFeature(google.picker.Feature.NAV_HIDDEN).enableFeature(google.picker.Feature.SUPPORT_DRIVES).setOAuthToken(_v15.current).setOrigin(`${window.location.protocol}//${window.location.host}`).setLocale(_v20).setCallback(_v29).setDeveloperKey(_v1).setAppId(_v0).build().setVisible(!0);
-            }, [_v0, _v1, _v20, _v29]);
-          return (0, _v21.useEffect)(() => {
-            _v9 && !_v10 && window.google && _v0 && (_v16.current = google?.accounts?.oauth2?.initTokenClient({
-              client_id: _v0,
-              scope: _v5,
-              callback: async _v0 => {
-                if (void 0 !== _v0.error) {
-                  (0, _v86.trackLiveError)(`Google Slides OAuth failed: ${_v0.error}`, {
-                    category: _v85.ELiveErrorCategory.MEDIA,
-                    method: "useGoogleSlidesPicker.initTokenClient"
-                  }), _v3?.("GENERIC");
+              _v0.setMimeTypes("application/vnd.google-apps.presentation"), _v0.setMode(google.picker.DocsViewMode.LIST), new google.picker.PickerBuilder().addView(_v0).enableFeature(google.picker.Feature.NAV_HIDDEN).enableFeature(google.picker.Feature.SUPPORT_DRIVES).setOAuthToken(_v12.current).setOrigin(`${window.location.protocol}//${window.location.host}`).setLocale(_v17).setCallback(_v27).setDeveloperKey(_v1).setAppId(_v0).build().setVisible(!0);
+            }, [_v0, _v1, _v17, _v27]);
+          return {
+            pickGoogleSlides: (0, _v21.useCallback)(() => {
+              let _v0 = _v13.current ? null : window.open("about:blank");
+              (async () => {
+                let _v0 = await _v21(_v0);
+                if (!_v0) {
+                  _v13.current = !1, _v4?.();
                   return;
                 }
-                _v15.current = _v0.access_token, _v17.current();
-              },
-              error_callback: () => _v4?.()
-            }));
-          }, [_v0, _v9, _v10, _v5, _v3, _v4]), {
-            pickGoogleSlides: (0, _v21.useCallback)(() => {
-              if (_v17.current = () => _v30(), _v21) return void _v24(_v15.current ? "" : "consent");
-              let _v0 = _v16.current;
-              _v0 && _v0.requestAccessToken({
-                prompt: _v15.current ? "" : "consent"
-              });
-            }, [_v21, _v24, _v30]),
-            isExporting: _v11,
-            isLargeDeckImporting: _v13,
-            canPick: !!window?.google?.picker && !_v10
+                _v12.current = _v0, _v13.current = !0, _v28();
+              })();
+            }, [_v21, _v4, _v28]),
+            isExporting: _v8,
+            isLargeDeckImporting: _v10,
+            canPick: !!window?.google?.picker && !_v7
           };
         }({
           clientId: _v7?.clientId,

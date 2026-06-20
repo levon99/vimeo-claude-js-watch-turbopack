@@ -735,10 +735,10 @@
             singular: "Algunos videos están restringidos debido a los límites de privacidad y de almacenamiento de su plan."
           },
           "de-DE": {
-            singular: "Einige Videos sind aufgrund von Datenschutz- und Speicherbeschränkungen in Ihrem Tarif eingeschränkt."
+            singular: "Einige Videos sind aufgrund von Privatsphäre- und Speicherbeschränkungen in Ihrem Tarif eingeschränkt."
           },
           "fr-FR": {
-            singular: "Certaines vidéos sont restreintes en raison des paramètres de confidentialité et des limites de stockage de votre forfait."
+            singular: "Certaines vidéos sont restreintes en raison des limites de confidentialité et de stockage associées à votre forfait."
           },
           "ja-JP": {
             singular: "お使いのプランのプライバシー設定およびストレージの制限により、一部の動画が制限されています。"
