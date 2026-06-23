@@ -64,7 +64,7 @@
       return _v6 ? _v5 : _v0;
     };
   _v0.s(["useUpdateContentTitleCache", 0, function () {
-    let _v0 = (0, _v2.default)();
+    let _v0 = (0, _v2.useMatchMutate)();
     return (0, _v1.useCallback)(({
       entity: _v0,
       uri: _v1,

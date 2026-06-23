@@ -122,8 +122,9 @@
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),
-    _v57 = _v0.i(0);
-  let _v58 = _v0 => ({
+    _v57 = _v0.i(0),
+    _v58 = _v0.i(0);
+  let _v59 = _v0 => ({
       eventName: "vimeo.click",
       version: 91,
       fields: _v0,
@@ -132,44 +133,44 @@
       },
       globalAnalyticsToInclude: ["page", "path"]
     }),
-    _v59 = _v0 => ({
+    _v60 = _v0 => ({
       eventName: "workflow.open_delete_modal",
       version: 2,
       fields: _v0,
       defaultEventFields: {
-        ..._v57.nullTeamContext,
-        ..._v57.nullVideoContextData,
-        ..._v57.nullUploadContextData,
+        ..._v58.nullTeamContext,
+        ..._v58.nullVideoContextData,
+        ..._v58.nullUploadContextData,
         location: null
       }
     }),
-    _v60 = _v0 => ({
+    _v61 = _v0 => ({
       eventName: "vimeo.bulk_delete_items",
       version: 1,
       fields: _v0,
       globalAnalyticsToInclude: ["page"]
     });
-  var _v61 = _v0.i(0),
-    _v62 = _v0.i(0),
+  var _v62 = _v0.i(0),
     _v63 = _v0.i(0),
     _v64 = _v0.i(0),
     _v65 = _v0.i(0),
     _v66 = _v0.i(0),
     _v67 = _v0.i(0),
-    _v68 = _v0.i(0);
+    _v68 = _v0.i(0),
+    _v69 = _v0.i(0);
   let {
-      ActionButton: _v69
+      ActionButton: _v70
     } = _v20.BulkActionsBar,
-    _v70 = ({
+    _v71 = ({
       disabled: _v0,
       onClick: _v1
     }) => {
-      let _v2 = (0, _v35.useAnalyticsEvent)(),
-        _v3 = (0, _v49.usePageName)();
-      return (0, _v1.jsx)(_v69, {
+      let _v2 = (0, _v36.useAnalyticsEvent)(),
+        _v3 = (0, _v50.usePageName)();
+      return (0, _v1.jsx)(_v70, {
         disabled: _v0,
-        icon: (0, _v1.jsx)(_v64.Plus, {}),
-        label: (0, _v33.translate)({
+        icon: (0, _v1.jsx)(_v65.Plus, {}),
+        label: (0, _v34.translate)({
           singular: "Add to showcases",
           dictionary: {
             es: {
@@ -196,7 +197,7 @@
           }
         }),
         onClick: () => {
-          _v2(_v58({
+          _v2(_v59({
             name: "open_add_to_collection",
             location: "bulk_actions_bar",
             feature: "showcases",
@@ -211,18 +212,18 @@
         }
       });
     },
-    _v71 = ({
+    _v72 = ({
       disabled: _v0,
       numItemsSelected: _v1,
       onClick: _v2
     }) => {
-      let _v3 = (0, _v35.useAnalyticsEvent)(),
-        _v4 = (0, _v49.usePageName)().toUpperCase(),
+      let _v3 = (0, _v36.useAnalyticsEvent)(),
+        _v4 = (0, _v50.usePageName)().toUpperCase(),
         _v5 = "VLS" === _v4 ? "search" : "video_library";
-      return (0, _v1.jsx)(_v69, {
+      return (0, _v1.jsx)(_v70, {
         disabled: _v0,
-        icon: (0, _v1.jsx)(_v62.FolderOpen, {}),
-        label: (0, _v33.translate)({
+        icon: (0, _v1.jsx)(_v63.FolderOpen, {}),
+        label: (0, _v34.translate)({
           singular: "Move",
           dictionary: {
             es: {
@@ -249,7 +250,7 @@
           }
         }),
         onClick: () => {
-          _v3(_v58({
+          _v3(_v59({
             name: "move_item",
             page: _v4,
             feature: _v5,
@@ -264,16 +265,16 @@
         }
       });
     },
-    _v72 = ({
+    _v73 = ({
       disabled: _v0,
       onClick: _v1
     }) => {
-      let _v2 = (0, _v35.useAnalyticsEvent)(),
-        _v3 = (0, _v49.usePageName)().toUpperCase();
-      return (0, _v1.jsx)(_v69, {
+      let _v2 = (0, _v36.useAnalyticsEvent)(),
+        _v3 = (0, _v50.usePageName)().toUpperCase();
+      return (0, _v1.jsx)(_v70, {
         disabled: _v0,
-        icon: (0, _v1.jsx)(_v65.TrashBin, {}),
-        label: (0, _v33.translate)({
+        icon: (0, _v1.jsx)(_v66.TrashBin, {}),
+        label: (0, _v34.translate)({
           singular: "Delete",
           dictionary: {
             es: {
@@ -300,24 +301,24 @@
           }
         }),
         onClick: () => {
-          _v2(_v59({
+          _v2(_v60({
             location: "bulk_actions_bar",
             page: _v3
           })), _v1();
         }
       });
     },
-    _v73 = ({
+    _v74 = ({
       disabled: _v0,
       onClick: _v1
     }) => {
-      let _v2 = (0, _v35.useAnalyticsEvent)(),
-        _v3 = (0, _v49.usePageName)(),
+      let _v2 = (0, _v36.useAnalyticsEvent)(),
+        _v3 = (0, _v50.usePageName)(),
         _v4 = "vls" === _v3 ? "search" : "video_library";
-      return (0, _v1.jsx)(_v69, {
+      return (0, _v1.jsx)(_v70, {
         disabled: _v0,
-        icon: (0, _v1.jsx)(_v63.Eye, {}),
-        label: (0, _v33.translate)({
+        icon: (0, _v1.jsx)(_v64.Eye, {}),
+        label: (0, _v34.translate)({
           singular: "Privacy",
           dictionary: {
             es: {
@@ -344,7 +345,7 @@
           }
         }),
         onClick: () => {
-          _v2(_v58({
+          _v2(_v59({
             name: "open_bulk_privacy_modal",
             location: "bulk_actions_bar",
             feature: _v4,
@@ -359,13 +360,13 @@
         }
       });
     },
-    _v74 = ({
+    _v75 = ({
       disabled: _v0,
       onClick: _v1
-    }) => (0, _v1.jsx)(_v69, {
+    }) => (0, _v1.jsx)(_v70, {
       disabled: _v0,
-      icon: (0, _v1.jsx)(_v67.AiSparkles, {}),
-      label: (0, _v33.translate)({
+      icon: (0, _v1.jsx)(_v68.AiSparkles, {}),
+      label: (0, _v34.translate)({
         singular: "Translate",
         dictionary: {
           es: {
@@ -393,19 +394,19 @@
       }),
       onClick: _v1
     }),
-    _v75 = ({
+    _v76 = ({
       disabled: _v0,
       label: _v1,
       onClick: _v2
     }) => {
-      let _v3 = (0, _v68.useWayfinderPageName)(),
+      let _v3 = (0, _v69.useWayfinderPageName)(),
         _v4 = (0, _v2.useRouter)().pathname;
-      return (0, _v1.jsx)(_v69, {
+      return (0, _v1.jsx)(_v70, {
         disabled: _v0,
-        icon: (0, _v1.jsx)(_v66.Globe, {}),
+        icon: (0, _v1.jsx)(_v67.Globe, {}),
         label: _v1,
         onClick: () => {
-          _v61.BigPictureClient.sendEvent(new _v61.Event("vimeo.click", 137, {
+          _v62.BigPictureClient.sendEvent(new _v62.Event("vimeo.click", 137, {
             name: "open_bulk_share_in_china_modal",
             location: "bulk_actions_bar",
             feature: "video_library",
@@ -422,15 +423,15 @@
         }
       });
     };
-  _v0.s(["AddToShowcasesButton", 0, _v70, "BulkShareInChinaButton", 0, _v75, "DeleteButton", 0, _v72, "MoveButton", 0, _v71, "PrivacyButton", 0, _v73, "TranslateButton", 0, _v74], 0);
-  let _v76 = _v0 => _v0.replace("users", "user").replace("projects", "folder");
-  function _v77(_v0) {
+  _v0.s(["AddToShowcasesButton", 0, _v71, "BulkShareInChinaButton", 0, _v76, "DeleteButton", 0, _v73, "MoveButton", 0, _v72, "PrivacyButton", 0, _v74, "TranslateButton", 0, _v75], 0);
+  let _v77 = _v0 => _v0.replace("users", "user").replace("projects", "folder");
+  function _v78(_v0) {
     return void 0 !== _v0;
   }
-  function _v78(_v0) {
+  function _v79(_v0) {
     return null !== _v0;
   }
-  let _v79 = "bulk-actions-bar";
+  let _v80 = "bulk-actions-bar";
   _v0.s(["BulkActions", 0, ({
     canAddToShowcases: _v0,
     canUseBulkTranslation: _v1,
@@ -458,27 +459,27 @@
     onBulkMoveSuccess: _v23,
     isPrivateModeOn: _v24 = !1
   }) => {
-    let _v25 = (0, _v3.useContext)(_v56.ViewerContext),
+    let _v25 = (0, _v3.useContext)(_v57.ViewerContext),
       {
         settings: _v26
-      } = (0, _v34.useOrionSettings)(),
-      _v27 = (0, _v35.useAnalyticsEvent)(),
-      _v28 = (0, _v49.usePageName)(),
+      } = (0, _v35.useOrionSettings)(),
+      _v27 = (0, _v36.useAnalyticsEvent)(),
+      _v28 = (0, _v50.usePageName)(),
       _v29 = (0, _v2.useRouter)().pathname,
       {
         openMoveModal: _v30
-      } = (0, _v47.useMoveModal)(),
+      } = (0, _v48.useMoveModal)(),
       {
         openAddToShowcaseModal: _v31,
         closeAddToShowcaseModal: _v32
-      } = (0, _v52.useAddToShowcaseModal)(),
+      } = (0, _v53.useAddToShowcaseModal)(),
       {
         openDeleteVideoModal: _v33,
         closeDeleteVideoModal: _v34
-      } = (0, _v48.useDeleteVideoModal)(),
+      } = (0, _v49.useDeleteVideoModal)(),
       {
         openBulkPrivacyModal: _v35
-      } = (0, _v45.useBulkPrivacyModal)(),
+      } = (0, _v46.useBulkPrivacyModal)(),
       {
         openBulkPrivacyModal: _v36
       } = (0, _v17.useBulkPrivacyModal)(),
@@ -491,37 +492,40 @@
       } = (0, _v19.useBulkSentimentModal)(),
       {
         openBulkShareInChinaModal: _v40
-      } = (0, _v46.useBulkShareInChinaModal)(),
-      _v41 = (0, _v51.useNotification)(),
+      } = (0, _v47.useBulkShareInChinaModal)(),
+      _v41 = (0, _v52.useNotification)(),
       _v42 = (0, _v13.useToast)(),
       {
         notifyItemMoveSuccess: _v43,
         notifyItemMoveToWorkspaceSuccess: _v44
-      } = (0, _v51.useNotifications)(),
+      } = (0, _v52.useNotifications)(),
       [_v45, {
         loading: _v46,
         error: _v47,
         called: _v48
-      }] = (0, _v32.useDeleteUserVideos)(),
+      }] = (0, _v33.useDeleteUserVideos)(),
       [_v49, {
         loading: _v50,
         error: _v51,
         called: _v52
-      }] = (0, _v31.useDeleteUserProjectItems)(),
+      }] = (0, _v32.useDeleteUserProjectItems)(),
       {
         mutateStarredItemsData: _v53
-      } = (0, _v54.useStarredItemDataContext)(),
+      } = (0, _v55.useStarredItemDataContext)(),
       {
         openBulkAiModal: _v54
       } = (0, _v16.useBulkAiModal)(),
-      _v55 = (0, _v55.useActivityCenterStore)(_v0 => _v0.handleNewTranslationJob),
+      _v55 = (0, _v56.useActivityCenterStore)(_v0 => _v0.handleNewTranslationJob),
       {
         capabilities: _v56
-      } = (0, _v29.useCapability)(["hasContentSpaceEnabled", "canGenerateClipTranslation", "canGenerateClipTextTranslation", "canUseSentimentWidgets"], _v19),
-      _v57 = !!_v56.canGenerateClipTextTranslation,
-      _v58 = !!_v56.canGenerateClipTranslation,
-      _v59 = !!_v56.canUseSentimentWidgets,
-      _v60 = _v56?.hasContentSpaceEnabled ? (0, _v33.translate)({
+      } = (0, _v30.useCapability)(["canGenerateClipTranslation", "canGenerateClipTextTranslation", "canUseSentimentWidgets"], _v19),
+      {
+        contentSpaceEnabled: _v57
+      } = (0, _v29.useContentSpaceEnabled)(_v19),
+      _v58 = !!_v56.canGenerateClipTextTranslation,
+      _v59 = !!_v56.canGenerateClipTranslation,
+      _v60 = !!_v56.canUseSentimentWidgets,
+      _v61 = _v57 ? (0, _v34.translate)({
         singular: "Team library",
         dictionary: {
           es: {
@@ -546,7 +550,7 @@
             singular: "团队视频库"
           }
         }
-      }) : (0, _v33.translate)({
+      }) : (0, _v34.translate)({
         singular: "Library",
         dictionary: {
           es: {
@@ -572,7 +576,7 @@
           }
         }
       }),
-      _v61 = (0, _v3.useMemo)(() => _v17 ? _v17.map(_v0 => {
+      _v62 = (0, _v3.useMemo)(() => _v17 ? _v17.map(_v0 => {
         let _v1 = _v0.video?.uri,
           _v2 = _v0.video?.duration;
         if (_v1 && "number" == typeof _v2) {
@@ -584,7 +588,7 @@
         }
         return null;
       }).filter(_v0 => null !== _v0) : [], [_v17]),
-      _v62 = (0, _v3.useMemo)(() => _v17 ? _v17.map(_v0 => {
+      _v63 = (0, _v3.useMemo)(() => _v17 ? _v17.map(_v0 => {
         let _v1 = _v0.video?.uri,
           _v2 = _v0.video?.duration;
         return _v1 && "number" == typeof _v2 ? {
@@ -593,27 +597,27 @@
           duration: _v2,
           sentimentWidgets: _v0.video?.embed?.sentimentWidgets
         } : null;
-      }).filter(_v78) : [], [_v17]),
-      _v63 = !0;
+      }).filter(_v79) : [], [_v17]),
+      _v64 = !0;
     _v17 && _v17.map(_v0 => {
       if ("live_event" !== _v0.type && !_v0.liveEvent) {
-        _v63 = !1;
+        _v64 = !1;
         return;
       }
     });
-    let _v64 = () => {
-        if (_v17 && 1 === _v17.length) if (_v63) return _v17[0]?.liveEvent?.title;else return _v17[0]?.video?.name;
+    let _v65 = () => {
+        if (_v17 && 1 === _v17.length) if (_v64) return _v17[0]?.liveEvent?.title;else return _v17[0]?.video?.name;
         return "";
       },
-      [_v65, {
-        loading: _v66,
-        error: _v67,
-        called: _v68
-      }] = (0, _v30.useDeleteUserLiveEvents)(),
+      [_v66, {
+        loading: _v67,
+        error: _v68,
+        called: _v69
+      }] = (0, _v31.useDeleteUserLiveEvents)(),
       {
-        revalidateRootItems: _v69
-      } = (0, _v50.useRevalidate)(),
-      _v70 = (0, _v33.translate)({
+        revalidateRootItems: _v70
+      } = (0, _v51.useRevalidate)(),
+      _v71 = (0, _v34.translate)({
         singular: "{NUM_ITEMS_DELETED} item has been deleted",
         plural: "{NUM_ITEMS_DELETED} items are being deleted. It might take a moment.",
         count: _v18.size,
@@ -651,7 +655,7 @@
           }
         }
       }),
-      _v71 = (0, _v33.translate)({
+      _v72 = (0, _v34.translate)({
         singular: "{NUM_ITEMS_DELETED} item deleted",
         plural: "{NUM_ITEMS_DELETED} items deleted",
         count: _v18.size,
@@ -693,10 +697,10 @@
       _v8 && (_v50 && _v33({
         isLoading: _v50,
         numItemsToDelete: _v17 ? _v17.length : 0,
-        isLiveEvent: _v63,
-        name: _v64()
+        isLiveEvent: _v64,
+        name: _v65()
       }), _v52 && !_v50 && !_v51 && _v18.size > 0 && (_v15(), _v34(), _v16(_v18), _v41({
-        content: _v18.size > 20 ? _v70 : _v71,
+        content: _v18.size > 20 ? _v71 : _v72,
         status: "success"
       }), _v15()), _v51 && _v33({
         errorComponent: (0, _v1.jsx)(_v4.Alert, {
@@ -708,16 +712,16 @@
         isLoading: _v50,
         numItemsToDelete: _v17 ? _v17.length : 0,
         isLiveEvent: !1,
-        name: _v64()
+        name: _v65()
       }));
     }, [_v50, _v51, _v52]), (0, _v3.useEffect)(() => {
       !_v8 && (_v46 && _v33({
         isLoading: _v46,
         numItemsToDelete: _v17 ? _v17.length : 0,
         isLiveEvent: !1,
-        name: _v64()
+        name: _v65()
       }), _v48 && !_v46 && !_v47 && _v18.size > 0 && (_v15(), _v34(), _v16(_v18), _v41({
-        content: _v18.size > 20 ? _v70 : _v71,
+        content: _v18.size > 20 ? _v71 : _v72,
         status: "success"
       }), _v15()), _v47 && _v33({
         errorComponent: (0, _v1.jsx)(_v4.Alert, {
@@ -729,31 +733,31 @@
         isLoading: _v46,
         numItemsToDelete: _v17 ? _v17.length : 0,
         isLiveEvent: !1,
-        name: _v64()
+        name: _v65()
       }));
     }, [_v46, _v47, _v48]), (0, _v3.useEffect)(() => {
-      !_v8 && (_v66 && _v33({
-        isLoading: _v66,
+      !_v8 && (_v67 && _v33({
+        isLoading: _v67,
         numItemsToDelete: _v17 ? _v17.length : 0,
-        isLiveEvent: _v63,
-        name: _v64()
-      }), _v68 && !_v66 && !_v67 && _v18.size > 0 && (_v15(), _v34(), _v16(_v18), _v41({
-        content: _v18.size > 20 ? _v70 : _v71,
+        isLiveEvent: _v64,
+        name: _v65()
+      }), _v69 && !_v67 && !_v68 && _v18.size > 0 && (_v15(), _v34(), _v16(_v18), _v41({
+        content: _v18.size > 20 ? _v71 : _v72,
         status: "success"
-      }), _v15()), _v67 && _v33({
+      }), _v15()), _v68 && _v33({
         errorComponent: (0, _v1.jsx)(_v4.Alert, {
           status: "error",
           children: (0, _v1.jsxs)(_v5.AlertDescription, {
-            children: [" ", _v67.message]
+            children: [" ", _v68.message]
           })
         }),
-        isLoading: _v66,
+        isLoading: _v67,
         numItemsToDelete: _v17 ? _v17.length : 0,
-        isLiveEvent: _v63,
-        name: _v64()
+        isLiveEvent: _v64,
+        name: _v65()
       }));
-    }, [_v66, _v67, _v68, _v63]);
-    let _v72 = (0, _v3.useMemo)(() => {
+    }, [_v67, _v68, _v69, _v64]);
+    let _v73 = (0, _v3.useMemo)(() => {
         if (_v17) return _v17?.map(_v0 => {
           if (_v0.video) {
             let {
@@ -775,12 +779,12 @@
             };
           }
           return null;
-        }).filter(_v78);
+        }).filter(_v79);
       }, [_v17]),
-      _v73 = (0, _v3.useMemo)(() => !!_v17 && _v17.some(_v0 => _v0.video && (0, _v43.isVideoMetadataLocked)(_v0.video)), [_v17]),
-      _v74 = (0, _v3.useCallback)(() => {
+      _v74 = (0, _v3.useMemo)(() => !!_v17 && _v17.some(_v0 => _v0.video && (0, _v44.isVideoMetadataLocked)(_v0.video)), [_v17]),
+      _v75 = (0, _v3.useCallback)(() => {
         _v42({
-          title: (0, _v33.translate)({
+          title: (0, _v34.translate)({
             singular: "These videos have missing mandatory custom metadata.",
             dictionary: {
               es: {
@@ -812,9 +816,9 @@
         });
       }, [_v42]),
       {
-        num_items: _v75,
-        num_videos: _v76,
-        num_live_events: _v77
+        num_items: _v76,
+        num_videos: _v77,
+        num_live_events: _v78
       } = (0, _v3.useMemo)(() => {
         let _v0 = 0,
           _v1 = 0,
@@ -827,7 +831,7 @@
           num_live_events: _v2
         };
       }, [_v17]),
-      _v78 = _v8 ? () => {
+      _v79 = _v8 ? () => {
         let _v0 = Array.from(_v18).join(",");
         _v19 && _v8 && (_v49({
           where: {
@@ -842,9 +846,9 @@
             } : {})
           }
         }).finally(() => {
-          _v18.size > 1 ? _v42.gtm.trackBulkDelete() : _v42.gtm.trackVideoDelete(), _v53?.();
-        }), _v27(_v60({
-          location: _v41.AnalyticsLocations.BULK_ACTIONS_BAR,
+          _v18.size > 1 ? _v43.gtm.trackBulkDelete() : _v43.gtm.trackVideoDelete(), _v53?.();
+        }), _v27(_v61({
+          location: _v42.AnalyticsLocations.BULK_ACTIONS_BAR,
           method: "delete modal",
           page: _v28,
           folder_id: null,
@@ -852,17 +856,17 @@
           is_private_to_me: null,
           is_subfolder: !1,
           parent_folder_id: null,
-          num_items: _v75,
-          num_videos: _v76,
-          num_live_events: _v77,
+          num_items: _v76,
+          num_videos: _v77,
+          num_live_events: _v78,
           ..._v9
         })));
-      } : _v63 ? () => {
+      } : _v64 ? () => {
         let _v0 = Array.from(_v18),
           _v1 = _v17?.flatMap(_v0 => _v0.liveEvent ? ["venue" === _v0.liveEvent.eventType ? "venue" : "event"] : []) ?? [];
         _v1.length > 0 && _v22?.({
           types: _v1
-        }), _v19 && _v65({
+        }), _v19 && _v66({
           where: {
             userId: _v19
           },
@@ -873,7 +877,7 @@
             Accept: "application/vnd.vimeo.*+json;version=3.4.4"
           }
         }).finally(() => {
-          _v18.size > 1 && _v42.gtm.trackBulkDelete();
+          _v18.size > 1 && _v43.gtm.trackBulkDelete();
         });
       } : () => {
         let _v0 = Array.from(_v18).join(",");
@@ -890,9 +894,9 @@
             }
           } : {})
         }).finally(() => {
-          _v18.size > 1 ? _v42.gtm.trackBulkDelete() : _v42.gtm.trackVideoDelete(), _v53?.();
-        }), _v27(_v60({
-          location: _v41.AnalyticsLocations.BULK_ACTIONS_BAR,
+          _v18.size > 1 ? _v43.gtm.trackBulkDelete() : _v43.gtm.trackVideoDelete(), _v53?.();
+        }), _v27(_v61({
+          location: _v42.AnalyticsLocations.BULK_ACTIONS_BAR,
           method: "delete modal",
           page: _v28,
           folder_id: null,
@@ -900,35 +904,35 @@
           is_private_to_me: null,
           is_subfolder: !1,
           parent_folder_id: null,
-          num_items: _v75,
-          num_videos: _v76,
-          num_live_events: _v77,
+          num_items: _v76,
+          num_videos: _v77,
+          num_live_events: _v78,
           ..._v9
         })));
       },
-      _v79 = _v8 ? _v50 : _v63 ? _v66 : _v46,
-      _v80 = 0 === _v62.length || _v13 || _v7,
-      _v81 = (0, _v3.useCallback)(() => {
-        !_v80 && _v19 && _v39({
-          items: _v62,
+      _v80 = _v8 ? _v50 : _v64 ? _v67 : _v46,
+      _v81 = 0 === _v63.length || _v13 || _v7,
+      _v82 = (0, _v3.useCallback)(() => {
+        !_v81 && _v19 && _v39({
+          items: _v63,
           userId: _v19,
-          location: _v41.AnalyticsLocations.BULK_ACTIONS_BAR,
-          showUpgrade: !_v59,
+          location: _v42.AnalyticsLocations.BULK_ACTIONS_BAR,
+          showUpgrade: !_v60,
           onSuccess: () => {
-            _v15(), _v20 ? _v20() : _v69();
+            _v15(), _v20 ? _v20() : _v70();
           }
         });
-      }, [_v62, _v19, _v80, _v59, _v39, _v15, _v20, _v69]),
-      _v82 = _v18.size;
+      }, [_v63, _v19, _v81, _v60, _v39, _v15, _v20, _v70]),
+      _v83 = _v18.size;
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v7.Flex, {
-        id: _v79,
+        id: _v80,
         justifyContent: "center",
         width: "100%"
       }), (0, _v1.jsxs)(_v20.BulkActionsBar, {
         handleDeselectAllItems: () => {
           let _v0 = _v28.toUpperCase();
-          _v27(_v58({
+          _v27(_v59({
             copy: `${_v18.size}`,
             feature: "VLS" === _v0 ? "search" : "video_library",
             location: "bulk_actions_bar",
@@ -941,8 +945,8 @@
             device_type: null
           })), _v15();
         },
-        numItemsSelected: _v82,
-        tooltipText: _v14 && _v11 && _v12 ? (0, _v33.translate)({
+        numItemsSelected: _v83,
+        tooltipText: _v14 && _v11 && _v12 ? (0, _v34.translate)({
           singular: "You've reached the selection limit for bulk Move, Privacy, and Add to showcases",
           dictionary: {
             es: {
@@ -967,7 +971,7 @@
               singular: "您已达到批量移动、隐私和添加到展示的选择上限。"
             }
           }
-        }) : _v11 && _v12 ? (0, _v33.translate)({
+        }) : _v11 && _v12 ? (0, _v34.translate)({
           singular: "You've reached the selection limit for bulk Move and Privacy",
           dictionary: {
             es: {
@@ -992,7 +996,7 @@
               singular: "您已达到批量移动和隐私操作的选择上限"
             }
           }
-        }) : _v11 ? (0, _v33.translate)({
+        }) : _v11 ? (0, _v34.translate)({
           singular: "You've reached the selection limit for bulk Move",
           dictionary: {
             es: {
@@ -1018,8 +1022,8 @@
             }
           }
         }) : void 0,
-        targetElementId: _v79,
-        selectedItemsText: 0 === _v82 ? (0, _v33.translate)({
+        targetElementId: _v80,
+        selectedItemsText: 0 === _v83 ? (0, _v34.translate)({
           singular: "Select all",
           dictionary: {
             es: {
@@ -1044,12 +1048,12 @@
               singular: "选择所有"
             }
           }
-        }) : (0, _v33.translate)({
+        }) : (0, _v34.translate)({
           singular: "{COUNT} item selected",
           plural: "{COUNT} items selected",
-          count: _v82,
+          count: _v83,
           replacements: {
-            COUNT: _v82
+            COUNT: _v83
           },
           dictionary: {
             es: {
@@ -1082,18 +1086,18 @@
             }
           }
         }),
-        children: [(0, _v1.jsx)(_v71, {
+        children: [(0, _v1.jsx)(_v72, {
           disabled: !_v3 || _v11,
           numItemsSelected: _v18.size,
           onClick: () => {
             if (_v21?.({
               action: "move",
               selectedCount: _v18.size
-            }), _v27(_v58({
+            }), _v27(_v59({
               name: "move_item",
               page: _v28,
               feature: "vls" === _v28 ? "search" : "video_library",
-              location: _v41.AnalyticsLocations.BULK_ACTIONS_BAR,
+              location: _v42.AnalyticsLocations.BULK_ACTIONS_BAR,
               copy: `${_v18.size}`,
               type: "general",
               target: "move_modal",
@@ -1132,11 +1136,11 @@
                   parentFolder: _v0
                 };
               }
-            }).filter(_v77);
+            }).filter(_v78);
             _v30({
               activeFolderURI: _v8?.uri,
               feature: "vls" === _v28 ? "search" : "library",
-              location: _v41.AnalyticsLocations.BULK_ACTIONS_BAR,
+              location: _v42.AnalyticsLocations.BULK_ACTIONS_BAR,
               items: _v0,
               onMoveSuccess: ({
                 items: _v0,
@@ -1149,14 +1153,14 @@
                   destination: _v2 && _v3 ? "team_library" : "my_library",
                   types: _v4
                 });
-                let _v5 = "root" === _v1 ? _v60 : _v1.name,
-                  _v6 = "root" === _v1 ? "/library" : _v76(_v1.uri);
+                let _v5 = "root" === _v1 ? _v61 : _v1.name,
+                  _v6 = "root" === _v1 ? "/library" : _v77(_v1.uri);
                 _v2 && _v3 ? _v44(_v0, {
                   label: _v5,
                   workspaceName: _v3
                 }, () => {
-                  _v25 && (0, _v44.switchTeam)(_v2, _v25.xsrft).finally(() => {
-                    window.location.href = _v76(_v6);
+                  _v25 && (0, _v45.switchTeam)(_v2, _v25.xsrft).finally(() => {
+                    window.location.href = _v77(_v6);
                   });
                 }) : _v43(_v0, {
                   label: _v5,
@@ -1166,47 +1170,47 @@
               teamOwnerId: _v19
             });
           }
-        }), (0, _v1.jsx)(_v72, {
+        }), (0, _v1.jsx)(_v73, {
           disabled: !_v4,
           onClick: () => {
             _v21?.({
               action: "delete",
               selectedCount: _v18.size
-            }), _v27(_v59({
-              location: _v41.AnalyticsLocations.BULK_ACTIONS_BAR,
+            }), _v27(_v60({
+              location: _v42.AnalyticsLocations.BULK_ACTIONS_BAR,
               page: _v28
             })), _v33({
-              isLoading: _v79,
+              isLoading: _v80,
               numItemsToDelete: _v17 ? _v17.length : 0,
-              onClickDelete: _v78,
+              onClickDelete: _v79,
               onClickCancel() {
                 _v27({
                   eventName: "workflow.delete_video_cancelled",
                   version: 2,
                   fields: {
-                    location: _v41.AnalyticsLocations.BULK_ACTIONS_BAR,
+                    location: _v42.AnalyticsLocations.BULK_ACTIONS_BAR,
                     page: _v28
                   },
                   defaultEventFields: {
-                    ..._v57.nullTeamContext,
-                    ..._v57.nullVideoContextData,
-                    ..._v57.nullUploadContextData,
+                    ..._v58.nullTeamContext,
+                    ..._v58.nullVideoContextData,
+                    ..._v58.nullUploadContextData,
                     location: null
                   }
                 });
               },
               isOnLegalHold: _v10,
-              isLiveEvent: _v63,
-              name: _v64()
+              isLiveEvent: _v64,
+              name: _v65()
             });
           }
-        }), _v5 && (0, _v1.jsx)(_v73, {
+        }), _v5 && (0, _v1.jsx)(_v74, {
           disabled: !_v5 || _v12,
           onClick: () => {
-            if (_v73) return void _v74();
-            if (_v27(_v58({
+            if (_v74) return void _v75();
+            if (_v27(_v59({
               name: "open_bulk_privacy_modal",
-              location: _v41.AnalyticsLocations.BULK_ACTIONS_BAR,
+              location: _v42.AnalyticsLocations.BULK_ACTIONS_BAR,
               feature: "vls" === _v28 ? "search" : "video_library",
               copy: "privacy",
               page: _v28,
@@ -1237,23 +1241,23 @@
                   isCopyrightRestricted: _v3
                 };
               }
-            }).filter(_v77);
+            }).filter(_v78);
             _v37 ? _v36({
               clips: _v0,
               userId: _v19,
               location: "bulk_action_bar",
               variant: _v38,
               onSuccess: () => {
-                _v15(), _v20 ? _v20() : _v69();
+                _v15(), _v20 ? _v20() : _v70();
               }
             }) : _v35({
               items: _v0,
               userId: _v19,
-              location: _v41.AnalyticsLocations.BULK_ACTIONS_BAR,
+              location: _v42.AnalyticsLocations.BULK_ACTIONS_BAR,
               isPrivateModeOn: _v24,
               onSuccess: () => {
                 _v41({
-                  content: (0, _v33.translate)({
+                  content: (0, _v34.translate)({
                     singular: "Privacy settings have been updated",
                     dictionary: {
                       es: {
@@ -1280,11 +1284,11 @@
                     }
                   }),
                   status: "success"
-                }), _v15(), _v20 ? _v20() : _v69();
+                }), _v15(), _v20 ? _v20() : _v70();
               }
             });
           }
-        }), _v0 && (0, _v1.jsx)(_v70, {
+        }), _v0 && (0, _v1.jsx)(_v71, {
           disabled: !_v2 || _v14,
           numItemsSelected: _v18.size,
           onClick: () => {
@@ -1292,7 +1296,7 @@
             let _v0 = [];
             _v17.forEach(_v0 => {
               if (_v0.video) {
-                let _v0 = (0, _v53.idFromUri)(_v0.video.uri),
+                let _v0 = (0, _v54.idFromUri)(_v0.video.uri),
                   _v1 = _v0.video.name;
                 _v0.push({
                   id: _v0,
@@ -1300,7 +1304,7 @@
                   type: "video"
                 });
               } else if (_v0.liveEvent) {
-                let _v0 = (0, _v53.idFromUri)(_v0.liveEvent.uri),
+                let _v0 = (0, _v54.idFromUri)(_v0.liveEvent.uri),
                   _v1 = _v0.liveEvent.title;
                 _v0.push({
                   id: _v0,
@@ -1319,40 +1323,40 @@
               pageUrl: _v29
             });
           }
-        }), _v1 && (0, _v1.jsx)(_v74, {
-          disabled: !_v61 || 0 === _v61.length || _v7,
+        }), _v1 && (0, _v1.jsx)(_v75, {
+          disabled: !_v62 || 0 === _v62.length || _v7,
           onClick: () => {
-            _v61 && 0 !== _v61.length && ((0, _v38.sendBpEventWithContexts)("vimeo.select_translate_bulk", {
-              ...(0, _v40.buildActionBpContext)({
+            _v62 && 0 !== _v62.length && ((0, _v39.sendBpEventWithContexts)("vimeo.select_translate_bulk", {
+              ...(0, _v41.buildActionBpContext)({
                 action_type: "click",
                 feature: null
               }),
-              ...(0, _v36.buildProductAnalyticsBpContext)({
+              ...(0, _v37.buildProductAnalyticsBpContext)({
                 product: "ai",
                 feature: "ai_bulk_translate",
                 location: "bulk_actions_bar",
                 copy: "translate"
               }),
-              ...(0, _v37.buildWebBpContext)({
+              ...(0, _v38.buildWebBpContext)({
                 page_name: "video_library"
               }),
-              ...(0, _v39.buildTeamBpContextFromTeamUser)(_v25?.teamUser)
+              ...(0, _v40.buildTeamBpContextFromTeamUser)(_v25?.teamUser)
             }, 1, {
-              value: String(_v61.length),
+              value: String(_v62.length),
               device_type: "web"
             }), _v54({
-              clipItems: _v61,
+              clipItems: _v62,
               isFolder: !1,
-              canTranslateText: _v57,
-              canTranslateDubbing: _v58,
+              canTranslateText: _v58,
+              canTranslateDubbing: _v59,
               onComplete: () => {
                 _v19 && _v55(_v19), _v15();
               }
             }));
           }
-        }), _v6 && (0, _v1.jsx)(_v75, {
+        }), _v6 && (0, _v1.jsx)(_v76, {
           disabled: !_v6,
-          label: (0, _v33.translate)({
+          label: (0, _v34.translate)({
             singular: "China access",
             dictionary: {
               es: {
@@ -1379,12 +1383,12 @@
             }
           }),
           onClick: () => {
-            _v72 && _v19 && _v40({
-              items: _v72,
+            _v73 && _v19 && _v40({
+              items: _v73,
               userId: _v19,
               onSuccess: () => {
                 _v41({
-                  content: (0, _v33.translate)({
+                  content: (0, _v34.translate)({
                     singular: "Processing... This may take a few minutes",
                     dictionary: {
                       es: {
@@ -1411,7 +1415,7 @@
                     }
                   }),
                   status: "info"
-                }), _v15(), _v20 ? _v20() : _v69();
+                }), _v15(), _v20 ? _v20() : _v70();
               }
             });
           }
@@ -1419,7 +1423,7 @@
           placement: "top-end",
           children: [(0, _v1.jsx)(_v10.MenuButton, {
             as: _v8.IconButton,
-            "aria-label": (0, _v33.translate)({
+            "aria-label": (0, _v34.translate)({
               singular: "more actions",
               dictionary: {
                 es: {
@@ -1453,7 +1457,7 @@
               placement: "left",
               clipId: "1187834625",
               clipHash: "8e5a2b299a",
-              label: (0, _v33.translate)({
+              label: (0, _v34.translate)({
                 singular: "Add an interactive rating element to your video.",
                 dictionary: {
                   es: {
@@ -1481,14 +1485,14 @@
               }),
               children: (0, _v1.jsx)(_v12.MenuItem, {
                 icon: (0, _v1.jsx)(_v15.Feedback, {}),
-                isDisabled: _v80,
-                onClick: _v81,
+                isDisabled: _v81,
+                onClick: _v82,
                 children: (0, _v1.jsxs)(_v7.Flex, {
                   align: "center",
                   justify: "space-between",
                   width: "100%",
                   gap: "sm",
-                  children: [(0, _v33.translate)({
+                  children: [(0, _v34.translate)({
                     singular: "Add video rating",
                     dictionary: {
                       es: {
@@ -1513,10 +1517,10 @@
                         singular: "添加视频评分"
                       }
                     }
-                  }), !_v59 && (0, _v1.jsx)(_v6.Badge, {
+                  }), !_v60 && (0, _v1.jsx)(_v6.Badge, {
                     size: "sm",
                     variant: "upgrade",
-                    children: (0, _v33.translate)({
+                    children: (0, _v34.translate)({
                       singular: "Upgrade",
                       dictionary: {
                         es: {

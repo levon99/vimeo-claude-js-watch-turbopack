@@ -458,132 +458,134 @@
     _v37 = _v0.i(0),
     _v38 = _v0.i(0);
   _v0.s(["CommentsPanel", 0, ({
-    clipId: _v0,
-    clipHash: _v1,
-    onMomentPlay: _v2,
-    videoVersionUri: _v3,
-    closeDrawer: _v4,
-    isMobile: _v5,
-    playerHeight: _v6,
-    showComments: _v7,
-    analyticsProps: _v8,
-    showResolvedComments: _v9 = !0,
-    isPreviousVersion: _v10,
-    accountlessCommentRedesignEnabled: _v11 = !1,
-    commentTimeCode: _v12,
-    pausePlayer: _v13
+    ref: _v0,
+    clipId: _v1,
+    clipHash: _v2,
+    onMomentPlay: _v3,
+    videoVersionUri: _v4,
+    closeDrawer: _v5,
+    isMobile: _v6,
+    playerHeight: _v7,
+    showComments: _v8,
+    analyticsProps: _v9,
+    showResolvedComments: _v10 = !0,
+    isPreviousVersion: _v11,
+    accountlessCommentRedesignEnabled: _v12 = !1,
+    commentTimeCode: _v13,
+    pausePlayer: _v14
   }) => {
-    let [_v14, _v15] = (0, _v2.useState)(!1),
-      [_v16, _v17] = (0, _v2.useState)(0),
-      _v18 = (0, _v8.useViewer)(),
-      [_v19, _v20] = (0, _v2.useState)(""),
-      [_v21, _v22] = (0, _v2.useState)(!1),
+    let [_v15, _v16] = (0, _v2.useState)(!1),
+      [_v17, _v18] = (0, _v2.useState)(0),
+      _v19 = (0, _v8.useViewer)(),
+      [_v20, _v21] = (0, _v2.useState)(""),
+      [_v22, _v23] = (0, _v2.useState)(!1),
       {
-        reviewId: _v23
+        reviewId: _v24
       } = (0, _v2.useContext)(_v37.ReviewLinkContext),
       {
-        videoData: _v24
-      } = (0, _v36.useVideoData)(_v0, _v23),
+        videoData: _v25
+      } = (0, _v36.useVideoData)(_v1, _v24),
       {
-        trackReviewCommentPosted: _v25
+        trackReviewCommentPosted: _v26
       } = (0, _v7.useReviewTracking)(),
-      _v26 = (0, _v2.useCallback)(() => {
-        let _v0 = (0, _v38.idFromUri)(_v24?.user?.uri);
-        _v25({
-          reviewId: _v23 ?? "",
-          clipId: _v0,
+      _v27 = (0, _v2.useCallback)(() => {
+        let _v0 = (0, _v38.idFromUri)(_v25?.user?.uri);
+        _v26({
+          reviewId: _v24 ?? "",
+          clipId: _v1,
           clipOwnerId: _v0 ? _v0.toString() : null
         });
-      }, [_v23, _v0, _v24, _v25]),
-      _v27 = _v1 ? `${_v0}:${_v1}` : _v0,
-      _v28 = _v2.default.useRef(null),
-      _v29 = _v5 ? 10 : 48,
-      [_v30, _v31] = (0, _v2.useState)(0),
-      _v32 = `calc(100vh - ${_v5 ? _v6 : "0"}px - ${_v23.VERSION_PAGE_HEADER_HEIGHT + _v30 + _v29}px )`,
-      _v33 = (0, _v2.useCallback)(() => {
-        _v20(""), _v22(!1);
-      }, [_v20, _v22]),
-      _v34 = (0, _v2.useCallback)(_v0 => {
-        null !== _v0 && _v30 !== _v0.clientHeight && _v31(_v0.clientHeight);
-      }, [_v30]),
-      _v35 = (0, _v2.useCallback)(() => {
+      }, [_v24, _v1, _v25, _v26]),
+      _v28 = _v2 ? `${_v1}:${_v2}` : _v1,
+      _v29 = _v2.default.useRef(null),
+      _v30 = _v6 ? 10 : 48,
+      [_v31, _v32] = (0, _v2.useState)(0),
+      _v33 = `calc(100vh - ${_v6 ? _v7 : "0"}px - ${_v23.VERSION_PAGE_HEADER_HEIGHT + _v31 + _v30}px )`,
+      _v34 = (0, _v2.useCallback)(() => {
+        _v21(""), _v23(!1);
+      }, [_v21, _v23]),
+      _v35 = (0, _v2.useCallback)(_v0 => {
+        null !== _v0 && _v31 !== _v0.clientHeight && _v32(_v0.clientHeight);
+      }, [_v31]),
+      _v36 = (0, _v2.useCallback)(() => {
         (0, _v6.bpStartSearchComment)({
           isInternal: !0,
-          videoId: parseFloat(_v0),
-          viewer: _v18,
-          analyticsProps: _v8
-        }), _v22(!0);
-      }, [_v22, _v18, _v0, _v8]),
-      _v36 = (0, _v2.useCallback)(() => {
-        if (!_v0 || !_v23) return;
-        let _v0 = (0, _v38.getReviewPasswordHashFromCookie)(_v23),
+          videoId: parseFloat(_v1),
+          viewer: _v19,
+          analyticsProps: _v9
+        }), _v23(!0);
+      }, [_v23, _v19, _v1, _v9]),
+      _v37 = (0, _v2.useCallback)(() => {
+        if (!_v1 || !_v24) return;
+        let _v0 = (0, _v38.getReviewPasswordHashFromCookie)(_v24),
           _v1 = new URLSearchParams({
             format: "csv",
             source: "collaborator"
           });
-        _v1.set("review_id", _v23), _v0 && _v1.set("password", _v0);
-        let _v2 = `/videos/${_v0}/comments/export?${_v1.toString()}`;
-        window.location.assign(_v2), _v15(!1);
-      }, [_v0, _v23]),
-      _v37 = (0, _v2.useCallback)((_v0, _v1) => {
-        _v1 || _v17(_v0);
-      }, [_v17]);
+        _v1.set("review_id", _v24), _v0 && _v1.set("password", _v0);
+        let _v2 = `/videos/${_v1}/comments/export?${_v1.toString()}`;
+        window.location.assign(_v2), _v16(!1);
+      }, [_v1, _v24]),
+      _v38 = (0, _v2.useCallback)((_v0, _v1) => {
+        _v1 || _v18(_v0);
+      }, [_v18]);
     return (0, _v1.jsxs)(_v24, {
-      showComments: _v7,
-      isMobile: _v5,
+      showComments: _v8,
+      isMobile: _v6,
       children: [(0, _v1.jsxs)(_v3.Flex, {
+        ref: _v0,
         direction: "column",
         width: "100%",
         borderRadius: "20px",
         backgroundColor: "fill-surface",
         children: [(0, _v1.jsx)(_v4.Box, {
           children: (0, _v1.jsx)(_v19, {
-            searchCommentQuery: _v19,
-            setSearchCommentQuery: _v20,
-            searchInputRef: _v28,
-            showCommentSearchBar: _v21,
-            onSearchClick: _v35,
-            onCloseSearch: _v33,
-            closeDrawer: _v4,
-            panelHeaderRef: _v34,
+            searchCommentQuery: _v20,
+            setSearchCommentQuery: _v21,
+            searchInputRef: _v29,
+            showCommentSearchBar: _v22,
+            onSearchClick: _v36,
+            onCloseSearch: _v34,
+            closeDrawer: _v5,
+            panelHeaderRef: _v35,
             onDownloadComments: () => {
-              _v15(!0);
+              _v16(!0);
             },
-            isPreviousVersion: _v10
+            isPreviousVersion: _v11
           })
         }), (0, _v1.jsx)(_v3.Flex, {
           direction: "column",
           width: "100%",
-          height: _v32,
-          maxHeight: _v32,
+          height: _v33,
+          maxHeight: _v33,
           overflowY: "auto",
           children: (0, _v1.jsx)(_v5.CommentsContainer, {
-            clipRequestId: _v27,
-            clipId: _v0,
+            clipRequestId: _v28,
+            clipId: _v1,
             isPublic: !1,
             enableLinks: !0,
-            analyticsProps: _v8,
-            onMomentPlay: _v2,
-            searchQuery: _v19,
+            analyticsProps: _v9,
+            onMomentPlay: _v3,
+            searchQuery: _v20,
             showCommentsHiddenAlert: !1,
-            videoVersionUri: _v3,
+            videoVersionUri: _v4,
             targetApiVersion: _v23.TARGET_API_VERSION,
-            isPreviousVersion: _v10,
-            reviewId: _v23,
-            showResolvedComments: _v9,
+            isPreviousVersion: _v11,
+            reviewId: _v24,
+            showResolvedComments: _v10,
             canInsertTimecode: !0,
-            commentTimeCode: _v12,
-            pausePlayer: _v13,
-            setCommentsCount: _v37,
-            accountlessCommentRedesignEnabled: _v11,
-            onCommentPosted: _v26
+            commentTimeCode: _v13,
+            pausePlayer: _v14,
+            setCommentsCount: _v38,
+            accountlessCommentRedesignEnabled: _v12,
+            onCommentPosted: _v27
           })
         })]
       }), (0, _v1.jsx)(_v35, {
-        isOpen: _v14,
-        close: () => _v15(!1),
-        onDownload: _v36,
-        collaboratorCommentsCount: _v16
+        isOpen: _v15,
+        close: () => _v16(!1),
+        onDownload: _v37,
+        collaboratorCommentsCount: _v17
       })]
     });
   }], 0);

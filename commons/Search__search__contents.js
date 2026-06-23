@@ -13,8 +13,9 @@
     _v10 = _v0.i(0),
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
-    _v13 = _v0.i(0);
-  let _v14 = (0, _v2.default)(async () => {
+    _v13 = _v0.i(0),
+    _v14 = _v0.i(0);
+  let _v15 = (0, _v2.default)(async () => {
     let {
       Omnisearch: _v0
     } = await _v0.A(0);
@@ -31,14 +32,14 @@
     withToggle: _v1,
     ..._v2
   }) => {
-    let _v3 = (0, _v4.useContext)(_v13.ViewerContext),
+    let _v3 = (0, _v4.useContext)(_v14.ViewerContext),
       _v4 = (0, _v3.useRouter)(),
       {
         settings: _v5
-      } = (0, _v10.useOrionSettings)(),
+      } = (0, _v11.useOrionSettings)(),
       {
         trackAgenticSearchEntryClicked: _v6
-      } = (0, _v11.useSearchTracking)(),
+      } = (0, _v12.useSearchTracking)(),
       [, _v7] = (0, _v4.useState)(!1);
     if (!_v3 || _v3.isSimplifiedSite && !_v3.user) return (0, _v1.jsx)(_v1.Fragment, {});
     let _v8 = _v4.pathname.startsWith("/search"),
@@ -46,24 +47,14 @@
     return (0, _v1.jsxs)(_v5.Box, {
       display: "contents",
       "data-global-nav-search": !0,
-      children: [(0, _v1.jsx)(_v14, {}), (0, _v1.jsx)(_v12.SearchField, {
-        updateGlobalNavSearchState: _v0 || _v7,
-        width: "100%",
-        maxWidth: (0, _v7.rem)(480),
-        withToggle: _v1,
-        ...(_v1 && {
-          inputStyle: {
-            maxWidth: "90vw",
-            backgroundColor: "background",
-            borderRadius: "input-md"
-          }
-        }),
-        ..._v2
-      }), _v9 && (0, _v1.jsx)(_v6.Button, {
+      children: [(0, _v1.jsx)(_v15, {}), _v9 && (0, _v1.jsx)(_v6.Button, {
         size: "sm",
         variant: "secondary",
         flexShrink: 0,
-        leftIcon: (0, _v1.jsx)(_v8.AiSparkles, {
+        leftIcon: (0, _v1.jsx)(_v9.SearchMagnifier, {
+          boxSize: "xs"
+        }),
+        rightIcon: (0, _v1.jsx)(_v8.AiSparkles, {
           boxSize: "xs"
         }),
         onClick: () => {
@@ -79,32 +70,45 @@
             color: "#8B5CF6"
           }
         },
-        children: (0, _v9.translate)({
-          singular: "AI Search",
+        children: (0, _v10.translate)({
+          singular: "Try the new Smart Search!",
           dictionary: {
             es: {
-              singular: "Búsqueda de IA"
+              singular: "¡Prueba la nueva Smart Search!"
             },
             "de-DE": {
-              singular: "KI-Suche"
+              singular: "Probieren Sie die neue Smart Search aus!"
             },
             "fr-FR": {
-              singular: "Recherche IA"
+              singular: "Essayez la nouvelle recherche intelligente !"
             },
             "ja-JP": {
-              singular: "AI検索"
+              singular: "新しいSmart Searchをお試しください！"
             },
             "ko-KR": {
-              singular: "AI 검색"
+              singular: "새로운 Smart Search를 사용해 보세요!"
             },
             "pt-BR": {
-              singular: "Pesquisa com IA"
+              singular: "Experimente a nova Busca Inteligente!"
             },
             "zh-CN": {
-              singular: "AI 搜索"
+              singular: "试用全新的智能搜索！"
             }
           }
         })
+      }), (0, _v1.jsx)(_v13.SearchField, {
+        updateGlobalNavSearchState: _v0 || _v7,
+        width: "100%",
+        maxWidth: (0, _v7.rem)(480),
+        withToggle: _v1,
+        ...(_v1 && {
+          inputStyle: {
+            maxWidth: "90vw",
+            backgroundColor: "background",
+            borderRadius: "input-md"
+          }
+        }),
+        ..._v2
       })]
     });
   }]);

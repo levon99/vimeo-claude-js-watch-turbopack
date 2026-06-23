@@ -28,17 +28,17 @@
       hasContentSpaceEnabled: _v8,
       onDelete: _v9
     }) => {
-      let _v10 = (0, _v7.useHasMounted)(),
+      let _v10 = (0, _v8.useHasMounted)(),
         {
           revalidateRootItems: _v11
         } = (0, _v11.useRevalidate)(),
         [_v12, {
           error: _v13,
           loading: _v14
-        }] = (0, _v5.useDeleteUserProject)(),
-        _v15 = (0, _v9.default)(),
+        }] = (0, _v6.useDeleteUserProject)(),
+        _v15 = (0, _v5.useMatchMutate)(),
         _v16 = (0, _v4.useRouter)(),
-        _v17 = (0, _v8.useAnalyticsEvent)(),
+        _v17 = (0, _v9.useAnalyticsEvent)(),
         _v18 = (0, _v10.usePageName)(),
         _v19 = _v18 === _v12.PAGE.VLS || _v18 === _v12.PAGE.SEARCH ? "search" : "video_library",
         _v20 = async () => {
@@ -66,7 +66,7 @@
           })), _v15(_v4 ? `.*${_v4}/items.*` : `.*/users/${_v5}/projects.*topLevelOnly=true.*`), "/library" === _v16.pathname && _v11(), _v6(), _v16.query.folderId === `${_v1}` && _v16.push(_v4 ? (0, _v13.getFolderPageUriFromApiUri)(_v4) : _v12.Path.Home), _v9?.());
         };
       return _v10 ? (0, _v1.jsx)(_v14.DeleteModal, {
-        bodyContent: (0, _v6.translate)({
+        bodyContent: (0, _v7.translate)({
           singular: "Permanently delete this folder and all of its content.",
           dictionary: {
             es: {

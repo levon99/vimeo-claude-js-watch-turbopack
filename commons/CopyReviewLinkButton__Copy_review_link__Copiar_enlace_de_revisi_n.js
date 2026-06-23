@@ -11,16 +11,29 @@
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
-    _v11 = _v0.i(0);
-  _v0.s(["CopyReviewLinkButton", 0, () => {
-    let _v0 = (0, _v7.useToast)(),
-      _v1 = (0, _v10.useIsMobile)(),
-      [_v2, _v3] = (0, _v2.useState)(!1),
-      _v4 = (0, _v2.useRef)(null);
+    _v11 = _v0.i(0),
+    _v12 = _v0.i(0),
+    _v13 = _v0.i(0);
+  _v0.s(["CopyReviewLinkButton", 0, ({
+    surface: _v0,
+    clipId: _v1,
+    folderId: _v2,
+    ref: _v3
+  }) => {
+    let _v4 = (0, _v7.useToast)(),
+      _v5 = (0, _v10.useIsMobile)(),
+      [_v6, _v7] = (0, _v2.useState)(!1),
+      _v8 = (0, _v2.useRef)(null),
+      {
+        reviewId: _v9
+      } = (0, _v2.useContext)(_v13.ReviewLinkContext),
+      {
+        trackReviewLinksCopied: _v10
+      } = (0, _v12.useDistributionTracking)();
     (0, _v2.useEffect)(() => () => {
-      _v4.current && clearTimeout(_v4.current);
+      _v8.current && clearTimeout(_v8.current);
     }, []);
-    let _v5 = (0, _v11.translate)({
+    let _v11 = (0, _v11.translate)({
         singular: "Copy review link",
         dictionary: {
           es: {
@@ -36,17 +49,17 @@
             singular: "レビューリンクをコピー"
           },
           "ko-KR": {
-            singular: "검토용 링크 복사"
+            singular: "검토 링크 복사"
           },
           "pt-BR": {
-            singular: "Copiar link para revisão"
+            singular: "Copiar link de revisão"
           },
           "zh-CN": {
-            singular: "复制评审链接"
+            singular: "复制审阅链接"
           }
         }
       }),
-      _v6 = (0, _v11.translate)({
+      _v12 = (0, _v11.translate)({
         singular: "Copied!",
         dictionary: {
           es: {
@@ -72,9 +85,14 @@
           }
         }
       }),
-      _v7 = async () => {
+      _v13 = async () => {
         try {
-          await navigator.clipboard.writeText(window.location.href), _v0({
+          await navigator.clipboard.writeText(window.location.href), _v10({
+            clipId: _v1,
+            folderId: _v2,
+            reviewId: _v9 ?? "",
+            surface: _v0
+          }), _v4({
             title: (0, _v11.translate)({
               singular: "Link copied",
               dictionary: {
@@ -101,9 +119,9 @@
                 }
               }
             })
-          }), _v3(!0), _v4.current && clearTimeout(_v4.current), _v4.current = setTimeout(() => _v3(!1), 0);
+          }), _v7(!0), _v8.current && clearTimeout(_v8.current), _v8.current = setTimeout(() => _v7(!1), 0);
         } catch {
-          _v0({
+          _v4({
             title: (0, _v11.translate)({
               singular: "Oops! Something went wrong. Please try again.",
               dictionary: {
@@ -133,19 +151,21 @@
           });
         }
       },
-      _v8 = _v2 ? (0, _v1.jsx)(_v8.CircleCheckFilled, {}) : (0, _v1.jsx)(_v9.Link, {});
-    return _v1 ? (0, _v1.jsx)(_v5.IconButton, {
-      icon: _v8,
-      onClick: _v7,
+      _v14 = _v6 ? (0, _v1.jsx)(_v8.CircleCheckFilled, {}) : (0, _v1.jsx)(_v9.Link, {});
+    return _v5 ? (0, _v1.jsx)(_v5.IconButton, {
+      ref: _v3,
+      icon: _v14,
+      onClick: _v13,
       size: "md",
       variant: "primary",
-      "aria-label": _v5,
+      "aria-label": _v11,
       "data-testid": "copy-review-link-button"
     }) : (0, _v1.jsx)(_v4.Button, {
+      ref: _v3,
       variant: "primary",
       size: "md",
-      leftIcon: _v8,
-      onClick: _v7,
+      leftIcon: _v14,
+      onClick: _v13,
       "data-testid": "copy-review-link-button",
       children: (0, _v1.jsxs)(_v3.Box, {
         as: "span",
@@ -163,14 +183,14 @@
         },
         children: [(0, _v1.jsx)(_v6.Text, {
           as: "span",
-          "aria-hidden": _v2,
-          opacity: +!_v2,
-          children: _v5
+          "aria-hidden": _v6,
+          opacity: +!_v6,
+          children: _v11
         }), (0, _v1.jsx)(_v6.Text, {
           as: "span",
-          "aria-hidden": !_v2,
-          opacity: +!!_v2,
-          children: _v6
+          "aria-hidden": !_v6,
+          opacity: +!!_v6,
+          children: _v12
         })]
       })
     });

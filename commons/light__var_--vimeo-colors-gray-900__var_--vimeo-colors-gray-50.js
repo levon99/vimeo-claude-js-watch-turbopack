@@ -183,25 +183,38 @@
       }
     }),
     _v12 = (0, _v2.default)(async () => ({
-      default: (await _v0.A(0)).ManagedAccountsInviteFlow
+      default: (await _v0.A(0)).StartYourTeamFlow
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
     _v13 = (0, _v2.default)(async () => ({
+      default: (await _v0.A(0)).ManagedAccountsInviteFlow
+    }), {
+      loadableGenerated: {
+        modules: [0]
+      }
+    }),
+    _v14 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).PromoPopup
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v14 = _v0 => {
+    _v15 = _v0 => {
       let _v1 = (0, _v4.useIsBokeh)(),
         _v2 = (0, _v6.useViewer)(),
         [_v3, _v4] = (0, _v3.useState)(null),
         [_v5, _v6] = (0, _v3.useState)("navbar"),
-        _v7 = (0, _v3.useCallback)(() => {
+        _v7 = _v2?.teamUser?.ownerId ?? _v2?.user?.id,
+        _v8 = _v2?.apiUrl && null != _v7 ? {
+          apiUrl: _v2.apiUrl,
+          jwt: _v2.jwt,
+          ownerId: _v7
+        } : void 0,
+        _v9 = (0, _v3.useCallback)(() => {
           let _v0 = _v2?.xsrft;
           fetch("/log_out", {
             method: "POST",
@@ -259,21 +272,26 @@
           modalConfig: {
             mkcCode: "unified-top-nav-legacy"
           }
-        }), "add_client_account" === _v3 && (0, _v1.jsx)(_v12, {
+        }), "start_your_team" === _v3 && _v8 && (0, _v1.jsx)(_v12, {
+          isOpen: !0,
+          apiConfig: _v8,
+          defaultTeamName: _v2?.user?.name ?? "",
+          onClose: () => _v4(null)
+        }), "add_client_account" === _v3 && (0, _v1.jsx)(_v13, {
           ctaSource: _v5,
           onClose: () => {
             _v4(null), _v6("navbar");
           }
-        }), "logout_promo" === _v3 && (0, _v1.jsx)(_v13, {
+        }), "logout_promo" === _v3 && (0, _v1.jsx)(_v14, {
           isOpen: !0,
-          onClose: _v7,
+          onClose: _v9,
           onCtaClick: () => {
             _v6("logout_promo"), _v4("add_client_account");
           }
         })]
       });
     },
-    _v15 = (0, _v2.default)(async () => {
+    _v16 = (0, _v2.default)(async () => {
       let {
         AccountMenu: _v0
       } = await _v0.A(0);
@@ -288,10 +306,10 @@
   _v0.s(["AccountMenuWithModals", 0, ({
     hasThemeSupport: _v0 = !0,
     onConfirmTeamSwitch: _v1
-  }) => (0, _v1.jsx)(_v14, {
+  }) => (0, _v1.jsx)(_v15, {
     children: ({
       setModal: _v0
-    }) => (0, _v1.jsx)(_v15, {
+    }) => (0, _v1.jsx)(_v16, {
       setModal: _v0 => _v0(_v0),
       hasThemeSupport: _v0,
       onConfirmTeamSwitch: _v1

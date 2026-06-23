@@ -21,8 +21,12 @@
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
-    _v21 = _v0.i(0);
-  let _v22 = ({
+    _v21 = _v0.i(0),
+    _v22 = _v0.i(0),
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0),
+    _v25 = _v0.i(0);
+  let _v26 = ({
     videoName: _v0,
     createdAt: _v1,
     createdBy: _v2,
@@ -217,7 +221,7 @@
             }
           }
         }),
-        value: (0, _v20.bytesToSize)(_v4, _v21.FILE_SIZE_DECIMAL_PLACES)
+        value: (0, _v24.bytesToSize)(_v4, _v25.FILE_SIZE_DECIMAL_PLACES)
       }];
     return (0, _v1.jsx)(_v3.Flex, {
       direction: "column",
@@ -229,11 +233,11 @@
       children: _v7.map((_v0, _v1) => (0, _v1.jsxs)(_v3.Flex, {
         direction: "column",
         gap: "sm",
-        children: [(0, _v1.jsx)(_v19.Text, {
+        children: [(0, _v1.jsx)(_v23.Text, {
           variant: "heading-sm",
           color: "text-primary",
           children: _v0.label
-        }), (0, _v1.jsx)(_v19.Text, {
+        }), (0, _v1.jsx)(_v23.Text, {
           variant: "body-md",
           color: "text-primary",
           children: _v0.value
@@ -241,23 +245,23 @@
       }, _v1))
     });
   };
-  var _v23 = _v0.i(0),
-    _v24 = _v0.i(0),
-    _v25 = _v0.i(0),
-    _v26 = _v0.i(0),
-    _v27 = _v0.i(0);
-  let _v28 = () => (0, _v1.jsx)(_v23.Center, {
+  var _v27 = _v0.i(0),
+    _v28 = _v0.i(0),
+    _v29 = _v0.i(0),
+    _v30 = _v0.i(0),
+    _v31 = _v0.i(0);
+  let _v32 = () => (0, _v1.jsx)(_v27.Center, {
     w: "100%",
     h: "100%",
     px: 200,
-    children: (0, _v1.jsxs)(_v27.VStack, {
+    children: (0, _v1.jsxs)(_v31.VStack, {
       textAlign: "center",
       spacing: "200",
-      children: [(0, _v1.jsx)(_v26.Spinner, {
+      children: [(0, _v1.jsx)(_v30.Spinner, {
         size: "md",
         mb: 50,
         boxSize: "sm"
-      }), (0, _v1.jsx)(_v24.Header, {
+      }), (0, _v1.jsx)(_v28.Header, {
         size: {
           base: "lg",
           md: "2xl"
@@ -288,7 +292,7 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v25.Paragraph, {
+      }), (0, _v1.jsx)(_v29.Paragraph, {
         size: {
           base: "md",
           md: "lg"
@@ -326,9 +330,9 @@
       })]
     })
   });
-  var _v29 = _v0.i(0),
-    _v30 = _v0.i(0),
-    _v31 = _v0.i(0);
+  var _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0);
   _v0.s(["ReviewPlayerContainer", 0, function ({
     clipId: _v0,
     clipHash: _v1,
@@ -365,29 +369,36 @@
   }) {
     let _v32 = (0, _v2.useRef)(null),
       _v33 = (0, _v2.useRef)(null),
-      _v34 = (0, _v17.useTeamAccentColor)(_v19),
-      _v35 = (0, _v30.getClipRequestId)(_v0, _v1),
+      _v34 = (0, _v21.useTeamAccentColor)(_v19),
+      _v35 = (0, _v34.getClipRequestId)(_v0, _v1),
       {
         reviewId: _v36
-      } = (0, _v2.useContext)(_v18.ReviewLinkContext),
+      } = (0, _v2.useContext)(_v22.ReviewLinkContext),
       [_v37, _v38] = (0, _v2.useState)(0),
       [_v39, _v40] = (0, _v2.useState)(0),
       _v41 = _v8 && (0, _v5.getFormattedStringFromDateObj)(new Date(_v8), "MMM DD, YYYY") || "",
       [_v42, _v43] = (0, _v2.useState)(!0),
       [_v44, _v45] = (0, _v2.useState)(!1),
       [_v46, _v47] = (0, _v2.useState)(!1),
-      _v48 = (0, _v13.useViewer)(),
+      _v48 = (0, _v15.useViewer)(),
       {
-        trackReviewVideoPlayed: _v49
-      } = (0, _v8.useReviewTracking)(),
-      {
-        settings: _v50
+        settings: _v49
       } = (0, _v7.useOrionSettings)(),
-      _v51 = _v50.review_accountless_comment_redesign,
-      _v52 = _v48?.user?.uploadQuota?.space?.unit === "video_size" ? "storage_limit" : "quota",
-      _v53 = ((_v0, _v1) => {
+      _v50 = _v48?.team?.ownerId?.toString() || _v48?.user?.id?.toString(),
+      _v51 = (0, _v20.useIsReviewTourInCooldown)({
+        isOwner: _v50 === _v30
+      });
+    (0, _v12.useTour)(_v17.ReviewTour, {
+      enable: !_v51 && !_v28 && !!_v7 && !!_v49.enable_review_adoption_v2 && !_v18 && !!_v36
+    });
+    let {
+        trackReviewVideoPlayed: _v52
+      } = (0, _v8.useReviewTracking)(),
+      _v53 = _v49.review_accountless_comment_redesign,
+      _v54 = _v48?.user?.uploadQuota?.space?.unit === "video_size" ? "storage_limit" : "quota",
+      _v55 = ((_v0, _v1) => {
         if (_v0) return "45vh";
-        let _v2 = _v21.VERSION_PAGE_HEADER_HEIGHT + 48;
+        let _v2 = _v25.VERSION_PAGE_HEADER_HEIGHT + 48;
         return _v1 && (_v2 += 64), _v27 ? _v2 += 38 : _v2 += 72, `calc(100vh - ${_v2}px)`;
       })(_v18, _v15);
     (0, _v2.useEffect)(() => {
@@ -402,33 +413,33 @@
       };
     }, []);
     let {
-        player: _v54
+        player: _v56
       } = (0, _v9.usePlayer)(_v33, Number(_v0), !0, _v20 ?? "", !1),
-      [_v55, _v56] = (0, _v2.useState)(0);
+      [_v57, _v58] = (0, _v2.useState)(0);
     (0, _v2.useEffect)(() => {
       let _v0 = _v0 => {
-          _v56(_v0.seconds);
+          _v58(_v0.seconds);
         },
         _v1 = () => {
-          _v49({
+          _v52({
             reviewId: _v36 ?? "",
             clipId: _v0,
             clipOwnerId: _v30 ?? null
           });
         };
-      return _v54?.ready?.(() => {
-        _v47(!0), _v54.on("pause", _v0), _v54.on("seeked", _v0), _v54.on("play", _v1);
+      return _v56?.ready?.(() => {
+        _v47(!0), _v56.on("pause", _v0), _v56.on("seeked", _v0), _v56.on("play", _v1);
       }), () => {
-        _v47(!1), _v54?.off && (_v54.off("pause", _v0), _v54.off("seeked", _v0), _v54.off("play", _v1));
+        _v47(!1), _v56?.off && (_v56.off("pause", _v0), _v56.off("seeked", _v0), _v56.off("play", _v1));
       };
-    }, [_v54]);
-    let _v57 = (0, _v2.useCallback)(_v0 => {
-        _v46 && _v54.seekTo(_v0);
-      }, [_v54, _v46]),
-      _v58 = (0, _v2.useCallback)(() => {
-        _v46 && _v54.pause();
-      }, [_v54, _v46]),
-      _v59 = (0, _v2.useMemo)(() => ({
+    }, [_v56]);
+    let _v59 = (0, _v2.useCallback)(_v0 => {
+        _v46 && _v56.seekTo(_v0);
+      }, [_v56, _v46]),
+      _v60 = (0, _v2.useCallback)(() => {
+        _v46 && _v56.pause();
+      }, [_v56, _v46]),
+      _v61 = (0, _v2.useMemo)(() => ({
         headerText: (0, _v6.translate)({
           singular: "Upgrade to unlock more video tools",
           dictionary: {
@@ -476,10 +487,10 @@
           }
         })
       }), []),
-      _v60 = (0, _v2.useMemo)(() => ({
+      _v62 = (0, _v2.useMemo)(() => ({
         params: {
-          page: _v29.VIDEO_VERSION_PAGE_NAME,
-          feature: _v29.FEATURE_VERSION_HISTORY,
+          page: _v33.VIDEO_VERSION_PAGE_NAME,
+          feature: _v33.FEATURE_VERSION_HISTORY,
           location: "modal",
           upsell_name: "at_limit_quota"
         },
@@ -487,36 +498,36 @@
           paywallTrigger: "review_player_quota_limit_button",
           paywallLocation: "review_player",
           paywallType: "popup",
-          paywallFeature: _v52
+          paywallFeature: _v54
         },
         onOpen: () => {
-          _v21 && (0, _v29.sendBpUpsellEvent)({
+          _v21 && (0, _v33.sendBpUpsellEvent)({
             viewer: _v48,
             analyticsProps: _v21,
             eventName: "vimeo.view_upsell",
-            eventVersion: _v29.UPGRADE_VIEW_GROUP_EVENT_VERSION,
+            eventVersion: _v33.UPGRADE_VIEW_GROUP_EVENT_VERSION,
             includeViewContext: !0
           });
         },
         onClose: () => {
-          _v21 && (0, _v29.sendBpUpsellEvent)({
+          _v21 && (0, _v33.sendBpUpsellEvent)({
             viewer: _v48,
             analyticsProps: _v21,
             eventName: "vimeo.close_upsell",
-            eventVersion: _v29.UPGRADE_ACTION_GROUP_EVENT_VERSION
+            eventVersion: _v33.UPGRADE_ACTION_GROUP_EVENT_VERSION
           });
         },
         onButtonClick: () => {
-          _v21 && (0, _v29.sendBpUpsellEvent)({
+          _v21 && (0, _v33.sendBpUpsellEvent)({
             viewer: _v48,
             analyticsProps: _v21,
             eventName: "vimeo.proceed_to_checkout",
-            eventVersion: _v29.UPGRADE_ACTION_GROUP_EVENT_VERSION
+            eventVersion: _v33.UPGRADE_ACTION_GROUP_EVENT_VERSION
           });
         }
-      }), [_v21, _v52, _v48]),
-      _v61 = _v2 && _v3 ? _v2 / _v3 : _v21.DEFAULT_ASPECT_RATIO,
-      _v62 = _v25 ?? {
+      }), [_v21, _v54, _v48]),
+      _v63 = _v2 && _v3 ? _v2 / _v3 : _v25.DEFAULT_ASPECT_RATIO,
+      _v64 = _v25 ?? {
         paddingX: _v18 ? "0px" : "lg",
         paddingBottom: _v18 ? "0px" : "lg",
         paddingTop: _v18 ? "0px" : "lg"
@@ -525,17 +536,17 @@
       width: "100%",
       direction: _v18 ? "column" : "row",
       flexGrow: 1,
-      ..._v62,
+      ..._v64,
       children: [(0, _v1.jsxs)(_v3.Flex, {
         direction: "column",
         gap: _v18 ? "md" : "lg",
-        width: _v18 ? "100%" : `calc(100% - ${_v7 ? `${_v21.COMMENTS_PANEL_WIDTH + 24}` : "0"}px)`,
+        width: _v18 ? "100%" : `calc(100% - ${_v7 ? `${_v25.COMMENTS_PANEL_WIDTH + 24}` : "0"}px)`,
         height: _v18 ? "auto" : "100%",
         children: [(0, _v1.jsxs)(_v1.Fragment, {
           children: [_v15 && (0, _v1.jsx)(_v4.Box, {
             display: "flex",
             justifyContent: "center",
-            children: (0, _v1.jsx)(_v11.UploadErrorMessage, {
+            children: (0, _v1.jsx)(_v13.UploadErrorMessage, {
               error: 4,
               isEnterprise: _v17,
               isNewVersionErrorMessage: !0,
@@ -547,47 +558,50 @@
                 _v44 && _v45(!1), _v16?.(!1);
               },
               onClickQuotaMessage: () => {
-                _v21 && (0, _v29.sendBpUpsellEvent)({
+                _v21 && (0, _v33.sendBpUpsellEvent)({
                   viewer: _v48,
                   analyticsProps: _v21,
                   eventName: "vimeo.trigger_upsell",
-                  eventVersion: _v29.UPGRADE_ACTION_GROUP_EVENT_VERSION
+                  eventVersion: _v33.UPGRADE_ACTION_GROUP_EVENT_VERSION
                 }), _v45(!0);
               }
             })
           }), _v28 ? (0, _v1.jsx)(_v4.Box, {
-            height: _v53,
-            children: (0, _v1.jsx)(_v28, {})
-          }) : (0, _v1.jsx)(_v10.PlayerAdvancedControls, {
-            width: "100%",
-            player: _v54,
-            isShown: !!_v7 && !_v18,
-            isShowAdvancedPlayBar: _v29,
-            onControlsHeightChange: _v40,
-            enableLinks: !0,
-            onPlaybackRateChange: _v31,
-            children: (0, _v1.jsx)(_v14.ReviewPlayer, {
-              videoAspectRatio: _v61,
-              playerMaxHeight: `calc(${_v53} - ${_v39}px)`,
-              containerRef: _v32,
-              isMobile: _v18,
-              isDeleted: _v14,
-              playerElementRef: _v33,
-              player: _v54,
-              showComments: !!_v7,
-              clipRequestId: _v35,
-              teamAccentColor: _v34,
-              allowTimecodeComments: _v24,
-              isPlayerReady: _v46,
-              isShowAdvancedPlayBar: _v29
+            height: _v55,
+            children: (0, _v1.jsx)(_v32, {})
+          }) : (0, _v1.jsx)(_v11.TourStep, {
+            step: _v17.ReviewTour.player,
+            children: (0, _v1.jsx)(_v10.PlayerAdvancedControls, {
+              width: "100%",
+              player: _v56,
+              isShown: !!_v7 && !_v18,
+              isShowAdvancedPlayBar: _v29,
+              onControlsHeightChange: _v40,
+              enableLinks: !0,
+              onPlaybackRateChange: _v31,
+              children: (0, _v1.jsx)(_v16.ReviewPlayer, {
+                videoAspectRatio: _v63,
+                playerMaxHeight: `calc(${_v55} - ${_v39}px)`,
+                containerRef: _v32,
+                isMobile: _v18,
+                isDeleted: _v14,
+                playerElementRef: _v33,
+                player: _v56,
+                showComments: !!_v7,
+                clipRequestId: _v35,
+                teamAccentColor: _v34,
+                allowTimecodeComments: _v24,
+                isPlayerReady: _v46,
+                isShowAdvancedPlayBar: _v29
+              })
             })
           })]
         }), _v18 && !_v7 && !_v5 && _v22 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v15.VersionAlert, {
-            uri: _v36 ? (0, _v31.buildReviewClipUri)(_v0, _v36) : (0, _v31.formClipManageUri)(_v0, _v1),
+          children: [(0, _v1.jsx)(_v18.VersionAlert, {
+            uri: _v36 ? (0, _v35.buildReviewClipUri)(_v0, _v36) : (0, _v35.formClipManageUri)(_v0, _v1),
             isOpen: _v42,
             closeAlert: () => _v43(!1)
-          }), (0, _v1.jsx)(_v22, {
+          }), (0, _v1.jsx)(_v26, {
             videoName: _v10 || "",
             createdBy: _v9 || "",
             createdAt: _v41,
@@ -596,31 +610,34 @@
             fileName: _v11 || ""
           })]
         })]
-      }), _v7 && (0, _v1.jsx)(_v16.CommentsPanel, {
-        clipId: _v0,
-        clipHash: _v1,
-        onMomentPlay: _v57,
-        videoVersionUri: _v6,
-        closeDrawer: _v4,
-        isMobile: _v18,
-        showComments: _v7,
-        playerHeight: _v37,
-        analyticsProps: _v21,
-        isPreviousVersion: _v23,
-        showResolvedComments: _v26,
-        accountlessCommentRedesignEnabled: _v51,
-        commentTimeCode: _v55,
-        pausePlayer: _v58
-      }), _v44 && _v48 && (0, _v1.jsx)(_v12.default, {
+      }), _v7 && (0, _v1.jsx)(_v11.TourStep, {
+        step: _v17.ReviewTour.comments,
+        children: (0, _v1.jsx)(_v19.CommentsPanel, {
+          clipId: _v0,
+          clipHash: _v1,
+          onMomentPlay: _v59,
+          videoVersionUri: _v6,
+          closeDrawer: _v4,
+          isMobile: _v18,
+          showComments: _v7,
+          playerHeight: _v37,
+          analyticsProps: _v21,
+          isPreviousVersion: _v23,
+          showResolvedComments: _v26,
+          accountlessCommentRedesignEnabled: _v53,
+          commentTimeCode: _v57,
+          pausePlayer: _v60
+        })
+      }), _v44 && _v48 && (0, _v1.jsx)(_v14.default, {
         apiUrl: _v48.apiUrl,
         userConfig: {
           jwt: _v48.jwt,
           userId: _v48.user?.id
         },
         templateType: "default",
-        modalConfig: _v59,
+        modalConfig: _v61,
         onClose: () => _v45(!1),
-        tracking: _v60
+        tracking: _v62
       })]
     });
   }], 0);

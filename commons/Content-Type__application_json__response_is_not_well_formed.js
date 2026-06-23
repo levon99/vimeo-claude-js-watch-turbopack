@@ -94,7 +94,7 @@
   _v0.s(["default", 0, _v7], 0);
   var _v10 = _v0.i(0);
   let _v11 = ["hasCreateBrandView", "hasCreateBrandApply", "hasCreateBrandEdit", "hasCreateTeamTemplateView", "hasCreateTeamTemplateApply", "hasCreateTeamTemplateEdit", "hasStockUpsell", "hasSeePerSeatPricingPages", "hasTveSupported", "hasCreateInteractiveTeamOverlayTemplateApply", "hasCreateInteractiveTeamOverlayTemplateCreate", "hasCreateInteractiveTeamOverlayTemplateDelete", "hasCreateInteractiveTeamOverlayTemplateEdit", "hasCreateSystemTemplate", "hasManageBranding", "hasApplyBranding", "canRemoveCreateWatermark"],
-    _v12 = ["hasContentSpaceEnabled"],
+    _v12 = ["hasContentSpaceEnabled", "hasContentSpaceEnabledTeamGated"],
     _v13 = (0, _v2.createContext)({});
   _v0.s(["PermissionsContext", 0, _v13, "PermissionsProvider", 0, ({
     children: _v0

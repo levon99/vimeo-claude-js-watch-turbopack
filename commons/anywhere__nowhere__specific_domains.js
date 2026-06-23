@@ -68,8 +68,10 @@
         review_links_count: _v0.reviewLinksCount
       }), !0), [_v0]),
       _v12 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_links_copied", {
-        clip_id: _v0.clipId,
-        review_id: _v0.reviewId
+        clip_id: _v0.clipId ?? null,
+        folder_id: _v0.folderId ?? null,
+        review_id: _v0.reviewId,
+        review_links_copied_surface: _v0.surface
       }), !0), [_v0]),
       _v13 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_links_menu_action_clicked", {
         clip_id: _v0.clipId,

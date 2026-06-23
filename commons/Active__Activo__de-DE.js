@@ -2393,6 +2393,35 @@
           }
         }
       }),
+      connectedToGoogleAs: _v0 => (0, _v6.translate)({
+        replacements: {
+          NAME: _v0
+        },
+        singular: "Connected as {NAME}",
+        dictionary: {
+          es: {
+            singular: "Conectado como {NAME}"
+          },
+          "de-DE": {
+            singular: "Verbunden als {NAME}"
+          },
+          "fr-FR": {
+            singular: "Connecté en tant que {NAME}"
+          },
+          "ja-JP": {
+            singular: "接続中：{NAME}"
+          },
+          "ko-KR": {
+            singular: "{NAME}로 연결됨"
+          },
+          "pt-BR": {
+            singular: "Conectado como {NAME}"
+          },
+          "zh-CN": {
+            singular: "已以 {NAME} 身份连接"
+          }
+        }
+      }),
       contactSales: (0, _v6.translate)({
         singular: "Contact sales",
         dictionary: {
@@ -2939,6 +2968,58 @@
           },
           "zh-CN": {
             singular: "禁用问答"
+          }
+        }
+      }),
+      disconnectGoogleDrive: (0, _v6.translate)({
+        singular: "Disconnect Google Drive",
+        dictionary: {
+          es: {
+            singular: "Desconectar Google Drive"
+          },
+          "de-DE": {
+            singular: "Google Drive trennen"
+          },
+          "fr-FR": {
+            singular: "Déconnecter Google Drive"
+          },
+          "ja-JP": {
+            singular: "Google ドライブの接続を解除"
+          },
+          "ko-KR": {
+            singular: "Google Drive 연결 해제"
+          },
+          "pt-BR": {
+            singular: "Desconectar do Google Drive"
+          },
+          "zh-CN": {
+            singular: "断开与 Google Drive 的连接"
+          }
+        }
+      }),
+      disconnectGoogleDriveError: (0, _v6.translate)({
+        singular: "Something went wrong disconnecting Google Drive. Please try again.",
+        dictionary: {
+          es: {
+            singular: "Algo salió mal al desconectar Google Drive. Por favor, inténtelo de nuevo."
+          },
+          "de-DE": {
+            singular: "Beim Trennen von Google Drive ist etwas schiefgegangen. Bitte versuchen Sie es erneut."
+          },
+          "fr-FR": {
+            singular: "Une erreur s'est produite lors de la déconnexion de Google Drive. Veuillez réessayer."
+          },
+          "ja-JP": {
+            singular: "Google ドライブの切断中に問題が発生しました。もう一度お試しください。"
+          },
+          "ko-KR": {
+            singular: "Google Drive 연결 해제 중 문제가 발생했습니다. 다시 시도해 주세요."
+          },
+          "pt-BR": {
+            singular: "Algo deu errado ao desconectar o Google Drive. Por favor, tente novamente."
+          },
+          "zh-CN": {
+            singular: "断开 Google Drive 时出现问题。请再试一次。"
           }
         }
       }),
@@ -10142,6 +10223,58 @@
           },
           "zh-CN": {
             singular: "切换摄像头"
+          }
+        }
+      }),
+      switchGoogleAccount: (0, _v6.translate)({
+        singular: "Switch Google account",
+        dictionary: {
+          es: {
+            singular: "Cambiar cuenta de Google"
+          },
+          "de-DE": {
+            singular: "Google-Konto wechseln"
+          },
+          "fr-FR": {
+            singular: "Changer de compte Google"
+          },
+          "ja-JP": {
+            singular: "Google アカウントを切り替える"
+          },
+          "ko-KR": {
+            singular: "Google 계정 전환"
+          },
+          "pt-BR": {
+            singular: "Trocar conta do Google"
+          },
+          "zh-CN": {
+            singular: "切换 Google 账户"
+          }
+        }
+      }),
+      switchGoogleAccountError: (0, _v6.translate)({
+        singular: "Something went wrong switching Google account. Please try again.",
+        dictionary: {
+          es: {
+            singular: "Algo salió mal al cambiar la cuenta de Google. Por favor, inténtelo de nuevo."
+          },
+          "de-DE": {
+            singular: "Beim Wechsel des Google‑Kontos ist etwas schiefgelaufen. Bitte versuchen Sie es erneut."
+          },
+          "fr-FR": {
+            singular: "Un problème est survenu lors du changement de compte Google. Veuillez réessayer."
+          },
+          "ja-JP": {
+            singular: "Googleアカウントの切り替え中に問題が発生しました。再度お試しください。"
+          },
+          "ko-KR": {
+            singular: "Google 계정 전환 중 문제가 발생했습니다. 다시 시도해 주세요."
+          },
+          "pt-BR": {
+            singular: "Algo deu errado ao alternar a conta do Google. Por favor, tente novamente."
+          },
+          "zh-CN": {
+            singular: "切换 Google 帐户时出现问题。请重试。"
           }
         }
       }),

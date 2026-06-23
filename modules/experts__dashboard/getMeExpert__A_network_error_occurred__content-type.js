@@ -672,7 +672,9 @@
         document.removeEventListener("click", _v0, !0);
       };
     }, [_v0]), (0, _v8.useEffect)(() => {
-      _v12 && (_v12.play && _v0 ? _v12.play() : _v12.pause && !_v12.paused && _v12.pause());
+      _v12 && (_v12.play && _v0 ? _v12.play()?.catch(_v0 => {
+        if (_v0?.name !== "AbortError") throw _v0;
+      }) : _v12.pause && !_v12.paused && _v12.pause());
     }, [_v0, _v12]), (0, _v8.useEffect)(() => {
       _v6(_v0), _v12 && (_v12.muted = !_v0);
     }, [_v0]);
@@ -682,7 +684,9 @@
         }, 0);
       }, 100),
       _v14 = () => {
-        _v12 && (_v12.paused ? (_v12.play(), _v6(!0)) : (_v12.pause(), _v6(!1)));
+        _v12 && (_v12.paused ? (_v12.play()?.catch(_v0 => {
+          if (_v0?.name !== "AbortError") throw _v0;
+        }), _v6(!0)) : (_v12.pause(), _v6(!1)));
       };
     return (0, _v8.useEffect)(() => () => {
       _v7 && _v7.current && clearTimeout(_v7.current), _v8 && _v8.current && clearTimeout(_v8.current);

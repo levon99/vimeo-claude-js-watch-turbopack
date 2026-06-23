@@ -264,8 +264,10 @@
             icon: (0, _v1.jsx)(_v17.Link, {}),
             onClick: () => void navigator.clipboard.writeText(_v18).then(() => {
               _v11({
-                clipId: String(_v2),
-                reviewId: (0, _v29.reviewIdFromUri)(_v0.uri ?? "") ?? ""
+                clipId: "clip" === _v3 ? String(_v2) : void 0,
+                folderId: "folder" === _v3 ? String(_v2) : void 0,
+                reviewId: (0, _v29.reviewIdFromUri)(_v0.uri ?? "") ?? "",
+                surface: "review_links_panel"
               }), _v16("copy"), _v8({
                 title: (0, _v22.translate)({
                   singular: "Link copied",

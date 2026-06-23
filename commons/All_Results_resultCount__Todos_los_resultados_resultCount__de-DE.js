@@ -190,10 +190,8 @@
       isSubFolder: _v10 = !1
     }) => {
       let {
-          capabilities: {
-            hasContentSpaceEnabled: _v11
-          }
-        } = (0, _v16.useCapability)(["hasContentSpaceEnabled"], _v0?.uri),
+          contentSpaceEnabled: _v11
+        } = (0, _v16.useContentSpaceEnabled)(_v0?.uri),
         _v12 = _v11 ? (0, _v21.translate)({
           singular: "Team library",
           dictionary: {
@@ -526,10 +524,8 @@
     placeholderText: _v1
   }) => {
     let {
-        capabilities: {
-          hasContentSpaceEnabled: _v2
-        }
-      } = (0, _v16.useCapability)(["hasContentSpaceEnabled"], _v0?.uri),
+        contentSpaceEnabled: _v2
+      } = (0, _v16.useContentSpaceEnabled)(_v0?.uri),
       _v3 = _v2 ? (0, _v21.translate)({
         singular: "Team library",
         dictionary: {

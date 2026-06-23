@@ -1625,25 +1625,32 @@
         });
       }, [_v0]), _v2 = (0, _v10.useCallback)(_v0 => {
         null !== _v0 && _v0.track("recently_deleted_empty_trash_click", {
-          itemCount: _v0 ?? null
+          itemCountInAction: _v0 ?? null
         });
       }, [_v0]), _v3 = (0, _v10.useCallback)((_v0, _v1, _v2, _v3) => {
-        null !== _v0 && _v0.track("recently_deleted_permanent_delete_modal_open", {
+        null !== _v0 && (void 0 !== _v3 ? _v3.forEach(_v0 => {
+          _v0.track("recently_deleted_permanent_delete_modal_open", {
+            action: _v0,
+            source: _v1,
+            itemCountInAction: _v2,
+            videoId: _v0
+          });
+        }) : _v0.track("recently_deleted_permanent_delete_modal_open", {
           action: _v0,
           source: _v1,
-          itemCount: _v2,
-          ...(void 0 !== _v3 && {
-            videoIds: _v3
-          })
-        });
+          itemCountInAction: _v2
+        }));
       }, [_v0]), _v4 = (0, _v10.useCallback)((_v0, _v1, _v2) => {
-        null !== _v0 && _v0.track("recently_deleted_restore_click", {
+        null !== _v0 && (void 0 !== _v2 ? _v2.forEach(_v0 => {
+          _v0.track("recently_deleted_restore_click", {
+            source: _v0,
+            itemCountInAction: _v1,
+            videoId: _v0
+          });
+        }) : _v0.track("recently_deleted_restore_click", {
           source: _v0,
-          itemCount: _v1,
-          ...(void 0 !== _v2 && {
-            videoIds: _v2
-          })
-        });
+          itemCountInAction: _v1
+        }));
       }, [_v0]), _v5 = (0, _v10.useCallback)(_v0 => {
         null !== _v0 && _v0.track("recently_deleted_page_sort_by_click", {
           sortBy: _v0
@@ -2434,11 +2441,11 @@
                 }
               }
             })
-          }), (_v25 || _v19.length > 0 || _v23.length > 0) && (0, _v1.jsxs)(_v1.Fragment, {
+          }), (0, _v1.jsx)(_v45, {}), (_v25 || _v19.length > 0 || _v23.length > 0) && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(!_v7?.teamUser || _v7.teamUser.permissionLevel <= 2) && (0, _v1.jsx)(_v48, {
               onEmptyTrash: _v52,
               recentlyDeletedDiskSpace: _v59
-            }), (0, _v1.jsx)(_v45, {}), (0, _v1.jsx)(_v64, {})]
+            }), (0, _v1.jsx)(_v64, {})]
           })]
         }), _v25 && (0, _v1.jsx)(_v11.Flex, {
           justifyContent: "center",
@@ -2565,8 +2572,9 @@
             _v42("bulk_toast", _v36.size, Array.from(_v36).map(_v27.idFromUri)), _v49(Array.from(_v36));
           },
           onClear: _v38
-        }), (0, _v1.jsx)("div", {
-          id: _v36
+        }), (0, _v1.jsx)(_v11.Flex, {
+          id: _v36,
+          justifyContent: "center"
         }), _v13 && (0, _v1.jsx)(_v68, {
           source: _v15,
           onClose: () => _v14(!1)

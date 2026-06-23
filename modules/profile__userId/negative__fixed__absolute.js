@@ -34,17 +34,17 @@
       _v11 = (0, _v3.useRef)(null),
       {
         idOrUserName: _v12
-      } = (0, _v3.useContext)(_v17.default),
-      _v13 = (0, _v3.useContext)(_v16.NotificationDispatchContext),
+      } = (0, _v3.useContext)(_v18.default),
+      _v13 = (0, _v3.useContext)(_v17.NotificationDispatchContext),
       _v14 = `users/${_v4 ?? _v12}/report`,
-      _v15 = (0, _v18.default)(),
+      _v15 = (0, _v19.default)(),
       _v16 = (0, _v3.useCallback)((_v0, _v1) => {
         _v8(!0);
         let _v2 = (0, _v4.decamelizeDeep)({
           reason: _v0,
           block: _v1
         });
-        _v15(_v14, void 0, _v19.HTTPMethods.POST, _v2).then(() => {
+        _v15(_v14, void 0, _v16.HTTPMethods.POST, _v2).then(() => {
           _v10(!0), _v8(!1);
         }).catch(_v0 => {
           _v0 && _v0.json && _v0.json().then(_v0 => _v13({

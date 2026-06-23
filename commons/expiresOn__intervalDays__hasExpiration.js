@@ -16,7 +16,7 @@
     let [_v3, {
         data: _v4,
         error: _v5
-      }] = (0, _v9.usePostVideoSharingLink)(),
+      }] = (0, _v10.usePostVideoSharingLink)(),
       {
         trackSharingLinkCopied: _v6,
         trackVideoLinkCopied: _v7,
@@ -29,14 +29,14 @@
     _v11.current = _v10;
     let _v12 = (0, _v1.useRef)(_v1);
     _v12.current = _v1;
-    let _v13 = (0, _v11.default)(),
+    let _v13 = (0, _v9.useMatchMutate)(),
       _v14 = (0, _v1.useRef)(_v13);
     _v14.current = _v13;
     let _v15 = (0, _v1.useRef)(_v2);
     _v15.current = _v2;
     let _v16 = (() => {
-        let [_v0] = (0, _v9.usePatchVideoSharingLink)(),
-          _v1 = (0, _v11.default)(),
+        let [_v0] = (0, _v10.usePatchVideoSharingLink)(),
+          _v1 = (0, _v9.useMatchMutate)(),
           _v2 = (0, _v1.useRef)(_v1);
         return _v2.current = _v1, (0, _v1.useCallback)((_v0, _v1) => {
           _v0({
@@ -45,7 +45,7 @@
             },
             select: ["expiresOn", "intervalDays", "hasExpiration"],
             variables: {
-              expiresOn: new Date(Date.now() + _v1 * _v10.MS_PER_DAY).toISOString(),
+              expiresOn: new Date(Date.now() + _v1 * _v11.MS_PER_DAY).toISOString(),
               intervalDays: _v1,
               hasExpiration: !0
             }
@@ -74,8 +74,8 @@
         if (_v14.current("sharing_link"), (0, _v5.default)(_v0)) {
           let _v0 = _v4.expiresOn ?? null,
             _v1 = _v4.intervalDays ?? 0,
-            _v2 = _v4 && _v0 ? (0, _v10.formatExpiryDuration)(_v0) : void 0,
-            _v3 = _v4 && _v0 && _v1 && (0, _v10.getRemainingDays)(_v0) <= _v10.EXPIRY_SOON_DAYS ? () => {
+            _v2 = _v4 && _v0 ? (0, _v11.formatExpiryDuration)(_v0) : void 0,
+            _v3 = _v4 && _v0 && _v1 && (0, _v11.getRemainingDays)(_v0) <= _v11.EXPIRY_SOON_DAYS ? () => {
               _v8({
                 videoId: String(_v1),
                 entryPoint: "library_copy_toast"

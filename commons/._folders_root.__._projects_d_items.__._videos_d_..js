@@ -61,7 +61,7 @@
       return _v5 ? _v4 : _v0;
     };
   function _v13() {
-    let _v0 = (0, _v7.default)();
+    let _v0 = (0, _v7.useMatchMutate)();
     return (0, _v3.useCallback)(({
       uri: _v0,
       ..._v1
@@ -80,7 +80,7 @@
     }, [_v0]);
   }
   _v0.s(["useRevalidateVideoListCaches", 0, function () {
-    let _v0 = (0, _v7.default)();
+    let _v0 = (0, _v7.useMatchMutate)();
     return (0, _v3.useCallback)(() => Promise.all(_v9.map(_v0 => _v0(_v0, void 0, !0))), [_v0]);
   }, "useUpdateVideoPrivacyCache", 0, _v13], 0);
   let _v14 = () => Promise.reject(Error("not implemented yet")),

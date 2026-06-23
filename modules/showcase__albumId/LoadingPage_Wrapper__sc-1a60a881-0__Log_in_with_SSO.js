@@ -9858,7 +9858,7 @@
               fields: ["owner.uri", "team_membership.role", "team_data.team_showcase_id"]
             }
           }),
-          _v1 = _v0?.items.find(_v0 => function (_v0) {
+          _v1 = _v0?.items?.find(_v0 => function (_v0) {
             if (!_v0) return null;
             let _v1 = _v0.match(/^([0-9]+)$/);
             if (_v1) return _v1[1];

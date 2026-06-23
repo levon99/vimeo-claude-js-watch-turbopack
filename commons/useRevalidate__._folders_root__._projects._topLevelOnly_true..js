@@ -3,7 +3,7 @@
 
   var _v1 = _v0.i(0);
   _v0.s(["useRevalidate", 0, function () {
-    let _v0 = (0, _v1.default)();
+    let _v0 = (0, _v1.useMatchMutate)();
     return {
       revalidateFolder: _v0 => {
         _v0(`.*${_v0}(?!/)`);

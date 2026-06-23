@@ -57,6 +57,7 @@
 - https://vimeo.com/enterprise-lohp
 - https://vimeo.com/event/create
 - https://vimeo.com/event/[...params]
+- https://vimeo.com/event_series/[...params]
 - https://vimeo.com/experts/create-account
 - https://vimeo.com/experts/dashboard
 - https://vimeo.com/experts/transfer-videos

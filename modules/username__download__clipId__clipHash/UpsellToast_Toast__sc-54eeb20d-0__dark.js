@@ -1334,10 +1334,8 @@
           hasTeamLogo: _v15
         } = _v0,
         {
-          capabilities: {
-            hasContentSpaceEnabled: _v16
-          }
-        } = (0, _v60.useCapability)(["hasContentSpaceEnabled"]),
+          contentSpaceEnabled: _v16
+        } = (0, _v60.useContentSpaceEnabled)(),
         _v17 = _v16 ? (0, _v32.translate)({
           singular: "Team library",
           dictionary: {
