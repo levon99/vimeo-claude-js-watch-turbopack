@@ -1774,7 +1774,7 @@
     method: "GET"
   });
   let _v116 = new Set(["Owner", "Admin", "Contributor", "Contributor Plus"]),
-    _v117 = ["video.isColdStorage", "video.name", "video.uri", "video.user.name", "video.user.uri", "video.user.metadata.connections.projects.options", "video.user.pictures", "video.createdTime", "video.lastUserActionEventDate", "video.modifiedTime", "video.link", "video.password", "video.privacy.view", "video.privacy.originalView", "video.customMetadata", "video.isColdPrivacyRestricted", "video.configUrl", "video.download.codec", "video.download.rendition", "video.download.createdTime", "video.download.expires", "video.download.fps", "video.download.height", "video.download.link", "video.download.publicName", "video.download.quality", "video.download.size", "video.download.sizeShort", "video.download.sourceLink", "video.download.type", "video.download.videoFileId", "video.download.width", "video.embed", "video.pictures", "video.description", "video.metadata.canBeReplaced", "video.metadata.interactions.edit", "video.metadata.interactions.delete", "video.metadata.interactions.invite", "video.metadata.interactions.legalHold.uri", "video.parentProject.isPrivateToUser", "video.parentProject.name", "video.parentProject.uri", "video.reviewPage.link", "video.reviewLinks.uri", "video.manageLink", "video.canMoveToProject", "video.duration", "video.stats.plays"],
+    _v117 = ["video.isColdStorage", "video.name", "video.uri", "video.user.name", "video.user.uri", "video.user.metadata.connections.projects.options", "video.user.pictures", "video.createdTime", "video.lastUserActionEventDate", "video.modifiedTime", "video.link", "video.password", "video.privacy.view", "video.privacy.originalView", "video.customMetadata", "video.isColdPrivacyRestricted", "video.configUrl", "video.download.codec", "video.download.rendition", "video.download.createdTime", "video.download.expires", "video.download.fps", "video.download.height", "video.download.link", "video.download.publicName", "video.download.quality", "video.download.size", "video.download.sizeShort", "video.download.sourceLink", "video.download.type", "video.download.videoFileId", "video.download.width", "video.embed", "video.pictures", "video.description", "video.metadata.canBeReplaced", "video.metadata.interactions.edit", "video.metadata.interactions.delete", "video.metadata.interactions.invite", "video.metadata.interactions.legalHold.uri", "video.parentProject.isPrivateToUser", "video.parentProject.name", "video.parentProject.uri", "video.reviewPage.link", "video.reviewLinks.uri", "video.reviewLinks.expiresOn", "video.manageLink", "video.canMoveToProject", "video.duration", "video.stats.plays"],
     _v118 = (_v0, _v1, _v2 = !1) => ({
       query: {
         query: "",
@@ -4425,41 +4425,43 @@
         productAnalyticsContextEntityType: null,
         webContextCopy: "host event or webinar"
       }), (0, _v1.jsx)(_v181, {
-        copy: (0, _v42.translate)({
-          singular: "{B}Host{/B} {C}event or webinar{/C}",
-          replacements: {
-            B: _v0 => (0, _v1.jsx)(_v182, {
-              size: _v1,
-              children: _v0
-            }, "b"),
-            C: _v0 => (0, _v1.jsx)(_v183, {
-              size: _v1,
-              children: _v0
-            }, "c")
-          },
-          dictionary: {
-            es: {
-              singular: "{B}Organizar{/B} {C}evento o seminario web{/C}"
+        copy: (0, _v1.jsx)("span", {
+          children: (0, _v42.translate)({
+            singular: "{B}Host{/B} {C}event or webinar{/C}",
+            replacements: {
+              B: _v0 => (0, _v1.jsx)(_v182, {
+                size: _v1,
+                children: _v0
+              }, "b"),
+              C: _v0 => (0, _v1.jsx)(_v183, {
+                size: _v1,
+                children: _v0
+              }, "c")
             },
-            "de-DE": {
-              singular: "{B}Veranstalten{/B} {C}Event oder Webinar{/C}"
-            },
-            "fr-FR": {
-              singular: "{B}Organiser{/B} {C}un événement ou un webinaire{/C}"
-            },
-            "ja-JP": {
-              singular: "{C}イベントまたはウェビナーを{/C}{B}主催{/B}"
-            },
-            "ko-KR": {
-              singular: "{C}이벤트 또는 웨비나{/C} {B}주최{/B}"
-            },
-            "pt-BR": {
-              singular: "{B}Organizar{/B} {C}evento ou webinar{/C}"
-            },
-            "zh-CN": {
-              singular: "{B}举办{/B} {C}活动或网络研讨会{/C}"
+            dictionary: {
+              es: {
+                singular: "{B}Organizar{/B} {C}evento o seminario web{/C}"
+              },
+              "de-DE": {
+                singular: "{B}Veranstalten{/B} {C}Event oder Webinar{/C}"
+              },
+              "fr-FR": {
+                singular: "{B}Organiser{/B} {C}un événement ou un webinaire{/C}"
+              },
+              "ja-JP": {
+                singular: "{C}イベントまたはウェビナーを{/C}{B}主催{/B}"
+              },
+              "ko-KR": {
+                singular: "{C}이벤트 또는 웨비나{/C} {B}주최{/B}"
+              },
+              "pt-BR": {
+                singular: "{B}Organizar{/B} {C}evento ou webinar{/C}"
+              },
+              "zh-CN": {
+                singular: "{B}举办{/B} {C}活动或网络研讨会{/C}"
+              }
             }
-          }
+          })
         }),
         href: "/live/select",
         icon: (0, _v1.jsx)(_v195, {
@@ -4542,41 +4544,43 @@
         "true" === new URLSearchParams(window.location.search).get("show-import-modal") && (_v4(!0), _v2(!0));
       }, []), (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v181, {
-          copy: (0, _v42.translate)({
-            singular: "{B}Import{/B} {C}from Drive and more{/C}",
-            replacements: {
-              B: _v0 => (0, _v1.jsx)(_v182, {
-                size: _v0,
-                children: _v0
-              }, "b"),
-              C: _v0 => (0, _v1.jsx)(_v183, {
-                size: _v0,
-                children: _v0
-              }, "c")
-            },
-            dictionary: {
-              es: {
-                singular: "{B}Importar{/B} {C}desde Drive y más{/C}"
+          copy: (0, _v1.jsx)("span", {
+            children: (0, _v42.translate)({
+              singular: "{B}Import{/B} {C}from Drive and more{/C}",
+              replacements: {
+                B: _v0 => (0, _v1.jsx)(_v182, {
+                  size: _v0,
+                  children: _v0
+                }, "b"),
+                C: _v0 => (0, _v1.jsx)(_v183, {
+                  size: _v0,
+                  children: _v0
+                }, "c")
               },
-              "de-DE": {
-                singular: "{B}Importieren{/B} {C}von Drive und mehr{/C}"
-              },
-              "fr-FR": {
-                singular: "{B}Importer{/B} {C}depuis Drive et plus encore{/C}"
-              },
-              "ja-JP": {
-                singular: "{C}ドライブなどから{/C}{B}インポート{/B}"
-              },
-              "ko-KR": {
-                singular: "{C}드라이브 등에서{/C} {B}가져오기{/B}"
-              },
-              "pt-BR": {
-                singular: "{B}Importar{/B} {C}do Drive e muito mais{/C}"
-              },
-              "zh-CN": {
-                singular: "{C}从驱动器等设备{/C}{B}导入{/B}"
+              dictionary: {
+                es: {
+                  singular: "{B}Importar{/B} {C}desde Drive y más{/C}"
+                },
+                "de-DE": {
+                  singular: "{B}Importieren{/B} {C}von Drive und mehr{/C}"
+                },
+                "fr-FR": {
+                  singular: "{B}Importer{/B} {C}depuis Drive et plus encore{/C}"
+                },
+                "ja-JP": {
+                  singular: "{C}ドライブなどから{/C}{B}インポート{/B}"
+                },
+                "ko-KR": {
+                  singular: "{C}드라이브 등에서{/C} {B}가져오기{/B}"
+                },
+                "pt-BR": {
+                  singular: "{B}Importar{/B} {C}do Drive e muito mais{/C}"
+                },
+                "zh-CN": {
+                  singular: "{C}从驱动器等设备{/C}{B}导入{/B}"
+                }
               }
-            }
+            })
           }),
           href: "",
           icon: (0, _v1.jsx)(_v195, {

@@ -313,7 +313,7 @@
     }) => {
       let {
           ownerOrWorkspaceId: _v3
-        } = (0, _v2.useContext)(_v100),
+        } = (0, _v2.useContext)(_v101),
         [_v4, _v5] = (0, _v2.useState)(""),
         [_v6, {
           data: _v7,
@@ -614,7 +614,7 @@
           isFolderBlacklisted: _v6,
           fauxFolder: _v7,
           selectedDestination: _v8
-        } = (0, _v2.useContext)(_v100),
+        } = (0, _v2.useContext)(_v101),
         _v9 = (0, _v2.useMemo)(() => {
           let _v0 = [..._v1];
           return _v7 && _v73(_v8) && _v7.metadata.connections.parentFolder.uri === _v8.uri && _v0.unshift(_v7), _v0;
@@ -666,7 +666,7 @@
       let {
           ownerOrWorkspaceId: _v7,
           fauxFolder: _v8
-        } = (0, _v2.useContext)(_v100),
+        } = (0, _v2.useContext)(_v101),
         {
           data: _v9
         } = (0, _v70.useGetUserProject)(() => {
@@ -755,7 +755,7 @@
   }) => {
     let {
         ownerOrWorkspaceId: _v1
-      } = (0, _v2.useContext)(_v100),
+      } = (0, _v2.useContext)(_v101),
       {
         contentSpaceEnabled: _v2
       } = (0, _v62.useContentSpaceEnabled)(_v1),
@@ -931,7 +931,7 @@
     }) => {
       let {
           ownerOrWorkspaceId: _v3
-        } = (0, _v2.useContext)(_v100),
+        } = (0, _v2.useContext)(_v101),
         {
           data: _v4,
           setSize: _v5,
@@ -967,8 +967,9 @@
         onClickFolder: _v0,
         onLoadMore: () => _v5(_v6 + 1)
       });
-    },
-    _v95 = ({
+    };
+  var _v95 = _v0.i(0);
+  let _v96 = ({
       canCreateFolder: _v0,
       isCreatingFolder: _v1,
       onClickFolder: _v2,
@@ -977,15 +978,19 @@
     }) => {
       let {
           ownerOrWorkspaceId: _v5
-        } = (0, _v2.useContext)(_v100),
+        } = (0, _v2.useContext)(_v101),
         {
-          data: _v6,
-          setSize: _v7,
-          size: _v8
-        } = (0, _v66.useGetUserProjectsInfinite)(() => _v5 ? {
+          listingParams: _v6,
+          loading: _v7
+        } = (0, _v95.usePrivateToMeFolderListingParams)(_v5),
+        {
+          data: _v8,
+          setSize: _v9,
+          size: _v10
+        } = (0, _v66.useGetUserProjectsInfinite)(() => !_v5 || _v7 ? null : {
           query: {
             permissionAction: "folder.upload_video",
-            excludePrivateToMeFolder: !0,
+            ..._v6,
             perPage: 20,
             topLevelOnly: !0
           },
@@ -993,16 +998,16 @@
           where: {
             userId: _v5
           }
-        } : null),
-        _v9 = _v6?.flatMap(_v0 => _v0.data).filter(_v0 => !!_v0),
+        }),
+        _v11 = _v8?.flatMap(_v0 => _v0.data).filter(_v0 => !!_v0),
         {
-          isDone: _v10,
-          isLoadingInitialData: _v11,
-          isLoadingMore: _v12
+          isDone: _v12,
+          isLoadingInitialData: _v13,
+          isLoadingMore: _v14
         } = (0, _v72.getInfiniteRequestLoadingState)({
-          data: _v6,
+          data: _v8,
           itemsPerPage: 20,
-          size: _v8
+          size: _v10
         });
       return (0, _v1.jsx)(_v83, {
         emptyState: (0, _v1.jsx)(_v77, {
@@ -1011,14 +1016,14 @@
           onCreateFolder: _v3,
           setIsCreateFolderButtonVisible: _v4
         }),
-        folders: _v9,
-        isDone: _v10,
-        isLoading: _v11 || _v12,
+        folders: _v11,
+        isDone: _v12,
+        isLoading: _v13 || _v14,
         onClickFolder: _v2,
-        onLoadMore: () => _v7(_v8 + 1)
+        onLoadMore: () => _v9(_v10 + 1)
       });
     },
-    _v96 = ({
+    _v97 = ({
       selectedDestination: _v0,
       searchQuery: _v1,
       canCreateFolder: _v2,
@@ -1030,7 +1035,7 @@
       onClickFolder: _v5,
       searchQuery: _v1,
       showPrivateFolders: !0
-    }) : "root" === _v0 ? (0, _v1.jsx)(_v95, {
+    }) : "root" === _v0 ? (0, _v1.jsx)(_v96, {
       canCreateFolder: _v2,
       isCreatingFolder: _v3,
       onCreateFolder: _v4,
@@ -1047,9 +1052,9 @@
     }) : (0, _v1.jsx)(_v91, {
       onSelectDestination: _v5
     });
-  var _v97 = _v0.i(0),
-    _v98 = _v0.i(0);
-  let _v99 = _v0 => (0, _v70.useGetUserProject)(() => {
+  var _v98 = _v0.i(0),
+    _v99 = _v0.i(0);
+  let _v100 = _v0 => (0, _v70.useGetUserProject)(() => {
       if (!_v0) return null;
       let {
         userId: _v0,
@@ -1063,12 +1068,12 @@
         }
       };
     }),
-    _v100 = (0, _v2.createContext)({
+    _v101 = (0, _v2.createContext)({
       ownerOrWorkspaceId: 0,
       isFolderBlacklisted: () => !1,
       selectedDestination: void 0
     }),
-    _v101 = ({
+    _v102 = ({
       title: _v0,
       isActive: _v1,
       onSuccess: _v2,
@@ -1104,10 +1109,10 @@
         }) => {
           let _v2,
             _v3,
-            _v4 = (_v2 = (0, _v98.useViewer)(), _v3 = _v2?.user?.id, _v2?.teamUser?.ownerId ?? _v3),
+            _v4 = (_v2 = (0, _v99.useViewer)(), _v3 = _v2?.user?.id, _v2?.teamUser?.ownerId ?? _v3),
             {
               capabilities: _v5
-            } = (0, _v97.useCapability)(["canCreateRootFolders"], _v1 ?? _v4);
+            } = (0, _v98.useCapability)(["canCreateRootFolders"], _v1 ?? _v4);
           return !!_v0 && ("root" === _v0 ? _v5.canCreateRootFolders : !!_v0.metadata?.interactions?.addSubfolder?.canAddSubfolders);
         })({
           selectedDestination: _v12,
@@ -1118,7 +1123,7 @@
         } = (0, _v62.useContentSpaceEnabled)(_v3),
         {
           data: _v20
-        } = _v99("root" === _v4 || _v4 === _v7?.uri ? null : _v4);
+        } = _v100("root" === _v4 || _v4 === _v7?.uri ? null : _v4);
       (0, _v2.useEffect)(() => {
         _v20 ? _v13(_v20) : _v4 == _v7?.uri ? _v13(_v7) : "root" === _v4 && _v13("root");
       }, [_v20, _v4, _v7]), (0, _v2.useEffect)(() => {
@@ -1129,7 +1134,7 @@
       let _v21 = () => {
         _v13(void 0), _v15(!0), _v17(!1), _v11(!1), _v9("", 0);
       };
-      return (0, _v1.jsx)(_v100.Provider, {
+      return (0, _v1.jsx)(_v101.Provider, {
         value: {
           ownerOrWorkspaceId: _v3,
           isFolderBlacklisted: _v6,
@@ -1209,7 +1214,7 @@
                   setCreatingFolder: _v11
                 }), (0, _v1.jsx)(_v48.Box, {
                   h: "18.75rem",
-                  children: (0, _v1.jsx)(_v96, {
+                  children: (0, _v1.jsx)(_v97, {
                     canCreateFolder: !!_v18,
                     selectedDestination: _v12,
                     isCreatingFolder: _v10,
@@ -1362,7 +1367,7 @@
         })
       });
     },
-    _v102 = ({
+    _v103 = ({
       selectedFolderUri: _v0,
       selectedTeam: _v1,
       onSelect: _v2,
@@ -1383,7 +1388,7 @@
         {
           data: _v13,
           isLoading: _v14
-        } = _v99(_v4 && _v0 === _v3?.uri ? null : _v0),
+        } = _v100(_v4 && _v0 === _v3?.uri ? null : _v0),
         _v15 = (0, _v2.useCallback)(() => {
           if (_v4 && _v0 === _v3?.uri) return [{
             label: (0, _v29.translate)({
@@ -1526,11 +1531,11 @@
                 style: {
                   scrollbarWidth: "none"
                 },
-                children: _v6 ? (0, _v1.jsx)(_v103, {
+                children: _v6 ? (0, _v1.jsx)(_v104, {
                   breadcrumbs: (_v7 = _v15()).length ? [_v7[_v7.length - 1]] : [],
                   openModal: _v16,
                   isSettingsPage: _v6
-                }) : (0, _v1.jsx)(_v103, {
+                }) : (0, _v1.jsx)(_v104, {
                   breadcrumbs: _v15(),
                   openModal: _v16
                 })
@@ -1567,7 +1572,7 @@
               })
             })]
           })
-        }), (0, _v1.jsx)(_v101, {
+        }), (0, _v1.jsx)(_v102, {
           title: (0, _v29.translate)({
             singular: "Choose a folder to store your recordings",
             dictionary: {
@@ -1605,7 +1610,7 @@
         })]
       });
     },
-    _v103 = ({
+    _v104 = ({
       breadcrumbs: _v0,
       openModal: _v1,
       isSettingsPage: _v2
@@ -1651,9 +1656,9 @@
         })]
       });
     };
-  var _v104 = _v0.i(0),
-    _v105 = _v0.i(0);
-  function _v106(_v0) {
+  var _v105 = _v0.i(0),
+    _v106 = _v0.i(0);
+  function _v107(_v0) {
     return {
       400: "ERR_BAD_REQUEST",
       401: "ERR_UNAUTHORIZED",
@@ -1665,7 +1670,7 @@
       504: "ERR_GATEWAY_TIMEOUT"
     }[_v0] || "ERR_UNKNOWN";
   }
-  _v0.s(["getErrorId", 0, _v106, "parseBoolean", 0, _v0 => {
+  _v0.s(["getErrorId", 0, _v107, "parseBoolean", 0, _v0 => {
     try {
       return !!JSON.parse(String(_v0 ?? "false"));
     } catch {
@@ -1675,7 +1680,7 @@
     let _v1 = Number(_v0);
     return Number.isNaN(_v1) ? null : _v1;
   }], 0);
-  let _v107 = async (_v0, _v1) => {
+  let _v108 = async (_v0, _v1) => {
     let _v2 = await fetch("/manage/videos?action=SWITCH_TEAMS", {
       body: JSON.stringify({
         team_owner_id: _v0,
@@ -1690,9 +1695,9 @@
     if (!_v2.ok) throw Error("A network error occurred");
     return await _v2.json();
   };
-  var _v108 = _v0.i(0);
-  let _v109 = (_v0, _v1) => {
-      _v108.BigPictureClient.sendEvent(new _v108.Event("vimeo.autoarchive_folder_selected", 1, {
+  var _v109 = _v0.i(0);
+  let _v110 = (_v0, _v1) => {
+      _v109.BigPictureClient.sendEvent(new _v109.Event("vimeo.autoarchive_folder_selected", 1, {
         product: "vimeo_auto-archive",
         location: "auto-archive folder selection",
         path: window.location.pathname,
@@ -1700,7 +1705,7 @@
         folder_id: _v1
       }));
     },
-    _v110 = ({
+    _v111 = ({
       appId: _v0,
       config: _v1,
       viewer: _v2,
@@ -1788,7 +1793,7 @@
           if (_v2 && _v12) {
             _v15(!0);
             try {
-              _v105.default.chooseTeamForRecordingEvent(_v12, _v104.ONBOARDING_TYPE.ADMIN, _v0, _v16 ? "TRUE" : "FALSE"), await _v23({
+              _v106.default.chooseTeamForRecordingEvent(_v12, _v105.ONBOARDING_TYPE.ADMIN, _v0, _v16 ? "TRUE" : "FALSE"), await _v23({
                 baseUrl: `//${_v2.apiUrl}`,
                 headers: {
                   Authorization: `jwt ${_v2.jwt}`,
@@ -1804,9 +1809,9 @@
               let _v0 = `/apps/${_v0}/auto-archive/welcome?teamOwnerId=${_v12}`,
                 _v1 = _v7.query?.redirect_uri ? String(_v7.query.redirect_uri) : "",
                 _v2 = _v1 && (0, _v34.isVimeoRedirectableUrl)(_v1) ? _v1 : _v0;
-              await _v107(_v12, _v2.xsrft), window.location.href = _v2;
+              await _v108(_v12, _v2.xsrft), window.location.href = _v2;
             } catch (_v0) {
-              _v105.default.chooseTeamForRecordingErrorEvent(_v12, _v104.ONBOARDING_TYPE.ADMIN, _v0, _v0.message, _v106(_v0.status)), _v21(!0), setTimeout(() => _v21(!1), 0);
+              _v106.default.chooseTeamForRecordingErrorEvent(_v12, _v105.ONBOARDING_TYPE.ADMIN, _v0, _v0.message, _v107(_v0.status)), _v21(!0), setTimeout(() => _v21(!1), 0);
             } finally {
               _v15(!1);
             }
@@ -1819,7 +1824,7 @@
             uri: _v18
           });
           try {
-            if (_v105.default.chooseFolderForRecordingEvent(_v8, _v104.ONBOARDING_TYPE.USER, _v0, _v22 ? "TRUE" : "FALSE"), _v18 === _v35?.uri) {
+            if (_v106.default.chooseFolderForRecordingEvent(_v8, _v105.ONBOARDING_TYPE.USER, _v0, _v22 ? "TRUE" : "FALSE"), _v18 === _v35?.uri) {
               let _v0 = await (0, _v27.postUserProjects)({
                 baseUrl: `//${_v2.apiUrl}`,
                 headers: {
@@ -1838,7 +1843,7 @@
               _v0 = (0, _v20.getProjectId)(_v0);
             }
             if (!_v0) return;
-            if (_v109(_v6, _v0), _v3) await fetch("/settings?action=upload_defaults", {
+            if (_v110(_v6, _v0), _v3) await fetch("/settings?action=upload_defaults", {
               method: "POST",
               credentials: "include",
               headers: {
@@ -1910,10 +1915,10 @@
               let _v0 = `/apps/${_v0}/auto-archive/privacy?ms_teams_encrypted_team_user_id=${_v11}&team_owner_id=${_v12}`,
                 _v1 = _v7.query?.redirect_uri ? String(_v7.query.redirect_uri) : "",
                 _v2 = _v1 && (0, _v34.isVimeoRedirectableUrl)(_v1) ? _v1 : _v0;
-              await _v107(_v8, _v2.xsrft), window.location.href = _v2;
+              await _v108(_v8, _v2.xsrft), window.location.href = _v2;
             }
           } catch (_v0) {
-            _v105.default.chooseFolderForRecordingErrorEvent(_v8, _v104.ONBOARDING_TYPE.USER, _v0, _v0.message, _v106(_v0.status)), _v21(!0), setTimeout(() => _v21(!1), 0);
+            _v106.default.chooseFolderForRecordingErrorEvent(_v8, _v105.ONBOARDING_TYPE.USER, _v0, _v0.message, _v107(_v0.status)), _v21(!0), setTimeout(() => _v21(!1), 0);
           } finally {
             _v15(!1);
           }
@@ -1982,7 +1987,7 @@
             _v21(!0), setTimeout(() => _v21(!1), 0);
           }
           if (_v15(!1), _v0) {
-            if (_v109(_v6, _v0), _v3) return void _v26({
+            if (_v110(_v6, _v0), _v3) return void _v26({
               title: (0, _v29.translate)({
                 singular: "Folder preference updated",
                 dictionary: {
@@ -2014,7 +2019,7 @@
             });
             let _v0 = `/apps/${_v0}/auto-archive/privacy`,
               _v1 = _v7.query?.redirect_uri ? String(_v7.query.redirect_uri) : "";
-            _v1 && (0, _v34.isVimeoRedirectableUrl)(_v1) ? _v0 = _v1 : [_v104.PARTNER_APP_ID.DropboxProduction, _v104.PARTNER_APP_ID.DropboxDevelopment].includes(_v0) && (_v0 = `/apps/${_v0}/auto-archive/welcome?folderId=${_v0}`), window.location.href = _v0;
+            _v1 && (0, _v34.isVimeoRedirectableUrl)(_v1) ? _v0 = _v1 : [_v105.PARTNER_APP_ID.DropboxProduction, _v105.PARTNER_APP_ID.DropboxDevelopment].includes(_v0) && (_v0 = `/apps/${_v0}/auto-archive/welcome?folderId=${_v0}`), window.location.href = _v0;
           }
         }, [_v18, _v12, _v2, _v6, _v28, _v35?.uri, _v35?.folderName, _v35?.metadata?.connections?.ancestorPath, _v1.clipPreferenceDBProperty, _v3, _v0, _v7.query?.redirect_uri, _v21]);
       if (_v32) return (0, _v1.jsx)(_v6.ErrorPage, {
@@ -2091,7 +2096,7 @@
                 _v36(_v0), _v25(!0);
               },
               dropdownWidth: 356
-            }), (!_v5 || _v5 && !_v9) && (0, _v1.jsx)(_v102, {
+            }), (!_v5 || _v5 && !_v9) && (0, _v1.jsx)(_v103, {
               selectedFolderUri: _v18,
               selectedTeam: _v40,
               onSelect: _v0 => {
@@ -2315,10 +2320,10 @@
         size: "sm"
       }) : (0, _v1.jsx)(_v35.LoadingPage, {});
     };
-  var _v111 = _v0.i(0),
-    _v112 = _v0.i(0),
-    _v113 = _v0.i(0);
-  let _v114 = (_v0, _v1, _v2, _v3) => ({
+  var _v112 = _v0.i(0),
+    _v113 = _v0.i(0),
+    _v114 = _v0.i(0);
+  let _v115 = (_v0, _v1, _v2, _v3) => ({
       isPrivateToUser: !0,
       uri: "new/1",
       metadata: {
@@ -2345,9 +2350,9 @@
       name: _v0,
       folderName: _v1
     }),
-    _v115 = {
+    _v116 = {
       name: "Webex",
-      logo: (0, _v1.jsx)(_v113.Webex, {
+      logo: (0, _v1.jsx)(_v114.Webex, {
         boxSize: "md"
       }),
       supportSettingsPage: !0,
@@ -2461,7 +2466,7 @@
           }
         }
       }),
-      getNewFolderTemplate: (_v0, _v1) => _v114((0, _v29.translate)({
+      getNewFolderTemplate: (_v0, _v1) => _v115((0, _v29.translate)({
         singular: "Webex Recordings (new)",
         dictionary: {
           es: {
@@ -2513,7 +2518,7 @@
         }
       }), _v0, _v1)
     },
-    _v116 = {
+    _v117 = {
       name: "Zoom",
       logo: (0, _v1.jsx)(() => (0, _v1.jsxs)("svg", {
         width: "35",
@@ -2658,7 +2663,7 @@
           }
         }
       }),
-      getNewFolderTemplate: (_v0, _v1) => _v114((0, _v29.translate)({
+      getNewFolderTemplate: (_v0, _v1) => _v115((0, _v29.translate)({
         singular: "Zoom Recordings (new)",
         dictionary: {
           es: {
@@ -2710,9 +2715,9 @@
         }
       }), _v0, _v1)
     },
-    _v117 = {
+    _v118 = {
       name: "MS Team",
-      logo: (0, _v1.jsx)(_v0 => (0, _v1.jsxs)(_v112.Icon, {
+      logo: (0, _v1.jsx)(_v0 => (0, _v1.jsxs)(_v113.Icon, {
         viewBox: "0 0 24 24",
         ..._v0,
         fill: "none",
@@ -2949,7 +2954,7 @@
           }
         }
       }),
-      getNewFolderTemplate: (_v0, _v1) => _v114((0, _v29.translate)({
+      getNewFolderTemplate: (_v0, _v1) => _v115((0, _v29.translate)({
         singular: "Microsoft Teams Recordings (new)",
         dictionary: {
           es: {
@@ -3001,9 +3006,9 @@
         }
       }), _v0, _v1)
     },
-    _v118 = {
+    _v119 = {
       name: "Google Meet",
-      logo: (0, _v1.jsx)(_v0 => (0, _v1.jsxs)(_v112.Icon, {
+      logo: (0, _v1.jsx)(_v0 => (0, _v1.jsxs)(_v113.Icon, {
         viewBox: "0 0 24 24",
         ..._v0,
         fill: "none",
@@ -3152,7 +3157,7 @@
           }
         }
       }),
-      getNewFolderTemplate: (_v0, _v1) => _v114((0, _v29.translate)({
+      getNewFolderTemplate: (_v0, _v1) => _v115((0, _v29.translate)({
         singular: "Google Meet Recordings (new)",
         dictionary: {
           es: {
@@ -3204,9 +3209,9 @@
         }
       }), _v0, _v1)
     },
-    _v119 = {
+    _v120 = {
       name: "Dropbox",
-      logo: (0, _v1.jsx)(_v111.Dropbox, {
+      logo: (0, _v1.jsx)(_v112.Dropbox, {
         boxSize: "md"
       }),
       supportSettingsPage: !0,
@@ -3320,7 +3325,7 @@
           }
         }
       }),
-      getNewFolderTemplate: (_v0, _v1) => _v114((0, _v29.translate)({
+      getNewFolderTemplate: (_v0, _v1) => _v115((0, _v29.translate)({
         singular: "Dropbox Recordings (new)",
         dictionary: {
           es: {
@@ -3372,46 +3377,46 @@
         }
       }), _v0, _v1)
     },
-    _v120 = {
-      [_v104.PARTNER_APP_ID.WebexProduction]: {
-        ..._v115
-      },
-      [_v104.PARTNER_APP_ID.WebexDevelopment]: {
-        ..._v115
-      },
-      [_v104.PARTNER_APP_ID.ZoomProduction]: {
+    _v121 = {
+      [_v105.PARTNER_APP_ID.WebexProduction]: {
         ..._v116
       },
-      [_v104.PARTNER_APP_ID.ZoomDevelopment]: {
+      [_v105.PARTNER_APP_ID.WebexDevelopment]: {
         ..._v116
       },
-      [_v104.PARTNER_APP_ID.MSTeamDevelopment]: {
+      [_v105.PARTNER_APP_ID.ZoomProduction]: {
         ..._v117
       },
-      [_v104.PARTNER_APP_ID.MSTeamProduction]: {
+      [_v105.PARTNER_APP_ID.ZoomDevelopment]: {
         ..._v117
       },
-      [_v104.PARTNER_APP_ID.GoogleMeetDevelopment]: {
+      [_v105.PARTNER_APP_ID.MSTeamDevelopment]: {
         ..._v118
       },
-      [_v104.PARTNER_APP_ID.GoogleMeetProduction]: {
+      [_v105.PARTNER_APP_ID.MSTeamProduction]: {
         ..._v118
       },
-      [_v104.PARTNER_APP_ID.DropboxProduction]: {
+      [_v105.PARTNER_APP_ID.GoogleMeetDevelopment]: {
         ..._v119
       },
-      [_v104.PARTNER_APP_ID.DropboxDevelopment]: {
+      [_v105.PARTNER_APP_ID.GoogleMeetProduction]: {
         ..._v119
+      },
+      [_v105.PARTNER_APP_ID.DropboxProduction]: {
+        ..._v120
+      },
+      [_v105.PARTNER_APP_ID.DropboxDevelopment]: {
+        ..._v120
       }
     };
-  var _v121 = _v0.i(0),
-    _v122 = _v0.i(0),
+  var _v122 = _v0.i(0),
     _v123 = _v0.i(0),
-    _v124 = _v0.i(0);
-  let _v125 = ["nobody"];
-  var _v126 = _v0.i(0),
-    _v127 = _v0.i(0);
-  let _v128 = ({
+    _v124 = _v0.i(0),
+    _v125 = _v0.i(0);
+  let _v126 = ["nobody"];
+  var _v127 = _v0.i(0),
+    _v128 = _v0.i(0);
+  let _v129 = ({
       appId: _v0,
       config: _v1,
       viewer: _v2,
@@ -3471,13 +3476,13 @@
             {
               teamSettingsLoading: _v6,
               teamSettingsResult: _v7
-            } = (0, _v124.useGetTeamSettings)({
+            } = (0, _v125.useGetTeamSettings)({
               userId: _v5?.workspaceUuid ? void 0 : _v5?.teamOwnerId,
               workspaceUuid: _v5?.workspaceUuid,
               settings: ["allowedPrivaciesAdmin", "allowedPrivaciesContributor"]
             });
           return {
-            allowedPrivacies: (0, _v2.useMemo)(() => _v7 && _v5 ? _v5.isAdmin && _v7.allowedPrivaciesAdmin ? _v7.allowedPrivaciesAdmin : _v5.isContributor && _v7.allowedPrivaciesContributor ? _v7.allowedPrivaciesContributor : _v125 : _v125, [_v7, _v5]).filter(_v0 => "team" !== _v0),
+            allowedPrivacies: (0, _v2.useMemo)(() => _v7 && _v5 ? _v5.isAdmin && _v7.allowedPrivaciesAdmin ? _v7.allowedPrivaciesAdmin : _v5.isContributor && _v7.allowedPrivaciesContributor ? _v7.allowedPrivaciesContributor : _v126 : _v126, [_v7, _v5]).filter(_v0 => "team" !== _v0),
             isLoading: _v3 || _v6
           };
         })({
@@ -3485,7 +3490,7 @@
           userId: _v15,
           isMsTeamsApp: _v4
         }),
-        _v25 = (0, _v126.useDefaultPrivacyOptions)(_v2, !0).map(_v0 => ({
+        _v25 = (0, _v127.useDefaultPrivacyOptions)(_v2, !0).map(_v0 => ({
           ..._v0,
           isDisabled: !_v23.includes(_v0.privacy),
           showUpsell: !1
@@ -3664,12 +3669,12 @@
                   }
                 }
               }),
-              icon: (0, _v1.jsx)(_v121.CloseXCircleFilled, {}),
+              icon: (0, _v1.jsx)(_v122.CloseXCircleFilled, {}),
               variant: "warning"
             });
           }
         },
-        _v29 = () => !_v26 || !!_v8 || _v26.privacy === _v127.DEFAULT_PRIVACY_VALUES.PASSWORD && !_v10 || "placeholder" === _v26.privacy;
+        _v29 = () => !_v26 || !!_v8 || _v26.privacy === _v128.DEFAULT_PRIVACY_VALUES.PASSWORD && !_v10 || "placeholder" === _v26.privacy;
       return _v19.isLoading ? (0, _v1.jsx)(_v35.LoadingPage, {}) : _v20 && _v21 ? _v5 ? (0, _v1.jsx)(_v48.Box, {
         width: "100%",
         children: (0, _v1.jsxs)(_v9.Card, {
@@ -3688,7 +3693,7 @@
             },
             children: [(0, _v1.jsx)(_v48.Box, {
               width: "100%",
-              children: (0, _v1.jsx)(_v123.PrivacyDropdown, {
+              children: (0, _v1.jsx)(_v124.PrivacyDropdown, {
                 isVideoPrivacy: !0,
                 activePrivacy: _v26.privacy,
                 onSelect: _v0 => {
@@ -3700,9 +3705,9 @@
                   description: void 0
                 }))
               })
-            }), _v26.privacy === _v127.DEFAULT_PRIVACY_VALUES.PASSWORD && (0, _v1.jsx)(_v48.Box, {
+            }), _v26.privacy === _v128.DEFAULT_PRIVACY_VALUES.PASSWORD && (0, _v1.jsx)(_v48.Box, {
               width: "100%",
-              children: (0, _v1.jsx)(_v122.PasswordInput, {
+              children: (0, _v1.jsx)(_v123.PasswordInput, {
                 initialValue: _v10,
                 hideRightElement: !_v10,
                 onChange: _v0 => {
@@ -3783,7 +3788,7 @@
             children: _v1.getPrivacySubHeaderText()
           }), (0, _v1.jsxs)(_v48.Box, {
             mt: "md",
-            children: [(0, _v1.jsx)(_v123.PrivacyDropdown, {
+            children: [(0, _v1.jsx)(_v124.PrivacyDropdown, {
               isVideoPrivacy: !0,
               activePrivacy: _v26.privacy,
               onSelect: _v0 => {
@@ -3794,9 +3799,9 @@
                 ..._v0,
                 description: void 0
               }))
-            }), _v26.privacy === _v127.DEFAULT_PRIVACY_VALUES.PASSWORD && (0, _v1.jsx)(_v48.Box, {
+            }), _v26.privacy === _v128.DEFAULT_PRIVACY_VALUES.PASSWORD && (0, _v1.jsx)(_v48.Box, {
               mt: "md",
-              children: (0, _v1.jsx)(_v122.PasswordInput, {
+              children: (0, _v1.jsx)(_v123.PasswordInput, {
                 prefillValue: _v10,
                 hideRightElement: !0,
                 onChange: _v0 => {
@@ -3882,8 +3887,8 @@
         shouldShowSearch: !1
       });
     },
-    _v129 = [_v104.PARTNER_APP_ID.MSTeamProduction, _v104.PARTNER_APP_ID.MSTeamDevelopment],
-    _v130 = [_v104.PARTNER_APP_ID.DropboxProduction, _v104.PARTNER_APP_ID.DropboxDevelopment];
+    _v130 = [_v105.PARTNER_APP_ID.MSTeamProduction, _v105.PARTNER_APP_ID.MSTeamDevelopment],
+    _v131 = [_v105.PARTNER_APP_ID.DropboxProduction, _v105.PARTNER_APP_ID.DropboxDevelopment];
   _v0.s(["AppSettingsPage", 0, ({
     viewer: _v0,
     appId: _v1,
@@ -3893,9 +3898,9 @@
   }) => {
     let [_v5, _v6] = (0, _v2.useState)(!1),
       [_v7, _v8] = (0, _v2.useState)(!0),
-      _v9 = _v129.includes(_v1),
-      _v10 = _v130.includes(_v1),
-      _v11 = _v120[_v1],
+      _v9 = _v130.includes(_v1),
+      _v10 = _v131.includes(_v1),
+      _v11 = _v121[_v1],
       {
         data: _v12,
         isLoading: _v13
@@ -3925,17 +3930,17 @@
         }).then(() => _v6(!0)).catch(() => _v6(!1)).finally(() => _v8(!1));
       }
     }, [_v0, _v1, _v10, _v11]), (0, _v2.useEffect)(() => {
-      _v10 && _v12?.connectionStatus === _v104.CONNECTION_STATUS.CONNECTED && _v6(!0);
+      _v10 && _v12?.connectionStatus === _v105.CONNECTION_STATUS.CONNECTED && _v6(!0);
     }, [_v12, _v10]);
     let _v14 = _v13 || !_v10 && _v7;
-    return _v0 && _v1 && !_v14 ? _v11 && _v5 && ("PRIVACY_SELECTION" !== _v4 || !_v10) ? "PRIVACY_SELECTION" === _v4 ? (0, _v1.jsx)(_v128, {
+    return _v0 && _v1 && !_v14 ? _v11 && _v5 && ("PRIVACY_SELECTION" !== _v4 || !_v10) ? "PRIVACY_SELECTION" === _v4 ? (0, _v1.jsx)(_v129, {
       appId: _v1,
       config: _v11,
       viewer: _v0,
       isMsTeamsApp: _v9,
       msTeamsParams: _v3,
       isSettingsPage: _v2
-    }) : (0, _v1.jsx)(_v110, {
+    }) : (0, _v1.jsx)(_v111, {
       appId: _v1,
       config: _v11,
       viewer: _v0,

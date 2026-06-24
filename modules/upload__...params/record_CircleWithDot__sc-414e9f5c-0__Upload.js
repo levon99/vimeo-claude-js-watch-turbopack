@@ -3507,47 +3507,49 @@
           uploadType: _v37,
           children: [(0, _v2.jsx)(_v81.Paragraph, {
             size: "xs",
-            children: (0, _v10.translate)({
-              singular: "By submitting a video, you agree to our {TERMS}Terms of Service{/TERMS} and {GUIDE}Community Guidelines{/GUIDE}.",
-              replacements: {
-                TERMS: _v0 => (0, _v2.jsx)(_v82.Link, {
-                  href: "/terms",
-                  target: "_blank",
-                  variant: "inline-primary",
-                  fontSize: (0, _v46.rem)(12),
-                  children: _v0
-                }),
-                GUIDE: _v0 => (0, _v2.jsx)(_v82.Link, {
-                  href: "/help/guidelines",
-                  target: "_blank",
-                  variant: "inline-primary",
-                  fontSize: (0, _v46.rem)(12),
-                  children: _v0
-                })
-              },
-              dictionary: {
-                es: {
-                  singular: "Al enviar un video, acepta nuestros {TERMS}Términos de servicio{/TERMS} y las {GUIDE}Directrices de la comunidad{/GUIDE}."
+            children: (0, _v2.jsx)("span", {
+              children: (0, _v10.translate)({
+                singular: "By submitting a video, you agree to our {TERMS}Terms of Service{/TERMS} and {GUIDE}Community Guidelines{/GUIDE}.",
+                replacements: {
+                  TERMS: _v0 => (0, _v2.jsx)(_v82.Link, {
+                    href: "/terms",
+                    target: "_blank",
+                    variant: "inline-primary",
+                    fontSize: (0, _v46.rem)(12),
+                    children: _v0
+                  }),
+                  GUIDE: _v0 => (0, _v2.jsx)(_v82.Link, {
+                    href: "/help/guidelines",
+                    target: "_blank",
+                    variant: "inline-primary",
+                    fontSize: (0, _v46.rem)(12),
+                    children: _v0
+                  })
                 },
-                "de-DE": {
-                  singular: "Indem Sie ein Video einreichen, stimmen Sie unseren {TERMS}Nutzungsbedingungen{/TERMS} und {GUIDE}Community-Richtlinien{/GUIDE} zu."
-                },
-                "fr-FR": {
-                  singular: "En soumettant une vidéo, vous acceptez nos {TERMS}Conditions d'utilisation{/TERMS} et les {GUIDE}Règles de la communauté{/GUIDE}."
-                },
-                "ja-JP": {
-                  singular: "動画を送信することにより、{TERMS}利用規約{/TERMS}および{GUIDE}コミュニティガイドライン{/GUIDE}に同意したものとみなされます。"
-                },
-                "ko-KR": {
-                  singular: "동영상을 제출하면 당사 {TERMS}서비스 약관{/TERMS} 및 {GUIDE}커뮤니티 가이드라인{/GUIDE}에 동의하는 것입니다."
-                },
-                "pt-BR": {
-                  singular: "Ao enviar um vídeo, você concorda com nossos {TERMS}Termos de Serviço{/TERMS} e {GUIDE}Regras da Comunidade{/GUIDE}."
-                },
-                "zh-CN": {
-                  singular: "提交视频，即表示您同意我们的 {TERMS}服务条款{/TERMS} 和 {GUIDE}社区准则{/GUIDE}。"
+                dictionary: {
+                  es: {
+                    singular: "Al enviar un video, acepta nuestros {TERMS}Términos de servicio{/TERMS} y las {GUIDE}Directrices de la comunidad{/GUIDE}."
+                  },
+                  "de-DE": {
+                    singular: "Indem Sie ein Video einreichen, stimmen Sie unseren {TERMS}Nutzungsbedingungen{/TERMS} und {GUIDE}Community-Richtlinien{/GUIDE} zu."
+                  },
+                  "fr-FR": {
+                    singular: "En soumettant une vidéo, vous acceptez nos {TERMS}Conditions d'utilisation{/TERMS} et les {GUIDE}Règles de la communauté{/GUIDE}."
+                  },
+                  "ja-JP": {
+                    singular: "動画を送信することにより、{TERMS}利用規約{/TERMS}および{GUIDE}コミュニティガイドライン{/GUIDE}に同意したものとみなされます。"
+                  },
+                  "ko-KR": {
+                    singular: "동영상을 제출하면 당사 {TERMS}서비스 약관{/TERMS} 및 {GUIDE}커뮤니티 가이드라인{/GUIDE}에 동의하는 것입니다."
+                  },
+                  "pt-BR": {
+                    singular: "Ao enviar um vídeo, você concorda com nossos {TERMS}Termos de Serviço{/TERMS} e {GUIDE}Regras da Comunidade{/GUIDE}."
+                  },
+                  "zh-CN": {
+                    singular: "提交视频，即表示您同意我们的 {TERMS}服务条款{/TERMS} 和 {GUIDE}社区准则{/GUIDE}。"
+                  }
                 }
-              }
+              })
             })
           }), !_v36 && (0, _v2.jsxs)(_v2.Fragment, {
             children: [(0, _v2.jsx)(_v80.Button, {
@@ -3589,8 +3591,8 @@
           })]
         }), _v37 === _v88.UPLOAD_TYPES.UPLOAD && (0, _v2.jsxs)(_v92, {
           "data-id": "other_ways_to_upload",
-          children: [(0, _v2.jsxs)(_v90, {
-            children: [" ", (0, _v10.translate)({
+          children: [(0, _v2.jsx)(_v90, {
+            children: (0, _v10.translate)({
               singular: "Other ways to upload:",
               dictionary: {
                 es: {
@@ -3615,7 +3617,7 @@
                   singular: "其他上传方式："
                 }
               }
-            }), " "]
+            })
           }), (0, _v2.jsx)(_v172, {
             className: "upload-options",
             folderId: _v25 ?? void 0,

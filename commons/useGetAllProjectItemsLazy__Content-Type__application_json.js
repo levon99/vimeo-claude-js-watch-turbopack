@@ -154,9 +154,11 @@
     where: {
       userId: _v0
     }
-  } : null, "getUserProjectsInfiniteOptions", 0, (_v0, _v1) => _v1 ? null : {
+  } : null, "getUserProjectsInfiniteOptions", 0, (_v0, _v1, _v2, _v3) => _v1 || _v3 ? null : {
     query: {
-      excludePrivateToMeFolder: !0,
+      ...(_v2 ?? {
+        excludePrivateToMeFolder: !0
+      }),
       perPage: 20,
       topLevelOnly: !0,
       permissionAction: "folder.view"

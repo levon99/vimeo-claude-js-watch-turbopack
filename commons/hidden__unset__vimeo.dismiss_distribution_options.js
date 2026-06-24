@@ -143,7 +143,8 @@
             },
             removeMemberRole: _v4?.removeMemberRole,
             teamName: _v5.teamData.teamName ?? _v5.owner.name,
-            hasPerSeatPricingModel: _v4?.hasPerSeatPricingModel
+            hasPerSeatPricingModel: _v4?.hasPerSeatPricingModel,
+            isLastCollaborator: 1 === _v5.currentTeamSize
           });
         }
       case _v37.TeamManagementModals.ADD_TO_FOLDERS_MODAL:

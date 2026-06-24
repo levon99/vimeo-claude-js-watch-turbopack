@@ -95,9 +95,14 @@
       settings: _v0
     } = (0, _v20.useOrionSettings)();
     return _v0.has_recently_deleted ? (0, _v1.jsxs)(_v24.AlertRoot, {
-      variant: "info",
       size: "sm",
       marginBottom: "100",
+      backgroundColor: "#BEE3F87A",
+      sx: {
+        _dark: {
+          backgroundColor: "rgba(26, 54, 93, 1)"
+        }
+      },
       children: [(0, _v1.jsx)(_v23.AlertIcon, {
         children: (0, _v1.jsx)(_v28.ShieldInfo, {})
       }), (0, _v1.jsxs)(_v26.Box, {
@@ -131,41 +136,43 @@
           })
         }), (0, _v1.jsx)(_v22.AlertDescription, {
           color: "status-info-primary",
-          children: (0, _v15.translate)({
-            singular: "This page only shows videos removed by your data retention policy. Videos manually deleted by team members live in {LINK}Recently deleted{/LINK}.",
-            replacements: {
-              LINK: _v0 => (0, _v1.jsxs)(_v27.Link, {
-                href: "/recently-deleted",
-                target: "_blank",
-                variant: "inline-secondary",
-                color: "status-info-primary",
-                fontSize: "inherit",
-                children: [_v0, " ↗"]
-              }, "recently-deleted-link")
-            },
-            dictionary: {
-              es: {
-                singular: "Esta página solo muestra los videos eliminados por su política de retención de datos. Los videos eliminados manualmente por miembros del equipo se encuentran en {LINK}Eliminados recientemente{/LINK}."
+          children: (0, _v1.jsx)("span", {
+            children: (0, _v15.translate)({
+              singular: "This page only shows videos removed by your data retention policy. Videos manually deleted by team members live in {LINK}Recently deleted{/LINK}.",
+              replacements: {
+                LINK: _v0 => (0, _v1.jsxs)(_v27.Link, {
+                  href: "/recently-deleted",
+                  target: "_blank",
+                  variant: "inline-secondary",
+                  color: "status-info-primary",
+                  fontSize: "inherit",
+                  children: [_v0, " ↗"]
+                }, "recently-deleted-link")
               },
-              "de-DE": {
-                singular: "Diese Seite zeigt nur Videos, die durch Ihre Richtlinie zur Datenaufbewahrung entfernt wurden. Manuell von Teammitgliedern gelöschte Videos finden Sie in {LINK}Kürzlich gelöscht{/LINK}."
-              },
-              "fr-FR": {
-                singular: "Cette page n'affiche que les vidéos supprimées par votre politique de conservation des données. Les vidéos supprimées manuellement par des membres de l’équipe se trouvent dans {LINK}Récemment supprimées{/LINK}."
-              },
-              "ja-JP": {
-                singular: "このページにはデータ保持ポリシーによって削除された動画のみが表示されます。 チームメンバーが手動で削除した動画は{LINK}最近削除した項目{/LINK}にあります。"
-              },
-              "ko-KR": {
-                singular: "이 페이지에는 데이터 보존 정책에 따라 제거된 동영상만 표시됩니다. 팀원이 수동으로 삭제한 동영상은 {LINK}최근 삭제됨{/LINK}에 있습니다."
-              },
-              "pt-BR": {
-                singular: "Esta página mostra apenas vídeos removidos pela sua política de retenção de dados. Vídeos excluídos manualmente por membros da equipe podem ser encontrados em {LINK}Excluídos recentemente{/LINK}."
-              },
-              "zh-CN": {
-                singular: "此页面仅显示因您的数据保留策略而移除的视频。团队成员手动删除的视频位于 {LINK}最近删除{/LINK}。"
+              dictionary: {
+                es: {
+                  singular: "Esta página solo muestra los videos eliminados por su política de retención de datos. Los videos eliminados manualmente por miembros del equipo se encuentran en {LINK}Eliminados recientemente{/LINK}."
+                },
+                "de-DE": {
+                  singular: "Diese Seite zeigt nur Videos, die durch Ihre Richtlinie zur Datenaufbewahrung entfernt wurden. Manuell von Teammitgliedern gelöschte Videos finden Sie in {LINK}Kürzlich gelöscht{/LINK}."
+                },
+                "fr-FR": {
+                  singular: "Cette page n'affiche que les vidéos supprimées par votre politique de conservation des données. Les vidéos supprimées manuellement par des membres de l’équipe se trouvent dans {LINK}Récemment supprimées{/LINK}."
+                },
+                "ja-JP": {
+                  singular: "このページにはデータ保持ポリシーによって削除された動画のみが表示されます。 チームメンバーが手動で削除した動画は{LINK}最近削除した項目{/LINK}にあります。"
+                },
+                "ko-KR": {
+                  singular: "이 페이지에는 데이터 보존 정책에 따라 제거된 동영상만 표시됩니다. 팀원이 수동으로 삭제한 동영상은 {LINK}최근 삭제됨{/LINK}에 있습니다."
+                },
+                "pt-BR": {
+                  singular: "Esta página mostra apenas vídeos removidos pela sua política de retenção de dados. Vídeos excluídos manualmente por membros da equipe podem ser encontrados em {LINK}Excluídos recentemente{/LINK}."
+                },
+                "zh-CN": {
+                  singular: "此页面仅显示因您的数据保留策略而移除的视频。团队成员手动删除的视频位于 {LINK}最近删除{/LINK}。"
+                }
               }
-            }
+            })
           })
         })]
       })]

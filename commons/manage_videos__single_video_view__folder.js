@@ -169,7 +169,7 @@
     if (!_v0) return 0;
     let _v1 = _v0.split("/").pop();
     return isNaN(Number(_v1)) ? 0 : Number(_v1);
-  }, "reviewIdFromUri", 0, _v3, "videoIdFromUri", 0, _v0 => {
+  }, "reviewIdFromUri", 0, _v3, "selectReviewLinkUriToCopy", 0, (_v0, _v1) => _v1 ? _v0?.[0]?.uri : _v0?.find(_v0 => !_v0.expiresOn || new Date(_v0.expiresOn) >= new Date())?.uri, "videoIdFromUri", 0, _v0 => {
     if (!_v0) return 0;
     let _v1 = Number(_v0.split("/").at(2));
     return isNaN(_v1) ? 0 : _v1;

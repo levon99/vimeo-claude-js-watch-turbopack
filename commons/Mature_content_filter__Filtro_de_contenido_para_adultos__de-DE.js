@@ -288,7 +288,10 @@
         cursor: "default",
         children: (0, _v1.jsx)(_v8.Flex, {
           alignItems: "center",
-          children: _v2
+          children: (0, _v1.jsx)("span", {
+            translate: "no",
+            children: _v2
+          })
         })
       });
     },

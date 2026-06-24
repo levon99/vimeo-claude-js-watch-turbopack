@@ -17,7 +17,7 @@
         xVimeoPage: _v5,
         locale: _v6
       } = (0, _v8.useGctlConfig)();
-    return (0, _v5.default)(_v2 ? `/users/${_v2.where.userId}/projects/${_v2.where.projectId}/items${(0, _v2.serializeQuery)(_v2)}` : () => null, _v2 ? () => (0, _v3.getUserProjectItems)({
+    return (0, _v5.default)(_v2 ? `/users/${_v2.where.userId}/videos${(0, _v2.serializeQuery)(_v2)}` : () => null, _v2 ? () => (0, _v3.getUserVideos)({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -45,7 +45,7 @@
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/projects/${_v0.where.projectId}/items${(0, _v2.serializeQuery)(_v0)}`, (0, _v3.getUserProjectItems)({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/videos${(0, _v2.serializeQuery)(_v0)}`, (0, _v3.getUserVideos)({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -85,8 +85,8 @@
         } = _v2.query ?? {},
         _v5 = _v2.select.join(","),
         _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/users/${_v2.where.userId}/projects/${_v2.where.projectId}/items?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => (0, _v3.getUserProjectItems)({
+      return [`/users/${_v2.where.userId}/videos?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
+    }, null !== _v2 ? ([_v0, _v1]) => (0, _v3.getUserVideos)({
       ..._v2,
       baseUrl: _v3,
       headers: {
@@ -115,7 +115,7 @@
         type: "REQUEST"
       });
       try {
-        let _v0 = await (0, _v3.deleteUserProjectItems)({
+        let _v0 = await (0, _v3.deleteUserVideos)({
           ..._v0,
           baseUrl: _v0,
           headers: {
@@ -139,13 +139,13 @@
     }, [_v0, _v2, _v1, _v3, _v5]), _v4];
   }
   "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(_v9, {
-    endpoint: "/users/:userId/projects/:projectId/items",
+    endpoint: "/users/:userId/videos",
     method: "GET"
   }), "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(_v10, {
-    endpoint: "/users/:userId/projects/:projectId/items",
+    endpoint: "/users/:userId/videos",
     method: "GET"
   }), "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(_v11, {
-    endpoint: "/users/:userId/projects/:projectId/items",
+    endpoint: "/users/:userId/videos",
     method: "GET"
   }), "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(function () {
     let {
@@ -160,7 +160,7 @@
         type: "REQUEST"
       });
       try {
-        let _v0 = await (0, _v3.postUserProjectItems)({
+        let _v0 = await (0, _v3.postUserVideos)({
           ..._v0,
           baseUrl: _v0,
           headers: {
@@ -183,10 +183,10 @@
       }
     }, [_v0, _v2, _v1, _v3, _v5]), _v4];
   }, {
-    endpoint: "/users/:userId/projects/:projectId/items",
+    endpoint: "/users/:userId/videos",
     method: "POST"
   }), "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(_v12, {
-    endpoint: "/users/:userId/projects/:projectId/items",
+    endpoint: "/users/:userId/videos",
     method: "DELETE"
-  }), _v0.s(["useDeleteUserProjectItems", 0, _v12, "useGetUserProjectItems", 0, _v9, "useGetUserProjectItemsInfinite", 0, _v11, "useGetUserProjectItemsLazy", 0, _v10]);
+  }), _v0.s(["useDeleteUserVideos", 0, _v12, "useGetUserVideos", 0, _v9, "useGetUserVideosInfinite", 0, _v11, "useGetUserVideosLazy", 0, _v10]);
 }

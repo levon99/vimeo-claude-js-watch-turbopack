@@ -84,10 +84,10 @@
         })(),
         {
           capabilities: _v4
-        } = (0, _v9.useCapability)(["canAddTeamMembers"], _v2?.teamUser?.ownerId),
+        } = (0, _v3.useCapability)(["canAddTeamMembers"], _v2?.teamUser?.ownerId),
         _v5 = (_v2?.teamUser?.currentTeamSize || 0) > 0,
         _v6 = !!_v4.canAddTeamMembers;
-      return (0, _v1.jsx)(_v8.Flex, {
+      return (0, _v1.jsx)(_v9.Flex, {
         alignItems: "center",
         height: "33.75rem",
         justifyContent: "center",
@@ -688,8 +688,8 @@
   }) => {
     let _v11 = (0, _v32.useViewer)(),
       _v12 = _v11?.teamUser,
-      [_v13, _v14] = (0, _v7.useState)(!1),
-      _v15 = (0, _v7.useRef)(null),
+      [_v13, _v14] = (0, _v8.useState)(!1),
+      _v15 = (0, _v8.useRef)(null),
       _v16 = _v3.map(_v0 => ({
         name: _v0.name,
         userId: _v0.userId,
@@ -720,7 +720,7 @@
         }), _v10 || !_v3 ? (0, _v1.jsx)(_v68.MenuList, {
           width: (0, _v54.rem)(300),
           height: (0, _v54.rem)(200),
-          children: (0, _v1.jsx)(_v8.Flex, {
+          children: (0, _v1.jsx)(_v9.Flex, {
             justifyContent: "center",
             alignItems: "center",
             children: (0, _v1.jsx)(_v69.Spinner, {})
@@ -751,7 +751,7 @@
                   name: _v0.name,
                   avatarLink: _v0.avatarLink
                 })
-              }, `shared-by-filter-${_v0.userId}`)), (0, _v1.jsxs)(_v8.Flex, {
+              }, `shared-by-filter-${_v0.userId}`)), (0, _v1.jsxs)(_v9.Flex, {
                 alignItems: "center",
                 justifyContent: "center",
                 children: [!_v9 && !_v8 && !_v20 && (0, _v1.jsx)(_v65.Button, {
@@ -787,7 +787,7 @@
                       }
                     }
                   })
-                }), _v8 && (0, _v1.jsx)(_v8.Flex, {
+                }), _v8 && (0, _v1.jsx)(_v9.Flex, {
                   justifyContent: "center",
                   alignItems: "center",
                   children: (0, _v1.jsx)(_v69.Spinner, {
@@ -795,7 +795,7 @@
                     margin: (0, _v54.rem)(8)
                   })
                 })]
-              }), _v20 && !_v8 && (0, _v1.jsx)(_v8.Flex, {
+              }), _v20 && !_v8 && (0, _v1.jsx)(_v9.Flex, {
                 height: (0, _v54.rem)(140),
                 textAlign: "center",
                 alignItems: "center",
@@ -1096,7 +1096,7 @@
             },
             children: _v0.label
           }, _v0.value))
-        }), _v0 && (0, _v1.jsx)(_v8.Flex, {
+        }), _v0 && (0, _v1.jsx)(_v9.Flex, {
           justifyContent: "center",
           paddingTop: ".5rem",
           children: (0, _v1.jsx)(_v69.Spinner, {
@@ -1204,7 +1204,7 @@
         locale: _v4
       } = (0, _v95.useGctlConfig)(),
       [_v5, _v6] = (0, _v93.useInternalState)();
-    return [(0, _v7.useCallback)(async _v0 => {
+    return [(0, _v8.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
@@ -1266,7 +1266,7 @@
         itemsPerPage: _v78.MEMBER_ITEMS_PER_PAGE
       });
     return {
-      users: (0, _v7.useMemo)(() => {
+      users: (0, _v8.useMemo)(() => {
         let _v0 = new Set(),
           _v1 = [];
         return _v1 && _v1.forEach(_v0 => {
@@ -1315,7 +1315,7 @@
     };
   };
   var _v100 = _v0.i(0);
-  let _v101 = (0, _v6.default)(async () => {
+  let _v101 = (0, _v7.default)(async () => {
       let {
         SharedItems: _v0
       } = await _v0.A(0);
@@ -1333,8 +1333,8 @@
     let _v0 = (0, _v32.useViewer)(),
       _v1 = _v0?.teamUser,
       _v2 = (0, _v10.useIsMobile)(),
-      [_v3, _v4] = (0, _v7.useState)(!1),
-      [_v5, _v6] = (0, _v7.useState)({
+      [_v3, _v4] = (0, _v8.useState)(!1),
+      [_v5, _v6] = (0, _v8.useState)({
         isOpen: !1,
         teamName: ""
       }),
@@ -1371,10 +1371,10 @@
           {
             users: _v1
           } = _v97(),
-          [_v2, _v3] = (0, _v7.useState)(""),
-          [_v4, _v5] = (0, _v7.useState)(_v1),
+          [_v2, _v3] = (0, _v8.useState)(""),
+          [_v4, _v5] = (0, _v8.useState)(_v1),
           _v6 = (0, _v85.useDebouncedValue)(_v2, 500);
-        (0, _v7.useEffect)(() => {
+        (0, _v8.useEffect)(() => {
           let _v0 = _v6.trim();
           _v0.length > 0 ? _v5(_v1.filter(_v0 => _v0.name.toLowerCase().includes(_v0.toLowerCase()))) : _v5(_v1);
         }, [_v6, _v1]);
@@ -1422,7 +1422,7 @@
       _v14 = _v0?.teamUser?.ownerId ?? _v0?.user?.id,
       {
         capabilities: _v15
-      } = (0, _v9.useCapability)(["hasSharedWithMeVersionTwo"]),
+      } = (0, _v3.useCapability)(["hasSharedWithMeVersionTwo"]),
       _v16 = _v12.isFilterApplied || _v11.isFilterApplied || _v13.isFilterActive,
       {
         teamsAndWorkspaces: _v17,
@@ -1476,22 +1476,22 @@
         size: _v31,
         itemsPerPage: _v78.ITEMS_PER_PAGE
       }),
-      _v35 = (0, _v7.useCallback)(() => {
+      _v35 = (0, _v8.useCallback)(() => {
         _v30(_v0 => _v0 + 1);
       }, [_v30]),
-      _v36 = (0, _v7.useCallback)(() => {
+      _v36 = (0, _v8.useCallback)(() => {
         _v21(_v0 => _v0 + 1);
       }, [_v21]),
       _v37 = _v28?.[0]?.total,
       _v38 = _v12.isFilterApplied && void 0 === _v27,
-      _v39 = (0, _v7.useMemo)(() => {
+      _v39 = (0, _v8.useMemo)(() => {
         if (!_v28) return;
         let _v0 = _v28.flatMap(_v0 => _v0.data);
         return _v38 ? _v0.filter(_v0 => (0, _v31.passesContentTypeSelection)(_v0, _v102, _v12.value)) : _v0;
       }, [_v12.value, _v28, _v38]),
       _v40 = !_v33 && (!_v39 || 0 === _v39.length),
       _v41 = "all" !== _v11.value || _v12.isFilterApplied || _v13.isFilterActive;
-    (0, _v7.useEffect)(() => {
+    (0, _v8.useEffect)(() => {
       _v2 || _v4(!1);
     }, [_v2]);
     let _v42 = () => {
@@ -1545,7 +1545,7 @@
                     onLoadMore: _v36
                   })]
                 })]
-              }), _v2 && (0, _v1.jsxs)(_v8.Flex, {
+              }), _v2 && (0, _v1.jsxs)(_v9.Flex, {
                 children: [(0, _v1.jsx)(_v21.MobileFilterButton, {
                   isFilterApplied: _v41,
                   onClick: () => {
@@ -1749,22 +1749,19 @@
   }
   var _v104 = _v0.i(0),
     _v105 = _v0.i(0),
-    _v106 = _v0.i(0),
-    _v107 = _v0.i(0);
-  let _v108 = () => {
+    _v106 = _v0.i(0);
+  let _v107 = () => {
     let _v0 = (0, _v32.useViewer)(),
-      _v1 = _v0?.team?.ownerId,
       {
-        sharedWithMeEnabled: _v2,
-        loading: _v3,
-        error: _v4
-      } = (0, _v107.useSharedWithMeEnabled)(_v1);
-    return _v0 && _v1 && !_v3 ? _v4 || !_v2 ? (0, _v1.jsx)(_v104.ErrorPage, {
-      error: new _v3.ResourceNotFoundError()
+        capabilities: _v1,
+        error: _v2
+      } = (0, _v3.useCapability)(_v0?.team?.ownerId ? ["hasSharedWithMe"] : [], _v0?.team?.ownerId);
+    return _v0 && void 0 !== _v1.hasSharedWithMe ? _v2 || !1 === _v1.hasSharedWithMe ? (0, _v1.jsx)(_v104.ErrorPage, {
+      error: new _v4.ResourceNotFoundError()
     }) : (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
-          children: (0, _v5.translate)({
+          children: (0, _v6.translate)({
             singular: "Shared with me on Vimeo",
             dictionary: {
               es: {
@@ -1794,17 +1791,17 @@
       }), (0, _v1.jsx)(_v103, {})]
     }) : null;
   };
-  (0, _v4.withPageSetup)(() => ({
+  (0, _v5.withPageSetup)(() => ({
     props: {
       hasThemeSupport: !0,
       hasUploader: !0
     }
   }), {
     requireLogin: !0
-  }), _v108.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v106.VideoLibraryLayout, {
+  }), _v107.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v106.VideoLibraryLayout, {
     hasSideNav: !0,
     sideNavContent: (0, _v1.jsx)(_v105.HomeSideNavContent, {}),
     hasUploader: _v1.hasUploader,
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v108], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v107], 0);
 }

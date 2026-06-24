@@ -2136,7 +2136,9 @@
         _v14 && _v14.off("timeupdate", _v0);
       };
     }, [_v14, _v3, _v4]), (0, _v16.useEffect)(() => {
-      _v14 && !_v13 && _v14.play().then(() => _v7(!0));
+      _v14 && !_v13 && _v14.play().then(() => _v7(!0)).catch(_v0 => {
+        if (_v0?.name !== "AbortError") throw _v0;
+      });
     }, [_v14]), (0, _v16.useEffect)(() => {
       _v7(!1);
     }, [_v5]), (0, _v16.useEffect)(() => {

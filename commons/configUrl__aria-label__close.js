@@ -92,7 +92,9 @@
           title: 0,
           portrait: 0,
           byline: 0
-        }), _v3.play();
+        }), _v3.play()?.catch(_v0 => {
+          if (_v0?.name !== "AbortError") throw _v0;
+        });
       }), () => {
         _v3 && _v3.destroy && _v3.destroy();
       }), [_v3]), (0, _v1.jsx)("div", {

@@ -130,7 +130,7 @@
           });
         if (!_v3?.requireLogin && !_v3?.capability && !_v3?.staffOnly) {
           _v8 = _v4();
-          let _v0 = _v3?.inlineViewer && _v5.jwt && !_v4(_v5.req) ? _v11(_v5) : null,
+          let _v0 = _v3?.inlineViewer === "all" || _v3?.inlineViewer && _v5.jwt && !_v4(_v5.req) ? _v11(_v5) : null,
             _v1 = await _v2(_v5),
             _v2 = "redirect" in _v1 ? _v6(_v1.redirect) : "notFound" in _v1 ? "404" : "200";
           return _v5(_v2, "success", _v8), _v4(_v1, {

@@ -1059,7 +1059,9 @@
         zIndex: _v17.isShowing ? 36 : 8,
         onClick: () => {
           if (_v6) {
-            if (_v4.paused) return void _v4?.play();
+            if (_v4.paused) return void _v4?.play()?.catch(_v0 => {
+              if (_v0?.name !== "AbortError") throw _v0;
+            });
             _v4?.pause();
           }
         },
@@ -1216,7 +1218,9 @@
     }, []);
     let _v17 = (0, _v2.useCallback)(() => {
       _v3 && _v3?.ready?.(() => {
-        _v3.play();
+        _v3.play()?.catch(_v0 => {
+          if (_v0?.name !== "AbortError") throw _v0;
+        });
       });
     }, [_v3]);
     return _v11 ? null : _v13 || _v8 || _v6 ? (0, _v1.jsx)(_v57, {

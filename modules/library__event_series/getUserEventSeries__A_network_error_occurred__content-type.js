@@ -1145,35 +1145,44 @@
         })]
       });
     },
-    _v75 = ({
+    _v75 = _v0 => {
+      if (!_v0?.sizes?.length) return _v0?.baseLink ?? null;
+      let _v1 = [..._v0.sizes].sort((_v0, _v1) => (_v1.width ?? 0) - (_v0.width ?? 0)),
+        _v2 = _v1.find(_v0 => (_v0.width ?? 0) > 0 && (_v0.width ?? 0) <= 720) ?? _v1[0];
+      return _v2?.link ?? _v0.baseLink ?? null;
+    },
+    _v76 = ({
       series: _v0,
       isLoading: _v1 = !1,
       onSeriesDeleted: _v2
     }) => (0, _v1.jsx)(_v60.ContentGrid, {
       children: (0, _v1.jsxs)(_v60.ContentGrid.Body, {
-        children: [_v0.map(_v0 => (0, _v1.jsx)(_v58.ShowcaseCard, {
-          actionsMenu: (0, _v1.jsx)(_v74, {
-            link: _v0.link,
-            name: _v0.name,
-            onDeleted: _v2,
-            size: "sm",
-            uri: _v0.uri
-          }),
-          href: _v51(_v0.uri) ?? _v0.link,
-          showGrid: !1,
-          subtitle: (0, _v59.getDisplayDate)(_v0.createdTime),
-          thumbnails: [],
-          title: _v0.name
-        }, _v0.uri)), _v1 && (0, _v1.jsx)(_v57.LoadingCardsGrid, {})]
+        children: [_v0.map(_v0 => {
+          let _v1 = _v75(_v0.pictures);
+          return (0, _v1.jsx)(_v58.ShowcaseCard, {
+            actionsMenu: (0, _v1.jsx)(_v74, {
+              link: _v0.link,
+              name: _v0.name,
+              onDeleted: _v2,
+              size: "sm",
+              uri: _v0.uri
+            }),
+            href: _v51(_v0.uri) ?? _v0.link,
+            showGrid: !!_v1,
+            subtitle: (0, _v59.getDisplayDate)(_v0.createdTime),
+            thumbnails: _v1 ? [_v1] : [],
+            title: _v0.name
+          }, _v0.uri);
+        }), _v1 && (0, _v1.jsx)(_v57.LoadingCardsGrid, {})]
       })
     });
-  var _v76 = _v0.i(0),
-    _v77 = _v0.i(0),
-    _v78 = _v0.i(0);
-  let _v79 = `${(0, _v76.rem)(150)} 1fr ${(0, _v76.rem)(200)} ${(0, _v76.rem)(56)}`,
-    _v80 = () => (0, _v1.jsxs)(_v77.ContentRow, {
+  var _v77 = _v0.i(0),
+    _v78 = _v0.i(0),
+    _v79 = _v0.i(0);
+  let _v80 = `${(0, _v77.rem)(150)} 1fr ${(0, _v77.rem)(200)} ${(0, _v77.rem)(56)}`,
+    _v81 = () => (0, _v1.jsxs)(_v78.ContentRow, {
       disableHover: !0,
-      listGridColumns: _v79,
+      listGridColumns: _v80,
       sx: {
         display: {
           base: "none",
@@ -1182,9 +1191,9 @@
         backgroundColor: "fill-component",
         minHeight: "2.5rem"
       },
-      children: [(0, _v1.jsx)(_v77.ContentRow.Column, {
+      children: [(0, _v1.jsx)(_v78.ContentRow.Column, {
         children: (0, _v1.jsx)(_v1.Fragment, {})
-      }), (0, _v1.jsx)(_v77.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v78.ContentRow.Column, {
         children: (0, _v1.jsx)(_v13.Text, {
           color: "text-secondary",
           variant: "heading-xs",
@@ -1215,7 +1224,7 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v77.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v78.ContentRow.Column, {
         children: (0, _v1.jsx)(_v13.Text, {
           color: "text-secondary",
           variant: "heading-xs",
@@ -1246,71 +1255,86 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v77.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v78.ContentRow.Column, {
         children: (0, _v1.jsx)(_v1.Fragment, {})
       })]
     }),
-    _v81 = ({
+    _v82 = ({
       series: _v0,
       isLoading: _v1 = !1,
       onSeriesDeleted: _v2
     }) => (0, _v1.jsxs)(_v9.Flex, {
       direction: "column",
-      gap: (0, _v76.rem)(4),
+      gap: (0, _v77.rem)(4),
       width: "100%",
-      children: [(0, _v1.jsx)(_v80, {}), _v0.map(_v0 => (0, _v1.jsxs)(_v77.ContentRow, {
-        cursor: "pointer",
-        href: _v51(_v0.uri) ?? _v0.link,
-        listGridColumns: _v79,
-        children: [(0, _v1.jsx)(_v77.ContentRow.Column, {
-          children: (0, _v1.jsx)(_v77.ContentRow.DefaultThumbnail, {
-            minWidth: (0, _v76.rem)(120),
-            children: (0, _v1.jsx)(_v54.BrowserWindow, {
-              color: "text-tertiary",
-              boxSize: "lg",
-              opacity: "60%"
-            })
-          })
-        }), (0, _v1.jsx)(_v77.ContentRow.Column, {
-          overflow: "hidden",
-          children: (0, _v1.jsx)(_v13.Text, {
-            display: "block",
-            noOfLines: 1,
-            textOverflow: "ellipsis",
-            variant: "heading-xs",
-            whiteSpace: "nowrap",
+      children: [(0, _v1.jsx)(_v81, {}), _v0.map(_v0 => {
+        let _v1 = _v75(_v0.pictures);
+        return (0, _v1.jsxs)(_v78.ContentRow, {
+          cursor: "pointer",
+          href: _v51(_v0.uri) ?? _v0.link,
+          listGridColumns: _v80,
+          children: [(0, _v1.jsx)(_v78.ContentRow.Column, {
             width: "100%",
-            children: _v0.name
-          })
-        }), (0, _v1.jsx)(_v77.ContentRow.Column, {
-          overflow: "hidden",
-          children: (0, _v1.jsx)(_v13.Text, {
-            color: "text-secondary",
-            display: "block",
-            noOfLines: 1,
-            textOverflow: "ellipsis",
-            variant: "body-md",
-            whiteSpace: "nowrap",
-            children: (0, _v59.getDisplayDate)(_v0.createdTime)
-          })
-        }), (0, _v1.jsx)(_v77.ContentRow.Column, {
-          justifyColumn: "flex-end",
-          children: (0, _v1.jsx)(_v74, {
-            link: _v0.link,
-            name: _v0.name,
-            onDeleted: _v2,
-            size: "md",
-            uri: _v0.uri
-          })
-        })]
-      }, _v0.uri)), _v1 && (0, _v1.jsx)(_v78.LoadingStateList, {})]
+            children: _v1 ? (0, _v1.jsx)(_v7.Box, {
+              aspectRatio: "16 / 9",
+              backgroundImage: `url(${_v1})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              borderColor: "stroke",
+              borderRadius: "md",
+              borderStyle: "solid",
+              borderWidth: "1px",
+              minWidth: (0, _v77.rem)(120),
+              width: "100%"
+            }) : (0, _v1.jsx)(_v78.ContentRow.DefaultThumbnail, {
+              minWidth: (0, _v77.rem)(120),
+              children: (0, _v1.jsx)(_v54.BrowserWindow, {
+                color: "text-tertiary",
+                boxSize: "lg",
+                opacity: "60%"
+              })
+            })
+          }), (0, _v1.jsx)(_v78.ContentRow.Column, {
+            overflow: "hidden",
+            children: (0, _v1.jsx)(_v13.Text, {
+              display: "block",
+              noOfLines: 1,
+              textOverflow: "ellipsis",
+              variant: "heading-xs",
+              whiteSpace: "nowrap",
+              width: "100%",
+              children: _v0.name
+            })
+          }), (0, _v1.jsx)(_v78.ContentRow.Column, {
+            overflow: "hidden",
+            children: (0, _v1.jsx)(_v13.Text, {
+              color: "text-secondary",
+              display: "block",
+              noOfLines: 1,
+              textOverflow: "ellipsis",
+              variant: "body-md",
+              whiteSpace: "nowrap",
+              children: (0, _v59.getDisplayDate)(_v0.createdTime)
+            })
+          }), (0, _v1.jsx)(_v78.ContentRow.Column, {
+            justifyColumn: "flex-end",
+            children: (0, _v1.jsx)(_v74, {
+              link: _v0.link,
+              name: _v0.name,
+              onDeleted: _v2,
+              size: "md",
+              uri: _v0.uri
+            })
+          })]
+        }, _v0.uri);
+      }), _v1 && (0, _v1.jsx)(_v79.LoadingStateList, {})]
     }),
-    _v82 = ["createdTime", "description", "link", "modifiedTime", "name", "status", "uri"],
-    _v83 = {
+    _v83 = ["createdTime", "description", "link", "modifiedTime", "name", "pictures", "pictures.baseLink", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "status", "uri"],
+    _v84 = {
       direction: _v18.SORT_DIRECTION.DESC,
       type: _v18.SORT_OPTION.CREATED
     },
-    _v84 = ({
+    _v85 = ({
       isLoading: _v0,
       onLoadMore: _v1
     }) => {
@@ -1324,10 +1348,10 @@
         width: "100%"
       });
     },
-    _v85 = () => {
+    _v86 = () => {
       let _v0 = (0, _v23.useViewer)(),
         [_v1, _v2] = (0, _v21.useLayoutPreference)(),
-        [_v3, _v4] = (0, _v22.useSortPreference)(_v83, _v18.VL_EVENT_SERIES_SORT_LOCAL_STORAGE_KEY),
+        [_v3, _v4] = (0, _v22.useSortPreference)(_v84, _v18.VL_EVENT_SERIES_SORT_LOCAL_STORAGE_KEY),
         [_v5, _v6] = (0, _v6.useState)(!1),
         _v7 = _v0?.teamUser?.ownerId || _v0?.user?.id,
         {
@@ -1350,7 +1374,7 @@
               setSize: _v5,
               size: _v6
             } = _v48(() => _v0 ? {
-              select: _v82,
+              select: _v83,
               where: {
                 userId: _v0
               },
@@ -1642,15 +1666,15 @@
               isCreateDisabled: !1,
               onCreate: _v20
             })
-          }) : "LIST_LAYOUT" === _v1 ? (0, _v1.jsx)(_v81, {
+          }) : "LIST_LAYOUT" === _v1 ? (0, _v1.jsx)(_v82, {
             isLoading: _v10 || _v11,
             onSeriesDeleted: _v15,
             series: _v8 ?? []
-          }) : (0, _v1.jsx)(_v75, {
+          }) : (0, _v1.jsx)(_v76, {
             isLoading: _v10 || _v11,
             onSeriesDeleted: _v15,
             series: _v8 ?? []
-          }), _v17 && !_v12 && (0, _v1.jsx)(_v84, {
+          }), _v17 && !_v12 && (0, _v1.jsx)(_v85, {
             isLoading: _v11,
             onLoadMore: _v14
           })]
@@ -1663,17 +1687,17 @@
         })]
       });
     };
-  var _v86 = _v0.i(0),
-    _v87 = _v0.i(0),
+  var _v87 = _v0.i(0),
     _v88 = _v0.i(0),
     _v89 = _v0.i(0),
-    _v90 = _v0.i(0);
-  let _v91 = () => {
+    _v90 = _v0.i(0),
+    _v91 = _v0.i(0);
+  let _v92 = () => {
     let _v0 = (0, _v23.useViewer)(),
       {
         settings: _v1,
         isLoadingResponse: _v2
-      } = (0, _v86.useOrionSettings)();
+      } = (0, _v87.useOrionSettings)();
     return _v2 || !_v0 ? null : _v1.enable_event_series ? (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
@@ -1704,17 +1728,17 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v90.VideoModalContextProvider, {
-        children: (0, _v1.jsx)(_v85, {})
+      }), (0, _v1.jsx)(_v91.VideoModalContextProvider, {
+        children: (0, _v1.jsx)(_v86, {})
       })]
-    }) : (0, _v1.jsx)(_v87.ErrorPage, {
+    }) : (0, _v1.jsx)(_v88.ErrorPage, {
       error: new _v3.ResourceNotFoundError()
     });
   };
-  _v91.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v89.VideoLibraryLayout, {
+  _v92.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v90.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
-    sideNavContent: (0, _v1.jsx)(_v88.HomeSideNavContent, {}),
+    sideNavContent: (0, _v1.jsx)(_v89.HomeSideNavContent, {}),
     children: _v0
   }), (0, _v4.withPageSetup)(() => ({
     props: {
@@ -1723,5 +1747,5 @@
     }
   }), {
     requireLogin: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v91], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v92], 0);
 }

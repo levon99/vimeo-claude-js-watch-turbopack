@@ -12,10 +12,12 @@
         capabilities: _v3,
         loading: _v4
       } = (0, _v1.useCapability)(["hasContentSpaceEnabled", "hasContentSpaceEnabledTeamGated"], _v0),
-      _v5 = !!_v3?.hasContentSpaceEnabled;
+      _v5 = _v1.enable_content_space_team_gate ?? !1,
+      _v6 = !!_v3?.hasContentSpaceEnabled;
     return {
-      contentSpaceEnabled: _v1.enable_content_space_team_gate ? !!_v3?.hasContentSpaceEnabledTeamGated : _v5,
-      notTeamGatedContentSpaceEnabled: _v5,
+      contentSpaceEnabled: _v5 ? !!_v3?.hasContentSpaceEnabledTeamGated : _v6,
+      notTeamGatedContentSpaceEnabled: _v6,
+      isTeamGateEnabled: _v5,
       loading: _v4 || _v2
     };
   }]);
