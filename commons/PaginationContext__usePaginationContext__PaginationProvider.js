@@ -447,17 +447,34 @@
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
     _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
-    _v35 = _v0.i(0);
-  let [_v36, _v37] = (0, _v30.createStylesContext)("Pagination"),
+    _v33 = _v0.i(0);
+  let _v34 = _v0 => (0, _v1.jsx)(_v33.Icon, {
+    viewBox: "0 0 24 24",
+    ..._v0,
+    fill: "none",
+    children: (0, _v1.jsx)("path", {
+      d: "M12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm14 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z",
+      fill: "currentColor"
+    })
+  });
+  var _v35 = _v0.i(0);
+  let _v36 = _v0 => (0, _v1.jsx)(_v33.Icon, {
+      viewBox: "0 0 24 24",
+      ..._v0,
+      fill: "none",
+      children: (0, _v1.jsx)("path", {
+        d: "m11.29 12 3.54-3.54a1 1 0 1 0-1.42-1.41l-4.24 4.24a1 1 0 0 0 0 1.42L13.41 17a.998.998 0 0 0 .71.29.999.999 0 0 0 .71-.29 1 1 0 0 0 0-1.41L11.29 12Z",
+        fill: "currentColor"
+      })
+    }),
+    [_v37, _v38] = (0, _v30.createStylesContext)("Pagination"),
     {
-      Context: _v38
+      Context: _v39
     } = _v29,
-    _v39 = _v0 => {
+    _v40 = _v0 => {
       let {
         trigger: _v1
-      } = _v37();
+      } = _v38();
       return (0, _v1.jsx)(_v29.PrevTrigger, {
         ..._v0,
         asChild: !0,
@@ -465,14 +482,14 @@
           as: "button",
           "aria-label": "Previous page",
           __css: _v1,
-          children: (0, _v1.jsx)(_v35.ChevronLeftSmall, {})
+          children: (0, _v1.jsx)(_v36, {})
         })
       });
     },
-    _v40 = _v0 => {
+    _v41 = _v0 => {
       let {
         trigger: _v1
-      } = _v37();
+      } = _v38();
       return (0, _v1.jsx)(_v29.NextTrigger, {
         ..._v0,
         asChild: !0,
@@ -480,18 +497,18 @@
           as: "button",
           "aria-label": "Next page",
           __css: _v1,
-          children: (0, _v1.jsx)(_v34.ChevronRightSmall, {})
+          children: (0, _v1.jsx)(_v35.ChevronRightSmall, {})
         })
       });
     },
-    _v41 = ({
+    _v42 = ({
       value: _v0,
       type: _v1,
       ..._v2
     }) => {
       let {
         item: _v3
-      } = _v37();
+      } = _v38();
       return (0, _v1.jsx)(_v29.Item, {
         value: _v0,
         type: _v1,
@@ -504,20 +521,20 @@
         })
       });
     },
-    _v42 = _v0 => {
+    _v43 = _v0 => {
       let {
         ellipsis: _v1
-      } = _v37();
+      } = _v38();
       return (0, _v1.jsx)(_v29.Ellipsis, {
         ..._v0,
         asChild: !0,
         children: (0, _v1.jsx)(_v31.Box, {
           __css: _v1,
-          children: (0, _v1.jsx)(_v33.EllipsisH, {})
+          children: (0, _v1.jsx)(_v34, {})
         })
       });
     },
-    _v43 = ({
+    _v44 = ({
       size: _v0 = "md",
       children: _v1,
       count: _v2 = 0,
@@ -526,7 +543,7 @@
       let _v4 = (0, _v32.useMultiStyleConfig)("Pagination", {
         size: _v0
       });
-      return (0, _v1.jsx)(_v36, {
+      return (0, _v1.jsx)(_v37, {
         value: _v4,
         children: (0, _v1.jsx)(_v29.Root, {
           asChild: !0,
@@ -545,16 +562,16 @@
     size: _v0 = "md",
     count: _v1 = 0,
     ..._v2
-  }) => (0, _v1.jsx)(_v43, {
+  }) => (0, _v1.jsx)(_v44, {
     count: _v1,
     size: _v0,
     ..._v2,
     children: _v0 => (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v39, {}), _v0.pages.map((_v0, _v1) => "page" === _v0.type ? (0, _v1.jsx)(_v41, {
+      children: [(0, _v1.jsx)(_v40, {}), _v0.pages.map((_v0, _v1) => "page" === _v0.type ? (0, _v1.jsx)(_v42, {
         ..._v0
-      }, _v1) : (0, _v1.jsx)(_v42, {
+      }, _v1) : (0, _v1.jsx)(_v43, {
         index: _v1
-      }, _v1)), (0, _v1.jsx)(_v40, {})]
+      }, _v1)), (0, _v1.jsx)(_v41, {})]
     })
-  }), "PaginationContext", 0, _v38, "PaginationEllipsis", 0, _v42, "PaginationItem", 0, _v41, "PaginationNextTrigger", 0, _v40, "PaginationPrevTrigger", 0, _v39, "PaginationRoot", 0, _v43], 0);
+  }), "PaginationContext", 0, _v39, "PaginationEllipsis", 0, _v43, "PaginationItem", 0, _v42, "PaginationNextTrigger", 0, _v41, "PaginationPrevTrigger", 0, _v40, "PaginationRoot", 0, _v44], 0);
 }

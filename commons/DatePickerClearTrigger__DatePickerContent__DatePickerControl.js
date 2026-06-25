@@ -2900,40 +2900,55 @@
     _v131 = _v0.i(0),
     _v132 = _v0.i(0),
     _v133 = _v0.i(0);
-  let {
-      Root: _v134,
-      Label: _v135,
-      Control: _v136,
-      Input: _v137,
-      Trigger: _v138,
-      ClearTrigger: _v139,
-      Positioner: _v140,
-      Content: _v141,
-      YearSelect: _v142,
-      MonthSelect: _v143,
-      View: _v144,
-      ViewControl: _v145,
-      ViewTrigger: _v146,
-      PrevTrigger: _v147,
-      NextTrigger: _v148,
-      RangeText: _v149,
-      Table: _v150,
-      TableHead: _v151,
-      TableRow: _v152,
-      TableHeader: _v153,
-      TableBody: _v154,
-      TableCell: _v155,
-      TableCellTrigger: _v156,
-      PresetTrigger: _v157,
-      Context: _v158
+  let _v134 = _v0 => (0, _v1.jsx)(_v133.Icon, {
+      viewBox: "0 0 24 24",
+      ..._v0,
+      fill: "none",
+      children: (0, _v1.jsxs)("g", {
+        fill: "currentColor",
+        children: [(0, _v1.jsx)("path", {
+          d: "M8 11.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM12 11.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM16 11.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM8 15.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM12 15.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM16 15.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"
+        }), (0, _v1.jsx)("path", {
+          fillRule: "evenodd",
+          clipRule: "evenodd",
+          d: "M9.5 3.5a1 1 0 0 0-2 0V4H7a4 4 0 0 0-4 4v9a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4h-.5v-.5a1 1 0 1 0-2 0V4h-5v-.5ZM5 8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2H5Zm0 2h14v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7Z"
+        })]
+      })
+    }),
+    {
+      Root: _v135,
+      Label: _v136,
+      Control: _v137,
+      Input: _v138,
+      Trigger: _v139,
+      ClearTrigger: _v140,
+      Positioner: _v141,
+      Content: _v142,
+      YearSelect: _v143,
+      MonthSelect: _v144,
+      View: _v145,
+      ViewControl: _v146,
+      ViewTrigger: _v147,
+      PrevTrigger: _v148,
+      NextTrigger: _v149,
+      RangeText: _v150,
+      Table: _v151,
+      TableHead: _v152,
+      TableRow: _v153,
+      TableHeader: _v154,
+      TableBody: _v155,
+      TableCell: _v156,
+      TableCellTrigger: _v157,
+      PresetTrigger: _v158,
+      Context: _v159
     } = _v121,
-    [_v159, _v160] = (0, _v123.createStylesContext)("DatePicker"),
-    _v161 = _v0 => {
+    [_v160, _v161] = (0, _v123.createStylesContext)("DatePicker"),
+    _v162 = _v0 => {
       let {
         navButton: _v1,
         navIcon: _v2
-      } = _v160();
-      return (0, _v1.jsx)(_v147, {
+      } = _v161();
+      return (0, _v1.jsx)(_v148, {
         asChild: !0,
         children: (0, _v1.jsx)(_v124.Box, {
           as: "button",
@@ -2946,12 +2961,12 @@
         })
       });
     },
-    _v162 = _v0 => {
+    _v163 = _v0 => {
       let {
         navButton: _v1,
         navIcon: _v2
-      } = _v160();
-      return (0, _v1.jsx)(_v148, {
+      } = _v161();
+      return (0, _v1.jsx)(_v149, {
         asChild: !0,
         children: (0, _v1.jsx)(_v124.Box, {
           as: "button",
@@ -2964,59 +2979,59 @@
         })
       });
     },
-    _v163 = () => {
+    _v164 = () => {
       let {
         contentHeader: _v0
-      } = _v160();
-      return (0, _v1.jsx)(_v145, {
+      } = _v161();
+      return (0, _v1.jsx)(_v146, {
         asChild: !0,
         children: (0, _v1.jsxs)(_v124.Box, {
           __css: _v0,
-          children: [(0, _v1.jsx)(_v149, {}), (0, _v1.jsxs)(_v124.Box, {
-            children: [(0, _v1.jsx)(_v161, {}), (0, _v1.jsx)(_v162, {})]
+          children: [(0, _v1.jsx)(_v150, {}), (0, _v1.jsxs)(_v124.Box, {
+            children: [(0, _v1.jsx)(_v162, {}), (0, _v1.jsx)(_v163, {})]
           })]
         })
       });
     },
-    _v164 = _v0 => {
+    _v165 = _v0 => {
       let {
         trigger: _v1
-      } = _v160();
-      return (0, _v1.jsx)(_v138, {
+      } = _v161();
+      return (0, _v1.jsx)(_v139, {
         asChild: !0,
         children: (0, _v1.jsx)(_v130.chakra.button, {
           __css: _v1,
           ..._v0,
-          children: (0, _v1.jsx)(_v133.Calendar, {})
+          children: (0, _v1.jsx)(_v134, {})
         })
       });
     },
-    _v165 = ({
+    _v166 = ({
       width: _v0,
       children: _v1,
       ..._v2
-    }) => (0, _v1.jsx)(_v136, {
+    }) => (0, _v1.jsx)(_v137, {
       ..._v2,
       style: {
         width: "max-content"
       },
       children: _v1 || (0, _v1.jsxs)(_v126.InputGroup, {
         width: _v0,
-        children: [(0, _v1.jsx)(_v137, {
+        children: [(0, _v1.jsx)(_v138, {
           asChild: !0,
           children: (0, _v1.jsx)(_v127.Input, {})
         }), (0, _v1.jsx)(_v128.InputRightElement, {
-          children: (0, _v1.jsx)(_v164, {})
+          children: (0, _v1.jsx)(_v165, {})
         })]
       })
     }),
-    _v166 = ({
+    _v167 = ({
       children: _v0,
       ..._v1
     }) => {
       let {
           cell: _v2
-        } = _v160(),
+        } = _v161(),
         _v3 = _v3.default.useRef(null),
         [_v4, _v5] = _v3.default.useState(0);
       return (0, _v3.useLayoutEffect)(() => {
@@ -3031,10 +3046,10 @@
         return _v3.current && _v0.observe(_v3.current), () => {
           _v0.disconnect();
         };
-      }, []), (0, _v1.jsx)(_v155, {
+      }, []), (0, _v1.jsx)(_v156, {
         ..._v1,
         asChild: !0,
-        children: (0, _v1.jsx)(_v156, {
+        children: (0, _v1.jsx)(_v157, {
           asChild: !0,
           children: (0, _v1.jsx)(_v124.Box, {
             as: "button",
@@ -3046,7 +3061,7 @@
         })
       });
     },
-    _v167 = ({
+    _v168 = ({
       view: _v0 = "day",
       width: _v1 = "350px",
       ..._v2
@@ -3055,23 +3070,23 @@
         content: _v3,
         headerCell: _v4,
         row: _v5
-      } = _v160();
+      } = _v161();
       return (0, _v1.jsx)(_v124.Box, {
         __css: _v3,
         width: _v1,
         ..._v2,
-        children: (0, _v1.jsx)(_v144, {
+        children: (0, _v1.jsx)(_v145, {
           view: _v0,
-          children: (0, _v1.jsx)(_v158, {
+          children: (0, _v1.jsx)(_v159, {
             children: _v0 => (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v163, {}), (0, _v1.jsxs)(_v150, {
+              children: [(0, _v1.jsx)(_v164, {}), (0, _v1.jsxs)(_v151, {
                 width: "100%",
-                children: [(0, _v1.jsx)(_v151, {
-                  children: (0, _v1.jsx)(_v152, {
+                children: [(0, _v1.jsx)(_v152, {
+                  children: (0, _v1.jsx)(_v153, {
                     asChild: !0,
                     children: (0, _v1.jsx)(_v124.Box, {
                       __css: _v5,
-                      children: _v0.weekDays.map((_v0, _v1) => (0, _v1.jsx)(_v153, {
+                      children: _v0.weekDays.map((_v0, _v1) => (0, _v1.jsx)(_v154, {
                         asChild: !0,
                         children: (0, _v1.jsx)(_v124.Box, {
                           __css: _v4,
@@ -3080,18 +3095,18 @@
                       }, _v1))
                     })
                   })
-                }), (0, _v1.jsx)(_v154, {
+                }), (0, _v1.jsx)(_v155, {
                   asChild: !0,
                   children: (0, _v1.jsx)(_v124.Box, {
                     width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     gap: ".5rem",
-                    children: _v0.weeks.map((_v0, _v1) => (0, _v1.jsx)(_v152, {
+                    children: _v0.weeks.map((_v0, _v1) => (0, _v1.jsx)(_v153, {
                       asChild: !0,
                       children: (0, _v1.jsx)(_v124.Box, {
                         __css: _v5,
-                        children: _v0.map((_v0, _v1) => (0, _v1.jsx)(_v166, {
+                        children: _v0.map((_v0, _v1) => (0, _v1.jsx)(_v167, {
                           value: _v0,
                           children: _v0.day
                         }, _v1))
@@ -3105,36 +3120,36 @@
         })
       });
     };
-  _v0.s(["Calendar", 0, _v167, "DatePicker", 0, ({
+  _v0.s(["Calendar", 0, _v168, "DatePicker", 0, ({
     width: _v0 = "calc(100% + 2.5rem)",
     children: _v1,
     ..._v2
   }) => {
     let _v3 = (0, _v125.useMultiStyleConfig)("DatePicker", {});
-    return (0, _v1.jsx)(_v159, {
+    return (0, _v1.jsx)(_v160, {
       value: _v3,
-      children: (0, _v1.jsx)(_v134, {
+      children: (0, _v1.jsx)(_v135, {
         ..._v2,
         children: _v1 || (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v165, {
+          children: [(0, _v1.jsx)(_v166, {
             width: _v0
           }), (0, _v1.jsx)(_v122.Portal, {
-            children: (0, _v1.jsx)(_v140, {
-              children: (0, _v1.jsx)(_v141, {
-                children: (0, _v1.jsx)(_v167, {})
+            children: (0, _v1.jsx)(_v141, {
+              children: (0, _v1.jsx)(_v142, {
+                children: (0, _v1.jsx)(_v168, {})
               })
             })
           })]
         })
       })
     });
-  }, "DatePickerCalendarTrigger", 0, _v164, "DatePickerCell", 0, _v166, "DatePickerClearTrigger", 0, _v139, "DatePickerContent", 0, _v141, "DatePickerContext", 0, _v158, "DatePickerControl", 0, _v136, "DatePickerInput", 0, _v165, "DatePickerInputBase", 0, _v137, "DatePickerLabel", 0, _v135, "DatePickerMonthSelect", 0, _v143, "DatePickerNextTrigger", 0, _v162, "DatePickerNextTriggerBase", 0, _v148, "DatePickerPositioner", 0, _v140, "DatePickerPresetTrigger", 0, ({
+  }, "DatePickerCalendarTrigger", 0, _v165, "DatePickerCell", 0, _v167, "DatePickerClearTrigger", 0, _v140, "DatePickerContent", 0, _v142, "DatePickerContext", 0, _v159, "DatePickerControl", 0, _v137, "DatePickerInput", 0, _v166, "DatePickerInputBase", 0, _v138, "DatePickerLabel", 0, _v136, "DatePickerMonthSelect", 0, _v144, "DatePickerNextTrigger", 0, _v163, "DatePickerNextTriggerBase", 0, _v149, "DatePickerPositioner", 0, _v141, "DatePickerPresetTrigger", 0, ({
     variant: _v0 = "tertiary",
     size: _v1 = "sm",
     value: _v2,
     label: _v3,
     ..._v4
-  }) => (0, _v1.jsx)(_v157, {
+  }) => (0, _v1.jsx)(_v158, {
     value: _v2,
     asChild: !0,
     children: (0, _v1.jsx)(_v129.Button, {
@@ -3143,5 +3158,5 @@
       ..._v4,
       children: _v3
     })
-  }), "DatePickerPresetTriggerBase", 0, _v157, "DatePickerPrevTrigger", 0, _v161, "DatePickerPrevTriggerBase", 0, _v147, "DatePickerRangeText", 0, _v149, "DatePickerRootBase", 0, _v134, "DatePickerTable", 0, _v150, "DatePickerTableBody", 0, _v154, "DatePickerTableCell", 0, _v155, "DatePickerTableCellTrigger", 0, _v156, "DatePickerTableHead", 0, _v151, "DatePickerTableHeader", 0, _v153, "DatePickerTableRow", 0, _v152, "DatePickerTrigger", 0, _v138, "DatePickerView", 0, _v144, "DatePickerViewControl", 0, _v145, "DatePickerViewTrigger", 0, _v146, "DatePickerYearSelect", 0, _v142], 0);
+  }), "DatePickerPresetTriggerBase", 0, _v158, "DatePickerPrevTrigger", 0, _v162, "DatePickerPrevTriggerBase", 0, _v148, "DatePickerRangeText", 0, _v150, "DatePickerRootBase", 0, _v135, "DatePickerTable", 0, _v151, "DatePickerTableBody", 0, _v155, "DatePickerTableCell", 0, _v156, "DatePickerTableCellTrigger", 0, _v157, "DatePickerTableHead", 0, _v152, "DatePickerTableHeader", 0, _v154, "DatePickerTableRow", 0, _v153, "DatePickerTrigger", 0, _v139, "DatePickerView", 0, _v145, "DatePickerViewControl", 0, _v146, "DatePickerViewTrigger", 0, _v147, "DatePickerYearSelect", 0, _v143], 0);
 }

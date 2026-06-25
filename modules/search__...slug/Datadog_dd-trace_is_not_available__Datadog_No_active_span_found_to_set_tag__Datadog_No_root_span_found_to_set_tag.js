@@ -6894,7 +6894,8 @@
                     partial: _v3.partial ?? null,
                     citedQty: _v3.cited_titles ? Object.keys(_v3.cited_titles).length : null,
                     latencyMs: Date.now() - _v4,
-                    errorMessage: null
+                    errorMessage: null,
+                    summary: _v3.summary ?? null
                   });
                 }
               } catch (_v0) {
@@ -6913,7 +6914,8 @@
                     partial: null,
                     citedQty: null,
                     latencyMs: Date.now() - _v4,
-                    errorMessage: _v0.message
+                    errorMessage: _v0.message,
+                    summary: null
                   });
                 }
               } finally {

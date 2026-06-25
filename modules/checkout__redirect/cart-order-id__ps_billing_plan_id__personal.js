@@ -2008,17 +2008,22 @@
       [_v23, _v24] = _v26(),
       [_v25, _v26] = _v22(),
       [_v27, _v28] = _v42(),
-      [_v29, _v30] = (0, _v12.useState)(),
+      _v29 = (0, _v12.useRef)({
+        key: null,
+        attempts: 0
+      }),
+      [_v30, _v31] = (0, _v12.useState)(0),
+      [_v32, _v33] = (0, _v12.useState)(),
       {
-        data: _v31,
-        error: _v32
-      } = _v29 || {},
-      [_v33, _v34] = (0, _v12.useState)(null),
-      _v35 = _v12 && (0, _v63.isCreatorProductTier)(_v12);
+        data: _v34,
+        error: _v35
+      } = _v32 || {},
+      [_v36, _v37] = (0, _v12.useState)(null),
+      _v38 = _v12 && (0, _v63.isCreatorProductTier)(_v12);
     return (0, _v12.useEffect)(() => {
-      if (_v16 && _v28.error && !_v28.loading) return void _v34(_v16);
+      if (_v16 && _v28.error && !_v28.loading) return void _v37(_v16);
       if (_v16) {
-        _v20(null), _v34(null);
+        _v20(null), _v37(null);
         let _v0 = _v28.data?.id !== _v16 && _v28.data?.metadata?.batchCode !== _v16;
         !_v28.loading && _v0 && _v27({
           where: {
@@ -2030,9 +2035,24 @@
     }, [_v16, _v27, _v20, _v28.loading, _v28.data]), (0, _v12.useEffect)(function () {
       let _v0 = _v15?.couponCode || _v28.data?.code,
         _v1 = _v28.data?.metadata;
-      _v1 && "string" == typeof _v1.batchCode && _v1.batchCode && (_v0 = _v1.batchCode), _v0 && _v0 === _v33 && (_v0 = void 0);
+      _v1 && "string" == typeof _v1.batchCode && _v1.batchCode && (_v0 = _v1.batchCode), _v0 && _v0 === _v36 && (_v0 = void 0);
       let _v2 = _v0 || void 0;
-      if (_v17 && _v10 && (_v3 || _v8) && void 0 !== _v5 && _v19 !== _v31?.id && (!_v35 || _v14) && !_v24.loading) if (_v35) {
+      if (!_v17 || !_v10 || !_v3 && !_v8 || void 0 === _v5 || _v19 === _v34?.id || _v38 && !_v14 || _v24.loading || _v22.loading || _v26.loading) return;
+      let _v3 = JSON.stringify({
+        checkoutType: _v4,
+        isCreatorProduct: _v38,
+        isRenewNow: _v8,
+        billingPlanId: _v3?.id ?? null,
+        subscriptionId: _v5?.id ?? null,
+        paymentMethodId: _v11?.id ?? null,
+        couponCode: _v2 ?? null,
+        creatorProductId: _v14 ?? null,
+        orderId: _v19
+      });
+      if (_v29.current.key !== _v3 && (_v29.current = {
+        key: _v3,
+        attempts: 0
+      }), !(_v29.current.attempts >= 4)) if (_v38) {
         let _v0 = _v11 && "PAYMENT_METHOD_TYPES_CARD" === _v11.type ? _v11.card?.billingAddress : void 0;
         _v23({
           select: [],
@@ -2079,9 +2099,15 @@
           couponCode: _v2
         }
       });
-    }, [_v33, _v28.data, _v15, _v3, _v4, _v5, _v25, _v6, _v7, _v8, _v19, _v31?.id, _v23, _v21, _v10, _v18.firstName, _v18.lastName, _v17, _v11, _v13, _v14, _v35, _v1]), (0, _v12.useEffect)(function () {
+    }, [_v36, _v28.data, _v15, _v3, _v4, _v5, _v25, _v6, _v7, _v8, _v19, _v34?.id, _v23, _v21, _v10, _v18.firstName, _v18.lastName, _v17, _v11, _v13, _v14, _v38, _v1, _v30]), (0, _v12.useEffect)(function () {
+      if (!(_v32?.error && !_v32.loading)) return;
+      let _v0 = _v29.current.attempts + 1;
+      if (_v29.current.attempts = _v0, _v0 >= 4) return;
+      let _v1 = setTimeout(() => _v31(_v0 => _v0 + 1), 0 * 2 ** (_v0 - 1));
+      return () => clearTimeout(_v1);
+    }, [_v32]), (0, _v12.useEffect)(function () {
       let _v0;
-      _v24.called ? _v0 = _v24 : _v22.called ? _v0 = _v22 : _v26.called && (_v0 = _v26), _v0 && (_v30({
+      _v24.called ? _v0 = _v24 : _v22.called ? _v0 = _v22 : _v26.called && (_v0 = _v26), _v0 && (_v33({
         ..._v0,
         data: _v0.data ?? null
       }), _v0.data && (_v2({
@@ -2089,23 +2115,23 @@
         payload: _v0.data
       }), _v20(_v0.data.id)));
     }, [_v2, _v26, _v24, _v22, _v20]), (0, _v12.useEffect)(function () {
-      if (_v31 && _v10) {
+      if (_v34 && _v10) {
         if (_v10.isCreatorProduct || _v10.isBandwidthProduct) return;
         let _v0 = _v3?.id;
-        ("purchase" !== _v4 || _v31.currency === _v3?.price?.currency) && _v31.isTrial == _v6 && (_v31.items?.find(_v0 => _v0.billingPlanId === _v0) || _v8) || (_v20(null), _v2({
+        ("purchase" !== _v4 || _v34.currency === _v3?.price?.currency) && _v34.isTrial == _v6 && (_v34.items?.find(_v0 => _v0.billingPlanId === _v0) || _v8) || (_v20(null), _v2({
           type: _v73.ActionTypes.ORDER_PREVIEW,
           payload: null
         }));
       }
-    }, [_v3, _v2, _v6, _v7, _v8, _v31, _v20, _v10, _v4]), (0, _v12.useEffect)(function () {
-      _v32 && (404 === _v32.status ? (_v20(null), _v2({
+    }, [_v3, _v2, _v6, _v7, _v8, _v34, _v20, _v10, _v4]), (0, _v12.useEffect)(function () {
+      _v35 && (404 === _v35.status ? (_v20(null), _v2({
         type: _v73.ActionTypes.ORDER_PREVIEW,
         payload: null
-      })) : 400 === _v32.status && (async () => {
+      })) : 400 === _v35.status && (async () => {
         let _v0 = "";
-        if (_v32.res?.body instanceof ReadableStream) {
-          if (!_v32.res.body.locked) {
-            let _v0 = _v32.res.body.getReader(),
+        if (_v35.res?.body instanceof ReadableStream) {
+          if (!_v35.res.body.locked) {
+            let _v0 = _v35.res.body.getReader(),
               _v1 = new TextDecoder();
             for (;;) {
               let {
@@ -2118,21 +2144,21 @@
               });
             }
           }
-        } else _v0 = "string" == typeof _v32.res?.body ? _v32.res.body : JSON.stringify(_v32);
+        } else _v0 = "string" == typeof _v35.res?.body ? _v35.res.body : JSON.stringify(_v35);
         let _v1 = _v0.toLowerCase().includes("invalid coupon code"),
           _v2 = _v28.data?.code;
         if (_v1 && _v2) {
           _v2({
             type: _v73.ActionTypes.ORDER_PREVIEW,
             payload: null
-          }), _v34(_v2);
+          }), _v37(_v2);
           return;
         }
       })());
-    }, [_v2, _v32, _v20, _v28.data?.code]), (0, _v12.useEffect)(function () {
-      if (!_v31?.billingAddress?.postalCode && !_v17?.location && !_v31?.billingAddress?.country) return;
-      let _v0 = !!_v31?.billingAddress?.postalCode && (0, _v63.isZipCodeIsRequiredAutorenewalOptInRange)(_v31?.billingAddress?.postalCode),
-        _v1 = _v17?.location === "DE" || _v31?.billingAddress?.country === "DE",
+    }, [_v2, _v35, _v20, _v28.data?.code]), (0, _v12.useEffect)(function () {
+      if (!_v34?.billingAddress?.postalCode && !_v17?.location && !_v34?.billingAddress?.country) return;
+      let _v0 = !!_v34?.billingAddress?.postalCode && (0, _v63.isZipCodeIsRequiredAutorenewalOptInRange)(_v34?.billingAddress?.postalCode),
+        _v1 = _v17?.location === "DE" || _v34?.billingAddress?.country === "DE",
         _v2 = !!_v13 && "subscribe" !== _v13,
         _v3 = _v0 || "subscribe" === _v13,
         _v4 = (!!_v1 && !_v7 && !_v9 || !!_v2) && null;
@@ -2143,10 +2169,10 @@
           hasAgreedToTerms: _v2
         } : null
       });
-    }, [_v17?.location, _v9, _v31?.billingAddress?.postalCode, _v31?.billingAddress?.country, _v7, _v2, _v13]), {
-      isLoading: _v29?.loading,
-      order: _v29?.data,
-      error: _v29?.error
+    }, [_v17?.location, _v9, _v34?.billingAddress?.postalCode, _v34?.billingAddress?.country, _v7, _v2, _v13]), {
+      isLoading: _v32?.loading,
+      order: _v32?.data,
+      error: _v32?.error
     };
   }, "useGetPaymentMethods", 0, () => {
     let {

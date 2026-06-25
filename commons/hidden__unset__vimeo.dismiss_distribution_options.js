@@ -38,9 +38,10 @@
     _v35 = _v0.i(0),
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
-    _v38 = _v0.i(0);
-  let _v39 = _v4.default.memo(() => {
-    let _v0 = (0, _v4.useContext)(_v32.ViewerContext),
+    _v38 = _v0.i(0),
+    _v39 = _v0.i(0);
+  let _v40 = _v4.default.memo(() => {
+    let _v0 = (0, _v4.useContext)(_v33.ViewerContext),
       {
         invitesRemaining: _v1,
         membership: _v2,
@@ -52,37 +53,40 @@
         teamCapabilities: {
           canUsePaymentsService: _v6
         }
-      } = (0, _v4.useContext)(_v34.ManageTeamStateCtx),
+      } = (0, _v4.useContext)(_v35.ManageTeamStateCtx),
       {
         updateInvitesRemaining: _v7,
         updateModalToDisplay: _v8,
         removeUnassignedSeats: _v9,
         updateTeamsPageNotice: _v10,
         updateIsMembershipLoading: _v11
-      } = (0, _v4.useContext)(_v34.ManageTeamDispatchCtx),
+      } = (0, _v4.useContext)(_v35.ManageTeamDispatchCtx),
       {
         trackBillingAction: _v12
-      } = (0, _v4.useContext)(_v34.ManageTeamAnalytics),
+      } = (0, _v4.useContext)(_v35.ManageTeamAnalytics),
       {
         sendDistributionAnalyticsEvent: _v13
       } = (0, _v27.useDistributionAnalyticsEvent)(),
       {
         isBlocked: _v14
-      } = (0, _v29.useIsSeatChangeBlocked)({
+      } = (0, _v30.useIsSeatChangeBlocked)({
         tier: _v2.tier
       }),
-      _v15 = _v2.tier === _v37.Tier.Creator || _v14;
+      {
+        settings: _v15
+      } = (0, _v23.useOrionSettings)(),
+      _v16 = _v2.tier === _v38.Tier.Creator || _v14;
     switch ((0, _v4.useEffect)(() => {
-      if (_v3 === _v37.TeamManagementModals.PURCHASE_SEATS_MODAL) {
-        if (_v15) return void _v8({
+      if (_v3 === _v38.TeamManagementModals.PURCHASE_SEATS_MODAL) {
+        if (_v16) return void _v8({
           currentModalInDisplay: null
         });
         document.body.style.overflow = "hidden";
       } else document.body.style.overflow = "unset";
-    }, [_v3, _v15, _v8]), _v3) {
-      case _v37.TeamManagementModals.PURCHASE_SEATS_MODAL:
+    }, [_v3, _v16, _v8]), _v3) {
+      case _v38.TeamManagementModals.PURCHASE_SEATS_MODAL:
         {
-          if (_v15) return null;
+          if (_v16) return null;
           let {
               teamData: _v0
             } = _v5,
@@ -90,24 +94,24 @@
             _v2 = _v0.ownerId || _v0?.teamUser?.ownerId || 0,
             _v3 = _v2.seatCapTrial || _v5.seatDetails?.basePlanCount || 0,
             _v4 = Math.max(0, (_v2.isFreeTrial ? _v3 : _v2.seatCapPaid) - (_v5.maxTeamSize || _v2.seatCount));
-          return (0, _v2.jsx)(_v31.PurchaseSeatsModal, {
+          return (0, _v2.jsx)(_v32.PurchaseSeatsModal, {
             canUsePaymentsService: !!_v6,
-            isActive: _v3 === _v37.TeamManagementModals.PURCHASE_SEATS_MODAL,
+            isActive: _v3 === _v38.TeamManagementModals.PURCHASE_SEATS_MODAL,
             isTrial: _v2.isFreeTrial,
             productId: String(_v2.productId),
             userId: _v1,
             ownerId: _v2,
-            minSeatsPurchase: _v36.MIN_PURCHASE_SEATS,
+            minSeatsPurchase: _v37.MIN_PURCHASE_SEATS,
             maxSeatsPurchase: _v4,
-            initSeatsPurchase: _v4.seatsCount ?? _v36.MIN_PURCHASE_SEATS,
+            initSeatsPurchase: _v4.seatsCount ?? _v37.MIN_PURCHASE_SEATS,
             onPurchaseSuccess: _v0 => {
-              _v4 && _v4.onPurchaseSuccess && _v4.purchaseSeatModalLocation && (_v4.onPurchaseSuccess(_v0), _v11(_v38.makeMembershipCall[_v4.purchaseSeatModalLocation])), _v10(_v2.isFreeTrial ? _v30.NOTICE_TYPES.ADDED_SEATS_SUCCESSFULLY : _v30.NOTICE_TYPES.PURCHASE_SUCCESSFULL_WITH_SEATS);
+              _v4 && _v4.onPurchaseSuccess && _v4.purchaseSeatModalLocation && (_v4.onPurchaseSuccess(_v0), _v11(_v39.makeMembershipCall[_v4.purchaseSeatModalLocation])), _v10(_v2.isFreeTrial ? _v31.NOTICE_TYPES.ADDED_SEATS_SUCCESSFULLY : _v31.NOTICE_TYPES.PURCHASE_SUCCESSFULL_WITH_SEATS);
             },
             onPurchaseFailure: _v4?.onPurchaseFailure,
             onClose: () => {
               _v12({
-                action_type: _v36.BillingActionTypes.CLICK,
-                location: _v36.BillingActionLocations.CLOSE_PURCHASE_SEATS_MODAL_BUTTON
+                action_type: _v37.BillingActionTypes.CLICK,
+                location: _v37.BillingActionLocations.CLOSE_PURCHASE_SEATS_MODAL_BUTTON
               }), _v8({
                 currentModalInDisplay: null,
                 data: {
@@ -129,17 +133,19 @@
             triggeredFrom: _v4?.purchaseSeatModalLocation
           });
         }
-      case _v37.TeamManagementModals.UNASSIGN_MEMBER_CONFIRM_MODAL:
+      case _v38.TeamManagementModals.UNASSIGN_MEMBER_CONFIRM_MODAL:
         {
           let _v0 = () => _v8({
             currentModalInDisplay: null
           });
-          return _v4 && _v4.onClose && _v4.onClose(), (0, _v2.jsx)(_v33.default, {
-            active: _v3 === _v37.TeamManagementModals.UNASSIGN_MEMBER_CONFIRM_MODAL,
+          return _v4 && _v4.onClose && _v4.onClose(), (0, _v2.jsx)(_v34.default, {
+            active: _v3 === _v38.TeamManagementModals.UNASSIGN_MEMBER_CONFIRM_MODAL,
             onClose: _v0,
             name: _v4?.removeMemberName || "",
             removeMember: () => {
-              _v4 && _v4.deleteFromTeam && (_v4.deleteFromTeam(), _v9(1), _v4.removeMemberRole !== _v37.TeamRole.Viewer && _v7(_v1 + 1), _v0());
+              _v4 && _v4.deleteFromTeam && (_v4.deleteFromTeam(), _v9(1), _v4.removeMemberRole !== _v38.TeamRole.Viewer && _v7(_v1 + 1), _v15.enable_content_space_team_gate && 1 === _v5.currentTeamSize ? _v8({
+                currentModalInDisplay: _v38.TeamManagementModals.BACK_ON_YOUR_OWN_MODAL
+              }) : _v0());
             },
             removeMemberRole: _v4?.removeMemberRole,
             teamName: _v5.teamData.teamName ?? _v5.owner.name,
@@ -147,13 +153,13 @@
             isLastCollaborator: 1 === _v5.currentTeamSize
           });
         }
-      case _v37.TeamManagementModals.ADD_TO_FOLDERS_MODAL:
+      case _v38.TeamManagementModals.ADD_TO_FOLDERS_MODAL:
         {
           let _v0 = _v5.teamData.ownerId || _v0?.teamUser?.ownerId || 0;
           return (0, _v2.jsx)(_v26.AddToFoldersModal, {
             teamOwnerId: _v0,
             selectedTeamMembers: _v4.teamMembersToShareFolders || [],
-            isOpen: _v3 === _v37.TeamManagementModals.ADD_TO_FOLDERS_MODAL,
+            isOpen: _v3 === _v38.TeamManagementModals.ADD_TO_FOLDERS_MODAL,
             onSuccess: () => {
               _v8({
                 currentModalInDisplay: null
@@ -167,17 +173,17 @@
                     copy: "Cancel"
                   }
                 }
-              }) || (0, _v35.sendOverflowExitShareModalEvent)(_v0?.teamUser, _v0), _v8({
+              }) || (0, _v36.sendOverflowExitShareModalEvent)(_v0?.teamUser, _v0), _v8({
                 currentModalInDisplay: null
               });
             }
           });
         }
-      case _v37.TeamManagementModals.MANAGE_LEARNER_ID:
+      case _v38.TeamManagementModals.MANAGE_LEARNER_ID:
         {
           let _v0 = _v4.ownerId || _v5.teamData.ownerId || _v0?.teamUser?.ownerId || 0,
             _v1 = _v4.lmsUserEmail || "";
-          return (0, _v2.jsx)(_v28.ManageLearnerModal, {
+          return (0, _v2.jsx)(_v29.ManageLearnerModal, {
             onClose: () => {
               _v8({
                 currentModalInDisplay: null
@@ -187,12 +193,30 @@
             lmsUserEmail: _v1
           });
         }
+      case _v38.TeamManagementModals.BACK_ON_YOUR_OWN_MODAL:
+        {
+          let _v0 = _v0?.teamUser?.ownerId ?? _v0?.user?.id;
+          if (!_v0 || !_v0) return null;
+          let _v1 = {
+            apiUrl: _v0.apiUrl,
+            jwt: _v0.jwt,
+            ownerId: _v0
+          };
+          return (0, _v2.jsx)(_v28.BackOnYourOwnModal, {
+            isOpen: _v3 === _v38.TeamManagementModals.BACK_ON_YOUR_OWN_MODAL,
+            apiConfig: _v1,
+            onClose: () => _v8({
+              currentModalInDisplay: null
+            }),
+            onMerged: () => window.location.reload()
+          });
+        }
     }
     return null;
   });
-  var _v40 = _v0.i(0),
-    _v41 = _v0.i(0);
-  let _v42 = function (_v0, _v1 = 0) {
+  var _v41 = _v0.i(0),
+    _v42 = _v0.i(0);
+  let _v43 = function (_v0, _v1 = 0) {
       if (null === _v0) return null;
       if (0 === _v0) return "0";
       _v1 = !_v1 || _v1 < 0 ? 0 : _v1;
@@ -201,16 +225,16 @@
         _v4 = _v3 < 1 ? parseFloat(_v0.toFixed(0 + _v1)) : parseFloat((_v0 / Math.pow(10, 3 * _v3)).toFixed(1 + _v1));
       return (_v4 < 0 ? _v4 : Math.abs(_v4)) + ["", "k", "m", "b", "t"][_v3];
     },
-    _v43 = _v0 => {
+    _v44 = _v0 => {
       let _v1 = _v0.substring(_v0.lastIndexOf("/") + 1);
-      return _v36.TAB_IDS[_v1] ? _v36.TAB_IDS[_v1] : _v36.TAB_IDS.settings;
+      return _v37.TAB_IDS[_v1] ? _v37.TAB_IDS[_v1] : _v37.TAB_IDS.settings;
     },
-    _v44 = {
+    _v45 = {
       height: (0, _v8.rem)(28),
       margin: `${(0, _v8.rem)(6)} 0`,
       borderRadius: (0, _v8.rem)(10)
     },
-    _v45 = ({
+    _v46 = ({
       children: _v0,
       ..._v1
     }) => (0, _v21.useIsBokeh)() ? (0, _v2.jsx)(_v7.Badge, {
@@ -258,7 +282,7 @@
           hasViewReviewPagePrivacyTeamSetting: _v14
         },
         teamInfo: _v15
-      } = (0, _v4.useContext)(_v34.ManageTeamStateCtx),
+      } = (0, _v4.useContext)(_v35.ManageTeamStateCtx),
       {
         data: _v16
       } = (0, _v22.useGetMePreferences)({
@@ -278,10 +302,10 @@
       } = (0, _v20.useContentSpaceEnabled)(_v19),
       {
         trackManageTeamPageView: _v21
-      } = (0, _v4.useContext)(_v34.ManageTeamAnalytics),
+      } = (0, _v4.useContext)(_v35.ManageTeamAnalytics),
       {
         updateTeamInfoTeamMembersCount: _v22
-      } = (0, _v4.useContext)(_v34.ManageTeamDispatchCtx),
+      } = (0, _v4.useContext)(_v35.ManageTeamDispatchCtx),
       _v23 = (0, _v3.useRouter)(),
       {
         selectedTab: _v24
@@ -289,10 +313,10 @@
         let {
             pathname: _v0
           } = (0, _v3.useRouter)(),
-          _v1 = _v43(_v0),
+          _v1 = _v44(_v0),
           [_v2, _v3] = (0, _v4.useState)(_v1);
         return (0, _v4.useEffect)(() => {
-          _v3(_v43(_v0));
+          _v3(_v44(_v0));
         }, [_v0]), {
           selectedTab: _v2
         };
@@ -307,7 +331,7 @@
         sub_feature: _v24
       });
     }, [_v24, _v2, _v15?.owner?.uri]);
-    let _v25 = 2 + +!!_v11 + (_v10 && _v15.untranslatedUserRole === _v37.TeamRole.Owner ? 1 : 0) + +!!_v7,
+    let _v25 = 2 + +!!_v11 + (_v10 && _v15.untranslatedUserRole === _v38.TeamRole.Owner ? 1 : 0) + +!!_v7,
       {
         count: _v26
       } = (0, _v24.useGetTeamGroupsCount)(_v19),
@@ -324,7 +348,7 @@
           listStyleType: "none",
           children: (0, _v2.jsx)(_v25.MenuItem, {
             icon: (0, _v2.jsx)(_v14.ArrowLeft, {}),
-            label: _v41.T.BackToHome,
+            label: _v42.T.BackToHome,
             active: !1,
             dataId: "manage_team_side_nav_home_menu_item",
             onClick: () => _v23.push("/")
@@ -332,10 +356,10 @@
         })
       }), (0, _v2.jsx)(_v18.ResizableSideNav.Divider, {}), (0, _v2.jsx)(_v18.ResizableSideNav.Section, {
         children: (0, _v2.jsx)(_v18.ResizableSideNav.MenuItems, {
-          children: (_v10 ? _v15.untranslatedUserRole === _v37.TeamRole.Owner ? _v13 && (_v3 || _v1 || _v0 || _v2) : _v1 || _v2 : _v2) ? (0, _v2.jsx)(_v2.Fragment, {
+          children: (_v10 ? _v15.untranslatedUserRole === _v38.TeamRole.Owner ? _v13 && (_v3 || _v1 || _v0 || _v2) : _v1 || _v2 : _v2) ? (0, _v2.jsx)(_v2.Fragment, {
             children: [...Array(_v25)].map((_v0, _v1) => (0, _v2.jsx)(_v19.LoadingBlock, {
               style: {
-                ..._v44,
+                ..._v45,
                 width: "70%"
               }
             }, _v1))
@@ -345,13 +369,13 @@
               listStyleType: "none",
               children: (0, _v2.jsx)(_v25.MenuItem, {
                 icon: (0, _v2.jsx)(_v9.PersonUserAdd, {}),
-                label: `${_v41.T.Members}`,
-                active: _v24 === _v36.TAB_IDS.members,
+                label: `${_v42.T.Members}`,
+                active: _v24 === _v37.TAB_IDS.members,
                 dataId: "manage_team_side_nav_members_menu_item",
-                onClick: () => _v27(_v36.TAB_IDS.members),
-                action: (0, _v2.jsx)(_v45, {
+                onClick: () => _v27(_v37.TAB_IDS.members),
+                action: (0, _v2.jsx)(_v46, {
                   size: "sm",
-                  children: _v42(_v15.currentTeamSize)
+                  children: _v43(_v15.currentTeamSize)
                 })
               })
             }), _v11 && (0, _v2.jsx)(_v6.Box, {
@@ -359,17 +383,17 @@
               listStyleType: "none",
               children: (0, _v2.jsx)(_v25.MenuItem, {
                 icon: (0, _v2.jsx)(_v13.Users, {}),
-                label: `${_v41.T.Groups}`,
-                active: _v24 === _v36.TAB_IDS.groups,
+                label: `${_v42.T.Groups}`,
+                active: _v24 === _v37.TAB_IDS.groups,
                 dataId: "manage_team_side_nav_groups_menu_item",
                 onClick: () => {
-                  _v27(_v36.TAB_IDS.groups), _v5.GoogleTagManager.trackEvent(_v40.GTMEvent.SWITCH_TAB, {
-                    tab_type: _v40.TAB_NAME.GROUP
+                  _v27(_v37.TAB_IDS.groups), _v5.GoogleTagManager.trackEvent(_v41.GTMEvent.SWITCH_TAB, {
+                    tab_type: _v41.TAB_NAME.GROUP
                   });
                 },
-                action: _v26 ? (0, _v2.jsx)(_v45, {
+                action: _v26 ? (0, _v2.jsx)(_v46, {
                   size: "sm",
-                  children: _v42(_v26)
+                  children: _v43(_v26)
                 }) : void 0
               })
             }), (_v10 ? !_v2 && !_v1 : !_v2) && (0, _v2.jsx)(_v6.Box, {
@@ -377,12 +401,12 @@
               listStyleType: "none",
               children: (0, _v2.jsx)(_v25.MenuItem, {
                 icon: (0, _v2.jsx)(_v17.InfoCircle, {}),
-                label: _v41.T.Basics,
-                active: _v24 === _v36.TAB_IDS.branding || _v24 === _v36.TAB_IDS.basics,
+                label: _v42.T.Basics,
+                active: _v24 === _v37.TAB_IDS.branding || _v24 === _v37.TAB_IDS.basics,
                 dataId: "manage_team_side_nav_branding_menu_item",
                 onClick: () => {
-                  _v27(_v36.TAB_IDS.basics), _v5.GoogleTagManager.trackEvent(_v40.GTMEvent.SWITCH_TAB, {
-                    tab_type: _v40.TAB_NAME.SETTING
+                  _v27(_v37.TAB_IDS.basics), _v5.GoogleTagManager.trackEvent(_v41.GTMEvent.SWITCH_TAB, {
+                    tab_type: _v41.TAB_NAME.SETTING
                   });
                 }
               })
@@ -391,11 +415,11 @@
               listStyleType: "none",
               children: (0, _v2.jsx)(_v25.MenuItem, {
                 icon: (0, _v2.jsx)(_v10.LogoBrand, {}),
-                label: _v41.T.Brandkits,
-                active: _v24 === _v36.TAB_IDS["brand-kits"],
+                label: _v42.T.Brandkits,
+                active: _v24 === _v37.TAB_IDS["brand-kits"],
                 dataId: "manage_team_side_nav_brandkits_menu_item",
                 onClick: () => {
-                  _v27(_v36.TAB_IDS["brand-kits"]);
+                  _v27(_v37.TAB_IDS["brand-kits"]);
                 }
               })
             }), _v6 && _v18.show_custom_metadata && (0, _v2.jsx)(_v6.Box, {
@@ -403,23 +427,23 @@
               listStyleType: "none",
               children: (0, _v2.jsx)(_v25.MenuItem, {
                 icon: (0, _v2.jsx)(_v11.CreateVideo, {}),
-                label: _v41.T.CustomMetadata,
-                active: _v24 === _v36.TAB_IDS["custom-metadata"],
+                label: _v42.T.CustomMetadata,
+                active: _v24 === _v37.TAB_IDS["custom-metadata"],
                 dataId: "manage_team_side_nav_custom_metadata_menu_item",
                 onClick: () => {
-                  _v27(_v36.TAB_IDS["custom-metadata"]);
+                  _v27(_v37.TAB_IDS["custom-metadata"]);
                 }
               })
-            }), _v13 && _v12 && _v15.untranslatedUserRole === _v37.TeamRole.Owner && (0, _v2.jsx)(_v6.Box, {
+            }), _v13 && _v12 && _v15.untranslatedUserRole === _v38.TeamRole.Owner && (0, _v2.jsx)(_v6.Box, {
               as: "li",
               listStyleType: "none",
               children: (0, _v2.jsx)(_v25.MenuItem, {
                 icon: (0, _v2.jsx)(_v12.CreditCard, {}),
-                label: _v41.T.Billing,
-                active: _v24 === _v36.TAB_IDS.billing,
+                label: _v42.T.Billing,
+                active: _v24 === _v37.TAB_IDS.billing,
                 dataId: "manage_team_side_nav_billing_menu_item",
                 onClick: () => {
-                  _v27(_v36.TAB_IDS.billing);
+                  _v27(_v37.TAB_IDS.billing);
                 }
               })
             }), (_v7 || _v5 || _v20 || _v9 || _v14) && (0, _v2.jsx)(_v6.Box, {
@@ -427,30 +451,30 @@
               listStyleType: "none",
               children: (0, _v2.jsx)(_v25.MenuItem, {
                 icon: (0, _v2.jsx)(_v15.SettingsGear, {}),
-                label: _v41.T.Settings,
-                active: _v24 === _v36.TAB_IDS.settings,
+                label: _v42.T.Settings,
+                active: _v24 === _v37.TAB_IDS.settings,
                 dataId: "manage_team_side_nav_settings_menu_item",
-                onClick: () => _v27(_v36.TAB_IDS.settings)
+                onClick: () => _v27(_v37.TAB_IDS.settings)
               })
             }), _v8 && !_v17 && (0, _v2.jsx)(_v6.Box, {
               as: "li",
               listStyleType: "none",
               children: (0, _v2.jsx)(_v25.MenuItem, {
                 icon: (0, _v2.jsx)(_v16.AiSparkles, {}),
-                label: _v41.T.ManageAi,
-                active: _v24 === _v36.TAB_IDS["manage-ai"],
+                label: _v42.T.ManageAi,
+                active: _v24 === _v37.TAB_IDS["manage-ai"],
                 dataId: "manage_team_side_nav_manage_ai_menu_item",
-                onClick: () => _v27(_v36.TAB_IDS["manage-ai"])
+                onClick: () => _v27(_v37.TAB_IDS["manage-ai"])
               })
             })]
           })
         })
-      }), (0, _v2.jsx)(_v39, {})]
+      }), (0, _v2.jsx)(_v40, {})]
     });
   }], 0);
-  var _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  let _v48 = _v46.default.div.withConfig({
+  var _v47 = _v0.i(0),
+    _v48 = _v0.i(0);
+  let _v49 = _v47.default.div.withConfig({
     displayName: "Spinner__SpinnerWrapper",
     componentId: "sc-f09c4d20-0"
   })`
@@ -460,9 +484,9 @@
   text-align: center;
   height: 100vh;
 `;
-  _v0.s(["Spinner", 0, () => (0, _v2.jsx)(_v48, {
-    children: (0, _v2.jsx)(_v47.Spinner, {})
+  _v0.s(["Spinner", 0, () => (0, _v2.jsx)(_v49, {
+    children: (0, _v2.jsx)(_v48.Spinner, {})
   })], 0);
-  var _v49 = ((_v1 = {}).TEAM_SEATS_UPGRADE = "team_seats_upgrade", _v1.UPGRADE_ADD_TEAM = "368ip_mt_add_team", _v1);
-  _v0.s(["MKCCodes", () => _v49], 0);
+  var _v50 = ((_v1 = {}).TEAM_SEATS_UPGRADE = "team_seats_upgrade", _v1.UPGRADE_ADD_TEAM = "368ip_mt_add_team", _v1);
+  _v0.s(["MKCCodes", () => _v50], 0);
 }

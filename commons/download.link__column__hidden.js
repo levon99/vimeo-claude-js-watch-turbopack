@@ -1204,7 +1204,7 @@
               name: _v65()
             });
           }
-        }), _v5 && (0, _v1.jsx)(_v74, {
+        }), void 0 !== _v5 && (0, _v1.jsx)(_v74, {
           disabled: !_v5 || _v12,
           onClick: () => {
             if (_v74) return void _v75();
@@ -1224,9 +1224,10 @@
               if (_v0.video) {
                 let {
                   allowedPrivacies: _v0,
-                  password: _v1,
-                  uri: _v2,
-                  isCopyrightRestricted: _v3
+                  isColdStorage: _v1,
+                  password: _v2,
+                  uri: _v3,
+                  isCopyrightRestricted: _v4
                 } = _v0.video;
                 return {
                   privacy: {
@@ -1236,9 +1237,10 @@
                     view: _v0.video.privacy?.view || ""
                   },
                   allowedPrivacies: _v0,
-                  uri: _v2,
-                  password: _v1,
-                  isCopyrightRestricted: _v3
+                  uri: _v3,
+                  isColdStorage: _v1,
+                  password: _v2,
+                  isCopyrightRestricted: _v4
                 };
               }
             }).filter(_v78);
@@ -1355,7 +1357,7 @@
             }));
           }
         }), _v6 && (0, _v1.jsx)(_v76, {
-          disabled: !_v6,
+          disabled: !_v5 || _v7,
           label: (0, _v34.translate)({
             singular: "China access",
             dictionary: {

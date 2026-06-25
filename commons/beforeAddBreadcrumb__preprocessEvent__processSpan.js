@@ -4493,7 +4493,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "769bc7cc5592823f520e591cc48f7b7a862ef8c1",
+      release: "ba7000092aacfadfc33493ce705b16ac30b59d06",
       ..._v0
     };
     !function (_v0) {
@@ -4588,16 +4588,43 @@ Error:`, _v0);
           if (_v0.startsWith("app:///") && !_v0.includes("_next/static") && _v1) return null;
         }
       }
-      if (_v0.exception?.values?.[0]?.type === "UnhandledRejection" && void 0 === _v1.originalException) {
-        let _v0 = document.querySelector("[data-ready]");
+      if (_v0.exception?.values?.[0]?.type === "UnhandledRejection" && void 0 === _v1.originalException) try {
+        let _v0 = document.querySelector("[data-ready]"),
+          _v1 = null,
+          _v2 = document.querySelector("video");
+        if (_v2) {
+          let _v0 = null;
+          try {
+            _v0 = _v2.currentSrc && new URL(_v2.currentSrc).hostname || null;
+          } catch {
+            _v0 = null;
+          }
+          _v1 = {
+            readyState: _v2.readyState,
+            networkState: _v2.networkState,
+            errorCode: _v2.error?.code ?? null,
+            paused: _v2.paused,
+            currentTime: Math.round(_v2.currentTime),
+            duration: Number.isFinite(_v2.duration) ? Math.round(_v2.duration) : null,
+            srcHost: _v0
+          };
+        }
+        let _v3 = _v0.breadcrumbs ?? [],
+          _v4 = _v3.filter(_v0 => ("xhr" === _v0.category || "fetch" === _v0.category) && _v0.data?.status_code === 0).length,
+          _v5 = document.activeElement;
         _v0.extra = {
           ..._v0.extra,
           timeSincePageLoadMs: Math.round(performance.now()),
           dataReady: _v0?.getAttribute("data-ready") ?? null,
           url: window.location.href,
-          breadcrumbCount: _v0.breadcrumbs?.length ?? 0
+          breadcrumbCount: _v3.length,
+          videoState: _v1,
+          failedRequestBreadcrumbs: _v4,
+          online: navigator.onLine,
+          visibilityState: document.visibilityState,
+          activeElement: _v5 ? `${_v5.tagName.toLowerCase()}${_v5.id ? `#${_v5.id}` : ""}` : null
         };
-      }
+      } catch {}
       return _v0;
     }
   }), _v0.s(["onRouterTransitionStart", 0, function (_v0, _v1) {

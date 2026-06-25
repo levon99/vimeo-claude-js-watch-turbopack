@@ -673,7 +673,7 @@
       };
     }, [_v0]), (0, _v8.useEffect)(() => {
       _v12 && (_v12.play && _v0 ? _v12.play()?.catch(_v0 => {
-        if (_v0?.name !== "AbortError") throw _v0;
+        if (_v0 && "AbortError" !== _v0.name) throw _v0;
       }) : _v12.pause && !_v12.paused && _v12.pause());
     }, [_v0, _v12]), (0, _v8.useEffect)(() => {
       _v6(_v0), _v12 && (_v12.muted = !_v0);
@@ -685,7 +685,7 @@
       }, 100),
       _v14 = () => {
         _v12 && (_v12.paused ? (_v12.play()?.catch(_v0 => {
-          if (_v0?.name !== "AbortError") throw _v0;
+          if (_v0 && "AbortError" !== _v0.name) throw _v0;
         }), _v6(!0)) : (_v12.pause(), _v6(!1)));
       };
     return (0, _v8.useEffect)(() => () => {

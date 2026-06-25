@@ -37,7 +37,7 @@
     href: _v0.showUpsell && _v2 ? "/upgrade" : void 0,
     target: "_blank",
     display: "flex",
-    gap: (0, _v22.rem)(6),
+    gap: (0, _v22.rem)(12),
     flexGrow: 1,
     alignItems: "center",
     variant: "secondary",
@@ -86,7 +86,7 @@
     onlyView: _v4,
     variant: _v5 = "default"
   }) => (0, _v1.jsxs)(_v20.Center, {
-    gap: (0, _v22.rem)(6),
+    gap: (0, _v22.rem)(12),
     pl: _v4 ? "0" : "md",
     pr: _v4 ? "0" : "sm",
     py: "sm",

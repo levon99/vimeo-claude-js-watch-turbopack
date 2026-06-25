@@ -1,7 +1,6 @@
 {
   "use strict";
 
-  _v0.i(0), _v0.i(0);
   var _v1 = _v0.i(0);
   _v0.s(["setCacheHeaders", 0, (_v0, _v1, {
     ttl: _v2 = 0,

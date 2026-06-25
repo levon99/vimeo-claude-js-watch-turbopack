@@ -231,10 +231,10 @@
         space: _v11
       } = _v5,
       _v12 = null != _v5.restricted,
-      _v13 = _v12 ? _v5.restricted.used : _v11.used,
-      _v14 = _v12 ? _v5.restricted.max : _v11.max,
-      _v15 = _v10.period ?? "week",
-      _v16 = _v12 ? _v5.restricted.unit ?? "video_size" : _v11.unit ?? "video_size",
+      _v13 = _v12 ? _v5.restricted.used : _v11?.used,
+      _v14 = _v12 ? _v5.restricted.max : _v11?.max,
+      _v15 = _v10?.period ?? "week",
+      _v16 = _v12 ? _v5.restricted.unit ?? "video_size" : _v11?.unit ?? "video_size",
       _v17 = _v14 ? (_v13 ?? 0) / _v14 : 0,
       _v18 = Math.round(100 * _v17),
       _v19 = "variant" === (_v0 ? _v8(_v0, _v13 ?? 0) : null) || _v17 > 2 / 3,
@@ -243,10 +243,10 @@
       _v22 = (0, _v4.useMemo)(() => ({
         product: "Upload",
         location: _v17 >= 1 ? "at_limit_quota_widget" : _v19 ? "approaching_limit_quota_widget" : "quota_widget",
-        upsell: _v12 || "lifetime" === _v11.showing ? "total_quota" : "weekly_quota",
-        weekly_quota_percent_used: _v12 ? null : _v26(_v10.used) && _v26(_v10.max) ? _v25(_v10.used, _v10.max) : null,
-        total_quota_percent_used: _v12 ? _v26(_v13) && _v26(_v14) ? _v25(_v13, _v14) : null : _v26(_v9.used) && _v26(_v9.max) ? _v25(_v9.used, _v9.max) : null
-      }), [_v14, _v13, _v9.max, _v9.used, _v10.max, _v10.used, _v17, _v19, _v11.showing, _v12]),
+        upsell: _v12 || _v11?.showing === "lifetime" ? "total_quota" : "weekly_quota",
+        weekly_quota_percent_used: _v12 ? null : _v26(_v10?.used) && _v26(_v10?.max) ? _v25(_v10.used, _v10.max) : null,
+        total_quota_percent_used: _v12 ? _v26(_v13) && _v26(_v14) ? _v25(_v13, _v14) : null : _v26(_v9?.used) && _v26(_v9?.max) ? _v25(_v9.used, _v9.max) : null
+      }), [_v14, _v13, _v9, _v10, _v17, _v19, _v11, _v12]),
       _v23 = (0, _v4.useMemo)(() => ({
         text: _v19 ? (0, _v9.translate)({
           singular: "Upgrade",
@@ -480,7 +480,7 @@
             })
           })]
         }) : (0, _v1.jsxs)(_v1.Fragment, {
-          children: [!!_v10.max && (0, _v1.jsxs)(_v31, {
+          children: [!!_v10?.max && (0, _v1.jsxs)(_v31, {
             children: [((_v0, _v1, _v2) => {
               switch (_v0) {
                 case "lifetime":
@@ -620,7 +620,7 @@
                 children: `${_v28(_v10.used, _v16)} of ${_v28(_v10.max, _v16)}`
               })
             })]
-          }), !!_v9.max && (0, _v1.jsxs)(_v31, {
+          }), !!_v9?.max && (0, _v1.jsxs)(_v31, {
             hasTotalStorageCap: _v4,
             children: [(0, _v9.translate)({
               singular: "Total",
@@ -1559,7 +1559,7 @@
             children: (0, _v1.jsx)(_v45, {
               used: _v23,
               max: _v24 ?? 1 / 0,
-              period: _v22 ? "lifetime" : "periodic" === _v20.space.showing ? _v20.periodic.period ?? "week" : "lifetime",
+              period: _v22 ? "lifetime" : _v20.space?.showing === "periodic" ? _v20.periodic?.period ?? "week" : "lifetime",
               unit: _v25 ?? "video_size",
               mood: _v27,
               textVariant: "ratio",

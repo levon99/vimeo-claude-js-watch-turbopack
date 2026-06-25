@@ -1875,6 +1875,32 @@
           }
         }
       }),
+      changeAccount: (0, _v6.translate)({
+        singular: "Change account",
+        dictionary: {
+          es: {
+            singular: "Cambiar cuenta"
+          },
+          "de-DE": {
+            singular: "Konto wechseln"
+          },
+          "fr-FR": {
+            singular: "Changer de compte"
+          },
+          "ja-JP": {
+            singular: "アカウントを変更"
+          },
+          "ko-KR": {
+            singular: "계정 변경"
+          },
+          "pt-BR": {
+            singular: "Mudar conta"
+          },
+          "zh-CN": {
+            singular: "更改账户"
+          }
+        }
+      }),
       changeColor: (0, _v6.translate)({
         singular: "Change color",
         dictionary: {
@@ -2390,35 +2416,6 @@
           },
           "zh-CN": {
             singular: "此场景中的 {TYPE} 已被替换。每个场景可以包含一个视频或一组幻灯片。"
-          }
-        }
-      }),
-      connectedToGoogleAs: _v0 => (0, _v6.translate)({
-        replacements: {
-          NAME: _v0
-        },
-        singular: "Connected as {NAME}",
-        dictionary: {
-          es: {
-            singular: "Conectado como {NAME}"
-          },
-          "de-DE": {
-            singular: "Verbunden als {NAME}"
-          },
-          "fr-FR": {
-            singular: "Connecté en tant que {NAME}"
-          },
-          "ja-JP": {
-            singular: "接続中：{NAME}"
-          },
-          "ko-KR": {
-            singular: "{NAME}로 연결됨"
-          },
-          "pt-BR": {
-            singular: "Conectado como {NAME}"
-          },
-          "zh-CN": {
-            singular: "已以 {NAME} 身份连接"
           }
         }
       }),
@@ -4382,6 +4379,52 @@
           },
           "zh-CN": {
             singular: "开始直播并自动录制"
+          }
+        }
+      }),
+      googleAccountLabel: _v0 => (0, _v6.translate)({
+        replacements: {
+          NAME: _v0
+        },
+        singular: "Account: {NAME}",
+        dictionary: {
+          es: {
+            singular: "Cuenta: {NAME}"
+          },
+          "de-DE": {
+            singular: "Konto: {NAME}"
+          },
+          "fr-FR": {
+            singular: "Compte : {NAME}"
+          },
+          "ja-JP": {
+            singular: "アカウント: {NAME}"
+          },
+          "ko-KR": {
+            singular: "계정: {NAME}"
+          },
+          "pt-BR": {
+            singular: "Conta: {NAME}"
+          },
+          "zh-CN": {
+            singular: "账户: {NAME}"
+          }
+        }
+      }),
+      googleSlides: (0, _v6.translate)({
+        singular: "Google Slides",
+        dictionary: {
+          "de-DE": {
+            singular: "Google Präsentationen"
+          },
+          "ja-JP": {
+            singular: "Google スライド"
+          },
+          "ko-KR": {
+            singular: "Google 슬라이드"
+          },
+          "zh-CN": {
+            singular: "Google 幻灯片"
           }
         }
       }),
@@ -7704,6 +7747,32 @@
           },
           "zh-CN": {
             singular: "移除"
+          }
+        }
+      }),
+      removeAccount: (0, _v6.translate)({
+        singular: "Remove account",
+        dictionary: {
+          es: {
+            singular: "Eliminar cuenta"
+          },
+          "de-DE": {
+            singular: "Konto entfernen"
+          },
+          "fr-FR": {
+            singular: "Supprimer le compte"
+          },
+          "ja-JP": {
+            singular: "アカウントを削除"
+          },
+          "ko-KR": {
+            singular: "계정 제거"
+          },
+          "pt-BR": {
+            singular: "Remover conta"
+          },
+          "zh-CN": {
+            singular: "移除账户"
           }
         }
       }),

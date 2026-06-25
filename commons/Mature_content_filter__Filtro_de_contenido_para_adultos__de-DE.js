@@ -81,7 +81,15 @@
   _v0.s(["MatureContentModal", 0, _v31], 0);
   var _v32 = _v0.i(0);
   let _v33 = {
-      ICON: (0, _v1.jsx)(_v32.HeartFilled, {
+      ICON: (0, _v1.jsx)(_v0 => (0, _v1.jsx)(_v32.Icon, {
+        viewBox: "0 0 24 24",
+        ..._v0,
+        fill: "none",
+        children: (0, _v1.jsx)("path", {
+          d: "M20.8 5.3c-2.1-2.8-6-3.4-8.8-1.3-2.5-1.8-6-1.6-8.2.6-2.4 2.4-2.4 6.4 0 8.9l7.5 7.5c.2.2.4.3.7.3.3 0 .5-.1.7-.3l7.5-7.5c2.2-2.2 2.4-5.7.6-8.2Z",
+          fill: "currentColor"
+        })
+      }), {
         color: "red.500",
         marginX: "xs"
       }, "heart-filled")

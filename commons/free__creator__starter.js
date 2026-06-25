@@ -3260,7 +3260,7 @@
           isOpen: _v26,
           closeOnOverlayClick: !_v3,
           onClose: () => {
-            _v30();
+            _v14.length > 0 && (_v15([]), _v0?.()), _v30();
           },
           children: [!_v3 && (0, _v1.jsx)(_v10.ModalOverlay, {}), (0, _v1.jsx)(_v9.ModalContent, {
             maxW: (0, _v3.rem)(500),

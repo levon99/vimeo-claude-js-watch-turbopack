@@ -1602,10 +1602,19 @@
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
     _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0);
-  let _v47 = [{
+    _v44 = _v0.i(0);
+  let _v45 = _v0 => (0, _v1.jsx)(_v44.Icon, {
+    viewBox: "0 0 24 24",
+    ..._v0,
+    fill: "none",
+    children: (0, _v1.jsx)("path", {
+      d: "M11.29 11.46a1.002 1.002 0 0 0 1.42 0l3-3A1.018 1.018 0 1 0 14.29 7L12 9.34 9.71 7a1.018 1.018 0 0 0-1.42 1.46l3 3Zm3 1.08L12 14.84l-2.29-2.3A1.018 1.018 0 1 0 8.29 14l3 3a1.002 1.002 0 0 0 1.42 0l3-3a1.004 1.004 0 1 0-1.42-1.42v-.04Z",
+      fill: "currentColor"
+    })
+  });
+  var _v46 = _v0.i(0),
+    _v47 = _v0.i(0);
+  let _v48 = [{
       label: _v30.All,
       value: _v28.All,
       applied: !1
@@ -1626,8 +1635,8 @@
       value: _v28.NotInvited,
       applied: !1
     }],
-    _v48 = () => Error("Not implemented"),
-    _v49 = () => ({
+    _v49 = () => Error("Not implemented"),
+    _v50 = () => ({
       teamDetails: null,
       teamMembers: [],
       isTeamDetailsLoading: !1,
@@ -1653,35 +1662,35 @@
         previous: null
       },
       perPage: 8,
-      fetchTeamDetails: _v48,
-      fetchTeamMembers: _v48,
-      updateSearchQuery: _v48,
-      updateSort: _v48,
-      updateDirection: _v48,
-      updateStatusFilter: _v48,
-      updateCurrentPage: _v48,
-      removeTeamMemberAccess: _v48,
-      setShowError: _v48,
-      showToastMessage: _v48,
-      resendTeamMemberInvite: _v48,
-      allowAccess: _v48,
-      disconnectTeam: _v48
+      fetchTeamDetails: _v49,
+      fetchTeamMembers: _v49,
+      updateSearchQuery: _v49,
+      updateSort: _v49,
+      updateDirection: _v49,
+      updateStatusFilter: _v49,
+      updateCurrentPage: _v49,
+      removeTeamMemberAccess: _v49,
+      setShowError: _v49,
+      showToastMessage: _v49,
+      resendTeamMemberInvite: _v49,
+      allowAccess: _v49,
+      disconnectTeam: _v49
     }),
-    _v50 = (0, _v2.createContext)(_v49());
-  _v0.s(["ManageTeamContext", 0, _v50, "STATUSES_FILTER_DEFAULT", 0, _v47, "initalContext", 0, _v49], 0);
-  let _v51 = () => (0, _v1.jsxs)(_v9.Flex, {
+    _v51 = (0, _v2.createContext)(_v50());
+  _v0.s(["ManageTeamContext", 0, _v51, "STATUSES_FILTER_DEFAULT", 0, _v48, "initalContext", 0, _v50], 0);
+  let _v52 = () => (0, _v1.jsxs)(_v9.Flex, {
       justifyContent: "space-between",
       alignItems: "center",
       paddingY: (0, _v4.rem)(8),
       paddingX: (0, _v4.rem)(4),
       fontWeight: "bold",
       "data-id": "teamListHeader",
-      children: [(0, _v1.jsx)(_v52, {
+      children: [(0, _v1.jsx)(_v53, {
         label: _v30.Name,
         sortField: "name"
-      }), (0, _v1.jsx)(_v53, {})]
+      }), (0, _v1.jsx)(_v54, {})]
     }),
-    _v52 = ({
+    _v53 = ({
       label: _v0,
       sortField: _v1
     }) => {
@@ -1689,7 +1698,7 @@
         sort: _v2,
         updateSort: _v3,
         updateDirection: _v4
-      } = (0, _v2.useContext)(_v50);
+      } = (0, _v2.useContext)(_v51);
       return (0, _v1.jsx)(_v24.Button, {
         "data-testid": "media-library-direction-filter-button",
         variant: "tertiary",
@@ -1697,12 +1706,12 @@
           let _v0 = "asc" === _v2.direction ? "desc" : "asc";
           _v3(_v1), _v4(_v0);
         },
-        rightIcon: _v2.type !== _v1 ? (0, _v1.jsx)(_v44.DoubleChevronDownSmall, {}) : "asc" === _v2.direction ? (0, _v1.jsx)(_v46.ChevronUpSmall, {}) : (0, _v1.jsx)(_v45.ChevronDownSmall, {}),
+        rightIcon: _v2.type !== _v1 ? (0, _v1.jsx)(_v45, {}) : "asc" === _v2.direction ? (0, _v1.jsx)(_v47.ChevronUpSmall, {}) : (0, _v1.jsx)(_v46.ChevronDownSmall, {}),
         fontWeight: "medium",
         children: _v0
       });
     },
-    _v53 = () => {
+    _v54 = () => {
       let _v0 = (0, _v2.useRef)(null),
         [_v1, _v2] = (0, _v2.useState)(!1);
       (0, _v17.useOutsideClick)({
@@ -1714,8 +1723,8 @@
       let {
           statusFilter: _v3,
           updateStatusFilter: _v4
-        } = (0, _v2.useContext)(_v50),
-        _v5 = _v47.reduce((_v0, _v1) => _v1.value === _v3 ? _v1.label : _v0, "");
+        } = (0, _v2.useContext)(_v51),
+        _v5 = _v48.reduce((_v0, _v1) => _v1.value === _v3 ? _v1.label : _v0, "");
       return (0, _v1.jsxs)(_v39.Popover, {
         placement: "bottom-end",
         size: "lg",
@@ -1723,7 +1732,7 @@
         children: [(0, _v1.jsx)(_v41.PopoverTrigger, {
           children: (0, _v1.jsx)(_v24.Button, {
             variant: "tertiary",
-            rightIcon: _v1 ? (0, _v1.jsx)(_v46.ChevronUpSmall, {}) : (0, _v1.jsx)(_v45.ChevronDownSmall, {}),
+            rightIcon: _v1 ? (0, _v1.jsx)(_v47.ChevronUpSmall, {}) : (0, _v1.jsx)(_v46.ChevronDownSmall, {}),
             borderRadius: "md",
             onClick: () => _v2(!_v1),
             fontWeight: "medium",
@@ -1737,7 +1746,7 @@
             width: (0, _v4.rem)(172),
             children: (0, _v1.jsx)(_v42.VStack, {
               gap: (0, _v4.rem)(0),
-              children: _v47.map(_v0 => {
+              children: _v48.map(_v0 => {
                 let _v1 = _v3 === _v0.value;
                 return (0, _v1.jsx)(_v24.Button, {
                   variant: _v1 ? "secondary" : "tertiary",
@@ -1757,7 +1766,7 @@
         })]
       });
     },
-    _v54 = ({
+    _v55 = ({
       children: _v0
     }) => (0, _v1.jsxs)(_v9.Flex, {
       padding: `${(0, _v4.rem)(15)} ${(0, _v4.rem)(20)}`,
@@ -1785,8 +1794,8 @@
         })]
       }), _v0]
     }),
-    _v55 = () => (0, _v1.jsx)("div", {
-      children: [...Array(8)].map((_v0, _v1) => (0, _v1.jsx)(_v54, {
+    _v56 = () => (0, _v1.jsx)("div", {
+      children: [...Array(8)].map((_v0, _v1) => (0, _v1.jsx)(_v55, {
         children: (0, _v1.jsx)(_v6.Skeleton, {
           display: "flex",
           width: (0, _v4.rem)(150),
@@ -1794,11 +1803,11 @@
         })
       }, _v1))
     });
-  var _v56 = _v0.i(0),
-    _v57 = _v0.i(0),
+  var _v57 = _v0.i(0),
     _v58 = _v0.i(0),
-    _v59 = _v0.i(0);
-  let _v60 = ({
+    _v59 = _v0.i(0),
+    _v60 = _v0.i(0);
+  let _v61 = ({
       copyInviteLink: _v0,
       hideDisconnectTeam: _v1
     }) => {
@@ -1811,11 +1820,11 @@
           updateSearchQuery: _v7,
           fetchTeamMembers: _v8,
           disconnectTeam: _v9
-        } = (0, _v2.useContext)(_v50),
+        } = (0, _v2.useContext)(_v51),
         [_v10, _v11] = (0, _v2.useState)(!1);
       return (0, _v2.useEffect)(() => {
-        1 !== _v4.length && (_v61.cancel(), _v61(_v4, _v8));
-      }, [_v4, _v3]), (0, _v1.jsxs)(_v57.HStack, {
+        1 !== _v4.length && (_v62.cancel(), _v62(_v4, _v8));
+      }, [_v4, _v3]), (0, _v1.jsxs)(_v58.HStack, {
         justifyContent: "space-between",
         alignItems: "center",
         borderBottom: `${(0, _v4.rem)(1)} solid`,
@@ -1830,7 +1839,7 @@
               fill: "text-primary"
             }
           },
-          children: (0, _v1.jsx)(_v58.Search, {
+          children: (0, _v1.jsx)(_v59.Search, {
             variant: "minimal",
             p: "4",
             borderRadius: "md",
@@ -1849,12 +1858,12 @@
               marginLeft: (0, _v4.rem)(20)
             }
           })
-        }), (0, _v1.jsxs)(_v57.HStack, {
+        }), (0, _v1.jsxs)(_v58.HStack, {
           justifyContent: "space-between",
           alignItems: "center",
           children: [(0, _v1.jsx)(_v24.Button, {
             isDisabled: !_v5 || !_v6,
-            leftIcon: (0, _v1.jsx)(_v59.Link, {
+            leftIcon: (0, _v1.jsx)(_v60.Link, {
               boxSize: "2xs"
             }),
             onClick: _v0,
@@ -1900,31 +1909,31 @@
         })]
       });
     },
-    _v61 = (0, _v56.default)((_v0, _v1, _v2) => {
+    _v62 = (0, _v57.default)((_v0, _v1, _v2) => {
       !(_v0.length < 1) && (_v1(), _v2 && _v2());
     }, 500);
-  var _v62 = _v0.i(0),
-    _v63 = _v0.i(0),
+  var _v63 = _v0.i(0),
     _v64 = _v0.i(0),
     _v65 = _v0.i(0),
     _v66 = _v0.i(0),
     _v67 = _v0.i(0),
-    _v68 = _v0.i(0);
-  let _v69 = _v0 => ({
+    _v68 = _v0.i(0),
+    _v69 = _v0.i(0);
+  let _v70 = _v0 => ({
       field_value: _v0,
       integration_name: "Microsoft Teams",
       field_name: "user_id"
     }),
-    _v70 = (0, _v63.buildViewBpContext)({
+    _v71 = (0, _v64.buildViewBpContext)({
       feature: null,
       view_type: "impression"
     }),
-    _v71 = (0, _v64.buildActionBpContext)({
+    _v72 = (0, _v65.buildActionBpContext)({
       feature: null,
       action_type: "click"
     }),
-    _v72 = (_v0, _v1) => {
-      let _v2 = (0, _v65.buildThirdPartyIntegrationBpContext)({
+    _v73 = (_v0, _v1) => {
+      let _v2 = (0, _v66.buildThirdPartyIntegrationBpContext)({
           is_partner: !0,
           integration_name: "Microsoft Teams",
           is_integration: !0,
@@ -1933,7 +1942,7 @@
           integration_type: "oauth",
           partner_bucket: "Autoarchive"
         }),
-        _v3 = (0, _v67.buildProductAnalyticsBpContext)({
+        _v3 = (0, _v68.buildProductAnalyticsBpContext)({
           product: "integrations",
           copy: _v1,
           element: "button",
@@ -1941,33 +1950,33 @@
           feature: "integrations_settings",
           device_type: "desktop"
         }),
-        _v4 = (0, _v68.buildTeamBpContext)({
+        _v4 = (0, _v69.buildTeamBpContext)({
           is_team_member: !0,
           team_owner_id: _v0
         }),
-        _v5 = (0, _v66.buildWebBpContext)({
+        _v5 = (0, _v67.buildWebBpContext)({
           page_name: "integration_settings_page",
           location: null,
           path: window.location.pathname,
           referrer_page_name: "integration_settings_page"
         });
       return {
+        ..._v72,
         ..._v71,
-        ..._v70,
         ..._v3,
         ..._v5,
         ..._v2,
         ..._v4
       };
     },
-    _v73 = (_v0, _v1) => {
-      let _v2 = _v72(_v1, "resend invite"),
-        _v3 = _v69(_v0);
-      (0, _v62.sendBpEventWithContexts)("vimeo.integration_resend_onboarding_invite", _v2, 2, {
+    _v74 = (_v0, _v1) => {
+      let _v2 = _v73(_v1, "resend invite"),
+        _v3 = _v70(_v0);
+      (0, _v63.sendBpEventWithContexts)("vimeo.integration_resend_onboarding_invite", _v2, 2, {
         ..._v3
       });
     },
-    _v74 = () => (0, _v1.jsx)(_v6.Skeleton, {
+    _v75 = () => (0, _v1.jsx)(_v6.Skeleton, {
       display: "flex",
       width: (0, _v4.rem)(150),
       height: (0, _v4.rem)(40)
@@ -1997,7 +2006,7 @@
         removeTeamMemberAccess: _v19,
         allowAccess: _v20,
         resendTeamMemberInvite: _v21
-      } = (0, _v2.useContext)(_v50),
+      } = (0, _v2.useContext)(_v51),
       _v22 = (0, _v8.useToast)();
     return (0, _v2.useEffect)(() => {
       _v12 && !_v22.isActive(_v12) && _v22({
@@ -2015,14 +2024,14 @@
         border: `${(0, _v4.rem)(1)} solid`,
         borderColor: "stroke",
         bgColor: "fill-surface",
-        children: [(0, _v1.jsx)(_v60, {
+        children: [(0, _v1.jsx)(_v61, {
           copyInviteLink: () => (() => {
             if (_v6) try {
               var _v0, _v1;
               let _v0,
                 _v1,
                 _v2 = _v4?.userInviteUrl ?? "";
-              (0, _v10.default)(_v2), _v0 = String(_v3), _v1 = Number(_v2), _v0 = _v72(_v1, "copy invite link"), _v1 = _v69(_v0), (0, _v62.sendBpEventWithContexts)("vimeo.integration_copy_onboarding_link", _v0, 2, {
+              (0, _v10.default)(_v2), _v0 = String(_v3), _v1 = Number(_v2), _v0 = _v73(_v1, "copy invite link"), _v1 = _v70(_v0), (0, _v63.sendBpEventWithContexts)("vimeo.integration_copy_onboarding_link", _v0, 2, {
                 ..._v1
               }), _v18(_v30.Copied);
             } catch (_v0) {
@@ -2030,7 +2039,7 @@
             }
           })(),
           hideDisconnectTeam: _v0
-        }), (0, _v1.jsx)(_v51, {}), _v10.length > 0 && 0 === _v6 && (0, _v1.jsx)(_v9.Flex, {
+        }), (0, _v1.jsx)(_v52, {}), _v10.length > 0 && 0 === _v6 && (0, _v1.jsx)(_v9.Flex, {
           alignItems: "center",
           justifyContent: "center",
           padding: `${(0, _v4.rem)(20)} ${(0, _v4.rem)(200)}`,
@@ -2068,7 +2077,7 @@
             item: _v1,
             children: (0, _v1.jsx)(_v9.Flex, {
               alignItems: "center",
-              children: _v0.isLoading ? (0, _v1.jsx)(_v74, {}) : (0, _v1.jsxs)(_v9.Flex, {
+              children: _v0.isLoading ? (0, _v1.jsx)(_v75, {}) : (0, _v1.jsxs)(_v9.Flex, {
                 gap: "2",
                 children: [(0, _v1.jsx)(_v38, {
                   teamMember: _v0
@@ -2096,7 +2105,7 @@
               })
             })
           }, _v0.userId);
-        }), _v8 && (0, _v1.jsx)(_v55, {})]
+        }), _v8 && (0, _v1.jsx)(_v56, {})]
       }), _v6 > 8 && (0, _v1.jsx)(_v3.Box, {
         py: "6",
         mx: "auto",
@@ -2114,30 +2123,10 @@
       })]
     });
   }], 0);
-  var _v75 = _v0.i(0),
-    _v76 = _v0.i(0),
+  var _v76 = _v0.i(0),
     _v77 = _v0.i(0),
-    _v78 = _v0.i(0);
-  async function _v79({
-    baseUrl: _v0,
-    where: {
-      userId: _v1,
-      teamUserId: _v2
-    },
-    ..._v3
-  }) {
-    return (0, _v77.measureLatency)("putUserAutoArchiveMsTeamsTeamUser", "PUT", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v1}/auto_archive/ms_teams/team_users/${_v2}/`, {
-        ..._v3,
-        method: "PUT"
-      });
-      if (!_v0.ok) throw new _v78.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v78.deepCamelCase)(_v1);
-    });
-  }
+    _v78 = _v0.i(0),
+    _v79 = _v0.i(0);
   async function _v80({
     baseUrl: _v0,
     where: {
@@ -2146,19 +2135,39 @@
     },
     ..._v3
   }) {
-    return (0, _v77.measureLatency)("deleteUserAutoArchiveMsTeamsTeamUser", "DELETE", async () => {
+    return (0, _v78.measureLatency)("putUserAutoArchiveMsTeamsTeamUser", "PUT", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v1}/auto_archive/ms_teams/team_users/${_v2}/`, {
+        ..._v3,
+        method: "PUT"
+      });
+      if (!_v0.ok) throw new _v79.NetworkError("A network error occurred", _v0.status, _v0);
+      if (204 === _v0.status) return null;
+      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
+      let _v1 = await _v0.json();
+      return (0, _v79.deepCamelCase)(_v1);
+    });
+  }
+  async function _v81({
+    baseUrl: _v0,
+    where: {
+      userId: _v1,
+      teamUserId: _v2
+    },
+    ..._v3
+  }) {
+    return (0, _v78.measureLatency)("deleteUserAutoArchiveMsTeamsTeamUser", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/users/${_v1}/auto_archive/ms_teams/team_users/${_v2}/`, {
         ..._v3,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v78.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v79.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v78.deepCamelCase)(_v1);
+      return (0, _v79.deepCamelCase)(_v1);
     });
   }
-  let _v81 = {
+  let _v82 = {
       Remove: "remove",
       Allow: "allow",
       Resend: "resend",
@@ -2166,7 +2175,7 @@
       FetchTeamMembers: "fetch_team_members",
       FetchTeamDetails: "fetch_team_details"
     },
-    _v82 = {
+    _v83 = {
       UpdateTeamMemberCancel: "UpdateTeamMemberCancel",
       NotificationForOwnerAdmin: "NotificationForOwnerAdmin",
       UpdateSort: "UpdateSort",
@@ -2185,8 +2194,8 @@
       FetchTeamDetailsInit: "FetchTeamDetailsInit",
       FetchTeamDetailsFailure: "FetchTeamDetailsFailure"
     };
-  _v0.s(["ActionErrorType", 0, _v81, "ManageTeamActionTypes", 0, _v82], 0);
-  let _v83 = {
+  _v0.s(["ActionErrorType", 0, _v82, "ManageTeamActionTypes", 0, _v83], 0);
+  let _v84 = {
       NotificationForOwnerAdmin: (_v0, _v1) => {
         if (!_v1.payload) throw Error("No payload!");
         let _v2 = _v1.payload.notification;
@@ -2353,8 +2362,8 @@
         hasFetchedTeamDetails: !1
       })
     },
-    _v84 = (_v0, _v1) => {
-      let _v2 = _v83[_v1.type];
+    _v85 = (_v0, _v1) => {
+      let _v2 = _v84[_v1.type];
       return _v2 ? _v2(_v0, _v1) : _v0;
     };
   _v0.s(["ManageTeamProvider", 0, ({
@@ -2371,22 +2380,22 @@
       _v9,
       _v10,
       _v11 = (0, _v2.useContext)(_v11.ViewerContext),
-      [_v12, _v13] = (0, _v2.useReducer)(_v84, _v49()),
+      [_v12, _v13] = (0, _v2.useReducer)(_v85, _v50()),
       _v14 = (_v1 = (0, _v2.useCallback)(_v0 => {
         _v13({
-          type: _v82.NotificationForOwnerAdmin,
+          type: _v83.NotificationForOwnerAdmin,
           payload: {
             notification: _v0
           }
         }), setTimeout(() => _v13({
-          type: _v82.NotificationForOwnerAdmin,
+          type: _v83.NotificationForOwnerAdmin,
           payload: {
             notification: null
           }
         }), 0);
       }, [_v13]), _v2 = (0, _v2.useCallback)(_v0 => {
         _v13({
-          type: _v82.UpdateShowError,
+          type: _v83.UpdateShowError,
           payload: {
             showError: _v0
           }
@@ -2394,7 +2403,7 @@
       }, [_v13]), _v3 = (0, _v2.useCallback)((_v0, _v1, _v2) => {
         let _v3 = _v0?.status === 401 ? _v29.UNAUTHORIZED : _v0?.status === 404 ? _v29.NOT_FOUND : null;
         _v1(_v1), _v13({
-          type: _v82.SetErrorType,
+          type: _v83.SetErrorType,
           payload: {
             errorType: _v3,
             actionErrorType: _v2
@@ -2410,10 +2419,10 @@
           _v4 = _v1.teamUser?.ownerId ?? _v1.user?.id;
         try {
           _v13({
-            type: _v82.FetchTeamDetailsInit,
+            type: _v83.FetchTeamDetailsInit,
             payload: !0
           });
-          let _v0 = await (0, _v76.getUserAutoArchiveMsTeams)({
+          let _v0 = await (0, _v77.getUserAutoArchiveMsTeams)({
             baseUrl: `//${_v2}`,
             headers: {
               Authorization: `jwt ${_v3}`,
@@ -2425,14 +2434,14 @@
             select: ["status", "teamOwnerId", "msTeamsEncryptedTeamId", "userInviteUrl"]
           });
           _v13({
-            type: _v82.FetchTeamDetailsComplete,
+            type: _v83.FetchTeamDetailsComplete,
             payload: {
               teamDetails: _v0
             }
           });
         } catch (_v0) {
-          _v3(_v0, _v30.PleaseTryAgain, _v81.FetchTeamDetails), _v13({
-            type: _v82.FetchTeamDetailsFailure,
+          _v3(_v0, _v30.PleaseTryAgain, _v82.FetchTeamDetails), _v13({
+            type: _v83.FetchTeamDetailsFailure,
             payload: {
               error: _v0
             }
@@ -2466,10 +2475,10 @@
           };
         try {
           _v13({
-            type: _v82.FetchTeamMembersInit,
+            type: _v83.FetchTeamMembersInit,
             payload: !0
           });
-          let _v0 = await (0, _v75.getTeamAutoArchive)({
+          let _v0 = await (0, _v76.getTeamAutoArchive)({
             baseUrl: `//${_v2}`,
             headers: {
               Authorization: `jwt ${_v3}`,
@@ -2482,13 +2491,13 @@
             query: _v11
           });
           _v13({
-            type: _v82.FetchTeamMembersComplete,
+            type: _v83.FetchTeamMembersComplete,
             payload: {
               teamMembers: _v0
             }
           });
         } catch (_v0) {
-          _v3(_v0, _v30.PleaseTryAgain, _v81.FetchTeamMembers);
+          _v3(_v0, _v30.PleaseTryAgain, _v82.FetchTeamMembers);
         }
       }, [_v13, _v3, _v12, _v11]), _v6 = async _v0 => {
         let _v1 = _v0 || _v11;
@@ -2516,7 +2525,7 @@
             perPage: _v10,
             sort: _v7
           },
-          _v12 = await (0, _v75.getTeamAutoArchive)({
+          _v12 = await (0, _v76.getTeamAutoArchive)({
             baseUrl: `//${_v3}`,
             headers: {
               Authorization: `jwt ${_v4}`,
@@ -2529,7 +2538,7 @@
             query: _v11
           });
         _v13({
-          type: _v82.FetchTeamMembersComplete,
+          type: _v83.FetchTeamMembersComplete,
           payload: {
             teamMembers: _v12
           }
@@ -2540,13 +2549,13 @@
         if (!_v3 || !_v3.user || !_v2) return;
         let _v4 = _v3.teamUser?.ownerId ?? _v3.user?.id;
         _v13({
-          type: _v82.RemoveTeamMemberAccessInit,
+          type: _v83.RemoveTeamMemberAccessInit,
           payload: !0
         });
         try {
           var _v5, _v6;
           let _v0, _v1;
-          await _v80({
+          await _v81({
             baseUrl: `//${_v3.apiUrl}`,
             headers: {
               Authorization: `jwt ${_v3.jwt}`,
@@ -2558,12 +2567,12 @@
               userId: Number(_v4),
               teamUserId: _v1?.teamUserId
             }
-          }), _v5 = String(_v1.userId), _v6 = Number(_v4), _v0 = _v72(_v6, "remove access"), _v1 = _v69(_v5), (0, _v62.sendBpEventWithContexts)("vimeo.integration_remove_access", _v0, 2, {
+          }), _v5 = String(_v1.userId), _v6 = Number(_v4), _v0 = _v73(_v6, "remove access"), _v1 = _v70(_v5), (0, _v63.sendBpEventWithContexts)("vimeo.integration_remove_access", _v0, 2, {
             ..._v1
           }), _v1(_v30.AccessRemoved), await _v6(_v3);
         } catch (_v0) {
-          _v3(_v0, _v30.PleaseTryAgain, _v81.Remove), _v13({
-            type: _v82.UpdateTeamMemberCancel,
+          _v3(_v0, _v30.PleaseTryAgain, _v82.Remove), _v13({
+            type: _v83.UpdateTeamMemberCancel,
             payload: {
               teamMember: _v1
             }
@@ -2574,7 +2583,7 @@
         if (!_v2) throw Error("No viewer");
         let _v3 = _v2.teamUser?.ownerId ?? _v2.user?.id;
         try {
-          await _v79({
+          await _v80({
             baseUrl: `//${_v2.apiUrl}`,
             headers: {
               Authorization: `jwt ${_v2.jwt}`,
@@ -2586,10 +2595,10 @@
               userId: Number(_v3),
               teamUserId: _v1.teamUserId
             }
-          }), _v73(String(_v1.userId), Number(_v3)), _v1(_v30.InviteSent), await _v6(_v2);
+          }), _v74(String(_v1.userId), Number(_v3)), _v1(_v30.InviteSent), await _v6(_v2);
         } catch (_v0) {
-          _v3(_v0, _v30.PleaseTryAgain, _v81.Resend), _v13({
-            type: _v82.UpdateTeamMemberCancel,
+          _v3(_v0, _v30.PleaseTryAgain, _v82.Resend), _v13({
+            type: _v83.UpdateTeamMemberCancel,
             payload: {
               teamMember: _v1
             }
@@ -2600,7 +2609,7 @@
         if (!_v2) throw Error("No viewer");
         let _v3 = _v2.teamUser?.ownerId ?? _v2.user?.id;
         try {
-          await _v79({
+          await _v80({
             baseUrl: `//${_v2.apiUrl}`,
             headers: {
               Authorization: `jwt ${_v2.jwt}`,
@@ -2612,10 +2621,10 @@
               userId: Number(_v3),
               teamUserId: _v1.teamUserId
             }
-          }), _v73(String(_v1.userId), Number(_v3)), _v1(_v30.InviteSent), await _v6(_v2);
+          }), _v74(String(_v1.userId), Number(_v3)), _v1(_v30.InviteSent), await _v6(_v2);
         } catch (_v0) {
-          _v3(_v0, _v30.PleaseTryAgain, _v81.Allow), _v13({
-            type: _v82.UpdateTeamMemberCancel,
+          _v3(_v0, _v30.PleaseTryAgain, _v82.Allow), _v13({
+            type: _v83.UpdateTeamMemberCancel,
             payload: {
               teamMember: _v1
             }
@@ -2626,7 +2635,7 @@
         if (!_v1) throw Error("No viewer");
         try {
           let _v0 = _v1.teamUser?.ownerId ?? _v1.user?.id;
-          await (0, _v75.deleteTeamAutoArchive)({
+          await (0, _v76.deleteTeamAutoArchive)({
             baseUrl: `//${_v1.apiUrl}`,
             headers: {
               Authorization: `jwt ${_v1.jwt}`,
@@ -2639,13 +2648,13 @@
             }
           }), _v1(_v30.Disconnected), window.location.href = "/settings/apps";
         } catch (_v0) {
-          _v3(_v0, _v30.PleaseTryAgain, _v81.Disconnect);
+          _v3(_v0, _v30.PleaseTryAgain, _v82.Disconnect);
         }
       }, {
         fetchTeamMembers: _v5,
         updateSearchQuery: _v0 => {
           _v13({
-            type: _v82.UpdateSearchQuery,
+            type: _v83.UpdateSearchQuery,
             payload: {
               searchQuery: _v0
             }
@@ -2653,7 +2662,7 @@
         },
         updateSort: _v0 => {
           _v13({
-            type: _v82.UpdateSort,
+            type: _v83.UpdateSort,
             payload: {
               sort: _v0
             }
@@ -2661,7 +2670,7 @@
         },
         updateDirection: _v0 => {
           _v13({
-            type: _v82.UpdateDirection,
+            type: _v83.UpdateDirection,
             payload: {
               direction: _v0
             }
@@ -2669,7 +2678,7 @@
         },
         updateStatusFilter: _v0 => {
           _v13({
-            type: _v82.UpdateStatusesFilter,
+            type: _v83.UpdateStatusesFilter,
             payload: {
               statusFilter: _v0
             }
@@ -2677,7 +2686,7 @@
         },
         updateCurrentPage: _v0 => {
           _v13({
-            type: _v82.UpdateCurrentPage,
+            type: _v83.UpdateCurrentPage,
             payload: {
               currentPage: _v0
             }
@@ -2691,7 +2700,7 @@
         disconnectTeam: _v10,
         fetchTeamDetails: _v4
       });
-    return (0, _v1.jsx)(_v50.Provider, {
+    return (0, _v1.jsx)(_v51.Provider, {
       value: {
         ..._v12,
         ..._v14

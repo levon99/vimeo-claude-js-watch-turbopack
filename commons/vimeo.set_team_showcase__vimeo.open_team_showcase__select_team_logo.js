@@ -313,7 +313,9 @@
     status: _v11.AccountStatus[(0, _v4.default)(String(_v0.status))],
     tier: _v11.Tier[(0, _v5.default)(String(_v0.tier).replaceAll("_", " ")).replaceAll(" ", "")],
     billingAddress: _v0.billingAddress ? {
-      ..._v0.billingAddress
+      ..._v0.billingAddress,
+      line1: _v0.billingAddress.line1 ?? _v0.billingAddress.line_1,
+      line2: _v0.billingAddress.line2 ?? _v0.billingAddress.line_2
     } : void 0,
     billingPeriod: _v11.UserPlanType[(0, _v4.default)(String(_v0.billingPeriod))],
     isImpactedByGermanConsumerLaw: _v0?.isImpactedByGermanConsumerLaw,

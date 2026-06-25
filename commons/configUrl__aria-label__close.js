@@ -93,7 +93,7 @@
           portrait: 0,
           byline: 0
         }), _v3.play()?.catch(_v0 => {
-          if (_v0?.name !== "AbortError") throw _v0;
+          if (_v0 && "AbortError" !== _v0.name) throw _v0;
         });
       }), () => {
         _v3 && _v3.destroy && _v3.destroy();

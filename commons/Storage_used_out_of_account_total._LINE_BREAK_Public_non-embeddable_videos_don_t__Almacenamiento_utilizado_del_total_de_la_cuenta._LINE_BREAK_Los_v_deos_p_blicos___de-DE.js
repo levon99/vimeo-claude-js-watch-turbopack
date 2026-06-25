@@ -1092,13 +1092,13 @@
     compact: _v9
   }) => {
     let _v10 = null != _v2.restricted,
-      _v11 = (_v10 ? _v2.restricted?.max : _v2.periodic.max) ?? null,
-      _v12 = _v10 ? null : _v2.periodic.period ?? null,
-      _v13 = (_v10 ? _v2.restricted?.used : _v2.periodic.used) ?? null,
-      _v14 = (_v10 ? _v2.restricted?.used : _v2.lifetime.used) ?? null,
-      _v15 = (_v10 ? _v2.restricted?.max : _v2.lifetime.max) ?? null,
-      _v16 = (_v10 ? _v2.restricted?.free : _v2.lifetime.free) ?? null,
-      _v17 = _v10 ? _v2.restricted?.unit : _v2.periodic.unit || _v2.lifetime?.unit || null;
+      _v11 = (_v10 ? _v2.restricted?.max : _v2.periodic?.max) ?? null,
+      _v12 = _v10 ? null : _v2.periodic?.period ?? null,
+      _v13 = (_v10 ? _v2.restricted?.used : _v2.periodic?.used) ?? null,
+      _v14 = (_v10 ? _v2.restricted?.used : _v2.lifetime?.used) ?? null,
+      _v15 = (_v10 ? _v2.restricted?.max : _v2.lifetime?.max) ?? null,
+      _v16 = (_v10 ? _v2.restricted?.free : _v2.lifetime?.free) ?? null,
+      _v17 = _v10 ? _v2.restricted?.unit : _v2.periodic?.unit || _v2.lifetime?.unit || null;
     return (0, _v1.jsx)(_v26, {
       isMobile: _v0,
       onUpgradeClick: _v1,
@@ -1111,7 +1111,7 @@
       quotaPeriod: _v12,
       lifetimeUnit: _v17,
       periodicUnit: _v17,
-      resetDate: _v2.periodic.resetDate ?? "",
+      resetDate: _v2.periodic?.resetDate ?? "",
       isWorkspaceAdminUser: _v5,
       totalRemaining: _v16,
       showProgressBar: !_v5,

@@ -32,21 +32,30 @@
       let _v4 = _v0,
         _v5 = !1;
       if ("string" == typeof _v0.uri && ((_v3 = _v0.uri) === _v1 || _v11.test(_v3) && _v11.test(_v1) && (0, _v8.idFromUri)(_v3) === (0, _v8.idFromUri)(_v1))) {
-        let _v0 = _v10(_v0.privacy) ? _v0.privacy : {};
-        _v0.view !== _v2.privacy && (_v4 = {
-          ..._v4,
-          privacy: {
+        let _v0 = _v10(_v0.privacy) ? _v0.privacy : {},
+          _v1 = {
             ..._v0,
-            view: _v2.privacy
-          }
-        }, _v5 = !0);
-        let _v1 = _v2.password,
-          _v2 = _v0.password,
-          _v3 = null === _v1 && null != _v2,
-          _v4 = "string" == typeof _v1 && _v1 !== _v2;
-        (_v3 || _v4) && (_v4 = {
+            ...(void 0 !== _v2.privacy ? {
+              view: _v2.privacy
+            } : {}),
+            ...(void 0 !== _v2.embed ? {
+              embed: _v2.embed
+            } : {})
+          };
+        (_v1.view !== _v0.view || _v1.embed !== _v0.embed) && (_v4 = {
           ..._v4,
-          password: _v1
+          privacy: _v1
+        }, _v5 = !0);
+        let _v2 = _v2.password,
+          _v3 = _v0.password,
+          _v4 = null === _v2 && null != _v3,
+          _v5 = "string" == typeof _v2 && _v2 !== _v3;
+        (_v4 || _v5) && (_v4 = {
+          ..._v4,
+          password: _v2
+        }, _v5 = !0), void 0 !== _v2.isColdStorage && _v0.isColdStorage !== _v2.isColdStorage && (_v4 = {
+          ..._v4,
+          isColdStorage: _v2.isColdStorage
         }, _v5 = !0);
       }
       for (let [_v0, _v1] of Object.entries(_v4)) {
@@ -79,7 +88,11 @@
       return Promise.all(_v9.map(_v0 => _v0(_v0, _v2, !1)));
     }, [_v0]);
   }
-  _v0.s(["useRevalidateVideoListCaches", 0, function () {
+  _v0.s(["shouldClearColdStorageLock", 0, ({
+    isColdStorage: _v0,
+    privacy: _v1,
+    embed: _v2
+  }) => !0 === _v0 && "anybody" === _v1 && "private" === _v2, "useRevalidateVideoListCaches", 0, function () {
     let _v0 = (0, _v7.useMatchMutate)();
     return (0, _v3.useCallback)(() => Promise.all(_v9.map(_v0 => _v0(_v0, void 0, !0))), [_v0]);
   }, "useUpdateVideoPrivacyCache", 0, _v13], 0);

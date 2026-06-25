@@ -202,7 +202,8 @@
           partial: _v0.partial,
           cited_qty: _v0.citedQty,
           latency_ms: _v0.latencyMs,
-          error_message: _v0.errorMessage
+          error_message: _v0.errorMessage,
+          summary: _v0.summary
         });
       }, [_v0]),
       _v24 = (0, _v1.useCallback)(_v0 => {

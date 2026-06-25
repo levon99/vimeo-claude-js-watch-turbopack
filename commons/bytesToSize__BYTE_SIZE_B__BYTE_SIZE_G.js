@@ -3,7 +3,7 @@
 
   var _v1 = _v0.i(0);
   _v0.s(["bytesToSize", 0, (_v0, _v1 = 0) => {
-    if (null === _v0) return "";
+    if (null === _v0 || isNaN(_v0 = Number(_v0))) return "";
     let _v2 = 0;
     for (_v2 = 0; _v0 >= 0 && _v2 < 4; _v2++) _v0 /= 0;
     let _v3 = ["B", "KB", "MB", "GB", "TB"][_v2];
