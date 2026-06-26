@@ -7,9 +7,10 @@
     _v4 = _v0.i(0),
     _v5 = _v0.i(0),
     _v6 = _v0.i(0),
-    _v7 = _v0.i(0);
-  let _v8 = _v7.createGlobalStyle`
-  ${_v0 => _v0.isBokeh && _v7.css`
+    _v7 = _v0.i(0),
+    _v8 = _v0.i(0);
+  let _v9 = _v8.createGlobalStyle`
+  ${_v0 => _v0.isBokeh && _v8.css`
       #teamInfo,
       #profile_dropdown .invite-members-button {
         align-items: center;
@@ -163,49 +164,49 @@
       }
     `}
 `,
-    _v9 = (0, _v2.default)(async () => ({
+    _v10 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).ContentFilterModal
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v10 = (0, _v2.default)(async () => ({
+    _v11 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).LanguageSelectModal
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v11 = (0, _v2.default)(() => _v0.A(0), {
+    _v12 = (0, _v2.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v12 = (0, _v2.default)(async () => ({
+    _v13 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).StartYourTeamFlow
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v13 = (0, _v2.default)(async () => ({
+    _v14 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).ManagedAccountsInviteFlow
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v14 = (0, _v2.default)(async () => ({
+    _v15 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).PromoPopup
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v15 = _v0 => {
+    _v16 = _v0 => {
       let _v1 = (0, _v4.useIsBokeh)(),
-        _v2 = (0, _v6.useViewer)(),
+        _v2 = (0, _v7.useViewer)(),
         [_v3, _v4] = (0, _v3.useState)(null),
         [_v5, _v6] = (0, _v3.useState)("navbar"),
         _v7 = _v2?.teamUser?.ownerId ?? _v2?.user?.id,
@@ -215,6 +216,7 @@
           ownerId: _v7
         } : void 0,
         _v9 = (0, _v3.useCallback)(() => {
+          (0, _v6.clearPostSurveyRedirect)();
           let _v0 = _v2?.xsrft;
           fetch("/log_out", {
             method: "POST",
@@ -230,23 +232,23 @@
           });
         }, [_v2?.xsrft]);
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v8, {
+        children: [(0, _v1.jsx)(_v9, {
           isBokeh: _v1
         }), _v0.children({
           setModal: _v4
-        }), _v2?.contentViewingPrefs && (0, _v1.jsx)(_v9, {
+        }), _v2?.contentViewingPrefs && (0, _v1.jsx)(_v10, {
           active: "content_viewing_prefs" === _v3,
           activeSet: _v0 => _v4(_v0),
           token: _v2.xsrft,
           contentViewingPrefs: _v2.contentViewingPrefs
-        }), "language" === _v3 && _v2 && (0, _v1.jsx)(_v10, {
+        }), "language" === _v3 && _v2 && (0, _v1.jsx)(_v11, {
           active: !0,
           activeSet: _v0 => _v4(_v0),
           locale: _v2.locale,
           locales: _v2.locales,
           localeLabels: _v2.localeLabels,
           token: _v2.xsrft
-        }), "upsell" === _v3 && (0, _v1.jsx)(_v11, {
+        }), "upsell" === _v3 && (0, _v1.jsx)(_v12, {
           apiUrl: _v2?.apiUrl,
           onClose: () => _v4(null),
           templateType: "default",
@@ -272,17 +274,17 @@
           modalConfig: {
             mkcCode: "unified-top-nav-legacy"
           }
-        }), "start_your_team" === _v3 && _v8 && (0, _v1.jsx)(_v12, {
+        }), "start_your_team" === _v3 && _v8 && (0, _v1.jsx)(_v13, {
           isOpen: !0,
           apiConfig: _v8,
           defaultTeamName: _v2?.user?.name ?? "",
           onClose: () => _v4(null)
-        }), "add_client_account" === _v3 && (0, _v1.jsx)(_v13, {
+        }), "add_client_account" === _v3 && (0, _v1.jsx)(_v14, {
           ctaSource: _v5,
           onClose: () => {
             _v4(null), _v6("navbar");
           }
-        }), "logout_promo" === _v3 && (0, _v1.jsx)(_v14, {
+        }), "logout_promo" === _v3 && (0, _v1.jsx)(_v15, {
           isOpen: !0,
           onClose: _v9,
           onCtaClick: () => {
@@ -291,7 +293,7 @@
         })]
       });
     },
-    _v16 = (0, _v2.default)(async () => {
+    _v17 = (0, _v2.default)(async () => {
       let {
         AccountMenu: _v0
       } = await _v0.A(0);
@@ -306,10 +308,10 @@
   _v0.s(["AccountMenuWithModals", 0, ({
     hasThemeSupport: _v0 = !0,
     onConfirmTeamSwitch: _v1
-  }) => (0, _v1.jsx)(_v15, {
+  }) => (0, _v1.jsx)(_v16, {
     children: ({
       setModal: _v0
-    }) => (0, _v1.jsx)(_v16, {
+    }) => (0, _v1.jsx)(_v17, {
       setModal: _v0 => _v0(_v0),
       hasThemeSupport: _v0,
       onConfirmTeamSwitch: _v1

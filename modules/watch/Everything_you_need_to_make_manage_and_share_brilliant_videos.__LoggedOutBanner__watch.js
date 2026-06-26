@@ -13,25 +13,26 @@
     _v10 = _v0.i(0),
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
-    _v13 = _v0.i(0);
-  let _v14 = "Everything you need to make, manage, and share brilliant videos.";
+    _v13 = _v0.i(0),
+    _v14 = _v0.i(0);
+  let _v15 = "Everything you need to make, manage, and share brilliant videos.";
   _v0.s(["LoggedOutBanner", 0, ({
-    bpData: _v0 = _v13.staffPicksBpValues,
+    bpData: _v0 = _v14.staffPicksBpValues,
     page: _v1 = "watch"
   }) => {
     let _v2 = (0, _v2.useRef)(!1),
       _v3 = (0, _v2.useRef)(!1),
       [_v4, _v5] = (0, _v8.default)("watch-banner", !1),
-      _v6 = (0, _v12.useViewer)(),
+      _v6 = (0, _v13.useViewer)(),
       _v7 = (0, _v10.usePico)(),
       {
         trackLoggedOutBannerDisplayed: _v8,
         trackLoggedOutBannerCtaClicked: _v9
       } = (0, _v11.useWatchTracking)();
     return ((0, _v2.useEffect)(() => {
-      _v4 || _v2.current || (_v2.current = !0, (0, _v13.trackLoggedOutBannerEvent)({
+      _v4 || _v2.current || (_v2.current = !0, (0, _v14.trackLoggedOutBannerEvent)({
         eventType: "impression",
-        copy: _v14,
+        copy: _v15,
         ..._v0
       }));
     }, [_v4, _v6, _v0]), (0, _v2.useEffect)(() => {
@@ -89,13 +90,13 @@
         })
       }), (0, _v1.jsx)(_v3.Button, {
         onClick: () => {
-          (0, _v13.trackLoggedOutBannerEvent)({
+          (0, _v14.trackLoggedOutBannerEvent)({
             eventType: "click",
-            copy: _v14,
+            copy: _v15,
             ..._v0
           }), _v9({
             page: _v1
-          }), window.location.href = "/join";
+          }), (0, _v12.stashPostSurveyRedirect)(), window.location.href = "/join";
         },
         children: (0, _v9.translate)({
           singular: "Join for free",

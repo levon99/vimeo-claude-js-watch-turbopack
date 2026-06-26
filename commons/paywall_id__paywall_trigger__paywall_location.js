@@ -38,6 +38,17 @@
           paywall_type: _v3,
           paywall_feature: _v4
         });
+      },
+      trackPaywallCtaClicked: (_v0 = "primary") => {
+        let _v1 = sessionStorage.getItem(_v4) ?? "unknown";
+        null !== _v6 && _v6.track("paywall_cta_clicked", {
+          paywall_id: _v1,
+          paywall_trigger: _v1,
+          paywall_location: _v2,
+          paywall_type: _v3,
+          paywall_feature: _v4,
+          paywall_cta: _v0
+        });
       }
     };
   }]);

@@ -208,6 +208,7 @@
         billingAddress: void 0,
         billingPeriod: _v3.UserPlanType.Month,
         isImpactedByGermanConsumerLaw: !1,
+        isWithdrawalEligible: !1,
         userEntity: void 0,
         isFreeTrial: !1,
         isReverseFreeTrial: !1,

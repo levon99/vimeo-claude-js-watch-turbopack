@@ -1,0 +1,119 @@
+{
+  "use strict";
+
+  var _v1 = _v0.i(0),
+    _v2 = _v0.i(0),
+    _v3 = _v0.i(0),
+    _v4 = _v0.i(0),
+    _v5 = _v0.i(0),
+    _v6 = _v0.i(0);
+  let _v7 = () => void 0;
+  _v0.s(["MergeLibrariesModal", 0, ({
+    isOpen: _v0,
+    onClose: _v1,
+    userId: _v2
+  }) => (0, _v1.jsx)(_v5.LibraryMergeModal, {
+    isOpen: _v0,
+    onClose: _v1,
+    testId: "merge-libraries-modal",
+    title: (0, _v4.translate)({
+      singular: "Merge your two libraries into one",
+      dictionary: {
+        es: {
+          singular: "Fusiona tus dos bibliotecas en una"
+        },
+        "de-DE": {
+          singular: "Führe deine beiden Bibliotheken zu einer zusammen"
+        },
+        "fr-FR": {
+          singular: "Fusionnez vos deux bibliothèques en une seule"
+        },
+        "ja-JP": {
+          singular: "あなたの2つのライブラリを1つに統合する"
+        },
+        "ko-KR": {
+          singular: "두 개의 라이브러리를 하나로 합치기"
+        },
+        "pt-BR": {
+          singular: "Mescle suas duas bibliotecas em uma só"
+        },
+        "zh-CN": {
+          singular: "将你的两个资料库合并为一个"
+        }
+      }
+    }),
+    showBadge: !1,
+    footer: (0, _v1.jsxs)(_v3.VStack, {
+      gap: "sm",
+      align: "center",
+      w: "100%",
+      children: [(0, _v1.jsx)(_v2.Button, {
+        variant: "primary",
+        size: "md",
+        w: "100%",
+        onClick: _v7,
+        children: (0, _v4.translate)({
+          singular: "Merge libraries",
+          dictionary: {
+            es: {
+              singular: "Fusionar bibliotecas"
+            },
+            "de-DE": {
+              singular: "Bibliotheken zusammenführen"
+            },
+            "fr-FR": {
+              singular: "Fusionner les bibliothèques"
+            },
+            "ja-JP": {
+              singular: "ライブラリを統合"
+            },
+            "ko-KR": {
+              singular: "라이브러리 병합"
+            },
+            "pt-BR": {
+              singular: "Mesclar bibliotecas"
+            },
+            "zh-CN": {
+              singular: "合并资料库"
+            }
+          }
+        })
+      }), (0, _v1.jsx)(_v2.Button, {
+        variant: "tertiary",
+        size: "md",
+        w: "100%",
+        onClick: _v7,
+        children: (0, _v4.translate)({
+          singular: "What happens when I merge?",
+          dictionary: {
+            es: {
+              singular: "¿Qué sucede cuando fusiono?"
+            },
+            "de-DE": {
+              singular: "Was passiert, wenn ich sie zusammenführe?"
+            },
+            "fr-FR": {
+              singular: "Que se passe-t-il lorsque je fusionne\x0f?"
+            },
+            "ja-JP": {
+              singular: "統合するとどうなりますか？"
+            },
+            "ko-KR": {
+              singular: "병합하면 어떤 일이 발생하나요?"
+            },
+            "pt-BR": {
+              singular: "O que acontece quando eu mesclo?"
+            },
+            "zh-CN": {
+              singular: "合并后会发生什么？"
+            }
+          }
+        })
+      })]
+    }),
+    children: (0, _v1.jsx)(_v6.LibraryMergeVisualization, {
+      userId: _v2,
+      enabled: _v0
+    })
+  })]);
+}

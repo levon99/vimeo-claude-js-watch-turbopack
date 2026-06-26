@@ -3,7 +3,8 @@
 
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
-    _v3 = _v0.i(0);
+    _v3 = _v0.i(0),
+    _v4 = _v0.i(0);
   _v0.s(["FooterContainer", 0, ({
     onLoginSuccess: _v0,
     viewer: _v1
@@ -19,7 +20,7 @@
       children: () => (0, _v1.jsxs)(_v2.Footer, {
         children: [!_v2 && !_v3 && (0, _v1.jsx)(_v2.Footer.Widgets, {
           onSignUpCtaClick: () => {
-            window.location.href = "/join";
+            (0, _v4.stashPostSurveyRedirect)(), window.location.href = "/join";
           }
         }), !_v3 && (0, _v1.jsx)(_v2.Footer.Links, {}), (0, _v1.jsx)(_v2.Footer.Legal, {
           impressumQualifies: _v4,

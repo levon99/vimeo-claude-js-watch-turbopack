@@ -5022,7 +5022,7 @@
                       singular: "Cette action ne peut pas être annulée."
                     },
                     "ja-JP": {
-                      singular: "この操作は元に戻せません。"
+                      singular: "この操作は取り消せません."
                     },
                     "ko-KR": {
                       singular: "이 작업은 되돌릴 수 없습니다."

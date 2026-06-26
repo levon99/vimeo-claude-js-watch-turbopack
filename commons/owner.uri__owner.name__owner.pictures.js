@@ -75,9 +75,9 @@
     _v12 = async (_v0, _v1, _v2, _v3, _v4, _v5, _v6 = [], _v7 = [], _v8 = [], _v9) => {
       let _v10 = encodeURIComponent(_v5.join(",")),
         _v11 = _v2 ? `&page=${_v2}` : "",
-        _v12 = _v22("search", _v3),
-        _v13 = _v22("sort", _v4),
-        _v14 = _v22("direction", _v5),
+        _v12 = _v23("search", _v3),
+        _v13 = _v23("sort", _v4),
+        _v14 = _v23("direction", _v5),
         _v15 = _v8("roles", _v11(_v6) ? _v6 : _v3.ROLES_FILTER_DEFAULT),
         _v16 = _v8("accesses", _v11(_v8) ? _v8 : []),
         _v17 = _v8("team_invite_statuses", _v7);
@@ -115,10 +115,11 @@
       let _v2 = await _v9(`/users/${_v1}/settings/billing/membership`, _v0);
       return (0, _v2.mapMembershipResponse)("membership" in _v2 ? _v2.membership : _v2);
     },
-    _v20 = async (_v0, _v1) => _v9(`/me/subscriptions/${_v1}/rejoin_offer`, _v0, "POST"),
-    _v21 = async (_v0, _v1) => _v9(`/users/${_v1}/settings/billing/payment_methods`, _v0),
-    _v22 = (_v0, _v1) => _v1 && _v1.length ? `&${_v0}=${_v1}` : "";
-  _v0.s(["fetchTeamGroups", 0, _v18, "makeApiCall", 0, _v9, "requestAcceptRejoinOffer", 0, _v20, "requestAlbums", 0, _v13, "requestDeleteTeamMember", 0, _v17, "requestMembershipInfo", 0, _v19, "requestPaymentMethods", 0, _v21, "requestSSOConnections", 0, _v14, "requestTeamMember", 0, _v15, "requestTeamMembers", 0, _v12, "requestTeamsInfo", 0, _v10, "requestUpdateTeamMember", 0, _v16, "serialize", 0, _v7, "updatePaymentMethodRequest", 0, (_v0, _v1) => fetch("/settings?action=update_membership_payment_method", {
+    _v20 = async (_v0, _v1) => _v9(`/me/subscriptions/${_v1}/withdrawal`, _v0, "POST"),
+    _v21 = async (_v0, _v1) => _v9(`/me/subscriptions/${_v1}/rejoin_offer`, _v0, "POST"),
+    _v22 = async (_v0, _v1) => _v9(`/users/${_v1}/settings/billing/payment_methods`, _v0),
+    _v23 = (_v0, _v1) => _v1 && _v1.length ? `&${_v0}=${_v1}` : "";
+  _v0.s(["fetchTeamGroups", 0, _v18, "makeApiCall", 0, _v9, "requestAcceptRejoinOffer", 0, _v21, "requestAlbums", 0, _v13, "requestDeleteTeamMember", 0, _v17, "requestMembershipInfo", 0, _v19, "requestPaymentMethods", 0, _v22, "requestSSOConnections", 0, _v14, "requestSubscriptionWithdrawal", 0, _v20, "requestTeamMember", 0, _v15, "requestTeamMembers", 0, _v12, "requestTeamsInfo", 0, _v10, "requestUpdateTeamMember", 0, _v16, "serialize", 0, _v7, "updatePaymentMethodRequest", 0, (_v0, _v1) => fetch("/settings?action=update_membership_payment_method", {
     method: "POST",
     credentials: "include",
     headers: {

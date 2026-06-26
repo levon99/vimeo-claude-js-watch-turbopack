@@ -75,7 +75,15 @@
       _v5 = `${_v2} ${_v3(_v0)} annual bandwidth`;
     }
     return _v5;
-  }, "getPlanType", 0, _v0 => "rent" === _v0 ? "rental" : "buy" === _v0 ? "onetime" : "monthly", "isCreatorProductAction", 0, _v0 => "string" == typeof _v0 && ["rent", "buy", "subscribe"].includes(_v0), "isCreatorProductTier", 0, _v2, "isPayPalToken", 0, _v0 => _v0.startsWith("EC-") || _v0.startsWith("BA-"), "isRentalPlan", 0, _v0 => void 0 !== _v0.rentalTerms, "isUsZipCodeFormatValid", 0, _v0 => _v1.test(_v0.trim()), "isZipCodeIsRequiredAutorenewalOptInRange", 0, _v0 => 5 === _v0.length && [["05001", "05495"], ["05601", "05907"], ["80001", "81658"], ["90001", "96162"]].some(_v0 => _v0[0] <= _v0 && _v0 <= _v0[1]), "separateNumberAndUnit", 0, _v3, "transformToOrderItemOptions", 0, _v0 => {
+  }, "getPlanType", 0, _v0 => "rent" === _v0 ? "rental" : "buy" === _v0 ? "onetime" : "monthly", "isCreatorProductAction", 0, _v0 => "string" == typeof _v0 && ["rent", "buy", "subscribe"].includes(_v0), "isCreatorProductTier", 0, _v2, "isPayPalToken", 0, _v0 => _v0.startsWith("EC-") || _v0.startsWith("BA-"), "isRentalPlan", 0, _v0 => void 0 !== _v0.rentalTerms, "isUsZipCodeFormatValid", 0, _v0 => _v1.test(_v0.trim()), "isZipCodeIsRequiredAutorenewalOptInRange", 0, _v0 => {
+    if (5 !== _v0.length) return !1;
+    let _v1 = _v0 >= "90001" && _v0 <= "96162",
+      _v2 = _v0 >= "05001" && _v0 <= "05495" || _v0 >= "05601" && _v0 <= "05907",
+      _v3 = _v0 >= "71601" && _v0 <= "72959" || "75502" === _v0,
+      _v4 = _v0 >= "03901" && _v0 <= "04992",
+      _v5 = _v0 >= "10001" && _v0 <= "14975" || "00501" === _v0 || "00544" === _v0 || "06390" === _v0;
+    return _v1 || _v2 || _v3 || _v4 || _v5;
+  }, "separateNumberAndUnit", 0, _v3, "transformToOrderItemOptions", 0, _v0 => {
     let {
       billingPlanId: _v1,
       productId: _v2,

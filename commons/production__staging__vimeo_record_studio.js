@@ -2451,6 +2451,10 @@
     uploadApproach;
     pauseInterval;
     createSessionAbortController;
+    currentVideoId;
+    currentStreamKey;
+    currentProvisionerId;
+    liveSetupStep;
     retry;
     constructor(_v0, _v1, _v2 = _v133.createForCategory("Uploader")) {
       super(_v0), this.options = _v1, this.log = _v2, this.pendingChunks = [], this.cancel = () => void 0, this.createSessionAbortController = new AbortController();
@@ -2528,7 +2532,7 @@
       this.pendingThumbnail = _v0, this.upload();
     }
     async cancelAndUnsubscribe() {
-      this.cancel(), this.retry = void 0, this.createSessionAbortController.abort(), this.pendingChunks = [], this.pendingThumbnail = void 0, this.eofReceived = void 0, this.uploadApproach = void 0, this.unsubscribeCallbacks({
+      this.cancel(), this.retry = void 0, this.createSessionAbortController.abort(), this.pendingChunks = [], this.pendingThumbnail = void 0, this.eofReceived = void 0, this.uploadApproach = void 0, this.currentVideoId = void 0, this.currentStreamKey = void 0, this.currentProvisionerId = void 0, this.liveSetupStep = void 0, this.unsubscribeCallbacks({
         onStarted: () => void 0,
         onUploaded: () => void 0,
         onFailed: () => void 0,
@@ -2567,7 +2571,7 @@
     createVideo(_v0) {
       var _v1;
       let _v2, _v3, _v4;
-      this.callbacks.onStarted(), this.retry = void 0, this.cancel = (_v1 = {
+      this.callbacks.onStarted(), this.retry = void 0, this.currentVideoId = void 0, this.currentStreamKey = void 0, this.currentProvisionerId = void 0, this.liveSetupStep = void 0, this.cancel = (_v1 = {
         action: async () => {
           if (!this.options.uploadAccountId) throw new _v92("uploadAccountId is not set");
           let _v0 = await _v104.fetchWithRecordJWT(_v178.postUserVideos, {
@@ -2592,17 +2596,17 @@
             }),
             _v1 = _v196(_v0.uri);
           if (!_v1) throw new _v92("Cannot get video ID from URI");
-          if ("live" !== this.uploadApproach) return {
+          if (this.currentVideoId = _v1, "live" !== this.uploadApproach) return {
             video: _v0,
             videoId: _v1,
             uploadLink: _v0.upload?.uploadLink
           };
-          this.log.debug("Live session setup: creating provisioner", {
+          this.liveSetupStep = "provisioner", this.log.debug("Live session setup: creating provisioner", {
             videoUri: _v0.uri
           });
           let _v2 = await _v191(this.options.uploadAccountId, _v0.uri);
           if (!_v2) throw this.deleteVideo(_v1), new _v93("did not receive provisionerId after a live session creation");
-          this.log.debug("Live session setup: activating provisioner", {
+          this.currentProvisionerId = _v2, this.liveSetupStep = "activate", this.log.debug("Live session setup: activating provisioner", {
             provisionerId: _v2
           });
           let _v3 = await _v192(_v2, this.options.uploadAccountId, this.createSessionAbortController.signal);
@@ -2610,12 +2614,12 @@
             provisionerId: _v2,
             aborted: this.createSessionAbortController.signal.aborted
           }), this.deleteVideo(_v1), new _v93("did not receive streamKey after a live session activation");
-          this.log.debug("Live session setup: creating DASH session");
+          this.currentStreamKey = _v3, this.liveSetupStep = "dashSession", this.log.debug("Live session setup: creating DASH session");
           let _v4 = await _v193(_v3, this.createSessionAbortController.signal);
           if (!_v4) throw this.log.warn("Live session setup: createLiveDashSession returned null", {
             aborted: this.createSessionAbortController.signal.aborted
           }), this.deleteVideo(_v1), new _v93("failed to create a live dash session");
-          this.log.debug("Live session setup: getting upload link");
+          this.liveSetupStep = "uploadLink", this.log.debug("Live session setup: getting upload link");
           let _v5 = await _v194(_v4);
           if (!_v5) throw this.deleteVideo(_v1), new _v93("live upload link request timed out");
           if (!_v5.ok) {
@@ -2642,7 +2646,7 @@
           videoId: _v1,
           uploadLink: _v2
         }) => {
-          if (this.cancel = () => void 0, !_v2) throw this.deleteVideo(_v1), new _v92("did not receive an uploadLink after creating the video");
+          if (this.cancel = () => void 0, this.liveSetupStep = void 0, !_v2) throw this.deleteVideo(_v1), new _v92("did not receive an uploadLink after creating the video");
           this.callbacks.onVideoCreated(_v0.uri), this.session = {
             videoLink: _v0.manageLink || _v0.link,
             videoUri: _v0.uri,
@@ -2899,14 +2903,37 @@
         });
       }
     }
+    buildUploadFailureContext(_v0) {
+      let _v1 = this.uploadApproach;
+      if (!_v1) return;
+      let _v2 = this.session,
+        _v3 = _v2?.uploadOffset ?? 0;
+      return {
+        approach: _v1,
+        videoId: this.currentVideoId ?? null,
+        streamKey: this.currentStreamKey ?? null,
+        provisionerId: this.currentProvisionerId ?? null,
+        failureType: _v0 instanceof Error ? _v0.name : "Unknown",
+        failureMessage: _v0 instanceof Error ? _v0.message : String(_v0),
+        stage: _v2 ? "upload" : "session-create",
+        setupStep: _v2 ? null : this.liveSetupStep ?? null,
+        uploadOffset: _v3,
+        isInitOnly: 0 === _v3,
+        requestUploadOffset: _v2?.requestUploadOffset ?? !1,
+        pendingChunks: this.pendingChunks.length,
+        uploadDurationSeconds: _v2?.uploadStartTime ? Math.round((performance.now() - _v2.uploadStartTime) / 0) : null,
+        eofReceived: !!this.eofReceived
+      };
+    }
     handleErrors(_v0) {
+      let _v1 = this.buildUploadFailureContext(_v0);
       if (_v0 instanceof _v90.NetworkError) {
-        if (!_v95(_v0)) return this.callbacks.onFailed("FatalError", _v0), !1;else this.callbacks.onFailed("UnauthorizedError", _v0);
+        if (!_v95(_v0)) return this.callbacks.onFailed("FatalError", _v0, _v1), !1;else this.callbacks.onFailed("UnauthorizedError", _v0, _v1);
       } else {
-        if (_v0 instanceof _v92 || _v0 instanceof RangeError || _v197(_v0)) return this.callbacks.onFailed("FatalError", _v0), !1;
-        if (_v0 instanceof _v93) return this.callbacks.onFailed("FatalLiveError", _v0), !1;
-        if (_v0 instanceof SyntaxError) return this.callbacks.onFailed("FirewallError", _v0), !1;
-        _v0 instanceof TypeError && this.callbacks.onFailed("NoInternetError", _v0);
+        if (_v0 instanceof _v92 || _v0 instanceof RangeError || _v197(_v0)) return this.callbacks.onFailed("FatalError", _v0, _v1), !1;
+        if (_v0 instanceof _v93) return this.callbacks.onFailed("FatalLiveError", _v0, _v1), !1;
+        if (_v0 instanceof SyntaxError) return this.callbacks.onFailed("FirewallError", _v0, _v1), !1;
+        _v0 instanceof TypeError && this.callbacks.onFailed("NoInternetError", _v0, _v1);
       }
       return !0;
     }
@@ -6642,7 +6669,7 @@
                   chunksPushed: this.chunksPushed,
                   chunksReceived: this.chunksReceived
                 }
-              }), this.callbacks.onFailed("NoInternetError" === _v0.data.reason ? "NoInternetError" : "FatalError", _v0);
+              }), this.reportFailure("NoInternetError" === _v0.data.reason ? "NoInternetError" : "FatalError", _v0);
               break;
             case "chunk":
               {
@@ -6664,7 +6691,7 @@
                       workerCrc32: _v0,
                       recvCrc32: _v1
                     }
-                  }), this.callbacks.onFailed("FatalError", _v0);
+                  }), this.reportFailure("FatalError", _v0);
                   return;
                 }
                 this.callbacks.onEndOfFile(), this.unsubscribeCallbacks({
@@ -6708,7 +6735,7 @@
             data: {
               hint: "Worker message handler failed"
             }
-          }), this.callbacks.onFailed("FatalError", _v0);
+          }), this.reportFailure("FatalError", _v0);
         }
       }, this.worker.onerror = _v0 => {
         let _v1 = _v0.error || Error(_v0.message);
@@ -6719,8 +6746,18 @@
           data: {
             hint: "Worker error (native)"
           }
-        }), this.callbacks.onFailed("FatalError", _v1);
+        }), this.reportFailure("FatalError", _v1);
       };
+    }
+    reportFailure(_v0, _v1) {
+      let _v2 = {
+        failureType: _v1 instanceof Error ? _v1.name : "Unknown",
+        failureMessage: _v1 instanceof Error ? _v1.message : String(_v1),
+        runtimeInitialized: this.runtimeInitialized,
+        chunksPushed: this.chunksPushed,
+        chunksReceived: this.chunksReceived
+      };
+      this.callbacks.onFailed(_v0, _v1, _v2);
     }
     addChunk(_v0) {
       this.pendingChunks.push({
@@ -6737,7 +6774,7 @@
           data: {
             hint: "Send pending chunks failed"
           }
-        }), this.callbacks.onFailed("FatalError", _v0);
+        }), this.reportFailure("FatalError", _v0);
       }
     }
     addPreviousChunks(_v0) {
@@ -6750,7 +6787,7 @@
     }
     eof() {
       this.runtimeInitialized || (this.initializeTimer = setTimeout(() => {
-        this.log.warn("Worker runtime still is not initialized on eof"), this.callbacks.onFailed("FatalError", Error("Worker runtime still is not initialized on eof"));
+        this.log.warn("Worker runtime still is not initialized on eof"), this.reportFailure("FatalError", Error("Worker runtime still is not initialized on eof"));
       }, _v291.INITIALIZE_TIMEOUT)), this.pendingChunks.push({
         buffer: void 0,
         eof: !0
@@ -6954,12 +6991,18 @@
     recordingDurationLimit;
     static TIMESLICE = 0;
     static VIDEO_KEY_FRAME_INTERVAL_DURATION = 0;
+    static CHUNK_STALL_TIMEOUT = 2 * _v300.TIMESLICE + 0;
     log;
     mediaRecorder;
     videoResolutionMonitor;
     removeEventListeners;
     recordingDurationLimitTimer;
     recordedBytes;
+    chunksReceived;
+    emptyChunksReceived;
+    lastChunkAt;
+    stallReported;
+    chunkWatchdogTimer;
     timestamps;
     durations;
     durationLimitReached;
@@ -6970,7 +7013,7 @@
       return this.recordedBytes;
     }
     constructor(_v0, _v1, _v2, _v3, _v4, _v5) {
-      super(_v0), this.recordingDurationLimit = _v1, this.log = _v133.createForCategory("Recorder"), this.recordedBytes = 0, this.timestamps = {
+      super(_v0), this.recordingDurationLimit = _v1, this.log = _v133.createForCategory("Recorder"), this.recordedBytes = 0, this.chunksReceived = 0, this.emptyChunksReceived = 0, this.stallReported = !1, this.timestamps = {
         started: void 0,
         paused: void 0
       }, this.durations = {
@@ -7002,18 +7045,34 @@
         },
         _v13 = _v0 => this.onDataAvailable(_v0.data, _v0.timeStamp);
       this.mediaRecorder.addEventListener("start", _v8), this.mediaRecorder.addEventListener("pause", _v9), this.mediaRecorder.addEventListener("resume", _v10), this.mediaRecorder.addEventListener("stop", _v11), this.mediaRecorder.addEventListener("error", _v12), this.mediaRecorder.addEventListener("dataavailable", _v13), this.removeEventListeners = (() => {
-        let _v0 = _v0 => {
+        let _v0 = _v0 => "video" === _v0.kind ? _v2 : "audio",
+          _v1 = _v0 => {
             let _v1 = _v0.target;
-            "inactive" !== this.mediaRecorder.state && (this.callbacks.onMediaTrackEnded("video" === _v1.kind ? _v2 : "audio"), this.stop().catch(_v0 => this.logRecorderError(_v0, "onEnded")));
+            "inactive" !== this.mediaRecorder.state && (this.callbacks.onMediaTrackEnded(_v0(_v1)), this.stop().catch(_v0 => this.logRecorderError(_v0, "onEnded")));
           },
-          _v1 = _v6.getTracks();
-        return _v1.forEach(_v0 => _v0.addEventListener("ended", _v0)), () => {
-          _v1.forEach(_v0 => _v0.removeEventListener("ended", _v0)), this.mediaRecorder.removeEventListener("start", _v8), this.mediaRecorder.removeEventListener("pause", _v9), this.mediaRecorder.removeEventListener("resume", _v10), this.mediaRecorder.removeEventListener("stop", _v11), this.mediaRecorder.removeEventListener("error", _v12), this.mediaRecorder.removeEventListener("dataavailable", _v13);
+          _v2 = _v0 => this.onTrackMuteChange(_v0(_v0.target), !0),
+          _v3 = _v0 => this.onTrackMuteChange(_v0(_v0.target), !1),
+          _v4 = _v6.getTracks();
+        return _v4.forEach(_v0 => {
+          _v0.addEventListener("ended", _v1), _v0.addEventListener("mute", _v2), _v0.addEventListener("unmute", _v3);
+        }), () => {
+          _v4.forEach(_v0 => {
+            _v0.removeEventListener("ended", _v1), _v0.removeEventListener("mute", _v2), _v0.removeEventListener("unmute", _v3);
+          }), this.mediaRecorder.removeEventListener("start", _v8), this.mediaRecorder.removeEventListener("pause", _v9), this.mediaRecorder.removeEventListener("resume", _v10), this.mediaRecorder.removeEventListener("stop", _v11), this.mediaRecorder.removeEventListener("error", _v12), this.mediaRecorder.removeEventListener("dataavailable", _v13);
         };
       })();
     }
+    onTrackMuteChange(_v0, _v1) {
+      if ("recording" !== this.mediaRecorder.state) return;
+      let _v2 = this.getChunkDiagnostics();
+      this.log.warn(`Recording ${_v0} track ${_v1 ? "muted" : "unmuted"} mid-recording`, {
+        kind: _v0,
+        muted: _v1,
+        ..._v2
+      }), this.callbacks.onTrackMuteChange(_v0, _v1, _v2);
+    }
     dispose() {
-      this.stopRecordingLimitTimeout(), "inactive" !== this.mediaRecorder.state && this.mediaRecorder.stop(), this.removeEventListeners(), this.recordedBytes = 0, this.timestamps = {
+      this.stopRecordingLimitTimeout(), this.clearChunkWatchdog(), "inactive" !== this.mediaRecorder.state && this.mediaRecorder.stop(), this.removeEventListeners(), this.recordedBytes = 0, this.chunksReceived = 0, this.emptyChunksReceived = 0, this.lastChunkAt = void 0, this.stallReported = !1, this.timestamps = {
         started: void 0,
         paused: void 0
       }, this.durations = {
@@ -7026,7 +7085,9 @@
         onStop: () => void 0,
         onMediaTrackEnded: () => void 0,
         onDataAvailable: () => void 0,
-        onResolutionChanged: () => void 0
+        onResolutionChanged: () => void 0,
+        onChunkStall: () => void 0,
+        onTrackMuteChange: () => void 0
       });
     }
     start() {
@@ -7062,28 +7123,64 @@
       });
     }
     onStart(_v0) {
-      this.log.info("Recording started"), this.timestamps.started = _v0, this.startRecordingLimitTimeout(_v0), this.videoResolutionMonitor.update(), this.callbacks.onStart();
+      this.log.info("Recording started"), this.timestamps.started = _v0, this.startRecordingLimitTimeout(_v0), this.armChunkWatchdog(), this.videoResolutionMonitor.update(), this.callbacks.onStart();
     }
     onPause(_v0) {
       this.log.info("Recording paused", {
         duration: this.duration
-      }), this.timestamps.paused = _v0, this.stopRecordingLimitTimeout(), this.callbacks.onPause();
+      }), this.timestamps.paused = _v0, this.stopRecordingLimitTimeout(), this.clearChunkWatchdog(), this.callbacks.onPause();
     }
     onResume(_v0) {
       this.updatePauseDuration(_v0), this.log.info("Recording resumed", {
         duration: this.duration
-      }), this.startRecordingLimitTimeout(_v0), this.callbacks.onResume();
+      }), this.startRecordingLimitTimeout(_v0), this.armChunkWatchdog(), this.callbacks.onResume();
     }
     onStop(_v0) {
       this.log.info("Recording stopped", {
         size: this.size,
         duration: this.duration,
         durationLimitReached: this.durationLimitReached,
+        chunksReceived: this.chunksReceived,
+        emptyChunksReceived: this.emptyChunksReceived,
         reason: _v0?.message
-      }), this.stopRecordingLimitTimeout(), this.videoResolutionMonitor.stop(), this.callbacks.onStop(this.size, this.duration, this.durationLimitReached, _v0);
+      }), this.stopRecordingLimitTimeout(), this.clearChunkWatchdog(), this.videoResolutionMonitor.stop(), this.callbacks.onStop(this.size, this.duration, this.durationLimitReached, _v0);
     }
     onDataAvailable(_v0, _v1) {
-      _v0.size <= 0 ? this.log.warn("Recording data received with empty blob") : (this.timestamps.started || (this.timestamps.started = _v1 - _v300.TIMESLICE), this.updatePauseDuration(_v1), this.durations.total = _v1 - this.timestamps.started, this.recordedBytes += _v0.size, this.videoResolutionMonitor.update(), this.callbacks.onDataAvailable(_v0));
+      if (_v0.size <= 0) {
+        this.emptyChunksReceived += 1, this.log.warn("Recording data received with empty blob", {
+          emptyChunksReceived: this.emptyChunksReceived
+        });
+        return;
+      }
+      this.chunksReceived += 1, this.lastChunkAt = performance.now(), this.stallReported && (this.log.info("Recording chunk flow recovered after a stall"), this.stallReported = !1), "recording" === this.mediaRecorder.state && this.armChunkWatchdog(), this.timestamps.started || (this.timestamps.started = _v1 - _v300.TIMESLICE), this.updatePauseDuration(_v1), this.durations.total = _v1 - this.timestamps.started, this.recordedBytes += _v0.size, this.videoResolutionMonitor.update(), this.callbacks.onDataAvailable(_v0);
+    }
+    getChunkDiagnostics() {
+      return {
+        recorderState: this.mediaRecorder.state,
+        chunksReceived: this.chunksReceived,
+        emptyChunksReceived: this.emptyChunksReceived,
+        recordedBytes: this.recordedBytes,
+        secondsSinceLastChunk: void 0 !== this.lastChunkAt ? Math.round((performance.now() - this.lastChunkAt) / 0) : null,
+        documentVisibility: document.visibilityState,
+        online: navigator.onLine,
+        tracks: this.mediaRecorder.stream.getTracks().map(_v0 => ({
+          kind: _v0.kind,
+          readyState: _v0.readyState,
+          muted: _v0.muted,
+          enabled: _v0.enabled
+        }))
+      };
+    }
+    armChunkWatchdog() {
+      this.clearChunkWatchdog(), this.chunkWatchdogTimer = setTimeout(() => {
+        if ("recording" !== this.mediaRecorder.state || this.stallReported) return;
+        this.stallReported = !0;
+        let _v0 = this.getChunkDiagnostics();
+        this.log.warn("No recording chunk received within expected window", _v0), this.callbacks.onChunkStall(_v0);
+      }, _v300.CHUNK_STALL_TIMEOUT);
+    }
+    clearChunkWatchdog() {
+      this.chunkWatchdogTimer && (clearTimeout(this.chunkWatchdogTimer), this.chunkWatchdogTimer = void 0);
     }
     logRecorderError(_v0, _v1) {
       this.log.error(_v0 instanceof Error ? _v0 : Error(String(_v0)), {
@@ -7686,29 +7783,39 @@
                       onStarted: () => {
                         _v23("uploading");
                       },
-                      onFailed: async (_v0, _v1) => {
+                      onFailed: async (_v0, _v1, _v2) => {
+                        let {
+                            common: {
+                              uploadToAccountId: _v3,
+                              recordingStartedAt: _v4
+                            }
+                          } = _v89.useUIStore.getState(),
+                          _v5 = _v1 ? await _v98(_v1) : _v0;
+                        if (_v2) {
+                          let _v0 = {
+                            reason: _v0,
+                            ..._v2,
+                            errorDetails: _v5,
+                            userId: _v3 ?? "unknown",
+                            recordingStartedAt: _v4 ?? "unknown"
+                          };
+                          _v6.warn("Upload attempt failed", _v0), _v121("record_studio_upload_attempt_failed", _v0);
+                        }
                         switch (_v0) {
                           case "FatalLiveError":
                             {
-                              let {
-                                common: {
-                                  uploadToAccountId: _v0,
-                                  recordingStartedAt: _v1
-                                }
-                              } = _v89.useUIStore.getState();
                               _v6.warn("Live upload failed with FatalLiveError, switching approach to IPB", {
                                 errorMessage: _v1?.message
                               });
-                              let _v2 = _v10.current,
-                                _v3 = _v1 ? await _v98(_v1) : _v0;
+                              let _v0 = _v10.current;
                               _v10.current = "ipb", _v27("ipb"), _v122({
                                 uploadMethod: "ipb"
                               }), _v9.current?.cancelAndUnsubscribe(), _v9.current = void 0, _v121("record_studio_switch_upload_approach", {
-                                uploadApproachBefore: _v2,
+                                uploadApproachBefore: _v0,
                                 uploadApproachAfter: "ipb",
-                                reason: _v3,
-                                userId: _v0 ?? "unknown",
-                                recordingStartedAt: _v1 ?? "unknown"
+                                reason: _v5,
+                                userId: _v3 ?? "unknown",
+                                recordingStartedAt: _v4 ?? "unknown"
                               });
                               break;
                             }
@@ -7735,7 +7842,16 @@
                       },
                       onChunkUploaded: _v32,
                       onUploaded: (_v0, _v1, _v2, _v3, _v4) => {
-                        _v13.current = _v4, _v15(), _v23("idle"), _v24("retry"), _v0(_v0, _v1, _v2, _v3, _v12.current ?? _v2), _v12.current = void 0;
+                        _v13.current = _v4, _v15(), _v23("idle"), _v24("retry");
+                        let _v5 = _v12.current ?? _v2,
+                          _v6 = {
+                            videoId: _v0,
+                            uploadMethod: _v2,
+                            initialUploadMethod: _v5,
+                            didFallback: _v5 !== _v2,
+                            uploadDurationSeconds: Math.round(_v3)
+                          };
+                        _v6.info("Upload succeeded", _v6), _v121("record_studio_upload_succeeded", _v6), _v0(_v0, _v1, _v2, _v3, _v5), _v12.current = void 0;
                       },
                       onPlayable: _v19 ? _v0 => {
                         _v18(_v0), _v25("pre-recording");
@@ -7819,8 +7935,16 @@
                           });
                         } else _v35();
                       },
-                      onFailed: async (_v0, _v1) => {
-                        if (_v30(!1), "NoInternetError" === _v0 && (_v6.warn("IPB chunk converter failed due to no internet connection"), _v20({
+                      onFailed: async (_v0, _v1, _v2) => {
+                        if (_v30(!1), _v2) {
+                          let _v0 = {
+                            reason: _v0,
+                            ..._v2,
+                            errorDetails: _v1 ? await _v98(_v1) : _v0
+                          };
+                          _v6.warn("IPB conversion failed", _v0), _v121("record_studio_convert_failed", _v0);
+                        }
+                        if ("NoInternetError" === _v0 && (_v6.warn("IPB chunk converter failed due to no internet connection"), _v20({
                           type: "error",
                           errorKey: _v166.INTERNET_CONNECTION,
                           source: "chunk-converter"
@@ -8049,7 +8173,7 @@
                   });
                   return;
                 }
-                _v42({
+                if (_v42({
                   duration: _v1,
                   size: _v0,
                   isRecordingDurationLimitReached: _v2
@@ -8061,7 +8185,22 @@
                 }), _v121("record_studio_record_stopped", {
                   duration: _v1,
                   size: _v0
-                }), _v39.current.add(async () => {
+                }), 0 === _v0) {
+                  let _v0 = {
+                    videoId: _v196(_v50.current()) ?? null,
+                    duration: _v1,
+                    durationLimitReached: _v2,
+                    recorderError: _v3?.message ?? null,
+                    ..._v38.current?.getChunkDiagnostics()
+                  };
+                  _v13.error(Error("Recording produced no media chunks"), {
+                    category: _v117.RECORDER,
+                    method: "onStop",
+                    component: "useRecorder",
+                    data: _v0
+                  }), _v121("record_studio_no_media_captured", _v0);
+                }
+                _v39.current.add(async () => {
                   _v13.debug("RecorderCallbacks.onStop: finalize upload."), _v15("stopped"), await _v49.eof(), _v13.debug("RecorderCallbacks.onStop: awaited [eof]");
                 });
               },
@@ -8088,11 +8227,37 @@
                 _v42({
                   isResolutionChanged: !0
                 });
+              },
+              onChunkStall: _v0 => {
+                _v13.warn("Recording chunk flow stalled", _v0), _v121("record_studio_chunk_stall", _v0);
+              },
+              onTrackMuteChange: (_v0, _v1, _v2) => {
+                let _v3 = {
+                  kind: _v0,
+                  muted: _v1,
+                  ..._v2
+                };
+                _v13.warn(`Recording ${_v0} track ${_v1 ? "muted" : "unmuted"}`, _v3), _v121("record_studio_track_mute_change", _v3);
               }
             }), [_v43, _v13, _v33, _v30, _v41, _v34, _v17, _v42, _v18, _v14, _v15, _v16, _v19, _v31, _v32, _v10, _v49, _v28, _v29, _v35, _v36, _v23, _v25]);
           (0, _v26.useEffect)(() => {
             _v38.current?.setCallbacks(_v51);
-          }, [_v51]);
+          }, [_v51]), (0, _v26.useEffect)(() => {
+            let _v0 = _v0 => {
+              let {
+                state: _v1
+              } = _v89.useUIStore.getState().common;
+              if ("recording" !== _v1 && "paused" !== _v1 && "uploading" !== _v1 && "finalizing" !== _v1) return;
+              let _v2 = {
+                appState: _v1,
+                persisted: _v0.persisted,
+                videoId: _v196(_v50.current()) ?? null,
+                ..._v38.current?.getChunkDiagnostics()
+              };
+              _v13.warn("Page unloaded during recording", _v2), _v121("record_studio_unload_during_recording", _v2);
+            };
+            return window.addEventListener("pagehide", _v0), () => window.removeEventListener("pagehide", _v0);
+          }, [_v13]);
           let _v52 = (0, _v26.useCallback)(() => {
             let [_v0, _v1] = function () {
               let {

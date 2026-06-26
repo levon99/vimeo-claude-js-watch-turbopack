@@ -184,6 +184,7 @@
 - https://vimeo.com/oauth/token/popup-callback
 - https://vimeo.com/oauth/upgrade
 - https://vimeo.com/onboarding
+- https://vimeo.com/onboarding/free-trial-activated
 - https://vimeo.com/onboarding/mobile
 - https://vimeo.com/ondemand/seller/verify
 - https://vimeo.com/partner-apps/[appId]

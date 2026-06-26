@@ -319,6 +319,7 @@
     } : void 0,
     billingPeriod: _v11.UserPlanType[(0, _v4.default)(String(_v0.billingPeriod))],
     isImpactedByGermanConsumerLaw: _v0?.isImpactedByGermanConsumerLaw,
+    isWithdrawalEligible: _v0?.isWithdrawalEligible ?? !1,
     isFreeTrial: _v0?.isFreeTrial,
     isReverseFreeTrial: _v0?.isReverseFreeTrial ?? !1,
     userEntity: _v0?.userEntity,

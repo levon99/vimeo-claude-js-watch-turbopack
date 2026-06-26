@@ -134,7 +134,7 @@
     return "function" == typeof _v0 ? (_v2 = _v0, _v3 = _v1) : (_v3 = _v0, _v2 = () => ({
       props: {}
     })), async function (_v0) {
-      _v3?.noIndex && _v0.res.setHeader("X-Robots-Tag", "noindex");
+      _v3?.noIndex && _v0.res.setHeader("X-Robots-Tag", "noindex"), _v3?.inlineViewer && (_v0.res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"), _v0.res.setHeader("Expires", "-1"));
       let _v1 = _v1.default.hrtime.bigint(),
         _v2 = function (_v0, _v1) {
           let _v2 = _v0.split("?")[0];

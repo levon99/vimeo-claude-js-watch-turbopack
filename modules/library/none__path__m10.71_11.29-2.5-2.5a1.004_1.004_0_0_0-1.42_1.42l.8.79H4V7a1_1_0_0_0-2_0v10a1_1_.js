@@ -1836,11 +1836,65 @@
       _v138 = !_v86,
       _v139 = _v137 || _v68 || (0, _v46.isVideoAvailabilityFilterExplicitlyEngaged)(_v62.value),
       _v140 = _v66 ? _v112?.length : _v91?.[0]?.total,
-      _v141 = !_v136 || _v139,
-      _v142 = _v50 && !!_v131,
-      _v143 = !!_v32.hasVideoLibraryEmbeddableUploader && _v50 && !!_v17,
-      _v144 = !!_v32.canCreateRootFolders,
-      _v145 = _v141 && (_v142 || _v143 || _v144);
+      _v141 = (0, _v5.useRef)(!1);
+    (0, _v5.useEffect)(() => {
+      if (!_v30.isReady || _v141.current || "1" !== _v30.query.library_merge_toast || void 0 === _v140) return;
+      _v141.current = !0, _v44({
+        content: (0, _v23.translate)({
+          singular: "Your library is now one place. {COUNT} item is here.",
+          plural: "Your library is now one place. All {COUNT} items are here.",
+          count: _v140,
+          replacements: {
+            COUNT: _v140
+          },
+          dictionary: {
+            es: {
+              singular: "Tu biblioteca ahora está en un solo lugar. {COUNT} elemento está aquí.",
+              plural: "Tu biblioteca ahora está en un solo lugar. Todos los {COUNT} elementos están aquí."
+            },
+            "de-DE": {
+              singular: "Ihre Bibliothek ist jetzt an einem Ort. {COUNT} Element ist hier.",
+              plural: "Ihre Bibliothek ist jetzt an einem Ort. Alle {COUNT} Elemente sind hier."
+            },
+            "fr-FR": {
+              singular: "Votre bibliothèque est désormais en un seul et même endroit. {COUNT} élément est ici.",
+              plural: "Votre bibliothèque est désormais en un seul et même endroit. Tous les {COUNT} éléments sont ici."
+            },
+            "ja-JP": {
+              singular: "ライブラリが1か所にまとまりました。 {COUNT}件がここにあります。",
+              plural: "ライブラリが1か所にまとまりました。 {COUNT}件すべてがここにあります。"
+            },
+            "ko-KR": {
+              singular: "이제 라이브러리가 한 곳에 모였습니다. {COUNT}개의 항목이 여기에 있습니다.",
+              plural: "이제 라이브러리가 한 곳에 모였습니다. 모든 {COUNT}개의 항목이 여기에 있습니다."
+            },
+            "pt-BR": {
+              singular: "Sua biblioteca agora está em um único lugar. {COUNT} item está aqui.",
+              plural: "Sua biblioteca agora está em um único lugar. Todos os {COUNT} itens estão aqui."
+            },
+            "zh-CN": {
+              singular: "您的媒体库现在已集中到一个地方. 此处有 {COUNT} 个项目在这里.",
+              plural: "您的媒体库现在已集中到一个地方. 所有 {COUNT} 个项目都在这里."
+            }
+          }
+        }),
+        status: "success"
+      });
+      let _v0 = {
+        ..._v30.query
+      };
+      delete _v0.library_merge_toast, _v30.replace({
+        pathname: _v30.pathname,
+        query: _v0
+      }, void 0, {
+        shallow: !0
+      });
+    }, [_v30.isReady, _v30.query.library_merge_toast, _v140]);
+    let _v142 = !_v136 || _v139,
+      _v143 = _v50 && !!_v131,
+      _v144 = !!_v32.hasVideoLibraryEmbeddableUploader && _v50 && !!_v17,
+      _v145 = !!_v32.canCreateRootFolders,
+      _v146 = _v142 && (_v143 || _v144 || _v145);
     return (0, _v28.usePicoEffect)(() => {
       if (!_v33 || void 0 === _v140) return !1;
       let _v0 = (0, _v30.deriveLibraryReferrerPage)(_v30.query.library_referrer);
@@ -1881,14 +1935,14 @@
                 hasColdPrivacyForTracking: _v56,
                 isColdPrivacyLoading: _v57
               }), (0, _v1.jsx)(_v63.PageHeader, {
-                actions: _v145 ? (0, _v1.jsxs)(_v1.Fragment, {
-                  children: [_v142 && _v131 && (0, _v1.jsx)(_v41.AnalyticsButton, {
+                actions: _v146 ? (0, _v1.jsxs)(_v1.Fragment, {
+                  children: [_v143 && _v131 && (0, _v1.jsx)(_v41.AnalyticsButton, {
                     analyticsLink: _v131,
                     location: _v130,
                     page: "library",
                     name: "click_library_analytics",
                     dataTestId: "library-header-analytics-button"
-                  }), _v143 && _v17 && (0, _v1.jsx)(_v40.UploadButton, {
+                  }), _v144 && _v17 && (0, _v1.jsx)(_v40.UploadButton, {
                     paywallTrigger: "library_header_upload_button",
                     targetUserId: _v17,
                     testIdPrefix: "library-header-upload-button",
@@ -1904,7 +1958,7 @@
                       device_type: null,
                       type: "general"
                     }, 91))
-                  }), _v144 && (0, _v1.jsx)(_v104, {}), _v24 && _v36 && !_v34 && _v37 && (_v35 ? (0, _v1.jsx)(_v6.Button, {
+                  }), _v145 && (0, _v1.jsx)(_v104, {}), _v24 && _v36 && !_v34 && _v37 && (_v35 ? (0, _v1.jsx)(_v6.Button, {
                     "data-testid": "library-header-merge-libraries-button",
                     variant: "secondary",
                     size: "md",
