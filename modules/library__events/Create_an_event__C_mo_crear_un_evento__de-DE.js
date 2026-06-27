@@ -1573,7 +1573,7 @@
                 singular: "Todos los eventos"
               },
               "de-DE": {
-                singular: "Alle Ereignisse"
+                singular: "Alle Veranstaltungen"
               },
               "fr-FR": {
                 singular: "Tous les événements"
@@ -1588,7 +1588,7 @@
                 singular: "Todos os eventos"
               },
               "zh-CN": {
-                singular: "所有事件"
+                singular: "所有活动"
               }
             }
           })
@@ -5116,7 +5116,7 @@
                             singular: "Todos los eventos"
                           },
                           "de-DE": {
-                            singular: "Alle Ereignisse"
+                            singular: "Alle Veranstaltungen"
                           },
                           "fr-FR": {
                             singular: "Tous les événements"
@@ -5131,7 +5131,7 @@
                             singular: "Todos os eventos"
                           },
                           "zh-CN": {
-                            singular: "所有事件"
+                            singular: "所有活动"
                           }
                         }
                       })

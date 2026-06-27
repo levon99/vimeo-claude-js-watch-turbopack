@@ -17412,7 +17412,7 @@
         isOpen: _v13,
         onClose: () => _v14(!1),
         isMobile: _v12,
-        teamOwnerId: (_v0?.team?.ownerId, 0),
+        teamOwnerId: _v0?.team?.ownerId ?? 0,
         hideWhatsNew: !0,
         dragConstraint: {
           min: 240,

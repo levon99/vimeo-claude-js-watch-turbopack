@@ -100,7 +100,7 @@
                     singular: "Close sort options",
                     dictionary: {
                       es: {
-                        singular: "Cerrar las opciones de orden"
+                        singular: "Cerrar opciones de ordenación"
                       },
                       "de-DE": {
                         singular: "Sortieroptionen schließen"
@@ -115,7 +115,7 @@
                         singular: "정렬 옵션 닫기"
                       },
                       "pt-BR": {
-                        singular: "Fechar opções de classificação"
+                        singular: "Fechar opções de ordenação"
                       },
                       "zh-CN": {
                         singular: "关闭排序选项"

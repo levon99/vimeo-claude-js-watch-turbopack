@@ -3282,6 +3282,32 @@
           }
         }
       }),
+      dvrRequiredForLanguageFeatures: (0, _v6.translate)({
+        singular: "Turn on DVR to go live with live caption translations, or remove the caption translations first",
+        dictionary: {
+          es: {
+            singular: "Activa el DVR para emitir en directo con traducciones en tiempo real de subtítulos, o elimina primero las traducciones de subtítulos"
+          },
+          "de-DE": {
+            singular: "Aktivieren Sie DVR, um mit Live-Untertitelübersetzungen live zu gehen, oder entfernen Sie zuerst die Untertitelübersetzungen"
+          },
+          "fr-FR": {
+            singular: "Activez le DVR pour diffuser en direct avec des traductions des sous-titres, ou supprimez d'abord les traductions des sous-titres"
+          },
+          "ja-JP": {
+            singular: "ライブキャプションの翻訳とともにライブ配信するには、DVRをオンにするか、先にキャプション翻訳を削除してください"
+          },
+          "ko-KR": {
+            singular: "실시간 자막 번역으로 생방송을 진행하려면 DVR을 켜거나, 먼저 자막 번역을 제거하세요"
+          },
+          "pt-BR": {
+            singular: "Ative o DVR para transmitir ao vivo com traduções em tempo real das legendas, ou remova primeiro as traduções das legendas"
+          },
+          "zh-CN": {
+            singular: "启用 DVR 以在使用实时字幕翻译时进行直播，或先移除字幕翻译"
+          }
+        }
+      }),
       edit: (0, _v6.translate)({
         singular: "Edit",
         dictionary: {

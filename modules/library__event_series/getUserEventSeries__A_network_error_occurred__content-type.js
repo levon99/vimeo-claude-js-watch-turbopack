@@ -233,7 +233,7 @@
     _v51 = _v0 => {
       let _v1,
         _v2 = (_v1 = _v0.match(_v50)) ? Number(_v1[1]) : null;
-      return _v2 ? `/manage/event_series/${_v2}/info` : null;
+      return _v2 ? `/manage/event_series/${_v2}` : null;
     },
     _v52 = ["uri", "name"],
     _v53 = ({

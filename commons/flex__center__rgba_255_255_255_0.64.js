@@ -216,211 +216,7 @@
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
-    _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
-    _v35 = _v0.i(0),
-    _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0);
-  function _v39(_v0) {
-    let _v1 = Math.abs(_v0),
-      [_v2, _v3] = [Math.floor(_v1 / 60), _v1 % 60].map(_v0 => _v0.toString().padStart(2, "0")),
-      _v4 = `${_v2}:${_v3}`;
-    return `${_v0 >= 0 ? "+" : "-"} ${_v4}`;
-  }
-  function _v40({
-    timeZone: _v0,
-    attach: _v1 = "bottom",
-    onChange: _v2
-  }) {
-    let _v3 = (0, _v34.useColorModeValue)("slate.50", "grayscale.800"),
-      [_v4, _v5] = (0, _v4.useState)(!1),
-      [_v6, _v7] = (0, _v4.useState)(""),
-      _v8 = (0, _v4.useRef)(null),
-      _v9 = (0, _v4.useRef)(null),
-      _v10 = (0, _v4.useRef)(null),
-      _v11 = (0, _v4.useRef)(null),
-      _v12 = (0, _v4.useRef)(null),
-      _v13 = (0, _v4.useMemo)(() => (0, _v2.getTimeZones)(), []),
-      _v14 = (0, _v4.useMemo)(() => _v13.find(_v0 => _v0 === _v0.name || _v0.group[0] === _v0) ?? _v13.find(_v0 => _v0.group.includes(_v0)), [_v13, _v0]),
-      _v15 = (0, _v4.useMemo)(() => _v6 ? _v13.filter(_v0 => _v0.rawFormat.toLowerCase().search(_v6.toLowerCase()) >= 0 || _v0.countryName.toLowerCase().search(_v6.toLowerCase()) >= 0) : _v13, [_v13, _v6]);
-    (0, _v4.useEffect)(() => {
-      _v4 && (_v11?.current?.scroll({
-        top: (_v12?.current?.offsetTop ?? 0) - 120,
-        behavior: "auto"
-      }), setTimeout(() => {
-        _v9.current?.focus();
-      }, 100));
-    }, [_v4, _v11, _v12]), (0, _v35.useOutsideClick)({
-      enabled: _v4,
-      ref: _v10,
-      handler: _v0 => {
-        _v0.target && _v8?.current?.contains(_v0.target) || _v5(!1);
-      }
-    });
-    let _v16 = (0, _v38.useScrollbarStyles)({
-      width: (0, _v8.rem)(8),
-      scrollbarColor: "transparent"
-    });
-    return (0, _v1.jsxs)(_v28.Popover, {
-      isOpen: _v4,
-      placement: _v1,
-      matchWidth: !0,
-      children: [(0, _v1.jsx)(_v29.PopoverTrigger, {
-        children: (0, _v1.jsxs)(_v6.Flex, {
-          ref: _v8,
-          direction: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "100%",
-          height: (0, _v8.rem)(32),
-          borderRadius: "sm",
-          padding: `${(0, _v8.rem)(6)} ${(0, _v8.rem)(12)}`,
-          cursor: "pointer",
-          tabIndex: 0,
-          background: "surface",
-          outline: _v4 ? "2px solid" : "1px solid",
-          outlineColor: _v4 ? "inherit" : "input-stroke",
-          sx: {
-            "&:hover": {
-              background: "fill-component-hover"
-            },
-            "&:focus, &:active": {
-              outline: "2px solid",
-              outlineColor: "inherit"
-            }
-          },
-          onClick: () => {
-            _v5(_v0 => !_v0), _v7("");
-          },
-          children: [(0, _v1.jsxs)(_v27.Paragraph, {
-            size: "md",
-            color: "text-primary",
-            letterSpacing: (0, _v8.rem)(-.14),
-            whiteSpace: "nowrap",
-            textOverflow: "ellipsis",
-            overflow: "hidden",
-            children: [(0, _v1.jsx)(_v11.Box, {
-              as: "span",
-              "data-testid": "time-zone-picker-value",
-              children: _v14 && `${_v14.mainCities[0]}, ${_v14.countryName}`
-            }), (0, _v1.jsx)(_v11.Box, {
-              as: "span",
-              fontSize: (0, _v8.rem)(14),
-              color: "text-secondary",
-              whiteSpace: "nowrap",
-              children: ` (GMT ${_v39(_v14?.currentTimeOffsetInMinutes ?? 0)})`
-            })]
-          }), (0, _v1.jsx)(_v36.ChevronDown, {})]
-        })
-      }), (0, _v1.jsx)(_v30.PopoverContent, {
-        minWidth: "100%",
-        children: (0, _v1.jsxs)(_v6.Flex, {
-          ref: _v10,
-          direction: "column",
-          children: [(0, _v1.jsx)(_v6.Flex, {
-            position: "relative",
-            padding: (0, _v8.rem)(8),
-            width: "100%",
-            children: (0, _v1.jsxs)(_v31.InputGroup, {
-              size: "sm",
-              children: [(0, _v1.jsx)(_v33.InputLeftElement, {
-                children: (0, _v1.jsx)(_v37.SearchMagnifier, {
-                  height: 20,
-                  width: 20
-                })
-              }), (0, _v1.jsx)(_v32.Input, {
-                ref: _v9,
-                placeholder: (0, _v13.translate)({
-                  singular: "Search",
-                  dictionary: {
-                    es: {
-                      singular: "Buscar"
-                    },
-                    "de-DE": {
-                      singular: "Suchen"
-                    },
-                    "fr-FR": {
-                      singular: "Chercher"
-                    },
-                    "ja-JP": {
-                      singular: "検索"
-                    },
-                    "ko-KR": {
-                      singular: "검색"
-                    },
-                    "pt-BR": {
-                      singular: "Pesquisar"
-                    },
-                    "zh-CN": {
-                      singular: "搜索"
-                    }
-                  }
-                }),
-                value: _v6,
-                onChange: _v0 => {
-                  _v7(_v0.target.value);
-                }
-              })]
-            })
-          }), (0, _v1.jsx)(_v6.Flex, {
-            ref: _v11,
-            direction: "column",
-            gap: (0, _v8.rem)(8),
-            padding: `0 ${(0, _v8.rem)(8)} ${(0, _v8.rem)(8)} ${(0, _v8.rem)(8)}`,
-            overflowY: "auto",
-            overflowX: "hidden",
-            height: "100%",
-            maxHeight: (0, _v8.rem)(180),
-            sx: _v16,
-            children: _v15.map(_v0 => (0, _v1.jsx)(_v6.Flex, {
-              ref: _v0.name === _v14?.name ? _v12 : null,
-              justifyContent: "flex-start",
-              alignItems: "center",
-              padding: `${(0, _v8.rem)(8)} ${(0, _v8.rem)(12)}`,
-              gap: (0, _v8.rem)(8),
-              borderRadius: (0, _v8.rem)(8),
-              cursor: "pointer",
-              width: "100%",
-              background: _v0.name === _v14?.name ? _v3 : "transparent",
-              _hover: {
-                background: _v3
-              },
-              onClick: () => {
-                _v5(!1), _v2(_v0.name);
-              },
-              children: (0, _v1.jsxs)(_v27.Paragraph, {
-                alignItems: "center",
-                size: "md",
-                whiteSpace: "wrap",
-                textOverflow: "ellipsis",
-                overflow: "hidden",
-                margin: 0,
-                gap: (0, _v8.rem)(4),
-                width: "100%",
-                children: [(0, _v1.jsx)(_v11.Box, {
-                  as: "span",
-                  children: `${_v0.mainCities[0]}, ${_v0.countryName}`
-                }), (0, _v1.jsx)(_v11.Box, {
-                  as: "span",
-                  fontSize: (0, _v8.rem)(14),
-                  color: "text-secondary",
-                  whiteSpace: "nowrap",
-                  children: ` (GMT ${_v39(_v0.currentTimeOffsetInMinutes)})`
-                })]
-              })
-            }, _v0.name))
-          })]
-        })
-      })]
-    });
-  }
-  var _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0);
+    _v31 = _v0.i(0);
   _v0.s(["EventSchedule", 0, function ({
     id: _v0 = "event-schedule",
     className: _v1 = "event-schedule",
@@ -473,7 +269,7 @@
           let {
             hour: _v0,
             minute: _v1
-          } = (0, _v42.getNextRoundedTimeByDate)(_v3.plus({
+          } = (0, _v29.getNextRoundedTimeByDate)(_v3.plus({
             hours: 1
           }));
           _v0 = _v0.set({
@@ -494,7 +290,7 @@
           let {
             hour: _v0,
             minute: _v1
-          } = (0, _v42.getNextRoundedTimeByDate)(_v0);
+          } = (0, _v29.getNextRoundedTimeByDate)(_v0);
           _v0 = _v0.set({
             hour: _v0,
             minute: _v1
@@ -503,7 +299,7 @@
           let {
             hour: _v0,
             minute: _v1
-          } = (0, _v42.getPreviousRoundedTimeByDate)(_v3.set({
+          } = (0, _v29.getPreviousRoundedTimeByDate)(_v3.set({
             hour: 0,
             minute: 0
           }), 5);
@@ -518,7 +314,7 @@
         let {
             hour: _v1,
             minute: _v2
-          } = _v15 ?? (0, _v42.getNextRoundedTimeByDate)(_v3.DateTime.utc().setZone(_v14)),
+          } = _v15 ?? (0, _v29.getNextRoundedTimeByDate)(_v3.DateTime.utc().setZone(_v14)),
           _v3 = _v3.DateTime.fromJSDate(_v0).setZone(_v14, {
             keepLocalTime: !0
           }).set({
@@ -532,7 +328,7 @@
           minutes: 10
         }) >= _v16 && (_v4.endTime = _v19(_v16, _v3).toISO()), _v2?.rrule) {
           let _v0 = _v5.RRule.parseString(_v2.rrule);
-          _v0.freq === _v5.RRule.MONTHLY && (_v0.byweekday && (_v0.byweekday = (0, _v43.getNthWeekday)(_v3)), _v0.bymonthday && (_v0.bymonthday = _v3.day), _v4.rrule = _v5.RRule.optionsToString(_v0));
+          _v0.freq === _v5.RRule.MONTHLY && (_v0.byweekday && (_v0.byweekday = (0, _v30.getNthWeekday)(_v3)), _v0.bymonthday && (_v0.bymonthday = _v3.day), _v4.rrule = _v5.RRule.optionsToString(_v0));
         }
         _v2?.timeZone || (_v4.timeZone = _v14), _v11({
           ..._v2,
@@ -564,7 +360,7 @@
             {
               hour: _v1,
               minute: _v2
-            } = (0, _v42.getNextRoundedTimeByDate)(_v0);
+            } = (0, _v29.getNextRoundedTimeByDate)(_v0);
           _v1.startTime = _v0.set({
             hour: _v1,
             minute: _v2
@@ -637,7 +433,7 @@
             let {
               hour: _v0,
               minute: _v1
-            } = (0, _v42.getNextRoundedTimeByDate)(_v0);
+            } = (0, _v29.getNextRoundedTimeByDate)(_v0);
             _v2.startTime = _v0.set({
               hour: Number(_v0),
               minute: Number(_v1)
@@ -662,10 +458,10 @@
           _v1 = _v5.RRule.parseString(_v2.rrule);
         if (_v2.startTime) switch (_v1.freq) {
           case _v5.RRule.WEEKLY:
-            _v1.byweekday && (_v1.byweekday = (0, _v41.convertWeekdaysToTimeZone)(_v1.byweekday, _v3.DateTime.fromISO(_v2.startTime), _v0));
+            _v1.byweekday && (_v1.byweekday = (0, _v28.convertWeekdaysToTimeZone)(_v1.byweekday, _v3.DateTime.fromISO(_v2.startTime), _v0));
             break;
           case _v5.RRule.MONTHLY:
-            _v1.bymonthday && (_v1.bymonthday = (0, _v41.convertMonthDaysToTimeZone)(_v1.bymonthday, _v3.DateTime.fromISO(_v2.startTime), _v0));
+            _v1.bymonthday && (_v1.bymonthday = (0, _v28.convertMonthDaysToTimeZone)(_v1.bymonthday, _v3.DateTime.fromISO(_v2.startTime), _v0));
         }
         _v11({
           ..._v2,
@@ -710,7 +506,7 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v44.BokehTooltip, {
+        }), (0, _v1.jsx)(_v31.BokehTooltip, {
           placement: "bottom",
           maxWidth: (0, _v8.rem)(300),
           label: (0, _v13.translate)({
@@ -751,7 +547,7 @@
             })
           })
         })]
-      }), (0, _v1.jsx)(_v40, {
+      }), (0, _v1.jsx)(_v27.TimeZonePicker, {
         timeZone: _v14,
         onChange: _v26,
         attach: _v7 ? "top" : "bottom"
@@ -869,7 +665,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v44.BokehTooltip, {
+          }), (0, _v1.jsx)(_v31.BokehTooltip, {
             placement: "bottom",
             maxWidth: (0, _v8.rem)(300),
             label: (0, _v13.translate)({
@@ -987,7 +783,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v44.BokehTooltip, {
+          }), (0, _v1.jsx)(_v31.BokehTooltip, {
             placement: "bottom",
             isDisabled: !_v6,
             maxWidth: (0, _v8.rem)(300),

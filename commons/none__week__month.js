@@ -269,16 +269,16 @@
           singular: "Teammitglieder"
         },
         "fr-FR": {
-          singular: "Membres d'équipe"
+          singular: "Membres de l'équipe"
         },
         "ja-JP": {
           singular: "チームメンバー"
         },
         "ko-KR": {
-          singular: "팀원"
+          singular: "팀 구성원"
         },
         "pt-BR": {
-          singular: "Integrantes da equipe"
+          singular: "Membros da equipe"
         },
         "zh-CN": {
           singular: "团队成员"

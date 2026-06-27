@@ -882,7 +882,7 @@
     })
   })], 0), _v0.s(["getApplicableFolderPolicies", 0, _v0 => _v0.sort((_v0, _v1) => _v0.permissionLevel < _v1.permissionLevel ? 1 : -1).reduce((_v0, _v1, _v2) => {
     if ("Admin" === _v1.permissionLevel) return _v0;
-    let _v3 = _v1.applicablePermissionPolicies.folder;
+    let _v3 = _v1.applicablePermissionPolicies?.folder ?? [];
     if (0 === _v2) return _v3;
     let _v4 = _v0.reduce((_v0, _v1) => (_v0[_v1.uri] = 1, _v0), {});
     return _v3.filter(_v0 => _v4[_v0.uri]);

@@ -176,9 +176,12 @@
   text-align: center;
   font-size: ${(0, _v19.rem)(10)};
   line-height: ${(0, _v19.rem)(14)};
-`,
-    _v27 = _v2.default.lazy(() => _v0.A(0)),
-    _v28 = ({
+`;
+  var _v27 = _v0.i(0),
+    _v28 = _v0.i(0),
+    _v29 = _v0.i(0);
+  let _v30 = _v2.default.lazy(() => _v0.A(0)),
+    _v31 = ({
       shouldShowGiftMessage: _v0,
       tierName: _v1,
       userEmail: _v2,
@@ -195,20 +198,51 @@
         {
           team: _v9
         } = (0, _v2.useContext)(_v3.StateContext),
-        _v10 = (0, _v2.useCallback)(() => {
-          window.parent.location.href = "/";
-        }, []);
+        {
+          onGoHome: _v10,
+          isResolving: _v11
+        } = function () {
+          let _v0 = (0, _v5.useRouter)(),
+            _v1 = (0, _v5.useSearchParams)(),
+            _v2 = (0, _v29.useViewer)(),
+            {
+              settings: _v3,
+              isLoadingResponse: _v4
+            } = (0, _v28.useOrionSettings)(),
+            _v5 = !!_v3.onboarding_upsell_interstitial_enabled,
+            [_v6, _v7] = (0, _v2.useState)(!1),
+            _v8 = (0, _v2.useRef)(!1),
+            _v9 = _v1?.get("upsold") === "1",
+            _v10 = (0, _v2.useCallback)(() => {
+              if (!_v8.current) {
+                if (_v8.current = !0, !_v9 && (0, _v27.cheapPreGate)(_v2, _v5)) return void _v0.push(`/onboarding/upsell?next=${encodeURIComponent("/")}`);
+                window.parent.location.href = "/";
+              }
+            }, [_v9, _v2, _v5, _v0]),
+            _v11 = (0, _v2.useCallback)(() => {
+              _v4 ? _v7(!0) : _v10();
+            }, [_v4, _v10]);
+          return (0, _v2.useEffect)(() => {
+            if (!_v6) return;
+            if (!_v4) return void _v10();
+            let _v0 = window.setTimeout(_v10, 0);
+            return () => window.clearTimeout(_v0);
+          }, [_v6, _v4, _v10]), {
+            onGoHome: _v11,
+            isResolving: _v6
+          };
+        }();
       return (0, _v2.useEffect)(() => {
         (0, _v16.trackCompletedOrder)(_v3);
-      }, [_v3]), (0, _v1.jsxs)(_v29, {
+      }, [_v3]), (0, _v1.jsxs)(_v32, {
         children: [(0, _v1.jsx)(_v18, {}), _v0 && (0, _v1.jsx)(_v22, {}), (0, _v1.jsx)(_v2.Suspense, {
           fallback: null,
-          children: (0, _v1.jsx)(_v27, {})
-        }), (0, _v1.jsxs)(_v30, {
-          children: [(0, _v1.jsx)(_v31, {}), (0, _v1.jsxs)(_v32, {
-            children: [_v9.logoUrl && (0, _v1.jsx)(_v35, {
+          children: (0, _v1.jsx)(_v30, {})
+        }), (0, _v1.jsxs)(_v33, {
+          children: [(0, _v1.jsx)(_v34, {}), (0, _v1.jsxs)(_v35, {
+            children: [_v9.logoUrl && (0, _v1.jsx)(_v38, {
               src: _v9.logoUrl
-            }), (0, _v1.jsx)(_v33, {
+            }), (0, _v1.jsx)(_v36, {
               size: "1",
               children: (0, _v9.translate)({
                 singular: "Welcome to {TIER_NAME}",
@@ -239,7 +273,7 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v34, {
+            }), (0, _v1.jsx)(_v37, {
               format: "soft",
               children: (0, _v9.translate)({
                 singular: "We just sent your receipt to {EMAIL}.",
@@ -332,6 +366,7 @@
           }), !_v6 && (0, _v1.jsx)(_v10.Button, {
             format: "primary",
             onClick: _v10,
+            loading: _v11,
             children: (0, _v9.translate)({
               singular: "Go to Homepage",
               dictionary: {
@@ -362,7 +397,7 @@
         })]
       });
     },
-    _v29 = _v6.default.div.withConfig({
+    _v32 = _v6.default.div.withConfig({
       displayName: "Welcome__Wrapper",
       componentId: "sc-f09114f0-0"
     })`
@@ -375,7 +410,7 @@
   position: relative;
   overflow: hidden;
 `,
-    _v30 = _v6.default.div.withConfig({
+    _v33 = _v6.default.div.withConfig({
       displayName: "Welcome__Composition",
       componentId: "sc-f09114f0-1"
     })`
@@ -384,13 +419,13 @@
   align-items: center;
   gap: ${(0, _v8.rem)(120)};
 `,
-    _v31 = (0, _v6.default)(_v11.VimeoLogo).withConfig({
+    _v34 = (0, _v6.default)(_v11.VimeoLogo).withConfig({
       displayName: "Welcome__VimeoLogoStyled",
       componentId: "sc-f09114f0-2"
     })`
   width: ${(0, _v8.rem)(150)};
 `,
-    _v32 = _v6.default.div.withConfig({
+    _v35 = _v6.default.div.withConfig({
       displayName: "Welcome__WelcomeBlock",
       componentId: "sc-f09114f0-3"
     })`
@@ -401,20 +436,20 @@
   width: ${(0, _v8.rem)(380)};
   text-align: center;
 `,
-    _v33 = (0, _v6.default)(_v12.Header).withConfig({
+    _v36 = (0, _v6.default)(_v12.Header).withConfig({
       displayName: "Welcome__HeaderStyled",
       componentId: "sc-f09114f0-4"
     })`
   margin: 0;
 `,
-    _v34 = (0, _v6.default)(_v13.Text).withConfig({
+    _v37 = (0, _v6.default)(_v13.Text).withConfig({
       displayName: "Welcome__Description",
       componentId: "sc-f09114f0-5"
     })`
   margin: 0;
   font-size: ${(0, _v8.rem)(16)};
 `,
-    _v35 = _v6.default.img.withConfig({
+    _v38 = _v6.default.img.withConfig({
       displayName: "Welcome__BrandLogo",
       componentId: "sc-f09114f0-6"
     })`
@@ -429,7 +464,7 @@
       _v2 = (0, _v4.getReceiptValue)(_v4.RECEIPT_ONBOARDING_USER_EMAIL),
       _v3 = "true" === (0, _v4.getReceiptValue)(_v4.RECEIPT_ONBOARDING_HAS_GIFT),
       _v4 = (0, _v4.getReceiptValue)(_v4.RECEIPT_ONBOARDING_ORDER_ID);
-    return (0, _v1.jsx)(_v28, {
+    return (0, _v1.jsx)(_v31, {
       shouldShowGiftMessage: _v3,
       tierName: _v1 ?? _v4.ACCOUNT_TYPE_MAP[_v0.account],
       userEmail: _v2 ?? "",

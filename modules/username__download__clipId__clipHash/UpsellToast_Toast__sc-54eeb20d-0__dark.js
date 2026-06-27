@@ -1599,7 +1599,7 @@
   var _v116 = _v0.i(0);
   let _v117 = _v13.default.div.withConfig({
     displayName: "SlideDownBanner__SlideDownBannerStyled",
-    componentId: "sc-53af0c46-0"
+    componentId: "sc-b02ed19f-0"
   })`
   display: flex;
   justify-content: center;
@@ -1619,7 +1619,7 @@
 `;
   (0, _v13.default)(_v84.Link).withConfig({
     displayName: "SlideDownBanner__SlideDownBannerCta",
-    componentId: "sc-53af0c46-1"
+    componentId: "sc-b02ed19f-1"
   })`
   * {
     color: white;

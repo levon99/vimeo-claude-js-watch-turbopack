@@ -115,7 +115,9 @@
       let _v2 = await _v9(`/users/${_v1}/settings/billing/membership`, _v0);
       return (0, _v2.mapMembershipResponse)("membership" in _v2 ? _v2.membership : _v2);
     },
-    _v20 = async (_v0, _v1) => _v9(`/me/subscriptions/${_v1}/withdrawal`, _v0, "POST"),
+    _v20 = async (_v0, _v1, _v2) => _v9(`/me/subscriptions/${_v1}/withdrawal`, _v0, "POST", {
+      receiver_email: _v2
+    }),
     _v21 = async (_v0, _v1) => _v9(`/me/subscriptions/${_v1}/rejoin_offer`, _v0, "POST"),
     _v22 = async (_v0, _v1) => _v9(`/users/${_v1}/settings/billing/payment_methods`, _v0),
     _v23 = (_v0, _v1) => _v1 && _v1.length ? `&${_v0}=${_v1}` : "";

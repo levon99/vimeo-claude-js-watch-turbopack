@@ -66,6 +66,11 @@
           tier: _v0.tier,
           periodicity: _v0.periodicity,
           is_free_trial: _v0.isFreeTrial ?? !1,
+          source: _v0.source ?? null,
+          decline_category: _v0.decline_category ?? null,
+          failing_field: _v0.failing_field ?? null,
+          http_status: _v0.http_status ?? null,
+          endpoint: _v0.endpoint ?? null,
           error_message: _v0.error_message ?? null,
           error_code: _v0.error_code ?? null,
           ..._v2()

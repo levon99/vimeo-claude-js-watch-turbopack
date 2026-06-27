@@ -54,7 +54,7 @@
           trackTeamAccentColor: _v8
         } = (0, _v4.useContext)(_v20.ManageTeamAnalytics),
         _v9 = _v0 => {
-          _v5 || /^#(?:[0-9a-fA-F]{3}){1,2}$/.test(_v0) && _v0 !== _v0 && (_v2(_v0), _v8({
+          !_v5 && /^#(?:[0-9a-fA-F]{3}){1,2}$/.test(_v0) && (_v0 !== _v0 && _v2(_v0), _v8({
             color: _v0,
             method: _v8.ColorChangeMethods.Picker
           }));
@@ -72,6 +72,9 @@
           placement: "top"
         },
         value: (0, _v17.parseColor)(_v0),
+        onValueChange: _v0 => (_v0 => {
+          !_v5 && /^#(?:[0-9a-fA-F]{3}){1,2}$/.test(_v0) && _v0 !== _v0 && _v2(_v0);
+        })(_v0.value.toString("hex")),
         onValueChangeEnd: _v0 => _v9(_v0.value.toString("hex")),
         style: {
           flexDirection: "column"

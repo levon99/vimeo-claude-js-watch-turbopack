@@ -186,6 +186,7 @@
 - https://vimeo.com/onboarding
 - https://vimeo.com/onboarding/free-trial-activated
 - https://vimeo.com/onboarding/mobile
+- https://vimeo.com/onboarding/upsell
 - https://vimeo.com/ondemand/seller/verify
 - https://vimeo.com/partner-apps/[appId]
 - https://vimeo.com/preview/[videoHash]

@@ -1,19 +1,16 @@
 {
   "use strict";
 
-  var _v1 = _v0.i(0);
-  _v0.i(0);
-  var _v2 = _v0.i(0),
-    _v3 = _v0.i(0),
-    _v4 = _v0.i(0),
-    _v5 = _v0.i(0);
-  async function _v6({
+  var _v1 = _v0.i(0),
+    _v2 = _v0.i(0),
+    _v3 = _v0.i(0);
+  async function _v4({
     baseUrl: _v0,
     select: _v1,
     query: _v2,
     ..._v3
   }) {
-    return (0, _v5.measureLatency)("getMeSubscriptionPlans", "GET", async () => {
+    return (0, _v2.measureLatency)("getMeSubscriptionPlans", "GET", async () => {
       let _v0 = await fetch(`${_v0}/me/subscription_plans?${(0, _v3.searchQueryString)(_v2)}&fields=${_v1.map(_v3.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
@@ -25,19 +22,20 @@
       return (0, _v3.deepCamelCase)(_v1);
     });
   }
-  var _v7 = _v0.i(0),
+  var _v5 = _v0.i(0),
+    _v6 = _v0.i(0),
+    _v7 = _v0.i(0),
     _v8 = _v0.i(0),
-    _v9 = _v0.i(0),
-    _v10 = _v0.i(0);
-  function _v11(_v0, _v1) {
+    _v9 = _v0.i(0);
+  function _v10(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v10.useGctlConfig)();
-    return (0, _v7.default)(_v2 ? `/me/subscription_plans${(0, _v9.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v6({
+      } = (0, _v9.useGctlConfig)();
+    return (0, _v5.default)(_v2 ? `/me/subscription_plans${(0, _v7.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v4({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -49,23 +47,23 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  function _v12() {
+  function _v11() {
     let {
         mutate: _v0
-      } = (0, _v8.useSWRConfig)(),
+      } = (0, _v6.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v10.useGctlConfig)(),
-      [_v5, _v6] = (0, _v9.useInternalState)();
-    return [(0, _v1.useCallback)(async _v0 => {
+      } = (0, _v9.useGctlConfig)(),
+      [_v5, _v6] = (0, _v7.useInternalState)();
+    return [(0, _v8.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/subscription_plans${(0, _v9.serializeQuery)(_v0)}`, _v6({
+        let _v0 = await _v0(`/me/subscription_plans${(0, _v7.serializeQuery)(_v0)}`, _v4({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -88,119 +86,11 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  async function _v13({
-    baseUrl: _v0,
-    select: _v1,
-    query: _v2,
-    ..._v3
-  }) {
-    return (0, _v5.measureLatency)("getSubscriptionPlans", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/subscription_plans?${(0, _v3.searchQueryString)(_v2)}&fields=${_v1.map(_v3.intoSnakeCase).join(",")}`, {
-        ..._v3,
-        method: "GET"
-      });
-      if (!_v0.ok) throw new _v3.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v3.deepCamelCase)(_v1);
-    });
-  }
-  function _v14(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v10.useGctlConfig)();
-    return (0, _v7.default)(_v2 ? `/subscription_plans${(0, _v9.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v13({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  "true" === _v4.default.env.STORYBOOK && (0, _v9.assignMswData)(_v11, {
+  "true" === _v1.default.env.STORYBOOK && (0, _v7.assignMswData)(_v10, {
     endpoint: "/me/subscription_plans",
     method: "GET"
-  }), "true" === _v4.default.env.STORYBOOK && (0, _v9.assignMswData)(_v12, {
+  }), "true" === _v1.default.env.STORYBOOK && (0, _v7.assignMswData)(_v11, {
     endpoint: "/me/subscription_plans",
     method: "GET"
-  }), _v0.s(["useGetMeSubscriptionPlans", 0, _v11, "useGetMeSubscriptionPlansLazy", 0, _v12], 0), "true" === _v4.default.env.STORYBOOK && (0, _v9.assignMswData)(_v14, {
-    endpoint: "/subscription_plans",
-    method: "GET"
-  }), "true" === _v4.default.env.STORYBOOK && (0, _v9.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v8.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v10.useGctlConfig)(),
-      [_v5, _v6] = (0, _v9.useInternalState)();
-    return [(0, _v1.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/subscription_plans${(0, _v9.serializeQuery)(_v0)}`, _v13({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/subscription_plans",
-    method: "GET"
-  }), _v0.s(["useGetSubscriptionPlans", 0, _v14], 0);
-  var _v15 = _v0.i(0),
-    _v16 = _v0.i(0);
-  _v0.s(["useGetSubscriptionPlansData", 0, (_v0, _v1, _v2 = !0, _v3) => {
-    let _v4 = (0, _v15.useCampaignIdOverride)(),
-      _v5 = {
-        filter: _v0 ? _v0.map(_v0 => (0, _v3.intoSnakeCase)(_v0)) : void 0,
-        promos: _v1 ? (0, _v2.encodeJson)(_v1) : void 0
-      };
-    _v3 && (_v5 = {
-      ..._v5,
-      ...(0, _v3.deepSnakeCase)(_v3)
-    });
-    let _v6 = _v4 ?? _v5.campaignId;
-    return _v6 && (_v5.campaignId = _v6), ((_v0, _v1) => {
-      let _v2 = (0, _v1.useContext)(_v16.ViewerContext),
-        {
-          data: _v3,
-          error: _v4
-        } = (_v2?.user && _v1 ? _v11 : _v14)(() => _v2 ? (_v2.vuid && (_v0.vuid = _v2.vuid), {
-          select: ["currency", "discount", "id", "metadata", "price", "promotion", "name", "uri", "tier", "priceFormatted"],
-          query: _v0
-        }) : null);
-      if (_v3 && _v3.data) return _v3.data;
-      _v4 && console.error("Unable to retrieve data from Subscription Plans Api", _v4);
-    })(_v5, _v2);
-  }], 0);
+  }), _v0.s(["useGetMeSubscriptionPlans", 0, _v10, "useGetMeSubscriptionPlansLazy", 0, _v11], 0);
 }
