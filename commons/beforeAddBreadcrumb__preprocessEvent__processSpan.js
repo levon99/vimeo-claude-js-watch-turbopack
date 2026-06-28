@@ -4493,7 +4493,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "900863faabe3bb3e3f28b8de5a984b7b973f2bcd",
+      release: "6f0e96e2b5fd2d0cb0b1f32cfe9f3847ceb7a960",
       ..._v0
     };
     !function (_v0) {
@@ -4574,7 +4574,7 @@ Error:`, _v0);
     dsn: "https://0a37e74b815884a9b93905d42fd36619@o6787.ingest.us.sentry.io/4511274141876224",
     environment: _v284,
     tracesSampleRate: _v285 ? .01 : 1,
-    ignoreErrors: ["fresnel-events.vimeocdn.com", "browser-intake-datadoghq.com"],
+    ignoreErrors: ["fresnel-events.vimeocdn.com", "browser-intake-datadoghq.com", "zaloJSV2", "telemetry.transcend.io"],
     beforeBreadcrumb: _v0 => "xhr" === _v0.category && "string" == typeof _v0.data?.url && _v0.data.url.includes("vimeocdn.com") && 200 === _v0.data.status_code ? null : _v0,
     beforeSend(_v0, _v1) {
       let _v2 = _v1.originalException;
@@ -4582,7 +4582,7 @@ Error:`, _v0);
       let _v3 = _v0.exception?.values?.[0];
       if (_v3?.type === "SyntaxError") {
         let _v0 = _v3.stacktrace?.frames,
-          _v1 = _v3.mechanism?.type === "auto.browser.global_handlers.onerror" || _v3.mechanism?.type === "onerror";
+          _v1 = _v3.mechanism?.type === "auto.browser.global_handlers.onerror" || _v3.mechanism?.type === "onerror" || _v3.mechanism?.type === "auto.browser.global_handlers.onunhandledrejection" || _v3.mechanism?.type === "onunhandledrejection";
         if (_v0?.length === 1) {
           let _v0 = _v0[0].filename ?? _v0[0].abs_path ?? "";
           if (_v0.startsWith("app:///") && !_v0.includes("_next/static") && _v1) return null;

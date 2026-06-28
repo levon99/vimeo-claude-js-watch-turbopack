@@ -84,7 +84,7 @@
         borderRadius: "drawer",
         p: 0,
         onClick: _v0 => _v0.stopPropagation(),
-        children: [_v18 ? (0, _v1.jsx)(_v19.PlayerContextProvider, {
+        children: [_v18 && window.playerAssetUrls ? (0, _v1.jsx)(_v19.PlayerContextProvider, {
           type: _v20.PlayerType.BarebonePlayer,
           assetUrls: window.playerAssetUrls,
           children: (0, _v1.jsx)(_v10.PopoverHeader, {
