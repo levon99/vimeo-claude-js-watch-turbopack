@@ -86,6 +86,7 @@
       playerType: void 0
     });
     return (0, _v3.useEffect)(() => {
+      if (!_v1) return;
       let _v0 = new _v5(_v0, _v1);
       return _v0.load().then(() => {
         _v4({
