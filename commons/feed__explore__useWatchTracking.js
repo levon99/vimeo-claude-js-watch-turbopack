@@ -28,7 +28,10 @@
       }), !0), [_v0]),
       _v6 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("sidebar_nav_clicked", {
         sidebar_nav_destination: _v3[_v0.sidebarNavDestination] ?? _v0.sidebarNavDestination,
-        sidebar_nav_context: _v0.sidebarNavContext
+        sidebar_nav_context: _v0.sidebarNavContext,
+        ...(_v0.homeSidebarDiscoveryVariant && {
+          home_sidebar_discovery_variant: _v0.homeSidebarDiscoveryVariant
+        })
       }), !0), [_v0]),
       _v7 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_video_thumbnail_clicked", {
         clip_id: _v0.clipId,

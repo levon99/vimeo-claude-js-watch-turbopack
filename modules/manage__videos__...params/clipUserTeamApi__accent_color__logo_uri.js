@@ -8943,31 +8943,33 @@
             })]
           })]
         }), !_v5 && (0, _v16.jsxs)(_v425, {
-          children: [(0, _v124.translate)({
-            singular: "Store up to 50 recent versions",
-            dictionary: {
-              es: {
-                singular: "Almacena hasta 50 versiones recientes"
-              },
-              "de-DE": {
-                singular: "Du kannst bis zu 50 neue Versionen speichern"
-              },
-              "fr-FR": {
-                singular: "Conservez jusqu'à 50 versions récentes"
-              },
-              "ja-JP": {
-                singular: "最大 50個の最新バージョンを保存"
-              },
-              "ko-KR": {
-                singular: "최대 50개의 최신 버전을 저장하세요."
-              },
-              "pt-BR": {
-                singular: "Armazenar até 50 versões recentes"
-              },
-              "zh-CN": {
-                singular: "最多可存储 50 个近期版本"
+          children: [(0, _v16.jsx)("span", {
+            children: (0, _v124.translate)({
+              singular: "Store up to 50 recent versions",
+              dictionary: {
+                es: {
+                  singular: "Almacena hasta 50 versiones recientes"
+                },
+                "de-DE": {
+                  singular: "Du kannst bis zu 50 neue Versionen speichern"
+                },
+                "fr-FR": {
+                  singular: "Conservez jusqu'à 50 versions récentes"
+                },
+                "ja-JP": {
+                  singular: "最大 50個の最新バージョンを保存"
+                },
+                "ko-KR": {
+                  singular: "최대 50개의 최신 버전을 저장하세요."
+                },
+                "pt-BR": {
+                  singular: "Armazenar até 50 versões recentes"
+                },
+                "zh-CN": {
+                  singular: "最多可存储 50 个近期版本"
+                }
               }
-            }
+            })
           }), (0, _v16.jsxs)("div", {
             children: [_v6, "/50"]
           })]

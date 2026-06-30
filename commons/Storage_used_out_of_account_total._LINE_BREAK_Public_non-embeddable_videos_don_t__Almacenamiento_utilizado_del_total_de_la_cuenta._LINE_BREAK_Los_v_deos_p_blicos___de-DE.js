@@ -15,9 +15,10 @@
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
-    _v15 = _v0.i(0);
-  let _v16 = (_v0, _v1) => "en" === _v1 ? _v0.replace(/AM/g, "am").replace(/PM/g, "pm") : _v0,
-    _v17 = ({
+    _v15 = _v0.i(0),
+    _v16 = _v0.i(0);
+  let _v17 = (_v0, _v1) => "en" === _v1 ? _v0.replace(/AM/g, "am").replace(/PM/g, "pm") : _v0,
+    _v18 = ({
       locale: _v0,
       resetTimestamp: _v1,
       quotaPeriod: _v2,
@@ -25,7 +26,7 @@
       showLastUpdatedDate: _v4,
       isRestrictedQuota: _v5
     }) => {
-      if (_v5) return (0, _v10.translate)({
+      if (_v5) return (0, _v11.translate)({
         singular: "Storage used out of account total.{LINE_BREAK}Public, non-embeddable videos don't count.",
         replacements: {
           LINE_BREAK: () => (0, _v1.jsx)("br", {})
@@ -72,13 +73,13 @@
           minute: "numeric",
           timeZoneName: "short"
         });
-      if (_v4) return (0, _v10.translate)({
+      if (_v4) return (0, _v11.translate)({
         singular: "Renews on {DATE} at {TIME}. Updated as of {UPDATED_DATE} at {UPDATED_TIME}",
         replacements: {
           DATE: _v7.format(_v1),
-          TIME: _v16(_v8.format(_v1), _v0),
-          UPDATED_DATE: _v16(_v8.format(new Date()), _v0),
-          UPDATED_TIME: _v16(_v8.format(new Date()), _v0)
+          TIME: _v17(_v8.format(_v1), _v0),
+          UPDATED_DATE: _v17(_v8.format(new Date()), _v0),
+          UPDATED_TIME: _v17(_v8.format(new Date()), _v0)
         },
         dictionary: {
           es: {
@@ -107,12 +108,12 @@
       switch (_v3) {
         case "video_count":
         case "video_size":
-          if (!_v2 || _v2 === _v15.QUOTA_PERIODS.LIFETIME) return "";
-          return (0, _v10.translate)({
+          if (!_v2 || _v2 === _v16.QUOTA_PERIODS.LIFETIME) return "";
+          return (0, _v11.translate)({
             singular: "Limit will reset on {DATE} at {TIME}",
             replacements: {
               DATE: _v7.format(_v1),
-              TIME: _v16(_v8.format(_v1), _v0)
+              TIME: _v17(_v8.format(_v1), _v0)
             },
             dictionary: {
               es: {
@@ -139,12 +140,12 @@
             }
           });
         case "ai_token":
-          if (!_v2 || _v2 === _v15.QUOTA_PERIODS.LIFETIME) return "";
-          return (0, _v10.translate)({
+          if (!_v2 || _v2 === _v16.QUOTA_PERIODS.LIFETIME) return "";
+          return (0, _v11.translate)({
             singular: "Expires on {DATE} at {TIME}",
             replacements: {
               DATE: _v7.format(_v1),
-              TIME: _v16(_v8.format(_v1), _v0)
+              TIME: _v17(_v8.format(_v1), _v0)
             },
             dictionary: {
               es: {
@@ -171,7 +172,7 @@
             }
           });
         case "drm_license":
-          if (!_v2 || _v2 === _v15.QUOTA_PERIODS.LIFETIME) return (0, _v10.translate)({
+          if (!_v2 || _v2 === _v16.QUOTA_PERIODS.LIFETIME) return (0, _v11.translate)({
             singular: "DRM licenses used out of account total.",
             dictionary: {
               es: {
@@ -197,7 +198,7 @@
               }
             }
           });
-          return (0, _v10.translate)({
+          return (0, _v11.translate)({
             singular: "DRM licenses used out of account total.{LINE_BREAK}Renews on {DATETIME}",
             replacements: {
               DATETIME: _v6.format(_v1),
@@ -231,13 +232,13 @@
           return;
       }
     },
-    _v18 = (_v0, _v1) => {
+    _v19 = (_v0, _v1) => {
       switch (_v1) {
-        case _v15.QUOTA_UNITS.SIZE:
-          return (0, _v14.bytesToSize)(_v0).toString();
-        case _v15.QUOTA_UNITS.DRM_LICENSE:
+        case _v16.QUOTA_UNITS.SIZE:
+          return (0, _v15.bytesToSize)(_v0).toString();
+        case _v16.QUOTA_UNITS.DRM_LICENSE:
           let _v0;
-          return isNaN(_v0 = parseFloat(_v0)) || _v0 < 0 ? "0" : _v0 < 0 ? _v0.toString() : new Intl.NumberFormat((0, _v10.getCurrentLocale)(), {
+          return isNaN(_v0 = parseFloat(_v0)) || _v0 < 0 ? "0" : _v0 < 0 ? _v0.toString() : new Intl.NumberFormat((0, _v11.getCurrentLocale)(), {
             notation: "compact",
             maximumFractionDigits: 1,
             trailingZeroDisplay: "stripIfInteger"
@@ -246,10 +247,10 @@
           return _v0.toString();
       }
     },
-    _v19 = _v0 => {
+    _v20 = _v0 => {
       switch (_v0) {
         case "video_count":
-          return (0, _v10.translate)({
+          return (0, _v11.translate)({
             singular: "Videos",
             dictionary: {
               "fr-FR": {
@@ -271,7 +272,7 @@
           });
         case "video_size":
         default:
-          return (0, _v10.translate)({
+          return (0, _v11.translate)({
             singular: "Storage",
             dictionary: {
               es: {
@@ -298,7 +299,7 @@
             }
           });
         case "ai_token":
-          return (0, _v10.translate)({
+          return (0, _v11.translate)({
             singular: "AI credits",
             dictionary: {
               es: {
@@ -325,7 +326,7 @@
             }
           });
         case "drm_license":
-          return (0, _v10.translate)({
+          return (0, _v11.translate)({
             singular: "DRM licenses",
             dictionary: {
               es: {
@@ -353,12 +354,22 @@
           });
       }
     },
-    _v20 = _v0 => null === _v0 ? "vimeoBlue.400" : _v0 >= 95 ? "red.500" : _v0 >= 75 ? "status-caution-primary" : "vimeoBlue.400",
-    _v21 = _v0 => null === _v0 ? "vimeoBlue.700" : _v0 >= 95 ? "red.700" : _v0 >= 75 ? "orange.700" : "vimeoBlue.700",
-    _v22 = ({
+    _v21 = (_v0, _v1, _v2) => {
+      let _v3 = _v0 / _v1 * 100;
+      return _v3 >= 100 ? {
+        baseSegmentWidth: 0,
+        highlightSegmentWidth: 100
+      } : {
+        baseSegmentWidth: Math.max(0, _v2 - _v3),
+        highlightSegmentWidth: _v3
+      };
+    },
+    _v22 = _v0 => null === _v0 ? "vimeoBlue.400" : _v0 >= 95 ? "status-destructive-primary" : _v0 >= 75 ? "status-caution-primary" : "vimeoBlue.400",
+    _v23 = _v0 => null === _v0 ? "vimeoBlue.700" : _v0 >= 95 ? "red.700" : _v0 >= 75 ? "orange.700" : "vimeoBlue.700",
+    _v24 = ({
       showZeroCreditsMessage: _v0,
       isWorkspaceAdminUser: _v1
-    }) => _v0 && (_v1 ? (0, _v10.translate)({
+    }) => _v0 && (_v1 ? (0, _v11.translate)({
       singular: "To get credits, contact your Organization Admin.",
       dictionary: {
         es: {
@@ -383,7 +394,7 @@
           singular: "要获取积分，请联系您的组织管理员。"
         }
       }
-    }) : (0, _v10.translate)({
+    }) : (0, _v11.translate)({
       singular: "To get credits, {LINK}contact us{/LINK} or your Account Manager.",
       replacements: {
         LINK: _v0 => (0, _v1.jsx)(_v5.Link, {
@@ -417,7 +428,7 @@
         }
       }
     }));
-  _v0.s(["getLimitLabel", 0, _v19, "getOutOfAICreditsText", 0, _v22, "getQuotaAmount", 0, _v18, "getQuotaBarColor", 0, _v20, "getQuotaBarHighlightColor", 0, _v21, "renderAiCreditsExpirationDate", 0, (_v0, _v1, _v2) => {
+  _v0.s(["getLimitLabel", 0, _v20, "getOutOfAICreditsText", 0, _v24, "getQuotaAmount", 0, _v19, "getQuotaBarColor", 0, _v22, "getQuotaBarHighlightColor", 0, _v23, "getQuotaBarSegments", 0, _v21, "renderAiCreditsExpirationDate", 0, (_v0, _v1, _v2) => {
     let _v3 = Intl.DateTimeFormat(_v1, {
         year: "numeric",
         month: "short",
@@ -428,12 +439,12 @@
         minute: "numeric",
         timeZoneName: "short"
       });
-    return (0, _v10.translate)({
+    return (0, _v11.translate)({
       singular: "{QUOTA_REMAINING} expire on {DATE} at {TIME}",
       replacements: {
         QUOTA_REMAINING: _v0,
         DATE: _v3.format(_v2),
-        TIME: _v16(_v4.format(_v2), _v1)
+        TIME: _v17(_v4.format(_v2), _v1)
       },
       dictionary: {
         es: {
@@ -459,19 +470,20 @@
         }
       }
     });
-  }, "renderQuotaAnnotation", 0, _v17], 0);
-  var _v23 = _v0.i(0);
-  let _v24 = ({
+  }, "renderQuotaAnnotation", 0, _v18], 0);
+  var _v25 = _v0.i(0);
+  let _v26 = ({
       quotaResetDate: _v0,
       locale: _v1,
       quotaPeriod: _v2,
       quotaUnit: _v3,
       isMobile: _v4,
       showLastUpdatedDate: _v5,
-      isRestrictedQuota: _v6
+      isRestrictedQuota: _v6,
+      compact: _v7
     }) => {
-      let [_v7, _v8] = (0, _v2.useState)(!1),
-        _v9 = _v17({
+      let [_v8, _v9] = (0, _v2.useState)(!1),
+        _v10 = _v18({
           locale: _v1,
           resetTimestamp: new Date(_v0 ?? ""),
           quotaPeriod: _v2,
@@ -479,28 +491,32 @@
           showLastUpdatedDate: _v5,
           isRestrictedQuota: _v6
         });
-      return _v9 ? (0, _v1.jsx)(_v8.Tooltip, {
-        isOpen: _v7,
+      return _v10 ? (0, _v1.jsx)(_v8.Tooltip, {
+        isOpen: _v8,
         textAlign: "left",
         placement: _v4 ? "top" : "right",
-        label: _v9,
+        label: _v10,
         children: (0, _v1.jsx)(_v4.Flex, {
-          height: "xs",
-          width: "xs",
           cursor: "pointer",
           justifyContent: "center",
           alignItems: "center",
-          children: (0, _v1.jsx)(_v23.InfoCircle, {
-            onMouseEnter: () => _v8(!0),
-            onMouseLeave: () => _v8(!1),
-            onClick: () => _v8(_v0 => !_v0),
-            height: "2xs",
-            width: "2xs"
+          ...(_v7 ? {
+            ml: (0, _v9.rem)(4)
+          } : {
+            height: "xs",
+            width: "xs"
+          }),
+          children: (0, _v1.jsx)(_v25.InfoCircle, {
+            onMouseEnter: () => _v9(!0),
+            onMouseLeave: () => _v9(!1),
+            onClick: () => _v9(_v0 => !_v0),
+            height: _v7 ? (0, _v9.rem)(12) : "2xs",
+            width: _v7 ? (0, _v9.rem)(12) : "2xs"
           })
         })
       }) : null;
     },
-    _v25 = _v0 => (0, _v1.jsxs)(_v3.Box, {
+    _v27 = _v0 => (0, _v1.jsxs)(_v3.Box, {
       as: "svg",
       viewBox: "0 0 22 22",
       fill: "none",
@@ -518,7 +534,7 @@
         fill: "currentColor"
       })]
     }),
-    _v26 = ({
+    _v28 = ({
       isMobile: _v0,
       onUpgradeClick: _v1,
       quotaAvailable: _v2,
@@ -545,33 +561,34 @@
       compact: _v23
     }) => {
       let {
-        trackColdStorageUxClicked: _v24
-      } = (0, _v13.useColdStorageTracking)();
+          trackColdStorageUxClicked: _v24
+        } = (0, _v14.useColdStorageTracking)(),
+        _v25 = (0, _v10.useColorModeValue)("gray.200", "gray.600");
       _v10 = (!!_v7 && _v10) ?? !1;
-      let _v25 = null,
-        _v26 = null,
+      let _v26 = null,
         _v27 = null,
-        _v28 = null;
+        _v28 = null,
+        _v29 = null;
       if (null !== _v3 && null !== _v2 && null !== _v8) {
-        _v25 = _v3 && _v18(_v3, _v8), _v26 = _v2 && _v18(_v2, _v8);
+        _v26 = _v3 && _v19(_v3, _v8), _v27 = _v2 && _v19(_v2, _v8);
         let _v0 = _v3 / _v2 * 100;
-        _v27 = Math.min(100, Math.max(+(_v0 > 0), Math.round(_v0))), _v28 = _v14 && _v18(_v14, _v8);
+        _v28 = Math.min(100, Math.max(+(_v0 > 0), Math.round(_v0))), _v29 = _v14 && _v19(_v14, _v8);
       }
-      let _v29 = null,
-        _v30 = null,
-        _v31 = null;
+      let _v30 = null,
+        _v31 = null,
+        _v32 = null;
       if (null !== _v4 && null !== _v5 && null !== _v7) {
-        _v29 = _v4 && _v18(_v4, _v7), _v30 = _v5 && _v18(_v5, _v7);
+        _v30 = _v4 && _v19(_v4, _v7), _v31 = _v5 && _v19(_v5, _v7);
         let _v0 = _v4 / _v5 * 100;
-        _v31 = Math.min(100, Math.max(+(_v0 > 0), Math.round(_v0))), _v28 = _v14 && _v18(_v14, _v7);
+        _v32 = Math.min(100, Math.max(+(_v0 > 0), Math.round(_v0))), _v29 = _v14 && _v19(_v14, _v7);
       }
-      let _v32 = _v27;
-      null === _v32 && null !== _v31 && (_v32 = _v31, _v25 = _v29, _v26 = _v30), _v25 = Number.isFinite(Number(_v25)) ? Number(_v25).toLocaleString() : _v25, _v26 = Number.isFinite(Number(_v26)) ? Number(_v26).toLocaleString() : _v26;
-      let _v33 = _v19 || _v19(_v8 || _v7),
-        _v34 = _v13 ? (0, _v10.translate)({
+      let _v33 = _v28;
+      null === _v33 && null !== _v32 && (_v33 = _v32, _v26 = _v30, _v27 = _v31), _v26 = Number.isFinite(Number(_v26)) ? Number(_v26).toLocaleString() : _v26, _v27 = Number.isFinite(Number(_v27)) ? Number(_v27).toLocaleString() : _v27;
+      let _v34 = _v19 || _v20(_v8 || _v7),
+        _v35 = _v13 ? (0, _v11.translate)({
           singular: "{WORKSPACE_USED} used",
           replacements: {
-            WORKSPACE_USED: _v25
+            WORKSPACE_USED: _v26
           },
           dictionary: {
             es: {
@@ -596,11 +613,11 @@
               singular: "{WORKSPACE_USED} 已使用"
             }
           }
-        }) : (0, _v10.translate)({
+        }) : (0, _v11.translate)({
           singular: "{USED} of {LIMIT}",
           replacements: {
-            USED: _v25,
-            LIMIT: _v26
+            USED: _v26,
+            LIMIT: _v27
           },
           dictionary: {
             es: {
@@ -626,25 +643,25 @@
             }
           }
         }),
-        _v35 = null !== _v32 && _v32 >= 100,
-        _v36 = "video_size" === (_v8 || _v7) && null !== _v32 && _v32 >= 95 ? "storage_limit" : "quota",
-        _v37 = (0, _v12.buildUpgradePlanUrl)({
+        _v36 = null !== _v33 && _v33 >= 100,
+        _v37 = "video_size" === (_v8 || _v7) && null !== _v33 && _v33 >= 95 ? "storage_limit" : "quota",
+        _v38 = (0, _v13.buildUpgradePlanUrl)({
           paywallTrigger: "quota_meter_upgrade_button",
           paywallLocation: "quota_meter",
-          paywallFeature: _v36
+          paywallFeature: _v37
         }, {
           upsell: "quota_meter",
           integration: "none",
-          feature: _v35 ? "Storage_at_limit" : "Storage_general",
+          feature: _v36 ? "Storage_at_limit" : "Storage_general",
           paywall: "1",
           upsellFeatureCategory: "Storage",
-          upsellSpecificFeature: _v35 ? "Storage_at_limit" : "Storage_general"
+          upsellSpecificFeature: _v36 ? "Storage_at_limit" : "Storage_general"
         }),
-        _v38 = (0, _v2.useCallback)(() => {
-          _v1?.(_v8 || _v7, _v32);
-        }, [_v1, _v8, _v7, _v32]),
-        _v39 = () => (0, _v1.jsx)(_v8.Tooltip, {
-          label: (0, _v10.translate)({
+        _v39 = (0, _v2.useCallback)(() => {
+          _v1?.(_v8 || _v7, _v33);
+        }, [_v1, _v8, _v7, _v33]),
+        _v40 = () => (0, _v1.jsx)(_v8.Tooltip, {
+          label: (0, _v11.translate)({
             singular: "You're over your storage limit. Delete videos to unlock uploads.",
             dictionary: {
               es: {
@@ -681,7 +698,7 @@
             },
             display: "inline-flex",
             alignItems: "center",
-            "aria-label": (0, _v10.translate)({
+            "aria-label": (0, _v11.translate)({
               singular: "You're over your storage limit. Delete videos to unlock uploads.",
               dictionary: {
                 es: {
@@ -707,15 +724,22 @@
                 }
               }
             }),
-            children: (0, _v1.jsx)(_v25, {
+            children: (0, _v1.jsx)(_v27, {
               color: "status-destructive-primary",
               boxSize: (0, _v9.rem)(18)
             })
           })
         }),
-        _v40 = null !== _v27 && _v27 >= 95 || null !== _v32 && _v32 >= 95,
-        _v41 = _v20 ? "red.500" : _v20(_v32),
-        _v42 = _v20 ? "red.700" : _v21(_v32);
+        _v41 = null !== _v28 && _v28 >= 95 || null !== _v33 && _v33 >= 95,
+        _v42 = _v20 ? "red.500" : _v22(_v33),
+        _v43 = _v20 ? "red.700" : _v23(_v33),
+        {
+          baseSegmentWidth: _v44,
+          highlightSegmentWidth: _v45
+        } = _v22 && _v2 ? _v21(_v22, _v2, _v33) : {
+          baseSegmentWidth: 0,
+          highlightSegmentWidth: 0
+        };
       return (0, _v1.jsx)(_v1.Fragment, {
         children: (0, _v1.jsxs)(_v3.Box, {
           gap: "sm",
@@ -735,27 +759,32 @@
             children: [(0, _v1.jsxs)(_v3.Box, {
               display: "flex",
               justifyContent: "space-between",
-              ...(!_v23 && {
+              ...(_v23 ? {
+                flexShrink: 0,
+                alignItems: "center"
+              } : {
                 width: "100%"
               }),
               children: [(0, _v1.jsxs)(_v7.Text, {
                 display: "flex",
                 variant: "heading-2xs",
                 alignItems: "center",
-                children: [_v33, !_v12 && !_v18 && (0, _v1.jsx)(_v24, {
+                whiteSpace: _v23 ? "nowrap" : void 0,
+                children: [_v34, !_v12 && !_v18 && (0, _v1.jsx)(_v26, {
                   quotaResetDate: _v9 ?? "",
-                  locale: (0, _v10.getCurrentLocale)(),
+                  locale: (0, _v11.getCurrentLocale)(),
                   quotaPeriod: _v6,
                   quotaUnit: _v8 || _v7,
                   isMobile: _v0,
-                  isRestrictedQuota: _v21
+                  isRestrictedQuota: _v21,
+                  compact: _v23
                 })]
-              }), _v11 && !_v0 && (0, _v1.jsx)(_v11.UpgradeBadge, {
+              }), _v11 && !_v0 && (0, _v1.jsx)(_v12.UpgradeBadge, {
                 style: {
                   marginRight: 0
                 },
-                href: _v1 ? void 0 : _v37,
-                onClick: _v38,
+                href: _v1 ? void 0 : _v38,
+                onClick: _v39,
                 name: "quota_meter_upgrade_button",
                 location: "quota_meter"
               })]
@@ -766,14 +795,14 @@
                 variant: "body-sm",
                 color: "text-tertiary",
                 "data-testid": "out-of-ai-credits-text",
-                children: _v22({
+                children: _v24({
                   showZeroCreditsMessage: !!_v12,
                   isWorkspaceAdminUser: !!_v13
                 })
               })
             }), !_v12 && (_v13 ? (0, _v1.jsx)(() => {
-              let _v0 = Number(_v28),
-                _v1 = Number.isFinite(_v0) ? _v0.toLocaleString() : _v28;
+              let _v0 = Number(_v29),
+                _v1 = Number.isFinite(_v0) ? _v0.toLocaleString() : _v29;
               return _v15 ? (0, _v1.jsx)(_v4.Flex, {
                 justifyContent: "space-between",
                 width: "100%",
@@ -787,11 +816,11 @@
                     variant: "body-sm",
                     textAlign: "left",
                     color: "text-secondary",
-                    children: (0, _v10.translate)({
+                    children: (0, _v11.translate)({
                       singular: "{WORKSPACE_USED} of {WORKSPACE_LIMIT} limit",
                       replacements: {
-                        WORKSPACE_USED: _v25,
-                        WORKSPACE_LIMIT: _v26
+                        WORKSPACE_USED: _v26,
+                        WORKSPACE_LIMIT: _v27
                       },
                       dictionary: {
                         es: {
@@ -831,7 +860,7 @@
                   display: "flex",
                   alignItems: "center",
                   marginBottom: 0,
-                  children: _v34
+                  children: _v35
                 }), (0, _v1.jsxs)(_v4.Flex, {
                   width: "100%",
                   gap: "xs",
@@ -840,7 +869,7 @@
                     variant: "body-sm",
                     textAlign: "left",
                     color: "text-secondary",
-                    children: (0, _v10.translate)({
+                    children: (0, _v11.translate)({
                       singular: "{WORKSPACE_REMAINING} total remaining ",
                       replacements: {
                         WORKSPACE_REMAINING: _v1
@@ -874,11 +903,16 @@
               });
             }, {}) : (0, _v1.jsx)(() => (0, _v1.jsxs)(_v4.Flex, {
               alignItems: "center",
-              width: "100%",
-              ...(_v20 ? {
-                justifyContent: "space-between"
+              ...(_v23 ? {
+                flexShrink: 0,
+                justifyContent: "flex-end"
               } : {
-                gap: "xs"
+                width: "100%",
+                ...(_v20 ? {
+                  justifyContent: "space-between"
+                } : {
+                  gap: "xs"
+                })
               }),
               children: [(0, _v1.jsxs)(_v4.Flex, {
                 alignItems: "center",
@@ -887,11 +921,12 @@
                   "data-testid": "periodic-quota-info",
                   variant: "body-sm",
                   textAlign: "left",
-                  color: _v40 ? "red.500" : "text-secondary",
+                  color: _v41 && !_v23 ? "red.500" : "text-secondary",
                   display: "flex",
                   alignItems: "center",
                   marginBottom: 0,
-                  children: ["week" === _v6 && (0, _v10.translate)({
+                  whiteSpace: _v23 ? "nowrap" : void 0,
+                  children: ["week" === _v6 && (0, _v11.translate)({
                     singular: "Weekly",
                     dictionary: {
                       es: {
@@ -916,32 +951,29 @@
                         singular: "每周"
                       }
                     }
-                  }), " ", _v34]
+                  }), " ", _v35]
                 })]
-              }), _v20 && (0, _v1.jsx)(_v39, {})]
+              }), _v20 && (0, _v1.jsx)(_v40, {})]
             }), {}))]
-          }), Number.isFinite(_v32) && _v16 && !_v12 && (_v22 && _v2 ? (0, _v1.jsxs)(_v3.Box, {
+          }), Number.isFinite(_v33) && _v16 && !_v12 && (_v22 && _v2 ? (0, _v1.jsxs)(_v4.Flex, {
             "data-testid": "mobile-quota-bar",
-            position: "relative",
             height: (0, _v9.rem)(6),
             width: "100%",
             borderRadius: "999px",
-            bgColor: "bg-tertiary",
+            bgColor: _v25,
             overflow: "hidden",
             marginBottom: (0, _v9.rem)(4),
-            children: [(0, _v1.jsx)(_v3.Box, {
-              position: "absolute",
-              left: 0,
-              top: 0,
+            children: [_v44 > 0 && (0, _v1.jsx)(_v3.Box, {
               height: "100%",
-              width: `${Math.min(100, Math.max(0, _v32 - _v22 / _v2 * 100))}%`,
-              bgColor: _v41,
-              borderRadius: "999px"
+              width: `${_v44}%`,
+              minWidth: (0, _v9.rem)(6),
+              flexShrink: 1,
+              bgColor: _v42
             }), (0, _v1.jsx)(_v8.Tooltip, {
-              label: (0, _v10.translate)({
+              label: (0, _v11.translate)({
                 singular: "This video: {SIZE}",
                 replacements: {
-                  SIZE: (0, _v14.bytesToSize)(_v22).toString()
+                  SIZE: (0, _v15.bytesToSize)(_v22).toString()
                 },
                 dictionary: {
                   es: {
@@ -969,12 +1001,11 @@
               }),
               placement: "top",
               children: (0, _v1.jsx)(_v3.Box, {
-                position: "absolute",
-                left: `${Math.min(100, Math.max(0, _v32 - _v22 / _v2 * 100))}%`,
-                top: 0,
                 height: "100%",
-                width: `${Math.min(_v22 / _v2 * 100, 100)}%`,
-                bgColor: _v42,
+                width: `${_v45}%`,
+                minWidth: (0, _v9.rem)(6),
+                flexShrink: 0,
+                bgColor: _v43,
                 borderTopRightRadius: "999px",
                 borderBottomRightRadius: "999px",
                 cursor: "default"
@@ -982,15 +1013,16 @@
             })]
           }) : (0, _v1.jsx)(_v6.Progress, {
             "data-testid": "mobile-quota-bar",
-            value: _v32,
+            value: _v33,
             size: "xs",
+            bgColor: _v25,
             sx: {
               "[role=progressbar]": {
-                bgColor: _v41
+                bgColor: _v42
               }
             },
             marginBottom: (0, _v9.rem)(4)
-          })), _v10 && null !== _v31 && (0, _v1.jsx)(_v3.Box, {
+          })), _v10 && null !== _v32 && (0, _v1.jsx)(_v3.Box, {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
@@ -1001,14 +1033,14 @@
               "data-testid": "total-quota-info",
               variant: "body-xs",
               textAlign: "left",
-              color: _v31 >= 95 ? "red.500" : "text-tertiary",
+              color: _v32 >= 95 ? "red.500" : "text-tertiary",
               display: "flex",
               alignItems: "center",
-              children: (0, _v10.translate)({
+              children: (0, _v11.translate)({
                 singular: "Total {USED} of {LIMIT}",
                 replacements: {
-                  USED: _v29,
-                  LIMIT: _v30
+                  USED: _v30,
+                  LIMIT: _v31
                 },
                 dictionary: {
                   es: {
@@ -1040,10 +1072,10 @@
             color: "blue.500",
             textDecoration: "underline",
             children: (0, _v1.jsx)(_v5.Link, {
-              href: (0, _v12.buildUpgradePlanUrl)({
+              href: (0, _v13.buildUpgradePlanUrl)({
                 paywallTrigger: "quota_meter_mobile_upgrade_button",
                 paywallLocation: "quota_meter",
-                paywallFeature: _v36
+                paywallFeature: _v37
               }, {
                 upsell: "quota_meter",
                 integration: "none",
@@ -1051,7 +1083,7 @@
                 paywall: "1"
               }),
               variant: "brand",
-              children: (0, _v10.translate)({
+              children: (0, _v11.translate)({
                 singular: "Upgrade",
                 dictionary: {
                   es: {
@@ -1079,7 +1111,7 @@
         })
       });
     };
-  _v0.s(["QuotaMeter", 0, _v26], 0), _v0.s(["UploadQuotaMeter", 0, ({
+  _v0.s(["QuotaMeter", 0, _v28], 0), _v0.s(["UploadQuotaMeter", 0, ({
     isMobile: _v0,
     onUpgradeClick: _v1,
     quota: _v2,
@@ -1099,7 +1131,7 @@
       _v15 = (_v10 ? _v2.restricted?.max : _v2.lifetime?.max) ?? null,
       _v16 = (_v10 ? _v2.restricted?.free : _v2.lifetime?.free) ?? null,
       _v17 = _v10 ? _v2.restricted?.unit : _v2.periodic?.unit || _v2.lifetime?.unit || null;
-    return (0, _v1.jsx)(_v26, {
+    return (0, _v1.jsx)(_v28, {
       isMobile: _v0,
       onUpgradeClick: _v1,
       showTotal: _v3,

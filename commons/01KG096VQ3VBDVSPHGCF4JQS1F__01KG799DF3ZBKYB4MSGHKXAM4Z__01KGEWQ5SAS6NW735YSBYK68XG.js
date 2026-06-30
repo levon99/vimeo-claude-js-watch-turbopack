@@ -7,9 +7,11 @@
       pi_2026_storage_seat: "01KG096VQ3VBDVSPHGCF4JQS1F",
       pi_2026_legacy_plans: "01KG799DF3ZBKYB4MSGHKXAM4Z",
       rp_2026: "01KGEWQ5SAS6NW735YSBYK68XG",
-      rp_2026_strict: "01KGPR56B56Z9H89TBNS98ASMT"
+      rp_2026_strict: "01KGPR56B56Z9H89TBNS98ASMT",
+      rp_2026_low: "01KW9DH1F0FDGXW85ZBDYXYCRK",
+      rp_2026_high: "01KW9DH1F0Z5XGAH2JCG9FWC4K"
     },
-    _v4 = ["rp_2026", "rp_2026_strict"].map(_v0 => _v3[_v0]);
+    _v4 = ["rp_2026", "rp_2026_strict", "rp_2026_low", "rp_2026_high"].map(_v0 => _v3[_v0]);
   _v0.s(["REPACKAGING_CAMPAIGN_IDS", 0, _v4, "useCampaignIdOverride", 0, () => {
     var _v0;
     let {

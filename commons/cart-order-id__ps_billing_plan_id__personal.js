@@ -2042,20 +2042,27 @@
           billingPlan: _v4,
           order: _v5,
           isBusinessUserEntity: _v6,
-          tier: _v7,
-          creatorProductAction: _v8,
-          creatorProductId: _v9
+          isMonthly: _v7,
+          isFreeTrial: _v8,
+          tier: _v9,
+          creatorProductAction: _v10,
+          creatorProductId: _v11
         }
       } = _v50(),
       {
-        settings: _v10
+        settings: _v12
       } = (0, _v43.useOrionSettings)(),
-      _v11 = _v10.use_juno_billing,
-      _v12 = _v7 && (0, _v71.isCreatorProductTier)(_v7),
-      [_v13, _v14] = _v32(),
-      _v15 = (0, _v11.useRouter)();
+      _v13 = _v12.use_juno_billing,
+      _v14 = _v9 && (0, _v71.isCreatorProductTier)(_v9),
+      [_v15, _v16] = _v32(),
+      _v17 = (0, _v11.useRouter)(),
+      {
+        trackCheckoutFailed: _v18
+      } = (0, _v44.useCheckoutTracking)(),
+      _v19 = _v1?.isCreatorProduct ? (0, _v71.getPlanType)(_v10) : _v7 ? "monthly" : "annual",
+      _v20 = (0, _v12.useRef)(!1);
     return (0, _v12.useEffect)(function () {
-      if (_v14.error) {
+      if (_v16.error) {
         let _v0 = (0, _v77.getErrorMessage)(_v77.ERROR_TYPE.PAYPAL_CONNECTION);
         _v0({
           type: _v78.ActionTypes.PAYMENT_ALERT,
@@ -2063,25 +2070,31 @@
             status: "error",
             message: _v0
           }
-        });
-      }
-    }, [_v14.error, _v0]), (0, _v12.useEffect)(function () {
-      if (_v14.data) {
+        }), void 0 === _v9 || _v20.current || (_v20.current = !0, _v18({
+          tier: _v9,
+          periodicity: _v19,
+          isFreeTrial: _v8,
+          error_message: _v0,
+          error_code: "paypal_authorize_failed"
+        }));
+      } else _v20.current = !1;
+    }, [_v16.error, _v0, _v18, _v9, _v19, _v8]), (0, _v12.useEffect)(function () {
+      if (_v16.data) {
         let {
           redirectUrl: _v0
-        } = _v14.data;
+        } = _v16.data;
         window.location.href = _v0;
       }
-    }, [_v14.data]), [() => {
+    }, [_v16.data]), [() => {
       let _v0 = _v6 ? _v5 : _v4,
         _v1 = _v1?.name ? encodeURIComponent(_v1?.name) : "",
-        _v2 = _v15.query?.token ? `&token=${_v15.query?.token}&mwru=${_v15.query?.mwru}` : "",
+        _v2 = _v17.query?.token ? `&token=${_v17.query?.token}&mwru=${_v17.query?.mwru}` : "",
         _v3 = `${window.location.origin}/payments/paypal/authorized?product_name=${_v1}&checkout_type=${_v2}&user_entity=${_v0}${_v2}`;
-      _v11 && !_v12 && (_v3 += "&use_juno=1"), "purchase" === _v2 ? _v3 += `&order_id=${_v5?.id}` : _v3 += `&subscription_id=${_v3?.id}&billing_plan_id=${_v4?.id}`;
-      let _v4 = _v8 && _v9 ? `/checkout/ondemand?action=${_v8}&product=${_v9}` : `/checkout/${_v1.toLowerCase()}?${_v2.substring(1)}`;
+      _v13 && !_v14 && (_v3 += "&use_juno=1"), "purchase" === _v2 ? _v3 += `&order_id=${_v5?.id}` : _v3 += `&subscription_id=${_v3?.id}&billing_plan_id=${_v4?.id}`;
+      let _v4 = _v10 && _v11 ? `/checkout/ondemand?action=${_v10}&product=${_v11}` : `/checkout/${_v1.toLowerCase()}?${_v2.substring(1)}`;
       _v3 += `&error_redirect=${encodeURIComponent(_v4)}`;
       let _v5 = _v46.postCheckoutUrl.read();
-      _v5 && (_v3 += `&post_checkout_url=${encodeURIComponent(_v5)}`), _v13({
+      _v5 && (_v3 += `&post_checkout_url=${encodeURIComponent(_v5)}`), _v15({
         variables: {
           cancelUrl: window.location.href,
           notifyUrl: "/",
@@ -2089,7 +2102,7 @@
         },
         select: ["redirectUrl"]
       });
-    }, _v14];
+    }, _v16];
   }, "useAuthorizePaypalForAddPaymentMethod", 0, () => {
     let [_v0, _v1] = _v32(),
       _v2 = (0, _v11.useRouter)();
@@ -2871,7 +2884,15 @@
               }
             })
           }
-        }), _v17(!1);
+        }), _v17(!1), _v75({
+          order: _v1,
+          selectedPaymentMethod: void 0,
+          errorResponse: {
+            formErrorCode: "stripe_payment_request_failed",
+            formErrorMessage: `Stripe payment request failed (HTTP ${_v5.status}).`
+          },
+          checkoutTracking: _v20()
+        });
         return;
       }
       let {
@@ -2910,7 +2931,15 @@
               }
             })
           }
-        }), _v17(!1);
+        }), _v17(!1), _v75({
+          order: _v1,
+          selectedPaymentMethod: void 0,
+          errorResponse: {
+            formErrorCode: "stripe_missing_client_secret",
+            formErrorMessage: "Stripe payment response missing client secret or intent type."
+          },
+          checkoutTracking: _v20()
+        });
         return;
       }
       if (!_v0) {
@@ -2945,7 +2974,15 @@
               }
             })
           }
-        }), _v17(!1);
+        }), _v17(!1), _v75({
+          order: _v1,
+          selectedPaymentMethod: void 0,
+          errorResponse: {
+            formErrorCode: "stripe_missing_billing_name",
+            formErrorMessage: "Cardholder name is required."
+          },
+          checkoutTracking: _v20()
+        });
         return;
       }
       let _v8 = _v1?.billingAddress?.postalCode || null,

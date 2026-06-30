@@ -984,7 +984,7 @@
         direction: "asc"
       }
     },
-    _v55 = ["privacy.view", "allowDownloads", "allowShare", "brandColor", "customLogo.sizes.link", "description", "domain", "embed", "hideNav", "hideUpcoming", "layout", "loop", "metadata.connections.videos.total", "name", "pictures.sizes.link", "sort", "theme", "url", "user.link", "user.name", "user.pictures.sizes.link", "user.uri", "webCustomLogo", "webBrandColor", "hasFeaturedContent", "seoAllowIndexed", "config"];
+    _v55 = ["privacy.view", "allowDownloads", "allowShare", "brandColor", "customLogo.sizes.link", "description", "domain", "embed", "hideNav", "hideUpcoming", "layout", "loop", "metadata.connections.videos.total", "name", "pictures.sizes.link", "sort", "theme", "url", "user.link", "user.name", "user.pictures.sizes.link", "user.uri", "webCustomLogo", "webBrandColor", "hasFeaturedContent", "seoAllowIndexed", "seoTitle", "seoDescription", "config"];
   _v0.s(["ALBUM_SORT_MAP", 0, _v54, "DEFAULT_BRAND_COLOR_DARK_THEME", 0, "#F9FAFB", "DEFAULT_SHOWCASE_PLAYER_RESPONSIVE_QUERY", 0, {
     transparent: 0
   }, "DEFAULT_SORT", 0, _v53, "ITEMS_PER_PAGE", 0, 20, "ITEMS_PER_PAGE_MOBILE", 0, 10, "NAV_HEIGHT", 0, 63, "SELECT_ALBUM_FIELDS", 0, ["badge.type", "duration", "isColdStorage", "isFree", "link", "live", "name", "pictures.sizes.link", "pictures.sizes.width", "pictures.uri", "privacy.download", "uri", "user.link", "user.name", "user.pictures.sizes.link", "user.pictures.sizes.width", "user.uri", "embedPlayerConfigUrl", "playerEmbedUrl"], "SHOWCASE_ALBUM_FIELDS", 0, _v55, "VIDEOS_API_VERSION", 0, "3.4.12", "VIDEO_MODAL_TYPE", 0, {

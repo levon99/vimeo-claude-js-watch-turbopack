@@ -781,11 +781,26 @@
         text: (0, _v9.translate)({
           singular: "Staff Picks",
           dictionary: {
+            es: {
+              singular: "Selecciones del equipo"
+            },
+            "de-DE": {
+              singular: "Empfehlungen des Teams"
+            },
+            "fr-FR": {
+              singular: "Sélections de l'équipe"
+            },
             "ja-JP": {
-              singular: "スタッフピック"
+              singular: "スタッフのおすすめ"
             },
             "ko-KR": {
               singular: "스태프 픽"
+            },
+            "pt-BR": {
+              singular: "Escolhas da Equipe"
+            },
+            "zh-CN": {
+              singular: "编辑精选"
             }
           }
         }),

@@ -1192,7 +1192,7 @@
         {
           status: _v22
         } = _v55(_v7, _v19, _v11, !0);
-      !_v13 && _v16 && (_v19 && _v22 !== _v52 ? _v6 === _v16?.leadUuid && _v14(_v16.clipToPlay) : _v14(_v16.clipToPlay)), (0, _v9.useEffect)(() => {
+      !_v13 && _v16?.clipToPlay && (_v19 && _v22 !== _v52 ? _v6 === _v16?.leadUuid && _v14(_v16.clipToPlay) : _v14(_v16.clipToPlay)), (0, _v9.useEffect)(() => {
         _v21?.ingestStatus && _v10(_v21?.ingestStatus);
       }, [_v21?.ingestStatus]);
       let _v23 = (0, _v9.useCallback)(_v0 => {

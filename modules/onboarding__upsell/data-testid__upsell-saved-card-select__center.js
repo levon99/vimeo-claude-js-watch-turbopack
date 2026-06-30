@@ -719,7 +719,9 @@
           }) : null, (0, _v1.jsx)(_v21.Text, {
             variant: "body-sm",
             color: "text-primary",
-            children: _v55
+            children: (0, _v1.jsx)("span", {
+              children: _v55
+            })
           }), _v26 ? (0, _v1.jsx)(_v4.Alert, {
             status: "error",
             borderRadius: (0, _v9.rem)(12),

@@ -10,8 +10,10 @@
     _v7 = _v0.i(0),
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
-    _v10 = _v0.i(0);
-  let _v11 = () => void 0;
+    _v10 = _v0.i(0),
+    _v11 = _v0.i(0),
+    _v12 = _v0.i(0);
+  let _v13 = () => void 0;
   _v0.s(["MergeLibrariesModal", 0, ({
     isOpen: _v0,
     onClose: _v1,
@@ -21,29 +23,30 @@
   }) => {
     let [_v5, _v6] = (0, _v2.useState)(!1),
       [_v7, _v8] = (0, _v2.useState)(""),
-      _v9 = (0, _v10.useSuppressNowOneAnnouncement)(),
-      _v10 = () => {
+      _v9 = (0, _v12.useSuppressNowOneAnnouncement)(),
+      _v10 = (0, _v7.useIsMobile)(),
+      _v11 = () => {
         _v6(!1), _v8(""), _v1();
       },
-      _v11 = async () => {
+      _v12 = async () => {
         _v6(!0), _v8("");
         try {
-          await (0, _v6.dropTeam)(_v3);
+          await (0, _v8.dropTeam)(_v3);
           try {
             await _v9(_v2);
           } catch {}
-          _v4?.(), _v10();
+          _v4?.(), _v11();
         } catch {
-          _v8(_v6.defaultError);
+          _v8(_v8.defaultError);
         } finally {
           _v6(!1);
         }
       };
-    return (0, _v1.jsx)(_v8.LibraryMergeModal, {
+    return (0, _v1.jsx)(_v10.LibraryMergeModal, {
       isOpen: _v0,
-      onClose: _v10,
+      onClose: _v11,
       testId: "merge-libraries-modal",
-      title: (0, _v7.translate)({
+      title: (0, _v9.translate)({
         singular: "Merge your two libraries into one",
         dictionary: {
           es: {
@@ -70,24 +73,24 @@
         }
       }),
       showBadge: !1,
-      footer: (0, _v1.jsxs)(_v5.VStack, {
+      footer: (0, _v1.jsxs)(_v6.VStack, {
         gap: "sm",
         align: "center",
         w: "100%",
-        children: [_v7 && (0, _v1.jsx)(_v4.Text, {
+        children: [_v7 && (0, _v1.jsx)(_v5.Text, {
           fontSize: "0.75rem",
           color: "status-destructive-primary",
           textAlign: "center",
           children: _v7
-        }), (0, _v1.jsx)(_v3.Button, {
+        }), (0, _v1.jsx)(_v4.Button, {
           variant: "primary",
           size: "md",
           w: "100%",
-          onClick: _v11,
+          onClick: _v12,
           isLoading: _v5,
           isDisabled: _v5,
           "data-testid": "merge-libraries-confirm-button",
-          children: (0, _v7.translate)({
+          children: (0, _v9.translate)({
             singular: "Merge libraries",
             dictionary: {
               es: {
@@ -113,13 +116,13 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v3.Button, {
+        }), (0, _v1.jsx)(_v4.Button, {
           variant: "tertiary",
           size: "md",
           w: "100%",
-          onClick: _v11,
+          onClick: _v13,
           isDisabled: _v5,
-          children: (0, _v7.translate)({
+          children: (0, _v9.translate)({
             singular: "What happens when I merge?",
             dictionary: {
               es: {
@@ -147,9 +150,16 @@
           })
         })]
       }),
-      children: (0, _v1.jsx)(_v9.LibraryMergeVisualization, {
-        userId: _v2,
-        enabled: _v0
+      children: (0, _v1.jsx)(_v3.Box, {
+        w: "100%",
+        display: {
+          base: "none",
+          md: "block"
+        },
+        children: (0, _v1.jsx)(_v11.LibraryMergeVisualization, {
+          userId: _v2,
+          enabled: _v0 && !_v10
+        })
       })
     });
   }]);

@@ -881,8 +881,9 @@
     _v62 = _v0.i(0),
     _v63 = _v0.i(0),
     _v64 = _v0.i(0),
-    _v65 = _v0.i(0);
-  let _v66 = ({
+    _v65 = _v0.i(0),
+    _v66 = _v0.i(0);
+  let _v67 = ({
       isMetadataLocked: _v0 = !1,
       manageLink: _v1,
       privacy: _v2,
@@ -1001,8 +1002,8 @@
         }).catch(() => {
           _v16();
         }));
-      if (_v12) return (0, _v1.jsx)(_v67, {
-        children: (0, _v1.jsx)(_v68, {})
+      if (_v12) return (0, _v1.jsx)(_v68, {
+        children: (0, _v1.jsx)(_v69, {})
       });
       if (_v0) {
         let _v0 = () => {
@@ -1012,7 +1013,7 @@
             managePath: _v1 ?? `/manage/videos/${_v4}`
           });
         };
-        return (0, _v1.jsx)(_v67, {
+        return (0, _v1.jsx)(_v68, {
           children: (0, _v1.jsx)(_v60.Tooltip, {
             placement: "top",
             label: (0, _v1.jsx)(_v59.Paragraph, {
@@ -1062,19 +1063,23 @@
           })
         });
       }
-      return (0, _v1.jsxs)(_v67, {
-        children: [(0, _v1.jsx)(_v62.PrivacyDropdown, {
-          isVideoPrivacy: !0,
-          activePrivacy: _v9 ? _v65.DEFAULT_PRIVACY_VALUES.PASSWORD : _v2,
-          privacyOptions: _v11,
-          onSelect: _v0 => {
-            _v0 !== _v2 && _v0 !== _v65.DEFAULT_PRIVACY_VALUES.PASSWORD && _v17({
-              newPrivacy: _v0
-            }), _v10(_v0 === _v65.DEFAULT_PRIVACY_VALUES.PASSWORD);
-          },
-          isDisabled: !_v11.length || _v15,
-          isRedirectUpsell: !0,
-          showSelectedPrivacyDescription: !1
+      return (0, _v1.jsxs)(_v68, {
+        children: [(0, _v1.jsx)(_v66.PrivacyCopyIntroModal, {
+          children: (0, _v1.jsx)("div", {
+            children: (0, _v1.jsx)(_v62.PrivacyDropdown, {
+              isVideoPrivacy: !0,
+              activePrivacy: _v9 ? _v65.DEFAULT_PRIVACY_VALUES.PASSWORD : _v2,
+              privacyOptions: _v11,
+              onSelect: _v0 => {
+                _v0 !== _v2 && _v0 !== _v65.DEFAULT_PRIVACY_VALUES.PASSWORD && _v17({
+                  newPrivacy: _v0
+                }), _v10(_v0 === _v65.DEFAULT_PRIVACY_VALUES.PASSWORD);
+              },
+              isDisabled: !_v11.length || _v15,
+              isRedirectUpsell: !0,
+              showSelectedPrivacyDescription: !1
+            })
+          })
         }), (_v2 === _v65.DEFAULT_PRIVACY_VALUES.PASSWORD || _v9) && (0, _v1.jsx)(_v61.PasswordInput, {
           initialValue: _v3,
           maxLength: 32,
@@ -1089,7 +1094,7 @@
         })]
       });
     },
-    _v67 = ({
+    _v68 = ({
       children: _v0
     }) => (0, _v1.jsxs)(_v3.Flex, {
       "data-testid": "privacy-module",
@@ -1126,20 +1131,20 @@
         })
       }), _v0]
     }),
-    _v68 = () => (0, _v1.jsx)(_v41.Skeleton, {
+    _v69 = () => (0, _v1.jsx)(_v41.Skeleton, {
       "data-testid": "privacy-module-loading",
       borderRadius: ".75rem",
       height: "3rem"
     });
-  var _v69 = _v0.i(0),
-    _v70 = _v0.i(0);
-  let _v71 = ({
+  var _v70 = _v0.i(0),
+    _v71 = _v0.i(0);
+  let _v72 = ({
     name: _v0,
     src: _v1
   }) => (0, _v1.jsxs)(_v3.Flex, {
     gap: "3",
     alignItems: "center",
-    children: [(0, _v1.jsx)(_v70.Avatar, {
+    children: [(0, _v1.jsx)(_v71.Avatar, {
       alt: _v0 ?? "",
       src: _v1,
       size: "xs",
@@ -1152,8 +1157,8 @@
       children: _v0
     })]
   });
-  var _v72 = _v0.i(0);
-  let _v73 = (_v0, _v1) => {
+  var _v73 = _v0.i(0);
+  let _v74 = (_v0, _v1) => {
       let _v2 = new Date(_v0);
       return new Intl.DateTimeFormat(_v1, {
         day: "numeric",
@@ -1161,19 +1166,19 @@
         year: "numeric"
       }).format(_v2);
     },
-    _v74 = (_v0, _v1) => {
+    _v75 = (_v0, _v1) => {
       let _v2 = new Date(_v0);
       return new Intl.DateTimeFormat(_v1, {
         hour: "numeric",
         minute: "numeric"
       }).format(_v2);
     },
-    _v75 = ({
+    _v76 = ({
       timestamp: _v0
     }) => {
-      let _v1 = (0, _v72.useLocale)(),
-        _v2 = _v73(_v0, _v1),
-        _v3 = _v74(_v0, _v1);
+      let _v1 = (0, _v73.useLocale)(),
+        _v2 = _v74(_v0, _v1),
+        _v3 = _v75(_v0, _v1);
       return (0, _v1.jsx)(_v4.Text, {
         variant: "body-sm",
         color: "text-secondary",
@@ -1209,12 +1214,12 @@
         })
       });
     },
-    _v76 = ({
+    _v77 = ({
       timestamp: _v0
     }) => {
-      let _v1 = (0, _v72.useLocale)(),
-        _v2 = _v73(_v0, _v1),
-        _v3 = _v74(_v0, _v1);
+      let _v1 = (0, _v73.useLocale)(),
+        _v2 = _v74(_v0, _v1),
+        _v3 = _v75(_v0, _v1);
       return (0, _v1.jsx)(_v4.Text, {
         variant: "body-sm",
         color: "text-secondary",
@@ -1250,7 +1255,7 @@
         })
       });
     },
-    _v77 = ({
+    _v78 = ({
       dateCreated: _v0,
       dateModified: _v1,
       description: _v2 = "",
@@ -1261,7 +1266,7 @@
       flexDirection: "column",
       gap: "4",
       width: "100%",
-      children: [(0, _v1.jsx)(_v71, {
+      children: [(0, _v1.jsx)(_v72, {
         name: _v5,
         src: _v4
       }), (0, _v1.jsxs)(_v3.Flex, {
@@ -1272,21 +1277,21 @@
           variant: "heading-md",
           noOfLines: 2,
           children: _v3
-        }), (0, _v1.jsx)(_v69.Description, {
+        }), (0, _v1.jsx)(_v70.Description, {
           description: _v2,
           numLines: 3
         })]
       }), (0, _v1.jsxs)(_v3.Flex, {
         flexDirection: "column",
         gap: "1",
-        children: [_v0 && (0, _v1.jsx)(_v75, {
+        children: [_v0 && (0, _v1.jsx)(_v76, {
           timestamp: _v0
-        }), _v1 && (0, _v1.jsx)(_v76, {
+        }), _v1 && (0, _v1.jsx)(_v77, {
           timestamp: _v1
         })]
       })]
     }),
-    _v78 = ({
+    _v79 = ({
       canEdit: _v0 = !1,
       canEditPrivacy: _v1 = !1,
       canInvite: _v2 = !1,
@@ -1313,7 +1318,7 @@
         thumbnailSrc: _v15,
         videoSrc: _v18
       }, _v18), (0, _v1.jsxs)(_v14.Body, {
-        children: [(0, _v1.jsx)(_v77, {
+        children: [(0, _v1.jsx)(_v78, {
           dateCreated: _v3,
           dateModified: _v4,
           description: _v5,
@@ -1326,7 +1331,7 @@
           onClick: _v11,
           isMetadataLocked: _v7,
           manageLink: _v8
-        }), _v1 && (0, _v1.jsx)(_v66, {
+        }), _v1 && (0, _v1.jsx)(_v67, {
           isMetadataLocked: _v7,
           manageLink: _v8,
           onPrivacyChange: _v10,
@@ -1342,7 +1347,7 @@
         })
       })]
     }),
-    _v79 = ({
+    _v80 = ({
       onVideoPrivacyChange: _v0,
       pageName: _v1,
       videoId: _v2
@@ -1412,7 +1417,7 @@
         onReload: _v6
       }) : (0, _v1.jsxs)(_v39, {
         onReload: _v6,
-        children: [(0, _v1.jsx)(_v78, {
+        children: [(0, _v1.jsx)(_v79, {
           canEdit: _v3.canEdit,
           canEditPrivacy: _v3.canEditPrivacy,
           canInvite: _v3.canInvite,
@@ -1450,7 +1455,7 @@
         })]
       });
     },
-    _v80 = ({
+    _v81 = ({
       onVideoPrivacyChange: _v0,
       pageName: _v1,
       uri: _v2
@@ -1466,7 +1471,7 @@
           type: "showcase",
           id: parseInt(_v3[1], 10)
         } : void 0;
-      if (_v4?.type === _v17) return (0, _v1.jsx)(_v79, {
+      if (_v4?.type === _v17) return (0, _v1.jsx)(_v80, {
         onVideoPrivacyChange: _v0,
         pageName: _v1,
         videoId: _v4.id
@@ -1481,7 +1486,7 @@
     uri: _v4
   }) => _v0 ? (0, _v1.jsx)(_v16, {
     onClose: _v1,
-    children: (0, _v1.jsx)(_v80, {
+    children: (0, _v1.jsx)(_v81, {
       onVideoPrivacyChange: _v2,
       pageName: _v3,
       uri: _v4

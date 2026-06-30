@@ -551,40 +551,42 @@
           children: (0, _v2.jsx)(_v23.AlertDescription, {
             children: (0, _v2.jsx)(_v21.Paragraph, {
               size: "md",
-              children: (0, _v13.translate)({
-                singular: "Videos without a content rating can't be watched by some viewers. {LINK}Learn more{/LINK}",
-                replacements: {
-                  LINK: _v0 => (0, _v2.jsx)(_v64.Link, {
-                    target: "_blank",
-                    href: "https://vimeo.zendesk.com/hc/en-us/articles/224818087-Content-ratings",
-                    fontSize: 14,
-                    textDecoration: "underline",
-                    children: _v0
-                  }, "rating-help-message")
-                },
-                dictionary: {
-                  es: {
-                    singular: "Algunos espectadores no pueden ver los videos sin calificación del contenido. {LINK}Conocer más{/LINK}"
+              children: (0, _v2.jsx)("span", {
+                children: (0, _v13.translate)({
+                  singular: "Videos without a content rating can't be watched by some viewers. {LINK}Learn more{/LINK}",
+                  replacements: {
+                    LINK: _v0 => (0, _v2.jsx)(_v64.Link, {
+                      target: "_blank",
+                      href: "https://vimeo.zendesk.com/hc/en-us/articles/224818087-Content-ratings",
+                      fontSize: 14,
+                      textDecoration: "underline",
+                      children: _v0
+                    }, "rating-help-message")
                   },
-                  "de-DE": {
-                    singular: "Videos ohne Inhaltsbewertung können von einigen Zuschauern nicht angesehen werden. {LINK}Mehr erfahren{/LINK}"
-                  },
-                  "fr-FR": {
-                    singular: "Les vidéos sans classification de contenu ne peuvent pas être visionnées par certains spectateurs. {LINK}En savoir plus{/LINK}"
-                  },
-                  "ja-JP": {
-                    singular: "コンテンツレーティングのない動画は、一部の視聴者にはご覧いただけません。{LINK}詳細はこちら{/LINK}"
-                  },
-                  "ko-KR": {
-                    singular: "일부 시청자는 콘텐츠 등급이 없는 동영상을 시청할 수 없습니다. {LINK}자세히 보기{/LINK}"
-                  },
-                  "pt-BR": {
-                    singular: "Alguns espectadores não podem assistir a vídeos sem classificação de conteúdo. {LINK}Saiba mais{/LINK}"
-                  },
-                  "zh-CN": {
-                    singular: "有些观众无法观看内容未分级的视频。{LINK}了解更多{/LINK}"
+                  dictionary: {
+                    es: {
+                      singular: "Algunos espectadores no pueden ver los videos sin calificación del contenido. {LINK}Conocer más{/LINK}"
+                    },
+                    "de-DE": {
+                      singular: "Videos ohne Inhaltsbewertung können von einigen Zuschauern nicht angesehen werden. {LINK}Mehr erfahren{/LINK}"
+                    },
+                    "fr-FR": {
+                      singular: "Les vidéos sans classification de contenu ne peuvent pas être visionnées par certains spectateurs. {LINK}En savoir plus{/LINK}"
+                    },
+                    "ja-JP": {
+                      singular: "コンテンツレーティングのない動画は、一部の視聴者にはご覧いただけません。{LINK}詳細はこちら{/LINK}"
+                    },
+                    "ko-KR": {
+                      singular: "일부 시청자는 콘텐츠 등급이 없는 동영상을 시청할 수 없습니다. {LINK}자세히 보기{/LINK}"
+                    },
+                    "pt-BR": {
+                      singular: "Alguns espectadores não podem assistir a vídeos sem classificação de conteúdo. {LINK}Saiba mais{/LINK}"
+                    },
+                    "zh-CN": {
+                      singular: "有些观众无法观看内容未分级的视频。{LINK}了解更多{/LINK}"
+                    }
                   }
-                }
+                })
               })
             })
           })
@@ -1349,21 +1351,23 @@
         children: (0, _v2.jsx)(_v23.AlertDescription, {
           children: (0, _v2.jsx)(_v21.Paragraph, {
             size: "md",
-            children: (() => {
-              if (!_v3) return _v104.unlicensedMusic;
-              switch (_v1) {
-                case "contacts":
-                case "disable":
-                case "users":
-                  return _v104.legacy(_v1);
-                case "ptv":
-                case "ptvhide":
-                  return _v104.vod(_v2);
-                case "stock":
-                case "stock_purchased":
-                  return _v104.stock;
-              }
-            })()
+            children: (0, _v2.jsx)("span", {
+              children: (() => {
+                if (!_v3) return _v104.unlicensedMusic;
+                switch (_v1) {
+                  case "contacts":
+                  case "disable":
+                  case "users":
+                    return _v104.legacy(_v1);
+                  case "ptv":
+                  case "ptvhide":
+                    return _v104.vod(_v2);
+                  case "stock":
+                  case "stock_purchased":
+                    return _v104.stock;
+                }
+              })()
+            })
           })
         })
       });
@@ -2463,31 +2467,33 @@
           onClick: () => _v57(_v11),
           children: [(0, _v2.jsx)(_v12.PopOut, {
             fontSize: 20
-          }), (0, _v13.translate)({
-            singular: "Set defaults",
-            dictionary: {
-              es: {
-                singular: "Establecer valores predeterminados"
-              },
-              "de-DE": {
-                singular: "Standardwerte festlegen"
-              },
-              "fr-FR": {
-                singular: "Définir les paramètres par défaut"
-              },
-              "ja-JP": {
-                singular: "デフォルトを設定"
-              },
-              "ko-KR": {
-                singular: "기본값 설정"
-              },
-              "pt-BR": {
-                singular: "Definir padrões"
-              },
-              "zh-CN": {
-                singular: "设置默认值"
+          }), (0, _v2.jsx)("span", {
+            children: (0, _v13.translate)({
+              singular: "Set defaults",
+              dictionary: {
+                es: {
+                  singular: "Establecer valores predeterminados"
+                },
+                "de-DE": {
+                  singular: "Standardwerte festlegen"
+                },
+                "fr-FR": {
+                  singular: "Définir les paramètres par défaut"
+                },
+                "ja-JP": {
+                  singular: "デフォルトを設定"
+                },
+                "ko-KR": {
+                  singular: "기본값 설정"
+                },
+                "pt-BR": {
+                  singular: "Definir padrões"
+                },
+                "zh-CN": {
+                  singular: "设置默认值"
+                }
               }
-            }
+            })
           })]
         })
       })]

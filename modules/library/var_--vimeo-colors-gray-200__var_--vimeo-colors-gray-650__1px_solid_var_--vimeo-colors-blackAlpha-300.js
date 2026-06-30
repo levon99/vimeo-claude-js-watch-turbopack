@@ -14,18 +14,16 @@
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
-    _v14 = _v0.i(0),
-    _v15 = _v0.i(0),
-    _v16 = _v0.i(0);
-  let _v17 = ({
+    _v14 = _v0.i(0);
+  let _v15 = ({
     avatars: _v0
   }) => {
     let _v1 = _v0.slice(0, 3),
       _v2 = Math.max(0, _v0.length - 3),
-      _v3 = (0, _v15.useColorModeValue)("var(--vimeo-colors-gray-200)", "var(--vimeo-colors-gray-650)"),
-      _v4 = (0, _v15.useColorModeValue)("1px solid var(--vimeo-colors-blackAlpha-300)", "1px solid var(--vimeo-colors-whiteAlpha-300)");
+      _v3 = (0, _v12.useColorModeValue)("var(--vimeo-colors-gray-200)", "var(--vimeo-colors-gray-650)"),
+      _v4 = (0, _v12.useColorModeValue)("1px solid var(--vimeo-colors-blackAlpha-300)", "1px solid var(--vimeo-colors-whiteAlpha-300)");
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v1.map((_v0, _v1) => (0, _v1.jsx)(_v13.Avatar, {
+      children: [_v1.map((_v0, _v1) => (0, _v1.jsx)(_v9.Avatar, {
         src: _v0.avatarSrc,
         alt: _v0.name,
         size: "sm",
@@ -35,7 +33,7 @@
         sx: {
           flexShrink: 0,
           position: "relative",
-          marginLeft: _v1 > 0 ? (0, _v9.rem)(-8) : 0,
+          marginLeft: _v1 > 0 ? (0, _v8.rem)(-8) : 0,
           zIndex: _v1.length - _v1,
           border: "none",
           ...(_v0.isPending ? {
@@ -45,23 +43,23 @@
       }, `avatar-${_v0.name}-${_v1}`)), _v2 > 0 && (0, _v1.jsx)(_v4.Flex, {
         position: "relative",
         zIndex: 0,
-        ml: (0, _v9.rem)(-8),
+        ml: (0, _v8.rem)(-8),
         align: "center",
         justify: "center",
         borderRadius: "round",
         bgColor: _v3,
         border: _v4,
-        w: (0, _v9.rem)(32),
-        h: (0, _v9.rem)(32),
+        w: (0, _v8.rem)(32),
+        h: (0, _v8.rem)(32),
         flexShrink: 0,
-        children: (0, _v1.jsxs)(_v14.Paragraph, {
+        children: (0, _v1.jsxs)(_v11.Paragraph, {
           size: "sm",
           color: "text-secondary",
           children: ["+", _v2]
         })
-      }), (0, _v1.jsx)(_v5.IconButton, {
-        icon: (0, _v1.jsx)(_v16.PlusSmall, {}),
-        "aria-label": (0, _v12.translate)({
+      }), (0, _v1.jsx)(_v10.IconButton, {
+        icon: (0, _v1.jsx)(_v13.PlusSmall, {}),
+        "aria-label": (0, _v14.translate)({
           singular: "Team members",
           dictionary: {
             es: {
@@ -93,18 +91,19 @@
         "data-testid": "team-members-preview-add-button",
         position: "relative",
         zIndex: -1,
-        ml: (0, _v9.rem)(-8),
+        ml: (0, _v8.rem)(-8),
         flexShrink: 0
       })]
     });
   };
-  var _v18 = _v0.i(0),
+  var _v16 = _v0.i(0),
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0),
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
-    _v22 = _v0.i(0),
-    _v23 = _v0.i(0);
-  let _v24 = _v0 => (0, _v1.jsx)(_v23.Icon, {
+    _v22 = _v0.i(0);
+  let _v23 = _v0 => (0, _v1.jsx)(_v22.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -113,7 +112,8 @@
       fill: "currentColor"
     })
   });
-  var _v25 = _v0.i(0);
+  var _v24 = _v0.i(0),
+    _v25 = _v0.i(0);
   let _v26 = ({
       name: _v0,
       avatarSrc: _v1,
@@ -123,7 +123,7 @@
       gap: "sm",
       align: "center",
       w: "100%",
-      children: [(0, _v1.jsx)(_v13.Avatar, {
+      children: [(0, _v1.jsx)(_v9.Avatar, {
         src: _v1,
         alt: _v0,
         size: "sm",
@@ -139,7 +139,7 @@
         justify: "space-between",
         minW: 0,
         gap: "sm",
-        children: [(0, _v1.jsx)(_v14.Paragraph, {
+        children: [(0, _v1.jsx)(_v11.Paragraph, {
           size: "sm",
           color: "text-primary",
           flex: "1 0 0",
@@ -153,7 +153,7 @@
     }),
     _v27 = ({
       testId: _v0
-    }) => (0, _v1.jsx)(_v18.Badge, {
+    }) => (0, _v1.jsx)(_v16.Badge, {
       size: "sm",
       flexShrink: 0,
       borderRadius: "3xl",
@@ -169,7 +169,7 @@
         color: "var(--vimeo-colors-text-primary)"
       },
       "data-testid": _v0,
-      children: (0, _v12.translate)({
+      children: (0, _v14.translate)({
         singular: "Pending",
         dictionary: {
           es: {
@@ -206,7 +206,7 @@
       onInviteMembers: _v6,
       onStartYourTeam: _v7
     }) => {
-      let _v8 = (0, _v12.translate)({
+      let _v8 = (0, _v14.translate)({
           singular: "{count} member",
           plural: "{count} members",
           replacements: {
@@ -244,7 +244,7 @@
             }
           }
         }),
-        _v9 = _v4 > 0 ? `${_v8} • ${(0, _v12.translate)({
+        _v9 = _v4 > 0 ? `${_v8} • ${(0, _v14.translate)({
           singular: "{count} pending",
           plural: "{count} pending",
           replacements: {
@@ -282,11 +282,11 @@
             }
           }
         })}` : _v8;
-      return (0, _v1.jsx)(_v22.PopoverContent, {
+      return (0, _v1.jsx)(_v20.PopoverContent, {
         rootProps: {
           zIndex: "popover"
         },
-        w: _v0 ? (0, _v9.rem)(338) : (0, _v9.rem)(309),
+        w: _v0 ? (0, _v8.rem)(338) : (0, _v8.rem)(309),
         bgColor: "fill-surface",
         borderRadius: "lg",
         boxShadow: "0px 0px 24px -5px rgba(0,0,0,0.16), 0px 0px 4px 0px rgba(0,0,0,0.08)",
@@ -295,7 +295,7 @@
           direction: "column",
           overflow: "hidden",
           gap: "sm",
-          pb: _v0 ? "md" : (0, _v9.rem)(20),
+          pb: _v0 ? "md" : (0, _v8.rem)(20),
           children: [(0, _v1.jsxs)(_v4.Flex, {
             direction: "column",
             w: "100%",
@@ -304,16 +304,16 @@
               gap: "sm",
               w: "100%",
               sx: {
-                padding: _v0 ? "var(--md, 16px)" : `${(0, _v9.rem)(16)} ${(0, _v9.rem)(16)} ${(0, _v9.rem)(8)} ${(0, _v9.rem)(20)}`
+                padding: _v0 ? "var(--md, 16px)" : `${(0, _v8.rem)(16)} ${(0, _v8.rem)(16)} ${(0, _v8.rem)(8)} ${(0, _v8.rem)(20)}`
               },
               children: [(0, _v1.jsxs)(_v4.Flex, {
                 direction: "column",
                 flex: "1 0 0",
                 minW: 0,
-                children: [(0, _v1.jsx)(_v21.Header, {
+                children: [(0, _v1.jsx)(_v19.Header, {
                   size: "sm",
                   color: "text-primary",
-                  children: (0, _v12.translate)({
+                  children: (0, _v14.translate)({
                     singular: "Team",
                     dictionary: {
                       es: {
@@ -336,7 +336,7 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v14.Paragraph, {
+                }), (0, _v1.jsx)(_v11.Paragraph, {
                   size: "sm",
                   color: "text-secondary",
                   children: _v9
@@ -345,8 +345,8 @@
                 gap: "xs",
                 align: "center",
                 flexShrink: 0,
-                children: [(0, _v1.jsx)(_v10.Tooltip, {
-                  label: (0, _v12.translate)({
+                children: [(0, _v1.jsx)(_v21.Tooltip, {
+                  label: (0, _v14.translate)({
                     singular: "Manage team",
                     dictionary: {
                       es: {
@@ -372,9 +372,9 @@
                       }
                     }
                   }),
-                  children: (0, _v1.jsx)(_v5.IconButton, {
-                    icon: (0, _v1.jsx)(_v11.SettingsGear, {}),
-                    "aria-label": (0, _v12.translate)({
+                  children: (0, _v1.jsx)(_v10.IconButton, {
+                    icon: (0, _v1.jsx)(_v25.SettingsGear, {}),
+                    "aria-label": (0, _v14.translate)({
                       singular: "Manage team",
                       dictionary: {
                         es: {
@@ -405,8 +405,8 @@
                     "data-testid": "team-members-popover-manage-button",
                     onClick: _v5
                   })
-                }), (0, _v1.jsx)(_v10.Tooltip, {
-                  label: (0, _v12.translate)({
+                }), (0, _v1.jsx)(_v21.Tooltip, {
+                  label: (0, _v14.translate)({
                     singular: "Add participants",
                     dictionary: {
                       es: {
@@ -432,9 +432,9 @@
                       }
                     }
                   }),
-                  children: (0, _v1.jsx)(_v5.IconButton, {
-                    icon: (0, _v1.jsx)(_v25.PersonUserAdd, {}),
-                    "aria-label": (0, _v12.translate)({
+                  children: (0, _v1.jsx)(_v10.IconButton, {
+                    icon: (0, _v1.jsx)(_v24.PersonUserAdd, {}),
+                    "aria-label": (0, _v14.translate)({
                       singular: "Add participants",
                       dictionary: {
                         es: {
@@ -467,10 +467,10 @@
                   })
                 })]
               })]
-            }), (0, _v1.jsx)(_v19.Box, {
+            }), (0, _v1.jsx)(_v17.Box, {
               pt: _v0 ? 0 : "xs",
               pb: "xs",
-              children: (0, _v1.jsx)(_v19.Box, {
+              children: (0, _v1.jsx)(_v17.Box, {
                 h: "1px",
                 bgColor: "stroke",
                 w: "100%"
@@ -479,16 +479,16 @@
           }), (0, _v1.jsxs)(_v4.Flex, {
             direction: "column",
             gap: "lg",
-            px: _v0 ? "md" : (0, _v9.rem)(20),
-            maxH: (0, _v9.rem)(360),
+            px: _v0 ? "md" : (0, _v8.rem)(20),
+            maxH: (0, _v8.rem)(360),
             overflowY: "auto",
             children: [(0, _v1.jsxs)(_v4.Flex, {
               direction: "column",
-              gap: (0, _v9.rem)(12),
-              children: [(0, _v1.jsx)(_v14.Paragraph, {
+              gap: (0, _v8.rem)(12),
+              children: [(0, _v1.jsx)(_v11.Paragraph, {
                 size: "sm",
                 color: "text-secondary",
-                children: (0, _v12.translate)({
+                children: (0, _v14.translate)({
                   singular: "Members",
                   dictionary: {
                     es: {
@@ -517,7 +517,7 @@
               }), _v1.map((_v0, _v1) => (0, _v1.jsx)(_v26, {
                 name: _v0.name,
                 avatarSrc: _v0.avatarSrc,
-                trailing: (0, _v1.jsx)(_v14.Paragraph, {
+                trailing: (0, _v1.jsx)(_v11.Paragraph, {
                   size: "sm",
                   color: "text-secondary",
                   flexShrink: 0,
@@ -527,10 +527,10 @@
             }), _v2.length > 0 && (0, _v1.jsxs)(_v4.Flex, {
               direction: "column",
               gap: "md",
-              children: [(0, _v1.jsx)(_v14.Paragraph, {
+              children: [(0, _v1.jsx)(_v11.Paragraph, {
                 size: "sm",
                 color: "text-secondary",
-                children: (0, _v12.translate)({
+                children: (0, _v14.translate)({
                   singular: "Pending",
                   dictionary: {
                     es: {
@@ -558,7 +558,7 @@
                 })
               }), (0, _v1.jsx)(_v4.Flex, {
                 direction: "column",
-                gap: (0, _v9.rem)(12),
+                gap: (0, _v8.rem)(12),
                 children: _v2.map((_v0, _v1) => (0, _v1.jsx)(_v26, {
                   name: _v0.email,
                   dimmed: !0,
@@ -569,23 +569,23 @@
               })]
             })]
           }), !_v0 && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v19.Box, {
+            children: [(0, _v1.jsx)(_v17.Box, {
               py: "sm",
-              children: (0, _v1.jsx)(_v19.Box, {
+              children: (0, _v1.jsx)(_v17.Box, {
                 h: "1px",
                 bgColor: "stroke",
                 w: "100%"
               })
-            }), (0, _v1.jsx)(_v19.Box, {
-              px: (0, _v9.rem)(20),
-              children: (0, _v1.jsx)(_v20.Button, {
-                leftIcon: (0, _v1.jsx)(_v24, {}),
+            }), (0, _v1.jsx)(_v17.Box, {
+              px: (0, _v8.rem)(20),
+              children: (0, _v1.jsx)(_v18.Button, {
+                leftIcon: (0, _v1.jsx)(_v23, {}),
                 size: "lg",
                 variant: "primary",
                 w: "100%",
                 "data-testid": "team-members-popover-start-team-button",
                 onClick: _v7,
-                children: (0, _v12.translate)({
+                children: (0, _v14.translate)({
                   singular: "Start your team",
                   dictionary: {
                     es: {
@@ -690,7 +690,7 @@
           let _v0 = [{
               name: _v1,
               avatarSrc: _v2,
-              role: (0, _v12.translate)({
+              role: (0, _v14.translate)({
                 singular: "Owner",
                 dictionary: {
                   es: {
@@ -752,22 +752,19 @@
         viewerUri: _v3,
         contentSpaceEnabled: _v4,
         isSoleTeamMember: _v5
-      }),
-      _v16 = () => {
-        _v4 && (window.location.href = "/manage/team/members");
-      };
+      });
     return _v8 ? null : (0, _v1.jsxs)(_v4.Flex, {
       gap: "sm",
       align: "center",
       flexShrink: 0,
-      children: [(0, _v1.jsxs)(_v6.Popover, {
+      children: [(0, _v1.jsxs)(_v5.Popover, {
         isOpen: _v9,
         onOpen: () => _v10(!0),
         onClose: () => _v10(!1),
         placement: "bottom-end",
         gutter: 8,
         isLazy: !0,
-        children: [(0, _v1.jsx)(_v7.PopoverTrigger, {
+        children: [(0, _v1.jsx)(_v6.PopoverTrigger, {
           children: (0, _v1.jsx)(_v4.Flex, {
             align: "center",
             justify: "center",
@@ -781,90 +778,30 @@
               height: "40px",
               padding: "var(--xs, 4px)"
             },
-            children: (0, _v1.jsx)(_v17, {
+            children: (0, _v1.jsx)(_v15, {
               avatars: _v11
             })
           })
-        }), (0, _v1.jsx)(_v8.Portal, {
+        }), (0, _v1.jsx)(_v7.Portal, {
           children: (0, _v1.jsx)(_v28, {
             contentSpaceEnabled: _v4,
             members: _v12,
             pending: _v13,
             memberCount: _v14,
             pendingCount: _v15,
-            onManageTeam: _v16,
+            onManageTeam: () => {
+              _v4 && (window.location.href = "/manage/team/members");
+            },
             onInviteMembers: _v7,
             onStartYourTeam: () => {
               _v10(!1), _v6();
             }
           })
         })]
-      }), _v4 && (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v3.Divider, {
-          orientation: "vertical",
-          bgColor: "stroke",
-          h: (0, _v9.rem)(24)
-        }), (0, _v1.jsx)(_v10.Tooltip, {
-          label: (0, _v12.translate)({
-            singular: "Manage team",
-            dictionary: {
-              es: {
-                singular: "Dirija a su equipo"
-              },
-              "de-DE": {
-                singular: "Team verwalten"
-              },
-              "fr-FR": {
-                singular: "Gérer l'équipe"
-              },
-              "ja-JP": {
-                singular: "チームを管理"
-              },
-              "ko-KR": {
-                singular: "팀 관리"
-              },
-              "pt-BR": {
-                singular: "Gerenciar equipe"
-              },
-              "zh-CN": {
-                singular: "管理团队"
-              }
-            }
-          }),
-          children: (0, _v1.jsx)(_v5.IconButton, {
-            icon: (0, _v1.jsx)(_v11.SettingsGear, {}),
-            "aria-label": (0, _v12.translate)({
-              singular: "Manage team",
-              dictionary: {
-                es: {
-                  singular: "Dirija a su equipo"
-                },
-                "de-DE": {
-                  singular: "Team verwalten"
-                },
-                "fr-FR": {
-                  singular: "Gérer l'équipe"
-                },
-                "ja-JP": {
-                  singular: "チームを管理"
-                },
-                "ko-KR": {
-                  singular: "팀 관리"
-                },
-                "pt-BR": {
-                  singular: "Gerenciar equipe"
-                },
-                "zh-CN": {
-                  singular: "管理团队"
-                }
-              }
-            }),
-            variant: "secondary",
-            size: "md",
-            "data-testid": "team-members-preview-gear-button",
-            onClick: _v16
-          })
-        })]
+      }), (0, _v1.jsx)(_v3.Divider, {
+        orientation: "vertical",
+        bgColor: "stroke",
+        h: (0, _v8.rem)(24)
       })]
     });
   }], 0);

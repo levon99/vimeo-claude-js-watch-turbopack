@@ -4732,11 +4732,26 @@
             return (0, _v77.translate)({
               singular: "Staff Picks",
               dictionary: {
+                es: {
+                  singular: "Selecciones del equipo"
+                },
+                "de-DE": {
+                  singular: "Empfehlungen des Teams"
+                },
+                "fr-FR": {
+                  singular: "Sélections de l'équipe"
+                },
                 "ja-JP": {
-                  singular: "スタッフピック"
+                  singular: "スタッフのおすすめ"
                 },
                 "ko-KR": {
                   singular: "스태프 픽"
+                },
+                "pt-BR": {
+                  singular: "Escolhas da Equipe"
+                },
+                "zh-CN": {
+                  singular: "编辑精选"
                 }
               }
             });
@@ -16272,7 +16287,9 @@
     return (0, _v1.jsx)(_v187.VideoLibraryLayout, {
       hasSideNav: !0,
       hasGlobalSearch: _v1,
-      sideNavContent: (0, _v1.jsx)(_v489.HomeSideNavContent, {}),
+      sideNavContent: (0, _v1.jsx)(_v489.SideNavContent, {
+        surface: "home"
+      }),
       children: _v0
     });
   }, _v0.s(["__N_SSP", 0, !0, "default", 0, _v490], 0);

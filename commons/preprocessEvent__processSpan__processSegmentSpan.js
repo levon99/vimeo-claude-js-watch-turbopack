@@ -4493,7 +4493,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "03e6e21418417ab51d74bb8cee7988781524cf09",
+      release: "58265b63a8505147bede9df3d762fb8d8bb3755d",
       ..._v0
     };
     !function (_v0) {
@@ -4606,11 +4606,8 @@ Error:`, _v0);
       }
       let _v5 = _v0.exception?.values?.[0];
       if (_v5?.type === "TypeError" && _v5.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && /\.split is not a function/.test(_v5.value ?? "")) {
-        let _v0 = _v5.stacktrace?.frames ?? [],
-          _v1 = _v0.some(_v0 => (_v0.filename ?? _v0.abs_path ?? "").includes("_next/static") && !1 !== _v0.in_app),
-          _v2 = _v0[_v0.length - 1],
-          _v3 = (_v2?.filename ?? _v2?.abs_path ?? "").startsWith("<anonymous>");
-        if (!_v1 && _v3) return null;
+        let _v0 = "u" > typeof navigator ? navigator.userAgent : "";
+        if (/Tizen|SMART-TV/i.test(_v0)) return null;
       }
       let _v6 = _v0.exception?.values?.[0];
       if (_v6?.type === "TypeError" && "Illegal invocation" === _v6.value) {

@@ -58,6 +58,8 @@
       return (0, _v2.jsxs)(_v7.Flex, {
         justifyContent: "flex-start",
         alignItems: "center",
+        flexWrap: "wrap",
+        rowGap: (0, _v8.rem)(8),
         children: [_v4.map(_v0 => {
           if (_v0.permissionLevel && _v0.role) {
             let _v0 = _v0.permissionLevel.split(" ").map((_v0, _v1) => 0 === _v1 ? _v0.toLowerCase() : _v0).join("") + "Count",
@@ -608,13 +610,16 @@
           base: (0, _v8.rem)(8),
           md: (0, _v8.rem)(16)
         },
+        gap: (0, _v8.rem)(8),
+        alignItems: "center",
         justifyContent: "space-between",
         "data-id": "teamListItem",
         ref: _v2,
         children: [(0, _v2.jsxs)(_v7.Flex, {
           my: "auto",
+          minW: 0,
+          flex: "1 1 auto",
           alignItems: "center",
-          justifyContent: "center",
           pl: (0, _v8.rem)(5),
           opacity: _v0.isPending ? "0.5" : "",
           children: [(0, _v2.jsx)(_v85.Avatar, {
@@ -623,9 +628,13 @@
             alt: _v0.avatarLink,
             nameProps: {
               name: _v0.primaryDisplay
+            },
+            sx: {
+              flexShrink: 0
             }
           }), (0, _v2.jsxs)(_v7.Flex, {
             paddingLeft: (0, _v8.rem)(16),
+            minW: 0,
             justifyContent: "center",
             flexDirection: "column",
             children: [(0, _v2.jsx)(_v22.Text, {
@@ -634,12 +643,14 @@
               mb: "0",
               fontWeight: "medium",
               fontSize: "body-md",
+              isTruncated: !0,
               children: _v0.primaryDisplay
             }), _v0.secondaryDisplay && (0, _v2.jsx)(_v21.Paragraph, {
               "data-id": "teamMemberEmail",
               size: "md",
               mb: "0",
               color: "text-secondary",
+              isTruncated: !0,
               children: _v0.secondaryDisplay
             })]
           })]
@@ -2719,6 +2730,14 @@
           pt: (0, _v8.rem)(26),
           children: [(0, _v2.jsxs)(_v7.Flex, {
             justify: "space-between",
+            align: {
+              base: "stretch",
+              sm: "center"
+            },
+            gap: {
+              base: (0, _v8.rem)(16),
+              sm: "none"
+            },
             p: `${(0, _v8.rem)(24)} ${(0, _v8.rem)(16)} ${(0, _v8.rem)(24)} ${(0, _v8.rem)(8)}`,
             backgroundColor: "surface",
             borderRadius: "lg",

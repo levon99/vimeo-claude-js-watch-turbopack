@@ -5077,7 +5077,7 @@
                 singular: "{PAGE_TITLE} sur Vimeo"
               },
               "ja-JP": {
-                singular: "{PAGE_TITLE} をVimeoで"
+                singular: "{PAGE_TITLE} — Vimeo上"
               },
               "ko-KR": {
                 singular: "{PAGE_TITLE} — Vimeo에서"

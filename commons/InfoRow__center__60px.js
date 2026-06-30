@@ -14,7 +14,7 @@
     align: "center",
     gap: "3",
     w: "100%",
-    h: "60px",
+    minH: "60px",
     pl: "none",
     pr: "sm",
     py: "md",

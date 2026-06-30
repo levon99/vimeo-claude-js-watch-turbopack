@@ -36,7 +36,10 @@
     scrollBehavior: "inside",
     children: [(0, _v1.jsx)(_v9.ModalOverlay, {}), (0, _v1.jsxs)(_v7.ModalContent, {
       "data-testid": _v2,
-      maxW: "488px",
+      maxW: {
+        base: "calc(100vw - 32px)",
+        md: "488px"
+      },
       children: [(0, _v1.jsx)(_v6.ModalCloseButton, {
         top: "20px",
         right: "20px"

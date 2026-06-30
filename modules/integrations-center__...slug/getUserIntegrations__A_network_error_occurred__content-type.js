@@ -1398,7 +1398,9 @@
   };
   _v74.getLayout = _v0 => (0, _v1.jsx)(_v73.VideoLibraryLayout, {
     hasSideNav: !0,
-    sideNavContent: (0, _v1.jsx)(_v72.HomeSideNavContent, {}),
+    sideNavContent: (0, _v1.jsx)(_v72.SideNavContent, {
+      surface: "home"
+    }),
     alwaysMinimiseSearch: !0,
     children: _v0
   }), (0, _v71.withPageSetup)(() => ({

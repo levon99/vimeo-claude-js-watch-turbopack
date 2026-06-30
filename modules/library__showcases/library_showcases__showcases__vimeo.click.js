@@ -2240,7 +2240,9 @@
   _v132.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v130.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
-    sideNavContent: (0, _v1.jsx)(_v129.HomeSideNavContent, {}),
+    sideNavContent: (0, _v1.jsx)(_v129.SideNavContent, {
+      surface: "home"
+    }),
     children: _v0
   }), (0, _v2.withPageSetup)(() => ({
     props: {

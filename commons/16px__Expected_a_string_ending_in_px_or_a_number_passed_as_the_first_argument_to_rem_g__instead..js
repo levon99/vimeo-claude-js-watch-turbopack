@@ -954,38 +954,40 @@
         content: (0, _v7.jsx)(_v68.ErrorPopupContent, {
           children: (0, _v7.jsx)(_v65.Paragraph, {
             size: "2",
-            children: (0, _v63.translate)({
-              singular: "Please {LINK}try{/LINK} with Chrome, Firefox, or Safari.",
-              replacements: {
-                LINK: _v0 => (0, _v7.jsx)(_v64.Link, {
-                  href: "https://browsehappy.com",
-                  target: "_blank",
-                  children: _v0
-                }, "upsell-link")
-              },
-              dictionary: {
-                es: {
-                  singular: "{LINK}Prueba{/LINK} con Chrome, Firefox o Safari."
+            children: (0, _v7.jsx)("span", {
+              children: (0, _v63.translate)({
+                singular: "Please {LINK}try{/LINK} with Chrome, Firefox, or Safari.",
+                replacements: {
+                  LINK: _v0 => (0, _v7.jsx)(_v64.Link, {
+                    href: "https://browsehappy.com",
+                    target: "_blank",
+                    children: _v0
+                  }, "upsell-link")
                 },
-                "de-DE": {
-                  singular: "Bitte mit Chrome, Firefox oder Safari {LINK}versuchen{/LINK}."
-                },
-                "fr-FR": {
-                  singular: "Veuillez {LINK}essayer{/LINK} avec Chrome, Firefox ou Safari."
-                },
-                "ja-JP": {
-                  singular: "Chrome、Firefox、Safariで{/LINK}お試しください{LINK}。"
-                },
-                "ko-KR": {
-                  singular: "Chrome, Firefox 또는 Safari로 {LINK}시도{/LINK}하세요."
-                },
-                "pt-BR": {
-                  singular: "{LINK}Tente{/LINK} com Chrome, Firefox ou Safari."
-                },
-                "zh-CN": {
-                  singular: "请使用 Chrome、Firefox 或 Safari {/LINK}尝试{LINK}。"
+                dictionary: {
+                  es: {
+                    singular: "{LINK}Prueba{/LINK} con Chrome, Firefox o Safari."
+                  },
+                  "de-DE": {
+                    singular: "Bitte mit Chrome, Firefox oder Safari {LINK}versuchen{/LINK}."
+                  },
+                  "fr-FR": {
+                    singular: "Veuillez {LINK}essayer{/LINK} avec Chrome, Firefox ou Safari."
+                  },
+                  "ja-JP": {
+                    singular: "Chrome、Firefox、Safariで{/LINK}お試しください{LINK}。"
+                  },
+                  "ko-KR": {
+                    singular: "Chrome, Firefox 또는 Safari로 {LINK}시도{/LINK}하세요."
+                  },
+                  "pt-BR": {
+                    singular: "{LINK}Tente{/LINK} com Chrome, Firefox ou Safari."
+                  },
+                  "zh-CN": {
+                    singular: "请使用 Chrome、Firefox 或 Safari {/LINK}尝试{LINK}。"
+                  }
                 }
-              }
+              })
             })
           })
         }),
@@ -1546,6 +1548,7 @@
               children: _v66.default.ContinueAndUpgradeLater
             })
           }), _v13 && (0, _v7.jsx)(_v109, {
+            translate: "no",
             children: (0, _v63.translate)({
               singular: "or {A}purchase now{/A}",
               replacements: {

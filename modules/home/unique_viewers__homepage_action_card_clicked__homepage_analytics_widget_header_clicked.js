@@ -17809,7 +17809,9 @@
     noIndex: !0
   }), _v525.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v23.VideoLibraryLayout, {
     hasSideNav: !0,
-    sideNavContent: (0, _v1.jsx)(_v22.HomeSideNavContent, {}),
+    sideNavContent: (0, _v1.jsx)(_v22.SideNavContent, {
+      surface: "home"
+    }),
     playerAssetUrls: _v1.playerAssetUrls,
     hasUploader: _v1.hasUploader,
     children: _v0

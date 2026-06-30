@@ -172,8 +172,16 @@
           ..._v19,
           ..._v0
         },
-        _v20 = await _v10(_v19),
-        _v21 = ((_v0, _v1 = () => new Date()) => ({
+        _v20 = "__picox_storage_probe__";
+      try {
+        window.localStorage.setItem(_v20, _v20), window.localStorage.removeItem(_v20), window.sessionStorage.setItem(_v20, _v20), window.sessionStorage.removeItem(_v20);
+      } catch (_v0) {
+        throw Error("PicoX cannot initialize: web storage is unavailable", {
+          cause: _v0
+        });
+      }
+      let _v21 = await _v10(_v19),
+        _v22 = ((_v0, _v1 = () => new Date()) => ({
           sendEvents: async (_v0, _v1) => {
             let _v2;
             if (0 === _v0.length) return _v1;
@@ -217,7 +225,7 @@
             };
           }
         }))(_v19),
-        _v22 = (_v3 = !1, _v4 = 0, _v5 = null, _v6 = _v19.syncIntervalMilliseconds, _v7 = {
+        _v23 = (_v3 = !1, _v4 = 0, _v5 = null, _v6 = _v19.syncIntervalMilliseconds, _v7 = {
           delta: 0,
           last_event_timestamp: null
         }, _v8 = _v19.eventsBatchSize, _v9 = new _v18(), _v10 = async () => {
@@ -225,11 +233,11 @@
           return _v9.run(async () => {
             _v4++;
             try {
-              if (!(_v0 = await _v20.retrieveEvents(_v8)) || 0 === _v0.length) {
+              if (!(_v0 = await _v21.retrieveEvents(_v8)) || 0 === _v0.length) {
                 _v4 = 0, _v6 = _v19.syncIntervalMilliseconds;
                 return;
               }
-              let _v0 = await _v21.sendEvents(_v0, _v7);
+              let _v0 = await _v22.sendEvents(_v0, _v7);
               return await _v11(_v0, _v0);
             } catch (_v0) {
               if (_v19.logger.error(`Event sync operation failed: ${_v0}`), _v6(_v0) && "PicoXClientError" === _v0.code || _v6(_v0) && "PicoXSerializationError" === _v0.code || _v7(_v0) && 1 === _v8) return await _v11(_v7, _v0);
@@ -248,7 +256,7 @@
             }
           });
         }, _v11 = async (_v0, _v1) => {
-          await _v20.removeEvents(_v1), _v4 = 0, _v7 = _v0, _v6 = _v19.syncIntervalMilliseconds, 0 === _v19.syncIntervalMilliseconds && _v1.length === _v8 && (_v6 = 1), _v8 < _v19.eventsBatchSize && (_v8 = Math.min(_v19.eventsBatchSize, _v8 + 1));
+          await _v21.removeEvents(_v1), _v4 = 0, _v7 = _v0, _v6 = _v19.syncIntervalMilliseconds, 0 === _v19.syncIntervalMilliseconds && _v1.length === _v8 && (_v6 = 1), _v8 < _v19.eventsBatchSize && (_v8 = Math.min(_v19.eventsBatchSize, _v8 + 1));
         }, _v12 = () => {
           _v3 && (_v5 = window.setTimeout(_v10, _v6));
         }, {
@@ -258,7 +266,7 @@
             _v3 = !1, _v5 && (window.clearTimeout(_v5), _v5 = null), _v6 = _v19.syncIntervalMilliseconds;
           }
         }),
-        _v23 = (_v1 = _v19.identifiersSuffix, _v2 = _v19.cookieDomain, _v13 = `LOCAL_STORAGE_ID_${_v1}`, _v14 = () => {
+        _v24 = (_v1 = _v19.identifiersSuffix, _v2 = _v19.cookieDomain, _v13 = `LOCAL_STORAGE_ID_${_v1}`, _v14 = () => {
           let _v0 = window.localStorage.getItem(_v13);
           if (null == _v0) {
             let _v0 = (0, _v1.v4)();
@@ -278,7 +286,7 @@
             cookie_storage_id: _v17()
           })
         }),
-        _v24 = {
+        _v25 = {
           currentContext: _v0 => {
             let _v1 = new _v2.UAParser(window.navigator.userAgent).getResult(),
               _v2 = Intl.DateTimeFormat().resolvedOptions(),
@@ -307,16 +315,16 @@
             };
           }
         },
-        _v25 = async (_v0, _v1, _v2) => {
+        _v26 = async (_v0, _v1, _v2) => {
           let _v3 = new Date(),
-            _v4 = _v23.currentIdentifiers(),
+            _v4 = _v24.currentIdentifiers(),
             _v5 = _v19.additionalIdentifiers(),
             _v6 = {
               ..._v4,
               ..._v5,
               ...(_v2 ?? {})
             },
-            _v7 = _v24.currentContext(_v3),
+            _v7 = _v25.currentContext(_v3),
             _v8 = _v19.additionalContext(),
             _v9 = {
               ..._v7,
@@ -331,11 +339,11 @@
               event_timestamp: _v3
             };
           for (let _v0 of _v19.eventProcessors) if (!(_v10 = _v0.processEvent(_v10))) return;
-          await _v20.storeEvent(_v10);
+          await _v21.storeEvent(_v10);
         },
-        _v26 = (_v18 = {
+        _v27 = (_v18 = {
           start: () => {
-            null === window.sessionStorage.getItem("PICOX_PING") && (window.sessionStorage.setItem("PICOX_PING", (0, _v1.v4)()), _v25(_v5, {
+            null === window.sessionStorage.getItem("PICOX_PING") && (window.sessionStorage.setItem("PICOX_PING", (0, _v1.v4)()), _v26(_v5, {
               ping_type: "tab_created"
             }));
           }
@@ -344,8 +352,8 @@
             _v18.start();
           }
         });
-      return _v22.startScheduling(), _v26.start(), {
-        track: _v25
+      return _v23.startScheduling(), _v27.start(), {
+        track: _v26
       };
     };
   _v0.s(["createPicoX", 0, _v20], 0);

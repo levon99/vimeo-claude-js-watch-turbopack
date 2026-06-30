@@ -3792,36 +3792,38 @@
       marginTop: 200,
       marginBottom: 0,
       children: (0, _v2.jsx)(_v209.AlertDescription, {
-        children: (0, _v10.translate)({
-          singular: "{strong}Heads up:{/strong} this video will be private. Only the account’s owner and admins can change its privacy settings.",
-          replacements: {
-            strong: _v0 => (0, _v2.jsx)("strong", {
-              children: _v0
-            }, "heads-up")
-          },
-          dictionary: {
-            es: {
-              singular: "{strong}Atención{/strong}: Este video pasará a ser privado. Solo el propietario y los administradores de la cuenta podrán cambiar su configuración de privacidad."
+        children: (0, _v2.jsx)("span", {
+          children: (0, _v10.translate)({
+            singular: "{strong}Heads up:{/strong} this video will be private. Only the account’s owner and admins can change its privacy settings.",
+            replacements: {
+              strong: _v0 => (0, _v2.jsx)("strong", {
+                children: _v0
+              }, "heads-up")
             },
-            "de-DE": {
-              singular: "{strong}Achtung:{/strong} Dieses Video wird nur privat zu sehen sein. Nur der Kontoinhaber und die Administratoren können die Datenschutzeinstellungen ändern."
-            },
-            "fr-FR": {
-              singular: "{strong}Attention :{/strong} cette vidéo sera privée. Seul le détenteur du compte ainsi que ses gestionnaires pourront en modifier les paramètres de confidentialité."
-            },
-            "ja-JP": {
-              singular: "{strong}注意：{/strong}この動画はプライベート公開になります。アカウント所有者と管理者だけがプライバシー設定を変更することができます。"
-            },
-            "ko-KR": {
-              singular: "{strong}알림:{/strong} 이 동영상은 비공개 처리됩니다. 계정 소유자와 관리자만 프라이버시 설정을 변경할 수 있습니다."
-            },
-            "pt-BR": {
-              singular: "{strong}Atenção:{/strong} este vídeo será privado. Somente o proprietário e os administradores da conta podem alterar suas configurações de privacidade."
-            },
-            "zh-CN": {
-              singular: "{strong}注意：{/strong}此视频将保留为私人视频。只有账户所有者及其管理员可以更改其隐私设置。"
+            dictionary: {
+              es: {
+                singular: "{strong}Atención{/strong}: Este video pasará a ser privado. Solo el propietario y los administradores de la cuenta podrán cambiar su configuración de privacidad."
+              },
+              "de-DE": {
+                singular: "{strong}Achtung:{/strong} Dieses Video wird nur privat zu sehen sein. Nur der Kontoinhaber und die Administratoren können die Datenschutzeinstellungen ändern."
+              },
+              "fr-FR": {
+                singular: "{strong}Attention :{/strong} cette vidéo sera privée. Seul le détenteur du compte ainsi que ses gestionnaires pourront en modifier les paramètres de confidentialité."
+              },
+              "ja-JP": {
+                singular: "{strong}注意：{/strong}この動画はプライベート公開になります。アカウント所有者と管理者だけがプライバシー設定を変更することができます。"
+              },
+              "ko-KR": {
+                singular: "{strong}알림:{/strong} 이 동영상은 비공개 처리됩니다. 계정 소유자와 관리자만 프라이버시 설정을 변경할 수 있습니다."
+              },
+              "pt-BR": {
+                singular: "{strong}Atenção:{/strong} este vídeo será privado. Somente o proprietário e os administradores da conta podem alterar suas configurações de privacidade."
+              },
+              "zh-CN": {
+                singular: "{strong}注意：{/strong}此视频将保留为私人视频。只有账户所有者及其管理员可以更改其隐私设置。"
+              }
             }
-          }
+          })
         })
       })
     });

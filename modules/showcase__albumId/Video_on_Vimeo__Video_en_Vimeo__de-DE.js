@@ -3659,58 +3659,74 @@
       })
     });
   }
+  async function _v182(_v0, _v1) {
+    try {
+      let _v0 = await fetch(`https://${_v0}/_next/showcase_metadata?album_id=${encodeURIComponent(_v1)}`, {
+        headers: {
+          Accept: "application/json"
+        }
+      });
+      if (!_v0.ok) return;
+      let _v1 = await _v0.json();
+      if (!_v1 || "object" != typeof _v1 || "number" != typeof _v1.albumId) return;
+      return _v1;
+    } catch {
+      return;
+    }
+  }
   _v0.s(["ViewerShowcasesAuthorization", 0, ({
     albumIdOrUrl: _v0,
-    isShowcaseEmbedded: _v1 = !1
+    isShowcaseEmbedded: _v1 = !1,
+    renderDocumentTitle: _v2 = !0
   }) => {
-    let _v2 = (0, _v5.getSearchParams)().get("sh"),
-      _v3 = (0, _v6.useShowcaseSSR)(),
+    let _v3 = (0, _v5.getSearchParams)().get("sh"),
+      _v4 = (0, _v6.useShowcaseSSR)(),
       {
-        data: _v4,
-        error: _v5,
-        isLoading: _v6,
-        mutate: _v7
+        data: _v5,
+        error: _v6,
+        isLoading: _v7,
+        mutate: _v8
       } = (0, _v8.useShowcaseAuth)(_v0, {
         isShowcaseEmbedded: _v1,
-        fallbackData: _v3?.authData
+        fallbackData: _v4?.authData
       }),
-      _v8 = _v5 ?? (!_v4 && _v3?.authError ? _v3.authError : void 0),
-      _v9 = _v4?.metadata?.id || _v8?.res?.metadata?.id,
+      _v9 = _v6 ?? (!_v5 && _v4?.authError ? _v4.authError : void 0),
+      _v10 = _v5?.metadata?.id || _v9?.res?.metadata?.id,
       {
-        registrationEnabled: _v10,
-        registrationLoading: _v11,
-        setLeadUuid: _v12
-      } = (0, _v7.useLeadCaptureRegistration)(_v9),
-      _v13 = (0, _v9.useSSGShowcaseSignature)(_v9),
-      [_v14, _v15] = (0, _v3.useState)(!1),
-      _v16 = (0, _v3.useCallback)(() => {
-        _v15(!0), _v7();
-      }, [_v7]);
-    if (_v8?.status === 404) return (0, _v1.jsx)(_v11.ErrorPage, {});
-    if (!(_v3?.authData || _v3?.authError || !_v6 && (_v4 || _v8)) || _v11 || !_v9) return (0, _v1.jsx)(_v13.LoadingPage, {});
-    let _v17 = window.location.hostname === _v4?.metadata?.domain || window.location.hostname === _v8?.res?.metadata?.domain;
-    if (_v8) switch (_v8?.res?.errorCode) {
+        registrationEnabled: _v11,
+        registrationLoading: _v12,
+        setLeadUuid: _v13
+      } = (0, _v7.useLeadCaptureRegistration)(_v10),
+      _v14 = (0, _v9.useSSGShowcaseSignature)(_v10),
+      [_v15, _v16] = (0, _v3.useState)(!1),
+      _v17 = (0, _v3.useCallback)(() => {
+        _v16(!0), _v8();
+      }, [_v8]);
+    if (_v9?.status === 404) return (0, _v1.jsx)(_v11.ErrorPage, {});
+    if (!(_v4?.authData || _v4?.authError || !_v7 && (_v5 || _v9)) || _v12 || !_v10) return (0, _v1.jsx)(_v13.LoadingPage, {});
+    let _v18 = window.location.hostname === _v5?.metadata?.domain || window.location.hostname === _v9?.res?.metadata?.domain;
+    if (_v9) switch (_v9?.res?.errorCode) {
       case _v8.ShowcaseAuthErrorCode.passwordPrivacy:
         return (0, _v1.jsx)(_v16.AlbumStoreProvider, {
-          albumId: _v9,
+          albumId: _v10,
           isShowcaseEmbedded: _v1,
           children: (0, _v1.jsx)(_v14.PasswordPage, {
-            isCookiesDisabled: _v14,
-            onSuccess: _v16
+            isCookiesDisabled: _v15,
+            onSuccess: _v17
           })
         });
       case _v8.ShowcaseAuthErrorCode.teamPrivacy:
         return (0, _v1.jsx)(_v16.AlbumStoreProvider, {
-          albumId: _v9,
+          albumId: _v10,
           isShowcaseEmbedded: _v1,
-          isOffsite: _v17,
+          isOffsite: _v18,
           children: (0, _v1.jsx)(_v10.BrandedLoginPage, {
-            ...(_v8?.res?.metadata ?? {})
+            ...(_v9?.res?.metadata ?? {})
           })
         });
       case _v8.ShowcaseAuthErrorCode.teamPrivacyLoggedInUser:
         return (0, _v1.jsx)(_v15.UserNotAllowedPage, {
-          ...(_v8?.res?.metadata ?? {})
+          ...(_v9?.res?.metadata ?? {})
         });
       case _v8.ShowcaseAuthErrorCode.embedOnly:
       case _v8.ShowcaseAuthErrorCode.unknownReason:
@@ -3718,23 +3734,158 @@
       default:
         return (0, _v1.jsx)(_v11.ErrorPage, {});
     }
-    return _v10 ? (0, _v1.jsx)(_v12.LeadCapturePage, {
-      albumId: _v9.toString(),
-      setLeadUuid: _v12
+    return _v11 ? (0, _v1.jsx)(_v12.LeadCapturePage, {
+      albumId: _v10.toString(),
+      setLeadUuid: _v13
     }) : (0, _v1.jsxs)(_v16.AlbumStoreProvider, {
-      albumId: _v9,
-      albumSignature: _v13,
-      hashedPass: _v4?.hashedPass || "",
+      albumId: _v10,
+      albumSignature: _v14,
+      hashedPass: _v5?.hashedPass || "",
       isShowcaseEmbedded: _v1,
-      isOffsite: _v17,
-      showcaseHash: _v2 || "",
-      children: [_v4?.metadata?.name && (0, _v1.jsx)(_v2.default, {
+      isOffsite: _v18,
+      showcaseHash: _v3 || "",
+      children: [_v2 && _v5?.metadata?.name && (0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
-          children: _v4.metadata.name
+          children: _v5.metadata.name
         })
       }), (0, _v1.jsx)(_v4.UpsellModalProvider, {
         children: (0, _v1.jsx)(_v181, {})
       })]
     });
-  }], 0);
+  }], 0), _v0.s(["ShowcaseHead", 0, function ({
+    authData: _v0,
+    albumData: _v1,
+    showcaseMetadata: _v2,
+    isClipView: _v3
+  }) {
+    let _v4,
+      _v5 = _v2 ? !!_v2.seoAllowIndexed : !!_v1?.seoAllowIndexed,
+      _v6 = _v2?.name ?? _v0?.metadata?.name ?? _v1?.name,
+      _v7 = _v2?.seoTitle ?? _v1?.seoTitle,
+      _v8 = _v2?.seoDescription ?? _v1?.seoDescription,
+      _v9 = _v2?.albumDescription ?? _v1?.description,
+      _v10 = _v2?.thumbnailUrl,
+      _v11 = !!_v2?.isPublic || !!_v0 || !!_v1;
+    _v4 = _v11 && _v7 && _v5 ? _v7.replace(/['",;\\]/g, " ") : _v11 && _v6 ? (0, _v46.translate)({
+      singular: "{PAGE_TITLE} on Vimeo",
+      replacements: {
+        PAGE_TITLE: _v6.replace(/['",;\\]/g, " ")
+      },
+      dictionary: {
+        es: {
+          singular: "{PAGE_TITLE} en Vimeo"
+        },
+        "de-DE": {
+          singular: "{PAGE_TITLE} auf Vimeo"
+        },
+        "fr-FR": {
+          singular: "{PAGE_TITLE} sur Vimeo"
+        },
+        "ja-JP": {
+          singular: "{PAGE_TITLE} — Vimeo上"
+        },
+        "ko-KR": {
+          singular: "{PAGE_TITLE} — Vimeo에서"
+        },
+        "pt-BR": {
+          singular: "{PAGE_TITLE} no Vimeo"
+        },
+        "zh-CN": {
+          singular: "{PAGE_TITLE} 在 Vimeo 上"
+        }
+      }
+    }) : (0, _v46.translate)({
+      singular: "Showcase on Vimeo",
+      dictionary: {
+        "de-DE": {
+          singular: "Showcase auf Vimeo"
+        },
+        "fr-FR": {
+          singular: "Showcase sur Vimeo"
+        },
+        "ja-JP": {
+          singular: "Vimeoのショーケース"
+        },
+        "ko-KR": {
+          singular: "Vimeo의 쇼케이스"
+        },
+        "pt-BR": {
+          singular: "Showcase no Vimeo"
+        },
+        "zh-CN": {
+          singular: "Showcase 在 Vimeo 上"
+        }
+      }
+    });
+    let _v12 = _v2?.description || void 0,
+      _v13 = _v7 || _v6 || void 0,
+      _v14 = _v8 || _v9 || void 0;
+    return (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(0, _v1.jsxs)(_v2.default, {
+        children: [(0, _v1.jsx)("title", {
+          children: _v4
+        }), (_v3 || !_v5) && (0, _v1.jsx)("meta", {
+          name: "robots",
+          content: "noindex, nofollow"
+        }), _v5 && (0, _v1.jsxs)(_v1.Fragment, {
+          children: [_v2?.shareLink && (0, _v1.jsx)("meta", {
+            property: "og:url",
+            content: _v2.shareLink
+          }), (0, _v1.jsx)("meta", {
+            property: "og:type",
+            content: "website"
+          }), _v7 && (0, _v1.jsx)("meta", {
+            property: "og:title",
+            content: _v7
+          }), _v8 && (0, _v1.jsx)("meta", {
+            property: "og:description",
+            content: _v8
+          }), _v10 && (0, _v1.jsx)("meta", {
+            property: "og:image",
+            content: _v10
+          }), _v13 && (0, _v1.jsx)("meta", {
+            name: "twitter:title",
+            content: _v13
+          }), _v14 && (0, _v1.jsx)("meta", {
+            name: "twitter:description",
+            content: _v14
+          }), _v10 && (0, _v1.jsx)("meta", {
+            name: "thumbnail",
+            content: _v10
+          }), _v10 && (0, _v1.jsx)("meta", {
+            name: "twitter:image",
+            content: _v10
+          }), _v10 && (0, _v1.jsx)("meta", {
+            name: "twitter:card",
+            content: "summary_large_image"
+          })]
+        }), _v12 && (0, _v1.jsx)("meta", {
+          name: "description",
+          content: _v12
+        }), _v2?.viewerShowcases && (0, _v1.jsx)("meta", {
+          name: "viewer-showcases",
+          content: "1"
+        }), _v2?.signature && (0, _v1.jsx)("meta", {
+          name: `album-signature-${_v2.albumId}`,
+          content: _v2.signature
+        }), _v2?.bpSessionId && (0, _v1.jsx)("meta", {
+          name: "bp-server-session-id",
+          content: _v2.bpSessionId
+        }), _v2?.links?.map(_v0 => "canonical" === _v0.rel ? (0, _v1.jsx)("link", {
+          rel: "canonical",
+          href: _v0.href
+        }, "canonical") : (0, _v1.jsx)("link", {
+          rel: _v0.rel,
+          href: _v0.href,
+          type: _v0.type,
+          title: _v0.title
+        }, _v0.type))]
+      }), _v2?.jsonLd && (0, _v1.jsx)("div", {
+        suppressHydrationWarning: !0,
+        dangerouslySetInnerHTML: {
+          __html: `<script type="application/ld+json">${_v2.jsonLd}</script>`
+        }
+      })]
+    });
+  }], 0), _v0.s(["fetchShowcaseMetadata", 0, _v182], 0);
 }
