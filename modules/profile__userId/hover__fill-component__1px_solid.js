@@ -9223,12 +9223,12 @@
     let _v1 = Date.parse(_v0);
     if (!Number.isNaN(_v1)) return new Date(_v1).toISOString().slice(0, 19) + "Z";
   }
-  function _v397(_v0, _v1, _v2, _v3, _v4) {
-    let _v5,
-      _v6,
-      _v7 = String(_v0.link ?? "").split("/").pop() ?? "",
-      _v8 = `https://${_v1}/${_v7}`,
-      _v9 = _v8.toLowerCase();
+  function _v397(_v0, _v1, _v2, _v3) {
+    let _v4,
+      _v5,
+      _v6 = String(_v0.link ?? "").split("/").pop() ?? "",
+      _v7 = `https://${_v1}/${_v6}`,
+      _v8 = _v7.toLowerCase();
     if (!_v2) return {
       title: "Vimeo",
       description: (0, _v14.translate)({
@@ -9257,14 +9257,14 @@
           }
         }
       }),
-      canonical: _v9
+      canonical: _v8
     };
-    let _v10 = String(_v0.name ?? ""),
-      _v11 = 0 === (_v6 = (Array.isArray(_v0.skills) ? _v0.skills.map(_v0 => _v0?.name).filter(_v0 => "string" == typeof _v0 && _v0.length > 0) : []).slice(0, 3)).length ? _v10 : (_v5 = 1 === _v6.length ? _v6[0] : 2 === _v6.length ? (0, _v14.translate)({
+    let _v9 = String(_v0.name ?? ""),
+      _v10 = 0 === (_v5 = (Array.isArray(_v0.skills) ? _v0.skills.map(_v0 => _v0?.name).filter(_v0 => "string" == typeof _v0 && _v0.length > 0) : []).slice(0, 3)).length ? _v9 : (_v4 = 1 === _v5.length ? _v5[0] : 2 === _v5.length ? (0, _v14.translate)({
         singular: "{SKILL1} & {SKILL2}",
         replacements: {
-          SKILL1: _v6[0],
-          SKILL2: _v6[1]
+          SKILL1: _v5[0],
+          SKILL2: _v5[1]
         },
         dictionary: {
           "ja-JP": {
@@ -9280,9 +9280,9 @@
       }) : (0, _v14.translate)({
         singular: "{SKILL1}, {SKILL2} & {SKILL3}",
         replacements: {
-          SKILL1: _v6[0],
-          SKILL2: _v6[1],
-          SKILL3: _v6[2]
+          SKILL1: _v5[0],
+          SKILL2: _v5[1],
+          SKILL3: _v5[2]
         },
         dictionary: {
           "ja-JP": {
@@ -9295,9 +9295,9 @@
             singular: "{SKILL1}、{SKILL2} 和 {SKILL3}"
           }
         }
-      }), `${_v10} - ${_v5}`),
-      _v12 = "string" == typeof _v0.bio ? _v0.bio : "",
-      _v13 = _v12 ? function (_v0) {
+      }), `${_v9} - ${_v4}`),
+      _v11 = "string" == typeof _v0.bio ? _v0.bio : "",
+      _v12 = _v11 ? function (_v0) {
         let _v1 = 160;
         !/[a-z]/.test(_v0) && /[A-Z]/.test(_v0) && (_v1 = 80);
         let _v2 = _v0;
@@ -9306,10 +9306,10 @@
           -1 !== _v0 && (_v2 = _v2.slice(0, _v1 + _v0) + "…");
         }
         return _v2.replace(/\r\n|\r|\n/g, " ").trim();
-      }(_v12) : (0, _v14.translate)({
+      }(_v11) : (0, _v14.translate)({
         singular: "{USER_NAME} is a member of Vimeo, the home for high quality videos and the people who love them.",
         replacements: {
-          USER_NAME: _v10
+          USER_NAME: _v9
         },
         dictionary: {
           es: {
@@ -9336,61 +9336,61 @@
         }
       });
     if (!_v3) return {
-      title: _v11,
-      description: _v13,
-      canonical: _v9,
+      title: _v10,
+      description: _v12,
+      canonical: _v8,
       robots: "noindex, nofollow"
     };
-    let _v14 = Number(String(_v0.uri ?? "").split("/").pop()),
-      _v15 = Array.isArray(_v0.pictures?.sizes) ? _v0.pictures.sizes : [],
-      _v16 = (_v15.find(_v0 => 640 === _v0.width) ?? _v15[_v15.length - 1])?.link,
-      _v17 = Array.isArray(_v0.websites) ? _v0.websites.map(_v0 => _v0?.link).filter(_v0 => "string" == typeof _v0 && _v0.length > 0).map(_v0 => /^https?:\/\//.test(_v0) ? _v0 : `https://${_v0}`) : [],
-      _v18 = Number(_v0.metadata?.connections?.followers?.total ?? 0),
-      _v19 = Number(_v0.metadata?.connections?.videos?.total ?? 0),
-      _v20 = {
+    let _v13 = Number(String(_v0.uri ?? "").split("/").pop()),
+      _v14 = Array.isArray(_v0.pictures?.sizes) ? _v0.pictures.sizes : [],
+      _v15 = (_v14.find(_v0 => 640 === _v0.width) ?? _v14[_v14.length - 1])?.link,
+      _v16 = Array.isArray(_v0.websites) ? _v0.websites.map(_v0 => _v0?.link).filter(_v0 => "string" == typeof _v0 && _v0.length > 0).map(_v0 => /^https?:\/\//.test(_v0) ? _v0 : `https://${_v0}`) : [],
+      _v17 = Number(_v0.metadata?.connections?.followers?.total ?? 0),
+      _v18 = Number(_v0.metadata?.connections?.videos?.total ?? 0),
+      _v19 = {
         "@context": "http://schema.org",
         "@graph": [{
           dateCreated: _v396(_v0.createdTime),
-          dateModified: _v396(_v4) ?? _v396(_v0.createdTime),
-          url: _v8,
+          dateModified: _v396(_v0.lastVideoUploadDate) ?? _v396(_v0.createdTime),
+          url: _v7,
           mainEntity: {
             "@type": "Person",
-            name: _v10,
-            identifier: _v14,
-            alternateName: _v7,
+            name: _v9,
+            identifier: _v13,
+            alternateName: _v6,
             interactionStatistic: {
               "@type": "InteractionCounter",
               interactionType: "https://schema.org/FollowAction",
-              userInteractionCount: _v18
+              userInteractionCount: _v17
             },
             agentInteractionStatistic: {
               "@type": "InteractionCounter",
               interactionType: "https://schema.org/WriteAction",
-              userInteractionCount: _v19
+              userInteractionCount: _v18
             },
-            description: _v12,
-            image: _v16,
-            url: `/${_v7}`,
-            sameAs: [_v8, ..._v17]
+            description: _v11,
+            image: _v15,
+            url: `/${_v6}`,
+            sameAs: [_v7, ..._v16]
           },
           potentialAction: {
             "@type": "ViewAction",
-            target: `vimeo://app.vimeo.com/users/${_v14}`
+            target: `vimeo://app.vimeo.com/users/${_v13}`
           },
           "@type": "ProfilePage"
         }]
       };
     return {
-      title: _v11,
-      description: _v13,
-      canonical: _v9,
+      title: _v10,
+      description: _v12,
+      canonical: _v8,
       crawlable: {
-        pageUrl: _v8,
-        name: _v10,
-        userId: _v14,
-        portrait: _v16,
-        rssTitle: `${_v10}'s Videos`,
-        jsonLd: JSON.stringify(_v20).replace(/[<>&]/g, _v0 => `\\u${_v0.charCodeAt(0).toString(16).padStart(4, "0")}`)
+        pageUrl: _v7,
+        name: _v9,
+        userId: _v13,
+        portrait: _v15,
+        rssTitle: `${_v9}'s Videos`,
+        jsonLd: JSON.stringify(_v19).replace(/[<>&]/g, _v0 => `\\u${_v0.charCodeAt(0).toString(16).padStart(4, "0")}`)
       }
     };
   }
@@ -9411,7 +9411,7 @@
         where: {
           userId: _v2 ?? _v3
         },
-        select: ["profileDiscovery", "isOwner", "link", "uri", "name", "bio", "createdTime", "skills.name", "pictures.sizes", "websites.link", "metadata.connections.viewProfile.disabled", "metadata.connections.viewProfile.modOverride", "metadata.connections.followers.total", "metadata.connections.videos.total"],
+        select: ["profileDiscovery", "isOwner", "link", "uri", "name", "bio", "createdTime", "lastVideoUploadDate", "skills.name", "pictures.sizes", "websites.link", "metadata.connections.viewProfile.disabled", "metadata.connections.viewProfile.modOverride", "metadata.connections.followers.total", "metadata.connections.videos.total"],
         baseUrl: _v0.baseUrl,
         headers: _v0.headers
       });

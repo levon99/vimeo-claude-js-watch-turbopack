@@ -538,7 +538,7 @@
           }
         }
       }),
-      tiers: _v2.REPACKAGING_PRO_AND_ABOVE
+      tiers: _v2.REPACKAGING_CORE_AND_ABOVE
     }, {
       text: (0, _v1.translate)({
         singular: "Custom fonts",
@@ -592,7 +592,7 @@
           }
         }
       }),
-      tiers: _v2.REPACKAGING_PRO_AND_ABOVE
+      tiers: _v2.REPACKAGING_CORE_AND_ABOVE
     }, {
       text: (0, _v1.translate)({
         singular: "Custom intros and outros",
@@ -3609,7 +3609,7 @@
             singular: "Historial de versiones"
           },
           "de-DE": {
-            singular: "Versionshistorie"
+            singular: "Versionsverlauf"
           },
           "fr-FR": {
             singular: "Historique des versions"
@@ -4651,643 +4651,6 @@
     }],
     _v12 = [{
       text: (0, _v1.translate)({
-        singular: "Native publishing across channels",
-        dictionary: {
-          es: {
-            singular: "Publicación nativa en todos los canales"
-          },
-          "de-DE": {
-            singular: "Native Veröffentlichung auf verschiedenen Kanälen"
-          },
-          "fr-FR": {
-            singular: "Publication native sur les canaux"
-          },
-          "ja-JP": {
-            singular: "チャンネル間でのネイティブ投稿"
-          },
-          "ko-KR": {
-            singular: "여러 채널에 네이티브 형식 게시"
-          },
-          "pt-BR": {
-            singular: "Publicação direta em vários canais"
-          },
-          "zh-CN": {
-            singular: "跨频道原生发布"
-          }
-        }
-      }),
-      tooltip: (0, _v1.translate)({
-        singular: "Publish natively to Facebook, YouTube, LinkedIn, Twitter, Pinterest, and Shopify.",
-        dictionary: {
-          es: {
-            singular: "Realice publicaciones nativas en Facebook, YouTube, LinkedIn, Twitter, Pinterest y Shopify."
-          },
-          "de-DE": {
-            singular: "Native Veröffentlichung auf Facebook, YouTube, LinkedIn, Twitter, Pinterest und Shopify."
-          },
-          "fr-FR": {
-            singular: "Publication native sur Facebook, YouTube, LinkedIn, Twitter, Pinterest et Shopify."
-          },
-          "ja-JP": {
-            singular: "Facebook、YouTube、LinkedIn、X（旧Twitter）、Pinterest、Shopifyにネイティブ投稿します。"
-          },
-          "ko-KR": {
-            singular: "Facebook, YouTube, LinkedIn, Twitter, Pinterest, Shopify에 네이티브 형식으로 게시합니다."
-          },
-          "pt-BR": {
-            singular: "Faça publicações diretamente no Facebook, YouTube, LinkedIn, Twitter, Pinterest e Shopify."
-          },
-          "zh-CN": {
-            singular: "原生发布到 Facebook、YouTube、LinkedIn、Twitter、Pinterest 和 Shopify。"
-          }
-        }
-      }),
-      tiers: _v2.REPACKAGING_ALL_SHOWN_TIERS
-    }, {
-      text: (0, _v1.translate)({
-        singular: "Embed videos anywhere",
-        dictionary: {
-          es: {
-            singular: "Inserción de videos en cualquier lugar"
-          },
-          "de-DE": {
-            singular: "Videos überall einbetten"
-          },
-          "fr-FR": {
-            singular: "Intégration de vidéos sur les supports de votre choix"
-          },
-          "ja-JP": {
-            singular: "どこにでも自由に動画を埋め込む"
-          },
-          "ko-KR": {
-            singular: "자유로운 동영상 임베드"
-          },
-          "pt-BR": {
-            singular: "Incorporação de vídeos em qualquer lugar"
-          },
-          "zh-CN": {
-            singular: "随处嵌入视频"
-          }
-        }
-      }),
-      tooltip: (0, _v1.translate)({
-        singular: "Post/embed your video or event on a page outside Vimeo.",
-        dictionary: {
-          es: {
-            singular: "Publique/inserte su video o evento en una página fuera de Vimeo."
-          },
-          "de-DE": {
-            singular: "Posten Sie oder betten Sie Ihr Video oder Event auf einer Website außerhalb von Vimeo ein."
-          },
-          "fr-FR": {
-            singular: "Publiez/intégrez votre vidéo ou événement sur une page externe à Vimeo."
-          },
-          "ja-JP": {
-            singular: "Vimeo以外のページに動画やイベントを投稿 / 埋め込み。"
-          },
-          "ko-KR": {
-            singular: "Vimeo 외부 페이지에 동영상 또는 이벤트를 게시/임베드합니다."
-          },
-          "pt-BR": {
-            singular: "Publique/incorpore seus vídeos ou eventos em uma página fora do Vimeo."
-          },
-          "zh-CN": {
-            singular: "在 Vimeo 以外的页面发布/嵌入您的视频或活动。"
-          }
-        }
-      }),
-      tiers: _v2.REPACKAGING_ALL_SHOWN_TIERS
-    }, {
-      text: (0, _v1.translate)({
-        singular: "Video showcases",
-        dictionary: {
-          es: {
-            singular: "Presentaciones en video"
-          },
-          "de-DE": {
-            singular: "Video-Präsentationen"
-          },
-          "fr-FR": {
-            singular: "Présentations vidéo"
-          },
-          "ja-JP": {
-            singular: "動画ショーケース"
-          },
-          "ko-KR": {
-            singular: "동영상 쇼케이스"
-          },
-          "pt-BR": {
-            singular: "Vitrines de vídeo"
-          },
-          "zh-CN": {
-            singular: "视频展示"
-          }
-        }
-      }),
-      tooltip: (0, _v1.translate)({
-        singular: "Organize, present and share videos in a professional gallery. On Standard and above, customize with your own branding.",
-        dictionary: {
-          es: {
-            singular: "Organice, presente y comparta videos en una galería profesional. Con Standard y planes superiores, personalícelo con su propia marca."
-          },
-          "de-DE": {
-            singular: "Organisieren, präsentieren und teilen Sie Videos in einer professionellen Galerie. Ab Standard und höher können Sie mit Ihrem eigenen Branding anpassen."
-          },
-          "fr-FR": {
-            singular: "Organisez, présentez et partagez des vidéos dans une galerie professionnelle. Les versions Standard et supérieures proposent des options de personnalisation avec votre propre image de marque."
-          },
-          "ja-JP": {
-            singular: "プロフェッショナルなギャラリーで動画を整理し、公開し、共有しましょう。Standard以上では、独自のブランドでカスタマイズできます。"
-          },
-          "ko-KR": {
-            singular: "전문적인 갤러리에서 동영상을 정리하고, 선보이고, 공유하세요. Standard 요금제 이상부터 자체 브랜딩으로 커스텀할 수 있습니다."
-          },
-          "pt-BR": {
-            singular: "Organize, apresente e compartilhe vídeos em uma galeria profissional. Nos planos Standard e superiores, personalize com sua própria marca."
-          },
-          "zh-CN": {
-            singular: "在专业图库中组织、展示和共享视频。在标准版及更高版本中，您可以自定义品牌元素。"
-          }
-        }
-      }),
-      tiers: {
-        free: (0, _v1.translate)({
-          singular: "Create {AMOUNT} showcases",
-          replacements: {
-            AMOUNT: 5
-          },
-          dictionary: {
-            es: {
-              singular: "Crear {AMOUNT} presentaciones"
-            },
-            "de-DE": {
-              singular: "{AMOUNT} Präsentationen erstellen"
-            },
-            "fr-FR": {
-              singular: "Créer {AMOUNT}  des présentations"
-            },
-            "ja-JP": {
-              singular: "ショーケースを{AMOUNT}つ作成する"
-            },
-            "ko-KR": {
-              singular: "쇼케이스 {AMOUNT}개 만들기"
-            },
-            "pt-BR": {
-              singular: "Criar {AMOUNT} vitrines"
-            },
-            "zh-CN": {
-              singular: "创建 {AMOUNT} 个橱窗"
-            }
-          }
-        }),
-        creator: !0,
-        professional: !0,
-        studio: !0,
-        production: !0,
-        enterprise: !0
-      }
-    }, {
-      text: (0, _v1.translate)({
-        singular: "Embed videos as GIFs in email",
-        dictionary: {
-          es: {
-            singular: "Insertar videos como GIF en correos electrónicos"
-          },
-          "de-DE": {
-            singular: "Videos als GIFs in E-Mail einbetten"
-          },
-          "fr-FR": {
-            singular: "Intégrer des vidéos sous forme de GIF dans les e-mails"
-          },
-          "ja-JP": {
-            singular: "動画をGIFとしてメールに埋め込む"
-          },
-          "ko-KR": {
-            singular: "이메일에 동영상 GIF 임베드"
-          },
-          "pt-BR": {
-            singular: "Incorporar vídeos como GIFs em e-mails"
-          },
-          "zh-CN": {
-            singular: "将视频作为 GIF 嵌入到电子邮件中"
-          }
-        }
-      }),
-      tooltip: (0, _v1.translate)({
-        singular: "Create GIFs from your favorite videos and easily embed within your emails.",
-        dictionary: {
-          es: {
-            singular: "Cree GIF de sus videos favoritos e insértelos fácilmente en sus correos electrónicos."
-          },
-          "de-DE": {
-            singular: "Erstellen Sie aus Ihren Lieblingsvideos GIFs, die Sie anschließend ganz einfach in Ihre E-Mails einbetten können."
-          },
-          "fr-FR": {
-            singular: "Créez des GIF à partir de vos vidéos préférées et intégrez-les facilement à vos e-mails."
-          },
-          "ja-JP": {
-            singular: "お好きな動画からGIFを作成して、簡単にEメールに埋め込むことができます。"
-          },
-          "ko-KR": {
-            singular: "좋아하는 동영상으로 GIF를 만들고 이메일에 쉽게 임베드할 수 있습니다."
-          },
-          "pt-BR": {
-            singular: "Crie GIFs dos seus vídeos favoritos e incorpore-os facilmente aos seus e-mails."
-          },
-          "zh-CN": {
-            singular: "使用您喜爱的视频创建 GIF，并轻松嵌入到您的电子邮件中。"
-          }
-        }
-      }),
-      tiers: _v2.REPACKAGING_ALL_SHOWN_TIERS
-    }, {
-      text: (0, _v1.translate)({
-        singular: "Custom video link",
-        dictionary: {
-          es: {
-            singular: "Enlaces a videos personalizados"
-          },
-          "de-DE": {
-            singular: "Benutzerdefinierter Video-Link"
-          },
-          "fr-FR": {
-            singular: "Liens vidéo personnalisés"
-          },
-          "ja-JP": {
-            singular: "カスタム動画リンク"
-          },
-          "ko-KR": {
-            singular: "동영상 커스텀 링크"
-          },
-          "pt-BR": {
-            singular: "Customização de link de vídeo"
-          },
-          "zh-CN": {
-            singular: "自定义视频链接"
-          }
-        }
-      }),
-      tooltip: (0, _v1.translate)({
-        singular: "Create your own custom URL for any of your videos.",
-        dictionary: {
-          es: {
-            singular: "Cree su propia URL personalizada para cualquiera de sus videos."
-          },
-          "de-DE": {
-            singular: "Erstellen Sie für alle Ihre Videos eine eigene, benutzerdefinierte URL."
-          },
-          "fr-FR": {
-            singular: "Créez votre propre URL personnalisée pour vos vidéos."
-          },
-          "ja-JP": {
-            singular: "動画用に独自のカスタムURLを作成。"
-          },
-          "ko-KR": {
-            singular: "동영상의 커스텀 URL을 생성합니다."
-          },
-          "pt-BR": {
-            singular: "Crie URLs customizados para todos os seus vídeos."
-          },
-          "zh-CN": {
-            singular: "为您的任何视频创建自己的自定义 URL。"
-          }
-        }
-      }),
-      tiers: _v2.REPACKAGING_PAID_PLANS
-    }, {
-      text: (0, _v1.translate)({
-        singular: "Sell videos as a subscription service",
-        dictionary: {
-          es: {
-            singular: "Venta de videos como un servicio de suscripción"
-          },
-          "de-DE": {
-            singular: "Videos als Abo-Dienst verkaufen"
-          },
-          "fr-FR": {
-            singular: "Vente de vidéos en tant que service d'abonnement"
-          },
-          "ja-JP": {
-            singular: "サブスクリプションサービスとして動画を販売"
-          },
-          "ko-KR": {
-            singular: "구독 서비스로 동영상 판매"
-          },
-          "pt-BR": {
-            singular: "Venda vídeos como serviço de assinatura"
-          },
-          "zh-CN": {
-            singular: "作为订阅服务的形式销售视频"
-          }
-        }
-      }),
-      tooltip: (0, _v1.translate)({
-        singular: "Use Vimeo OTT to earn money from your on-demand and live videos.",
-        dictionary: {
-          es: {
-            singular: "Use Vimeo OTT para ganar dinero con sus videos On Demand y en vivo."
-          },
-          "de-DE": {
-            singular: "Nutzen Sie Vimeo OTT, um mit Ihren On-Demand- und Live-Videos Geld zu verdienen."
-          },
-          "fr-FR": {
-            singular: "Choisissez Vimeo OTT pour gagner de l'argent avec vos vidéos à la demande et en direct."
-          },
-          "ja-JP": {
-            singular: "Vimeo OTTを使用して、オンデマンドとライブ動画から収益を上げましょう。"
-          },
-          "ko-KR": {
-            singular: "Vimeo OTT를 사용하여 온디맨드･라이브 동영상으로 수익을 창출하세요."
-          },
-          "pt-BR": {
-            singular: "Use o Vimeo OTT para ganhar dinheiro com seus vídeos On Demand e ao vivo."
-          },
-          "zh-CN": {
-            singular: "使用 Vimeo OTT 将您的点播和直播视频变现。"
-          }
-        }
-      }),
-      tiers: _v2.REPACKAGING_ALL_SHOWN_TIERS
-    }, {
-      text: (0, _v1.translate)({
-        singular: "Video SEO",
-        dictionary: {
-          es: {
-            singular: "SEO de videos"
-          },
-          "de-DE": {
-            singular: "Video-SEO"
-          },
-          "fr-FR": {
-            singular: "Référencement des vidéos"
-          },
-          "ja-JP": {
-            singular: "動画SEO"
-          },
-          "ko-KR": {
-            singular: "동영상 SEO"
-          },
-          "pt-BR": {
-            singular: "SEO de vídeo"
-          },
-          "zh-CN": {
-            singular: "视频 SEO"
-          }
-        }
-      }),
-      tooltip: (0, _v1.translate)({
-        singular: "Optimize your public videos to make them more discoverable on Google Search.",
-        dictionary: {
-          es: {
-            singular: "Optimice sus videos públicos para que se puedan encontrar mejor en las búsquedas de Google."
-          },
-          "de-DE": {
-            singular: "Optimiere deine öffentlichen Videos, damit sie in der Google Suche schneller gefunden werden."
-          },
-          "fr-FR": {
-            singular: "Optimisez vos vidéos publiques pour améliorer leur visibilité dans les résultats de recherche Google."
-          },
-          "ja-JP": {
-            singular: "Google 検索でより表示されやすくなるよう公開した動画を最適化します。"
-          },
-          "ko-KR": {
-            singular: "공개 동영상을 최적화하여 Google 검색에서 더 쉽게 검색되게 할 수 있습니다."
-          },
-          "pt-BR": {
-            singular: "Otimize seus vídeos públicos para ficar mais fácil encontrá-los em buscas no Google."
-          },
-          "zh-CN": {
-            singular: "优化您的公开视频，让 Google 搜索更容易找到它们。"
-          }
-        }
-      }),
-      tiers: _v2.REPACKAGING_ALL_SHOWN_TIERS
-    }, {
-      text: (0, _v1.translate)({
-        singular: "Showcase SEO",
-        dictionary: {
-          es: {
-            singular: "SEO de presentación"
-          },
-          "de-DE": {
-            singular: "SEO für Präsentationen"
-          },
-          "fr-FR": {
-            singular: "Optimisation pour les moteurs de recherche des présentations"
-          },
-          "ja-JP": {
-            singular: "ショーケースSEO"
-          },
-          "ko-KR": {
-            singular: "쇼케이스 SEO"
-          },
-          "pt-BR": {
-            singular: "SEO da Vitrine"
-          },
-          "zh-CN": {
-            singular: "橱窗搜索引擎优化"
-          }
-        }
-      }),
-      tooltip: (0, _v1.translate)({
-        singular: "Optimize your public showcases to make them more discoverable on Google Search.",
-        dictionary: {
-          es: {
-            singular: "Optimice sus presentaciones públicas para que se puedan encontrar mejor en las búsquedas de Google."
-          },
-          "de-DE": {
-            singular: "Optimiere deine öffentlichen Präsentationen, damit sie in der Google Suche schneller gefunden werden."
-          },
-          "fr-FR": {
-            singular: "Optimisez vos présentations publiques pour améliorer leur visibilité dans les résultats de recherche Google."
-          },
-          "ja-JP": {
-            singular: "Google検索でより表示されやすくなるよう公開したショーケースを最適化。"
-          },
-          "ko-KR": {
-            singular: "공개 쇼케이스를 최적화하여 Google 검색에서 더 쉽게 찾을 수 있습니다."
-          },
-          "pt-BR": {
-            singular: "Otimize suas vitrines públicas para ficar mais fácil de achá-las na busca do Google."
-          },
-          "zh-CN": {
-            singular: "优化您的公开橱窗，让 Google 搜索更容易找到它们。"
-          }
-        }
-      }),
-      tiers: _v2.REPACKAGING_ALL_SHOWN_TIERS
-    }, {
-      text: (0, _v1.translate)({
-        singular: "Custom cards and calls-to-action in the player",
-        dictionary: {
-          es: {
-            singular: "Tarjetas personalizadas y llamadas a la acción en el reproductor"
-          },
-          "de-DE": {
-            singular: "Benutzerdefinierte Karten und Handlungsaufrufe im Player"
-          },
-          "fr-FR": {
-            singular: "Cartes personnalisées et appels à l'action dans le player"
-          },
-          "ja-JP": {
-            singular: "プレーヤーのカスタムカードとCTA機能"
-          },
-          "ko-KR": {
-            singular: "플레이어 내 커스텀 카드와 콜 투 액션"
-          },
-          "pt-BR": {
-            singular: "Cartões personalizados e chamadas para ação no player"
-          },
-          "zh-CN": {
-            singular: "播放器中的自定义卡片和行动号召"
-          }
-        }
-      }),
-      tooltip: (0, _v1.translate)({
-        singular: "Add call-to-action buttons and end cards to your videos.",
-        dictionary: {
-          es: {
-            singular: "Agregue botones de llamada a la acción y tarjetas finales a sus videos."
-          },
-          "de-DE": {
-            singular: "Fügen Sie Ihren Videos Call-to-Action-Buttons und Endkarten hinzu."
-          },
-          "fr-FR": {
-            singular: "Ajoutez des boutons d'appel à l'action et des cartes de fin à vos vidéos."
-          },
-          "ja-JP": {
-            singular: "動画にCTAボタンとエンドカードを追加。"
-          },
-          "ko-KR": {
-            singular: "동영상에 콜 투 액션 버튼과 종료 카드를 추가합니다."
-          },
-          "pt-BR": {
-            singular: "Adicione botões de CTA e cartões finais aos seus vídeos."
-          },
-          "zh-CN": {
-            singular: "在视频中添加行动号召按钮和结束卡。"
-          }
-        }
-      }),
-      tiers: _v2.REPACKAGING_PAID_PLANS
-    }, {
-      text: (0, _v1.translate)({
-        singular: "Lead capture with custom forms",
-        dictionary: {
-          es: {
-            singular: "Captación de clientes potenciales con formularios personalizados"
-          },
-          "de-DE": {
-            singular: "Erfassung mit benutzerdefinierten Formularen"
-          },
-          "fr-FR": {
-            singular: "Collecte d'opportunités commerciales grâce à des formulaires personnalisés"
-          },
-          "ja-JP": {
-            singular: "カスタムフォームを使用したリードキャプチャ"
-          },
-          "ko-KR": {
-            singular: "커스텀 양식을 통한 리드 수집"
-          },
-          "pt-BR": {
-            singular: "Captura de leads com formulários customizados"
-          },
-          "zh-CN": {
-            singular: "使用自定义表单捕获潜在客户"
-          }
-        }
-      }),
-      tooltip: (0, _v1.translate)({
-        singular: "Add custom form fields to your video or showcase to collect viewer information.",
-        dictionary: {
-          es: {
-            singular: "Agregue campos de formulario personalizados a su video o presentación para recopilar la información de los espectadores."
-          },
-          "de-DE": {
-            singular: "Fügen Sie Ihrem Video oder Ihrer Präsentation benutzerdefinierte Formularfelder hinzu, um Informationen über Zuschauende zu sammeln."
-          },
-          "fr-FR": {
-            singular: "Ajoutez des champs de formulaire personnalisés à vos vidéos et présentations pour recueillir des informations sur les spectateurs."
-          },
-          "ja-JP": {
-            singular: "動画またはショーケースにカスタムフォーム欄を追加して、視聴者情報を収集します。"
-          },
-          "ko-KR": {
-            singular: "동영상 또는 쇼케이스에 커스텀 양식 필드를 추가하여 뷰어 정보를 수집하세요."
-          },
-          "pt-BR": {
-            singular: "Adicione campos de formulário personalizados ao seu vídeo ou vitrine para coletar informações dos espectadores."
-          },
-          "zh-CN": {
-            singular: "在您的视频或展示中添加自定义表单字段以收集观众信息。"
-          }
-        }
-      }),
-      tiers: _v2.REPACKAGING_PRO_AND_ABOVE
-    }, {
-      text: (0, _v1.translate)({
-        singular: "Marketing Integrations",
-        dictionary: {
-          es: {
-            singular: "Integraciones de marketing"
-          },
-          "de-DE": {
-            singular: "Marketing-Integrationen"
-          },
-          "fr-FR": {
-            singular: "Intégrations marketing"
-          },
-          "ja-JP": {
-            singular: "マーケティングの統合"
-          },
-          "ko-KR": {
-            singular: "마케팅 통합"
-          },
-          "pt-BR": {
-            singular: "Integrações de Marketing"
-          },
-          "zh-CN": {
-            singular: "营销集成"
-          }
-        }
-      }),
-      tooltip: (0, _v1.translate)({
-        singular: "Integrate with your preferred marketing automation platform e.g. Constant Contact, Hubspot, Mailchimp, Keap, Campaign Monitor",
-        dictionary: {
-          es: {
-            singular: "Intégrelo con su plataforma de automatización de marketing preferida, por ejemplo, Constant Contact, Hubspot, Mailchimp, Keap, Campaign Monitor"
-          },
-          "de-DE": {
-            singular: "Integrationen mit Ihren bevorzugten Marketing-Automatisierungsplattformen, z. B. Constant Contact, HubSpot, Mailchimp, Keap, Campaign Monitor"
-          },
-          "fr-FR": {
-            singular: "Bénéficiez d'une intégration avec votre plateforme d'automatisation marketing préférée (par ex., Constant Contact, Hubspot, Mailchimp, Keap ou Campaign Monitor)"
-          },
-          "ja-JP": {
-            singular: "お好きなマーケティング自動化プラットフォームとの統合が可能です。（例：Constant Contact、Hubspot、Mailchimp、Keap、Campaign Monitor）"
-          },
-          "ko-KR": {
-            singular: "자주 쓰는 마케팅 자동화 플랫폼과 통합합니다(예: Constant Contact, Hubspot, Mailchimp, Keap, Campaign Monitor)."
-          },
-          "pt-BR": {
-            singular: "Faça a integração com a plataforma de automação de marketing de sua preferência, como Constant Contact, HubSpot, Mailchimp, Keap, Campaign Monitor"
-          },
-          "zh-CN": {
-            singular: "与您首选的营销自动化平台集成，例如 Constant Contact、Hubspot、Mailchimp、Keap、Campaign Monitor"
-          }
-        }
-      }),
-      tiers: {
-        free: !1,
-        creator: !1,
-        professional: "Constant Contact, Hubspot, Mailchimp, Keap, Campaign Monitor",
-        studio: "Constant Contact, Hubspot, Mailchimp, Keap, Campaign Monitor",
-        production: "Constant Contact, Hubspot, Mailchimp, Keap, Campaign Monitor",
-        enterprise: "Marketo"
-      }
-    }],
-    _v13 = [{
-      text: (0, _v1.translate)({
         singular: "Self-serve knowledge base",
         dictionary: {
           es: {
@@ -5571,7 +4934,7 @@
         enterprise: !0
       }
     }],
-    _v14 = [{
+    _v13 = [{
       text: (0, _v1.translate)({
         singular: "Account Manager",
         dictionary: {
@@ -5752,7 +5115,7 @@
         enterprise: !0
       }
     }];
-  _v0.s(["AI_FEATURES", 0, _v7, "ANALYTICS_FEATURES", 0, _v11, "COLLABORATION_FEATURES", 0, _v9, "EDITING_FEATURES", 0, _v6, "ENTERPRISE_FEATURES", 0, _v14, "MARKETING_FEATURES", 0, _v12, "REVIEWS_FEATURES", 0, _v10, "SUPPORT_FEATURES", 0, _v13, "WEBINARS_FEATURES", 0, _v8, "getCoreFeatures", 0, (_v0, _v1 = !1) => [{
+  _v0.s(["AI_FEATURES", 0, _v7, "ANALYTICS_FEATURES", 0, _v11, "COLLABORATION_FEATURES", 0, _v9, "EDITING_FEATURES", 0, _v6, "ENTERPRISE_FEATURES", 0, _v13, "REVIEWS_FEATURES", 0, _v10, "SUPPORT_FEATURES", 0, _v12, "WEBINARS_FEATURES", 0, _v8, "getCoreFeatures", 0, (_v0, _v1 = !1) => [{
     text: (0, _v1.translate)({
       singular: "Seats",
       dictionary: {
@@ -5808,6 +5171,7 @@
     tiers: {
       free: `${_v0?.free?.teamSeats || 1}`,
       creator: `${_v0?.creator?.teamSeats || 1}`,
+      core: `${_v0?.core?.teamSeats || 1}`,
       professional: `${_v0?.professional?.teamSeats || 10}`,
       studio: `${_v0?.studio?.teamSeats || 10}`,
       production: `${_v0?.production?.teamSeats || 20}`,
@@ -5894,6 +5258,7 @@
     tiers: {
       free: !1,
       creator: !1,
+      core: !1,
       professional: !1,
       studio: "3",
       production: "10",
@@ -5980,6 +5345,7 @@
     tiers: {
       free: !1,
       creator: !1,
+      core: !1,
       professional: (0, _v1.translate)({
         singular: "Up to {AMOUNT}",
         replacements: {
@@ -6172,6 +5538,7 @@
     tiers: {
       free: _v3(_v0?.free, "1GB"),
       creator: _v3(_v0?.creator, "50GB"),
+      core: _v3(_v0?.core, "300GB"),
       professional: _v3(_v0?.professional, "7TB"),
       studio: _v3(_v0?.studio, "10TB"),
       production: _v3(_v0?.production, "25TB"),
@@ -6258,6 +5625,7 @@
     tiers: {
       free: _v4(_v0?.free, "1GB"),
       creator: _v4(_v0?.creator, "7TB"),
+      core: _v4(_v0?.core, "7TB"),
       professional: _v4(_v0?.professional, "7TB"),
       studio: _v4(_v0?.studio, "10TB"),
       production: _v4(_v0?.production, "25TB"),
@@ -6369,6 +5737,32 @@
         }
       }),
       creator: (0, _v1.translate)({
+        singular: "Unlimited",
+        dictionary: {
+          es: {
+            singular: "Ilimitado"
+          },
+          "de-DE": {
+            singular: "Unbegrenzt"
+          },
+          "fr-FR": {
+            singular: "Illimité"
+          },
+          "ja-JP": {
+            singular: "無制限"
+          },
+          "ko-KR": {
+            singular: "무제한"
+          },
+          "pt-BR": {
+            singular: "Ilimitado"
+          },
+          "zh-CN": {
+            singular: "无限"
+          }
+        }
+      }),
+      core: (0, _v1.translate)({
         singular: "Unlimited",
         dictionary: {
           es: {
@@ -6555,6 +5949,7 @@
     tiers: {
       free: !1,
       creator: !1,
+      core: !1,
       professional: (0, _v1.translate)({
         singular: "Unlimited",
         dictionary: {
@@ -6716,6 +6111,7 @@
     tiers: {
       free: _v5(_v0?.free, "1TB"),
       creator: _v5(_v0?.creator, "1TB"),
+      core: _v5(_v0?.core, "2TB"),
       professional: _v5(_v0?.professional, "2TB"),
       studio: _v5(_v0?.studio, "36TB", "year"),
       production: _v5(_v0?.production, "120TB", "year"),
@@ -6746,7 +6142,643 @@
         }
       })
     }
-  }], "getPrivacyFeatures", 0, _v0 => [{
+  }], "getMarketingFeatures", 0, _v0 => [{
+    text: (0, _v1.translate)({
+      singular: "Native publishing across channels",
+      dictionary: {
+        es: {
+          singular: "Publicación nativa en todos los canales"
+        },
+        "de-DE": {
+          singular: "Native Veröffentlichung auf verschiedenen Kanälen"
+        },
+        "fr-FR": {
+          singular: "Publication native sur les canaux"
+        },
+        "ja-JP": {
+          singular: "チャンネル間でのネイティブ投稿"
+        },
+        "ko-KR": {
+          singular: "여러 채널에 네이티브 형식 게시"
+        },
+        "pt-BR": {
+          singular: "Publicação direta em vários canais"
+        },
+        "zh-CN": {
+          singular: "跨频道原生发布"
+        }
+      }
+    }),
+    tooltip: (0, _v1.translate)({
+      singular: "Publish natively to Facebook, YouTube, LinkedIn, Twitter, Pinterest, and Shopify.",
+      dictionary: {
+        es: {
+          singular: "Realice publicaciones nativas en Facebook, YouTube, LinkedIn, Twitter, Pinterest y Shopify."
+        },
+        "de-DE": {
+          singular: "Native Veröffentlichung auf Facebook, YouTube, LinkedIn, Twitter, Pinterest und Shopify."
+        },
+        "fr-FR": {
+          singular: "Publication native sur Facebook, YouTube, LinkedIn, Twitter, Pinterest et Shopify."
+        },
+        "ja-JP": {
+          singular: "Facebook、YouTube、LinkedIn、X（旧Twitter）、Pinterest、Shopifyにネイティブ投稿します。"
+        },
+        "ko-KR": {
+          singular: "Facebook, YouTube, LinkedIn, Twitter, Pinterest, Shopify에 네이티브 형식으로 게시합니다."
+        },
+        "pt-BR": {
+          singular: "Faça publicações diretamente no Facebook, YouTube, LinkedIn, Twitter, Pinterest e Shopify."
+        },
+        "zh-CN": {
+          singular: "原生发布到 Facebook、YouTube、LinkedIn、Twitter、Pinterest 和 Shopify。"
+        }
+      }
+    }),
+    tiers: _v2.REPACKAGING_ALL_SHOWN_TIERS
+  }, {
+    text: (0, _v1.translate)({
+      singular: "Embed videos anywhere",
+      dictionary: {
+        es: {
+          singular: "Inserción de videos en cualquier lugar"
+        },
+        "de-DE": {
+          singular: "Videos überall einbetten"
+        },
+        "fr-FR": {
+          singular: "Intégration de vidéos sur les supports de votre choix"
+        },
+        "ja-JP": {
+          singular: "どこにでも自由に動画を埋め込む"
+        },
+        "ko-KR": {
+          singular: "자유로운 동영상 임베드"
+        },
+        "pt-BR": {
+          singular: "Incorporação de vídeos em qualquer lugar"
+        },
+        "zh-CN": {
+          singular: "随处嵌入视频"
+        }
+      }
+    }),
+    tooltip: (0, _v1.translate)({
+      singular: "Post/embed your video or event on a page outside Vimeo.",
+      dictionary: {
+        es: {
+          singular: "Publique/inserte su video o evento en una página fuera de Vimeo."
+        },
+        "de-DE": {
+          singular: "Posten Sie oder betten Sie Ihr Video oder Event auf einer Website außerhalb von Vimeo ein."
+        },
+        "fr-FR": {
+          singular: "Publiez/intégrez votre vidéo ou événement sur une page externe à Vimeo."
+        },
+        "ja-JP": {
+          singular: "Vimeo以外のページに動画やイベントを投稿 / 埋め込み。"
+        },
+        "ko-KR": {
+          singular: "Vimeo 외부 페이지에 동영상 또는 이벤트를 게시/임베드합니다."
+        },
+        "pt-BR": {
+          singular: "Publique/incorpore seus vídeos ou eventos em uma página fora do Vimeo."
+        },
+        "zh-CN": {
+          singular: "在 Vimeo 以外的页面发布/嵌入您的视频或活动。"
+        }
+      }
+    }),
+    tiers: _v2.REPACKAGING_ALL_SHOWN_TIERS
+  }, {
+    text: (0, _v1.translate)({
+      singular: "Video showcases",
+      dictionary: {
+        es: {
+          singular: "Presentaciones en video"
+        },
+        "de-DE": {
+          singular: "Video-Präsentationen"
+        },
+        "fr-FR": {
+          singular: "Présentations vidéo"
+        },
+        "ja-JP": {
+          singular: "動画ショーケース"
+        },
+        "ko-KR": {
+          singular: "동영상 쇼케이스"
+        },
+        "pt-BR": {
+          singular: "Vitrines de vídeo"
+        },
+        "zh-CN": {
+          singular: "视频展示"
+        }
+      }
+    }),
+    tooltip: (0, _v1.translate)({
+      singular: "Organize, present and share videos in a professional gallery. On Standard and above, customize with your own branding.",
+      dictionary: {
+        es: {
+          singular: "Organice, presente y comparta videos en una galería profesional. Con Standard y planes superiores, personalícelo con su propia marca."
+        },
+        "de-DE": {
+          singular: "Organisieren, präsentieren und teilen Sie Videos in einer professionellen Galerie. Ab Standard und höher können Sie mit Ihrem eigenen Branding anpassen."
+        },
+        "fr-FR": {
+          singular: "Organisez, présentez et partagez des vidéos dans une galerie professionnelle. Les versions Standard et supérieures proposent des options de personnalisation avec votre propre image de marque."
+        },
+        "ja-JP": {
+          singular: "プロフェッショナルなギャラリーで動画を整理し、公開し、共有しましょう。Standard以上では、独自のブランドでカスタマイズできます。"
+        },
+        "ko-KR": {
+          singular: "전문적인 갤러리에서 동영상을 정리하고, 선보이고, 공유하세요. Standard 요금제 이상부터 자체 브랜딩으로 커스텀할 수 있습니다."
+        },
+        "pt-BR": {
+          singular: "Organize, apresente e compartilhe vídeos em uma galeria profissional. Nos planos Standard e superiores, personalize com sua própria marca."
+        },
+        "zh-CN": {
+          singular: "在专业图库中组织、展示和共享视频。在标准版及更高版本中，您可以自定义品牌元素。"
+        }
+      }
+    }),
+    tiers: {
+      free: (0, _v1.translate)({
+        singular: "Create {AMOUNT} showcases",
+        replacements: {
+          AMOUNT: 5
+        },
+        dictionary: {
+          es: {
+            singular: "Crear {AMOUNT} presentaciones"
+          },
+          "de-DE": {
+            singular: "{AMOUNT} Präsentationen erstellen"
+          },
+          "fr-FR": {
+            singular: "Créer {AMOUNT}  des présentations"
+          },
+          "ja-JP": {
+            singular: "ショーケースを{AMOUNT}つ作成する"
+          },
+          "ko-KR": {
+            singular: "쇼케이스 {AMOUNT}개 만들기"
+          },
+          "pt-BR": {
+            singular: "Criar {AMOUNT} vitrines"
+          },
+          "zh-CN": {
+            singular: "创建 {AMOUNT} 个橱窗"
+          }
+        }
+      }),
+      creator: !0,
+      professional: !0,
+      studio: !0,
+      production: !0,
+      enterprise: !0
+    }
+  }, {
+    text: (0, _v1.translate)({
+      singular: "Embed videos as GIFs in email",
+      dictionary: {
+        es: {
+          singular: "Insertar videos como GIF en correos electrónicos"
+        },
+        "de-DE": {
+          singular: "Videos als GIFs in E-Mail einbetten"
+        },
+        "fr-FR": {
+          singular: "Intégrer des vidéos sous forme de GIF dans les e-mails"
+        },
+        "ja-JP": {
+          singular: "動画をGIFとしてメールに埋め込む"
+        },
+        "ko-KR": {
+          singular: "이메일에 동영상 GIF 임베드"
+        },
+        "pt-BR": {
+          singular: "Incorporar vídeos como GIFs em e-mails"
+        },
+        "zh-CN": {
+          singular: "将视频作为 GIF 嵌入到电子邮件中"
+        }
+      }
+    }),
+    tooltip: (0, _v1.translate)({
+      singular: "Create GIFs from your favorite videos and easily embed within your emails.",
+      dictionary: {
+        es: {
+          singular: "Cree GIF de sus videos favoritos e insértelos fácilmente en sus correos electrónicos."
+        },
+        "de-DE": {
+          singular: "Erstellen Sie aus Ihren Lieblingsvideos GIFs, die Sie anschließend ganz einfach in Ihre E-Mails einbetten können."
+        },
+        "fr-FR": {
+          singular: "Créez des GIF à partir de vos vidéos préférées et intégrez-les facilement à vos e-mails."
+        },
+        "ja-JP": {
+          singular: "お好きな動画からGIFを作成して、簡単にEメールに埋め込むことができます。"
+        },
+        "ko-KR": {
+          singular: "좋아하는 동영상으로 GIF를 만들고 이메일에 쉽게 임베드할 수 있습니다."
+        },
+        "pt-BR": {
+          singular: "Crie GIFs dos seus vídeos favoritos e incorpore-os facilmente aos seus e-mails."
+        },
+        "zh-CN": {
+          singular: "使用您喜爱的视频创建 GIF，并轻松嵌入到您的电子邮件中。"
+        }
+      }
+    }),
+    tiers: _v2.REPACKAGING_ALL_SHOWN_TIERS
+  }, {
+    text: (0, _v1.translate)({
+      singular: "Custom video link",
+      dictionary: {
+        es: {
+          singular: "Enlaces a videos personalizados"
+        },
+        "de-DE": {
+          singular: "Benutzerdefinierter Video-Link"
+        },
+        "fr-FR": {
+          singular: "Liens vidéo personnalisés"
+        },
+        "ja-JP": {
+          singular: "カスタム動画リンク"
+        },
+        "ko-KR": {
+          singular: "동영상 커스텀 링크"
+        },
+        "pt-BR": {
+          singular: "Customização de link de vídeo"
+        },
+        "zh-CN": {
+          singular: "自定义视频链接"
+        }
+      }
+    }),
+    tooltip: (0, _v1.translate)({
+      singular: "Create your own custom URL for any of your videos.",
+      dictionary: {
+        es: {
+          singular: "Cree su propia URL personalizada para cualquiera de sus videos."
+        },
+        "de-DE": {
+          singular: "Erstellen Sie für alle Ihre Videos eine eigene, benutzerdefinierte URL."
+        },
+        "fr-FR": {
+          singular: "Créez votre propre URL personnalisée pour vos vidéos."
+        },
+        "ja-JP": {
+          singular: "動画用に独自のカスタムURLを作成。"
+        },
+        "ko-KR": {
+          singular: "동영상의 커스텀 URL을 생성합니다."
+        },
+        "pt-BR": {
+          singular: "Crie URLs customizados para todos os seus vídeos."
+        },
+        "zh-CN": {
+          singular: "为您的任何视频创建自己的自定义 URL。"
+        }
+      }
+    }),
+    tiers: _v2.REPACKAGING_PAID_PLANS
+  }, {
+    text: (0, _v1.translate)({
+      singular: "Sell videos as a subscription service",
+      dictionary: {
+        es: {
+          singular: "Venta de videos como un servicio de suscripción"
+        },
+        "de-DE": {
+          singular: "Videos als Abo-Dienst verkaufen"
+        },
+        "fr-FR": {
+          singular: "Vente de vidéos en tant que service d'abonnement"
+        },
+        "ja-JP": {
+          singular: "サブスクリプションサービスとして動画を販売"
+        },
+        "ko-KR": {
+          singular: "구독 서비스로 동영상 판매"
+        },
+        "pt-BR": {
+          singular: "Venda vídeos como serviço de assinatura"
+        },
+        "zh-CN": {
+          singular: "作为订阅服务的形式销售视频"
+        }
+      }
+    }),
+    tooltip: (0, _v1.translate)({
+      singular: "Use Vimeo OTT to earn money from your on-demand and live videos.",
+      dictionary: {
+        es: {
+          singular: "Use Vimeo OTT para ganar dinero con sus videos On Demand y en vivo."
+        },
+        "de-DE": {
+          singular: "Nutzen Sie Vimeo OTT, um mit Ihren On-Demand- und Live-Videos Geld zu verdienen."
+        },
+        "fr-FR": {
+          singular: "Choisissez Vimeo OTT pour gagner de l'argent avec vos vidéos à la demande et en direct."
+        },
+        "ja-JP": {
+          singular: "Vimeo OTTを使用して、オンデマンドとライブ動画から収益を上げましょう。"
+        },
+        "ko-KR": {
+          singular: "Vimeo OTT를 사용하여 온디맨드･라이브 동영상으로 수익을 창출하세요."
+        },
+        "pt-BR": {
+          singular: "Use o Vimeo OTT para ganhar dinheiro com seus vídeos On Demand e ao vivo."
+        },
+        "zh-CN": {
+          singular: "使用 Vimeo OTT 将您的点播和直播视频变现。"
+        }
+      }
+    }),
+    tiers: _v2.REPACKAGING_ALL_SHOWN_TIERS
+  }, {
+    text: (0, _v1.translate)({
+      singular: "Video SEO",
+      dictionary: {
+        es: {
+          singular: "SEO de videos"
+        },
+        "de-DE": {
+          singular: "Video-SEO"
+        },
+        "fr-FR": {
+          singular: "Référencement des vidéos"
+        },
+        "ja-JP": {
+          singular: "動画SEO"
+        },
+        "ko-KR": {
+          singular: "동영상 SEO"
+        },
+        "pt-BR": {
+          singular: "SEO de vídeo"
+        },
+        "zh-CN": {
+          singular: "视频 SEO"
+        }
+      }
+    }),
+    tooltip: (0, _v1.translate)({
+      singular: "Optimize your public videos to make them more discoverable on Google Search.",
+      dictionary: {
+        es: {
+          singular: "Optimice sus videos públicos para que se puedan encontrar mejor en las búsquedas de Google."
+        },
+        "de-DE": {
+          singular: "Optimiere deine öffentlichen Videos, damit sie in der Google Suche schneller gefunden werden."
+        },
+        "fr-FR": {
+          singular: "Optimisez vos vidéos publiques pour améliorer leur visibilité dans les résultats de recherche Google."
+        },
+        "ja-JP": {
+          singular: "Google 検索でより表示されやすくなるよう公開した動画を最適化します。"
+        },
+        "ko-KR": {
+          singular: "공개 동영상을 최적화하여 Google 검색에서 더 쉽게 검색되게 할 수 있습니다."
+        },
+        "pt-BR": {
+          singular: "Otimize seus vídeos públicos para ficar mais fácil encontrá-los em buscas no Google."
+        },
+        "zh-CN": {
+          singular: "优化您的公开视频，让 Google 搜索更容易找到它们。"
+        }
+      }
+    }),
+    tiers: _v2.REPACKAGING_ALL_SHOWN_TIERS
+  }, {
+    text: (0, _v1.translate)({
+      singular: "Showcase SEO",
+      dictionary: {
+        es: {
+          singular: "SEO de presentación"
+        },
+        "de-DE": {
+          singular: "SEO für Präsentationen"
+        },
+        "fr-FR": {
+          singular: "Optimisation pour les moteurs de recherche des présentations"
+        },
+        "ja-JP": {
+          singular: "ショーケースSEO"
+        },
+        "ko-KR": {
+          singular: "쇼케이스 SEO"
+        },
+        "pt-BR": {
+          singular: "SEO da Vitrine"
+        },
+        "zh-CN": {
+          singular: "橱窗搜索引擎优化"
+        }
+      }
+    }),
+    tooltip: (0, _v1.translate)({
+      singular: "Optimize your public showcases to make them more discoverable on Google Search.",
+      dictionary: {
+        es: {
+          singular: "Optimice sus presentaciones públicas para que se puedan encontrar mejor en las búsquedas de Google."
+        },
+        "de-DE": {
+          singular: "Optimiere deine öffentlichen Präsentationen, damit sie in der Google Suche schneller gefunden werden."
+        },
+        "fr-FR": {
+          singular: "Optimisez vos présentations publiques pour améliorer leur visibilité dans les résultats de recherche Google."
+        },
+        "ja-JP": {
+          singular: "Google検索でより表示されやすくなるよう公開したショーケースを最適化。"
+        },
+        "ko-KR": {
+          singular: "공개 쇼케이스를 최적화하여 Google 검색에서 더 쉽게 찾을 수 있습니다."
+        },
+        "pt-BR": {
+          singular: "Otimize suas vitrines públicas para ficar mais fácil de achá-las na busca do Google."
+        },
+        "zh-CN": {
+          singular: "优化您的公开橱窗，让 Google 搜索更容易找到它们。"
+        }
+      }
+    }),
+    tiers: _v2.REPACKAGING_ALL_SHOWN_TIERS
+  }, {
+    text: (0, _v1.translate)({
+      singular: "Custom cards and calls-to-action in the player",
+      dictionary: {
+        es: {
+          singular: "Tarjetas personalizadas y llamadas a la acción en el reproductor"
+        },
+        "de-DE": {
+          singular: "Benutzerdefinierte Karten und Handlungsaufrufe im Player"
+        },
+        "fr-FR": {
+          singular: "Cartes personnalisées et appels à l'action dans le player"
+        },
+        "ja-JP": {
+          singular: "プレーヤーのカスタムカードとCTA機能"
+        },
+        "ko-KR": {
+          singular: "플레이어 내 커스텀 카드와 콜 투 액션"
+        },
+        "pt-BR": {
+          singular: "Cartões personalizados e chamadas para ação no player"
+        },
+        "zh-CN": {
+          singular: "播放器中的自定义卡片和行动号召"
+        }
+      }
+    }),
+    tooltip: (0, _v1.translate)({
+      singular: "Add call-to-action buttons and end cards to your videos.",
+      dictionary: {
+        es: {
+          singular: "Agregue botones de llamada a la acción y tarjetas finales a sus videos."
+        },
+        "de-DE": {
+          singular: "Fügen Sie Ihren Videos Call-to-Action-Buttons und Endkarten hinzu."
+        },
+        "fr-FR": {
+          singular: "Ajoutez des boutons d'appel à l'action et des cartes de fin à vos vidéos."
+        },
+        "ja-JP": {
+          singular: "動画にCTAボタンとエンドカードを追加。"
+        },
+        "ko-KR": {
+          singular: "동영상에 콜 투 액션 버튼과 종료 카드를 추가합니다."
+        },
+        "pt-BR": {
+          singular: "Adicione botões de CTA e cartões finais aos seus vídeos."
+        },
+        "zh-CN": {
+          singular: "在视频中添加行动号召按钮和结束卡。"
+        }
+      }
+    }),
+    tiers: _v0 ? _v2.REPACKAGING_CORE_AND_ABOVE : _v2.REPACKAGING_PAID_PLANS
+  }, {
+    text: (0, _v1.translate)({
+      singular: "Lead capture with custom forms",
+      dictionary: {
+        es: {
+          singular: "Captación de clientes potenciales con formularios personalizados"
+        },
+        "de-DE": {
+          singular: "Erfassung mit benutzerdefinierten Formularen"
+        },
+        "fr-FR": {
+          singular: "Collecte d'opportunités commerciales grâce à des formulaires personnalisés"
+        },
+        "ja-JP": {
+          singular: "カスタムフォームを使用したリードキャプチャ"
+        },
+        "ko-KR": {
+          singular: "커스텀 양식을 통한 리드 수집"
+        },
+        "pt-BR": {
+          singular: "Captura de leads com formulários customizados"
+        },
+        "zh-CN": {
+          singular: "使用自定义表单捕获潜在客户"
+        }
+      }
+    }),
+    tooltip: (0, _v1.translate)({
+      singular: "Add custom form fields to your video or showcase to collect viewer information.",
+      dictionary: {
+        es: {
+          singular: "Agregue campos de formulario personalizados a su video o presentación para recopilar la información de los espectadores."
+        },
+        "de-DE": {
+          singular: "Fügen Sie Ihrem Video oder Ihrer Präsentation benutzerdefinierte Formularfelder hinzu, um Informationen über Zuschauende zu sammeln."
+        },
+        "fr-FR": {
+          singular: "Ajoutez des champs de formulaire personnalisés à vos vidéos et présentations pour recueillir des informations sur les spectateurs."
+        },
+        "ja-JP": {
+          singular: "動画またはショーケースにカスタムフォーム欄を追加して、視聴者情報を収集します。"
+        },
+        "ko-KR": {
+          singular: "동영상 또는 쇼케이스에 커스텀 양식 필드를 추가하여 뷰어 정보를 수집하세요."
+        },
+        "pt-BR": {
+          singular: "Adicione campos de formulário personalizados ao seu vídeo ou vitrine para coletar informações dos espectadores."
+        },
+        "zh-CN": {
+          singular: "在您的视频或展示中添加自定义表单字段以收集观众信息。"
+        }
+      }
+    }),
+    tiers: _v2.REPACKAGING_PRO_AND_ABOVE
+  }, {
+    text: (0, _v1.translate)({
+      singular: "Marketing Integrations",
+      dictionary: {
+        es: {
+          singular: "Integraciones de marketing"
+        },
+        "de-DE": {
+          singular: "Marketing-Integrationen"
+        },
+        "fr-FR": {
+          singular: "Intégrations marketing"
+        },
+        "ja-JP": {
+          singular: "マーケティングの統合"
+        },
+        "ko-KR": {
+          singular: "마케팅 통합"
+        },
+        "pt-BR": {
+          singular: "Integrações de Marketing"
+        },
+        "zh-CN": {
+          singular: "营销集成"
+        }
+      }
+    }),
+    tooltip: (0, _v1.translate)({
+      singular: "Integrate with your preferred marketing automation platform e.g. Constant Contact, Hubspot, Mailchimp, Keap, Campaign Monitor",
+      dictionary: {
+        es: {
+          singular: "Intégrelo con su plataforma de automatización de marketing preferida, por ejemplo, Constant Contact, Hubspot, Mailchimp, Keap, Campaign Monitor"
+        },
+        "de-DE": {
+          singular: "Integrationen mit Ihren bevorzugten Marketing-Automatisierungsplattformen, z. B. Constant Contact, HubSpot, Mailchimp, Keap, Campaign Monitor"
+        },
+        "fr-FR": {
+          singular: "Bénéficiez d'une intégration avec votre plateforme d'automatisation marketing préférée (par ex., Constant Contact, Hubspot, Mailchimp, Keap ou Campaign Monitor)"
+        },
+        "ja-JP": {
+          singular: "お好きなマーケティング自動化プラットフォームとの統合が可能です。（例：Constant Contact、Hubspot、Mailchimp、Keap、Campaign Monitor）"
+        },
+        "ko-KR": {
+          singular: "자주 쓰는 마케팅 자동화 플랫폼과 통합합니다(예: Constant Contact, Hubspot, Mailchimp, Keap, Campaign Monitor)."
+        },
+        "pt-BR": {
+          singular: "Faça a integração com a plataforma de automação de marketing de sua preferência, como Constant Contact, HubSpot, Mailchimp, Keap, Campaign Monitor"
+        },
+        "zh-CN": {
+          singular: "与您首选的营销自动化平台集成，例如 Constant Contact、Hubspot、Mailchimp、Keap、Campaign Monitor"
+        }
+      }
+    }),
+    tiers: {
+      free: !1,
+      creator: !1,
+      professional: "Constant Contact, Hubspot, Mailchimp, Keap, Campaign Monitor",
+      studio: "Constant Contact, Hubspot, Mailchimp, Keap, Campaign Monitor",
+      production: "Constant Contact, Hubspot, Mailchimp, Keap, Campaign Monitor",
+      enterprise: "Marketo"
+    }
+  }], "getPrivacyFeatures", 0, (_v0, _v1) => [{
     text: (0, _v1.translate)({
       singular: "Two-Factor Authentication (2FA)",
       dictionary: {
@@ -6907,7 +6939,7 @@
         }
       }
     }),
-    tiers: _v0 ? _v2.REPACKAGING_PRO_AND_ABOVE : _v2.REPACKAGING_PAID_PLANS
+    tiers: _v0 || _v1 ? _v2.REPACKAGING_CORE_AND_ABOVE : _v2.REPACKAGING_PAID_PLANS
   }, {
     text: (0, _v1.translate)({
       singular: "Embed domain level privacy",
@@ -6961,7 +6993,7 @@
         }
       }
     }),
-    tiers: _v0 ? _v2.REPACKAGING_PRO_AND_ABOVE : _v2.REPACKAGING_PAID_PLANS
+    tiers: _v0 || _v1 ? _v2.REPACKAGING_CORE_AND_ABOVE : _v2.REPACKAGING_PAID_PLANS
   }, {
     text: (0, _v1.translate)({
       singular: "Restrict video access",
@@ -8525,7 +8557,10 @@
       production: !1,
       enterprise: !0
     }
-  }], "isCreatorV2", 0, _v0 => {
+  }], "isCreatorJuly2026", 0, _v0 => {
+    let _v1 = _v0?.find(_v0 => "creator" === _v0.tier);
+    return !!_v1 && (_v2.CREATOR_JULY_2026_SKUS.includes(_v1.id.monthly ?? "") || _v2.CREATOR_JULY_2026_SKUS.includes(_v1.id.annual ?? ""));
+  }, "isCreatorV2", 0, _v0 => {
     let _v1 = _v0?.find(_v0 => "creator" === _v0.tier);
     return !!_v1 && (_v2.CREATOR_V2_SKUS.includes(_v1.id.monthly ?? "") || _v2.CREATOR_V2_SKUS.includes(_v1.id.annual ?? ""));
   }]);

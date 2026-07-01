@@ -6208,7 +6208,7 @@
             singular: "Historial de versiones"
           },
           "de-DE": {
-            singular: "Versionshistorie"
+            singular: "Versionsverlauf"
           },
           "fr-FR": {
             singular: "Historique des versions"
@@ -8800,7 +8800,7 @@
                   singular: "Historial de versiones"
                 },
                 "de-DE": {
-                  singular: "Versionshistorie"
+                  singular: "Versionsverlauf"
                 },
                 "fr-FR": {
                   singular: "Historique des versions"
@@ -22011,12 +22011,17 @@
           let _v12 = _v3?.uploadDate,
             _v13 = _v3?.user?.name;
           if (_v12 && _v13) {
-            let _v0 = navigator?.language || "en-US",
-              _v1 = new Intl.DateTimeFormat(_v0, _v664).format(new Date(_v12));
+            let _v0 = (() => {
+              try {
+                return new Intl.DateTimeFormat(navigator?.language || "en-US", _v664);
+              } catch {
+                return new Intl.DateTimeFormat("en-US", _v664);
+              }
+            })().format(new Date(_v12));
             _v6 = (0, _v124.translate)({
               singular: "{DATE} by {AUTHOR}",
               replacements: {
-                DATE: _v1,
+                DATE: _v0,
                 AUTHOR: _v13
               },
               dictionary: {

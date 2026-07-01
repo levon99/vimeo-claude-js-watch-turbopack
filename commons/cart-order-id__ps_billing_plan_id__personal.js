@@ -2584,7 +2584,10 @@
         dispatch: _v15
       } = _v54(),
       [_v16, _v17] = (0, _v33.usePatchMePreferences)(),
-      _v18 = (0, _v12.useRef)(!1);
+      {
+        trackUserConverted: _v18
+      } = (0, _v44.useCheckoutTracking)(),
+      _v19 = (0, _v12.useRef)(!1);
     (0, _v12.useEffect)(() => {
       _v14.called && _v14.data && _v16({
         select: [],
@@ -2593,7 +2596,7 @@
         }
       });
     }, [_v14, _v9, _v16]), (0, _v12.useEffect)(() => {
-      if (!_v18.current && _v14.called && _v14.data && _v17.called && _v17.data && !_v17.loading && _v7) if (_v18.current = !0, _v3(null), _v4 && _v5(void 0), "renew" === _v6) window.location.href = "/manage/team/billing?rns=1";else if (_v13) window.opener ? window.location.href = `/store/ondemand/popup/${_v11}?ssl=1&player=1` : parent.location.reload();else {
+      if (!_v19.current && _v14.called && _v14.data && _v17.called && _v17.data && !_v17.loading && _v7) if (_v19.current = !0, _v3(null), _v4 && _v5(void 0), "renew" === _v6) window.location.href = "/manage/team/billing?rns=1";else if (_v13) window.opener ? window.location.href = `/store/ondemand/popup/${_v11}?ssl=1&player=1` : parent.location.reload();else {
         let _v0 = _v2 ? `&${_v2.toString()}` : "",
           _v1 = _v14.data.orderId,
           _v2 = _v7.isCreatorProduct ? (0, _v71.getPlanType)(_v10) : _v8 ? "monthly" : "annual",
@@ -2619,7 +2622,17 @@
         }
         if (_v7.isCreatorProduct) window.location.href = _v12 || "/home";else {
           let _v0 = _v46.postCheckoutUrl.read();
-          _v0 ? (_v46.postCheckoutUrl.clear(), window.location.href = _v0) : window.location.href = _v3;
+          if (_v0) {
+            _v46.postCheckoutUrl.clear();
+            let _v0 = _v0.split(/[?#]/)[0].startsWith("/onboarding");
+            "purchase" !== _v6 || _v0 || _v18({
+              tier: String(_v7.tier),
+              periodicity: _v2,
+              isFreeTrial: _v14.data.isTrial
+            }), setTimeout(() => {
+              window.location.href = _v0;
+            }, 0);
+          } else window.location.href = _v3;
         }
       }
     }, [_v14, _v17, _v3, _v7, _v0, _v15, _v4, _v5, _v6, _v10, _v8]);

@@ -4493,7 +4493,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "58265b63a8505147bede9df3d762fb8d8bb3755d",
+      release: "477a8a4582f72711895ed234c92ac4dca83d5145",
       ..._v0
     };
     !function (_v0) {
@@ -4619,6 +4619,11 @@ Error:`, _v0);
         let _v0 = _v7.stacktrace?.frames ?? [];
         if (_v0.length > 0 && _v0.every(_v0 => (_v0.filename ?? _v0.abs_path ?? "").includes("@sentry"))) return null;
       }
+      let _v8 = _v0.exception?.values?.[0];
+      if (_v8?.type === "UnhandledRejection" && /Object Not Found Matching Id:\d+, MethodName:\w+, ParamCount:\d+/.test(_v8.value ?? "") && !(_v8.stacktrace?.frames ?? []).some(_v0 => {
+        let _v1 = _v0.filename ?? _v0.abs_path ?? "";
+        return _v1.includes("_next/static") && !1 !== _v0.in_app || _v1.includes("app:///p/") || _v1.includes("/telecine") || _v1.includes("/media-sorcerer");
+      })) return null;
       if (_v0.exception?.values?.[0]?.type === "UnhandledRejection" && void 0 === _v1.originalException) try {
         let _v0 = document.querySelector("[data-ready]"),
           _v1 = null,
