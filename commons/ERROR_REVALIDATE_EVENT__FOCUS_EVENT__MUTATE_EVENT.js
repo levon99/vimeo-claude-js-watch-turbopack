@@ -281,49 +281,5 @@
     }, []), (0, _v1.createElement)(_v41.Provider, _v9(_v0, {
       value: _v5
     }));
-  }, "i", 0, _v14, "m", 0, _v9, "n", 0, _v34, "o", 0, _v33, "r", 0, _v22, "s", 0, _v31, "t", 0, _v0 => _v14 && typeof window.requestAnimationFrame != _v13 ? window.requestAnimationFrame(_v0) : setTimeout(_v0, 1), "u", 0, _v24, "z", 0, _v17], 0), _v0.i(0);
-  let _v42 = "$inf$";
-  _v0.s(["INFINITE_PREFIX", 0, _v42], 0);
-  let _v43 = _v14 && window.__SWR_DEVTOOLS_USE__,
-    _v44 = _v43 ? window.__SWR_DEVTOOLS_USE__ : [],
-    _v45 = _v0 => _v8(_v0[1]) ? [_v0[0], _v0[1], _v0[2] || {}] : [_v0[0], null, (null === _v0[1] ? _v0[2] : _v0[1]) || {}],
-    _v46 = () => {
-      let _v0 = (0, _v1.useContext)(_v41);
-      return (0, _v1.useMemo)(() => _v9(_v39, _v0), [_v0]);
-    },
-    _v47 = _v44.concat(_v0 => (_v0, _v1, _v2) => {
-      let _v3 = _v1 && ((..._v0) => {
-        let [_v1] = _v31(_v0),
-          [,,, _v2] = _v3.get(_v37);
-        if (_v1.startsWith(_v42)) return _v1(..._v0);
-        let _v3 = _v2[_v1];
-        return _v7(_v3) ? _v1(..._v0) : (delete _v2[_v1], _v3);
-      });
-      return _v0(_v0, _v3, _v2);
-    });
-  _v43 && (window.__SWR_DEVTOOLS_REACT__ = _v1.default), _v0.s(["subscribeCallback", 0, (_v0, _v1, _v2) => {
-    let _v3 = _v1[_v0] || (_v1[_v0] = []);
-    return _v3.push(_v2), () => {
-      let _v0 = _v3.indexOf(_v2);
-      _v0 >= 0 && (_v3[_v0] = _v3[_v3.length - 1], _v3.pop());
-    };
-  }, "useSWRConfig", 0, _v46, "withArgs", 0, _v0 => function (..._v0) {
-    let _v1 = _v46(),
-      [_v2, _v3, _v4] = _v45(_v0),
-      _v5 = _v40(_v1, _v4),
-      _v6 = _v0,
-      {
-        use: _v7
-      } = _v5,
-      _v8 = (_v7 || []).concat(_v47);
-    for (let _v0 = _v8.length; _v0--;) _v6 = _v8[_v0](_v6);
-    return _v6(_v2, _v3 || _v5.fetcher || null, _v5);
-  }, "withMiddleware", 0, (_v0, _v1) => (..._v0) => {
-    let [_v1, _v2, _v3] = _v45(_v0),
-      _v4 = (_v3.use || []).concat(_v1);
-    return _v0(_v1, _v2, {
-      ..._v3,
-      use: _v4
-    });
-  }], 0);
+  }, "i", 0, _v14, "m", 0, _v9, "n", 0, _v34, "o", 0, _v33, "r", 0, _v22, "s", 0, _v31, "t", 0, _v0 => _v14 && typeof window.requestAnimationFrame != _v13 ? window.requestAnimationFrame(_v0) : setTimeout(_v0, 1), "u", 0, _v24, "z", 0, _v17], 0);
 }

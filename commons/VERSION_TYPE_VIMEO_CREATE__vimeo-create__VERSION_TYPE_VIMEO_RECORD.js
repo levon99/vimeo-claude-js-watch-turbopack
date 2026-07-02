@@ -64,7 +64,7 @@
           singular: "Hier à {TIME}"
         },
         "ja-JP": {
-          singular: "昨日 {TIME}"
+          singular: "昨日 {TIME}に"
         },
         "ko-KR": {
           singular: "어제 {TIME}"

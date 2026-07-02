@@ -3773,14 +3773,13 @@
     commentTimeCode: _v19,
     pausePlayer: _v20,
     setCommentsCount: _v21,
-    accountlessCommentRedesignEnabled: _v22 = !1,
-    shouldUseGuestModal: _v23 = !1,
-    onCommentPosted: _v24
+    shouldUseGuestModal: _v22 = !1,
+    onCommentPosted: _v23
   }) => {
-    let _v25,
-      _v26 = (0, _v8.useToast)(),
-      _v27 = (0, _v133.useViewer)(),
-      _v28 = function () {
+    let _v24,
+      _v25 = (0, _v8.useToast)(),
+      _v26 = (0, _v133.useViewer)(),
+      _v27 = function () {
         let [_v0, _v1] = (0, _v3.useState)("");
         return (0, _v3.useEffect)(() => {
           let _v0 = document.querySelector('meta[name="bp-server-session-id"]');
@@ -3788,10 +3787,10 @@
         }, []), _v0;
       }(),
       {
-        videoData: _v29,
-        videoDataLoading: _v30
+        videoData: _v28,
+        videoDataLoading: _v29
       } = (0, _v170.useVideoData)(_v0, _v14, _v15),
-      [_v31, _v32] = ((_v0, _v1) => {
+      [_v30, _v31] = ((_v0, _v1) => {
         let [_v2, _v3] = (0, _v192.default)(_v1, _v0),
           [_v4, _v5] = (0, _v3.useState)(_v2);
         return [_v4, (0, _v3.useCallback)(_v0 => {
@@ -3828,59 +3827,59 @@
         type: "date",
         direction: "desc"
       }, "comments-container-sort"),
-      _v33 = {
+      _v32 = {
         status: "open",
         userType: "everyone",
         mentionAndReplies: !1,
         videoVersionUri: _v10,
         targetApiVersion: _v11
       },
-      [_v34, _v35] = (0, _v3.useState)(_v33),
-      [_v36, _v37] = (0, _v3.useState)(!1),
+      [_v33, _v34] = (0, _v3.useState)(_v32),
+      [_v35, _v36] = (0, _v3.useState)(!1),
       {
-        initialPage: _v38,
-        initialPageLoading: _v39,
-        deeplinkNoteId: _v40,
-        deeplinkDataError: _v41
-      } = _v189(_v0, _v2, _v31, _v14, _v15),
-      _v42 = (0, _v150.extractDeepLinkReplyId)(),
+        initialPage: _v37,
+        initialPageLoading: _v38,
+        deeplinkNoteId: _v39,
+        deeplinkDataError: _v40
+      } = _v189(_v0, _v2, _v30, _v14, _v15),
+      _v41 = (0, _v150.extractDeepLinkReplyId)(),
       {
-        comments: _v43,
-        commentsLoading: _v44,
-        loadMoreComments: _v45,
-        isLoadingMoreComments: _v46,
-        isCommentsDone: _v47,
-        page: _v48,
-        copyComment: _v49,
-        commentsError: _v50
-      } = (0, _v154.useGetComments)(_v0, _v2, _v31, _v34, _v14, _v15),
+        comments: _v42,
+        commentsLoading: _v43,
+        loadMoreComments: _v44,
+        isLoadingMoreComments: _v45,
+        isCommentsDone: _v46,
+        page: _v47,
+        copyComment: _v48,
+        commentsError: _v49
+      } = (0, _v154.useGetComments)(_v0, _v2, _v30, _v33, _v14, _v15),
       {
-        commentsCount: _v51,
-        changeCommentsCount: _v52
+        commentsCount: _v50,
+        changeCommentsCount: _v51
       } = (0, _v135.useGetCommentsCount)(_v0, _v2, {
         videoVersionUri: _v10,
         targetApiVersion: _v11
       }, _v14, _v15);
     (0, _v3.useEffect)(() => {
-      _v21?.(_v51, _v2);
-    }, [_v51, _v21, _v2]);
+      _v21?.(_v50, _v2);
+    }, [_v50, _v21, _v2]);
     let {
-        privacy: _v53
+        privacy: _v52
       } = (0, _v178.useVideoPrivacy)(_v0, _v14, _v15),
       {
-        guestUser: _v54,
+        guestUser: _v53,
         modalState: {
-          isActive: _v55
+          isActive: _v54
         }
       } = (0, _v3.useContext)(_v152.guestLoginModalContext),
       {
-        filteredComments: _v56,
-        matchCount: _v57
-      } = (_v25 = !!(!_v3 || _v44 || _v43 && 0 === _v43.length), (0, _v3.useMemo)(() => {
-        if (_v25) return {
-          filteredComments: _v43
+        filteredComments: _v55,
+        matchCount: _v56
+      } = (_v24 = !!(!_v3 || _v43 || _v42 && 0 === _v42.length), (0, _v3.useMemo)(() => {
+        if (_v24) return {
+          filteredComments: _v42
         };
-        let _v0 = (0, _v185.default)(_v43),
+        let _v0 = (0, _v185.default)(_v42),
           _v1 = _v3 && _v3?.toLowerCase() || "",
           _v2 = 0;
         return {
@@ -3897,8 +3896,8 @@
           }),
           matchCount: _v2
         };
-      }, [_v43, _v3, _v25])),
-      _v58 = ((_v0, _v1) => {
+      }, [_v42, _v3, _v24])),
+      _v57 = ((_v0, _v1) => {
         let {
             capabilities: _v2
           } = (0, _v56.useCapability)(["hasCommentsTrackingEnabled"]),
@@ -3925,10 +3924,10 @@
             });
           return _v1 ? _v3.filter(_v0 => _v0.isUnread) : _v3;
         }, [_v0, _v3, _v4, _v1]);
-      })(_v56, _v36),
-      _v59 = !_v2 || _v2 && _v53?.comments !== "nobody",
-      _v60 = !_v2 && _v16,
-      [_v61, _v62, _v63] = function (_v0, _v1) {
+      })(_v55, _v35),
+      _v58 = !_v2 || _v2 && _v52?.comments !== "nobody",
+      _v59 = !_v2 && _v16,
+      [_v60, _v61, _v62] = function (_v0, _v1) {
         let [_v2, _v3] = (0, _v3.useState)(_v1 || 1),
           _v4 = (0, _v3.useRef)(null);
         return [_v2, (0, _v3.useCallback)(_v0 => {
@@ -3936,30 +3935,30 @@
             _v0[0].isIntersecting && _v0 && _v3(_v0 => _v0 + 1);
           }), _v0 && _v4.current.observe(_v0));
         }, [_v0]), _v3];
-      }(!_v47 && !_v44 && !_v46 && !_v3, _v48),
-      _v64 = (0, _v3.useRef)(null),
-      [_v65, _v66] = (0, _v3.useState)(_v42 || _v40),
-      _v67 = (0, _v151.getStorageInstance)(),
+      }(!_v46 && !_v43 && !_v45 && !_v3, _v47),
+      _v63 = (0, _v3.useRef)(null),
+      [_v64, _v65] = (0, _v3.useState)(_v41 || _v39),
+      _v66 = (0, _v151.getStorageInstance)(),
       {
-        value: _v68,
-        set: _v69,
-        remove: _v70
-      } = (0, _v132.default)(_v149.STASHED_COMMENTS_KEY, null, void 0, _v67),
-      [_v71, _v72] = (0, _v3.useState)(_v18);
+        value: _v67,
+        set: _v68,
+        remove: _v69
+      } = (0, _v132.default)(_v149.STASHED_COMMENTS_KEY, null, void 0, _v66),
+      [_v70, _v71] = (0, _v3.useState)(_v18);
     (0, _v3.useEffect)(() => {
-      _v72(_v18);
+      _v71(_v18);
     }, [_v18]);
-    let _v73 = (0, _v3.useCallback)(() => {
-        _v72(_v0 => {
+    let _v72 = (0, _v3.useCallback)(() => {
+        _v71(_v0 => {
           let _v1 = !_v0;
           return _v1 && _v20 && _v20(), _v1;
         });
       }, [_v20]),
-      _v74 = (0, _v3.useCallback)(() => {
-        _v71 && _v20 && _v20?.();
-      }, [_v20, _v71]),
-      _v75 = () => {
-        _v26({
+      _v73 = (0, _v3.useCallback)(() => {
+        _v70 && _v20 && _v20?.();
+      }, [_v20, _v70]),
+      _v74 = () => {
+        _v25({
           status: "error",
           title: (0, _v44.translate)({
             singular: "Unable to delete comment",
@@ -3990,33 +3989,33 @@
         });
       };
     (0, _v3.useEffect)(() => {
-      _v48 > _v61 && _v63(_v48), _v61 > _v48 && _v45(_v61);
-    }, [_v48, _v45, _v61, _v63]), (0, _v3.useEffect)(() => {
-      let _v0 = _v64.current;
-      !_v0 || _v3 || _v47 || _v44 || _v46 || 0 !== _v0.clientHeight && _v0.scrollHeight <= _v0.clientHeight && _v61 === _v48 && _v63(_v48 + 1);
-    }, [_v48, _v44, _v58?.length, _v47, _v46, _v61, _v63, _v3]), (0, _v3.useEffect)(() => {
-      _v38 && _v38 > 0 && _v63(_v38);
-    }, [_v38, _v63]);
+      _v47 > _v60 && _v62(_v47), _v60 > _v47 && _v44(_v60);
+    }, [_v47, _v44, _v60, _v62]), (0, _v3.useEffect)(() => {
+      let _v0 = _v63.current;
+      !_v0 || _v3 || _v46 || _v43 || _v45 || 0 !== _v0.clientHeight && _v0.scrollHeight <= _v0.clientHeight && _v60 === _v47 && _v62(_v47 + 1);
+    }, [_v47, _v43, _v57?.length, _v46, _v45, _v60, _v62, _v3]), (0, _v3.useEffect)(() => {
+      _v37 && _v37 > 0 && _v62(_v37);
+    }, [_v37, _v62]);
     let {
-        setComments: _v76,
-        setActiveComment: _v77
+        setComments: _v75,
+        setActiveComment: _v76
       } = (0, _v3.useContext)(_v134.CommentsContext),
-      _v78 = (0, _v3.useCallback)((_v0, _v1) => {
-        _v1 && _v77(_v1), _v4(_v0);
-      }, [_v4, _v77]);
+      _v77 = (0, _v3.useCallback)((_v0, _v1) => {
+        _v1 && _v76(_v1), _v4(_v0);
+      }, [_v4, _v76]);
     (0, _v3.useEffect)(() => {
-      !_v2 && _v43 && _v76(_v43);
-    }, [_v43, _v2, _v76]), (0, _v3.useEffect)(() => {
-      _v8 && _v8(_v57);
-    }, [_v8, _v57]);
+      !_v2 && _v42 && _v75(_v42);
+    }, [_v42, _v2, _v75]), (0, _v3.useEffect)(() => {
+      _v8 && _v8(_v56);
+    }, [_v8, _v56]);
     let {
-        postComment: _v79,
-        postCommentLoading: _v80,
-        postCommentError: _v81
-      } = (0, _v156.usePostComments)(_v0, _v2, _v31, _v5, _v34, _v14, _v15, _v24),
+        postComment: _v78,
+        postCommentLoading: _v79,
+        postCommentError: _v80
+      } = (0, _v156.usePostComments)(_v0, _v2, _v30, _v5, _v33, _v14, _v15, _v23),
       {
-        deleteComment: _v82,
-        deleteCommentLoading: _v83
+        deleteComment: _v81,
+        deleteCommentLoading: _v82
       } = function (_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7) {
         let {
           videoData: _v8
@@ -4143,10 +4142,10 @@
             deleteCommentError: _v10
           };
         })(_v0, _v1, _v8, _v3, _v4, _v5, _v6, _v7);
-      }(_v0, _v75, _v2, _v31, _v5, _v34, _v14, _v15),
+      }(_v0, _v74, _v2, _v30, _v5, _v33, _v14, _v15),
       {
-        deleteReply: _v84,
-        deleteReplyLoading: _v85
+        deleteReply: _v83,
+        deleteReplyLoading: _v84
       } = (_v2 ? function (_v0, _v1, _v2, _v3, _v4, _v5) {
         let _v6 = (0, _v133.useViewer)(),
           _v7 = (0, _v150.getVideoIdFromClipRequestId)(_v0),
@@ -4267,18 +4266,18 @@
           deleteReplyLoading: _v11,
           deleteReplyError: _v12
         };
-      })(_v0, _v75, _v31, _v5, _v34, _v14, _v15),
+      })(_v0, _v74, _v30, _v5, _v33, _v14, _v15),
       {
-        resolveComment: _v86,
-        unresolveComment: _v87,
-        updateCommentText: _v88,
-        editCommentLoading: _v89,
-        editCommentError: _v90
-      } = (0, _v183.useEditComment)(_v0, _v2, _v31, _v5, _v34, _v14, _v15),
+        resolveComment: _v85,
+        unresolveComment: _v86,
+        updateCommentText: _v87,
+        editCommentLoading: _v88,
+        editCommentError: _v89
+      } = (0, _v183.useEditComment)(_v0, _v2, _v30, _v5, _v33, _v14, _v15),
       {
-        patchReply: _v91,
-        patchReplyLoading: _v92,
-        patchReplyError: _v93
+        patchReply: _v90,
+        patchReplyLoading: _v91,
+        patchReplyError: _v92
       } = function (_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
         let {
           videoData: _v7
@@ -4491,11 +4490,11 @@
             } : null
           };
         })(_v0, _v7, _v2, _v3, _v4, _v5, _v6);
-      }(_v0, _v2, _v31, _v5, _v34, _v14, _v15),
+      }(_v0, _v2, _v30, _v5, _v33, _v14, _v15),
       {
-        postReply: _v94,
-        postReplyLoading: _v95,
-        postReplyError: _v96
+        postReply: _v93,
+        postReplyLoading: _v94,
+        postReplyError: _v95
       } = (_v2 ? function (_v0, _v1, _v2, _v3, _v4) {
         let _v5 = (0, _v150.getVideoIdFromClipRequestId)(_v0),
           {
@@ -4731,9 +4730,9 @@
             errorCommentId: _v8
           } : null
         };
-      })(_v0, _v31, _v5, _v34, _v14, _v15),
+      })(_v0, _v30, _v5, _v33, _v14, _v15),
       {
-        addReaction: _v97
+        addReaction: _v96
       } = (_v2 ? function (_v0, _v1, _v2, _v3) {
         return {
           addReaction: async (_v0, _v1, _v2, _v3) => {}
@@ -4899,9 +4898,9 @@
             await _v18(_v0, _v1, _v2, _v3);
           }
         };
-      })(_v0, _v31, _v34, _v15),
+      })(_v0, _v30, _v33, _v15),
       {
-        removeReaction: _v98
+        removeReaction: _v97
       } = (_v2 ? function (_v0, _v1, _v2, _v3) {
         return {
           removeReaction: async (_v0, _v1, _v2, _v3) => {}
@@ -4969,33 +4968,33 @@
             }
           }
         };
-      })(_v0, _v31, _v34, _v15),
-      _v99 = (0, _v3.useCallback)(_v0 => (0, _v2.jsx)(_v136.CommentMentionModule, {
+      })(_v0, _v30, _v33, _v15),
+      _v98 = (0, _v3.useCallback)(_v0 => (0, _v2.jsx)(_v136.CommentMentionModule, {
         clipRequestId: _v0,
         ..._v0,
         analyticsProps: _v5,
         showcaseId: _v14,
         reviewId: _v15,
         textLimit: _v9.MAX_COMMENT_CHARACTERS
-      }), [_v0, _v5, _v30, _v54]),
+      }), [_v0, _v5, _v29, _v53]),
       {
-        canEdit: _v100,
-        canReactToCollabComments: _v101
+        canEdit: _v99,
+        canReactToCollabComments: _v100
       } = (0, _v193.useUserPermissions)(_v0, _v14, _v15),
-      _v102 = _v0 => {
-        _v63(1), _v35({
-          ..._v34,
+      _v101 = _v0 => {
+        _v62(1), _v34({
+          ..._v33,
           ..._v0
         });
       };
     (0, _v3.useEffect)(() => {
-      let _v0 = JSON.parse(_v68);
-      (_v27?.user || _v54) && _v0?.text && !_v30 && !_v80 && !_v95 && (_v70(), (_v0.isReply ? _v94(_v0.text, _v0.commentId) : _v79(_v0.text, _v0.timestamp)).then(() => _v52?.increaseCommentsCount()));
-    }, [_v27?.user, _v2, _v30, _v80, _v95, _v54]);
-    let [_v103, _v104] = (0, _v3.useState)(!1),
+      let _v0 = JSON.parse(_v67);
+      (_v26?.user || _v53) && _v0?.text && !_v29 && !_v79 && !_v94 && (_v69(), (_v0.isReply ? _v93(_v0.text, _v0.commentId) : _v78(_v0.text, _v0.timestamp)).then(() => _v51?.increaseCommentsCount()));
+    }, [_v26?.user, _v2, _v29, _v79, _v94, _v53]);
+    let [_v102, _v103] = (0, _v3.useState)(!1),
       {
-        saveViewerPageCommentPreference: _v105,
-        loading: _v106
+        saveViewerPageCommentPreference: _v104,
+        loading: _v105
       } = ((_v0, _v1, _v2) => {
         let [_v3, {
             loading: _v4,
@@ -5022,40 +5021,40 @@
           error: _v5
         };
       })(_v0, _v14, _v15),
-      _v107 = (0, _v3.useRef)(""),
-      _v108 = _v29 && _v29.page && !_v29.page.comments,
-      _v109 = !_v29?.metadata?.interactions?.edit?.uri && _v29?.metadata?.interactions?.canComment;
+      _v106 = (0, _v3.useRef)(""),
+      _v107 = _v28 && _v28.page && !_v28.page.comments,
+      _v108 = !_v28?.metadata?.interactions?.edit?.uri && _v28?.metadata?.interactions?.canComment;
     return (0, _v2.jsxs)(_v2.Fragment, {
       children: [(0, _v2.jsxs)(_v5.Flex, {
-        justifyContent: _v60 ? "space-between" : "flex-end",
+        justifyContent: _v59 ? "space-between" : "flex-end",
         px: {
           base: 200,
           md: 300
         },
         py: "8px",
-        children: [_v60 && (0, _v2.jsx)(_v129, {
-          showResolved: _v34?.status !== "open",
+        children: [_v59 && (0, _v2.jsx)(_v129, {
+          showResolved: _v33?.status !== "open",
           updateFilterOptions: _v0 => {
-            _v102(_v0), _v5 && (0, _v168.bpToggleShowResolvedComments)(!_v0.status, _v1, _v53?.view, _v5, _v27);
+            _v101(_v0), _v5 && (0, _v168.bpToggleShowResolvedComments)(!_v0.status, _v1, _v52?.view, _v5, _v26);
           }
         }), (0, _v2.jsxs)(_v5.Flex, {
           children: [(0, _v2.jsx)(_v126, {
-            defaultSort: _v31.label,
+            defaultSort: _v30.label,
             isPublic: _v2,
             setSort: _v0 => {
-              _v32(_v0);
+              _v31(_v0);
             },
             onSortSelect: _v0 => {
-              _v5 && (0, _v168.bpSortComment)(_v0.value, _v1, _v53?.view, _v29?.uploader.link, _v2, _v5, _v27);
+              _v5 && (0, _v168.bpSortComment)(_v0.value, _v1, _v52?.view, _v28?.uploader.link, _v2, _v5, _v26);
             }
           }), (0, _v2.jsx)(_v131, {
-            filterOptions: _v34,
+            filterOptions: _v33,
             updateFilterOptions: _v0 => {
-              _v5 && (0, _v168.bpFilterComments)(_v150.FilterToBPOptionMap[_v0.userType ?? "mentions_replies"].option, _v150.FilterToBPOptionMap[_v0.userType ?? "mentions_replies"].copy, _v1, _v2, _v53?.view, _v5, _v27), _v102(_v0);
+              _v5 && (0, _v168.bpFilterComments)(_v150.FilterToBPOptionMap[_v0.userType ?? "mentions_replies"].option, _v150.FilterToBPOptionMap[_v0.userType ?? "mentions_replies"].copy, _v1, _v2, _v52?.view, _v5, _v26), _v101(_v0);
             },
-            onUnreadFilterToggle: _v0 => _v37(_v0),
-            showOnlyUnread: _v36,
-            isLoggedOut: !_v27?.user
+            onUnreadFilterToggle: _v0 => _v36(_v0),
+            showOnlyUnread: _v35,
+            isLoggedOut: !_v26?.user
           })]
         })]
       }), _v12 && (0, _v2.jsx)(_v5.Flex, {
@@ -5111,7 +5110,7 @@
             })
           })
         })
-      }), _v2 && _v108 && _v9 && !_v12 && (0, _v2.jsx)(_v5.Flex, {
+      }), _v2 && _v107 && _v9 && !_v12 && (0, _v2.jsx)(_v5.Flex, {
         px: {
           base: 200,
           md: 300
@@ -5150,7 +5149,7 @@
             }), (0, _v2.jsx)(_v6.Link, {
               fontSize: "body-sm",
               variant: "inline-primary",
-              onClick: () => _v104(!0),
+              onClick: () => _v103(!0),
               pl: "4px",
               _hover: {
                 cursor: "pointer"
@@ -5182,43 +5181,43 @@
           })
         })
       }), (0, _v2.jsx)(_v121, {
-        comments: _v58,
+        comments: _v57,
         toggleCommentStatus: (_v0, _v1) => {
-          "closed" === _v1 ? _v87(_v0) : _v86(_v0);
+          "closed" === _v1 ? _v86(_v0) : _v85(_v0);
         },
         isPublic: _v2,
         addReply: (_v0, _v1, _v2) => {
           let _v3 = (0, _v150.sanitiseSpaceInRichtext)(_v1);
-          _v27?.user || _v54 || _v69(JSON.stringify({
+          _v26?.user || _v53 || _v68(JSON.stringify({
             text: _v3,
             isReply: !0,
             commentId: _v0,
             name: _v2
-          })), _v94(_v3, _v0, _v2).then(() => _v52?.increaseCommentsCount()), _v66(null);
+          })), _v93(_v3, _v0, _v2).then(() => _v51?.increaseCommentsCount()), _v65(null);
         },
         deleteComment: (_v0, _v1) => {
-          _v82(_v0, _v1), _v66(null);
+          _v81(_v0, _v1), _v65(null);
         },
         deleteReply: (_v0, _v1) => {
-          _v84(_v0, _v1), _v66(null);
+          _v83(_v0, _v1), _v65(null);
         },
         editComment: (_v0, _v1) => {
-          _v88(_v0, (0, _v150.sanitiseSpaceInRichtext)(_v1)), _v66(null);
+          _v87(_v0, (0, _v150.sanitiseSpaceInRichtext)(_v1)), _v65(null);
         },
         editReply: (_v0, _v1) => {
-          _v91(_v0, (0, _v150.sanitiseSpaceInRichtext)(_v1)), _v66(null);
+          _v90(_v0, (0, _v150.sanitiseSpaceInRichtext)(_v1)), _v65(null);
         },
-        lastElementRef: _v62,
-        listContainerRef: _v64,
-        canAddComments: _v59,
-        deeplinkedCommentId: _v65?.toString(),
-        isCommentsLoading: _v44 || _v39,
-        isSubmitTextLoading: _v95 || _v89 || _v92,
-        isDeleteLoading: _v83 || _v85,
-        isMoreCommentsLoading: _v46 || !1,
-        richCommentComponent: _v99,
+        lastElementRef: _v61,
+        listContainerRef: _v63,
+        canAddComments: _v58,
+        deeplinkedCommentId: _v64?.toString(),
+        isCommentsLoading: _v43 || _v38,
+        isSubmitTextLoading: _v94 || _v88 || _v91,
+        isDeleteLoading: _v82 || _v84,
+        isMoreCommentsLoading: _v45 || !1,
+        richCommentComponent: _v98,
         onCopyClick: (_v0, _v1, _v2, _v3, _v4) => {
-          _v49(_v0, _v3);
+          _v48(_v0, _v3);
           let _v5 = (0, _v150.checkForMention)(_v4);
           _v5 && (_v5 = {
             ..._v5,
@@ -5228,7 +5227,7 @@
               comment_owner_id: (0, _v150.idFromUri)(_v1),
               is_mention: _v5
             }
-          }, (0, _v168.bpCopyCommentLink)(_v1, _v53?.view, _v29?.uploader.link, _v2, _v5, _v27, _v2));
+          }, (0, _v168.bpCopyCommentLink)(_v1, _v52?.view, _v28?.uploader.link, _v2, _v5, _v26, _v2));
         },
         onOpenCommentOptionsClick: (_v0, _v1, _v2, _v3) => {
           _v5 && (_v5 = {
@@ -5238,7 +5237,7 @@
               is_reply: _v1,
               comment_owner_id: (0, _v150.idFromUri)(_v2)
             }
-          }, (0, _v168.bpOpenCommentOptions)(_v1, _v53?.view, _v29?.uploader.link, _v2, _v5, _v27, _v3));
+          }, (0, _v168.bpOpenCommentOptions)(_v1, _v52?.view, _v28?.uploader.link, _v2, _v5, _v26, _v3));
         },
         isUserProfileClickable: _v6,
         onUserProfileClick: (_v0, _v1, _v2) => {
@@ -5249,65 +5248,65 @@
               is_reply: _v1,
               comment_owner_id: (0, _v150.idFromUri)(_v2)
             }
-          }, (0, _v168.bpProfileLink)(_v1, _v28, _v5, _v27));
+          }, (0, _v168.bpProfileLink)(_v1, _v27, _v5, _v26));
         },
-        commentsFetchingError: _v50 || _v41,
-        editCommentError: _v90,
-        editReplyError: _v93,
-        replyError: _v96,
-        onMomentPlay: _v78,
-        canResolveComment: _v100 && _v16,
+        commentsFetchingError: _v49 || _v40,
+        editCommentError: _v89,
+        editReplyError: _v92,
+        replyError: _v95,
+        onMomentPlay: _v77,
+        canResolveComment: _v99 && _v16,
         enableLinks: _v17,
         searchQuery: _v3,
-        appliedFilter: _v34?.userType !== "everyone" || _v34?.mentionAndReplies === !0 || !0 === _v36,
+        appliedFilter: _v33?.userType !== "everyone" || _v33?.mentionAndReplies === !0 || !0 === _v35,
         clearFilters: () => {
-          _v102(_v33), _v37(!1);
+          _v101(_v32), _v36(!1);
         },
         saveViewerCommentsSetting: _v7,
-        isGuestModalActive: _v55,
-        hasOnlyCommentAccess: _v109,
+        isGuestModalActive: _v54,
+        hasOnlyCommentAccess: _v108,
         isPreviousVersion: _v12,
         onReportClick: _v13,
-        videoPrivacy: _v53?.view,
+        videoPrivacy: _v52?.view,
         reviewId: _v15,
-        onAddReaction: !_v2 && _v101 ? _v97 : void 0,
-        onRemoveReaction: !_v2 && _v101 ? _v98 : void 0
+        onAddReaction: !_v2 && _v100 ? _v96 : void 0,
+        onRemoveReaction: !_v2 && _v100 ? _v97 : void 0
       }), (0, _v2.jsx)(_v123, {
-        richCommentComponent: _v99,
-        isLoading: _v80,
+        richCommentComponent: _v98,
+        isLoading: _v79,
         isPublic: _v2,
         onSubmit: _v0 => {
           let _v1 = (0, _v150.sanitiseSpaceInRichtext)(_v0),
-            _v2 = _v71 ? (_v19 ?? 0) === 0 ? .001 : _v19 : void 0;
-          _v27?.user || _v54 || _v69(JSON.stringify({
+            _v2 = _v70 ? (_v19 ?? 0) === 0 ? .001 : _v19 : void 0;
+          _v26?.user || _v53 || _v68(JSON.stringify({
             text: _v1,
             timestamp: _v2,
             isReply: !1
-          })), _v79(_v1, _v2).then(() => _v52?.increaseCommentsCount()), _v66(null);
+          })), _v78(_v1, _v2).then(() => _v51?.increaseCommentsCount()), _v65(null);
         },
-        canAddComments: _v59,
-        hasComments: !!_v43?.length,
-        errorMessage: _v81?.errorMessage,
+        canAddComments: _v58,
+        hasComments: !!_v42?.length,
+        errorMessage: _v80?.errorMessage,
         saveViewerCommentsSetting: _v7,
-        isGuestModalActive: _v55,
-        hasOnlyCommentAccess: _v109,
+        isGuestModalActive: _v54,
+        hasOnlyCommentAccess: _v108,
         isPreviousVersion: _v12,
         canInsertTimecode: _v18,
-        timeCodeEnabled: _v71,
-        toggleTimeCode: _v73,
+        timeCodeEnabled: _v70,
+        toggleTimeCode: _v72,
         timeCode: _v19,
-        onCommentStarted: _v74,
-        overlayContent: _v23 && _v22 && _v55 ? (0, _v2.jsx)(_v152.GuestLoginModal, {
+        onCommentStarted: _v73,
+        overlayContent: _v22 && _v54 ? (0, _v2.jsx)(_v152.GuestLoginModal, {
           isInlinePrompt: !0,
-          canReactToCollabComments: _v101
+          canReactToCollabComments: _v100
         }) : void 0
       }), (0, _v2.jsx)(_v138, {
-        isActive: _v103,
-        setActive: _v104,
-        isLoading: _v106,
+        isActive: _v102,
+        setActive: _v103,
+        isLoading: _v105,
         onShowClick: () => {
-          _v105(!0).then(() => {
-            _v104(!1), _v107.current = _v26({
+          _v104(!0).then(() => {
+            _v103(!1), _v106.current = _v25({
               title: (0, _v44.translate)({
                 singular: "Comments turned on in Appearance settings. {LINK}Undo{/LINK}",
                 replacements: {
@@ -5320,7 +5319,7 @@
                       }
                     },
                     onClick: () => {
-                      _v26.close(_v107.current), _v105(!1);
+                      _v25.close(_v106.current), _v104(!1);
                     },
                     fontSize: "body-md",
                     variant: "inline-primary",
@@ -5354,13 +5353,13 @@
               duration: 0
             });
           }).catch(() => {
-            _v26({
+            _v25({
               title: (0, _v44.translate)({
                 singular: "Unable to turn on comments. {LINK}Try again{/LINK}",
                 replacements: {
                   LINK: _v0 => (0, _v2.jsx)(_v6.Link, {
                     color: "inherit",
-                    onClick: () => _v104(!0),
+                    onClick: () => _v103(!0),
                     _hover: {
                       cursor: "pointer",
                       _dark: {

@@ -812,19 +812,19 @@
             singular: "Vielen Dank für Ihre Meldung"
           },
           "fr-FR": {
-            singular: "Merci pour votre rapport"
+            singular: "Merci pour votre signalement"
           },
           "ja-JP": {
-            singular: "ご報告いただき、ありがとうございます。"
+            singular: "ご通報ありがとうございます"
           },
           "ko-KR": {
-            singular: "신고해 주셔서 감사합니다."
+            singular: "신고해 주셔서 감사합니다"
           },
           "pt-BR": {
-            singular: "Agradecemos a sua denúncia"
+            singular: "Obrigado pela sua denúncia"
           },
           "zh-CN": {
-            singular: "感谢您的报告"
+            singular: "感谢您的举报"
           }
         }
       }),
@@ -3408,41 +3408,45 @@
       [_v31]: "",
       [_v32]: ""
     },
-    _v54 = {
+    _v54 = {},
+    _v55 = {
       [_v33]: "",
       [_v34]: _v37,
-      [_v29]: {},
+      [_v29]: _v54,
       [_v35]: ""
     },
-    _v55 = {
+    _v56 = {
       [_v30]: !1
     };
-  function _v56(_v0, _v1) {
-    let _v2 = {
+  function _v57(_v0, _v1, _v2) {
+    let _v3 = {
       ..._v53
     };
-    return _v0 && (_v2[_v32] = _v0), {
-      [_v26]: _v2,
-      [_v27]: _v1 ? {
-        ..._v54,
-        [_v29]: {
+    return _v0 && (_v3[_v32] = _v0), {
+      [_v26]: _v3,
+      [_v27]: _v1 || _v2 ? {
+        ..._v55,
+        ...(_v2 && {
+          [_v33]: _v2
+        }),
+        [_v29]: _v1 ? {
           [_v36]: _v1
-        }
-      } : _v54,
-      [_v28]: _v55
+        } : _v54
+      } : _v55,
+      [_v28]: _v56
     };
   }
-  let _v57 = "contactDetails.name",
-    _v58 = "contactDetails.email",
-    _v59 = "reportDetails.urlOrIdentifier",
-    _v60 = "reportDetails.countryOfBreach",
-    _v61 = "reportDetails.reasonExplanation",
-    _v62 = "reportDetails.conditionalFields.euMemberState",
-    _v63 = "reportDetails.conditionalFields.eeaMemberState",
-    _v64 = "reportDetails.conditionalFields.usState",
-    _v65 = "reportDetails.conditionalFields.reason",
-    _v66 = "declaration.goodFaithDeclaration",
-    _v67 = () => {
+  let _v58 = "contactDetails.name",
+    _v59 = "contactDetails.email",
+    _v60 = "reportDetails.urlOrIdentifier",
+    _v61 = "reportDetails.countryOfBreach",
+    _v62 = "reportDetails.reasonExplanation",
+    _v63 = "reportDetails.conditionalFields.euMemberState",
+    _v64 = "reportDetails.conditionalFields.eeaMemberState",
+    _v65 = "reportDetails.conditionalFields.usState",
+    _v66 = "reportDetails.conditionalFields.reason",
+    _v67 = "declaration.goodFaithDeclaration",
+    _v68 = () => {
       let _v0 = _v20();
       return {
         NAME_REQUIRED: _v0.ValidationNameRequired,
@@ -3458,7 +3462,7 @@
         DECLARATION_REQUIRED: _v0.ValidationDeclarationRequired
       };
     },
-    _v68 = async (_v0, _v1) => {
+    _v69 = async (_v0, _v1) => {
       try {
         let _v0 = ((_v0, _v1) => {
             var _v2, _v3, _v4;
@@ -3536,25 +3540,26 @@
         };
       }
     },
-    _v69 = ({
+    _v70 = ({
       xsrft: _v0,
       userEmail: _v1,
       initialReasonParam: _v2,
-      onSubmitSuccess: _v3,
-      onSubmitError: _v4
+      initialUrlParam: _v3,
+      onSubmitSuccess: _v4,
+      onSubmitError: _v5
     } = {}) => {
-      let _v5 = (_v0 => {
+      let _v6 = (_v0 => {
           if (_v0) return _v49[_v0.toLowerCase()];
         })(_v2),
-        [_v6, _v7] = (0, _v5.useState)(() => _v56(_v1, _v5)),
-        [_v8, _v9] = (0, _v5.useState)({}),
-        [_v10, _v11] = (0, _v5.useState)(!1),
-        [_v12, _v13] = (0, _v5.useState)(!1),
-        [_v14, _v15] = (0, _v5.useState)(null),
-        [_v16, _v17] = (0, _v5.useState)(!1),
-        _v18 = _v20(),
-        _v19 = (_v0, _v1) => {
-          _v7(_v0 => ({
+        [_v7, _v8] = (0, _v5.useState)(() => _v57(_v1, _v6, _v3)),
+        [_v9, _v10] = (0, _v5.useState)({}),
+        [_v11, _v12] = (0, _v5.useState)(!1),
+        [_v13, _v14] = (0, _v5.useState)(!1),
+        [_v15, _v16] = (0, _v5.useState)(null),
+        [_v17, _v18] = (0, _v5.useState)(!1),
+        _v19 = _v20(),
+        _v20 = (_v0, _v1) => {
+          _v8(_v0 => ({
             ..._v0,
             [_v26]: {
               ..._v0[_v26],
@@ -3562,8 +3567,8 @@
             }
           }));
         },
-        _v20 = (_v0, _v1) => {
-          _v7(_v0 => ({
+        _v21 = (_v0, _v1) => {
+          _v8(_v0 => ({
             ..._v0,
             [_v27]: {
               ..._v0[_v27],
@@ -3571,44 +3576,44 @@
             }
           }));
         },
-        _v21 = _v0 => _v10 ? _v8[_v0] : void 0,
-        _v22 = async () => {
-          _v11(!0), _v15(null);
+        _v22 = _v0 => _v11 ? _v9[_v0] : void 0,
+        _v23 = async () => {
+          _v12(!0), _v16(null);
           let _v0 = (_v0 => {
             let _v1 = {};
-            if (_v0.contactDetails?.name?.trim() || (_v1[_v57] = _v67().NAME_REQUIRED), _v0.reportDetails?.conditionalFields?.reason !== _v24) {
+            if (_v0.contactDetails?.name?.trim() || (_v1[_v58] = _v68().NAME_REQUIRED), _v0.reportDetails?.conditionalFields?.reason !== _v24) {
               let _v0 = _v0.contactDetails?.email?.trim() ?? "";
-              if (_v0) /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(_v0) || (_v1[_v58] = _v67().EMAIL_INVALID);else _v1[_v58] = _v67().EMAIL_REQUIRED;
+              if (_v0) /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(_v0) || (_v1[_v59] = _v68().EMAIL_INVALID);else _v1[_v59] = _v68().EMAIL_REQUIRED;
             }
-            _v0.reportDetails?.urlOrIdentifier?.trim() || (_v1[_v59] = _v67().URL_REQUIRED), _v0.reportDetails?.countryOfBreach || (_v1[_v60] = _v67().COUNTRY_REQUIRED), _v0.reportDetails?.conditionalFields?.reason || (_v1[_v65] = _v67().CONDITIONAL_REASON_REQUIRED), _v0.reportDetails?.reasonExplanation?.trim() || (_v1[_v61] = _v67().REASON_EXPLANATION_REQUIRED), _v0.declaration?.goodFaithDeclaration || (_v1[_v66] = _v67().DECLARATION_REQUIRED);
+            _v0.reportDetails?.urlOrIdentifier?.trim() || (_v1[_v60] = _v68().URL_REQUIRED), _v0.reportDetails?.countryOfBreach || (_v1[_v61] = _v68().COUNTRY_REQUIRED), _v0.reportDetails?.conditionalFields?.reason || (_v1[_v66] = _v68().CONDITIONAL_REASON_REQUIRED), _v0.reportDetails?.reasonExplanation?.trim() || (_v1[_v62] = _v68().REASON_EXPLANATION_REQUIRED), _v0.declaration?.goodFaithDeclaration || (_v1[_v67] = _v68().DECLARATION_REQUIRED);
             let _v2 = _v0.reportDetails?.countryOfBreach;
-            return _v2 !== _v38 || _v0.reportDetails?.conditionalFields?.euMemberState || (_v1[_v62] = _v67().EU_MEMBER_STATE_REQUIRED), _v2 !== _v39 || _v0.reportDetails?.conditionalFields?.eeaMemberState || (_v1[_v63] = _v67().EEA_MEMBER_STATE_REQUIRED), _v2 !== _v37 || _v0.reportDetails?.conditionalFields?.usState || (_v1[_v64] = _v67().US_STATE_REQUIRED), {
+            return _v2 !== _v38 || _v0.reportDetails?.conditionalFields?.euMemberState || (_v1[_v63] = _v68().EU_MEMBER_STATE_REQUIRED), _v2 !== _v39 || _v0.reportDetails?.conditionalFields?.eeaMemberState || (_v1[_v64] = _v68().EEA_MEMBER_STATE_REQUIRED), _v2 !== _v37 || _v0.reportDetails?.conditionalFields?.usState || (_v1[_v65] = _v68().US_STATE_REQUIRED), {
               isValid: 0 === Object.keys(_v1).length,
               errors: _v1
             };
-          })(_v6);
-          if (!_v0.isValid) return void _v9(_v0.errors);
-          if (_v9({}), !_v0) {
-            _v15(_v18.ErrorMissingToken), _v4?.("Missing XSRF token");
+          })(_v7);
+          if (!_v0.isValid) return void _v10(_v0.errors);
+          if (_v10({}), !_v0) {
+            _v16(_v19.ErrorMissingToken), _v5?.("Missing XSRF token");
             return;
           }
-          _v13(!0);
+          _v14(!0);
           try {
-            let _v0 = await _v68(_v6, _v0);
-            if (_v0.success) _v17(!0), _v11(!1), _v3?.(), _v7(_v56(_v1, _v5));else if (_v15(_v0.error || "An unexpected error occurred. Please try again."), _v4?.(_v0.error || "Submission failed"), _v0.validationErrors) {
+            let _v0 = await _v69(_v7, _v0);
+            if (_v0.success) _v18(!0), _v12(!1), _v4?.(), _v8(_v57(_v1, _v6, _v3));else if (_v16(_v0.error || "An unexpected error occurred. Please try again."), _v5?.(_v0.error || "Submission failed"), _v0.validationErrors) {
               let _v0 = {};
               Object.entries(_v0.validationErrors).forEach(([_v0, _v1]) => {
                 _v0[_v0] = _v1.join(", ");
-              }), _v9(_v0);
+              }), _v10(_v0);
             }
           } catch (_v0) {
             let _v1 = "An unexpected error occurred. Please try again later.";
-            _v15(_v1), _v4?.(_v1);
+            _v16(_v1), _v5?.(_v1);
           } finally {
-            _v13(!1);
+            _v14(!1);
           }
         };
-      return _v16 ? (0, _v1.jsx)(_v6.Box, {
+      return _v17 ? (0, _v1.jsx)(_v6.Box, {
         as: "main",
         maxW: (0, _v10.rem)(600),
         mx: "auto",
@@ -3624,19 +3629,19 @@
             children: [(0, _v1.jsx)(_v8.Header, {
               as: "h1",
               size: "2xl",
-              children: _v18.SuccessAlertTitle
+              children: _v19.SuccessAlertTitle
             }), (0, _v1.jsx)(_v9.Text, {
               size: "lg",
               color: "text-secondary",
-              children: _v18.SuccessAlertMessage
+              children: _v19.SuccessAlertMessage
             })]
           }), (0, _v1.jsx)(_v12.Button, {
             size: "lg",
             variant: "secondary",
             onClick: () => {
-              _v17(!1), _v7(_v56(_v1, _v5));
+              _v18(!1), _v8(_v57(_v1, _v6, _v3));
             },
-            children: _v18.SubmitAnotherReport
+            children: _v19.SubmitAnotherReport
           })]
         })
       }) : (0, _v1.jsx)(_v6.Box, {
@@ -3647,24 +3652,24 @@
         py: "3xl",
         children: (0, _v1.jsx)("form", {
           onSubmit: _v0 => {
-            _v0.preventDefault(), _v22();
+            _v0.preventDefault(), _v23();
           },
           children: (0, _v1.jsxs)(_v7.VStack, {
             spacing: "lg",
             align: "stretch",
-            children: [_v14 && (0, _v1.jsx)(_v11.Alert, {
+            children: [_v15 && (0, _v1.jsx)(_v11.Alert, {
               status: "error",
-              onClose: () => _v15(null),
+              onClose: () => _v16(null),
               children: (0, _v1.jsxs)(_v7.VStack, {
                 spacing: "sm",
                 align: "left",
                 children: [(0, _v1.jsx)(_v9.Text, {
                   size: "md",
                   fontWeight: "semibold",
-                  children: _v18.ErrorAlertTitle
+                  children: _v19.ErrorAlertTitle
                 }), (0, _v1.jsx)(_v9.Text, {
                   size: "sm",
-                  children: _v14
+                  children: _v15
                 })]
               })
             }), (0, _v1.jsxs)(_v7.VStack, {
@@ -3673,28 +3678,28 @@
               children: [(0, _v1.jsx)(_v8.Header, {
                 as: "h1",
                 size: "2xl",
-                children: _v18.PageTitle
+                children: _v19.PageTitle
               }), (0, _v1.jsx)(_v9.Text, {
                 size: "lg",
                 color: "text-secondary",
-                children: _v18.PageDescription
+                children: _v19.PageDescription
               }), (0, _v1.jsx)(_v9.Text, {
                 size: "lg",
                 color: "text-secondary",
-                children: _v18.PageSubDescription
+                children: _v19.PageSubDescription
               })]
             }), (0, _v1.jsx)(_v22, {
-              contactDetails: _v6.contactDetails,
-              onNameChange: _v0 => _v19(_v31, _v0),
-              onEmailChange: _v0 => _v19(_v32, _v0),
-              hasSubmitted: _v10,
-              nameError: _v21(_v57),
-              emailError: _v21(_v58)
+              contactDetails: _v7.contactDetails,
+              onNameChange: _v0 => _v20(_v31, _v0),
+              onEmailChange: _v0 => _v20(_v32, _v0),
+              hasSubmitted: _v11,
+              nameError: _v22(_v58),
+              emailError: _v22(_v59)
             }), (0, _v1.jsx)(_v52, {
-              reportDetails: _v6.reportDetails,
-              onUrlChange: _v0 => _v20(_v33, _v0),
+              reportDetails: _v7.reportDetails,
+              onUrlChange: _v0 => _v21(_v33, _v0),
               onCountryChange: _v0 => {
-                _v7(_v0 => ({
+                _v8(_v0 => ({
                   ..._v0,
                   [_v27]: {
                     ..._v0[_v27],
@@ -3703,10 +3708,10 @@
                       [_v36]: _v0[_v27][_v29][_v36]
                     }
                   }
-                })), _v11(!1), _v9({});
+                })), _v12(!1), _v10({});
               },
               onConditionalFieldChange: (_v0, _v1) => {
-                _v7(_v0 => ({
+                _v8(_v0 => ({
                   ..._v0,
                   ...(_v0 === _v36 && {
                     [_v28]: {
@@ -3723,19 +3728,19 @@
                   }
                 }));
               },
-              onReasonChange: _v0 => _v20(_v35, _v0),
-              hasSubmitted: _v10,
-              urlError: _v21(_v59),
-              countryError: _v21(_v60),
-              reasonExplanationError: _v21(_v61),
-              euMemberStateError: _v21(_v62),
-              eeaMemberStateError: _v21(_v63),
-              usStateError: _v21(_v64),
-              conditionalReasonError: _v21(_v65)
+              onReasonChange: _v0 => _v21(_v35, _v0),
+              hasSubmitted: _v11,
+              urlError: _v22(_v60),
+              countryError: _v22(_v61),
+              reasonExplanationError: _v22(_v62),
+              euMemberStateError: _v22(_v63),
+              eeaMemberStateError: _v22(_v64),
+              usStateError: _v22(_v65),
+              conditionalReasonError: _v22(_v66)
             }), (0, _v1.jsx)(_v40, {
-              declaration: _v6.declaration,
+              declaration: _v7.declaration,
               onDeclarationChange: _v0 => {
-                _v7(_v0 => ({
+                _v8(_v0 => ({
                   ..._v0,
                   [_v28]: {
                     ..._v0[_v28],
@@ -3743,35 +3748,37 @@
                   }
                 }));
               },
-              isSubmitting: _v12,
-              hasSubmitted: _v10,
-              declarationError: _v21(_v66),
-              reason: _v6.reportDetails.conditionalFields.reason
+              isSubmitting: _v13,
+              hasSubmitted: _v11,
+              declarationError: _v22(_v67),
+              reason: _v7.reportDetails.conditionalFields.reason
             })]
           })
         })
       });
     };
-  var _v70 = _v0.i(0),
-    _v71 = _v0.i(0);
+  var _v71 = _v0.i(0),
+    _v72 = _v0.i(0);
   (0, _v3.withPageSetup)({
     requireLogin: !1
   });
-  let _v72 = () => {
-    let _v0 = (0, _v71.useViewer)(),
+  let _v73 = () => {
+    let _v0 = (0, _v72.useViewer)(),
       _v1 = (0, _v2.useRouter)(),
-      _v2 = "string" == typeof _v1.query.reason ? _v1.query.reason : void 0;
+      _v2 = "string" == typeof _v1.query.reason ? _v1.query.reason : void 0,
+      _v3 = "string" == typeof _v1.query.url ? _v1.query.url : void 0;
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v69, {
+      children: [(0, _v1.jsx)(_v70, {
         xsrft: _v0?.xsrft,
         userEmail: _v0?.user?.email,
-        initialReasonParam: _v2
-      }), _v0 && (0, _v1.jsx)(_v70.EssentialFooter, {
+        initialReasonParam: _v2,
+        initialUrlParam: _v3
+      }), _v0 && (0, _v1.jsx)(_v71.EssentialFooter, {
         ..._v0
       })]
     });
   };
-  _v72.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
+  _v73.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v4.DefaultNavigation, {}), _v0]
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v72], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v73], 0);
 }

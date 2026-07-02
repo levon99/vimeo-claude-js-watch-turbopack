@@ -2870,8 +2870,9 @@
     };
   }], 0);
   var _v110 = _v0.i(0),
-    _v111 = _v0.i(0);
-  async function _v112({
+    _v111 = _v0.i(0),
+    _v112 = _v0.i(0);
+  async function _v113({
     baseUrl: _v0,
     where: {
       userId: _v1,
@@ -2891,7 +2892,7 @@
       return (0, _v71.deepCamelCase)(_v1);
     });
   }
-  function _v113(_v0, _v1) {
+  function _v114(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
@@ -2899,7 +2900,7 @@
         xVimeoPage: _v5,
         locale: _v6
       } = (0, _v77.useGctlConfig)();
-    return (0, _v74.default)(_v2 ? `/users/${_v2.where.userId}/bulk_actions/${_v2.where.batchId}${(0, _v69.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v112({
+    return (0, _v74.default)(_v2 ? `/users/${_v2.where.userId}/bulk_actions/${_v2.where.batchId}${(0, _v69.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v113({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -2911,7 +2912,7 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v68.default.env.STORYBOOK && (0, _v69.assignMswData)(_v113, {
+  "true" === _v68.default.env.STORYBOOK && (0, _v69.assignMswData)(_v114, {
     endpoint: "/users/:userId/bulk_actions/:batchId",
     method: "GET"
   }), "true" === _v68.default.env.STORYBOOK && (0, _v69.assignMswData)(function () {
@@ -2930,7 +2931,7 @@
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/bulk_actions/${_v0.where.batchId}${(0, _v69.serializeQuery)(_v0)}`, _v112({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/bulk_actions/${_v0.where.batchId}${(0, _v69.serializeQuery)(_v0)}`, _v113({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -2956,13 +2957,13 @@
     endpoint: "/users/:userId/bulk_actions/:batchId",
     method: "GET"
   });
-  let _v114 = _v0 => "completed" === _v0 || "completed_with_errors" === _v0 || "timeout" === _v0,
-    _v115 = (0, _v110.default)(() => _v0.A(0).then(_v0 => _v0.BulkPrivacyModal), {
+  let _v115 = _v0 => "completed" === _v0 || "completed_with_errors" === _v0 || "timeout" === _v0,
+    _v116 = (0, _v110.default)(() => _v0.A(0).then(_v0 => _v0.BulkPrivacyModal), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v116 = (0, _v111.create)(_v0 => ({
+    _v117 = (0, _v111.create)(_v0 => ({
       modalProps: null,
       openBulkPrivacyModal: _v0 => _v0({
         modalProps: _v0
@@ -2978,7 +2979,7 @@
         activeBatches: _v0.activeBatches.filter(_v0 => _v0.batchId !== _v0)
       }))
     })),
-    _v117 = ({
+    _v118 = ({
       batch: _v0
     }) => {
       let _v1,
@@ -2988,12 +2989,12 @@
         _v5,
         _v6,
         _v7,
-        _v8 = _v116(_v0 => _v0.removeActiveBatch),
+        _v8 = _v117(_v0 => _v0.removeActiveBatch),
         _v9 = (0, _v31.useToast)({
           icon: (0, _v1.jsx)(_v31.ToastIcon, {})
         }),
         _v10 = (0, _v2.useCallback)(_v0 => {
-          "completed" === _v0.status ? _v9({
+          _v9.close((0, _v112.getUpdatingToastId)(_v0.batchId)), "completed" === _v0.status ? _v9({
             title: (0, _v33.translate)({
               singular: "Privacy settings have been updated",
               dictionary: {
@@ -3020,7 +3021,9 @@
                 }
               }
             }),
-            variant: "success"
+            variant: "success",
+            duration: 0,
+            isClosable: !0
           }) : "completed_with_errors" === _v0.status && _v9({
             title: (0, _v33.translate)({
               singular: "{COUNT} item could not be updated",
@@ -3072,7 +3075,7 @@
         _v4.current = _v11;
       }, [_v11]), (0, _v2.useEffect)(() => {
         _v5.current = 0, _v6.current = !1;
-      }, [_v1, _v2]), _v113(() => _v2 && _v1 ? {
+      }, [_v1, _v2]), _v114(() => _v2 && _v1 ? {
         where: {
           userId: _v2,
           batchId: _v1
@@ -3080,12 +3083,12 @@
       } : null, {
         refreshInterval: _v0 => {
           let _v1 = _v0?.status;
-          return !_v0 || _v5.current >= 60 || _v114(_v1) ? 0 : 0;
+          return !_v0 || _v5.current >= 60 || _v115(_v1) ? 0 : 0;
         },
         revalidateOnFocus: !1,
         shouldRetryOnError: !1,
         onSuccess: _v0 => {
-          if (_v114(_v0?.status)) return void (!_v6.current && (_v6.current = !0, _v3.current?.(_v0)));
+          if (_v115(_v0?.status)) return void (!_v6.current && (_v6.current = !0, _v3.current?.(_v0)));
           _v5.current += 1, _v5.current >= 60 && _v7();
         },
         onError: _v7 = () => {
@@ -3094,26 +3097,26 @@
       }), null;
     };
   _v0.s(["BulkPrivacyModalHost", 0, () => {
-    let _v0 = _v116(_v0 => _v0.modalProps),
-      _v1 = _v116(_v0 => _v0.closeBulkPrivacyModal),
-      _v2 = _v116(_v0 => _v0.activeBatches),
-      _v3 = _v116(_v0 => _v0.addActiveBatch);
+    let _v0 = _v117(_v0 => _v0.modalProps),
+      _v1 = _v117(_v0 => _v0.closeBulkPrivacyModal),
+      _v2 = _v117(_v0 => _v0.activeBatches),
+      _v3 = _v117(_v0 => _v0.addActiveBatch);
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v0 && (0, _v1.jsx)(_v115, {
+      children: [_v0 && (0, _v1.jsx)(_v116, {
         ..._v0,
         isOpen: !!_v0,
         onClose: _v1,
         onSubmitAccepted: _v3
-      }), _v2.map(_v0 => (0, _v1.jsx)(_v117, {
+      }), _v2.map(_v0 => (0, _v1.jsx)(_v118, {
         batch: _v0
       }, _v0.batchId))]
     });
   }, "useBulkPrivacyModal", 0, () => ({
-    openBulkPrivacyModal: _v116(_v0 => _v0.openBulkPrivacyModal),
-    closeBulkPrivacyModal: _v116(_v0 => _v0.closeBulkPrivacyModal)
+    openBulkPrivacyModal: _v117(_v0 => _v0.openBulkPrivacyModal),
+    closeBulkPrivacyModal: _v117(_v0 => _v0.closeBulkPrivacyModal)
   })], 0);
-  var _v118 = _v0.i(0);
-  let _v119 = {
+  var _v119 = _v0.i(0);
+  let _v120 = {
     A: "accordion",
     B: "flat",
     C: "hidden",
@@ -3124,8 +3127,8 @@
   _v0.s(["useEnableFolderBulkPrivacy", 0, () => {
     let {
         settings: _v0
-      } = (0, _v118.useOrionSettings)(),
-      _v1 = _v119[_v0?.bulk_privacy_modal_variant ?? "hidden"] ?? "hidden",
+      } = (0, _v119.useOrionSettings)(),
+      _v1 = _v120[_v0?.bulk_privacy_modal_variant ?? "hidden"] ?? "hidden",
       _v2 = "accordion" === _v1 || "flat" === _v1;
     return {
       isEnabled: _v2,

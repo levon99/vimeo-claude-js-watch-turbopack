@@ -104,104 +104,105 @@
     showDownload: _v16 = !0,
     showRestore: _v17 = !0,
     showDeleteVersion: _v18 = !0,
-    showNewVersion: _v19 = !0
+    showNewVersion: _v19 = !0,
+    disableVersionMenu: _v20 = !1
   }) => {
-    let [_v20, _v21] = (0, _v3.useState)(!1),
-      [_v22, _v23] = (0, _v3.useState)(!1),
+    let [_v21, _v22] = (0, _v3.useState)(!1),
+      [_v23, _v24] = (0, _v3.useState)(!1),
       {
-        versions: _v24,
-        canLoadMore: _v25,
-        isLoading: _v26,
-        isLoadingMoreVersion: _v27,
-        loadMoreVersions: _v28
-      } = (0, _v25.useGetVersionsHook)(_v0, !_v22 || _v11 < 2, _v14),
-      _v29 = (0, _v19.useViewer)(),
-      [_v30] = (0, _v26.useInfiniteScrollVersion)(_v25, _v28),
-      [_v31, _v32] = (0, _v3.useState)(null),
-      [_v33, _v34] = (0, _v3.useState)(!1),
+        versions: _v25,
+        canLoadMore: _v26,
+        isLoading: _v27,
+        isLoadingMoreVersion: _v28,
+        loadMoreVersions: _v29
+      } = (0, _v25.useGetVersionsHook)(_v0, !_v23 || _v11 < 2, _v14),
+      _v30 = (0, _v19.useViewer)(),
+      [_v31] = (0, _v26.useInfiniteScrollVersion)(_v26, _v29),
+      [_v32, _v33] = (0, _v3.useState)(null),
+      [_v34, _v35] = (0, _v3.useState)(!1),
       {
-        userQuota: _v35
+        userQuota: _v36
       } = (0, _v27.useReplace)(_v0, _v14),
       {
-        upload: _v36,
-        uploads: _v37
+        upload: _v37,
+        uploads: _v38
       } = (0, _v18.useUploader)(),
-      _v38 = (0, _v2.useRouter)(),
-      _v39 = (0, _v3.useRef)(null),
+      _v39 = (0, _v2.useRouter)(),
       _v40 = (0, _v3.useRef)(null),
       _v41 = (0, _v3.useRef)(null),
-      _v42 = (0, _v22.getVersionNumber)(_v9 || _v30.DEFAULT_VERSION_NUMBER),
-      _v43 = _v24?.reduce((_v0, _v1) => Math.max(_v0, _v1.sequenceNumber?.toString().length ?? 0), 1) ?? 1,
-      _v44 = _v30.MIN_WIDTH_FOR_SEQUENCE_NUMBER + _v43 * _v30.SEQUENCE_NUMBER_WIDTH_FOR_EACH_DIGIT,
-      _v45 = _v14 ? !!_v15 : !_v4,
-      _v46 = () => {
-        _v39.current && (_v21(!1), _v39.current.click(), _v5 && (0, _v29.bpStartUploadVersion)({
+      _v42 = (0, _v3.useRef)(null),
+      _v43 = (0, _v22.getVersionNumber)(_v9 || _v30.DEFAULT_VERSION_NUMBER),
+      _v44 = _v25?.reduce((_v0, _v1) => Math.max(_v0, _v1.sequenceNumber?.toString().length ?? 0), 1) ?? 1,
+      _v45 = _v30.MIN_WIDTH_FOR_SEQUENCE_NUMBER + _v44 * _v30.SEQUENCE_NUMBER_WIDTH_FOR_EACH_DIGIT,
+      _v46 = _v14 ? !!_v15 : !_v4,
+      _v47 = () => {
+        _v40.current && (_v22(!1), _v40.current.click(), _v5 && (0, _v29.bpStartUploadVersion)({
           videoId: _v0,
-          viewer: _v29,
-          currentVersion: _v42,
+          viewer: _v30,
+          currentVersion: _v43,
           analyticsProps: _v5
         }));
       },
-      _v47 = (0, _v3.useRef)(!1),
+      _v48 = (0, _v3.useRef)(!1),
       {
-        baseUrl: _v48,
-        jwt: _v49
+        baseUrl: _v49,
+        jwt: _v50
       } = (0, _v16.useGctlConfig)(),
       {
-        addNewVersion: _v50
+        addNewVersion: _v51
       } = (0, _v28.useVersionsStore)(_v0 => ({
         addNewVersion: _v0.addNewVersion
       })),
-      _v51 = (0, _v3.useCallback)(() => {
-        0 != _v24.length && (0, _v14.getVideo)({
+      _v52 = (0, _v3.useCallback)(() => {
+        0 != _v25.length && (0, _v14.getVideo)({
           headers: {
             Accept: _v30.API_ACCEPT_HEADER,
-            Authorization: _v49 ? `jwt ${_v49}` : ""
+            Authorization: _v50 ? `jwt ${_v50}` : ""
           },
-          baseUrl: _v48,
+          baseUrl: _v49,
           where: {
             videoId: _v0
           },
           select: ["metadata.connections.versions.currentUri"]
         }).then(_v0 => {
           let _v1 = (0, _v31.idFromUri)(_v0?.metadata?.connections?.versions?.currentUri);
-          (0, _v31.idFromUri)(_v24.at(0)?.uri) < _v1 && (0, _v15.getVideoVersion)({
+          (0, _v31.idFromUri)(_v25.at(0)?.uri) < _v1 && (0, _v15.getVideoVersion)({
             headers: {
               Accept: _v30.API_ACCEPT_HEADER,
-              Authorization: _v49 ? `jwt ${_v49}` : ""
+              Authorization: _v50 ? `jwt ${_v50}` : ""
             },
-            baseUrl: _v48,
+            baseUrl: _v49,
             where: {
               videoId: _v0,
               versionId: _v1
             },
             select: _v30.VIDEO_VERSION_FIELDS
-          }).then(_v0 => _v50(_v0));
+          }).then(_v0 => _v51(_v0));
         });
-      }, [_v50, _v48, _v49, _v24, _v0]);
+      }, [_v51, _v49, _v50, _v25, _v0]);
     return ((0, _v3.useEffect)(() => {
-      _v4 || _v6 ? _v4 && _v47.current && (_v47.current = !1, _v51()) : _v47.current = !0;
-    }, [_v4, _v51, _v6]), (0, _v10.useOutsideClick)({
-      enabled: _v20,
-      ref: _v41,
+      _v4 || _v6 ? _v4 && _v48.current && (_v48.current = !1, _v52()) : _v48.current = !0;
+    }, [_v4, _v52, _v6]), (0, _v10.useOutsideClick)({
+      enabled: _v21,
+      ref: _v42,
       handler: _v0 => {
-        _v40.current && _v0.target && (_v40.current == _v0.target || _v40.current?.contains(_v0.target)) || _v21(!1);
+        _v41.current && _v0.target && (_v41.current == _v0.target || _v41.current?.contains(_v0.target)) || _v22(!1);
       }
     }), (0, _v3.useEffect)(() => {
-      let _v0 = _v37.find(_v22.isUploadActiveOrComplete);
-      _v0?.clipId && _v33 && (_v3 ? _v38.replace({
+      let _v0 = _v38.find(_v22.isUploadActiveOrComplete);
+      _v0?.clipId && _v34 && (_v3 ? _v39.replace({
         pathname: `/manage/videos/${_v0?.clipId}`
-      }) : (_v12?.(), _v34(!1), _v32(null)));
-    }, [_v38, _v37, _v33, _v34, _v3, _v12]), (0, _v3.useEffect)(() => {
-      _v34(!1), _v32(null);
-    }, []), _v2) ? _v26 ? null : (0, _v1.jsx)(_v11.Text, {
+      }) : (_v12?.(), _v35(!1), _v33(null)));
+    }, [_v39, _v38, _v34, _v35, _v3, _v12]), (0, _v3.useEffect)(() => {
+      _v35(!1), _v33(null);
+    }, []), _v2) ? _v27 ? null : (0, _v1.jsx)(_v11.Text, {
       color: "text-secondary",
       variant: "heading-xs",
-      children: _v42
+      children: _v43
     }) : (0, _v1.jsxs)(_v4.Box, {
       children: [(0, _v1.jsxs)(_v6.Menu, {
         placement: "bottom",
-        isOpen: _v20,
+        isOpen: _v21,
         children: [(0, _v1.jsx)(_v7.MenuButton, {
           as: _v5.Button,
           display: "flex",
@@ -211,23 +212,24 @@
           rightIcon: (0, _v1.jsx)(_v12.ChevronDownSmall, {}),
           "data-testid": "version-menu-button",
           onClick: () => {
-            let _v0 = !_v20;
-            _v21(_v0), _v22 || _v23(!0), _v0 && _v5 && (0, _v29.bpOpenVersionList)({
+            let _v0 = !_v21;
+            _v22(_v0), _v23 || _v24(!0), _v0 && _v5 && (0, _v29.bpOpenVersionList)({
               videoId: _v0,
-              viewer: _v29,
-              currentVersion: _v42,
+              viewer: _v30,
+              currentVersion: _v43,
               analyticsProps: _v5
             });
           },
-          ref: _v40,
-          children: _v42
-        }), (0, _v1.jsx)(_v8.MenuList, {
           ref: _v41,
+          isDisabled: _v20,
+          children: _v43
+        }), (0, _v1.jsx)(_v8.MenuList, {
+          ref: _v42,
           p: "0",
           children: (0, _v1.jsx)(_v1.Fragment, {
             children: _v11 < 2 ? (0, _v1.jsx)(_v21.EmptyVersionList, {
               isDisabled: !_v4,
-              openFileUpload: _v46
+              openFileUpload: _v47
             }) : (0, _v1.jsxs)(_v4.Box, {
               width: "440px",
               height: _v19 ? "369px" : "304px",
@@ -236,23 +238,23 @@
                 overflowY: "auto",
                 p: "sm",
                 pb: "0",
-                children: (_v26 || _v6) && !_v27 ? (0, _v1.jsx)(_v24.VersionsSkeleton, {
-                  width: `${_v44}px`
+                children: (_v27 || _v6) && !_v28 ? (0, _v1.jsx)(_v24.VersionsSkeleton, {
+                  width: `${_v45}px`
                 }) : (0, _v1.jsxs)(_v9.MenuOptionGroup, {
-                  defaultValue: _v42,
-                  children: [_v45 && (0, _v1.jsx)(_v24.VersionSkeleton, {
-                    width: `${_v44}px`
-                  }), _v24?.map((_v0, _v1) => {
-                    let _v2 = _v1 === _v24?.length - 1;
+                  defaultValue: _v43,
+                  children: [_v46 && (0, _v1.jsx)(_v24.VersionSkeleton, {
+                    width: `${_v45}px`
+                  }), _v25?.map((_v0, _v1) => {
+                    let _v2 = _v1 === _v25?.length - 1;
                     return _v0.isDeleted ? (0, _v1.jsx)(_v20.DeletedVersion, {
                       index: _v1,
                       isLastElement: _v2,
                       sequenceNumber: _v0.sequenceNumber ?? _v30.DEFAULT_VERSION_NUMBER,
-                      isLoadingMoreVersion: _v27,
-                      ref: _v30,
+                      isLoadingMoreVersion: _v28,
+                      ref: _v31,
                       uri: (0, _v31.formVersionRedirectUri)((0, _v31.idFromUri)(_v0.uri), _v0.toString(), _v1, _v14),
-                      setIsVersionMenuActive: _v21,
-                      sequenceNumberWidth: _v44
+                      setIsVersionMenuActive: _v22,
+                      sequenceNumberWidth: _v45
                     }, `${_v0.uri}-deleted`) : (0, _v1.jsx)(_v23.VersionListItem, {
                       uri: _v0.uri,
                       videoId: _v0,
@@ -264,20 +266,20 @@
                       index: _v1,
                       isActive: _v0?.active,
                       isLastElement: _v2,
-                      isLoadingMoreVersion: _v27,
+                      isLoadingMoreVersion: _v28,
                       createdTime: _v0?.createdTime,
                       uploadDate: _v0?.uploadDate ?? "",
                       userName: _v0?.user?.name ?? "",
-                      ref: _v30,
+                      ref: _v31,
                       versionType: _v0.versionType,
                       versionTranscodeStatus: _v0?.versionTranscodeStatus,
                       downloadConfig: _v0?.downloadConfig,
                       editSession: _v0?.editSession,
-                      setIsVersionMenuActive: _v21,
+                      setIsVersionMenuActive: _v22,
                       thumbnail: _v0?.pictures?.sizes?.[3]?.link ?? _v0?.pictures?.baseLink ?? "",
                       sequenceNumber: _v0?.sequenceNumber ?? null,
-                      sequenceNumberWidth: _v44,
-                      currentVersion: _v42,
+                      sequenceNumberWidth: _v45,
+                      currentVersion: _v43,
                       analyticsProps: _v5,
                       isCurrentVersionEnabled: _v10,
                       revalidateVideoData: _v12,
@@ -296,12 +298,12 @@
                 backdropFilter: "blur(var(--vimeo-blur-lg))",
                 children: (0, _v1.jsx)(_v5.Button, {
                   onClick: () => {
-                    _v46();
+                    _v47();
                   },
                   size: "sm",
                   variant: "secondary",
                   leftIcon: (0, _v1.jsx)(_v13.Plus, {}),
-                  isDisabled: _v26 || !_v4,
+                  isDisabled: _v27 || !_v4,
                   children: (0, _v17.translate)({
                     singular: "New version",
                     dictionary: {
@@ -318,7 +320,7 @@
                         singular: "新しいバージョン"
                       },
                       "ko-KR": {
-                        singular: "신규 버전"
+                        singular: "새 버전"
                       },
                       "pt-BR": {
                         singular: "Nova versão"
@@ -335,28 +337,28 @@
         })]
       }), !_v14 && (0, _v1.jsx)(_v38, {
         attemptReplace: (_v0, _v1) => {
-          _v1 ? (_v32(_v0), _v7?.(!1)) : (_v7?.(!0), _v8?.(!0));
+          _v1 ? (_v33(_v0), _v7?.(!1)) : (_v7?.(!0), _v8?.(!0));
         },
-        ref: _v39,
+        ref: _v40,
         videoId: _v0,
-        quota: _v35,
+        quota: _v36,
         clipHash: _v1
-      }, `file-upload-${_v31?.[0].name}-new-version`), (0, _v1.jsx)(_v32.ConfirmUploadModal, {
+      }, `file-upload-${_v32?.[0].name}-new-version`), (0, _v1.jsx)(_v32.ConfirmUploadModal, {
         onCancel: () => {
-          _v33 || _v32(null);
+          _v34 || _v33(null);
         },
-        onConfirm: () => void (_v31 && (_v34(!0), _v36(_v31, {
+        onConfirm: () => void (_v32 && (_v35(!0), _v37(_v32, {
           uploadType: "replace_clip",
           clipId: _v0
         }), _v5 && (0, _v29.bpCreateVersion)({
           videoId: _v0,
-          viewer: _v29,
-          currentVersion: _v42,
+          viewer: _v30,
+          currentVersion: _v43,
           analyticsProps: _v5
         }))),
-        isOpen: !!_v31 || _v33,
-        fileName: _v31 ? _v31[0].name : "",
-        isLoading: _v33
+        isOpen: !!_v32 || _v34,
+        fileName: _v32 ? _v32[0].name : "",
+        isLoading: _v34
       })]
     });
   }], 0);

@@ -258,7 +258,7 @@
           label: _v26.CREATE_NEW_REVIEW_LINK_COPY,
           onClick: _v37,
           isDisabled: !_v36
-        }), _v47.enable_review_page_shortcut_from_main && _v41 && (0, _v1.jsx)(_v27.Action, {
+        }), _v41 && (0, _v1.jsx)(_v27.Action, {
           icon: (0, _v1.jsx)(_v16.ReviewCheck, {
             boxSize: _v30
           }),
@@ -313,7 +313,7 @@
         label: _v26.CREATE_NEW_REVIEW_LINK_COPY,
         onClick: _v37,
         isDisabled: !_v36
-      }), _v48 && _v47.enable_review_page_shortcut_from_main && _v3 && !_v43 && _v41 && (0, _v1.jsx)(_v27.Action, {
+      }), _v48 && _v3 && !_v43 && _v41 && (0, _v1.jsx)(_v27.Action, {
         icon: (0, _v1.jsx)(_v16.ReviewCheck, {
           boxSize: _v30
         }),

@@ -322,7 +322,7 @@
         isLoading: _v28
       } = (0, _v39.useReplace)(_v1, _v12),
       [_v29, _v30] = (0, _v4.useState)(),
-      _v31 = (0, _v37.getVersionNumber)(_v7 || _v36.DEFAULT_VERSION_NUMBER),
+      _v31 = (0, _v36.getVersionNumber)(_v7 || _v38.DEFAULT_VERSION_NUMBER),
       [_v32, _v33] = (0, _v4.useState)(!1),
       {
         restoreVersion: _v34,
@@ -386,7 +386,7 @@
                 children: _v0
               })
             })
-          }), (0, _v1.jsx)(_v38.VersionList, {
+          }), (0, _v1.jsx)(_v37.VersionList, {
             videoId: _v1,
             clipHash: _v2,
             allowReplace: _v27,

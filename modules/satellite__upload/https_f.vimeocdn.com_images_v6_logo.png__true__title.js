@@ -796,6 +796,7 @@
         },
         isOwner: _v13,
         uploadingFileSize: _v7,
+        quotaTargetUserId: _v3,
         onAllowDownloadsChange: _v0 => _v8({
           download: _v0
         }),

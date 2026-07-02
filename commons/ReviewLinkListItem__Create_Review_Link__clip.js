@@ -28,8 +28,7 @@
     _v25 = _v0.i(0),
     _v26 = _v0.i(0),
     _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
-    _v29 = _v0.i(0);
+    _v28 = _v0.i(0);
   _v0.s(["ReviewLinkListItem", 0, ({
     reviewLink: _v0,
     onDelete: _v1,
@@ -42,37 +41,34 @@
     let _v7,
       _v8 = (0, _v12.useToast)(),
       _v9 = (0, _v2.useRef)(""),
-      _v10 = (0, _v26.useCanUpSell)(),
+      _v10 = (0, _v25.useCanUpSell)(),
       {
         trackReviewLinksCopied: _v11,
         trackReviewLinksMenuActionClicked: _v12,
         trackReviewLinksToggled: _v13
-      } = (0, _v24.useDistributionTracking)(),
+      } = (0, _v23.useDistributionTracking)(),
+      [_v14, _v15] = (0, _v2.useState)(void 0),
       {
-        settings: _v14
-      } = (0, _v23.useOrionSettings)(),
-      [_v15, _v16] = (0, _v2.useState)(void 0),
-      {
-        trackReviewLinkBpEvent: _v17
-      } = (0, _v28.useReviewLinkAnalytics)({
+        trackReviewLinkBpEvent: _v16
+      } = (0, _v27.useReviewLinkAnalytics)({
         resourceId: _v2,
         resourceType: _v3,
         location: "Create_Review_Link",
-        mode: _v15
+        mode: _v14
       }),
-      _v18 = "clip" === _v3 ? (0, _v29.getVideoReviewPageUrl)(_v0.uri, _v2) : "folder" === _v3 && _v5 ? (0, _v29.getFolderReviewPageUrl)(_v0.uri, _v2, _v5) : "",
+      _v17 = "clip" === _v3 ? (0, _v28.getVideoReviewPageUrl)(_v0.uri, _v2) : "folder" === _v3 && _v5 ? (0, _v28.getFolderReviewPageUrl)(_v0.uri, _v2, _v5) : "",
       {
-        editReviewLink: _v19,
-        isPatchApiCallInProgress: _v20,
-        isPatchApiCalled: _v21,
-        isPatchApiError: _v22
-      } = (0, _v27.useEditReviewLink)(_v2, _v3),
-      [_v23, _v24] = (0, _v2.useState)(_v0.isEnabled),
-      _v25 = (_v7 = _v0.expiresOn) && new Date(_v7) < new Date();
+        editReviewLink: _v18,
+        isPatchApiCallInProgress: _v19,
+        isPatchApiCalled: _v20,
+        isPatchApiError: _v21
+      } = (0, _v26.useEditReviewLink)(_v2, _v3),
+      [_v22, _v23] = (0, _v2.useState)(_v0.isEnabled),
+      _v24 = (_v7 = _v0.expiresOn) && new Date(_v7) < new Date();
     return (0, _v2.useEffect)(() => {
-      "copy" === _v15 ? _v17("vimeo.copy_review_link", _v0) : "enable" === _v15 ? _v17("vimeo.enable_review_link", _v0) : "disable" === _v15 && _v17("vimeo.disable_review_link", _v0), _v16(void 0);
-    }, [_v15, _v16, _v0, _v17]), (0, _v2.useEffect)(() => {
-      _v21 && !_v20 && (_v8.close(_v9.current), _v22 ? _v9.current = _v8({
+      "copy" === _v14 ? _v16("vimeo.copy_review_link", _v0) : "enable" === _v14 ? _v16("vimeo.enable_review_link", _v0) : "disable" === _v14 && _v16("vimeo.disable_review_link", _v0), _v15(void 0);
+    }, [_v14, _v15, _v0, _v16]), (0, _v2.useEffect)(() => {
+      _v20 && !_v19 && (_v8.close(_v9.current), _v21 ? _v9.current = _v8({
         title: (0, _v22.translate)({
           singular: "Unable to update. Try again.",
           dictionary: {
@@ -99,7 +95,7 @@
             }
           }
         }),
-        duration: _v29.TOAST_DURATION,
+        duration: _v28.TOAST_DURATION,
         isClosable: !1,
         variant: "warning"
       }) : _v9.current = _v8({
@@ -129,10 +125,10 @@
             }
           }
         }),
-        duration: _v29.TOAST_DURATION,
+        duration: _v28.TOAST_DURATION,
         isClosable: !1
       }));
-    }, [_v22, _v21, _v20]), (0, _v1.jsxs)(_v3.Box, {
+    }, [_v21, _v20, _v19]), (0, _v1.jsxs)(_v3.Box, {
       display: "flex",
       height: "60px",
       justifyContent: "space-between",
@@ -143,14 +139,14 @@
         flexDirection: "column",
         justifyContent: "center",
         gap: "2px",
-        color: _v25 || !_v23 ? "text-secondary" : "text-primary",
+        color: _v24 || !_v22 ? "text-secondary" : "text-primary",
         flexGrow: "1",
         overflow: "hidden",
         children: [(0, _v1.jsxs)(_v3.Box, {
           display: "flex",
           gap: "2px",
           alignItems: "center",
-          children: [(0, _v1.jsx)(_v25.OverflowToolTip, {
+          children: [(0, _v1.jsx)(_v24.OverflowToolTip, {
             labelToolTip: _v0.name,
             placement: "top",
             children: (0, _v1.jsx)(_v10.Text, {
@@ -172,7 +168,7 @@
             boxSize: 12
           }), (0, _v1.jsx)(_v10.Text, {
             variant: "body-sm",
-            children: _v25 ? (0, _v22.translate)({
+            children: _v24 ? (0, _v22.translate)({
               singular: "Expired",
               dictionary: {
                 es: {
@@ -197,7 +193,7 @@
                   singular: "已过期"
                 }
               }
-            }) : _v0.expiresOn ? (0, _v29.formatDate)(_v0.expiresOn) : (0, _v22.translate)({
+            }) : _v0.expiresOn ? (0, _v28.formatDate)(_v0.expiresOn) : (0, _v22.translate)({
               singular: "Does not expire",
               dictionary: {
                 es: {
@@ -262,13 +258,13 @@
             size: "sm",
             "aria-label": "Copy review link",
             icon: (0, _v1.jsx)(_v17.Link, {}),
-            onClick: () => void navigator.clipboard.writeText(_v18).then(() => {
+            onClick: () => void navigator.clipboard.writeText(_v17).then(() => {
               _v11({
                 clipId: "clip" === _v3 ? String(_v2) : void 0,
                 folderId: "folder" === _v3 ? String(_v2) : void 0,
-                reviewId: (0, _v29.reviewIdFromUri)(_v0.uri ?? "") ?? "",
+                reviewId: (0, _v28.reviewIdFromUri)(_v0.uri ?? "") ?? "",
                 surface: "review_links_panel"
-              }), _v16("copy"), _v8({
+              }), _v15("copy"), _v8({
                 title: (0, _v22.translate)({
                   singular: "Link copied",
                   dictionary: {
@@ -295,13 +291,13 @@
                     }
                   }
                 }),
-                duration: _v29.TOAST_DURATION,
+                duration: _v28.TOAST_DURATION,
                 isClosable: !1
               });
             }),
             onFocus: _v0 => _v0.preventDefault()
           })
-        }), _v14.enable_review_page_shortcut_from_main && _v18 && (0, _v1.jsx)(_v11.Tooltip, {
+        }), _v17 && (0, _v1.jsx)(_v11.Tooltip, {
           label: (0, _v22.translate)({
             singular: "Review page",
             dictionary: {
@@ -331,7 +327,7 @@
           placement: "top",
           children: (0, _v1.jsx)(_v4.IconButton, {
             as: "a",
-            href: _v18,
+            href: _v17,
             target: "_blank",
             variant: "tertiary",
             size: "sm",
@@ -382,7 +378,7 @@
               onClick: () => {
                 _v12({
                   clipId: String(_v2),
-                  reviewId: (0, _v29.reviewIdFromUri)(_v0.uri ?? "") ?? "",
+                  reviewId: (0, _v28.reviewIdFromUri)(_v0.uri ?? "") ?? "",
                   reviewLinksAction: "manage"
                 }), _v6(_v0, "edit");
               },
@@ -412,9 +408,9 @@
                   }
                 }
               })
-            }), _v14.enable_review_page_shortcut_from_main && _v18 && (0, _v1.jsx)(_v7.MenuItem, {
+            }), _v17 && (0, _v1.jsx)(_v7.MenuItem, {
               as: "a",
-              href: _v18,
+              href: _v17,
               target: "_blank",
               icon: (0, _v1.jsx)(_v19.ReviewCheck, {}),
               children: (0, _v22.translate)({
@@ -472,7 +468,7 @@
                     }
                   }
                 }),
-                duration: _v29.TOAST_DURATION,
+                duration: _v28.TOAST_DURATION,
                 isClosable: !1
               }))),
               children: (0, _v22.translate)({
@@ -507,7 +503,7 @@
               onClick: () => {
                 _v12({
                   clipId: String(_v2),
-                  reviewId: (0, _v29.reviewIdFromUri)(_v0.uri ?? "") ?? "",
+                  reviewId: (0, _v28.reviewIdFromUri)(_v0.uri ?? "") ?? "",
                   reviewLinksAction: "make_a_copy"
                 }), _v6(_v0, "copy");
               },
@@ -542,7 +538,7 @@
               onClick: () => {
                 _v12({
                   clipId: String(_v2),
-                  reviewId: (0, _v29.reviewIdFromUri)(_v0.uri ?? "") ?? "",
+                  reviewId: (0, _v28.reviewIdFromUri)(_v0.uri ?? "") ?? "",
                   reviewLinksAction: "delete"
                 }), _v1();
               },
@@ -575,47 +571,47 @@
             })]
           })]
         }), (0, _v1.jsx)(_v9.Switch, {
-          isDisabled: !!_v25,
+          isDisabled: !!_v24,
           sx: {
             _disabled: {
               opacity: .6
             }
           },
-          isChecked: _v23,
+          isChecked: _v22,
           onChange: () => {
             let _v0;
-            return _v0 = (0, _v29.reviewIdFromUri)(_v0.uri ?? ""), void (_v13({
+            return _v0 = (0, _v28.reviewIdFromUri)(_v0.uri ?? ""), void (_v13({
               clipId: String(_v2),
-              reviewId: (0, _v29.reviewIdFromUri)(_v0.uri ?? "") ?? "",
-              reviewLinksNewStatus: !_v23
-            }), _v19({
-              isEnabled: !_v23
+              reviewId: (0, _v28.reviewIdFromUri)(_v0.uri ?? "") ?? "",
+              reviewLinksNewStatus: !_v22
+            }), _v18({
+              isEnabled: !_v22
             }, _v0, {
               ..._v0,
-              isEnabled: !_v23
-            }), _v24(!_v23), _v16(_v23 ? "disable" : "enable"));
+              isEnabled: !_v22
+            }), _v23(!_v22), _v15(_v22 ? "disable" : "enable"));
           }
         })]
       })]
     });
   }], 0);
-  var _v30 = _v0.i(0),
+  var _v29 = _v0.i(0),
+    _v30 = _v0.i(0),
     _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0);
+    _v32 = _v0.i(0);
   _v0.s(["useDeleteReviewLink", 0, (_v0, _v1) => ("clip" === _v1 ? _v0 => {
     let [_v1, {
         error: _v2,
         loading: _v3,
         called: _v4
-      }] = (0, _v32.useDeleteVideoReviewLink)(),
+      }] = (0, _v31.useDeleteVideoReviewLink)(),
       {
         revalidateReviewLinks: _v5
-      } = (0, _v33.useGetVideoReviewLinks)(_v0),
+      } = (0, _v32.useGetVideoReviewLinks)(_v0),
       {
         cache: _v6,
         mutate: _v7
-      } = (0, _v30.useSWRConfig)();
+      } = (0, _v29.useSWRConfig)();
     return {
       deleteReviewLink: _v0 => {
         if (_v0) return _v1({
@@ -636,14 +632,14 @@
         error: _v2,
         loading: _v3,
         called: _v4
-      }] = (0, _v31.useDeleteFolderReviewLink)(),
+      }] = (0, _v30.useDeleteFolderReviewLink)(),
       {
         revalidateReviewLinks: _v5
-      } = (0, _v33.useGetFolderReviewLinks)(_v0),
+      } = (0, _v32.useGetFolderReviewLinks)(_v0),
       {
         cache: _v6,
         mutate: _v7
-      } = (0, _v30.useSWRConfig)();
+      } = (0, _v29.useSWRConfig)();
     return {
       deleteReviewLink: _v0 => {
         if (_v0) return _v1({

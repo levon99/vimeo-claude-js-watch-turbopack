@@ -34,9 +34,8 @@
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
     _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  let _v35 = ({
+    _v33 = _v0.i(0);
+  let _v34 = ({
     dateTime: _v0,
     setDateTime: _v1,
     minDateTime: _v2,
@@ -45,31 +44,27 @@
     onPresetChange: _v5
   }) => {
     let _v6,
-      {
-        settings: _v7
-      } = (0, _v34.useOrionSettings)(),
-      [_v8, _v9] = (0, _v2.useState)(!1),
-      [_v10, _v11] = (0, _v2.useState)(0),
-      [_v12, _v13] = (0, _v2.useState)(!1),
+      [_v7, _v8] = (0, _v2.useState)(!1),
+      [_v9, _v10] = (0, _v2.useState)(0),
+      [_v11, _v12] = (0, _v2.useState)(!1),
+      _v13 = (0, _v2.useRef)(null),
       _v14 = (0, _v2.useRef)(null),
       _v15 = (0, _v2.useRef)(null),
-      _v16 = (0, _v2.useRef)(null),
-      _v17 = _v13.DateTime.local(),
-      _v18 = _v0 ? _v13.DateTime.fromISO(_v0) : _v17,
-      _v19 = _v18 ? [new _v23.BokehDate.CalendarDate(_v18.year, _v18.month, _v18.day)] : [],
-      _v20 = _v7?.enable_no_expiration_review_link_option,
-      _v21 = {
-        tomorrow: _v17.plus({
+      _v16 = _v13.DateTime.local(),
+      _v17 = _v0 ? _v13.DateTime.fromISO(_v0) : _v16,
+      _v18 = _v17 ? [new _v23.BokehDate.CalendarDate(_v17.year, _v17.month, _v17.day)] : [],
+      _v19 = {
+        tomorrow: _v16.plus({
           days: 1
         }),
-        week: _v17.plus({
+        week: _v16.plus({
           weeks: 1
         }),
-        month: _v17.plus({
+        month: _v16.plus({
           months: 1
         })
       },
-      _v22 = [{
+      _v20 = [{
         label: (0, _v15.translate)({
           singular: "Tomorrow",
           dictionary: {
@@ -153,7 +148,7 @@
           }
         }),
         value: "month"
-      }, ...(_v20 && !_v3 ? [{
+      }, ...(!_v3 ? [{
         label: (0, _v15.translate)({
           singular: "No expiration",
           dictionary: {
@@ -183,24 +178,24 @@
         value: "never"
       }] : [])].filter(_v0 => {
         if (!_v3 || "never" === _v0.value) return !0;
-        let _v1 = _v21[_v0.value];
+        let _v1 = _v19[_v0.value];
         return !_v1 || _v1.startOf("day") <= _v3.startOf("day");
       });
     return (0, _v30.useOutsideClick)({
-      enabled: _v8,
-      ref: _v14,
+      enabled: _v7,
+      ref: _v13,
       handler: _v0 => {
-        _v0.target && _v15?.current && (_v15.current == _v0.target || _v15?.current?.contains(_v0.target)) || _v9(!1);
+        _v0.target && _v14?.current && (_v14.current == _v0.target || _v14?.current?.contains(_v0.target)) || _v8(!1);
       }
     }), (0, _v30.useOutsideClick)({
-      enabled: _v12,
-      ref: _v14,
+      enabled: _v11,
+      ref: _v13,
       handler: _v0 => {
-        _v0.target && _v16.current && (_v16.current == _v0.target || _v16?.current?.contains(_v0.target)) || _v13(!1);
+        _v0.target && _v15.current && (_v15.current == _v0.target || _v15?.current?.contains(_v0.target)) || _v12(!1);
       }
     }), (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v16.Menu, {
-        isOpen: _v8,
+        isOpen: _v7,
         placement: "bottom-start",
         children: [(0, _v1.jsx)(_v17.MenuButton, {
           as: _v18.Button,
@@ -214,8 +209,8 @@
           rightIcon: (0, _v1.jsx)(_v32.ChevronDownSmall, {
             boxSize: (0, _v10.rem)(20)
           }),
-          onClick: () => _v9(_v0 => !_v0),
-          ref: _v15,
+          onClick: () => _v8(_v0 => !_v0),
+          ref: _v14,
           isDisabled: _v4,
           children: (0, _v1.jsx)(_v7.Text, {
             variant: "heading-xs",
@@ -230,7 +225,7 @@
           paddingY: "xs",
           width: "auto",
           maxWidth: (0, _v10.rem)(350),
-          ref: _v14,
+          ref: _v13,
           children: (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v20.MenuOptionGroup, {
               paddingY: "xs",
@@ -261,26 +256,26 @@
                   }
                 }
               }),
-              children: _v22.map(_v0 => (0, _v1.jsx)(_v28.MenuItem, {
+              children: _v20.map(_v0 => (0, _v1.jsx)(_v28.MenuItem, {
                 padding: "sm",
                 borderRadius: "sm",
                 onClick: () => (_v0 => {
                   if ("never" === _v0) {
-                    _v5?.("no_expiration"), _v1(""), _v9(!1);
+                    _v5?.("no_expiration"), _v1(""), _v8(!1);
                     return;
                   }
-                  let _v1 = _v17;
-                  "tomorrow" === _v0 ? _v1 = _v17.plus({
+                  let _v1 = _v16;
+                  "tomorrow" === _v0 ? _v1 = _v16.plus({
                     days: 1
-                  }) : "week" === _v0 ? _v1 = _v17.plus({
+                  }) : "week" === _v0 ? _v1 = _v16.plus({
                     weeks: 1
-                  }) : "month" === _v0 && (_v1 = _v17.plus({
+                  }) : "month" === _v0 && (_v1 = _v16.plus({
                     months: 1
                   })), _v5?.({
                     tomorrow: "tomorrow",
                     week: "in_1_week",
                     month: "in_1_month"
-                  }[_v0] ?? "custom_date"), _v1(_v1.endOf("day").toISO()), _v11(_v0 => _v0 + 1), _v9(!1);
+                  }[_v0] ?? "custom_date"), _v1(_v1.endOf("day").toISO()), _v10(_v0 => _v0 + 1), _v8(!1);
                 })(_v0.value),
                 children: (0, _v1.jsx)(_v7.Text, {
                   variant: "body-md",
@@ -293,7 +288,7 @@
               padding: "sm",
               as: _v18.Button,
               borderRadius: "sm",
-              onClick: () => void (_v11(_v0 => _v0 + 1), _v13(!0), _v9(!1)),
+              onClick: () => void (_v10(_v0 => _v0 + 1), _v12(!0), _v8(!1)),
               rightIcon: (0, _v1.jsx)(_v33.ChevronRightSmall, {
                 boxSize: (0, _v10.rem)(20)
               }),
@@ -328,7 +323,7 @@
           })
         })]
       }), (0, _v1.jsxs)(_v24.Popover, {
-        isOpen: _v12,
+        isOpen: _v11,
         placement: "bottom",
         matchWidth: !0,
         children: [(0, _v1.jsx)(_v27.PopoverAnchor, {
@@ -342,7 +337,7 @@
           padding: "0px",
           width: (0, _v10.rem)(300),
           maxWidth: (0, _v10.rem)(300),
-          ref: _v16,
+          ref: _v15,
           sx: {
             '[data-part="table-cell"]': {
               width: "xs",
@@ -365,7 +360,7 @@
           },
           children: (0, _v1.jsx)(_v26.PopoverBody, {
             children: (0, _v1.jsx)(_v22.DatePicker, {
-              value: _v19,
+              value: _v18,
               onValueChange: _v0 => {
                 let {
                     day: _v1,
@@ -373,7 +368,7 @@
                     year: _v3
                   } = _v0.value[0],
                   _v4 = new Date(_v3, _v2 - 1, _v1);
-                _v4.setHours(23, 59, 0, 0), _v1(_v4.toISOString()), _v5?.("custom_date"), _v11(_v0 => _v0 + 1), _v13(!1);
+                _v4.setHours(23, 59, 0, 0), _v1(_v4.toISOString()), _v5?.("custom_date"), _v10(_v0 => _v0 + 1), _v12(!1);
               },
               open: !0,
               closeOnSelect: !0,
@@ -391,23 +386,23 @@
                     if (_v0) {
                       let _v0 = _v13.DateTime.fromISO(_v0).startOf("day"),
                         _v1 = _v2.startOf("day"),
-                        _v2 = _v18.startOf("day");
-                      _v2 < _v0 ? (_v1(_v1.endOf("day").toISO()), _v11(_v0 => _v0 + 1), _v13(!1)) : _v2.equals(_v0) && _v13(!1);
+                        _v2 = _v17.startOf("day");
+                      _v2 < _v0 ? (_v1(_v1.endOf("day").toISO()), _v10(_v0 => _v0 + 1), _v12(!1)) : _v2.equals(_v0) && _v12(!1);
                     }
                   }
                 }
               })
-            }, _v10)
+            }, _v9)
           })
         })]
       })]
     });
   };
-  var _v36 = _v0.i(0),
+  var _v35 = _v0.i(0),
+    _v36 = _v0.i(0),
     _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0);
-  function _v40(_v0, _v1) {
+    _v38 = _v0.i(0);
+  function _v39(_v0, _v1) {
     let _v2 = _v0.set({
       hour: 0,
       minute: 0
@@ -421,7 +416,7 @@
             hour: _v1,
             minute: _v2
           } = _v0,
-          _v3 = _v39.TIME_INTERVAL_MINUTES;
+          _v3 = _v38.TIME_INTERVAL_MINUTES;
         return _v2 > 60 - _v3 && _v1++, {
           hour: _v1,
           minute: _v2 = Math.ceil(_v2 / _v3) * _v3 % 60
@@ -436,12 +431,12 @@
       hour: 24,
       minute: 0
     });
-    return _v38.Interval.fromDateTimes(_v2, _v3).splitBy({
-      minutes: _v39.TIME_INTERVAL_MINUTES
+    return _v37.Interval.fromDateTimes(_v2, _v3).splitBy({
+      minutes: _v38.TIME_INTERVAL_MINUTES
     }).map(_v0 => _v0.start);
   }
-  function _v41(_v0) {
-    let _v1 = _v0.replace(/ /g, "").match(_v39.TIME_SEARCH_REGEX);
+  function _v40(_v0) {
+    let _v1 = _v0.replace(/ /g, "").match(_v38.TIME_SEARCH_REGEX);
     if (_v1 && _v1[1]) {
       let _v0 = _v1[1],
         _v1 = _v1[2] ? _v1[2].padEnd(2, "0") : "00",
@@ -450,7 +445,7 @@
     }
     return null;
   }
-  function _v42({
+  function _v41({
     dateTime: _v0,
     setDateTime: _v1,
     isDisabled: _v2 = !1
@@ -464,7 +459,7 @@
       _v11 = (0, _v2.useRef)(null),
       [_v12, _v13] = (0, _v2.useState)(!1),
       _v14 = _v0?.toFormat("h:mm a").toLowerCase() ?? null,
-      _v15 = (0, _v2.useMemo)(() => _v0 && _v7 ? _v40(_v0, _v7) : [], [_v0, _v7]),
+      _v15 = (0, _v2.useMemo)(() => _v0 && _v7 ? _v39(_v0, _v7) : [], [_v0, _v7]),
       _v16 = (0, _v2.useCallback)(_v0 => {
         _v9?.current?.scroll({
           top: _v0?.offsetTop ?? 0,
@@ -482,7 +477,7 @@
       _v18 = (0, _v2.useCallback)(_v0 => {
         let _v1 = _v0.target.value;
         _v6(_v1);
-        let _v2 = _v41(_v1);
+        let _v2 = _v40(_v1);
         if (_v2 && _v9?.current) {
           let _v0 = Array.from(_v9.current.children).find(_v0 => {
             let _v1 = _v0.innerText;
@@ -495,7 +490,7 @@
       }, [_v9, _v16]),
       _v19 = () => {
         if (null !== _v5) {
-          let _v0 = _v41(_v5);
+          let _v0 = _v40(_v5);
           _v0 && _v17(_v0), _v6(null);
         }
       };
@@ -524,7 +519,7 @@
         backgroundColor: "transparent !important",
         border: "1px solid",
         borderColor: "input-stroke",
-        leftIcon: (0, _v1.jsx)(_v37.Clock, {
+        leftIcon: (0, _v1.jsx)(_v36.Clock, {
           height: (0, _v10.rem)(16),
           width: (0, _v10.rem)(16)
         }),
@@ -634,7 +629,7 @@
               children: [(0, _v1.jsx)(_v7.Text, {
                 variant: "body-md",
                 children: _v0.toFormat("h:mm a").toLowerCase()
-              }), _v1 && (0, _v1.jsx)(_v36.CheckSmall, {
+              }), _v1 && (0, _v1.jsx)(_v35.CheckSmall, {
                 boxSize: (0, _v10.rem)(20)
               })]
             }, _v0.toFormat("HH:mm"));
@@ -643,12 +638,12 @@
       })]
     });
   }
-  _v0.s(["buildEventTimeInterval", 0, _v40, "checkIsPastDate", 0, _v0 => {
+  _v0.s(["buildEventTimeInterval", 0, _v39, "checkIsPastDate", 0, _v0 => {
     let _v1 = _v0 ? _v13.DateTime.fromISO(_v0) : null,
       _v2 = _v13.DateTime.local();
     return !!_v1 && !!(_v1 < _v2);
-  }, "parseTimeFromInput", 0, _v41], 0);
-  let _v43 = ({
+  }, "parseTimeFromInput", 0, _v40], 0);
+  let _v42 = ({
     dateTime: _v0,
     onChange: _v1,
     label: _v2,
@@ -714,7 +709,7 @@
           gap: "sm",
           alignItems: _v11 ? "start" : "center",
           direction: _v11 ? "column" : "row",
-          children: [(0, _v1.jsx)(_v35, {
+          children: [(0, _v1.jsx)(_v34, {
             dateTime: _v0,
             minDateTime: _v13.DateTime.local(),
             maxDateTime: _v8 ? _v13.DateTime.fromISO(_v8) : void 0,
@@ -749,7 +744,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v42, {
+          }), (0, _v1.jsx)(_v41, {
             dateTime: _v13.DateTime.fromISO(_v0),
             setDateTime: _v16,
             isDisabled: _v4 && !_v9
@@ -762,14 +757,14 @@
       })]
     });
   };
-  var _v44 = _v0.i(0),
+  var _v43 = _v0.i(0),
+    _v44 = _v0.i(0),
     _v45 = _v0.i(0),
     _v46 = _v0.i(0),
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
-    _v49 = _v0.i(0),
-    _v50 = _v0.i(0);
-  let _v51 = ({
+    _v49 = _v0.i(0);
+  let _v50 = ({
     label: _v0,
     value: _v1,
     onChange: _v2,
@@ -780,12 +775,12 @@
     maxLength: _v7 = 32,
     openUpsellModal: _v8
   }) => {
-    let _v9 = (0, _v47.useToast)(),
+    let _v9 = (0, _v46.useToast)(),
       _v10 = "copy-password-toast",
       _v11 = (0, _v2.useRef)(null),
       {
         width: _v12
-      } = (0, _v46.useSize)(_v11) ?? {
+      } = (0, _v45.useSize)(_v11) ?? {
         width: 89
       },
       [_v13, _v14] = (0, _v2.useState)(!1),
@@ -830,7 +825,7 @@
         display: "flex",
         flexDirection: "column",
         gap: "xs",
-        children: [(0, _v1.jsxs)(_v44.InputGroup, {
+        children: [(0, _v1.jsxs)(_v43.InputGroup, {
           _hover: {
             "& .copy-password-btn": {
               visibility: "visible",
@@ -877,7 +872,7 @@
             isInvalid: _v5,
             onFocus: () => _v16(!0),
             onBlur: () => _v16(!1)
-          }), (0, _v1.jsxs)(_v45.InputRightElement, {
+          }), (0, _v1.jsxs)(_v44.InputRightElement, {
             ref: _v11,
             gap: "sm",
             pr: "3",
@@ -917,7 +912,7 @@
                     }
                   }
                 }),
-                duration: _v50.TOAST_DURATION,
+                duration: _v49.TOAST_DURATION,
                 isClosable: !1
               })),
               variant: "tertiary",
@@ -954,9 +949,9 @@
             }), (0, _v1.jsx)(_v29.Box, {
               onClick: () => _v14(_v0 => !_v0),
               cursor: "pointer",
-              children: _v13 ? (0, _v1.jsx)(_v48.Eye, {
+              children: _v13 ? (0, _v1.jsx)(_v47.Eye, {
                 boxSize: (0, _v10.rem)(14)
-              }) : (0, _v1.jsx)(_v49.EyeShut, {
+              }) : (0, _v1.jsx)(_v48.EyeShut, {
                 boxSize: (0, _v10.rem)(14)
               })
             })]
@@ -1052,7 +1047,7 @@
           })]
         });
       case "dateTime":
-        return (0, _v1.jsx)(_v43, {
+        return (0, _v1.jsx)(_v42, {
           showUpsell: _v13,
           openUpsellModal: _v6,
           isDisabled: _v14,
@@ -1066,7 +1061,7 @@
           onPresetChange: _v7
         });
       case "password":
-        return (0, _v1.jsx)(_v51, {
+        return (0, _v1.jsx)(_v50, {
           isInvalid: _v2,
           openUpsellModal: _v6,
           label: String(_v8),

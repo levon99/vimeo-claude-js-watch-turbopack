@@ -354,9 +354,13 @@
         _v7 = !!_v6?.metadata?.interactions?.edit?.uri,
         _v8 = (0, _v72.idFromUri)(_v6?.uri),
         {
-          triggerReplace: _v9,
-          replaceInput: _v10
-        } = (0, _v71.useReplaceUpload)(_v8);
+          settings: _v9
+        } = (0, _v44.useOrionSettings)(),
+        {
+          triggerReplace: _v10,
+          replaceInput: _v11,
+          replaceModal: _v12
+        } = (0, _v71.useReplaceWithModal)(_v8, !!_v9?.new_replace_feature, _v6?.metadata?.connections?.versions?.hasInteractive);
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v69.VideoMenu, {
           ..._v4(_v0, _v1, _v2, _v3),
@@ -365,8 +369,8 @@
           ..._v5("video", _v6, !0),
           size: "sm",
           canReplace: !!_v6?.metadata?.canBeReplaced && _v7 && _v6?.status === "available",
-          onReplace: _v9
-        }), _v10]
+          onReplace: _v10
+        }), _v11, _v12]
       });
     },
     _v97 = ({

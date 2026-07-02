@@ -3696,6 +3696,7 @@
       },
       isOwner: _v14,
       uploadingFileSize: _v7,
+      quotaTargetUserId: _v3,
       onAllowDownloadsChange: _v0 => _v8({
         download: _v0
       }),
@@ -4048,7 +4049,7 @@
             });
           }
           if (_v7) {
-            let _v0 = _v26?.user?.uploadQuota?.restricted;
+            let _v0 = _v28.restricted;
             if (_v0?.max != null) {
               let _v0 = _v4?.view ?? "anybody",
                 _v1 = _v4?.embed ?? "public";
@@ -4059,7 +4060,7 @@
             }
           }
           return _v7;
-        }, [_v29, _v28.used, _v28.totalCap, _v28.dailyCountAvailable, _v28.available, _v26?.user?.uploadQuota, _v26?.jwt, _v26?.xsrft, _v27, _v30, _v43, _v4?.view, _v4?.embed]);
+        }, [_v29, _v28.used, _v28.totalCap, _v28.dailyCountAvailable, _v28.available, _v28.restricted, _v26?.user?.uploadQuota, _v26?.jwt, _v26?.xsrft, _v27, _v30, _v43, _v4?.view, _v4?.embed]);
       return (0, _v6.useEffect)(() => {
         _v27 && _v123.BigPictureClient.sendEvent(new _v124.Event("visit_upload_page", 2, {
           referrer: document.referrer,

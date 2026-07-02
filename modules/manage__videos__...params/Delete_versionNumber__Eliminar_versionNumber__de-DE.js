@@ -61,7 +61,7 @@
           singular: "Supprimer {versionNumber}"
         },
         "ja-JP": {
-          singular: "{versionNumber}を削除"
+          singular: "{versionNumber} を削除"
         },
         "ko-KR": {
           singular: "{versionNumber} 삭제"
@@ -130,10 +130,10 @@
                     singular: "{FILE_NAME} sera définitivement supprimé"
                   },
                   "ja-JP": {
-                    singular: "{FILE_NAME}は完全に削除されます"
+                    singular: "{FILE_NAME} は完全に削除されます"
                   },
                   "ko-KR": {
-                    singular: "{FILE_NAME}이(가) 영구적으로 삭제됩니다."
+                    singular: "{FILE_NAME}이(가) 영구적으로 삭제됩니다"
                   },
                   "pt-BR": {
                     singular: "{FILE_NAME} será excluído permanentemente"
@@ -150,10 +150,10 @@
                 singular: "The video file associated with this version will be permanently deleted",
                 dictionary: {
                   es: {
-                    singular: "El archivo de video asociado con esta versión se eliminará de forma permanente."
+                    singular: "El archivo de video asociado con esta versión se eliminará permanentemente"
                   },
                   "de-DE": {
-                    singular: "Die mit dieser Version verknüpfte Videodatei wird unwiderruflich gelöscht"
+                    singular: "Die mit dieser Version verknüpfte Videodatei wird dauerhaft gelöscht"
                   },
                   "fr-FR": {
                     singular: "Le fichier vidéo associé à cette version sera définitivement supprimé"
@@ -162,7 +162,7 @@
                     singular: "このバージョンに関連付けられた動画ファイルは完全に削除されます"
                   },
                   "ko-KR": {
-                    singular: "이 버전에 연결된 동영상 파일은 영구적으로 삭제됩니다."
+                    singular: "이 버전과 연결된 비디오 파일은 영구적으로 삭제됩니다"
                   },
                   "pt-BR": {
                     singular: "O arquivo de vídeo associado a esta versão será excluído permanentemente"
@@ -430,19 +430,19 @@
           },
           dictionary: {
             es: {
-              singular: "No se puede eliminar {versionNumber}. {LINK}Vuelva a intentarlo{/LINK}."
+              singular: "No se pudo eliminar {versionNumber}. {LINK}Inténtalo de nuevo{/LINK}"
             },
             "de-DE": {
-              singular: "{versionNumber} kann nicht gelöscht werden. {LINK}Erneut versuchen{/LINK}"
+              singular: "Konnte {versionNumber} nicht löschen. {LINK}Erneut versuchen{/LINK}"
             },
             "fr-FR": {
               singular: "Impossible de supprimer {versionNumber}. {LINK}Réessayez{/LINK}"
             },
             "ja-JP": {
-              singular: "{versionNumber}を削除できません。{LINK}もう一度お試しください{/LINK}"
+              singular: "{versionNumber} を削除できませんでした。{LINK}もう一度お試しください{/LINK}"
             },
             "ko-KR": {
-              singular: "{versionNumber}을(를) 삭제할 수 없습니다. {LINK}다시 시도해 주세요.{/LINK}"
+              singular: "{versionNumber}을(를) 삭제할 수 없습니다. {LINK}다시 시도해 주세요{/LINK}"
             },
             "pt-BR": {
               singular: "Não foi possível excluir {versionNumber}. {LINK}Tente novamente{/LINK}"
@@ -469,13 +469,13 @@
               singular: "{versionNumber} gelöscht"
             },
             "fr-FR": {
-              singular: "{versionNumber} a été supprimé"
+              singular: "{versionNumber} supprimée"
             },
             "ja-JP": {
-              singular: "{versionNumber}を削除しました"
+              singular: "{versionNumber} が削除されました"
             },
             "ko-KR": {
-              singular: "{versionNumber}이(가) 삭제되었습니다."
+              singular: "{versionNumber}이 삭제되었습니다"
             },
             "pt-BR": {
               singular: "{versionNumber} excluído"

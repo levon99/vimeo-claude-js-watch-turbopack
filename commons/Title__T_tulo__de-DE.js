@@ -394,9 +394,8 @@
     let {
         trackReviewVideoPlayed: _v52
       } = (0, _v8.useReviewTracking)(),
-      _v53 = _v49.review_accountless_comment_redesign,
-      _v54 = _v48?.user?.uploadQuota?.space?.unit === "video_size" ? "storage_limit" : "quota",
-      _v55 = ((_v0, _v1) => {
+      _v53 = _v48?.user?.uploadQuota?.space?.unit === "video_size" ? "storage_limit" : "quota",
+      _v54 = ((_v0, _v1) => {
         if (_v0) return "45vh";
         let _v2 = _v25.VERSION_PAGE_HEADER_HEIGHT + 48;
         return _v1 && (_v2 += 64), _v27 ? _v2 += 38 : _v2 += 72, `calc(100vh - ${_v2}px)`;
@@ -413,12 +412,12 @@
       };
     }, []);
     let {
-        player: _v56
+        player: _v55
       } = (0, _v9.usePlayer)(_v33, Number(_v0), !0, _v20 ?? "", !1),
-      [_v57, _v58] = (0, _v2.useState)(0);
+      [_v56, _v57] = (0, _v2.useState)(0);
     (0, _v2.useEffect)(() => {
       let _v0 = _v0 => {
-          _v58(_v0.seconds);
+          _v57(_v0.seconds);
         },
         _v1 = () => {
           _v52({
@@ -427,19 +426,19 @@
             clipOwnerId: _v30 ?? null
           });
         };
-      return _v56?.ready?.(() => {
-        _v47(!0), _v56.on("pause", _v0), _v56.on("seeked", _v0), _v56.on("play", _v1);
+      return _v55?.ready?.(() => {
+        _v47(!0), _v55.on("pause", _v0), _v55.on("seeked", _v0), _v55.on("play", _v1);
       }), () => {
-        _v47(!1), _v56?.off && (_v56.off("pause", _v0), _v56.off("seeked", _v0), _v56.off("play", _v1));
+        _v47(!1), _v55?.off && (_v55.off("pause", _v0), _v55.off("seeked", _v0), _v55.off("play", _v1));
       };
-    }, [_v56]);
-    let _v59 = (0, _v2.useCallback)(_v0 => {
-        _v46 && _v56.seekTo(_v0);
-      }, [_v56, _v46]),
-      _v60 = (0, _v2.useCallback)(() => {
-        _v46 && _v56.pause();
-      }, [_v56, _v46]),
-      _v61 = (0, _v2.useMemo)(() => ({
+    }, [_v55]);
+    let _v58 = (0, _v2.useCallback)(_v0 => {
+        _v46 && _v55.seekTo(_v0);
+      }, [_v55, _v46]),
+      _v59 = (0, _v2.useCallback)(() => {
+        _v46 && _v55.pause();
+      }, [_v55, _v46]),
+      _v60 = (0, _v2.useMemo)(() => ({
         headerText: (0, _v6.translate)({
           singular: "Upgrade to unlock more video tools",
           dictionary: {
@@ -487,7 +486,7 @@
           }
         })
       }), []),
-      _v62 = (0, _v2.useMemo)(() => ({
+      _v61 = (0, _v2.useMemo)(() => ({
         params: {
           page: _v33.VIDEO_VERSION_PAGE_NAME,
           feature: _v33.FEATURE_VERSION_HISTORY,
@@ -498,7 +497,7 @@
           paywallTrigger: "review_player_quota_limit_button",
           paywallLocation: "review_player",
           paywallType: "popup",
-          paywallFeature: _v54
+          paywallFeature: _v53
         },
         onOpen: () => {
           _v21 && (0, _v33.sendBpUpsellEvent)({
@@ -525,9 +524,9 @@
             eventVersion: _v33.UPGRADE_ACTION_GROUP_EVENT_VERSION
           });
         }
-      }), [_v21, _v54, _v48]),
-      _v63 = _v2 && _v3 ? _v2 / _v3 : _v25.DEFAULT_ASPECT_RATIO,
-      _v64 = _v25 ?? {
+      }), [_v21, _v53, _v48]),
+      _v62 = _v2 && _v3 ? _v2 / _v3 : _v25.DEFAULT_ASPECT_RATIO,
+      _v63 = _v25 ?? {
         paddingX: _v18 ? "0px" : "lg",
         paddingBottom: _v18 ? "0px" : "lg",
         paddingTop: _v18 ? "0px" : "lg"
@@ -536,7 +535,7 @@
       width: "100%",
       direction: _v18 ? "column" : "row",
       flexGrow: 1,
-      ..._v64,
+      ..._v63,
       children: [(0, _v1.jsxs)(_v3.Flex, {
         direction: "column",
         gap: _v18 ? "md" : "lg",
@@ -567,26 +566,26 @@
               }
             })
           }), _v28 ? (0, _v1.jsx)(_v4.Box, {
-            height: _v55,
+            height: _v54,
             children: (0, _v1.jsx)(_v32, {})
           }) : (0, _v1.jsx)(_v11.TourStep, {
             step: _v17.ReviewTour.player,
             children: (0, _v1.jsx)(_v10.PlayerAdvancedControls, {
               width: "100%",
-              player: _v56,
+              player: _v55,
               isShown: !!_v7 && !_v18,
               isShowAdvancedPlayBar: _v29,
               onControlsHeightChange: _v40,
               enableLinks: !0,
               onPlaybackRateChange: _v31,
               children: (0, _v1.jsx)(_v16.ReviewPlayer, {
-                videoAspectRatio: _v63,
-                playerMaxHeight: `calc(${_v55} - ${_v39}px)`,
+                videoAspectRatio: _v62,
+                playerMaxHeight: `calc(${_v54} - ${_v39}px)`,
                 containerRef: _v32,
                 isMobile: _v18,
                 isDeleted: _v14,
                 playerElementRef: _v33,
-                player: _v56,
+                player: _v55,
                 showComments: !!_v7,
                 clipRequestId: _v35,
                 teamAccentColor: _v34,
@@ -615,7 +614,7 @@
         children: (0, _v1.jsx)(_v19.CommentsPanel, {
           clipId: _v0,
           clipHash: _v1,
-          onMomentPlay: _v59,
+          onMomentPlay: _v58,
           videoVersionUri: _v6,
           closeDrawer: _v4,
           isMobile: _v18,
@@ -624,9 +623,8 @@
           analyticsProps: _v21,
           isPreviousVersion: _v23,
           showResolvedComments: _v26,
-          accountlessCommentRedesignEnabled: _v53,
-          commentTimeCode: _v57,
-          pausePlayer: _v60
+          commentTimeCode: _v56,
+          pausePlayer: _v59
         })
       }), _v44 && _v48 && (0, _v1.jsx)(_v14.default, {
         apiUrl: _v48.apiUrl,
@@ -635,9 +633,9 @@
           userId: _v48.user?.id
         },
         templateType: "default",
-        modalConfig: _v61,
+        modalConfig: _v60,
         onClose: () => _v45(!1),
-        tracking: _v62
+        tracking: _v61
       })]
     });
   }], 0);

@@ -260,25 +260,25 @@
         singular: "Add a new version and keep the same link",
         dictionary: {
           es: {
-            singular: "Añada una nueva versión y mantenga el mismo enlace"
+            singular: "Agregar una nueva versión y mantener el mismo enlace"
           },
           "de-DE": {
-            singular: "Fügen Sie eine neue Version hinzu und behalten Sie denselben Link bei"
+            singular: "Neue Version hinzufügen und denselben Link beibehalten"
           },
           "fr-FR": {
-            singular: "Ajoutez une nouvelle version et conservez le même lien"
+            singular: "Ajouter une nouvelle version et conserver le même lien"
           },
           "ja-JP": {
-            singular: "新しいバージョンを追加して同じリンクを維持"
+            singular: "新しいバージョンを追加して同じリンクを維持する"
           },
           "ko-KR": {
-            singular: "새 버전을 추가해도 링크는 동일하게 유지됩니다."
+            singular: "새 버전을 추가하고 동일한 링크를 유지합니다"
           },
           "pt-BR": {
-            singular: "Adicione uma nova versão e mantenha o mesmo link"
+            singular: "Adicionar uma nova versão e manter o mesmo link"
           },
           "zh-CN": {
-            singular: "添加新版本并保留相同的链接"
+            singular: "添加新版本并保留相同链接"
           }
         }
       })
@@ -307,7 +307,7 @@
             singular: "新しいバージョン"
           },
           "ko-KR": {
-            singular: "신규 버전"
+            singular: "새 버전"
           },
           "pt-BR": {
             singular: "Nova versão"

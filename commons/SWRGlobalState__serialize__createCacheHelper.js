@@ -3,41 +3,39 @@
 
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
-    _v3 = _v0.i(0);
-  _v0.s(["UNDEFINED", () => _v3.U], 0);
-  var _v3 = _v3,
-    _v4 = _v3,
-    _v5 = _v3,
-    _v6 = _v3,
+    _v3 = _v0.i(0),
+    _v4 = _v0.i(0),
+    _v5 = _v0.i(0),
+    _v6 = _v0.i(0),
     _v7 = _v0.i(0),
-    _v8 = _v3;
+    _v8 = _v0.i(0);
   _v0.s(["SWRGlobalState", () => _v8.b], 0);
-  var _v8 = _v3,
-    _v9 = _v3;
+  var _v8 = _v8,
+    _v9 = _v8;
   _v0.s(["serialize", () => _v9.s], 0);
-  var _v9 = _v3,
-    _v10 = _v3;
+  var _v9 = _v8,
+    _v10 = _v8;
   _v0.s(["createCacheHelper", () => _v10.z], 0);
-  var _v10 = _v3,
-    _v11 = _v3;
+  var _v10 = _v8,
+    _v11 = _v8;
   _v0.s(["isUndefined", () => _v11.e], 0);
-  var _v11 = _v3,
-    _v12 = _v3,
-    _v13 = _v3,
-    _v14 = _v3,
-    _v15 = _v3,
-    _v16 = _v3;
+  var _v11 = _v8,
+    _v12 = _v8,
+    _v13 = _v8,
+    _v14 = _v8,
+    _v15 = _v8,
+    _v16 = _v8;
   _v0.s(["isFunction", () => _v16.a], 0);
-  var _v16 = _v3,
+  var _v16 = _v8,
     _v17 = _v0.i(0),
     _v17 = _v17,
-    _v18 = _v3,
-    _v19 = _v3;
+    _v18 = _v8,
+    _v19 = _v8;
   _v0.s(["useIsomorphicLayoutEffect", () => _v19.u], 0);
-  var _v19 = _v3,
-    _v20 = _v3,
-    _v21 = _v3,
-    _v22 = _v3;
+  var _v19 = _v8,
+    _v20 = _v8,
+    _v21 = _v8,
+    _v22 = _v8;
   let _v23 = () => {},
     _v24 = _v23(),
     _v25 = (new WeakMap(), _v1.default.use || (_v0 => {
@@ -59,10 +57,10 @@
     _v26 = {
       dedupe: !0
     },
-    _v27 = Promise.resolve(_v3.U),
+    _v27 = Promise.resolve(_v3.UNDEFINED),
     _v28 = () => _v14.A,
-    _v29 = _v4.O.defineProperty(_v5.g, "defaultValue", {
-      value: _v6.d
+    _v29 = _v4.OBJECT.defineProperty(_v5.SWRConfig, "defaultValue", {
+      value: _v6.defaultConfig
     }),
     _v30 = (0, _v7.withArgs)((_v0, _v1, _v2) => {
       let {
@@ -88,7 +86,7 @@
         _v25 = () => _v24.current.isVisible() && _v24.current.isOnline(),
         [_v26, _v27, _v28, _v29] = (0, _v10.z)(_v3, _v18),
         _v30 = (0, _v1.useRef)({}).current,
-        _v31 = (0, _v11.e)(_v6) ? (0, _v11.e)(_v2.fallback) ? _v3.U : _v2.fallback[_v18] : _v6,
+        _v31 = (0, _v11.e)(_v6) ? (0, _v11.e)(_v2.fallback) ? _v3.UNDEFINED : _v2.fallback[_v18] : _v6,
         _v32 = (_v0, _v1) => {
           for (let _v0 in _v30) if ("data" === _v0) {
             if (!_v4(_v0[_v0], _v1[_v0]) && (!(0, _v11.e)(_v0[_v0]) || !_v4(_v41, _v1[_v0]))) return !1;
@@ -166,7 +164,7 @@
             if (_v6 && (_v27(_v11), _v2.loadingTimeout && (0, _v11.e)(_v26().data) && setTimeout(() => {
               _v4 && _v7() && _v24.current.onLoadingSlow(_v18, _v2);
             }, _v2.loadingTimeout), _v16[_v18] = [_v3(_v19), (0, _v15.o)()]), [_v1, _v2] = _v16[_v18], _v1 = await _v1, _v6 && setTimeout(_v10, _v2.dedupingInterval), !_v16[_v18] || _v16[_v18][1] !== _v2) return _v6 && _v7() && _v24.current.onDiscarded(_v18), !1;
-            _v8.error = _v3.U;
+            _v8.error = _v3.UNDEFINED;
             let _v0 = _v15[_v18];
             if (!(0, _v11.e)(_v0) && (_v2 <= _v0[0] || _v2 <= _v0[1] || 0 === _v0[1])) return _v9(), _v6 && _v7() && _v24.current.onDiscarded(_v18), !1;
             let _v1 = _v26().data;
@@ -192,7 +190,7 @@
         _v23.current = _v1, _v24.current = _v2, (0, _v11.e)(_v37) || (_v40.current = _v37);
       }), (0, _v19.u)(() => {
         if (!_v18) return;
-        let _v0 = _v49.bind(_v3.U, _v26),
+        let _v0 = _v49.bind(_v3.UNDEFINED, _v26),
           _v1 = 0;
         _v24.current.revalidateOnFocus && (_v1 = Date.now() + _v24.current.focusThrottleInterval);
         let _v2 = (0, _v7.subscribeCallback)(_v18, _v14, (_v0, _v1 = {}) => {
