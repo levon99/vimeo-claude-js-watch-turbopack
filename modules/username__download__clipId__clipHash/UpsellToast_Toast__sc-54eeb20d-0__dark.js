@@ -2791,32 +2791,33 @@
       this.props.onMount();
     }
     render() {
-      var _v0, _v1, _v2;
-      let _v3,
-        {
-          isLoading: _v4,
-          file: _v5,
-          thumbnail: _v6,
-          aspectRatio: _v7
-        } = this.props;
-      return _v4 ? (0, _v10.jsx)(_v191, {
-        aspectRatio: _v7,
+      let {
+        isLoading: _v0,
+        file: _v1,
+        thumbnail: _v2,
+        aspectRatio: _v3
+      } = this.props;
+      return _v0 ? (0, _v10.jsx)(_v191, {
+        aspectRatio: _v3,
         children: (0, _v10.jsx)(_v70.Spinner, {})
       }) : (0, _v10.jsxs)(_v191, {
-        aspectRatio: _v7,
+        aspectRatio: _v3,
         children: [(0, _v10.jsx)(_v192, {
-          url: _v6
+          url: _v2
         }), (0, _v10.jsxs)(_v193, {
           children: [(0, _v10.jsxs)(_v194, {
             size: "3",
-            aspectRatio: _v7,
+            aspectRatio: _v3,
             children: [(0, _v10.jsx)("span", {
-              children: (_v0 = _v5.baseFileName).length <= 15 ? _v0 : _v0.slice(0, _v0.length - 6)
+              children: ((_v0 = "") => _v0.length <= 15 ? _v0 : _v0.slice(0, _v0.length - 6))(_v1.baseFileName)
             }), (0, _v10.jsx)("span", {
-              children: (_v1 = _v5.baseFileName, _v3 = (_v2 = _v5.extension) && _v2.length > 0 ? `.${_v2.toLowerCase()}` : "", _v1.length <= 15 ? _v3 : `${_v1.slice(_v1.length - 6)}${_v3}`)
+              children: ((_v0 = "", _v1) => {
+                let _v2 = _v1 && _v1.length > 0 ? `.${_v1.toLowerCase()}` : "";
+                return _v0.length <= 15 ? _v2 : `${_v0.slice(_v0.length - 6)}${_v2}`;
+              })(_v1.baseFileName, _v1.extension)
             })]
           }), (0, _v10.jsx)(_v145, {
-            ..._v5
+            ..._v1
           })]
         })]
       });

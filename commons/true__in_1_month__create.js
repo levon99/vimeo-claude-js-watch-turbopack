@@ -824,7 +824,7 @@
             showUpsell: _v12,
             upsellName: "review_link_dark_mode",
             isDisabled: _v12
-          }, ...(_v11.enable_review_link_end_cards ? [{
+          }, {
             label: (0, _v16.translate)({
               singular: "Show other videos after playback",
               dictionary: {
@@ -882,8 +882,8 @@
             showUpsell: _v12,
             upsellName: "review_link_end_cards",
             isDisabled: _v12
-          }] : [])]
-        }], [_v12, _v14, _v13, _v11.enable_review_link_end_cards, _v5, _v6]);
+          }]
+        }], [_v12, _v14, _v13, _v5, _v6]);
       return (0, _v4.useEffect)(() => {
         _v48.forEach(_v0 => {
           _v0.fields.forEach(_v0 => {
@@ -1110,7 +1110,7 @@
                     };
                     Object.keys(_v0).forEach(_v0 => {
                       "" === _v0[_v0] && (_v0[_v0] = null);
-                    }), _v11.enable_review_link_end_cards ? _v12 && "edit" === _v5 && delete _v0.hideEndCards : delete _v0.hideEndCards;
+                    }), _v12 && "edit" === _v5 && delete _v0.hideEndCards;
                     let _v1 = !!_v11.enable_review_link_default_settings && _v33;
                     "edit" === _v5 ? ((_v0, _v1) => {
                       if (_v6?.uri) {

@@ -115,7 +115,8 @@
       hasReachedMaxSelectionForMove: _v26,
       hasReachedMaxSelectionForPrivacy: _v27,
       hasReachedMaxSelectionForSentimentWidget: _v28,
-      hasReachedMaxSelectionForShowcases: _v29
+      hasReachedMaxSelectionForShowcases: _v29,
+      maxBulkActionSelection: (0, _v1.useMemo)(() => Math.max(_v3.MAX_SELECTION_FOR_BULK_MOVE, _v25, _v3.MAX_SELECTION_FOR_BULK_ADD_TO_SHOWCASES), [_v25])
     };
   }]);
 }
