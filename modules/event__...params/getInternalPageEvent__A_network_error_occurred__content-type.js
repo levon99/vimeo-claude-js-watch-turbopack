@@ -1318,7 +1318,7 @@
         },
         _v26 = {
           product: "workflow",
-          video_id: _v13 ? String(_v63(_v13.uri)) : "",
+          video_id: _v13?.uri ? String(_v63(_v13.uri)) : "",
           video_type: _v24,
           ..._v25
         };

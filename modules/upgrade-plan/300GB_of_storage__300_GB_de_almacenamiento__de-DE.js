@@ -3,29 +3,29 @@
 
   var _v1 = _v0.i(0);
   let _v2 = {
-      professional: [(0, _v1.translate)({
-        singular: "7TB of storage",
+      core: [(0, _v1.translate)({
+        singular: "300GB of storage",
         dictionary: {
           es: {
-            singular: "7TB de almacenamiento"
+            singular: "300 GB de almacenamiento"
           },
           "de-DE": {
-            singular: "7TB Speicher"
+            singular: "300 GB Speicherplatz"
           },
           "fr-FR": {
-            singular: "7 To de stockage"
+            singular: "300 Go de stockage"
           },
           "ja-JP": {
-            singular: "7TB のストレージ"
+            singular: "300GBのストレージ"
           },
           "ko-KR": {
-            singular: "7TB 저장 용량"
+            singular: "300GB 저장 공간"
           },
           "pt-BR": {
-            singular: "7TB de armazenamento"
+            singular: "300GB de armazenamento"
           },
           "zh-CN": {
-            singular: "7TB 存储"
+            singular: "300GB 存储空间"
           }
         }
       }), (0, _v1.translate)({
@@ -51,6 +51,107 @@
           },
           "zh-CN": {
             singular: "每月 2TB 带宽"
+          }
+        }
+      }), (0, _v1.translate)({
+        singular: "Brand kit",
+        dictionary: {
+          es: {
+            singular: "Kit de marca"
+          },
+          "de-DE": {
+            singular: "Brand Kit"
+          },
+          "fr-FR": {
+            singular: "Kit de marque"
+          },
+          "ja-JP": {
+            singular: "ブランドキット"
+          },
+          "ko-KR": {
+            singular: "브랜드 키트"
+          },
+          "pt-BR": {
+            singular: "Kit de marca"
+          },
+          "zh-CN": {
+            singular: "品牌工具包"
+          }
+        }
+      }), (0, _v1.translate)({
+        singular: "Custom fonts",
+        dictionary: {
+          es: {
+            singular: "Fuentes personalizadas"
+          },
+          "de-DE": {
+            singular: "Benutzerdefinierte Schriftarten"
+          },
+          "fr-FR": {
+            singular: "Personnaliser les polices"
+          },
+          "ja-JP": {
+            singular: "カスタムフォント"
+          },
+          "ko-KR": {
+            singular: "커스텀 폰트"
+          },
+          "pt-BR": {
+            singular: "Fontes customizadas"
+          },
+          "zh-CN": {
+            singular: "自定义字体"
+          }
+        }
+      }), (0, _v1.translate)({
+        singular: "Unlisted links for sharing",
+        dictionary: {
+          es: {
+            singular: "Enlaces no listados para compartir"
+          },
+          "de-DE": {
+            singular: "Nicht gelistete Links zum Teilen"
+          },
+          "fr-FR": {
+            singular: "Liens non répertoriés pour le partage"
+          },
+          "ja-JP": {
+            singular: "共有用の非公開リンク"
+          },
+          "ko-KR": {
+            singular: "공유용 비공개 링크"
+          },
+          "pt-BR": {
+            singular: "Links não listados para compartilhamento"
+          },
+          "zh-CN": {
+            singular: "用于共享的未列出链接"
+          }
+        }
+      })],
+      professional: [(0, _v1.translate)({
+        singular: "7TB of storage",
+        dictionary: {
+          es: {
+            singular: "7TB de almacenamiento"
+          },
+          "de-DE": {
+            singular: "7TB Speicher"
+          },
+          "fr-FR": {
+            singular: "7 To de stockage"
+          },
+          "ja-JP": {
+            singular: "7TB のストレージ"
+          },
+          "ko-KR": {
+            singular: "7TB 저장 용량"
+          },
+          "pt-BR": {
+            singular: "7TB de armazenamento"
+          },
+          "zh-CN": {
+            singular: "7TB 存储"
           }
         }
       }), (0, _v1.translate)({
@@ -941,7 +1042,7 @@
         }
       })]
     },
-    _v3 = [["creator", "professional", "studio", "production"], ["starter", "standard", "advanced"], ["plus", "pro", "business", "livePremium"]],
+    _v3 = [["creator", "core", "professional", "studio", "production"], ["starter", "standard", "advanced"], ["plus", "pro", "business", "livePremium"]],
     _v4 = _v0 => _v0.replace(/_([a-z])/g, (_v0, _v1) => _v1.toUpperCase());
   _v0.s(["MAX_LOST_FEATURES", 0, 5, "getLostFeatures", 0, (_v0, _v1) => {
     let _v2 = _v4(_v1),

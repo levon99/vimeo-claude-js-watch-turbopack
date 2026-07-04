@@ -12837,7 +12837,11 @@
           }(),
           _v4 = (0, _v24.useViewer)(),
           [_v5] = (0, _v288.useMediaQuery)("(max-width: 375px)"),
-          _v6 = (0, _v161.useColorModeValue)("text-secondary", "text-primary");
+          _v6 = (0, _v161.useColorModeValue)("text-secondary", "text-primary"),
+          {
+            settings: _v7
+          } = (0, _v16.useOrionSettings)(),
+          _v8 = "standard" === _v7.hp_feed_standard_carousel;
         if (_v180("my_feed_widget", _v0, _v3, _v1, {
           isEmptyState: !1,
           productAnalyticsContextProduct: "viewer_home",
@@ -12943,8 +12947,8 @@
             })
           })
         });
-        let _v7 = "/my-feed",
-          _v8 = (0, _v41.translate)({
+        let _v9 = "/my-feed",
+          _v10 = (0, _v41.translate)({
             singular: "Remarkable creators.{BR}Daily inspiration.",
             replacements: {
               BR: () => (0, _v1.jsx)("br", {})
@@ -12972,6 +12976,60 @@
                 singular: "杰出创建者。{BR}每日灵感。"
               }
             }
+          }),
+          _v11 = _v2?.map(_v0 => {
+            let _v1 = (0, _v41.translate)({
+                singular: "{COUNT} view",
+                plural: "{COUNT} views",
+                count: _v0?.stats?.plays ?? 0,
+                replacements: {
+                  COUNT: (0, _v41.humanize)(_v0?.stats?.plays ?? 0)
+                },
+                dictionary: {
+                  es: {
+                    singular: "{COUNT} vista",
+                    plural: "{COUNT} vistas"
+                  },
+                  "de-DE": {
+                    singular: "{COUNT} Ansicht",
+                    plural: "{COUNT} Ansichten"
+                  },
+                  "fr-FR": {
+                    singular: "{COUNT} vue",
+                    plural: "{COUNT} vues"
+                  },
+                  "ja-JP": {
+                    singular: "視聴回数: {COUNT}",
+                    plural: "視聴回数: {COUNT}"
+                  },
+                  "ko-KR": {
+                    singular: "{COUNT}회",
+                    plural: "{COUNT}회"
+                  },
+                  "pt-BR": {
+                    singular: "{COUNT} visualização",
+                    plural: "{COUNT} visualizações"
+                  },
+                  "zh-CN": {
+                    singular: "{COUNT} 观看",
+                    plural: "{COUNT} 次观看"
+                  }
+                }
+              }),
+              _v2 = _v337(_v0.createdTime, _v4?.locale),
+              _v3 = [_v0?.stats?.plays ? _v1 : null, _v2].filter(Boolean).join(" • "),
+              _v4 = _v338(_v0.uri),
+              _v5 = (0, _v1.jsx)(_v346, {
+                subtitle: _v3,
+                viewer: _v4,
+                video: _v0,
+                dataId: "my-feed-video-card",
+                bpLocation: "my_feed_widget"
+              }, _v4);
+            return _v8 ? (0, _v1.jsx)(_v27.Box, {
+              w: (0, _v48.rem)(292),
+              children: _v5
+            }, _v4) : _v5;
           });
         return (0, _v1.jsx)(_v225, {
           "data-id": "my_feed_widget",
@@ -12981,7 +13039,7 @@
             children: [(0, _v1.jsx)(_v293.PlaylistHeader, {
               pt: 0,
               onClick: () => {
-                window.location.href = _v7, _v345({
+                window.location.href = _v9, _v345({
                   actionType: "click",
                   copy: "feed",
                   element: "button",
@@ -12991,7 +13049,7 @@
                   location: "my_feed_widget",
                   product: "community",
                   target: "my_feed",
-                  targetPath: _v7
+                  targetPath: _v9
                 });
               },
               header: {
@@ -13012,7 +13070,7 @@
                     }
                   }
                 }),
-                to: _v7,
+                to: _v9,
                 headerLinkDataId: "my_feed_header_link"
               },
               children: (0, _v1.jsx)(_v295.PlaylistCarouselNavigation, {
@@ -13041,7 +13099,10 @@
                   flow: "backward"
                 })
               })
-            }), (0, _v1.jsx)(_v26.Flex, {
+            }), _v8 ? (0, _v1.jsx)(_v294.Carousel, {
+              mb: -4,
+              children: _v11
+            }) : (0, _v1.jsx)(_v26.Flex, {
               backgroundColor: "surface",
               borderRadius: "lg",
               paddingLeft: "md",
@@ -13061,7 +13122,7 @@
                     cursor: "pointer"
                   },
                   onClick: () => {
-                    window.location.href = _v7, _v345({
+                    window.location.href = _v9, _v345({
                       actionType: "click",
                       copy: "start watching",
                       element: "button",
@@ -13071,7 +13132,7 @@
                       location: "my_feed_widget",
                       product: "community",
                       target: "my_feed",
-                      targetPath: _v7
+                      targetPath: _v9
                     });
                   },
                   children: [(0, _v1.jsx)(_v26.Flex, {
@@ -13080,7 +13141,7 @@
                     width: (0, _v48.rem)(273),
                     children: (0, _v1.jsx)(_v39.Text, {
                       variant: "heading-lg",
-                      children: _v8
+                      children: _v10
                     })
                   }), (0, _v1.jsx)(_v26.Flex, {
                     marginLeft: "md",
@@ -13116,55 +13177,7 @@
                       })
                     })
                   })]
-                }, "cta-feed-playlist"), _v2?.map(_v0 => {
-                  let _v1 = (0, _v41.translate)({
-                      singular: "{COUNT} view",
-                      plural: "{COUNT} views",
-                      count: _v0?.stats?.plays ?? 0,
-                      replacements: {
-                        COUNT: (0, _v41.humanize)(_v0?.stats?.plays ?? 0)
-                      },
-                      dictionary: {
-                        es: {
-                          singular: "{COUNT} vista",
-                          plural: "{COUNT} vistas"
-                        },
-                        "de-DE": {
-                          singular: "{COUNT} Ansicht",
-                          plural: "{COUNT} Ansichten"
-                        },
-                        "fr-FR": {
-                          singular: "{COUNT} vue",
-                          plural: "{COUNT} vues"
-                        },
-                        "ja-JP": {
-                          singular: "視聴回数: {COUNT}",
-                          plural: "視聴回数: {COUNT}"
-                        },
-                        "ko-KR": {
-                          singular: "{COUNT}회",
-                          plural: "{COUNT}회"
-                        },
-                        "pt-BR": {
-                          singular: "{COUNT} visualização",
-                          plural: "{COUNT} visualizações"
-                        },
-                        "zh-CN": {
-                          singular: "{COUNT} 观看",
-                          plural: "{COUNT} 次观看"
-                        }
-                      }
-                    }),
-                    _v2 = _v337(_v0.createdTime, _v4?.locale),
-                    _v3 = [_v0?.stats?.plays ? _v1 : null, _v2].filter(Boolean).join(" • ");
-                  return (0, _v1.jsx)(_v346, {
-                    subtitle: _v3,
-                    viewer: _v4,
-                    video: _v0,
-                    dataId: "my-feed-video-card",
-                    bpLocation: "my_feed_widget"
-                  }, _v338(_v0.uri));
-                })]
+                }, "cta-feed-playlist"), _v11]
               })
             })]
           })
@@ -16356,11 +16369,16 @@
     }, [_v11.isError, _v3, _v4, _v7, _v10]);
     let _v14 = _v1?.user?.name ?? "",
       _v15 = _v1?.user?.capabilities?.canAddTeamMembers ?? !1,
-      _v16 = _v1?.user?.capabilities?.hasFreeTrialEligibility ?? !1,
-      _v17 = !!_v1?.teamUser?.teamId && _v1?.teamUser?.ownerId !== _v1?.user?.id,
-      _v18 = (0, _v3.useRef)(!1);
+      {
+        capabilities: _v16,
+        ready: _v17
+      } = (0, _v6.useCapability)(_v15 ? ["haveMoreAdminTeamMembers"] : []),
+      _v18 = _v16.haveMoreAdminTeamMembers ?? !1,
+      _v19 = _v1?.user?.capabilities?.hasFreeTrialEligibility ?? !1,
+      _v20 = !!_v1?.teamUser?.teamId && _v1?.teamUser?.ownerId !== _v1?.user?.id,
+      _v21 = (0, _v3.useRef)(!1);
     (0, _v3.useEffect)(() => {
-      _v12 || _v15 || !_v17 || _v18.current || (_v18.current = !0, _v3(), _v9(!0), _v4({
+      _v12 || _v15 || !_v20 || _v21.current || (_v21.current = !0, _v3(), _v9(!0), _v4({
         status: "error",
         title: (0, _v8.translate)({
           singular: "Only the account owner can accept this invitation.",
@@ -16392,14 +16410,14 @@
         invitingUserId: _v10,
         reason: "ineligible"
       }));
-    }, [_v12, _v15, _v17, _v3, _v4, _v7, _v10]);
-    let _v19 = (0, _v3.useCallback)(() => {
+    }, [_v12, _v15, _v20, _v3, _v4, _v7, _v10]);
+    let _v22 = (0, _v3.useCallback)(() => {
         _v9(!0);
       }, []),
       {
-        isAccepting: _v20,
-        acceptInvite: _v21,
-        declineInvite: _v22
+        isAccepting: _v23,
+        acceptInvite: _v24,
+        declineInvite: _v25
       } = function (_v0, _v1, _v2) {
         let _v3 = (0, _v2.useRouter)(),
           _v4 = (0, _v5.useToast)(),
@@ -16694,11 +16712,11 @@
             });
           }, [_v6, _v1, _v4, _v2, _v9])
         };
-      }(_v11.displayName, _v19, _v10),
-      _v23 = (0, _v3.useCallback)(async () => {
+      }(_v11.displayName, _v22, _v10),
+      _v26 = (0, _v3.useCallback)(async () => {
         let _v0 = (0, _v69.buildCheckoutUrl)({
           tier: "standard",
-          isTrial: _v16,
+          isTrial: _v19,
           paywallTrigger: "managed_accounts_accept_modal",
           paywallLocation: "home",
           paywallType: "popup",
@@ -16706,11 +16724,11 @@
           postCheckoutUrl: "/home"
         }, _v508);
         await _v6({
-          action: _v16 ? "accept_and_try_standard" : "accept_and_upgrade",
+          action: _v19 ? "accept_and_try_standard" : "accept_and_upgrade",
           invitingUserId: _v10
         }), window.location.href = _v0;
-      }, [_v16, _v10, _v6]),
-      _v24 = (0, _v3.useCallback)(() => {
+      }, [_v19, _v10, _v6]),
+      _v27 = (0, _v3.useCallback)(() => {
         _v6({
           action: "logout",
           invitingUserId: _v10
@@ -16727,33 +16745,33 @@
           window.location.href = (0, _v486.getManagedAccountsAcceptPath)(_v10);
         });
       }, [_v2, _v10, _v6]),
-      _v25 = (0, _v3.useMemo)(() => _v8 || !_v1 || _v12 ? null : _v15 ? "simple" : _v17 ? null : "upgrade", [_v8, _v1, _v12, _v15, _v17]);
+      _v28 = (0, _v3.useMemo)(() => _v8 || !_v1 || _v12 ? null : _v15 && _v18 ? "simple" : _v20 ? null : "upgrade", [_v8, _v1, _v12, _v15, _v18, _v20]);
     return ((0, _v140.usePicoEffect)(() => {
-      if (null === _v25 || _v11.isLoading || _v11.isError) return !1;
+      if (null === _v28 || _v11.isLoading || _v11.isError || !_v17) return !1;
       _v5({
-        modalType: _v25,
+        modalType: _v28,
         invitingUserId: _v10
       });
-    }, [_v25, _v11.isLoading, _v11.isError, _v10, _v5], {
+    }, [_v28, _v11.isLoading, _v11.isError, _v17, _v10, _v5], {
       once: !0
-    }), null === _v25 || _v11.isError) ? null : (0, _v1.jsx)(_v493, {
-      onClose: _v22,
-      children: _v11.isLoading ? (0, _v1.jsx)(_v491, {}) : "simple" === _v25 ? (0, _v1.jsx)(_v500, {
+    }), null === _v28 || _v11.isError) ? null : (0, _v1.jsx)(_v493, {
+      onClose: _v25,
+      children: _v11.isLoading || !_v17 ? (0, _v1.jsx)(_v491, {}) : "simple" === _v28 ? (0, _v1.jsx)(_v500, {
         agency: _v11,
         agencyUserId: _v10,
         clientName: _v14,
-        isAccepting: _v20,
-        onAccept: _v21,
-        onDecline: _v22,
-        onLogout: _v24
+        isAccepting: _v23,
+        onAccept: _v24,
+        onDecline: _v25,
+        onLogout: _v27
       }) : (0, _v1.jsx)(_v505, {
         agency: _v11,
         agencyUserId: _v10,
         clientName: _v14,
-        isTrialEligible: _v16,
-        onUpgrade: _v23,
-        onDecline: _v22,
-        onLogout: _v24
+        isTrialEligible: _v19,
+        onUpgrade: _v26,
+        onDecline: _v25,
+        onLogout: _v27
       })
     });
   }

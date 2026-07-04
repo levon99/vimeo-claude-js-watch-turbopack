@@ -2351,7 +2351,8 @@
         }), (0, _v2.jsx)(_v10.AnimatePresence, {
           children: _v0.map((_v0, _v1) => {
             let _v2 = _v0.length - 1 === _v1,
-              _v3 = _v42 && (_v0.id === _v42 || _v0.replies?.some(_v0 => _v0.id === _v42)) ? _v42 : null;
+              _v3 = _v1 === Math.max(0, _v0.length - 1 - 10),
+              _v4 = _v42 && (_v0.id === _v42 || _v0.replies?.some(_v0 => _v0.id === _v42)) ? _v42 : null;
             return (0, _v2.jsx)(_v11.motion.div, {
               animate: {
                 opacity: 1,
@@ -2366,7 +2367,7 @@
               },
               children: (0, _v2.jsx)(_v107, {
                 comment: _v0,
-                highlightedCommentId: _v3,
+                highlightedCommentId: _v4,
                 isPublic: _v1,
                 addReply: _v2,
                 editComment: _v3,
@@ -2378,7 +2379,7 @@
                 isDeleteLoading: _v9,
                 deeplinkedCommentId: _v10,
                 isMoreCommentsLoading: _v2 && _v11,
-                lastElementRef: _v2 ? _v13 : void 0,
+                lastElementRef: _v3 ? _v13 : void 0,
                 canAddComments: _v12,
                 richCommentComponent: _v16,
                 onOpenCommentOptionsClick: _v17,

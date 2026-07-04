@@ -365,23 +365,28 @@
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
-    _v39 = _v0.i(0);
-  let _v40 = ({
+    _v39 = _v0.i(0),
+    _v40 = _v0.i(0);
+  let _v41 = ({
     clipId: _v0,
     isOpen: _v1,
     onClose: _v2,
     onSubmitReport: _v3
   }) => {
-    let _v4 = (0, _v39.useGranularReport)({
-      clipId: _v0,
-      onClose: _v2,
-      onSubmitReport: _v3,
-      ownConfirmation: !0
-    });
-    return (0, _v1.jsxs)(_v3.Modal, {
+    let _v4 = (0, _v40.useGranularReport)({
+        clipId: _v0,
+        onClose: _v2,
+        onSubmitReport: _v3,
+        ownConfirmation: !0
+      }),
+      _v5 = (0, _v33.useRef)(null);
+    return (0, _v33.useEffect)(() => {
+      _v1 && _v4.hasData && _v5.current?.focus();
+    }, [_v1, _v4.hasData]), (0, _v1.jsxs)(_v3.Modal, {
       isOpen: _v1,
       onClose: _v4.handleClose,
       scrollBehavior: "inside",
+      initialFocusRef: _v5,
       children: [(0, _v1.jsx)(_v4.ModalOverlay, {}), (0, _v1.jsxs)(_v5.ModalContent, {
         maxHeight: "calc(100% - 3rem)",
         children: [(0, _v1.jsx)(_v7.ModalHeader, {
@@ -389,10 +394,10 @@
             align: "center",
             gap: "100",
             children: [_v4.canGoBack ? (0, _v1.jsx)(_v22.IconButton, {
-              "aria-label": (0, _v36.backLabel)(),
+              "aria-label": (0, _v37.backLabel)(),
               variant: "tertiary",
               size: "sm",
-              icon: (0, _v1.jsx)(_v35.ArrowLeft, {}),
+              icon: (0, _v1.jsx)(_v36.ArrowLeft, {}),
               onClick: _v4.onBack
             }) : null, (0, _v1.jsxs)(_v16.Box, {
               flex: "1",
@@ -406,11 +411,11 @@
                 color: "text-secondary",
                 children: _v4.subtitle
               })]
-            }), (0, _v1.jsx)(_v38.ReportHelpLink, {
-              mr: "400"
+            }), (0, _v1.jsx)(_v39.ReportHelpLink, {}), (0, _v1.jsx)(_v6.ModalCloseButton, {
+              position: "static"
             })]
           })
-        }), (0, _v1.jsx)(_v6.ModalCloseButton, {}), (0, _v1.jsx)(_v34.Progress, {
+        }), (0, _v1.jsx)(_v35.Progress, {
           value: _v4.progress,
           size: "xs",
           mt: "200",
@@ -424,7 +429,7 @@
           flex: "1 1 0%",
           overflow: "auto",
           pb: "300",
-          children: (0, _v1.jsx)(_v37.GranularReportBody, {
+          children: (0, _v1.jsx)(_v38.GranularReportBody, {
             isLoading: _v4.isLoading,
             hasData: _v4.hasData,
             error: _v4.error,
@@ -432,10 +437,11 @@
             currentOptions: _v4.currentOptions,
             selected: _v4.selected,
             onSelectNode: _v4.onSelectNode,
-            onDone: _v4.handleClose
+            onDone: _v4.handleClose,
+            firstOptionRef: _v5
           })
         }), _v4.showFooter ? (0, _v1.jsx)(_v29.ModalFooter, {
-          children: (0, _v1.jsx)(_v33.Button, {
+          children: (0, _v1.jsx)(_v34.Button, {
             variant: "primary",
             size: "md",
             width: "100%",
@@ -447,9 +453,9 @@
       })]
     });
   };
-  var _v41 = _v0.i(0),
-    _v42 = _v0.i(0);
-  let _v43 = ({
+  var _v42 = _v0.i(0),
+    _v43 = _v0.i(0);
+  let _v44 = ({
     clipId: _v0,
     isOpen: _v1,
     onClose: _v2,
@@ -461,7 +467,7 @@
         resetReason: _v6,
         isPosting: _v7,
         postReport: _v8
-      } = (0, _v42.useReportVideo)({
+      } = (0, _v43.useReportVideo)({
         clipId: _v0,
         onSuccess: _v3
       }),
@@ -524,7 +530,7 @@
           }
         }
       }),
-      reasons: _v41.ReportReasons,
+      reasons: _v42.ReportReasons,
       isOpen: _v1,
       isPosting: _v7,
       reportReason: _v4,
@@ -537,9 +543,9 @@
     let {
       settings: _v1
     } = (0, _v28.useOrionSettings)();
-    return _v1.enable_granular_flagging_modal ? _v0.isOpen ? (0, _v1.jsx)(_v40, {
+    return _v1.enable_granular_flagging_modal ? _v0.isOpen ? (0, _v1.jsx)(_v41, {
       ..._v0
-    }) : null : (0, _v1.jsx)(_v43, {
+    }) : null : (0, _v1.jsx)(_v44, {
       ..._v0
     });
   }], 0);

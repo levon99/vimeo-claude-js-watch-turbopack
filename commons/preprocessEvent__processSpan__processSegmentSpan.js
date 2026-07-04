@@ -4493,7 +4493,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "6f8880a20c8683ad416f3a840732ef2457ba7265",
+      release: "491f8c70da6834d97b145d1d643dc30e228735ac",
       ..._v0
     };
     !function (_v0) {
@@ -4595,7 +4595,7 @@ Error:`, _v0);
         }
       }
       let _v4 = _v0.exception?.values?.[0];
-      if (_v4?.type === "TypeError" && "Failed to fetch" === _v4.value) {
+      if (_v4?.type === "TypeError" && _v4.value?.startsWith("Failed to fetch")) {
         let _v0 = _v4.stacktrace?.frames ?? [],
           _v1 = _v0.some(_v0 => {
             let _v1 = _v0.filename ?? _v0.abs_path ?? "";

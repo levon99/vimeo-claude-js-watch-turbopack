@@ -6891,25 +6891,25 @@
       singular: "Unlisted links for sharing",
       dictionary: {
         es: {
-          singular: "Enlaces sin listar para compartir"
+          singular: "Enlaces no listados para compartir"
         },
         "de-DE": {
           singular: "Nicht gelistete Links zum Teilen"
         },
         "fr-FR": {
-          singular: "Partage à l'aide de liens non répertoriés"
+          singular: "Liens non répertoriés pour le partage"
         },
         "ja-JP": {
-          singular: "限定公開のリンク共有"
+          singular: "共有用の非公開リンク"
         },
         "ko-KR": {
-          singular: "일부공개 링크 공유"
+          singular: "공유용 비공개 링크"
         },
         "pt-BR": {
           singular: "Links não listados para compartilhamento"
         },
         "zh-CN": {
-          singular: "未公开发布的分享链接"
+          singular: "用于共享的未列出链接"
         }
       }
     }),
