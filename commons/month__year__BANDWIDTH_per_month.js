@@ -1086,9 +1086,10 @@
       tiers: {
         free: !1,
         creator: !1,
-        professional: !1,
-        studio: !1,
-        production: !1,
+        core: !0,
+        professional: !0,
+        studio: !0,
+        production: !0,
         enterprise: !0
       }
     }, {
@@ -1147,9 +1148,10 @@
       tiers: {
         free: !1,
         creator: !1,
-        professional: !1,
-        studio: !1,
-        production: !1,
+        core: !0,
+        professional: !0,
+        studio: !0,
+        production: !0,
         enterprise: !0
       }
     }, {
@@ -5345,7 +5347,35 @@
     tiers: {
       free: !1,
       creator: !1,
-      core: !1,
+      core: (0, _v1.translate)({
+        singular: "Up to {AMOUNT}",
+        replacements: {
+          AMOUNT: 3
+        },
+        dictionary: {
+          es: {
+            singular: "Hasta {AMOUNT}"
+          },
+          "de-DE": {
+            singular: "Bis zu {AMOUNT}"
+          },
+          "fr-FR": {
+            singular: "Jusqu’à {AMOUNT}"
+          },
+          "ja-JP": {
+            singular: "{AMOUNT}人まで"
+          },
+          "ko-KR": {
+            singular: "최대 {AMOUNT}명"
+          },
+          "pt-BR": {
+            singular: "Até {AMOUNT}"
+          },
+          "zh-CN": {
+            singular: "最多 {AMOUNT} 个"
+          }
+        }
+      }),
       professional: (0, _v1.translate)({
         singular: "Up to {AMOUNT}",
         replacements: {
@@ -6334,6 +6364,7 @@
         }
       }),
       creator: !0,
+      core: !0,
       professional: !0,
       studio: !0,
       production: !0,
