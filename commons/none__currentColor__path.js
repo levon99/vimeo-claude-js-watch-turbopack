@@ -3,280 +3,428 @@
 
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
-    _v3 = _v0.i(0);
-  let _v4 = _v0 => (0, _v1.jsx)(_v3.Icon, {
+    _v3 = _v0.i(0),
+    _v4 = _v0.i(0),
+    _v5 = _v0.i(0),
+    _v6 = _v0.i(0),
+    _v7 = _v0.i(0);
+  let _v8 = _v0 => (0, _v1.jsx)(_v7.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
     children: (0, _v1.jsxs)("g", {
       fill: "currentColor",
       children: [(0, _v1.jsx)("path", {
-        d: "M6.25 9.99a3.643 3.643 0 0 0-2.24-2.24l-1.96-.68a.07.07 0 0 1-.045-.047.07.07 0 0 1 .045-.091l1.96-.681A3.639 3.639 0 0 0 6.25 4.01l.681-1.961a.074.074 0 0 1 .047-.045.072.072 0 0 1 .092.045l.68 1.96a3.634 3.634 0 0 0 2.242 2.242l1.96.68c.022.006.037.023.044.046a.075.075 0 0 1-.045.093l-1.96.68a3.639 3.639 0 0 0-2.24 2.24l-.681 1.961a.07.07 0 0 1-.047.045.072.072 0 0 1-.092-.045l-.68-1.96Z"
+        d: "M13.005 13a1 1 0 1 0-2 0v.768l-.665-.384a1 1 0 1 0-1 1.732l.665.384-.665.384a1 1 0 0 0 1 1.732l.665-.384V18a1 1 0 1 0 2 0v-.768l.665.384a1 1 0 1 0 1-1.732l-.665-.384.665-.384a1 1 0 0 0-1-1.732l-.665.384V13Z"
       }), (0, _v1.jsx)("path", {
-        d: "M4 12a1 1 0 0 0-1 1v4a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4h-4a1 1 0 1 0 0 2h4a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4a1 1 0 0 0-1-1Z"
-      }), (0, _v1.jsx)("path", {
-        d: "M11.08 9.108c-.475-.3-1.08.06-1.08.643v4.498c0 .582.605.943 1.08.643l3.569-2.242c.468-.294.468-1.006 0-1.3L11.08 9.108Z"
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        d: "M17 7v2a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3V7a5 5 0 1 1 10 0ZM9.879 4.879A3 3 0 0 0 9 7v2h6V7a3 3 0 0 0-5.121-2.121Zm7.828 14.828A1 1 0 0 0 18 19v-7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h10a1 1 0 0 0 .707-.293Z"
       })]
     })
   });
-  _v0.s(["StyleSparkle", 0, _v4], 0);
-  let _v5 = _v0 => (0, _v1.jsx)(_v3.Icon, {
+  _v0.s(["LockPassword", 0, _v8], 0);
+  let _v9 = _v0 => (0, _v1.jsx)(_v7.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
     children: (0, _v1.jsx)("path", {
-      fillRule: "evenodd",
-      clipRule: "evenodd",
-      d: "M9.811 3.222a2.655 2.655 0 0 1 4.378 0 .655.655 0 0 0 .794.233 2.655 2.655 0 0 1 3.683 2.367c.01.31.235.572.541.625a2.655 2.655 0 0 1 1.819 3.982.655.655 0 0 0 .118.82 2.655 2.655 0 0 1-.623 4.333.655.655 0 0 0-.344.752 2.655 2.655 0 0 1-2.867 3.309.655.655 0 0 0-.696.447 2.655 2.655 0 0 1-4.2 1.233.655.655 0 0 0-.828 0 2.655 2.655 0 0 1-4.2-1.233.655.655 0 0 0-.696-.447 2.655 2.655 0 0 1-2.867-3.309.655.655 0 0 0-.343-.752 2.655 2.655 0 0 1-.623-4.334.655.655 0 0 0 .117-.819 2.655 2.655 0 0 1 1.819-3.982.655.655 0 0 0 .542-.625 2.655 2.655 0 0 1 3.682-2.367c.287.12.618.023.794-.233Zm2.73 1.132a.655.655 0 0 0-1.08 0 2.655 2.655 0 0 1-3.219.945.655.655 0 0 0-.908.584 2.655 2.655 0 0 1-2.196 2.534.655.655 0 0 0-.45.983 2.655 2.655 0 0 1-.476 3.32.655.655 0 0 0 .153 1.068 2.655 2.655 0 0 1 1.393 3.051.655.655 0 0 0 .708.816 2.655 2.655 0 0 1 2.821 1.813.655.655 0 0 0 1.036.305 2.655 2.655 0 0 1 3.354 0 .655.655 0 0 0 1.036-.305 2.655 2.655 0 0 1 2.822-1.813.655.655 0 0 0 .707-.816 2.655 2.655 0 0 1 1.393-3.05.655.655 0 0 0 .154-1.07 2.655 2.655 0 0 1-.478-3.32.655.655 0 0 0-.448-.982 2.655 2.655 0 0 1-2.196-2.534.655.655 0 0 0-.909-.584 2.655 2.655 0 0 1-3.218-.945Zm3.256 5.002a1 1 0 0 1 .027 1.414l-3.198 3.323c-.8.831-2.132.831-2.932 0l-1-1.04a1 1 0 1 1 1.44-1.386l1 1.039a.033.033 0 0 0 .012.008.037.037 0 0 0 .014.002c.005 0 .01 0 .014-.002a.033.033 0 0 0 .01-.008l3.199-3.323a1 1 0 0 1 1.414-.027Z",
+      d: "M21 2h-6a1 1 0 1 0 0 2h5v5a1 1 0 0 0 2 0V3a1 1 0 0 0-1-1Zm0 12a1 1 0 0 0-1 1v5h-5a1 1 0 0 0 0 2h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1Zm-9-8a3 3 0 0 0-3 3v1a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2V9a3 3 0 0 0-3-3Zm-1 3a1 1 0 0 1 2 0v1h-2V9Zm4 7H9v-4h6v4ZM3 10a1 1 0 0 0 1-1V4h5a1 1 0 0 0 0-2H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1Zm6 10H4v-5a1 1 0 1 0-2 0v6a1 1 0 0 0 1 1h6a1 1 0 0 0 0-2Z",
       fill: "currentColor"
     })
   });
-  _v0.s(["Verified", 0, _v5], 0);
-  var _v6 = _v0.i(0),
-    _v7 = _v0.i(0);
-  _v0.s(["getFeatures", 0, _v0 => {
-    let _v1 = _v0 ? (0, _v7.translate)({
-      singular: "{STORAGE} of storage, 4K ultra-HD, and our always ad-free player",
-      replacements: {
-        STORAGE: _v0
+  var _v10 = _v0.i(0);
+  let _v11 = _v0 => ({
+      password: {
+        icon: (0, _v1.jsx)(_v8, {
+          boxSize: _v0
+        })
       },
-      dictionary: {
-        es: {
-          singular: "{STORAGE} de almacenamiento, 4K Ultra HD y nuestro reproductor siempre sin anuncios."
-        },
-        "de-DE": {
-          singular: "{STORAGE} Speicherplatz, 4K Ultra HD und unser stets werbefreier Player"
-        },
-        "fr-FR": {
-          singular: "{STORAGE} de stockage, une qualité 4K Ultra-HD et notre lecteur toujours sans publicités"
-        },
-        "ja-JP": {
-          singular: "{STORAGE}のストレージ、4K Ultra HD、常に広告なしのプレーヤー"
-        },
-        "ko-KR": {
-          singular: "{STORAGE} 저장 공간, 4K 울트라 HD, 언제나 광고 없는 애드 프리 플레이어"
-        },
-        "pt-BR": {
-          singular: "{STORAGE} de armazenamento, 4K Ultra HD e nosso player sempre sem anúncios"
-        },
-        "zh-CN": {
-          singular: "{STORAGE}存储空间、4K 超高清，以及我们始终无广告的播放器"
-        }
+      unlisted: {
+        icon: (0, _v1.jsx)(_v5.LinkSecurityLock, {
+          boxSize: _v0
+        })
+      },
+      disable: {
+        icon: (0, _v1.jsx)(_v3.EyeShut, {
+          boxSize: _v0
+        })
+      },
+      team: {
+        icon: (0, _v1.jsx)(_v2.Building, {
+          boxSize: _v0
+        })
+      },
+      nobody: {
+        icon: (0, _v1.jsx)(_v6.Lock, {
+          boxSize: _v0
+        })
+      },
+      anybody: {
+        icon: (0, _v1.jsx)(_v4.Globe, {
+          boxSize: _v0
+        })
+      },
+      purgatory: {
+        icon: (0, _v1.jsx)(_v9, {
+          boxSize: _v0
+        })
+      },
+      embed_only: {
+        icon: (0, _v1.jsx)(_v3.EyeShut, {
+          boxSize: _v0
+        })
       }
-    }) : (0, _v7.translate)({
-      singular: "Lots of storage, 4K ultra-HD, and our always ad-free player",
-      dictionary: {
-        es: {
-          singular: "Mucho espacio de almacenamiento, 4K Ultra HD y nuestro reproductor siempre sin anuncios."
-        },
-        "de-DE": {
-          singular: "Viel Speicherplatz, 4K Ultra HD und unser stets werbefreier Player"
-        },
-        "fr-FR": {
-          singular: "Un grand espace de stockage, une qualité 4K Ultra-HD et notre lecteur toujours sans publicités"
-        },
-        "ja-JP": {
-          singular: "大容量のストレージ、4K Ultra HD、常に広告なしのプレーヤー"
-        },
-        "ko-KR": {
-          singular: "넉넉한 저장 공간, 4K 울트라 HD, 언제나 광고 없는 애드 프리 플레이어"
-        },
-        "pt-BR": {
-          singular: "Muito espaço de armazenamento, 4K Ultra HD e nosso player sempre sem anúncios"
-        },
-        "zh-CN": {
-          singular: "大量存储空间、4K 超高清，以及我们始终无广告的播放器"
-        }
-      }
-    });
-    return [{
-      Icon: (0, _v1.jsx)(_v4, {}),
-      title: (0, _v7.translate)({
-        singular: "Make your videos shine",
+    }),
+    _v12 = [{
+      privacy: "unlisted",
+      title: (0, _v10.translate)({
+        singular: "Unlisted",
         dictionary: {
           es: {
-            singular: "Haga que sus videos brillen"
+            singular: "Sin listar"
           },
           "de-DE": {
-            singular: "Lassen Sie Ihre Videos strahlen"
+            singular: "Nicht gelistet"
           },
           "fr-FR": {
-            singular: "Mettez vos vidéos en valeur"
+            singular: "Non répertorié"
           },
           "ja-JP": {
-            singular: "動画をさらに魅力的に"
+            singular: "限定公開"
           },
           "ko-KR": {
-            singular: "동영상을 명작으로 만들기"
+            singular: "일부 공개"
           },
           "pt-BR": {
-            singular: "Faça seus vídeos brilharem"
+            singular: "Não listado"
           },
           "zh-CN": {
-            singular: "让您的视频熠熠生辉"
+            singular: "未公开发布"
           }
         }
       }),
-      description: _v1
+      description: (0, _v10.translate)({
+        singular: "Only people with the link can view",
+        dictionary: {
+          es: {
+            singular: "Solo quienes tengan el enlace pueden ver"
+          },
+          "de-DE": {
+            singular: "Nur Personen mit dem Link können anschauen"
+          },
+          "fr-FR": {
+            singular: "Seules les personnes disposant du lien peuvent voir ce contenu"
+          },
+          "ja-JP": {
+            singular: "リンクを持っている人のみ視聴可能"
+          },
+          "ko-KR": {
+            singular: "링크가 있는 사람만 시청할 수 있습니다."
+          },
+          "pt-BR": {
+            singular: "Somente pessoas com o link podem ver"
+          },
+          "zh-CN": {
+            singular: "只有拥有链接的人才能查看"
+          }
+        }
+      }),
+      upsellEvent: "unlisted privacy"
     }, {
-      Icon: (0, _v1.jsx)(_v6.WatchPlay, {}),
-      title: (0, _v7.translate)({
-        singular: "Showcase your work",
+      privacy: "password",
+      title: (0, _v10.translate)({
+        singular: "Password",
         dictionary: {
           es: {
-            singular: "Presenta tu trabajo"
+            singular: "Contraseña"
           },
           "de-DE": {
-            singular: "Präsentiere dein Werk"
+            singular: "Kennwort"
           },
           "fr-FR": {
-            singular: "Présentez votre travail"
+            singular: "Mot de passe "
           },
           "ja-JP": {
-            singular: "自分の作品を披露"
+            singular: "パスワード"
           },
           "ko-KR": {
-            singular: "작품 선보이기"
+            singular: "비밀번호"
           },
           "pt-BR": {
-            singular: "Mostre seu trabalho"
+            singular: "Senha"
+          },
+          "zh-CN": {
+            singular: "密码"
           }
         }
       }),
-      description: (0, _v7.translate)({
-        singular: "Embeddable video portfolio with customizable layouts and designs",
+      description: (0, _v10.translate)({
+        singular: "Only people with the password can view",
         dictionary: {
           es: {
-            singular: "Portafolio de videos insertables con diseños y maquetaciones personalizables"
+            singular: "Solo quienes tengan la contraseña pueden ver"
           },
           "de-DE": {
-            singular: "Einbettbares Video-Portfolio mit anpassbaren Layouts und Designs"
+            singular: "Nur Personen mit Kennwort können sehen."
           },
           "fr-FR": {
-            singular: "Portfolio vidéo intégrable avec mises en page et designs personnalisables"
+            singular: "Seules les personnes disposant du mot de passe peuvent voir ce contenu"
           },
           "ja-JP": {
-            singular: "埋め込み可能な動画ポートフォリオ。レイアウトやデザインも自由にカスタマイズ。"
+            singular: "パスワードを持っている人のみ視聴可能"
           },
           "ko-KR": {
-            singular: "임베딩할 수 있는 커스텀 가능 레이아웃과 디자인의 동영상 포트폴리오"
+            singular: "비밀번호가 있는 사람만 볼 수 있습니다."
           },
           "pt-BR": {
-            singular: "Portfólio de vídeo incorporável com layouts e designs personalizáveis"
+            singular: "Somente pessoas com a senha podem ver"
           },
           "zh-CN": {
-            singular: "可定制布局与设计的嵌入式视频作品集"
+            singular: "只有知道密码的人才能查看"
+          }
+        }
+      }),
+      upsellEvent: "password privacy"
+    }, {
+      privacy: "disable",
+      title: (0, _v10.translate)({
+        singular: "Hide from Vimeo",
+        dictionary: {
+          es: {
+            singular: "Ocultar de Vimeo"
+          },
+          "de-DE": {
+            singular: "Bei Vimeo ausblenden"
+          },
+          "fr-FR": {
+            singular: "Masquer dans Vimeo"
+          },
+          "ja-JP": {
+            singular: "Vimeoで非表示にする"
+          },
+          "ko-KR": {
+            singular: "Vimeo에서 숨기기"
+          },
+          "pt-BR": {
+            singular: "Ocultar do Vimeo"
+          },
+          "zh-CN": {
+            singular: "从 Vimeo 隐藏"
+          }
+        }
+      }),
+      description: (0, _v10.translate)({
+        singular: "Private on your account, but embeddable anywhere",
+        dictionary: {
+          es: {
+            singular: "Se establece como privado en su cuenta, pero se puede insertar en cualquier lugar"
+          },
+          "de-DE": {
+            singular: "Privat in Ihrem Konto, aber überall einbettbar"
+          },
+          "fr-FR": {
+            singular: "La vidéo est privée sur votre compte mais intégrable partout"
+          },
+          "ja-JP": {
+            singular: "アカウント上では非公開ですが、どこにでも埋め込みは可能です"
+          },
+          "ko-KR": {
+            singular: "동영상을 계정에서 비공개로 설정하더라도 원하는 모든 곳에 임베드할 수 있습니다."
+          },
+          "pt-BR": {
+            singular: "Privado na sua conta, mas incorporável em qualquer lugar"
+          },
+          "zh-CN": {
+            singular: "在您的帐户上是私密的，但可嵌入到任何位置"
+          }
+        }
+      }),
+      upsellEvent: "disable privacy"
+    }, {
+      privacy: "team",
+      title: (0, _v10.translate)({
+        singular: "Team",
+        dictionary: {
+          es: {
+            singular: "Equipo"
+          },
+          "fr-FR": {
+            singular: "Équipe"
+          },
+          "ja-JP": {
+            singular: "チーム"
+          },
+          "ko-KR": {
+            singular: "팀"
+          },
+          "pt-BR": {
+            singular: "Equipe"
+          },
+          "zh-CN": {
+            singular: "团队"
+          }
+        }
+      }),
+      description: (0, _v10.translate)({
+        singular: "Anyone in this team can view",
+        dictionary: {
+          es: {
+            singular: "Cualquiera en este equipo puede ver"
+          },
+          "de-DE": {
+            singular: "Jedes Teammitglied kann es ansehen"
+          },
+          "fr-FR": {
+            singular: "Visible par tous les membres de cette equipe"
+          },
+          "ja-JP": {
+            singular: "このチームのメンバーは誰でも閲覧できます"
+          },
+          "ko-KR": {
+            singular: "이 팀의 누구나 볼 수 있습니다"
+          },
+          "pt-BR": {
+            singular: "Qualquer pessoa nesta equipe pode visualizar"
+          },
+          "zh-CN": {
+            singular: "团队中的任何人均可查看"
           }
         }
       })
     }, {
-      Icon: (0, _v1.jsx)(_v2.ReviewCheck, {}),
-      title: (0, _v7.translate)({
-        singular: "Streamline feedback and approvals",
+      privacy: "nobody",
+      title: (0, _v10.translate)({
+        singular: "Private",
         dictionary: {
           es: {
-            singular: "Optimice los comentarios y las aprobaciones"
+            singular: "Privado"
           },
           "de-DE": {
-            singular: "Optimieren Sie Feedback und Genehmigungen"
+            singular: "Privat"
           },
           "fr-FR": {
-            singular: "Rationalisez le partage d'avis et les approbations"
+            singular: "Privé"
           },
           "ja-JP": {
-            singular: "フィードバックと承認をスムーズに"
+            singular: "プライベート"
           },
           "ko-KR": {
-            singular: "피드백과 승인 절차 간소화"
+            singular: "비공개"
           },
           "pt-BR": {
-            singular: "Simplifique o feedback e as aprovações"
+            singular: "Privado"
           },
           "zh-CN": {
-            singular: "简化反馈和审批"
+            singular: "私密"
           }
         }
       }),
-      description: (0, _v7.translate)({
-        singular: "Time-coded comments and easy downloads for coworkers and clients",
+      description: (0, _v10.translate)({
+        singular: "Only you and people with access can view",
         dictionary: {
           es: {
-            singular: "Comentarios con códigos de tiempo y descargas fáciles para compañeros de trabajo y clientes"
+            singular: "Solo usted y quienes tengan acceso pueden ver"
           },
           "de-DE": {
-            singular: "Zeitcodierte Kommentare und einfache Downloads für Mitarbeitende und Kunden"
+            singular: "Nur Sie und Personen mit Zugriffsrechten können anschauen"
           },
           "fr-FR": {
-            singular: "Commentaires avec timecode et téléchargements faciles pour les collègues et les clients"
+            singular: "Seuls vous et les personnes autorisées pouvez voir ce contenu"
           },
           "ja-JP": {
-            singular: "同僚やクライアントも使える、タイムコード付きコメントと簡単ダウンロード機能"
+            singular: "あなたとアクセス権を持つ人のみ視聴可能"
           },
           "ko-KR": {
-            singular: "동료 및 고객을 위해 타임코드가 있는 댓글과 간편한 다운로드 제공"
+            singular: "본인 및 액세스 권한이 있는 사람만 볼 수 있습니다."
           },
           "pt-BR": {
-            singular: "Comentários com códigos de tempo e downloads fáceis para colegas de trabalho e clientes"
+            singular: "Somente você e as pessoas com acesso podem ver"
           },
           "zh-CN": {
-            singular: "为同事和客户提供时间码评论和轻松下载"
+            singular: "只有您和具有访问权限的人员可以查看"
           }
         }
       })
     }, {
-      Icon: (0, _v1.jsx)(_v5, {}),
-      title: (0, _v7.translate)({
-        singular: "Cancel anytime",
+      privacy: "anybody",
+      title: (0, _v10.translate)({
+        singular: "Public",
         dictionary: {
           es: {
-            singular: "Cancele cuando quiera"
+            singular: "Público"
           },
           "de-DE": {
-            singular: "Jederzeit kündbar"
-          },
-          "fr-FR": {
-            singular: "Annulation possible à tout moment"
+            singular: "Öffentlich"
           },
           "ja-JP": {
-            singular: "いつでもキャンセル可能"
+            singular: "一般公開"
           },
           "ko-KR": {
-            singular: "언제든지 취소할 수 있습니다."
+            singular: "공개"
           },
           "pt-BR": {
-            singular: "Cancele a qualquer momento"
+            singular: "Público"
           },
           "zh-CN": {
-            singular: "可随时取消"
+            singular: "公开"
           }
         }
       }),
-      description: (0, _v7.translate)({
-        singular: "We’ll remind you before your trial ends",
+      description: (0, _v10.translate)({
+        singular: "Anyone on the internet can view",
         dictionary: {
           es: {
-            singular: "Se lo recordaremos antes de que finalice su período de prueba"
+            singular: "Cualquier persona en internet puede ver"
           },
           "de-DE": {
-            singular: "Wir werden Sie erinnern, bevor Ihr Probeabo endet"
+            singular: "Jeder im Internet kann anschauen"
           },
           "fr-FR": {
-            singular: "Nous vous enverrons un rappel avant la fin de votre essai"
+            singular: "Visible par tous les internautes"
           },
           "ja-JP": {
-            singular: "トライアル終了前にリマインダーをお送りします"
+            singular: "インターネット上の誰もが視聴可能"
           },
           "ko-KR": {
-            singular: "체험 종료 전 알림 제공"
+            singular: "인터넷 사용자는 누구나 볼 수 있습니다."
           },
           "pt-BR": {
-            singular: "Avisaremos quando o teste estiver terminando"
+            singular: "Qualquer pessoa na internet pode ver"
           },
           "zh-CN": {
-            singular: "我们会在试用期结束前提醒您。"
+            singular: "互联网上的任何人都可以查看"
           }
         }
       })
-    }];
-  }], 0);
+    }],
+    _v13 = _v11("xs"),
+    _v14 = new Set(["password", "unlisted", "disable"]);
+  _v0.s(["DEFAULT_PRIVACY_OPTIONS", 0, _v12, "DEFAULT_PRIVACY_VALUES", 0, {
+    UNLISTED: "unlisted",
+    PASSWORD: "password",
+    HIDE_FROM_VIMEO: "disable",
+    TEAM: "team",
+    PRIVATE: "nobody",
+    PUBLIC: "anybody"
+  }, "DEFAULT_UPSELL_PRIVACIES", 0, ["password", "unlisted", "disable"], "EMBED_PRIVACY_VALUES", 0, {
+    PRIVATE: "private",
+    PUBLIC: "public",
+    WHITELIST: "whitelist"
+  }, "EVENT_PRIVACY_VALUES", 0, {
+    UNLISTED: "unlisted",
+    PASSWORD: "password",
+    HIDE_FROM_VIMEO: "embed_only",
+    TEAM: "team",
+    PRIVATE: "nobody",
+    PUBLIC: "anybody"
+  }, "PAID_PRIVACY_UPSELL_MODAL_VALUES", 0, _v14, "PRIVACY_VALUE_TO_UPSELL", 0, {
+    password: "password privacy",
+    unlisted: "unlisted privacy",
+    disable: "disable privacy"
+  }, "UPSELL_TYPE_TO_UPSALE_NAME", 0, {
+    "password privacy": "privacy_settings_password",
+    "unlisted privacy": "privacy_settings_unlisted",
+    "disable privacy": "privacy_settings_hide_from_vimeo"
+  }, "VIDEO_API_VERSION", 0, "3.4.15", "VIDEO_PRIVACY_ICON_MAP", 0, _v13, "videoPrivacyIcons", 0, _v11], 0);
 }

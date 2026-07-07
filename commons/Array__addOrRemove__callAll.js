@@ -120,7 +120,7 @@
     return _v0[_v5(_v0, _v1, _v2)];
   }, "nextIndex", 0, _v5, "noop", 0, () => {}, "prev", 0, function (_v0, _v1, _v2 = {}) {
     return _v0[_v6(_v0, _v1, _v2)];
-  }, "prevIndex", 0, _v6, "remove", 0, _v4, "runIfFn", 0, (_v0, ..._v1) => ("function" == typeof _v0 ? _v0(..._v1) : _v0) ?? void 0, "snapValueToStep", 0, (_v0, _v1, _v2, _v3) => {
+  }, "prevIndex", 0, _v6, "remove", 0, _v4, "removeAt", 0, (_v0, _v1) => _v0.filter((_v0, _v1) => _v1 !== _v1), "runIfFn", 0, (_v0, ..._v1) => ("function" == typeof _v0 ? _v0(..._v1) : _v0) ?? void 0, "snapValueToStep", 0, (_v0, _v1, _v2, _v3) => {
     let _v4 = null != _v1 ? Number(_v1) : 0,
       _v5 = Number(_v2),
       _v6 = (_v0 - _v4) % _v3,
@@ -343,7 +343,14 @@
       _v5.forEach(_v0 => _v0?.());
     };
   }
-  var _v61 = Object.assign(function (_v0, _v1) {
+  var _v61 = _v0 => _v0.id;
+  function _v62(_v0, _v1, _v2 = _v61) {
+    let _v3 = function (_v0, _v1, _v2 = _v61) {
+      return _v0.find(_v0 => _v2(_v0) === _v1);
+    }(_v0, _v1, _v2);
+    return _v3 ? _v0.indexOf(_v3) : -1;
+  }
+  var _v63 = Object.assign(function (_v0, _v1) {
       let {
           state: _v2,
           activeId: _v3,
@@ -353,13 +360,8 @@
         } = _v1,
         _v7 = _v2.keysSoFar + _v4,
         _v8 = _v7.length > 1 && Array.from(_v7).every(_v0 => _v0 === _v7[0]) ? _v7[0] : _v7,
-        _v9 = function (_v0, _v1, _v2, _v3 = _v0 => _v0.id) {
-          let _v4 = _v2 ? function (_v0, _v1, _v2 = _v0 => _v0.id) {
-              let _v3 = function (_v0, _v1, _v2 = _v0 => _v0.id) {
-                return _v0.find(_v0 => _v2(_v0) === _v1);
-              }(_v0, _v1, _v2);
-              return _v3 ? _v0.indexOf(_v3) : -1;
-            }(_v0, _v2, _v3) : -1,
+        _v9 = function (_v0, _v1, _v2, _v3 = _v61) {
+          let _v4 = _v2 ? _v62(_v0, _v2, _v3) : -1,
             _v5 = _v2 ? _v0.map((_v0, _v1) => _v0[(Math.max(_v4, 0) + _v1) % _v0.length]) : _v0;
           return 1 === _v1.length && (_v5 = _v5.filter(_v0 => _v3(_v0) !== _v2)), _v5.find(_v0 => {
             let _v1;
@@ -386,7 +388,7 @@
         return 1 === _v0.key.length && !_v0.ctrlKey && !_v0.metaKey;
       }
     }),
-    _v62 = 0 / 60;
+    _v64 = 0 / 60;
   _v0.s(["addDomEvent", 0, _v46, "ariaAttr", 0, _v0 => _v0 ? "true" : void 0, "clickIfLink", 0, function (_v0) {
     var _v1;
     let _v2,
@@ -415,7 +417,7 @@
     _v0 instanceof _v4.HTMLInputElement && (_v47(_v0, `${_v2}`), _v0.dispatchEvent(new _v4.Event("input", {
       bubbles: _v3
     })));
-  }, "getActiveElement", 0, _v34, "getByTypeahead", 0, _v61, "getComputedStyle", 0, function (_v0) {
+  }, "getActiveElement", 0, _v34, "getByTypeahead", 0, _v63, "getComputedStyle", 0, function (_v0) {
     return _v35.has(_v0) || _v35.set(_v0, _v33(_v0).getComputedStyle(_v0)), _v35.get(_v0);
   }, "getDocument", 0, _v32, "getEventKey", 0, function (_v0, _v1 = {}) {
     let {
@@ -476,7 +478,14 @@
         return "horizontal" === _v2 ? "rtl" === _v1 || _v4 ? 1 - _v7.x : _v7.x : _v5 ? 1 - _v7.y : _v7.y;
       }
     };
-  }, "getTabbables", 0, _v50, "getWindow", 0, _v33, "isAnchorElement", 0, _v0 => !!_v0?.matches("a[href]"), "isComposingEvent", 0, function (_v0) {
+  }, "getTabbables", 0, _v50, "getWindow", 0, _v33, "indexOfId", 0, _v62, "isAnchorElement", 0, _v0 => !!_v0?.matches("a[href]"), "isCaretAtStart", 0, function (_v0) {
+    if (!_v0) return !1;
+    try {
+      return 0 === _v0.selectionStart && 0 === _v0.selectionEnd;
+    } catch {
+      return "" === _v0.value;
+    }
+  }, "isComposingEvent", 0, function (_v0) {
     return _v42(_v0).isComposing || 229 === _v0.keyCode;
   }, "isContextMenuEvent", 0, _v0 => 2 === _v0.button || _v38() && _v0.ctrlKey && 0 === _v0.button, "isDownloadingEvent", 0, function (_v0) {
     let _v1 = _v0.currentTarget;
@@ -506,6 +515,9 @@
     let [_v3, _v4] = [(_v1 = _v50(_v2, void 0))[0] || null, _v1[_v1.length - 1] || null],
       _v5 = _v2.ownerDocument || document;
     return (_v5.activeElement !== _v3 || !_v0.shiftKey) && (_v5.activeElement !== _v4 || !!_v0.shiftKey) && (!!_v3 || !!_v4);
+  }, "nextById", 0, function (_v0, _v1, _v2 = !0) {
+    let _v3 = _v62(_v0, _v1);
+    return _v3 = _v2 ? (_v3 + 1) % _v0.length : Math.min(_v3 + 1, _v0.length - 1), _v0[_v3];
   }, "nextTick", 0, _v52, "observeAttributes", 0, function (_v0, _v1) {
     let {
         defer: _v2
@@ -553,6 +565,9 @@
     })), () => {
       _v4.forEach(_v0 => _v0?.());
     };
+  }, "prevById", 0, function (_v0, _v1, _v2 = !0) {
+    let _v3 = _v62(_v0, _v1);
+    return -1 === _v3 ? _v2 ? _v0[_v0.length - 1] : null : (_v3 = _v2 ? (_v3 - 1 + _v0.length) % _v0.length : Math.max(0, _v3 - 1), _v0[_v3]);
   }, "query", 0, function (_v0, _v1) {
     return _v0?.querySelector(_v1) ?? null;
   }, "queryAll", 0, function (_v0, _v1) {
@@ -640,7 +655,7 @@
           let _v0 = setInterval(() => {
             let _v0 = _v0();
             _v26(_v0) && _v0.isConnected && (_v1(_v0), clearInterval(_v0));
-          }, _v62);
+          }, _v64);
           return () => clearInterval(_v0);
         }
       }(_v0, _v1);
@@ -649,22 +664,22 @@
       _v2.forEach(_v0 => _v0());
     };
   }], 0);
-  var _v63 = (..._v0) => _v0.map(_v0 => _v0?.trim?.()).filter(Boolean).join(" "),
-    _v64 = /((?:--)?(?:\w+-?)+)\s*:\s*([^;]*)/g,
-    _v65 = _v0 => {
+  var _v65 = (..._v0) => _v0.map(_v0 => _v0?.trim?.()).filter(Boolean).join(" "),
+    _v66 = /((?:--)?(?:\w+-?)+)\s*:\s*([^;]*)/g,
+    _v67 = _v0 => {
       let _v1,
         _v2 = {};
-      for (; _v1 = _v64.exec(_v0);) _v2[_v1[1]] = _v1[2];
+      for (; _v1 = _v66.exec(_v0);) _v2[_v1[1]] = _v1[2];
       return _v2;
     },
-    _v66 = (_v0, _v1) => {
+    _v68 = (_v0, _v1) => {
       if (_v9(_v0)) {
         if (_v9(_v1)) return `${_v0};${_v1}`;
-        _v0 = _v65(_v0);
-      } else _v9(_v1) && (_v1 = _v65(_v1));
+        _v0 = _v67(_v0);
+      } else _v9(_v1) && (_v1 = _v67(_v1));
       return Object.assign({}, _v0 ?? {}, _v1 ?? {});
     };
-  function _v67() {
+  function _v69() {
     return {
       and: (..._v0) => function (_v0) {
         return _v0.every(_v0 => _v0.guard(_v0));
@@ -677,11 +692,11 @@
       }
     };
   }
-  function _v68(_v0) {
+  function _v70(_v0) {
     return _v0;
   }
-  var _v69 = ((_v1 = _v69 || {}).NotStarted = "Not Started", _v1.Started = "Started", _v1.Stopped = "Stopped", _v1);
-  _v0.s(["INIT_STATE", 0, "__init__", "MachineStatus", 0, _v69, "createGuards", 0, _v67, "createMachine", 0, _v68, "createScope", 0, function (_v0) {
+  var _v71 = ((_v1 = _v71 || {}).NotStarted = "Not Started", _v1.Started = "Started", _v1.Stopped = "Stopped", _v1);
+  _v0.s(["INIT_STATE", 0, "__init__", "MachineStatus", 0, _v71, "createGuards", 0, _v69, "createMachine", 0, _v70, "createScope", 0, function (_v0) {
     let _v1 = () => _v0.getRootNode?.() ?? document,
       _v2 = () => _v32(_v1()),
       _v3 = () => _v34(_v1());
@@ -703,11 +718,11 @@
           continue;
         }
         if ("className" === _v0 || "class" === _v0) {
-          _v1[_v0] = _v63(_v1[_v0], _v0[_v0]);
+          _v1[_v0] = _v65(_v1[_v0], _v0[_v0]);
           continue;
         }
         if ("style" === _v0) {
-          _v1[_v0] = _v66(_v1[_v0], _v0[_v0]);
+          _v1[_v0] = _v68(_v1[_v0], _v0[_v0]);
           continue;
         }
         _v1[_v0] = void 0 !== _v0[_v0] ? _v0[_v0] : _v1[_v0];
@@ -717,8 +732,8 @@
     return _v1;
   }, "setup", 0, function () {
     return {
-      guards: _v67(),
-      createMachine: _v0 => _v68(_v0),
+      guards: _v69(),
+      createMachine: _v0 => _v70(_v0),
       choose: _v0 => function ({
         choose: _v0
       }) {

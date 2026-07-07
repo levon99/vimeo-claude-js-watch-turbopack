@@ -158,9 +158,9 @@
     if (void 0 !== _v2) return _v1.every(_v0 => _v0.privacy?.[_v0] === _v2) ? _v2 : void 0;
   };
   _v0.s(["createClipsOnlyPayload", 0, function (_v0, _v1) {
-    let _v2, _v3;
+    let _v2, _v3, _v4;
     return {
-      ...(_v2 = _v0.privacy !== _v1.privacy, _v3 = _v0.allowComments !== _v1.allowComments, !_v2 && !_v3 ? {} : _v2 ? _v15(_v0) : {
+      ...(_v2 = _v0.privacy !== _v1.privacy, _v3 = "password" === _v0.privacy && _v0.password !== _v1.password, _v4 = _v0.allowComments !== _v1.allowComments, !_v2 && !_v3 && !_v4 ? {} : _v2 || _v3 ? _v15(_v0) : {
         allowComments: _v0.allowComments
       }),
       ..._v16(_v0),

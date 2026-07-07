@@ -4493,7 +4493,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "485f6b95c202aedb4aeee7a07f9c2ca481272c53",
+      release: "e9fbd4c2a017918eb3d6728a9b2af03e47e63f3d",
       ..._v0
     };
     !function (_v0) {
@@ -4577,50 +4577,51 @@ Error:`, _v0);
     ignoreErrors: ["fresnel-events.vimeocdn.com", "browser-intake-datadoghq.com", "zaloJSV2", "telemetry.transcend.io"],
     beforeBreadcrumb: _v0 => "xhr" === _v0.category && "string" == typeof _v0.data?.url && _v0.data.url.includes("vimeocdn.com") && 200 === _v0.data.status_code ? null : _v0,
     beforeSend(_v0, _v1) {
+      let _v2;
       if (function () {
         let _v0 = "u" > typeof navigator ? navigator.userAgent : "";
         if (!/;\s*wv\)/.test(_v0)) return !1;
         let _v1 = Number(_v0.match(/Chrome\/(\d+)\./)?.[1] ?? 0);
         return _v1 > 0 && _v1 < 110;
-      }()) return null;
-      let _v2 = _v1.originalException;
-      if ("u" > typeof Event && _v2 instanceof Event && "error" === _v2.type && _v2.target instanceof Element && ["LINK", "SCRIPT", "IMG"].includes(_v2.target.tagName)) return null;
-      let _v3 = _v0.exception?.values?.[0];
-      if (_v3?.type === "SyntaxError") {
-        let _v0 = _v3.stacktrace?.frames,
-          _v1 = _v3.mechanism?.type === "auto.browser.global_handlers.onerror" || _v3.mechanism?.type === "onerror" || _v3.mechanism?.type === "auto.browser.global_handlers.onunhandledrejection" || _v3.mechanism?.type === "onunhandledrejection";
+      }() || (_v2 = "u" > typeof navigator ? navigator.userAgent : "", /Lightpanda/i.test(_v2))) return null;
+      let _v3 = _v1.originalException;
+      if ("u" > typeof Event && _v3 instanceof Event && "error" === _v3.type && _v3.target instanceof Element && ["LINK", "SCRIPT", "IMG"].includes(_v3.target.tagName)) return null;
+      let _v4 = _v0.exception?.values?.[0];
+      if (_v4?.type === "SyntaxError") {
+        let _v0 = _v4.stacktrace?.frames,
+          _v1 = _v4.mechanism?.type === "auto.browser.global_handlers.onerror" || _v4.mechanism?.type === "onerror" || _v4.mechanism?.type === "auto.browser.global_handlers.onunhandledrejection" || _v4.mechanism?.type === "onunhandledrejection";
         if (_v0?.length === 1) {
           let _v0 = _v0[0].filename ?? _v0[0].abs_path ?? "";
           if (_v0.startsWith("app:///") && !_v0.includes("_next/static") && _v1) return null;
         }
       }
-      let _v4 = _v0.exception?.values?.[0];
-      if (_v4?.type === "TypeError" && _v4.value?.startsWith("Failed to fetch")) {
-        let _v0 = _v4.stacktrace?.frames ?? [],
-          _v1 = _v0.some(_v0 => {
+      let _v5 = _v0.exception?.values?.[0];
+      if (_v5?.type === "TypeError" && _v5.value?.startsWith("Failed to fetch")) {
+        let _v0 = _v5.stacktrace?.frames ?? [],
+          _v1 = _v0.findIndex(_v0 => {
             let _v1 = _v0.filename ?? _v0.abs_path ?? "";
             return _v1.includes("datadog-rum.js") || _v1.includes("ajax-listener.js");
           }),
-          _v2 = _v0.some(_v0 => (_v0.filename ?? _v0.abs_path ?? "").includes("_next/static") && !1 !== _v0.in_app);
-        if (_v1 && !_v2) return null;
+          _v2 = _v0.some((_v0, _v1) => _v1 < _v1 && (_v0.filename ?? _v0.abs_path ?? "").includes("_next/static") && !1 !== _v0.in_app);
+        if (-1 !== _v1 && !_v2) return null;
       }
-      let _v5 = _v0.exception?.values?.[0];
-      if (_v5?.type === "TypeError" && _v5.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && /\.split is not a function/.test(_v5.value ?? "")) {
+      let _v6 = _v0.exception?.values?.[0];
+      if (_v6?.type === "TypeError" && _v6.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && /\.split is not a function/.test(_v6.value ?? "")) {
         let _v0 = "u" > typeof navigator ? navigator.userAgent : "";
         if (/Tizen|SMART-TV/i.test(_v0)) return null;
       }
-      let _v6 = _v0.exception?.values?.[0];
-      if (_v6?.type === "TypeError" && "Illegal invocation" === _v6.value) {
-        let _v0 = _v6.stacktrace?.frames ?? [];
+      let _v7 = _v0.exception?.values?.[0];
+      if (_v7?.type === "TypeError" && "Illegal invocation" === _v7.value) {
+        let _v0 = _v7.stacktrace?.frames ?? [];
         if (_v0.length > 0 && _v0.every(_v0 => (_v0.filename ?? _v0.abs_path ?? "").includes("airgap.js"))) return null;
       }
-      let _v7 = _v0.exception?.values?.[0];
-      if (_v7?.type === "InvalidStateError" && "The object is in an invalid state." === _v7.value && _v7.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v7.mechanism?.handled === !1 && _v7.mechanism?.data?.handler === "<anonymous>") {
-        let _v0 = _v7.stacktrace?.frames ?? [];
+      let _v8 = _v0.exception?.values?.[0];
+      if (_v8?.type === "InvalidStateError" && "The object is in an invalid state." === _v8.value && _v8.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v8.mechanism?.handled === !1 && _v8.mechanism?.data?.handler === "<anonymous>") {
+        let _v0 = _v8.stacktrace?.frames ?? [];
         if (_v0.length > 0 && _v0.every(_v0 => (_v0.filename ?? _v0.abs_path ?? "").includes("@sentry"))) return null;
       }
-      let _v8 = _v0.exception?.values?.[0];
-      if (_v8?.type === "UnhandledRejection" && /Object Not Found Matching Id:\d+, MethodName:\w+, ParamCount:\d+/.test(_v8.value ?? "") && !(_v8.stacktrace?.frames ?? []).some(_v0 => {
+      let _v9 = _v0.exception?.values?.[0];
+      if (_v9?.type === "UnhandledRejection" && /Object Not Found Matching Id:\d+, MethodName:\w+, ParamCount:\d+/.test(_v9.value ?? "") && !(_v9.stacktrace?.frames ?? []).some(_v0 => {
         let _v1 = _v0.filename ?? _v0.abs_path ?? "";
         return _v1.includes("_next/static") && !1 !== _v0.in_app || _v1.includes("app:///p/") || _v1.includes("/telecine") || _v1.includes("/media-sorcerer");
       })) return null;

@@ -349,6 +349,8 @@
           isLocked: _v38,
           titleStyles: _v28,
           creator: _v31,
+          href: _v2,
+          shouldUseNextLink: _v32,
           onTitleClick: () => {
             _v4.BigPictureClient.sendEvent(new _v4.Event("vimeo.click", 151, {
               copy: _v0,

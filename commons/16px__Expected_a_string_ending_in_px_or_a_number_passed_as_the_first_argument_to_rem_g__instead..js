@@ -18221,8 +18221,8 @@
     (0, _v8.useEffect)(() => {
       !_v5 && !_v29 && _v30 && _v9 && (_v24 || !_v8) && (_v6(!0), _v26());
     }, [_v9, _v29, _v5, _v24, _v19, _v8, _v15, _v26, _v28.hasUpsellsForFlatRateTiers, _v30]), (0, _v8.useEffect)(() => {
-      _v32 && _v0.push(_v2.home());
-    }, [_v0, _v2]);
+      _v32 && _v0.push(_v3 ? _v2.home() : "/upload/videos");
+    }, [_v0, _v2, _v3]);
     let _v31 = (0, _v8.useMemo)(() => {
       let _v0 = (0, _v743.upsellFlowHookFactory)(_v15);
       return {
@@ -18333,7 +18333,7 @@
         showStorageQuotaUpsell: _v27
       };
     }, [_v15, _v26, _v27, _v19, _v16]);
-    _v20 || _v21 || _v4 || _v22 || _v0.push(_v2.home()), _v23 || _v0.push("/manage/videos");
+    _v20 || _v21 || _v4 || _v22 || _v0.push(_v3 ? _v2.home() : "/upload/videos"), _v23 || _v0.push("/manage/videos");
     let _v32 = (0, _v8.useMemo)(() => /iphone|ipod|ipad|android|webos|blackberry|windows phone|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()) || "MacIntel" === navigator.platform && navigator.maxTouchPoints > 1, []),
       _v33 = (0, _v8.useMemo)(() => {
         let _v0 = window.magistoResourceUrls?.apiProdUrl;

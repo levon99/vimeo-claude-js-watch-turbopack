@@ -8184,7 +8184,7 @@
                 leftIcon: _v0.icon,
                 justifyContent: "flex-start",
                 onClick: () => {
-                  _v0.onClick(), window.open(_v0.href, _v50.default.Share, "width=500,height=500");
+                  _v0.onClick(), window.open(_v0.href, "", "width=500,height=500");
                 },
                 children: _v0.name
               }, _v0.name))

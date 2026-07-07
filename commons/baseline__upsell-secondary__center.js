@@ -7358,11 +7358,12 @@
       })]
     });
   };
-  var _v279 = _v21,
-    _v280 = _v0.i(0),
+  var _v279 = _v0.i(0),
+    _v280 = _v21,
     _v281 = _v0.i(0),
-    _v282 = _v0.i(0);
-  let _v283 = (0, _v3.forwardRef)(({
+    _v282 = _v0.i(0),
+    _v283 = _v0.i(0);
+  let _v284 = (0, _v3.forwardRef)(({
       content: _v0,
       maxCharacter: _v1 = 0,
       autoFocus: _v2 = !1,
@@ -7451,7 +7452,7 @@
                       mb: "sm",
                       variant: "tertiary",
                       isDisabled: !_v22 || _v26,
-                      icon: (0, _v1.jsx)(_v280.Link, {})
+                      icon: (0, _v1.jsx)(_v281.Link, {})
                     })
                   })
                 })
@@ -7498,7 +7499,7 @@
                       },
                       size: "sm",
                       "aria-label": "Unlink",
-                      icon: (0, _v1.jsx)(_v281.LinkBroken, {})
+                      icon: (0, _v1.jsx)(_v282.LinkBroken, {})
                     }), (0, _v1.jsx)(_v30.IconButton, {
                       onClick: () => window.open(_v19, "_blank"),
                       size: "sm",
@@ -7514,7 +7515,7 @@
             flexDir: "column",
             position: "relative",
             "data-peer": !0,
-            children: [(0, _v1.jsx)(_v282.EditableTextWithRTF, {
+            children: [(0, _v1.jsx)(_v283.EditableTextWithRTF, {
               ref: _v12,
               content: _v0,
               editable: !0,
@@ -7541,7 +7542,7 @@
               children: [(0, _v1.jsx)(_v5.Flex, {
                 height: 0,
                 overflow: "hidden",
-                children: (0, _v1.jsx)(_v282.EditableTextWithRTF, {
+                children: (0, _v1.jsx)(_v283.EditableTextWithRTF, {
                   content: _v0
                 })
               }), (0, _v1.jsx)(_v259.Asterisk, {
@@ -7570,13 +7571,13 @@
         })]
       });
     }),
-    _v284 = ({
+    _v285 = ({
       existingNames: _v0,
       item: _v1,
       index: _v2,
       moveSteps: _v3 = 0,
       showOptions: _v4 = !1,
-      itemsGap: _v5 = _v279.DEFAULT_LIST_ITEM_GAP,
+      itemsGap: _v5 = _v280.DEFAULT_LIST_ITEM_GAP,
       draggedItemRef: _v6,
       autoFocus: _v7 = !1,
       popoverPortalRef: _v8,
@@ -7591,14 +7592,26 @@
       removeProviderField: _v17
     }) => {
       let [_v18, _v19] = (0, _v3.useState)(!1),
-        _v20 = (0, _v19.useGlobalStore)(_v0 => _v0.setCurrentSelectedFieldIndex),
-        _v21 = (0, _v3.useRef)(null),
+        _v20 = (() => {
+          let _v0 = (0, _v19.useGlobalStore)(_v0 => _v0.entityOwnerId),
+            {
+              data: _v1
+            } = (0, _v279.useGetUserCapabilities)(() => _v0 ? {
+              where: {
+                userId: _v0
+              },
+              select: ["allowLargeLeadCaptureNames"]
+            } : null);
+          return _v1?.allowLargeLeadCaptureNames ?? !1;
+        })() ? _v280.MAX_CHECKBOX_FIELD_NAME_LENGTH_LARGE : _v280.MAX_CHECKBOX_FIELD_NAME_LENGTH,
+        _v21 = (0, _v19.useGlobalStore)(_v0 => _v0.setCurrentSelectedFieldIndex),
         _v22 = (0, _v3.useRef)(null),
         _v23 = (0, _v3.useRef)(null),
-        _v24 = (0, _v3.useMemo)(() => {
+        _v24 = (0, _v3.useRef)(null),
+        _v25 = (0, _v3.useMemo)(() => {
           let {
             y: _v0
-          } = (0, _v90.getTranslateValues)(_v22.current);
+          } = (0, _v90.getTranslateValues)(_v23.current);
           return _v268.keyframes`
       0%{
         transform: translateY(${_v0}px);
@@ -7608,27 +7621,27 @@
       }
     `;
         }, [_v3, _v6, _v5]),
-        _v25 = _v0 => {
-          _v22.current && (_v22.current.style.opacity = 1 === _v0.buttons ? "0" : "100");
+        _v26 = _v0 => {
+          _v23.current && (_v23.current.style.opacity = 1 === _v0.buttons ? "0" : "100");
         };
       return (0, _v1.jsxs)(_v4.Box, {
-        ref: _v22,
+        ref: _v23,
         borderRadius: "sm",
         position: "relative",
         background: "surface",
         border: "1px solid",
         borderColor: "input-stroke",
-        animation: `${_v24} 500ms ease forwards`,
+        animation: `${_v25} 500ms ease forwards`,
         draggable: _v18,
-        onClick: () => _v20(_v2),
+        onClick: () => _v21(_v2),
         onDrag: _v0 => {
-          _v0.preventDefault(), _v10(_v0), _v25(_v0);
+          _v0.preventDefault(), _v10(_v0), _v26(_v0);
         },
         onDragEnd: _v0 => {
-          _v11(), document.body.ondragover = _v21.current, _v25(_v0);
+          _v11(), document.body.ondragover = _v22.current, _v26(_v0);
         },
         onDragStart: () => {
-          _v9(_v2, _v22), _v21.current = document.body.ondragover, document.body.ondragover = _v0 => {
+          _v9(_v2, _v23), _v22.current = document.body.ondragover, document.body.ondragover = _v0 => {
             _v0.preventDefault();
           };
         },
@@ -7655,15 +7668,15 @@
               _groupHover: {
                 display: "none"
               },
-              children: [_v1.type === _v279.CustomFieldTypes.Text && (0, _v1.jsx)(_v271.Text, {
+              children: [_v1.type === _v280.CustomFieldTypes.Text && (0, _v1.jsx)(_v271.Text, {
                 width: (0, _v6.rem)(18),
                 color: "text-secondary",
                 mr: "xs"
-              }), _v1.type === _v279.CustomFieldTypes.Checkbox && (0, _v1.jsx)(_v221.Checkmark, {
+              }), _v1.type === _v280.CustomFieldTypes.Checkbox && (0, _v1.jsx)(_v221.Checkmark, {
                 width: (0, _v6.rem)(18),
                 mr: "xs",
                 color: "text-secondary"
-              }), _v1.type === _v279.CustomFieldTypes.Dropdown && (0, _v1.jsx)(_v269, {
+              }), _v1.type === _v280.CustomFieldTypes.Dropdown && (0, _v1.jsx)(_v269, {
                 width: (0, _v6.rem)(20),
                 mr: "xs",
                 color: "text-secondary",
@@ -7675,21 +7688,21 @@
             flex: 1,
             minHeight: (0, _v6.rem)(24),
             "data-peer": !0,
-            children: _v1.type !== _v279.CustomFieldTypes.Checkbox ? (0, _v1.jsx)(_v260, {
+            children: _v1.type !== _v280.CustomFieldTypes.Checkbox ? (0, _v1.jsx)(_v260, {
               autoFocus: _v7,
               value: _v1.name,
               onBlur: _v0 => {
                 var _v1;
                 (_v1 = _v0.target.value) && _v12?.(_v1, _v2);
               },
-              maxLength: _v279.MAX_FIELD_NAME_LENGTH,
+              maxLength: _v280.MAX_FIELD_NAME_LENGTH,
               editable: !_v1.isLocked && !_v1.isStatic,
               required: _v1.isRequired,
               blockedText: _v0
-            }) : (0, _v1.jsx)(_v283, {
-              ref: _v23,
+            }) : (0, _v1.jsx)(_v284, {
+              ref: _v24,
               content: _v1.metadata?.description || "",
-              maxCharacter: _v279.MAX_CHECKBOX_FIELD_NAME_LENGTH,
+              maxCharacter: _v20,
               onBlur: _v0 => {
                 _v0 && _v1.metadata?.description !== _v0 && _v12?.(_v0 + "", _v2);
               },
@@ -7701,7 +7714,7 @@
               blockedText: _v0,
               resetOnEmpty: !0,
               resetOnBlockedText: !0
-            })
+            }, _v1.cid + _v20)
           }), (0, _v1.jsx)(_v82.Center, {
             height: (0, _v6.rem)(24),
             _peerFocusWithin: {
@@ -7724,7 +7737,7 @@
               }
             })
           })]
-        }), _v1.type === _v279.CustomFieldTypes.Dropdown && _v4 && (0, _v1.jsx)(_v278, {
+        }), _v1.type === _v280.CustomFieldTypes.Dropdown && _v4 && (0, _v1.jsx)(_v278, {
           options: _v1.metadata?.options,
           updateOptions: _v0 => {
             _v14?.(_v0, _v2);
@@ -7732,15 +7745,15 @@
         })]
       });
     };
-  var _v285 = _v21;
-  let _v286 = {
-      [_v285.CustomFieldTypes.Text]: "text_input",
-      [_v285.CustomFieldTypes.Dropdown]: "dropdown",
-      [_v285.CustomFieldTypes.Checkbox]: "checkbox"
+  var _v286 = _v21;
+  let _v287 = {
+      [_v286.CustomFieldTypes.Text]: "text_input",
+      [_v286.CustomFieldTypes.Dropdown]: "dropdown",
+      [_v286.CustomFieldTypes.Checkbox]: "checkbox"
     },
-    _v287 = ({
+    _v288 = ({
       items: _v0 = [],
-      itemsGap: _v1 = _v285.DEFAULT_LIST_ITEM_GAP,
+      itemsGap: _v1 = _v286.DEFAULT_LIST_ITEM_GAP,
       updateItems: _v2
     }) => {
       let [_v3, _v4] = (0, _v3.useState)(!1),
@@ -7790,7 +7803,7 @@
           let _v3 = [..._v0],
             _v4 = _v3[_v2].metadata,
             _v5 = _v3[_v2].type;
-          "type" === _v0 ? _v4 = _v1 === _v285.CustomFieldTypes.Dropdown ? _v4?.options ? _v4 : {
+          "type" === _v0 ? _v4 = _v1 === _v286.CustomFieldTypes.Dropdown ? _v4?.options ? _v4 : {
             options: [{
               optionLabel: "Option 1",
               optionPosition: 1,
@@ -7800,7 +7813,7 @@
               optionPosition: 2,
               cid: 2
             }]
-          } : void 0 : "name" === _v0 && _v5 === _v285.CustomFieldTypes.Checkbox && "string" == typeof _v1 && (_v4 = {
+          } : void 0 : "name" === _v0 && _v5 === _v286.CustomFieldTypes.Checkbox && "string" == typeof _v1 && (_v4 = {
             ..._v4,
             description: _v1
           }, _v1 = (0, _v90.htmlToText)(_v1)), _v3[_v2] = {
@@ -7840,7 +7853,7 @@
           position: "relative",
           onFocus: () => _v8(_v1),
           onClick: () => _v8(_v1),
-          children: [(0, _v1.jsx)(_v284, {
+          children: [(0, _v1.jsx)(_v285, {
             existingNames: _v19.filter((_v0, _v1) => _v1 !== _v1),
             index: _v1,
             item: _v0,
@@ -7875,23 +7888,23 @@
               _v12(_v2);
             })(_v1)
           })]
-        }, _v1)), (0, _v1.jsx)(_v288, {
+        }, _v1)), (0, _v1.jsx)(_v289, {
           isDisabled: _v0.length >= 20,
           addField: _v0 => {
             let _v1 = _v0.length > 0 ? Math.max(..._v0.map(_v0 => _v0.cid)) + 1 : 1,
               _v2 = [..._v0],
               _v3 = _v2.map(_v0 => _v0.name),
-              _v4 = `${_v285.DEFAULT_CUSTOM_FIELD_VALUES.name} ${_v2.length + 1}`,
+              _v4 = `${_v286.DEFAULT_CUSTOM_FIELD_VALUES.name} ${_v2.length + 1}`,
               _v5 = 0;
-            for (; _v3.includes(_v4);) _v5++, _v4 = `${_v285.DEFAULT_CUSTOM_FIELD_VALUES.name} ${_v2.length + 1 + _v5}`;
+            for (; _v3.includes(_v4);) _v5++, _v4 = `${_v286.DEFAULT_CUSTOM_FIELD_VALUES.name} ${_v2.length + 1 + _v5}`;
             let _v6 = {
-              ..._v285.DEFAULT_CUSTOM_FIELD_VALUES,
+              ..._v286.DEFAULT_CUSTOM_FIELD_VALUES,
               name: _v4,
               cid: _v1,
               position: _v2.length + 1,
               type: _v0,
               isStatic: !1,
-              metadata: _v0 === _v285.CustomFieldTypes.Dropdown ? {
+              metadata: _v0 === _v286.CustomFieldTypes.Dropdown ? {
                 options: [{
                   optionLabel: "Option 1",
                   optionPosition: 1,
@@ -7901,14 +7914,14 @@
                   optionPosition: 2,
                   cid: 2
                 }]
-              } : _v0 === _v285.CustomFieldTypes.Checkbox ? {
+              } : _v0 === _v286.CustomFieldTypes.Checkbox ? {
                 description: `<p style="text-align: inherit">${_v4}</p>`
               } : void 0
             };
             _v2.push(_v6), _v12((_v2 = _v2.map((_v0, _v1) => ({
               ..._v0,
               position: _v1 + 1
-            }))).map(() => 0)), _v2?.(_v2), _v8(_v2.length - 1), _v6(!0), _v15?.(_v286[_v0] || _v0), _v14({
+            }))).map(() => 0)), _v2?.(_v2), _v8(_v2.length - 1), _v6(!0), _v15?.(_v287[_v0] || _v0), _v14({
               actionName: _v65.FIELD_TYPE_TO_ACTION_MAPPING[_v0]
             }), _v17 === _v16.ENTITY_TYPE.EVENT && _v16({
               liveStreamFieldCategory: "registration_field"
@@ -7919,7 +7932,7 @@
         })]
       });
     },
-    _v288 = ({
+    _v289 = ({
       isDisabled: _v0 = !1,
       addField: _v1 = () => void 0
     }) => {
@@ -7979,28 +7992,28 @@
               width: "100%",
               fontWeight: "normal",
               justifyContent: "flex-start",
-              onClick: () => _v7(_v285.CustomFieldTypes.Text),
+              onClick: () => _v7(_v286.CustomFieldTypes.Text),
               children: _v27.default.TextInput
             }), (0, _v1.jsx)(_v10.Button, {
               variant: "tertiary",
               width: "100%",
               fontWeight: "normal",
               justifyContent: "flex-start",
-              onClick: () => _v7(_v285.CustomFieldTypes.Dropdown),
+              onClick: () => _v7(_v286.CustomFieldTypes.Dropdown),
               children: _v27.default.Dropdown
             }), (0, _v1.jsx)(_v10.Button, {
               variant: "tertiary",
               width: "100%",
               fontWeight: "normal",
               justifyContent: "flex-start",
-              onClick: () => _v7(_v285.CustomFieldTypes.Checkbox),
+              onClick: () => _v7(_v286.CustomFieldTypes.Checkbox),
               children: _v27.default.Checkbox
             })]
           })
         })]
       });
     },
-    _v289 = () => {
+    _v290 = () => {
       let _v0 = (0, _v19.useGlobalStore)(_v0 => _v0.leadCapture.customFields),
         {
           patchLeadCapture: _v1
@@ -8015,14 +8028,14 @@
           color: "text-primary",
           pb: "sm",
           children: _v27.default.RegistrationFields
-        }), (0, _v1.jsx)(_v287, {
+        }), (0, _v1.jsx)(_v288, {
           items: _v0,
           updateItems: _v3
         })]
       });
     };
-  var _v290 = _v0.i(0);
-  let _v291 = () => (0, _v1.jsx)(_v1.Fragment, {
+  var _v291 = _v0.i(0);
+  let _v292 = () => (0, _v1.jsx)(_v1.Fragment, {
       children: [116, 40, 52, 212, 306].map((_v0, _v1) => (0, _v1.jsx)(_v4.Box, {
         width: (0, _v6.rem)(319),
         height: (0, _v6.rem)(_v0),
@@ -8034,7 +8047,7 @@
         })
       }, _v0 + _v1))
     }),
-    _v292 = () => {
+    _v293 = () => {
       let _v0 = (0, _v19.useGlobalStore)(_v0 => _v0.leadCapture.logo.uri),
         _v1 = (0, _v19.useGlobalStore)(_v0 => _v0.leadCapture.logo.url),
         _v2 = (0, _v19.useGlobalStore)(_v0 => _v0.leadCapture.background.urlLow),
@@ -8143,7 +8156,7 @@
             })]
           }), (_v30 || _v31) && !_v28 && (0, _v1.jsx)("div", {
             ref: _v25,
-            children: (0, _v1.jsx)(_v290.SmallUpgradeBanner, {
+            children: (0, _v1.jsx)(_v291.SmallUpgradeBanner, {
               cta: _v27.default.Upgrade,
               hasLiveSubscription: _v32,
               hasEnterprise: _v29,
@@ -8179,7 +8192,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v230, {}), _v24 ? (0, _v1.jsx)(_v291, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+          }), (0, _v1.jsx)(_v230, {}), _v24 ? (0, _v1.jsx)(_v292, {}) : (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v251, {}), _v5 === _v16.ENTITY_TYPE.VIDEO && (0, _v1.jsxs)(_v1.Fragment, {
               children: [(0, _v1.jsxs)(_v84.Stack, {
                 direction: "row",
@@ -8261,7 +8274,7 @@
                 }), (0, _v1.jsx)(_v205.TabIndicator, {})]
               }), (0, _v1.jsxs)(_v208.TabPanels, {
                 children: [(0, _v1.jsxs)(_v207.TabPanel, {
-                  children: [(0, _v1.jsx)(_v289, {}), (0, _v1.jsx)(_v4.Box, {
+                  children: [(0, _v1.jsx)(_v290, {}), (0, _v1.jsx)(_v4.Box, {
                     pt: (0, _v6.rem)(26)
                   }), (0, _v1.jsx)(_v267, {}), (0, _v1.jsx)(_v191, {})]
                 }), (0, _v1.jsxs)(_v207.TabPanel, {
@@ -8347,7 +8360,7 @@
         })
       });
     },
-    _v293 = ({
+    _v294 = ({
       position: _v0 = _v81.PANEL_POSITION.LEFT
     }) => {
       let _v1 = (0, _v19.useGlobalStore)((0, _v79.useShallow)(_v0 => _v0.sideMenuType)),
@@ -8380,7 +8393,7 @@
         children: [(0, _v1.jsx)(_v174, {
           show: _v1 === _v81.SIDE_MENU_CONTENT.SETTINGS,
           position: _v0,
-          children: (0, _v1.jsx)(_v292, {})
+          children: (0, _v1.jsx)(_v293, {})
         }), (0, _v1.jsx)(_v174, {
           animate: !0,
           hasBackgroundDropdown: !0,
@@ -8432,7 +8445,7 @@
         })]
       });
     },
-    _v294 = ({
+    _v295 = ({
       position: _v0,
       showUpgradeNotice: _v1
     }) => {
@@ -8452,7 +8465,7 @@
         _v13 = !1 === _v2 && _v6 === _v16.ENTITY_TYPE.VIDEO && _v5 && !_v3 && _v8,
         _v14 = !1 === _v2 && _v6 === _v16.ENTITY_TYPE.SHOWCASE && _v5 && !_v3;
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v10 && (0, _v1.jsx)(_v293, {
+        children: [_v10 && (0, _v1.jsx)(_v294, {
           position: _v0
         }), (0, _v1.jsxs)(_v5.Flex, {
           height: "100%",
@@ -8562,13 +8575,13 @@
               children: (0, _v1.jsx)(_v73.Preview, {})
             })]
           })]
-        }), _v9 && (0, _v1.jsx)(_v293, {
+        }), _v9 && (0, _v1.jsx)(_v294, {
           position: _v0
         })]
       });
     };
-  var _v295 = _v0.i(0);
-  let _v296 = _v0 => (0, _v1.jsx)(_v254.Icon, {
+  var _v296 = _v0.i(0);
+  let _v297 = _v0 => (0, _v1.jsx)(_v254.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -8577,14 +8590,14 @@
       fill: "currentColor"
     })
   });
-  var _v297 = _v0.i(0),
-    _v298 = _v0.i(0),
+  var _v298 = _v0.i(0),
     _v299 = _v0.i(0),
-    _v300 = _v0.i(0);
-  let _v301 = () => {
-      let _v0 = (0, _v3.useContext)(_v300.ViewerContext),
+    _v300 = _v0.i(0),
+    _v301 = _v0.i(0);
+  let _v302 = () => {
+      let _v0 = (0, _v3.useContext)(_v301.ViewerContext),
         _v1 = (0, _v37.useIsBokeh)();
-      return (0, _v1.jsx)(_v299.EssentialFooterMenu, {
+      return (0, _v1.jsx)(_v300.EssentialFooterMenu, {
         impressumQualifies: _v0?.impressumQualifies,
         locale: _v0?.locale ?? "en",
         locales: _v0?.locales,
@@ -8622,7 +8635,7 @@
           placement: "right",
           children: _v1 ? (0, _v1.jsx)(_v236.MenuButton, {
             as: _v30.IconButton,
-            icon: (0, _v1.jsx)(_v298.QuestionCircle, {}),
+            icon: (0, _v1.jsx)(_v299.QuestionCircle, {}),
             size: "lg",
             "aria-label": (0, _v38.translate)({
               singular: "Help and preferences",
@@ -8655,7 +8668,7 @@
             borderRadius: "round"
           }) : (0, _v1.jsx)(_v236.MenuButton, {
             as: _v30.IconButton,
-            icon: (0, _v1.jsx)(_v298.QuestionCircle, {
+            icon: (0, _v1.jsx)(_v299.QuestionCircle, {
               boxSize: (0, _v6.rem)(24)
             }),
             "aria-label": (0, _v38.translate)({
@@ -8697,7 +8710,7 @@
         })
       });
     },
-    _v302 = _v0 => (0, _v1.jsx)(_v254.Icon, {
+    _v303 = _v0 => (0, _v1.jsx)(_v254.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -8706,15 +8719,15 @@
         fill: "currentColor"
       })
     });
-  var _v303 = _v0.i(0);
-  let _v304 = () => {
+  var _v304 = _v0.i(0);
+  let _v305 = () => {
       let {
           colorMode: _v0,
           setColorMode: _v1
         } = (0, _v34.useColorMode)(),
         {
           toggleTheme: _v2
-        } = (0, _v3.useContext)(_v303.ThemeDispatchContext),
+        } = (0, _v3.useContext)(_v304.ThemeDispatchContext),
         _v3 = "dark" === _v0 ? (0, _v38.translate)({
           singular: "Switch to light mode",
           dictionary: {
@@ -8770,7 +8783,7 @@
         label: _v3,
         placement: "right",
         children: (0, _v1.jsx)(_v30.IconButton, {
-          icon: (0, _v1.jsx)(_v302, {
+          icon: (0, _v1.jsx)(_v303, {
             boxSize: `${(0, _v6.rem)(20)} !important`
           }),
           onClick: () => {
@@ -8785,11 +8798,11 @@
         })
       });
     },
-    _v305 = () => (0, _v1.jsxs)(_v234.VStack, {
+    _v306 = () => (0, _v1.jsxs)(_v234.VStack, {
       gap: (0, _v6.rem)(8),
-      children: [(0, _v1.jsx)(_v304, {}), (0, _v1.jsx)(_v301, {})]
+      children: [(0, _v1.jsx)(_v305, {}), (0, _v1.jsx)(_v302, {})]
     }),
-    _v306 = () => {
+    _v307 = () => {
       let _v0 = (0, _v7.useToast)(),
         {
           selectedSection: _v1,
@@ -8831,17 +8844,17 @@
         _v14 = _v3 !== _v16.ENTITY_TYPE.EVENT,
         _v15 = [{
           sectionType: _v21.SECTION_TYPES.ATTENDEES,
-          Icon: _v297.Users,
+          Icon: _v298.Users,
           name: _v27.default.Registrants,
           isSelected: _v1 === _v21.SECTION_TYPES.ATTENDEES
         }, {
           sectionType: _v21.SECTION_TYPES.FORM,
-          Icon: _v295.ClipboardNotes,
+          Icon: _v296.ClipboardNotes,
           name: _v27.default.Form,
           isSelected: _v1 === _v21.SECTION_TYPES.FORM && null !== _v5
         }, ...(_v14 ? [] : [{
           sectionType: _v21.SECTION_TYPES.EMAILS,
-          Icon: _v296,
+          Icon: _v297,
           name: _v27.default.Email,
           isSelected: _v1 === _v21.SECTION_TYPES.EMAILS
         }])];
@@ -8878,7 +8891,7 @@
             })]
           }, _v0))
         }), (0, _v1.jsx)(_v82.Center, {
-          children: (0, _v1.jsx)(_v301, {})
+          children: (0, _v1.jsx)(_v302, {})
         })]
       }) : (0, _v1.jsxs)(_v5.Flex, {
         flexDirection: "column",
@@ -8931,11 +8944,11 @@
             })]
           }, _v0))
         }), (0, _v1.jsx)(_v4.Box, {
-          children: (0, _v1.jsx)(_v305, {})
+          children: (0, _v1.jsx)(_v306, {})
         })]
       });
     },
-    _v307 = (0, _v2.default)(async () => {
+    _v308 = (0, _v2.default)(async () => {
       let {
         EmailLayout: _v0
       } = await _v0.A(0);
@@ -8949,7 +8962,7 @@
       ssr: !1,
       loading: _v9.FullScreenLoader
     }),
-    _v308 = ({
+    _v309 = ({
       onClose: _v0,
       showUpgradeNotice: _v1,
       position: _v2 = _v21.PANEL_POSITION.LEFT,
@@ -9011,18 +9024,18 @@
           alignItems: "flex-start",
           justifyContent: "flex-start",
           height: `calc(100% - ${(0, _v6.rem)(_v21.TOP_NAV_BAR_HEIGHT + 48 * !!_v22)})`,
-          children: [(0, _v1.jsx)(_v306, {}), (0, _v1.jsx)(_v309, {
+          children: [(0, _v1.jsx)(_v307, {}), (0, _v1.jsx)(_v310, {
             show: _v5 === _v21.SECTION_TYPES.FORM,
-            children: (0, _v1.jsx)(_v294, {
+            children: (0, _v1.jsx)(_v295, {
               position: _v2,
               showUpgradeNotice: _v1
             })
-          }), _v6 === _v16.ENTITY_TYPE.EVENT && (0, _v1.jsx)(_v309, {
+          }), _v6 === _v16.ENTITY_TYPE.EVENT && (0, _v1.jsx)(_v310, {
             show: _v5 === _v21.SECTION_TYPES.EMAILS,
-            children: (0, _v1.jsx)(_v307, {
+            children: (0, _v1.jsx)(_v308, {
               showUpgradeNotice: _v1
             })
-          }), (0, _v1.jsx)(_v309, {
+          }), (0, _v1.jsx)(_v310, {
             show: _v5 === _v21.SECTION_TYPES.ATTENDEES,
             children: (0, _v1.jsx)(_v72, {
               showUpgradeNotice: _v1
@@ -9031,7 +9044,7 @@
         })]
       });
     },
-    _v309 = ({
+    _v310 = ({
       children: _v0,
       ..._v1
     }) => (0, _v1.jsx)(_v4.Box, {
@@ -9042,11 +9055,11 @@
       ..._v1,
       children: _v0
     });
-  var _v310 = _v0.i(0),
-    _v311 = _v0.i(0),
-    _v312 = _v0.i(0);
-  let _v313 = (0, _v311.default)((0, _v312.default)((0, _v310.default)(_v0 => (_v246(), (0, _v1.jsx)(_v308, {
+  var _v311 = _v0.i(0),
+    _v312 = _v0.i(0),
+    _v313 = _v0.i(0);
+  let _v314 = (0, _v312.default)((0, _v313.default)((0, _v311.default)(_v0 => (_v246(), (0, _v1.jsx)(_v309, {
     ..._v0
   })), _v21.PAGE_TYPES.ADMIN), _v21.PAGE_TYPES.ADMIN), _v21.PAGE_TYPES.ADMIN);
-  _v0.s(["default", 0, _v313], 0);
+  _v0.s(["default", 0, _v314], 0);
 }

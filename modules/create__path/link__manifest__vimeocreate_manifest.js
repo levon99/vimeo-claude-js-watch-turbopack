@@ -35,7 +35,7 @@
   }, {
     requireLogin: !0,
     capability: "hasCreation",
-    redirect: "/"
+    redirect: "/features/video-editor"
   }), _v6.getLayout = _v0 => (0, _v1.jsx)(_v5.ReactRouterLayout, {
     path: "/create",
     children: _v0

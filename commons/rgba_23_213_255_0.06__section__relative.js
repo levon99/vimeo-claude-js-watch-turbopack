@@ -513,13 +513,27 @@
     isEditingContentTitle: _v9,
     isLocked: _v10 = !1,
     hasFollow: _v11,
-    followSource: _v12
+    followSource: _v12,
+    href: _v13,
+    shouldUseNextLink: _v14 = !0
   }) => {
     let {
-        showCard: _v13
+        showCard: _v15
       } = _v4 || {},
-      _v14 = _v10 ? .6 : 1,
-      _v15 = (0, _v17.useColorModeValue)("darkBlueAlpha.500", "lightBlueAlpha.500");
+      _v16 = _v10 ? .6 : 1,
+      _v17 = (0, _v17.useColorModeValue)("darkBlueAlpha.500", "lightBlueAlpha.500"),
+      _v18 = !!_v13 && !_v8 && !_v9,
+      _v19 = {
+        variant: "heading-xs",
+        noOfLines: 1,
+        whiteSpace: "nowrap",
+        textOverflow: "ellipsis",
+        display: "block",
+        sx: _v5,
+        ...(_v10 && {
+          color: _v17
+        })
+      };
     return (0, _v1.jsx)(_v8.Flex, {
       gap: "0.5rem",
       justifyContent: "space-between",
@@ -533,13 +547,13 @@
           width: "100%",
           children: [!!_v1 && (0, _v1.jsx)(_v26, {
             creator: _v4,
-            showCard: !!_v13,
+            showCard: !!_v15,
             showOverflow: !1,
             hasFollow: _v11,
             followSource: _v12,
             children: (0, _v1.jsx)(_v5.Box, {
               display: "block",
-              opacity: _v14,
+              opacity: _v16,
               ...(_v4?.link && {
                 as: "a",
                 href: _v4.link,
@@ -559,8 +573,8 @@
               direction: "row",
               gap: "0.5rem",
               ..._v6,
-              pointerEvents: "auto",
-              onClick: _v7,
+              pointerEvents: _v18 ? void 0 : "auto",
+              onClick: _v18 ? void 0 : _v7,
               children: (0, _v1.jsx)(_v18.OverflowToolTip, {
                 labelToolTip: _v3,
                 maxW: (0, _v13.rem)(480),
@@ -570,34 +584,42 @@
                   },
                   width: "100%",
                   children: _v8
+                }) : _v13 && !_v9 && _v14 ? (0, _v1.jsx)(_v10.Text, {
+                  as: _v3.default,
+                  href: _v13,
+                  onClick: _v7,
+                  cursor: "pointer",
+                  "data-testid": "content-card-title",
+                  ..._v19,
+                  children: _v3
+                }) : _v13 && !_v9 ? (0, _v1.jsx)(_v10.Text, {
+                  as: "a",
+                  href: _v13,
+                  onClick: _v7,
+                  cursor: "pointer",
+                  "data-testid": "content-card-title",
+                  ..._v19,
+                  children: _v3
                 }) : (0, _v1.jsx)(_v10.Text, {
                   "data-testid": "content-card-title",
-                  variant: "heading-xs",
-                  noOfLines: 1,
-                  whiteSpace: "nowrap",
-                  textOverflow: "ellipsis",
-                  display: "block",
-                  sx: _v5,
-                  ...(_v10 && {
-                    color: _v15
-                  }),
+                  ..._v19,
                   children: _v3
                 })
               })
             }), _v4?.name && (0, _v1.jsx)(_v26, {
               creator: _v4,
-              showCard: !!_v13,
-              showOverflow: !_v13,
+              showCard: !!_v15,
+              showOverflow: !_v15,
               hasFollow: _v11,
               followSource: _v12,
               children: (0, _v1.jsx)("object", {
                 children: (0, _v1.jsx)(_v10.Text, {
-                  opacity: _v14,
+                  opacity: _v16,
                   variant: "body-sm",
                   noOfLines: 1,
                   maxW: "200px",
                   ...(_v10 && {
-                    color: _v15,
+                    color: _v17,
                     opacity: 1
                   }),
                   ...(_v4.link && {
@@ -613,8 +635,8 @@
             }), !_v9 && _v2 && (0, _v1.jsx)(_v9.Paragraph, {
               "data-testid": "content-card-subtitle",
               variant: "body-sm",
-              color: _v10 ? _v15 : "text-secondary",
-              opacity: _v10 ? 1 : _v14,
+              color: _v10 ? _v17 : "text-secondary",
+              opacity: _v10 ? 1 : _v16,
               noOfLines: 1,
               children: _v2
             })]

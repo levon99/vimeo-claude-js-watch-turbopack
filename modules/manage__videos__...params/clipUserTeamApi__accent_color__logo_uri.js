@@ -29228,7 +29228,62 @@
           isUploading: _v3,
           errorUploading: _v8
         };
-      }(_v44, _v42, _v8);
+      }(_v44, _v42, _v8),
+      _v47 = (0, _v16.jsx)(_v834, {
+        checked: _v6.customLogo?.active,
+        disabled: !_v4,
+        label: (0, _v16.jsxs)(_v16.Fragment, {
+          children: [_v26.customLogo, !_v4 && (0, _v16.jsx)(_v823, {
+            requiredTier: _v5 ? "pro" : "standard",
+            upsellEventProperty: "custom logo",
+            badgeStyle: {
+              marginLeft: (0, _v200.rem)(7)
+            },
+            text: _v5 ? (0, _v124.translate)("Pro").toUpperCase() : (0, _v124.translate)({
+              singular: "Upgrade",
+              dictionary: {
+                es: {
+                  singular: "Actualizar"
+                },
+                "de-DE": {
+                  singular: "Upgraden"
+                },
+                "fr-FR": {
+                  singular: "Mettre à niveau"
+                },
+                "ja-JP": {
+                  singular: "アップグレード"
+                },
+                "ko-KR": {
+                  singular: "업그레이드"
+                },
+                "zh-CN": {
+                  singular: "升级"
+                }
+              }
+            }),
+            href: "/upgrade-plan?upsell=custom_logo&integration=none&feature=player&paywall_trigger=player_custom_logo_upsell_button&paywall_location=player_settings&paywall_feature=custom_logo"
+          })]
+        }),
+        mirror: !0,
+        onChange: _v0 => {
+          _v6.customLogo?.active ? _v1({
+            type: "SET_CUSTOM_LOGO_IMAGE",
+            payload: {
+              active: !1
+            }
+          }) : _v1({
+            type: "SET_CUSTOM_LOGO_IMAGE",
+            payload: {
+              active: !0,
+              url: _v6.customLogo?.url || _v34?.items?.[0]?.sizes[0].link || _v848
+            }
+          });
+          let _v1 = _v0.target.checked;
+          (0, _v334.clickAnalyticsForPlayerCustomizationToggle)(_v7, _v1, "playbar", "custom_logo");
+        },
+        size: "sm"
+      }, _v26.customLogo);
     return _v2 ? (0, _v16.jsxs)(_v16.Fragment, {
       children: [(0, _v16.jsx)(_v26.AnalyticsEventProvider, {
         eventData: {
@@ -29356,75 +29411,23 @@
               playerSettingState: _v2,
               bigPictureKey: _v3,
               disabled: _v4
-            }) => (0, _v16.jsx)(_v834, {
-              disabled: _v4,
-              checked: _v2,
-              label: _v0,
-              mirror: !0,
-              onChange: _v0 => {
-                _v1({
-                  type: "TOGGLE_SETTING",
-                  payload: _v1
-                });
-                let _v1 = _v0.target.checked;
-                (0, _v334.clickAnalyticsForPlayerCustomizationToggle)(_v7, _v1, _v3, "playbar");
-              },
-              size: "sm"
-            }, _v0)), (0, _v16.jsx)(_v834, {
-              checked: _v6.customLogo?.active,
-              disabled: !_v4,
-              label: (0, _v16.jsxs)(_v16.Fragment, {
-                children: [_v26.customLogo, !_v4 && (0, _v16.jsx)(_v823, {
-                  requiredTier: _v5 ? "pro" : "standard",
-                  upsellEventProperty: "custom logo",
-                  badgeStyle: {
-                    marginLeft: (0, _v200.rem)(7)
-                  },
-                  text: _v5 ? (0, _v124.translate)("Pro").toUpperCase() : (0, _v124.translate)({
-                    singular: "Upgrade",
-                    dictionary: {
-                      es: {
-                        singular: "Actualizar"
-                      },
-                      "de-DE": {
-                        singular: "Upgraden"
-                      },
-                      "fr-FR": {
-                        singular: "Mettre à niveau"
-                      },
-                      "ja-JP": {
-                        singular: "アップグレード"
-                      },
-                      "ko-KR": {
-                        singular: "업그레이드"
-                      },
-                      "zh-CN": {
-                        singular: "升级"
-                      }
-                    }
-                  }),
-                  href: "/upgrade-plan?upsell=custom_logo&integration=none&feature=player&paywall_trigger=player_custom_logo_upsell_button&paywall_location=player_settings&paywall_feature=custom_logo"
-                })]
-              }),
-              mirror: !0,
-              onChange: _v0 => {
-                _v6.customLogo?.active ? _v1({
-                  type: "SET_CUSTOM_LOGO_IMAGE",
-                  payload: {
-                    active: !1
-                  }
-                }) : _v1({
-                  type: "SET_CUSTOM_LOGO_IMAGE",
-                  payload: {
-                    active: !0,
-                    url: _v6.customLogo?.url || _v34?.items?.[0]?.sizes[0].link || _v848
-                  }
-                });
-                let _v1 = _v0.target.checked;
-                (0, _v334.clickAnalyticsForPlayerCustomizationToggle)(_v7, _v1, "playbar", "custom_logo");
-              },
-              size: "sm"
-            }, _v26.customLogo)]
+            }) => (0, _v16.jsxs)(_v30.default.Fragment, {
+              children: [(0, _v16.jsx)(_v834, {
+                disabled: _v4,
+                checked: _v2,
+                label: _v0,
+                mirror: !0,
+                onChange: _v0 => {
+                  _v1({
+                    type: "TOGGLE_SETTING",
+                    payload: _v1
+                  });
+                  let _v1 = _v0.target.checked;
+                  (0, _v334.clickAnalyticsForPlayerCustomizationToggle)(_v7, _v1, _v3, "playbar");
+                },
+                size: "sm"
+              }), "audioTracks" === _v1 && _v47]
+            }, _v0))]
           }),
           children: (0, _v16.jsx)(_v832, {
             id: "player-controls-zone",
@@ -35547,7 +35550,9 @@
           like: _v3.embed?.buttons?.like,
           name: _v3.embed?.title?.name,
           owner: _v3.embed?.title?.owner,
+          autoplay: _v3.embed?.autoplay,
           playbar: _v3.embed?.playbar,
+          muted: _v3.embed?.muted,
           qualitySelector: _v3.embed?.qualitySelector === null ? _v3.embed?.playbar : _v3.embed?.qualitySelector,
           pip: _v3.embed?.pip,
           portrait: _v3.embed?.title?.portrait,
@@ -35884,6 +35889,7 @@
           let _v1 = {
               airplay: _v0.airplay,
               audio_tracks: _v0.audioTracks,
+              autoplay: _v0.autoplay,
               autopip: _v0.autopip,
               ask_ai: _v0.askAi,
               buttons: {
@@ -35911,6 +35917,7 @@
               quality_selector: _v0.qualitySelector,
               pip: _v0.pip,
               playbar: _v0.playbar,
+              muted: _v0.muted,
               play_button: {
                 position: _v0.playButton.position
               },
@@ -36660,7 +36667,7 @@
     });
   };
   var _v943 = _v0.i(0);
-  let _v944 = ["isPlayable", "status", "transcode", "upload.size", "upload.status", "transcript.language", "transcript.status", "pictures.uri", "metadata.connections.versions", "editSession", "embedPlayerConfigUrl", "allowedPrivacies", "countsTowardManagedStorage", "name", "app.uri", "categories.uri", "contentRating", "duration", "embed.uri", "embed.chapters", "embed.airplay", "embed.askAi", "embed.audioTracks", "embed.chromecast", "embed.closedCaptions", "embed.color", "embed.colors.colorOne", "embed.colors.colorTwo", "embed.colors.colorThree", "embed.colors.colorFour", "embed.buttons.reaction", "embed.buttons.embed", "embed.buttons.fullscreen", "embed.buttons.like", "embed.buttons.share", "embed.buttons.watchlater", "embed.html", "embed.interactive", "embed.logos.custom.active", "embed.logos.custom.url", "embed.logos.custom.link", "embed.logos.custom.sticky", "embed.logos.custom.useLink", "embed.logos.vimeo", "embed.qualitySelector", "embed.playbar", "embed.pip", "embed.autopip", "embed.skippingForward", "embed.speed", "embed.title.name", "embed.title.owner", "embed.title.portrait", "embed.transcript", "embed.playButton", "embed.playButton.position", "embed.volume", "fileTransfer.link", "height", "uri", "isColdStorage", "link", "live.activeTime", "live.status", "live.recurringEvent.settingsLink", "manageLink", "uploader.link", "metadata.aiContent", "metadata.connections.likes.uri", "metadata.connections.likes.total", "metadata.connections.pictures.uri", "metadata.connections.privateComments.isEnabled", "metadata.connections.privateComments.total", "metadata.connections.privateComments.uri", "metadata.connections.privateComments.options", "metadata.interactions.delete", "metadata.interactions.edit", "metadata.interactions.canComment", "metadata.interactions.canUpdatePrivacyToPublic", "metadata.interactions.hasRestrictedPrivacyOptions", "metadata.interactions.invite", "metadata.interactions.viewTeamMembers", "metadata.interactions.watchlater.added", "metadata.interactions.legalHold", "metadata.isScreenRecord", "metadata.isVimeoCreate", "metadata.hasChapterSuggestions", "parentProject.uri", "parentProject.isPrivateToUser", "parentProject.metadata.interactions.canComment", "parentProject.metadata.interactions.delete.uri", "parentProject.metadata.interactions.edit.uri", "parentProject.metadata.interactions.view.uri", "password", "pictures", "privacy.add", "privacy.comments", "privacy.download", "privacy.embed", "privacy.view", "privacy.originalView", "privacy.allowShareLink", "ratingModLocked", "showSvvTimecodedComments", "allowMultipleReviewLinks", "stats.plays", "spatial", "type", "upload", "user.link", "user.name", "user.pictures", "user.uri", "user.capabilities", "user.metadata.connections.permissionPolicies", "vod", "width", "disabledProperties", "createdTime", "reviewPage", "hasTextTracks", "hasChapters", "hasAudioTracks", "usesDrm", "customMetadata"],
+  let _v944 = ["isPlayable", "status", "transcode", "upload.size", "upload.status", "transcript.language", "transcript.status", "pictures.uri", "metadata.connections.versions", "editSession", "embedPlayerConfigUrl", "allowedPrivacies", "countsTowardManagedStorage", "name", "app.uri", "categories.uri", "contentRating", "duration", "embed.uri", "embed.chapters", "embed.airplay", "embed.askAi", "embed.audioTracks", "embed.autoplay", "embed.chromecast", "embed.closedCaptions", "embed.color", "embed.colors.colorOne", "embed.colors.colorTwo", "embed.colors.colorThree", "embed.colors.colorFour", "embed.buttons.reaction", "embed.buttons.embed", "embed.buttons.fullscreen", "embed.buttons.like", "embed.buttons.share", "embed.buttons.watchlater", "embed.html", "embed.interactive", "embed.logos.custom.active", "embed.logos.custom.url", "embed.logos.custom.link", "embed.logos.custom.sticky", "embed.logos.custom.useLink", "embed.logos.vimeo", "embed.qualitySelector", "embed.playbar", "embed.muted", "embed.pip", "embed.autopip", "embed.skippingForward", "embed.speed", "embed.title.name", "embed.title.owner", "embed.title.portrait", "embed.transcript", "embed.playButton", "embed.playButton.position", "embed.volume", "fileTransfer.link", "height", "uri", "isColdStorage", "link", "live.activeTime", "live.status", "live.recurringEvent.settingsLink", "manageLink", "uploader.link", "metadata.aiContent", "metadata.connections.likes.uri", "metadata.connections.likes.total", "metadata.connections.pictures.uri", "metadata.connections.privateComments.isEnabled", "metadata.connections.privateComments.total", "metadata.connections.privateComments.uri", "metadata.connections.privateComments.options", "metadata.interactions.delete", "metadata.interactions.edit", "metadata.interactions.canComment", "metadata.interactions.canUpdatePrivacyToPublic", "metadata.interactions.hasRestrictedPrivacyOptions", "metadata.interactions.invite", "metadata.interactions.viewTeamMembers", "metadata.interactions.watchlater.added", "metadata.interactions.legalHold", "metadata.isScreenRecord", "metadata.isVimeoCreate", "metadata.hasChapterSuggestions", "parentProject.uri", "parentProject.isPrivateToUser", "parentProject.metadata.interactions.canComment", "parentProject.metadata.interactions.delete.uri", "parentProject.metadata.interactions.edit.uri", "parentProject.metadata.interactions.view.uri", "password", "pictures", "privacy.add", "privacy.comments", "privacy.download", "privacy.embed", "privacy.view", "privacy.originalView", "privacy.allowShareLink", "ratingModLocked", "showSvvTimecodedComments", "allowMultipleReviewLinks", "stats.plays", "spatial", "type", "upload", "user.link", "user.name", "user.pictures", "user.uri", "user.capabilities", "user.metadata.connections.permissionPolicies", "vod", "width", "disabledProperties", "createdTime", "reviewPage", "hasTextTracks", "hasChapters", "hasAudioTracks", "usesDrm", "customMetadata"],
     _v945 = {
       hasThemeSupport: !0,
       hasUploader: !0

@@ -11,8 +11,9 @@
       rp_2026_low: "01KW9DH1F0FDGXW85ZBDYXYCRK",
       rp_2026_high: "01KW9DH1F0Z5XGAH2JCG9FWC4K"
     },
-    _v4 = ["rp_2026", "rp_2026_strict", "rp_2026_low", "rp_2026_high"].map(_v0 => _v3[_v0]);
-  _v0.s(["REPACKAGING_CAMPAIGN_IDS", 0, _v4, "useCampaignIdOverride", 0, () => {
+    _v4 = ["rp_2026", "rp_2026_strict", "rp_2026_low", "rp_2026_high"].map(_v0 => _v3[_v0]),
+    _v5 = _v3.rp_2026_low;
+  _v0.s(["REPACKAGING_CAMPAIGN_IDS", 0, _v4, "RP_2026_LOW_CAMPAIGN_ID", 0, _v5, "useCampaignIdOverride", 0, () => {
     var _v0;
     let {
         settings: _v1
