@@ -3,8 +3,9 @@
 
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
-    _v3 = _v0.i(0);
-  async function _v4({
+    _v3 = _v0.i(0),
+    _v4 = _v0.i(0);
+  async function _v5({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -12,32 +13,50 @@
     },
     ..._v3
   }) {
-    return (0, _v2.measureLatency)("getUserFoldersPrivateToMe", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/folders/private_to_me?fields=${_v1.map(_v3.intoSnakeCase).join(",")}`, {
+    return (0, _v3.measureLatency)("getUserFoldersPrivateToMe", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/folders/private_to_me?fields=${_v1.map(_v4.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v3.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v4.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v3.deepCamelCase)(_v1);
+      return (0, _v4.deepCamelCase)(_v1);
     });
   }
-  var _v5 = _v0.i(0),
-    _v6 = _v0.i(0),
-    _v7 = _v0.i(0),
+  async function _v6({
+    baseUrl: _v0,
+    where: {
+      ownerId: _v1
+    },
+    ..._v2
+  }) {
+    return (0, _v3.measureLatency)("postUserFoldersPrivateToMe", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v1}/folders/private_to_me`, {
+        ..._v2,
+        method: "POST"
+      });
+      if (!_v0.ok) throw new _v4.NetworkError("A network error occurred", _v0.status, _v0);
+      if (204 === _v0.status) return null;
+      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
+      let _v1 = await _v0.json();
+      return (0, _v4.deepCamelCase)(_v1);
+    });
+  }
+  var _v7 = _v0.i(0),
     _v8 = _v0.i(0),
-    _v9 = _v0.i(0);
-  function _v10(_v0, _v1) {
+    _v9 = _v0.i(0),
+    _v10 = _v0.i(0);
+  function _v11(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v9.useGctlConfig)();
-    return (0, _v5.default)(_v2 ? `/users/${_v2.where.ownerId}/folders/private_to_me${(0, _v7.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v4({
+      } = (0, _v10.useGctlConfig)();
+    return (0, _v8.default)(_v2 ? `/users/${_v2.where.ownerId}/folders/private_to_me${(0, _v2.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v5({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -49,23 +68,23 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  function _v11() {
+  function _v12() {
     let {
         mutate: _v0
-      } = (0, _v6.useSWRConfig)(),
+      } = (0, _v9.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v9.useGctlConfig)(),
-      [_v5, _v6] = (0, _v7.useInternalState)();
-    return [(0, _v8.useCallback)(async _v0 => {
+      } = (0, _v10.useGctlConfig)(),
+      [_v5, _v6] = (0, _v2.useInternalState)();
+    return [(0, _v7.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.ownerId}/folders/private_to_me${(0, _v7.serializeQuery)(_v0)}`, _v4({
+        let _v0 = await _v0(`/users/${_v0.where.ownerId}/folders/private_to_me${(0, _v2.serializeQuery)(_v0)}`, _v5({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -88,11 +107,53 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v1.default.env.STORYBOOK && (0, _v7.assignMswData)(_v10, {
+  function _v13() {
+    let {
+        mutate: _v0
+      } = (0, _v9.useSWRConfig)(),
+      {
+        baseUrl: _v1,
+        jwt: _v2,
+        xVimeoPage: _v3,
+        locale: _v4
+      } = (0, _v10.useGctlConfig)(),
+      [_v5, _v6] = (0, _v2.useInternalState)();
+    return [(0, _v7.useCallback)(async _v0 => {
+      _v6({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await _v0(`/users/${_v0.where.ownerId}/folders/private_to_me${(0, _v2.serializeQuery)(_v0)}`, _v6({
+          ..._v0,
+          baseUrl: _v1,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v2 ? `jwt ${_v2}` : "",
+            "Vimeo-Page": `${_v3}`,
+            "Accept-Language": _v4 ?? "en"
+          }
+        }), !1);
+        _v6({
+          type: "SUCCESS",
+          payload: _v0
+        });
+      } catch (_v0) {
+        _v6({
+          type: "FAILURE",
+          payload: _v0
+        });
+      }
+    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+  }
+  "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(_v11, {
     endpoint: "/users/:ownerId/folders/private_to_me",
     method: "GET"
-  }), "true" === _v1.default.env.STORYBOOK && (0, _v7.assignMswData)(_v11, {
+  }), "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(_v12, {
     endpoint: "/users/:ownerId/folders/private_to_me",
     method: "GET"
-  }), _v0.s(["useGetUserFoldersPrivateToMe", 0, _v10, "useGetUserFoldersPrivateToMeLazy", 0, _v11], 0);
+  }), "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(_v13, {
+    endpoint: "/users/:ownerId/folders/private_to_me",
+    method: "POST"
+  }), _v0.s(["useGetUserFoldersPrivateToMe", 0, _v11, "useGetUserFoldersPrivateToMeLazy", 0, _v12, "usePostUserFoldersPrivateToMe", 0, _v13], 0);
 }

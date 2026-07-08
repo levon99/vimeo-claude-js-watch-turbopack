@@ -529,14 +529,15 @@
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
     _v43 = _v0.i(0),
-    _v44 = _v0.i(0);
-  let _v45 = {
+    _v44 = _v0.i(0),
+    _v45 = _v0.i(0);
+  let _v46 = {
     called: !1,
     loading: !1,
     error: null,
     isSuccess: !1
   };
-  function _v46(_v0, _v1) {
+  function _v47(_v0, _v1) {
     switch (_v1.type) {
       case "REQUEST":
         return {
@@ -568,7 +569,7 @@
         return _v0;
     }
   }
-  let _v47 = {
+  let _v48 = {
       incorrect_password: (0, _v26.translate)({
         singular: "Sorry, that password was incorrect. Please try again.",
         dictionary: {
@@ -622,7 +623,7 @@
         }
       })
     },
-    _v48 = async _v0 => {
+    _v49 = async _v0 => {
       let _v1 = await fetch(_v0),
         _v2 = await _v1.json();
       if (!_v1.ok || !1 === _v2.password) throw new _v9.NetworkError("A network error occurred", _v1.status, {
@@ -631,7 +632,7 @@
       });
       return _v2;
     },
-    _v49 = async (_v0, _v1) => {
+    _v50 = async (_v0, _v1) => {
       let _v2 = new FormData();
       Object.entries(_v1).forEach(([_v0, _v1]) => {
         "string" == typeof _v1 && _v2.append(_v0, _v1);
@@ -641,7 +642,7 @@
         body: _v2
       });
       if (!_v3.ok) {
-        let _v0 = await _v3.json();
+        let _v0 = await _v3.json().catch(() => void 0);
         throw new _v9.NetworkError("A network error occurred", _v3.status, _v0);
       }
       let _v4 = await _v3.json();
@@ -662,45 +663,51 @@
         isCookiesDisabled: _v0
       }) => {
         let _v1 = (0, _v7.useViewer)(),
-          _v2 = _v1?.xsrft,
           {
-            albumId: _v3,
-            isShowcaseEmbedded: _v4
+            albumId: _v2,
+            isShowcaseEmbedded: _v3
           } = _v31(_v0 => ({
             albumId: _v0.albumId,
             isShowcaseEmbedded: _v0.isShowcaseEmbedded
           })),
-          [_v5, _v6] = (0, _v1.useReducer)(_v46, _v45),
+          [_v4, _v5] = (0, _v1.useReducer)(_v47, _v46),
           {
-            mutate: _v7
+            mutate: _v6
           } = (0, _v44.useSWRConfig)();
         return {
           validatePassword: (0, _v1.useCallback)(async _v0 => {
             let _v1;
-            if (_v0) return void _v6({
+            if (_v0) return void _v5({
               type: "COOKIES_DISABLED",
-              payload: Error(_v47.generic_error)
+              payload: Error(_v48.generic_error)
             });
-            _v1 = _v4 ? `/showcase/${_v3}/password?password=${_v0}` : "/" === location.pathname ? "/auth" : `/showcase/${_v3}/auth`;
-            let _v2 = _v4 ? _v48 : _v49;
+            _v1 = _v3 ? `/showcase/${_v2}/password?password=${_v0}` : "/" === location.pathname ? "/auth" : `/showcase/${_v2}/auth`;
+            let _v2 = _v3 ? _v49 : _v50,
+              _v3 = _v1?.xsrft;
+            if (!_v3) try {
+              (0, _v45.loadCookie)("vuid") !== _v1?.vuid && (_v3 = await fetch("/_next/viewer").then(_v0 => {
+                if (!_v0.ok) throw _v0;
+                return _v0.json().then(_v0 => _v0.xsrft);
+              }));
+            } catch {}
             try {
-              _v6({
+              _v5({
                 type: "REQUEST"
-              }), await _v7(`key-${_v1}`, _v2(_v1, {
+              }), await _v6(`key-${_v1}`, _v2(_v1, {
                 password: _v0,
-                token: _v2,
-                referer_url: `/showcase/${_v3}`
-              })), _v6({
+                token: _v3,
+                referer_url: `/showcase/${_v2}`
+              })), _v5({
                 type: "SUCCESS"
               });
             } catch (_v0) {
-              _v6({
+              _v5({
                 type: "FAILURE",
-                payload: Error(_v47[1 === _v0.res.errorCode ? "incorrect_password" : "generic_error"])
+                payload: Error(_v48[(_v0?.res?.errorCode ?? 0) === 1 ? "incorrect_password" : "generic_error"])
               });
             }
-          }, [_v0, _v4, _v3, _v2, _v7]),
-          ..._v5
+          }, [_v0, _v3, _v2, _v1, _v6]),
+          ..._v4
         };
       })({
         isCookiesDisabled: _v0
@@ -809,7 +816,7 @@
       })]
     });
   }], 0);
-  var _v50 = _v0.i(0);
+  var _v51 = _v0.i(0);
   _v0.s(["UserNotAllowedPage", 0, ({
     name: _v0,
     brandColor: _v1,
@@ -819,7 +826,7 @@
     let _v4 = _v1 ? `#${_v1}` : null,
       _v5 = "dark" === _v3 ? _v22.DarkMode : _v22.LightMode;
     return (0, _v13.jsx)(_v5, {
-      children: (0, _v13.jsxs)(_v50.VStack, {
+      children: (0, _v13.jsxs)(_v51.VStack, {
         h: "100vh",
         minH: (0, _v25.rem)(400),
         w: "100%",
@@ -940,12 +947,12 @@
       })
     });
   }], 0);
-  var _v51 = _v0.i(0),
-    _v52 = _v0.i(0);
-  let _v53 = {
+  var _v52 = _v0.i(0),
+    _v53 = _v0.i(0);
+  let _v54 = {
       sort: "default"
     },
-    _v54 = {
+    _v55 = {
       alphabetical: {
         sort: "alphabetical",
         direction: "asc"
@@ -973,8 +980,8 @@
       arranged: {
         sort: "manual"
       },
-      added_first: _v53,
-      added_last: _v53,
+      added_first: _v54,
+      added_last: _v54,
       modified_time_desc: {
         sort: "modified_time",
         direction: "desc"
@@ -984,14 +991,14 @@
         direction: "asc"
       }
     },
-    _v55 = ["privacy.view", "allowDownloads", "allowShare", "brandColor", "customLogo.sizes.link", "description", "domain", "embed", "hideNav", "hideUpcoming", "layout", "loop", "metadata.connections.videos.total", "name", "pictures.sizes.link", "sort", "theme", "url", "user.link", "user.name", "user.pictures.sizes.link", "user.uri", "webCustomLogo", "webBrandColor", "hasFeaturedContent", "seoAllowIndexed", "seoTitle", "seoDescription", "config"];
-  _v0.s(["ALBUM_SORT_MAP", 0, _v54, "DEFAULT_BRAND_COLOR_DARK_THEME", 0, "#F9FAFB", "DEFAULT_SHOWCASE_PLAYER_RESPONSIVE_QUERY", 0, {
+    _v56 = ["privacy.view", "allowDownloads", "allowShare", "brandColor", "customLogo.sizes.link", "description", "domain", "embed", "hideNav", "hideUpcoming", "layout", "loop", "metadata.connections.videos.total", "name", "pictures.sizes.link", "sort", "theme", "url", "user.link", "user.name", "user.pictures.sizes.link", "user.uri", "webCustomLogo", "webBrandColor", "hasFeaturedContent", "seoAllowIndexed", "seoTitle", "seoDescription", "config"];
+  _v0.s(["ALBUM_SORT_MAP", 0, _v55, "DEFAULT_BRAND_COLOR_DARK_THEME", 0, "#F9FAFB", "DEFAULT_SHOWCASE_PLAYER_RESPONSIVE_QUERY", 0, {
     transparent: 0
-  }, "DEFAULT_SORT", 0, _v53, "ITEMS_PER_PAGE", 0, 20, "ITEMS_PER_PAGE_MOBILE", 0, 10, "NAV_HEIGHT", 0, 63, "SELECT_ALBUM_FIELDS", 0, ["badge.type", "duration", "isColdStorage", "isFree", "link", "live", "name", "pictures.sizes.link", "pictures.sizes.width", "pictures.uri", "privacy.download", "uri", "user.link", "user.name", "user.pictures.sizes.link", "user.pictures.sizes.width", "user.uri", "embedPlayerConfigUrl", "playerEmbedUrl"], "SHOWCASE_ALBUM_FIELDS", 0, _v55, "VIDEOS_API_VERSION", 0, "3.4.12", "VIDEO_MODAL_TYPE", 0, {
+  }, "DEFAULT_SORT", 0, _v54, "ITEMS_PER_PAGE", 0, 20, "ITEMS_PER_PAGE_MOBILE", 0, 10, "NAV_HEIGHT", 0, 63, "SELECT_ALBUM_FIELDS", 0, ["badge.type", "duration", "isColdStorage", "isFree", "link", "live", "name", "pictures.sizes.link", "pictures.sizes.width", "pictures.uri", "privacy.download", "uri", "user.link", "user.name", "user.pictures.sizes.link", "user.pictures.sizes.width", "user.uri", "embedPlayerConfigUrl", "playerEmbedUrl"], "SHOWCASE_ALBUM_FIELDS", 0, _v56, "VIDEOS_API_VERSION", 0, "3.4.12", "VIDEO_MODAL_TYPE", 0, {
     VIDEO: "video",
     ALBUM_VIDEO: "albumVideo"
   }], 0);
-  let _v56 = {
+  let _v57 = {
     grid: "default",
     player: "featured",
     live: "live",
@@ -1020,16 +1027,16 @@
         setAlbumOwnerId: _v0.setAlbumOwnerId
       })),
       _v9 = _v3(),
-      _v10 = (0, _v52.useIsClipView)(),
+      _v10 = (0, _v53.useIsClipView)(),
       _v11 = (0, _v7.useViewer)(),
       {
         data: _v12,
         isLoading: _v13
-      } = (0, _v51.useGetAlbum)(() => _v11 ? {
+      } = (0, _v52.useGetAlbum)(() => _v11 ? {
         where: {
           albumId: _v0
         },
-        select: [..._v55],
+        select: [..._v56],
         query: {
           isEmbed: _v2,
           ...(_v2 && {
@@ -1042,9 +1049,9 @@
       } : null, _v9?.albumData ? {
         fallbackData: _v9.albumData
       } : void 0),
-      _v14 = _v12?.layout && "playlist" === _v56[_v12.layout],
+      _v14 = _v12?.layout && "playlist" === _v57[_v12.layout],
       _v15 = _v12?.hideNav || _v3 || _v2 || _v14,
-      _v16 = _v12?.sort ? _v54[_v12.sort] : _v53,
+      _v16 = _v12?.sort ? _v55[_v12.sort] : _v54,
       _v17 = _v12?.metadata?.connections?.videos?.total || null,
       _v18 = "boolean" == typeof _v12?.seoAllowIndexed ? _v12?.seoAllowIndexed : null,
       _v19 = _v12?.privacy?.view || null,
@@ -1075,7 +1082,7 @@
     return {
       allowContinuousPlay: !0,
       user: _v12?.user,
-      layout: _v56[_v12?.layout || "grid"],
+      layout: _v57[_v12?.layout || "grid"],
       albumLayout: _v12?.layout,
       title: _v12?.name || "",
       description: _v12?.description || "",
@@ -1125,7 +1132,7 @@
       textCtaAlignment: String((0, _v10.getConfigProperty)(_v12?.config?.textCtaAlignment))
     };
   }], 0);
-  let _v57 = (0, _v34.default)(async () => {
+  let _v58 = (0, _v34.default)(async () => {
       let {
         Footer: _v0
       } = await _v0.A(0);
@@ -1138,7 +1145,7 @@
       },
       ssr: !1
     }),
-    _v58 = (0, _v34.default)(async () => {
+    _v59 = (0, _v34.default)(async () => {
       let {
         Footer: {
           Legal: _v0
@@ -1157,35 +1164,35 @@
     let _v0 = (0, _v7.useViewer)(),
       _v1 = _v0?.impressumQualifies ?? !1,
       _v2 = _v0?.terminateContractQualifies ?? !1;
-    return (0, _v13.jsx)(_v57, {
-      children: (0, _v13.jsx)(_v58, {
+    return (0, _v13.jsx)(_v58, {
+      children: (0, _v13.jsx)(_v59, {
         impressumQualifies: _v1,
         terminateContractQualifies: _v2
       })
     });
   }], 0);
-  var _v59 = _v0.i(0),
-    _v60 = _v0.i(0);
-  let _v61 = () => (0, _v13.jsxs)(_v60.Navigation, {
-      children: [(0, _v13.jsx)(_v60.Navigation.LeftContent, {
-        children: (0, _v13.jsx)(_v59.Skeleton, {
+  var _v60 = _v0.i(0),
+    _v61 = _v0.i(0);
+  let _v62 = () => (0, _v13.jsxs)(_v61.Navigation, {
+      children: [(0, _v13.jsx)(_v61.Navigation.LeftContent, {
+        children: (0, _v13.jsx)(_v60.Skeleton, {
           borderRadius: "sm",
           w: "80px",
           h: "30px"
         })
-      }), (0, _v13.jsxs)(_v60.Navigation.RightContent, {
-        children: [(0, _v13.jsx)(_v59.Skeleton, {
+      }), (0, _v13.jsxs)(_v61.Navigation.RightContent, {
+        children: [(0, _v13.jsx)(_v60.Skeleton, {
           borderRadius: "button",
           w: "92px",
           h: "40px"
-        }), (0, _v13.jsx)(_v59.Skeleton, {
+        }), (0, _v13.jsx)(_v60.Skeleton, {
           borderRadius: "full",
           w: "40px",
           h: "40px"
         })]
       })]
     }),
-    _v62 = (0, _v34.default)(async () => {
+    _v63 = (0, _v34.default)(async () => {
       let {
         DefaultNavigation: _v0
       } = await _v0.A(0);
@@ -1196,10 +1203,10 @@
       loadableGenerated: {
         modules: [0]
       },
-      loading: () => (0, _v13.jsx)(_v61, {}),
+      loading: () => (0, _v13.jsx)(_v62, {}),
       ssr: !1
     });
-  _v0.s(["NavigationModule", 0, () => (0, _v13.jsx)(_v62, {
+  _v0.s(["NavigationModule", 0, () => (0, _v13.jsx)(_v63, {
     isSideNavActive: !1,
     hasThemeSupport: !1
   })], 0);

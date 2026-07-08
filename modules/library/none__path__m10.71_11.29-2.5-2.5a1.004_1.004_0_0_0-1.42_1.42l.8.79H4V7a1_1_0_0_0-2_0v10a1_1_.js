@@ -369,309 +369,274 @@
     children: _v0
   });
   let _v109 = ({
-    isContributor: _v0 = !1
-  }) => (0, _v1.jsx)(_v108, {
-    header: (0, _v24.translate)({
-      singular: "This space is empty",
-      dictionary: {
-        es: {
-          singular: "Este espacio está vacío"
-        },
-        "de-DE": {
-          singular: "Dieser Bereich ist leer"
-        },
-        "fr-FR": {
-          singular: "Cet espace est vide"
-        },
-        "ja-JP": {
-          singular: "このスペースは空です"
-        },
-        "ko-KR": {
-          singular: "이 공간은 비어 있습니다."
-        },
-        "pt-BR": {
-          singular: "Este espaço está vazio"
-        },
-        "zh-CN": {
-          singular: "这个空间是空的"
+      isContributor: _v0 = !1
+    }) => (0, _v1.jsx)(_v108, {
+      header: (0, _v24.translate)({
+        singular: "This space is empty",
+        dictionary: {
+          es: {
+            singular: "Este espacio está vacío"
+          },
+          "de-DE": {
+            singular: "Dieser Bereich ist leer"
+          },
+          "fr-FR": {
+            singular: "Cet espace est vide"
+          },
+          "ja-JP": {
+            singular: "このスペースは空です"
+          },
+          "ko-KR": {
+            singular: "이 공간은 비어 있습니다."
+          },
+          "pt-BR": {
+            singular: "Este espaço está vazio"
+          },
+          "zh-CN": {
+            singular: "这个空间是空的"
+          }
         }
-      }
+      }),
+      icon: (0, _v1.jsx)(_v95.TeamLibrary, {
+        width: "64px",
+        height: "64px"
+      }),
+      subheader: _v0 ? (0, _v24.translate)({
+        singular: "Trying to add team content? Upload to My library and share with an admin.",
+        dictionary: {
+          es: {
+            singular: "¿Intenta agregar contenido del equipo? Súbalo a Mi biblioteca y compártalo con un administrador."
+          },
+          "de-DE": {
+            singular: "Versuchen Sie, Teaminhalte hinzuzufügen? In „Meine Bibliothek“ hochladen und mit einem Administrator teilen."
+          },
+          "fr-FR": {
+            singular: "Vous essayez d'ajouter du contenu concernant votre équipe ? Téléchargez-le dans Ma bibliothèque et partagez-le avec un administrateur."
+          },
+          "ja-JP": {
+            singular: "チームコンテンツを追加しようとしていますか？マイライブラリにアップロードして、管理者と共有してください。"
+          },
+          "ko-KR": {
+            singular: "팀 콘텐츠를 추가하려 하시나요? 내 라이브러리에 업로드하고 관리자와 공유하세요."
+          },
+          "pt-BR": {
+            singular: "Tentando adicionar conteúdo para a equipe? Carregue em Minha biblioteca e compartilhe com um administrador."
+          },
+          "zh-CN": {
+            singular: "尝试添加团队内容？上传到我的视频库并与管理员共享。"
+          }
+        }
+      }) : (0, _v24.translate)({
+        singular: "No team content has been added yet",
+        dictionary: {
+          es: {
+            singular: "Aún no se ha agregado ningún contenido del equipo"
+          },
+          "de-DE": {
+            singular: "Es wurden noch keine Teaminhalte hinzugefügt"
+          },
+          "fr-FR": {
+            singular: "Aucun contenu d'équipe n'a été ajouté"
+          },
+          "ja-JP": {
+            singular: "チームコンテンツはまだ追加されていません"
+          },
+          "ko-KR": {
+            singular: "아직 팀 콘텐츠가 추가되지 않았습니다."
+          },
+          "pt-BR": {
+            singular: "Nenhum conteúdo de equipe foi adicionado ainda"
+          },
+          "zh-CN": {
+            singular: "尚未添加团队内容"
+          }
+        }
+      })
     }),
-    icon: (0, _v1.jsx)(_v95.TeamLibrary, {
-      width: "64px",
-      height: "64px"
-    }),
-    subheader: _v0 ? (0, _v24.translate)({
-      singular: "Trying to add team content? Upload to My library and share with an admin.",
-      dictionary: {
-        es: {
-          singular: "¿Intenta agregar contenido del equipo? Súbalo a Mi biblioteca y compártalo con un administrador."
-        },
-        "de-DE": {
-          singular: "Versuchen Sie, Teaminhalte hinzuzufügen? In „Meine Bibliothek“ hochladen und mit einem Administrator teilen."
-        },
-        "fr-FR": {
-          singular: "Vous essayez d'ajouter du contenu concernant votre équipe ? Téléchargez-le dans Ma bibliothèque et partagez-le avec un administrateur."
-        },
-        "ja-JP": {
-          singular: "チームコンテンツを追加しようとしていますか？マイライブラリにアップロードして、管理者と共有してください。"
-        },
-        "ko-KR": {
-          singular: "팀 콘텐츠를 추가하려 하시나요? 내 라이브러리에 업로드하고 관리자와 공유하세요."
-        },
-        "pt-BR": {
-          singular: "Tentando adicionar conteúdo para a equipe? Carregue em Minha biblioteca e compartilhe com um administrador."
-        },
-        "zh-CN": {
-          singular: "尝试添加团队内容？上传到我的视频库并与管理员共享。"
-        }
-      }
-    }) : (0, _v24.translate)({
-      singular: "No team content has been added yet",
-      dictionary: {
-        es: {
-          singular: "Aún no se ha agregado ningún contenido del equipo"
-        },
-        "de-DE": {
-          singular: "Es wurden noch keine Teaminhalte hinzugefügt"
-        },
-        "fr-FR": {
-          singular: "Aucun contenu d'équipe n'a été ajouté"
-        },
-        "ja-JP": {
-          singular: "チームコンテンツはまだ追加されていません"
-        },
-        "ko-KR": {
-          singular: "아직 팀 콘텐츠가 추가되지 않았습니다."
-        },
-        "pt-BR": {
-          singular: "Nenhum conteúdo de equipe foi adicionado ainda"
-        },
-        "zh-CN": {
-          singular: "尚未添加团队内容"
-        }
-      }
-    })
-  });
-  var _v110 = _v0.i(0);
-  let _v111 = _v0 => (0, _v1.jsx)(_v10.Icon, {
-    viewBox: "0 0 24 24",
-    ..._v0,
-    fill: "none",
-    children: (0, _v1.jsxs)("g", {
-      fill: "currentColor",
-      children: [(0, _v1.jsx)("path", {
-        d: "M12.38 9.58a1 1 0 0 1 .33.21l2 2a.998.998 0 0 1 0 1.42.997.997 0 0 1-1.095.219.998.998 0 0 1-.325-.219l-.29-.3v2.59a1 1 0 1 1-2 0v-2.59l-.29.3a1.004 1.004 0 1 1-1.42-1.42l2-2a1 1 0 0 1 .33-.21 1 1 0 0 1 .76 0Z"
-      }), (0, _v1.jsx)("path", {
-        fillRule: "evenodd",
-        clipRule: "evenodd",
-        d: "M10.224 6.055C10.021 6.006 9.794 6 9.012 6H7.8c-.857 0-1.439 0-1.889.038-.438.035-.663.1-.819.18a2 2 0 0 0-.874.874c-.08.156-.145.38-.18.82C4 8.361 4 8.942 4 9.8v4.4c0 .857 0 1.439.038 1.889.035.438.1.663.18.819a2 2 0 0 0 .874.874c.156.08.38.145.819.18C6.361 18 6.943 18 7.8 18h8.4c.857 0 1.439 0 1.889-.038.438-.035.663-.1.819-.18a2 2 0 0 0 .874-.874c.08-.156.145-.38.18-.819.037-.45.038-1.032.038-1.889v-2.4c0-.857 0-1.439-.038-1.889-.035-.438-.1-.663-.18-.819a2 2 0 0 0-.874-.874c-.156-.08-.38-.145-.819-.18C17.639 8 17.057 8 16.2 8H13a1 1 0 0 1-.707-.293l-.594-.594c-.553-.552-.718-.709-.897-.818a2.002 2.002 0 0 0-.578-.24ZM9.114 4c.635 0 1.114 0 1.577.11a4 4 0 0 1 1.156.48c.406.248.745.588 1.194 1.037l.072.072.301.301h2.827c.805 0 1.47 0 2.01.044.563.046 1.08.145 1.565.392a4 4 0 0 1 1.748 1.748c.247.485.346 1.002.392 1.564.044.541.044 1.206.044 2.01v2.483c0 .805 0 1.47-.044 2.01-.046.563-.145 1.08-.392 1.565a4 4 0 0 1-1.748 1.748c-.485.247-1.002.346-1.564.392-.541.044-1.206.044-2.01.044H7.758c-.805 0-1.47 0-2.01-.044-.563-.046-1.08-.145-1.565-.392a4 4 0 0 1-1.748-1.748c-.247-.485-.346-1.002-.392-1.564C2 15.71 2 15.046 2 14.242V9.758c0-.805 0-1.47.044-2.01.046-.563.145-1.08.392-1.565a4 4 0 0 1 1.748-1.748c.485-.247 1.002-.346 1.564-.392C6.29 4 6.954 4 7.758 4h1.356Z"
-      })]
-    })
-  });
-  var _v112 = _v0.i(0),
-    _v113 = _v0.i(0);
-  let _v114 = ({
-    targetUserId: _v0,
-    onInvitePeople: _v1,
-    hasTeamMembers: _v2
-  }) => {
-    let _v3 = (0, _v5.useRef)(null),
-      {
-        uploadFiles: _v4,
-        isLoading: _v5
-      } = (0, _v113.useUploadFileList)({
-        targetUserId: _v0,
-        paywallTracking: {
-          paywallTrigger: "team_library_empty_state_add_content",
-          paywallLocation: "video_library",
-          paywallType: "popup",
-          paywallFeature: "quota"
-        }
-      });
-    return (0, _v1.jsx)(_v7.Flex, {
-      justifyContent: "center",
-      width: "100%",
-      children: (0, _v1.jsxs)(_v7.Flex, {
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "2xl",
-        padding: "md",
-        width: "100%",
-        minHeight: (0, _v92.rem)(500),
-        borderWidth: "1px",
-        borderStyle: "solid",
-        borderColor: "stroke",
-        borderRadius: "md",
-        children: [(0, _v1.jsxs)(_v7.Flex, {
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "md",
-          children: [(0, _v1.jsx)(_v95.TeamLibrary, {
-            width: (0, _v92.rem)(64),
-            height: (0, _v92.rem)(64)
-          }), (0, _v1.jsx)(_v94.Text, {
-            variant: "heading-lg",
-            children: (0, _v24.translate)({
-              singular: "Your Team Library is ready",
-              dictionary: {
-                es: {
-                  singular: "La biblioteca de tu equipo está lista"
-                },
-                "de-DE": {
-                  singular: "Ihre Team-Bibliothek ist bereit"
-                },
-                "fr-FR": {
-                  singular: "La bibliothèque de votre équipe est prête"
-                },
-                "ja-JP": {
-                  singular: "チームライブラリの準備ができました"
-                },
-                "ko-KR": {
-                  singular: "팀 라이브러리가 준비되었습니다"
-                },
-                "pt-BR": {
-                  singular: "A biblioteca da sua equipe está pronta"
-                },
-                "zh-CN": {
-                  singular: "您的团队资料库已准备就绪"
-                }
-              }
-            })
-          }), (0, _v1.jsx)(_v86.Box, {
-            maxWidth: (0, _v92.rem)(392),
-            children: (0, _v1.jsx)(_v94.Text, {
-              variant: "body-lg",
-              color: "text-secondary",
-              textAlign: "center",
-              children: (0, _v24.translate)({
-                singular: "This is your team's shared space. Collaborate, share content, and keep everyone in one place.",
-                dictionary: {
-                  es: {
-                    singular: "Este es el espacio compartido de tu equipo. Colabora, comparte contenido y mantén a todos en un solo lugar."
-                  },
-                  "de-DE": {
-                    singular: "Dies ist der gemeinsame Bereich Ihres Teams. Arbeiten Sie gemeinsam, teilen Sie Inhalte und halten Sie alle an einem Ort zusammen."
-                  },
-                  "fr-FR": {
-                    singular: "Voici l'espace partagé de votre équipe. Collaborez, partagez du contenu et rassemblez tout le monde au même endroit."
-                  },
-                  "ja-JP": {
-                    singular: "ここはチームの共有スペースです。共同で作業し、コンテンツを共有し、メンバー全員を一か所にまとめておきましょう。"
-                  },
-                  "ko-KR": {
-                    singular: "여기는 팀의 공유 공간입니다. 협업하고, 콘텐츠를 공유하며 모든 구성원을 한곳에 모아두세요."
-                  },
-                  "pt-BR": {
-                    singular: "Este é o espaço compartilhado da sua equipe. Colabore, compartilhe conteúdo e mantenha todos em um só lugar."
-                  },
-                  "zh-CN": {
-                    singular: "这是您团队的共享空间。协作、分享内容，并将所有人集中在一处。"
-                  }
-                }
-              })
-            })
-          })]
-        }), (0, _v1.jsxs)(_v7.Flex, {
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "sm",
-          width: (0, _v92.rem)(292),
-          children: [!_v2 && (0, _v1.jsx)(_v6.Button, {
-            variant: "primary",
-            size: "lg",
-            width: "100%",
-            leftIcon: (0, _v1.jsx)(_v112.PersonUserAdd, {}),
-            onClick: _v1,
-            children: (0, _v24.translate)({
-              singular: "Invite people",
-              dictionary: {
-                es: {
-                  singular: "Invitar personas"
-                },
-                "de-DE": {
-                  singular: "Personen einladen"
-                },
-                "fr-FR": {
-                  singular: "Inviter des personnes"
-                },
-                "ja-JP": {
-                  singular: "メンバーを招待する"
-                },
-                "ko-KR": {
-                  singular: "초대"
-                },
-                "pt-BR": {
-                  singular: "Convidar pessoas"
-                },
-                "zh-CN": {
-                  singular: "邀请他人"
-                }
-              }
-            })
-          }), (0, _v1.jsx)(_v110.FileInput, {
-            multiple: !0,
-            ref: _v3,
-            onChange: _v0 => {
-              let _v1 = _v0.target.files;
-              _v1?.length && _v4({
-                files: _v1,
-                targetUserId: _v0,
-                folderId: void 0,
-                uploadClipProperties: void 0
-              }), _v3.current && (_v3.current.value = "");
-            },
-            isDisabled: _v5,
-            sx: {
-              display: "none"
-            },
-            accept: "video/*,.mkv,.m2ts"
-          }), (0, _v1.jsx)(_v6.Button, {
-            variant: _v2 ? "secondary" : "tertiary",
-            size: "lg",
-            width: "100%",
-            leftIcon: (0, _v1.jsx)(_v111, {}),
-            isDisabled: _v5,
-            onClick: () => _v3.current?.click(),
-            children: (0, _v24.translate)({
-              singular: "Move content from My Library",
-              dictionary: {
-                es: {
-                  singular: "Mover contenido desde Mi biblioteca"
-                },
-                "de-DE": {
-                  singular: "Inhalte aus „Meine Bibliothek“ verschieben"
-                },
-                "fr-FR": {
-                  singular: "Déplacer le contenu de Ma bibliothèque"
-                },
-                "ja-JP": {
-                  singular: "マイライブラリからコンテンツを移動"
-                },
-                "ko-KR": {
-                  singular: "내 라이브러리에서 콘텐츠 이동"
-                },
-                "pt-BR": {
-                  singular: "Mover conteúdo da Minha Biblioteca"
-                },
-                "zh-CN": {
-                  singular: "从“我的资料库”移动内容"
-                }
-              }
-            })
-          })]
+    _v110 = _v0 => (0, _v1.jsx)(_v10.Icon, {
+      viewBox: "0 0 24 24",
+      ..._v0,
+      fill: "none",
+      children: (0, _v1.jsxs)("g", {
+        fill: "currentColor",
+        children: [(0, _v1.jsx)("path", {
+          d: "M12.38 9.58a1 1 0 0 1 .33.21l2 2a.998.998 0 0 1 0 1.42.997.997 0 0 1-1.095.219.998.998 0 0 1-.325-.219l-.29-.3v2.59a1 1 0 1 1-2 0v-2.59l-.29.3a1.004 1.004 0 1 1-1.42-1.42l2-2a1 1 0 0 1 .33-.21 1 1 0 0 1 .76 0Z"
+        }), (0, _v1.jsx)("path", {
+          fillRule: "evenodd",
+          clipRule: "evenodd",
+          d: "M10.224 6.055C10.021 6.006 9.794 6 9.012 6H7.8c-.857 0-1.439 0-1.889.038-.438.035-.663.1-.819.18a2 2 0 0 0-.874.874c-.08.156-.145.38-.18.82C4 8.361 4 8.942 4 9.8v4.4c0 .857 0 1.439.038 1.889.035.438.1.663.18.819a2 2 0 0 0 .874.874c.156.08.38.145.819.18C6.361 18 6.943 18 7.8 18h8.4c.857 0 1.439 0 1.889-.038.438-.035.663-.1.819-.18a2 2 0 0 0 .874-.874c.08-.156.145-.38.18-.819.037-.45.038-1.032.038-1.889v-2.4c0-.857 0-1.439-.038-1.889-.035-.438-.1-.663-.18-.819a2 2 0 0 0-.874-.874c-.156-.08-.38-.145-.819-.18C17.639 8 17.057 8 16.2 8H13a1 1 0 0 1-.707-.293l-.594-.594c-.553-.552-.718-.709-.897-.818a2.002 2.002 0 0 0-.578-.24ZM9.114 4c.635 0 1.114 0 1.577.11a4 4 0 0 1 1.156.48c.406.248.745.588 1.194 1.037l.072.072.301.301h2.827c.805 0 1.47 0 2.01.044.563.046 1.08.145 1.565.392a4 4 0 0 1 1.748 1.748c.247.485.346 1.002.392 1.564.044.541.044 1.206.044 2.01v2.483c0 .805 0 1.47-.044 2.01-.046.563-.145 1.08-.392 1.565a4 4 0 0 1-1.748 1.748c-.485.247-1.002.346-1.564.392-.541.044-1.206.044-2.01.044H7.758c-.805 0-1.47 0-2.01-.044-.563-.046-1.08-.145-1.565-.392a4 4 0 0 1-1.748-1.748c-.247-.485-.346-1.002-.392-1.564C2 15.71 2 15.046 2 14.242V9.758c0-.805 0-1.47.044-2.01.046-.563.145-1.08.392-1.565a4 4 0 0 1 1.748-1.748c.485-.247 1.002-.346 1.564-.392C6.29 4 6.954 4 7.758 4h1.356Z"
         })]
       })
     });
-  };
-  var _v115 = _v0.i(0),
+  var _v111 = _v0.i(0);
+  let _v112 = ({
+    onInvitePeople: _v0,
+    onMoveContent: _v1,
+    hasTeamMembers: _v2
+  }) => (0, _v1.jsx)(_v7.Flex, {
+    justifyContent: "center",
+    width: "100%",
+    children: (0, _v1.jsxs)(_v7.Flex, {
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "2xl",
+      padding: "md",
+      width: "100%",
+      minHeight: (0, _v92.rem)(500),
+      borderWidth: "1px",
+      borderStyle: "solid",
+      borderColor: "stroke",
+      borderRadius: "md",
+      children: [(0, _v1.jsxs)(_v7.Flex, {
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "md",
+        children: [(0, _v1.jsx)(_v95.TeamLibrary, {
+          width: (0, _v92.rem)(64),
+          height: (0, _v92.rem)(64)
+        }), (0, _v1.jsx)(_v94.Text, {
+          variant: "heading-lg",
+          children: (0, _v24.translate)({
+            singular: "Your Team Library is ready",
+            dictionary: {
+              es: {
+                singular: "La biblioteca de tu equipo está lista"
+              },
+              "de-DE": {
+                singular: "Ihre Team-Bibliothek ist bereit"
+              },
+              "fr-FR": {
+                singular: "La bibliothèque de votre équipe est prête"
+              },
+              "ja-JP": {
+                singular: "チームライブラリの準備ができました"
+              },
+              "ko-KR": {
+                singular: "팀 라이브러리가 준비되었습니다"
+              },
+              "pt-BR": {
+                singular: "A biblioteca da sua equipe está pronta"
+              },
+              "zh-CN": {
+                singular: "您的团队资料库已准备就绪"
+              }
+            }
+          })
+        }), (0, _v1.jsx)(_v86.Box, {
+          maxWidth: (0, _v92.rem)(392),
+          children: (0, _v1.jsx)(_v94.Text, {
+            variant: "body-lg",
+            color: "text-secondary",
+            textAlign: "center",
+            children: (0, _v24.translate)({
+              singular: "This is your team's shared space. Collaborate, share content, and keep everyone in one place.",
+              dictionary: {
+                es: {
+                  singular: "Este es el espacio compartido de tu equipo. Colabora, comparte contenido y mantén a todos en un solo lugar."
+                },
+                "de-DE": {
+                  singular: "Dies ist der gemeinsame Bereich Ihres Teams. Arbeiten Sie gemeinsam, teilen Sie Inhalte und halten Sie alle an einem Ort zusammen."
+                },
+                "fr-FR": {
+                  singular: "Voici l'espace partagé de votre équipe. Collaborez, partagez du contenu et rassemblez tout le monde au même endroit."
+                },
+                "ja-JP": {
+                  singular: "ここはチームの共有スペースです。共同で作業し、コンテンツを共有し、メンバー全員を一か所にまとめておきましょう。"
+                },
+                "ko-KR": {
+                  singular: "여기는 팀의 공유 공간입니다. 협업하고, 콘텐츠를 공유하며 모든 구성원을 한곳에 모아두세요."
+                },
+                "pt-BR": {
+                  singular: "Este é o espaço compartilhado da sua equipe. Colabore, compartilhe conteúdo e mantenha todos em um só lugar."
+                },
+                "zh-CN": {
+                  singular: "这是您团队的共享空间。协作、分享内容，并将所有人集中在一处。"
+                }
+              }
+            })
+          })
+        })]
+      }), (0, _v1.jsxs)(_v7.Flex, {
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "sm",
+        width: (0, _v92.rem)(292),
+        children: [!_v2 && (0, _v1.jsx)(_v6.Button, {
+          variant: "primary",
+          size: "lg",
+          width: "100%",
+          leftIcon: (0, _v1.jsx)(_v111.PersonUserAdd, {}),
+          onClick: _v0,
+          children: (0, _v24.translate)({
+            singular: "Invite people",
+            dictionary: {
+              es: {
+                singular: "Invitar personas"
+              },
+              "de-DE": {
+                singular: "Personen einladen"
+              },
+              "fr-FR": {
+                singular: "Inviter des personnes"
+              },
+              "ja-JP": {
+                singular: "メンバーを招待する"
+              },
+              "ko-KR": {
+                singular: "초대"
+              },
+              "pt-BR": {
+                singular: "Convidar pessoas"
+              },
+              "zh-CN": {
+                singular: "邀请他人"
+              }
+            }
+          })
+        }), (0, _v1.jsx)(_v6.Button, {
+          variant: _v2 ? "secondary" : "tertiary",
+          size: "lg",
+          width: "100%",
+          leftIcon: (0, _v1.jsx)(_v110, {}),
+          onClick: _v1,
+          children: (0, _v24.translate)({
+            singular: "Move content from My Library",
+            dictionary: {
+              es: {
+                singular: "Mover contenido desde Mi biblioteca"
+              },
+              "de-DE": {
+                singular: "Inhalte aus „Meine Bibliothek“ verschieben"
+              },
+              "fr-FR": {
+                singular: "Déplacer le contenu de Ma bibliothèque"
+              },
+              "ja-JP": {
+                singular: "マイライブラリからコンテンツを移動"
+              },
+              "ko-KR": {
+                singular: "내 라이브러리에서 콘텐츠 이동"
+              },
+              "pt-BR": {
+                singular: "Mover conteúdo da Minha Biblioteca"
+              },
+              "zh-CN": {
+                singular: "从“我的资料库”移动内容"
+              }
+            }
+          })
+        })]
+      })]
+    })
+  });
+  var _v113 = _v0.i(0),
+    _v114 = _v0.i(0),
+    _v115 = _v0.i(0),
     _v116 = _v0.i(0),
     _v117 = _v0.i(0),
-    _v118 = _v0.i(0),
-    _v119 = _v0.i(0),
-    _v120 = _v0.i(0);
-  let _v121 = ({
+    _v118 = _v0.i(0);
+  let _v119 = ({
     isOpen: _v0,
     onClose: _v1,
     analyticsLink: _v2,
@@ -691,11 +656,11 @@
       {
         trackLibraryNewFolderClicked: _v11
       } = (0, _v30.useLibraryTracking)();
-    return (0, _v1.jsxs)(_v115.Drawer, {
+    return (0, _v1.jsxs)(_v113.Drawer, {
       placement: "bottom",
       isOpen: _v0,
       onClose: _v1,
-      children: [(0, _v1.jsx)(_v118.DrawerOverlay, {}), (0, _v1.jsxs)(_v117.DrawerContent, {
+      children: [(0, _v1.jsx)(_v116.DrawerOverlay, {}), (0, _v1.jsxs)(_v115.DrawerContent, {
         bgColor: "fill-surface",
         margin: "0 auto !important",
         borderTopRadius: "xl",
@@ -716,7 +681,7 @@
             borderRadius: "3xl",
             bgColor: "stroke"
           })
-        }), (0, _v1.jsx)(_v116.DrawerBody, {
+        }), (0, _v1.jsx)(_v114.DrawerBody, {
           pb: "lg",
           children: (0, _v1.jsxs)(_v7.Flex, {
             direction: "column",
@@ -728,7 +693,7 @@
               size: "lg",
               w: "100%",
               justifyContent: "flex-start",
-              leftIcon: (0, _v1.jsx)(_v119.Analytics, {}),
+              leftIcon: (0, _v1.jsx)(_v117.Analytics, {}),
               "data-testid": "library-header-overflow-analytics",
               onClick: () => {
                 _v3?.(), _v1();
@@ -764,7 +729,7 @@
               size: "lg",
               w: "100%",
               justifyContent: "flex-start",
-              leftIcon: (0, _v1.jsx)(_v120.FolderPlus, {}),
+              leftIcon: (0, _v1.jsx)(_v118.FolderPlus, {}),
               "data-testid": "library-header-overflow-new-folder",
               onClick: () => {
                 _v11({
@@ -846,39 +811,11 @@
       })]
     });
   };
-  var _v122 = _v0.i(0);
-  let _v123 = () => {
-    let {
-        setModalContextState: _v0
-      } = (0, _v5.useContext)(_v102),
-      _v1 = (0, _v5.useContext)(_v100.ViewerContext),
-      _v2 = _v1?.teamUser?.ownerId ?? _v1?.user?.id,
-      {
-        capabilities: _v3
-      } = (0, _v20.useCapability)(["hasContentSpaceEnabled"], _v2),
-      {
-        trackLibraryNewFolderClicked: _v4
-      } = (0, _v30.useLibraryTracking)();
-    return (0, _v1.jsx)(_v122.NewFolderButton, {
-      onClick: () => {
-        _v4({
-          libraryType: (0, _v31.deriveLibraryType)({
-            hasContentSpaceEnabled: !!_v3.hasContentSpaceEnabled
-          })
-        }), _v0({
-          activeModal: "FolderSettings",
-          activeModalState: {
-            location: "library_header"
-          }
-        });
-      },
-      dataTestId: "library-header-new-folder-button",
-      dataTestIdMobile: "library-header-new-folder-button-mobile",
-      dataId: "vl_library-header-new-folder-button",
-      dataIdMobile: "vl_library-header-new-folder-button-mobile"
-    });
-  };
-  var _v124 = _v0.i(0),
+  var _v120 = _v0.i(0),
+    _v121 = _v0.i(0),
+    _v122 = _v0.i(0),
+    _v123 = _v0.i(0),
+    _v124 = _v0.i(0),
     _v125 = _v0.i(0),
     _v126 = _v0.i(0),
     _v127 = _v0.i(0),
@@ -898,14 +835,1190 @@
     _v141 = _v0.i(0),
     _v142 = _v0.i(0),
     _v143 = _v0.i(0),
-    _v144 = _v0.i(0),
-    _v145 = _v0.i(0),
-    _v146 = _v0.i(0),
+    _v144 = _v0.i(0);
+  let _v145 = ["type", "video.uri", "video.name", "video.duration", "video.pictures.sizes", "video.privacy.view", "video.canMoveToProject", "video.createdTime", "video.lastUserActionEventDate", "video.uploader.name", "video.uploader.pictures.sizes", "video.parentProject.uri", "folder.uri", "folder.name", "folder.createdTime", "folder.lastUserActionEventDate", "folder.metadata.connections.items.total", "folder.metadata.connections.parentFolder.uri"];
+  var _v146 = _v0.i(0),
     _v147 = _v0.i(0),
-    _v148 = _v0.i(0);
-  let _v149 = "header",
-    _v150 = "video card",
-    _v151 = ({
+    _v148 = _v0.i(0),
+    _v149 = _v0.i(0);
+  let _v150 = ({
+      item: _v0,
+      index: _v1,
+      isSelected: _v2,
+      onToggleSelect: _v3
+    }) => {
+      let _v4,
+        _v5 = "folder" === _v0.kind,
+        _v6 = _v0.privacyView ? (0, _v149.getPrivacyLabel)(_v0.privacyView) : void 0;
+      return (0, _v1.jsxs)(_v7.Flex, {
+        alignItems: "center",
+        gap: "md",
+        paddingX: "sm",
+        paddingY: "xs",
+        borderRadius: "sm",
+        borderWidth: "1px",
+        borderStyle: "solid",
+        borderColor: _v2 ? "stroke" : "transparent",
+        bg: _v2 ? "fill-component" : void 0,
+        _hover: {
+          bg: "fill-component"
+        },
+        opacity: _v0.canMove ? 1 : .5,
+        children: [(0, _v1.jsx)(_v122.Checkbox, {
+          size: "md",
+          isChecked: _v2,
+          isDisabled: !_v0.canMove,
+          onChange: () => _v3(_v0, _v1),
+          "aria-label": (0, _v24.translate)({
+            singular: "Select {name}",
+            replacements: {
+              name: _v0.name
+            },
+            dictionary: {
+              es: {
+                singular: "Seleccionar {name}"
+              },
+              "de-DE": {
+                singular: "{name} auswählen"
+              },
+              "fr-FR": {
+                singular: "Sélectionner {name}"
+              },
+              "ja-JP": {
+                singular: "{name}を選択"
+              },
+              "ko-KR": {
+                singular: "{name} 선택"
+              },
+              "pt-BR": {
+                singular: "Selecionar {name}"
+              },
+              "zh-CN": {
+                singular: "选择 {name}"
+              }
+            }
+          })
+        }), (0, _v1.jsxs)(_v7.Flex, {
+          alignItems: "center",
+          gap: "md",
+          flex: "1",
+          minWidth: 0,
+          children: [_v5 ? (0, _v1.jsx)(_v7.Flex, {
+            alignItems: "center",
+            justifyContent: "center",
+            width: (0, _v92.rem)(72),
+            height: (0, _v92.rem)(40),
+            borderRadius: "xs",
+            bg: "fill-component",
+            flexShrink: 0,
+            children: (0, _v1.jsx)(_v148.FolderFilled, {
+              width: (0, _v92.rem)(20),
+              height: (0, _v92.rem)(20)
+            })
+          }) : (0, _v1.jsx)(_v86.Box, {
+            width: (0, _v92.rem)(72),
+            height: (0, _v92.rem)(40),
+            borderRadius: "xs",
+            bg: "fill-component",
+            overflow: "hidden",
+            flexShrink: 0,
+            children: _v0.thumbnailUrl && (0, _v1.jsx)(_v147.Image, {
+              src: _v0.thumbnailUrl,
+              alt: "",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover"
+            })
+          }), (0, _v1.jsxs)(_v86.Box, {
+            minWidth: 0,
+            flex: "1",
+            children: [(0, _v1.jsx)(_v94.Text, {
+              variant: "body-sm",
+              fontWeight: "medium",
+              noOfLines: 1,
+              children: _v0.name
+            }), _v5 ? (0, _v1.jsx)(_v94.Text, {
+              variant: "body-sm",
+              color: "text-secondary",
+              children: (0, _v24.translate)({
+                singular: "{COUNT} item",
+                plural: "{COUNT} items",
+                count: _v0.itemCount ?? 0,
+                replacements: {
+                  COUNT: _v0.itemCount ?? 0
+                },
+                dictionary: {
+                  es: {
+                    singular: "{COUNT} elemento",
+                    plural: "{COUNT} elementos"
+                  },
+                  "de-DE": {
+                    singular: "{COUNT} Element",
+                    plural: "{COUNT} Elemente"
+                  },
+                  "fr-FR": {
+                    singular: "{COUNT} élément",
+                    plural: "{COUNT} éléments"
+                  },
+                  "ja-JP": {
+                    singular: "{COUNT} 件のアイテム",
+                    plural: "{COUNT} 件のアイテム"
+                  },
+                  "ko-KR": {
+                    singular: "{COUNT}개 항목",
+                    plural: "{COUNT}개 항목"
+                  },
+                  "pt-BR": {
+                    singular: "{COUNT} iten",
+                    plural: "{COUNT} itens"
+                  },
+                  "zh-CN": {
+                    singular: "{COUNT} 项",
+                    plural: "{COUNT} 项"
+                  }
+                }
+              })
+            }) : (_v0.uploaderName || _v0.uploaderAvatarUrl) && (0, _v1.jsxs)(_v7.Flex, {
+              alignItems: "center",
+              gap: "xs",
+              children: [(0, _v1.jsx)(_v146.Avatar, {
+                size: "xs",
+                sx: {
+                  width: (0, _v92.rem)(16),
+                  height: (0, _v92.rem)(16)
+                },
+                src: _v0.uploaderAvatarUrl,
+                alt: _v0.uploaderName ?? ""
+              }), (0, _v1.jsx)(_v94.Text, {
+                variant: "body-sm",
+                color: "text-secondary",
+                noOfLines: 1,
+                children: _v0.uploaderName
+              })]
+            })]
+          })]
+        }), !_v5 && _v6 && (0, _v1.jsx)(_v94.Text, {
+          variant: "body-sm",
+          color: "text-secondary",
+          flexShrink: 0,
+          children: _v6
+        }), (0, _v1.jsx)(_v94.Text, {
+          variant: "body-sm",
+          color: "text-secondary",
+          flexShrink: 0,
+          minWidth: (0, _v92.rem)(90),
+          marginLeft: "md",
+          display: {
+            base: "none",
+            md: "block"
+          },
+          children: void 0 === (_v4 = _v0.dateMs) ? "" : new Intl.DateTimeFormat(void 0, {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+          }).format(new Date(_v4))
+        })]
+      });
+    },
+    _v151 = _v0 => {
+      let _v1 = _v0?.split("/").pop();
+      return _v1 ? parseInt(_v1, 10) : void 0;
+    },
+    _v152 = _v0 => _v0?.[Math.min(2, _v0.length - 1)]?.link ?? _v0?.[0]?.link,
+    _v153 = _v0 => {
+      if (!_v0) return;
+      let _v1 = Date.parse(_v0);
+      return Number.isNaN(_v1) ? void 0 : _v1;
+    },
+    _v154 = ({
+      userId: _v0,
+      folderId: _v1,
+      search: _v2,
+      sort: _v3,
+      direction: _v4,
+      selectedUris: _v5,
+      onToggleSelect: _v6,
+      onVisibleItemsChange: _v7,
+      reloadToken: _v8
+    }) => {
+      let _v9 = (0, _v144.useDebouncedValue)(_v2.trim(), 300),
+        _v10 = _v9.length > 0,
+        _v11 = (0, _v143.useGetUserProjectItemsInfinite)(() => _v10 ? null : {
+          where: {
+            userId: _v0,
+            projectId: _v1
+          },
+          select: _v145,
+          query: {
+            direction: _v4,
+            perPage: 25,
+            sort: _v3
+          }
+        }, {
+          revalidateOnFocus: !1
+        }),
+        _v12 = (0, _v142.useGetUserItemsInfinite)(() => _v10 ? {
+          where: {
+            userId: _v0
+          },
+          select: _v145,
+          query: {
+            direction: _v4,
+            sort: _v3,
+            perPage: 25,
+            includeFolderIds: String(_v1),
+            query: _v9,
+            precision: 3
+          },
+          headers: {
+            Accept: "application/vnd.vimeo.*+json;version=3.4"
+          }
+        } : null, {
+          revalidateOnFocus: !1,
+          revalidateFirstPage: !1
+        }),
+        {
+          data: _v13,
+          size: _v14,
+          setSize: _v15,
+          isLoading: _v16,
+          isValidating: _v17,
+          mutate: _v18
+        } = _v10 ? _v12 : _v11,
+        _v19 = (0, _v5.useMemo)(() => _v13 ? _v13.flatMap(_v0 => _v0.data.flatMap(_v0 => _v0.folder?.uri ? [{
+          kind: "folder",
+          uri: _v0.folder.uri,
+          name: _v0.folder.name ?? "",
+          parentFolderId: _v151(_v0.folder.metadata?.connections?.parentFolder?.uri),
+          canMove: !0,
+          dateMs: _v153(_v0.folder.lastUserActionEventDate ?? _v0.folder.createdTime),
+          itemCount: _v0.folder.metadata?.connections?.items?.total
+        }] : _v0.video?.uri ? [{
+          kind: "video",
+          uri: _v0.video.uri,
+          name: _v0.video.name ?? "",
+          parentFolderId: _v151(_v0.video.parentProject?.uri),
+          canMove: !1 !== _v0.video.canMoveToProject,
+          dateMs: _v153(_v0.video.lastUserActionEventDate ?? _v0.video.createdTime),
+          thumbnailUrl: _v152(_v0.video.pictures?.sizes),
+          uploaderName: _v0.video.uploader?.name,
+          uploaderAvatarUrl: _v152(_v0.video.uploader?.pictures?.sizes),
+          privacyView: _v0.video.privacy?.view
+        }] : [])) : [], [_v13]);
+      (0, _v5.useEffect)(() => {
+        _v7(_v19);
+      }, [_v19, _v7]), (0, _v5.useEffect)(() => {
+        _v8 > 0 && _v18();
+      }, [_v8, _v18]);
+      let _v20 = !!_v13?.[_v13.length - 1]?.paging?.next,
+        _v21 = (0, _v5.useRef)(null);
+      return ((0, _v5.useEffect)(() => {
+        let _v0 = _v21.current;
+        if (!_v0 || !_v20) return;
+        let _v1 = new IntersectionObserver(_v0 => {
+          _v0[0]?.isIntersecting && !_v17 && _v15(_v14 + 1);
+        });
+        return _v1.observe(_v0), () => _v1.disconnect();
+      }, [_v20, _v17, _v15, _v14]), _v16) ? (0, _v1.jsx)(_v7.Flex, {
+        justifyContent: "center",
+        paddingY: "2xl",
+        children: (0, _v1.jsx)(_v93.Spinner, {
+          size: "lg"
+        })
+      }) : 0 === _v19.length ? (0, _v1.jsx)(_v7.Flex, {
+        justifyContent: "center",
+        paddingY: "2xl",
+        children: (0, _v1.jsx)(_v94.Text, {
+          variant: "body-md",
+          color: "text-secondary",
+          children: _v10 ? (0, _v24.translate)({
+            singular: "No videos or folders match your search",
+            dictionary: {
+              es: {
+                singular: "No hay vídeos ni carpetas que coincidan con tu búsqueda"
+              },
+              "de-DE": {
+                singular: "Keine Videos oder Ordner entsprechen Ihrer Suche"
+              },
+              "fr-FR": {
+                singular: "Aucune vidéo ni dossier ne correspond à votre recherche"
+              },
+              "ja-JP": {
+                singular: "検索に一致する動画またはフォルダはありません"
+              },
+              "ko-KR": {
+                singular: "검색어와 일치하는 비디오나 폴더가 없습니다."
+              },
+              "pt-BR": {
+                singular: "Nenhum vídeo ou pasta corresponde à sua pesquisa"
+              },
+              "zh-CN": {
+                singular: "没有视频或文件夹匹配您的搜索"
+              }
+            }
+          }) : (0, _v24.translate)({
+            singular: "This folder is empty",
+            dictionary: {
+              es: {
+                singular: "Esta carpeta está vacía"
+              },
+              "de-DE": {
+                singular: "Dieser Ordner ist leer"
+              },
+              "fr-FR": {
+                singular: "Ce dossier est vide"
+              },
+              "ja-JP": {
+                singular: "このフォルダは空です"
+              },
+              "ko-KR": {
+                singular: "이 폴더는 비어 있습니다."
+              },
+              "pt-BR": {
+                singular: "Esta pasta está vazia"
+              },
+              "zh-CN": {
+                singular: "此文件夹为空"
+              }
+            }
+          })
+        })
+      }) : (0, _v1.jsxs)(_v7.Flex, {
+        flexDirection: "column",
+        gap: "xs",
+        children: [_v19.map((_v0, _v1) => (0, _v1.jsx)(_v150, {
+          item: _v0,
+          index: _v1,
+          isSelected: _v5.has(_v0.uri),
+          onToggleSelect: _v6
+        }, _v0.uri)), _v20 && (0, _v1.jsx)(_v7.Flex, {
+          ref: _v21,
+          justifyContent: "center",
+          paddingY: "md",
+          children: (0, _v1.jsx)(_v93.Spinner, {
+            size: "md"
+          })
+        })]
+      });
+    },
+    _v155 = (_v0, _v1) => ({
+      uri: _v0.uri,
+      kind: _v0.kind,
+      parentFolderId: _v0.parentFolderId ?? _v1
+    }),
+    _v156 = ({
+      isOpen: _v0,
+      onClose: _v1,
+      userId: _v2,
+      onMoveSuccess: _v3
+    }) => {
+      let {
+          data: _v4,
+          error: _v5,
+          isLoading: _v6
+        } = (0, _v141.useGetUserFoldersPrivateToMe)(() => _v0 ? {
+          where: {
+            ownerId: _v2
+          },
+          select: ["uri"]
+        } : null),
+        _v7 = _v151(_v4?.uri),
+        _v8 = (0, _v5.useMemo)(() => [{
+          type: "last_user_action_event_date",
+          direction: "desc",
+          label: (0, _v24.translate)({
+            singular: "Last added",
+            dictionary: {
+              es: {
+                singular: "Último agregado"
+              },
+              "de-DE": {
+                singular: "Zuletzt hinzugefügt"
+              },
+              "fr-FR": {
+                singular: "Ajoutées en dernier"
+              },
+              "ja-JP": {
+                singular: "最終追加日"
+              },
+              "ko-KR": {
+                singular: "마지막 추가"
+              },
+              "pt-BR": {
+                singular: "Adicionado por último"
+              },
+              "zh-CN": {
+                singular: "最后添加"
+              }
+            }
+          })
+        }, {
+          type: "alphabetical",
+          direction: "asc",
+          label: (0, _v24.translate)({
+            singular: "Alphabetical (A–Z)",
+            dictionary: {
+              es: {
+                singular: "Alfabético (A–Z)"
+              },
+              "de-DE": {
+                singular: "Alphabetisch (A–Z)"
+              },
+              "fr-FR": {
+                singular: "Alphabétique (A–Z)"
+              },
+              "ja-JP": {
+                singular: "アルファベット順（A–Z）"
+              },
+              "ko-KR": {
+                singular: "알파벳순 (A–Z)"
+              },
+              "pt-BR": {
+                singular: "Alfabética (A–Z)"
+              },
+              "zh-CN": {
+                singular: "按字母顺序 (A–Z)"
+              }
+            }
+          })
+        }], []),
+        [_v9, _v10] = (0, _v5.useState)(""),
+        [_v11, _v12] = (0, _v5.useState)(0),
+        [_v13, _v14] = (0, _v5.useState)(new Map()),
+        [_v15, _v16] = (0, _v5.useState)([]),
+        [_v17, _v18] = (0, _v5.useState)(0),
+        _v19 = (0, _v5.useRef)(void 0),
+        _v20 = (0, _v5.useRef)(!1);
+      (0, _v5.useEffect)(() => {
+        if (!_v0) return;
+        let _v0 = _v0 => {
+          _v20.current = _v0.shiftKey;
+        };
+        return window.addEventListener("keydown", _v0), window.addEventListener("keyup", _v0), () => {
+          window.removeEventListener("keydown", _v0), window.removeEventListener("keyup", _v0);
+        };
+      }, [_v0]), (0, _v5.useEffect)(() => {
+        _v19.current = void 0;
+      }, [_v9, _v11]);
+      let [_v21, {
+          loading: _v22
+        }] = (0, _v52.useMoveItem)(),
+        _v23 = (0, _v53.useNotification)(),
+        _v24 = _v8[_v11],
+        _v25 = (0, _v5.useCallback)(() => {
+          _v10(""), _v12(0), _v14(new Map()), _v16([]), _v18(0), _v19.current = void 0;
+        }, []),
+        _v26 = (0, _v5.useCallback)(() => {
+          _v25(), _v1();
+        }, [_v1, _v25]),
+        _v27 = (0, _v5.useMemo)(() => _v15.filter(_v0 => _v0.canMove), [_v15]),
+        _v28 = (0, _v5.useCallback)((_v0, _v1) => {
+          if (void 0 === _v7 || !_v0.canMove) return;
+          let _v2 = _v19.current;
+          _v14(_v0 => {
+            let _v1 = new Map(_v0),
+              _v2 = !_v0.has(_v0.uri),
+              _v3 = _v0 => {
+                _v0.canMove && (_v2 ? _v1.set(_v0.uri, _v155(_v0, _v7)) : _v1.delete(_v0.uri));
+              };
+            if (_v20.current && void 0 !== _v2) {
+              let _v0 = Math.min(_v2, _v1),
+                _v1 = Math.max(_v2, _v1);
+              for (let _v0 = _v0; _v0 <= _v1; _v0++) {
+                let _v0 = _v15[_v0];
+                _v0 && _v3(_v0);
+              }
+            } else _v3(_v0);
+            return _v1;
+          }), _v19.current = _v1;
+        }, [_v7, _v15]),
+        _v29 = _v27.length > 0 && _v27.every(_v0 => _v13.has(_v0.uri)),
+        _v30 = _v27.some(_v0 => _v13.has(_v0.uri)),
+        _v31 = (0, _v5.useCallback)(() => {
+          void 0 !== _v7 && _v14(_v0 => {
+            let _v1 = new Map(_v0),
+              _v2 = !_v27.every(_v0 => _v1.has(_v0.uri));
+            return _v27.forEach(_v0 => {
+              _v2 ? _v1.set(_v0.uri, _v155(_v0, _v7)) : _v1.delete(_v0.uri);
+            }), _v1;
+          });
+        }, [_v7, _v27]),
+        _v32 = _v13.size,
+        _v33 = _v32 > 100,
+        _v34 = (0, _v5.useCallback)(async () => {
+          let _v0;
+          if (0 === _v32) return;
+          let _v1 = [..._v13.values()],
+            _v2 = new Set(),
+            _v3 = (_v0, _v1) => {
+              _v1.ok ? _v0.forEach(_v0 => _v2.add(_v0)) : _v0 || (_v0 = _v1.error);
+            },
+            _v4 = new Map();
+          for (let {
+            parentFolderId: _v0,
+            uris: _v1
+          } of (_v1.forEach(({
+            uri: _v0,
+            kind: _v1,
+            parentFolderId: _v2
+          }) => {
+            let _v3 = `${_v2}:${_v1}`,
+              _v4 = _v4.get(_v3) ?? {
+                parentFolderId: _v2,
+                uris: []
+              };
+            _v4.uris.push(_v0), _v4.set(_v3, _v4);
+          }), _v4.values())) {
+            let _v0 = await _v21({
+              ownerId: _v2,
+              folderId: _v0,
+              moveToRoot: !0,
+              targetItems: _v1.map(_v0 => ({
+                uri: _v0
+              }))
+            });
+            _v3(_v1, _v0);
+          }
+          let _v5 = _v2.size;
+          if (_v5 === _v1.length) {
+            _v23({
+              content: (0, _v24.translate)({
+                singular: "Moved {COUNT} item to Team Library.",
+                plural: "Moved {COUNT} items to Team Library.",
+                count: _v5,
+                replacements: {
+                  COUNT: _v5
+                },
+                dictionary: {
+                  es: {
+                    singular: "Se movió {COUNT} elemento a la Biblioteca del equipo.",
+                    plural: "Se movieron {COUNT} elementos a la Biblioteca del equipo."
+                  },
+                  "de-DE": {
+                    singular: "{COUNT} Element in die Team-Bibliothek verschoben.",
+                    plural: "{COUNT} Elemente in die Team-Bibliothek verschoben."
+                  },
+                  "fr-FR": {
+                    singular: "Déplacé {COUNT} élément vers la bibliothèque d'équipe.",
+                    plural: "Déplacé {COUNT} éléments vers la bibliothèque d'équipe."
+                  },
+                  "ja-JP": {
+                    singular: "{COUNT}件のアイテムをチームライブラリに移動しました。",
+                    plural: "{COUNT}件のアイテムをチームライブラリに移動しました。"
+                  },
+                  "ko-KR": {
+                    singular: "{COUNT}개의 항목을 팀 라이브러리로 이동했습니다.",
+                    plural: "{COUNT}개의 항목을 팀 라이브러리로 이동했습니다."
+                  },
+                  "pt-BR": {
+                    singular: "Moveu {COUNT} item para a Biblioteca da equipe.",
+                    plural: "Moveu {COUNT} itens para a Biblioteca da equipe."
+                  },
+                  "zh-CN": {
+                    singular: "已将 {COUNT} 个项目移至团队资料库。",
+                    plural: "已将 {COUNT} 个项目移至团队资料库。"
+                  }
+                }
+              }),
+              status: "success"
+            }), _v26(), _v3?.();
+            return;
+          }
+          _v5 > 0 && (_v3?.(), _v18(_v0 => _v0 + 1), _v14(_v0 => {
+            let _v1 = new Map(_v0);
+            return _v2.forEach(_v0 => _v1.delete(_v0)), _v1;
+          })), _v23({
+            content: _v0 ?? (0, _v24.translate)({
+              singular: "Couldn't move your content. Please try again.",
+              dictionary: {
+                es: {
+                  singular: "No se pudo mover tu contenido. Inténtalo de nuevo."
+                },
+                "de-DE": {
+                  singular: "Konnte Ihre Inhalte nicht verschieben. Bitte versuchen Sie es erneut."
+                },
+                "fr-FR": {
+                  singular: "Impossible de déplacer votre contenu. Veuillez réessayer."
+                },
+                "ja-JP": {
+                  singular: "コンテンツを移動できませんでした。もう一度お試しください。"
+                },
+                "ko-KR": {
+                  singular: "콘텐츠를 이동할 수 없습니다. 다시 시도해 주세요."
+                },
+                "pt-BR": {
+                  singular: "Não foi possível mover seu conteúdo. Por favor, tente novamente."
+                },
+                "zh-CN": {
+                  singular: "无法移动您的内容。请再试一次。"
+                }
+              }
+            }),
+            status: "error"
+          });
+        }, [_v26, _v21, _v23, _v3, _v13, _v32, _v2]);
+      return (0, _v1.jsxs)(_v130.Modal, {
+        isOpen: _v0,
+        onClose: _v26,
+        isCentered: !0,
+        preserveScrollBarGap: !0,
+        children: [(0, _v1.jsx)(_v136.ModalOverlay, {}), (0, _v1.jsxs)(_v133.ModalContent, {
+          maxWidth: (0, _v92.rem)(640),
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          height: {
+            base: "auto",
+            md: (0, _v92.rem)(680)
+          },
+          maxHeight: `calc(100vh - ${(0, _v92.rem)(48)})`,
+          children: [(0, _v1.jsx)(_v135.ModalHeader, {
+            marginBottom: "sm",
+            children: (0, _v24.translate)({
+              singular: "Select videos and folders from My Library",
+              dictionary: {
+                es: {
+                  singular: "Seleccionar vídeos y carpetas de Mi biblioteca"
+                },
+                "de-DE": {
+                  singular: "Videos und Ordner aus 'Meine Bibliothek' auswählen"
+                },
+                "fr-FR": {
+                  singular: "Sélectionner des vidéos et des dossiers dans Ma bibliothèque"
+                },
+                "ja-JP": {
+                  singular: "マイライブラリから動画とフォルダを選択"
+                },
+                "ko-KR": {
+                  singular: "내 라이브러리에서 비디오 및 폴더 선택"
+                },
+                "pt-BR": {
+                  singular: "Selecione vídeos e pastas da Minha Biblioteca"
+                },
+                "zh-CN": {
+                  singular: "从我的库中选择视频和文件夹"
+                }
+              }
+            })
+          }), (0, _v1.jsx)(_v132.ModalCloseButton, {}), (0, _v1.jsxs)(_v86.Box, {
+            flexShrink: 0,
+            paddingX: "lg",
+            paddingBottom: "md",
+            borderBottomWidth: "1px",
+            borderColor: "stroke",
+            children: [(0, _v1.jsxs)(_v121.AlertRoot, {
+              variant: "info",
+              size: "md",
+              borderRadius: "md",
+              marginTop: "sm",
+              marginBottom: "lg",
+              alignItems: "flex-start",
+              gap: "sm",
+              children: [(0, _v1.jsx)(_v86.Box, {
+                flexShrink: 0,
+                display: "flex",
+                mt: (0, _v92.rem)(2),
+                color: "status-info-primary",
+                children: (0, _v1.jsx)(_v138.InfoCircleFilled, {
+                  width: (0, _v92.rem)(20),
+                  height: (0, _v92.rem)(20)
+                })
+              }), (0, _v1.jsx)(_v120.AlertDescription, {
+                children: (0, _v24.translate)({
+                  singular: "Moving changes where a video lives, not who can watch it. Public, password, and only-me links stay exactly as you set them.",
+                  dictionary: {
+                    es: {
+                      singular: "Mover cambia la ubicación del vídeo, no quién puede verlo. Los enlaces públicos, con contraseña y solo yo permanecen exactamente como los configuraste."
+                    },
+                    "de-DE": {
+                      singular: "Beim Verschieben ändert sich der Speicherort eines Videos, nicht aber, wer es ansehen kann. Öffentliche, passwortgeschützte und Nur-ich-Links bleiben genau so, wie Sie sie eingestellt haben."
+                    },
+                    "fr-FR": {
+                      singular: "Le déplacement modifie l'emplacement d'une vidéo, pas qui peut la regarder. Les liens publics, protégés par mot de passe et « Moi uniquement » restent exactement tels que vous les avez définis."
+                    },
+                    "ja-JP": {
+                      singular: "移動は動画の保存場所を変更するもので、視聴できる相手は変わりません。公開リンク、パスワード保護されたリンク、および自分のみのリンクは設定どおり保持されます。"
+                    },
+                    "ko-KR": {
+                      singular: "이동하면 비디오의 저장 위치만 변경되고, 누가 시청할 수 있는지는 변경되지 않습니다. 공개 링크, 비밀번호 링크, '나만 보기' 링크는 설정한 대로 그대로 유지됩니다."
+                    },
+                    "pt-BR": {
+                      singular: "Mover altera onde um vídeo fica, não quem pode assisti-lo. Links públicos, protegidos por senha e 'somente eu' permanecem exatamente como você definiu."
+                    },
+                    "zh-CN": {
+                      singular: "移动仅会更改视频所在位置，不会更改谁可以观看它. 公开、密码和仅限我链接将完全保持为您所设置的."
+                    }
+                  }
+                })
+              })]
+            }), (0, _v1.jsxs)(_v7.Flex, {
+              gap: "sm",
+              alignItems: "center",
+              marginBottom: "md",
+              children: [(0, _v1.jsxs)(_v124.InputGroup, {
+                flex: "1",
+                children: [(0, _v1.jsx)(_v125.InputLeftElement, {
+                  children: (0, _v1.jsx)(_v139.SearchMagnifier, {
+                    width: (0, _v92.rem)(16),
+                    height: (0, _v92.rem)(16)
+                  })
+                }), (0, _v1.jsx)(_v123.Input, {
+                  value: _v9,
+                  onChange: _v0 => _v10(_v0.target.value),
+                  placeholder: (0, _v24.translate)({
+                    singular: "Search videos and folders",
+                    dictionary: {
+                      es: {
+                        singular: "Buscar vídeos y carpetas"
+                      },
+                      "de-DE": {
+                        singular: "Videos und Ordner durchsuchen"
+                      },
+                      "fr-FR": {
+                        singular: "Rechercher des vidéos et des dossiers"
+                      },
+                      "ja-JP": {
+                        singular: "動画とフォルダを検索"
+                      },
+                      "ko-KR": {
+                        singular: "비디오 및 폴더 검색"
+                      },
+                      "pt-BR": {
+                        singular: "Pesquisar vídeos e pastas"
+                      },
+                      "zh-CN": {
+                        singular: "搜索视频和文件夹"
+                      }
+                    }
+                  })
+                })]
+              }), (0, _v1.jsxs)(_v126.Menu, {
+                children: [(0, _v1.jsx)(_v127.MenuButton, {
+                  as: _v6.Button,
+                  variant: "tertiary",
+                  size: "sm",
+                  display: {
+                    base: "none",
+                    md: "inline-flex"
+                  },
+                  leftIcon: (0, _v1.jsx)(_v140.SortSmall, {
+                    width: (0, _v92.rem)(16),
+                    height: (0, _v92.rem)(16)
+                  }),
+                  rightIcon: (0, _v1.jsx)(_v137.ChevronDownSmall, {
+                    width: (0, _v92.rem)(16),
+                    height: (0, _v92.rem)(16)
+                  }),
+                  children: _v24.label
+                }), (0, _v1.jsx)(_v129.MenuList, {
+                  children: _v8.map((_v0, _v1) => (0, _v1.jsx)(_v128.MenuItem, {
+                    onClick: () => _v12(_v1),
+                    children: _v0.label
+                  }, _v0.type))
+                })]
+              })]
+            }), (0, _v1.jsxs)(_v7.Flex, {
+              alignItems: "center",
+              justifyContent: "space-between",
+              children: [(0, _v1.jsx)(_v122.Checkbox, {
+                size: "md",
+                isChecked: _v29,
+                isIndeterminate: !_v29 && _v30,
+                onChange: _v31,
+                isDisabled: 0 === _v27.length,
+                children: (0, _v24.translate)({
+                  singular: "Select all",
+                  dictionary: {
+                    es: {
+                      singular: "Seleccionar todo"
+                    },
+                    "de-DE": {
+                      singular: "Alles auswählen"
+                    },
+                    "fr-FR": {
+                      singular: "Tout sélectionner"
+                    },
+                    "ja-JP": {
+                      singular: "すべて選択"
+                    },
+                    "ko-KR": {
+                      singular: "모두 선택"
+                    },
+                    "pt-BR": {
+                      singular: "Selecionar tudo"
+                    },
+                    "zh-CN": {
+                      singular: "选择所有"
+                    }
+                  }
+                })
+              }), (0, _v1.jsx)(_v7.Flex, {
+                alignItems: "center",
+                gap: "sm",
+                children: (0, _v1.jsxs)(_v126.Menu, {
+                  children: [(0, _v1.jsx)(_v127.MenuButton, {
+                    as: _v6.Button,
+                    variant: "tertiary",
+                    size: "sm",
+                    display: {
+                      base: "inline-flex",
+                      md: "none"
+                    },
+                    leftIcon: (0, _v1.jsx)(_v140.SortSmall, {
+                      width: (0, _v92.rem)(16),
+                      height: (0, _v92.rem)(16)
+                    }),
+                    rightIcon: (0, _v1.jsx)(_v137.ChevronDownSmall, {
+                      width: (0, _v92.rem)(16),
+                      height: (0, _v92.rem)(16)
+                    }),
+                    children: _v24.label
+                  }), (0, _v1.jsx)(_v129.MenuList, {
+                    children: _v8.map((_v0, _v1) => (0, _v1.jsx)(_v128.MenuItem, {
+                      onClick: () => _v12(_v1),
+                      children: _v0.label
+                    }, _v0.type))
+                  })]
+                })
+              })]
+            })]
+          }), (0, _v1.jsx)(_v131.ModalBody, {
+            overflowY: "auto",
+            flex: "1",
+            minHeight: (0, _v92.rem)(120),
+            children: void 0 === _v7 ? _v6 ? (0, _v1.jsx)(_v7.Flex, {
+              justifyContent: "center",
+              paddingY: "2xl",
+              children: (0, _v1.jsx)(_v93.Spinner, {
+                size: "lg"
+              })
+            }) : (0, _v1.jsx)(_v7.Flex, {
+              justifyContent: "center",
+              paddingY: "2xl",
+              children: (0, _v1.jsx)(_v94.Text, {
+                variant: "body-md",
+                color: "text-secondary",
+                children: _v5 ? (0, _v24.translate)({
+                  singular: "Couldn't load your library. Please try again.",
+                  dictionary: {
+                    es: {
+                      singular: "No se pudo cargar su biblioteca. Por favor, inténtelo de nuevo."
+                    },
+                    "de-DE": {
+                      singular: "Ihre Bibliothek konnte nicht geladen werden. Bitte versuchen Sie es erneut."
+                    },
+                    "fr-FR": {
+                      singular: "Impossible de charger votre bibliothèque. Veuillez réessayer."
+                    },
+                    "ja-JP": {
+                      singular: "ライブラリを読み込めませんでした。もう一度お試しください。"
+                    },
+                    "ko-KR": {
+                      singular: "라이브러리를 불러올 수 없습니다. 다시 시도해 주세요."
+                    },
+                    "pt-BR": {
+                      singular: "Não foi possível carregar sua biblioteca. Por favor, tente novamente."
+                    },
+                    "zh-CN": {
+                      singular: "无法加载您的库。请重试。"
+                    }
+                  }
+                }) : (0, _v24.translate)({
+                  singular: "This folder is empty",
+                  dictionary: {
+                    es: {
+                      singular: "Esta carpeta está vacía"
+                    },
+                    "de-DE": {
+                      singular: "Dieser Ordner ist leer"
+                    },
+                    "fr-FR": {
+                      singular: "Ce dossier est vide"
+                    },
+                    "ja-JP": {
+                      singular: "このフォルダは空です"
+                    },
+                    "ko-KR": {
+                      singular: "이 폴더는 비어 있습니다."
+                    },
+                    "pt-BR": {
+                      singular: "Esta pasta está vazia"
+                    },
+                    "zh-CN": {
+                      singular: "此文件夹为空"
+                    }
+                  }
+                })
+              })
+            }) : (0, _v1.jsx)(_v154, {
+              userId: _v2,
+              folderId: _v7,
+              search: _v9,
+              sort: _v24.type,
+              direction: _v24.direction,
+              selectedUris: new Set(_v13.keys()),
+              onToggleSelect: _v28,
+              onVisibleItemsChange: _v16,
+              reloadToken: _v17
+            }, _v7)
+          }), (0, _v1.jsxs)(_v134.ModalFooter, {
+            flexDirection: "column",
+            alignItems: "stretch",
+            gap: "md",
+            children: [(0, _v1.jsxs)(_v94.Text, {
+              variant: "body-md",
+              color: "text-secondary",
+              children: [(0, _v1.jsx)(_v86.Box, {
+                as: "span",
+                fontWeight: "bold",
+                color: "text-primary",
+                children: (0, _v24.translate)({
+                  singular: "{COUNT} item will move to Team Library.",
+                  plural: "{COUNT} items will move to Team Library.",
+                  count: _v32,
+                  replacements: {
+                    COUNT: _v32
+                  },
+                  dictionary: {
+                    es: {
+                      singular: "{COUNT} elemento se moverá a la Biblioteca del equipo.",
+                      plural: "{COUNT} elementos se moverán a la Biblioteca del equipo."
+                    },
+                    "de-DE": {
+                      singular: "{COUNT} Element wird in die Team-Bibliothek verschoben.",
+                      plural: "{COUNT} Elemente werden in die Team-Bibliothek verschoben."
+                    },
+                    "fr-FR": {
+                      singular: "{COUNT} élément sera déplacé vers la bibliothèque d'équipe.",
+                      plural: "{COUNT} éléments seront déplacés vers la bibliothèque d'équipe."
+                    },
+                    "ja-JP": {
+                      singular: "{COUNT} 件がチームライブラリに移動します。",
+                      plural: "{COUNT} 件がチームライブラリに移動します。"
+                    },
+                    "ko-KR": {
+                      singular: "{COUNT}개 항목이 팀 라이브러리로 이동합니다.",
+                      plural: "{COUNT}개 항목이 팀 라이브러리로 이동합니다."
+                    },
+                    "pt-BR": {
+                      singular: "{COUNT} item será movido para a Biblioteca da Equipe.",
+                      plural: "{COUNT} itens serão movidos para a Biblioteca da Equipe."
+                    },
+                    "zh-CN": {
+                      singular: "{COUNT} 个项目将移至团队库.",
+                      plural: "{COUNT} 个项目将移至团队库."
+                    }
+                  }
+                })
+              }), " ", (0, _v24.translate)({
+                singular: "Each video's privacy stays exactly as you set it.",
+                dictionary: {
+                  es: {
+                    singular: "La privacidad de cada vídeo permanece exactamente como la configuraste."
+                  },
+                  "de-DE": {
+                    singular: "Die Privatsphäre jedes Videos bleibt genau so, wie Sie sie eingestellt haben."
+                  },
+                  "fr-FR": {
+                    singular: "La confidentialité de chaque vidéo reste exactement telle que vous l'avez définie."
+                  },
+                  "ja-JP": {
+                    singular: "各動画のプライバシー設定は、ご指定どおりそのまま保持されます。"
+                  },
+                  "ko-KR": {
+                    singular: "각 비디오의 공개 설정은 사용자가 설정한 대로 그대로 유지됩니다."
+                  },
+                  "pt-BR": {
+                    singular: "A privacidade de cada vídeo permanece exatamente como você definiu."
+                  },
+                  "zh-CN": {
+                    singular: "每个视频的隐私设置将完全保持为您所设置的."
+                  }
+                }
+              })]
+            }), _v33 && (0, _v1.jsx)(_v94.Text, {
+              variant: "body-sm",
+              color: "text-error",
+              children: (0, _v24.translate)({
+                singular: "You can move up to {COUNT} item at a time.",
+                plural: "You can move up to {COUNT} items at a time.",
+                count: 100,
+                replacements: {
+                  COUNT: 100
+                },
+                dictionary: {
+                  es: {
+                    singular: "Puedes mover hasta {COUNT} elemento a la vez.",
+                    plural: "Puedes mover hasta {COUNT} elementos a la vez."
+                  },
+                  "de-DE": {
+                    singular: "Sie können bis zu {COUNT} Element auf einmal verschieben.",
+                    plural: "Sie können bis zu {COUNT} Elemente auf einmal verschieben."
+                  },
+                  "fr-FR": {
+                    singular: "Vous pouvez déplacer jusqu'à {COUNT} élément à la fois.",
+                    plural: "Vous pouvez déplacer jusqu'à {COUNT} éléments à la fois."
+                  },
+                  "ja-JP": {
+                    singular: "一度に最大{COUNT}件まで移動できます。",
+                    plural: "一度に最大{COUNT}件まで移動できます。"
+                  },
+                  "ko-KR": {
+                    singular: "한 번에 최대 {COUNT}개 항목을 이동할 수 있습니다.",
+                    plural: "한 번에 최대 {COUNT}개 항목을 이동할 수 있습니다."
+                  },
+                  "pt-BR": {
+                    singular: "Você pode mover até {COUNT} item por vez.",
+                    plural: "Você pode mover até {COUNT} itens por vez."
+                  },
+                  "zh-CN": {
+                    singular: "您一次最多可移动 {COUNT} 个项目.",
+                    plural: "您一次最多可移动 {COUNT} 个项目."
+                  }
+                }
+              })
+            }), (0, _v1.jsxs)(_v7.Flex, {
+              flexDirection: {
+                base: "column",
+                md: "row"
+              },
+              justifyContent: "flex-end",
+              gap: "md",
+              children: [(0, _v1.jsx)(_v6.Button, {
+                variant: "tertiary",
+                onClick: _v26,
+                isDisabled: _v22,
+                width: {
+                  base: "100%",
+                  md: "auto"
+                },
+                children: (0, _v24.translate)({
+                  singular: "Cancel",
+                  dictionary: {
+                    es: {
+                      singular: "Cancelar"
+                    },
+                    "de-DE": {
+                      singular: "Abbrechen"
+                    },
+                    "fr-FR": {
+                      singular: "Annuler"
+                    },
+                    "ja-JP": {
+                      singular: "キャンセル"
+                    },
+                    "ko-KR": {
+                      singular: "취소"
+                    },
+                    "pt-BR": {
+                      singular: "Cancelar"
+                    },
+                    "zh-CN": {
+                      singular: "取消"
+                    }
+                  }
+                })
+              }), (0, _v1.jsx)(_v6.Button, {
+                variant: "primary",
+                onClick: _v34,
+                isDisabled: 0 === _v32 || _v22 || _v33,
+                isLoading: _v22,
+                width: {
+                  base: "100%",
+                  md: "auto"
+                },
+                children: (0, _v24.translate)({
+                  singular: "Move to Team Library",
+                  dictionary: {
+                    es: {
+                      singular: "Mover a la Biblioteca del equipo"
+                    },
+                    "de-DE": {
+                      singular: "In die Team-Bibliothek verschieben"
+                    },
+                    "fr-FR": {
+                      singular: "Déplacer vers la bibliothèque d'équipe"
+                    },
+                    "ja-JP": {
+                      singular: "チームライブラリに移動"
+                    },
+                    "ko-KR": {
+                      singular: "팀 라이브러리로 이동"
+                    },
+                    "pt-BR": {
+                      singular: "Mover para Biblioteca da Equipe"
+                    },
+                    "zh-CN": {
+                      singular: "移至团队库"
+                    }
+                  }
+                })
+              })]
+            })]
+          })]
+        })]
+      });
+    };
+  var _v157 = _v0.i(0);
+  let _v158 = () => {
+    let {
+        setModalContextState: _v0
+      } = (0, _v5.useContext)(_v102),
+      _v1 = (0, _v5.useContext)(_v100.ViewerContext),
+      _v2 = _v1?.teamUser?.ownerId ?? _v1?.user?.id,
+      {
+        capabilities: _v3
+      } = (0, _v20.useCapability)(["hasContentSpaceEnabled"], _v2),
+      {
+        trackLibraryNewFolderClicked: _v4
+      } = (0, _v30.useLibraryTracking)();
+    return (0, _v1.jsx)(_v157.NewFolderButton, {
+      onClick: () => {
+        _v4({
+          libraryType: (0, _v31.deriveLibraryType)({
+            hasContentSpaceEnabled: !!_v3.hasContentSpaceEnabled
+          })
+        }), _v0({
+          activeModal: "FolderSettings",
+          activeModalState: {
+            location: "library_header"
+          }
+        });
+      },
+      dataTestId: "library-header-new-folder-button",
+      dataTestIdMobile: "library-header-new-folder-button-mobile",
+      dataId: "vl_library-header-new-folder-button",
+      dataIdMobile: "vl_library-header-new-folder-button-mobile"
+    });
+  };
+  var _v159 = _v0.i(0),
+    _v160 = _v0.i(0),
+    _v161 = _v0.i(0),
+    _v162 = _v0.i(0),
+    _v163 = _v0.i(0),
+    _v164 = _v0.i(0),
+    _v165 = _v0.i(0),
+    _v166 = _v0.i(0),
+    _v167 = _v0.i(0),
+    _v168 = _v0.i(0),
+    _v169 = _v0.i(0),
+    _v170 = _v0.i(0),
+    _v171 = _v0.i(0),
+    _v172 = _v0.i(0),
+    _v173 = _v0.i(0),
+    _v174 = _v0.i(0),
+    _v175 = _v0.i(0),
+    _v176 = _v0.i(0),
+    _v177 = _v0.i(0),
+    _v178 = _v0.i(0),
+    _v179 = _v0.i(0),
+    _v180 = _v0.i(0),
+    _v181 = _v0.i(0),
+    _v182 = _v0.i(0),
+    _v183 = _v0.i(0);
+  let _v184 = "header",
+    _v185 = "video card",
+    _v186 = ({
       deselectItem: _v0,
       handleMoveItemsOnDrop: _v1,
       isEnterprise: _v2,
@@ -924,19 +2037,19 @@
       sort: _v15,
       isLoading: _v16 = !1
     }) => {
-      let _v17 = (0, _v131.useIsBokeh)(),
+      let _v17 = (0, _v166.useIsBokeh)(),
         _v18 = (0, _v5.useContext)(_v100.ViewerContext),
         {
           notifyItemMoveSuccess: _v19,
           notifyItemMoveToWorkspaceSuccess: _v20
         } = (0, _v53.useNotifications)(),
         _v21 = (0, _v39.useAnalyticsEvent)(),
-        _v22 = _v133.BPAnalyticsV2.useContentManagamentHoverEvent(),
-        _v23 = (0, _v136.usePageName)(),
+        _v22 = _v168.BPAnalyticsV2.useContentManagamentHoverEvent(),
+        _v23 = (0, _v171.usePageName)(),
         {
           getDisplayDateWithTime: _v24
-        } = (0, _v143.useFormatDateTime)(),
-        _v25 = (0, _v146.useVideoPrivacyBadgeHandlers)({
+        } = (0, _v178.useFormatDateTime)(),
+        _v25 = (0, _v181.useVideoPrivacyBadgeHandlers)({
           surface: "card"
         }),
         _v26 = _v18?.teamUser?.ownerId ?? _v18?.user?.id,
@@ -962,7 +2075,7 @@
               _v3 = _v0.isColdStorage ?? !1,
               _v4 = !!_v0.canMoveToProject && !_v3,
               _v5 = _v3 ? "" : _v2 ? _v0.manageLink : _v0.link,
-              _v6 = (0, _v139.getTimestampBySort)(_v15.type, _v0.lastUserActionEventDate ?? "", _v0.createdTime),
+              _v6 = (0, _v174.getTimestampBySort)(_v15.type, _v0.lastUserActionEventDate ?? "", _v0.createdTime),
               {
                 videoPrivacy: _v7,
                 variant: _v8,
@@ -970,19 +2083,19 @@
                 openLockedVideoPaywall: _v10,
                 tooltipLabel: _v11
               } = _v25(_v0);
-            return (0, _v1.jsx)(_v127.AnalyticsEventProvider, {
+            return (0, _v1.jsx)(_v162.AnalyticsEventProvider, {
               eventData: {
-                location: _v150,
+                location: _v185,
                 video_privacy: _v0.privacy?.view,
-                video_id: String((0, _v135.idFromUri)(_v0.uri)),
-                video_app_id: (0, _v135.idFromUri)(_v0.app?.uri) ? String((0, _v135.idFromUri)(_v0.app?.uri)) : null,
+                video_id: String((0, _v170.idFromUri)(_v0.uri)),
+                video_app_id: (0, _v170.idFromUri)(_v0.app?.uri) ? String((0, _v170.idFromUri)(_v0.app?.uri)) : null,
                 is_video_password_protected: !!_v0.password,
                 video_embed_privacy: _v0.privacy?.embed,
-                team_owner_id: String((0, _v135.idFromUri)(_v0.user.uri)),
+                team_owner_id: String((0, _v170.idFromUri)(_v0.user.uri)),
                 team_subscription_type: _v0.user.account
               },
-              children: (0, _v1.jsx)(_v137.FolderItemDragWrapper, {
-                type: _v126.ITEM_TYPES.ROOT_VIDEO,
+              children: (0, _v1.jsx)(_v172.FolderItemDragWrapper, {
+                type: _v161.ITEM_TYPES.ROOT_VIDEO,
                 uri: _v0.uri,
                 parentFolderUri: "root",
                 thumbnail: _v0.pictures.sizes[1].link,
@@ -991,7 +2104,7 @@
                 selectedItemURIs: _v12,
                 onDrop: _v1,
                 setIsUploadDropzoneEnabled: _v14,
-                children: (0, _v1.jsx)(_v145.VideoCard, {
+                children: (0, _v1.jsx)(_v180.VideoCard, {
                   title: _v0.name,
                   subtitle: _v24(_v6),
                   href: _v5 ?? "",
@@ -999,18 +2112,18 @@
                   thumbnailSrc: _v0.pictures?.sizes[3].link,
                   avatarSrc: _v0.uploader?.pictures?.sizes[1].link,
                   avatarName: _v0.uploader?.name,
-                  tagText: (0, _v132.secondsToDisplay)(_v0.duration),
+                  tagText: (0, _v167.secondsToDisplay)(_v0.duration),
                   isSelectable: _v0.isSelectable,
                   titleStyles: {
                     maxWidth: _v58.CONTENT_CARD_TITLE_MAX_WIDTH
                   },
                   isSelected: _v1,
                   configUrl: _v0.configUrl ?? "",
-                  clipId: (0, _v135.idFromUri)(_v0?.uri),
+                  clipId: (0, _v170.idFromUri)(_v0?.uri),
                   pageName: _v23,
                   isColdStorage: _v3,
                   isManagedStorage: !0 === _v0.countsTowardManagedStorage,
-                  lockedTooltipLabel: _v147.STORAGE_LIMIT_LOCKED_VIDEO_TOOLTIP_LABEL,
+                  lockedTooltipLabel: _v182.STORAGE_LIMIT_LOCKED_VIDEO_TOOLTIP_LABEL,
                   onLockedClick: _v3 ? _v10 : void 0,
                   onToggleSelected: () => {
                     _v21((0, _v82.genericClick)({
@@ -1026,14 +2139,14 @@
                       device_type: null
                     }, 91)), _v0.isSelected ? _v0(_v0.uri, _v1, _v3) : _v13(_v0.uri, _v1, _v3);
                   },
-                  hoverActions: (0, _v1.jsx)(_v142.HoverActions, {
+                  hoverActions: (0, _v1.jsx)(_v177.HoverActions, {
                     type: "video",
                     entity: _v0,
                     canShare: !!(_v0.metadata?.interactions?.invite?.uri || _v31),
                     hasMoreInfo: !0,
                     onMoreInfo: () => _v8(_v0.uri)
                   }),
-                  actionsMenu: (0, _v1.jsx)(_v140.VideoMenu, {
+                  actionsMenu: (0, _v1.jsx)(_v175.VideoMenu, {
                     video: _v0,
                     feature: _v82.AnalyticsFeatures.VIDEO_LIBRARY,
                     onCopyVideo: _v6 ? () => _v6(_v0) : void 0,
@@ -1051,7 +2164,7 @@
                           label: _v0,
                           workspaceName: _v3
                         }, () => {
-                          _v18 && (0, _v124.switchTeam)(_v2, _v18.xsrft).finally(() => {
+                          _v18 && (0, _v159.switchTeam)(_v2, _v18.xsrft).finally(() => {
                             window.location.href = _v1;
                           });
                         });
@@ -1066,7 +2179,7 @@
                         origin_folder_id: null,
                         origin_type: null,
                         is_my_videos: null,
-                        location: _v150
+                        location: _v185
                       }));
                     },
                     analytics: {
@@ -1082,18 +2195,18 @@
                     hasMultipleReviewLinks: _v33
                   }),
                   onClick: () => {
-                    _v129.BigPictureClient.sendEvent(new _v129.Event("vimeo.click_video_card", 2, {
+                    _v164.BigPictureClient.sendEvent(new _v164.Event("vimeo.click_video_card", 2, {
                       path: window.location.href,
                       entry_page: "team-library",
                       page: "team-library",
-                      location: _v150,
-                      video_id: String((0, _v135.idFromUri)(_v0.uri)),
+                      location: _v185,
+                      video_id: String((0, _v170.idFromUri)(_v0.uri)),
                       video_privacy: _v0.privacy?.view,
                       video_embed_privacy: _v0.privacy?.embed,
                       is_preset_applied: null,
                       is_video_password_protected: !!_v0.password,
-                      video_app_id: (0, _v135.idFromUri)(_v0.app?.uri) ? String((0, _v135.idFromUri)(_v0.app?.uri)) : null,
-                      team_owner_id: String((0, _v135.idFromUri)(_v0.user.uri)),
+                      video_app_id: (0, _v170.idFromUri)(_v0.app?.uri) ? String((0, _v170.idFromUri)(_v0.app?.uri)) : null,
+                      team_owner_id: String((0, _v170.idFromUri)(_v0.user.uri)),
                       team_size: _v18?.teamUser?.currentTeamSize ?? null,
                       team_subscription_type: _v18?.teamUser?.accountType ?? null,
                       actor_team_role: _v18?.teamUser?.plainTextPermissionLevel ?? null,
@@ -1124,33 +2237,33 @@
             let _v0 = parseInt(_v0.folder.uri.split("/")?.[2]),
               _v1 = parseInt(_v0.folder.uri.split("/")[4]),
               _v2 = _v15.type === _v58.SORT_OPTION.CREATED ? _v0.folder.createdTime : _v0.folder.lastUserActionEventDate ?? _v0.folder.createdTime;
-            return (0, _v1.jsx)(_v138.FolderDropWrapper, {
+            return (0, _v1.jsx)(_v173.FolderDropWrapper, {
               dropTarget: _v0.folder,
-              dropTargetType: _v126.DROP_TARGET_TYPES.FOLDER_CARD,
-              allowedDropEffect: _v126.ALLOWED_DROP_EFFECTS.MOVE,
+              dropTargetType: _v161.DROP_TARGET_TYPES.FOLDER_CARD,
+              allowedDropEffect: _v161.ALLOWED_DROP_EFFECTS.MOVE,
               dropFileForUploadConfig: null != _v26 ? {
                 targetUserId: _v26,
                 folderId: _v1,
                 folderName: _v0.folder.name,
                 uploadClipProperties: _v27
               } : void 0,
-              children: _v17 ? (0, _v1.jsx)(_v144.DroppableFolderCard, {
+              children: _v17 ? (0, _v1.jsx)(_v179.DroppableFolderCard, {
                 title: _v0.folder?.name,
                 subtitle: _v24(_v2),
                 folderId: _v1,
                 folderOwnerId: _v0,
-                tagText: (0, _v148.numItemsText)(_v0.folder.metadata?.connections?.items?.total),
+                tagText: (0, _v183.numItemsText)(_v0.folder.metadata?.connections?.items?.total),
                 titleStyles: {
                   maxWidth: _v58.CONTENT_CARD_TITLE_MAX_WIDTH
                 },
                 href: (0, _v79.getFolderPageUriFromApiUri)(_v0.folder.uri),
                 backgroundColor: _v0.folder.settings?.color,
-                hoverActions: (0, _v1.jsx)(_v142.HoverActions, {
+                hoverActions: (0, _v1.jsx)(_v177.HoverActions, {
                   type: "folder",
                   entity: _v0.folder
                 }),
                 pageName: _v23,
-                actionsMenu: (0, _v1.jsx)(_v141.FolderMenu, {
+                actionsMenu: (0, _v1.jsx)(_v176.FolderMenu, {
                   folder: _v0.folder,
                   onSettingsChange: _v7,
                   onMoveSuccess: _v9,
@@ -1163,7 +2276,7 @@
                   libraryType: _v29
                 }),
                 onClick: () => {
-                  _v129.BigPictureClient.sendEvent(new _v129.Event("vimeo.click_folder_card", 3, {
+                  _v164.BigPictureClient.sendEvent(new _v164.Event("vimeo.click_folder_card", 3, {
                     path: window.location.href,
                     entry_page: "team-library",
                     page: "team-library",
@@ -1194,7 +2307,7 @@
                     pageName: "video_library"
                   });
                 }
-              }) : (0, _v1.jsx)(_v134.FolderCard, {
+              }) : (0, _v1.jsx)(_v169.FolderCard, {
                 id: `folder-card-${_v0.folder.uri?.split("/")?.pop()}`,
                 folderOwnerId: _v0,
                 onSettingsChange: _v7,
@@ -1208,10 +2321,10 @@
             }, _v0.folder.uri);
           }
           return (0, _v1.jsx)(_v1.Fragment, {});
-        }), _v16 && (0, _v1.jsx)(_v130.LoadingCardsGrid, {})]
+        }), _v16 && (0, _v1.jsx)(_v165.LoadingCardsGrid, {})]
       });
     };
-  function _v152({
+  function _v187({
     deselectItem: _v0,
     handleMoveItemsOnDrop: _v1,
     isEnterprise: _v2,
@@ -1230,15 +2343,15 @@
     sort: _v15,
     isLoading: _v16 = !1
   }) {
-    return (0, _v1.jsx)(_v127.AnalyticsEventProvider, {
+    return (0, _v1.jsx)(_v162.AnalyticsEventProvider, {
       eventData: {
         location: "center",
         product: "Video Library",
         position_column: null
       },
-      children: (0, _v1.jsx)(_v128.ContentGrid, {
-        children: (0, _v1.jsx)(_v128.ContentGrid.Body, {
-          children: (0, _v1.jsx)(_v151, {
+      children: (0, _v1.jsx)(_v163.ContentGrid, {
+        children: (0, _v1.jsx)(_v163.ContentGrid.Body, {
+          children: (0, _v1.jsx)(_v186, {
             deselectItem: _v0,
             handleMoveItemsOnDrop: _v1,
             loadingFolderURIs: _v5,
@@ -1261,18 +2374,18 @@
       })
     });
   }
-  var _v153 = _v0.i(0),
-    _v154 = _v0.i(0),
-    _v155 = _v0.i(0),
-    _v156 = _v0.i(0),
-    _v157 = _v0.i(0),
-    _v158 = _v0.i(0),
-    _v159 = _v0.i(0),
-    _v160 = _v0.i(0),
-    _v161 = _v0.i(0),
-    _v162 = _v0.i(0);
-  let _v163 = ["video.allowedPrivacies", "video.app.uri", "video.canMoveToProject", "video.configUrl", "video.contentRatingClass", "video.countsTowardManagedStorage", "video.createdTime", "video.customMetadata", "video.duration", "video.download.link", "video.download.type", "video.download.width", "video.download.height", "video.download.quality", "video.download.size", "video.download.publicName", "video.download.sizeShort", "video.embed.html", "video.embed.sentimentWidgets", "video.filesSize", "video.isColdStorage", "video.isColdPrivacyRestricted", "video.lastUserActionEventDate", "video.link", "video.manageLink", "video.metadata.canBeReplaced", "video.metadata.interactions.edit.uri", "video.metadata.interactions.delete.uri", "video.metadata.interactions.invite.uri", "video.metadata.interactions.legalHold.uri", "video.modifiedTime", "video.name", "video.pictures.defaultPicture", "video.pictures.uri", "video.pictures.sizes", "video.password", "video.privacy.view", "video.privacy.embed", "video.privacy.download", "video.privacy.add", "video.privacy.comments", "video.privacy.originalView", "video.regionalPrivacies", "video.releaseTime", "video.reviewLinks.uri", "video.reviewLinks.expiresOn", "video.reviewPage", "video.status", "video.type", "video.uploader.name", "video.uploader.pictures", "video.uri", "video.user.account", "video.user.uri", "video.user.uploadQuota.lifetime", "video.user.uploadQuota.periodic", "video.user.uploadQuota.space.unit", "folder.createdTime", "folder.isPrivateToUser", "folder.lastUserActionEventDate", "folder.name", "folder.uri", "folder.metadata.connections.items.uri", "folder.metadata.connections.items.total", "folder.metadata.connections.folders.total", "folder.settings", "folder.metadata.interactions.edit", "folder.metadata.interactions.editSettings", "folder.metadata.interactions.delete", "folder.metadata.interactions.invite", "folder.metadata.interactions.moveVideo", "folder.slackIncomingWebhooksId", "type"],
-    _v164 = ({
+  var _v188 = _v0.i(0),
+    _v189 = _v0.i(0),
+    _v190 = _v0.i(0),
+    _v191 = _v0.i(0),
+    _v192 = _v0.i(0),
+    _v193 = _v0.i(0),
+    _v194 = _v0.i(0),
+    _v195 = _v0.i(0),
+    _v196 = _v0.i(0),
+    _v197 = _v0.i(0);
+  let _v198 = ["video.allowedPrivacies", "video.app.uri", "video.canMoveToProject", "video.configUrl", "video.contentRatingClass", "video.countsTowardManagedStorage", "video.createdTime", "video.customMetadata", "video.duration", "video.download.link", "video.download.type", "video.download.width", "video.download.height", "video.download.quality", "video.download.size", "video.download.publicName", "video.download.sizeShort", "video.embed.html", "video.embed.sentimentWidgets", "video.filesSize", "video.isColdStorage", "video.isColdPrivacyRestricted", "video.lastUserActionEventDate", "video.link", "video.manageLink", "video.metadata.canBeReplaced", "video.metadata.interactions.edit.uri", "video.metadata.interactions.delete.uri", "video.metadata.interactions.invite.uri", "video.metadata.interactions.legalHold.uri", "video.modifiedTime", "video.name", "video.pictures.defaultPicture", "video.pictures.uri", "video.pictures.sizes", "video.password", "video.privacy.view", "video.privacy.embed", "video.privacy.download", "video.privacy.add", "video.privacy.comments", "video.privacy.originalView", "video.regionalPrivacies", "video.releaseTime", "video.reviewLinks.uri", "video.reviewLinks.expiresOn", "video.reviewPage", "video.status", "video.type", "video.uploader.name", "video.uploader.pictures", "video.uri", "video.user.account", "video.user.uri", "video.user.uploadQuota.lifetime", "video.user.uploadQuota.periodic", "video.user.uploadQuota.space.unit", "folder.createdTime", "folder.isPrivateToUser", "folder.lastUserActionEventDate", "folder.name", "folder.uri", "folder.metadata.connections.items.uri", "folder.metadata.connections.items.total", "folder.metadata.connections.folders.total", "folder.settings", "folder.metadata.interactions.edit", "folder.metadata.interactions.editSettings", "folder.metadata.interactions.delete", "folder.metadata.interactions.invite", "folder.metadata.interactions.moveVideo", "folder.slackIncomingWebhooksId", "type"],
+    _v199 = ({
       deselectItem: _v0,
       handleMoveItemsOnDrop: _v1,
       hasFolderShareUpsell: _v2,
@@ -1297,15 +2410,15 @@
           notifyItemMoveToWorkspaceSuccess: _v19
         } = (0, _v53.useNotifications)(),
         _v20 = (0, _v39.useAnalyticsEvent)(),
-        _v21 = (0, _v136.usePageName)(),
+        _v21 = (0, _v171.usePageName)(),
         {
           getDisplayDateWithTime: _v22
-        } = (0, _v143.useFormatDateTime)(),
+        } = (0, _v178.useFormatDateTime)(),
         _v23 = (0, _v5.useContext)(_v100.ViewerContext),
         {
           settings: _v24
         } = (0, _v27.useOrionSettings)(),
-        _v25 = (0, _v146.useVideoPrivacyBadgeHandlers)({
+        _v25 = (0, _v181.useVideoPrivacyBadgeHandlers)({
           surface: "list"
         }),
         _v26 = _v23?.teamUser?.ownerId ?? _v23?.user?.id,
@@ -1335,8 +2448,8 @@
                 filesSize: _v7
               } = _v0,
               _v8 = _v17.type === _v58.SORT_OPTION.CREATED ? _v0.createdTime : _v0.lastUserActionEventDate || "",
-              _v9 = _v7 && _v7.totalSize > 0 ? (0, _v155.bytesToSize)(_v7.totalSize, 1) : "0MB",
-              _v10 = (0, _v160.getFileSizeTooltip)(_v7?.fileSizeType),
+              _v9 = _v7 && _v7.totalSize > 0 ? (0, _v190.bytesToSize)(_v7.totalSize, 1) : "0MB",
+              _v10 = (0, _v195.getFileSizeTooltip)(_v7?.fileSizeType),
               _v11 = _v4?.sizes[3].link,
               _v12 = _v0.isColdStorage ?? !1,
               _v13 = !!_v0.canMoveToProject && !_v12,
@@ -1347,21 +2460,21 @@
                 openLockedVideoPaywall: _v17,
                 tooltipLabel: _v18
               } = _v25(_v0);
-            return (0, _v1.jsx)(_v161.DraggableListVideo, {
+            return (0, _v1.jsx)(_v196.DraggableListVideo, {
               uri: _v6,
               title: _v3,
-              clipId: (0, _v135.idFromUri)(_v6),
+              clipId: (0, _v170.idFromUri)(_v6),
               canRename: !0,
-              thumbnail: (0, _v1.jsx)(_v154.VideoThumbnail, {
+              thumbnail: (0, _v1.jsx)(_v189.VideoThumbnail, {
                 alt: _v3,
-                badgeText: (0, _v132.secondsToDisplay)(_v1),
+                badgeText: (0, _v167.secondsToDisplay)(_v1),
                 isDefaultPicture: _v4?.defaultPicture,
                 thumbnailSrc: _v11,
                 isLocked: _v12
               }),
               thumbnailSrc: _v11,
               timestamp: _v22(_v8),
-              privacy: _v15 ? (0, _v1.jsx)(_v153.ContentCard.VideoPrivacyBadge, {
+              privacy: _v15 ? (0, _v1.jsx)(_v188.ContentCard.VideoPrivacyBadge, {
                 videoPrivacy: _v14,
                 variant: _v15,
                 layout: "inline",
@@ -1373,22 +2486,22 @@
               isLocked: _v12,
               isSelectable: _v0.isSelectable,
               isSelected: _v0.isSelected,
-              lockedTooltipLabel: _v147.STORAGE_LIMIT_LOCKED_VIDEO_TOOLTIP_LABEL,
+              lockedTooltipLabel: _v182.STORAGE_LIMIT_LOCKED_VIDEO_TOOLTIP_LABEL,
               onLockedClick: _v12 ? _v17 : void 0,
               pageName: _v21,
               onClick: () => {
-                _v129.BigPictureClient.sendEvent(new _v129.Event("vimeo.click_video_card", 2, {
+                _v164.BigPictureClient.sendEvent(new _v164.Event("vimeo.click_video_card", 2, {
                   path: window.location.href,
                   entry_page: "team-library",
                   page: "team-library",
                   location: _v82.AnalyticsLocations.VIDEO_LIST,
-                  video_id: String((0, _v135.idFromUri)(_v0.uri)),
+                  video_id: String((0, _v170.idFromUri)(_v0.uri)),
                   video_privacy: _v0.privacy?.view,
                   video_embed_privacy: _v0.privacy?.embed,
                   is_preset_applied: null,
                   is_video_password_protected: !!_v0.password,
-                  video_app_id: (0, _v135.idFromUri)(_v0.app?.uri) ? String((0, _v135.idFromUri)(_v0.app?.uri)) : null,
-                  team_owner_id: String((0, _v135.idFromUri)(_v0.user.uri)),
+                  video_app_id: (0, _v170.idFromUri)(_v0.app?.uri) ? String((0, _v170.idFromUri)(_v0.app?.uri)) : null,
+                  team_owner_id: String((0, _v170.idFromUri)(_v0.user.uri)),
                   team_size: _v23?.teamUser?.currentTeamSize ?? null,
                   team_subscription_type: _v23?.teamUser?.accountType ?? null,
                   actor_team_role: _v23?.teamUser?.plainTextPermissionLevel ?? null,
@@ -1419,9 +2532,9 @@
               fileSizeTooltip: _v10 ?? void 0,
               fileSize: _v9,
               isManagedStorage: !0 === _v0.countsTowardManagedStorage,
-              hoverActions: (0, _v1.jsx)(_v158.ListViewHoverActionsContainer, {
+              hoverActions: (0, _v1.jsx)(_v193.ListViewHoverActionsContainer, {
                 disableHoverBackground: _v0.isColdStorage,
-                children: (0, _v1.jsx)(_v156.TopRightDecoration, {
+                children: (0, _v1.jsx)(_v191.TopRightDecoration, {
                   video: _v0,
                   buttonVariant: "minimal",
                   flexDirection: "row",
@@ -1434,7 +2547,7 @@
                   onVideoInfo: () => _v9(_v0.uri)
                 })
               }),
-              menuButton: (0, _v1.jsx)(_v140.VideoMenu, {
+              menuButton: (0, _v1.jsx)(_v175.VideoMenu, {
                 video: _v0,
                 feature: _v82.AnalyticsFeatures.VIDEO_LIBRARY,
                 hasMoreInfo: !0,
@@ -1456,7 +2569,7 @@
                       label: _v0,
                       workspaceName: _v3
                     }, () => {
-                      _v23 && (0, _v124.switchTeam)(_v2, _v23.xsrft).finally(() => {
+                      _v23 && (0, _v159.switchTeam)(_v2, _v23.xsrft).finally(() => {
                         window.location.href = _v1;
                       });
                     });
@@ -1486,7 +2599,7 @@
                 _v14?.(!1);
               },
               onDragEnd: _v1,
-              type: _v126.ITEM_TYPES.ROOT_VIDEO,
+              type: _v161.ITEM_TYPES.ROOT_VIDEO,
               selectedItemURIs: _v12,
               canDrag: _v13,
               parentFolderUri: "root",
@@ -1500,10 +2613,10 @@
               _v1 = _v17.type === _v58.SORT_OPTION.CREATED ? _v0.createdTime : _v0.lastUserActionEventDate || "",
               _v2 = parseInt(_v0.uri.split("/")?.[2]),
               _v3 = parseInt(_v0.folder.uri.split("/")[4]);
-            return (0, _v1.jsx)(_v162.DroppableListFolder, {
+            return (0, _v1.jsx)(_v197.DroppableListFolder, {
               dropTarget: _v0,
-              dropTargetType: _v126.DROP_TARGET_TYPES.FOLDER_CARD,
-              allowedDropEffect: _v126.ALLOWED_DROP_EFFECTS.MOVE,
+              dropTargetType: _v161.DROP_TARGET_TYPES.FOLDER_CARD,
+              allowedDropEffect: _v161.ALLOWED_DROP_EFFECTS.MOVE,
               dropFileForUploadConfig: _v24.enable_list_view_folder_upload && null != _v26 ? {
                 targetUserId: _v26,
                 folderId: _v3,
@@ -1513,10 +2626,10 @@
               isLoading: !!_v7 && _v7.has(_v0.uri),
               href: (0, _v79.getFolderPageUriFromApiUri)(_v0.uri),
               title: _v0.name,
-              thumbnail: (0, _v1.jsx)(_v159.FolderRowThumbnail, {
+              thumbnail: (0, _v1.jsx)(_v194.FolderRowThumbnail, {
                 backgroundColor: _v0.settings?.color
               }),
-              subTitle: (0, _v148.numItemsText)(_v0.folder.metadata?.connections?.items?.total),
+              subTitle: (0, _v183.numItemsText)(_v0.folder.metadata?.connections?.items?.total),
               timestamp: _v22(_v1),
               privacy: _v15 ? "—" : "",
               shouldShowFileSize: _v16,
@@ -1525,15 +2638,15 @@
               folderId: _v3,
               canRename: !0,
               folderOwnerId: _v2,
-              hoverActions: (0, _v1.jsx)(_v158.ListViewHoverActionsContainer, {
-                children: (0, _v1.jsx)(_v157.FolderTopRightDecoration, {
+              hoverActions: (0, _v1.jsx)(_v193.ListViewHoverActionsContainer, {
+                children: (0, _v1.jsx)(_v192.FolderTopRightDecoration, {
                   folder: _v0,
                   buttonVariant: "minimal",
                   flexDirection: "row",
                   location: "video_list"
                 })
               }),
-              menuButton: (0, _v1.jsx)(_v141.FolderMenu, {
+              menuButton: (0, _v1.jsx)(_v176.FolderMenu, {
                 folder: _v0,
                 analytics: {
                   product: "Video Library",
@@ -1544,7 +2657,7 @@
                 libraryType: _v28
               }),
               onClick: () => {
-                _v129.BigPictureClient.sendEvent(new _v129.Event("vimeo.click_folder_card", 3, {
+                _v164.BigPictureClient.sendEvent(new _v164.Event("vimeo.click_folder_card", 3, {
                   path: window.location.href,
                   entry_page: "mvv",
                   page: "mvv",
@@ -1581,7 +2694,7 @@
         })
       });
     };
-  function _v165({
+  function _v200({
     deselectItem: _v0,
     handleMoveItemsOnDrop: _v1,
     hasFolderShareUpsell: _v2,
@@ -1601,7 +2714,7 @@
     shouldShowFileSize: _v16 = !1,
     sort: _v17
   }) {
-    return (0, _v1.jsx)(_v164, {
+    return (0, _v1.jsx)(_v199, {
       deselectItem: _v0,
       handleMoveItemsOnDrop: _v1,
       libraryTitle: _v6,
@@ -1622,7 +2735,7 @@
       hasMultipleReviewLinks: _v4
     });
   }
-  function _v166({
+  function _v201({
     canUpload: _v0,
     deselectItem: _v1,
     handleMoveItemsOnDrop: _v2,
@@ -1718,7 +2831,7 @@
           label: _v4,
           workspaceName: _v3
         }, () => {
-          _v22 && (0, _v124.switchTeam)(_v2, _v22.xsrft).finally(() => {
+          _v22 && (0, _v159.switchTeam)(_v2, _v22.xsrft).finally(() => {
             window.location.href = _v5;
           });
         }) : _v26(_v1[0].name, {
@@ -1729,8 +2842,8 @@
       {
         draggableItemIsHovering: _v33,
         dropRef: _v34
-      } = (0, _v125.useDropFolder)({
-        dropTargetType: _v126.DROP_TARGET_TYPES.FOLDER_MENU_ITEM,
+      } = (0, _v160.useDropFolder)({
+        dropTargetType: _v161.DROP_TARGET_TYPES.FOLDER_MENU_ITEM,
         dropTarget: void 0,
         allowedDropEffect: null,
         dropFileForUploadConfig: null != _v23 && _v0 ? {
@@ -1749,7 +2862,7 @@
       borderRadius: "lg",
       borderWidth: ".125rem",
       transition: "background-color 0.2s ease, border-color 0.2s ease",
-      children: _v19 === _v58.LAYOUT.GRID ? (0, _v1.jsx)(_v152, {
+      children: _v19 === _v58.LAYOUT.GRID ? (0, _v1.jsx)(_v187, {
         deselectItem: _v1,
         handleMoveItemsOnDrop: _v2,
         isEnterprise: _v6,
@@ -1769,7 +2882,7 @@
         setIsUploadDropzoneEnabled: _v15,
         sort: _v18,
         isLoading: _v20
-      }) : (0, _v1.jsx)(_v165, {
+      }) : (0, _v1.jsx)(_v200, {
         deselectItem: _v1,
         handleMoveItemsOnDrop: _v2,
         hasFolderShareUpsell: _v3,
@@ -1791,8 +2904,8 @@
       })
     });
   }
-  let _v167 = ["video", "folder"];
-  function _v168({
+  let _v202 = ["video", "folder"];
+  function _v203({
     playerAssetUrls: _v0,
     viewer: _v1
   }) {
@@ -1809,25 +2922,27 @@
       [_v13, _v14] = (0, _v5.useState)(null),
       [_v15, _v16] = (0, _v5.useState)(!1),
       _v17 = _v1?.teamUser?.ownerId ?? _v1?.user?.id,
-      [_v18, _v19] = (0, _v5.useState)(!1),
-      _v20 = (0, _v5.useRef)(null),
-      [_v21, _v22] = (0, _v5.useState)(!1),
-      [_v23, _v24] = (0, _v5.useState)(!1),
-      [_v25, _v26] = (0, _v5.useState)(!1),
-      _v27 = _v17 && _v1 ? {
+      _v18 = _v1?.user?.id,
+      [_v19, _v20] = (0, _v5.useState)(!1),
+      _v21 = (0, _v5.useRef)(null),
+      [_v22, _v23] = (0, _v5.useState)(!1),
+      [_v24, _v25] = (0, _v5.useState)(!1),
+      [_v26, _v27] = (0, _v5.useState)(!1),
+      [_v28, _v29] = (0, _v5.useState)(!1),
+      _v30 = _v17 && _v1 ? {
         apiUrl: _v1.apiUrl,
         jwt: _v1.jwt,
         ownerId: _v17
       } : void 0,
-      _v28 = (0, _v39.useAnalyticsEvent)(),
+      _v31 = (0, _v39.useAnalyticsEvent)(),
       {
-        trackLibraryPageDisplayed: _v29,
-        trackLibraryViewChanged: _v30,
-        trackLibraryFilterApplied: _v31,
-        trackLibrarySortChanged: _v32
+        trackLibraryPageDisplayed: _v32,
+        trackLibraryViewChanged: _v33,
+        trackLibraryFilterApplied: _v34,
+        trackLibrarySortChanged: _v35
       } = (0, _v30.useLibraryTracking)(),
-      _v33 = (0, _v4.useRouter)(),
-      _v34 = {
+      _v36 = (0, _v4.useRouter)(),
+      _v37 = {
         alphabetical_asc: "title_a_to_z",
         alphabetical_desc: "title_z_to_a",
         last_user_action_event_date_desc: "last_modified",
@@ -1838,86 +2953,86 @@
         duration_asc: "shortest"
       },
       {
-        capabilities: _v35,
-        ready: _v36
+        capabilities: _v38,
+        ready: _v39
       } = (0, _v20.useCapability)(["canCreateRootFolders", "canAddTeamMembers", "canSeeUpsellModalOnShare", "privateModeOff", "canManageTeamCollections", "hasVideoReviewPageDemo", "hasEnterprise", "regionalDeliveryPublishContentToChina", "hasMultipleReviewLinks", "hasTeamPrivacy", "coldStorageClips", "canPerformBulkTranslations", "canGenerateClipTranslation", "canGenerateClipTextTranslation", "hasVideoLibraryEmbeddableUploader"], `/users/${_v17}`),
       {
-        loading: _v37,
-        contentSpaceEnabled: _v38,
-        isTeamGateEnabled: _v39,
-        isSoleTeamOwner: _v40
+        loading: _v40,
+        contentSpaceEnabled: _v41,
+        isTeamGateEnabled: _v42,
+        isSoleTeamOwner: _v43
       } = (0, _v18.useMergeLibrariesVisible)(`/users/${_v17}`),
       {
-        listingParams: _v41
+        listingParams: _v44
       } = (0, _v19.usePrivateToMeFolderListingParams)(`/users/${_v17}`),
-      _v42 = !!_v35.canGenerateClipTextTranslation,
-      _v43 = (!!_v35.canGenerateClipTranslation || _v42) && !!_v35.canPerformBulkTranslations,
+      _v45 = !!_v38.canGenerateClipTextTranslation,
+      _v46 = (!!_v38.canGenerateClipTranslation || _v45) && !!_v38.canPerformBulkTranslations,
       {
-        revalidateRootItems: _v44,
-        revalidateTopLevelFolders: _v45
+        revalidateRootItems: _v47,
+        revalidateTopLevelFolders: _v48
       } = (0, _v51.useRevalidate)(),
       {
-        setLoadingSideNavFolderURIs: _v46
+        setLoadingSideNavFolderURIs: _v49
       } = (0, _v5.useContext)(_v54.VideoLibraryLayoutContext),
-      _v47 = (0, _v53.useNotification)(),
+      _v50 = (0, _v53.useNotification)(),
       {
-        notifyItemMoveSuccess: _v48
+        notifyItemMoveSuccess: _v51
       } = (0, _v53.useNotifications)(),
-      _v49 = (0, _v5.useRef)(() => void 0),
+      _v52 = (0, _v5.useRef)(() => void 0),
       {
-        openCopyVideoModal: _v50,
-        copyVideoModal: _v51
+        openCopyVideoModal: _v53,
+        copyVideoModal: _v54
       } = (0, _v74.useCopyVideoFlow)({
-        onAfterCopySuccess: (_v0, _v1) => _v49.current(_v1.uri, _v0)
+        onAfterCopySuccess: (_v0, _v1) => _v52.current(_v1.uri, _v0)
       }),
-      _v52 = _v1?.teamUser?.plainTextPermissionLevel,
-      _v53 = _v17 === _v1?.user?.id || "Admin" === _v52,
-      _v54 = (0, _v36.useGracePeriodBillingUi)({
+      _v55 = _v1?.teamUser?.plainTextPermissionLevel,
+      _v56 = _v17 === _v1?.user?.id || "Admin" === _v55,
+      _v57 = (0, _v36.useGracePeriodBillingUi)({
         orionFlag: "enable_library_grace_period_notifications",
         layout: {
           type: "library"
         }
       }),
       {
-        hasColdStorage: _v55
+        hasColdStorage: _v58
       } = (0, _v84.useUserHasColdStorageVideos)({
-        forceEligible: _v54.isStorageSuspended
+        forceEligible: _v57.isStorageSuspended
       }),
-      _v56 = !!_v35.coldStorageClips && _v53 || _v55 && _v53,
+      _v59 = !!_v38.coldStorageClips && _v56 || _v58 && _v56,
       {
-        settings: _v57
+        settings: _v60
       } = (0, _v27.useOrionSettings)(),
-      _v58 = _v57?.cold_privacy_enabled ?? !1,
+      _v61 = _v60?.cold_privacy_enabled ?? !1,
       {
-        hasColdPrivacy: _v59,
-        isLoading: _v60
+        hasColdPrivacy: _v62,
+        isLoading: _v63
       } = (0, _v83.useUserHasColdPrivacyVideos)({
-        enabled: _v58 || _v55
+        enabled: _v61 || _v58
       }),
-      _v61 = _v58 && _v59,
-      _v62 = (0, _v48.useContentTypeFilter)([..._v167]),
-      _v63 = !(0, _v81.isContentTypeSelectionDefault)(_v167, _v62.value) && !(0, _v81.doesSelectionIncludeVideos)(_v167, _v62.value),
-      _v64 = !(0, _v81.isContentTypeSelectionDefault)(_v167, _v62.draft) && !(0, _v81.doesSelectionIncludeVideos)(_v167, _v62.draft),
-      _v65 = (0, _v50.useVideoAvailabilityFilter)(),
-      _v66 = (0, _v47.useClipPrivacyFilter)(["unlisted", "password", "hide_from_vimeo", "team", "private", "public", ...(_v61 ? ["cold_privacy"] : [])], !!_v35?.hasTeamPrivacy),
-      _v67 = [..._v66.value],
-      _v68 = _v66.value.has("cold_privacy"),
-      _v69 = (0, _v81.doesSelectionIncludeVideos)(_v167, _v62.value) && _v65.value.has("restricted") !== _v65.value.has("available") || _v68,
-      _v70 = (0, _v49.useCreatedByFilter)(),
-      _v71 = !!_v66.isFilterActive || !!_v70.isFilterActive || !!_v65.isFilterActive,
-      _v72 = !!_v66.isFilterActive || !!_v70.isFilterActive,
-      _v73 = !!_v66.isDraftActive || !!_v70.isDraftActive,
-      _v74 = !!_v66.isFilterActive || !!_v70.isFilterActive,
-      _v75 = !!_v66.isDraftActive || !!_v70.isDraftActive,
-      [_v76, _v77] = (0, _v5.useState)(!0),
-      [_v78, _v79] = (0, _v55.useLayoutPreference)(),
-      _v80 = !!_v35.canCreateRootFolders,
-      _v81 = !!(_v76 && _v53),
-      _v82 = _v57?.enable_new_library_drag_and_drop_upload ?? !1,
-      _v83 = _v55 || _v61,
-      _v84 = _v81 && !_v82,
-      _v85 = !!_v35.hasEnterprise,
-      _v86 = !_v36 || _v37 ? "" : _v38 ? (0, _v24.translate)({
+      _v64 = _v61 && _v62,
+      _v65 = (0, _v48.useContentTypeFilter)([..._v202]),
+      _v66 = !(0, _v81.isContentTypeSelectionDefault)(_v202, _v65.value) && !(0, _v81.doesSelectionIncludeVideos)(_v202, _v65.value),
+      _v67 = !(0, _v81.isContentTypeSelectionDefault)(_v202, _v65.draft) && !(0, _v81.doesSelectionIncludeVideos)(_v202, _v65.draft),
+      _v68 = (0, _v50.useVideoAvailabilityFilter)(),
+      _v69 = (0, _v47.useClipPrivacyFilter)(["unlisted", "password", "hide_from_vimeo", "team", "private", "public", ...(_v64 ? ["cold_privacy"] : [])], !!_v38?.hasTeamPrivacy),
+      _v70 = [..._v69.value],
+      _v71 = _v69.value.has("cold_privacy"),
+      _v72 = (0, _v81.doesSelectionIncludeVideos)(_v202, _v65.value) && _v68.value.has("restricted") !== _v68.value.has("available") || _v71,
+      _v73 = (0, _v49.useCreatedByFilter)(),
+      _v74 = !!_v69.isFilterActive || !!_v73.isFilterActive || !!_v68.isFilterActive,
+      _v75 = !!_v69.isFilterActive || !!_v73.isFilterActive,
+      _v76 = !!_v69.isDraftActive || !!_v73.isDraftActive,
+      _v77 = !!_v69.isFilterActive || !!_v73.isFilterActive,
+      _v78 = !!_v69.isDraftActive || !!_v73.isDraftActive,
+      [_v79, _v80] = (0, _v5.useState)(!0),
+      [_v81, _v82] = (0, _v55.useLayoutPreference)(),
+      _v83 = !!_v38.canCreateRootFolders,
+      _v84 = !!(_v79 && _v56),
+      _v85 = _v60?.enable_new_library_drag_and_drop_upload ?? !1,
+      _v86 = _v58 || _v64,
+      _v87 = _v84 && !_v85,
+      _v88 = !!_v38.hasEnterprise,
+      _v89 = !_v39 || _v40 ? "" : _v41 ? (0, _v24.translate)({
         singular: "Team library",
         dictionary: {
           es: {
@@ -1969,7 +3084,7 @@
         }
       });
     (0, _v38.useUploadLifecycle)((_v0, _v1) => {
-      _v1.clipId && _v44();
+      _v1.clipId && _v47();
     }, []), (0, _v26.useOttRedirect)({
       toast: _v8,
       config: {
@@ -2001,30 +3116,30 @@
         })
       }
     });
-    let _v87 = (0, _v21.useIsMobile)(),
-      _v88 = !!_v38,
-      _v89 = !_v53 && _v88,
+    let _v90 = (0, _v21.useIsMobile)(),
+      _v91 = !!_v41,
+      _v92 = !_v56 && _v91,
       {
-        data: _v90,
-        mutate: _v91,
-        setSize: _v92,
-        size: _v93
+        data: _v93,
+        mutate: _v94,
+        setSize: _v95,
+        size: _v96
       } = (0, _v23.useGetUserFoldersRootInfinite)(() => {
-        let _v0 = _v66.isFilterActive && !_v69 ? _v67.join(",") : void 0,
-          _v1 = _v70.isFilterActive ? [..._v70.value].map(_v0 => _v0.userId) : void 0,
+        let _v0 = _v69.isFilterActive && !_v72 ? _v70.join(",") : void 0,
+          _v1 = _v73.isFilterActive ? [..._v73.value].map(_v0 => _v0.userId) : void 0,
           _v2 = _v1?.length ? _v1.join(",") : void 0,
-          _v3 = (0, _v81.getContentTypeApiFilterParam)(_v167, _v62.value);
-        return _v17 && _v36 && !_v37 ? {
+          _v3 = (0, _v81.getContentTypeApiFilterParam)(_v202, _v65.value);
+        return _v17 && _v39 && !_v40 ? {
           where: {
             userId: _v17
           },
-          select: _v163,
+          select: _v198,
           query: {
             direction: _v9.direction,
-            excludePersonalTeamFolder: _v38,
-            flattenPrivateToMe: _v41.flattenPrivateToMe,
-            excludeSharedVideos: _v89,
-            includeColdStorageClips: _v56,
+            excludePersonalTeamFolder: _v41,
+            flattenPrivateToMe: _v44.flattenPrivateToMe,
+            excludeSharedVideos: _v92,
+            includeColdStorageClips: _v59,
             ...(_v3 && {
               filter: _v3
             }),
@@ -2041,47 +3156,47 @@
         } : null;
       }),
       {
-        data: _v94
-      } = (0, _v23.useGetUserFoldersRoot)(() => _v17 && _v36 && !_v37 ? {
+        data: _v97
+      } = (0, _v23.useGetUserFoldersRoot)(() => _v17 && _v39 && !_v40 ? {
         where: {
           userId: _v17
         },
         select: ["type"],
         query: {
           filter: "video",
-          excludePersonalTeamFolder: _v38,
-          flattenPrivateToMe: _v41.flattenPrivateToMe,
-          excludeSharedVideos: _v89,
-          includeColdStorageClips: _v56,
+          excludePersonalTeamFolder: _v41,
+          flattenPrivateToMe: _v44.flattenPrivateToMe,
+          excludeSharedVideos: _v92,
+          includeColdStorageClips: _v59,
           perPage: 1
         }
       } : null, {
         revalidateOnFocus: !1
       }),
-      _v95 = _v94?.total ?? 0,
-      _v96 = (0, _v5.useMemo)(() => _v90 ? _v90.flatMap(_v0 => {
+      _v98 = _v97?.total ?? 0,
+      _v99 = (0, _v5.useMemo)(() => _v93 ? _v93.flatMap(_v0 => {
         if (!_v0) return [];
         let _v1 = _v0.data.filter(_v0 => (0, _v80.passesLibraryItemClientFilters)({
-          clipPrivacyFilter: _v66.value,
-          contentTypeOptions: _v167,
-          contentTypeSelection: _v62.value,
+          clipPrivacyFilter: _v69.value,
+          contentTypeOptions: _v202,
+          contentTypeSelection: _v65.value,
           item: _v0,
-          shouldUseClientPipeline: _v69,
-          videoAvailabilityFilter: _v65.value
+          shouldUseClientPipeline: _v72,
+          videoAvailabilityFilter: _v68.value
         }));
         return [{
           ..._v0,
           data: _v1
         }];
-      }) : _v90, [_v66.value, _v62.value, _v90, _v69, _v65.value]),
-      _v97 = (0, _v5.useCallback)(({
+      }) : _v93, [_v69.value, _v65.value, _v93, _v72, _v68.value]),
+      _v100 = (0, _v5.useCallback)(({
         name: _v0,
         settings: {
           color: _v1
         },
         uri: _v2
       }) => {
-        _v91(_v0 => _v0?.map(_v0 => ({
+        _v94(_v0 => _v0?.map(_v0 => ({
           ..._v0,
           data: _v0.data.map(_v0 => _v0.folder?.uri === _v2 ? {
             ..._v0,
@@ -2095,152 +3210,152 @@
             }
           } : _v0)
         })), !1);
-      }, [_v91]),
-      _v98 = (0, _v5.useCallback)((_v0, _v1) => {
-        _v91(_v0 => _v0 ? _v0.map(_v0 => ({
+      }, [_v94]),
+      _v101 = (0, _v5.useCallback)((_v0, _v1) => {
+        _v94(_v0 => _v0 ? _v0.map(_v0 => ({
           ..._v0,
           data: _v0.data.map(_v0 => _v0.video?.uri === _v0 ? {
             ..._v0,
             video: _v1(_v0.video)
           } : _v0)
         })) : _v0, !1);
-      }, [_v91]),
-      _v99 = (0, _v5.useCallback)((_v0, _v1) => {
+      }, [_v94]),
+      _v102 = (0, _v5.useCallback)((_v0, _v1) => {
         let _v2 = !1;
-        _v91(_v0 => {
+        _v94(_v0 => {
           let _v1 = (0, _v78.insertOptimisticVideoCopy)(_v0, _v0, _v1);
           return _v2 = _v1.inserted, _v1.pages;
-        }, !1), _v2 || _v44();
-      }, [_v91, _v44]);
+        }, !1), _v2 || _v47();
+      }, [_v94, _v47]);
     (0, _v5.useEffect)(() => {
-      _v49.current = _v99;
-    }, [_v99]);
-    let _v100 = (0, _v5.useCallback)((_v0, _v1) => {
-        _v91(_v0 => _v0?.map(_v0 => ({
+      _v52.current = _v102;
+    }, [_v102]);
+    let _v103 = (0, _v5.useCallback)((_v0, _v1) => {
+        _v94(_v0 => _v0?.map(_v0 => ({
           ..._v0,
           data: _v0.data.filter(_v0 => _v0?.[_v1]?.uri !== _v0)
         })), !1);
-      }, [_v91]),
-      _v101 = (0, _v5.useCallback)(_v0 => {
-        _v91(_v0 => _v0?.map(_v0 => ({
+      }, [_v94]),
+      _v104 = (0, _v5.useCallback)(_v0 => {
+        _v94(_v0 => _v0?.map(_v0 => ({
           ..._v0,
           data: _v0.data.filter(_v0 => {
             let _v1 = _v0.video?.uri || _v0.folder?.uri || _v0.liveEvent?.uri;
             return !!_v1 && !_v0.has(_v1);
           })
         })), !1);
-      }, [_v91]),
-      [_v102, {
-        enhancedSelectItem: _v103,
-        enhancedDeselectItem: _v104,
-        selectAllItems: _v105,
-        selectAllInFolder: _v106,
-        syncAllInFolderSelection: _v107,
-        deselectAllItems: _v108,
-        shiftKeyChange: _v109
+      }, [_v94]),
+      [_v105, {
+        enhancedSelectItem: _v106,
+        enhancedDeselectItem: _v107,
+        selectAllItems: _v108,
+        selectAllInFolder: _v109,
+        syncAllInFolderSelection: _v110,
+        deselectAllItems: _v111,
+        shiftKeyChange: _v112
       }] = (0, _v85.useSelectedItems)(),
-      _v110 = (0, _v5.useCallback)(() => {
-        let _v0 = _v62.value,
-          _v1 = (0, _v81.isContentTypeOptionChecked)(_v167, _v0, "video"),
-          _v2 = _v65.value,
+      _v113 = (0, _v5.useCallback)(() => {
+        let _v0 = _v65.value,
+          _v1 = (0, _v81.isContentTypeOptionChecked)(_v202, _v0, "video"),
+          _v2 = _v68.value,
           _v3 = _v2.has("restricted"),
           _v4 = _v2.has("available");
-        _v108();
+        _v111();
         let _v5 = () => new Set(["restricted", "available"]);
         if (!_v1) {
-          _v62.setSelection((0, _v81.includeVideosInSelection)(_v167, _v0)), _v65.setValue(_v5());
+          _v65.setSelection((0, _v81.includeVideosInSelection)(_v202, _v0)), _v68.setValue(_v5());
           return;
         }
         if (!_v3 && !_v4) {
-          _v62.setSelection((0, _v81.excludeVideosFromSelection)(_v167, _v0)), _v65.clearFilter();
+          _v65.setSelection((0, _v81.excludeVideosFromSelection)(_v202, _v0)), _v68.clearFilter();
           return;
         }
-        if (_v3 !== _v4) return void _v65.setValue(_v5());
+        if (_v3 !== _v4) return void _v68.setValue(_v5());
         if (_v3 && _v4) {
-          _v65.clearFilter(), _v62.setSelection((0, _v81.excludeVideosFromSelection)(_v167, _v0));
+          _v68.clearFilter(), _v65.setSelection((0, _v81.excludeVideosFromSelection)(_v202, _v0));
           return;
         }
-      }, [_v62, _v108, _v65]),
-      _v111 = (0, _v5.useCallback)(() => {
-        let _v0 = _v62.draft,
-          _v1 = (0, _v81.isContentTypeOptionChecked)(_v167, _v0, "video"),
-          _v2 = _v65.draft,
+      }, [_v65, _v111, _v68]),
+      _v114 = (0, _v5.useCallback)(() => {
+        let _v0 = _v65.draft,
+          _v1 = (0, _v81.isContentTypeOptionChecked)(_v202, _v0, "video"),
+          _v2 = _v68.draft,
           _v3 = _v2.has("restricted"),
           _v4 = _v2.has("available");
-        _v108();
+        _v111();
         let _v5 = () => new Set(["restricted", "available"]);
         if (!_v1) {
-          _v62.setSelection((0, _v81.includeVideosInSelection)(_v167, _v0), !0), _v65.setDraft(_v5());
+          _v65.setSelection((0, _v81.includeVideosInSelection)(_v202, _v0), !0), _v68.setDraft(_v5());
           return;
         }
         if (!_v3 && !_v4) {
-          _v62.setSelection((0, _v81.excludeVideosFromSelection)(_v167, _v0), !0), _v65.setDraft(new Set());
+          _v65.setSelection((0, _v81.excludeVideosFromSelection)(_v202, _v0), !0), _v68.setDraft(new Set());
           return;
         }
-        if (_v3 !== _v4) return void _v65.setDraft(_v5());
+        if (_v3 !== _v4) return void _v68.setDraft(_v5());
         if (_v3 && _v4) {
-          _v65.setDraft(new Set()), _v62.setSelection((0, _v81.excludeVideosFromSelection)(_v167, _v0), !0);
+          _v68.setDraft(new Set()), _v65.setSelection((0, _v81.excludeVideosFromSelection)(_v202, _v0), !0);
           return;
         }
-      }, [_v62, _v108, _v65]),
-      _v112 = _v55 || _v55 ? {
-        onVideoParentCheckboxClick: _v110,
+      }, [_v65, _v111, _v68]),
+      _v115 = _v58 || _v58 ? {
+        onVideoParentCheckboxClick: _v113,
         setVideoAvailabilityFilter: _v0 => {
-          let _v1 = _v62.value;
-          (0, _v81.isContentTypeOptionChecked)(_v167, _v1, "video") || _v62.setSelection((0, _v81.includeVideosInSelection)(_v167, _v1)), _v65.updateFilterValues(_v0);
+          let _v1 = _v65.value;
+          (0, _v81.isContentTypeOptionChecked)(_v202, _v1, "video") || _v65.setSelection((0, _v81.includeVideosInSelection)(_v202, _v1)), _v68.updateFilterValues(_v0);
         },
-        showAvailableOption: _v55,
-        showRestrictedOption: _v55,
-        videoAvailabilityFilter: _v65.value
+        showAvailableOption: _v58,
+        showRestrictedOption: _v58,
+        videoAvailabilityFilter: _v68.value
       } : void 0,
-      _v113 = _v55 || _v55 ? {
-        onVideoParentCheckboxClick: _v111,
+      _v116 = _v58 || _v58 ? {
+        onVideoParentCheckboxClick: _v114,
         onVideoAvailabilityChange: _v0 => {
-          let _v1 = _v62.draft;
-          (0, _v81.isContentTypeOptionChecked)(_v167, _v1, "video") || _v62.setSelection((0, _v81.includeVideosInSelection)(_v167, _v1), !0), _v65.updateFilterValues(_v0, !0);
+          let _v1 = _v65.draft;
+          (0, _v81.isContentTypeOptionChecked)(_v202, _v1, "video") || _v65.setSelection((0, _v81.includeVideosInSelection)(_v202, _v1), !0), _v68.updateFilterValues(_v0, !0);
         },
-        showAvailableOption: _v55,
-        showRestrictedOption: _v55,
-        videoAvailabilityDraft: _v65.draft
+        showAvailableOption: _v58,
+        showRestrictedOption: _v58,
+        videoAvailabilityDraft: _v68.draft
       } : void 0,
-      _v114 = (0, _v5.useRef)(!1),
-      _v115 = (0, _v5.useCallback)(_v0 => {
-        "Shift" === _v0.key && (_v114.current = !_v114.current, _v109(_v114.current));
-      }, [_v114, _v109]);
-    (0, _v5.useEffect)(() => (window.addEventListener("keydown", _v115), window.addEventListener("keyup", _v115), () => {
-      window.removeEventListener("keydown", _v115), window.removeEventListener("keyup", _v115);
-    }), [_v115]), (0, _v5.useEffect)(() => {
-      _v87 || _v16(!1);
-    }, [_v87]);
-    let _v116 = _v33.query.filter;
+      _v117 = (0, _v5.useRef)(!1),
+      _v118 = (0, _v5.useCallback)(_v0 => {
+        "Shift" === _v0.key && (_v117.current = !_v117.current, _v112(_v117.current));
+      }, [_v117, _v112]);
+    (0, _v5.useEffect)(() => (window.addEventListener("keydown", _v118), window.addEventListener("keyup", _v118), () => {
+      window.removeEventListener("keydown", _v118), window.removeEventListener("keyup", _v118);
+    }), [_v118]), (0, _v5.useEffect)(() => {
+      _v90 || _v16(!1);
+    }, [_v90]);
+    let _v119 = _v36.query.filter;
     (0, _v5.useEffect)(() => {
-      !_v55 || "string" != typeof _v116 || "locked" !== _v116.toLowerCase() || (!_v65.value.has("restricted") || _v65.value.has("available")) && (_v62.setSelection(new Set(["video", "folder"])), _v65.setValue(new Set(["restricted"])));
-    }, [_v116, _v55]);
-    let _v117 = (0, _v5.useRef)(!1);
+      !_v58 || "string" != typeof _v119 || "locked" !== _v119.toLowerCase() || (!_v68.value.has("restricted") || _v68.value.has("available")) && (_v65.setSelection(new Set(["video", "folder"])), _v68.setValue(new Set(["restricted"])));
+    }, [_v119, _v58]);
+    let _v120 = (0, _v5.useRef)(!1);
     (0, _v5.useEffect)(() => {
-      _v117.current || !_v61 || "string" != typeof _v116 || "cold_privacy" === _v116.toLowerCase() && (_v117.current = !0, _v66.value.has("cold_privacy") || _v66.updateFilterValues("cold_privacy"));
-    }, [_v116, _v61]), (0, _v5.useEffect)(() => {
-      if (!_v55 || (0, _v50.isVideoAvailabilityFilterExplicitlyEngaged)(_v65.value)) return;
-      let _v0 = _v62.value;
-      if (1 !== _v0.size || !_v0.has("video") || (_v62.setSelection(new Set()), !_v33.isReady)) return;
-      let _v1 = _v33.query.filter;
+      _v120.current || !_v64 || "string" != typeof _v119 || "cold_privacy" === _v119.toLowerCase() && (_v120.current = !0, _v69.value.has("cold_privacy") || _v69.updateFilterValues("cold_privacy"));
+    }, [_v119, _v64]), (0, _v5.useEffect)(() => {
+      if (!_v58 || (0, _v50.isVideoAvailabilityFilterExplicitlyEngaged)(_v68.value)) return;
+      let _v0 = _v65.value;
+      if (1 !== _v0.size || !_v0.has("video") || (_v65.setSelection(new Set()), !_v36.isReady)) return;
+      let _v1 = _v36.query.filter;
       if ("string" != typeof _v1 || "locked" !== _v1.toLowerCase()) return;
       let _v2 = {
-        ..._v33.query
+        ..._v36.query
       };
-      delete _v2.filter, _v33.replace({
-        pathname: _v33.pathname,
+      delete _v2.filter, _v36.replace({
+        pathname: _v36.pathname,
         query: _v2
       }, void 0, {
         shallow: !0
       });
-    }, [_v65.value, _v62.value, _v55, _v33.isReady, _v33.pathname, _v33.query.filter]);
-    let _v118 = _v102.selectedItemURIs,
-      _v119 = (0, _v5.useMemo)(() => _v96?.filter(_v0 => !!_v0)?.flatMap(_v0 => _v0.data.filter(_v0 => {
+    }, [_v68.value, _v65.value, _v58, _v36.isReady, _v36.pathname, _v36.query.filter]);
+    let _v121 = _v105.selectedItemURIs,
+      _v122 = (0, _v5.useMemo)(() => _v99?.filter(_v0 => !!_v0)?.flatMap(_v0 => _v0.data.filter(_v0 => {
         let _v1 = (0, _v22.camelizeString)(_v0.type);
         return _v0[_v1]?.uri;
-      })), [_v96]),
-      _v120 = (0, _v5.useMemo)(() => ({
+      })), [_v99]),
+      _v123 = (0, _v5.useMemo)(() => ({
         canDeleteItem: {
           fields: ["video.metadata.interactions.delete.uri"],
           test: _v0 => !!_v0?.video?.metadata?.interactions?.delete
@@ -2263,63 +3378,63 @@
         }
       }), []),
       {
-        allItems: _v121,
-        canMoveSelection: _v122,
-        canDeleteSelection: _v123,
-        canChangePrivacySelection: _v124,
-        canAddToShowcasesSelection: _v125,
-        hasColdStorageSelection: _v126,
-        hasLegalHoldSelection: _v127,
-        hasReachedMaxSelectionForMove: _v128,
-        hasReachedMaxSelectionForPrivacy: _v129,
-        hasReachedMaxSelectionForSentimentWidget: _v130,
-        hasReachedMaxSelectionForShowcases: _v131,
-        canSelectURIs: _v132,
-        selectedItems: _v133,
-        maxBulkActionSelection: _v134
+        allItems: _v124,
+        canMoveSelection: _v125,
+        canDeleteSelection: _v126,
+        canChangePrivacySelection: _v127,
+        canAddToShowcasesSelection: _v128,
+        hasColdStorageSelection: _v129,
+        hasLegalHoldSelection: _v130,
+        hasReachedMaxSelectionForMove: _v131,
+        hasReachedMaxSelectionForPrivacy: _v132,
+        hasReachedMaxSelectionForSentimentWidget: _v133,
+        hasReachedMaxSelectionForShowcases: _v134,
+        canSelectURIs: _v135,
+        selectedItems: _v136,
+        maxBulkActionSelection: _v137
       } = (0, _v45.useBulkItems)({
-        ...(0, _v44.toPredicateFns)(_v120),
-        items: _v119,
-        selectedURIs: _v118,
+        ...(0, _v44.toPredicateFns)(_v123),
+        items: _v122,
+        selectedURIs: _v121,
         allowColdStorageDeletion: !0
       }),
-      _v135 = !!_v35.canManageTeamCollections,
-      _v136 = (0, _v5.useCallback)(() => {
-        _v105(_v121, _v132);
-      }, [_v121, _v132, _v105]),
-      [_v137] = (0, _v52.useMoveItem)(),
-      [_v138, _v139] = (0, _v5.useState)(new Set());
+      _v138 = !!_v38.canManageTeamCollections,
+      _v139 = (0, _v5.useCallback)(() => {
+        _v108(_v124, _v135);
+      }, [_v124, _v135, _v108]),
+      [_v140] = (0, _v52.useMoveItem)(),
+      [_v141, _v142] = (0, _v5.useState)(new Set());
     (0, _v5.useEffect)(() => {
-      !_v87 && _v72 && _v62.setSelection(new Set(["video"]));
-    }, [_v87, _v72]), (0, _v5.useEffect)(() => {
-      _v73 && _v62.setSelection(new Set(["video"]), !0);
-    }, [_v73]);
-    let _v140 = _v1?.vimeoHttpsUrl ? _v1?.vimeoHttpsUrl + "/analytics" : void 0,
-      _v141 = _v1?.teamUser,
+      !_v90 && _v75 && _v65.setSelection(new Set(["video"]));
+    }, [_v90, _v75]), (0, _v5.useEffect)(() => {
+      _v76 && _v65.setSelection(new Set(["video"]), !0);
+    }, [_v76]);
+    let _v143 = _v1?.vimeoHttpsUrl ? _v1?.vimeoHttpsUrl + "/analytics" : void 0,
+      _v144 = _v1?.teamUser,
       {
-        isDone: _v142,
-        isLoadingInitialData: _v143,
-        isLoadingMore: _v144
+        isDone: _v145,
+        isLoadingInitialData: _v146,
+        isLoadingMore: _v147
       } = (0, _v37.getInfiniteRequestLoadingState)({
-        data: _v90,
+        data: _v93,
         itemsPerPage: 25,
-        size: _v93
+        size: _v96
       }),
-      _v145 = _v121?.length === 0,
-      _v146 = !!_v62.isFilterApplied,
-      _v147 = !_v89,
-      _v148 = _v146 || _v71 || (0, _v50.isVideoAvailabilityFilterExplicitlyEngaged)(_v65.value),
-      _v149 = _v69 ? _v119?.length : _v96?.[0]?.total,
-      _v150 = (0, _v5.useRef)(!1);
+      _v148 = _v124?.length === 0,
+      _v149 = !!_v65.isFilterApplied,
+      _v150 = !_v92,
+      _v151 = _v149 || _v74 || (0, _v50.isVideoAvailabilityFilterExplicitlyEngaged)(_v68.value),
+      _v152 = _v72 ? _v122?.length : _v99?.[0]?.total,
+      _v153 = (0, _v5.useRef)(!1);
     (0, _v5.useEffect)(() => {
-      if (!_v33.isReady || _v150.current || "1" !== _v33.query.library_merge_toast || void 0 === _v149) return;
-      _v150.current = !0, _v47({
+      if (!_v36.isReady || _v153.current || "1" !== _v36.query.library_merge_toast || void 0 === _v152) return;
+      _v153.current = !0, _v50({
         content: (0, _v24.translate)({
           singular: "Your library is now one place. {COUNT} item is here.",
           plural: "Your library is now one place. All {COUNT} items are here.",
-          count: _v149,
+          count: _v152,
           replacements: {
-            COUNT: _v149
+            COUNT: _v152
           },
           dictionary: {
             es: {
@@ -2355,73 +3470,73 @@
         status: "success"
       });
       let _v0 = {
-        ..._v33.query
+        ..._v36.query
       };
-      delete _v0.library_merge_toast, _v33.replace({
-        pathname: _v33.pathname,
+      delete _v0.library_merge_toast, _v36.replace({
+        pathname: _v36.pathname,
         query: _v0
       }, void 0, {
         shallow: !0
       });
-    }, [_v33.isReady, _v33.query.library_merge_toast, _v149]);
+    }, [_v36.isReady, _v36.query.library_merge_toast, _v152]);
     let {
-        isEnabled: _v151
+        isEnabled: _v154
       } = (0, _v46.useEnableFolderBulkPrivacy)(),
-      _v152 = _v151 && !!_v118.size && !!_v95 && _v95 <= _v134 && !_v148,
-      _v153 = !!_v102.isAllInFolderSelected,
-      _v154 = (0, _v44.useSelectAllItems)({
-        enabled: _v151 && _v153 && !!_v95 && _v95 <= _v134 && !_v148 && !!_v17 && _v36 && !_v37,
-        maxItems: _v134,
+      _v155 = _v154 && !!_v121.size && !!_v98 && _v98 <= _v137 && !_v151,
+      _v156 = !!_v105.isAllInFolderSelected,
+      _v157 = (0, _v44.useSelectAllItems)({
+        enabled: _v154 && _v156 && !!_v98 && _v98 <= _v137 && !_v151 && !!_v17 && _v39 && !_v40,
+        maxItems: _v137,
         source: {
           kind: "root",
           userId: _v17,
-          excludePersonalTeamFolder: _v38,
-          flattenPrivateToMe: _v41.flattenPrivateToMe,
-          excludeSharedVideos: _v89,
-          includeColdStorageClips: _v56
+          excludePersonalTeamFolder: _v41,
+          flattenPrivateToMe: _v44.flattenPrivateToMe,
+          excludeSharedVideos: _v92,
+          includeColdStorageClips: _v59
         },
-        predicates: _v120
+        predicates: _v123
       }),
-      _v155 = _v153 && !_v154.isReady,
-      _v156 = _v153 && _v154.isReady ? _v154 : {
-        selectedItems: _v133,
-        selectedItemURIs: _v118,
-        canAddToShowcasesSelection: _v125,
-        canMoveSelection: _v122,
-        canDeleteSelection: _v123,
-        canChangePrivacySelection: _v124,
-        hasColdStorageSelection: _v126,
-        hasLegalHoldSelection: _v127,
-        hasReachedMaxSelectionForMove: _v128,
-        hasReachedMaxSelectionForPrivacy: _v129,
-        hasReachedMaxSelectionForSentimentWidget: _v130,
-        hasReachedMaxSelectionForShowcases: _v131
+      _v158 = _v156 && !_v157.isReady,
+      _v159 = _v156 && _v157.isReady ? _v157 : {
+        selectedItems: _v136,
+        selectedItemURIs: _v121,
+        canAddToShowcasesSelection: _v128,
+        canMoveSelection: _v125,
+        canDeleteSelection: _v126,
+        canChangePrivacySelection: _v127,
+        hasColdStorageSelection: _v129,
+        hasLegalHoldSelection: _v130,
+        hasReachedMaxSelectionForMove: _v131,
+        hasReachedMaxSelectionForPrivacy: _v132,
+        hasReachedMaxSelectionForSentimentWidget: _v133,
+        hasReachedMaxSelectionForShowcases: _v134
       };
     (0, _v5.useEffect)(() => {
-      _v153 && _v132.size && _v107(_v121, _v132);
-    }, [_v153, _v121, _v132, _v107]);
-    let _v157 = _v53 && !!_v140,
-      _v158 = !!_v35.hasVideoLibraryEmbeddableUploader && _v53 && !!_v17,
-      _v159 = !!_v35.canCreateRootFolders,
-      _v160 = _v39 && !_v37 && _v53,
-      _v161 = _v157 || _v158 || _v159 || _v160;
+      _v156 && _v135.size && _v110(_v124, _v135);
+    }, [_v156, _v124, _v135, _v110]);
+    let _v160 = _v56 && !!_v143,
+      _v161 = !!_v38.hasVideoLibraryEmbeddableUploader && _v56 && !!_v17,
+      _v162 = !!_v38.canCreateRootFolders,
+      _v163 = _v42 && !_v40 && _v56,
+      _v164 = _v160 || _v161 || _v162 || _v163;
     return (0, _v29.usePicoEffect)(() => {
-      if (!_v36 || void 0 === _v149) return !1;
-      let _v0 = (0, _v31.deriveLibraryReferrerPage)(_v33.query.library_referrer);
-      _v29({
+      if (!_v39 || void 0 === _v152) return !1;
+      let _v0 = (0, _v31.deriveLibraryReferrerPage)(_v36.query.library_referrer);
+      _v32({
         libraryType: (0, _v31.deriveLibraryType)({
-          hasContentSpaceEnabled: !!_v38
+          hasContentSpaceEnabled: !!_v41
         }),
-        libraryItemCount: _v149,
+        libraryItemCount: _v152,
         referrerPage: _v0
       });
-    }, [_v36, _v149, _v38, _v33.query.library_referrer], {
+    }, [_v39, _v152, _v41, _v36.query.library_referrer], {
       once: !0
     }), (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v35.InviteModal, {
         onSuccess: () => window.location.reload(),
         children: (0, _v1.jsx)("button", {
-          ref: _v20,
+          ref: _v21,
           type: "button",
           "aria-hidden": "true",
           tabIndex: -1,
@@ -2429,11 +3544,11 @@
             display: "none"
           }
         })
-      }), _v27 && (0, _v1.jsx)(_v16.StartYourTeamFlow, {
-        apiConfig: _v27,
+      }), _v30 && (0, _v1.jsx)(_v16.StartYourTeamFlow, {
+        apiConfig: _v30,
         defaultTeamName: _v1?.user?.name ?? "",
-        isOpen: _v18,
-        onClose: () => _v19(!1),
+        isOpen: _v19,
+        onClose: () => _v20(!1),
         paywall: {
           templateType: "default",
           tracking: {
@@ -2452,58 +3567,63 @@
             }
           }
         }
-      }), _v27 && (0, _v1.jsx)(_v14.DropYourTeamModal, {
-        apiConfig: _v27,
-        isOpen: _v21,
-        onClose: () => _v22(!1),
+      }), _v30 && (0, _v1.jsx)(_v14.DropYourTeamModal, {
+        apiConfig: _v30,
+        isOpen: _v22,
+        onClose: () => _v23(!1),
         onDropped: () => window.location.reload()
-      }), _v27 && (0, _v1.jsx)(_v15.MergeLibrariesModal, {
-        isOpen: _v23,
-        onClose: () => _v24(!1),
+      }), _v30 && (0, _v1.jsx)(_v15.MergeLibrariesModal, {
+        isOpen: _v24,
+        onClose: () => _v25(!1),
         userId: _v1?.user?.id,
-        apiConfig: _v27,
+        apiConfig: _v30,
         onMerged: () => window.location.reload()
+      }), _v18 && (0, _v1.jsx)(_v156, {
+        isOpen: _v26,
+        onClose: () => _v27(!1),
+        userId: _v18,
+        onMoveSuccess: _v47
       }), (0, _v1.jsx)(_v103, {
         children: (0, _v1.jsxs)(_v68.Page, {
           children: [(0, _v1.jsxs)(_v68.Page.Main, {
             children: [(0, _v1.jsxs)(_v68.Page.StickyTop, {
-              children: [_v54.banner, (0, _v1.jsx)(_v28.ReverseTrialLateBanner, {
+              children: [_v57.banner, (0, _v1.jsx)(_v28.ReverseTrialLateBanner, {
                 hostLocation: "library"
-              }), _v83 && (0, _v1.jsx)(_v25.ColdStorageBanner, {
+              }), _v86 && (0, _v1.jsx)(_v25.ColdStorageBanner, {
                 surface: "library",
-                hasColdStorage: _v55,
-                hasColdPrivacy: _v61,
-                hasColdPrivacyForTracking: _v59,
-                isColdPrivacyLoading: _v60
+                hasColdStorage: _v58,
+                hasColdPrivacy: _v64,
+                hasColdPrivacyForTracking: _v62,
+                isColdPrivacyLoading: _v63
               }), (0, _v1.jsx)(_v67.PageHeader, {
                 actions: (() => {
-                  if (!_v161) return;
-                  let _v0 = _v160 && _v17 ? (0, _v1.jsx)(_v17.TeamMembersPreview, {
+                  if (!_v164) return;
+                  let _v0 = _v163 && _v17 ? (0, _v1.jsx)(_v17.TeamMembersPreview, {
                       ownerId: _v17,
                       viewerName: _v1?.user?.name ?? "",
                       viewerAvatarSrc: _v1?.user?.pictures?.sizes?.[0]?.link,
                       viewerUri: _v1?.user?.uri,
-                      contentSpaceEnabled: _v38,
-                      isSoleTeamMember: _v40,
-                      isLoading: _v37,
-                      onStartYourTeam: () => _v19(!0),
-                      onInviteMembers: () => _v20.current?.click()
+                      contentSpaceEnabled: _v41,
+                      isSoleTeamMember: _v43,
+                      isLoading: _v40,
+                      onStartYourTeam: () => _v20(!0),
+                      onInviteMembers: () => _v21.current?.click()
                     }) : null,
-                    _v1 = _v157 && _v140 ? (0, _v1.jsx)(_v43.AnalyticsButton, {
-                      analyticsLink: _v140,
-                      location: _v149,
+                    _v1 = _v160 && _v143 ? (0, _v1.jsx)(_v43.AnalyticsButton, {
+                      analyticsLink: _v143,
+                      location: _v184,
                       page: "library",
                       name: "click_library_analytics",
                       dataTestId: "library-header-analytics-button"
                     }) : null,
-                    _v2 = _v158 && _v17 ? (0, _v1.jsx)(_v42.UploadButton, {
+                    _v2 = _v161 && _v17 ? (0, _v1.jsx)(_v42.UploadButton, {
                       paywallTrigger: "library_header_upload_button",
                       targetUserId: _v17,
                       testIdPrefix: "library-header-upload-button",
-                      onClick: () => _v28((0, _v82.genericClick)({
+                      onClick: () => _v31((0, _v82.genericClick)({
                         copy: "Upload",
                         feature: "video_library",
-                        location: _v149,
+                        location: _v184,
                         name: "click_upload_button",
                         page: "library",
                         target: null,
@@ -2513,14 +3633,14 @@
                         type: "general"
                       }, 91))
                     }) : null,
-                    _v3 = _v159 ? (0, _v1.jsx)(_v123, {}) : null,
-                    _v4 = !!(_v27 && _v39 && !_v37 && _v40 && _v38),
+                    _v3 = _v162 ? (0, _v1.jsx)(_v158, {}) : null,
+                    _v4 = !!(_v30 && _v42 && !_v40 && _v43 && _v41),
                     _v5 = _v4 ? (0, _v1.jsx)(_v6.Button, {
                       "data-testid": "library-header-merge-libraries-button",
                       variant: "secondary",
                       size: "md",
                       leftIcon: (0, _v1.jsx)(_v11, {}),
-                      onClick: () => _v24(!0),
+                      onClick: () => _v25(!0),
                       children: (0, _v24.translate)({
                         singular: "Merge libraries",
                         dictionary: {
@@ -2548,11 +3668,11 @@
                         }
                       })
                     }) : null;
-                  if (!_v87) return (0, _v1.jsxs)(_v1.Fragment, {
+                  if (!_v90) return (0, _v1.jsxs)(_v1.Fragment, {
                     children: [_v0, _v1, _v2, _v3, _v5]
                   });
-                  let _v6 = !!(_v157 && _v140),
-                    _v7 = _v6 || _v159 || _v4;
+                  let _v6 = !!(_v160 && _v143),
+                    _v7 = _v6 || _v162 || _v4;
                   return (0, _v1.jsxs)(_v1.Fragment, {
                     children: [_v0, _v2, _v7 && (0, _v1.jsxs)(_v1.Fragment, {
                       children: [(0, _v1.jsx)(_v8.IconButton, {
@@ -2586,45 +3706,45 @@
                         icon: (0, _v1.jsx)(_v12.EllipsisV, {}),
                         variant: "tertiary",
                         size: "md",
-                        onClick: () => _v26(!0)
-                      }), (0, _v1.jsx)(_v121, {
-                        isOpen: _v25,
-                        onClose: () => _v26(!1),
-                        analyticsLink: _v6 ? _v140 : void 0,
-                        onAnalyticsClick: () => _v28((0, _v82.genericClick)({
+                        onClick: () => _v29(!0)
+                      }), (0, _v1.jsx)(_v119, {
+                        isOpen: _v28,
+                        onClose: () => _v29(!1),
+                        analyticsLink: _v6 ? _v143 : void 0,
+                        onAnalyticsClick: () => _v31((0, _v82.genericClick)({
                           copy: "Analytics",
                           feature: _v82.AnalyticsFeatures.ANALYTICS,
-                          location: _v149,
+                          location: _v184,
                           name: "click_library_analytics",
                           page: "library",
-                          target: _v140 ?? "",
+                          target: _v143 ?? "",
                           target_path: null,
                           type: "general"
                         })),
-                        showNewFolder: _v159,
+                        showNewFolder: _v162,
                         showMergeLibraries: _v4,
-                        onMergeLibraries: () => _v24(!0)
+                        onMergeLibraries: () => _v25(!0)
                       })]
                     })]
                   });
                 })(),
                 bottomBar: (0, _v1.jsxs)(_v60.FilterSortBar, {
                   checkbox: (0, _v1.jsx)(_v69.CheckboxItemCount, {
-                    hasCheckbox: !!_v132.size,
-                    isChecked: !!_v118.size,
-                    isDisabled: !_v132.size,
-                    isIndeterminate: !!_v118.size && _v118.size < _v132.size,
-                    isLoading: _v143,
+                    hasCheckbox: !!_v135.size,
+                    isChecked: !!_v121.size,
+                    isDisabled: !_v135.size,
+                    isIndeterminate: !!_v121.size && _v121.size < _v135.size,
+                    isLoading: _v146,
                     onChange: () => {
-                      _v118.size ? _v108() : _v136();
+                      _v121.size ? _v111() : _v139();
                     },
-                    selectedItemCount: _v118.size,
-                    subtitle: !!_v149 && (_v148 ? (0, _v24.translate)({
-                      count: _v149,
+                    selectedItemCount: _v121.size,
+                    subtitle: !!_v152 && (_v151 ? (0, _v24.translate)({
+                      count: _v152,
                       singular: "{NUM_ITEMS} result",
                       plural: "{NUM_ITEMS} results",
                       replacements: {
-                        NUM_ITEMS: _v149
+                        NUM_ITEMS: _v152
                       },
                       dictionary: {
                         es: {
@@ -2657,11 +3777,11 @@
                         }
                       }
                     }) : (0, _v24.translate)({
-                      count: _v149,
+                      count: _v152,
                       singular: "{NUM_ITEMS} item",
                       plural: "{NUM_ITEMS} items",
                       replacements: {
-                        NUM_ITEMS: _v149
+                        NUM_ITEMS: _v152
                       },
                       dictionary: {
                         es: {
@@ -2695,25 +3815,25 @@
                       }
                     }))
                   }),
-                  layout: _v78,
+                  layout: _v81,
                   setLayout: _v0 => {
-                    _v79(_v0), _v30({
+                    _v82(_v0), _v33({
                       libraryType: (0, _v31.deriveLibraryType)({
-                        hasContentSpaceEnabled: !!_v38
+                        hasContentSpaceEnabled: !!_v41
                       }),
                       libraryNewView: "GRID_LAYOUT" === _v0 ? "grid" : "list"
                     });
                   },
-                  shouldHideViewControls: _v145 && !_v148,
+                  shouldHideViewControls: _v148 && !_v151,
                   sort: _v9,
                   setSort: _v0 => {
                     let _v1 = `${_v9.type.toLowerCase()}_${_v9.direction.toLowerCase()}`,
                       _v2 = `${_v0.type.toLowerCase()}_${_v0.direction.toLowerCase()}`;
                     if (_v10(_v0), _v2 !== _v1) {
-                      let _v0 = _v34[_v2];
-                      _v0 && _v32({
+                      let _v0 = _v37[_v2];
+                      _v0 && _v35({
                         libraryType: (0, _v31.deriveLibraryType)({
-                          hasContentSpaceEnabled: !!_v38
+                          hasContentSpaceEnabled: !!_v41
                         }),
                         libraryNewSort: _v0
                       });
@@ -2721,178 +3841,178 @@
                   },
                   setDateDisplay: _v12,
                   sortOptions: _v58.SORT_OPTIONS,
-                  isLayoutToggleDisabled: _v145,
-                  children: [_v87 && _v147 && (0, _v1.jsxs)(_v7.Flex, {
+                  isLayoutToggleDisabled: _v148,
+                  children: [_v90 && _v150 && (0, _v1.jsxs)(_v7.Flex, {
                     children: [(0, _v1.jsx)(_v62.MobileFilterButton, {
-                      isFilterApplied: _v148,
+                      isFilterApplied: _v151,
                       onClick: () => {
                         _v16(!0);
                       }
                     }), (0, _v1.jsxs)(_v63.MobileFilterDrawer, {
-                      isFilterApplied: _v148,
+                      isFilterApplied: _v151,
                       isOpen: _v15,
                       onApplyFilters: () => {
                         let _v0, _v1, _v2, _v3;
-                        _v108();
+                        _v111();
                         let _v4 = (0, _v31.deriveLibraryType)({
-                            hasContentSpaceEnabled: !!_v38
+                            hasContentSpaceEnabled: !!_v41
                           }),
-                          _v5 = !(0, _v81.areIdenticalSets)(_v62.draft, _v62.value),
-                          _v6 = _v66.isDraftActive && _v66.isDraftUpdated(),
-                          _v7 = _v65.isDraftActive && _v65.isDraftUpdated(),
-                          _v8 = _v70.isDraftActive && _v70.isDraftUpdated();
-                        _v62.commitDraft(), _v66.commitDraft(), _v65.commitDraft(), _v70.commitDraft(), _v0 = !(0, _v81.areIdenticalSets)(_v62.draft, _v62.value), _v1 = _v66.isDraftActive && _v66.isDraftUpdated(), _v2 = _v65.isDraftActive && _v65.isDraftUpdated(), _v3 = _v70.isDraftActive && _v70.isDraftUpdated(), _v0 && _v59.FilterBPEvents.sendApplyFilterEvent("content_type", _v86, _v141, "mobile"), _v1 && _v59.FilterBPEvents.sendApplyFilterEvent("clip_privacy", _v86, _v141, "mobile"), _v2 && _v59.FilterBPEvents.sendApplyFilterEvent("content_type", _v86, _v141, "mobile"), _v3 && _v59.FilterBPEvents.sendApplyFilterEvent("clip_created_by", _v86, _v141, "mobile"), _v5 && _v31({
+                          _v5 = !(0, _v81.areIdenticalSets)(_v65.draft, _v65.value),
+                          _v6 = _v69.isDraftActive && _v69.isDraftUpdated(),
+                          _v7 = _v68.isDraftActive && _v68.isDraftUpdated(),
+                          _v8 = _v73.isDraftActive && _v73.isDraftUpdated();
+                        _v65.commitDraft(), _v69.commitDraft(), _v68.commitDraft(), _v73.commitDraft(), _v0 = !(0, _v81.areIdenticalSets)(_v65.draft, _v65.value), _v1 = _v69.isDraftActive && _v69.isDraftUpdated(), _v2 = _v68.isDraftActive && _v68.isDraftUpdated(), _v3 = _v73.isDraftActive && _v73.isDraftUpdated(), _v0 && _v59.FilterBPEvents.sendApplyFilterEvent("content_type", _v89, _v144, "mobile"), _v1 && _v59.FilterBPEvents.sendApplyFilterEvent("clip_privacy", _v89, _v144, "mobile"), _v2 && _v59.FilterBPEvents.sendApplyFilterEvent("content_type", _v89, _v144, "mobile"), _v3 && _v59.FilterBPEvents.sendApplyFilterEvent("clip_created_by", _v89, _v144, "mobile"), _v5 && _v34({
                           libraryType: _v4,
                           libraryFilterType: "type"
-                        }), _v6 && _v31({
+                        }), _v6 && _v34({
                           libraryType: _v4,
                           libraryFilterType: "privacy"
-                        }), _v7 && _v31({
+                        }), _v7 && _v34({
                           libraryType: _v4,
                           libraryFilterType: "type"
-                        }), _v8 && _v31({
+                        }), _v8 && _v34({
                           libraryType: _v4,
                           libraryFilterType: "created_by"
                         }), _v16(!1);
                       },
                       onClearFilters: () => {
-                        _v108(), _v62.clearFilter(), _v66.clearFilter(), _v65.clearFilter(), _v70.clearFilter(), _v70.setCreatedByUsersSearchTerm(""), _v16(!1);
+                        _v111(), _v65.clearFilter(), _v69.clearFilter(), _v68.clearFilter(), _v73.clearFilter(), _v73.setCreatedByUsersSearchTerm(""), _v16(!1);
                       },
                       onClose: () => {
-                        _v62.clearDraft(), _v66.clearDraft(), _v65.clearDraft(), _v70.clearDraft(), _v70.setCreatedByUsersSearchTerm(""), _v16(!1);
+                        _v65.clearDraft(), _v69.clearDraft(), _v68.clearDraft(), _v73.clearDraft(), _v73.setCreatedByUsersSearchTerm(""), _v16(!1);
                       },
                       children: [(0, _v1.jsx)(_v64.MobileContentTypeFilter, {
-                        filter: _v62.draft,
+                        filter: _v65.draft,
                         onToggle: _v0 => {
-                          let _v1 = (0, _v81.toggleContentTypeSelectionWithAvailabilityAwareFolder)(_v167, _v62.draft, _v0, (0, _v50.isVideoAvailabilityFilterExplicitlyEngaged)(_v65.draft));
-                          _v62.setSelection(_v1, !0), (0, _v81.doesSelectionIncludeVideos)(_v167, _v1) || _v65.setDraft(new Set());
+                          let _v1 = (0, _v81.toggleContentTypeSelectionWithAvailabilityAwareFolder)(_v202, _v65.draft, _v0, (0, _v50.isVideoAvailabilityFilterExplicitlyEngaged)(_v68.draft));
+                          _v65.setSelection(_v1, !0), (0, _v81.doesSelectionIncludeVideos)(_v202, _v1) || _v68.setDraft(new Set());
                         },
-                        options: _v167,
-                        page: _v86,
-                        isDisabled: _v75,
-                        videoSubmenu: _v113
-                      }), _v147 && (0, _v1.jsxs)(_v1.Fragment, {
+                        options: _v202,
+                        page: _v89,
+                        isDisabled: _v78,
+                        videoSubmenu: _v116
+                      }), _v150 && (0, _v1.jsxs)(_v1.Fragment, {
                         children: [(0, _v1.jsx)(_v65.MobileClipPrivacyFilter, {
-                          filter: [..._v66.draft],
+                          filter: [..._v69.draft],
                           onChange: _v0 => {
-                            _v66.updateFilterValues(_v0, !0);
+                            _v69.updateFilterValues(_v0, !0);
                           },
-                          options: _v66.options,
-                          page: _v86,
-                          isDisabled: _v64
-                        }), !_v70.shouldHideFilter && (0, _v1.jsx)(_v66.MobileCreatedByFilter, {
-                          filter: [..._v70.draft],
+                          options: _v69.options,
+                          page: _v89,
+                          isDisabled: _v67
+                        }), !_v73.shouldHideFilter && (0, _v1.jsx)(_v66.MobileCreatedByFilter, {
+                          filter: [..._v73.draft],
                           onChange: _v0 => {
-                            _v70.updateFilterValues(_v0, !0);
+                            _v73.updateFilterValues(_v0, !0);
                           },
-                          searchQuery: _v70.createdByUsersSearchTerm,
-                          setSearchQuery: _v70.setCreatedByUsersSearchTerm,
-                          options: _v70.createdByUsers,
-                          page: _v86,
-                          isDisabled: _v64,
-                          isLoadingInitialData: _v70.membersLoadingInitialData,
-                          isLoadingMore: _v70.membersLoadingMore,
-                          isDone: _v70.membersDone,
-                          onLoadMore: _v70.loadMoreMembers
+                          searchQuery: _v73.createdByUsersSearchTerm,
+                          setSearchQuery: _v73.setCreatedByUsersSearchTerm,
+                          options: _v73.createdByUsers,
+                          page: _v89,
+                          isDisabled: _v67,
+                          isLoadingInitialData: _v73.membersLoadingInitialData,
+                          isLoadingMore: _v73.membersLoadingMore,
+                          isDone: _v73.membersDone,
+                          onLoadMore: _v73.loadMoreMembers
                         })]
                       })]
                     })]
-                  }), !_v87 && _v147 && _v148 && (0, _v1.jsx)(_v72.ClearAllFiltersButton, {
+                  }), !_v90 && _v150 && _v151 && (0, _v1.jsx)(_v72.ClearAllFiltersButton, {
                     onClick: () => {
-                      _v108(), _v62.clearFilter(), _v66.clearFilter(), _v65.clearFilter(), _v70.clearFilter();
+                      _v111(), _v65.clearFilter(), _v69.clearFilter(), _v68.clearFilter(), _v73.clearFilter();
                     }
-                  }), !_v87 && _v147 && (0, _v1.jsx)(_v61.ContentTypeFilter, {
-                    filter: _v62.value,
+                  }), !_v90 && _v150 && (0, _v1.jsx)(_v61.ContentTypeFilter, {
+                    filter: _v65.value,
                     onToggleType: _v0 => {
-                      _v108();
-                      let _v1 = (0, _v81.toggleContentTypeSelectionWithAvailabilityAwareFolder)(_v167, _v62.value, _v0, (0, _v50.isVideoAvailabilityFilterExplicitlyEngaged)(_v65.value));
-                      (0, _v81.areIdenticalSets)(_v1, _v62.value) || _v31({
+                      _v111();
+                      let _v1 = (0, _v81.toggleContentTypeSelectionWithAvailabilityAwareFolder)(_v202, _v65.value, _v0, (0, _v50.isVideoAvailabilityFilterExplicitlyEngaged)(_v68.value));
+                      (0, _v81.areIdenticalSets)(_v1, _v65.value) || _v34({
                         libraryType: (0, _v31.deriveLibraryType)({
-                          hasContentSpaceEnabled: !!_v38
+                          hasContentSpaceEnabled: !!_v41
                         }),
                         libraryFilterType: "type"
-                      }), _v62.setSelection(_v1), (0, _v81.doesSelectionIncludeVideos)(_v167, _v1) || _v65.clearFilter();
+                      }), _v65.setSelection(_v1), (0, _v81.doesSelectionIncludeVideos)(_v202, _v1) || _v68.clearFilter();
                     },
-                    options: _v167,
-                    page: _v86,
-                    isDisabled: _v74,
-                    videoSubmenu: _v112
-                  }), !_v87 && _v147 && (0, _v1.jsxs)(_v1.Fragment, {
+                    options: _v202,
+                    page: _v89,
+                    isDisabled: _v77,
+                    videoSubmenu: _v115
+                  }), !_v90 && _v150 && (0, _v1.jsxs)(_v1.Fragment, {
                     children: [(0, _v1.jsx)(_v71.ClipPrivacyTypeFilter, {
-                      filter: [..._v66.value],
+                      filter: [..._v69.value],
                       setFilter: _v0 => {
-                        _v108(), _v66.updateFilterValues(_v0), _v31({
+                        _v111(), _v69.updateFilterValues(_v0), _v34({
                           libraryType: (0, _v31.deriveLibraryType)({
-                            hasContentSpaceEnabled: !!_v38
+                            hasContentSpaceEnabled: !!_v41
                           }),
                           libraryFilterType: "privacy"
                         });
                       },
-                      options: _v66.options,
-                      page: _v86,
-                      isDisabled: _v63
-                    }), !_v70.shouldHideFilter && (0, _v1.jsx)(_v73.CreatedByFilter, {
-                      filter: [..._v70.value],
+                      options: _v69.options,
+                      page: _v89,
+                      isDisabled: _v66
+                    }), !_v73.shouldHideFilter && (0, _v1.jsx)(_v73.CreatedByFilter, {
+                      filter: [..._v73.value],
                       setFilter: _v0 => {
-                        _v108(), _v70.setFilterValues(_v0), _v31({
+                        _v111(), _v73.setFilterValues(_v0), _v34({
                           libraryType: (0, _v31.deriveLibraryType)({
-                            hasContentSpaceEnabled: !!_v38
+                            hasContentSpaceEnabled: !!_v41
                           }),
                           libraryFilterType: "created_by"
                         });
                       },
-                      searchQuery: _v70.createdByUsersSearchTerm,
-                      setSearchQuery: _v70.setCreatedByUsersSearchTerm,
-                      options: _v70.createdByUsers,
-                      page: _v86,
-                      isDisabled: _v63,
-                      isLoadingInitialData: _v70.membersLoadingInitialData,
-                      isLoadingMore: _v70.membersLoadingMore,
-                      isDone: _v70.membersDone,
-                      onLoadMore: _v70.loadMoreMembers
+                      searchQuery: _v73.createdByUsersSearchTerm,
+                      setSearchQuery: _v73.setCreatedByUsersSearchTerm,
+                      options: _v73.createdByUsers,
+                      page: _v89,
+                      isDisabled: _v66,
+                      isLoadingInitialData: _v73.membersLoadingInitialData,
+                      isLoadingMore: _v73.membersLoadingMore,
+                      isDone: _v73.membersDone,
+                      onLoadMore: _v73.loadMoreMembers
                     })]
                   })]
                 }),
-                isTitleLoading: !_v36,
-                title: _v86
-              }), _v152 && (0, _v1.jsx)(_v70.SelectAllBanner, {
-                folderName: _v86,
-                loadedSelectedCount: _v118.size,
-                totalVideosCount: _v95,
-                actualSelectedCount: _v154.isReady ? _v154.selectedItemURIs.size : void 0,
-                onSelectAllInFolder: _v106,
-                onClearSelection: _v108,
-                allInFolderEnabled: _v153
-              }), "LIST_LAYOUT" === _v78 && !_v145 && (0, _v1.jsx)(_v40.BokehListHeader, {
+                isTitleLoading: !_v39,
+                title: _v89
+              }), _v155 && (0, _v1.jsx)(_v70.SelectAllBanner, {
+                folderName: _v89,
+                loadedSelectedCount: _v121.size,
+                totalVideosCount: _v98,
+                actualSelectedCount: _v157.isReady ? _v157.selectedItemURIs.size : void 0,
+                onSelectAllInFolder: _v109,
+                onClearSelection: _v111,
+                allInFolderEnabled: _v156
+              }), "LIST_LAYOUT" === _v81 && !_v148 && (0, _v1.jsx)(_v40.BokehListHeader, {
                 setSort: _v10,
                 sort: _v9,
-                shouldShowPrivacy: _v80,
+                shouldShowPrivacy: _v83,
                 shouldShowFileSize: !0,
                 setDateDisplay: _v12,
                 dateDisplay: _v11
               })]
-            }), _v145 ? (0, _v1.jsx)(_v7.Flex, {
+            }), _v148 ? (0, _v1.jsx)(_v7.Flex, {
               flexDirection: "column",
               justifyContent: "center",
               marginTop: "20px",
-              children: _v148 ? (0, _v1.jsx)(_v75.FilterEmptyState, {}) : _v35.canCreateRootFolders ? _v39 && _v38 ? (0, _v1.jsx)(_v114, {
-                targetUserId: _v17 ?? 0,
-                onInvitePeople: () => _v20.current?.click(),
-                hasTeamMembers: !_v40
+              children: _v151 ? (0, _v1.jsx)(_v75.FilterEmptyState, {}) : _v38.canCreateRootFolders ? _v42 && _v41 ? (0, _v1.jsx)(_v112, {
+                onInvitePeople: () => _v21.current?.click(),
+                onMoveContent: () => _v27(!0),
+                hasTeamMembers: !_v43
               }) : (0, _v1.jsx)(_v105, {
                 owner: {
                   id: _v17 ?? 0
                 },
                 set360SourceType: _v14,
                 threeSixtyType: _v13,
-                isUnifiedLibrary: !_v38
+                isUnifiedLibrary: !_v41
               }) : (0, _v1.jsx)(_v109, {
-                isContributor: "Contributor" === _v52 || "ContributorPlus" === _v52
+                isContributor: "Contributor" === _v55 || "ContributorPlus" === _v55
               })
             }) : (0, _v1.jsx)(_v41.UploadDropzone, {
               className: "library-upload-dropzone",
               targetUserId: _v17 ?? 0,
-              disabled: !_v84 || _v145 && _v35.canCreateRootFolders,
+              disabled: !_v87 || _v148 && _v38.canCreateRootFolders,
               topPosition: 205,
               destinationText: (0, _v24.translate)({
                 singular: "Team library",
@@ -2920,67 +4040,67 @@
                   }
                 }
               }),
-              children: (0, _v1.jsx)(_v169, {
+              children: (0, _v1.jsx)(_v204, {
                 assetUrls: _v0,
                 type: _v33.PlayerType.BarebonePlayer,
-                children: (0, _v1.jsx)(_v166, {
-                  canUpload: _v81,
-                  deselectItem: _v104,
+                children: (0, _v1.jsx)(_v201, {
+                  canUpload: _v84,
+                  deselectItem: _v107,
                   handleMoveItemsOnDrop: ({
                     dropTarget: _v0,
                     items: _v1
                   }) => {
                     let _v2 = new Set("");
-                    _v2.add(_v0.uri), _v139(_v2), _v46(_v2);
+                    _v2.add(_v0.uri), _v142(_v2), _v49(_v2);
                     let [,, _v3,, _v4] = _v0.uri.split("/");
-                    _v137({
+                    _v140({
                       ownerId: parseInt(_v3, 10),
                       folderId: parseInt(_v4, 10),
                       targetItems: _v1
                     }).then(() => {
-                      1 === _v1.length ? (_v104(_v1[0].uri, 0, _v121 || []), _v100(_v1[0].uri, "video")) : (_v108(), _v101(_v118)), _v48(null, {
+                      1 === _v1.length ? (_v107(_v1[0].uri, 0, _v124 || []), _v103(_v1[0].uri, "video")) : (_v111(), _v104(_v121)), _v51(null, {
                         label: _v0.name,
                         link: (0, _v79.getFolderPageUriFromApiUri)(_v0.uri)
                       });
                     }).catch(_v0 => {
-                      _v47({
+                      _v50({
                         content: _v0,
                         status: "error"
                       });
                     }).finally(() => {
-                      _v139(new Set()), _v46(new Set());
+                      _v142(new Set()), _v49(new Set());
                     });
                   },
-                  hasFolderShareUpsell: !!_v35.canSeeUpsellModalOnShare,
-                  hasReviewPageUpsell: !!_v35.hasVideoReviewPageDemo,
-                  hasMultipleReviewLinks: !!_v35.hasMultipleReviewLinks,
-                  items: _v121,
-                  layout: _v78,
-                  loadingFolderURIs: _v138,
-                  onCopyVideo: _v50,
+                  hasFolderShareUpsell: !!_v38.canSeeUpsellModalOnShare,
+                  hasReviewPageUpsell: !!_v38.hasVideoReviewPageDemo,
+                  hasMultipleReviewLinks: !!_v38.hasMultipleReviewLinks,
+                  items: _v124,
+                  layout: _v81,
+                  loadingFolderURIs: _v141,
+                  onCopyVideo: _v53,
                   onFolderSettingsChange: _v0 => {
-                    _v97(_v0), _v45();
+                    _v100(_v0), _v48();
                   },
                   onMoreInfo: _v7,
-                  removeItem: _v100,
-                  selectedItemURIs: _v118,
-                  selectItem: _v103,
-                  shouldShowPrivacy: _v80,
+                  removeItem: _v103,
+                  selectedItemURIs: _v121,
+                  selectItem: _v106,
+                  shouldShowPrivacy: _v83,
                   shouldShowFileSize: !0,
                   sort: _v9,
-                  isEnterprise: _v85,
-                  setIsUploadDropzoneEnabled: _v77,
-                  isLoading: _v143 || !!_v144,
-                  hasContentSpaceEnabled: !!_v38
+                  isEnterprise: _v88,
+                  setIsUploadDropzoneEnabled: _v80,
+                  isLoading: _v146 || !!_v147,
+                  hasContentSpaceEnabled: !!_v41
                 })
               })
             }), (0, _v1.jsx)(_v91, {
-              layout: _v78,
-              canLoadMore: !_v142,
-              isLoadingMore: _v143 || !!_v144,
-              onActivate: () => _v92(_v93 + 1),
-              isDropzoneEnabled: _v81 && !(_v145 && _v35.canCreateRootFolders),
-              page: _v86
+              layout: _v81,
+              canLoadMore: !_v145,
+              isLoadingMore: _v146 || !!_v147,
+              onActivate: () => _v95(_v96 + 1),
+              isDropzoneEnabled: _v84 && !(_v148 && _v38.canCreateRootFolders),
+              page: _v89
             })]
           }), _v6 && (0, _v1.jsx)(_v68.Page.Panel, {
             children: (0, _v1.jsx)(_v34.ResourceSidePanel, {
@@ -2988,7 +4108,7 @@
               onClose: () => _v7(null),
               onVideoPrivacyChange: ({
                 view: _v0
-              }) => _v98(_v6, _v0 => ({
+              }) => _v101(_v6, _v0 => ({
                 ..._v0,
                 privacy: {
                   ..._v0.privacy,
@@ -3005,20 +4125,20 @@
         onDismiss: _v3,
         onCtaClick: _v4,
         onErrorClose: _v5
-      }), _v51, _v54.modal, (0, _v1.jsx)(_v13.BulkActions, {
-        ..._v156,
-        isLoading: _v155,
-        canUseBulkTranslation: _v43,
-        canAddToShowcases: _v135,
-        canPublishContentToChina: _v35.regionalDeliveryPublishContentToChina,
-        deselectAllItems: _v108,
-        removeItems: _v101,
+      }), _v54, _v57.modal, (0, _v1.jsx)(_v13.BulkActions, {
+        ..._v159,
+        isLoading: _v158,
+        canUseBulkTranslation: _v46,
+        canAddToShowcases: _v138,
+        canPublishContentToChina: _v38.regionalDeliveryPublishContentToChina,
+        deselectAllItems: _v111,
+        removeItems: _v104,
         teamOwnerId: _v17,
-        isPrivateModeOn: !_v35.privateModeOff
+        isPrivateModeOn: !_v38.privateModeOff
       })]
     });
   }
-  let _v169 = ({
+  let _v204 = ({
     children: _v0,
     assetUrls: _v1,
     type: _v2
@@ -3027,24 +4147,24 @@
     type: _v2,
     children: _v0
   }) : _v0;
-  var _v170 = _v0.i(0),
-    _v171 = _v0.i(0),
-    _v172 = _v0.i(0);
-  let _v173 = ({
+  var _v205 = _v0.i(0),
+    _v206 = _v0.i(0),
+    _v207 = _v0.i(0);
+  let _v208 = ({
     playerAssetUrls: _v0
   }) => {
-    let _v1 = (0, _v172.useViewer)();
+    let _v1 = (0, _v207.useViewer)();
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v168, {
+      children: [(0, _v1.jsx)(_v203, {
         playerAssetUrls: _v0,
         viewer: _v1
-      }), (0, _v1.jsx)(_v3.ManagedAccountsPromo, {}), (0, _v1.jsx)(_v171.VimeoReviewUpsellPromo, {})]
+      }), (0, _v1.jsx)(_v3.ManagedAccountsPromo, {}), (0, _v1.jsx)(_v206.VimeoReviewUpsellPromo, {})]
     });
   };
-  _v173.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v54.VideoLibraryLayout, {
+  _v208.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v54.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
-    sideNavContent: (0, _v1.jsx)(_v170.SideNavContent, {
+    sideNavContent: (0, _v1.jsx)(_v205.SideNavContent, {
       surface: "library"
     }),
     sideNavSurface: "library",
@@ -3058,5 +4178,5 @@
   }), {
     requireLogin: !0,
     noIndex: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v173], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v208], 0);
 }

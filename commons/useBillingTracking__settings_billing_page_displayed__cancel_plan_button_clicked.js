@@ -144,12 +144,22 @@
         null !== _v0 && _v0.track("settings_billing_b2b_modal_contact_support_clicked", {});
       }, [_v0]),
       _v28 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("repackaging_modal_displayed", {
+          tier: _v0?.tier ?? null
+        });
+      }, [_v0]),
+      _v29 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("repackaging_modal_dismissed", {
+          tier: _v0?.tier ?? null
+        });
+      }, [_v0]),
+      _v30 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("settings_billing_page_downgrade_clicked", {
           new_plan: _v0.newPlan,
           new_periodicity: _v0.newPeriodicity
         });
       }, [_v0]),
-      _v29 = (0, _v1.useCallback)(_v0 => {
+      _v31 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("cancel_subscription_dowgrade_modal_displayed", {
           tier: _v0?.tier ?? null,
           periodicity: _v0?.periodicity ?? null,
@@ -158,7 +168,7 @@
           discount_percent: _v0?.discountPercent ?? null
         });
       }, [_v0]),
-      _v30 = (0, _v1.useCallback)(_v0 => {
+      _v32 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("cancel_subscription_dowgrade_clicked", {
           current_plan: _v0.currentPlan ?? null,
           new_plan: _v0.newPlan,
@@ -167,7 +177,7 @@
           discount_percent: _v0.discountPercent ?? null
         });
       }, [_v0]),
-      _v31 = (0, _v1.useCallback)(_v0 => {
+      _v33 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("cancel_subscription_dowgrade_skipped", {
           tier: _v0?.tier ?? null,
           periodicity: _v0?.periodicity ?? null,
@@ -175,7 +185,7 @@
           target_tier: _v0?.targetTier ?? null
         });
       }, [_v0]),
-      _v32 = (0, _v1.useCallback)(_v0 => {
+      _v34 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("cancellation_confirmed", {
           tier: _v0?.tier ?? null,
           periodicity: _v0?.periodicity ?? null,
@@ -183,55 +193,55 @@
           had_downgrade_offer: _v0?.hadDowngradeOffer ?? !1
         });
       }, [_v0]),
-      _v33 = (0, _v1.useCallback)(_v0 => {
+      _v35 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("cancellation_keep_plan_clicked", {
           tier: _v0?.tier ?? null,
           periodicity: _v0?.periodicity ?? null,
           step: _v0?.step ?? null
         });
       }, [_v0]),
-      _v34 = (0, _v1.useCallback)(_v0 => {
+      _v36 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("cancellation_back_clicked", {
           tier: _v0?.tier ?? null,
           periodicity: _v0?.periodicity ?? null,
           from_step: _v0?.fromStep ?? null
         });
       }, [_v0]),
-      _v35 = (0, _v1.useCallback)(() => {
+      _v37 = (0, _v1.useCallback)(() => {
         null !== _v0 && _v0.track("account_menu_billing_clicked", {});
       }, [_v0]),
-      _v36 = (0, _v1.useCallback)(_v0 => {
+      _v38 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("update_payment_method_page_displayed", {
           payment_form_type: _v0.paymentFormType
         });
       }, [_v0]),
-      _v37 = (0, _v1.useCallback)(_v0 => {
+      _v39 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("update_payment_method_submitted", {
           success: _v0.success,
           payment_form_type: _v0.paymentFormType,
           error_message: _v0.success ? null : _v0.errorMessage ?? null
         });
       }, [_v0]),
-      _v38 = (0, _v1.useCallback)(_v0 => {
+      _v40 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("withdraw_button_clicked", {
           tier: _v0?.tier ?? null,
           periodicity: _v0?.periodicity ?? null
         });
       }, [_v0]),
-      _v39 = (0, _v1.useCallback)(_v0 => {
+      _v41 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("withdraw_modal_open", {
           tier: _v0?.tier ?? null,
           periodicity: _v0?.periodicity ?? null
         });
       }, [_v0]),
-      _v40 = (0, _v1.useCallback)(_v0 => {
+      _v42 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("withdraw_modal_closed", {
           tier: _v0?.tier ?? null,
           periodicity: _v0?.periodicity ?? null
         });
       }, [_v0]);
     return {
-      trackAccountMenuBillingClicked: _v35,
+      trackAccountMenuBillingClicked: _v37,
       trackBillingPageDisplayed: _v1,
       trackCancelPlanButtonClicked: _v2,
       trackCancelSubscriptionPopupDisplayed: _v3,
@@ -259,18 +269,20 @@
       trackBillingB2bModalDismissed: _v25,
       trackBillingB2bModalExplorePlansClicked: _v26,
       trackBillingB2bModalContactSupportClicked: _v27,
-      trackBillingPageDowngradeClicked: _v28,
-      trackCancelSubscriptionDowngradeModalDisplayed: _v29,
-      trackCancelSubscriptionDowngradeClicked: _v30,
-      trackCancelSubscriptionDowngradeSkipped: _v31,
-      trackCancellationConfirmed: _v32,
-      trackCancellationKeepPlanClicked: _v33,
-      trackCancellationBackClicked: _v34,
-      trackUpdatePaymentMethodPageDisplayed: _v36,
-      trackUpdatePaymentMethodSubmitted: _v37,
-      trackWithdrawButtonClicked: _v38,
-      trackWithdrawModalOpen: _v39,
-      trackWithdrawModalClosed: _v40,
+      trackRepackagingModalDisplayed: _v28,
+      trackRepackagingModalDismissed: _v29,
+      trackBillingPageDowngradeClicked: _v30,
+      trackCancelSubscriptionDowngradeModalDisplayed: _v31,
+      trackCancelSubscriptionDowngradeClicked: _v32,
+      trackCancelSubscriptionDowngradeSkipped: _v33,
+      trackCancellationConfirmed: _v34,
+      trackCancellationKeepPlanClicked: _v35,
+      trackCancellationBackClicked: _v36,
+      trackUpdatePaymentMethodPageDisplayed: _v38,
+      trackUpdatePaymentMethodSubmitted: _v39,
+      trackWithdrawButtonClicked: _v40,
+      trackWithdrawModalOpen: _v41,
+      trackWithdrawModalClosed: _v42,
       trackWithdrawRequested: (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("withdraw_requested", {
           tier: _v0?.tier ?? null,

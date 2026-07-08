@@ -1931,7 +1931,7 @@
       clipId: _v0,
       isOpen: _v1,
       onClose: _v2
-    }) => (0, _v1.jsx)(_v137.ReportVideoModal, {
+    }) => (0, _v1.jsx)(_v137.GranularReportVideoModal, {
       clipId: _v0,
       isOpen: _v1,
       onClose: _v2,

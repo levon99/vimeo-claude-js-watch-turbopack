@@ -1182,7 +1182,7 @@
       } = (0, _v2.useManager)(_v14.QnAManager, ({
         activeSessionId: _v0
       }) => [_v0]),
-      _v7 = !!(_v2?.isCreator && !_v1?.feature?.isManagementDisabled),
+      _v7 = !!(_v2?.isCreator && !_v1?.feature?.isManagementDisabled || _v2?.capabilities?.canUseQnaModeration),
       _v8 = _v0 === _v17.EInteractionModule.CHAT || _v7 || !!_v3,
       _v9 = _v0 === _v17.EInteractionModule.POLL || _v7 || !!(_v5 && _v4[_v5]),
       _v10 = _v0 === _v17.EInteractionModule.QNA || _v7 || !!_v6,

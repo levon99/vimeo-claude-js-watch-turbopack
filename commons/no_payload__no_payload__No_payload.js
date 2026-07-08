@@ -670,32 +670,33 @@
             canViewTeamMemberActivity: _v46,
             canViewTeamMemberTopLevelPermissions: _v47,
             canViewTeamMemberTopLevelPermissionsUpsell: _v48,
-            hasDrmSetting: _v49,
-            hasBusiness: _v50,
-            hasContributorPlusEnabled: _v51,
-            hasDataRetention: _v52,
-            hasEnterprise: _v53,
-            hasLegalHoldsActive: _v54,
-            hasLiveSubscription: _v55,
-            hasManageTeamBillingSettingsPage: _v56,
-            hasPerSeatPricingModelTeamMember: _v57,
-            hasPersonalTeamFolderAdminAccess: _v58,
-            hasPlus: _v59,
-            hasPro: _v60,
-            hasTeamMembersFilter: _v61,
-            hasViewTeamMemberActivityUpsell: _v62,
-            hasViewReviewPagePrivacyTeamSetting: _v63,
-            hasSessionControl: _v64,
-            hasContentSpaceEnabled: _v65,
-            hasTeamAllowedIpsEnabled: _v66,
-            hasMultipleReviewLinks: _v67,
-            hasCanUseOverlayWatermarking: _v68
+            createLiveEvents: _v49,
+            hasDrmSetting: _v50,
+            hasBusiness: _v51,
+            hasContributorPlusEnabled: _v52,
+            hasDataRetention: _v53,
+            hasEnterprise: _v54,
+            hasLegalHoldsActive: _v55,
+            hasLiveSubscription: _v56,
+            hasManageTeamBillingSettingsPage: _v57,
+            hasPerSeatPricingModelTeamMember: _v58,
+            hasPersonalTeamFolderAdminAccess: _v59,
+            hasPlus: _v60,
+            hasPro: _v61,
+            hasTeamMembersFilter: _v62,
+            hasViewTeamMemberActivityUpsell: _v63,
+            hasViewReviewPagePrivacyTeamSetting: _v64,
+            hasSessionControl: _v65,
+            hasContentSpaceEnabled: _v66,
+            hasTeamAllowedIpsEnabled: _v67,
+            hasMultipleReviewLinks: _v68,
+            hasCanUseOverlayWatermarking: _v69
           },
-          loading: _v69
-        } = (0, _v8.useCapability)(["canAddTeamMembers", "canEnableEnterpriseCustomDomain", "canLmsExport", "canManageBillingOnsite", "canSeeAiSettings", "canShowSsoGroups", "canUsePaymentsService", "canViewSsoTeamSettings", "canViewTeamMemberActivity", "canViewTeamMemberTopLevelPermissions", "canViewTeamMemberTopLevelPermissionsUpsell", "hasDrmSetting", "hasBusiness", "hasContributorPlusEnabled", "hasDataRetention", "hasEnterprise", "hasLegalHoldsActive", "hasLiveSubscription", "hasManageTeamBillingSettingsPage", "hasPerSeatPricingModelTeamMember", "hasPersonalTeamFolderAdminAccess", "hasPlus", "hasPro", "hasTeamMembersFilter", "hasViewTeamMemberActivityUpsell", "hasViewReviewPagePrivacyTeamSetting", "hasSessionControl", "hasContentSpaceEnabled", "hasTeamAllowedIpsEnabled", "hasMultipleReviewLinks", "hasCanUseOverlayWatermarking"], _v12),
-        _v70 = (_v57 ? _v13 : _v11) || _v11,
-        _v71 = !_v69 && !_v8 && (!_v57 || !_v6),
-        _v72 = (0, _v3.useMemo)(() => !_v71 || (_v57 ? !!_v7 && _v9 + _v33.OWNER + _v17.currentUnassignedSeatCount < _v70 : !!(_v9 < _v11 || _v53)), [_v9, _v53, _v57, _v7, _v71, _v11, _v17.currentUnassignedSeatCount, _v70]);
+          loading: _v70
+        } = (0, _v8.useCapability)(["canAddTeamMembers", "canEnableEnterpriseCustomDomain", "canLmsExport", "canManageBillingOnsite", "canSeeAiSettings", "canShowSsoGroups", "canUsePaymentsService", "canViewSsoTeamSettings", "canViewTeamMemberActivity", "canViewTeamMemberTopLevelPermissions", "canViewTeamMemberTopLevelPermissionsUpsell", "createLiveEvents", "hasDrmSetting", "hasBusiness", "hasContributorPlusEnabled", "hasDataRetention", "hasEnterprise", "hasLegalHoldsActive", "hasLiveSubscription", "hasManageTeamBillingSettingsPage", "hasPerSeatPricingModelTeamMember", "hasPersonalTeamFolderAdminAccess", "hasPlus", "hasPro", "hasTeamMembersFilter", "hasViewTeamMemberActivityUpsell", "hasViewReviewPagePrivacyTeamSetting", "hasSessionControl", "hasContentSpaceEnabled", "hasTeamAllowedIpsEnabled", "hasMultipleReviewLinks", "hasCanUseOverlayWatermarking"], _v12),
+        _v71 = (_v58 ? _v13 : _v11) || _v11,
+        _v72 = !_v70 && !_v8 && (!_v58 || !_v6),
+        _v73 = (0, _v3.useMemo)(() => !_v72 || (_v58 ? !!_v7 && _v9 + _v33.OWNER + _v17.currentUnassignedSeatCount < _v71 : !!(_v9 < _v11 || _v54)), [_v9, _v54, _v58, _v7, _v72, _v11, _v17.currentUnassignedSeatCount, _v71]);
       (0, _v3.useEffect)(() => {
         _v22({
           canAddTeamMembers: _v38,
@@ -709,33 +710,34 @@
           canViewTeamMemberActivity: _v46,
           canViewTeamMemberTopLevelPermissions: _v47,
           canViewTeamMemberTopLevelPermissionsUpsell: _v48,
-          hasDrmSetting: _v49,
-          hasBusiness: _v50,
-          hasContributorPlusEnabled: _v51,
-          hasDataRetention: _v52,
-          hasEnterprise: _v53,
-          hasLegalHoldsActive: _v54,
-          hasLiveSubscription: _v55,
-          hasManageTeamBillingSettingsPage: _v56,
-          hasPerSeatPricingModelTeamMember: _v57,
-          hasPersonalTeamFolderAdminAccess: _v58,
-          hasPlus: _v59,
-          hasPro: _v60,
-          hasTeamMembersFilter: _v61,
-          hasViewTeamMemberActivityUpsell: _v62,
-          hasViewReviewPagePrivacyTeamSetting: _v63,
-          loading: _v69,
-          hasSessionControl: _v64,
-          hasContentSpaceEnabled: _v65,
-          hasTeamAllowedIpsEnabled: _v66,
-          hasMultipleReviewLinks: _v67,
-          hasCanUseOverlayWatermarking: _v68
+          createLiveEvents: _v49,
+          hasDrmSetting: _v50,
+          hasBusiness: _v51,
+          hasContributorPlusEnabled: _v52,
+          hasDataRetention: _v53,
+          hasEnterprise: _v54,
+          hasLegalHoldsActive: _v55,
+          hasLiveSubscription: _v56,
+          hasManageTeamBillingSettingsPage: _v57,
+          hasPerSeatPricingModelTeamMember: _v58,
+          hasPersonalTeamFolderAdminAccess: _v59,
+          hasPlus: _v60,
+          hasPro: _v61,
+          hasTeamMembersFilter: _v62,
+          hasViewTeamMemberActivityUpsell: _v63,
+          hasViewReviewPagePrivacyTeamSetting: _v64,
+          loading: _v70,
+          hasSessionControl: _v65,
+          hasContentSpaceEnabled: _v66,
+          hasTeamAllowedIpsEnabled: _v67,
+          hasMultipleReviewLinks: _v68,
+          hasCanUseOverlayWatermarking: _v69
         });
-      }, [_v38, _v39, _v40, _v41, _v42, _v43, _v44, _v45, _v46, _v47, _v48, _v50, _v51, _v52, _v53, _v54, _v55, _v56, _v57, _v58, _v59, _v60, _v61, _v62, _v63, _v69, _v64, _v65, _v66, _v67, _v68]);
+      }, [_v38, _v39, _v40, _v41, _v42, _v43, _v44, _v45, _v46, _v47, _v48, _v49, _v51, _v52, _v53, _v54, _v55, _v56, _v57, _v58, _v59, _v60, _v61, _v62, _v63, _v64, _v70, _v65, _v66, _v67, _v68, _v69]);
       let {
-        paymentMethods: _v73
+        paymentMethods: _v74
       } = (0, _v16.usePaymentMethods)({
-        canFetchPaymentMethods: !!(_v15 && _v16 === _v34.TeamRole.Owner && _v56),
+        canFetchPaymentMethods: !!(_v15 && _v16 === _v34.TeamRole.Owner && _v57),
         canUsePaymentsService: !!_v44,
         ownerId: _v15
       });
@@ -748,8 +750,8 @@
             }
           }), _v25(!1);
         };
-        _v15 && _v6 && _v56 && _v0();
-      }, [_v15, _v6, _v56]), (0, _v3.useEffect)(() => {
+        _v15 && _v6 && _v57 && _v0();
+      }, [_v15, _v6, _v57]), (0, _v3.useEffect)(() => {
         _v19(!!_v34?.error);
         let {
           data: _v0
@@ -758,13 +760,13 @@
           ..._v0
         }));
       }, [_v34, _v34?.error]), (0, _v3.useEffect)(() => {
-        _v15 && _v16 === _v34.TeamRole.Owner && _v56 && _v31({
+        _v15 && _v16 === _v34.TeamRole.Owner && _v57 && _v31({
           select: ["uploadQuota"],
           where: {
             userId: _v15
           }
         });
-      }, [_v15, _v56]), (0, _v3.useEffect)(() => {
+      }, [_v15, _v57]), (0, _v3.useEffect)(() => {
         _v17.tier && _v35({
           select: ["id", "price", "currency", "tier", "metadata"],
           query: {
@@ -783,8 +785,8 @@
           _v26(_v1), _v27(_v0);
         }
       }, [_v36]), (0, _v3.useEffect)(() => {
-        _v73 && _v21(_v73);
-      }, [_v73]), (0, _v3.useEffect)(() => {
+        _v74 && _v21(_v74);
+      }, [_v74]), (0, _v3.useEffect)(() => {
         _v8 && _v1?.user && (async () => {
           await _v23(!0);
         })();
@@ -804,8 +806,8 @@
           type: "name"
         });
       }, [_v43, _v15]);
-      let _v74 = (0, _v19.useWindowSize)().width <= _v20.BreakPoints.sm,
-        [_v75, _v76] = (0, _v3.useState)(!_v74);
+      let _v75 = (0, _v19.useWindowSize)().width <= _v20.BreakPoints.sm,
+        [_v76, _v77] = (0, _v3.useState)(!_v75);
       return (0, _v1.jsx)(_v4.ThemeProvider, {
         theme: _v29,
         children: (0, _v1.jsxs)(_v5.Flex, {
@@ -813,9 +815,9 @@
           height: "100vh",
           overflow: "hidden",
           children: [(0, _v1.jsx)(_v22.WayfinderSideNav, {
-            isOpen: _v75,
-            onClose: () => _v76(!1),
-            isMobile: _v74,
+            isOpen: _v76,
+            onClose: () => _v77(!1),
+            isMobile: _v75,
             teamOwnerId: _v15,
             children: (0, _v1.jsx)(_v25.ManageTeamSideNavContent, {})
           }), (0, _v1.jsx)(_v5.Flex, {
@@ -826,20 +828,20 @@
               overflowY: "auto",
               height: "100%",
               children: [(0, _v1.jsx)(_v11.DefaultNavigation, {
-                setIsSideNavActive: () => _v76(!0),
-                isSideNavActive: _v75
+                setIsSideNavActive: () => _v77(!0),
+                isSideNavActive: _v76
               }), (0, _v1.jsxs)(_v6.Box, {
                 width: "100%",
                 maxWidth: (0, _v7.rem)(0),
                 padding: "400",
                 margin: "0 auto",
                 backgroundColor: "background",
-                children: [_v53 && (0, _v1.jsx)(_v45, {
+                children: [_v54 && (0, _v1.jsx)(_v45, {
                   children: (0, _v1.jsx)(_v24.default, {
                     length: 2,
                     depthLimit: 4
                   })
-                }), _v71 && _v37 && !_v72 && _v17.tier !== _v34.Tier.CustomSelfServe && (0, _v1.jsx)(_v6.Box, {
+                }), _v72 && _v37 && !_v73 && _v17.tier !== _v34.Tier.CustomSelfServe && (0, _v1.jsx)(_v6.Box, {
                   mb: "300",
                   children: (0, _v1.jsx)(_v28.default, {})
                 }), _v10 ? (0, _v1.jsx)(_v1.Fragment, {

@@ -315,6 +315,32 @@
               }
             }
           }),
+          WebinarViewerAnonymization: (0, _v9.translate)({
+            singular: "Webinar viewer anonymization",
+            dictionary: {
+              es: {
+                singular: "Anonimización de espectadores del seminario web"
+              },
+              "de-DE": {
+                singular: "Anonymisierung von Webinar-Zuschauern"
+              },
+              "fr-FR": {
+                singular: "Anonymisation des spectateurs du webinaire"
+              },
+              "ja-JP": {
+                singular: "ウェビナー視聴者の匿名化"
+              },
+              "ko-KR": {
+                singular: "웨비나 시청자 익명화"
+              },
+              "pt-BR": {
+                singular: "Anonimização de visualizadores do webinar"
+              },
+              "zh-CN": {
+                singular: "网络研讨会观看者匿名化"
+              }
+            }
+          }),
           SingleSignOn: (0, _v9.translate)({
             singular: "Single sign-on (SSO)",
             dictionary: {
@@ -531,6 +557,11 @@
           key: "history",
           href: "/manage/team/settings/history",
           label: _v0.HistoryAndRecovery,
+          priority: 4
+        }, {
+          key: "webinar-viewer-anonymisation",
+          href: "/manage/team/settings/webinar-viewer-anonymisation",
+          label: _v0.WebinarViewerAnonymization,
           priority: 4
         }, {
           key: "sso",

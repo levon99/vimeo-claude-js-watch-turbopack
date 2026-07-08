@@ -319,68 +319,26 @@
   var _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
-    _v31 = _v0.i(0);
-  let _v32 = ({
-    header: _v0,
-    cta: _v1,
-    reasons: _v2,
-    isOpen: _v3,
-    isPosting: _v4,
-    reportReason: _v5,
-    setReportReason: _v6,
-    onCloseCleanup: _v7,
-    submitReport: _v8
-  }) => (0, _v1.jsxs)(_v3.Modal, {
-    isOpen: _v3,
-    onClose: _v7,
-    scrollBehavior: "inside",
-    children: [(0, _v1.jsx)(_v4.ModalOverlay, {}), (0, _v1.jsxs)(_v5.ModalContent, {
-      maxHeight: "calc(100% - 3rem)",
-      children: [(0, _v1.jsx)(_v7.ModalHeader, {
-        children: _v0
-      }), (0, _v1.jsx)(_v6.ModalCloseButton, {}), (0, _v1.jsx)(_v8.ModalBody, {
-        flex: "1 1 0%",
-        overflow: "auto",
-        children: (0, _v1.jsx)(_v30.ReportReasonList, {
-          cta: _v1,
-          reasons: _v2,
-          reportReason: _v5,
-          setReportReason: _v6
-        })
-      }), (0, _v1.jsx)(_v29.ModalFooter, {
-        border: "none",
-        py: "200",
-        children: (0, _v1.jsx)(_v30.ReportActions, {
-          isSubmitDisabled: _v5 == _v31.REASON_UNSELECTED || _v4,
-          onClose: _v7,
-          onSubmit: _v8
-        })
-      })]
-    })]
-  });
-  _v0.s(["ReportModal", 0, _v32], 0);
-  var _v33 = _v0.i(0),
+    _v31 = _v0.i(0),
+    _v32 = _v0.i(0),
+    _v33 = _v0.i(0),
     _v34 = _v0.i(0),
     _v35 = _v0.i(0),
-    _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
-    _v40 = _v0.i(0);
-  let _v41 = ({
+    _v36 = _v0.i(0);
+  let _v37 = ({
     clipId: _v0,
     isOpen: _v1,
     onClose: _v2,
     onSubmitReport: _v3
   }) => {
-    let _v4 = (0, _v40.useGranularReport)({
+    let _v4 = (0, _v36.useGranularReport)({
         clipId: _v0,
         onClose: _v2,
         onSubmitReport: _v3,
         ownConfirmation: !0
       }),
-      _v5 = (0, _v33.useRef)(null);
-    return (0, _v33.useEffect)(() => {
+      _v5 = (0, _v28.useRef)(null);
+    return (0, _v28.useEffect)(() => {
       _v1 && _v4.hasData && _v5.current?.focus();
     }, [_v1, _v4.hasData]), (0, _v1.jsxs)(_v3.Modal, {
       isOpen: _v1,
@@ -394,10 +352,10 @@
             align: "center",
             gap: "100",
             children: [_v4.canGoBack ? (0, _v1.jsx)(_v22.IconButton, {
-              "aria-label": (0, _v37.backLabel)(),
+              "aria-label": (0, _v33.backLabel)(),
               variant: "tertiary",
               size: "sm",
-              icon: (0, _v1.jsx)(_v36.ArrowLeft, {}),
+              icon: (0, _v1.jsx)(_v32.ArrowLeft, {}),
               onClick: _v4.onBack
             }) : null, (0, _v1.jsxs)(_v16.Box, {
               flex: "1",
@@ -411,11 +369,11 @@
                 color: "text-secondary",
                 children: _v4.subtitle
               })]
-            }), (0, _v1.jsx)(_v39.ReportHelpLink, {}), (0, _v1.jsx)(_v6.ModalCloseButton, {
+            }), (0, _v1.jsx)(_v35.ReportHelpLink, {}), (0, _v1.jsx)(_v6.ModalCloseButton, {
               position: "static"
             })]
           })
-        }), (0, _v1.jsx)(_v35.Progress, {
+        }), (0, _v1.jsx)(_v31.Progress, {
           value: _v4.progress,
           size: "xs",
           mt: "200",
@@ -429,7 +387,7 @@
           flex: "1 1 0%",
           overflow: "auto",
           pb: "300",
-          children: (0, _v1.jsx)(_v38.GranularReportBody, {
+          children: (0, _v1.jsx)(_v34.GranularReportBody, {
             isLoading: _v4.isLoading,
             hasData: _v4.hasData,
             error: _v4.error,
@@ -440,8 +398,8 @@
             onDone: _v4.handleClose,
             firstOptionRef: _v5
           })
-        }), _v4.showFooter ? (0, _v1.jsx)(_v29.ModalFooter, {
-          children: (0, _v1.jsx)(_v34.Button, {
+        }), _v4.showFooter ? (0, _v1.jsx)(_v30.ModalFooter, {
+          children: (0, _v1.jsx)(_v29.Button, {
             variant: "primary",
             size: "md",
             width: "100%",
@@ -453,100 +411,7 @@
       })]
     });
   };
-  var _v42 = _v0.i(0),
-    _v43 = _v0.i(0);
-  let _v44 = ({
-    clipId: _v0,
-    isOpen: _v1,
-    onClose: _v2,
-    onSubmitReport: _v3
-  }) => {
-    let {
-        reportReason: _v4,
-        setReportReason: _v5,
-        resetReason: _v6,
-        isPosting: _v7,
-        postReport: _v8
-      } = (0, _v43.useReportVideo)({
-        clipId: _v0,
-        onSuccess: _v3
-      }),
-      _v9 = () => {
-        _v6(), _v2();
-      },
-      _v10 = async () => {
-        await _v8(_v4), _v9();
-      };
-    return (0, _v1.jsx)(_v32, {
-      header: (0, _v20.translate)({
-        singular: "Report this video",
-        dictionary: {
-          es: {
-            singular: "Reportar este video"
-          },
-          "de-DE": {
-            singular: "Dieses Video melden"
-          },
-          "fr-FR": {
-            singular: "Signaler cette vidéo"
-          },
-          "ja-JP": {
-            singular: "この動画を報告する"
-          },
-          "ko-KR": {
-            singular: "이 동영상 신고"
-          },
-          "pt-BR": {
-            singular: "Denunciar este vídeo"
-          },
-          "zh-CN": {
-            singular: "举报此视频"
-          }
-        }
-      }),
-      cta: (0, _v20.translate)({
-        singular: "Why are you reporting this video?",
-        dictionary: {
-          es: {
-            singular: "¿Por qué denuncias este video?"
-          },
-          "de-DE": {
-            singular: "Warum meldest du dieses Video?"
-          },
-          "fr-FR": {
-            singular: "Pourquoi signalez-vous cette vidéo ?"
-          },
-          "ja-JP": {
-            singular: "この動画の報告理由"
-          },
-          "ko-KR": {
-            singular: "이 동영상을 신고하는 이유가 무엇입니까?"
-          },
-          "pt-BR": {
-            singular: "Por que você está denunciando este vídeo?"
-          },
-          "zh-CN": {
-            singular: "您为什么要举报这个视频？"
-          }
-        }
-      }),
-      reasons: _v42.ReportReasons,
-      isOpen: _v1,
-      isPosting: _v7,
-      reportReason: _v4,
-      setReportReason: _v5,
-      onCloseCleanup: _v9,
-      submitReport: _v10
-    });
-  };
-  _v0.s(["ReportVideoModal", 0, _v0 => {
-    let {
-      settings: _v1
-    } = (0, _v28.useOrionSettings)();
-    return _v1.enable_granular_flagging_modal ? _v0.isOpen ? (0, _v1.jsx)(_v41, {
-      ..._v0
-    }) : null : (0, _v1.jsx)(_v44, {
-      ..._v0
-    });
-  }], 0);
+  _v0.s(["GranularReportVideoModal", 0, _v0 => _v0.isOpen ? (0, _v1.jsx)(_v37, {
+    ..._v0
+  }) : null], 0);
 }

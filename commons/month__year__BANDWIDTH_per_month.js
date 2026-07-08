@@ -1299,6 +1299,35 @@
             }
           }
         }),
+        core: (0, _v1.translate)({
+          singular: "{AMOUNT} words",
+          replacements: {
+            AMOUNT: 50
+          },
+          dictionary: {
+            es: {
+              singular: "{AMOUNT} palabras"
+            },
+            "de-DE": {
+              singular: "{AMOUNT} Wörter"
+            },
+            "fr-FR": {
+              singular: "{AMOUNT} mots"
+            },
+            "ja-JP": {
+              singular: "{AMOUNT}語"
+            },
+            "ko-KR": {
+              singular: "{AMOUNT} 단어"
+            },
+            "pt-BR": {
+              singular: "{AMOUNT} palavras"
+            },
+            "zh-CN": {
+              singular: "{AMOUNT} 个单词"
+            }
+          }
+        }),
         professional: (0, _v1.translate)({
           singular: "{AMOUNT} words",
           replacements: {
@@ -3872,6 +3901,32 @@
             }
           }
         }),
+        core: (0, _v1.translate)({
+          singular: "Unlimited",
+          dictionary: {
+            es: {
+              singular: "Ilimitado"
+            },
+            "de-DE": {
+              singular: "Unbegrenzt"
+            },
+            "fr-FR": {
+              singular: "Illimité"
+            },
+            "ja-JP": {
+              singular: "無制限"
+            },
+            "ko-KR": {
+              singular: "무제한"
+            },
+            "pt-BR": {
+              singular: "Ilimitado"
+            },
+            "zh-CN": {
+              singular: "无限"
+            }
+          }
+        }),
         professional: (0, _v1.translate)({
           singular: "Unlimited",
           dictionary: {
@@ -4058,6 +4113,7 @@
           }
         }),
         creator: !0,
+        core: !0,
         professional: !0,
         studio: !0,
         production: !0,
@@ -4144,6 +4200,7 @@
           }
         }),
         creator: !0,
+        core: !0,
         professional: !0,
         studio: !0,
         production: !0,
@@ -6693,7 +6750,7 @@
         }
       }
     }),
-    tiers: _v0 ? _v2.REPACKAGING_CORE_AND_ABOVE : _v2.REPACKAGING_PAID_PLANS
+    tiers: _v0 ? _v2.REPACKAGING_PRO_AND_ABOVE : _v2.REPACKAGING_PAID_PLANS_EXCEPT_CORE
   }, {
     text: (0, _v1.translate)({
       singular: "Lead capture with custom forms",

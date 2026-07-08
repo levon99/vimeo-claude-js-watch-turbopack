@@ -245,7 +245,7 @@
         }
       } = (0, _v7.useLiveGlobals)(),
       _v8 = (0, _v3.useRef)(null),
-      _v9 = !!(_v3?.isCreator && !_v7?.feature?.isManagementDisabled),
+      _v9 = !!(_v3?.isCreator && !_v7?.feature?.isManagementDisabled || _v3?.capabilities?.canUseQnaModeration),
       _v10 = _v2?.settings.authOptions || {},
       _v11 = _v2?.settings.privacy === _v10.EInteractionRoomPrivacy.PASSWORD,
       _v12 = !0 === _v10[_v10.EInteractionAuthOption.REGISTRANT],

@@ -181,6 +181,7 @@
         canViewTeamMemberTopLevelPermissions: !1,
         canViewTeamMemberTopLevelPermissionsUpsell: !1,
         canViewTeamMemberActivity: !1,
+        createLiveEvents: !1,
         hasDrmSetting: !1,
         hasViewTeamMemberActivityUpsell: !1,
         hasEnterprise: !1,

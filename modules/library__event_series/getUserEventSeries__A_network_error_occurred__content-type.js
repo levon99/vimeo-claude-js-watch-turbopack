@@ -679,8 +679,9 @@
     _v69 = _v0.i(0),
     _v70 = _v0.i(0),
     _v71 = _v0.i(0),
-    _v72 = _v0.i(0);
-  let _v73 = ({
+    _v72 = _v0.i(0),
+    _v73 = _v0.i(0);
+  let _v74 = ({
       onClose: _v0,
       onDeleted: _v1,
       userId: _v2,
@@ -692,7 +693,7 @@
           loading: _v7,
           error: _v8,
           callCount: _v9
-        }] = (0, _v72.useDeleteUserEventSery)(),
+        }] = (0, _v73.useDeleteUserEventSery)(),
         _v10 = (0, _v6.useRef)(0);
       (0, _v6.useEffect)(() => {
         if (0 !== _v9 && !_v7 && _v9 !== _v10.current) {
@@ -903,7 +904,7 @@
         })]
       });
     },
-    _v74 = ({
+    _v75 = ({
       link: _v0,
       uri: _v1,
       name: _v2,
@@ -924,6 +925,7 @@
             _v0.preventDefault(), _v0.stopPropagation();
           },
           children: (0, _v1.jsxs)(_v61.Menu, {
+            strategy: "fixed",
             children: [(0, _v1.jsx)(_v62.MenuButton, {
               "aria-label": (0, _v15.translate)({
                 singular: "Menu",
@@ -946,195 +948,198 @@
                 }
               }),
               as: _v10.IconButton,
-              icon: (0, _v1.jsx)(_v67.EllipsisV, {}),
+              icon: (0, _v1.jsx)(_v68.EllipsisV, {}),
               size: _v4,
               variant: "tertiary"
-            }), (0, _v1.jsxs)(_v65.MenuList, {
-              children: [_v10 && (0, _v1.jsx)(_v64.MenuItem, {
-                icon: (0, _v1.jsx)(_v66.EditPencil, {}),
-                onClick: () => {
-                  _v10 && window.location.assign(_v10);
-                },
-                children: (0, _v15.translate)({
-                  singular: "Edit",
-                  dictionary: {
-                    es: {
-                      singular: "Editar"
-                    },
-                    "de-DE": {
-                      singular: "Bearbeiten"
-                    },
-                    "fr-FR": {
-                      singular: "Modifier"
-                    },
-                    "ja-JP": {
-                      singular: "編集"
-                    },
-                    "ko-KR": {
-                      singular: "편집"
-                    },
-                    "pt-BR": {
-                      singular: "Editar"
-                    },
-                    "zh-CN": {
-                      singular: "编辑"
-                    }
-                  }
-                })
-              }), (0, _v1.jsx)(_v64.MenuItem, {
-                icon: (0, _v1.jsx)(_v69.Link, {}),
-                onClick: () => {
-                  _v6((0, _v71.default)(_v0) ? {
-                    isClosable: !0,
-                    title: (0, _v15.translate)({
-                      singular: "Link copied to clipboard",
-                      dictionary: {
-                        es: {
-                          singular: "Copiamos el vínculo en el portapapeles"
-                        },
-                        "de-DE": {
-                          singular: "Link in Zwischenablage kopiert"
-                        },
-                        "fr-FR": {
-                          singular: "Lien copié dans le presse-papier"
-                        },
-                        "ja-JP": {
-                          singular: "リンクがクリップボードにコピーされました"
-                        },
-                        "ko-KR": {
-                          singular: "클립보드로 링크 복사됨"
-                        },
-                        "pt-BR": {
-                          singular: "Link copiado para a área de transferência"
-                        },
-                        "zh-CN": {
-                          singular: "链接已复制到剪贴板"
-                        }
-                      }
-                    })
-                  } : {
-                    isClosable: !0,
-                    title: (0, _v15.translate)({
-                      singular: "Couldn't copy the link. Please try again.",
-                      dictionary: {
-                        es: {
-                          singular: "No se pudo copiar el enlace. Por favor, inténtelo de nuevo."
-                        },
-                        "de-DE": {
-                          singular: "Der Link konnte nicht kopiert werden. Bitte versuchen Sie es erneut."
-                        },
-                        "fr-FR": {
-                          singular: "Impossible de copier le lien. Veuillez réessayer."
-                        },
-                        "ja-JP": {
-                          singular: "リンクをコピーできませんでした。もう一度お試しください。"
-                        },
-                        "ko-KR": {
-                          singular: "링크를 복사할 수 없습니다. 다시 시도해주세요."
-                        },
-                        "pt-BR": {
-                          singular: "Não foi possível copiar o link. Por favor, tente novamente."
-                        },
-                        "zh-CN": {
-                          singular: "无法复制链接。请重试。"
-                        }
-                      }
-                    }),
-                    variant: "warning"
-                  });
-                },
-                children: (0, _v15.translate)({
-                  singular: "Copy link",
-                  dictionary: {
-                    es: {
-                      singular: "Copiar vínculo"
-                    },
-                    "de-DE": {
-                      singular: "Link kopieren"
-                    },
-                    "fr-FR": {
-                      singular: "Copier le lien"
-                    },
-                    "ja-JP": {
-                      singular: "リンクをコピー"
-                    },
-                    "ko-KR": {
-                      singular: "링크 복사"
-                    },
-                    "pt-BR": {
-                      singular: "Copiar link"
-                    },
-                    "zh-CN": {
-                      singular: "复制链接"
-                    }
-                  }
-                })
-              }), (0, _v1.jsx)(_v64.MenuItem, {
-                icon: (0, _v1.jsx)(_v68.Eye, {}),
-                onClick: () => {
-                  window.open(_v0, "_blank", "noopener,noreferrer");
-                },
-                children: (0, _v15.translate)({
-                  singular: "Preview page",
-                  dictionary: {
-                    es: {
-                      singular: "Página de vista previa"
-                    },
-                    "de-DE": {
-                      singular: "Vorschau-Seite"
-                    },
-                    "fr-FR": {
-                      singular: "Page d’aperçu"
-                    },
-                    "ja-JP": {
-                      singular: "プレビューページ"
-                    },
-                    "ko-KR": {
-                      singular: "미리보기 페이지"
-                    },
-                    "pt-BR": {
-                      singular: "Visualizar página"
-                    },
-                    "zh-CN": {
-                      singular: "预览页面"
-                    }
-                  }
-                })
-              }), _v9 && (0, _v1.jsxs)(_v1.Fragment, {
-                children: [(0, _v1.jsx)(_v63.MenuDivider, {}), (0, _v1.jsx)(_v64.MenuItem, {
-                  icon: (0, _v1.jsx)(_v70.TrashBin, {}),
-                  onClick: () => _v8(!0),
+            }), (0, _v1.jsx)(_v66.Portal, {
+              children: (0, _v1.jsxs)(_v65.MenuList, {
+                zIndex: _v18.ACTIONS_MENU_Z_INDEX,
+                children: [_v10 && (0, _v1.jsx)(_v64.MenuItem, {
+                  icon: (0, _v1.jsx)(_v67.EditPencil, {}),
+                  onClick: () => {
+                    _v10 && window.location.assign(_v10);
+                  },
                   children: (0, _v15.translate)({
-                    singular: "Delete",
+                    singular: "Edit",
                     dictionary: {
                       es: {
-                        singular: "Eliminar"
+                        singular: "Editar"
                       },
                       "de-DE": {
-                        singular: "Löschen"
+                        singular: "Bearbeiten"
                       },
                       "fr-FR": {
-                        singular: "Supprimer"
+                        singular: "Modifier"
                       },
                       "ja-JP": {
-                        singular: "削除"
+                        singular: "編集"
                       },
                       "ko-KR": {
-                        singular: "삭제"
+                        singular: "편집"
                       },
                       "pt-BR": {
-                        singular: "Excluir"
+                        singular: "Editar"
                       },
                       "zh-CN": {
-                        singular: "删除"
+                        singular: "编辑"
                       }
                     }
                   })
+                }), (0, _v1.jsx)(_v64.MenuItem, {
+                  icon: (0, _v1.jsx)(_v70.Link, {}),
+                  onClick: () => {
+                    _v6((0, _v72.default)(_v0) ? {
+                      isClosable: !0,
+                      title: (0, _v15.translate)({
+                        singular: "Link copied to clipboard",
+                        dictionary: {
+                          es: {
+                            singular: "Copiamos el vínculo en el portapapeles"
+                          },
+                          "de-DE": {
+                            singular: "Link in Zwischenablage kopiert"
+                          },
+                          "fr-FR": {
+                            singular: "Lien copié dans le presse-papier"
+                          },
+                          "ja-JP": {
+                            singular: "リンクがクリップボードにコピーされました"
+                          },
+                          "ko-KR": {
+                            singular: "클립보드로 링크 복사됨"
+                          },
+                          "pt-BR": {
+                            singular: "Link copiado para a área de transferência"
+                          },
+                          "zh-CN": {
+                            singular: "链接已复制到剪贴板"
+                          }
+                        }
+                      })
+                    } : {
+                      isClosable: !0,
+                      title: (0, _v15.translate)({
+                        singular: "Couldn't copy the link. Please try again.",
+                        dictionary: {
+                          es: {
+                            singular: "No se pudo copiar el enlace. Por favor, inténtelo de nuevo."
+                          },
+                          "de-DE": {
+                            singular: "Der Link konnte nicht kopiert werden. Bitte versuchen Sie es erneut."
+                          },
+                          "fr-FR": {
+                            singular: "Impossible de copier le lien. Veuillez réessayer."
+                          },
+                          "ja-JP": {
+                            singular: "リンクをコピーできませんでした。もう一度お試しください。"
+                          },
+                          "ko-KR": {
+                            singular: "링크를 복사할 수 없습니다. 다시 시도해주세요."
+                          },
+                          "pt-BR": {
+                            singular: "Não foi possível copiar o link. Por favor, tente novamente."
+                          },
+                          "zh-CN": {
+                            singular: "无法复制链接。请重试。"
+                          }
+                        }
+                      }),
+                      variant: "warning"
+                    });
+                  },
+                  children: (0, _v15.translate)({
+                    singular: "Copy link",
+                    dictionary: {
+                      es: {
+                        singular: "Copiar vínculo"
+                      },
+                      "de-DE": {
+                        singular: "Link kopieren"
+                      },
+                      "fr-FR": {
+                        singular: "Copier le lien"
+                      },
+                      "ja-JP": {
+                        singular: "リンクをコピー"
+                      },
+                      "ko-KR": {
+                        singular: "링크 복사"
+                      },
+                      "pt-BR": {
+                        singular: "Copiar link"
+                      },
+                      "zh-CN": {
+                        singular: "复制链接"
+                      }
+                    }
+                  })
+                }), (0, _v1.jsx)(_v64.MenuItem, {
+                  icon: (0, _v1.jsx)(_v69.Eye, {}),
+                  onClick: () => {
+                    window.open(_v0, "_blank", "noopener,noreferrer");
+                  },
+                  children: (0, _v15.translate)({
+                    singular: "Preview page",
+                    dictionary: {
+                      es: {
+                        singular: "Página de vista previa"
+                      },
+                      "de-DE": {
+                        singular: "Vorschau-Seite"
+                      },
+                      "fr-FR": {
+                        singular: "Page d’aperçu"
+                      },
+                      "ja-JP": {
+                        singular: "プレビューページ"
+                      },
+                      "ko-KR": {
+                        singular: "미리보기 페이지"
+                      },
+                      "pt-BR": {
+                        singular: "Visualizar página"
+                      },
+                      "zh-CN": {
+                        singular: "预览页面"
+                      }
+                    }
+                  })
+                }), _v9 && (0, _v1.jsxs)(_v1.Fragment, {
+                  children: [(0, _v1.jsx)(_v63.MenuDivider, {}), (0, _v1.jsx)(_v64.MenuItem, {
+                    icon: (0, _v1.jsx)(_v71.TrashBin, {}),
+                    onClick: () => _v8(!0),
+                    children: (0, _v15.translate)({
+                      singular: "Delete",
+                      dictionary: {
+                        es: {
+                          singular: "Eliminar"
+                        },
+                        "de-DE": {
+                          singular: "Löschen"
+                        },
+                        "fr-FR": {
+                          singular: "Supprimer"
+                        },
+                        "ja-JP": {
+                          singular: "削除"
+                        },
+                        "ko-KR": {
+                          singular: "삭제"
+                        },
+                        "pt-BR": {
+                          singular: "Excluir"
+                        },
+                        "zh-CN": {
+                          singular: "删除"
+                        }
+                      }
+                    })
+                  })]
                 })]
-              })]
+              })
             })]
           })
-        }), _v9 && _v7 && (0, _v1.jsx)(_v73, {
+        }), _v9 && _v7 && (0, _v1.jsx)(_v74, {
           eventSeriesId: _v9.eventSeriesId,
           name: _v2,
           onClose: () => _v8(!1),
@@ -1145,22 +1150,23 @@
         })]
       });
     },
-    _v75 = _v0 => {
+    _v76 = _v0 => {
       if (!_v0?.sizes?.length) return _v0?.baseLink ?? null;
       let _v1 = [..._v0.sizes].sort((_v0, _v1) => (_v1.width ?? 0) - (_v0.width ?? 0)),
         _v2 = _v1.find(_v0 => (_v0.width ?? 0) > 0 && (_v0.width ?? 0) <= 720) ?? _v1[0];
       return _v2?.link ?? _v0.baseLink ?? null;
     },
-    _v76 = ({
+    _v77 = ({
       series: _v0,
       isLoading: _v1 = !1,
       onSeriesDeleted: _v2
     }) => (0, _v1.jsx)(_v60.ContentGrid, {
       children: (0, _v1.jsxs)(_v60.ContentGrid.Body, {
         children: [_v0.map(_v0 => {
-          let _v1 = _v75(_v0.pictures);
+          let _v1 = _v76(_v0.pictures),
+            _v2 = _v0.metadata.connections.events.total;
           return (0, _v1.jsx)(_v58.ShowcaseCard, {
-            actionsMenu: (0, _v1.jsx)(_v74, {
+            actionsMenu: (0, _v1.jsx)(_v75, {
               link: _v0.link,
               name: _v0.name,
               onDeleted: _v2,
@@ -1169,20 +1175,57 @@
             }),
             href: _v51(_v0.uri) ?? _v0.link,
             showGrid: !!_v1,
-            subtitle: (0, _v59.getDisplayDate)(_v0.createdTime),
+            subtitle: `${(0, _v15.translate)({
+              singular: "{NUM} event",
+              plural: "{NUM} events",
+              count: _v2,
+              replacements: {
+                NUM: _v2
+              },
+              dictionary: {
+                es: {
+                  singular: "{NUM} evento",
+                  plural: "{NUM} eventos"
+                },
+                "de-DE": {
+                  singular: "{NUM} Event",
+                  plural: "{NUM} Events"
+                },
+                "fr-FR": {
+                  singular: "{NUM} événement",
+                  plural: "{NUM} événements"
+                },
+                "ja-JP": {
+                  singular: "{NUM} 件のイベント",
+                  plural: "{NUM} 件のイベント"
+                },
+                "ko-KR": {
+                  singular: "이벤트 {NUM}개",
+                  plural: "이벤트 {NUM}개"
+                },
+                "pt-BR": {
+                  singular: "{NUM} evento",
+                  plural: "{NUM} eventos"
+                },
+                "zh-CN": {
+                  singular: "{NUM} 个活动",
+                  plural: "{NUM} 个活动"
+                }
+              }
+            })} • ${(0, _v59.getDisplayDate)(_v0.createdTime)}`,
             thumbnails: _v1 ? [_v1] : [],
             title: _v0.name
           }, _v0.uri);
         }), _v1 && (0, _v1.jsx)(_v57.LoadingCardsGrid, {})]
       })
     });
-  var _v77 = _v0.i(0),
-    _v78 = _v0.i(0),
-    _v79 = _v0.i(0);
-  let _v80 = `${(0, _v77.rem)(150)} 1fr ${(0, _v77.rem)(200)} ${(0, _v77.rem)(56)}`,
-    _v81 = () => (0, _v1.jsxs)(_v78.ContentRow, {
+  var _v78 = _v0.i(0),
+    _v79 = _v0.i(0),
+    _v80 = _v0.i(0);
+  let _v81 = `${(0, _v78.rem)(150)} 1fr ${(0, _v78.rem)(200)} ${(0, _v78.rem)(56)}`,
+    _v82 = () => (0, _v1.jsxs)(_v79.ContentRow, {
       disableHover: !0,
-      listGridColumns: _v80,
+      listGridColumns: _v81,
       sx: {
         display: {
           base: "none",
@@ -1191,9 +1234,9 @@
         backgroundColor: "fill-component",
         minHeight: "2.5rem"
       },
-      children: [(0, _v1.jsx)(_v78.ContentRow.Column, {
+      children: [(0, _v1.jsx)(_v79.ContentRow.Column, {
         children: (0, _v1.jsx)(_v1.Fragment, {})
-      }), (0, _v1.jsx)(_v78.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v79.ContentRow.Column, {
         children: (0, _v1.jsx)(_v13.Text, {
           color: "text-secondary",
           variant: "heading-xs",
@@ -1224,7 +1267,7 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v78.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v79.ContentRow.Column, {
         children: (0, _v1.jsx)(_v13.Text, {
           color: "text-secondary",
           variant: "heading-xs",
@@ -1255,48 +1298,49 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v78.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v79.ContentRow.Column, {
         children: (0, _v1.jsx)(_v1.Fragment, {})
       })]
     }),
-    _v82 = ({
+    _v83 = ({
       series: _v0,
       isLoading: _v1 = !1,
       onSeriesDeleted: _v2
     }) => (0, _v1.jsxs)(_v9.Flex, {
       direction: "column",
-      gap: (0, _v77.rem)(4),
+      gap: (0, _v78.rem)(4),
       width: "100%",
-      children: [(0, _v1.jsx)(_v81, {}), _v0.map(_v0 => {
-        let _v1 = _v75(_v0.pictures);
-        return (0, _v1.jsxs)(_v78.ContentRow, {
+      children: [(0, _v1.jsx)(_v82, {}), _v0.map(_v0 => {
+        let _v1,
+          _v2 = _v76(_v0.pictures);
+        return (0, _v1.jsxs)(_v79.ContentRow, {
           cursor: "pointer",
           href: _v51(_v0.uri) ?? _v0.link,
-          listGridColumns: _v80,
-          children: [(0, _v1.jsx)(_v78.ContentRow.Column, {
+          listGridColumns: _v81,
+          children: [(0, _v1.jsx)(_v79.ContentRow.Column, {
             width: "100%",
-            children: _v1 ? (0, _v1.jsx)(_v7.Box, {
+            children: _v2 ? (0, _v1.jsx)(_v7.Box, {
               aspectRatio: "16 / 9",
-              backgroundImage: `url(${_v1})`,
+              backgroundImage: `url(${_v2})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               borderColor: "stroke",
               borderRadius: "md",
               borderStyle: "solid",
               borderWidth: "1px",
-              minWidth: (0, _v77.rem)(120),
+              minWidth: (0, _v78.rem)(120),
               width: "100%"
-            }) : (0, _v1.jsx)(_v78.ContentRow.DefaultThumbnail, {
-              minWidth: (0, _v77.rem)(120),
+            }) : (0, _v1.jsx)(_v79.ContentRow.DefaultThumbnail, {
+              minWidth: (0, _v78.rem)(120),
               children: (0, _v1.jsx)(_v54.BrowserWindow, {
                 color: "text-tertiary",
                 boxSize: "lg",
                 opacity: "60%"
               })
             })
-          }), (0, _v1.jsx)(_v78.ContentRow.Column, {
+          }), (0, _v1.jsxs)(_v79.ContentRow.Column, {
             overflow: "hidden",
-            children: (0, _v1.jsx)(_v13.Text, {
+            children: [(0, _v1.jsx)(_v13.Text, {
               display: "block",
               noOfLines: 1,
               textOverflow: "ellipsis",
@@ -1304,8 +1348,53 @@
               whiteSpace: "nowrap",
               width: "100%",
               children: _v0.name
-            })
-          }), (0, _v1.jsx)(_v78.ContentRow.Column, {
+            }), (0, _v1.jsx)(_v13.Text, {
+              color: "text-secondary",
+              display: "block",
+              noOfLines: 1,
+              textOverflow: "ellipsis",
+              variant: "body-sm",
+              whiteSpace: "nowrap",
+              children: (_v1 = _v0.metadata.connections.events.total, (0, _v15.translate)({
+                singular: "{NUM} event",
+                plural: "{NUM} events",
+                count: _v1,
+                replacements: {
+                  NUM: _v1
+                },
+                dictionary: {
+                  es: {
+                    singular: "{NUM} evento",
+                    plural: "{NUM} eventos"
+                  },
+                  "de-DE": {
+                    singular: "{NUM} Event",
+                    plural: "{NUM} Events"
+                  },
+                  "fr-FR": {
+                    singular: "{NUM} événement",
+                    plural: "{NUM} événements"
+                  },
+                  "ja-JP": {
+                    singular: "{NUM} 件のイベント",
+                    plural: "{NUM} 件のイベント"
+                  },
+                  "ko-KR": {
+                    singular: "이벤트 {NUM}개",
+                    plural: "이벤트 {NUM}개"
+                  },
+                  "pt-BR": {
+                    singular: "{NUM} evento",
+                    plural: "{NUM} eventos"
+                  },
+                  "zh-CN": {
+                    singular: "{NUM} 个活动",
+                    plural: "{NUM} 个活动"
+                  }
+                }
+              }))
+            })]
+          }), (0, _v1.jsx)(_v79.ContentRow.Column, {
             overflow: "hidden",
             children: (0, _v1.jsx)(_v13.Text, {
               color: "text-secondary",
@@ -1316,9 +1405,9 @@
               whiteSpace: "nowrap",
               children: (0, _v59.getDisplayDate)(_v0.createdTime)
             })
-          }), (0, _v1.jsx)(_v78.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v79.ContentRow.Column, {
             justifyColumn: "flex-end",
-            children: (0, _v1.jsx)(_v74, {
+            children: (0, _v1.jsx)(_v75, {
               link: _v0.link,
               name: _v0.name,
               onDeleted: _v2,
@@ -1327,14 +1416,14 @@
             })
           })]
         }, _v0.uri);
-      }), _v1 && (0, _v1.jsx)(_v79.LoadingStateList, {})]
+      }), _v1 && (0, _v1.jsx)(_v80.LoadingStateList, {})]
     }),
-    _v83 = ["createdTime", "description", "link", "modifiedTime", "name", "pictures", "pictures.baseLink", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "status", "uri"],
-    _v84 = {
+    _v84 = ["createdTime", "description", "link", "metadata.connections.events.total", "modifiedTime", "name", "pictures", "pictures.baseLink", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "status", "uri"],
+    _v85 = {
       direction: _v18.SORT_DIRECTION.DESC,
       type: _v18.SORT_OPTION.CREATED
     },
-    _v85 = ({
+    _v86 = ({
       isLoading: _v0,
       onLoadMore: _v1
     }) => {
@@ -1348,10 +1437,10 @@
         width: "100%"
       });
     },
-    _v86 = () => {
+    _v87 = () => {
       let _v0 = (0, _v23.useViewer)(),
         [_v1, _v2] = (0, _v21.useLayoutPreference)(),
-        [_v3, _v4] = (0, _v22.useSortPreference)(_v84, _v18.VL_EVENT_SERIES_SORT_LOCAL_STORAGE_KEY),
+        [_v3, _v4] = (0, _v22.useSortPreference)(_v85, _v18.VL_EVENT_SERIES_SORT_LOCAL_STORAGE_KEY),
         [_v5, _v6] = (0, _v6.useState)(!1),
         _v7 = _v0?.teamUser?.ownerId || _v0?.user?.id,
         {
@@ -1374,7 +1463,7 @@
               setSize: _v5,
               size: _v6
             } = _v48(() => _v0 ? {
-              select: _v83,
+              select: _v84,
               where: {
                 userId: _v0
               },
@@ -1448,8 +1537,9 @@
                   color: "text-secondary",
                   size: "md",
                   children: (0, _v15.translate)({
-                    singular: "Event series are branded hubs hosting multiple events and on-demand content in one place. Individual event pages are managed in the {LINK}live events{/LINK} section.",
+                    singular: "Event series are branded hubs hosting multiple events and on-demand content in one place.{BR}Individual event pages are managed in the {LINK}live events{/LINK} section.",
                     replacements: {
+                      BR: () => (0, _v1.jsx)("br", {}),
                       LINK: _v0 => (0, _v1.jsx)(_v11.Link, {
                         href: "/library/events",
                         variant: "inline",
@@ -1458,25 +1548,25 @@
                     },
                     dictionary: {
                       es: {
-                        singular: "Las series de eventos son centros con marca que alojan múltiples eventos y contenido bajo demanda en un mismo lugar. Las páginas de eventos individuales se gestionan en la sección {LINK}eventos en vivo{/LINK}."
+                        singular: "Las series de eventos son centros de marca que reúnen múltiples eventos y contenido bajo demanda en un solo lugar.{BR}Las páginas de eventos individuales se gestionan en la sección {LINK}eventos en vivo{/LINK}."
                       },
                       "de-DE": {
-                        singular: "Eventreihen sind gebrandete Hubs, die mehrere Veranstaltungen sowie On-Demand-Inhalte an einem Ort bündeln. Einzelne Veranstaltungsseiten werden im Bereich {LINK}Live-Events{/LINK} verwaltet."
+                        singular: "Event-Serien sind gebrandete Hubs, die mehrere Events und On-Demand-Inhalte an einem Ort bündeln.{BR}Einzelne Event-Seiten werden im Bereich {LINK}Live-Events{/LINK} verwaltet."
                       },
                       "fr-FR": {
-                        singular: "Les séries d'événements sont des hubs de marque rassemblant plusieurs événements et du contenu à la demande au même endroit. Les pages d'événements individuelles sont gérées dans la section {LINK}événements en direct{/LINK}."
+                        singular: "Les séries d'événements sont des hubs de marque regroupant plusieurs événements et du contenu à la demande au même endroit.{BR}Les pages des événements individuels sont gérées dans la section {LINK}événements en direct{/LINK}."
                       },
                       "ja-JP": {
-                        singular: "イベントシリーズは、複数のイベントとオンデマンドコンテンツを一か所でまとめて公開するブランド化されたハブです。個別のイベントページは{LINK}ライブイベント{/LINK}セクションで管理されます。"
+                        singular: "イベントシリーズは、複数のイベントとオンデマンドコンテンツを1か所でまとめて提供するブランド化されたハブです。{BR}個別のイベントページは{LINK}ライブイベント{/LINK}セクションで管理されます。"
                       },
                       "ko-KR": {
-                        singular: "이벤트 시리즈는 한 곳에서 여러 이벤트와 온디맨드 콘텐츠를 제공하는 브랜드 허브입니다. 개별 이벤트 페이지는 {LINK}live events{/LINK} 섹션에서 관리됩니다."
+                        singular: "이벤트 시리즈는 여러 이벤트와 주문형 콘텐츠를 한곳에서 제공하는 브랜드화된 허브입니다.{BR}개별 이벤트 페이지는 {LINK}라이브 이벤트{/LINK} 섹션에서 관리됩니다."
                       },
                       "pt-BR": {
-                        singular: "Séries de eventos são hubs com identidade de marca que hospedam vários eventos e conteúdos sob demanda em um só lugar. As páginas de eventos individuais são gerenciadas na seção {LINK}eventos ao vivo{/LINK}."
+                        singular: "Séries de eventos são hubs de marca que hospedam vários eventos e conteúdo sob demanda em um só lugar.{BR}As páginas de eventos individuais são gerenciadas na seção {LINK}eventos ao vivo{/LINK}."
                       },
                       "zh-CN": {
-                        singular: "活动系列是品牌化的集中枢纽，可在同一位置承载多个活动和点播内容。单个活动页面在 {LINK}live events{/LINK} 部分进行管理。"
+                        singular: "活动系列是品牌化的枢纽，可在同一处承载多个活动和点播内容。{BR}单个活动页面在 {LINK}直播活动{/LINK} 部分进行管理。"
                       }
                     }
                   })
@@ -1666,15 +1756,15 @@
               isCreateDisabled: !1,
               onCreate: _v20
             })
-          }) : "LIST_LAYOUT" === _v1 ? (0, _v1.jsx)(_v82, {
+          }) : "LIST_LAYOUT" === _v1 ? (0, _v1.jsx)(_v83, {
             isLoading: _v10 || _v11,
             onSeriesDeleted: _v15,
             series: _v8 ?? []
-          }) : (0, _v1.jsx)(_v76, {
+          }) : (0, _v1.jsx)(_v77, {
             isLoading: _v10 || _v11,
             onSeriesDeleted: _v15,
             series: _v8 ?? []
-          }), _v17 && !_v12 && (0, _v1.jsx)(_v85, {
+          }), _v17 && !_v12 && (0, _v1.jsx)(_v86, {
             isLoading: _v11,
             onLoadMore: _v14
           })]
@@ -1687,17 +1777,17 @@
         })]
       });
     };
-  var _v87 = _v0.i(0),
-    _v88 = _v0.i(0),
+  var _v88 = _v0.i(0),
     _v89 = _v0.i(0),
     _v90 = _v0.i(0),
-    _v91 = _v0.i(0);
-  let _v92 = () => {
+    _v91 = _v0.i(0),
+    _v92 = _v0.i(0);
+  let _v93 = () => {
     let _v0 = (0, _v23.useViewer)(),
       {
         settings: _v1,
         isLoadingResponse: _v2
-      } = (0, _v87.useOrionSettings)();
+      } = (0, _v88.useOrionSettings)();
     return _v2 || !_v0 ? null : _v1.enable_event_series ? (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
@@ -1728,17 +1818,17 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v91.VideoModalContextProvider, {
-        children: (0, _v1.jsx)(_v86, {})
+      }), (0, _v1.jsx)(_v92.VideoModalContextProvider, {
+        children: (0, _v1.jsx)(_v87, {})
       })]
-    }) : (0, _v1.jsx)(_v88.ErrorPage, {
+    }) : (0, _v1.jsx)(_v89.ErrorPage, {
       error: new _v3.ResourceNotFoundError()
     });
   };
-  _v92.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v90.VideoLibraryLayout, {
+  _v93.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v91.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
-    sideNavContent: (0, _v1.jsx)(_v89.SideNavContent, {
+    sideNavContent: (0, _v1.jsx)(_v90.SideNavContent, {
       surface: "home"
     }),
     children: _v0
@@ -1749,5 +1839,5 @@
     }
   }), {
     requireLogin: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v92], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v93], 0);
 }

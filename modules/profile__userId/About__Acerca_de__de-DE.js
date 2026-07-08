@@ -1860,25 +1860,25 @@
       singular: "Not playing nice",
       dictionary: {
         es: {
-          singular: "No se reproduce bien"
+          singular: "Mal comportamiento"
         },
         "de-DE": {
-          singular: "Jemand schlägt hier über die Stränge"
+          singular: "Verhält sich unangemessen"
         },
         "fr-FR": {
-          singular: "Ne joue pas fair-play"
+          singular: "Comportement inapproprié"
         },
         "ja-JP": {
-          singular: "他者への配慮に欠けている"
+          singular: "不適切なふるまい"
         },
         "ko-KR": {
-          singular: "친절함을 유지하지 않음"
+          singular: "예의 없음"
         },
         "pt-BR": {
-          singular: "A reprodução não está boa"
+          singular: "Comportamento impróprio"
         },
         "zh-CN": {
-          singular: "看得不舒服"
+          singular: "行为不当"
         }
       }
     }),

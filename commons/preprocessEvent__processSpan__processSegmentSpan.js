@@ -4493,7 +4493,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "e9fbd4c2a017918eb3d6728a9b2af03e47e63f3d",
+      release: "6a72ab90cc344836e73aa3f4f5a1e1935c5d468c",
       ..._v0
     };
     !function (_v0) {
@@ -4621,7 +4621,9 @@ Error:`, _v0);
         if (_v0.length > 0 && _v0.every(_v0 => (_v0.filename ?? _v0.abs_path ?? "").includes("@sentry"))) return null;
       }
       let _v9 = _v0.exception?.values?.[0];
-      if (_v9?.type === "UnhandledRejection" && /Object Not Found Matching Id:\d+, MethodName:\w+, ParamCount:\d+/.test(_v9.value ?? "") && !(_v9.stacktrace?.frames ?? []).some(_v0 => {
+      if (_v9?.type === "InvalidStateError" && _v9.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v9.mechanism?.handled === !1 && /Failed to read the 'responseText' property from 'XMLHttpRequest'/.test(_v9.value ?? "") && /was 'arraybuffer'/.test(_v9.value ?? "")) return null;
+      let _v10 = _v0.exception?.values?.[0];
+      if (_v10?.type === "UnhandledRejection" && /Object Not Found Matching Id:\d+, MethodName:\w+, ParamCount:\d+/.test(_v10.value ?? "") && !(_v10.stacktrace?.frames ?? []).some(_v0 => {
         let _v1 = _v0.filename ?? _v0.abs_path ?? "";
         return _v1.includes("_next/static") && !1 !== _v0.in_app || _v1.includes("app:///p/") || _v1.includes("/telecine") || _v1.includes("/media-sorcerer");
       })) return null;
