@@ -35,7 +35,8 @@
   }, {
     requireLogin: !0,
     capability: "hasCreation",
-    redirect: "/features/video-editor"
+    redirect: "/features/video-editor",
+    inlineMagistoResources: !0
   }), _v6.getLayout = _v0 => (0, _v1.jsx)(_v5.ReactRouterLayout, {
     path: "/create",
     children: _v0

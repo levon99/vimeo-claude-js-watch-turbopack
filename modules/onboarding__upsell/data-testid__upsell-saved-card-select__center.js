@@ -295,13 +295,13 @@
             singular: "par mois, facturé mensuellement"
           },
           "ja-JP": {
-            singular: "月額、毎月請求"
+            singular: "月額（毎月請求）"
           },
           "ko-KR": {
-            singular: "월별 요금(월별 청구)"
+            singular: "월별, 매월 청구"
           },
           "pt-BR": {
-            singular: "por mês, faturado mensalmente"
+            singular: "por mês, cobrado mensalmente"
           },
           "zh-CN": {
             singular: "每月，按月计费"

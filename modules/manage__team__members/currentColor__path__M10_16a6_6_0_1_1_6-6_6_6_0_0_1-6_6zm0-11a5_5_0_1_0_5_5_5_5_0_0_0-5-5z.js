@@ -54,7 +54,8 @@
         _v5 = _v1.teamMembersCount,
         _v6 = _v1.currentTeamSize,
         _v7 = _v1?.untranslatedUserRole,
-        _v8 = !_v2 && _v7 === _v27.TeamRole.Owner;
+        _v8 = !_v2 && _v7 === _v27.TeamRole.Owner,
+        _v9 = _v2 && (_v1.teamSeats?.adminSeats ?? 0) > 0;
       return (0, _v2.jsxs)(_v7.Flex, {
         justifyContent: "flex-start",
         alignItems: "center",
@@ -63,11 +64,30 @@
         children: [_v4.map(_v0 => {
           if (_v0.permissionLevel && _v0.role) {
             let _v0 = _v0.permissionLevel.split(" ").map((_v0, _v1) => 0 === _v1 ? _v0.toLowerCase() : _v0).join("") + "Count",
-              _v1 = _v0.role.toLowerCase();
+              _v1 = _v0.role.toLowerCase(),
+              _v2 = _v1 === _v27.TeamRole.Admin.toLowerCase();
             return (0, _v2.jsx)(_v30, {
               count: _v5[_v1] ?? _v0.count,
               paragraphDataId: _v0,
-              children: _v0.displayName
+              children: _v2 && _v9 ? (0, _v2.jsxs)(_v7.Flex, {
+                alignItems: "center",
+                display: "inline-flex",
+                gap: (0, _v8.rem)(2),
+                children: [_v0.displayName, (0, _v2.jsx)(_v23.Tooltip, {
+                  label: _v28.T.AdminSeatCountExplanation,
+                  children: (0, _v2.jsx)(_v6.Box, {
+                    as: "span",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    tabIndex: 0,
+                    "aria-label": _v28.T.AdminSeatCountExplanation,
+                    children: (0, _v2.jsx)(_v26, {
+                      color: "text-secondary",
+                      boxSize: (0, _v8.rem)(13.2)
+                    })
+                  })
+                })]
+              }) : _v0.displayName
             }, _v0);
           }
         }), _v3 && !_v2 && (0, _v2.jsxs)(_v2.Fragment, {

@@ -12,33 +12,40 @@
     },
     _v6 = _v0 => _v0.toLowerCase().includes("googlebot"),
     _v7 = _v0 => {
+      let _v1 = "function" == typeof _v0.headers?.get ? _v0.headers.get("host") : _v0.headers?.host;
+      return _v1 ? _v1.toLowerCase().split(":")[0].replace(/^www\./, "") : "";
+    },
+    _v8 = _v0 => {
       if ("function" == typeof _v0.cookies?.get) return null != _v0.cookies.get("vimeo");
       let _v1 = _v0.cookies;
       if (_v1 && null != _v1.vimeo) return !0;
       let _v2 = _v0.headers?.cookie;
       return "string" == typeof _v2 && /(?:^|;\s*)vimeo=/.test(_v2);
     };
-  _v0.s(["hasLoggedIn", 0, _v5, "hasVimeoCookie", 0, _v7, "isGooglebot", 0, _v6, "isLoggedOut", 0, _v4], 0);
-  var _v8 = _v0.i(0),
-    _v9 = _v0.i(0);
-  let _v10 = (_v0, _v1, _v2) => globalThis.__metrics?.histogram(_v0, _v1, _v2),
-    _v11 = (_v0, _v1) => globalThis.__metrics?.counter(_v0, _v1),
-    _v12 = async () => await _v3.default.getConfig(),
-    _v13 = ["cookie", "crossroads-jwt", "crossroads-language", "crossroads-logged-out", "user-agent"];
-  async function _v14(_v0) {
+  _v0.s(["getRequestHost", 0, _v7, "hasLoggedIn", 0, _v5, "hasVimeoCookie", 0, _v8, "isGooglebot", 0, _v6, "isLoggedOut", 0, _v4], 0);
+  var _v9 = _v0.i(0),
+    _v10 = _v0.i(0);
+  let _v11 = (_v0, _v1, _v2) => globalThis.__metrics?.histogram(_v0, _v1, _v2),
+    _v12 = (_v0, _v1) => globalThis.__metrics?.counter(_v0, _v1),
+    _v13 = async () => await _v3.default.getConfig(),
+    _v14 = ["cookie", "crossroads-jwt", "crossroads-language", "crossroads-logged-out", "user-agent"];
+  async function _v15(_v0) {
     let _v1 = _v0.vimeoConfig.get("vimeo_url");
     if (!_v1) return null;
-    let _v2 = {
+    let _v2 = _v7(_v0.req),
+      _v3 = String(_v1).toLowerCase();
+    if (_v2 && _v2 !== _v3.replace(/^www\./, "")) return null;
+    let _v4 = {
       ..._v0.headers,
       Accept: "application/json"
     };
-    for (let _v0 of _v13) {
+    for (let _v0 of _v14) {
       let _v0 = _v0.req.headers[_v0];
-      _v0 && (_v2[_v0] = Array.isArray(_v0) ? _v0.join("; ") : _v0);
+      _v0 && (_v4[_v0] = Array.isArray(_v0) ? _v0.join("; ") : _v0);
     }
     try {
       let _v0 = await fetch(`https://${_v1}/_next/viewer`, {
-        headers: _v2
+        headers: _v4
       });
       if (!_v0.ok) return null;
       let _v1 = await _v0.json();
@@ -48,14 +55,14 @@
       return console.warn("withPageSetup: failed to fetch viewer for inline bootstrap", _v0), null;
     }
   }
-  async function _v15(_v0) {
+  async function _v16(_v0) {
     let _v1 = _v0.vimeoConfig.get("vimeo_url");
     if (!_v1) return null;
     let _v2 = {
       ..._v0.headers,
       Accept: "application/json"
     };
-    for (let _v0 of _v13) {
+    for (let _v0 of _v14) {
       let _v0 = _v0.req.headers[_v0];
       _v0 && (_v2[_v0] = Array.isArray(_v0) ? _v0.join("; ") : _v0);
     }
@@ -71,14 +78,14 @@
       return console.warn("withPageSetup: failed to fetch player assets", _v0), null;
     }
   }
-  async function _v16(_v0) {
+  async function _v17(_v0) {
     let _v1 = _v0.vimeoConfig.get("vimeo_url");
     if (!_v1) return null;
     let _v2 = {
       ..._v0.headers,
       Accept: "application/json"
     };
-    for (let _v0 of _v13) {
+    for (let _v0 of _v14) {
       let _v0 = _v0.req.headers[_v0];
       _v0 && (_v2[_v0] = Array.isArray(_v0) ? _v0.join("; ") : _v0);
     }
@@ -94,9 +101,9 @@
       return console.warn("withPageSetup: failed to fetch create preloads", _v0), null;
     }
   }
-  function _v17(_v0) {
+  function _v18(_v0) {
     let _v1 = _v0.vimeoConfig.get("api.creation.magisto.host");
-    return _v1 ? (0, _v8.buildMagistoResourceUrls)(String(_v1)) : (console.warn("withPageSetup: api.creation.magisto.host missing from config"), null);
+    return _v1 ? (0, _v9.buildMagistoResourceUrls)(String(_v1)) : (console.warn("withPageSetup: api.creation.magisto.host missing from config"), null);
   }
   _v0.s(["withPageSetup", 0, function (_v0, _v1) {
     let _v2, _v3;
@@ -124,7 +131,7 @@
     return "function" == typeof _v0 ? (_v2 = _v0, _v3 = _v1) : (_v3 = _v0, _v2 = () => ({
       props: {}
     })), async function (_v0) {
-      _v3?.noIndex && _v0.res.setHeader("X-Robots-Tag", "noindex"), _v3?.inlineViewer && !_v7(_v0.req) && _v0.res.setHeader("Cache-Control", "public, max-age=600");
+      _v3?.noIndex && _v0.res.setHeader("X-Robots-Tag", "noindex"), _v3?.inlineViewer && !_v8(_v0.req) && _v0.res.setHeader("Cache-Control", "public, max-age=600");
       let _v1 = _v1.default.hrtime.bigint(),
         _v2 = function (_v0, _v1) {
           let _v2 = _v0.split("?")[0];
@@ -161,10 +168,10 @@
           _v5 && _v0.res.setHeader("Cache-Control", "private, no-store");
         },
         _v8 = (_v0, _v1, _v2) => {
-          _v10("vimeo_nextjs_ssr_setup_duration_seconds", {
+          _v11("vimeo_nextjs_ssr_setup_duration_seconds", {
             route: _v2,
             result: _v1
-          }, _v2), _v10("vimeo_nextjs_http_request_duration_seconds", {
+          }, _v2), _v11("vimeo_nextjs_http_request_duration_seconds", {
             route: _v2,
             method: _v3,
             status_code: _v0
@@ -173,7 +180,7 @@
         _v9 = _v0 => "number" == typeof _v0.statusCode ? String(_v0.statusCode) : _v0.permanent ? "308" : "307",
         _v10 = (_v0, _v1) => {
           let _v2 = _v6 ? 308 : 302;
-          return _v11("vimeo_nextjs_ssr_auth_redirect_total", {
+          return _v12("vimeo_nextjs_ssr_auth_redirect_total", {
             reason: _v0,
             destination: "/join" === _v1 ? "join" : "/log_in" === _v1 ? "log_in" : "custom"
           }), _v7(), _v8(String(_v2), "auth_redirect", _v4()), {
@@ -190,7 +197,7 @@
           _v1,
           _v2,
           _v3 = (_v0 = _v0.req.headers["crossroads-language"] ?? "en", (0, _v2.setLocale)(_v0), _v0),
-          _v4 = await _v12(),
+          _v4 = await _v13(),
           _v5 = (_v1 = _v0.req.headers["crossroads-jwt"], _v2 = {
             "Content-Type": "application/json",
             Authorization: `jwt ${_v1}`
@@ -215,10 +222,10 @@
           };
         if (!_v3?.requireLogin && !_v3?.capability && !_v3?.staffOnly) {
           _v11 = _v4();
-          let _v0 = _v3?.inlineViewer === "all" || _v3?.inlineViewer && _v5.jwt && !_v4(_v5.req) ? _v14(_v5) : null,
-            _v1 = _v3?.inlinePlayerAssets ? _v15(_v5) : null,
-            _v2 = _v3?.inlineCreatePreloads && _v4(_v5.req) ? _v16(_v5) : null,
-            _v3 = _v3?.inlineMagistoResources ? _v17(_v5) : null,
+          let _v0 = _v3?.inlineViewer === "all" || _v3?.inlineViewer && _v5.jwt && !_v4(_v5.req) ? _v15(_v5) : null,
+            _v1 = _v3?.inlinePlayerAssets ? _v16(_v5) : null,
+            _v2 = _v3?.inlineCreatePreloads && _v4(_v5.req) ? _v17(_v5) : null,
+            _v3 = _v3?.inlineMagistoResources ? _v18(_v5) : null,
             _v4 = await _v2(_v5),
             _v5 = "redirect" in _v4 ? _v9(_v4.redirect) : "notFound" in _v4 ? "404" : "200";
           return _v8(_v5, "success", _v11), _v4(_v4, {
@@ -234,7 +241,7 @@
         let _v7 = {};
         if (_v3?.staffOnly || _v3?.capability) try {
           let _v0 = ["canViewStaffOnlyPage"];
-          if (_v3?.capability && _v0.push(_v3.capability), _v7 = await (0, _v9.fetchAndFormatCapabilties)({
+          if (_v3?.capability && _v0.push(_v3.capability), _v7 = await (0, _v10.fetchAndFormatCapabilties)({
             jwt: _v5.jwt,
             capabilities: _v0,
             apiUrl: _v5.baseUrl,
@@ -245,7 +252,7 @@
           if (_v3?.capability && !1 === _v7[_v3.capability]) {
             if (console.log("capability: User is missing capabilities"), _v3?.redirect) {
               let _v0 = _v6 ? 308 : 307;
-              return _v11("vimeo_nextjs_ssr_auth_redirect_total", {
+              return _v12("vimeo_nextjs_ssr_auth_redirect_total", {
                 reason: "capability_denied",
                 destination: "custom"
               }), _v7(), _v8(String(_v0), "auth_redirect", _v4()), {
@@ -263,10 +270,10 @@
           return console.log("Failed to fetch capabilities ", _v0), _v10("capability_fetch_failed", _v6("/log_in"));
         }
         _v5.capabilities = _v7, _v11 = _v4();
-        let _v8 = _v3?.inlineViewer ? _v14(_v5) : null,
-          _v9 = _v3?.inlinePlayerAssets ? _v15(_v5) : null,
-          _v10 = _v3?.inlineCreatePreloads && _v4(_v5.req) ? _v16(_v5) : null,
-          _v11 = _v3?.inlineMagistoResources ? _v17(_v5) : null,
+        let _v8 = _v3?.inlineViewer ? _v15(_v5) : null,
+          _v9 = _v3?.inlinePlayerAssets ? _v16(_v5) : null,
+          _v10 = _v3?.inlineCreatePreloads && _v4(_v5.req) ? _v17(_v5) : null,
+          _v11 = _v3?.inlineMagistoResources ? _v18(_v5) : null,
           _v12 = await _v2(_v5),
           _v13 = "redirect" in _v12 ? _v9(_v12.redirect) : "notFound" in _v12 ? "404" : "200";
         return _v8(_v13, "success", _v11), _v4(_v12, {

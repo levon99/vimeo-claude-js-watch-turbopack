@@ -775,7 +775,7 @@
     let _v3 = _v1.createProcessor(),
       _v4 = _v1.createProcessor();
     try {
-      return await Promise.all([_v3.init(""), _v4.init("")]), {
+      return await Promise.all([_v3.init(), _v4.init()]), {
         preview: _v4,
         video: _v3
       };

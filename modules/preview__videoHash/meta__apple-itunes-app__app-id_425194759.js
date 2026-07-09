@@ -42,6 +42,7 @@
       }
     }
   }), {
-    requireLogin: !0
+    requireLogin: !0,
+    inlineMagistoResources: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v8], 0);
 }

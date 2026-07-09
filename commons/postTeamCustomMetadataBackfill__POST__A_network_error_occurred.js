@@ -414,71 +414,73 @@
       [_v40, _v41] = (0, _v2.useState)("default"),
       [_v42, _v43] = (0, _v2.useState)(""),
       _v44 = (0, _v2.useRef)(!1),
-      [_v45, _v46] = (0, _v2.useState)(!1),
-      [_v47, _v48] = (0, _v2.useState)(null),
+      _v45 = (0, _v2.useRef)(null),
+      _v46 = (0, _v2.useRef)(null),
+      [_v47, _v48] = (0, _v2.useState)(!1),
+      [_v49, _v50] = (0, _v2.useState)(null),
       {
-        isOpen: _v49,
-        onOpen: _v50,
-        onClose: _v51
+        isOpen: _v51,
+        onOpen: _v52,
+        onClose: _v53
       } = (0, _v56.useDisclosure)(),
-      [_v52, _v53] = (0, _v2.useState)(""),
-      [_v54, _v55] = (0, _v2.useState)(!1),
-      [_v56, _v57] = (0, _v2.useState)(null),
+      [_v54, _v55] = (0, _v2.useState)(""),
+      [_v56, _v57] = (0, _v2.useState)(!1),
+      [_v58, _v59] = (0, _v2.useState)(null),
       {
-        isOpen: _v58,
-        onOpen: _v59,
-        onClose: _v60
+        isOpen: _v60,
+        onOpen: _v61,
+        onClose: _v62
       } = (0, _v56.useDisclosure)(),
-      [_v61, _v62] = (0, _v2.useState)(!1),
-      [_v63, _v64] = (0, _v2.useState)(null),
+      [_v63, _v64] = (0, _v2.useState)(!1),
+      [_v65, _v66] = (0, _v2.useState)(null),
       {
-        isOpen: _v65,
-        onOpen: _v66,
-        onClose: _v67
+        isOpen: _v67,
+        onOpen: _v68,
+        onClose: _v69
       } = (0, _v56.useDisclosure)(),
-      [_v68, _v69] = (0, _v2.useState)("general"),
-      [_v70, _v71] = (0, _v2.useState)(""),
+      [_v70, _v71] = (0, _v2.useState)("general"),
       [_v72, _v73] = (0, _v2.useState)(""),
-      [_v74, _v75] = (0, _v2.useState)(!1),
-      [_v76, _v77] = (0, _v2.useState)(""),
-      [_v78, _v79] = (0, _v2.useState)([{
+      [_v74, _v75] = (0, _v2.useState)(""),
+      [_v76, _v77] = (0, _v2.useState)(!1),
+      [_v78, _v79] = (0, _v2.useState)(""),
+      [_v80, _v81] = (0, _v2.useState)([{
         originalValue: null,
         value: ""
       }]),
-      [_v80, _v81] = (0, _v2.useState)(new Set()),
-      [_v82, _v83] = (0, _v2.useState)(null),
+      [_v82, _v83] = (0, _v2.useState)(new Set()),
+      [_v84, _v85] = (0, _v2.useState)(null),
       {
-        isOpen: _v84,
-        onOpen: _v85,
-        onClose: _v86
+        isOpen: _v86,
+        onOpen: _v87,
+        onClose: _v88
       } = (0, _v56.useDisclosure)(),
       {
-        isOpen: _v87,
-        onOpen: _v88,
-        onClose: _v89
+        isOpen: _v89,
+        onOpen: _v90,
+        onClose: _v91
       } = (0, _v56.useDisclosure)(),
       {
-        isOpen: _v90,
-        onOpen: _v91,
-        onClose: _v92
+        isOpen: _v92,
+        onOpen: _v93,
+        onClose: _v94
       } = (0, _v56.useDisclosure)(),
-      _v93 = (0, _v2.useCallback)(() => {
+      _v95 = (0, _v2.useCallback)(() => {
         _v25(""), _v27(""), _v29("str"), _v31(""), _v33(!1), _v35([""]), _v37(new Set()), _v39(1), _v41("default"), _v43(""), _v44.current = !1;
       }, []),
-      _v94 = (0, _v2.useCallback)(() => {
-        _v93(), _v22();
-      }, [_v93, _v22]),
-      _v95 = (0, _v2.useMemo)(() => ({
+      _v96 = (0, _v2.useCallback)(() => {
+        _v95(), _v22();
+      }, [_v95, _v22]),
+      _v97 = (0, _v2.useMemo)(() => ({
         "Content-Type": "application/json",
         Authorization: _v6 ? `jwt ${_v6}` : "",
         "Vimeo-Page": `${_v7}`,
         "Accept-Language": _v8 ?? "en"
       }), [_v6, _v7, _v8]),
-      _v96 = (0, _v2.useCallback)(_v0 => {
-        _v48(_v0), _v53(""), _v55(!1), _v50();
-      }, [_v50]),
-      _v97 = (0, _v2.useCallback)(() => {
-        _v47 && _v0 && _v52.trim() && (_v51(), _v23({
+      _v98 = (0, _v2.useCallback)(_v0 => {
+        _v50(_v0), _v55(""), _v57(!1), _v52();
+      }, [_v52]),
+      _v99 = (0, _v2.useCallback)(() => {
+        _v49 && _v0 && _v54.trim() && (_v53(), _v23({
           title: (0, _v87.translate)({
             singular: "Applying to all videos may take some time.",
             dictionary: {
@@ -511,11 +513,11 @@
             userId: _v0
           },
           variables: {
-            fieldId: _v47.id,
-            fieldValue: _v89(_v52, _v47.type),
-            overrideExisting: _v54
+            fieldId: _v49.id,
+            fieldValue: _v89(_v54, _v49.type),
+            overrideExisting: _v56
           },
-          headers: _v95,
+          headers: _v97,
           baseUrl: _v5
         }).catch(() => {
           _v23({
@@ -549,12 +551,12 @@
             status: "error"
           });
         }));
-      }, [_v47, _v0, _v52, _v54, _v95, _v5, _v51, _v23]),
-      _v98 = (0, _v2.useCallback)(_v0 => {
-        _v57(_v0), _v59();
-      }, [_v59]),
-      _v99 = (0, _v2.useCallback)(_v0 => {
-        if (_v64(_v0), _v71(_v0.name ?? ""), _v73(_v0.description ?? ""), _v75(_v0.mandatory ?? !1), _v69("general"), "select" === _v0.type || "multi-select" === _v0.type) {
+      }, [_v49, _v0, _v54, _v56, _v97, _v5, _v53, _v23]),
+      _v100 = (0, _v2.useCallback)(_v0 => {
+        _v59(_v0), _v61();
+      }, [_v61]),
+      _v101 = (0, _v2.useCallback)(_v0 => {
+        if (_v66(_v0), _v73(_v0.name ?? ""), _v75(_v0.description ?? ""), _v77(_v0.mandatory ?? !1), _v71("general"), "select" === _v0.type || "multi-select" === _v0.type) {
           let _v0 = (_v0.values?.length ? _v0.values : []).map(_v0 => ({
             originalValue: _v0,
             value: _v0
@@ -562,46 +564,46 @@
           0 === _v0.length && _v0.push({
             originalValue: null,
             value: ""
-          }), _v79(_v0);
+          }), _v81(_v0);
           let _v1 = (_v0.default ?? "").split(",").filter(Boolean),
             _v2 = new Set();
           _v1.forEach(_v0 => {
             let _v1 = _v0.findIndex(_v0 => _v0.value === _v0);
             _v1 >= 0 && _v2.add(_v1);
-          }), _v81(_v2), _v77("");
-        } else _v79([{
+          }), _v83(_v2), _v79("");
+        } else _v81([{
           originalValue: null,
           value: ""
-        }]), _v81(new Set()), _v77(_v0.default ?? "");
-        _v66();
-      }, [_v66]),
-      _v100 = (0, _v2.useMemo)(() => {
-        if (!_v63) return !1;
-        if (_v70 !== (_v63.name ?? "") || _v72 !== (_v63.description ?? "") || _v74 !== (_v63.mandatory ?? !1)) return !0;
-        if ("select" === _v63.type || "multi-select" === _v63.type) {
-          let _v0 = _v63.values?.length ? _v63.values : [],
-            _v1 = _v78.map(_v0 => _v0.value);
+        }]), _v83(new Set()), _v79(_v0.default ?? "");
+        _v68();
+      }, [_v68]),
+      _v102 = (0, _v2.useMemo)(() => {
+        if (!_v65) return !1;
+        if (_v72 !== (_v65.name ?? "") || _v74 !== (_v65.description ?? "") || _v76 !== (_v65.mandatory ?? !1)) return !0;
+        if ("select" === _v65.type || "multi-select" === _v65.type) {
+          let _v0 = _v65.values?.length ? _v65.values : [],
+            _v1 = _v80.map(_v0 => _v0.value);
           if (_v1.length !== _v0.length || _v1.some((_v0, _v1) => _v0 !== _v0[_v1])) return !0;
-          let _v2 = (_v63.default ?? "").split(",").filter(Boolean),
+          let _v2 = (_v65.default ?? "").split(",").filter(Boolean),
             _v3 = new Set();
           if (_v2.forEach(_v0 => {
             let _v1 = _v0.indexOf(_v0);
             _v1 >= 0 && _v3.add(_v1);
-          }), _v80.size !== _v3.size || [..._v80].some(_v0 => !_v3.has(_v0))) return !0;
-        } else if (_v76 !== (_v63.default ?? "")) return !0;
+          }), _v82.size !== _v3.size || [..._v82].some(_v0 => !_v3.has(_v0))) return !0;
+        } else if (_v78 !== (_v65.default ?? "")) return !0;
         return !1;
-      }, [_v63, _v70, _v72, _v74, _v78, _v80, _v76]),
-      _v101 = (0, _v2.useMemo)(() => {
-        if (!_v63 || "select" !== _v63.type && "multi-select" !== _v63.type) return {
+      }, [_v65, _v72, _v74, _v76, _v80, _v82, _v78]),
+      _v103 = (0, _v2.useMemo)(() => {
+        if (!_v65 || "select" !== _v65.type && "multi-select" !== _v65.type) return {
           added: [],
           deleted: [],
           renamed: []
         };
-        let _v0 = _v63.values ?? [],
+        let _v0 = _v65.values ?? [],
           _v1 = [],
           _v2 = [],
           _v3 = [],
-          _v4 = _v78.filter(_v0 => null !== _v0.originalValue);
+          _v4 = _v80.filter(_v0 => null !== _v0.originalValue);
         for (let _v0 of _v0) {
           let _v0 = _v4.find(_v0 => _v0.originalValue === _v0);
           _v0 ? _v0.value !== _v0 && _v3.push({
@@ -609,18 +611,18 @@
             to: _v0.value
           }) : _v2.push(_v0);
         }
-        for (let _v0 of _v78) null === _v0.originalValue && _v0.value.trim() && _v1.push(_v0.value);
+        for (let _v0 of _v80) null === _v0.originalValue && _v0.value.trim() && _v1.push(_v0.value);
         return {
           added: _v1,
           deleted: _v2,
           renamed: _v3
         };
-      }, [_v63, _v78]),
-      _v102 = _v101.added.length > 0 || _v101.deleted.length > 0 || _v101.renamed.length > 0,
-      _v103 = (0, _v2.useCallback)(() => {
-        _v100 ? _v88() : _v67();
-      }, [_v100, _v88, _v67]),
-      _v104 = (0, _v2.useMemo)(() => {
+      }, [_v65, _v80]),
+      _v104 = _v103.added.length > 0 || _v103.deleted.length > 0 || _v103.renamed.length > 0,
+      _v105 = (0, _v2.useCallback)(() => {
+        _v102 ? _v90() : _v69();
+      }, [_v102, _v90, _v69]),
+      _v106 = (0, _v2.useMemo)(() => {
         if ("select" === _v28 || "multi-select" === _v28) {
           let _v0 = [..._v36].map(_v0 => _v34[_v0]).filter(Boolean);
           return _v0.length > 0 ? _v0.join(", ") : (0, _v87.translate)({
@@ -752,10 +754,10 @@
           }
         });
       }, [_v28, _v30, _v36, _v34]),
-      _v105 = (0, _v2.useMemo)(() => "select" === _v28 || "multi-select" === _v28 ? [..._v36].some(_v0 => !!_v34[_v0]) : "bool" === _v28 ? "true" === _v30 || "false" === _v30 : _v30.length > 0, [_v28, _v30, _v36, _v34]),
+      _v107 = (0, _v2.useMemo)(() => "select" === _v28 || "multi-select" === _v28 ? [..._v36].some(_v0 => !!_v34[_v0]) : "bool" === _v28 ? "true" === _v30 || "false" === _v30 : _v30.length > 0, [_v28, _v30, _v36, _v34]),
       {
-        data: _v106,
-        mutate: _v107
+        data: _v108,
+        mutate: _v109
       } = (0, _v80.useGetTeamCustomMetadata)(() => _v0 ? {
         where: {
           userId: _v0
@@ -764,22 +766,22 @@
       } : null, {
         revalidateOnFocus: !1
       }),
-      _v108 = (0, _v2.useCallback)(() => {
-        if (!_v63 || !_v0) return;
+      _v110 = (0, _v2.useCallback)(() => {
+        if (!_v65 || !_v0) return;
         let _v0 = {
-            id: _v63.id,
-            name: _v70.trim(),
-            mandatory: _v74,
-            ...(_v72.trim() ? {
-              description: _v72.trim()
+            id: _v65.id,
+            name: _v72.trim(),
+            mandatory: _v76,
+            ...(_v74.trim() ? {
+              description: _v74.trim()
             } : {
               description: null
             })
           },
           _v1 = [];
-        if ("select" === _v63.type || "multi-select" === _v63.type) {
-          let _v0 = _v63.values ?? [],
-            _v1 = _v78.filter(_v0 => null !== _v0.originalValue);
+        if ("select" === _v65.type || "multi-select" === _v65.type) {
+          let _v0 = _v65.values ?? [],
+            _v1 = _v80.filter(_v0 => null !== _v0.originalValue);
           for (let _v0 of _v0) {
             let _v0 = _v1.find(_v0 => _v0.originalValue === _v0);
             _v0 ? _v0.value !== _v0 && _v1.push({
@@ -789,13 +791,13 @@
               oldValue: _v0
             });
           }
-          for (let _v0 of _v78) null === _v0.originalValue && _v0.value.trim() && _v1.push({
+          for (let _v0 of _v80) null === _v0.originalValue && _v0.value.trim() && _v1.push({
             newValue: _v0.value
           });
-          let _v2 = [..._v80].map(_v0 => _v78[_v0]?.value).filter(Boolean);
+          let _v2 = [..._v82].map(_v0 => _v80[_v0]?.value).filter(Boolean);
           _v0.defaultValue = _v2.length > 0 ? _v2.join(",") : null;
-        } else _v0.defaultValue = _v76 || null;
-        _v67(), _v23({
+        } else _v0.defaultValue = _v78 || null;
+        _v69(), _v23({
           title: (0, _v87.translate)({
             singular: "Saving changes. This can take a moment for large fields.",
             dictionary: {
@@ -831,10 +833,10 @@
               },
               select: [],
               variables: {
-                fieldId: _v63.id,
+                fieldId: _v65.id,
                 options: _v1
               },
-              headers: _v95,
+              headers: _v97,
               baseUrl: _v5
             })), await (0, _v74.postTeamCustomMetadata)({
               where: {
@@ -844,9 +846,9 @@
               variables: {
                 fields: [_v0]
               },
-              headers: _v95,
+              headers: _v97,
               baseUrl: _v5
-            }), await _v107(), _v23({
+            }), await _v109(), _v23({
               title: (0, _v87.translate)({
                 singular: "Custom metadata field updated.",
                 dictionary: {
@@ -876,7 +878,7 @@
               duration: 0
             });
           } catch {
-            await _v107(), _v23({
+            await _v109(), _v23({
               title: (0, _v87.translate)({
                 singular: "Failed to update field. Please try again.",
                 dictionary: {
@@ -908,13 +910,13 @@
             });
           }
         })();
-      }, [_v63, _v0, _v70, _v72, _v74, _v76, _v78, _v80, _v95, _v5, _v107, _v67, _v23]),
-      _v109 = (0, _v2.useCallback)(async () => {
-        if (_v56 && _v0) {
-          _v62(!0);
+      }, [_v65, _v0, _v72, _v74, _v76, _v78, _v80, _v82, _v97, _v5, _v109, _v69, _v23]),
+      _v111 = (0, _v2.useCallback)(async () => {
+        if (_v58 && _v0) {
+          _v64(!0);
           try {
             let _v0 = [{
-              id: _v56.id,
+              id: _v58.id,
               delete: !0
             }];
             await (0, _v74.postTeamCustomMetadata)({
@@ -925,9 +927,9 @@
               variables: {
                 fields: _v0
               },
-              headers: _v95,
+              headers: _v97,
               baseUrl: _v5
-            }), await _v107(), _v60(), _v23({
+            }), await _v109(), _v62(), _v23({
               title: (0, _v87.translate)({
                 singular: "Custom metadata field deleted.",
                 dictionary: {
@@ -988,37 +990,37 @@
               status: "error"
             });
           } finally {
-            _v62(!1);
+            _v64(!1);
           }
         }
-      }, [_v56, _v0, _v95, _v5, _v107, _v60, _v23]),
-      _v110 = (0, _v2.useMemo)(() => Array.isArray(_v106) ? _v106 : _v106?.data ?? [], [_v106]),
-      _v111 = (0, _v2.useMemo)(() => _v110.length ? _v110.filter(_v0 => {
+      }, [_v58, _v0, _v97, _v5, _v109, _v62, _v23]),
+      _v112 = (0, _v2.useMemo)(() => Array.isArray(_v108) ? _v108 : _v108?.data ?? [], [_v108]),
+      _v113 = (0, _v2.useMemo)(() => _v112.length ? _v112.filter(_v0 => {
         let _v1 = _v0.name.toLowerCase().includes(_v11.toLowerCase()),
           _v2 = 0 === _v13.length || _v13.includes(_v0.type),
           _v3 = 0 === _v15.length || _v15.includes("required") && _v0.mandatory || _v15.includes("optional") && !_v0.mandatory;
         return _v1 && _v2 && _v3;
-      }) : [], [_v110, _v11, _v13, _v15]),
-      _v112 = (0, _v2.useMemo)(() => _v110.map(_v0 => _v0.name), [_v110]),
-      _v113 = (0, _v2.useMemo)(() => _v110.some(_v0 => _v0.mandatory), [_v110]),
-      _v114 = (0, _v2.useMemo)(() => JSON.stringify(_v110.map(_v0 => ({
+      }) : [], [_v112, _v11, _v13, _v15]),
+      _v114 = (0, _v2.useMemo)(() => _v112.map(_v0 => _v0.name), [_v112]),
+      _v115 = (0, _v2.useMemo)(() => _v112.some(_v0 => _v0.mandatory), [_v112]),
+      _v116 = (0, _v2.useMemo)(() => JSON.stringify(_v112.map(_v0 => ({
         id: _v0.id,
         mandatory: _v0.mandatory
-      }))), [_v110]),
-      [_v115, _v116] = (0, _v2.useState)(1),
-      [_v117, _v118] = (0, _v2.useState)("title_asc"),
+      }))), [_v112]),
+      [_v117, _v118] = (0, _v2.useState)(1),
+      [_v119, _v120] = (0, _v2.useState)("title_asc"),
       {
-        data: _v119,
-        isLoading: _v120,
-        mutate: _v121
-      } = _v86(() => _v0 && _v113 ? {
+        data: _v121,
+        isLoading: _v122,
+        mutate: _v123
+      } = _v86(() => _v0 && _v115 ? {
         where: {
           userId: _v0
         },
         query: {
-          page: _v115,
+          page: _v117,
           perPage: 10,
-          sort: _v117
+          sort: _v119
         }
       } : null, {
         revalidateOnFocus: !1,
@@ -1057,19 +1059,19 @@
           });
         }
       }),
-      [_v122, _v123] = (0, _v2.useState)(_v114);
-    _v122 !== _v114 && (_v123(_v114), _v116(1), _v121());
-    let _v124 = (0, _v2.useMemo)(() => _v119 ? Math.ceil(_v119.total / 10) : 0, [_v119]),
-      _v125 = (0, _v2.useMemo)(() => "" !== _v24.trim() && _v112.some(_v0 => _v0.toLowerCase() === _v24.trim().toLowerCase()), [_v24, _v112]),
-      _v126 = (0, _v2.useMemo)(() => !!_v63 && "" !== _v70.trim() && _v112.some(_v0 => _v0.toLowerCase() === _v70.trim().toLowerCase() && _v0.toLowerCase() !== (_v63.name ?? "").toLowerCase()), [_v70, _v63, _v112]),
-      _v127 = (0, _v2.useMemo)(() => !!(!_v24.trim() || _v125 || !_v28 || ("select" === _v28 || "multi-select" === _v28) && _v34.some(_v0 => !_v0.trim())), [_v24, _v125, _v28, _v34]),
-      _v128 = (0, _v2.useMemo)(() => _v11 ? _v112.find(_v0 => _v0.toLowerCase().startsWith(_v11.toLowerCase())) ?? "" : "", [_v11, _v112]),
-      _v129 = (0, _v2.useCallback)(_v0 => {
-        "Tab" === _v0.key && _v128 && (_v0.preventDefault(), _v12(_v128));
-      }, [_v128]),
-      _v130 = (0, _v2.useCallback)(async () => {
+      [_v124, _v125] = (0, _v2.useState)(_v116);
+    _v124 !== _v116 && (_v125(_v116), _v118(1), _v123());
+    let _v126 = (0, _v2.useMemo)(() => _v121 ? Math.ceil(_v121.total / 10) : 0, [_v121]),
+      _v127 = (0, _v2.useMemo)(() => "" !== _v24.trim() && _v114.some(_v0 => _v0.toLowerCase() === _v24.trim().toLowerCase()), [_v24, _v114]),
+      _v128 = (0, _v2.useMemo)(() => !!_v65 && "" !== _v72.trim() && _v114.some(_v0 => _v0.toLowerCase() === _v72.trim().toLowerCase() && _v0.toLowerCase() !== (_v65.name ?? "").toLowerCase()), [_v72, _v65, _v114]),
+      _v129 = (0, _v2.useMemo)(() => !!(!_v24.trim() || _v127 || !_v28 || ("select" === _v28 || "multi-select" === _v28) && _v34.some(_v0 => !_v0.trim())), [_v24, _v127, _v28, _v34]),
+      _v130 = (0, _v2.useMemo)(() => _v11 ? _v114.find(_v0 => _v0.toLowerCase().startsWith(_v11.toLowerCase())) ?? "" : "", [_v11, _v114]),
+      _v131 = (0, _v2.useCallback)(_v0 => {
+        "Tab" === _v0.key && _v130 && (_v0.preventDefault(), _v12(_v130));
+      }, [_v130]),
+      _v132 = (0, _v2.useCallback)(async () => {
         if (_v0) {
-          _v46(!0);
+          _v48(!0);
           try {
             let _v0 = {
               name: _v24.trim(),
@@ -1092,7 +1094,7 @@
                 variables: {
                   fields: [_v0]
                 },
-                headers: _v95,
+                headers: _v97,
                 baseUrl: _v5
               }),
               _v2 = _v1?.data?.[0] ?? null,
@@ -1106,7 +1108,7 @@
                 }
                 return "custom" === _v40 && _v42 || null;
               })();
-            await _v107(), _v94(), _v2?.id && null !== _v3 ? (_v23({
+            await _v109(), _v96(), _v2?.id && null !== _v3 ? (_v23({
               title: (0, _v87.translate)({
                 singular: "Custom metadata added. Applying to all videos may take some time.",
                 dictionary: {
@@ -1143,7 +1145,7 @@
                 fieldValue: _v89(_v3, _v28),
                 overrideExisting: !1
               },
-              headers: _v95,
+              headers: _v97,
               baseUrl: _v5
             }).catch(() => {
               _v23({
@@ -1237,10 +1239,10 @@
               status: "error"
             });
           } finally {
-            _v46(!1);
+            _v48(!1);
           }
         }
-      }, [_v0, _v24, _v28, _v32, _v34, _v36, _v30, _v26, _v40, _v42, _v95, _v5, _v107, _v94, _v23]);
+      }, [_v0, _v24, _v28, _v32, _v34, _v36, _v30, _v26, _v40, _v42, _v97, _v5, _v109, _v96, _v23]);
     if (_v10) return (0, _v1.jsx)(_v14.Flex, {
       flex: "1",
       align: "center",
@@ -1487,7 +1489,7 @@
                 pointerEvents: "none",
                 h: "100%",
                 children: (0, _v1.jsx)(_v68.SearchMagnifier, {})
-              }), _v128 && _v11 && (0, _v1.jsxs)(_v8.Box, {
+              }), _v130 && _v11 && (0, _v1.jsxs)(_v8.Box, {
                 position: "absolute",
                 left: "0",
                 top: "0",
@@ -1511,7 +1513,7 @@
                   as: "span",
                   color: "text-tertiary",
                   whiteSpace: "pre",
-                  children: _v128.slice(_v11.length)
+                  children: _v130.slice(_v11.length)
                 })]
               }), (0, _v1.jsx)(_v20.Input, {
                 size: "md",
@@ -1546,7 +1548,7 @@
                 }),
                 value: _v11,
                 onChange: _v0 => _v12(_v0.target.value),
-                onKeyDown: _v129,
+                onKeyDown: _v131,
                 autoComplete: "off"
               })]
             })]
@@ -1581,13 +1583,13 @@
               }
             }),
             placement: "top",
-            isDisabled: _v112.length < 20,
+            isDisabled: _v114.length < 20,
             shouldWrapChildren: !0,
             children: (0, _v1.jsx)(_v11.Button, {
               variant: "secondary",
               size: "md",
               onClick: _v21,
-              isDisabled: void 0 === _v106 || _v112.length >= 20,
+              isDisabled: void 0 === _v108 || _v114.length >= 20,
               children: (0, _v1.jsxs)(_v17.HStack, {
                 spacing: "xs",
                 children: [(0, _v1.jsx)(_v67.PlusSmall, {}), (0, _v1.jsx)("span", {
@@ -1621,11 +1623,11 @@
               })
             })
           })]
-        }), void 0 === _v106 ? (0, _v1.jsx)(_v14.Flex, {
+        }), void 0 === _v108 ? (0, _v1.jsx)(_v14.Flex, {
           justifyContent: "center",
           p: "xl",
           children: (0, _v1.jsx)(_v44.Spinner, {})
-        }) : _v111.length > 0 ? (0, _v1.jsxs)(_v46.Table, {
+        }) : _v113.length > 0 ? (0, _v1.jsxs)(_v46.Table, {
           w: "100%",
           sx: {
             tableLayout: "fixed",
@@ -1734,7 +1736,7 @@
               })]
             })
           }), (0, _v1.jsx)(_v50.Tbody, {
-            children: _v111.map(_v0 => (0, _v1.jsxs)(_v55.Tr, {
+            children: _v113.map(_v0 => (0, _v1.jsxs)(_v55.Tr, {
               children: [(0, _v1.jsx)(_v51.Td, {
                 w: "30%",
                 children: (0, _v1.jsx)(_v52.Text, {
@@ -1744,7 +1746,7 @@
                   _hover: {
                     textDecoration: "underline"
                   },
-                  onClick: () => _v99(_v0),
+                  onClick: () => _v101(_v0),
                   children: _v0.name
                 })
               }), (0, _v1.jsx)(_v51.Td, {
@@ -1758,7 +1760,7 @@
                 w: "30%",
                 children: (0, _v1.jsx)(_v6.Badge, {
                   size: "sm",
-                  variant: _v0.mandatory ? "staff" : "neutral",
+                  variant: _v0.mandatory ? "staff" : "default",
                   children: _v0.mandatory ? (0, _v87.translate)({
                     singular: "Required",
                     dictionary: {
@@ -1855,7 +1857,7 @@
                     }), (0, _v1.jsxs)(_v28.MenuList, {
                       children: [(0, _v1.jsx)(_v25.MenuItem, {
                         icon: (0, _v1.jsx)(_v63.RenamePencil, {}),
-                        onClick: () => _v99(_v0),
+                        onClick: () => _v101(_v0),
                         children: (0, _v87.translate)({
                           singular: "Edit field",
                           dictionary: {
@@ -1884,7 +1886,7 @@
                         })
                       }), (0, _v1.jsx)(_v25.MenuItem, {
                         icon: (0, _v1.jsx)(_v61.CircleCheck, {}),
-                        onClick: () => _v96(_v0),
+                        onClick: () => _v98(_v0),
                         children: (0, _v87.translate)({
                           singular: "Set value to all videos",
                           dictionary: {
@@ -1914,7 +1916,7 @@
                       }), (0, _v1.jsx)(_v25.MenuItem, {
                         icon: (0, _v1.jsx)(_v71.TrashBin, {}),
                         color: "status-destructive-primary",
-                        onClick: () => _v98(_v0),
+                        onClick: () => _v100(_v0),
                         children: (0, _v87.translate)({
                           singular: "Delete field",
                           dictionary: {
@@ -1981,23 +1983,23 @@
               }
             })
           })
-        }), void 0 !== _v106 && (0, _v1.jsx)(_v14.Flex, {
+        }), void 0 !== _v108 && (0, _v1.jsx)(_v14.Flex, {
           justifyContent: "center",
           py: "md",
           children: (0, _v1.jsxs)(_v52.Text, {
             variant: "body-xs",
             color: "text-tertiary",
-            children: [_v112.length, "/", 20, " fields used"]
+            children: [_v114.length, "/", 20, " fields used"]
           })
         })]
-      }), _v113 && (0, _v1.jsx)(_v8.Box, {
+      }), _v115 && (0, _v1.jsx)(_v8.Box, {
         backgroundColor: "surface",
         borderRadius: "lg",
-        children: !_v119 && _v120 ? (0, _v1.jsx)(_v14.Flex, {
+        children: !_v121 && _v122 ? (0, _v1.jsx)(_v14.Flex, {
           justifyContent: "center",
           p: "xl",
           children: (0, _v1.jsx)(_v44.Spinner, {})
-        }) : _v119 && _v119.data.length > 0 ? (0, _v1.jsxs)(_v1.Fragment, {
+        }) : _v121 && _v121.data.length > 0 ? (0, _v1.jsxs)(_v1.Fragment, {
           children: [(0, _v1.jsx)(_v8.Box, {
             px: "md",
             pt: "md",
@@ -2021,9 +2023,9 @@
                 children: (0, _v87.translate)({
                   singular: "{COUNT} video has missing mandatory fields.",
                   plural: "{COUNT} videos have missing mandatory fields.",
-                  count: _v119.total,
+                  count: _v121.total,
                   replacements: {
-                    COUNT: _v119.total
+                    COUNT: _v121.total
                   },
                   dictionary: {
                     es: {
@@ -2201,7 +2203,7 @@
                       }
                     }
                   })
-                }[_v117]
+                }[_v119]
               }), (0, _v1.jsx)(_v28.MenuList, {
                 children: (0, _v1.jsx)(_v27.MenuGroup, {
                   as: _v52.Text,
@@ -2333,9 +2335,9 @@
                       }
                     }
                   })]].map(([_v0, _v1]) => (0, _v1.jsx)(_v26.MenuItemOption, {
-                    isChecked: _v117 === _v0,
+                    isChecked: _v119 === _v0,
                     onClick: () => {
-                      _v118(_v0), _v116(1);
+                      _v120(_v0), _v118(1);
                     },
                     children: _v1
                   }, _v0))
@@ -2441,7 +2443,7 @@
                   })
                 })]
               })
-            }), _v120 && (0, _v1.jsx)(_v50.Tbody, {
+            }), _v122 && (0, _v1.jsx)(_v50.Tbody, {
               children: (0, _v1.jsx)(_v55.Tr, {
                 children: (0, _v1.jsx)(_v51.Td, {
                   colSpan: 2,
@@ -2454,8 +2456,8 @@
                 })
               })
             }), (0, _v1.jsx)(_v50.Tbody, {
-              display: _v120 ? "none" : void 0,
-              children: _v119.data.map(_v0 => (0, _v1.jsxs)(_v55.Tr, {
+              display: _v122 ? "none" : void 0,
+              children: _v121.data.map(_v0 => (0, _v1.jsxs)(_v55.Tr, {
                 cursor: "pointer",
                 _hover: {
                   bg: "fill-component-hover"
@@ -2542,20 +2544,20 @@
                 })]
               }, _v0.clipId))
             })]
-          }), _v124 > 1 && (0, _v1.jsx)(_v14.Flex, {
+          }), _v126 > 1 && (0, _v1.jsx)(_v14.Flex, {
             justifyContent: "center",
             py: "md",
             children: (0, _v1.jsx)(_v37.Pagination, {
-              count: _v119.total,
+              count: _v121.total,
               pageSize: 10,
-              page: _v115,
+              page: _v117,
               onPageChange: ({
                 page: _v0
-              }) => _v116(_v0),
+              }) => _v118(_v0),
               size: "xs"
             })
           })]
-        }) : _v119 && 0 === _v119.total ? (0, _v1.jsx)(_v14.Flex, {
+        }) : _v121 && 0 === _v121.total ? (0, _v1.jsx)(_v14.Flex, {
           justifyContent: "center",
           p: "xl",
           children: (0, _v1.jsx)(_v58.VStack, {
@@ -2594,7 +2596,7 @@
         }) : null
       }), (0, _v1.jsxs)(_v29.Modal, {
         isOpen: _v20,
-        onClose: _v94,
+        onClose: _v96,
         children: [(0, _v1.jsx)(_v35.ModalOverlay, {}), (0, _v1.jsxs)(_v32.ModalContent, {
           maxW: (0, _v42.rem)(480),
           children: [(0, _v1.jsxs)(_v34.ModalHeader, {
@@ -2665,7 +2667,7 @@
               align: "stretch",
               children: [(0, _v1.jsxs)(_v15.FormControl, {
                 isRequired: !0,
-                isInvalid: _v125,
+                isInvalid: _v127,
                 sx: {
                   "label .chakra-form__required-indicator": {
                     ml: 0
@@ -2734,7 +2736,7 @@
                   _focus: {
                     bg: "fill-component"
                   }
-                }), _v125 && (0, _v1.jsx)(_v52.Text, {
+                }), _v127 && (0, _v1.jsx)(_v52.Text, {
                   variant: "body-xs",
                   color: "status-destructive-primary",
                   mt: "xs",
@@ -2962,65 +2964,18 @@
                 }), (0, _v1.jsxs)(_v58.VStack, {
                   spacing: "sm",
                   align: "stretch",
-                  "data-options-list": !0,
-                  children: [_v34.map((_v0, _v1) => (0, _v1.jsxs)(_v17.HStack, {
+                  children: [(0, _v1.jsx)(_v58.VStack, {
+                    ref: _v45,
                     spacing: "sm",
-                    children: [(0, _v1.jsx)(_v49.Tooltip, {
-                      label: _v36.has(_v1) ? (0, _v87.translate)({
-                        singular: "Remove default",
-                        dictionary: {
-                          es: {
-                            singular: "Eliminar el valor predeterminado"
-                          },
-                          "de-DE": {
-                            singular: "Standard entfernen"
-                          },
-                          "fr-FR": {
-                            singular: "Supprimer les valeurs par défaut"
-                          },
-                          "ja-JP": {
-                            singular: "デフォルトを削除"
-                          },
-                          "ko-KR": {
-                            singular: "기본 설정 제거"
-                          },
-                          "pt-BR": {
-                            singular: "Remova o padrão"
-                          },
-                          "zh-CN": {
-                            singular: "移除默认设置"
-                          }
-                        }
-                      }) : (0, _v87.translate)({
-                        singular: "Set default",
-                        dictionary: {
-                          es: {
-                            singular: "Establecer valor predeterminado"
-                          },
-                          "de-DE": {
-                            singular: "Standard festlegen"
-                          },
-                          "fr-FR": {
-                            singular: "Définir les paramètres par défaut"
-                          },
-                          "ja-JP": {
-                            singular: "デフォルトを設定"
-                          },
-                          "ko-KR": {
-                            singular: "기본값으로 설정"
-                          },
-                          "pt-BR": {
-                            singular: "Definir padrão"
-                          },
-                          "zh-CN": {
-                            singular: "设置默认值"
-                          }
-                        }
-                      }),
-                      placement: "top",
-                      shouldWrapChildren: !0,
-                      children: (0, _v1.jsx)(_v18.IconButton, {
-                        "aria-label": _v36.has(_v1) ? (0, _v87.translate)({
+                    align: "stretch",
+                    "data-options-list": !0,
+                    maxH: "min(50vh, 25rem)",
+                    overflowY: "auto",
+                    pr: "xs",
+                    children: _v34.map((_v0, _v1) => (0, _v1.jsxs)(_v17.HStack, {
+                      spacing: "sm",
+                      children: [(0, _v1.jsx)(_v49.Tooltip, {
+                        label: _v36.has(_v1) ? (0, _v87.translate)({
                           singular: "Remove default",
                           dictionary: {
                             es: {
@@ -3071,104 +3026,159 @@
                             }
                           }
                         }),
-                        variant: "secondary",
-                        size: "md",
-                        isActive: _v36.has(_v1),
-                        icon: _v36.has(_v1) ? (0, _v1.jsx)(_v61.CircleCheck, {
-                          boxSize: "20px"
-                        }) : (0, _v1.jsx)(_v62.CircleShape, {
-                          boxSize: "20px"
+                        placement: "top",
+                        shouldWrapChildren: !0,
+                        children: (0, _v1.jsx)(_v18.IconButton, {
+                          "aria-label": _v36.has(_v1) ? (0, _v87.translate)({
+                            singular: "Remove default",
+                            dictionary: {
+                              es: {
+                                singular: "Eliminar el valor predeterminado"
+                              },
+                              "de-DE": {
+                                singular: "Standard entfernen"
+                              },
+                              "fr-FR": {
+                                singular: "Supprimer les valeurs par défaut"
+                              },
+                              "ja-JP": {
+                                singular: "デフォルトを削除"
+                              },
+                              "ko-KR": {
+                                singular: "기본 설정 제거"
+                              },
+                              "pt-BR": {
+                                singular: "Remova o padrão"
+                              },
+                              "zh-CN": {
+                                singular: "移除默认设置"
+                              }
+                            }
+                          }) : (0, _v87.translate)({
+                            singular: "Set default",
+                            dictionary: {
+                              es: {
+                                singular: "Establecer valor predeterminado"
+                              },
+                              "de-DE": {
+                                singular: "Standard festlegen"
+                              },
+                              "fr-FR": {
+                                singular: "Définir les paramètres par défaut"
+                              },
+                              "ja-JP": {
+                                singular: "デフォルトを設定"
+                              },
+                              "ko-KR": {
+                                singular: "기본값으로 설정"
+                              },
+                              "pt-BR": {
+                                singular: "Definir padrão"
+                              },
+                              "zh-CN": {
+                                singular: "设置默认值"
+                              }
+                            }
+                          }),
+                          variant: "secondary",
+                          size: "md",
+                          isActive: _v36.has(_v1),
+                          icon: _v36.has(_v1) ? (0, _v1.jsx)(_v61.CircleCheck, {
+                            boxSize: "20px"
+                          }) : (0, _v1.jsx)(_v62.CircleShape, {
+                            boxSize: "20px"
+                          }),
+                          onClick: () => {
+                            let _v0 = new Set(_v36);
+                            _v0.has(_v1) ? _v0.delete(_v1) : ("select" === _v28 && _v0.clear(), _v0.add(_v1)), _v37(_v0);
+                          }
+                        })
+                      }), (0, _v1.jsx)(_v20.Input, {
+                        placeholder: (0, _v87.translate)({
+                          singular: "Option {NUMBER}",
+                          replacements: {
+                            NUMBER: _v1 + 1
+                          },
+                          dictionary: {
+                            es: {
+                              singular: "Opción {NUMBER}"
+                            },
+                            "ja-JP": {
+                              singular: "オプション {NUMBER}"
+                            },
+                            "ko-KR": {
+                              singular: "옵션 {NUMBER}"
+                            },
+                            "pt-BR": {
+                              singular: "Opção {NUMBER}"
+                            },
+                            "zh-CN": {
+                              singular: "选项 {NUMBER}"
+                            }
+                          }
                         }),
-                        onClick: () => {
-                          let _v0 = new Set(_v36);
-                          _v0.has(_v1) ? _v0.delete(_v1) : ("select" === _v28 && _v0.clear(), _v0.add(_v1)), _v37(_v0);
-                        }
-                      })
-                    }), (0, _v1.jsx)(_v20.Input, {
-                      placeholder: (0, _v87.translate)({
-                        singular: "Option {NUMBER}",
-                        replacements: {
-                          NUMBER: _v1 + 1
+                        value: _v0,
+                        onChange: _v0 => {
+                          let _v1 = [..._v34];
+                          _v1[_v1] = _v0.target.value, _v35(_v1);
                         },
-                        dictionary: {
-                          es: {
-                            singular: "Opción {NUMBER}"
-                          },
-                          "ja-JP": {
-                            singular: "オプション {NUMBER}"
-                          },
-                          "ko-KR": {
-                            singular: "옵션 {NUMBER}"
-                          },
-                          "pt-BR": {
-                            singular: "Opção {NUMBER}"
-                          },
-                          "zh-CN": {
-                            singular: "选项 {NUMBER}"
+                        onKeyDown: _v0 => {
+                          if ("Enter" === _v0.key && _v0.trim()) {
+                            _v0.preventDefault();
+                            let _v0 = _v0.currentTarget.closest("[data-options-list]");
+                            _v35([..._v34, ""]), requestAnimationFrame(() => {
+                              let _v0 = _v0?.querySelectorAll("input");
+                              _v0?.[_v0.length - 1]?.focus();
+                            });
                           }
+                        },
+                        _placeholder: {
+                          color: "text-tertiary"
+                        },
+                        _focus: {
+                          bg: "fill-component"
                         }
-                      }),
-                      value: _v0,
-                      onChange: _v0 => {
-                        let _v1 = [..._v34];
-                        _v1[_v1] = _v0.target.value, _v35(_v1);
-                      },
-                      onKeyDown: _v0 => {
-                        if ("Enter" === _v0.key && _v0.trim()) {
-                          _v0.preventDefault();
-                          let _v0 = _v0.currentTarget.closest("[data-options-list]");
-                          _v35([..._v34, ""]), requestAnimationFrame(() => {
-                            let _v0 = _v0?.querySelectorAll("input");
-                            _v0?.[_v0.length - 1]?.focus();
-                          });
-                        }
-                      },
-                      _placeholder: {
-                        color: "text-tertiary"
-                      },
-                      _focus: {
-                        bg: "fill-component"
-                      }
-                    }), (0, _v1.jsx)(_v18.IconButton, {
-                      "aria-label": (0, _v87.translate)({
-                        singular: "Delete option",
-                        dictionary: {
-                          es: {
-                            singular: "Eliminar opción"
-                          },
-                          "de-DE": {
-                            singular: "Option löschen"
-                          },
-                          "fr-FR": {
-                            singular: "Supprimer l’option"
-                          },
-                          "ja-JP": {
-                            singular: "オプションを削除"
-                          },
-                          "ko-KR": {
-                            singular: "옵션 삭제"
-                          },
-                          "pt-BR": {
-                            singular: "Excluir opção"
-                          },
-                          "zh-CN": {
-                            singular: "删除选项"
+                      }), (0, _v1.jsx)(_v18.IconButton, {
+                        "aria-label": (0, _v87.translate)({
+                          singular: "Delete option",
+                          dictionary: {
+                            es: {
+                              singular: "Eliminar opción"
+                            },
+                            "de-DE": {
+                              singular: "Option löschen"
+                            },
+                            "fr-FR": {
+                              singular: "Supprimer l’option"
+                            },
+                            "ja-JP": {
+                              singular: "オプションを削除"
+                            },
+                            "ko-KR": {
+                              singular: "옵션 삭제"
+                            },
+                            "pt-BR": {
+                              singular: "Excluir opção"
+                            },
+                            "zh-CN": {
+                              singular: "删除选项"
+                            }
                           }
+                        }),
+                        variant: "tertiary",
+                        size: "md",
+                        icon: (0, _v1.jsx)(_v71.TrashBin, {}),
+                        isDisabled: _v34.length <= 1,
+                        onClick: () => {
+                          if (_v34.length <= 1) return;
+                          _v35(_v34.filter((_v0, _v1) => _v1 !== _v1));
+                          let _v0 = new Set();
+                          for (let _v0 of _v36) _v0 < _v1 ? _v0.add(_v0) : _v0 > _v1 && _v0.add(_v0 - 1);
+                          _v37(_v0);
                         }
-                      }),
-                      variant: "tertiary",
-                      size: "md",
-                      icon: (0, _v1.jsx)(_v71.TrashBin, {}),
-                      isDisabled: _v34.length <= 1,
-                      onClick: () => {
-                        if (_v34.length <= 1) return;
-                        _v35(_v34.filter((_v0, _v1) => _v1 !== _v1));
-                        let _v0 = new Set();
-                        for (let _v0 of _v36) _v0 < _v1 ? _v0.add(_v0) : _v0 > _v1 && _v0.add(_v0 - 1);
-                        _v37(_v0);
-                      }
-                    })]
-                  }, _v1)), (0, _v1.jsx)(_v11.Button, {
+                      })]
+                    }, _v1))
+                  }), (0, _v1.jsx)(_v11.Button, {
                     variant: "ghost",
                     size: "sm",
                     alignSelf: "center",
@@ -3176,7 +3186,12 @@
                     _hover: {
                       bg: "fill-component-hover"
                     },
-                    onClick: () => _v35([..._v34, ""]),
+                    onClick: () => {
+                      _v35([..._v34, ""]), requestAnimationFrame(() => {
+                        let _v0 = _v45.current?.querySelectorAll("input");
+                        _v0?.[_v0.length - 1]?.focus();
+                      });
+                    },
                     children: (0, _v1.jsxs)(_v17.HStack, {
                       spacing: "xs",
                       children: [(0, _v1.jsx)(_v66.PlusCircle, {}), (0, _v1.jsx)("span", {
@@ -3807,7 +3822,7 @@
                     }
                   })
                 }), (0, _v1.jsx)(_v43.Select, {
-                  items: [...(_v105 ? [{
+                  items: [...(_v107 ? [{
                     label: (0, _v87.translate)({
                       singular: "Default Value",
                       dictionary: {
@@ -4300,7 +4315,7 @@
                     }
                   }
                 }), " ", (0, _v1.jsx)("strong", {
-                  children: _v104
+                  children: _v106
                 })]
               }) : null]
             })
@@ -4310,7 +4325,7 @@
               children: [(0, _v1.jsx)(_v11.Button, {
                 variant: "secondary",
                 size: "md",
-                onClick: _v94,
+                onClick: _v96,
                 children: (0, _v87.translate)({
                   singular: "Cancel",
                   dictionary: {
@@ -4343,7 +4358,7 @@
                 onClick: () => {
                   _v44.current || (_v41("none"), _v44.current = !0), _v39(2);
                 },
-                isDisabled: _v127,
+                isDisabled: _v129,
                 children: (0, _v87.translate)({
                   singular: "Next",
                   dictionary: {
@@ -4373,8 +4388,8 @@
               }) : (0, _v1.jsx)(_v11.Button, {
                 variant: "primary",
                 size: "md",
-                onClick: _v130,
-                isLoading: _v45,
+                onClick: _v132,
+                isLoading: _v47,
                 isDisabled: "custom" === _v40 && !_v42.trim(),
                 children: (0, _v87.translate)({
                   singular: "Save",
@@ -4407,8 +4422,8 @@
           })]
         })]
       }), (0, _v1.jsxs)(_v29.Modal, {
-        isOpen: _v49,
-        onClose: _v51,
+        isOpen: _v51,
+        onClose: _v53,
         children: [(0, _v1.jsx)(_v35.ModalOverlay, {}), (0, _v1.jsxs)(_v32.ModalContent, {
           maxW: (0, _v42.rem)(480),
           children: [(0, _v1.jsx)(_v34.ModalHeader, {
@@ -4500,8 +4515,8 @@
                       }
                     }
                   })
-                }), _v47?.type === "select" ? (0, _v1.jsx)(_v43.Select, {
-                  items: (_v47.values ?? []).map(_v0 => ({
+                }), _v49?.type === "select" ? (0, _v1.jsx)(_v43.Select, {
+                  items: (_v49.values ?? []).map(_v0 => ({
                     label: _v0,
                     value: _v0
                   })),
@@ -4531,19 +4546,19 @@
                       }
                     }
                   }),
-                  value: _v52 ? [_v52] : [],
+                  value: _v54 ? [_v54] : [],
                   onValueChange: ({
                     value: _v0
-                  }) => _v53(_v0[0] ?? ""),
+                  }) => _v55(_v0[0] ?? ""),
                   positioning: {
                     placement: "bottom",
                     strategy: "fixed"
                   }
-                }) : _v47?.type === "multi-select" ? (0, _v1.jsxs)(_v14.Flex, {
+                }) : _v49?.type === "multi-select" ? (0, _v1.jsxs)(_v14.Flex, {
                   flexDirection: "column",
                   gap: "sm",
                   children: [(0, _v1.jsx)(_v43.Select, {
-                    items: (_v47.values ?? []).filter(_v0 => !!_v0 && !(_v52 ? _v52.split(",") : []).includes(_v0)).map(_v0 => ({
+                    items: (_v49.values ?? []).filter(_v0 => !!_v0 && !(_v54 ? _v54.split(",") : []).includes(_v0)).map(_v0 => ({
                       label: _v0,
                       value: _v0
                     })),
@@ -4578,28 +4593,28 @@
                       value: _v0
                     }) => {
                       let _v1 = _v0[0];
-                      _v1 && _v53([...(_v52 ? _v52.split(",").filter(Boolean) : []), _v1].join(","));
+                      _v1 && _v55([...(_v54 ? _v54.split(",").filter(Boolean) : []), _v1].join(","));
                     },
                     positioning: {
                       placement: "bottom",
                       strategy: "fixed"
                     }
-                  }), _v52 && (0, _v1.jsx)(_v17.HStack, {
+                  }), _v54 && (0, _v1.jsx)(_v17.HStack, {
                     flexWrap: "wrap",
                     gap: "xs",
-                    children: _v52.split(",").filter(Boolean).map(_v0 => (0, _v1.jsxs)(_v47.Tag, {
+                    children: _v54.split(",").filter(Boolean).map(_v0 => (0, _v1.jsxs)(_v47.Tag, {
                       size: "sm",
                       children: [(0, _v1.jsx)(_v47.TagLabel, {
                         children: _v0
                       }), (0, _v1.jsx)(_v47.TagCloseButton, {
                         onClick: () => {
-                          _v53(_v52.split(",").filter(_v0 => _v0 !== _v0).join(","));
+                          _v55(_v54.split(",").filter(_v0 => _v0 !== _v0).join(","));
                         },
                         children: (0, _v1.jsx)(_v69.CloseX, {})
                       })]
                     }, _v0))
                   })]
-                }) : _v47?.type === "bool" ? (0, _v1.jsx)(_v43.Select, {
+                }) : _v49?.type === "bool" ? (0, _v1.jsx)(_v43.Select, {
                   items: [{
                     label: (0, _v87.translate)({
                       singular: "True",
@@ -4683,20 +4698,20 @@
                       }
                     }
                   }),
-                  value: _v52 ? [_v52] : [],
+                  value: _v54 ? [_v54] : [],
                   onValueChange: ({
                     value: _v0
-                  }) => _v53(_v0[0] ?? ""),
+                  }) => _v55(_v0[0] ?? ""),
                   positioning: {
                     placement: "bottom",
                     strategy: "fixed"
                   }
-                }) : _v47?.type === "date" ? (0, _v1.jsxs)(_v9.DatePicker, {
+                }) : _v49?.type === "date" ? (0, _v1.jsxs)(_v9.DatePicker, {
                   width: "100%",
-                  value: _v52 && (_v3 = _v52.match(/^(\d{4})-(\d{2})-(\d{2})/)) ? [new _v7.BokehDate.CalendarDate(Number(_v3[1]), Number(_v3[2]), Number(_v3[3]))] : [],
+                  value: _v54 && (_v3 = _v54.match(/^(\d{4})-(\d{2})-(\d{2})/)) ? [new _v7.BokehDate.CalendarDate(Number(_v3[1]), Number(_v3[2]), Number(_v3[3]))] : [],
                   onValueChange: _v0 => {
                     let _v1 = _v0.value?.[0];
-                    _v53(_v1 ? _v93(_v1) : "");
+                    _v55(_v1 ? _v93(_v1) : "");
                   },
                   children: [(0, _v1.jsx)(_v9.DatePickerControl, {
                     children: (0, _v1.jsxs)(_v21.InputGroup, {
@@ -4762,9 +4777,9 @@
                       })
                     })
                   })]
-                }) : _v47?.type === "int" ? (0, _v1.jsxs)(_v36.NumberInput, {
-                  value: _v52,
-                  onChange: _v0 => _v53(_v0),
+                }) : _v49?.type === "int" ? (0, _v1.jsxs)(_v36.NumberInput, {
+                  value: _v54,
+                  onChange: _v0 => _v55(_v0),
                   children: [(0, _v1.jsx)(_v36.NumberInputField, {
                     placeholder: (0, _v87.translate)({
                       singular: "Enter value",
@@ -4828,9 +4843,9 @@
                       }
                     }
                   }),
-                  value: _v52,
+                  value: _v54,
                   onChange: _v0 => {
-                    _v0.target.value.length > 50 || _v53(_v0.target.value);
+                    _v0.target.value.length > 50 || _v55(_v0.target.value);
                   },
                   maxLength: 50,
                   _placeholder: {
@@ -4841,8 +4856,8 @@
                   }
                 })]
               }), (0, _v1.jsx)(_v12.Checkbox, {
-                isChecked: _v54,
-                onChange: _v0 => _v55(_v0.target.checked),
+                isChecked: _v56,
+                onChange: _v0 => _v57(_v0.target.checked),
                 children: (0, _v1.jsx)(_v52.Text, {
                   variant: "body-md",
                   children: (0, _v87.translate)({
@@ -4880,7 +4895,7 @@
               children: [(0, _v1.jsx)(_v11.Button, {
                 variant: "secondary",
                 size: "md",
-                onClick: _v51,
+                onClick: _v53,
                 children: (0, _v87.translate)({
                   singular: "Cancel",
                   dictionary: {
@@ -4910,8 +4925,8 @@
               }), (0, _v1.jsx)(_v11.Button, {
                 variant: "primary",
                 size: "md",
-                onClick: _v97,
-                isDisabled: !_v52.trim(),
+                onClick: _v99,
+                isDisabled: !_v54.trim(),
                 children: (0, _v87.translate)({
                   singular: "Apply",
                   dictionary: {
@@ -4943,8 +4958,8 @@
           })]
         })]
       }), (0, _v1.jsxs)(_v29.Modal, {
-        isOpen: _v58,
-        onClose: _v60,
+        isOpen: _v60,
+        onClose: _v62,
         size: "lg",
         children: [(0, _v1.jsx)(_v35.ModalOverlay, {}), (0, _v1.jsxs)(_v32.ModalContent, {
           children: [(0, _v1.jsx)(_v34.ModalHeader, {
@@ -5043,7 +5058,7 @@
               children: [(0, _v1.jsx)(_v11.Button, {
                 variant: "secondary",
                 size: "md",
-                onClick: _v60,
+                onClick: _v62,
                 children: (0, _v87.translate)({
                   singular: "Cancel",
                   dictionary: {
@@ -5073,8 +5088,8 @@
               }), (0, _v1.jsx)(_v11.Button, {
                 variant: "destructive",
                 size: "md",
-                onClick: _v109,
-                isLoading: _v61,
+                onClick: _v111,
+                isLoading: _v63,
                 children: (0, _v87.translate)({
                   singular: "Delete",
                   dictionary: {
@@ -5106,8 +5121,8 @@
           })]
         })]
       }), (0, _v1.jsxs)(_v29.Modal, {
-        isOpen: _v65,
-        onClose: _v103,
+        isOpen: _v67,
+        onClose: _v105,
         size: "lg",
         children: [(0, _v1.jsx)(_v35.ModalOverlay, {}), (0, _v1.jsxs)(_v32.ModalContent, {
           children: [(0, _v1.jsx)(_v34.ModalHeader, {
@@ -5159,14 +5174,14 @@
                 display: "flex",
                 alignItems: "center",
                 borderRadius: "md",
-                bg: "general" === _v68 ? "fill-component" : "transparent",
-                _hover: "general" === _v68 ? void 0 : {
+                bg: "general" === _v70 ? "fill-component" : "transparent",
+                _hover: "general" === _v70 ? void 0 : {
                   bg: "fill-component-hover"
                 },
-                onClick: () => _v69("general"),
+                onClick: () => _v71("general"),
                 children: (0, _v1.jsx)(_v52.Text, {
                   variant: "body-md",
-                  fontWeight: "general" === _v68 ? "bold" : "normal",
+                  fontWeight: "general" === _v70 ? "bold" : "normal",
                   children: (0, _v87.translate)({
                     singular: "General",
                     dictionary: {
@@ -5198,14 +5213,14 @@
                 display: "flex",
                 alignItems: "center",
                 borderRadius: "md",
-                bg: "values" === _v68 ? "fill-component" : "transparent",
-                _hover: "values" === _v68 ? void 0 : {
+                bg: "values" === _v70 ? "fill-component" : "transparent",
+                _hover: "values" === _v70 ? void 0 : {
                   bg: "fill-component-hover"
                 },
-                onClick: () => _v69("values"),
+                onClick: () => _v71("values"),
                 children: (0, _v1.jsx)(_v52.Text, {
                   variant: "body-md",
-                  fontWeight: "values" === _v68 ? "bold" : "normal",
+                  fontWeight: "values" === _v70 ? "bold" : "normal",
                   children: (0, _v87.translate)({
                     singular: "Values",
                     dictionary: {
@@ -5241,12 +5256,12 @@
               w: "75%",
               align: "stretch",
               p: "lg",
-              children: "general" === _v68 ? (0, _v1.jsxs)(_v58.VStack, {
+              children: "general" === _v70 ? (0, _v1.jsxs)(_v58.VStack, {
                 spacing: "7",
                 align: "stretch",
                 children: [(0, _v1.jsxs)(_v15.FormControl, {
                   isRequired: !0,
-                  isInvalid: _v126 || !_v70.trim(),
+                  isInvalid: _v128 || !_v72.trim(),
                   sx: {
                     "label .chakra-form__required-indicator": {
                       ml: 0
@@ -5281,15 +5296,15 @@
                       }
                     })
                   }), (0, _v1.jsx)(_v20.Input, {
-                    value: _v70,
-                    onChange: _v0 => _v71(_v0.target.value),
+                    value: _v72,
+                    onChange: _v0 => _v73(_v0.target.value),
                     _placeholder: {
                       color: "text-tertiary"
                     },
                     _focus: {
                       bg: "fill-component"
                     }
-                  }), _v126 && (0, _v1.jsx)(_v52.Text, {
+                  }), _v128 && (0, _v1.jsx)(_v52.Text, {
                     variant: "body-xs",
                     color: "status-destructive-primary",
                     mt: "xs",
@@ -5319,7 +5334,7 @@
                         }
                       }
                     })
-                  }), !_v70.trim() && (0, _v1.jsx)(_v52.Text, {
+                  }), !_v72.trim() && (0, _v1.jsx)(_v52.Text, {
                     variant: "body-xs",
                     color: "status-destructive-primary",
                     mt: "xs",
@@ -5403,8 +5418,8 @@
                         }
                       }
                     }),
-                    value: _v72,
-                    onChange: _v0 => _v73(_v0.target.value),
+                    value: _v74,
+                    onChange: _v0 => _v75(_v0.target.value),
                     borderRadius: (0, _v42.rem)(12),
                     _placeholder: {
                       color: "text-secondary"
@@ -5481,7 +5496,7 @@
                   }), (0, _v1.jsx)(_v43.Select, {
                     variant: "withCheck",
                     items: _v92,
-                    value: _v63?.type ? [_v63.type] : [],
+                    value: _v65?.type ? [_v65.type] : [],
                     disabled: !0
                   })]
                 }), (0, _v1.jsx)(_v15.FormControl, {
@@ -5553,15 +5568,15 @@
                         })
                       })]
                     }), (0, _v1.jsx)(_v45.Switch, {
-                      isChecked: _v74,
-                      onChange: _v0 => _v75(_v0.target.checked)
+                      isChecked: _v76,
+                      onChange: _v0 => _v77(_v0.target.checked)
                     })]
                   })
                 })]
               }) : (0, _v1.jsx)(_v58.VStack, {
                 spacing: "7",
                 align: "stretch",
-                children: _v63?.type === "select" || _v63?.type === "multi-select" ? (0, _v1.jsxs)(_v15.FormControl, {
+                children: _v65?.type === "select" || _v65?.type === "multi-select" ? (0, _v1.jsxs)(_v15.FormControl, {
                   children: [(0, _v1.jsx)(_v16.FormLabel, {
                     variant: "heading-xs",
                     children: (0, _v87.translate)({
@@ -5621,65 +5636,18 @@
                   }), (0, _v1.jsxs)(_v58.VStack, {
                     spacing: "sm",
                     align: "stretch",
-                    "data-edit-options-list": !0,
-                    children: [_v78.map((_v0, _v1) => (0, _v1.jsxs)(_v17.HStack, {
+                    children: [(0, _v1.jsx)(_v58.VStack, {
+                      ref: _v46,
                       spacing: "sm",
-                      children: [(0, _v1.jsx)(_v49.Tooltip, {
-                        label: _v80.has(_v1) ? (0, _v87.translate)({
-                          singular: "Remove default",
-                          dictionary: {
-                            es: {
-                              singular: "Eliminar el valor predeterminado"
-                            },
-                            "de-DE": {
-                              singular: "Standard entfernen"
-                            },
-                            "fr-FR": {
-                              singular: "Supprimer les valeurs par défaut"
-                            },
-                            "ja-JP": {
-                              singular: "デフォルトを削除"
-                            },
-                            "ko-KR": {
-                              singular: "기본 설정 제거"
-                            },
-                            "pt-BR": {
-                              singular: "Remova o padrão"
-                            },
-                            "zh-CN": {
-                              singular: "移除默认设置"
-                            }
-                          }
-                        }) : (0, _v87.translate)({
-                          singular: "Set default",
-                          dictionary: {
-                            es: {
-                              singular: "Establecer valor predeterminado"
-                            },
-                            "de-DE": {
-                              singular: "Standard festlegen"
-                            },
-                            "fr-FR": {
-                              singular: "Définir les paramètres par défaut"
-                            },
-                            "ja-JP": {
-                              singular: "デフォルトを設定"
-                            },
-                            "ko-KR": {
-                              singular: "기본값으로 설정"
-                            },
-                            "pt-BR": {
-                              singular: "Definir padrão"
-                            },
-                            "zh-CN": {
-                              singular: "设置默认值"
-                            }
-                          }
-                        }),
-                        placement: "top",
-                        shouldWrapChildren: !0,
-                        children: (0, _v1.jsx)(_v18.IconButton, {
-                          "aria-label": _v80.has(_v1) ? (0, _v87.translate)({
+                      align: "stretch",
+                      "data-edit-options-list": !0,
+                      maxH: "min(50vh, 25rem)",
+                      overflowY: "auto",
+                      pr: "xs",
+                      children: _v80.map((_v0, _v1) => (0, _v1.jsxs)(_v17.HStack, {
+                        spacing: "sm",
+                        children: [(0, _v1.jsx)(_v49.Tooltip, {
+                          label: _v82.has(_v1) ? (0, _v87.translate)({
                             singular: "Remove default",
                             dictionary: {
                               es: {
@@ -5730,118 +5698,178 @@
                               }
                             }
                           }),
-                          variant: "secondary",
-                          size: "md",
-                          isActive: _v80.has(_v1),
-                          icon: _v80.has(_v1) ? (0, _v1.jsx)(_v61.CircleCheck, {
-                            boxSize: "20px"
-                          }) : (0, _v1.jsx)(_v62.CircleShape, {
-                            boxSize: "20px"
-                          }),
-                          onClick: () => {
-                            let _v0 = new Set(_v80);
-                            _v0.has(_v1) ? _v0.delete(_v1) : (_v63?.type === "select" && _v0.clear(), _v0.add(_v1)), _v81(_v0);
-                          }
-                        })
-                      }), (0, _v1.jsx)(_v15.FormControl, {
-                        isInvalid: !_v0.value.trim(),
-                        flex: 1,
-                        children: (0, _v1.jsx)(_v20.Input, {
-                          placeholder: (0, _v87.translate)({
-                            singular: "Option {NUMBER}",
-                            replacements: {
-                              NUMBER: _v1 + 1
+                          placement: "top",
+                          shouldWrapChildren: !0,
+                          children: (0, _v1.jsx)(_v18.IconButton, {
+                            "aria-label": _v82.has(_v1) ? (0, _v87.translate)({
+                              singular: "Remove default",
+                              dictionary: {
+                                es: {
+                                  singular: "Eliminar el valor predeterminado"
+                                },
+                                "de-DE": {
+                                  singular: "Standard entfernen"
+                                },
+                                "fr-FR": {
+                                  singular: "Supprimer les valeurs par défaut"
+                                },
+                                "ja-JP": {
+                                  singular: "デフォルトを削除"
+                                },
+                                "ko-KR": {
+                                  singular: "기본 설정 제거"
+                                },
+                                "pt-BR": {
+                                  singular: "Remova o padrão"
+                                },
+                                "zh-CN": {
+                                  singular: "移除默认设置"
+                                }
+                              }
+                            }) : (0, _v87.translate)({
+                              singular: "Set default",
+                              dictionary: {
+                                es: {
+                                  singular: "Establecer valor predeterminado"
+                                },
+                                "de-DE": {
+                                  singular: "Standard festlegen"
+                                },
+                                "fr-FR": {
+                                  singular: "Définir les paramètres par défaut"
+                                },
+                                "ja-JP": {
+                                  singular: "デフォルトを設定"
+                                },
+                                "ko-KR": {
+                                  singular: "기본값으로 설정"
+                                },
+                                "pt-BR": {
+                                  singular: "Definir padrão"
+                                },
+                                "zh-CN": {
+                                  singular: "设置默认值"
+                                }
+                              }
+                            }),
+                            variant: "secondary",
+                            size: "md",
+                            isActive: _v82.has(_v1),
+                            icon: _v82.has(_v1) ? (0, _v1.jsx)(_v61.CircleCheck, {
+                              boxSize: "20px"
+                            }) : (0, _v1.jsx)(_v62.CircleShape, {
+                              boxSize: "20px"
+                            }),
+                            onClick: () => {
+                              let _v0 = new Set(_v82);
+                              _v0.has(_v1) ? _v0.delete(_v1) : (_v65?.type === "select" && _v0.clear(), _v0.add(_v1)), _v83(_v0);
+                            }
+                          })
+                        }), (0, _v1.jsx)(_v15.FormControl, {
+                          isInvalid: !_v0.value.trim(),
+                          flex: 1,
+                          children: (0, _v1.jsx)(_v20.Input, {
+                            placeholder: (0, _v87.translate)({
+                              singular: "Option {NUMBER}",
+                              replacements: {
+                                NUMBER: _v1 + 1
+                              },
+                              dictionary: {
+                                es: {
+                                  singular: "Opción {NUMBER}"
+                                },
+                                "ja-JP": {
+                                  singular: "オプション {NUMBER}"
+                                },
+                                "ko-KR": {
+                                  singular: "옵션 {NUMBER}"
+                                },
+                                "pt-BR": {
+                                  singular: "Opção {NUMBER}"
+                                },
+                                "zh-CN": {
+                                  singular: "选项 {NUMBER}"
+                                }
+                              }
+                            }),
+                            value: _v0.value,
+                            onChange: _v0 => {
+                              let _v1 = [..._v80];
+                              _v1[_v1] = {
+                                ..._v1[_v1],
+                                value: _v0.target.value
+                              }, _v81(_v1);
                             },
+                            onKeyDown: _v0 => {
+                              if ("Enter" === _v0.key && _v0.value.trim()) {
+                                _v0.preventDefault();
+                                let _v0 = _v0.currentTarget.closest("[data-edit-options-list]");
+                                _v81([..._v80, {
+                                  originalValue: null,
+                                  value: ""
+                                }]), requestAnimationFrame(() => {
+                                  let _v0 = _v0?.querySelectorAll("input");
+                                  _v0?.[_v0.length - 1]?.focus();
+                                });
+                              }
+                            },
+                            _placeholder: {
+                              color: "text-tertiary"
+                            },
+                            _focus: {
+                              bg: "fill-component"
+                            }
+                          })
+                        }), (0, _v1.jsx)(_v18.IconButton, {
+                          "aria-label": (0, _v87.translate)({
+                            singular: "Delete option",
                             dictionary: {
                               es: {
-                                singular: "Opción {NUMBER}"
+                                singular: "Eliminar opción"
+                              },
+                              "de-DE": {
+                                singular: "Option löschen"
+                              },
+                              "fr-FR": {
+                                singular: "Supprimer l’option"
                               },
                               "ja-JP": {
-                                singular: "オプション {NUMBER}"
+                                singular: "オプションを削除"
                               },
                               "ko-KR": {
-                                singular: "옵션 {NUMBER}"
+                                singular: "옵션 삭제"
                               },
                               "pt-BR": {
-                                singular: "Opção {NUMBER}"
+                                singular: "Excluir opção"
                               },
                               "zh-CN": {
-                                singular: "选项 {NUMBER}"
+                                singular: "删除选项"
                               }
                             }
                           }),
-                          value: _v0.value,
-                          onChange: _v0 => {
-                            let _v1 = [..._v78];
-                            _v1[_v1] = {
-                              ..._v1[_v1],
-                              value: _v0.target.value
-                            }, _v79(_v1);
-                          },
-                          onKeyDown: _v0 => {
-                            if ("Enter" === _v0.key && _v0.value.trim()) {
-                              _v0.preventDefault();
-                              let _v0 = _v0.currentTarget.closest("[data-edit-options-list]");
-                              _v79([..._v78, {
-                                originalValue: null,
-                                value: ""
-                              }]), requestAnimationFrame(() => {
-                                let _v0 = _v0?.querySelectorAll("input");
-                                _v0?.[_v0.length - 1]?.focus();
-                              });
-                            }
-                          },
-                          _placeholder: {
-                            color: "text-tertiary"
-                          },
-                          _focus: {
-                            bg: "fill-component"
+                          variant: "tertiary",
+                          size: "md",
+                          icon: (0, _v1.jsx)(_v71.TrashBin, {}),
+                          isDisabled: _v80.length <= 1,
+                          onClick: () => {
+                            _v85(_v1), _v87();
                           }
-                        })
-                      }), (0, _v1.jsx)(_v18.IconButton, {
-                        "aria-label": (0, _v87.translate)({
-                          singular: "Delete option",
-                          dictionary: {
-                            es: {
-                              singular: "Eliminar opción"
-                            },
-                            "de-DE": {
-                              singular: "Option löschen"
-                            },
-                            "fr-FR": {
-                              singular: "Supprimer l’option"
-                            },
-                            "ja-JP": {
-                              singular: "オプションを削除"
-                            },
-                            "ko-KR": {
-                              singular: "옵션 삭제"
-                            },
-                            "pt-BR": {
-                              singular: "Excluir opção"
-                            },
-                            "zh-CN": {
-                              singular: "删除选项"
-                            }
-                          }
-                        }),
-                        variant: "tertiary",
-                        size: "md",
-                        icon: (0, _v1.jsx)(_v71.TrashBin, {}),
-                        isDisabled: _v78.length <= 1,
-                        onClick: () => {
-                          _v83(_v1), _v85();
-                        }
-                      })]
-                    }, _v1)), (0, _v1.jsx)(_v11.Button, {
+                        })]
+                      }, _v1))
+                    }), (0, _v1.jsx)(_v11.Button, {
                       variant: "tertiary",
                       size: "md",
                       alignSelf: "center",
                       leftIcon: (0, _v1.jsx)(_v66.PlusCircle, {}),
-                      onClick: () => _v79([..._v78, {
-                        originalValue: null,
-                        value: ""
-                      }]),
+                      onClick: () => {
+                        _v81([..._v80, {
+                          originalValue: null,
+                          value: ""
+                        }]), requestAnimationFrame(() => {
+                          let _v0 = _v46.current?.querySelectorAll("input");
+                          _v0?.[_v0.length - 1]?.focus();
+                        });
+                      },
                       children: (0, _v87.translate)({
                         singular: "New option",
                         dictionary: {
@@ -5870,7 +5898,7 @@
                       })
                     })]
                   })]
-                }) : _v63?.type === "date" ? (0, _v1.jsxs)(_v15.FormControl, {
+                }) : _v65?.type === "date" ? (0, _v1.jsxs)(_v15.FormControl, {
                   children: [(0, _v1.jsx)(_v16.FormLabel, {
                     fontWeight: "bold",
                     fontSize: "sm",
@@ -5902,10 +5930,10 @@
                     })
                   }), (0, _v1.jsxs)(_v9.DatePicker, {
                     width: "100%",
-                    value: _v76 && (_v4 = _v76.match(/^(\d{4})-(\d{2})-(\d{2})/)) ? [new _v7.BokehDate.CalendarDate(Number(_v4[1]), Number(_v4[2]), Number(_v4[3]))] : [],
+                    value: _v78 && (_v4 = _v78.match(/^(\d{4})-(\d{2})-(\d{2})/)) ? [new _v7.BokehDate.CalendarDate(Number(_v4[1]), Number(_v4[2]), Number(_v4[3]))] : [],
                     onValueChange: _v0 => {
                       let _v1 = _v0.value?.[0];
-                      _v77(_v1 ? _v93(_v1) : "");
+                      _v79(_v1 ? _v93(_v1) : "");
                     },
                     children: [(0, _v1.jsx)(_v9.DatePickerControl, {
                       children: (0, _v1.jsxs)(_v21.InputGroup, {
@@ -5972,7 +6000,7 @@
                       })
                     })]
                   })]
-                }) : _v63?.type === "bool" ? (0, _v1.jsxs)(_v15.FormControl, {
+                }) : _v65?.type === "bool" ? (0, _v1.jsxs)(_v15.FormControl, {
                   children: [(0, _v1.jsx)(_v16.FormLabel, {
                     fontWeight: "bold",
                     fontSize: "sm",
@@ -6114,16 +6142,16 @@
                         }
                       }
                     }),
-                    value: [_v76],
+                    value: [_v78],
                     onValueChange: ({
                       value: _v0
-                    }) => _v77(_v0[0] ?? ""),
+                    }) => _v79(_v0[0] ?? ""),
                     positioning: {
                       placement: "bottom",
                       strategy: "fixed"
                     }
                   })]
-                }) : _v63?.type === "int" ? (0, _v1.jsxs)(_v15.FormControl, {
+                }) : _v65?.type === "int" ? (0, _v1.jsxs)(_v15.FormControl, {
                   children: [(0, _v1.jsx)(_v16.FormLabel, {
                     fontWeight: "bold",
                     fontSize: "sm",
@@ -6154,8 +6182,8 @@
                       }
                     })
                   }), (0, _v1.jsxs)(_v36.NumberInput, {
-                    value: _v76,
-                    onChange: _v0 => _v77(_v0),
+                    value: _v78,
+                    onChange: _v0 => _v79(_v0),
                     children: [(0, _v1.jsx)(_v36.NumberInputField, {
                       placeholder: (0, _v87.translate)({
                         singular: "Enter default value",
@@ -6250,9 +6278,9 @@
                         }
                       }
                     }),
-                    value: _v76,
+                    value: _v78,
                     onChange: _v0 => {
-                      _v0.target.value.length > 50 || _v77(_v0.target.value);
+                      _v0.target.value.length > 50 || _v79(_v0.target.value);
                     },
                     maxLength: 50,
                     _placeholder: {
@@ -6261,7 +6289,7 @@
                     _focus: {
                       bg: "fill-component"
                     }
-                  }), _v63?.type === "str" && (0, _v1.jsxs)(_v17.HStack, {
+                  }), _v65?.type === "str" && (0, _v1.jsxs)(_v17.HStack, {
                     justifyContent: "space-between",
                     mt: "xs",
                     children: [(0, _v1.jsx)(_v52.Text, {
@@ -6295,8 +6323,8 @@
                       })
                     }), (0, _v1.jsxs)(_v52.Text, {
                       variant: "body-sm",
-                      color: _v76.length >= 50 ? "status-destructive-primary" : "text-tertiary",
-                      children: [_v76.length, "/50"]
+                      color: _v78.length >= 50 ? "status-destructive-primary" : "text-tertiary",
+                      children: [_v78.length, "/50"]
                     })]
                   })]
                 })
@@ -6311,7 +6339,7 @@
               children: [(0, _v1.jsx)(_v11.Button, {
                 variant: "secondary",
                 size: "md",
-                onClick: _v103,
+                onClick: _v105,
                 children: (0, _v87.translate)({
                   singular: "Cancel",
                   dictionary: {
@@ -6341,8 +6369,8 @@
               }), (0, _v1.jsx)(_v11.Button, {
                 variant: "primary",
                 size: "md",
-                onClick: _v102 ? _v91 : _v108,
-                isDisabled: !_v70.trim() || _v126 || (_v63?.type === "select" || _v63?.type === "multi-select") && _v78.some(_v0 => !_v0.value.trim()),
+                onClick: _v104 ? _v93 : _v110,
+                isDisabled: !_v72.trim() || _v128 || (_v65?.type === "select" || _v65?.type === "multi-select") && _v80.some(_v0 => !_v0.value.trim()),
                 children: (0, _v87.translate)({
                   singular: "Save",
                   dictionary: {
@@ -6374,8 +6402,8 @@
           })]
         })]
       }), (0, _v1.jsxs)(_v29.Modal, {
-        isOpen: _v84,
-        onClose: _v86,
+        isOpen: _v86,
+        onClose: _v88,
         children: [(0, _v1.jsx)(_v35.ModalOverlay, {}), (0, _v1.jsxs)(_v32.ModalContent, {
           maxW: (0, _v42.rem)(480),
           children: [(0, _v1.jsx)(_v34.ModalHeader, {
@@ -6442,7 +6470,7 @@
               children: [(0, _v1.jsx)(_v11.Button, {
                 variant: "secondary",
                 size: "md",
-                onClick: _v86,
+                onClick: _v88,
                 children: (0, _v87.translate)({
                   singular: "Cancel",
                   dictionary: {
@@ -6473,11 +6501,11 @@
                 variant: "destructive",
                 size: "md",
                 onClick: () => {
-                  if (null === _v82) return;
-                  _v79(_v78.filter((_v0, _v1) => _v1 !== _v82));
+                  if (null === _v84) return;
+                  _v81(_v80.filter((_v0, _v1) => _v1 !== _v84));
                   let _v0 = new Set();
-                  for (let _v0 of _v80) _v0 < _v82 ? _v0.add(_v0) : _v0 > _v82 && _v0.add(_v0 - 1);
-                  _v81(_v0), _v83(null), _v86();
+                  for (let _v0 of _v82) _v0 < _v84 ? _v0.add(_v0) : _v0 > _v84 && _v0.add(_v0 - 1);
+                  _v83(_v0), _v85(null), _v88();
                 },
                 children: (0, _v87.translate)({
                   singular: "Delete",
@@ -6510,8 +6538,8 @@
           })]
         })]
       }), (0, _v1.jsxs)(_v29.Modal, {
-        isOpen: _v87,
-        onClose: _v89,
+        isOpen: _v89,
+        onClose: _v91,
         size: "sm",
         children: [(0, _v1.jsx)(_v35.ModalOverlay, {}), (0, _v1.jsxs)(_v32.ModalContent, {
           children: [(0, _v1.jsx)(_v34.ModalHeader, {
@@ -6611,7 +6639,7 @@
                 variant: "tertiary",
                 size: "sm",
                 onClick: () => {
-                  _v89(), _v67();
+                  _v91(), _v69();
                 },
                 children: (0, _v87.translate)({
                   singular: "Discard",
@@ -6642,7 +6670,7 @@
               }), (0, _v1.jsx)(_v11.Button, {
                 variant: "primary",
                 size: "sm",
-                onClick: _v89,
+                onClick: _v91,
                 children: (0, _v87.translate)({
                   singular: "Keep Editing",
                   dictionary: {
@@ -6674,8 +6702,8 @@
           })]
         })]
       }), (0, _v1.jsxs)(_v29.Modal, {
-        isOpen: _v90,
-        onClose: _v92,
+        isOpen: _v92,
+        onClose: _v94,
         size: "md",
         children: [(0, _v1.jsx)(_v35.ModalOverlay, {}), (0, _v1.jsxs)(_v32.ModalContent, {
           children: [(0, _v1.jsx)(_v34.ModalHeader, {
@@ -6738,7 +6766,7 @@
                     }
                   }
                 })
-              }), _v101.renamed.length > 0 && (0, _v1.jsxs)(_v8.Box, {
+              }), _v103.renamed.length > 0 && (0, _v1.jsxs)(_v8.Box, {
                 children: [(0, _v1.jsx)(_v52.Text, {
                   fontWeight: "bold",
                   variant: "heading-sm",
@@ -6772,7 +6800,7 @@
                 }), (0, _v1.jsx)(_v58.VStack, {
                   spacing: "xs",
                   align: "stretch",
-                  children: _v101.renamed.map((_v0, _v1) => (0, _v1.jsxs)(_v17.HStack, {
+                  children: _v103.renamed.map((_v0, _v1) => (0, _v1.jsxs)(_v17.HStack, {
                     spacing: "xs",
                     children: [(0, _v1.jsx)(_v47.Tag, {
                       size: "sm",
@@ -6793,7 +6821,7 @@
                     })]
                   }, _v1))
                 })]
-              }), _v101.added.length > 0 && (0, _v1.jsxs)(_v8.Box, {
+              }), _v103.added.length > 0 && (0, _v1.jsxs)(_v8.Box, {
                 children: [(0, _v1.jsx)(_v52.Text, {
                   fontWeight: "bold",
                   variant: "heading-sm",
@@ -6827,7 +6855,7 @@
                 }), (0, _v1.jsx)(_v17.HStack, {
                   spacing: "xs",
                   flexWrap: "wrap",
-                  children: _v101.added.map((_v0, _v1) => (0, _v1.jsx)(_v47.Tag, {
+                  children: _v103.added.map((_v0, _v1) => (0, _v1.jsx)(_v47.Tag, {
                     size: "sm",
                     bg: "fill-component",
                     children: (0, _v1.jsx)(_v47.TagLabel, {
@@ -6835,7 +6863,7 @@
                     })
                   }, _v1))
                 })]
-              }), _v101.deleted.length > 0 && (0, _v1.jsxs)(_v8.Box, {
+              }), _v103.deleted.length > 0 && (0, _v1.jsxs)(_v8.Box, {
                 children: [(0, _v1.jsx)(_v52.Text, {
                   fontWeight: "bold",
                   variant: "heading-sm",
@@ -6869,7 +6897,7 @@
                 }), (0, _v1.jsx)(_v17.HStack, {
                   spacing: "xs",
                   flexWrap: "wrap",
-                  children: _v101.deleted.map((_v0, _v1) => (0, _v1.jsx)(_v47.Tag, {
+                  children: _v103.deleted.map((_v0, _v1) => (0, _v1.jsx)(_v47.Tag, {
                     size: "sm",
                     bg: "status-destructive-secondary",
                     children: (0, _v1.jsx)(_v47.TagLabel, {
@@ -6885,7 +6913,7 @@
               children: [(0, _v1.jsx)(_v11.Button, {
                 variant: "tertiary",
                 size: "sm",
-                onClick: _v92,
+                onClick: _v94,
                 children: (0, _v87.translate)({
                   singular: "Cancel",
                   dictionary: {
@@ -6916,7 +6944,7 @@
                 variant: "primary",
                 size: "sm",
                 onClick: () => {
-                  _v92(), _v108();
+                  _v94(), _v110();
                 },
                 children: (0, _v87.translate)({
                   singular: "Confirm",

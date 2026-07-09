@@ -55,7 +55,7 @@
               variant: "heading-xs",
               children: _v1
             }), _v0 && (0, _v1.jsx)(_v13.Badge, {
-              variant: "neutral",
+              variant: "default",
               size: "xs",
               height: "2xs",
               children: _v0

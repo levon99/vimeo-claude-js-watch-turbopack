@@ -309,7 +309,7 @@
                   }
                 })
               }), (0, _v1.jsx)(_v3.Badge, {
-                variant: "neutral",
+                variant: "default",
                 size: "sm",
                 children: _v11
               })]

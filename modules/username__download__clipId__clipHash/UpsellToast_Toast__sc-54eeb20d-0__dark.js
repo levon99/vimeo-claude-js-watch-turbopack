@@ -524,33 +524,159 @@
     created_on: _v0,
     disabled: _v1,
     id: _v2,
-    is_transcoding: _v3,
-    onClick: _v4,
-    selectedVersion: _v5,
-    shortFilename: _v6,
-    title: _v7,
-    reviewModes: _v8,
-    ..._v9
+    uploadStatus: _v3,
+    transcodeStatus: _v4,
+    onClick: _v5,
+    selectedVersion: _v6,
+    shortFilename: _v7,
+    title: _v8,
+    reviewModes: _v9,
+    ..._v10
   }) {
-    let _v10 = _v2 === _v5.id;
+    let _v11 = _v2 === _v6.id;
     return (0, _v10.jsxs)(_v74, {
-      "aria-label": _v7,
-      onClick: _v4,
-      selected: _v10,
+      "aria-label": _v8,
+      onClick: _v5,
+      selected: _v11,
       disabled: _v1,
-      reviewModes: _v8,
-      ..._v9,
-      children: [_v10 && (0, _v10.jsx)(_v71.Checkmark, {
+      reviewModes: _v9,
+      ..._v10,
+      children: [_v11 && (0, _v10.jsx)(_v71.Checkmark, {
         style: {
           marginRight: "1rem"
         }
-      }), !_v10 && _v3 && (0, _v10.jsx)(_v70.Spinner, {
+      }), !_v11 && ("in_progress" === _v3 || "in_progress" === _v4) && (0, _v10.jsx)(_v70.Spinner, {
         style: {
           marginRight: "1rem"
         }
       }), (0, _v10.jsxs)("div", {
-        children: [_v6, (0, _v10.jsx)(_v73, {
-          children: _v3 ? "Transcoding" : function (_v0) {
+        children: [_v7, (0, _v10.jsx)(_v73, {
+          children: "in_progress" === _v3 ? (0, _v66.translate)({
+            singular: "Uploading",
+            dictionary: {
+              es: {
+                singular: "Subidas"
+              },
+              "de-DE": {
+                singular: "Hochladen"
+              },
+              "fr-FR": {
+                singular: "Mise en ligne en cours"
+              },
+              "ja-JP": {
+                singular: "アップロード"
+              },
+              "ko-KR": {
+                singular: "업로드"
+              },
+              "pt-BR": {
+                singular: "Carregamento"
+              },
+              "zh-CN": {
+                singular: "正在上传"
+              }
+            }
+          }) : "error" === _v3 ? (0, _v66.translate)({
+            singular: "Upload failed",
+            dictionary: {
+              es: {
+                singular: "Error en la subida"
+              },
+              "de-DE": {
+                singular: "Hochladen ist fehlgeschlagen"
+              },
+              "fr-FR": {
+                singular: "Échec de la mise en ligne"
+              },
+              "ja-JP": {
+                singular: "アップロードが失敗しました"
+              },
+              "ko-KR": {
+                singular: "업로드 실패"
+              },
+              "pt-BR": {
+                singular: "Falha no carregamento"
+              },
+              "zh-CN": {
+                singular: "上传失败"
+              }
+            }
+          }) : "cancelled" === _v3 ? (0, _v66.translate)({
+            singular: "Cancelled",
+            dictionary: {
+              es: {
+                singular: "Cancelado"
+              },
+              "de-DE": {
+                singular: "Abgebrochen"
+              },
+              "fr-FR": {
+                singular: "Annulé"
+              },
+              "ja-JP": {
+                singular: "キャンセル済み"
+              },
+              "ko-KR": {
+                singular: "취소됨"
+              },
+              "pt-BR": {
+                singular: "Cancelado"
+              },
+              "zh-CN": {
+                singular: "已取消"
+              }
+            }
+          }) : "in_progress" === _v4 ? (0, _v66.translate)({
+            singular: "Transcoding",
+            dictionary: {
+              es: {
+                singular: "Transcodificando"
+              },
+              "de-DE": {
+                singular: "Transkodierung"
+              },
+              "fr-FR": {
+                singular: "Transcodage en cours"
+              },
+              "ja-JP": {
+                singular: "トランスコード中"
+              },
+              "ko-KR": {
+                singular: "트랜스코딩"
+              },
+              "pt-BR": {
+                singular: "Transcodificando"
+              },
+              "zh-CN": {
+                singular: "转码中"
+              }
+            }
+          }) : "error" === _v4 ? (0, _v66.translate)({
+            singular: "Processing failed",
+            dictionary: {
+              es: {
+                singular: "Error en el procesamiento"
+              },
+              "de-DE": {
+                singular: "Verarbeitung fehlgeschlagen"
+              },
+              "fr-FR": {
+                singular: "Échec du traitement"
+              },
+              "ja-JP": {
+                singular: "処理に失敗しました"
+              },
+              "ko-KR": {
+                singular: "처리 실패"
+              },
+              "pt-BR": {
+                singular: "Falha no processamento"
+              },
+              "zh-CN": {
+                singular: "处理失败"
+              }
+            }
+          }) : function (_v0) {
             let _v1 = _v78(_v0),
               _v2 = new Date(Date.now()),
               _v3 = new Date(_v1),
@@ -1117,13 +1243,8 @@
       reviewModes: _v3 = !1,
       ..._v4
     }) {
-      let [_v5, _v6] = (0, _v12.useState)({
-          isMenuOpen: !1
-        }),
-        _v7 = () => _v6(_v0 => ({
-          ..._v0,
-          isMenuOpen: !1
-        })),
+      let [_v5, _v6] = (0, _v12.useState)(!1),
+        _v7 = () => _v6(!1),
         _v8 = (0, _v10.jsxs)(_v79, {
           children: [(0, _v10.jsx)(_v69.Pop.Header, {
             children: (0, _v66.translate)({
@@ -1153,7 +1274,7 @@
               }
             })
           }), _v2.map(_v0 => (0, _v10.jsx)(_v72, {
-            onClick: () => !_v0.is_transcoding && void (_v7(), _v1?.(_v0)),
+            onClick: () => "in_progress" !== _v0.uploadStatus && "error" !== _v0.uploadStatus && "cancelled" !== _v0.uploadStatus && "in_progress" !== _v0.transcodeStatus && "error" !== _v0.transcodeStatus && void (_v7(), _v1?.(_v0)),
             selectedVersion: _v0,
             reviewModes: !0,
             ..._v0
@@ -1164,10 +1285,7 @@
         children: (0, _v10.jsx)(_v68.PopOver, {
           attach: [[100, 0], [0, 0]],
           content: _v8,
-          onClick: () => _v6(_v0 => ({
-            ..._v0,
-            isMenuOpen: !_v0.isMenuOpen
-          })),
+          onClick: () => _v6(_v0 => !_v0),
           onClose: _v7,
           style: {
             width: "20rem"
@@ -1176,7 +1294,7 @@
             fluid: !0,
             format: "secondary",
             icon: (0, _v10.jsx)(_v81, {
-              isFlipped: _v5.isMenuOpen
+              isFlipped: _v5
             }),
             iconPosition: "right",
             size: _v3 ? "sm" : "md",
