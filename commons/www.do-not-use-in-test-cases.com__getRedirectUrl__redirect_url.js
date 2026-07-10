@@ -28,7 +28,7 @@
       }
       if (_v1.hostname === _v1) return _v2(_v0) ? _v0 : "/";
       if ("localhost" === _v1.hostname && "3001" !== _v1.port) return "/";
-      for (let _v0 of ["ci.vimeows.com", "playerci.vimeows.com", "cikube.vimeows.com", "vimeopro.com", "vimeo.com", "vimeo.dev", "vimeotest.dev", "vimeo.zendesk.com", "help.vimeo.com", "localhost", "feature-slvhyk3sjq-ue.a.run.app", "spa-v2-sim-2-slvhyk3sjq-ue.a.run.app", "dev.venues.vimeows.com"]) {
+      for (let _v0 of ["ci.vimeows.com", "playerci.vimeows.com", "cikube.vimeows.com", "vimeopro.com", "vimeo.com", "vimeo.dev", "vimeo.zendesk.com", "help.vimeo.com", "localhost", "feature-slvhyk3sjq-ue.a.run.app", "spa-v2-sim-2-slvhyk3sjq-ue.a.run.app", "dev.venues.vimeows.com"]) {
         if (_v1.hostname === _v0) return _v1.href;
         let _v0 = `.${_v0}`;
         if (_v1.hostname.endsWith(_v0)) return _v1.href;

@@ -17,7 +17,7 @@
     if (_v1.length && _v1.includes(_v0) || _v0 && function (_v0) {
       return !/^[a-zA-Z][a-zA-Z0-9+.-]*:/m.test(_v0.trim()) && !/^https?:\/\/|^\/\//i.test(_v0) && "/" === _v0[0];
     }(_v0)) return !0;
-    let _v4 = ["ci.vimeows.com", "help.vimeo.com", "vimeo.com", "vimeo.dev", "vimeo.zendesk.com", "vimeopro.com", "vimeotest.dev", "feature-slvhyk3sjq-ue.a.run.app", "spa-v2-sim-2-slvhyk3sjq-ue.a.run.app", "dev.venues.vimeows.com", "venues.vimeo.com", "localhost", "player2.vimeo.dev", "master.playerci.vimeows.com", "playerci.vimeows.com", "player.vimeo.com"];
+    let _v4 = ["ci.vimeows.com", "help.vimeo.com", "vimeo.com", "vimeo.dev", "vimeo.zendesk.com", "vimeopro.com", "feature-slvhyk3sjq-ue.a.run.app", "spa-v2-sim-2-slvhyk3sjq-ue.a.run.app", "dev.venues.vimeows.com", "venues.vimeo.com", "localhost", "player2.vimeo.dev", "master.playerci.vimeows.com", "playerci.vimeows.com", "player.vimeo.com"];
     try {
       _v3 = new URL(_v0);
     } catch (_v0) {

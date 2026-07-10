@@ -303,6 +303,7 @@
                   })]
                 })]
               }), (0, _v1.jsxs)(_v18.VStack, {
+                position: "relative",
                 flex: "1 0 0",
                 minW: 0,
                 gap: "3",
@@ -311,21 +312,19 @@
                 px: "5",
                 py: "md",
                 bg: "status-info-secondary",
-                children: [(0, _v1.jsxs)(_v9.HStack, {
-                  justify: "space-between",
-                  align: "start",
-                  gap: "sm",
-                  w: "100%",
-                  flexWrap: "wrap",
-                  children: [(0, _v1.jsx)(_v7.Flex, {
-                    align: "center",
-                    justify: "center",
-                    bg: "button-secondary-default",
-                    borderRadius: "sm",
-                    p: "sm",
-                    flexShrink: 0,
-                    children: (0, _v1.jsx)(_v26.TeamLibrary, {})
-                  }), (0, _v1.jsx)(_v4.Badge, {
+                children: [(0, _v1.jsx)(_v7.Flex, {
+                  align: "center",
+                  justify: "center",
+                  bg: "button-secondary-default",
+                  borderRadius: "sm",
+                  p: "sm",
+                  flexShrink: 0,
+                  children: (0, _v1.jsx)(_v26.TeamLibrary, {})
+                }), (0, _v1.jsx)(_v5.Box, {
+                  position: "absolute",
+                  top: "sm",
+                  right: "sm",
+                  children: (0, _v1.jsx)(_v4.Badge, {
                     variant: "new",
                     size: "sm",
                     bgColor: "input-fill",
@@ -357,7 +356,7 @@
                         }
                       }
                     })
-                  })]
+                  })
                 }), (0, _v1.jsxs)(_v18.VStack, {
                   gap: "px",
                   align: "start",

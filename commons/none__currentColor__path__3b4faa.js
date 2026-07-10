@@ -138,12 +138,11 @@
   }) => {
     let _v2 = _v18(_v0, _v1);
     return (0, _v1.jsxs)(_v5.VStack, {
-      gap: "2",
       align: "center",
       w: "100%",
       children: [(0, _v1.jsxs)(_v4.Flex, {
         align: "center",
-        gap: "0.5",
+        gap: "none",
         h: "68px",
         w: "100%",
         borderRadius: "md",
@@ -237,8 +236,8 @@
         align: "center",
         justify: "center",
         h: "68px",
-        w: "100%",
-        px: "5",
+        w: "280px",
+        px: "md",
         py: "md",
         borderRadius: "md",
         bgColor: "vimeoBlueAlpha.300",
@@ -274,8 +273,8 @@
           meta: _v2.isReady ? _v17(_v2.combined) : ""
         }), (0, _v1.jsx)(_v3.Box, {
           position: "absolute",
-          top: "3",
-          right: "3",
+          top: "sm",
+          right: "sm",
           children: (0, _v1.jsx)(_v2.Badge, {
             variant: "new",
             size: "sm",

@@ -231,9 +231,11 @@
       pendingCount: _v4,
       onManageTeam: _v5,
       onInviteMembers: _v6,
-      onStartYourTeam: _v7
+      onStartYourTeam: _v7,
+      isStartYourTeamDisabled: _v8 = !1,
+      isMigrationInProgress: _v9 = !1
     }) => {
-      let _v8 = (0, _v11.translate)({
+      let _v10 = (0, _v11.translate)({
           singular: "{count} member",
           plural: "{count} members",
           replacements: {
@@ -271,7 +273,7 @@
             }
           }
         }),
-        _v9 = _v4 > 0 ? `${_v8} • ${(0, _v11.translate)({
+        _v11 = _v4 > 0 ? `${_v10} • ${(0, _v11.translate)({
           singular: "{count} pending",
           plural: "{count} pending",
           replacements: {
@@ -308,7 +310,7 @@
               plural: "{count} 个待处理"
             }
           }
-        })}` : _v8;
+        })}` : _v10;
       return (0, _v1.jsxs)(_v4.Flex, {
         direction: "column",
         overflow: "hidden",
@@ -357,7 +359,7 @@
               }), (0, _v1.jsx)(_v16.Paragraph, {
                 size: "sm",
                 color: "text-secondary",
-                children: _v9
+                children: _v11
               })]
             }), _v0 && (0, _v1.jsxs)(_v4.Flex, {
               gap: "xs",
@@ -596,38 +598,96 @@
             })
           }), (0, _v1.jsx)(_v13.Box, {
             px: (0, _v8.rem)(20),
-            children: (0, _v1.jsx)(_v26.Button, {
-              leftIcon: (0, _v1.jsx)(_v30, {}),
-              size: "lg",
-              variant: "primary",
-              w: "100%",
-              "data-testid": "team-members-popover-start-team-button",
-              onClick: _v7,
-              children: (0, _v11.translate)({
-                singular: "Start your team",
+            children: (0, _v1.jsx)(_v28.Tooltip, {
+              label: (0, _v11.translate)({
+                singular: "You'll be able to add members when your new library is ready.",
                 dictionary: {
                   es: {
-                    singular: "Comience su equipo"
+                    singular: "Podrá añadir miembros cuando su nueva biblioteca esté lista."
                   },
                   "de-DE": {
-                    singular: "Baue dein Team auf"
+                    singular: "Sie können Mitglieder hinzufügen, sobald Ihre neue Bibliothek bereit ist."
                   },
                   "fr-FR": {
-                    singular: "Lancer votre équipe"
+                    singular: "Vous pourrez ajouter des membres lorsque votre nouvelle bibliothèque sera prête."
                   },
                   "ja-JP": {
-                    singular: "チームを始める"
+                    singular: "新しいライブラリの準備ができたら、メンバーを追加できるようになります。"
                   },
                   "ko-KR": {
-                    singular: "팀 꾸리기"
+                    singular: "새 라이브러리가 준비되면 구성원을 추가할 수 있습니다."
                   },
                   "pt-BR": {
-                    singular: "Crie sua equipe"
+                    singular: "Você poderá adicionar membros quando sua nova biblioteca estiver pronta."
                   },
                   "zh-CN": {
-                    singular: "组建团队"
+                    singular: "当您的新媒体库准备就绪后，您将能够添加成员。"
                   }
                 }
+              }),
+              isDisabled: !_v9,
+              children: (0, _v1.jsx)(_v13.Box, {
+                w: "100%",
+                children: (0, _v1.jsx)(_v26.Button, {
+                  leftIcon: (0, _v1.jsx)(_v30, {}),
+                  size: "lg",
+                  variant: "primary",
+                  w: "100%",
+                  isDisabled: _v8,
+                  "data-testid": "team-members-popover-start-team-button",
+                  onClick: _v7,
+                  children: _v9 ? (0, _v11.translate)({
+                    singular: "Creating your team…",
+                    dictionary: {
+                      es: {
+                        singular: "Creando tu equipo…"
+                      },
+                      "de-DE": {
+                        singular: "Ihr Team wird erstellt…"
+                      },
+                      "fr-FR": {
+                        singular: "Création de votre équipe…"
+                      },
+                      "ja-JP": {
+                        singular: "チームを作成しています…"
+                      },
+                      "ko-KR": {
+                        singular: "팀을 생성하는 중…"
+                      },
+                      "pt-BR": {
+                        singular: "Criando sua equipe…"
+                      },
+                      "zh-CN": {
+                        singular: "正在创建您的团队…"
+                      }
+                    }
+                  }) : (0, _v11.translate)({
+                    singular: "Start your team",
+                    dictionary: {
+                      es: {
+                        singular: "Comience su equipo"
+                      },
+                      "de-DE": {
+                        singular: "Baue dein Team auf"
+                      },
+                      "fr-FR": {
+                        singular: "Lancer votre équipe"
+                      },
+                      "ja-JP": {
+                        singular: "チームを始める"
+                      },
+                      "ko-KR": {
+                        singular: "팀 꾸리기"
+                      },
+                      "pt-BR": {
+                        singular: "Crie sua equipe"
+                      },
+                      "zh-CN": {
+                        singular: "组建团队"
+                      }
+                    }
+                  })
+                })
               })
             })
           })]
@@ -696,7 +756,8 @@
   function _v42(_v0) {
     return _v0.user?.name ? _v0.user.name : _v0.email;
   }
-  let _v43 = {
+  var _v43 = _v0.i(0);
+  let _v44 = {
     borderRadius: "var(--full, 999px)",
     background: "var(--fill-component, rgba(190, 227, 248, 0.04))",
     height: "40px",
@@ -716,33 +777,37 @@
     let [_v9, _v10] = (0, _v2.useState)(!1),
       _v11 = (0, _v9.useIsMobile)(),
       {
-        data: _v12,
-        mutate: _v13
+        inProgress: _v12,
+        loading: _v13
+      } = (0, _v43.useLibraryMigrationInProgress)(_v0),
+      {
+        data: _v14,
+        mutate: _v15
       } = (0, _v10.useGetMePreferences)({
         select: ["tmpv"]
       }),
-      [_v14] = (0, _v10.usePatchMePreferences)(),
-      _v15 = (0, _v2.useRef)(!1),
-      _v16 = void 0 !== _v12 && !_v12.tmpv,
-      _v17 = (0, _v2.useCallback)(() => {
-        _v16 && !_v15.current && (_v15.current = !0, _v14({
+      [_v16] = (0, _v10.usePatchMePreferences)(),
+      _v17 = (0, _v2.useRef)(!1),
+      _v18 = void 0 !== _v14 && !_v14.tmpv,
+      _v19 = (0, _v2.useCallback)(() => {
+        _v18 && !_v17.current && (_v17.current = !0, _v16({
           select: ["tmpv"],
           variables: {
             tmpv: 1
           }
-        }).then(() => _v13()).finally(() => {
-          _v15.current = !1;
+        }).then(() => _v15()).finally(() => {
+          _v17.current = !1;
         }));
-      }, [_v16, _v14, _v13]),
-      _v18 = (0, _v2.useCallback)(() => {
-        _v10(!0), _v17();
-      }, [_v17]),
+      }, [_v18, _v16, _v15]),
+      _v20 = (0, _v2.useCallback)(() => {
+        _v10(!0), _v19();
+      }, [_v19]),
       {
-        avatars: _v19,
-        members: _v20,
-        pending: _v21,
-        memberCount: _v22,
-        pendingCount: _v23
+        avatars: _v21,
+        members: _v22,
+        pending: _v23,
+        memberCount: _v24,
+        pendingCount: _v25
       } = function ({
         ownerId: _v0,
         viewerName: _v1,
@@ -852,23 +917,25 @@
         isSoleTeamMember: _v5
       });
     if (_v8) return null;
-    let _v24 = {
+    let _v26 = {
         contentSpaceEnabled: _v4,
-        members: _v20,
-        pending: _v21,
-        memberCount: _v22,
-        pendingCount: _v23,
+        members: _v22,
+        pending: _v23,
+        memberCount: _v24,
+        pendingCount: _v25,
         onManageTeam: () => {
           _v4 && (window.location.href = "/manage/team/members");
         },
         onInviteMembers: _v7,
         onStartYourTeam: () => {
           _v10(!1), _v6();
-        }
+        },
+        isStartYourTeamDisabled: _v12 || _v13,
+        isMigrationInProgress: _v12
       },
-      _v25 = (0, _v1.jsx)(_v20, {
-        avatars: _v19,
-        showDot: _v16
+      _v27 = (0, _v1.jsx)(_v20, {
+        avatars: _v21,
+        showDot: _v18
       });
     return (0, _v1.jsxs)(_v4.Flex, {
       gap: "sm",
@@ -911,20 +978,20 @@
           flexWrap: "nowrap",
           cursor: "pointer",
           "data-testid": "team-members-preview-trigger",
-          onClick: _v18,
+          onClick: _v20,
           onKeyDown: _v0 => {
-            ("Enter" === _v0.key || " " === _v0.key) && (_v0.preventDefault(), _v18());
+            ("Enter" === _v0.key || " " === _v0.key) && (_v0.preventDefault(), _v20());
           },
-          sx: _v43,
-          children: _v25
+          sx: _v44,
+          children: _v27
         }), (0, _v1.jsx)(_v36, {
           isOpen: _v9,
           onClose: () => _v10(!1),
-          ..._v24
+          ..._v26
         })]
       }) : (0, _v1.jsxs)(_v5.Popover, {
         isOpen: _v9,
-        onOpen: _v18,
+        onOpen: _v20,
         onClose: () => _v10(!1),
         placement: "bottom-end",
         gutter: 8,
@@ -937,12 +1004,12 @@
             flexWrap: "nowrap",
             cursor: "pointer",
             "data-testid": "team-members-preview-trigger",
-            sx: _v43,
-            children: _v25
+            sx: _v44,
+            children: _v27
           })
         }), (0, _v1.jsx)(_v7.Portal, {
           children: (0, _v1.jsx)(_v38, {
-            ..._v24
+            ..._v26
           })
         })]
       }), (0, _v1.jsx)(_v3.Divider, {

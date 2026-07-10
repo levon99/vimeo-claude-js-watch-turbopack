@@ -2773,7 +2773,7 @@
             backgroundColor: "surface",
             borderRadius: "lg",
             children: (0, _v2.jsx)(_v112, {})
-          }), _v30 && _v32 && (0, _v2.jsx)(_v6.Box, {
+          }), _v30 && _v32 && _v8.untranslatedUserRole === _v27.TeamRole.Owner && (0, _v2.jsx)(_v6.Box, {
             mt: (0, _v8.rem)(24),
             children: (0, _v2.jsx)(_v11.MergeLibrariesBanner, {
               userId: _v4?.user?.id,

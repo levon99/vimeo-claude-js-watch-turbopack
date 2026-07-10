@@ -4493,7 +4493,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "4ba3273460031b37387eb9576456d6e173e01ce3",
+      release: "007caa25d6034568e990df841db8e09ea4a88f18",
       ..._v0
     };
     !function (_v0) {
@@ -4574,7 +4574,7 @@ Error:`, _v0);
     dsn: "https://0a37e74b815884a9b93905d42fd36619@o6787.ingest.us.sentry.io/4511274141876224",
     environment: _v284,
     tracesSampleRate: _v285 ? .01 : 1,
-    ignoreErrors: ["fresnel-events.vimeocdn.com", "browser-intake-datadoghq.com", "zaloJSV2", "telemetry.transcend.io"],
+    ignoreErrors: ["fresnel-events.vimeocdn.com", "browser-intake-datadoghq.com", "zaloJSV2", "JsInternal", "telemetry.transcend.io"],
     beforeBreadcrumb: _v0 => "xhr" === _v0.category && "string" == typeof _v0.data?.url && _v0.data.url.includes("vimeocdn.com") && 200 === _v0.data.status_code ? null : _v0,
     beforeSend(_v0, _v1) {
       let _v2;

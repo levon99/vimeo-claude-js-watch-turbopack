@@ -122,7 +122,7 @@
             onClose: _v0,
             name: _v4?.removeMemberName || "",
             removeMember: () => {
-              _v4 && _v4.deleteFromTeam && (_v4.deleteFromTeam(), _v9(1), _v4.removeMemberRole !== _v17.TeamRole.Viewer && _v7(_v1 + 1), _v15.enable_content_space_team_gate && 1 === _v5.currentTeamSize ? _v8({
+              _v4 && _v4.deleteFromTeam && (_v4.deleteFromTeam(), _v9(1), _v4.removeMemberRole !== _v17.TeamRole.Viewer && _v7(_v1 + 1), _v15.enable_content_space_team_gate && 1 === _v5.currentTeamSize && _v5.untranslatedUserRole === _v17.TeamRole.Owner ? _v8({
                 currentModalInDisplay: _v17.TeamManagementModals.BACK_ON_YOUR_OWN_MODAL
               }) : _v0());
             },

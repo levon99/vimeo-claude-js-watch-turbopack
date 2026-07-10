@@ -3504,6 +3504,10 @@
         maxW: "1584",
         w: "100%",
         padding: "300",
+        paddingTop: {
+          base: "12px",
+          md: "300"
+        },
         gap: "lg",
         flexDirection: "column",
         children: _v0
@@ -3730,7 +3734,8 @@
         BoldTextStyle: "heading-xs",
         BoxBorderRadius: "16px",
         BoxHeight: "46px",
-        BoxMaxWidth: "186px",
+        BoxWidth: "100%",
+        BoxMaxWidth: "none",
         BoxMinWidth: "150px",
         CtaSubCopyDisplay: "none",
         CtaSubCopyLineHeight: "16px",
@@ -3741,6 +3746,7 @@
         BoldTextStyle: "heading-2xs",
         BoxBorderRadius: "16px",
         BoxHeight: "67px",
+        BoxWidth: "auto",
         BoxMaxWidth: "205px",
         BoxMinWidth: "165px",
         CtaSubCopyDisplay: "inline",
@@ -3752,6 +3758,7 @@
         BoldTextStyle: "heading-sm",
         BoxBorderRadius: "16px",
         BoxHeight: "72px",
+        BoxWidth: "auto",
         BoxMaxWidth: "288px",
         BoxMinWidth: "205px",
         CtaSubCopyDisplay: "inline-block",
@@ -3785,6 +3792,7 @@
           borderColor: _v2 ? _v11 : void 0,
           gap: _v8.Gap,
           height: _v8.BoxHeight,
+          width: _v8.BoxWidth,
           maxWidth: _v8.BoxMaxWidth,
           minWidth: _v8.BoxMinWidth,
           onClick: _v6,
@@ -3842,6 +3850,7 @@
     }) => {
       let _v1 = _v179[_v0];
       return (0, _v1.jsx)(_v45.Box, {
+        width: _v1.BoxWidth,
         maxWidth: _v1.BoxMaxWidth,
         minWidth: _v1.BoxMinWidth,
         height: _v1.BoxHeight,
@@ -5149,7 +5158,7 @@
       return _v10 ? null : (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v45.Box, {
           display: "grid",
-          gap: "1.5rem",
+          gap: _v26.Gap,
           gridTemplateColumns: _v26.GridTemplateColumns,
           ref: _v2,
           justifyContent: "flex-start",
@@ -5168,13 +5177,16 @@
     _v226 = 0,
     _v227 = {
       Large: {
-        GridTemplateColumns: "repeat(auto-fit, minmax(165px, 1fr))"
+        GridTemplateColumns: "repeat(auto-fit, minmax(165px, 1fr))",
+        Gap: "1.5rem"
       },
       Medium: {
-        GridTemplateColumns: "repeat(auto-fit, minmax(165px, auto))"
+        GridTemplateColumns: "repeat(auto-fit, minmax(165px, auto))",
+        Gap: "1.5rem"
       },
       Small: {
-        GridTemplateColumns: "repeat(auto-fit, minmax(150px, auto))"
+        GridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+        Gap: "0.75rem"
       }
     };
   var _v228 = _v0.i(0),

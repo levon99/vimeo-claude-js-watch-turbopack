@@ -26793,7 +26793,7 @@
             }), (0, _v16.jsxs)(_v112.PanelBody, {
               ref: _v89,
               position: "relative",
-              maxHeight: _v108?.name === _v125.SHARE || _v108?.name === _v125.CUSTOM_PAGE ? "calc(100vh - 80px)" : (0, _v109.rem)(_v93),
+              maxHeight: _v108?.name === _v125.SHARE || _v108?.name === _v125.CUSTOM_PAGE ? "calc(100vh - 80px)" : _v17.enable_svv_redesign && _v108?.name === _v125.PLAYER ? (0, _v109.rem)(_v93 - 16) : (0, _v109.rem)(_v93),
               height: _v108?.name === _v125.CUSTOM_PAGE ? "auto" : _v108?.name === _v125.SHARE ? "calc(100vh - 80px)" : _v17.enable_svv_redesign && _v108?.name === _v125.AI_MANAGE ? (0, _v109.rem)(_v93 - 16) : _v128,
               overflowY: _v108?.name === _v125.AI_MANAGE || _v108?.name === _v125.GIFS || _v108?.name === _v125.CUSTOM_PAGE ? "visible" : "auto",
               ...(_v108?.name === _v125.SHARE && {
@@ -28438,7 +28438,9 @@
       qualitySelector: "quality",
       playButton: "playButton",
       askAi: "ask_ai",
-      skippingForward: "skipping_forward"
+      skippingForward: "skipping_forward",
+      muted: "muted",
+      contextMenu: "disable_context_menu"
     };
   var _v816 = _v0.i(0),
     _v817 = _v0.i(0),
@@ -28727,6 +28729,9 @@
       case "ask_ai":
       case "skipping_forward":
         _v0._setEmbedSetting(_v1, +!!_v2);
+        return;
+      case "muted":
+        _v0.muted = !!_v2;
         return;
       case "custom_logo":
         _v0._setEmbedSetting(_v1, _v2.active && _v2.url ? {
@@ -29192,7 +29197,8 @@
         right: _v3?.controlsMeasurements?.right && (0, _v200.rem)(_v3.controlsMeasurements.right - 10),
         height: _v3?.controlsMeasurements?.height && (0, _v200.rem)(_v3.controlsMeasurements.height + 20),
         width: _v3?.controlsMeasurements?.width && (0, _v200.rem)(_v3.controlsMeasurements.width + 20),
-        zIndex: 101
+        zIndex: 101,
+        pointerEvents: "none"
       }), [_v3]),
       [_v44, _v45] = (0, _v30.useState)(),
       {
@@ -29491,7 +29497,8 @@
             ..._v28,
             width: "12%",
             left: "auto",
-            right: 0
+            right: 0,
+            pointerEvents: "auto"
           },
           measurements: _v3.controlsMeasurements,
           active: "logo" === _v15 || void 0,
@@ -29811,7 +29818,7 @@
             _v1 === _v815.askAi && _v24?.disabled || _v845(_v4, _v1, _v2, _v6);
           });
         });
-      }, [_v4, _v33, _v6, _v6.color, _v6.colors, _v6.embed, _v6.fullscreen, _v6.like, _v6.reaction, _v6.name, _v6.playbar, _v6.owner, _v6.portrait, _v6.share, _v6.vimeoLogo, _v6.pip, _v6.volume, _v6.watchlater, _v6.speed, _v6.customLogo?.active, _v6.customLogo?.url, _v6.chapters, _v6.airplay, _v6.chromecast, _v6.closedCaptions, _v6.transcript, _v6.qualitySelector, _v6.playButton.position, _v6.audioTracks, _v6.skippingForward, _v3, _v24]), (0, _v16.jsxs)(_v107.Box, {
+      }, [_v4, _v33, _v6, _v6.color, _v6.colors, _v6.embed, _v6.fullscreen, _v6.like, _v6.reaction, _v6.name, _v6.playbar, _v6.owner, _v6.portrait, _v6.share, _v6.vimeoLogo, _v6.pip, _v6.volume, _v6.watchlater, _v6.speed, _v6.customLogo?.active, _v6.customLogo?.url, _v6.chapters, _v6.airplay, _v6.chromecast, _v6.closedCaptions, _v6.transcript, _v6.qualitySelector, _v6.playButton.position, _v6.audioTracks, _v6.skippingForward, _v6.muted, _v3, _v24]), (0, _v16.jsxs)(_v107.Box, {
         position: "relative",
         w: "100%",
         children: ["InteractionZones" === _v3 && !_v36 && !_v40 && (0, _v16.jsx)(_v801.GatesBanner, {

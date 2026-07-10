@@ -17,7 +17,6 @@
     minH: "60px",
     pl: "none",
     pr: "sm",
-    py: "md",
     children: [(0, _v1.jsx)(_v3.Flex, {
       align: "center",
       flexShrink: 0,

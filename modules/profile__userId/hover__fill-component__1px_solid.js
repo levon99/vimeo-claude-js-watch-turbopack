@@ -6056,8 +6056,8 @@
         trackUserProfileVideoReordered: _v13
       } = (0, _v24.useProfileTracking)(),
       _v14 = (0, _v16.useMemo)(() => _v0.map(_v0 => {
-        let _v1 = new Map(_v296(_v0).map(_v0 => [_v0.clip.uri, _v0])),
-          _v2 = (_v0.clipUris?.length ? _v0.clipUris : _v296(_v0).map(_v0 => _v0.clip.uri)).map(_v0 => ({
+        let _v1 = new Map(_v296(_v0).filter(_v0 => null != _v0.clip).map(_v0 => [_v0.clip.uri, _v0])),
+          _v2 = (_v0.clipUris?.length ? _v0.clipUris : _v296(_v0).filter(_v0 => null != _v0.clip).map(_v0 => _v0.clip.uri)).map(_v0 => ({
             clipUri: _v0,
             sectionUri: _v0.uri,
             sectionClip: _v1.get(_v0)
@@ -9473,6 +9473,7 @@
     };
   }, {
     inlineViewer: "all",
-    inlinePlayerAssets: !0
+    inlinePlayerAssets: !0,
+    inlineModbox: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v394], 0);
 }

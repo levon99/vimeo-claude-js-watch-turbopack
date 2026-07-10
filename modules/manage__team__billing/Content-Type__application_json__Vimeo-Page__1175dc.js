@@ -1486,10 +1486,10 @@
                   })
                 })]
               }), (0, _v1.jsx)(_v37.Text, {
-                variant: "body-sm",
+                variant: "body-md",
                 children: _v7.description
               }), (0, _v1.jsx)(_v37.Text, {
-                variant: "body-sm",
+                variant: "body-md",
                 children: _v7.moveDescription
               }), (0, _v1.jsx)(_v13.VStack, {
                 align: "stretch",
@@ -1503,7 +1503,7 @@
                     display: "inline-flex",
                     children: _v0.icon
                   }), (0, _v1.jsx)(_v37.Text, {
-                    variant: "body-sm",
+                    variant: "body-md",
                     children: _v0.text
                   })]
                 }, _v1))
@@ -1518,7 +1518,7 @@
                 },
                 children: _v7.features.map(_v0 => (0, _v1.jsx)(_v37.Text, {
                   as: "li",
-                  variant: "body-sm",
+                  variant: "body-md",
                   lineHeight: 1.9,
                   children: _v0.href ? (0, _v1.jsx)(_v28.Link, {
                     variant: "inline-secondary",
@@ -13170,6 +13170,11 @@
     let _v53 = _v10 && _v7 && (_v10 === _v200 || _v10 === _v199),
       _v54 = !_v6;
     return (0, _v1.jsxs)(_v7.Box, {
+      sx: {
+        "& > * + *": {
+          marginTop: (0, _v14.rem)(12)
+        }
+      },
       children: [(0, _v1.jsx)(_v17.SettingsPageContentHeader, {
         title: _v64.T.Billing
       }), _v54 && _v8.canShow && (0, _v1.jsx)(_v4.Alert, {

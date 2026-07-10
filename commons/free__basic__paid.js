@@ -269,7 +269,7 @@
       syncIntervalMilliseconds: 0,
       targetEventsNumberAfterClearingSpace: 0,
       webLockApiRunner: async (_v0, _v1) => {
-        window.navigator.locks.request(_v0, async () => (await _v1(), new Promise(() => {})));
+        window.navigator.locks?.request && window.navigator.locks.request(_v0, async () => (await _v1(), new Promise(() => {})));
       },
       identifiersSuffix: "PICOX_ID"
     },
