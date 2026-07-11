@@ -584,7 +584,7 @@
         })
       })
     });
-  _v0.s(["GranularReportBody", 0, ({
+  _v0.s(["ReportBody", 0, ({
     isLoading: _v0,
     hasData: _v1,
     error: _v2,
@@ -783,7 +783,7 @@
   "true" === _v41.default.env.STORYBOOK && (0, _v47.assignMswData)(_v52, {
     endpoint: "/videos/:videoId/report",
     method: "POST"
-  }), _v0.s(["useGranularReport", 0, function ({
+  }), _v0.s(["useReport", 0, function ({
     clipId: _v0,
     onClose: _v1,
     onSubmitReport: _v2,
@@ -908,13 +908,12 @@
           _v4 && !_v6 && (_v5 ? _v1?.() : _v2?.());
         }, [_v4, _v5, _v6, _v1, _v2]), {
           isPosting: _v6,
-          postReport: async (_v0, _v1) => {
-            _v0 && _v0 && "unselected" !== _v0 && (await _v3({
+          postReport: async _v0 => {
+            _v0 && _v0 && (await _v3({
               where: {
                 videoId: Number(_v0)
               },
               variables: {
-                comment: _v1,
                 reason: _v0
               }
             }));

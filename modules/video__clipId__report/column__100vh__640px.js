@@ -21,7 +21,7 @@
     onClose: _v1,
     onSubmitReport: _v2
   }) => {
-    let _v3 = (0, _v15.useGranularReport)({
+    let _v3 = (0, _v15.useReport)({
       clipId: _v0,
       onClose: _v1,
       onSubmitReport: _v2,
@@ -73,7 +73,7 @@
         flex: "1 1 0%",
         minH: "0",
         overflow: "auto",
-        children: (0, _v1.jsx)(_v13.GranularReportBody, {
+        children: (0, _v1.jsx)(_v13.ReportBody, {
           isLoading: _v3.isLoading,
           hasData: _v3.hasData,
           error: _v3.error,

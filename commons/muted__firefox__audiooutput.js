@@ -86,7 +86,13 @@
   }) {
     return _v0.createScreenVideoTrack({
       optimizationMode: _v2.liveMediaConfig.LOCAL_SCREEN.OPTIMIZATION_MODE,
-      encoderConfig: _v2.liveMediaConfig.LOCAL_SCREEN.ENCODER_PRESET,
+      encoderConfig: {
+        width: _v2.liveMediaConfig.LOCAL_SCREEN.WIDTH,
+        height: _v2.liveMediaConfig.LOCAL_SCREEN.HEIGHT,
+        frameRate: _v2.liveMediaConfig.LOCAL_SCREEN.FRAMERATE,
+        bitrateMax: _v2.liveMediaConfig.LOCAL_SCREEN.BITRATE_MAX,
+        bitrateMin: _v2.liveMediaConfig.LOCAL_SCREEN.BITRATE_MIN
+      },
       scalabiltyMode: _v2.liveMediaConfig.LOCAL_SCREEN.SVC_PRESET
     }, "disable").then(_v0 => (_v0.on("track-ended", _v1), _v8.set(_v0.getTrackId(), _v0), _v0)).catch(_v0 => _v0);
   }, "filterTracks", 0, _v11, "getActiveAgoraSourceTrack", 0, function (_v0) {

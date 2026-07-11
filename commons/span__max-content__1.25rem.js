@@ -333,6 +333,7 @@
         }), (0, _v1.jsx)(_v41.ModalCloseButton, {
           onClick: _v1
         }), _v7 && (0, _v1.jsx)(_v40.ModalBody, {
+          pb: "sm",
           children: (0, _v1.jsx)(_v34.Alert, {
             status: "warning",
             size: "md",
@@ -344,6 +345,7 @@
           flexDirection: "column",
           alignItems: "stretch",
           gap: "md",
+          pt: "md",
           children: [_v8 && (0, _v1.jsx)(_v46.Text, {
             variant: "body-sm",
             color: "text-secondary",

@@ -56,6 +56,11 @@
     },
     LOCAL_SCREEN: {
       ENCODER_PRESET: (0, _v3.getLiveConfigValue)(_v1.localStorageConfig.MEDIA.SCREEN_ENCODER_PRESET, "1080p_2"),
+      BITRATE_MAX: (0, _v3.getLiveConfigValue)(_v1.localStorageConfig.MEDIA.SCREEN_BITRATE_MAX, 0),
+      BITRATE_MIN: (0, _v3.getLiveConfigValue)(_v1.localStorageConfig.MEDIA.SCREEN_BITRATE_MIN, 0),
+      WIDTH: (0, _v3.getLiveConfigValue)(_v1.localStorageConfig.MEDIA.SCREEN_WIDTH, 0),
+      HEIGHT: (0, _v3.getLiveConfigValue)(_v1.localStorageConfig.MEDIA.SCREEN_HEIGHT, 0),
+      FRAMERATE: (0, _v3.getLiveConfigValue)(_v1.localStorageConfig.MEDIA.SCREEN_FRAMERATE, 30),
       SVC_PRESET: (0, _v3.getLiveConfigValue)(_v1.localStorageConfig.MEDIA.SCREEN_SVC_PRESET, void 0),
       OPTIMIZATION_MODE: (0, _v3.getLiveConfigValue)(_v1.localStorageConfig.MEDIA.SCREEN_OPTIMIZATION_MODE, "detail"),
       NONE: "NONE"

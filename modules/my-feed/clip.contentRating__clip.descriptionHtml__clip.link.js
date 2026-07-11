@@ -2699,7 +2699,7 @@
               }
             })
           })
-        }), (0, _v1.jsx)(_v119.GranularReportVideoModal, {
+        }), (0, _v1.jsx)(_v119.ReportVideoModal, {
           onSubmitReport: () => {
             let _v0;
             _v0 = _v56(_v7, {

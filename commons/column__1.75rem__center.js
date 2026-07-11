@@ -331,7 +331,7 @@
     onClose: _v2,
     onSubmitReport: _v3
   }) => {
-    let _v4 = (0, _v36.useGranularReport)({
+    let _v4 = (0, _v36.useReport)({
         clipId: _v0,
         onClose: _v2,
         onSubmitReport: _v3,
@@ -387,7 +387,7 @@
           flex: "1 1 0%",
           overflow: "auto",
           pb: "300",
-          children: (0, _v1.jsx)(_v34.GranularReportBody, {
+          children: (0, _v1.jsx)(_v34.ReportBody, {
             isLoading: _v4.isLoading,
             hasData: _v4.hasData,
             error: _v4.error,
@@ -411,7 +411,7 @@
       })]
     });
   };
-  _v0.s(["GranularReportVideoModal", 0, _v0 => _v0.isOpen ? (0, _v1.jsx)(_v37, {
+  _v0.s(["ReportVideoModal", 0, _v0 => _v0.isOpen ? (0, _v1.jsx)(_v37, {
     ..._v0
   }) : null], 0);
 }
