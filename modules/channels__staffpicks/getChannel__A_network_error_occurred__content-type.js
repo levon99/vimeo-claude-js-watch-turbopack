@@ -1706,7 +1706,11 @@
   } : {
     props: {
       hasThemeSupport: !0,
-      hasPlayerAPI: !0
+      hasPlayerAPI: !0,
+      omitEsi: !0
     }
+  }, {
+    inlineViewer: "all",
+    inlinePlayerAssets: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v83], 0);
 }

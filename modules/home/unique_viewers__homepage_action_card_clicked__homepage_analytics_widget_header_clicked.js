@@ -18077,11 +18077,14 @@
     props: {
       hasThemeSupport: !0,
       hasUploader: !0,
-      hasPlayerAPI: !0
+      hasPlayerAPI: !0,
+      omitEsi: !0
     }
   }), {
     requireLogin: !0,
-    noIndex: !0
+    noIndex: !0,
+    inlineViewer: !0,
+    inlinePlayerAssets: !0
   }), _v532.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v41.VideoLibraryLayout, {
     hasSideNav: !0,
     sideNavContent: (0, _v1.jsx)(_v40.SideNavContent, {
