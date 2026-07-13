@@ -1036,7 +1036,7 @@
         where: {
           albumId: _v0
         },
-        select: [..._v56],
+        select: _v56,
         query: {
           isEmbed: _v2,
           ...(_v2 && {

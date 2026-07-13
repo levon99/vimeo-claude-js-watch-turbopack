@@ -391,7 +391,12 @@
         isExpired: !!_v10
       }));
     }, [_v5, _v2, _v10, _v11]), _v10) ? (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v41.default, {}), (0, _v1.jsx)(_v40.DisabledReviewLinkErrorPage, {})]
+      children: [(0, _v1.jsx)(_v2.default, {
+        children: (0, _v1.jsx)("meta", {
+          name: "robots",
+          content: "noindex,nofollow"
+        })
+      }), (0, _v1.jsx)(_v41.default, {}), (0, _v1.jsx)(_v40.DisabledReviewLinkErrorPage, {})]
     }) : _v1 ? _v5 && _v2 || _v3 ? (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v2.default, {
         children: [(0, _v1.jsx)("meta", {
@@ -485,7 +490,8 @@
           videoId: _v2,
           reviewId: _v3,
           versionId: 0,
-          isDisabledOrExpired: !0
+          isDisabledOrExpired: !0,
+          omitEsi: !0
         }
       };else return {
         notFound: !0
@@ -552,7 +558,8 @@
           ogTitle: _v3,
           ogDescription: _v4,
           ogImage: _v5,
-          ogUrl: ((_v1 = _v0.req.headers["x-forwarded-proto"]) && (_v0 = Array.isArray(_v1) ? _v1[0] : _v1), `${_v0}://${_v0.vimeoConfig.get("vimeo_url")}${_v0.req.url}`)
+          ogUrl: ((_v1 = _v0.req.headers["x-forwarded-proto"]) && (_v0 = Array.isArray(_v1) ? _v1[0] : _v1), `${_v0}://${_v0.vimeoConfig.get("vimeo_url")}${_v0.req.url}`),
+          omitEsi: !0
         }
       };
     } catch (_v0) {
@@ -567,13 +574,17 @@
           showPasswordPage: _v5,
           layoutOptions: {
             enableReviewEditAccessBanner: !0
-          }
+          },
+          omitEsi: !0
         }
       };
       return {
         notFound: !0
       };
     }
+  }, {
+    inlineViewer: "all",
+    inlinePlayerAssets: !0
   }), _v43.getLayout = _v0 => (0, _v1.jsx)(_v4.ErrorBoundary, {
     errorPage: _v0 => (0, _v1.jsx)(_v8.ErrorPageWithHeader, {
       useBokeh: !0,
