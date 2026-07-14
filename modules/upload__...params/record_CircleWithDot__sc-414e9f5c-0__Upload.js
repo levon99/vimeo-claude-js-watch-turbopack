@@ -4499,6 +4499,7 @@
       props: {
         hasThemeSupport: !0,
         hasUploader: !0,
+        omitEsi: !0,
         layoutOptions: {
           globalNotifications: !1
         },
@@ -4512,7 +4513,8 @@
     };
   }, {
     requireLogin: !0,
-    noIndex: !0
+    noIndex: !0,
+    inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, ({
     teamIdQueryParam: _v0,
     defaultFolderId: _v1

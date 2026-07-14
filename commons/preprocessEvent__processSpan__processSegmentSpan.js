@@ -3141,7 +3141,9 @@ Error:`, _v0);
       });
     } catch {}
     return _v286(_v0);
-  }, !function (_v0) {
+  };
+  let _v287 = 0;
+  !function (_v0) {
     let _v1, _v2, _v3, _v4, _v5;
     _v282 && (0, _v16.consoleSandbox)(() => {
       console.warn("[@sentry/nextjs] You are calling `Sentry.init()` more than once on the client. This can happen if you have both a `sentry.client.config.ts` and a `instrumentation-client.ts` file with `Sentry.init()` calls. It is recommended to call `Sentry.init()` once in `instrumentation-client.ts`.");
@@ -4493,7 +4495,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "5cec6182325a0871d4d17b6a1e8dfa9ed69377b5",
+      release: "5c5b834efc9bbb4a9fd5b6e453cd86a0914d0280",
       ..._v0
     };
     !function (_v0) {
@@ -4627,6 +4629,8 @@ Error:`, _v0);
         let _v1 = _v0.filename ?? _v0.abs_path ?? "";
         return _v1.includes("_next/static") && !1 !== _v0.in_app || _v1.includes("app:///p/") || _v1.includes("/telecine") || _v1.includes("/media-sorcerer");
       })) return null;
+      let _v11 = _v0.exception?.values?.[0];
+      if (_v11?.value?.startsWith("Module load timeout") && (_v287 += 1) > 1) return null;
       if (_v0.exception?.values?.[0]?.type === "UnhandledRejection" && void 0 === _v1.originalException) try {
         let _v0 = document.querySelector("[data-ready]"),
           _v1 = null,

@@ -16515,7 +16515,8 @@
     } : {
       props: {
         hasThemeSupport: !0,
-        hasUploader: !0
+        hasUploader: !0,
+        omitEsi: !0
       }
     } : (_v1?.includes("sort:relevant/format:detail") && _v5({
       key: "custom.404_type",
@@ -16524,6 +16525,8 @@
     }), {
       notFound: !0
     });
+  }, {
+    inlineViewer: "all"
   }), _v492.getLayout = _v0 => {
     let _v1;
     {

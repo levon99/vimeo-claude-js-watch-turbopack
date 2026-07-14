@@ -787,7 +787,7 @@
     _v57 = _v0.i(0),
     _v58 = _v0.i(0),
     _v59 = _v0.i(0);
-  let _v60 = new RegExp(/[^a-zA-Z .,!?\'":;_\-{}\[\]\(\)]/),
+  let _v60 = new RegExp(/[^\p{L}\p{M} .,!?'":;_()-]/u),
     _v61 = "maxCharactersLengthError",
     _v62 = "maxWordLengthError",
     _v63 = "forbiddenSymbolsError",

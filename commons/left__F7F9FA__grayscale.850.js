@@ -124,7 +124,7 @@
     children: _v0
   }) => (0, _v1.jsx)(_v3.Box, {
     padding: "0",
-    marginBottom: (0, _v5.rem)(24),
+    marginBottom: (0, _v5.rem)(12),
     children: _v0
   }), _v11.Body = ({
     children: _v0
@@ -199,40 +199,42 @@
     iconMarginRight: _v17 = "0.5rem",
     className: _v18,
     hoverBackgroundColor: _v19,
-    height: _v20
+    height: _v20,
+    borderRadius: _v21 = "0.5rem",
+    paddingX: _v22
   }) => {
-    let _v21 = (0, _v15.useWindowSize)().width <= _v16.BreakPoints.sm,
-      _v22 = (0, _v4.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
-      _v23 = !!_v4 && !_v7;
+    let _v23 = (0, _v15.useWindowSize)().width <= _v16.BreakPoints.sm,
+      _v24 = (0, _v4.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
+      _v25 = !!_v4 && !_v7;
     return (0, _v1.jsxs)(_v3.Box, {
       className: _v18,
-      as: _v23 ? _v12.default : "span",
-      ...(_v23 ? {
+      as: _v25 ? _v12.default : "span",
+      ...(_v25 ? {
         href: _v4,
         prefetch: _v11
       } : {}),
-      role: _v23 ? void 0 : "button",
+      role: _v25 ? void 0 : "button",
       onClick: _v0 => {
         _v7 || _v10?.(_v0);
       },
-      tabIndex: _v23 ? void 0 : 0,
+      tabIndex: _v25 ? void 0 : 0,
       "data-id": _v2,
       display: "flex",
       alignItems: "center",
       height: (0, _v5.rem)(_v20 || 40),
-      borderRadius: "0.5rem",
+      borderRadius: _v21,
       color: _v9,
       paddingTop: (0, _v5.rem)(4),
       paddingBottom: (0, _v5.rem)(4),
-      paddingLeft: _v6 > 0 ? `${28 + _v6}px` : (0, _v5.rem)(10),
-      paddingRight: _v0 ? (0, _v5.rem)(5) : (0, _v5.rem)(10),
-      bg: _v1 ? _v22 : "transparent",
-      textDecoration: _v23 ? "none" : void 0,
+      paddingLeft: _v6 > 0 ? `${28 + _v6}px` : _v22 ?? (0, _v5.rem)(10),
+      paddingRight: _v0 ? (0, _v5.rem)(5) : _v22 ?? (0, _v5.rem)(10),
+      bg: _v1 ? _v24 : "transparent",
+      textDecoration: _v25 ? "none" : void 0,
       cursor: "pointer",
       border: "2px solid",
       borderColor: "transparent",
       sx: {
-        "--action-container-display": _v12 && !_v21 ? "none" : "flex",
+        "--action-container-display": _v12 && !_v23 ? "none" : "flex",
         '&:has([aria-expanded="true"])': {
           "--action-container-display": "flex"
         },
@@ -244,7 +246,7 @@
         }
       },
       _hover: {
-        background: _v19 ?? _v22,
+        background: _v19 ?? _v24,
         "--action-container-display": "flex",
         "> svg": {
           color: _v3

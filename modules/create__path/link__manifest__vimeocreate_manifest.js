@@ -29,13 +29,16 @@
           globalNotifications: !1
         },
         hasUploader: !0,
-        hasThemeSupport: ["edit", "interactive"].includes(_v1)
+        hasThemeSupport: ["edit", "interactive"].includes(_v1),
+        omitEsi: !0
       }
     };
   }, {
     requireLogin: !0,
     capability: "hasCreation",
     redirect: "/features/video-editor",
+    inlineViewer: !0,
+    inlinePlayerAssets: !0,
     inlineMagistoResources: !0
   }), _v6.getLayout = _v0 => (0, _v1.jsx)(_v5.ReactRouterLayout, {
     path: "/create",

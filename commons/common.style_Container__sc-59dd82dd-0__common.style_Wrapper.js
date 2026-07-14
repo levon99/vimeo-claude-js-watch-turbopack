@@ -135,53 +135,46 @@
     _v25 = _v0.i(0),
     _v26 = _v0.i(0),
     _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
-    _v29 = _v0.i(0);
+    _v28 = _v0.i(0);
   _v0.s(["useBpEvents", 0, (_v0, _v1) => {
-    let _v2 = (0, _v18.useContext)(_v29.ViewerContext),
+    let _v2 = (0, _v18.useContext)(_v28.ViewerContext),
       _v3 = _v2?.teamUser,
       _v4 = (0, _v17.useRouter)(),
       _v5 = _v4?.query?.flow || "initial_onboarding",
       _v6 = Array.isArray(_v5) ? _v5[0] : _v5,
-      _v7 = (0, _v18.useMemo)(() => (0, _v22.buildProductAnalyticsBpContext)({
+      _v7 = (0, _v18.useMemo)(() => (0, _v21.buildProductAnalyticsBpContext)({
         product: "integrations",
         feature: "integrations_onboarding",
         location: "onboarding_page",
         element: "url",
         flow: _v6
       }), [_v6]),
-      _v8 = (0, _v18.useMemo)(() => {
-        let {
-          partner_integration: _v0 = {}
-        } = JSON.parse(window.document?.getElementById("hubspot_media_bridge")?.innerText || "{}");
-        return (0, _v26.buildThirdPartyIntegrationBpContext)({
-          integration_id: 54,
-          partner_bucket: "Marketing",
-          app_id: null,
-          is_partner: !0,
-          managed_user_id: null,
-          integration_type: null,
-          ..._v0,
-          integration_name: _v0?.integration_name ? (0, _v19.intoSnakeCase)(_v0.integration_name) : "hubspot_media_bridge"
-        });
-      }, []),
-      _v9 = (0, _v18.useMemo)(() => (0, _v25.buildWebBpContext)({
+      _v8 = (0, _v18.useMemo)(() => (0, _v25.buildThirdPartyIntegrationBpContext)({
+        integration_id: 54,
+        partner_bucket: "Marketing",
+        app_id: null,
+        is_partner: !0,
+        managed_user_id: null,
+        integration_type: null,
+        integration_name: "hubspot_media_bridge"
+      }), []),
+      _v9 = (0, _v18.useMemo)(() => (0, _v24.buildWebBpContext)({
         path: window.location.pathname,
         page_name: _v0,
         target: null,
         referrer_page_name: null,
-        referrer: (0, _v27.getEntryPage)(document?.referrer || ""),
+        referrer: (0, _v26.getEntryPage)(document?.referrer || ""),
         location: null
       }), [_v0]),
-      _v10 = (0, _v18.useMemo)(() => (0, _v24.buildViewBpContext)({
+      _v10 = (0, _v18.useMemo)(() => (0, _v23.buildViewBpContext)({
         view_type: "impression",
         feature: null
       }), []),
-      _v11 = (0, _v18.useMemo)(() => (0, _v21.buildActionBpContext)({
+      _v11 = (0, _v18.useMemo)(() => (0, _v20.buildActionBpContext)({
         action_type: "click",
         feature: null
       }), []),
-      _v12 = (0, _v18.useMemo)(() => _v3 ? (0, _v23.buildTeamBpContextFromTeamUser)(_v3) : (0, _v23.buildTeamBpContext)({
+      _v12 = (0, _v18.useMemo)(() => _v3 ? (0, _v22.buildTeamBpContextFromTeamUser)(_v3) : (0, _v22.buildTeamBpContext)({
         is_team_member: !1
       }), [_v3]),
       _v13 = (0, _v18.useCallback)(_v0 => {
@@ -192,8 +185,8 @@
           ..._v10,
           ..._v12
         };
-        (0, _v28.sendBpEventWithContexts)(_v0, _v1, 1, {
-          device_type: (0, _v20.default)(),
+        (0, _v27.sendBpEventWithContexts)(_v0, _v1, 1, {
+          device_type: (0, _v19.default)(),
           value: null
         });
       }, [_v7, _v12, _v8, _v10, _v9]);
@@ -208,8 +201,8 @@
           ..._v11,
           ..._v12
         };
-        _v1 && (_v4.product_analytics_context.copy = _v1), (0, _v28.sendBpEventWithContexts)(_v0, _v4, _v3, {
-          device_type: (0, _v20.default)(),
+        _v1 && (_v4.product_analytics_context.copy = _v1), (0, _v27.sendBpEventWithContexts)(_v0, _v4, _v3, {
+          device_type: (0, _v19.default)(),
           value: _v2
         });
       }

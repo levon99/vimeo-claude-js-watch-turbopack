@@ -125,7 +125,8 @@
     } catch {}
     return {
       statusCode: _v0 ? _v0.statusCode : _v1 ? _v1.statusCode : 404,
-      error: _v0?.req?.headers["x-vimeo-error-page"]
+      error: _v0?.req?.headers["x-vimeo-error-page"],
+      omitEsi: !0
     };
   }, _v0.s(["default", 0, _v15], 0);
 }

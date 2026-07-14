@@ -9088,7 +9088,7 @@
           rel: "canonical",
           href: _v4.canonical
         }), _v6 && (0, _v6.jsxs)(_v6.Fragment, {
-          children: [(0, _v6.jsx)("link", {
+          children: [_v6.hasPublicVideos && (0, _v6.jsx)("link", {
             rel: "alternate",
             type: "application/rss+xml",
             href: `${_v6.pageUrl}/videos/rss`,
@@ -9402,6 +9402,7 @@
         userId: _v13,
         portrait: _v15,
         rssTitle: `${_v9}'s Videos`,
+        hasPublicVideos: _v18 > 0,
         jsonLd: JSON.stringify(_v19).replace(/[<>&]/g, _v0 => `\\u${_v0.charCodeAt(0).toString(16).padStart(4, "0")}`)
       }
     };
