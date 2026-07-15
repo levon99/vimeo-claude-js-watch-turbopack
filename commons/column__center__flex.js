@@ -31,38 +31,36 @@
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
-    _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0);
-  let _v34 = ({
+    _v31 = _v0.i(0);
+  let _v32 = ({
     isMobile: _v0,
     quota: _v1,
     showZeroCreditsMessage: _v2,
     isWorkspaceAdminUser: _v3
   }) => {
-    let _v4 = (0, _v31.useLocale)(),
+    let _v4 = (0, _v29.useLocale)(),
       {
         settings: _v5
-      } = (0, _v30.useOrionSettings)(),
+      } = (0, _v13.useOrionSettings)(),
       _v6 = _v1?.remaining ?? null,
       _v7 = _v1?.balances ?? null,
       _v8 = Number.isFinite(Number(_v6)) ? Number(_v6).toLocaleString() : _v6;
-    return (0, _v1.jsxs)(_v7.Flex, {
+    return (0, _v1.jsxs)(_v3.Flex, {
       gap: "sm",
       flexDirection: "column",
       paddingX: "md",
       paddingTop: "sm",
-      paddingBottom: _v5.enable_new_sidebar ? (0, _v10.rem)(12) : "sm",
-      children: [(0, _v1.jsxs)(_v7.Flex, {
+      paddingBottom: _v5.enable_new_sidebar ? (0, _v6.rem)(12) : "sm",
+      children: [(0, _v1.jsxs)(_v3.Flex, {
         flexDirection: "column",
         justifyContent: "center",
         gap: "sm",
-        children: [(0, _v1.jsxs)(_v23.Text, {
+        children: [(0, _v1.jsxs)(_v22.Text, {
           as: "div",
           display: "flex",
           variant: "heading-2xs",
           alignItems: "center",
-          children: [(0, _v14.translate)({
+          children: [(0, _v12.translate)({
             singular: "AI credits",
             dictionary: {
               es: {
@@ -87,41 +85,41 @@
                 singular: "AI 积分"
               }
             }
-          }), _v6 && _v6 > 0 ? (0, _v1.jsxs)(_v24.Popover, {
+          }), _v6 && _v6 > 0 ? (0, _v1.jsxs)(_v23.Popover, {
             placement: _v0 ? "top" : "right",
-            children: [(0, _v1.jsx)(_v26.PopoverTrigger, {
-              children: (0, _v1.jsx)(_v7.Flex, {
+            children: [(0, _v1.jsx)(_v25.PopoverTrigger, {
+              children: (0, _v1.jsx)(_v3.Flex, {
                 height: "xs",
                 width: "xs",
                 cursor: "pointer",
                 justifyContent: "center",
                 alignItems: "center",
-                children: (0, _v1.jsx)(_v29.InfoCircle, {
+                children: (0, _v1.jsx)(_v28.InfoCircle, {
                   height: "2xs",
                   width: "2xs"
                 })
               })
-            }), (0, _v1.jsx)(_v25.PopoverContent, {
-              children: (0, _v1.jsx)(_v17.Box, {
+            }), (0, _v1.jsx)(_v24.PopoverContent, {
+              children: (0, _v1.jsx)(_v16.Box, {
                 children: _v1?.resetDate ? _v7?.length ? (0, _v1.jsxs)(_v1.Fragment, {
                   children: [_v7.map((_v0, _v1) => {
-                    if (_v0.expirationDate) return (0, _v1.jsxs)(_v27.HStack, {
+                    if (_v0.expirationDate) return (0, _v1.jsxs)(_v26.HStack, {
                       gap: "4px",
-                      children: [(0, _v1.jsx)(_v28.VimeoCoin, {
+                      children: [(0, _v1.jsx)(_v27.VimeoCoin, {
                         h: "16px",
                         w: "16px",
                         color: "text-primary"
-                      }), (0, _v1.jsx)(_v23.Text, {
+                      }), (0, _v1.jsx)(_v22.Text, {
                         variant: "body-md",
-                        children: (0, _v33.renderAiCreditsExpirationDate)(_v0.remaining || 0, _v4, new Date(_v0.expirationDate))
+                        children: (0, _v31.renderAiCreditsExpirationDate)(_v0.remaining || 0, _v4, new Date(_v0.expirationDate))
                       })]
                     }, `ai-credit-balance-${_v1}`);
-                  }), (0, _v1.jsx)(_v17.Box, {
+                  }), (0, _v1.jsx)(_v16.Box, {
                     margin: "4px 0",
                     children: (0, _v1.jsx)("hr", {})
-                  }), (0, _v1.jsx)(_v23.Text, {
+                  }), (0, _v1.jsx)(_v22.Text, {
                     variant: "body-md",
-                    children: (0, _v14.translate)({
+                    children: (0, _v12.translate)({
                       singular: "Credits will not renew",
                       dictionary: {
                         es: {
@@ -148,9 +146,9 @@
                       }
                     })
                   })]
-                }) : (0, _v1.jsx)(_v23.Text, {
+                }) : (0, _v1.jsx)(_v22.Text, {
                   variant: "body-md",
-                  children: (0, _v14.translate)({
+                  children: (0, _v12.translate)({
                     singular: "Credits renew on {DATE} at {TIME}",
                     replacements: {
                       DATE: new Intl.DateTimeFormat(_v4, {
@@ -188,9 +186,9 @@
                       }
                     }
                   })
-                }) : (0, _v1.jsx)(_v23.Text, {
+                }) : (0, _v1.jsx)(_v22.Text, {
                   variant: "body-md",
-                  children: (0, _v14.translate)({
+                  children: (0, _v12.translate)({
                     singular: "Credits will not renew",
                     dictionary: {
                       es: {
@@ -220,20 +218,20 @@
               })
             })]
           }) : null]
-        }), !_v2 && (0, _v1.jsxs)(_v7.Flex, {
+        }), !_v2 && (0, _v1.jsxs)(_v3.Flex, {
           gap: "xs",
-          children: [(0, _v1.jsx)(_v28.VimeoCoin, {
+          children: [(0, _v1.jsx)(_v27.VimeoCoin, {
             h: "16px",
             w: "16px",
             color: "text-secondary"
-          }), (0, _v1.jsx)(_v23.Text, {
+          }), (0, _v1.jsx)(_v22.Text, {
             variant: "body-sm",
             textAlign: "left",
             color: "text-secondary",
             display: "flex",
             alignItems: "center",
             marginBottom: 0,
-            children: (0, _v14.translate)({
+            children: (0, _v12.translate)({
               singular: "{AMOUNT} remaining",
               replacements: {
                 AMOUNT: _v8
@@ -264,12 +262,12 @@
             })
           })]
         })]
-      }), (0, _v1.jsx)(_v17.Box, {
-        children: (0, _v1.jsx)(_v23.Text, {
+      }), (0, _v1.jsx)(_v16.Box, {
+        children: (0, _v1.jsx)(_v22.Text, {
           as: "div",
           variant: "body-xs",
           color: "text-secondary",
-          children: (0, _v1.jsx)(_v32.AiCreditsRemainingUpsellMessage, {
+          children: (0, _v1.jsx)(_v30.AiCreditsRemainingUpsellMessage, {
             quotaRemaining: _v6,
             location: "side_nav",
             showZeroCreditsMessage: _v2,
@@ -279,8 +277,8 @@
       })]
     });
   };
-  var _v35 = _v0.i(0);
-  let _v36 = ({
+  var _v33 = _v0.i(0);
+  let _v34 = ({
     isMobile: _v0,
     onUpgradeClick: _v1,
     quota: _v2,
@@ -292,7 +290,7 @@
       _v7 = _v2?.period ?? null,
       _v8 = _v2?.used ?? null,
       _v9 = _v2?.resetDate ?? "";
-    return _v6 && _v6 > 0 ? (0, _v1.jsx)(_v35.QuotaMeter, {
+    return _v6 && _v6 > 0 ? (0, _v1.jsx)(_v33.QuotaMeter, {
       isMobile: _v0,
       onUpgradeClick: _v1,
       quotaAvailable: _v6,
@@ -308,10 +306,10 @@
       hideQuotaTooltip: _v5
     }) : null;
   };
-  var _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0);
-  let _v40 = ({
+  var _v35 = _v0.i(0),
+    _v36 = _v0.i(0),
+    _v37 = _v0.i(0);
+  let _v38 = ({
     isMobile: _v0,
     onUpgradeClick: _v1,
     uploadQuota: _v2,
@@ -320,28 +318,28 @@
     showTotal: _v5,
     showUpgrade: _v6
   }) => {
-    let _v7 = (0, _v21.useViewer)(),
+    let _v7 = (0, _v20.useViewer)(),
       _v8 = _v7?.user?.account === "enterprise",
-      _v9 = (0, _v18.useIsStaff)(),
+      _v9 = (0, _v17.useIsStaff)(),
       {
         capabilities: _v10
-      } = (0, _v4.useCapability)(["canViewDrmQuota"]),
+      } = (0, _v11.useCapability)(["canViewDrmQuota"]),
       {
         canViewDrmQuota: _v11
       } = _v10,
       {
         isWorkspaceAdminUser: _v12
       } = (() => {
-        let _v0 = (0, _v21.useViewer)(),
+        let _v0 = (0, _v20.useViewer)(),
           {
             data: _v1
-          } = (0, _v37.useGetMePreferences)({
-            select: [_v38.USER_PREFERENCE_ID.PREF_WORKSPACE_UUID]
+          } = (0, _v35.useGetMePreferences)({
+            select: [_v36.USER_PREFERENCE_ID.PREF_WORKSPACE_UUID]
           }, {
             revalidateOnFocus: !1,
             revalidateIfStale: !1
           }),
-          _v2 = !!_v1?.[_v38.USER_PREFERENCE_ID.PREF_WORKSPACE_UUID],
+          _v2 = !!_v1?.[_v36.USER_PREFERENCE_ID.PREF_WORKSPACE_UUID],
           _v3 = _v2 && _v0?.teamUser?.plainTextPermissionLevel === "Admin";
         return {
           isWorkspaceUser: _v2,
@@ -350,10 +348,10 @@
       })(),
       _v13 = _v3 && (_v8 || _v12) && (0 === _v3.remaining || void 0 !== _v3.limit && Number.isFinite(_v3.limit) && _v3.used === _v3.limit),
       _v14 = _v7?.user?.id ?? null,
-      _v15 = (0, _v20.shouldFetchColdStorageVideoFallback)(_v7),
+      _v15 = (0, _v19.shouldFetchColdStorageVideoFallback)(_v7),
       {
         data: _v16
-      } = (0, _v19.useGetUserVideos)(() => _v14 && _v15 ? {
+      } = (0, _v18.useGetUserVideos)(() => _v14 && _v15 ? {
         where: {
           userId: _v14
         },
@@ -369,11 +367,11 @@
         revalidateOnFocus: !1
       }),
       _v17 = _v15 && (_v16?.total ?? 0) > 0;
-    return (0, _v1.jsxs)(_v17.Box, {
+    return (0, _v1.jsxs)(_v16.Box, {
       background: "surface",
       borderRadius: "lg",
       paddingY: "sm",
-      children: [(0, _v1.jsx)(_v39.UploadQuotaMeter, {
+      children: [(0, _v1.jsx)(_v37.UploadQuotaMeter, {
         isMobile: _v0,
         onUpgradeClick: _v1,
         quota: _v2,
@@ -381,7 +379,7 @@
         showUpgrade: _v6 && !_v9,
         isWorkspaceAdminUser: _v12,
         showColdStorageWarning: _v17
-      }), _v3 ? _v8 || _v12 ? (0, _v1.jsx)(_v22.AiCreditsQuotaMeter, {
+      }), _v3 ? _v8 || _v12 ? (0, _v1.jsx)(_v21.AiCreditsQuotaMeter, {
         isMobile: _v0,
         onUpgradeClick: _v1,
         quota: _v3,
@@ -389,12 +387,12 @@
         showUpgrade: _v6 && !_v9,
         showZeroCreditsMessage: _v13,
         isWorkspaceAdminUser: _v12
-      }) : (0, _v1.jsx)(_v34, {
+      }) : (0, _v1.jsx)(_v32, {
         isMobile: _v0,
         quota: _v3,
         showZeroCreditsMessage: _v13,
         isWorkspaceAdminUser: _v12
-      }) : null, _v11 && _v4 ? (0, _v1.jsx)(_v36, {
+      }) : null, _v11 && _v4 ? (0, _v1.jsx)(_v34, {
         isMobile: _v0,
         onUpgradeClick: () => void 0,
         quota: _v4,
@@ -404,10 +402,10 @@
       }) : null]
     });
   };
-  var _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0);
-  let _v44 = _v0 => (0, _v1.jsx)(_v43.Icon, {
+  var _v39 = _v0.i(0),
+    _v40 = _v0.i(0),
+    _v41 = _v0.i(0);
+  let _v42 = _v0 => (0, _v1.jsx)(_v41.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -416,17 +414,18 @@
       fill: "currentColor"
     })
   });
-  var _v45 = _v0.i(0);
-  let _v46 = {
-      fontSize: (0, _v10.rem)(24),
+  var _v43 = _v0.i(0),
+    _v44 = _v0.i(0);
+  let _v45 = {
+      fontSize: (0, _v6.rem)(24),
       sx: {
         "> svg": {
-          width: (0, _v10.rem)(24),
-          height: (0, _v10.rem)(24)
+          width: (0, _v6.rem)(24),
+          height: (0, _v6.rem)(24)
         }
       }
     },
-    _v47 = ({
+    _v46 = ({
       isMobile: _v0,
       uploadQuota: _v1,
       aiCreditsQuota: _v2,
@@ -438,11 +437,11 @@
         _v7 = _v5?.used ?? null,
         _v8 = _v5?.unit ?? null,
         _v9 = _v6 && null != _v7 && _v7 > 0 ? Math.max(1, Math.min(100, Math.round(_v7 / _v6 * 100))) : 0,
-        _v10 = null != _v6 && null != _v7 ? (0, _v14.translate)({
+        _v10 = null != _v6 && null != _v7 ? (0, _v12.translate)({
           singular: "{USED} of {LIMIT}",
           replacements: {
-            USED: (0, _v33.getQuotaAmount)(_v7, _v8 ?? void 0),
-            LIMIT: (0, _v33.getQuotaAmount)(_v6, _v8 ?? void 0)
+            USED: (0, _v31.getQuotaAmount)(_v7, _v8 ?? void 0),
+            LIMIT: (0, _v31.getQuotaAmount)(_v6, _v8 ?? void 0)
           },
           dictionary: {
             es: {
@@ -467,7 +466,7 @@
               singular: "{USED} / {LIMIT}"
             }
           }
-        }) : (0, _v14.translate)({
+        }) : (0, _v12.translate)({
           singular: "Storage",
           dictionary: {
             es: {
@@ -495,35 +494,50 @@
         }),
         _v11 = _v2?.remaining ?? null,
         _v12 = _v0 ? "top" : "right",
-        _v13 = (0, _v42.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300");
-      return (0, _v1.jsxs)(_v7.Flex, {
+        _v13 = _v9 >= 100,
+        _v14 = (0, _v44.buildUpgradePlanUrl)({
+          paywallTrigger: "quota_meter_upgrade_button",
+          paywallLocation: "quota_meter",
+          paywallFeature: "quota"
+        }, {
+          upsell: "quota_meter",
+          integration: "none",
+          feature: _v13 ? "Storage_at_limit" : "Storage_general",
+          paywall: "1",
+          upsellFeatureCategory: "Storage",
+          upsellSpecificFeature: _v13 ? "Storage_at_limit" : "Storage_general"
+        }),
+        _v15 = (0, _v40.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300");
+      return (0, _v1.jsxs)(_v3.Flex, {
         flexDirection: "column",
         alignItems: "center",
         gap: "md",
         backgroundColor: "fill-surface",
         borderRadius: "lg",
-        width: (0, _v10.rem)(52),
-        paddingTop: (0, _v10.rem)(6),
+        width: (0, _v6.rem)(52),
+        paddingTop: (0, _v6.rem)(6),
         paddingBottom: "sm",
-        children: [(0, _v1.jsxs)(_v7.Flex, {
+        children: [(0, _v1.jsxs)(_v3.Flex, {
           flexDirection: "column",
           alignItems: "center",
-          children: [(0, _v1.jsx)(_v9.Tooltip, {
+          children: [(0, _v1.jsx)(_v5.Tooltip, {
             label: _v10,
             placement: _v12,
-            children: (0, _v1.jsxs)(_v7.Flex, {
+            children: (0, _v1.jsxs)(_v3.Flex, {
               flexDirection: "column",
               alignItems: "center",
-              paddingBottom: (0, _v10.rem)(8),
+              paddingBottom: (0, _v6.rem)(8),
               borderRadius: "md",
-              _hover: {
-                backgroundColor: _v13,
+              sx: {
                 '*:has(> [role="progressbar"])': {
                   bgColor: "fill-component-hover"
                 }
               },
-              children: [(0, _v1.jsx)(_v8.IconButton, {
-                "aria-label": (0, _v14.translate)({
+              _hover: {
+                backgroundColor: _v15
+              },
+              children: [(0, _v1.jsx)(_v4.IconButton, {
+                "aria-label": (0, _v12.translate)({
                   singular: "Storage",
                   dictionary: {
                     es: {
@@ -549,19 +563,19 @@
                     }
                   }
                 }),
-                icon: (0, _v1.jsx)(_v44, {}),
+                icon: (0, _v1.jsx)(_v42, {}),
                 variant: "tertiary",
                 size: "md",
                 color: "text-primary",
                 pointerEvents: "none",
                 tabIndex: -1,
-                ..._v46
-              }), (0, _v1.jsx)(_v41.Progress, {
+                ..._v45
+              }), (0, _v1.jsx)(_v39.Progress, {
                 value: _v9,
                 size: "xs",
-                width: (0, _v10.rem)(30),
+                width: (0, _v6.rem)(30),
                 borderRadius: "full",
-                "aria-label": (0, _v14.translate)({
+                "aria-label": (0, _v12.translate)({
                   singular: "Storage used",
                   dictionary: {
                     es: {
@@ -589,8 +603,8 @@
                 })
               })]
             })
-          }), _v2 && null != _v11 ? (0, _v1.jsx)(_v9.Tooltip, {
-            label: (0, _v14.translate)({
+          }), _v2 && null != _v11 ? (0, _v1.jsx)(_v5.Tooltip, {
+            label: (0, _v12.translate)({
               singular: "Available AI credits",
               dictionary: {
                 es: {
@@ -617,16 +631,16 @@
               }
             }),
             placement: _v12,
-            children: (0, _v1.jsxs)(_v7.Flex, {
+            children: (0, _v1.jsxs)(_v3.Flex, {
               flexDirection: "column",
               alignItems: "center",
-              paddingBottom: (0, _v10.rem)(6),
+              paddingBottom: (0, _v6.rem)(6),
               borderRadius: "md",
               _hover: {
-                backgroundColor: _v13
+                backgroundColor: _v15
               },
-              children: [(0, _v1.jsx)(_v8.IconButton, {
-                "aria-label": (0, _v14.translate)({
+              children: [(0, _v1.jsx)(_v4.IconButton, {
+                "aria-label": (0, _v12.translate)({
                   singular: "AI credits",
                   dictionary: {
                     es: {
@@ -652,14 +666,14 @@
                     }
                   }
                 }),
-                icon: (0, _v1.jsx)(_v28.VimeoCoin, {}),
+                icon: (0, _v1.jsx)(_v27.VimeoCoin, {}),
                 variant: "tertiary",
                 size: "md",
                 color: "text-secondary",
                 pointerEvents: "none",
                 tabIndex: -1,
-                ..._v46
-              }), (0, _v1.jsx)(_v23.Text, {
+                ..._v45
+              }), (0, _v1.jsx)(_v22.Text, {
                 variant: "body-xs",
                 color: "text-secondary",
                 marginBottom: 0,
@@ -667,8 +681,8 @@
               })]
             })
           }) : null]
-        }), _v3 && _v4 ? (0, _v1.jsx)(_v9.Tooltip, {
-          label: (0, _v14.translate)({
+        }), _v3 ? (0, _v1.jsx)(_v5.Tooltip, {
+          label: (0, _v12.translate)({
             singular: "Upgrade",
             dictionary: {
               es: {
@@ -692,8 +706,8 @@
             }
           }),
           placement: _v12,
-          children: (0, _v1.jsx)(_v8.IconButton, {
-            "aria-label": (0, _v14.translate)({
+          children: (0, _v1.jsx)(_v4.IconButton, {
+            "aria-label": (0, _v12.translate)({
               singular: "Upgrade",
               dictionary: {
                 es: {
@@ -716,18 +730,24 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v45.Diamond, {}),
+            icon: (0, _v1.jsx)(_v43.Diamond, {}),
             variant: "upsell",
             size: "md",
-            onClick: () => _v4(_v8, _v9),
-            ..._v46
+            ...(_v4 ? {
+              onClick: () => _v4(_v8, _v9)
+            } : {
+              as: "a",
+              href: _v14
+            }),
+            ..._v45
           })
         }) : null]
       });
     };
-  var _v48 = _v0.i(0),
+  var _v47 = _v0.i(0),
+    _v48 = _v0.i(0),
     _v49 = _v0.i(0);
-  let _v50 = _v0 => (0, _v1.jsx)(_v43.Icon, {
+  let _v50 = _v0 => (0, _v1.jsx)(_v41.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -791,7 +811,7 @@
     onSecondaryCtaClick: _v2,
     locale: _v3,
     bodyRef: _v4
-  }) => (0, _v1.jsxs)(_v7.Flex, {
+  }) => (0, _v1.jsxs)(_v3.Flex, {
     flexDirection: "column",
     gap: "2",
     justifyContent: "center",
@@ -800,7 +820,7 @@
     borderBottom: "1px solid var(--vimeo-colors-stroke)",
     children: [(0, _v1.jsx)(_v71, {
       announcement: _v0
-    }), (0, _v1.jsx)(_v23.Text, {
+    }), (0, _v1.jsx)(_v22.Text, {
       marginTop: "1",
       variant: "body-sm",
       color: "text-secondary",
@@ -828,7 +848,7 @@
         variant: "body-sm",
         children: _v0.description
       })
-    }), (0, _v1.jsxs)(_v7.Flex, {
+    }), (0, _v1.jsxs)(_v3.Flex, {
       display: "flex",
       justifyContent: "flex-end",
       gap: "8px",
@@ -839,7 +859,7 @@
         variant: "secondary",
         size: "sm",
         onClick: _v2,
-        children: (0, _v14.translate)({
+        children: (0, _v12.translate)({
           singular: "Learn more",
           dictionary: {
             es: {
@@ -895,7 +915,7 @@
     title: _v0,
     imageUrl: _v1
   }) {
-    return (0, _v1.jsx)(_v17.Box, {
+    return (0, _v1.jsx)(_v16.Box, {
       position: "relative",
       width: "100%",
       paddingBottom: "56.25%",
@@ -916,9 +936,9 @@
     title: _v0,
     clipEmbedUrl: _v1
   }) {
-    return (0, _v1.jsx)(_v7.Flex, {
+    return (0, _v1.jsx)(_v3.Flex, {
       aspectRatio: 16 / 9,
-      borderRadius: (0, _v10.rem)(12),
+      borderRadius: (0, _v6.rem)(12),
       overflow: "hidden",
       children: (0, _v1.jsx)(_v69.EmbedPlayer, {
         title: _v0,
@@ -1137,7 +1157,7 @@
     isOpen: _v0,
     onClose: _v1
   }) {
-    let _v2 = (0, _v21.useViewer)(),
+    let _v2 = (0, _v20.useViewer)(),
       {
         isLoadingMore: _v3,
         isDone: _v4,
@@ -1145,7 +1165,7 @@
         setSize: _v6,
         setUserLastSeenAnnouncement: _v7,
         announcementsList: _v8
-      } = (0, _v12.useChangelog)(),
+      } = (0, _v8.useChangelog)(),
       _v9 = (0, _v2.useRef)(null);
     (0, _v2.useEffect)(() => {
       let _v0 = new URL(window.location.href),
@@ -1208,10 +1228,10 @@
       },
       scrollBehavior: "inside",
       children: [(0, _v1.jsx)(_v53.ModalOverlay, {}), (0, _v1.jsxs)(_v54.ModalContent, {
-        maxWidth: (0, _v10.rem)(660),
-        maxHeight: (0, _v10.rem)(560),
+        maxWidth: (0, _v6.rem)(660),
+        maxHeight: (0, _v6.rem)(560),
         children: [(0, _v1.jsx)(_v55.ModalHeader, {
-          children: (0, _v14.translate)({
+          children: (0, _v12.translate)({
             singular: "What's new",
             dictionary: {
               es: {
@@ -1243,7 +1263,7 @@
           children: (0, _v1.jsxs)(_v59.Stack, {
             gap: "0",
             children: [0 === _v8.length && (0, _v1.jsx)(_v60.Skeleton, {
-              width: (0, _v10.rem)(660),
+              width: (0, _v6.rem)(660),
               aspectRatio: "16/9"
             }), _v8.map((_v0, _v1) => (0, _v1.jsx)(_v83, {
               announcement: _v0,
@@ -1264,11 +1284,11 @@
   let _v86 = ({
     count: _v0,
     showPlus: _v1
-  }) => (0, _v1.jsxs)(_v17.Box, {
+  }) => (0, _v1.jsxs)(_v16.Box, {
     as: "span",
     display: "inline-flex",
     alignItems: "center",
-    children: [_v0, _v1 && (0, _v1.jsx)(_v17.Box, {
+    children: [_v0, _v1 && (0, _v1.jsx)(_v16.Box, {
       as: "span",
       display: "inline-flex",
       alignItems: "center",
@@ -1278,179 +1298,103 @@
   });
   var _v87 = _v0.i(0);
   let _v88 = ({
-      variant: _v0 = "full"
-    }) => {
-      let _v1 = (0, _v21.useViewer)(),
-        {
-          settings: _v2
-        } = (0, _v30.useOrionSettings)(),
-        _v3 = _v81(_v1, {
-          productAnalyticsContextOverrides: {
-            copy: "whats new",
-            location: "side_nav"
-          },
-          webContextOverrides: {
-            page_name: "logged_in_home_page"
+    variant: _v0 = "full"
+  }) => {
+    let _v1 = (0, _v20.useViewer)(),
+      {
+        settings: _v2
+      } = (0, _v13.useOrionSettings)(),
+      _v3 = _v81(_v1, {
+        productAnalyticsContextOverrides: {
+          copy: "whats new",
+          location: "side_nav"
+        },
+        webContextOverrides: {
+          page_name: "logged_in_home_page"
+        }
+      }),
+      {
+        trackWhatsNewModalOpened: _v4
+      } = _v63(),
+      _v5 = new URLSearchParams(window.location.search).get("changelog"),
+      _v6 = (0, _v2.useRef)(_v5),
+      [_v7, _v8] = (0, _v2.useState)("true" === _v5),
+      {
+        newAnnouncementsCount: _v9,
+        isLoading: _v10
+      } = (0, _v8.useChangelog)();
+    (0, _v87.usePicoEffect)(() => {
+      "true" === _v6.current && _v4({
+        whatsNewModalOpenedManually: !1
+      });
+    }, [], {
+      once: !0
+    });
+    let _v11 = (0, _v40.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
+      _v12 = !!_v9 && parseInt(_v9.count) > 0,
+      _v13 = () => {
+        _v8(!0), (({
+          contexts: _v0
+        }) => {
+          let _v1 = new _v74.Event("vimeo.content_navigation", -1, {});
+          _v74.BigPictureClient.sendEventWithContexts(_v1, _v0);
+        })({
+          contexts: _v3
+        }), _v4({
+          whatsNewModalOpenedManually: !0
+        });
+      },
+      _v14 = _v0 => {
+        ("Enter" === _v0.key || " " === _v0.key) && (_v0.preventDefault(), _v13());
+      },
+      _v15 = () => {
+        let _v0 = new URLSearchParams(window.location.search);
+        _v0.delete("changelog");
+        let _v1 = _v0.toString(),
+          _v2 = _v1 ? `${window.location.pathname}?${_v1}` : window.location.pathname;
+        window.history.replaceState(null, "", _v2), _v8(!1);
+      };
+    return _v10 ? (0, _v1.jsx)(_v9.LoadingBlock, {
+      style: {
+        borderRadius: (0, _v6.rem)(10),
+        height: (0, _v6.rem)(28),
+        marginBottom: (0, _v6.rem)(20),
+        width: "icons" === _v0 ? (0, _v6.rem)(28) : "50%"
+      }
+    }) : "icons" === _v0 ? (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(0, _v1.jsx)(_v5.Tooltip, {
+        label: (0, _v12.translate)({
+          singular: "What's new",
+          dictionary: {
+            es: {
+              singular: "Novedades"
+            },
+            "de-DE": {
+              singular: "Was gibt es Neues?"
+            },
+            "fr-FR": {
+              singular: "Quoi de neuf ?"
+            },
+            "ja-JP": {
+              singular: "新着情報"
+            },
+            "ko-KR": {
+              singular: "새로운 기능"
+            },
+            "pt-BR": {
+              singular: "Novidades"
+            },
+            "zh-CN": {
+              singular: "新增内容"
+            }
           }
         }),
-        {
-          trackWhatsNewModalOpened: _v4
-        } = _v63(),
-        _v5 = new URLSearchParams(window.location.search).get("changelog"),
-        _v6 = (0, _v2.useRef)(_v5),
-        [_v7, _v8] = (0, _v2.useState)("true" === _v5),
-        {
-          newAnnouncementsCount: _v9,
-          isLoading: _v10
-        } = (0, _v12.useChangelog)();
-      (0, _v87.usePicoEffect)(() => {
-        "true" === _v6.current && _v4({
-          whatsNewModalOpenedManually: !1
-        });
-      }, [], {
-        once: !0
-      });
-      let _v11 = (0, _v42.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
-        _v12 = !!_v9 && parseInt(_v9.count) > 0,
-        _v13 = () => {
-          _v8(!0), (({
-            contexts: _v0
-          }) => {
-            let _v1 = new _v74.Event("vimeo.content_navigation", -1, {});
-            _v74.BigPictureClient.sendEventWithContexts(_v1, _v0);
-          })({
-            contexts: _v3
-          }), _v4({
-            whatsNewModalOpenedManually: !0
-          });
-        },
-        _v14 = _v0 => {
-          ("Enter" === _v0.key || " " === _v0.key) && (_v0.preventDefault(), _v13());
-        },
-        _v15 = () => {
-          let _v0 = new URLSearchParams(window.location.search);
-          _v0.delete("changelog");
-          let _v1 = _v0.toString(),
-            _v2 = _v1 ? `${window.location.pathname}?${_v1}` : window.location.pathname;
-          window.history.replaceState(null, "", _v2), _v8(!1);
-        };
-      return _v10 ? (0, _v1.jsx)(_v13.LoadingBlock, {
-        style: {
-          borderRadius: (0, _v10.rem)(10),
-          height: (0, _v10.rem)(28),
-          marginBottom: (0, _v10.rem)(20),
-          width: "icons" === _v0 ? (0, _v10.rem)(28) : "50%"
-        }
-      }) : "icons" === _v0 ? (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v9.Tooltip, {
-          label: (0, _v14.translate)({
-            singular: "What's new",
-            dictionary: {
-              es: {
-                singular: "Novedades"
-              },
-              "de-DE": {
-                singular: "Was gibt es Neues?"
-              },
-              "fr-FR": {
-                singular: "Quoi de neuf ?"
-              },
-              "ja-JP": {
-                singular: "新着情報"
-              },
-              "ko-KR": {
-                singular: "새로운 기능"
-              },
-              "pt-BR": {
-                singular: "Novidades"
-              },
-              "zh-CN": {
-                singular: "新增内容"
-              }
-            }
-          }),
-          placement: "right",
-          children: (0, _v1.jsxs)(_v17.Box, {
-            position: "relative",
-            width: "max-content",
-            children: [(0, _v1.jsx)(_v8.IconButton, {
-              "aria-label": (0, _v14.translate)({
-                singular: "What's new",
-                dictionary: {
-                  es: {
-                    singular: "Novedades"
-                  },
-                  "de-DE": {
-                    singular: "Was gibt es Neues?"
-                  },
-                  "fr-FR": {
-                    singular: "Quoi de neuf ?"
-                  },
-                  "ja-JP": {
-                    singular: "新着情報"
-                  },
-                  "ko-KR": {
-                    singular: "새로운 기능"
-                  },
-                  "pt-BR": {
-                    singular: "Novidades"
-                  },
-                  "zh-CN": {
-                    singular: "新增内容"
-                  }
-                }
-              }),
-              icon: (0, _v1.jsx)(_v50, {}),
-              variant: "tertiary",
-              size: "sm",
-              onClick: _v13,
-              onKeyDown: _v14,
-              "aria-haspopup": "dialog",
-              "aria-expanded": _v7
-            }), _v12 && (0, _v1.jsx)(_v49.Badge, {
-              variant: "new",
-              size: "sm",
-              borderRadius: "full",
-              position: "absolute",
-              top: (0, _v10.rem)(-2),
-              right: (0, _v10.rem)(-2),
-              minWidth: (0, _v10.rem)(16),
-              height: (0, _v10.rem)(16),
-              textAlign: "center",
-              children: (0, _v1.jsx)(_v86, {
-                count: _v9.count,
-                showPlus: _v9.showPlus
-              })
-            })]
-          })
-        }), (0, _v1.jsx)(_v85, {
-          isOpen: _v7,
-          onClose: _v15
-        })]
-      }) : (0, _v1.jsxs)(_v7.Flex, {
-        flexDirection: "column",
-        gap: 10,
-        marginTop: -10,
-        children: [(0, _v1.jsxs)(_v7.Flex, {
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          _hover: {
-            backgroundColor: _v11,
-            cursor: "pointer"
-          },
-          borderRadius: "input-sm",
-          paddingRight: 3,
-          onClick: _v13,
-          onKeyDown: _v14,
-          "aria-haspopup": "dialog",
-          "aria-expanded": _v7,
-          children: [(0, _v1.jsx)(_v48.MenuItem, {
-            icon: (0, _v1.jsx)(_v50, {
-              boxSize: "lg"
-            }),
-            iconSize: "1.5rem",
-            label: (0, _v14.translate)({
+        placement: "right",
+        children: (0, _v1.jsxs)(_v16.Box, {
+          position: "relative",
+          width: "max-content",
+          children: [(0, _v1.jsx)(_v4.IconButton, {
+            "aria-label": (0, _v12.translate)({
               singular: "What's new",
               dictionary: {
                 es: {
@@ -1476,65 +1420,183 @@
                 }
               }
             }),
-            dataId: "side_nav_whats_new_menu_item",
-            hoverBackgroundColor: "none"
+            icon: (0, _v1.jsx)(_v50, {}),
+            variant: "tertiary",
+            size: "md",
+            fontSize: (0, _v6.rem)(24),
+            sx: {
+              "> svg": {
+                width: (0, _v6.rem)(24),
+                height: (0, _v6.rem)(24)
+              }
+            },
+            onClick: _v13,
+            onKeyDown: _v14,
+            "aria-haspopup": "dialog",
+            "aria-expanded": _v7
           }), _v12 && (0, _v1.jsx)(_v49.Badge, {
             variant: "new",
             size: "sm",
             borderRadius: "full",
-            minWidth: (0, _v10.rem)(20),
-            height: (0, _v10.rem)(20),
+            position: "absolute",
+            top: (0, _v6.rem)(-2),
+            right: (0, _v6.rem)(-2),
+            minWidth: (0, _v6.rem)(16),
+            height: (0, _v6.rem)(16),
             textAlign: "center",
             children: (0, _v1.jsx)(_v86, {
               count: _v9.count,
               showPlus: _v9.showPlus
             })
           })]
-        }), !_v2.enable_new_sidebar && (0, _v1.jsx)(_v3.ResizableSideNav.Divider, {}), (0, _v1.jsx)(_v85, {
-          isOpen: _v7,
-          onClose: _v15
-        })]
-      });
-    },
-    _v89 = ({
-      variant: _v0,
-      isMobile: _v1,
-      showWatchMenuItem: _v2,
-      showWhatsNew: _v3,
-      showQuota: _v4,
-      isLoadingQuota: _v5,
-      quota: _v6,
-      onUpgradeClick: _v7
-    }) => {
-      let _v8 = (0, _v2.useContext)(_v6.ViewerContext),
-        {
-          trackSidebarNavClicked: _v9
-        } = (0, _v16.useWatchTracking)(),
-        {
-          capabilities: _v10,
-          loading: _v11
-        } = (0, _v4.useCapability)(["hasSimplifiedEnterpriseAccount"]),
-        {
-          capabilities: _v12
-        } = (0, _v4.useCapability)(["hasWatchButton"], _v8?.teamUser?.ownerId),
-        _v13 = _v8?.isSimplifiedSite ?? !1,
-        _v14 = !!(_v2 && !_v8?.isEnterpriseSite && !_v13 && !_v10?.hasSimplifiedEnterpriseAccount && _v12.hasWatchButton),
-        _v15 = () => {
-          _v9({
-            sidebarNavDestination: "watch",
-            sidebarNavContext: (0, _v15.deriveCanonicalPage)(new URL(window.location.href), {
-              is_team_user: _v8?.user?.isTeamUser ?? !1
-            })
-          });
-        };
-      return "icons" === _v0 ? (0, _v1.jsxs)(_v7.Flex, {
-        direction: "column",
+        })
+      }), (0, _v1.jsx)(_v85, {
+        isOpen: _v7,
+        onClose: _v15
+      })]
+    }) : (0, _v1.jsxs)(_v3.Flex, {
+      flexDirection: "column",
+      gap: 10,
+      marginTop: -10,
+      children: [(0, _v1.jsxs)(_v3.Flex, {
+        flexDirection: "row",
         alignItems: "center",
-        gap: 12,
-        padding: "0.5rem",
-        paddingBottom: 0,
-        children: [_v14 && !_v11 && (0, _v1.jsx)(_v9.Tooltip, {
-          label: (0, _v14.translate)({
+        justifyContent: "space-between",
+        _hover: {
+          backgroundColor: _v11,
+          cursor: "pointer"
+        },
+        borderRadius: "input-sm",
+        paddingRight: 3,
+        onClick: _v13,
+        onKeyDown: _v14,
+        "aria-haspopup": "dialog",
+        "aria-expanded": _v7,
+        children: [(0, _v1.jsx)(_v48.MenuItem, {
+          icon: (0, _v1.jsx)(_v50, {
+            boxSize: "lg"
+          }),
+          iconSize: "1.5rem",
+          label: (0, _v12.translate)({
+            singular: "What's new",
+            dictionary: {
+              es: {
+                singular: "Novedades"
+              },
+              "de-DE": {
+                singular: "Was gibt es Neues?"
+              },
+              "fr-FR": {
+                singular: "Quoi de neuf ?"
+              },
+              "ja-JP": {
+                singular: "新着情報"
+              },
+              "ko-KR": {
+                singular: "새로운 기능"
+              },
+              "pt-BR": {
+                singular: "Novidades"
+              },
+              "zh-CN": {
+                singular: "新增内容"
+              }
+            }
+          }),
+          dataId: "side_nav_whats_new_menu_item",
+          hoverBackgroundColor: "none"
+        }), _v12 && (0, _v1.jsx)(_v49.Badge, {
+          variant: "new",
+          size: "sm",
+          borderRadius: "full",
+          minWidth: (0, _v6.rem)(20),
+          height: (0, _v6.rem)(20),
+          textAlign: "center",
+          children: (0, _v1.jsx)(_v86, {
+            count: _v9.count,
+            showPlus: _v9.showPlus
+          })
+        })]
+      }), !_v2.enable_new_sidebar && (0, _v1.jsx)(_v10.ResizableSideNav.Divider, {}), (0, _v1.jsx)(_v85, {
+        isOpen: _v7,
+        onClose: _v15
+      })]
+    });
+  };
+  _v0.s(["SideNavFooter", 0, ({
+    variant: _v0,
+    isMobile: _v1,
+    showWatchMenuItem: _v2,
+    showWhatsNew: _v3,
+    showQuota: _v4,
+    isLoadingQuota: _v5,
+    quota: _v6,
+    onUpgradeClick: _v7
+  }) => {
+    let _v8 = (0, _v2.useContext)(_v47.ViewerContext),
+      {
+        trackSidebarNavClicked: _v9
+      } = (0, _v15.useWatchTracking)(),
+      {
+        settings: _v10
+      } = (0, _v13.useOrionSettings)(),
+      {
+        capabilities: _v11,
+        loading: _v12
+      } = (0, _v11.useCapability)(["hasSimplifiedEnterpriseAccount"]),
+      {
+        capabilities: _v13
+      } = (0, _v11.useCapability)(["hasWatchButton"], _v8?.teamUser?.ownerId),
+      _v14 = _v8?.isSimplifiedSite ?? !1,
+      _v15 = !!(_v2 && !_v8?.isEnterpriseSite && !_v14 && !_v11?.hasSimplifiedEnterpriseAccount && _v13.hasWatchButton),
+      _v16 = () => {
+        _v9({
+          sidebarNavDestination: "watch",
+          sidebarNavContext: (0, _v14.deriveCanonicalPage)(new URL(window.location.href), {
+            is_team_user: _v8?.user?.isTeamUser ?? !1
+          }),
+          version: _v10.enable_new_sidebar ? "2" : "1"
+        });
+      };
+    return "icons" === _v0 ? (0, _v1.jsxs)(_v3.Flex, {
+      direction: "column",
+      alignItems: "center",
+      gap: 12,
+      padding: "0.5rem",
+      paddingBottom: 0,
+      children: [_v15 && !_v12 && (0, _v1.jsx)(_v5.Tooltip, {
+        label: (0, _v12.translate)({
+          singular: "Watch",
+          dictionary: {
+            es: {
+              singular: "Ver"
+            },
+            "de-DE": {
+              singular: "Anschauen"
+            },
+            "fr-FR": {
+              singular: "Regarder"
+            },
+            "ja-JP": {
+              singular: "鑑賞"
+            },
+            "ko-KR": {
+              singular: "시청하기"
+            },
+            "pt-BR": {
+              singular: "Assistir"
+            },
+            "zh-CN": {
+              singular: "观看"
+            }
+          }
+        }),
+        placement: "right",
+        children: (0, _v1.jsx)(_v4.IconButton, {
+          as: "a",
+          href: "/watch",
+          onClick: _v16,
+          "aria-label": (0, _v12.translate)({
             singular: "Watch",
             dictionary: {
               es: {
@@ -1560,307 +1622,122 @@
               }
             }
           }),
-          placement: "right",
-          children: (0, _v1.jsx)(_v8.IconButton, {
-            as: "a",
-            href: "/watch",
-            onClick: _v15,
-            "aria-label": (0, _v14.translate)({
-              singular: "Watch",
-              dictionary: {
-                es: {
-                  singular: "Ver"
-                },
-                "de-DE": {
-                  singular: "Anschauen"
-                },
-                "fr-FR": {
-                  singular: "Regarder"
-                },
-                "ja-JP": {
-                  singular: "鑑賞"
-                },
-                "ko-KR": {
-                  singular: "시청하기"
-                },
-                "pt-BR": {
-                  singular: "Assistir"
-                },
-                "zh-CN": {
-                  singular: "观看"
-                }
-              }
-            }),
-            icon: (0, _v1.jsx)(_v11.WatchPlay, {}),
-            variant: "tertiary",
-            size: "sm"
-          })
-        }), _v3 && (0, _v1.jsx)(_v12.ChangelogProvider, {
-          children: (0, _v1.jsx)(_v88, {
-            variant: "icons"
-          })
-        }), _v5 ? (0, _v1.jsx)(_v13.LoadingBlock, {
-          style: {
-            borderRadius: (0, _v10.rem)(8),
-            height: (0, _v10.rem)(40),
-            width: (0, _v10.rem)(40)
-          }
-        }) : _v4 && _v6.uploadQuota ? (0, _v1.jsx)(_v47, {
-          isMobile: _v1,
-          uploadQuota: _v6.uploadQuota,
-          aiCreditsQuota: _v6.aiCreditsQuota,
-          showUpgrade: _v6.showUpgrade,
-          onUpgradeClick: _v7
-        }) : null]
-      }) : (0, _v1.jsxs)(_v7.Flex, {
-        direction: "column",
-        gap: (0, _v10.rem)(16),
-        padding: "1rem",
-        paddingBottom: _v4 ? "1rem" : 0,
-        children: [_v14 && (_v11 ? (0, _v1.jsx)(_v13.LoadingBlock, {
-          style: {
-            borderRadius: (0, _v10.rem)(10),
-            height: (0, _v10.rem)(28),
-            marginBottom: (0, _v10.rem)(20),
-            width: "50%"
-          }
-        }) : (0, _v1.jsxs)(_v7.Flex, {
-          flexDirection: "column",
-          gap: 10,
-          children: [(0, _v1.jsx)(_v48.MenuItem, {
-            icon: (0, _v1.jsx)(_v11.WatchPlay, {}),
-            label: (0, _v14.translate)({
-              singular: "Watch",
-              dictionary: {
-                es: {
-                  singular: "Ver"
-                },
-                "de-DE": {
-                  singular: "Anschauen"
-                },
-                "fr-FR": {
-                  singular: "Regarder"
-                },
-                "ja-JP": {
-                  singular: "鑑賞"
-                },
-                "ko-KR": {
-                  singular: "시청하기"
-                },
-                "pt-BR": {
-                  singular: "Assistir"
-                },
-                "zh-CN": {
-                  singular: "观看"
-                }
-              }
-            }),
-            href: "/watch",
-            "data-id": "side_nav_watch_menu_item",
-            onClick: _v15
-          }), (0, _v1.jsx)(_v3.ResizableSideNav.Divider, {})]
-        })), _v3 && (0, _v1.jsx)(_v12.ChangelogProvider, {
-          children: (0, _v1.jsx)(_v88, {})
-        }), _v5 ? (0, _v1.jsx)(_v13.LoadingBlock, {
-          style: {
-            borderRadius: (0, _v10.rem)(10),
-            height: (0, _v10.rem)(60)
-          }
-        }) : _v4 && _v6.uploadQuota && (0, _v1.jsx)(_v40, {
-          isMobile: _v1,
-          onUpgradeClick: _v7,
-          ..._v6,
-          uploadQuota: _v6.uploadQuota
-        })]
-      });
-    };
-  _v0.s(["SideNavFooter", 0, _v89], 0);
-  var _v90 = _v0.i(0),
-    _v91 = _v0.i(0);
-  let _v92 = ({
-    onClose: _v0,
-    isMobile: _v1,
-    bg: _v2
-  }) => {
-    let _v3 = (0, _v2.useContext)(_v6.ViewerContext),
-      _v4 = _v3?.isSimplifiedSite ?? !1,
-      _v5 = (0, _v42.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300");
-    return (0, _v1.jsxs)(_v17.Box, {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      padding: `${(0, _v10.rem)(16)} ${(0, _v10.rem)(12)} ${(0, _v10.rem)(8)} ${(0, _v10.rem)(28)}`,
-      bg: _v2,
-      children: [(0, _v1.jsx)(_v91.default, {
-        href: _v3?.user ? "/home" : "/",
-        width: (0, _v10.rem)(78),
-        height: (0, _v10.rem)(27),
-        title: _v4 ? (0, _v14.translate)({
-          singular: "Go to Videoji home page",
-          dictionary: {
-            es: {
-              singular: "Ir a la página de inicio de Videoji"
-            },
-            "de-DE": {
-              singular: "Zur Videoji-Startseite"
-            },
-            "fr-FR": {
-              singular: "Accéder à la page d'accueil de Videoji"
-            },
-            "ja-JP": {
-              singular: "Videojiホームページに移動"
-            },
-            "ko-KR": {
-              singular: "Videoji 홈페이지로 이동"
-            },
-            "pt-BR": {
-              singular: "Ir para a página inicial do Videoji"
-            },
-            "zh-CN": {
-              singular: "前往 Videoji 主页"
-            }
-          }
-        }) : (0, _v14.translate)({
-          singular: "Go to Vimeo home page",
-          dictionary: {
-            es: {
-              singular: "Ir a la página de inicio de Vimeo"
-            },
-            "de-DE": {
-              singular: "Zur Startseite von Vimeo"
-            },
-            "fr-FR": {
-              singular: "Aller à la page d'accueil Vimeo"
-            },
-            "ja-JP": {
-              singular: "Vimeoホームページに移動"
-            },
-            "ko-KR": {
-              singular: "Vimeo 홈페이지로 이동"
-            },
-            "pt-BR": {
-              singular: "Ir para a página inicial do Vimeo"
-            },
-            "zh-CN": {
-              singular: "前往 Vimeo 主页"
+          icon: (0, _v1.jsx)(_v7.WatchPlay, {}),
+          variant: "tertiary",
+          size: "md",
+          fontSize: (0, _v6.rem)(24),
+          sx: {
+            "> svg": {
+              width: (0, _v6.rem)(24),
+              height: (0, _v6.rem)(24)
             }
           }
         })
-      }), (0, _v1.jsx)(_v8.IconButton, {
-        "aria-label": (0, _v14.translate)({
-          singular: "Close side nav",
-          dictionary: {
-            es: {
-              singular: "Cerrar navegación lateral"
-            },
-            "de-DE": {
-              singular: "Seitenleiste schließen"
-            },
-            "fr-FR": {
-              singular: "Fermer le volet latéral"
-            },
-            "ja-JP": {
-              singular: "サイドナビゲーションを閉じる"
-            },
-            "ko-KR": {
-              singular: "사이드바 닫기"
-            },
-            "pt-BR": {
-              singular: "Fechar navegação lateral"
-            },
-            "zh-CN": {
-              singular: "关闭侧边导航"
-            }
-          }
-        }),
-        icon: (0, _v1.jsx)(_v90.ChevronLeft, {}),
-        variant: "tertiary",
-        size: "sm",
-        onClick: _v0,
-        backgroundColor: "transparent",
-        sx: {
-          "*": {
-            fill: _v1 ? "text-primary" : "transparent"
-          }
-        },
-        _hover: {
-          backgroundColor: _v5
-        },
-        _groupHover: {
-          "*": {
-            fill: "text-primary"
-          }
-        },
-        _focus: {
-          "*": {
-            fill: "text-primary"
-          }
+      }), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
+        children: (0, _v1.jsx)(_v88, {
+          variant: "icons"
+        })
+      }), _v5 ? (0, _v1.jsx)(_v9.LoadingBlock, {
+        style: {
+          borderRadius: (0, _v6.rem)(8),
+          height: (0, _v6.rem)(40),
+          width: (0, _v6.rem)(40)
         }
+      }) : _v4 && _v6.uploadQuota ? (0, _v1.jsx)(_v46, {
+        isMobile: _v1,
+        uploadQuota: _v6.uploadQuota,
+        aiCreditsQuota: _v6.aiCreditsQuota,
+        showUpgrade: _v6.showUpgrade,
+        onUpgradeClick: _v7
+      }) : null]
+    }) : (0, _v1.jsxs)(_v3.Flex, {
+      direction: "column",
+      gap: (0, _v6.rem)(16),
+      padding: "1rem",
+      paddingBottom: _v4 ? "1rem" : 0,
+      children: [_v15 && (_v12 ? (0, _v1.jsx)(_v9.LoadingBlock, {
+        style: {
+          borderRadius: (0, _v6.rem)(10),
+          height: (0, _v6.rem)(28),
+          marginBottom: (0, _v6.rem)(20),
+          width: "50%"
+        }
+      }) : (0, _v1.jsxs)(_v3.Flex, {
+        flexDirection: "column",
+        gap: 10,
+        children: [(0, _v1.jsx)(_v48.MenuItem, {
+          icon: (0, _v1.jsx)(_v7.WatchPlay, {}),
+          label: (0, _v12.translate)({
+            singular: "Watch",
+            dictionary: {
+              es: {
+                singular: "Ver"
+              },
+              "de-DE": {
+                singular: "Anschauen"
+              },
+              "fr-FR": {
+                singular: "Regarder"
+              },
+              "ja-JP": {
+                singular: "鑑賞"
+              },
+              "ko-KR": {
+                singular: "시청하기"
+              },
+              "pt-BR": {
+                singular: "Assistir"
+              },
+              "zh-CN": {
+                singular: "观看"
+              }
+            }
+          }),
+          href: "/watch",
+          "data-id": "side_nav_watch_menu_item",
+          onClick: _v16
+        }), (0, _v1.jsx)(_v10.ResizableSideNav.Divider, {})]
+      })), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
+        children: (0, _v1.jsx)(_v88, {})
+      }), _v5 ? (0, _v1.jsx)(_v9.LoadingBlock, {
+        style: {
+          borderRadius: (0, _v6.rem)(10),
+          height: (0, _v6.rem)(60)
+        }
+      }) : _v4 && _v6.uploadQuota && (0, _v1.jsx)(_v38, {
+        isMobile: _v1,
+        onUpgradeClick: _v7,
+        ..._v6,
+        uploadQuota: _v6.uploadQuota
       })]
     });
-  };
-  _v0.s(["SideNavHeader", 0, _v92], 0), _v0.s(["WayfinderSideNav", 0, ({
-    children: _v0,
-    dragConstraint: _v1,
-    isOpen: _v2,
-    isFixed: _v3,
-    isMobile: _v4,
-    onClose: _v5,
-    onResize: _v6,
-    onUpgradeClick: _v7,
-    showWatchMenuItem: _v8 = !1,
-    teamOwnerId: _v9,
-    hideQuotaMeter: _v10 = !1,
-    hideWhatsNew: _v11 = !1,
-    footerVariant: _v12 = "full"
-  }) => {
-    let _v13 = (0, _v2.useContext)(_v6.ViewerContext),
-      {
-        capabilities: _v14
-      } = (0, _v4.useCapability)(["hasTotalStorageCap", "canUpgrade"], _v13?.teamUser?.ownerId),
-      _v15 = _v13?.user?.id === _v9,
-      _v16 = _v13?.teamUser?.plainTextPermissionLevel === "Admin",
-      {
-        uploadQuota: _v17,
-        aiCreditsQuota: _v18,
-        drmLicensesQuota: _v19,
-        isLoading: _v20
-      } = (0, _v5.useUserQuotaApi)(),
-      _v21 = !!((_v15 || _v16) && _v17 && !_v10),
-      _v22 = _v13?.isSimplifiedSite ?? !1;
-    return (0, _v1.jsxs)(_v3.ResizableSideNav, {
-      active: _v2,
-      dragConstraint: _v1,
-      isFixed: _v3,
-      onResize: (_v0, {
-        current: _v1
-      }) => _v6?.(_v1),
-      role: "group",
-      children: [(0, _v1.jsx)(_v3.ResizableSideNav.Header, {
-        children: (0, _v1.jsx)(_v92, {
-          onClose: _v5,
-          isMobile: _v4
-        })
-      }), (0, _v1.jsx)(_v3.ResizableSideNav.Body, {
-        children: _v0
-      }), (0, _v1.jsx)(_v3.ResizableSideNav.Footer, {
-        children: (0, _v1.jsx)(_v89, {
-          variant: _v12,
-          isMobile: _v4,
-          showWatchMenuItem: _v8,
-          showWhatsNew: !_v11 && !_v22,
-          showQuota: _v21,
-          isLoadingQuota: _v20,
-          quota: {
-            uploadQuota: _v17,
-            aiCreditsQuota: _v18,
-            drmLicensesQuota: _v19,
-            showTotal: _v14.hasTotalStorageCap,
-            showUpgrade: _v14.canUpgrade
-          },
-          onUpgradeClick: _v7
-        })
+  }], 0), _v0.s(["CollapseDrawer", 0, _v0 => (0, _v1.jsx)(_v41.Icon, {
+    viewBox: "0 0 24 24",
+    ..._v0,
+    fill: "none",
+    children: (0, _v1.jsxs)("g", {
+      fill: "currentColor",
+      children: [(0, _v1.jsx)("path", {
+        d: "M16.5 9.707a1 1 0 0 0-1.414-1.414l-2.647 2.646a1.5 1.5 0 0 0 0 2.122l2.647 2.646a1 1 0 0 0 1.414-1.414L14.207 12 16.5 9.707Z"
+      }), (0, _v1.jsx)("path", {
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        d: "M7 3a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4H7Zm10 2h-7v14h7a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2ZM7 5h1v14H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
       })]
-    });
-  }], 0);
+    })
+  })], 0), _v0.s(["ExpandDrawer", 0, _v0 => (0, _v1.jsx)(_v41.Icon, {
+    viewBox: "0 0 24 24",
+    ..._v0,
+    fill: "none",
+    children: (0, _v1.jsxs)("g", {
+      fill: "currentColor",
+      children: [(0, _v1.jsx)("path", {
+        d: "M12.5 9.707a1 1 0 0 1 1.414-1.414l2.647 2.646a1.5 1.5 0 0 1 0 2.122l-2.647 2.646a1 1 0 0 1-1.414-1.414L14.793 12 12.5 9.707Z"
+      }), (0, _v1.jsx)("path", {
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        d: "M7 3a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4H7Zm10 2h-7v14h7a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2ZM7 5h1v14H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
+      })]
+    })
+  })], 0);
 }

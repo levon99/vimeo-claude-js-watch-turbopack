@@ -200,7 +200,12 @@
     isVersionDeleted: _v6,
     showNotFoundPage: _v7
   }) => _v7 ? (0, _v1.jsxs)(_v1.Fragment, {
-    children: [(0, _v1.jsx)(_v32.default, {}), (0, _v1.jsx)(_v9.ErrorPageWithHeader, {
+    children: [(0, _v1.jsx)(_v2.default, {
+      children: (0, _v1.jsx)("meta", {
+        name: "robots",
+        content: "noindex,nofollow"
+      })
+    }), (0, _v1.jsx)(_v32.default, {}), (0, _v1.jsx)(_v9.ErrorPageWithHeader, {
       error: new _v4.ResourceNotFoundError()
     }), ";"]
   }) : _v4 ? _v0 && _v1 && _v3 ? (0, _v1.jsxs)(_v1.Fragment, {
@@ -263,7 +268,13 @@
     }
     if (!_v9) return {
       props: {
-        showNotFoundPage: !0
+        showNotFoundPage: !0,
+        hasThemeSupport: !0,
+        bypassAgeVerification: !0,
+        ...(_v2?.isDark ? {
+          forceTheme: "dark"
+        } : {}),
+        omitEsi: !0
       }
     };
     if (!_v2 || !_v2?.showAllVersions) return {
@@ -313,7 +324,8 @@
         isVersionDeleted: _v0.isDeleted,
         layoutOptions: {
           enableReviewEditAccessBanner: !0
-        }
+        },
+        omitEsi: !0
       };
       return _v1 && (_v2.reviewLinkPassword = _v1), {
         props: _v2
@@ -323,6 +335,9 @@
         notFound: !0
       };
     }
+  }, {
+    inlineViewer: "all",
+    inlinePlayerAssets: !0
   }), _v34.getLayout = _v0 => (0, _v1.jsx)(_v3.ErrorBoundary, {
     errorPage: _v0 => (0, _v1.jsx)(_v9.ErrorPageWithHeader, {
       useBokeh: !0,

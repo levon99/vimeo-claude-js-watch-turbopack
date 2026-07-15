@@ -34,11 +34,12 @@
     _v31 = _v0.i(0),
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  let _v35 = ({
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0);
+  let _v36 = ({
       untranslatedUserRole: _v0
-    }) => _v0 === _v34.TeamRole.Owner || _v0 === _v34.TeamRole.Admin,
-    _v36 = {
+    }) => _v0 === _v35.TeamRole.Owner || _v0 === _v35.TeamRole.Admin,
+    _v37 = {
       FetchMembershipInfo: (_v0, _v1) => ({
         ..._v0,
         membership: {
@@ -86,13 +87,13 @@
       FetchTeamInfoComplete: (_v0, _v1) => {
         if (!_v1.payload || !_v1.payload.viewer || !_v1.payload?.teamsInfo) throw Error("no payload");
         let _v2 = _v1.payload.viewer.teamUser?.ownerId,
-          _v3 = _v1.payload.teamsInfo.data.filter(_v35),
+          _v3 = _v1.payload.teamsInfo.data.filter(_v36),
           _v4 = _v3.find(({
             untranslatedUserRole: _v0
-          }) => _v0 === _v34.TeamRole.Owner),
+          }) => _v0 === _v35.TeamRole.Owner),
           _v5 = _v3.filter(({
             untranslatedUserRole: _v0
-          }) => _v0 === _v34.TeamRole.Admin);
+          }) => _v0 === _v35.TeamRole.Admin);
         if (_v2) {
           let _v0 = _v3.find(({
             owner: _v0
@@ -152,7 +153,7 @@
             ..._v0,
             isLoading: !1
           })),
-          _v5 = _v38(_v3),
+          _v5 = _v39(_v3),
           _v6 = [];
         if (1 === _v0.currentPage || _v5) _v6 = _v4;else {
           let _v0 = new Set();
@@ -358,7 +359,7 @@
           ..._v0
         };
       },
-      UpdateTeamGroupSort: (_v0, _v1) => _v1.type === _v34.ManageTeamActionTypes.UpdateTeamGroupSort ? {
+      UpdateTeamGroupSort: (_v0, _v1) => _v1.type === _v35.ManageTeamActionTypes.UpdateTeamGroupSort ? {
         ..._v0,
         teamGroups: [],
         teamGroupsInfo: {
@@ -451,7 +452,7 @@
       },
       UpdateRolesFilter: (_v0, _v1) => {
         if (!_v1.payload) throw Error("no payload");
-        return (0, _v32.default)(_v1.payload?.rolesFilter, _v0.rolesFilter) ? _v0 : {
+        return (0, _v33.default)(_v1.payload?.rolesFilter, _v0.rolesFilter) ? _v0 : {
           ..._v0,
           rolesFilter: _v1.payload?.rolesFilter || [],
           hasFetchedTeamMembers: !1,
@@ -565,36 +566,36 @@
         };
       }
     },
-    _v37 = (_v0, _v1) => {
-      let _v2 = _v36[_v1.type];
+    _v38 = (_v0, _v1) => {
+      let _v2 = _v37[_v1.type];
       return _v2 ? _v2(_v0, _v1) : _v0;
     },
-    _v38 = _v0 => _v0 > _v33.ENABLE_PAGINATION_LIMIT || !("IntersectionObserver" in window),
-    _v39 = ({
+    _v39 = _v0 => _v0 > _v34.ENABLE_PAGINATION_LIMIT || !("IntersectionObserver" in window),
+    _v40 = ({
       children: _v0
     }) => {
       let _v1 = (0, _v3.useContext)(_v21.ViewerContext),
-        [_v2, _v3] = (0, _v3.useReducer)(_v37, (0, _v29.initState)()),
-        _v4 = (0, _v30.useManageTeamActions)(_v2, _v3, _v1),
+        [_v2, _v3] = (0, _v3.useReducer)(_v38, (0, _v30.initState)()),
+        _v4 = (0, _v31.useManageTeamActions)(_v2, _v3, _v1),
         {
           teamInfo: _v5,
           membership: _v6,
           uploadQuota: _v7
         } = _v2;
-      return (0, _v1.jsx)(_v29.ManageTeamDispatchCtx.Provider, {
+      return (0, _v1.jsx)(_v30.ManageTeamDispatchCtx.Provider, {
         value: _v4,
-        children: (0, _v1.jsx)(_v29.ManageTeamAnalytics.Provider, {
-          value: (0, _v31.initAnalytics)(_v5, _v6, _v7),
-          children: (0, _v1.jsx)(_v29.ManageTeamStateCtx.Provider, {
+        children: (0, _v1.jsx)(_v30.ManageTeamAnalytics.Provider, {
+          value: (0, _v32.initAnalytics)(_v5, _v6, _v7),
+          children: (0, _v1.jsx)(_v30.ManageTeamStateCtx.Provider, {
             value: _v2,
             children: _v0
           })
         })
       });
     };
-  var _v40 = _v0.i(0),
-    _v41 = _v0.i(0);
-  let _v42 = ({
+  var _v41 = _v0.i(0),
+    _v42 = _v0.i(0);
+  let _v43 = ({
       children: _v0
     }) => {
       let _v1 = (0, _v3.useContext)(_v21.ViewerContext),
@@ -606,7 +607,7 @@
           data: _v4,
           isLoading: _v5
         } = (0, _v14.useGetUserPreferences)({
-          select: [_v23.USER_PREFERENCE_ID.PREF_WORKSPACE_UUID],
+          select: [_v24.USER_PREFERENCE_ID.PREF_WORKSPACE_UUID],
           where: {
             userId: _v1?.user?.id
           }
@@ -633,7 +634,7 @@
             untranslatedUserRole: _v16
           },
           membership: _v17
-        } = (0, _v3.useContext)(_v29.ManageTeamStateCtx),
+        } = (0, _v3.useContext)(_v30.ManageTeamStateCtx),
         {
           fetchTeamGroupsAction: _v18,
           setHasMembershipInfoLoadFailed: _v19,
@@ -645,7 +646,7 @@
           updateIsMembershipLoading: _v25,
           updatePlanQuota: _v26,
           updatePlanData: _v27
-        } = (0, _v3.useContext)(_v29.ManageTeamDispatchCtx),
+        } = (0, _v3.useContext)(_v30.ManageTeamDispatchCtx),
         _v28 = (0, _v4.useTheme)(),
         [_v29, _v30] = (0, _v3.useState)(_v28),
         [_v31, _v32] = (0, _v13.useGetUserLazy)(),
@@ -653,7 +654,7 @@
         [_v35, _v36] = (0, _v12.useGetMeSubscriptionPlansLazy)(),
         _v37 = _v17.hasAutorenew || !location.pathname.includes("/manage/team/billing");
       (0, _v3.useEffect)(() => {
-        _v3 && !_v5 && _v4?.[_v23.USER_PREFERENCE_ID.PREF_WORKSPACE_UUID] !== null && !_v8 && _v10 && _v2(_v23.WORKSPACE_MEMBER_SETTINGS_ROUTE, _v23.WORKSPACE_MEMBER_SETTINGS_ROUTE, {
+        _v3 && !_v5 && _v4?.[_v24.USER_PREFERENCE_ID.PREF_WORKSPACE_UUID] !== null && !_v8 && _v10 && _v2(_v24.WORKSPACE_MEMBER_SETTINGS_ROUTE, _v24.WORKSPACE_MEMBER_SETTINGS_ROUTE, {
           shallow: !1
         });
       }, [_v2, _v3, _v5, _v8, _v10, _v4]);
@@ -696,7 +697,7 @@
         } = (0, _v8.useCapability)(["canAddTeamMembers", "canEnableEnterpriseCustomDomain", "canLmsExport", "canManageBillingOnsite", "canSeeAiSettings", "canShowSsoGroups", "canUsePaymentsService", "canViewSsoTeamSettings", "canViewTeamMemberActivity", "canViewTeamMemberTopLevelPermissions", "canViewTeamMemberTopLevelPermissionsUpsell", "createLiveEvents", "hasDrmSetting", "hasBusiness", "hasContributorPlusEnabled", "hasDataRetention", "hasEnterprise", "hasLegalHoldsActive", "hasLiveSubscription", "hasManageTeamBillingSettingsPage", "hasPerSeatPricingModelTeamMember", "hasPersonalTeamFolderAdminAccess", "hasPlus", "hasPro", "hasTeamMembersFilter", "hasViewTeamMemberActivityUpsell", "hasViewReviewPagePrivacyTeamSetting", "hasSessionControl", "hasContentSpaceEnabled", "hasTeamAllowedIpsEnabled", "hasMultipleReviewLinks", "hasCanUseOverlayWatermarking"], _v12),
         _v71 = (_v58 ? _v13 : _v11) || _v11,
         _v72 = !_v70 && !_v8 && (!_v58 || !_v6),
-        _v73 = (0, _v3.useMemo)(() => !_v72 || (_v58 ? !!_v7 && _v9 + _v33.OWNER + _v17.currentUnassignedSeatCount < _v71 : !!(_v9 < _v11 || _v54)), [_v9, _v54, _v58, _v7, _v72, _v11, _v17.currentUnassignedSeatCount, _v71]);
+        _v73 = (0, _v3.useMemo)(() => !_v72 || (_v58 ? !!_v7 && _v9 + _v34.OWNER + _v17.currentUnassignedSeatCount < _v71 : !!(_v9 < _v11 || _v54)), [_v9, _v54, _v58, _v7, _v72, _v11, _v17.currentUnassignedSeatCount, _v71]);
       (0, _v3.useEffect)(() => {
         _v22({
           canAddTeamMembers: _v38,
@@ -737,14 +738,14 @@
       let {
         paymentMethods: _v74
       } = (0, _v16.usePaymentMethods)({
-        canFetchPaymentMethods: !!(_v15 && _v16 === _v34.TeamRole.Owner && _v57),
+        canFetchPaymentMethods: !!(_v15 && _v16 === _v35.TeamRole.Owner && _v57),
         canUsePaymentsService: !!_v44,
         ownerId: _v15
       });
       (0, _v3.useEffect)(() => {
         let _v0 = async () => {
           await _v33({
-            select: _v16 === _v34.TeamRole.Owner ? ["billingAddress", "billingPeriod", "currency", "currentUnassignedSeatCount", "endDate", "gracePeriodType", "isStorageEntitlementSuspended", "hasAutorenew", "isFreeTrial", "isReverseFreeTrial", "isImpactedByGermanConsumerLaw", "isWithdrawalEligible", "latestRefundableTransaction", "nextCycle", "oneClickRefundEligible", "originalEndDate", "paymentMethod", "additionalSeatPrice", "additionalSeatPriceForDisplay", "basePlanPrice", "basePlanPriceForDisplay", "pricePerSeat", "pricePerSeatForDisplay", "productId", "renewalDate", "seatCapPaid", "seatCapTrial", "seatCount", "startDate", "status", "subscriptionId", "suggestedPaymentMethod", "tier", "tierForDisplay", "totalPrice", "totalPriceForDisplay", "userEntity"] : ["currentUnassignedSeatCount", "isFreeTrial", "productId", "seatCapPaid", "seatCapTrial", "seatCount", "status", "tier"],
+            select: _v16 === _v35.TeamRole.Owner ? ["billingAddress", "billingPeriod", "currency", "currentUnassignedSeatCount", "endDate", "gracePeriodType", "isStorageEntitlementSuspended", "hasAutorenew", "isFreeTrial", "isReverseFreeTrial", "isImpactedByGermanConsumerLaw", "isWithdrawalEligible", "latestRefundableTransaction", "nextCycle", "oneClickRefundEligible", "originalEndDate", "paymentMethod", "additionalSeatPrice", "additionalSeatPriceForDisplay", "basePlanPrice", "basePlanPriceForDisplay", "pricePerSeat", "pricePerSeatForDisplay", "productId", "renewalDate", "seatCapPaid", "seatCapTrial", "seatCount", "startDate", "status", "subscriptionId", "suggestedPaymentMethod", "tier", "tierForDisplay", "totalPrice", "totalPriceForDisplay", "userEntity"] : ["currentUnassignedSeatCount", "isFreeTrial", "productId", "seatCapPaid", "seatCapTrial", "seatCount", "status", "tier"],
             where: {
               userId: _v15
             }
@@ -756,11 +757,11 @@
         let {
           data: _v0
         } = _v34;
-        _v0 && _v20((0, _v41.mapMembershipResponse)({
+        _v0 && _v20((0, _v42.mapMembershipResponse)({
           ..._v0
         }));
       }, [_v34, _v34?.error]), (0, _v3.useEffect)(() => {
-        _v15 && _v16 === _v34.TeamRole.Owner && _v57 && _v31({
+        _v15 && _v16 === _v35.TeamRole.Owner && _v57 && _v31({
           select: ["uploadQuota"],
           where: {
             userId: _v15
@@ -807,7 +808,17 @@
         });
       }, [_v43, _v15]);
       let _v75 = (0, _v19.useWindowSize)().width <= _v20.BreakPoints.sm,
-        [_v76, _v77] = (0, _v3.useState)(!_v75);
+        {
+          isOpen: _v76,
+          collapsed: _v77,
+          isNewDesktopSidebar: _v78,
+          toggle: _v79,
+          open: _v80
+        } = (0, _v23.useSideNavSurfaceState)({
+          surface: "team-settings",
+          userId: _v1?.user?.id,
+          isMobile: _v75
+        });
       return (0, _v1.jsx)(_v4.ThemeProvider, {
         theme: _v29,
         children: (0, _v1.jsxs)(_v5.Flex, {
@@ -816,10 +827,11 @@
           overflow: "hidden",
           children: [(0, _v1.jsx)(_v22.WayfinderSideNav, {
             isOpen: _v76,
-            onClose: () => _v77(!1),
+            collapsed: _v77,
+            onClose: _v79,
             isMobile: _v75,
             teamOwnerId: _v15,
-            children: (0, _v1.jsx)(_v25.ManageTeamSideNavContent, {})
+            children: (0, _v1.jsx)(_v26.ManageTeamSideNavContent, {})
           }), (0, _v1.jsx)(_v5.Flex, {
             flexDirection: "column",
             flex: "1 1 auto",
@@ -828,28 +840,29 @@
               overflowY: "auto",
               height: "100%",
               children: [(0, _v1.jsx)(_v11.DefaultNavigation, {
-                setIsSideNavActive: () => _v77(!0),
-                isSideNavActive: _v76
+                setIsSideNavActive: _v78 ? void 0 : _v80,
+                isSideNavActive: _v76,
+                isNewSidebar: _v78
               }), (0, _v1.jsxs)(_v6.Box, {
                 width: "100%",
                 maxWidth: (0, _v7.rem)(0),
                 padding: "400",
                 margin: "0 auto",
                 backgroundColor: "background",
-                children: [_v54 && (0, _v1.jsx)(_v45, {
-                  children: (0, _v1.jsx)(_v24.default, {
+                children: [_v54 && (0, _v1.jsx)(_v46, {
+                  children: (0, _v1.jsx)(_v25.default, {
                     length: 2,
                     depthLimit: 4
                   })
-                }), _v72 && _v37 && !_v73 && _v17.tier !== _v34.Tier.CustomSelfServe && (0, _v1.jsx)(_v6.Box, {
+                }), _v72 && _v37 && !_v73 && _v17.tier !== _v35.Tier.CustomSelfServe && (0, _v1.jsx)(_v6.Box, {
                   mb: "300",
-                  children: (0, _v1.jsx)(_v28.default, {})
+                  children: (0, _v1.jsx)(_v29.default, {})
                 }), _v10 ? (0, _v1.jsx)(_v1.Fragment, {
                   children: _v0
                 }) : (0, _v1.jsx)(_v6.Box, {
                   marginTop: "10%",
                   children: (0, _v1.jsx)(_v18.ErrorPage, {
-                    error: new _v10.ForbiddenError(_v40.T.PermissionDenied)
+                    error: new _v10.ForbiddenError(_v41.T.PermissionDenied)
                   })
                 })]
               }), (0, _v1.jsx)(_v6.Box, {
@@ -864,31 +877,31 @@
                 })
               })]
             })
-          }), (0, _v1.jsx)(_v26.default, {})]
+          }), (0, _v1.jsx)(_v27.default, {})]
         })
       });
     },
-    _v43 = ({
+    _v44 = ({
       children: _v0
-    }) => (0, _v3.useContext)(_v21.ViewerContext) ? (0, _v1.jsx)(_v39, {
-      children: (0, _v1.jsx)(_v42, {
+    }) => (0, _v3.useContext)(_v21.ViewerContext) ? (0, _v1.jsx)(_v40, {
+      children: (0, _v1.jsx)(_v43, {
         children: (0, _v1.jsx)("div", {
           children: _v0
         })
       })
-    }) : (0, _v1.jsx)(_v27.Spinner, {}),
-    _v44 = ({
+    }) : (0, _v1.jsx)(_v28.Spinner, {}),
+    _v45 = ({
       children: _v0
-    }) => (0, _v3.useContext)(_v21.ViewerContext) ? (0, _v1.jsx)(_v39, {
-      children: (0, _v1.jsx)(_v42, {
+    }) => (0, _v3.useContext)(_v21.ViewerContext) ? (0, _v1.jsx)(_v40, {
+      children: (0, _v1.jsx)(_v43, {
         children: (0, _v1.jsx)(_v5.Flex, {
           flexDirection: "column",
           flex: "1",
           children: _v0
         })
       })
-    }) : (0, _v1.jsx)(_v27.Spinner, {}),
-    _v45 = ({
+    }) : (0, _v1.jsx)(_v28.Spinner, {}),
+    _v46 = ({
       children: _v0
     }) => (0, _v1.jsx)(_v6.Box, {
       sx: {
@@ -899,11 +912,11 @@
       children: _v0
     });
   _v0.s(["getLayout", 0, function (_v0) {
-    return (0, _v1.jsx)(_v43, {
+    return (0, _v1.jsx)(_v44, {
       children: _v0
     });
   }, "getTeamSettingsPageLayout", 0, function (_v0) {
-    return (0, _v1.jsx)(_v44, {
+    return (0, _v1.jsx)(_v45, {
       children: _v0
     });
   }], 0);

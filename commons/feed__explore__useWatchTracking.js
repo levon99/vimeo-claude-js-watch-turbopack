@@ -29,13 +29,16 @@
       _v6 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("sidebar_nav_clicked", {
         sidebar_nav_destination: _v3[_v0.sidebarNavDestination] ?? _v0.sidebarNavDestination,
         sidebar_nav_context: _v0.sidebarNavContext,
+        version: _v0.version ?? "1",
         ...(_v0.homeSidebarDiscoveryVariant && {
           home_sidebar_discovery_variant: _v0.homeSidebarDiscoveryVariant
         })
       }), !0), [_v0]),
-      _v7 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("new_sidebar_nav_clicked", {
-        sidebar_nav_destination: _v3[_v0.sidebarNavDestination] ?? _v0.sidebarNavDestination,
-        sidebar_nav_context: _v0.sidebarNavContext
+      _v7 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("sidebar_toggled", {
+        sidebar_action: _v0.sidebarAction,
+        page: _v0.page,
+        version: _v0.version,
+        is_mobile: _v0.isMobile
       }), !0), [_v0]),
       _v8 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_video_thumbnail_clicked", {
         clip_id: _v0.clipId,
@@ -48,7 +51,7 @@
       trackWatchHeroButtonClicked: _v4,
       trackWatchChannelCardClicked: _v5,
       trackSidebarNavClicked: _v6,
-      trackNewSidebarNavClicked: _v7,
+      trackSidebarToggled: _v7,
       trackWatchVideoThumbnailClicked: _v8,
       trackWatchSectionHeaderClicked: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_section_header_clicked", {
         watch_section: _v0.watchSection

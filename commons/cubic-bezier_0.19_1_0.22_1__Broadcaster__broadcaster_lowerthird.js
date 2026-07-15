@@ -34,6 +34,8 @@
     UPLOADS: {
       FILE_CACHE_CONTROL: "public, max-age=2592000",
       FILE_UPLOAD_LIMIT: 0,
+      THUMBNAIL_FILE_UPLOAD_LIMIT_MB: 10,
+      THUMBNAIL_FILE_UPLOAD_LIMIT: 0,
       SLIDES_FILE_UPLOAD_LIMIT: 0,
       SLIDES_UPLOADING_PROGRESS_FRACTION: .25,
       ACCEPTED_IMAGE_TYPES: "image/png,image/x-png,image/jpeg,.jpg,.jpeg,.png",

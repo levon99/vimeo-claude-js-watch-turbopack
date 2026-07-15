@@ -13128,12 +13128,8 @@
     };
   var _v213 = _v213;
   let _v379 = {
-      base: 1,
-      sm: 2,
-      md: 3,
-      lg: 4,
-      xl: 4,
-      "2xl": 5
+      [_v85.options.ondemand.value]: "200px",
+      [_v85.options.people.value]: "180px"
     },
     _v380 = () => (0, _v1.jsxs)(_v8.Flex, {
       width: "100%",
@@ -13773,47 +13769,16 @@
         } = _v227(),
         _v12 = (0, _v3.useRef)(_v4),
         _v13 = (() => {
-          let _v0 = (0, _v25.useBreakpointValue)(_v379, {
-              ssr: !1
-            }),
-            {
-              isSideNavOpen: _v1
-            } = (0, _v3.useContext)(_v187.VideoLibraryLayoutContext),
-            {
-              panelStatus: _v2
-            } = (0, _v3.useContext)(_v60),
-            {
-              type: _v3 = _v85.options.clip.value
+          let {
+              type: _v0 = _v85.options.clip.value
             } = _v216(),
-            _v4 = (0, _v25.useBreakpointValue)(_v33),
-            _v5 = _v4 === _v33.lg,
-            _v6 = _v4 === _v33.xl,
-            _v7 = _v4 === _v33["2xl"],
-            _v8 = !!_v2;
-          if (!_v0) return {
-            base: "repeat(1, 1fr)",
-            sm: "repeat(2, 1fr)",
-            md: "repeat(3, 1fr)",
-            lg: "repeat(4, 1fr)",
-            "2xl": "repeat(5, 1fr)"
-          };
-          switch (_v4) {
-            case _v33.lg:
-              _v1 && _v0--, _v8 && _v0--;
-              break;
-            case _v33.xl:
-            case _v33["2xl"]:
-              (_v8 || _v1) && _v0--;
-          }
-          switch (_v3) {
-            case _v85.options.ondemand.value:
-              !(_v5 && _v1 && _v8) && _v0++, _v7 && _v1 !== _v8 && _v0++;
-              break;
-            case _v85.options.people.value:
-              if (_v4 === _v33.base) return "1fr";
-              (_v7 || _v6 && !(_v1 && _v8)) && _v0++;
-          }
-          return `repeat(${_v0}, minmax(0, 1fr))`;
+            _v1 = _v379[_v0] ?? "280px";
+          return (0, _v3.useMemo)(() => ({
+            base: "repeat(1, minmax(0, 1fr))",
+            sm: "repeat(2, minmax(0, 1fr))",
+            md: "repeat(3, minmax(0, 1fr))",
+            lg: `repeat(auto-fill, minmax(${_v1}, 1fr))`
+          }), [_v1]);
         })(),
         _v14 = (0, _v3.useContext)(_v66.ViewerContext),
         {
@@ -16479,8 +16444,9 @@
       })
     });
   var _v490 = _v0.i(0),
-    _v491 = _v0.i(0);
-  let _v492 = () => {
+    _v491 = _v0.i(0),
+    _v492 = _v0.i(0);
+  let _v493 = () => {
     let _v0 = (0, _v3.useContext)(_v66.ViewerContext),
       _v1 = (0, _v2.useRouter)();
     return (0, _v3.useEffect)(() => {
@@ -16527,14 +16493,14 @@
     });
   }, {
     inlineViewer: "all"
-  }), _v492.getLayout = _v0 => {
+  }), _v493.getLayout = _v0 => {
     let _v1;
     {
       let _v0 = new URLSearchParams(window.location.search).get("q"),
         _v1 = window.location.pathname.includes(`/${_v148}`);
       _v1 = !!_v0 || _v1;
     }
-    return (0, _v1.jsx)(_v187.VideoLibraryLayout, {
+    return (0, _v1.jsx)(_v492.VideoLibraryLayout, {
       hasSideNav: !0,
       hasGlobalSearch: _v1,
       sideNavContent: (0, _v1.jsx)(_v491.SideNavContent, {
@@ -16542,5 +16508,5 @@
       }),
       children: _v0
     });
-  }, _v0.s(["__N_SSP", 0, !0, "default", 0, _v492], 0);
+  }, _v0.s(["__N_SSP", 0, !0, "default", 0, _v493], 0);
 }

@@ -1156,7 +1156,7 @@
                   singular: "Replace logo",
                   dictionary: {
                     es: {
-                      singular: "Reemplazar el logo"
+                      singular: "Reemplazar logotipo"
                     },
                     "de-DE": {
                       singular: "Logo ersetzen"
@@ -1165,13 +1165,13 @@
                       singular: "Remplacer le logo"
                     },
                     "ja-JP": {
-                      singular: "ロゴの置き換え"
+                      singular: "ロゴを差し替え"
                     },
                     "ko-KR": {
-                      singular: "로고 바꾸기"
+                      singular: "로고 교체"
                     },
                     "pt-BR": {
-                      singular: "Substituir logo"
+                      singular: "Substituir logotipo"
                     },
                     "zh-CN": {
                       singular: "替换徽标"

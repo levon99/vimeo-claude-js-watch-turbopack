@@ -71,7 +71,7 @@
       _v0.onload = _v0, _v0.onabort = _v1, _v0.onerror = _v1;
     });
   }
-  _v0.s(["PlayerLoader", 0, _v5, "PlayerType", () => _v4], 0);
+  _v0.s(["PlayerLoader", 0, _v5, "PlayerType", () => _v4], 0), _v0.i(0);
   let _v6 = _v3.default.createContext({
     PlayerConstructor: void 0,
     playerType: void 0

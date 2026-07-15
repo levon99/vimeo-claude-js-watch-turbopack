@@ -15,61 +15,72 @@
       active: _v0,
       attach: _v1 = "left",
       children: _v2,
-      dragConstraint: _v3 = {
+      collapsed: _v3 = !1,
+      dragConstraint: _v4 = {
         min: _v9,
         max: _v10
       },
-      isFixed: _v4 = !1,
-      onDragStart: _v5,
-      onDragEnd: _v6,
-      onResize: _v7,
-      role: _v8
+      isFixed: _v5 = !1,
+      onDragStart: _v6,
+      onDragEnd: _v7,
+      onResize: _v8,
+      role: _v9
     }) => {
-      let [_v9, _v10] = (0, _v2.useState)(null),
-        [_v11, _v12] = (0, _v2.useState)(_v3.min),
-        [_v13, _v14] = (0, _v2.useState)(!1),
-        _v15 = (0, _v4.useColorModeValue)("#F7F9FA", "grayscale.850"),
-        _v16 = (0, _v6.useIsBokeh)(),
-        _v17 = (0, _v2.useCallback)(_v0 => {
-          null !== _v0 && _v10(_v0.getBoundingClientRect());
+      let [_v10, _v11] = (0, _v2.useState)(null),
+        [_v12, _v13] = (0, _v2.useState)(_v4.min),
+        [_v14, _v15] = (0, _v2.useState)(!1),
+        [_v16, _v17] = (0, _v2.useState)(!1),
+        _v18 = (0, _v2.useRef)(_v3);
+      (0, _v2.useLayoutEffect)(() => {
+        if (_v18.current === _v3) return;
+        _v18.current = _v3, _v17(!0);
+        let _v0 = setTimeout(() => _v17(!1), 180);
+        return () => clearTimeout(_v0);
+      }, [_v3]);
+      let _v19 = (0, _v4.useColorModeValue)("#F7F9FA", "grayscale.850"),
+        _v20 = (0, _v6.useIsBokeh)(),
+        _v21 = (0, _v2.useCallback)(_v0 => {
+          null !== _v0 && _v11(_v0.getBoundingClientRect());
         }, []),
-        _v18 = (0, _v2.useCallback)(_v0 => {
-          if (!_v9) return;
+        _v22 = (0, _v2.useCallback)(_v0 => {
+          if (!_v10) return;
           let {
               offsetWidth: _v1,
               offsetLeft: _v2
             } = document.body,
-            _v3 = _v3.min;
-          "right" === _v1 && (_v3 = _v1 - _v0.clientX), "left" === _v1 && (_v3 = _v0.clientX - _v2), _v12(_v3 = (0, _v7.clamp)(_v3, _v3));
+            _v3 = _v4.min;
+          "right" === _v1 && (_v3 = _v1 - _v0.clientX), "left" === _v1 && (_v3 = _v0.clientX - _v2), _v13(_v3 = (0, _v7.clamp)(_v3, _v4));
           let _v4 = {
-            ..._v3,
+            ..._v4,
             current: _v3
           };
-          _v7?.(_v0, _v4);
-        }, [_v9]),
-        _v19 = (0, _v8.useThrottledCallback)(_v0 => {
-          _v13 && (_v0.preventDefault(), _v18(_v0));
-        }, [_v18, _v13], 16),
-        _v20 = _v0 => {
-          _v14(!1), _v6?.(_v0);
+          _v8?.(_v0, _v4);
+        }, [_v10]),
+        _v23 = (0, _v8.useThrottledCallback)(_v0 => {
+          _v14 && (_v0.preventDefault(), _v22(_v0));
+        }, [_v22, _v14], 16),
+        _v24 = _v0 => {
+          _v15(!1), _v7?.(_v0);
         };
-      (0, _v2.useLayoutEffect)(() => (document.addEventListener("mouseup", _v20, !0), document.addEventListener("mousemove", _v19, !0), () => {
-        document.removeEventListener("mouseup", _v20, !0), document.removeEventListener("mousemove", _v19, !0);
-      }), [_v13, _v19]);
-      let _v21 = "left" === _v1 ? -1 : 1,
-        _v22 = `translateX(${100 * _v21}%)`,
-        _v23 = Math.round(_v11 / 6 + 90),
-        _v24 = {
-          transform: _v0 ? "translateX(0)" : _v22,
-          transition: _v13 ? "none" : `transform ${_v23}ms ease-in-out`,
-          width: `${_v11}px`
-        };
+      (0, _v2.useLayoutEffect)(() => (document.addEventListener("mouseup", _v24, !0), document.addEventListener("mousemove", _v23, !0), () => {
+        document.removeEventListener("mouseup", _v24, !0), document.removeEventListener("mousemove", _v23, !0);
+      }), [_v14, _v23]);
+      let _v25 = "left" === _v1 ? -1 : 1,
+        _v26 = `translateX(${100 * _v25}%)`,
+        _v27 = Math.round(_v12 / 6 + 90),
+        _v28 = {
+          transform: _v0 ? "translateX(0)" : _v26,
+          transition: _v14 ? "none" : `transform ${_v27}ms ease-in-out, width 180ms ease-in-out`,
+          width: _v3 ? "72px" : `${_v12}px`
+        },
+        _v29 = _v3 || _v16,
+        _v30 = _v3 ? 72 : _v12;
       return _v0 ? (0, _v1.jsxs)(_v3.Box, {
         as: "nav",
-        ref: _v17,
+        ref: _v21,
         style: {
           [_v1]: 0,
-          ..._v24
+          ..._v28
         },
         display: "flex",
         flexDirection: "column",
@@ -82,16 +93,25 @@
           base: "100%",
           md: "0%"
         },
-        backgroundColor: _v16 && _v13 ? "fill-surface" : _v16 ? "background" : _v15,
-        borderRight: _v16 ? "" : "left" === _v1 ? "1px solid" : "",
-        borderLeft: _v16 ? "" : "right" === _v1 ? "1px solid" : "",
-        borderColor: _v16 ? "transparent" : "stroke",
+        backgroundColor: _v20 && _v14 ? "fill-surface" : _v20 ? "background" : _v19,
+        borderRight: _v20 ? "" : "left" === _v1 ? "1px solid" : "",
+        borderLeft: _v20 ? "" : "right" === _v1 ? "1px solid" : "",
+        borderColor: _v20 ? "transparent" : "stroke",
         color: "text-primary",
-        role: _v8,
+        role: _v9,
         zIndex: 0,
-        children: [_v2, !_v4 && (0, _v1.jsx)(_v3.Box, {
+        overflowX: _v29 ? "hidden" : void 0,
+        children: [(0, _v1.jsx)(_v3.Box, {
+          display: "flex",
+          flexDirection: "column",
+          flexGrow: 1,
+          minHeight: 0,
+          width: _v29 ? `${_v30}px` : void 0,
+          minWidth: _v29 ? `${_v30}px` : void 0,
+          children: _v2
+        }), !_v5 && !_v29 && (0, _v1.jsx)(_v3.Box, {
           onMouseDown: _v0 => {
-            _v0.preventDefault(), _v14(!0), _v5?.(_v0);
+            _v0.preventDefault(), _v15(!0), _v6?.(_v0);
           },
           style: {
             [_v1]: "calc(100%)"
@@ -172,123 +192,5 @@
       borderColor: "stroke"
     },
     ..._v0
-  }), _v0.s(["ResizableSideNav", 0, _v11], 0);
-  var _v12 = _v0.i(0),
-    _v13 = _v0.i(0),
-    _v14 = _v0.i(0),
-    _v15 = _v0.i(0),
-    _v16 = _v0.i(0);
-  _v0.s(["MenuItem", 0, ({
-    action: _v0,
-    active: _v1,
-    dataId: _v2,
-    hoverColor: _v3,
-    href: _v4,
-    icon: _v5,
-    indentation: _v6 = 0,
-    isEditing: _v7 = !1,
-    label: _v8,
-    menuItemColor: _v9 = "text-primary",
-    onClick: _v10,
-    prefetch: _v11,
-    showActionOnHover: _v12 = !1,
-    dropRef: _v13,
-    fontWeight: _v14 = 400,
-    fontFamily: _v15,
-    iconSize: _v16 = "1.125rem",
-    iconMarginRight: _v17 = "0.5rem",
-    className: _v18,
-    hoverBackgroundColor: _v19,
-    height: _v20,
-    borderRadius: _v21 = "0.5rem",
-    paddingX: _v22
-  }) => {
-    let _v23 = (0, _v15.useWindowSize)().width <= _v16.BreakPoints.sm,
-      _v24 = (0, _v4.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
-      _v25 = !!_v4 && !_v7;
-    return (0, _v1.jsxs)(_v3.Box, {
-      className: _v18,
-      as: _v25 ? _v12.default : "span",
-      ...(_v25 ? {
-        href: _v4,
-        prefetch: _v11
-      } : {}),
-      role: _v25 ? void 0 : "button",
-      onClick: _v0 => {
-        _v7 || _v10?.(_v0);
-      },
-      tabIndex: _v25 ? void 0 : 0,
-      "data-id": _v2,
-      display: "flex",
-      alignItems: "center",
-      height: (0, _v5.rem)(_v20 || 40),
-      borderRadius: _v21,
-      color: _v9,
-      paddingTop: (0, _v5.rem)(4),
-      paddingBottom: (0, _v5.rem)(4),
-      paddingLeft: _v6 > 0 ? `${28 + _v6}px` : _v22 ?? (0, _v5.rem)(10),
-      paddingRight: _v0 ? (0, _v5.rem)(5) : _v22 ?? (0, _v5.rem)(10),
-      bg: _v1 ? _v24 : "transparent",
-      textDecoration: _v25 ? "none" : void 0,
-      cursor: "pointer",
-      border: "2px solid",
-      borderColor: "transparent",
-      sx: {
-        "--action-container-display": _v12 && !_v23 ? "none" : "flex",
-        '&:has([aria-expanded="true"])': {
-          "--action-container-display": "flex"
-        },
-        "> svg": {
-          width: _v16,
-          minWidth: _v16,
-          minHeight: _v16,
-          marginRight: _v17
-        }
-      },
-      _hover: {
-        background: _v19 ?? _v24,
-        "--action-container-display": "flex",
-        "> svg": {
-          color: _v3
-        },
-        textColor: _v3
-      },
-      _focusVisible: {
-        outline: "none",
-        border: "2px solid",
-        borderColor: "blue.500"
-      },
-      _focusWithin: {
-        "--action-container-display": "flex"
-      },
-      ref: _v13 ?? void 0,
-      children: [_v5, (0, _v1.jsx)(_v3.Box, {
-        as: "span",
-        whiteSpace: "nowrap",
-        flexGrow: 1,
-        position: "relative",
-        overflow: "hidden",
-        children: (0, _v1.jsx)(_v14.OverflowToolTip, {
-          labelToolTip: _v8,
-          children: (0, _v1.jsx)(_v13.Text, {
-            variant: "body-xl",
-            fontSize: (0, _v5.rem)(14),
-            fontWeight: _v14,
-            textOverflow: "ellipsis",
-            overflow: "hidden",
-            ...(_v15 && {
-              fontFamily: _v15
-            }),
-            children: _v8
-          })
-        })
-      }), _v0 && (0, _v1.jsx)(_v3.Box, {
-        onClick: _v0 => {
-          _v0.preventDefault(), _v0.stopPropagation();
-        },
-        display: "var(--action-container-display)",
-        children: _v0
-      })]
-    });
-  }], 0);
+  }), _v0.s(["COLLAPSED_RAIL_WIDTH", 0, 72, "ResizableSideNav", 0, _v11]);
 }

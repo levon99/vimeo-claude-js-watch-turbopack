@@ -27,10 +27,16 @@
         ..._v1
       });
     return `${_v3}?${_v4.toString()}`;
-  }, "getSatelliteCheckoutParamsFromCurrentLocation", 0, _v4, "useCheckoutTracking", 0, () => {
-    let _v0 = (0, _v2.usePico)(),
-      _v1 = new URLSearchParams(window.location.search).has("fdsource"),
-      _v2 = () => {
+  }, "getSatelliteCheckoutParamsFromCurrentLocation", 0, _v4, "useCheckoutTracking", 0, _v0 => {
+    let _v1 = (0, _v2.usePico)(),
+      _v2 = new URLSearchParams(window.location.search).has("fdsource"),
+      _v3 = (0, _v1.useMemo)(() => null != _v0 ? {
+        user_id: String(_v0)
+      } : void 0, [_v0]),
+      _v4 = (0, _v1.useCallback)((_v0, _v1) => {
+        null === _v1 || _v2 || (_v3 ? _v1.track(_v0, _v1, _v3) : _v1.track(_v0, _v1));
+      }, [_v1, _v2, _v3]),
+      _v5 = () => {
         let _v0 = new URLSearchParams(window.location.search),
           _v1 = _v0 => sessionStorage.getItem(_v0) ?? null,
           _v2 = _v0 => _v0?.get(_v0) || null;
@@ -41,28 +47,28 @@
           paywall_location: _v1(_v3.PAYWALL_LOCATION_STORAGE_KEY) ?? _v2("paywall_location")
         };
       },
-      _v3 = (0, _v1.useCallback)(_v0 => {
-        null === _v0 || _v1 || _v0.track("checkout_open", {
+      _v6 = (0, _v1.useCallback)(_v0 => {
+        _v4("checkout_open", {
           tier: _v0.tier,
           periodicity: _v0.periodicity,
           is_free_trial: _v0.isFreeTrial ?? !1,
           default_payment_method: _v0.defaultPaymentMethod ?? null,
-          ..._v2()
+          ..._v5()
         });
-      }, [_v0]),
-      _v4 = (0, _v1.useCallback)(_v0 => {
-        null === _v0 || _v1 || _v0.track("checkout_purchase_button_clicked", {
+      }, [_v4]),
+      _v7 = (0, _v1.useCallback)(_v0 => {
+        _v4("checkout_purchase_button_clicked", {
           tier: _v0.tier,
           periodicity: _v0.periodicity,
           is_free_trial: _v0.isFreeTrial ?? !1,
-          ..._v2()
+          ..._v5()
         });
-      }, [_v0]);
+      }, [_v4]);
     return {
-      trackCheckoutOpen: _v3,
-      trackCheckoutPurchaseButtonClicked: _v4,
+      trackCheckoutOpen: _v6,
+      trackCheckoutPurchaseButtonClicked: _v7,
       trackCheckoutFailed: (0, _v1.useCallback)(_v0 => {
-        null === _v0 || _v1 || _v0.track("checkout_failed", {
+        _v4("checkout_failed", {
           tier: _v0.tier,
           periodicity: _v0.periodicity,
           is_free_trial: _v0.isFreeTrial ?? !1,
@@ -73,17 +79,17 @@
           endpoint: _v0.endpoint ?? null,
           error_message: _v0.error_message ?? null,
           error_code: _v0.error_code ?? null,
-          ..._v2()
+          ..._v5()
         });
-      }, [_v0]),
+      }, [_v4]),
       trackUserConverted: (0, _v1.useCallback)(_v0 => {
-        null === _v0 || _v1 || _v0.track("user_converted", {
+        _v4("user_converted", {
           tier: _v0.tier,
           periodicity: _v0.periodicity,
           is_free_trial: _v0.isFreeTrial ?? !1,
-          ..._v2()
+          ..._v5()
         });
-      }, [_v0])
+      }, [_v4])
     };
   }]);
 }

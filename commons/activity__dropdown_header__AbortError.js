@@ -2128,29 +2128,30 @@
     isSideNavActive: _v3,
     setIsSideNavActive: _v4,
     hasUploader: _v5 = !1,
-    alwaysMinimiseSearch: _v6 = !1
+    alwaysMinimiseSearch: _v6 = !1,
+    isNewSidebar: _v7 = !1
   }) => {
-    let _v7 = (0, _v3.useContext)(_v34.ViewerContext),
-      _v8 = _v7?.user,
-      [_v9, _v10] = (0, _v3.useState)(!1),
-      _v11 = (0, _v6.useBreakpointValue)({
+    let _v8 = (0, _v3.useContext)(_v34.ViewerContext),
+      _v9 = _v8?.user,
+      [_v10, _v11] = (0, _v3.useState)(!1),
+      _v12 = (0, _v6.useBreakpointValue)({
         base: !1,
         lg: !0
       }),
-      _v12 = (0, _v6.useBreakpointValue)({
+      _v13 = (0, _v6.useBreakpointValue)({
         base: !0,
         md: !1
       }),
-      _v13 = (0, _v6.useBreakpointValue)({
+      _v14 = (0, _v6.useBreakpointValue)({
         base: !0,
         sm: !1
       }),
-      _v14 = _v9 && _v12;
-    _v6 && (_v11 = !1);
-    let _v15 = !_v11 && _v9 || _v13,
-      [_v16, _v17] = (0, _v3.useState)(),
-      _v18 = _v7?.isSimplifiedSite,
-      _v19 = _v7?.isEnterpriseSite;
+      _v15 = _v10 && _v13;
+    _v6 && (_v12 = !1);
+    let _v16 = !_v12 && _v10 || _v14,
+      [_v17, _v18] = (0, _v3.useState)(),
+      _v19 = _v8?.isSimplifiedSite,
+      _v20 = _v8?.isEnterpriseSite;
     return (0, _v1.jsxs)(_v7.Navigation, {
       position: _v0 ? "sticky" : "unset",
       top: "0",
@@ -2165,7 +2166,7 @@
       },
       zIndex: "1001",
       children: [(0, _v1.jsxs)(_v7.Navigation.LeftContent, {
-        width: _v11 ? "100%" : "unset",
+        width: _v12 ? "100%" : "unset",
         gap: {
           base: "sm",
           md: "md"
@@ -2174,19 +2175,25 @@
           isSideNavActive: !!_v3,
           setIsSideNavActive: _v4
         }), (0, _v1.jsx)(_v7.Navigation.VimeoLogo, {
-          display: _v3 ? "none" : "flex"
-        }), _v1 && _v11 && (0, _v1.jsx)(_v112.Search, {})]
+          display: _v3 ? "none" : "flex",
+          marginLeft: _v7 ? (0, _v5.rem)(-24) : void 0
+        }), _v1 && _v12 && (0, _v1.jsx)(_v4.Flex, {
+          flexGrow: 1,
+          minWidth: 0,
+          marginLeft: _v7 && !_v3 ? (0, _v5.rem)(26) : void 0,
+          children: (0, _v1.jsx)(_v112.Search, {})
+        })]
       }), (0, _v1.jsx)(_v7.Navigation.RightContent, {
         justifyContent: "end",
-        width: _v11 ? "unset" : "100%",
+        width: _v12 ? "unset" : "100%",
         gap: {
           base: "sm",
           md: "md"
         },
         children: (0, _v1.jsx)(_v91.LoginJoinModalContext.Provider, {
           value: {
-            modal: _v16,
-            setModal: _v17
+            modal: _v17,
+            setModal: _v18
           },
           children: (0, _v1.jsxs)(_v4.Flex, {
             alignItems: "center",
@@ -2196,22 +2203,22 @@
             },
             flexGrow: "1",
             justifyContent: "end",
-            children: [!_v15 && (0, _v1.jsx)(_v7.Navigation.Upgrade, {
-              viewer: _v7
-            }), _v1 && !_v11 && (0, _v1.jsx)(_v112.Search, {
+            children: [!_v16 && (0, _v1.jsx)(_v7.Navigation.Upgrade, {
+              viewer: _v8
+            }), _v1 && !_v12 && (0, _v1.jsx)(_v112.Search, {
               withToggle: !0,
-              updateGlobalNavSearchState: _v10
-            }), !_v14 && !_v18 && (0, _v1.jsxs)(_v1.Fragment, {
+              updateGlobalNavSearchState: _v11
+            }), !_v15 && !_v19 && (0, _v1.jsxs)(_v1.Fragment, {
               children: [(0, _v1.jsx)(_v89, {}), (0, _v1.jsx)(_v13, {}), (0, _v1.jsx)(_v115, {
-                itemsCount: _v7?.cart?.itemsCount
+                itemsCount: _v8?.cart?.itemsCount
               })]
-            }), _v7 && !_v8 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [!_v15 && !_v19 && (0, _v1.jsx)(_v111, {}), !(_v13 && _v9) && (0, _v1.jsx)(_v90.Login, {})]
-            }), !_v14 && (_v8 ? (0, _v1.jsx)(_v109, {
+            }), _v8 && !_v9 && (0, _v1.jsxs)(_v1.Fragment, {
+              children: [!_v16 && !_v20 && (0, _v1.jsx)(_v111, {}), !(_v14 && _v10) && (0, _v1.jsx)(_v90.Login, {})]
+            }), !_v15 && (_v9 ? (0, _v1.jsx)(_v109, {
               hasUploader: _v5
-            }) : _v7 && !_v19 && (0, _v1.jsx)(_v90.Join, {})), !(_v13 && _v9) && (0, _v1.jsx)(_v8.AccountMenu, {
+            }) : _v8 && !_v20 && (0, _v1.jsx)(_v90.Join, {})), !(_v14 && _v10) && (0, _v1.jsx)(_v8.AccountMenu, {
               hasThemeSupport: _v2
-            }), _v7 && !_v8 && _v16 && (0, _v1.jsx)(_v116, {})]
+            }), _v8 && !_v9 && _v17 && (0, _v1.jsx)(_v116, {})]
           })
         })
       })]

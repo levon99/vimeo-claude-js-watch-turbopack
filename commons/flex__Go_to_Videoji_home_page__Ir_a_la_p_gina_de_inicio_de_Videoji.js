@@ -17,11 +17,12 @@
     _v14 = _v0.i(0),
     _v15 = _v0.i(0);
   let _v16 = ({
-    display: _v0 = "flex"
+    display: _v0 = "flex",
+    marginLeft: _v1
   }) => {
-    let _v1 = (0, _v8.useContext)(_v14.ViewerContext),
-      _v2 = _v1?.isSimplifiedSite,
-      _v3 = _v2 ? (0, _v7.translate)({
+    let _v2 = (0, _v8.useContext)(_v14.ViewerContext),
+      _v3 = _v2?.isSimplifiedSite,
+      _v4 = _v3 ? (0, _v7.translate)({
         singular: "Go to Videoji home page",
         dictionary: {
           es: {
@@ -72,7 +73,7 @@
           }
         }
       }),
-      _v4 = (0, _v10.useBreakpointValue)({
+      _v5 = (0, _v10.useBreakpointValue)({
         base: (0, _v1.jsx)(_v11.VimeoV, {
           boxSize: "xs",
           color: "text-primary"
@@ -82,23 +83,24 @@
           width: (0, _v6.rem)(78)
         })
       }),
-      _v5 = !_v1?.user && _v2,
-      _v6 = (0, _v15.useTrackNavigationEvent)();
-    return void 0 === _v2 ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsx)(_v9.Link, {
-      href: _v5 ? "javascript:void(0);" : "/",
-      onClick: () => _v6({
+      _v6 = !_v2?.user && _v3,
+      _v7 = (0, _v15.useTrackNavigationEvent)();
+    return void 0 === _v3 ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsx)(_v9.Link, {
+      href: _v6 ? "javascript:void(0);" : "/",
+      onClick: () => _v7({
         feature: "general",
         copy: "vimeo_logo",
         element: "button"
       }),
       id: "header-vimeo-logo",
-      title: _v3,
+      title: _v4,
       maxWidth: "max-content",
       display: _v0,
+      marginLeft: _v1,
       variant: "secondary",
-      children: _v2 ? (0, _v1.jsx)(_v13.default, {
+      children: _v3 ? (0, _v1.jsx)(_v13.default, {
         "data-testid": "videoji-logo"
-      }) : _v4
+      }) : _v5
     });
   };
   var _v17 = _v0.i(0),

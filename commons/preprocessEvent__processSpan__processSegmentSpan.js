@@ -3142,7 +3142,8 @@ Error:`, _v0);
     } catch {}
     return _v286(_v0);
   };
-  let _v287 = 0;
+  let _v287 = 0,
+    _v288 = 0;
   !function (_v0) {
     let _v1, _v2, _v3, _v4, _v5;
     _v282 && (0, _v16.consoleSandbox)(() => {
@@ -4495,7 +4496,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "5c5b834efc9bbb4a9fd5b6e453cd86a0914d0280",
+      release: "cb5b4972de7148ec6c77b08891cfee3e818fb243",
       ..._v0
     };
     !function (_v0) {
@@ -4605,7 +4606,7 @@ Error:`, _v0);
             return _v1.includes("datadog-rum.js") || _v1.includes("ajax-listener.js");
           }),
           _v2 = _v0.some((_v0, _v1) => _v1 < _v1 && (_v0.filename ?? _v0.abs_path ?? "").includes("_next/static") && !1 !== _v0.in_app);
-        if (-1 !== _v1 && !_v2) return null;
+        if (-1 !== _v1 && !_v2 || (_v288 += 1) > 1) return null;
       }
       let _v6 = _v0.exception?.values?.[0];
       if (_v6?.type === "TypeError" && _v6.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && /\.split is not a function/.test(_v6.value ?? "")) {

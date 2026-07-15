@@ -10,6 +10,7 @@
   }) => _v0 && _v0.sessionType && _v0.sessionId ? {
     props: {
       hasThemeSupport: !0,
+      omitEsi: !0,
       providers: {
         mode: "export",
         vpaas: {
@@ -22,7 +23,9 @@
   } : {
     notFound: !0
   }, {
-    requireLogin: !1
+    requireLogin: !1,
+    inlineViewer: "all",
+    inlinePlayerAssets: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v0 => (0, _v1.jsx)(_v3.LiveRtcRoot, {
     ..._v0
   })], 0);

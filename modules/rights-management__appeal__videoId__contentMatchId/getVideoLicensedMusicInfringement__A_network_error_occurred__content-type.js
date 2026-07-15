@@ -2170,8 +2170,15 @@
     };
   var _v85 = _v0.i(0),
     _v86 = _v0.i(0);
-  (0, _v4.withPageSetup)({
-    requireLogin: !0
+  (0, _v4.withPageSetup)(async () => ({
+    props: {
+      omitEsi: !0,
+      hasThemeSupport: !0
+    }
+  }), {
+    requireLogin: !0,
+    inlineViewer: !0,
+    inlinePlayerAssets: !0
   });
   let _v87 = ({
     playerAssetUrls: _v0

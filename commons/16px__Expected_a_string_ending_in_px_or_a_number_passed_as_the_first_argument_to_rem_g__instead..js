@@ -18022,7 +18022,7 @@
           let _v0,
             _v1 = _v2?.data?.uri;
           _v4?.data?.data.length && (_v0 = _v4?.data?.data?.reduce((_v0, _v1) => new Date(_v0.modifiedTime) > new Date(_v1.modifiedTime) ? _v0 : _v1)?.uri);
-          let _v2 = _v8?.data?.data.find(_v0 => _v0.teamData.ownerId === _v13),
+          let _v2 = _v8?.data?.data?.find(_v0 => _v0.teamData.ownerId === _v13),
             _v3 = _v6?.data?.data?.find(_v0 => _v0.name === _v310.DEFAULT_FOLDER_NAME)?.uri;
           if (_v252.default.setPrivateToMeFolderUri(_v1 || ""), _v252.default.setUserRoleInSharedFolder(_v2?.userRole), _v8?.data?.data && _v252.default.setTeams(_v8.data.data), _v11.current) {
             let _v0, _v1;

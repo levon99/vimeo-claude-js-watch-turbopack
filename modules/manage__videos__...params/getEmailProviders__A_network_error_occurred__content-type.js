@@ -742,10 +742,10 @@
         singular: "サムネイル"
       },
       "ko-KR": {
-        singular: "섬네일"
+        singular: "썸네일"
       },
       "pt-BR": {
-        singular: "Miniatura (thumbnail)"
+        singular: "Miniatura"
       },
       "zh-CN": {
         singular: "缩略图"

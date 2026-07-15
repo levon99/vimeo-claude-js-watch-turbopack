@@ -16,47 +16,48 @@
     globalNavigationHidden: _v4 = !1,
     isSticky: _v5 = !0,
     outerContainerHeight: _v6 = "100vh",
-    ..._v7
+    glow: _v7,
+    ..._v8
   }) => {
-    let [_v8] = (0, _v4.useMediaQuery)("(orientation: landscape)"),
+    let [_v9] = (0, _v4.useMediaQuery)("(orientation: landscape)"),
       {
-        isShowcaseLayout: _v9,
-        isSideBySideActive: _v10
+        isShowcaseLayout: _v10,
+        isSideBySideActive: _v11
       } = (0, _v7.useLayout)(),
       {
-        isVisible: _v11,
-        elementRef: _v12
+        isVisible: _v12,
+        elementRef: _v13
       } = (0, _v6.useIntersectionVisibility)(240 + _v5.NAV_HEIGHT),
-      _v13 = _v5 && !_v11 && !_v10,
-      _v14 = _v4 ? 0 : _v5.NAV_HEIGHT,
-      _v15 = _v9 ? _v5.SHOWCASE_REVEAL_HEIGHT : _v5.REVEAL_HEIGHT,
-      _v16 = _v9 ? _v5.SHOWCASE_REVEAL_HEIGHT_LARGE : _v5.REVEAL_HEIGHT_LARGE,
-      _v17 = {
-        base: _v8 ? `calc(100vh - ${_v5.NAV_HEIGHT}px)` : `calc(100vh - ${_v15}px)`,
-        md: `calc(100vh - ${_v15}px)`,
-        xl: `calc(100vh - ${_v16}px)`
+      _v14 = _v5 && !_v12 && !_v11,
+      _v15 = _v4 ? 0 : _v5.NAV_HEIGHT,
+      _v16 = _v10 ? _v5.SHOWCASE_REVEAL_HEIGHT : _v5.REVEAL_HEIGHT,
+      _v17 = _v10 ? _v5.SHOWCASE_REVEAL_HEIGHT_LARGE : _v5.REVEAL_HEIGHT_LARGE,
+      _v18 = {
+        base: _v9 ? `calc(100vh - ${_v5.NAV_HEIGHT}px)` : `calc(100vh - ${_v16}px)`,
+        md: `calc(100vh - ${_v16}px)`,
+        xl: `calc(100vh - ${_v17}px)`
       };
     return (0, _v1.jsx)(_v3.Box, {
-      ref: _v12,
+      ref: _v13,
       as: _v2.motion.div,
       w: "100%",
       h: {
         base: "100%",
-        md: _v10 ? "100%" : _v6
+        md: _v11 ? "100%" : _v6
       },
       minH: {
         base: "200px",
         lg: "420px",
-        xl: _v13 ? "240px" : "420px"
+        xl: _v14 ? "240px" : "420px"
       },
-      maxH: _v17,
+      maxH: _v18,
       aspectRatio: _v3 ?? "16/9",
       borderRadius: {
         base: 0,
-        md: _v10 ? "drawer" : 0
+        md: _v11 ? "drawer" : 0
       },
       overflow: "hidden",
-      ...(_v9 && {
+      ...(_v10 && {
         initial: {
           opacity: 0
         },
@@ -67,27 +68,27 @@
           opacity: 0
         }
       }),
-      ..._v7,
-      children: (0, _v1.jsx)(_v3.Box, {
+      ..._v8,
+      children: (0, _v1.jsxs)(_v3.Box, {
         w: "100%",
         h: {
           base: "inherit",
-          xl: _v13 ? "240px" : "inherit"
+          xl: _v14 ? "240px" : "inherit"
         },
         minH: {
           base: "inherit",
-          xl: _v13 ? "240px" : "inherit"
+          xl: _v14 ? "240px" : "inherit"
         },
         maxH: "inherit",
-        backgroundColor: _v10 ? "transparent" : _v2 || "surface",
-        position: _v10 ? "unset" : {
+        backgroundColor: _v11 && !_v7 ? "transparent" : _v2 || "surface",
+        position: _v11 ? "relative" : {
           base: "relative",
           md: "absolute",
-          xl: _v13 ? "fixed" : "absolute"
+          xl: _v14 ? "fixed" : "absolute"
         },
         top: {
           base: 0,
-          xl: _v13 ? _v14 : 0
+          xl: _v14 ? _v15 : 0
         },
         left: 0,
         bgSize: "contain",
@@ -100,9 +101,14 @@
         sx: {
           "button#chapters-control-bar-button": {
             display: "none"
-          }
+          },
+          ...(_v7 && {
+            ".vp-video-wrapper, .player.js-player": {
+              backgroundColor: "transparent !important"
+            }
+          })
         },
-        children: _v0
+        children: [_v7, _v0]
       })
     }, "player-wrapper");
   }], 0);

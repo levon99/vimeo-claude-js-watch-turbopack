@@ -4,7 +4,7 @@
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
     _v3 = _v0.i(0);
-  let _v4 = _v0 => "function" == typeof _v0.headers?.get && "1" === _v0.headers.get("crossroads-logged-out") || "1" === _v0.headers["crossroads-logged-out"],
+  let _v4 = _v0 => "function" == typeof _v0.headers?.get && "1" === _v0.headers.get("crossroads-logged-out") || "1" === _v0.headers["crossroads-logged-out"] || !_v9(_v0),
     _v5 = _v0 => {
       if ("function" == typeof _v0.cookies?.get) return _v0.cookies.get("has_logged_in")?.value === "1";
       let _v1 = _v0.cookies;
@@ -145,6 +145,9 @@
         ..._v0,
         props: {
           ..._v0.props,
+          ...(_v3?.omitEsi ? {
+            omitEsi: !0
+          } : {}),
           ...(_v2 ? {
             viewerBootstrap: _v2
           } : {}),

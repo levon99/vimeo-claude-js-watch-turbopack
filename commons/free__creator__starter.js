@@ -1351,6 +1351,32 @@
         }
       }
     }),
+    MigrationInProgress: (0, _v48.translate)({
+      singular: "You can't add members while your Team Library is being set up.",
+      dictionary: {
+        es: {
+          singular: "No puedes añadir miembros mientras se configura tu Biblioteca del equipo."
+        },
+        "de-DE": {
+          singular: "Sie können keine Mitglieder hinzufügen, während Ihre Team-Bibliothek eingerichtet wird."
+        },
+        "fr-FR": {
+          singular: "Vous ne pouvez pas ajouter de membres pendant que votre bibliothèque d'équipe est en cours de configuration."
+        },
+        "ja-JP": {
+          singular: "Team Library の設定中はメンバーを追加できません。"
+        },
+        "ko-KR": {
+          singular: "팀 라이브러리가 설정되는 동안 멤버를 추가할 수 없습니다."
+        },
+        "pt-BR": {
+          singular: "Você não pode adicionar membros enquanto sua Biblioteca da equipe está sendo configurada."
+        },
+        "zh-CN": {
+          singular: "在团队资料库设置期间，您无法添加成员。"
+        }
+      }
+    }),
     SkipForNow: (0, _v48.translate)({
       singular: "Skip for now",
       dictionary: {
@@ -2623,6 +2649,10 @@
                 }) : 0 === _v0 ? _v19({
                   id: "invite-failed-toast",
                   title: _v49.TeamMemberAlreadyJoined(_v7[_v1]),
+                  variant: "warning"
+                }) : 0 === _v0 ? _v19({
+                  id: "invite-failed-toast",
+                  title: _v49.MigrationInProgress,
                   variant: "warning"
                 }) : _v19({
                   id: "invite-failed-toast",

@@ -1819,10 +1819,10 @@
             singular: "サムネイル"
           },
           "ko-KR": {
-            singular: "섬네일"
+            singular: "썸네일"
           },
           "pt-BR": {
-            singular: "Miniatura (thumbnail)"
+            singular: "Miniatura"
           },
           "zh-CN": {
             singular: "缩略图"
@@ -5288,16 +5288,16 @@
                 singular: "Bild hochladen"
               },
               "fr-FR": {
-                singular: "Mettre en ligne une image"
+                singular: "Téléverser une image"
               },
               "ja-JP": {
-                singular: "画像をアップロードする"
+                singular: "画像をアップロード"
               },
               "ko-KR": {
                 singular: "이미지 업로드"
               },
               "pt-BR": {
-                singular: "Carregar Imagem"
+                singular: "Enviar imagem"
               },
               "zh-CN": {
                 singular: "上传图片"

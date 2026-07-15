@@ -314,8 +314,8 @@
       return (0, _v1.jsxs)(_v4.Flex, {
         direction: "column",
         overflow: "hidden",
-        gap: "sm",
-        pb: _v0 ? "md" : (0, _v8.rem)(20),
+        gap: (0, _v8.rem)(16),
+        pb: (0, _v8.rem)(20),
         children: [(0, _v1.jsxs)(_v4.Flex, {
           direction: "column",
           w: "100%",
@@ -324,7 +324,7 @@
             gap: "sm",
             w: "100%",
             sx: {
-              padding: _v0 ? "var(--md, 16px)" : `${(0, _v8.rem)(16)} ${(0, _v8.rem)(16)} ${(0, _v8.rem)(8)} ${(0, _v8.rem)(20)}`
+              padding: `${(0, _v8.rem)(20)} ${(0, _v8.rem)(20)} ${(0, _v8.rem)(16)} ${(0, _v8.rem)(20)}`
             },
             children: [(0, _v1.jsxs)(_v4.Flex, {
               direction: "column",
@@ -426,7 +426,32 @@
                   onClick: _v5
                 })
               }), (0, _v1.jsx)(_v28.Tooltip, {
-                label: (0, _v11.translate)({
+                label: _v9 ? (0, _v11.translate)({
+                  singular: "You'll be able to add members when your new library is ready.",
+                  dictionary: {
+                    es: {
+                      singular: "Podrás agregar miembros cuando tu nueva biblioteca esté lista."
+                    },
+                    "de-DE": {
+                      singular: "Sie können Mitglieder hinzufügen, sobald Ihre neue Bibliothek bereit ist."
+                    },
+                    "fr-FR": {
+                      singular: "Vous pourrez ajouter des membres lorsque votre nouvelle bibliothèque sera prête."
+                    },
+                    "ja-JP": {
+                      singular: "新しいライブラリが準備できたら、メンバーを追加できるようになります。"
+                    },
+                    "ko-KR": {
+                      singular: "새 라이브러리가 준비되면 멤버를 추가할 수 있습니다."
+                    },
+                    "pt-BR": {
+                      singular: "Você poderá adicionar membros quando sua nova biblioteca estiver pronta."
+                    },
+                    "zh-CN": {
+                      singular: "当您的新媒体库准备就绪后，您将能够添加成员。"
+                    }
+                  }
+                }) : (0, _v11.translate)({
                   singular: "Add participants",
                   dictionary: {
                     es: {
@@ -452,6 +477,7 @@
                     }
                   }
                 }),
+                shouldWrapChildren: !0,
                 children: (0, _v1.jsx)(_v14.IconButton, {
                   icon: (0, _v1.jsx)(_v31.PersonUserAdd, {}),
                   "aria-label": (0, _v11.translate)({
@@ -482,14 +508,13 @@
                   }),
                   variant: "primary",
                   size: "md",
+                  isDisabled: _v9,
                   "data-testid": "team-members-popover-invite-button",
                   onClick: _v6
                 })
               })]
             })]
           }), (0, _v1.jsx)(_v13.Box, {
-            pt: _v0 ? 0 : "xs",
-            pb: "xs",
             children: (0, _v1.jsx)(_v13.Box, {
               h: "1px",
               bgColor: "stroke",
@@ -499,7 +524,7 @@
         }), (0, _v1.jsxs)(_v4.Flex, {
           direction: "column",
           gap: "lg",
-          px: _v0 ? "md" : (0, _v8.rem)(20),
+          px: (0, _v8.rem)(20),
           maxH: (0, _v8.rem)(360),
           overflowY: "auto",
           children: [(0, _v1.jsxs)(_v4.Flex, {
@@ -546,7 +571,7 @@
             }, `member-${_v1}`))]
           }), _v2.length > 0 && (0, _v1.jsxs)(_v4.Flex, {
             direction: "column",
-            gap: "md",
+            gap: (0, _v8.rem)(12),
             children: [(0, _v1.jsx)(_v16.Paragraph, {
               size: "sm",
               color: "text-secondary",
@@ -590,7 +615,6 @@
           })]
         }), !_v0 && (0, _v1.jsxs)(_v1.Fragment, {
           children: [(0, _v1.jsx)(_v13.Box, {
-            py: "sm",
             children: (0, _v1.jsx)(_v13.Box, {
               h: "1px",
               bgColor: "stroke",
@@ -603,7 +627,7 @@
                 singular: "You'll be able to add members when your new library is ready.",
                 dictionary: {
                   es: {
-                    singular: "Podrá añadir miembros cuando su nueva biblioteca esté lista."
+                    singular: "Podrás agregar miembros cuando tu nueva biblioteca esté lista."
                   },
                   "de-DE": {
                     singular: "Sie können Mitglieder hinzufügen, sobald Ihre neue Bibliothek bereit ist."
@@ -612,10 +636,10 @@
                     singular: "Vous pourrez ajouter des membres lorsque votre nouvelle bibliothèque sera prête."
                   },
                   "ja-JP": {
-                    singular: "新しいライブラリの準備ができたら、メンバーを追加できるようになります。"
+                    singular: "新しいライブラリが準備できたら、メンバーを追加できるようになります。"
                   },
                   "ko-KR": {
-                    singular: "새 라이브러리가 준비되면 구성원을 추가할 수 있습니다."
+                    singular: "새 라이브러리가 준비되면 멤버를 추가할 수 있습니다."
                   },
                   "pt-BR": {
                     singular: "Você poderá adicionar membros quando sua nova biblioteca estiver pronta."
@@ -630,7 +654,7 @@
                 w: "100%",
                 children: (0, _v1.jsx)(_v26.Button, {
                   leftIcon: (0, _v1.jsx)(_v30, {}),
-                  size: "lg",
+                  size: "md",
                   variant: "primary",
                   w: "100%",
                   isDisabled: _v8,
@@ -742,6 +766,7 @@
     borderRadius: "lg",
     boxShadow: "0px 0px 24px -5px rgba(0,0,0,0.16), 0px 0px 4px 0px rgba(0,0,0,0.08)",
     "data-testid": "team-members-popover",
+    p: (0, _v8.rem)(0),
     children: (0, _v1.jsx)(_v35, {
       ..._v0
     })

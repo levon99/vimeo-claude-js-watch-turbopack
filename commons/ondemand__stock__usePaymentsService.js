@@ -53,7 +53,7 @@
         [_v3] = (0, _v6.useQueryParams)(_v23),
         {
           trackCheckoutOpen: _v4
-        } = (0, _v15.useCheckoutTracking)(),
+        } = (0, _v15.useCheckoutTracking)(_v0.iosUserId),
         {
           trackFakeDoorCheckoutOpen: _v5
         } = (0, _v10.useFakeDoorCheckoutTracking)(),

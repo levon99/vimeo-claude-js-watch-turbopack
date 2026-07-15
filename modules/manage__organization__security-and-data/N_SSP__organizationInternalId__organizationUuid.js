@@ -19,6 +19,9 @@
     })
   });
   (0, _v3.withPageSetup)(_v6.getOrgAndWspUuidServerSideProps, {
-    requireLogin: !0
+    requireLogin: !0,
+    omitEsi: !0,
+    inlineViewer: !0,
+    noIndex: !0
   }), _v7.getLayout = (_v0, _v1) => (0, _v4.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v7], 0);
 }

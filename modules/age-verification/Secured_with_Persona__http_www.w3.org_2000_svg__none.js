@@ -822,11 +822,13 @@
       props: {
         hasThemeSupport: !0,
         bypassAgeVerification: !0,
-        redirectUrl: _v1 && (0, _v7.isVimeoRedirectableUrl)(_v1) ? _v1 : ""
+        redirectUrl: _v1 && (0, _v7.isVimeoRedirectableUrl)(_v1) ? _v1 : "",
+        omitEsi: !0
       }
     };
   }, {
-    requireLogin: !0
+    requireLogin: !0,
+    inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v0 => (0, _v1.jsx)(_v2.Suspense, {
     fallback: (0, _v1.jsx)(_v3.Spinner, {
       size: "lg"

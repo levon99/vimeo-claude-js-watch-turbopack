@@ -18,10 +18,8 @@
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
-    _v18 = _v0.i(0);
-  let _v19 = _v0 => {
-    _v0.preventDefault();
-  };
+    _v18 = _v0.i(0),
+    _v19 = _v0.i(0);
   _v0.s(["BackOnYourOwnModal", 0, ({
     isOpen: _v0,
     onClose: _v1,
@@ -244,8 +242,9 @@
                           }
                         }
                       }), " ", (0, _v1.jsx)(_v8.Link, {
-                        href: "#",
-                        onClick: _v19,
+                        href: _v19.LIBRARY_MERGE_HELP_URL,
+                        target: "_blank",
+                        rel: "noopener noreferrer",
                         color: "text-primary",
                         sx: {
                           textDecoration: "underline"

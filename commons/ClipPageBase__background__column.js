@@ -22,6 +22,7 @@
       direction: "column",
       align: "center",
       position: "relative",
+      isolation: "isolate",
       ..._v5,
       children: (0, _v1.jsx)(_v3.Grid, {
         flex: _v6 ? "1" : void 0,
