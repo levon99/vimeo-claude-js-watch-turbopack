@@ -4496,7 +4496,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "cb5b4972de7148ec6c77b08891cfee3e818fb243",
+      release: "6668f4ba0d818bd64d7235dfb6e955a08e7bc0f0",
       ..._v0
     };
     !function (_v0) {
@@ -4631,7 +4631,9 @@ Error:`, _v0);
         return _v1.includes("_next/static") && !1 !== _v0.in_app || _v1.includes("app:///p/") || _v1.includes("/telecine") || _v1.includes("/media-sorcerer");
       })) return null;
       let _v11 = _v0.exception?.values?.[0];
-      if (_v11?.value?.startsWith("Module load timeout") && (_v287 += 1) > 1) return null;
+      if (_v11?.type === "AbortError" && "signal is aborted without reason" === _v11.value && _v11.mechanism?.handled === !1 && (_v11.mechanism?.type === "auto.browser.global_handlers.onunhandledrejection" || _v11.mechanism?.type === "onunhandledrejection")) return null;
+      let _v12 = _v0.exception?.values?.[0];
+      if (_v12?.value?.startsWith("Module load timeout") && (_v287 += 1) > 1) return null;
       if (_v0.exception?.values?.[0]?.type === "UnhandledRejection" && void 0 === _v1.originalException) try {
         let _v0 = document.querySelector("[data-ready]"),
           _v1 = null,

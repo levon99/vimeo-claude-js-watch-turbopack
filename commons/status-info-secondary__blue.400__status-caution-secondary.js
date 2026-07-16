@@ -24,17 +24,18 @@
     icon: _v1,
     lead: _v2,
     children: _v3,
-    linkLabel: _v4
+    linkLabel: _v4,
+    onLinkClick: _v5
   }) => {
-    let _v5 = _v9[_v0];
+    let _v6 = _v9[_v0];
     return (0, _v1.jsxs)(_v4.AlertRoot, {
       size: "md",
       borderRadius: "md",
       w: "100%",
-      bgColor: _v5.surface,
+      bgColor: _v6.surface,
       children: [(0, _v1.jsx)(_v3.AlertIcon, {
         children: (0, _v1.jsx)(_v5.Box, {
-          color: _v5.icon,
+          color: _v6.icon,
           display: "inline-flex",
           children: _v1
         })
@@ -52,6 +53,7 @@
             href: _v8.LIBRARY_MERGE_HELP_URL,
             target: "_blank",
             rel: "noopener noreferrer",
+            onClick: _v5,
             sx: {
               textDecoration: "underline"
             },

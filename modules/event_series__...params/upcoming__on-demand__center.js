@@ -965,8 +965,59 @@
         })
       });
     },
-    _v45 = ["banner", "upcoming"],
-    _v46 = ({
+    _v45 = ({
+      count: _v0,
+      href: _v1
+    }) => (0, _v1.jsxs)(_v13.Flex, {
+      align: "center",
+      backgroundColor: "fill-component",
+      borderRadius: "lg",
+      direction: "column",
+      gap: "md",
+      height: "100%",
+      justify: "center",
+      minHeight: 0,
+      p: "xl",
+      width: "100%",
+      children: [(0, _v1.jsx)(_v14.Text, {
+        color: "text-primary",
+        variant: "heading-2xl",
+        children: `+${_v0}`
+      }), (0, _v1.jsx)(_v12.Button, {
+        as: _v10.default,
+        href: _v1,
+        size: "lg",
+        variant: "secondary",
+        children: (0, _v15.translate)({
+          singular: "See all",
+          dictionary: {
+            es: {
+              singular: "Ver todo"
+            },
+            "de-DE": {
+              singular: "Alle anzeigen"
+            },
+            "fr-FR": {
+              singular: "Voir tout"
+            },
+            "ja-JP": {
+              singular: "すべて表示"
+            },
+            "ko-KR": {
+              singular: "모두 보기"
+            },
+            "pt-BR": {
+              singular: "Ver todos"
+            },
+            "zh-CN": {
+              singular: "查看全部"
+            }
+          }
+        })
+      })]
+    }),
+    _v46 = ["banner", "upcoming"],
+    _v47 = ({
       series: _v0
     }) => {
       let _v1 = _v0.description?.trim() ?? "",
@@ -1028,7 +1079,7 @@
           let _v2 = [..._v1].sort((_v0, _v1) => (_v1.width ?? 0) - (_v0.width ?? 0));
           return _v2[0]?.link ?? _v0?.baseLink ?? null;
         })(_v0.pictures),
-        _v11 = _v0.landingPageConfig?.contentConfig ?? _v45,
+        _v11 = _v0.landingPageConfig?.contentConfig ?? _v46,
         _v12 = _v11.includes("upcoming") || _v11.includes("on-demand"),
         _v13 = _v11.includes("upcoming") && _v2.length > 0 || _v11.includes("on-demand") && _v5.length > 0,
         _v14 = _v11.map(_v0 => "banner" === _v0 ? (0, _v1.jsx)(_v44, {
@@ -1037,7 +1088,7 @@
           heroImageSrc: _v10,
           name: _v0.name?.trim() ?? "",
           timeZoneLabel: _v9
-        }, _v0) : "upcoming" === _v0 && _v3.length > 0 ? (0, _v1.jsx)(_v41, {
+        }, _v0) : "upcoming" === _v0 && _v3.length > 0 ? (0, _v1.jsxs)(_v41, {
           action: _v4 ? (0, _v1.jsx)(_v12.Button, {
             as: _v10.default,
             href: _v8(_v0),
@@ -1097,10 +1148,13 @@
               }
             }
           }),
-          children: _v3.map(_v0 => (0, _v1.jsx)(_v40, {
+          children: [_v3.map(_v0 => (0, _v1.jsx)(_v40, {
             event: _v0
-          }, _v0.uri))
-        }, _v0) : "on-demand" === _v0 && _v6.length > 0 ? (0, _v1.jsx)(_v41, {
+          }, _v0.uri)), _v4 ? (0, _v1.jsx)(_v45, {
+            count: _v2.length - _v3.length,
+            href: _v8(_v0)
+          }, "see-more") : null]
+        }, _v0) : "on-demand" === _v0 && _v6.length > 0 ? (0, _v1.jsxs)(_v41, {
           action: _v7 ? (0, _v1.jsx)(_v12.Button, {
             as: _v10.default,
             href: _v9(_v0),
@@ -1160,22 +1214,25 @@
               }
             }
           }),
-          children: _v6.map(_v0 => (0, _v1.jsx)(_v29, {
+          children: [_v6.map(_v0 => (0, _v1.jsx)(_v29, {
             recording: _v0
-          }, _v0.uri))
+          }, _v0.uri)), _v7 ? (0, _v1.jsx)(_v45, {
+            count: _v5.length - _v6.length,
+            href: _v9(_v0)
+          }, "see-more") : null]
         }, _v0) : null).filter(Boolean);
       return (0, _v1.jsxs)(_v35, {
         series: _v0,
         children: [_v14, _v12 && !_v13 ? (0, _v1.jsx)(_v17, {}) : null]
       });
     };
-  var _v47 = _v0.i(0),
-    _v48 = _v0.i(0),
+  var _v48 = _v0.i(0),
     _v49 = _v0.i(0),
-    _v50 = _v0.i(0);
-  let _v51 = _v0 => "object" == typeof _v0 && null !== _v0 ? _v0 : null,
-    _v52 = async _v0 => {
-      let _v1 = _v51(_v0);
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0);
+  let _v52 = _v0 => "object" == typeof _v0 && null !== _v0 ? _v0 : null,
+    _v53 = async _v0 => {
+      let _v1 = _v52(_v0);
       if (_v1?.status !== 403 || !_v1.res) return !1;
       try {
         let _v0 = await _v1.res.json();
@@ -1184,9 +1241,9 @@
         return !1;
       }
     };
-  var _v53 = _v0.i(0),
-    _v54 = _v0.i(0);
-  async function _v55({
+  var _v54 = _v0.i(0),
+    _v55 = _v0.i(0);
+  async function _v56({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1195,21 +1252,21 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v53.measureLatency)("getEventSery", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/event_series/${_v2}?${(0, _v54.searchQueryString)(_v3)}&fields=${_v1.map(_v54.intoSnakeCase).join(",")}`, {
+    return (0, _v54.measureLatency)("getEventSery", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/event_series/${_v2}?${(0, _v55.searchQueryString)(_v3)}&fields=${_v1.map(_v55.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v54.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v55.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v54.deepCamelCase)(_v1);
+      return (0, _v55.deepCamelCase)(_v1);
     });
   }
-  let _v56 = ["id", "name", "description", "link", "status", "landingPageConfig", "landingPageConfig.theme", "landingPageConfig.startDate", "landingPageConfig.endDate", "landingPageConfig.timeZone", "landingPageConfig.logo", "landingPageConfig.logo.type", "landingPageConfig.logo.uri", "landingPageConfig.logo.url", "landingPageConfig.contentConfig", "pictures", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "pictures.baseLink", "events.uri", "events.title", "events.link", "events.description", "events.nextOccurrenceTime", "events.pictures", "events.pictures.sizes", "events.pictures.sizes.link", "events.pictures.sizes.width", "events.speakers", "events.speakers.name", "events.speakers.avatar"],
-    _v57 = [..._v56, "events.recordings", "events.recordings.uri", "events.recordings.link", "events.recordings.title", "events.recordings.duration", "events.recordings.streamedOn", "events.recordings.pictures", "events.recordings.pictures.sizes", "events.recordings.pictures.sizes.link", "events.recordings.pictures.sizes.width"],
-    _v58 = async ({
+  let _v57 = ["id", "name", "description", "link", "status", "landingPageConfig", "landingPageConfig.theme", "landingPageConfig.startDate", "landingPageConfig.endDate", "landingPageConfig.timeZone", "landingPageConfig.logo", "landingPageConfig.logo.type", "landingPageConfig.logo.uri", "landingPageConfig.logo.url", "landingPageConfig.contentConfig", "pictures", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "pictures.baseLink", "events.uri", "events.title", "events.link", "events.description", "events.nextOccurrenceTime", "events.pictures", "events.pictures.sizes", "events.pictures.sizes.link", "events.pictures.sizes.width", "events.speakers", "events.speakers.name", "events.speakers.avatar"],
+    _v58 = [..._v57, "events.recordings", "events.recordings.uri", "events.recordings.link", "events.recordings.title", "events.recordings.duration", "events.recordings.streamedOn", "events.recordings.pictures", "events.recordings.pictures.sizes", "events.recordings.pictures.sizes.link", "events.recordings.pictures.sizes.width"],
+    _v59 = async ({
       baseUrl: _v0,
       headers: _v1,
       seriesId: _v2,
@@ -1231,21 +1288,21 @@
             }
           } : {})
         },
-        _v7 = await _v55({
+        _v7 = await _v56({
           ..._v6,
-          select: _v56
+          select: _v57
         });
       if (!_v7.landingPageConfig?.contentConfig?.includes("on-demand")) return _v7;
       try {
-        return await _v55({
+        return await _v56({
           ..._v6,
-          select: _v57
+          select: _v58
         });
       } catch {
         return _v7;
       }
     },
-    _v59 = async () => {
+    _v60 = async () => {
       let _v0 = await fetch("/_next/jwt", {
         headers: {
           "X-Requested-With": "XMLHttpRequest"
@@ -1257,7 +1314,7 @@
       } = await _v0.json();
       return _v1;
     },
-    _v60 = ({
+    _v61 = ({
       seriesId: _v0,
       baseUrl: _v1,
       onUnlock: _v2
@@ -1269,8 +1326,8 @@
           if (_v0.preventDefault(), _v3.trim() && !_v7) {
             _v8(!0), _v6(null);
             try {
-              let _v0 = await _v59(),
-                _v1 = await _v58({
+              let _v0 = await _v60(),
+                _v1 = await _v59({
                   baseUrl: _v1,
                   seriesId: _v0,
                   password: _v3,
@@ -1281,7 +1338,7 @@
                 });
               _v2(_v1);
             } catch (_v0) {
-              _v51(_v0)?.status === 403 ? _v6((0, _v15.translate)({
+              _v52(_v0)?.status === 403 ? _v6((0, _v15.translate)({
                 singular: "Sorry, that password was incorrect. Please try again.",
                 dictionary: {
                   es: {
@@ -1359,7 +1416,7 @@
               children: [(0, _v1.jsxs)(_v13.Flex, {
                 align: "center",
                 gap: "sm",
-                children: [(0, _v1.jsx)(_v50.Lock, {}), (0, _v1.jsx)(_v14.Text, {
+                children: [(0, _v1.jsx)(_v51.Lock, {}), (0, _v1.jsx)(_v14.Text, {
                   color: "text-primary",
                   variant: "heading-md",
                   children: (0, _v15.translate)({
@@ -1418,9 +1475,9 @@
                     }
                   }
                 })
-              }), (0, _v1.jsxs)(_v47.FormControl, {
+              }), (0, _v1.jsxs)(_v48.FormControl, {
                 isInvalid: !!_v5,
-                children: [(0, _v1.jsx)(_v48.FormLabel, {
+                children: [(0, _v1.jsx)(_v49.FormLabel, {
                   children: (0, _v15.translate)({
                     singular: "Password",
                     dictionary: {
@@ -1447,7 +1504,7 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v49.Input, {
+                }), (0, _v1.jsx)(_v50.Input, {
                   autoComplete: "current-password",
                   autoFocus: !0,
                   onChange: _v0 => {
@@ -1524,7 +1581,7 @@
         })
       });
     },
-    _v61 = ({
+    _v62 = ({
       series: _v0
     }) => {
       let {
@@ -1629,6 +1686,9 @@
         })]
       });
     };
+  var _v63 = _v0.i(0),
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0);
   (0, _v4.withPageSetup)(async _v0 => {
     let _v1 = _v0.params?.params,
       _v2 = Array.isArray(_v1) ? _v1 : _v1 ? [_v1] : [],
@@ -1646,7 +1706,7 @@
     try {
       return {
         props: {
-          series: await _v58({
+          series: await _v59({
             seriesId: _v3,
             headers: _v7,
             baseUrl: _v0.baseUrl
@@ -1659,7 +1719,7 @@
         }
       };
     } catch (_v0) {
-      if (await _v52(_v0)) return {
+      if (await _v53(_v0)) return {
         props: {
           series: null,
           seriesId: _v3,
@@ -1679,51 +1739,64 @@
     view: _v2,
     baseUrl: _v3
   }) => {
-    let [_v4, _v5] = (0, _v3.useState)(_v0);
-    if (!_v4) return (0, _v1.jsxs)(_v1.Fragment, {
+    let [_v4, _v5] = (0, _v3.useState)(_v0),
+      _v6 = (0, _v65.useViewer)(),
+      {
+        trackEventSeriesLandingPageDisplayed: _v7
+      } = (0, _v63.useEventSeriesTracking)(),
+      _v8 = (0, _v3.useRef)(null);
+    if ((0, _v3.useEffect)(() => {
+      if (!_v4 || !_v6) return;
+      let _v0 = `${_v1}:${_v2}`;
+      _v8.current !== _v0 && (_v8.current = _v0, _v7({
+        eventSeriesId: String(_v1),
+        landingPage: (0, _v63.deriveEventSeriesLandingPage)(_v2),
+        viewerAuthStatus: (0, _v64.deriveViewerAuthStatus)(_v6)
+      }));
+    }, [_v4, _v1, _v2, _v6, _v7]), !_v4) return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
           children: "Event series"
         })
-      }), (0, _v1.jsx)(_v60, {
+      }), (0, _v1.jsx)(_v61, {
         baseUrl: _v3,
         onUnlock: _v5,
         seriesId: _v1
       })]
     });
-    let _v6 = _v4.name?.trim() || "Event series",
-      _v7 = "upcoming" === _v2 ? "Upcoming events" : "on-demand" === _v2 ? "On demand" : null,
-      _v8 = _v7 ? `${_v7} \xb7 ${_v6}` : _v6,
-      _v9 = (_v4.description ?? "").replace(/\s+/g, " ").trim().slice(0, 200),
-      _v10 = null == _v4.link ? null : "upcoming" === _v2 ? `${_v4.link}/${_v5}` : "on-demand" === _v2 ? `${_v4.link}/${_v6}` : _v4.link;
+    let _v9 = _v4.name?.trim() || "Event series",
+      _v10 = "upcoming" === _v2 ? "Upcoming events" : "on-demand" === _v2 ? "On demand" : null,
+      _v11 = _v10 ? `${_v10} \xb7 ${_v9}` : _v9,
+      _v12 = (_v4.description ?? "").replace(/\s+/g, " ").trim().slice(0, 200),
+      _v13 = null == _v4.link ? null : "upcoming" === _v2 ? `${_v4.link}/${_v5}` : "on-demand" === _v2 ? `${_v4.link}/${_v6}` : _v4.link;
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v2.default, {
         children: [(0, _v1.jsx)("title", {
-          children: _v8
-        }), _v9 ? (0, _v1.jsx)("meta", {
-          content: _v9,
+          children: _v11
+        }), _v12 ? (0, _v1.jsx)("meta", {
+          content: _v12,
           name: "description"
         }) : null, (0, _v1.jsx)("meta", {
-          content: _v8,
+          content: _v11,
           property: "og:title"
-        }), _v9 ? (0, _v1.jsx)("meta", {
-          content: _v9,
+        }), _v12 ? (0, _v1.jsx)("meta", {
+          content: _v12,
           property: "og:description"
         }) : null, (0, _v1.jsx)("meta", {
           content: "website",
           property: "og:type"
-        }), _v10 ? (0, _v1.jsx)("meta", {
-          content: _v10,
+        }), _v13 ? (0, _v1.jsx)("meta", {
+          content: _v13,
           property: "og:url"
-        }) : null, _v10 ? (0, _v1.jsx)("link", {
-          href: _v10,
+        }) : null, _v13 ? (0, _v1.jsx)("link", {
+          href: _v13,
           rel: "canonical"
         }) : null]
-      }), "upcoming" === _v2 ? (0, _v1.jsx)(_v61, {
+      }), "upcoming" === _v2 ? (0, _v1.jsx)(_v62, {
         series: _v4
       }) : "on-demand" === _v2 ? (0, _v1.jsx)(_v36, {
         series: _v4
-      }) : (0, _v1.jsx)(_v46, {
+      }) : (0, _v1.jsx)(_v47, {
         series: _v4
       })]
     });

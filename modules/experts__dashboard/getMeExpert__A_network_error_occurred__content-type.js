@@ -2111,7 +2111,10 @@
     });
   }
   (0, _v9.withPageSetup)({
-    requireLogin: !0
+    requireLogin: !0,
+    omitEsi: !0,
+    inlineViewer: !0,
+    inlinePlayerAssets: !0
   }), _v169.getLayout = (_v0, _v1) => (0, _v6.jsxs)(_v6.Fragment, {
     children: [(0, _v6.jsx)(_v10.DefaultNavigation, {
       hasThemeSupport: !1

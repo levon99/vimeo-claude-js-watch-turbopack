@@ -26,6 +26,9 @@
     let _v1 = [{
       hreflang: "x-default",
       href: `${_v6}${_v0}`
+    }, {
+      hreflang: "en",
+      href: `${_v6}${_v0}`
     }];
     for (let _v0 of _v4) {
       let _v0 = _v2[_v0].split("-")[0];

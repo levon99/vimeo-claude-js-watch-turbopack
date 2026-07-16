@@ -19,17 +19,30 @@
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
-    _v11 = _v0.i(0);
+    _v11 = _v0.i(0),
+    _v12 = _v0.i(0),
+    _v13 = _v0.i(0);
   _v0.s(["LibrariesBecomingOneModal", 0, ({
     isOpen: _v0,
     onClose: _v1,
     userId: _v2,
     mergeDate: _v3
   }) => {
-    let _v4 = (0, _v6.useIsMobile)();
-    return (0, _v1.jsx)(_v10.LibraryMergeModal, {
+    let _v4 = (0, _v6.useIsMobile)(),
+      {
+        trackLibraryBecomingOneAnnouncementDisplayed: _v5,
+        trackLibraryBecomingOneAnnouncementCtaClicked: _v6,
+        trackLibraryBecomingOneAnnouncementDismissed: _v7
+      } = (0, _v8.useContentSpaceTracking)();
+    return (0, _v9.usePicoEffect)(() => {
+      _v0 && _v5({
+        mergeDate: _v3 || void 0
+      });
+    }, [_v0]), (0, _v1.jsx)(_v11.LibraryMergeModal, {
       isOpen: _v0,
-      onClose: _v1,
+      onClose: () => {
+        _v7(), _v1();
+      },
       testId: "libraries-becoming-one-modal",
       title: (0, _v7.translate)({
         singular: "Your two libraries are becoming one",
@@ -57,7 +70,7 @@
           }
         }
       }),
-      extra: _v3 ? (0, _v1.jsx)(_v9.LibraryMergeAlert, {
+      extra: _v3 ? (0, _v1.jsx)(_v10.LibraryMergeAlert, {
         tone: "caution",
         icon: (0, _v1.jsx)(_v5, {}),
         linkLabel: (0, _v7.translate)({
@@ -85,6 +98,9 @@
               singular: "了解更多"
             }
           }
+        }),
+        onLinkClick: () => _v6({
+          cta: "learn_more"
         }),
         children: (0, _v7.translate)({
           singular: "We'll combine them automatically on {DATE}.",
@@ -121,9 +137,12 @@
         size: "md",
         w: "100%",
         as: "a",
-        href: _v8.LIBRARY_MERGE_HELP_URL,
+        href: _v13.LIBRARY_MERGE_HELP_URL,
         target: "_blank",
         rel: "noopener noreferrer",
+        onClick: () => _v6({
+          cta: "see_whats_changing"
+        }),
         children: (0, _v7.translate)({
           singular: "See exactly what's changing",
           dictionary: {
@@ -157,143 +176,161 @@
           base: "none",
           md: "block"
         },
-        children: (0, _v1.jsx)(_v11.LibraryMergeVisualization, {
+        children: (0, _v1.jsx)(_v12.LibraryMergeVisualization, {
           userId: _v2,
           enabled: _v0 && !_v4
         })
       })
     });
   }], 0);
-  var _v12 = _v0.i(0);
+  var _v14 = _v0.i(0);
   _v0.s(["LibrariesNowOneModal", 0, ({
     isOpen: _v0,
     onClose: _v1,
     onGoToLibrary: _v2
-  }) => (0, _v1.jsx)(_v10.LibraryMergeModal, {
-    isOpen: _v0,
-    onClose: _v1,
-    testId: "libraries-now-one-modal",
-    title: (0, _v7.translate)({
-      singular: "Your two libraries are now one!",
-      dictionary: {
-        es: {
-          singular: "¡Tus dos bibliotecas ahora son una sola!"
-        },
-        "de-DE": {
-          singular: "Deine beiden Bibliotheken sind jetzt eine einzige Bibliothek!"
-        },
-        "fr-FR": {
-          singular: "Vos deux bibliothèques ne forment désormais qu'une seule !"
-        },
-        "ja-JP": {
-          singular: "あなたの2つのライブラリは、今や1つになりました！"
-        },
-        "ko-KR": {
-          singular: "두 라이브러리가 이제 하나가 되었습니다!"
-        },
-        "pt-BR": {
-          singular: "Suas duas bibliotecas agora são uma só!"
-        },
-        "zh-CN": {
-          singular: "你的两个资料库现在已合并为一个！"
+  }) => {
+    let {
+      trackLibraryNowOneAnnouncementDisplayed: _v3,
+      trackLibraryNowOneAnnouncementCtaClicked: _v4,
+      trackLibraryNowOneAnnouncementDismissed: _v5
+    } = (0, _v8.useContentSpaceTracking)();
+    return (0, _v9.usePicoEffect)(() => {
+      _v0 && _v3();
+    }, [_v0]), (0, _v1.jsx)(_v11.LibraryMergeModal, {
+      isOpen: _v0,
+      onClose: () => {
+        _v5(), _v1();
+      },
+      testId: "libraries-now-one-modal",
+      title: (0, _v7.translate)({
+        singular: "Your two libraries are now one!",
+        dictionary: {
+          es: {
+            singular: "¡Tus dos bibliotecas ahora son una sola!"
+          },
+          "de-DE": {
+            singular: "Deine beiden Bibliotheken sind jetzt eine einzige Bibliothek!"
+          },
+          "fr-FR": {
+            singular: "Vos deux bibliothèques ne forment désormais qu'une seule !"
+          },
+          "ja-JP": {
+            singular: "あなたの2つのライブラリは、今や1つになりました！"
+          },
+          "ko-KR": {
+            singular: "두 라이브러리가 이제 하나가 되었습니다!"
+          },
+          "pt-BR": {
+            singular: "Suas duas bibliotecas agora são uma só!"
+          },
+          "zh-CN": {
+            singular: "你的两个资料库现在已合并为一个！"
+          }
         }
-      }
-    }),
-    subtitle: (0, _v7.translate)({
-      singular: "My library and Team library have been combined into a single Library.",
-      dictionary: {
-        es: {
-          singular: "Mi biblioteca y la biblioteca del equipo se han combinado en una sola biblioteca."
-        },
-        "de-DE": {
-          singular: "Meine Bibliothek und die Team-Bibliothek wurden zu einer einzigen Bibliothek zusammengeführt."
-        },
-        "fr-FR": {
-          singular: "Ma bibliothèque et la bibliothèque d’équipe ont été fusionnées en une seule bibliothèque."
-        },
-        "ja-JP": {
-          singular: "マイライブラリとチームライブラリは1つのライブラリに統合されました。"
-        },
-        "ko-KR": {
-          singular: "내 라이브러리와 팀 라이브러리가 하나의 라이브러리로 통합되었습니다."
-        },
-        "pt-BR": {
-          singular: "Minha biblioteca e a biblioteca da equipe foram combinadas em uma única biblioteca."
-        },
-        "zh-CN": {
-          singular: "我的资料库和团队资料库已合并为单一资料库。"
+      }),
+      subtitle: (0, _v7.translate)({
+        singular: "My library and Team library have been combined into a single Library.",
+        dictionary: {
+          es: {
+            singular: "Mi biblioteca y la biblioteca del equipo se han combinado en una sola biblioteca."
+          },
+          "de-DE": {
+            singular: "Meine Bibliothek und die Team-Bibliothek wurden zu einer einzigen Bibliothek zusammengeführt."
+          },
+          "fr-FR": {
+            singular: "Ma bibliothèque et la bibliothèque d’équipe ont été fusionnées en une seule bibliothèque."
+          },
+          "ja-JP": {
+            singular: "マイライブラリとチームライブラリは1つのライブラリに統合されました。"
+          },
+          "ko-KR": {
+            singular: "내 라이브러리와 팀 라이브러리가 하나의 라이브러리로 통합되었습니다."
+          },
+          "pt-BR": {
+            singular: "Minha biblioteca e a biblioteca da equipe foram combinadas em uma única biblioteca."
+          },
+          "zh-CN": {
+            singular: "我的资料库和团队资料库已合并为单一资料库。"
+          }
         }
-      }
-    }),
-    footer: (0, _v1.jsxs)(_v12.VStack, {
-      gap: "sm",
-      align: "center",
-      w: "100%",
-      children: [(0, _v1.jsx)(_v3.Button, {
-        variant: "primary",
-        size: "md",
+      }),
+      footer: (0, _v1.jsxs)(_v14.VStack, {
+        gap: "sm",
+        align: "center",
         w: "100%",
-        onClick: _v2,
-        children: (0, _v7.translate)({
-          singular: "Go to your Library",
-          dictionary: {
-            es: {
-              singular: "Ir a tu biblioteca"
-            },
-            "de-DE": {
-              singular: "Gehe zu deiner Bibliothek"
-            },
-            "fr-FR": {
-              singular: "Accéder à votre bibliothèque"
-            },
-            "ja-JP": {
-              singular: "ライブラリへ移動"
-            },
-            "ko-KR": {
-              singular: "라이브러리로 이동"
-            },
-            "pt-BR": {
-              singular: "Ir para sua Biblioteca"
-            },
-            "zh-CN": {
-              singular: "前往你的资料库"
+        children: [(0, _v1.jsx)(_v3.Button, {
+          variant: "primary",
+          size: "md",
+          w: "100%",
+          onClick: () => {
+            _v4({
+              cta: "go_to_library"
+            }), _v2();
+          },
+          children: (0, _v7.translate)({
+            singular: "Go to your Library",
+            dictionary: {
+              es: {
+                singular: "Ir a tu biblioteca"
+              },
+              "de-DE": {
+                singular: "Gehe zu deiner Bibliothek"
+              },
+              "fr-FR": {
+                singular: "Accéder à votre bibliothèque"
+              },
+              "ja-JP": {
+                singular: "ライブラリへ移動"
+              },
+              "ko-KR": {
+                singular: "라이브러리로 이동"
+              },
+              "pt-BR": {
+                singular: "Ir para sua Biblioteca"
+              },
+              "zh-CN": {
+                singular: "前往你的资料库"
+              }
             }
-          }
-        })
-      }), (0, _v1.jsx)(_v3.Button, {
-        variant: "tertiary",
-        size: "md",
-        as: "a",
-        href: _v8.LIBRARY_MERGE_HELP_URL,
-        target: "_blank",
-        rel: "noopener noreferrer",
-        children: (0, _v7.translate)({
-          singular: "See what's changed",
-          dictionary: {
-            es: {
-              singular: "Ver qué ha cambiado"
-            },
-            "de-DE": {
-              singular: "Sieh dir an, was sich geändert hat"
-            },
-            "fr-FR": {
-              singular: "Voir ce qui a changé"
-            },
-            "ja-JP": {
-              singular: "変更点を確認する"
-            },
-            "ko-KR": {
-              singular: "변경된 내용을 확인하세요"
-            },
-            "pt-BR": {
-              singular: "Veja o que mudou"
-            },
-            "zh-CN": {
-              singular: "查看已更改的内容"
+          })
+        }), (0, _v1.jsx)(_v3.Button, {
+          variant: "tertiary",
+          size: "md",
+          as: "a",
+          href: _v13.LIBRARY_MERGE_HELP_URL,
+          target: "_blank",
+          rel: "noopener noreferrer",
+          onClick: () => _v4({
+            cta: "see_whats_changed"
+          }),
+          children: (0, _v7.translate)({
+            singular: "See what's changed",
+            dictionary: {
+              es: {
+                singular: "Ver qué ha cambiado"
+              },
+              "de-DE": {
+                singular: "Sieh dir an, was sich geändert hat"
+              },
+              "fr-FR": {
+                singular: "Voir ce qui a changé"
+              },
+              "ja-JP": {
+                singular: "変更点を確認する"
+              },
+              "ko-KR": {
+                singular: "변경된 내용을 확인하세요"
+              },
+              "pt-BR": {
+                singular: "Veja o que mudou"
+              },
+              "zh-CN": {
+                singular: "查看已更改的内容"
+              }
             }
-          }
-        })
-      })]
-    })
-  })], 0);
+          })
+        })]
+      })
+    });
+  }], 0);
 }

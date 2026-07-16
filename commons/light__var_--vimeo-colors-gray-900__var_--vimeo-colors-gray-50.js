@@ -278,6 +278,7 @@
           isOpen: !0,
           apiConfig: _v8,
           defaultTeamName: _v2?.user?.name ?? "",
+          entryPoint: "account_menu",
           onClose: () => _v4(null)
         }), "add_client_account" === _v3 && (0, _v1.jsx)(_v14, {
           ctaSource: _v5,

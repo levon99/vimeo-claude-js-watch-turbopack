@@ -962,7 +962,9 @@
       }
     }
   }), {
-    requireLogin: !0
+    requireLogin: !0,
+    omitEsi: !0,
+    inlineViewer: !0
   }), _v62.getLayout = _v0 => (0, _v4.jsx)(_v60.QueryParamProvider, {
     children: _v0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v62], 0);

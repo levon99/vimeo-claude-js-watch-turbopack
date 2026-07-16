@@ -1397,10 +1397,13 @@
   }), (0, _v70.withPageSetup)(() => ({
     props: {
       hasThemeSupport: !0,
-      hasUploader: !0
+      hasUploader: !0,
+      omitEsi: !0
     }
   }), {
     capability: "hasIntegrationCenter",
-    redirect: "/settings/apps"
+    redirect: "/settings/apps",
+    inlineViewer: !0,
+    noIndex: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v73], 0);
 }

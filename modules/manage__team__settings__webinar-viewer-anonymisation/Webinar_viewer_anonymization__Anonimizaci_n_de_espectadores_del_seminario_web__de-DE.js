@@ -361,28 +361,28 @@
         }
       }),
       CompletedEventsNote: (0, _v34.translate)({
-        singular: "Only events you've marked as complete are anonymized; registrants of events that were never completed are left untouched. Completing an event is only possible once registration is turned on for it. To complete one: open your event, then go to Registration → Manage registrants → Complete your event.",
+        singular: "Only events you've marked as complete are anonymized; registrants of events that were never completed are left untouched. Completing an event is only possible once registration is turned on for it. To complete one: open your event, then go to Registration > Manage registrants > Complete your event.",
         dictionary: {
           es: {
-            singular: "Solo los eventos que hayas marcado como completados se anonimizarán; los inscritos en eventos que nunca se completaron permanecerán intactos. Completar un evento solo es posible una vez que el registro esté activado para el evento. Para completar uno: abre tu evento, luego ve a Registro → Gestionar inscritos → Completar tu evento."
+            singular: "Solo los eventos que hayas marcado como completados se anonimizan; los inscritos de eventos que nunca se completaron quedan intactos. Completar un evento solo es posible una vez que la inscripción esté activada para el evento. Para completarlo: abre tu evento, luego ve a Registration > Manage registrants > Complete your event."
           },
           "de-DE": {
-            singular: "Nur Veranstaltungen, die Sie als abgeschlossen markiert haben, werden anonymisiert; Registranten von Veranstaltungen, die nie abgeschlossen wurden, bleiben unberührt. Das Abschließen einer Veranstaltung ist nur möglich, wenn die Registrierung dafür aktiviert ist. Um eine Veranstaltung abzuschließen: öffnen Sie Ihre Veranstaltung, gehen Sie dann zu Registrierung → Registranten verwalten → Veranstaltung abschließen."
+            singular: "Nur Veranstaltungen, die Sie als abgeschlossen markiert haben, werden anonymisiert; registrierte Teilnehmerinnen und Teilnehmer von Veranstaltungen, die nie abgeschlossen wurden, bleiben unberührt. Das Abschließen einer Veranstaltung ist nur möglich, wenn die Registrierung dafür aktiviert ist. Um eine Veranstaltung abzuschließen: Öffnen Sie Ihre Veranstaltung, dann gehen Sie zu Registration > Manage registrants > Complete your event."
           },
           "fr-FR": {
-            singular: "Seuls les événements que vous avez marqués comme terminés ; les inscrits aux événements qui n'ont jamais été complétés restent inchangés. Marquer un événement comme terminé n'est possible que lorsque l'inscription est activée pour celui-ci. Pour en marquer un comme terminé : ouvrez votre événement, puis allez dans Registration → Manage registrants → Complete your event."
+            singular: "Seuls les événements que vous avez marqués comme terminés sont anonymisés ; les inscrits aux événements qui n'ont jamais été terminés restent inchangés. La complétion d'un événement n'est possible que si l'inscription est activée pour celui‑ci. Pour en marquer un comme terminé : ouvrez votre événement, puis allez dans Inscription > Gérer les inscrits > Terminer votre événement."
           },
           "ja-JP": {
-            singular: "完了としてマークしたイベントのみが匿名化されます。完了しなかったイベントの登録者はそのまま残ります。イベントを完了できるのは、そのイベントで登録がオンになっている場合のみです。イベントを完了するには: イベントを開き、Registration → Manage registrants → Complete your event に移動してください。"
+            singular: "完了としてマークしたイベントのみが匿名化されます。完了していないイベントの登録者はそのまま残ります。イベントを完了にするには、そのイベントで登録がオンになっている必要があります。完了するには: イベントを開き、Registration > Manage registrants > Complete your event に移動してください。"
           },
           "ko-KR": {
-            singular: "완료로 표시한 이벤트만 익명화되며, 한 번도 완료되지 않은 이벤트의 등록자는 그대로 남아 있습니다. 이벤트를 완료하려면 해당 이벤트의 등록 기능이 켜져 있어야 합니다. 이벤트를 완료하려면: 이벤트를 열고 등록 → 등록자 관리 → 이벤트 완료로 이동하세요."
+            singular: "완료로 표시한 이벤트만 익명 처리됩니다; 전혀 완료되지 않은 이벤트의 등록자는 그대로 유지됩니다. 해당 이벤트는 등록이 활성화되어 있어야만 완료할 수 있습니다. 이벤트를 완료하려면 해당 이벤트를 열고 Registration > Manage registrants > Complete your event로 이동하세요."
           },
           "pt-BR": {
-            singular: "Apenas os eventos que você marcou como concluídos são anonimizados; os inscritos em eventos que nunca foram concluídos permanecem inalterados. Concluir um evento só é possível depois que as inscrições forem ativadas para ele. Para concluir um: abra seu evento, então vá para Inscrições → Gerenciar inscritos → Concluir seu evento."
+            singular: "Apenas os eventos que você marcou como concluídos são anonimizados; os inscritos em eventos que nunca foram concluídos permanecem intactos. Concluir um evento só é possível depois que as inscrições estiverem ativadas para ele. Para concluir um: abra seu evento, depois vá para Inscrições > Gerenciar inscritos > Concluir seu evento."
           },
           "zh-CN": {
-            singular: "只有您标记为已完成的活动会被匿名化；那些从未完成的活动的报名者将保持原样。只有在为该活动开启报名后，才可以将其标记为已完成。要完成一个活动：打开您的活动，然后转到报名 → 管理报名者 → 完成您的活动。"
+            singular: "只有你标记为已完成的活动会被匿名化；从未完成的活动的注册者将保持不变。只有在为该活动启用注册后，才可以将其标记为已完成。要完成一项活动：打开该活动，然后转到 注册 > 管理注册者 > 完成该活动。"
           }
         }
       }),
@@ -728,6 +728,9 @@
       hasThemeSupport: !0
     }
   }), {
-    requireLogin: !0
+    requireLogin: !0,
+    omitEsi: !0,
+    inlineViewer: !0,
+    noIndex: !0
   }), _v38.getLayout = _v8.getTeamSettingsPageLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v38], 0);
 }

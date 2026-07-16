@@ -38,29 +38,11 @@
       _v3 = _v7(_v0.req);
     return _v0.req.headers["vimeo-environment-id"] && _v3 && _v3 !== _v2 ? _v3 : _v1;
   }
-  async function _v17(_v0) {
-    let _v1 = _v0.vimeoConfig.get("vimeo_url");
-    if (!_v1) return null;
-    let _v2 = _v16(_v0, String(_v1)),
-      _v3 = {
-        ..._v0.headers,
-        Accept: "application/json"
-      };
-    for (let _v0 of _v15) {
-      let _v0 = _v0.req.headers[_v0];
-      _v0 && (_v3[_v0] = Array.isArray(_v0) ? _v0.join("; ") : _v0);
-    }
-    try {
-      let _v0 = await fetch(`https://${_v2}/_next/viewer`, {
-        headers: _v3
-      });
-      if (!_v0.ok) return null;
-      let _v1 = await _v0.json();
-      if (!_v1 || "object" != typeof _v1 || Array.isArray(_v1)) return null;
-      return _v1;
-    } catch (_v0) {
-      return console.warn("withPageSetup: failed to fetch viewer for inline bootstrap", _v0), null;
-    }
+  function _v17(_v0) {
+    let _v1 = _v0.query?.player_branch;
+    return "string" == typeof _v1 && _v1 ? `?${new URLSearchParams({
+      player_branch: _v1
+    })}` : "";
   }
   async function _v18(_v0) {
     let _v1 = _v0.vimeoConfig.get("vimeo_url");
@@ -75,7 +57,31 @@
       _v0 && (_v3[_v0] = Array.isArray(_v0) ? _v0.join("; ") : _v0);
     }
     try {
-      let _v0 = await fetch(`https://${_v2}/_next/player_assets`, {
+      let _v0 = await fetch(`https://${_v2}/_next/viewer${_v17(_v0)}`, {
+        headers: _v3
+      });
+      if (!_v0.ok) return null;
+      let _v1 = await _v0.json();
+      if (!_v1 || "object" != typeof _v1 || Array.isArray(_v1)) return null;
+      return _v1;
+    } catch (_v0) {
+      return console.warn("withPageSetup: failed to fetch viewer for inline bootstrap", _v0), null;
+    }
+  }
+  async function _v19(_v0) {
+    let _v1 = _v0.vimeoConfig.get("vimeo_url");
+    if (!_v1) return null;
+    let _v2 = _v16(_v0, String(_v1)),
+      _v3 = {
+        ..._v0.headers,
+        Accept: "application/json"
+      };
+    for (let _v0 of _v15) {
+      let _v0 = _v0.req.headers[_v0];
+      _v0 && (_v3[_v0] = Array.isArray(_v0) ? _v0.join("; ") : _v0);
+    }
+    try {
+      let _v0 = await fetch(`https://${_v2}/_next/player_assets${_v17(_v0)}`, {
         headers: _v3
       });
       if (!_v0.ok) return null;
@@ -86,7 +92,7 @@
       return console.warn("withPageSetup: failed to fetch player assets", _v0), null;
     }
   }
-  async function _v19(_v0) {
+  async function _v20(_v0) {
     let _v1 = _v0.vimeoConfig.get("vimeo_url");
     if (!_v1) return null;
     let _v2 = _v16(_v0, String(_v1)),
@@ -111,7 +117,7 @@
       return console.warn("withPageSetup: failed to fetch modbox panel", _v0), null;
     }
   }
-  async function _v20(_v0) {
+  async function _v21(_v0) {
     let _v1 = _v0.vimeoConfig.get("vimeo_url");
     if (!_v1) return null;
     let _v2 = {
@@ -134,7 +140,7 @@
       return console.warn("withPageSetup: failed to fetch create preloads", _v0), null;
     }
   }
-  function _v21(_v0) {
+  function _v22(_v0) {
     let _v1 = _v0.vimeoConfig.get("api.creation.magisto.host");
     return _v1 ? (0, _v10.buildMagistoResourceUrls)(String(_v1)) : (console.warn("withPageSetup: api.creation.magisto.host missing from config"), null);
   }
@@ -262,11 +268,11 @@
           };
         if (!_v3?.requireLogin && !_v3?.capability && !_v3?.staffOnly) {
           _v11 = _v4();
-          let _v0 = _v3?.inlineViewer === "all" || _v3?.inlineViewer && _v6.jwt && !_v4(_v6.req) ? _v17(_v6) : null,
-            _v1 = _v3?.inlinePlayerAssets ? _v18(_v6) : null,
-            _v2 = _v3?.inlineCreatePreloads && _v4(_v6.req) ? _v20(_v6) : null,
-            _v3 = _v3?.inlineMagistoResources ? _v21(_v6) : null,
-            _v4 = _v3?.inlineModbox && !_v4(_v6.req) ? _v19(_v6) : null,
+          let _v0 = _v3?.inlineViewer === "all" || _v3?.inlineViewer && _v6.jwt && !_v4(_v6.req) ? _v18(_v6) : null,
+            _v1 = _v3?.inlinePlayerAssets ? _v19(_v6) : null,
+            _v2 = _v3?.inlineCreatePreloads && _v4(_v6.req) ? _v21(_v6) : null,
+            _v3 = _v3?.inlineMagistoResources ? _v22(_v6) : null,
+            _v4 = _v3?.inlineModbox && !_v4(_v6.req) ? _v20(_v6) : null,
             _v5 = await _v2(_v6),
             _v6 = "redirect" in _v5 ? _v9(_v5.redirect) : "notFound" in _v5 ? "404" : "200";
           return _v8(_v6, "success", _v11), _v4(_v5, {
@@ -312,11 +318,11 @@
           return console.log("Failed to fetch capabilities ", _v0), _v10("capability_fetch_failed", _v7("/log_in"));
         }
         _v6.capabilities = _v8, _v11 = _v4();
-        let _v9 = _v3?.inlineViewer ? _v17(_v6) : null,
-          _v10 = _v3?.inlinePlayerAssets ? _v18(_v6) : null,
-          _v11 = _v3?.inlineCreatePreloads && _v4(_v6.req) ? _v20(_v6) : null,
-          _v12 = _v3?.inlineMagistoResources ? _v21(_v6) : null,
-          _v13 = _v3?.inlineModbox ? _v19(_v6) : null,
+        let _v9 = _v3?.inlineViewer ? _v18(_v6) : null,
+          _v10 = _v3?.inlinePlayerAssets ? _v19(_v6) : null,
+          _v11 = _v3?.inlineCreatePreloads && _v4(_v6.req) ? _v21(_v6) : null,
+          _v12 = _v3?.inlineMagistoResources ? _v22(_v6) : null,
+          _v13 = _v3?.inlineModbox ? _v20(_v6) : null,
           _v14 = await _v2(_v6),
           _v15 = "redirect" in _v14 ? _v9(_v14.redirect) : "notFound" in _v14 ? "404" : "200";
         return _v8(_v15, "success", _v11), _v4(_v14, {

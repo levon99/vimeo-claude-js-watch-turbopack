@@ -11,7 +11,11 @@
       hasThemeSupport: !0,
       hasUploader: !0
     }
-  })), _v0.s(["__N_SSP", 0, !0, "default", 0, () => {
+  }), {
+    omitEsi: !0,
+    inlineViewer: !0,
+    noIndex: !0
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => {
     let _v0 = (0, _v1.useRouter)(),
       _v1 = (0, _v5.useViewer)(),
       {

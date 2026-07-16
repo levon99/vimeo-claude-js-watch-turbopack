@@ -24,21 +24,21 @@
         isShowcaseLayout: _v10,
         isSideBySideActive: _v11
       } = (0, _v7.useLayout)(),
+      _v12 = _v4 ? 0 : _v5.NAV_HEIGHT,
       {
-        isVisible: _v12,
-        elementRef: _v13
-      } = (0, _v6.useIntersectionVisibility)(240 + _v5.NAV_HEIGHT),
-      _v14 = _v5 && !_v12 && !_v11,
-      _v15 = _v4 ? 0 : _v5.NAV_HEIGHT,
+        isVisible: _v13,
+        elementRef: _v14
+      } = (0, _v6.useIntersectionVisibility)(240 + _v12),
+      _v15 = _v5 && !_v13 && !_v11,
       _v16 = _v10 ? _v5.SHOWCASE_REVEAL_HEIGHT : _v5.REVEAL_HEIGHT,
       _v17 = _v10 ? _v5.SHOWCASE_REVEAL_HEIGHT_LARGE : _v5.REVEAL_HEIGHT_LARGE,
       _v18 = {
-        base: _v9 ? `calc(100vh - ${_v5.NAV_HEIGHT}px)` : `calc(100vh - ${_v16}px)`,
+        base: _v9 ? `calc(100vh - ${_v4 ? 0 : _v5.NAV_HEIGHT}px)` : `calc(100vh - ${_v16}px)`,
         md: `calc(100vh - ${_v16}px)`,
         xl: `calc(100vh - ${_v17}px)`
       };
     return (0, _v1.jsx)(_v3.Box, {
-      ref: _v13,
+      ref: _v14,
       as: _v2.motion.div,
       w: "100%",
       h: {
@@ -48,7 +48,7 @@
       minH: {
         base: "200px",
         lg: "420px",
-        xl: _v14 ? "240px" : "420px"
+        xl: _v15 ? "240px" : "420px"
       },
       maxH: _v18,
       aspectRatio: _v3 ?? "16/9",
@@ -73,22 +73,22 @@
         w: "100%",
         h: {
           base: "inherit",
-          xl: _v14 ? "240px" : "inherit"
+          xl: _v15 ? "240px" : "inherit"
         },
         minH: {
           base: "inherit",
-          xl: _v14 ? "240px" : "inherit"
+          xl: _v15 ? "240px" : "inherit"
         },
         maxH: "inherit",
         backgroundColor: _v11 && !_v7 ? "transparent" : _v2 || "surface",
         position: _v11 ? "relative" : {
           base: "relative",
           md: "absolute",
-          xl: _v14 ? "fixed" : "absolute"
+          xl: _v15 ? "fixed" : "absolute"
         },
         top: {
           base: 0,
-          xl: _v14 ? _v15 : 0
+          xl: _v15 ? _v12 : 0
         },
         left: 0,
         bgSize: "contain",

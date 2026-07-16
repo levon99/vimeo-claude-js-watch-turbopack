@@ -200,7 +200,9 @@
       hasThemeSupport: !0
     }
   }), {
-    requireLogin: !0
+    requireLogin: !0,
+    omitEsi: !0,
+    inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => {
     let _v0 = (0, _v2.useRouter)();
     return _v0?.query?.modal ? (0, _v1.jsx)(_v17, {}) : null;

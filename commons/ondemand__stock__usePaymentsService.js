@@ -22,8 +22,9 @@
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
-    _v21 = _v0.i(0);
-  let _v22 = (0, _v2.default)(async () => {
+    _v21 = _v0.i(0),
+    _v22 = _v0.i(0);
+  let _v23 = (0, _v2.default)(async () => {
       let {
         Checkout: _v0
       } = await _v0.A(0);
@@ -35,7 +36,7 @@
         modules: [0]
       }
     }),
-    _v23 = {
+    _v24 = {
       promo: _v5.StringParam,
       currency: _v5.StringParam,
       action: _v5.StringParam,
@@ -47,13 +48,13 @@
       bandwidthPlanBSelected: _v5.StringParam,
       fdsource: _v5.StringParam
     },
-    _v24 = _v0 => {
-      let _v1 = (0, _v20.useViewer)(),
+    _v25 = _v0 => {
+      let _v1 = (0, _v21.useViewer)(),
         _v2 = (0, _v3.useRouter)(),
-        [_v3] = (0, _v6.useQueryParams)(_v23),
+        [_v3] = (0, _v6.useQueryParams)(_v24),
         {
           trackCheckoutOpen: _v4
-        } = (0, _v15.useCheckoutTracking)(_v0.iosUserId),
+        } = (0, _v16.useCheckoutTracking)(_v0.iosUserId),
         {
           trackFakeDoorCheckoutOpen: _v5
         } = (0, _v10.useFakeDoorCheckoutTracking)(),
@@ -66,7 +67,7 @@
         {
           data: _v12,
           isLoading: _v13
-        } = (0, _v12.useGetMeCapabilities)(() => _v1 ? {
+        } = (0, _v13.useGetMeCapabilities)(() => _v1 ? {
           select: ["usePaymentsService", "beenInFreeTrial", "isLapsed", "useStripeCheckout", "inAppSubscription"]
         } : null, {
           revalidateIfStale: !1,
@@ -79,7 +80,7 @@
         {
           settings: _v17,
           isLoadingResponse: _v18
-        } = (0, _v13.useOrionSettings)(),
+        } = (0, _v14.useOrionSettings)(),
         _v19 = _v2.pathname.includes("/trial"),
         _v20 = _v19 && (_v12?.beenInFreeTrial || _v12?.isLapsed),
         _v21 = null === _v7 || _v13 || _v18 || void 0 === _v14 || _v8 && (!_v9 || !_v10),
@@ -87,7 +88,7 @@
         _v23 = _v17.checkout_default_payment_method,
         _v24 = _v15 ? _v8.PaymentFormTypes.TYPE_STRIPE : _v3.type ? Number(_v3.type) : "paypal" === _v23 ? _v8.PaymentFormTypes.TYPE_PAYPAL : _v8.PaymentFormTypes.TYPE_CREDIT_CARD,
         _v25 = _v24 === _v8.PaymentFormTypes.TYPE_STRIPE ? "stripe" : _v24 === _v8.PaymentFormTypes.TYPE_PAYPAL ? "paypal" : "credit_card";
-      (0, _v16.usePicoEffect)(() => {
+      (0, _v17.usePicoEffect)(() => {
         if (_v21) return !1;
         _v4({
           tier: _v7,
@@ -99,22 +100,22 @@
         once: !0
       });
       let _v26 = _v21 || !_v11;
-      if ((0, _v16.usePicoEffect)(() => {
+      if ((0, _v17.usePicoEffect)(() => {
         if (_v26 || !_v11) return !1;
         _v5(_v11);
       }, [_v26, _v11], {
         once: !0
       }), _v20 && !_v11) {
         let _v0 = "string" == typeof _v2.query.post_checkout_url ? _v2.query.post_checkout_url : void 0,
-          _v1 = _v0 && (0, _v17.isVimeoRedirectableUrl)(_v0) ? _v0 : void 0;
-        _v2.push((0, _v14.buildUpgradePlanUrl)({
+          _v1 = _v0 && (0, _v18.isVimeoRedirectableUrl)(_v0) ? _v0 : void 0;
+        _v2.push((0, _v15.buildUpgradePlanUrl)({
           paywallTrigger: "checkout_lapsed_or_trial_upgrade_redirect",
           paywallLocation: "checkout",
           paywallFeature: "subscription",
           postCheckoutUrl: _v1
         }));
       }
-      return _v7 && (_v16 && !_v8 && (window.location.href = "/settings/billing/membership_plan"), !_v13 && void 0 !== _v14 && !_v18 && (_v8 || "custom_self_serve" === _v7 || _v14) && (!_v8 || _v9 && _v10)) ? (0, _v1.jsx)(_v22, {
+      return _v7 && (_v16 && !_v8 && (window.location.href = "/settings/billing/membership_plan"), !_v13 && void 0 !== _v14 && !_v18 && (_v8 || "custom_self_serve" === _v7 || _v14) && (!_v8 || _v9 && _v10)) ? (0, _v1.jsx)(_v23, {
         ..._v0,
         defaultPaymentType: _v24,
         defaultPromoCodeId: _v3.promo ?? void 0,
@@ -130,9 +131,12 @@
         fakeDoorConfig: _v11
       }) : null;
     };
-  _v0.s(["default", 0, _v0 => {
+  (0, _v11.withPageSetup)({
+    omitEsi: !0,
+    inlineViewer: "all"
+  }), _v0.s(["default", 0, _v0 => {
     let _v1 = (0, _v3.useRouter)(),
-      _v2 = (0, _v4.useContext)(_v19.ViewerContext),
+      _v2 = (0, _v4.useContext)(_v20.ViewerContext),
       _v3 = (0, _v4.useMemo)(() => {
         if (!_v1.query?.token) return null;
         try {
@@ -142,16 +146,16 @@
         }
       }, [_v1.query?.token]);
     return ((0, _v4.useEffect)(() => {
-      _v1.isReady && _v18.postCheckoutUrl.sync(_v1.query.post_checkout_url ?? null);
-    }, [_v1.isReady, _v1.query.post_checkout_url]), _v1.isReady && _v2) ? _v2?.user || _v1.query?.token ? (0, _v1.jsx)(_v11.GctlProvider, {
+      _v1.isReady && _v19.postCheckoutUrl.sync(_v1.query.post_checkout_url ?? null);
+    }, [_v1.isReady, _v1.query.post_checkout_url]), _v1.isReady && _v2) ? _v2?.user || _v1.query?.token ? (0, _v1.jsx)(_v12.GctlProvider, {
       xVimeoPage: _v1.pathname,
       jwt: _v1.query?.token && !(0, _v7.isPayPalToken)(String(_v1.query?.token)) ? String(_v1.query?.token) : _v2?.jwt,
       baseUrl: _v2 ? `https://${_v2.apiUrl}` : "",
       locale: _v2?.locale,
-      children: (0, _v1.jsx)(_v21.QueryParamProvider, {
+      children: (0, _v1.jsx)(_v22.QueryParamProvider, {
         children: (0, _v1.jsx)(_v4.Suspense, {
           fallback: null,
-          children: (0, _v1.jsx)(_v24, {
+          children: (0, _v1.jsx)(_v25, {
             ..._v0,
             iosUserId: _v3?.user_id
           })

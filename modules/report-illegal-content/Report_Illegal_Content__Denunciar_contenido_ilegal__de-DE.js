@@ -3760,7 +3760,9 @@
   var _v71 = _v0.i(0),
     _v72 = _v0.i(0);
   (0, _v3.withPageSetup)({
-    requireLogin: !1
+    requireLogin: !1,
+    omitEsi: !0,
+    inlineViewer: "all"
   });
   let _v73 = () => {
     let _v0 = (0, _v72.useViewer)(),

@@ -6,22 +6,30 @@
   }), Object.defineProperty(_v2, "default", {
     enumerable: !0,
     get: function () {
-      return _v5;
+      return _v7;
     }
-  }), _v0.r(0);
-  let _v3 = _v0.r(0);
-  _v0.r(0);
-  let _v4 = _v0.r(0);
-  function _v5(_v0) {
-    function _v1(_v0) {
-      return (0, _v3.jsx)(_v0, {
-        router: (0, _v4.useRouter)(),
-        ..._v0
-      });
+  });
+  let _v3 = _v0.r(0),
+    _v4 = "u" < typeof window,
+    _v5 = _v4 ? () => {} : _v3.useLayoutEffect,
+    _v6 = _v4 ? () => {} : _v3.useEffect;
+  function _v7(_v0) {
+    let {
+      headManager: _v1,
+      reduceComponentsToState: _v2
+    } = _v0;
+    function _v3() {
+      if (_v1 && _v1.mountedInstances) {
+        let _v0 = _v3.Children.toArray(Array.from(_v1.mountedInstances).filter(Boolean));
+        _v1.updateHead(_v2(_v0));
+      }
     }
-    return _v1.getInitialProps = _v0.getInitialProps, _v1.origGetInitialProps = _v0.origGetInitialProps, _v1;
+    return _v4 && (_v1?.mountedInstances?.add(_v0.children), _v3()), _v5(() => (_v1?.mountedInstances?.add(_v0.children), () => {
+      _v1?.mountedInstances?.delete(_v0.children);
+    })), _v5(() => (_v1 && (_v1._pendingUpdate = _v3), () => {
+      _v1 && (_v1._pendingUpdate = _v3);
+    })), _v6(() => (_v1 && _v1._pendingUpdate && (_v1._pendingUpdate(), _v1._pendingUpdate = null), () => {
+      _v1 && _v1._pendingUpdate && (_v1._pendingUpdate(), _v1._pendingUpdate = null);
+    })), null;
   }
-  ("function" == typeof _v2.default || "object" == typeof _v2.default && null !== _v2.default) && void 0 === _v2.default.__esModule && (Object.defineProperty(_v2.default, "__esModule", {
-    value: !0
-  }), Object.assign(_v2.default, _v2), _v1.exports = _v2.default);
 }

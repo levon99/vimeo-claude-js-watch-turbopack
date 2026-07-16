@@ -1,6 +1,6 @@
 {
   "use strict";
 
-  let _v1 = _v0.i(0).default;
-  _v0.s(["default", 0, _v1]);
+  var _v1 = _v0.i(0);
+  _v0.s(["v4", () => _v1.default]);
 }

@@ -8425,6 +8425,9 @@
       });
     };
   (0, _v239.withPageSetup)(_v246.getWspServerSideProps, {
-    requireLogin: !0
+    requireLogin: !0,
+    omitEsi: !0,
+    inlineViewer: !0,
+    inlinePlayerAssets: !0
   }), _v248.getLayout = (_v0, _v1) => (0, _v245.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v248], 0);
 }

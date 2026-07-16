@@ -706,25 +706,26 @@
     showViews: _v34,
     showManageButton: _v35,
     children: _v36,
-    titleLeading: _v37,
-    titleFontFamily: _v38,
-    titleFontWeight: _v39,
-    titleLineHeight: _v40,
-    titleSizeAdjust: _v41,
-    onCreditedProfilesLinkClick: _v42,
-    onCategoriesLinkClick: _v43,
-    onMomentPlay: _v44,
-    onLikesListClick: _v45
+    titleAdornment: _v37,
+    titleAdornmentPosition: _v38 = "left",
+    titleFontFamily: _v39,
+    titleFontWeight: _v40,
+    titleLineHeight: _v41,
+    titleSizeAdjust: _v42,
+    onCreditedProfilesLinkClick: _v43,
+    onCategoriesLinkClick: _v44,
+    onMomentPlay: _v45,
+    onLikesListClick: _v46
   }) {
-    let _v46 = _v28 ? (0, _v1.jsx)(_v2.Text, {
+    let _v47 = _v28 ? (0, _v1.jsx)(_v2.Text, {
         variant: "body-md",
         color: "text-secondary",
         mb: 50,
         children: _v14
       }) : null,
-      _v47 = _v34 && _v4,
-      _v48 = _v28 && _v2 && _v3,
-      _v49 = (0, _v8.shouldShowInDevelopmentFeature)("likes_modal", !0) && _v5 && _v30;
+      _v48 = _v34 && _v4,
+      _v49 = _v28 && _v2 && _v3,
+      _v50 = (0, _v8.shouldShowInDevelopmentFeature)("likes_modal", !0) && _v5 && _v30;
     return (0, _v1.jsxs)(_v3.VStack, {
       align: "stretch",
       "data-testid": "vd-wrapper",
@@ -744,7 +745,7 @@
           gap: "200",
           minW: "0",
           align: "center",
-          children: [_v37, (0, _v1.jsx)(_v2.Text, {
+          children: ["left" === _v38 ? _v37 : null, (0, _v1.jsx)(_v2.Text, {
             as: "h1",
             variant: {
               base: "heading-md",
@@ -754,49 +755,49 @@
             minW: "0",
             style: {
               hyphens: "auto",
-              fontFamily: _v38,
-              fontWeight: _v39,
-              lineHeight: _v40
+              fontFamily: _v39,
+              fontWeight: _v40,
+              lineHeight: _v41
             },
-            children: _v41 && 1 !== _v41 ? (0, _v1.jsx)("span", {
+            children: _v42 && 1 !== _v42 ? (0, _v1.jsx)("span", {
               style: {
-                fontSize: `${_v41}em`
+                fontSize: `${_v42}em`
               },
               children: _v1
             }) : _v1
-          })]
+          }), "right" === _v38 ? _v37 : null]
         }), _v35 ? _v12 : null]
       }) : null, (0, _v1.jsxs)(_v4.Flex, {
         gap: 100,
         flexWrap: "wrap",
-        children: [!_v24 && (_v47 || _v48) ? (0, _v1.jsxs)(_v2.Text, {
+        children: [!_v24 && (_v48 || _v49) ? (0, _v1.jsxs)(_v2.Text, {
           variant: "body-xl",
           fontSize: "text-sm",
           color: "text-secondary",
-          children: [_v47 ? (0, _v1.jsx)("span", {
+          children: [_v48 ? (0, _v1.jsx)("span", {
             "data-testid": "views",
             children: _v4
-          }) : null, _v47 && _v48 && void 0 !== _v2 ? (0, _v1.jsx)(_v2.Text, {
+          }) : null, _v48 && _v49 && void 0 !== _v2 ? (0, _v1.jsx)(_v2.Text, {
             variant: "body-xl",
             as: "span",
             mx: 50,
             "aria-hidden": "true",
             children: "·"
-          }) : null, _v48 ? (0, _v1.jsx)("time", {
+          }) : null, _v49 ? (0, _v1.jsx)("time", {
             dateTime: _v2,
             children: _v3
-          }) : null, _v48 && _v49 ? (0, _v1.jsx)(_v2.Text, {
+          }) : null, _v49 && _v50 ? (0, _v1.jsx)(_v2.Text, {
             variant: "body-xl",
             as: "span",
             mx: 50,
             "aria-hidden": "true",
             children: "·"
-          }) : null, _v49 ? (0, _v1.jsx)(_v7.Link, {
+          }) : null, _v50 ? (0, _v1.jsx)(_v7.Link, {
             href: "#",
             "data-testid": "likes-modal",
             fontSize: "text-sm",
             variant: "secondary",
-            onClick: _v45,
+            onClick: _v46,
             children: _v5
           }) : null]
         }) : null, (0, _v1.jsx)(_v5.HStack, {
@@ -814,18 +815,18 @@
           })
         })]
       }), _v36, _v29 && _v7 ? (0, _v1.jsx)(_v17.Description, {
-        onMomentPlay: _v44,
+        onMomentPlay: _v45,
         description: _v7,
-        children: _v46
-      }) : _v46, _v31 && _v10?.length ? (0, _v1.jsx)(_v18, {
+        children: _v47
+      }) : _v47, _v31 && _v10?.length ? (0, _v1.jsx)(_v18, {
         tags: _v10,
         showLinks: _v15
       }) : null, _v27 && _v8?.length ? (0, _v1.jsx)(_v16, {
         credits: _v8,
-        onClick: _v42
+        onClick: _v43
       }) : null, _v25 && _v9?.length ? (0, _v1.jsx)(_v12, {
         categories: _v9,
-        onClick: _v43,
+        onClick: _v44,
         isCategoriesLinkEnabled: _v18
       }) : null, _v26 && _v6 ? (0, _v1.jsx)(_v13, {
         creativeCommonsDescriptor: _v6

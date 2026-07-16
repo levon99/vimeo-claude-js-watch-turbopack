@@ -29,10 +29,7 @@
       _v6 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("sidebar_nav_clicked", {
         sidebar_nav_destination: _v3[_v0.sidebarNavDestination] ?? _v0.sidebarNavDestination,
         sidebar_nav_context: _v0.sidebarNavContext,
-        version: _v0.version ?? "1",
-        ...(_v0.homeSidebarDiscoveryVariant && {
-          home_sidebar_discovery_variant: _v0.homeSidebarDiscoveryVariant
-        })
+        version: _v0.version ?? "1"
       }), !0), [_v0]),
       _v7 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("sidebar_toggled", {
         sidebar_action: _v0.sidebarAction,

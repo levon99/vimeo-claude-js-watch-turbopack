@@ -11,11 +11,14 @@
     } = _v0;
     return _v1 && _v1.sessionType && _v1.sessionId && _v1.sessionCode ? {
       props: {
-        hasThemeSupport: !0
+        hasThemeSupport: !0,
+        omitEsi: !0
       }
     } : {
       notFound: !0
     };
+  }, {
+    inlineViewer: "all"
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v0 => (0, _v1.jsx)(_v4.VpaasProvider, {
     children: (0, _v1.jsx)(_v3.LiveGuestRoot, {
       ..._v0

@@ -5335,6 +5335,9 @@
     }
   }), {
     requireLogin: !0,
-    noIndex: !0
+    noIndex: !0,
+    omitEsi: !0,
+    inlineViewer: !0,
+    inlinePlayerAssets: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v200], 0);
 }

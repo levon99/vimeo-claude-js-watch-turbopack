@@ -468,7 +468,9 @@
     });
   }
   (0, _v3.withPageSetup)({
-    requireLogin: !0
+    requireLogin: !0,
+    omitEsi: !0,
+    inlineViewer: !0
   }), _v53.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v4.DefaultNavigation, {}), _v0, (0, _v1.jsx)(_v6.MinimalFooterLayout, {})]
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v53], 0);

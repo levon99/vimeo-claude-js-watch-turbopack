@@ -903,22 +903,22 @@
                   singular: "See all",
                   dictionary: {
                     es: {
-                      singular: "Ver toda"
+                      singular: "Ver todo"
                     },
                     "de-DE": {
                       singular: "Alle anzeigen"
                     },
                     "fr-FR": {
-                      singular: "Tout voir"
+                      singular: "Voir tout"
                     },
                     "ja-JP": {
-                      singular: "すべてを見る"
+                      singular: "すべて表示"
                     },
                     "ko-KR": {
                       singular: "모두 보기"
                     },
                     "pt-BR": {
-                      singular: "Veja todas"
+                      singular: "Ver todos"
                     },
                     "zh-CN": {
                       singular: "查看全部"

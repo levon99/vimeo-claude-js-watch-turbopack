@@ -288,7 +288,10 @@
         globalNotifications: !1
       }
     }
-  })), _v0.s(["__N_SSP", 0, !0, "default", 0, () => {
+  }), {
+    omitEsi: !0,
+    inlineViewer: "all"
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => {
     let _v0 = (0, _v2.useRouter)(),
       _v1 = (0, _v13.useViewer)(),
       _v2 = (0, _v12.useHasMounted)(),

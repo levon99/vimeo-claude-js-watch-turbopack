@@ -7,8 +7,9 @@
     _v4 = _v0.i(0),
     _v5 = _v0.i(0),
     _v6 = _v0.i(0),
-    _v7 = _v0.i(0);
-  function _v8({
+    _v7 = _v0.i(0),
+    _v8 = _v0.i(0);
+  function _v9({
     title: _v0,
     description: _v1,
     publicBasePath: _v2,
@@ -16,14 +17,17 @@
     ogImage: _v4 = "https://f.vimeocdn.com/images_v6/logo.png"
   }) {
     let _v5 = function (_v0) {
-      if ("true" === _v5.default.env.I18N_TEMPLATE) return `{{sat ${_v0} sat}}`;
-      let _v1 = _v7.LOCALE_TO_SUBFOLDER[(0, _v6.getCurrentLocale)()];
-      return `${_v4.SEO_ORIGIN}${_v1 ? `/${_v1}` : ""}${_v0}`;
+      if ("true" === _v6.default.env.I18N_TEMPLATE) return `{{sat ${_v0} sat}}`;
+      let _v1 = _v8.LOCALE_TO_SUBFOLDER[(0, _v7.getCurrentLocale)()];
+      return `${_v5.SEO_ORIGIN}${_v1 ? `/${_v1}` : ""}${_v0}`;
     }(_v2);
-    return (0, _v1.jsxs)(_v3.default, {
+    return (0, _v1.jsxs)(_v4.default, {
       children: [(0, _v1.jsx)("title", {
         children: _v0
       }), (0, _v1.jsx)("meta", {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1"
+      }, "viewport"), (0, _v1.jsx)("meta", {
         name: "description",
         content: _v1
       }, "description"), _v3 && (0, _v1.jsx)("meta", {
@@ -51,11 +55,17 @@
         property: "og:image",
         content: _v4
       }, "og:image"), (0, _v1.jsx)("meta", {
+        property: "og:image:secure_url",
+        content: _v4
+      }, "og:image:secure_url"), (0, _v1.jsx)("meta", {
+        property: "og:image:type",
+        content: "image/png"
+      }, "og:image:type"), (0, _v1.jsx)("meta", {
         property: "og:image:alt",
         content: _v0
       }, "og:image:alt"), (0, _v1.jsx)("meta", {
         name: "twitter:card",
-        content: "summary"
+        content: "summary_large_image"
       }, "twitter:card"), (0, _v1.jsx)("meta", {
         name: "twitter:site",
         content: "@vimeo"
@@ -65,7 +75,13 @@
       }, "twitter:title"), (0, _v1.jsx)("meta", {
         name: "twitter:description",
         content: _v1
-      }, "twitter:description"), (0, _v4.satelliteHreflangAlternates)(_v2).map(({
+      }, "twitter:description"), (0, _v1.jsx)("meta", {
+        name: "twitter:image",
+        content: _v4
+      }, "twitter:image"), (0, _v1.jsx)("link", {
+        rel: "apple-touch-icon-precomposed",
+        href: "https://f.vimeocdn.com/cms/images/apple-icon.png"
+      }, "apple-touch-icon"), (0, _v5.satelliteHreflangAlternates)(_v2).map(({
         hreflang: _v0,
         href: _v1
       }) => (0, _v1.jsx)("link", {
@@ -75,8 +91,7 @@
       }, `hreflang-${_v0}`))]
     });
   }
-  var _v9 = _v0.i(0),
-    _v10 = _v0.i(0),
+  var _v10 = _v0.i(0),
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
@@ -98,12 +113,13 @@
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
-    _v32 = _v0.i(0);
-  let _v33 = ({
+    _v32 = _v0.i(0),
+    _v33 = _v0.i(0);
+  let _v34 = ({
     cta: _v0,
     children: _v1,
     ..._v2
-  }) => _v0 ? (0, _v1.jsx)(_v21.Link, {
+  }) => _v0 ? (0, _v1.jsx)(_v22.Link, {
     as: _v0.href ? void 0 : "button",
     href: _v0.href,
     target: _v0.target,
@@ -114,32 +130,32 @@
   }) : (0, _v1.jsx)(_v1.Fragment, {
     children: _v1
   });
-  var _v34 = _v0.i(0);
-  let _v35 = ({
+  var _v35 = _v0.i(0);
+  let _v36 = ({
     children: _v0,
     ..._v1
-  }) => (0, _v1.jsx)(_v34.Container, {
-    maxW: (0, _v22.rem)(0),
+  }) => (0, _v1.jsx)(_v35.Container, {
+    maxW: (0, _v23.rem)(0),
     px: {
-      base: (0, _v22.rem)(20),
-      md: (0, _v22.rem)(40)
+      base: (0, _v23.rem)(20),
+      md: (0, _v23.rem)(40)
     },
     py: {
-      base: (0, _v22.rem)(48),
-      md: (0, _v22.rem)(80)
+      base: (0, _v23.rem)(48),
+      md: (0, _v23.rem)(80)
     },
     ..._v1,
     children: _v0
   });
-  var _v36 = _v0.i(0);
-  let _v37 = ({
+  var _v37 = _v0.i(0);
+  let _v38 = ({
       label: _v0,
       href: _v1,
       onClick: _v2,
       target: _v3,
       variant: _v4 = "secondary",
       size: _v5
-    }) => (0, _v1.jsx)(_v36.Button, {
+    }) => (0, _v1.jsx)(_v37.Button, {
       as: _v1 ? "a" : void 0,
       href: _v1,
       target: _v1 ? _v3 : void 0,
@@ -149,17 +165,17 @@
       onClick: _v2,
       children: _v0
     }),
-    _v38 = ({
+    _v39 = ({
       children: _v0
-    }) => (0, _v1.jsx)(_v20.Header, {
+    }) => (0, _v1.jsx)(_v21.Header, {
       as: "h2",
       variant: "heading-2xl",
       textAlign: "center",
       color: "text-primary",
-      mb: (0, _v22.rem)(32),
+      mb: (0, _v23.rem)(32),
       children: _v0
     }),
-    _v39 = ({
+    _v40 = ({
       imgSrc: _v0,
       imgAlt: _v1,
       title: _v2,
@@ -167,48 +183,48 @@
       subDescription: _v4,
       cta: _v5,
       background: _v6
-    }) => (0, _v1.jsxs)(_v28.Card, {
+    }) => (0, _v1.jsxs)(_v29.Card, {
       role: "group",
       overflow: "hidden",
       bg: _v6,
-      borderRadius: (0, _v22.rem)(16),
+      borderRadius: (0, _v23.rem)(16),
       height: "100%",
-      children: [_v0 && (0, _v1.jsx)(_v33, {
+      children: [_v0 && (0, _v1.jsx)(_v34, {
         cta: _v5,
         display: "block",
         border: "none",
         p: 0,
         bg: "transparent",
-        children: (0, _v1.jsx)(_v30.Image, {
+        children: (0, _v1.jsx)(_v31.Image, {
           src: _v0,
           alt: _v1 ?? "",
           w: "100%",
           objectFit: "cover",
           aspectRatio: 16 / 9
         })
-      }), (0, _v1.jsxs)(_v29.CardBody, {
+      }), (0, _v1.jsxs)(_v30.CardBody, {
         pt: {
-          base: (0, _v22.rem)(64),
-          md: (0, _v22.rem)(40)
+          base: (0, _v23.rem)(64),
+          md: (0, _v23.rem)(40)
         },
         pb: {
-          base: (0, _v22.rem)(72),
-          md: (0, _v22.rem)(40)
+          base: (0, _v23.rem)(72),
+          md: (0, _v23.rem)(40)
         },
         px: {
-          base: (0, _v22.rem)(32),
-          md: (0, _v22.rem)(64)
+          base: (0, _v23.rem)(32),
+          md: (0, _v23.rem)(64)
         },
         flex: "1",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        gap: (0, _v22.rem)(24),
-        children: [(0, _v1.jsx)(_v20.Header, {
+        gap: (0, _v23.rem)(24),
+        children: [(0, _v1.jsx)(_v21.Header, {
           as: "h3",
           variant: "heading-xl",
           color: "text-primary",
-          children: (0, _v1.jsx)(_v33, {
+          children: (0, _v1.jsx)(_v34, {
             cta: _v5,
             textAlign: "left",
             color: "text-primary",
@@ -221,93 +237,93 @@
             },
             children: _v2
           })
-        }), (_v3 || _v4) && (0, _v1.jsxs)(_v32.Stack, {
-          spacing: (0, _v22.rem)(8),
+        }), (_v3 || _v4) && (0, _v1.jsxs)(_v33.Stack, {
+          spacing: (0, _v23.rem)(8),
           flexGrow: 1,
-          children: [_v3 && (0, _v1.jsx)(_v23.Text, {
-            fontSize: (0, _v22.rem)(20),
+          children: [_v3 && (0, _v1.jsx)(_v24.Text, {
+            fontSize: (0, _v23.rem)(20),
             color: "text-secondary",
             children: _v3
-          }), _v4 && (0, _v1.jsx)(_v23.Text, {
-            fontSize: (0, _v22.rem)(20),
+          }), _v4 && (0, _v1.jsx)(_v24.Text, {
+            fontSize: (0, _v23.rem)(20),
             color: "text-secondary",
             children: _v4
           })]
-        }), _v5 && (0, _v1.jsx)(_v18.Box, {
-          mt: (0, _v22.rem)(8),
+        }), _v5 && (0, _v1.jsx)(_v19.Box, {
+          mt: (0, _v23.rem)(8),
           flex: "1",
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-end",
           alignItems: "flex-start",
-          children: (0, _v1.jsx)(_v37, {
+          children: (0, _v1.jsx)(_v38, {
             ..._v5,
             size: _v5.size ?? "lg"
           })
         })]
       })]
     }),
-    _v40 = ({
+    _v41 = ({
       title: _v0,
       cards: _v1,
       cardBackground: _v2 = "background"
     }) => {
       let _v3;
-      return (0, _v1.jsxs)(_v35, {
+      return (0, _v1.jsxs)(_v36, {
         as: "section",
-        children: [_v0 && (0, _v1.jsx)(_v38, {
+        children: [_v0 && (0, _v1.jsx)(_v39, {
           children: _v0
-        }), (0, _v1.jsx)(_v31.SimpleGrid, {
+        }), (0, _v1.jsx)(_v32.SimpleGrid, {
           columns: {
             base: 1,
             md: Math.min(_v1.length, 2),
             lg: Math.max(1, (_v3 = _v1.length) < 4 ? _v3 : 4 === _v3 ? 2 : 3)
           },
-          spacing: (0, _v22.rem)(16),
-          children: _v1.map((_v0, _v1) => (0, _v1.jsx)(_v39, {
+          spacing: (0, _v23.rem)(16),
+          children: _v1.map((_v0, _v1) => (0, _v1.jsx)(_v40, {
             ..._v0,
             background: _v2
           }, _v1))
         })]
       });
     };
-  var _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
+  var _v42 = _v0.i(0),
     _v43 = _v0.i(0),
     _v44 = _v0.i(0),
     _v45 = _v0.i(0),
-    _v46 = _v0.i(0);
-  let _v47 = ({
+    _v46 = _v0.i(0),
+    _v47 = _v0.i(0);
+  let _v48 = ({
       eyebrow: _v0,
       title: _v1,
       faqs: _v2
-    }) => (0, _v1.jsx)(_v35, {
+    }) => (0, _v1.jsx)(_v36, {
       as: "section",
-      children: (0, _v1.jsxs)(_v45.Grid, {
+      children: (0, _v1.jsxs)(_v46.Grid, {
         templateColumns: {
           base: "1fr",
           md: "2fr 3fr"
         },
         gap: {
-          base: (0, _v22.rem)(32),
-          md: (0, _v22.rem)(64)
+          base: (0, _v23.rem)(32),
+          md: (0, _v23.rem)(64)
         },
-        children: [(0, _v1.jsxs)(_v19.Flex, {
+        children: [(0, _v1.jsxs)(_v20.Flex, {
           direction: "column",
-          gap: (0, _v22.rem)(16),
+          gap: (0, _v23.rem)(16),
           align: "flex-start",
           alignSelf: "start",
           position: {
             md: "sticky"
           },
           top: {
-            md: (0, _v22.rem)(96)
+            md: (0, _v23.rem)(96)
           },
-          children: [_v0 && (0, _v1.jsx)(_v23.Text, {
+          children: [_v0 && (0, _v1.jsx)(_v24.Text, {
             fontSize: "heading-md",
             color: "text-secondary",
             children: _v0
-          }), _v1 && (0, _v1.jsx)(_v20.Header, {
+          }), _v1 && (0, _v1.jsx)(_v21.Header, {
             as: "h2",
             variant: "heading-2xl",
             fontSize: {
@@ -317,30 +333,30 @@
             color: "text-primary",
             children: _v1
           })]
-        }), (0, _v1.jsx)(_v41.Accordion, {
+        }), (0, _v1.jsx)(_v42.Accordion, {
           allowToggle: !0,
-          children: _v2.map((_v0, _v1) => (0, _v1.jsx)(_v43.AccordionItem, {
+          children: _v2.map((_v0, _v1) => (0, _v1.jsx)(_v44.AccordionItem, {
             children: ({
               isExpanded: _v0
             }) => (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v20.Header, {
+              children: [(0, _v1.jsx)(_v21.Header, {
                 as: "h3",
-                children: (0, _v1.jsxs)(_v42.AccordionButton, {
+                children: (0, _v1.jsxs)(_v43.AccordionButton, {
                   p: 6,
-                  children: [(0, _v1.jsx)(_v18.Box, {
+                  children: [(0, _v1.jsx)(_v19.Box, {
                     flex: "1",
                     textAlign: "left",
                     fontSize: "heading-md",
                     color: "text-primary",
                     children: _v0.question
-                  }), !_v0 && (0, _v1.jsx)(_v46.Plus, {
-                    boxSize: (0, _v22.rem)(20)
+                  }), !_v0 && (0, _v1.jsx)(_v47.Plus, {
+                    boxSize: (0, _v23.rem)(20)
                   })]
                 })
-              }), (0, _v1.jsx)(_v44.AccordionPanel, {
+              }), (0, _v1.jsx)(_v45.AccordionPanel, {
                 p: 6,
                 pt: 2,
-                children: (0, _v1.jsx)(_v23.Text, {
+                children: (0, _v1.jsx)(_v24.Text, {
                   variant: "body-xl",
                   fontWeight: "bold",
                   color: "text-secondary",
@@ -352,31 +368,31 @@
         })]
       })
     }),
-    _v48 = ({
+    _v49 = ({
       icon: _v0,
       title: _v1,
       description: _v2,
       cta: _v3
-    }) => (0, _v1.jsx)(_v28.Card, {
+    }) => (0, _v1.jsx)(_v29.Card, {
       role: "group",
       bg: "transparent",
       boxShadow: "none",
-      borderRadius: (0, _v22.rem)(16),
+      borderRadius: (0, _v23.rem)(16),
       height: "100%",
-      children: (0, _v1.jsxs)(_v29.CardBody, {
-        px: (0, _v22.rem)(24),
-        py: (0, _v22.rem)(32),
+      children: (0, _v1.jsxs)(_v30.CardBody, {
+        px: (0, _v23.rem)(24),
+        py: (0, _v23.rem)(32),
         flex: "1",
         display: "flex",
         flexDirection: "column",
-        gap: (0, _v22.rem)(16),
-        children: [(0, _v1.jsx)(_v18.Box, {
+        gap: (0, _v23.rem)(16),
+        children: [(0, _v1.jsx)(_v19.Box, {
           color: "text-primary",
           lineHeight: 0,
           _groupHover: {
             color: "vimeoBlue.500"
           },
-          children: (0, _v1.jsx)(_v33, {
+          children: (0, _v1.jsx)(_v34, {
             cta: _v3,
             display: "inline-flex",
             border: "none",
@@ -385,11 +401,11 @@
             color: "inherit",
             children: _v0
           })
-        }), (0, _v1.jsx)(_v20.Header, {
+        }), (0, _v1.jsx)(_v21.Header, {
           as: "h3",
           variant: "heading-lg",
           color: "text-primary",
-          children: (0, _v1.jsx)(_v33, {
+          children: (0, _v1.jsx)(_v34, {
             cta: _v3,
             textAlign: "left",
             color: "text-primary",
@@ -400,95 +416,95 @@
             },
             children: _v1
           })
-        }), _v2 && (0, _v1.jsx)(_v23.Text, {
-          fontSize: (0, _v22.rem)(18),
+        }), _v2 && (0, _v1.jsx)(_v24.Text, {
+          fontSize: (0, _v23.rem)(18),
           color: "text-secondary",
           flexGrow: 1,
           children: _v2
-        }), _v3 && (0, _v1.jsx)(_v18.Box, {
+        }), _v3 && (0, _v1.jsx)(_v19.Box, {
           mt: "auto",
           display: "flex",
           justifyContent: "flex-start",
-          children: (0, _v1.jsx)(_v37, {
+          children: (0, _v1.jsx)(_v38, {
             ..._v3,
             size: _v3.size ?? "lg"
           })
         })]
       })
     }),
-    _v49 = ({
+    _v50 = ({
       title: _v0,
       cards: _v1
-    }) => (0, _v1.jsxs)(_v35, {
+    }) => (0, _v1.jsxs)(_v36, {
       as: "section",
-      children: [_v0 && (0, _v1.jsx)(_v38, {
+      children: [_v0 && (0, _v1.jsx)(_v39, {
         children: _v0
-      }), (0, _v1.jsx)(_v31.SimpleGrid, {
+      }), (0, _v1.jsx)(_v32.SimpleGrid, {
         columns: {
           base: 1,
           md: Math.min(Math.max(1, _v1.length), 4)
         },
-        spacing: (0, _v22.rem)(16),
-        children: _v1.map((_v0, _v1) => (0, _v1.jsx)(_v48, {
+        spacing: (0, _v23.rem)(16),
+        children: _v1.map((_v0, _v1) => (0, _v1.jsx)(_v49, {
           ..._v0
         }, _v1))
       })]
     });
-  var _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
+  var _v51 = _v0.i(0),
     _v52 = _v0.i(0),
     _v53 = _v0.i(0),
     _v54 = _v0.i(0),
-    _v55 = _v0.i(0);
-  let _v56 = "video/*,.mkv,.m2ts",
-    _v57 = _v56.split(","),
-    _v58 = _v57.filter(_v0 => _v0.endsWith("/*")).map(_v0 => _v0.slice(0, -1)),
-    _v59 = _v57.filter(_v0 => _v0.startsWith(".")).map(_v0 => _v0.toLowerCase()),
-    _v60 = _v0 => Array.from(_v0).filter(_v0 => {
-      if (_v58.some(_v0 => _v0.type.startsWith(_v0))) return !0;
+    _v55 = _v0.i(0),
+    _v56 = _v0.i(0);
+  let _v57 = "video/*,.mkv,.m2ts",
+    _v58 = _v57.split(","),
+    _v59 = _v58.filter(_v0 => _v0.endsWith("/*")).map(_v0 => _v0.slice(0, -1)),
+    _v60 = _v58.filter(_v0 => _v0.startsWith(".")).map(_v0 => _v0.toLowerCase()),
+    _v61 = _v0 => Array.from(_v0).filter(_v0 => {
+      if (_v59.some(_v0 => _v0.type.startsWith(_v0))) return !0;
       let _v1 = _v0.name.toLowerCase();
-      return _v59.some(_v0 => _v1.endsWith(_v0));
+      return _v60.some(_v0 => _v1.endsWith(_v0));
     }),
-    _v61 = () => {
-      let _v0 = (0, _v51.useColorModeValue)("black", "white");
-      return (0, _v1.jsxs)(_v50.Center, {
-        width: (0, _v22.rem)(170),
-        height: (0, _v22.rem)(100),
+    _v62 = () => {
+      let _v0 = (0, _v52.useColorModeValue)("black", "white");
+      return (0, _v1.jsxs)(_v51.Center, {
+        width: (0, _v23.rem)(170),
+        height: (0, _v23.rem)(100),
         position: "relative",
-        children: [(0, _v1.jsx)(_v53.Cloud, {
+        children: [(0, _v1.jsx)(_v54.Cloud, {
           width: "100%",
           height: "100%"
-        }), (0, _v1.jsx)(_v18.Box, {
+        }), (0, _v1.jsx)(_v19.Box, {
           position: "absolute",
-          bottom: (0, _v22.rem)(20),
-          children: (0, _v1.jsx)(_v55.ArrowUpFilled, {
+          bottom: (0, _v23.rem)(20),
+          children: (0, _v1.jsx)(_v56.ArrowUpFilled, {
             boxSize: "md",
             stroke: _v0,
             strokeWidth: "2"
           })
-        }), (0, _v1.jsx)(_v18.Box, {
+        }), (0, _v1.jsx)(_v19.Box, {
           position: "absolute",
-          left: (0, _v22.rem)(-4),
-          bottom: (0, _v22.rem)(18),
-          children: (0, _v1.jsx)(_v54.PlusSmallFilled, {
+          left: (0, _v23.rem)(-4),
+          bottom: (0, _v23.rem)(18),
+          children: (0, _v1.jsx)(_v55.PlusSmallFilled, {
             boxSize: "xs",
             stroke: _v0,
             strokeWidth: "3"
           })
-        }), (0, _v1.jsx)(_v18.Box, {
+        }), (0, _v1.jsx)(_v19.Box, {
           position: "absolute",
-          right: (0, _v22.rem)(8),
-          top: (0, _v22.rem)(14),
-          children: (0, _v1.jsx)(_v54.PlusSmallFilled, {
+          right: (0, _v23.rem)(8),
+          top: (0, _v23.rem)(14),
+          children: (0, _v1.jsx)(_v55.PlusSmallFilled, {
             boxSize: "xs",
             stroke: _v0,
             strokeWidth: "3"
           })
-        }), (0, _v1.jsx)(_v18.Box, {
+        }), (0, _v1.jsx)(_v19.Box, {
           position: "absolute",
-          right: (0, _v22.rem)(-2),
-          top: (0, _v22.rem)(40),
-          children: (0, _v1.jsx)(_v54.PlusSmallFilled, {
+          right: (0, _v23.rem)(-2),
+          top: (0, _v23.rem)(40),
+          children: (0, _v1.jsx)(_v55.PlusSmallFilled, {
             boxSize: "xs",
             stroke: _v0,
             strokeWidth: "3"
@@ -496,7 +512,7 @@
         })]
       });
     },
-    _v62 = ({
+    _v63 = ({
       isDragging: _v0,
       onDragOver: _v1,
       onDragLeave: _v2,
@@ -508,23 +524,24 @@
       knobs: _v8,
       stagedList: _v9
     }) => {
-      let _v10 = (0, _v9.useRef)(null);
-      return (0, _v1.jsxs)(_v19.Flex, {
+      let _v10 = (0, _v10.useRef)(null);
+      return (0, _v1.jsxs)(_v20.Flex, {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         flex: "1",
-        gap: (0, _v22.rem)(16),
+        gap: (0, _v23.rem)(16),
         backgroundColor: _v0 ? "surface" : "transparent",
-        padding: (0, _v22.rem)(48),
+        padding: (0, _v23.rem)(48),
         textAlign: "center",
         onDragOver: _v1,
         onDragLeave: _v2,
         onDrop: _v3,
-        children: [(0, _v1.jsx)(_v61, {}), (0, _v1.jsx)(_v20.Header, {
+        children: [(0, _v1.jsx)(_v62, {}), (0, _v1.jsx)(_v21.Header, {
           size: "2xl",
           color: "text-primary",
-          children: (0, _v6.translate)({
+          as: "h2",
+          children: (0, _v7.translate)({
             singular: "Upload your video file(s)",
             dictionary: {
               es: {
@@ -550,11 +567,11 @@
               }
             }
           })
-        }), _v9 ? (0, _v1.jsx)(_v18.Box, {
+        }), _v9 ? (0, _v1.jsx)(_v19.Box, {
           width: "100%",
           children: _v9
-        }) : null, (0, _v1.jsx)(_v52.FileInput, {
-          label: (0, _v1.jsx)(_v36.Button, {
+        }) : null, (0, _v1.jsx)(_v53.FileInput, {
+          label: (0, _v1.jsx)(_v37.Button, {
             size: "lg",
             variant: "primary",
             onClick: () => {
@@ -564,29 +581,29 @@
           }),
           ref: _v10,
           multiple: !0,
-          accept: _v56,
+          accept: _v57,
           variant: "filled",
           size: "lg",
           onChange: _v4,
           "data-testid": "staged-file-input"
-        }), _v8 ? (0, _v1.jsx)(_v18.Box, {
+        }), _v8 ? (0, _v1.jsx)(_v19.Box, {
           width: "100%",
           children: _v8
         }) : null]
       });
     };
-  var _v63 = _v0.i(0),
-    _v64 = _v0.i(0),
-    _v65 = _v0.i(0);
-  let _v66 = ({
+  var _v64 = _v0.i(0),
+    _v65 = _v0.i(0),
+    _v66 = _v0.i(0);
+  let _v67 = ({
       files: _v0,
       onRemoveFile: _v1
-    }) => 0 === _v0.length ? null : (0, _v1.jsx)(_v19.Flex, {
+    }) => 0 === _v0.length ? null : (0, _v1.jsx)(_v20.Flex, {
       as: "ul",
       flexDirection: "row",
-      gap: (0, _v22.rem)(8),
+      gap: (0, _v23.rem)(8),
       padding: 0,
-      paddingBottom: (0, _v22.rem)(4),
+      paddingBottom: (0, _v23.rem)(4),
       margin: 0,
       listStyleType: "none",
       width: "100%",
@@ -594,38 +611,38 @@
       children: _v0.map(({
         id: _v0,
         file: _v1
-      }) => (0, _v1.jsxs)(_v19.Flex, {
+      }) => (0, _v1.jsxs)(_v20.Flex, {
         as: "li",
         alignItems: "center",
-        gap: (0, _v22.rem)(8),
+        gap: (0, _v23.rem)(8),
         flexShrink: 0,
         maxWidth: {
-          base: (0, _v22.rem)(180),
-          md: (0, _v22.rem)(240)
+          base: (0, _v23.rem)(180),
+          md: (0, _v23.rem)(240)
         },
         border: "1px solid",
         borderColor: "stroke",
         borderRadius: "md",
-        paddingY: (0, _v22.rem)(4),
-        paddingLeft: (0, _v22.rem)(12),
-        paddingRight: (0, _v22.rem)(4),
-        children: [(0, _v1.jsx)(_v23.Text, {
+        paddingY: (0, _v23.rem)(4),
+        paddingLeft: (0, _v23.rem)(12),
+        paddingRight: (0, _v23.rem)(4),
+        children: [(0, _v1.jsx)(_v24.Text, {
           variant: "body-sm",
           color: "text-primary",
           isTruncated: !0,
           title: _v1.name,
           children: _v1.name
-        }), (0, _v1.jsx)(_v23.Text, {
+        }), (0, _v1.jsx)(_v24.Text, {
           variant: "body-sm",
           color: "text-secondary",
           flexShrink: 0,
           whiteSpace: "nowrap",
-          children: (0, _v65.bytesToSize)(_v1.size)
-        }), (0, _v1.jsx)(_v63.IconButton, {
+          children: (0, _v66.bytesToSize)(_v1.size)
+        }), (0, _v1.jsx)(_v64.IconButton, {
           variant: "tertiary",
           size: "sm",
-          icon: (0, _v1.jsx)(_v64.CloseXSmall, {}),
-          "aria-label": (0, _v6.translate)({
+          icon: (0, _v1.jsx)(_v65.CloseXSmall, {}),
+          "aria-label": (0, _v7.translate)({
             singular: "Remove {FILE_NAME}",
             replacements: {
               FILE_NAME: _v1.name
@@ -658,18 +675,18 @@
         })]
       }, _v0))
     }),
-    _v67 = ({
+    _v68 = ({
       onRestart: _v0,
       onGoToFolder: _v1
-    }) => (0, _v1.jsxs)(_v19.Flex, {
+    }) => (0, _v1.jsxs)(_v20.Flex, {
       justifyContent: "center",
-      gap: (0, _v22.rem)(12),
-      padding: (0, _v22.rem)(24),
+      gap: (0, _v23.rem)(12),
+      padding: (0, _v23.rem)(24),
       paddingTop: 0,
-      children: [(0, _v1.jsx)(_v36.Button, {
+      children: [(0, _v1.jsx)(_v37.Button, {
         variant: "secondary",
         onClick: _v0,
-        children: (0, _v6.translate)({
+        children: (0, _v7.translate)({
           singular: "Restart",
           dictionary: {
             es: {
@@ -695,10 +712,10 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v36.Button, {
+      }), (0, _v1.jsx)(_v37.Button, {
         variant: "primary",
         onClick: _v1,
-        children: (0, _v6.translate)({
+        children: (0, _v7.translate)({
           singular: "Go to folder",
           dictionary: {
             es: {
@@ -726,33 +743,33 @@
         })
       })]
     }),
-    _v68 = (0, _v22.rem)(360),
-    _v69 = ({
+    _v69 = (0, _v23.rem)(360),
+    _v70 = ({
       phase: _v0,
       isDragging: _v1 = !1,
       children: _v2
     }) => {
       let _v3 = "staging" === _v0;
-      return (0, _v1.jsx)(_v19.Flex, {
+      return (0, _v1.jsx)(_v20.Flex, {
         flexDirection: "column",
-        minHeight: _v68,
+        minHeight: _v69,
         border: _v3 ? "1px dashed" : "1px solid",
         borderColor: _v3 && _v1 ? "text-primary" : "stroke",
         borderRadius: "md",
         children: _v2
       });
     };
-  var _v70 = _v0.i(0),
-    _v71 = _v0.i(0),
+  var _v71 = _v0.i(0),
     _v72 = _v0.i(0),
-    _v72 = _v72,
     _v73 = _v0.i(0),
+    _v73 = _v73,
     _v74 = _v0.i(0),
     _v75 = _v0.i(0),
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
-    _v78 = _v0.i(0);
-  let _v79 = ({
+    _v78 = _v0.i(0),
+    _v79 = _v0.i(0);
+  let _v80 = ({
       privacy: _v0,
       isLoading: _v1,
       capabilities: _v2,
@@ -765,22 +782,22 @@
       updateContentRating: _v9,
       onClose: _v10
     }) => {
-      let _v11 = (0, _v9.useContext)(_v78.ViewerContext),
+      let _v11 = (0, _v10.useContext)(_v79.ViewerContext),
         {
           trackUploadLinkPrivacyChanged: _v12
-        } = (0, _v75.useUploadPageTracking)(),
+        } = (0, _v76.useUploadPageTracking)(),
         _v13 = _v3 === _v11?.user?.id,
         _v14 = _v2?.hasEnterprise,
         {
           data: _v15
-        } = (0, _v74.useGetUserPreferences)(() => _v14 && _v3 ? {
+        } = (0, _v75.useGetUserPreferences)(() => _v14 && _v3 ? {
           where: {
             userId: _v3
           },
           select: ["tapa", "tapc"]
         } : null),
-        _v16 = _v14 ? (0, _v76.getAllowedEnterprisePrivacyOptions)(_v4, _v15) : void 0;
-      return (0, _v1.jsx)(_v77.PrivacyDrawer, {
+        _v16 = _v14 ? (0, _v77.getAllowedEnterprisePrivacyOptions)(_v4, _v15) : void 0;
+      return (0, _v1.jsx)(_v78.PrivacyDrawer, {
         video: {
           privacy: {
             ..._v0,
@@ -832,7 +849,7 @@
         onClose: _v10
       });
     },
-    _v80 = ({
+    _v81 = ({
       privacy: _v0,
       setPrivacy: _v1,
       contentRating: _v2,
@@ -844,16 +861,16 @@
       hasRestrictedPrivacyOptions: _v8,
       uploadingFileSize: _v9
     }) => {
-      let [_v10, _v11] = (0, _v9.useState)(!1);
+      let [_v10, _v11] = (0, _v10.useState)(!1);
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v72.default, {
+        children: [(0, _v1.jsx)(_v73.default, {
           privacy: _v0.view ?? "nobody",
           onClick: () => _v11(!0)
-        }), (0, _v1.jsx)(_v73.SideDrawer, {
+        }), (0, _v1.jsx)(_v74.SideDrawer, {
           isOpen: _v10,
           onClose: () => _v11(!1),
           side: "right",
-          children: (0, _v1.jsx)(_v79, {
+          children: (0, _v1.jsx)(_v80, {
             privacy: _v0,
             isLoading: _v5,
             capabilities: _v4,
@@ -869,18 +886,18 @@
         })]
       });
     },
-    _v81 = ({
+    _v82 = ({
       knobs: _v0
-    }) => (0, _v1.jsxs)(_v19.Flex, {
+    }) => (0, _v1.jsxs)(_v20.Flex, {
       flexDirection: "column",
       alignItems: "center",
-      gap: (0, _v22.rem)(12),
-      children: [(0, _v1.jsx)(_v19.Flex, {
+      gap: (0, _v23.rem)(12),
+      children: [(0, _v1.jsx)(_v20.Flex, {
         alignItems: "center",
         justifyContent: "center",
-        gap: (0, _v22.rem)(8),
+        gap: (0, _v23.rem)(8),
         flexWrap: "wrap",
-        children: (0, _v1.jsx)(_v71.TeamSwitcher, {
+        children: (0, _v1.jsx)(_v72.TeamSwitcher, {
           teams: _v0.teams,
           selectedTeamId: _v0.selectedTeamId,
           selectTeam: _v0.selectTeam,
@@ -888,9 +905,9 @@
           selectFolder: _v0.selectFolder,
           isLoading: _v0.isLoadingTeams,
           disabled: !1,
-          enabledRoles: _v70.ALL_TEAM_ROLES
+          enabledRoles: _v71.ALL_TEAM_ROLES
         })
-      }), (0, _v1.jsx)(_v80, {
+      }), (0, _v1.jsx)(_v81, {
         privacy: _v0.privacy,
         setPrivacy: _v0.setPrivacy,
         contentRating: _v0.contentRating,
@@ -903,32 +920,32 @@
         uploadingFileSize: _v0.uploadingFileSize
       })]
     }),
-    _v82 = ({
+    _v83 = ({
       percent: _v0,
       failed: _v1
-    }) => (0, _v1.jsx)(_v18.Box, {
+    }) => (0, _v1.jsx)(_v19.Box, {
       width: "100%",
-      height: (0, _v22.rem)(4),
+      height: (0, _v23.rem)(4),
       backgroundColor: "fill-component",
       borderRadius: "sm",
       overflow: "hidden",
-      children: (0, _v1.jsx)(_v18.Box, {
+      children: (0, _v1.jsx)(_v19.Box, {
         width: `${_v1 ? 100 : _v0}%`,
         height: "100%",
         backgroundColor: _v1 ? "status-destructive-primary" : "fill-brand"
       })
     }),
-    _v83 = ({
+    _v84 = ({
       uploads: _v0,
       uploaderSummary: _v1
-    }) => 0 === _v0.length ? null : (0, _v1.jsxs)(_v19.Flex, {
+    }) => 0 === _v0.length ? null : (0, _v1.jsxs)(_v20.Flex, {
       flexDirection: "column",
-      gap: (0, _v22.rem)(12),
-      padding: (0, _v22.rem)(24),
-      children: [(0, _v1.jsx)(_v23.Text, {
+      gap: (0, _v23.rem)(12),
+      padding: (0, _v23.rem)(24),
+      children: [(0, _v1.jsx)(_v24.Text, {
         variant: "heading-5",
         color: "text-primary",
-        children: _v1.isComplete ? _v1.hasFailures ? (0, _v6.translate)({
+        children: _v1.isComplete ? _v1.hasFailures ? (0, _v7.translate)({
           singular: "Upload finished with errors",
           dictionary: {
             es: {
@@ -953,7 +970,7 @@
               singular: "上传完成，但出现错误"
             }
           }
-        }) : (0, _v6.translate)({
+        }) : (0, _v7.translate)({
           singular: "Upload complete",
           dictionary: {
             es: {
@@ -978,7 +995,7 @@
               singular: "上传完成"
             }
           }
-        }) : (0, _v6.translate)({
+        }) : (0, _v7.translate)({
           singular: "Uploading your files",
           dictionary: {
             es: {
@@ -1004,14 +1021,14 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v19.Flex, {
+      }), (0, _v1.jsx)(_v20.Flex, {
         as: "ul",
         flexDirection: "column",
-        gap: (0, _v22.rem)(8),
+        gap: (0, _v23.rem)(8),
         padding: 0,
         margin: 0,
         listStyleType: "none",
-        maxHeight: (0, _v22.rem)(280),
+        maxHeight: (0, _v23.rem)(280),
         overflowY: "auto",
         children: _v0.map(_v0 => {
           let _v1 = "FAILED" === _v0.state,
@@ -1020,30 +1037,30 @@
               initialSize: _v1,
               state: _v2
             }) => "COMPLETED" === _v2 ? 100 : _v1 <= 0 ? 0 : Math.min(100, Math.round(_v0 / _v1 * 100)))(_v0);
-          return (0, _v1.jsxs)(_v19.Flex, {
+          return (0, _v1.jsxs)(_v20.Flex, {
             as: "li",
             flexDirection: "column",
-            gap: (0, _v22.rem)(8),
+            gap: (0, _v23.rem)(8),
             border: "1px solid",
             borderColor: "stroke",
             borderRadius: "md",
-            padding: (0, _v22.rem)(12),
-            children: [(0, _v1.jsxs)(_v19.Flex, {
+            padding: (0, _v23.rem)(12),
+            children: [(0, _v1.jsxs)(_v20.Flex, {
               alignItems: "center",
               justifyContent: "space-between",
-              gap: (0, _v22.rem)(12),
-              children: [(0, _v1.jsx)(_v23.Text, {
+              gap: (0, _v23.rem)(12),
+              children: [(0, _v1.jsx)(_v24.Text, {
                 variant: "body-sm",
                 color: "text-primary",
                 isTruncated: !0,
                 children: _v0.file.name
-              }), (0, _v1.jsx)(_v23.Text, {
+              }), (0, _v1.jsx)(_v24.Text, {
                 variant: "body-sm",
                 color: _v1 ? "status-destructive-primary" : "text-secondary",
                 children: (_v0 => {
                   switch (_v0) {
                     case "COMPLETED":
-                      return (0, _v6.translate)({
+                      return (0, _v7.translate)({
                         singular: "Complete",
                         dictionary: {
                           es: {
@@ -1070,7 +1087,7 @@
                         }
                       });
                     case "FAILED":
-                      return (0, _v6.translate)({
+                      return (0, _v7.translate)({
                         singular: "Failed",
                         dictionary: {
                           es: {
@@ -1097,7 +1114,7 @@
                         }
                       });
                     case "UPLOADING":
-                      return (0, _v6.translate)({
+                      return (0, _v7.translate)({
                         singular: "Uploading",
                         dictionary: {
                           es: {
@@ -1124,7 +1141,7 @@
                         }
                       });
                     case "QUEUED":
-                      return (0, _v6.translate)({
+                      return (0, _v7.translate)({
                         singular: "Queued",
                         dictionary: {
                           es: {
@@ -1151,7 +1168,7 @@
                         }
                       });
                     case "PAUSED":
-                      return (0, _v6.translate)({
+                      return (0, _v7.translate)({
                         singular: "Paused",
                         dictionary: {
                           es: {
@@ -1179,7 +1196,7 @@
                       });
                     case "CANCELED":
                     case "CANCELING":
-                      return (0, _v6.translate)({
+                      return (0, _v7.translate)({
                         singular: "Canceled",
                         dictionary: {
                           es: {
@@ -1206,7 +1223,7 @@
                         }
                       });
                     default:
-                      return (0, _v6.translate)({
+                      return (0, _v7.translate)({
                         singular: "Processing",
                         dictionary: {
                           es: {
@@ -1235,13 +1252,13 @@
                   }
                 })(_v0.state)
               })]
-            }), (0, _v1.jsx)(_v82, {
+            }), (0, _v1.jsx)(_v83, {
               percent: _v2,
               failed: _v1
-            }), (0, _v1.jsx)(_v23.Text, {
+            }), (0, _v1.jsx)(_v24.Text, {
               variant: "body-sm",
               color: "text-secondary",
-              children: _v1 ? _v0.error || (0, _v6.translate)({
+              children: _v1 ? _v0.error || (0, _v7.translate)({
                 singular: "Upload failed",
                 dictionary: {
                   es: {
@@ -1266,11 +1283,11 @@
                     singular: "上传失败"
                   }
                 }
-              }) : (0, _v6.translate)({
+              }) : (0, _v7.translate)({
                 singular: "{UPLOADED} of {TOTAL}",
                 replacements: {
-                  UPLOADED: (0, _v65.bytesToSize)(_v0.bytesUploaded),
-                  TOTAL: (0, _v65.bytesToSize)(_v0.initialSize)
+                  UPLOADED: (0, _v66.bytesToSize)(_v0.bytesUploaded),
+                  TOTAL: (0, _v66.bytesToSize)(_v0.initialSize)
                 },
                 dictionary: {
                   es: {
@@ -1301,25 +1318,25 @@
         })
       })]
     }),
-    _v84 = () => (0, _v1.jsx)(_v23.Text, {
+    _v85 = () => (0, _v1.jsx)(_v24.Text, {
       variant: "body-sm",
       color: "text-secondary",
       textAlign: "center",
-      children: (0, _v6.translate)({
+      children: (0, _v7.translate)({
         singular: "By submitting a video, you agree to our {TERMS}Terms of Service{/TERMS} and {GUIDE}Community Guidelines{/GUIDE}.",
         replacements: {
-          TERMS: _v0 => (0, _v1.jsx)(_v21.Link, {
+          TERMS: _v0 => (0, _v1.jsx)(_v22.Link, {
             href: "/terms",
             target: "_blank",
             variant: "inline-secondary",
-            fontSize: (0, _v22.rem)(12),
+            fontSize: (0, _v23.rem)(12),
             children: _v0
           }),
-          GUIDE: _v0 => (0, _v1.jsx)(_v21.Link, {
+          GUIDE: _v0 => (0, _v1.jsx)(_v22.Link, {
             href: "/help/guidelines",
             target: "_blank",
             variant: "inline-secondary",
-            fontSize: (0, _v22.rem)(12),
+            fontSize: (0, _v23.rem)(12),
             children: _v0
           })
         },
@@ -1348,10 +1365,10 @@
         }
       })
     }),
-    _v85 = (0, _v9.memo)(function () {
+    _v86 = (0, _v10.memo)(function () {
       let _v0 = [{
           imgSrc: "https://i.vimeocdn.com/custom_asset/41c190163f6117e8313cd91f48f5fef5",
-          title: (0, _v6.translate)({
+          imgAlt: (0, _v7.translate)({
             singular: "Host videos for free",
             dictionary: {
               es: {
@@ -1377,7 +1394,33 @@
               }
             }
           }),
-          description: (0, _v6.translate)({
+          title: (0, _v7.translate)({
+            singular: "Host videos for free",
+            dictionary: {
+              es: {
+                singular: "Aloja vídeos gratis"
+              },
+              "de-DE": {
+                singular: "Videos kostenlos hosten"
+              },
+              "fr-FR": {
+                singular: "Hébergez des vidéos gratuitement"
+              },
+              "ja-JP": {
+                singular: "動画を無料でホスト"
+              },
+              "ko-KR": {
+                singular: "동영상 무료 호스팅"
+              },
+              "pt-BR": {
+                singular: "Hospede vídeos gratuitamente"
+              },
+              "zh-CN": {
+                singular: "免费托管视频"
+              }
+            }
+          }),
+          description: (0, _v7.translate)({
             singular: "Make sure every aspect of the viewing experience aligns with your brand. Our fully customizable media player offers robust privacy and sharing settings, and supports high-quality streaming in 4k, 8k, HDR, and Dolby Vision. Start for free or check out Enterprise plans for unlimited storage.",
             dictionary: {
               es: {
@@ -1404,7 +1447,7 @@
             }
           }),
           cta: {
-            label: (0, _v6.translate)({
+            label: (0, _v7.translate)({
               singular: "Learn more",
               dictionary: {
                 es: {
@@ -1435,7 +1478,7 @@
           }
         }, {
           imgSrc: "https://i.vimeocdn.com/custom_asset/077a70824aa438f0ee0b6c4920562d24",
-          title: (0, _v6.translate)({
+          imgAlt: (0, _v7.translate)({
             singular: "Customize your video player",
             dictionary: {
               es: {
@@ -1461,7 +1504,33 @@
               }
             }
           }),
-          description: (0, _v6.translate)({
+          title: (0, _v7.translate)({
+            singular: "Customize your video player",
+            dictionary: {
+              es: {
+                singular: "Personaliza tu reproductor de video"
+              },
+              "de-DE": {
+                singular: "Video-Player nach Bedarf einstellen"
+              },
+              "fr-FR": {
+                singular: "Personnaliser votre player vidéo"
+              },
+              "ja-JP": {
+                singular: "動画プレーヤーをカスタマイズ"
+              },
+              "ko-KR": {
+                singular: "동영상 플레이어 커스텀"
+              },
+              "pt-BR": {
+                singular: "Customizar seu player de vídeo"
+              },
+              "zh-CN": {
+                singular: "自定义视频播放器"
+              }
+            }
+          }),
+          description: (0, _v7.translate)({
             singular: "Easily execute your vision with our customizable, HD, and always ad-free video player. If you upload a video to Vimeo with a Paid plan, add your logo, choose colors and select a thumbnail, show or hide the play bar and speed controls, offer automatic video chaptering, and more.",
             dictionary: {
               es: {
@@ -1488,7 +1557,7 @@
             }
           }),
           cta: {
-            label: (0, _v6.translate)({
+            label: (0, _v7.translate)({
               singular: "Learn more",
               dictionary: {
                 es: {
@@ -1519,7 +1588,7 @@
           }
         }, {
           imgSrc: "https://i.vimeocdn.com/custom_asset/834c83df16059abeb0131eea72b0ca3c",
-          title: (0, _v6.translate)({
+          imgAlt: (0, _v7.translate)({
             singular: "Create and edit with AI-powered video tools",
             dictionary: {
               es: {
@@ -1545,7 +1614,33 @@
               }
             }
           }),
-          description: (0, _v6.translate)({
+          title: (0, _v7.translate)({
+            singular: "Create and edit with AI-powered video tools",
+            dictionary: {
+              es: {
+                singular: "Crea y edita con herramientas de vídeo impulsadas por IA"
+              },
+              "de-DE": {
+                singular: "Erstellen und bearbeiten mit KI-gestützten Videotools"
+              },
+              "fr-FR": {
+                singular: "Créez et montez avec des outils vidéo propulsés par l’IA"
+              },
+              "ja-JP": {
+                singular: "AI搭載のビデオツールで作成および編集"
+              },
+              "ko-KR": {
+                singular: "AI 기반 비디오 도구로 제작 및 편집하세요"
+              },
+              "pt-BR": {
+                singular: "Crie e edite com ferramentas de vídeo com recursos de IA"
+              },
+              "zh-CN": {
+                singular: "使用 AI 驱动的视频工具创建和编辑"
+              }
+            }
+          }),
+          description: (0, _v7.translate)({
             singular: "Cut down production time with our AI-powered video tools. Record, upload, cut, crop, trim, resize, merge, and more to create polished video content, fast. Upload WMV, MOV, AVI, FLV, and MP4 video files, then edit from your Mac, PC, or the Vimeo app for iPhone and Android.",
             dictionary: {
               es: {
@@ -1572,7 +1667,7 @@
             }
           }),
           cta: {
-            label: (0, _v6.translate)({
+            label: (0, _v7.translate)({
               singular: "Learn more",
               dictionary: {
                 es: {
@@ -1603,7 +1698,7 @@
           }
         }, {
           imgSrc: "https://i.vimeocdn.com/custom_asset/5bb871da495ade37e72445c322fc7601",
-          title: (0, _v6.translate)({
+          imgAlt: (0, _v7.translate)({
             singular: "Embed videos anywhere or privately share links",
             dictionary: {
               es: {
@@ -1629,7 +1724,33 @@
               }
             }
           }),
-          description: (0, _v6.translate)({
+          title: (0, _v7.translate)({
+            singular: "Embed videos anywhere or privately share links",
+            dictionary: {
+              es: {
+                singular: "Incrusta vídeos donde quieras o comparte enlaces de forma privada"
+              },
+              "de-DE": {
+                singular: "Betten Sie Videos überall ein oder teilen Sie Links privat"
+              },
+              "fr-FR": {
+                singular: "Intégrez des vidéos n’importe où ou partagez des liens en privé"
+              },
+              "ja-JP": {
+                singular: "どこにでも埋め込み、またはリンクを非公開で共有"
+              },
+              "ko-KR": {
+                singular: "동영상을 어디에나 임베드하거나 비공개 링크로 공유하세요"
+              },
+              "pt-BR": {
+                singular: "Incorpore vídeos em qualquer lugar ou compartilhe links de forma privada"
+              },
+              "zh-CN": {
+                singular: "在任何地方嵌入视频或私密分享链接"
+              }
+            }
+          }),
+          description: (0, _v7.translate)({
             singular: "Take complete control over who can access your videos with our security settings. Embed content on a website for public viewing, or specify which sites have permission to embed. Share videos with team members by adding them directly to videos, or share an unlisted link. Need added security? Lock your videos with a password.",
             dictionary: {
               es: {
@@ -1656,7 +1777,7 @@
             }
           }),
           cta: {
-            label: (0, _v6.translate)({
+            label: (0, _v7.translate)({
               singular: "Learn more",
               dictionary: {
                 es: {
@@ -1687,10 +1808,10 @@
           }
         }],
         _v1 = [{
-          icon: (0, _v1.jsx)(_v24.CreateVideo, {
-            boxSize: (0, _v22.rem)(40)
+          icon: (0, _v1.jsx)(_v25.CreateVideo, {
+            boxSize: (0, _v23.rem)(40)
           }),
-          title: (0, _v6.translate)({
+          title: (0, _v7.translate)({
             singular: "Select a template or use stock footage",
             dictionary: {
               es: {
@@ -1717,7 +1838,7 @@
             }
           }),
           cta: {
-            label: (0, _v6.translate)({
+            label: (0, _v7.translate)({
               singular: "Create",
               dictionary: {
                 es: {
@@ -1747,10 +1868,10 @@
             variant: "secondary"
           }
         }, {
-          icon: (0, _v1.jsx)(_v26.Record, {
-            boxSize: (0, _v22.rem)(40)
+          icon: (0, _v1.jsx)(_v27.Record, {
+            boxSize: (0, _v23.rem)(40)
           }),
-          title: (0, _v6.translate)({
+          title: (0, _v7.translate)({
             singular: "Record your screen, yourself, or both",
             dictionary: {
               es: {
@@ -1777,7 +1898,7 @@
             }
           }),
           cta: {
-            label: (0, _v6.translate)({
+            label: (0, _v7.translate)({
               singular: "Record",
               dictionary: {
                 es: {
@@ -1807,10 +1928,10 @@
             variant: "secondary"
           }
         }, {
-          icon: (0, _v1.jsx)(_v25.MagicWand, {
-            boxSize: (0, _v22.rem)(40)
+          icon: (0, _v1.jsx)(_v26.MagicWand, {
+            boxSize: (0, _v23.rem)(40)
           }),
-          title: (0, _v6.translate)({
+          title: (0, _v7.translate)({
             singular: "Edit your video directly within your web browser",
             dictionary: {
               es: {
@@ -1837,7 +1958,7 @@
             }
           }),
           cta: {
-            label: (0, _v6.translate)({
+            label: (0, _v7.translate)({
               singular: "Edit",
               dictionary: {
                 es: {
@@ -1867,10 +1988,10 @@
             variant: "secondary"
           }
         }, {
-          icon: (0, _v1.jsx)(_v27.Upload, {
-            boxSize: (0, _v22.rem)(40)
+          icon: (0, _v1.jsx)(_v28.Upload, {
+            boxSize: (0, _v23.rem)(40)
           }),
-          title: (0, _v6.translate)({
+          title: (0, _v7.translate)({
             singular: "Host and store extra (extra) large video files",
             dictionary: {
               es: {
@@ -1897,7 +2018,7 @@
             }
           }),
           cta: {
-            label: (0, _v6.translate)({
+            label: (0, _v7.translate)({
               singular: "Upload",
               dictionary: {
                 es: {
@@ -1928,7 +2049,7 @@
           }
         }],
         _v2 = [{
-          question: (0, _v6.translate)({
+          question: (0, _v7.translate)({
             singular: "How do I upload a video online?",
             dictionary: {
               es: {
@@ -1954,10 +2075,10 @@
               }
             }
           }),
-          answer: (0, _v6.translate)({
+          answer: (0, _v7.translate)({
             singular: "Uploading a video online is easy with Vimeo. To upload a video that is saved on your computer, you can click on Select files on our {UPLOAD}Upload{/UPLOAD} page. You can also upload videos from Dropbox, Google Drive, Box, Zoom, Webex, or other apps. Then, select where in your library the newly uploaded video will be saved.",
             replacements: {
-              UPLOAD: _v0 => (0, _v1.jsx)(_v21.Link, {
+              UPLOAD: _v0 => (0, _v1.jsx)(_v22.Link, {
                 href: "/upload",
                 variant: "inline-secondary",
                 children: _v0
@@ -1988,7 +2109,7 @@
             }
           })
         }, {
-          question: (0, _v6.translate)({
+          question: (0, _v7.translate)({
             singular: "Is there a video file size upload limit?",
             dictionary: {
               es: {
@@ -2014,7 +2135,7 @@
               }
             }
           }),
-          answer: (0, _v6.translate)({
+          answer: (0, _v7.translate)({
             singular: "Free plans allow for two videos per month, with a 25-video total lifetime limit. However, there are no size limits for the video file. Vimeo’s weekly upload quota for other plans is as follows: Basic: 500MB/week. Plus: 5GB/week. Pro: 20GB/week. Total video storage also depends on your plan: Basic: 5GB. Pro Unlimited: 3TB. Business: 5TB. Premium: 7TB.",
             dictionary: {
               es: {
@@ -2041,7 +2162,7 @@
             }
           })
         }, {
-          question: (0, _v6.translate)({
+          question: (0, _v7.translate)({
             singular: "What types of video files can I upload?",
             dictionary: {
               es: {
@@ -2067,7 +2188,7 @@
               }
             }
           }),
-          answer: (0, _v6.translate)({
+          answer: (0, _v7.translate)({
             singular: "Vimeo supports uploading a wide variety of video file types, including: WMV, MOV, AVI, FLV, and MP4.",
             dictionary: {
               es: {
@@ -2094,7 +2215,7 @@
             }
           })
         }, {
-          question: (0, _v6.translate)({
+          question: (0, _v7.translate)({
             singular: "Can I upload videos from a phone?",
             dictionary: {
               es: {
@@ -2120,7 +2241,7 @@
               }
             }
           }),
-          answer: (0, _v6.translate)({
+          answer: (0, _v7.translate)({
             singular: "Yes, you can upload videos using the Vimeo app for iPhone and Android. Quickly create, edit, and share content all from your mobile device or tablet.",
             dictionary: {
               es: {
@@ -2147,7 +2268,7 @@
             }
           })
         }, {
-          question: (0, _v6.translate)({
+          question: (0, _v7.translate)({
             singular: "Can I edit uploaded videos?",
             dictionary: {
               es: {
@@ -2173,7 +2294,7 @@
               }
             }
           }),
-          answer: (0, _v6.translate)({
+          answer: (0, _v7.translate)({
             singular: "Yes, you can edit videos right in your web browser or through the Vimeo app. Cut, trim, resize, add text, add music, compress, download, and more. When you’re done, share the video link anywhere you want, or keep the video private – it’s up to you!",
             dictionary: {
               es: {
@@ -2200,7 +2321,7 @@
             }
           })
         }, {
-          question: (0, _v6.translate)({
+          question: (0, _v7.translate)({
             singular: "How can I share the video I uploaded?",
             dictionary: {
               es: {
@@ -2226,10 +2347,10 @@
               }
             }
           }),
-          answer: (0, _v6.translate)({
+          answer: (0, _v7.translate)({
             singular: "To share a video, first select it from your {LIBRARY}Library{/LIBRARY} to open the video settings page. Then, click the Share button in the top right corner. A new modal will appear with options for sharing, embedding, and changing the privacy settings for your video. Select the Copy link button in the lower right corner of the modal to copy the link and share your video, or select the Embed tab to copy the embed code by clicking the Copy embed code button.",
             replacements: {
-              LIBRARY: _v0 => (0, _v1.jsx)(_v21.Link, {
+              LIBRARY: _v0 => (0, _v1.jsx)(_v22.Link, {
                 href: "/library",
                 variant: "inline-secondary",
                 children: _v0
@@ -2260,15 +2381,15 @@
             }
           })
         }];
-      return (0, _v1.jsxs)(_v18.Box, {
+      return (0, _v1.jsxs)(_v19.Box, {
         bg: "surface",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        children: [(0, _v1.jsx)(_v40, {
+        children: [(0, _v1.jsx)(_v41, {
           cards: _v0
-        }), (0, _v1.jsx)(_v49, {
-          title: (0, _v6.translate)({
+        }), (0, _v1.jsx)(_v50, {
+          title: (0, _v7.translate)({
             singular: "Go beyond uploading with our all-in-one video platform",
             dictionary: {
               es: {
@@ -2295,8 +2416,8 @@
             }
           }),
           cards: _v1
-        }), (0, _v1.jsx)(_v47, {
-          eyebrow: (0, _v6.translate)({
+        }), (0, _v1.jsx)(_v48, {
+          eyebrow: (0, _v7.translate)({
             singular: "FAQ",
             dictionary: {
               es: {
@@ -2313,7 +2434,7 @@
               }
             }
           }),
-          title: (0, _v6.translate)({
+          title: (0, _v7.translate)({
             singular: "We've got answers",
             dictionary: {
               es: {
@@ -2343,7 +2464,7 @@
         })]
       });
     }),
-    _v86 = ({
+    _v87 = ({
       files: _v0,
       onRemoveFile: _v1,
       label: _v2,
@@ -2360,13 +2481,13 @@
       let _v12 = 0 === _v7.length ? "staging" : _v8.completeCount + _v8.failedCount + _v8.canceledCount >= _v7.length ? "terminal" : "uploading",
         _v13 = "staging" === _v12;
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v19.Flex, {
+        children: [(0, _v1.jsxs)(_v20.Flex, {
           flexDirection: "column",
-          maxWidth: (0, _v22.rem)(896),
+          maxWidth: (0, _v23.rem)(896),
           margin: "0 auto",
-          padding: (0, _v22.rem)(24),
-          gap: (0, _v22.rem)(24),
-          children: [(0, _v1.jsx)(_v20.Header, {
+          padding: (0, _v23.rem)(24),
+          gap: (0, _v23.rem)(24),
+          children: [(0, _v1.jsx)(_v21.Header, {
             as: "h1",
             variant: "heading-3xl",
             fontSize: {
@@ -2375,7 +2496,7 @@
             },
             textAlign: "center",
             color: "text-primary",
-            children: (0, _v6.translate)({
+            children: (0, _v7.translate)({
               singular: "Upload your videos to Vimeo",
               dictionary: {
                 es: {
@@ -2401,10 +2522,10 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v69, {
+          }), (0, _v1.jsx)(_v70, {
             phase: _v12,
             isDragging: _v6.isDragging,
-            children: _v13 ? (0, _v1.jsx)(_v62, {
+            children: _v13 ? (0, _v1.jsx)(_v63, {
               isDragging: _v6.isDragging,
               onDragOver: _v6.onDragOver,
               onDragLeave: _v6.onDragLeave,
@@ -2413,56 +2534,56 @@
               label: _v2,
               action: _v3,
               onPrimaryAction: _v4,
-              knobs: _v9 ? (0, _v1.jsx)(_v81, {
+              knobs: _v9 ? (0, _v1.jsx)(_v82, {
                 knobs: _v9
               }) : null,
-              stagedList: _v0.length > 0 ? (0, _v1.jsx)(_v66, {
+              stagedList: _v0.length > 0 ? (0, _v1.jsx)(_v67, {
                 files: _v0,
                 onRemoveFile: _v1
               }) : null
             }) : (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v83, {
+              children: [(0, _v1.jsx)(_v84, {
                 uploads: _v7,
                 uploaderSummary: _v8
-              }), "terminal" === _v12 ? (0, _v1.jsx)(_v67, {
+              }), "terminal" === _v12 ? (0, _v1.jsx)(_v68, {
                 onRestart: _v10,
                 onGoToFolder: _v11
               }) : null]
             })
-          }), _v5 ? (0, _v1.jsxs)(_v15.Alert, {
+          }), _v5 ? (0, _v1.jsxs)(_v16.Alert, {
             status: "error",
-            children: [(0, _v1.jsx)(_v17.AlertIcon, {}), (0, _v1.jsx)(_v16.AlertDescription, {
+            children: [(0, _v1.jsx)(_v18.AlertIcon, {}), (0, _v1.jsx)(_v17.AlertDescription, {
               children: _v5
             })]
-          }) : null, (0, _v1.jsx)(_v84, {})]
-        }), (0, _v1.jsx)(_v85, {})]
+          }) : null, (0, _v1.jsx)(_v85, {})]
+        }), (0, _v1.jsx)(_v86, {})]
       });
     };
-  var _v87 = _v0.i(0),
-    _v88 = _v0.i(0),
+  var _v88 = _v0.i(0),
     _v89 = _v0.i(0),
     _v90 = _v0.i(0),
     _v91 = _v0.i(0),
     _v92 = _v0.i(0),
     _v93 = _v0.i(0),
     _v94 = _v0.i(0),
-    _v95 = _v0.i(0);
-  let _v96 = {
+    _v95 = _v0.i(0),
+    _v96 = _v0.i(0);
+  let _v97 = {
       add: !1,
       comments: "nobody",
       download: !1,
       embed: "private",
       view: "nobody"
     },
-    _v97 = ["canAllowDownloads", "canUnlistVideo", "canHideVideos", "hasExtraEmbedOptions", "hasPrivateModeOff", "hasProEmbedOptions", "hasVideoPasswordPrivacyUpsell", "hasCreation", "hasEnterprise"];
-  var _v98 = _v0.i(0);
-  let _v99 = "Upload in progress: navigation aborted. Please ignore this error.";
-  function _v100(_v0) {
-    _v0.reason === _v99 && _v0.preventDefault();
+    _v98 = ["canAllowDownloads", "canUnlistVideo", "canHideVideos", "hasExtraEmbedOptions", "hasPrivateModeOff", "hasProEmbedOptions", "hasVideoPasswordPrivacyUpsell", "hasCreation", "hasEnterprise"];
+  var _v99 = _v0.i(0);
+  let _v100 = "Upload in progress: navigation aborted. Please ignore this error.";
+  function _v101(_v0) {
+    _v0.reason === _v100 && _v0.preventDefault();
   }
-  var _v101 = _v0.i(0),
-    _v102 = _v0.i(0);
-  let _v103 = {
+  var _v102 = _v0.i(0),
+    _v103 = _v0.i(0);
+  let _v104 = {
       barebone_js: "",
       chromeless_css: "",
       chromeless_js: "",
@@ -2470,11 +2591,11 @@
       js: "",
       player_url: ""
     },
-    _v104 = ({
+    _v105 = ({
       children: _v0
     }) => {
-      let _v1 = (0, _v14.useViewer)();
-      return (0, _v101.useHasMounted)() ? (0, _v1.jsx)(_v102.default, {
+      let _v1 = (0, _v15.useViewer)();
+      return (0, _v102.useHasMounted)() ? (0, _v1.jsx)(_v103.default, {
         user: _v1?.user ?? null,
         jwt: _v1?.jwt ?? "",
         apiUrl: _v1?.apiUrl ?? "",
@@ -2482,65 +2603,65 @@
         vuid: _v1?.vuid ?? "",
         xsrft: "",
         magistoApiHost: "",
-        playerAssetUrls: _v103,
+        playerAssetUrls: _v104,
         children: _v0
       }) : (0, _v1.jsx)(_v1.Fragment, {
         children: _v0
       });
     },
-    _v105 = {
+    _v106 = {
       paywallTrigger: "satellite_upload_button",
       paywallLocation: "satellite_upload",
       paywallType: "popup",
       paywallFeature: "upload"
     },
-    _v106 = () => {
+    _v107 = () => {
       let {
           files: _v0,
           removeFile: _v1,
           clear: _v2
-        } = (0, _v87.useStagedFiles)(),
+        } = (0, _v88.useStagedFiles)(),
         _v3 = (() => {
           let {
               addFiles: _v0
-            } = (0, _v87.useStagedFiles)(),
-            [_v1, _v2] = (0, _v9.useState)(!1),
-            _v3 = (0, _v9.useCallback)(_v0 => {
+            } = (0, _v88.useStagedFiles)(),
+            [_v1, _v2] = (0, _v10.useState)(!1),
+            _v3 = (0, _v10.useCallback)(_v0 => {
               _v0.preventDefault(), _v2(!0);
             }, []),
-            _v4 = (0, _v9.useCallback)(() => {
+            _v4 = (0, _v10.useCallback)(() => {
               _v2(!1);
             }, []);
           return {
             isDragging: _v1,
             onDragOver: _v3,
             onDragLeave: _v4,
-            onDrop: (0, _v9.useCallback)(_v0 => {
-              _v0.preventDefault(), _v2(!1), _v0.dataTransfer?.files?.length && _v0(_v60(_v0.dataTransfer.files));
+            onDrop: (0, _v10.useCallback)(_v0 => {
+              _v0.preventDefault(), _v2(!1), _v0.dataTransfer?.files?.length && _v0(_v61(_v0.dataTransfer.files));
             }, [_v0]),
-            onSelectFiles: (0, _v9.useCallback)(_v0 => {
-              _v0.target.files?.length && _v0(_v60(_v0.target.files)), _v0.target.value = "";
+            onSelectFiles: (0, _v10.useCallback)(_v0 => {
+              _v0.target.files?.length && _v0(_v61(_v0.target.files)), _v0.target.value = "";
             }, [_v0])
           };
         })(),
         _v4 = (() => {
-          let _v0 = (0, _v14.useViewer)(),
+          let _v0 = (0, _v15.useViewer)(),
             {
               files: _v1
-            } = (0, _v87.useStagedFiles)(),
+            } = (0, _v88.useStagedFiles)(),
             {
               data: _v2,
               isLoading: _v3
-            } = (0, _v92.useGetAllWorkspacesForUser)(),
-            [_v4, _v5] = (0, _v9.useState)(null),
-            [_v6, _v7] = (0, _v9.useState)(null),
-            [_v8, _v9] = (0, _v9.useState)({}),
-            [_v10, _v11] = (0, _v9.useState)(),
-            [_v12, _v13] = (0, _v9.useState)(null),
+            } = (0, _v93.useGetAllWorkspacesForUser)(),
+            [_v4, _v5] = (0, _v10.useState)(null),
+            [_v6, _v7] = (0, _v10.useState)(null),
+            [_v8, _v9] = (0, _v10.useState)({}),
+            [_v10, _v11] = (0, _v10.useState)(),
+            [_v12, _v13] = (0, _v10.useState)(null),
             _v14 = _v4 ?? _v0?.user?.id ?? null,
             {
               data: _v15
-            } = (0, _v91.useGetUser)(() => _v14 ? {
+            } = (0, _v92.useGetUser)(() => _v14 ? {
               where: {
                 userId: _v14
               },
@@ -2548,24 +2669,24 @@
             } : null),
             {
               config: _v16
-            } = (0, _v94.useUploadPageConfig)(_v14),
-            _v17 = (0, _v9.useMemo)(() => _v16?.teamConfigs?.find(_v0 => _v0.ownerId === _v14), [_v16, _v14]),
-            _v18 = (0, _v9.useMemo)(() => (_v2?.data ?? []).map(_v0 => ({
+            } = (0, _v95.useUploadPageConfig)(_v14),
+            _v17 = (0, _v10.useMemo)(() => _v16?.teamConfigs?.find(_v0 => _v0.ownerId === _v14), [_v16, _v14]),
+            _v18 = (0, _v10.useMemo)(() => (_v2?.data ?? []).map(_v0 => ({
               id: _v0.teamOwnerId,
               title: _v0.teamOrWorkspaceName ?? _v0.displayName,
               role: _v0.untranslatedUserRole,
               privateToMeFolderId: null
             })), [_v2]),
-            _v19 = (0, _v9.useCallback)(_v0 => _v5(_v0), []),
-            _v20 = (0, _v9.useCallback)(_v0 => _v7(_v0), []),
-            _v21 = (0, _v9.useCallback)(_v0 => _v9(_v0 => ({
+            _v19 = (0, _v10.useCallback)(_v0 => _v5(_v0), []),
+            _v20 = (0, _v10.useCallback)(_v0 => _v7(_v0), []),
+            _v21 = (0, _v10.useCallback)(_v0 => _v9(_v0 => ({
               ..._v0,
               ..._v0
             })), []),
             _v22 = _v17?.permissionLevel ?? null,
-            _v23 = (0, _v9.useMemo)(() => {
+            _v23 = (0, _v10.useMemo)(() => {
               var _v0;
-              return _v0 = _v15?.preferences?.videos, _v22 === _v95.TeamUserPermissionLevel.Uploader ? _v96 : {
+              return _v0 = _v15?.preferences?.videos, _v22 === _v96.TeamUserPermissionLevel.Uploader ? _v97 : {
                 ..._v0?.privacy,
                 password: _v0?.password,
                 embedDomains: _v0?.privacy?.clipEmbedAllowedDomains?.map(_v0 => ({
@@ -2575,9 +2696,9 @@
                 }))
               };
             }, [_v15, _v22]),
-            _v24 = _v22 === _v95.TeamUserPermissionLevel.Uploader ? void 0 : _v15?.preferences?.videos?.rating;
+            _v24 = _v22 === _v96.TeamUserPermissionLevel.Uploader ? void 0 : _v15?.preferences?.videos?.rating;
           _v14 !== _v12 && (_v13(_v14), _v9({}), _v11(void 0), _v7(null));
-          let _v25 = (0, _v9.useMemo)(() => ({
+          let _v25 = (0, _v10.useMemo)(() => ({
               ..._v23,
               ..._v8
             }), [_v23, _v8]),
@@ -2585,15 +2706,15 @@
             {
               capabilities: _v27,
               loading: _v28
-            } = (0, _v89.useCapability)([..._v97], _v14),
+            } = (0, _v90.useCapability)([..._v98], _v14),
             {
               isDisabled: _v29
-            } = (0, _v93.useGetEditEmbedPrivacyDisabled)(),
+            } = (0, _v94.useGetEditEmbedPrivacyDisabled)(),
             _v30 = _v1.length > 0 ? _v1.reduce((_v0, _v1) => _v0 + _v1.file.size, 0) : void 0,
-            _v31 = _v6?.uri != null ? (0, _v90.getProjectId)({
+            _v31 = _v6?.uri != null ? (0, _v91.getProjectId)({
               uri: _v6.uri
             }) ?? void 0 : void 0,
-            _v32 = (0, _v9.useMemo)(() => ((_v0, _v1, _v2 = !0) => {
+            _v32 = (0, _v10.useMemo)(() => ((_v0, _v1, _v2 = !0) => {
               let _v3 = _v0.embedDomains?.map(_v0 => _v0.domain) ?? [];
               return {
                 password: _v0.password || void 0,
@@ -2639,15 +2760,15 @@
           runUpload: _v10
         } = ((_v0, _v1) => {
           let _v2,
-            _v3 = (0, _v14.useViewer)(),
+            _v3 = (0, _v15.useViewer)(),
             {
               upload: _v4
-            } = (0, _v10.useUploader)(),
+            } = (0, _v11.useUploader)(),
             {
               clear: _v5
-            } = (0, _v87.useStagedFiles)(),
+            } = (0, _v88.useStagedFiles)(),
             _v6 = (_v3?.user ?? null) !== null,
-            _v7 = (_v2 = _v3?.user?.uploadQuota?.space, (0, _v9.useMemo)(() => ((_v0, _v1) => {
+            _v7 = (_v2 = _v3?.user?.uploadQuota?.space, (0, _v10.useMemo)(() => ((_v0, _v1) => {
               if (0 === _v0.length || !_v1) return {
                 ok: !0
               };
@@ -2661,7 +2782,7 @@
                 ok: !0
               } : {
                 ok: !1,
-                error: _v2 ? (0, _v6.translate)({
+                error: _v2 ? (0, _v7.translate)({
                   singular: "This upload exceeds your video limit. Remove some files and try again.",
                   dictionary: {
                     es: {
@@ -2686,7 +2807,7 @@
                       singular: "此次上传超出您的视频限制。请删除一些文件后重试。"
                     }
                   }
-                }) : (0, _v6.translate)({
+                }) : (0, _v7.translate)({
                   singular: "You don't have enough free space for this upload. Remove some files and try again.",
                   dictionary: {
                     es: {
@@ -2714,12 +2835,12 @@
                 })
               };
             })(_v0, _v2), [_v0, _v2])),
-            [_v8, _v9] = (0, _v9.useState)(null),
-            [_v10, _v11] = (0, _v9.useState)(_v0);
+            [_v8, _v9] = (0, _v10.useState)(null),
+            [_v10, _v11] = (0, _v10.useState)(_v0);
           _v0 !== _v10 && (_v11(_v0), _v9(null));
           let _v12 = 0 === _v0.length ? "selectFiles" : _v6 ? "upload" : "login",
-            _v13 = (0, _v9.useCallback)(() => (0, _v88.openSatelliteAuthTab)("upload-poc", "login"), []),
-            _v14 = (0, _v9.useCallback)(() => {
+            _v13 = (0, _v10.useCallback)(() => (0, _v89.openSatelliteAuthTab)("upload-poc", "login"), []),
+            _v14 = (0, _v10.useCallback)(() => {
               _v7.ok ? (_v4(_v0.map(_v0 => _v0.file), {
                 targetUserId: _v1.targetUserId,
                 folderId: _v1.folderId
@@ -2727,7 +2848,7 @@
             }, [_v7, _v0, _v4, _v5, _v1.targetUserId, _v1.folderId, _v1.clipProperties]);
           return {
             isLoggedIn: _v6,
-            label: "selectFiles" === _v12 ? (0, _v6.translate)({
+            label: "selectFiles" === _v12 ? (0, _v7.translate)({
               singular: "Select files",
               dictionary: {
                 es: {
@@ -2752,7 +2873,7 @@
                   singular: "选择文件"
                 }
               }
-            }) : "login" === _v12 ? (0, _v6.translate)({
+            }) : "login" === _v12 ? (0, _v7.translate)({
               singular: "Log in to upload",
               dictionary: {
                 es: {
@@ -2777,7 +2898,7 @@
                   singular: "登录以上传"
                 }
               }
-            }) : (0, _v6.translate)({
+            }) : (0, _v7.translate)({
               singular: "Upload {COUNT} file",
               plural: "Upload {COUNT} files",
               count: _v0.length,
@@ -2825,25 +2946,25 @@
           uploads: _v11,
           uploaderSummary: _v12,
           clearAll: _v13
-        } = (0, _v10.useUploader)(),
-        _v14 = (0, _v14.useViewer)(),
-        [_v15, _v16] = (0, _v9.useState)(!1),
-        _v17 = !(0, _v11.isUserPlanHigherOrEqualThan)(_v14?.user?.account, _v12.PLANS.STANDARD),
+        } = (0, _v11.useUploader)(),
+        _v14 = (0, _v15.useViewer)(),
+        [_v15, _v16] = (0, _v10.useState)(!1),
+        _v17 = !(0, _v12.isUserPlanHigherOrEqualThan)(_v14?.user?.account, _v13.PLANS.STANDARD),
         _v18 = _v14?.user?.capabilities?.hasFreeTrialEligibility ?? !1;
       !function () {
-        let _v0 = (0, _v98.useRouter)(),
+        let _v0 = (0, _v99.useRouter)(),
           {
             uploaderSummary: _v1
-          } = (0, _v10.useUploader)(),
+          } = (0, _v11.useUploader)(),
           _v2 = _v1.inProgressCount > 0;
-        (0, _v9.useEffect)(() => {
+        (0, _v10.useEffect)(() => {
           if (!_v2) return;
           let _v0 = _v0.asPath,
             _v1 = _v0 => {
               _v0.preventDefault(), _v0.returnValue = "";
             },
             _v2 = _v0 => {
-              if (_v0 !== _v0 && !window.confirm((0, _v6.translate)({
+              if (_v0 !== _v0 && !window.confirm((0, _v7.translate)({
                 singular: "An upload is in progress. If you leave, you lose sight of its progress.",
                 dictionary: {
                   es: {
@@ -2870,27 +2991,27 @@
                 }
               }))) throw _v0.events.emit("routeChangeError", "", "", {
                 shallow: !1
-              }), _v99;
+              }), _v100;
             };
-          return window.addEventListener("beforeunload", _v1), window.addEventListener("unhandledrejection", _v100), _v0.events.on("routeChangeStart", _v2), () => {
-            window.removeEventListener("beforeunload", _v1), window.removeEventListener("unhandledrejection", _v100), _v0.events.off("routeChangeStart", _v2);
+          return window.addEventListener("beforeunload", _v1), window.addEventListener("unhandledrejection", _v101), _v0.events.on("routeChangeStart", _v2), () => {
+            window.removeEventListener("beforeunload", _v1), window.removeEventListener("unhandledrejection", _v101), _v0.events.off("routeChangeStart", _v2);
           };
         }, [_v2, _v0]);
       }();
-      let _v19 = (0, _v9.useCallback)(() => {
+      let _v19 = (0, _v10.useCallback)(() => {
           if ("login" === _v7) return void _v9();
           if ("upload" === _v7) {
             if (_v17) return void _v16(!0);
             _v10();
           }
         }, [_v7, _v9, _v10, _v17]),
-        _v20 = (0, _v9.useCallback)(_v0 => {
+        _v20 = (0, _v10.useCallback)(_v0 => {
           _v16(!1), "manual" === _v0 && _v10();
         }, [_v10]),
-        _v21 = (0, _v9.useCallback)(() => {
+        _v21 = (0, _v10.useCallback)(() => {
           _v13(), _v2();
         }, [_v13, _v2]),
-        _v22 = (0, _v9.useCallback)(() => {
+        _v22 = (0, _v10.useCallback)(() => {
           window.location.assign((({
             folderId: _v0,
             teamId: _v1
@@ -2902,8 +3023,8 @@
             teamId: _v4.targetUserId
           }));
         }, [_v4.folderId, _v4.targetUserId]);
-      return (0, _v1.jsxs)(_v104, {
-        children: [(0, _v1.jsx)(_v86, {
+      return (0, _v1.jsxs)(_v105, {
+        children: [(0, _v1.jsx)(_v87, {
           files: _v0,
           onRemoveFile: _v1,
           label: _v6,
@@ -2916,72 +3037,77 @@
           knobs: _v5 ? _v4 : null,
           onRestart: _v21,
           onGoToFolder: _v22
-        }), (0, _v1.jsx)(_v13.PlansComparisonPaywallModal, {
+        }), (0, _v1.jsx)(_v14.PlansComparisonPaywallModal, {
           isOpen: _v15,
           tier: "standard",
           isFreeTrialEligible: _v18,
           checkoutTarget: "_blank",
           postCheckoutUrl: "/satellite/auth-complete?source=upload-poc",
-          paywallTracking: _v105,
+          paywallTracking: _v106,
           onDismiss: _v20
         })]
       });
     };
-  _v0.s(["default", 0, () => (0, _v1.jsxs)(_v1.Fragment, {
-    children: [(0, _v1.jsx)(_v8, {
-      title: (0, _v2.translate)({
-        singular: "Upload videos to Vimeo",
+  (0, _v2.withPageSetup)(() => ({
+    props: {}
+  }), {
+    omitEsi: !0,
+    inlineViewer: !0
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => (0, _v1.jsxs)(_v1.Fragment, {
+    children: [(0, _v1.jsx)(_v9, {
+      title: (0, _v3.translate)({
+        singular: "Upload Videos to Vimeo",
         dictionary: {
           es: {
-            singular: "Sube videos a Vimeo"
+            singular: "Sube vídeos a Vimeo"
           },
           "de-DE": {
             singular: "Videos auf Vimeo hochladen"
           },
           "fr-FR": {
-            singular: "Téléversez des vidéos sur Vimeo"
+            singular: "Importer des vidéos sur Vimeo"
           },
           "ja-JP": {
-            singular: "Vimeo に動画をアップロードする"
+            singular: "Vimeoに動画をアップロード"
           },
           "ko-KR": {
             singular: "Vimeo에 동영상 업로드"
           },
           "pt-BR": {
-            singular: "Envie vídeos para o Vimeo"
+            singular: "Enviar vídeos para o Vimeo"
           },
           "zh-CN": {
             singular: "将视频上传到 Vimeo"
           }
         }
       }),
-      description: (0, _v2.translate)({
-        singular: "Upload and share your videos on Vimeo. Fast, secure video hosting with high-quality playback and privacy controls.",
+      description: (0, _v3.translate)({
+        singular: "Upload, share, and embed videos for free online with Vimeo. Host, edit, compress, and download your videos securely with our all-in-one video platform.",
         dictionary: {
           es: {
-            singular: "Carga y comparte tus videos en Vimeo. Alojamiento de video rápido y seguro con reproducción de alta calidad y controles de privacidad."
+            singular: "Sube, comparte e incrusta vídeos en línea gratis con Vimeo. Aloja, edita, comprime y descarga tus vídeos de forma segura con nuestra plataforma de vídeo todo en uno."
           },
           "de-DE": {
-            singular: "Laden Sie Ihre Videos auf Vimeo hoch und teilen Sie sie. Schnelles, sicheres Videohosting mit hochwertiger Wiedergabe und Privatsphäre-Einstellungen."
+            singular: "Videos kostenlos online mit Vimeo hochladen, teilen und einbetten. Ihre Videos sicher hosten, bearbeiten, komprimieren und herunterladen. Alles mit unserer All-in-One-Videoplattform."
           },
           "fr-FR": {
-            singular: "Téléversez et partagez vos vidéos sur Vimeo. Hébergement vidéo rapide et sécurisé avec une lecture de haute qualité et des contrôles de confidentialité."
+            singular: "Importer, partager et intégrer des vidéos gratuitement en ligne avec Vimeo. Héberger, monter, compresser et télécharger vos vidéos en toute sécurité grâce à notre plateforme vidéo tout-en-un."
           },
           "ja-JP": {
-            singular: "Vimeo に動画をアップロードして共有できます。高品質な再生、高速かつ安全な動画ホスティングとプライバシー管理機能を提供します。"
+            singular: "Vimeoを使って、動画を無料でオンラインにアップロード、共有、埋め込みできます。当社のオールインワン動画プラットフォームで、動画を安全にホスト、編集、圧縮、ダウンロードできます。"
           },
           "ko-KR": {
-            singular: "Vimeo에 동영상을 업로드하고 공유하세요. 고품질 재생과 개인정보 보호 제어 기능을 갖춘 빠르고 안전한 비디오 호스팅입니다."
+            singular: "Vimeo에서 동영상을 무료로 업로드, 공유 및 임베드하세요. 올인원 비디오 플랫폼으로 귀하의 동영상을 안전하게 호스팅, 편집, 압축 및 다운로드하세요."
           },
           "pt-BR": {
-            singular: "Envie e compartilhe seus vídeos no Vimeo. Hospedagem de vídeo rápida e segura com reprodução de alta qualidade e controles de privacidade."
+            singular: "Envie, compartilhe e incorpore vídeos gratuitamente online com o Vimeo. Hospede, edite, comprima e baixe seus vídeos com segurança em nossa plataforma de vídeo tudo-em-um."
           },
           "zh-CN": {
-            singular: "在 Vimeo 上传并分享您的视频。快速、安全的视频托管，提供高质量播放和隐私控制。"
+            singular: "通过 Vimeo 在线免费上传、分享和嵌入视频。使用我们的一体化视频平台，安全地托管、编辑、压缩并下载您的视频。"
           }
         }
       }),
       publicBasePath: "/video-uploader"
-    }), (0, _v1.jsx)(_v106, {})]
+    }), (0, _v1.jsx)(_v107, {})]
   })], 0);
 }

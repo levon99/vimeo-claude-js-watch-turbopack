@@ -54,7 +54,22 @@
       }), !0), [_v0]),
       _v9 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("filter_by_custom_metadata", {
         applied_filters: _v0.appliedFilters
-      }), !0), [_v0]);
+      }), !0), [_v0]),
+      _v10 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_sort_changed", {
+        library_type: _v0.libraryType,
+        library_new_sort: _v0.libraryNewSort
+      }), !0), [_v0]),
+      _v11 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_level_action_clicked", {
+        library_type: _v0.libraryType,
+        library_level_action: _v0.libraryLevelAction
+      }), !0), [_v0]),
+      _v12 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_marketing_card_displayed", {
+        library_type: (0, _v4.deriveLibraryType)({
+          hasContentSpaceEnabled: _v2
+        }),
+        video_id: _v0.videoId,
+        entry_point: _v0.entryPoint
+      }), !0), [_v0, _v2]);
     return {
       trackLibraryPageDisplayed: _v3,
       trackLibraryFolderOpened: _v4,
@@ -63,14 +78,23 @@
       trackLibraryViewChanged: _v7,
       trackLibraryFilterApplied: _v8,
       trackFilterByCustomMetadata: _v9,
-      trackLibrarySortChanged: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_sort_changed", {
-        library_type: _v0.libraryType,
-        library_new_sort: _v0.libraryNewSort
-      }), !0), [_v0]),
-      trackLibraryLevelActionClicked: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_level_action_clicked", {
-        library_type: _v0.libraryType,
-        library_level_action: _v0.libraryLevelAction
-      }), !0), [_v0])
+      trackLibrarySortChanged: _v10,
+      trackLibraryLevelActionClicked: _v11,
+      trackLibraryMarketingCardDisplayed: _v12,
+      trackLibraryMarketingCardClicked: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_marketing_card_clicked", {
+        library_type: (0, _v4.deriveLibraryType)({
+          hasContentSpaceEnabled: _v2
+        }),
+        video_id: _v0.videoId,
+        entry_point: _v0.entryPoint
+      }), !0), [_v0, _v2]),
+      trackLibraryMarketingCardDismissed: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_marketing_card_dismissed", {
+        library_type: (0, _v4.deriveLibraryType)({
+          hasContentSpaceEnabled: _v2
+        }),
+        video_id: _v0.videoId,
+        entry_point: _v0.entryPoint
+      }), !0), [_v0, _v2])
     };
   }]);
 }

@@ -2343,6 +2343,9 @@
     }) : (0, _v1.jsx)(_v6.default, {});
   };
   (0, _v5.withPageSetup)(_v135.getOrgAndWspUuidServerSideProps, {
-    requireLogin: !0
+    requireLogin: !0,
+    omitEsi: !0,
+    inlineViewer: !0,
+    noIndex: !0
   }), _v136.getLayout = (_v0, _v1) => (0, _v8.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v136], 0);
 }

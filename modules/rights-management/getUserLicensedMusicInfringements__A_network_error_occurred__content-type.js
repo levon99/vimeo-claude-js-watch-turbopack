@@ -865,7 +865,9 @@
       });
     };
   (0, _v7.withPageSetup)({
-    requireLogin: !0
+    requireLogin: !0,
+    omitEsi: !0,
+    inlineViewer: !0
   });
   let _v59 = _v6.default.div.withConfig({
       displayName: "rights-management__HeaderWrapper",
