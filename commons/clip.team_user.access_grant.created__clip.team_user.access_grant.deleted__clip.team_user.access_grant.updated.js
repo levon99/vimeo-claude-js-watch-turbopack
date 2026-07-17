@@ -93,6 +93,10 @@
       value: "folder.access_grant.deleted",
       applied: !1
     }, {
+      label: _v2.T.LeadCreated,
+      value: "lead.created",
+      applied: !1
+    }, {
       label: _v2.T.LiveEventCreated,
       value: "live_event.created",
       applied: !1

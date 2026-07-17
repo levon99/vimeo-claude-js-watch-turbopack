@@ -358,7 +358,6 @@
       hasThemeSupport: !1
     }), _v0, (0, _v1.jsx)(_v5.MinimalFooterLayout, {})]
   }), (0, _v3.withPageSetup)({
-    omitEsi: !0,
     inlineViewer: "all"
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v43], 0);
 }

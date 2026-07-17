@@ -10,7 +10,6 @@
   }) => _v0 && _v0.sessionType && _v0.sessionId ? {
     props: {
       hasThemeSupport: !0,
-      omitEsi: !0,
       providers: {
         mode: "export",
         vpaas: {

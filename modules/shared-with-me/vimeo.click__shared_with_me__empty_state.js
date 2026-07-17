@@ -1806,7 +1806,6 @@
     }
   }), {
     requireLogin: !0,
-    omitEsi: !0,
     inlineViewer: !0
   }), _v108.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v107.VideoLibraryLayout, {
     hasSideNav: !0,

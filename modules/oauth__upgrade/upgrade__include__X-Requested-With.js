@@ -3354,7 +3354,6 @@
   var _v85 = _v0.i(0),
     _v86 = _v0.i(0);
   (0, _v3.withPageSetup)({
-    omitEsi: !0,
     inlineViewer: "all"
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, function () {
     let _v0 = (0, _v2.useRouter)(),

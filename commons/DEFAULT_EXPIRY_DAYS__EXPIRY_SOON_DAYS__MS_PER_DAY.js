@@ -131,28 +131,28 @@
   }, "getCopyLinkToastTitle", 0, function (_v0, _v1, _v2) {
     let _v3;
     return _v3 = "disable" === _v0 ? (0, _v1.translate)({
-      singular: "The link you copied is set to Hide from Vimeo. Your recipient may need access.",
+      singular: "The link you copied is set to Embed only. Your recipient may need access.",
       dictionary: {
         es: {
-          singular: "El enlace que copió está configurado como Oculto en Vimeo. Es posible que su destinatario necesite acceso."
+          singular: "El enlace que copió está configurado solo para incrustación. Es posible que su destinatario necesite acceso."
         },
         "de-DE": {
-          singular: "Der Link, den Sie kopiert haben, ist auf Vimeo ausgeblendet. Möglicherweise benötigt der Empfänger eine Zugriffsberechtigung."
+          singular: "Der von Ihnen kopierte Link ist nur für Einbettungen vorgesehen. Ihr Empfänger benötigt möglicherweise Zugriff."
         },
         "fr-FR": {
-          singular: "Le lien que vous avez copié est paramétré sur Masquer sur Vimeo. Votre destinataire pourrait avoir besoin d'y accéder."
+          singular: "Le lien que vous avez copié est défini sur Embed only. Votre destinataire pourrait avoir besoin d’un accès."
         },
         "ja-JP": {
-          singular: "コピーしたリンクは「Vimeoで非表示にする」に設定されています。受信者はアクセス権が必要な場合があります。"
+          singular: "コピーしたリンクは「埋め込み専用」に設定されています。受信者はアクセス権が必要な場合があります。"
         },
         "ko-KR": {
-          singular: "복사한 링크는 Vimeo에서 숨기기로 설정되어 있습니다. 수신자에게 액세스 권한이 필요할 수 있습니다."
+          singular: "복사한 링크는 임베드 전용으로 설정되어 있습니다. 수신자가 접근 권한이 필요할 수 있습니다."
         },
         "pt-BR": {
-          singular: "O link que você copiou está definido como Oculto no Vimeo. A pessoa destinatária pode precisar de acesso."
+          singular: "O link que você copiou está definido como somente para incorporação. Seu destinatário pode precisar de acesso."
         },
         "zh-CN": {
-          singular: "您复制的链接已设置为对 Vimeo 隐藏。您的收件人可能需要访问权限。"
+          singular: "您复制的链接已设置为仅限嵌入。您的接收者可能需要访问权限。"
         }
       }
     }) : "nobody" === _v0 ? (0, _v1.translate)({

@@ -4391,8 +4391,7 @@
     props: {
       hasThemeSupport: !0,
       hasUploader: !0,
-      hasPlayerAPI: !0,
-      omitEsi: !0
+      hasPlayerAPI: !0
     }
   }), {
     requireLogin: !0,

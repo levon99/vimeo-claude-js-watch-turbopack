@@ -1237,6 +1237,32 @@
         }
       }
     }),
+    LeadCreated: (0, _v1.translate)({
+      singular: "Lead created",
+      dictionary: {
+        es: {
+          singular: "Lead creado"
+        },
+        "de-DE": {
+          singular: "Lead erstellt"
+        },
+        "fr-FR": {
+          singular: "Lead créé"
+        },
+        "ja-JP": {
+          singular: "リードが作成されました"
+        },
+        "ko-KR": {
+          singular: "리드가 생성되었습니다"
+        },
+        "pt-BR": {
+          singular: "Lead criado"
+        },
+        "zh-CN": {
+          singular: "线索已创建"
+        }
+      }
+    }),
     LiveEventCreated: (0, _v1.translate)({
       singular: "Live event created",
       dictionary: {

@@ -35,7 +35,6 @@
     };
   _v8.getLayout = _v0 => _v0, (0, _v1.withPageSetup)(async () => ({
     props: {
-      omitEsi: !0,
       layoutOptions: {
         globalNotifications: !1
       },

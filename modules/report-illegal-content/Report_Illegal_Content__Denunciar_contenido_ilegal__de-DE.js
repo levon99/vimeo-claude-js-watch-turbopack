@@ -3761,7 +3761,6 @@
     _v72 = _v0.i(0);
   (0, _v3.withPageSetup)({
     requireLogin: !1,
-    omitEsi: !0,
     inlineViewer: "all"
   });
   let _v73 = () => {

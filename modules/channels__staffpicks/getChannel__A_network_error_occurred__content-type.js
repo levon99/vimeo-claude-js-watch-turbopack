@@ -1706,8 +1706,7 @@
   } : {
     props: {
       hasThemeSupport: !0,
-      hasPlayerAPI: !0,
-      omitEsi: !0
+      hasPlayerAPI: !0
     }
   }, {
     inlineViewer: "all",

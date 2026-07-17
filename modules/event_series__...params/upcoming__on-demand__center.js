@@ -1714,8 +1714,7 @@
           seriesId: _v3,
           view: _v5,
           baseUrl: _v0.baseUrl,
-          hasThemeSupport: !0,
-          omitEsi: !0
+          hasThemeSupport: !0
         }
       };
     } catch (_v0) {
@@ -1725,8 +1724,7 @@
           seriesId: _v3,
           view: _v5,
           baseUrl: _v0.baseUrl,
-          hasThemeSupport: !0,
-          omitEsi: !0
+          hasThemeSupport: !0
         }
       };
       return {

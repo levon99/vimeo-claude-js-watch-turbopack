@@ -212,6 +212,29 @@
           live_stream_embed_type: _v0.liveStreamEmbedType,
           live_stream_embed_privacy: _v0.liveStreamEmbedPrivacy
         });
+      }, [_v0]),
+      _v42 = (0, _v1.useCallback)(_v0 => {
+        _v0?.track("live_stream_toolbar_action_clicked", {
+          live_stream_toolbar_action: _v0.liveStreamToolbarAction
+        });
+      }, [_v0]),
+      _v43 = (0, _v1.useCallback)(() => {
+        _v0?.track("live_stream_go_live_clicked", {});
+      }, [_v0]),
+      _v44 = (0, _v1.useCallback)(() => {
+        _v0?.track("live_stream_google_slides_import_started", {});
+      }, [_v0]),
+      _v45 = (0, _v1.useCallback)(_v0 => {
+        _v0?.track("live_stream_google_slides_account_connected", {
+          live_stream_google_slides_connection_type: _v0.liveStreamGoogleSlidesConnectionType
+        });
+      }, [_v0]),
+      _v46 = (0, _v1.useCallback)(_v0 => {
+        _v0?.track("live_stream_google_slides_import_completed", {
+          live_stream_google_slides_import_method: _v0.liveStreamGoogleSlidesImportMethod,
+          live_stream_google_slides_file_size_bytes: _v0.liveStreamGoogleSlidesFileSizeBytes,
+          live_stream_google_slides_duration_ms: _v0.liveStreamGoogleSlidesDurationMs
+        });
       }, [_v0]);
     return {
       trackLiveStreamBroadcasterDisplayed: _v2,
@@ -254,13 +277,20 @@
       trackLiveStreamTopBarActionClicked: _v39,
       trackLiveStreamShareLinkCopied: _v40,
       trackLiveStreamEmbedConfigured: _v41,
-      trackLiveStreamToolbarActionClicked: (0, _v1.useCallback)(_v0 => {
-        _v0?.track("live_stream_toolbar_action_clicked", {
-          live_stream_toolbar_action: _v0.liveStreamToolbarAction
+      trackLiveStreamToolbarActionClicked: _v42,
+      trackLiveStreamGoLiveClicked: _v43,
+      trackLiveStreamGoogleSlidesImportStarted: _v44,
+      trackLiveStreamGoogleSlidesAccountConnected: _v45,
+      trackLiveStreamGoogleSlidesImportCompleted: _v46,
+      trackLiveStreamGoogleSlidesImportFailed: (0, _v1.useCallback)(_v0 => {
+        _v0?.track("live_stream_google_slides_import_failed", {
+          live_stream_google_slides_error_reason: _v0.liveStreamGoogleSlidesErrorReason,
+          live_stream_google_slides_page_count: _v0.liveStreamGoogleSlidesPageCount ?? null,
+          live_stream_google_slides_duration_ms: _v0.liveStreamGoogleSlidesDurationMs ?? null
         });
       }, [_v0]),
-      trackLiveStreamGoLiveClicked: (0, _v1.useCallback)(() => {
-        _v0?.track("live_stream_go_live_clicked", {});
+      trackLiveStreamGoogleSlidesAccountDisconnected: (0, _v1.useCallback)(() => {
+        _v0?.track("live_stream_google_slides_account_disconnected", {});
       }, [_v0])
     };
   }]);

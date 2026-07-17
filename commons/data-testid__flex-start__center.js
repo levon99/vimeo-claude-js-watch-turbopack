@@ -17,9 +17,8 @@
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
-    _v17 = _v0.i(0),
-    _v18 = _v0.i(0);
-  function _v19({
+    _v17 = _v0.i(0);
+  function _v18({
     privacy: _v0,
     isDisabled: _v1,
     isActive: _v2,
@@ -53,7 +52,7 @@
         children: _v0.icon
       }), (0, _v1.jsxs)(_v3.Flex, {
         direction: "column",
-        children: [(0, _v1.jsx)(_v17.Header, {
+        children: [(0, _v1.jsx)(_v16.Header, {
           size: "xs",
           marginBottom: 0,
           color: "text-primary",
@@ -65,14 +64,14 @@
           color: "text-secondary",
           children: _v0.description
         })]
-      }), _v2 ? (0, _v1.jsx)(_v18.CheckmarkFilled, {
+      }), _v2 ? (0, _v1.jsx)(_v17.CheckmarkFilled, {
         boxSize: (0, _v4.rem)(20),
         marginLeft: "auto"
       }) : null]
     });
   }
-  var _v20 = _v0.i(0),
-    _v21 = _v0.i(0);
+  var _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
   _v0.s(["EventPrivacy", 0, function ({
     isDisabled: _v0,
     allowedPrivacies: _v1,
@@ -82,36 +81,33 @@
     onPrivacySelect: _v5,
     isShowcasePrivacyHintVisible: _v6 = !1
   }) {
-    let _v7 = (0, _v2.useContext)(_v15.ViewerContext),
-      {
-        settings: _v8
-      } = (0, _v14.useOrionSettings)(),
-      _v9 = (0, _v2.useMemo)(() => (0, _v16.getDefaultPrivacies)(_v7?.teamUser?.teamName, _v7?.teamUser?.isWorkspace, _v8.privacy_settings_new_copy), [_v7?.teamUser?.isWorkspace, _v7?.teamUser?.teamName, _v8.privacy_settings_new_copy]),
-      [_v10, _v11] = (0, _v2.useState)(_v9.find(_v0 => _v0.value === _v2) ?? _v9.find(_v0 => "anybody" === _v0.value) ?? _v9[0]),
-      [_v12, _v13] = (0, _v2.useState)(!1),
-      _v14 = (0, _v2.useRef)(null),
-      _v15 = (0, _v2.useMemo)(() => _v9.filter(_v0 => _v1.includes(_v0.value)), [_v1, _v9]),
-      _v16 = (0, _v2.useMemo)(() => _v0 || !_v15.length || !_v1.find(_v0 => _v0 === _v2), [_v0, _v15.length, _v1, _v2]),
-      _v17 = (0, _v2.useCallback)(() => {
-        _v16 || _v13(!_v12);
-      }, [_v16, _v12]),
-      _v18 = (0, _v2.useCallback)(_v0 => {
-        _v5(_v0.value), _v11(_v0), _v13(!1);
-      }, [_v5, _v13]);
+    let _v7 = (0, _v2.useContext)(_v14.ViewerContext),
+      _v8 = (0, _v2.useMemo)(() => (0, _v15.getDefaultPrivacies)(_v7?.teamUser?.teamName, _v7?.teamUser?.isWorkspace), [_v7?.teamUser?.isWorkspace, _v7?.teamUser?.teamName]),
+      [_v9, _v10] = (0, _v2.useState)(_v8.find(_v0 => _v0.value === _v2) ?? _v8.find(_v0 => "anybody" === _v0.value) ?? _v8[0]),
+      [_v11, _v12] = (0, _v2.useState)(!1),
+      _v13 = (0, _v2.useRef)(null),
+      _v14 = (0, _v2.useMemo)(() => _v8.filter(_v0 => _v1.includes(_v0.value)), [_v1, _v8]),
+      _v15 = (0, _v2.useMemo)(() => _v0 || !_v14.length || !_v1.find(_v0 => _v0 === _v2), [_v0, _v14.length, _v1, _v2]),
+      _v16 = (0, _v2.useCallback)(() => {
+        _v15 || _v12(!_v11);
+      }, [_v15, _v11]),
+      _v17 = (0, _v2.useCallback)(_v0 => {
+        _v5(_v0.value), _v10(_v0), _v12(!1);
+      }, [_v5, _v12]);
     return (0, _v2.useEffect)(() => {
-      _v11(_v9.find(_v0 => _v0.value === _v2) ?? _v9[0]);
-    }, [_v9, _v2]), (0, _v2.useEffect)(() => {
+      _v10(_v8.find(_v0 => _v0.value === _v2) ?? _v8[0]);
+    }, [_v8, _v2]), (0, _v2.useEffect)(() => {
       let _v0 = _v0 => {
-        _v12 && "Escape" === _v0.code && _v13(!1);
+        _v11 && "Escape" === _v0.code && _v12(!1);
       };
       return window.addEventListener("keydown", _v0), () => {
         window.removeEventListener("keydown", _v0);
       };
     }), (0, _v5.useOutsideClick)({
-      enabled: _v12,
-      ref: _v14,
+      enabled: _v11,
+      ref: _v13,
       handler: () => {
-        _v12 && _v13(!1);
+        _v11 && _v12(!1);
       }
     }), (0, _v1.jsxs)(_v3.Flex, {
       gap: (0, _v4.rem)(4),
@@ -161,30 +157,30 @@
         direction: "column",
         flex: 1,
         children: [(0, _v1.jsxs)(_v6.Popover, {
-          isOpen: _v12,
+          isOpen: _v11,
           placement: "top",
           matchWidth: !0,
           children: [(0, _v1.jsx)(_v7.PopoverTrigger, {
             children: (0, _v1.jsx)(_v3.Flex, {
               "data-testid": "selected-privacy-wrapper",
-              ref: _v14,
+              ref: _v13,
               direction: "row",
               alignItems: "center",
               width: "100%",
               background: "surface",
-              outline: _v12 ? "2px solid" : "1px solid",
-              outlineColor: _v12 ? "inherit" : "input-stroke",
+              outline: _v11 ? "2px solid" : "1px solid",
+              outlineColor: _v11 ? "inherit" : "input-stroke",
               borderRadius: "sm",
               height: (0, _v4.rem)(32),
               padding: `${(0, _v4.rem)(6)} ${(0, _v4.rem)(12)}`,
-              cursor: _v16 ? "not-allowed" : "pointer",
+              cursor: _v15 ? "not-allowed" : "pointer",
               tabIndex: 0,
-              opacity: _v16 ? .6 : 1,
+              opacity: _v15 ? .6 : 1,
               sx: {
                 "&:hover": {
                   background: "fill-component-hover"
                 },
-                "&:focus, &:active": _v16 ? {} : {
+                "&:focus, &:active": _v15 ? {} : {
                   outline: "2px solid",
                   outlineColor: "inherit"
                 },
@@ -192,10 +188,10 @@
                   flex: 1
                 }
               },
-              onClick: _v17,
-              children: (0, _v1.jsx)(_v21.BokehTooltip, {
+              onClick: _v16,
+              children: (0, _v1.jsx)(_v20.BokehTooltip, {
                 placement: "bottom",
-                isDisabled: !_v16 || _v16 && !_v3,
+                isDisabled: !_v15 || _v15 && !_v3,
                 maxWidth: (0, _v4.rem)(300),
                 label: _v3,
                 children: (0, _v1.jsxs)(_v3.Flex, {
@@ -207,7 +203,7 @@
                     size: "md",
                     color: "text-primary",
                     "data-testid": "selected-privacy-header",
-                    children: _v10.title
+                    children: _v9.title
                   }), (0, _v1.jsx)(_v11.ChevronDown, {})]
                 })
               })
@@ -223,10 +219,10 @@
               height: "100%",
               width: "100%",
               gap: (0, _v4.rem)(8),
-              children: _v15.map(_v0 => (0, _v1.jsx)(_v19, {
+              children: _v14.map(_v0 => (0, _v1.jsx)(_v18, {
                 privacy: _v0,
-                isActive: _v0.value === _v10.value,
-                onItemClick: _v18
+                isActive: _v0.value === _v9.value,
+                onItemClick: _v17
               }, _v0.value))
             })
           })]
@@ -241,7 +237,7 @@
             color: "text-secondary",
             size: "sm",
             letterSpacing: (0, _v4.rem)(-.24),
-            children: _v20.T_PRIVACY_IS_SET_BY_SHOWCASE
+            children: _v19.T_PRIVACY_IS_SET_BY_SHOWCASE
           })]
         }) : null]
       })]

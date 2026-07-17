@@ -4,7 +4,6 @@
   var _v1 = _v0.i(0);
   (0, _v0.i(0).withPageSetup)(() => ({
     props: {
-      omitEsi: !0,
       providers: {
         mode: "export"
       }

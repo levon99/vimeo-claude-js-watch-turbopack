@@ -26,7 +26,6 @@
     }
   }), {
     staffOnly: !0,
-    omitEsi: !0,
     inlineViewer: !0,
     noIndex: !0
   }), _v8.getLayout = _v0 => (0, _v1.jsx)(_v7.ReactRouterLayout, {

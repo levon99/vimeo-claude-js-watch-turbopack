@@ -10544,8 +10544,7 @@
   (0, _v9.withPageSetup)(async _v0 => {
     let _v1 = _v0.params?.albumId,
       _v2 = {
-        hasPlayerAPI: !0,
-        omitEsi: !0
+        hasPlayerAPI: !0
       };
     if (!_v1) return {
       props: _v2

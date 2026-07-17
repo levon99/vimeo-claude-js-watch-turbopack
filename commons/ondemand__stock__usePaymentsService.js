@@ -132,7 +132,6 @@
       }) : null;
     };
   (0, _v11.withPageSetup)({
-    omitEsi: !0,
     inlineViewer: "all"
   }), _v0.s(["default", 0, _v0 => {
     let _v1 = (0, _v3.useRouter)(),

@@ -70,7 +70,6 @@
     requireLogin: !0,
     capability: "canUsePaymentsService",
     redirect: "/upgrade-plan",
-    omitEsi: !0,
     inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v9], 0);
 }

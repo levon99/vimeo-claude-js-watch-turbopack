@@ -942,10 +942,8 @@
     });
   };
   var _v77 = _v0.i(0),
-    _v78 = _v0.i(0),
-    _v79 = _v0.i(0),
-    _v80 = _v0.i(0);
-  let _v81 = () => {
+    _v78 = _v0.i(0);
+  let _v79 = () => {
       let [_v0, _v1] = (0, _v2.useState)(!1),
         {
           actions: {
@@ -953,58 +951,30 @@
           },
           privacy: _v3
         } = (0, _v3.useStore)(_v0 => _v0.commonStore),
-        {
-          settings: _v4
-        } = (0, _v77.useOrionSettings)(),
-        _v5 = _v3?.view === _v78.EVENT_PRIVACY_VALUES.TEAM ? _v78.EVENT_PRIVACY_VALUES.PRIVATE : _v3?.view,
-        _v6 = (0, _v79.getEventShowcaseCopy)(_v78.DEFAULT_PRIVACY_OPTIONS).find(_v0 => _v0.privacy === _v5),
-        _v7 = {
-          description: (_v4.privacy_settings_new_copy && _v6?.privacy ? _v80.NEW_DESCRIPTIONS[_v6.privacy] : _v6?.description) ?? "",
-          title: _v4.privacy_settings_new_copy && _v6?.privacy === "embed_only" ? (0, _v25.translate)({
-            singular: "Embed only",
-            dictionary: {
-              es: {
-                singular: "Solo mediante inserción"
-              },
-              "de-DE": {
-                singular: "Nur per Einbettung"
-              },
-              "fr-FR": {
-                singular: "Uniquement intégrable"
-              },
-              "ja-JP": {
-                singular: "埋め込みのみ"
-              },
-              "ko-KR": {
-                singular: "임베드 전용"
-              },
-              "pt-BR": {
-                singular: "Apenas incorporado"
-              },
-              "zh-CN": {
-                singular: "仅可嵌入"
-              }
-            }
-          }) : _v6?.title ?? "",
-          icon: _v4.privacy_settings_new_copy && _v6?.privacy ? (0, _v80.newIcons)("xs")[_v6.privacy] ?? null : _v78.VIDEO_PRIVACY_ICON_MAP[_v6?.privacy]?.icon ?? null
+        _v4 = _v3?.view === _v77.EVENT_PRIVACY_VALUES.TEAM ? _v77.EVENT_PRIVACY_VALUES.PRIVATE : _v3?.view,
+        _v5 = (0, _v78.getEventShowcaseCopy)(_v77.DEFAULT_PRIVACY_OPTIONS).find(_v0 => _v0.privacy === _v4),
+        _v6 = {
+          description: _v5?.description ?? "",
+          title: _v5?.title ?? "",
+          icon: _v77.VIDEO_PRIVACY_ICON_MAP[_v5?.privacy]?.icon ?? null
         };
       return {
         isPrivacyTooltipOpen: _v0,
         onShareClick: (0, _v2.useCallback)(() => {
           _v1(!1), _v2(_v14.ModalType.RESOURCE_SHARE_MODAL);
         }, [_v2]),
-        privacyTooltipFields: _v7,
+        privacyTooltipFields: _v6,
         setIsPrivacyTooltipOpen: _v1
       };
     },
-    _v82 = () => {
+    _v80 = () => {
       let [_v0] = (0, _v33.useMediaQuery)(`(min-width: ${_v4.bokehTheme.breakpoints.md})`),
         {
           isPrivacyTooltipOpen: _v1,
           onShareClick: _v2,
           privacyTooltipFields: _v3,
           setIsPrivacyTooltipOpen: _v4
-        } = _v81(),
+        } = _v79(),
         {
           description: _v5,
           icon: _v6,
@@ -1093,9 +1063,9 @@
         })]
       });
     };
-  var _v83 = _v0.i(0),
-    _v84 = _v0.i(0);
-  let _v85 = () => {
+  var _v81 = _v0.i(0),
+    _v82 = _v0.i(0);
+  let _v83 = () => {
       let {
         undoAction: _v0,
         redoAction: _v1,
@@ -1185,7 +1155,7 @@
           placement: "bottom",
           label: _v14.UndoRedoBtnEnum.UNDO,
           children: (0, _v1.jsx)(_v23.IconButton, {
-            icon: (0, _v1.jsx)(_v84.Undo, {}),
+            icon: (0, _v1.jsx)(_v82.Undo, {}),
             onClick: _v0,
             variant: "tertiary",
             isDisabled: _v2(),
@@ -1197,7 +1167,7 @@
           placement: "bottom",
           label: _v14.UndoRedoBtnEnum.REDO,
           children: (0, _v1.jsx)(_v23.IconButton, {
-            icon: (0, _v1.jsx)(_v83.Redo, {}),
+            icon: (0, _v1.jsx)(_v81.Redo, {}),
             onClick: _v1,
             variant: "tertiary",
             isDisabled: _v3(),
@@ -1207,7 +1177,7 @@
         })]
       });
     },
-    _v86 = (0, _v32.default)(async () => {
+    _v84 = (0, _v32.default)(async () => {
       let {
         Facepile: _v0
       } = await _v0.A(0);
@@ -1221,7 +1191,7 @@
       loading: _v34.FacepileLoader,
       ssr: !1
     }),
-    _v87 = () => {
+    _v85 = () => {
       let [_v0] = (0, _v33.useMediaQuery)(`(min-width: ${_v4.bokehTheme.breakpoints.md})`),
         _v1 = (0, _v36.useViewer)(),
         {
@@ -1229,7 +1199,7 @@
         } = (0, _v64.useForm)(),
         {
           onShareClick: _v3
-        } = _v81(),
+        } = _v79(),
         _v4 = (0, _v3.useStore)(_v0 => _v0.commonStore.showcaseConfig.showcaseId),
         _v5 = !!_v0 && !_v2();
       return (0, _v1.jsxs)(_v1.Fragment, {
@@ -1244,10 +1214,10 @@
           justifyContent: "flex-end",
           children: [(0, _v1.jsx)(_v18.Navigation.Upgrade, {
             viewer: _v1
-          }), (0, _v1.jsx)(_v42, {}), (0, _v1.jsx)(_v86, {
+          }), (0, _v1.jsx)(_v42, {}), (0, _v1.jsx)(_v84, {
             resourceUri: `showcases/${_v4}`,
             onAddPeopleClick: _v3
-          }), (0, _v1.jsx)(_v82, {}), (0, _v1.jsx)(_v61, {}), (0, _v1.jsx)(_v68, {}), (0, _v1.jsx)(_v35.AccountMenu, {})]
+          }), (0, _v1.jsx)(_v80, {}), (0, _v1.jsx)(_v61, {}), (0, _v1.jsx)(_v68, {}), (0, _v1.jsx)(_v35.AccountMenu, {})]
         }), (0, _v1.jsxs)(_v18.Navigation.RightContent, {
           "data-id": "showcase-home-header-right",
           display: _v5 ? "flex" : "none",
@@ -1257,35 +1227,35 @@
           },
           flexGrow: 1,
           justifyContent: "flex-end",
-          children: [(0, _v1.jsx)(_v85, {}), (0, _v1.jsx)(_v65, {})]
+          children: [(0, _v1.jsx)(_v83, {}), (0, _v1.jsx)(_v65, {})]
         })]
       });
     };
-  var _v88 = _v0.i(0);
-  let _v89 = _v0 => (0, _v1.jsx)(_v88.Skeleton, {
+  var _v86 = _v0.i(0);
+  let _v87 = _v0 => (0, _v1.jsx)(_v86.Skeleton, {
       borderRadius: "sm",
       ..._v0
     }),
-    _v90 = () => (0, _v1.jsxs)(_v18.Navigation, {
+    _v88 = () => (0, _v1.jsxs)(_v18.Navigation, {
       ..._v13.loaderAriaProperties,
       children: [(0, _v1.jsxs)(_v18.Navigation.LeftContent, {
         gap: {
           base: "sm",
           md: (0, _v22.rem)(23)
         },
-        children: [(0, _v1.jsx)(_v89, {
+        children: [(0, _v1.jsx)(_v87, {
           hideFrom: "md",
           boxSize: {
             base: "xs",
             sm: "sm"
           }
-        }), (0, _v1.jsx)(_v89, {
+        }), (0, _v1.jsx)(_v87, {
           w: {
             base: "xs",
             md: (0, _v22.rem)(78)
           },
           h: "xs"
-        }), (0, _v1.jsx)(_v89, {
+        }), (0, _v1.jsx)(_v87, {
           hideBelow: "md",
           w: (0, _v22.rem)(220),
           h: "xs"
@@ -1295,7 +1265,7 @@
           base: "sm",
           md: "md"
         },
-        children: [(0, _v1.jsx)(_v34.FacepileLoader, {}), (0, _v1.jsx)(_v89, {
+        children: [(0, _v1.jsx)(_v34.FacepileLoader, {}), (0, _v1.jsx)(_v87, {
           w: {
             base: "sm",
             sm: (0, _v22.rem)(100),
@@ -1305,12 +1275,12 @@
             base: "sm",
             md: "md"
           }
-        }), (0, _v1.jsx)(_v89, {
+        }), (0, _v1.jsx)(_v87, {
           boxSize: {
             base: "sm",
             md: "md"
           }
-        }), (0, _v1.jsx)(_v89, {
+        }), (0, _v1.jsx)(_v87, {
           borderRadius: "50%",
           boxSize: {
             base: "sm",
@@ -1319,12 +1289,12 @@
         })]
       })]
     }),
-    _v91 = () => {
+    _v89 = () => {
       let {
         showcaseOwnerId: _v0
       } = (0, _v3.useStore)(_v0 => _v0.commonStore);
-      return (0, _v6.isEmpty)(_v0) ? (0, _v1.jsx)(_v90, {}) : (0, _v1.jsxs)(_v17.ErrorBoundary, {
-        errorPage: _v90,
+      return (0, _v6.isEmpty)(_v0) ? (0, _v1.jsx)(_v88, {}) : (0, _v1.jsxs)(_v17.ErrorBoundary, {
+        errorPage: _v88,
         children: [(0, _v1.jsx)(_v21, {}), (0, _v1.jsxs)(_v18.Navigation, {
           id: "header",
           gap: {
@@ -1335,16 +1305,16 @@
             base: "3",
             md: "lg"
           },
-          children: [(0, _v1.jsx)(_v31, {}), (0, _v1.jsx)(_v87, {})]
+          children: [(0, _v1.jsx)(_v31, {}), (0, _v1.jsx)(_v85, {})]
         })]
       });
     };
-  var _v92 = _v0.i(0),
-    _v93 = _v0.i(0);
-  let _v94 = ({
+  var _v90 = _v0.i(0),
+    _v91 = _v0.i(0);
+  let _v92 = ({
       dataId: _v0,
       ..._v1
-    }) => (0, _v1.jsxs)(_v92.Center, {
+    }) => (0, _v1.jsxs)(_v90.Center, {
       flexDirection: "column",
       children: [(0, _v1.jsx)(_v23.IconButton, {
         "data-id": _v0,
@@ -1352,7 +1322,7 @@
         size: "lg",
         borderRadius: "round",
         ..._v1
-      }), (0, _v1.jsx)(_v93.FormLabel, {
+      }), (0, _v1.jsx)(_v91.FormLabel, {
         textAlign: "center",
         textStyle: "body-xs",
         color: "text-secondary",
@@ -1362,7 +1332,7 @@
         children: _v1["aria-label"]
       })]
     }),
-    _v95 = () => {
+    _v93 = () => {
       let {
         handleSidebarItemClick: _v0,
         checkIfCurrentPath: _v1
@@ -1418,7 +1388,7 @@
           path: _v2,
           dataId: _v3,
           activePath: _v4
-        }, _v5) => (0, _v1.jsx)(_v94, {
+        }, _v5) => (0, _v1.jsx)(_v92, {
           dataId: _v3,
           "aria-label": _v0,
           id: `showcase-sidebar-item-${_v5}`,
@@ -1430,12 +1400,12 @@
         }, _v5))
       });
     };
-  var _v96 = _v0.i(0);
+  var _v94 = _v0.i(0);
   let {
-      WayfinderSideNav: _v97,
-      HomeSideNavContent: _v98
-    } = _v96.dynamicImportComponents,
-    _v99 = () => {
+      WayfinderSideNav: _v95,
+      HomeSideNavContent: _v96
+    } = _v94.dynamicImportComponents,
+    _v97 = () => {
       let _v0 = (0, _v3.useStore)(_v0 => _v0.commonStore.isDesktopView),
         {
           teamOwnerId: _v1
@@ -1445,17 +1415,17 @@
           toggleSideNavState: _v3
         } = _v27();
       return (0, _v1.jsx)(_v1.Fragment, {
-        children: !1 === _v0 && (0, _v1.jsx)(_v97, {
+        children: !1 === _v0 && (0, _v1.jsx)(_v95, {
           isMobile: !_v0,
           isOpen: _v2,
           onClose: () => _v3(!1),
           teamOwnerId: _v1,
-          children: (0, _v1.jsx)(_v98, {})
+          children: (0, _v1.jsx)(_v96, {})
         })
       });
     };
-  var _v100 = _v0.i(0);
-  let _v101 = () => (0, _v1.jsx)(_v8.Flex, {
+  var _v98 = _v0.i(0);
+  let _v99 = () => (0, _v1.jsx)(_v8.Flex, {
       hideBelow: "md",
       "data-id": "showcase-sidebar",
       justify: "center",
@@ -1468,12 +1438,12 @@
       ..._v13.loaderAriaProperties,
       children: Array.from({
         length: 3
-      }).map((_v0, _v1) => (0, _v1.jsx)(_v88.Skeleton, {
+      }).map((_v0, _v1) => (0, _v1.jsx)(_v86.Skeleton, {
         boxSize: "lg",
         borderRadius: "round"
       }, _v1))
     }),
-    _v102 = ({
+    _v100 = ({
       children: _v0,
       isLoading: _v1
     }) => (0, _v1.jsx)(_v8.Flex, {
@@ -1482,10 +1452,10 @@
       overflowX: "hidden",
       flexGrow: "1",
       children: !0 === _v1 ? (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v101, {}), (0, _v1.jsx)(_v100.LoadingState, {})]
+        children: [(0, _v1.jsx)(_v99, {}), (0, _v1.jsx)(_v98.LoadingState, {})]
       }) : _v0
     }),
-    _v103 = ({
+    _v101 = ({
       children: _v0
     }) => (0, _v1.jsx)(_v8.Flex, {
       position: "relative",
@@ -1495,7 +1465,7 @@
       bg: "background",
       children: _v0
     }),
-    _v104 = ({
+    _v102 = ({
       children: _v0
     }) => (0, _v1.jsx)(_v8.Flex, {
       position: "relative",
@@ -1507,16 +1477,16 @@
       children: _v0
     }),
     {
-      VideoListModalWrapper: _v105,
-      DeleteShowcaseModal: _v106,
-      ResourceShareModalWrapper: _v107,
-      UpsellModalWrapper: _v108,
-      DeleteLiveEventModal: _v109,
-      EventCreationModal: _v110,
-      SaveWithoutPremiumModal: _v111,
-      MobileViewSettings: _v112
-    } = _v96.dynamicImportComponents,
-    _v113 = () => {
+      VideoListModalWrapper: _v103,
+      DeleteShowcaseModal: _v104,
+      ResourceShareModalWrapper: _v105,
+      UpsellModalWrapper: _v106,
+      DeleteLiveEventModal: _v107,
+      EventCreationModal: _v108,
+      SaveWithoutPremiumModal: _v109,
+      MobileViewSettings: _v110
+    } = _v94.dynamicImportComponents,
+    _v111 = () => {
       let _v0,
         _v1 = (0, _v3.useStore)(_v0 => _v0.commonStore.isModalOpen),
         _v2 = (0, _v3.useStore)(_v0 => _v0.commonStore.modalType),
@@ -1533,40 +1503,40 @@
       switch (_v2) {
         case _v14.ModalType.ADD_VIDEO_TO_SHOWCASE:
         case _v14.ModalType.SET_SHOWCASE_FEATURED_CONTENT:
-          return (0, _v1.jsx)(_v105, {
+          return (0, _v1.jsx)(_v103, {
             modalType: _v2
           });
         case _v14.ModalType.DELETE_SHOWCASE:
-          return (0, _v1.jsx)(_v106, {});
+          return (0, _v1.jsx)(_v104, {});
         case _v14.ModalType.RESOURCE_SHARE_MODAL:
-          return (0, _v1.jsx)(_v107, {});
+          return (0, _v1.jsx)(_v105, {});
         case _v14.ModalType.EVENT_CREATION_MODAL_UPGRADE:
         case _v14.ModalType.UPGRADE_PLAN:
-          return (0, _v1.jsx)(_v108, {});
+          return (0, _v1.jsx)(_v106, {});
         case _v14.ModalType.DELETE_EVENT:
-          return (0, _v1.jsx)(_v109, {});
+          return (0, _v1.jsx)(_v107, {});
         case _v14.ModalType.EVENT_CREATION_MODAL:
-          return (0, _v1.jsx)(_v110, {});
+          return (0, _v1.jsx)(_v108, {});
         case _v14.ModalType.SAVE_WITHOUT_PREMIUM:
-          return (0, _v1.jsx)(_v111, {
+          return (0, _v1.jsx)(_v109, {
             handleSaveWithoutPremium: _v3,
             handleCancelWithoutPremium: _v4
           });
         case _v14.ModalType.MOBILE_SETTINGS_VIEW:
-          return (0, _v1.jsx)(_v112, {});
+          return (0, _v1.jsx)(_v110, {});
         default:
           return null;
       }
     };
-  var _v114 = _v0.i(0),
+  var _v112 = _v0.i(0),
+    _v113 = _v0.i(0),
+    _v114 = _v0.i(0),
     _v115 = _v0.i(0),
     _v116 = _v0.i(0),
     _v117 = _v0.i(0),
     _v118 = _v0.i(0),
-    _v119 = _v0.i(0),
-    _v120 = _v0.i(0),
-    _v121 = _v0.i(0);
-  let _v122 = (0, _v7.withRouter)(_v0 => {
+    _v119 = _v0.i(0);
+  let _v120 = (0, _v7.withRouter)(_v0 => {
     let _v1,
       _v2,
       _v3,
@@ -1635,7 +1605,7 @@
         _v4 = (0, _v3.useStore)(_v0 => _v0.commonStore.actions.setCapabilities),
         _v5 = (0, _v3.useStore)(_v0 => _v0.commonStore.showcaseOwnerId);
       return (0, _v2.useEffect)(() => {
-        _v5 && (0, _v119.getUserCapabilities)({
+        _v5 && (0, _v117.getUserCapabilities)({
           capabilities: _v3,
           userId: _v5,
           jwt: _v2?.jwt,
@@ -1658,7 +1628,7 @@
           loading: _v3,
           error: _v4,
           data: _v5
-        }] = (0, _v121.useGetUserTeamLazy)();
+        }] = (0, _v119.useGetUserTeamLazy)();
       (0, _v2.useEffect)(() => {
         (0, _v6.isEmpty)(_v0?.userId) || _v2({
           select: ["id", "uri", "ownerId", "teamName", "logoUri", "pictures", "accentColor", "teamShowcaseId"],
@@ -1701,7 +1671,7 @@
           _v2 = (0, _v7.useHistory)(),
           _v3 = (0, _v2.useCallback)((_v0, _v1) => {
             let [_v2, _v3] = _v0.commonStore.actionType.split(".");
-            _v118.fieldsToTrack[_v2]?.forEach(_v0 => {
+            _v116.fieldsToTrack[_v2]?.forEach(_v0 => {
               _v3 !== _v0 || (0, _v6.isSame)(_v0[_v2][_v0], _v1[_v2][_v0]) || (_v0(_v0.commonStore.actionType, _v1[_v2][_v0], _v0[_v2][_v0]), _v1([_v1[_v2][_v0], _v0[_v2][_v0]], _v0.commonStore.actionType, _v2.location.pathname));
             });
           }, [_v0]);
@@ -1712,7 +1682,7 @@
         error: _v9,
         isLoading: _v10,
         mutate: _v11
-      } = (0, _v117.useGetAlbum)(() => (0, _v6.isEmpty)(_v0) ? null : {
+      } = (0, _v115.useGetAlbum)(() => (0, _v6.isEmpty)(_v0) ? null : {
         where: {
           albumId: Number(_v0)
         },
@@ -1723,10 +1693,10 @@
       });
       return (0, _v2.useEffect)(() => {
         if (!_v10 && !_v9 && _v8) {
-          if (!_v8.embed) throw new _v116.UnauthorizedError("You are unauthorized for this action.");
+          if (!_v8.embed) throw new _v114.UnauthorizedError("You are unauthorized for this action.");
           _v1(_v8), _v2(_v8), _v3(_v8), _v4(_v8), _v5(_v8), _v6(_v8);
         }
-        if (!_v10 && _v9) throw new _v116.UnauthorizedError("Unauthorized Action");
+        if (!_v10 && _v9) throw new _v114.UnauthorizedError("Unauthorized Action");
       }, [_v8, _v9, _v10]), (0, _v2.useEffect)(() => {
         _v7(_v11);
       }, [_v11, _v7]), {
@@ -1749,7 +1719,7 @@
         } = (0, _v45.useShowcaseManageTracking)();
       (0, _v2.useEffect)(() => {
         _v1.current || (_v1.current = !0, _v0());
-      }, [_v0]), (0, _v120.usePicoEffect)(() => {
+      }, [_v0]), (0, _v118.usePicoEffect)(() => {
         var _v0;
         _v3({
           showcaseId: _v2,
@@ -1759,7 +1729,7 @@
         once: !0
       });
     })(), (() => {
-      let _v0 = (0, _v114.useToast)(),
+      let _v0 = (0, _v112.useToast)(),
         _v1 = (0, _v3.useStore)(_v0 => _v0.appearanceStore.actions.setMutateFeaturedContent),
         _v2 = (0, _v3.useStore)(_v0 => _v0.appearanceStore.actions.setFeaturedContent),
         {
@@ -1770,7 +1740,7 @@
           isLoading: _v5,
           error: _v6,
           mutate: _v7
-        } = (0, _v115.useGetAlbumVideos)(() => _v3 ? {
+        } = (0, _v113.useGetAlbumVideos)(() => _v3 ? {
           select: _v13.videoFields,
           where: {
             albumId: _v3
@@ -1825,11 +1795,11 @@
         }
       }, [_v4, _v5, _v6]);
     })(), (0, _v1.jsxs)(_v9.UpsellModalProvider, {
-      children: [(0, _v1.jsxs)(_v103, {
-        children: [(0, _v1.jsxs)(_v104, {
-          children: [(0, _v1.jsx)(_v91, {}), (0, _v1.jsx)(_v99, {}), (0, _v1.jsxs)(_v102, {
+      children: [(0, _v1.jsxs)(_v101, {
+        children: [(0, _v1.jsxs)(_v102, {
+          children: [(0, _v1.jsx)(_v89, {}), (0, _v1.jsx)(_v97, {}), (0, _v1.jsxs)(_v100, {
             isLoading: _v6 || _v7,
-            children: [(0, _v1.jsx)(_v95, {}), (0, _v1.jsx)(_v8.Flex, {
+            children: [(0, _v1.jsx)(_v93, {}), (0, _v1.jsx)(_v8.Flex, {
               direction: "column",
               flex: "1",
               minW: 0,
@@ -1844,7 +1814,7 @@
             })]
           })]
         }), (0, _v1.jsx)(_v16.Footer, {})]
-      }), (0, _v1.jsx)(_v113, {})]
+      }), (0, _v1.jsx)(_v111, {})]
     });
   });
   _v0.s(["default", 0, function (_v0) {
@@ -1873,7 +1843,7 @@
       uri: _v5,
       userId: _v6
     } = _v4;
-    return (0, _v1.jsx)(_v122, {
+    return (0, _v1.jsx)(_v120, {
       uri: _v5,
       userId: _v6,
       ..._v0

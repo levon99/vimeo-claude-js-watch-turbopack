@@ -8767,8 +8767,9 @@
   }
   class _v492 extends Error {
     code;
-    constructor(_v0) {
-      super(_v0), this.code = _v0, this.name = "SlidesImportError";
+    pageCount;
+    constructor(_v0, _v1) {
+      super(_v0), this.code = _v0, this.pageCount = _v1, this.name = "SlidesImportError";
     }
   }
   async function _v493(_v0, _v1, _v2) {
@@ -8889,7 +8890,7 @@
     try {
       let _v0 = await _v495(_v0, _v1, _v6);
       if (0 === _v0.length) throw new _v492("GENERIC");
-      if (_v0.length > 300) throw new _v492("TOO_MANY_PAGES");
+      if (_v0.length > 300) throw new _v492("TOO_MANY_PAGES", _v0.length);
       let _v1 = [];
       for (let _v0 = 0; _v0 < _v0.length; _v0 += 50) {
         _v0 > 0 && (await _v491(0));
@@ -11088,22 +11089,30 @@ ${_v9}
           enabled: _v5 = !0
         }) {
           let [_v6, _v7] = (0, _v489.useScript)("https://apis.google.com/js/api.js", !_v5),
-            [_v8, _v9] = (0, _v21.useState)(!1),
-            [_v10, _v11] = (0, _v21.useState)(!1),
-            [_v12, _v13] = (0, _v21.useState)(!1),
-            [_v14, _v15] = (0, _v21.useState)(null),
-            _v16 = (0, _v21.useRef)(""),
-            _v17 = (0, _v21.useRef)(!1),
-            _v18 = (0, _v21.useRef)(null),
-            _v19 = (0, _v21.useRef)(!1),
-            _v20 = (0, _v21.useRef)(void 0),
-            _v21 = (0, _v21.useContext)(_v488.ViewerContext),
-            _v22 = _v21?.locale || "en",
-            _v23 = window.gapi;
+            {
+              trackLiveStreamGoogleSlidesImportStarted: _v8,
+              trackLiveStreamGoogleSlidesAccountConnected: _v9,
+              trackLiveStreamGoogleSlidesImportCompleted: _v10,
+              trackLiveStreamGoogleSlidesImportFailed: _v11,
+              trackLiveStreamGoogleSlidesAccountDisconnected: _v12
+            } = (0, _v75.useLiveStreamBroadcasterTracking)(),
+            [_v13, _v14] = (0, _v21.useState)(!1),
+            [_v15, _v16] = (0, _v21.useState)(!1),
+            [_v17, _v18] = (0, _v21.useState)(!1),
+            [_v19, _v20] = (0, _v21.useState)(null),
+            _v21 = (0, _v21.useRef)(""),
+            _v22 = (0, _v21.useRef)(!1),
+            _v23 = (0, _v21.useRef)(null),
+            _v24 = (0, _v21.useRef)(!1),
+            _v25 = (0, _v21.useRef)(void 0),
+            _v26 = (0, _v21.useRef)(null),
+            _v27 = (0, _v21.useContext)(_v488.ViewerContext),
+            _v28 = _v27?.locale || "en",
+            _v29 = window.gapi;
           (0, _v21.useEffect)(() => {
-            _v23 && _v6 && !_v7 && _v23.load("picker", {});
-          }, [_v6, _v7, _v23]);
-          let _v24 = (0, _v21.useCallback)(async () => {
+            _v29 && _v6 && !_v7 && _v29.load("picker", {});
+          }, [_v6, _v7, _v29]);
+          let _v30 = (0, _v21.useCallback)(async () => {
             try {
               let _v0 = await fetch("/google_drive/token", {
                 headers: {
@@ -11124,13 +11133,13 @@ ${_v9}
           (0, _v21.useEffect)(() => {
             if (!_v5) return;
             let _v0 = !1;
-            return _v24().then(_v0 => {
-              !_v0 && _v0 && (_v17.current = !0, _v13(!0), _v15(_v0.displayName));
+            return _v30().then(_v0 => {
+              !_v0 && _v0 && (_v22.current = !0, _v18(!0), _v20(_v0.displayName));
             }), () => {
               _v0 = !0;
             };
-          }, [_v5, _v24]);
-          let _v25 = (0, _v21.useCallback)((_v0, _v1 = !1) => new Promise(_v0 => {
+          }, [_v5, _v30]);
+          let _v31 = (0, _v21.useCallback)((_v0, _v1 = !1) => new Promise(_v0 => {
             if (!_v0) return void _v0(null);
             try {
               _v0.location.href = _v1 ? `${_v501}?switch=1` : _v501;
@@ -11141,7 +11150,9 @@ ${_v9}
             let _v1 = Date.now(),
               _v2 = !1,
               _v3 = _v0 => {
-                _v2 || (_v2 = !0, _v18.current?.(), _v18.current = null, _v0(_v0));
+                _v2 || (_v2 = !0, _v23.current?.(), _v23.current = null, _v0 && _v9({
+                  liveStreamGoogleSlidesConnectionType: _v1 ? "switch" : "connect"
+                }), _v0(_v0));
               },
               _v4 = setInterval(() => {
                 (_v0.closed || Date.now() - _v1 > 0) && _v3(null);
@@ -11151,48 +11162,48 @@ ${_v9}
                 let _v1 = _v0.data;
                 if (_v1 && "vimeo:gdrive:connect" === _v1.type) {
                   if (clearInterval(_v4), !_v1.ok) return void _v3(null);
-                  _v24().then(_v3);
+                  _v30().then(_v3);
                 }
               };
-            window.addEventListener("message", _v5), _v18.current = () => {
+            window.addEventListener("message", _v5), _v23.current = () => {
               window.removeEventListener("message", _v5), clearInterval(_v4);
               try {
                 _v0.close();
               } catch {}
             };
-          }), [_v24]);
+          }), [_v30, _v9]);
           (0, _v21.useEffect)(() => () => {
-            _v18.current?.(), _v18.current = null;
+            _v23.current?.(), _v23.current = null;
           }, []);
-          let _v26 = (0, _v21.useCallback)(async _v0 => {
-              let _v1 = await _v24();
+          let _v32 = (0, _v21.useCallback)(async _v0 => {
+              let _v1 = await _v30();
               if (_v1) {
                 try {
                   _v0?.close();
                 } catch {}
                 return _v1;
               }
-              return _v25(_v0);
-            }, [_v24, _v25]),
-            _v27 = (0, _v21.useCallback)(_v0 => {
-              _v16.current = _v0.token, _v17.current = !0, _v13(!0), _v15(_v0.displayName);
+              return _v31(_v0);
+            }, [_v30, _v31]),
+            _v33 = (0, _v21.useCallback)(_v0 => {
+              _v21.current = _v0.token, _v22.current = !0, _v18(!0), _v20(_v0.displayName);
             }, []),
-            _v28 = (0, _v21.useCallback)(async _v0 => {
-              let _v1 = await _v24();
+            _v34 = (0, _v21.useCallback)(async _v0 => {
+              let _v1 = await _v30();
               if (!_v1) {
-                _v17.current = !1, _v13(!1), _v4?.();
+                _v22.current = !1, _v18(!1), _v4?.();
                 return;
               }
-              _v27(_v1), _v0();
-            }, [_v24, _v27, _v4]),
-            _v29 = (0, _v21.useCallback)(async _v0 => {
+              _v33(_v1), _v0();
+            }, [_v30, _v33, _v4]),
+            _v35 = (0, _v21.useCallback)(async _v0 => {
               let _v1 = new AbortController(),
                 _v2 = setTimeout(() => _v1.abort(new DOMException("export timed out", "TimeoutError")), 0);
               try {
                 let _v0 = await fetch(`https://www.googleapis.com/drive/v3/files/${_v0}/export?mimeType=${encodeURIComponent(_v502)}`, {
                   method: "GET",
                   headers: {
-                    Authorization: `Bearer ${_v16.current}`
+                    Authorization: `Bearer ${_v21.current}`
                   },
                   signal: _v1.signal
                 });
@@ -11213,84 +11224,103 @@ ${_v9}
                 clearTimeout(_v2);
               }
             }, []),
-            _v30 = (0, _v21.useRef)(() => Promise.resolve()),
-            _v31 = (0, _v21.useCallback)(async (_v0, _v1, _v2 = !1) => {
-              _v9(!0);
+            _v36 = (0, _v21.useCallback)(() => null != _v26.current ? Date.now() - _v26.current : null, []),
+            _v37 = (0, _v21.useRef)(() => Promise.resolve()),
+            _v38 = (0, _v21.useCallback)(async (_v0, _v1, _v2 = !1) => {
+              _v2 || (_v26.current = Date.now()), _v14(!0);
               try {
-                let _v0 = await _v29(_v0),
+                let _v0 = await _v35(_v0),
                   _v1 = new File([_v0], `${_v1}.pdf`, {
                     type: _v502
                   });
-                _v9(!1), _v2(_v1, _v1);
+                _v14(!1), _v10({
+                  liveStreamGoogleSlidesImportMethod: "drive_export",
+                  liveStreamGoogleSlidesFileSizeBytes: _v1.size,
+                  liveStreamGoogleSlidesDurationMs: _v36()
+                }), _v2(_v1, _v1);
               } catch (_v0) {
                 if (_v0 instanceof _v503 && "EXPORT_TOO_LARGE" === _v0.code) {
-                  _v11(!0);
+                  _v16(!0);
                   let _v0 = new AbortController();
-                  _v20.current = _v0;
+                  _v25.current = _v0;
                   try {
-                    let _v0 = await _v500(_v0, _v16.current, _v1, _v0.signal);
-                    _v11(!1), _v9(!1), _v2(_v0, _v1);
+                    let _v0 = await _v500(_v0, _v21.current, _v1, _v0.signal);
+                    _v16(!1), _v14(!1), _v10({
+                      liveStreamGoogleSlidesImportMethod: "thumbnail_fallback",
+                      liveStreamGoogleSlidesFileSizeBytes: _v0.size,
+                      liveStreamGoogleSlidesDurationMs: _v36()
+                    }), _v2(_v0, _v1);
                   } catch (_v0) {
                     if (_v0.signal.aborted) return;
-                    if (_v11(!1), _v0 instanceof _v492 && "AUTH_EXPIRED" === _v0.code && !_v2) {
-                      _v9(!1), _v28(() => void _v30.current(_v0, _v1, !0));
+                    if (_v16(!1), _v0 instanceof _v492 && "AUTH_EXPIRED" === _v0.code && !_v2) {
+                      _v14(!1), _v34(() => void _v37.current(_v0, _v1, !0));
                       return;
                     }
-                    _v9(!1), _v0 instanceof _v492 && ("AUTH_EXPIRED" === _v0.code || "TOO_MANY_PAGES" === _v0.code) || (0, _v86.trackLiveError)(_v0, {
+                    _v14(!1), _v0 instanceof _v492 && ("AUTH_EXPIRED" === _v0.code || "TOO_MANY_PAGES" === _v0.code) || (0, _v86.trackLiveError)(_v0, {
                       category: _v85.ELiveErrorCategory.MEDIA,
                       method: "useGoogleSlidesPicker.exportAndDeliver.fallback"
+                    });
+                    let _v1 = "generic";
+                    _v0 instanceof _v492 && ("TOO_MANY_PAGES" === _v0.code ? _v1 = "too_many_pages" : "AUTH_EXPIRED" === _v0.code && (_v1 = "auth_expired")), _v11({
+                      liveStreamGoogleSlidesErrorReason: _v1,
+                      liveStreamGoogleSlidesPageCount: _v0 instanceof _v492 ? _v0.pageCount ?? null : null,
+                      liveStreamGoogleSlidesDurationMs: _v36()
                     }), _v3?.("EXPORT_TOO_LARGE");
                   }
                   return;
                 }
                 if (_v0 instanceof _v503 && "AUTH_EXPIRED" === _v0.code && !_v2) {
-                  _v9(!1), _v28(() => void _v30.current(_v0, _v1, !0));
+                  _v14(!1), _v34(() => void _v37.current(_v0, _v1, !0));
                   return;
                 }
-                _v9(!1);
+                _v14(!1);
                 let _v1 = _v0 instanceof _v503 && "AUTH_EXPIRED" === _v0.code ? "AUTH_EXPIRED" : "GENERIC";
                 "GENERIC" === _v1 && (0, _v86.trackLiveError)(_v0, {
                   category: _v85.ELiveErrorCategory.MEDIA,
                   method: "useGoogleSlidesPicker.exportAndDeliver"
+                }), _v11({
+                  liveStreamGoogleSlidesErrorReason: "AUTH_EXPIRED" === _v1 ? "auth_expired" : "generic",
+                  liveStreamGoogleSlidesDurationMs: _v36()
                 }), _v3?.(_v1);
               }
-            }, [_v29, _v2, _v3, _v28]);
+            }, [_v35, _v2, _v3, _v34, _v36, _v10, _v11]);
           (0, _v21.useEffect)(() => {
-            _v30.current = _v31;
-          }, [_v31]), (0, _v21.useEffect)(() => () => _v20.current?.abort(), []);
-          let _v32 = (0, _v21.useCallback)(_v0 => {
+            _v37.current = _v38;
+          }, [_v38]), (0, _v21.useEffect)(() => () => _v25.current?.abort(), []);
+          let _v39 = (0, _v21.useCallback)(_v0 => {
               if (!_v0) return;
               let _v1 = Array.isArray(_v0) ? _v0[0] : _v0;
-              _v1?.id && _v31(_v1.id, _v1.name ?? "Google Slides");
-            }, [_v31]),
-            _v33 = (0, _v21.useCallback)(_v0 => {
-              _v0[google.picker.Response.ACTION] === google.picker.Action.CANCEL ? _v4?.() : _v0[google.picker.Response.ACTION] === google.picker.Action.PICKED && _v32(_v0[google.picker.Response.DOCUMENTS]);
-            }, [_v32, _v4]),
-            _v34 = (0, _v21.useCallback)(() => {
+              _v1?.id && _v38(_v1.id, _v1.name ?? "Google Slides");
+            }, [_v38]),
+            _v40 = (0, _v21.useCallback)(_v0 => {
+              _v0[google.picker.Response.ACTION] === google.picker.Action.CANCEL ? _v4?.() : _v0[google.picker.Response.ACTION] === google.picker.Action.PICKED && _v39(_v0[google.picker.Response.DOCUMENTS]);
+            }, [_v39, _v4]),
+            _v41 = (0, _v21.useCallback)(() => {
+              _v8();
               let _v0 = new google.picker.DocsView(google.picker.ViewId.PRESENTATIONS);
-              _v0.setMimeTypes("application/vnd.google-apps.presentation"), _v0.setMode(google.picker.DocsViewMode.LIST), new google.picker.PickerBuilder().addView(_v0).enableFeature(google.picker.Feature.NAV_HIDDEN).enableFeature(google.picker.Feature.SUPPORT_DRIVES).setOAuthToken(_v16.current).setOrigin(`${window.location.protocol}//${window.location.host}`).setLocale(_v22).setCallback(_v33).setDeveloperKey(_v1).setAppId(_v0).build().setVisible(!0);
-            }, [_v0, _v1, _v22, _v33]),
-            _v35 = (0, _v21.useCallback)(() => {
-              if (_v19.current) return;
-              let _v0 = _v17.current ? null : window.open("about:blank");
-              _v0 && (_v19.current = !0), (async () => {
+              _v0.setMimeTypes("application/vnd.google-apps.presentation"), _v0.setMode(google.picker.DocsViewMode.LIST), new google.picker.PickerBuilder().addView(_v0).enableFeature(google.picker.Feature.NAV_HIDDEN).enableFeature(google.picker.Feature.SUPPORT_DRIVES).setOAuthToken(_v21.current).setOrigin(`${window.location.protocol}//${window.location.host}`).setLocale(_v28).setCallback(_v40).setDeveloperKey(_v1).setAppId(_v0).build().setVisible(!0);
+            }, [_v0, _v1, _v28, _v40, _v8]),
+            _v42 = (0, _v21.useCallback)(() => {
+              if (_v24.current) return;
+              let _v0 = _v22.current ? null : window.open("about:blank");
+              _v0 && (_v24.current = !0), (async () => {
                 try {
-                  let _v0 = await _v26(_v0);
+                  let _v0 = await _v32(_v0);
                   if (!_v0 && !_v0) {
                     let _v0 = window.open("about:blank");
-                    _v0 && (_v19.current = !0, _v0 = await _v25(_v0));
+                    _v0 && (_v24.current = !0, _v0 = await _v31(_v0));
                   }
                   if (!_v0) {
-                    _v17.current = !1, _v13(!1), _v4?.();
+                    _v22.current = !1, _v18(!1), _v4?.();
                     return;
                   }
-                  _v27(_v0), _v34();
+                  _v33(_v0), _v41();
                 } finally {
-                  _v19.current = !1;
+                  _v24.current = !1;
                 }
               })();
-            }, [_v26, _v25, _v27, _v4, _v34]),
-            _v36 = (0, _v21.useCallback)(async () => {
+            }, [_v32, _v31, _v33, _v4, _v41]),
+            _v43 = (0, _v21.useCallback)(async () => {
               let _v0 = !1;
               try {
                 _v0 = (await fetch("/google_drive/disconnect", {
@@ -11299,47 +11329,48 @@ ${_v9}
                     "X-Requested-With": "XMLHttpRequest"
                   },
                   body: new URLSearchParams({
-                    token: _v21?.xsrft ?? ""
+                    token: _v27?.xsrft ?? ""
                   })
                 })).ok;
               } catch {}
-              return _v0 && (_v16.current = "", _v17.current = !1, _v13(!1), _v15(null)), _v0;
-            }, [_v21]),
-            _v37 = (0, _v21.useCallback)(async () => {
-              if (_v19.current) return !0;
-              _v19.current = !0;
+              return _v0 && (_v21.current = "", _v22.current = !1, _v18(!1), _v20(null)), _v0;
+            }, [_v27]),
+            _v44 = (0, _v21.useCallback)(async () => {
+              if (_v24.current) return !0;
+              _v24.current = !0;
               try {
-                return await _v36();
+                let _v0 = await _v43();
+                return _v0 && _v12(), _v0;
               } finally {
-                _v19.current = !1;
+                _v24.current = !1;
               }
-            }, [_v36]);
+            }, [_v43, _v12]);
           return {
-            pickGoogleSlides: _v35,
+            pickGoogleSlides: _v42,
             switchGoogleAccount: (0, _v21.useCallback)(() => {
-              if (_v19.current) return Promise.resolve(!0);
+              if (_v24.current) return Promise.resolve(!0);
               let _v0 = window.open("about:blank");
-              return _v0 ? (_v19.current = !0, (async () => {
+              return _v0 ? (_v24.current = !0, (async () => {
                 try {
-                  if (!(await _v36())) {
+                  if (!(await _v43())) {
                     try {
                       _v0.close();
                     } catch {}
                     return _v4?.(), !1;
                   }
-                  let _v0 = await _v25(_v0, !0);
+                  let _v0 = await _v31(_v0, !0);
                   if (!_v0) return _v4?.(), !0;
-                  return _v27(_v0), _v34(), !0;
+                  return _v33(_v0), _v41(), !0;
                 } finally {
-                  _v19.current = !1;
+                  _v24.current = !1;
                 }
               })()) : (_v4?.(), Promise.resolve(!1));
-            }, [_v36, _v25, _v27, _v4, _v34]),
-            disconnectGoogleAccount: _v37,
-            isConnected: _v12,
-            displayName: _v14,
-            isExporting: _v8,
-            isLargeDeckImporting: _v10,
+            }, [_v43, _v31, _v33, _v4, _v41]),
+            disconnectGoogleAccount: _v44,
+            isConnected: _v17,
+            displayName: _v19,
+            isExporting: _v13,
+            isLargeDeckImporting: _v15,
             canPick: !!window?.google?.picker && !_v7
           };
         }({

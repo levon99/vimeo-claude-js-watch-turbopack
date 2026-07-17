@@ -33,7 +33,6 @@
         albumId: _v2,
         hasPlayerAPI: !0,
         hasThemeSupport: !0,
-        omitEsi: !0,
         ...(_v4 && {
           showcaseMetadata: _v4
         })

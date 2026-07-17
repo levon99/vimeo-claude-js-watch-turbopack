@@ -216,81 +216,81 @@
     let _v2 = _v0.length > 0 ? _v0.substring(_v0.lastIndexOf("/") + 1) : "-1";
     return _v1 ? _v2 : parseInt(_v2, 10);
   }, "getTeamPrivacyTranslation", 0, (_v0, _v1) => !_v0 && _v1 ? (0, _v6.translate)({
-    singular: "Anyone in this workspace",
+    singular: "Workspace only",
     dictionary: {
       es: {
-        singular: "Cualquier persona en este espacio de trabajo"
+        singular: "Solo para el espacio de trabajo"
       },
       "de-DE": {
-        singular: "Jeder in diesem Workspace"
+        singular: "Nur Arbeitsbereich"
       },
       "fr-FR": {
-        singular: "Tous les membres de cet espace de travail"
+        singular: "Réservé à l'espace de travail"
       },
       "ja-JP": {
-        singular: "このワークスペースにいる全員"
+        singular: "ワークスペースのみ"
       },
       "ko-KR": {
-        singular: "이 워크스페이스의 모든 사용자"
+        singular: "워크스페이스 전용"
       },
       "pt-BR": {
-        singular: "Qualquer pessoa neste espaço de trabalho"
+        singular: "Apenas para o espaço de trabalho"
       },
       "zh-CN": {
-        singular: "此工作区内的任何人"
+        singular: "仅限工作区"
       }
     }
   }) : _v0 ? (0, _v6.translate)({
-    singular: "Anyone at {TEAM_NAME}",
+    singular: "{TEAM_NAME} only",
     replacements: {
       TEAM_NAME: _v0
     },
     dictionary: {
       es: {
-        singular: "Cualquier persona en {TEAM_NAME}"
+        singular: "Solo para {TEAM_NAME}"
       },
       "de-DE": {
-        singular: "Jemand von {TEAM_NAME}"
+        singular: "Nur {TEAM_NAME}"
       },
       "fr-FR": {
-        singular: "Tous les membres de {TEAM_NAME}"
+        singular: "Réservé à {TEAM_NAME}"
       },
       "ja-JP": {
-        singular: "{TEAM_NAME}の全員"
+        singular: "{TEAM_NAME} のみ"
       },
       "ko-KR": {
-        singular: "{TEAM_NAME}의 모든 사용자"
+        singular: "{TEAM_NAME} 전용"
       },
       "pt-BR": {
-        singular: "Qualquer pessoa em {TEAM_NAME}"
+        singular: "Apenas para {TEAM_NAME}"
       },
       "zh-CN": {
-        singular: "{TEAM_NAME} 内的任何人"
+        singular: "{TEAM_NAME} 专属"
       }
     }
   }) : (0, _v6.translate)({
-    singular: "All members",
+    singular: "Company only",
     dictionary: {
       es: {
-        singular: "Todos los miembros"
+        singular: "Solo para la empresa"
       },
       "de-DE": {
-        singular: "Alle Mitglieder"
+        singular: "Nur Unternehmen"
       },
       "fr-FR": {
-        singular: "Tous les membres"
+        singular: "Réservé à l'entreprise"
       },
       "ja-JP": {
-        singular: "すべてのメンバー"
+        singular: "会社のみ"
       },
       "ko-KR": {
-        singular: "모든 멤버"
+        singular: "회사 전용"
       },
       "pt-BR": {
-        singular: "Todos os integrantes"
+        singular: "Apenas para a empresa"
       },
       "zh-CN": {
-        singular: "所有成员"
+        singular: "仅限公司"
       }
     }
   }), "handleRemoveMember", 0, (_v0, _v1, _v2, _v3, _v4, _v5, _v6) => {

@@ -11,20 +11,22 @@
     onClick: _v4,
     onSubmit: _v5,
     redirectUrl: _v6,
-    target: _v7 = "_self",
-    className: _v8,
-    turnstileToken: _v9
+    redirectUrlAfterSocialLogin: _v7,
+    redirectUrlAfterSocialJoin: _v8,
+    target: _v9 = "_self",
+    className: _v10,
+    turnstileToken: _v11
   }) {
-    let _v10 = {
+    let _v12 = {
       id: "facebook_form",
       method: "POST",
       action: "join" === _v1 ? "/join" : "/log_in",
       noValidate: !0,
       onSubmit: _v5,
-      target: _v7
+      target: _v9
     };
-    return "_blank" === _v7 && (_v10.rel = "opener"), (0, _v1.jsxs)("form", {
-      ..._v10,
+    return "_blank" === _v9 && (_v12.rel = "opener"), (0, _v1.jsxs)("form", {
+      ..._v12,
       children: [(0, _v1.jsx)("input", {
         type: "hidden",
         name: "service",
@@ -37,20 +39,28 @@
         type: "hidden",
         name: "token",
         value: _v0
-      }), null !== _v9 && (0, _v1.jsx)("input", {
+      }), null !== _v11 && (0, _v1.jsx)("input", {
         type: "hidden",
         name: "cf-turnstile-response",
-        value: `${_v9}`
+        value: `${_v11}`
       }), _v6 && (0, _v1.jsx)("input", {
         type: "hidden",
         name: "redirect",
         value: _v6
+      }), _v7 && "undefined" !== _v7 && (0, _v1.jsx)("input", {
+        type: "hidden",
+        name: "redirect_url_after_social_login",
+        value: _v7
+      }), _v8 && "undefined" !== _v8 && (0, _v1.jsx)("input", {
+        type: "hidden",
+        name: "redirect_url_after_social_join",
+        value: _v8
       }), null !== _v3 && (0, _v1.jsx)("input", {
         type: "hidden",
         name: "marketing_opt_in",
         value: `${_v3}`
       }), (0, _v1.jsx)(_v2.SocialButton, {
-        className: _v8,
+        className: _v10,
         icon: (0, _v1.jsx)(_v2.FacebookIconContainer, {
           children: (0, _v1.jsx)(_v2.FacebookIcon, {})
         }),

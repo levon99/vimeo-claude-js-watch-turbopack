@@ -2791,7 +2791,6 @@
     }
   }), {
     requireLogin: !0,
-    omitEsi: !0,
     inlineViewer: !0,
     noIndex: !0
   }), _v167.getLayout = _v166.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v167], 0);

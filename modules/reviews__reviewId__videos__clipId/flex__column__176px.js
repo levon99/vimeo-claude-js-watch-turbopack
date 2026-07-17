@@ -490,8 +490,7 @@
           videoId: _v2,
           reviewId: _v3,
           versionId: 0,
-          isDisabledOrExpired: !0,
-          omitEsi: !0
+          isDisabledOrExpired: !0
         }
       };else return {
         notFound: !0
@@ -558,8 +557,7 @@
           ogTitle: _v3,
           ogDescription: _v4,
           ogImage: _v5,
-          ogUrl: ((_v1 = _v0.req.headers["x-forwarded-proto"]) && (_v0 = Array.isArray(_v1) ? _v1[0] : _v1), `${_v0}://${_v0.vimeoConfig.get("vimeo_url")}${_v0.req.url}`),
-          omitEsi: !0
+          ogUrl: ((_v1 = _v0.req.headers["x-forwarded-proto"]) && (_v0 = Array.isArray(_v1) ? _v1[0] : _v1), `${_v0}://${_v0.vimeoConfig.get("vimeo_url")}${_v0.req.url}`)
         }
       };
     } catch (_v0) {
@@ -574,8 +572,7 @@
           showPasswordPage: _v5,
           layoutOptions: {
             enableReviewEditAccessBanner: !0
-          },
-          omitEsi: !0
+          }
         }
       };
       return {

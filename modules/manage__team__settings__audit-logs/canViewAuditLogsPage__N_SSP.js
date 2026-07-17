@@ -37,7 +37,6 @@
     }
   }), {
     requireLogin: !0,
-    omitEsi: !0,
     inlineViewer: !0,
     noIndex: !0
   }), _v11.getLayout = _v8.getTeamSettingsPageLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v11], 0);

@@ -46,7 +46,6 @@
         isIframe: !0,
         isThemePersistent: !1,
         hasThemeSupport: !0,
-        omitEsi: !0,
         layoutOptions: {
           globalNotifications: !1
         },

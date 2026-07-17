@@ -2788,7 +2788,6 @@
   });
   (0, _v2.withPageSetup)(_v107.getWspServerSideProps, {
     requireLogin: !0,
-    omitEsi: !0,
     inlineViewer: !0,
     noIndex: !0
   }), _v108.getLayout = (_v0, _v1) => (0, _v22.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v108], 0);

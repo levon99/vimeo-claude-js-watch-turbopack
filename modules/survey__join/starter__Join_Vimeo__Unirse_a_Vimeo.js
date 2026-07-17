@@ -2526,8 +2526,7 @@
     }
     return {
       props: {
-        hasThemeSupport: !0,
-        omitEsi: !0
+        hasThemeSupport: !0
       }
     };
   }, {

@@ -5388,7 +5388,6 @@
         eventHash: _v7,
         path: _v8,
         hasThemeSupport: !0,
-        omitEsi: !0,
         eventMetadata: _v11
       }
     };

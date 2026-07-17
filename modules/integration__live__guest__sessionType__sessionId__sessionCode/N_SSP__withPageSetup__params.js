@@ -11,8 +11,7 @@
     } = _v0;
     return _v1 && _v1.sessionType && _v1.sessionId && _v1.sessionCode ? {
       props: {
-        hasThemeSupport: !0,
-        omitEsi: !0
+        hasThemeSupport: !0
       }
     } : {
       notFound: !0

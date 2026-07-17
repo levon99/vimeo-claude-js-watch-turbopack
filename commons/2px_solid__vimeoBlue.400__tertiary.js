@@ -221,28 +221,28 @@
       },
       disable: {
         title: (0, _v32.translate)({
-          singular: "Hide from Vimeo",
+          singular: "Embed only",
           dictionary: {
             es: {
-              singular: "Ocultar de Vimeo"
+              singular: "Solo incrustado"
             },
             "de-DE": {
-              singular: "Bei Vimeo ausblenden"
+              singular: "Nur Einbetten"
             },
             "fr-FR": {
-              singular: "Masquer dans Vimeo"
+              singular: "Intégration uniquement"
             },
             "ja-JP": {
-              singular: "Vimeoで非表示にする"
+              singular: "埋め込みのみ"
             },
             "ko-KR": {
-              singular: "Vimeo에서 숨기기"
+              singular: "임베드 전용"
             },
             "pt-BR": {
-              singular: "Ocultar do Vimeo"
+              singular: "Somente incorporado"
             },
             "zh-CN": {
-              singular: "从 Vimeo 隐藏"
+              singular: "仅限嵌入"
             }
           }
         }),
@@ -384,28 +384,28 @@
       },
       embed_only: {
         title: (0, _v32.translate)({
-          singular: "Hide from Vimeo",
+          singular: "Embed only",
           dictionary: {
             es: {
-              singular: "Ocultar de Vimeo"
+              singular: "Solo incrustado"
             },
             "de-DE": {
-              singular: "Bei Vimeo ausblenden"
+              singular: "Nur Einbetten"
             },
             "fr-FR": {
-              singular: "Masquer dans Vimeo"
+              singular: "Intégration uniquement"
             },
             "ja-JP": {
-              singular: "Vimeoで非表示にする"
+              singular: "埋め込みのみ"
             },
             "ko-KR": {
-              singular: "Vimeo에서 숨기기"
+              singular: "임베드 전용"
             },
             "pt-BR": {
-              singular: "Ocultar do Vimeo"
+              singular: "Somente incorporado"
             },
             "zh-CN": {
-              singular: "从 Vimeo 隐藏"
+              singular: "仅限嵌入"
             }
           }
         }),

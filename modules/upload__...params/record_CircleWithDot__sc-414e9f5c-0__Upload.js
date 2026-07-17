@@ -4499,7 +4499,6 @@
       props: {
         hasThemeSupport: !0,
         hasUploader: !0,
-        omitEsi: !0,
         layoutOptions: {
           globalNotifications: !1
         },

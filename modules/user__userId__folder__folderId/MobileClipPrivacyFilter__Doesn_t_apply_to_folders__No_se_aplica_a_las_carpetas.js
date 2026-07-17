@@ -15,8 +15,7 @@
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
-    _v15 = _v0.i(0),
-    _v16 = _v0.i(0);
+    _v15 = _v0.i(0);
   _v0.s(["MobileClipPrivacyFilter", 0, ({
     filter: _v0,
     options: _v1,
@@ -25,32 +24,29 @@
     onChange: _v4
   }) => {
     let _v5,
-      {
-        settings: _v6
-      } = (0, _v10.useOrionSettings)(),
-      _v7 = (0, _v13.useViewer)(),
-      _v8 = _v7?.teamUser,
-      _v9 = (0, _v12.useDefaultPrivacyOptions)(_v7),
-      _v10 = Object.fromEntries(Object.entries(_v11.DEFAULT_PRIVACY_VALUES).map(([_v0, _v1]) => [_v1, _v0.toLowerCase()])),
-      _v11 = _v6.privacy_settings_new_copy ? {
-        ...(0, _v14.getPrivacyTypeFilterOptionsByValue)(_v8?.teamName, _v8?.isWorkspace),
-        ..._v9.reduce((_v0, _v1) => {
-          let _v2 = _v10[_v1.privacy] ?? _v1.privacy;
+      _v6 = (0, _v12.useViewer)(),
+      _v7 = _v6?.teamUser,
+      _v8 = (0, _v11.useDefaultPrivacyOptions)(_v6),
+      _v9 = Object.fromEntries(Object.entries(_v10.DEFAULT_PRIVACY_VALUES).map(([_v0, _v1]) => [_v1, _v0.toLowerCase()])),
+      _v10 = {
+        ...(0, _v13.getPrivacyTypeFilterOptionsByValue)(_v7?.teamName, _v7?.isWorkspace),
+        ..._v8.reduce((_v0, _v1) => {
+          let _v2 = _v9[_v1.privacy] ?? _v1.privacy;
           return _v0[_v2] = {
             label: _v1.title,
             value: _v2,
             icon: _v2.default.isValidElement(_v1.icon) ? _v1.icon.type : _v1.icon
           }, _v0;
         }, {})
-      } : (0, _v14.getPrivacyTypeFilterOptionsByValue)(_v8?.teamName, _v8?.isWorkspace),
-      _v12 = 0 === _v0.length,
-      _v13 = _v0.length > 1,
-      _v14 = _v1.map(_v0 => ({
-        label: _v11[_v0].label,
-        value: _v11[_v0].value,
-        icon: _v11[_v0].icon
+      },
+      _v11 = 0 === _v0.length,
+      _v12 = _v0.length > 1,
+      _v13 = _v1.map(_v0 => ({
+        label: _v10[_v0].label,
+        value: _v10[_v0].value,
+        icon: _v10[_v0].icon
       })),
-      _v15 = _v2 ? (0, _v9.translate)({
+      _v14 = _v2 ? (0, _v9.translate)({
         singular: "Doesn't apply to folders",
         dictionary: {
           es: {
@@ -76,7 +72,7 @@
           }
         }
       }) : void 0;
-    return (0, _v1.jsx)(_v16.MobileFilter, {
+    return (0, _v1.jsx)(_v15.MobileFilter, {
       label: (_v5 = (0, _v9.translate)({
         singular: "Privacy",
         dictionary: {
@@ -102,13 +98,13 @@
             singular: "隐私"
           }
         }
-      }), _v13 ? _v5 + (" (" + _v0.length) + ")" : _v12 ? _v5 : _v11[_v0[0]].label),
-      subtitle: _v15,
+      }), _v12 ? _v5 + (" (" + _v0.length) + ")" : _v11 ? _v5 : _v10[_v0[0]].label),
+      subtitle: _v14,
       onOpen: () => {
-        _v15.FilterBPEvents.sendOpenFilterEvent("clip_privacy", _v3, _v8, "mobile");
+        _v14.FilterBPEvents.sendOpenFilterEvent("clip_privacy", _v3, _v7, "mobile");
       },
       children: (0, _v1.jsx)(_v7.Stack, {
-        children: _v14.map(_v0 => (0, _v1.jsx)(_v3.Box, {
+        children: _v13.map(_v0 => (0, _v1.jsx)(_v3.Box, {
           children: (0, _v1.jsx)(_v4.Checkbox, {
             paddingX: "sm",
             borderRadius: "sm",
@@ -136,12 +132,12 @@
       })
     });
   }], 0);
-  var _v17 = _v0.i(0),
+  var _v16 = _v0.i(0),
+    _v17 = _v0.i(0),
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
-    _v21 = _v0.i(0),
-    _v22 = _v0.i(0);
+    _v21 = _v0.i(0);
   _v0.s(["MobileCreatedByFilter", 0, ({
     filter: _v0,
     options: _v1,
@@ -156,7 +152,7 @@
     isDone: _v10 = !1
   }) => {
     let _v11,
-      _v12 = (0, _v13.useViewer)(),
+      _v12 = (0, _v12.useViewer)(),
       _v13 = _v12?.teamUser,
       _v14 = 0 === _v0.length,
       _v15 = _v0.length > 1,
@@ -215,7 +211,7 @@
             overflow: "ellipsis",
             whiteSpace: "nowrap",
             children: [(0, _v1.jsx)(_v3.Box, {
-              children: (0, _v1.jsx)(_v17.Avatar, {
+              children: (0, _v1.jsx)(_v16.Avatar, {
                 size: "sm",
                 alt: (0, _v9.translate)({
                   singular: "Display picture",
@@ -256,7 +252,7 @@
           })
         })
       }, _v0.userId));
-    return (0, _v1.jsxs)(_v16.MobileFilter, {
+    return (0, _v1.jsxs)(_v15.MobileFilter, {
       label: (_v11 = (0, _v9.translate)({
         singular: "Created by",
         dictionary: {
@@ -285,9 +281,9 @@
       }), _v15 ? _v11 + (" (" + _v0.length) + ")" : _v14 ? _v11 : _v0[0].name),
       subtitle: _v18,
       onOpen: () => {
-        _v15.FilterBPEvents.sendOpenFilterEvent("clip_created_by", _v4, _v13, "mobile");
+        _v14.FilterBPEvents.sendOpenFilterEvent("clip_created_by", _v4, _v13, "mobile");
       },
-      children: [(0, _v1.jsx)(_v22.FilterSearch, {
+      children: [(0, _v1.jsx)(_v21.FilterSearch, {
         searchTerm: _v3,
         setSearchTerm: _v6,
         placeholderText: (0, _v9.translate)({
@@ -316,11 +312,11 @@
             }
           }
         })
-      }), _v8 ? (0, _v1.jsx)(_v19.Flex, {
+      }), _v8 ? (0, _v1.jsx)(_v18.Flex, {
         justifyContent: "center",
         alignItems: "center",
         margin: "sm",
-        children: (0, _v1.jsx)(_v20.Spinner, {
+        children: (0, _v1.jsx)(_v19.Spinner, {
           size: "sm"
         })
       }) : (0, _v1.jsx)(_v7.Stack, {
@@ -331,12 +327,12 @@
         children: (0, _v1.jsxs)(_v3.Box, {
           paddingTop: "sm",
           position: "relative",
-          children: [_v19, (0, _v1.jsxs)(_v19.Flex, {
+          children: [_v19, (0, _v1.jsxs)(_v18.Flex, {
             alignItems: "center",
             justifyContent: "center",
-            children: [!_v10 && !_v7 && !_v17 && (0, _v1.jsx)(_v18.Button, {
+            children: [!_v10 && !_v7 && !_v17 && (0, _v1.jsx)(_v17.Button, {
               variant: "tertiary",
-              rightIcon: (0, _v1.jsx)(_v21.ChevronDownSmall, {}),
+              rightIcon: (0, _v1.jsx)(_v20.ChevronDownSmall, {}),
               onClick: () => {
                 _v7 || _v10 || !_v9 || _v9();
               },
@@ -367,15 +363,15 @@
                   }
                 }
               })
-            }), _v7 && (0, _v1.jsx)(_v19.Flex, {
+            }), _v7 && (0, _v1.jsx)(_v18.Flex, {
               justifyContent: "center",
               alignItems: "center",
-              children: (0, _v1.jsx)(_v20.Spinner, {
+              children: (0, _v1.jsx)(_v19.Spinner, {
                 size: "sm",
                 margin: (0, _v6.rem)(8)
               })
             })]
-          }), _v17 && !_v7 && (0, _v1.jsx)(_v19.Flex, {
+          }), _v17 && !_v7 && (0, _v1.jsx)(_v18.Flex, {
             height: (0, _v6.rem)(140),
             textAlign: "center",
             alignItems: "center",

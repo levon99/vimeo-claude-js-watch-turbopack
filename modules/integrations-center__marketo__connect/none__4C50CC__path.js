@@ -367,8 +367,7 @@
   });
   (0, _v24.withPageSetup)(() => ({
     props: {
-      hasThemeSupport: !0,
-      omitEsi: !0
+      hasThemeSupport: !0
     }
   }), {
     capability: "hasIntegrationCenter",

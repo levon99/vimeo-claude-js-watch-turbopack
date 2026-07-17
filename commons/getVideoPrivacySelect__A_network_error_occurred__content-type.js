@@ -96,53 +96,45 @@
   });
   var _v11 = _v0.i(0),
     _v12 = _v0.i(0),
-    _v13 = _v0.i(0),
-    _v14 = _v0.i(0),
-    _v15 = _v0.i(0);
+    _v13 = _v0.i(0);
   _v0.s(["useClipPrivacyOptions", 0, (_v0, _v1 = !0, _v2 = "xs") => {
-    let _v3 = (0, _v12.useViewer)(),
+    let _v3 = (0, _v11.useViewer)(),
       {
-        settings: _v4
-      } = (0, _v11.useOrionSettings)(),
-      {
-        data: _v5,
-        error: _v6,
-        isLoading: _v7
+        data: _v4,
+        error: _v5,
+        isLoading: _v6
       } = _v10(() => void 0 === _v0 || "string" == typeof _v0 && "" === _v0.trim() ? null : {
         where: {
           videoId: _v0
         },
         select: ["options"],
         headers: {
-          Accept: `application/vnd.vimeo.*+json;version=${_v13.VIDEO_API_VERSION}`
+          Accept: `application/vnd.vimeo.*+json;version=${_v12.VIDEO_API_VERSION}`
         }
       });
     return {
-      privacyOptions: (0, _v1.useMemo)(() => {
-        let _v0 = ((_v0, _v1 = !0, _v2) => {
-          if (!_v0?.options?.length) return [];
-          let _v3 = (0, _v13.videoPrivacyIcons)(_v2);
-          return _v0.options.map(_v0 => {
-            let _v1 = _v0.hasUpsell ? _v13.PRIVACY_VALUE_TO_UPSELL[_v0.value] : void 0;
-            return {
-              privacy: _v0.value,
-              title: _v0.label,
-              description: _v0.description,
-              icon: _v3[_v0.value]?.icon,
-              isDisabled: _v0.isDisabled,
-              upsellEvent: _v1,
-              showUpsell: _v0.hasUpsell,
-              showUpsellModal: _v1 && _v0.hasUpsell && _v13.PAID_PRIVACY_UPSELL_MODAL_VALUES.has(_v0.value)
-            };
-          });
-        })(_v5 ?? null, _v1, _v2);
-        return _v4.privacy_settings_new_copy ? _v0.map(_v0 => (0, _v15.getNewPrivacyCopy)(_v2, _v3?.teamUser?.teamName, _v3?.teamUser?.isWorkspace)(_v0)) : _v0.map(_v0 => ({
-          ..._v0,
-          title: "team" === _v0.privacy ? (0, _v14.getTranslations)().getTeamPrivacyTranslation(_v3?.teamUser?.teamName, _v3?.teamUser?.isWorkspace) : _v0.title
-        }));
-      }, [_v5, _v3?.teamUser?.teamName, _v3?.teamUser?.isWorkspace, _v1, _v2, _v4.privacy_settings_new_copy]),
-      error: _v6,
-      isLoading: _v7
+      privacyOptions: (0, _v1.useMemo)(() => ((_v0, _v1 = !0, _v2) => {
+        if (!_v0?.options?.length) return [];
+        let _v3 = (0, _v12.videoPrivacyIcons)(_v2);
+        return _v0.options.map(_v0 => {
+          let _v1 = _v0.hasUpsell ? _v12.PRIVACY_VALUE_TO_UPSELL[_v0.value] : void 0;
+          return {
+            privacy: _v0.value,
+            title: _v0.label,
+            description: _v0.description,
+            icon: _v3[_v0.value]?.icon,
+            isDisabled: _v0.isDisabled,
+            upsellEvent: _v1,
+            showUpsell: _v0.hasUpsell,
+            showUpsellModal: _v1 && _v0.hasUpsell && _v12.PAID_PRIVACY_UPSELL_MODAL_VALUES.has(_v0.value)
+          };
+        });
+      })(_v4 ?? null, _v1, _v2).map(_v0 => ({
+        ..._v0,
+        title: "team" === _v0.privacy ? (0, _v13.getTranslations)().getTeamPrivacyTranslation(_v3?.teamUser?.teamName, _v3?.teamUser?.isWorkspace) : _v0.title
+      })), [_v4, _v3?.teamUser?.teamName, _v3?.teamUser?.isWorkspace, _v1, _v2]),
+      error: _v5,
+      isLoading: _v6
     };
   }], 0);
 }

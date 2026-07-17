@@ -6,43 +6,42 @@
     _v3 = _v0.i(0),
     _v4 = _v0.i(0),
     _v5 = _v0.i(0),
-    _v6 = _v0.i(0),
-    _v7 = _v0.i(0);
-  let _v8 = _v5.default.div.withConfig({
+    _v6 = _v0.i(0);
+  let _v7 = _v4.default.div.withConfig({
       displayName: "src__Wrapper",
       componentId: "sc-e46e2faa-0"
     })`
-  background: ${_v7.white};
+  background: ${_v6.white};
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
   justify-content: center;
   align-items: center;
 `,
-    _v9 = _v5.default.div.withConfig({
+    _v8 = _v4.default.div.withConfig({
       displayName: "src__Message",
       componentId: "sc-e46e2faa-1"
     })`
-  color: ${(0, _v7.grayscale)(800)};
-  font-size: ${(0, _v4.rem)(18)};
+  color: ${(0, _v6.grayscale)(800)};
+  font-size: ${(0, _v3.rem)(18)};
   font-weight: 500;
-  line-height: ${(0, _v4.rem)(26)};
+  line-height: ${(0, _v3.rem)(26)};
   text-align: center;
   width: 80%;
-  padding-top: ${(0, _v4.rem)(25)};
+  padding-top: ${(0, _v3.rem)(25)};
 `,
-    _v10 = _v5.keyframes`
+    _v9 = _v4.keyframes`
   0% {
     transform: translateY(0);
   }
   40% {
-      transform: translateY(${(0, _v4.rem)(8)});
+      transform: translateY(${(0, _v3.rem)(8)});
   }
   100% {
     transform: translateY(0);
   }
 `,
-    _v11 = (0, _v5.default)(_v0 => (0, _v1.jsxs)("svg", {
+    _v10 = (0, _v4.default)(_v0 => (0, _v1.jsxs)("svg", {
       width: 200,
       height: 200,
       viewBox: "0 0 200 200",
@@ -106,11 +105,11 @@
       displayName: "src__HoveringIcon",
       componentId: "sc-e46e2faa-2"
     })`
-  animation: 2.5s ${_v10} ease infinite forwards;
+  animation: 2.5s ${_v9} ease infinite forwards;
 `,
-    _v12 = () => (0, _v1.jsxs)(_v8, {
-      children: [(0, _v1.jsx)(_v11, {}), (0, _v1.jsx)(_v9, {
-        children: (0, _v6.translate)({
+    _v11 = () => (0, _v1.jsxs)(_v7, {
+      children: [(0, _v1.jsx)(_v10, {}), (0, _v1.jsx)(_v8, {
+        children: (0, _v5.translate)({
           singular: "For the best team experience, open this email on your computer.",
           dictionary: {
             es: {
@@ -138,11 +137,9 @@
         })
       })]
     });
-  _v12.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
-    children: [(0, _v1.jsx)(_v3.DefaultNavigation, {
+  _v11.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
+    children: [(0, _v1.jsx)(_v2.DefaultNavigation, {
       hasThemeSupport: !1
     }), _v0]
-  }), (0, _v2.withPageSetup)({
-    omitEsi: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v12], 0);
+  }), _v0.s(["default", 0, _v11], 0);
 }

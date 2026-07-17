@@ -239,7 +239,6 @@
     }
   }), {
     requireLogin: !0,
-    omitEsi: !0,
     inlineViewer: !0
   }), _v27.getLayout = _v0 => (0, _v1.jsx)("div", {
     children: _v0

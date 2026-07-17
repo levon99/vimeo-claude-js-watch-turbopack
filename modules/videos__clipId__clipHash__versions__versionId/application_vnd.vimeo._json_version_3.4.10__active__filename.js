@@ -94,8 +94,7 @@
           hasUploader: !0,
           versionFileName: _v0.filename || "",
           embedPlayerConfigUrl: _v0.embedPlayerConfigUrl || "",
-          isDeleted: _v0.isDeleted,
-          omitEsi: !0
+          isDeleted: _v0.isDeleted
         }
       };
     } catch (_v0) {

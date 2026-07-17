@@ -9444,7 +9444,6 @@
         isMod: _v6,
         userId: _v2 ?? _v3,
         hasThemeSupport: !0,
-        omitEsi: !0,
         layoutOptions: {
           headerFixed: !0
         }

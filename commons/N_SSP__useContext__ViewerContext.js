@@ -23,7 +23,6 @@
   }
   _v8.getLayout = _v6.getSharedContentLayoutWithTabs, (0, _v4.withPageSetup)({
     requireLogin: !0,
-    omitEsi: !0,
     inlineViewer: !0,
     noIndex: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v8], 0);

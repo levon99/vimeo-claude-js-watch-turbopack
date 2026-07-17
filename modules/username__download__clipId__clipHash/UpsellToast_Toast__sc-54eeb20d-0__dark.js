@@ -517,41 +517,45 @@
     _v66 = _v0.i(0),
     _v67 = _v0.i(0),
     _v68 = _v0.i(0),
-    _v69 = _v0.i(0),
-    _v70 = _v0.i(0),
-    _v71 = _v0.i(0);
-  function _v72({
-    created_on: _v0,
-    disabled: _v1,
-    id: _v2,
-    uploadStatus: _v3,
-    transcodeStatus: _v4,
-    onClick: _v5,
-    selectedVersion: _v6,
-    shortFilename: _v7,
-    title: _v8,
-    reviewModes: _v9,
-    ..._v10
+    _v69 = _v0.i(0);
+  let _v70 = (_v0, _v1) => _v0.length > _v1 ? `${_v0.substring(0, _v1)}...` : _v0,
+    _v71 = _v0 => ({
+      ..._v0,
+      shortFilename: _v70(_v0.file_name, 26),
+      ...(_v0.username && {
+        shortUsername: _v70(_v0.username, 30)
+      })
+    });
+  var _v72 = _v0.i(0),
+    _v73 = _v0.i(0);
+  function _v74({
+    version: _v0,
+    selectedVersionUri: _v1,
+    onClick: _v2,
+    disabled: _v3,
+    title: _v4,
+    reviewModes: _v5
   }) {
-    let _v11 = _v2 === _v6.id;
-    return (0, _v10.jsxs)(_v74, {
-      "aria-label": _v8,
-      onClick: _v5,
-      selected: _v11,
-      disabled: _v1,
-      reviewModes: _v9,
-      ..._v10,
-      children: [_v11 && (0, _v10.jsx)(_v71.Checkmark, {
+    let _v6 = _v0.upload?.status,
+      _v7 = _v0.versionTranscodeStatus,
+      _v8 = _v0.uri === _v1;
+    return (0, _v10.jsxs)(_v76, {
+      "aria-label": _v4,
+      onClick: _v2,
+      selected: _v8,
+      disabled: _v3,
+      reviewModes: _v5,
+      children: [_v8 && (0, _v10.jsx)(_v73.Checkmark, {
         style: {
           marginRight: "1rem"
         }
-      }), !_v11 && ("in_progress" === _v3 || "in_progress" === _v4) && (0, _v10.jsx)(_v70.Spinner, {
+      }), !_v8 && ("in_progress" === _v6 || "in_progress" === _v7) && (0, _v10.jsx)(_v72.Spinner, {
         style: {
           marginRight: "1rem"
         }
       }), (0, _v10.jsxs)("div", {
-        children: [_v7, (0, _v10.jsx)(_v73, {
-          children: "in_progress" === _v3 ? (0, _v66.translate)({
+        children: [_v70(_v0.filename, 26), (0, _v10.jsx)(_v75, {
+          children: "in_progress" === _v6 ? (0, _v66.translate)({
             singular: "Uploading",
             dictionary: {
               es: {
@@ -576,7 +580,7 @@
                 singular: "正在上传"
               }
             }
-          }) : "error" === _v3 ? (0, _v66.translate)({
+          }) : "error" === _v6 ? (0, _v66.translate)({
             singular: "Upload failed",
             dictionary: {
               es: {
@@ -601,7 +605,7 @@
                 singular: "上传失败"
               }
             }
-          }) : "cancelled" === _v3 ? (0, _v66.translate)({
+          }) : "cancelled" === _v6 ? (0, _v66.translate)({
             singular: "Cancelled",
             dictionary: {
               es: {
@@ -626,7 +630,7 @@
                 singular: "已取消"
               }
             }
-          }) : "in_progress" === _v4 ? (0, _v66.translate)({
+          }) : "in_progress" === _v7 ? (0, _v66.translate)({
             singular: "Transcoding",
             dictionary: {
               es: {
@@ -651,7 +655,7 @@
                 singular: "转码中"
               }
             }
-          }) : "error" === _v4 ? (0, _v66.translate)({
+          }) : "error" === _v7 ? (0, _v66.translate)({
             singular: "Processing failed",
             dictionary: {
               es: {
@@ -677,20 +681,19 @@
               }
             }
           }) : function (_v0) {
-            let _v1 = _v78(_v0),
-              _v2 = new Date(Date.now()),
-              _v3 = new Date(_v1),
-              _v4 = _v3.toLocaleDateString(void 0, {
+            let _v1 = new Date(Date.now()),
+              _v2 = new Date(_v0),
+              _v3 = _v2.toLocaleDateString(void 0, {
                 month: "long",
                 day: "numeric",
                 year: "numeric"
               }),
-              _v5 = _v3.toLocaleTimeString(void 0, {
+              _v4 = _v2.toLocaleTimeString(void 0, {
                 hour: "numeric",
                 minute: "numeric"
               }),
-              _v6 = _v76(_v2, _v3);
-            if (_v6 <= 1) return `${0 === _v6 ? (0, _v66.translate)({
+              _v5 = _v78(_v1, _v2);
+            if (_v5 <= 1) return `${0 === _v5 ? (0, _v66.translate)({
               singular: "Today",
               dictionary: {
                 es: {
@@ -740,20 +743,20 @@
                   singular: "昨天"
                 }
               }
-            })} ${_v5}`;
-            if (!_v77(_v2, _v3)) return `${_v4} ${_v5}`;
+            })} ${_v4}`;
+            if (!_v79(_v1, _v2)) return `${_v3} ${_v4}`;
             {
-              let _v0 = _v3.toLocaleDateString(void 0, {
+              let _v0 = _v2.toLocaleDateString(void 0, {
                 weekday: "long"
               });
-              return `Last ${_v0} ${_v5}`;
+              return `Last ${_v0} ${_v4}`;
             }
-          }(_v0)
+          }(_v0.createdTime)
         })]
       })]
     });
   }
-  let _v73 = _v13.default.span.withConfig({
+  let _v75 = _v13.default.span.withConfig({
       displayName: "VersionItem__Subtext",
       componentId: "sc-23d8c731-0"
     })`
@@ -761,7 +764,7 @@
   color: #919fa9;
   opacity: 0.8;
 `,
-    _v74 = _v13.default.div.withConfig({
+    _v76 = _v13.default.div.withConfig({
       displayName: "VersionItem__VersionStyled",
       componentId: "sc-23d8c731-1"
     })`
@@ -821,16 +824,15 @@
     );
   }
 `,
-    _v75 = _v0 => {
+    _v77 = _v0 => {
       let _v1 = new Date(Date.UTC(_v0.getFullYear(), _v0.getMonth(), _v0.getDate()));
       _v1.setUTCDate(_v1.getUTCDate() + 4 - (_v1.getUTCDay() || 7));
       let _v2 = new Date(Date.UTC(_v0.getUTCFullYear(), 0, 1));
       return Math.ceil(((_v1.getTime() - _v2.getTime()) / 0 + 1) / 7);
     },
-    _v76 = (_v0, _v1) => (_v0.setHours(0, 0, 0, 0), _v1.setHours(0, 0, 0, 0), (_v0.getTime() - _v1.getTime()) / 0),
-    _v77 = (_v0, _v1) => _v0.getFullYear() === _v1.getFullYear() && _v75(_v0) - _v75(_v1) == 1,
-    _v78 = _v0 => _v0.replace(RegExp(/-/, "g"), "/"),
-    _v79 = _v13.default.div.withConfig({
+    _v78 = (_v0, _v1) => (_v0.setHours(0, 0, 0, 0), _v1.setHours(0, 0, 0, 0), (_v0.getTime() - _v1.getTime()) / 0),
+    _v79 = (_v0, _v1) => _v0.getFullYear() === _v1.getFullYear() && _v77(_v0) - _v77(_v1) == 1,
+    _v80 = _v13.default.div.withConfig({
       displayName: "VersionsDropdown__Versions",
       componentId: "sc-584c0790-0"
     })`
@@ -839,7 +841,7 @@
   overflow-y: auto;
   max-height: calc(100vh - ${(0, _v60.rem)(140)});
 `,
-    _v80 = _v13.default.div.withConfig({
+    _v81 = _v13.default.div.withConfig({
       displayName: "VersionsDropdown__VersionsDropdownStyled",
       componentId: "sc-584c0790-1"
     })`
@@ -848,18 +850,18 @@
     margin: 0;
   }
 `,
-    _v81 = (0, _v13.default)(_v67.ChevronDown).withConfig({
+    _v82 = (0, _v13.default)(_v67.ChevronDown).withConfig({
       displayName: "VersionsDropdown__ChevronDownStyled",
       componentId: "sc-584c0790-2"
     })`
   transform: ${_v0 => _v0.isFlipped ? "scaleY(-1)" : "none"};
 `;
-  var _v82 = _v0.i(0),
-    _v83 = _v0.i(0);
-  let _v84 = "MODAL_PRODUCT_VIDEO",
-    _v85 = "MODAL_SHARING_UPSELL",
-    _v86 = "MODAL_MINIMAL_UPSELL",
-    _v87 = {
+  var _v83 = _v0.i(0),
+    _v84 = _v0.i(0);
+  let _v85 = "MODAL_PRODUCT_VIDEO",
+    _v86 = "MODAL_SHARING_UPSELL",
+    _v87 = "MODAL_MINIMAL_UPSELL",
+    _v88 = {
       [_v14.Page.Review]: (0, _v33.translate)({
         singular: "Review",
         dictionary: {
@@ -1011,7 +1013,7 @@
         }
       })
     },
-    _v88 = (0, _v13.default)(_v82.ChevronRight).withConfig({
+    _v89 = (0, _v13.default)(_v83.ChevronRight).withConfig({
       displayName: "Breadcrumbs__ChevronStyled",
       componentId: "sc-cdde352d-0"
     })`
@@ -1034,7 +1036,7 @@
     }
   }
 `,
-    _v89 = _v13.default.div.withConfig({
+    _v90 = _v13.default.div.withConfig({
       displayName: "Breadcrumbs__BreadcrumbsStyled",
       componentId: "sc-cdde352d-1"
     })`
@@ -1043,7 +1045,7 @@
   height: 100%;
   flex: 0 1 auto;
 `,
-    _v90 = _v13.default.div.withConfig({
+    _v91 = _v13.default.div.withConfig({
       displayName: "DisabledClickOverlay__DisabledClickOverlayStyled",
       componentId: "sc-bebc963d-0"
     })`
@@ -1055,10 +1057,10 @@
   background-color: transparent;
   z-index: 10;
 `,
-    _v91 = () => (0, _v10.jsx)(_v90, {});
-  var _v92 = _v12,
-    _v93 = _v0.i(0);
-  class _v94 extends _v92.default.Component {
+    _v92 = () => (0, _v10.jsx)(_v91, {});
+  var _v93 = _v12,
+    _v94 = _v0.i(0);
+  class _v95 extends _v93.default.Component {
     componentDidMount() {
       this.props.onMount && this.props.onMount();
     }
@@ -1067,10 +1069,10 @@
         allowDownloads: _v0,
         toggleAllowDownloads: _v1
       } = this.props;
-      return (0, _v10.jsx)(_v96, {
+      return (0, _v10.jsx)(_v97, {
         format: "primary",
-        children: (0, _v10.jsxs)(_v97, {
-          children: [(0, _v10.jsx)(_v99, {
+        children: (0, _v10.jsxs)(_v98, {
+          children: [(0, _v10.jsx)(_v100, {
             size: "2",
             children: (0, _v33.translate)({
               singular: "To share this file, allow downloads for this video.",
@@ -1098,7 +1100,7 @@
                 }
               }
             })
-          }), (0, _v10.jsx)(_v98, {
+          }), (0, _v10.jsx)(_v99, {
             children: (0, _v10.jsx)("span", {
               onClick: _v1,
               children: (0, _v10.jsx)(_v62.Toggle, {
@@ -1141,12 +1143,12 @@
       });
     }
   }
-  let _v95 = (_v0, ..._v1) => _v13.css`
+  let _v96 = (_v0, ..._v1) => _v13.css`
   @media screen and (max-width: ${(0, _v19.rem)(0)}) {
     ${(0, _v13.css)(_v0, ..._v1)}
   }
 `,
-    _v96 = (0, _v13.default)(_v93.Notice).withConfig({
+    _v97 = (0, _v13.default)(_v94.Notice).withConfig({
       displayName: "DisabledDownloadsNotification__NoticeNeutralStyled",
       componentId: "sc-f929bb48-0"
     })`
@@ -1154,7 +1156,7 @@
   margin-bottom: 0;
   padding-right: ${(0, _v19.rem)(16)};
 
-  ${_v95`
+  ${_v96`
         margin: ${(0, _v19.rem)(10)};
         position: fixed;
         bottom: 0;
@@ -1164,7 +1166,7 @@
         right: 0;
     `}
 `,
-    _v97 = _v13.default.div.withConfig({
+    _v98 = _v13.default.div.withConfig({
       displayName: "DisabledDownloadsNotification__EnableDownloadContentStyled",
       componentId: "sc-f929bb48-1"
     })`
@@ -1174,22 +1176,22 @@
   > * + * {
     margin-left: ${(0, _v19.rem)(16)};
 
-    ${_v95`
+    ${_v96`
             margin-left: 0;
         `}
   }
 
-  ${_v95`
+  ${_v96`
         flex-direction: column;
     `}
 `,
-    _v98 = _v13.default.div.withConfig({
+    _v99 = _v13.default.div.withConfig({
       displayName: "DisabledDownloadsNotification__ToggleWrapperStyled",
       componentId: "sc-f929bb48-2"
     })`
   margin-left: ${(0, _v19.rem)(32)};
 
-  ${_v95`
+  ${_v96`
         margin-left: 0;
         margin-top: ${(0, _v19.rem)(16)};
     `}
@@ -1199,26 +1201,36 @@
     margin-bottom: 0;
   }
 `,
-    _v99 = (0, _v13.default)(_v24.Paragraph).withConfig({
+    _v100 = (0, _v13.default)(_v24.Paragraph).withConfig({
       displayName: "DisabledDownloadsNotification__ParagraphStyled",
       componentId: "sc-f929bb48-3"
     })`
   color: ${_v54.white};
 `,
-    _v100 = (0, _v60.rem)(64),
-    _v101 = (0, _v60.rem)(78),
-    _v102 = _v13.css`
-  height: ${_v100};
+    _v101 = _v0 => ({
+      uri: `/videos/${_v0.clip_id}/versions/${_v0.id}`,
+      filename: _v0.shortFilename ?? _v0.file_name ?? "",
+      active: !!_v0.is_current,
+      upload: _v0.uploadStatus ? {
+        status: _v0.uploadStatus
+      } : void 0,
+      versionTranscodeStatus: _v0.transcodeStatus,
+      createdTime: _v0.created_on?.replace(" ", "T")
+    }),
+    _v102 = (0, _v60.rem)(64),
+    _v103 = (0, _v60.rem)(78),
+    _v104 = _v13.css`
+  height: ${_v102};
 
   @media screen and (max-width: ${(0, _v60.rem)(768)}) {
-    height: ${_v101};
+    height: ${_v103};
   }
 `,
-    _v103 = _v13.default.div.withConfig({
+    _v105 = _v13.default.div.withConfig({
       displayName: "CreatorNav__CreatorNavStyled",
       componentId: "sc-3b8b524-0"
     })`
-  ${_v102}
+  ${_v104}
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -1227,16 +1239,16 @@
   flex-shrink: 0;
   flex-wrap: nowrap;
 `,
-    _v104 = _v13.default.div.withConfig({
+    _v106 = _v13.default.div.withConfig({
       displayName: "CreatorNav__LeftSectionStyled",
       componentId: "sc-3b8b524-1"
     })`
-  ${_v102}
+  ${_v104}
   display: flex;
   align-items: center;
   flex-shrink: 0;
 `,
-    _v105 = (0, _v13.default)(function ({
+    _v107 = (0, _v13.default)(function ({
       selectedVersion: _v0,
       onChange: _v1,
       options: _v2 = [],
@@ -1245,7 +1257,8 @@
     }) {
       let [_v5, _v6] = (0, _v12.useState)(!1),
         _v7 = () => _v6(!1),
-        _v8 = (0, _v10.jsxs)(_v79, {
+        _v8 = _v0 => _v0.upload?.status,
+        _v9 = (0, _v10.jsxs)(_v80, {
           children: [(0, _v10.jsx)(_v69.Pop.Header, {
             children: (0, _v66.translate)({
               singular: "Version history",
@@ -1273,18 +1286,18 @@
                 }
               }
             })
-          }), _v2.map(_v0 => (0, _v10.jsx)(_v72, {
-            onClick: () => "in_progress" !== _v0.uploadStatus && "error" !== _v0.uploadStatus && "cancelled" !== _v0.uploadStatus && "in_progress" !== _v0.transcodeStatus && "error" !== _v0.transcodeStatus && void (_v7(), _v1?.(_v0)),
-            selectedVersion: _v0,
-            reviewModes: !0,
-            ..._v0
-          }, _v0.id))]
+          }), _v2.map(_v0 => (0, _v10.jsx)(_v74, {
+            version: _v0,
+            selectedVersionUri: _v0.uri,
+            onClick: () => "in_progress" !== _v8(_v0) && "error" !== _v8(_v0) && "cancelled" !== _v8(_v0) && "in_progress" !== _v0.versionTranscodeStatus && "error" !== _v0.versionTranscodeStatus && void (_v7(), _v1?.(_v0)),
+            reviewModes: !0
+          }, _v0.uri))]
         });
-      return (0, _v10.jsx)(_v80, {
+      return (0, _v10.jsx)(_v81, {
         ..._v4,
         children: (0, _v10.jsx)(_v68.PopOver, {
           attach: [[100, 0], [0, 0]],
-          content: _v8,
+          content: _v9,
           onClick: () => _v6(_v0 => !_v0),
           onClose: _v7,
           style: {
@@ -1293,12 +1306,12 @@
           children: (0, _v10.jsx)(_v23.Button, {
             fluid: !0,
             format: "secondary",
-            icon: (0, _v10.jsx)(_v81, {
+            icon: (0, _v10.jsx)(_v82, {
               isFlipped: _v5
             }),
             iconPosition: "right",
             size: _v3 ? "sm" : "md",
-            children: _v0.shortFilename
+            children: _v70(_v0.filename, 26)
           })
         })
       });
@@ -1310,11 +1323,11 @@
     display: flex;
   }
 `,
-    _v106 = _v13.default.div.withConfig({
+    _v108 = _v13.default.div.withConfig({
       displayName: "CreatorNav__RightSectionStyled",
       componentId: "sc-3b8b524-3"
     })`
-  ${_v102}
+  ${_v104}
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1324,23 +1337,23 @@
   margin-left: ${(0, _v60.rem)(16)};
   opacity: ${_v0 => _v0.disabled ? .5 : 1};
 `,
-    _v107 = _v13.default.div.withConfig({
+    _v109 = _v13.default.div.withConfig({
       displayName: "CreatorNav__WrapPlaceholderStyled",
       componentId: "sc-3b8b524-4"
     })`
-  ${_v102};
+  ${_v104};
 `,
-    _v108 = _v13.default.div.withConfig({
+    _v110 = _v13.default.div.withConfig({
       displayName: "CreatorNav__RightSectionInnerStyled",
       componentId: "sc-3b8b524-5"
     })`
-  ${_v102};
+  ${_v104};
   display: flex;
   flex-wrap: nowrap;
   flex-shrink: 0;
   align-items: center;
 `,
-    _v109 = _v13.default.div.withConfig({
+    _v111 = _v13.default.div.withConfig({
       displayName: "CreatorNav__LogoToggleWrapperStyled",
       componentId: "sc-3b8b524-6"
     })`
@@ -1354,7 +1367,7 @@
     display: none;
   }
 `,
-    _v110 = _v13.css`
+    _v112 = _v13.css`
   display: inline;
   color: ${_v54.white};
   background-color: ${(0, _v54.grayscale)(800)};
@@ -1380,21 +1393,21 @@
     }
   }
 `,
-    _v111 = (0, _v13.default)(_v23.Button).withConfig({
+    _v113 = (0, _v13.default)(_v23.Button).withConfig({
       displayName: "CreatorNav__CopyLinkButtonStyled",
       componentId: "sc-3b8b524-7"
     })`
-  ${_v110}
+  ${_v112}
 
   @media screen and (max-width: ${(0, _v60.rem)(768)}) {
     display: none;
   }
 `,
-    _v112 = (0, _v13.default)(_v23.Button).withConfig({
+    _v114 = (0, _v13.default)(_v23.Button).withConfig({
       displayName: "CreatorNav__MobileCopyLinkButtonStyled",
       componentId: "sc-3b8b524-8"
     })`
-  ${_v110}
+  ${_v112}
 
   display: none;
 
@@ -1404,18 +1417,18 @@
     height: ${(0, _v60.rem)(50)};
   }
 `,
-    _v113 = (0, _v13.default)(_v0 => {
+    _v115 = (0, _v13.default)(_v0 => {
       let {
         text: _v1,
         url: _v2,
         onClick: _v3,
         className: _v4
       } = _v0;
-      return (0, _v10.jsxs)(_v89, {
+      return (0, _v10.jsxs)(_v90, {
         className: _v4,
         id: "breadcrumbs",
         onClick: () => _v3(_v2),
-        children: [(0, _v10.jsx)(_v88, {}), (0, _v10.jsx)(_v83.Link, {
+        children: [(0, _v10.jsx)(_v89, {}), (0, _v10.jsx)(_v84.Link, {
           variant: "minimal",
           href: _v2,
           children: _v1
@@ -1427,7 +1440,7 @@
     })`
   margin-right: ${(0, _v60.rem)(20)};
 `,
-    _v114 = _v0 => {
+    _v116 = _v0 => {
       let {
           copyLink: _v1,
           toggleLogo: _v2,
@@ -1499,28 +1512,32 @@
             }
           }
         }),
-        _v18 = _v12?.page === _v14.Page.VideoManager ? _v17 : _v87[_v12 ? _v12.page : _v14.Page.Home];
-      return (0, _v10.jsxs)(_v103, {
+        _v18 = _v12?.page === _v14.Page.VideoManager ? _v17 : _v88[_v12 ? _v12.page : _v14.Page.Home];
+      return (0, _v10.jsxs)(_v105, {
         id: "creator-nav",
-        children: [(0, _v10.jsxs)(_v104, {
-          children: [(0, _v10.jsx)(_v113, {
+        children: [(0, _v10.jsxs)(_v106, {
+          children: [(0, _v10.jsx)(_v115, {
             text: _v18,
             url: _v12 ? _v12.url : "/",
             onClick: _v14
-          }), _v8.length > 1 && _v9 && (0, _v10.jsx)(_v105, {
-            onChange: _v10,
-            options: _v8,
-            selectedVersion: _v9,
+          }), _v8.length > 1 && _v9 && (0, _v10.jsx)(_v107, {
+            onChange: _v0 => {
+              let _v1 = Number(_v0.uri.split("/").at(-1)),
+                _v2 = _v8.find(_v0 => _v0.id === _v1);
+              _v2 && _v10(_v2);
+            },
+            options: _v8.map(_v101),
+            selectedVersion: _v101(_v9),
             reviewModes: !0
-          }), !_v4 && (0, _v10.jsx)(_v94, {
+          }), !_v4 && (0, _v10.jsx)(_v95, {
             allowDownloads: !_v6,
             toggleAllowDownloads: _v3,
             onMount: _v13
           })]
-        }), (0, _v10.jsxs)(_v106, {
+        }), (0, _v10.jsxs)(_v108, {
           disabled: _v6,
-          children: [(0, _v10.jsx)(_v107, {}), (0, _v10.jsxs)(_v108, {
-            children: [(0, _v10.jsx)(_v109, {
+          children: [(0, _v10.jsx)(_v109, {}), (0, _v10.jsxs)(_v110, {
+            children: [(0, _v10.jsx)(_v111, {
               children: (0, _v10.jsx)(_v62.Toggle, {
                 label: _v15 ? (0, _v33.translate)({
                   singular: "Hide logo",
@@ -1662,7 +1679,7 @@
                 })
               })]
             }) : (0, _v10.jsxs)(_v10.Fragment, {
-              children: [(0, _v10.jsx)(_v111, {
+              children: [(0, _v10.jsx)(_v113, {
                 size: "sm",
                 onClick: _v1,
                 format: "secondary",
@@ -1694,7 +1711,7 @@
                     }
                   }
                 })
-              }), (0, _v10.jsx)(_v112, {
+              }), (0, _v10.jsx)(_v114, {
                 size: "md",
                 onClick: _v1,
                 format: "secondary",
@@ -1703,12 +1720,12 @@
                 icon: (0, _v10.jsx)(_v64, {})
               })]
             })]
-          }), _v6 && (0, _v10.jsx)(_v91, {})]
+          }), _v6 && (0, _v10.jsx)(_v92, {})]
         })]
       });
     };
-  var _v115 = _v0.i(0);
-  let _v116 = _v13.default.div.withConfig({
+  var _v117 = _v0.i(0);
+  let _v118 = _v13.default.div.withConfig({
     displayName: "SlideDownBanner__SlideDownBannerStyled",
     componentId: "sc-b02ed19f-0"
   })`
@@ -1728,7 +1745,7 @@
     font-size: ${(0, _v19.rem)(14)};
   }
 `;
-  (0, _v13.default)(_v83.Link).withConfig({
+  (0, _v13.default)(_v84.Link).withConfig({
     displayName: "SlideDownBanner__SlideDownBannerCta",
     componentId: "sc-b02ed19f-1"
   })`
@@ -1742,7 +1759,7 @@
     }
   }
 `;
-  let _v117 = _v13.createGlobalStyle`
+  let _v119 = _v13.createGlobalStyle`
   .banner-slidein {
     animation-duration: 200ms;
     animation-name: banner-slidein;
@@ -1758,27 +1775,27 @@
     }
   }
 `,
-    _v118 = _v0 => {
+    _v120 = _v0 => {
       let {
         children: _v1,
         isShowing: _v2,
         className: _v3
       } = _v0;
       return _v2 ? (0, _v10.jsxs)(_v10.Fragment, {
-        children: [(0, _v10.jsx)(_v117, {}), (0, _v10.jsx)(_v116, {
+        children: [(0, _v10.jsx)(_v119, {}), (0, _v10.jsx)(_v118, {
           className: `banner-slidein ${_v3}`,
           children: _v1
         })]
       }) : null;
     },
-    _v119 = _v0 => {
+    _v121 = _v0 => {
       let {
         isShowing: _v1,
         onUpgradeClick: _v2
       } = _v0;
-      return (0, _v10.jsxs)(_v118, {
+      return (0, _v10.jsxs)(_v120, {
         isShowing: _v1,
-        children: [(0, _v10.jsx)(_v115.Paragraph, {
+        children: [(0, _v10.jsx)(_v117.Paragraph, {
           children: (0, _v33.translate)({
             singular: "This is a private demo that only you can see. Upgrade for full access.",
             dictionary: {
@@ -1845,11 +1862,11 @@
         })]
       });
     };
-  var _v120 = _v12,
-    _v121 = _v0.i(0),
-    _v122 = _v0.i(0),
-    _v123 = _v0.i(0);
-  let _v124 = _v13.default.div.withConfig({
+  var _v122 = _v12,
+    _v123 = _v0.i(0),
+    _v124 = _v0.i(0),
+    _v125 = _v0.i(0);
+  let _v126 = _v13.default.div.withConfig({
       displayName: "FileDetails__FileDetailsStyled",
       componentId: "sc-21e1b99e-0"
     })`
@@ -1884,14 +1901,14 @@
     }
   }
 `,
-    _v125 = _v0 => {
+    _v127 = _v0 => {
       let {
         sizeShort: _v1,
         width: _v2,
         height: _v3,
         isMini: _v4
       } = _v0;
-      return (0, _v10.jsxs)(_v124, {
+      return (0, _v10.jsxs)(_v126, {
         isMini: _v4,
         title: `${_v1} | ${_v2} x ${_v3}`,
         ..._v0,
@@ -1902,19 +1919,19 @@
         })]
       });
     },
-    _v126 = {
-      ..._v122.nullVideoContextData,
-      ..._v122.nullTeamContext,
-      ..._v122.nullUploadContextData
+    _v128 = {
+      ..._v124.nullVideoContextData,
+      ..._v124.nullTeamContext,
+      ..._v124.nullUploadContextData
     },
-    _v127 = (0, _v13.default)(_v23.Button).withConfig({
+    _v129 = (0, _v13.default)(_v23.Button).withConfig({
       displayName: "DownloadMenuItem__DownloadButtonStyled",
       componentId: "sc-ce78ac30-0"
     })`
   background-color: ${_v22.bokehTheme.colors.gray["600"]};
   color: ${_v22.bokehTheme.colors.white};
 `,
-    _v128 = _v13.default.a.withConfig({
+    _v130 = _v13.default.a.withConfig({
       displayName: "DownloadMenuItem__DownloadMenuItemStyled",
       componentId: "sc-ce78ac30-1"
     })`
@@ -1932,7 +1949,7 @@
     background-color: ${_v22.bokehTheme.colors.gray["700"]};
     cursor: pointer;
 
-    ${_v127} {
+    ${_v129} {
       background-color: ${_v22.bokehTheme.colors.gray["500"]};
 
       svg path {
@@ -1941,13 +1958,13 @@
     }
   }
 `,
-    _v129 = _v13.default.div.withConfig({
+    _v131 = _v13.default.div.withConfig({
       displayName: "DownloadMenuItem__FileInfoStyled",
       componentId: "sc-ce78ac30-2"
     })`
   margin-right: ${(0, _v19.rem)(10)};
 `,
-    _v130 = _v13.default.p.withConfig({
+    _v132 = _v13.default.p.withConfig({
       displayName: "DownloadMenuItem__DownloadNameStyled",
       componentId: "sc-ce78ac30-3"
     })`
@@ -1956,7 +1973,7 @@
   font-weight: bold;
   margin-bottom: ${(0, _v19.rem)(8)};
 `,
-    _v131 = _v0 => {
+    _v133 = _v0 => {
       let {
           publicName: _v1,
           downloadName: _v2,
@@ -1966,8 +1983,8 @@
           location: _v6,
           isOwner: _v7
         } = _v0,
-        _v8 = (0, _v123.useAnalyticsEvent)();
-      return (0, _v10.jsxs)(_v128, {
+        _v8 = (0, _v125.useAnalyticsEvent)();
+      return (0, _v10.jsxs)(_v130, {
         href: _v3,
         download: _v2,
         onClick: () => {
@@ -1992,28 +2009,28 @@
               }).location ?? "svv main field",
               ..._v0
             },
-            defaultEventFields: _v126
+            defaultEventFields: _v128
           });
         },
-        children: [(0, _v10.jsxs)(_v129, {
-          children: [(0, _v10.jsx)(_v130, {
+        children: [(0, _v10.jsxs)(_v131, {
+          children: [(0, _v10.jsx)(_v132, {
             children: _v1
-          }), (0, _v10.jsx)(_v125, {
+          }), (0, _v10.jsx)(_v127, {
             isMini: !0,
             ..._v0
           })]
-        }), (0, _v10.jsx)(_v127, {
-          icon: (0, _v10.jsx)(_v121.DownloadArrow, {}),
+        }), (0, _v10.jsx)(_v129, {
+          icon: (0, _v10.jsx)(_v123.DownloadArrow, {}),
           format: "basic",
           variant: "hyperminimal",
           size: "md"
         })]
       });
     };
-  function _v132() {
-    return (0, _v10.jsx)(_v134, {
+  function _v134() {
+    return (0, _v10.jsx)(_v136, {
       format: "primary",
-      children: (0, _v10.jsx)(_v133, {
+      children: (0, _v10.jsx)(_v135, {
         children: (0, _v33.translate)({
           singular: "This video is still optimizing, and will be available in high resolution shortly.",
           dictionary: {
@@ -2043,7 +2060,7 @@
       })
     });
   }
-  let _v133 = _v13.default.div.withConfig({
+  let _v135 = _v13.default.div.withConfig({
       displayName: "MaxResolutionNotice__NoticeText",
       componentId: "sc-fb1beeb8-0"
     })`
@@ -2051,7 +2068,7 @@
   font-size: ${(0, _v19.rem)(14)};
   padding-right: ${(0, _v19.rem)(10)};
 `,
-    _v134 = (0, _v13.default)(_v93.Notice).withConfig({
+    _v136 = (0, _v13.default)(_v94.Notice).withConfig({
       displayName: "MaxResolutionNotice__StyledNotice",
       componentId: "sc-fb1beeb8-1"
     })`
@@ -2063,7 +2080,7 @@
   color: #000000;
   max-height: ${(0, _v19.rem)(66)};
 `,
-    _v135 = _v13.default.div.withConfig({
+    _v137 = _v13.default.div.withConfig({
       displayName: "DownloadMenu__Container",
       componentId: "sc-3320a1bb-0"
     })`
@@ -2073,7 +2090,7 @@
       transform: translateY(-${(0, _v19.rem)(66)});
     `}
 `,
-    _v136 = _v13.default.div.withConfig({
+    _v138 = _v13.default.div.withConfig({
       displayName: "DownloadMenu__DownloadMenuStyled",
       componentId: "sc-3320a1bb-1"
     })`
@@ -2082,7 +2099,7 @@
   color: ${_v22.bokehTheme.colors.white};
   position: relative;
 `,
-    _v137 = (0, _v13.default)(_v25.Header).withConfig({
+    _v139 = (0, _v13.default)(_v25.Header).withConfig({
       displayName: "DownloadMenu__HeaderStyled",
       componentId: "sc-3320a1bb-2"
     })`
@@ -2091,7 +2108,7 @@
   margin: 0 ${(0, _v19.rem)(16)} ${(0, _v19.rem)(24)} ${(0, _v19.rem)(16)};
   border-bottom: 1px solid ${_v22.bokehTheme.colors.gray["900"]};
 `,
-    _v138 = (0, _v13.default)(_v0 => {
+    _v140 = (0, _v13.default)(_v0 => {
       let {
         className: _v1,
         clipId: _v2,
@@ -2102,11 +2119,11 @@
         isOwner: _v7,
         isMaxResolution: _v8 = !0
       } = _v0;
-      return (0, _v10.jsxs)(_v135, {
+      return (0, _v10.jsxs)(_v137, {
         showNotice: !_v8,
-        children: [(0, _v10.jsxs)(_v136, {
+        children: [(0, _v10.jsxs)(_v138, {
           className: _v1,
-          children: [_v5 && (0, _v10.jsx)(_v137, {
+          children: [_v5 && (0, _v10.jsx)(_v139, {
             size: "4",
             children: (0, _v33.translate)({
               singular: "Download file",
@@ -2134,14 +2151,14 @@
                 }
               }
             })
-          }), _v3.map((_v0, _v1) => (0, _v10.jsx)(_v131, {
+          }), _v3.map((_v0, _v1) => (0, _v10.jsx)(_v133, {
             isOwner: _v7,
             clipId: _v2,
             location: _v4,
             onItemClick: _v6,
             ..._v0
           }, _v1))]
-        }), !_v8 && (0, _v10.jsx)(_v132, {})]
+        }), !_v8 && (0, _v10.jsx)(_v134, {})]
       });
     }).withConfig({
       displayName: "DownloadButtonMenu__DownloadMenuStyled",
@@ -2162,7 +2179,7 @@
     overflow-y: scroll;
   }
 `,
-    _v139 = (0, _v13.default)(_v23.Button).withConfig({
+    _v141 = (0, _v13.default)(_v23.Button).withConfig({
       displayName: "DownloadButtonMenu__ButtonStyled",
       componentId: "sc-d1896714-1"
     })`
@@ -2175,26 +2192,26 @@
     }
   }
 `,
-    _v140 = _v13.css`
+    _v142 = _v13.css`
   position: absolute;
   top: ${(0, _v19.rem)(0)};
 `,
-    _v141 = (0, _v13.default)(_v121.DownloadArrow).withConfig({
+    _v143 = (0, _v13.default)(_v123.DownloadArrow).withConfig({
       displayName: "DownloadButtonMenu__DownloadArrowStyled",
       componentId: "sc-d1896714-2"
     })`
   left: ${(0, _v19.rem)(16)};
   transform: scale(0.7);
-  ${_v140}
+  ${_v142}
 `,
-    _v142 = (0, _v13.default)(_v67.ChevronDown).withConfig({
+    _v144 = (0, _v13.default)(_v67.ChevronDown).withConfig({
       displayName: "DownloadButtonMenu__ChevronDownStyled",
       componentId: "sc-d1896714-3"
     })`
   right: 0;
-  ${_v140}
+  ${_v142}
 `,
-    _v143 = _v0 => {
+    _v145 = _v0 => {
       let {
         menuAlignment: _v1,
         isLoading: _v2,
@@ -2208,7 +2225,7 @@
       } = _v0;
       return (0, _v10.jsx)(_v68.PopOver, {
         attach: "right" === _v1 ? [[0, 0], [100, 40]] : "bottom",
-        content: _v2 ? null : (0, _v10.jsx)(_v138, {
+        content: _v2 ? null : (0, _v10.jsx)(_v140, {
           isOwner: _v8,
           clipId: _v5,
           files: _v3,
@@ -2216,7 +2233,7 @@
           onItemClick: _v7,
           isMaxResolution: _v9
         }),
-        children: (0, _v10.jsxs)(_v139, {
+        children: (0, _v10.jsxs)(_v141, {
           title: (0, _v33.translate)({
             singular: "Download",
             dictionary: {
@@ -2246,7 +2263,7 @@
           format: "primary",
           size: "lg",
           onClick: _v4,
-          children: [(0, _v10.jsx)(_v141, {}), (0, _v33.translate)({
+          children: [(0, _v10.jsx)(_v143, {}), (0, _v33.translate)({
             singular: "Download",
             dictionary: {
               es: {
@@ -2271,11 +2288,11 @@
                 singular: "下载"
               }
             }
-          }), (0, _v10.jsx)(_v142, {})]
+          }), (0, _v10.jsx)(_v144, {})]
         })
       });
     },
-    _v144 = _v13.default.div.withConfig({
+    _v146 = _v13.default.div.withConfig({
       displayName: "FileDetails__FileDetailsStyled",
       componentId: "sc-42cd6c39-0"
     })`
@@ -2310,14 +2327,14 @@
     }
   }
 `,
-    _v145 = _v0 => {
+    _v147 = _v0 => {
       let {
         sizeShort: _v1,
         width: _v2,
         height: _v3,
         isMini: _v4
       } = _v0;
-      return (0, _v10.jsxs)(_v144, {
+      return (0, _v10.jsxs)(_v146, {
         isMini: _v4,
         title: `${_v1} | ${_v2} x ${_v3}`,
         ..._v0,
@@ -2329,39 +2346,39 @@
       });
     };
   (_v1 = {}).Clip = "context_clip", _v1.Review = "context_review", _v1.ReviewDropbox = "context_review_dropbox";
-  var _v146 = ((_v2 = {}).Unknown = "unknown", _v2.Ready = "ready", _v2.UploadInProgress = "standby", _v2.UploadErrorBlocked = "blocked", _v2.UploadErrorMove = "internal_error", _v2.UploadInvalidFile = "invalid_file", _v2.UploadComplete = "upload_complete", _v2.UploadErrorQuota = "exceeds_quota", _v2.UploadErrorTotalCap = "exceeds_total_cap", _v2.UploadErrorRestrictedStorage = "exceeds_restricted_storage", _v2.UploadErrorIncomplete = "upload_incomplete", _v2.TranscoderFailed = "failed", _v2.TranscoderStarting = "starting", _v2.TranscoderPending = "pending", _v2.TranscoderFinishing = "finishing", _v2.TranscoderActive = "active", _v2.TranscoderDone = "retrieved", _v2.NetworkError = "network_error", _v2);
-  let _v147 = ["ready", "blocked", "internal_error", "invalid_file", "exceeds_quota", "exceeds_total_cap", "exceeds_restricted_storage", "upload_incomplete", "failed", "network_error"];
-  var _v148 = ((_v3 = {})[_v3.Review = 0] = "Review", _v3[_v3.ReviewDropbox = 1] = "ReviewDropbox", _v3[_v3.Clip = 2] = "Clip", _v3);
-  let _v149 = {
+  var _v148 = ((_v2 = {}).Unknown = "unknown", _v2.Ready = "ready", _v2.UploadInProgress = "standby", _v2.UploadErrorBlocked = "blocked", _v2.UploadErrorMove = "internal_error", _v2.UploadInvalidFile = "invalid_file", _v2.UploadComplete = "upload_complete", _v2.UploadErrorQuota = "exceeds_quota", _v2.UploadErrorTotalCap = "exceeds_total_cap", _v2.UploadErrorRestrictedStorage = "exceeds_restricted_storage", _v2.UploadErrorIncomplete = "upload_incomplete", _v2.TranscoderFailed = "failed", _v2.TranscoderStarting = "starting", _v2.TranscoderPending = "pending", _v2.TranscoderFinishing = "finishing", _v2.TranscoderActive = "active", _v2.TranscoderDone = "retrieved", _v2.NetworkError = "network_error", _v2);
+  let _v149 = ["ready", "blocked", "internal_error", "invalid_file", "exceeds_quota", "exceeds_total_cap", "exceeds_restricted_storage", "upload_incomplete", "failed", "network_error"];
+  var _v150 = ((_v3 = {})[_v3.Review = 0] = "Review", _v3[_v3.ReviewDropbox = 1] = "ReviewDropbox", _v3[_v3.Clip = 2] = "Clip", _v3);
+  let _v151 = {
     0: "context_review",
     1: "context_review_dropbox",
     2: "context_clip"
   };
-  var _v150 = ((_v4 = {})[_v4.Live = 0] = "Live", _v4[_v4.PostLive = 1] = "PostLive", _v4);
-  let _v151 = () => ({
+  var _v152 = ((_v4 = {})[_v4.Live = 0] = "Live", _v4[_v4.PostLive = 1] = "PostLive", _v4);
+  let _v153 = () => ({
       aspectRatio: void 0,
       title: "",
       description: "",
       isUploading: !1,
-      state: _v146.Unknown,
+      state: _v148.Unknown,
       hasLiveReady: !1,
-      toggleState: _v150.PostLive,
+      toggleState: _v152.PostLive,
       setToggleState: () => void 0
     }),
-    _v152 = async (_v0, _v1) => fetch(`/manage/${_v0}/services/status${_v1 ? `?context=${_v1}` : ""}`, {
+    _v154 = async (_v0, _v1) => fetch(`/manage/${_v0}/services/status${_v1 ? `?context=${_v1}` : ""}`, {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
         "X-Requested-With": "XMLHttpRequest"
       }
     }),
-    _v153 = (_v0, _v1) => {
+    _v155 = (_v0, _v1) => {
       let _v2 = {};
       if (_v0.config.hasLiveAccess) {
-        let _v0 = _v0.initialProps.state === _v146.Ready && _v0.isLive;
+        let _v0 = _v0.initialProps.state === _v148.Ready && _v0.isLive;
         _v2 = {
           hasLiveReady: _v0,
-          toggleState: _v0 ? _v150.Live : _v150.PostLive
+          toggleState: _v0 ? _v152.Live : _v152.PostLive
         };
       }
       return {
@@ -2370,9 +2387,9 @@
         ..._v2
       };
     },
-    _v154 = async (_v0, _v1) => {
+    _v156 = async (_v0, _v1) => {
       try {
-        let _v0 = await _v152(_v0, _v149[_v1]),
+        let _v0 = await _v154(_v0, _v151[_v1]),
           _v1 = await _v0.json(),
           _v2 = (0, _v16.camelize)(_v1);
         return [_v0, _v2];
@@ -2380,9 +2397,9 @@
         throw Error("Failed to get clip status.");
       }
     },
-    _v155 = (0, _v12.createContext)(_v151()),
-    _v156 = _v0 => {
-      let _v1 = _v153(_v0, _v151()),
+    _v157 = (0, _v12.createContext)(_v153()),
+    _v158 = _v0 => {
+      let _v1 = _v155(_v0, _v153()),
         {
           clipId: _v2,
           context: _v3,
@@ -2404,79 +2421,79 @@
         _v11 = (0, _v12.useCallback)(_v0 => {
           _v8.current = setTimeout(async () => {
             try {
-              let [_v0, _v1] = await _v154(_v0, _v3);
-              _v0 === _v0 && (_v6(_v1), -1 >= _v147.indexOf(_v1.state) && _v11(_v0));
+              let [_v0, _v1] = await _v156(_v0, _v3);
+              _v0 === _v0 && (_v6(_v1), -1 >= _v149.indexOf(_v1.state) && _v11(_v0));
             } catch (_v0) {}
           }, 0);
         }, []);
-      return (0, _v12.useEffect)(() => (_v8.current && clearTimeout(_v8.current), _v7.current && _v6(_v153(_v0, _v151())), _v7.current || (_v7.current = !0), _v4.state !== _v146.Ready ? _v11(_v2) : _v4.state === _v146.Ready && _v8.current && clearTimeout(_v8.current), () => {
+      return (0, _v12.useEffect)(() => (_v8.current && clearTimeout(_v8.current), _v7.current && _v6(_v155(_v0, _v153())), _v7.current || (_v7.current = !0), _v4.state !== _v148.Ready ? _v11(_v2) : _v4.state === _v148.Ready && _v8.current && clearTimeout(_v8.current), () => {
         _v8.current && clearTimeout(_v8.current);
-      }), [_v0.initialProps]), (0, _v10.jsx)(_v155.Provider, {
+      }), [_v0.initialProps]), (0, _v10.jsx)(_v157.Provider, {
         value: _v10,
         children: _v0.children
       });
     };
-  var _v157 = _v0.i(0),
-    _v158 = _v0.i(0),
-    _v159 = _v0.i(0);
-  let _v160 = "#F2F4F5",
-    _v161 = "#0088CC",
-    _v162 = "#00ADEF",
-    _v163 = "#73D2F6",
-    _v164 = "#D0D8DB",
-    _v165 = "#FF4D4D",
-    _v166 = "0.1s ease-in-out",
-    _v167 = (0, _v13.default)(({
+  var _v159 = _v0.i(0),
+    _v160 = _v0.i(0),
+    _v161 = _v0.i(0);
+  let _v162 = "#F2F4F5",
+    _v163 = "#0088CC",
+    _v164 = "#00ADEF",
+    _v165 = "#73D2F6",
+    _v166 = "#D0D8DB",
+    _v167 = "#FF4D4D",
+    _v168 = "0.1s ease-in-out",
+    _v169 = (0, _v13.default)(({
       className: _v0,
       title: _v1,
       description: _v2,
       state: _v3,
       playerElement: _v4
     }) => {
-      if (_v3 === _v146.Ready) return _v4;
+      if (_v3 === _v148.Ready) return _v4;
       let _v5 = "";
       switch (_v3) {
-        case _v146.UploadInProgress:
+        case _v148.UploadInProgress:
           _v5 = "Uploading";
           break;
-        case _v146.UploadComplete:
-        case _v146.TranscoderPending:
+        case _v148.UploadComplete:
+        case _v148.TranscoderPending:
           _v5 = "Waiting";
           break;
-        case _v146.TranscoderStarting:
+        case _v148.TranscoderStarting:
           break;
-        case _v146.UploadErrorQuota:
-        case _v146.UploadErrorTotalCap:
-        case _v146.UploadErrorRestrictedStorage:
-        case _v146.UploadErrorMove:
-        case _v146.UploadInvalidFile:
-        case _v146.UploadErrorIncomplete:
-        case _v146.TranscoderFailed:
+        case _v148.UploadErrorQuota:
+        case _v148.UploadErrorTotalCap:
+        case _v148.UploadErrorRestrictedStorage:
+        case _v148.UploadErrorMove:
+        case _v148.UploadInvalidFile:
+        case _v148.UploadErrorIncomplete:
+        case _v148.TranscoderFailed:
           _v5 = "×";
       }
       return (0, _v10.jsxs)("div", {
         className: _v0,
-        children: [(0, _v10.jsxs)(_v169, {
-          children: [(0, _v10.jsx)(_v173, {
-            animationState: _v178(_v3)
-          }), (0, _v10.jsx)(_v175, {
-            animationState: _v178(_v3)
-          }), (0, _v10.jsx)(_v174, {
-            animationState: _v178(_v3)
+        children: [(0, _v10.jsxs)(_v171, {
+          children: [(0, _v10.jsx)(_v175, {
+            animationState: _v180(_v3)
+          }), (0, _v10.jsx)(_v177, {
+            animationState: _v180(_v3)
           }), (0, _v10.jsx)(_v176, {
-            animationState: _v178(_v3),
+            animationState: _v180(_v3)
+          }), (0, _v10.jsx)(_v178, {
+            animationState: _v180(_v3),
             dangerouslySetInnerHTML: {
               __html: _v5
             }
           })]
-        }), (0, _v10.jsxs)(_v177, {
+        }), (0, _v10.jsxs)(_v179, {
           children: [(0, _v10.jsx)("h2", {
             children: _v1
           }), (0, _v10.jsx)("p", {
             dangerouslySetInnerHTML: {
-              __html: (0, _v159.sanitizeDescriptionHtml)(_v2)
+              __html: (0, _v161.sanitizeDescriptionHtml)(_v2)
             }
-          }), _v3 === _v146.TranscoderFailed && (0, _v10.jsx)(_v168, {
+          }), _v3 === _v148.TranscoderFailed && (0, _v10.jsx)(_v170, {
             children: (0, _v10.jsx)("a", {
               role: "button",
               href: "/upload",
@@ -2511,10 +2528,10 @@
                 })
               })
             })
-          }), _v3 === _v146.UploadErrorTotalCap && (0, _v10.jsx)(_v168, {
+          }), _v3 === _v148.UploadErrorTotalCap && (0, _v10.jsx)(_v170, {
             children: (0, _v10.jsx)("a", {
               role: "button",
-              href: (0, _v158.buildUpgradePlanUrl)({
+              href: (0, _v160.buildUpgradePlanUrl)({
                 paywallTrigger: "file_transfer_clip_state_total_cap_exceeded_upgrade_button",
                 paywallLocation: "file_transfer",
                 paywallFeature: "storage_limit"
@@ -2525,7 +2542,7 @@
                 element: "span",
                 size: "sm",
                 onClick: _v0 => {
-                  _v157.FatalAttraction.trackClick({
+                  _v159.FatalAttraction.trackClick({
                     container: "video_settings",
                     component: "upgrade_link",
                     keyword: "quota_exceeded"
@@ -2571,15 +2588,15 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: ${_v160};
+  background-color: ${_v162};
   border-bottom: 1px solid ${"#E3E8E9"};
   opacity: 1;
-  transition: all ${_v166};
+  transition: all ${_v168};
   padding: ${(0, _v19.rem)(24)};
   justify-content: center;
   overflow: hidden;
 `,
-    _v168 = _v13.default.div.withConfig({
+    _v170 = _v13.default.div.withConfig({
       displayName: "ClipState__Cta",
       componentId: "sc-25fbb11-1"
     })`
@@ -2591,7 +2608,7 @@
   })`
   color: white;
 `;
-  let _v169 = _v13.default.div.withConfig({
+  let _v171 = _v13.default.div.withConfig({
       displayName: "ClipState__Rings",
       componentId: "sc-25fbb11-3"
     })`
@@ -2602,7 +2619,7 @@
   margin-right: ${(0, _v19.rem)(50)};
   border-radius: ${"50%"};
 `,
-    _v170 = (0, _v13.default)(({
+    _v172 = (0, _v13.default)(({
       animationState: _v0,
       ..._v1
     }) => (0, _v10.jsx)("div", {
@@ -2623,17 +2640,17 @@
           return "none";
       }
     }};
-  background-color: ${_v160};
-  transition: all ${_v166};
+  background-color: ${_v162};
+  transition: all ${_v168};
   border-radius: ${"50%"};
 `,
-    _v171 = _v0 => _v13.css`
-  ${_v180} ${_v0} infinite
+    _v173 = _v0 => _v13.css`
+  ${_v182} ${_v0} infinite
 `,
-    _v172 = _v0 => _v13.css`
-  ${_v179} ${_v0} infinite
+    _v174 = _v0 => _v13.css`
+  ${_v181} ${_v0} infinite
 `,
-    _v173 = (0, _v13.default)(_v170).withConfig({
+    _v175 = (0, _v13.default)(_v172).withConfig({
       displayName: "ClipState__OuterRing",
       componentId: "sc-25fbb11-5"
     })`
@@ -2647,26 +2664,26 @@
         left: ${(0, _v19.rem)(304)};
         width: ${(0, _v19.rem)(304)};
         height: ${(0, _v19.rem)(304)};
-        border: ${(0, _v19.rem)(15)} solid ${_v164};
-        border-bottom: ${(0, _v19.rem)(15)} solid ${_v165};
-        border-left: ${(0, _v19.rem)(15)} solid ${_v165};
-        animation: ${_v172("5s")};
+        border: ${(0, _v19.rem)(15)} solid ${_v166};
+        border-bottom: ${(0, _v19.rem)(15)} solid ${_v167};
+        border-left: ${(0, _v19.rem)(15)} solid ${_v167};
+        animation: ${_v174("5s")};
         animation-timing-function: linear;
       ` : "underway" === _v0.animationState ? _v13.css`
-        border: ${(0, _v19.rem)(10)} solid ${_v164};
-        border-bottom: ${(0, _v19.rem)(10)} solid ${_v161};
-        border-left: ${(0, _v19.rem)(10)} solid ${_v161};
-        animation: ${_v171("4s")};
+        border: ${(0, _v19.rem)(10)} solid ${_v166};
+        border-bottom: ${(0, _v19.rem)(10)} solid ${_v163};
+        border-left: ${(0, _v19.rem)(10)} solid ${_v163};
+        animation: ${_v173("4s")};
         animation-timing-function: linear;
       ` : "wait" === _v0.animationState ? _v13.css`
-        border: ${(0, _v19.rem)(15)} solid ${_v164};
-        border-bottom: ${(0, _v19.rem)(15)} solid ${_v161};
-        border-left: ${(0, _v19.rem)(15)} solid ${_v161};
-        animation: ${_v172("18s")};
+        border: ${(0, _v19.rem)(15)} solid ${_v166};
+        border-bottom: ${(0, _v19.rem)(15)} solid ${_v163};
+        border-left: ${(0, _v19.rem)(15)} solid ${_v163};
+        animation: ${_v174("18s")};
         animation-timing-function: cubic-bezier(0.32, 0.92, 0.06, 1);
       ` : ""};
 `,
-    _v174 = (0, _v13.default)(_v170).withConfig({
+    _v176 = (0, _v13.default)(_v172).withConfig({
       displayName: "ClipState__MiddleRing",
       componentId: "sc-25fbb11-6"
     })`
@@ -2678,15 +2695,15 @@
         left: ${(0, _v19.rem)(45)};
         width: ${(0, _v19.rem)(210)};
         height: ${(0, _v19.rem)(210)};
-        border: ${(0, _v19.rem)(7)} solid ${_v164};
-        border-top: ${(0, _v19.rem)(7)} solid ${_v162};
-        border-left: ${(0, _v19.rem)(7)} solid ${_v162};
-        animation: ${_v172("2s")};
+        border: ${(0, _v19.rem)(7)} solid ${_v166};
+        border-top: ${(0, _v19.rem)(7)} solid ${_v164};
+        border-left: ${(0, _v19.rem)(7)} solid ${_v164};
+        animation: ${_v174("2s")};
         animation-timing-function: linear;
         transform: rotate(45deg);
       ` : ""};
 `,
-    _v175 = (0, _v13.default)(_v170).withConfig({
+    _v177 = (0, _v13.default)(_v172).withConfig({
       displayName: "ClipState__InnerRing",
       componentId: "sc-25fbb11-7"
     })`
@@ -2698,19 +2715,19 @@
         left: ${(0, _v19.rem)(30)};
         width: ${(0, _v19.rem)(240)};
         height: ${(0, _v19.rem)(240)};
-        border: ${(0, _v19.rem)(15)} solid ${_v164};
-        border-top: ${(0, _v19.rem)(15)} solid ${_v165};
-        animation: ${_v171("2s")};
+        border: ${(0, _v19.rem)(15)} solid ${_v166};
+        border-top: ${(0, _v19.rem)(15)} solid ${_v167};
+        animation: ${_v173("2s")};
         animation-timing-function: linear;
       ` : "underway" === _v0.animationState ? _v13.css`
         top: ${(0, _v19.rem)(90)};
         left: ${(0, _v19.rem)(90)};
         width: ${(0, _v19.rem)(120)};
         height: ${(0, _v19.rem)(120)};
-        border: ${(0, _v19.rem)(4)} solid ${_v164};
-        border-top: ${(0, _v19.rem)(4)} solid ${_v163};
-        border-left: ${(0, _v19.rem)(4)} solid ${_v163};
-        animation: ${_v171("1s")};
+        border: ${(0, _v19.rem)(4)} solid ${_v166};
+        border-top: ${(0, _v19.rem)(4)} solid ${_v165};
+        border-left: ${(0, _v19.rem)(4)} solid ${_v165};
+        animation: ${_v173("1s")};
         animation-timing-function: linear;
         transform: rotate(45deg);
       ` : "wait" === _v0.animationState ? _v13.css`
@@ -2718,13 +2735,13 @@
         height: ${(0, _v19.rem)(240)};
         top: ${(0, _v19.rem)(30)};
         left: ${(0, _v19.rem)(30)};
-        border: ${(0, _v19.rem)(10)} solid ${_v164};
-        border-top: ${(0, _v19.rem)(10)} solid ${_v162};
-        animation: ${_v171("8s")};
+        border: ${(0, _v19.rem)(10)} solid ${_v166};
+        border-top: ${(0, _v19.rem)(10)} solid ${_v164};
+        animation: ${_v173("8s")};
         animation-timing-function: cubic-bezier(0.32, 0.92, 0.06, 1);
       ` : ""};
 `,
-    _v176 = (0, _v13.default)(({
+    _v178 = (0, _v13.default)(({
       animationState: _v0,
       ..._v1
     }) => (0, _v10.jsx)("div", {
@@ -2760,11 +2777,11 @@
       ` : `
       top: 41%;
       font-size: ${(0, _v19.rem)(200)};
-      color: ${_v165};
+      color: ${_v167};
       font-weight: 700;
     `};
 `,
-    _v177 = _v13.default.div.withConfig({
+    _v179 = _v13.default.div.withConfig({
       displayName: "ClipState__Status",
       componentId: "sc-25fbb11-9"
     })`
@@ -2784,29 +2801,29 @@
   })`
   font-size: ${(0, _v19.rem)(24)};
 `;
-  let _v178 = _v0 => {
+  let _v180 = _v0 => {
       switch (_v0) {
-        case _v146.UploadInProgress:
-        case _v146.UploadComplete:
-        case _v146.TranscoderPending:
+        case _v148.UploadInProgress:
+        case _v148.UploadComplete:
+        case _v148.TranscoderPending:
           return "wait";
-        case _v146.TranscoderStarting:
-        case _v146.TranscoderActive:
-        case _v146.TranscoderFinishing:
+        case _v148.TranscoderStarting:
+        case _v148.TranscoderActive:
+        case _v148.TranscoderFinishing:
           return "underway";
-        case _v146.UploadErrorQuota:
-        case _v146.UploadErrorTotalCap:
-        case _v146.UploadErrorRestrictedStorage:
-        case _v146.UploadErrorMove:
-        case _v146.UploadInvalidFile:
-        case _v146.UploadErrorIncomplete:
-        case _v146.TranscoderFailed:
+        case _v148.UploadErrorQuota:
+        case _v148.UploadErrorTotalCap:
+        case _v148.UploadErrorRestrictedStorage:
+        case _v148.UploadErrorMove:
+        case _v148.UploadInvalidFile:
+        case _v148.UploadErrorIncomplete:
+        case _v148.TranscoderFailed:
           return "failure";
         default:
           return null;
       }
     },
-    _v179 = _v13.keyframes`
+    _v181 = _v13.keyframes`
   0% { transform: rotate(360deg); }
   12.5% { transform: rotate(315deg); }
   25% { transform: rotate(270deg); }
@@ -2817,7 +2834,7 @@
   87.5% { transform: rotate(45deg); }
   100% { transform: rotate(0deg); }
 `,
-    _v180 = _v13.keyframes`
+    _v182 = _v13.keyframes`
     0% { transform: rotate(0deg); }
     12.5% { transform: rotate(45deg); }
     25% { transform: rotate(90deg); }
@@ -2828,7 +2845,7 @@
     87.5% { transform: rotate(315deg); }
     100% { transform: rotate(360deg); }
 `,
-    _v181 = (0, _v13.default)(_v167).withConfig({
+    _v183 = (0, _v13.default)(_v169).withConfig({
       displayName: "LoadingState__ClipStateStyled",
       componentId: "sc-42eb0c59-0"
     })`
@@ -2878,7 +2895,7 @@
     }
   }
 `,
-    _v182 = _v0 => {
+    _v184 = _v0 => {
       let {
           clipId: _v1,
           clipStatus: _v2,
@@ -2886,13 +2903,13 @@
           children: _v4
         } = _v0,
         _v5 = _v2.className;
-      return (0, _v10.jsx)(_v156, {
+      return (0, _v10.jsx)(_v158, {
         clipId: _v1,
         config: _v3,
         initialProps: _v2,
-        context: _v148.Review,
-        children: (0, _v10.jsx)(_v155.Consumer, {
-          children: _v0 => _v0.state === _v146.Ready ? _v4(_v2) : (0, _v10.jsx)(_v181, {
+        context: _v150.Review,
+        children: (0, _v10.jsx)(_v157.Consumer, {
+          children: _v0 => _v0.state === _v148.Ready ? _v4(_v2) : (0, _v10.jsx)(_v183, {
             className: _v5,
             title: _v0.title,
             description: _v0.description,
@@ -2904,7 +2921,7 @@
         })
       });
     };
-  class _v183 extends _v120.default.Component {
+  class _v185 extends _v122.default.Component {
     componentDidMount() {
       this.props.onMount();
     }
@@ -2915,15 +2932,15 @@
         thumbnail: _v2,
         aspectRatio: _v3
       } = this.props;
-      return _v0 ? (0, _v10.jsx)(_v191, {
+      return _v0 ? (0, _v10.jsx)(_v193, {
         aspectRatio: _v3,
-        children: (0, _v10.jsx)(_v70.Spinner, {})
-      }) : (0, _v10.jsxs)(_v191, {
+        children: (0, _v10.jsx)(_v72.Spinner, {})
+      }) : (0, _v10.jsxs)(_v193, {
         aspectRatio: _v3,
-        children: [(0, _v10.jsx)(_v192, {
+        children: [(0, _v10.jsx)(_v194, {
           url: _v2
-        }), (0, _v10.jsxs)(_v193, {
-          children: [(0, _v10.jsxs)(_v194, {
+        }), (0, _v10.jsxs)(_v195, {
+          children: [(0, _v10.jsxs)(_v196, {
             size: "3",
             aspectRatio: _v3,
             children: [(0, _v10.jsx)("span", {
@@ -2934,14 +2951,14 @@
                 return _v0.length <= 15 ? _v2 : `${_v0.slice(_v0.length - 6)}${_v2}`;
               })(_v1.baseFileName, _v1.extension)
             })]
-          }), (0, _v10.jsx)(_v145, {
+          }), (0, _v10.jsx)(_v147, {
             ..._v1
           })]
         })]
       });
     }
   }
-  let _v184 = _v13.default.div.withConfig({
+  let _v186 = _v13.default.div.withConfig({
       displayName: "FileTransferContent__FileTransferContentStyled",
       componentId: "sc-fd00105c-0"
     })`
@@ -2962,7 +2979,7 @@
     flex-grow: 0.25;
   }
 `,
-    _v185 = _v13.default.div.withConfig({
+    _v187 = _v13.default.div.withConfig({
       displayName: "FileTransferContent__InnerContentStyled",
       componentId: "sc-fd00105c-1"
     })`
@@ -2977,7 +2994,7 @@
     flex-direction: column;
   }
 `,
-    _v186 = _v13.default.div.withConfig({
+    _v188 = _v13.default.div.withConfig({
       displayName: "FileTransferContent__HeaderStyled",
       componentId: "sc-fd00105c-2"
     })`
@@ -3022,13 +3039,13 @@
     }
   }
 `,
-    _v187 = _v13.default.div.withConfig({
+    _v189 = _v13.default.div.withConfig({
       displayName: "FileTransferContent__HeaderTextContainerStyled",
       componentId: "sc-fd00105c-3"
     })`
   overflow: hidden;
 `,
-    _v188 = _v0 => _v13.css`
+    _v190 = _v0 => _v13.css`
   display: block;
   margin-right: ${_v0.aspectRatio > 1 ? (0, _v19.rem)(20) : 0};
   text-align: left;
@@ -3037,22 +3054,22 @@
   overflow: hidden;
   text-overflow: ellipsis;
 `,
-    _v189 = (0, _v13.default)(_v25.Header).withConfig({
+    _v191 = (0, _v13.default)(_v25.Header).withConfig({
       displayName: "FileTransferContent__TeamNameStyled",
       componentId: "sc-fd00105c-4"
     })`
   opacity: 0.5;
   margin-bottom: 0;
-  ${_v188}
+  ${_v190}
 `,
-    _v190 = (0, _v13.default)(_v25.Header).withConfig({
+    _v192 = (0, _v13.default)(_v25.Header).withConfig({
       displayName: "FileTransferContent__TitleStyled",
       componentId: "sc-fd00105c-5"
     })`
   font-size: ${(0, _v19.rem)(24)};
   line-height: ${(0, _v19.rem)(28)};
   margin-bottom: ${_v0 => _v0.aspectRatio > 1 ? (0, _v19.rem)(0) : (0, _v19.rem)(12)};
-  ${_v188}
+  ${_v190}
 
   @media screen and (max-width: ${(0, _v19.rem)(652)}) {
     margin: 0;
@@ -3063,7 +3080,7 @@
     padding: 0;
   }
 `,
-    _v191 = _v13.default.div.withConfig({
+    _v193 = _v13.default.div.withConfig({
       displayName: "FileTransferContent__ThumbnailStyled",
       componentId: "sc-fd00105c-6"
     })`
@@ -3080,7 +3097,7 @@
     margin: 0 auto;
   }
 `,
-    _v192 = _v13.default.div.withConfig({
+    _v194 = _v13.default.div.withConfig({
       displayName: "FileTransferContent__ThumbnailImageStyled",
       componentId: "sc-fd00105c-7"
     })`
@@ -3089,7 +3106,7 @@
   background: ${_v0 => `linear-gradient(0deg, rgba(0,0,0,0.7), transparent 70%), url(${_v0.url}) no-repeat center`};
   background-size: cover;
 `,
-    _v193 = _v13.default.div.withConfig({
+    _v195 = _v13.default.div.withConfig({
       displayName: "FileTransferContent__InfoOverlayStyled",
       componentId: "sc-fd00105c-8"
     })`
@@ -3104,7 +3121,7 @@
     margin: ${(0, _v19.rem)(12)};
   }
 `,
-    _v194 = (0, _v13.default)(_v25.Header).withConfig({
+    _v196 = (0, _v13.default)(_v25.Header).withConfig({
       displayName: "FileTransferContent__FileNameStyled",
       componentId: "sc-fd00105c-9"
     })`
@@ -3126,7 +3143,7 @@
     display: ${_v0 => _v0.aspectRatio < 1 ? "none" : "default"};
   }
 `,
-    _v195 = _v13.default.div.withConfig({
+    _v197 = _v13.default.div.withConfig({
       displayName: "FileTransferContent__MobileDownloadButtonStyled",
       componentId: "sc-fd00105c-10"
     })`
@@ -3141,7 +3158,7 @@
     display: none;
   }
 `,
-    _v196 = _v13.default.div.withConfig({
+    _v198 = _v13.default.div.withConfig({
       displayName: "FileTransferContent__DesktopDownloadButtonStyled",
       componentId: "sc-fd00105c-11"
     })`
@@ -3149,7 +3166,7 @@
     display: none;
   }
 `,
-    _v197 = _v0 => {
+    _v199 = _v0 => {
       let {
         isCreator: _v1,
         isLoading: _v2,
@@ -3163,26 +3180,26 @@
         onClickDownloadItem: _v10,
         teamName: _v11
       } = _v0;
-      return console.group("Clip status"), console.log(_v6), console.groupEnd(), (0, _v10.jsx)(_v184, {
+      return console.group("Clip status"), console.log(_v6), console.groupEnd(), (0, _v10.jsx)(_v186, {
         isCreator: _v1,
         hasLogo: _v3,
         disabled: !_v5.allowDownloads,
-        children: (0, _v10.jsxs)(_v185, {
+        children: (0, _v10.jsxs)(_v187, {
           aspectRatio: _v5.aspectRatio,
-          children: [(0, _v10.jsxs)(_v186, {
+          children: [(0, _v10.jsxs)(_v188, {
             aspectRatio: _v5.aspectRatio,
-            children: [(0, _v10.jsxs)(_v187, {
-              children: [(0, _v10.jsx)(_v189, {
+            children: [(0, _v10.jsxs)(_v189, {
+              children: [(0, _v10.jsx)(_v191, {
                 size: "6",
                 aspectRatio: _v5.aspectRatio,
                 children: _v11
-              }), (0, _v10.jsx)(_v190, {
+              }), (0, _v10.jsx)(_v192, {
                 size: "1",
                 aspectRatio: _v5.aspectRatio,
                 children: _v5.title
               })]
-            }), (0, _v10.jsx)(_v196, {
-              children: (0, _v10.jsx)(_v143, {
+            }), (0, _v10.jsx)(_v198, {
+              children: (0, _v10.jsx)(_v145, {
                 isOwner: _v1,
                 menuAlignment: _v5.aspectRatio > 1 ? "right" : "center",
                 isLoading: _v2,
@@ -3194,19 +3211,19 @@
                 isMaxResolution: _v5.isMaxResolution
               })
             })]
-          }), (0, _v10.jsx)(_v182, {
+          }), (0, _v10.jsx)(_v184, {
             clipId: _v5.id,
             clipStatus: _v6,
             clipStatusConfig: _v7,
-            children: _v0 => (0, _v10.jsx)(_v183, {
+            children: _v0 => (0, _v10.jsx)(_v185, {
               isLoading: _v2,
               onMount: () => _v8(_v0),
               file: _v4[0],
               thumbnail: _v5.thumbnail,
               aspectRatio: _v5.aspectRatio
             })
-          }), (0, _v10.jsx)(_v195, {
-            children: (0, _v10.jsx)(_v143, {
+          }), (0, _v10.jsx)(_v197, {
+            children: (0, _v10.jsx)(_v145, {
               isOwner: _v1,
               menuAlignment: "center",
               isLoading: _v2,
@@ -3221,11 +3238,11 @@
         })
       });
     };
-  var _v198 = _v0.i(0),
-    _v199 = _v0.i(0),
-    _v200 = _v0.i(0),
-    _v201 = _v0.i(0);
-  let _v202 = (0, _v12.forwardRef)(({
+  var _v200 = _v0.i(0),
+    _v201 = _v0.i(0),
+    _v202 = _v0.i(0),
+    _v203 = _v0.i(0);
+  let _v204 = (0, _v12.forwardRef)(({
     videoFileTransferId: _v0,
     clipId: _v1,
     clipOwnerId: _v2
@@ -3234,7 +3251,7 @@
       {
         trackVideoFileTransferPageDisplayed: _v5,
         trackVideoFileTransferLinkCreated: _v6
-      } = (_v4 = (0, _v200.usePico)(), {
+      } = (_v4 = (0, _v202.usePico)(), {
         trackVideoFileTransferLinkCreated: (0, _v12.useCallback)(_v0 => null !== _v4 && (_v4.track("video_file_transfer_link_created", {
           video_file_transfer_id: _v0.videoFileTransferId,
           clip_id: _v0.clipId,
@@ -3247,14 +3264,14 @@
           video_file_transfer_viewer_auth_status: _v0.videoFileTransferViewerAuthStatus
         }), !0), [_v4])
       }),
-      _v7 = (0, _v201.useViewer)();
-    return (0, _v199.usePicoEffect)(() => {
+      _v7 = (0, _v203.useViewer)();
+    return (0, _v201.usePicoEffect)(() => {
       if (!_v7) return !1;
       _v5({
         videoFileTransferId: _v0,
         clipId: _v1,
         clipOwnerId: _v2,
-        videoFileTransferViewerAuthStatus: (0, _v198.deriveViewerAuthStatus)(_v7)
+        videoFileTransferViewerAuthStatus: (0, _v200.deriveViewerAuthStatus)(_v7)
       });
     }, [_v0, _v1, _v2, _v7], {
       once: !0
@@ -3262,8 +3279,8 @@
       trackLinkCreated: _v0 => _v6(_v0)
     }), [_v6]), null;
   });
-  _v202.displayName = "FileTransferTracker";
-  let _v203 = _v13.default.svg.withConfig({
+  _v204.displayName = "FileTransferTracker";
+  let _v205 = _v13.default.svg.withConfig({
       displayName: "VimeoLogo__BaseSvg",
       componentId: "sc-f92e75f0-0"
     })`
@@ -3271,7 +3288,7 @@
     fill: ${(0, _v54.grayscale)(650)};
   }
 `,
-    _v204 = (0, _v13.default)(_v203).withConfig({
+    _v206 = (0, _v13.default)(_v205).withConfig({
       displayName: "VimeoLogo__LogoFullStyled",
       componentId: "sc-f92e75f0-1"
     })`
@@ -3283,7 +3300,7 @@
     display: none;
   }
 `,
-    _v205 = (0, _v13.default)(_v203).withConfig({
+    _v207 = (0, _v13.default)(_v205).withConfig({
       displayName: "VimeoLogo__LogoMiniStyled",
       componentId: "sc-f92e75f0-2"
     })`
@@ -3295,8 +3312,8 @@
     display: inline-block;
   }
 `,
-    _v206 = _v0 => (0, _v10.jsxs)("div", {
-      children: [(0, _v10.jsxs)(_v204, {
+    _v208 = _v0 => (0, _v10.jsxs)("div", {
+      children: [(0, _v10.jsxs)(_v206, {
         xmlns: "http://www.w3.org/2000/svg",
         version: "1.1",
         viewBox: "0 0 441 124.682",
@@ -3305,7 +3322,7 @@
         }), (0, _v10.jsx)("path", {
           d: "M434.079,50.16c-5.319-6.925-13.145-10.395-23.475-10.395c-16.097,0-29.455,5.896-40.083,17.688c-9.902,10.614-14.478,22.265-13.733,34.944c0.049,0.932,0.132,1.84,0.229,2.738c-0.554,0.241-1.093,0.483-1.662,0.724c-12.556,5.411-24.147,8.11-34.775,8.11c-5.32,0-9.307-1.839-11.96-5.521c14.316-2.355,26.206-7.876,35.662-16.568c8.854-7.955,12.989-15.689,12.4-23.197c-0.887-11.78-8.562-17.676-23.034-17.676c-15.65,0-29.235,5.909-40.75,17.714c-10.484,10.783-15.805,22.148-15.947,34.103c-0.04,2.005,0.066,3.932,0.3,5.789c-2.477,1.632-4.352,2.456-5.613,2.456c-2.81,0-4.576-0.582-5.314-1.76c-0.737-1.178-1.035-3.308-0.887-6.401c0-1.178,0.919-5.695,2.771-13.565c1.845-7.87,2.841-13.864,2.99-17.987c0.291-6.025-0.894-10.66-3.547-13.896c-3.101-3.974-8.194-5.663-15.281-5.074c-5.902,0.447-11.592,2.66-17.054,6.647c-3.249,2.363-6.569,5.534-9.961,9.521c-1.185,1.036-2.291,2-3.327,2.88c0.143-6.051-1.036-10.705-3.54-13.954c-3.107-3.987-8.272-5.683-15.508-5.094c-8.415,0.738-16.02,4.065-22.809,9.967c-2.958,2.511-5.54,5.469-7.753,8.861c0.291-1.327,0.44-2.731,0.44-4.207c0-4.576-1.185-8.602-3.547-12.071s-5.462-5.055-9.301-4.757c-2.213,0.149-6.42,3.101-12.621,8.854c-8.569,7.974-13.216,12.259-13.954,12.841l5.313,5.98c4.136-2.984,6.647-4.479,7.534-4.479c1.618,0,2.285,1.327,1.994,3.975c-0.143,3.831-0.822,9.164-2.039,16.012c-0.754,4.243-1.298,7.904-1.638,10.988c-0.066,0.055-0.129,0.109-0.196,0.164c-5.32,4.375-9.009,6.556-11.074,6.556c-4.725,0-7.016-3.158-6.867-9.488c2.213-13.824,4.285-25.222,6.207-34.199c0.583-5.294-0.266-9.592-2.55-12.906c-2.291-3.314-5.87-4.744-10.737-4.304c-3.107,0.298-7.832,3.249-14.181,8.86c-2.205,2-4.41,3.996-6.615,5.993c-0.437-10.447-5.204-15.822-14.329-16.09c-13.669-0.44-22.931,7.275-27.779,23.158c2.504-1.074,4.938-1.618,7.301-1.618c5.016,0,7.229,2.822,6.64,8.453c-0.297,3.411-2.511,8.375-6.64,14.899c-4.136,6.523-7.236,9.786-9.301,9.786c-2.66,0-5.094-5.023-7.307-15.081c-0.745-2.951-2.071-10.491-3.987-22.614c-1.773-11.236-6.499-16.485-14.174-15.747c-3.249,0.298-8.123,3.249-14.614,8.86C9.669,53.318,4.867,57.597,0,61.875l4.641,5.98c4.42-3.094,7.003-4.647,7.741-4.647c3.385,0,6.55,5.313,9.501,15.929c2.653,9.733,5.307,19.468,7.961,29.202c3.974,10.621,8.841,15.929,14.588,15.929c9.281,0,20.627-8.719,34.038-26.154C87.892,85.987,93.99,75.74,96.8,67.354c3.72-2.748,6.018-4.146,6.853-4.146c2.653,0,3.987,1.922,3.987,5.754c0,0.738-1.443,6.2-4.324,16.381c-2.88,10.182-4.395,17.709-4.537,22.575c-0.149,4.726,0.997,8.557,3.43,11.508c2.434,2.952,5.941,4.428,10.524,4.428c9.89,0,19.779-4.278,29.675-12.835c0.881-0.772,1.738-1.557,2.573-2.352c0.783,3.312,2.124,6.045,4.07,8.15c4.259,4.569,11.456,6.706,21.592,6.408c-1.353-3.249-1.884-9.003-1.586-17.274c0.44-9.152,2.809-17.941,7.094-26.355s8.278-12.627,11.98-12.627c4.285,0,6.285,2.731,5.987,8.193c-0.149,3.696-0.874,7.903-2.175,12.628c-1.307,4.725-2.032,9.449-2.174,14.174c-0.298,7.534,1.392,12.919,5.081,16.168c4.116,3.689,11.334,5.392,21.638,5.094c-1.541-3.392-2.162-8.266-1.864-14.621c0.44-9.003,3.482-18.304,9.113-27.902c5.333-9.151,9.922-13.733,13.772-13.733c3.56,0,5.263,2.809,5.113,8.414c-0.148,3.688-1.074,8.854-2.771,15.494c-1.695,6.641-2.621,12.316-2.764,17.041c-0.297,10.628,4.35,15.936,13.955,15.936c9.889,0,19.779-4.278,29.675-12.835c0.164-0.144,0.316-0.293,0.479-0.438c0.34,0.586,0.688,1.168,1.068,1.732c5.165,7.967,13.734,11.954,25.695,11.954c16.09,0,31.966-4.492,47.616-13.488c1.756-0.99,3.422-1.979,5.017-2.97c0.986,1.991,2.138,3.866,3.502,5.591c6.052,7.521,14.912,11.281,26.575,11.281c14.025,0,25.767-4.938,35.216-14.815c9.449-9.876,14.466-21.598,15.061-35.163C441.387,64.684,439.102,56.503,434.079,50.16z M305.118,90.003c-0.084-1.909-0.084-2.867,0-2.867c0.143-5.579,2.505-11.417,7.074-17.514s9.062-9.146,13.488-9.146c3.392,0,5.01,1.987,4.867,5.948c-0.149,2.938-2.362,6.764-6.634,11.462C318.606,83.324,312.341,87.362,305.118,90.003z M415.918,73.868c-0.297,7.1-2.434,13.902-6.42,20.413c-4.725,7.845-10.414,11.76-17.055,11.76c-2.958,0-5.249-1.624-6.867-4.88c-1.476-2.809-2.142-6.064-1.993-9.767c0.291-7.54,2.505-14.64,6.647-21.3c4.866-8.136,11.067-12.207,18.601-12.207c2.356,0,4.168,1.67,5.424,4.997S416.067,69.875,415.918,73.868z"
         })]
-      }), (0, _v10.jsx)(_v205, {
+      }), (0, _v10.jsx)(_v207, {
         xmlns: "http://www.w3.org/2000/svg",
         version: "1.1",
         viewBox: "0 15 32 23",
@@ -3314,13 +3331,13 @@
         })
       })]
     }),
-    _v207 = _v13.default.img.withConfig({
+    _v209 = _v13.default.img.withConfig({
       displayName: "LogoBar__TeamLogo",
       componentId: "sc-f202dace-0"
     })`
   max-height: ${(0, _v19.rem)(45)};
 `,
-    _v208 = _v13.default.div.withConfig({
+    _v210 = _v13.default.div.withConfig({
       displayName: "LogoBar__LogoBarStyled",
       componentId: "sc-f202dace-1"
     })`
@@ -3330,15 +3347,15 @@
   flex-shrink: 0;
   justify-content: flex-start;
 `,
-    _v209 = ({
+    _v211 = ({
       teamLogoUrl: _v0
-    }) => (0, _v10.jsx)(_v208, {
-      children: _v0 ? (0, _v10.jsx)(_v207, {
+    }) => (0, _v10.jsx)(_v210, {
+      children: _v0 ? (0, _v10.jsx)(_v209, {
         src: _v0,
         alt: "team-logo"
-      }) : (0, _v10.jsx)(_v206, {})
+      }) : (0, _v10.jsx)(_v208, {})
     }),
-    _v210 = _v0 => (0, _v10.jsx)(_v118, {
+    _v212 = _v0 => (0, _v10.jsx)(_v120, {
       isShowing: _v0.isShowing,
       children: (0, _v33.translate)({
         singular: "You′re looking at an older version of this video. Only your team can see the version history.",
@@ -3367,23 +3384,23 @@
         }
       })
     });
-  var _v211 = ((_v5 = _v211 || {})[_v5.Live = 0] = "Live", _v5[_v5.PostLive = 1] = "PostLive", _v5),
-    _v212 = ((_v6 = {}).TYPE_DEMO = "FILE_TRANSFER_DEMO", _v6.TYPE_FULL = "FILE_TRANSFER", _v6),
-    _v213 = ((_v7 = {}).LOAD_DOWNLOAD_DATA = "load_download_data", _v7.UPDATE_SETTINGS = "update_settings", _v7.TOGGLE_ALLOW_DOWNLOADS = "toggle_allow_downloads", _v7.LOAD_CONFIG_DATA = "load_config_data", _v7);
-  let _v214 = (_v0, _v1) => {
+  var _v213 = ((_v5 = _v213 || {})[_v5.Live = 0] = "Live", _v5[_v5.PostLive = 1] = "PostLive", _v5),
+    _v214 = ((_v6 = {}).TYPE_DEMO = "FILE_TRANSFER_DEMO", _v6.TYPE_FULL = "FILE_TRANSFER", _v6),
+    _v215 = ((_v7 = {}).LOAD_DOWNLOAD_DATA = "load_download_data", _v7.UPDATE_SETTINGS = "update_settings", _v7.TOGGLE_ALLOW_DOWNLOADS = "toggle_allow_downloads", _v7.LOAD_CONFIG_DATA = "load_config_data", _v7);
+  let _v216 = (_v0, _v1) => {
       let _v2,
         _v3 = [];
       for (let _v0 in _v0) if (_v0.hasOwnProperty(_v0)) {
         let _v0 = _v0[_v0];
         switch (_v1 && (_v0 = _v1 + "[" + _v0 + "]"), Object.prototype.toString.call(_v0)) {
           case "[object Object]":
-            _v2 = _v214(_v0, _v0);
+            _v2 = _v216(_v0, _v0);
             break;
           case "[object Array]":
             let _v0 = {};
             if (0 === _v0.length) _v0 = null;else {
               for (let _v0 = 0, _v1 = _v0.length; _v0 < _v1; _v0++) _v0[_v0] = _v0[_v0];
-              _v2 = _v214(_v0, _v0);
+              _v2 = _v216(_v0, _v0);
             }
             break;
           default:
@@ -3393,11 +3410,11 @@
       }
       return _v3.join("&");
     },
-    _v215 = _v0 => new Promise(_v0 => _v0({
+    _v217 = _v0 => new Promise(_v0 => _v0({
       ok: !0,
       json: () => Promise.resolve(_v0)
     })),
-    _v216 = (_v0, _v1) => {
+    _v218 = (_v0, _v1) => {
       let _v2 = (_v0 => {
           let {
             username: _v1,
@@ -3417,8 +3434,8 @@
       return {
         get: (_v0, _v1, _v2 = {}) => {
           let _v3 = _v0 ? `action=${_v0}` : "",
-            _v4 = _v0 === _v213.LOAD_CONFIG_DATA ? _v2 : _v3;
-          return _v1 && (_v3 = `${_v3}&${_v214(_v1)}`), fetch(`${_v4}?${_v3}`, {
+            _v4 = _v0 === _v215.LOAD_CONFIG_DATA ? _v2 : _v3;
+          return _v1 && (_v3 = `${_v3}&${_v216(_v1)}`), fetch(`${_v4}?${_v3}`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -3427,12 +3444,12 @@
             }
           });
         },
-        post: (_v0, _v1, _v2 = {}, _v3 = {}) => _v0 === _v212.TYPE_DEMO ? ((_v0, _v1, _v2 = {}) => {
+        post: (_v0, _v1, _v2 = {}, _v3 = {}) => _v0 === _v214.TYPE_DEMO ? ((_v0, _v1, _v2 = {}) => {
           switch (_v0) {
-            case _v213.UPDATE_SETTINGS:
-              return _v215(_v1.settings);
-            case _v213.TOGGLE_ALLOW_DOWNLOADS:
-              return _v215(_v1 && _v1.allow_downloads);
+            case _v215.UPDATE_SETTINGS:
+              return _v217(_v1.settings);
+            case _v215.TOGGLE_ALLOW_DOWNLOADS:
+              return _v217(_v1 && _v1.allow_downloads);
             default:
               return Promise.resolve({
                 ok: !1
@@ -3441,7 +3458,7 @@
         })(_v0, _v1, _v3) : (_v0 && (_v3 = {
           ..._v3,
           action: _v0
-        }), fetch(`${_v3}?${_v214(_v3)}`, {
+        }), fetch(`${_v3}?${_v216(_v3)}`, {
           method: "POST",
           credentials: "include",
           headers: {
@@ -3449,65 +3466,65 @@
             "X-Requested-With": "XMLHttpRequest",
             ..._v2
           },
-          body: _v214({
+          body: _v216({
             ..._v1,
             token: _v1.xsrft
           })
         }))
       };
     };
-  var _v217 = _v0.i(0),
-    _v218 = _v0.i(0),
-    _v219 = _v0.i(0),
+  var _v219 = _v0.i(0),
     _v220 = _v0.i(0),
     _v221 = _v0.i(0),
     _v222 = _v0.i(0),
-    _v223 = _v0.i(0);
-  let _v224 = (0, _v221.buildThirdPartyIntegrationBpContext)({
+    _v223 = _v0.i(0),
+    _v224 = _v0.i(0),
+    _v225 = _v0.i(0);
+  let _v226 = (0, _v223.buildThirdPartyIntegrationBpContext)({
       is_partner: !1,
       integration_name: null,
       integration_id: null
     }),
-    _v225 = (0, _v219.buildViewBpContext)({
+    _v227 = (0, _v221.buildViewBpContext)({
       feature: null,
       view_type: "impression"
     }),
-    _v226 = (0, _v220.buildActionBpContext)({
+    _v228 = (0, _v222.buildActionBpContext)({
       feature: null,
       action_type: "click"
     }),
-    _v227 = () => {
-      _v157.FatalAttraction.trackImpression({
+    _v229 = () => {
+      _v159.FatalAttraction.trackImpression({
         container: "video_transfer",
         component: "allow_downloads_notification"
       });
     },
-    _v228 = _v0 => {
-      _v157.FatalAttraction.trackClick({
+    _v230 = _v0 => {
+      _v159.FatalAttraction.trackClick({
         container: "video_transfer",
         component: "return_to_page",
         keyword: _v0
       });
     },
-    _v229 = () => {
-      _v157.FatalAttraction.trackClick({
+    _v231 = () => {
+      _v159.FatalAttraction.trackClick({
         container: "video_transfer",
         component: "download_menu"
       });
     },
-    _v230 = _v0 => {
-      _v157.FatalAttraction.trackClick({
+    _v232 = _v0 => {
+      _v159.FatalAttraction.trackClick({
         container: "video_transfer",
         component: "download_menu",
         keyword: _v0.toLowerCase().split(" ").join("")
       });
     },
-    _v231 = (0, _v18.default)(() => _v0.A(0), {
+    _v233 = (0, _v18.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v232 = _v13.default.div.withConfig({
+    _v234 = _v13.default.div.withConfig({
       displayName: "FileTransfer__MonoRibbon",
       componentId: "sc-b47fd9ec-0"
     })`
@@ -3515,7 +3532,7 @@
   width: 100%;
   background: ${_v0 => _v0.color};
 `;
-  class _v233 extends _v20.default.Component {
+  class _v235 extends _v20.default.Component {
     state = {
       isLoadingFiles: !0,
       files: [],
@@ -3526,7 +3543,7 @@
       modal: null,
       initialAllowDownloads: this.props.clip.allowDownloads
     };
-    api = _v216(this.props.mode, this.props.apiConfig);
+    api = _v218(this.props.mode, this.props.apiConfig);
     trackerRef = _v20.default.createRef();
     getTrackingParams() {
       return {
@@ -3536,7 +3553,7 @@
       };
     }
     componentDidMount() {
-      _v157.FatalAttraction.trackPageView();
+      _v159.FatalAttraction.trackPageView();
     }
     fetchDownloadConfig = () => {
       this.setState({
@@ -3545,7 +3562,7 @@
       let _v0 = {
         version_id: this.state.selectedVersion ? this.state.selectedVersion.id : null
       };
-      this.api.get(_v213.LOAD_DOWNLOAD_DATA, _v0).then(_v0 => {
+      this.api.get(_v215.LOAD_DOWNLOAD_DATA, _v0).then(_v0 => {
         if (!_v0.ok) throw Error(_v0.status);
         return _v0.json();
       }).then(_v0 => {
@@ -3600,7 +3617,7 @@
         showLogo: !_v0.showLogo
       }), async () => {
         try {
-          let _v0 = await this.api.post(_v213.UPDATE_SETTINGS, {
+          let _v0 = await this.api.post(_v215.UPDATE_SETTINGS, {
             settings: {
               vimeo_logo: !!this.state.showLogo
             }
@@ -3677,7 +3694,7 @@
         }
       }), async () => {
         try {
-          let _v0 = await this.api.post(_v213.TOGGLE_ALLOW_DOWNLOADS, {
+          let _v0 = await this.api.post(_v215.TOGGLE_ALLOW_DOWNLOADS, {
             allow_downloads: this.state.clip.allowDownloads
           });
           if (!_v0.ok) throw Error();
@@ -3772,8 +3789,8 @@
       }), this.fetchDownloadConfig);
     };
     copyLink = () => {
-      if (this.props.mode === _v212.TYPE_DEMO) return void this.setState({
-        modal: _v85
+      if (this.props.mode === _v214.TYPE_DEMO) return void this.setState({
+        modal: _v86
       });
       this.trackerRef.current?.trackLinkCreated(this.getTrackingParams());
       let _v0 = (0, _v58.default)(this.state.clip.fileTransferUrl);
@@ -4312,35 +4329,35 @@
             singular: "专门支持"
           }
         }
-      }), (0, _v10.jsxs)(_v234, {
-        isDemo: _v4 === _v212.TYPE_DEMO,
-        children: [(0, _v10.jsx)(_v202, {
+      }), (0, _v10.jsxs)(_v236, {
+        isDemo: _v4 === _v214.TYPE_DEMO,
+        children: [(0, _v10.jsx)(_v204, {
           ref: this.trackerRef,
           ...this.getTrackingParams()
-        }), (0, _v10.jsx)(_v119, {
-          isShowing: _v4 === _v212.TYPE_DEMO,
+        }), (0, _v10.jsx)(_v121, {
+          isShowing: _v4 === _v214.TYPE_DEMO,
           onUpgradeClick: () => {
             this.setState({
-              modal: _v86
+              modal: _v87
             });
           }
-        }), (0, _v10.jsx)(_v210, {
+        }), (0, _v10.jsx)(_v212, {
           isShowing: _v5.length > 1 && !!_v17 && !_v17.is_current
-        }), _v20 && (0, _v10.jsx)(_v114, {
+        }), _v20 && (0, _v10.jsx)(_v116, {
           disabled: !_v15.allowDownloads,
-          isDemo: _v4 === _v212.TYPE_DEMO,
+          isDemo: _v4 === _v214.TYPE_DEMO,
           showLogo: _v12,
           toggleLogo: () => {
             var _v0;
-            _v0 = _v12, _v157.FatalAttraction.trackClick({
+            _v0 = _v12, _v159.FatalAttraction.trackClick({
               container: "video_transfer",
               keyword: `${_v0 ? "disable" : "enable"}_vimeo_logo`
             }), this.toggleLogo();
           },
-          onShowDownloadToggle: _v227,
+          onShowDownloadToggle: _v229,
           toggleAllowDownloads: () => {
             var _v0;
-            _v0 = _v15.allowDownloads, _v157.FatalAttraction.trackClick({
+            _v0 = _v15.allowDownloads, _v159.FatalAttraction.trackClick({
               container: "video_transfer",
               component: "allow_downloads_notification",
               keyword: `toggle_${_v0 ? "off" : "on"}`
@@ -4350,13 +4367,13 @@
           versions: _v5,
           selectedVersion: _v17,
           switchVersion: _v0 => {
-            _v157.FatalAttraction.trackClick({
+            _v159.FatalAttraction.trackClick({
               container: "video_transfer",
               keyword: "toggle_version"
             }), this.switchVersion(_v0);
           },
           copyLink: () => {
-            _v217.BigPictureClient.sendEvent(new _v217.Event("vimeo.upgrade_action", 27, {
+            _v219.BigPictureClient.sendEvent(new _v219.Event("vimeo.upgrade_action", 27, {
               action_type: "click",
               page: "file_transfer_page",
               location: "copy_file_transfer",
@@ -4381,20 +4398,20 @@
             })), this.copyLink();
           },
           breadcrumb: _v8,
-          onClickBreadcrumb: _v228,
+          onClickBreadcrumb: _v230,
           isClipReady: !_v15.isTranscoding,
           hasTeamLogo: !!_v9?.logoUrl
-        }), (0, _v10.jsxs)(_v235, {
-          children: [_v9?.accentColor ? (0, _v10.jsx)(_v232, {
+        }), (0, _v10.jsxs)(_v237, {
+          children: [_v9?.accentColor ? (0, _v10.jsx)(_v234, {
             color: _v9.accentColor
           }) : (0, _v10.jsx)(_v57.Ribbon, {
             animate: !1,
             style: {
               height: (0, _v19.rem)(3)
             }
-          }), _v12 && (0, _v10.jsx)(_v209, {
+          }), _v12 && (0, _v10.jsx)(_v211, {
             teamLogoUrl: _v9 && _v9.logoUrl
-          }), (0, _v10.jsx)(_v197, {
+          }), (0, _v10.jsx)(_v199, {
             isCreator: _v20,
             hasLogo: _v12,
             clipStatus: _v0,
@@ -4405,12 +4422,12 @@
             onClipReady: _v0 => {
               this.clipTranscodeComplete(_v0), this.fetchDownloadConfig();
             },
-            onClickDownload: _v229,
-            onClickDownloadItem: _v230,
+            onClickDownload: _v231,
+            onClickDownloadItem: _v232,
             teamName: _v9 && _v9.teamName
-          }), !_v15.allowDownloads && (0, _v10.jsx)(_v91, {})]
-        }), _v4 === _v212.TYPE_DEMO && (0, _v10.jsx)(_v50, {
-          isShowing: _v18 === _v84,
+          }), !_v15.allowDownloads && (0, _v10.jsx)(_v92, {})]
+        }), _v4 === _v214.TYPE_DEMO && (0, _v10.jsx)(_v50, {
+          isShowing: _v18 === _v85,
           config: _v6,
           playerAssetUrls: this.props.playerAssetUrls,
           onDismiss: () => this.setState({
@@ -4468,7 +4485,7 @@
               }
             }
           })
-        }), _v4 === _v212.TYPE_DEMO && _v18 === _v85 && (0, _v10.jsx)(_v231, {
+        }), _v4 === _v214.TYPE_DEMO && _v18 === _v86 && (0, _v10.jsx)(_v233, {
           apiUrl: _v10.apiUrl,
           userConfig: {
             jwt: _v10.jwt,
@@ -4493,8 +4510,8 @@
             }
           },
           modalConfig: _v59.includedInAllPlansModalConfig
-        }), _v18 === _v86 && (0, _v10.jsx)(_v21.LightMode, {
-          children: (0, _v10.jsx)(_v231, {
+        }), _v18 === _v87 && (0, _v10.jsx)(_v21.LightMode, {
+          children: (0, _v10.jsx)(_v233, {
             apiUrl: _v10.apiUrl,
             userConfig: {
               jwt: _v10.jwt,
@@ -4520,7 +4537,7 @@
             },
             modalConfig: _v59.includedInAllPlansModalConfig
           })
-        }), _v4 === _v212.TYPE_DEMO && (0, _v10.jsx)(_v29, {
+        }), _v4 === _v214.TYPE_DEMO && (0, _v10.jsx)(_v29, {
           title: (0, _v33.translate)({
             singular: "Send files for download",
             dictionary: {
@@ -4598,7 +4615,7 @@
           }),
           secondaryButtonIcon: (0, _v10.jsx)(_v56.Play, {}),
           onClickSecondaryButton: () => this.setState({
-            modal: _v84
+            modal: _v85
           }),
           secondaryButtonText: (0, _v33.translate)({
             singular: "Learn more",
@@ -4629,11 +4646,11 @@
           impressionTracking: () => {
             var _v0;
             let _v1, _v2, _v3;
-            return _v0 = "download_video_file", _v1 = (0, _v223.buildProductAnalyticsBpContext)({
+            return _v0 = "download_video_file", _v1 = (0, _v225.buildProductAnalyticsBpContext)({
               feature: "file_transfer",
               location: "bottom",
               product: "collaboration"
-            }), _v2 = (0, _v222.buildWebBpContext)({
+            }), _v2 = (0, _v224.buildWebBpContext)({
               page_name: _v0,
               location: null,
               path: window.location.pathname,
@@ -4641,24 +4658,24 @@
               copy: "upgrade",
               referrer_page_name: _v0
             }), _v3 = {
-              ..._v225,
+              ..._v227,
               ..._v1,
               ..._v2,
-              ..._v224,
+              ..._v226,
               upsell_name: "file_transfer_send_file",
               upsell_feature_category: "file_transfer_send_file",
               upsell_specific_feature: "file_transfer_send_file",
               upsell_badge_location: "send_file_floating"
-            }, void (0, _v218.sendBpEventWithContexts)("vimeo.upsell_trigger_impression", _v3);
+            }, void (0, _v220.sendBpEventWithContexts)("vimeo.upsell_trigger_impression", _v3);
           },
           onClickPrimaryButton: () => {
             var _v0;
             let _v1, _v2, _v3;
-            _v0 = "download_video_file", _v1 = (0, _v223.buildProductAnalyticsBpContext)({
+            _v0 = "download_video_file", _v1 = (0, _v225.buildProductAnalyticsBpContext)({
               feature: "file_transfer",
               location: "bottom",
               product: "collaboration"
-            }), _v2 = (0, _v222.buildWebBpContext)({
+            }), _v2 = (0, _v224.buildWebBpContext)({
               page_name: _v0,
               location: null,
               path: window.location.pathname,
@@ -4666,16 +4683,16 @@
               copy: "upgrade",
               referrer_page_name: _v0
             }), _v3 = {
-              ..._v226,
+              ..._v228,
               ..._v1,
               ..._v2,
-              ..._v224,
+              ..._v226,
               upsell_name: "file_transfer_send_file",
               upsell_feature_category: "file_transfer_send_file",
               upsell_specific_feature: "file_transfer_send_file",
               upsell_badge_location: "send_file_floating"
-            }, (0, _v218.sendBpEventWithContexts)("vimeo.trigger_upsell", _v3), this.setState({
-              modal: _v86
+            }, (0, _v220.sendBpEventWithContexts)("vimeo.trigger_upsell", _v3), this.setState({
+              modal: _v87
             });
           }
         }), (0, _v10.jsx)(_v55.Notification, {
@@ -4687,7 +4704,7 @@
       });
     }
   }
-  let _v234 = _v13.default.div.withConfig({
+  let _v236 = _v13.default.div.withConfig({
       displayName: "FileTransfer__FileTransferStyled",
       componentId: "sc-b47fd9ec-1"
     })`
@@ -4706,7 +4723,7 @@
     padding-bottom: ${_v0 => _v0.isDemo ? (0, _v19.rem)(160) : 0};
   }
 `,
-    _v235 = _v13.default.div.withConfig({
+    _v237 = _v13.default.div.withConfig({
       displayName: "FileTransfer__ContentAreaStyled",
       componentId: "sc-b47fd9ec-2"
     })`
@@ -4719,14 +4736,14 @@
   background-color: ${(0, _v54.grayscale)(850)};
   flex-grow: 1;
 `,
-    _v236 = _v13.createGlobalStyle`
+    _v238 = _v13.createGlobalStyle`
   html, body, #file_transfer_mount {
       padding: 0;
       margin: 0;
       height: 100%;
   }
 `,
-    _v237 = _v13.default.div.withConfig({
+    _v239 = _v13.default.div.withConfig({
       displayName: "AppLoadingState__LoadingPage",
       componentId: "sc-d843ef28-0"
     })`
@@ -4737,13 +4754,13 @@
   align-items: center;
   justify-content: center;
 `,
-    _v238 = _v13.default.div.withConfig({
+    _v240 = _v13.default.div.withConfig({
       displayName: "AppLoadingState__LoaderWrapper",
       componentId: "sc-d843ef28-1"
     })`
   text-align: center;
 `,
-    _v239 = ({
+    _v241 = ({
       isLoadingOK: _v0
     }) => (0, _v10.jsxs)(_v10.Fragment, {
       children: [(0, _v10.jsx)(_v57.Ribbon, {
@@ -4751,9 +4768,9 @@
         style: {
           height: (0, _v19.rem)(3)
         }
-      }), (0, _v10.jsx)(_v236, {}), (0, _v10.jsx)(_v237, {
-        children: (0, _v10.jsx)(_v238, {
-          children: (0, _v10.jsx)(_v70.Spinner, {})
+      }), (0, _v10.jsx)(_v238, {}), (0, _v10.jsx)(_v239, {
+        children: (0, _v10.jsx)(_v240, {
+          children: (0, _v10.jsx)(_v72.Spinner, {})
         })
       }), (0, _v10.jsx)(_v55.Notification, {
         status: "neutral",
@@ -4786,9 +4803,9 @@
         })
       })]
     });
-  var _v240 = _v0.i(0),
-    _v241 = _v0.i(0);
-  let _v242 = _v13.default.div.withConfig({
+  var _v242 = _v0.i(0),
+    _v243 = _v0.i(0);
+  let _v244 = _v13.default.div.withConfig({
       displayName: "style__PrivacyContainerStyled",
       componentId: "sc-f3d9641c-0"
     })`
@@ -4796,7 +4813,7 @@
   flex: 1 0 auto;
   font-weight: 700;
 `,
-    _v243 = _v13.default.div.withConfig({
+    _v245 = _v13.default.div.withConfig({
       displayName: "style__PasswordFormWrapper",
       componentId: "sc-f3d9641c-1"
     })`
@@ -4804,7 +4821,7 @@
   flex-direction: row;
   justify-content: center;
 `,
-    _v244 = (0, _v13.default)(_v25.Header).withConfig({
+    _v246 = (0, _v13.default)(_v25.Header).withConfig({
       displayName: "style__Header",
       componentId: "sc-f3d9641c-2"
     })`
@@ -4817,7 +4834,7 @@
     font-size: ${(0, _v19.rem)(30)};
   }
 `,
-    _v245 = (0, _v13.default)(_v241.Password).withConfig({
+    _v247 = (0, _v13.default)(_v243.Password).withConfig({
       displayName: "style__PasswordInput",
       componentId: "sc-f3d9641c-3"
     })`
@@ -4826,7 +4843,7 @@
     height: ${(0, _v19.rem)(40)};
   }
 `,
-    _v246 = (0, _v13.default)(_v23.Button).withConfig({
+    _v248 = (0, _v13.default)(_v23.Button).withConfig({
       displayName: "style__Button",
       componentId: "sc-f3d9641c-4"
     })`
@@ -4837,7 +4854,7 @@
     margin-top: ${(0, _v19.rem)(10)};
   }
 `,
-    _v247 = _v13.default.div.withConfig({
+    _v249 = _v13.default.div.withConfig({
       displayName: "style__InputWrapper",
       componentId: "sc-f3d9641c-5"
     })`
@@ -4856,7 +4873,7 @@
     flex-direction: column;
   }
 `,
-    _v248 = _v13.default.div.withConfig({
+    _v250 = _v13.default.div.withConfig({
       displayName: "style__PasswordForm",
       componentId: "sc-f3d9641c-6"
     })`
@@ -4874,10 +4891,10 @@
     flex: 1;
   }
 `,
-    _v249 = (0, _v13.default)(({
+    _v251 = (0, _v13.default)(({
       error: _v0,
       className: _v1
-    }) => (0, _v10.jsx)(_v93.Notice, {
+    }) => (0, _v10.jsx)(_v94.Notice, {
       format: "negative",
       className: _v1,
       children: _v0
@@ -4889,206 +4906,198 @@
   background-color: ${_v22.bokehTheme.colors.red["50"]};
   color: ${_v22.bokehTheme.colors.gray["600"]};
 `;
-  var _v250 = ((_v8 = {}).isReview = "is_review", _v8.isFileTransfer = "is_file_transfer", _v8),
-    _v251 = ((_v9 = {}).Enter = "Enter", _v9);
-  let _v252 = ({
-      onUnlock: _v0,
-      clipId: _v1,
-      xsrft: _v2,
-      appId: _v3,
-      clipHash: _v4
-    }) => {
-      let [_v5, _v6] = (0, _v12.useState)(""),
-        [_v7, _v8] = (0, _v12.useState)(!1),
-        [_v9, _v10] = (0, _v12.useState)(null),
-        _v11 = async _v0 => {
-          if (_v0.preventDefault(), _v5.length > 0) {
-            _v8(!0);
-            let _v0 = new FormData();
-            _v0.append("password", _v5), _v0.append(_v3, "1"), _v0.append("token", _v2), _v0.append("clip_hash", _v4);
-            try {
-              (await fetch(`/${_v1}/password`, {
-                method: "POST",
-                credentials: "include",
-                body: _v0
-              })).ok ? _v0() : _v10((0, _v33.translate)({
-                singular: "Sorry, that password was incorrect. Please try again.",
-                dictionary: {
-                  es: {
-                    singular: "Lo sentimos, pero esta contraseña es incorrecta. Inténtalo de nuevo."
-                  },
-                  "de-DE": {
-                    singular: "Leider ist das Kennwort falsch. Bitte noch einmal versuchen."
-                  },
-                  "fr-FR": {
-                    singular: "Désolé, ce mot de passe est incorrect. Veuillez réessayer."
-                  },
-                  "ja-JP": {
-                    singular: "パスワードが間違っています。再度お試しください。"
-                  },
-                  "ko-KR": {
-                    singular: "죄송합니다, 잘못된 비밀번호입니다. 올바른 비밀번호로 다시 시도해주세요."
-                  },
-                  "pt-BR": {
-                    singular: "Desculpe, mas a senha estava incorreta. Tente de novo."
-                  },
-                  "zh-CN": {
-                    singular: "抱歉，密码不正确。请重试。"
-                  }
+  var _v252 = ((_v8 = {}).isReview = "is_review", _v8.isFileTransfer = "is_file_transfer", _v8),
+    _v253 = ((_v9 = {}).Enter = "Enter", _v9);
+  let _v254 = ({
+    onUnlock: _v0,
+    clipId: _v1,
+    xsrft: _v2,
+    appId: _v3,
+    clipHash: _v4
+  }) => {
+    let [_v5, _v6] = (0, _v12.useState)(""),
+      [_v7, _v8] = (0, _v12.useState)(!1),
+      [_v9, _v10] = (0, _v12.useState)(null),
+      _v11 = async _v0 => {
+        if (_v0.preventDefault(), _v5.length > 0) {
+          _v8(!0);
+          let _v0 = new FormData();
+          _v0.append("password", _v5), _v0.append(_v3, "1"), _v0.append("token", _v2), _v0.append("clip_hash", _v4);
+          try {
+            (await fetch(`/${_v1}/password`, {
+              method: "POST",
+              credentials: "include",
+              body: _v0
+            })).ok ? _v0() : _v10((0, _v33.translate)({
+              singular: "Sorry, that password was incorrect. Please try again.",
+              dictionary: {
+                es: {
+                  singular: "Lo sentimos, pero esta contraseña es incorrecta. Inténtalo de nuevo."
+                },
+                "de-DE": {
+                  singular: "Leider ist das Kennwort falsch. Bitte noch einmal versuchen."
+                },
+                "fr-FR": {
+                  singular: "Désolé, ce mot de passe est incorrect. Veuillez réessayer."
+                },
+                "ja-JP": {
+                  singular: "パスワードが間違っています。再度お試しください。"
+                },
+                "ko-KR": {
+                  singular: "죄송합니다, 잘못된 비밀번호입니다. 올바른 비밀번호로 다시 시도해주세요."
+                },
+                "pt-BR": {
+                  singular: "Desculpe, mas a senha estava incorreta. Tente de novo."
+                },
+                "zh-CN": {
+                  singular: "抱歉，密码不正确。请重试。"
                 }
-              }));
-            } catch (_v0) {
-              _v10((0, _v33.translate)({
-                singular: "Sorry, there was an error",
-                dictionary: {
-                  es: {
-                    singular: "Lo sentimos; hubo un error."
-                  },
-                  "de-DE": {
-                    singular: "Leider ergab sich ein Fehler"
-                  },
-                  "fr-FR": {
-                    singular: "Désolé, une erreur est survenue"
-                  },
-                  "ja-JP": {
-                    singular: "エラーが発生しました"
-                  },
-                  "ko-KR": {
-                    singular: "죄송합니다, 오류가 발생했습니다"
-                  },
-                  "pt-BR": {
-                    singular: "Desculpe, mas ocorreu um erro"
-                  },
-                  "zh-CN": {
-                    singular: "抱歉，出错了"
-                  }
+              }
+            }));
+          } catch (_v0) {
+            _v10((0, _v33.translate)({
+              singular: "Sorry, there was an error",
+              dictionary: {
+                es: {
+                  singular: "Lo sentimos; hubo un error."
+                },
+                "de-DE": {
+                  singular: "Leider ergab sich ein Fehler"
+                },
+                "fr-FR": {
+                  singular: "Désolé, une erreur est survenue"
+                },
+                "ja-JP": {
+                  singular: "エラーが発生しました"
+                },
+                "ko-KR": {
+                  singular: "죄송합니다, 오류가 발생했습니다"
+                },
+                "pt-BR": {
+                  singular: "Desculpe, mas ocorreu um erro"
+                },
+                "zh-CN": {
+                  singular: "抱歉，出错了"
                 }
-              }));
-            }
-            _v8(!1);
+              }
+            }));
           }
-        };
-      return (0, _v10.jsx)(_v13.ThemeProvider, {
-        theme: _v35.themes.light,
-        children: (0, _v10.jsxs)(_v242, {
-          children: [(0, _v10.jsx)(_v57.Ribbon, {
-            animate: !1,
-            style: {
-              height: (0, _v19.rem)(3)
-            }
-          }), (0, _v10.jsx)(_v243, {
-            children: (0, _v10.jsxs)(_v248, {
-              children: [(0, _v10.jsx)(_v244, {
-                size: "1",
-                variant: "normal",
-                children: (0, _v33.translate)({
-                  singular: "This video is private",
+          _v8(!1);
+        }
+      };
+    return (0, _v10.jsx)(_v13.ThemeProvider, {
+      theme: _v35.themes.light,
+      children: (0, _v10.jsxs)(_v244, {
+        children: [(0, _v10.jsx)(_v57.Ribbon, {
+          animate: !1,
+          style: {
+            height: (0, _v19.rem)(3)
+          }
+        }), (0, _v10.jsx)(_v245, {
+          children: (0, _v10.jsxs)(_v250, {
+            children: [(0, _v10.jsx)(_v246, {
+              size: "1",
+              variant: "normal",
+              children: (0, _v33.translate)({
+                singular: "This video is private",
+                dictionary: {
+                  es: {
+                    singular: "Este video es privado"
+                  },
+                  "de-DE": {
+                    singular: "Dieses Video ist privat"
+                  },
+                  "fr-FR": {
+                    singular: "Cette vidéo est privée"
+                  },
+                  "ja-JP": {
+                    singular: "この動画はプライベートです。"
+                  },
+                  "ko-KR": {
+                    singular: "이 동영상은 비공개 동영상입니다."
+                  },
+                  "pt-BR": {
+                    singular: "Este vídeo é privado"
+                  },
+                  "zh-CN": {
+                    singular: "此视频为私人视频"
+                  }
+                }
+              })
+            }), (0, _v10.jsxs)(_v249, {
+              children: [(0, _v10.jsx)(_v247, {
+                id: "privacy-password-input",
+                placeholder: (0, _v33.translate)({
+                  singular: "Enter password",
                   dictionary: {
                     es: {
-                      singular: "Este video es privado"
+                      singular: "Ingresar la contraseña"
                     },
                     "de-DE": {
-                      singular: "Dieses Video ist privat"
+                      singular: "Bitte Kennwort eingeben"
                     },
                     "fr-FR": {
-                      singular: "Cette vidéo est privée"
+                      singular: "Saisir mot de passe"
                     },
                     "ja-JP": {
-                      singular: "この動画はプライベートです。"
+                      singular: "パスワードを入力"
                     },
                     "ko-KR": {
-                      singular: "이 동영상은 비공개 동영상입니다."
+                      singular: "비밀번호 입력"
                     },
                     "pt-BR": {
-                      singular: "Este vídeo é privado"
+                      singular: "Digite a senha"
                     },
                     "zh-CN": {
-                      singular: "此视频为私人视频"
+                      singular: "输入密码"
+                    }
+                  }
+                }),
+                value: _v5,
+                onChange: _v0 => _v6(_v0.target.value),
+                disabled: _v7,
+                onKeyDown: _v0 => {
+                  _v0.key === _v253.Enter && _v11(_v0);
+                }
+              }), (0, _v10.jsx)(_v248, {
+                onClick: _v11,
+                disabled: _v7,
+                size: "md",
+                children: (0, _v33.translate)({
+                  singular: "Submit",
+                  dictionary: {
+                    es: {
+                      singular: "Enviar"
+                    },
+                    "de-DE": {
+                      singular: "Senden"
+                    },
+                    "fr-FR": {
+                      singular: "Envoyer"
+                    },
+                    "ja-JP": {
+                      singular: "送信"
+                    },
+                    "ko-KR": {
+                      singular: "제출"
+                    },
+                    "pt-BR": {
+                      singular: "Enviar"
+                    },
+                    "zh-CN": {
+                      singular: "提交"
                     }
                   }
                 })
-              }), (0, _v10.jsxs)(_v247, {
-                children: [(0, _v10.jsx)(_v245, {
-                  id: "privacy-password-input",
-                  placeholder: (0, _v33.translate)({
-                    singular: "Enter password",
-                    dictionary: {
-                      es: {
-                        singular: "Ingresar la contraseña"
-                      },
-                      "de-DE": {
-                        singular: "Bitte Kennwort eingeben"
-                      },
-                      "fr-FR": {
-                        singular: "Saisir mot de passe"
-                      },
-                      "ja-JP": {
-                        singular: "パスワードを入力"
-                      },
-                      "ko-KR": {
-                        singular: "비밀번호 입력"
-                      },
-                      "pt-BR": {
-                        singular: "Digite a senha"
-                      },
-                      "zh-CN": {
-                        singular: "输入密码"
-                      }
-                    }
-                  }),
-                  value: _v5,
-                  onChange: _v0 => _v6(_v0.target.value),
-                  disabled: _v7,
-                  onKeyDown: _v0 => {
-                    _v0.key === _v251.Enter && _v11(_v0);
-                  }
-                }), (0, _v10.jsx)(_v246, {
-                  onClick: _v11,
-                  disabled: _v7,
-                  size: "md",
-                  children: (0, _v33.translate)({
-                    singular: "Submit",
-                    dictionary: {
-                      es: {
-                        singular: "Enviar"
-                      },
-                      "de-DE": {
-                        singular: "Senden"
-                      },
-                      "fr-FR": {
-                        singular: "Envoyer"
-                      },
-                      "ja-JP": {
-                        singular: "送信"
-                      },
-                      "ko-KR": {
-                        singular: "제출"
-                      },
-                      "pt-BR": {
-                        singular: "Enviar"
-                      },
-                      "zh-CN": {
-                        singular: "提交"
-                      }
-                    }
-                  })
-                })]
-              }), _v9 && (0, _v10.jsx)(_v249, {
-                error: _v9
               })]
-            })
-          })]
-        })
-      });
-    },
-    _v253 = (_v0, _v1) => _v0.length > _v1 ? `${_v0.substring(0, _v1)}...` : _v0,
-    _v254 = _v0 => {
-      let _v1 = {
-        shortFilename: _v253(_v0.file_name, 26),
-        ..._v0
-      };
-      return _v0.username && (_v1.shortUsername = _v253(_v0.username, 30)), _v1;
-    };
+            }), _v9 && (0, _v10.jsx)(_v251, {
+              error: _v9
+            })]
+          })
+        })]
+      })
+    });
+  };
   var _v255 = _v0.i(0),
     _v256 = _v0.i(0);
   let _v257 = _v13.createGlobalStyle`
@@ -5142,9 +5151,9 @@
       _v13 = (0, _v12.useCallback)(() => {
         if (!_v12) return;
         let _v0 = async () => {
-          let _v0 = _v216(_v212.TYPE_FULL, _v12);
+          let _v0 = _v218(_v214.TYPE_FULL, _v12);
           try {
-            let _v0 = await _v0.get(_v213.LOAD_CONFIG_DATA);
+            let _v0 = await _v0.get(_v215.LOAD_CONFIG_DATA);
             if (!_v0.ok) throw Error();
             if (_v0.ok && _v0.json) {
               let _v0 = await _v0.json();
@@ -5160,13 +5169,13 @@
                   };
                   _v5(_v0);
                 } else _v5(_v35.themes.dark);
-                _v0.clipStatus = (0, _v16.camelize)(_v0.clipStatus), _v1 = _v0.clip, _v0.clip = _v0.mode === _v212.TYPE_DEMO ? {
+                _v0.clipStatus = (0, _v16.camelize)(_v0.clipStatus), _v1 = _v0.clip, _v0.clip = _v0.mode === _v214.TYPE_DEMO ? {
                   ..._v1,
                   allowDownloads: !0
                 } : {
                   ..._v1,
                   allowDownloads: !!_v1.allowDownloads
-                }, _v0.versions = _v0.versions.map(_v254), _v0.demoUpsellConfig = (0, _v16.camelize)(_v0.demoUpsellConfig), _v2(_v0);
+                }, _v0.versions = _v0.versions.map(_v71), _v0.demoUpsellConfig = (0, _v16.camelize)(_v0.demoUpsellConfig), _v2(_v0);
               } else _v2(_v0);
             }
           } catch (_v0) {
@@ -5181,7 +5190,7 @@
     let _v14 = _v1 && !_v1.hasOwnProperty("requirePassword") ? _v1.clip.title : null,
       _v15 = (0, _v10.jsxs)(_v11.default, {
         children: [(0, _v10.jsx)("title", {
-          children: _v14 ? (0, _v240.translate)({
+          children: _v14 ? (0, _v242.translate)({
             singular: "{PAGE_TITLE} on Vimeo",
             replacements: {
               PAGE_TITLE: _v14
@@ -5216,13 +5225,13 @@
         })]
       });
     return _v1 && _v12 && _v7 ? (_v1.isClipBlocked && _v1.clip.clipUrl && (window.location.href = _v1.clip.clipUrl), (0, _v10.jsxs)(_v10.Fragment, {
-      children: [_v15, (0, _v10.jsx)(_v257, {}), _v1.hasOwnProperty("requirePassword") ? (0, _v10.jsx)(_v252, {
+      children: [_v15, (0, _v10.jsx)(_v257, {}), _v1.hasOwnProperty("requirePassword") ? (0, _v10.jsx)(_v254, {
         onUnlock: () => _v13(),
         clipId: Number(_v7.params.clipId),
         xsrft: _v10,
-        appId: _v250.isFileTransfer,
+        appId: _v252.isFileTransfer,
         clipHash: _v7.params.clipHash
-      }) : (0, _v10.jsx)(_v233, {
+      }) : (0, _v10.jsx)(_v235, {
         ..._v1,
         apiConfig: _v12,
         playerAssetUrls: _v0.playerAssetUrls,
@@ -5230,7 +5239,7 @@
         viewer: _v6
       })]
     })) : (0, _v10.jsxs)(_v10.Fragment, {
-      children: [_v15, (0, _v10.jsx)(_v257, {}), (0, _v10.jsx)(_v239, {
+      children: [_v15, (0, _v10.jsx)(_v257, {}), (0, _v10.jsx)(_v241, {
         isLoadingOK: _v3
       })]
     });
@@ -5238,11 +5247,7 @@
   _v258.getLayout = _v0 => (0, _v10.jsx)(_v256.ReactRouterLayout, {
     path: "/:username/download/:clipId/:clipHash",
     children: _v0
-  }), (0, _v17.withPageSetup)(() => ({
-    props: {
-      omitEsi: !0
-    }
-  }), {
+  }), (0, _v17.withPageSetup)({
     inlineViewer: "all",
     inlinePlayerAssets: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v258], 0);

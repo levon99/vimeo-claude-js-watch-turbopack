@@ -1535,28 +1535,28 @@
       },
       get PRIVACY_EMBED() {
         return (0, _v77.translate)({
-          singular: "Hide from Vimeo",
+          singular: "Embed only",
           dictionary: {
             es: {
-              singular: "Ocultar de Vimeo"
+              singular: "Solo incrustado"
             },
             "de-DE": {
-              singular: "Bei Vimeo ausblenden"
+              singular: "Nur Einbetten"
             },
             "fr-FR": {
-              singular: "Masquer dans Vimeo"
+              singular: "Intégration uniquement"
             },
             "ja-JP": {
-              singular: "Vimeoで非表示にする"
+              singular: "埋め込みのみ"
             },
             "ko-KR": {
-              singular: "Vimeo에서 숨기기"
+              singular: "임베드 전용"
             },
             "pt-BR": {
-              singular: "Ocultar do Vimeo"
+              singular: "Somente incorporado"
             },
             "zh-CN": {
-              singular: "从 Vimeo 隐藏"
+              singular: "仅限嵌入"
             }
           }
         });
@@ -5518,13 +5518,13 @@
           singular: "Embed only",
           dictionary: {
             es: {
-              singular: "Solo mediante inserción"
+              singular: "Solo incrustado"
             },
             "de-DE": {
-              singular: "Nur per Einbettung"
+              singular: "Nur Einbetten"
             },
             "fr-FR": {
-              singular: "Uniquement intégrable"
+              singular: "Intégration uniquement"
             },
             "ja-JP": {
               singular: "埋め込みのみ"
@@ -5533,10 +5533,10 @@
               singular: "임베드 전용"
             },
             "pt-BR": {
-              singular: "Apenas incorporado"
+              singular: "Somente incorporado"
             },
             "zh-CN": {
-              singular: "仅可嵌入"
+              singular: "仅限嵌入"
             }
           }
         }) : _v0.title,
@@ -14986,7 +14986,7 @@
         }), {}),
         _v12 = _v0 !== _v97.options.folder.value,
         _v13 = _v0 !== _v97.options.showcase.value,
-        _v14 = _v100(_v5.privacy_settings_new_copy);
+        _v14 = _v100();
       return _v4 || (_v14.options = Object.fromEntries(Object.entries(_v14.options).filter(([_v0]) => _v0 !== _v78.DEFAULT_PRIVACY_VALUES.TEAM))), (0, _v1.jsxs)(_v411.Accordion, {
         allowMultiple: !0,
         allowToggle: !0,
@@ -16481,8 +16481,7 @@
     } : {
       props: {
         hasThemeSupport: !0,
-        hasUploader: !0,
-        omitEsi: !0
+        hasUploader: !0
       }
     } : (_v1?.includes("sort:relevant/format:detail") && _v5({
       key: "custom.404_type",

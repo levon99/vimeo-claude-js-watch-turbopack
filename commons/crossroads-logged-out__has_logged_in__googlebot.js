@@ -151,9 +151,6 @@
         ..._v0,
         props: {
           ..._v0.props,
-          ...(_v3?.omitEsi ? {
-            omitEsi: !0
-          } : {}),
           ...(_v2 ? {
             viewerBootstrap: _v2
           } : {}),

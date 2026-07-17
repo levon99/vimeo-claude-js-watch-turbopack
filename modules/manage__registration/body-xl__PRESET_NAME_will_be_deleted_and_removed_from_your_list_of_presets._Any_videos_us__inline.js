@@ -493,7 +493,6 @@
     }
   }), {
     requireLogin: !0,
-    omitEsi: !0,
     inlineViewer: !0,
     noIndex: !0
   }), _v49.getLayout = _v0 => (0, _v1.jsx)(_v48, {

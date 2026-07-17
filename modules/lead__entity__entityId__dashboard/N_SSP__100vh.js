@@ -16,7 +16,6 @@
     return _v1 && _v2 ? {
       props: {
         hasThemeSupport: !0,
-        omitEsi: !0,
         entity: _v1,
         entityId: _v2
       }

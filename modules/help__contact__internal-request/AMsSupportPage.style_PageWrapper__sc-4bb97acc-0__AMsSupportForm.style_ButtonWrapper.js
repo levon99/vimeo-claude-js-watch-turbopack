@@ -567,7 +567,6 @@
     }), _v0, (0, _v1.jsx)(_v6.MinimalFooterLayout, {})]
   }), (0, _v4.withPageSetup)({
     staffOnly: !0,
-    omitEsi: !0,
     inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v53], 0);
 }

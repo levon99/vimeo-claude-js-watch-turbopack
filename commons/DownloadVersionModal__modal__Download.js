@@ -25,7 +25,10 @@
       ..._v0,
       link: _v0.downloadUrl || _v0.link
     }));
-    return _v2.sourceFile && (_v2.sourceFile.link = _v2.sourceFile.downloadUrl, _v8 = [..._v8, _v2.sourceFile]), (0, _v1.jsxs)(_v2.Modal, {
+    return _v2.sourceFile && (_v8 = [..._v8, {
+      ..._v2.sourceFile,
+      link: _v2.sourceFile.downloadUrl || _v2.sourceFile.link
+    }]), (0, _v1.jsxs)(_v2.Modal, {
       isOpen: _v3,
       onClose: _v4,
       children: [(0, _v1.jsx)(_v7.ModalOverlay, {

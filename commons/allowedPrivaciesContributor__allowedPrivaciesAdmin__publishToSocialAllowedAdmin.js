@@ -561,28 +561,28 @@
       }
     }),
     UnlistedDescription: (0, _v3.translate)({
-      singular: "Only people with the link can view",
+      singular: "Anyone with the link can view",
       dictionary: {
         es: {
-          singular: "Solo quienes tengan el enlace pueden ver"
+          singular: "Cualquier persona con el enlace puede ver"
         },
         "de-DE": {
-          singular: "Nur Personen mit dem Link können anschauen"
+          singular: "Jeder mit dem Link kann es ansehen"
         },
         "fr-FR": {
-          singular: "Seules les personnes disposant du lien peuvent voir ce contenu"
+          singular: "Toute personne disposant du lien peut visionner"
         },
         "ja-JP": {
-          singular: "リンクを持っている人のみ視聴可能"
+          singular: "リンクを知っている人は誰でも視聴できます"
         },
         "ko-KR": {
-          singular: "링크가 있는 사람만 시청할 수 있습니다."
+          singular: "링크가 있는 사람은 누구나 볼 수 있음"
         },
         "pt-BR": {
-          singular: "Somente pessoas com o link podem ver"
+          singular: "Qualquer pessoa com o link pode visualizar"
         },
         "zh-CN": {
-          singular: "只有拥有链接的人才能查看"
+          singular: "任何拥有链接的人都可以查看"
         }
       }
     }),
@@ -613,80 +613,80 @@
       }
     }),
     PasswordProtectedDescription: (0, _v3.translate)({
-      singular: "Only people with the password can view",
+      singular: "Anyone with the link and password can view",
       dictionary: {
         es: {
-          singular: "Solo quienes tengan la contraseña pueden ver"
+          singular: "Cualquier persona con el enlace y la contraseña puede ver"
         },
         "de-DE": {
-          singular: "Nur Personen mit Kennwort können sehen."
+          singular: "Jeder mit Link und Passwort kann es ansehen"
         },
         "fr-FR": {
-          singular: "Seules les personnes disposant du mot de passe peuvent voir ce contenu"
+          singular: "Toute personne disposant du lien et du mot de passe peut visionner"
         },
         "ja-JP": {
-          singular: "パスワードを持っている人のみ視聴可能"
+          singular: "リンクとパスワードを知っている人は誰でも視聴できます"
         },
         "ko-KR": {
-          singular: "비밀번호가 있는 사람만 볼 수 있습니다."
+          singular: "링크와 비밀번호가 있는 사람은 누구나 볼 수 있음"
         },
         "pt-BR": {
-          singular: "Somente pessoas com a senha podem ver"
+          singular: "Qualquer pessoa com o link e a senha pode visualizar"
         },
         "zh-CN": {
-          singular: "只有知道密码的人才能查看"
+          singular: "任何拥有链接和密码的人都可以查看"
         }
       }
     }),
     HideFromVimeo: (0, _v3.translate)({
-      singular: "Hide from Vimeo",
+      singular: "Embed only",
       dictionary: {
         es: {
-          singular: "Ocultar de Vimeo"
+          singular: "Solo incrustado"
         },
         "de-DE": {
-          singular: "Bei Vimeo ausblenden"
+          singular: "Nur Einbetten"
         },
         "fr-FR": {
-          singular: "Masquer dans Vimeo"
+          singular: "Intégration uniquement"
         },
         "ja-JP": {
-          singular: "Vimeoで非表示にする"
+          singular: "埋め込みのみ"
         },
         "ko-KR": {
-          singular: "Vimeo에서 숨기기"
+          singular: "임베드 전용"
         },
         "pt-BR": {
-          singular: "Ocultar do Vimeo"
+          singular: "Somente incorporado"
         },
         "zh-CN": {
-          singular: "从 Vimeo 隐藏"
+          singular: "仅限嵌入"
         }
       }
     }),
     HideFromVimeoDescription: (0, _v3.translate)({
-      singular: "Private on your account, but embeddable anywhere",
+      singular: "Embeddable anywhere, but private on Vimeo",
       dictionary: {
         es: {
-          singular: "Se establece como privado en su cuenta, pero se puede insertar en cualquier lugar"
+          singular: "Incrustable en cualquier lugar, pero privado en Vimeo"
         },
         "de-DE": {
-          singular: "Privat in Ihrem Konto, aber überall einbettbar"
+          singular: "Überall einbettbar, aber auf Vimeo privat"
         },
         "fr-FR": {
-          singular: "La vidéo est privée sur votre compte mais intégrable partout"
+          singular: "Intégrable n'importe où, mais privé sur Vimeo"
         },
         "ja-JP": {
-          singular: "アカウント上では非公開ですが、どこにでも埋め込みは可能です"
+          singular: "どこにでも埋め込めますが、Vimeo上では非公開です"
         },
         "ko-KR": {
-          singular: "동영상을 계정에서 비공개로 설정하더라도 원하는 모든 곳에 임베드할 수 있습니다."
+          singular: "어디에나 임베드 가능하나 Vimeo에서는 비공개"
         },
         "pt-BR": {
-          singular: "Privado na sua conta, mas incorporável em qualquer lugar"
+          singular: "Incorporável em qualquer lugar, mas privado no Vimeo"
         },
         "zh-CN": {
-          singular: "在您的帐户上是私密的，但可嵌入到任何位置"
+          singular: "可以嵌入到任何地方，但在 Vimeo 上保持私密"
         }
       }
     }),
@@ -714,28 +714,28 @@
       }
     }),
     PublicDescription: (0, _v3.translate)({
-      singular: "Anyone on the internet can view",
+      singular: "Anyone on the internet can find and view",
       dictionary: {
         es: {
-          singular: "Cualquier persona en internet puede ver"
+          singular: "Cualquiera en internet puede encontrar y ver"
         },
         "de-DE": {
-          singular: "Jeder im Internet kann anschauen"
+          singular: "Jeder im Internet kann es finden und ansehen"
         },
         "fr-FR": {
-          singular: "Visible par tous les internautes"
+          singular: "Toute personne sur Internet peut trouver et visionner"
         },
         "ja-JP": {
-          singular: "インターネット上の誰もが視聴可能"
+          singular: "インターネット上の誰でも見つけて視聴できます"
         },
         "ko-KR": {
-          singular: "인터넷 사용자는 누구나 볼 수 있습니다."
+          singular: "인터넷에서 누구나 찾고 볼 수 있음"
         },
         "pt-BR": {
-          singular: "Qualquer pessoa na internet pode ver"
+          singular: "Qualquer pessoa na internet pode encontrar e visualizar"
         },
         "zh-CN": {
-          singular: "互联网上的任何人都可以查看"
+          singular: "互联网上的任何人都可以找到并查看"
         }
       }
     }),

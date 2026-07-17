@@ -483,28 +483,28 @@
       }
     })),
     _v64 = (0, _v7.translate)({
-      singular: "Hide from Vimeo",
+      singular: "Embed only",
       dictionary: {
         es: {
-          singular: "Ocultar de Vimeo"
+          singular: "Solo incrustado"
         },
         "de-DE": {
-          singular: "Bei Vimeo ausblenden"
+          singular: "Nur Einbetten"
         },
         "fr-FR": {
-          singular: "Masquer dans Vimeo"
+          singular: "Intégration uniquement"
         },
         "ja-JP": {
-          singular: "Vimeoで非表示にする"
+          singular: "埋め込みのみ"
         },
         "ko-KR": {
-          singular: "Vimeo에서 숨기기"
+          singular: "임베드 전용"
         },
         "pt-BR": {
-          singular: "Ocultar do Vimeo"
+          singular: "Somente incorporado"
         },
         "zh-CN": {
-          singular: "从 Vimeo 隐藏"
+          singular: "仅限嵌入"
         }
       }
     }),
@@ -838,8 +838,7 @@
           singular: "团队"
         }
       }
-    })),
-    _v77 = (0, _v7.translate)({
+    }), (0, _v7.translate)({
       singular: "Title",
       dictionary: {
         es: {
@@ -864,8 +863,8 @@
           singular: "标题"
         }
       }
-    }),
-    _v78 = (0, _v7.translate)({
+    })),
+    _v77 = (0, _v7.translate)({
       singular: "Unlisted",
       dictionary: {
         es: {
@@ -891,7 +890,7 @@
         }
       }
     }),
-    _v79 = ((0, _v7.translate)({
+    _v78 = ((0, _v7.translate)({
       singular: "View showcase",
       dictionary: {
         es: {
@@ -942,7 +941,7 @@
         }
       }
     })),
-    _v80 = (0, _v7.translate)({
+    _v79 = (0, _v7.translate)({
       singular: "No showcases match your search.",
       dictionary: {
         es: {
@@ -968,7 +967,7 @@
         }
       }
     }),
-    _v81 = (0, _v7.translate)({
+    _v80 = (0, _v7.translate)({
       singular: "Search showcase",
       dictionary: {
         es: {
@@ -994,7 +993,7 @@
         }
       }
     }),
-    _v82 = ((0, _v7.translate)({
+    _v81 = ((0, _v7.translate)({
       singular: "Hidden showcases can't be previewed",
       dictionary: {
         es: {
@@ -1108,21 +1107,21 @@
         })
       });
     });
-  var _v83 = _v0.i(0),
-    _v84 = _v0.i(0),
-    _v85 = _v0.i(0);
-  let _v86 = _v84.default.div.withConfig({
+  var _v82 = _v0.i(0),
+    _v83 = _v0.i(0),
+    _v84 = _v0.i(0);
+  let _v85 = _v83.default.div.withConfig({
       displayName: "LoadMoreButton__Wrapper",
       componentId: "sc-8adbeaa5-0"
     })`
-  margin: ${(0, _v83.rem)(40)} 0 ${(0, _v83.rem)(48)};
+  margin: ${(0, _v82.rem)(40)} 0 ${(0, _v82.rem)(48)};
   padding: 0 1.25rem;
 `,
-    _v87 = ({
+    _v86 = ({
       isLoading: _v0 = !1,
       onClick: _v1
-    }) => (0, _v1.jsx)(_v86, {
-      children: (0, _v1.jsx)(_v85.Button, {
+    }) => (0, _v1.jsx)(_v85, {
+      children: (0, _v1.jsx)(_v84.Button, {
         disabled: _v0,
         fluid: !0,
         format: "secondary",
@@ -1156,20 +1155,20 @@
         })
       })
     });
-  var _v88 = _v0.i(0),
-    _v89 = _v0.i(0);
-  let _v90 = ({
+  var _v87 = _v0.i(0),
+    _v88 = _v0.i(0);
+  let _v89 = ({
     isDisabled: _v0,
     isLoading: _v1,
     onClick: _v2
   }) => (0, _v1.jsxs)(_v1.Fragment, {
-    children: [(0, _v1.jsx)(_v88.IconButton, {
+    children: [(0, _v1.jsx)(_v87.IconButton, {
       "aria-label": _v71,
       display: {
         base: "inline-flex",
         md: "none"
       },
-      icon: (0, _v1.jsx)(_v89.PlusCircle, {}),
+      icon: (0, _v1.jsx)(_v88.PlusCircle, {}),
       isDisabled: _v0,
       isLoading: _v1,
       onClick: _v2,
@@ -1186,24 +1185,24 @@
       children: _v71
     })]
   });
-  var _v91 = _v0.i(0),
-    _v92 = _v0.i(0),
-    _v93 = _v0.i(0);
-  let _v94 = {
-      [`@media screen and (min-width: ${_v92.bokehTheme.breakpoints.lg})`]: {
-        gridTemplateColumns: `${(0, _v91.rem)(150)} 8fr 2fr 0.2fr`
+  var _v90 = _v0.i(0),
+    _v91 = _v0.i(0),
+    _v92 = _v0.i(0);
+  let _v93 = {
+      [`@media screen and (min-width: ${_v91.bokehTheme.breakpoints.lg})`]: {
+        gridTemplateColumns: `${(0, _v90.rem)(150)} 8fr 2fr 0.2fr`
       },
-      [`@media screen and (min-width: ${_v92.bokehTheme.breakpoints.xl})`]: {
-        gridTemplateColumns: `${(0, _v91.rem)(150)} 6fr 2fr 2fr 0.2fr`
+      [`@media screen and (min-width: ${_v91.bokehTheme.breakpoints.xl})`]: {
+        gridTemplateColumns: `${(0, _v90.rem)(150)} 6fr 2fr 2fr 0.2fr`
       }
     },
-    _v95 = ({
+    _v94 = ({
       sort: _v0
-    }) => (0, _v1.jsxs)(_v93.ContentRow, {
-      listGridColumns: `${(0, _v91.rem)(150)} 10fr 0.2fr`,
+    }) => (0, _v1.jsxs)(_v92.ContentRow, {
+      listGridColumns: `${(0, _v90.rem)(150)} 10fr 0.2fr`,
       disableHover: !0,
       sx: {
-        ..._v94,
+        ..._v93,
         display: {
           base: "none",
           md: "grid"
@@ -1216,24 +1215,24 @@
       position: "initial",
       top: "",
       zIndex: "1",
-      children: [(0, _v1.jsx)(_v93.ContentRow.Column, {
+      children: [(0, _v1.jsx)(_v92.ContentRow.Column, {
         children: (0, _v1.jsx)(_v5.Text, {
           marginLeft: "0.625rem",
           variant: "heading-xs",
           color: "text-secondary",
-          children: _v77
+          children: _v76
         })
-      }), (0, _v1.jsx)(_v93.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v92.ContentRow.Column, {
         children: "-"
-      }), (0, _v1.jsx)(_v93.ContentRow.Column, {
-        hideAtWidth: _v92.bokehTheme.breakpoints.xl,
+      }), (0, _v1.jsx)(_v92.ContentRow.Column, {
+        hideAtWidth: _v91.bokehTheme.breakpoints.xl,
         children: (0, _v1.jsx)(_v5.Text, {
           variant: "heading-xs",
           color: "text-secondary",
           children: _v74
         })
-      }), (0, _v1.jsx)(_v93.ContentRow.Column, {
-        hideAtWidth: _v92.bokehTheme.breakpoints.lg,
+      }), (0, _v1.jsx)(_v92.ContentRow.Column, {
+        hideAtWidth: _v91.bokehTheme.breakpoints.lg,
         children: (0, _v1.jsx)(_v5.Text, {
           variant: "heading-xs",
           color: "text-secondary",
@@ -1247,33 +1246,33 @@
             }
           })()
         })
-      }), (0, _v1.jsx)(_v93.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v92.ContentRow.Column, {
         width: "md",
         children: (0, _v1.jsx)(_v1.Fragment, {})
       })]
     });
-  var _v96 = _v0.i(0),
+  var _v95 = _v0.i(0),
+    _v96 = _v0.i(0),
     _v97 = _v0.i(0),
     _v98 = _v0.i(0),
     _v99 = _v0.i(0),
     _v100 = _v0.i(0),
-    _v101 = _v0.i(0),
-    _v102 = _v0.i(0);
-  let _v103 = (_v0, _v1) => {
+    _v101 = _v0.i(0);
+  let _v102 = (_v0, _v1) => {
       let _v2,
         _v3,
         _v4 = ((_v3 = _v0.match(/albums\/\d+/g)) && (_v2 = _v3[0].split("/").pop()), _v2);
       return _v4 ? _v1 ? `/manage/showcases/${_v4}` : `/showcase/${_v4}` : "/library/showcases";
     },
-    _v104 = ({
+    _v103 = ({
       overflowMenu: _v0,
       showcase: _v1
     }) => {
       let _v2,
-        _v3 = _v102.BPAnalyticsV2.useContentManagamentHoverEvent(),
-        _v4 = _v1.pictures.map((_v0, _v1) => 0 === _v1 ? (0, _v101.stripPadding)(_v0.sizes[3].link) : (0, _v101.stripPadding)(_v0.sizes[1].link)),
-        _v5 = _v103(_v1.uri, !!_v1.embed);
-      return (0, _v1.jsx)(_v100.ShowcaseCard, {
+        _v3 = _v101.BPAnalyticsV2.useContentManagamentHoverEvent(),
+        _v4 = _v1.pictures.map((_v0, _v1) => 0 === _v1 ? (0, _v100.stripPadding)(_v0.sizes[3].link) : (0, _v100.stripPadding)(_v0.sizes[1].link)),
+        _v5 = _v102(_v1.uri, !!_v1.embed);
+      return (0, _v1.jsx)(_v99.ShowcaseCard, {
         title: _v1.name,
         subtitle: `${(0, _v7.translate)({
           singular: "{NUM} video",
@@ -1331,7 +1330,7 @@
         uri: _v1.uri
       });
     },
-    _v105 = ({
+    _v104 = ({
       isLoading: _v0,
       isMenuDisabled: _v1,
       onCopyEmbed: _v2,
@@ -1342,10 +1341,10 @@
     }) => {
       let _v7 = (0, _v13.useAnalyticsEvent)(),
         _v8 = "showcase_grid";
-      return (0, _v1.jsx)(_v99.ContentGrid, {
-        children: (0, _v1.jsxs)(_v99.ContentGrid.Body, {
-          children: [_v6?.map(_v0 => (0, _v1.jsx)(_v104, {
-            overflowMenu: (0, _v1.jsx)(_v98.ShowcaseMenu, {
+      return (0, _v1.jsx)(_v98.ContentGrid, {
+        children: (0, _v1.jsxs)(_v98.ContentGrid.Body, {
+          children: [_v6?.map(_v0 => (0, _v1.jsx)(_v103, {
+            overflowMenu: (0, _v1.jsx)(_v97.ShowcaseMenu, {
               canDelete: !!_v0.metadata?.interactions?.delete,
               disabled: _v1,
               hasEmbedCode: !!_v0.embed?.html,
@@ -1381,16 +1380,16 @@
               zIndex: _v23.ACTIONS_MENU_Z_INDEX
             }),
             showcase: _v0
-          }, _v0.uri)), _v0 && (0, _v1.jsx)(_v97.LoadingCardsGrid, {})]
+          }, _v0.uri)), _v0 && (0, _v1.jsx)(_v96.LoadingCardsGrid, {})]
         })
       });
     };
-  var _v106 = _v0.i(0),
+  var _v105 = _v0.i(0),
+    _v106 = _v0.i(0),
     _v107 = _v0.i(0),
     _v108 = _v0.i(0),
-    _v109 = _v0.i(0),
-    _v110 = _v0.i(0);
-  let _v111 = ({
+    _v109 = _v0.i(0);
+  let _v110 = ({
     title: _v0,
     subTitle: _v1,
     timestamp: _v2,
@@ -1401,28 +1400,28 @@
     isEditingContentTitle: _v7,
     editableTitle: _v8
   }) => {
-    let _v9 = _v102.BPAnalyticsV2.useContentManagamentHoverEvent();
-    return (0, _v1.jsxs)(_v93.ContentRow, {
+    let _v9 = _v101.BPAnalyticsV2.useContentManagamentHoverEvent();
+    return (0, _v1.jsxs)(_v92.ContentRow, {
       href: _v5,
-      listGridColumns: `${(0, _v91.rem)(150)} 10fr 0.2fr`,
+      listGridColumns: `${(0, _v90.rem)(150)} 10fr 0.2fr`,
       cursor: "pointer",
-      sx: _v94,
+      sx: _v93,
       onMouseEnter: () => {
         _v9({
           entityType: "showcase",
           pageName: "showcases_library"
         });
       },
-      children: [(0, _v1.jsx)(_v93.ContentRow.Column, {
-        margin: (0, _v91.rem)(10),
+      children: [(0, _v1.jsx)(_v92.ContentRow.Column, {
+        margin: (0, _v90.rem)(10),
         children: _v3
-      }), (0, _v1.jsx)(_v93.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v92.ContentRow.Column, {
         overflow: "hidden",
         children: (0, _v1.jsxs)(_v4.Flex, {
-          maxW: (0, _v91.rem)(400),
+          maxW: (0, _v90.rem)(400),
           flexDir: "column",
           width: "100%",
-          children: [_v7 && _v8 ? (0, _v1.jsx)(_v106.Box, {
+          children: [_v7 && _v8 ? (0, _v1.jsx)(_v105.Box, {
             onClick: _v0 => {
               _v0.preventDefault(), _v0.stopPropagation();
             },
@@ -1445,19 +1444,19 @@
             children: _v1
           })]
         })
-      }), (0, _v1.jsx)(_v93.ContentRow.Column, {
-        hideAtWidth: _v92.bokehTheme.breakpoints.xl,
+      }), (0, _v1.jsx)(_v92.ContentRow.Column, {
+        hideAtWidth: _v91.bokehTheme.breakpoints.xl,
         children: (0, _v1.jsx)(_v4.Flex, {
           alignItems: "center",
           children: (0, _v1.jsx)(_v5.Text, {
             variant: "body-md",
-            marginRight: (0, _v91.rem)(10),
+            marginRight: (0, _v90.rem)(10),
             color: "text-secondary",
             children: _v4
           })
         })
-      }), (0, _v1.jsx)(_v93.ContentRow.Column, {
-        hideAtWidth: _v92.bokehTheme.breakpoints.lg,
+      }), (0, _v1.jsx)(_v92.ContentRow.Column, {
+        hideAtWidth: _v91.bokehTheme.breakpoints.lg,
         children: (0, _v1.jsx)(_v5.Text, {
           variant: "body-md",
           color: "text-secondary",
@@ -1467,26 +1466,26 @@
           display: "block",
           children: _v2
         })
-      }), (0, _v1.jsx)(_v93.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v92.ContentRow.Column, {
         children: _v6
       })]
     });
   };
-  var _v112 = _v0.i(0);
-  let _v113 = ({
+  var _v111 = _v0.i(0);
+  let _v112 = ({
       thumbnails: _v0
-    }) => _v0 && _v0[0] ? (0, _v1.jsx)(_v93.ContentRow.Thumbnail, {
+    }) => _v0 && _v0[0] ? (0, _v1.jsx)(_v92.ContentRow.Thumbnail, {
       src: _v0[0],
       alt: "showcase thumbnail"
-    }) : (0, _v1.jsx)(_v93.ContentRow.DefaultThumbnail, {
-      minWidth: (0, _v91.rem)(130),
-      children: (0, _v1.jsx)(_v112.VideosStackFilled, {
+    }) : (0, _v1.jsx)(_v92.ContentRow.DefaultThumbnail, {
+      minWidth: (0, _v90.rem)(130),
+      children: (0, _v1.jsx)(_v111.VideosStackFilled, {
         color: "text-tertiary",
         boxSize: "sm",
         opacity: "60%"
       })
     }),
-    _v114 = ({
+    _v113 = ({
       isMenuDisabled: _v0,
       onCopyEmbed: _v1,
       onCopyLink: _v2,
@@ -1505,7 +1504,7 @@
           uri: _v13,
           modifiedTime: _v14
         } = _v5,
-        _v15 = (0, _v109.useLocale)(),
+        _v15 = (0, _v108.useLocale)(),
         _v16 = (0, _v13.useAnalyticsEvent)(),
         _v17 = "showcase_list",
         {
@@ -1513,14 +1512,14 @@
         } = (0, _v8.useOrionSettings)(),
         [_v19, _v20] = (0, _v3.useState)(!1),
         [_v21, _v22] = (0, _v3.useState)(_v10),
-        _v23 = (0, _v108.getResourceIdFromUri)(_v13),
+        _v23 = (0, _v107.getResourceIdFromUri)(_v13),
         _v24 = (0, _v3.useMemo)(() => _v6.type === _v23.SHOWCASES_SORT_OPTION.LAST_MODIFIED && _v14 ? _v14 : _v7, [_v6.type, _v14, _v7]),
         _v25 = _v12.slice(0, 3).map(_v0 => {
           let _v1 = _v0?.sizes?.[1]?.link;
-          return _v1 ? (0, _v101.stripPadding)(_v1) : "";
+          return _v1 ? (0, _v100.stripPadding)(_v1) : "";
         }),
-        _v26 = _v103(_v13, !!_v8);
-      return (0, _v1.jsx)(_v111, {
+        _v26 = _v102(_v13, !!_v8);
+      return (0, _v1.jsx)(_v110, {
         href: _v26,
         title: _v21,
         isEditingContentTitle: _v19,
@@ -1567,12 +1566,12 @@
             }
           }
         }),
-        timestamp: (0, _v110.timestampToListDate)(_v24, _v15),
-        thumbnail: (0, _v1.jsx)(_v113, {
+        timestamp: (0, _v109.timestampToListDate)(_v24, _v15),
+        thumbnail: (0, _v1.jsx)(_v112, {
           thumbnails: _v25
         }),
-        privacy: _v115[_v11.view] ?? _v11.view,
-        menuButton: (0, _v1.jsx)(_v98.ShowcaseMenu, {
+        privacy: _v114[_v11.view] ?? _v11.view,
+        menuButton: (0, _v1.jsx)(_v97.ShowcaseMenu, {
           canDelete: !!_v5.metadata?.interactions?.delete,
           disabled: _v0,
           hasEmbedCode: !!_v5.embed?.html,
@@ -1612,14 +1611,36 @@
         })
       }, _v13);
     },
-    _v115 = {
+    _v114 = {
       anybody: _v75,
       embed_only: _v64,
       nobody: _v72,
       password: _v73,
-      team: _v76,
-      unlisted: _v78
+      team: _v72,
+      unlisted: _v77
     },
+    _v115 = ({
+      isLoading: _v0,
+      isMenuDisabled: _v1,
+      onCopyEmbed: _v2,
+      onCopyLink: _v3,
+      onCopyShowcase: _v4,
+      onDelete: _v5,
+      showcases: _v6,
+      sort: _v7
+    }) => (0, _v1.jsxs)(_v105.Box, {
+      children: [_v6?.map(_v0 => (0, _v1.jsx)(_v113, {
+        isMenuDisabled: _v1,
+        onCopyEmbed: _v2,
+        onCopyLink: _v3,
+        onCopyShowcase: _v4,
+        onDelete: _v5,
+        showcase: _v0,
+        sort: _v7
+      }, _v0.uri)), _v0 && (0, _v1.jsx)(_v1.Fragment, {
+        children: (0, _v1.jsx)(_v106.LoadingStateList, {})
+      })]
+    }),
     _v116 = ({
       isLoading: _v0,
       isMenuDisabled: _v1,
@@ -1629,54 +1650,32 @@
       onDelete: _v5,
       showcases: _v6,
       sort: _v7
-    }) => (0, _v1.jsxs)(_v106.Box, {
-      children: [_v6?.map(_v0 => (0, _v1.jsx)(_v114, {
-        isMenuDisabled: _v1,
-        onCopyEmbed: _v2,
-        onCopyLink: _v3,
-        onCopyShowcase: _v4,
-        onDelete: _v5,
-        showcase: _v0,
-        sort: _v7
-      }, _v0.uri)), _v0 && (0, _v1.jsx)(_v1.Fragment, {
-        children: (0, _v1.jsx)(_v107.LoadingStateList, {})
-      })]
+    }) => (0, _v1.jsx)(_v115, {
+      isLoading: _v0,
+      isMenuDisabled: _v1,
+      onCopyEmbed: _v2,
+      onCopyLink: _v3,
+      onCopyShowcase: _v4,
+      onDelete: _v5,
+      showcases: _v6,
+      sort: _v7
     }),
     _v117 = ({
-      isLoading: _v0,
-      isMenuDisabled: _v1,
-      onCopyEmbed: _v2,
-      onCopyLink: _v3,
-      onCopyShowcase: _v4,
-      onDelete: _v5,
-      showcases: _v6,
-      sort: _v7
-    }) => (0, _v1.jsx)(_v116, {
-      isLoading: _v0,
-      isMenuDisabled: _v1,
-      onCopyEmbed: _v2,
-      onCopyLink: _v3,
-      onCopyShowcase: _v4,
-      onDelete: _v5,
-      showcases: _v6,
-      sort: _v7
-    }),
-    _v118 = ({
       layout: _v0,
       sort: _v1,
       ..._v2
-    }) => _v0 === _v96.Layout.List ? (0, _v1.jsx)(_v117, {
+    }) => _v0 === _v95.Layout.List ? (0, _v1.jsx)(_v116, {
       ..._v2,
       sort: _v1
-    }) : (0, _v1.jsx)(_v105, {
+    }) : (0, _v1.jsx)(_v104, {
       ..._v2
     });
-  var _v119 = _v0.i(0),
+  var _v118 = _v0.i(0),
+    _v119 = _v0.i(0),
     _v120 = _v0.i(0),
     _v121 = _v0.i(0),
-    _v122 = _v0.i(0),
-    _v123 = _v0.i(0);
-  let _v124 = ({
+    _v122 = _v0.i(0);
+  let _v123 = ({
     searchQuery: _v0,
     onSearchChange: _v1
   }) => {
@@ -1684,30 +1683,30 @@
       [_v3, _v4] = (0, _v3.useState)(!1);
     return ((0, _v3.useEffect)(() => {
       _v3 && _v2.current?.focus();
-    }, [_v3]), _v3) ? (0, _v1.jsxs)(_v120.InputGroup, {
+    }, [_v3]), _v3) ? (0, _v1.jsxs)(_v119.InputGroup, {
       maxWidth: "350px",
       minWidth: "0",
       flex: 1,
-      children: [(0, _v1.jsx)(_v121.InputLeftElement, {
+      children: [(0, _v1.jsx)(_v120.InputLeftElement, {
         pointerEvents: "none",
-        children: (0, _v1.jsx)(_v123.SearchMagnifier, {
+        children: (0, _v1.jsx)(_v122.SearchMagnifier, {
           boxSize: "1.25rem",
           color: "text-secondary"
         })
-      }), (0, _v1.jsx)(_v119.Input, {
+      }), (0, _v1.jsx)(_v118.Input, {
         ref: _v2,
         size: "md",
-        placeholder: _v81,
+        placeholder: _v80,
         value: _v0,
         onChange: _v0 => _v1(_v0.currentTarget.value),
         onBlur: () => {
           _v0 || _v4(!1);
         },
         variant: "filled"
-      }), _v0 && (0, _v1.jsx)(_v121.InputRightElement, {
-        children: (0, _v1.jsx)(_v88.IconButton, {
-          "aria-label": _v79,
-          icon: (0, _v1.jsx)(_v122.CloseXCircleFilled, {}),
+      }), _v0 && (0, _v1.jsx)(_v120.InputRightElement, {
+        children: (0, _v1.jsx)(_v87.IconButton, {
+          "aria-label": _v78,
+          icon: (0, _v1.jsx)(_v121.CloseXCircleFilled, {}),
           onMouseDown: _v0 => _v0.preventDefault(),
           onClick: () => {
             _v1(""), _v2.current?.focus();
@@ -1716,15 +1715,15 @@
           size: "xs"
         })
       })]
-    }) : (0, _v1.jsx)(_v88.IconButton, {
-      "aria-label": _v81,
-      icon: (0, _v1.jsx)(_v123.SearchMagnifier, {}),
+    }) : (0, _v1.jsx)(_v87.IconButton, {
+      "aria-label": _v80,
+      icon: (0, _v1.jsx)(_v122.SearchMagnifier, {}),
       onClick: () => _v4(!0),
       variant: "tertiary"
     });
   };
-  var _v125 = _v0.i(0);
-  function _v126() {
+  var _v124 = _v0.i(0);
+  function _v125() {
     let {
         trackShowcasesListPageDisplayed: _v0,
         trackShowcaseCreated: _v1
@@ -1782,7 +1781,7 @@
             mutate: _v7,
             setSize: _v8,
             size: _v9
-          } = (0, _v125.useGetUserAlbumsInfinite)(() => _v0 ? {
+          } = (0, _v124.useGetUserAlbumsInfinite)(() => _v0 ? {
             select: ["createdTime", "embed.html", "hasChosenThumbnail", "link", "metadata.connections.videos.total", "metadata.interactions.delete", "name", "pictures.sizes.link", "privacy.view", "uri", "modifiedTime"],
             where: {
               userId: _v0
@@ -1888,7 +1887,7 @@
       }) => {
         _v1({
           showcaseId: _v0.split("/").pop() ?? ""
-        }), window.location.href = _v103(_v0, !0);
+        }), window.location.href = _v102(_v0, !0);
       }, [_v1]),
       _v37 = (0, _v3.useCallback)(() => {
         _v3({
@@ -1904,7 +1903,7 @@
         uri: _v1
       }) => {
         let _v2 = _v0 ?? _v18,
-          _v3 = _v103(_v1, !0);
+          _v3 = _v102(_v1, !0);
         _v38(), _v28(), _v3({
           content: (0, _v7.translate)({
             singular: 'Created "{SHOWCASE_NAME}". {LINK}Open page{/LINK}',
@@ -2034,7 +2033,7 @@
         children: (0, _v1.jsxs)(_v22.Page.Main, {
           children: [(0, _v1.jsxs)(_v22.Page.StickyTop, {
             children: [(0, _v1.jsx)(_v21.PageHeader, {
-              actions: !!_v32?.canManageTeamCollections && (0, _v1.jsx)(_v90, {
+              actions: !!_v32?.canManageTeamCollections && (0, _v1.jsx)(_v89, {
                 isDisabled: _v42,
                 isLoading: _v42,
                 onClick: () => {
@@ -2091,7 +2090,7 @@
                 sort: _v11,
                 setSort: _v12,
                 sortOptions: _v23.SHOWCASES_SORT_OPTIONS,
-                searchElement: _v8 ? (0, _v1.jsx)(_v124, {
+                searchElement: _v8 ? (0, _v1.jsx)(_v123, {
                   searchQuery: _v13,
                   onSearchChange: _v14
                 }) : void 0
@@ -2122,7 +2121,7 @@
                   }
                 }
               })
-            }), "LIST_LAYOUT" === _v9 && !_v33 && (0, _v1.jsx)(_v95, {
+            }), "LIST_LAYOUT" === _v9 && !_v33 && (0, _v1.jsx)(_v94, {
               sort: _v11
             })]
           }), _v33 && _v34 ? (0, _v1.jsx)(_v4.Flex, {
@@ -2131,9 +2130,9 @@
             paddingY: "3xl",
             children: (0, _v1.jsx)(_v5.Text, {
               color: "text-secondary",
-              children: _v80
+              children: _v79
             })
-          }) : _v33 ? (0, _v1.jsx)(_v82, {
+          }) : _v33 ? (0, _v1.jsx)(_v81, {
             isCreatingShowcase: _v42,
             onCreateShowcase: _v47,
             onLearnMore: () => {
@@ -2144,7 +2143,7 @@
                 videoId: 0
               });
             }
-          }) : (0, _v1.jsx)(_v118, {
+          }) : (0, _v1.jsx)(_v117, {
             layout: _v9,
             setLayout: _v10,
             isLoading: _v25,
@@ -2199,7 +2198,7 @@
             },
             sort: _v11,
             showcases: _v29
-          }), !_v23 && !_v25 && (0, _v1.jsx)(_v87, {
+          }), !_v23 && !_v25 && (0, _v1.jsx)(_v86, {
             isLoading: !!_v25,
             onClick: _v26
           })]
@@ -2216,14 +2215,14 @@
       })]
     });
   }
-  var _v127 = _v0.i(0),
+  var _v126 = _v0.i(0),
+    _v127 = _v0.i(0),
     _v128 = _v0.i(0),
     _v129 = _v0.i(0),
-    _v130 = _v0.i(0),
-    _v131 = _v0.i(0);
-  let _v132 = ({
+    _v130 = _v0.i(0);
+  let _v131 = ({
     playerAssetUrls: _v0
-  }) => (0, _v1.jsx)(_v127.PlayerContextProvider, {
+  }) => (0, _v1.jsx)(_v126.PlayerContextProvider, {
     assetUrls: _v0 ?? {
       barebone_js: "",
       chromeless_css: "",
@@ -2232,15 +2231,15 @@
       js: "",
       player_url: ""
     },
-    type: _v128.PlayerType.VimeoPlayer,
-    children: (0, _v1.jsx)(_v131.VideoModalContextProvider, {
-      children: (0, _v1.jsx)(_v126, {})
+    type: _v127.PlayerType.VimeoPlayer,
+    children: (0, _v1.jsx)(_v130.VideoModalContextProvider, {
+      children: (0, _v1.jsx)(_v125, {})
     })
   });
-  _v132.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v130.VideoLibraryLayout, {
+  _v131.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v129.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
-    sideNavContent: (0, _v1.jsx)(_v129.SideNavContent, {
+    sideNavContent: (0, _v1.jsx)(_v128.SideNavContent, {
       surface: "home"
     }),
     children: _v0
@@ -2252,8 +2251,7 @@
   }), {
     requireLogin: !0,
     capability: "canManageTeamCollections",
-    omitEsi: !0,
     inlineViewer: !0,
     inlinePlayerAssets: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v132], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v131], 0);
 }

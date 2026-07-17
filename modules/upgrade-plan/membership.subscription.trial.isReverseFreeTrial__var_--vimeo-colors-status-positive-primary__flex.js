@@ -1240,8 +1240,7 @@
     };
   (0, _v5.withPageSetup)(async () => ({
     props: {
-      hasThemeSupport: !0,
-      omitEsi: !0
+      hasThemeSupport: !0
     }
   }), {
     inlineViewer: "all"

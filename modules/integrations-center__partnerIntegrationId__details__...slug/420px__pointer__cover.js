@@ -3015,8 +3015,7 @@
       })).hasIntegrationCenter) return {
         props: {
           hasThemeSupport: !0,
-          hasUploader: !0,
-          omitEsi: !0
+          hasUploader: !0
         }
       };
       return {

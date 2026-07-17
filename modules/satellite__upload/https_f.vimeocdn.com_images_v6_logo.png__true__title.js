@@ -3051,7 +3051,6 @@
   (0, _v2.withPageSetup)(() => ({
     props: {}
   }), {
-    omitEsi: !0,
     inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v9, {

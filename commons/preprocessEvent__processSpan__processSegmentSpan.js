@@ -4496,7 +4496,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "6668f4ba0d818bd64d7235dfb6e955a08e7bc0f0",
+      release: "017dca5f485e065f990d0197d0df9b6d2f4c9509",
       ..._v0
     };
     !function (_v0) {
@@ -4605,7 +4605,11 @@ Error:`, _v0);
             let _v1 = _v0.filename ?? _v0.abs_path ?? "";
             return _v1.includes("datadog-rum.js") || _v1.includes("ajax-listener.js");
           }),
-          _v2 = _v0.some((_v0, _v1) => _v1 < _v1 && (_v0.filename ?? _v0.abs_path ?? "").includes("_next/static") && !1 !== _v0.in_app);
+          _v2 = _v0.some((_v0, _v1) => !(_v1 >= _v1) && !!(_v0.filename ?? _v0.abs_path ?? "").includes("_next/static") && !1 !== _v0.in_app && !_v0.some((_v0, _v1) => {
+            if (_v1 <= _v1 || _v1 >= _v1) return !1;
+            let _v2 = _v0.filename ?? _v0.abs_path ?? "";
+            return _v2.includes("/cm/") || _v2.includes("airgap.js");
+          }));
         if (-1 !== _v1 && !_v2 || (_v288 += 1) > 1) return null;
       }
       let _v6 = _v0.exception?.values?.[0];

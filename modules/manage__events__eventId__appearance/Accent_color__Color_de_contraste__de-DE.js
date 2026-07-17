@@ -4243,7 +4243,6 @@
     };
   }, {
     requireLogin: !0,
-    omitEsi: !0,
     inlineViewer: !0,
     noIndex: !0
   }), _v229.getLayout = _v0 => (0, _v12.jsx)(_v228, {
