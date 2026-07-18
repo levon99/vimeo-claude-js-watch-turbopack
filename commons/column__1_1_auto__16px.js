@@ -269,10 +269,10 @@
           _v0.question && _v0.answer && (_v39({
             copy: _v0.question,
             isRelated: !1
-          }), _v32(_v0.question, _v0.answer, _v0.relevantQuotes, _v0.relatedQuestions), _v9(_v27.ViewerQnAPanels.ANSWER));
+          }), _v32(_v0.question, _v0.answer, _v0.relevantQuotes, _v0.relatedQuestions, "suggested_question"), _v9(_v27.ViewerQnAPanels.ANSWER));
         }, [_v32, _v39]),
-        _v47 = (0, _v2.useCallback)(_v0 => {
-          _v11(""), _v33(_v0), _v9(_v27.ViewerQnAPanels.ASK_QUESTION);
+        _v47 = (0, _v2.useCallback)((_v0, _v1 = "typed") => {
+          _v11(""), _v33(_v0, _v1), _v9(_v27.ViewerQnAPanels.ASK_QUESTION);
         }, [_v33]),
         _v48 = (0, _v2.useCallback)(_v0 => {
           _v0(_v0), _v45 && _v1 && _v6 && _v44.includes(_v6) && _v1();

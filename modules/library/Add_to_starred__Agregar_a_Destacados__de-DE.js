@@ -128,7 +128,8 @@
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
-    _v23 = _v0.i(0);
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0);
   _v0.s(["HoverActions", 0, ({
     type: _v0,
     entity: _v1,
@@ -144,7 +145,7 @@
         getFolderShareLoopTrackingParams: _v9
       } = (0, _v16.useShareLoopTrackingParams)(),
       _v10 = (0, _v17.useCopyFolderLinkToast)(),
-      _v11 = "folder" === _v0 && (0, _v23.getFolderPermissions)(_v1).canEditSettings,
+      _v11 = "folder" === _v0 && (0, _v24.getFolderPermissions)(_v1).canEditSettings,
       _v12 = (0, _v20.useManageShareAction)({
         canEdit: _v11,
         entityUri: _v1.uri,
@@ -158,12 +159,14 @@
         manageActionLocation: _v13.SHARE_RESOURCE_FOLDER_CARD_HOVER_ENTRY_POINT
       }),
       _v14 = _v3 ?? !!_v1.metadata?.interactions?.invite?.uri,
-      _v15 = "video" === _v0 && _v1.isColdStorage,
+      _v15 = (0, _v21.useRegistrationRequiredToast)(),
+      _v16 = "video" === _v0 && _v1.metadata?.hasMandatoryEmailCapture === !0,
+      _v17 = "video" === _v0 && _v1.isColdStorage,
       {
-        isLocked: _v16,
-        renderLocked: _v17
-      } = (0, _v21.useVideoMetadataLock)("video" === _v0 ? _v1 : void 0),
-      _v18 = (0, _v19.useFolderShareClick)({
+        isLocked: _v18,
+        renderLocked: _v19
+      } = (0, _v22.useVideoMetadataLock)("video" === _v0 ? _v1 : void 0),
+      _v20 = (0, _v19.useFolderShareClick)({
         folder: _v1,
         analytics: {
           feature: _v2?.feature || _v13.AnalyticsFeatures.VIDEO_LIBRARY,
@@ -176,7 +179,7 @@
           element: "icon"
         }
       }),
-      _v19 = (0, _v22.useVideoShareClick)({
+      _v21 = (0, _v23.useVideoShareClick)({
         video: _v1,
         analytics: {
           feature: _v2?.feature || _v13.AnalyticsFeatures.VIDEO_LIBRARY,
@@ -191,7 +194,7 @@
         parentFolder: _v1?.parentProject ?? void 0,
         canShare: _v3
       });
-    return _v15 ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsxs)(_v8.ContentCard.HoverActions, {
+    return _v17 ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsxs)(_v8.ContentCard.HoverActions, {
       children: [_v4 && (0, _v1.jsx)(_v8.ContentCard.HoverAction, {
         children: (0, _v1.jsx)(_v3.Tooltip, {
           label: (0, _v9.translate)({
@@ -259,7 +262,7 @@
           })
         })
       }), _v14 && ("folder" === _v0 || "video" === _v0) && (0, _v1.jsx)(_v8.ContentCard.HoverAction, {
-        children: "video" === _v0 && _v16 ? _v17((0, _v1.jsx)(_v2.IconButton, {
+        children: "video" === _v0 && _v18 ? _v19((0, _v1.jsx)(_v2.IconButton, {
           "aria-label": _v12.share,
           icon: (0, _v1.jsx)(_v5.Lock, {}),
           variant: "blur",
@@ -274,8 +277,8 @@
             icon: (0, _v1.jsx)(_v6.Share, {}),
             variant: "blur",
             size: "xs",
-            onClick: "folder" === _v0 ? () => _v18?.() : "video" === _v0 ? () => {
-              _v6?.("share"), _v19?.();
+            onClick: "folder" === _v0 ? () => _v20?.() : "video" === _v0 ? () => {
+              _v6?.("share"), _v21?.();
             } : void 0
           })
         })
@@ -289,7 +292,7 @@
             variant: "blur",
             size: "xs",
             onClick: () => {
-              _v6?.("copy_link"), (() => {
+              _v16 ? _v15(_v1) : (_v6?.("copy_link"), (() => {
                 if ("folder" === _v0) {
                   let _v0 = _v1.uri.split("/"),
                     _v1 = _v9(_v8, !!_v1.isPrivateToUser),
@@ -311,7 +314,7 @@
                     }
                   });
                 } else "video" === _v0 && _v13();
-              })();
+              })());
             }
           })
         })

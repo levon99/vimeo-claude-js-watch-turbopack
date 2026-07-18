@@ -2062,45 +2062,47 @@
           _v52 = (0, _v35.useSessionOwnerId)(),
           {
             capabilities: _v53
-          } = (0, _v23.useCapability)(["hasLiveAutoCcAiCredits", "hasLiveAutoTranslation", "hasEntitlementAiCredits"], _v52 || null),
+          } = (0, _v23.useCapability)(["hasLiveAutoCcAiCredits", "hasLiveAutoTranslation", "hasAdminForcedPreset", "hasEntitlementAiCredits"], _v52 || null),
           _v54 = !!_v53.hasLiveAutoCcAiCredits,
           _v55 = !!_v53.hasLiveAutoTranslation,
-          _v56 = !!_v53.hasEntitlementAiCredits,
-          _v57 = !(0, _v33.useIsSalesAssistedTier)(_v52),
+          _v56 = !!_v53.hasAdminForcedPreset,
+          _v57 = !!_v53.hasEntitlementAiCredits,
+          _v58 = !(0, _v33.useIsSalesAssistedTier)(_v52),
           {
-            data: _v58
-          } = (0, _v125.useGetUserAiCreditsBillingInfo)(() => _v52 && _v57 ? {
+            data: _v59
+          } = (0, _v125.useGetUserAiCreditsBillingInfo)(() => _v52 && _v58 ? {
             select: ["hasDefaultPaymentMethod"],
             where: {
               userId: String(_v52)
             }
           } : null),
-          _v59 = !!_v58?.hasDefaultPaymentMethod,
-          _v60 = !!(_v33.value?.autoCcEnabled && !_v33.value?.autoCcLanguage),
-          _v61 = !!(_v33.value?.autoCcTranslationEnabled && !_v33.value?.dvr),
-          _v62 = _v54 || _v55,
+          _v60 = !!_v59?.hasDefaultPaymentMethod,
+          _v61 = !!(_v33.value?.autoCcEnabled && !_v33.value?.autoCcLanguage),
+          _v62 = !!(_v33.value?.autoCcTranslationEnabled && !_v33.value?.dvr),
+          _v63 = _v54 || _v55,
           {
-            data: _v63
-          } = (0, _v24.useGetUser)(() => _v52 && _v62 ? {
+            data: _v64
+          } = (0, _v24.useGetUser)(() => _v52 && _v63 ? {
             select: ["aiCreditsQuota"],
             where: {
               userId: _v52
             }
           } : null),
-          _v64 = _v63?.aiCreditsQuota?.remaining ?? 0,
-          _v65 = _v55 && _v33.value?.autoCcTranslationEnabled && _v33.value?.autoCcTranslationLanguages ? _v33.value.autoCcTranslationLanguages.length : 0,
-          _v66 = (_v54 && !_v33.value?.unlimitedAutoCc ? _v67.AUTO_CC_CREDITS_PER_MINUTE : 0) + _v67.AUTO_CC_TRANSLATION_CREDITS_PER_MINUTE * _v65,
-          _v67 = !!(!_v57 && _v56 && _v33.value?.autoCcEnabled && _v66 > 0 && _v64 < _v66),
-          _v68 = !!(_v54 && _v57 && _v33.value?.autoCcEnabled && !_v59),
-          _v69 = !_v5.canStream || _v51 || _v9 || _v17 || _v20 || _v47 || _v15 && _v40 || _v18 && _v41 || _v11 && !_v16 || _v12 && !_v16 || _v13 && !_v16 || _v60 && !_v16 || _v67 && !_v16 || _v68 && !_v16 || _v61 && !_v16,
-          _v70 = !(_v51 || _v42 || _v15 && _v41) && _v19 && !_v35,
-          _v71 = _v6?.settingsLink?.uri,
-          _v72 = _v46 ? "secondary" : "primary",
-          _v73 = (0, _v95.inline)(() => {
-            if (_v51 || _v16) ;else if (_v11) return _v49;else if (_v12) return _v54.translations.noStreamTimeRemaining;else if (_v13) return _v54.translations.tooManyEventsCreated;else if (_v18 && _v41) return _v54.translations.goLiveFromYourEncoder;else if (_v60) return _v54.translations.autoCCLanguageRequired;else if (_v68) return _v54.translations.missingPaymentMethodForCaptions;else if (_v67) return _v54.translations.insufficientAiCreditsForCaptions;else if (_v61) return _v54.translations.dvrRequiredForLanguageFeatures;
+          _v65 = _v64?.aiCreditsQuota?.remaining ?? 0,
+          _v66 = _v55 && _v33.value?.autoCcTranslationEnabled && _v33.value?.autoCcTranslationLanguages ? _v33.value.autoCcTranslationLanguages.length : 0,
+          _v67 = (_v54 && !_v33.value?.unlimitedAutoCc ? _v67.AUTO_CC_CREDITS_PER_MINUTE : 0) + _v67.AUTO_CC_TRANSLATION_CREDITS_PER_MINUTE * _v66,
+          _v68 = !!(!_v58 && _v57 && _v33.value?.autoCcEnabled && _v67 > 0 && _v65 < _v67),
+          _v69 = _v33.value?.hasForcedLeadCaptureForm === void 0 || !!_v33.value?.hasForcedLeadCaptureForm,
+          _v70 = !!(_v54 && _v58 && _v33.value?.autoCcEnabled && !_v60),
+          _v71 = !_v5.canStream || _v51 || _v9 || _v17 || _v20 || _v47 || _v15 && _v40 || _v18 && _v41 || _v11 && !_v16 || _v12 && !_v16 || _v13 && !_v16 || _v61 && !_v16 || _v68 && !_v16 || _v56 && !_v69 && !_v16 || _v70 && !_v16 || _v62 && !_v16,
+          _v72 = !(_v51 || _v42 || _v15 && _v41) && _v19 && !_v35,
+          _v73 = _v6?.settingsLink?.uri,
+          _v74 = _v46 ? "secondary" : "primary",
+          _v75 = (0, _v95.inline)(() => {
+            if (_v51 || _v16) ;else if (_v11) return _v49;else if (_v12) return _v54.translations.noStreamTimeRemaining;else if (_v13) return _v54.translations.tooManyEventsCreated;else if (_v18 && _v41) return _v54.translations.goLiveFromYourEncoder;else if (_v61) return _v54.translations.autoCCLanguageRequired;else if (_v70) return _v54.translations.missingPaymentMethodForCaptions;else if (_v56 && !_v69) return _v54.translations.registrationFormRequired;else if (_v68) return _v54.translations.insufficientAiCreditsForCaptions;else if (_v62) return _v54.translations.dvrRequiredForLanguageFeatures;
             return "";
           }),
-          _v74 = (0, _v11.useCallback)(() => {
+          _v76 = (0, _v11.useCallback)(() => {
             if (_v39) {
               _v38({
                 blockPoint: "go_live"
@@ -2119,7 +2121,7 @@
               _v14.startStream();
             }
           }, [_v39, _v40, _v14, _v32, _v5.canStream, _v33.value?.autoCcKeywords, _v8, _v36, _v37, _v38]),
-          _v75 = (0, _v11.useCallback)(async () => {
+          _v77 = (0, _v11.useCallback)(async () => {
             if (_v39) {
               _v38({
                 blockPoint: "go_live"
@@ -2144,7 +2146,7 @@
               })
             }), () => void 0)());
           }, [_v39, _v14, _v32, _v5.canUseRecordMode, _v45, _v38]),
-          _v76 = (0, _v11.useCallback)(async () => {
+          _v78 = (0, _v11.useCallback)(async () => {
             _v5.canUseRecordMode && _v45 && (await _v14.endStream(), _v14.setRecordState(_v7.ERecordState.NOT_ACTIVE), (0, _v42.createBPv2EventFactory)("vimeo.browser_studio_stop_recording", -1, () => ({
               ...(0, _v41.newTeamCtx)(),
               ...(0, _v41.newWebCtx)(),
@@ -2163,23 +2165,23 @@
               })
             }), () => void 0)());
           }, [_v14, _v5.canUseRecordMode, _v45]),
-          _v77 = (0, _v11.useCallback)(() => {
+          _v79 = (0, _v11.useCallback)(() => {
             _v5.canStream ? (_v14.endStream(), _v40 && _v45()) : _v73.Logger.getGlobal().warn("Tried to stop stream when cannot stream:", _v5.canStream);
           }, [_v40, _v14, _v5.canStream]),
-          _v78 = (0, _v11.useCallback)(async () => {
-            _v71 ? (_v73.Logger.getGlobal().info("Redirect to specify start time:", _v71), _v34.emitSignal({
+          _v80 = (0, _v11.useCallback)(async () => {
+            _v73 ? (_v73.Logger.getGlobal().info("Redirect to specify start time:", _v73), _v34.emitSignal({
               type: _v115.ELiveSignal.RIGHT_PANEL_TAB_CHANGE_REQUEST,
               data: _v90.ERightPanelId.EVENT_SETTINGS
             }), await (0, _v100.nextAsyncQueue)(), _v34.emitSignal({
               type: _v115.ELiveSignal.ACCORDION_ITEM_CHANGE_REQUEST,
               data: _v132.EAccordionItemId.SCHEDULE
-            })) : _v73.Logger.getGlobal().info("Tried to open link, but it is not set:", _v71);
-          }, [_v71, _v34]);
+            })) : _v73.Logger.getGlobal().info("Tried to open link, but it is not set:", _v73);
+          }, [_v73, _v34]);
         if (_v16 && (!_v45 || _v41)) return {
           isButtonLoading: _v51,
-          buttonTooltipLabel: _v73,
-          isButtonDisabled: _v69,
-          buttonSettingsLink: _v71,
+          buttonTooltipLabel: _v75,
+          isButtonDisabled: _v71,
+          buttonSettingsLink: _v73,
           buttonHasDropdown: !1,
           buttonBackgroundColor: _v96.LIVE_LAYOUT_COLOR,
           buttonIsScheduleEnabled: !1,
@@ -2190,15 +2192,15 @@
           }),
           buttonFormat: "negative",
           buttonTextColor: "white",
-          onButtonClick: _v77,
+          onButtonClick: _v79,
           showStopAlertModal: !0,
           minTextWidth: (0, _v12.rem)(45)
         };
         if (_v17) return {
           isButtonLoading: _v51,
           isButtonDisabled: !0,
-          buttonSettingsLink: _v71,
-          buttonTooltipLabel: _v73,
+          buttonSettingsLink: _v73,
+          buttonTooltipLabel: _v75,
           buttonIsScheduleEnabled: !1,
           buttonHasDropdown: !1,
           buttonDomId: (0, _v8.createDomName)("live-ended-control"),
@@ -2221,30 +2223,30 @@
             }));
           return {
             isButtonLoading: !!_v30 || null === _v43 || _v51,
-            isButtonDisabled: _v69,
-            buttonSettingsLink: _v71,
-            buttonTooltipLabel: _v73,
+            isButtonDisabled: _v71,
+            buttonSettingsLink: _v73,
+            buttonTooltipLabel: _v75,
             buttonIsScheduleEnabled: _v44,
-            buttonHasDropdown: !_v30 && _v70,
+            buttonHasDropdown: !_v30 && _v72,
             buttonDomId: (0, _v8.createDomName)("live-schedule-control"),
             buttonLabel: _v1,
             leftIcon: _v2,
-            buttonFormat: _v72,
+            buttonFormat: _v74,
             isActive: !1,
             buttonTextColor: "text-button-inverted",
-            onButtonClick: _v28 ? _v29 : _v78,
+            onButtonClick: _v28 ? _v29 : _v80,
             showStopAlertModal: !1,
             minTextWidth: void 0
           };
         }
         return _v45 && _v40 ? {
           isButtonLoading: _v51,
-          isButtonDisabled: _v69,
+          isButtonDisabled: _v71,
           buttonBackgroundColor: _v96.LIVE_LAYOUT_COLOR,
-          buttonSettingsLink: _v71,
-          buttonTooltipLabel: _v73,
+          buttonSettingsLink: _v73,
+          buttonTooltipLabel: _v75,
           buttonIsScheduleEnabled: _v44,
-          buttonHasDropdown: _v22 !== _v7.ERecordState.PLAYING && _v70,
+          buttonHasDropdown: _v22 !== _v7.ERecordState.PLAYING && _v72,
           buttonDomId: (0, _v8.createDomName)("live-record-control"),
           buttonLabel: _v21 ? _v50 : _v54.translations.startRecording,
           leftIcon: _v21 ? (0, _v5.jsx)(_v124.StopFilled, {
@@ -2253,22 +2255,22 @@
           buttonFormat: "negative",
           isActive: !1,
           buttonTextColor: "white",
-          onButtonClick: _v21 ? _v76 : _v75,
+          onButtonClick: _v21 ? _v78 : _v77,
           showStopAlertModal: _v21,
           minTextWidth: _v21 ? (0, _v12.rem)(45) : void 0
         } : {
           isButtonLoading: _v51,
-          isButtonDisabled: _v69,
-          buttonSettingsLink: _v71,
+          isButtonDisabled: _v71,
+          buttonSettingsLink: _v73,
           buttonIsScheduleEnabled: _v44,
-          buttonTooltipLabel: _v73,
-          buttonHasDropdown: _v70,
+          buttonTooltipLabel: _v75,
+          buttonHasDropdown: _v72,
           buttonDomId: (0, _v8.createDomName)("live-start-control"),
           buttonLabel: _v54.translations.goLive,
           buttonStatus: _v46 ? "neutral" : void 0,
-          buttonFormat: _v72,
+          buttonFormat: _v74,
           buttonTextColor: "text-button-inverted",
-          onButtonClick: _v74,
+          onButtonClick: _v76,
           showStopAlertModal: !1,
           minTextWidth: void 0
         };

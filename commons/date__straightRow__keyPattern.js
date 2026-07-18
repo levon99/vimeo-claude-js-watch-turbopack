@@ -1791,15 +1791,16 @@
     bpData: _v30,
     isFullScreen: _v31 = !1,
     stickyFooter: _v32,
-    header: _v33
+    header: _v33,
+    onError: _v34
   }) {
-    let [_v34, _v35] = (0, _v4.useState)(null),
-      [_v36, _v37] = (0, _v4.useState)({}),
-      [_v38, _v39] = (0, _v4.useState)(!0),
-      [_v40, _v41] = (0, _v4.useState)(!1),
-      [_v42, _v43] = (0, _v4.useState)(!1),
-      [_v44, _v45] = (0, _v4.useState)(!1),
-      _v46 = function (_v0) {
+    let [_v35, _v36] = (0, _v4.useState)(null),
+      [_v37, _v38] = (0, _v4.useState)({}),
+      [_v39, _v40] = (0, _v4.useState)(!0),
+      [_v41, _v42] = (0, _v4.useState)(!1),
+      [_v43, _v44] = (0, _v4.useState)(!1),
+      [_v45, _v46] = (0, _v4.useState)(!1),
+      _v47 = function (_v0) {
         let _v1 = (0, _v4.useContext)(_v12.ViewerContext),
           [_v2, _v3] = (0, _v4.useState)(null);
         return _v0 ? ((0, _v4.useEffect)(() => {
@@ -1832,23 +1833,23 @@
           };
         }, []), _v2) : "";
       }(!1),
-      _v47 = (0, _v81.useViewer)(),
+      _v48 = (0, _v81.useViewer)(),
       {
-        trackSignupCompleted: _v48
+        trackSignupCompleted: _v49
       } = (0, _v80.useSignupTracking)(),
-      _v49 = !!_v47?.requiresAgeSelfCertification,
-      _v50 = (0, _v76.useIsMobile)();
+      _v50 = !!_v48?.requiresAgeSelfCertification,
+      _v51 = (0, _v76.useIsMobile)();
     (0, _v4.useEffect)(() => {
-      _v26 && _v35(_v26);
+      _v26 && _v36(_v26);
     }, [_v26]), (0, _v4.useEffect)(() => {
       (0, _v13.trackJoinPageImpressionRegFlow0625)({
         location: "join_page_step_2"
       });
     }, []);
-    let _v51 = _v31 ? {
+    let _v52 = _v31 ? {
         confirmPassword: ""
       } : {},
-      _v52 = _v31 ? {
+      _v53 = _v31 ? {
         confirmPassword: _v69.string().oneOf([_v69.ref("password")], (0, _v7.translate)({
           singular: "Please confirm password",
           dictionary: {
@@ -1901,7 +1902,7 @@
           }
         }))
       } : {},
-      _v53 = (0, _v7.translate)({
+      _v54 = (0, _v7.translate)({
         singular: "Password must be at least {MIN} characters and contain at least one number and at least one symbol.",
         replacements: {
           MIN: 8
@@ -1930,7 +1931,7 @@
           }
         }
       }),
-      _v54 = _v69.object({
+      _v55 = _v69.object({
         name: _v69.string().max(32).required((0, _v7.translate)({
           singular: "Please enter your name",
           dictionary: {
@@ -2008,7 +2009,7 @@
             }
           }
         })),
-        password: _v69.string().min(8, _v53).matches(/[0-9]/, _v53).matches(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/, _v53).max(72, (0, _v7.translate)({
+        password: _v69.string().min(8, _v54).matches(/[0-9]/, _v54).matches(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/, _v54).max(72, (0, _v7.translate)({
           singular: "Password must be less than {MAX} characters and contain at least one number and at least one symbol.",
           replacements: {
             MAX: 72
@@ -2062,38 +2063,41 @@
             }
           }
         })),
-        ..._v52
+        ..._v53
       }),
-      _v55 = (0, _v79.useForm)({
-        validationSchema: _v54,
+      _v56 = (0, _v79.useForm)({
+        validationSchema: _v55,
         initialValues: {
           email: _v3 || "",
           password: "",
           name: _v2 || "",
           overEighteenCertification: !1,
-          ..._v51
+          ..._v52
         },
         onSubmit: async _v0 => {
-          let _v1 = _v55[_v79.CONTROLLER]?.state?.errors;
+          let _v1 = _v56[_v79.CONTROLLER]?.state?.errors;
           for (let {
             field: _v0,
-            errorCode: _v1
+            errorCode: _v1,
+            reason: _v2
           } of [{
             field: "email",
             errorCode: {
               has_error_invalid_email: ""
-            }
+            },
+            reason: "invalid_email"
           }, {
             field: "password",
             errorCode: {
               has_error_password_too_simple: ""
-            }
+            },
+            reason: "password_requirements_not_met"
           }]) if (_v1?.has(_v0) && Array.isArray(_v1.get(_v0)) && (_v1.get(_v0)?.length ?? 0) > 0) {
-            _v35(_v1.get(_v0)?.[0] ?? ""), _v37(_v1);
+            _v36(_v1.get(_v0)?.[0] ?? ""), _v38(_v1), _v34?.(_v2);
             return;
           }
-          if (_v49 && !_v0.overEighteenCertification) {
-            _v35((0, _v7.translate)({
+          if (_v50 && !_v0.overEighteenCertification) {
+            _v36((0, _v7.translate)({
               singular: "Please certify you are over 18 by checking input box",
               dictionary: {
                 es: {
@@ -2118,11 +2122,11 @@
                   singular: "请勾选输入框以确认您已年满 18 岁。"
                 }
               }
-            })), _v45(!0);
+            })), _v46(!0), _v34?.("age_certification_required");
             return;
           }
           if (_v31 && _v0.password !== _v0.confirmPassword) {
-            _v35((0, _v7.translate)({
+            _v36((0, _v7.translate)({
               singular: "Please confirm password",
               dictionary: {
                 es: {
@@ -2147,13 +2151,13 @@
                   singular: "请确认密码"
                 }
               }
-            })), _v37({
+            })), _v38({
               has_error_password_missmatch: ""
-            });
+            }), _v34?.("password_mismatch");
             return;
           }
-          _v41(!1);
-          let _v2 = `name=${_v0.name}&email=${encodeURIComponent(_v0.email)}&password=${encodeURIComponent(_v0.password)}&token=${_v0}&action=join&service=${_v24 ? "google_identity_platform" : "vimeo"}&marketing_opt_in=${_v1}&recaptcha_enterprise_token=${_v46}&turnstile_token=${_v25}&self_certified_over_eighteen=${_v0.overEighteenCertification}`;
+          _v42(!1);
+          let _v2 = `name=${_v0.name}&email=${encodeURIComponent(_v0.email)}&password=${encodeURIComponent(_v0.password)}&token=${_v0}&action=join&service=${_v24 ? "google_identity_platform" : "vimeo"}&marketing_opt_in=${_v1}&recaptcha_enterprise_token=${_v47}&turnstile_token=${_v25}&self_certified_over_eighteen=${_v0.overEighteenCertification}`;
           _v4 && (_v2 += `&redirect=${encodeURIComponent(_v4)}`), _v16 && (_v2 += `&source=${encodeURIComponent(_v16)}`);
           let _v3 = !1;
           if (_v24) {
@@ -2198,7 +2202,8 @@
                       singular: "哎呀！我们遇到了一些技术问题，请稍后再试。"
                     }
                   }
-                });
+                }),
+                _v3 = "technical_error";
               _v1 === _v1 && (_v2 = (0, _v7.translate)({
                 singular: "There is already a Vimeo user with this email address.",
                 dictionary: {
@@ -2224,7 +2229,7 @@
                     singular: "此电子邮件地址已有一位 Vimeo 用户使用。"
                   }
                 }
-              })), _v1 === _v3 && (_v2 = (0, _v7.translate)({
+              }), _v3 = "user_exists_on_registration"), _v1 === _v3 && (_v2 = (0, _v7.translate)({
                 singular: "The password is too weak.",
                 dictionary: {
                   es: {
@@ -2249,7 +2254,7 @@
                     singular: "密码太弱。"
                   }
                 }
-              })), _v1 == _v2 && (_v2 = (0, _v7.translate)({
+              }), _v3 = "password_requirements_not_met"), _v1 == _v2 && (_v2 = (0, _v7.translate)({
                 singular: "Please enter a valid email address.",
                 dictionary: {
                   es: {
@@ -2274,48 +2279,78 @@
                     singular: "请输入有效的电子邮件地址。"
                   }
                 }
-              })), _v35(_v2), _v37(_v1), _v0.includes(_v1);
+              }), _v3 = "invalid_email"), _v36(_v2), _v38(_v1), _v34?.(_v3), _v0.includes(_v1);
             }
           }
           if (!_v3) try {
             let _v0 = await _v100(_v2, "/join");
-            _v0?.signup && (_v48(_v1, "Email", {
+            if (_v0?.status === 429) {
+              _v36((0, _v7.translate)({
+                singular: "Sorry, but you have made too many attempts. Please wait a few minutes and try again.",
+                dictionary: {
+                  es: {
+                    singular: "Lo sentimos, pero ha realizado demasiados intentos. Por favor, espere unos minutos e inténtelo de nuevo."
+                  },
+                  "de-DE": {
+                    singular: "Sie haben leider zu viele Versuche unternommen. Bitte warten Sie ein paar Minuten und versuchen Sie es dann erneut."
+                  },
+                  "fr-FR": {
+                    singular: "Désolé, mais vous avez effectué trop de tentatives. Veuillez patienter quelques minutes et réessayer."
+                  },
+                  "ja-JP": {
+                    singular: "申し訳ありませんが、試行回数が多すぎます。数分待ってからもう一度お試しください。"
+                  },
+                  "ko-KR": {
+                    singular: "죄송합니다. 시도 횟수가 너무 많습니다. 몇 분 후에 다시 시도해 주세요."
+                  },
+                  "pt-BR": {
+                    singular: "Desculpe, mas você fez tentativas demais. Aguarde alguns minutos e tente novamente."
+                  },
+                  "zh-CN": {
+                    singular: "抱歉，您尝试次数过多。请等待几分钟后再试。"
+                  }
+                }
+              })), _v34?.("too_many_attempts");
+              return;
+            }
+            _v0?.signup && (_v49(_v1, "Email", {
               user_id: _v0.vimeo_cur_user?.id?.toString()
             }), (0, _v78.sendGTMEvent)({
               event: "register",
               "register.ref_page": document.referrer,
               "register.form_page": document.location.href,
-              "register.is_mobile_device": _v50,
+              "register.is_mobile_device": _v51,
               "register.vuid": (0, _v77.loadCookie)("vuid") || "",
-              "register.country_code": _v47?.location || ""
+              "register.country_code": _v48?.location || ""
             })), _v6 && _v6(_v0);
           } catch (_v0) {
             let _v1 = (0, _v7.translate)({
-              singular: "Whoops! We are having some technical difficulties, please try again in a minute.",
-              dictionary: {
-                es: {
-                  singular: "¡Ups! En estos momentos tenemos algunas dificultades técnicas. Por favor, inténtalo de nuevo dentro de un minuto."
-                },
-                "de-DE": {
-                  singular: "Hoppla! Der Fehlerteufel hat sich eingeschlichen, bitte versuche es in einigen Augenblicken erneut."
-                },
-                "fr-FR": {
-                  singular: "Oups ! Nous rencontrons des difficultés techniques, veuillez réessayer dans quelques instants."
-                },
-                "ja-JP": {
-                  singular: "エラーが発生しました！技術的な問題が発生しています。少し後で再試行しください。"
-                },
-                "ko-KR": {
-                  singular: "저런! 기술적 문제가 발생했습니다. 잠시 후 다시 시도해주세요."
-                },
-                "pt-BR": {
-                  singular: "Opa! Estamos com algumas dificuldades técnicas, tente de novo em um minuto."
-                },
-                "zh-CN": {
-                  singular: "哎呀！我们遇到了一些技术问题，请稍后再试。"
+                singular: "Whoops! We are having some technical difficulties, please try again in a minute.",
+                dictionary: {
+                  es: {
+                    singular: "¡Ups! En estos momentos tenemos algunas dificultades técnicas. Por favor, inténtalo de nuevo dentro de un minuto."
+                  },
+                  "de-DE": {
+                    singular: "Hoppla! Der Fehlerteufel hat sich eingeschlichen, bitte versuche es in einigen Augenblicken erneut."
+                  },
+                  "fr-FR": {
+                    singular: "Oups ! Nous rencontrons des difficultés techniques, veuillez réessayer dans quelques instants."
+                  },
+                  "ja-JP": {
+                    singular: "エラーが発生しました！技術的な問題が発生しています。少し後で再試行しください。"
+                  },
+                  "ko-KR": {
+                    singular: "저런! 기술적 문제가 발생했습니다. 잠시 후 다시 시도해주세요."
+                  },
+                  "pt-BR": {
+                    singular: "Opa! Estamos com algumas dificuldades técnicas, tente de novo em um minuto."
+                  },
+                  "zh-CN": {
+                    singular: "哎呀！我们遇到了一些技术问题，请稍后再试。"
+                  }
                 }
-              }
-            });
+              }),
+              _v2 = "technical_error";
             for (let _v0 in _v0) if (_v0.hasOwnProperty(_v0) && 0 !== _v0.indexOf("has_error_")) {
               _v1 = _v0[_v0];
               break;
@@ -2345,7 +2380,7 @@
                   singular: "请输入您的姓名、电子邮件和密码"
                 }
               }
-            })), _v0.has_error_user_exists && (_v1 = (0, _v7.translate)({
+            }), _v2 = "missing_fields"), _v0.has_error_user_exists && (_v1 = (0, _v7.translate)({
               singular: "There is already a Vimeo user with this email address.",
               dictionary: {
                 es: {
@@ -2370,7 +2405,7 @@
                   singular: "此电子邮件地址已有一位 Vimeo 用户使用。"
                 }
               }
-            })), _v0.hasOwnProperty("has_captcha_error") && (_v1 = (0, _v7.translate)({
+            }), _v2 = "user_exists_on_registration"), _v0.hasOwnProperty("has_captcha_error") && (_v1 = (0, _v7.translate)({
               singular: "Unable to verify CAPTCHA. Please try again or visit the {A}Support Center{/A} for help.",
               replacements: {
                 A: _v0 => (0, _v2.jsx)("a", {
@@ -2403,22 +2438,23 @@
                   singular: "无法验证 CAPTCHA。请重试或访问{A}支持中心{/A}寻求帮助。"
                 }
               }
-            })), _v35(_v1), _v37(_v0), _v0.hasOwnProperty("email_verification_required")) {
-              _v35(null), _v28 && _v29 && (_v28(!1), _v29(!0));
+            }), _v2 = "captcha_error"), _v36(_v1), _v38(_v0), _v0.hasOwnProperty("email_verification_required")) {
+              _v36(null), _v28 && _v29 && (_v28(!1), _v29(!0));
               return;
             }
+            _v34?.(_v2);
           }
         }
       }),
-      _v56 = (0, _v79.useField)(_v55, "name"),
-      _v57 = (0, _v79.useField)(_v55, "email"),
-      _v58 = (0, _v79.useField)(_v55, "password"),
-      _v59 = (0, _v79.useField)(_v55, "confirmPassword"),
-      _v60 = (0, _v79.useField)(_v55, "overEighteenCertification"),
-      _v61 = _v0 => {
-        _v57.iris.onChange(_v0), _v35(null), _v7 && _v7(_v0.target.value);
+      _v57 = (0, _v79.useField)(_v56, "name"),
+      _v58 = (0, _v79.useField)(_v56, "email"),
+      _v59 = (0, _v79.useField)(_v56, "password"),
+      _v60 = (0, _v79.useField)(_v56, "confirmPassword"),
+      _v61 = (0, _v79.useField)(_v56, "overEighteenCertification"),
+      _v62 = _v0 => {
+        _v58.iris.onChange(_v0), _v36(null), _v7 && _v7(_v0.target.value);
       },
-      _v62 = _v11 ? {
+      _v63 = _v11 ? {
         placeholder: _v11.name
       } : {
         label: (0, _v7.translate)({
@@ -2445,7 +2481,7 @@
           }
         })
       },
-      _v63 = _v11 ? {
+      _v64 = _v11 ? {
         placeholder: _v11.email
       } : {
         label: (0, _v7.translate)({
@@ -2475,7 +2511,7 @@
           }
         })
       },
-      _v64 = _v11 ? {
+      _v65 = _v11 ? {
         placeholder: _v11.password
       } : {
         label: (0, _v7.translate)({
@@ -2505,14 +2541,14 @@
           }
         })
       },
-      _v65 = _v31 && (_v36.hasOwnProperty("has_error_password_missmatch") || _v36.hasOwnProperty("has_error_user_exists") || _v36.hasOwnProperty("has_error_invalid_email")),
-      _v66 = {
+      _v66 = _v31 && (_v37.hasOwnProperty("has_error_password_missmatch") || _v37.hasOwnProperty("has_error_user_exists") || _v37.hasOwnProperty("has_error_invalid_email")),
+      _v67 = {
         _hover: {
           cursor: "pointer"
         },
         color: "text-secondary"
       },
-      _v67 = _v58.iris.value ? (_v0 => {
+      _v68 = _v59.iris.value ? (_v0 => {
         let _v1,
           _v2,
           _v3,
@@ -2527,11 +2563,11 @@
           ..._v5,
           feedback: _v1.getFeedback(_v5.score, _v3.sequence)
         };
-      })(_v58.iris.value).score : void 0,
-      _v68 = _v32?.desktopTermsMarginTop != null ? (0, _v3.rem)(_v32.desktopTermsMarginTop - 12 * !!_v31) : void 0,
-      _v69 = (0, _v2.jsx)(_v105, {
-        disabled: !_v19 && !_v55.valid,
-        loading: _v55.submitting,
+      })(_v59.iris.value).score : void 0,
+      _v69 = _v32?.desktopTermsMarginTop != null ? (0, _v3.rem)(_v32.desktopTermsMarginTop - 12 * !!_v31) : void 0,
+      _v70 = (0, _v2.jsx)(_v105, {
+        disabled: !_v19 && !_v56.valid,
+        loading: _v56.submitting,
         onClick: () => {
           (0, _v13.trackFinishAuthFlow)({
             ..._v30
@@ -2540,7 +2576,7 @@
             event_name: "join_with_email",
             copy: "join_with_email",
             target: "email_auth_join",
-            password_strength_score: _v67
+            password_strength_score: _v68
           }) : (0, _v13.trackJoinWithEmailClick)(!!_v22, _v4);
         },
         pill: _v14,
@@ -2550,7 +2586,7 @@
         children: _v13
       });
     return (0, _v2.jsxs)(_v109, {
-      onSubmit: _v55.handleSubmit,
+      onSubmit: _v56.handleSubmit,
       noValidate: !0,
       style: {
         gap: _v31 ? "12px" : "",
@@ -2559,25 +2595,25 @@
         } : {})
       },
       onChange: () => {
-        _v31 && (_v37({}), _v35(null));
+        _v31 && (_v38({}), _v36(null));
       },
       children: [_v32?.active && (0, _v2.jsx)(_v70.Box, {
         marginTop: "auto"
       }), _v33, _v31 ? (0, _v2.jsxs)(_v2.Fragment, {
         children: [_v22 ? null : (0, _v2.jsxs)(_v93, {
-          formFieldErrorMessage: _v34,
-          isInvalid: _v36.hasOwnProperty("has_error_user_exists") || _v36.hasOwnProperty("has_error_invalid_email"),
+          formFieldErrorMessage: _v35,
+          isInvalid: _v37.hasOwnProperty("has_error_user_exists") || _v37.hasOwnProperty("has_error_invalid_email"),
           children: [(0, _v2.jsx)(_v92, {
             isRequired: !0,
             order: _v15?.email,
             id: "email_login",
             autoComplete: "email",
-            ..._v57.iris,
+            ..._v58.iris,
             isDisabled: _v8,
-            onChange: _v61
+            onChange: _v62
           }), (0, _v2.jsx)(_v94, {
             htmlFor: "email_login",
-            children: _v63.placeholder
+            children: _v64.placeholder
           })]
         }), _v23 ? null : (0, _v2.jsxs)(_v93, {
           children: [(0, _v2.jsx)(_v92, {
@@ -2586,33 +2622,33 @@
             id: "name",
             type: "text",
             autoComplete: "name",
-            ..._v56.iris,
+            ..._v57.iris,
             autoFocus: !0
           }), (0, _v2.jsx)(_v94, {
             htmlFor: "name",
-            children: _v62.placeholder
+            children: _v63.placeholder
           })]
         }), (0, _v2.jsx)(_v93, {
-          formFieldErrorMessage: _v34,
-          isInvalid: _v36.hasOwnProperty("has_error_password_missmatch"),
+          formFieldErrorMessage: _v35,
+          isInvalid: _v37.hasOwnProperty("has_error_password_missmatch"),
           children: (0, _v2.jsxs)(_v71.InputGroup, {
             children: [(0, _v2.jsx)(_v92, {
               isRequired: !0,
               order: _v15?.password,
               id: "password_login",
-              type: _v40 ? "text" : "password",
+              type: _v41 ? "text" : "password",
               autoComplete: "new-password",
-              ..._v58.iris,
+              ..._v59.iris,
               onChange: _v0 => {
-                _v58.iris.onChange(_v0), _v39(!_v0.target.value);
+                _v59.iris.onChange(_v0), _v40(!_v0.target.value);
               }
             }), (0, _v2.jsx)(_v94, {
               htmlFor: "password_login",
-              children: _v64.placeholder
+              children: _v65.placeholder
             }), (0, _v2.jsx)(_v72.InputRightElement, {
               children: (0, _v2.jsx)(_v75.EyeShut, {
-                ..._v66,
-                onClick: () => _v41(!_v40)
+                ..._v67,
+                onClick: () => _v42(!_v41)
               })
             })]
           })
@@ -2622,7 +2658,7 @@
           },
           enterDuration: "2xl",
           exitDuration: "2xl",
-          in: !_v38 && _v31,
+          in: !_v39 && _v31,
           unmountOnExit: !0,
           children: [(0, _v2.jsx)(_v93, {
             children: (0, _v2.jsxs)(_v71.InputGroup, {
@@ -2630,9 +2666,9 @@
                 isRequired: !0,
                 order: _v15?.confirmPassword,
                 id: "confirm_password_login",
-                type: _v42 ? "text" : "password",
+                type: _v43 ? "text" : "password",
                 autoComplete: "new-password",
-                ..._v59.iris
+                ..._v60.iris
               }), (0, _v2.jsx)(_v94, {
                 htmlFor: "confirm_password_login",
                 children: (0, _v7.translate)({
@@ -2660,30 +2696,30 @@
                 })
               }), (0, _v2.jsx)(_v72.InputRightElement, {
                 children: (0, _v2.jsx)(_v75.EyeShut, {
-                  ..._v66,
-                  onClick: () => _v43(!_v42)
+                  ..._v67,
+                  onClick: () => _v44(!_v43)
                 })
               })]
             })
           }), (0, _v2.jsx)(_v70.Box, {
             marginTop: (0, _v3.rem)(12),
             children: (0, _v2.jsx)(_v99, {
-              passwordScore: _v67
+              passwordScore: _v68
             })
           }), (0, _v2.jsx)(_v70.Box, {
             marginTop: (0, _v3.rem)(12),
             children: (0, _v2.jsx)(_v74.Text, {
               variant: "body-sm",
               color: "text-secondary",
-              children: _v53
+              children: _v54
             })
           })]
-        }), _v34 && !_v65 && (0, _v2.jsx)(_v104, {
+        }), _v35 && !_v66 && (0, _v2.jsx)(_v104, {
           children: (0, _v2.jsx)(_v107, {
             format: "negative",
             children: (0, _v2.jsx)(_v9.Paragraph, {
               size: "3",
-              children: _v34
+              children: _v35
             })
           })
         }), !_v19 && (0, _v2.jsx)(_v70.Box, {
@@ -2696,13 +2732,13 @@
           })
         }), _v19 && (0, _v2.jsxs)(_v2.Fragment, {
           children: [_v20, (0, _v2.jsx)(_v97, {
-            overEighteenCertification: _v60.input.value,
-            setOverEighteenCertification: _v60.handlers.setValue,
-            setError: _v35,
+            overEighteenCertification: _v61.input.value,
+            setOverEighteenCertification: _v61.handlers.setValue,
+            setError: _v36,
             isFullScreen: _v31,
-            shouldShowAgeCertification: _v49,
-            isInvalid: _v44,
-            setAgeCertificationInvalid: _v45
+            shouldShowAgeCertification: _v50,
+            isInvalid: _v45,
+            setAgeCertificationInvalid: _v46
           }), _v17 && (0, _v2.jsxs)(_v104, {
             className: "termsandconditions",
             children: [(0, _v2.jsx)(_v74.Text, {
@@ -2721,7 +2757,7 @@
           inputFieldVariant: _v9,
           formType: _v12,
           order: _v15?.name,
-          ..._v62,
+          ..._v63,
           "aria-label": (0, _v7.translate)({
             singular: "First and last name",
             dictionary: {
@@ -2751,13 +2787,13 @@
           autoComplete: "name",
           id: "name",
           type: "text",
-          ..._v56.iris
+          ..._v57.iris
         }), _v22 ? null : (0, _v2.jsx)(_v111, {
           inputFieldVariant: _v9,
           emailRef: _v10,
           formType: _v12,
           order: _v15?.email,
-          ..._v63,
+          ..._v64,
           "aria-label": (0, _v7.translate)({
             singular: "Email",
             dictionary: {
@@ -2786,15 +2822,15 @@
           }),
           autoComplete: "email",
           id: "email_login",
-          ..._v57.iris,
+          ..._v58.iris,
           disabled: _v8,
-          onChange: _v61
+          onChange: _v62
         }), (0, _v2.jsx)(_v111, {
           inputFieldVariant: _v9,
           formType: _v12,
           order: _v15?.password,
           id: "password_login",
-          ..._v64,
+          ..._v65,
           "aria-label": (0, _v7.translate)({
             singular: "Password",
             dictionary: {
@@ -2823,13 +2859,13 @@
           }),
           autoComplete: "new-password",
           type: "password",
-          ..._v58.iris
-        }), _v34 && (0, _v2.jsx)(_v104, {
+          ..._v59.iris
+        }), _v35 && (0, _v2.jsx)(_v104, {
           children: (0, _v2.jsx)(_v107, {
             format: "negative",
             children: (0, _v2.jsx)(_v9.Paragraph, {
               size: "3",
-              children: _v34
+              children: _v35
             })
           })
         }), !_v19 && (0, _v2.jsx)(_v70.Box, {
@@ -2842,13 +2878,13 @@
           })
         }), _v19 && (0, _v2.jsxs)(_v2.Fragment, {
           children: [_v20, (0, _v2.jsx)(_v97, {
-            overEighteenCertification: _v60.input.value,
-            setOverEighteenCertification: _v60.handlers.setValue,
-            setError: _v35,
+            overEighteenCertification: _v61.input.value,
+            setOverEighteenCertification: _v61.handlers.setValue,
+            setError: _v36,
             isFullScreen: _v31,
-            shouldShowAgeCertification: _v49,
-            isInvalid: _v44,
-            setAgeCertificationInvalid: _v45
+            shouldShowAgeCertification: _v50,
+            isInvalid: _v45,
+            setAgeCertificationInvalid: _v46
           }), _v17 && (0, _v2.jsxs)(_v104, {
             className: "termsandconditions",
             children: [(0, _v2.jsx)(_v9.Paragraph, {
@@ -2865,10 +2901,10 @@
         active: _v32.active,
         background: _v32.background,
         terms: _v32.terms,
-        desktopMarginTop: _v68,
-        children: _v69
+        desktopMarginTop: _v69,
+        children: _v70
       }) : (0, _v2.jsx)("section", {
-        children: _v69
+        children: _v70
       })]
     });
   }

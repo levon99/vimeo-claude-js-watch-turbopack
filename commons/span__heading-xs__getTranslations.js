@@ -5352,6 +5352,846 @@
         }
       }
     }),
+    RegistrationPresets: (0, _v5.translate)({
+      singular: "Registration presets",
+      dictionary: {
+        es: {
+          singular: "Configuración predeterminada de registro"
+        },
+        "de-DE": {
+          singular: "Voreinstellungen für die Registrierung"
+        },
+        "fr-FR": {
+          singular: "Préréglages d'inscription"
+        },
+        "ja-JP": {
+          singular: "登録プリセット"
+        },
+        "ko-KR": {
+          singular: "등록 사전 설정"
+        },
+        "pt-BR": {
+          singular: "Predefinições de registro"
+        },
+        "zh-CN": {
+          singular: "注册预设"
+        }
+      }
+    }),
+    NoPresetAvailable: (0, _v5.translate)({
+      singular: "No preset available",
+      dictionary: {
+        es: {
+          singular: "No hay preajuste disponible"
+        },
+        "de-DE": {
+          singular: "Keine Voreinstellung verfügbar"
+        },
+        "fr-FR": {
+          singular: "Aucun préréglage disponible"
+        },
+        "ja-JP": {
+          singular: "利用可能なプリセットはありません"
+        },
+        "ko-KR": {
+          singular: "사용 가능한 프리셋이 없습니다"
+        },
+        "pt-BR": {
+          singular: "Nenhuma predefinição disponível"
+        },
+        "zh-CN": {
+          singular: "没有可用的预设"
+        }
+      }
+    }),
+    ApprovePreset: (0, _v5.translate)({
+      singular: "Approve preset",
+      dictionary: {
+        es: {
+          singular: "Aprobar preajuste"
+        },
+        "de-DE": {
+          singular: "Voreinstellung genehmigen"
+        },
+        "fr-FR": {
+          singular: "Approuver le préréglage"
+        },
+        "ja-JP": {
+          singular: "プリセットを承認"
+        },
+        "ko-KR": {
+          singular: "프리셋 승인"
+        },
+        "pt-BR": {
+          singular: "Aprovar predefinição"
+        },
+        "zh-CN": {
+          singular: "批准预设"
+        }
+      }
+    }),
+    Approve: (0, _v5.translate)({
+      singular: "Approve",
+      dictionary: {
+        es: {
+          singular: "Aprobar"
+        },
+        "de-DE": {
+          singular: "Genehmigen"
+        },
+        "fr-FR": {
+          singular: "Valider"
+        },
+        "ja-JP": {
+          singular: "承認する"
+        },
+        "ko-KR": {
+          singular: "승인"
+        },
+        "pt-BR": {
+          singular: "Aprovar"
+        },
+        "zh-CN": {
+          singular: "批准"
+        }
+      }
+    }),
+    Approved: (0, _v5.translate)({
+      singular: "Approved",
+      dictionary: {
+        es: {
+          singular: "Aprobado"
+        },
+        "de-DE": {
+          singular: "Genehmigt"
+        },
+        "fr-FR": {
+          singular: "Validé"
+        },
+        "ja-JP": {
+          singular: "承認済み"
+        },
+        "ko-KR": {
+          singular: "승인됨"
+        },
+        "pt-BR": {
+          singular: "Aprovado"
+        },
+        "zh-CN": {
+          singular: "已批准"
+        }
+      }
+    }),
+    ApprovedPresetTooltip: (0, _v5.translate)({
+      singular: "This preset is visible to all users in the workspace and can be used for go live",
+      dictionary: {
+        es: {
+          singular: "Este preajuste es visible para todos los usuarios del espacio de trabajo y puede usarse para emitir en directo"
+        },
+        "de-DE": {
+          singular: "Diese Voreinstellung ist für alle Benutzer im Arbeitsbereich sichtbar und kann zum Live-Schalten verwendet werden"
+        },
+        "fr-FR": {
+          singular: "Ce préréglage est visible par tous les utilisateurs de l'espace de travail et peut être utilisé pour passer en direct"
+        },
+        "ja-JP": {
+          singular: "このプリセットはワークスペース内の全ユーザーに表示され、ライブ配信に使用できます"
+        },
+        "ko-KR": {
+          singular: "이 프리셋은 워크스페이스의 모든 사용자에게 표시되며 라이브 진행에 사용할 수 있습니다"
+        },
+        "pt-BR": {
+          singular: "Esta predefinição está visível para todos os usuários no espaço de trabalho e pode ser usada para ir ao vivo"
+        },
+        "zh-CN": {
+          singular: "该预设对工作区内的所有用户可见，并可用于上线"
+        }
+      }
+    }),
+    NoApprovedPresetNotification: (0, _v5.translate)({
+      singular: "None of the presets is set as {ITALIC}approved{/ITALIC}. Only approved presets can be used to share videos in showcases, and to make events go live.",
+      replacements: {
+        ITALIC: _v0 => (0, _v1.jsx)(_v3.Text, {
+          as: "span",
+          fontStyle: "italic",
+          children: _v0
+        })
+      },
+      dictionary: {
+        es: {
+          singular: "Ninguno de los ajustes preestablecidos está marcado como {ITALIC}approved{/ITALIC}. Solo los ajustes preestablecidos aprobados pueden usarse para compartir vídeos en showcases y para poner eventos en directo."
+        },
+        "de-DE": {
+          singular: "Keines der Presets ist als {ITALIC}genehmigt{/ITALIC} markiert. Nur genehmigte Presets können verwendet werden, um Videos in Showcases zu teilen und Veranstaltungen live zu schalten."
+        },
+        "fr-FR": {
+          singular: "Aucun des préréglages n'est défini comme {ITALIC}approved{/ITALIC}. Seuls les préréglages approuvés peuvent être utilisés pour partager des vidéos dans les vitrines et pour diffuser des événements en direct."
+        },
+        "ja-JP": {
+          singular: "プリセットのいずれも{ITALIC}approved{/ITALIC}に設定されていません。承認されたプリセットのみがショーケースでの動画共有やイベントのライブ配信に使用できます。"
+        },
+        "ko-KR": {
+          singular: "프리셋 중 어느 것도 {ITALIC}approved{/ITALIC}로 설정되어 있지 않습니다. 승인된 프리셋만 쇼케이스에서 동영상을 공유하거나 이벤트를 라이브로 진행하는 데 사용할 수 있습니다."
+        },
+        "pt-BR": {
+          singular: "Nenhum dos presets está definido como {ITALIC}aprovado{/ITALIC}. Somente presets aprovados podem ser usados para compartilhar vídeos em vitrines e para colocar eventos no ar."
+        },
+        "zh-CN": {
+          singular: "没有任何预设被设置为 {ITALIC}approved{/ITALIC}. 只有已批准的预设才能用于在展示中分享视频, 并使活动上线."
+        }
+      }
+    }),
+    ApprovePresetDescriptionFirstLine: (0, _v5.translate)({
+      singular: "Only approved registrations presets can be used to go live",
+      dictionary: {
+        es: {
+          singular: "Solo los preajustes de registro aprobados pueden usarse para emitir en directo"
+        },
+        "de-DE": {
+          singular: "Nur genehmigte Registrierungsvoreinstellungen können verwendet werden, um live zu gehen"
+        },
+        "fr-FR": {
+          singular: "Seuls les préréglages d'inscription approuvés peuvent être utilisés pour passer en direct"
+        },
+        "ja-JP": {
+          singular: "登録用プリセットは承認済みのもののみライブ配信に使用できます"
+        },
+        "ko-KR": {
+          singular: "라이브로 전환하려면 승인된 등록 프리셋만 사용할 수 있습니다"
+        },
+        "pt-BR": {
+          singular: "Somente predefinições de registro aprovadas podem ser usadas para ir ao vivo"
+        },
+        "zh-CN": {
+          singular: "只有已批准的注册预设可以用于上线"
+        }
+      }
+    }),
+    ApprovePresetDescriptionSecondLine: (0, _v5.translate)({
+      singular: "Approved templates will be visible to everyone in your workspace",
+      dictionary: {
+        es: {
+          singular: "Las plantillas aprobadas serán visibles para todos en tu espacio de trabajo"
+        },
+        "de-DE": {
+          singular: "Genehmigte Vorlagen sind für alle Benutzer in Ihrem Arbeitsbereich sichtbar"
+        },
+        "fr-FR": {
+          singular: "Les modèles approuvés seront visibles par tous les membres de votre espace de travail"
+        },
+        "ja-JP": {
+          singular: "承認済みのテンプレートはワークスペース内の全メンバーに表示されます"
+        },
+        "ko-KR": {
+          singular: "승인된 템플릿은 워크스페이스의 모든 사용자에게 표시됩니다"
+        },
+        "pt-BR": {
+          singular: "Os modelos aprovados serão visíveis para todos no seu espaço de trabalho"
+        },
+        "zh-CN": {
+          singular: "已批准的模板将在您的工作区对所有人可见"
+        }
+      }
+    }),
+    RemoveApproval: (0, _v5.translate)({
+      singular: "Remove approval",
+      dictionary: {
+        es: {
+          singular: "Quitar aprobación"
+        },
+        "de-DE": {
+          singular: "Genehmigung entfernen"
+        },
+        "fr-FR": {
+          singular: "Retirer l'approbation"
+        },
+        "ja-JP": {
+          singular: "承認を取り消す"
+        },
+        "ko-KR": {
+          singular: "승인 해제"
+        },
+        "pt-BR": {
+          singular: "Remover aprovação"
+        },
+        "zh-CN": {
+          singular: "取消批准"
+        }
+      }
+    }),
+    LastApprovedRemoveApprovalTooltip: (0, _v5.translate)({
+      singular: "At least one preset needs to be approved. Approve another preset to remove this status.",
+      dictionary: {
+        es: {
+          singular: "Al menos un preajuste debe estar aprobado. Apruebe otro preajuste para eliminar este estado."
+        },
+        "de-DE": {
+          singular: "Mindestens eine Voreinstellung muss genehmigt werden. Genehmigen Sie eine weitere Voreinstellung, um diesen Status aufzuheben."
+        },
+        "fr-FR": {
+          singular: "Au moins un préréglage doit être approuvé. Approuvez un autre préréglage pour supprimer ce statut."
+        },
+        "ja-JP": {
+          singular: "少なくとも1つのプリセットを承認する必要があります。別のプリセットを承認するとこの状態は解除されます。"
+        },
+        "ko-KR": {
+          singular: "최소한 하나의 프리셋이 승인되어야 합니다. 이 상태를 해제하려면 다른 프리셋을 승인하세요."
+        },
+        "pt-BR": {
+          singular: "Pelo menos uma predefinição precisa ser aprovada. Aprove outra predefinição para remover este status."
+        },
+        "zh-CN": {
+          singular: "至少需要批准一个预设。批准另一个预设即可移除此状态。"
+        }
+      }
+    }),
+    LastApprovedDeleteTooltip: (0, _v5.translate)({
+      singular: "At least one preset needs to be approved. Approve another preset to delete this.",
+      dictionary: {
+        es: {
+          singular: "Se debe aprobar al menos un ajuste preestablecido. Aprueba otro ajuste preestablecido para eliminar este."
+        },
+        "de-DE": {
+          singular: "Mindestens ein Preset muss genehmigt werden. Genehmigen Sie ein anderes Preset, um dieses zu löschen."
+        },
+        "fr-FR": {
+          singular: "Au moins un préréglage doit être approuvé. Approuvez un autre préréglage pour supprimer celui-ci."
+        },
+        "ja-JP": {
+          singular: "少なくとも1つのプリセットが承認されている必要があります。別のプリセットを承認してこれを削除してください。"
+        },
+        "ko-KR": {
+          singular: "최소 하나의 프리셋은 승인되어야 합니다. 이 항목을 삭제하려면 다른 프리셋을 승인하세요."
+        },
+        "pt-BR": {
+          singular: "Pelo menos um preset precisa ser aprovado. Aprove outro preset para excluir este."
+        },
+        "zh-CN": {
+          singular: "至少需要有一个预设被批准。批准另一个预设以删除此预设."
+        }
+      }
+    }),
+    RemoveApprovalWithReplacementWarning: (0, _v5.translate)({
+      singular: "If you remove its approval, users in the workspace will no longer be able to select or use it",
+      dictionary: {
+        es: {
+          singular: "Si quitas su aprobación, los usuarios en el espacio de trabajo ya no podrán seleccionarlo ni usarlo"
+        },
+        "de-DE": {
+          singular: "Wenn Sie die Genehmigung entfernen, können Benutzer im Arbeitsbereich sie nicht mehr auswählen oder verwenden"
+        },
+        "fr-FR": {
+          singular: "Si vous retirez son approbation, les utilisateurs de l'espace de travail ne pourront plus le sélectionner ni l'utiliser"
+        },
+        "ja-JP": {
+          singular: "承認を解除すると、ワークスペースのユーザーはそれを選択または使用できなくなります"
+        },
+        "ko-KR": {
+          singular: "승인을 제거하면 워크스페이스의 사용자는 더 이상 이를 선택하거나 사용할 수 없습니다"
+        },
+        "pt-BR": {
+          singular: "Se você remover sua aprovação, os usuários no espaço de trabalho não poderão mais selecioná‑la ou usá‑la"
+        },
+        "zh-CN": {
+          singular: "如果您移除其批准，工作区内的用户将无法再选择或使用它"
+        }
+      }
+    }),
+    RemoveApprovalReplacementHint: (0, _v5.translate)({
+      singular: "To remove the approval, choose a replacement preset.",
+      dictionary: {
+        es: {
+          singular: "Para quitar la aprobación, elige un preajuste de reemplazo."
+        },
+        "de-DE": {
+          singular: "Um die Genehmigung zu entfernen, wählen Sie eine Ersatz‑Voreinstellung."
+        },
+        "fr-FR": {
+          singular: "Pour retirer l'approbation, choisissez un préréglage de remplacement."
+        },
+        "ja-JP": {
+          singular: "承認を解除するには、代わりのプリセットを選択してください。"
+        },
+        "ko-KR": {
+          singular: "승인을 제거하려면 대체 프리셋을 선택하세요."
+        },
+        "pt-BR": {
+          singular: "Para remover a aprovação, escolha uma predefinição de substituição."
+        },
+        "zh-CN": {
+          singular: "要移除批准，请选择一个替代预设。"
+        }
+      }
+    }),
+    ReplacePresetAndRemoveApproval: (0, _v5.translate)({
+      singular: "Replace preset and remove approval",
+      dictionary: {
+        es: {
+          singular: "Reemplazar el preajuste y quitar la aprobación"
+        },
+        "de-DE": {
+          singular: "Voreinstellung ersetzen und Genehmigung entfernen"
+        },
+        "fr-FR": {
+          singular: "Remplacer le préréglage et retirer l'approbation"
+        },
+        "ja-JP": {
+          singular: "プリセットを置き換えて承認を解除する"
+        },
+        "ko-KR": {
+          singular: "프리셋 교체 및 승인 제거"
+        },
+        "pt-BR": {
+          singular: "Substituir predefinição e remover aprovação"
+        },
+        "zh-CN": {
+          singular: "替换预设并移除批准"
+        }
+      }
+    }),
+    RemovePresetApproval: (0, _v5.translate)({
+      singular: "Remove preset approval",
+      dictionary: {
+        es: {
+          singular: "Quitar aprobación del preajuste"
+        },
+        "de-DE": {
+          singular: "Genehmigung der Voreinstellung entfernen"
+        },
+        "fr-FR": {
+          singular: "Retirer l'approbation du préréglage"
+        },
+        "ja-JP": {
+          singular: "プリセットの承認を解除"
+        },
+        "ko-KR": {
+          singular: "프리셋 승인 제거"
+        },
+        "pt-BR": {
+          singular: "Remover aprovação da predefinição"
+        },
+        "zh-CN": {
+          singular: "移除预设批准"
+        }
+      }
+    }),
+    RemovePresetApprovalDescriptionFirstLine: (0, _v5.translate)({
+      singular: "Users will no longer be able to select this template.",
+      dictionary: {
+        es: {
+          singular: "Los usuarios ya no podrán seleccionar esta plantilla."
+        },
+        "de-DE": {
+          singular: "Benutzer können diese Vorlage nicht mehr auswählen."
+        },
+        "fr-FR": {
+          singular: "Les utilisateurs ne pourront plus sélectionner ce modèle."
+        },
+        "ja-JP": {
+          singular: "ユーザーはこのテンプレートを選択できなくなります。"
+        },
+        "ko-KR": {
+          singular: "사용자는 더 이상 이 템플릿을 선택할 수 없습니다."
+        },
+        "pt-BR": {
+          singular: "Os usuários não poderão mais selecionar este modelo."
+        },
+        "zh-CN": {
+          singular: "用户将无法再选择此模板。"
+        }
+      }
+    }),
+    RemovePresetApprovalDescriptionSecondLine: (0, _v5.translate)({
+      singular: "Any video with this template needs a new approved template assigned.",
+      dictionary: {
+        es: {
+          singular: "Cualquier vídeo con esta plantilla necesita que se le asigne una nueva plantilla aprobada."
+        },
+        "de-DE": {
+          singular: "Für jedes Video mit dieser Vorlage muss eine neue genehmigte Vorlage zugewiesen werden."
+        },
+        "fr-FR": {
+          singular: "Toute vidéo utilisant ce modèle doit se voir attribuer un nouveau modèle approuvé."
+        },
+        "ja-JP": {
+          singular: "このテンプレートが適用されている動画はすべて、新しい承認済みテンプレートを割り当てる必要があります。"
+        },
+        "ko-KR": {
+          singular: "이 템플릿이 적용된 모든 동영상에는 새로 승인된 템플릿을 할당해야 합니다."
+        },
+        "pt-BR": {
+          singular: "Qualquer vídeo com este modelo precisa que um novo modelo aprovado seja atribuído."
+        },
+        "zh-CN": {
+          singular: "任何使用此模板的视频都需要分配一个新的已批准模板。"
+        }
+      }
+    }),
+    DeletePreset: (0, _v5.translate)({
+      singular: "Delete preset",
+      dictionary: {
+        es: {
+          singular: "Eliminar configuración predeterminada"
+        },
+        "de-DE": {
+          singular: "Voreinstellung löschen"
+        },
+        "fr-FR": {
+          singular: "Supprimer le préréglage"
+        },
+        "ja-JP": {
+          singular: "プリセットを削除"
+        },
+        "ko-KR": {
+          singular: "사전 설정 삭제"
+        },
+        "pt-BR": {
+          singular: "Excluir predefinição"
+        },
+        "zh-CN": {
+          singular: "删除预设"
+        }
+      }
+    }),
+    DeletePresetAndReplaceBySelected: (0, _v5.translate)({
+      singular: "Delete preset and replace with selected",
+      dictionary: {
+        es: {
+          singular: "Eliminar el preset y reemplazarlo por el seleccionado"
+        },
+        "de-DE": {
+          singular: "Voreinstellung löschen und durch die ausgewählte ersetzen"
+        },
+        "fr-FR": {
+          singular: "Supprimer le préréglage et remplacer par celui sélectionné"
+        },
+        "ja-JP": {
+          singular: "プリセットを削除して、選択したプリセットに置き換える"
+        },
+        "ko-KR": {
+          singular: "프리셋 삭제 및 선택된 항목으로 교체"
+        },
+        "pt-BR": {
+          singular: "Excluir predefinição e substituir pela selecionada"
+        },
+        "zh-CN": {
+          singular: "删除预设并替换为所选"
+        }
+      }
+    }),
+    DeletePresetApprovalWarning: (0, _v5.translate)({
+      singular: "If you delete its approval, users in the workspace will no longer be able to select or use it",
+      dictionary: {
+        es: {
+          singular: "Si eliminas su aprobación, los usuarios en el espacio de trabajo ya no podrán seleccionarlo ni usarlo"
+        },
+        "de-DE": {
+          singular: "Wenn Sie die Genehmigung löschen, können Benutzer im Arbeitsbereich sie nicht mehr auswählen oder verwenden"
+        },
+        "fr-FR": {
+          singular: "Si vous supprimez son approbation, les utilisateurs de l'espace de travail ne pourront plus le sélectionner ni l'utiliser"
+        },
+        "ja-JP": {
+          singular: "承認を削除すると、ワークスペースのユーザーはそれを選択または使用できなくなります"
+        },
+        "ko-KR": {
+          singular: "승인을 삭제하면 워크스페이스의 사용자는 더 이상 이를 선택하거나 사용할 수 없습니다"
+        },
+        "pt-BR": {
+          singular: "Se você excluir sua aprovação, os usuários no espaço de trabalho não poderão mais selecioná‑la ou usá‑la"
+        },
+        "zh-CN": {
+          singular: "如果您移除其批准，工作区内的用户将无法再选择或使用它"
+        }
+      }
+    }),
+    DeletePresetReplacementHint: (0, _v5.translate)({
+      singular: "To delete it, choose a replacement preset.",
+      dictionary: {
+        es: {
+          singular: "Para eliminarlo, elija un preset de reemplazo."
+        },
+        "de-DE": {
+          singular: "Um sie zu löschen, wählen Sie eine Ersatzvoreinstellung."
+        },
+        "fr-FR": {
+          singular: "Pour le supprimer, choisissez un préréglage de remplacement."
+        },
+        "ja-JP": {
+          singular: "削除するには、置き換えるプリセットを選択してください。"
+        },
+        "ko-KR": {
+          singular: "삭제하려면 대체할 프리셋을 선택하세요."
+        },
+        "pt-BR": {
+          singular: "Para excluí-la, escolha uma predefinição substituta."
+        },
+        "zh-CN": {
+          singular: "要删除它，请选择一个替代预设。"
+        }
+      }
+    }),
+    DeletePresetConfirmation: (0, _v5.translate)({
+      singular: "This preset will be permanently deleted. This action cannot be undone.",
+      dictionary: {
+        es: {
+          singular: "Este ajuste preestablecido se eliminará permanentemente. Esta acción no se puede deshacer."
+        },
+        "de-DE": {
+          singular: "Diese Voreinstellung wird dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden."
+        },
+        "fr-FR": {
+          singular: "Ce préréglage sera supprimé définitivement. Cette action est irréversible."
+        },
+        "ja-JP": {
+          singular: "このプリセットは永久に削除されます。この操作は取り消せません。"
+        },
+        "ko-KR": {
+          singular: "이 프리셋은 영구적으로 삭제됩니다. 이 작업은 되돌릴 수 없습니다."
+        },
+        "pt-BR": {
+          singular: "Esta predefinição será excluída permanentemente. Esta ação não pode ser desfeita."
+        },
+        "zh-CN": {
+          singular: "此预设将被永久删除。此操作不可撤销。"
+        }
+      }
+    }),
+    ReplacePreset: (0, _v5.translate)({
+      singular: "Replace preset",
+      dictionary: {
+        es: {
+          singular: "Reemplazar preajuste"
+        },
+        "de-DE": {
+          singular: "Voreinstellung ersetzen"
+        },
+        "fr-FR": {
+          singular: "Remplacer le préréglage"
+        },
+        "ja-JP": {
+          singular: "プリセットを置き換える"
+        },
+        "ko-KR": {
+          singular: "프리셋 교체"
+        },
+        "pt-BR": {
+          singular: "Substituir predefinição"
+        },
+        "zh-CN": {
+          singular: "替换预设"
+        }
+      }
+    }),
+    SelectPreset: (0, _v5.translate)({
+      singular: "Select preset",
+      dictionary: {
+        es: {
+          singular: "Seleccionar preajuste"
+        },
+        "de-DE": {
+          singular: "Voreinstellung auswählen"
+        },
+        "fr-FR": {
+          singular: "Sélectionner un préréglage"
+        },
+        "ja-JP": {
+          singular: "プリセットを選択"
+        },
+        "ko-KR": {
+          singular: "프리셋 선택"
+        },
+        "pt-BR": {
+          singular: "Selecionar predefinição"
+        },
+        "zh-CN": {
+          singular: "选择预设"
+        }
+      }
+    }),
+    DeletePresetUsageDescription: (_v0, _v1, _v2) => (0, _v5.translate)({
+      singular: "This preset is used in {BOLD}{VIDEOS}{/BOLD}, {BOLD}{EVENTS}{/BOLD} and {BOLD}{SHOWCASES}{/BOLD}",
+      replacements: {
+        BOLD: _v0 => (0, _v1.jsx)("b", {
+          children: _v0
+        }),
+        VIDEOS: (0, _v5.translate)({
+          singular: "{count} video",
+          plural: "{count} videos",
+          count: _v0,
+          replacements: {
+            count: _v0
+          },
+          dictionary: {
+            "de-DE": {
+              singular: "{count} Video",
+              plural: "{count} Videos"
+            },
+            "fr-FR": {
+              singular: "{count} vidéo",
+              plural: "{count} vidéos"
+            },
+            "ja-JP": {
+              singular: "{count}件のビデオ",
+              plural: "{count}件のビデオ"
+            },
+            "ko-KR": {
+              singular: "{count} 비디오",
+              plural: "{count} 비디오"
+            },
+            "pt-BR": {
+              singular: "{count} vídeo",
+              plural: "{count} vídeos"
+            },
+            "zh-CN": {
+              singular: "{count} 个视频",
+              plural: "{count} 个视频"
+            }
+          }
+        }),
+        EVENTS: (0, _v5.translate)({
+          singular: "{count} event",
+          plural: "{count} events",
+          count: _v1,
+          replacements: {
+            count: _v1
+          },
+          dictionary: {
+            es: {
+              singular: "{count} evento",
+              plural: "{count} eventos"
+            },
+            "de-DE": {
+              singular: "{count} Veranstaltung",
+              plural: "{count} Veranstaltungen"
+            },
+            "fr-FR": {
+              singular: "{count} événement",
+              plural: "{count} événements"
+            },
+            "ja-JP": {
+              singular: "{count}件のイベント",
+              plural: "{count}件のイベント"
+            },
+            "ko-KR": {
+              singular: "{count} 이벤트",
+              plural: "{count} 이벤트"
+            },
+            "pt-BR": {
+              singular: "{count} evento",
+              plural: "{count} eventos"
+            },
+            "zh-CN": {
+              singular: "{count} 场活动",
+              plural: "{count} 场活动"
+            }
+          }
+        }),
+        SHOWCASES: (0, _v5.translate)({
+          singular: "{count} showcase",
+          plural: "{count} showcases",
+          count: _v2,
+          replacements: {
+            count: _v2
+          },
+          dictionary: {
+            "de-DE": {
+              singular: "{count} Showcase",
+              plural: "{count} Showcases"
+            },
+            "fr-FR": {
+              singular: "{count} vitrine",
+              plural: "{count} vitrines"
+            },
+            "ja-JP": {
+              singular: "{count}件のショーケース",
+              plural: "{count}件のショーケース"
+            },
+            "ko-KR": {
+              singular: "{count} 쇼케이스",
+              plural: "{count} 쇼케이스"
+            },
+            "zh-CN": {
+              singular: "{count} 个展示",
+              plural: "{count} 个展示"
+            }
+          }
+        })
+      },
+      dictionary: {
+        es: {
+          singular: "Este preajuste se utiliza en {BOLD}{VIDEOS}{/BOLD}, {BOLD}{EVENTS}{/BOLD} y {BOLD}{SHOWCASES}{/BOLD}"
+        },
+        "de-DE": {
+          singular: "Diese Voreinstellung wird in {BOLD}{VIDEOS}{/BOLD}, {BOLD}{EVENTS}{/BOLD} und {BOLD}{SHOWCASES}{/BOLD} verwendet."
+        },
+        "fr-FR": {
+          singular: "Ce préréglage est utilisé dans {BOLD}{VIDEOS}{/BOLD}, {BOLD}{EVENTS}{/BOLD} et {BOLD}{SHOWCASES}{/BOLD}"
+        },
+        "ja-JP": {
+          singular: "このプリセットは{BOLD}{VIDEOS}{/BOLD}、{BOLD}{EVENTS}{/BOLD}、および{BOLD}{SHOWCASES}{/BOLD}で使用されています。"
+        },
+        "ko-KR": {
+          singular: "이 프리셋은 {BOLD}{VIDEOS}{/BOLD}, {BOLD}{EVENTS}{/BOLD} 및 {BOLD}{SHOWCASES}{/BOLD}에서 사용됩니다"
+        },
+        "pt-BR": {
+          singular: "Esta predefinição é usada em {BOLD}{VIDEOS}{/BOLD}, {BOLD}{EVENTS}{/BOLD} e {BOLD}{SHOWCASES}{/BOLD}"
+        },
+        "zh-CN": {
+          singular: "此预设用于{BOLD}{VIDEOS}{/BOLD}、{BOLD}{EVENTS}{/BOLD}和{BOLD}{SHOWCASES}{/BOLD}"
+        }
+      }
+    }),
+    RegistrationPresetsDescription: (_v0, _v1) => (0, _v5.translate)({
+      singular: "You can save a new preset while creating a registration form from a {VIDEO_LINK}video{/VIDEO_LINK} or {EVENT_LINK}event{/EVENT_LINK}.",
+      replacements: {
+        VIDEO_LINK: _v0 => (0, _v1.jsx)(_v2.default, {
+          href: _v0,
+          children: (0, _v1.jsx)(_v4.Link, {
+            variant: "inline-secondary",
+            as: "span",
+            sx: {
+              fontSize: "inherit"
+            },
+            children: _v0
+          })
+        }),
+        EVENT_LINK: _v0 => (0, _v1.jsx)(_v2.default, {
+          href: _v1,
+          children: (0, _v1.jsx)(_v4.Link, {
+            variant: "inline-secondary",
+            as: "span",
+            sx: {
+              fontSize: "inherit"
+            },
+            children: _v0
+          })
+        })
+      },
+      dictionary: {
+        es: {
+          singular: "Puedes guardar un nuevo preajuste al crear un formulario de registro desde un {VIDEO_LINK}vídeo{/VIDEO_LINK} o un {EVENT_LINK}evento{/EVENT_LINK}."
+        },
+        "de-DE": {
+          singular: "Sie können eine neue Voreinstellung speichern, während Sie ein Registrierungsformular aus einem {VIDEO_LINK}Video{/VIDEO_LINK} oder {EVENT_LINK}Event{/EVENT_LINK} erstellen."
+        },
+        "fr-FR": {
+          singular: "Vous pouvez enregistrer un nouveau préréglage lors de la création d'un formulaire d'inscription à partir d'une {VIDEO_LINK}vidéo{/VIDEO_LINK} ou d'un {EVENT_LINK}événement{/EVENT_LINK}."
+        },
+        "ja-JP": {
+          singular: "登録フォームを {VIDEO_LINK}video{/VIDEO_LINK} または {EVENT_LINK}event{/EVENT_LINK} から作成する際に、新しいプリセットを保存できます。"
+        },
+        "ko-KR": {
+          singular: "{VIDEO_LINK}비디오{/VIDEO_LINK} 또는 {EVENT_LINK}이벤트{/EVENT_LINK}에서 등록 양식을 생성할 때 새 프리셋을 저장할 수 있습니다."
+        },
+        "pt-BR": {
+          singular: "Você pode salvar uma nova predefinição ao criar um formulário de registro a partir de um {VIDEO_LINK}vídeo{/VIDEO_LINK} ou {EVENT_LINK}evento{/EVENT_LINK}."
+        },
+        "zh-CN": {
+          singular: "您可以在从 {VIDEO_LINK}视频{/VIDEO_LINK} 或 {EVENT_LINK}活动{/EVENT_LINK} 创建注册表单时保存新的预设。"
+        }
+      }
+    }),
     ExportAllRegistrantData: (0, _v5.translate)({
       singular: "Export all registration data",
       dictionary: {

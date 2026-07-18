@@ -56,19 +56,22 @@
       {
         question: _v5,
         answer: _v6,
-        moments: _v7,
-        relatedQuestions: _v8
+        answerOrigin: _v7,
+        questionSource: _v8,
+        moments: _v9,
+        relatedQuestions: _v10
       } = (0, _v6.useQuestionContext)(),
-      _v9 = (0, _v8.useAiGenerationStore)(_v0 => _v0.getGenerationId),
-      [_v10] = (0, _v2.useState)(() => _v9("ask_ai")),
+      _v11 = (0, _v8.useAiGenerationStore)(_v0 => _v0.getGenerationId),
+      [_v12] = (0, _v2.useState)(() => _v11("ask_ai")),
       {
-        sendViewSuggestedAIAnswerEvent: _v11,
-        sendSelectSuggestedAIQuestionEvent: _v12,
-        sendPlayMomentClickEvent: _v13,
-        sendAskAQuestionEvent: _v14
+        sendViewSuggestedAIAnswerEvent: _v13,
+        sendAskAiAnswerShownEvent: _v14,
+        sendSelectSuggestedAIQuestionEvent: _v15,
+        sendPlayMomentClickEvent: _v16,
+        sendAskAQuestionEvent: _v17
       } = (0, _v5.useGetSvvManageBpEvents)();
     return (0, _v2.useEffect)(function () {
-      _v11(_v5, _v6);
+      _v13(_v5, _v6), null !== _v7 && null !== _v8 && _v14(_v5, _v6, _v7, _v8);
     }, []), (0, _v1.jsxs)(_v13.ResponsiveBox, {
       height: "100%",
       alignItems: "flex-start",
@@ -84,28 +87,28 @@
           }), (0, _v1.jsx)(_v12.QuickActions, {
             showThumbs: _v3,
             ratedFeature: "ask_ai",
-            generationId: _v10
+            generationId: _v12
           })]
         }), (0, _v1.jsx)(_v17, {
           role: "alert",
           "aria-live": "polite",
           children: _v6
         })]
-      }), _v7.length > 0 ? (0, _v1.jsx)(_v10.Section, {
+      }), _v9.length > 0 ? (0, _v1.jsx)(_v10.Section, {
         pt: 0,
-        children: _v7.map(_v0 => {
+        children: _v9.map(_v0 => {
           let _v1 = _v0.quoteTitle ?? _v7.playMoment;
           return (0, _v1.jsx)(_v9.Choice.PlayMoment, {
             isPrimary: !0,
             onClick: () => {
-              _v13(_v0.timecode, _v1), _v0?.(_v0.timecode);
+              _v16(_v0.timecode, _v1), _v0?.(_v0.timecode);
             },
             children: (0, _v1.jsx)(_v16, {
               children: _v1
             })
           }, _v0.timecode);
         })
-      }) : null, _v8.length > 0 ? (0, _v1.jsx)(_v3.Box, {
+      }) : null, _v10.length > 0 ? (0, _v1.jsx)(_v3.Box, {
         mt: "auto",
         width: "100%",
         children: (0, _v1.jsxs)(_v10.Section, {
@@ -115,10 +118,10 @@
             flexDirection: "column",
             gap: "8px",
             alignSelf: "stretch",
-            children: [_v8.map((_v0, _v1) => (0, _v1.jsx)(_v9.Choice, {
+            children: [_v10.map((_v0, _v1) => (0, _v1.jsx)(_v9.Choice, {
               shouldWrap: !0,
               onClick: () => {
-                _v1(_v0), _v12({
+                _v1(_v0, "related_question"), _v15({
                   copy: _v0,
                   isRelated: !0
                 });
@@ -126,7 +129,7 @@
               children: _v0
             }, `question-${_v1}`)), _v2 && (0, _v1.jsx)(_v11.PromptInput, {
               onSubmit: _v0 => {
-                _v14(_v0), _v1(_v0);
+                _v17(_v0), _v1(_v0, "typed");
               }
             })]
           })]

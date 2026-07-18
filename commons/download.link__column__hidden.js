@@ -311,13 +311,15 @@
     },
     _v75 = ({
       disabled: _v0,
-      onClick: _v1
+      onClick: _v1,
+      tooltipText: _v2
     }) => {
-      let _v2 = (0, _v37.useAnalyticsEvent)(),
-        _v3 = (0, _v51.usePageName)(),
-        _v4 = "vls" === _v3 ? "search" : "video_library";
+      let _v3 = (0, _v37.useAnalyticsEvent)(),
+        _v4 = (0, _v51.usePageName)(),
+        _v5 = "vls" === _v4 ? "search" : "video_library";
       return (0, _v1.jsx)(_v71, {
         disabled: _v0,
+        tooltipText: _v2,
         icon: (0, _v1.jsx)(_v65.Eye, {}),
         label: (0, _v34.translate)({
           singular: "Privacy",
@@ -346,12 +348,12 @@
           }
         }),
         onClick: () => {
-          _v2(_v60({
+          _v3(_v60({
             name: "open_bulk_privacy_modal",
             location: "bulk_actions_bar",
-            feature: _v4,
+            feature: _v5,
             copy: "privacy",
-            page: _v3,
+            page: _v4,
             target: "bulk_privacy_modal",
             type: "general",
             target_path: null,
@@ -796,7 +798,8 @@
         }).filter(_v80);
       }, [_v18]),
       _v77 = (0, _v3.useMemo)(() => !!_v18 && _v18.some(_v0 => _v0.video && (0, _v45.isVideoMetadataLocked)(_v0.video)), [_v18]),
-      _v78 = (0, _v3.useCallback)(() => {
+      _v78 = (0, _v3.useMemo)(() => !!_v18 && _v18.some(_v0 => _v0.video?.metadata?.hasMandatoryEmailCapture === !0), [_v18]),
+      _v79 = (0, _v3.useCallback)(() => {
         _v45({
           title: (0, _v34.translate)({
             singular: "These videos have missing mandatory custom metadata.",
@@ -830,9 +833,9 @@
         });
       }, [_v45]),
       {
-        num_items: _v79,
-        num_videos: _v80,
-        num_live_events: _v81
+        num_items: _v80,
+        num_videos: _v81,
+        num_live_events: _v82
       } = (0, _v3.useMemo)(() => {
         let _v0 = 0,
           _v1 = 0,
@@ -845,7 +848,7 @@
           num_live_events: _v2
         };
       }, [_v18]),
-      _v82 = _v9 ? () => {
+      _v83 = _v9 ? () => {
         let _v0 = Array.from(_v19).join(",");
         _v20 && _v9 && (_v52({
           where: {
@@ -870,9 +873,9 @@
           is_private_to_me: null,
           is_subfolder: !1,
           parent_folder_id: null,
-          num_items: _v79,
-          num_videos: _v80,
-          num_live_events: _v81,
+          num_items: _v80,
+          num_videos: _v81,
+          num_live_events: _v82,
           ..._v10
         })));
       } : _v67 ? () => {
@@ -918,20 +921,20 @@
           is_private_to_me: null,
           is_subfolder: !1,
           parent_folder_id: null,
-          num_items: _v79,
-          num_videos: _v80,
-          num_live_events: _v81,
+          num_items: _v80,
+          num_videos: _v81,
+          num_live_events: _v82,
           ..._v10
         })));
       },
-      _v83 = _v9 ? _v53 : _v67 ? _v70 : _v49,
-      _v84 = _v0 || 0 === _v66.length || _v14 || _v8,
-      _v85 = (0, _v3.useCallback)(() => {
+      _v84 = _v9 ? _v53 : _v67 ? _v70 : _v49,
+      _v85 = _v0 || 0 === _v66.length || _v14 || _v8,
+      _v86 = (0, _v3.useCallback)(() => {
         _v30({
           action: "add_video_rating",
           itemsCount: _v19.size,
           page: _v31
-        }), !_v84 && _v20 && _v42({
+        }), !_v85 && _v20 && _v42({
           items: _v66,
           userId: _v20,
           location: _v43.AnalyticsLocations.BULK_ACTIONS_BAR,
@@ -940,8 +943,8 @@
             _v16(), _v21 ? _v21() : _v73();
           }
         });
-      }, [_v66, _v20, _v84, _v63, _v42, _v16, _v21, _v73, _v30, _v19, _v31]),
-      _v86 = _v19.size;
+      }, [_v66, _v20, _v85, _v63, _v42, _v16, _v21, _v73, _v30, _v19, _v31]),
+      _v87 = _v19.size;
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v7.Flex, {
         id: _v81,
@@ -963,7 +966,7 @@
             device_type: null
           })), _v16();
         },
-        numItemsSelected: _v86,
+        numItemsSelected: _v87,
         tooltipText: _v15 && _v12 && _v13 ? (0, _v34.translate)({
           singular: "You've reached the selection limit for bulk Move, Privacy, and Add to showcases",
           dictionary: {
@@ -1041,7 +1044,7 @@
           }
         }) : void 0,
         targetElementId: _v81,
-        selectedItemsText: 0 === _v86 ? (0, _v34.translate)({
+        selectedItemsText: 0 === _v87 ? (0, _v34.translate)({
           singular: "Select all",
           dictionary: {
             es: {
@@ -1069,9 +1072,9 @@
         }) : (0, _v34.translate)({
           singular: "{COUNT} item selected",
           plural: "{COUNT} items selected",
-          count: _v86,
+          count: _v87,
           replacements: {
-            COUNT: _v86
+            COUNT: _v87
           },
           dictionary: {
             es: {
@@ -1206,9 +1209,9 @@
               itemsCount: _v19.size,
               page: _v31
             }), _v36({
-              isLoading: _v83,
+              isLoading: _v84,
               numItemsToDelete: _v18 ? _v18.length : 0,
-              onClickDelete: _v82,
+              onClickDelete: _v83,
               onClickCancel() {
                 _v29({
                   eventName: "workflow.delete_video_cancelled",
@@ -1231,9 +1234,35 @@
             });
           }
         }), void 0 !== _v6 && (0, _v1.jsx)(_v75, {
-          disabled: _v0 || !_v6 || _v13,
+          disabled: _v0 || !_v6 || _v13 || _v78,
+          tooltipText: _v78 ? (0, _v34.translate)({
+            singular: "This video needs an approved registration preset to be shared. Select one in the registration settings to continue.",
+            dictionary: {
+              es: {
+                singular: "Este vídeo requiere un preajuste de registro aprobado para ser compartido. Seleccione uno en la configuración de registro para continuar."
+              },
+              "de-DE": {
+                singular: "Dieses Video benötigt ein genehmigtes Registrierungs‑Preset, um geteilt zu werden. Wählen Sie eines in den Registrierungseinstellungen aus, um fortzufahren."
+              },
+              "fr-FR": {
+                singular: "Cette vidéo nécessite un préréglage d'inscription approuvé pour être partagée. Sélectionnez-en un dans les paramètres d'inscription pour continuer."
+              },
+              "ja-JP": {
+                singular: "このビデオを共有するには、承認済みの登録プリセットが必要です。続行するには登録設定でプリセットを選択してください。"
+              },
+              "ko-KR": {
+                singular: "이 비디오는 공유하려면 승인된 등록 프리셋이 필요합니다. 계속하려면 등록 설정에서 하나를 선택하세요."
+              },
+              "pt-BR": {
+                singular: "Este vídeo precisa de um preset de registro aprovado para ser compartilhado. Selecione um nas configurações de registro para continuar."
+              },
+              "zh-CN": {
+                singular: "此视频需要一个经批准的注册预设才能分享。请在注册设置中选择一个以继续。"
+              }
+            }
+          }) : void 0,
           onClick: () => {
-            if (_v77) return void _v78();
+            if (_v77) return void _v79();
             if (_v29(_v60({
               name: "open_bulk_privacy_modal",
               location: _v43.AnalyticsLocations.BULK_ACTIONS_BAR,
@@ -1529,8 +1558,8 @@
               }),
               children: (0, _v1.jsx)(_v12.MenuItem, {
                 icon: (0, _v1.jsx)(_v15.Feedback, {}),
-                isDisabled: _v84,
-                onClick: _v85,
+                isDisabled: _v85,
+                onClick: _v86,
                 children: (0, _v1.jsxs)(_v7.Flex, {
                   align: "center",
                   justify: "space-between",

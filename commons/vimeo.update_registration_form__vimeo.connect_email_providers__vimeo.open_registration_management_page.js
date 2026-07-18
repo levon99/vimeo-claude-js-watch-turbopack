@@ -36,6 +36,7 @@
       ADD_REGISTRATION_FIELD_TEXT: "add_registration_field_text",
       ADD_REGISTRATION_FIELD_DROPDOWN: "add_registration_field_dropdown",
       ADD_REGISTRATION_FIELD_CHECKBOX: "add_registration_field_checkbox",
+      ADD_REGISTRATION_FIELD_DESCRIPTION: "add_registration_field_description",
       DELETE_REGISTRATION_FIELD: "delete_registration_field",
       ADD_EMAIL_LIST_PROVIDER: "add_email_list_provider",
       ADD_DYNAMIC_ELEMENT: "add_dynamic_element",
@@ -47,12 +48,14 @@
     _v5 = {
       [_v1.CustomFieldTypes.Text]: _v4.ADD_REGISTRATION_FIELD_TEXT,
       [_v1.CustomFieldTypes.Dropdown]: _v4.ADD_REGISTRATION_FIELD_DROPDOWN,
-      [_v1.CustomFieldTypes.Checkbox]: _v4.ADD_REGISTRATION_FIELD_CHECKBOX
+      [_v1.CustomFieldTypes.Checkbox]: _v4.ADD_REGISTRATION_FIELD_CHECKBOX,
+      [_v1.CustomFieldTypes.Description]: _v4.ADD_REGISTRATION_FIELD_DESCRIPTION
     },
     _v6 = {
       [_v1.CustomFieldTypes.Text]: "field_text",
       [_v1.CustomFieldTypes.Dropdown]: "field_dropdown",
-      [_v1.CustomFieldTypes.Checkbox]: "field_checkbox"
+      [_v1.CustomFieldTypes.Checkbox]: "field_checkbox",
+      [_v1.CustomFieldTypes.Description]: "field_description"
     };
   _v0.s(["BP_ACTION_NAME", 0, _v4, "BP_COPY", 0, {
     MANAGE_PROVIDERS: "Manage Providers",

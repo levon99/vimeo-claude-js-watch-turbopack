@@ -328,139 +328,52 @@
     };
   var _v34 = _v0.i(0),
     _v35 = _v0.i(0);
-  let _v36 = () => (0, _v1.jsx)(_v3.Box, {
-    paddingBottom: 30,
-    children: (0, _v1.jsxs)(_v34.Flex, {
-      justifyContent: "space-between",
-      shrink: 0,
-      direction: "column",
-      children: [(0, _v1.jsx)(_v22.Header, {
-        fontSize: (0, _v11.rem)(30),
-        fontWeight: "medium",
-        lineHeight: (0, _v11.rem)(36),
-        children: _v20.default.Registration
-      }), (0, _v1.jsx)(_v3.Box, {
-        marginTop: "sm",
-        children: (0, _v1.jsx)(_v9.Text, {
-          color: "text-secondary",
-          variant: "body-md",
-          children: (0, _v30.translate)({
-            singular: "Registration forms collect viewer information, like email addresses, during videos or events. {LINK}Learn how to add registration{/LINK}",
-            replacements: {
-              LINK: _v0 => (0, _v1.jsx)(_v35.Link, {
-                variant: "primary",
-                fontSize: "body-md",
-                target: "_blank",
-                href: _v19.MANAGE_REG_LINK,
-                children: _v0
-              })
-            },
-            dictionary: {
-              es: {
-                singular: "Los formularios de inscripción recopilan información del espectador, como direcciones de correo electrónico, durante videos o eventos. {LINK}Aprenda a agregar la inscripción.{/LINK}"
-              },
-              "de-DE": {
-                singular: "Registrierungsformulare sammeln während Videos oder Events Informationen über die Zuschauenden, wie z. B. E-Mail-Adressen. {LINK}Hier erfahren Sie, wie Sie die Registrierung hinzufügen{/LINK}"
-              },
-              "fr-FR": {
-                singular: "Les formulaires d'inscription recueillent des informations sur les spectateurs, comme les adresses e-mail, pendant les vidéos ou les événements. {LINK}Découvrez comment ajouter l'inscription{/LINK}"
-              },
-              "ja-JP": {
-                singular: "登録フォームでは動画やイベント中にメールアドレスなどの視聴者情報が収集されます。{LINK}登録の追加方法はこちら{/LINK}"
-              },
-              "ko-KR": {
-                singular: "등록 양식은 동영상이나 이벤트 중에 이메일 주소와 같은 뷰어 정보를 수집합니다. {LINK}등록을 추가하는 방법을 알아보세요{/LINK}."
-              },
-              "pt-BR": {
-                singular: "Os formulários de inscrição coletam informações do espectador, como endereço de e-mail, durante vídeos ou eventos. {LINK}Saiba como adicionar a inscrição{/LINK}"
-              },
-              "zh-CN": {
-                singular: "注册表单会在视频或活动期间收集观众信息，例如电子邮件地址。{LINK}了解如何添加注册{/LINK}"
-              }
-            }
-          })
-        })
-      })]
-    })
-  });
-  var _v37 = _v0.i(0),
-    _v38 = _v0.i(0);
-  let _v39 = () => {
-      let [_v0, _v1] = (0, _v4.useState)(!1);
-      return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v5.Card, {
-          padding: "lg",
-          marginBottom: "lg",
-          children: [(0, _v1.jsx)(_v9.Text, {
-            variant: "heading-md",
-            fontSize: (0, _v11.rem)(20),
-            children: _v20.default.ExportAllData
-          }), (0, _v1.jsx)(_v9.Text, {
-            color: "text-secondary",
-            variant: "body-md",
-            marginTop: "sm",
-            children: _v20.default.RegExportDesc
-          }), (0, _v1.jsx)(_v34.Flex, {
-            children: (0, _v1.jsx)(_v21.Button, {
-              variant: "secondary",
-              leftIcon: (0, _v1.jsx)(_v37.FileExport, {}),
-              marginTop: "md",
-              onClick: () => _v1(!0),
-              fontWeight: "medium",
-              children: _v20.default.ExportData
-            })
-          })]
-        }), (0, _v1.jsx)(_v38.DownloadRegistrantModal, {
-          isOpen: _v0,
-          onClose: () => _v1(!1)
-        })]
-      });
-    },
-    _v40 = (0, _v4.createContext)({
+  let _v36 = (0, _v4.createContext)({
       features: {},
       setFeatures: () => void 0
     }),
-    _v41 = ({
+    _v37 = ({
       children: _v0
     }) => {
       let [_v1] = (0, _v4.useState)();
-      return (0, _v1.jsx)(_v40.Provider, {
+      return (0, _v1.jsx)(_v36.Provider, {
         value: {
           features: _v1
         },
         children: _v0
       });
     },
-    _v42 = () => (0, _v1.jsx)(_v41, {
+    _v38 = () => (0, _v1.jsx)(_v37, {
       children: (0, _v1.jsxs)(_v3.Box, {
-        children: [(0, _v1.jsx)(_v36, {}), (0, _v1.jsx)(_v39, {}), (0, _v1.jsx)(_v33, {})]
+        children: [(0, _v1.jsx)(_v34.Header, {}), (0, _v1.jsx)(_v35.RegistrationInfo, {}), (0, _v1.jsx)(_v33, {})]
       })
     });
-  var _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  let _v48 = ({
+  var _v39 = _v0.i(0),
+    _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0),
+    _v44 = _v0.i(0);
+  let _v45 = ({
       children: _v0
     }) => {
-      let _v1 = (0, _v4.useContext)(_v47.ViewerContext),
+      let _v1 = (0, _v4.useContext)(_v44.ViewerContext),
         [_v2, _v3] = (0, _v4.useState)(!1);
-      return !_v1 || _v2 ? (0, _v1.jsx)(_v34.Flex, {
+      return !_v1 || _v2 ? (0, _v1.jsx)(_v39.Flex, {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        children: (0, _v1.jsx)(_v43.Spinner, {
+        children: (0, _v1.jsx)(_v40.Spinner, {
           size: "lg"
         })
       }) : (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v45.DefaultNavigation, {}), (0, _v1.jsx)(_v34.Flex, {
+        children: [(0, _v1.jsx)(_v42.DefaultNavigation, {}), (0, _v1.jsx)(_v39.Flex, {
           marginTop: "2xl",
           marginLeft: "xl",
           children: (0, _v1.jsx)(_v21.Button, {
             size: "lg",
             variant: "tertiary",
-            leftIcon: (0, _v1.jsx)(_v44.ArrowLeft, {}),
+            leftIcon: (0, _v1.jsx)(_v41.ArrowLeft, {}),
             onClick: () => {
               _v3(!0), window.location.href = _v19.settingsPageUrl;
             },
@@ -479,14 +392,14 @@
           })
         }), (0, _v1.jsx)(_v3.Box, {
           height: "60",
-          children: _v1 && (0, _v1.jsx)(_v46.EssentialFooter, {
+          children: _v1 && (0, _v1.jsx)(_v43.EssentialFooter, {
             ..._v1,
             enableQuotaMenu: !1
           })
         })]
       });
     },
-    _v49 = () => (0, _v1.jsx)(_v42, {});
+    _v46 = () => (0, _v1.jsx)(_v38, {});
   (0, _v2.withPageSetup)(() => ({
     props: {
       hasThemeSupport: !0
@@ -495,7 +408,7 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v49.getLayout = _v0 => (0, _v1.jsx)(_v48, {
+  }), _v46.getLayout = _v0 => (0, _v1.jsx)(_v45, {
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v49], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v46], 0);
 }

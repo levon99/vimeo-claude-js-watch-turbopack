@@ -164,6 +164,7 @@
 - https://vimeo.com/manage/workspace/members/[member_id]/team-library
 - https://vimeo.com/manage/workspace/members/[member_id]/team-library/folders/[folder_id]
 - https://vimeo.com/manage/workspace/presets
+- https://vimeo.com/manage/workspace/registration
 - https://vimeo.com/manage/workspace/security-and-data
 - https://vimeo.com/manage/workspace/security-and-data/audit-logs
 - https://vimeo.com/manage/workspace/security-and-data/clip-extension

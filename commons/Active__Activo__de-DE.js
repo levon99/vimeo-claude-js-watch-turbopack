@@ -7750,6 +7750,32 @@
           }
         }
       }),
+      registrationFormRequired: (0, _v6.translate)({
+        singular: "This event need an approved registration preset before it can go live. Select in the registration settings to continue.",
+        dictionary: {
+          es: {
+            singular: "Este evento necesita un preajuste de registro aprobado antes de poder emitirse en directo. Seleccione uno en la configuración de registro para continuar."
+          },
+          "de-DE": {
+            singular: "Für diese Veranstaltung ist ein genehmigtes Registrierungspreset erforderlich, bevor sie live geschaltet werden kann. Wählen Sie es in den Registrierungseinstellungen aus, um fortzufahren."
+          },
+          "fr-FR": {
+            singular: "Cet événement nécessite un préréglage d'inscription approuvé avant de pouvoir être diffusé en direct. Sélectionnez-le dans les paramètres d'inscription pour continuer."
+          },
+          "ja-JP": {
+            singular: "このイベントは公開される前に承認済みの登録プリセットが必要です。登録設定で選択して続行してください。"
+          },
+          "ko-KR": {
+            singular: "이 이벤트는 라이브로 전환되기 전에 승인된 등록 프리셋이 필요합니다. 계속하려면 등록 설정에서 선택하세요."
+          },
+          "pt-BR": {
+            singular: "Este evento precisa de uma predefinição de inscrição aprovada antes de poder ir ao vivo. Selecione-a nas configurações de inscrição para continuar."
+          },
+          "zh-CN": {
+            singular: "此活动需要一个已批准的注册预设才能上线。请在注册设置中选择以继续。"
+          }
+        }
+      }),
       remove: (0, _v6.translate)({
         singular: "Remove",
         dictionary: {

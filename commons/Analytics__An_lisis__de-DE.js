@@ -39,10 +39,11 @@
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
-    _v39 = _v0.i(0);
-  let _v40 = (0, _v14.rem)(212),
-    _v41 = _v22.Analytics,
-    _v42 = (0, _v19.translate)({
+    _v39 = _v0.i(0),
+    _v40 = _v0.i(0);
+  let _v41 = (0, _v14.rem)(212),
+    _v42 = _v22.Analytics,
+    _v43 = (0, _v19.translate)({
       singular: "Analytics",
       dictionary: {
         es: {
@@ -68,7 +69,7 @@
         }
       }
     }),
-    _v43 = (0, _v19.translate)({
+    _v44 = (0, _v19.translate)({
       singular: "Change thumbnail",
       dictionary: {
         es: {
@@ -94,8 +95,8 @@
         }
       }
     }),
-    _v44 = _v24.CodeSquare,
-    _v45 = (0, _v19.translate)({
+    _v45 = _v24.CodeSquare,
+    _v46 = (0, _v19.translate)({
       singular: "Copy embed code",
       dictionary: {
         es: {
@@ -121,8 +122,8 @@
         }
       }
     }),
-    _v46 = _v32.Link,
-    _v47 = (0, _v19.translate)({
+    _v47 = _v33.Link,
+    _v48 = (0, _v19.translate)({
       singular: "Copy link",
       dictionary: {
         es: {
@@ -148,8 +149,8 @@
         }
       }
     }),
-    _v48 = _v32.Link,
-    _v49 = (0, _v19.translate)({
+    _v49 = _v33.Link,
+    _v50 = (0, _v19.translate)({
       singular: "Copy review link",
       dictionary: {
         es: {
@@ -175,8 +176,8 @@
         }
       }
     }),
-    _v50 = _v33.LinkAdd,
-    _v51 = (0, _v19.translate)({
+    _v51 = _v34.LinkAdd,
+    _v52 = (0, _v19.translate)({
       singular: "Create review links",
       dictionary: {
         es: {
@@ -202,8 +203,8 @@
         }
       }
     }),
-    _v52 = _v38.TrashBin,
-    _v53 = (0, _v19.translate)({
+    _v53 = _v39.TrashBin,
+    _v54 = (0, _v19.translate)({
       singular: "Delete",
       dictionary: {
         es: {
@@ -229,8 +230,8 @@
         }
       }
     }),
-    _v54 = _v25.DownloadImport,
-    _v55 = (0, _v19.translate)({
+    _v55 = _v25.DownloadImport,
+    _v56 = (0, _v19.translate)({
       singular: "Download...",
       dictionary: {
         es: {
@@ -256,8 +257,8 @@
         }
       }
     }),
-    _v56 = _v23.Code,
-    _v57 = (0, _v19.translate)({
+    _v57 = _v23.Code,
+    _v58 = (0, _v19.translate)({
       singular: "Embed...",
       dictionary: {
         es: {
@@ -283,8 +284,8 @@
         }
       }
     }),
-    _v58 = _v32.Link,
-    _v59 = (0, _v19.translate)({
+    _v59 = _v33.Link,
+    _v60 = (0, _v19.translate)({
       singular: "Copy review links",
       dictionary: {
         es: {
@@ -310,8 +311,8 @@
         }
       }
     }),
-    _v60 = _v29.FolderOpen,
-    _v61 = (0, _v19.translate)({
+    _v61 = _v29.FolderOpen,
+    _v62 = (0, _v19.translate)({
       singular: "Move...",
       dictionary: {
         es: {
@@ -337,8 +338,8 @@
         }
       }
     }),
-    _v62 = _v20._3GridLeftLayout,
-    _v63 = (0, _v19.translate)({
+    _v63 = _v20._3GridLeftLayout,
+    _v64 = (0, _v19.translate)({
       singular: "Add to showcase",
       dictionary: {
         es: {
@@ -364,8 +365,35 @@
         }
       }
     }),
-    _v64 = _v27.RenamePencil,
-    _v65 = (0, _v19.translate)({
+    _v65 = _v30.FolderStack,
+    _v66 = (0, _v19.translate)({
+      singular: "Organize",
+      dictionary: {
+        es: {
+          singular: "Organizar"
+        },
+        "de-DE": {
+          singular: "Organisieren"
+        },
+        "fr-FR": {
+          singular: "Organiser"
+        },
+        "ja-JP": {
+          singular: "整理する"
+        },
+        "ko-KR": {
+          singular: "정리"
+        },
+        "pt-BR": {
+          singular: "Organizar"
+        },
+        "zh-CN": {
+          singular: "整理"
+        }
+      }
+    }),
+    _v67 = _v27.RenamePencil,
+    _v68 = (0, _v19.translate)({
       singular: "Rename",
       dictionary: {
         es: {
@@ -391,8 +419,8 @@
         }
       }
     }),
-    _v66 = _v34.Reset,
-    _v67 = (0, _v19.translate)({
+    _v69 = _v35.Reset,
+    _v70 = (0, _v19.translate)({
       singular: "Replace...",
       dictionary: {
         es: {
@@ -418,8 +446,8 @@
         }
       }
     }),
-    _v68 = _v35.ReviewCheck,
-    _v69 = (0, _v19.translate)({
+    _v71 = _v36.ReviewCheck,
+    _v72 = (0, _v19.translate)({
       singular: "Review",
       dictionary: {
         es: {
@@ -445,8 +473,8 @@
         }
       }
     }),
-    _v70 = _v37.Share,
-    _v71 = (0, _v19.translate)({
+    _v73 = _v38.Share,
+    _v74 = (0, _v19.translate)({
       singular: "Share...",
       dictionary: {
         es: {
@@ -472,8 +500,8 @@
         }
       }
     }),
-    _v72 = _v39.Wrench,
-    _v73 = (0, _v19.translate)({
+    _v75 = _v40.Wrench,
+    _v76 = (0, _v19.translate)({
       singular: "Tools",
       dictionary: {
         es: {
@@ -496,8 +524,8 @@
         }
       }
     }),
-    _v74 = _v21.AiSparkles,
-    _v75 = (0, _v19.translate)({
+    _v77 = _v21.AiSparkles,
+    _v78 = (0, _v19.translate)({
       singular: "Translate",
       dictionary: {
         es: {
@@ -523,8 +551,8 @@
         }
       }
     }),
-    _v76 = _v36.ScissorsEditTrim,
-    _v77 = (0, _v19.translate)({
+    _v79 = _v37.ScissorsEditTrim,
+    _v80 = (0, _v19.translate)({
       singular: "Video editor",
       dictionary: {
         es: {
@@ -550,8 +578,8 @@
         }
       }
     }),
-    _v78 = _v31.InfoCircle,
-    _v79 = (0, _v19.translate)({
+    _v81 = _v32.InfoCircle,
+    _v82 = (0, _v19.translate)({
       singular: "Video info",
       dictionary: {
         es: {
@@ -574,8 +602,8 @@
         }
       }
     }),
-    _v80 = _v28.Eye,
-    _v81 = (0, _v19.translate)({
+    _v83 = _v28.Eye,
+    _v84 = (0, _v19.translate)({
       singular: "View video page",
       dictionary: {
         es: {
@@ -601,8 +629,8 @@
         }
       }
     }),
-    _v82 = _v28.Eye,
-    _v83 = (0, _v19.translate)({
+    _v85 = _v28.Eye,
+    _v86 = (0, _v19.translate)({
       singular: "View event page",
       dictionary: {
         es: {
@@ -628,8 +656,8 @@
         }
       }
     }),
-    _v84 = _v32.Link,
-    _v85 = (0, _v19.translate)({
+    _v87 = _v33.Link,
+    _v88 = (0, _v19.translate)({
       singular: "Review link",
       dictionary: {
         es: {
@@ -655,7 +683,7 @@
         }
       }
     }),
-    _v86 = (0, _v19.translate)({
+    _v89 = (0, _v19.translate)({
       singular: "Review links",
       dictionary: {
         es: {
@@ -681,8 +709,8 @@
         }
       }
     }),
-    _v87 = _v33.LinkAdd,
-    _v88 = (0, _v19.translate)({
+    _v90 = _v34.LinkAdd,
+    _v91 = (0, _v19.translate)({
       singular: "Create new review link",
       dictionary: {
         es: {
@@ -708,8 +736,8 @@
         }
       }
     }),
-    _v89 = _v26.EditPencil,
-    _v90 = (0, _v19.translate)({
+    _v92 = _v26.EditPencil,
+    _v93 = (0, _v19.translate)({
       singular: "Edit file",
       dictionary: {
         es: {
@@ -735,7 +763,7 @@
         }
       }
     });
-  _v0.s(["ACTION_ICON_BOX_SIZE", 0, 20, "ADD_TO_SHOWCASE_COPY", 0, _v63, "ADD_TO_SHOWCASE_ICON", 0, _v62, "ANALYTICS_COPY", 0, _v42, "ANALYTICS_ICON", 0, _v41, "CHANGE_THUMBNAIL_COPY", 0, _v43, "CHANGE_THUMBNAIL_ICON", 0, _v0 => (0, _v1.jsx)(_v30.Icon, {
+  _v0.s(["ACTION_ICON_BOX_SIZE", 0, 20, "ADD_TO_SHOWCASE_COPY", 0, _v64, "ADD_TO_SHOWCASE_ICON", 0, _v63, "ANALYTICS_COPY", 0, _v43, "ANALYTICS_ICON", 0, _v42, "CHANGE_THUMBNAIL_COPY", 0, _v44, "CHANGE_THUMBNAIL_ICON", 0, _v0 => (0, _v1.jsx)(_v31.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -743,15 +771,15 @@
       d: "m22.737 2.751-2.42-2.42a1 1 0 0 0-1.414 0l-4.58 4.58a1 1 0 0 0-.293.707v2.42a1 1 0 0 0 1 1h2.42a1 1 0 0 0 .707-.293l4.58-4.58a.998.998 0 0 0 0-1.414Zm-5.7 4.287H16.03V6.032l3.58-3.58 1.006 1.006-3.58 3.58ZM20 10a1 1 0 0 0-1 1v2.392l-1.48-1.48a2.78 2.78 0 0 0-3.929 0l-.698.697-2.486-2.486a2.777 2.777 0 0 0-3.924 0L5 11.606V6a1.001 1.001 0 0 1 1-1h6a1 1 0 1 0 0-2H6a3.003 3.003 0 0 0-3 3v12a3.003 3.003 0 0 0 3 3h12a3.004 3.004 0 0 0 3-3v-7a1 1 0 0 0-1-1ZM6 19a1.001 1.001 0 0 1-1-1v-3.566l2.897-2.897a.8.8 0 0 1 1.096 0l3.168 3.167c.009.01.012.022.02.03L16.448 19H6Zm13-1a.972.972 0 0 1-.179.537l-4.514-4.514.698-.698a.78.78 0 0 1 1.1 0L19 16.22V18Z",
       fill: "currentColor"
     })
-  }), "COPY_EMBED_CODE_COPY", 0, _v45, "COPY_EMBED_CODE_ICON", 0, _v44, "COPY_LINK_COPY", 0, _v47, "COPY_LINK_ICON", 0, _v46, "COPY_REVIEW_LINK_COPY", 0, _v49, "COPY_REVIEW_LINK_ICON", 0, _v48, "CREATE_NEW_REVIEW_LINK_COPY", 0, _v88, "CREATE_NEW_REVIEW_LINK_ICON", 0, _v87, "CREATE_REVIEW_LINKS_COPY", 0, _v51, "CREATE_REVIEW_LINKS_ICON", 0, _v50, "DELETE_COPY", 0, _v53, "DELETE_ICON", 0, _v52, "DOWNLOAD_COPY", 0, _v55, "DOWNLOAD_ICON", 0, _v54, "EDIT_FILE_COPY", 0, _v90, "EDIT_FILE_ICON", 0, _v89, "EMBED_COPY", 0, _v57, "EMBED_ICON", 0, _v56, "MANAGE_REVIEW_LINKS_COPY", 0, _v59, "MANAGE_REVIEW_LINKS_ICON", 0, _v58, "MENU_MIN_WIDTH", 0, _v40, "MOVE_COPY", 0, _v61, "MOVE_ICON", 0, _v60, "RENAME_COPY", 0, _v65, "RENAME_ICON", 0, _v64, "REPLACE_COPY", 0, _v67, "REPLACE_ICON", 0, _v66, "REVIEW_COPY", 0, _v69, "REVIEW_ICON", 0, _v68, "REVIEW_LINKS_COPY", 0, _v86, "REVIEW_LINK_COPY", 0, _v85, "REVIEW_LINK_ICON", 0, _v84, "SHARE_COPY", 0, _v71, "SHARE_ICON", 0, _v70, "TOOLS_COPY", 0, _v73, "TOOLS_ICON", 0, _v72, "TRANSLATE_COPY", 0, _v75, "TRANSLATE_ICON", 0, _v74, "VIDEO_EDITOR_COPY", 0, _v77, "VIDEO_EDITOR_ICON", 0, _v76, "VIDEO_INFO_COPY", 0, _v79, "VIDEO_INFO_ICON", 0, _v78, "VIEW_EVENT_PAGE_COPY", 0, _v83, "VIEW_EVENT_PAGE_ICON", 0, _v82, "VIEW_VIDEO_PAGE_COPY", 0, _v81, "VIEW_VIDEO_PAGE_ICON", 0, _v80], 0);
-  let _v91 = (0, _v2.createContext)({
+  }), "COPY_EMBED_CODE_COPY", 0, _v46, "COPY_EMBED_CODE_ICON", 0, _v45, "COPY_LINK_COPY", 0, _v48, "COPY_LINK_ICON", 0, _v47, "COPY_REVIEW_LINK_COPY", 0, _v50, "COPY_REVIEW_LINK_ICON", 0, _v49, "CREATE_NEW_REVIEW_LINK_COPY", 0, _v91, "CREATE_NEW_REVIEW_LINK_ICON", 0, _v90, "CREATE_REVIEW_LINKS_COPY", 0, _v52, "CREATE_REVIEW_LINKS_ICON", 0, _v51, "DELETE_COPY", 0, _v54, "DELETE_ICON", 0, _v53, "DOWNLOAD_COPY", 0, _v56, "DOWNLOAD_ICON", 0, _v55, "EDIT_FILE_COPY", 0, _v93, "EDIT_FILE_ICON", 0, _v92, "EMBED_COPY", 0, _v58, "EMBED_ICON", 0, _v57, "MANAGE_REVIEW_LINKS_COPY", 0, _v60, "MANAGE_REVIEW_LINKS_ICON", 0, _v59, "MENU_MIN_WIDTH", 0, _v41, "MOVE_COPY", 0, _v62, "MOVE_ICON", 0, _v61, "ORGANIZE_COPY", 0, _v66, "ORGANIZE_ICON", 0, _v65, "RENAME_COPY", 0, _v68, "RENAME_ICON", 0, _v67, "REPLACE_COPY", 0, _v70, "REPLACE_ICON", 0, _v69, "REVIEW_COPY", 0, _v72, "REVIEW_ICON", 0, _v71, "REVIEW_LINKS_COPY", 0, _v89, "REVIEW_LINK_COPY", 0, _v88, "REVIEW_LINK_ICON", 0, _v87, "SHARE_COPY", 0, _v74, "SHARE_ICON", 0, _v73, "TOOLS_COPY", 0, _v76, "TOOLS_ICON", 0, _v75, "TRANSLATE_COPY", 0, _v78, "TRANSLATE_ICON", 0, _v77, "VIDEO_EDITOR_COPY", 0, _v80, "VIDEO_EDITOR_ICON", 0, _v79, "VIDEO_INFO_COPY", 0, _v82, "VIDEO_INFO_ICON", 0, _v81, "VIEW_EVENT_PAGE_COPY", 0, _v86, "VIEW_EVENT_PAGE_ICON", 0, _v85, "VIEW_VIDEO_PAGE_COPY", 0, _v84, "VIEW_VIDEO_PAGE_ICON", 0, _v83], 0);
+  let _v94 = (0, _v2.createContext)({
       closeDrawer: null,
       isMobile: !1,
       isV2: !1
     }),
-    _v92 = () => (0, _v2.useContext)(_v91);
-  _v0.s(["ActionMenuContext", 0, _v91, "useActionMenuContext", 0, _v92], 0);
-  let _v93 = ({
+    _v95 = () => (0, _v2.useContext)(_v94);
+  _v0.s(["ActionMenuContext", 0, _v94, "useActionMenuContext", 0, _v95], 0);
+  let _v96 = ({
       usePortal: _v0,
       children: _v1
     }) => _v0 ? (0, _v1.jsx)(_v12.Portal, {
@@ -759,7 +787,7 @@
     }) : (0, _v1.jsx)(_v1.Fragment, {
       children: _v1
     }),
-    _v94 = ({
+    _v97 = ({
       children: _v0,
       disabled: _v1,
       isV2: _v2,
@@ -824,7 +852,7 @@
                 position: "unset"
               })]
             }), (0, _v1.jsx)(_v4.DrawerBody, {
-              children: (0, _v1.jsx)(_v91.Provider, {
+              children: (0, _v1.jsx)(_v94.Provider, {
                 value: {
                   closeDrawer: () => _v7(!1),
                   isMobile: !0,
@@ -852,7 +880,7 @@
     title: _v7,
     usePortal: _v8 = !0,
     zIndex: _v9
-  }) => (0, _v18.useIsMobile)() ? (0, _v1.jsx)(_v94, {
+  }) => (0, _v18.useIsMobile)() ? (0, _v1.jsx)(_v97, {
     disabled: _v0,
     isV2: _v3,
     onClick: _v2,
@@ -863,7 +891,7 @@
     onClick: _v0 => {
       _v0.preventDefault(), _v0.stopPropagation();
     },
-    children: [_v3 && (0, _v1.jsx)(_v91.Provider, {
+    children: [_v3 && (0, _v1.jsx)(_v94.Provider, {
       value: {
         closeDrawer: null,
         isMobile: !1,
@@ -882,7 +910,7 @@
           children: (0, _v1.jsx)(_v17.EllipsisV, {
             boxSize: "md"
           })
-        }), (0, _v1.jsx)(_v93, {
+        }), (0, _v1.jsx)(_v96, {
           usePortal: _v8,
           children: (0, _v1.jsx)(_v15.NestedMenuPositioner, {
             children: (0, _v1.jsx)(_v15.NestedMenuContent, {
@@ -890,8 +918,8 @@
               zIndex: _v9,
               py: "sm",
               px: "0",
-              minWidth: _v40,
-              maxWidth: `calc(2 * ${_v40})`,
+              minWidth: _v41,
+              maxWidth: `calc(2 * ${_v41})`,
               children: _v1
             })
           })
@@ -929,7 +957,7 @@
         icon: (0, _v1.jsx)(_v17.EllipsisV, {}),
         variant: "tertiary",
         onClick: _v2
-      }), (0, _v1.jsx)(_v93, {
+      }), (0, _v1.jsx)(_v96, {
         usePortal: _v8,
         children: (0, _v1.jsx)(_v10.MenuList, {
           "data-testid": "action-menu",
@@ -937,10 +965,10 @@
           px: "0",
           zIndex: _v9,
           color: "text-primary",
-          minWidth: _v40,
-          maxWidth: `calc(2 * ${_v40})`,
+          minWidth: _v41,
+          maxWidth: `calc(2 * ${_v41})`,
           maxHeight: (0, _v14.rem)(430),
-          children: (0, _v1.jsx)(_v91.Provider, {
+          children: (0, _v1.jsx)(_v94.Provider, {
             value: {
               closeDrawer: null,
               isMobile: !1
@@ -953,16 +981,16 @@
       })]
     })]
   })], 0);
-  var _v95 = _v0.i(0);
+  var _v98 = _v0.i(0);
   _v0.s(["SectionRenderer", 0, ({
     section: _v0,
     index: _v1
   }) => {
     let {
       isV2: _v2
-    } = _v92();
+    } = _v95();
     return 0 === _v0.length ? null : (0, _v1.jsxs)(_v2.default.Fragment, {
-      children: [_v1 > 0 && (_v2 ? (0, _v1.jsx)(_v15.NestedMenuDivider, {}) : (0, _v1.jsx)(_v95.MenuDivider, {
+      children: [_v1 > 0 && (_v2 ? (0, _v1.jsx)(_v15.NestedMenuDivider, {}) : (0, _v1.jsx)(_v98.MenuDivider, {
         mt: "sm",
         mb: "sm"
       })), _v0.map((_v0, _v1) => (0, _v1.jsx)(_v13.Box, {

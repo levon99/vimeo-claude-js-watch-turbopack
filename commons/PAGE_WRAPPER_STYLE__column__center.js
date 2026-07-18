@@ -88,8 +88,9 @@
   }
   var _v22 = _v0.i(0),
     _v23 = _v0.i(0),
-    _v24 = _v0.i(0);
-  function _v25({
+    _v24 = _v0.i(0),
+    _v25 = _v0.i(0);
+  function _v26({
     id: _v0,
     className: _v1,
     children: _v2 = null,
@@ -99,8 +100,8 @@
     isMinified: _v6,
     onClick: _v7
   }) {
-    let _v8 = (0, _v23.useColorModeValue)("slate.50", "grayscale.700"),
-      _v9 = (0, _v23.useColorModeValue)("slate.100", "grayscale.500"),
+    let _v8 = (0, _v24.useColorModeValue)("slate.50", "grayscale.700"),
+      _v9 = (0, _v24.useColorModeValue)("slate.100", "grayscale.500"),
       _v10 = (0, _v1.jsxs)(_v6.Flex, {
         id: _v0,
         className: _v1,
@@ -110,7 +111,6 @@
         cursor: "pointer",
         shrink: 0,
         gap: (0, _v5.rem)(2),
-        height: _v6 ? (0, _v5.rem)(48) : (0, _v5.rem)(64),
         width: _v6 ? (0, _v5.rem)(48) : (0, _v5.rem)(64),
         minWidth: _v6 ? (0, _v5.rem)(48) : (0, _v5.rem)(64),
         minHeight: _v6 ? (0, _v5.rem)(48) : (0, _v5.rem)(64),
@@ -121,7 +121,8 @@
         fontWeight: 400,
         fontSize: (0, _v5.rem)(10),
         lineHeight: (0, _v5.rem)(12),
-        whiteSpace: "nowrap",
+        whiteSpace: _v6 ? "nowrap" : "normal",
+        overflowWrap: "break-word",
         _hover: {
           backgroundColor: _v9
         },
@@ -132,22 +133,31 @@
           }
         },
         onClick: _v7,
-        children: [_v3, _v6 ? null : _v2]
+        children: [_v3, _v6 ? null : (0, _v1.jsx)(_v23.Box, {
+          display: "-webkit-box",
+          overflow: "hidden",
+          overflowWrap: "break-word",
+          sx: {
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical"
+          },
+          children: _v2
+        })]
       });
-    return _v6 ? (0, _v1.jsx)(_v24.BokehTooltip, {
+    return _v6 ? (0, _v1.jsx)(_v25.BokehTooltip, {
       placement: "right",
       label: _v4,
       shouldWrapChildren: !1,
       children: _v10
     }) : _v10;
   }
-  var _v26 = _v0.i(0),
-    _v27 = _v0.i(0),
+  var _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
-    _v31 = _v0.i(0);
-  let _v32 = (0, _v4.memo)(function ({
+    _v31 = _v0.i(0),
+    _v32 = _v0.i(0);
+  let _v33 = (0, _v4.memo)(function ({
     id: _v0 = (0, _v12.createDomName)("sidebar"),
     className: _v1 = (0, _v12.createDomName)("sidebar"),
     attach: _v2,
@@ -172,7 +182,7 @@
     onOpen: _v21,
     onClose: _v22,
     onToggleExtend: _v23,
-    onActiveItemChangedCallback: _v24 = _v30.CallablePlaceholder
+    onActiveItemChangedCallback: _v24 = _v31.CallablePlaceholder
   }) {
     let _v25,
       _v26,
@@ -188,7 +198,7 @@
       {
         direction: _v37,
         offset: _v38
-      } = (0, _v27.useSwipe)({
+      } = (0, _v28.useSwipe)({
         ref: _v36,
         dependencies: [_v28]
       }),
@@ -263,7 +273,7 @@
                   onClick: _v46(_v0)
                 }) : null]
               })]
-            }) : null, (0, _v1.jsx)(_v31.LiveErrorBoundary, {
+            }) : null, (0, _v1.jsx)(_v32.LiveErrorBoundary, {
               additionalInfo: _v0,
               component: "ResponsiveSidebar",
               children: (0, _v1.jsx)(_v5, {
@@ -275,7 +285,7 @@
         }
       }, [_v49, _v1, _v18, _v0, _v30]),
       _v51 = _v2 === _v11.ESidebarAttach.TOP || _v2 === _v11.ESidebarAttach.BOTTOM,
-      _v52 = (0, _v28.useScrollbarStyles)(),
+      _v52 = (0, _v29.useScrollbarStyles)(),
       _v53 = (0, _v4.useMemo)(() => Object.keys(_v16).length ? (0, _v1.jsx)(_v6.Flex, {
         id: (0, _v12.createDomName)(_v0, "panel"),
         className: (0, _v12.createDomName)(_v1, "panel"),
@@ -308,7 +318,7 @@
             id: _v0,
             icon: _v1,
             label: _v2
-          }, _v3) => _v0 ? (0, _v1.jsx)(_v25, {
+          }, _v3) => _v0 ? (0, _v1.jsx)(_v26, {
             id: (0, _v12.createDomName)(_v0, "panel-button", _v0),
             className: (0, _v12.createDomName)(_v0, "panel-button"),
             icon: _v1,
@@ -316,7 +326,7 @@
             attach: _v40,
             isMinified: _v34,
             isActive: _v0 === _v28,
-            isMobile: _v26.browserConfig.BROWSER?.isMobile,
+            isMobile: _v27.browserConfig.BROWSER?.isMobile,
             onClick: _v46(_v0),
             children: _v2
           }, _v0) : (0, _v1.jsx)(_v6.Flex, {
@@ -342,7 +352,7 @@
       _v37 === _v44 && _v38 > 50 && !_v32 ? (_v33(!0), _v23?.(!0)) : _v37 === _v43 && _v38 > 50 && _v32 && (_v33(!1), _v23?.(!1));
     }, [_v37, _v38, _v44, _v43, _v32, _v23]), (0, _v4.useEffect)(() => {
       _v27.subscribeToSignals(_v0 => {
-        _v0.type === _v29.ELiveSignal.LIVE_PANEL_TAB_CHANGE_REQUEST && (null === _v0.data || _v16.find(_v0 => _v0.id === _v0.data)) && _v45(_v0.data);
+        _v0.type === _v30.ELiveSignal.LIVE_PANEL_TAB_CHANGE_REQUEST && (null === _v0.data || _v16.find(_v0 => _v0.id === _v0.data)) && _v45(_v0.data);
       });
     }, [_v27, _v16, _v45]), (0, _v4.useLayoutEffect)(() => {
       if (_v11) {
@@ -465,7 +475,7 @@
           isFullscreen: _v41,
           isPortrait: _v7,
           isExtended: _v32,
-          isMobile: _v26.browserConfig.BROWSER?.isMobile,
+          isMobile: _v27.browserConfig.BROWSER?.isMobile,
           isMinified: _v34,
           isWithBorder: _v12,
           isOrientationChanged: _v56 !== _v7,
@@ -478,7 +488,7 @@
           position: "relative",
           width: "100%",
           height: "100%",
-          maxWidth: _v26.browserConfig.BROWSER?.isMobile ? "100%" : (0, _v5.rem)(640),
+          maxWidth: _v27.browserConfig.BROWSER?.isMobile ? "100%" : (0, _v5.rem)(640),
           zIndex: 100,
           children: [(0, _v1.jsx)(_v6.Flex, {
             id: (0, _v12.createDomName)(_v0, "content-wrapper"),
@@ -536,7 +546,7 @@
                 display: _v4
               };
             }({
-              isMobile: _v26.browserConfig.BROWSER?.isMobile,
+              isMobile: _v27.browserConfig.BROWSER?.isMobile,
               attach: _v40,
               isPortrait: _v7,
               isFullscreen: _v41
@@ -547,5 +557,5 @@
       })
     }) : null;
   });
-  _v0.s(["ResponsiveSidebar", 0, _v32], 0);
+  _v0.s(["ResponsiveSidebar", 0, _v33], 0);
 }

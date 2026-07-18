@@ -56,12 +56,8 @@
     });
   }
   _v0.s(["ExclusiveAccessBadge", 0, _v19], 0);
-  var _v20 = _v0.i(0),
-    _v21 = _v0.i(0),
-    _v22 = _v0.i(0),
-    _v23 = _v0.i(0),
-    _v24 = _v0.i(0);
-  function _v25({
+  var _v20 = _v0.i(0);
+  function _v21({
     isOpen: _v0,
     title: _v1,
     body: _v2,
@@ -71,140 +67,52 @@
     children: _v6,
     placement: _v7 = "left-start"
   }) {
-    return (0, _v1.jsxs)(_v20.Popover, {
+    return (0, _v1.jsx)(_v20.AnnouncementPopover, {
       isOpen: _v0,
       placement: _v7,
-      gutter: 16,
-      strategy: "fixed",
-      isLazy: !0,
-      closeOnBlur: !1,
-      children: [(0, _v1.jsx)(_v23.PopoverTrigger, {
-        children: _v6
-      }), (0, _v1.jsx)(_v24.Portal, {
-        children: (0, _v1.jsxs)(_v22.PopoverContent, {
-          width: (0, _v11.rem)(320),
-          backgroundColor: "fill-surface",
-          borderRadius: (0, _v11.rem)(8),
-          boxShadow: "0px 4px 32px 0px rgba(11, 26, 41, 0.12)",
-          padding: (0, _v11.rem)(16),
-          border: "none",
-          rootProps: {
-            zIndex: "tooltip"
+      title: _v1,
+      body: _v2,
+      note: _v3,
+      badge: _v4 ? (0, _v1.jsx)(_v19, {}) : void 0,
+      footerStart: _v4 ? (0, _v1.jsx)(_v10.Text, {
+        fontSize: (0, _v11.rem)(12),
+        color: "text-tertiary",
+        lineHeight: 1.2,
+        children: (0, _v14.translate)({
+          singular: "Available until {DATE}",
+          replacements: {
+            DATE: _v4
           },
-          sx: {
-            "--popper-arrow-shadow-color": "transparent"
-          },
-          _focus: {
-            outline: "none",
-            boxShadow: "0px 4px 32px 0px rgba(11, 26, 41, 0.12)"
-          },
-          children: [(0, _v1.jsx)(_v21.PopoverArrow, {
-            backgroundColor: "fill-surface"
-          }), (0, _v1.jsxs)(_v5.Flex, {
-            direction: "column",
-            gap: (0, _v11.rem)(24),
-            alignItems: "stretch",
-            children: [(0, _v1.jsxs)(_v5.Flex, {
-              direction: "column",
-              gap: (0, _v11.rem)(16),
-              alignItems: "flex-start",
-              children: [_v4 ? (0, _v1.jsx)(_v19, {}) : null, (0, _v1.jsxs)(_v5.Flex, {
-                direction: "column",
-                gap: (0, _v11.rem)(8),
-                alignItems: "flex-start",
-                width: "100%",
-                children: [(0, _v1.jsx)(_v10.Text, {
-                  variant: "heading-sm",
-                  color: "text-primary",
-                  children: _v1
-                }), (0, _v1.jsx)(_v10.Text, {
-                  fontSize: (0, _v11.rem)(14),
-                  color: "text-primary",
-                  lineHeight: 1.4,
-                  children: _v2
-                }), _v3 ? (0, _v1.jsx)(_v10.Text, {
-                  fontSize: (0, _v11.rem)(12),
-                  color: "text-secondary",
-                  lineHeight: 1.2,
-                  children: _v3
-                }) : null]
-              })]
-            }), (0, _v1.jsxs)(_v5.Flex, {
-              justifyContent: _v4 ? "space-between" : "flex-end",
-              alignItems: "flex-end",
-              gap: (0, _v11.rem)(12),
-              width: "100%",
-              children: [_v4 ? (0, _v1.jsx)(_v10.Text, {
-                fontSize: (0, _v11.rem)(12),
-                color: "text-tertiary",
-                lineHeight: 1.2,
-                children: (0, _v14.translate)({
-                  singular: "Available until {DATE}",
-                  replacements: {
-                    DATE: _v4
-                  },
-                  dictionary: {
-                    es: {
-                      singular: "Disponible hasta {DATE}"
-                    },
-                    "de-DE": {
-                      singular: "Verfügbar bis {DATE}"
-                    },
-                    "fr-FR": {
-                      singular: "Disponible jusqu'au {DATE}"
-                    },
-                    "ja-JP": {
-                      singular: "{DATE}まで利用可能"
-                    },
-                    "ko-KR": {
-                      singular: "{DATE}까지 이용 가능"
-                    },
-                    "pt-BR": {
-                      singular: "Disponível até {DATE}"
-                    },
-                    "zh-CN": {
-                      singular: "可用至 {DATE}"
-                    }
-                  }
-                })
-              }) : null, (0, _v1.jsx)(_v4.Button, {
-                variant: "primary",
-                size: "md",
-                onClick: _v5,
-                children: (0, _v14.translate)({
-                  singular: "Got it",
-                  dictionary: {
-                    es: {
-                      singular: "Entendido"
-                    },
-                    "de-DE": {
-                      singular: "Alles klar"
-                    },
-                    "fr-FR": {
-                      singular: "J'ai compris"
-                    },
-                    "ja-JP": {
-                      singular: "了解"
-                    },
-                    "ko-KR": {
-                      singular: "확인"
-                    },
-                    "pt-BR": {
-                      singular: "Entendi"
-                    },
-                    "zh-CN": {
-                      singular: "明白"
-                    }
-                  }
-                })
-              })]
-            })]
-          })]
+          dictionary: {
+            es: {
+              singular: "Disponible hasta {DATE}"
+            },
+            "de-DE": {
+              singular: "Verfügbar bis {DATE}"
+            },
+            "fr-FR": {
+              singular: "Disponible jusqu'au {DATE}"
+            },
+            "ja-JP": {
+              singular: "{DATE}まで利用可能"
+            },
+            "ko-KR": {
+              singular: "{DATE}까지 이용 가능"
+            },
+            "pt-BR": {
+              singular: "Disponível até {DATE}"
+            },
+            "zh-CN": {
+              singular: "可用至 {DATE}"
+            }
+          }
         })
-      })]
+      }) : void 0,
+      onAcknowledge: _v5,
+      children: _v6
     });
   }
-  function _v26({
+  function _v22({
     isOpen: _v0,
     draftLanguages: _v1,
     sourceLanguage: _v2,
@@ -584,7 +492,7 @@
       })]
     });
   }
-  _v0.s(["FirstSeenLiveTourTooltip", 0, _v25], 0), _v0.s(["CaptionsTranslations", 0, function ({
+  _v0.s(["FirstSeenLiveTourTooltip", 0, _v21], 0), _v0.s(["CaptionsTranslations", 0, function ({
     isDisabled: _v0 = !1,
     disabledTip: _v1,
     selectedLanguages: _v2,
@@ -682,7 +590,7 @@
       direction: "column",
       marginTop: (0, _v11.rem)(16),
       width: "100%",
-      children: [(0, _v1.jsx)(_v25, {
+      children: [(0, _v1.jsx)(_v21, {
         isOpen: _v12,
         onAcknowledge: _v14,
         availableUntil: _v5,
@@ -851,7 +759,7 @@
           onClick: _v16,
           children: _v20
         })
-      }), (0, _v1.jsx)(_v26, {
+      }), (0, _v1.jsx)(_v22, {
         isOpen: _v6,
         draftLanguages: _v8,
         sourceLanguage: _v3,

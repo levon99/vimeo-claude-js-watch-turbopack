@@ -117,13 +117,22 @@
     icon: _v0,
     disabled: _v1,
     label: _v2,
-    onClick: _v3
-  }) => (0, _v1.jsx)(_v4.Button, {
-    "data-testid": `bulk-action-button-${_v2.toLowerCase()}`,
-    isDisabled: _v1,
-    leftIcon: _v0,
     onClick: _v3,
-    variant: "tertiary",
-    children: _v2
-  }), _v17.ActionBar = _v16, _v0.s(["BulkActionsBar", 0, _v17], 0);
+    tooltipText: _v4
+  }) => {
+    let _v5 = (0, _v1.jsx)(_v4.Button, {
+      "data-testid": `bulk-action-button-${_v2.toLowerCase()}`,
+      isDisabled: _v1,
+      leftIcon: _v0,
+      onClick: _v3,
+      variant: "tertiary",
+      children: _v2
+    });
+    return _v4 ? (0, _v1.jsx)(_v9.Tooltip, {
+      label: _v4,
+      placement: "top",
+      shouldWrapChildren: !0,
+      children: _v5
+    }) : _v5;
+  }, _v17.ActionBar = _v16, _v0.s(["BulkActionsBar", 0, _v17], 0);
 }

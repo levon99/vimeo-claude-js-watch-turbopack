@@ -2171,6 +2171,8 @@
           base: "sm",
           md: "md"
         },
+        flexShrink: _v12 ? void 0 : 0,
+        zIndex: 1,
         children: [_v4 && (0, _v1.jsx)(_v114, {
           isSideNavActive: !!_v3,
           setIsSideNavActive: _v4

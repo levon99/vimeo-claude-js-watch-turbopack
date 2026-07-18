@@ -39,7 +39,8 @@
       PRESETS: `/manage/${_v1.WORKSPACE}/presets`,
       INTEGRATIONS: `/manage/${_v1.WORKSPACE}/integrations`,
       MANAGE_AI: `/manage/${_v1.WORKSPACE}/manage-ai`,
-      E_LEARNING: `/manage/${_v1.WORKSPACE}/e-learning`
+      E_LEARNING: `/manage/${_v1.WORKSPACE}/e-learning`,
+      REGISTRATION: `/manage/${_v1.WORKSPACE}/registration`
     },
     _v5 = {
       ANALYTICS: `/manage/${_v1.ORGANIZATION}/analytics`,

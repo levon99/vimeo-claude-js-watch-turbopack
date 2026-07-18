@@ -72,6 +72,10 @@
         enabled: !!_v8?.enabled
       });
     }, [_v8?.enabled]), (0, _v2.useEffect)(() => {
+      _v8 && _v16.useConfigStore.setState({
+        leadCaptureFormEntityId: _v0
+      });
+    }, [_v8, _v0]), (0, _v2.useEffect)(() => {
       _v13({
         placement: _v8?.placement || ""
       });

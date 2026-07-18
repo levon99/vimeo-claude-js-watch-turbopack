@@ -419,7 +419,11 @@
         null !== _v0 && _v0.track("video_manage_vimeo_ai_ask_ai_answer_shown", {
           clip_id: _v0.clipId,
           generation_id: _v0.generationId,
-          question: _v0.question
+          question: _v0.question,
+          answer: _v0.answer,
+          answer_origin: _v0.answerOrigin,
+          question_source: _v0.questionSource,
+          video_owner_id: _v0.videoOwnerId
         });
       }, [_v0]),
       _v53 = (0, _v1.useCallback)(_v0 => {

@@ -161,7 +161,7 @@
       let _v0 = await (0, _v7.getLiveEventSettings)({
         connection: _v0.connections.settings,
         gctlConfig: (0, _v6.queryManagerGctlConfig)(_v0),
-        fields: _v1
+        fields: _v1.map(_v13.decamelize)
       });
       _v0.onSettingsUpdated(_v0, !1, "forced");
     } catch (_v0) {
@@ -249,7 +249,7 @@
   class _v32 extends _v2.ContextManager {
     static EVENT_SETTINGS_PRODUCTION_FIELDS = ["autoCcEnabled", "autoCcLimit", "autoCcRemaining", "disableAutoArchiving", "dvr", "latency", "preferredStreamMethod", "streamingAutoStop", "unlimitedDuration"];
     static EVENT_THUMBNAIL_FIELDS = ["pictures.active", "pictures.uri", "pictures.baseLink", "pictures.sizes"];
-    static EVENT_SETTINGS_FETCH_FIELDS = [..._v32.EVENT_SETTINGS_PRODUCTION_FIELDS, ..._v32.EVENT_THUMBNAIL_FIELDS, "album", "allowedPrivacies", "autoCcKeywords", "autoCcLanguage", "autoCcTranslationEnabled", "autoCcTranslationLanguages", "contentRating", "dashLink", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "fromShowcase", "hasRegistration", "link", "parentFolder.isPrivateToUser", "rtmpLink", "rtmpPreview", "rtmpsLink", "schedule", "scheduledPlayback", "srtEncryptionEnabled", "srtLink", "srtPassphrase", "status", "streamDescription", "streamKey", "streamPassword", "streamPrivacy", "title", "unlimitedAutoCc", "uri"];
+    static EVENT_SETTINGS_FETCH_FIELDS = [..._v32.EVENT_SETTINGS_PRODUCTION_FIELDS, ..._v32.EVENT_THUMBNAIL_FIELDS, "album", "allowedPrivacies", "autoCcKeywords", "autoCcLanguage", "autoCcTranslationEnabled", "autoCcTranslationLanguages", "contentRating", "dashLink", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "fromShowcase", "hasRegistration", "hasForcedLeadCaptureForm", "link", "parentFolder.isPrivateToUser", "rtmpLink", "rtmpPreview", "rtmpsLink", "schedule", "scheduledPlayback", "srtEncryptionEnabled", "srtLink", "srtPassphrase", "status", "streamDescription", "streamKey", "streamPassword", "streamPrivacy", "title", "unlimitedAutoCc", "uri"];
     context = {
       isInitialized: !1,
       settings: (0, _v2.createLoadable)(null, !0),
@@ -366,7 +366,7 @@
         if (!_v29.browserConfig.CAN_USE_BROADCAST_CHANNEL()) return null;
         let _v1 = new window.BroadcastChannel("lc_broadcast_channel");
         return _v1.addEventListener("message", _v0 => {
-          _v0.data?.code === 0 && _v0.forcedUpdate(["schedule"]);
+          _v0.data?.code === 0 ? _v0.forcedUpdate(["schedule"]) : _v0.data?.code === 0 && _v0.forcedUpdate(["hasForcedLeadCaptureForm"]);
         }), _v1;
       }(this), _v0.streamKey ? this.emitSignal({
         type: _v16.ELiveSignal.RTMP_STREAM_KEY_RECEIVED,

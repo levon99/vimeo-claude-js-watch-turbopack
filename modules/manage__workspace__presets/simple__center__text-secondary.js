@@ -764,6 +764,32 @@
           }
         }
       }),
+      approvedPresetCannotBeDeleted: (0, _v16.translate)({
+        singular: "Approved preset cannot be deleted here",
+        dictionary: {
+          es: {
+            singular: "El ajuste preestablecido aprobado no se puede eliminar aquí"
+          },
+          "de-DE": {
+            singular: "Die freigegebene Voreinstellung kann hier nicht gelöscht werden"
+          },
+          "fr-FR": {
+            singular: "Le préréglage approuvé ne peut pas être supprimé ici"
+          },
+          "ja-JP": {
+            singular: "承認済みプリセットはここでは削除できません"
+          },
+          "ko-KR": {
+            singular: "승인된 프리셋은 여기에서 삭제할 수 없습니다"
+          },
+          "pt-BR": {
+            singular: "Predefinição aprovada não pode ser excluída aqui"
+          },
+          "zh-CN": {
+            singular: "已批准的预设无法在此删除"
+          }
+        }
+      }),
       description: (0, _v16.translate)({
         singular: "Description",
         dictionary: {
@@ -7322,29 +7348,7 @@
     };
   var _v218 = _v0.i(0),
     _v219 = _v0.i(0);
-  async function _v220({
-    baseUrl: _v0,
-    select: _v1,
-    where: {
-      userId: _v2,
-      leadCaptureFormId: _v3
-    },
-    query: _v4,
-    ..._v5
-  }) {
-    return (0, _v83.measureLatency)("getUserLeadCaptureFormResources", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/lead_capture_forms/${_v3}/resources?${(0, _v84.searchQueryString)(_v4)}&fields=${_v1.map(_v84.intoSnakeCase).join(",")}`, {
-        ..._v5,
-        method: "GET"
-      });
-      if (!_v0.ok) throw new _v84.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v84.deepCamelCase)(_v1);
-    });
-  }
-  let _v221 = ({
+  let _v220 = ({
       canLoadMore: _v0,
       isLoadingMore: _v1,
       isLoadingPresets: _v2,
@@ -7356,72 +7360,19 @@
       ..._v8
     }) => {
       let _v9 = _v45(),
+        [_v10, _v11] = (0, _v3.useState)(null),
         {
-          checkFormHasResources: _v10,
-          loadingFormResources: _v11
-        } = (() => {
-          let _v0 = (0, _v79.useViewer)(),
-            _v1 = _v0?.teamUser?.ownerId || _v0?.user?.id,
-            _v2 = (0, _v3.useRef)({}),
-            {
-              baseUrl: _v3,
-              jwt: _v4
-            } = (0, _v90.useGctlConfig)(),
-            [_v5, _v6] = (0, _v3.useState)(!1);
-          return {
-            checkFormHasResources: (0, _v3.useCallback)(async _v0 => {
-              if (void 0 !== _v2.current[_v0]) return _v2.current[_v0];
-              if (!_v1) return !1;
-              _v6(!0);
-              try {
-                let {
-                    video: _v0,
-                    event: _v1
-                  } = (await _v220({
-                    where: {
-                      leadCaptureFormId: _v0,
-                      userId: _v1
-                    },
-                    query: {
-                      page: 1,
-                      perPage: 1
-                    },
-                    select: ["uri"],
-                    baseUrl: _v3,
-                    headers: {
-                      Authorization: _v4 ? `jwt ${_v4}` : "",
-                      "Content-Type": "application/json"
-                    }
-                  })).filteredTotal || {
-                    video: 0,
-                    event: 0
-                  },
-                  _v2 = _v0 > 0 || _v1 > 0;
-                return _v2.current[_v0] = _v2, _v2;
-              } catch (_v0) {
-                return _v2.current[_v0] = !1, null;
-              } finally {
-                _v6(!1);
-              }
-            }, [_v3, _v4, _v1]),
-            loadingFormResources: _v5
-          };
-        })(),
-        _v12 = (0, _v3.useRef)(null),
-        {
-          isOpen: _v13,
-          onOpen: _v14,
-          onClose: _v15
+          isOpen: _v12,
+          onOpen: _v13,
+          onClose: _v14
         } = (0, _v4.useDisclosure)(),
-        _v16 = async () => {
-          _v12.current && (await _v6(_v12.current), _v12.current = null, _v15());
+        _v15 = async () => {
+          _v10 && (await _v6(_v10), _v11(null), _v14());
         },
-        _v17 = (0, _v3.useCallback)(async _v0 => {
-          _v12.current = _v0;
-          let _v1 = await _v10(_v0.uuid);
-          null !== _v1 && (_v1 ? _v14() : (await _v6(_v12.current), _v12.current = null));
-        }, [_v10, _v6, _v14]),
-        _v18 = !_v4 || 0 === _v4.length;
+        _v16 = (0, _v3.useCallback)(_v0 => {
+          _v11(_v0), _v13();
+        }, [_v13]),
+        _v17 = !_v4 || 0 === _v4.length;
       return (0, _v2.jsxs)(_v24, {
         ..._v8,
         children: [(0, _v2.jsx)(_v24.Title, {
@@ -7431,7 +7382,7 @@
             children: _v5
           })
         }), (0, _v2.jsxs)(_v24.Content, {
-          children: [_v18 ? null : (0, _v2.jsx)(_v24.Header, {
+          children: [_v17 ? null : (0, _v2.jsx)(_v24.Header, {
             children: _v9.name
           }), (0, _v2.jsx)(_v24.Body, {
             children: _v2 ? (0, _v2.jsx)(_v8.Center, {
@@ -7439,27 +7390,27 @@
               children: (0, _v2.jsx)(_v12.Spinner, {
                 size: "sm"
               })
-            }) : (0, _v2.jsx)(_v222, {
-              initDelete: _v17,
-              isDeleting: _v3 || _v11,
+            }) : (0, _v2.jsx)(_v221, {
+              initDelete: _v16,
+              isDeleting: _v3,
               presets: _v4,
-              presetIdToDelete: _v12.current?.uuid,
-              showEmptyState: _v18
+              presetIdToDelete: _v10?.uuid,
+              showEmptyState: _v17
             })
           }), _v0 && (0, _v2.jsx)(_v61, {
             onLoadMore: _v7,
             isLoadingMore: _v1
           })]
         }), (0, _v2.jsx)(_v60, {
-          name: _v12.current?.name || "",
+          name: _v10?.name || "",
           isLoading: _v3,
-          isOpen: _v13,
-          onClose: _v15,
-          onDelete: _v16
+          isOpen: _v12,
+          onClose: _v14,
+          onDelete: _v15
         })]
       });
     },
-    _v222 = ({
+    _v221 = ({
       initDelete: _v0,
       isDeleting: _v1,
       presetIdToDelete: _v2,
@@ -7522,27 +7473,32 @@
                 color: "text-secondary",
                 children: _v47(_v0.createdDate, navigator.language || "en-US", !1)
               })]
-            }), (0, _v2.jsx)(_v74.Tooltip, {
-              label: _v5.deletePreset,
+            }), _v0.isApproved ? (0, _v2.jsx)(_v74.Tooltip, {
+              label: _v5.approvedPresetCannotBeDeleted,
               placement: "top",
               shouldWrapChildren: !0,
               children: (0, _v2.jsx)(_v67.IconButton, {
-                "aria-label": _v5.deletePreset,
-                isLoading: _v1 && _v2 === _v0.uuid,
+                "aria-label": _v5.approvedPresetCannotBeDeleted,
+                isDisabled: !0,
                 icon: (0, _v2.jsx)(_v176.TrashBin, {}),
-                onClick: () => _v0(_v0),
                 variant: "tertiary"
               })
+            }) : (0, _v2.jsx)(_v67.IconButton, {
+              "aria-label": _v5.deletePreset,
+              isLoading: _v1 && _v2 === _v0.uuid,
+              icon: (0, _v2.jsx)(_v176.TrashBin, {}),
+              onClick: () => _v0(_v0),
+              variant: "tertiary"
             })]
           })
         }, _v0.uuid))
       });
     };
-  var _v223 = _v0.i(0),
-    _v224 = _v0.i(0);
-  let _v225 = "wsp-preset-delete-success",
-    _v226 = "wsp-preset-delete-fail",
-    _v227 = () => {
+  var _v222 = _v0.i(0),
+    _v223 = _v0.i(0);
+  let _v224 = "wsp-preset-delete-success",
+    _v225 = "wsp-preset-delete-fail",
+    _v226 = () => {
       let _v0 = _v45(),
         _v1 = (0, _v5.useToast)(),
         [_v2, _v3] = (0, _v3.useState)(""),
@@ -7564,11 +7520,11 @@
               isLoading: _v4,
               size: _v5,
               setSize: _v6
-            } = (0, _v224.useGetUserLeadCaptureFormsInfinite)(() => _v1 ? {
+            } = (0, _v223.useGetUserLeadCaptureFormsInfinite)(() => _v1 ? {
               where: {
                 userId: _v1
               },
-              select: ["uuid", "formCreatedOn", "presetName"],
+              select: ["uuid", "formCreatedOn", "presetName", "isApproved"],
               query: {
                 perPage: 10,
                 filter: "preset"
@@ -7579,11 +7535,12 @@
             } : null, {
               revalidateOnFocus: !1
             }),
-            [_v7, _v8] = (0, _v223.useDeleteUserLeadCaptureForm)(),
+            [_v7, _v8] = (0, _v222.useDeleteUserLeadCaptureForm)(),
             _v9 = (0, _v3.useMemo)(() => _v2?.filter(Boolean)?.flatMap(_v0 => _v0.data).map(_v0 => ({
               createdDate: _v0.formCreatedOn,
               name: _v0.presetName || "",
-              uuid: _v0.uuid
+              uuid: _v0.uuid,
+              isApproved: _v0.isApproved
             })), [_v2]),
             {
               isLoadingInitialData: _v10,
@@ -7620,17 +7577,17 @@
         };
       return (0, _v3.useEffect)(() => {
         if (_v2) {
-          if (_v5 && !_v1.isActive(_v226)) return void _v1({
+          if (_v5 && !_v1.isActive(_v225)) return void _v1({
             title: _v0.errorDeletingPreset,
             status: "error",
-            id: _v226
-          });
-          _v1.isActive(_v225) || _v1({
-            title: _v0.presetDeleted(_v2),
             id: _v225
+          });
+          _v1.isActive(_v224) || _v1({
+            title: _v0.presetDeleted(_v2),
+            id: _v224
           }), _v3("");
         }
-      }, [_v5, _v2, _v0, _v1]), (0, _v2.jsx)(_v221, {
+      }, [_v5, _v2, _v0, _v1]), (0, _v2.jsx)(_v220, {
         title: _v0.registration,
         canLoadMore: _v4,
         isLoadingMore: _v9,
@@ -7641,7 +7598,7 @@
         isDeleting: _v7
       });
     };
-  async function _v228({
+  async function _v227({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -7662,7 +7619,7 @@
       return (0, _v84.deepCamelCase)(_v1);
     });
   }
-  async function _v229({
+  async function _v228({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -7684,6 +7641,45 @@
       let _v1 = await _v0.json();
       return (0, _v84.deepCamelCase)(_v1);
     });
+  }
+  function _v229() {
+    let {
+        mutate: _v0
+      } = (0, _v89.useSWRConfig)(),
+      {
+        baseUrl: _v1,
+        jwt: _v2,
+        xVimeoPage: _v3,
+        locale: _v4
+      } = (0, _v90.useGctlConfig)(),
+      [_v5, _v6] = (0, _v82.useInternalState)();
+    return [(0, _v3.useCallback)(async _v0 => {
+      _v6({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await _v0(`/users/${_v0.where.userId}/page_presets/${_v0.where.pagePresetId}${(0, _v82.serializeQuery)(_v0)}`, _v227({
+          ..._v0,
+          baseUrl: _v1,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v2 ? `jwt ${_v2}` : "",
+            "Vimeo-Page": `${_v3}`,
+            "Accept-Language": _v4 ?? "en"
+          }
+        }), !1);
+        _v6({
+          type: "SUCCESS",
+          payload: _v0
+        });
+      } catch (_v0) {
+        _v6({
+          type: "FAILURE",
+          payload: _v0
+        });
+      }
+    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
   function _v230() {
     let {
@@ -7724,54 +7720,15 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  function _v231() {
-    let {
-        mutate: _v0
-      } = (0, _v89.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v90.useGctlConfig)(),
-      [_v5, _v6] = (0, _v82.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/page_presets/${_v0.where.pagePresetId}${(0, _v82.serializeQuery)(_v0)}`, _v229({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v81.default.env.STORYBOOK && (0, _v82.assignMswData)(_v230, {
+  "true" === _v81.default.env.STORYBOOK && (0, _v82.assignMswData)(_v229, {
     endpoint: "/users/:userId/page_presets/:pagePresetId",
     method: "DELETE"
-  }), "true" === _v81.default.env.STORYBOOK && (0, _v82.assignMswData)(_v231, {
+  }), "true" === _v81.default.env.STORYBOOK && (0, _v82.assignMswData)(_v230, {
     endpoint: "/users/:userId/page_presets/:pagePresetId",
     method: "PATCH"
   });
-  var _v232 = _v0.i(0);
-  let _v233 = _v0 => ({
+  var _v231 = _v0.i(0);
+  let _v232 = _v0 => ({
       askAi: _v0.askAi,
       categories: _v0.categories,
       chapters: _v0.chapters,
@@ -7820,8 +7777,8 @@
         volume: _v0.volume
       }
     }),
-    _v234 = ["name", "uri", "settings", "createdOn", "modifiedOn"],
-    _v235 = ({
+    _v233 = ["name", "uri", "settings", "createdOn", "modifiedOn"],
+    _v234 = ({
       defaultPresetId: _v0,
       isVimeoDefault: _v1,
       isSubmitting: _v2,
@@ -8059,7 +8016,7 @@
         })]
       });
     },
-    _v236 = () => {
+    _v235 = () => {
       let _v0 = _v45(),
         _v1 = (0, _v5.useToast)(),
         {
@@ -8101,11 +8058,11 @@
               size: _v4,
               mutate: _v5,
               setSize: _v6
-            } = (0, _v232.useGetUserPagePresetsInfinite)(() => _v1 ? {
+            } = (0, _v231.useGetUserPagePresetsInfinite)(() => _v1 ? {
               where: {
                 userId: _v1
               },
-              select: _v234,
+              select: _v233,
               query: {
                 perPage: 10
               },
@@ -8160,9 +8117,9 @@
               size: _v4,
               itemsPerPage: 10
             }),
-            [_v11, _v12] = (0, _v232.usePostUserPagePresets)(),
-            [_v13, _v14] = _v231(),
-            [_v15, _v16] = _v230(),
+            [_v11, _v12] = (0, _v231.usePostUserPagePresets)(),
+            [_v13, _v14] = _v230(),
+            [_v15, _v16] = _v229(),
             _v17 = async _v0 => {
               if (!_v1) return null;
               await _v11({
@@ -8171,7 +8128,7 @@
                 },
                 variables: {
                   name: _v0.draft.presetName,
-                  page: _v233(_v0.draft),
+                  page: _v232(_v0.draft),
                   applyToAll: _v0.applyToAll
                 },
                 select: ["uri"]
@@ -8186,7 +8143,7 @@
                 },
                 variables: {
                   name: _v0.draft.presetName,
-                  page: _v233(_v0.draft),
+                  page: _v232(_v0.draft),
                   applyToAll: _v0.applyToAll
                 },
                 select: ["uri"]
@@ -8317,7 +8274,7 @@
             _v2(_v0), _v22();
           },
           onSetAsDefault: _v28
-        }), _v21 && (0, _v2.jsx)(_v235, {
+        }), _v21 && (0, _v2.jsx)(_v234, {
           defaultPresetId: _v25,
           onClose: _v27,
           onSave: _v31,
@@ -8326,15 +8283,15 @@
         })]
       });
     };
-  var _v237 = _v0.i(0),
+  var _v236 = _v0.i(0),
+    _v237 = _v0.i(0),
     _v238 = _v0.i(0),
     _v239 = _v0.i(0),
     _v240 = _v0.i(0),
     _v241 = _v0.i(0),
     _v242 = _v0.i(0),
-    _v243 = _v0.i(0),
-    _v244 = _v0.i(0);
-  let _v245 = {
+    _v243 = _v0.i(0);
+  let _v244 = {
       barebone_js: "",
       chromeless_css: "",
       chromeless_js: "",
@@ -8342,11 +8299,11 @@
       js: "",
       player_url: ""
     },
-    _v246 = ({
+    _v245 = ({
       playerAssetUrls: _v0
     }) => {
       let _v1 = (0, _v3.useMemo)(() => ({
-        title: (0, _v238.translate)({
+        title: (0, _v237.translate)({
           singular: "Presets",
           dictionary: {
             es: {
@@ -8372,7 +8329,7 @@
             }
           }
         }),
-        description: (0, _v238.translate)({
+        description: (0, _v237.translate)({
           singular: "Manage settings that anyone in your workspace can reuse across multiple videos",
           dictionary: {
             es: {
@@ -8399,28 +8356,28 @@
           }
         })
       }), []);
-      return (0, _v2.jsx)(_v241.PlayerContextProvider, {
-        type: _v242.PlayerType.VimeoPlayer,
-        assetUrls: _v0 ?? _v245,
+      return (0, _v2.jsx)(_v240.PlayerContextProvider, {
+        type: _v241.PlayerType.VimeoPlayer,
+        assetUrls: _v0 ?? _v244,
         children: (0, _v2.jsxs)(_v50.Box, {
-          maxW: _v239.SETTING_PAGES_MAX_WIDTH,
+          maxW: _v238.SETTING_PAGES_MAX_WIDTH,
           w: "100%",
           mx: "auto",
           py: "lg",
-          children: [(0, _v2.jsx)(_v240.SettingsPageContentHeader, {
+          children: [(0, _v2.jsx)(_v239.SettingsPageContentHeader, {
             title: _v1.title,
             description: _v1.description
           }), (0, _v2.jsxs)(_v9.Flex, {
             direction: "column",
             gap: "xl",
-            children: [(0, _v2.jsx)(_v217, {}), (0, _v2.jsx)(_v236, {}), (0, _v2.jsx)(_v227, {})]
+            children: [(0, _v2.jsx)(_v217, {}), (0, _v2.jsx)(_v235, {}), (0, _v2.jsx)(_v226, {})]
           })]
         })
       });
     };
-  (0, _v237.withPageSetup)(_v244.getWspServerSideProps, {
+  (0, _v236.withPageSetup)(_v243.getWspServerSideProps, {
     requireLogin: !0,
     inlineViewer: !0,
     inlinePlayerAssets: !0
-  }), _v246.getLayout = (_v0, _v1) => (0, _v243.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v246], 0);
+  }), _v245.getLayout = (_v0, _v1) => (0, _v242.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v245], 0);
 }

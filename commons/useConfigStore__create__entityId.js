@@ -5,6 +5,7 @@
     entityId: null,
     entityType: null,
     leadCaptureFormUuid: void 0,
+    leadCaptureFormEntityId: null,
     leadCaptureForm: {
       enabled: !1,
       placement: ""

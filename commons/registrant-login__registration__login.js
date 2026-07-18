@@ -435,8 +435,8 @@
       } = (0, _v12.useInteractionToolsStatusObserverContext)(),
       _v8 = (0, _v11.useIsVpaas)();
     if ((0, _v3.useEffect)(() => {
-      _v3 || _v5 || _v7(!!(_v4?.isCreator && !_v6?.interaction?.feature?.isManagementDisabled || _v4?.capabilities?.canUseQnaModeration));
-    }, [_v6?.interaction?.feature?.isManagementDisabled, _v3, _v5, _v4?.isCreator, _v4?.capabilities?.canUseQnaModeration, _v7]), _v3) return (0, _v1.jsx)(_v5.BlockingLoadingWrapper, {
+      _v3 || _v5 || _v7(!!(_v4?.isCreator && !_v6?.interaction?.feature?.isManagementDisabled || _v8 && _v4?.capabilities?.canUseQnaModeration));
+    }, [_v6?.interaction?.feature?.isManagementDisabled, _v3, _v5, _v8, _v4?.isCreator, _v4?.capabilities?.canUseQnaModeration, _v7]), _v3) return (0, _v1.jsx)(_v5.BlockingLoadingWrapper, {
       id: _v0,
       className: _v1,
       overlayColor: _v6?.interaction?.backgroundColor || "background",

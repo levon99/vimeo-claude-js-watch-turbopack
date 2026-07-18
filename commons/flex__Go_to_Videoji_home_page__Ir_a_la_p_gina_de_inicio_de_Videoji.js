@@ -105,8 +105,9 @@
   };
   var _v17 = _v0.i(0),
     _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
-  function _v20({
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
+  function _v21({
     children: _v0,
     ..._v1
   }) {
@@ -126,7 +127,7 @@
       children: _v0
     });
   }
-  _v20.LeftContent = ({
+  _v21.LeftContent = ({
     children: _v0,
     align: _v1 = "center",
     gap: _v2 = "sm",
@@ -136,7 +137,7 @@
     gap: _v2,
     ..._v3,
     children: _v0
-  }), _v20.RightContent = ({
+  }), _v21.RightContent = ({
     children: _v0,
     align: _v1 = "center",
     gap: _v2 = "md",
@@ -146,7 +147,7 @@
     gap: _v2,
     ..._v3,
     children: _v0
-  }), _v20.GoBackButton = ({
+  }), _v21.GoBackButton = ({
     icon: _v0 = (0, _v1.jsx)(_v4.ArrowLeft, {}),
     variant: _v1 = "secondary",
     ..._v2
@@ -154,7 +155,7 @@
     icon: _v0,
     variant: _v1,
     ..._v2
-  }), _v20.VimeoLogo = _v16, _v20.Logo = ({
+  }), _v21.VimeoLogo = _v16, _v21.Logo = ({
     type: _v0,
     customLogoUrl: _v1,
     display: _v2
@@ -181,7 +182,7 @@
     src: _v1
   }) : null : (0, _v1.jsx)(_v16, {
     display: _v2
-  }), _v20.Upgrade = ({
+  }), _v21.Upgrade = ({
     viewer: _v0
   }) => {
     let _v1 = _v0 && _v0.user,
@@ -192,16 +193,20 @@
           hasEnterprise: _v4
         },
         loading: _v5
-      } = (0, _v17.useCapability)(["hasEnterprise"], _v2?.ownerId),
+      } = (0, _v18.useCapability)(["hasEnterprise"], _v2?.ownerId),
       {
         capabilities: {
           canUpgrade: _v6
         },
         loading: _v7
-      } = (0, _v17.useCapability)(["canUpgrade"], _v1?.id),
-      _v8 = _v0 && !(_v7 || _v5) && _v6 && !_v4 && !_v0.isSimplifiedSite;
+      } = (0, _v18.useCapability)(["canUpgrade"], _v1?.id),
+      _v8 = (0, _v10.useBreakpointValue)({
+        base: !1,
+        md: !0
+      }),
+      _v9 = _v0 && !(_v7 || _v5) && _v6 && !_v4 && !_v0.isSimplifiedSite;
     if ((0, _v8.useEffect)(() => {
-      _v0 && _v8 && !_v3.current && (_v3.current = !0, (0, _v15.trackNavigationViewEvent)({
+      _v0 && _v9 && !_v3.current && (_v3.current = !0, (0, _v15.trackNavigationViewEvent)({
         copy: "upgrade",
         element: "button",
         eventName: "vimeo.upsell_trigger_impression",
@@ -211,8 +216,8 @@
         viewer: _v0,
         version: 5
       }));
-    }, [_v8, _v0]), !_v8) return (0, _v1.jsx)(_v1.Fragment, {});
-    let _v9 = (0, _v19.buildUpgradePlanUrl)({
+    }, [_v9, _v0]), !_v9) return (0, _v1.jsx)(_v1.Fragment, {});
+    let _v10 = (0, _v20.buildUpgradePlanUrl)({
       paywallTrigger: "top_navigation_upgrade_button",
       paywallLocation: "top_navigation",
       paywallFeature: "general"
@@ -223,10 +228,12 @@
       paywall: "1",
       mkc: "global_top_nav"
     });
-    return (0, _v1.jsx)("div", {
-      children: (0, _v1.jsx)(_v18.UpgradeBadge, {
+    return (0, _v1.jsxs)(_v2.Flex, {
+      alignItems: "center",
+      gap: "8px",
+      children: [(0, _v1.jsx)(_v19.UpgradeBadge, {
         noMargin: !0,
-        href: _v9,
+        href: _v10,
         name: "top_nav_upgrade_button",
         location: "top_navigation",
         onClick: () => {
@@ -250,7 +257,9 @@
             }
           });
         }
-      })
+      }), _v8 && (0, _v1.jsx)(_v17.AccessEndingBadge, {
+        surface: "top_nav_cta"
+      })]
     });
-  }, _v0.s(["Navigation", 0, _v20], 0);
+  }, _v0.s(["Navigation", 0, _v21], 0);
 }

@@ -14,7 +14,8 @@
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
-    _v14 = _v0.i(0);
+    _v14 = _v0.i(0),
+    _v15 = _v0.i(0);
   _v0.s(["TopRightDecoration", 0, ({
     video: _v0,
     location: _v1 = "card",
@@ -27,8 +28,9 @@
     onRename: _v8,
     pageName: _v9 = ""
   }) => {
-    let _v10 = (0, _v13.usePageName)(),
-      _v11 = (0, _v12.useCopyVideoLink)({
+    let _v10 = (0, _v14.usePageName)(),
+      _v11 = (0, _v13.useRegistrationRequiredToast)(),
+      _v12 = (0, _v12.useCopyVideoLink)({
         video: _v0,
         surface: "video_thumbnail",
         analyticsElement: "icon",
@@ -36,7 +38,8 @@
         manageActionLocation: "card" === _v1 ? "VL_video_card_hover" : "VL_video_list_hover",
         pageNameOverride: _v9
       }),
-      _v12 = (0, _v14.useVideoShareClick)({
+      _v13 = _v0.metadata?.hasMandatoryEmailCapture ?? !1,
+      _v14 = (0, _v15.useVideoShareClick)({
         video: _v0,
         analytics: {
           feature: _v5?.feature || "video_library",
@@ -51,7 +54,7 @@
         parentFolder: _v0.parentProject ?? void 0,
         canShare: _v4
       }),
-      _v13 = _v6 ? (0, _v1.jsx)(_v5.Tooltip, {
+      _v15 = _v6 ? (0, _v1.jsx)(_v5.Tooltip, {
         label: (0, _v10.translate)({
           singular: "Video info",
           dictionary: {
@@ -122,11 +125,11 @@
           }
         })
       }) : null,
-      _v14 = (0, _v2.useCallback)(_v0 => {
-        _v0.preventDefault(), _v0.stopPropagation(), _v11();
-      }, [_v11]);
+      _v16 = (0, _v2.useCallback)(_v0 => {
+        (_v0.preventDefault(), _v0.stopPropagation(), _v13) ? _v11(_v0) : _v12();
+      }, [_v12, _v13, _v11, _v0]);
     if (_v0?.isColdStorage) return (0, _v1.jsx)(_v1.Fragment, {});
-    let _v15 = _v4 && _v12 ? (0, _v1.jsx)(_v5.Tooltip, {
+    let _v17 = _v4 && _v14 ? (0, _v1.jsx)(_v5.Tooltip, {
       label: (0, _v10.translate)({
         singular: "Share",
         dictionary: {
@@ -195,7 +198,7 @@
           opacity: 1
         },
         onClick: _v0 => {
-          _v0.currentTarget.blur(), _v12(), _v0.preventDefault(), _v0.stopPropagation();
+          _v0.currentTarget.blur(), _v13 ? _v11(_v0) : _v14(), _v0.preventDefault(), _v0.stopPropagation();
         }
       })
     }) : null;
@@ -205,7 +208,7 @@
       right: "0",
       gap: "50",
       direction: _v3,
-      children: ["column" === _v3 ? _v13 : _v15, _v8 && (0, _v1.jsx)(_v5.Tooltip, {
+      children: ["column" === _v3 ? _v15 : _v17, _v8 && (0, _v1.jsx)(_v5.Tooltip, {
         label: (0, _v10.translate)({
           singular: "Rename",
           dictionary: {
@@ -345,9 +348,9 @@
           _groupHover: {
             opacity: 1
           },
-          onClick: _v14
+          onClick: _v16
         })
-      }), "column" === _v3 ? _v15 : _v13]
+      }), "column" === _v3 ? _v17 : _v15]
     });
   }]);
 }
