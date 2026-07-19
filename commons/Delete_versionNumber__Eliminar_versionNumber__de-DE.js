@@ -973,7 +973,7 @@
       _v7 = !!_v3?.metadata?.interactions?.edit?.uri;
     return {
       replaceEnabled: _v3 && _v3.metadata.canBeReplaced && _v5 && !(_v5?.state && _v44.includes(_v5?.state)) && _v7,
-      userQuota: _v3?.user.uploadQuota,
+      userQuota: _v3?.user?.uploadQuota,
       isLoading: _v4 || _v6
     };
   }], 0);
