@@ -10004,13 +10004,13 @@
               singular: "Diese Aktion kann nicht rückgängig gemacht werden."
             },
             "fr-FR": {
-              singular: "Cette action ne peut pas être annulée."
+              singular: "Cette action est irréversible."
             },
             "ja-JP": {
-              singular: "この操作は取り消せません."
+              singular: "この操作は取り消せません。"
             },
             "ko-KR": {
-              singular: "이 작업은 되돌릴 수 없습니다."
+              singular: "이 작업은 취소할 수 없습니다."
             },
             "pt-BR": {
               singular: "Esta ação não pode ser desfeita."

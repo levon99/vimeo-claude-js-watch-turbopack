@@ -24,7 +24,8 @@
     onAcknowledge: _v7,
     acknowledgeLabel: _v8,
     placement: _v9 = "left-start",
-    backgroundColor: _v10 = "popover"
+    backgroundColor: _v10 = "popover",
+    anchorWithinChildren: _v11 = !1
   }) {
     return (0, _v1.jsxs)(_v4.Popover, {
       isOpen: _v0,
@@ -33,7 +34,7 @@
       strategy: "fixed",
       isLazy: !0,
       closeOnBlur: !1,
-      children: [(0, _v1.jsx)(_v7.PopoverTrigger, {
+      children: [_v11 ? _v1 : (0, _v1.jsx)(_v7.PopoverTrigger, {
         children: _v1
       }), (0, _v1.jsx)(_v8.Portal, {
         children: (0, _v1.jsxs)(_v6.PopoverContent, {

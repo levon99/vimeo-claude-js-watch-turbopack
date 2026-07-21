@@ -12,7 +12,7 @@
   }) {
     _v0({
       id: "registration-required-toast",
-      duration: null,
+      duration: 0,
       isClosable: !0,
       position: "bottom-right",
       render: _v0 => (0, _v1.jsxs)(_v3.ToastRoot, {

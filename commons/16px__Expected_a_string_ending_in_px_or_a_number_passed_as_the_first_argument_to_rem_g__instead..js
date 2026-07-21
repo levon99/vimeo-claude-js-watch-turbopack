@@ -6425,21 +6425,9 @@
     };
   var _v383 = _v0.i(0),
     _v384 = _v0.i(0),
-    _v385 = _v0.i(0);
-  let _v386 = new class {
-    editorLoadStartTime = 0;
-    editorLoadEndTime = 0;
-    setEditorLoadStart(_v0 = performance.now()) {
-      this.editorLoadStartTime = _v0;
-    }
-    resetEditorLoadStart() {
-      this.editorLoadStartTime = 0;
-    }
-    setEditorLoadEnd(_v0 = performance.now()) {
-      this.editorLoadEndTime = _v0;
-    }
-  }();
-  var _v387 = _v0.i(0),
+    _v385 = _v0.i(0),
+    _v386 = _v0.i(0),
+    _v387 = _v0.i(0),
     _v388 = _v0.i(0),
     _v389 = _v0.i(0);
   let _v390 = () => {
@@ -6481,16 +6469,16 @@
       _v23 = (0, _v8.useCallback)(() => {
         _v15(!0);
         let _v0 = performance.now();
-        _v386.setEditorLoadEnd(_v0), _v164.default.sendAction(_v304.EditorLoad, {
+        _v386.default.setEditorLoadEnd(_v0), _v164.default.sendAction(_v304.EditorLoad, {
           step: "end load dragonite"
         }), _v164.default.sendAction(_v304.EditorLoad, {
           step: "end load editor",
           timestamp: Math.round(_v0),
-          loadingTime: Math.round(_v0 - _v386.editorLoadStartTime),
+          loadingTime: Math.round(_v0 - _v386.default.editorLoadStartTime),
           ...(_v252.default.isEVV && {
             flow: "edit_vimeo_video"
           })
-        }), _v386.resetEditorLoadStart();
+        }), _v386.default.resetEditorLoadStart();
       }, []),
       _v24 = _v16?.animations && _v10 && _v7.videoSessionId,
       _v25 = Object.entries(_v9).filter(([, _v0]) => "compositionTiming" in _v0).map(([_v0]) => _v0);
@@ -18078,10 +18066,10 @@
       })({
         vimeoVideoId: _v2.location.query?.vid
       }), (0, _v473.default)(() => {
-        if (_v3.interactive || (0, _v150.initScripts)(), 0 === _v386.editorLoadStartTime) {
+        if (_v3.interactive || (0, _v150.initScripts)(), 0 === _v386.default.editorLoadStartTime) {
           let _v0 = !_v2.location.query?.hash && _v2.location.query?.vid,
             _v1 = performance.now();
-          _v386.setEditorLoadStart(_v1), _v164.default.sendAction(_v304.EditorLoad, {
+          _v386.default.setEditorLoadStart(_v1), _v164.default.sendAction(_v304.EditorLoad, {
             step: "start load editor",
             timestamp: Math.round(_v1),
             ...(_v0 && {

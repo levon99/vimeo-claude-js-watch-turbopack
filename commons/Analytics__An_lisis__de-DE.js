@@ -873,61 +873,66 @@
     disabled: _v0,
     children: _v1,
     onClick: _v2,
-    isV2: _v3 = !1,
-    placement: _v4 = "bottom-end",
-    size: _v5 = "md",
-    strategy: _v6 = "fixed",
-    title: _v7,
-    usePortal: _v8 = !0,
-    zIndex: _v9
+    onOpenChange: _v3,
+    renderContent: _v4 = _v0 => _v0,
+    isV2: _v5 = !1,
+    placement: _v6 = "bottom-end",
+    size: _v7 = "md",
+    strategy: _v8 = "fixed",
+    title: _v9,
+    usePortal: _v10 = !0,
+    zIndex: _v11
   }) => (0, _v18.useIsMobile)() ? (0, _v1.jsx)(_v97, {
     disabled: _v0,
-    isV2: _v3,
+    isV2: _v5,
     onClick: _v2,
-    size: _v5,
-    title: _v7,
+    size: _v7,
+    title: _v9,
     children: _v1
   }) : (0, _v1.jsxs)(_v13.Box, {
     onClick: _v0 => {
       _v0.preventDefault(), _v0.stopPropagation();
     },
-    children: [_v3 && (0, _v1.jsx)(_v94.Provider, {
+    children: [_v5 && (0, _v1.jsx)(_v94.Provider, {
       value: {
         closeDrawer: null,
         isMobile: !1,
-        isV2: _v3
+        isV2: _v5
       },
       children: (0, _v1.jsxs)(_v15.NestedMenu, {
         positioning: {
           strategy: "fixed"
         },
+        onOpenChange: _v0 => _v3?.(_v0.open),
         children: [(0, _v1.jsx)(_v15.NestedMenuTrigger, {
           "aria-label": "menu",
           variant: "tertiary",
-          boxSize: _v5,
+          boxSize: _v7,
           "data-testid": "action-menu-button-v2",
           onClick: _v2,
           children: (0, _v1.jsx)(_v17.EllipsisV, {
             boxSize: "md"
           })
         }), (0, _v1.jsx)(_v96, {
-          usePortal: _v8,
+          usePortal: _v10,
           children: (0, _v1.jsx)(_v15.NestedMenuPositioner, {
-            children: (0, _v1.jsx)(_v15.NestedMenuContent, {
+            children: _v4((0, _v1.jsx)(_v15.NestedMenuContent, {
               "data-testid": "action-menu-v2",
-              zIndex: _v9,
+              zIndex: _v11,
               py: "sm",
               px: "0",
               minWidth: _v41,
               maxWidth: `calc(2 * ${_v41})`,
               children: _v1
-            })
+            }))
           })
         })]
       })
-    }), !_v3 && (0, _v1.jsxs)(_v8.Menu, {
-      strategy: _v6,
-      placement: _v4,
+    }), !_v5 && (0, _v1.jsxs)(_v8.Menu, {
+      strategy: _v8,
+      placement: _v6,
+      onOpen: () => _v3?.(!0),
+      onClose: () => _v3?.(!1),
       children: [(0, _v1.jsx)(_v9.MenuButton, {
         "data-testid": "action-menu-button",
         className: "action-menu-button",
@@ -953,17 +958,17 @@
             }
           }
         }),
-        size: _v5,
+        size: _v7,
         icon: (0, _v1.jsx)(_v17.EllipsisV, {}),
         variant: "tertiary",
         onClick: _v2
       }), (0, _v1.jsx)(_v96, {
-        usePortal: _v8,
-        children: (0, _v1.jsx)(_v10.MenuList, {
+        usePortal: _v10,
+        children: _v4((0, _v1.jsx)(_v10.MenuList, {
           "data-testid": "action-menu",
           py: "sm",
           px: "0",
-          zIndex: _v9,
+          zIndex: _v11,
           color: "text-primary",
           minWidth: _v41,
           maxWidth: `calc(2 * ${_v41})`,
@@ -977,7 +982,7 @@
               children: _v1
             })
           })
-        })
+        }))
       })]
     })]
   })], 0);

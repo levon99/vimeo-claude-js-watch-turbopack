@@ -90,8 +90,9 @@
     return _v5;
   }, "getPlanDisplayPrice", 0, (_v0, _v1, _v2) => _v2 ? `${_v0.priceFormatted.annual}` : `${_v1 ? _v0.priceFormatted.monthly : _v0.priceFormatted.annualMonthly}`, "getPlanFeaturesList", 0, (_v0, _v1) => {
     let _v2,
-      _v3 = _v0?.planOverrides?.[_v1.tier]?.featuresList,
-      _v4 = (_v0 => {
+      _v3,
+      _v4 = _v0?.planOverrides?.[_v1.tier]?.featuresList,
+      _v5 = (_v0 => {
         let {
             tier: _v1,
             metadata: _v2
@@ -157,7 +158,7 @@
           }
         });
       })(_v1);
-    return void 0 === _v3 ? (_v2 = _v1, _v2?.tier === _v2.PLANS.CREATOR && (_v2.CREATOR_V2_SKUS.includes(_v2.id?.monthly ?? "") || _v2.CREATOR_V2_SKUS.includes(_v2.id?.annual ?? ""))) ? _v2.CREATOR_V2_FEATURES : _v4 ? [_v4, ..._v2.PLANS_DEFAULT_FEATURES[_v1.tier]] : _v2.PLANS_DEFAULT_FEATURES[_v1.tier] : _v3;
+    return void 0 !== _v4 ? _v4 : (_v2 = _v1, _v2?.tier === _v2.PLANS.CREATOR && (_v2.CREATOR_V2_SKUS.includes(_v2.id?.monthly ?? "") || _v2.CREATOR_V2_SKUS.includes(_v2.id?.annual ?? ""))) ? _v2.CREATOR_V2_FEATURES : (_v3 = _v1, _v3?.tier === _v2.PLANS.CREATOR && (_v2.CREATOR_JULY_2026_SKUS.includes(_v3.id?.monthly ?? "") || _v2.CREATOR_JULY_2026_SKUS.includes(_v3.id?.annual ?? ""))) ? _v2.CREATOR_JULY_2026_FEATURES : _v5 ? [_v5, ..._v2.PLANS_DEFAULT_FEATURES[_v1.tier]] : _v2.PLANS_DEFAULT_FEATURES[_v1.tier];
   }, "getPlanQuota", 0, _v0 => _v2.PLANS_DEFAULT_VIDEO_QUOTAS[_v0.tier] || null, "getPlanSubHeading", 0, (_v0, _v1) => {
     let _v2 = _v0?.planOverrides?.[_v1.tier]?.subHeading;
     return void 0 === _v2 ? _v2.PLANS_SUBHEADING[_v1.tier] : _v2;

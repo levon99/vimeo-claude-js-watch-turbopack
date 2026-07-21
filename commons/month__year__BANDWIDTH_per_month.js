@@ -550,16 +550,16 @@
             singular: "Benutzerdefinierte Schriftarten"
           },
           "fr-FR": {
-            singular: "Personnaliser les polices"
+            singular: "Polices personnalisées"
           },
           "ja-JP": {
             singular: "カスタムフォント"
           },
           "ko-KR": {
-            singular: "커스텀 폰트"
+            singular: "사용자 지정 글꼴"
           },
           "pt-BR": {
-            singular: "Fontes customizadas"
+            singular: "Fontes personalizadas"
           },
           "zh-CN": {
             singular: "自定义字体"

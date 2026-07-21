@@ -892,16 +892,23 @@
         _v68 = (_v0 => {
           if (!_v0) return;
           let _v1 = _v7?.plans ? [..._v0] : _v57 ? [..._v57] : [],
-            _v2 = ["free", "starter", "basic", "plus", "customSelfServe", "proSolution", "production"];
-          _v39 && _v2.push("creator");
-          let _v3 = _v66 ? _v34.TIER_RANK[_v66] ?? 0 : -1;
-          for (let _v0 of _v1) {
-            let {
-              metadata: _v0,
-              tier: _v1
-            } = _v0;
-            if ("available" === _v63(_v0?.interactions?.purchase?.status, _v12, _v0?.purchasedProduct?.isMonthly, _v1) && !_v2.includes(_v1) && (!_v39 || (_v34.TIER_RANK[_v1] ?? 0) > _v3)) return _v1;
-          }
+            _v2 = _v66 ? _v34.TIER_RANK[_v66] ?? 0 : -1,
+            _v3 = ["free", "starter", "basic", "plus", "customSelfServe", "proSolution", "production"];
+          _v39 && _v3.push("creator");
+          let _v4 = _v39 ? (_v0 => {
+              let _v1 = _v34.REPACKAGING_FEATURE_ELIGIBLE_TIERS[_v0];
+              if (_v1?.length) return Math.min(..._v1.map(_v0 => _v34.TIER_RANK[_v0] ?? 0));
+            })(_v28) : void 0,
+            _v5 = _v0 => {
+              for (let _v0 of _v1) {
+                let {
+                  metadata: _v0,
+                  tier: _v1
+                } = _v0;
+                if ("available" === _v63(_v0?.interactions?.purchase?.status, _v12, _v0?.purchasedProduct?.isMonthly, _v1) && !_v3.includes(_v1) && (!_v39 || (_v34.TIER_RANK[_v1] ?? 0) > _v2) && (void 0 === _v0 || (_v34.TIER_RANK[_v1] ?? 0) >= _v0)) return _v1;
+              }
+            };
+          return _v5(_v4) ?? _v5(void 0);
         })(_v57),
         _v69 = (0, _v10.useMemo)(() => "studio" === _v65 ? "business" : _v15 ? "individual" : "studio" === _v66 || "production" === _v66 ? "business" : "individual", [_v66, _v15, _v65]),
         [_v70, _v71] = (0, _v10.useState)(null),

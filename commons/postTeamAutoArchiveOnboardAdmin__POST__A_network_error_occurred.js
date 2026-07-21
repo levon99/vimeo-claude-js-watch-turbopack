@@ -340,8 +340,8 @@
             name: _v4
           });
         },
-        children: (0, _v1.jsxs)(_v51.InputGroup, {
-          children: [(0, _v1.jsx)(_v50.Input, {
+        children: (0, _v1.jsxs)(_v52.InputGroup, {
+          children: [(0, _v1.jsx)(_v51.Input, {
             autoFocus: !0,
             isDisabled: _v8,
             maxLength: 32,
@@ -373,8 +373,8 @@
               }
             }),
             value: _v4
-          }), (0, _v1.jsx)(_v52.InputRightElement, {
-            children: (0, _v1.jsxs)(_v49.HStack, {
+          }), (0, _v1.jsx)(_v53.InputRightElement, {
+            children: (0, _v1.jsxs)(_v50.HStack, {
               position: "absolute",
               right: "0.5rem",
               spacing: "0.25rem",
@@ -557,7 +557,7 @@
         _v4 = (0, _v79.useOnScreen)(_v3);
       return (0, _v2.useEffect)(() => {
         _v4 && !_v0 && _v1();
-      }, [_v0, _v4, _v1]), (0, _v1.jsx)(_v48.Box, {
+      }, [_v0, _v4, _v1]), (0, _v1.jsx)(_v49.Box, {
         height: (0, _v15.rem)(_v2),
         mt: (0, _v15.rem)(-_v2),
         width: "100%",
@@ -595,7 +595,7 @@
     };
   _v82.Label = ({
     children: _v0
-  }) => (0, _v1.jsx)(_v48.Box, {
+  }) => (0, _v1.jsx)(_v49.Box, {
     flex: "1 1",
     children: (0, _v1.jsx)(_v75.Text, {
       variant: "heading-xs",
@@ -625,7 +625,7 @@
           flexDirection: "column",
           children: _v9?.map(_v0 => {
             let _v1 = _v6(_v0);
-            return (0, _v1.jsx)(_v48.Box, {
+            return (0, _v1.jsx)(_v49.Box, {
               opacity: _v1 ? .5 : 1,
               pointerEvents: _v1 ? "none" : "auto",
               children: (0, _v1.jsxs)(_v82, {
@@ -758,7 +758,7 @@
       } = (0, _v2.useContext)(_v101),
       {
         contentSpaceEnabled: _v2
-      } = (0, _v62.useContentSpaceEnabled)(_v1),
+      } = (0, _v48.useContentSpaceEnabled)(_v1),
       _v3 = _v2 ? (0, _v29.translate)({
         singular: "Team library",
         dictionary: {
@@ -894,7 +894,7 @@
           }
         }
       }),
-      icon: (0, _v1.jsx)(_v61.SearchMagnifier, {
+      icon: (0, _v1.jsx)(_v62.SearchMagnifier, {
         boxSize: "2rem"
       }),
       subcopy: (0, _v29.translate)({
@@ -933,9 +933,15 @@
           ownerOrWorkspaceId: _v3
         } = (0, _v2.useContext)(_v101),
         {
-          data: _v4,
-          setSize: _v5,
-          size: _v6
+          contentSpaceEnabled: _v4,
+          notTeamGatedContentSpaceEnabled: _v5,
+          loading: _v6
+        } = (0, _v48.useContentSpaceEnabled)(_v3),
+        _v7 = !_v6 && _v5 && !_v4,
+        {
+          data: _v8,
+          setSize: _v9,
+          size: _v10
         } = (0, _v92.useGetUserItemsInfinite)(() => _v3 ? {
           query: {
             excludePrivateToMe: !_v2,
@@ -949,23 +955,23 @@
             userId: _v3
           }
         } : null),
-        _v7 = _v4?.flatMap(_v0 => _v0.data).map(_v0 => _v0.folder).filter(_v0 => !!_v0 && !!_v0?.metadata?.interactions?.uploadVideo),
+        _v11 = _v8?.flatMap(_v0 => _v0.data).map(_v0 => _v0.folder).filter(_v0 => !!_v0 && (!_v7 || !_v0.isPrivateToUser) && !!_v0?.metadata?.interactions?.uploadVideo),
         {
-          isDone: _v8,
-          isLoadingInitialData: _v9,
-          isLoadingMore: _v10
+          isDone: _v12,
+          isLoadingInitialData: _v13,
+          isLoadingMore: _v14
         } = (0, _v72.getInfiniteRequestLoadingState)({
-          data: _v4,
+          data: _v8,
           itemsPerPage: 20,
-          size: _v6
+          size: _v10
         });
       return (0, _v1.jsx)(_v83, {
         emptyState: (0, _v1.jsx)(_v93, {}),
-        folders: _v7,
-        isDone: _v8,
-        isLoading: _v9 || _v10,
+        folders: _v11,
+        isDone: _v12,
+        isLoading: _v13 || _v14 || _v6,
         onClickFolder: _v0,
-        onLoadMore: () => _v5(_v6 + 1)
+        onLoadMore: () => _v9(_v10 + 1)
       });
     };
   var _v95 = _v0.i(0);
@@ -999,7 +1005,7 @@
             userId: _v5
           }
         }),
-        _v11 = _v8?.flatMap(_v0 => _v0.data).filter(_v0 => !!_v0),
+        _v11 = _v8?.flatMap(_v0 => _v0.data).filter(_v0 => !!_v0).filter(_v0 => !(_v6.flattenPrivateToMe && _v0?.isPrivateToUser)),
         {
           isDone: _v12,
           isLoadingInitialData: _v13,
@@ -1018,7 +1024,7 @@
         }),
         folders: _v11,
         isDone: _v12,
-        isLoading: _v13 || _v14,
+        isLoading: _v13 || _v14 || _v7,
         onClickFolder: _v2,
         onLoadMore: () => _v9(_v10 + 1)
       });
@@ -1120,7 +1126,7 @@
         }),
         {
           contentSpaceEnabled: _v19
-        } = (0, _v62.useContentSpaceEnabled)(_v3),
+        } = (0, _v48.useContentSpaceEnabled)(_v3),
         {
           data: _v20
         } = _v100("root" === _v4 || _v4 === _v7?.uri ? null : _v4);
@@ -1141,37 +1147,37 @@
           fauxFolder: _v7,
           selectedDestination: _v12
         },
-        children: (0, _v1.jsxs)(_v53.Modal, {
+        children: (0, _v1.jsxs)(_v54.Modal, {
           autoFocus: !1,
           isOpen: _v1,
           onClose: () => {
             _v21(), _v5();
           },
-          children: [(0, _v1.jsx)(_v58.ModalOverlay, {}), (0, _v1.jsx)(_v55.ModalContent, {
-            children: (0, _v1.jsxs)(_v48.Box, {
+          children: [(0, _v1.jsx)(_v59.ModalOverlay, {}), (0, _v1.jsx)(_v56.ModalContent, {
+            children: (0, _v1.jsxs)(_v49.Box, {
               as: "span",
               whiteSpace: "nowrap",
               flexGrow: 1,
               position: "relative",
               overflow: "hidden",
-              children: [(0, _v1.jsx)(_v57.ModalHeader, {
+              children: [(0, _v1.jsx)(_v58.ModalHeader, {
                 paddingBottom: "4",
                 children: (0, _v1.jsx)(_v11.Header, {
                   size: "md",
                   children: _v0
                 })
-              }), (0, _v1.jsxs)(_v54.ModalBody, {
+              }), (0, _v1.jsxs)(_v55.ModalBody, {
                 display: "flex",
                 flexDirection: "column",
                 gap: "1rem",
                 overflow: "auto",
-                children: [(_v12 || _v8.actual) && (0, _v1.jsxs)(_v51.InputGroup, {
-                  children: [(0, _v1.jsx)(_v52.InputLeftElement, {
+                children: [(_v12 || _v8.actual) && (0, _v1.jsxs)(_v52.InputGroup, {
+                  children: [(0, _v1.jsx)(_v53.InputLeftElement, {
                     pointerEvents: "none",
-                    children: (0, _v1.jsx)(_v61.SearchMagnifier, {
+                    children: (0, _v1.jsx)(_v62.SearchMagnifier, {
                       boxSize: "1.25rem"
                     })
-                  }), (0, _v1.jsx)(_v50.Input, {
+                  }), (0, _v1.jsx)(_v51.Input, {
                     placeholder: (0, _v29.translate)({
                       singular: "Search folders",
                       dictionary: {
@@ -1212,7 +1218,7 @@
                   selectedDestination: _v12,
                   setSelectedDestination: _v13,
                   setCreatingFolder: _v11
-                }), (0, _v1.jsx)(_v48.Box, {
+                }), (0, _v1.jsx)(_v49.Box, {
                   h: "18.75rem",
                   children: (0, _v1.jsx)(_v97, {
                     canCreateFolder: !!_v18,
@@ -1226,12 +1232,12 @@
                     searchQuery: _v8.debounced
                   })
                 })]
-              }), (0, _v1.jsx)(_v56.ModalFooter, {
+              }), (0, _v1.jsx)(_v57.ModalFooter, {
                 children: (0, _v1.jsxs)(_v10.Flex, {
                   flexGrow: "1",
                   justifyContent: "space-between",
-                  children: [(0, _v1.jsx)(_v48.Box, {
-                    children: _v14 && (0, _v1.jsx)(_v59.Tooltip, {
+                  children: [(0, _v1.jsx)(_v49.Box, {
+                    children: _v14 && (0, _v1.jsx)(_v60.Tooltip, {
                       label: (0, _v29.translate)({
                         singular: "Create folder",
                         dictionary: {
@@ -1286,13 +1292,13 @@
                             }
                           }
                         }),
-                        icon: (0, _v1.jsx)(_v60.FolderPlus, {}),
+                        icon: (0, _v1.jsx)(_v61.FolderPlus, {}),
                         isDisabled: !_v18 || _v10,
                         onClick: () => _v11(!0),
                         variant: "tertiary"
                       })
                     })
-                  }), (0, _v1.jsxs)(_v49.HStack, {
+                  }), (0, _v1.jsxs)(_v50.HStack, {
                     spacing: "0.5rem",
                     justifySelf: "flex-end",
                     children: [(0, _v1.jsx)(_v8.Button, {
@@ -1386,12 +1392,43 @@
         }),
         [_v11, _v12] = (0, _v2.useState)(),
         {
-          data: _v13,
-          isLoading: _v14
+          contentSpaceEnabled: _v13,
+          notTeamGatedContentSpaceEnabled: _v14,
+          loading: _v15
+        } = (0, _v48.useContentSpaceEnabled)(_v1),
+        _v16 = !_v15 && _v14 && !_v13,
+        {
+          data: _v17,
+          isLoading: _v18
         } = _v100(_v4 && _v0 === _v3?.uri ? null : _v0),
-        _v15 = (0, _v2.useCallback)(() => {
+        _v19 = (0, _v2.useCallback)(() => {
           if (_v4 && _v0 === _v3?.uri) return [{
-            label: (0, _v29.translate)({
+            label: _v16 ? (0, _v29.translate)({
+              singular: "Library",
+              dictionary: {
+                es: {
+                  singular: "Biblioteca"
+                },
+                "de-DE": {
+                  singular: "Bibliothek"
+                },
+                "fr-FR": {
+                  singular: "Bibliothèque"
+                },
+                "ja-JP": {
+                  singular: "ライブラリ"
+                },
+                "ko-KR": {
+                  singular: "라이브러리"
+                },
+                "pt-BR": {
+                  singular: "Biblioteca"
+                },
+                "zh-CN": {
+                  singular: "视频库"
+                }
+              }
+            }) : (0, _v29.translate)({
               singular: "My Library",
               dictionary: {
                 es: {
@@ -1422,7 +1459,7 @@
             label: _v3?.name ?? "",
             uri: _v3?.uri
           }];
-          if (!_v13) return [{
+          if (!_v17) return [{
             label: (0, _v29.translate)({
               singular: "Select Folder",
               dictionary: {
@@ -1450,17 +1487,67 @@
               }
             })
           }];
-          let _v0 = [..._v13.metadata.connections.ancestorPath];
-          _v0.reverse();
+          let _v0 = [..._v17.metadata.connections.ancestorPath];
+          _v0.reverse(), _v16 && _v0.length && _v0.shift();
           let _v1 = _v0.map(_v0 => ({
             label: _v0.name,
             uri: _v0.uri
           }));
           return _v1.push({
-            label: _v13.name,
-            uri: _v13.uri
-          }), _v13.isPrivateToUser || _v1.unshift({
-            label: (0, _v29.translate)({
+            label: _v16 && _v17.isPrivateToUser ? (0, _v29.translate)({
+              singular: "Library",
+              dictionary: {
+                es: {
+                  singular: "Biblioteca"
+                },
+                "de-DE": {
+                  singular: "Bibliothek"
+                },
+                "fr-FR": {
+                  singular: "Bibliothèque"
+                },
+                "ja-JP": {
+                  singular: "ライブラリ"
+                },
+                "ko-KR": {
+                  singular: "라이브러리"
+                },
+                "pt-BR": {
+                  singular: "Biblioteca"
+                },
+                "zh-CN": {
+                  singular: "视频库"
+                }
+              }
+            }) : _v17.name,
+            uri: _v17.uri
+          }), _v17.isPrivateToUser || _v1.unshift({
+            label: _v16 ? (0, _v29.translate)({
+              singular: "Library",
+              dictionary: {
+                es: {
+                  singular: "Biblioteca"
+                },
+                "de-DE": {
+                  singular: "Bibliothek"
+                },
+                "fr-FR": {
+                  singular: "Bibliothèque"
+                },
+                "ja-JP": {
+                  singular: "ライブラリ"
+                },
+                "ko-KR": {
+                  singular: "라이브러리"
+                },
+                "pt-BR": {
+                  singular: "Biblioteca"
+                },
+                "zh-CN": {
+                  singular: "视频库"
+                }
+              }
+            }) : (0, _v29.translate)({
               singular: "Team Library",
               dictionary: {
                 es: {
@@ -1488,11 +1575,11 @@
             }),
             uri: "root"
           }), _v1;
-        }, [_v4, _v0, _v3, _v13]),
-        _v16 = _v0 => {
+        }, [_v4, _v0, _v3, _v17, _v16]),
+        _v20 = _v0 => {
           _v12(_v0), _v9();
         },
-        _v17 = () => {
+        _v21 = () => {
           _v12(void 0), _v10();
         };
       return (0, _v1.jsxs)(_v1.Fragment, {
@@ -1507,7 +1594,7 @@
           alignItems: "center",
           backgroundColor: _v6 ? "input-fill !important" : "none",
           outlineOffset: _v6 ? "-1px" : "0",
-          children: _v5 || _v14 ? (0, _v1.jsx)(_v10.Flex, {
+          children: _v5 || _v18 || _v15 ? (0, _v1.jsx)(_v10.Flex, {
             width: "100%",
             alignItems: "center",
             justify: "center",
@@ -1522,7 +1609,7 @@
               overflow: "hidden",
               children: [(0, _v1.jsx)(_v47.Folder, {
                 cursor: "pointer",
-                onClick: () => _v16()
+                onClick: () => _v20()
               }), (0, _v1.jsx)(_v10.Flex, {
                 alignItems: "center",
                 justifyContent: "flex-start",
@@ -1532,18 +1619,18 @@
                   scrollbarWidth: "none"
                 },
                 children: _v6 ? (0, _v1.jsx)(_v104, {
-                  breadcrumbs: (_v7 = _v15()).length ? [_v7[_v7.length - 1]] : [],
-                  openModal: _v16,
+                  breadcrumbs: (_v7 = _v19()).length ? [_v7[_v7.length - 1]] : [],
+                  openModal: _v20,
                   isSettingsPage: _v6
                 }) : (0, _v1.jsx)(_v104, {
-                  breadcrumbs: _v15(),
-                  openModal: _v16
+                  breadcrumbs: _v19(),
+                  openModal: _v20
                 })
               })]
             }), (0, _v1.jsx)(_v8.Button, {
               size: "xs",
               variant: _v6 ? "primary" : "secondary",
-              onClick: () => _v16(_v0),
+              onClick: () => _v20(_v0),
               children: (0, _v29.translate)({
                 singular: "Change",
                 dictionary: {
@@ -1603,9 +1690,9 @@
           fauxFolder: _v4 && _v3 ? _v3 : void 0,
           ownerOrWorkspaceId: _v1,
           onSuccess: _v0 => {
-            _v17(), _v2(_v0);
+            _v21(), _v2(_v0);
           },
-          onClose: _v17,
+          onClose: _v21,
           initialFolderUri: _v11
         })]
       });
@@ -3675,7 +3762,7 @@
           }
         },
         _v29 = () => !_v26 || !!_v8 || _v26.privacy === _v128.DEFAULT_PRIVACY_VALUES.PASSWORD && !_v10 || "placeholder" === _v26.privacy;
-      return _v19.isLoading ? (0, _v1.jsx)(_v35.LoadingPage, {}) : _v20 && _v21 ? _v5 ? (0, _v1.jsx)(_v48.Box, {
+      return _v19.isLoading ? (0, _v1.jsx)(_v35.LoadingPage, {}) : _v20 && _v21 ? _v5 ? (0, _v1.jsx)(_v49.Box, {
         width: "100%",
         children: (0, _v1.jsxs)(_v9.Card, {
           padding: "sm",
@@ -3691,7 +3778,7 @@
               base: "wrap",
               sm: "nowrap"
             },
-            children: [(0, _v1.jsx)(_v48.Box, {
+            children: [(0, _v1.jsx)(_v49.Box, {
               width: "100%",
               children: (0, _v1.jsx)(_v124.PrivacyDropdown, {
                 isVideoPrivacy: !0,
@@ -3705,7 +3792,7 @@
                   description: void 0
                 }))
               })
-            }), _v26.privacy === _v128.DEFAULT_PRIVACY_VALUES.PASSWORD && (0, _v1.jsx)(_v48.Box, {
+            }), _v26.privacy === _v128.DEFAULT_PRIVACY_VALUES.PASSWORD && (0, _v1.jsx)(_v49.Box, {
               width: "100%",
               children: (0, _v1.jsx)(_v123.PasswordInput, {
                 initialValue: _v10,
@@ -3786,7 +3873,7 @@
             color: "text-secondary",
             textAlign: "center",
             children: _v1.getPrivacySubHeaderText()
-          }), (0, _v1.jsxs)(_v48.Box, {
+          }), (0, _v1.jsxs)(_v49.Box, {
             mt: "md",
             children: [(0, _v1.jsx)(_v124.PrivacyDropdown, {
               isVideoPrivacy: !0,
@@ -3799,7 +3886,7 @@
                 ..._v0,
                 description: void 0
               }))
-            }), _v26.privacy === _v128.DEFAULT_PRIVACY_VALUES.PASSWORD && (0, _v1.jsx)(_v48.Box, {
+            }), _v26.privacy === _v128.DEFAULT_PRIVACY_VALUES.PASSWORD && (0, _v1.jsx)(_v49.Box, {
               mt: "md",
               children: (0, _v1.jsx)(_v123.PasswordInput, {
                 prefillValue: _v10,

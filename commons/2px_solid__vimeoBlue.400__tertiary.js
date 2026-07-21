@@ -2466,7 +2466,7 @@
     _v118 = _v0.i(0),
     _v119 = _v0.i(0);
   let _v120 = ["isPrivateToUser", "metadata.connections.ancestorPath.canUpload", "metadata.connections.ancestorPath.name", "metadata.connections.ancestorPath.uri", "metadata.connections.folders.total", "metadata.connections.parentFolder.uri", "metadata.interactions.addSubfolder.canAddSubfolders", "metadata.interactions.edit.uri", "name", "privacy.view", "uri"],
-    _v121 = ["type", "video.uri", "video.name", "video.manageLink", "video.createdTime", "video.modifiedTime", "video.lastUserActionEventDate", "video.pictures", "video.link", "video.duration", "video.disabledProperties", "video.isColdStorage", "video.privacy.view", "video.privacy.originalView", "video.user.name", "video.user.pictures", "video.configUrl", "folder.uri", "folder.name", "folder.link", "folder.createdTime", "folder.modifiedTime", "folder.lastUserActionEventDate", "folder.useParentSlackSettings", "folder.metadata.connections.items.total", "folder.settings.color", "liveEvent.status", "liveEvent.metadata.connections.liveVideo.status", "liveEvent.eventType", "liveEvent.nextOccurrenceTime", "liveEvent.title", "liveEvent.uri", "liveEvent.createdTime", "liveEvent.pictures", "liveEvent.streamPrivacy", "liveEvent.metadata.connections.preLiveVideo.uri", "liveEvent.metadata.connections.liveVideo.uri", "liveEvent.hasRegistration"],
+    _v121 = ["type", "video.uri", "video.name", "video.manageLink", "video.createdTime", "video.modifiedTime", "video.lastUserActionEventDate", "video.pictures", "video.link", "video.duration", "video.disabledProperties", "video.isColdStorage", "video.privacy.view", "video.privacy.originalView", "video.user.name", "video.user.pictures", "video.configUrl", "folder.uri", "folder.name", "folder.isPrivateToUser", "folder.link", "folder.createdTime", "folder.modifiedTime", "folder.lastUserActionEventDate", "folder.useParentSlackSettings", "folder.metadata.connections.items.total", "folder.settings.color", "liveEvent.status", "liveEvent.metadata.connections.liveVideo.status", "liveEvent.eventType", "liveEvent.nextOccurrenceTime", "liveEvent.title", "liveEvent.uri", "liveEvent.createdTime", "liveEvent.pictures", "liveEvent.streamPrivacy", "liveEvent.metadata.connections.preLiveVideo.uri", "liveEvent.metadata.connections.liveVideo.uri", "liveEvent.hasRegistration"],
     _v122 = ["status", "metadata.connections.liveVideo.status", "eventType", "nextOccurrenceTime", "title", "uri", "createdTime", "pictures", "streamPrivacy", "metadata.connections.preLiveVideo.uri", "metadata.connections.liveVideo.uri", "hasRegistration"],
     _v123 = () => {
       let _v0 = _v54(_v0 => _v0.commonStore.resourceOwnerId),
@@ -4738,35 +4738,41 @@
         setSize: _v23
       } = (() => {
         let _v0 = _v54(_v0 => _v0.commonStore.resourceOwnerId),
-          _v1 = _v54(_v0 => _v0.itemListStore.navigationStack),
-          _v2 = _v54(_v0 => _v0.commonStore.searchQuery),
-          _v3 = _v54(_v0 => _v0.commonStore.searchFilterFields),
-          _v4 = _v54(_v0 => _v0.commonStore.sortValues),
-          _v5 = (0, _v206.useDebouncedValue)(_v2, 500),
-          _v6 = _v3?.length ? _v3.join(",") : void 0,
-          _v7 = _v204(_v1[_v1.length - 1]),
           {
-            data: _v8,
-            error: _v9,
-            isLoading: _v10,
-            setSize: _v11,
-            size: _v12
-          } = (0, _v205.useGetUserItemsInfinite)(() => _v0 && _v5.trim() ? {
+            contentSpaceEnabled: _v1,
+            notTeamGatedContentSpaceEnabled: _v2,
+            loading: _v3
+          } = (0, _v117.useContentSpaceEnabled)(_v0),
+          _v4 = !_v3 && _v2 && !_v1,
+          _v5 = _v54(_v0 => _v0.itemListStore.navigationStack),
+          _v6 = _v54(_v0 => _v0.commonStore.searchQuery),
+          _v7 = _v54(_v0 => _v0.commonStore.searchFilterFields),
+          _v8 = _v54(_v0 => _v0.commonStore.sortValues),
+          _v9 = (0, _v206.useDebouncedValue)(_v6, 500),
+          _v10 = _v7?.length ? _v7.join(",") : void 0,
+          _v11 = _v204(_v5[_v5.length - 1]),
+          {
+            data: _v12,
+            error: _v13,
+            isLoading: _v14,
+            setSize: _v15,
+            size: _v16
+          } = (0, _v205.useGetUserItemsInfinite)(() => _v0 && _v9.trim() ? {
             where: {
               userId: _v0
             },
             select: _v121,
             query: {
-              direction: _v4?.sortDirection,
-              sort: _v4?.sortBy,
+              direction: _v8?.sortDirection,
+              sort: _v8?.sortBy,
               filter: "folder,video,live_event",
               perPage: 25,
               liveEventType: "all",
               noPadding: !0,
               responsive: !0,
-              includeFolderIds: _v7 ?? void 0,
-              query: _v5.trim() ? _v5 : void 0,
-              queryFields: _v6,
+              includeFolderIds: _v11 ?? void 0,
+              query: _v9.trim() ? _v9 : void 0,
+              queryFields: _v10,
               precision: 3
             },
             headers: {
@@ -4777,11 +4783,14 @@
             revalidateFirstPage: !1
           });
         return {
-          data: _v8,
-          error: _v9,
-          isLoading: _v10,
-          setSize: _v11,
-          size: _v12
+          data: (0, _v13.useMemo)(() => _v4 && _v12 ? _v12.map(_v0 => _v0 ? {
+            ..._v0,
+            data: _v0.data.filter(_v0 => !("folder" === _v0.type && _v0.folder?.isPrivateToUser))
+          } : _v0) : _v12, [_v12, _v4]),
+          error: _v13,
+          isLoading: _v14 || _v3,
+          setSize: _v15,
+          size: _v16
         };
       })(),
       {

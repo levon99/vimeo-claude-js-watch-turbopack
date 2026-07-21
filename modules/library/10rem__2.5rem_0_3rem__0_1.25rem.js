@@ -4237,29 +4237,29 @@
               targetUserId: _v17 ?? 0,
               disabled: !_v89 || _v151 && _v38.canCreateRootFolders,
               topPosition: 205,
-              destinationText: (0, _v23.translate)({
-                singular: "Team library",
+              destinationText: _v91 || (0, _v23.translate)({
+                singular: "Library",
                 dictionary: {
                   es: {
-                    singular: "Biblioteca del equipo"
+                    singular: "Biblioteca"
                   },
                   "de-DE": {
-                    singular: "Teambibliothek"
+                    singular: "Bibliothek"
                   },
                   "fr-FR": {
-                    singular: "Bibliothèque de l'équipe"
+                    singular: "Bibliothèque"
                   },
                   "ja-JP": {
-                    singular: "チームライブラリ"
+                    singular: "ライブラリ"
                   },
                   "ko-KR": {
-                    singular: "팀 라이브러리"
+                    singular: "라이브러리"
                   },
                   "pt-BR": {
-                    singular: "Biblioteca da equipe"
+                    singular: "Biblioteca"
                   },
                   "zh-CN": {
-                    singular: "团队视频库"
+                    singular: "视频库"
                   }
                 }
               }),

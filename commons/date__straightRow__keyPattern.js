@@ -1370,14 +1370,17 @@
     _v79 = _v0.i(0),
     _v80 = _v0.i(0),
     _v81 = _v0.i(0),
-    _v82 = _v0.i(0);
-  let _v83 = "var(--vimeo-colors-fill-surface)",
-    _v84 = (0, _v82.rem)(20),
-    _v85 = (0, _v82.rem)(24);
-  function _v86({
+    _v82 = _v0.i(0),
+    _v83 = _v0.i(0);
+  let _v84 = "var(--vimeo-colors-fill-surface)",
+    _v85 = (0, _v83.rem)(20),
+    _v86 = (0, _v83.rem)(24),
+    _v87 = (0, _v83.rem)(20),
+    _v88 = (0, _v83.rem)(400);
+  function _v89({
     children: _v0,
     active: _v1,
-    background: _v2 = _v83,
+    background: _v2 = _v84,
     desktopMarginTop: _v3 = 0,
     terms: _v4
   }) {
@@ -1385,15 +1388,24 @@
       marginTop: "auto",
       position: "sticky",
       bottom: 0,
+      width: "100vw",
+      marginLeft: "50%",
+      transform: "translateX(-50%)",
       background: _v2,
-      paddingY: _v85,
-      borderTopWidth: "1px",
-      borderTopColor: "var(--vimeo-colors-stroke)",
-      children: null == _v4 ? _v0 : (0, _v2.jsxs)(_v2.Fragment, {
-        children: [_v4, (0, _v2.jsx)(_v70.Box, {
-          marginTop: _v84,
-          children: _v0
-        })]
+      paddingY: _v86,
+      borderTopRadius: (0, _v83.rem)(20),
+      boxShadow: "0 -4px 8px 0 rgba(0, 0, 0, 0.04)",
+      children: (0, _v2.jsx)(_v70.Box, {
+        width: "100%",
+        maxW: _v88,
+        marginInline: "auto",
+        paddingX: _v87,
+        children: null == _v4 ? _v0 : (0, _v2.jsxs)(_v2.Fragment, {
+          children: [_v4, (0, _v2.jsx)(_v70.Box, {
+            marginTop: _v85,
+            children: _v0
+          })]
+        })
       })
     }) : null == _v4 ? (0, _v2.jsx)(_v70.Box, {
       marginTop: _v3,
@@ -1401,51 +1413,51 @@
     }) : (0, _v2.jsxs)(_v70.Box, {
       marginTop: _v3,
       children: [_v4, (0, _v2.jsx)(_v70.Box, {
-        marginTop: _v84,
+        marginTop: _v85,
         children: _v0
       })]
     });
   }
-  _v0.s(["MobileStickyFooter", 0, _v86, "getStickyFooterBackground", 0, function (_v0) {
-    return _v0 ? "white" : _v83;
+  _v0.s(["MobileStickyFooter", 0, _v89, "getStickyFooterBackground", 0, function (_v0) {
+    return _v0 ? "white" : _v84;
   }], 0);
-  var _v87 = _v0.i(0),
-    _v88 = _v0.i(0),
-    _v89 = _v0.i(0),
-    _v90 = _v0.i(0);
-  let _v91 = {
-      transform: `scale(0.85) translateY(${(0, _v82.rem)(-22)})`,
+  var _v90 = _v0.i(0),
+    _v91 = _v0.i(0),
+    _v92 = _v0.i(0),
+    _v93 = _v0.i(0);
+  let _v94 = {
+      transform: `scale(0.85) translateY(${(0, _v83.rem)(-22)})`,
       color: "text-primary"
     },
-    _v92 = _v0 => (0, _v2.jsx)(_v90.Input, {
+    _v95 = _v0 => (0, _v2.jsx)(_v93.Input, {
       placeholder: "",
       _focusVisible: {
         borderColor: "text-primary"
       },
       ..._v0
     }),
-    _v93 = _v0 => (0, _v2.jsxs)(_v87.FormControl, {
+    _v96 = _v0 => (0, _v2.jsxs)(_v90.FormControl, {
       position: "relative",
       variant: "floating",
       _focusWithin: {
-        label: _v91
+        label: _v94
       },
       sx: {
-        "input:not(:placeholder-shown) + label, .chakra-select__wrapper + label, textarea:not(:placeholder-shown) ~ label": _v91,
+        "input:not(:placeholder-shown) + label, .chakra-select__wrapper + label, textarea:not(:placeholder-shown) ~ label": _v94,
         'input[aria-invalid="true"]:not(:placeholder-shown) + label': {
           color: "status-destructive-primary"
         },
         zIndex: 2
       },
       ..._v0,
-      children: [_v0.children, (0, _v2.jsx)(_v89.FormErrorMessage, {
+      children: [_v0.children, (0, _v2.jsx)(_v92.FormErrorMessage, {
         fontWeight: 350,
         fontSize: "body-sm",
         color: "status-destructive-primary",
         children: _v0?.formFieldErrorMessage
       })]
     }),
-    _v94 = _v0 => (0, _v2.jsx)(_v88.FormLabel, {
+    _v97 = _v0 => (0, _v2.jsx)(_v91.FormLabel, {
       position: "absolute",
       top: 0,
       left: 0,
@@ -1454,9 +1466,9 @@
       pointerEvents: "none",
       mx: 3,
       px: 1,
-      my: (0, _v82.rem)(10),
+      my: (0, _v83.rem)(10),
       transformOrigin: "left top",
-      fontSize: (0, _v82.rem)(14),
+      fontSize: (0, _v83.rem)(14),
       fontWeight: 350,
       color: "text-secondary",
       lineHeight: "140%",
@@ -1465,10 +1477,10 @@
       ..._v0,
       children: _v0.children
     });
-  _v0.s(["InputWrapper", 0, _v93, "Label", 0, _v94, "StyledInput", 0, _v92], 0);
-  var _v95 = _v0.i(0),
-    _v96 = _v0.i(0);
-  let _v97 = ({
+  _v0.s(["InputWrapper", 0, _v96, "Label", 0, _v97, "StyledInput", 0, _v95], 0);
+  var _v98 = _v0.i(0),
+    _v99 = _v0.i(0);
+  let _v100 = ({
     overEighteenCertification: _v0,
     setOverEighteenCertification: _v1,
     setError: _v2,
@@ -1476,7 +1488,7 @@
     shouldShowAgeCertification: _v4,
     isInvalid: _v5,
     setAgeCertificationInvalid: _v6
-  }) => _v4 ? (0, _v2.jsx)(_v95.Checkbox, {
+  }) => _v4 ? (0, _v2.jsx)(_v98.Checkbox, {
     size: "md",
     isChecked: _v0,
     onChange: _v0 => {
@@ -1488,7 +1500,7 @@
       marginBottom: "10px"
     },
     isInvalid: _v5,
-    children: (0, _v2.jsx)(_v96.Tooltip, {
+    children: (0, _v2.jsx)(_v99.Tooltip, {
       label: (0, _v7.translate)({
         singular: "You must be 18 or older to sign up or use our services in your area.",
         dictionary: {
@@ -1516,8 +1528,8 @@
         }
       }),
       placement: "top",
-      maxWidth: (0, _v82.rem)(265),
-      children: (0, _v2.jsx)(_v74.Text, {
+      maxWidth: (0, _v83.rem)(265),
+      children: (0, _v2.jsx)(_v75.Text, {
         variant: _v3 ? "body-sm" : "body-md",
         display: "inline",
         color: _v3 ? "text-secondary" : "gray.600",
@@ -1550,16 +1562,16 @@
       })
     })
   }) : null;
-  var _v98 = _v0.i(0);
-  function _v99({
+  var _v101 = _v0.i(0);
+  function _v102({
     passwordScore: _v0
   }) {
     return (0, _v4.useMemo)(() => {
       if (void 0 === _v0) return (0, _v2.jsx)(_v2.Fragment, {});
       let _v0 = 25,
         _v1 = "linear-gradient(90deg, #9D2926 0%, #E9394C 61.06%, #E0295B 85.1%, #E4259E 100%)";
-      return _v0 >= 4 ? (_v0 = 95, _v1 = "linear-gradient(90deg, #176127 0%, #127A28 22.12%, #28BF47 44.71%, #13F060 97.12%, #00DDDC 100%)") : _v0 >= 2 && (_v0 = 50, _v1 = "linear-gradient(90deg, #B06820 16.35%, #D7970B 34.13%, #FED94C 59.13%, #FFC964 86.06%, #FFFF00 100%)"), (0, _v2.jsx)(_v98.Progress, {
-        height: (0, _v82.rem)(4),
+      return _v0 >= 4 ? (_v0 = 95, _v1 = "linear-gradient(90deg, #176127 0%, #127A28 22.12%, #28BF47 44.71%, #13F060 97.12%, #00DDDC 100%)") : _v0 >= 2 && (_v0 = 50, _v1 = "linear-gradient(90deg, #B06820 16.35%, #D7970B 34.13%, #FED94C 59.13%, #FFC964 86.06%, #FFFF00 100%)"), (0, _v2.jsx)(_v101.Progress, {
+        height: (0, _v83.rem)(4),
         value: _v0,
         sx: {
           div: {
@@ -1569,7 +1581,7 @@
       });
     }, [_v0]);
   }
-  async function _v100(_v0, _v1) {
+  async function _v103(_v0, _v1) {
     try {
       let _v0 = await fetch(_v1, {
         method: "POST",
@@ -1592,17 +1604,17 @@
       throw _v0;
     }
   }
-  _v0.s(["Login", 0, _v100], 0);
-  var _v101 = _v0.i(0),
-    _v102 = _v0.i(0),
-    _v103 = _v0.i(0);
-  let _v104 = _v5.default.section.withConfig({
+  _v0.s(["Login", 0, _v103], 0);
+  var _v104 = _v0.i(0),
+    _v105 = _v0.i(0),
+    _v106 = _v0.i(0);
+  let _v107 = _v5.default.section.withConfig({
       displayName: "Shared__FormSection",
       componentId: "sc-e0fa4153-0"
     })`
   margin-top: ${(0, _v3.rem)(10)};
 `,
-    _v105 = (0, _v5.default)(_v101.Button).attrs(({
+    _v108 = (0, _v5.default)(_v104.Button).attrs(({
       format: _v0
     }) => ({
       format: _v0 || "primary",
@@ -1628,7 +1640,7 @@
     }
   }
 `,
-    _v106 = _v5.default.div.withConfig({
+    _v109 = _v5.default.div.withConfig({
       displayName: "Shared__OrSeparator",
       componentId: "sc-e0fa4153-2"
     })`
@@ -1648,13 +1660,13 @@
     background-color: var(--vimeo-colors-stroke);
   }
 `,
-    _v107 = (0, _v5.default)(_v103.Notice).withConfig({
+    _v110 = (0, _v5.default)(_v106.Notice).withConfig({
       displayName: "Shared__Notice",
       componentId: "sc-e0fa4153-3"
     })`
   padding-right: ${(0, _v3.rem)(30)};
 `,
-    _v108 = _v5.default.hr.withConfig({
+    _v111 = _v5.default.hr.withConfig({
       displayName: "Shared__HR",
       componentId: "sc-e0fa4153-4"
     })`
@@ -1662,14 +1674,14 @@
   width: 100%;
   margin-bottom: ${(0, _v3.rem)(16)};
 `,
-    _v109 = _v5.default.form.withConfig({
+    _v112 = _v5.default.form.withConfig({
       displayName: "Shared__Form",
       componentId: "sc-e0fa4153-5"
     })`
   display: flex;
   flex-direction: column;
 `,
-    _v110 = _v5.default.div.withConfig({
+    _v113 = _v5.default.div.withConfig({
       displayName: "Shared__InputWrapper",
       componentId: "sc-e0fa4153-6"
     })`
@@ -1721,10 +1733,10 @@
       }
     `}
 `,
-    _v111 = _v0 => (0, _v2.jsx)(_v110, {
+    _v114 = _v0 => (0, _v2.jsx)(_v113, {
       formType: _v0.formType,
       order: _v0.order,
-      children: (0, _v2.jsx)(_v102.Input, {
+      children: (0, _v2.jsx)(_v105.Input, {
         floating: !0,
         ..._v0,
         variant: _v0.inputFieldVariant,
@@ -1732,7 +1744,7 @@
         children: _v0.children
       })
     });
-  function _v112({
+  function _v115({
     xsrft: _v0,
     optIn: _v1,
     name: _v2,
@@ -1792,15 +1804,16 @@
     isFullScreen: _v31 = !1,
     stickyFooter: _v32,
     header: _v33,
-    onError: _v34
+    onError: _v34,
+    unifiedAuthDesignOverride: _v35 = !1
   }) {
-    let [_v35, _v36] = (0, _v4.useState)(null),
-      [_v37, _v38] = (0, _v4.useState)({}),
-      [_v39, _v40] = (0, _v4.useState)(!0),
-      [_v41, _v42] = (0, _v4.useState)(!1),
-      [_v43, _v44] = (0, _v4.useState)(!1),
-      [_v45, _v46] = (0, _v4.useState)(!1),
-      _v47 = function (_v0) {
+    let [_v36, _v37] = (0, _v4.useState)(null),
+      [_v38, _v39] = (0, _v4.useState)({}),
+      [_v40, _v41] = (0, _v4.useState)(!0),
+      [_v42, _v43] = (0, _v4.useState)(!1),
+      [_v44, _v45] = (0, _v4.useState)(!1),
+      [_v46, _v47] = (0, _v4.useState)(!1),
+      _v48 = function (_v0) {
         let _v1 = (0, _v4.useContext)(_v12.ViewerContext),
           [_v2, _v3] = (0, _v4.useState)(null);
         return _v0 ? ((0, _v4.useEffect)(() => {
@@ -1833,23 +1846,23 @@
           };
         }, []), _v2) : "";
       }(!1),
-      _v48 = (0, _v81.useViewer)(),
+      _v49 = (0, _v82.useViewer)(),
       {
-        trackSignupCompleted: _v49
-      } = (0, _v80.useSignupTracking)(),
-      _v50 = !!_v48?.requiresAgeSelfCertification,
-      _v51 = (0, _v76.useIsMobile)();
+        trackSignupCompleted: _v50
+      } = (0, _v81.useSignupTracking)(),
+      _v51 = !!_v49?.requiresAgeSelfCertification,
+      _v52 = (0, _v77.useIsMobile)();
     (0, _v4.useEffect)(() => {
-      _v26 && _v36(_v26);
+      _v26 && _v37(_v26);
     }, [_v26]), (0, _v4.useEffect)(() => {
       (0, _v13.trackJoinPageImpressionRegFlow0625)({
         location: "join_page_step_2"
       });
     }, []);
-    let _v52 = _v31 ? {
+    let _v53 = _v31 ? {
         confirmPassword: ""
       } : {},
-      _v53 = _v31 ? {
+      _v54 = _v31 ? {
         confirmPassword: _v69.string().oneOf([_v69.ref("password")], (0, _v7.translate)({
           singular: "Please confirm password",
           dictionary: {
@@ -1902,7 +1915,7 @@
           }
         }))
       } : {},
-      _v54 = (0, _v7.translate)({
+      _v55 = (0, _v7.translate)({
         singular: "Password must be at least {MIN} characters and contain at least one number and at least one symbol.",
         replacements: {
           MIN: 8
@@ -1931,7 +1944,7 @@
           }
         }
       }),
-      _v55 = _v69.object({
+      _v56 = _v69.object({
         name: _v69.string().max(32).required((0, _v7.translate)({
           singular: "Please enter your name",
           dictionary: {
@@ -2009,7 +2022,7 @@
             }
           }
         })),
-        password: _v69.string().min(8, _v54).matches(/[0-9]/, _v54).matches(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/, _v54).max(72, (0, _v7.translate)({
+        password: _v69.string().min(8, _v55).matches(/[0-9]/, _v55).matches(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/, _v55).max(72, (0, _v7.translate)({
           singular: "Password must be less than {MAX} characters and contain at least one number and at least one symbol.",
           replacements: {
             MAX: 72
@@ -2063,19 +2076,19 @@
             }
           }
         })),
-        ..._v53
+        ..._v54
       }),
-      _v56 = (0, _v79.useForm)({
-        validationSchema: _v55,
+      _v57 = (0, _v80.useForm)({
+        validationSchema: _v56,
         initialValues: {
           email: _v3 || "",
           password: "",
           name: _v2 || "",
           overEighteenCertification: !1,
-          ..._v52
+          ..._v53
         },
         onSubmit: async _v0 => {
-          let _v1 = _v56[_v79.CONTROLLER]?.state?.errors;
+          let _v1 = _v57[_v80.CONTROLLER]?.state?.errors;
           for (let {
             field: _v0,
             errorCode: _v1,
@@ -2093,11 +2106,11 @@
             },
             reason: "password_requirements_not_met"
           }]) if (_v1?.has(_v0) && Array.isArray(_v1.get(_v0)) && (_v1.get(_v0)?.length ?? 0) > 0) {
-            _v36(_v1.get(_v0)?.[0] ?? ""), _v38(_v1), _v34?.(_v2);
+            _v37(_v1.get(_v0)?.[0] ?? ""), _v39(_v1), _v34?.(_v2);
             return;
           }
-          if (_v50 && !_v0.overEighteenCertification) {
-            _v36((0, _v7.translate)({
+          if (_v51 && !_v0.overEighteenCertification) {
+            _v37((0, _v7.translate)({
               singular: "Please certify you are over 18 by checking input box",
               dictionary: {
                 es: {
@@ -2122,11 +2135,11 @@
                   singular: "请勾选输入框以确认您已年满 18 岁。"
                 }
               }
-            })), _v46(!0), _v34?.("age_certification_required");
+            })), _v47(!0), _v34?.("age_certification_required");
             return;
           }
           if (_v31 && _v0.password !== _v0.confirmPassword) {
-            _v36((0, _v7.translate)({
+            _v37((0, _v7.translate)({
               singular: "Please confirm password",
               dictionary: {
                 es: {
@@ -2151,13 +2164,13 @@
                   singular: "请确认密码"
                 }
               }
-            })), _v38({
+            })), _v39({
               has_error_password_missmatch: ""
             }), _v34?.("password_mismatch");
             return;
           }
-          _v42(!1);
-          let _v2 = `name=${_v0.name}&email=${encodeURIComponent(_v0.email)}&password=${encodeURIComponent(_v0.password)}&token=${_v0}&action=join&service=${_v24 ? "google_identity_platform" : "vimeo"}&marketing_opt_in=${_v1}&recaptcha_enterprise_token=${_v47}&turnstile_token=${_v25}&self_certified_over_eighteen=${_v0.overEighteenCertification}`;
+          _v43(!1);
+          let _v2 = `name=${_v0.name}&email=${encodeURIComponent(_v0.email)}&password=${encodeURIComponent(_v0.password)}&token=${_v0}&action=join&service=${_v24 ? "google_identity_platform" : "vimeo"}&marketing_opt_in=${_v1}&recaptcha_enterprise_token=${_v48}&turnstile_token=${_v25}&self_certified_over_eighteen=${_v0.overEighteenCertification}`;
           _v4 && (_v2 += `&redirect=${encodeURIComponent(_v4)}`), _v16 && (_v2 += `&source=${encodeURIComponent(_v16)}`);
           let _v3 = !1;
           if (_v24) {
@@ -2279,13 +2292,13 @@
                     singular: "请输入有效的电子邮件地址。"
                   }
                 }
-              }), _v3 = "invalid_email"), _v36(_v2), _v38(_v1), _v34?.(_v3), _v0.includes(_v1);
+              }), _v3 = "invalid_email"), _v37(_v2), _v39(_v1), _v34?.(_v3), _v0.includes(_v1);
             }
           }
           if (!_v3) try {
-            let _v0 = await _v100(_v2, "/join");
+            let _v0 = await _v103(_v2, "/join");
             if (_v0?.status === 429) {
-              _v36((0, _v7.translate)({
+              _v37((0, _v7.translate)({
                 singular: "Sorry, but you have made too many attempts. Please wait a few minutes and try again.",
                 dictionary: {
                   es: {
@@ -2313,15 +2326,15 @@
               })), _v34?.("too_many_attempts");
               return;
             }
-            _v0?.signup && (_v49(_v1, "Email", {
+            _v0?.signup && (_v50(_v1, "Email", {
               user_id: _v0.vimeo_cur_user?.id?.toString()
-            }), (0, _v78.sendGTMEvent)({
+            }), (0, _v79.sendGTMEvent)({
               event: "register",
               "register.ref_page": document.referrer,
               "register.form_page": document.location.href,
-              "register.is_mobile_device": _v51,
-              "register.vuid": (0, _v77.loadCookie)("vuid") || "",
-              "register.country_code": _v48?.location || ""
+              "register.is_mobile_device": _v52,
+              "register.vuid": (0, _v78.loadCookie)("vuid") || "",
+              "register.country_code": _v49?.location || ""
             })), _v6 && _v6(_v0);
           } catch (_v0) {
             let _v1 = (0, _v7.translate)({
@@ -2438,23 +2451,23 @@
                   singular: "无法验证 CAPTCHA。请重试或访问{A}支持中心{/A}寻求帮助。"
                 }
               }
-            }), _v2 = "captcha_error"), _v36(_v1), _v38(_v0), _v0.hasOwnProperty("email_verification_required")) {
-              _v36(null), _v28 && _v29 && (_v28(!1), _v29(!0));
+            }), _v2 = "captcha_error"), _v37(_v1), _v39(_v0), _v0.hasOwnProperty("email_verification_required")) {
+              _v37(null), _v28 && _v29 && (_v28(!1), _v29(!0));
               return;
             }
             _v34?.(_v2);
           }
         }
       }),
-      _v57 = (0, _v79.useField)(_v56, "name"),
-      _v58 = (0, _v79.useField)(_v56, "email"),
-      _v59 = (0, _v79.useField)(_v56, "password"),
-      _v60 = (0, _v79.useField)(_v56, "confirmPassword"),
-      _v61 = (0, _v79.useField)(_v56, "overEighteenCertification"),
-      _v62 = _v0 => {
-        _v58.iris.onChange(_v0), _v36(null), _v7 && _v7(_v0.target.value);
+      _v58 = (0, _v80.useField)(_v57, "name"),
+      _v59 = (0, _v80.useField)(_v57, "email"),
+      _v60 = (0, _v80.useField)(_v57, "password"),
+      _v61 = (0, _v80.useField)(_v57, "confirmPassword"),
+      _v62 = (0, _v80.useField)(_v57, "overEighteenCertification"),
+      _v63 = _v0 => {
+        _v59.iris.onChange(_v0), _v37(null), _v7 && _v7(_v0.target.value);
       },
-      _v63 = _v11 ? {
+      _v64 = _v11 ? {
         placeholder: _v11.name
       } : {
         label: (0, _v7.translate)({
@@ -2481,7 +2494,7 @@
           }
         })
       },
-      _v64 = _v11 ? {
+      _v65 = _v11 ? {
         placeholder: _v11.email
       } : {
         label: (0, _v7.translate)({
@@ -2511,7 +2524,7 @@
           }
         })
       },
-      _v65 = _v11 ? {
+      _v66 = _v11 ? {
         placeholder: _v11.password
       } : {
         label: (0, _v7.translate)({
@@ -2541,14 +2554,14 @@
           }
         })
       },
-      _v66 = _v31 && (_v37.hasOwnProperty("has_error_password_missmatch") || _v37.hasOwnProperty("has_error_user_exists") || _v37.hasOwnProperty("has_error_invalid_email")),
-      _v67 = {
+      _v67 = _v31 && (_v38.hasOwnProperty("has_error_password_missmatch") || _v38.hasOwnProperty("has_error_user_exists") || _v38.hasOwnProperty("has_error_invalid_email")),
+      _v68 = {
         _hover: {
           cursor: "pointer"
         },
         color: "text-secondary"
       },
-      _v68 = _v59.iris.value ? (_v0 => {
+      _v69 = _v60.iris.value ? (_v0 => {
         let _v1,
           _v2,
           _v3,
@@ -2563,11 +2576,19 @@
           ..._v5,
           feedback: _v1.getFeedback(_v5.score, _v3.sequence)
         };
-      })(_v59.iris.value).score : void 0,
-      _v69 = _v32?.desktopTermsMarginTop != null ? (0, _v3.rem)(_v32.desktopTermsMarginTop - 12 * !!_v31) : void 0,
-      _v70 = (0, _v2.jsx)(_v105, {
-        disabled: !_v19 && !_v56.valid,
-        loading: _v56.submitting,
+      })(_v60.iris.value).score : void 0,
+      _v70 = _v32?.desktopTermsMarginTop != null ? (0, _v3.rem)(_v32.desktopTermsMarginTop - 12 * !!_v31) : void 0,
+      _v71 = _v35 ? (0, _v2.jsx)(_v71.Button, {
+        w: "100%",
+        type: "submit",
+        variant: "brand",
+        size: "lg",
+        isLoading: _v57.submitting,
+        isDisabled: _v57.submitting,
+        children: _v13
+      }) : (0, _v2.jsx)(_v108, {
+        disabled: !_v19 && !_v57.valid,
+        loading: _v57.submitting,
         onClick: () => {
           (0, _v13.trackFinishAuthFlow)({
             ..._v30
@@ -2576,7 +2597,7 @@
             event_name: "join_with_email",
             copy: "join_with_email",
             target: "email_auth_join",
-            password_strength_score: _v68
+            password_strength_score: _v69
           }) : (0, _v13.trackJoinWithEmailClick)(!!_v22, _v4);
         },
         pill: _v14,
@@ -2585,8 +2606,8 @@
         "data-testid": "join-continue-button",
         children: _v13
       });
-    return (0, _v2.jsxs)(_v109, {
-      onSubmit: _v56.handleSubmit,
+    return (0, _v2.jsxs)(_v112, {
+      onSubmit: _v57.handleSubmit,
       noValidate: !0,
       style: {
         gap: _v31 ? "12px" : "",
@@ -2595,81 +2616,81 @@
         } : {})
       },
       onChange: () => {
-        _v31 && (_v38({}), _v36(null));
+        _v31 && (_v39({}), _v37(null));
       },
       children: [_v32?.active && (0, _v2.jsx)(_v70.Box, {
         marginTop: "auto"
       }), _v33, _v31 ? (0, _v2.jsxs)(_v2.Fragment, {
-        children: [_v22 ? null : (0, _v2.jsxs)(_v93, {
-          formFieldErrorMessage: _v35,
-          isInvalid: _v37.hasOwnProperty("has_error_user_exists") || _v37.hasOwnProperty("has_error_invalid_email"),
-          children: [(0, _v2.jsx)(_v92, {
+        children: [_v22 ? null : (0, _v2.jsxs)(_v96, {
+          formFieldErrorMessage: _v36,
+          isInvalid: _v38.hasOwnProperty("has_error_user_exists") || _v38.hasOwnProperty("has_error_invalid_email"),
+          children: [(0, _v2.jsx)(_v95, {
             isRequired: !0,
             order: _v15?.email,
             id: "email_login",
             autoComplete: "email",
-            ..._v58.iris,
+            ..._v59.iris,
             isDisabled: _v8,
-            onChange: _v62
-          }), (0, _v2.jsx)(_v94, {
+            onChange: _v63
+          }), (0, _v2.jsx)(_v97, {
             htmlFor: "email_login",
-            children: _v64.placeholder
+            children: _v65.placeholder
           })]
-        }), _v23 ? null : (0, _v2.jsxs)(_v93, {
-          children: [(0, _v2.jsx)(_v92, {
+        }), _v23 ? null : (0, _v2.jsxs)(_v96, {
+          children: [(0, _v2.jsx)(_v95, {
             isRequired: !0,
             order: _v15?.name,
             id: "name",
             type: "text",
             autoComplete: "name",
-            ..._v57.iris,
+            ..._v58.iris,
             autoFocus: !0
-          }), (0, _v2.jsx)(_v94, {
+          }), (0, _v2.jsx)(_v97, {
             htmlFor: "name",
-            children: _v63.placeholder
+            children: _v64.placeholder
           })]
-        }), (0, _v2.jsx)(_v93, {
-          formFieldErrorMessage: _v35,
-          isInvalid: _v37.hasOwnProperty("has_error_password_missmatch"),
-          children: (0, _v2.jsxs)(_v71.InputGroup, {
-            children: [(0, _v2.jsx)(_v92, {
+        }), (0, _v2.jsx)(_v96, {
+          formFieldErrorMessage: _v36,
+          isInvalid: _v38.hasOwnProperty("has_error_password_missmatch"),
+          children: (0, _v2.jsxs)(_v72.InputGroup, {
+            children: [(0, _v2.jsx)(_v95, {
               isRequired: !0,
               order: _v15?.password,
               id: "password_login",
-              type: _v41 ? "text" : "password",
+              type: _v42 ? "text" : "password",
               autoComplete: "new-password",
-              ..._v59.iris,
+              ..._v60.iris,
               onChange: _v0 => {
-                _v59.iris.onChange(_v0), _v40(!_v0.target.value);
+                _v60.iris.onChange(_v0), _v41(!_v0.target.value);
               }
-            }), (0, _v2.jsx)(_v94, {
+            }), (0, _v2.jsx)(_v97, {
               htmlFor: "password_login",
-              children: _v65.placeholder
-            }), (0, _v2.jsx)(_v72.InputRightElement, {
-              children: (0, _v2.jsx)(_v75.EyeShut, {
-                ..._v67,
-                onClick: () => _v42(!_v41)
+              children: _v66.placeholder
+            }), (0, _v2.jsx)(_v73.InputRightElement, {
+              children: (0, _v2.jsx)(_v76.EyeShut, {
+                ..._v68,
+                onClick: () => _v43(!_v42)
               })
             })]
           })
-        }), (0, _v2.jsxs)(_v73.Collapse, {
+        }), (0, _v2.jsxs)(_v74.Collapse, {
           style: {
             overflow: "visible"
           },
           enterDuration: "2xl",
           exitDuration: "2xl",
-          in: !_v39 && _v31,
+          in: !_v40 && _v31,
           unmountOnExit: !0,
-          children: [(0, _v2.jsx)(_v93, {
-            children: (0, _v2.jsxs)(_v71.InputGroup, {
-              children: [(0, _v2.jsx)(_v92, {
+          children: [(0, _v2.jsx)(_v96, {
+            children: (0, _v2.jsxs)(_v72.InputGroup, {
+              children: [(0, _v2.jsx)(_v95, {
                 isRequired: !0,
                 order: _v15?.confirmPassword,
                 id: "confirm_password_login",
-                type: _v43 ? "text" : "password",
+                type: _v44 ? "text" : "password",
                 autoComplete: "new-password",
-                ..._v60.iris
-              }), (0, _v2.jsx)(_v94, {
+                ..._v61.iris
+              }), (0, _v2.jsx)(_v97, {
                 htmlFor: "confirm_password_login",
                 children: (0, _v7.translate)({
                   singular: "Confirm password",
@@ -2694,32 +2715,32 @@
                     }
                   }
                 })
-              }), (0, _v2.jsx)(_v72.InputRightElement, {
-                children: (0, _v2.jsx)(_v75.EyeShut, {
-                  ..._v67,
-                  onClick: () => _v44(!_v43)
+              }), (0, _v2.jsx)(_v73.InputRightElement, {
+                children: (0, _v2.jsx)(_v76.EyeShut, {
+                  ..._v68,
+                  onClick: () => _v45(!_v44)
                 })
               })]
             })
           }), (0, _v2.jsx)(_v70.Box, {
             marginTop: (0, _v3.rem)(12),
-            children: (0, _v2.jsx)(_v99, {
-              passwordScore: _v68
+            children: (0, _v2.jsx)(_v102, {
+              passwordScore: _v69
             })
           }), (0, _v2.jsx)(_v70.Box, {
             marginTop: (0, _v3.rem)(12),
-            children: (0, _v2.jsx)(_v74.Text, {
+            children: (0, _v2.jsx)(_v75.Text, {
               variant: "body-sm",
               color: "text-secondary",
-              children: _v54
+              children: _v55
             })
           })]
-        }), _v35 && !_v66 && (0, _v2.jsx)(_v104, {
-          children: (0, _v2.jsx)(_v107, {
+        }), _v36 && !_v67 && (0, _v2.jsx)(_v107, {
+          children: (0, _v2.jsx)(_v110, {
             format: "negative",
             children: (0, _v2.jsx)(_v9.Paragraph, {
               size: "3",
-              children: _v35
+              children: _v36
             })
           })
         }), !_v19 && (0, _v2.jsx)(_v70.Box, {
@@ -2731,21 +2752,21 @@
             id: "turnstile-container"
           })
         }), _v19 && (0, _v2.jsxs)(_v2.Fragment, {
-          children: [_v20, (0, _v2.jsx)(_v97, {
-            overEighteenCertification: _v61.input.value,
-            setOverEighteenCertification: _v61.handlers.setValue,
-            setError: _v36,
+          children: [_v20, (0, _v2.jsx)(_v100, {
+            overEighteenCertification: _v62.input.value,
+            setOverEighteenCertification: _v62.handlers.setValue,
+            setError: _v37,
             isFullScreen: _v31,
-            shouldShowAgeCertification: _v50,
-            isInvalid: _v45,
-            setAgeCertificationInvalid: _v46
-          }), _v17 && (0, _v2.jsxs)(_v104, {
+            shouldShowAgeCertification: _v51,
+            isInvalid: _v46,
+            setAgeCertificationInvalid: _v47
+          }), _v17 && (0, _v2.jsxs)(_v107, {
             className: "termsandconditions",
-            children: [(0, _v2.jsx)(_v74.Text, {
+            children: [(0, _v2.jsx)(_v75.Text, {
               variant: "body-sm",
               color: "text-secondary",
               children: _v17
-            }), _v18 && (0, _v2.jsx)(_v74.Text, {
+            }), _v18 && (0, _v2.jsx)(_v75.Text, {
               variant: "body-sm",
               color: "text-secondary",
               children: _v18
@@ -2753,11 +2774,11 @@
           })]
         })]
       }) : (0, _v2.jsxs)(_v2.Fragment, {
-        children: [_v23 ? null : (0, _v2.jsx)(_v111, {
+        children: [_v23 ? null : (0, _v2.jsx)(_v114, {
           inputFieldVariant: _v9,
           formType: _v12,
           order: _v15?.name,
-          ..._v63,
+          ..._v64,
           "aria-label": (0, _v7.translate)({
             singular: "First and last name",
             dictionary: {
@@ -2787,13 +2808,13 @@
           autoComplete: "name",
           id: "name",
           type: "text",
-          ..._v57.iris
-        }), _v22 ? null : (0, _v2.jsx)(_v111, {
+          ..._v58.iris
+        }), _v22 ? null : (0, _v2.jsx)(_v114, {
           inputFieldVariant: _v9,
           emailRef: _v10,
           formType: _v12,
           order: _v15?.email,
-          ..._v64,
+          ..._v65,
           "aria-label": (0, _v7.translate)({
             singular: "Email",
             dictionary: {
@@ -2822,15 +2843,15 @@
           }),
           autoComplete: "email",
           id: "email_login",
-          ..._v58.iris,
+          ..._v59.iris,
           disabled: _v8,
-          onChange: _v62
-        }), (0, _v2.jsx)(_v111, {
+          onChange: _v63
+        }), (0, _v2.jsx)(_v114, {
           inputFieldVariant: _v9,
           formType: _v12,
           order: _v15?.password,
           id: "password_login",
-          ..._v65,
+          ..._v66,
           "aria-label": (0, _v7.translate)({
             singular: "Password",
             dictionary: {
@@ -2859,13 +2880,13 @@
           }),
           autoComplete: "new-password",
           type: "password",
-          ..._v59.iris
-        }), _v35 && (0, _v2.jsx)(_v104, {
-          children: (0, _v2.jsx)(_v107, {
+          ..._v60.iris
+        }), _v36 && (0, _v2.jsx)(_v107, {
+          children: (0, _v2.jsx)(_v110, {
             format: "negative",
             children: (0, _v2.jsx)(_v9.Paragraph, {
               size: "3",
-              children: _v35
+              children: _v36
             })
           })
         }), !_v19 && (0, _v2.jsx)(_v70.Box, {
@@ -2877,15 +2898,15 @@
             id: "turnstile-container"
           })
         }), _v19 && (0, _v2.jsxs)(_v2.Fragment, {
-          children: [_v20, (0, _v2.jsx)(_v97, {
-            overEighteenCertification: _v61.input.value,
-            setOverEighteenCertification: _v61.handlers.setValue,
-            setError: _v36,
+          children: [_v20, (0, _v2.jsx)(_v100, {
+            overEighteenCertification: _v62.input.value,
+            setOverEighteenCertification: _v62.handlers.setValue,
+            setError: _v37,
             isFullScreen: _v31,
-            shouldShowAgeCertification: _v50,
-            isInvalid: _v45,
-            setAgeCertificationInvalid: _v46
-          }), _v17 && (0, _v2.jsxs)(_v104, {
+            shouldShowAgeCertification: _v51,
+            isInvalid: _v46,
+            setAgeCertificationInvalid: _v47
+          }), _v17 && (0, _v2.jsxs)(_v107, {
             className: "termsandconditions",
             children: [(0, _v2.jsx)(_v9.Paragraph, {
               format: "soft",
@@ -2897,21 +2918,21 @@
             })]
           })]
         })]
-      }), _v32 ? (0, _v2.jsx)(_v86, {
+      }), _v32 ? (0, _v2.jsx)(_v89, {
         active: _v32.active,
         background: _v32.background,
         terms: _v32.terms,
-        desktopMarginTop: _v69,
-        children: _v70
+        desktopMarginTop: _v70,
+        children: _v71
       }) : (0, _v2.jsx)("section", {
-        children: _v70
+        children: _v71
       })]
     });
   }
-  _v0.s(["ContinueButton", 0, _v105, "Form", 0, _v109, "FormSection", 0, _v104, "HR", 0, _v108, "Input", 0, _v111, "Notice", 0, _v107, "OrSeparator", 0, _v106], 0), _v0.s(["JoinEmailForm", 0, _v112], 0);
-  var _v113 = _v0.i(0);
-  let _v114 = _v0 => {
-    let _v1 = (0, _v113.usePico)();
+  _v0.s(["ContinueButton", 0, _v108, "Form", 0, _v112, "FormSection", 0, _v107, "HR", 0, _v111, "Input", 0, _v114, "Notice", 0, _v110, "OrSeparator", 0, _v109], 0), _v0.s(["JoinEmailForm", 0, _v115], 0);
+  var _v116 = _v0.i(0);
+  let _v117 = _v0 => {
+    let _v1 = (0, _v116.usePico)();
     return {
       trackTurnstileLoadFailed: (0, _v4.useCallback)(_v0 => {
         _v1.track("turnstile_load_failed", {
@@ -2921,9 +2942,9 @@
       }, [_v1, _v0])
     };
   };
-  _v0.s(["useTurnstileTracking", 0, _v114], 0);
-  var _v115 = _v0.i(0);
-  let _v116 = _v69.object({
+  _v0.s(["useTurnstileTracking", 0, _v117], 0);
+  var _v118 = _v0.i(0);
+  let _v119 = _v69.object({
       email: _v69.string().email((0, _v7.translate)({
         singular: "Please enter a valid email address",
         dictionary: {
@@ -3058,13 +3079,13 @@
         otherwise: _v69.string().nullable(!0)
       })
     }),
-    _v117 = _v5.default.div.withConfig({
+    _v120 = _v5.default.div.withConfig({
       displayName: "LoginEmailForm__CheckboxContainer",
       componentId: "sc-2baaa43d-0"
     })`
   margin-top: ${(0, _v3.rem)(8)};
 `;
-  function _v118({
+  function _v121({
     xsrft: _v0,
     redirectUrl: _v1,
     email: _v2,
@@ -3116,7 +3137,7 @@
       [_v29, _v30] = (0, _v4.useState)(!1),
       {
         trackTurnstileLoadFailed: _v31
-      } = _v114("login"),
+      } = _v117("login"),
       {
         turnstileToken: _v32
       } = (0, _v11.useTurnstile)(!1, "turnstile-container", {
@@ -3228,7 +3249,7 @@
         let _v2 = `email=${encodeURIComponent(_v0.email)}&password=${encodeURIComponent(_v0.password)}&token=${_v0}&otp=${encodeURIComponent(_v0.otp)}&action=login&service=vimeo&otp_required=${encodeURIComponent(_v21)}&request_new_token=${encodeURIComponent(+!!_v1)}&enterprise_opt_in_consent=${encodeURIComponent(+!!_v23)}&turnstile_token=${_v32 || ""}`;
         _v1 && (_v2 += `&redirect=${encodeURIComponent(_v1)}`);
         try {
-          let _v0 = await _v100(_v2, "/log_in");
+          let _v0 = await _v103(_v2, "/log_in");
           if (429 === _v0.status) return void _v16((0, _v7.translate)({
             singular: "Sorry, but you have had too many invalid login attempts. Please wait a few minutes and try again.",
             dictionary: {
@@ -3255,7 +3276,7 @@
               }
             }
           }));
-          _v0.force_redirect && (_v0.redirect_url && (0, _v115.isVimeoRedirectableUrl)(_v0.redirect_url) ? window.location.href = _v0.redirect_url : window.location.href = "/"), _v5 && _v5(_v0);
+          _v0.force_redirect && (_v0.redirect_url && (0, _v118.isVimeoRedirectableUrl)(_v0.redirect_url) ? window.location.href = _v0.redirect_url : window.location.href = "/"), _v5 && _v5(_v0);
         } catch (_v0) {
           let _v1 = "Email and password do not match";
           for (let _v0 in _v0) if (_v0.hasOwnProperty(_v0) && 0 !== _v0.indexOf("has_error_")) {
@@ -3412,8 +3433,8 @@
           }), _v20(!1), _v22(""), _v16(_v1));
         }
       },
-      _v34 = (0, _v79.useForm)({
-        validationSchema: _v116,
+      _v34 = (0, _v80.useForm)({
+        validationSchema: _v119,
         initialValues: {
           email: _v2 || "",
           password: "",
@@ -3424,10 +3445,10 @@
         },
         onSubmit: _v0 => _v33(_v0)
       }),
-      _v35 = (0, _v79.useField)(_v34, "email"),
-      _v36 = (0, _v79.useField)(_v34, "password"),
-      _v37 = (0, _v79.useField)(_v34, "otp"),
-      _v38 = (0, _v79.useField)(_v34, "turnstileToken"),
+      _v35 = (0, _v80.useField)(_v34, "email"),
+      _v36 = (0, _v80.useField)(_v34, "password"),
+      _v37 = (0, _v80.useField)(_v34, "otp"),
+      _v38 = (0, _v80.useField)(_v34, "turnstileToken"),
       _v39 = (0, _v4.useRef)(null);
     (0, _v4.useEffect)(() => {
       if (_v14) return;
@@ -3499,8 +3520,8 @@
       onSubmit: _v34.handleSubmit,
       noValidate: !0,
       children: [_v14 ? (0, _v2.jsxs)(_v2.Fragment, {
-        children: [(0, _v2.jsxs)(_v93, {
-          children: [(0, _v2.jsx)(_v92, {
+        children: [(0, _v2.jsxs)(_v96, {
+          children: [(0, _v2.jsx)(_v95, {
             "data-testid": "site_login_email_input",
             id: "email_login",
             autoComplete: "email",
@@ -3508,7 +3529,7 @@
             ..._v35.iris,
             onChange: _v40,
             marginBottom: "200"
-          }), (0, _v2.jsx)(_v94, {
+          }), (0, _v2.jsx)(_v97, {
             htmlFor: "email_login",
             children: (0, _v7.translate)({
               singular: "Enter email",
@@ -3537,15 +3558,15 @@
               }
             })
           })]
-        }), (0, _v2.jsxs)(_v93, {
-          children: [(0, _v2.jsx)(_v92, {
+        }), (0, _v2.jsxs)(_v96, {
+          children: [(0, _v2.jsx)(_v95, {
             "data-testid": "site_login_password_input",
             id: "password_login",
             type: "password",
             autoComplete: "current-password",
             isDisabled: !!_v21,
             ..._v36.iris
-          }), (0, _v2.jsx)(_v94, {
+          }), (0, _v2.jsx)(_v97, {
             htmlFor: "password_login",
             children: (0, _v7.translate)({
               singular: "Enter password",
@@ -3576,7 +3597,7 @@
           })]
         })]
       }) : (0, _v2.jsxs)(_v2.Fragment, {
-        children: [(0, _v2.jsx)(_v111, {
+        children: [(0, _v2.jsx)(_v114, {
           ..._v41,
           "aria-label": (0, _v7.translate)({
             singular: "Email",
@@ -3612,7 +3633,7 @@
           disabled: _v3 || !!_v21,
           ..._v35.iris,
           onChange: _v40
-        }), (0, _v2.jsx)(_v111, {
+        }), (0, _v2.jsx)(_v114, {
           "data-testid": "site_login_password_input",
           id: "password_login",
           ..._v42,
@@ -3648,14 +3669,14 @@
           disabled: !!_v21,
           ..._v36.iris
         })]
-      }), _v14 ? null : (0, _v2.jsx)(_v104, {
+      }), _v14 ? null : (0, _v2.jsx)(_v107, {
         children: (0, _v2.jsx)(_v10.Link, {
           format: "primary",
           href: "/forgot_password",
           variant: "minimal",
           target: _v7,
           onClick: () => (0, _v13.trackForgotPasswordClick)(_v12, _v1),
-          children: (0, _v2.jsx)(_v119, {
+          children: (0, _v2.jsx)(_v122, {
             size: "2",
             className: _v10,
             children: (0, _v7.translate)({
@@ -3686,8 +3707,8 @@
             })
           })
         })
-      }), _v8 ? (0, _v2.jsx)(_v104, {
-        children: (0, _v2.jsx)(_v117, {
+      }), _v8 ? (0, _v2.jsx)(_v107, {
+        children: (0, _v2.jsx)(_v120, {
           children: (0, _v2.jsx)(_v8.Checkbox, {
             checked: _v23,
             onChange: () => {
@@ -3726,8 +3747,8 @@
             })
           })
         })
-      }) : null, "email" === _v21 && (0, _v2.jsx)(_v104, {
-        children: (0, _v2.jsx)(_v103.Notice, {
+      }) : null, "email" === _v21 && (0, _v2.jsx)(_v107, {
+        children: (0, _v2.jsx)(_v106.Notice, {
           format: "primary",
           children: (0, _v2.jsx)(_v9.Paragraph, {
             size: "3",
@@ -3759,8 +3780,8 @@
             })
           })
         })
-      }), "totp" === _v21 && (0, _v2.jsx)(_v104, {
-        children: (0, _v2.jsx)(_v103.Notice, {
+      }), "totp" === _v21 && (0, _v2.jsx)(_v107, {
+        children: (0, _v2.jsx)(_v106.Notice, {
           format: "primary",
           children: (0, _v2.jsx)(_v9.Paragraph, {
             size: "3",
@@ -3792,8 +3813,8 @@
             })
           })
         })
-      }), "risky_otp" === _v21 && (0, _v2.jsx)(_v104, {
-        children: (0, _v2.jsx)(_v103.Notice, {
+      }), "risky_otp" === _v21 && (0, _v2.jsx)(_v107, {
+        children: (0, _v2.jsx)(_v106.Notice, {
           format: "primary",
           children: (0, _v2.jsx)(_v9.Paragraph, {
             size: "3",
@@ -3831,8 +3852,8 @@
             })
           })
         })
-      }), _v15 && (0, _v2.jsx)(_v104, {
-        children: (0, _v2.jsx)(_v103.Notice, {
+      }), _v15 && (0, _v2.jsx)(_v107, {
+        children: (0, _v2.jsx)(_v106.Notice, {
           format: _v27 ? "primary" : "negative",
           children: (0, _v2.jsx)(_v9.Paragraph, {
             size: "3",
@@ -3853,7 +3874,7 @@
           id: "turnstile-container"
         })
       }), _v19 && (0, _v2.jsxs)(_v2.Fragment, {
-        children: [(0, _v2.jsx)(_v111, {
+        children: [(0, _v2.jsx)(_v114, {
           ..._v37.iris,
           id: "otp",
           placeholder: (0, _v7.translate)({
@@ -3887,8 +3908,8 @@
           onChange: _v0 => {
             _v17 && _v18(!1), _v37.iris.onChange(_v0);
           }
-        }), (0, _v2.jsx)(_v104, {
-          children: (0, _v2.jsx)(_v120, {
+        }), (0, _v2.jsx)(_v107, {
+          children: (0, _v2.jsx)(_v123, {
             onClick: () => {
               _v33({
                 email: _v35.iris.value,
@@ -3925,8 +3946,8 @@
             })
           })
         })]
-      }), _v17 && (0, _v2.jsx)(_v104, {
-        children: (0, _v2.jsx)(_v103.Notice, {
+      }), _v17 && (0, _v2.jsx)(_v107, {
+        children: (0, _v2.jsx)(_v106.Notice, {
           format: "negative",
           children: (0, _v2.jsx)(_v9.Paragraph, {
             size: "3",
@@ -3958,8 +3979,8 @@
             })
           })
         })
-      }), (0, _v2.jsx)(_v104, {
-        children: (0, _v2.jsx)(_v105, {
+      }), (0, _v2.jsx)(_v107, {
+        children: (0, _v2.jsx)(_v108, {
           "data-testid": "site_login_submit_button",
           disabled: !_v34.valid || _v8 && !_v23 || _v29,
           loading: _v34.submitting,
@@ -3972,7 +3993,7 @@
       })]
     });
   }
-  let _v119 = (0, _v5.default)(_v9.Paragraph).withConfig({
+  let _v122 = (0, _v5.default)(_v9.Paragraph).withConfig({
       displayName: "LoginEmailForm__ParagraphLink",
       componentId: "sc-2baaa43d-1"
     })`
@@ -3985,7 +4006,7 @@
     text-decoration: underline;
   }
 `,
-    _v120 = _v5.default.div.withConfig({
+    _v123 = _v5.default.div.withConfig({
       displayName: "LoginEmailForm__EmailOtp",
       componentId: "sc-2baaa43d-2"
     })`
@@ -3997,13 +4018,13 @@
   display: block;
   text-decoration: none;
 `,
-    _v121 = _v5.default.div.withConfig({
+    _v124 = _v5.default.div.withConfig({
       displayName: "MarketingCheckbox__CheckboxContainer",
       componentId: "sc-e13ca9de-0"
     })`
   margin-top: ${(0, _v3.rem)(8)};
 `,
-    _v122 = _v5.default.section.withConfig({
+    _v125 = _v5.default.section.withConfig({
       displayName: "MarketingCheckbox__FormSection",
       componentId: "sc-e13ca9de-1"
     })`
@@ -4011,19 +4032,19 @@
   display: flex;
   flex-direction: column;
 `,
-    _v123 = ({
+    _v126 = ({
       hideHorizontalRule: _v0,
       marketingOptIn: _v1,
       marketingOptInHandler: _v2,
       isSimplifiedSite: _v3,
       isFullScreen: _v4 = !1
-    }) => (0, _v2.jsxs)(_v122, {
-      children: [_v4 ? (0, _v2.jsx)(_v95.Checkbox, {
+    }) => (0, _v2.jsxs)(_v125, {
+      children: [_v4 ? (0, _v2.jsx)(_v98.Checkbox, {
         size: "md",
         isChecked: _v1,
         onChange: _v2,
         id: "marketing_opt_in",
-        children: (0, _v2.jsx)(_v74.Text, {
+        children: (0, _v2.jsx)(_v75.Text, {
           variant: "body-sm",
           color: "text-secondary",
           children: _v3 ? (0, _v7.translate)({
@@ -4078,7 +4099,7 @@
             }
           })
         })
-      }) : (0, _v2.jsx)(_v121, {
+      }) : (0, _v2.jsx)(_v124, {
         className: "marketing-opt-in-checkbox",
         children: (0, _v2.jsx)(_v8.Checkbox, {
           checked: _v1,
@@ -4139,13 +4160,13 @@
             })
           })
         })
-      }), !_v0 && (0, _v2.jsx)(_v108, {})]
+      }), !_v0 && (0, _v2.jsx)(_v111, {})]
     });
-  _v0.s(["default", 0, _v123], 0);
-  var _v124 = _v0.i(0),
-    _v125 = _v0.i(0),
-    _v126 = _v0.i(0);
-  function _v127({
+  _v0.s(["default", 0, _v126], 0);
+  var _v127 = _v0.i(0),
+    _v128 = _v0.i(0),
+    _v129 = _v0.i(0);
+  function _v130({
     xsrft: _v0,
     action: _v1,
     children: _v2,
@@ -4201,18 +4222,18 @@
         type: "hidden",
         name: "marketing_opt_in",
         value: `${_v3}`
-      }), (0, _v2.jsx)(_v126.SocialButton, {
+      }), (0, _v2.jsx)(_v129.SocialButton, {
         className: _v9,
-        icon: (0, _v2.jsx)(_v126.AppleIcon, {}),
+        icon: (0, _v2.jsx)(_v129.AppleIcon, {}),
         format: "secondary",
         onClick: () => _v7?.(),
         children: _v2
       })]
     });
   }
-  _v0.s(["AppleForm", 0, _v127], 0);
-  var _v128 = ((_v1 = _v128 || {}).control = "control", _v1.variant = "variant", _v1);
-  let _v129 = _v5.default.section.withConfig({
+  _v0.s(["AppleForm", 0, _v130], 0);
+  var _v131 = ((_v1 = _v131 || {}).control = "control", _v1.variant = "variant", _v1);
+  let _v132 = _v5.default.section.withConfig({
       displayName: "forms__FormSection",
       componentId: "sc-3c307515-0"
     })`
@@ -4220,7 +4241,7 @@
   display: flex;
   flex-direction: column;
 `,
-    _v130 = (0, _v5.default)(_v9.Paragraph).withConfig({
+    _v133 = (0, _v5.default)(_v9.Paragraph).withConfig({
       displayName: "forms__Paragraph",
       componentId: "sc-3c307515-1"
     })`
@@ -4234,25 +4255,25 @@
       margin-bottom: ${(0, _v3.rem)(8)};
     `}
 `,
-    _v131 = _v5.default.div.withConfig({
+    _v134 = _v5.default.div.withConfig({
       displayName: "forms__CheckboxContainer",
       componentId: "sc-3c307515-2"
     })`
   margin-top: ${(0, _v3.rem)(8)};
 `,
-    _v132 = (0, _v5.default)(_v129).withConfig({
+    _v135 = (0, _v5.default)(_v132).withConfig({
       displayName: "forms__FacebookConnectFormSection",
       componentId: "sc-3c307515-3"
     })`
   margin: ${(0, _v3.rem)(35)} 0 ${(0, _v3.rem)(41)} 0;
 `,
-    _v133 = (0, _v5.default)(_v10.Link).withConfig({
+    _v136 = (0, _v5.default)(_v10.Link).withConfig({
       displayName: "forms__TermsLink",
       componentId: "sc-3c307515-4"
     })`
   text-decoration: underline;
 `,
-    _v134 = _v5.default.button.withConfig({
+    _v137 = _v5.default.button.withConfig({
       displayName: "forms__LinkText",
       componentId: "sc-3c307515-5"
     })`
@@ -4274,7 +4295,7 @@
     let [_v6, _v7] = (0, _v4.useState)(_v4),
       _v8 = (0, _v4.useContext)(_v12.ViewerContext);
     return (0, _v2.jsxs)(_v2.Fragment, {
-      children: [_v1 && (0, _v2.jsxs)(_v130, {
+      children: [_v1 && (0, _v2.jsxs)(_v133, {
         size: "1",
         faded: !0,
         addBottomMargin: !0,
@@ -4334,8 +4355,8 @@
             }
           })
         })]
-      }), (0, _v2.jsx)(_v132, {
-        children: (0, _v2.jsx)(_v124.FacebookForm, {
+      }), (0, _v2.jsx)(_v135, {
+        children: (0, _v2.jsx)(_v127.FacebookForm, {
           xsrft: _v2,
           action: "join",
           optIn: null,
@@ -4389,15 +4410,15 @@
             }
           })
         })
-      }), (0, _v2.jsxs)(_v129, {
-        children: [(0, _v2.jsx)(_v131, {
+      }), (0, _v2.jsxs)(_v132, {
+        children: [(0, _v2.jsx)(_v134, {
           children: (0, _v2.jsx)(_v8.Checkbox, {
             checked: _v6,
             onChange: () => {
               _v7(!_v6);
             },
             id: "marketing_opt_in",
-            label: (0, _v2.jsx)(_v130, {
+            label: (0, _v2.jsx)(_v133, {
               size: "3",
               children: (0, _v7.translate)({
                 singular: "I agree to receive newsletters, product updates, and exclusive offers from Vimeo.",
@@ -4427,9 +4448,9 @@
               })
             })
           })
-        }), (0, _v2.jsx)(_v108, {})]
-      }), (0, _v2.jsx)(_v129, {
-        children: (0, _v2.jsx)(_v130, {
+        }), (0, _v2.jsx)(_v111, {})]
+      }), (0, _v2.jsx)(_v132, {
+        children: (0, _v2.jsx)(_v133, {
           size: "3",
           children: (0, _v7.translate)({
             singular: "By joining Vimeo, you agree to our {TERMS_LINK}Terms of Service{/TERMS_LINK}, {PRIVACY_LINK}Privacy Policy{/PRIVACY_LINK} and {COOKIE_LINK}Cookie Policy{/COOKIE_LINK}.",
@@ -4512,21 +4533,21 @@
     _v16 = _v16 || (0, _v7.translate)({
       singular: "By joining Vimeo, you agree to our {TERMS_LINK}Terms of Service{/TERMS_LINK}, {PRIVACY_LINK}Privacy Policy{/PRIVACY_LINK} and {COOKIE_LINK}Cookie Policy{/COOKIE_LINK}.",
       replacements: {
-        TERMS_LINK: _v0 => (0, _v2.jsx)(_v133, {
+        TERMS_LINK: _v0 => (0, _v2.jsx)(_v136, {
           href: "/terms",
           target: "_blank",
           variant: "minimal",
           format: "soft",
           children: _v0
         }, "terms"),
-        PRIVACY_LINK: _v0 => (0, _v2.jsx)(_v133, {
+        PRIVACY_LINK: _v0 => (0, _v2.jsx)(_v136, {
           href: "/privacy",
           target: "_blank",
           variant: "minimal",
           format: "soft",
           children: _v0
         }, "privacy"),
-        COOKIE_LINK: _v0 => (0, _v2.jsx)(_v133, {
+        COOKIE_LINK: _v0 => (0, _v2.jsx)(_v136, {
           href: "/cookie_policy",
           target: "_blank",
           variant: "minimal",
@@ -4642,8 +4663,8 @@
         beforeInteractiveCb: () => _v27(!0)
       });
     return (0, _v2.jsxs)(_v2.Fragment, {
-      children: [(0, _v2.jsx)(_v129, {
-        children: (0, _v2.jsx)(_v112, {
+      children: [(0, _v2.jsx)(_v132, {
+        children: (0, _v2.jsx)(_v115, {
           xsrft: _v7,
           redirectUrl: _v4,
           optIn: _v22,
@@ -4657,7 +4678,7 @@
           termsAndConditions: _v16,
           disclaimer: _v17,
           hasF2PVariant: _v20,
-          marketingCheckBox: (0, _v2.jsx)(_v123, {
+          marketingCheckBox: (0, _v2.jsx)(_v126, {
             hideHorizontalRule: !0,
             marketingOptIn: _v22,
             marketingOptInHandler: _v24
@@ -4667,8 +4688,8 @@
           captchaVisible: _v26,
           isFullScreen: _v21
         })
-      }), !1, !_v20 && (0, _v2.jsx)(_v129, {
-        children: (0, _v2.jsx)(_v106, {
+      }), !1, !_v20 && (0, _v2.jsx)(_v132, {
+        children: (0, _v2.jsx)(_v109, {
           children: (0, _v7.translate)({
             singular: "or",
             dictionary: {
@@ -4696,8 +4717,8 @@
             }
           })
         })
-      }), (0, _v2.jsx)(_v129, {
-        children: (0, _v2.jsx)(_v125.GoogleForm, {
+      }), (0, _v2.jsx)(_v132, {
+        children: (0, _v2.jsx)(_v128.GoogleForm, {
           xsrft: _v7,
           action: "join",
           optIn: _v22,
@@ -4738,12 +4759,12 @@
             }
           })
         })
-      }), !_v20 && (0, _v2.jsx)(_v123, {
+      }), !_v20 && (0, _v2.jsx)(_v126, {
         hideHorizontalRule: !1,
         marketingOptIn: _v22,
         marketingOptInHandler: _v24
-      }), _v6 && (0, _v2.jsx)(_v129, {
-        children: (0, _v2.jsxs)(_v130, {
+      }), _v6 && (0, _v2.jsx)(_v132, {
+        children: (0, _v2.jsxs)(_v133, {
           size: "2",
           format: "alternative",
           addBottomMargin: !0,
@@ -4772,7 +4793,7 @@
                 singular: "已有帐户？"
               }
             }
-          }), " ", (0, _v2.jsx)(_v134, {
+          }), " ", (0, _v2.jsx)(_v137, {
             onClick: _v6,
             children: (0, _v7.translate)({
               singular: "Log in",
@@ -4802,13 +4823,13 @@
             })
           })]
         })
-      }), !_v20 && (0, _v2.jsxs)(_v129, {
-        children: [(0, _v2.jsx)(_v130, {
+      }), !_v20 && (0, _v2.jsxs)(_v132, {
+        children: [(0, _v2.jsx)(_v133, {
           format: "soft",
           size: "3",
           className: "termsandconditions",
           children: _v16
-        }), _v17 && (0, _v2.jsx)(_v130, {
+        }), _v17 && (0, _v2.jsx)(_v133, {
           size: "3",
           children: _v17
         })]
@@ -4841,8 +4862,8 @@
     let _v22 = _v12 ?? _v13.trackLogin,
       [_v23, _v24] = (0, _v4.useState)(void 0),
       _v25 = (0, _v2.jsxs)(_v2.Fragment, {
-        children: [(0, _v2.jsx)(_v129, {
-          children: (0, _v2.jsx)(_v118, {
+        children: [(0, _v2.jsx)(_v132, {
+          children: (0, _v2.jsx)(_v121, {
             xsrft: _v1,
             redirectUrl: _v3,
             email: _v4,
@@ -4863,8 +4884,8 @@
         }), !1]
       }),
       _v26 = (0, _v2.jsxs)(_v2.Fragment, {
-        children: [(0, _v2.jsx)(_v129, {
-          children: (0, _v2.jsx)(_v124.FacebookForm, {
+        children: [(0, _v2.jsx)(_v132, {
+          children: (0, _v2.jsx)(_v127.FacebookForm, {
             xsrft: _v1,
             action: "login",
             optIn: null,
@@ -4903,8 +4924,8 @@
               }
             })
           })
-        }), (0, _v2.jsx)(_v129, {
-          children: (0, _v2.jsx)(_v125.GoogleForm, {
+        }), (0, _v2.jsx)(_v132, {
+          children: (0, _v2.jsx)(_v128.GoogleForm, {
             xsrft: _v1,
             action: "login",
             optIn: null,
@@ -4945,8 +4966,8 @@
               }
             })
           })
-        }), (0, _v2.jsx)(_v129, {
-          children: (0, _v2.jsx)(_v127, {
+        }), (0, _v2.jsx)(_v132, {
+          children: (0, _v2.jsx)(_v130, {
             xsrft: _v1,
             action: "login",
             optIn: null,
@@ -4987,8 +5008,8 @@
           })
         })]
       }),
-      _v27 = (0, _v2.jsx)(_v129, {
-        children: (0, _v2.jsx)(_v106, {
+      _v27 = (0, _v2.jsx)(_v132, {
+        children: (0, _v2.jsx)(_v109, {
           children: (0, _v7.translate)({
             singular: "or",
             dictionary: {
@@ -5019,8 +5040,8 @@
       }),
       _v28 = [_v25, _v27, _v26];
     return _v0 && (_v28 = _v20 ? [_v25] : [_v26, _v27, _v25]), (0, _v2.jsxs)(_v2.Fragment, {
-      children: [_v28, _v2 && (0, _v2.jsx)(_v129, {
-        children: (0, _v2.jsxs)(_v130, {
+      children: [_v28, _v2 && (0, _v2.jsx)(_v132, {
+        children: (0, _v2.jsxs)(_v133, {
           size: "2",
           format: "alternative",
           addBottomMargin: !0,
@@ -5049,7 +5070,7 @@
                 singular: "没有账户？"
               }
             }
-          }), " ", (0, _v2.jsx)(_v134, {
+          }), " ", (0, _v2.jsx)(_v137, {
             onClick: _v2,
             children: (0, _v7.translate)({
               singular: "Join",

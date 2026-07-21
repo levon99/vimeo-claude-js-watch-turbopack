@@ -625,15 +625,19 @@
         if (_v18 && 1 === _v18.length) if (_v67) return _v18[0]?.liveEvent?.title;else return _v18[0]?.video?.name;
         return "";
       },
-      [_v69, {
-        loading: _v70,
-        error: _v71,
-        called: _v72
+      _v69 = _v18?.filter(_v0 => _v0.video?.isColdStorage) ?? [],
+      _v70 = _v69.length,
+      _v71 = _v18?.length === _v70 + 1 ? _v18.find(_v0 => !_v0.video?.isColdStorage)?.video?.name : void 0,
+      _v72 = 1 === _v70 ? _v69[0]?.video?.name : void 0,
+      [_v73, {
+        loading: _v74,
+        error: _v75,
+        called: _v76
       }] = (0, _v31.useDeleteUserLiveEvents)(),
       {
-        revalidateRootItems: _v73
+        revalidateRootItems: _v77
       } = (0, _v52.useRevalidate)(),
-      _v74 = (0, _v34.translate)({
+      _v78 = (0, _v34.translate)({
         singular: "{NUM_ITEMS_DELETED} item has been deleted",
         plural: "{NUM_ITEMS_DELETED} items are being deleted. It might take a moment.",
         count: _v19.size,
@@ -671,7 +675,7 @@
           }
         }
       }),
-      _v75 = (0, _v34.translate)({
+      _v79 = (0, _v34.translate)({
         singular: "{NUM_ITEMS_DELETED} item deleted",
         plural: "{NUM_ITEMS_DELETED} items deleted",
         count: _v19.size,
@@ -714,9 +718,12 @@
         isLoading: _v53,
         numItemsToDelete: _v18 ? _v18.length : 0,
         isLiveEvent: _v67,
-        name: _v68()
+        name: _v68(),
+        numColdStorageItems: _v70,
+        coldStorageName: _v72,
+        isColdStorage: _v70 === _v19.size
       }), _v55 && !_v53 && !_v54 && _v19.size > 0 && (_v16(), _v37(), _v17(_v19), _v44({
-        content: _v19.size > 20 ? _v74 : _v75,
+        content: _v19.size > 20 ? _v78 : _v79,
         status: "success"
       }), _v16()), _v54 && _v36({
         errorComponent: (0, _v1.jsx)(_v4.Alert, {
@@ -728,16 +735,22 @@
         isLoading: _v53,
         numItemsToDelete: _v18 ? _v18.length : 0,
         isLiveEvent: !1,
-        name: _v68()
+        name: _v68(),
+        numColdStorageItems: _v70,
+        coldStorageName: _v72,
+        isColdStorage: _v70 === _v19.size
       }));
     }, [_v53, _v54, _v55]), (0, _v3.useEffect)(() => {
       !_v9 && (_v49 && _v36({
         isLoading: _v49,
         numItemsToDelete: _v18 ? _v18.length : 0,
         isLiveEvent: !1,
-        name: _v68()
+        name: _v68(),
+        numColdStorageItems: _v70,
+        coldStorageName: _v72,
+        isColdStorage: _v70 === _v19.size
       }), _v51 && !_v49 && !_v50 && _v19.size > 0 && (_v16(), _v37(), _v17(_v19), _v44({
-        content: _v19.size > 20 ? _v74 : _v75,
+        content: _v19.size > 20 ? _v78 : _v79,
         status: "success"
       }), _v16()), _v50 && _v36({
         errorComponent: (0, _v1.jsx)(_v4.Alert, {
@@ -749,31 +762,40 @@
         isLoading: _v49,
         numItemsToDelete: _v18 ? _v18.length : 0,
         isLiveEvent: !1,
-        name: _v68()
+        name: _v68(),
+        numColdStorageItems: _v70,
+        coldStorageName: _v72,
+        isColdStorage: _v70 === _v19.size
       }));
     }, [_v49, _v50, _v51]), (0, _v3.useEffect)(() => {
-      !_v9 && (_v70 && _v36({
-        isLoading: _v70,
+      !_v9 && (_v74 && _v36({
+        isLoading: _v74,
         numItemsToDelete: _v18 ? _v18.length : 0,
         isLiveEvent: _v67,
-        name: _v68()
-      }), _v72 && !_v70 && !_v71 && _v19.size > 0 && (_v16(), _v37(), _v17(_v19), _v44({
-        content: _v19.size > 20 ? _v74 : _v75,
+        name: _v68(),
+        numColdStorageItems: _v70,
+        coldStorageName: _v72,
+        isColdStorage: _v70 === _v19.size
+      }), _v76 && !_v74 && !_v75 && _v19.size > 0 && (_v16(), _v37(), _v17(_v19), _v44({
+        content: _v19.size > 20 ? _v78 : _v79,
         status: "success"
-      }), _v16()), _v71 && _v36({
+      }), _v16()), _v75 && _v36({
         errorComponent: (0, _v1.jsx)(_v4.Alert, {
           status: "error",
           children: (0, _v1.jsxs)(_v5.AlertDescription, {
-            children: [" ", _v71.message]
+            children: [" ", _v75.message]
           })
         }),
-        isLoading: _v70,
+        isLoading: _v74,
         numItemsToDelete: _v18 ? _v18.length : 0,
         isLiveEvent: _v67,
-        name: _v68()
+        name: _v68(),
+        numColdStorageItems: _v70,
+        coldStorageName: _v72,
+        isColdStorage: _v70 === _v19.size
       }));
-    }, [_v70, _v71, _v72, _v67]);
-    let _v76 = (0, _v3.useMemo)(() => {
+    }, [_v74, _v75, _v76, _v67]);
+    let _v80 = (0, _v3.useMemo)(() => {
         if (_v18) return _v18?.map(_v0 => {
           if (_v0.video) {
             let {
@@ -797,9 +819,9 @@
           return null;
         }).filter(_v80);
       }, [_v18]),
-      _v77 = (0, _v3.useMemo)(() => !!_v18 && _v18.some(_v0 => _v0.video && (0, _v45.isVideoMetadataLocked)(_v0.video)), [_v18]),
-      _v78 = (0, _v3.useMemo)(() => !!_v18 && _v18.some(_v0 => _v0.video?.metadata?.hasMandatoryEmailCapture === !0), [_v18]),
-      _v79 = (0, _v3.useCallback)(() => {
+      _v81 = (0, _v3.useMemo)(() => !!_v18 && _v18.some(_v0 => _v0.video && (0, _v45.isVideoMetadataLocked)(_v0.video)), [_v18]),
+      _v82 = (0, _v3.useMemo)(() => !!_v18 && _v18.some(_v0 => _v0.video?.metadata?.hasMandatoryEmailCapture === !0), [_v18]),
+      _v83 = (0, _v3.useCallback)(() => {
         _v45({
           title: (0, _v34.translate)({
             singular: "These videos have missing mandatory custom metadata.",
@@ -833,9 +855,9 @@
         });
       }, [_v45]),
       {
-        num_items: _v80,
-        num_videos: _v81,
-        num_live_events: _v82
+        num_items: _v84,
+        num_videos: _v85,
+        num_live_events: _v86
       } = (0, _v3.useMemo)(() => {
         let _v0 = 0,
           _v1 = 0,
@@ -848,7 +870,7 @@
           num_live_events: _v2
         };
       }, [_v18]),
-      _v83 = _v9 ? () => {
+      _v87 = _v9 ? () => {
         let _v0 = Array.from(_v19).join(",");
         _v20 && _v9 && (_v52({
           where: {
@@ -873,9 +895,9 @@
           is_private_to_me: null,
           is_subfolder: !1,
           parent_folder_id: null,
-          num_items: _v80,
-          num_videos: _v81,
-          num_live_events: _v82,
+          num_items: _v84,
+          num_videos: _v85,
+          num_live_events: _v86,
           ..._v10
         })));
       } : _v67 ? () => {
@@ -883,7 +905,7 @@
           _v1 = _v18?.flatMap(_v0 => _v0.liveEvent ? ["venue" === _v0.liveEvent.eventType ? "venue" : "event"] : []) ?? [];
         _v1.length > 0 && _v23?.({
           types: _v1
-        }), _v20 && _v69({
+        }), _v20 && _v73({
           where: {
             userId: _v20
           },
@@ -921,30 +943,30 @@
           is_private_to_me: null,
           is_subfolder: !1,
           parent_folder_id: null,
-          num_items: _v80,
-          num_videos: _v81,
-          num_live_events: _v82,
+          num_items: _v84,
+          num_videos: _v85,
+          num_live_events: _v86,
           ..._v10
         })));
       },
-      _v84 = _v9 ? _v53 : _v67 ? _v70 : _v49,
-      _v85 = _v0 || 0 === _v66.length || _v14 || _v8,
-      _v86 = (0, _v3.useCallback)(() => {
+      _v88 = _v9 ? _v53 : _v67 ? _v74 : _v49,
+      _v89 = _v0 || 0 === _v66.length || _v14 || _v8,
+      _v90 = (0, _v3.useCallback)(() => {
         _v30({
           action: "add_video_rating",
           itemsCount: _v19.size,
           page: _v31
-        }), !_v85 && _v20 && _v42({
+        }), !_v89 && _v20 && _v42({
           items: _v66,
           userId: _v20,
           location: _v43.AnalyticsLocations.BULK_ACTIONS_BAR,
           showUpgrade: !_v63,
           onSuccess: () => {
-            _v16(), _v21 ? _v21() : _v73();
+            _v16(), _v21 ? _v21() : _v77();
           }
         });
-      }, [_v66, _v20, _v85, _v63, _v42, _v16, _v21, _v73, _v30, _v19, _v31]),
-      _v87 = _v19.size;
+      }, [_v66, _v20, _v89, _v63, _v42, _v16, _v21, _v77, _v30, _v19, _v31]),
+      _v91 = _v19.size;
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v7.Flex, {
         id: _v81,
@@ -966,7 +988,7 @@
             device_type: null
           })), _v16();
         },
-        numItemsSelected: _v87,
+        numItemsSelected: _v91,
         tooltipText: _v15 && _v12 && _v13 ? (0, _v34.translate)({
           singular: "You've reached the selection limit for bulk Move, Privacy, and Add to showcases",
           dictionary: {
@@ -1044,7 +1066,7 @@
           }
         }) : void 0,
         targetElementId: _v81,
-        selectedItemsText: 0 === _v87 ? (0, _v34.translate)({
+        selectedItemsText: 0 === _v91 ? (0, _v34.translate)({
           singular: "Select all",
           dictionary: {
             es: {
@@ -1072,9 +1094,9 @@
         }) : (0, _v34.translate)({
           singular: "{COUNT} item selected",
           plural: "{COUNT} items selected",
-          count: _v87,
+          count: _v91,
           replacements: {
-            COUNT: _v87
+            COUNT: _v91
           },
           dictionary: {
             es: {
@@ -1209,9 +1231,9 @@
               itemsCount: _v19.size,
               page: _v31
             }), _v36({
-              isLoading: _v84,
+              isLoading: _v88,
               numItemsToDelete: _v18 ? _v18.length : 0,
-              onClickDelete: _v83,
+              onClickDelete: _v87,
               onClickCancel() {
                 _v29({
                   eventName: "workflow.delete_video_cancelled",
@@ -1230,12 +1252,15 @@
               },
               isOnLegalHold: _v11,
               isLiveEvent: _v67,
-              name: _v68()
+              name: _v71 ?? _v68(),
+              numColdStorageItems: _v70,
+              coldStorageName: _v72,
+              isColdStorage: _v70 === _v19.size
             });
           }
         }), void 0 !== _v6 && (0, _v1.jsx)(_v75, {
-          disabled: _v0 || !_v6 || _v13 || _v78,
-          tooltipText: _v78 ? (0, _v34.translate)({
+          disabled: _v0 || !_v6 || _v13 || _v82,
+          tooltipText: _v82 ? (0, _v34.translate)({
             singular: "This video needs an approved registration preset to be shared. Select one in the registration settings to continue.",
             dictionary: {
               es: {
@@ -1262,7 +1287,7 @@
             }
           }) : void 0,
           onClick: () => {
-            if (_v77) return void _v79();
+            if (_v81) return void _v83();
             if (_v29(_v60({
               name: "open_bulk_privacy_modal",
               location: _v43.AnalyticsLocations.BULK_ACTIONS_BAR,
@@ -1309,7 +1334,7 @@
               location: "bulk_action_bar",
               variant: _v41,
               onSuccess: () => {
-                _v16(), _v21 ? _v21() : _v73();
+                _v16(), _v21 ? _v21() : _v77();
               }
             }) : _v38({
               items: _v0,
@@ -1345,7 +1370,7 @@
                     }
                   }),
                   status: "success"
-                }), _v16(), _v21 ? _v21() : _v73();
+                }), _v16(), _v21 ? _v21() : _v77();
               }
             });
           }
@@ -1456,8 +1481,8 @@
               action: "china_access",
               itemsCount: _v19.size,
               page: _v31
-            }), _v76 && _v20 && _v43({
-              items: _v76,
+            }), _v80 && _v20 && _v43({
+              items: _v80,
               userId: _v20,
               onSuccess: () => {
                 _v44({
@@ -1488,7 +1513,7 @@
                     }
                   }),
                   status: "info"
-                }), _v16(), _v21 ? _v21() : _v73();
+                }), _v16(), _v21 ? _v21() : _v77();
               }
             });
           }
@@ -1558,8 +1583,8 @@
               }),
               children: (0, _v1.jsx)(_v12.MenuItem, {
                 icon: (0, _v1.jsx)(_v15.Feedback, {}),
-                isDisabled: _v85,
-                onClick: _v86,
+                isDisabled: _v89,
+                onClick: _v90,
                 children: (0, _v1.jsxs)(_v7.Flex, {
                   align: "center",
                   justify: "space-between",

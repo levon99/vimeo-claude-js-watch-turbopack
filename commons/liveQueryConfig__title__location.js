@@ -12,6 +12,9 @@
     CREATION: {
       TARGET_VIDEO_PRESET: "target_video_preset"
     },
+    SHARING: {
+      OPEN_EMBED: "open_embed"
+    },
     INTERACTION: {
       AUTH_NO_AUTO_SIGN_IN: "auth_no_auto_sign_in",
       AUTH_ROOM_DISABLED_OPTIONS: "auth_room_disabled_options",

@@ -11549,25 +11549,27 @@
         _v3 = _v2?.uri ? _v392(_v2) : null,
         {
           contentSpaceEnabled: _v4,
-          loading: _v5
+          notTeamGatedContentSpaceEnabled: _v5,
+          loading: _v6
         } = (0, _v390.useContentSpaceEnabled)(_v1),
         {
-          data: _v6,
-          isLoading: _v7
+          data: _v7,
+          isLoading: _v8
         } = (0, _v391.useGetUserProject)(() => _v3 && _v1 ? {
           where: {
             userId: _v1,
             projectId: _v3
           },
-          select: ["name", "manageLink"]
+          select: ["name", "manageLink", "isPrivateToUser"]
         } : null, {
           revalidateOnFocus: !1
         }),
-        _v8 = _v5 ? void 0 : _v4 ? _v395.folderSelect.teamLibrary : _v395.folderSelect.library;
+        _v9 = _v6 ? void 0 : _v4 ? _v395.folderSelect.teamLibrary : _v395.folderSelect.library,
+        _v10 = !!_v7?.isPrivateToUser && !_v6 && _v5 && !_v4;
       return {
-        isLoading: _v7,
-        name: _v6?.name ?? _v8,
-        manageLink: _v6?.manageLink,
+        isLoading: _v8 || _v6,
+        name: _v10 ? _v395.folderSelect.library : _v7?.name ?? _v9,
+        manageLink: _v10 ? "/library" : _v7?.manageLink,
         isTeamLibrary: _v4
       };
     },

@@ -491,7 +491,7 @@
       })
     });
   }], 0);
-  let _v12 = ["01KGPR56B56Z9H89TBK6NENWDQ", "01KGPR56B56Z9H89TBK87BF9BS"],
+  let _v12 = ["01KGPR56B56Z9H89TBK6NENWDQ", "01KGPR56B56Z9H89TBK87BF9BS", "01KW9DH1F0ZS21EKV4R6QR8DK9", "01KW9DH1F0JMZ59HN2WZQ1BN5S"],
     _v13 = new Set([..._v10.DEFAULT_SEAT_PLANS.filter(_v0 => _v0 !== _v10.PLANS.ENTERPRISE), ..._v10.LEGACY_PLANS.filter(_v0 => _v0 !== _v10.PLANS.ENTERPRISE), _v10.PLANS.FREE, ..._v10.NEW_PLANS.filter(_v0 => _v0 !== _v10.PLANS.PRODUCTION)]),
     _v14 = {
       standard: {
@@ -516,8 +516,13 @@
       }
     },
     _v15 = new Set(["limit_based_bsp", "limits_only_bsp", "bsp_cards_generic_and_bsp_limits", "bsp_table_generic_and_bsp_limits"]),
-    _v16 = (_v0, _v1) => (_v10.PLANS_ORDER[_v0] ?? -1) > (_v10.PLANS_ORDER[_v1] ?? -1),
-    _v17 = ({
+    _v16 = _v0 => "storage_limit" === _v0 ? "storage" : "privacy" === _v0 || "showcase_privacy" === _v0 ? "privacy" : "generic",
+    _v17 = (_v0, _v1) => (_v10.PLANS_ORDER[_v0] ?? -1) > (_v10.PLANS_ORDER[_v1] ?? -1),
+    _v18 = _v0 => {
+      let _v1 = _v0.find(_v0 => _v0.tier === _v10.PLANS.CREATOR);
+      return void 0 !== _v1 && (_v12.includes(_v1.id?.monthly ?? "") || _v12.includes(_v1.id?.annual ?? ""));
+    },
+    _v19 = ({
       currentTier: _v0,
       tierSetting: _v1,
       plansData: _v2,
@@ -525,18 +530,17 @@
       variant: _v4
     }) => {
       let _v5,
-        _v6,
-        _v7 = "privacy" === _v4 && void 0 !== (_v5 = _v2.find(_v0 => _v0.tier === _v10.PLANS.CREATOR)) && (_v12.includes(_v5.id?.monthly ?? "") || _v12.includes(_v5.id?.annual ?? "")) ? [..._v3, _v10.PLANS.CREATOR] : _v3,
-        _v8 = _v2.filter(_v0 => !_v7.includes(_v0.tier)),
-        _v9 = _v8.filter(_v0 => _v16(_v0.tier, _v0)).sort((_v0, _v1) => (_v10.PLANS_ORDER[_v0.tier] ?? 0) - (_v10.PLANS_ORDER[_v1.tier] ?? 0))[0]?.tier ?? null,
-        _v10 = null !== _v9 && _v13.has(_v9) ? _v9 : null;
-      if ("one_up" === _v1) return _v10;
-      let _v11 = (_v6 = new Set(_v2.map(_v0 => _v0.tier))).has(_v10.PLANS.PRODUCTION) || _v6.has(_v10.PLANS.PROFESSIONAL) ? "repackaging" : _v6.has(_v10.PLANS.PREMIUM) ? "legacy" : "default",
-        _v12 = _v14[_v1][_v11];
-      return (_v10.PLANS_ORDER[_v0] ?? -1) >= (_v10.PLANS_ORDER[_v12] ?? -1) ? _v10 : _v8.some(_v0 => _v0.tier === _v12 && _v16(_v0.tier, _v0)) ? _v12 : _v10;
+        _v6 = "privacy" === _v4 && _v18(_v2) ? [..._v3, _v10.PLANS.CREATOR] : _v3,
+        _v7 = _v2.filter(_v0 => !_v6.includes(_v0.tier)),
+        _v8 = _v7.filter(_v0 => _v17(_v0.tier, _v0)).sort((_v0, _v1) => (_v10.PLANS_ORDER[_v0.tier] ?? 0) - (_v10.PLANS_ORDER[_v1.tier] ?? 0))[0]?.tier ?? null,
+        _v9 = null !== _v8 && _v13.has(_v8) ? _v8 : null;
+      if ("one_up" === _v1) return _v9;
+      let _v10 = (_v5 = new Set(_v2.map(_v0 => _v0.tier))).has(_v10.PLANS.PRODUCTION) || _v5.has(_v10.PLANS.PROFESSIONAL) ? "repackaging" : _v5.has(_v10.PLANS.PREMIUM) ? "legacy" : "default",
+        _v11 = _v14[_v1][_v10];
+      return (_v10.PLANS_ORDER[_v0] ?? -1) >= (_v10.PLANS_ORDER[_v11] ?? -1) ? _v9 : _v7.some(_v0 => _v0.tier === _v11 && _v17(_v0.tier, _v0)) ? _v11 : _v9;
     };
   _v0.s(["getResolvedTierDisplayName", 0, _v0 => {
-    let _v1 = _v17(_v0);
+    let _v1 = _v19(_v0);
     if (!_v1) return {
       tier: null,
       displayName: null
@@ -546,8 +550,11 @@
       tier: _v1,
       displayName: _v2
     };
-  }, "isBspLateStagePaywallKind", 0, _v0 => _v15.has(_v0), "resolvePrivacyOptionFromTrigger", 0, _v0 => {
+  }, "isBspLateStagePaywallKind", 0, _v0 => _v15.has(_v0), "isPrivacyPaywallOnUnlistedRestrictedCreator", 0, ({
+    paywallFeature: _v0,
+    plansData: _v1
+  }) => "privacy" === _v16(_v0) && _v18(_v1), "resolvePrivacyOptionFromTrigger", 0, _v0 => {
     let _v1 = _v0?.toLowerCase();
     return _v1 ? _v1.includes("unlisted_privacy") ? "unlisted" : _v1.includes("disable_privacy") ? "hide_from_vimeo" : _v1.includes("password_privacy") ? "password" : _v1.includes("cold_privacy") ? "generic" : null : null;
-  }, "resolveTier", 0, _v17, "resolveVariant", 0, _v0 => "storage_limit" === _v0 ? "storage" : "privacy" === _v0 || "showcase_privacy" === _v0 ? "privacy" : "generic"], 0);
+  }, "resolveTier", 0, _v19, "resolveVariant", 0, _v16], 0);
 }

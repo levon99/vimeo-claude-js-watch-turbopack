@@ -4496,7 +4496,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "2816c190bad9f14cf6e4dacd8cc7b20c3125eed5",
+      release: "b3e6da30c893848e0fe177b71438ba69c76f11d6",
       ..._v0
     };
     !function (_v0) {
@@ -4623,21 +4623,27 @@ Error:`, _v0);
         if (_v0.length > 0 && _v0.every(_v0 => (_v0.filename ?? _v0.abs_path ?? "").includes("airgap.js"))) return null;
       }
       let _v8 = _v0.exception?.values?.[0];
-      if (_v8?.type === "InvalidStateError" && "The object is in an invalid state." === _v8.value && _v8.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v8.mechanism?.handled === !1 && _v8.mechanism?.data?.handler === "<anonymous>") {
-        let _v0 = _v8.stacktrace?.frames ?? [];
+      if (_v8?.type === "TypeError" && "Cannot read properties of null (reading 'lastChild')" === _v8.value && (_v8.mechanism?.type === "auto.browser.global_handlers.onerror" || _v8.mechanism?.type === "onerror") && (_v8.stacktrace?.frames ?? []).some(_v0 => "prepareVideo" === _v0.function)) return null;
+      let _v9 = _v0.exception?.values?.[0];
+      if (_v9?.type === "InvalidStateError" && "The object is in an invalid state." === _v9.value && _v9.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v9.mechanism?.handled === !1 && _v9.mechanism?.data?.handler === "<anonymous>") {
+        let _v0 = _v9.stacktrace?.frames ?? [];
         if (_v0.length > 0 && _v0.every(_v0 => (_v0.filename ?? _v0.abs_path ?? "").includes("@sentry"))) return null;
       }
-      let _v9 = _v0.exception?.values?.[0];
-      if (_v9?.type === "InvalidStateError" && _v9.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v9.mechanism?.handled === !1 && /Failed to read the 'responseText' property from 'XMLHttpRequest'/.test(_v9.value ?? "") && /was 'arraybuffer'/.test(_v9.value ?? "")) return null;
       let _v10 = _v0.exception?.values?.[0];
-      if (_v10?.type === "UnhandledRejection" && /Object Not Found Matching Id:\d+, MethodName:\w+, ParamCount:\d+/.test(_v10.value ?? "") && !(_v10.stacktrace?.frames ?? []).some(_v0 => {
+      if (_v10?.type === "InvalidStateError" && _v10.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v10.mechanism?.handled === !1 && /Failed to read the 'responseText' property from 'XMLHttpRequest'/.test(_v10.value ?? "") && /was 'arraybuffer'/.test(_v10.value ?? "")) return null;
+      let _v11 = _v0.exception?.values?.[0];
+      if (_v11?.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v11.mechanism?.handled === !1 && /Java exception was raised during method invocation/.test(_v11.value ?? "")) return null;
+      let _v12 = _v0.exception?.values?.[0];
+      if (_v12?.type === "UnhandledRejection" && /Object Not Found Matching Id:\d+, MethodName:\w+, ParamCount:\d+/.test(_v12.value ?? "") && !(_v12.stacktrace?.frames ?? []).some(_v0 => {
         let _v1 = _v0.filename ?? _v0.abs_path ?? "";
         return _v1.includes("_next/static") && !1 !== _v0.in_app || _v1.includes("app:///p/") || _v1.includes("/telecine") || _v1.includes("/media-sorcerer");
       })) return null;
-      let _v11 = _v0.exception?.values?.[0];
-      if (_v11?.type === "AbortError" && "signal is aborted without reason" === _v11.value && _v11.mechanism?.handled === !1 && (_v11.mechanism?.type === "auto.browser.global_handlers.onunhandledrejection" || _v11.mechanism?.type === "onunhandledrejection")) return null;
-      let _v12 = _v0.exception?.values?.[0];
-      if (_v12?.value?.startsWith("Module load timeout") && (_v287 += 1) > 1) return null;
+      let _v13 = _v0.exception?.values?.[0];
+      if (_v13?.type === "TypeError" && /window\.webkit\.messageHandlers/.test(_v13.value ?? "")) return null;
+      let _v14 = _v0.exception?.values?.[0];
+      if (_v14?.type === "AbortError" && "signal is aborted without reason" === _v14.value && _v14.mechanism?.handled === !1 && (_v14.mechanism?.type === "auto.browser.global_handlers.onunhandledrejection" || _v14.mechanism?.type === "onunhandledrejection")) return null;
+      let _v15 = _v0.exception?.values?.[0];
+      if (_v15?.value?.startsWith("Module load timeout") && (_v287 += 1) > 1) return null;
       if (_v0.exception?.values?.[0]?.type === "UnhandledRejection" && void 0 === _v1.originalException) try {
         let _v0 = document.querySelector("[data-ready]"),
           _v1 = null,

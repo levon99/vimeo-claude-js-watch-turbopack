@@ -172,7 +172,7 @@
       500: [500, 400, 700, 300],
       700: [700, 500, 400, 300]
     };
-  _v0.s(["TITLE_FONTS", 0, _v7, "TITLE_FONT_BY_ID", 0, _v8, "asTitleFontId", 0, _v0 => _v9(_v0) ? _v0 : null, "asTitleFontWeight", 0, _v0 => {
+  _v0.s(["DEFAULT_TITLE_FONT_WEIGHT", 0, 400, "TITLE_FONTS", 0, _v7, "TITLE_FONT_BY_ID", 0, _v8, "asTitleFontId", 0, _v0 => _v9(_v0) ? _v0 : null, "asTitleFontWeight", 0, _v0 => {
     if (null == _v0) return null;
     let _v1 = "string" == typeof _v0 ? Number(_v0) : _v0;
     return _v10.includes(_v1) ? _v1 : null;

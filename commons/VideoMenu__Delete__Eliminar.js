@@ -30,20 +30,22 @@
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
-    _v30 = _v0.i(0);
-  let _v31 = ({
+    _v30 = _v0.i(0),
+    _v31 = _v0.i(0),
+    _v32 = _v0.i(0);
+  let _v33 = ({
       onShare: _v0,
       privacy: _v1
-    }) => (0, _v1.jsx)(_v30.AccessCopy, {
-      title: _v29.DEFAULT_PRIVACY_OPTIONS.find(({
+    }) => (0, _v1.jsx)(_v32.AccessCopy, {
+      title: _v31.DEFAULT_PRIVACY_OPTIONS.find(({
         privacy: _v0
       }) => _v0 === _v1)?.title ?? _v1,
-      description: _v29.DEFAULT_PRIVACY_OPTIONS.find(({
+      description: _v31.DEFAULT_PRIVACY_OPTIONS.find(({
         privacy: _v0
       }) => _v0 === _v1)?.description ?? "",
       onClick: _v0
     }),
-    _v32 = (0, _v3.rem)(_v25.ACTION_ICON_BOX_SIZE);
+    _v34 = (0, _v4.rem)(_v27.ACTION_ICON_BOX_SIZE);
   _v0.s(["VideoMenu", 0, ({
     disabled: _v0,
     onClick: _v1,
@@ -85,7 +87,7 @@
     hasMultipleReviewLinks: _v37 = !1,
     hasReviewPageLinkUpsell: _v38,
     hasShareUpsell: _v39,
-    deleteOptionLabel: _v40 = (0, _v20.translate)({
+    deleteOptionLabel: _v40 = (0, _v21.translate)({
       singular: "Delete",
       dictionary: {
         es: {
@@ -111,13 +113,13 @@
         }
       }
     }),
-    deleteIcon: _v41 = (0, _v1.jsx)(_v16.TrashBin, {
-      boxSize: _v32
+    deleteIcon: _v41 = (0, _v1.jsx)(_v17.TrashBin, {
+      boxSize: _v34
     }),
     canStar: _v42 = !0,
     onStarClick: _v43,
-    starIcon: _v44 = (0, _v1.jsx)(_v15.Star, {
-      boxSize: _v32
+    starIcon: _v44 = (0, _v1.jsx)(_v16.Star, {
+      boxSize: _v34
     }),
     starIconLabel: _v45,
     placement: _v46,
@@ -137,100 +139,101 @@
     enableOverflowMenuExperiment: _v60 = !1,
     isEnterprise: _v61 = !1
   }) => {
-    let _v62 = (0, _v19.useIsMobile)(),
-      _v63 = (0, _v26.useIsV2)(),
+    let _v62 = (0, _v20.useIsMobile)(),
+      _v63 = (0, _v28.useIsV2)(),
       {
         settings: _v64,
         isLoadingResponse: _v65
-      } = (0, _v22.useOrionSettings)(),
-      _v66 = _v60 && !_v65 ? _v64.videocard_overflow_menu_arm : "control",
-      _v67 = !_v62 && ("treatment1" === _v66 || "treatment2" === _v66),
-      _v68 = {
+      } = (0, _v23.useOrionSettings)(),
+      [_v66, _v67] = (0, _v2.useState)(!1),
+      _v68 = _v60 && !_v65 ? _v64.videocard_overflow_menu_arm : "control",
+      _v69 = !_v62 && ("treatment1" === _v68 || "treatment2" === _v68),
+      _v70 = {
         analytics: {
-          icon: (0, _v1.jsx)(_v25.ANALYTICS_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.ANALYTICS_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.ANALYTICS_COPY,
+          label: _v27.ANALYTICS_COPY,
           shouldRender: _v30 && _v3 && !_v62
         },
         changeThumbnail: {
-          icon: (0, _v1.jsx)(_v25.CHANGE_THUMBNAIL_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.CHANGE_THUMBNAIL_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.CHANGE_THUMBNAIL_COPY,
+          label: _v27.CHANGE_THUMBNAIL_COPY,
           onClick: _v34,
           shouldRender: !!_v34
         },
         copyLink: {
           content: _v23,
-          icon: (0, _v1.jsx)(_v25.COPY_LINK_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.COPY_LINK_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.COPY_LINK_COPY,
+          label: _v27.COPY_LINK_COPY,
           onClick: _v17,
           onCopyAsync: _v18,
           shouldRender: !!_v23 || !!_v18
         },
         createReviewLinks: {
-          icon: (0, _v1.jsx)(_v25.CREATE_REVIEW_LINKS_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.CREATE_REVIEW_LINKS_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.CREATE_REVIEW_LINKS_COPY,
+          label: _v27.CREATE_REVIEW_LINKS_COPY,
           onClick: _v20,
           shouldRender: _v3 && _v19
         },
         delete: {
-          icon: (0, _v1.jsx)(_v25.DELETE_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.DELETE_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.DELETE_COPY,
+          label: _v27.DELETE_COPY,
           onClick: _v7,
           shouldRender: !!_v6
         },
         download: {
-          icon: (0, _v1.jsx)(_v25.DOWNLOAD_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.DOWNLOAD_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.DOWNLOAD_COPY,
+          label: _v27.DOWNLOAD_COPY,
           onClick: _v10,
           isDisabled: _v9,
           shouldRender: !!_v8
         },
         editFile: {
-          icon: (0, _v1.jsx)(_v25.EDIT_FILE_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.EDIT_FILE_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.EDIT_FILE_COPY,
+          label: _v27.EDIT_FILE_COPY,
           shouldRender: _v3 && !_v62
         },
         embed: {
-          icon: (0, _v1.jsx)(_v25.EMBED_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.EMBED_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.EMBED_COPY,
+          label: _v27.EMBED_COPY,
           shouldRender: _v3 && !_v62
         },
         move: {
-          icon: (0, _v1.jsx)(_v25.MOVE_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.MOVE_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.MOVE_COPY,
+          label: _v27.MOVE_COPY,
           onClick: _v14,
           shouldRender: !!_v13
         },
         addToShowcase: {
-          icon: (0, _v1.jsx)(_v25.ADD_TO_SHOWCASE_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.ADD_TO_SHOWCASE_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.ADD_TO_SHOWCASE_COPY,
+          label: _v27.ADD_TO_SHOWCASE_COPY,
           onClick: _v16,
           shouldRender: !!_v15
         },
         addVideoRating: {
-          icon: (0, _v1.jsx)(_v18.Feedback, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v19.Feedback, {
+            boxSize: _v34
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Add video rating",
             dictionary: {
               es: {
@@ -260,18 +263,18 @@
           shouldRender: !!_v51
         },
         rename: {
-          icon: (0, _v1.jsx)(_v25.RENAME_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.RENAME_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.RENAME_COPY,
+          label: _v27.RENAME_COPY,
           onClick: _v56,
           shouldRender: _v3 && !!_v56
         },
         makeCopy: {
-          icon: (0, _v1.jsx)(_v7.CopyPortrait, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v8.CopyPortrait, {
+            boxSize: _v34
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Create a copy",
             dictionary: {
               es: {
@@ -303,30 +306,30 @@
           shouldRender: _v3 && !!_v57 && _v64.enable_copy_button_video
         },
         replace: {
-          icon: (0, _v1.jsx)(_v25.REPLACE_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.REPLACE_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.REPLACE_COPY,
+          label: _v27.REPLACE_COPY,
           onClick: _v12,
           shouldRender: !!_v11 && !_v62
         },
         review: {
-          icon: (0, _v1.jsx)(_v25.REVIEW_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.REVIEW_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.REVIEW_COPY,
+          label: _v27.REVIEW_COPY,
           shouldRender: _v26 && _v3 && !_v62 && !_v37
         },
         share: {
-          badge: _v39 ? (0, _v1.jsx)(_v21.UpgradeBadge, {
+          badge: _v39 ? (0, _v1.jsx)(_v22.UpgradeBadge, {
             noMargin: !0,
             name: "video_menu_share_upgrade_button",
             location: "video_menu"
           }) : void 0,
-          icon: (0, _v1.jsx)(_v25.SHARE_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.SHARE_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.SHARE_COPY,
+          label: _v27.SHARE_COPY,
           onClick: _v5,
           shouldRender: _v4
         },
@@ -337,115 +340,115 @@
           shouldRender: _v42
         },
         tools: {
-          icon: (0, _v1.jsx)(_v25.TOOLS_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.TOOLS_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.TOOLS_COPY,
+          label: _v27.TOOLS_COPY,
           shouldRender: _v3 && !_v62
         },
         translate: {
-          icon: (0, _v1.jsx)(_v25.TRANSLATE_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.TRANSLATE_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.TRANSLATE_COPY,
+          label: _v27.TRANSLATE_COPY,
           onClick: _v50,
           shouldRender: _v49
         },
         videoEditor: {
-          icon: (0, _v1.jsx)(_v25.VIDEO_EDITOR_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.VIDEO_EDITOR_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.VIDEO_EDITOR_COPY,
+          label: _v27.VIDEO_EDITOR_COPY,
           shouldRender: _v3 && !_v62
         },
         videoInfo: {
-          icon: (0, _v1.jsx)(_v25.VIDEO_INFO_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.VIDEO_INFO_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.VIDEO_INFO_COPY,
+          label: _v27.VIDEO_INFO_COPY,
           onClick: _v35,
           shouldRender: _v36 && !_v62
         },
         viewVideoPage: {
           href: _v23,
-          icon: (0, _v1.jsx)(_v25.VIEW_VIDEO_PAGE_ICON, {
-            boxSize: _v32
+          icon: (0, _v1.jsx)(_v27.VIEW_VIDEO_PAGE_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.VIEW_VIDEO_PAGE_COPY,
+          label: _v27.VIEW_VIDEO_PAGE_COPY,
           shouldRender: !!_v3
         }
       },
-      _v69 = (0, _v24.createSection)([(0, _v1.jsx)(_v31, {
+      _v71 = (0, _v25.createSection)([(0, _v1.jsx)(_v33, {
         onShare: _v5,
         privacy: _v54 ?? ""
       }, "video-access-copy")]),
-      _v70 = [_v68.videoEditor.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.videoEditor
-      }, "videoEditor"), _v68.review.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.review
-      }, "review"), _v68.analytics.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.analytics
-      }, "analytics"), _v68.translate.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.translate
-      }, "translate"), _v68.addVideoRating.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.addVideoRating
+      _v72 = [_v70.videoEditor.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.videoEditor
+      }, "videoEditor"), _v70.review.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.review
+      }, "review"), _v70.analytics.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.analytics
+      }, "analytics"), _v70.translate.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.translate
+      }, "translate"), _v70.addVideoRating.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.addVideoRating
       }, "addVideoRating")].filter(Boolean),
-      _v71 = (0, _v24.createSection)([_v68.share.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.share
-      }), _v68.copyLink.shouldRender && (0, _v1.jsx)(_v28.CopyAction, {
-        ..._v68.copyLink
-      }), _v68.createReviewLinks.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.createReviewLinks
-      }), _v68.embed.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.embed
+      _v73 = (0, _v25.createSection)([_v70.share.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.share
+      }), _v70.copyLink.shouldRender && (0, _v1.jsx)(_v30.CopyAction, {
+        ..._v70.copyLink
+      }), _v70.createReviewLinks.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.createReviewLinks
+      }), _v70.embed.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.embed
       })]),
-      _v72 = (0, _v24.createSection)([_v68.viewVideoPage.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.viewVideoPage
-      }), _v68.download.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.download
-      }), _v68.editFile.shouldRender ? (0, _v1.jsxs)(_v27.MenuAction, {
-        ..._v68.editFile,
-        children: [_v68.rename.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.rename
-        }), _v68.makeCopy.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.makeCopy
-        }), _v68.changeThumbnail.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.changeThumbnail
-        }), _v68.replace.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.replace
+      _v74 = (0, _v25.createSection)([_v70.viewVideoPage.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.viewVideoPage
+      }), _v70.download.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.download
+      }), _v70.editFile.shouldRender ? (0, _v1.jsxs)(_v29.MenuAction, {
+        ..._v70.editFile,
+        children: [_v70.rename.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.rename
+        }), _v70.makeCopy.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.makeCopy
+        }), _v70.changeThumbnail.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.changeThumbnail
+        }), _v70.replace.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.replace
         })]
       }) : (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v68.rename.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.rename
-        }), _v68.makeCopy.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.makeCopy
-        }), _v68.changeThumbnail.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.changeThumbnail
-        }), _v68.replace.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.replace
+        children: [_v70.rename.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.rename
+        }), _v70.makeCopy.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.makeCopy
+        }), _v70.changeThumbnail.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.changeThumbnail
+        }), _v70.replace.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.replace
         })]
-      }), _v68.move.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.move
-      }), _v68.tools.shouldRender && (_v70.length > 1 ? (0, _v1.jsx)(_v27.MenuAction, {
-        ..._v68.tools,
-        children: _v70
+      }), _v70.move.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.move
+      }), _v70.tools.shouldRender && (_v72.length > 1 ? (0, _v1.jsx)(_v29.MenuAction, {
+        ..._v70.tools,
+        children: _v72
       }) : (0, _v1.jsx)(_v1.Fragment, {
-        children: _v70
-      })), _v68.addToShowcase.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.addToShowcase
-      }), _v68.star.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.star
-      }), _v68.videoInfo.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.videoInfo
+        children: _v72
+      })), _v70.addToShowcase.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.addToShowcase
+      }), _v70.star.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.star
+      }), _v70.videoInfo.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.videoInfo
       })]),
-      _v73 = (0, _v24.createSection)([_v68.delete.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.delete
+      _v75 = (0, _v25.createSection)([_v70.delete.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.delete
       })]),
-      _v74 = (0, _v24.createSection)([_v4 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v14.Share, {
-          boxSize: _v32
+      _v76 = (0, _v25.createSection)([_v4 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v15.Share, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Share...",
           dictionary: {
             es: {
@@ -472,13 +475,13 @@
           }
         }),
         onClick: _v5,
-        badge: _v39 && (0, _v1.jsx)(_v21.UpgradeBadge, {
+        badge: _v39 && (0, _v1.jsx)(_v22.UpgradeBadge, {
           noMargin: !0,
           name: "video_menu_share_upgrade_button",
           location: "video_menu"
         })
-      }), (_v23 || _v18) && (0, _v1.jsx)(_v28.CopyAction, {
-        label: (0, _v20.translate)({
+      }), (_v23 || _v18) && (0, _v1.jsx)(_v30.CopyAction, {
+        label: (0, _v21.translate)({
           singular: "Copy link",
           dictionary: {
             es: {
@@ -507,44 +510,44 @@
         content: _v23 ?? "",
         onClick: _v17,
         onCopyAsync: _v18
-      }), ...(_v64.enable_review_link_submenu ? [!_v62 && _v3 && (_v19 || _v27 || _v21) && (0, _v1.jsxs)(_v27.MenuAction, {
-        icon: (0, _v1.jsx)(_v25.REVIEW_LINK_ICON, {
-          boxSize: _v32
+      }), ...(_v64.enable_review_link_submenu ? [!_v62 && _v3 && (_v19 || _v27 || _v21) && (0, _v1.jsxs)(_v29.MenuAction, {
+        icon: (0, _v1.jsx)(_v27.REVIEW_LINK_ICON, {
+          boxSize: _v34
         }),
-        label: _v21 ? _v25.REVIEW_LINKS_COPY : _v25.REVIEW_LINK_COPY,
-        children: [_v27 && (_v26 ? (0, _v1.jsx)(_v28.CopyAction, {
-          label: _v25.COPY_REVIEW_LINK_COPY,
+        label: _v21 ? _v27.REVIEW_LINKS_COPY : _v27.REVIEW_LINK_COPY,
+        children: [_v27 && (_v26 ? (0, _v1.jsx)(_v30.CopyAction, {
+          label: _v27.COPY_REVIEW_LINK_COPY,
           content: _v26,
           onClick: _v28,
-          badge: _v38 && !_v37 && (0, _v1.jsx)(_v21.UpgradeBadge, {
+          badge: _v38 && !_v37 && (0, _v1.jsx)(_v22.UpgradeBadge, {
             noMargin: !0,
             name: "video_menu_review_link_upgrade_button",
             location: "video_menu"
           })
-        }) : (0, _v1.jsx)(_v27.Action, {
-          icon: (0, _v1.jsx)(_v25.COPY_REVIEW_LINK_ICON, {
-            boxSize: _v32
+        }) : (0, _v1.jsx)(_v29.Action, {
+          icon: (0, _v1.jsx)(_v27.COPY_REVIEW_LINK_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.COPY_REVIEW_LINK_COPY,
+          label: _v27.COPY_REVIEW_LINK_COPY,
           onClick: _v28
-        })), _v21 && (0, _v1.jsx)(_v27.Action, {
-          icon: (0, _v1.jsx)(_v25.MANAGE_REVIEW_LINKS_ICON, {
-            boxSize: _v32
+        })), _v21 && (0, _v1.jsx)(_v29.Action, {
+          icon: (0, _v1.jsx)(_v27.MANAGE_REVIEW_LINKS_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.MANAGE_REVIEW_LINKS_COPY,
+          label: _v27.MANAGE_REVIEW_LINKS_COPY,
           onClick: _v22
-        }), (0, _v1.jsx)(_v27.Action, {
-          icon: (0, _v1.jsx)(_v25.CREATE_NEW_REVIEW_LINK_ICON, {
-            boxSize: _v32
+        }), (0, _v1.jsx)(_v29.Action, {
+          icon: (0, _v1.jsx)(_v27.CREATE_NEW_REVIEW_LINK_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.CREATE_NEW_REVIEW_LINK_COPY,
+          label: _v27.CREATE_NEW_REVIEW_LINK_COPY,
           onClick: _v20,
           isDisabled: !_v19
-        }), _v26 && _v27 && (0, _v1.jsx)(_v27.Action, {
-          icon: (0, _v1.jsx)(_v13.ReviewCheck, {
-            boxSize: _v32
+        }), _v26 && _v27 && (0, _v1.jsx)(_v29.Action, {
+          icon: (0, _v1.jsx)(_v14.ReviewCheck, {
+            boxSize: _v34
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Review page",
             dictionary: {
               es: {
@@ -573,11 +576,11 @@
           onClick: () => {
             window.open(_v26, "_blank", "noopener,noreferrer"), _v29?.();
           }
-        }), _v21 && (0, _v1.jsx)(_v27.Action, {
-          icon: (0, _v1.jsx)(_v13.ReviewCheck, {
-            boxSize: _v32
+        }), _v21 && (0, _v1.jsx)(_v29.Action, {
+          icon: (0, _v1.jsx)(_v14.ReviewCheck, {
+            boxSize: _v34
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Review pages",
             dictionary: {
               es: {
@@ -605,34 +608,34 @@
           }),
           onClick: _v22
         })]
-      }), _v62 && _v3 && _v27 && (_v26 ? (0, _v1.jsx)(_v28.CopyAction, {
-        label: _v25.COPY_REVIEW_LINK_COPY,
+      }), _v62 && _v3 && _v27 && (_v26 ? (0, _v1.jsx)(_v30.CopyAction, {
+        label: _v27.COPY_REVIEW_LINK_COPY,
         content: _v26,
         onClick: _v28
-      }) : (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v25.COPY_REVIEW_LINK_ICON, {
-          boxSize: _v32
+      }) : (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v27.COPY_REVIEW_LINK_ICON, {
+          boxSize: _v34
         }),
-        label: _v25.COPY_REVIEW_LINK_COPY,
+        label: _v27.COPY_REVIEW_LINK_COPY,
         onClick: _v28
-      })), _v62 && _v3 && _v21 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v25.MANAGE_REVIEW_LINKS_ICON, {
-          boxSize: _v32
+      })), _v62 && _v3 && _v21 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v27.MANAGE_REVIEW_LINKS_ICON, {
+          boxSize: _v34
         }),
-        label: _v25.MANAGE_REVIEW_LINKS_COPY,
+        label: _v27.MANAGE_REVIEW_LINKS_COPY,
         onClick: _v22
-      }), _v62 && _v3 && (_v19 || _v27 || _v21) && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v25.CREATE_NEW_REVIEW_LINK_ICON, {
-          boxSize: _v32
+      }), _v62 && _v3 && (_v19 || _v27 || _v21) && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v27.CREATE_NEW_REVIEW_LINK_ICON, {
+          boxSize: _v34
         }),
-        label: _v25.CREATE_NEW_REVIEW_LINK_COPY,
+        label: _v27.CREATE_NEW_REVIEW_LINK_COPY,
         onClick: _v20,
         isDisabled: !_v19
-      }), _v62 && _v3 && _v26 && _v27 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v13.ReviewCheck, {
-          boxSize: _v32
+      }), _v62 && _v3 && _v26 && _v27 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v14.ReviewCheck, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Review page",
           dictionary: {
             es: {
@@ -661,11 +664,11 @@
         onClick: () => {
           window.open(_v26, "_blank", "noopener,noreferrer"), _v29?.();
         }
-      }), _v62 && _v3 && _v21 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v13.ReviewCheck, {
-          boxSize: _v32
+      }), _v62 && _v3 && _v21 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v14.ReviewCheck, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Review pages",
           dictionary: {
             es: {
@@ -692,11 +695,11 @@
           }
         }),
         onClick: _v22
-      })] : [_v3 && _v19 && !_v26 && !_v21 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v12.LinkAdd, {
-          boxSize: _v32
+      })] : [_v3 && _v19 && !_v26 && !_v21 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v13.LinkAdd, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Create review link",
           dictionary: {
             es: {
@@ -723,8 +726,8 @@
           }
         }),
         onClick: _v20
-      }), _v3 && _v26 && _v27 && (0, _v1.jsx)(_v28.CopyAction, {
-        label: (0, _v20.translate)({
+      }), _v3 && _v26 && _v27 && (0, _v1.jsx)(_v30.CopyAction, {
+        label: (0, _v21.translate)({
           singular: "Copy review link",
           dictionary: {
             es: {
@@ -752,16 +755,16 @@
         }),
         content: _v26,
         onClick: _v28,
-        badge: _v38 && !_v37 && (0, _v1.jsx)(_v21.UpgradeBadge, {
+        badge: _v38 && !_v37 && (0, _v1.jsx)(_v22.UpgradeBadge, {
           noMargin: !0,
           name: "video_menu_review_link_upgrade_button",
           location: "video_menu"
         })
-      }), _v3 && _v21 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v11.Link, {
-          boxSize: _v32
+      }), _v3 && _v21 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v12.Link, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Copy review links",
           dictionary: {
             es: {
@@ -788,8 +791,8 @@
           }
         }),
         onClick: _v22
-      })]), _v32 && !_v62 && (0, _v1.jsx)(_v28.CopyAction, {
-        label: (0, _v20.translate)({
+      })]), _v32 && !_v62 && (0, _v1.jsx)(_v30.CopyAction, {
+        label: (0, _v21.translate)({
           singular: "Copy file download link",
           dictionary: {
             es: {
@@ -817,11 +820,11 @@
         }),
         content: _v32,
         onClick: _v33
-      }), _v3 && _v24 && !_v62 && (0, _v1.jsx)(_v28.CopyAction, {
-        icon: (0, _v1.jsx)(_v6.Code, {
-          boxSize: _v32
+      }), _v3 && _v24 && !_v62 && (0, _v1.jsx)(_v30.CopyAction, {
+        icon: (0, _v1.jsx)(_v7.Code, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Copy embed code",
           dictionary: {
             es: {
@@ -850,11 +853,11 @@
         content: _v24,
         onClick: _v25
       })]),
-      _v75 = (0, _v24.createSection)([_v30 && _v3 && !_v62 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v5.Analytics, {
-          boxSize: _v32
+      _v77 = (0, _v25.createSection)([_v30 && _v3 && !_v62 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v6.Analytics, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Analytics",
           dictionary: {
             es: {
@@ -882,11 +885,11 @@
         }),
         href: _v30,
         onClick: _v31
-      }), _v26 && _v3 && !_v62 && !_v37 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v13.ReviewCheck, {
-          boxSize: _v32
+      }), _v26 && _v3 && !_v62 && !_v37 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v14.ReviewCheck, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Review",
           dictionary: {
             es: {
@@ -914,11 +917,11 @@
         }),
         href: _v26,
         onClick: _v29
-      }), _v49 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v17.AiSparkles, {
-          boxSize: _v32
+      }), _v49 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v18.AiSparkles, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Translate",
           dictionary: {
             es: {
@@ -945,11 +948,11 @@
           }
         }),
         onClick: _v50
-      }), _v51 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v18.Feedback, {
-          boxSize: _v32
+      }), _v51 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v19.Feedback, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Add video rating",
           dictionary: {
             es: {
@@ -977,12 +980,12 @@
         }),
         onClick: _v52
       }, "add-video-rating")]),
-      _v76 = _v68.rename.shouldRender || _v68.makeCopy.shouldRender || _v68.changeThumbnail.shouldRender || _v68.replace.shouldRender,
-      _v77 = (0, _v24.createSection)([_v8 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v8.DownloadImport, {
-          boxSize: _v32
+      _v78 = _v70.rename.shouldRender || _v70.makeCopy.shouldRender || _v70.changeThumbnail.shouldRender || _v70.replace.shouldRender,
+      _v79 = (0, _v25.createSection)([_v8 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v9.DownloadImport, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Download...",
           dictionary: {
             es: {
@@ -1010,35 +1013,35 @@
         }),
         onClick: _v10,
         isDisabled: _v9
-      }), !_v62 && _v3 && _v76 && (0, _v1.jsxs)(_v27.MenuAction, {
-        icon: _v68.editFile.icon,
-        label: _v68.editFile.label,
-        children: [_v68.rename.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.rename
-        }), _v68.makeCopy.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.makeCopy
-        }), _v68.changeThumbnail.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.changeThumbnail
-        }), _v68.replace.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.replace
+      }), !_v62 && _v3 && _v78 && (0, _v1.jsxs)(_v29.MenuAction, {
+        icon: _v70.editFile.icon,
+        label: _v70.editFile.label,
+        children: [_v70.rename.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.rename
+        }), _v70.makeCopy.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.makeCopy
+        }), _v70.changeThumbnail.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.changeThumbnail
+        }), _v70.replace.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.replace
         })]
       }), _v62 && _v3 && (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v68.rename.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.rename
-        }), _v68.makeCopy.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.makeCopy
-        }), _v68.changeThumbnail.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.changeThumbnail
-        }), _v68.replace.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.replace
+        children: [_v70.rename.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.rename
+        }), _v70.makeCopy.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.makeCopy
+        }), _v70.changeThumbnail.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.changeThumbnail
+        }), _v70.replace.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.replace
         })]
-      }), !_v3 && _v68.replace.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.replace
-      }), _v13 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v9.FolderOpen, {
-          boxSize: _v32
+      }), !_v3 && _v70.replace.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.replace
+      }), _v13 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v10.FolderOpen, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Move...",
           dictionary: {
             es: {
@@ -1065,11 +1068,11 @@
           }
         }),
         onClick: _v14
-      }), _v15 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v4._3GridLeftLayout, {
-          boxSize: _v32
+      }), _v15 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v5._3GridLeftLayout, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Add to showcase",
           dictionary: {
             es: {
@@ -1096,22 +1099,22 @@
           }
         }),
         onClick: _v16
-      }), _v42 && (0, _v1.jsx)(_v27.Action, {
+      }), _v42 && (0, _v1.jsx)(_v29.Action, {
         icon: (0, _v2.cloneElement)(_v44, {
           style: {
-            width: _v32,
-            height: _v32
+            width: _v34,
+            height: _v34
           }
         }),
         label: _v45 || "",
         onClick: () => {
           _v43?.();
         }
-      }), _v36 && !_v62 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v10.InfoCircle, {
-          boxSize: _v32
+      }), _v36 && !_v62 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v11.InfoCircle, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Video info",
           dictionary: {
             es: {
@@ -1136,16 +1139,16 @@
         }),
         onClick: _v35
       })]),
-      _v78 = (0, _v24.createSection)([_v6 && (0, _v1.jsx)(_v27.Action, {
+      _v80 = (0, _v25.createSection)([_v6 && (0, _v1.jsx)(_v29.Action, {
         icon: _v41,
         label: _v40,
         onClick: _v7
       })]),
-      _v79 = (0, _v24.createSection)([(0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v8.DownloadImport, {
-          boxSize: _v32
+      _v81 = (0, _v25.createSection)([(0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v9.DownloadImport, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Download...",
           dictionary: {
             es: {
@@ -1174,44 +1177,44 @@
         onClick: _v10,
         isDisabled: _v9
       }, _v53)]),
-      _v80 = !_v62 && _v3 && (_v19 || _v27 || _v21) && (0, _v1.jsxs)(_v27.MenuAction, {
-        icon: (0, _v1.jsx)(_v25.REVIEW_LINK_ICON, {
-          boxSize: _v32
+      _v82 = !_v62 && _v3 && (_v19 || _v27 || _v21) && (0, _v1.jsxs)(_v29.MenuAction, {
+        icon: (0, _v1.jsx)(_v27.REVIEW_LINK_ICON, {
+          boxSize: _v34
         }),
-        label: _v21 ? _v25.REVIEW_LINKS_COPY : _v25.REVIEW_LINK_COPY,
-        children: [_v27 && (_v26 ? (0, _v1.jsx)(_v28.CopyAction, {
-          label: _v25.COPY_REVIEW_LINK_COPY,
+        label: _v21 ? _v27.REVIEW_LINKS_COPY : _v27.REVIEW_LINK_COPY,
+        children: [_v27 && (_v26 ? (0, _v1.jsx)(_v30.CopyAction, {
+          label: _v27.COPY_REVIEW_LINK_COPY,
           content: _v26,
           onClick: _v28,
-          badge: _v38 && !_v37 && (0, _v1.jsx)(_v21.UpgradeBadge, {
+          badge: _v38 && !_v37 && (0, _v1.jsx)(_v22.UpgradeBadge, {
             noMargin: !0,
             name: "video_menu_review_link_upgrade_button",
             location: "video_menu"
           })
-        }) : (0, _v1.jsx)(_v27.Action, {
-          icon: (0, _v1.jsx)(_v25.COPY_REVIEW_LINK_ICON, {
-            boxSize: _v32
+        }) : (0, _v1.jsx)(_v29.Action, {
+          icon: (0, _v1.jsx)(_v27.COPY_REVIEW_LINK_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.COPY_REVIEW_LINK_COPY,
+          label: _v27.COPY_REVIEW_LINK_COPY,
           onClick: _v28
-        })), _v21 && (0, _v1.jsx)(_v27.Action, {
-          icon: (0, _v1.jsx)(_v25.MANAGE_REVIEW_LINKS_ICON, {
-            boxSize: _v32
+        })), _v21 && (0, _v1.jsx)(_v29.Action, {
+          icon: (0, _v1.jsx)(_v27.MANAGE_REVIEW_LINKS_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.MANAGE_REVIEW_LINKS_COPY,
+          label: _v27.MANAGE_REVIEW_LINKS_COPY,
           onClick: _v22
-        }), (0, _v1.jsx)(_v27.Action, {
-          icon: (0, _v1.jsx)(_v25.CREATE_NEW_REVIEW_LINK_ICON, {
-            boxSize: _v32
+        }), (0, _v1.jsx)(_v29.Action, {
+          icon: (0, _v1.jsx)(_v27.CREATE_NEW_REVIEW_LINK_ICON, {
+            boxSize: _v34
           }),
-          label: _v25.CREATE_NEW_REVIEW_LINK_COPY,
+          label: _v27.CREATE_NEW_REVIEW_LINK_COPY,
           onClick: _v20,
           isDisabled: !_v19
-        }), _v26 && _v27 && (0, _v1.jsx)(_v27.Action, {
-          icon: (0, _v1.jsx)(_v13.ReviewCheck, {
-            boxSize: _v32
+        }), _v26 && _v27 && (0, _v1.jsx)(_v29.Action, {
+          icon: (0, _v1.jsx)(_v14.ReviewCheck, {
+            boxSize: _v34
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Review page",
             dictionary: {
               es: {
@@ -1240,11 +1243,11 @@
           onClick: () => {
             window.open(_v26, "_blank", "noopener,noreferrer"), _v29?.();
           }
-        }), _v21 && (0, _v1.jsx)(_v27.Action, {
-          icon: (0, _v1.jsx)(_v13.ReviewCheck, {
-            boxSize: _v32
+        }), _v21 && (0, _v1.jsx)(_v29.Action, {
+          icon: (0, _v1.jsx)(_v14.ReviewCheck, {
+            boxSize: _v34
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Review pages",
             dictionary: {
               es: {
@@ -1273,11 +1276,11 @@
           onClick: _v22
         })]
       }),
-      _v81 = _v30 && _v3 && !_v62 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v5.Analytics, {
-          boxSize: _v32
+      _v83 = _v30 && _v3 && !_v62 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v6.Analytics, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Analytics",
           dictionary: {
             es: {
@@ -1306,11 +1309,11 @@
         href: _v30,
         onClick: _v31
       }),
-      _v82 = _v3 && _v24 && !_v62 && (0, _v1.jsx)(_v28.CopyAction, {
-        icon: (0, _v1.jsx)(_v6.Code, {
-          boxSize: _v32
+      _v84 = _v3 && _v24 && !_v62 && (0, _v1.jsx)(_v30.CopyAction, {
+        icon: (0, _v1.jsx)(_v7.Code, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Copy embed code",
           dictionary: {
             es: {
@@ -1339,15 +1342,15 @@
         content: _v24,
         onClick: _v25
       }),
-      _v83 = (0, _v24.createSection)([_v68.share.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.share
-      }), _v68.copyLink.shouldRender && (0, _v1.jsx)(_v28.CopyAction, {
-        ..._v68.copyLink
-      }), _v80, _v26 && _v3 && !_v19 && !_v27 && !_v21 && (0, _v1.jsx)(_v27.Action, {
-        icon: (0, _v1.jsx)(_v13.ReviewCheck, {
-          boxSize: _v32
+      _v85 = (0, _v25.createSection)([_v70.share.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.share
+      }), _v70.copyLink.shouldRender && (0, _v1.jsx)(_v30.CopyAction, {
+        ..._v70.copyLink
+      }), _v82, _v26 && _v3 && !_v19 && !_v27 && !_v21 && (0, _v1.jsx)(_v29.Action, {
+        icon: (0, _v1.jsx)(_v14.ReviewCheck, {
+          boxSize: _v34
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
           singular: "Review page",
           dictionary: {
             es: {
@@ -1376,79 +1379,92 @@
         onClick: () => {
           window.open(_v26, "_blank", "noopener,noreferrer"), _v29?.();
         }
-      }), _v82]),
-      _v84 = _v3 && _v76 && (0, _v1.jsxs)(_v27.MenuAction, {
-        icon: _v68.editFile.icon,
-        label: _v68.editFile.label,
-        children: [_v68.rename.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.rename
-        }), _v68.makeCopy.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.makeCopy
-        }), _v68.changeThumbnail.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.changeThumbnail
-        }), _v68.replace.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.replace
+      }), _v84]),
+      _v86 = _v3 && _v78 && (0, _v1.jsxs)(_v29.MenuAction, {
+        icon: _v70.editFile.icon,
+        label: _v70.editFile.label,
+        children: [_v70.rename.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.rename
+        }), _v70.makeCopy.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.makeCopy
+        }), _v70.changeThumbnail.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.changeThumbnail
+        }), _v70.replace.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.replace
         })]
       }),
-      _v85 = (_v68.move.shouldRender || _v68.addToShowcase.shouldRender || _v68.star.shouldRender) && (0, _v1.jsxs)(_v27.MenuAction, {
-        icon: (0, _v1.jsx)(_v25.ORGANIZE_ICON, {
-          boxSize: _v32
+      _v87 = (_v70.move.shouldRender || _v70.addToShowcase.shouldRender || _v70.star.shouldRender) && (0, _v1.jsxs)(_v29.MenuAction, {
+        icon: (0, _v1.jsx)(_v27.ORGANIZE_ICON, {
+          boxSize: _v34
         }),
-        label: _v25.ORGANIZE_COPY,
-        children: [_v68.move.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.move
-        }), _v68.addToShowcase.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.addToShowcase
-        }), _v68.star.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.star,
+        label: _v27.ORGANIZE_COPY,
+        children: [_v70.move.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.move
+        }), _v70.addToShowcase.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.addToShowcase
+        }), _v70.star.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.star,
           icon: (0, _v2.cloneElement)(_v44, {
             style: {
-              width: _v32,
-              height: _v32
+              width: _v34,
+              height: _v34
             }
           })
         })]
       }),
-      _v86 = (!!_v81 || _v68.translate.shouldRender || _v68.addVideoRating.shouldRender) && (0, _v1.jsxs)(_v27.MenuAction, {
-        icon: (0, _v1.jsx)(_v25.TOOLS_ICON, {
-          boxSize: _v32
+      _v88 = (!!_v83 || _v70.translate.shouldRender || _v70.addVideoRating.shouldRender) && (0, _v1.jsxs)(_v29.MenuAction, {
+        icon: (0, _v1.jsx)(_v27.TOOLS_ICON, {
+          boxSize: _v34
         }),
-        label: _v25.TOOLS_COPY,
-        children: [_v81, _v68.translate.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.translate
-        }), _v68.addVideoRating.shouldRender && (0, _v1.jsx)(_v27.Action, {
-          ..._v68.addVideoRating
+        label: _v27.TOOLS_COPY,
+        children: [_v83, _v70.translate.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.translate
+        }), _v70.addVideoRating.shouldRender && (0, _v1.jsx)(_v29.Action, {
+          ..._v70.addVideoRating
         })]
       }),
-      _v87 = _v61 ? (0, _v24.createSection)([_v86]) : (0, _v24.createSection)([_v81]),
-      _v88 = [_v83, (0, _v24.createSection)([_v86]), (0, _v24.createSection)([_v68.download.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.download
-      }), _v84, _v85, _v68.videoInfo.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.videoInfo
-      })]), (0, _v24.createSection)([_v68.delete.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.delete
+      _v89 = _v61 ? (0, _v25.createSection)([_v88]) : (0, _v25.createSection)([_v83]),
+      _v90 = [_v85, (0, _v25.createSection)([_v88]), (0, _v25.createSection)([_v70.download.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.download
+      }), _v86, _v87, _v70.videoInfo.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.videoInfo
+      })]), (0, _v25.createSection)([_v70.delete.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.delete
       })])],
-      _v89 = [_v83, _v87, (0, _v24.createSection)([_v84, _v85, _v68.download.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.download
-      }), _v68.videoInfo.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.videoInfo
-      })]), (0, _v24.createSection)([_v68.delete.shouldRender && (0, _v1.jsx)(_v27.Action, {
-        ..._v68.delete
+      _v91 = [_v85, _v89, (0, _v25.createSection)([_v86, _v87, _v70.download.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.download
+      }), _v70.videoInfo.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.videoInfo
+      })]), (0, _v25.createSection)([_v70.delete.shouldRender && (0, _v1.jsx)(_v29.Action, {
+        ..._v70.delete
       })])],
-      _v90 = _v53 ? [_v79] : _v67 ? ("treatment1" === _v66 ? _v88 : _v89).filter(_v0 => !!_v0.length) : _v63 ? [_v69, _v71, _v72, _v73].filter(_v0 => !!_v0.length) : [_v74, _v75, _v77, _v78].filter(_v0 => !!_v0.length);
-    return (0, _v1.jsx)(_v23.ActionsMenu, {
+      _v92 = _v53 ? [_v81] : _v69 ? ("treatment1" === _v68 ? _v90 : _v91).filter(_v0 => !!_v0.length) : _v63 ? [_v71, _v73, _v74, _v75].filter(_v0 => !!_v0.length) : [_v76, _v77, _v79, _v80].filter(_v0 => !!_v0.length),
+      _v93 = _v60 && !_v62 && !_v53;
+    !_v93 && _v66 && _v67(!1);
+    let _v94 = (0, _v1.jsx)(_v24.ActionsMenu, {
       placement: _v46,
       usePortal: _v47,
       onClick: _v1,
+      onOpenChange: _v67,
+      renderContent: _v93 ? _v0 => (0, _v1.jsx)(_v3.PopoverAnchor, {
+        children: _v0
+      }) : void 0,
       disabled: _v0,
       size: _v2,
       zIndex: _v48,
       isV2: _v63,
       title: _v55,
-      children: _v90.map((_v0, _v1) => (0, _v1.jsx)(_v24.SectionRenderer, {
+      children: _v92.map((_v0, _v1) => (0, _v1.jsx)(_v25.SectionRenderer, {
         section: _v0,
         index: _v1
       }, _v1))
     });
+    return _v93 ? (0, _v1.jsx)(_v26.VideoCardOverflowMenuIntroPopover, {
+      isMenuOpen: _v66,
+      enabled: _v69,
+      children: (0, _v1.jsx)("div", {
+        children: _v94
+      })
+    }) : _v94;
   }], 0);
 }
