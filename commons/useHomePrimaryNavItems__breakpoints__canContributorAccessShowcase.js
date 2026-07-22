@@ -20,10 +20,10 @@
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
-    _v20 = _v0.i(0),
+    _v20 = _v0.i(633),
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
-    _v23 = _v0.i(633),
+    _v23 = _v0.i(0),
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
     _v26 = _v0.i(0),
@@ -53,49 +53,43 @@
     _v50 = _v0.i(0),
     _v51 = _v0.i(0),
     _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
-    _v54 = _v0.i(0),
-    _v55 = _v0.i(0);
-  let _v56 = _v6.keyframes`
-  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--vimeo-colors-fill-brand) 60%, transparent); }
-  50% { box-shadow: 0 0 0 5px color-mix(in srgb, var(--vimeo-colors-fill-brand) 0%, transparent); }
-`;
+    _v53 = _v0.i(0);
   _v0.s(["useHomePrimaryNavItems", 0, () => {
     let {
         setIsSideNavOpen: _v0
-      } = (0, _v3.useContext)(_v50.VideoLibraryLayoutContext),
-      [_v1] = (0, _v9.useToken)("breakpoints", ["lg"]),
-      [_v2] = (0, _v8.useMediaQuery)([`(max-width: ${_v1})`]),
+      } = (0, _v3.useContext)(_v48.VideoLibraryLayoutContext),
+      [_v1] = (0, _v6.useToken)("breakpoints", ["lg"]),
+      [_v2] = (0, _v5.useMediaQuery)([`(max-width: ${_v1})`]),
       _v3 = (0, _v2.useRouter)(),
-      _v4 = (0, _v48.useViewer)(),
+      _v4 = (0, _v46.useViewer)(),
       {
         settings: _v5,
         isLoadingResponse: _v6
-      } = (0, _v42.useOrionSettings)(),
+      } = (0, _v40.useOrionSettings)(),
       _v7 = _v4?.user?.id ?? 0,
       _v8 = _v4?.teamUser?.ownerId ?? _v7,
       {
         trackSidebarNavClicked: _v9
-      } = (0, _v46.useWatchTracking)(),
+      } = (0, _v44.useWatchTracking)(),
       {
         starredItemsData: _v10,
         isLoading: _v11,
         starredListError: _v12
-      } = (0, _v55.useStarredItemDataContext)(),
+      } = (0, _v53.useStarredItemDataContext)(),
       _v13 = !_v11 && !_v12 && _v10.length > 0,
       {
         capabilities: _v14,
         loading: _v15
-      } = (0, _v35.useCapability)(["canContributorAccessShowcase", "hasSharedWithMe", "hasVideoLibraryShowcases", "hasVideoManagerLiveEventsMenu", "hasWatchButton", "hasUseVimeoStreaming"], _v8),
+      } = (0, _v33.useCapability)(["canContributorAccessShowcase", "hasSharedWithMe", "hasVideoLibraryShowcases", "hasVideoManagerLiveEventsMenu", "hasWatchButton", "hasUseVimeoStreaming"], _v8),
       {
         capabilities: _v16,
         loading: _v17
-      } = (0, _v35.useCapability)(["hasSimplifiedEnterpriseAccount"]),
+      } = (0, _v33.useCapability)(["hasSimplifiedEnterpriseAccount"]),
       _v18 = _v4?.teamUser?.plainTextPermissionLevel === "Viewer",
       {
         contentSpaceEnabled: _v19
-      } = (0, _v34.useContentSpaceEnabled)(_v8),
-      _v20 = _v19 ? (0, _v40.translate)({
+      } = (0, _v32.useContentSpaceEnabled)(_v8),
+      _v20 = _v19 ? (0, _v38.translate)({
         singular: "Team library",
         dictionary: {
           es: {
@@ -120,7 +114,7 @@
             singular: "团队视频库"
           }
         }
-      }) : (0, _v40.translate)({
+      }) : (0, _v38.translate)({
         singular: "Library",
         dictionary: {
           es: {
@@ -149,7 +143,7 @@
       {
         data: _v21,
         isLoading: _v22
-      } = (0, _v37.useGetUserFoldersPrivateToMe)(() => _v8 && _v19 ? {
+      } = (0, _v35.useGetUserFoldersPrivateToMe)(() => _v8 && _v19 ? {
         where: {
           ownerId: _v8
         },
@@ -158,7 +152,7 @@
       {
         data: _v23,
         isLoading: _v24
-      } = (0, _v38.useGetUserOttSites)(() => _v8 && _v14.hasUseVimeoStreaming ? {
+      } = (0, _v36.useGetUserOttSites)(() => _v8 && _v14.hasUseVimeoStreaming ? {
         where: {
           userId: _v8
         },
@@ -172,7 +166,7 @@
       {
         data: _v26,
         isLoading: _v27
-      } = (0, _v39.useGetUserTeamsSharedItems)(() => _v14.hasSharedWithMe && _v4?.user?.id ? {
+      } = (0, _v37.useGetUserTeamsSharedItems)(() => _v14.hasSharedWithMe && _v4?.user?.id ? {
         select: ["type"],
         where: {
           userId: _v4.user.id
@@ -188,25 +182,25 @@
       {
         data: _v29,
         isLoading: _v30
-      } = (0, _v36.useGetMePreferences)({
+      } = (0, _v34.useGetMePreferences)({
         select: ["rdtim"]
       }),
       {
         maximizeVideoFileTransferAdoption: _v31,
         maximizeReviewAdoption: _v32
-      } = (0, _v41.useAdoptionSettings)(),
+      } = (0, _v39.useAdoptionSettings)(),
       {
         openReviewModal: _v33
-      } = (0, _v51.useReviewModal)(),
+      } = (0, _v49.useReviewModal)(),
       {
         openTransferFileModal: _v34
-      } = (0, _v52.useTransferFileModal)(),
+      } = (0, _v50.useTransferFileModal)(),
       {
         trackTransferEntryPointClicked: _v35
-      } = (0, _v44.useFileTransferAdoptionTracking)(),
+      } = (0, _v42.useFileTransferAdoptionTracking)(),
       {
         trackReviewEntryPointClicked: _v36
-      } = (0, _v45.useMaximizeReviewAdoptionTracking)();
+      } = (0, _v43.useMaximizeReviewAdoptionTracking)();
     return {
       appSections: (0, _v3.useMemo)(() => {
         let _v0,
@@ -229,7 +223,7 @@
           },
           _v16 = _v0 => _v9({
             sidebarNavDestination: _v0,
-            sidebarNavContext: (0, _v43.deriveCanonicalPage)(new URL(window.location.href), {
+            sidebarNavContext: (0, _v41.deriveCanonicalPage)(new URL(window.location.href), {
               is_team_user: _v4?.user?.isTeamUser ?? !1
             }),
             version: "2"
@@ -239,7 +233,7 @@
           _v19 = !_v17 && !_v4?.isEnterpriseSite && !_v17 && !_v16?.hasSimplifiedEnterpriseAccount && _v14.hasWatchButton && !_v18,
           _v20 = {
             key: "home",
-            label: (0, _v40.translate)({
+            label: (0, _v38.translate)({
               singular: "Home",
               dictionary: {
                 es: {
@@ -265,17 +259,17 @@
                 }
               }
             }),
-            icon: (_v0 = _v53.Path.Home, _v3.pathname === _v0) ? (0, _v1.jsx)(_v19.HomeFilled, {}) : (0, _v1.jsx)(_v18.Home, {}),
-            href: _v53.Path.Home,
-            active: (_v1 = _v53.Path.Home, _v3.pathname === _v1),
+            icon: (_v0 = _v51.Path.Home, _v3.pathname === _v0) ? (0, _v1.jsx)(_v16.HomeFilled, {}) : (0, _v1.jsx)(_v15.Home, {}),
+            href: _v51.Path.Home,
+            active: (_v1 = _v51.Path.Home, _v3.pathname === _v1),
             onClick: () => {
               _v16("home"), _v15();
             }
           },
-          _v21 = null != _v21 && (_v2 = _v53.Path.MVV, _v3.pathname === _v2) && "true" === _v3.query.isPrivate,
+          _v21 = null != _v21 && (_v2 = _v51.Path.MVV, _v3.pathname === _v2) && "true" === _v3.query.isPrivate,
           _v22 = _v21 ? {
             key: "my_library",
-            label: (0, _v40.translate)({
+            label: (0, _v38.translate)({
               singular: "My library",
               dictionary: {
                 es: {
@@ -301,20 +295,20 @@
                 }
               }
             }),
-            icon: _v21 ? (0, _v1.jsx)(_v21.MyLibraryFilled, {}) : (0, _v1.jsx)(_v20.MyLibrary, {}),
-            href: (0, _v54.getFolderPageUriFromApiUri)(_v21.uri),
+            icon: _v21 ? (0, _v1.jsx)(_v18.MyLibraryFilled, {}) : (0, _v1.jsx)(_v17.MyLibrary, {}),
+            href: (0, _v52.getFolderPageUriFromApiUri)(_v21.uri),
             prefetch: !1,
             active: _v21,
             onClick: () => {
               _v16("my_library"), _v15();
             }
           } : null,
-          _v23 = (_v3 = _v53.Path.TeamLibrary, _v3.pathname === _v3 || (_v4 = _v53.Path.MVV, _v3.pathname === _v4 && !_v21)),
+          _v23 = (_v3 = _v51.Path.TeamLibrary, _v3.pathname === _v3 || (_v4 = _v51.Path.MVV, _v3.pathname === _v4 && !_v21)),
           _v24 = {
             key: "library",
             label: _v20,
-            icon: _v23 ? _v19 ? (0, _v1.jsx)(_v27.TeamLibraryFilled, {}) : (0, _v1.jsx)(_v33.VideosStackFilled, {}) : _v19 ? (0, _v1.jsx)(_v26.TeamLibrary, {}) : (0, _v1.jsx)(_v32.VideosStack, {}),
-            href: `${_v53.Path.TeamLibrary}?library_referrer=sidebar`,
+            icon: _v23 ? _v19 ? (0, _v1.jsx)(_v24.TeamLibraryFilled, {}) : (0, _v1.jsx)(_v30.VideosStackFilled, {}) : _v19 ? (0, _v1.jsx)(_v23.TeamLibrary, {}) : (0, _v1.jsx)(_v29.VideosStack, {}),
+            href: `${_v51.Path.TeamLibrary}?library_referrer=sidebar`,
             active: _v23,
             dataId: "home_side_nav_libary_menu_item",
             onClick: () => {
@@ -323,7 +317,7 @@
           },
           _v25 = _v14.hasSharedWithMe && _v28 ? {
             key: "shared_with_me",
-            label: (0, _v40.translate)({
+            label: (0, _v38.translate)({
               singular: "Shared with me",
               dictionary: {
                 es: {
@@ -349,10 +343,10 @@
                 }
               }
             }),
-            icon: (_v5 = _v53.Path.SharedWithMe, _v3.pathname === _v5) ? (0, _v1.jsx)(_v31.UsersFilled, {}) : (0, _v1.jsx)(_v30.Users, {}),
-            href: _v53.Path.SharedWithMe,
+            icon: (_v5 = _v51.Path.SharedWithMe, _v3.pathname === _v5) ? (0, _v1.jsx)(_v28.UsersFilled, {}) : (0, _v1.jsx)(_v27.Users, {}),
+            href: _v51.Path.SharedWithMe,
             prefetch: !1,
-            active: (_v6 = _v53.Path.SharedWithMe, _v3.pathname === _v6),
+            active: (_v6 = _v51.Path.SharedWithMe, _v3.pathname === _v6),
             dataId: "side_nav_shared_with_me",
             onClick: () => {
               _v16("shared_with_me"), _v15();
@@ -360,7 +354,7 @@
           } : null,
           _v26 = _v14.hasVideoManagerLiveEventsMenu ? {
             key: "live_events",
-            label: (0, _v40.translate)({
+            label: (0, _v38.translate)({
               singular: "Live events",
               dictionary: {
                 es: {
@@ -386,10 +380,10 @@
                 }
               }
             }),
-            icon: (_v7 = _v53.Path.LiveEvents, _v3.pathname === _v7) ? (0, _v1.jsx)(_v15.CameraOnFilled, {}) : (0, _v1.jsx)(_v14.CameraOn, {}),
-            href: _v53.Path.LiveEvents,
+            icon: (_v7 = _v51.Path.LiveEvents, _v3.pathname === _v7) ? (0, _v1.jsx)(_v12.CameraOnFilled, {}) : (0, _v1.jsx)(_v11.CameraOn, {}),
+            href: _v51.Path.LiveEvents,
             prefetch: !1,
-            active: (_v8 = _v53.Path.LiveEvents, _v3.pathname === _v8),
+            active: (_v8 = _v51.Path.LiveEvents, _v3.pathname === _v8),
             dataId: "home_side_nav_live_events_menu_item",
             onClick: () => {
               _v16("live_events"), _v15();
@@ -397,7 +391,7 @@
           } : null,
           _v27 = !_v6 && _v5.enable_event_series ? {
             key: "event_series",
-            label: (0, _v40.translate)({
+            label: (0, _v38.translate)({
               singular: "Event series",
               dictionary: {
                 es: {
@@ -423,10 +417,10 @@
                 }
               }
             }),
-            icon: (_v9 = _v53.Path.EventSeries, _v3.pathname === _v9) ? (0, _v1.jsx)(_v13.BrowserWindowFilled, {}) : (0, _v1.jsx)(_v12.BrowserWindow, {}),
-            href: _v53.Path.EventSeries,
+            icon: (_v9 = _v51.Path.EventSeries, _v3.pathname === _v9) ? (0, _v1.jsx)(_v10.BrowserWindowFilled, {}) : (0, _v1.jsx)(_v9.BrowserWindow, {}),
+            href: _v51.Path.EventSeries,
             prefetch: !1,
-            active: (_v10 = _v53.Path.EventSeries, _v3.pathname === _v10),
+            active: (_v10 = _v51.Path.EventSeries, _v3.pathname === _v10),
             dataId: "home_side_nav_event_series_menu_item",
             onClick: () => {
               _v16("event_series"), _v15();
@@ -434,7 +428,7 @@
           } : null,
           _v28 = _v14.hasVideoLibraryShowcases ? {
             key: "showcases",
-            label: (0, _v40.translate)({
+            label: (0, _v38.translate)({
               singular: "Showcases",
               dictionary: {
                 es: {
@@ -460,10 +454,10 @@
                 }
               }
             }),
-            icon: (_v11 = _v53.Path.Showcases, _v3.pathname === _v11) ? (0, _v1.jsx)(_v25._3GridTopLayoutFilled, {}) : (0, _v1.jsx)(_v24._3GridTopLayout, {}),
-            href: _v53.Path.Showcases,
+            icon: (_v11 = _v51.Path.Showcases, _v3.pathname === _v11) ? (0, _v1.jsx)(_v22._3GridTopLayoutFilled, {}) : (0, _v1.jsx)(_v21._3GridTopLayout, {}),
+            href: _v51.Path.Showcases,
             prefetch: !1,
-            active: (_v12 = _v53.Path.Showcases, _v3.pathname === _v12),
+            active: (_v12 = _v51.Path.Showcases, _v3.pathname === _v12),
             onClick: () => {
               _v16("showcases"), _v15();
             }
@@ -473,7 +467,7 @@
           },
           _v30 = _v25 ? {
             key: "streaming_site",
-            label: (0, _v40.translate)({
+            label: (0, _v38.translate)({
               singular: "Streaming site",
               dictionary: {
                 es: {
@@ -499,24 +493,24 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v23.PurchaseVideo, {}),
+            icon: (0, _v1.jsx)(_v20.PurchaseVideo, {}),
             href: _v25,
             dataId: "home_side_nav_streaming_site_menu_item",
             showActionOnHover: !0,
-            action: (0, _v1.jsx)(_v5.Link, {
+            action: (0, _v1.jsx)(_v4.Link, {
               href: _v25,
               onClick: _v0 => {
                 _v29(), _v0.stopPropagation();
               },
               variant: "secondary",
-              children: (0, _v1.jsx)(_v22.PopOut, {})
+              children: (0, _v1.jsx)(_v19.PopOut, {})
             }),
             onClick: _v29
           } : null,
-          _v31 = _v3.pathname.startsWith(_v53.Path.Analytics),
+          _v31 = _v3.pathname.startsWith(_v51.Path.Analytics),
           _v32 = [_v26, _v27, _v28, _v30, _v18 ? null : {
             key: "analytics",
-            label: (0, _v40.translate)({
+            label: (0, _v38.translate)({
               singular: "Analytics",
               dictionary: {
                 es: {
@@ -542,16 +536,16 @@
                 }
               }
             }),
-            icon: _v31 ? (0, _v1.jsx)(_v11.AnalyticsFilled, {}) : (0, _v1.jsx)(_v10.Analytics, {}),
+            icon: _v31 ? (0, _v1.jsx)(_v8.AnalyticsFilled, {}) : (0, _v1.jsx)(_v7.Analytics, {}),
             active: _v31,
-            href: `${_v53.Path.Analytics}?ref=sidebar`,
+            href: `${_v51.Path.Analytics}?ref=sidebar`,
             prefetch: !1,
             onClick: () => {
               _v16("analytics"), _v15();
             }
           }, !_v18 && _v8 && _v31 ? {
             key: "transfer",
-            label: (0, _v40.translate)({
+            label: (0, _v38.translate)({
               singular: "Transfer file",
               dictionary: {
                 es: {
@@ -577,8 +571,8 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v17.FileUpload, {}),
-            action: (0, _v1.jsx)(_v47.NewBadge, {}),
+            icon: (0, _v1.jsx)(_v14.FileUpload, {}),
+            action: (0, _v1.jsx)(_v45.NewBadge, {}),
             onClick: () => {
               _v35({
                 entryPoint: "side_bar"
@@ -586,7 +580,7 @@
             }
           } : null, !_v18 && _v8 && _v32 ? {
             key: "review",
-            label: (0, _v40.translate)({
+            label: (0, _v38.translate)({
               singular: "Review",
               dictionary: {
                 es: {
@@ -612,8 +606,8 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v16.Chats, {}),
-            action: (0, _v1.jsx)(_v47.NewBadge, {}),
+            icon: (0, _v1.jsx)(_v13.Chats, {}),
+            action: (0, _v1.jsx)(_v45.NewBadge, {}),
             onClick: () => {
               _v36({
                 entryPoint: "side_bar"
@@ -621,7 +615,7 @@
             }
           } : null, _v5.has_recently_deleted && (!_v4?.user?.capabilities.hasEnterprise || !_v4?.teamUser || _v4.teamUser.permissionLevel <= 2) ? {
             key: "recently_deleted",
-            label: (0, _v40.translate)({
+            label: (0, _v38.translate)({
               singular: "Recently deleted",
               dictionary: {
                 es: {
@@ -647,23 +641,16 @@
                 }
               }
             }),
-            icon: (_v13 = _v53.Path.RecentlyDeleted, _v3.pathname === _v13) ? (0, _v1.jsx)(_v29.TrashBinFilled, {}) : (0, _v1.jsx)(_v28.TrashBin, {}),
-            href: _v53.Path.RecentlyDeleted,
+            icon: (_v13 = _v51.Path.RecentlyDeleted, _v3.pathname === _v13) ? (0, _v1.jsx)(_v26.TrashBinFilled, {}) : (0, _v1.jsx)(_v25.TrashBin, {}),
+            href: _v51.Path.RecentlyDeleted,
             prefetch: !1,
-            active: (_v14 = _v53.Path.RecentlyDeleted, _v3.pathname === _v14),
-            action: void 0 === _v29 || _v29.rdtim ? void 0 : (0, _v1.jsx)(_v4.Box, {
-              w: (0, _v7.rem)(8),
-              h: (0, _v7.rem)(8),
-              borderRadius: "full",
-              bg: "fill-brand",
-              flexShrink: 0,
-              animation: `${_v56} 1.5s ease-in-out infinite`
-            }),
+            active: (_v14 = _v51.Path.RecentlyDeleted, _v3.pathname === _v14),
+            action: void 0 === _v29 || _v29.rdtim ? void 0 : (0, _v1.jsx)(_v31.NewFeatureDot, {}),
             onClick: () => {
               _v16("recently_deleted"), _v15();
             }
           } : null].filter(Boolean),
-          _v33 = _v19 ? (0, _v49.getWatchSectionItems)().map(_v0 => ({
+          _v33 = _v19 ? (0, _v47.getWatchSectionItems)().map(_v0 => ({
             key: _v0.key,
             label: _v0.label,
             icon: _v0.isActive(_v3.pathname) ? _v0.iconActive : _v0.icon,

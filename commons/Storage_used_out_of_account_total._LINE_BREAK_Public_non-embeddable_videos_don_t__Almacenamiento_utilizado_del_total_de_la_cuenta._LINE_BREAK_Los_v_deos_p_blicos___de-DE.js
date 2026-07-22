@@ -560,37 +560,38 @@
       showColdStorageWarning: _v20,
       isRestrictedQuota: _v21,
       highlightedValue: _v22,
-      compact: _v23
+      compact: _v23,
+      showAutoRenewBadge: _v24 = !1
     }) => {
       let {
-          trackColdStorageUxClicked: _v24
+          trackColdStorageUxClicked: _v25
         } = (0, _v16.useColdStorageTracking)(),
-        _v25 = (0, _v12.useColorModeValue)("gray.200", "gray.600");
+        _v26 = (0, _v12.useColorModeValue)("gray.200", "gray.600");
       _v10 = (!!_v7 && _v10) ?? !1;
-      let _v26 = null,
-        _v27 = null,
+      let _v27 = null,
         _v28 = null,
-        _v29 = null;
+        _v29 = null,
+        _v30 = null;
       if (null !== _v3 && null !== _v2 && null !== _v8) {
-        _v26 = _v3 && _v21(_v3, _v8), _v27 = _v2 && _v21(_v2, _v8);
+        _v27 = _v3 && _v21(_v3, _v8), _v28 = _v2 && _v21(_v2, _v8);
         let _v0 = _v3 / _v2 * 100;
-        _v28 = Math.min(100, Math.max(+(_v0 > 0), Math.round(_v0))), _v29 = _v14 && _v21(_v14, _v8);
+        _v29 = Math.min(100, Math.max(+(_v0 > 0), Math.round(_v0))), _v30 = _v14 && _v21(_v14, _v8);
       }
-      let _v30 = null,
-        _v31 = null,
-        _v32 = null;
+      let _v31 = null,
+        _v32 = null,
+        _v33 = null;
       if (null !== _v4 && null !== _v5 && null !== _v7) {
-        _v30 = _v4 && _v21(_v4, _v7), _v31 = _v5 && _v21(_v5, _v7);
+        _v31 = _v4 && _v21(_v4, _v7), _v32 = _v5 && _v21(_v5, _v7);
         let _v0 = _v4 / _v5 * 100;
-        _v32 = Math.min(100, Math.max(+(_v0 > 0), Math.round(_v0))), _v29 = _v14 && _v21(_v14, _v7);
+        _v33 = Math.min(100, Math.max(+(_v0 > 0), Math.round(_v0))), _v30 = _v14 && _v21(_v14, _v7);
       }
-      let _v33 = _v28;
-      null === _v33 && null !== _v32 && (_v33 = _v32, _v26 = _v30, _v27 = _v31), _v26 = Number.isFinite(Number(_v26)) ? Number(_v26).toLocaleString() : _v26, _v27 = Number.isFinite(Number(_v27)) ? Number(_v27).toLocaleString() : _v27;
-      let _v34 = _v19 || _v22(_v8 || _v7),
-        _v35 = _v13 ? (0, _v13.translate)({
+      let _v34 = _v29;
+      null === _v34 && null !== _v33 && (_v34 = _v33, _v27 = _v31, _v28 = _v32), _v27 = Number.isFinite(Number(_v27)) ? Number(_v27).toLocaleString() : _v27, _v28 = Number.isFinite(Number(_v28)) ? Number(_v28).toLocaleString() : _v28;
+      let _v35 = _v19 || _v22(_v8 || _v7),
+        _v36 = _v13 ? (0, _v13.translate)({
           singular: "{WORKSPACE_USED} used",
           replacements: {
-            WORKSPACE_USED: _v26
+            WORKSPACE_USED: _v27
           },
           dictionary: {
             es: {
@@ -618,8 +619,8 @@
         }) : (0, _v13.translate)({
           singular: "{USED} of {LIMIT}",
           replacements: {
-            USED: _v26,
-            LIMIT: _v27
+            USED: _v27,
+            LIMIT: _v28
           },
           dictionary: {
             es: {
@@ -645,27 +646,28 @@
             }
           }
         }),
-        _v36 = null !== _v33 && _v33 >= 100,
-        _v37 = "video_size" === (_v8 || _v7) && null !== _v33 && _v33 >= 95 ? "storage_limit" : "quota",
-        _v38 = (0, _v15.buildUpgradePlanUrl)({
+        _v37 = null !== _v34 && _v34 >= 100,
+        _v38 = "video_size" === (_v8 || _v7) && null !== _v34 && _v34 >= 95 ? "storage_limit" : "quota",
+        _v39 = (0, _v15.buildUpgradePlanUrl)({
           paywallTrigger: "quota_meter_upgrade_button",
           paywallLocation: "quota_meter",
-          paywallFeature: _v37
+          paywallFeature: _v38
         }, {
           upsell: "quota_meter",
           integration: "none",
-          feature: _v36 ? "Storage_at_limit" : "Storage_general",
+          feature: _v37 ? "Storage_at_limit" : "Storage_general",
           paywall: "1",
           upsellFeatureCategory: "Storage",
-          upsellSpecificFeature: _v36 ? "Storage_at_limit" : "Storage_general"
+          upsellSpecificFeature: _v37 ? "Storage_at_limit" : "Storage_general"
         }),
-        _v39 = (0, _v2.useCallback)(() => {
-          _v1?.(_v8 || _v7, _v33);
-        }, [_v1, _v8, _v7, _v33]),
+        _v40 = (0, _v2.useCallback)(() => {
+          _v1?.(_v8 || _v7, _v34);
+        }, [_v1, _v8, _v7, _v34]),
         {
-          isEligible: _v40
+          isEligible: _v41
         } = (0, _v4.useAutoRenewEncouragementEligibility)(),
-        _v41 = () => (0, _v1.jsx)(_v10.Tooltip, {
+        _v42 = _v24 && _v41,
+        _v43 = () => (0, _v1.jsx)(_v10.Tooltip, {
           label: (0, _v13.translate)({
             singular: "You're over your storage limit. Delete videos to unlock uploads.",
             dictionary: {
@@ -697,7 +699,7 @@
             as: "a",
             href: "/library",
             onClick: () => {
-              _v24({
+              _v25({
                 element: "quota_meter_lock"
               });
             },
@@ -735,13 +737,13 @@
             })
           })
         }),
-        _v42 = null !== _v28 && _v28 >= 95 || null !== _v33 && _v33 >= 95,
-        _v43 = _v20 ? "red.500" : _v24(_v33),
-        _v44 = _v20 ? "red.700" : _v25(_v33),
+        _v44 = null !== _v29 && _v29 >= 95 || null !== _v34 && _v34 >= 95,
+        _v45 = _v20 ? "red.500" : _v24(_v34),
+        _v46 = _v20 ? "red.700" : _v25(_v34),
         {
-          baseSegmentWidth: _v45,
-          highlightSegmentWidth: _v46
-        } = _v22 && _v2 ? _v23(_v22, _v2, _v33) : {
+          baseSegmentWidth: _v47,
+          highlightSegmentWidth: _v48
+        } = _v22 && _v2 ? _v23(_v22, _v2, _v34) : {
           baseSegmentWidth: 0,
           highlightSegmentWidth: 0
         };
@@ -775,7 +777,7 @@
                 variant: "heading-2xs",
                 alignItems: "center",
                 whiteSpace: _v23 ? "nowrap" : void 0,
-                children: [_v34, !_v12 && !_v18 && (0, _v1.jsx)(_v28, {
+                children: [_v35, !_v12 && !_v18 && (0, _v1.jsx)(_v28, {
                   quotaResetDate: _v9 ?? "",
                   locale: (0, _v13.getCurrentLocale)(),
                   quotaPeriod: _v6,
@@ -784,14 +786,14 @@
                   isRestrictedQuota: _v21,
                   compact: _v23
                 })]
-              }), (0, _v1.jsx)(_v3.AccessEndingBadge, {
+              }), _v24 && (0, _v1.jsx)(_v3.AccessEndingBadge, {
                 surface: "storage_cta"
-              }), _v11 && !_v0 && !_v40 && (0, _v1.jsx)(_v14.UpgradeBadge, {
+              }), _v11 && !_v0 && !_v42 && (0, _v1.jsx)(_v14.UpgradeBadge, {
                 style: {
                   marginRight: 0
                 },
-                href: _v1 ? void 0 : _v38,
-                onClick: _v39,
+                href: _v1 ? void 0 : _v39,
+                onClick: _v40,
                 name: "quota_meter_upgrade_button",
                 location: "quota_meter"
               })]
@@ -808,8 +810,8 @@
                 })
               })
             }), !_v12 && (_v13 ? (0, _v1.jsx)(() => {
-              let _v0 = Number(_v29),
-                _v1 = Number.isFinite(_v0) ? _v0.toLocaleString() : _v29;
+              let _v0 = Number(_v30),
+                _v1 = Number.isFinite(_v0) ? _v0.toLocaleString() : _v30;
               return _v15 ? (0, _v1.jsx)(_v6.Flex, {
                 justifyContent: "space-between",
                 width: "100%",
@@ -826,8 +828,8 @@
                     children: (0, _v13.translate)({
                       singular: "{WORKSPACE_USED} of {WORKSPACE_LIMIT} limit",
                       replacements: {
-                        WORKSPACE_USED: _v26,
-                        WORKSPACE_LIMIT: _v27
+                        WORKSPACE_USED: _v27,
+                        WORKSPACE_LIMIT: _v28
                       },
                       dictionary: {
                         es: {
@@ -867,7 +869,7 @@
                   display: "flex",
                   alignItems: "center",
                   marginBottom: 0,
-                  children: _v35
+                  children: _v36
                 }), (0, _v1.jsxs)(_v6.Flex, {
                   width: "100%",
                   gap: "xs",
@@ -928,7 +930,7 @@
                   "data-testid": "periodic-quota-info",
                   variant: "body-sm",
                   textAlign: "left",
-                  color: _v42 && !_v23 ? "red.500" : "text-secondary",
+                  color: _v44 && !_v23 ? "red.500" : "text-secondary",
                   display: "flex",
                   alignItems: "center",
                   marginBottom: 0,
@@ -958,24 +960,24 @@
                         singular: "每周"
                       }
                     }
-                  }), " ", _v35]
+                  }), " ", _v36]
                 })]
-              }), _v20 && (0, _v1.jsx)(_v41, {})]
+              }), _v20 && (0, _v1.jsx)(_v43, {})]
             }), {}))]
-          }), Number.isFinite(_v33) && _v16 && !_v12 && (_v22 && _v2 ? (0, _v1.jsxs)(_v6.Flex, {
+          }), Number.isFinite(_v34) && _v16 && !_v12 && (_v22 && _v2 ? (0, _v1.jsxs)(_v6.Flex, {
             "data-testid": "mobile-quota-bar",
             height: (0, _v11.rem)(6),
             width: "100%",
             borderRadius: "999px",
-            bgColor: _v25,
+            bgColor: _v26,
             overflow: "hidden",
             marginBottom: (0, _v11.rem)(4),
-            children: [_v45 > 0 && (0, _v1.jsx)(_v5.Box, {
+            children: [_v47 > 0 && (0, _v1.jsx)(_v5.Box, {
               height: "100%",
-              width: `${_v45}%`,
+              width: `${_v47}%`,
               minWidth: (0, _v11.rem)(6),
               flexShrink: 1,
-              bgColor: _v43
+              bgColor: _v45
             }), (0, _v1.jsx)(_v10.Tooltip, {
               label: (0, _v13.translate)({
                 singular: "This video: {SIZE}",
@@ -1009,10 +1011,10 @@
               placement: "top",
               children: (0, _v1.jsx)(_v5.Box, {
                 height: "100%",
-                width: `${_v46}%`,
+                width: `${_v48}%`,
                 minWidth: (0, _v11.rem)(6),
                 flexShrink: 0,
-                bgColor: _v44,
+                bgColor: _v46,
                 borderTopRightRadius: "999px",
                 borderBottomRightRadius: "999px",
                 cursor: "default"
@@ -1020,16 +1022,16 @@
             })]
           }) : (0, _v1.jsx)(_v8.Progress, {
             "data-testid": "mobile-quota-bar",
-            value: _v33,
+            value: _v34,
             size: "xs",
-            bgColor: _v25,
+            bgColor: _v26,
             sx: {
               "[role=progressbar]": {
-                bgColor: _v43
+                bgColor: _v45
               }
             },
             marginBottom: (0, _v11.rem)(4)
-          })), _v10 && null !== _v32 && (0, _v1.jsx)(_v5.Box, {
+          })), _v10 && null !== _v33 && (0, _v1.jsx)(_v5.Box, {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
@@ -1040,14 +1042,14 @@
               "data-testid": "total-quota-info",
               variant: "body-xs",
               textAlign: "left",
-              color: _v32 >= 95 ? "red.500" : "text-tertiary",
+              color: _v33 >= 95 ? "red.500" : "text-tertiary",
               display: "flex",
               alignItems: "center",
               children: (0, _v13.translate)({
                 singular: "Total {USED} of {LIMIT}",
                 replacements: {
-                  USED: _v30,
-                  LIMIT: _v31
+                  USED: _v31,
+                  LIMIT: _v32
                 },
                 dictionary: {
                   es: {
@@ -1074,7 +1076,7 @@
                 }
               })
             })
-          }), _v11 && _v0 && !_v40 && (0, _v1.jsx)(_v9.Text, {
+          }), _v11 && _v0 && !_v42 && (0, _v1.jsx)(_v9.Text, {
             variant: "body-sm",
             color: "blue.500",
             textDecoration: "underline",
@@ -1082,7 +1084,7 @@
               href: (0, _v15.buildUpgradePlanUrl)({
                 paywallTrigger: "quota_meter_mobile_upgrade_button",
                 paywallLocation: "quota_meter",
-                paywallFeature: _v37
+                paywallFeature: _v38
               }, {
                 upsell: "quota_meter",
                 integration: "none",
@@ -1128,38 +1130,40 @@
     showColdStorageWarning: _v6,
     highlightedValue: _v7,
     limitLabel: _v8,
-    compact: _v9
+    compact: _v9,
+    showAutoRenewBadge: _v10
   }) => {
-    let _v10 = null != _v2.restricted,
-      _v11 = (_v10 ? _v2.restricted?.max : _v2.periodic?.max) ?? null,
-      _v12 = _v10 ? null : _v2.periodic?.period ?? null,
-      _v13 = (_v10 ? _v2.restricted?.used : _v2.periodic?.used) ?? null,
-      _v14 = (_v10 ? _v2.restricted?.used : _v2.lifetime?.used) ?? null,
-      _v15 = (_v10 ? _v2.restricted?.max : _v2.lifetime?.max) ?? null,
-      _v16 = (_v10 ? _v2.restricted?.free : _v2.lifetime?.free) ?? null,
-      _v17 = _v10 ? _v2.restricted?.unit : _v2.periodic?.unit || _v2.lifetime?.unit || null;
+    let _v11 = null != _v2.restricted,
+      _v12 = (_v11 ? _v2.restricted?.max : _v2.periodic?.max) ?? null,
+      _v13 = _v11 ? null : _v2.periodic?.period ?? null,
+      _v14 = (_v11 ? _v2.restricted?.used : _v2.periodic?.used) ?? null,
+      _v15 = (_v11 ? _v2.restricted?.used : _v2.lifetime?.used) ?? null,
+      _v16 = (_v11 ? _v2.restricted?.max : _v2.lifetime?.max) ?? null,
+      _v17 = (_v11 ? _v2.restricted?.free : _v2.lifetime?.free) ?? null,
+      _v18 = _v11 ? _v2.restricted?.unit : _v2.periodic?.unit || _v2.lifetime?.unit || null;
     return (0, _v1.jsx)(_v30, {
       isMobile: _v0,
       onUpgradeClick: _v1,
       showTotal: _v3,
       showUpgrade: _v4,
-      quotaAvailable: _v11,
-      quotaUsed: _v13,
-      totalUsed: _v14,
-      totalAvailable: _v15,
-      quotaPeriod: _v12,
-      lifetimeUnit: _v17,
-      periodicUnit: _v17,
+      quotaAvailable: _v12,
+      quotaUsed: _v14,
+      totalUsed: _v15,
+      totalAvailable: _v16,
+      quotaPeriod: _v13,
+      lifetimeUnit: _v18,
+      periodicUnit: _v18,
       resetDate: _v2.periodic?.resetDate ?? "",
       isWorkspaceAdminUser: _v5,
-      totalRemaining: _v16,
+      totalRemaining: _v17,
       showProgressBar: !_v5,
       hideQuotaTooltip: _v5,
       showColdStorageWarning: _v6,
-      isRestrictedQuota: _v10,
-      highlightedValue: _v7 && null != _v13 && _v7 > _v13 ? null : _v7,
+      isRestrictedQuota: _v11,
+      highlightedValue: _v7 && null != _v14 && _v7 > _v14 ? null : _v7,
       limitLabel: _v8,
-      compact: _v9
+      compact: _v9,
+      showAutoRenewBadge: _v10
     });
   }], 0);
 }

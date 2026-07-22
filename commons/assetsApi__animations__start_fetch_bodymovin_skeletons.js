@@ -6,14 +6,15 @@
     _v3 = _v0.i(0),
     _v4 = _v0.i(0),
     _v5 = _v0.i(0),
-    _v6 = _v0.i(0);
-  let _v7 = (0, _v1.createApi)({
+    _v6 = _v0.i(0),
+    _v7 = _v0.i(0);
+  let _v8 = (0, _v1.createApi)({
       reducerPath: "assetsApi",
-      baseQuery: _v6.baseQuery,
+      baseQuery: _v7.baseQuery,
       endpoints: _v0 => ({
         fetchAssets: _v0.query({
           extraOptions: {
-            apiServer: _v6.ApiServer.VIMEO
+            apiServer: _v7.ApiServer.VIMEO
           },
           query: ({
             isTest: _v0,
@@ -32,6 +33,7 @@
           async onQueryStarted(_v0, {
             queryFulfilled: _v1
           }) {
+            let _v2 = performance.now();
             _v0.select.includes("animations") && _v3.default.sendAction(_v2.EditorLoad, {
               step: "start fetch bodymovin skeletons"
             });
@@ -39,7 +41,8 @@
               await _v1;
             } finally {
               _v0.select.includes("animations") && _v3.default.sendAction(_v2.EditorLoad, {
-                step: "end fetch bodymovin skeletons"
+                step: "end fetch bodymovin skeletons",
+                durationMs: (0, _v6.durationSince)(_v2)
               });
             }
           },
@@ -53,7 +56,7 @@
       })
     }),
     {
-      useFetchAssetsQuery: _v8
-    } = _v7;
-  _v0.s(["assetsApi", 0, _v7, "useFetchAssetsQuery", 0, _v8]);
+      useFetchAssetsQuery: _v9
+    } = _v8;
+  _v0.s(["assetsApi", 0, _v8, "useFetchAssetsQuery", 0, _v9]);
 }

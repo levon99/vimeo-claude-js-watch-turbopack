@@ -860,7 +860,41 @@
         extole: _v23
       })), _v38 && (_v55.campaignId = _v38, _v55.usePaymentsService = !0), _v24 && (_v55.promoCodeId = _v24);
       let _v56 = (0, _v30.useGetSubscriptionPlansData)(_v7?.customSelfServeComapreTable ? _v7?.plans : void 0, void 0, void 0, _v55),
-        _v57 = (0, _v10.useMemo)(() => _v35.core_tier_enabled ? _v56 : _v56?.filter(_v0 => "core" !== _v0.tier), [_v56, _v35.core_tier_enabled]),
+        _v57 = (0, _v10.useMemo)(() => {
+          let _v0 = _v35.core_tier_enabled ? _v56 : _v56?.filter(_v0 => "core" !== _v0.tier);
+          if (!_v35.flat_tiers_monthly_enabled) {
+            let _v0 = ["pro", "business", "livePremium"];
+            _v0 = _v0?.map(_v0 => _v0.includes(_v0.tier) ? {
+              ..._v0,
+              id: {
+                ..._v0.id,
+                monthly: null
+              },
+              price: {
+                ..._v0.price,
+                monthly: void 0
+              },
+              priceFormatted: {
+                ..._v0.priceFormatted,
+                monthly: void 0
+              },
+              metadata: {
+                ..._v0.metadata,
+                interactions: {
+                  ..._v0.metadata.interactions,
+                  purchase: {
+                    ..._v0.metadata.interactions.purchase,
+                    uri: {
+                      ..._v0.metadata.interactions.purchase.uri,
+                      monthly: null
+                    }
+                  }
+                }
+              }
+            } : _v0);
+          }
+          return _v0;
+        }, [_v56, _v35.core_tier_enabled, _v35.flat_tiers_monthly_enabled]),
         {
           data: _v58
         } = (0, _v39.useSubscriptionPlansUsageCheck)(_v39 ? _v34.REPACKAGING_ALL_SHOWN_TIERS.filter(_v0 => "free" !== _v0) : []);

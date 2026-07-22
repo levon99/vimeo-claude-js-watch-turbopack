@@ -1424,7 +1424,7 @@
         })]
       }),
       _v89 = _v61 ? (0, _v25.createSection)([_v88]) : (0, _v25.createSection)([_v83]),
-      _v90 = [_v85, (0, _v25.createSection)([_v88]), (0, _v25.createSection)([_v70.download.shouldRender && (0, _v1.jsx)(_v29.Action, {
+      _v90 = [_v85, _v70.translate.shouldRender || _v70.addVideoRating.shouldRender ? (0, _v25.createSection)([_v88]) : (0, _v25.createSection)([_v83]), (0, _v25.createSection)([_v70.download.shouldRender && (0, _v1.jsx)(_v29.Action, {
         ..._v70.download
       }), _v86, _v87, _v70.videoInfo.shouldRender && (0, _v1.jsx)(_v29.Action, {
         ..._v70.videoInfo

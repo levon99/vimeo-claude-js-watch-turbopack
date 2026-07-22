@@ -5483,28 +5483,28 @@
       }
     }),
     ApprovedPresetTooltip: (0, _v5.translate)({
-      singular: "This preset is visible to all users in the workspace and can be used for go live",
+      singular: "This preset is visible to all users in the workspace and can be used in videos and live events.",
       dictionary: {
         es: {
-          singular: "Este preajuste es visible para todos los usuarios del espacio de trabajo y puede usarse para emitir en directo"
+          singular: "Este ajuste preestablecido es visible para todos los usuarios del espacio de trabajo y puede utilizarse en vídeos y eventos en directo."
         },
         "de-DE": {
-          singular: "Diese Voreinstellung ist für alle Benutzer im Arbeitsbereich sichtbar und kann zum Live-Schalten verwendet werden"
+          singular: "Diese Voreinstellung ist für alle Benutzer im Arbeitsbereich sichtbar und kann in Videos und Live-Events verwendet werden."
         },
         "fr-FR": {
-          singular: "Ce préréglage est visible par tous les utilisateurs de l'espace de travail et peut être utilisé pour passer en direct"
+          singular: "Ce préréglage est visible par tous les utilisateurs de l'espace de travail et peut être utilisé dans les vidéos et lors d'événements en direct."
         },
         "ja-JP": {
-          singular: "このプリセットはワークスペース内の全ユーザーに表示され、ライブ配信に使用できます"
+          singular: "このプリセットはワークスペース内のすべてのユーザーに表示され、動画およびライブイベントで使用できます。"
         },
         "ko-KR": {
-          singular: "이 프리셋은 워크스페이스의 모든 사용자에게 표시되며 라이브 진행에 사용할 수 있습니다"
+          singular: "이 프리셋은 워크스페이스의 모든 사용자에게 표시되며 동영상 및 라이브 이벤트에서 사용할 수 있습니다."
         },
         "pt-BR": {
-          singular: "Esta predefinição está visível para todos os usuários no espaço de trabalho e pode ser usada para ir ao vivo"
+          singular: "Esta predefinição é visível para todos os usuários no espaço de trabalho e pode ser usada em vídeos e eventos ao vivo."
         },
         "zh-CN": {
-          singular: "该预设对工作区内的所有用户可见，并可用于上线"
+          singular: "此预设对工作区的所有用户可见，可在视频和直播活动中使用。"
         }
       }
     }),

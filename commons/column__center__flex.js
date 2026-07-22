@@ -316,19 +316,20 @@
     aiCreditsQuota: _v3,
     drmLicensesQuota: _v4,
     showTotal: _v5,
-    showUpgrade: _v6
+    showUpgrade: _v6,
+    showAutoRenewBadge: _v7
   }) => {
-    let _v7 = (0, _v20.useViewer)(),
-      _v8 = _v7?.user?.account === "enterprise",
-      _v9 = (0, _v17.useIsStaff)(),
+    let _v8 = (0, _v20.useViewer)(),
+      _v9 = _v8?.user?.account === "enterprise",
+      _v10 = (0, _v17.useIsStaff)(),
       {
-        capabilities: _v10
+        capabilities: _v11
       } = (0, _v11.useCapability)(["canViewDrmQuota"]),
       {
-        canViewDrmQuota: _v11
-      } = _v10,
+        canViewDrmQuota: _v12
+      } = _v11,
       {
-        isWorkspaceAdminUser: _v12
+        isWorkspaceAdminUser: _v13
       } = (() => {
         let _v0 = (0, _v20.useViewer)(),
           {
@@ -346,14 +347,14 @@
           isWorkspaceAdminUser: _v3
         };
       })(),
-      _v13 = _v3 && (_v8 || _v12) && (0 === _v3.remaining || void 0 !== _v3.limit && Number.isFinite(_v3.limit) && _v3.used === _v3.limit),
-      _v14 = _v7?.user?.id ?? null,
-      _v15 = (0, _v19.shouldFetchColdStorageVideoFallback)(_v7),
+      _v14 = _v3 && (_v9 || _v13) && (0 === _v3.remaining || void 0 !== _v3.limit && Number.isFinite(_v3.limit) && _v3.used === _v3.limit),
+      _v15 = _v8?.user?.id ?? null,
+      _v16 = (0, _v19.shouldFetchColdStorageVideoFallback)(_v8),
       {
-        data: _v16
-      } = (0, _v18.useGetUserVideos)(() => _v14 && _v15 ? {
+        data: _v17
+      } = (0, _v18.useGetUserVideos)(() => _v15 && _v16 ? {
         where: {
-          userId: _v14
+          userId: _v15
         },
         select: ["uri"],
         query: {
@@ -366,7 +367,7 @@
       } : null, {
         revalidateOnFocus: !1
       }),
-      _v17 = _v15 && (_v16?.total ?? 0) > 0;
+      _v18 = _v16 && (_v17?.total ?? 0) > 0;
     return (0, _v1.jsxs)(_v16.Box, {
       background: "surface",
       borderRadius: "lg",
@@ -376,29 +377,30 @@
         onUpgradeClick: _v1,
         quota: _v2,
         showTotal: _v5,
-        showUpgrade: _v6 && !_v9,
-        isWorkspaceAdminUser: _v12,
-        showColdStorageWarning: _v17
-      }), _v3 ? _v8 || _v12 ? (0, _v1.jsx)(_v21.AiCreditsQuotaMeter, {
+        showUpgrade: _v6 && !_v10,
+        isWorkspaceAdminUser: _v13,
+        showColdStorageWarning: _v18,
+        showAutoRenewBadge: _v7
+      }), _v3 ? _v9 || _v13 ? (0, _v1.jsx)(_v21.AiCreditsQuotaMeter, {
         isMobile: _v0,
         onUpgradeClick: _v1,
         quota: _v3,
         showTotal: _v5,
-        showUpgrade: _v6 && !_v9,
-        showZeroCreditsMessage: _v13,
-        isWorkspaceAdminUser: _v12
+        showUpgrade: _v6 && !_v10,
+        showZeroCreditsMessage: _v14,
+        isWorkspaceAdminUser: _v13
       }) : (0, _v1.jsx)(_v32, {
         isMobile: _v0,
         quota: _v3,
-        showZeroCreditsMessage: _v13,
-        isWorkspaceAdminUser: _v12
-      }) : null, _v11 && _v4 ? (0, _v1.jsx)(_v34, {
+        showZeroCreditsMessage: _v14,
+        isWorkspaceAdminUser: _v13
+      }) : null, _v12 && _v4 ? (0, _v1.jsx)(_v34, {
         isMobile: _v0,
         onUpgradeClick: () => void 0,
         quota: _v4,
         showTotal: _v5,
         showUpgrade: !1,
-        isWorkspaceAdminUser: _v12
+        isWorkspaceAdminUser: _v13
       }) : null]
     });
   };
@@ -1708,7 +1710,8 @@
         isMobile: _v1,
         onUpgradeClick: _v7,
         ..._v6,
-        uploadQuota: _v6.uploadQuota
+        uploadQuota: _v6.uploadQuota,
+        showAutoRenewBadge: !0
       })]
     });
   }], 0), _v0.s(["CollapseDrawer", 0, _v0 => (0, _v1.jsx)(_v41.Icon, {

@@ -4496,7 +4496,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "b3e6da30c893848e0fe177b71438ba69c76f11d6",
+      release: "f9e2b73bec1750bf5fc02f9f368ccdc63c6e6deb",
       ..._v0
     };
     !function (_v0) {
@@ -4599,8 +4599,17 @@ Error:`, _v0);
         }
       }
       let _v5 = _v0.exception?.values?.[0];
-      if (_v5?.type === "TypeError" && _v5.value?.startsWith("Failed to fetch")) {
-        let _v0 = _v5.stacktrace?.frames ?? [],
+      if (_v5?.type === "TypeError") {
+        let _v0 = _v5.mechanism?.type === "auto.browser.global_handlers.onerror" || _v5.mechanism?.type === "onerror",
+          _v1 = _v5.stacktrace?.frames;
+        if (_v0 && _v1?.length === 1) {
+          let _v0 = _v1[0].filename ?? _v1[0].abs_path ?? "";
+          if ("" === _v0 || "<anonymous>" === _v0 || "[native code]" === _v0) return null;
+        }
+      }
+      let _v6 = _v0.exception?.values?.[0];
+      if (_v6?.type === "TypeError" && _v6.value?.startsWith("Failed to fetch")) {
+        let _v0 = _v6.stacktrace?.frames ?? [],
           _v1 = _v0.findIndex(_v0 => {
             let _v1 = _v0.filename ?? _v0.abs_path ?? "";
             return _v1.includes("datadog-rum.js") || _v1.includes("ajax-listener.js");
@@ -4612,38 +4621,38 @@ Error:`, _v0);
           }));
         if (-1 !== _v1 && !_v2 || (_v288 += 1) > 1) return null;
       }
-      let _v6 = _v0.exception?.values?.[0];
-      if (_v6?.type === "TypeError" && _v6.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && /\.split is not a function/.test(_v6.value ?? "")) {
+      let _v7 = _v0.exception?.values?.[0];
+      if (_v7?.type === "TypeError" && _v7.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && /\.split is not a function/.test(_v7.value ?? "")) {
         let _v0 = "u" > typeof navigator ? navigator.userAgent : "";
         if (/Tizen|SMART-TV/i.test(_v0)) return null;
       }
-      let _v7 = _v0.exception?.values?.[0];
-      if (_v7?.type === "TypeError" && "Illegal invocation" === _v7.value) {
-        let _v0 = _v7.stacktrace?.frames ?? [];
+      let _v8 = _v0.exception?.values?.[0];
+      if (_v8?.type === "TypeError" && "Illegal invocation" === _v8.value) {
+        let _v0 = _v8.stacktrace?.frames ?? [];
         if (_v0.length > 0 && _v0.every(_v0 => (_v0.filename ?? _v0.abs_path ?? "").includes("airgap.js"))) return null;
       }
-      let _v8 = _v0.exception?.values?.[0];
-      if (_v8?.type === "TypeError" && "Cannot read properties of null (reading 'lastChild')" === _v8.value && (_v8.mechanism?.type === "auto.browser.global_handlers.onerror" || _v8.mechanism?.type === "onerror") && (_v8.stacktrace?.frames ?? []).some(_v0 => "prepareVideo" === _v0.function)) return null;
       let _v9 = _v0.exception?.values?.[0];
-      if (_v9?.type === "InvalidStateError" && "The object is in an invalid state." === _v9.value && _v9.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v9.mechanism?.handled === !1 && _v9.mechanism?.data?.handler === "<anonymous>") {
-        let _v0 = _v9.stacktrace?.frames ?? [];
+      if (_v9?.type === "TypeError" && "Cannot read properties of null (reading 'lastChild')" === _v9.value && (_v9.mechanism?.type === "auto.browser.global_handlers.onerror" || _v9.mechanism?.type === "onerror") && (_v9.stacktrace?.frames ?? []).some(_v0 => "prepareVideo" === _v0.function)) return null;
+      let _v10 = _v0.exception?.values?.[0];
+      if (_v10?.type === "InvalidStateError" && "The object is in an invalid state." === _v10.value && _v10.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v10.mechanism?.handled === !1 && _v10.mechanism?.data?.handler === "<anonymous>") {
+        let _v0 = _v10.stacktrace?.frames ?? [];
         if (_v0.length > 0 && _v0.every(_v0 => (_v0.filename ?? _v0.abs_path ?? "").includes("@sentry"))) return null;
       }
-      let _v10 = _v0.exception?.values?.[0];
-      if (_v10?.type === "InvalidStateError" && _v10.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v10.mechanism?.handled === !1 && /Failed to read the 'responseText' property from 'XMLHttpRequest'/.test(_v10.value ?? "") && /was 'arraybuffer'/.test(_v10.value ?? "")) return null;
       let _v11 = _v0.exception?.values?.[0];
-      if (_v11?.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v11.mechanism?.handled === !1 && /Java exception was raised during method invocation/.test(_v11.value ?? "")) return null;
+      if (_v11?.type === "InvalidStateError" && _v11.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v11.mechanism?.handled === !1 && /Failed to read the 'responseText' property from 'XMLHttpRequest'/.test(_v11.value ?? "") && /was 'arraybuffer'/.test(_v11.value ?? "")) return null;
       let _v12 = _v0.exception?.values?.[0];
-      if (_v12?.type === "UnhandledRejection" && /Object Not Found Matching Id:\d+, MethodName:\w+, ParamCount:\d+/.test(_v12.value ?? "") && !(_v12.stacktrace?.frames ?? []).some(_v0 => {
+      if (_v12?.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v12.mechanism?.handled === !1 && /Java exception was raised during method invocation/.test(_v12.value ?? "")) return null;
+      let _v13 = _v0.exception?.values?.[0];
+      if (_v13?.type === "UnhandledRejection" && /Object Not Found Matching Id:\d+, MethodName:\w+, ParamCount:\d+/.test(_v13.value ?? "") && !(_v13.stacktrace?.frames ?? []).some(_v0 => {
         let _v1 = _v0.filename ?? _v0.abs_path ?? "";
         return _v1.includes("_next/static") && !1 !== _v0.in_app || _v1.includes("app:///p/") || _v1.includes("/telecine") || _v1.includes("/media-sorcerer");
       })) return null;
-      let _v13 = _v0.exception?.values?.[0];
-      if (_v13?.type === "TypeError" && /window\.webkit\.messageHandlers/.test(_v13.value ?? "")) return null;
       let _v14 = _v0.exception?.values?.[0];
-      if (_v14?.type === "AbortError" && "signal is aborted without reason" === _v14.value && _v14.mechanism?.handled === !1 && (_v14.mechanism?.type === "auto.browser.global_handlers.onunhandledrejection" || _v14.mechanism?.type === "onunhandledrejection")) return null;
+      if (_v14?.type === "TypeError" && /window\.webkit\.messageHandlers/.test(_v14.value ?? "")) return null;
       let _v15 = _v0.exception?.values?.[0];
-      if (_v15?.value?.startsWith("Module load timeout") && (_v287 += 1) > 1) return null;
+      if (_v15?.type === "AbortError" && "signal is aborted without reason" === _v15.value && _v15.mechanism?.handled === !1 && (_v15.mechanism?.type === "auto.browser.global_handlers.onunhandledrejection" || _v15.mechanism?.type === "onunhandledrejection")) return null;
+      let _v16 = _v0.exception?.values?.[0];
+      if (_v16?.value?.startsWith("Module load timeout") && (_v287 += 1) > 1) return null;
       if (_v0.exception?.values?.[0]?.type === "UnhandledRejection" && void 0 === _v1.originalException) try {
         let _v0 = document.querySelector("[data-ready]"),
           _v1 = null,

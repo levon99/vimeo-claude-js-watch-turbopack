@@ -26,6 +26,9 @@
     previousIsBokeh = void 0;
     authenticate;
     teams = [];
+    authStartLogged = !1;
+    logAuthStart;
+    logAuthEnd;
     constructor() {
       this.initTime = performance.now();
     }
@@ -34,15 +37,20 @@
       vimeoSessionId: _v1,
       isShopifyUser: _v2,
       authenticate: _v3,
-      logAuthEnd: _v4
+      logAuthStart: _v4,
+      logAuthEnd: _v5
     }) {
-      !this.vimeoSessionId && _v1 && _v4(), this.serverUrl = _v0, this.vimeoSessionId = _v1, this.isShopifyUser = _v2, this.authenticate = _v3;
+      this.logAuthStart = _v4, this.logAuthEnd = _v5, this.serverUrl = _v0, this.isShopifyUser = _v2, this.authenticate = _v3, _v1 && (this.vimeoSessionId = _v1);
+    }
+    logInitialAuth() {
+      !this.authStartLogged && (this.authStartLogged = !0, this.logAuthStart?.(), this.vimeoSessionId && (this.logAuthEnd?.(), this.authStartLogged = !1));
     }
     setTeamOwnerId(_v0) {
       this.teamOwnerId = _v0;
     }
     setVimeoSessionId(_v0) {
-      this.vimeoSessionId = _v0;
+      let _v1 = !this.vimeoSessionId && _v0;
+      this.vimeoSessionId = _v0, _v1 && this.authStartLogged && (this.logAuthEnd?.(), this.authStartLogged = !1);
     }
     setUserId(_v0) {
       this.userId = _v0;
