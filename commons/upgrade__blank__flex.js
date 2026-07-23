@@ -363,65 +363,71 @@
     activePrivacy: _v0,
     error: _v1,
     isDisabled: _v2,
-    onSelect: _v3,
-    onUpsellClick: _v4,
-    onMenuToggle: _v5,
-    privacyOptions: _v6,
-    matchWidth: _v7 = !0,
-    menuListProps: _v8 = {},
-    hasPortal: _v9 = !1,
-    isRedirectUpsell: _v10 = !0,
-    showSelectedPrivacyDescription: _v11 = !0,
-    showChevron: _v12 = !0,
-    variant: _v13 = "default",
-    lastSelectedPrivacyOption: _v14,
-    isVideoPrivacy: _v15 = !1
+    isInvalid: _v3,
+    onSelect: _v4,
+    onUpsellClick: _v5,
+    onMenuToggle: _v6,
+    privacyOptions: _v7,
+    matchWidth: _v8 = !0,
+    menuListProps: _v9 = {},
+    hasPortal: _v10 = !1,
+    isRedirectUpsell: _v11 = !0,
+    showSelectedPrivacyDescription: _v12 = !0,
+    showChevron: _v13 = !0,
+    variant: _v14 = "default",
+    lastSelectedPrivacyOption: _v15,
+    isVideoPrivacy: _v16 = !1
   }) => {
-    let [_v16, _v17] = (0, _v2.useState)(!1),
-      _v18 = _v6.find(_v0 => _v0.privacy === _v0) ?? _v14 ?? _v6[0],
-      _v19 = () => {
-        _v5?.(!_v16), _v17(_v0 => !_v0);
+    let [_v17, _v18] = (0, _v2.useState)(!1),
+      _v19 = _v7.find(_v0 => _v0.privacy === _v0) ?? _v15 ?? _v7[0],
+      _v20 = () => {
+        _v6?.(!_v17), _v18(_v0 => !_v0);
       },
-      _v20 = _v9 ? _v12.Portal : _v5.Box,
-      _v21 = !_v2 && _v18;
+      _v21 = _v10 ? _v12.Portal : _v5.Box,
+      _v22 = !_v2 && _v19;
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v6.Flex, {
         flexDirection: "column",
-        cursor: _v21 ? "pointer" : "not-allowed",
+        cursor: _v22 ? "pointer" : "not-allowed",
         borderRadius: "md",
-        ...("outlined" === _v13 ? {
+        ...("outlined" === _v14 ? {
           transition: "all 120ms ease-in-out 0s",
           outline: "1px solid",
-          outlineColor: "input-stroke",
+          outlineColor: _v3 ? "status-destructive-primary" : "input-stroke",
           outlineOffset: "-1px",
           _hover: {
-            outlineColor: "input-stroke-hover"
+            outlineColor: _v3 ? "status-destructive-primary" : "input-stroke-hover"
           }
         } : {
-          backgroundColor: "button-secondary-default"
+          backgroundColor: "button-secondary-default",
+          ...(_v3 && {
+            outline: "1px solid",
+            outlineColor: "status-destructive-primary",
+            outlineOffset: "-1px"
+          })
         }),
         children: (0, _v1.jsxs)(_v7.Menu, {
-          isOpen: _v16,
-          matchWidth: _v7,
+          isOpen: _v17,
+          matchWidth: _v8,
           closeOnBlur: !0,
-          onClose: () => _v17(!1),
+          onClose: () => _v18(!1),
           isLazy: !0,
           children: [(0, _v1.jsx)(_v8.MenuButton, {
             "data-testid": "video-privacy-dropdown",
             as: "div",
-            tabIndex: _v21 ? 0 : -1,
+            tabIndex: _v22 ? 0 : -1,
             onClick: () => {
-              _v21 && _v19();
+              _v22 && _v20();
             },
             onKeyDown: _v0 => {
-              _v21 && ["Enter", " ", "ArrowUp", "ArrowDown"].includes(_v0.key) && _v19();
+              _v22 && ["Enter", " ", "ArrowUp", "ArrowDown"].includes(_v0.key) && _v20();
             },
-            children: _v18 ? (0, _v1.jsx)(_v25, {
-              option: _v18,
-              isActive: _v16,
-              showChevron: _v12,
-              showDescription: _v11,
-              variant: _v13
+            children: _v19 ? (0, _v1.jsx)(_v25, {
+              option: _v19,
+              isActive: _v17,
+              showChevron: _v13,
+              showDescription: _v12,
+              variant: _v14
             }) : (0, _v1.jsxs)(_v6.Flex, {
               px: "md",
               py: "sm",
@@ -456,21 +462,21 @@
                     }
                   }
                 })
-              }), _v12 && (0, _v1.jsx)(_v15.ChevronDown, {
+              }), _v13 && (0, _v1.jsx)(_v15.ChevronDown, {
                 boxSize: "2xs"
               })]
             })
-          }), (0, _v1.jsx)(_v20, {
+          }), (0, _v1.jsx)(_v21, {
             children: (0, _v1.jsx)(_v34, {
-              privacyOptions: _v6,
+              privacyOptions: _v7,
               activePrivacy: _v0,
-              menuListProps: _v8,
+              menuListProps: _v9,
               onSelect: _v0 => {
-                _v17(!1), _v3(_v0);
+                _v18(!1), _v4(_v0);
               },
-              onUpsellClick: _v4,
-              isRedirectUpsell: _v10,
-              isVideoPrivacy: _v15
+              onUpsellClick: _v5,
+              isRedirectUpsell: _v11,
+              isVideoPrivacy: _v16
             })
           })]
         })

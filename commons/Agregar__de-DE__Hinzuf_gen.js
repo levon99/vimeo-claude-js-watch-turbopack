@@ -3995,6 +3995,58 @@
         }
       }
     }),
+    brand: (0, _v8.translate)({
+      singular: "Brand",
+      dictionary: {
+        es: {
+          singular: "Marca"
+        },
+        "de-DE": {
+          singular: "Marke"
+        },
+        "fr-FR": {
+          singular: "Marque"
+        },
+        "ja-JP": {
+          singular: "ブランド"
+        },
+        "ko-KR": {
+          singular: "브랜드"
+        },
+        "pt-BR": {
+          singular: "Marca"
+        },
+        "zh-CN": {
+          singular: "品牌"
+        }
+      }
+    }),
+    brandKitEmptyHint: (0, _v8.translate)({
+      singular: "No brand backgrounds yet — add them to your Brand kit in your team settings.",
+      dictionary: {
+        es: {
+          singular: "Aún no hay fondos de marca — añádelos a tu Brand kit en la configuración del equipo."
+        },
+        "de-DE": {
+          singular: "Noch keine Marken-Hintergründe — füge sie deinem Brand-Kit in deinen Teameinstellungen hinzu."
+        },
+        "fr-FR": {
+          singular: "Pas encore d'arrière-plans de marque — ajoutez-les au kit de marque dans les paramètres de votre équipe."
+        },
+        "ja-JP": {
+          singular: "ブランドの背景はまだありません — チーム設定のブランドキットに追加してください。"
+        },
+        "ko-KR": {
+          singular: "아직 브랜드 배경이 없습니다 — 팀 설정의 브랜드 키트에 추가하세요."
+        },
+        "pt-BR": {
+          singular: "Ainda não há fundos de marca — adicione-os ao seu Brand kit nas configurações da equipe."
+        },
+        "zh-CN": {
+          singular: "还没有品牌背景 — 请在团队设置的品牌套件中添加。"
+        }
+      }
+    }),
     cameraBackground: (0, _v8.translate)({
       singular: "Camera background",
       dictionary: {
@@ -5115,6 +5167,58 @@
         }
       }
     }),
+    noBackground: (0, _v8.translate)({
+      singular: "No background",
+      dictionary: {
+        es: {
+          singular: "Sin fondo"
+        },
+        "de-DE": {
+          singular: "Kein Hintergrund"
+        },
+        "fr-FR": {
+          singular: "Sans arrière-plan"
+        },
+        "ja-JP": {
+          singular: "背景なし"
+        },
+        "ko-KR": {
+          singular: "배경 없음"
+        },
+        "pt-BR": {
+          singular: "Sem plano de fundo"
+        },
+        "zh-CN": {
+          singular: "无背景"
+        }
+      }
+    }),
+    noBrandBackgrounds: (0, _v8.translate)({
+      singular: "No brand backgrounds yet",
+      dictionary: {
+        es: {
+          singular: "Aún no hay fondos de marca"
+        },
+        "de-DE": {
+          singular: "Noch keine Markenhintergründe"
+        },
+        "fr-FR": {
+          singular: "Aucun arrière-plan de marque pour le moment"
+        },
+        "ja-JP": {
+          singular: "ブランド背景はまだありません"
+        },
+        "ko-KR": {
+          singular: "아직 브랜드 배경이 없습니다"
+        },
+        "pt-BR": {
+          singular: "Ainda não há planos de fundo da marca"
+        },
+        "zh-CN": {
+          singular: "尚无品牌背景"
+        }
+      }
+    }),
     noDevices: (0, _v8.translate)({
       singular: "No devices",
       dictionary: {
@@ -5216,6 +5320,32 @@
         },
         "zh-CN": {
           singular: "未设置区域限制"
+        }
+      }
+    }),
+    noUploadedImages: (0, _v8.translate)({
+      singular: "No uploaded images yet",
+      dictionary: {
+        es: {
+          singular: "Aún no hay imágenes subidas"
+        },
+        "de-DE": {
+          singular: "Noch keine hochgeladenen Bilder"
+        },
+        "fr-FR": {
+          singular: "Aucune image importée pour le moment"
+        },
+        "ja-JP": {
+          singular: "アップロードされた画像はまだありません"
+        },
+        "ko-KR": {
+          singular: "아직 업로드된 이미지가 없습니다"
+        },
+        "pt-BR": {
+          singular: "Ainda não há imagens enviadas"
+        },
+        "zh-CN": {
+          singular: "尚未上传图片"
         }
       }
     }),
@@ -6588,6 +6718,32 @@
         }
       }
     }),
+    uploadedImages: (0, _v8.translate)({
+      singular: "Uploaded images",
+      dictionary: {
+        es: {
+          singular: "Imágenes subidas"
+        },
+        "de-DE": {
+          singular: "Hochgeladene Bilder"
+        },
+        "fr-FR": {
+          singular: "Images importées"
+        },
+        "ja-JP": {
+          singular: "アップロード済み画像"
+        },
+        "ko-KR": {
+          singular: "업로드된 이미지"
+        },
+        "pt-BR": {
+          singular: "Imagens enviadas"
+        },
+        "zh-CN": {
+          singular: "已上传的图片"
+        }
+      }
+    }),
     useYourEncoder: (0, _v8.translate)({
       singular: "Use your preferred encoder",
       dictionary: {
@@ -6663,6 +6819,32 @@
         },
         "zh-CN": {
           singular: "目的地观众无需注册即可观看"
+        }
+      }
+    }),
+    vimeoBackgrounds: (0, _v8.translate)({
+      singular: "Vimeo backgrounds",
+      dictionary: {
+        es: {
+          singular: "Fondos de Vimeo"
+        },
+        "de-DE": {
+          singular: "Vimeo-Hintergründe"
+        },
+        "fr-FR": {
+          singular: "Arrière-plans Vimeo"
+        },
+        "ja-JP": {
+          singular: "Vimeoの背景"
+        },
+        "ko-KR": {
+          singular: "Vimeo 배경"
+        },
+        "pt-BR": {
+          singular: "Planos de fundo do Vimeo"
+        },
+        "zh-CN": {
+          singular: "Vimeo 背景"
         }
       }
     }),

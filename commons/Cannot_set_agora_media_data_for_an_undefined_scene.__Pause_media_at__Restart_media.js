@@ -616,7 +616,7 @@
     return _v5.splice(_v7, 0, _v1), [_v0.scenesOrderListRef, _v5.filter((_v0, _v1) => _v0 !== _v1 || _v1 === _v7)];
   }
   async function _v63(_v0, _v1, _v2 = _v5.graphicsConfig.GRAPHICS_POSITIONING.SCREEN_SPEAKER_POSITION) {
-    _v0.assertIsInitialized();
+    _v0.assertIsInitialized(), _v0.assertCanEdit();
     let {
       scenes: _v3
     } = _v0.context;
@@ -776,6 +776,7 @@
         removeGraphicFromAllScenes: _v0 => this.removeGraphicFromAllScenes(_v0),
         setGraphicVisibility: (_v0, _v1, _v2) => this.setGraphicVisibility(_v0, _v1, _v2),
         setSceneSpeakerPipEnabled: (_v0, _v1) => this.setSceneScreensharePipEnabled(_v0, _v1),
+        updateSceneSpeakerPositions: (_v0, _v1) => this.updateSceneSpeakerPositions(_v0, _v1),
         setSceneBackground: (_v0, _v1) => this.setSceneBackground(_v0, _v1),
         setGuestLowerThirdsVisibility: (_v0, _v1) => this.setGuestLowerThirdsVisibility(_v0, _v1),
         purgeScenes: () => this.purgeScenes(),

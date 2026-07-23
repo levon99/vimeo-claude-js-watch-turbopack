@@ -1963,10 +1963,10 @@
                       singular: "Top left",
                       dictionary: {
                         es: {
-                          singular: "Parte superior izquierda"
+                          singular: "Arriba a la izquierda"
                         },
                         "de-DE": {
-                          singular: "Links Oben"
+                          singular: "Oben links"
                         },
                         "fr-FR": {
                           singular: "En haut à gauche"
@@ -1975,10 +1975,10 @@
                           singular: "左上"
                         },
                         "ko-KR": {
-                          singular: "상단 왼쪽"
+                          singular: "왼쪽 위"
                         },
                         "pt-BR": {
-                          singular: "Canto superior esquerdo"
+                          singular: "Superior esquerdo"
                         },
                         "zh-CN": {
                           singular: "左上角"
@@ -2019,10 +2019,10 @@
                       singular: "Top right",
                       dictionary: {
                         es: {
-                          singular: "Parte superior derecha"
+                          singular: "Arriba a la derecha"
                         },
                         "de-DE": {
-                          singular: "Rechts Oben"
+                          singular: "Oben rechts"
                         },
                         "fr-FR": {
                           singular: "En haut à droite"
@@ -2031,10 +2031,10 @@
                           singular: "右上"
                         },
                         "ko-KR": {
-                          singular: "상단 오른쪽"
+                          singular: "오른쪽 위"
                         },
                         "pt-BR": {
-                          singular: "Canto superior direito"
+                          singular: "Superior direito"
                         },
                         "zh-CN": {
                           singular: "右上角"
@@ -2131,7 +2131,7 @@
                       singular: "Bottom left",
                       dictionary: {
                         es: {
-                          singular: "Parte inferior izquierda"
+                          singular: "Abajo a la izquierda"
                         },
                         "de-DE": {
                           singular: "Unten links"
@@ -2143,10 +2143,10 @@
                           singular: "左下"
                         },
                         "ko-KR": {
-                          singular: "하단 왼쪽"
+                          singular: "왼쪽 아래"
                         },
                         "pt-BR": {
-                          singular: "Canto inferior esquerdo"
+                          singular: "Inferior esquerdo"
                         },
                         "zh-CN": {
                           singular: "左下角"
@@ -2187,7 +2187,7 @@
                       singular: "Bottom right",
                       dictionary: {
                         es: {
-                          singular: "Inferior derecha"
+                          singular: "Abajo a la derecha"
                         },
                         "de-DE": {
                           singular: "Unten rechts"
@@ -2199,10 +2199,10 @@
                           singular: "右下"
                         },
                         "ko-KR": {
-                          singular: "하단 오른쪽"
+                          singular: "오른쪽 아래"
                         },
                         "pt-BR": {
-                          singular: "Canto inferior direito"
+                          singular: "Inferior direito"
                         },
                         "zh-CN": {
                           singular: "右下角"

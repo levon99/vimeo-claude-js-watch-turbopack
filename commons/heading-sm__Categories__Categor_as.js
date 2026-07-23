@@ -765,8 +765,13 @@
               },
               children: _v1
             }) : _v1
-          }), "right" === _v38 ? _v37 : null]
-        }), _v35 ? _v12 : null]
+          })]
+        }), _v35 || "right" === _v38 && _v37 ? (0, _v1.jsxs)(_v5.HStack, {
+          gap: "200",
+          align: "center",
+          flexShrink: 0,
+          children: [_v35 ? _v12 : null, "right" === _v38 ? _v37 : null]
+        }) : null]
       }) : null, (0, _v1.jsxs)(_v4.Flex, {
         gap: 100,
         flexWrap: "wrap",

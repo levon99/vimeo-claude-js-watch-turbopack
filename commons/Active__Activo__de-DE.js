@@ -1796,6 +1796,136 @@
           }
         }
       }),
+      cameraOnBottomLeft: (0, _v6.translate)({
+        singular: "Camera on the bottom left",
+        dictionary: {
+          es: {
+            singular: "Cámara en la esquina inferior izquierda"
+          },
+          "de-DE": {
+            singular: "Kamera unten links"
+          },
+          "fr-FR": {
+            singular: "Caméra en bas à gauche"
+          },
+          "ja-JP": {
+            singular: "画面左下のカメラ"
+          },
+          "ko-KR": {
+            singular: "왼쪽 하단 카메라"
+          },
+          "pt-BR": {
+            singular: "Câmera na parte inferior esquerda"
+          },
+          "zh-CN": {
+            singular: "左下角摄像机"
+          }
+        }
+      }),
+      cameraOnBottomRight: (0, _v6.translate)({
+        singular: "Camera on the bottom right",
+        dictionary: {
+          es: {
+            singular: "Cámara en la esquina inferior derecha"
+          },
+          "de-DE": {
+            singular: "Kamera unten rechts"
+          },
+          "fr-FR": {
+            singular: "Caméra en bas à droite"
+          },
+          "ja-JP": {
+            singular: "画面右下のカメラ"
+          },
+          "ko-KR": {
+            singular: "오른쪽 하단 카메라"
+          },
+          "pt-BR": {
+            singular: "Câmera na parte inferior direita"
+          },
+          "zh-CN": {
+            singular: "右下角摄像机"
+          }
+        }
+      }),
+      cameraOnTopLeft: (0, _v6.translate)({
+        singular: "Camera on the top left",
+        dictionary: {
+          es: {
+            singular: "Cámara en la esquina superior izquierda"
+          },
+          "de-DE": {
+            singular: "Kamera oben links"
+          },
+          "fr-FR": {
+            singular: "Caméra en haut à gauche"
+          },
+          "ja-JP": {
+            singular: "画面左上のカメラ"
+          },
+          "ko-KR": {
+            singular: "왼쪽 상단 카메라"
+          },
+          "pt-BR": {
+            singular: "Câmera na parte superior esquerda"
+          },
+          "zh-CN": {
+            singular: "左上角摄像机"
+          }
+        }
+      }),
+      cameraOnTopRight: (0, _v6.translate)({
+        singular: "Camera on the top right",
+        dictionary: {
+          es: {
+            singular: "Cámara en la esquina superior derecha"
+          },
+          "de-DE": {
+            singular: "Kamera oben rechts"
+          },
+          "fr-FR": {
+            singular: "Caméra en haut à droite"
+          },
+          "ja-JP": {
+            singular: "画面右上のカメラ"
+          },
+          "ko-KR": {
+            singular: "오른쪽 상단 카메라"
+          },
+          "pt-BR": {
+            singular: "Câmera na parte superior direita"
+          },
+          "zh-CN": {
+            singular: "右上角摄像机"
+          }
+        }
+      }),
+      cameraPositionSpeakersHidden: (0, _v6.translate)({
+        singular: "Show speakers to reposition the camera",
+        dictionary: {
+          es: {
+            singular: "Mostrar a los oradores para reposicionar la cámara"
+          },
+          "de-DE": {
+            singular: "Sprecher anzeigen, um die Kamera neu zu positionieren"
+          },
+          "fr-FR": {
+            singular: "Afficher les intervenants pour repositionner la caméra"
+          },
+          "ja-JP": {
+            singular: "カメラを再配置するには、スピーカーを表示してください。"
+          },
+          "ko-KR": {
+            singular: "카메라를 재배치하려면 발표자를 표시하세요"
+          },
+          "pt-BR": {
+            singular: "Mostrar os palestrantes para reposicionar a câmera"
+          },
+          "zh-CN": {
+            singular: "显示发言者以便重新定位摄像头"
+          }
+        }
+      }),
       cameras: (0, _v6.translate)("Cameras"),
       cancelUpload: (0, _v6.translate)({
         singular: "Cancel upload",
@@ -7182,6 +7312,110 @@
           }
         }
       }),
+      positionBottomLeft: (0, _v6.translate)({
+        singular: "Bottom left",
+        dictionary: {
+          es: {
+            singular: "Abajo a la izquierda"
+          },
+          "de-DE": {
+            singular: "Unten links"
+          },
+          "fr-FR": {
+            singular: "En bas à gauche"
+          },
+          "ja-JP": {
+            singular: "左下"
+          },
+          "ko-KR": {
+            singular: "왼쪽 아래"
+          },
+          "pt-BR": {
+            singular: "Inferior esquerdo"
+          },
+          "zh-CN": {
+            singular: "左下角"
+          }
+        }
+      }),
+      positionBottomRight: (0, _v6.translate)({
+        singular: "Bottom right",
+        dictionary: {
+          es: {
+            singular: "Abajo a la derecha"
+          },
+          "de-DE": {
+            singular: "Unten rechts"
+          },
+          "fr-FR": {
+            singular: "En bas à droite"
+          },
+          "ja-JP": {
+            singular: "右下"
+          },
+          "ko-KR": {
+            singular: "오른쪽 아래"
+          },
+          "pt-BR": {
+            singular: "Inferior direito"
+          },
+          "zh-CN": {
+            singular: "右下角"
+          }
+        }
+      }),
+      positionTopLeft: (0, _v6.translate)({
+        singular: "Top left",
+        dictionary: {
+          es: {
+            singular: "Arriba a la izquierda"
+          },
+          "de-DE": {
+            singular: "Oben links"
+          },
+          "fr-FR": {
+            singular: "En haut à gauche"
+          },
+          "ja-JP": {
+            singular: "左上"
+          },
+          "ko-KR": {
+            singular: "왼쪽 위"
+          },
+          "pt-BR": {
+            singular: "Superior esquerdo"
+          },
+          "zh-CN": {
+            singular: "左上角"
+          }
+        }
+      }),
+      positionTopRight: (0, _v6.translate)({
+        singular: "Top right",
+        dictionary: {
+          es: {
+            singular: "Arriba a la derecha"
+          },
+          "de-DE": {
+            singular: "Oben rechts"
+          },
+          "fr-FR": {
+            singular: "En haut à droite"
+          },
+          "ja-JP": {
+            singular: "右上"
+          },
+          "ko-KR": {
+            singular: "오른쪽 위"
+          },
+          "pt-BR": {
+            singular: "Superior direito"
+          },
+          "zh-CN": {
+            singular: "右上角"
+          }
+        }
+      }),
       premium: (0, _v6.translate)({
         singular: "Premium",
         dictionary: {
@@ -9547,22 +9781,19 @@
         singular: "Slides",
         dictionary: {
           es: {
-            singular: "diapositivas"
+            singular: "Diapositivas"
           },
           "de-DE": {
             singular: "Folien"
           },
           "fr-FR": {
-            singular: "diapositives"
+            singular: "Diapositives"
           },
           "ja-JP": {
             singular: "スライド"
           },
           "ko-KR": {
             singular: "슬라이드"
-          },
-          "pt-BR": {
-            singular: "slides"
           },
           "zh-CN": {
             singular: "幻灯片"

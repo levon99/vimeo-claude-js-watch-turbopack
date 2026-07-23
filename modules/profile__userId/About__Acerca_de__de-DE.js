@@ -1852,7 +1852,7 @@
           singular: "Não, obrigado"
         },
         "zh-CN": {
-          singular: "不了，谢谢"
+          singular: "不用，谢谢"
         }
       }
     }),

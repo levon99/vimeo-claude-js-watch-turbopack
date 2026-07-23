@@ -1152,6 +1152,8 @@
         onClose: _v22,
         children: [(0, _v6.jsx)(_v41.ModalOverlay, {}), (0, _v6.jsxs)(_v42.ModalContent, {
           borderRadius: (0, _v47.rem)(8),
+          width: "fit-content",
+          maxWidth: "90vw",
           children: [(0, _v6.jsx)(_v127.ModalHeader, {
             children: (0, _v6.jsx)(_v43.Header, {
               fontWeight: "bold",
@@ -1175,7 +1177,9 @@
               onVideoDeviceChanged: _v13.setVideoDevice,
               onPlaybackDeviceChanged: _v13.setPlaybackDevice,
               onToggleVideoBlur: _v13.toggleVideoBlur,
-              isBlurAllowed: !!_v14
+              onSelectBackgroundImage: _v13.setVideoBackgroundImage,
+              onClearBackground: _v13.clearVideoBackground,
+              isBackgroundEffectAllowed: !!_v14
             })
           })]
         })]

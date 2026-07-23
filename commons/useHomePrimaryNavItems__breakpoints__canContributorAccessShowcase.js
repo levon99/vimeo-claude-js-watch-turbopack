@@ -53,11 +53,12 @@
     _v50 = _v0.i(0),
     _v51 = _v0.i(0),
     _v52 = _v0.i(0),
-    _v53 = _v0.i(0);
+    _v53 = _v0.i(0),
+    _v54 = _v0.i(0);
   _v0.s(["useHomePrimaryNavItems", 0, () => {
     let {
         setIsSideNavOpen: _v0
-      } = (0, _v3.useContext)(_v48.VideoLibraryLayoutContext),
+      } = (0, _v3.useContext)(_v49.VideoLibraryLayoutContext),
       [_v1] = (0, _v6.useToken)("breakpoints", ["lg"]),
       [_v2] = (0, _v5.useMediaQuery)([`(max-width: ${_v1})`]),
       _v3 = (0, _v2.useRouter)(),
@@ -75,7 +76,7 @@
         starredItemsData: _v10,
         isLoading: _v11,
         starredListError: _v12
-      } = (0, _v53.useStarredItemDataContext)(),
+      } = (0, _v54.useStarredItemDataContext)(),
       _v13 = !_v11 && !_v12 && _v10.length > 0,
       {
         capabilities: _v14,
@@ -181,25 +182,28 @@
       _v28 = !!_v26?.data?.length,
       {
         data: _v29,
-        isLoading: _v30
+        isLoading: _v30,
+        mutate: _v31
       } = (0, _v34.useGetMePreferences)({
-        select: ["rdtim"]
+        select: ["rdtim", "spdot"]
       }),
+      [_v32] = (0, _v34.usePatchMePreferences)(),
+      _v33 = (0, _v47.useIsNewSidebarUser)(),
       {
-        maximizeVideoFileTransferAdoption: _v31,
-        maximizeReviewAdoption: _v32
+        maximizeVideoFileTransferAdoption: _v34,
+        maximizeReviewAdoption: _v35
       } = (0, _v39.useAdoptionSettings)(),
       {
-        openReviewModal: _v33
-      } = (0, _v49.useReviewModal)(),
+        openReviewModal: _v36
+      } = (0, _v50.useReviewModal)(),
       {
-        openTransferFileModal: _v34
-      } = (0, _v50.useTransferFileModal)(),
+        openTransferFileModal: _v37
+      } = (0, _v51.useTransferFileModal)(),
       {
-        trackTransferEntryPointClicked: _v35
+        trackTransferEntryPointClicked: _v38
       } = (0, _v42.useFileTransferAdoptionTracking)(),
       {
-        trackReviewEntryPointClicked: _v36
+        trackReviewEntryPointClicked: _v39
       } = (0, _v43.useMaximizeReviewAdoptionTracking)();
     return {
       appSections: (0, _v3.useMemo)(() => {
@@ -259,14 +263,14 @@
                 }
               }
             }),
-            icon: (_v0 = _v51.Path.Home, _v3.pathname === _v0) ? (0, _v1.jsx)(_v16.HomeFilled, {}) : (0, _v1.jsx)(_v15.Home, {}),
-            href: _v51.Path.Home,
-            active: (_v1 = _v51.Path.Home, _v3.pathname === _v1),
+            icon: (_v0 = _v52.Path.Home, _v3.pathname === _v0) ? (0, _v1.jsx)(_v16.HomeFilled, {}) : (0, _v1.jsx)(_v15.Home, {}),
+            href: _v52.Path.Home,
+            active: (_v1 = _v52.Path.Home, _v3.pathname === _v1),
             onClick: () => {
               _v16("home"), _v15();
             }
           },
-          _v21 = null != _v21 && (_v2 = _v51.Path.MVV, _v3.pathname === _v2) && "true" === _v3.query.isPrivate,
+          _v21 = null != _v21 && (_v2 = _v52.Path.MVV, _v3.pathname === _v2) && "true" === _v3.query.isPrivate,
           _v22 = _v21 ? {
             key: "my_library",
             label: (0, _v38.translate)({
@@ -296,19 +300,19 @@
               }
             }),
             icon: _v21 ? (0, _v1.jsx)(_v18.MyLibraryFilled, {}) : (0, _v1.jsx)(_v17.MyLibrary, {}),
-            href: (0, _v52.getFolderPageUriFromApiUri)(_v21.uri),
+            href: (0, _v53.getFolderPageUriFromApiUri)(_v21.uri),
             prefetch: !1,
             active: _v21,
             onClick: () => {
               _v16("my_library"), _v15();
             }
           } : null,
-          _v23 = (_v3 = _v51.Path.TeamLibrary, _v3.pathname === _v3 || (_v4 = _v51.Path.MVV, _v3.pathname === _v4 && !_v21)),
+          _v23 = (_v3 = _v52.Path.TeamLibrary, _v3.pathname === _v3 || (_v4 = _v52.Path.MVV, _v3.pathname === _v4 && !_v21)),
           _v24 = {
             key: "library",
             label: _v20,
             icon: _v23 ? _v19 ? (0, _v1.jsx)(_v24.TeamLibraryFilled, {}) : (0, _v1.jsx)(_v30.VideosStackFilled, {}) : _v19 ? (0, _v1.jsx)(_v23.TeamLibrary, {}) : (0, _v1.jsx)(_v29.VideosStack, {}),
-            href: `${_v51.Path.TeamLibrary}?library_referrer=sidebar`,
+            href: `${_v52.Path.TeamLibrary}?library_referrer=sidebar`,
             active: _v23,
             dataId: "home_side_nav_libary_menu_item",
             onClick: () => {
@@ -343,10 +347,10 @@
                 }
               }
             }),
-            icon: (_v5 = _v51.Path.SharedWithMe, _v3.pathname === _v5) ? (0, _v1.jsx)(_v28.UsersFilled, {}) : (0, _v1.jsx)(_v27.Users, {}),
-            href: _v51.Path.SharedWithMe,
+            icon: (_v5 = _v52.Path.SharedWithMe, _v3.pathname === _v5) ? (0, _v1.jsx)(_v28.UsersFilled, {}) : (0, _v1.jsx)(_v27.Users, {}),
+            href: _v52.Path.SharedWithMe,
             prefetch: !1,
-            active: (_v6 = _v51.Path.SharedWithMe, _v3.pathname === _v6),
+            active: (_v6 = _v52.Path.SharedWithMe, _v3.pathname === _v6),
             dataId: "side_nav_shared_with_me",
             onClick: () => {
               _v16("shared_with_me"), _v15();
@@ -380,10 +384,10 @@
                 }
               }
             }),
-            icon: (_v7 = _v51.Path.LiveEvents, _v3.pathname === _v7) ? (0, _v1.jsx)(_v12.CameraOnFilled, {}) : (0, _v1.jsx)(_v11.CameraOn, {}),
-            href: _v51.Path.LiveEvents,
+            icon: (_v7 = _v52.Path.LiveEvents, _v3.pathname === _v7) ? (0, _v1.jsx)(_v12.CameraOnFilled, {}) : (0, _v1.jsx)(_v11.CameraOn, {}),
+            href: _v52.Path.LiveEvents,
             prefetch: !1,
-            active: (_v8 = _v51.Path.LiveEvents, _v3.pathname === _v8),
+            active: (_v8 = _v52.Path.LiveEvents, _v3.pathname === _v8),
             dataId: "home_side_nav_live_events_menu_item",
             onClick: () => {
               _v16("live_events"), _v15();
@@ -417,10 +421,10 @@
                 }
               }
             }),
-            icon: (_v9 = _v51.Path.EventSeries, _v3.pathname === _v9) ? (0, _v1.jsx)(_v10.BrowserWindowFilled, {}) : (0, _v1.jsx)(_v9.BrowserWindow, {}),
-            href: _v51.Path.EventSeries,
+            icon: (_v9 = _v52.Path.EventSeries, _v3.pathname === _v9) ? (0, _v1.jsx)(_v10.BrowserWindowFilled, {}) : (0, _v1.jsx)(_v9.BrowserWindow, {}),
+            href: _v52.Path.EventSeries,
             prefetch: !1,
-            active: (_v10 = _v51.Path.EventSeries, _v3.pathname === _v10),
+            active: (_v10 = _v52.Path.EventSeries, _v3.pathname === _v10),
             dataId: "home_side_nav_event_series_menu_item",
             onClick: () => {
               _v16("event_series"), _v15();
@@ -454,10 +458,10 @@
                 }
               }
             }),
-            icon: (_v11 = _v51.Path.Showcases, _v3.pathname === _v11) ? (0, _v1.jsx)(_v22._3GridTopLayoutFilled, {}) : (0, _v1.jsx)(_v21._3GridTopLayout, {}),
-            href: _v51.Path.Showcases,
+            icon: (_v11 = _v52.Path.Showcases, _v3.pathname === _v11) ? (0, _v1.jsx)(_v22._3GridTopLayoutFilled, {}) : (0, _v1.jsx)(_v21._3GridTopLayout, {}),
+            href: _v52.Path.Showcases,
             prefetch: !1,
-            active: (_v12 = _v51.Path.Showcases, _v3.pathname === _v12),
+            active: (_v12 = _v52.Path.Showcases, _v3.pathname === _v12),
             onClick: () => {
               _v16("showcases"), _v15();
             }
@@ -507,7 +511,7 @@
             }),
             onClick: _v29
           } : null,
-          _v31 = _v3.pathname.startsWith(_v51.Path.Analytics),
+          _v31 = _v3.pathname.startsWith(_v52.Path.Analytics),
           _v32 = [_v26, _v27, _v28, _v30, _v18 ? null : {
             key: "analytics",
             label: (0, _v38.translate)({
@@ -538,12 +542,12 @@
             }),
             icon: _v31 ? (0, _v1.jsx)(_v8.AnalyticsFilled, {}) : (0, _v1.jsx)(_v7.Analytics, {}),
             active: _v31,
-            href: `${_v51.Path.Analytics}?ref=sidebar`,
+            href: `${_v52.Path.Analytics}?ref=sidebar`,
             prefetch: !1,
             onClick: () => {
               _v16("analytics"), _v15();
             }
-          }, !_v18 && _v8 && _v31 ? {
+          }, !_v18 && _v8 && _v34 ? {
             key: "transfer",
             label: (0, _v38.translate)({
               singular: "Transfer file",
@@ -574,11 +578,11 @@
             icon: (0, _v1.jsx)(_v14.FileUpload, {}),
             action: (0, _v1.jsx)(_v45.NewBadge, {}),
             onClick: () => {
-              _v35({
+              _v38({
                 entryPoint: "side_bar"
-              }), _v34("side_bar"), _v15();
+              }), _v37("side_bar"), _v15();
             }
-          } : null, !_v18 && _v8 && _v32 ? {
+          } : null, !_v18 && _v8 && _v35 ? {
             key: "review",
             label: (0, _v38.translate)({
               singular: "Review",
@@ -609,9 +613,9 @@
             icon: (0, _v1.jsx)(_v13.Chats, {}),
             action: (0, _v1.jsx)(_v45.NewBadge, {}),
             onClick: () => {
-              _v36({
+              _v39({
                 entryPoint: "side_bar"
-              }), _v33("side_bar"), _v15();
+              }), _v36("side_bar"), _v15();
             }
           } : null, _v5.has_recently_deleted && (!_v4?.user?.capabilities.hasEnterprise || !_v4?.teamUser || _v4.teamUser.permissionLevel <= 2) ? {
             key: "recently_deleted",
@@ -641,29 +645,43 @@
                 }
               }
             }),
-            icon: (_v13 = _v51.Path.RecentlyDeleted, _v3.pathname === _v13) ? (0, _v1.jsx)(_v26.TrashBinFilled, {}) : (0, _v1.jsx)(_v25.TrashBin, {}),
-            href: _v51.Path.RecentlyDeleted,
+            icon: (_v13 = _v52.Path.RecentlyDeleted, _v3.pathname === _v13) ? (0, _v1.jsx)(_v26.TrashBinFilled, {}) : (0, _v1.jsx)(_v25.TrashBin, {}),
+            href: _v52.Path.RecentlyDeleted,
             prefetch: !1,
-            active: (_v14 = _v51.Path.RecentlyDeleted, _v3.pathname === _v14),
+            active: (_v14 = _v52.Path.RecentlyDeleted, _v3.pathname === _v14),
             action: void 0 === _v29 || _v29.rdtim ? void 0 : (0, _v1.jsx)(_v31.NewFeatureDot, {}),
             onClick: () => {
               _v16("recently_deleted"), _v15();
             }
           } : null].filter(Boolean),
-          _v33 = _v19 ? (0, _v47.getWatchSectionItems)().map(_v0 => ({
-            key: _v0.key,
-            label: _v0.label,
-            icon: _v0.isActive(_v3.pathname) ? _v0.iconActive : _v0.icon,
-            href: _v0.href,
-            prefetch: !1,
-            active: _v0.isActive(_v3.pathname),
-            onClick: () => {
-              _v16(_v0.destination), _v15();
-            }
-          })) : [],
+          _v33 = _v19 ? (0, _v48.getWatchSectionItems)().map(_v0 => {
+            let _v1 = "staff_picks" === _v0.key && void 0 !== _v29 && !_v29.spdot && !_v33;
+            return {
+              key: _v0.key,
+              label: _v0.label,
+              icon: _v0.isActive(_v3.pathname) ? _v0.iconActive : _v0.icon,
+              href: _v0.href,
+              prefetch: !1,
+              active: _v0.isActive(_v3.pathname),
+              action: _v1 ? (0, _v1.jsx)(_v31.NewFeatureDot, {}) : void 0,
+              onClick: () => {
+                _v16(_v0.destination), _v15(), _v1 && (_v31({
+                  ..._v29,
+                  spdot: !0
+                }, {
+                  revalidate: !1
+                }), _v32({
+                  select: ["spdot"],
+                  variables: {
+                    spdot: 1
+                  }
+                }));
+              }
+            };
+          }) : [],
           _v34 = _v19 ? [_v24, ...(_v22 ? [_v22] : []), ...(_v25 ? [_v25] : [])] : [_v24, ...(_v25 ? [_v25] : []), ..._v32];
         return [_v33.length > 0 ? [_v20, ..._v33] : [_v20, ..._v34], ...(_v33.length > 0 ? [_v34] : []), ...(_v19 ? [_v32] : [])].filter(_v0 => _v0.length > 0);
-      }, [_v2, _v0, _v3, _v9, _v4, _v18, _v8, _v17, _v16, _v14, _v21, _v19, _v20, _v5, _v6, _v25, _v28, _v31, _v32, _v33, _v34, _v35, _v36, _v29]),
+      }, [_v2, _v0, _v3, _v9, _v4, _v18, _v8, _v17, _v16, _v14, _v21, _v19, _v20, _v5, _v6, _v25, _v28, _v34, _v35, _v36, _v37, _v38, _v39, _v29, _v31, _v32, _v33]),
       hasStarredItems: _v13,
       isInitialLoading: _v15 || _v17 || _v22 || _v24 || _v30 || _v27
     };

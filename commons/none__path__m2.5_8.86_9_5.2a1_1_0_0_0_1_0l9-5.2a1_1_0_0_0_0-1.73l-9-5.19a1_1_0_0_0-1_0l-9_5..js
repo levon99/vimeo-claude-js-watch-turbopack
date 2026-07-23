@@ -16,8 +16,9 @@
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
-    _v16 = _v0.i(0);
-  let _v17 = _v0 => (0, _v1.jsx)(_v16.Icon, {
+    _v16 = _v0.i(0),
+    _v17 = _v0.i(0);
+  let _v18 = _v0 => (0, _v1.jsx)(_v17.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -26,9 +27,9 @@
       fill: "currentColor"
     })
   });
-  var _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
-  let _v20 = _v0 => (0, _v1.jsx)(_v16.Icon, {
+  var _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
+  let _v21 = _v0 => (0, _v1.jsx)(_v17.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -37,8 +38,8 @@
       fill: "currentColor"
     })
   });
-  _v0.s(["Compass", 0, _v20], 0);
-  let _v21 = _v0 => (0, _v1.jsx)(_v16.Icon, {
+  _v0.s(["Compass", 0, _v21], 0);
+  let _v22 = _v0 => (0, _v1.jsx)(_v17.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -47,7 +48,7 @@
         fill: "currentColor"
       })
     }),
-    _v22 = _v0 => (0, _v1.jsx)(_v16.Icon, {
+    _v23 = _v0 => (0, _v1.jsx)(_v17.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -62,8 +63,8 @@
         })]
       })
     });
-  _v0.s(["Feed", 0, _v22], 0);
-  let _v23 = _v0 => (0, _v1.jsx)(_v16.Icon, {
+  _v0.s(["Feed", 0, _v23], 0);
+  let _v24 = _v0 => (0, _v1.jsx)(_v17.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -78,8 +79,7 @@
       })]
     })
   });
-  var _v24 = _v0.i(0),
-    _v25 = _v0.i(0),
+  var _v25 = _v0.i(0),
     _v26 = _v0.i(0),
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
@@ -97,8 +97,10 @@
     _v40 = _v0.i(0),
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
-    _v43 = _v0.i(0);
-  let _v44 = ({
+    _v43 = _v0.i(0),
+    _v44 = _v0.i(0),
+    _v45 = _v0.i(0);
+  let _v46 = ({
       target: _v0,
       targetPath: _v1,
       copy: _v2
@@ -113,11 +115,11 @@
           _v5 = "watch";
       }
       let _v6 = {
-        ...(0, _v38.buildActionBpContext)({
+        ...(0, _v40.buildActionBpContext)({
           action_type: "click",
           feature: null
         }),
-        ...(0, _v41.buildWebBpContext)({
+        ...(0, _v43.buildWebBpContext)({
           page_name: _v5 ?? "other",
           referrer_page_name: null,
           referrer: document.referrer,
@@ -125,7 +127,7 @@
           target: _v0,
           target_path: _v1
         }),
-        ...(0, _v39.buildProductAnalyticsBpContext)({
+        ...(0, _v41.buildProductAnalyticsBpContext)({
           flow: null,
           modal_name: null,
           entity_type: null,
@@ -134,10 +136,10 @@
           feature: _v5 ?? "test",
           product: "community",
           copy: _v2,
-          device_type: (0, _v37.default)()
+          device_type: (0, _v39.default)()
         }),
-        ...(0, _v40.buildTeamBpContextFromTeamUser)(_v3),
-        ...(0, _v43.buildThirdPartyIntegrationBpContext)({
+        ...(0, _v42.buildTeamBpContextFromTeamUser)(_v3),
+        ...(0, _v45.buildThirdPartyIntegrationBpContext)({
           is_integration: !1,
           integration_id: null,
           integration_name: null,
@@ -148,18 +150,18 @@
           is_partner: null
         })
       };
-      (0, _v42.sendBpEventWithContexts)("vimeo.content_navigation", _v6);
+      (0, _v44.sendBpEventWithContexts)("vimeo.content_navigation", _v6);
     },
-    _v45 = {
-      iconSize: (0, _v15.rem)(24),
-      iconMarginRight: (0, _v15.rem)(12),
-      borderRadius: (0, _v15.rem)(12),
-      paddingX: (0, _v15.rem)(8),
-      paddingLeft: (0, _v15.rem)(6)
+    _v47 = {
+      iconSize: (0, _v16.rem)(24),
+      iconMarginRight: (0, _v16.rem)(12),
+      borderRadius: (0, _v16.rem)(12),
+      paddingX: (0, _v16.rem)(8),
+      paddingLeft: (0, _v16.rem)(6)
     },
-    _v46 = _v0 => [{
-      icon: (0, _v1.jsx)(_v17, {}),
-      label: (0, _v32.translate)({
+    _v48 = _v0 => [{
+      icon: (0, _v1.jsx)(_v18, {}),
+      label: (0, _v33.translate)({
         singular: "Collections",
         dictionary: {
           es: {
@@ -185,8 +187,8 @@
       link: `/user${_v0}/collections`,
       target: "collections"
     }, {
-      icon: (0, _v1.jsx)(_v19.Clock, {}),
-      label: (0, _v32.translate)({
+      icon: (0, _v1.jsx)(_v20.Clock, {}),
+      label: (0, _v33.translate)({
         singular: "Watch later",
         dictionary: {
           es: {
@@ -215,8 +217,8 @@
       link: "/watchlater",
       target: "watch_later"
     }, {
-      icon: (0, _v1.jsx)(_v26.Heart, {}),
-      label: (0, _v32.translate)({
+      icon: (0, _v1.jsx)(_v27.Heart, {}),
+      label: (0, _v33.translate)({
         singular: "Liked videos",
         dictionary: {
           es: {
@@ -245,9 +247,9 @@
       link: `/user${_v0}/likes`,
       target: "liked_videos"
     }],
-    _v47 = () => [{
-      icon: (0, _v1.jsx)(_v31.TvRetro, {}),
-      label: (0, _v32.translate)({
+    _v49 = () => [{
+      icon: (0, _v1.jsx)(_v32.TvRetro, {}),
+      label: (0, _v33.translate)({
         singular: "Channels",
         dictionary: {
           es: {
@@ -276,8 +278,8 @@
       link: "/channels",
       target: "channels"
     }, {
-      icon: (0, _v1.jsx)(_v24.GridView, {}),
-      label: (0, _v32.translate)({
+      icon: (0, _v1.jsx)(_v25.GridView, {}),
+      label: (0, _v33.translate)({
         singular: "Categories",
         dictionary: {
           es: {
@@ -306,8 +308,8 @@
       link: "/categories",
       target: "categories"
     }, {
-      icon: (0, _v1.jsx)(_v25.Groups, {}),
-      label: (0, _v32.translate)({
+      icon: (0, _v1.jsx)(_v26.Groups, {}),
+      label: (0, _v33.translate)({
         singular: "Groups",
         dictionary: {
           es: {
@@ -336,8 +338,8 @@
       link: "/groups",
       target: "groups"
     }, {
-      icon: (0, _v1.jsx)(_v27.OnDemand, {}),
-      label: (0, _v32.translate)({
+      icon: (0, _v1.jsx)(_v28.OnDemand, {}),
+      label: (0, _v33.translate)({
         singular: "On Demand",
         dictionary: {
           "ja-JP": {
@@ -351,18 +353,18 @@
       link: "/ondemand",
       target: "on_demand"
     }],
-    _v48 = ({
+    _v50 = ({
       userId: _v0,
       navContext: _v1
     }) => {
       let {
           pathname: _v2
-        } = (0, _v13.useRouter)(),
+        } = (0, _v14.useRouter)(),
         _v3 = _v2.substring(_v2.lastIndexOf("/") + 1),
         _v4 = (0, _v9.useViewer)(),
         {
           trackSidebarNavClicked: _v5
-        } = (0, _v33.useWatchTracking)();
+        } = (0, _v34.useWatchTracking)();
       return (0, _v1.jsxs)(_v3.Box, {
         style: {
           flexGrow: 1,
@@ -373,9 +375,9 @@
           children: (0, _v1.jsx)(_v3.Box, {
             as: "li",
             listStyleType: "none",
-            children: (0, _v1.jsx)(_v34.MenuItem, {
-              icon: (0, _v1.jsx)(_v18.ArrowLeft, {}),
-              label: (0, _v32.translate)({
+            children: (0, _v1.jsx)(_v35.MenuItem, {
+              icon: (0, _v1.jsx)(_v19.ArrowLeft, {}),
+              label: (0, _v33.translate)({
                 singular: "Back to home",
                 dictionary: {
                   es: {
@@ -405,7 +407,7 @@
               dataId: "manage_team_side_nav_home_menu_item",
               href: "/",
               onClick: () => {
-                _v44({
+                _v46({
                   target: "home",
                   targetPath: "/",
                   copy: "Back to home"
@@ -418,9 +420,9 @@
             children: [(0, _v1.jsx)(_v3.Box, {
               as: "li",
               listStyleType: "none",
-              children: (0, _v1.jsx)(_v34.MenuItem, {
-                icon: (0, _v1.jsx)(_v22, {}),
-                label: (0, _v32.translate)({
+              children: (0, _v1.jsx)(_v35.MenuItem, {
+                icon: (0, _v1.jsx)(_v23, {}),
+                label: (0, _v33.translate)({
                   singular: "Feed",
                   dictionary: {
                     es: {
@@ -440,7 +442,7 @@
                 active: "my-feed" === _v3,
                 href: "/my-feed",
                 onClick: () => {
-                  _v44({
+                  _v46({
                     target: "my_feed",
                     targetPath: "/my-feed",
                     copy: "Feed"
@@ -453,9 +455,9 @@
             }, "feed"), (0, _v1.jsx)(_v3.Box, {
               as: "li",
               listStyleType: "none",
-              children: (0, _v1.jsx)(_v34.MenuItem, {
-                icon: (0, _v1.jsx)(_v20, {}),
-                label: (0, _v32.translate)({
+              children: (0, _v1.jsx)(_v35.MenuItem, {
+                icon: (0, _v1.jsx)(_v21, {}),
+                label: (0, _v33.translate)({
                   singular: "Explore",
                   dictionary: {
                     es: {
@@ -481,7 +483,7 @@
                 active: "watch" === _v3,
                 href: "/watch",
                 onClick: () => {
-                  _v44({
+                  _v46({
                     target: "watch",
                     targetPath: "/watch",
                     copy: "Explore"
@@ -491,9 +493,9 @@
                   });
                 }
               })
-            }, "watch"), (0, _v1.jsx)(_v34.MenuItem, {
-              icon: (0, _v1.jsx)(_v29.StaffPicks, {}),
-              label: (0, _v32.translate)({
+            }, "watch"), (0, _v1.jsx)(_v35.MenuItem, {
+              icon: (0, _v1.jsx)(_v30.StaffPicks, {}),
+              label: (0, _v33.translate)({
                 singular: "Staff Picks",
                 dictionary: {
                   es: {
@@ -522,7 +524,7 @@
               active: "staffpicks" === _v3,
               href: "/channels/staffpicks",
               onClick: () => {
-                _v44({
+                _v46({
                   target: "staff_picks",
                   targetPath: "/staffpicks",
                   copy: "Staff Picks"
@@ -536,12 +538,12 @@
         }), (0, _v1.jsx)(_v5.ResizableSideNav.Divider, {}), !!_v0 && (0, _v1.jsxs)(_v1.Fragment, {
           children: [(0, _v1.jsx)(_v5.ResizableSideNav.Section, {
             children: (0, _v1.jsx)(_v5.ResizableSideNav.MenuItems, {
-              children: _v46(_v0).map(({
+              children: _v48(_v0).map(({
                 icon: _v0,
                 label: _v1,
                 link: _v2,
                 target: _v3
-              }) => (0, _v1.jsx)(_v49, {
+              }) => (0, _v1.jsx)(_v51, {
                 icon: _v0,
                 label: _v1,
                 link: _v2,
@@ -552,12 +554,12 @@
           }), (0, _v1.jsx)(_v5.ResizableSideNav.Divider, {})]
         }), (0, _v1.jsx)(_v5.ResizableSideNav.Section, {
           children: (0, _v1.jsx)(_v5.ResizableSideNav.MenuItems, {
-            children: _v47().map(({
+            children: _v49().map(({
               icon: _v0,
               label: _v1,
               link: _v2,
               target: _v3
-            }) => (0, _v1.jsx)(_v49, {
+            }) => (0, _v1.jsx)(_v51, {
               icon: _v0,
               label: _v1,
               link: _v2,
@@ -568,7 +570,7 @@
         })]
       });
     },
-    _v49 = ({
+    _v51 = ({
       icon: _v0,
       label: _v1,
       link: _v2,
@@ -579,10 +581,10 @@
       let _v6 = (0, _v9.useViewer)(),
         {
           trackSidebarNavClicked: _v7
-        } = (0, _v33.useWatchTracking)(),
+        } = (0, _v34.useWatchTracking)(),
         _v8 = _v2.slice(1) + "_link",
         _v9 = _v0 => {
-          _v0?.preventDefault(), window.open(_v2, "_blank", "noopener,noreferrer"), document.getElementsByClassName(_v8)[0].blur(), _v44({
+          _v0?.preventDefault(), window.open(_v2, "_blank", "noopener,noreferrer"), document.getElementsByClassName(_v8)[0].blur(), _v46({
             target: _v3,
             targetPath: _v2,
             copy: _v3.split("_").join(" ")
@@ -598,14 +600,14 @@
         onKeyDown: _v0 => {
           "Enter" === _v0.key && _v9(_v0);
         },
-        children: (0, _v1.jsx)(_v34.MenuItem, {
-          ...(_v5 ? _v45 : {}),
+        children: (0, _v1.jsx)(_v35.MenuItem, {
+          ...(_v5 ? _v47 : {}),
           className: _v8,
           icon: _v0,
           label: _v1,
           href: _v2,
           onClick: _v9,
-          action: (0, _v1.jsx)(_v28.PopOut, {
+          action: (0, _v1.jsx)(_v29.PopOut, {
             boxSize: "2xs",
             onClick: _v9
           }),
@@ -613,22 +615,22 @@
         })
       });
     },
-    _v50 = () => {
-      let _v0 = (0, _v14.useColorModeValue)("darkBlueAlpha.200", "stroke");
+    _v52 = () => {
+      let _v0 = (0, _v15.useColorModeValue)("darkBlueAlpha.200", "stroke");
       return (0, _v1.jsx)(_v3.Box, {
-        width: (0, _v15.rem)(40),
+        width: (0, _v16.rem)(40),
         height: "1px",
         bg: _v0,
-        marginY: (0, _v15.rem)(8)
+        marginY: (0, _v16.rem)(8)
       });
     },
-    _v51 = ({
+    _v53 = ({
       icon: _v0,
       label: _v1,
       href: _v2,
       active: _v3 = !1,
       onClick: _v4
-    }) => (0, _v1.jsx)(_v35.PrimaryNavItem, {
+    }) => (0, _v1.jsx)(_v37.PrimaryNavItem, {
       variant: "icons",
       item: {
         key: _v2,
@@ -639,22 +641,25 @@
         onClick: _v4
       }
     }),
-    _v52 = ({
+    _v54 = ({
       userId: _v0,
       navContext: _v1
     }) => {
       let {
           pathname: _v2
-        } = (0, _v13.useRouter)(),
+        } = (0, _v14.useRouter)(),
         _v3 = _v2.substring(_v2.lastIndexOf("/") + 1),
         _v4 = (0, _v9.useViewer)(),
         {
           trackSidebarNavClicked: _v5
-        } = (0, _v33.useWatchTracking)(),
-        _v6 = (0, _v36.useSideNavCollapsed)(),
-        _v7 = [{
+        } = (0, _v34.useWatchTracking)(),
+        _v6 = (0, _v38.useSideNavCollapsed)(),
+        {
+          active: _v7
+        } = (0, _v10.useNewSidebarIntroContext)(),
+        _v8 = [{
           key: "explore",
-          label: (0, _v32.translate)({
+          label: (0, _v33.translate)({
             singular: "Explore",
             dictionary: {
               es: {
@@ -678,8 +683,8 @@
             }
           }),
           href: "/watch",
-          icon: (0, _v1.jsx)(_v20, {}),
-          iconActive: (0, _v1.jsx)(_v21, {}),
+          icon: (0, _v1.jsx)(_v21, {}),
+          iconActive: (0, _v1.jsx)(_v22, {}),
           target: "watch",
           targetPath: "/watch",
           copy: "Explore",
@@ -687,7 +692,7 @@
           active: "watch" === _v3
         }, {
           key: "staff_picks",
-          label: (0, _v32.translate)({
+          label: (0, _v33.translate)({
             singular: "Staff Picks",
             dictionary: {
               es: {
@@ -714,8 +719,8 @@
             }
           }),
           href: "/channels/staffpicks",
-          icon: (0, _v1.jsx)(_v29.StaffPicks, {}),
-          iconActive: (0, _v1.jsx)(_v30.StaffPicksFilled, {}),
+          icon: (0, _v1.jsx)(_v30.StaffPicks, {}),
+          iconActive: (0, _v1.jsx)(_v31.StaffPicksFilled, {}),
           target: "staff_picks",
           targetPath: "/staffpicks",
           copy: "Staff Picks",
@@ -723,7 +728,7 @@
           active: "staffpicks" === _v3
         }, {
           key: "feed",
-          label: (0, _v32.translate)({
+          label: (0, _v33.translate)({
             singular: "Feed",
             dictionary: {
               es: {
@@ -741,23 +746,23 @@
             }
           }),
           href: "/my-feed",
-          icon: (0, _v1.jsx)(_v22, {}),
-          iconActive: (0, _v1.jsx)(_v23, {}),
+          icon: (0, _v1.jsx)(_v23, {}),
+          iconActive: (0, _v1.jsx)(_v24, {}),
           target: "my_feed",
           targetPath: "/my-feed",
           copy: "Feed",
           destination: "my_feed",
           active: "my-feed" === _v3
         }],
-        _v8 = () => {
-          _v44({
+        _v9 = () => {
+          _v46({
             target: "home",
             targetPath: "/",
             copy: "Back to home"
           }, _v4?.teamUser);
         },
-        _v9 = (_v0, _v1) => _v0 => {
-          _v0?.preventDefault(), window.open(_v0, "_blank", "noopener,noreferrer"), _v44({
+        _v10 = (_v0, _v1) => _v0 => {
+          _v0?.preventDefault(), window.open(_v0, "_blank", "noopener,noreferrer"), _v46({
             target: _v1,
             targetPath: _v0,
             copy: _v1.split("_").join(" ")
@@ -769,12 +774,12 @@
         };
       return _v6 ? (0, _v1.jsxs)(_v4.Flex, {
         flexDirection: "column",
-        gap: (0, _v15.rem)(2),
+        gap: (0, _v16.rem)(2),
         alignItems: "center",
-        paddingBottom: (0, _v15.rem)(8),
-        children: [(0, _v1.jsx)(_v51, {
-          icon: (0, _v1.jsx)(_v18.ArrowLeft, {}),
-          label: (0, _v32.translate)({
+        paddingBottom: (0, _v16.rem)(8),
+        children: [(0, _v1.jsx)(_v53, {
+          icon: (0, _v1.jsx)(_v19.ArrowLeft, {}),
+          label: (0, _v33.translate)({
             singular: "Back to home",
             dictionary: {
               es: {
@@ -801,14 +806,14 @@
             }
           }),
           href: "/",
-          onClick: _v8
-        }), (0, _v1.jsx)(_v50, {}), _v7.map(_v0 => (0, _v1.jsx)(_v51, {
+          onClick: _v9
+        }), (0, _v1.jsx)(_v52, {}), _v8.map(_v0 => (0, _v1.jsx)(_v53, {
           icon: _v0.active ? _v0.iconActive : _v0.icon,
           label: _v0.label,
           href: _v0.href,
           active: _v0.active,
           onClick: () => {
-            _v44({
+            _v46({
               target: _v0.target,
               targetPath: _v0.targetPath,
               copy: _v0.copy
@@ -818,28 +823,28 @@
               version: "2"
             });
           }
-        }, _v0.key)), (0, _v1.jsx)(_v50, {}), !!_v0 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [_v46(_v0).map(({
+        }, _v0.key)), (0, _v1.jsx)(_v52, {}), !!_v0 && (0, _v1.jsxs)(_v1.Fragment, {
+          children: [_v48(_v0).map(({
             icon: _v0,
             label: _v1,
             link: _v2,
             target: _v3
-          }) => (0, _v1.jsx)(_v51, {
+          }) => (0, _v1.jsx)(_v53, {
             icon: _v0,
             label: _v1,
             href: _v2,
-            onClick: _v9(_v2, _v3)
-          }, _v1)), (0, _v1.jsx)(_v50, {})]
-        }), _v47().map(({
+            onClick: _v10(_v2, _v3)
+          }, _v1)), (0, _v1.jsx)(_v52, {})]
+        }), _v49().map(({
           icon: _v0,
           label: _v1,
           link: _v2,
           target: _v3
-        }) => (0, _v1.jsx)(_v51, {
+        }) => (0, _v1.jsx)(_v53, {
           icon: _v0,
           label: _v1,
           href: _v2,
-          onClick: _v9(_v2, _v3)
+          onClick: _v10(_v2, _v3)
         }, _v1))]
       }) : (0, _v1.jsx)(_v3.Box, {
         style: {
@@ -849,18 +854,18 @@
         },
         children: (0, _v1.jsxs)(_v4.Flex, {
           flexDirection: "column",
-          gap: (0, _v15.rem)(2),
+          gap: (0, _v16.rem)(2),
           children: [(0, _v1.jsx)(_v5.ResizableSideNav.MenuItems, {
             customStyles: {
-              gap: (0, _v15.rem)(2)
+              gap: (0, _v16.rem)(2)
             },
             children: (0, _v1.jsx)(_v3.Box, {
               as: "li",
               listStyleType: "none",
-              children: (0, _v1.jsx)(_v34.MenuItem, {
-                ..._v45,
-                icon: (0, _v1.jsx)(_v18.ArrowLeft, {}),
-                label: (0, _v32.translate)({
+              children: (0, _v1.jsx)(_v35.MenuItem, {
+                ..._v47,
+                icon: (0, _v1.jsx)(_v19.ArrowLeft, {}),
+                label: (0, _v33.translate)({
                   singular: "Back to home",
                   dictionary: {
                     es: {
@@ -889,26 +894,24 @@
                 active: !1,
                 dataId: "manage_team_side_nav_home_menu_item",
                 href: "/",
-                onClick: _v8
+                onClick: _v9
               })
             })
           }), (0, _v1.jsx)(_v5.ResizableSideNav.Divider, {
-            my: (0, _v15.rem)(8)
+            my: (0, _v16.rem)(8)
           }), (0, _v1.jsx)(_v5.ResizableSideNav.MenuItems, {
             customStyles: {
-              gap: (0, _v15.rem)(2)
+              gap: (0, _v16.rem)(2)
             },
-            children: _v7.map(_v0 => (0, _v1.jsx)(_v3.Box, {
-              as: "li",
-              listStyleType: "none",
-              children: (0, _v1.jsx)(_v34.MenuItem, {
-                ..._v45,
+            children: _v8.map(_v0 => {
+              let _v1 = (0, _v1.jsx)(_v35.MenuItem, {
+                ..._v47,
                 icon: _v0.active ? _v0.iconActive : _v0.icon,
                 label: _v0.label,
                 active: _v0.active,
                 href: _v0.href,
                 onClick: () => {
-                  _v44({
+                  _v46({
                     target: _v0.target,
                     targetPath: _v0.targetPath,
                     copy: _v0.copy
@@ -918,21 +921,28 @@
                     version: "2"
                   });
                 }
-              })
-            }, _v0.key))
+              });
+              return (0, _v1.jsx)(_v3.Box, {
+                as: "li",
+                listStyleType: "none",
+                children: _v7 && _v0.active ? (0, _v1.jsx)(_v36.NewSidebarIntroPopover, {
+                  children: _v1
+                }) : _v1
+              }, _v0.key);
+            })
           }), (0, _v1.jsx)(_v5.ResizableSideNav.Divider, {
-            my: (0, _v15.rem)(8)
+            my: (0, _v16.rem)(8)
           }), !!_v0 && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v5.ResizableSideNav.MenuItems, {
               customStyles: {
-                gap: (0, _v15.rem)(2)
+                gap: (0, _v16.rem)(2)
               },
-              children: _v46(_v0).map(({
+              children: _v48(_v0).map(({
                 icon: _v0,
                 label: _v1,
                 link: _v2,
                 target: _v3
-              }) => (0, _v1.jsx)(_v49, {
+              }) => (0, _v1.jsx)(_v51, {
                 icon: _v0,
                 label: _v1,
                 link: _v2,
@@ -941,18 +951,18 @@
                 isNewSidebar: !0
               }, _v1))
             }), (0, _v1.jsx)(_v5.ResizableSideNav.Divider, {
-              my: (0, _v15.rem)(8)
+              my: (0, _v16.rem)(8)
             })]
           }), (0, _v1.jsx)(_v5.ResizableSideNav.MenuItems, {
             customStyles: {
-              gap: (0, _v15.rem)(2)
+              gap: (0, _v16.rem)(2)
             },
-            children: _v47().map(({
+            children: _v49().map(({
               icon: _v0,
               label: _v1,
               link: _v2,
               target: _v3
-            }) => (0, _v1.jsx)(_v49, {
+            }) => (0, _v1.jsx)(_v51, {
               icon: _v0,
               label: _v1,
               link: _v2,
@@ -964,9 +974,9 @@
         })
       });
     },
-    _v53 = (0, _v2.createContext)(256);
-  _v0.s(["DEFAULT_INITIAL_WIDTH", 0, 256, "DEFAULT_MAX_WIDTH", 0, 600, "SideNavWidthContext", 0, _v53], 0);
-  let _v54 = ({
+    _v55 = (0, _v2.createContext)(256);
+  _v0.s(["DEFAULT_INITIAL_WIDTH", 0, 256, "DEFAULT_MAX_WIDTH", 0, 600, "SideNavWidthContext", 0, _v55], 0);
+  let _v56 = ({
     children: _v0
   }) => {
     let _v1 = (0, _v9.useViewer)(),
@@ -979,37 +989,44 @@
         collapsed: _v8,
         isNewSidebar: _v9,
         isNewDesktopSidebar: _v10
-      } = (0, _v11.useSideNavSurfaceState)({
+      } = (0, _v12.useSideNavSurfaceState)({
         surface: "watch-feed",
         userId: _v1?.user?.id,
         isMobile: _v2
       }),
-      _v11 = (0, _v12.useTrackSidebarToggled)();
+      _v11 = (0, _v13.useTrackSidebarToggled)(),
+      _v12 = (0, _v2.useMemo)(() => ({
+        active: _v10,
+        anchor: "active"
+      }), [_v10]);
     return (0, _v1.jsxs)(_v4.Flex, {
       width: "100vw",
       height: "100vh",
       overflow: "hidden",
-      children: [(0, _v1.jsx)(_v10.WayfinderSideNav, {
-        isOpen: _v5,
-        collapsed: _v8,
-        onClose: _v6,
-        isMobile: _v2,
-        teamOwnerId: (_v1?.teamUser?.ownerId ?? _v1?.user?.id) || 0,
-        hideWhatsNew: !0,
-        hideQuotaMeter: !1,
-        onResize: _v0 => {
-          _v4(_v0);
-        },
-        dragConstraint: {
-          min: 256,
-          max: 600
-        },
-        children: _v9 ? (0, _v1.jsx)(_v52, {
-          userId: _v1?.user?.id,
-          navContext: "watch_page"
-        }) : (0, _v1.jsx)(_v48, {
-          userId: _v1?.user?.id,
-          navContext: "watch_page"
+      children: [(0, _v1.jsx)(_v10.NewSidebarIntroContext.Provider, {
+        value: _v12,
+        children: (0, _v1.jsx)(_v11.WayfinderSideNav, {
+          isOpen: _v5,
+          collapsed: _v8,
+          onClose: _v6,
+          isMobile: _v2,
+          teamOwnerId: (_v1?.teamUser?.ownerId ?? _v1?.user?.id) || 0,
+          hideWhatsNew: !0,
+          hideQuotaMeter: !1,
+          onResize: _v0 => {
+            _v4(_v0);
+          },
+          dragConstraint: {
+            min: 256,
+            max: 600
+          },
+          children: _v9 ? (0, _v1.jsx)(_v54, {
+            userId: _v1?.user?.id,
+            navContext: "watch_page"
+          }) : (0, _v1.jsx)(_v50, {
+            userId: _v1?.user?.id,
+            navContext: "watch_page"
+          })
         })
       }), (0, _v1.jsxs)(_v4.Flex, {
         flexDirection: "column",
@@ -1022,7 +1039,7 @@
           },
           isSideNavActive: _v5,
           isNewSidebar: _v10
-        }), (0, _v1.jsx)(_v53.Provider, {
+        }), (0, _v1.jsx)(_v55.Provider, {
           value: _v5 ? _v3 : _v8 ? _v5.COLLAPSED_RAIL_WIDTH : 0,
           children: _v0
         }), _v2 && _v5 && (0, _v1.jsx)(_v3.Box, {
@@ -1042,14 +1059,14 @@
       })]
     });
   };
-  _v0.s(["getLayout", 0, _v0 => (0, _v1.jsx)(_v54, {
+  _v0.s(["getLayout", 0, _v0 => (0, _v1.jsx)(_v56, {
     children: _v0
   })], 0);
-  var _v55 = _v0.i(0);
-  let _v56 = (0, _v42.createNullObject)(["object_actor_type", "object_placement", "object_actor_title"]);
+  var _v57 = _v0.i(0);
+  let _v58 = (0, _v44.createNullObject)(["object_actor_type", "object_placement", "object_actor_title"]);
   _v0.s(["buildCommunityBpContext", 0, _v0 => ({
-    community_context: new _v55.EventContext("community_context", 2, {
-      ..._v56,
+    community_context: new _v57.EventContext("community_context", 2, {
+      ..._v58,
       ..._v0
     })
   })], 0);

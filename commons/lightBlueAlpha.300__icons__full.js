@@ -45,18 +45,21 @@
           hasStarredItems: _v3,
           isInitialLoading: _v4
         } = (0, _v14.useHomePrimaryNavItems)(),
-        _v5 = (0, _v2.useCallback)(_v0 => _v1 ? _v0.map(_v0 => (0, _v1.jsx)(_v13.PrimaryNavItem, {
+        _v5 = _v2[0]?.[0]?.key,
+        _v6 = (0, _v2.useCallback)(_v0 => _v1 ? _v0.map(_v0 => (0, _v1.jsx)(_v13.PrimaryNavItem, {
           item: _v0,
-          variant: "icons"
+          variant: "icons",
+          isFirst: _v0.key === _v5
         }, _v0.key)) : (0, _v1.jsx)(_v6.ResizableSideNav.MenuItems, {
           customStyles: {
             gap: (0, _v5.rem)(2)
           },
           children: _v0.map(_v0 => (0, _v1.jsx)(_v13.PrimaryNavItem, {
             item: _v0,
-            variant: "full"
+            variant: "full",
+            isFirst: _v0.key === _v5
           }, _v0.key))
-        }), [_v1]);
+        }), [_v1, _v5]);
       return (0, _v1.jsx)(_v3.Box, {
         style: {
           flexGrow: 1,
@@ -78,7 +81,7 @@
           }, _v1)) : _v2.map((_v0, _v1) => (0, _v1.jsxs)(_v2.Fragment, {
             children: [_v1 > 0 && (_v1 ? (0, _v1.jsx)(_v19, {}) : (0, _v1.jsx)(_v6.ResizableSideNav.Divider, {
               my: (0, _v5.rem)(8)
-            })), _v5(_v0)]
+            })), _v6(_v0)]
           }, _v1)), !_v1 && _v3 && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v6.ResizableSideNav.Divider, {
               my: (0, _v5.rem)(8)

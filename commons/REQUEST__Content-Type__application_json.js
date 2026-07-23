@@ -354,19 +354,20 @@
     isLocked: _v5,
     handleOpenUpsellModal: _v6,
     canUpsell: _v7,
-    canEdit: _v8,
-    selectedBrandKit: _v9,
-    setSelectedBrandKit: _v10,
-    currentColor: _v11,
-    isTeamOwner: _v12,
-    onChangeAdditionalColors: _v13,
-    onColorClick: _v14,
-    setCurrentColor: _v15,
-    currentColorType: _v16,
-    currentCustomColor: _v17,
-    useSolidAndGradientColors: _v18
+    hideUpsell: _v8,
+    canEdit: _v9,
+    selectedBrandKit: _v10,
+    setSelectedBrandKit: _v11,
+    currentColor: _v12,
+    isTeamOwner: _v13,
+    onChangeAdditionalColors: _v14,
+    onColorClick: _v15,
+    setCurrentColor: _v16,
+    currentColorType: _v17,
+    currentCustomColor: _v18,
+    useSolidAndGradientColors: _v19
   }) {
-    let _v19 = _v0 => _v16 === _v36.ColorType.BRAND && _v11.toLowerCase() === _v0.toLowerCase();
+    let _v20 = _v0 => _v17 === _v36.ColorType.BRAND && _v12.toLowerCase() === _v0.toLowerCase();
     return (0, _v1.jsxs)(_v6.Flex, {
       direction: "column",
       gap: "sm",
@@ -394,11 +395,11 @@
           justifyContent: "space-between",
           children: [(0, _v1.jsx)(_v35, {
             handleSelect: _v0 => {
-              _v10(_v0);
+              _v11(_v0);
             },
             items: _v2,
-            selectedItem: _v9
-          }), _v8 && (0, _v1.jsx)(_v28.Button, {
+            selectedItem: _v10
+          }), _v9 && (0, _v1.jsx)(_v28.Button, {
             className: "edit-button",
             size: "xs",
             variant: "secondary",
@@ -434,7 +435,7 @@
               }
             })
           })]
-        }), _v3?.length || _v8 ? (0, _v1.jsxs)(_v4.ColorPickerSwatchGroup, {
+        }), _v3?.length || _v9 ? (0, _v1.jsxs)(_v4.ColorPickerSwatchGroup, {
           style: {
             flexWrap: "wrap",
             gap: "sm"
@@ -446,21 +447,21 @@
               paddingBottom: "xs",
               children: (0, _v1.jsx)(_v4.ColorPickerSwatchTrigger, {
                 value: _v0.hex,
-                onClick: () => _v14?.(_v0),
-                "data-active": _v19(_v0.hex) ? "true" : void 0,
-                "data-state": _v19(_v0.hex) ? "checked" : "unchecked",
+                onClick: () => _v15?.(_v0),
+                "data-active": _v20(_v0.hex) ? "true" : void 0,
+                "data-state": _v20(_v0.hex) ? "checked" : "unchecked",
                 children: (0, _v1.jsx)(_v4.ColorPickerSwatch, {
                   style: {
                     width: (0, _v9.rem)(22),
                     height: (0, _v9.rem)(22)
                   },
                   value: _v0.hex,
-                  "data-active": _v19(_v0.hex) ? "true" : void 0,
-                  "data-state": _v19(_v0.hex) ? "checked" : "unchecked"
+                  "data-active": _v20(_v0.hex) ? "true" : void 0,
+                  "data-state": _v20(_v0.hex) ? "checked" : "unchecked"
                 })
               })
             })
-          }, _v1)), _v8 && !(_v4 && _v5) && (0, _v1.jsx)(_v30.Tooltip, {
+          }, _v1)), _v9 && !(_v4 && _v5) && (0, _v1.jsx)(_v30.Tooltip, {
             label: (0, _v19.translate)({
               singular: "Add brand color",
               dictionary: {
@@ -497,7 +498,7 @@
               onClick: () => _v1(!0)
             })
           })]
-        }) : _v12 && _v7 ? (0, _v1.jsxs)(_v6.Flex, {
+        }) : _v13 && _v7 ? (0, _v1.jsxs)(_v6.Flex, {
           flexDir: "column",
           gap: "sm",
           children: [(0, _v1.jsx)(_v27.Text, {
@@ -560,7 +561,7 @@
               }
             })
           })]
-        }) : (0, _v1.jsx)(_v27.Text, {
+        }) : _v13 && _v8 ? null : (0, _v1.jsx)(_v27.Text, {
           variant: "body-sm",
           height: (0, _v9.rem)(31),
           children: (0, _v19.translate)({
@@ -590,7 +591,7 @@
             }
           })
         })]
-      }) : _v12 && (0, _v1.jsxs)(_v6.Flex, {
+      }) : _v13 && (0, _v1.jsxs)(_v6.Flex, {
         gap: "sm",
         flexDir: "column",
         children: [(0, _v1.jsxs)(_v6.Flex, {
@@ -624,7 +625,7 @@
                 }
               }
             })
-          }), _v8 && (0, _v1.jsx)(_v30.Tooltip, {
+          }), _v9 && (0, _v1.jsx)(_v30.Tooltip, {
             label: (0, _v19.translate)({
               singular: "Create kit",
               dictionary: {
@@ -694,7 +695,7 @@
                 }
               }
             })
-          }), _v7 && !_v8 && (0, _v1.jsx)(_v28.Button, {
+          }), _v7 && !_v9 && (0, _v1.jsx)(_v28.Button, {
             size: "xs",
             width: "fit-content",
             variant: "upsell",
@@ -727,25 +728,25 @@
             })
           })]
         })]
-      }), _v18 && (0, _v1.jsx)(_v37, {
-        onChangeAdditionalColors: _v13,
-        setCurrentColor: _v15,
-        currentColor: _v11,
-        currentColorType: _v16
-      }), (_v2?.length || _v12 || _v18) && (0, _v1.jsx)(_v26.Divider, {
+      }), _v19 && (0, _v1.jsx)(_v37, {
+        onChangeAdditionalColors: _v14,
+        setCurrentColor: _v16,
+        currentColor: _v12,
+        currentColorType: _v17
+      }), (_v2?.length || _v13 || _v19) && (0, _v1.jsx)(_v26.Divider, {
         orientation: "horizontal",
         borderColor: "stroke"
       }), (0, _v1.jsxs)(_v6.Flex, {
         alignItems: "center",
         gap: "sm",
         children: [(0, _v1.jsx)(_v39, {
-          currentColor: _v17,
+          currentColor: _v18,
           onClick: () => _v1(!1),
-          isSelected: _v16 === _v36.ColorType.CUSTOM
+          isSelected: _v17 === _v36.ColorType.CUSTOM
         }), (0, _v1.jsx)(_v25.Input, {
           size: "sm",
           isReadOnly: !0,
-          value: _v17
+          value: _v18
         })]
       })]
     });
@@ -892,130 +893,131 @@
     position: _v6 = _v33.DEFAULT_PICKER_PLACEMENT,
     disabled: _v7 = !1,
     productName: _v8 = "general",
-    useSolidAndGradientColors: _v9 = !1,
-    colorType: _v10 = _v36.ColorType.CUSTOM,
-    onChangeColorWithType: _v11,
-    testId: _v12
+    hideUpsell: _v9 = !1,
+    useSolidAndGradientColors: _v10 = !1,
+    colorType: _v11 = _v36.ColorType.CUSTOM,
+    onChangeColorWithType: _v12,
+    testId: _v13
   }) {
-    let [_v13, _v14] = (0, _v2.useState)(!1),
-      [_v15, _v16] = (0, _v2.useState)(_v36.ColorPickerMode.SWATCHES),
-      [_v17, _v18] = (0, _v2.useState)(""),
-      [_v19, _v20] = (0, _v2.useState)(!1),
-      _v21 = (0, _v40.determineColor)(_v4, _v5, _v10),
-      [_v22, _v23] = (0, _v2.useState)(_v21 || _v33.DEFAULT_BRANDING_COLOR),
-      [_v24, _v25] = (0, _v2.useState)(_v10 === _v36.ColorType.CUSTOM ? _v22 : _v33.DEFAULT_BRANDING_COLOR),
-      _v26 = _v2.default.Children.toArray(_v0),
-      _v27 = _v26.find(_v0 => _v2.default.isValidElement(_v0) && _v0.type === _v4.ColorPickerLabel),
-      _v28 = _v26.filter(_v0 => _v2.default.isValidElement(_v0) && _v0.type !== _v4.ColorPickerLabel);
+    let [_v14, _v15] = (0, _v2.useState)(!1),
+      [_v16, _v17] = (0, _v2.useState)(_v36.ColorPickerMode.SWATCHES),
+      [_v18, _v19] = (0, _v2.useState)(""),
+      [_v20, _v21] = (0, _v2.useState)(!1),
+      _v22 = (0, _v40.determineColor)(_v4, _v5, _v11),
+      [_v23, _v24] = (0, _v2.useState)(_v22 || _v33.DEFAULT_BRANDING_COLOR),
+      [_v25, _v26] = (0, _v2.useState)(_v11 === _v36.ColorType.CUSTOM ? _v23 : _v33.DEFAULT_BRANDING_COLOR),
+      _v27 = _v2.default.Children.toArray(_v0),
+      _v28 = _v27.find(_v0 => _v2.default.isValidElement(_v0) && _v0.type === _v4.ColorPickerLabel),
+      _v29 = _v27.filter(_v0 => _v2.default.isValidElement(_v0) && _v0.type !== _v4.ColorPickerLabel);
     (0, _v2.useEffect)(() => {
-      _v23((0, _v40.determineColor)(_v4, _v5, _v10));
-    }, [_v4, _v5, _v10]);
-    let _v29 = (0, _v2.useContext)(_v24.ViewerContext),
-      _v30 = _v29?.teamUser?.ownerId || _v29?.user?.id,
+      _v24((0, _v40.determineColor)(_v4, _v5, _v11));
+    }, [_v4, _v5, _v11]);
+    let _v30 = (0, _v2.useContext)(_v24.ViewerContext),
+      _v31 = _v30?.teamUser?.ownerId || _v30?.user?.id,
       {
-        isWorkspace: _v31
+        isWorkspace: _v32
       } = (0, _v22.useIsWorkspace)(),
-      _v32 = _v31 ? _v21.BRANDKITS_WORKSPACE_URL : _v21.BRANDKITS_TEAM_URL,
-      _v33 = (0, _v10.useToast)(),
+      _v33 = _v32 ? _v21.BRANDKITS_WORKSPACE_URL : _v21.BRANDKITS_TEAM_URL,
+      _v34 = (0, _v10.useToast)(),
       {
-        sendCreateBrandKitItemEvent: _v34,
-        sendAddBrandKitItemEvent: _v35
+        sendCreateBrandKitItemEvent: _v35,
+        sendAddBrandKitItemEvent: _v36
       } = (0, _v23.useBrandKitsEvents)(),
-      _v36 = _v31 ? "workspace" : "team",
-      _v37 = Number(_v30 || 0),
+      _v37 = _v32 ? "workspace" : "team",
+      _v38 = Number(_v31 || 0),
       {
-        data: _v38,
-        mutate: _v39
-      } = (0, _v18.useGetUserBrandkits)(() => _v30 ? {
+        data: _v39,
+        mutate: _v40
+      } = (0, _v18.useGetUserBrandkits)(() => _v31 ? {
         where: {
-          userId: _v30
+          userId: _v31
         },
         select: ["name", "uri", "colors", "isLocked", "isOrganization"]
       } : null),
-      [_v40, {
-        loading: _v41
+      [_v41, {
+        loading: _v42
       }] = _v17(),
-      _v42 = _v29?.user?.account,
-      _v43 = (0, _v2.useMemo)(() => ["free", "basic", "starter", "plus"], []),
-      _v44 = !_v29?.teamUser || _v29?.user?.id === _v29?.team?.ownerId,
-      _v45 = (0, _v2.useMemo)(() => _v43.includes(_v42) && _v44, [_v42, _v43, _v44]),
-      _v46 = _v38?.data,
-      _v47 = (0, _v2.useMemo)(() => _v46?.map(_v0 => ({
+      _v43 = _v30?.user?.account,
+      _v44 = (0, _v2.useMemo)(() => ["free", "basic", "starter", "plus"], []),
+      _v45 = !_v30?.teamUser || _v30?.user?.id === _v30?.team?.ownerId,
+      _v46 = (0, _v2.useMemo)(() => !_v9 && _v44.includes(_v43) && _v45, [_v9, _v43, _v44, _v45]),
+      _v47 = _v39?.data,
+      _v48 = (0, _v2.useMemo)(() => _v47?.map(_v0 => ({
         value: _v0?.uri?.split("/").pop() || "",
         label: _v0?.name
-      })), [_v46]),
-      _v48 = (0, _v2.useMemo)(() => _v46?.find(_v0 => _v0?.uri.split("/").pop() === _v17), [_v46, _v17]),
-      [_v49, _v50] = (0, _v2.useState)(void 0),
-      _v51 = (0, _v2.useMemo)(() => (0, _v40.determineColorType)(_v49, _v10, _v22, _v9, _v46), [_v49, _v10, _v22, _v9, _v46]),
-      _v52 = _v48?.colors || [],
-      _v53 = _v48?.isOrganization,
-      _v54 = _v48?.isLocked,
-      _v55 = _v48?.uri;
+      })), [_v47]),
+      _v49 = (0, _v2.useMemo)(() => _v47?.find(_v0 => _v0?.uri.split("/").pop() === _v18), [_v47, _v18]),
+      [_v50, _v51] = (0, _v2.useState)(void 0),
+      _v52 = (0, _v2.useMemo)(() => (0, _v40.determineColorType)(_v50, _v11, _v23, _v10, _v47), [_v50, _v11, _v23, _v10, _v47]),
+      _v53 = _v49?.colors || [],
+      _v54 = _v49?.isOrganization,
+      _v55 = _v49?.isLocked,
+      _v56 = _v49?.uri;
     (0, _v2.useEffect)(() => {
-      _v47?.length || _v44 || _v9 ? _v16(_v36.ColorPickerMode.SWATCHES) : _v16(_v36.ColorPickerMode.STANDARD);
-    }, [_v47, _v44]), (0, _v2.useEffect)(() => {
-      _v47?.length && !_v17 && _v18(_v47[0].value);
-    }, [_v47, _v17]);
+      _v48?.length || _v45 || _v10 ? _v17(_v36.ColorPickerMode.SWATCHES) : _v17(_v36.ColorPickerMode.STANDARD);
+    }, [_v48, _v45]), (0, _v2.useEffect)(() => {
+      _v48?.length && !_v18 && _v19(_v48[0].value);
+    }, [_v48, _v18]);
     let {
         capabilities: {
-          hasManageBranding: _v56
+          hasManageBranding: _v57
         }
-      } = (0, _v11.useCapability)(["hasManageBranding"], _v30),
-      _v57 = async () => {
+      } = (0, _v11.useCapability)(["hasManageBranding"], _v31),
+      _v58 = async () => {
         try {
-          _v30 && (await _v40({
+          _v31 && (await _v41({
             where: {
-              userId: _v53 && Number(_v55?.split("/").at(2)) || _v30,
-              kitUuid: _v17
+              userId: _v54 && Number(_v56?.split("/").at(2)) || _v31,
+              kitUuid: _v18
             },
             select: ["name"],
             variables: {
-              hex: _v22,
-              name: `Color ${_v52.length + 1}`
+              hex: _v23,
+              name: `Color ${_v53.length + 1}`
             }
-          })), _v34({
-            itemId: _v22,
-            brandName: _v48?.name || "",
-            brandId: _v17,
-            ownershipEntity: _v36,
-            ownershipEntityId: _v37,
+          })), _v35({
+            itemId: _v23,
+            brandName: _v49?.name || "",
+            brandId: _v18,
+            ownershipEntity: _v37,
+            ownershipEntityId: _v38,
             modalName: null,
             itemType: "color",
             location: _v33.BRAND_KIT_MODAL_LOCATION,
             product: _v8
           });
         } catch (_v0) {
-          _v33({
+          _v34({
             title: "Failed to add color",
             variant: "warning"
           }), console.error("Error adding color:", _v0);
         }
-        _v39(), _v50(_v36.ColorType.BRAND), _v16(_v36.ColorPickerMode.SWATCHES), _v20(!1);
+        _v40(), _v51(_v36.ColorType.BRAND), _v17(_v36.ColorPickerMode.SWATCHES), _v21(!1);
       },
-      _v58 = (0, _v40.isHexColor)(_v22);
+      _v59 = (0, _v40.isHexColor)(_v23);
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v4.ColorPickerRoot, {
         onInteractOutside: () => {
-          _v16(_v36.ColorPickerMode.SWATCHES), _v20(!1);
+          _v17(_v36.ColorPickerMode.SWATCHES), _v21(!1);
         },
         onExitComplete: () => {
-          _v16(_v36.ColorPickerMode.SWATCHES), _v58 && _v2?.(_v22);
+          _v17(_v36.ColorPickerMode.SWATCHES), _v59 && _v2?.(_v23);
         },
         ...(_v3 ? {
-          value: (0, _v7.parseColor)(_v58 ? _v22 : _v33.DEFAULT_BRANDING_COLOR)
+          value: (0, _v7.parseColor)(_v59 ? _v23 : _v33.DEFAULT_BRANDING_COLOR)
         } : {
-          defaultValue: _v58 ? (0, _v7.parseColor)(_v22) : void 0
+          defaultValue: _v59 ? (0, _v7.parseColor)(_v23) : void 0
         }),
         onValueChange: _v0 => {
           if (!_v7) {
             let _v0 = (0, _v8.toHex)(_v0.valueAsString);
-            _v23(_v0), _v25(_v0), _v50(_v36.ColorType.CUSTOM), _v1?.(_v0), _v11?.({
+            _v24(_v0), _v26(_v0), _v51(_v36.ColorType.CUSTOM), _v1?.(_v0), _v12?.({
               value: _v0,
               type: _v36.ColorType.CUSTOM
             });
           }
         },
-        open: !_v7 && _v19,
+        open: !_v7 && _v20,
         positioning: {
           placement: _v6,
           strategy: "fixed"
@@ -1032,8 +1034,8 @@
           style: {
             cursor: _v7 ? "not-allowed" : "pointer"
           },
-          children: [_v27 && (0, _v1.jsx)(_v1.Fragment, {
-            children: _v27
+          children: [_v28 && (0, _v1.jsx)(_v1.Fragment, {
+            children: _v28
           }), (0, _v1.jsx)(_v5.ColorPickerControl, {
             style: {
               width: "100%"
@@ -1044,23 +1046,23 @@
               },
               onClick: () => {
                 if (!_v7) {
-                  let _v0 = (0, _v40.findBrandkitForColor)(_v22, _v46);
-                  _v0 && _v18(_v0), _v20(!0);
+                  let _v0 = (0, _v40.findBrandkitForColor)(_v23, _v47);
+                  _v0 && _v19(_v0), _v21(!0);
                 }
               },
-              children: _v28 ? (0, _v1.jsx)(_v3.Box, {
+              children: _v29 ? (0, _v1.jsx)(_v3.Box, {
                 style: {
                   opacity: _v7 ? .6 : 1,
                   cursor: _v7 ? "not-allowed" : "pointer",
                   pointerEvents: _v7 ? "none" : "auto"
                 },
-                children: _v28
+                children: _v29
               }) : (0, _v1.jsx)(_v3.Box, {
                 height: "sm",
                 width: "sm",
                 cursor: "pointer",
                 borderRadius: "button",
-                bgColor: _v22
+                bgColor: _v23
               })
             })
           }), (0, _v1.jsx)(_v4.ColorPickerPositioner, {
@@ -1069,7 +1071,7 @@
               backdropFilter: "none"
             },
             children: (0, _v1.jsx)(_v6.Flex, {
-              "data-testid": _v12,
+              "data-testid": _v13,
               children: (0, _v1.jsx)(_v4.ColorPickerContent, {
                 style: {
                   border: "none",
@@ -1090,62 +1092,63 @@
                     padding: "3",
                     borderRadius: "sm",
                     maxWidth: (0, _v9.rem)(320),
-                    children: _v15 === _v36.ColorPickerMode.SWATCHES ? (0, _v1.jsx)(_v41, {
-                      currentColorType: _v51,
-                      setCurrentColor: _v23,
-                      brandCenterUrl: _v32,
+                    children: _v16 === _v36.ColorPickerMode.SWATCHES ? (0, _v1.jsx)(_v41, {
+                      currentColorType: _v52,
+                      setCurrentColor: _v24,
+                      brandCenterUrl: _v33,
                       onClickAddColor: _v0 => {
-                        _v0 ? (_v16(_v36.ColorPickerMode.BRANDKIT), _v50(_v36.ColorType.BRAND)) : (_v16(_v36.ColorPickerMode.STANDARD), _v50(_v36.ColorType.CUSTOM)), _v20(!0);
+                        _v0 ? (_v17(_v36.ColorPickerMode.BRANDKIT), _v51(_v36.ColorType.BRAND)) : (_v17(_v36.ColorPickerMode.STANDARD), _v51(_v36.ColorType.CUSTOM)), _v21(!0);
                       },
-                      currentCustomColor: _v24,
-                      brandKits: _v47,
-                      colors: _v52,
-                      isOrganization: _v53,
-                      isLocked: _v54,
+                      currentCustomColor: _v25,
+                      brandKits: _v48,
+                      colors: _v53,
+                      isOrganization: _v54,
+                      isLocked: _v55,
                       handleOpenUpsellModal: () => {
-                        _v14(!0);
+                        _v15(!0);
                       },
-                      canUpsell: _v45,
-                      canEdit: _v56,
-                      setSelectedBrandKit: _v18,
-                      selectedBrandKit: _v17,
-                      currentColor: _v22,
-                      isTeamOwner: _v44,
+                      canUpsell: _v46,
+                      hideUpsell: _v9,
+                      canEdit: _v57,
+                      setSelectedBrandKit: _v19,
+                      selectedBrandKit: _v18,
+                      currentColor: _v23,
+                      isTeamOwner: _v45,
                       onChangeAdditionalColors: ({
                         value: _v0,
                         type: _v1,
                         index: _v2
                       }) => {
-                        _v50(_v1), _v1?.(_v0), _v11?.({
+                        _v51(_v1), _v1?.(_v0), _v12?.({
                           value: _v0,
                           type: _v1,
                           index: _v2
                         });
                       },
                       onColorClick: _v0 => {
-                        _v23(_v0.hex), _v1?.(_v0.hex), _v50(_v36.ColorType.BRAND), _v11?.({
+                        _v24(_v0.hex), _v1?.(_v0.hex), _v51(_v36.ColorType.BRAND), _v12?.({
                           value: _v0.hex,
                           type: _v36.ColorType.BRAND
-                        }), _v35({
-                          ownershipEntity: _v36,
-                          ownershipEntityId: _v37,
+                        }), _v36({
+                          ownershipEntity: _v37,
+                          ownershipEntityId: _v38,
                           itemId: _v0.hex,
-                          brandName: _v48?.name || "",
-                          brandId: _v17,
+                          brandName: _v49?.name || "",
+                          brandId: _v18,
                           itemType: "color",
                           location: _v33.BRAND_KIT_MODAL_LOCATION,
                           product: _v8
                         });
                       },
-                      useSolidAndGradientColors: _v9
+                      useSolidAndGradientColors: _v10
                     }) : (0, _v1.jsx)(_v43, {
-                      isAddingBrandColor: _v15 === _v36.ColorPickerMode.BRANDKIT,
-                      brandKitName: _v48?.name || "",
-                      onSave: _v57,
+                      isAddingBrandColor: _v16 === _v36.ColorPickerMode.BRANDKIT,
+                      brandKitName: _v49?.name || "",
+                      onSave: _v58,
                       onCancel: () => {
-                        _v16(_v36.ColorPickerMode.SWATCHES), _v20(!1);
+                        _v17(_v36.ColorPickerMode.SWATCHES), _v21(!1);
                       },
-                      isLoading: _v41
+                      isLoading: _v42
                     })
                   })
                 })
@@ -1153,11 +1156,11 @@
             })
           })]
         })
-      }), _v13 && (0, _v1.jsx)(_v20.default, {
-        apiUrl: _v29?.apiUrl,
+      }), _v14 && (0, _v1.jsx)(_v20.default, {
+        apiUrl: _v30?.apiUrl,
         userConfig: {
-          jwt: _v29?.jwt,
-          userId: _v29?.user?.id
+          jwt: _v30?.jwt,
+          userId: _v30?.user?.id
         },
         templateType: "default",
         modalConfig: {
@@ -1186,7 +1189,7 @@
           }),
           subHeaderText: ""
         },
-        onClose: () => _v14(!1),
+        onClose: () => _v15(!1),
         tracking: {
           params: {
             feature: "color_picker_brand_kit"

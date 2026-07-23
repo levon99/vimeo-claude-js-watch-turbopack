@@ -24,22 +24,24 @@
     onAcknowledge: _v7,
     acknowledgeLabel: _v8,
     placement: _v9 = "left-start",
-    backgroundColor: _v10 = "popover",
-    anchorWithinChildren: _v11 = !1
+    offset: _v10,
+    backgroundColor: _v11 = "popover",
+    anchorWithinChildren: _v12 = !1
   }) {
     return (0, _v1.jsxs)(_v4.Popover, {
       isOpen: _v0,
       placement: _v9,
       gutter: 16,
+      offset: _v10,
       strategy: "fixed",
       isLazy: !0,
       closeOnBlur: !1,
-      children: [_v11 ? _v1 : (0, _v1.jsx)(_v7.PopoverTrigger, {
+      children: [_v12 ? _v1 : (0, _v1.jsx)(_v7.PopoverTrigger, {
         children: _v1
       }), (0, _v1.jsx)(_v8.Portal, {
         children: (0, _v1.jsxs)(_v6.PopoverContent, {
           width: (0, _v10.rem)(320),
-          backgroundColor: _v10,
+          backgroundColor: _v11,
           borderRadius: (0, _v10.rem)(8),
           boxShadow: _v12,
           padding: (0, _v10.rem)(16),
@@ -55,7 +57,7 @@
             boxShadow: _v12
           },
           children: [(0, _v1.jsx)(_v5.PopoverArrow, {
-            backgroundColor: _v10
+            backgroundColor: _v11
           }), (0, _v1.jsxs)(_v3.Flex, {
             direction: "column",
             gap: (0, _v10.rem)(24),

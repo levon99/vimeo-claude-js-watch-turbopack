@@ -2524,7 +2524,11 @@
               },
               children: _v6
             }) : _v6
-          }), "right" === _v0.logo.position ? _v7 : null]
+          }), "right" === _v0.logo.position && _v7 ? (0, _v16.jsx)(_v112.Box, {
+            ml: "auto",
+            flexShrink: 0,
+            children: _v7
+          }) : null]
         }), (0, _v16.jsxs)(_v184.HStack, {
           spacing: "100",
           children: [(0, _v16.jsx)(_v202, {
