@@ -39,6 +39,8 @@
             return _v1.HistoryAndRecovery;
           case _v7.WORKSPACE_SETTINGS_ROUTES.LEGAL_HOLDS:
             return _v1.LegalHolds;
+          case _v7.WORKSPACE_SETTINGS_ROUTES.WEBINAR_VIEWER_ANONYMIZATION:
+            return _v1.WebinarViewerAnonymization;
           default:
             return "";
         }

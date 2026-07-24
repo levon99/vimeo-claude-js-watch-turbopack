@@ -34,6 +34,7 @@
       CLIP_EXTENSION: `/manage/${_v1.WORKSPACE}/security-and-data/clip-extension`,
       HISTORY_AND_RECOVERY: `/manage/${_v1.WORKSPACE}/security-and-data/history`,
       LEGAL_HOLDS: `/manage/${_v1.WORKSPACE}/security-and-data/legal-hold`,
+      WEBINAR_VIEWER_ANONYMIZATION: `/manage/${_v1.WORKSPACE}/security-and-data/webinar-viewer-anonymisation`,
       CUSTOM_METADATA: `/manage/${_v1.WORKSPACE}/custom-metadata`,
       BRAND_KITS: `/manage/${_v1.WORKSPACE}/brand-kits`,
       PRESETS: `/manage/${_v1.WORKSPACE}/presets`,

@@ -128,7 +128,7 @@
           color: "text-tertiary"
         })
       }),
-      children: (0, _v6.jsx)(_v45.Paragraph, {
+      children: (0, _v6.jsx)(_v44.Paragraph, {
         size: "md",
         color: "text-secondary",
         children: _v1
@@ -193,24 +193,27 @@
   }
   function _v66(_v0) {
     let {
-        value: _v1
+        value: _v1,
+        isDesktopView: _v2
       } = _v0,
       {
-        editMode: _v2
+        editMode: _v3
       } = (0, _v16.useContext)(_v49.default);
-    return _v2 ? (0, _v6.jsx)(_v68, {
+    return _v3 ? (0, _v6.jsx)(_v69, {
       ..._v0
-    }) : (0, _v6.jsx)(_v69, {
-      value: _v1
+    }) : (0, _v6.jsx)(_v70, {
+      value: _v1,
+      isDesktopView: _v2
     });
   }
-  let _v67 = {
-    backgroundColor: "fill-component",
-    borderColor: "input-stroke",
-    maxHeight: (0, _v27.rem)(140),
-    overflowY: "auto"
-  };
-  function _v68({
+  let _v67 = _v16.useLayoutEffect,
+    _v68 = {
+      backgroundColor: "fill-component",
+      borderColor: "input-stroke",
+      maxHeight: (0, _v46.rem)(140),
+      overflowY: "auto"
+    };
+  function _v69({
     maxLength: _v0 = _v48.ABOUT_MAX_CHAR_COUNT,
     placeholder: _v1 = _v50.default.TellPeopleAboutYourself,
     onUpdate: _v2,
@@ -226,30 +229,28 @@
       } = (0, _v24.useProfileTracking)(),
       [_v8, _v9] = (0, _v16.useState)(!1),
       [_v10, _v11] = (0, _v16.useState)(_v5 || ""),
-      [_v12, _v13] = (0, _v16.useState)(!1),
-      _v14 = () => {
+      _v12 = () => {
         _v7({
           userProfilePageUserId: String(_v6),
           userProfileEditField: "add_bio"
         }), _v9(!0);
       },
-      _v15 = (0, _v16.useCallback)(_v0 => {
+      _v13 = (0, _v16.useCallback)(_v0 => {
         _v0 && "function" == typeof _v0.setSelectionRange && _v0.setSelectionRange(_v5.length, _v5.length);
-      }, [_v5]),
-      _v16 = (0, _v16.useRef)(null);
-    return (0, _v16.useEffect)(() => {
-      _v5 && _v13(_v5.length > _v48.MINIMUM_BIO_LENGTH);
-    }, [_v5]), (0, _v6.jsx)(_v31.Box, {
+      }, [_v5]);
+    return (0, _v6.jsx)(_v31.Box, {
       _hover: {
         outline: "none"
       },
       tabIndex: 0,
-      onKeyDown: _v0 => !_v8 && _v59(_v0, _v14),
+      onKeyDown: _v0 => {
+        _v8 || _v0.target !== _v0.currentTarget || _v59(_v0, _v12);
+      },
       children: _v8 ? (0, _v6.jsxs)(_v31.Box, {
         position: "relative",
-        children: [(0, _v6.jsx)(_v46.Textarea, {
+        children: [(0, _v6.jsx)(_v45.Textarea, {
           autoFocus: !0,
-          ref: _v15,
+          ref: _v13,
           defaultValue: _v10,
           maxLength: _v0,
           onKeyDown: _v0 => {
@@ -259,17 +260,17 @@
           onBlur: () => {
             _v10.trim() || _v5 ? _v5 !== _v10 && _v2({
               bio: _v10
-            }) : _v11(""), _v13(_v10.length > _v48.MINIMUM_BIO_LENGTH), _v9(!1);
+            }) : _v11(""), _v9(!1);
           },
           onChange: _v0 => _v11(_v0.target.value),
           mt: "sm",
-          minH: (0, _v27.rem)(96)
+          minH: (0, _v46.rem)(96)
         }), (0, _v6.jsx)(_v31.Box, {
           position: "absolute",
-          top: (0, _v27.rem)(10),
-          right: (0, _v27.rem)(6),
+          top: (0, _v46.rem)(10),
+          right: (0, _v46.rem)(6),
           onMouseDown: _v0 => _v0.preventDefault(),
-          children: (0, _v6.jsx)(_v44.IconButton, {
+          children: (0, _v6.jsx)(_v43.IconButton, {
             variant: "tertiary",
             icon: (0, _v6.jsx)(_v37.CloseX, {}),
             onClick: () => {
@@ -278,122 +279,212 @@
             "aria-label": _v50.default.Dismiss,
             size: "xs"
           })
-        }), (0, _v6.jsxs)(_v45.Paragraph, {
+        }), (0, _v6.jsxs)(_v44.Paragraph, {
           size: "xs",
           textAlign: "right",
           color: "text-tertiary",
           children: [_v10.length, "/", _v0, " ", 1 === _v10.length ? _v50.default.Character : _v50.default.Characters]
         })]
       }) : _v10.length ? (0, _v6.jsxs)(_v31.Box, {
-        children: [(0, _v6.jsx)(_v71, {
+        display: {
+          base: "flex",
+          lg: "block"
+        },
+        alignItems: "flex-end",
+        children: [(0, _v6.jsx)(_v72, {
           text: _v10,
-          isCollapsed: _v12,
-          setIsCollapsed: _v13,
-          onClick: _v14,
-          onMouseEnter: () => {
-            _v4 && _v13(!1);
-          },
-          onMouseLeave: () => {
-            _v4 && (_v13(_v10.length > _v48.MINIMUM_BIO_LENGTH), _v16 && _v16.current && (_v16.current.scrollTop = 0));
-          },
-          textRef: _v16,
+          isDesktopView: _v4,
+          onClick: _v12,
           editMode: !0
-        }), (0, _v6.jsx)(_v57, {
+        }, _v5), (0, _v6.jsx)(_v57, {
           inlineMargin: !0,
-          onClick: _v14
+          onClick: _v12
         })]
       }) : (0, _v6.jsx)(_v55, {
         buttonText: _v50.default.AddBio,
-        onClick: _v14
+        onClick: _v12
       })
     });
   }
-  function _v69({
-    value: _v0
+  function _v70({
+    value: _v0,
+    isDesktopView: _v1
   }) {
-    let [_v1, _v2] = (0, _v16.useState)(!1);
-    return (0, _v16.useEffect)(() => {
-      _v0 && _v2(_v0.length > _v48.MINIMUM_BIO_LENGTH);
-    }, [_v0]), _v0 ? (0, _v6.jsx)(_v31.Box, {
+    return _v0 ? (0, _v6.jsx)(_v31.Box, {
       _hover: {
         outline: "none"
       },
-      children: (0, _v6.jsx)(_v71, {
+      children: (0, _v6.jsx)(_v72, {
         text: _v0,
-        isCollapsed: _v1,
-        setIsCollapsed: _v2
-      })
+        isDesktopView: _v1
+      }, _v0)
     }) : null;
   }
-  let _v70 = _v16.default.forwardRef(({
-    showWhiteSpaces: _v0,
-    editMode: _v1,
+  function _v71({
+    editMode: _v0,
+    isExpanded: _v1,
     children: _v2,
     onClick: _v3,
     onMouseEnter: _v4,
     onMouseLeave: _v5
-  }, _v6) => (0, _v6.jsx)(_v31.Box, {
-    ref: _v6,
-    onClick: _v3,
-    onMouseEnter: _v4,
-    onMouseLeave: _v5,
-    fontSize: (0, _v27.rem)(14),
-    overflowWrap: "break-word",
-    border: "1px solid transparent",
-    borderRadius: "md",
-    px: "xs",
-    py: "sm",
-    display: {
-      base: "inline",
-      lg: "block"
-    },
-    whiteSpace: _v0 ? "pre-wrap" : void 0,
-    maxH: _v1 ? (0, _v27.rem)(100) : void 0,
-    transition: _v1 ? "max-height 0.3s ease-in, background-color 120ms ease-in-out 0s, border 120ms ease-in-out 0s" : void 0,
-    sx: _v1 ? {
-      [`@media (min-width: ${_v38.bokehTheme.breakpoints.lg})`]: {
-        "&:hover": _v67
-      }
-    } : void 0,
-    children: _v2
-  }));
-  function _v71({
-    text: _v0,
-    isCollapsed: _v1,
-    setIsCollapsed: _v2,
-    onClick: _v3,
-    onMouseEnter: _v4,
-    onMouseLeave: _v5,
-    textRef: _v6,
-    editMode: _v7
   }) {
-    return (0, _v6.jsx)(_v70, {
-      ref: _v6,
+    return (0, _v6.jsx)(_v31.Box, {
       onClick: _v3,
       onMouseEnter: _v4,
       onMouseLeave: _v5,
-      showWhiteSpaces: !_v1,
-      editMode: _v7,
-      children: _v0.length > _v48.MINIMUM_BIO_LENGTH && _v1 ? (0, _v6.jsxs)(_v6.Fragment, {
-        children: [(0, _v6.jsx)(_v47.default, {
-          text: (0, _v43.default)(_v0, {
-            length: _v48.MINIMUM_BIO_LENGTH
+      fontSize: (0, _v46.rem)(14),
+      overflowWrap: "break-word",
+      border: "1px solid transparent",
+      borderRadius: "md",
+      px: "xs",
+      py: {
+        base: 0,
+        lg: "sm"
+      },
+      display: "block",
+      flex: _v0 ? {
+        base: 1,
+        lg: "unset"
+      } : void 0,
+      minW: _v0 ? {
+        base: 0,
+        lg: "unset"
+      } : void 0,
+      maxH: _v0 && !_v1 ? (0, _v46.rem)(100) : void 0,
+      transition: _v0 ? "max-height 0.3s ease-in, background-color 120ms ease-in-out 0s, border 120ms ease-in-out 0s" : void 0,
+      sx: _v0 ? {
+        [`@media (min-width: ${_v38.bokehTheme.breakpoints.lg})`]: {
+          "&:hover": _v68
+        }
+      } : void 0,
+      children: _v2
+    });
+  }
+  function _v72({
+    text: _v0,
+    isDesktopView: _v1,
+    onClick: _v2,
+    editMode: _v3
+  }) {
+    let [_v4, _v5] = (0, _v16.useState)(!1),
+      {
+        containerRef: _v6,
+        isOverflowing: _v7
+      } = function (_v0, _v1) {
+        let _v2 = (0, _v16.useRef)(null),
+          [_v3, _v4] = (0, _v16.useState)(null);
+        return _v67(() => {
+          if (_v1) return;
+          let _v0 = _v2.current;
+          if (!_v0) return;
+          let _v1 = !0,
+            _v2 = () => {
+              _v1 && _v4(_v0.scrollHeight > _v0.clientHeight + 2);
+            };
+          _v2();
+          let _v3 = new ResizeObserver(_v2);
+          return _v3.observe(_v0), document.fonts?.ready.then(_v2), () => {
+            _v1 = !1, _v3.disconnect();
+          };
+        }, [_v0, _v1]), {
+          containerRef: _v2,
+          isOverflowing: _v3
+        };
+      }(_v0, _v4),
+      _v8 = (0, _v16.useId)(),
+      _v9 = (0, _v16.useRef)(!1),
+      _v10 = !0 === _v7 && !_v4,
+      _v11 = _v4 || !1 === _v7,
+      _v12 = _v1 ? "var(--vimeo-colors-fill-surface)" : "var(--vimeo-colors-background)",
+      _v13 = (0, _v16.useCallback)(_v0 => {
+        _v0.stopPropagation(), _v9.current = !0, _v5(!0);
+      }, []),
+      _v14 = (0, _v16.useCallback)(() => {
+        _v3 && _v1 && _v5(!0);
+      }, [_v3, _v1]),
+      _v15 = (0, _v16.useCallback)(() => {
+        _v3 && _v1 && (_v9.current = !1, _v5(!1));
+      }, [_v3, _v1]),
+      _v16 = (0, _v16.useCallback)(_v0 => {
+        _v0.stopPropagation();
+      }, []),
+      _v17 = (0, _v16.useCallback)(_v0 => {
+        _v3 && _v2 && _v0.target === _v0.currentTarget && _v59(_v0, _v2);
+      }, [_v3, _v2]);
+    return _v67(() => {
+      _v4 && _v9.current && (_v9.current = !1, _v6.current?.focus());
+    }, [_v6, _v4]), (0, _v6.jsx)(_v71, {
+      onClick: _v2,
+      onMouseEnter: _v14,
+      onMouseLeave: _v15,
+      editMode: _v3,
+      isExpanded: _v4,
+      children: (0, _v6.jsxs)(_v31.Box, {
+        position: "relative",
+        display: "block",
+        width: "100%",
+        children: [(0, _v6.jsx)(_v31.Box, {
+          id: _v8,
+          ref: _v6,
+          overflow: "hidden",
+          whiteSpace: "pre-wrap",
+          lineHeight: 1.5,
+          tabIndex: _v4 ? -1 : void 0,
+          onKeyDown: _v17,
+          _focusVisible: {
+            outline: "2px solid",
+            outlineColor: "fill-brand",
+            outlineOffset: "1px"
+          },
+          sx: {
+            maxHeight: _v4 ? "none" : "calc(4 * 1.5em)"
+          },
+          children: (0, _v6.jsx)(_v47.default, {
+            text: _v0,
+            isInteractive: _v11,
+            onClick: _v3 ? _v16 : void 0
           })
-        }), (0, _v6.jsx)(_v31.Box, {
-          as: "span",
-          textDecoration: "underline",
+        }), (0, _v6.jsxs)(_v31.Box, {
+          position: "absolute",
+          bottom: "0",
+          right: "0",
+          display: "flex",
           cursor: "pointer",
-          onClick: () => _v2(!1),
-          children: _v50.default.ReadMore
+          visibility: _v10 ? "visible" : "hidden",
+          onClick: _v13,
+          children: [(0, _v6.jsx)(_v31.Box, {
+            "aria-hidden": "true",
+            w: (0, _v46.rem)(56),
+            sx: {
+              background: `linear-gradient(to right, transparent, ${_v12} 90%)`
+            }
+          }), (0, _v6.jsx)(_v18.Text, {
+            as: "button",
+            type: "button",
+            border: "none",
+            paddingY: "0",
+            paddingLeft: "0",
+            paddingRight: "xs",
+            color: "text-primary",
+            variant: "body-md",
+            textDecoration: "underline",
+            cursor: "pointer",
+            lineHeight: 1.5,
+            sx: {
+              backgroundColor: _v12
+            },
+            _hover: {
+              textDecoration: "underline"
+            },
+            "aria-controls": _v8,
+            "aria-expanded": _v4,
+            children: _v50.default.ReadMore
+          })]
         })]
-      }) : (0, _v6.jsx)(_v47.default, {
-        text: _v0
       })
     });
   }
-  _v70.displayName = "AboutText";
-  var _v72 = _v0.i(0),
-    _v73 = _v0.i(0),
+  var _v73 = _v0.i(0),
     _v74 = _v0.i(0),
     _v75 = _v0.i(0),
     _v76 = _v0.i(0),
@@ -446,8 +537,8 @@
         children: [(0, _v6.jsx)(_v33.Flex, {
           align: "center",
           px: "md",
-          mb: (0, _v74.rem)(10),
-          children: (0, _v6.jsx)(_v73.Header, {
+          mb: (0, _v46.rem)(10),
+          children: (0, _v6.jsx)(_v74.Header, {
             size: "sm",
             as: "p",
             mb: 0,
@@ -485,12 +576,12 @@
       }), _v4?.badge?.type && (0, _v6.jsxs)(_v33.Flex, {
         justify: "space-between",
         px: "sm",
-        mt: (0, _v74.rem)(10),
+        mt: (0, _v46.rem)(10),
         children: [(0, _v6.jsx)(_v18.Text, {
           color: "text-tertiary",
           fontSize: "body-sm",
           children: _v50.default.MembershipPlan
-        }), (0, _v6.jsx)(_v72.Badge, {
+        }), (0, _v6.jsx)(_v73.Badge, {
           size: "xs",
           variant: (_v0 => {
             switch (_v0) {
@@ -523,7 +614,7 @@
       }), (0, _v6.jsxs)(_v33.Flex, {
         justify: "space-between",
         px: "sm",
-        mt: (0, _v74.rem)(10),
+        mt: (0, _v46.rem)(10),
         children: [(0, _v6.jsx)(_v18.Text, {
           color: "text-tertiary",
           fontSize: "body-sm",
@@ -998,19 +1089,19 @@
     _v112 = _v0.i(0),
     _v113 = ((_v1 = _v113 || {}).NOBODY = "nobody", _v1.PASSWORD = "password", _v1.ON_DEMAND = "ptv", _v1.ON_DEMAND_HIDDEN = "ptvhide", _v1);
   let _v114 = {
-      borderRadius: (0, _v74.rem)(6),
-      minWidth: (0, _v74.rem)(72)
+      borderRadius: (0, _v46.rem)(6),
+      minWidth: (0, _v46.rem)(72)
     },
     _v115 = {
-      bottom: (0, _v74.rem)(3),
-      right: (0, _v74.rem)(3),
-      fontSize: (0, _v74.rem)(10),
+      bottom: (0, _v46.rem)(3),
+      right: (0, _v46.rem)(3),
+      fontSize: (0, _v46.rem)(10),
       padding: "xs",
       borderRadius: "xs"
     },
     _v116 = {
       [`@media screen and (min-width: ${_v38.bokehTheme.breakpoints.md})`]: {
-        gridTemplateColumns: `${(0, _v74.rem)(24)} ${(0, _v74.rem)(72)} 1fr ${(0, _v74.rem)(90)}`
+        gridTemplateColumns: `${(0, _v46.rem)(24)} ${(0, _v46.rem)(72)} 1fr ${(0, _v46.rem)(90)}`
       }
     };
   function _v117({
@@ -1047,7 +1138,7 @@
       shouldWrapChildren: !0,
       placement: "top",
       children: (0, _v6.jsxs)(_v110.ContentRow, {
-        listGridColumns: `${(0, _v74.rem)(24)} ${(0, _v74.rem)(72)} 1fr`,
+        listGridColumns: `${(0, _v46.rem)(24)} ${(0, _v46.rem)(72)} 1fr`,
         sx: _v116,
         isSelected: !_v14 && _v3,
         isDisabled: _v14,
@@ -1093,8 +1184,8 @@
                 alt: "",
                 size: "xs",
                 sx: {
-                  width: (0, _v74.rem)(16),
-                  height: (0, _v74.rem)(16)
+                  width: (0, _v46.rem)(16),
+                  height: (0, _v46.rem)(16)
                 },
                 src: _v2.user.pictures?.sizes?.[0]?.link ?? "",
                 nameProps: {
@@ -1126,10 +1217,10 @@
     inputType: _v0 = "radio"
   }) {
     return (0, _v6.jsxs)(_v110.ContentRow, {
-      listGridColumns: `${(0, _v74.rem)(24)} ${(0, _v74.rem)(72)} 1fr`,
+      listGridColumns: `${(0, _v46.rem)(24)} ${(0, _v46.rem)(72)} 1fr`,
       gridTemplateColumns: {
-        base: `${(0, _v74.rem)(24)} ${(0, _v74.rem)(72)} 1fr`,
-        md: `${(0, _v74.rem)(24)} ${(0, _v74.rem)(72)} 1fr ${(0, _v74.rem)(90)}`
+        base: `${(0, _v46.rem)(24)} ${(0, _v46.rem)(72)} 1fr`,
+        md: `${(0, _v46.rem)(24)} ${(0, _v46.rem)(72)} 1fr ${(0, _v46.rem)(90)}`
       },
       disableHover: !0,
       tabIndex: -1,
@@ -1143,9 +1234,9 @@
         })
       }), (0, _v6.jsx)(_v110.ContentRow.Column, {
         children: (0, _v6.jsx)(_v119.Skeleton, {
-          h: (0, _v74.rem)(39),
-          borderRadius: (0, _v74.rem)(6),
-          minWidth: (0, _v74.rem)(72)
+          h: (0, _v46.rem)(39),
+          borderRadius: (0, _v46.rem)(6),
+          minWidth: (0, _v46.rem)(72)
         })
       }), (0, _v6.jsx)(_v110.ContentRow.Column, {
         overflow: "auto",
@@ -1158,7 +1249,7 @@
         hideAtWidth: _v38.bokehTheme.breakpoints.md,
         children: (0, _v6.jsx)(_v119.Skeleton, {
           variant: "text",
-          w: (0, _v74.rem)(70)
+          w: (0, _v46.rem)(70)
         })
       })]
     });
@@ -1192,7 +1283,7 @@
       flexDirection: "column",
       overflowX: "hidden",
       overflowY: "auto",
-      marginTop: (0, _v74.rem)(12),
+      marginTop: (0, _v46.rem)(12),
       px: "3",
       gap: "sm",
       children: [_v2.map(_v0 => {
@@ -1241,16 +1332,16 @@
       flex: "1",
       py: "2xl",
       children: [_v2 && (0, _v6.jsx)(_v33.Flex, {
-        width: (0, _v74.rem)(128),
+        width: (0, _v46.rem)(128),
         justify: "center",
         children: _v2
       }), (0, _v6.jsxs)(_v33.Flex, {
         direction: "column",
         align: "center",
         textAlign: "center",
-        margin: `${(0, _v74.rem)(16)} 0`,
-        rowGap: (0, _v74.rem)(16),
-        maxW: (0, _v74.rem)(320),
+        margin: `${(0, _v46.rem)(16)} 0`,
+        rowGap: (0, _v46.rem)(16),
+        maxW: (0, _v46.rem)(320),
         children: [_v1, _v3]
       }), _v0]
     });
@@ -1596,7 +1687,7 @@
     }, [_v2]), (0, _v6.jsxs)(_v6.Fragment, {
       children: [(0, _v6.jsx)(_v97.ModalHeader, {
         paddingBottom: 0,
-        children: (0, _v6.jsx)(_v73.Header, {
+        children: (0, _v6.jsx)(_v74.Header, {
           as: "h4",
           size: "md",
           children: _v50.default.SelectVideos
@@ -1765,9 +1856,9 @@
       isOpen: _v0,
       children: [(0, _v6.jsx)(_v36.ModalOverlay, {}), (0, _v6.jsx)(_v35.ModalContent, {
         width: "90vw",
-        maxWidth: (0, _v74.rem)(662),
+        maxWidth: (0, _v46.rem)(662),
         height: "85vh",
-        maxHeight: (0, _v74.rem)(752),
+        maxHeight: (0, _v46.rem)(752),
         padding: 0,
         overflow: "hidden",
         children: (0, _v6.jsx)(_v132, {
@@ -1830,7 +1921,7 @@
             _v9 || (_v135(_v48.BPEvent.CLICK_TO_ADD_VIDEO, 1), _v10(), _v2(), _v5(!0));
           },
           children: (0, _v6.jsx)(_v85.PlusSquare, {
-            boxSize: (0, _v74.rem)(20)
+            boxSize: (0, _v46.rem)(20)
           })
         })
       }), (0, _v6.jsx)(_v136, {
@@ -1980,8 +2071,8 @@
         align: "center",
         px: "md",
         gap: "xs",
-        mb: (0, _v74.rem)(10),
-        children: [(0, _v6.jsx)(_v73.Header, {
+        mb: (0, _v46.rem)(10),
+        children: [(0, _v6.jsx)(_v74.Header, {
           size: "sm",
           as: "p",
           mb: 0,
@@ -2338,7 +2429,7 @@
         },
         onBlur: _v9
       }), _v2 && (0, _v6.jsx)(_v171.FormErrorMessage, {
-        children: (0, _v6.jsx)(_v45.Paragraph, {
+        children: (0, _v6.jsx)(_v44.Paragraph, {
           size: "sm",
           role: "note",
           color: "red.500",
@@ -2852,7 +2943,7 @@
     return (0, _v6.jsxs)(_v6.Fragment, {
       children: [(0, _v6.jsx)(_v161.ModalCloseButton, {}), (0, _v6.jsx)(_v97.ModalHeader, {
         paddingBottom: 0,
-        children: (0, _v6.jsx)(_v73.Header, {
+        children: (0, _v6.jsx)(_v74.Header, {
           as: "h4",
           size: "md",
           children: 0 === _v1 ? _v50.default.PickerHeader : _v50.default.VideoTrimCropModalHeader
@@ -3026,7 +3117,7 @@
         children: [(0, _v6.jsx)(_v36.ModalOverlay, {}), (0, _v6.jsx)(_v35.ModalContent, {
           width: "90vw",
           height: "85vh",
-          maxHeight: (0, _v74.rem)(752),
+          maxHeight: (0, _v46.rem)(752),
           padding: 0,
           overflow: "hidden",
           children: (0, _v6.jsx)(_v197, {
@@ -3157,7 +3248,7 @@
           _v0 || (_v135(_v48.BPEvent.CLICK_TO_CREATE_SECTION, 1), _v2(), _v1());
         },
         children: (0, _v6.jsx)(_v202, {
-          boxSize: (0, _v74.rem)(20)
+          boxSize: (0, _v46.rem)(20)
         })
       })
     });
@@ -3396,7 +3487,7 @@
           right: (0, _v27.rem)(4),
           h: "100%",
           align: "center",
-          children: (0, _v6.jsx)(_v44.IconButton, {
+          children: (0, _v6.jsx)(_v43.IconButton, {
             icon: (0, _v6.jsx)(_v37.CloseX, {}),
             "aria-label": "Clear input",
             variant: "tertiary",
@@ -3463,7 +3554,7 @@
             disabled: _v2
           })
         })
-      }), _v1 && (0, _v6.jsx)(_v45.Paragraph, {
+      }), _v1 && (0, _v6.jsx)(_v44.Paragraph, {
         size: "sm",
         color: "red.500",
         ml: (0, _v27.rem)(7),
@@ -3567,7 +3658,7 @@
       top: (0, _v27.rem)(16),
       right: (0, _v27.rem)(16),
       className: _v2,
-      children: (0, _v6.jsx)(_v44.IconButton, {
+      children: (0, _v6.jsx)(_v43.IconButton, {
         variant: "tertiary",
         icon: (0, _v6.jsx)(_v37.CloseX, {}),
         onClick: _v0,
@@ -3848,10 +3939,10 @@
             p: `${(0, _v27.rem)(40)} ${(0, _v27.rem)(30)} ${(0, _v27.rem)(20)}`,
             children: [(0, _v6.jsx)(_v220, {
               onClick: () => _v4(!1)
-            }), (0, _v6.jsx)(_v73.Header, {
+            }), (0, _v6.jsx)(_v74.Header, {
               size: "md",
               children: _v10 ? _v50.default.UnableToFollow : _v50.default.VerifyAccountTitle
-            }), (0, _v6.jsx)(_v45.Paragraph, {
+            }), (0, _v6.jsx)(_v44.Paragraph, {
               size: "md",
               children: _v10 ? _v50.default.TooManyFollow : (0, _v6.jsx)(_v6.Fragment, {
                 children: (0, _v21.translate)({
@@ -4913,14 +5004,14 @@
       overflow: "hidden",
       position: "relative",
       h: {
-        base: (0, _v74.rem)(255),
-        md: (0, _v74.rem)(284)
+        base: (0, _v46.rem)(255),
+        md: (0, _v46.rem)(284)
       },
       children: [(0, _v6.jsx)(_v31.Box, {
         ref: _v7,
         position: "absolute",
-        h: (0, _v74.rem)(_v2),
-        w: (0, _v74.rem)(_v2),
+        h: (0, _v46.rem)(_v2),
+        w: (0, _v46.rem)(_v2),
         borderRadius: "50%",
         overflow: "hidden",
         style: {
@@ -4972,7 +5063,7 @@
         "aria-label": "Zoom out",
         onClick: () => _v2(-1),
         children: (0, _v6.jsx)(_v271.Minus, {
-          boxSize: (0, _v74.rem)(20)
+          boxSize: (0, _v46.rem)(20)
         })
       }), (0, _v6.jsxs)(_v269.Slider, {
         "aria-label": "zoom",
@@ -4991,7 +5082,7 @@
         "aria-label": "Zoom in",
         onClick: () => _v2(1),
         children: (0, _v6.jsx)(_v272.Plus, {
-          boxSize: (0, _v74.rem)(20)
+          boxSize: (0, _v46.rem)(20)
         })
       })]
     });
@@ -5038,8 +5129,8 @@
             align: "center",
             justify: "center",
             h: {
-              base: (0, _v74.rem)(366),
-              md: (0, _v74.rem)(284)
+              base: (0, _v46.rem)(366),
+              md: (0, _v46.rem)(284)
             },
             children: (0, _v6.jsx)(_v188.Spinner, {
               size: "md"
@@ -5275,8 +5366,8 @@
         onClose: () => _v6(!1),
         children: [(0, _v6.jsx)(_v36.ModalOverlay, {}), (0, _v6.jsx)(_v35.ModalContent, {
           w: "90vw",
-          maxW: (0, _v74.rem)(506),
-          maxH: (0, _v74.rem)(516),
+          maxW: (0, _v46.rem)(506),
+          maxH: (0, _v46.rem)(516),
           children: (0, _v6.jsx)(_v276, {
             image: _v7,
             ref: _v4,
@@ -5398,7 +5489,7 @@
   }
   let _v282 = ({
       className: _v0
-    }) => (0, _v6.jsx)(_v72.Badge, {
+    }) => (0, _v6.jsx)(_v73.Badge, {
       as: "a",
       variant: "default",
       href: "/experts",
@@ -5443,7 +5534,7 @@
       }) : (0, _v6.jsx)(_v33.Flex, {
         ..._v284,
         children: (0, _v6.jsxs)("span", {
-          children: [(0, _v6.jsx)(_v73.Header, {
+          children: [(0, _v6.jsx)(_v74.Header, {
             ..._v283,
             children: _v1
           }), _v3 && (0, _v6.jsx)(_v287, {})]
@@ -5503,7 +5594,7 @@
           transition: "all 120ms ease-in-out 0s",
           sx: _v52,
           children: (0, _v6.jsxs)("span", {
-            children: [(0, _v6.jsx)(_v73.Header, {
+            children: [(0, _v6.jsx)(_v74.Header, {
               ..._v283,
               children: _v0
             }), _v2 && (0, _v6.jsx)(_v287, {}), (0, _v6.jsx)(_v31.Box, {
@@ -5742,12 +5833,12 @@
       as: "li",
       draggable: !_v5,
       alignItems: "center",
-      gap: (0, _v74.rem)(14),
-      padding: (0, _v74.rem)(10),
-      borderTopWidth: _v19 ? (0, _v74.rem)(2) : 0,
+      gap: (0, _v46.rem)(14),
+      padding: (0, _v46.rem)(10),
+      borderTopWidth: _v19 ? (0, _v46.rem)(2) : 0,
       borderTopStyle: "solid",
       borderTopColor: _v19 ? "text-primary" : "transparent",
-      borderBottomWidth: _v18 || _v20 ? (0, _v74.rem)(2) : _v4 ? (0, _v74.rem)(1) : 0,
+      borderBottomWidth: _v18 || _v20 ? (0, _v46.rem)(2) : _v4 ? (0, _v46.rem)(1) : 0,
       borderBottomStyle: "solid",
       borderBottomColor: _v18 || _v20 ? "text-primary" : "stroke",
       bg: _v17 ? "fill-component-hover" : "transparent",
@@ -5761,17 +5852,17 @@
         as: "span",
         className: "drag-handle",
         children: (0, _v6.jsx)(_v305.DragV, {
-          boxSize: (0, _v74.rem)(18),
+          boxSize: (0, _v46.rem)(18),
           color: "text-primary"
         })
       }), (0, _v6.jsx)(_v31.Box, {
-        w: (0, _v74.rem)(98),
+        w: (0, _v46.rem)(98),
         children: (0, _v6.jsx)(_v110.ContentRow.Thumbnail, {
           alt: _v0.display.videoName,
           src: _v0.display.thumbnail,
           badgeText: _v0.display.duration,
           badgeSize: "xs",
-          minWidth: (0, _v74.rem)(98)
+          minWidth: (0, _v46.rem)(98)
         })
       }), (0, _v6.jsxs)(_v31.Box, {
         minWidth: 0,
@@ -5781,7 +5872,7 @@
           whiteSpace: "nowrap",
           textOverflow: "ellipsis",
           overflow: "hidden",
-          marginBottom: (0, _v74.rem)(1),
+          marginBottom: (0, _v46.rem)(1),
           children: _v0.display.videoName
         }), (0, _v6.jsx)(_v18.Text, {
           as: "div",
@@ -5916,13 +6007,13 @@
       borderRadius: _v5 ? "lg" : 0,
       bg: _v5 ? "fill-surface" : "transparent",
       overflow: _v5 ? "hidden" : "visible",
-      marginBottom: _v5 && _v1 < _v2 - 1 ? (0, _v74.rem)(10) : 0,
+      marginBottom: _v5 && _v1 < _v2 - 1 ? (0, _v46.rem)(10) : 0,
       children: [_v5 ? (0, _v6.jsx)(_v18.Text, {
         as: "p",
         variant: "body-md",
         margin: 0,
         px: "md",
-        py: (0, _v74.rem)(10),
+        py: (0, _v46.rem)(10),
         bg: "fill-component-hover",
         borderBottom: "1px solid",
         borderColor: "stroke",
@@ -5960,7 +6051,7 @@
         children: (0, _v6.jsx)(_v33.Flex, {
           position: "sticky",
           top: 0,
-          height: `min(100%, ${(0, _v74.rem)(440)}, 55vh)`,
+          height: `min(100%, ${(0, _v46.rem)(440)}, 55vh)`,
           alignItems: "center",
           justifyContent: "center",
           children: (0, _v6.jsx)(_v188.Spinner, {
@@ -6004,7 +6095,7 @@
         "aria-label": _v50.default.SortBy,
         children: _v4
       }), (0, _v6.jsx)(_v313.MenuList, {
-        minWidth: (0, _v74.rem)(200),
+        minWidth: (0, _v46.rem)(200),
         children: (0, _v6.jsx)(_v311.MenuGroup, {
           title: _v50.default.SortBy,
           as: _v18.Text,
@@ -6364,11 +6455,11 @@
     return (0, _v6.jsxs)(_v6.Fragment, {
       children: [(0, _v6.jsx)(_v97.ModalHeader, {
         paddingBottom: "xs",
-        px: (0, _v74.rem)(28),
+        px: (0, _v46.rem)(28),
         children: (0, _v6.jsxs)(_v33.Flex, {
           alignItems: "center",
           justifyContent: "space-between",
-          children: [(0, _v6.jsx)(_v73.Header, {
+          children: [(0, _v6.jsx)(_v74.Header, {
             as: "h1",
             size: "md",
             children: _v50.default.ReorderContent
@@ -6380,14 +6471,14 @@
           })]
         })
       }), (0, _v6.jsx)(_v95.ModalBody, {
-        px: (0, _v74.rem)(28),
+        px: (0, _v46.rem)(28),
         children: (0, _v6.jsxs)(_v31.Box, {
           as: "ul",
           ref: _v33,
           margin: 0,
-          padding: (0, _v74.rem)(12),
+          padding: (0, _v46.rem)(12),
           listStyleType: "none",
-          maxHeight: `min(${(0, _v74.rem)(440)}, 55vh)`,
+          maxHeight: `min(${(0, _v46.rem)(440)}, 55vh)`,
           overflowY: "auto",
           borderRadius: "lg",
           bg: "fill-component",
@@ -6415,7 +6506,7 @@
             alignItems: "center",
             justifyContent: "center",
             listStyleType: "none",
-            paddingY: (0, _v74.rem)(12),
+            paddingY: (0, _v46.rem)(12),
             children: (0, _v6.jsx)(_v188.Spinner, {
               size: "md"
             })
@@ -6423,7 +6514,7 @@
         })
       }), (0, _v6.jsx)(_v96.ModalFooter, {
         paddingTop: 0,
-        px: (0, _v74.rem)(28),
+        px: (0, _v46.rem)(28),
         children: (0, _v6.jsxs)(_v94.HStack, {
           spacing: "sm",
           children: [(0, _v6.jsx)(_v32.Button, {
@@ -6456,7 +6547,7 @@
       size: "lg",
       autoFocus: !1,
       children: [(0, _v6.jsx)(_v36.ModalOverlay, {}), (0, _v6.jsx)(_v35.ModalContent, {
-        maxW: (0, _v74.rem)(620),
+        maxW: (0, _v46.rem)(620),
         children: (0, _v6.jsx)(_v316, {
           sections: _v0,
           sectionsActive: _v1,
@@ -6562,7 +6653,7 @@
         mt: "12px",
         mb: "8px",
         mx: "12px",
-        height: (0, _v74.rem)(201),
+        height: (0, _v46.rem)(201),
         borderWidth: "1px",
         borderStyle: "dashed",
         borderColor: _v6 ? "input-stroke-hover" : "stroke",
@@ -6605,7 +6696,7 @@
           }), (0, _v6.jsx)(_v32.Button, {
             variant: "secondary",
             size: "sm",
-            mt: (0, _v74.rem)(20),
+            mt: (0, _v46.rem)(20),
             leftIcon: (0, _v6.jsx)(_v85.PlusSquare, {}),
             onClick: () => {
               _v12(), _v9(!0);
@@ -6767,7 +6858,7 @@
             children: (0, _v6.jsx)(_v329, {
               label: _v50.default.MoveUp,
               icon: (0, _v6.jsx)(_v326.ChevronUpSmall, {
-                boxSize: (0, _v74.rem)(20)
+                boxSize: (0, _v46.rem)(20)
               }),
               isDisabled: _v12,
               onClick: () => _v14(_v12, -1)
@@ -6779,7 +6870,7 @@
             children: (0, _v6.jsx)(_v329, {
               label: _v50.default.MoveDown,
               icon: (0, _v6.jsx)(_v325.ChevronDownSmall, {
-                boxSize: (0, _v74.rem)(20)
+                boxSize: (0, _v46.rem)(20)
               }),
               isDisabled: _v11,
               onClick: () => _v14(_v11, 1)
@@ -6791,7 +6882,7 @@
           children: (0, _v6.jsx)(_v329, {
             label: _v50.default.Remove,
             icon: (0, _v6.jsx)(_v327.TrashBin, {
-              boxSize: (0, _v74.rem)(20)
+              boxSize: (0, _v46.rem)(20)
             }),
             isDisabled: _v8,
             onClick: _v13
@@ -7106,7 +7197,7 @@
               children: (0, _v6.jsx)(_v84.Tooltip, {
                 label: _v13 ? _v50.default.Shrink : _v50.default.Expand,
                 isDisabled: _v0.loading || _v14,
-                children: (0, _v6.jsx)(_v44.IconButton, {
+                children: (0, _v6.jsx)(_v43.IconButton, {
                   "aria-label": _v13 ? _v50.default.Shrink : _v50.default.Expand,
                   icon: _v13 ? (0, _v6.jsx)(_v333, {}) : (0, _v6.jsx)(_v332.ExpandAlt, {}),
                   variant: "blur",
@@ -7119,7 +7210,7 @@
             }), _v4 && (0, _v6.jsx)(_v334.ContentCard.HoverAction, {
               children: (0, _v6.jsx)(_v84.Tooltip, {
                 label: _v50.default.Remove,
-                children: (0, _v6.jsx)(_v44.IconButton, {
+                children: (0, _v6.jsx)(_v43.IconButton, {
                   "aria-label": _v50.default.Remove,
                   icon: (0, _v6.jsx)(_v327.TrashBin, {}),
                   variant: "blur",
@@ -7796,23 +7887,23 @@
       _v13(!1);
     }, [_v0]), (0, _v6.jsxs)(_v33.Flex, {
       position: _v10 ? "absolute" : "fixed",
-      bottom: (0, _v74.rem)(24),
-      right: (0, _v74.rem)(24),
+      bottom: (0, _v46.rem)(24),
+      right: (0, _v46.rem)(24),
       zIndex: 3,
       bg: "fill-surface",
-      borderRadius: _v8 ? (0, _v74.rem)(18) : "md",
+      borderRadius: _v8 ? (0, _v46.rem)(18) : "md",
       boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.5)",
       padding: "md",
       gap: "sm",
       alignItems: "center",
       justifyContent: "center",
-      h: (0, _v74.rem)(64),
-      w: _v8 ? (0, _v74.rem)(168) : (0, _v74.rem)(112),
+      h: (0, _v46.rem)(64),
+      w: _v8 ? (0, _v46.rem)(168) : (0, _v46.rem)(112),
       children: [(0, _v6.jsx)(_v84.Tooltip, {
         label: _v17.content,
         placement: "top",
         isDisabled: _v4,
-        children: (0, _v6.jsx)(_v44.IconButton, {
+        children: (0, _v6.jsx)(_v43.IconButton, {
           icon: _v17.icon,
           "aria-label": _v17.content,
           variant: "tertiary",
@@ -7837,7 +7928,7 @@
         label: _v50.default.Reorder,
         placement: "top",
         isDisabled: _v9,
-        children: (0, _v6.jsx)(_v44.IconButton, {
+        children: (0, _v6.jsx)(_v43.IconButton, {
           icon: (0, _v6.jsx)(_v360, {
             boxSize: 24
           }),
@@ -7861,7 +7952,7 @@
       }), (0, _v6.jsx)(_v84.Tooltip, {
         label: _v50.default.Preview,
         placement: "top",
-        children: (0, _v6.jsx)(_v44.IconButton, {
+        children: (0, _v6.jsx)(_v43.IconButton, {
           as: _v356.default,
           href: `${window.location.pathname}?mode=preview`,
           target: "_blank",
@@ -8151,7 +8242,7 @@
       },
       children: [(0, _v6.jsx)(_v84.Tooltip, {
         label: _v50.default.Share,
-        children: (0, _v6.jsx)(_v44.IconButton, {
+        children: (0, _v6.jsx)(_v43.IconButton, {
           variant: "tertiary",
           size: "sm",
           icon: (0, _v6.jsx)(_v366.Export, {}),
@@ -8232,15 +8323,15 @@
   }) {
     return (0, _v6.jsxs)(_v33.Flex, {
       position: "fixed",
-      top: (0, _v74.rem)(64),
+      top: (0, _v46.rem)(64),
       zIndex: 3,
       w: "100%",
-      h: (0, _v74.rem)(70),
+      h: (0, _v46.rem)(70),
       maxW: "100%",
       bg: "fill-surface",
       boxShadow: "md",
-      px: (0, _v74.rem)(10),
-      py: (0, _v74.rem)(10),
+      px: (0, _v46.rem)(10),
+      py: (0, _v46.rem)(10),
       justifyContent: "space-between",
       visibility: _v3 ? "visible" : "hidden",
       opacity: +!!_v3,
@@ -8250,7 +8341,7 @@
         lg: "none"
       },
       children: [(0, _v6.jsxs)(_v33.Flex, {
-        maxW: `calc(100% - ${(0, _v74.rem)(90)})`,
+        maxW: `calc(100% - ${(0, _v46.rem)(90)})`,
         children: [(0, _v6.jsx)(_v109.Avatar, {
           alt: _v0,
           size: "auto",
@@ -8259,37 +8350,37 @@
             name: _v0
           },
           sx: {
-            width: (0, _v74.rem)(50),
-            height: (0, _v74.rem)(50)
+            width: (0, _v46.rem)(50),
+            height: (0, _v46.rem)(50)
           }
         }), (0, _v6.jsx)(_v18.Text, {
           as: "span",
           color: "text-primary",
-          fontSize: (0, _v74.rem)(20),
+          fontSize: (0, _v46.rem)(20),
           fontWeight: "bold",
-          letterSpacing: (0, _v74.rem)(-.5),
-          lineHeight: (0, _v74.rem)(32),
-          m: (0, _v74.rem)(10),
+          letterSpacing: (0, _v46.rem)(-.5),
+          lineHeight: (0, _v46.rem)(32),
+          m: (0, _v46.rem)(10),
           whiteSpace: "nowrap",
           overflow: "hidden",
           textOverflow: "ellipsis",
           children: _v0
         }), _v4 && (0, _v6.jsx)(_v31.Box, {
           alignSelf: "center",
-          mr: (0, _v74.rem)(4),
-          transform: `translateY(${(0, _v74.rem)(2)})`,
+          mr: (0, _v46.rem)(4),
+          transform: `translateY(${(0, _v46.rem)(2)})`,
           sx: {
             a: {
-              fontSize: (0, _v74.rem)(9),
-              borderRadius: (0, _v74.rem)(2),
+              fontSize: (0, _v46.rem)(9),
+              borderRadius: (0, _v46.rem)(2),
               fontWeight: 700
             }
           },
           children: (0, _v6.jsx)(_v282, {})
         })]
       }), null != _v2 ? (0, _v6.jsx)(_v33.Flex, {
-        mt: (0, _v74.rem)(5),
-        maxW: `calc(100% - ${(0, _v74.rem)(90)})`,
+        mt: (0, _v46.rem)(5),
+        maxW: `calc(100% - ${(0, _v46.rem)(90)})`,
         children: _v2
       }) : null]
     });
@@ -8843,7 +8934,7 @@
           width: "45px",
           height: "40px",
           mb: "lg"
-        }), (0, _v6.jsx)(_v73.Header, {
+        }), (0, _v6.jsx)(_v74.Header, {
           size: "xl",
           children: (0, _v21.translate)({
             singular: "This profile is private",

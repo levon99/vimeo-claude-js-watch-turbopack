@@ -1900,6 +1900,32 @@
           }
         }
       }),
+      cameraPositionGuestHint: (0, _v6.translate)({
+        singular: "Ask your producer or event host to change the camera position",
+        dictionary: {
+          es: {
+            singular: "Pida a su productor o al anfitrión del evento que cambie la posición de la cámara"
+          },
+          "de-DE": {
+            singular: "Bitten Sie Ihren Produzenten oder Veranstaltungsleiter, die Kameraposition zu ändern"
+          },
+          "fr-FR": {
+            singular: "Demandez à votre producteur ou à l'hôte de l'événement de changer la position de la caméra"
+          },
+          "ja-JP": {
+            singular: "プロデューサーまたはイベントホストにカメラの位置を変更するよう依頼してください"
+          },
+          "ko-KR": {
+            singular: "프로듀서나 이벤트 호스트에게 카메라 위치를 변경해 달라고 요청하세요"
+          },
+          "pt-BR": {
+            singular: "Peça ao seu produtor ou ao anfitrião do evento para alterar a posição da câmera"
+          },
+          "zh-CN": {
+            singular: "请让您的制作人或活动主持人调整摄像机位置"
+          }
+        }
+      }),
       cameraPositionSpeakersHidden: (0, _v6.translate)({
         singular: "Show speakers to reposition the camera",
         dictionary: {
@@ -4070,6 +4096,32 @@
           },
           "zh-CN": {
             singular: "此活动已结束"
+          }
+        }
+      }),
+      eventLandingPage: (0, _v6.translate)({
+        singular: "Event landing page",
+        dictionary: {
+          es: {
+            singular: "Página de destino del evento"
+          },
+          "de-DE": {
+            singular: "Event-Landingpage"
+          },
+          "fr-FR": {
+            singular: "Page de destination de l'événement"
+          },
+          "ja-JP": {
+            singular: "イベントのランディングページ"
+          },
+          "ko-KR": {
+            singular: "이벤트 랜딩 페이지"
+          },
+          "pt-BR": {
+            singular: "Página de destino do evento"
+          },
+          "zh-CN": {
+            singular: "活动着陆页"
           }
         }
       }),

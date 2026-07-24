@@ -35,7 +35,7 @@
         return (0, _v1.jsx)(_v1.Fragment, {
           children: _v0
         });
-      }, [_v0]);
+      }, [_v1, _v0]);
       return (0, _v1.jsx)(_v1.Fragment, {
         children: _v2
       });
@@ -44,31 +44,38 @@
       raw: _v0,
       url: _v1,
       customLinkCss: _v2,
-      paraBreak: _v3,
-      ..._v4
-    }) => {
-      let _v5 = (0, _v3.useMemo)(() => (_v0 => {
-        let _v1 = _v0.split(/^(http(s)?\:)?\/\//).pop();
-        if (_v1) {
-          let _v0 = _v1.split(/[\/\?]/)[0];
-          return /\:(\d+)$/.test(_v0);
-        }
-        return !1;
-      })(_v1) ? (0, _v1.jsx)(_v9, {
-        text: _v0,
-        paraBreak: _v3
-      }) : (0, _v1.jsx)(_v14, {
-        contentEditable: !1,
-        href: _v1,
-        target: "_blank",
-        rel: "noopener noreferrer nofollow",
-        ..._v4,
-        children: _v0
-      }), [_v0, _v1]);
-      return (0, _v1.jsx)(_v1.Fragment, {
-        children: _v5
-      });
-    },
+      isInteractive: _v3 = !0,
+      paraBreak: _v4,
+      linkWordBreakStyle: _v5,
+      onClick: _v6,
+      onMouseEnter: _v7,
+      onMouseLeave: _v8
+    }) => (_v0 => {
+      let _v1 = _v0.split(/^(http(s)?\:)?\/\//).pop();
+      if (_v1) {
+        let _v0 = _v1.split(/[\/\?]/)[0];
+        return /\:(\d+)$/.test(_v0);
+      }
+      return !1;
+    })(_v1) ? (0, _v1.jsx)(_v9, {
+      text: _v0,
+      paraBreak: _v4
+    }) : _v3 ? (0, _v1.jsx)(_v14, {
+      contentEditable: !1,
+      href: _v1,
+      target: "_blank",
+      rel: "noopener noreferrer nofollow",
+      customLinkCss: _v2,
+      linkWordBreakStyle: _v5,
+      onClick: _v6,
+      onMouseEnter: _v7,
+      onMouseLeave: _v8,
+      children: _v0
+    }) : (0, _v1.jsx)(_v15, {
+      customLinkCss: _v2,
+      linkWordBreakStyle: _v5,
+      children: _v0
+    }),
     _v11 = _v4.css`
   text-decoration: none;
   color: ${_v5.bokehTheme.colors.blue["500"]};
@@ -99,12 +106,30 @@
   ${({
       customLinkCss: _v0
     }) => _v0 || _v11}
+`,
+    _v15 = _v4.default.span.withConfig({
+      displayName: "Linkify__NonInteractiveLinkText",
+      componentId: "sc-139cb347-2"
+    })`
+  ${_v12}
+  word-break: ${({
+      linkWordBreakStyle: _v0
+    }) => _v0 || "break-all"};
+  ${({
+      customLinkCss: _v0
+    }) => _v0 || _v11}
 `;
   _v0.s(["default", 0, ({
     text: _v0,
-    ..._v1
+    customLinkCss: _v1,
+    isInteractive: _v2 = !0,
+    paraBreak: _v3,
+    linkWordBreakStyle: _v4,
+    onClick: _v5,
+    onMouseEnter: _v6,
+    onMouseLeave: _v7
   }) => {
-    let _v2 = (0, _v3.useMemo)(() => {
+    let _v8 = (0, _v3.useMemo)(() => {
       if (_v8.pretest(_v0)) {
         let _v0 = 0,
           _v1 = [];
@@ -113,7 +138,13 @@
             text: _v0.substring(_v0, _v0.index)
           }, `text-splitter-${_v0.index}`)), _v1.push((0, _v1.jsx)(_v10, {
             ..._v0,
-            ..._v1
+            customLinkCss: _v1,
+            isInteractive: _v2,
+            paraBreak: _v3,
+            linkWordBreakStyle: _v4,
+            onClick: _v5,
+            onMouseEnter: _v6,
+            onMouseLeave: _v7
           }, `linkify-link-${_v0.index}`)), _v0 = _v0.lastIndex;
         }), _v1.push((0, _v1.jsx)(_v9, {
           text: _v0.substring(_v0)
@@ -122,9 +153,9 @@
       return (0, _v1.jsx)(_v9, {
         text: _v0
       });
-    }, [_v0]);
+    }, [_v0, _v1, _v2, _v4, _v5, _v6, _v7, _v3]);
     return (0, _v1.jsx)(_v1.Fragment, {
-      children: _v2
+      children: _v8
     });
   }], 0);
 }

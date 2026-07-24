@@ -301,10 +301,10 @@
           singular: "カスタムロゴ"
         },
         "ko-KR": {
-          singular: "커스텀 로고"
+          singular: "사용자 지정 로고"
         },
         "pt-BR": {
-          singular: "Customizar logo"
+          singular: "Logotipo personalizado"
         },
         "zh-CN": {
           singular: "自定义徽标"
@@ -1057,13 +1057,13 @@
           singular: "Logo Vimeo"
         },
         "ja-JP": {
-          singular: "Vimeo のロゴ"
+          singular: "Vimeo ロゴ"
         },
         "ko-KR": {
           singular: "Vimeo 로고"
         },
         "pt-BR": {
-          singular: "Logo do Vimeo"
+          singular: "Logotipo do Vimeo"
         },
         "zh-CN": {
           singular: "Vimeo 徽标"
@@ -3843,12 +3843,12 @@
               }
             }
           }, [_v0, _v1, _v2, _v10, _v5, _v4]),
-          _v16 = (0, _v14.useCallback)(_v0 => {
+          _v16 = (0, _v14.useCallback)(async _v0 => {
             let _v1 = (0, _v23.parseThumbnailIdFromUrl)(_v0.uri);
             if (_v0 && _v1 && _v2 && _v1 > 0) {
               _v7(!0);
               try {
-                (0, _v21.deleteUserLiveEventPicture)({
+                await (0, _v21.deleteUserLiveEventPicture)({
                   baseUrl: `//${_v2.apiUrl}`,
                   headers: {
                     Authorization: `jwt ${_v2.jwt}`,
@@ -3859,15 +3859,16 @@
                     liveEventId: _v1,
                     thumbnailId: _v1
                   }
-                }).then(() => {
-                  let _v0 = _v10.filter(_v0 => (0, _v23.parseThumbnailIdFromUrl)(_v0.uri) !== _v1);
-                  _v11(_v0), _v7(!1);
                 });
+                let _v0 = _v10.filter(_v0 => (0, _v23.parseThumbnailIdFromUrl)(_v0.uri) !== _v1);
+                _v11(_v0);
               } catch (_v0) {
                 _v4({
                   message: _v26.errorMsg,
                   status: "negative"
-                }), _v7(!1);
+                });
+              } finally {
+                _v7(!1);
               }
             }
           }, [_v0, _v1, _v2, _v10, _v4]);

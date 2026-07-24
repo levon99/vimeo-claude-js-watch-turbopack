@@ -37,7 +37,7 @@
   width: 100%;
 `,
     _v24 = () => (0, _v1.jsxs)("div", {
-      children: [(0, _v1.jsx)(_v10.Box, {
+      children: [(0, _v1.jsx)(_v11.Box, {
         children: (0, _v1.jsx)(_v22, {})
       }), (0, _v1.jsx)(_v23, {})]
     }),
@@ -56,22 +56,22 @@
         _v9 = _v0 => {
           !_v5 && /^#(?:[0-9a-fA-F]{3}){1,2}$/.test(_v0) && (_v0 !== _v0 && _v2(_v0), _v8({
             color: _v0,
-            method: _v8.ColorChangeMethods.Picker
+            method: _v9.ColorChangeMethods.Picker
           }));
         };
       return (0, _v4.useEffect)(() => {
         if (_v3) {
           let _v0 = document.createElement("img");
           _v0.setAttribute("crossOrigin", ""), _v0.onload = () => {
-            let _v0 = (0, _v8.extractColors)(_v0).filter(Boolean);
+            let _v0 = (0, _v9.extractColors)(_v0).filter(Boolean);
             _v4 && _v0.length > 0 && _v2(_v0[0]), _v7(_v0);
           }, _v0.src = _v3;
         }
-      }, [_v3, _v7]), (0, _v1.jsxs)(_v11.ColorPickerRoot, {
+      }, [_v3, _v7]), (0, _v1.jsxs)(_v12.ColorPickerRoot, {
         positioning: {
           placement: "top"
         },
-        value: (0, _v17.parseColor)(_v0),
+        value: (0, _v7.parseColor)(_v0),
         onValueChange: _v0 => (_v0 => {
           !_v5 && /^#(?:[0-9a-fA-F]{3}){1,2}$/.test(_v0) && _v0 !== _v0 && _v2(_v0);
         })(_v0.value.toString("hex")),
@@ -79,25 +79,25 @@
         style: {
           flexDirection: "column"
         },
-        children: [(0, _v1.jsxs)(_v13.Flex, {
+        children: [(0, _v1.jsxs)(_v14.Flex, {
           alignItems: "center",
           marginBottom: (0, _v3.rem)(12),
-          children: [(0, _v1.jsx)(_v11.ColorPickerLabel, {
-            children: (0, _v1.jsx)(_v10.Box, {
+          children: [(0, _v1.jsx)(_v12.ColorPickerLabel, {
+            children: (0, _v1.jsx)(_v11.Box, {
               "data-id": "labelWrapper",
               mr: (0, _v3.rem)(12),
-              children: (0, _v1.jsx)(_v14.Header, {
+              children: (0, _v1.jsx)(_v15.Header, {
                 as: "h6",
                 size: "xs",
                 color: "text-primary",
                 children: _v21.T.AccentColor
               })
             })
-          }), (0, _v1.jsx)(_v11.ColorPickerSwatchGroup, {
-            children: _v6.map(_v0 => (0, _v1.jsx)(_v11.ColorPickerSwatchTrigger, {
+          }), (0, _v1.jsx)(_v12.ColorPickerSwatchGroup, {
+            children: _v6.map(_v0 => (0, _v1.jsx)(_v12.ColorPickerSwatchTrigger, {
               value: _v0,
               onClick: () => _v9(_v0),
-              children: (0, _v1.jsx)(_v11.ColorPickerSwatch, {
+              children: (0, _v1.jsx)(_v12.ColorPickerSwatch, {
                 value: _v0,
                 boxSize: "2xs",
                 sx: {
@@ -109,28 +109,28 @@
               })
             }, _v0))
           })]
-        }), (0, _v1.jsx)(_v12.ColorPickerControl, {
-          children: (0, _v1.jsxs)(_v10.Box, {
+        }), (0, _v1.jsx)(_v13.ColorPickerControl, {
+          children: (0, _v1.jsxs)(_v11.Box, {
             pos: "relative",
-            children: [(0, _v1.jsx)(_v11.ColorPickerTrigger, {
-              children: (0, _v1.jsx)(_v10.Box, {
+            children: [(0, _v1.jsx)(_v12.ColorPickerTrigger, {
+              children: (0, _v1.jsx)(_v11.Box, {
                 border: "1px solid",
                 borderColor: "stroke",
                 borderRadius: 3,
                 padding: (0, _v3.rem)(14),
                 cursor: "pointer",
-                children: (0, _v1.jsxs)(_v15.HStack, {
+                children: (0, _v1.jsxs)(_v16.HStack, {
                   gap: 2,
-                  children: [(0, _v1.jsx)(_v11.ColorPickerSwatch, {
+                  children: [(0, _v1.jsx)(_v12.ColorPickerSwatch, {
                     value: _v0,
                     boxSize: "2xs"
-                  }), (0, _v1.jsx)(_v14.Header, {
+                  }), (0, _v1.jsx)(_v15.Header, {
                     size: "xl",
                     children: _v0
                   })]
                 })
               })
-            }), _v1 && _v1 !== _v0 && (0, _v1.jsx)(_v16.IconButton, {
+            }), _v1 && _v1 !== _v0 && (0, _v1.jsx)(_v17.IconButton, {
               pos: "absolute",
               top: (0, _v3.rem)(12),
               right: (0, _v3.rem)(8),
@@ -140,18 +140,18 @@
               onClick: () => _v9(_v1)
             })]
           })
-        }), (0, _v1.jsx)(_v11.ColorPickerPositioner, {
-          children: (0, _v1.jsxs)(_v11.ColorPickerContent, {
-            children: [(0, _v1.jsx)(_v11.ColorPickerArea, {}), (0, _v1.jsxs)(_v15.HStack, {
-              children: [(0, _v1.jsxs)(_v11.ColorPickerChannelSlider, {
+        }), (0, _v1.jsx)(_v12.ColorPickerPositioner, {
+          children: (0, _v1.jsxs)(_v12.ColorPickerContent, {
+            children: [(0, _v1.jsx)(_v12.ColorPickerArea, {}), (0, _v1.jsxs)(_v16.HStack, {
+              children: [(0, _v1.jsxs)(_v12.ColorPickerChannelSlider, {
                 channel: "hue",
-                children: [(0, _v1.jsx)(_v11.ColorPickerChannelSliderTrack, {}), (0, _v1.jsx)(_v11.ColorPickerChannelSliderThumb, {})]
-              }), (0, _v1.jsx)(_v11.ColorPickerEyeDropperTrigger, {
+                children: [(0, _v1.jsx)(_v12.ColorPickerChannelSliderTrack, {}), (0, _v1.jsx)(_v12.ColorPickerChannelSliderThumb, {})]
+              }), (0, _v1.jsx)(_v12.ColorPickerEyeDropperTrigger, {
                 size: "sm"
               })]
-            }), (0, _v1.jsx)(_v13.Flex, {
+            }), (0, _v1.jsx)(_v14.Flex, {
               height: "sm",
-              children: (0, _v1.jsx)(_v11.ColorPickerChannelInput, {
+              children: (0, _v1.jsx)(_v12.ColorPickerChannelInput, {
                 channel: "hex",
                 onKeyDown: _v0 => {
                   "Enter" === _v0.key && _v9(_v0.target.value);
@@ -354,7 +354,7 @@
   let _v59 = ({
       children: _v0,
       ..._v1
-    }) => (0, _v1.jsx)(_v13.Flex, {
+    }) => (0, _v1.jsx)(_v14.Flex, {
       justifyContent: "center",
       alignItems: "center",
       position: "relative",
@@ -439,7 +439,7 @@
       },
       children: _v0 && _v1 && (0, _v1.jsx)(_v58.Tooltip, {
         label: _v21.T.Remove,
-        children: (0, _v1.jsx)(_v16.IconButton, {
+        children: (0, _v1.jsx)(_v17.IconButton, {
           variant: "secondary",
           position: "absolute",
           top: (0, _v30.rem)(-14),
@@ -477,7 +477,7 @@
     _v68 = ({
       direction: _v0,
       setCurrentLogoIndex: _v1
-    }) => (0, _v1.jsx)(_v10.Box, {
+    }) => (0, _v1.jsx)(_v11.Box, {
       width: (0, _v3.rem)(25),
       height: (0, _v3.rem)(40),
       position: "absolute",
@@ -495,7 +495,7 @@
           width: "16px !important"
         }
       },
-      children: (0, _v1.jsx)(_v16.IconButton, {
+      children: (0, _v1.jsx)(_v17.IconButton, {
         "aria-label": _v0,
         icon: "left" === _v0 ? (0, _v1.jsx)(_v56.ChevronLeft, {}) : (0, _v1.jsx)(_v55.ChevronRight, {}),
         variant: "tertiary",
@@ -561,26 +561,26 @@
         children: [(0, _v1.jsxs)(_v49.ModalHeader, {
           p: 0,
           m: 0,
-          children: [(0, _v1.jsxs)(_v14.Header, {
+          children: [(0, _v1.jsxs)(_v15.Header, {
             size: "md",
             padding: 0,
             pb: (0, _v30.rem)(12),
             display: "flex",
             justifyContent: "space-between",
-            children: [_v21.T.EditLogo, (0, _v1.jsx)(_v16.IconButton, {
+            children: [_v21.T.EditLogo, (0, _v1.jsx)(_v17.IconButton, {
               "aria-label": "dismiss_icon",
               icon: (0, _v1.jsx)(_v52.CloseX, {}),
               size: "xs",
               variant: "tertiary",
               onClick: _v8
             })]
-          }), _v0.length > 0 && (0, _v1.jsx)(_v13.Flex, {
+          }), _v0.length > 0 && (0, _v1.jsx)(_v14.Flex, {
             justifyContent: "end",
             children: (0, _v1.jsx)(_v31.Paragraph, {
               children: _v21.T.LogoIndex(_v1, _v0.length)
             })
           })]
-        }), (0, _v1.jsxs)(_v13.Flex, {
+        }), (0, _v1.jsxs)(_v14.Flex, {
           flexDirection: "column",
           position: "relative",
           children: [_v0.length || _v3 ? (0, _v1.jsx)(_v69, {
@@ -594,7 +594,7 @@
             setCurrentLogoIndex: _v0 => {
               _v6(_v0), _v9();
             }
-          }) : (0, _v1.jsx)(_v60, {}), (0, _v1.jsx)(_v13.Flex, {
+          }) : (0, _v1.jsx)(_v60, {}), (0, _v1.jsx)(_v14.Flex, {
             justifyContent: "center",
             sx: {
               label: {
@@ -615,7 +615,7 @@
           })]
         }), (0, _v1.jsx)(_v50.ModalFooter, {
           p: `${(0, _v30.rem)(24)} 0 0 0`,
-          children: (0, _v1.jsxs)(_v13.Flex, {
+          children: (0, _v1.jsxs)(_v14.Flex, {
             justifyContent: "end",
             position: "relative",
             gap: (0, _v30.rem)(8),
@@ -633,7 +633,7 @@
         })]
       });
     },
-    _v71 = () => (0, _v1.jsxs)(_v10.Box, {
+    _v71 = () => (0, _v1.jsxs)(_v11.Box, {
       pt: (0, _v30.rem)(20),
       mb: (0, _v30.rem)(20),
       children: [(0, _v1.jsx)(_v33.Skeleton, {
@@ -675,10 +675,10 @@
         [_v23] = _v45(),
         _v24 = (0, _v4.useCallback)(async () => {
           try {
-            let _v0 = await (0, _v8.fetchLogos)(_v0, _v22);
+            let _v0 = await (0, _v9.fetchLogos)(_v0, _v22);
             _v5(_v0);
           } catch (_v0) {
-            _v11(_v8.defaultError);
+            _v11(_v9.defaultError);
           }
         }, [_v0, _v22]);
       (0, _v4.useEffect)(() => {
@@ -687,25 +687,25 @@
         (async () => {
           _v9(!0);
           try {
-            let _v0 = await (0, _v8.fetchLogos)(_v0, _v22);
+            let _v0 = await (0, _v9.fetchLogos)(_v0, _v22);
             if (_v5(_v0), _v2) {
               let _v0 = _v0.findIndex(_v0 => _v0.sizes[0].link.split("_")[0].endsWith(_v2));
               -1 !== _v0 && _v7(_v0);
             }
           } catch (_v0) {
-            _v11(_v8.defaultError);
+            _v11(_v9.defaultError);
           }
           _v9(!1);
         })();
       }, [_v0.ownerId, _v0.apiUrl, _v22]);
       let _v25 = (0, _v4.useCallback)(async _v0 => {
           if (_v11(""), _v0 && 0 !== _v0.length) {
-            if (_v0[0].size > _v8.logoUploadLimit || 0 > _v47.indexOf(_v0[0].type)) return void _v11(_v21.T.UseJPEGorPNG);
+            if (_v0[0].size > _v9.logoUploadLimit || 0 > _v47.indexOf(_v0[0].type)) return void _v11(_v21.T.UseJPEGorPNG);
             _v9(!0);
             try {
-              await (0, _v8.uploadLogo)(_v0, _v0[0]), await _v24(), _v7(0);
+              await (0, _v9.uploadLogo)(_v0, _v0[0]), await _v24(), _v7(0);
             } catch (_v0) {
-              _v11(_v8.defaultError);
+              _v11(_v9.defaultError);
             }
             _v9(!1);
           }
@@ -725,28 +725,28 @@
                   }
                 }), _v0 = !0;
               }
-            } else _v0.includes("/team_logos/") && (_v0 = await (0, _v8.fetchDeleteLogo)(_v0, _v0));
+            } else _v0.includes("/team_logos/") && (_v0 = await (0, _v9.fetchDeleteLogo)(_v0, _v0));
             _v0 && (await _v24());
           } catch (_v0) {
-            _v11(_v8.defaultError);
+            _v11(_v9.defaultError);
           }
           0 !== _v6 && _v7(_v6 - 1), _v9(!1);
         }, [_v4, _v6, _v0, _v23, _v24]),
         _v27 = () => {
-          _v4.filter(_v0 => (0, _v8.teamLogoUrlToUri)(_v0.sizes[0].link) === (0, _v8.teamLogoUrlToUri)(_v2)).length || "" === _v2 || _v1(""), _v13(!1);
+          _v4.filter(_v0 => (0, _v9.teamLogoUrlToUri)(_v0.sizes[0].link) === (0, _v9.teamLogoUrlToUri)(_v2)).length || "" === _v2 || _v1(""), _v13(!1);
         },
         _v28 = async _v0 => {
           _v3 || (_v14.current = !0, await _v25(_v0));
         };
-      return (0, _v1.jsxs)(_v10.Box, {
+      return (0, _v1.jsxs)(_v11.Box, {
         pt: (0, _v30.rem)(20),
         mb: (0, _v30.rem)(20),
         "data-id": "logoSectionWrapper",
-        children: [(0, _v1.jsxs)(_v13.Flex, {
+        children: [(0, _v1.jsxs)(_v14.Flex, {
           justifyContent: "space-between",
           alignItems: "center",
           mb: (0, _v30.rem)(4),
-          children: [(0, _v1.jsx)(_v14.Header, {
+          children: [(0, _v1.jsx)(_v15.Header, {
             "data-id": "styledHeader",
             size: "md",
             color: _v3 ? "stroke" : void 0,
@@ -758,7 +758,7 @@
             },
             children: _v21.T.Edit
           })]
-        }), (0, _v1.jsx)(_v13.Flex, {
+        }), (0, _v1.jsx)(_v14.Flex, {
           pos: "relative",
           flexDirection: "column",
           children: (0, _v1.jsx)(_v29.Dropzone, {
@@ -770,13 +770,13 @@
             ref: _v15,
             children: _v8 ? (0, _v1.jsx)(_v32.Spinner, {
               py: (0, _v30.rem)(35)
-            }) : _v2 ? (0, _v1.jsx)(_v10.Box, {
+            }) : _v2 ? (0, _v1.jsx)(_v11.Box, {
               width: "100%",
               height: (0, _v30.rem)(100),
               background: `url(${_v2}) center center / contain no-repeat content-box content-box;`
-            }) : (0, _v1.jsxs)(_v10.Box, {
+            }) : (0, _v1.jsxs)(_v11.Box, {
               p: (0, _v30.rem)(10),
-              children: [(0, _v1.jsx)(_v14.Header, {
+              children: [(0, _v1.jsx)(_v15.Header, {
                 size: "xs",
                 style: {
                   display: "flex",
@@ -785,7 +785,7 @@
                 children: (0, _v46.translate)({
                   singular: "Drag and drop or {UPLOAD}select an image{/UPLOAD}",
                   replacements: {
-                    UPLOAD: _v0 => (0, _v1.jsx)(_v10.Box, {
+                    UPLOAD: _v0 => (0, _v1.jsx)(_v11.Box, {
                       ml: (0, _v30.rem)(6),
                       cursor: "pointer",
                       color: "focus",
@@ -1012,7 +1012,7 @@
       setIsHoveringButton: _v4
     }) => (0, _v1.jsxs)(_v84, {
       id: "team-buttons",
-      children: [(0, _v1.jsx)(_v16.IconButton, {
+      children: [(0, _v1.jsx)(_v17.IconButton, {
         "aria-label": "cancel-name",
         icon: (0, _v1.jsx)(_v52.CloseX, {}),
         variant: "secondary",
@@ -1025,7 +1025,7 @@
         onMouseEnter: () => _v4(!0),
         onMouseLeave: () => _v4(!1),
         mr: (0, _v30.rem)(10)
-      }), (0, _v1.jsx)(_v16.IconButton, {
+      }), (0, _v1.jsx)(_v17.IconButton, {
         "aria-label": "save-name",
         icon: (0, _v1.jsx)(_v80.Checkmark, {}),
         variant: "secondary",
@@ -1078,7 +1078,7 @@
           _v21(_v1), _v19(_v1), _v6(_v1), _v26(), _v7?.(!1);
         },
         [_v29, _v30] = (0, _v4.useState)(!1);
-      return (0, _v1.jsxs)(_v13.Flex, {
+      return (0, _v1.jsxs)(_v14.Flex, {
         border: `${(0, _v30.rem)(2)} solid transparent`,
         borderRadius: (0, _v30.rem)(5),
         position: "relative",
@@ -1157,7 +1157,7 @@
       shouldDisplayLinks: _v2 = !0,
       ..._v3
     }) => (0, _v1.jsx)(_v1.Fragment, {
-      children: (0, _v1.jsx)(_v14.Header, {
+      children: (0, _v1.jsx)(_v15.Header, {
         className: _v0,
         size: "lg",
         children: _v2 ? (0, _v1.jsx)(_v78.default, {
@@ -1239,7 +1239,7 @@
       return (0, _v1.jsxs)(_v91, {
         "data-id": "teamShowcaseSelect",
         children: [(0, _v1.jsx)(_v93, {
-          children: (0, _v1.jsx)(_v14.Header, {
+          children: (0, _v1.jsx)(_v15.Header, {
             as: "h6",
             size: "xs",
             marginBottom: "10",
@@ -1329,37 +1329,38 @@
           hasPerSeatPricingModelTeamMember: _v4
         }
       } = (0, _v4.useContext)(_v20.ManageTeamStateCtx),
-      _v5 = (0, _v7.useToken)("colors", "blue.500"),
-      _v6 = (0, _v4.useRef)(_v2),
-      _v7 = {
+      _v5 = (0, _v8.useToken)("colors", "blue.500"),
+      _v6 = /^#(?:[0-9a-fA-F]{3}){1,2}$/.test(_v5) ? _v5 : (0, _v7.parseColor)(_v5).toString("hex"),
+      _v7 = (0, _v4.useRef)(_v2),
+      _v8 = {
         ...{
           teamName: _v2.teamData.teamName,
-          accentColor: _v5,
+          accentColor: _v6,
           logoUrl: "",
           teamShowcaseId: null,
           isInitialLoad: !0
         }
       },
-      [_v8, _v9] = (0, _v4.useReducer)(_v101, _v7),
+      [_v9, _v10] = (0, _v4.useReducer)(_v101, _v8),
       {
-        teamName: _v10,
-        teamShowcaseId: _v11,
-        accentColor: _v12,
-        logoUrl: _v13,
-        isInitialLoad: _v14
-      } = _v8,
+        teamName: _v11,
+        teamShowcaseId: _v12,
+        accentColor: _v13,
+        logoUrl: _v14,
+        isInitialLoad: _v15
+      } = _v9,
       {
-        updateTeamBrandings: _v15,
-        fetchTeamShowcase: _v16,
-        updateInvitesRemaining: _v17
+        updateTeamBrandings: _v16,
+        fetchTeamShowcase: _v17,
+        updateInvitesRemaining: _v18
       } = (0, _v4.useContext)(_v20.ManageTeamDispatchCtx),
       {
-        trackTeamBrandingUpdated: _v18
+        trackTeamBrandingUpdated: _v19
       } = (0, _v4.useContext)(_v20.ManageTeamAnalytics);
     (0, _v4.useEffect)(() => {
-      _v4 && _v17(0);
+      _v4 && _v18(0);
     }, [_v4]);
-    let _v19 = (_v0, _v1) => _v9({
+    let _v20 = (_v0, _v1) => _v10({
       type: _v97,
       payload: {
         fieldName: _v0,
@@ -1367,17 +1368,17 @@
       }
     });
     (0, _v4.useEffect)(() => {
-      _v14 || _v20({
-        teamName: _v10,
-        logoUrl: _v13,
-        accentColor: _v12,
-        teamShowcaseId: _v11
+      _v15 || _v21({
+        teamName: _v11,
+        logoUrl: _v14,
+        accentColor: _v13,
+        teamShowcaseId: _v12
       });
-    }, [_v10, _v13, _v12, _v11]), (0, _v4.useEffect)(() => {
+    }, [_v11, _v14, _v13, _v12]), (0, _v4.useEffect)(() => {
       let {
         teamData: _v0
       } = _v2;
-      _v6.current = _v2;
+      _v7.current = _v2;
       let [_v1, _v2, _v3, _v4] = [(_v0 => {
         let {
           teamData: {
@@ -1386,8 +1387,8 @@
           }
         } = _v0;
         return _v1 && _v2 && _v2.sizes && _v2.sizes.length > 0 ? _v2.sizes[_v2.sizes.length - 1]?.link : "";
-      })(_v2), _v0.teamName ?? "", _v0.accentColor && "" !== _v0.accentColor ? _v0.accentColor : _v5, _v0.teamShowcaseId ?? null];
-      _v9({
+      })(_v2), _v0.teamName ?? "", _v0.accentColor && "" !== _v0.accentColor ? _v0.accentColor : _v6, _v0.teamShowcaseId ?? null];
+      _v10({
         type: _v98,
         payload: {
           logoUrl: _v1,
@@ -1398,55 +1399,55 @@
         }
       });
     }, [_v2.teamData.id]);
-    let _v20 = (0, _v4.useCallback)(_v0 => {
-        _v21({
-          team_name: _v0.teamName ?? _v10,
-          accent_color: _v0.accentColor ?? _v12,
-          logo_uri: (0, _v8.teamLogoUrlToUri)(_v0.logoUrl ?? _v13),
-          team_showcase_id: _v0.teamShowcaseId ?? _v11
-        }), _v22();
-      }, [_v10, _v13, _v12, _v11]),
-      _v21 = (0, _v4.useCallback)((0, _v2.default)(_v0 => {
-        _v15(_v0);
+    let _v21 = (0, _v4.useCallback)(_v0 => {
+        _v22({
+          team_name: _v0.teamName ?? _v11,
+          accent_color: _v0.accentColor ?? _v13,
+          logo_uri: (0, _v9.teamLogoUrlToUri)(_v0.logoUrl ?? _v14),
+          team_showcase_id: _v0.teamShowcaseId ?? _v12
+        }), _v23();
+      }, [_v11, _v14, _v13, _v12]),
+      _v22 = (0, _v4.useCallback)((0, _v2.default)(_v0 => {
+        _v16(_v0);
       }, 0), [_v0.jwt, _v2.teamData.id]),
-      _v22 = (0, _v4.useCallback)((0, _v2.default)(() => {
-        _v18({
-          logo_changed: _v2.teamData.logoUri !== (0, _v8.teamLogoUrlToUri)(_v13),
-          name_changed: _v2.teamData.teamName !== _v10,
-          accent_color_changed: _v2.teamData.accentColor !== _v12,
-          team_showcase_changed: _v2.teamData.teamShowcaseId !== _v11
+      _v23 = (0, _v4.useCallback)((0, _v2.default)(() => {
+        _v19({
+          logo_changed: _v2.teamData.logoUri !== (0, _v9.teamLogoUrlToUri)(_v14),
+          name_changed: _v2.teamData.teamName !== _v11,
+          accent_color_changed: _v2.teamData.accentColor !== _v13,
+          team_showcase_changed: _v2.teamData.teamShowcaseId !== _v12
         });
-      }, 0), [_v2, _v10, _v13, _v12, _v11]);
+      }, 0), [_v2, _v11, _v14, _v13, _v12]);
     return (0, _v1.jsxs)(_v99, {
-      children: [(0, _v1.jsx)(_v9.SettingsPageContentHeader, {
+      children: [(0, _v1.jsx)(_v10.SettingsPageContentHeader, {
         title: _v21.T.Basics
       }), (0, _v1.jsx)(_v102, {
         "data-id": "teamTitle",
-        content: _v10,
+        content: _v11,
         placeholder: _v21.T.EnterTeamName,
         allowNewLines: !1,
         onSave: _v0 => {
-          _v19("teamName", _v0);
+          _v20("teamName", _v0);
         },
         validate: _v100
       }), (0, _v1.jsx)(_v6.Divider, {
         mt: (0, _v3.rem)(2)
       }), (0, _v1.jsx)(_v72, {
         apiConfig: _v0,
-        teamLogoUri: _v13,
-        setTeamLogoUrl: _v0 => _v19("logoUrl", _v0),
+        teamLogoUri: _v14,
+        setTeamLogoUrl: _v0 => _v20("logoUrl", _v0),
         disabled: !1
       }), (0, _v1.jsx)(_v25, {
-        accentColor: _v12 ?? _v5,
-        resetColor: _v6.current.teamData.accentColor ?? "",
-        setAccentColor: _v0 => _v19("accentColor", _v0),
-        sourceImageUrl: _v13,
+        accentColor: _v13 ?? _v5,
+        resetColor: _v7.current.teamData.accentColor ?? "",
+        setAccentColor: _v0 => _v20("accentColor", _v0),
+        sourceImageUrl: _v14,
         disabled: !1
       }), _v3 && (0, _v1.jsx)(_v96, {
         albums: _v1,
-        teamShowcaseId: _v11,
-        setTeamShowcaseId: _v0 => _v19("teamShowcaseId", _v0),
-        fetchMoreAblums: _v16
+        teamShowcaseId: _v12,
+        setTeamShowcaseId: _v0 => _v20("teamShowcaseId", _v0),
+        fetchMoreAblums: _v17
       })]
     });
   }, "TeamBrandingPageLoader", 0, () => (0, _v1.jsxs)(_v99, {

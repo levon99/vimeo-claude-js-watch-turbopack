@@ -5326,6 +5326,58 @@
         }
       }
     }),
+    WebinarViewerAnonymization: (0, _v5.translate)({
+      singular: "Webinar viewer anonymization",
+      dictionary: {
+        es: {
+          singular: "Anonimización de espectadores del seminario web"
+        },
+        "de-DE": {
+          singular: "Anonymisierung von Webinar-Zuschauern"
+        },
+        "fr-FR": {
+          singular: "Anonymisation des spectateurs du webinaire"
+        },
+        "ja-JP": {
+          singular: "ウェビナー視聴者の匿名化"
+        },
+        "ko-KR": {
+          singular: "웨비나 시청자 익명화"
+        },
+        "pt-BR": {
+          singular: "Anonimização de visualizadores do webinar"
+        },
+        "zh-CN": {
+          singular: "网络研讨会观看者匿名化"
+        }
+      }
+    }),
+    WebinarViewerAnonymizationDescription: (0, _v5.translate)({
+      singular: "Automatically remove personal data from event registrants after a set period",
+      dictionary: {
+        es: {
+          singular: "Eliminar automáticamente los datos personales de los inscritos en eventos después de un período establecido"
+        },
+        "de-DE": {
+          singular: "Personenbezogene Daten von Veranstaltungsanmeldungen nach einem festgelegten Zeitraum automatisch entfernen"
+        },
+        "fr-FR": {
+          singular: "Supprimer automatiquement les données personnelles des inscrits aux événements après une période définie"
+        },
+        "ja-JP": {
+          singular: "設定した期間が経過したら、イベント参加登録者の個人情報を自動的に削除する"
+        },
+        "ko-KR": {
+          singular: "설정된 기간이 지나면 이벤트 등록자의 개인 정보를 자동으로 삭제합니다"
+        },
+        "pt-BR": {
+          singular: "Remover automaticamente os dados pessoais dos inscritos em eventos após um período definido"
+        },
+        "zh-CN": {
+          singular: "在设定的时间段后自动删除活动注册者的个人数据"
+        }
+      }
+    }),
     Registration: (0, _v5.translate)({
       singular: "Registration",
       dictionary: {

@@ -621,10 +621,10 @@
             singular: "カスタムロゴ"
           },
           "ko-KR": {
-            singular: "커스텀 로고"
+            singular: "사용자 지정 로고"
           },
           "pt-BR": {
-            singular: "Customizar logo"
+            singular: "Logotipo personalizado"
           },
           "zh-CN": {
             singular: "自定义徽标"
@@ -2035,13 +2035,13 @@
             singular: "Logo Vimeo"
           },
           "ja-JP": {
-            singular: "Vimeo のロゴ"
+            singular: "Vimeo ロゴ"
           },
           "ko-KR": {
             singular: "Vimeo 로고"
           },
           "pt-BR": {
-            singular: "Logo do Vimeo"
+            singular: "Logotipo do Vimeo"
           },
           "zh-CN": {
             singular: "Vimeo 徽标"
@@ -4257,10 +4257,10 @@
                 singular: "カスタムロゴ"
               },
               "ko-KR": {
-                singular: "커스텀 로고"
+                singular: "사용자 지정 로고"
               },
               "pt-BR": {
-                singular: "Customizar logo"
+                singular: "Logotipo personalizado"
               },
               "zh-CN": {
                 singular: "自定义徽标"

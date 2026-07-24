@@ -2169,28 +2169,28 @@
       }
     }),
     ReadMore: (0, _v3.translate)({
-      singular: "Read more",
+      singular: "...Read more",
       dictionary: {
         es: {
-          singular: "Leer más"
+          singular: "...Leer más"
         },
         "de-DE": {
-          singular: "Mehr lesen"
+          singular: "...Mehr lesen"
         },
         "fr-FR": {
-          singular: "En savoir plus"
+          singular: "...Lire la suite"
         },
         "ja-JP": {
-          singular: "続きを読む"
+          singular: "...続きを読む"
         },
         "ko-KR": {
-          singular: "더 읽기"
+          singular: "...더 읽어보기"
         },
         "pt-BR": {
-          singular: "Leia mais"
+          singular: "...Leia mais"
         },
         "zh-CN": {
-          singular: "阅读更多"
+          singular: "...阅读更多"
         }
       }
     }),
@@ -3134,7 +3134,7 @@
           singular: "Bild hochladen"
         },
         "fr-FR": {
-          singular: "Téléverser une image"
+          singular: "Téléverser l'image"
         },
         "ja-JP": {
           singular: "画像をアップロード"

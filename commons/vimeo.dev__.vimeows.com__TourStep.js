@@ -386,7 +386,7 @@
                 children: _v0
               })
             })
-          }), (0, _v1.jsx)(_v37.VersionList, {
+          }), (0, _v1.jsx)(_v37.VersionListPicker, {
             videoId: _v1,
             clipHash: _v2,
             allowReplace: _v27,

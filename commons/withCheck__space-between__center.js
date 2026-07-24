@@ -66,15 +66,17 @@
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
-    _v25 = _v0.i(0);
-  let _v26 = {
+    _v25 = _v0.i(0),
+    _v26 = _v0.i(0),
+    _v27 = _v0.i(0);
+  let _v28 = {
       base: (0, _v15.rem)(640),
       xl: (0, _v15.rem)(720),
       "2xl": (0, _v15.rem)(960)
     },
-    _v27 = "roleaao",
-    _v28 = {
-      [_v27]: {
+    _v29 = "roleaao",
+    _v30 = {
+      [_v29]: {
         title: "Admins and Owners only",
         description: "Limit this feature to Admins and Owners"
       },
@@ -83,13 +85,13 @@
         description: "Allow Admins, Owners, and Contributors to use this feature"
       }
     },
-    _v29 = {
+    _v31 = {
       prefEnableAskAiAnalytics: "eaaa"
     },
-    _v30 = {
+    _v32 = {
       prefEnableAskAiAnalytics: "prefEnableAskAiAnalytics"
     },
-    _v31 = {
+    _v33 = {
       manageTranscriptionKeywords: "manageTranscriptionKeywords",
       enableParentPermissionAiTranslate: "enableParentPermissionAiTranslate",
       enableTranslationsProfanityFilter: "enableTranslationsProfanityFilter",
@@ -109,24 +111,24 @@
       userRolePermissionAiLiveCaptions: "userRolePermissionAiLiveCaptions",
       userRolePermissionTranscriptionKeywords: "userRolePermissionTranscriptionKeywords",
       enableTranscriptionGeneration: "enableTranscriptionGeneration",
-      ..._v30
+      ..._v32
     },
-    _v32 = "ai_translate",
-    _v33 = "video_details",
-    _v34 = "highlights",
-    _v35 = "script",
-    _v36 = "ask_ai",
-    _v37 = "transcript",
-    _v38 = {
+    _v34 = "ai_translate",
+    _v35 = "video_details",
+    _v36 = "highlights",
+    _v37 = "script",
+    _v38 = "ask_ai",
+    _v39 = "transcript",
+    _v40 = {
       name: {
-        enableAiScriptGeneration: _v31.enableAiScriptGeneration,
-        enableVideoViewerAiUi: _v31.enableVideoViewerAiUi,
-        enableParentPermissionAiTranslate: _v31.enableParentPermissionAiTranslate,
-        enableTranslationsProfanityFilter: _v31.enableTranslationsProfanityFilter,
-        enableTranslationsVoiceCloning: _v31.enableTranslationsVoiceCloning,
-        manageTranscriptionKeywords: _v31.manageTranscriptionKeywords,
-        manageAiAutomationGenerateTranslations: _v31.manageAiAutomationGenerateTranslations,
-        prefEnableAskAiAnalytics: _v31.prefEnableAskAiAnalytics
+        enableAiScriptGeneration: _v33.enableAiScriptGeneration,
+        enableVideoViewerAiUi: _v33.enableVideoViewerAiUi,
+        enableParentPermissionAiTranslate: _v33.enableParentPermissionAiTranslate,
+        enableTranslationsProfanityFilter: _v33.enableTranslationsProfanityFilter,
+        enableTranslationsVoiceCloning: _v33.enableTranslationsVoiceCloning,
+        manageTranscriptionKeywords: _v33.manageTranscriptionKeywords,
+        manageAiAutomationGenerateTranslations: _v33.manageAiAutomationGenerateTranslations,
+        prefEnableAskAiAnalytics: _v33.prefEnableAskAiAnalytics
       },
       event: {
         enableAiScriptGeneration: "vimeo.ai_script_generation_toggle_switch",
@@ -146,30 +148,30 @@
         userRolePermissionTranscriptionKeywords: "vimeo.ai_team_members_generate_role_definitions"
       },
       eventFeature: {
-        [_v31.manageTranscriptionKeywords]: _v37,
-        [_v31.enableParentPermissionAiTranslate]: _v32,
-        [_v31.userRolePermissionAiTranslate]: _v32,
-        [_v31.enableTranslationsProfanityFilter]: _v32,
-        [_v31.enableTranslationsVoiceCloning]: _v32,
-        [_v31.enableTranslationsFailureEmail]: _v32,
-        [_v31.enableParentPermissionAiVideoDetails]: _v33,
-        [_v31.userRolePermissionAiVideoDetails]: _v33,
-        [_v31.enableVideoViewerAiUi]: _v36,
-        [_v31.enableParentPermissionAiHighlights]: _v34,
-        [_v31.userRolePermissionAiHighlights]: _v34,
-        [_v31.enableAiScriptGeneration]: _v35,
-        [_v31.userRolePermissionAiScriptGeneration]: _v35,
-        [_v31.enableParentPermissionAiLiveCaptions]: _v37,
-        [_v31.userRolePermissionAiLiveCaptions]: _v37,
-        [_v31.prefEnableAskAiAnalytics]: _v36,
-        [_v31.userRolePermissionTranscriptionKeywords]: _v37,
-        [_v31.enableTranscriptionGeneration]: _v37
+        [_v33.manageTranscriptionKeywords]: _v39,
+        [_v33.enableParentPermissionAiTranslate]: _v34,
+        [_v33.userRolePermissionAiTranslate]: _v34,
+        [_v33.enableTranslationsProfanityFilter]: _v34,
+        [_v33.enableTranslationsVoiceCloning]: _v34,
+        [_v33.enableTranslationsFailureEmail]: _v34,
+        [_v33.enableParentPermissionAiVideoDetails]: _v35,
+        [_v33.userRolePermissionAiVideoDetails]: _v35,
+        [_v33.enableVideoViewerAiUi]: _v38,
+        [_v33.enableParentPermissionAiHighlights]: _v36,
+        [_v33.userRolePermissionAiHighlights]: _v36,
+        [_v33.enableAiScriptGeneration]: _v37,
+        [_v33.userRolePermissionAiScriptGeneration]: _v37,
+        [_v33.enableParentPermissionAiLiveCaptions]: _v39,
+        [_v33.userRolePermissionAiLiveCaptions]: _v39,
+        [_v33.prefEnableAskAiAnalytics]: _v38,
+        [_v33.userRolePermissionTranscriptionKeywords]: _v39,
+        [_v33.enableTranscriptionGeneration]: _v39
       }
     },
-    _v39 = _v0 => _v38.eventFeature[_v0],
-    _v40 = () => {
-      let _v0 = (0, _v25.useViewer)(),
-        _v1 = (0, _v7.useCallback)(_v0 => (0, _v19.buildActionBpContext)({
+    _v41 = _v0 => _v40.eventFeature[_v0],
+    _v42 = () => {
+      let _v0 = (0, _v27.useViewer)(),
+        _v1 = (0, _v7.useCallback)(_v0 => (0, _v21.buildActionBpContext)({
           action_type: _v0,
           feature: null
         }), []),
@@ -179,7 +181,7 @@
           feature: _v2
         }) => {
           let _v3 = "object" == typeof _v0 && null !== _v0 ? _v0.title : _v0;
-          return (0, _v20.buildProductAnalyticsBpContext)({
+          return (0, _v22.buildProductAnalyticsBpContext)({
             product: "collaboration",
             feature: _v2,
             location: "workspace",
@@ -187,17 +189,17 @@
             element: _v1
           });
         }, []),
-        _v3 = (0, _v7.useCallback)(() => (0, _v22.buildWebBpContext)({
+        _v3 = (0, _v7.useCallback)(() => (0, _v24.buildWebBpContext)({
           page_name: "ai_accounts_settings",
           location: null,
           referrer_page_name: null
         }), []),
-        _v4 = (0, _v7.useMemo)(() => (0, _v21.buildTeamBpContextFromTeamUser)(_v0?.teamUser), [_v0?.teamUser]);
+        _v4 = (0, _v7.useMemo)(() => (0, _v23.buildTeamBpContextFromTeamUser)(_v0?.teamUser), [_v0?.teamUser]);
       return {
         toggleEvent: (_v0, _v1) => {
-          let _v2 = _v38.event[_v0],
-            _v3 = _v39(_v0);
-          (0, _v23.sendBpEventWithContexts)(_v2, {
+          let _v2 = _v40.event[_v0],
+            _v3 = _v41(_v0);
+          (0, _v25.sendBpEventWithContexts)(_v2, {
             ..._v1("toggle"),
             ..._v2({
               copy: _v1 ? "enable" : "disable",
@@ -209,9 +211,9 @@
           }, -1);
         },
         buttonEvent: _v0 => {
-          let _v1 = _v38.event[_v0],
-            _v2 = _v39(_v0);
-          (0, _v23.sendBpEventWithContexts)(_v1, {
+          let _v1 = _v40.event[_v0],
+            _v2 = _v41(_v0);
+          (0, _v25.sendBpEventWithContexts)(_v1, {
             ..._v1("click"),
             ..._v2({
               copy: "manage",
@@ -220,7 +222,7 @@
             }),
             ..._v3(),
             ..._v4,
-            ...(0, _v24.buildThirdPartyIntegrationBpContext)({
+            ...(0, _v26.buildThirdPartyIntegrationBpContext)({
               integration_id: null,
               integration_name: null,
               is_partner: null
@@ -228,12 +230,12 @@
           }, 1);
         },
         dropdownEvent: (_v0, _v1) => {
-          let _v2 = _v38.event[_v0],
-            _v3 = _v39(_v0);
-          (0, _v23.sendBpEventWithContexts)(_v2, {
+          let _v2 = _v40.event[_v0],
+            _v3 = _v41(_v0);
+          (0, _v25.sendBpEventWithContexts)(_v2, {
             ..._v1("click"),
             ..._v2({
-              copy: _v28[_v1],
+              copy: _v30[_v1],
               element: "dropdown",
               feature: _v3
             }),
@@ -243,9 +245,9 @@
         }
       };
     };
-  var _v41 = _v0.i(0);
-  let _v42 = () => ({
-    aiSettings: (0, _v41.translate)({
+  var _v43 = _v0.i(0);
+  let _v44 = () => ({
+    aiSettings: (0, _v43.translate)({
       singular: "Vimeo AI",
       dictionary: {
         "fr-FR": {
@@ -255,7 +257,7 @@
     }),
     settingControls: {
       aiTitleGeneral: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "General",
           dictionary: {
             "de-DE": {
@@ -278,7 +280,7 @@
             }
           }
         }),
-        description: (0, _v41.translate)({
+        description: (0, _v43.translate)({
           singular: "Items Vimeo AI will use when generating content",
           dictionary: {
             es: {
@@ -306,7 +308,7 @@
         })
       },
       manageTranscriptionKeywords: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Custom vocabulary",
           dictionary: {
             es: {
@@ -332,7 +334,7 @@
             }
           }
         }),
-        description: (0, _v41.translate)({
+        description: (0, _v43.translate)({
           singular: "Vimeo AI will use unique words or phrases in generated content",
           dictionary: {
             es: {
@@ -360,7 +362,7 @@
         })
       },
       enableAiScriptGeneration: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Scripts",
           dictionary: {
             es: {
@@ -383,7 +385,7 @@
             }
           }
         }),
-        description: (0, _v41.translate)({
+        description: (0, _v43.translate)({
           singular: "Team members can generate scripts to use for recordings and live events",
           dictionary: {
             es: {
@@ -411,7 +413,7 @@
         })
       },
       enableVideoViewerAiUi: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Ask AI",
           dictionary: {
             es: {
@@ -437,7 +439,7 @@
             }
           }
         }),
-        description: (0, _v41.translate)({
+        description: (0, _v43.translate)({
           singular: "Viewers can interact with Ask AI to ask specific questions about videos",
           dictionary: {
             es: {
@@ -465,7 +467,7 @@
         })
       },
       enableParentPermissionAiTranslate: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Translations",
           dictionary: {
             es: {
@@ -491,7 +493,7 @@
             }
           }
         }),
-        description: (0, _v41.translate)({
+        description: (0, _v43.translate)({
           singular: "Team members can generate translations of videos into different languages",
           dictionary: {
             es: {
@@ -519,7 +521,7 @@
         })
       },
       enableTranslationsProfanityFilter: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Translations profanity filter",
           dictionary: {
             es: {
@@ -545,7 +547,7 @@
             }
           }
         }),
-        description: (0, _v41.translate)({
+        description: (0, _v43.translate)({
           singular: "Offensive words and phrases are automatically censored in audio translations generated with Vimeo AI",
           dictionary: {
             es: {
@@ -573,7 +575,7 @@
         })
       },
       enableTranscriptionGeneration: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Transcripts",
           dictionary: {
             es: {
@@ -599,7 +601,7 @@
             }
           }
         }),
-        description: (0, _v41.translate)({
+        description: (0, _v43.translate)({
           singular: "A transcript will be automatically generated when a new video is uploaded",
           dictionary: {
             es: {
@@ -627,7 +629,7 @@
         })
       },
       enableTranslationsVoiceCloning: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Voice cloning",
           dictionary: {
             es: {
@@ -653,7 +655,7 @@
             }
           }
         }),
-        description: (0, _v41.translate)({
+        description: (0, _v43.translate)({
           singular: "Team members can clone the original speaker’s voice in audio dubs",
           dictionary: {
             es: {
@@ -681,11 +683,11 @@
         })
       },
       enableTranslationsFailureEmail: {
-        title: (0, _v41.translate)("Translation failure notifications"),
-        description: (0, _v41.translate)("Send an email notification to the user who triggered a translation when it fails")
+        title: (0, _v43.translate)("Translation failure notifications"),
+        description: (0, _v43.translate)("Send an email notification to the user who triggered a translation when it fails")
       },
       enableParentPermissionAiVideoDetails: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Video details",
           dictionary: {
             es: {
@@ -711,7 +713,7 @@
             }
           }
         }),
-        description: (0, _v41.translate)({
+        description: (0, _v43.translate)({
           singular: "Team members can generate titles, descriptions and tags for videos",
           dictionary: {
             es: {
@@ -739,7 +741,7 @@
         })
       },
       enableParentPermissionAiHighlights: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Highlights",
           dictionary: {
             es: {
@@ -762,7 +764,7 @@
             }
           }
         }),
-        description: (0, _v41.translate)({
+        description: (0, _v43.translate)({
           singular: "Team members can generate video highlights",
           dictionary: {
             es: {
@@ -790,7 +792,7 @@
         })
       },
       manageAiAutomationGenerateTranslations: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Ai translations",
           dictionary: {
             es: {
@@ -816,7 +818,7 @@
             }
           }
         }),
-        description: (0, _v41.translate)({
+        description: (0, _v43.translate)({
           singular: "Add subtitles and captions to videos in multiple languages",
           dictionary: {
             es: {
@@ -844,7 +846,7 @@
         })
       },
       userRolePermissionAiTranslate: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Who can generate translations",
           dictionary: {
             es: {
@@ -873,7 +875,7 @@
         description: ""
       },
       userRolePermissionAiHighlights: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Who can generate highlights",
           dictionary: {
             es: {
@@ -902,7 +904,7 @@
         description: ""
       },
       userRolePermissionAiScriptGeneration: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Who can generate scripts",
           dictionary: {
             es: {
@@ -931,7 +933,7 @@
         description: ""
       },
       enableParentPermissionAiLiveCaptions: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Live captions",
           dictionary: {
             es: {
@@ -957,7 +959,7 @@
             }
           }
         }),
-        description: (0, _v41.translate)({
+        description: (0, _v43.translate)({
           replacements: {
             LINK: _v0 => (0, _v1.jsx)("a", {
               href: "https://vimeo.com/legal/transparency/ai/live-caption-translations",
@@ -996,7 +998,7 @@
         })
       },
       userRolePermissionAiLiveCaptions: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Who can generate live captions",
           dictionary: {
             es: {
@@ -1025,7 +1027,7 @@
         description: ""
       },
       userRolePermissionAiVideoDetails: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Who can generate video details",
           dictionary: {
             es: {
@@ -1054,7 +1056,7 @@
         description: ""
       },
       userRolePermissionTranscriptionKeywords: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Who can manage custom vocabulary",
           dictionary: {
             es: {
@@ -1083,7 +1085,7 @@
         description: ""
       },
       prefEnableAskAiAnalytics: {
-        title: (0, _v41.translate)({
+        title: (0, _v43.translate)({
           singular: "Analytics",
           dictionary: {
             es: {
@@ -1109,7 +1111,7 @@
             }
           }
         }),
-        description: (0, _v41.translate)({
+        description: (0, _v43.translate)({
           singular: "Get analytics for the last 90 days on how AskAI is being used on your videos",
           dictionary: {
             es: {
@@ -1138,7 +1140,7 @@
       }
     },
     controls: {
-      manage: (0, _v41.translate)({
+      manage: (0, _v43.translate)({
         singular: "Manage",
         dictionary: {
           es: {
@@ -1164,7 +1166,7 @@
           }
         }
       }),
-      downloadCsv: (0, _v41.translate)({
+      downloadCsv: (0, _v43.translate)({
         singular: "Export Data",
         dictionary: {
           es: {
@@ -1192,7 +1194,7 @@
       })
     },
     notifications: {
-      error: (0, _v41.translate)({
+      error: (0, _v43.translate)({
         singular: "Something went wrong. Please try again.",
         dictionary: {
           es: {
@@ -1218,7 +1220,7 @@
           }
         }
       }),
-      askAiAnalyticsDataNotFound: (0, _v41.translate)({
+      askAiAnalyticsDataNotFound: (0, _v43.translate)({
         singular: "No Ask AI data can be found",
         dictionary: {
           es: {
@@ -1245,7 +1247,7 @@
         }
       })
     },
-    AiTranslationHeader: (0, _v41.translate)({
+    AiTranslationHeader: (0, _v43.translate)({
       singular: "Select Languages for Translation",
       dictionary: {
         es: {
@@ -1271,7 +1273,7 @@
         }
       }
     }),
-    AiTranslationToggleActive: (0, _v41.translate)({
+    AiTranslationToggleActive: (0, _v43.translate)({
       singular: "AI Translations Active",
       dictionary: {
         es: {
@@ -1297,7 +1299,7 @@
         }
       }
     }),
-    AiTranslationToggleInactive: (0, _v41.translate)({
+    AiTranslationToggleInactive: (0, _v43.translate)({
       singular: "AI Translations Inactive",
       dictionary: {
         es: {
@@ -1323,7 +1325,7 @@
         }
       }
     }),
-    ModalSaveButton: (0, _v41.translate)({
+    ModalSaveButton: (0, _v43.translate)({
       singular: "Save",
       dictionary: {
         es: {
@@ -1349,7 +1351,7 @@
         }
       }
     }),
-    ModalCancelButton: (0, _v41.translate)({
+    ModalCancelButton: (0, _v43.translate)({
       singular: "Cancel",
       dictionary: {
         es: {
@@ -1375,7 +1377,7 @@
         }
       }
     }),
-    TranslationHeader: (0, _v41.translate)({
+    TranslationHeader: (0, _v43.translate)({
       singular: "Selected Language:",
       dictionary: {
         es: {
@@ -1401,7 +1403,7 @@
         }
       }
     }),
-    SomethingWentWrong: (0, _v41.translate)({
+    SomethingWentWrong: (0, _v43.translate)({
       singular: "Something went wrong",
       dictionary: {
         es: {
@@ -1427,7 +1429,7 @@
         }
       }
     }),
-    TranslationInputPlaceHolder: (0, _v41.translate)({
+    TranslationInputPlaceHolder: (0, _v43.translate)({
       singular: "Select a language",
       dictionary: {
         es: {
@@ -1454,16 +1456,16 @@
       }
     })
   });
-  var _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
+  var _v45 = _v0.i(0),
     _v46 = _v0.i(0),
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
     _v49 = _v0.i(0),
     _v50 = _v0.i(0),
-    _v51 = _v0.i(0);
-  let _v52 = [{
+    _v51 = _v0.i(0),
+    _v52 = _v0.i(0),
+    _v53 = _v0.i(0);
+  let _v54 = [{
     value: "ar",
     label: "Arabic"
   }, {
@@ -1554,19 +1556,19 @@
     value: "no",
     label: "Norwegian"
   }];
-  var _v53 = _v0.i(0),
-    _v54 = _v0.i(0),
-    _v55 = _v0.i(0),
+  var _v55 = _v0.i(0),
     _v56 = _v0.i(0),
-    _v57 = _v0.i(0);
-  let _v58 = ({
+    _v57 = _v0.i(0),
+    _v58 = _v0.i(0),
+    _v59 = _v0.i(0);
+  let _v60 = ({
       selectedLanguages: _v0,
       onLanguageChange: _v1,
       isDropdownActive: _v2,
       setIsDropdownActive: _v3,
       isFetchingUserLanguages: _v4
     }) => {
-      let _v5 = (0, _v7.useMemo)(() => _v42(), []);
+      let _v5 = (0, _v7.useMemo)(() => _v44(), []);
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v8.Box, {
           display: "flex",
@@ -1587,7 +1589,7 @@
           placeholder: _v5.TranslationInputPlaceHolder,
           variant: "withCheck",
           value: _v0.map(_v0 => _v0.value),
-          items: _v52,
+          items: _v54,
           onValueChange: _v0 => _v1(_v0.items)
         }), (0, _v1.jsx)(_v8.Box, {
           margin: "18px 0",
@@ -1604,22 +1606,22 @@
               minHeight: "28px",
               flexWrap: "wrap",
               children: _v4 ? (0, _v1.jsxs)(_v1.Fragment, {
-                children: [(0, _v1.jsx)(_v56.Skeleton, {
+                children: [(0, _v1.jsx)(_v58.Skeleton, {
                   height: 28
-                }), (0, _v1.jsx)(_v56.Skeleton, {
+                }), (0, _v1.jsx)(_v58.Skeleton, {
                   height: 28
                 })]
-              }) : _v0.map(_v0 => (0, _v1.jsxs)(_v55.Tag, {
+              }) : _v0.map(_v0 => (0, _v1.jsxs)(_v57.Tag, {
                 marginRight: "4px",
                 marginTop: "4px",
                 size: "md",
-                children: [(0, _v1.jsx)(_v55.TagLabel, {
+                children: [(0, _v1.jsx)(_v57.TagLabel, {
                   children: _v0.label
-                }), (0, _v1.jsx)(_v55.TagCloseButton, {
+                }), (0, _v1.jsx)(_v57.TagCloseButton, {
                   onClick: () => {
                     _v1(_v0.filter(_v0 => _v0.value !== _v0.value));
                   },
-                  children: (0, _v1.jsx)(_v57.CloseXSmall, {})
+                  children: (0, _v1.jsx)(_v59.CloseXSmall, {})
                 })]
               }, _v0.value))
             })]
@@ -1627,31 +1629,31 @@
         })]
       });
     },
-    _v59 = ({
+    _v61 = ({
       onClose: _v0,
       userId: _v1
     }) => {
-      let _v2 = (0, _v50.useToast)(),
-        _v3 = (0, _v7.useMemo)(() => _v42(), []),
+      let _v2 = (0, _v52.useToast)(),
+        _v3 = (0, _v7.useMemo)(() => _v44(), []),
         [_v4, _v5] = (0, _v7.useState)([]),
         [_v6, _v7] = (0, _v7.useState)(!0),
         {
           teamSettingsUpdateError: _v8,
           teamSettingsUpdateLoading: _v9,
           onUpdateSetting: _v10
-        } = (0, _v53.useUpdateTeamSettings)({
+        } = (0, _v55.useUpdateTeamSettings)({
           userId: _v1
         }),
         {
           teamSettingsResult: _v11,
           teamSettingsLoading: _v12,
           teamSettingsError: _v13
-        } = (0, _v54.useGetTeamSettings)({
+        } = (0, _v56.useGetTeamSettings)({
           userId: _v1
         }),
         _v14 = (0, _v7.useCallback)(() => {
           _v2({
-            duration: _v51.NOTIFICATION_DURATION,
+            duration: _v53.NOTIFICATION_DURATION,
             title: _v3.SomethingWentWrong
           });
         }, [_v2]);
@@ -1664,18 +1666,18 @@
         }), _v0();
       };
       return (0, _v7.useEffect)(function () {
-        if (_v11 && _v11?.manageAiAutomationGenerateTranslations && _v52) {
+        if (_v11 && _v11?.manageAiAutomationGenerateTranslations && _v54) {
           let _v0 = Array.from(_v11?.manageAiAutomationGenerateTranslations.split(","));
-          _v5(_v52.filter(_v0 => _v0.includes(_v0.value)));
+          _v5(_v54.filter(_v0 => _v0.includes(_v0.value)));
         }
-      }, [_v11]), (0, _v1.jsxs)(_v44.Modal, {
+      }, [_v11]), (0, _v1.jsxs)(_v46.Modal, {
         isOpen: !0,
         onClose: _v0,
-        children: [(0, _v1.jsx)(_v45.ModalOverlay, {}), (0, _v1.jsxs)(_v46.ModalContent, {
-          children: [(0, _v1.jsx)(_v47.ModalHeader, {
+        children: [(0, _v1.jsx)(_v47.ModalOverlay, {}), (0, _v1.jsxs)(_v48.ModalContent, {
+          children: [(0, _v1.jsx)(_v49.ModalHeader, {
             children: _v3.AiTranslationHeader
-          }), (0, _v1.jsx)(_v48.ModalBody, {
-            children: (0, _v1.jsx)(_v58, {
+          }), (0, _v1.jsx)(_v50.ModalBody, {
+            children: (0, _v1.jsx)(_v60, {
               selectedLanguages: _v6 ? _v4 : [],
               onLanguageChange: _v0 => {
                 _v5(_v0);
@@ -1684,13 +1686,13 @@
               setIsDropdownActive: _v7,
               isFetchingUserLanguages: _v12
             })
-          }), (0, _v1.jsxs)(_v49.ModalFooter, {
-            children: [(0, _v1.jsx)(_v17.Button, {
+          }), (0, _v1.jsxs)(_v51.ModalFooter, {
+            children: [(0, _v1.jsx)(_v18.Button, {
               isDisabled: _v9,
               onClick: _v0,
               variant: "tertiary",
               children: _v3.ModalCancelButton
-            }), (0, _v1.jsx)(_v17.Button, {
+            }), (0, _v1.jsx)(_v18.Button, {
               isLoading: _v9,
               isDisabled: _v6 && 0 === _v4.length,
               onClick: _v15,
@@ -1700,14 +1702,14 @@
         })]
       });
     },
-    _v60 = ({
+    _v62 = ({
       teamSetting: _v0,
       userId: _v1
     }) => {
       let [_v2, _v3] = (0, _v7.useState)(!1),
-        _v4 = (0, _v7.useMemo)(() => _v42(), []);
+        _v4 = (0, _v7.useMemo)(() => _v44(), []);
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v43.TeamSettingsPageOptionContainer, {
+        children: [(0, _v1.jsx)(_v45.TeamSettingsPageOptionContainer, {
           children: (0, _v1.jsx)(_v8.Box, {
             "data-id": _v0,
             position: "absolute",
@@ -1715,25 +1717,25 @@
             top: "50%",
             minWidth: "md",
             transform: "translateY(-50%)",
-            children: (0, _v1.jsx)(_v17.Button, {
+            children: (0, _v1.jsx)(_v18.Button, {
               size: "sm",
               variant: "secondary",
               onClick: () => _v3(!0),
               children: _v4.controls.manage
             })
           })
-        }, _v0), _v2 && (0, _v1.jsx)(_v59, {
+        }, _v0), _v2 && (0, _v1.jsx)(_v61, {
           userId: _v1,
           onClose: () => _v3(!1)
         })]
       });
     };
-  var _v61 = _v0.i(0),
-    _v62 = _v0.i(0),
-    _v63 = _v0.i(0),
+  var _v63 = _v0.i(0),
     _v64 = _v0.i(0),
-    _v65 = _v0.i(0);
-  async function _v66({
+    _v65 = _v0.i(0),
+    _v66 = _v0.i(0),
+    _v67 = _v0.i(0);
+  async function _v68({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1741,39 +1743,39 @@
     },
     ..._v3
   }) {
-    return (0, _v65.measureLatency)("getUserAiAskAiAnalytics", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/ai/ask_ai_analytics?fields=${_v1.map(_v63.intoSnakeCase).join(",")}`, {
+    return (0, _v67.measureLatency)("getUserAiAskAiAnalytics", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/ai/ask_ai_analytics?fields=${_v1.map(_v65.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v63.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v65.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v63.deepCamelCase)(_v1);
+      return (0, _v65.deepCamelCase)(_v1);
     });
   }
-  var _v67 = _v0.i(0),
-    _v68 = _v0.i(0),
-    _v69 = _v0.i(0),
-    _v70 = _v0.i(0);
-  function _v71() {
+  var _v69 = _v0.i(0),
+    _v70 = _v0.i(0),
+    _v71 = _v0.i(0),
+    _v72 = _v0.i(0);
+  function _v73() {
     let {
         mutate: _v0
-      } = (0, _v68.useSWRConfig)(),
+      } = (0, _v70.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v70.useGctlConfig)(),
-      [_v5, _v6] = (0, _v69.useInternalState)();
+      } = (0, _v72.useGctlConfig)(),
+      [_v5, _v6] = (0, _v71.useInternalState)();
     return [(0, _v7.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/ai/ask_ai_analytics${(0, _v69.serializeQuery)(_v0)}`, _v66({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/ai/ask_ai_analytics${(0, _v71.serializeQuery)(_v0)}`, _v68({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -1796,15 +1798,15 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v64.default.env.STORYBOOK && (0, _v69.assignMswData)(function (_v0, _v1) {
+  "true" === _v66.default.env.STORYBOOK && (0, _v71.assignMswData)(function (_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v70.useGctlConfig)();
-    return (0, _v67.default)(_v2 ? `/users/${_v2.where.userId}/ai/ask_ai_analytics${(0, _v69.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v66({
+      } = (0, _v72.useGctlConfig)();
+    return (0, _v69.default)(_v2 ? `/users/${_v2.where.userId}/ai/ask_ai_analytics${(0, _v71.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v68({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -1818,23 +1820,23 @@
   }, {
     endpoint: "/users/:userId/ai/ask_ai_analytics",
     method: "GET"
-  }), "true" === _v64.default.env.STORYBOOK && (0, _v69.assignMswData)(_v71, {
+  }), "true" === _v66.default.env.STORYBOOK && (0, _v71.assignMswData)(_v73, {
     endpoint: "/users/:userId/ai/ask_ai_analytics",
     method: "GET"
   });
-  var _v72 = _v0.i(0);
-  let _v73 = ({
+  var _v74 = _v0.i(0);
+  let _v75 = ({
       userId: _v0,
       isDisabled: _v1,
       sendAskAiAnalyticsBpEvent: _v2
     }) => {
-      let _v3 = (0, _v7.useMemo)(() => _v42(), []),
-        _v4 = (0, _v50.useToast)(),
+      let _v3 = (0, _v7.useMemo)(() => _v44(), []),
+        _v4 = (0, _v52.useToast)(),
         [_v5, {
           loading: _v6,
           data: _v7,
           error: _v8
-        }] = _v71(),
+        }] = _v73(),
         _v9 = (0, _v7.useRef)(null);
       (0, _v7.useEffect)(() => {
         if (_v7) {
@@ -1842,10 +1844,10 @@
             duration: 0,
             title: _v3.notifications.askAiAnalyticsDataNotFound
           });
-          _v7.csvUrl !== _v9.current && (_v9.current = _v7.csvUrl, (0, _v72.downloadFile)(_v7.csvUrl));
+          _v7.csvUrl !== _v9.current && (_v9.current = _v7.csvUrl, (0, _v74.downloadFile)(_v7.csvUrl));
         }
       }, [_v7, _v4, _v3]), (0, _v7.useEffect)(() => {
-        _v8 && (_v8 instanceof _v63.NetworkError && 404 === _v8.status ? _v4({
+        _v8 && (_v8 instanceof _v65.NetworkError && 404 === _v8.status ? _v4({
           duration: 0,
           title: _v3.notifications.askAiAnalyticsDataNotFound
         }) : _v4({
@@ -1861,56 +1863,66 @@
           select: ["csvUrl"]
         }), _v2();
       };
-      return (0, _v1.jsx)(_v17.Button, {
+      return (0, _v1.jsx)(_v18.Button, {
         size: "sm",
         variant: "secondary",
-        leftIcon: _v6 ? (0, _v1.jsx)(_v61.Spinner, {
+        leftIcon: _v6 ? (0, _v1.jsx)(_v63.Spinner, {
           size: "xs"
-        }) : (0, _v1.jsx)(_v62.DownloadImport, {}),
+        }) : (0, _v1.jsx)(_v64.DownloadImport, {}),
         onClick: _v10,
         isDisabled: _v1 || _v6,
         children: _v3.controls.downloadCsv
       });
     },
-    _v74 = _v38.name.manageTranscriptionKeywords,
-    _v75 = _v38.name.manageAiAutomationGenerateTranslations,
-    _v76 = _v38.name.prefEnableAskAiAnalytics,
-    _v77 = ({
+    _v76 = _v40.name.manageTranscriptionKeywords,
+    _v77 = _v40.name.manageAiAutomationGenerateTranslations,
+    _v78 = _v40.name.prefEnableAskAiAnalytics,
+    _v79 = ({
       userId: _v0,
       teamSetting: _v1,
       isDisabled: _v2
     }) => {
-      let _v3 = (0, _v7.useMemo)(() => _v42(), []),
+      let _v3 = (0, _v7.useMemo)(() => _v44(), []),
         _v4 = (0, _v7.useRef)(null),
-        _v5 = _v40();
+        [_v5, _v6] = (0, _v7.useState)(!1),
+        _v7 = (0, _v17.useRouter)(),
+        {
+          settings: _v8,
+          isLoadingResponse: _v9
+        } = (0, _v19.useOrionSettings)(),
+        _v10 = _v42(),
+        _v11 = !_v9 && _v8.enable_account_wide_dictionary_management;
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v1 === _v74 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v17.Button, {
+        children: [_v1 === _v76 && (0, _v1.jsxs)(_v1.Fragment, {
+          children: [(0, _v1.jsx)(_v18.Button, {
             size: "sm",
             variant: "secondary",
             onClick: () => {
-              _v4.current?.openModal(), _v5.buttonEvent(_v74);
+              if (_v11) {
+                let _v0 = _v7.pathname.startsWith("/manage/workspace/") ? "/manage/workspace/manage-ai/custom-dictionary" : "/manage/team/manage-ai/custom-dictionary";
+                _v7.push(_v0);
+              } else _v6(!0), _v4.current?.openModal(), _v10.buttonEvent(_v76);
             },
             isDisabled: _v2,
             children: _v3.controls.manage
-          }), (0, _v1.jsx)(_v18.TranscriptionKeywordsApp, {
+          }), (!_v11 || _v5) && (0, _v1.jsx)(_v20.TranscriptionKeywordsApp, {
             forwardRef: _v4,
             location: "team_manager"
           })]
-        }), _v1 === _v75 && (0, _v1.jsx)(_v60, {
+        }), _v1 === _v77 && (0, _v1.jsx)(_v62, {
           userId: _v0,
           teamSetting: _v1
-        }), _v1 === _v76 && (0, _v1.jsx)(_v73, {
+        }), _v1 === _v78 && (0, _v1.jsx)(_v75, {
           userId: _v0,
           isDisabled: _v2,
           sendAskAiAnalyticsBpEvent: () => {
-            _v5.buttonEvent(_v76);
+            _v10.buttonEvent(_v78);
           }
         })]
       });
     };
-  var _v78 = _v0.i(0);
-  function _v79(_v0, _v1) {
+  var _v80 = _v0.i(0);
+  function _v81(_v0, _v1) {
     if (!_v0 || !_v1) return;
     let _v2 = _v1.split("."),
       _v3 = _v0;
@@ -1920,160 +1932,160 @@
     }
     return _v3;
   }
-  let _v80 = "toggle",
-    _v81 = "title",
-    _v82 = "button",
-    _v83 = "role",
-    _v84 = {
+  let _v82 = "toggle",
+    _v83 = "title",
+    _v84 = "button",
+    _v85 = "role",
+    _v86 = {
       aiTitleGeneral: "aiTitleGeneral"
     },
-    _v85 = {
+    _v87 = {
       transcript: [{
-        key: _v31.enableTranscriptionGeneration,
+        key: _v33.enableTranscriptionGeneration,
         value: !1,
         isSectionTitle: !0,
         isParentPreference: !0,
-        type: _v80,
+        type: _v82,
         sectionVisibility: {
           capabilitiesToCheck: ["hasAiTeamSettings"]
         }
       }, {
-        key: _v31.manageTranscriptionKeywords,
+        key: _v33.manageTranscriptionKeywords,
         value: !1,
-        type: _v82
+        type: _v84
       }, {
-        key: _v31.userRolePermissionTranscriptionKeywords,
-        value: _v27,
-        type: _v83
+        key: _v33.userRolePermissionTranscriptionKeywords,
+        value: _v29,
+        type: _v85
       }],
       general: [{
-        key: _v84.aiTitleGeneral,
+        key: _v86.aiTitleGeneral,
         value: !1,
         isSectionTitle: !0,
-        type: _v81,
+        type: _v83,
         sectionVisibility: {
-          preferencesToCheck: [_v31.manageTranscriptionKeywords],
+          preferencesToCheck: [_v33.manageTranscriptionKeywords],
           capabilitiesToHide: ["hasAiTeamSettings"]
         }
       }, {
-        key: _v31.manageTranscriptionKeywords,
+        key: _v33.manageTranscriptionKeywords,
         value: !1,
-        type: _v82
+        type: _v84
       }, {
-        key: _v31.userRolePermissionTranscriptionKeywords,
-        value: _v27,
-        type: _v83
+        key: _v33.userRolePermissionTranscriptionKeywords,
+        value: _v29,
+        type: _v85
       }],
       translations: [{
-        key: _v31.enableParentPermissionAiTranslate,
+        key: _v33.enableParentPermissionAiTranslate,
         value: !1,
         isSectionTitle: !0,
         isParentPreference: !0,
-        type: _v80,
+        type: _v82,
         sectionVisibility: {
           capabilitiesToCheck: ["canGenerateClipTranslation", "canGenerateClipTextTranslation"]
         }
       }, {
-        key: _v31.enableTranslationsProfanityFilter,
-        value: !1,
-        type: _v80
-      }, {
-        key: _v31.enableTranslationsVoiceCloning,
-        value: !1,
-        type: _v80
-      }, {
-        key: _v31.enableTranslationsFailureEmail,
-        value: !1,
-        type: _v80
-      }, {
-        key: _v31.manageAiAutomationGenerateTranslations,
+        key: _v33.enableTranslationsProfanityFilter,
         value: !1,
         type: _v82
       }, {
-        key: _v31.userRolePermissionAiTranslate,
-        value: _v27,
-        type: _v83
+        key: _v33.enableTranslationsVoiceCloning,
+        value: !1,
+        type: _v82
+      }, {
+        key: _v33.enableTranslationsFailureEmail,
+        value: !1,
+        type: _v82
+      }, {
+        key: _v33.manageAiAutomationGenerateTranslations,
+        value: !1,
+        type: _v84
+      }, {
+        key: _v33.userRolePermissionAiTranslate,
+        value: _v29,
+        type: _v85
       }],
       videoDetails: [{
-        key: _v31.enableParentPermissionAiVideoDetails,
+        key: _v33.enableParentPermissionAiVideoDetails,
         value: !1,
         isSectionTitle: !0,
         isParentPreference: !0,
-        type: _v80,
+        type: _v82,
         sectionVisibility: {
           capabilitiesToCheck: ["canGenerateClipSummary"]
         }
       }, {
-        key: _v31.enableAutoGenerateAiMetadata,
+        key: _v33.enableAutoGenerateAiMetadata,
         value: !1,
-        type: _v80
+        type: _v82
       }, {
-        key: _v31.userRolePermissionAiVideoDetails,
-        value: _v27,
-        type: _v83
+        key: _v33.userRolePermissionAiVideoDetails,
+        value: _v29,
+        type: _v85
       }],
       askAi: [{
-        key: _v31.enableVideoViewerAiUi,
+        key: _v33.enableVideoViewerAiUi,
         value: !1,
         isSectionTitle: !0,
-        type: _v80,
+        type: _v82,
         sectionVisibility: {
           capabilitiesToCheck: ["canAskAiViewer"]
         }
       }, {
-        key: _v31.prefEnableAskAiAnalytics,
+        key: _v33.prefEnableAskAiAnalytics,
         value: !1,
-        type: _v82
+        type: _v84
       }],
       highlights: [{
-        key: _v31.enableParentPermissionAiHighlights,
+        key: _v33.enableParentPermissionAiHighlights,
         value: !1,
         isSectionTitle: !0,
         isParentPreference: !0,
-        type: _v80,
+        type: _v82,
         sectionVisibility: {
           capabilitiesToCheck: ["hasClipHighlights"]
         }
       }, {
-        key: _v31.userRolePermissionAiHighlights,
-        value: _v27,
-        type: _v83
+        key: _v33.userRolePermissionAiHighlights,
+        value: _v29,
+        type: _v85
       }],
       scripts: [{
-        key: _v31.enableAiScriptGeneration,
+        key: _v33.enableAiScriptGeneration,
         value: !1,
         isSectionTitle: !0,
         isParentPreference: !0,
-        type: _v80,
+        type: _v82,
         sectionVisibility: {
           alwaysShow: !0
         }
       }, {
-        key: _v31.userRolePermissionAiScriptGeneration,
-        value: _v27,
-        type: _v83
+        key: _v33.userRolePermissionAiScriptGeneration,
+        value: _v29,
+        type: _v85
       }],
       liveCaptions: [{
-        key: _v31.enableParentPermissionAiLiveCaptions,
+        key: _v33.enableParentPermissionAiLiveCaptions,
         value: !1,
         isSectionTitle: !0,
         isParentPreference: !0,
-        type: _v80,
+        type: _v82,
         sectionVisibility: {
           alwaysShow: !0
         }
       }, {
-        key: _v31.userRolePermissionAiLiveCaptions,
-        value: _v27,
-        type: _v83
+        key: _v33.userRolePermissionAiLiveCaptions,
+        value: _v29,
+        type: _v85
       }]
     },
-    _v86 = [];
-  for (let _v0 in _v85) _v86 = [..._v86, ..._v85[_v0].map(_v0 => _v0.key)];
-  let _v87 = new Set(Object.values(_v84)),
-    _v88 = new Set(Object.keys(_v30)),
-    _v89 = _v86.filter(_v0 => !_v87.has(_v0) && !_v88.has(_v0)),
-    _v90 = function ({
+    _v88 = [];
+  for (let _v0 in _v87) _v88 = [..._v88, ..._v87[_v0].map(_v0 => _v0.key)];
+  let _v89 = new Set(Object.values(_v86)),
+    _v90 = new Set(Object.keys(_v32)),
+    _v91 = _v88.filter(_v0 => !_v89.has(_v0) && !_v90.has(_v0)),
+    _v92 = function ({
       mergedSettingsPrefs: _v0,
       isSelfServe: _v1 = !1,
       ownerId: _v2
@@ -2081,7 +2093,7 @@
       let _v3,
         {
           capabilities: _v4
-        } = (0, _v78.useCapability)((_v3 = [], Object.values(_v85).forEach(_v0 => {
+        } = (0, _v80.useCapability)((_v3 = [], Object.values(_v87).forEach(_v0 => {
           _v0.forEach(_v0 => {
             _v0.sectionVisibility?.capabilitiesToCheck?.forEach(_v0 => {
               _v3.includes(_v0) || _v3.push(_v0);
@@ -2094,8 +2106,8 @@
         SETTINGS: (0, _v7.useMemo)(() => function (_v0, _v1, _v2) {
           if (!_v0) return null;
           let _v3 = {};
-          for (let _v0 in _v85) {
-            let _v0 = _v85[_v0];
+          for (let _v0 in _v87) {
+            let _v0 = _v87[_v0];
             _v0.some(_v0 => function (_v0, _v1, _v2) {
               if (!_v0.sectionVisibility) return !1;
               let {
@@ -2104,17 +2116,17 @@
                 preferencesToCheck: _v5,
                 alwaysShow: _v6
               } = _v0.sectionVisibility;
-              return _v6 ? _v0.key in _v84 || _v0.key in _v2 : !!((_v3?.length ?? 0) > 0 || (_v5?.length ?? 0) > 0) && (_v4?.length ? !_v4.some(_v0 => _v1[_v0]) : _v3?.length ? _v3.some(_v0 => _v1[_v0]) : !!_v5?.length && _v5.some(_v0 => _v0 in _v2));
+              return _v6 ? _v0.key in _v86 || _v0.key in _v2 : !!((_v3?.length ?? 0) > 0 || (_v5?.length ?? 0) > 0) && (_v4?.length ? !_v4.some(_v0 => _v1[_v0]) : _v3?.length ? _v3.some(_v0 => _v1[_v0]) : !!_v5?.length && _v5.some(_v0 => _v0 in _v2));
             }(_v0, _v2, _v0)) && (_v3[_v0] = _v0.reduce((_v0, _v1) => {
-              let _v2 = _v1.key in _v84 || _v1.key in _v0,
-                _v3 = (_v1.key in _v30),
-                _v4 = _v3 ? _v79(_v0, _v1.key) : void 0,
+              let _v2 = _v1.key in _v86 || _v1.key in _v0,
+                _v3 = (_v1.key in _v32),
+                _v4 = _v3 ? _v81(_v0, _v1.key) : void 0,
                 _v5 = _v3 && !0 === _v4,
                 _v6 = !_v3 || _v5;
-              return _v2 && _v6 && (!_v1 || _v1.key !== _v31.userRolePermissionAiTranslate) && _v0.push(function (_v0) {
+              return _v2 && _v6 && (!_v1 || _v1.key !== _v33.userRolePermissionAiTranslate) && _v0.push(function (_v0) {
                 return _v0 => {
                   let _v1 = _v0.value;
-                  return _v0.key in _v84 || (_v1 = _v0 ? _v79(_v0, _v0.key) : _v0.value), {
+                  return _v0.key in _v86 || (_v1 = _v0 ? _v81(_v0, _v0.key) : _v0.value), {
                     key: _v0.key,
                     value: _v1,
                     type: _v0.type,
@@ -2133,13 +2145,13 @@
         }(_v0, _v1, _v4), [_v0, _v1, _v4])
       };
     },
-    _v91 = ({
+    _v93 = ({
       groupItems: _v0,
       isDisabled: _v1,
       updateTeamSettings: _v2,
       userId: _v3
     }) => {
-      let _v4 = (0, _v7.useMemo)(() => _v42(), []),
+      let _v4 = (0, _v7.useMemo)(() => _v44(), []),
         _v5 = (0, _v7.useMemo)(() => _v0.reduce((_v0, _v1) => {
           let {
             hasParent: _v2,
@@ -2169,7 +2181,7 @@
             } = _v0,
             _v5 = _v4.settingControls[_v1]?.title,
             _v6 = _v4.settingControls[_v1]?.description,
-            _v7 = _v4 === _v83;
+            _v7 = _v4 === _v85;
           return (0, _v1.jsxs)(_v8.Box, {
             position: "relative",
             children: [!_v3 && (0, _v1.jsx)(_v9.Divider, {
@@ -2198,23 +2210,23 @@
                   color: _v3 ? "text-primary" : "text-secondary",
                   children: _v6
                 })]
-              }), _v4 !== _v81 && (0, _v1.jsxs)(_v8.Box, {
+              }), _v4 !== _v83 && (0, _v1.jsxs)(_v8.Box, {
                 "data-id": _v1,
                 marginLeft: _v7 ? {
                   base: "0",
                   sm: "md"
                 } : "md",
-                children: [_v4 === _v80 && (0, _v1.jsx)(_v12.Switch, {
+                children: [_v4 === _v82 && (0, _v1.jsx)(_v12.Switch, {
                   onChange: () => _v2(_v1, !_v2, _v4),
                   isChecked: "boolean" == typeof _v2 && _v2,
                   isDisabled: _v1
-                }), _v4 === _v82 && (0, _v1.jsx)(_v77, {
+                }), _v4 === _v84 && (0, _v1.jsx)(_v79, {
                   userId: _v3,
                   teamSetting: _v1,
                   isDisabled: _v1
-                }), _v4 === _v83 && (0, _v1.jsx)(_v16, {
+                }), _v4 === _v85 && (0, _v1.jsx)(_v16, {
                   value: _v2,
-                  options: _v28,
+                  options: _v30,
                   onChange: _v0 => _v2(_v1, _v0, _v4),
                   isDisabled: _v1
                 })]
@@ -2224,7 +2236,7 @@
         })
       });
     };
-  var _v92 = _v0.i(0);
+  var _v94 = _v0.i(0);
   _v0.s(["default", 0, ({
     ownerId: _v0,
     workspaceInternalId: _v1,
@@ -2242,15 +2254,15 @@
         workspaceInternalId: _v1,
         workspaceUuid: _v2
       }) {
-        let _v3 = (0, _v7.useMemo)(() => _v42(), []),
-          _v4 = (0, _v50.useToast)(),
-          _v5 = _v40(),
+        let _v3 = (0, _v7.useMemo)(() => _v44(), []),
+          _v4 = (0, _v52.useToast)(),
+          _v5 = _v42(),
           _v6 = (0, _v7.useRef)(0),
           {
             teamSettingsUpdateError: _v7,
             teamSettingsUpdateLoading: _v8,
             onUpdateSetting: _v9
-          } = (0, _v53.useUpdateTeamSettings)({
+          } = (0, _v55.useUpdateTeamSettings)({
             userId: _v0,
             workspaceUuid: _v2
           }),
@@ -2260,22 +2272,22 @@
             isLoading: _v12,
             isValidating: _v13,
             mutate: _v14
-          } = (0, _v54.useGetTeamSettingsWithMutate)({
-            settings: _v89,
+          } = (0, _v56.useGetTeamSettingsWithMutate)({
+            settings: _v91,
             userId: _v0,
             workspaceUuid: _v2
           }),
-          _v15 = (0, _v25.useViewer)(),
+          _v15 = (0, _v27.useViewer)(),
           _v16 = _v15?.teamUser ? "enterprise" === _v15.teamUser.accountType : !!_v15?.user && "enterprise" === _v15.user.account,
           {
             data: _v17
-          } = (0, _v92.useGetMePreferences)({
-            select: Object.values(_v29)
+          } = (0, _v94.useGetMePreferences)({
+            select: Object.values(_v31)
           }),
           _v18 = (0, _v7.useMemo)(() => {
             if (!_v10) return null;
             let _v0 = {};
-            return _v17 && (_v0 = Object.entries(_v29).reduce((_v0, _v1) => {
+            return _v17 && (_v0 = Object.entries(_v31).reduce((_v0, _v1) => {
               let [_v2, _v3] = _v1;
               return _v3 in _v17 && (_v0[_v2] = _v17[_v3]), _v0;
             }, {})), {
@@ -2285,7 +2297,7 @@
           }, [_v10, _v17]),
           {
             SETTINGS: _v19
-          } = _v90({
+          } = _v92({
             mergedSettingsPrefs: _v18,
             isSelfServe: !_v16,
             ownerId: _v0 || _v1
@@ -2293,7 +2305,7 @@
           _v20 = (0, _v7.useCallback)(async (_v0, _v1, _v2) => {
             await _v9({
               [_v0]: _v1
-            }), _v14(), _v2 === _v80 ? _v5.toggleEvent(_v0, _v1) : _v2 === _v83 && _v5.dropdownEvent(_v0, _v1);
+            }), _v14(), _v2 === _v82 ? _v5.toggleEvent(_v0, _v1) : _v2 === _v85 && _v5.dropdownEvent(_v0, _v1);
           }, [_v9, _v14, _v5]);
         (0, _v7.useEffect)(function () {
           let _v0 = Date.now();
@@ -2319,7 +2331,7 @@
       _v9 = Object.entries(_v3 || {}).length;
     return (0, _v1.jsxs)(_v2.Flex, {
       width: "100%",
-      maxWidth: _v26,
+      maxWidth: _v28,
       margin: "0 auto",
       flexDirection: "column",
       marginBottom: "800",
@@ -2332,7 +2344,7 @@
         borderRadius: "md",
         backgroundColor: "fill-surface",
         zIndex: _v9 - _v2,
-        children: (0, _v1.jsx)(_v91, {
+        children: (0, _v1.jsx)(_v93, {
           groupItems: _v1,
           isDisabled: _v5,
           updateTeamSettings: _v4,

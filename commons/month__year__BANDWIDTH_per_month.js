@@ -1232,7 +1232,7 @@
             singular: "カスタム辞書"
           },
           "ko-KR": {
-            singular: "커스텀 사전"
+            singular: "사용자 지정 사전"
           },
           "pt-BR": {
             singular: "Dicionário personalizado"

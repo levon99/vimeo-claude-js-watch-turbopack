@@ -27,16 +27,9 @@
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
     _v26 = _v0.i(0),
-    _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
-    _v29 = _v0.i(0),
-    _v30 = _v0.i(0),
-    _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  let _v35 = () => ({
-      Title: (0, _v34.translate)({
+    _v27 = _v0.i(0);
+  let _v28 = () => ({
+      Title: (0, _v27.translate)({
         singular: "Webinar viewer anonymization",
         dictionary: {
           es: {
@@ -62,7 +55,7 @@
           }
         }
       }),
-      Description: (0, _v34.translate)({
+      Description: (0, _v27.translate)({
         singular: "Automatically anonymize webinar registrant personal data (name, email, custom fields) a set number of days after an event ends. Engagement analytics are kept; only the identity is removed.",
         dictionary: {
           es: {
@@ -88,7 +81,7 @@
           }
         }
       }),
-      AnonymizationPeriod: (0, _v34.translate)({
+      AnonymizationPeriod: (0, _v27.translate)({
         singular: "Anonymization period",
         dictionary: {
           es: {
@@ -114,7 +107,7 @@
           }
         }
       }),
-      NoAnonymization: (0, _v34.translate)({
+      NoAnonymization: (0, _v27.translate)({
         singular: "No anonymization",
         dictionary: {
           es: {
@@ -140,7 +133,7 @@
           }
         }
       }),
-      Edit: (0, _v34.translate)({
+      Edit: (0, _v27.translate)({
         singular: "Edit",
         dictionary: {
           es: {
@@ -166,7 +159,7 @@
           }
         }
       }),
-      DaysFormat: _v0 => (0, _v34.translate)({
+      DaysFormat: _v0 => (0, _v27.translate)({
         singular: "{COUNT} day",
         plural: "{COUNT} days",
         count: _v0,
@@ -204,7 +197,7 @@
           }
         }
       }),
-      EditTitle: (0, _v34.translate)({
+      EditTitle: (0, _v27.translate)({
         singular: "Edit anonymization period",
         dictionary: {
           es: {
@@ -230,7 +223,7 @@
           }
         }
       }),
-      EnableAnonymization: (0, _v34.translate)({
+      EnableAnonymization: (0, _v27.translate)({
         singular: "Anonymize registrant data after an event ends",
         dictionary: {
           es: {
@@ -256,7 +249,7 @@
           }
         }
       }),
-      Anonymize: (0, _v34.translate)({
+      Anonymize: (0, _v27.translate)({
         singular: "Anonymize after",
         dictionary: {
           es: {
@@ -282,7 +275,7 @@
           }
         }
       }),
-      DaysAfterEvent: (0, _v34.translate)({
+      DaysAfterEvent: (0, _v27.translate)({
         singular: "days after the event ends",
         dictionary: {
           es: {
@@ -308,7 +301,7 @@
           }
         }
       }),
-      DaysMustBeBetween: (0, _v34.translate)({
+      DaysMustBeBetween: (0, _v27.translate)({
         singular: "Enter a number of days between 1 and 90",
         dictionary: {
           es: {
@@ -334,7 +327,7 @@
           }
         }
       }),
-      Warning: (0, _v34.translate)({
+      Warning: (0, _v27.translate)({
         singular: "This applies to all past and future events and overrides any previously set anonymization period. Already anonymized data cannot be reverted.",
         dictionary: {
           es: {
@@ -360,7 +353,7 @@
           }
         }
       }),
-      CompletedEventsNote: (0, _v34.translate)({
+      CompletedEventsNote: (0, _v27.translate)({
         singular: "Only events you've marked as complete are anonymized; registrants of events that were never completed are left untouched. Completing an event is only possible once registration is turned on for it. To complete one: open your event, then go to Registration > Manage registrants > Complete your event.",
         dictionary: {
           es: {
@@ -386,7 +379,7 @@
           }
         }
       }),
-      CompletedEventsLinkText: (0, _v34.translate)({
+      CompletedEventsLinkText: (0, _v27.translate)({
         singular: "Manage your events",
         dictionary: {
           es: {
@@ -412,7 +405,7 @@
           }
         }
       }),
-      Save: (0, _v34.translate)({
+      Save: (0, _v27.translate)({
         singular: "Save",
         dictionary: {
           es: {
@@ -438,7 +431,7 @@
           }
         }
       }),
-      Cancel: (0, _v34.translate)({
+      Cancel: (0, _v27.translate)({
         singular: "Cancel",
         dictionary: {
           es: {
@@ -464,7 +457,7 @@
           }
         }
       }),
-      Saved: (0, _v34.translate)({
+      Saved: (0, _v27.translate)({
         singular: "Saved",
         dictionary: {
           es: {
@@ -490,7 +483,7 @@
           }
         }
       }),
-      SomethingWentWrong: (0, _v34.translate)({
+      SomethingWentWrong: (0, _v27.translate)({
         singular: "Something went wrong",
         dictionary: {
           es: {
@@ -517,219 +510,192 @@
         }
       })
     }),
-    _v36 = ({
-      userId: _v0
-    }) => {
-      let _v1 = (0, _v2.useMemo)(() => _v35(), []),
-        [_v2, _v3] = (0, _v2.useState)(!1),
-        {
-          data: _v4,
-          isLoading: _v5,
-          mutate: _v6
-        } = (0, _v33.useGetTeamSettingsWithMutate)({
-          userId: _v0,
-          settings: ["webinarViewerAnonymizationDays"]
-        }),
-        _v7 = _v4?.webinarViewerAnonymizationDays ?? null;
-      return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v31.SettingsPageContentHeader, {
-          title: _v1.Title,
-          description: _v1.Description
-        }), (0, _v1.jsxs)(_v15.Flex, {
-          alignItems: "center",
-          gap: "100",
-          children: [(0, _v1.jsx)(_v27.Text, {
-            variant: "heading-xs",
-            children: _v1.AnonymizationPeriod
-          }), _v5 ? (0, _v1.jsx)(_v26.Spinner, {
-            size: "sm"
-          }) : (0, _v1.jsx)(_v27.Text, {
-            variant: "body-md",
-            color: "text-secondary",
-            children: null == _v7 ? _v1.NoAnonymization : _v1.DaysFormat(_v7)
-          }), (0, _v1.jsx)(_v13.Button, {
-            variant: "secondary",
-            size: "sm",
-            onClick: () => _v3(!0),
-            disabled: _v5,
-            children: _v1.Edit
-          })]
-        }), (0, _v1.jsxs)(_v27.Text, {
-          variant: "body-sm",
-          color: "text-secondary",
-          marginTop: "100",
-          children: [_v1.CompletedEventsNote, " ", (0, _v1.jsx)(_v18.Link, {
-            variant: "inline-primary",
-            href: "/library/events",
-            target: "_blank",
-            rel: "noopener noreferrer",
-            cursor: "pointer",
-            children: _v1.CompletedEventsLinkText
-          })]
-        }), _v2 && (0, _v1.jsx)(_v37, {
-          onClose: () => {
-            _v3(!1), _v6();
-          },
-          currentDays: _v7,
-          userId: _v0
-        })]
-      });
-    },
-    _v37 = ({
+    _v29 = ({
       onClose: _v0,
       currentDays: _v1,
-      userId: _v2
+      userId: _v2,
+      workspaceUuid: _v3
     }) => {
-      let _v3 = (0, _v2.useMemo)(() => _v35(), []),
-        _v4 = (0, _v28.useToast)(),
-        [_v5, _v6] = (0, _v2.useState)(null != _v1),
-        [_v7, _v8] = (0, _v2.useState)(_v1 ?? 30),
-        [_v9, _v10] = (0, _v2.useState)(null),
+      let _v4 = (0, _v2.useMemo)(() => _v28(), []),
+        _v5 = (0, _v21.useToast)(),
+        [_v6, _v7] = (0, _v2.useState)(null != _v1),
+        [_v8, _v9] = (0, _v2.useState)(_v1 ?? 30),
+        [_v10, _v11] = (0, _v2.useState)(null),
         {
-          onUpdateSetting: _v11,
-          teamSettingsUpdateLoading: _v12,
-          teamSettingsUpdateError: _v13
-        } = (0, _v32.useUpdateTeamSettings)({
-          userId: _v2
+          onUpdateSetting: _v12,
+          teamSettingsUpdateLoading: _v13,
+          teamSettingsUpdateError: _v14
+        } = (0, _v25.useUpdateTeamSettings)({
+          userId: _v3 ? void 0 : _v2,
+          workspaceUuid: _v3
         }),
-        [_v14, _v15] = (0, _v2.useState)(!1);
+        [_v15, _v16] = (0, _v2.useState)(!1);
       (0, _v2.useEffect)(() => {
-        _v14 && !_v12 && (_v13 ? _v4({
-          duration: _v30.NOTIFICATION_DURATION,
-          title: _v3.SomethingWentWrong,
+        _v15 && !_v13 && (_v14 ? _v5({
+          duration: _v23.NOTIFICATION_DURATION,
+          title: _v4.SomethingWentWrong,
           status: "error",
-          onCloseComplete: () => _v15(!1)
-        }) : (_v4({
-          duration: _v30.NOTIFICATION_DURATION,
-          title: _v3.Saved
+          onCloseComplete: () => _v16(!1)
+        }) : (_v5({
+          duration: _v23.NOTIFICATION_DURATION,
+          title: _v4.Saved
         }), _v0()));
-      }, [_v14, _v12, _v13, _v4, _v0, _v3]);
-      let _v16 = _v0 => {
+      }, [_v15, _v13, _v14, _v5, _v0, _v4]);
+      let _v17 = _v0 => {
           let _v1 = "string" == typeof _v0 ? parseInt(_v0, 10) : _v0;
-          return Number.isNaN(_v1) || _v1 < 1 || _v1 > 90 ? _v3.DaysMustBeBetween : null;
+          return Number.isNaN(_v1) || _v1 < 1 || _v1 > 90 ? _v4.DaysMustBeBetween : null;
         },
-        _v17 = async () => {
-          if (_v5) {
-            let _v0 = _v16(_v7);
-            if (_v0) return void _v10(_v0);
+        _v18 = async () => {
+          if (_v6) {
+            let _v0 = _v17(_v8);
+            if (_v0) return void _v11(_v0);
           }
-          _v15(!0), await _v11({
-            webinarViewerAnonymizationDays: _v5 ? Number(_v7) : null
+          _v16(!0), await _v12({
+            webinarViewerAnonymizationDays: _v6 ? Number(_v8) : null
           });
         },
-        _v18 = _v5 && !!_v9,
-        _v19 = _v5 ? Number(_v7) === _v1 : null === _v1;
-      return (0, _v1.jsxs)(_v19.Modal, {
+        _v19 = _v6 && !!_v10,
+        _v20 = _v6 ? Number(_v8) === _v1 : null === _v1;
+      return (0, _v1.jsxs)(_v12.Modal, {
         isOpen: !0,
         onClose: _v0,
         size: "md",
-        children: [(0, _v1.jsx)(_v24.ModalOverlay, {}), (0, _v1.jsxs)(_v21.ModalContent, {
-          children: [(0, _v1.jsx)(_v23.ModalHeader, {
-            children: _v3.EditTitle
-          }), (0, _v1.jsxs)(_v20.ModalBody, {
-            children: [(0, _v1.jsx)(_v14.Checkbox, {
-              isChecked: _v5,
-              onChange: _v0 => _v6(_v0.target.checked),
+        children: [(0, _v1.jsx)(_v17.ModalOverlay, {}), (0, _v1.jsxs)(_v14.ModalContent, {
+          children: [(0, _v1.jsx)(_v16.ModalHeader, {
+            children: _v4.EditTitle
+          }), (0, _v1.jsxs)(_v13.ModalBody, {
+            children: [(0, _v1.jsx)(_v7.Checkbox, {
+              isChecked: _v6,
+              onChange: _v0 => _v7(_v0.target.checked),
               marginBottom: "200",
-              children: _v3.EnableAnonymization
-            }), _v5 && (0, _v1.jsxs)(_v16.FormControl, {
-              isInvalid: _v18,
-              children: [(0, _v1.jsxs)(_v15.Flex, {
+              children: _v4.EnableAnonymization
+            }), _v6 && (0, _v1.jsxs)(_v9.FormControl, {
+              isInvalid: _v19,
+              children: [(0, _v1.jsxs)(_v8.Flex, {
                 alignItems: "center",
                 gap: "100",
-                children: [(0, _v1.jsx)(_v27.Text, {
+                children: [(0, _v1.jsx)(_v20.Text, {
                   variant: "heading-xs",
-                  children: _v3.Anonymize
-                }), (0, _v1.jsxs)(_v25.NumberInput, {
-                  value: _v7,
+                  children: _v4.Anonymize
+                }), (0, _v1.jsxs)(_v18.NumberInput, {
+                  value: _v8,
                   onChange: (_v0, _v1) => {
                     if ("" === _v0 || isNaN(_v1)) {
-                      _v8(""), _v10(_v16(""));
+                      _v9(""), _v11(_v17(""));
                       return;
                     }
-                    _v8(_v1), _v10(_v16(_v1));
+                    _v9(_v1), _v11(_v17(_v1));
                   },
                   min: 1,
                   max: 90,
                   step: 1,
-                  width: (0, _v29.rem)(80),
-                  isInvalid: _v18,
+                  width: (0, _v22.rem)(80),
+                  isInvalid: _v19,
                   keepWithinRange: !1,
                   clampValueOnBlur: !1,
-                  children: [(0, _v1.jsx)(_v25.NumberInputField, {
+                  children: [(0, _v1.jsx)(_v18.NumberInputField, {
                     textAlign: "left"
-                  }), (0, _v1.jsxs)(_v25.NumberInputStepper, {
-                    children: [(0, _v1.jsx)(_v25.NumberIncrementStepper, {}), (0, _v1.jsx)(_v25.NumberDecrementStepper, {})]
+                  }), (0, _v1.jsxs)(_v18.NumberInputStepper, {
+                    children: [(0, _v1.jsx)(_v18.NumberIncrementStepper, {}), (0, _v1.jsx)(_v18.NumberDecrementStepper, {})]
                   })]
-                }), (0, _v1.jsx)(_v27.Text, {
+                }), (0, _v1.jsx)(_v20.Text, {
                   variant: "heading-xs",
-                  children: _v3.DaysAfterEvent
+                  children: _v4.DaysAfterEvent
                 })]
-              }), (0, _v1.jsx)(_v12.Box, {
-                minHeight: (0, _v29.rem)(32),
+              }), (0, _v1.jsx)(_v5.Box, {
+                minHeight: (0, _v22.rem)(32),
                 marginTop: "50",
-                children: _v18 && (0, _v1.jsx)(_v17.FormErrorMessage, {
-                  children: _v9
+                children: _v19 && (0, _v1.jsx)(_v10.FormErrorMessage, {
+                  children: _v10
                 })
               })]
-            }), (0, _v1.jsx)(_v10.Alert, {
+            }), (0, _v1.jsx)(_v3.Alert, {
               status: "warning",
               marginTop: "200",
-              children: (0, _v1.jsx)(_v11.AlertDescription, {
-                children: _v3.Warning
+              children: (0, _v1.jsx)(_v4.AlertDescription, {
+                children: _v4.Warning
               })
             })]
-          }), (0, _v1.jsx)(_v22.ModalFooter, {
-            children: (0, _v1.jsxs)(_v15.Flex, {
+          }), (0, _v1.jsx)(_v15.ModalFooter, {
+            children: (0, _v1.jsxs)(_v8.Flex, {
               gap: "100",
               justifyContent: "flex-end",
-              children: [(0, _v1.jsx)(_v13.Button, {
+              children: [(0, _v1.jsx)(_v6.Button, {
                 variant: "tertiary",
                 onClick: _v0,
-                disabled: _v12,
-                children: _v3.Cancel
-              }), (0, _v1.jsx)(_v13.Button, {
+                disabled: _v13,
+                children: _v4.Cancel
+              }), (0, _v1.jsx)(_v6.Button, {
                 variant: "primary",
-                onClick: _v17,
-                isLoading: _v12,
-                disabled: _v12 || _v18 || _v19 || _v5 && "" === _v7,
-                children: _v3.Save
+                onClick: _v18,
+                isLoading: _v13,
+                disabled: _v13 || _v19 || _v20 || _v6 && "" === _v8,
+                children: _v4.Save
               })]
             })
           })]
         })]
       });
-    },
-    _v38 = () => {
-      let {
-          teamInfo: {
-            teamData: {
-              ownerId: _v0
-            }
-          },
-          isTeamInfoLoading: _v1
-        } = (0, _v2.useContext)(_v9.ManageTeamStateCtx),
-        {
-          loading: _v2,
-          capabilities: _v3
-        } = (0, _v3.useCapability)(["createLiveEvents", "hasEnterprise"], _v0),
-        {
-          settings: _v4,
-          isLoadingResponse: _v5
-        } = (0, _v7.useOrionSettings)();
-      if (_v2 || _v1 || _v5 || !_v0) return (0, _v1.jsx)(_v6.Spinner, {});
-      if (!_v4.enable_webinar_viewer_anonymization || _v3?.hasEnterprise === !1 || _v3?.createLiveEvents === !1) throw new _v4.UnauthorizedError();
-      return (0, _v1.jsx)(_v36, {
-        userId: _v0
-      });
     };
-  (0, _v5.withPageSetup)(() => ({
-    props: {
-      hasThemeSupport: !0
-    }
-  }), {
-    requireLogin: !0,
-    inlineViewer: !0,
-    noIndex: !0
-  }), _v38.getLayout = _v8.getTeamSettingsPageLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v38], 0);
+  _v0.s(["WebinarViewerAnonymisation", 0, ({
+    userId: _v0,
+    workspaceUuid: _v1
+  }) => {
+    let _v2 = (0, _v2.useMemo)(() => _v28(), []),
+      [_v3, _v4] = (0, _v2.useState)(!1),
+      {
+        data: _v5,
+        isLoading: _v6,
+        mutate: _v7
+      } = (0, _v26.useGetTeamSettingsWithMutate)({
+        userId: _v1 ? void 0 : _v0,
+        workspaceUuid: _v1,
+        settings: ["webinarViewerAnonymizationDays"]
+      }),
+      _v8 = _v5?.webinarViewerAnonymizationDays ?? null;
+    return (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(0, _v1.jsx)(_v24.SettingsPageContentHeader, {
+        title: _v2.Title,
+        description: _v2.Description
+      }), (0, _v1.jsxs)(_v8.Flex, {
+        alignItems: "center",
+        gap: "100",
+        children: [(0, _v1.jsx)(_v20.Text, {
+          variant: "heading-xs",
+          children: _v2.AnonymizationPeriod
+        }), _v6 ? (0, _v1.jsx)(_v19.Spinner, {
+          size: "sm"
+        }) : (0, _v1.jsx)(_v20.Text, {
+          variant: "body-md",
+          color: "text-secondary",
+          children: null == _v8 ? _v2.NoAnonymization : _v2.DaysFormat(_v8)
+        }), (0, _v1.jsx)(_v6.Button, {
+          variant: "secondary",
+          size: "sm",
+          onClick: () => _v4(!0),
+          disabled: _v6,
+          children: _v2.Edit
+        })]
+      }), (0, _v1.jsxs)(_v20.Text, {
+        variant: "body-sm",
+        color: "text-secondary",
+        marginTop: "100",
+        children: [_v2.CompletedEventsNote, " ", (0, _v1.jsx)(_v11.Link, {
+          variant: "inline-primary",
+          href: "/library/events",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          cursor: "pointer",
+          children: _v2.CompletedEventsLinkText
+        })]
+      }), _v3 && (0, _v1.jsx)(_v29, {
+        onClose: () => {
+          _v4(!1), _v7();
+        },
+        currentDays: _v8,
+        userId: _v0,
+        workspaceUuid: _v1
+      })]
+    });
+  }], 0);
 }

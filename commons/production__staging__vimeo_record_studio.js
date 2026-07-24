@@ -2346,7 +2346,7 @@
         activateSessionUri: _v4
       }), _v5;
     },
-    _v192 = async (_v0, _v1, _v2, _v3 = 0) => {
+    _v192 = async (_v0, _v1, _v2, _v3, _v4 = 0) => {
       if (_v2.aborted) return _v189.warn("Skipping live provisioner activation: signal already aborted", {
         provisionerId: _v0
       }), null;
@@ -2359,7 +2359,13 @@
             provisionerId: _v0,
             userId: _v1
           },
-          select: ["ingest.streamKey", "ingest.sessionId", "ingest.encoderType", "ingest.status"]
+          select: ["ingest.streamKey", "ingest.sessionId", "ingest.encoderType", "ingest.status"],
+          ...(_v3?.width && _v3?.height ? {
+            variables: {
+              width: _v3.width,
+              height: _v3.height
+            }
+          } : {})
         }, {
           timeout: 0,
           extraSignals: [_v2]
@@ -2375,15 +2381,15 @@
           timeoutMs: 0
         }), null;
         if (_v0 instanceof _v90.NetworkError && 500 === _v0.status) {
-          if (_v3 >= 5) return _v189.warn("Live provisioner activation hit retry limit", {
+          if (_v4 >= 5) return _v189.warn("Live provisioner activation hit retry limit", {
             provisionerId: _v0,
-            retries: _v3
+            retries: _v4
           }), null;
           return _v189.warn("Live provisioner activation returned 500, waiting for instance to start and retrying", {
             provisionerId: _v0,
             retryAfterMs: 0,
-            retries: _v3
-          }), await _v103(0, _v2), await _v192(_v0, _v1, _v2, _v3 + 1);
+            retries: _v4
+          }), await _v103(0, _v2), await _v192(_v0, _v1, _v2, _v3, _v4 + 1);
         }
         throw _v189.warn("Live provisioner activation failed with non-retryable error", {
           provisionerId: _v0,
@@ -2609,7 +2615,7 @@
           this.currentProvisionerId = _v2, this.liveSetupStep = "activate", this.log.debug("Live session setup: activating provisioner", {
             provisionerId: _v2
           });
-          let _v3 = await _v192(_v2, this.options.uploadAccountId, this.createSessionAbortController.signal);
+          let _v3 = await _v192(_v2, this.options.uploadAccountId, this.createSessionAbortController.signal, this.options.resolution);
           if (!_v3) throw this.log.warn("Live session setup: activateLiveProvisioner returned null streamKey", {
             provisionerId: _v2,
             aborted: this.createSessionAbortController.signal.aborted
@@ -7887,7 +7893,8 @@
                         uploadFolderUri: _v1 ?? void 0,
                         uploadAccountId: _v2,
                         privacy: _v3,
-                        hasRecentlyDeleted: _v7.has_recently_deleted
+                        hasRecentlyDeleted: _v7.has_recently_deleted,
+                        resolution: _v85.getState().capturedResolution
                       });
                     }, [_v21, _v33, _v7.has_recently_deleted]),
                     _v35 = (0, _v26.useCallback)(() => {

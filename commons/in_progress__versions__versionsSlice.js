@@ -18,9 +18,11 @@
         addVersions(_v0, {
           payload: _v1
         }) {
-          let _v2 = new Set(_v0.versionList.map(_v0 => _v0.uri)),
-            _v3 = _v1.filter(_v0 => !_v2.has(_v0.uri));
-          0 !== _v3.length && (_v0.versionList = [..._v0.versionList, ..._v3], null === _v0.selectedVersionUri && (_v0.selectedVersionUri = _v2(_v0.versionList)));
+          let _v2 = new Map(_v0.versionList.map(_v0 => [_v0.uri, _v0]));
+          _v1.forEach(_v0 => _v2.set(_v0.uri, {
+            ..._v2.get(_v0.uri),
+            ..._v0
+          })), _v0.versionList = [..._v2.values()], null === _v0.selectedVersionUri && (_v0.selectedVersionUri = _v2(_v0.versionList));
         },
         addNewVersion(_v0, {
           payload: _v1

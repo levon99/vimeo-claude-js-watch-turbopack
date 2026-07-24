@@ -2100,14 +2100,15 @@
             })
           })
         }) : null, (0, _v17.jsxs)(_v58.Modal, {
-          scrollBehavior: "outside",
+          scrollBehavior: "inside",
           isOpen: _v16,
           onClose: _v18,
           returnFocusOnClose: !1,
           children: [(0, _v17.jsx)(_v60.ModalOverlay, {}), (0, _v17.jsxs)(_v59.ModalContent, {
             borderRadius: (0, _v61.rem)(8),
             width: "fit-content",
-            maxWidth: "90vw",
+            maxWidth: "96vw",
+            maxH: "100dvh",
             children: [(0, _v17.jsx)(_v202.ModalHeader, {
               children: (0, _v17.jsx)(_v137.Header, {
                 fontWeight: "bold",
@@ -2116,6 +2117,7 @@
               })
             }), (0, _v17.jsx)(_v108.ModalCloseButton, {}), (0, _v17.jsx)(_v203.ModalBody, {
               borderRadius: (0, _v61.rem)(8),
+              paddingBottom: 0,
               children: (0, _v17.jsx)(_v205.MediaDevicesSettingsModalContent, {
                 id: (0, _v208.createLiveDomName)(_v0, "settings-modal"),
                 className: (0, _v208.createLiveDomName)(_v1, "settings-modal"),

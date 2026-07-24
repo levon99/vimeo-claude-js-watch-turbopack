@@ -152,7 +152,7 @@
       });
       _v0.onSettingsLoaded(_v0), _v0.onSettingsUpdated(_v0), _v0.streamPrivacy?.embed === _v10.EStreamEmbedPrivacy.WHITELIST && (await _v26(_v0));
     } catch (_v0) {
-      _v0.log.error("Failed to load live event settings:", _v0);
+      _v0.log.error("Failed to load live event settings:", _v0), _v0.onSettingsUpdated({}, !1, "load_failed");
     }
   }
   async function _v24(_v0, _v1) {
@@ -165,7 +165,7 @@
       });
       _v0.onSettingsUpdated(_v0, !1, "forced");
     } catch (_v0) {
-      _v0.log.error("Failed to load live event settings:", _v0);
+      _v0.log.error("Failed to load live event settings:", _v0), _v0.onSettingsUpdated({}, !1, "forced_failed");
     }
   }
   async function _v25(_v0, _v1, _v2, _v3 = !1) {
@@ -249,7 +249,7 @@
   class _v32 extends _v2.ContextManager {
     static EVENT_SETTINGS_PRODUCTION_FIELDS = ["autoCcEnabled", "autoCcLimit", "autoCcRemaining", "disableAutoArchiving", "dvr", "latency", "preferredStreamMethod", "streamingAutoStop", "unlimitedDuration"];
     static EVENT_THUMBNAIL_FIELDS = ["pictures.active", "pictures.uri", "pictures.baseLink", "pictures.sizes"];
-    static EVENT_SETTINGS_FETCH_FIELDS = [..._v32.EVENT_SETTINGS_PRODUCTION_FIELDS, ..._v32.EVENT_THUMBNAIL_FIELDS, "album", "allowedPrivacies", "autoCcKeywords", "autoCcLanguage", "autoCcTranslationEnabled", "autoCcTranslationLanguages", "contentRating", "dashLink", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "fromShowcase", "hasRegistration", "hasForcedLeadCaptureForm", "link", "parentFolder.isPrivateToUser", "rtmpLink", "rtmpPreview", "rtmpsLink", "schedule", "scheduledPlayback", "srtEncryptionEnabled", "srtLink", "srtPassphrase", "status", "streamDescription", "streamKey", "streamPassword", "streamPrivacy", "title", "unlimitedAutoCc", "uri"];
+    static EVENT_SETTINGS_FETCH_FIELDS = [..._v32.EVENT_SETTINGS_PRODUCTION_FIELDS, ..._v32.EVENT_THUMBNAIL_FIELDS, "album", "allowedPrivacies", "app", "autoCcKeywords", "autoCcLanguage", "autoCcTranslationEnabled", "autoCcTranslationLanguages", "contentRating", "dashLink", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "fromShowcase", "hasRegistration", "hasForcedLeadCaptureForm", "landingPageLogo.type", "landingPageLogo.uri", "landingPageLogo.url", "link", "parentFolder.isPrivateToUser", "rtmpLink", "rtmpPreview", "rtmpsLink", "schedule", "scheduledPlayback", "srtEncryptionEnabled", "srtLink", "srtPassphrase", "status", "streamDescription", "streamKey", "streamPassword", "streamPrivacy", "title", "unlimitedAutoCc", "uri"];
     context = {
       isInitialized: !1,
       settings: (0, _v2.createLoadable)(null, !0),

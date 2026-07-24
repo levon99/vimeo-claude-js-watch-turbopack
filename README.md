@@ -124,6 +124,7 @@
 - https://vimeo.com/manage/team/custom-metadata
 - https://vimeo.com/manage/team/groups
 - https://vimeo.com/manage/team/manage-ai
+- https://vimeo.com/manage/team/manage-ai/custom-dictionary
 - https://vimeo.com/manage/team/members
 - https://vimeo.com/manage/team/members/[member_id]/my-library
 - https://vimeo.com/manage/team/members/[member_id]/my-library/folders/[folder_id]
@@ -156,6 +157,7 @@
 - https://vimeo.com/manage/workspace/groups
 - https://vimeo.com/manage/workspace/integrations
 - https://vimeo.com/manage/workspace/manage-ai
+- https://vimeo.com/manage/workspace/manage-ai/custom-dictionary
 - https://vimeo.com/manage/workspace/members
 - https://vimeo.com/manage/workspace/members/[member_id]/my-library
 - https://vimeo.com/manage/workspace/members/[member_id]/my-library/folders/[folder_id]
@@ -176,6 +178,7 @@
 - https://vimeo.com/manage/workspace/security-and-data/legal-hold
 - https://vimeo.com/manage/workspace/security-and-data/privacy-restrictions
 - https://vimeo.com/manage/workspace/security-and-data/review-page-settings
+- https://vimeo.com/manage/workspace/security-and-data/webinar-viewer-anonymisation
 - https://vimeo.com/managed-accounts/accept/user/[userId]
 - https://vimeo.com/my-feed
 - https://vimeo.com/oauth/auth

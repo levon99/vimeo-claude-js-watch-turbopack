@@ -10,14 +10,16 @@
   let _v7 = ({
     organizationUuid: _v0,
     organizationInternalId: _v1,
-    workspaceUuid: _v2
+    workspaceUuid: _v2,
+    workspaceInternalId: _v3
   }) => (0, _v1.jsx)(_v2.Box, {
     paddingTop: "lg",
     children: (0, _v1.jsx)(_v5.SecurityAndData, {
       isWorkspaceSettingsPage: !0,
       organizationUuid: _v0,
       organizationInternalId: _v1,
-      workspaceUuid: _v2
+      workspaceUuid: _v2,
+      workspaceInternalId: _v3
     })
   });
   (0, _v3.withPageSetup)(_v6.getWspServerSideProps, {

@@ -626,6 +626,58 @@
         }
       }
     }),
+    connectedToStreamYardTitle: (0, _v8.translate)({
+      singular: "Ready to start!",
+      dictionary: {
+        es: {
+          singular: "¡Listo para comenzar!"
+        },
+        "de-DE": {
+          singular: "Bereit zu starten!"
+        },
+        "fr-FR": {
+          singular: "Prêt à commencer !"
+        },
+        "ja-JP": {
+          singular: "開始の準備が整いました！"
+        },
+        "ko-KR": {
+          singular: "시작할 준비가 되었습니다!"
+        },
+        "pt-BR": {
+          singular: "Pronto para começar!"
+        },
+        "zh-CN": {
+          singular: "准备开始！"
+        }
+      }
+    }),
+    connectedToStreamYardDescription: (0, _v8.translate)({
+      singular: "This event is connected to StreamYard and ready to start! Once you go live in the StreamYard studio, the stream preview will appear here.",
+      dictionary: {
+        es: {
+          singular: "¡Este evento está conectado a StreamYard y listo para comenzar! Una vez que estés en vivo en el estudio de StreamYard, la vista previa de la transmisión aparecerá aquí."
+        },
+        "de-DE": {
+          singular: "Dieses Event ist mit StreamYard verbunden und bereit zu starten! Sobald Sie im StreamYard-Studio live gehen, erscheint hier die Streamvorschau."
+        },
+        "fr-FR": {
+          singular: "Cet événement est connecté à StreamYard et prêt à démarrer ! Une fois que vous serez en direct dans le studio StreamYard, l'aperçu du flux apparaîtra ici."
+        },
+        "ja-JP": {
+          singular: "このイベントはStreamYardに接続されており、開始の準備が整っています！StreamYardスタジオでライブ配信を開始すると、ここに配信プレビューが表示されます。"
+        },
+        "ko-KR": {
+          singular: "이 이벤트는 StreamYard에 연결되어 있으며 시작할 준비가 되었습니다! StreamYard 스튜디오에서 라이브로 송출하면 스트림 미리보기가 여기에 표시됩니다."
+        },
+        "pt-BR": {
+          singular: "Este evento está conectado ao StreamYard e pronto para começar! Assim que você entrar ao vivo no estúdio do StreamYard, a prévia da transmissão aparecerá aqui."
+        },
+        "zh-CN": {
+          singular: "此活动已连接到 StreamYard，准备开始！一旦您在 StreamYard studio 开始直播，直播预览将出现在此处。"
+        }
+      }
+    }),
     connectEncoderHelper: (0, _v8.translate)({
       replacements: {
         LINK: _v0 => (0, _v4.jsx)(_v7.Text, {
