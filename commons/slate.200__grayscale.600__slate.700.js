@@ -274,7 +274,7 @@
           triggerReplace: _v10,
           replaceInput: _v11,
           replaceModal: _v12
-        } = (0, _v25.useReplaceWithModal)(_v8, !!_v9?.new_replace_feature, _v6?.metadata?.connections?.versions?.hasInteractive);
+        } = (0, _v25.useReplaceWithModal)(_v8, !!_v9?.new_replace_feature, _v6?.metadata?.connections?.versions?.hasInteractive, _v25.navigateToUpgrade, (0, _v28.idFromUri)(_v6?.user.uri));
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v23.VideoMenu, {
           ..._v4(_v0, _v1, _v2, _v3),

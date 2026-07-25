@@ -15,21 +15,23 @@
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
-    _v15 = _v0.i(474),
-    _v16 = _v0.i(0),
+    _v15 = _v0.i(0),
+    _v16 = _v0.i(474),
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
-    _v21 = _v0.i(0);
-  function _v22({
+    _v21 = _v0.i(0),
+    _v22 = _v0.i(0),
+    _v23 = _v0.i(0);
+  function _v24({
     step: _v0,
     children: _v1
   }) {
     let {
         registerTarget: _v2,
         unregisterTarget: _v3
-      } = (0, _v21.useTourContext)(),
+      } = (0, _v23.useTourContext)(),
       _v4 = (0, _v4.useCallback)(_v0 => {
         if (null === _v0) return void _v3(_v0._id);
         if (!(_v0 instanceof HTMLElement)) {
@@ -42,17 +44,19 @@
       ref: _v4
     });
   }
-  _v0.s(["TourStep", 0, _v22], 0);
-  var _v23 = _v0.i(0),
-    _v24 = _v0.i(0),
-    _v25 = _v0.i(0),
+  _v0.s(["TourStep", 0, _v24], 0);
+  var _v25 = _v0.i(0),
     _v26 = _v0.i(0),
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
-    _v31 = _v0.i(0);
-  let _v32 = ({
+    _v31 = _v0.i(0),
+    _v32 = _v0.i(0),
+    _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0);
+  let _v36 = ({
       videoId: _v0
     }) => (0, _v1.jsx)("div", {
       style: {
@@ -75,11 +79,11 @@
         }
       })
     }),
-    _v33 = ({
+    _v37 = ({
       title: _v0,
       description: _v1,
       videoId: _v2
-    }) => (0, _v1.jsxs)(_v30.Flex, {
+    }) => (0, _v1.jsxs)(_v34.Flex, {
       direction: "column",
       gap: 3,
       align: "stretch",
@@ -87,7 +91,7 @@
         variant: "heading-md",
         color: "text-primary",
         children: _v0
-      }), _v2 && (0, _v1.jsx)(_v32, {
+      }), _v2 && (0, _v1.jsx)(_v36, {
         videoId: _v2
       }), (0, _v1.jsx)(_v9.Text, {
         variant: "body-md",
@@ -95,13 +99,13 @@
         children: _v1
       })]
     }),
-    _v34 = "review-page",
-    _v35 = (0, _v31.defineTour)(_v34, {
+    _v38 = "review-page",
+    _v39 = (0, _v35.defineTour)(_v38, {
       player: {
         order: 0,
         placement: "right",
-        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v33, {
-          title: (0, _v17.translate)({
+        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v37, {
+          title: (0, _v18.translate)({
             singular: "Comment anywhere on the video",
             dictionary: {
               es: {
@@ -128,7 +132,7 @@
             }
           }),
           videoId: 0,
-          description: (0, _v17.translate)({
+          description: (0, _v18.translate)({
             singular: "Click on the video at any moment along the timeline to leave a timestamped comment, pinned to that exact frame.",
             dictionary: {
               es: {
@@ -159,8 +163,8 @@
       comments: {
         order: 1,
         placement: "auto",
-        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v33, {
-          title: (0, _v17.translate)({
+        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v37, {
+          title: (0, _v18.translate)({
             singular: "Everyone's feedback, in one place",
             dictionary: {
               es: {
@@ -186,7 +190,7 @@
               }
             }
           }),
-          description: (0, _v17.translate)({
+          description: (0, _v18.translate)({
             singular: "Comments from collaborators lands here as they come in. Reply in a thread, and mark each one Resolved when it's handled.",
             dictionary: {
               es: {
@@ -217,8 +221,8 @@
       copyLink: {
         order: 2,
         placement: "auto",
-        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v33, {
-          title: (0, _v17.translate)({
+        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v37, {
+          title: (0, _v18.translate)({
             singular: "Copy a secure review link",
             dictionary: {
               es: {
@@ -244,7 +248,7 @@
               }
             }
           }),
-          description: (0, _v17.translate)({
+          description: (0, _v18.translate)({
             singular: "Send it to anyone — they comment without an account, and you stay in control of access.",
             dictionary: {
               es: {
@@ -273,15 +277,16 @@
         }), {})
       }
     });
-  _v0.s(["REVIEW_TOUR_NAME", 0, _v34, "ReviewTour", 0, _v35], 0);
-  var _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
+  _v0.s(["REVIEW_TOUR_NAME", 0, _v38, "ReviewTour", 0, _v39], 0);
+  var _v40 = _v0.i(0),
     _v41 = _v0.i(0),
-    _v42 = _v0.i(0);
-  let _v43 = (0, _v2.default)(async () => ({
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0),
+    _v44 = _v0.i(0),
+    _v45 = _v0.i(0),
+    _v46 = _v0.i(0),
+    _v47 = _v0.i(0);
+  let _v48 = (0, _v2.default)(async () => ({
     default: (await _v0.A(0)).LoginJoinModal
   }), {
     loadableGenerated: {
@@ -313,42 +318,52 @@
     showDeleteVersion: _v21 = !0,
     showNewVersion: _v22 = !0
   }) => {
-    let _v23 = (0, _v15.useMediaQueryVisibility)(`screen and (max-width: ${(0, _v6.rem)(_v23.BREAKPOINTS.small)})`),
-      _v24 = (0, _v16.useIsMobile)(),
-      _v25 = (0, _v26.useViewer)(),
+    let _v23 = (0, _v16.useMediaQueryVisibility)(`screen and (max-width: ${(0, _v6.rem)(_v25.BREAKPOINTS.small)})`),
+      _v24 = (0, _v17.useIsMobile)(),
+      _v25 = (0, _v30.useViewer)(),
       _v26 = _v25?.user,
       {
         replaceEnabled: _v27,
         isLoading: _v28
-      } = (0, _v39.useReplace)(_v1, _v12),
+      } = (0, _v43.useReplace)(_v1, _v12),
       [_v29, _v30] = (0, _v4.useState)(),
-      _v31 = (0, _v36.getVersionNumber)(_v7 || _v38.DEFAULT_VERSION_NUMBER),
+      _v31 = (0, _v40.getVersionNumber)(_v7 || _v42.DEFAULT_VERSION_NUMBER),
       [_v32, _v33] = (0, _v4.useState)(!1),
       {
-        restoreVersion: _v34,
-        isRestoreInProgress: _v35
-      } = (0, _v40.useRestoreVersion)(),
+        settings: _v34
+      } = (0, _v22.useOrionSettings)(),
+      _v35 = (0, _v13.useToast)(),
+      _v36 = (0, _v29.useVersionsStore)(_v0 => _v0.addNewVersion),
       {
-        allowStatusChange: _v36,
-        isDark: _v37,
-        showMyLogo: _v38,
-        logoUrl: _v39
-      } = (0, _v4.useContext)(_v41.ReviewLinkContext);
+        restoreVersion: _v37,
+        isRestoreInProgress: _v38
+      } = (0, _v44.useRestoreVersion)(),
+      {
+        restore: _v39,
+        isRestoreInProgress: _v40
+      } = (0, _v28.useRestoreVersionWorkflow)(),
+      _v41 = _v34.new_replace_feature ? _v40 : _v38,
+      {
+        allowStatusChange: _v42,
+        isDark: _v43,
+        showMyLogo: _v44,
+        logoUrl: _v45
+      } = (0, _v4.useContext)(_v45.ReviewLinkContext);
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v3.default, {
         children: (0, _v1.jsx)("title", {
           children: _v0
         })
-      }), (0, _v1.jsxs)(_v18.Navigation, {
+      }), (0, _v1.jsxs)(_v19.Navigation, {
         id: "review-header",
         position: "sticky",
         minHeight: "64px",
         zIndex: 0,
         top: "0",
-        children: [(0, _v1.jsxs)(_v18.Navigation.LeftContent, {
+        children: [(0, _v1.jsxs)(_v19.Navigation.LeftContent, {
           "data-id": "review-header-left",
           gap: "md",
-          children: [_v38 && _v39 ? (0, _v1.jsx)(_v12.Link, {
+          children: [_v44 && _v45 ? (0, _v1.jsx)(_v12.Link, {
             href: "/",
             ...(!_v25?.user && {
               pointerEvents: "none"
@@ -359,17 +374,17 @@
                 md: (0, _v6.rem)(400)
               },
               height: (0, _v6.rem)(40),
-              src: _v39,
+              src: _v45,
               alt: "Team Logo"
             })
-          }) : (0, _v1.jsx)(_v24.default, {}), !_v23 && (0, _v1.jsx)(_v7.Breadcrumb, {
+          }) : (0, _v1.jsx)(_v26.default, {}), !_v23 && (0, _v1.jsx)(_v7.Breadcrumb, {
             maxWidth: "500px",
             children: (0, _v1.jsx)(_v7.BreadcrumbItem, {
               overflow: "hidden",
               whiteSpace: "nowrap",
               children: _v15 ? (0, _v1.jsx)(_v8.BreadcrumbLink, {
                 href: _v15,
-                children: (0, _v1.jsx)(_v25.OverflowToolTip, {
+                children: (0, _v1.jsx)(_v27.OverflowToolTip, {
                   labelToolTip: _v0,
                   placement: "bottom",
                   children: (0, _v1.jsx)(_v9.Text, {
@@ -386,7 +401,7 @@
                 children: _v0
               })
             })
-          }), (0, _v1.jsx)(_v37.VersionListPicker, {
+          }), (0, _v1.jsx)(_v41.VersionListPicker, {
             videoId: _v1,
             clipHash: _v2,
             allowReplace: _v27,
@@ -405,24 +420,24 @@
             showNewVersion: _v22,
             isVideoProcessing: _v16
           })]
-        }), (0, _v1.jsx)(_v18.Navigation.RightContent, {
+        }), (0, _v1.jsx)(_v19.Navigation.RightContent, {
           "data-id": "video-versions-header-right",
           justifyContent: "flex-end",
           gap: "sm",
-          children: (0, _v1.jsxs)(_v20.LoginJoinModalContext.Provider, {
+          children: (0, _v1.jsxs)(_v21.LoginJoinModalContext.Provider, {
             value: {
               modal: _v29,
               setModal: _v30
             },
-            children: [!_v24 && _v11 && (0, _v1.jsx)(_v29.ReviewStatusMenu, {
+            children: [!_v24 && _v11 && (0, _v1.jsx)(_v33.ReviewStatusMenu, {
               clipId: _v1,
               defaultStatus: _v10 ?? null,
-              isReadOnly: !_v36,
+              isReadOnly: !_v42,
               analyticsProps: _v5,
               reviewId: _v12
             }), _v17 && (0, _v1.jsx)(_v5.IconButton, {
               onClick: () => _v6(),
-              icon: (0, _v1.jsx)(_v13.CommentList, {}),
+              icon: (0, _v1.jsx)(_v14.CommentList, {}),
               size: "md",
               variant: "tertiary",
               "aria-label": "comments"
@@ -430,21 +445,21 @@
               onClick: () => {
                 _v3?.();
               },
-              icon: (0, _v1.jsx)(_v14.DownloadImport, {}),
+              icon: (0, _v1.jsx)(_v15.DownloadImport, {}),
               size: "md",
               variant: "tertiary",
               "aria-label": "download",
               isDisabled: _v4
             }), _v20 && _v13 && !_v14 && (0, _v1.jsx)(_v10.Button, {
               variant: "primary",
-              onClick: () => void (_v33(!0), _v5 && (0, _v42.bpStartRestoreVersion)({
+              onClick: () => void (_v33(!0), _v5 && (0, _v46.bpStartRestoreVersion)({
                 videoId: _v1,
                 viewer: _v25,
                 currentVersion: _v31,
                 chosenVersion: _v31,
                 analyticsProps: _v5
               })),
-              children: (0, _v17.translate)({
+              children: (0, _v18.translate)({
                 singular: "Restore this version",
                 dictionary: {
                   es: {
@@ -467,32 +482,98 @@
                   }
                 }
               })
-            }), _v12 && (0, _v1.jsx)(_v22, {
-              step: _v35.copyLink,
-              children: (0, _v1.jsx)(_v27.CopyReviewLinkButton, {
+            }), _v12 && (0, _v1.jsx)(_v24, {
+              step: _v39.copyLink,
+              children: (0, _v1.jsx)(_v31.CopyReviewLinkButton, {
                 surface: "video_review_page",
                 clipId: String(_v1)
               })
-            }), (0, _v1.jsx)(_v19.AccountMenu, {
-              hasThemeSupport: !_v37
-            }), _v25 && !_v26 && (0, _v1.jsx)(_v43, {})]
+            }), (0, _v1.jsx)(_v20.AccountMenu, {
+              hasThemeSupport: !_v43
+            }), _v25 && !_v26 && (0, _v1.jsx)(_v48, {})]
           })
         })]
-      }), (0, _v1.jsx)(_v28.RestoreConfirmationModal, {
+      }), (0, _v1.jsx)(_v32.RestoreConfirmationModal, {
         isOpen: _v32,
         onClose: () => _v33(!1),
         onRestoreVersion: () => {
-          _v13 && (_v5 && (0, _v42.bpRestoreVersion)({
-            videoId: _v1,
-            viewer: _v25,
-            currentVersion: _v31,
-            chosenVersion: _v31,
-            analyticsProps: _v5
-          }), _v34(_v1, _v13).then(() => {
-            _v33(!1);
-          }));
+          if (_v13) {
+            if (_v5 && (0, _v46.bpRestoreVersion)({
+              videoId: _v1,
+              viewer: _v25,
+              currentVersion: _v31,
+              chosenVersion: _v31,
+              analyticsProps: _v5
+            }), _v34.new_replace_feature) return void _v39(_v1, _v13).then(_v0 => {
+              _v36(_v0), _v33(!1), _v35({
+                title: (0, _v18.translate)({
+                  singular: "Version restored",
+                  dictionary: {
+                    es: {
+                      singular: "Versión restaurada"
+                    },
+                    "de-DE": {
+                      singular: "Version wiederhergestellt"
+                    },
+                    "fr-FR": {
+                      singular: "Version restaurée"
+                    },
+                    "ja-JP": {
+                      singular: "バージョンを復元しました"
+                    },
+                    "ko-KR": {
+                      singular: "버전이 복원되었습니다."
+                    },
+                    "pt-BR": {
+                      singular: "Versão restaurada"
+                    },
+                    "zh-CN": {
+                      singular: "版本已恢复"
+                    }
+                  }
+                }),
+                duration: _v47.TOAST_DURATION,
+                isClosable: !1
+              });
+            }).catch(() => {
+              _v35({
+                title: (0, _v18.translate)({
+                  singular: "Unable to restore",
+                  dictionary: {
+                    es: {
+                      singular: "No se puede restaurar"
+                    },
+                    "de-DE": {
+                      singular: "Wiederherstellung nicht möglich"
+                    },
+                    "fr-FR": {
+                      singular: "Restauration impossible"
+                    },
+                    "ja-JP": {
+                      singular: "復元できません"
+                    },
+                    "ko-KR": {
+                      singular: "복원할 수 없습니다."
+                    },
+                    "pt-BR": {
+                      singular: "Não foi possível restaurar"
+                    },
+                    "zh-CN": {
+                      singular: "无法恢复"
+                    }
+                  }
+                }),
+                duration: _v47.TOAST_DURATION,
+                isClosable: !1,
+                variant: "warning"
+              });
+            });
+            _v37(_v1, _v13).then(() => {
+              _v33(!1);
+            });
+          }
         },
-        isRestoreApiInProgress: _v35
+        isRestoreApiInProgress: _v41
       })]
     });
   }], 0);

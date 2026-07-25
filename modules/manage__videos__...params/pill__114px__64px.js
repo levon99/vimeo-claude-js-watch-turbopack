@@ -318,15 +318,29 @@
         }
       })
     })]
-  })], 0), _v0.s(["useFindEllipsis", 0, _v0 => {
-    let [_v1, _v2] = (0, _v2.useState)(!1);
-    return (0, _v2.useEffect)(() => {
-      let _v0 = () => {
-        _v0.current ? _v2(_v0.current && _v0.current.offsetWidth < _v0.current.scrollWidth) : _v2(!1);
-      };
-      return _v0(), window.addEventListener("resize", _v0), () => {
-        window.removeEventListener("resize", _v0);
-      };
-    }, [_v0]), _v1;
+  })], 0);
+  var _v27 = _v0.i(0);
+  async function _v28(_v0, _v1, _v2) {
+    await (0, _v27.deleteVideoVersion)({
+      ..._v2,
+      where: {
+        videoId: _v0,
+        versionId: _v1
+      }
+    });
+  }
+  _v0.s(["useDeleteVersionWorkflow", 0, function () {
+    let [_v0, _v1] = (0, _v2.useState)(!1);
+    return {
+      deleteVersionWorkflow: (0, _v2.useCallback)(async (_v0, _v1, _v2) => {
+        _v1(!0);
+        try {
+          return await _v28(_v0, _v1, _v2);
+        } finally {
+          _v1(!1);
+        }
+      }, []),
+      isDeleteInProgress: _v0
+    };
   }], 0);
 }

@@ -1476,6 +1476,32 @@
         }
       }
     }),
+    goLiveFromStreamyard: (0, _v8.translate)({
+      singular: "Go live from Streamyard",
+      dictionary: {
+        es: {
+          singular: "Emitir en directo desde Streamyard"
+        },
+        "de-DE": {
+          singular: "Live gehen über Streamyard"
+        },
+        "fr-FR": {
+          singular: "Passer en direct depuis Streamyard"
+        },
+        "ja-JP": {
+          singular: "Streamyardからライブ配信する"
+        },
+        "ko-KR": {
+          singular: "Streamyard에서 라이브 시작"
+        },
+        "pt-BR": {
+          singular: "Transmitir ao vivo pelo Streamyard"
+        },
+        "zh-CN": {
+          singular: "通过 Streamyard 开始直播"
+        }
+      }
+    }),
     goLiveFromYourEncoder: (0, _v8.translate)({
       singular: "Go live from your encoder",
       dictionary: {

@@ -1796,6 +1796,32 @@
           }
         }
       }),
+      cameraFeedDragResizeLabel: (0, _v6.translate)({
+        singular: "Camera feed. Drag to move it, or drag a corner to resize it.",
+        dictionary: {
+          es: {
+            singular: "Señal de la cámara. Arrastra para moverla, o arrastra una esquina para cambiar su tamaño."
+          },
+          "de-DE": {
+            singular: "Kamera-Feed. Ziehen, um ihn zu verschieben, oder an einer Ecke ziehen, um die Größe zu ändern."
+          },
+          "fr-FR": {
+            singular: "Flux de la caméra. Faites glisser pour le déplacer, ou faites glisser un coin pour le redimensionner."
+          },
+          "ja-JP": {
+            singular: "カメラ映像。ドラッグして移動するか、角をドラッグしてサイズを変更してください。"
+          },
+          "ko-KR": {
+            singular: "카메라 피드입니다. 드래그하여 이동하거나 모서리를 드래그하여 크기를 조정하세요."
+          },
+          "pt-BR": {
+            singular: "Feed da câmera. Arraste para movê-lo, ou arraste um canto para redimensioná-lo."
+          },
+          "zh-CN": {
+            singular: "摄像头画面。拖动以移动，或拖动角落以调整大小。"
+          }
+        }
+      }),
       cameraOnBottomLeft: (0, _v6.translate)({
         singular: "Camera on the bottom left",
         dictionary: {

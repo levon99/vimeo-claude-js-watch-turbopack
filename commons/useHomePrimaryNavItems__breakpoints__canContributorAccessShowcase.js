@@ -81,7 +81,7 @@
       {
         capabilities: _v14,
         loading: _v15
-      } = (0, _v33.useCapability)(["canContributorAccessShowcase", "hasSharedWithMe", "hasVideoLibraryShowcases", "hasVideoManagerLiveEventsMenu", "hasWatchButton", "hasUseVimeoStreaming"], _v8),
+      } = (0, _v33.useCapability)(["canContributorAccessShowcase", "hasSharedWithMe", "hasVideoLibraryShowcases", "hasVideoManagerLiveEventsMenu", "hasWatchButton", "hasUseVimeoStreaming", "hasEventSeriesEnabled"], _v8),
       {
         capabilities: _v16,
         loading: _v17
@@ -393,7 +393,7 @@
               _v16("live_events"), _v15();
             }
           } : null,
-          _v27 = !_v6 && _v5.enable_event_series ? {
+          _v27 = !_v6 && (_v5.enable_event_series || _v14.hasEventSeriesEnabled) ? {
             key: "event_series",
             label: (0, _v38.translate)({
               singular: "Event series",
