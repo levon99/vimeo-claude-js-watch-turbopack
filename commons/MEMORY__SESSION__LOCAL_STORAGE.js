@@ -25,6 +25,10 @@
           ACTIVE: _v0 => `/chats/${_v0}/meta/activePollId`,
           LIST: _v0 => `/polls/${_v0}/poll`
         },
+        REACTIONS: {
+          META_ENABLED: _v0 => `${_v3.REFS.INTERACTION.CHAT.META(_v0)}/reactionsEnabled`,
+          LIST: _v0 => `/reactions/${_v0}/list`
+        },
         QNA: {
           SESSIONS: (_v0, _v1 = "") => `/qna/${_v0}/sessions${_v1 ? `/${_v1}` : ""}`,
           ACTIVE_ID: _v0 => `/chats/${_v0}/meta/activeQnASessionId`,

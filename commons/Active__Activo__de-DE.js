@@ -14636,28 +14636,54 @@
       }
     }),
     joinTheAudienceToParticipate: (0, _v6.translate)({
-      singular: "Join the audience to participate in chat, polls, and quizzes",
+      singular: "Join the audience to participate in chat, polls, quizzes, and live reactions",
       dictionary: {
         es: {
-          singular: "Únase a la audiencia para participar en el chat, las encuestas y los cuestionarios"
+          singular: "Únete a la audiencia para participar en el chat, encuestas, cuestionarios y reacciones en vivo"
         },
         "de-DE": {
-          singular: "Schließen Sie sich dem Publikum an, um an Chats, Umfragen und Quizfragen teilzunehmen"
+          singular: "Tritt dem Publikum bei, um im Chat, an Umfragen, an Quizzen und an Live-Reaktionen teilzunehmen"
         },
         "fr-FR": {
-          singular: "Rejoignez le public pour participer au chat, aux sondages et aux quiz"
+          singular: "Rejoignez le public pour participer au chat, aux sondages, aux quiz et aux réactions en direct"
         },
         "ja-JP": {
-          singular: "視聴者と一緒にチャット、投票、クイズに参加しましょう"
+          singular: "視聴者として参加すると、チャット、投票、クイズ、ライブリアクションに参加できます"
         },
         "ko-KR": {
-          singular: "시청자로 참여하여 채팅, 투표, 퀴즈를 함께하세요."
+          singular: "채팅, 설문, 퀴즈 및 라이브 반응에 참여하려면 시청자로 합류하세요"
         },
         "pt-BR": {
-          singular: "Junte-se ao público para participar de chats, enquetes e questionários"
+          singular: "Junte-se ao público para participar do chat, enquetes, questionários e reações ao vivo"
         },
         "zh-CN": {
-          singular: "加入观众以参与聊天、投票和测验"
+          singular: "加入观众以参与聊天、投票、测验和实时反应"
+        }
+      }
+    }),
+    joinTheAudienceToReact: (0, _v6.translate)({
+      singular: "Join the audience to send live reactions",
+      dictionary: {
+        es: {
+          singular: "Únete a la audiencia para enviar reacciones en vivo"
+        },
+        "de-DE": {
+          singular: "Tritt dem Publikum bei, um Live-Reaktionen zu senden"
+        },
+        "fr-FR": {
+          singular: "Rejoignez le public pour envoyer des réactions en direct"
+        },
+        "ja-JP": {
+          singular: "視聴者として参加すると、ライブリアクションを送信できます"
+        },
+        "ko-KR": {
+          singular: "라이브 반응을 보내려면 시청자로 합류하세요"
+        },
+        "pt-BR": {
+          singular: "Junte-se ao público para enviar reações ao vivo"
+        },
+        "zh-CN": {
+          singular: "加入观众以发送实时反应"
         }
       }
     }),
