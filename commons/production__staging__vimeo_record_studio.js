@@ -9749,8 +9749,8 @@
         }
       }, [_v20, _v0, _v15, _v9, _v18, _v13, _v12, _v7]);
     return (0, _v25.jsx)(_v315, {
-      header: _v14.title ?? "",
-      text: _v14.text,
+      header: _v14?.title ?? "",
+      text: _v14?.text,
       buttons: _v21,
       onConfirm: () => void 0,
       onClose: _v8 ? _v19 : void 0

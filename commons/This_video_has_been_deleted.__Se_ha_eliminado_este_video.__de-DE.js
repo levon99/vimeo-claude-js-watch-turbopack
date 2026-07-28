@@ -979,7 +979,7 @@
         }
       }
     });
-  }, "linkCopyFailed", 0, _v8, "linkCopySuccess", 0, _v7, "numItemsText", 0, _v0 => (0, _v3.translate)({
+  }, "linkCopyFailed", 0, _v8, "linkCopySuccess", 0, _v7, "numItemsText", 0, _v0 => "number" == typeof _v0 && Number.isFinite(_v0) ? (0, _v3.translate)({
     singular: "{NUM_ITEMS} item",
     plural: "{NUM_ITEMS} items",
     count: _v0,
@@ -1016,7 +1016,7 @@
         plural: "{NUM_ITEMS} 项"
       }
     }
-  }), "venueStartTimeText", 0, function (_v0) {
+  }) : void 0, "venueStartTimeText", 0, function (_v0) {
     return (0, _v3.translate)({
       singular: "Venue opens {DATE}",
       replacements: {

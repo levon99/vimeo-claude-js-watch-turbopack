@@ -124,21 +124,13 @@
     return _v0?.country === "US" && !!_v0.postalCode && (0, _v40.isZipCodeIsRequiredAutorenewalOptInRange)(_v0.postalCode.trim().slice(0, 5));
   }
   var _v44 = _v0.i(0);
-  let _v45 = (_v0, _v1) => {
-    let _v2, _v3, _v4;
-    return {
-      tier: _v0.tier,
-      periodicity: _v0.periodicity,
-      is_free_trial: _v0.isFreeTrial ?? !1,
-      ...(_v2 = new URLSearchParams(window.location.search), _v3 = _v0 => sessionStorage.getItem(_v0) ?? null, _v4 = _v0 => _v2?.get(_v0) || null, {
-        paywall_id: _v3("paywall_id"),
-        paywall_trigger: _v3("paywall_trigger") ?? _v4("paywall_trigger"),
-        paywall_feature: _v3("paywall_feature") ?? _v4("paywall_feature"),
-        paywall_location: _v3("paywall_location") ?? _v4("paywall_location")
-      }),
-      ..._v1
-    };
-  };
+  let _v45 = (_v0, _v1) => ({
+    tier: _v0.tier,
+    periodicity: _v0.periodicity,
+    is_free_trial: _v0.isFreeTrial ?? !1,
+    ...(0, _v13.readStoredPaywallContext)(),
+    ..._v1
+  });
   function _v46({
     plan: _v0,
     displayName: _v1,
@@ -847,6 +839,9 @@
         trackPaywallDismissed: _v7
       } = (0, _v13.usePaywallTracking)({
         ..._v1,
+        paywallStyle: "one_tap_upsell",
+        paywallPlansDisplayed: "eligible" === _v2.status ? [_v2.oneUpTier] : [],
+        paywallPeriodicitiesDisplayed: "eligible" === _v2.status ? [_v2.isMonthly ? "monthly" : "yearly"] : [],
         isVisible: "eligible" === _v2.status
       }),
       _v8 = (0, _v2.default)(_v3?.teamUser?.accountType ?? _v3?.user?.account ?? ""),

@@ -485,28 +485,47 @@
         videoData: _v24
       } = (0, _v36.useVideoData)(_v1, _v23),
       {
-        trackReviewCommentPosted: _v25
+        trackReviewCommentPosted: _v25,
+        trackReviewCommentReactionAdded: _v26,
+        trackReviewCommentReactionRemoved: _v27
       } = (0, _v7.useReviewTracking)(),
-      _v26 = (0, _v2.useCallback)(() => {
+      _v28 = (0, _v2.useCallback)(() => {
         let _v0 = (0, _v38.idFromUri)(_v24?.user?.uri);
-        _v25({
+        return {
           reviewId: _v23 ?? "",
           clipId: _v1,
           clipOwnerId: _v0 ? _v0.toString() : null
+        };
+      }, [_v23, _v1, _v24?.user?.uri]),
+      _v29 = (0, _v2.useCallback)(() => {
+        _v25(_v28());
+      }, [_v28, _v25]),
+      _v30 = (0, _v2.useCallback)((_v0, _v1) => {
+        _v26({
+          ..._v28(),
+          reviewCommentReaction: _v0,
+          isReply: _v1
         });
-      }, [_v23, _v1, _v24, _v25]),
-      _v27 = _v2 ? `${_v1}:${_v2}` : _v1,
-      _v28 = _v2.default.useRef(null),
-      _v29 = _v6 ? 10 : 48,
-      [_v30, _v31] = (0, _v2.useState)(0),
-      _v32 = `calc(100vh - ${_v6 ? _v7 : "0"}px - ${_v23.VERSION_PAGE_HEADER_HEIGHT + _v30 + _v29}px )`,
-      _v33 = (0, _v2.useCallback)(() => {
+      }, [_v28, _v26]),
+      _v31 = (0, _v2.useCallback)((_v0, _v1) => {
+        _v27({
+          ..._v28(),
+          reviewCommentReaction: _v0,
+          isReply: _v1
+        });
+      }, [_v28, _v27]),
+      _v32 = _v2 ? `${_v1}:${_v2}` : _v1,
+      _v33 = _v2.default.useRef(null),
+      _v34 = _v6 ? 10 : 48,
+      [_v35, _v36] = (0, _v2.useState)(0),
+      _v37 = `calc(100vh - ${_v6 ? _v7 : "0"}px - ${_v23.VERSION_PAGE_HEADER_HEIGHT + _v35 + _v34}px )`,
+      _v38 = (0, _v2.useCallback)(() => {
         _v20(""), _v22(!1);
       }, [_v20, _v22]),
-      _v34 = (0, _v2.useCallback)(_v0 => {
-        null !== _v0 && _v30 !== _v0.clientHeight && _v31(_v0.clientHeight);
-      }, [_v30]),
-      _v35 = (0, _v2.useCallback)(() => {
+      _v39 = (0, _v2.useCallback)(_v0 => {
+        null !== _v0 && _v35 !== _v0.clientHeight && _v36(_v0.clientHeight);
+      }, [_v35]),
+      _v40 = (0, _v2.useCallback)(() => {
         (0, _v6.bpStartSearchComment)({
           isInternal: !0,
           videoId: parseFloat(_v1),
@@ -514,7 +533,7 @@
           analyticsProps: _v9
         }), _v22(!0);
       }, [_v22, _v18, _v1, _v9]),
-      _v36 = (0, _v2.useCallback)(() => {
+      _v41 = (0, _v2.useCallback)(() => {
         if (!_v1 || !_v23) return;
         let _v0 = (0, _v38.getReviewPasswordHashFromCookie)(_v23),
           _v1 = new URLSearchParams({
@@ -525,7 +544,7 @@
         let _v2 = `/videos/${_v1}/comments/export?${_v1.toString()}`;
         window.location.assign(_v2), _v15(!1);
       }, [_v1, _v23]),
-      _v37 = (0, _v2.useCallback)((_v0, _v1) => {
+      _v42 = (0, _v2.useCallback)((_v0, _v1) => {
         _v1 || _v17(_v0);
       }, [_v17]);
     return (0, _v1.jsxs)(_v24, {
@@ -541,12 +560,12 @@
           children: (0, _v1.jsx)(_v19, {
             searchCommentQuery: _v19,
             setSearchCommentQuery: _v20,
-            searchInputRef: _v28,
+            searchInputRef: _v33,
             showCommentSearchBar: _v21,
-            onSearchClick: _v35,
-            onCloseSearch: _v33,
+            onSearchClick: _v40,
+            onCloseSearch: _v38,
             closeDrawer: _v5,
-            panelHeaderRef: _v34,
+            panelHeaderRef: _v39,
             onDownloadComments: () => {
               _v15(!0);
             },
@@ -555,11 +574,11 @@
         }), (0, _v1.jsx)(_v3.Flex, {
           direction: "column",
           width: "100%",
-          height: _v32,
-          maxHeight: _v32,
+          height: _v37,
+          maxHeight: _v37,
           overflowY: "auto",
           children: (0, _v1.jsx)(_v5.CommentsContainer, {
-            clipRequestId: _v27,
+            clipRequestId: _v32,
             clipId: _v1,
             isPublic: !1,
             enableLinks: !0,
@@ -575,14 +594,16 @@
             canInsertTimecode: !0,
             commentTimeCode: _v12,
             pausePlayer: _v13,
-            setCommentsCount: _v37,
-            onCommentPosted: _v26
+            setCommentsCount: _v42,
+            onCommentPosted: _v29,
+            onCommentReactionAdded: _v30,
+            onCommentReactionRemoved: _v31
           })
         })]
       }), (0, _v1.jsx)(_v35, {
         isOpen: _v14,
         close: () => _v15(!1),
-        onDownload: _v36,
+        onDownload: _v41,
         collaboratorCommentsCount: _v16
       })]
     });

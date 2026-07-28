@@ -36,17 +36,7 @@
       _v4 = (0, _v1.useCallback)((_v0, _v1) => {
         null === _v1 || _v2 || (_v3 ? _v1.track(_v0, _v1, _v3) : _v1.track(_v0, _v1));
       }, [_v1, _v2, _v3]),
-      _v5 = () => {
-        let _v0 = new URLSearchParams(window.location.search),
-          _v1 = _v0 => sessionStorage.getItem(_v0) ?? null,
-          _v2 = _v0 => _v0?.get(_v0) || null;
-        return {
-          paywall_id: _v1(_v3.PAYWALL_ID_STORAGE_KEY),
-          paywall_trigger: _v1(_v3.PAYWALL_TRIGGER_STORAGE_KEY) ?? _v2("paywall_trigger"),
-          paywall_feature: _v1(_v3.PAYWALL_FEATURE_STORAGE_KEY) ?? _v2("paywall_feature"),
-          paywall_location: _v1(_v3.PAYWALL_LOCATION_STORAGE_KEY) ?? _v2("paywall_location")
-        };
-      },
+      _v5 = _v3.readStoredPaywallContext,
       _v6 = (0, _v1.useCallback)(_v0 => {
         _v4("checkout_open", {
           tier: _v0.tier,

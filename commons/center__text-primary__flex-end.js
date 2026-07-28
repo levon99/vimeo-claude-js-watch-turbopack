@@ -1361,6 +1361,7 @@
       overflow: "hidden",
       zIndex: _v24.graphicsConfig.GRAPHICS_POSITIONING.Z_INDEX.SCENE_CONTROLS,
       sx: {
+        containerType: "size",
         [`& .${_v174}`]: {
           opacity: 0,
           transition: "opacity 0.15s ease"
@@ -1376,11 +1377,17 @@
         className: _v174,
         width: "100%",
         height: "100%",
-        padding: (0, _v47.rem)(8),
         textAlign: "center",
+        sx: {
+          padding: `clamp(${(0, _v47.rem)(2)}, 8cqmin, ${(0, _v47.rem)(8)})`
+        },
         children: (0, _v6.jsx)(_v98.Text, {
           variant: "body-xs",
           color: "white",
+          sx: {
+            fontSize: `clamp(${(0, _v47.rem)(4)}, 16cqmin, 0.625rem)`,
+            lineHeight: 1.15
+          },
           children: _v35.translations.cameraPositionGuestHint
         })
       })

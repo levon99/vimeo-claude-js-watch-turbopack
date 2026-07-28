@@ -5,8 +5,9 @@
     _v2 = _v0.i(0),
     _v3 = _v0.i(0),
     _v4 = _v0.i(0),
-    _v5 = _v0.i(0);
-  let _v6 = (0, _v4.translate)({
+    _v5 = _v0.i(0),
+    _v6 = _v0.i(0);
+  let _v7 = (0, _v4.translate)({
       singular: "Privacy",
       dictionary: {
         es: {
@@ -32,7 +33,7 @@
         }
       }
     }),
-    _v7 = (0, _v4.translate)({
+    _v8 = (0, _v4.translate)({
       singular: "Link privacy",
       dictionary: {
         es: {
@@ -58,7 +59,7 @@
         }
       }
     }),
-    _v8 = (0, _v4.translate)({
+    _v9 = (0, _v4.translate)({
       singular: "Select link privacy",
       dictionary: {
         es: {
@@ -84,7 +85,7 @@
         }
       }
     }),
-    _v9 = (0, _v4.translate)({
+    _v10 = (0, _v4.translate)({
       singular: "Public",
       dictionary: {
         es: {
@@ -107,7 +108,7 @@
         }
       }
     }),
-    _v10 = (0, _v4.translate)({
+    _v11 = (0, _v4.translate)({
       singular: "Anyone on the internet can view",
       dictionary: {
         es: {
@@ -133,7 +134,7 @@
         }
       }
     }),
-    _v11 = (0, _v4.translate)({
+    _v12 = (0, _v4.translate)({
       singular: "Private",
       dictionary: {
         es: {
@@ -159,7 +160,7 @@
         }
       }
     }),
-    _v12 = (0, _v4.translate)({
+    _v13 = (0, _v4.translate)({
       singular: "Only you and people with access can view",
       dictionary: {
         es: {
@@ -185,7 +186,7 @@
         }
       }
     }),
-    _v13 = (0, _v4.translate)({
+    _v14 = (0, _v4.translate)({
       singular: "Unlisted",
       dictionary: {
         es: {
@@ -211,7 +212,7 @@
         }
       }
     }),
-    _v14 = (0, _v4.translate)({
+    _v15 = (0, _v4.translate)({
       singular: "Only people with the link can view",
       dictionary: {
         es: {
@@ -237,7 +238,7 @@
         }
       }
     }),
-    _v15 = (0, _v4.translate)({
+    _v16 = (0, _v4.translate)({
       singular: "Embed only",
       dictionary: {
         es: {
@@ -263,7 +264,7 @@
         }
       }
     }),
-    _v16 = (0, _v4.translate)({
+    _v17 = (0, _v4.translate)({
       singular: "Private on your account, but embeddable anywhere",
       dictionary: {
         es: {
@@ -289,7 +290,7 @@
         }
       }
     }),
-    _v17 = (0, _v4.translate)({
+    _v18 = (0, _v4.translate)({
       singular: "Password",
       dictionary: {
         es: {
@@ -315,7 +316,7 @@
         }
       }
     }),
-    _v18 = (0, _v4.translate)({
+    _v19 = (0, _v4.translate)({
       singular: "Only people with the password can view",
       dictionary: {
         es: {
@@ -341,7 +342,7 @@
         }
       }
     }),
-    _v19 = (0, _v4.translate)({
+    _v20 = (0, _v4.translate)({
       singular: "Password field cannot be empty",
       dictionary: {
         es: {
@@ -367,7 +368,7 @@
         }
       }
     }),
-    _v20 = (0, _v4.translate)({
+    _v21 = (0, _v4.translate)({
       singular: "Password exceeds 32 characters",
       dictionary: {
         es: {
@@ -393,7 +394,7 @@
         }
       }
     }),
-    _v21 = (0, _v4.translate)({
+    _v22 = (0, _v4.translate)({
       singular: "Yes",
       dictionary: {
         es: {
@@ -419,7 +420,7 @@
         }
       }
     }),
-    _v22 = (0, _v4.translate)({
+    _v23 = (0, _v4.translate)({
       singular: "No",
       dictionary: {
         "de-DE": {
@@ -442,7 +443,7 @@
         }
       }
     }),
-    _v23 = (0, _v4.translate)({
+    _v24 = (0, _v4.translate)({
       singular: "Comments",
       dictionary: {
         es: {
@@ -468,7 +469,7 @@
         }
       }
     }),
-    _v24 = (0, _v4.translate)({
+    _v25 = (0, _v4.translate)({
       singular: "Allow viewer comments",
       dictionary: {
         es: {
@@ -494,7 +495,7 @@
         }
       }
     }),
-    _v25 = (0, _v4.translate)({
+    _v26 = (0, _v4.translate)({
       singular: "Select comments privacy",
       dictionary: {
         es: {
@@ -520,7 +521,7 @@
         }
       }
     }),
-    _v26 = (0, _v4.translate)({
+    _v27 = (0, _v4.translate)({
       singular: "Embed",
       dictionary: {
         es: {
@@ -546,7 +547,7 @@
         }
       }
     }),
-    _v27 = (0, _v4.translate)({
+    _v28 = (0, _v4.translate)({
       singular: "Select embed privacy",
       dictionary: {
         es: {
@@ -572,7 +573,7 @@
         }
       }
     }),
-    _v28 = (0, _v4.translate)({
+    _v29 = (0, _v4.translate)({
       singular: "Anyone in this team can view",
       dictionary: {
         es: {
@@ -598,7 +599,7 @@
         }
       }
     }),
-    _v29 = (0, _v4.translate)({
+    _v30 = (0, _v4.translate)({
       singular: "Anywhere",
       dictionary: {
         es: {
@@ -624,7 +625,7 @@
         }
       }
     }),
-    _v30 = (0, _v4.translate)({
+    _v31 = (0, _v4.translate)({
       singular: "Nowhere",
       dictionary: {
         es: {
@@ -650,7 +651,7 @@
         }
       }
     }),
-    _v31 = (0, _v4.translate)({
+    _v32 = (0, _v4.translate)({
       singular: "Specific domains",
       dictionary: {
         es: {
@@ -676,7 +677,7 @@
         }
       }
     }),
-    _v32 = (0, _v4.translate)({
+    _v33 = (0, _v4.translate)({
       singular: "Domains",
       dictionary: {
         es: {
@@ -699,7 +700,7 @@
         }
       }
     }),
-    _v33 = (0, _v4.translate)({
+    _v34 = (0, _v4.translate)({
       singular: "Add a domain",
       dictionary: {
         es: {
@@ -725,7 +726,7 @@
         }
       }
     }),
-    _v34 = (0, _v4.translate)({
+    _v35 = (0, _v4.translate)({
       singular: "Remove a domain to add another",
       dictionary: {
         es: {
@@ -751,7 +752,7 @@
         }
       }
     }),
-    _v35 = (0, _v4.translate)({
+    _v36 = (0, _v4.translate)({
       singular: "Clear all",
       dictionary: {
         es: {
@@ -777,7 +778,7 @@
         }
       }
     }),
-    _v36 = (0, _v4.translate)({
+    _v37 = (0, _v4.translate)({
       singular: "Domains field cannot be empty",
       dictionary: {
         es: {
@@ -803,7 +804,7 @@
         }
       }
     }),
-    _v37 = (0, _v4.translate)({
+    _v38 = (0, _v4.translate)({
       singular: "Overwrite existing domains with new",
       dictionary: {
         es: {
@@ -829,7 +830,7 @@
         }
       }
     }),
-    _v38 = (0, _v4.translate)({
+    _v39 = (0, _v4.translate)({
       singular: "Invalid domain URL entered",
       dictionary: {
         es: {
@@ -855,7 +856,7 @@
         }
       }
     }),
-    _v39 = (0, _v4.translate)({
+    _v40 = (0, _v4.translate)({
       singular: "Allow downloads",
       dictionary: {
         es: {
@@ -881,7 +882,7 @@
         }
       }
     }),
-    _v40 = (0, _v4.translate)({
+    _v41 = (0, _v4.translate)({
       singular: "Allow video downloads",
       dictionary: {
         es: {
@@ -907,7 +908,7 @@
         }
       }
     }),
-    _v41 = (0, _v4.translate)({
+    _v42 = (0, _v4.translate)({
       singular: "Select downloads privacy",
       dictionary: {
         es: {
@@ -933,7 +934,7 @@
         }
       }
     }),
-    _v42 = (0, _v4.translate)({
+    _v43 = (0, _v4.translate)({
       singular: "Save",
       dictionary: {
         es: {
@@ -959,7 +960,7 @@
         }
       }
     }),
-    _v43 = (0, _v4.translate)({
+    _v44 = (0, _v4.translate)({
       singular: "Cancel",
       dictionary: {
         es: {
@@ -985,7 +986,7 @@
         }
       }
     }),
-    _v44 = (0, _v4.translate)({
+    _v45 = (0, _v4.translate)({
       singular: "Close",
       dictionary: {
         es: {
@@ -1011,7 +1012,7 @@
         }
       }
     }),
-    _v45 = {
+    _v46 = {
       get Article17ModalMessage() {
         return (0, _v4.translate)({
           singular: "One or more of your videos may be restricted to {LINK}Private{/LINK} because they contain music that may belong to someone else. Deselect affected videos before making changes.",
@@ -1048,14 +1049,14 @@
           }
         });
       },
-      Anywhere: _v29,
-      AnyoneAtCompanyDescription: _v28,
-      Cancel: _v43,
-      ClearAll: _v35,
-      Close: _v44,
-      CommentsLabel: _v24,
-      CommentsPlaceholder: _v25,
-      CommentsTitle: _v23,
+      Anywhere: _v30,
+      AnyoneAtCompanyDescription: _v29,
+      Cancel: _v44,
+      ClearAll: _v36,
+      Close: _v45,
+      CommentsLabel: _v25,
+      CommentsPlaceholder: _v26,
+      CommentsTitle: _v24,
       DomainsCounterText: (_v0, _v1) => (0, _v4.translate)({
         singular: "{NUM_DOMAINS}/{MAX_NUM_DOMAINS} domains",
         replacements: {
@@ -1086,13 +1087,13 @@
           }
         }
       }),
-      DomainsPlaceholder: _v33,
-      DomainRequiredError: _v36,
-      DomainsTitle: _v32,
-      DomainsTooltipText: _v34,
-      DownloadsLabel: _v40,
-      DownloadsPlaceholder: _v41,
-      DownloadsTitle: _v39,
+      DomainsPlaceholder: _v34,
+      DomainRequiredError: _v37,
+      DomainsTitle: _v33,
+      DomainsTooltipText: _v35,
+      DownloadsLabel: _v41,
+      DownloadsPlaceholder: _v42,
+      DownloadsTitle: _v40,
       EmbedLabel: _v0 => (0, _v4.translate)({
         singular: "Where can this video be embedded?",
         plural: "Where can these videos be embedded?",
@@ -1121,13 +1122,13 @@
           }
         }
       }),
-      EmbedPlaceholder: _v27,
-      EmbedTitle: _v26,
-      HideFromVimeo: _v15,
-      HideFromVimeoDescription: _v16,
-      InvalidDomainError: _v38,
-      LinkPlaceholder: _v8,
-      LinkTitle: _v7,
+      EmbedPlaceholder: _v28,
+      EmbedTitle: _v27,
+      HideFromVimeo: _v16,
+      HideFromVimeoDescription: _v17,
+      InvalidDomainError: _v39,
+      LinkPlaceholder: _v9,
+      LinkTitle: _v8,
       MakeAtLeastOneSelection: (0, _v4.translate)({
         singular: "Make at least one selection",
         dictionary: {
@@ -1154,16 +1155,16 @@
           }
         }
       }),
-      No: _v22,
-      Nowhere: _v30,
-      OverwriteCheckboxLabel: _v37,
-      Password: _v17,
-      PasswordDescription: _v18,
-      PasswordRequiredError: _v19,
-      PasswordMaxLengthError: _v20,
-      Privacy: _v6,
-      Private: _v11,
-      PrivateDescription: _v12,
+      No: _v23,
+      Nowhere: _v31,
+      OverwriteCheckboxLabel: _v38,
+      Password: _v18,
+      PasswordDescription: _v19,
+      PasswordRequiredError: _v20,
+      PasswordMaxLengthError: _v21,
+      Privacy: _v7,
+      Private: _v12,
+      PrivateDescription: _v13,
       get PrivateModeMessage() {
         return (0, _v4.translate)({
           singular: "This account is in {LINK}private mode{/LINK}. Privacy settings may be restricted.",
@@ -1200,13 +1201,13 @@
           }
         });
       },
-      Public: _v9,
-      PublicDescription: _v10,
-      Save: _v42,
-      SpecificDomains: _v31,
-      Unlisted: _v13,
-      UnlistedDescription: _v14,
-      Yes: _v21,
+      Public: _v10,
+      PublicDescription: _v11,
+      Save: _v43,
+      SpecificDomains: _v32,
+      Unlisted: _v14,
+      UnlistedDescription: _v15,
+      Yes: _v22,
       PrivacyBulkUpdateAlertWarning: (0, _v4.translate)({
         singular: "Privacy can’t be updated on some videos because you don’t have permission",
         dictionary: {
@@ -1238,7 +1239,11 @@
           singular: "You've reached the storage limit for private or embeddable videos. Go to {UPGRADE}vimeo.com/upgrade{/UPGRADE} to get more storage or change your {SETTINGS}upload defaults in the account settings page{/SETTINGS}.",
           replacements: {
             UPGRADE: _v0 => (0, _v1.jsx)(_v5.Link, {
-              href: "https://www.vimeo.com/upgrade",
+              href: (0, _v6.buildUpgradePlanUrl)({
+                paywallTrigger: "bulk_privacy_storage_limit_upgrade_link",
+                paywallLocation: "bulk_privacy_modal",
+                paywallFeature: "storage_limit"
+              }),
               target: "_blank",
               variant: "minimal",
               children: _v0
@@ -1276,57 +1281,57 @@
         });
       }
     };
-  _v0.s(["Translations", 0, _v45], 0);
-  let _v46 = {
+  _v0.s(["Translations", 0, _v46], 0);
+  let _v47 = {
       privacy: "placeholder",
-      title: _v45.LinkPlaceholder,
+      title: _v46.LinkPlaceholder,
       description: "",
       icon: (0, _v1.jsx)(_v1.Fragment, {}),
       isDisabled: !0
     },
-    _v47 = {
+    _v48 = {
       name: "password",
-      title: _v45.Password,
-      label: _v45.Password,
+      title: _v46.Password,
+      label: _v46.Password,
       validation: {
         maxLength: {
           value: 32,
-          message: _v45.PasswordMaxLengthError
+          message: _v46.PasswordMaxLengthError
         }
       }
     },
-    _v48 = {
+    _v49 = {
       name: "comments",
-      title: _v45.CommentsTitle,
-      label: _v45.CommentsLabel,
-      placeholder: _v45.CommentsPlaceholder,
+      title: _v46.CommentsTitle,
+      label: _v46.CommentsLabel,
+      placeholder: _v46.CommentsPlaceholder,
       options: [{
         value: "anybody",
-        label: _v45.Yes
+        label: _v46.Yes
       }, {
         value: "nobody",
-        label: _v45.No
-      }]
-    },
-    _v49 = {
-      name: "download",
-      title: _v45.DownloadsTitle,
-      label: _v45.DownloadsLabel,
-      placeholder: _v45.DownloadsPlaceholder,
-      options: [{
-        value: "true",
-        label: _v45.Yes
-      }, {
-        value: "false",
-        label: _v45.No
+        label: _v46.No
       }]
     },
     _v50 = {
+      name: "download",
+      title: _v46.DownloadsTitle,
+      label: _v46.DownloadsLabel,
+      placeholder: _v46.DownloadsPlaceholder,
+      options: [{
+        value: "true",
+        label: _v46.Yes
+      }, {
+        value: "false",
+        label: _v46.No
+      }]
+    },
+    _v51 = {
       name: "domains",
-      title: _v45.DomainsTitle,
-      label: _v45.DomainsPlaceholder
+      title: _v46.DomainsTitle,
+      label: _v46.DomainsPlaceholder
     };
-  _v0.s(["COMMENTS_PRIVACY", 0, _v48, "DOMAINS", 0, _v50, "DOMAIN_REGEX", 0, /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/, "DOWNLOAD_PRIVACY", 0, _v49, "LINK_PRIVACY_PLACEHOLDER", 0, _v46, "MAX_NUM_DOMAINS", 0, 50, "MAX_PASSWORD_LENGTH", 0, 32, "PRIVACY_PASSWORD", 0, _v47, "getLinkPrivacyOptionsMap", 0, (_v0, _v1) => _v2.DEFAULT_PRIVACY_OPTIONS.reduce((_v0, _v1) => (_v0[_v1.privacy] = {
+  _v0.s(["COMMENTS_PRIVACY", 0, _v49, "DOMAINS", 0, _v51, "DOMAIN_REGEX", 0, /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/, "DOWNLOAD_PRIVACY", 0, _v50, "LINK_PRIVACY_PLACEHOLDER", 0, _v47, "MAX_NUM_DOMAINS", 0, 50, "MAX_PASSWORD_LENGTH", 0, 32, "PRIVACY_PASSWORD", 0, _v48, "getLinkPrivacyOptionsMap", 0, (_v0, _v1) => _v2.DEFAULT_PRIVACY_OPTIONS.reduce((_v0, _v1) => (_v0[_v1.privacy] = {
     title: _v1.privacy === _v2.DEFAULT_PRIVACY_VALUES.TEAM ? (0, _v3.getTeamPrivacyTranslation)(_v0, _v1) : _v1.title,
     description: _v1.description ?? "",
     icon: _v2.VIDEO_PRIVACY_ICON_MAP[_v1.privacy]?.icon

@@ -41,6 +41,16 @@
         clip_id: _v0.clipId,
         clip_owner_id: _v0.clipOwnerId,
         review_new_speed: _v0.reviewNewSpeed
+      }), !0), [_v0]),
+      _v6 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_note_posted", {
+        review_id: _v0.reviewId,
+        clip_id: _v0.clipId,
+        clip_owner_id: _v0.clipOwnerId
+      }), !0), [_v0]),
+      _v7 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_comment_posted", {
+        review_id: _v0.reviewId,
+        clip_id: _v0.clipId,
+        clip_owner_id: _v0.clipOwnerId
       }), !0), [_v0]);
     return {
       trackReviewPageOpened: _v1,
@@ -48,15 +58,21 @@
       trackReviewLinkCreated: _v3,
       trackReviewVideoPlayed: _v4,
       trackReviewPlaybackSpeedChanged: _v5,
-      trackReviewNotePosted: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_note_posted", {
+      trackReviewNotePosted: _v6,
+      trackReviewCommentPosted: _v7,
+      trackReviewCommentReactionAdded: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_comment_reaction_added", {
         review_id: _v0.reviewId,
         clip_id: _v0.clipId,
-        clip_owner_id: _v0.clipOwnerId
+        clip_owner_id: _v0.clipOwnerId,
+        review_comment_reaction: _v0.reviewCommentReaction,
+        is_reply: _v0.isReply
       }), !0), [_v0]),
-      trackReviewCommentPosted: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_comment_posted", {
+      trackReviewCommentReactionRemoved: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_comment_reaction_removed", {
         review_id: _v0.reviewId,
         clip_id: _v0.clipId,
-        clip_owner_id: _v0.clipOwnerId
+        clip_owner_id: _v0.clipOwnerId,
+        review_comment_reaction: _v0.reviewCommentReaction,
+        is_reply: _v0.isReply
       }), !0), [_v0])
     };
   }]);

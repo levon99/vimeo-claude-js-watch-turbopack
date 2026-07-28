@@ -1972,85 +1972,90 @@
       }) : null]
     });
   }
-  let _v111 = () => {
-    let _v0 = (0, _v3.useRef)(!1),
-      _v1 = (0, _v12.useTrackNavigationEvent)();
-    return (0, _v3.useEffect)(() => {
-      _v0.current || _v1({
-        viewType: "impression",
-        copy: "pricing",
-        additionalFields: {
-          upsell_name: "top_nav_bar_upgrade"
-        },
-        feature: "general",
-        element: "button",
-        eventName: "vimeo.upsell_trigger_impression",
-        version: 5
-      });
-    }, [_v1]), (0, _v1.jsx)(_v22.Button, {
-      variant: "tertiary",
-      as: "a",
-      href: "/upgrade-plan",
-      onClick: () => {
-        _v1({
-          actionType: "click",
-          feature: "general",
-          element: "button",
+  let _v111 = (0, _v0.i(0).buildUpgradePlanUrl)({
+      paywallTrigger: "top_nav_bar_pricing_button",
+      paywallLocation: "top_navigation",
+      paywallFeature: "general"
+    }),
+    _v112 = () => {
+      let _v0 = (0, _v3.useRef)(!1),
+        _v1 = (0, _v12.useTrackNavigationEvent)();
+      return (0, _v3.useEffect)(() => {
+        _v0.current || _v1({
+          viewType: "impression",
           copy: "pricing",
-          eventName: "vimeo.trigger_upsell",
           additionalFields: {
             upsell_name: "top_nav_bar_upgrade"
           },
-          version: 7
-        }), _v1({
-          copy: "pricing",
+          feature: "general",
           element: "button",
-          feature: "pricing"
+          eventName: "vimeo.upsell_trigger_impression",
+          version: 5
         });
-      },
-      size: {
-        base: "sm",
-        sm: "md"
-      },
-      children: (0, _v18.translate)({
-        singular: "Pricing",
-        dictionary: {
-          es: {
-            singular: "Precio"
-          },
-          "de-DE": {
-            singular: "Preise"
-          },
-          "fr-FR": {
-            singular: "Tarifs"
-          },
-          "ja-JP": {
-            singular: "料金"
-          },
-          "ko-KR": {
-            singular: "가격 책정"
-          },
-          "pt-BR": {
-            singular: "Preços"
-          },
-          "zh-CN": {
-            singular: "定价"
+      }, [_v1]), (0, _v1.jsx)(_v22.Button, {
+        variant: "tertiary",
+        as: "a",
+        href: _v111,
+        onClick: () => {
+          _v1({
+            actionType: "click",
+            feature: "general",
+            element: "button",
+            copy: "pricing",
+            eventName: "vimeo.trigger_upsell",
+            additionalFields: {
+              upsell_name: "top_nav_bar_upgrade"
+            },
+            version: 7
+          }), _v1({
+            copy: "pricing",
+            element: "button",
+            feature: "pricing"
+          });
+        },
+        size: {
+          base: "sm",
+          sm: "md"
+        },
+        children: (0, _v18.translate)({
+          singular: "Pricing",
+          dictionary: {
+            es: {
+              singular: "Precio"
+            },
+            "de-DE": {
+              singular: "Preise"
+            },
+            "fr-FR": {
+              singular: "Tarifs"
+            },
+            "ja-JP": {
+              singular: "料金"
+            },
+            "ko-KR": {
+              singular: "가격 책정"
+            },
+            "pt-BR": {
+              singular: "Preços"
+            },
+            "zh-CN": {
+              singular: "定价"
+            }
           }
-        }
-      })
-    });
-  };
-  _v0.s(["PricingCTA", 0, _v111], 0);
-  var _v112 = _v0.i(0),
-    _v113 = _v0.i(0);
-  let _v114 = ({
+        })
+      });
+    };
+  _v0.s(["PricingCTA", 0, _v112], 0);
+  var _v113 = _v0.i(0),
+    _v114 = _v0.i(0);
+  let _v115 = ({
     isSideNavActive: _v0,
     setIsSideNavActive: _v1
   }) => {
     let _v2 = (0, _v11.useViewer)();
     return (0, _v1.jsx)(_v14.IconButton, {
       "aria-label": "open-sidenav",
-      icon: (0, _v1.jsx)(_v113.Menu, {}),
+      icon: (0, _v1.jsx)(_v114.Menu, {}),
       variant: "tertiary",
       display: _v0 ? "none" : "flex",
       onClick: () => {
@@ -2068,8 +2073,8 @@
       "data-testid": "open-sidenav"
     });
   };
-  _v0.s(["SideNavToggle", 0, _v114], 0);
-  let _v115 = ({
+  _v0.s(["SideNavToggle", 0, _v115], 0);
+  let _v116 = ({
       itemsCount: _v0
     }) => {
       let _v1 = (0, _v12.useTrackNavigationEvent)();
@@ -2114,7 +2119,7 @@
         })
       }) : (0, _v1.jsx)(_v1.Fragment, {});
     },
-    _v116 = (0, _v2.default)(async () => ({
+    _v117 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).LoginJoinModal
     }), {
       loadableGenerated: {
@@ -2173,7 +2178,7 @@
         },
         flexShrink: _v12 ? void 0 : 0,
         zIndex: 1,
-        children: [_v4 && (0, _v1.jsx)(_v114, {
+        children: [_v4 && (0, _v1.jsx)(_v115, {
           isSideNavActive: !!_v3,
           setIsSideNavActive: _v4
         }), (0, _v1.jsx)(_v7.Navigation.VimeoLogo, {
@@ -2183,7 +2188,7 @@
           flexGrow: 1,
           minWidth: 0,
           marginLeft: _v7 && !_v3 ? (0, _v5.rem)(26) : void 0,
-          children: (0, _v1.jsx)(_v112.Search, {})
+          children: (0, _v1.jsx)(_v113.Search, {})
         })]
       }), (0, _v1.jsx)(_v7.Navigation.RightContent, {
         justifyContent: "end",
@@ -2207,20 +2212,20 @@
             justifyContent: "end",
             children: [!_v16 && (0, _v1.jsx)(_v7.Navigation.Upgrade, {
               viewer: _v8
-            }), _v1 && !_v12 && (0, _v1.jsx)(_v112.Search, {
+            }), _v1 && !_v12 && (0, _v1.jsx)(_v113.Search, {
               withToggle: !0,
               updateGlobalNavSearchState: _v11
             }), !_v15 && !_v19 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v89, {}), (0, _v1.jsx)(_v13, {}), (0, _v1.jsx)(_v115, {
+              children: [(0, _v1.jsx)(_v89, {}), (0, _v1.jsx)(_v13, {}), (0, _v1.jsx)(_v116, {
                 itemsCount: _v8?.cart?.itemsCount
               })]
             }), _v8 && !_v9 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [!_v16 && !_v20 && (0, _v1.jsx)(_v111, {}), !(_v14 && _v10) && (0, _v1.jsx)(_v90.Login, {})]
+              children: [!_v16 && !_v20 && (0, _v1.jsx)(_v112, {}), !(_v14 && _v10) && (0, _v1.jsx)(_v90.Login, {})]
             }), !_v15 && (_v9 ? (0, _v1.jsx)(_v109, {
               hasUploader: _v5
             }) : _v8 && !_v20 && (0, _v1.jsx)(_v90.Join, {})), !(_v14 && _v10) && (0, _v1.jsx)(_v8.AccountMenu, {
               hasThemeSupport: _v2
-            }), _v8 && !_v9 && _v17 && (0, _v1.jsx)(_v116, {})]
+            }), _v8 && !_v9 && _v17 && (0, _v1.jsx)(_v117, {})]
           })
         })
       })]

@@ -239,24 +239,34 @@
       _v12 = _v11 && _v3,
       _v13 = _v11 && !_v3,
       [_v14, _v15] = (0, _v7.useState)(!1),
-      _v16 = {
+      _v16 = _v12 ? {
+        paywallStyle: "reverse_trial",
+        paywallPlansDisplayed: ["starter"],
+        paywallPeriodicitiesDisplayed: []
+      } : {
+        paywallStyle: _v5.replace(/[A-Z]/g, _v0 => `_${_v0.toLowerCase()}`),
+        paywallPlansDisplayed: [_v6],
+        paywallPeriodicitiesDisplayed: "plansComparison" === _v5 ? ["monthly", "yearly"] : []
+      },
+      _v17 = {
         paywallTrigger: _v12 ? `registration_survey_reverse_trial_${_v10}` : `registration_survey_trial_upsell_page_${_v5}`,
         paywallLocation: "registration_survey",
         paywallType: "page",
-        paywallFeature: "registration_survey"
+        paywallFeature: "registration_survey",
+        ..._v16
       },
       {
-        trackPaywallDismissed: _v17
+        trackPaywallDismissed: _v18
       } = (0, _v29.usePaywallTracking)({
-        ..._v16,
+        ..._v17,
         isVisible: !_v11
       }),
-      _v18 = (0, _v7.useRef)(!1);
+      _v19 = (0, _v7.useRef)(!1);
     (0, _v7.useEffect)(() => {
-      _v13 && !_v18.current && (_v18.current = !0, _v0());
+      _v13 && !_v19.current && (_v19.current = !0, _v0());
     }, [_v13, _v0]);
-    let _v19 = () => {
-      _v17(), _v0();
+    let _v20 = () => {
+      _v18(), _v0();
     };
     return _v13 ? (0, _v1.jsx)(_v31.default, {}) : (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v12.Flex, {
@@ -281,19 +291,19 @@
             },
             children: [_v12 && (0, _v1.jsx)(_v28.ReverseTrialPaywall, {
               trialDays: "14d" === _v10 ? 14 : 7,
-              paywallTracking: _v16,
-              onComplete: _v19,
+              paywallTracking: _v17,
+              onComplete: _v20,
               onActivated: () => _v15(!0),
               postActivationUrl: _v1
             }), !_v11 && "plansComparison" === _v5 && (0, _v1.jsx)(_v26.PlansComparisonPaywall, {
               tier: _v6,
-              paywallTracking: _v16,
+              paywallTracking: _v17,
               defaultPeriodicity: _v7,
               monthlyFreeTrial: _v8,
               postCheckoutUrl: _v1
             }), !_v11 && "featureList" === _v5 && (0, _v1.jsx)(_v25, {
               tier: _v6,
-              paywallTracking: _v16,
+              paywallTracking: _v17,
               isUserEligibleForFreeTrial: _v3,
               postCheckoutUrl: _v1
             })]
@@ -301,10 +311,10 @@
         })]
       }), _v12 && !_v14 && (0, _v1.jsx)(_v27.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: "responsive",
-        onDismiss: _v19
+        onDismiss: _v20
       }), !_v11 && (0, _v1.jsx)(_v27.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: _v9,
-        onDismiss: _v19
+        onDismiss: _v20
       })]
     });
   }

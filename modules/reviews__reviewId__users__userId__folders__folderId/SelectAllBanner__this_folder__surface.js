@@ -7,35 +7,51 @@
     _v4 = _v0.i(0),
     _v5 = _v0.i(0),
     _v6 = _v0.i(0),
-    _v7 = _v0.i(0);
+    _v7 = _v0.i(0),
+    _v8 = _v0.i(0),
+    _v9 = _v0.i(0);
   _v0.s(["SelectAllBanner", 0, ({
     folderName: _v0 = "this folder",
-    loadedSelectedCount: _v1,
-    totalVideosCount: _v2,
-    actualSelectedCount: _v3,
-    onSelectAllInFolder: _v4,
-    onClearSelection: _v5,
-    allInFolderEnabled: _v6
+    libraryType: _v1,
+    loadedSelectedCount: _v2,
+    totalVideosCount: _v3,
+    actualSelectedCount: _v4,
+    onSelectAllInFolder: _v5,
+    onClearSelection: _v6,
+    allInFolderEnabled: _v7
   }) => {
-    let [_v7, _v8] = _v2.default.useState(!1),
-      _v9 = void 0 !== _v6;
-    return (0, _v1.jsx)(_v4.VStack, {
+    let [_v8, _v9] = (0, _v2.useState)(!1),
+      _v10 = void 0 !== _v7,
+      _v11 = _v3 > 0 && _v2 >= _v3,
+      {
+        trackLibrarySelectAllBannerDisplayed: _v12,
+        trackLibrarySelectAllBannerSelectAllClicked: _v13,
+        trackLibrarySelectAllBannerClearAllClicked: _v14
+      } = (0, _v8.useLibraryTracking)();
+    return (0, _v9.usePicoEffect)(() => {
+      _v12({
+        libraryType: _v1,
+        itemsCount: _v3
+      });
+    }, [_v1, _v3], {
+      once: !0
+    }), (0, _v1.jsx)(_v4.VStack, {
       background: "surface",
       "data-testid": "select-all-banner",
       borderRadius: "sm",
       children: (0, _v1.jsx)(_v3.HStack, {
         gap: "2",
         p: "2",
-        children: (_v9 ? _v6 : _v7) ? (0, _v1.jsxs)(_v1.Fragment, {
+        children: (_v10 ? _v7 : _v8) || _v11 ? (0, _v1.jsxs)(_v1.Fragment, {
           children: [(0, _v1.jsx)(_v6.Text, {
             variant: "body-md",
             children: (0, _v1.jsx)("span", {
               children: (0, _v7.translate)({
-                count: _v3 ?? _v2,
+                count: _v4 ?? _v3,
                 singular: "All {BOLD}{NUM_ITEMS} video in {NAME}{/BOLD} is selected.",
                 plural: "All {BOLD}{NUM_ITEMS} videos in {NAME}{/BOLD} are selected.",
                 replacements: {
-                  NUM_ITEMS: _v3 ?? _v2,
+                  NUM_ITEMS: _v4 ?? _v3,
                   NAME: _v0,
                   BOLD: _v0 => (0, _v1.jsx)(_v6.Text, {
                     as: "span",
@@ -77,7 +93,9 @@
             })
           }), (0, _v1.jsx)(_v5.Button, {
             onClick: () => {
-              _v9 || _v8(!1), _v5();
+              _v14({
+                libraryType: _v1
+              }), _v10 || _v9(!1), _v6();
             },
             size: "sm",
             variant: "tertiary",
@@ -113,11 +131,11 @@
             variant: "body-md",
             children: (0, _v1.jsx)("span", {
               children: (0, _v7.translate)({
-                count: _v1,
+                count: _v2,
                 singular: "The {BOLD}{NUM_ITEMS} loaded video{/BOLD} is selected.",
-                plural: "All {BOLD}{NUM_ITEMS} loaded videos{/BOLD} are selected.",
+                plural: "The {BOLD}{NUM_ITEMS} loaded videos{/BOLD} are selected.",
                 replacements: {
-                  NUM_ITEMS: _v1,
+                  NUM_ITEMS: _v2,
                   BOLD: _v0 => (0, _v1.jsx)(_v6.Text, {
                     as: "span",
                     variant: "heading-xs",
@@ -127,47 +145,50 @@
                 dictionary: {
                   es: {
                     singular: "El {BOLD}{NUM_ITEMS} vídeo cargado{/BOLD} está seleccionado.",
-                    plural: "Todos los {BOLD}{NUM_ITEMS} vídeos cargados{/BOLD} están seleccionados."
+                    plural: "Los {BOLD}{NUM_ITEMS} vídeos cargados{/BOLD} están seleccionados."
                   },
                   "de-DE": {
                     singular: "Das {BOLD}{NUM_ITEMS} geladene Video{/BOLD} ist ausgewählt.",
-                    plural: "Alle {BOLD}{NUM_ITEMS} geladenen Videos{/BOLD} sind ausgewählt."
+                    plural: "Die {BOLD}{NUM_ITEMS} geladenen Videos{/BOLD} sind ausgewählt."
                   },
                   "fr-FR": {
                     singular: "La {BOLD}{NUM_ITEMS} vidéo chargée{/BOLD} est sélectionnée.",
                     plural: "Les {BOLD}{NUM_ITEMS} vidéos chargées{/BOLD} sont sélectionnées."
                   },
                   "ja-JP": {
-                    singular: "読み込まれた{BOLD}{NUM_ITEMS}件のビデオが選択されています。",
-                    plural: "読み込まれた{BOLD}{NUM_ITEMS}件すべてのビデオが選択されています。"
+                    singular: "{BOLD}{NUM_ITEMS} 読み込まれた動画{/BOLD}が選択されています。",
+                    plural: "{BOLD}{NUM_ITEMS} 読み込まれた動画{/BOLD}が選択されています。"
                   },
                   "ko-KR": {
-                    singular: "{BOLD}{NUM_ITEMS}개의 로드된 비디오{/BOLD}가 선택되었습니다.",
-                    plural: "{BOLD}{NUM_ITEMS}개의 로드된 비디오{/BOLD}가 선택되었습니다."
+                    singular: "{BOLD}{NUM_ITEMS}개의 로드된 동영상{/BOLD}이 선택되었습니다.",
+                    plural: "{BOLD}{NUM_ITEMS}개의 로드된 동영상{/BOLD}이 선택되었습니다."
                   },
                   "pt-BR": {
                     singular: "O {BOLD}{NUM_ITEMS} vídeo carregado{/BOLD} está selecionado.",
-                    plural: "Todos os {BOLD}{NUM_ITEMS} vídeos carregados{/BOLD} estão selecionados."
+                    plural: "Os {BOLD}{NUM_ITEMS} vídeos carregados{/BOLD} estão selecionados."
                   },
                   "zh-CN": {
-                    singular: "已选择 {BOLD}{NUM_ITEMS} 个已加载的视频{/BOLD}.",
-                    plural: "已选择 {BOLD}{NUM_ITEMS} 个已加载的视频{/BOLD}."
+                    singular: "已选择{BOLD}{NUM_ITEMS}个已加载的视频{/BOLD}。",
+                    plural: "已选择{BOLD}{NUM_ITEMS}个已加载的视频{/BOLD}。"
                   }
                 }
               })
             })
           }), (0, _v1.jsx)(_v5.Button, {
             onClick: () => {
-              _v9 || _v8(!0), _v4();
+              _v13({
+                libraryType: _v1,
+                itemsCount: _v3
+              }), _v10 || _v9(!0), _v5();
             },
             size: "sm",
             variant: "tertiary",
             children: (0, _v7.translate)({
-              count: _v2,
+              count: _v3,
               singular: "Select the {NUM_ITEMS} video in this folder.",
               plural: "Select all {NUM_ITEMS} videos in this folder.",
               replacements: {
-                NUM_ITEMS: _v2
+                NUM_ITEMS: _v3
               },
               dictionary: {
                 es: {

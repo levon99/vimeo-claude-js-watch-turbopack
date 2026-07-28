@@ -103,60 +103,71 @@
     ctaUrl: _v3,
     onClose: _v4
   }) {
-    (0, _v23.usePaywallTracking)({
-      paywallTrigger: _v31,
-      paywallLocation: _v0,
-      paywallType: "popup",
-      paywallFeature: _v32,
-      isVisible: !0
-    });
-    let _v5 = _v2 ? function (_v0) {
-      let _v1 = /^(\d{4})-(\d{2})-(\d{2})$/.exec(_v0);
-      if (!_v1) return "";
-      let [, _v2, _v3, _v4] = _v1,
-        _v5 = new Date(Date.UTC(Number(_v2), Number(_v3) - 1, Number(_v4))),
-        _v6 = new Intl.DateTimeFormat(void 0, {
-          weekday: "short",
-          month: "short",
-          day: "numeric",
-          hour: "numeric",
-          minute: "2-digit",
-          hour12: !0,
-          timeZone: "UTC"
-        }).format(_v5);
-      return (0, _v22.translate)({
-        singular: "Expires {DATE} UTC",
-        replacements: {
-          DATE: _v6
-        },
-        dictionary: {
-          es: {
-            singular: "Expira {DATE} UTC"
+    let {
+        trackPaywallDismissed: _v5
+      } = (0, _v23.usePaywallTracking)({
+        paywallTrigger: _v31,
+        paywallLocation: _v0,
+        paywallType: "popup",
+        paywallFeature: _v32,
+        paywallStyle: "reverse_trial_late_modal",
+        paywallPlansDisplayed: [],
+        paywallPeriodicitiesDisplayed: [],
+        isVisible: !0
+      }),
+      _v6 = _v2 ? function (_v0) {
+        let _v1 = /^(\d{4})-(\d{2})-(\d{2})$/.exec(_v0);
+        if (!_v1) return "";
+        let [, _v2, _v3, _v4] = _v1,
+          _v5 = new Date(Date.UTC(Number(_v2), Number(_v3) - 1, Number(_v4))),
+          _v6 = new Intl.DateTimeFormat(void 0, {
+            weekday: "short",
+            month: "short",
+            day: "numeric",
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: !0,
+            timeZone: "UTC"
+          }).format(_v5);
+        return (0, _v22.translate)({
+          singular: "Expires {DATE} UTC",
+          replacements: {
+            DATE: _v6
           },
-          "de-DE": {
-            singular: "Läuft ab {DATE} UTC"
-          },
-          "fr-FR": {
-            singular: "Expire le {DATE} UTC"
-          },
-          "ja-JP": {
-            singular: "有効期限：{DATE} UTC"
-          },
-          "ko-KR": {
-            singular: "{DATE} UTC에 만료됨"
-          },
-          "pt-BR": {
-            singular: "Expira em {DATE} UTC"
-          },
-          "zh-CN": {
-            singular: "于 {DATE} UTC 到期"
+          dictionary: {
+            es: {
+              singular: "Expira {DATE} UTC"
+            },
+            "de-DE": {
+              singular: "Läuft ab {DATE} UTC"
+            },
+            "fr-FR": {
+              singular: "Expire le {DATE} UTC"
+            },
+            "ja-JP": {
+              singular: "有効期限：{DATE} UTC"
+            },
+            "ko-KR": {
+              singular: "{DATE} UTC에 만료됨"
+            },
+            "pt-BR": {
+              singular: "Expira em {DATE} UTC"
+            },
+            "zh-CN": {
+              singular: "于 {DATE} UTC 到期"
+            }
           }
-        }
-      });
-    }(_v2) : "";
+        });
+      }(_v2) : "";
     return (0, _v1.jsxs)(_v10.Modal, {
       isOpen: !0,
-      onClose: _v4,
+      onClose: () => {
+        try {
+          _v5();
+        } finally {
+          _v4();
+        }
+      },
       size: ["full", "md"],
       scrollBehavior: "outside",
       children: [(0, _v1.jsx)(_v16.ModalOverlay, {}), (0, _v1.jsxs)(_v14.ModalContent, {
@@ -252,11 +263,11 @@
                       }
                     }
                   })
-                }), _v5 && (0, _v1.jsx)(_v17.Text, {
+                }), _v6 && (0, _v1.jsx)(_v17.Text, {
                   variant: "body-sm",
                   color: "status-caution-primary",
                   mt: "2px",
-                  children: _v5
+                  children: _v6
                 })]
               })]
             }), (0, _v1.jsxs)(_v18.VStack, {
@@ -564,6 +575,9 @@
         paywallLocation: _v0,
         paywallType: "banner",
         paywallFeature: _v32,
+        paywallStyle: "reverse_trial_late_banner",
+        paywallPlansDisplayed: [],
+        paywallPeriodicitiesDisplayed: [],
         isVisible: _v1
       });
     if (!_v1) return null;

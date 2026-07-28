@@ -1431,6 +1431,9 @@
         trackPaywallCtaClicked: _v24
       } = (0, _v84.usePaywallTracking)({
         ..._v3,
+        paywallStyle: "welcome_offer_modal",
+        paywallPlansDisplayed: [_v1],
+        paywallPeriodicitiesDisplayed: ["monthly"],
         isVisible: _v0
       }),
       _v25 = async _v0 => {

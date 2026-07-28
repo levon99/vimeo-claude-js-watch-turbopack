@@ -69,7 +69,25 @@
         }),
         video_id: _v0.videoId,
         entry_point: _v0.entryPoint
-      }), !0), [_v0, _v2]);
+      }), !0), [_v0, _v2]),
+      _v13 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_marketing_card_clicked", {
+        library_type: (0, _v4.deriveLibraryType)({
+          hasContentSpaceEnabled: _v2
+        }),
+        video_id: _v0.videoId,
+        entry_point: _v0.entryPoint
+      }), !0), [_v0, _v2]),
+      _v14 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_marketing_card_dismissed", {
+        library_type: (0, _v4.deriveLibraryType)({
+          hasContentSpaceEnabled: _v2
+        }),
+        video_id: _v0.videoId,
+        entry_point: _v0.entryPoint
+      }), !0), [_v0, _v2]),
+      _v15 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_select_all_banner_displayed", {
+        library_type: _v0.libraryType,
+        library_select_all_banner_items_count: _v0.itemsCount ?? 0
+      }), !0), [_v0]);
     return {
       trackLibraryPageDisplayed: _v3,
       trackLibraryFolderOpened: _v4,
@@ -81,20 +99,16 @@
       trackLibrarySortChanged: _v10,
       trackLibraryLevelActionClicked: _v11,
       trackLibraryMarketingCardDisplayed: _v12,
-      trackLibraryMarketingCardClicked: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_marketing_card_clicked", {
-        library_type: (0, _v4.deriveLibraryType)({
-          hasContentSpaceEnabled: _v2
-        }),
-        video_id: _v0.videoId,
-        entry_point: _v0.entryPoint
-      }), !0), [_v0, _v2]),
-      trackLibraryMarketingCardDismissed: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_marketing_card_dismissed", {
-        library_type: (0, _v4.deriveLibraryType)({
-          hasContentSpaceEnabled: _v2
-        }),
-        video_id: _v0.videoId,
-        entry_point: _v0.entryPoint
-      }), !0), [_v0, _v2])
+      trackLibraryMarketingCardClicked: _v13,
+      trackLibraryMarketingCardDismissed: _v14,
+      trackLibrarySelectAllBannerDisplayed: _v15,
+      trackLibrarySelectAllBannerSelectAllClicked: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_select_all_banner_select_all_clicked", {
+        library_type: _v0.libraryType,
+        library_select_all_banner_items_count: _v0.itemsCount ?? 0
+      }), !0), [_v0]),
+      trackLibrarySelectAllBannerClearAllClicked: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_select_all_banner_clear_all_clicked", {
+        library_type: _v0.libraryType
+      }), !0), [_v0])
     };
   }]);
 }

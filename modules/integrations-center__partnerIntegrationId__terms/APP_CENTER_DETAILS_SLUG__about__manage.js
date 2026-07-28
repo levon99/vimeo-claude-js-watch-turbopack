@@ -12,7 +12,6 @@
   }, "DEFAULT_THUMBNAIL_URL", 0, "https://i.vimeocdn.com/custom_asset/4c2ddd84e7d2b69141fa2e66533fa96a", "EXTERNAL_ROUTES", 0, {
     HOME: "/",
     MANAGE_PRIVACY_RESTRICTIONS: "/manage/team/settings/privacy-restrictions",
-    WORKSPACE_MANAGE_PRIVACY_RESTRICTIONS: "/manage/workspace/security-and-data/privacy-restrictions",
-    UPSELL: "/upgrade-plan"
+    WORKSPACE_MANAGE_PRIVACY_RESTRICTIONS: "/manage/workspace/security-and-data/privacy-restrictions"
   }]);
 }

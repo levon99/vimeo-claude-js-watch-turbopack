@@ -252,12 +252,135 @@
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0);
-  let _v32 = ["yellow.400", "orange.400", "red.400", "purple.400", "blue.400", "green.400", "yellow.500", "orange.500", "red.500", "purple.500", "blue.500", "green.500", "yellow.600", "orange.600", "red.600", "purple.600", "blue.600", "green.600"],
-    _v33 = (0, _v5.createContext)({
+  let _v32 = Object.freeze(["vimeo-blue-1", "vimeo-blue-2", "vimeo-blue-3", "vimeo-blue-4", "yellow-1", "yellow-2", "yellow-3", "yellow-4", "orange-1", "orange-2", "orange-3", "orange-4", "green-1", "green-2", "green-3", "green-4", "red-1", "red-2", "red-3", "red-4", "purple-1", "purple-2", "purple-3", "purple-4", "blue-1", "blue-2", "blue-3", "blue-4"]),
+    _v33 = {
+      "vimeo-blue-1": {
+        background: "vimeoBlue.100",
+        foreground: "vimeoBlue.300"
+      },
+      "vimeo-blue-2": {
+        background: "vimeoBlue.200",
+        foreground: "vimeoBlue.600"
+      },
+      "vimeo-blue-3": {
+        background: "vimeoBlue.300",
+        foreground: "vimeoBlue.700"
+      },
+      "vimeo-blue-4": {
+        background: "vimeoBlue.400",
+        foreground: "vimeoBlue.800"
+      },
+      "yellow-1": {
+        background: "yellow.100",
+        foreground: "yellow.500"
+      },
+      "yellow-2": {
+        background: "yellow.200",
+        foreground: "yellow.600"
+      },
+      "yellow-3": {
+        background: "yellow.300",
+        foreground: "yellow.700"
+      },
+      "yellow-4": {
+        background: "yellow.400",
+        foreground: "yellow.800"
+      },
+      "orange-1": {
+        background: "orange.100",
+        foreground: "orange.500"
+      },
+      "orange-2": {
+        background: "orange.200",
+        foreground: "orange.600"
+      },
+      "orange-3": {
+        background: "orange.300",
+        foreground: "orange.700"
+      },
+      "orange-4": {
+        background: "orange.400",
+        foreground: "orange.800"
+      },
+      "green-1": {
+        background: "green.100",
+        foreground: "green.500"
+      },
+      "green-2": {
+        background: "green.200",
+        foreground: "green.600"
+      },
+      "green-3": {
+        background: "green.300",
+        foreground: "green.700"
+      },
+      "green-4": {
+        background: "green.400",
+        foreground: "green.800"
+      },
+      "red-1": {
+        background: "red.100",
+        foreground: "red.500"
+      },
+      "red-2": {
+        background: "red.200",
+        foreground: "red.600"
+      },
+      "red-3": {
+        background: "red.300",
+        foreground: "red.700"
+      },
+      "red-4": {
+        background: "red.400",
+        foreground: "red.800"
+      },
+      "purple-1": {
+        background: "purple.100",
+        foreground: "purple.400"
+      },
+      "purple-2": {
+        background: "purple.200",
+        foreground: "purple.500"
+      },
+      "purple-3": {
+        background: "purple.300",
+        foreground: "purple.700"
+      },
+      "purple-4": {
+        background: "purple.400",
+        foreground: "purple.800"
+      },
+      "blue-1": {
+        background: "blue.100",
+        foreground: "blue.300"
+      },
+      "blue-2": {
+        background: "blue.200",
+        foreground: "blue.400"
+      },
+      "blue-3": {
+        background: "blue.300",
+        foreground: "blue.500"
+      },
+      "blue-4": {
+        background: "blue.400",
+        foreground: "blue.800"
+      }
+    };
+  function _v34(_v0) {
+    return "string" == typeof _v0 && _v32.includes(_v0);
+  }
+  function _v35(_v0) {
+    let _v1 = 0;
+    for (let _v0 = 0; _v0 < _v0.length; _v0++) _v1 = (_v1 << 5) - _v1 + _v0.charCodeAt(_v0) | 0;
+    return _v32[Math.abs(_v1) % _v32.length];
+  }
+  _v0.s(["AVATAR_COLOR_PAIRS", 0, _v33, "AVATAR_COLOR_VARIANTS", 0, _v32, "getAvatarColorVariantForName", 0, _v35, "isAvatarColorVariant", 0, _v34], 0);
+  let _v36 = (0, _v5.createContext)({
       useInitialsFallback: !1
     }),
-    _v34 = _v33.Provider,
-    _v35 = {
+    _v37 = _v36.Provider,
+    _v38 = {
       xs: "22px",
       sm: "28px",
       md: "36px",
@@ -267,13 +390,13 @@
       "3xl": "110px",
       auto: "100%"
     },
-    _v36 = ({
+    _v39 = ({
       size: _v0 = "md"
     }) => (0, _v1.jsx)(_v28.Icon, {
       viewBox: "0 0 110 110",
       fill: "none",
-      height: _v35[_v0],
-      width: _v35[_v0],
+      height: _v38[_v0],
+      width: _v38[_v0],
       children: (0, _v1.jsx)("path", {
         fillRule: "evenodd",
         clipRule: "evenodd",
@@ -281,7 +404,7 @@
         fill: "#03C1EB"
       })
     }),
-    _v37 = {
+    _v40 = {
       xs: ".75rem",
       sm: "1rem",
       md: "1rem",
@@ -291,7 +414,7 @@
       "3xl": "4rem",
       auto: "100%"
     },
-    _v38 = {
+    _v41 = {
       xs: "0.375rem",
       sm: "0.5rem",
       md: "0.5rem",
@@ -301,7 +424,7 @@
       "3xl": "1.25rem",
       auto: "25%"
     },
-    _v39 = {
+    _v42 = {
       xs: "0.0625rem",
       sm: "0.0625rem",
       md: "0.0625rem",
@@ -311,8 +434,8 @@
       "3xl": "0.1875rem",
       auto: "0.125rem"
     },
-    _v40 = (_v0, _v1) => Array.isArray(_v0) ? _v0.map(_v0 => null == _v0 ? _v0 : _v1[_v0]) : _v0 && "object" == typeof _v0 ? Object.fromEntries(Object.entries(_v0).map(([_v0, _v1]) => [_v0, null == _v1 ? _v1 : _v1[_v1]])) : _v1[_v0 ?? "md"],
-    _v41 = ({
+    _v43 = (_v0, _v1) => Array.isArray(_v0) ? _v0.map(_v0 => null == _v0 ? _v0 : _v1[_v0]) : _v0 && "object" == typeof _v0 ? Object.fromEntries(Object.entries(_v0).map(([_v0, _v1]) => [_v0, null == _v1 ? _v1 : _v1[_v1]])) : _v1[_v0 ?? "md"],
+    _v44 = ({
       size: _v0 = "md",
       shape: _v1 = "full",
       zIndex: _v2
@@ -328,12 +451,12 @@
         insetInlineEnd: _v4,
         transform: _v3 ? "translate(50%, 50%)" : "translate(25%, 25%)",
         boxSizing: "content-box",
-        width: _v40(_v0, _v38),
-        height: _v40(_v0, _v38),
+        width: _v43(_v0, _v41),
+        height: _v43(_v0, _v41),
         borderRadius: "100%",
         bg: "green.500",
         borderStyle: "solid",
-        borderWidth: _v40(_v0, _v39),
+        borderWidth: _v43(_v0, _v42),
         borderColor: "surface"
       });
     };
@@ -354,7 +477,7 @@
       }),
       {
         useInitialsFallback: _v11
-      } = (0, _v5.useContext)(_v33),
+      } = (0, _v5.useContext)(_v36),
       _v12 = "full" === _v7 ? "100%" : {
         xs: "6px",
         sm: "6px",
@@ -366,16 +489,14 @@
         auto: "10px"
       }[_v0],
       _v13 = _v11 && !!_v1 && /\/portrait\/defaults?-(blue|gray)/.test(_v1),
-      _v14 = _v4 && _v4.name.length > 0 && (_v11 || _v4.color) ? _v4 : null,
-      _v15 = _v14 ? {
-        name: _v14.name,
-        color: _v14.color ?? function (_v0) {
-          let _v1 = 0;
-          for (let _v0 = 0; _v0 < _v0.length; _v0++) _v1 = (_v1 << 5) - _v1 + _v0.charCodeAt(_v0) | 0;
-          return _v32[Math.abs(_v1) % _v32.length];
-        }(_v14.name)
-      } : null,
-      _v16 = _v15 && (({
+      _v14 = _v4?.color || null,
+      _v15 = _v4?.colorVariant,
+      _v16 = _v34(_v15) ? _v15 : null,
+      _v17 = _v4 && _v4.name.length > 0 && (_v11 || _v14 || _v16) ? _v4 : null,
+      _v18 = _v17 && !_v14 ? _v16 ?? (_v11 ? _v35(_v17.name) : null) : null,
+      _v19 = _v18 ? _v33[_v18] : null,
+      _v20 = _v14 ?? _v19?.background,
+      _v21 = _v14 && (({
         theme: _v0,
         color: _v1,
         colorMode: _v2
@@ -385,20 +506,20 @@
         return _v3 === _v4 ? (0, _v29.toRgba)(_v1) : "object" == typeof _v4 ? "light" === _v2 ? String(_v4.default) : String(_v4._dark) : String(_v3);
       })({
         theme: _v31.bokehTheme,
-        color: _v15.color,
+        color: _v14,
         colorMode: "light"
       }),
-      _v17 = _v15 ? (0, _v1.jsx)(_v27.Box, {
+      _v22 = _v17 && _v20 ? (0, _v1.jsx)(_v27.Box, {
         __css: _v10,
         sx: _v6,
         borderRadius: _v12,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        bg: _v15.color,
-        color: (0, _v29.readableColor)(_v16 ?? ""),
-        fontSize: _v37[_v0],
-        children: _v15.name.charAt(0).toUpperCase()
+        bg: _v20,
+        color: _v19?.foreground ?? (0, _v29.readableColor)(_v21 ?? ""),
+        fontSize: _v40[_v0],
+        children: _v17.name.charAt(0).toUpperCase()
       }) : (0, _v1.jsx)(_v27.Box, {
         __css: _v10,
         sx: _v6,
@@ -407,11 +528,11 @@
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        children: (0, _v1.jsx)(_v36, {
+        children: (0, _v1.jsx)(_v39, {
           size: _v0
         })
       }),
-      _v18 = _v15 && _v13;
+      _v23 = _v17 && _v20 && _v13;
     return (0, _v1.jsxs)(_v25.Root, {
       style: {
         display: "inline-block",
@@ -420,25 +541,25 @@
       ..._v9,
       children: [(0, _v1.jsx)(_v25.Fallback, {
         asChild: !0,
-        children: _v17
+        children: _v22
       }), (0, _v1.jsx)(_v25.Image, {
         asChild: !0,
         children: (0, _v1.jsx)(_v27.Box, {
           as: "img",
-          position: !_v1 || _v18 ? "absolute" : "relative",
-          src: _v18 ? void 0 : _v1,
-          srcSet: _v18 ? void 0 : _v2,
+          position: !_v1 || _v23 ? "absolute" : "relative",
+          src: _v23 ? void 0 : _v1,
+          srcSet: _v23 ? void 0 : _v2,
           alt: _v3,
           loading: _v5,
           __css: _v10,
           sx: _v6,
           borderRadius: _v12
         })
-      }), _v8 && (0, _v1.jsx)(_v41, {
+      }), _v8 && (0, _v1.jsx)(_v44, {
         size: _v0,
         shape: _v7,
         zIndex: _v6?.zIndex
       })]
     });
-  }, "AvatarConfigProvider", 0, _v34], 0);
+  }, "AvatarConfigProvider", 0, _v37], 0);
 }

@@ -553,7 +553,7 @@
   }, "isBspLateStagePaywallKind", 0, _v0 => _v15.has(_v0), "isPrivacyPaywallOnUnlistedRestrictedCreator", 0, ({
     paywallFeature: _v0,
     plansData: _v1
-  }) => "privacy" === _v16(_v0) && _v18(_v1), "resolvePrivacyOptionFromTrigger", 0, _v0 => {
+  }) => "privacy" === _v16(_v0) && _v18(_v1), "resolvePaywallStyle", 0, (_v0, _v1) => "storage" === _v1 ? "storage_limit" : "privacy" === _v1 ? "privacy_limit" : "bsp_cards_generic_and_bsp_limits" === _v0 ? "card_comparison" : "bsp_table_generic_and_bsp_limits" === _v0 ? "table_comparison" : "generic_limit", "resolvePrivacyOptionFromTrigger", 0, _v0 => {
     let _v1 = _v0?.toLowerCase();
     return _v1 ? _v1.includes("unlisted_privacy") ? "unlisted" : _v1.includes("disable_privacy") ? "hide_from_vimeo" : _v1.includes("password_privacy") ? "password" : _v1.includes("cold_privacy") ? "generic" : null : null;
   }, "resolveTier", 0, _v19, "resolveVariant", 0, _v16], 0);

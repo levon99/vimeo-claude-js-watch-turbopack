@@ -897,15 +897,8 @@
         }, [_v56, _v35.core_tier_enabled, _v35.flat_tiers_monthly_enabled]),
         {
           data: _v58
-        } = (0, _v39.useSubscriptionPlansUsageCheck)(_v39 ? _v34.REPACKAGING_ALL_SHOWN_TIERS.filter(_v0 => "free" !== _v0) : []);
-      (0, _v28.usePaywallTracking)({
-        paywallTrigger: _v26,
-        paywallLocation: _v27,
-        paywallType: "page",
-        paywallFeature: _v28,
-        isVisible: void 0 !== _v57 && void 0 !== _v7
-      });
-      let {
+        } = (0, _v39.useSubscriptionPlansUsageCheck)(_v39 ? _v34.REPACKAGING_ALL_SHOWN_TIERS.filter(_v0 => "free" !== _v0) : []),
+        {
           shouldReorder: _v59
         } = (0, _v37.useColdStoragePlanReorder)(),
         _v60 = _v59 && !_v39 && !_v48 && void 0 !== _v57,
@@ -980,8 +973,26 @@
         })(_v1);
       }, [_v1, _v7]);
       let _v77 = !!(_v57 && _v57.some(_v0 => void 0 !== _v0.promotion) && _v12 && _v3 && !_v48),
-        _v78 = _v5 && _v3 && !(_v42 && !_v45 && !_v46) && !_v65 && (_v39 || !_v48);
-      return null === _v11 || void 0 === _v57 || _v31 || !_v25 && _v7?.redirectLoggedOut ? (0, _v1.jsx)(_v63.default, {}) : (0, _v1.jsxs)(_v65.default, {
+        _v78 = _v5 && _v3 && !(_v42 && !_v45 && !_v46) && !_v65 && (_v39 || !_v48),
+        _v79 = (0, _v10.useMemo)(() => {
+          if (!_v57) return;
+          if (!_v39) return (_v7?.plans ? _v57.filter(_v0 => _v7.plans?.includes(_v0.tier)) : _v7?.excludedPlans ? _v57.filter(_v0 => !_v7.excludedPlans?.includes(_v0.tier)) : _v57).map(_v0 => _v0.tier);
+          let _v0 = new Set(_v57.map(_v0 => _v0.tier)),
+            _v1 = _v0.has("core");
+          return ("individual" === _v72 ? _v34.REPACKAGING_INDIVIDUAL_TIERS : _v74).filter(_v0 => ("free" !== _v0 || !_v76 && !_v1) && _v0.has(_v0));
+        }, [_v57, _v39, _v72, _v76, _v74, _v7]),
+        _v80 = (0, _v10.useMemo)(() => _v3 ? ["monthly", "yearly"] : ["yearly"], [_v3]);
+      return ((0, _v28.usePaywallTracking)({
+        paywallTrigger: _v26,
+        paywallLocation: _v27,
+        paywallType: "page",
+        paywallFeature: _v28,
+        paywallStyle: "upgrade_plan",
+        paywallPlansDisplayed: _v79 ?? [],
+        paywallPeriodicitiesDisplayed: _v80,
+        isVisible: null !== _v11 && void 0 !== _v57 && void 0 !== _v7 && _v5 && !_v31 && !(!_v25 && _v7?.redirectLoggedOut),
+        displayKey: _v39 ? _v72 : void 0
+      }), null === _v11 || void 0 === _v57 || _v31 || !_v25 && _v7?.redirectLoggedOut) ? (0, _v1.jsx)(_v63.default, {}) : (0, _v1.jsxs)(_v65.default, {
         isMobileBreakpoint: _v48,
         children: [void 0 !== _v7 && _v57 && (0, _v1.jsx)(_v35.OverridesContextProvider, {
           showYearly: _v12,

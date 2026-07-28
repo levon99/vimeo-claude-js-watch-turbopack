@@ -1149,6 +1149,32 @@
             singular: "升级到入门版以访问更多自定义选项。"
           }
         }
+      }),
+      [_v13.PLANS.CREATOR]: (0, _v12.translate)({
+        singular: "Upgrade to Creator to access more customizations",
+        dictionary: {
+          es: {
+            singular: "Actualiza a Creator para acceder a más opciones de personalización"
+          },
+          "de-DE": {
+            singular: "Auf Creator upgraden, um auf weitere Anpassungsmöglichkeiten zuzugreifen"
+          },
+          "fr-FR": {
+            singular: "Passez à Creator pour accéder à davantage d'options de personnalisation"
+          },
+          "ja-JP": {
+            singular: "Creatorにアップグレードすると、より多くのカスタマイズにアクセスできます。"
+          },
+          "ko-KR": {
+            singular: "더 많은 맞춤 설정을 이용하려면 Creator로 업그레이드하세요"
+          },
+          "pt-BR": {
+            singular: "Atualize para Creator para acessar mais opções de personalização"
+          },
+          "zh-CN": {
+            singular: "升级到 Creator 以访问更多自定义选项"
+          }
+        }
       })
     },
     _v29 = {
