@@ -2272,7 +2272,7 @@
     };
   }
   let _v200 = `#${_v192.PLAYER_COLOR_DEFAULTS.colorFour}`,
-    _v201 = ["page.player.colors.colorOne", "page.player.colors.colorTwo", "page.player.colors.colorThree", "page.player.colors.colorFour", "width", "height"],
+    _v201 = ["page.player.colors.colorOne", "page.player.colors.colorTwo", "page.player.colors.colorThree", "page.player.colors.colorFour", "page.comments", "width", "height"],
     _v202 = ["embedPlayerConfigUrl"];
   function _v203({
     w: _v0,
@@ -2710,31 +2710,33 @@
     clipId: _v0,
     playerConfigUrl: _v1,
     bandColor: _v2,
-    videoAspectRatio: _v3
+    videoAspectRatio: _v3,
+    showComments: _v4
   }) {
     let {
-        state: _v4,
-        videoTitle: _v5,
-        previewDark: _v6,
-        thumbnailUrl: _v7
+        state: _v5,
+        videoTitle: _v6,
+        previewDark: _v7,
+        thumbnailUrl: _v8
       } = (0, _v195.useCustomPageContext)(),
-      _v8 = _v4.draft,
-      _v9 = _v6 ? "dark" : "light",
-      _v10 = _v8.backgroundColor,
-      _v11 = _v10 ? (0, _v193.surfaceMixFor)(_v10) : null,
-      _v12 = (0, _v190.asTitleFontId)(_v8.titleFontFamily);
+      _v9 = _v5.draft,
+      _v10 = _v7 ? "dark" : "light",
+      _v11 = (0, _v186.useColorModeValue)("darkBlueAlpha.100", "lightBlueAlpha.100"),
+      _v12 = _v9.backgroundColor,
+      _v13 = _v12 ? (0, _v193.surfaceMixFor)(_v12) : null,
+      _v14 = (0, _v190.asTitleFontId)(_v9.titleFontFamily);
     (0, _v30.useEffect)(() => {
-      (0, _v191.ensureTitleFontStylesheet)(_v12);
-    }, [_v12]);
-    let _v13 = {};
-    _v10 && (_v13["--page-customization-bg"] = _v10), _v11 && (_v13["--page-customization-surface"] = _v11);
-    let _v14 = {};
-    _v10 && (_v14["--vimeo-colors-background"] = "var(--page-customization-bg)"), _v11 && (_v14["--vimeo-colors-surface"] = "var(--page-customization-surface)");
-    let _v15 = _v0 => (0, _v16.jsx)(_v113.Box, {
-      "data-theme": _v9,
-      style: _v13,
+      (0, _v191.ensureTitleFontStylesheet)(_v14);
+    }, [_v14]);
+    let _v15 = {};
+    _v12 && (_v15["--page-customization-bg"] = _v12), _v13 && (_v15["--page-customization-surface"] = _v13);
+    let _v16 = {};
+    _v12 && (_v16["--vimeo-colors-background"] = "var(--page-customization-bg)"), _v13 && (_v16["--vimeo-colors-surface"] = "var(--page-customization-surface)");
+    let _v17 = _v0 => (0, _v16.jsx)(_v113.Box, {
+      "data-theme": _v10,
+      style: _v15,
       children: (0, _v16.jsx)(_v113.Box, {
-        style: _v14,
+        style: _v16,
         children: _v0
       })
     });
@@ -2747,31 +2749,31 @@
         bgColor: "surface",
         p: "200",
         children: (0, _v16.jsxs)(_v113.Box, {
-          "data-theme": _v9,
+          "data-theme": _v10,
           position: "relative",
           borderRadius: "md",
           overflow: "hidden",
           bgColor: "background",
-          border: "1px solid",
-          borderColor: "darkBlueAlpha.100",
-          style: _v10 ? {
-            backgroundColor: _v10
+          outline: "1px solid",
+          outlineColor: _v11,
+          style: _v12 ? {
+            backgroundColor: _v12
           } : void 0,
           sx: {
             isolation: "isolate"
           },
-          children: [!_v8.hideVimeoHeader && _v15((0, _v16.jsx)(_v205, {})), (0, _v16.jsx)(_v207, {
+          children: [!_v9.hideVimeoHeader && _v17((0, _v16.jsx)(_v205, {})), (0, _v16.jsx)(_v207, {
             clipId: _v0,
             configUrl: _v1,
             bandColor: _v2,
-            ambient: _v8.ambientBacklight,
-            posterUrl: _v7,
+            ambient: _v9.ambientBacklight,
+            posterUrl: _v8,
             videoAspectRatio: _v3
-          }), _v15((0, _v16.jsxs)(_v113.Box, {
+          }), _v17((0, _v16.jsxs)(_v113.Box, {
             display: "grid",
             gridTemplateColumns: {
               base: "1fr",
-              md: "minmax(0, 1fr) minmax(0, 300px)"
+              md: _v4 ? "minmax(0, 1fr) minmax(0, 300px)" : "minmax(0, 1fr)"
             },
             gap: "200",
             p: "200",
@@ -2780,13 +2782,13 @@
               spacing: "200",
               minW: 0,
               children: [(0, _v16.jsx)(_v208, {
-                draft: _v8,
-                title: _v5
+                draft: _v9,
+                title: _v6
               }), (0, _v16.jsx)(_v209, {})]
-            }), (0, _v16.jsx)(_v113.Box, {
+            }), _v4 ? (0, _v16.jsx)(_v113.Box, {
               minW: 0,
               children: (0, _v16.jsx)(_v210, {})
-            })]
+            }) : null]
           }))]
         })
       })]
@@ -2843,12 +2845,14 @@
         revalidateOnReconnect: !1,
         revalidateIfStale: !1
       }),
-      _v9 = _v8?.embedPlayerConfigUrl ?? "";
+      _v9 = _v8?.embedPlayerConfigUrl ?? "",
+      _v10 = _v4?.page?.comments ?? !0;
     return (0, _v16.jsx)(_v211, {
       clipId: _v3,
       playerConfigUrl: _v9,
       bandColor: _v6,
-      videoAspectRatio: _v7
+      videoAspectRatio: _v7,
+      showComments: _v10
     });
   }
   function _v214({
@@ -24989,6 +24993,7 @@
       marginBottom: _v22 ? "sm" : void 0,
       children: [(0, _v16.jsx)(_v729.ProgressWidgetModule, {
         ..._v24,
+        uploadSurface: "single_video_view",
         revalidatePrivacy: _v13,
         onUploadClick: _v0 => {
           `${_v0?.clipId}` == `${_v4}` ? _v6() : _v0.clipId && (_v6(), _v8.push(`/manage/videos/${_v0.clipId}`));

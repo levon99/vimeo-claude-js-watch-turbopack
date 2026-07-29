@@ -2194,8 +2194,8 @@
         _v14 && _v14.off("timeupdate", _v0);
       };
     }, [_v14, _v3, _v4]), (0, _v16.useEffect)(() => {
-      _v14 && !_v13 && _v14.play().then(() => _v7(!0)).catch(_v0 => {
-        if (_v0 && "AbortError" !== _v0.name) throw _v0;
+      _v14 && !_v13 && Promise.resolve().then(() => _v14.play()).then(() => _v7(!0)).catch(_v0 => {
+        if (_v0 && "AbortError" !== _v0.name && "NoFiles" !== _v0.name) throw _v0;
       });
     }, [_v14]), (0, _v16.useEffect)(() => {
       _v7(!1);

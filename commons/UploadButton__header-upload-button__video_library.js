@@ -14,14 +14,19 @@
     paywallTrigger: _v1,
     targetUserId: _v2,
     testIdPrefix: _v3 = "header-upload-button",
-    onClick: _v4
+    onClick: _v4,
+    surface: _v5
   }) => {
-    let _v5 = (0, _v2.useRef)(null),
+    let _v6 = (0, _v2.useRef)(null),
       {
-        uploadFiles: _v6,
-        isLoading: _v7
+        uploadFiles: _v7,
+        isLoading: _v8
       } = (0, _v8.useUploadFileList)({
         targetUserId: _v2,
+        origin: _v5 ? {
+          isDropzone: !1,
+          surface: _v5
+        } : void 0,
         paywallTracking: {
           paywallTrigger: _v1,
           paywallLocation: "video_library",
@@ -29,10 +34,10 @@
           paywallFeature: "quota"
         }
       }),
-      _v8 = () => {
-        _v4?.(), _v5.current?.click();
+      _v9 = () => {
+        _v4?.(), _v6.current?.click();
       },
-      _v9 = (0, _v7.translate)({
+      _v10 = (0, _v7.translate)({
         singular: "Upload",
         dictionary: {
           es: {
@@ -61,23 +66,23 @@
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v4.FileInput, {
         multiple: !0,
-        ref: _v5,
+        ref: _v6,
         onChange: _v0 => {
           let _v1 = _v0.target.files;
-          _v1?.length && _v6({
+          _v1?.length && _v7({
             files: _v1,
             targetUserId: _v2,
             folderId: _v0,
             uploadClipProperties: void 0
-          }), _v5.current && (_v5.current.value = "");
+          }), _v6.current && (_v6.current.value = "");
         },
-        isDisabled: _v7,
+        isDisabled: _v8,
         sx: {
           display: "none"
         },
         accept: "video/*,.mkv,.m2ts"
       }), (0, _v1.jsx)(_v5.IconButton, {
-        "aria-label": _v9,
+        "aria-label": _v10,
         "data-testid": `${_v3}-mobile`,
         display: {
           base: "inline-flex",
@@ -86,8 +91,8 @@
         icon: (0, _v1.jsx)(_v6.Upload, {}),
         variant: "secondary",
         size: "md",
-        onClick: _v8,
-        isDisabled: _v7
+        onClick: _v9,
+        isDisabled: _v8
       }), (0, _v1.jsx)(_v3.Button, {
         "data-testid": _v3,
         display: {
@@ -96,9 +101,9 @@
         },
         variant: "secondary",
         size: "md",
-        onClick: _v8,
-        isDisabled: _v7,
-        children: _v9
+        onClick: _v9,
+        isDisabled: _v8,
+        children: _v10
       })]
     });
   }]);

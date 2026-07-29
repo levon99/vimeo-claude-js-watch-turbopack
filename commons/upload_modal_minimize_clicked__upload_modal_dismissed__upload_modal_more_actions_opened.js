@@ -3292,109 +3292,114 @@
     defaultFolderId: _v12,
     showEmbedToggle: _v13,
     isEmbeddable: _v14,
-    onEmbedToggle: _v15
+    onEmbedToggle: _v15,
+    uploadSurface: _v16
   }) {
-    let _v16,
+    let _v17,
       [{
-        hideRows: _v17,
-        isCanceling: _v18,
-        isCanceled: _v19,
-        isComplete: _v20,
-        showUploadControls: _v21,
-        transcoding: _v22
-      }, _v23] = (0, _v2.useReducer)(_v101, _v100),
-      _v24 = (0, _v20.useViewer)(),
-      _v25 = (0, _v2.useRef)(void 0),
-      [_v26, _v27] = (0, _v2.useState)(""),
-      [_v28, _v29] = (0, _v2.useState)(void 0),
+        hideRows: _v18,
+        isCanceling: _v19,
+        isCanceled: _v20,
+        isComplete: _v21,
+        showUploadControls: _v22,
+        transcoding: _v23
+      }, _v24] = (0, _v2.useReducer)(_v101, _v100),
+      _v25 = (0, _v20.useViewer)(),
+      _v26 = (0, _v2.useRef)(void 0),
+      [_v27, _v28] = (0, _v2.useState)(""),
+      [_v29, _v30] = (0, _v2.useState)(void 0),
       {
-        isOpen: _v30,
-        onOpen: _v31,
-        onClose: _v32
+        isOpen: _v31,
+        onOpen: _v32,
+        onClose: _v33
       } = (0, _v14.useDisclosure)(),
       {
-        isOpen: _v33,
-        onOpen: _v34,
-        onClose: _v35
+        isOpen: _v34,
+        onOpen: _v35,
+        onClose: _v36
       } = (0, _v14.useDisclosure)(),
       {
-        uploads: _v36,
-        uploaderSummary: _v37,
-        cancelAll: _v38,
-        clearAll: _v39,
-        resumeAll: _v40,
-        pauseAll: _v41,
-        clear: _v42,
-        upload: _v43
+        uploads: _v37,
+        uploaderSummary: _v38,
+        cancelAll: _v39,
+        clearAll: _v40,
+        resumeAll: _v41,
+        pauseAll: _v42,
+        clear: _v43,
+        upload: _v44
       } = (0, _v41.useUploader)(),
       {
-        trackUploadModalMinimizeClicked: _v44,
-        trackUploadModalDismissed: _v45,
-        trackUploadModalPrivacyChanged: _v46
+        trackUploadModalMinimizeClicked: _v45,
+        trackUploadModalDismissed: _v46,
+        trackUploadModalPrivacyChanged: _v47
       } = _v19(),
       {
-        activeCount: _v47,
-        canceledCount: _v48,
-        completeCount: _v49,
-        failedCount: _v50,
-        isPaused: _v51,
-        eta: _v52
-      } = _v37,
-      _v53 = _v36.reduce((_v0, _v1) => _v0 || _v1.state === _v4.STATES.UPLOADING, !1),
-      _v54 = (0, _v2.useMemo)(() => {
-        let _v0 = _v36.filter(_v0 => _v0.state !== _v4.STATES.CANCELED && _v0.state !== _v4.STATES.FAILED),
+        activeCount: _v48,
+        canceledCount: _v49,
+        completeCount: _v50,
+        failedCount: _v51,
+        isPaused: _v52,
+        eta: _v53
+      } = _v38,
+      _v54 = _v37.reduce((_v0, _v1) => _v0 || _v1.state === _v4.STATES.UPLOADING, !1),
+      _v55 = (0, _v2.useMemo)(() => {
+        let _v0 = _v37.filter(_v0 => _v0.state !== _v4.STATES.CANCELED && _v0.state !== _v4.STATES.FAILED),
           _v1 = _v0.length > 0 && _v0.every(_v0 => !!_v0.clipId);
-        return _v20 || _v1;
-      }, [_v36, _v20]),
-      _v55 = (0, _v2.useMemo)(() => _v36.some(_v0 => !!_v0.clipId), [_v36]),
-      _v56 = _v26 || _v5().view || "",
-      _v57 = _v23(),
-      _v58 = (0, _v2.useCallback)(() => {
-        _v45(), "function" == typeof _v6 && _v6(), _v23({
-          type: _v99
-        }), _v39(), _v35();
-      }, [_v39, _v35, _v6, _v45]),
+        return _v21 || _v1;
+      }, [_v37, _v21]),
+      _v56 = (0, _v2.useMemo)(() => _v37.some(_v0 => !!_v0.clipId), [_v37]),
+      _v57 = _v27 || _v5().view || "",
+      _v58 = _v23(),
       _v59 = (0, _v2.useCallback)(() => {
-        _v23({
+        _v46(), "function" == typeof _v6 && _v6(), _v24({
+          type: _v99
+        }), _v40(), _v36();
+      }, [_v40, _v36, _v6, _v46]),
+      _v60 = (0, _v2.useCallback)(() => {
+        _v24({
           type: _v97,
+          payload: !_v19
+        });
+      }, [_v19]),
+      _v61 = (0, _v2.useCallback)(() => {
+        _v18 || _v45(), _v24({
+          type: _v96,
           payload: !_v18
         });
-      }, [_v18]),
-      _v60 = (0, _v2.useCallback)(() => {
-        _v17 || _v44(), _v23({
-          type: _v96,
-          payload: !_v17
-        });
-      }, [_v17, _v44]),
-      _v61 = (0, _v2.useCallback)(() => _v23({
+      }, [_v18, _v45]),
+      _v62 = (0, _v2.useCallback)(() => _v24({
         type: _v97,
         payload: !1
       }), []),
-      _v62 = (0, _v2.useCallback)(_v0 => {
-        _v42(_v0);
-      }, [_v42]),
       _v63 = (0, _v2.useCallback)(_v0 => {
-        0 === _v37.activeCount && _v39(), _v43(_v0, {
-          targetUserId: _v24?.teamUser?.ownerId,
-          folderId: _v12
-        });
-      }, [_v39, _v12, _v43, _v37.activeCount, _v24?.teamUser?.ownerId]),
+        _v43(_v0);
+      }, [_v43]),
       _v64 = (0, _v2.useCallback)(_v0 => {
-        _v46({
+        0 === _v38.activeCount && _v40(), _v44(_v0, {
+          targetUserId: _v25?.teamUser?.ownerId,
+          folderId: _v12,
+          origin: _v16 ? {
+            isDropzone: !1,
+            surface: _v16
+          } : void 0
+        });
+      }, [_v40, _v12, _v44, _v16, _v38.activeCount, _v25?.teamUser?.ownerId]),
+      _v65 = (0, _v2.useCallback)(_v0 => {
+        _v47({
           uploadModalPrivacyNewValue: _v0
         });
         let _v1 = _v5(),
           _v2 = _v0.find(_v0 => _v0.privacy === _v0);
-        _v2 && !_v2?.showUpsell && ("password" !== _v0 && (_v29(void 0), _v27(_v0)), "password" === _v0 ? _v31() : (_v1 = {
+        _v2 && !_v2?.showUpsell && ("password" !== _v0 && (_v30(void 0), _v28(_v0)), "password" === _v0 ? _v32() : (_v1 = {
           ..._v1,
           password: ""
-        }, _v32(), _v55 && _v11({
+        }, _v33(), _v56 && _v11({
           ..._v1,
           view: _v0
         })));
-      }, [_v55, _v0, _v5, _v11, _v32, _v31, _v46]),
-      _v65 = (0, _v2.useCallback)(() => {
-        _v61(), _v38(), _v5.BigPictureClient.sendEvent(new _v5.Event("vimeo.click", 140, {
+      }, [_v56, _v0, _v5, _v11, _v33, _v32, _v47]),
+      _v66 = (0, _v2.useCallback)(() => {
+        _v62(), _v39(), _v5.BigPictureClient.sendEvent(new _v5.Event("vimeo.click", 140, {
           copy: null,
           feature: "embeddable_uploader",
           location: "embeddable_uploader",
@@ -3408,26 +3413,26 @@
           path: window.location.pathname,
           third_party_integration: null
         }));
-      }, [_v38, _v61, _v2]);
+      }, [_v39, _v62, _v2]);
     return (0, _v2.useEffect)(() => {
-      _v50 > 0 && _v34();
-      let _v0 = 0 === _v50 && 0 === _v47 && _v49 > 0,
-        _v1 = _v36.length > 0 && _v48 === _v36.length;
-      _v25.current && (window.clearTimeout(_v25.current), _v25.current = void 0), (_v19 !== _v1 || _v20 !== _v0) && _v23({
+      _v51 > 0 && _v35();
+      let _v0 = 0 === _v51 && 0 === _v48 && _v50 > 0,
+        _v1 = _v37.length > 0 && _v49 === _v37.length;
+      _v26.current && (window.clearTimeout(_v26.current), _v26.current = void 0), (_v20 !== _v1 || _v21 !== _v0) && _v24({
         type: _v95,
         payload: {
           isComplete: _v0,
           isCanceled: _v1,
           showUploadControls: !(_v0 || _v1)
         }
-      }), _v47 > 0 ? (_v35(), _v23({
+      }), _v48 > 0 ? (_v36(), _v24({
         type: _v98,
         payload: !0
-      })) : (_v34(), _v23({
+      })) : (_v35(), _v24({
         type: _v98,
         payload: !1
       }));
-    }, [_v47, _v48, _v49, _v50, _v19, _v20, _v21, _v36.length, _v34, _v35]), (0, _v1.jsxs)(_v8.Flex, {
+    }, [_v48, _v49, _v50, _v51, _v20, _v21, _v22, _v37.length, _v35, _v36]), (0, _v1.jsxs)(_v8.Flex, {
       className: "embeddable-uploader-progress-toast",
       position: "relative",
       zIndex: "10",
@@ -3446,15 +3451,15 @@
         paddingLeft: "md",
         justifyContent: "space-between",
         children: [(0, _v1.jsx)(_v44, {
-          transcoding: _v22
+          transcoding: _v23
         }), (0, _v1.jsxs)(_v8.Flex, {
           alignItems: "center",
           children: [(0, _v1.jsx)(_v13.Tooltip, {
-            label: _v17 ? _v57.expand : _v57.minimize,
+            label: _v18 ? _v58.expand : _v58.minimize,
             children: (0, _v1.jsx)(_v9.IconButton, {
-              "aria-label": _v17 ? _v57.showDialog : _v57.hideDialog,
-              onClick: _v60,
-              icon: _v17 ? (0, _v1.jsx)(_v16.ChevronUp, {
+              "aria-label": _v18 ? _v58.showDialog : _v58.hideDialog,
+              onClick: _v61,
+              icon: _v18 ? (0, _v1.jsx)(_v16.ChevronUp, {
                 boxSize: (0, _v12.rem)(20)
               }) : (0, _v1.jsx)(_v15.ChevronDown, {
                 boxSize: (0, _v12.rem)(20)
@@ -3462,16 +3467,16 @@
               variant: "tertiary",
               color: "text-primary"
             })
-          }), _v33 && (0, _v1.jsx)(_v13.Tooltip, {
-            label: _v57.close,
+          }), _v34 && (0, _v1.jsx)(_v13.Tooltip, {
+            label: _v58.close,
             children: (0, _v1.jsx)(_v8.Flex, {
               children: (0, _v1.jsx)(_v6.CloseButton, {
                 color: "text-primary",
                 id: "progress-toast-dismiss-button",
                 size: "sm",
                 variant: "tertiary",
-                onClick: () => _v58(),
-                "aria-label": _v57.closeDialog
+                onClick: () => _v59(),
+                "aria-label": _v58.closeDialog
               })
             })
           })]
@@ -3481,9 +3486,9 @@
         paddingRight: "sm",
         width: "100%",
         children: (0, _v1.jsx)(_v59, {
-          transcoding: _v22
+          transcoding: _v23
         })
-      }), !_v17 && (0, _v1.jsxs)(_v8.Flex, {
+      }), !_v18 && (0, _v1.jsxs)(_v8.Flex, {
         alignItems: "center",
         padding: "md",
         paddingRight: "sm",
@@ -3492,11 +3497,11 @@
         role: "toolbar",
         children: [(0, _v1.jsx)(_v57, {
           isDisabled: !_v1 || 0 === _v0.length,
-          onSelectionChange: _v64,
+          onSelectionChange: _v65,
           privacyOptions: _v0,
           onPrivacyUpsellClick: _v7,
-          dropdownPrivacy: _v56
-        }), _v13 && (_v16 = !_v54, (0, _v1.jsxs)(_v8.Flex, {
+          dropdownPrivacy: _v57
+        }), _v13 && (_v17 = !_v55, (0, _v1.jsxs)(_v8.Flex, {
           alignItems: "center",
           gap: "xs",
           paddingX: "sm",
@@ -3506,9 +3511,9 @@
           outlineColor: "input-stroke",
           outlineOffset: "-1px",
           borderRadius: "md",
-          opacity: _v16 ? .5 : 1,
-          cursor: _v16 ? "not-allowed" : "default",
-          _hover: _v16 ? void 0 : {
+          opacity: _v17 ? .5 : 1,
+          cursor: _v17 ? "not-allowed" : "default",
+          _hover: _v17 ? void 0 : {
             outlineColor: "input-stroke-hover"
           },
           children: [(0, _v1.jsx)(_v11.Text, {
@@ -3542,7 +3547,7 @@
           }), (0, _v1.jsx)(_v10.Switch, {
             size: "sm",
             isChecked: _v14 ?? !1,
-            isDisabled: _v16,
+            isDisabled: _v17,
             onChange: _v15,
             "aria-label": (0, _v17.translate)({
               singular: "Toggle embeddable",
@@ -3571,57 +3576,57 @@
               }
             })
           })]
-        })), _v30 && (0, _v1.jsx)(_v48, {
-          value: _v28,
-          isShowing: _v30,
-          onClose: _v32,
+        })), _v31 && (0, _v1.jsx)(_v48, {
+          value: _v29,
+          isShowing: _v31,
+          onClose: _v33,
           onConfirm: _v0 => {
-            _v29(_v0.password), _v32(), _v27("password"), _v11 && _v55 && _v11?.(_v0);
+            _v30(_v0.password), _v33(), _v28("password"), _v11 && _v56 && _v11?.(_v0);
           },
           maxLength: 32
-        }), _v21 ? (0, _v1.jsx)(_v13.Tooltip, {
-          label: _v57.moreActions,
+        }), _v22 ? (0, _v1.jsx)(_v13.Tooltip, {
+          label: _v58.moreActions,
           children: (0, _v1.jsx)(_v8.Flex, {
             alignItems: "center",
             position: "relative",
             children: (0, _v1.jsx)(_v66, {
-              isCanceling: _v18,
-              isPaused: _v51,
-              isUploading: _v53,
-              pauseAll: _v41,
-              resumeAll: _v40,
-              toggleIsCanceling: _v59,
+              isCanceling: _v19,
+              isPaused: _v52,
+              isUploading: _v54,
+              pauseAll: _v42,
+              resumeAll: _v41,
+              toggleIsCanceling: _v60,
               page: _v2
             })
           })
         }) : (0, _v1.jsx)(_v13.Tooltip, {
-          label: _v57.uploadMore,
+          label: _v58.uploadMore,
           children: (0, _v1.jsx)(_v8.Flex, {
             children: (0, _v1.jsx)(_v69, {
-              onUpload: _v63
+              onUpload: _v64
             })
           })
         })]
-      }), _v18 && (0, _v1.jsx)(_v30, {
-        onCancel: _v61,
-        onDelete: _v65
+      }), _v19 && (0, _v1.jsx)(_v30, {
+        onCancel: _v62,
+        onDelete: _v66
       }), (0, _v1.jsx)(_v8.Flex, {
         alignItems: "center",
         justifyContent: "space-between",
         as: _v7.Collapse,
-        in: !_v17,
+        in: !_v18,
         children: (0, _v1.jsx)(_v94, {
-          dropdownPrivacy: _v26,
+          dropdownPrivacy: _v27,
           revalidatePrivacy: _v4,
-          password: "password" === _v26 ? _v28 ?? _v5().password : void 0,
-          uploads: _v36,
-          isPaused: _v51,
-          isCanceled: _v19,
+          password: "password" === _v27 ? _v29 ?? _v5().password : void 0,
+          uploads: _v37,
+          isPaused: _v52,
+          isCanceled: _v20,
           onUploadClick: _v9,
           onEditClick: _v10,
-          clearUpload: _v62,
+          clearUpload: _v63,
           onShareClick: _v8,
-          uploadEta: _v52,
+          uploadEta: _v53,
           clipId: _v3,
           clipPrivacy: _v5()?.view
         })

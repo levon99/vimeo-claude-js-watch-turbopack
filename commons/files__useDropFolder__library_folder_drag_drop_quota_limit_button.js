@@ -32,6 +32,10 @@
         uploadFiles: _v9
       } = (0, _v10.useUploadFileList)({
         targetUserId: _v3?.targetUserId,
+        origin: _v3?.surface ? {
+          isDropzone: !0,
+          surface: _v3.surface
+        } : void 0,
         paywallTracking: {
           paywallTrigger: "library_folder_drag_drop_quota_limit_button",
           paywallLocation: "video_library",
@@ -115,7 +119,7 @@
             shallow: !0
           }) && _v0.canDrop()
         })
-      }), [_v7, _v8, _v3?.uploadClipProperties]);
+      }), [_v7, _v8, _v9, _v3?.targetUserId, _v3?.folderId, _v3?.folderName, _v3?.surface, _v3?.uploadClipProperties, _v2, _v1, _v0]);
     return {
       draggableItemIsHovering: _v10,
       dropRef: _v11

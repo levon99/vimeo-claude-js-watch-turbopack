@@ -156,8 +156,8 @@
                     plural: "Les {BOLD}{NUM_ITEMS} vidéos chargées{/BOLD} sont sélectionnées."
                   },
                   "ja-JP": {
-                    singular: "{BOLD}{NUM_ITEMS} 読み込まれた動画{/BOLD}が選択されています。",
-                    plural: "{BOLD}{NUM_ITEMS} 読み込まれた動画{/BOLD}が選択されています。"
+                    singular: "読み込まれた{BOLD}{NUM_ITEMS}件の動画が選択されています。",
+                    plural: "読み込まれた{BOLD}{NUM_ITEMS}件の動画が選択されています。"
                   },
                   "ko-KR": {
                     singular: "{BOLD}{NUM_ITEMS}개의 로드된 동영상{/BOLD}이 선택되었습니다.",
@@ -168,8 +168,8 @@
                     plural: "Os {BOLD}{NUM_ITEMS} vídeos carregados{/BOLD} estão selecionados."
                   },
                   "zh-CN": {
-                    singular: "已选择{BOLD}{NUM_ITEMS}个已加载的视频{/BOLD}。",
-                    plural: "已选择{BOLD}{NUM_ITEMS}个已加载的视频{/BOLD}。"
+                    singular: "已选择{BOLD}{NUM_ITEMS}个已加载的视频{/BOLD}.",
+                    plural: "已选择{BOLD}{NUM_ITEMS}个已加载的视频{/BOLD}."
                   }
                 }
               })

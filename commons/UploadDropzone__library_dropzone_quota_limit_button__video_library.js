@@ -20,15 +20,20 @@
     onUploadFailure: _v6,
     disabled: _v7,
     destinationText: _v8,
-    preserveWrapperWhenDisabled: _v9 = !1
+    preserveWrapperWhenDisabled: _v9 = !1,
+    surface: _v10
   }) => {
-    let _v10 = _v7 ? void 0 : _v2,
+    let _v11 = _v7 ? void 0 : _v2,
       {
-        uploadFiles: _v11,
-        isLoading: _v12
+        uploadFiles: _v12,
+        isLoading: _v13
       } = (0, _v9.useUploadFileList)({
-        targetUserId: _v10,
+        targetUserId: _v11,
         onUploadFailure: _v6,
+        origin: _v10 ? {
+          isDropzone: !0,
+          surface: _v10
+        } : void 0,
         paywallTracking: {
           paywallTrigger: "library_dropzone_quota_limit_button",
           paywallLocation: "video_library",
@@ -36,34 +41,34 @@
           paywallFeature: "quota"
         }
       }),
-      [_v13, _v14] = (0, _v2.useState)(!1),
-      _v15 = () => {
-        _v14(!1), document.body.style.overflow = "unset";
+      [_v14, _v15] = (0, _v2.useState)(!1),
+      _v16 = () => {
+        _v15(!1), document.body.style.overflow = "unset";
       },
-      _v16 = (0, _v2.useCallback)(() => {
-        _v15();
+      _v17 = (0, _v2.useCallback)(() => {
+        _v16();
       }, []),
-      _v17 = (0, _v2.useCallback)(_v0 => {
+      _v18 = (0, _v2.useCallback)(_v0 => {
         (_v0 => {
           let {
             files: _v1
           } = _v0.dataTransfer;
-          _v1 && _v2 && _v11({
+          _v1 && _v2 && _v12({
             files: _v1 || new FileList(),
             targetUserId: _v2,
             folderId: _v3 || void 0,
             uploadClipProperties: _v4
           });
-        })(_v0), "function" == typeof _v5 && _v5(_v0), _v15();
-      }, [_v5, _v3, _v2, _v11, _v4]),
-      _v18 = (0, _v2.useCallback)(_v0 => {
-        _v0.preventDefault(), _v0.currentTarget.contains(_v0.relatedTarget) || _v15();
-      }, []),
+        })(_v0), "function" == typeof _v5 && _v5(_v0), _v16();
+      }, [_v5, _v3, _v2, _v12, _v4]),
       _v19 = (0, _v2.useCallback)(_v0 => {
-        _v0.dataTransfer.types.includes("Files") && (_v14(!0), document.body.style.overflow = "hidden");
+        _v0.preventDefault(), _v0.currentTarget.contains(_v0.relatedTarget) || _v16();
+      }, []),
+      _v20 = (0, _v2.useCallback)(_v0 => {
+        _v0.dataTransfer.types.includes("Files") && (_v15(!0), document.body.style.overflow = "hidden");
       }, []);
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v13 && (0, _v1.jsx)(_v3.Flex, {
+      children: [_v14 && (0, _v1.jsx)(_v3.Flex, {
         direction: "column",
         position: "fixed",
         right: "0",
@@ -158,20 +163,20 @@
         })
       }), (0, _v1.jsx)(_v8.UploadDropzone, {
         className: _v1,
-        onDragOver: _v19,
-        onDragEnd: _v16,
-        onDrop: _v17,
-        onDragLeave: _v18,
+        onDragOver: _v20,
+        onDragEnd: _v17,
+        onDrop: _v18,
+        onDragLeave: _v19,
         folderId: _v3 ?? void 0,
         targetUserId: _v2 ?? void 0,
-        disabled: _v7 || _v12,
+        disabled: _v7 || _v13,
         preserveWrapperWhenDisabled: _v9,
         style: {
           width: "100%",
           height: "100%",
           border: "none",
           background: "none",
-          opacity: _v13 ? "0.25" : "1"
+          opacity: _v14 ? "0.25" : "1"
         },
         children: _v0
       })]

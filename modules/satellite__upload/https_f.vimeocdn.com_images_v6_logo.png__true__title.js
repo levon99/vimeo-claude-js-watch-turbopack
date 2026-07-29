@@ -2637,10 +2637,10 @@
             onDragOver: _v3,
             onDragLeave: _v4,
             onDrop: (0, _v10.useCallback)(_v0 => {
-              _v0.preventDefault(), _v2(!1), _v0.dataTransfer?.files?.length && _v0(_v61(_v0.dataTransfer.files));
+              _v0.preventDefault(), _v2(!1), _v0.dataTransfer?.files?.length && _v0(_v61(_v0.dataTransfer.files), !0);
             }, [_v0]),
             onSelectFiles: (0, _v10.useCallback)(_v0 => {
-              _v0.target.files?.length && _v0(_v61(_v0.target.files)), _v0.target.value = "";
+              _v0.target.files?.length && _v0(_v61(_v0.target.files), !1), _v0.target.value = "";
             }, [_v0])
           };
         })(),
@@ -2841,10 +2841,24 @@
           let _v12 = 0 === _v0.length ? "selectFiles" : _v6 ? "upload" : "login",
             _v13 = (0, _v10.useCallback)(() => (0, _v89.openSatelliteAuthTab)("upload-poc", "login"), []),
             _v14 = (0, _v10.useCallback)(() => {
-              _v7.ok ? (_v4(_v0.map(_v0 => _v0.file), {
+              if (!_v7.ok) return void _v9(_v7.error ?? null);
+              let _v0 = _v0.filter(_v0 => _v0.isDropzone).map(_v0 => _v0.file),
+                _v1 = _v0.filter(_v0 => !_v0.isDropzone).map(_v0 => _v0.file);
+              _v0.length > 0 && _v4(_v0, {
                 targetUserId: _v1.targetUserId,
-                folderId: _v1.folderId
-              }, _v1.clipProperties), _v5()) : _v9(_v7.error ?? null);
+                folderId: _v1.folderId,
+                origin: {
+                  isDropzone: !0,
+                  surface: "satellite_upload"
+                }
+              }, _v1.clipProperties), _v1.length > 0 && _v4(_v1, {
+                targetUserId: _v1.targetUserId,
+                folderId: _v1.folderId,
+                origin: {
+                  isDropzone: !1,
+                  surface: "satellite_upload"
+                }
+              }, _v1.clipProperties), _v5();
             }, [_v7, _v0, _v4, _v5, _v1.targetUserId, _v1.folderId, _v1.clipProperties]);
           return {
             isLoggedIn: _v6,

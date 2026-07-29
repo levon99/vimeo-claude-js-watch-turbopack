@@ -2210,10 +2210,14 @@
                 hasContentSpaceEnabled: _v5 ?? !1
               });
             }, [_v12, _v3, _v14.activeCount, _v17?.teamUserPermissionLevel, _v5]),
-            _v19 = (0, _v6.useCallback)(_v0 => {
+            _v19 = (0, _v6.useCallback)((_v0, _v1) => {
               _v9(!0), _v13(_v0, {
                 targetUserId: _v2 || void 0,
-                folderId: _v11 || void 0
+                folderId: _v11 || void 0,
+                origin: {
+                  isDropzone: _v1,
+                  surface: "upload_page"
+                }
               }, _v4);
             }, [_v11, _v2, _v13, _v4]),
             _v20 = (0, _v6.useCallback)(_v0 => {
@@ -2221,7 +2225,7 @@
               let {
                 files: _v1
               } = _v0.target;
-              _v19(_v1), _v18(_v1, "filepicker"), _v10({
+              _v19(_v1, !1), _v18(_v1, "filepicker"), _v10({
                 uploadMethod: "file_picker"
               });
             }, [_v18, _v10, _v19]),
@@ -2233,7 +2237,7 @@
               let {
                 files: _v1
               } = _v0.dataTransfer;
-              _v19(_v1), _v0?.(_v0), _v18(_v1, "dropzone"), _v10({
+              _v19(_v1, !0), _v0?.(_v0), _v18(_v1, "dropzone"), _v10({
                 uploadMethod: "drag_and_drop"
               });
             }, [_v18, _v0, _v10, _v19]);
@@ -2825,7 +2829,11 @@
         _v14 = (0, _v6.useCallback)((_v0, _v1, _v2) => {
           _v3?.(), _v5(_v0.map(_v0 => (_v0.target_user_id = _v2 ?? void 0, _v0.folder_id = _v1 ?? void 0, _v0)), {
             uploadType: _v1,
-            apiApp: _v2
+            apiApp: _v2,
+            origin: {
+              isDropzone: !1,
+              surface: "upload_page"
+            }
           });
         }, [_v3, _v5, _v2, _v1]),
         _v15 = (_v0, _v1, _v2) => {
@@ -4049,15 +4057,21 @@
             });
           }
           if (_v7) {
-            let _v0 = _v28.restricted;
-            if (_v0?.max != null) {
-              let _v0 = _v4?.view ?? "anybody",
-                _v1 = _v4?.embed ?? "public";
-              if ("anybody" !== _v0 || "private" !== _v1) {
-                let _v0 = _v1.reduce((_v0, _v1) => _v0 + (_v1.size || 0), 0);
-                if ((_v0.used ?? 0) + _v0 > _v0.max) return _v13("storage_limit"), _v30 ? _v43("storage_limit") : _v11(_v218), !1;
-              }
-            }
+            let _v0 = _v28.restricted,
+              _v1 = _v1.reduce((_v0, _v1) => _v0 + (_v1.size || 0), 0);
+            if ((({
+              view: _v0,
+              embed: _v1,
+              restrictedMax: _v2,
+              restrictedUsed: _v3,
+              uploadSize: _v4
+            }) => null != _v2 && ("anybody" !== (_v0 ?? "anybody") || "private" !== (_v1 ?? "private")) && (_v3 ?? 0) + _v4 > _v2)({
+              view: _v4?.view,
+              embed: _v4?.embed,
+              restrictedMax: _v0?.max,
+              restrictedUsed: _v0?.used,
+              uploadSize: _v1
+            })) return _v13("storage_limit"), _v30 ? _v43("storage_limit") : _v11(_v218), !1;
           }
           return _v7;
         }, [_v29, _v28.used, _v28.totalCap, _v28.dailyCountAvailable, _v28.available, _v28.restricted, _v26?.user?.uploadQuota, _v26?.jwt, _v26?.xsrft, _v27, _v30, _v43, _v4?.view, _v4?.embed]);

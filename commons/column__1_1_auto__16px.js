@@ -229,71 +229,72 @@
           isQuestionsLoading: _v21,
           isActivatingAi: _v22,
           forceRefresh: _v23,
-          hasValidStatus: _v24
+          hasValidStatus: _v24,
+          isReadyToAsk: _v25
         } = (0, _v6.useQuestionsDataContext)(),
-        _v25 = (_v5 = new Map(), _v19 && _v19.forEach(_v0 => {
+        _v26 = (_v5 = new Map(), _v19 && _v19.forEach(_v0 => {
           _v0.languageLabel && _v0.languageCode && _v5.set(_v0.languageCode, _v0.languageLabel);
         }), Array.from(_v5.entries()).map(([_v0, _v1]) => ({
           value: _v0,
           label: _v1
         }))),
-        [_v26, _v27] = (0, _v18.default)("ai-qna-lang", _v7?.locale ?? "en");
-      function _v28(_v0, _v1) {
+        [_v27, _v28] = (0, _v18.default)("ai-qna-lang", _v7?.locale ?? "en");
+      function _v29(_v0, _v1) {
         let _v2 = _v0 && _v0.filter(_v0 => _v0.languageCode && _v0.languageCode.toLocaleLowerCase() === _v1.toLocaleLowerCase());
         return _v2?.length ? _v2 : _v0;
       }
-      let [_v29, _v30] = (0, _v2.useState)([]);
+      let [_v30, _v31] = (0, _v2.useState)([]);
       (0, _v2.useEffect)(function () {
-        _v30(_v28(_v19, _v26));
-      }, [_v19, _v26]);
-      let _v31 = _v25.length > 1,
+        _v31(_v29(_v19, _v27));
+      }, [_v19, _v27]);
+      let _v32 = _v26.length > 1,
         {
-          askPredefinedQuestion: _v32,
-          askNewQuestion: _v33,
-          questionResponseLoading: _v34,
-          question: _v35,
-          answer: _v36,
-          questionResponseError: _v37
+          askPredefinedQuestion: _v33,
+          askNewQuestion: _v34,
+          questionResponseLoading: _v35,
+          question: _v36,
+          answer: _v37,
+          questionResponseError: _v38
         } = (0, _v5.useQuestionContext)(),
         {
-          sendAskAQuestionEvent: _v38,
-          sendSelectSuggestedAIQuestionEvent: _v39,
-          sendViewGenerateAIAnswerEvent: _v40
+          sendAskAQuestionEvent: _v39,
+          sendSelectSuggestedAIQuestionEvent: _v40,
+          sendViewGenerateAIAnswerEvent: _v41
         } = (0, _v20.useGetSvvManageBpEvents)(),
-        _v41 = (0, _v2.useRef)(null),
-        _v42 = _v8 === _v27.ViewerQnAPanels.ASK_QUESTION,
-        _v43 = _v8 === _v27.ViewerQnAPanels.QUESTIONS || _v42 || _v8 === _v27.ViewerQnAPanels.ANSWER,
-        _v44 = _v42 || _v8 === _v27.ViewerQnAPanels.AI_ACTIVATION || _v8 === _v27.ViewerQnAPanels.LOADER || _v8 === _v27.ViewerQnAPanels.LOGIN_REQUIRED,
-        _v45 = window?.self !== window?.top,
-        _v46 = (0, _v2.useCallback)(_v0 => {
-          _v0.question && _v0.answer && (_v39({
+        _v42 = (0, _v2.useRef)(null),
+        _v43 = _v8 === _v27.ViewerQnAPanels.ASK_QUESTION,
+        _v44 = _v8 === _v27.ViewerQnAPanels.QUESTIONS || _v43 || _v8 === _v27.ViewerQnAPanels.ANSWER,
+        _v45 = _v43 || _v8 === _v27.ViewerQnAPanels.AI_ACTIVATION || _v8 === _v27.ViewerQnAPanels.LOADER || _v8 === _v27.ViewerQnAPanels.LOGIN_REQUIRED,
+        _v46 = window?.self !== window?.top,
+        _v47 = (0, _v2.useCallback)(_v0 => {
+          _v0.question && _v0.answer && (_v40({
             copy: _v0.question,
             isRelated: !1
-          }), _v32(_v0.question, _v0.answer, _v0.relevantQuotes, _v0.relatedQuestions, "suggested_question"), _v9(_v27.ViewerQnAPanels.ANSWER));
-        }, [_v32, _v39]),
-        _v47 = (0, _v2.useCallback)((_v0, _v1 = "typed") => {
-          _v11(""), _v33(_v0, _v1), _v9(_v27.ViewerQnAPanels.ASK_QUESTION);
-        }, [_v33]),
-        _v48 = (0, _v2.useCallback)(_v0 => {
-          _v0(_v0), _v45 && _v1 && _v6 && _v44.includes(_v6) && _v1();
-        }, [_v45, _v1, _v0, _v6]),
+          }), _v33(_v0.question, _v0.answer, _v0.relevantQuotes, _v0.relatedQuestions, "suggested_question"), _v9(_v27.ViewerQnAPanels.ANSWER));
+        }, [_v33, _v40]),
+        _v48 = (0, _v2.useCallback)((_v0, _v1 = "typed") => {
+          _v11(""), _v34(_v0, _v1), _v9(_v27.ViewerQnAPanels.ASK_QUESTION);
+        }, [_v34]),
         _v49 = (0, _v2.useCallback)(_v0 => {
-          "Enter" === _v0.key && _v10.trim().length && !_v16 && (_v47(_v10), _v38(_v10));
-        }, [_v47, _v38, _v10, _v16]);
+          _v0(_v0), _v46 && _v1 && _v6 && _v44.includes(_v6) && _v1();
+        }, [_v46, _v1, _v0, _v6]),
+        _v50 = (0, _v2.useCallback)(_v0 => {
+          "Enter" === _v0.key && _v10.trim().length && !_v16 && (_v48(_v10), _v39(_v10));
+        }, [_v48, _v39, _v10, _v16]);
       return ((0, _v2.useEffect)(function () {
-        _v8 === _v27.ViewerQnAPanels.LOADER && !_v22 && !_v21 && !_v20 && _v19?.length && setTimeout(() => {
+        _v8 !== _v27.ViewerQnAPanels.LOADER || _v22 || _v21 || _v20 || !_v25 || setTimeout(() => {
           _v9(_v27.ViewerQnAPanels.QUESTIONS);
         }, 300);
-      }, [_v8, _v22, _v21, _v20, _v2, _v19?.length]), (0, _v2.useEffect)(function () {
-        _v34 ? (_v9(_v27.ViewerQnAPanels.ASK_QUESTION), _v40()) : _v42 && !_v34 && _v9(_v27.ViewerQnAPanels.ANSWER);
-      }, [_v8, _v34, _v40]), (0, _v2.useEffect)(() => {
-        _v41?.current && _v8 === _v27.ViewerQnAPanels.ANSWER && _v41.current.scrollTo(0, 0);
+      }, [_v8, _v22, _v21, _v20, _v2, _v25]), (0, _v2.useEffect)(function () {
+        _v35 ? (_v9(_v27.ViewerQnAPanels.ASK_QUESTION), _v41()) : _v43 && !_v35 && _v9(_v27.ViewerQnAPanels.ANSWER);
+      }, [_v8, _v35, _v41]), (0, _v2.useEffect)(() => {
+        _v42?.current && _v8 === _v27.ViewerQnAPanels.ANSWER && _v42.current.scrollTo(0, 0);
       }, [_v8]), (0, _v2.useEffect)(function () {
-        if (_v8 === _v27.ViewerQnAPanels.ANSWER && !_v36) {
-          let _v0 = `${_v21.failedToAskTheVimeoAi}. ${_v37?.message}`;
+        if (_v8 === _v27.ViewerQnAPanels.ANSWER && !_v37) {
+          let _v0 = `${_v21.failedToAskTheVimeoAi}. ${_v38?.message}`;
           _v9(_v27.ViewerQnAPanels.QUESTIONS), _v18(_v0, "warning", 0);
         }
-      }, [_v8, _v36, _v37, _v18]), (0, _v2.useEffect)(function () {
+      }, [_v8, _v37, _v38, _v18]), (0, _v2.useEffect)(function () {
         _v22 ? _v9(_v27.ViewerQnAPanels.AI_ACTIVATION) : _v9(_v27.ViewerQnAPanels.LOADER);
       }, [_v22]), (0, _v2.useEffect)(() => {
         !async function () {
@@ -306,21 +307,21 @@
         }();
       }, [_v20, _v12]), (0, _v2.useEffect)(() => {
         !async function () {
-          if (_v37 && !_v14) try {
-            let _v0 = await (0, _v23.isClipInterractionsLimitError)(_v37);
+          if (_v38 && !_v14) try {
+            let _v0 = await (0, _v23.isClipInterractionsLimitError)(_v38);
             _v15(_v0);
           } catch {
             _v15(!1);
           }
         }();
-      }, [_v14, _v37]), (0, _v2.useEffect)(function () {
+      }, [_v14, _v38]), (0, _v2.useEffect)(function () {
         _v4 && _v24 && (0, _v24.sendAppReady)();
       }, [_v4, _v24]), !_v22 && _v20) ? _v12 ? (0, _v1.jsxs)(_v38.ResponsiveWrapper, {
         "data-testid": "viewer-qna",
         alignSelf: "stretch",
         display: "flex",
         flexDirection: "column",
-        aiThinking: _v42 && !_v45,
+        aiThinking: _v43 && !_v46,
         id: "viewerqna",
         isPlayer: _v4,
         children: [(0, _v1.jsx)(_v43, {
@@ -339,7 +340,7 @@
         alignSelf: "stretch",
         display: "flex",
         flexDirection: "column",
-        aiThinking: _v42 && !_v45,
+        aiThinking: _v43 && !_v46,
         id: "viewerqna",
         isPlayer: _v4,
         children: [(0, _v1.jsx)(_v43, {
@@ -350,7 +351,7 @@
         }), (0, _v1.jsxs)(_v12.Box, {
           h: "100%",
           overflowY: "auto",
-          ref: _v41,
+          ref: _v42,
           children: [_v8 === _v27.ViewerQnAPanels.LOADER && (0, _v1.jsx)(_v38.LoaderWrapper, {
             "data-testid": "viewer-qna-loader",
             children: (0, _v1.jsx)(_v11.Spinner, {
@@ -358,14 +359,14 @@
             })
           }), _v8 === _v27.ViewerQnAPanels.QUESTIONS && (0, _v1.jsx)(_v37, {
             onSelectLanguage: _v0 => {
-              _v31 ? (_v27(_v0), _v30(_v28(_v19, _v0))) : _v30(_v19);
+              _v32 ? (_v28(_v0), _v31(_v29(_v19, _v0))) : _v31(_v19);
             },
-            selectedLanguage: _v26,
-            uniqueLanguages: _v25,
-            questions: _v29,
-            onAskPredefinedQuestion: _v46,
+            selectedLanguage: _v27,
+            uniqueLanguages: _v26,
+            questions: _v30,
+            onAskPredefinedQuestion: _v47,
             isEmbeded: _v4
-          }), _v42 && (0, _v1.jsx)(_v30.AskQuestionPanel, {}), _v8 === _v27.ViewerQnAPanels.AI_ACTIVATION && (0, _v1.jsx)(_v29.AiActivationPanel, {}), _v8 === _v27.ViewerQnAPanels.LOGIN_REQUIRED && (0, _v1.jsx)(_v31.LoginRequiredPanel, {
+          }), _v43 && (0, _v1.jsx)(_v30.AskQuestionPanel, {}), _v8 === _v27.ViewerQnAPanels.AI_ACTIVATION && (0, _v1.jsx)(_v29.AiActivationPanel, {}), _v8 === _v27.ViewerQnAPanels.LOGIN_REQUIRED && (0, _v1.jsx)(_v31.LoginRequiredPanel, {
             onLoginRequired: _v3
           }), _v8 === _v27.ViewerQnAPanels.ANSWER && (0, _v1.jsx)(_v12.Box, {
             height: "100%",
@@ -377,42 +378,42 @@
             },
             children: (0, _v1.jsx)(_v25.QuestionDisplay, {
               showPrompt: !1,
-              onMomentSelect: _v48,
-              onAskQuestion: _v47
+              onMomentSelect: _v49,
+              onAskQuestion: _v48
             })
           })]
         }), (0, _v1.jsxs)(_v12.Box, {
           p: "16px",
-          children: [_v43 && _v14 ? (0, _v1.jsx)(_v16.Flex, {
+          children: [_v44 && _v14 ? (0, _v1.jsx)(_v16.Flex, {
             borderTop: "1px solid",
             borderColor: "stroke",
             pt: "24px",
             children: (0, _v1.jsx)(_v26.ClipInterractionsLimitError, {
               iconSize: "xs"
             })
-          }) : null, _v43 && !_v14 && (0, _v1.jsxs)(_v1.Fragment, {
+          }) : null, _v44 && !_v14 && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsxs)(_v13.InputGroup, {
               children: [(0, _v1.jsx)(_v38.QuestionInput, {
-                isLoading: _v42,
+                isLoading: _v43,
                 "data-testid": "custom-question-input",
                 autoFocus: !0,
-                isDisabled: _v44,
+                isDisabled: _v45,
                 maxLength: 500,
                 isPlayer: _v4,
-                value: _v44 ? _v35 : _v10,
+                value: _v45 ? _v36 : _v10,
                 placeholder: _v21.askAboutThisVideo,
                 onChange: _v0 => {
                   _v11(_v0.target.value);
                 },
                 onCompositionEnd: () => _v17(!1),
                 onCompositionStart: () => _v17(!0),
-                onKeyDown: _v49
+                onKeyDown: _v50
               }), (0, _v1.jsx)(_v14.InputRightElement, {
                 children: (0, _v1.jsx)(_v15.IconButton, {
                   "aria-label": "Submit question",
                   variant: "tertiary",
-                  isDisabled: _v44 || 0 === _v10.trim().length,
-                  isLoading: _v42,
+                  isDisabled: _v45 || 0 === _v10.trim().length,
+                  isLoading: _v43,
                   icon: (0, _v1.jsx)(_v17.ArrowUp, {}),
                   size: "sm",
                   sx: {
@@ -422,7 +423,7 @@
                     }
                   },
                   onClick: () => {
-                    _v10.trim().length && (_v47(_v10), _v38(_v10));
+                    _v10.trim().length && (_v48(_v10), _v39(_v10));
                   }
                 })
               })]
