@@ -53,11 +53,10 @@
     _v50 = _v0.i(0),
     _v51 = _v0.i(0),
     _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
-    _v54 = _v0.i(0);
-  let _v55 = "local",
-    _v56 = "uploaded",
-    _v57 = (0, _v2.memo)(({
+    _v53 = _v0.i(0);
+  let _v54 = "local",
+    _v55 = "uploaded",
+    _v56 = (0, _v2.memo)(({
       orientation: _v0,
       mediaType: _v1,
       emptyStateText: _v2,
@@ -67,7 +66,7 @@
       handleFileUpload: _v6
     }) => {
       let _v7 = (0, _v14.useAppSelector)(_v13.videoSessionIdSelector),
-        _v8 = (0, _v14.useAppSelector)(_v37.loadingMediaSelector),
+        _v8 = (0, _v14.useAppSelector)(_v36.loadingMediaSelector),
         _v9 = (0, _v14.useAppSelector)(_v13.durationSelector),
         [_v10, _v11] = (0, _v2.useState)([]),
         _v12 = (0, _v2.useRef)(null),
@@ -92,11 +91,11 @@
         [_v21, {
           data: _v22,
           isLoading: _v23
-        }] = (0, _v36.useLazyFetchMediaUploadsQuery)(),
-        [_v24] = (0, _v36.useDeleteMediaUploadMutation)(),
+        }] = (0, _v35.useLazyFetchMediaUploadsQuery)(),
+        [_v24] = (0, _v35.useDeleteMediaUploadMutation)(),
         _v25 = (0, _v2.useMemo)(() => _v8.filter(_v0 => !_v10.includes(_v0.id)).map(_v0 => ({
           id: _v0.id,
-          uploadType: _v55,
+          uploadType: _v54,
           mediaType: _v0.data.type,
           orientation: _v0.data.orientation,
           width: _v0.data.width,
@@ -110,9 +109,9 @@
           } = _v0;
           return {
             id: _v0.id,
-            uploadType: _v56,
+            uploadType: _v55,
             mediaType: _v0.type,
-            orientation: _v0.orientation || (0, _v46.getOrientation)(_v1, _v2),
+            orientation: _v0.orientation || (0, _v45.getOrientation)(_v1, _v2),
             width: _v1,
             height: _v2,
             data: _v0
@@ -120,23 +119,23 @@
         }), [_v22]),
         _v27 = (0, _v2.useMemo)(() => {
           let _v0 = [..._v25, ..._v26];
-          return _v1 !== _v7.MediaUploadsType.ALL && (_v0 = _v0.filter(_v0 => _v0.mediaType === _v1)), _v0 !== _v7.MediaUploadsOrientation.ALL && (_v0 = _v0.filter(_v0 => _v0.orientation && _v42.OrientationMap[_v0.orientation] === _v0)), _v0 = _v0.filter(_v0 => !_v10.includes(_v0.id));
+          return _v1 !== _v7.MediaUploadsType.ALL && (_v0 = _v0.filter(_v0 => _v0.mediaType === _v1)), _v0 !== _v7.MediaUploadsOrientation.ALL && (_v0 = _v0.filter(_v0 => _v0.orientation && _v41.OrientationMap[_v0.orientation] === _v0)), _v0 = _v0.filter(_v0 => !_v10.includes(_v0.id));
         }, [_v25, _v26, _v1, _v0, _v10]),
         _v28 = !_v23 && (!_v27 || 0 === _v27.length),
         _v29 = (0, _v2.useCallback)(async ({
           mediaItem: _v0,
           element: _v1
         }) => {
-          (0, _v51.trackUploadStart)(_v0, _v7);
+          (0, _v50.trackUploadStart)(_v0, _v7);
           let {
             status: _v2
           } = await _v15({
-            origin: _v44.UploadMediaOrigin.MEDIALIB,
+            origin: _v43.UploadMediaOrigin.MEDIALIB,
             mediaItem: _v0,
             isReplacing: _v14,
             elementSourceHash: _v1.sourceHash
           });
-          (0, _v51.trackUploadFinish)(_v0, _v2, _v7);
+          (0, _v50.trackUploadFinish)(_v0, _v2, _v7);
         }, [_v14, _v15, _v7]),
         _v30 = (0, _v2.useCallback)(async _v0 => {
           try {
@@ -157,12 +156,12 @@
           isTranscoding: _v3,
           isFailed: _v4
         }) => {
-          let _v5 = _v0.type === _v41.MediaType.IMAGE,
+          let _v5 = _v0.type === _v40.MediaType.IMAGE,
             _v6 = "media-item";
           return _v6 = _v4 ? `failed-${_v6}` : _v3 ? `transcoding-${_v6}` : _v2 ? `uploading-${_v6}` : `uploaded-${_v6}`, {
             key: _v0.id,
             id: _v0.id,
-            gridStyleType: _v40.GridStyleType.LANDSCAPE,
+            gridStyleType: _v39.GridStyleType.LANDSCAPE,
             alignToCenter: !0,
             isActive: !1,
             testid: _v6,
@@ -216,7 +215,7 @@
             }),
             ...(_v4 && {
               overlay: (0, _v1.jsxs)(_v17.Box, {
-                children: [(0, _v1.jsx)(_v49.Overlay, {
+                children: [(0, _v1.jsx)(_v48.Overlay, {
                   backdropFilter: "blur(4px)",
                   backgroundColor: "var(--vimeo-colors-fill-page-overlay)",
                   dataTestId: _v28.testIds.loader,
@@ -309,10 +308,10 @@
         _v32 = (0, _v2.useCallback)((_v0, _v1, _v2, _v3) => {
           let _v4 = _v0.data,
             _v5 = _v0.sourceHash,
-            _v6 = _v0.status === _v43.STATUS.PROGRESS,
+            _v6 = _v0.status === _v42.STATUS.PROGRESS,
             _v7 = !_v0.canBeUseLocally,
-            _v8 = _v0.status === _v43.STATUS.ERROR,
-            _v9 = _v0.status === _v43.STATUS.DONE,
+            _v8 = _v0.status === _v42.STATUS.ERROR,
+            _v9 = _v0.status === _v42.STATUS.DONE,
             _v10 = _v31({
               item: _v4,
               index: _v1,
@@ -320,13 +319,13 @@
               isTranscoding: _v7,
               isFailed: _v8
             });
-          return (0, _v1.jsx)(_v53.Box, {
+          return (0, _v1.jsx)(_v52.Box, {
             ..._v10,
-            ...((0, _v47.isVideoUploadItem)(_v4) && {
+            ...((0, _v46.isVideoUploadItem)(_v4) && {
               duration: _v4.duration,
               videoUrl: _v4.url
             }),
-            ...((0, _v47.isImageUploadItem)(_v4) && {
+            ...((0, _v46.isImageUploadItem)(_v4) && {
               imageUrl: _v4.url
             }),
             width: _v2,
@@ -334,7 +333,7 @@
               draggableData: {
                 id: _v4.id,
                 data: _v4,
-                type: _v38.DnDItemType.GRID_ELEMENT_MEDIA,
+                type: _v37.DnDItemType.GRID_ELEMENT_MEDIA,
                 createElement: ({
                   time: _v0
                 }) => _v17({
@@ -356,10 +355,10 @@
               id: _v4.id,
               title: _v4.name,
               type: _v34.ExpandType.MEDIA,
-              ...((0, _v47.isVideoUploadItem)(_v4) && {
+              ...((0, _v46.isVideoUploadItem)(_v4) && {
                 videoUrl: _v4.url
               }),
-              ...((0, _v47.isImageUploadItem)(_v4) && {
+              ...((0, _v46.isImageUploadItem)(_v4) && {
                 imageUrl: _v4.url
               }),
               height: _v4.height,
@@ -404,7 +403,7 @@
             item: _v0,
             index: _v1
           });
-          return (0, _v1.jsx)(_v53.Box, {
+          return (0, _v1.jsx)(_v52.Box, {
             ..._v4,
             videoUrl: _v0.previewUrl,
             imageUrl: _v0.thumbnailUrl,
@@ -413,7 +412,7 @@
             draggableData: {
               id: _v0.id,
               data: _v0,
-              type: _v38.DnDItemType.GRID_ELEMENT_MEDIA,
+              type: _v37.DnDItemType.GRID_ELEMENT_MEDIA,
               createElement: _v0 => _v16({
                 mediaItem: _v0,
                 draggableData: _v0,
@@ -437,7 +436,7 @@
             }),
             expandedItemData: {
               id: _v0.id,
-              title: (0, _v45.removeRandomizedSuffixFromFileName)(_v0.fileName),
+              title: (0, _v44.removeRandomizedSuffixFromFileName)(_v0.fileName),
               date: _v0.date,
               type: _v34.ExpandType.MEDIA,
               videoUrl: _v0.previewUrl,
@@ -450,12 +449,12 @@
         }, [_v5, _v31, _v29, _v16]),
         _v34 = (0, _v2.useCallback)((_v0, _v1, _v2) => {
           let _v3 = _v27[_v0];
-          if (_v3.uploadType === _v55) return _v32(_v3.data, _v0, _v1, _v2);
-          if (_v3.uploadType === _v56) return _v33(_v3.data, _v0, _v1, _v2);
+          if (_v3.uploadType === _v54) return _v32(_v3.data, _v0, _v1, _v2);
+          if (_v3.uploadType === _v55) return _v33(_v3.data, _v0, _v1, _v2);
           throw Error(_v27.SOMETHING_WENT_WRONG);
         }, [_v27, _v32, _v33]);
       return ((0, _v2.useEffect)(() => {
-        _v13.current = 1, _v35.default.vimeoSessionId && _v21({
+        _v13.current = 1, _v7 && _v21({
           page: _v13.current,
           vsid: _v7,
           limit: 30,
@@ -465,12 +464,12 @@
           fetchHotspotUploads: _v4
         }), _v12?.current?.scrollToIndex(0);
       }, [_v1, _v0, _v7, _v21, _v4]), _v28) ? (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v50.default, {
-          type: _v39.EmptyInspectorView.UPLOADS,
+        children: [(0, _v1.jsx)(_v49.default, {
+          type: _v38.EmptyInspectorView.UPLOADS,
           title: _v8.translations.emptyMediaTitle,
           text: _v2
         }), _v6 && (0, _v1.jsx)(_v18.Center, {
-          children: (0, _v1.jsx)(_v48.RebrandFileInput, {
+          children: (0, _v1.jsx)(_v47.RebrandFileInput, {
             onChange: _v6,
             accept: _v29.ALLOWED_MEDIA.join(","),
             multiple: !0,
@@ -478,12 +477,12 @@
             isTextButton: !0
           })
         })]
-      }) : (0, _v1.jsx)(_v52.MediaGridContainer, {
+      }) : (0, _v1.jsx)(_v51.MediaGridContainer, {
         padRight: !1,
-        children: (0, _v1.jsx)(_v54.Grid, {
+        children: (0, _v1.jsx)(_v53.Grid, {
           ref: _v12,
           itemRenderer: _v34,
-          styleType: _v40.GridStyleType.LANDSCAPE,
+          styleType: _v39.GridStyleType.LANDSCAPE,
           items: _v27,
           loadMoreItems: () => {
             _v22 && !(_v22.itemsCount <= _v22.items.length) && (_v13.current++, _v21({
@@ -501,7 +500,7 @@
         })
       });
     });
-  _v0.s(["default", 0, _v57], 0), _v0.s(["default", 0, ({
+  _v0.s(["default", 0, _v56], 0), _v0.s(["default", 0, ({
     handleLocalFileUpload: _v0
   }) => {
     let _v1 = (0, _v14.useAppSelector)(_v12.isEditingInteractiveOverlaySelector),
@@ -555,7 +554,7 @@
           });
         },
         shouldShowTypeFilter: _v14
-      }), (0, _v1.jsx)(_v57, {
+      }), (0, _v1.jsx)(_v56, {
         orientation: _v7,
         mediaType: _v9,
         emptyStateText: _v8.translations.emptyMediaState,

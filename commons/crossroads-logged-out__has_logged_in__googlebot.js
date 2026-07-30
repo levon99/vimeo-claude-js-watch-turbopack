@@ -219,7 +219,10 @@
             status_code: _v0
           }, _v4());
         },
-        _v9 = _v0 => "number" == typeof _v0.statusCode ? String(_v0.statusCode) : _v0.permanent ? "308" : "307",
+        _v9 = _v0 => {
+          var _v1;
+          return "redirect" in _v0 ? "number" == typeof (_v1 = _v0.redirect).statusCode ? String(_v1.statusCode) : _v1.permanent ? "308" : "307" : "notFound" in _v0 ? "404" : String(_v0.res?.statusCode || 200);
+        },
         _v10 = (_v0, _v1) => {
           let _v2 = _v6 ? 308 : 302;
           return _v13("vimeo_nextjs_ssr_auth_redirect_total", {
@@ -270,9 +273,8 @@
             _v2 = _v3?.inlineCreatePreloads && _v4(_v6.req) ? _v21(_v6) : null,
             _v3 = _v3?.inlineMagistoResources ? _v22(_v6) : null,
             _v4 = _v3?.inlineModbox && !_v4(_v6.req) ? _v20(_v6) : null,
-            _v5 = await _v2(_v6),
-            _v6 = "redirect" in _v5 ? _v9(_v5.redirect) : "notFound" in _v5 ? "404" : "200";
-          return _v8(_v6, "success", _v11), _v4(_v5, {
+            _v5 = await _v2(_v6);
+          return _v8(_v9(_v5), "success", _v11), _v4(_v5, {
             locale: _v3,
             isChinaRestricted: _v4
           }, _v0 ? await _v0 : null, _v1 ? await _v1 : null, _v2 ? await _v2 : null, _v3, _v4 ? await _v4 : null);
@@ -320,9 +322,8 @@
           _v11 = _v3?.inlineCreatePreloads && _v4(_v6.req) ? _v21(_v6) : null,
           _v12 = _v3?.inlineMagistoResources ? _v22(_v6) : null,
           _v13 = _v3?.inlineModbox ? _v20(_v6) : null,
-          _v14 = await _v2(_v6),
-          _v15 = "redirect" in _v14 ? _v9(_v14.redirect) : "notFound" in _v14 ? "404" : "200";
-        return _v8(_v15, "success", _v11), _v4(_v14, {
+          _v14 = await _v2(_v6);
+        return _v8(_v9(_v14), "success", _v11), _v4(_v14, {
           locale: _v3,
           isChinaRestricted: _v4
         }, _v9 ? await _v9 : null, _v10 ? await _v10 : null, _v11 ? await _v11 : null, _v12, _v13 ? await _v13 : null);

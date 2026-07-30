@@ -1551,7 +1551,9 @@
       } = (0, _v11.useCapability)(["hasWatchButton"], _v8?.teamUser?.ownerId),
       _v14 = _v8?.isSimplifiedSite ?? !1,
       _v15 = !!(_v2 && !_v8?.isEnterpriseSite && !_v14 && !_v11?.hasSimplifiedEnterpriseAccount && _v13.hasWatchButton),
-      _v16 = () => {
+      _v16 = _v5 || _v4 && !!_v6.uploadQuota,
+      _v17 = _v10.enable_new_sidebar && _v3 && !_v16,
+      _v18 = () => {
         _v9({
           sidebarNavDestination: "watch",
           sidebarNavContext: (0, _v14.deriveCanonicalPage)(new URL(window.location.href), {
@@ -1597,7 +1599,7 @@
         children: (0, _v1.jsx)(_v4.IconButton, {
           as: "a",
           href: "/watch",
-          onClick: _v16,
+          onClick: _v18,
           "aria-label": (0, _v12.translate)({
             singular: "Watch",
             dictionary: {
@@ -1656,7 +1658,7 @@
       direction: "column",
       gap: (0, _v6.rem)(16),
       padding: "1rem",
-      paddingBottom: _v4 ? "1rem" : 0,
+      paddingBottom: _v4 ? "1rem" : _v17 ? (0, _v6.rem)(10) : 0,
       children: [_v15 && (_v12 ? (0, _v1.jsx)(_v9.LoadingBlock, {
         style: {
           borderRadius: (0, _v6.rem)(10),
@@ -1697,7 +1699,7 @@
           }),
           href: "/watch",
           "data-id": "side_nav_watch_menu_item",
-          onClick: _v16
+          onClick: _v18
         }), (0, _v1.jsx)(_v10.ResizableSideNav.Divider, {})]
       })), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
         children: (0, _v1.jsx)(_v88, {})

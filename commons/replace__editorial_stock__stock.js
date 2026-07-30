@@ -273,16 +273,15 @@
   var _v35 = _v0.i(0),
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0);
+    _v38 = _v0.i(0);
   _v0.s(["default", 0, () => {
-    let _v0 = (0, _v21.useAppSelector)(_v36.isEditingInteractiveOverlaySelector),
+    let _v0 = (0, _v21.useAppSelector)(_v35.isEditingInteractiveOverlaySelector),
       _v1 = !_v0,
       [_v2, _v3] = (0, _v2.useState)({
         keywords: "",
-        searchType: _v1 ? _v37.MediaType.VIDEO : _v37.MediaType.IMAGE,
+        searchType: _v1 ? _v36.MediaType.VIDEO : _v36.MediaType.IMAGE,
         searchStockType: _v25.MediaStockType.CREATIVE,
-        sortEditorialType: _v38.SortEditorialType.NEWEST
+        sortEditorialType: _v37.SortEditorialType.NEWEST
       }),
       _v4 = (0, _v21.useAppSelector)(_v20.videoSessionIdSelector),
       [_v5, {
@@ -293,14 +292,14 @@
       _v9 = (0, _v2.useCallback)(_v0 => {
         _v8({
           page: 1,
-          searchType: _v1 ? _v37.MediaType.VIDEO : _v37.MediaType.IMAGE,
+          searchType: _v1 ? _v36.MediaType.VIDEO : _v36.MediaType.IMAGE,
           searchStockType: _v25.MediaStockType.CREATIVE,
-          sortEditorialType: _v38.SortEditorialType.NEWEST,
+          sortEditorialType: _v37.SortEditorialType.NEWEST,
           keywords: _v0
         }, !0);
       }, [_v8, _v1]);
     (0, _v2.useEffect)(() => {
-      _v35.default.vimeoSessionId && _v4 && _v5(void 0, !0);
+      _v4 && _v5(void 0, !0);
     }, [_v5, _v4]);
     let _v10 = (0, _v2.useCallback)((_v0, _v1) => {
         if (!_v6?.categories) return (0, _v1.jsx)(_v1.Fragment, {});
@@ -356,7 +355,7 @@
             }));
           }
         })
-      }), (0, _v1.jsxs)(_v39.MediaGridContainer, {
+      }), (0, _v1.jsxs)(_v38.MediaGridContainer, {
         padRight: !1,
         children: [_v11 && (0, _v1.jsx)(_v34, {
           keywords: _v2.keywords || "",
@@ -373,27 +372,27 @@
       })]
     });
   }], 0);
-  var _v40 = _v0.i(0),
-    _v41 = _v0.i(0),
-    _v42 = _v0.i(0);
-  let _v43 = {
+  var _v39 = _v0.i(0),
+    _v40 = _v0.i(0),
+    _v41 = _v0.i(0);
+  let _v42 = {
       ALL: "all",
       VIDEO: "video",
       IMAGE: "image"
     },
-    _v44 = {
+    _v43 = {
       ALL: "all",
       LANDSCAPE: "landscape",
       SQUARE: "square",
       PORTRAIT: "portrait"
     },
-    _v45 = {
+    _v44 = {
       orientation: "ratio",
       mediaType: "type"
     };
-  _v0.s(["MediaUploadFilterName", 0, _v45, "MediaUploadsOrientation", 0, _v44, "MediaUploadsType", 0, _v43], 0);
-  var _v46 = _v0.i(0);
-  let _v47 = (0, _v41.default)(_v31.InspectorPaddedRow).withConfig({
+  _v0.s(["MediaUploadFilterName", 0, _v44, "MediaUploadsOrientation", 0, _v43, "MediaUploadsType", 0, _v42], 0);
+  var _v45 = _v0.i(0);
+  let _v46 = (0, _v40.default)(_v31.InspectorPaddedRow).withConfig({
     displayName: "MediaUploadsFilters__FiltersRow",
     componentId: "sc-6aae4be0-0"
   })`
@@ -411,8 +410,8 @@
         filter: _v0,
         value: _v1
       }) => {
-        _v0(_v0, _v1), (0, _v46.sendTrackChangeMediaFilter)({
-          copy: _v45[_v0],
+        _v0(_v0, _v1), (0, _v45.sendTrackChangeMediaFilter)({
+          copy: _v44[_v0],
           mediaTab: _v24.MediaInspectorTabType.UPLOADS,
           selectionName: _v1
         });
@@ -424,8 +423,8 @@
           minWidth: "120px"
         })
       };
-    return (0, _v1.jsxs)(_v47, {
-      children: [(0, _v1.jsx)(_v42.Select, {
+    return (0, _v1.jsxs)(_v46, {
+      children: [(0, _v1.jsx)(_v41.Select, {
         placeholder: (0, _v5.translate)({
           singular: "Ratio",
           dictionary: {
@@ -457,12 +456,12 @@
           filter: "orientation",
           value: _v0.value[0]
         }),
-        items: Object.values(_v44).map(_v0 => ({
+        items: Object.values(_v43).map(_v0 => ({
           value: _v0,
-          label: (0, _v40.default)(_v0)
+          label: (0, _v39.default)(_v0)
         })),
         size: "sm"
-      }), _v1 && (0, _v1.jsx)(_v42.Select, {
+      }), _v1 && (0, _v1.jsx)(_v41.Select, {
         placeholder: (0, _v5.translate)({
           singular: "Type",
           dictionary: {
@@ -490,9 +489,9 @@
           filter: "mediaType",
           value: _v0.value[0]
         }),
-        items: Object.values(_v43).map(_v0 => ({
+        items: Object.values(_v42).map(_v0 => ({
           value: _v0,
-          label: (0, _v40.default)(_v0)
+          label: (0, _v39.default)(_v0)
         })),
         size: "sm"
       })]

@@ -3144,7 +3144,8 @@ Error:`, _v0);
   };
   let _v287 = 0,
     _v288 = 0,
-    _v289 = 0;
+    _v289 = 0,
+    _v290 = 0;
   !function (_v0) {
     let _v1, _v2, _v3, _v4, _v5;
     _v282 && (0, _v16.consoleSandbox)(() => {
@@ -4497,7 +4498,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "88130f2a6bccf4e7ba4fb8d338b5d9d233ef91e8",
+      release: "f7d238ad162f05801a24dfe4d93f340601a556d5",
       ..._v0
     };
     !function (_v0) {
@@ -4613,7 +4614,7 @@ Error:`, _v0);
           _v1 = _v6.stacktrace?.frames;
         if (_v0 && _v1?.length === 1) {
           let _v0 = _v1[0].filename ?? _v1[0].abs_path ?? "";
-          if ("" === _v0 || "<anonymous>" === _v0 || "[native code]" === _v0) return null;
+          if ("" === _v0 || "<anonymous>" === _v0 || "[native code]" === _v0 || _v0.startsWith("app:///") && !/\.js(\?|$)/.test(_v0)) return null;
         }
       }
       let _v7 = _v0.exception?.values?.[0];
@@ -4655,12 +4656,9 @@ Error:`, _v0);
       let _v11 = _v0.exception?.values?.[0];
       if (_v11?.type === "TypeError" && "Cannot read properties of null (reading 'lastChild')" === _v11.value && (_v11.mechanism?.type === "auto.browser.global_handlers.onerror" || _v11.mechanism?.type === "onerror") && (_v11.stacktrace?.frames ?? []).some(_v0 => "prepareVideo" === _v0.function)) return null;
       let _v12 = _v0.exception?.values?.[0];
-      if (_v12?.type === "InvalidStateError" && "The object is in an invalid state." === _v12.value && _v12.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v12.mechanism?.handled === !1 && _v12.mechanism?.data?.handler === "<anonymous>") {
-        let _v0 = _v12.stacktrace?.frames ?? [];
-        if (_v0.length > 0 && _v0.every(_v0 => (_v0.filename ?? _v0.abs_path ?? "").includes("@sentry"))) return null;
-      }
+      if (_v12?.type === "InvalidStateError" && "The object is in an invalid state." === _v12.value && _v12.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v12.mechanism?.handled === !1 && _v12.mechanism?.data?.handler === "<anonymous>" && (_v290 += 1) > 1) return null;
       let _v13 = _v0.exception?.values?.[0];
-      if (_v13?.type === "InvalidStateError" && _v13.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v13.mechanism?.handled === !1 && /Failed to read the 'responseText' property from 'XMLHttpRequest'/.test(_v13.value ?? "") && /was 'arraybuffer'/.test(_v13.value ?? "")) return null;
+      if (_v13?.type === "InvalidStateError" && _v13.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v13.mechanism?.handled === !1 && /Failed to read the 'responseText' property from 'XMLHttpRequest'/.test(_v13.value ?? "") && /was '(arraybuffer|json|blob|document)'/.test(_v13.value ?? "")) return null;
       let _v14 = _v0.exception?.values?.[0];
       if (_v14?.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v14.mechanism?.handled === !1 && /Java exception was raised during method invocation/.test(_v14.value ?? "")) return null;
       let _v15 = _v0.exception?.values?.[0];

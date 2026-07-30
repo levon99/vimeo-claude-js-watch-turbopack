@@ -17499,22 +17499,21 @@
       vimeoVideoId: _v2,
       featureFlags: _v3,
       videoVersionId: _v4,
-      vimeoSessionId: _v5,
-      videoUploadAttemptId: _v6,
-      isThirdPartyIntegration: _v7
+      videoUploadAttemptId: _v5,
+      isThirdPartyIntegration: _v6
     }) => {
-      let _v8 = (0, _v168.useAppDispatch)();
+      let _v7 = (0, _v168.useAppDispatch)();
       return (({
         videoHash: _v0,
         useRevision: _v1,
         vimeoVideoId: _v2,
         featureFlags: _v3,
         videoVersionId: _v4,
-        vimeoSessionId: _v5,
-        videoUploadAttemptId: _v6,
-        isThirdPartyIntegration: _v7
+        videoUploadAttemptId: _v5,
+        isThirdPartyIntegration: _v6
       }) => {
-        let _v8 = (0, _v168.useAppDispatch)(),
+        let _v7 = (0, _v168.useAppDispatch)(),
+          _v8 = (0, _v8.useContext)(_v92.ViewerContext)?.jwt,
           _v9 = (0, _v168.useAppSelector)(_v167.videoSessionIdSelector),
           _v10 = (0, _v168.useAppSelector)(_v373.fontsSelector),
           {
@@ -17743,7 +17742,7 @@
           } = _v308({
             storyboardFetchResponse: _v16,
             videoHash: _v0,
-            isThirdPartyIntegration: _v7
+            isThirdPartyIntegration: _v6
           });
         (0, _v720.default)(), (() => {
           let _v0 = (0, _v168.useAppDispatch)(),
@@ -17772,8 +17771,8 @@
             let {
               default: _v0
             } = await _v0.A(0);
-            _v8((0, _v399.initTextAnimationsAction)(_v0));
-          }, [_v8]),
+            _v7((0, _v399.initTextAnimationsAction)(_v0));
+          }, [_v7]),
           _v46 = (0, _v8.useCallback)(async (_v0, _v1) => {
             let _v2 = "",
               _v3 = !1;
@@ -17862,7 +17861,7 @@
             videoHash: _v0,
             useRevision: _v1,
             videoVersionId: _v4,
-            videoUploadAttemptId: _v6,
+            videoUploadAttemptId: _v5,
             isInteractive: _v12,
             vimeoVideoId: _v2
           }), !0).catch(_v0 => {
@@ -17893,7 +17892,7 @@
               isInteractive: _v12
             }), !0), (0, _v257.setHashUrlParam)(_v0);
           })));
-        }, [_v46, _v15, _v0, _v2, _v4, _v6, _v18, _v9, _v21, _v12, _v36, _v13, _v17, _v19, _v1]), (0, _v8.useEffect)(() => {
+        }, [_v46, _v15, _v0, _v2, _v4, _v5, _v18, _v9, _v21, _v12, _v36, _v13, _v17, _v19, _v1]), (0, _v8.useEffect)(() => {
           if (!_v16 || !_v10) return void _v34();
           let {
               lastUserSavedStoryboard: _v0,
@@ -17906,7 +17905,7 @@
             storyboard: _v2
           });
         }, [_v10, _v37, _v39, _v35, _v16, _v12, _v40, _v38, _v34]), (0, _v8.useLayoutEffect)(() => {
-          if (_v5 && _v22) {
+          if (_v8 && _v22) {
             _v20({
               tag: _v12 ? _v733.GraphicsTag.INTERACTIVE : _v733.GraphicsTag.EDITOR
             });
@@ -17926,37 +17925,36 @@
               });
             });
           }
-        }, [_v20, _v21, _v12, _v5, _v22]), (0, _v8.useLayoutEffect)(() => {
-          _v8((0, _v166.setInspectorInitialWidthAction)(_v44 ? _v717.INSPECTOR_WIDTH_LG : _v717.INSPECTOR_WIDTH));
-        }, [_v8, _v44]), (0, _v475.default)(() => {
-          _v14(_v3), _v8((0, _v390.setIsShowGuidesStageAction)(_v30)), _v8((0, _v390.setIsSnapStageAction)(_v31)), _v306.default.setIsStaff(_v13), _v165.default.sendPageView();
+        }, [_v20, _v21, _v12, _v22, _v8]), (0, _v8.useLayoutEffect)(() => {
+          _v7((0, _v166.setInspectorInitialWidthAction)(_v44 ? _v717.INSPECTOR_WIDTH_LG : _v717.INSPECTOR_WIDTH));
+        }, [_v7, _v44]), (0, _v475.default)(() => {
+          _v14(_v3), _v7((0, _v390.setIsShowGuidesStageAction)(_v30)), _v7((0, _v390.setIsSnapStageAction)(_v31)), _v306.default.setIsStaff(_v13), _v165.default.sendPageView();
         }), (0, _v8.useLayoutEffect)(() => {
           _v45();
-        }, [_v8, _v45]), (0, _v8.useEffect)(() => (window.addEventListener("keydown", _v23), () => {
+        }, [_v7, _v45]), (0, _v8.useEffect)(() => (window.addEventListener("keydown", _v23), () => {
           window.removeEventListener("keydown", _v23);
         }), [_v23]), (0, _v8.useLayoutEffect)(() => {
-          _v42 || (_v7 ? _v8((0, _v166.initInspectorAction)({
+          _v42 || (_v6 ? _v7((0, _v166.initInspectorAction)({
             inspectorType: _v169.InspectorType.TEMPLATES
-          })) : _v12 ? _v8((0, _v166.initInspectorAction)({
+          })) : _v12 ? _v7((0, _v166.initInspectorAction)({
             inspectorType: _v169.InspectorType.HOTSPOTS
-          })) : _v43 ? _v8((0, _v166.initInspectorAction)({
+          })) : _v43 ? _v7((0, _v166.initInspectorAction)({
             inspectorType: _v169.InspectorType.TRANSCRIPT
-          })) : _v8((0, _v166.initInspectorAction)({
+          })) : _v7((0, _v166.initInspectorAction)({
             inspectorType: _v169.InspectorType.MEDIA
           })));
-        }, [_v8, _v42, _v43, _v12, _v7]);
+        }, [_v7, _v42, _v43, _v12, _v6]);
       })({
         videoHash: _v0,
         useRevision: _v1,
         vimeoVideoId: _v2,
         featureFlags: _v3,
         videoVersionId: _v4,
-        vimeoSessionId: _v5,
-        videoUploadAttemptId: _v6,
-        isThirdPartyIntegration: _v7
+        videoUploadAttemptId: _v5,
+        isThirdPartyIntegration: _v6
       }), (0, _v8.useEffect)(() => () => {
-        _v8((0, _v315.appResetAction)());
-      }, [_v8]), null;
+        _v7((0, _v315.appResetAction)());
+      }, [_v7]), null;
     },
     _v737 = ({
       partnerApp: _v0,
@@ -18143,7 +18141,6 @@
                               videoVersionId: _v2.location.query?.version_id,
                               videoUploadAttemptId: _v2.location.query?.upload_attempt_id,
                               vimeoVideoId: _v2.location.query?.vid,
-                              vimeoSessionId: _v1,
                               featureFlags: _v3,
                               isThirdPartyIntegration: !!_v4
                             }), !!_v4 && !!_v10?.user && _v5?.app && (0, _v7.jsx)(_v737, {

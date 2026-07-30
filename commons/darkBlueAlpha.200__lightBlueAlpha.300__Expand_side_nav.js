@@ -254,24 +254,25 @@
       {
         capabilities: _v15
       } = (0, _v7.useCapability)(["hasTotalStorageCap", "canUpgrade"], _v14?.teamUser?.ownerId),
-      _v16 = _v14?.user?.id === _v9,
-      _v17 = _v14?.teamUser?.plainTextPermissionLevel === "Admin",
+      _v16 = _v9 || _v14?.teamUser?.ownerId || _v14?.user?.id,
+      _v17 = _v14?.user?.id != null && _v14?.user?.id === _v16,
+      _v18 = _v14?.teamUser?.plainTextPermissionLevel === "Admin",
       {
-        uploadQuota: _v18,
-        aiCreditsQuota: _v19,
-        drmLicensesQuota: _v20,
-        isLoading: _v21
+        uploadQuota: _v19,
+        aiCreditsQuota: _v20,
+        drmLicensesQuota: _v21,
+        isLoading: _v22
       } = (0, _v8.useUserQuotaApi)(),
-      _v22 = !!((_v16 || _v17) && _v18 && !_v10),
-      [_v23, _v24] = (0, _v2.useState)(!1),
-      _v25 = (0, _v2.useRef)(_v13);
+      _v23 = !!((_v17 || _v18) && _v19 && !_v10),
+      [_v24, _v25] = (0, _v2.useState)(!1),
+      _v26 = (0, _v2.useRef)(_v13);
     (0, _v2.useLayoutEffect)(() => {
-      if (_v25.current === _v13) return;
-      _v25.current = _v13, _v24(!0);
-      let _v0 = setTimeout(() => _v24(!1), 360);
+      if (_v26.current === _v13) return;
+      _v26.current = _v13, _v25(!0);
+      let _v0 = setTimeout(() => _v25(!1), 360);
       return () => clearTimeout(_v0);
     }, [_v13]);
-    let _v26 = _v14?.isSimplifiedSite ?? !1;
+    let _v27 = _v14?.isSimplifiedSite ?? !1;
     return (0, _v1.jsx)(_v10.SideNavCollapsedContext.Provider, {
       value: _v13,
       children: (0, _v1.jsxs)(_v6.ResizableSideNav, {
@@ -306,8 +307,8 @@
           children: _v0
         }), (0, _v1.jsx)(_v6.ResizableSideNav.Footer, {
           children: (0, _v1.jsx)(_v3.Box, {
-            opacity: +!_v23,
-            sx: _v23 ? {
+            opacity: +!_v24,
+            sx: _v24 ? {
               animation: _v13 ? `${_v22} 360ms ease-in-out forwards` : `${_v23} 180ms ease-in-out forwards`
             } : void 0,
             paddingBottom: _v13 ? (0, _v5.rem)(16) : void 0,
@@ -315,13 +316,13 @@
               variant: _v13 ? "icons" : _v12,
               isMobile: _v4,
               showWatchMenuItem: _v8,
-              showWhatsNew: !_v11 && !_v26,
-              showQuota: _v22,
-              isLoadingQuota: _v21,
+              showWhatsNew: !_v11 && !_v27,
+              showQuota: _v23,
+              isLoadingQuota: _v22,
               quota: {
-                uploadQuota: _v18,
-                aiCreditsQuota: _v19,
-                drmLicensesQuota: _v20,
+                uploadQuota: _v19,
+                aiCreditsQuota: _v20,
+                drmLicensesQuota: _v21,
                 showTotal: _v15.hasTotalStorageCap,
                 showUpgrade: _v15.canUpgrade
               },
