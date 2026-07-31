@@ -582,7 +582,7 @@
                           singular: "Beschreibung"
                         },
                         "ja-JP": {
-                          singular: "概要"
+                          singular: "説明"
                         },
                         "ko-KR": {
                           singular: "설명"

@@ -1391,7 +1391,7 @@
                           singular: "Required",
                           dictionary: {
                             es: {
-                              singular: "Obligatorio"
+                              singular: "Requerido"
                             },
                             "de-DE": {
                               singular: "Erforderlich"
@@ -1403,7 +1403,7 @@
                               singular: "必須"
                             },
                             "ko-KR": {
-                              singular: "필수 항목"
+                              singular: "필수"
                             },
                             "pt-BR": {
                               singular: "Obrigatório"
@@ -1425,7 +1425,7 @@
                               singular: "Required",
                               dictionary: {
                                 es: {
-                                  singular: "Obligatorio"
+                                  singular: "Requerido"
                                 },
                                 "de-DE": {
                                   singular: "Erforderlich"
@@ -1437,7 +1437,7 @@
                                   singular: "必須"
                                 },
                                 "ko-KR": {
-                                  singular: "필수 항목"
+                                  singular: "필수"
                                 },
                                 "pt-BR": {
                                   singular: "Obrigatório"
@@ -1709,7 +1709,7 @@
                   singular: "Required",
                   dictionary: {
                     es: {
-                      singular: "Obligatorio"
+                      singular: "Requerido"
                     },
                     "de-DE": {
                       singular: "Erforderlich"
@@ -1721,7 +1721,7 @@
                       singular: "必須"
                     },
                     "ko-KR": {
-                      singular: "필수 항목"
+                      singular: "필수"
                     },
                     "pt-BR": {
                       singular: "Obrigatório"
@@ -1765,7 +1765,7 @@
                     singular: "Required",
                     dictionary: {
                       es: {
-                        singular: "Obligatorio"
+                        singular: "Requerido"
                       },
                       "de-DE": {
                         singular: "Erforderlich"
@@ -1777,7 +1777,7 @@
                         singular: "必須"
                       },
                       "ko-KR": {
-                        singular: "필수 항목"
+                        singular: "필수"
                       },
                       "pt-BR": {
                         singular: "Obrigatório"
@@ -2780,7 +2780,7 @@
                         singular: "Beschreibung"
                       },
                       "ja-JP": {
-                        singular: "概要"
+                        singular: "説明"
                       },
                       "ko-KR": {
                         singular: "설명"
@@ -3668,7 +3668,7 @@
                           singular: "Required",
                           dictionary: {
                             es: {
-                              singular: "Obligatorio"
+                              singular: "Requerido"
                             },
                             "de-DE": {
                               singular: "Erforderlich"
@@ -3680,7 +3680,7 @@
                               singular: "必須"
                             },
                             "ko-KR": {
-                              singular: "필수 항목"
+                              singular: "필수"
                             },
                             "pt-BR": {
                               singular: "Obrigatório"
@@ -5378,7 +5378,7 @@
                           singular: "Beschreibung"
                         },
                         "ja-JP": {
-                          singular: "概要"
+                          singular: "説明"
                         },
                         "ko-KR": {
                           singular: "설명"
@@ -5515,7 +5515,7 @@
                           singular: "Required",
                           dictionary: {
                             es: {
-                              singular: "Obligatorio"
+                              singular: "Requerido"
                             },
                             "de-DE": {
                               singular: "Erforderlich"
@@ -5527,7 +5527,7 @@
                               singular: "必須"
                             },
                             "ko-KR": {
-                              singular: "필수 항목"
+                              singular: "필수"
                             },
                             "pt-BR": {
                               singular: "Obrigatório"

@@ -2576,7 +2576,7 @@
           ..._v5,
           feedback: _v1.getFeedback(_v5.score, _v3.sequence)
         };
-      })(_v60.iris.value).score : void 0,
+      })(_v60.iris.value.slice(0, 72)).score : void 0,
       _v70 = _v32?.desktopTermsMarginTop != null ? (0, _v3.rem)(_v32.desktopTermsMarginTop - 12 * !!_v31) : void 0,
       _v71 = _v35 ? (0, _v2.jsx)(_v71.Button, {
         w: "100%",

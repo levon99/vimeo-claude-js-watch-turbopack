@@ -3145,13 +3145,1537 @@
   }], 0);
   var _v143 = _v0.i(0),
     _v144 = _v0.i(0),
-    _v145 = _v0.i(0);
-  let _v146 = {
+    _v145 = _v0.i(0),
+    _v146 = _v0.i(0),
+    _v147 = _v0.i(0),
+    _v148 = _v0.i(0),
+    _v149 = _v0.i(0),
+    _v150 = _v0.i(0),
+    _v151 = _v0.i(0),
+    _v152 = _v0.i(0),
+    _v153 = _v0.i(0),
+    _v154 = _v0.i(0),
+    _v155 = _v0.i(0),
+    _v156 = _v0.i(0),
+    _v157 = _v0.i(0),
+    _v158 = _v0.i(0),
+    _v159 = _v0.i(0),
+    _v160 = _v0.i(0),
+    _v161 = _v0.i(0);
+  let _v162 = (0, _v52.rem)(204),
+    _v163 = (0, _v52.rem)(277);
+  function _v164({
+    name: _v0 = "Name (required)",
+    role: _v1 = "",
+    description: _v2 = "",
+    thumbnailUrl: _v3 = null,
+    width: _v4 = _v162,
+    height: _v5 = _v163,
+    ..._v6
+  }) {
+    return (0, _v41.jsxs)(_v47.Flex, {
+      direction: "column",
+      gap: "xs",
+      p: "xs",
+      children: [(0, _v41.jsx)(_v47.Flex, {
+        width: _v4,
+        height: _v5,
+        align: "center",
+        backgroundColor: "fill-component",
+        borderColor: "input-stroke",
+        borderRadius: (0, _v52.rem)(20),
+        borderStyle: "solid",
+        borderWidth: (0, _v52.rem)(1),
+        justify: "center",
+        overflow: "hidden",
+        ..._v6,
+        children: _v3 ? (0, _v41.jsx)(_v101.Image, {
+          alt: (0, _v58.translate)({
+            singular: "Speaker avatar",
+            dictionary: {
+              es: {
+                singular: "Avatar del ponente"
+              },
+              "de-DE": {
+                singular: "Avatar des Sprechers"
+              },
+              "fr-FR": {
+                singular: "Avatar de l'intervenant"
+              },
+              "ja-JP": {
+                singular: "スピーカーのアバター"
+              },
+              "ko-KR": {
+                singular: "스피커 아바타"
+              },
+              "pt-BR": {
+                singular: "Avatar do palestrante"
+              },
+              "zh-CN": {
+                singular: "演讲者头像"
+              }
+            }
+          }),
+          height: "100%",
+          objectFit: "cover",
+          src: _v3,
+          width: "100%"
+        }) : (0, _v41.jsx)(_v99.Box, {
+          color: "icon-secondary",
+          children: (0, _v41.jsx)(_v154.PersonUserFilled, {})
+        })
+      }), (0, _v41.jsxs)(_v47.Flex, {
+        direction: "column",
+        p: "xs",
+        children: [(0, _v41.jsx)(_v51.Text, {
+          variant: "heading-md",
+          children: _v0
+        }), (0, _v41.jsx)(_v51.Text, {
+          variant: "body-sm",
+          children: _v1
+        }), (0, _v41.jsx)(_v51.Text, {
+          variant: "body-md",
+          mt: (0, _v52.rem)(8),
+          children: _v2
+        })]
+      })]
+    });
+  }
+  function _v165({
+    initialSpeaker: _v0,
+    isOpen: _v1,
+    mode: _v2,
+    onClose: _v3,
+    onSave: _v4
+  }) {
+    let [_v5, _v6] = (0, _v43.useState)(_v0),
+      [_v7, _v8] = (0, _v43.useState)(!1),
+      _v9 = (_v0, _v1) => {
+        "name" === _v0 && "" !== _v1.trim() && _v8(!1), _v6({
+          ..._v5,
+          [_v0]: _v1
+        });
+      };
+    return (0, _v41.jsxs)(_v83.Modal, {
+      closeOnOverlayClick: !1,
+      size: "lg",
+      isCentered: !0,
+      isOpen: _v1,
+      onClose: _v3,
+      children: [(0, _v41.jsx)(_v88.ModalOverlay, {}), (0, _v41.jsxs)(_v86.ModalContent, {
+        children: [(0, _v41.jsx)(_v87.ModalHeader, {
+          children: "edit" === _v2.type ? (0, _v58.translate)({
+            singular: "Edit speaker",
+            dictionary: {
+              es: {
+                singular: "Editar orador"
+              },
+              "de-DE": {
+                singular: "Redner bearbeiten"
+              },
+              "fr-FR": {
+                singular: "Modifier l'intervenant"
+              },
+              "ja-JP": {
+                singular: "スピーカーを編集"
+              },
+              "ko-KR": {
+                singular: "발표자 편집"
+              },
+              "pt-BR": {
+                singular: "Editar palestrante"
+              },
+              "zh-CN": {
+                singular: "编辑演讲人"
+              }
+            }
+          }) : (0, _v58.translate)({
+            singular: "New speaker",
+            dictionary: {
+              es: {
+                singular: "Nuevo ponente"
+              },
+              "de-DE": {
+                singular: "Neuer Sprecher"
+              },
+              "fr-FR": {
+                singular: "Nouvel intervenant"
+              },
+              "ja-JP": {
+                singular: "新しいスピーカー"
+              },
+              "ko-KR": {
+                singular: "새 스피커"
+              },
+              "pt-BR": {
+                singular: "Novo palestrante"
+              },
+              "zh-CN": {
+                singular: "新增演讲者"
+              }
+            }
+          })
+        }), (0, _v41.jsx)(_v84.ModalBody, {
+          display: "flex",
+          flexDirection: "column",
+          children: (0, _v41.jsxs)(_v47.Flex, {
+            gap: "xl",
+            justify: "space-between",
+            children: [(0, _v41.jsxs)(_v47.Flex, {
+              direction: "column",
+              flex: "1",
+              gap: "md",
+              minWidth: 0,
+              children: [(0, _v41.jsx)(_v47.Flex, {
+                direction: "column",
+                children: (0, _v41.jsxs)(_v143.FormControl, {
+                  isInvalid: _v7,
+                  children: [(0, _v41.jsx)(_v144.FormLabel, {
+                    htmlFor: "speaker-name",
+                    children: (0, _v41.jsx)(_v51.Text, {
+                      as: "span",
+                      variant: "heading-sm",
+                      children: (0, _v58.translate)({
+                        singular: "Name",
+                        dictionary: {
+                          es: {
+                            singular: "Nombre"
+                          },
+                          "fr-FR": {
+                            singular: "Nom"
+                          },
+                          "ja-JP": {
+                            singular: "名前"
+                          },
+                          "ko-KR": {
+                            singular: "이름"
+                          },
+                          "pt-BR": {
+                            singular: "Nome"
+                          },
+                          "zh-CN": {
+                            singular: "姓名"
+                          }
+                        }
+                      })
+                    })
+                  }), (0, _v41.jsx)(_v158.Input, {
+                    id: "speaker-name",
+                    isInvalid: _v7,
+                    onChange: _v0 => _v9("name", _v0.target.value),
+                    placeholder: (0, _v58.translate)({
+                      singular: "Add name",
+                      dictionary: {
+                        es: {
+                          singular: "Agregar nombre"
+                        },
+                        "de-DE": {
+                          singular: "Name hinzufügen"
+                        },
+                        "fr-FR": {
+                          singular: "Ajouter un nom"
+                        },
+                        "ja-JP": {
+                          singular: "名前を追加"
+                        },
+                        "ko-KR": {
+                          singular: "이름 추가"
+                        },
+                        "pt-BR": {
+                          singular: "Adicionar nome"
+                        },
+                        "zh-CN": {
+                          singular: "添加姓名"
+                        }
+                      }
+                    }),
+                    value: _v5.name
+                  }), (0, _v41.jsx)(_v155.AnimatePresence, {
+                    children: _v7 ? (0, _v41.jsx)(_v47.Flex, {
+                      as: _v156.motion.div,
+                      initial: {
+                        height: 0,
+                        opacity: 0
+                      },
+                      animate: {
+                        height: "auto",
+                        opacity: 1
+                      },
+                      exit: {
+                        height: 0,
+                        opacity: 0
+                      },
+                      transition: {
+                        duration: "2",
+                        type: "spring",
+                        stiffness: "600",
+                        damping: "32"
+                      },
+                      overflow: "hidden",
+                      mt: "xs",
+                      children: (0, _v41.jsx)(_v157.FormErrorMessage, {
+                        variant: "error",
+                        fontSize: "body-sm",
+                        lineHeight: "body-sm",
+                        mt: "0",
+                        children: (0, _v58.translate)({
+                          singular: "Required",
+                          dictionary: {
+                            es: {
+                              singular: "Requerido"
+                            },
+                            "de-DE": {
+                              singular: "Erforderlich"
+                            },
+                            "fr-FR": {
+                              singular: "Obligatoire"
+                            },
+                            "ja-JP": {
+                              singular: "必須"
+                            },
+                            "ko-KR": {
+                              singular: "필수"
+                            },
+                            "pt-BR": {
+                              singular: "Obrigatório"
+                            },
+                            "zh-CN": {
+                              singular: "必填"
+                            }
+                          }
+                        })
+                      })
+                    }) : null
+                  })]
+                })
+              }), (0, _v41.jsxs)(_v47.Flex, {
+                direction: "column",
+                children: [(0, _v41.jsx)(_v144.FormLabel, {
+                  htmlFor: "speaker-role",
+                  children: (0, _v41.jsxs)(_v47.Flex, {
+                    as: "span",
+                    align: "center",
+                    gap: (0, _v52.rem)(4),
+                    children: [(0, _v41.jsx)(_v51.Text, {
+                      as: "span",
+                      variant: "heading-sm",
+                      children: (0, _v58.translate)({
+                        singular: "Role",
+                        dictionary: {
+                          es: {
+                            singular: "Rol"
+                          },
+                          "de-DE": {
+                            singular: "Rolle"
+                          },
+                          "fr-FR": {
+                            singular: "Rôle"
+                          },
+                          "ja-JP": {
+                            singular: "肩書き"
+                          },
+                          "ko-KR": {
+                            singular: "역할"
+                          },
+                          "pt-BR": {
+                            singular: "Função"
+                          },
+                          "zh-CN": {
+                            singular: "职位"
+                          }
+                        }
+                      })
+                    }), (0, _v41.jsx)(_v147.Tooltip, {
+                      label: (0, _v58.translate)({
+                        singular: "Role appears on the event page",
+                        dictionary: {
+                          es: {
+                            singular: "El rol aparece en la página del evento"
+                          },
+                          "de-DE": {
+                            singular: "Rolle erscheint auf der Veranstaltungsseite"
+                          },
+                          "fr-FR": {
+                            singular: "Le rôle apparaît sur la page de l'événement"
+                          },
+                          "ja-JP": {
+                            singular: "肩書きはイベントページに表示されます"
+                          },
+                          "ko-KR": {
+                            singular: "역할은 이벤트 페이지에 표시됩니다"
+                          },
+                          "pt-BR": {
+                            singular: "A função aparece na página do evento"
+                          },
+                          "zh-CN": {
+                            singular: "职位会显示在活动页面上"
+                          }
+                        }
+                      }),
+                      children: (0, _v41.jsx)(_v160.InfoCircle, {
+                        boxSize: (0, _v52.rem)(16)
+                      })
+                    })]
+                  })
+                }), (0, _v41.jsx)(_v158.Input, {
+                  id: "speaker-role",
+                  onChange: _v0 => _v9("role", _v0.target.value),
+                  placeholder: (0, _v58.translate)({
+                    singular: "Add role",
+                    dictionary: {
+                      es: {
+                        singular: "Agregar rol"
+                      },
+                      "de-DE": {
+                        singular: "Rolle hinzufügen"
+                      },
+                      "fr-FR": {
+                        singular: "Ajouter un rôle"
+                      },
+                      "ja-JP": {
+                        singular: "肩書きを追加"
+                      },
+                      "ko-KR": {
+                        singular: "역할 추가"
+                      },
+                      "pt-BR": {
+                        singular: "Adicionar função"
+                      },
+                      "zh-CN": {
+                        singular: "添加职位"
+                      }
+                    }
+                  }),
+                  value: _v5.role
+                })]
+              }), (0, _v41.jsxs)(_v47.Flex, {
+                direction: "column",
+                children: [(0, _v41.jsx)(_v144.FormLabel, {
+                  htmlFor: "speaker-photo",
+                  children: (0, _v41.jsxs)(_v47.Flex, {
+                    as: "span",
+                    align: "center",
+                    gap: (0, _v52.rem)(4),
+                    children: [(0, _v41.jsx)(_v51.Text, {
+                      as: "span",
+                      variant: "heading-sm",
+                      children: (0, _v58.translate)({
+                        singular: "Photo",
+                        dictionary: {
+                          es: {
+                            singular: "Foto"
+                          },
+                          "ja-JP": {
+                            singular: "写真"
+                          },
+                          "ko-KR": {
+                            singular: "사진"
+                          },
+                          "pt-BR": {
+                            singular: "Foto"
+                          },
+                          "zh-CN": {
+                            singular: "照片"
+                          }
+                        }
+                      })
+                    }), (0, _v41.jsx)(_v147.Tooltip, {
+                      label: (0, _v58.translate)({
+                        singular: "Photo appears on the event page",
+                        dictionary: {
+                          es: {
+                            singular: "La foto aparece en la página del evento"
+                          },
+                          "de-DE": {
+                            singular: "Foto erscheint auf der Veranstaltungsseite"
+                          },
+                          "fr-FR": {
+                            singular: "La photo apparaît sur la page de l'événement"
+                          },
+                          "ja-JP": {
+                            singular: "写真はイベントページに表示されます"
+                          },
+                          "ko-KR": {
+                            singular: "사진은 이벤트 페이지에 표시됩니다"
+                          },
+                          "pt-BR": {
+                            singular: "A foto aparece na página do evento"
+                          },
+                          "zh-CN": {
+                            singular: "照片会显示在活动页面上"
+                          }
+                        }
+                      }),
+                      children: (0, _v41.jsx)(_v160.InfoCircle, {
+                        boxSize: (0, _v52.rem)(16)
+                      })
+                    })]
+                  })
+                }), (0, _v41.jsx)(_v99.Box, {
+                  as: "button",
+                  id: "speaker-photo",
+                  backgroundColor: "surface",
+                  borderColor: "input-stroke",
+                  borderRadius: (0, _v52.rem)(16),
+                  borderStyle: "solid",
+                  borderWidth: (0, _v52.rem)(1),
+                  onClick: () => {},
+                  padding: (0, _v52.rem)(16),
+                  py: "sm",
+                  pl: "sm",
+                  pr: "md",
+                  textAlign: "left",
+                  type: "button",
+                  width: "100%",
+                  children: (0, _v41.jsxs)(_v47.Flex, {
+                    align: "center",
+                    gap: (0, _v52.rem)(16),
+                    children: [(0, _v41.jsx)(_v47.Flex, {
+                      align: "center",
+                      backgroundColor: "fill-component",
+                      borderRadius: "input-md",
+                      height: (0, _v52.rem)(48),
+                      width: (0, _v52.rem)(48),
+                      justify: "center",
+                      children: (0, _v41.jsx)(_v161.Upload, {})
+                    }), (0, _v41.jsxs)(_v47.Flex, {
+                      direction: "column",
+                      gap: (0, _v52.rem)(4),
+                      children: [(0, _v41.jsx)(_v51.Text, {
+                        color: "text-primary",
+                        variant: "heading-sm",
+                        children: (0, _v58.translate)({
+                          singular: "Upload picture",
+                          dictionary: {
+                            es: {
+                              singular: "Subir imagen"
+                            },
+                            "de-DE": {
+                              singular: "Bild hochladen"
+                            },
+                            "fr-FR": {
+                              singular: "Téléverser l'image"
+                            },
+                            "ja-JP": {
+                              singular: "画像をアップロード"
+                            },
+                            "ko-KR": {
+                              singular: "사진 업로드"
+                            },
+                            "pt-BR": {
+                              singular: "Enviar imagem"
+                            },
+                            "zh-CN": {
+                              singular: "上传图片"
+                            }
+                          }
+                        })
+                      }), (0, _v41.jsx)(_v51.Text, {
+                        color: "text-secondary",
+                        variant: "body-sm",
+                        children: (0, _v58.translate)({
+                          singular: "Max size 2MB",
+                          dictionary: {
+                            es: {
+                              singular: "Tamaño máximo 2 MB"
+                            },
+                            "de-DE": {
+                              singular: "Max. Größe 2 MB"
+                            },
+                            "fr-FR": {
+                              singular: "Taille max 2MB"
+                            },
+                            "ja-JP": {
+                              singular: "最大サイズ 2MB"
+                            },
+                            "ko-KR": {
+                              singular: "최대 크기 2MB"
+                            },
+                            "pt-BR": {
+                              singular: "Tamanho máximo 2MB"
+                            },
+                            "zh-CN": {
+                              singular: "最大 2MB"
+                            }
+                          }
+                        })
+                      })]
+                    })]
+                  })
+                })]
+              }), (0, _v41.jsxs)(_v47.Flex, {
+                direction: "column",
+                children: [(0, _v41.jsx)(_v144.FormLabel, {
+                  htmlFor: "speaker-description",
+                  children: (0, _v41.jsxs)(_v47.Flex, {
+                    as: "span",
+                    align: "center",
+                    gap: (0, _v52.rem)(4),
+                    children: [(0, _v41.jsx)(_v51.Text, {
+                      as: "span",
+                      variant: "heading-sm",
+                      children: (0, _v58.translate)({
+                        singular: "Description",
+                        dictionary: {
+                          es: {
+                            singular: "Descripción"
+                          },
+                          "de-DE": {
+                            singular: "Beschreibung"
+                          },
+                          "ja-JP": {
+                            singular: "説明"
+                          },
+                          "ko-KR": {
+                            singular: "설명"
+                          },
+                          "pt-BR": {
+                            singular: "Descrição"
+                          },
+                          "zh-CN": {
+                            singular: "描述"
+                          }
+                        }
+                      })
+                    }), (0, _v41.jsx)(_v147.Tooltip, {
+                      label: (0, _v58.translate)({
+                        singular: "Description appears on the event page",
+                        dictionary: {
+                          es: {
+                            singular: "La descripción aparece en la página del evento"
+                          },
+                          "de-DE": {
+                            singular: "Beschreibung erscheint auf der Veranstaltungsseite"
+                          },
+                          "fr-FR": {
+                            singular: "La description apparaît sur la page de l'événement"
+                          },
+                          "ja-JP": {
+                            singular: "説明はイベントページに表示されます"
+                          },
+                          "ko-KR": {
+                            singular: "설명은 이벤트 페이지에 표시됩니다"
+                          },
+                          "pt-BR": {
+                            singular: "A descrição aparece na página do evento"
+                          },
+                          "zh-CN": {
+                            singular: "描述会显示在活动页面上"
+                          }
+                        }
+                      }),
+                      children: (0, _v41.jsx)(_v160.InfoCircle, {
+                        boxSize: (0, _v52.rem)(16)
+                      })
+                    })]
+                  })
+                }), (0, _v41.jsx)(_v159.Textarea, {
+                  id: "speaker-description",
+                  minHeight: (0, _v52.rem)(120),
+                  onChange: _v0 => _v9("description", _v0.target.value),
+                  placeholder: (0, _v58.translate)({
+                    singular: "Add description",
+                    dictionary: {
+                      es: {
+                        singular: "Agregar descripción"
+                      },
+                      "de-DE": {
+                        singular: "Beschreibung hinzufügen"
+                      },
+                      "fr-FR": {
+                        singular: "Ajouter une description"
+                      },
+                      "ja-JP": {
+                        singular: "説明を追加"
+                      },
+                      "ko-KR": {
+                        singular: "설명 추가"
+                      },
+                      "pt-BR": {
+                        singular: "Adicionar descrição"
+                      },
+                      "zh-CN": {
+                        singular: "添加描述"
+                      }
+                    }
+                  }),
+                  resize: "none",
+                  value: _v5.description
+                })]
+              })]
+            }), (0, _v41.jsxs)(_v47.Flex, {
+              direction: "column",
+              px: "xs",
+              children: [(0, _v41.jsx)(_v51.Text, {
+                variant: "heading-sm",
+                children: (0, _v58.translate)({
+                  singular: "Preview",
+                  dictionary: {
+                    es: {
+                      singular: "Vista previa"
+                    },
+                    "de-DE": {
+                      singular: "Vorschau"
+                    },
+                    "fr-FR": {
+                      singular: "Aperçu"
+                    },
+                    "ja-JP": {
+                      singular: "プレビュー"
+                    },
+                    "ko-KR": {
+                      singular: "미리 보기"
+                    },
+                    "pt-BR": {
+                      singular: "Visualização"
+                    },
+                    "zh-CN": {
+                      singular: "预览"
+                    }
+                  }
+                })
+              }), (0, _v41.jsx)(_v164, {
+                name: _v5.name.trim() || "Name (required)",
+                role: _v5.role,
+                description: _v5.description,
+                thumbnailUrl: _v5.thumbnailUrl
+              })]
+            })]
+          })
+        }), (0, _v41.jsxs)(_v118.ModalFooter, {
+          justifyContent: "flex-end",
+          children: [(0, _v41.jsx)(_v45.Button, {
+            onClick: _v3,
+            variant: "secondary",
+            children: (0, _v58.translate)({
+              singular: "Cancel",
+              dictionary: {
+                es: {
+                  singular: "Cancelar"
+                },
+                "de-DE": {
+                  singular: "Abbrechen"
+                },
+                "fr-FR": {
+                  singular: "Annuler"
+                },
+                "ja-JP": {
+                  singular: "キャンセル"
+                },
+                "ko-KR": {
+                  singular: "취소"
+                },
+                "pt-BR": {
+                  singular: "Cancelar"
+                },
+                "zh-CN": {
+                  singular: "取消"
+                }
+              }
+            })
+          }), (0, _v41.jsx)(_v45.Button, {
+            onClick: () => {
+              "" === _v5.name.trim() ? _v8(!0) : _v4({
+                ..._v5,
+                name: _v5.name.trim(),
+                role: _v5.role.trim(),
+                description: _v5.description.trim()
+              });
+            },
+            variant: "primary",
+            children: (0, _v58.translate)({
+              singular: "Save",
+              dictionary: {
+                es: {
+                  singular: "Guardar"
+                },
+                "de-DE": {
+                  singular: "Speichern"
+                },
+                "fr-FR": {
+                  singular: "Enregistrer"
+                },
+                "ja-JP": {
+                  singular: "保存"
+                },
+                "ko-KR": {
+                  singular: "저장"
+                },
+                "pt-BR": {
+                  singular: "Salvar"
+                },
+                "zh-CN": {
+                  singular: "保存"
+                }
+              }
+            })
+          })]
+        })]
+      })]
+    });
+  }
+  let _v166 = (0, _v52.rem)(56);
+  function _v167({
+    isOpen: _v0,
+    onClose: _v1,
+    eventId: _v2
+  }) {
+    let _v3 = _v2 > 0,
+      [_v4, _v5] = (0, _v43.useState)(!1),
+      [_v6, _v7] = (0, _v43.useState)(null),
+      [_v8, _v9] = (0, _v43.useState)([]),
+      _v10 = (0, _v43.useMemo)(() => [..._v8].sort((_v0, _v1) => _v0.sortOrder - _v1.sortOrder), [_v8]),
+      _v11 = (0, _v43.useMemo)(() => null === _v6 ? null : _v8.find(({
+        id: _v0
+      }) => _v0 === _v6) ?? null, [_v8, _v6]),
+      _v12 = () => {
+        _v5(!1), _v7(null), _v1();
+      },
+      _v13 = () => {
+        _v5(!1);
+      },
+      _v14 = () => {
+        _v7(null);
+      };
+    return (0, _v41.jsxs)(_v41.Fragment, {
+      children: [(0, _v41.jsxs)(_v83.Modal, {
+        closeOnOverlayClick: !1,
+        size: "lg",
+        isCentered: !0,
+        isOpen: _v0,
+        onClose: _v12,
+        children: [(0, _v41.jsx)(_v88.ModalOverlay, {}), (0, _v41.jsxs)(_v86.ModalContent, {
+          minWidth: (0, _v52.rem)(990),
+          children: [(0, _v41.jsx)(_v87.ModalHeader, {
+            children: (0, _v58.translate)({
+              singular: "Manage visible speakers",
+              dictionary: {
+                es: {
+                  singular: "Administrar ponentes visibles"
+                },
+                "de-DE": {
+                  singular: "Sichtbare Sprecher verwalten"
+                },
+                "fr-FR": {
+                  singular: "Gérer les intervenants visibles"
+                },
+                "ja-JP": {
+                  singular: "表示されるスピーカーを管理"
+                },
+                "ko-KR": {
+                  singular: "표시되는 스피커 관리"
+                },
+                "pt-BR": {
+                  singular: "Gerenciar palestrantes visíveis"
+                },
+                "zh-CN": {
+                  singular: "管理可见演讲者"
+                }
+              }
+            })
+          }), (0, _v41.jsxs)(_v84.ModalBody, {
+            display: "flex",
+            flexDirection: "column",
+            gap: "md",
+            children: [(0, _v41.jsx)(_v44.Alert, {
+              status: "info",
+              overflow: "unset",
+              children: (0, _v41.jsx)(_v53.AlertDescription, {
+                children: (0, _v41.jsx)(_v51.Text, {
+                  variant: "body-sm",
+                  children: (0, _v58.translate)({
+                    singular: "If you add speakers from the Speakers tab, they’ll automatically appear here. However, you still need to manually enable them to be displayed on the event landing page.",
+                    dictionary: {
+                      es: {
+                        singular: "Si agregas ponentes desde la pestaña Ponentes, aparecerán automáticamente aquí. Sin embargo, aún debes habilitarlos manualmente para que se muestren en la página de aterrizaje del evento."
+                      },
+                      "de-DE": {
+                        singular: "Wenn Sie Sprecher im Tab „Sprecher“ hinzufügen, erscheinen sie hier automatisch. Sie müssen sie jedoch weiterhin manuell aktivieren, damit sie auf der Event-Landingpage angezeigt werden."
+                      },
+                      "fr-FR": {
+                        singular: "Si vous ajoutez des intervenants depuis l'onglet Speakers, ils apparaîtront automatiquement ici. Cependant, vous devez toujours les activer manuellement pour qu'ils s'affichent sur la page de présentation de l'événement."
+                      },
+                      "ja-JP": {
+                        singular: "「Speakers」タブからスピーカーを追加すると、ここに自動的に表示されます。ただし、イベントのランディングページに表示するには、手動で有効化する必要があります。"
+                      },
+                      "ko-KR": {
+                        singular: "Speakers 탭에서 스피커를 추가하면 이곳에 자동으로 나타납니다. 그러나 이벤트 랜딩 페이지에 표시하려면 수동으로 활성화해야 합니다."
+                      },
+                      "pt-BR": {
+                        singular: "Se você adicionar palestrantes na aba Palestrantes, eles aparecerão automaticamente aqui. Entretanto, você ainda precisa habilitá‑los manualmente para que sejam exibidos na página de destino do evento."
+                      },
+                      "zh-CN": {
+                        singular: "如果您从 Speakers 选项卡添加演讲者，他们会自动出现在此处。不过，您仍需手动启用他们，以便在活动着陆页上显示。"
+                      }
+                    }
+                  })
+                })
+              })
+            }), (0, _v41.jsxs)(_v47.Flex, {
+              backgroundColor: "fill-component",
+              borderRadius: "input-md",
+              color: "text-secondary",
+              display: "grid",
+              gap: (0, _v52.rem)(16),
+              gridTemplateColumns: "minmax(0, 1.7fr) 0.8fr 1.1fr minmax(0, 1.8fr) auto auto",
+              px: "3",
+              py: "2",
+              width: "100%",
+              children: [(0, _v41.jsxs)(_v47.Flex, {
+                align: "center",
+                gap: (0, _v52.rem)(8),
+                minWidth: 0,
+                children: [(0, _v41.jsx)(_v51.Text, {
+                  noOfLines: 1,
+                  variant: "heading-xs",
+                  children: (0, _v58.translate)({
+                    singular: "Name",
+                    dictionary: {
+                      es: {
+                        singular: "Nombre"
+                      },
+                      "fr-FR": {
+                        singular: "Nom"
+                      },
+                      "ja-JP": {
+                        singular: "名前"
+                      },
+                      "ko-KR": {
+                        singular: "이름"
+                      },
+                      "pt-BR": {
+                        singular: "Nome"
+                      },
+                      "zh-CN": {
+                        singular: "姓名"
+                      }
+                    }
+                  })
+                }), (0, _v41.jsx)(_v148.ArrowDown, {})]
+              }), (0, _v41.jsx)(_v51.Text, {
+                variant: "heading-xs",
+                px: "2",
+                children: (0, _v58.translate)({
+                  singular: "Visible",
+                  dictionary: {
+                    "de-DE": {
+                      singular: "Sichtbar"
+                    },
+                    "ja-JP": {
+                      singular: "表示"
+                    },
+                    "ko-KR": {
+                      singular: "표시됨"
+                    },
+                    "pt-BR": {
+                      singular: "Visível"
+                    },
+                    "zh-CN": {
+                      singular: "可见"
+                    }
+                  }
+                })
+              }), (0, _v41.jsx)(_v51.Text, {
+                variant: "heading-xs",
+                px: "2",
+                children: (0, _v58.translate)({
+                  singular: "Role",
+                  dictionary: {
+                    es: {
+                      singular: "Rol"
+                    },
+                    "de-DE": {
+                      singular: "Rolle"
+                    },
+                    "fr-FR": {
+                      singular: "Rôle"
+                    },
+                    "ja-JP": {
+                      singular: "肩書き"
+                    },
+                    "ko-KR": {
+                      singular: "역할"
+                    },
+                    "pt-BR": {
+                      singular: "Função"
+                    },
+                    "zh-CN": {
+                      singular: "职位"
+                    }
+                  }
+                })
+              }), (0, _v41.jsx)(_v51.Text, {
+                variant: "heading-xs",
+                px: "2",
+                children: (0, _v58.translate)({
+                  singular: "Description",
+                  dictionary: {
+                    es: {
+                      singular: "Descripción"
+                    },
+                    "de-DE": {
+                      singular: "Beschreibung"
+                    },
+                    "ja-JP": {
+                      singular: "説明"
+                    },
+                    "ko-KR": {
+                      singular: "설명"
+                    },
+                    "pt-BR": {
+                      singular: "Descrição"
+                    },
+                    "zh-CN": {
+                      singular: "描述"
+                    }
+                  }
+                })
+              }), (0, _v41.jsx)(_v99.Box, {}), (0, _v41.jsx)(_v99.Box, {})]
+            }), (0, _v41.jsx)(_v47.Flex, {
+              direction: "column",
+              gap: (0, _v52.rem)(20),
+              width: "100%",
+              children: _v10.map(_v0 => {
+                let _v1 = _v3 && _v0.recurringLiveEventId === _v2,
+                  _v2 = "visible" === _v0.visibilityStatus;
+                return (0, _v41.jsxs)(_v47.Flex, {
+                  align: "center",
+                  display: "grid",
+                  gap: (0, _v52.rem)(16),
+                  gridTemplateColumns: "minmax(0, 1.7fr) 0.8fr 1.1fr minmax(0, 1.8fr) auto auto",
+                  minHeight: _v166,
+                  width: "100%",
+                  children: [(0, _v41.jsxs)(_v47.Flex, {
+                    align: "center",
+                    gap: (0, _v52.rem)(16),
+                    minWidth: 0,
+                    children: [_v0.thumbnailUrl ? (0, _v41.jsx)(_v101.Image, {
+                      alt: _v0.name,
+                      width: _v166,
+                      height: _v166,
+                      borderRadius: "input-md",
+                      objectFit: "cover",
+                      src: _v0.thumbnailUrl
+                    }) : (0, _v41.jsx)(_v99.Box, {
+                      width: _v166,
+                      height: _v166,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: "input-md",
+                      backgroundColor: "fill-component",
+                      color: "icon-secondary",
+                      children: (0, _v41.jsx)(_v154.PersonUserFilled, {})
+                    }), (0, _v41.jsx)(_v51.Text, {
+                      noOfLines: 1,
+                      variant: "heading-xs",
+                      children: _v0.name
+                    })]
+                  }), (0, _v41.jsx)(_v47.Flex, {
+                    align: "center",
+                    children: (0, _v41.jsx)(_v100.IconButton, {
+                      "aria-label": _v2 ? (0, _v58.translate)({
+                        singular: "Hide from the event landing page",
+                        dictionary: {
+                          es: {
+                            singular: "Ocultar de la página de aterrizaje del evento"
+                          },
+                          "de-DE": {
+                            singular: "Auf der Event-Landingpage ausblenden"
+                          },
+                          "fr-FR": {
+                            singular: "Masquer de la page de présentation de l'événement"
+                          },
+                          "ja-JP": {
+                            singular: "イベントのランディングページから非表示にする"
+                          },
+                          "ko-KR": {
+                            singular: "이벤트 랜딩 페이지에서 숨기기"
+                          },
+                          "pt-BR": {
+                            singular: "Ocultar da página de destino do evento"
+                          },
+                          "zh-CN": {
+                            singular: "从活动着陆页隐藏"
+                          }
+                        }
+                      }) : (0, _v58.translate)({
+                        singular: "Show on the event landing page",
+                        dictionary: {
+                          es: {
+                            singular: "Mostrar en la página de aterrizaje del evento"
+                          },
+                          "de-DE": {
+                            singular: "Auf der Event-Landingpage anzeigen"
+                          },
+                          "fr-FR": {
+                            singular: "Afficher sur la page de présentation de l'événement"
+                          },
+                          "ja-JP": {
+                            singular: "イベントのランディングページに表示する"
+                          },
+                          "ko-KR": {
+                            singular: "이벤트 랜딩 페이지에 표시"
+                          },
+                          "pt-BR": {
+                            singular: "Exibir na página de destino do evento"
+                          },
+                          "zh-CN": {
+                            singular: "在活动着陆页显示"
+                          }
+                        }
+                      }),
+                      backgroundColor: "fill-component",
+                      icon: _v2 ? (0, _v41.jsx)(_v149.CircleCheckFilled, {
+                        color: "icon-secondary"
+                      }) : (0, _v41.jsx)(_v150.CloseXCircleFilled, {
+                        color: "icon-secondary"
+                      }),
+                      onClick: () => {
+                        var _v0;
+                        return _v0 = _v0.id, void _v9(_v0 => _v0.map(_v0 => _v0.id === _v0 ? {
+                          ..._v0,
+                          visibilityStatus: "visible" === _v0.visibilityStatus ? "hidden" : "visible"
+                        } : _v0));
+                      },
+                      size: "sm",
+                      variant: "tertiary"
+                    })
+                  }), (0, _v41.jsx)(_v51.Text, {
+                    noOfLines: 1,
+                    variant: "body-md",
+                    children: _v0.role || "-"
+                  }), (0, _v41.jsx)(_v51.Text, {
+                    noOfLines: 1,
+                    variant: "body-md",
+                    children: _v0.description || "-"
+                  }), (0, _v41.jsx)(_v100.IconButton, {
+                    "aria-label": (0, _v58.translate)({
+                      singular: "Edit speaker profile",
+                      dictionary: {
+                        es: {
+                          singular: "Editar perfil del ponente"
+                        },
+                        "de-DE": {
+                          singular: "Sprecherprofil bearbeiten"
+                        },
+                        "fr-FR": {
+                          singular: "Modifier le profil de l'intervenant"
+                        },
+                        "ja-JP": {
+                          singular: "スピーカーのプロフィールを編集"
+                        },
+                        "ko-KR": {
+                          singular: "스피커 프로필 편집"
+                        },
+                        "pt-BR": {
+                          singular: "Editar perfil do palestrante"
+                        },
+                        "zh-CN": {
+                          singular: "编辑演讲者资料"
+                        }
+                      }
+                    }),
+                    icon: (0, _v41.jsx)(_v151.EditSheet, {}),
+                    onClick: () => {
+                      _v5(!1), _v7(_v0.id);
+                    },
+                    size: "sm",
+                    variant: "tertiary"
+                  }), (0, _v41.jsx)(_v147.Tooltip, {
+                    label: _v1 ? (0, _v58.translate)({
+                      singular: "Remove speaker from landing page",
+                      dictionary: {
+                        es: {
+                          singular: "Quitar ponente de la página de aterrizaje del evento"
+                        },
+                        "de-DE": {
+                          singular: "Sprecher von der Landingpage entfernen"
+                        },
+                        "fr-FR": {
+                          singular: "Retirer l'intervenant de la page de présentation de l'événement"
+                        },
+                        "ja-JP": {
+                          singular: "イベントのランディングページからスピーカーを削除"
+                        },
+                        "ko-KR": {
+                          singular: "랜딩 페이지에서 스피커 제거"
+                        },
+                        "pt-BR": {
+                          singular: "Remover palestrante da página de destino do evento"
+                        },
+                        "zh-CN": {
+                          singular: "从活动着陆页移除演讲者"
+                        }
+                      }
+                    }) : (0, _v58.translate)({
+                      singular: "Add speaker to landing page",
+                      dictionary: {
+                        es: {
+                          singular: "Agregar ponente a la página de aterrizaje del evento"
+                        },
+                        "de-DE": {
+                          singular: "Sprecher zur Landingpage hinzufügen"
+                        },
+                        "fr-FR": {
+                          singular: "Ajouter l'intervenant à la page de présentation de l'événement"
+                        },
+                        "ja-JP": {
+                          singular: "イベントのランディングページにスピーカーを追加"
+                        },
+                        "ko-KR": {
+                          singular: "랜딩 페이지에 스피커 추가"
+                        },
+                        "pt-BR": {
+                          singular: "Adicionar palestrante à página de destino do evento"
+                        },
+                        "zh-CN": {
+                          singular: "将演讲者添加到活动着陆页"
+                        }
+                      }
+                    }),
+                    children: (0, _v41.jsx)(_v100.IconButton, {
+                      "aria-label": _v1 ? (0, _v58.translate)({
+                        singular: "Remove speaker from landing page",
+                        dictionary: {
+                          es: {
+                            singular: "Quitar ponente de la página de aterrizaje del evento"
+                          },
+                          "de-DE": {
+                            singular: "Sprecher von der Landingpage entfernen"
+                          },
+                          "fr-FR": {
+                            singular: "Retirer l'intervenant de la page de présentation de l'événement"
+                          },
+                          "ja-JP": {
+                            singular: "イベントのランディングページからスピーカーを削除"
+                          },
+                          "ko-KR": {
+                            singular: "랜딩 페이지에서 스피커 제거"
+                          },
+                          "pt-BR": {
+                            singular: "Remover palestrante da página de destino do evento"
+                          },
+                          "zh-CN": {
+                            singular: "从活动着陆页移除演讲者"
+                          }
+                        }
+                      }) : (0, _v58.translate)({
+                        singular: "Add speaker to landing page",
+                        dictionary: {
+                          es: {
+                            singular: "Agregar ponente a la página de aterrizaje del evento"
+                          },
+                          "de-DE": {
+                            singular: "Sprecher zur Landingpage hinzufügen"
+                          },
+                          "fr-FR": {
+                            singular: "Ajouter l'intervenant à la page de présentation de l'événement"
+                          },
+                          "ja-JP": {
+                            singular: "イベントのランディングページにスピーカーを追加"
+                          },
+                          "ko-KR": {
+                            singular: "랜딩 페이지에 스피커 추가"
+                          },
+                          "pt-BR": {
+                            singular: "Adicionar palestrante à página de destino do evento"
+                          },
+                          "zh-CN": {
+                            singular: "将演讲者添加到活动着陆页"
+                          }
+                        }
+                      }),
+                      icon: _v1 ? (0, _v41.jsx)(_v152.MinusCircle, {}) : (0, _v41.jsx)(_v153.PlusCircle, {}),
+                      onClick: () => {
+                        var _v0;
+                        return _v0 = _v0.id, void _v9(_v0 => _v0.map(_v0 => _v0.id === _v0 && _v3 ? _v0.recurringLiveEventId === _v2 ? {
+                          ..._v0,
+                          recurringLiveEventId: 0
+                        } : {
+                          ..._v0,
+                          recurringLiveEventId: _v2
+                        } : _v0));
+                      },
+                      size: "sm",
+                      variant: "tertiary"
+                    })
+                  })]
+                }, _v0.id);
+              })
+            })]
+          }), (0, _v41.jsxs)(_v118.ModalFooter, {
+            justifyContent: "space-between",
+            children: [(0, _v41.jsx)(_v45.Button, {
+              leftIcon: (0, _v41.jsx)(_v153.PlusCircle, {}),
+              onClick: () => {
+                _v7(null), _v5(!0);
+              },
+              size: "md",
+              variant: "secondary",
+              children: (0, _v58.translate)({
+                singular: "Add speaker",
+                dictionary: {
+                  es: {
+                    singular: "Agregar orador"
+                  },
+                  "de-DE": {
+                    singular: "Redner hinzufügen"
+                  },
+                  "fr-FR": {
+                    singular: "Ajouter un(e) intervenant(e)"
+                  },
+                  "ja-JP": {
+                    singular: "スピーカーを追加"
+                  },
+                  "ko-KR": {
+                    singular: "발표자 추가"
+                  },
+                  "pt-BR": {
+                    singular: "Adicionar palestrante"
+                  },
+                  "zh-CN": {
+                    singular: "添加演讲人"
+                  }
+                }
+              })
+            }), (0, _v41.jsxs)(_v47.Flex, {
+              gap: "3",
+              children: [(0, _v41.jsx)(_v45.Button, {
+                onClick: _v12,
+                size: "md",
+                variant: "secondary",
+                children: (0, _v58.translate)({
+                  singular: "Cancel",
+                  dictionary: {
+                    es: {
+                      singular: "Cancelar"
+                    },
+                    "de-DE": {
+                      singular: "Abbrechen"
+                    },
+                    "fr-FR": {
+                      singular: "Annuler"
+                    },
+                    "ja-JP": {
+                      singular: "キャンセル"
+                    },
+                    "ko-KR": {
+                      singular: "취소"
+                    },
+                    "pt-BR": {
+                      singular: "Cancelar"
+                    },
+                    "zh-CN": {
+                      singular: "取消"
+                    }
+                  }
+                })
+              }), (0, _v41.jsx)(_v45.Button, {
+                onClick: () => {
+                  _v1();
+                },
+                size: "md",
+                variant: "primary",
+                children: (0, _v58.translate)({
+                  singular: "Save",
+                  dictionary: {
+                    es: {
+                      singular: "Guardar"
+                    },
+                    "de-DE": {
+                      singular: "Speichern"
+                    },
+                    "fr-FR": {
+                      singular: "Enregistrer"
+                    },
+                    "ja-JP": {
+                      singular: "保存"
+                    },
+                    "ko-KR": {
+                      singular: "저장"
+                    },
+                    "pt-BR": {
+                      singular: "Salvar"
+                    },
+                    "zh-CN": {
+                      singular: "保存"
+                    }
+                  }
+                })
+              })]
+            })]
+          })]
+        })]
+      }), _v4 ? (0, _v41.jsx)(_v165, {
+        initialSpeaker: {
+          name: "",
+          role: "",
+          description: "",
+          thumbnailUrl: null
+        },
+        isOpen: _v4,
+        mode: {
+          type: "create"
+        },
+        onClose: _v13,
+        onSave: _v0 => {
+          "" !== _v0.name.trim() && _v13();
+        }
+      }, "add-speaker-modal") : null, _v11 ? (0, _v41.jsx)(_v165, {
+        initialSpeaker: {
+          name: _v11.name,
+          role: _v11.role,
+          description: _v11.description,
+          thumbnailUrl: _v11.thumbnailUrl
+        },
+        isOpen: null !== _v11,
+        mode: {
+          type: "edit",
+          id: _v11.id
+        },
+        onClose: _v14,
+        onSave: _v0 => {
+          "" !== _v0.name.trim() && null !== _v6 && _v14();
+        }
+      }, `edit-speaker-modal-${_v11.id}`) : null]
+    });
+  }
+  let _v168 = "manage-speakers-field-show-speakers";
+  function _v169() {
+    let [_v0, _v1] = (0, _v43.useState)(!1),
+      [_v2, _v3] = (0, _v43.useState)(!0),
+      {
+        sessionId: _v4
+      } = (0, _v42.useManager)(_v146.ComposerSessionManager),
+      _v5 = Number(_v4);
+    return (0, _v41.jsxs)(_v41.Fragment, {
+      children: [(0, _v41.jsxs)(_v47.Flex, {
+        direction: "column",
+        gap: "md",
+        width: "100%",
+        children: [(0, _v41.jsx)(_v143.FormControl, {
+          children: (0, _v41.jsxs)(_v144.FormLabel, {
+            alignItems: "center",
+            cursor: "pointer",
+            display: "flex",
+            htmlFor: _v168,
+            justifyContent: "space-between",
+            margin: "0",
+            children: [(0, _v41.jsxs)(_v47.Flex, {
+              align: "center",
+              gap: (0, _v52.rem)(4),
+              children: [(0, _v41.jsx)(_v51.Text, {
+                variant: "heading-xs",
+                children: (0, _v58.translate)({
+                  singular: "Show speakers",
+                  dictionary: {
+                    es: {
+                      singular: "Mostrar oradores"
+                    },
+                    "de-DE": {
+                      singular: "Redner einblenden"
+                    },
+                    "fr-FR": {
+                      singular: "Montrer les intervenants"
+                    },
+                    "ja-JP": {
+                      singular: "スピーカーを表示する"
+                    },
+                    "ko-KR": {
+                      singular: "발표자 표시"
+                    },
+                    "pt-BR": {
+                      singular: "Exibir palestrantes"
+                    },
+                    "zh-CN": {
+                      singular: "显示演讲人"
+                    }
+                  }
+                })
+              }), (0, _v41.jsx)(_v60.CircleTip, {
+                as: "span",
+                label: (0, _v58.translate)({
+                  singular: "Speakers are shown in the event page with a dedicated section.",
+                  dictionary: {
+                    es: {
+                      singular: "Los ponentes se muestran en la página del evento con una sección dedicada."
+                    },
+                    "de-DE": {
+                      singular: "Sprecher werden auf der Veranstaltungsseite in einem eigenen Abschnitt angezeigt."
+                    },
+                    "fr-FR": {
+                      singular: "Les intervenants sont affichés sur la page de l'événement dans une section dédiée."
+                    },
+                    "ja-JP": {
+                      singular: "スピーカーはイベントページの専用セクションに表示されます。"
+                    },
+                    "ko-KR": {
+                      singular: "스피커는 전용 섹션과 함께 이벤트 페이지에 표시됩니다."
+                    },
+                    "pt-BR": {
+                      singular: "Os palestrantes são exibidos na página do evento em uma seção dedicada."
+                    },
+                    "zh-CN": {
+                      singular: "演讲者在活动页面中以专门的区域展示。"
+                    }
+                  }
+                })
+              })]
+            }), (0, _v41.jsx)(_v145.Switch, {
+              id: _v168,
+              isChecked: _v2,
+              onChange: () => _v3(_v0 => !_v0)
+            })]
+          })
+        }), (0, _v41.jsx)(_v45.Button, {
+          isDisabled: !_v2 || _v5 <= 0,
+          onClick: () => _v1(!0),
+          size: "sm",
+          variant: "secondary",
+          width: "100%",
+          children: (0, _v58.translate)({
+            singular: "Manage visible speakers",
+            dictionary: {
+              es: {
+                singular: "Administrar ponentes visibles"
+              },
+              "de-DE": {
+                singular: "Sichtbare Sprecher verwalten"
+              },
+              "fr-FR": {
+                singular: "Gérer les intervenants visibles"
+              },
+              "ja-JP": {
+                singular: "表示されるスピーカーを管理"
+              },
+              "ko-KR": {
+                singular: "표시되는 스피커 관리"
+              },
+              "pt-BR": {
+                singular: "Gerenciar palestrantes visíveis"
+              },
+              "zh-CN": {
+                singular: "管理可见演讲者"
+              }
+            }
+          })
+        })]
+      }), _v0 ? (0, _v41.jsx)(_v167, {
+        isOpen: _v0,
+        onClose: () => _v1(!1),
+        eventId: _v5
+      }) : null]
+    });
+  }
+  var _v170 = _v0.i(0),
+    _v171 = _v0.i(0);
+  let _v172 = {
     type: "vimeo",
     uri: null,
     url: null
   };
-  function _v147({
+  function _v173({
     eventSettingsContext: {
       settings: {
         value: _v0
@@ -3162,7 +4686,7 @@
     } = (0, _v42.useManager)(_v73.EventSettingsManager)
   }) {
     let [_v2, _v3] = (0, _v43.useState)(!1),
-      _v4 = _v0?.landingPageLogo ?? _v146,
+      _v4 = _v0?.landingPageLogo ?? _v172,
       _v5 = [{
         label: (0, _v58.translate)({
           singular: "None",
@@ -3284,7 +4808,7 @@
               }
             }
           })
-        }), (0, _v41.jsx)(_v143.Select, {
+        }), (0, _v41.jsx)(_v170.Select, {
           defaultValue: [_v4.type],
           items: _v5,
           onValueChange: _v0 => {
@@ -3305,7 +4829,7 @@
           },
           withPortal: !1
         })]
-      }), "custom" === _v4.type ? (0, _v41.jsx)(_v145.LogoPickerBrandKit, {
+      }), "custom" === _v4.type ? (0, _v41.jsx)(_v171.LogoPickerBrandKit, {
         LogoPickerControlComponent: () => (0, _v41.jsxs)(_v47.Flex, {
           align: "center",
           as: "button",
@@ -3361,7 +4885,7 @@
               objectFit: "contain",
               src: _v4.url,
               width: "100%"
-            }) : (0, _v41.jsx)(_v144.Upload, {
+            }) : (0, _v41.jsx)(_v161.Upload, {
               boxSize: 20,
               color: "text-primary"
             })
@@ -3446,6 +4970,9 @@
     });
   }
   _v0.s(["LandingPageSettings", 0, function () {
+    let {
+      settings: _v0
+    } = (0, _v96.useOrionSettings)();
     return (0, _v41.jsxs)(_v47.Flex, {
       direction: "column",
       gap: (0, _v52.rem)(16),
@@ -3479,35 +5006,39 @@
             }
           }
         })
-      }), (0, _v41.jsx)(_v147, {})]
+      }), _v0.enable_event_series_in_dev_features ? (0, _v41.jsxs)(_v41.Fragment, {
+        children: [(0, _v41.jsx)(_v169, {}), (0, _v41.jsx)(_v46.Divider, {
+          borderColor: "stroke"
+        })]
+      }) : null, (0, _v41.jsx)(_v173, {})]
     });
   }], 0);
-  var _v148 = _v0.i(0),
-    _v149 = _v0.i(0),
-    _v150 = _v0.i(0);
-  function _v151({
+  var _v174 = _v0.i(0),
+    _v175 = _v0.i(0),
+    _v176 = _v0.i(0);
+  function _v177({
     contentRating: _v0,
     isDisabled: _v1 = !1,
     onChange: _v2
   }) {
     let _v3 = (0, _v43.useMemo)(() => {
-        let _v0 = _v150.GeneralContentRatingVariants.Unrated;
-        return _v0.some(_v0 => _v150.MatureContentRatingArray.includes(_v0)) && (_v0 = _v150.GeneralContentRatingVariants.Mature), _v0.includes(_v150.GeneralContentRatingVariants.Safe) && (_v0 = _v150.GeneralContentRatingVariants.Safe), _v150.ContentRatingOptions.find(_v0 => _v0.value === _v0);
+        let _v0 = _v176.GeneralContentRatingVariants.Unrated;
+        return _v0.some(_v0 => _v176.MatureContentRatingArray.includes(_v0)) && (_v0 = _v176.GeneralContentRatingVariants.Mature), _v0.includes(_v176.GeneralContentRatingVariants.Safe) && (_v0 = _v176.GeneralContentRatingVariants.Safe), _v176.ContentRatingOptions.find(_v0 => _v0.value === _v0);
       }, [_v0]),
-      _v4 = (0, _v43.useMemo)(() => _v0.includes(_v150.EventContentRating.Advertisement), [_v0]),
+      _v4 = (0, _v43.useMemo)(() => _v0.includes(_v176.EventContentRating.Advertisement), [_v0]),
       _v5 = (0, _v43.useCallback)(_v0 => {
-        let _v1 = _v4 ? [_v150.EventContentRating.Advertisement] : [];
-        _v0 === _v150.GeneralContentRatingVariants.Safe ? _v1.push(_v150.EventContentRating.Safe) : _v0 === _v150.GeneralContentRatingVariants.Mature ? _v1 = [..._v1, ..._v150.MatureContentRatingArray] : _v1.push(_v150.EventContentRating.Unrated), _v2(_v1);
+        let _v1 = _v4 ? [_v176.EventContentRating.Advertisement] : [];
+        _v0 === _v176.GeneralContentRatingVariants.Safe ? _v1.push(_v176.EventContentRating.Safe) : _v0 === _v176.GeneralContentRatingVariants.Mature ? _v1 = [..._v1, ..._v176.MatureContentRatingArray] : _v1.push(_v176.EventContentRating.Unrated), _v2(_v1);
       }, [_v4, _v2]),
       _v6 = (0, _v43.useCallback)(_v0 => {
         let _v1 = [..._v0],
           _v2 = _v1.indexOf(_v0);
-        _v2 > -1 ? _v1.splice(_v2, 1) : _v1.push(_v0), _v1.length === +!!_v4 && _v1.push(_v150.EventContentRating.Safe), _v2(_v1);
+        _v2 > -1 ? _v1.splice(_v2, 1) : _v1.push(_v0), _v1.length === +!!_v4 && _v1.push(_v176.EventContentRating.Safe), _v2(_v1);
       }, [_v0, _v4, _v2]),
       _v7 = (0, _v43.useCallback)(() => {
         let _v0 = [..._v0],
-          _v1 = _v0.indexOf(_v150.EventContentRating.Advertisement);
-        _v1 > -1 ? _v0.splice(_v1, 1) : _v0.push(_v150.EventContentRating.Advertisement), _v2(_v0);
+          _v1 = _v0.indexOf(_v176.EventContentRating.Advertisement);
+        _v1 > -1 ? _v0.splice(_v1, 1) : _v0.push(_v176.EventContentRating.Advertisement), _v2(_v0);
       }, [_v0, _v2]);
     return (0, _v41.jsxs)(_v47.Flex, {
       position: "relative",
@@ -3586,9 +5117,9 @@
             }
           }
         })
-      }), (0, _v41.jsx)(_v143.Select, {
+      }), (0, _v41.jsx)(_v170.Select, {
         onValueChange: _v0 => _v5(_v0.value[0]),
-        items: _v150.ContentRatingOptions.filter(_v0 => _v0.visible),
+        items: _v176.ContentRatingOptions.filter(_v0 => _v0.visible),
         placeholder: (0, _v58.translate)({
           singular: "Select rating",
           dictionary: {
@@ -3618,7 +5149,7 @@
         size: "sm",
         variant: "withCheck",
         value: [_v3.value]
-      }), _v3.value === _v150.GeneralContentRatingVariants.Mature ? (0, _v41.jsxs)(_v47.Flex, {
+      }), _v3.value === _v176.GeneralContentRatingVariants.Mature ? (0, _v41.jsxs)(_v47.Flex, {
         direction: "column",
         paddingTop: (0, _v52.rem)(18),
         paddingBottom: (0, _v52.rem)(20),
@@ -3655,7 +5186,7 @@
               }
             }
           })
-        }), _v150.MatureContentRatingOptions.map(_v0 => (0, _v41.jsx)(_v149.Checkbox, {
+        }), _v176.MatureContentRatingOptions.map(_v0 => (0, _v41.jsx)(_v175.Checkbox, {
           isDisabled: _v1,
           onChange: () => _v6(_v0.value),
           isChecked: _v0.includes(_v0.value),
@@ -3671,11 +5202,11 @@
         }, `${_v0.value}-checkbox`))]
       }) : null, (0, _v41.jsxs)(_v47.Flex, {
         direction: "column",
-        children: [(0, _v41.jsx)(_v149.Checkbox, {
+        children: [(0, _v41.jsx)(_v175.Checkbox, {
           isDisabled: _v1,
           name: "ads",
           margin: `${(0, _v52.rem)(8)} 0`,
-          value: _v150.EventContentRating.Advertisement,
+          value: _v176.EventContentRating.Advertisement,
           isChecked: _v4,
           onChange: _v7,
           children: (0, _v41.jsx)(_v51.Text, {
@@ -3742,20 +5273,17 @@
       })]
     });
   }
-  var _v152 = _v0.i(0),
-    _v153 = _v0.i(0),
-    _v154 = _v0.i(0),
-    _v155 = _v0.i(0),
-    _v156 = _v0.i(0),
-    _v157 = _v0.i(0),
-    _v158 = _v0.i(0);
-  let _v159 = {
+  var _v178 = _v0.i(0),
+    _v179 = _v0.i(0),
+    _v180 = _v0.i(0),
+    _v181 = _v0.i(0);
+  let _v182 = {
       EMBED_PRIVACY_NOWHERE: "private",
       EMBED_PRIVACY_ANYWHERE: "public",
       EMBED_PRIVACY_SPECIFIC_DOMAINS: "whitelist"
     },
-    _v160 = {
-      [_v159.EMBED_PRIVACY_NOWHERE]: (0, _v58.translate)({
+    _v183 = {
+      [_v182.EMBED_PRIVACY_NOWHERE]: (0, _v58.translate)({
         singular: "Nowhere",
         dictionary: {
           es: {
@@ -3781,7 +5309,7 @@
           }
         }
       }),
-      [_v159.EMBED_PRIVACY_ANYWHERE]: (0, _v58.translate)({
+      [_v182.EMBED_PRIVACY_ANYWHERE]: (0, _v58.translate)({
         singular: "Anywhere",
         dictionary: {
           es: {
@@ -3807,7 +5335,7 @@
           }
         }
       }),
-      [_v159.EMBED_PRIVACY_SPECIFIC_DOMAINS]: (0, _v58.translate)({
+      [_v182.EMBED_PRIVACY_SPECIFIC_DOMAINS]: (0, _v58.translate)({
         singular: "Specific domains",
         dictionary: {
           es: {
@@ -3834,8 +5362,8 @@
         }
       })
     };
-  var _v161 = _v0.i(0);
-  function _v162({
+  var _v184 = _v0.i(0);
+  function _v185({
     embedPrivacy: _v0,
     domains: _v1,
     showNotice: _v2 = !1,
@@ -3860,11 +5388,11 @@
           _v2 = _v1.indexOf(_v0);
         _v1.splice(_v2, 1), _v7(_v0, _v1);
       }, [_v1, _v0, _v7]),
-      _v17 = (0, _v43.useMemo)(() => Object.values(_v159).map(_v0 => ({
-        label: _v160[_v0],
+      _v17 = (0, _v43.useMemo)(() => Object.values(_v182).map(_v0 => ({
+        label: _v183[_v0],
         value: _v0
       })), []);
-    return (0, _v156.useOutsideClick)({
+    return (0, _v181.useOutsideClick)({
       enabled: _v10,
       ref: _v12,
       handler: () => {
@@ -3915,7 +5443,7 @@
                 }
               }
             })
-          }), (0, _v41.jsx)(_v161.BokehTooltip, {
+          }), (0, _v41.jsx)(_v184.BokehTooltip, {
             label: _v5 && _v6 ? _v6 : (0, _v58.translate)({
               singular: "Where can the video be embedded?",
               dictionary: {
@@ -3948,7 +5476,7 @@
               height: (0, _v52.rem)(16),
               width: (0, _v52.rem)(16),
               cursor: "pointer",
-              children: (0, _v41.jsx)(_v157.InfoCircle, {
+              children: (0, _v41.jsx)(_v160.InfoCircle, {
                 boxSize: (0, _v52.rem)(16),
                 color: "text-tertiary"
               })
@@ -3958,7 +5486,7 @@
           width: "100%",
           children: [(0, _v41.jsx)(_v99.Box, {
             position: "relative",
-            children: (0, _v41.jsx)(_v143.Select, {
+            children: (0, _v41.jsx)(_v170.Select, {
               onValueChange: _v0 => _v14(_v0.value[0]),
               items: _v17,
               withPortal: !1,
@@ -3994,29 +5522,29 @@
               disabled: _v5,
               children: ({
                 label: _v0
-              }) => (0, _v41.jsx)(_v143.SelectItem, {
+              }) => (0, _v41.jsx)(_v170.SelectItem, {
                 display: "flex",
                 width: "100%",
-                children: (0, _v41.jsx)(_v161.BokehTooltip, {
+                children: (0, _v41.jsx)(_v184.BokehTooltip, {
                   shouldWrapChildren: !1,
                   placement: "bottom",
                   maxWidth: (0, _v52.rem)(300),
                   label: _v6,
                   isDisabled: !_v4 || _v4 && !_v6,
-                  children: (0, _v41.jsx)(_v143.SelectItemText, {
+                  children: (0, _v41.jsx)(_v170.SelectItemText, {
                     children: _v0
                   })
                 })
               })
             })
-          }), _v0 === _v159.EMBED_PRIVACY_SPECIFIC_DOMAINS ? (0, _v41.jsxs)(_v47.Flex, {
+          }), _v0 === _v182.EMBED_PRIVACY_SPECIFIC_DOMAINS ? (0, _v41.jsxs)(_v47.Flex, {
             position: "relative",
             direction: "column",
             width: "100%",
             marginTop: (0, _v52.rem)(8),
-            children: [(0, _v41.jsxs)(_v153.InputGroup, {
+            children: [(0, _v41.jsxs)(_v179.InputGroup, {
               size: "sm",
-              children: [(0, _v41.jsx)(_v154.Input, {
+              children: [(0, _v41.jsx)(_v158.Input, {
                 onChange: _v0 => {
                   _v9(_v0.target.value);
                 },
@@ -4026,10 +5554,10 @@
                 onKeyDown: _v0 => {
                   "Enter" === _v0.key && _v15();
                 }
-              }), (0, _v41.jsx)(_v155.InputRightElement, {
+              }), (0, _v41.jsx)(_v180.InputRightElement, {
                 cursor: _v13 ? "pointer" : "not-allowed",
                 onClick: _v13 ? _v15 : void 0,
-                children: (0, _v41.jsx)(_v158.PlusCircle, {
+                children: (0, _v41.jsx)(_v153.PlusCircle, {
                   color: _v13 ? "text-primary" : "text-secondary"
                 })
               })]
@@ -4037,12 +5565,12 @@
               flexWrap: "wrap",
               gap: (0, _v52.rem)(4),
               marginTop: (0, _v52.rem)(8),
-              children: _v1.map((_v0, _v1) => (0, _v41.jsxs)(_v152.Tag, {
+              children: _v1.map((_v0, _v1) => (0, _v41.jsxs)(_v178.Tag, {
                 size: "sm",
-                children: [(0, _v41.jsx)(_v152.TagLabel, {
+                children: [(0, _v41.jsx)(_v178.TagLabel, {
                   fontSize: (0, _v52.rem)(14),
                   children: _v0
-                }), !_v5 && (0, _v41.jsx)(_v152.TagCloseButton, {
+                }), !_v5 && (0, _v41.jsx)(_v178.TagCloseButton, {
                   onClick: () => _v16(_v0)
                 })]
               }, `${_v0}-idx:${_v1}`))
@@ -4082,9 +5610,9 @@
       })
     });
   }
-  let _v163 = "safe",
-    _v164 = "advertisement";
-  function _v165(_v0) {
+  let _v186 = "safe",
+    _v187 = "advertisement";
+  function _v188(_v0) {
     return {
       ...(0, _v94.newTeamCtx)(),
       ...(0, _v94.newWebCtx)(),
@@ -4101,7 +5629,7 @@
       })
     };
   }
-  function _v166() {
+  function _v189() {
     return {
       ...(0, _v94.newTeamCtx)(),
       ...(0, _v94.newWebCtx)(),
@@ -4118,11 +5646,11 @@
       })
     };
   }
-  var _v167 = _v0.i(0),
-    _v168 = _v0.i(0),
-    _v169 = _v0.i(0),
-    _v170 = _v0.i(0);
-  function _v171({
+  var _v190 = _v0.i(0),
+    _v191 = _v0.i(0),
+    _v192 = _v0.i(0),
+    _v193 = _v0.i(0);
+  function _v194({
     privacy: _v0,
     allowedPrivacies: _v1,
     password: _v2,
@@ -4142,21 +5670,21 @@
     return (0, _v41.jsxs)(_v47.Flex, {
       direction: "column",
       gap: (0, _v52.rem)(8),
-      children: [(0, _v41.jsx)(_v170.EventPrivacy, {
+      children: [(0, _v41.jsx)(_v193.EventPrivacy, {
         selectedPrivacy: _v6,
         allowedPrivacies: _v1,
         isDisabled: _v4,
         disabledTip: _v3,
         onPrivacySelect: _v10
-      }, `view-${_v6}`), _v6 === _v77.EStreamPrivacy.PASSWORD && (0, _v41.jsx)(_v169.EventPassword, {
+      }, `view-${_v6}`), _v6 === _v77.EStreamPrivacy.PASSWORD && (0, _v41.jsx)(_v192.EventPassword, {
         isDisabled: _v4,
         onChange: _v11,
         password: _v8
       }, `pass-${_v2}`)]
     });
   }
-  var _v172 = _v0.i(0);
-  let _v173 = ["link", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "streamPrivacy.unlistedHash"];
+  var _v195 = _v0.i(0);
+  let _v196 = ["link", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "streamPrivacy.unlistedHash"];
   _v0.s(["PrivacySettings", 0, function ({
     id: _v0 = (0, _v138.createLiveDomName)("privacy-settings"),
     eventSettingsContext: {
@@ -4177,7 +5705,7 @@
       _v11 = (0, _v68.useIsLiveDemoSubscription)(),
       {
         trackPrivacyChanged: _v12
-      } = (0, _v167.useViewPrivacyChangeTracking)(),
+      } = (0, _v190.useViewPrivacyChangeTracking)(),
       {
         trackLiveStreamPrivacyChanged: _v13
       } = (0, _v81.useLiveStreamBroadcasterTracking)(),
@@ -4193,7 +5721,7 @@
               view: _v0
             },
             streamPassword: _v0 === _v77.EStreamPrivacy.PASSWORD ? _v1 : void 0
-          }, _v173).then(() => {
+          }, _v196).then(() => {
             _v7 !== _v0 && (_v12({
               entityType: "live_event",
               previousPrivacy: _v7 ?? null,
@@ -4203,7 +5731,7 @@
               liveStreamPrivacyValue: String(_v0)
             }));
           }), _v2 = _v0 === _v77.EStreamPrivacy.PASSWORD, (0, _v95.createBPv2EventFactory)("vimeo.change_link_privacy", 5, () => ({
-            ..._v166()
+            ..._v189()
           }), () => ({
             device_type: _v93.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web",
             privacy_field_name: "old_video_privacy",
@@ -4222,8 +5750,8 @@
             streamPrivacy: {
               embed: _v0
             }
-          }, _v173), _v2 = _v7 === _v77.EStreamPrivacy.PASSWORD, (0, _v95.createBPv2EventFactory)("vimeo.change_embed_privacy", 5, () => ({
-            ..._v166()
+          }, _v196), _v2 = _v7 === _v77.EStreamPrivacy.PASSWORD, (0, _v95.createBPv2EventFactory)("vimeo.change_embed_privacy", 5, () => ({
+            ..._v189()
           }), () => ({
             device_type: _v93.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web",
             privacy_field_name: "old_embed_privacy",
@@ -4243,10 +5771,10 @@
         _v3({
           contentRating: _v0
         }), function (_v0, _v1, _v2 = !1) {
-          let _v3 = !!_v0?.includes(_v163),
-            _v4 = !!_v1?.includes(_v163);
+          let _v3 = !!_v0?.includes(_v186),
+            _v4 = !!_v1?.includes(_v186);
           _v3 !== _v4 && (0, _v95.createBPv2EventFactory)("vimeo.change_content_rating", 5, () => ({
-            ..._v165("dropdown")
+            ..._v188("dropdown")
           }), () => ({
             device_type: _v93.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web",
             privacy_field_name: "rating",
@@ -4256,10 +5784,10 @@
           }))({
             value: null
           });
-          let _v5 = !!_v0?.includes(_v164),
-            _v6 = !!_v1?.includes(_v164);
+          let _v5 = !!_v0?.includes(_v187),
+            _v6 = !!_v1?.includes(_v187);
           _v5 !== _v6 && (0, _v95.createBPv2EventFactory)("vimeo.change_content_notice", 5, () => ({
-            ..._v165("check_box")
+            ..._v188("check_box")
           }), () => ({
             device_type: _v93.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web",
             privacy_field_name: "contains_ad",
@@ -4277,7 +5805,7 @@
       {
         tooltip: _v21,
         isDisabled: _v22
-      } = (0, _v168.useGetEditEmbedPrivacyDisabled)();
+      } = (0, _v191.useGetEditEmbedPrivacyDisabled)();
     return (0, _v41.jsxs)(_v47.Flex, {
       id: _v0,
       direction: "column",
@@ -4286,28 +5814,28 @@
       children: [_v14 && _v15 ? (0, _v41.jsx)(_v44.Alert, {
         children: (0, _v41.jsxs)(_v53.AlertDescription, {
           margin: 0,
-          children: [_v172.sharedTranslations.showcasePrivacyNotice, " ", (0, _v41.jsx)(_v51.Text, {
+          children: [_v195.sharedTranslations.showcasePrivacyNotice, " ", (0, _v41.jsx)(_v51.Text, {
             href: _v66.vimeoConfig.PATH.SHOWCASE_MANAGE_URL(_v15),
             target: "_blank",
             variant: "body-md",
             color: "blue.500",
             textDecoration: "underline",
             as: "a",
-            children: _v172.sharedTranslations.manageShowcase
+            children: _v195.sharedTranslations.manageShowcase
           })]
         })
       }) : null, _v16 ? (0, _v41.jsx)(_v44.Alert, {
         children: (0, _v41.jsx)(_v53.AlertDescription, {
           margin: 0,
-          children: _v172.sharedTranslations.eventPrivacyFrozen
+          children: _v195.sharedTranslations.eventPrivacyFrozen
         })
-      }) : null, _v7 && _v6 ? (0, _v41.jsx)(_v171, {
+      }) : null, _v7 && _v6 ? (0, _v41.jsx)(_v194, {
         isDisabled: _v11 || _v14,
         disabledTip: _v11 ? _v97.rtmpTranslations.viewPrivacyDemoDisabledTip : void 0,
         privacy: _v7,
         allowedPrivacies: _v6,
         password: _v9,
-        onChange: (0, _v148.default)(_v18, 0)
+        onChange: (0, _v174.default)(_v18, 0)
       }) : (0, _v41.jsx)(_v59.BokehSkeleton, {
         height: (0, _v52.rem)(110),
         borderRadius: (0, _v52.rem)(4),
@@ -4316,7 +5844,7 @@
         children: [(0, _v41.jsx)(_v46.Divider, {
           borderColor: "stroke",
           margin: `${(0, _v52.rem)(24)} 0`
-        }), _v8 ? (0, _v41.jsx)(_v162, {
+        }), _v8 ? (0, _v41.jsx)(_v185, {
           isDisabled: _v11 || _v14 || _v22,
           isSelectDisabled: _v22,
           disabledTip: _v11 ? _v97.rtmpTranslations.embedPrivacyDemoDisabledTip : _v22 ? _v21 : void 0,
@@ -4330,7 +5858,7 @@
         }), (0, _v41.jsx)(_v46.Divider, {
           borderColor: "stroke",
           margin: `${(0, _v52.rem)(24)} 0`
-        }), _v10 ? (0, _v41.jsx)(_v151, {
+        }), _v10 ? (0, _v41.jsx)(_v177, {
           contentRating: _v10,
           isDisabled: !1,
           onChange: _v20
@@ -4341,13 +5869,13 @@
       })]
     });
   }], 0);
-  var _v174 = _v0.i(0),
-    _v175 = _v0.i(0),
-    _v176 = _v0.i(0);
+  var _v197 = _v0.i(0),
+    _v198 = _v0.i(0),
+    _v199 = _v0.i(0);
   _v0.s(["useFailsafeUpgradeModal", 0, function ({
     canOpen: _v0 = !0
   } = {}) {
-    return (0, _v176.useUpgradeModal)({
+    return (0, _v199.useUpgradeModal)({
       canOpen: _v0,
       tracking: {
         params: {
@@ -4367,17 +5895,17 @@
       templateType: "enterprise",
       modalConfig: {
         mkcCode: "109813",
-        enterpriseTitle: _v174.T_GO_LIVE_WITH_PEACE_OF_MIND,
-        enterpriseSubtitle: _v174.T_ADD_FAIL_SAFE_STREAMING,
-        customFeaturesList: (0, _v41.jsx)(_v175.UpsellFeaturesList, {
-          featuresList: _v174.T_FAIL_SAFE_STREAMING_FEATURES
+        enterpriseTitle: _v197.T_GO_LIVE_WITH_PEACE_OF_MIND,
+        enterpriseSubtitle: _v197.T_ADD_FAIL_SAFE_STREAMING,
+        customFeaturesList: (0, _v41.jsx)(_v198.UpsellFeaturesList, {
+          featuresList: _v197.T_FAIL_SAFE_STREAMING_FEATURES
         })
       }
     });
   }], 0), _v0.s(["useUnlimitedStreamUpgradeModal", 0, function ({
     canOpen: _v0 = !0
   } = {}) {
-    return (0, _v176.useUpgradeModal)({
+    return (0, _v199.useUpgradeModal)({
       canOpen: _v0,
       tracking: {
         params: {
@@ -4397,16 +5925,16 @@
       templateType: "enterprise",
       modalConfig: {
         mkcCode: "109754",
-        enterpriseTitle: _v174.T_STREAM_WITHOUT_INTERRUPTIONS,
-        enterpriseSubtitle: _v174.T_CREATE_CONTINUOUS_STREAM,
-        customFeaturesList: (0, _v41.jsx)(_v175.UpsellFeaturesList, {
-          featuresList: _v174.T_UNLIMITED_DURATION_FEATURES
+        enterpriseTitle: _v197.T_STREAM_WITHOUT_INTERRUPTIONS,
+        enterpriseSubtitle: _v197.T_CREATE_CONTINUOUS_STREAM,
+        customFeaturesList: (0, _v41.jsx)(_v198.UpsellFeaturesList, {
+          featuresList: _v197.T_UNLIMITED_DURATION_FEATURES
         })
       }
     });
   }], 0);
-  var _v177 = _v0.i(0),
-    _v178 = _v0.i(0);
+  var _v200 = _v0.i(0),
+    _v201 = _v0.i(0);
   _v0.s(["useTimeBasedDismissableNotification", 0, function ({
     storedKey: _v0,
     cooldownMs: _v1 = 0,
@@ -4414,12 +5942,12 @@
   }) {
     let [_v3, _v4] = (0, _v43.useState)(() => {
       if (_v2) return !1;
-      let _v0 = (0, _v177.getFromLocalStorage)(_v0),
+      let _v0 = (0, _v200.getFromLocalStorage)(_v0),
         _v1 = _v0 ? Number(_v0) : null;
-      return !_v1 || _v1 < (0, _v178.getAbsoluteNow)() - _v1;
+      return !_v1 || _v1 < (0, _v201.getAbsoluteNow)() - _v1;
     });
     return [_v3, (0, _v43.useCallback)(() => {
-      (0, _v177.setLocalStorageItem)(_v0, (0, _v178.getAbsoluteNow)()), _v4(!1);
+      (0, _v200.setLocalStorageItem)(_v0, (0, _v201.getAbsoluteNow)()), _v4(!1);
     }, [_v0])];
   }], 0);
 }

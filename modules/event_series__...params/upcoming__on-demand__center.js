@@ -343,7 +343,8 @@
     }) => {
       let _v3 = "vimeo" === _v1.type || "custom" === _v1.type && !!_v1.url,
         _v4 = (0, _v35.useColorModeValue)("rgba(244, 246, 248, 0.64)", "rgba(20, 24, 28, 0.64)"),
-        _v5 = [{
+        _v5 = _v2.landingPageConfig?.navConfig ?? ["upcoming", "on-demand"],
+        _v6 = [{
           id: "upcoming",
           label: (0, _v15.translate)({
             singular: "Upcoming events",
@@ -401,7 +402,7 @@
             }
           }),
           href: _v9(_v2)
-        }];
+        }].filter(_v0 => _v5.includes(_v0.id));
       return (0, _v1.jsx)(_v11.Box, {
         backdropFilter: "blur(50px)",
         backgroundColor: _v4,
@@ -464,7 +465,7 @@
             },
             flexShrink: 0,
             gap: "sm",
-            children: _v5.map(_v0 => (0, _v1.jsx)(_v12.Button, {
+            children: _v6.map(_v0 => (0, _v1.jsx)(_v12.Button, {
               as: _v10.default,
               href: _v0.href,
               size: "md",
@@ -1515,7 +1516,7 @@
       return (0, _v64.deepCamelCase)(_v1);
     });
   }
-  let _v66 = ["id", "name", "description", "link", "status", "landingPageConfig", "landingPageConfig.theme", "landingPageConfig.startDate", "landingPageConfig.endDate", "landingPageConfig.timeZone", "landingPageConfig.logo", "landingPageConfig.logo.type", "landingPageConfig.logo.uri", "landingPageConfig.logo.url", "landingPageConfig.contentConfig", "pictures", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "pictures.baseLink", "events.uri", "events.title", "events.link", "events.description", "events.nextOccurrenceTime", "events.startTime", "events.isLive", "events.pictures", "events.pictures.sizes", "events.pictures.sizes.link", "events.pictures.sizes.width", "events.speakers", "events.speakers.name", "events.speakers.avatar"],
+  let _v66 = ["id", "name", "description", "link", "status", "landingPageConfig", "landingPageConfig.theme", "landingPageConfig.startDate", "landingPageConfig.endDate", "landingPageConfig.timeZone", "landingPageConfig.logo", "landingPageConfig.logo.type", "landingPageConfig.logo.uri", "landingPageConfig.logo.url", "landingPageConfig.contentConfig", "landingPageConfig.navConfig", "pictures", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "pictures.baseLink", "events.uri", "events.title", "events.link", "events.description", "events.nextOccurrenceTime", "events.startTime", "events.isLive", "events.pictures", "events.pictures.sizes", "events.pictures.sizes.link", "events.pictures.sizes.width", "events.speakers", "events.speakers.name", "events.speakers.avatar"],
     _v67 = [..._v66, "events.recordings", "events.recordings.uri", "events.recordings.link", "events.recordings.title", "events.recordings.duration", "events.recordings.streamedOn", "events.recordings.pictures", "events.recordings.pictures.sizes", "events.recordings.pictures.sizes.link", "events.recordings.pictures.sizes.width"],
     _v68 = async ({
       baseUrl: _v0,

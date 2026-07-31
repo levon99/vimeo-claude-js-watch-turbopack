@@ -368,7 +368,7 @@
                 singular: "Required",
                 dictionary: {
                   es: {
-                    singular: "Obligatorio"
+                    singular: "Requerido"
                   },
                   "de-DE": {
                     singular: "Erforderlich"
@@ -380,7 +380,7 @@
                     singular: "必須"
                   },
                   "ko-KR": {
-                    singular: "필수 항목"
+                    singular: "필수"
                   },
                   "pt-BR": {
                     singular: "Obrigatório"

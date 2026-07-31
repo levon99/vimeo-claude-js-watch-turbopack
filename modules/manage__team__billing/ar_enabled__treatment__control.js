@@ -8544,7 +8544,7 @@
           let {
             settings: _v0
           } = (0, _v28.useOrionSettings)();
-          return "rp_2026_high" === _v0.campaign_id_override ? "high" : "low";
+          return "rp_2026_high" === ("null" !== _v0.campaign_id_override_top_priority ? _v0.campaign_id_override_top_priority : _v0.campaign_id_override) ? "high" : "low";
         }(),
         _v16 = _v6?.productName?.toLowerCase().replace("vimeo ", ""),
         _v17 = function ({

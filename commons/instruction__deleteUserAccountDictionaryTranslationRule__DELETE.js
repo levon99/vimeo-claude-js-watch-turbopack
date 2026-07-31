@@ -16,11 +16,12 @@
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
-    _v16 = _v0.i(0);
-  let _v17 = "instruction";
-  var _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
-  async function _v20({
+    _v16 = _v0.i(0),
+    _v17 = _v0.i(0);
+  let _v18 = "instruction";
+  var _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
+  async function _v21({
     baseUrl: _v0,
     where: {
       userId: _v1,
@@ -28,19 +29,19 @@
     },
     ..._v3
   }) {
-    return (0, _v19.measureLatency)("deleteUserAccountDictionaryTranslationRule", "DELETE", async () => {
+    return (0, _v20.measureLatency)("deleteUserAccountDictionaryTranslationRule", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/users/${_v1}/account_dictionary/translation_rules/${_v2}`, {
         ..._v3,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v18.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v19.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v18.deepCamelCase)(_v1);
+      return (0, _v19.deepCamelCase)(_v1);
     });
   }
-  async function _v21({
+  async function _v22({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -50,20 +51,20 @@
     },
     ..._v5
   }) {
-    return (0, _v19.measureLatency)("patchUserAccountDictionaryTranslationRule", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/account_dictionary/translation_rules/${_v4}?fields=${_v1.map(_v18.intoSnakeCase).join(",")}`, {
+    return (0, _v20.measureLatency)("patchUserAccountDictionaryTranslationRule", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v3}/account_dictionary/translation_rules/${_v4}?fields=${_v1.map(_v19.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "PATCH",
-        body: JSON.stringify((0, _v18.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v19.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v18.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v19.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v18.deepCamelCase)(_v1);
+      return (0, _v19.deepCamelCase)(_v1);
     });
   }
-  async function _v22({
+  async function _v23({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -72,19 +73,19 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v19.measureLatency)("getUserAccountDictionaryTranslationRules", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/account_dictionary/translation_rules?${(0, _v18.searchQueryString)(_v3)}&fields=${_v1.map(_v18.intoSnakeCase).join(",")}`, {
+    return (0, _v20.measureLatency)("getUserAccountDictionaryTranslationRules", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/account_dictionary/translation_rules?${(0, _v19.searchQueryString)(_v3)}&fields=${_v1.map(_v19.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v18.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v19.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v18.deepCamelCase)(_v1);
+      return (0, _v19.deepCamelCase)(_v1);
     });
   }
-  async function _v23({
+  async function _v24({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -93,34 +94,34 @@
     },
     ..._v4
   }) {
-    return (0, _v19.measureLatency)("postUserAccountDictionaryTranslationRules", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/account_dictionary/translation_rules?fields=${_v1.map(_v18.intoSnakeCase).join(",")}`, {
+    return (0, _v20.measureLatency)("postUserAccountDictionaryTranslationRules", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v3}/account_dictionary/translation_rules?fields=${_v1.map(_v19.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "POST",
-        body: JSON.stringify((0, _v18.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v19.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v18.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v19.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v18.deepCamelCase)(_v1);
+      return (0, _v19.deepCamelCase)(_v1);
     });
   }
-  var _v24 = _v0.i(0),
-    _v25 = _v0.i(0),
+  var _v25 = _v0.i(0),
     _v26 = _v0.i(0),
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
-    _v29 = _v0.i(0);
-  function _v30(_v0, _v1) {
+    _v29 = _v0.i(0),
+    _v30 = _v0.i(0);
+  function _v31(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v24.useGctlConfig)();
-    return (0, _v29.default)((_v0, _v1) => {
+      } = (0, _v25.useGctlConfig)();
+    return (0, _v30.default)((_v0, _v1) => {
       if (null === _v2 || _v1 && !_v1.paging.next) return null;
       let {
           perPage: _v2 = 25,
@@ -130,7 +131,7 @@
         _v5 = _v2.select.join(","),
         _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
       return [`/users/${_v2.where.userId}/account_dictionary/translation_rules?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v22({
+    }, null !== _v2 ? ([_v0, _v1]) => _v23({
       ..._v2,
       baseUrl: _v3,
       headers: {
@@ -146,15 +147,15 @@
       }
     }) : null, _v1);
   }
-  "true" === _v25.default.env.STORYBOOK && (0, _v26.assignMswData)(function (_v0, _v1) {
+  "true" === _v26.default.env.STORYBOOK && (0, _v27.assignMswData)(function (_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v24.useGctlConfig)();
-    return (0, _v27.default)(_v2 ? `/users/${_v2.where.userId}/account_dictionary/translation_rules${(0, _v26.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v22({
+      } = (0, _v25.useGctlConfig)();
+    return (0, _v28.default)(_v2 ? `/users/${_v2.where.userId}/account_dictionary/translation_rules${(0, _v27.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v23({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -168,23 +169,23 @@
   }, {
     endpoint: "/users/:userId/account_dictionary/translation_rules",
     method: "GET"
-  }), "true" === _v25.default.env.STORYBOOK && (0, _v26.assignMswData)(function () {
+  }), "true" === _v26.default.env.STORYBOOK && (0, _v27.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v28.useSWRConfig)(),
+      } = (0, _v29.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v24.useGctlConfig)(),
-      [_v5, _v6] = (0, _v26.useInternalState)();
+      } = (0, _v25.useGctlConfig)(),
+      [_v5, _v6] = (0, _v27.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/account_dictionary/translation_rules${(0, _v26.serializeQuery)(_v0)}`, _v22({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/account_dictionary/translation_rules${(0, _v27.serializeQuery)(_v0)}`, _v23({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -209,23 +210,23 @@
   }, {
     endpoint: "/users/:userId/account_dictionary/translation_rules",
     method: "GET"
-  }), "true" === _v25.default.env.STORYBOOK && (0, _v26.assignMswData)(_v30, {
+  }), "true" === _v26.default.env.STORYBOOK && (0, _v27.assignMswData)(_v31, {
     endpoint: "/users/:userId/account_dictionary/translation_rules",
     method: "GET"
-  }), "true" === _v25.default.env.STORYBOOK && (0, _v26.assignMswData)(function () {
+  }), "true" === _v26.default.env.STORYBOOK && (0, _v27.assignMswData)(function () {
     let {
         baseUrl: _v0,
         jwt: _v1,
         xVimeoPage: _v2,
         locale: _v3
-      } = (0, _v24.useGctlConfig)(),
-      [_v4, _v5] = (0, _v26.useInternalState)();
+      } = (0, _v25.useGctlConfig)(),
+      [_v4, _v5] = (0, _v27.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v5({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v23({
+        let _v0 = await _v24({
           ..._v0,
           baseUrl: _v0,
           headers: {
@@ -251,9 +252,9 @@
     endpoint: "/users/:userId/account_dictionary/translation_rules",
     method: "POST"
   });
-  let _v31 = _v0 => _v0.split("/").pop() ?? "",
-    _v32 = _v0 => null === _v0.sourceLanguage && null === _v0.targetLanguage,
-    _v33 = ({
+  let _v32 = _v0 => _v0.split("/").pop() ?? "",
+    _v33 = _v0 => null === _v0.sourceLanguage && null === _v0.targetLanguage,
+    _v34 = ({
       isSaving: _v0,
       ruleText: _v1,
       save: _v2,
@@ -280,27 +281,27 @@
         _v12 = (0, _v2.useCallback)(_v0 => {
           _v6(_v0.target.value);
         }, []);
-      return (0, _v1.jsx)(_v4.Flex, {
+      return (0, _v1.jsx)(_v3.Flex, {
         flexDirection: "column",
         marginTop: (0, _v5.rem)(24),
-        children: (0, _v1.jsxs)(_v10.FormControl, {
+        children: (0, _v1.jsxs)(_v11.FormControl, {
           id: _v8,
           isDisabled: _v0,
           isInvalid: !!_v3,
-          children: [(0, _v1.jsxs)(_v4.Flex, {
+          children: [(0, _v1.jsxs)(_v3.Flex, {
             alignItems: "center",
             justifyContent: "space-between",
             paddingBottom: (0, _v5.rem)(4),
-            children: [(0, _v1.jsx)(_v11.FormLabel, {
+            children: [(0, _v1.jsx)(_v12.FormLabel, {
               marginBottom: "0",
               children: _v4.rulesInputLabel
-            }), (0, _v1.jsx)(_v13.Text, {
+            }), (0, _v1.jsx)(_v14.Text, {
               id: _v9,
               color: "text-secondary",
               variant: "body-md",
               children: _v4.rulesCharacterCount(_v5.length, 0)
             })]
-          }), (0, _v1.jsx)(_v14.Textarea, {
+          }), (0, _v1.jsx)(_v15.Textarea, {
             "aria-describedby": _v9,
             height: (0, _v5.rem)(102),
             maxLength: 0,
@@ -310,7 +311,7 @@
             value: _v5,
             onBlur: _v11,
             onChange: _v12
-          }), (0, _v1.jsx)(_v10.FormHelperText, {
+          }), (0, _v1.jsx)(_v11.FormHelperText, {
             "aria-atomic": "true",
             "aria-live": "polite",
             color: _v3 ? "status-destructive-primary" : "text-tertiary",
@@ -320,7 +321,7 @@
         })
       });
     },
-    _v34 = ({
+    _v35 = ({
       ownerUserId: _v0,
       translations: _v1
     }) => {
@@ -338,7 +339,7 @@
               jwt: _v2,
               xVimeoPage: _v3,
               locale: _v4
-            } = (0, _v24.useGctlConfig)(),
+            } = (0, _v25.useGctlConfig)(),
             {
               data: _v5,
               error: _v6,
@@ -347,13 +348,13 @@
               mutate: _v9,
               setSize: _v10,
               size: _v11
-            } = _v30(() => ({
+            } = _v31(() => ({
               select: ["uri", "ruleText", "sourceLanguage", "targetLanguage"],
               where: {
                 userId: _v0
               },
               query: {
-                ruleType: _v17,
+                ruleType: _v18,
                 perPage: 100
               }
             })),
@@ -362,7 +363,7 @@
           (0, _v2.useEffect)(() => {
             !_v13 || _v8 || _v6 || _v10(_v11 + 1);
           }, [_v6, _v13, _v8, _v10, _v11]);
-          let _v14 = (0, _v2.useMemo)(() => _v5?.flatMap(_v0 => _v0.data).filter(_v32) ?? [], [_v5]),
+          let _v14 = (0, _v2.useMemo)(() => _v5?.flatMap(_v0 => _v0.data).filter(_v33) ?? [], [_v5]),
             _v15 = _v14[0],
             [_v16, _v17] = (0, _v2.useState)(!1),
             [_v18, _v19] = (0, _v2.useState)(),
@@ -376,23 +377,23 @@
               for (let {
                 uri: _v0
               } of _v0) try {
-                await _v20({
+                await _v21({
                   baseUrl: _v1,
                   headers: _v20,
                   where: {
                     userId: _v0,
-                    ruleId: _v31(_v0)
+                    ruleId: _v32(_v0)
                   }
                 });
               } catch (_v0) {
-                if (!(_v0 instanceof _v18.NetworkError && 404 === _v0.status)) throw _v0;
+                if (!(_v0 instanceof _v19.NetworkError && 404 === _v0.status)) throw _v0;
               }
             }, [_v1, _v20, _v0]),
             _v22 = (0, _v2.useCallback)(async _v0 => {
               let _v1 = _v0.trim();
               _v17(!0), _v19(void 0);
               try {
-                "" === _v1 ? await _v21(_v14) : _v15 ? (await _v21({
+                "" === _v1 ? await _v21(_v14) : _v15 ? (await _v22({
                   baseUrl: _v1,
                   headers: _v20,
                   select: ["uri"],
@@ -401,14 +402,14 @@
                   },
                   where: {
                     userId: _v0,
-                    ruleId: _v31(_v15.uri)
+                    ruleId: _v32(_v15.uri)
                   }
-                }), await _v21(_v14.slice(1))) : await _v23({
+                }), await _v21(_v14.slice(1))) : await _v24({
                   baseUrl: _v1,
                   headers: _v20,
                   select: ["uri"],
                   variables: {
-                    ruleType: _v17,
+                    ruleType: _v18,
                     sourceLanguage: null,
                     targetLanguage: null,
                     ruleText: _v1
@@ -439,18 +440,18 @@
         _v9 = (0, _v2.useCallback)(() => {
           _v6();
         }, [_v6]);
-      return (0, _v1.jsx)(_v16.TeamSettingsPageCategory, {
+      return (0, _v1.jsx)(_v17.TeamSettingsPageCategory, {
         title: _v1.rulesTitle,
         description: _v1.rulesDescription,
         headingAs: "h2",
-        children: _v3 ? (0, _v1.jsx)(_v4.Flex, {
+        children: _v3 ? (0, _v1.jsx)(_v3.Flex, {
           minHeight: (0, _v5.rem)(168),
           alignItems: "center",
           justifyContent: "center",
-          children: (0, _v1.jsx)(_v12.Spinner, {
+          children: (0, _v1.jsx)(_v13.Spinner, {
             label: _v1.rulesLoadingLabel
           })
-        }) : _v4 ? (0, _v1.jsx)(_v4.Flex, {
+        }) : _v4 ? (0, _v1.jsx)(_v3.Flex, {
           minHeight: (0, _v5.rem)(168),
           alignItems: "center",
           children: (0, _v1.jsxs)(_v9.AlertRoot, {
@@ -460,18 +461,18 @@
             variant: "error",
             width: "100%",
             children: [(0, _v1.jsx)(_v8.AlertIcon, {
-              children: (0, _v1.jsx)(_v15.CircleExclamationFilled, {})
+              children: (0, _v1.jsx)(_v16.CircleExclamationFilled, {})
             }), (0, _v1.jsx)(_v7.AlertDescription, {
               flex: "1",
               children: _v1.rulesLoadingError
-            }), (0, _v1.jsx)(_v3.Button, {
+            }), (0, _v1.jsx)(_v10.Button, {
               variant: "secondary",
               size: "sm",
               onClick: _v9,
               children: _v1.tryAgain
             })]
           })
-        }) : (0, _v1.jsx)(_v33, {
+        }) : (0, _v1.jsx)(_v34, {
           isSaving: _v5,
           ruleText: _v2,
           save: _v7,
@@ -480,8 +481,7 @@
         })
       });
     };
-  var _v35 = _v0.i(0),
-    _v36 = _v0.i(0),
+  var _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
     _v39 = _v0.i(0),
@@ -1979,36 +1979,36 @@
     },
     ..._v4
   }) {
-    return (0, _v19.measureLatency)("postUserAccountDictionaryGlossaryTermsBatch", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/account_dictionary/glossary_terms/batch?fields=${_v1.map(_v18.intoSnakeCase).join(",")}`, {
+    return (0, _v20.measureLatency)("postUserAccountDictionaryGlossaryTermsBatch", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v3}/account_dictionary/glossary_terms/batch?fields=${_v1.map(_v19.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "POST",
-        body: JSON.stringify((0, _v18.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v19.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v18.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v19.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v18.deepCamelCase)(_v1);
+      return (0, _v19.deepCamelCase)(_v1);
     });
   }
   function _v109() {
     let {
         mutate: _v0
-      } = (0, _v28.useSWRConfig)(),
+      } = (0, _v29.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v24.useGctlConfig)(),
-      [_v5, _v6] = (0, _v26.useInternalState)();
+      } = (0, _v25.useGctlConfig)(),
+      [_v5, _v6] = (0, _v27.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/account_dictionary/glossary_terms/batch${(0, _v26.serializeQuery)(_v0)}`, _v108({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/account_dictionary/glossary_terms/batch${(0, _v27.serializeQuery)(_v0)}`, _v108({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -2031,7 +2031,7 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v25.default.env.STORYBOOK && (0, _v26.assignMswData)(_v109, {
+  "true" === _v26.default.env.STORYBOOK && (0, _v27.assignMswData)(_v109, {
     endpoint: "/users/:userId/account_dictionary/glossary_terms/batch",
     method: "POST"
   });
@@ -2044,7 +2044,7 @@
         _v1 = document.createElement("a");
       _v1.href = _v0, _v1.download = "glossary-template.csv", document.body.appendChild(_v1), _v1.click(), document.body.removeChild(_v1), URL.revokeObjectURL(_v0);
     },
-    _v112 = _v0 => (0, _v1.jsx)(_v46.Link, {
+    _v112 = _v0 => (0, _v1.jsx)(_v4.Link, {
       as: "button",
       type: "button",
       color: "text-primary",
@@ -2163,16 +2163,16 @@
           }), (0, _v1.jsxs)(_v48.ModalBody, {
             paddingX: (0, _v5.rem)(32),
             paddingY: (0, _v5.rem)(24),
-            children: [(0, _v1.jsx)(_v13.Text, {
+            children: [(0, _v1.jsx)(_v14.Text, {
               variant: "body-md",
               color: "text-secondary",
               children: _v1.glossaryCsvInstructions
-            }), (0, _v1.jsx)(_v13.Text, {
+            }), (0, _v1.jsx)(_v14.Text, {
               variant: "body-md",
               color: "text-secondary",
               marginBottom: (0, _v5.rem)(24),
               children: _v1.glossaryCsvTemplatePrompt(_v112)
-            }), (0, _v1.jsx)(_v4.Flex, {
+            }), (0, _v1.jsx)(_v3.Flex, {
               as: "button",
               type: "button",
               width: "100%",
@@ -2196,26 +2196,26 @@
               onClick: () => _v4.current?.click(),
               onDragOver: _v0 => _v0.preventDefault(),
               onDrop: _v18,
-              children: (0, _v1.jsxs)(_v4.Flex, {
+              children: (0, _v1.jsxs)(_v3.Flex, {
                 flexDirection: "column",
                 alignItems: "center",
                 gap: (0, _v5.rem)(4),
                 textAlign: "center",
-                children: [(0, _v1.jsx)(_v43.Upload, {
+                children: [(0, _v1.jsx)(_v44.Upload, {
                   boxSize: (0, _v5.rem)(32),
                   "aria-hidden": !0
-                }), (0, _v1.jsx)(_v13.Text, {
+                }), (0, _v1.jsx)(_v14.Text, {
                   variant: "heading-sm",
                   children: _v1.glossaryCsvUploadFile
-                }), (0, _v1.jsx)(_v13.Text, {
+                }), (0, _v1.jsx)(_v14.Text, {
                   variant: "body-sm",
                   color: "text-secondary",
                   children: _v1.glossaryCsvDropFile
                 })]
               })
-            }), (0, _v1.jsx)(_v35.Box, {
+            }), (0, _v1.jsx)(_v36.Box, {
               display: "none",
-              children: (0, _v1.jsx)(_v45.FileInput, {
+              children: (0, _v1.jsx)(_v46.FileInput, {
                 ref: _v4,
                 "aria-label": _v1.glossaryCsvUploadFile,
                 accept: ".csv,text/csv",
@@ -2232,23 +2232,23 @@
               children: (0, _v1.jsx)(_v7.AlertDescription, {
                 children: _v8
               })
-            }), (0, _v1.jsxs)(_v35.Box, {
+            }), (0, _v1.jsxs)(_v36.Box, {
               "aria-live": "polite",
-              children: [void 0 !== _v10 && (0, _v1.jsxs)(_v35.Box, {
+              children: [void 0 !== _v10 && (0, _v1.jsxs)(_v36.Box, {
                 marginTop: (0, _v5.rem)(16),
-                children: [(0, _v1.jsx)(_v13.Text, {
+                children: [(0, _v1.jsx)(_v14.Text, {
                   variant: "body-sm",
                   children: _v1.glossaryCsvImported(_v10)
-                }), _v12.length > 0 && (0, _v1.jsx)(_v13.Text, {
+                }), _v12.length > 0 && (0, _v1.jsx)(_v14.Text, {
                   variant: "body-sm",
                   children: _v1.glossaryCsvRowsFailed(_v12.length)
                 })]
-              }), _v12.length > 0 && (0, _v1.jsx)(_v35.Box, {
+              }), _v12.length > 0 && (0, _v1.jsx)(_v36.Box, {
                 marginTop: (0, _v5.rem)(8),
                 children: _v12.map(({
                   line: _v0,
                   message: _v1
-                }) => (0, _v1.jsx)(_v13.Text, {
+                }) => (0, _v1.jsx)(_v14.Text, {
                   variant: "body-sm",
                   color: "text-secondary",
                   children: _v1.glossaryCsvLineError(_v0, _v1)
@@ -2276,16 +2276,16 @@
     },
     ..._v3
   }) {
-    return (0, _v19.measureLatency)("deleteUserAccountDictionaryGlossaryTerm", "DELETE", async () => {
+    return (0, _v20.measureLatency)("deleteUserAccountDictionaryGlossaryTerm", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/users/${_v1}/account_dictionary/glossary_terms/${_v2}`, {
         ..._v3,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v18.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v19.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v18.deepCamelCase)(_v1);
+      return (0, _v19.deepCamelCase)(_v1);
     });
   }
   async function _v124({
@@ -2298,17 +2298,17 @@
     },
     ..._v5
   }) {
-    return (0, _v19.measureLatency)("patchUserAccountDictionaryGlossaryTerm", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/account_dictionary/glossary_terms/${_v4}?fields=${_v1.map(_v18.intoSnakeCase).join(",")}`, {
+    return (0, _v20.measureLatency)("patchUserAccountDictionaryGlossaryTerm", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v3}/account_dictionary/glossary_terms/${_v4}?fields=${_v1.map(_v19.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "PATCH",
-        body: JSON.stringify((0, _v18.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v19.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v18.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v19.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v18.deepCamelCase)(_v1);
+      return (0, _v19.deepCamelCase)(_v1);
     });
   }
   async function _v125({
@@ -2320,16 +2320,16 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v19.measureLatency)("getUserAccountDictionaryGlossaryTerms", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/account_dictionary/glossary_terms?${(0, _v18.searchQueryString)(_v3)}&fields=${_v1.map(_v18.intoSnakeCase).join(",")}`, {
+    return (0, _v20.measureLatency)("getUserAccountDictionaryGlossaryTerms", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/account_dictionary/glossary_terms?${(0, _v19.searchQueryString)(_v3)}&fields=${_v1.map(_v19.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v18.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v19.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v18.deepCamelCase)(_v1);
+      return (0, _v19.deepCamelCase)(_v1);
     });
   }
   async function _v126({
@@ -2341,17 +2341,17 @@
     },
     ..._v4
   }) {
-    return (0, _v19.measureLatency)("postUserAccountDictionaryGlossaryTerms", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/account_dictionary/glossary_terms?fields=${_v1.map(_v18.intoSnakeCase).join(",")}`, {
+    return (0, _v20.measureLatency)("postUserAccountDictionaryGlossaryTerms", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v3}/account_dictionary/glossary_terms?fields=${_v1.map(_v19.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "POST",
-        body: JSON.stringify((0, _v18.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v19.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v18.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v19.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v18.deepCamelCase)(_v1);
+      return (0, _v19.deepCamelCase)(_v1);
     });
   }
   function _v127(_v0, _v1) {
@@ -2361,8 +2361,8 @@
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v24.useGctlConfig)();
-    return (0, _v27.default)(_v2 ? `/users/${_v2.where.userId}/account_dictionary/glossary_terms${(0, _v26.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v125({
+      } = (0, _v25.useGctlConfig)();
+    return (0, _v28.default)(_v2 ? `/users/${_v2.where.userId}/account_dictionary/glossary_terms${(0, _v27.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v125({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -2381,8 +2381,8 @@
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v24.useGctlConfig)();
-    return (0, _v29.default)((_v0, _v1) => {
+      } = (0, _v25.useGctlConfig)();
+    return (0, _v30.default)((_v0, _v1) => {
       if (null === _v2 || _v1 && !_v1.paging.next) return null;
       let {
           perPage: _v2 = 25,
@@ -2408,26 +2408,26 @@
       }
     }) : null, _v1);
   }
-  "true" === _v25.default.env.STORYBOOK && (0, _v26.assignMswData)(_v127, {
+  "true" === _v26.default.env.STORYBOOK && (0, _v27.assignMswData)(_v127, {
     endpoint: "/users/:userId/account_dictionary/glossary_terms",
     method: "GET"
-  }), "true" === _v25.default.env.STORYBOOK && (0, _v26.assignMswData)(function () {
+  }), "true" === _v26.default.env.STORYBOOK && (0, _v27.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v28.useSWRConfig)(),
+      } = (0, _v29.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v24.useGctlConfig)(),
-      [_v5, _v6] = (0, _v26.useInternalState)();
+      } = (0, _v25.useGctlConfig)(),
+      [_v5, _v6] = (0, _v27.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/account_dictionary/glossary_terms${(0, _v26.serializeQuery)(_v0)}`, _v125({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/account_dictionary/glossary_terms${(0, _v27.serializeQuery)(_v0)}`, _v125({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -2452,17 +2452,17 @@
   }, {
     endpoint: "/users/:userId/account_dictionary/glossary_terms",
     method: "GET"
-  }), "true" === _v25.default.env.STORYBOOK && (0, _v26.assignMswData)(_v128, {
+  }), "true" === _v26.default.env.STORYBOOK && (0, _v27.assignMswData)(_v128, {
     endpoint: "/users/:userId/account_dictionary/glossary_terms",
     method: "GET"
-  }), "true" === _v25.default.env.STORYBOOK && (0, _v26.assignMswData)(function () {
+  }), "true" === _v26.default.env.STORYBOOK && (0, _v27.assignMswData)(function () {
     let {
         baseUrl: _v0,
         jwt: _v1,
         xVimeoPage: _v2,
         locale: _v3
-      } = (0, _v24.useGctlConfig)(),
-      [_v4, _v5] = (0, _v26.useInternalState)();
+      } = (0, _v25.useGctlConfig)(),
+      [_v4, _v5] = (0, _v27.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v5({
         type: "REQUEST"
@@ -2537,7 +2537,7 @@
               jwt: _v2,
               xVimeoPage: _v3,
               locale: _v4
-            } = (0, _v24.useGctlConfig)(),
+            } = (0, _v25.useGctlConfig)(),
             {
               data: _v5,
               error: _v6,
@@ -2702,7 +2702,7 @@
               status: "info",
               marginBottom: (0, _v5.rem)(24),
               children: (0, _v1.jsxs)(_v7.AlertDescription, {
-                children: [_v1.glossaryEditorDescription, " ", (0, _v1.jsx)(_v46.Link, {
+                children: [_v1.glossaryEditorDescription, " ", (0, _v1.jsx)(_v4.Link, {
                   as: "button",
                   type: "button",
                   color: "text-primary",
@@ -2717,7 +2717,7 @@
               children: [(0, _v1.jsx)(_v7.AlertDescription, {
                 flex: "1",
                 children: _v1.glossaryLoadingError
-              }), (0, _v1.jsx)(_v3.Button, {
+              }), (0, _v1.jsx)(_v10.Button, {
                 variant: "secondary",
                 size: "sm",
                 onClick: _v31,
@@ -2729,18 +2729,18 @@
               children: [(0, _v1.jsx)(_v7.AlertDescription, {
                 flex: "1",
                 children: _v1.changesCouldNotBeSaved
-              }), _v20 && (0, _v1.jsx)(_v3.Button, {
+              }), _v20 && (0, _v1.jsx)(_v10.Button, {
                 variant: "secondary",
                 size: "sm",
                 onClick: _v33,
                 children: _v1.tryAgain
               })]
-            }), _v7 ? (0, _v1.jsx)(_v4.Flex, {
+            }), _v7 ? (0, _v1.jsx)(_v3.Flex, {
               minHeight: (0, _v5.rem)(240),
               alignItems: "center",
               justifyContent: "center",
-              children: (0, _v1.jsx)(_v44.Spinner, {})
-            }) : (0, _v1.jsx)(_v35.Box, {
+              children: (0, _v1.jsx)(_v45.Spinner, {})
+            }) : (0, _v1.jsx)(_v36.Box, {
               border: "1px solid",
               borderColor: "stroke",
               borderRadius: "sm",
@@ -2800,13 +2800,13 @@
                       children: _v1.removeTerm
                     })
                   })]
-                }), (0, _v1.jsx)(_v4.Flex, {
+                }), (0, _v1.jsx)(_v3.Flex, {
                   alignItems: "center",
                   paddingX: (0, _v5.rem)(12),
                   borderRight: "1px solid",
                   borderColor: "stroke",
                   backgroundColor: "fill-component",
-                  children: (0, _v1.jsx)(_v13.Text, {
+                  children: (0, _v1.jsx)(_v14.Text, {
                     as: "span",
                     variant: "heading-xs",
                     color: "text-primary",
@@ -2887,9 +2887,9 @@ ${_v2}`;
               sm: "row"
             },
             gap: (0, _v5.rem)(12),
-            children: [_v5 && (0, _v1.jsx)(_v3.Button, {
+            children: [_v5 && (0, _v1.jsx)(_v10.Button, {
               variant: "secondary",
-              leftIcon: (0, _v1.jsx)(_v43.Upload, {}),
+              leftIcon: (0, _v1.jsx)(_v44.Upload, {}),
               width: {
                 base: "100%",
                 sm: "auto"
@@ -2897,19 +2897,19 @@ ${_v2}`;
               onClick: _v5,
               isDisabled: _v16,
               children: _v1.uploadCsv
-            }), (0, _v1.jsxs)(_v4.Flex, {
+            }), (0, _v1.jsxs)(_v3.Flex, {
               gap: (0, _v5.rem)(12),
               justifyContent: "flex-end",
               marginLeft: {
                 base: 0,
                 sm: "auto"
               },
-              children: [(0, _v1.jsx)(_v3.Button, {
+              children: [(0, _v1.jsx)(_v10.Button, {
                 variant: "tertiary",
                 onClick: _v2,
                 isDisabled: _v16,
                 children: _v1.cancel
-              }), (0, _v1.jsx)(_v3.Button, {
+              }), (0, _v1.jsx)(_v10.Button, {
                 variant: "primary",
                 onClick: _v34,
                 isLoading: _v16,
@@ -2969,35 +2969,35 @@ ${_v2}`;
         _v19 = _v15?.used ?? _v12,
         _v20 = _v15?.limit ?? 0;
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v16.TeamSettingsPageCategory, {
+        children: [(0, _v1.jsx)(_v17.TeamSettingsPageCategory, {
           title: _v1.glossaryTitle,
           description: _v1.glossaryDescription,
           headingAs: "h2",
-          headerActions: !_v16 && !_v17 && (0, _v1.jsxs)(_v4.Flex, {
+          headerActions: !_v16 && !_v17 && (0, _v1.jsxs)(_v3.Flex, {
             gap: (0, _v5.rem)(8),
-            children: [(0, _v1.jsx)(_v39.Tooltip, {
+            children: [(0, _v1.jsx)(_v40.Tooltip, {
               label: _v1.glossaryCsvDescription,
               placement: "top",
-              children: (0, _v1.jsx)(_v3.Button, {
+              children: (0, _v1.jsx)(_v10.Button, {
                 variant: "tertiary",
                 size: "sm",
-                leftIcon: (0, _v1.jsx)(_v43.Upload, {}),
+                leftIcon: (0, _v1.jsx)(_v44.Upload, {}),
                 onClick: () => _v8(!0),
                 children: _v1.csv
               })
-            }), (0, _v1.jsx)(_v3.Button, {
+            }), (0, _v1.jsx)(_v10.Button, {
               variant: "secondary",
               size: "sm",
-              leftIcon: 0 === _v12 ? (0, _v1.jsx)(_v42.Plus, {}) : (0, _v1.jsx)(_v41.EditPencil, {}),
+              leftIcon: 0 === _v12 ? (0, _v1.jsx)(_v43.Plus, {}) : (0, _v1.jsx)(_v42.EditPencil, {}),
               onClick: () => _v10(!0),
               children: _v12 > 0 ? _v1.edit : _v1.addTerm
             })]
           }),
-          children: _v16 ? (0, _v1.jsx)(_v4.Flex, {
+          children: _v16 ? (0, _v1.jsx)(_v3.Flex, {
             minHeight: (0, _v5.rem)(140),
             alignItems: "center",
             justifyContent: "center",
-            children: (0, _v1.jsx)(_v44.Spinner, {})
+            children: (0, _v1.jsx)(_v45.Spinner, {})
           }) : _v17 ? (0, _v1.jsxs)(_v9.Alert, {
             status: "error",
             marginTop: (0, _v5.rem)(24),
@@ -3005,46 +3005,46 @@ ${_v2}`;
             children: [(0, _v1.jsx)(_v7.AlertDescription, {
               flex: "1",
               children: _v1.glossaryLoadingError
-            }), (0, _v1.jsx)(_v3.Button, {
+            }), (0, _v1.jsx)(_v10.Button, {
               variant: "secondary",
               size: "sm",
               onClick: _v18,
               children: _v1.tryAgain
             })]
-          }) : 0 === _v12 ? (0, _v1.jsxs)(_v4.Flex, {
+          }) : 0 === _v12 ? (0, _v1.jsxs)(_v3.Flex, {
             minHeight: (0, _v5.rem)(140),
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "column",
             textAlign: "center",
-            children: [(0, _v1.jsx)(_v40.ClipboardNotes, {
+            children: [(0, _v1.jsx)(_v41.ClipboardNotes, {
               boxSize: 32
-            }), (0, _v1.jsx)(_v13.Text, {
+            }), (0, _v1.jsx)(_v14.Text, {
               variant: "heading-sm",
               marginTop: (0, _v5.rem)(8),
               children: _v1.glossaryEmptyTitle
-            }), (0, _v1.jsx)(_v13.Text, {
+            }), (0, _v1.jsx)(_v14.Text, {
               variant: "body-sm",
               color: "text-secondary",
               marginTop: (0, _v5.rem)(4),
               children: _v1.glossaryEmptyDescription
             })]
-          }) : (0, _v1.jsxs)(_v35.Box, {
+          }) : (0, _v1.jsxs)(_v36.Box, {
             marginTop: (0, _v5.rem)(24),
-            children: [(0, _v1.jsx)(_v4.Flex, {
+            children: [(0, _v1.jsx)(_v3.Flex, {
               flexWrap: "wrap",
               gap: (0, _v5.rem)(8),
-              children: _v11.map(_v0 => (0, _v1.jsx)(_v38.Tag, {
+              children: _v11.map(_v0 => (0, _v1.jsx)(_v39.Tag, {
                 size: "sm",
                 borderRadius: "md",
-                children: (0, _v1.jsx)(_v38.TagLabel, {
+                children: (0, _v1.jsx)(_v39.TagLabel, {
                   children: _v0.sourceText
                 })
               }, _v0.uri))
-            }), _v12 > _v14 && (0, _v1.jsx)(_v4.Flex, {
+            }), _v12 > _v14 && (0, _v1.jsx)(_v3.Flex, {
               justifyContent: "center",
               marginTop: (0, _v5.rem)(24),
-              children: (0, _v1.jsx)(_v36.Pagination, {
+              children: (0, _v1.jsx)(_v37.Pagination, {
                 size: "sm",
                 count: _v12,
                 pageSize: _v14,
@@ -3053,7 +3053,7 @@ ${_v2}`;
                   page: _v0
                 }) => _v6(_v0)
               })
-            }), _v20 > 0 && (0, _v1.jsxs)(_v4.Flex, {
+            }), _v20 > 0 && (0, _v1.jsxs)(_v3.Flex, {
               alignItems: {
                 base: "stretch",
                 sm: "center"
@@ -3070,11 +3070,11 @@ ${_v2}`;
               marginTop: (0, _v5.rem)(24),
               paddingX: (0, _v5.rem)(24),
               paddingY: (0, _v5.rem)(16),
-              children: [(0, _v1.jsx)(_v13.Text, {
+              children: [(0, _v1.jsx)(_v14.Text, {
                 variant: "heading-xs",
                 whiteSpace: "nowrap",
                 children: _v1.glossaryCount(_v19, _v20)
-              }), (0, _v1.jsx)(_v37.Progress, {
+              }), (0, _v1.jsx)(_v38.Progress, {
                 "aria-label": _v1.glossaryCount(_v19, _v20),
                 flex: "1",
                 width: "auto",
@@ -3146,7 +3146,7 @@ ${_v2}`;
     _v145 = ({
       limit: _v0,
       translations: _v1
-    }) => (0, _v1.jsx)(_v13.Text, {
+    }) => (0, _v1.jsx)(_v14.Text, {
       variant: "body-md",
       color: void 0 === _v0 ? "text-tertiary" : "text-primary",
       children: void 0 === _v0 ? _v1.notSupportedYet : _v1.processingLimit(_v0)
@@ -3176,13 +3176,13 @@ ${_v2}`;
         }), (0, _v1.jsx)(_v48.ModalBody, {
           paddingTop: "5",
           paddingBottom: "6",
-          children: (0, _v1.jsxs)(_v4.Flex, {
+          children: (0, _v1.jsxs)(_v3.Flex, {
             flexDirection: "column",
             gap: "4",
-            children: [(0, _v1.jsx)(_v13.Text, {
+            children: [(0, _v1.jsx)(_v14.Text, {
               variant: "body-md",
               children: _v2.limitsByFeatureDescription
-            }), (0, _v1.jsxs)(_v4.Flex, {
+            }), (0, _v1.jsxs)(_v3.Flex, {
               gap: "3",
               alignItems: "center",
               padding: "3",
@@ -3193,12 +3193,12 @@ ${_v2}`;
                 flexShrink: 0,
                 color: "text-secondary",
                 "aria-hidden": "true"
-              }), (0, _v1.jsx)(_v13.Text, {
+              }), (0, _v1.jsx)(_v14.Text, {
                 variant: "body-md",
                 color: "text-secondary",
                 children: _v2.orderingExplanation
               })]
-            }), (0, _v1.jsx)(_v35.Box, {
+            }), (0, _v1.jsx)(_v36.Box, {
               role: "region",
               tabIndex: 0,
               "aria-label": _v2.featureLimitsTableScrollLabel,
@@ -3209,7 +3209,7 @@ ${_v2}`;
                 outlineColor: "focus",
                 outlineOffset: (0, _v5.rem)(2)
               },
-              children: (0, _v1.jsx)(_v35.Box, {
+              children: (0, _v1.jsx)(_v36.Box, {
                 minWidth: (0, _v5.rem)(480),
                 borderWidth: (0, _v5.rem)(1),
                 borderColor: "stroke",
@@ -3258,7 +3258,7 @@ ${_v2}`;
                       termsTranslations: _v2
                     }) => (0, _v1.jsxs)(_v141.Tr, {
                       children: [(0, _v1.jsx)(_v138.Td, {
-                        children: (0, _v1.jsx)(_v13.Text, {
+                        children: (0, _v1.jsx)(_v14.Text, {
                           variant: "heading-xs",
                           children: _v2.featureNames[_v0]
                         })
@@ -3289,24 +3289,1525 @@ ${_v2}`;
     _v151 = _v0.i(0),
     _v152 = _v0.i(0),
     _v153 = _v0.i(0),
-    _v154 = _v0.i(0);
-  let _v155 = new Map(),
-    _v156 = (_v0, _v1) => {
+    _v154 = _v0.i(0),
+    _v155 = _v0.i(0),
+    _v156 = _v0.i(0),
+    _v157 = _v0.i(0);
+  let _v158 = new Map(),
+    _v159 = _v0 => _v0.trim().toLowerCase().replaceAll("_", "-"),
+    _v160 = (_v0, _v1) => {
       try {
         return (_v0 => {
-          let _v1 = _v155.get(_v0);
+          let _v1 = _v158.get(_v0);
           if (_v1) return _v1;
           let _v2 = new Intl.DisplayNames([_v0], {
             type: "language"
           });
-          return _v155.set(_v0, _v2), _v2;
+          return _v158.set(_v0, _v2), _v2;
         })(_v1).of(_v0) ?? _v0.toUpperCase();
       } catch (_v0) {
         if (_v0 instanceof RangeError) return _v0.toUpperCase();
         throw _v0;
       }
+    },
+    _v161 = _v0 => new Map(_v0.map(({
+      code: _v0,
+      name: _v1
+    }) => [_v159(_v0), _v1])),
+    _v162 = (_v0, _v1, _v2) => _v2.get(_v159(_v0)) ?? _v160(_v0, _v1),
+    _v163 = (_v0, _v1) => _v0.filter(({
+      code: _v0
+    }) => !_v1.includes(_v0)).map(({
+      code: _v0,
+      localized: _v1,
+      native: _v2
+    }) => {
+      let _v3 = _v160(_v0, _v0),
+        _v4 = _v2 || _v3;
+      return {
+        label: 0 === _v3.localeCompare(_v0, void 0, {
+          sensitivity: "accent"
+        }) || 0 === _v4.localeCompare(_v1, void 0, {
+          sensitivity: "accent"
+        }) ? _v1 : `${_v1} - ${_v4}`,
+        value: _v0
+      };
+    }).sort((_v0, _v1) => _v0.label.localeCompare(_v1.label)),
+    _v164 = {
+      border: 0,
+      clip: "rect(0, 0, 0, 0)",
+      height: "1px",
+      margin: "-1px",
+      overflow: "hidden",
+      padding: 0,
+      position: "absolute",
+      whiteSpace: "nowrap",
+      width: "1px"
+    },
+    _v165 = ({
+      existingLanguages: _v0,
+      languages: _v1,
+      targetLanguageCount: _v2,
+      translations: _v3,
+      onClose: _v4,
+      onSelect: _v5
+    }) => {
+      let _v6 = (0, _v157.useLocale)(),
+        [_v7, _v8] = (0, _v2.useState)([]),
+        [_v9, _v10] = (0, _v2.useState)(!1),
+        _v11 = (0, _v2.useMemo)(() => _v163(_v1, _v0), [_v0, _v1]),
+        _v12 = _v2 >= 10,
+        _v13 = _v2 + _v7.length,
+        _v14 = _v11.filter(({
+          value: _v0
+        }) => !_v7.includes(_v0));
+      return (0, _v1.jsxs)(_v47.Modal, {
+        isOpen: !0,
+        onClose: _v4,
+        children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v49.ModalContent, {
+          maxWidth: (0, _v5.rem)(480),
+          children: [(0, _v1.jsx)(_v50.ModalHeader, {
+            children: _v3.replacementsAddLanguage
+          }), (0, _v1.jsxs)(_v48.ModalBody, {
+            overflow: "visible",
+            children: [(0, _v1.jsx)(_v14.Text, {
+              variant: "body-md",
+              color: "text-secondary",
+              marginBottom: (0, _v5.rem)(24),
+              children: _v3.replacementsTargetLanguageDescription
+            }), _v12 ? (0, _v1.jsx)(_v9.Alert, {
+              status: "warning",
+              children: (0, _v1.jsx)(_v7.AlertDescription, {
+                children: _v3.replacementsLanguageLimitReached
+              })
+            }) : 0 === _v11.length ? (0, _v1.jsx)(_v9.Alert, {
+              status: "info",
+              children: (0, _v1.jsx)(_v7.AlertDescription, {
+                children: _v3.replacementsNoLanguagesAvailable
+              })
+            }) : (0, _v1.jsxs)(_v3.Flex, {
+              flexDirection: "column",
+              gap: (0, _v5.rem)(8),
+              children: [(0, _v1.jsxs)(_v3.Flex, {
+                gap: (0, _v5.rem)(8),
+                alignItems: "center",
+                children: [(0, _v1.jsx)(_v14.Text, {
+                  variant: "body-sm",
+                  fontFamily: "heading",
+                  children: _v3.replacementsLanguages
+                }), (0, _v1.jsx)(_v14.Text, {
+                  variant: "body-sm",
+                  color: "text-secondary",
+                  children: _v3.replacementsLanguageCount(_v13, 10)
+                })]
+              }), _v7.map((_v0, _v1) => {
+                let _v2 = _v11.filter(({
+                    value: _v0
+                  }) => _v0 === _v0 || !_v7.includes(_v0)),
+                  _v3 = _v11.find(({
+                    value: _v0
+                  }) => _v0 === _v0)?.label ?? _v0;
+                return (0, _v1.jsxs)(_v3.Flex, {
+                  gap: (0, _v5.rem)(8),
+                  alignItems: "flex-end",
+                  children: [(0, _v1.jsx)(_v36.Box, {
+                    flex: "1",
+                    sx: {
+                      '& [data-part="label"]': _v164,
+                      '& [role="listbox"]': {
+                        maxHeight: (0, _v5.rem)(160),
+                        overflowY: "auto"
+                      }
+                    },
+                    children: (0, _v1.jsx)(_v149.Select, {
+                      items: _v2,
+                      label: _v3.replacementsPendingLanguage(_v1 + 1),
+                      value: [_v0],
+                      positioning: {
+                        placement: "bottom-start",
+                        sameWidth: !0,
+                        flip: !1
+                      },
+                      withPortal: !1,
+                      onValueChange: ({
+                        value: _v0
+                      }) => {
+                        let _v1 = _v0[0];
+                        _v1 && _v8(_v0 => _v0.map((_v0, _v1) => _v1 === _v1 ? _v1 : _v0));
+                      },
+                      children: _v0 => (0, _v1.jsx)(_v149.SelectItem, {
+                        item: _v0,
+                        children: (0, _v1.jsx)(_v149.SelectItemText, {
+                          children: _v0.label
+                        })
+                      })
+                    })
+                  }), (0, _v1.jsx)(_v115.IconButton, {
+                    "aria-label": _v3.replacementsRemoveLanguage(_v3),
+                    icon: (0, _v1.jsx)(_v151.CloseX, {}),
+                    variant: "primary",
+                    onClick: () => {
+                      _v8(_v0 => _v0.filter(_v0 => _v0 !== _v0));
+                    }
+                  })]
+                }, _v0);
+              }), _v13 < 10 && _v14.length > 0 && (0, _v1.jsxs)(_v3.Flex, {
+                gap: (0, _v5.rem)(8),
+                alignItems: "flex-end",
+                children: [(0, _v1.jsx)(_v36.Box, {
+                  flex: "1",
+                  sx: {
+                    '& [data-part="label"]': _v164,
+                    '& [role="listbox"]': {
+                      maxHeight: (0, _v5.rem)(160),
+                      overflowY: "auto"
+                    }
+                  },
+                  children: (0, _v1.jsx)(_v149.Select, {
+                    items: _v14,
+                    label: _v3.replacementsSelectLanguage,
+                    placeholder: _v3.replacementsSelectLanguage,
+                    value: [],
+                    positioning: {
+                      placement: "bottom-start",
+                      sameWidth: !0,
+                      flip: !1
+                    },
+                    withPortal: !1,
+                    onValueChange: ({
+                      value: _v0
+                    }) => {
+                      let _v1 = _v0[0];
+                      _v1 && _v8(_v0 => [..._v0, _v1]);
+                    },
+                    children: _v0 => (0, _v1.jsx)(_v149.SelectItem, {
+                      item: _v0,
+                      children: (0, _v1.jsx)(_v149.SelectItemText, {
+                        children: _v0.label
+                      })
+                    })
+                  })
+                }), (0, _v1.jsx)(_v115.IconButton, {
+                  "aria-label": _v3.replacementsRemoveLanguage(_v3.replacementsSelectLanguage),
+                  icon: (0, _v1.jsx)(_v151.CloseX, {}),
+                  variant: "tertiary",
+                  isDisabled: !0
+                })]
+              })]
+            })]
+          }), (0, _v1.jsxs)(_v121.ModalFooter, {
+            gap: (0, _v5.rem)(8),
+            children: [(0, _v1.jsx)(_v10.Button, {
+              variant: "tertiary",
+              onClick: _v4,
+              children: _v3.cancel
+            }), (0, _v1.jsx)(_v10.Button, {
+              variant: "primary",
+              isDisabled: 0 === _v7.length || _v12,
+              onClick: () => _v10(!0),
+              children: _v3.add
+            })]
+          })]
+        }), _v9 && (0, _v1.jsxs)(_v47.Modal, {
+          isOpen: !0,
+          onClose: () => _v10(!1),
+          children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v49.ModalContent, {
+            maxWidth: (0, _v5.rem)(480),
+            children: [(0, _v1.jsx)(_v50.ModalHeader, {
+              children: _v3.replacementsNewLanguagesTitle
+            }), (0, _v1.jsx)(_v48.ModalBody, {
+              children: (0, _v1.jsx)(_v14.Text, {
+                variant: "body-md",
+                color: "text-secondary",
+                children: _v3.replacementsNewLanguagesDescription(new Intl.ListFormat(_v6, {
+                  style: "long",
+                  type: "conjunction"
+                }).format(_v7.map(_v0 => _v11.find(({
+                  value: _v0
+                }) => _v0 === _v0)?.label ?? _v0)))
+              })
+            }), (0, _v1.jsxs)(_v121.ModalFooter, {
+              gap: (0, _v5.rem)(8),
+              children: [(0, _v1.jsx)(_v10.Button, {
+                variant: "tertiary",
+                onClick: () => _v10(!1),
+                children: _v3.cancel
+              }), (0, _v1.jsx)(_v10.Button, {
+                variant: "primary",
+                onClick: () => _v5(_v7),
+                children: _v3.replacementsAddLanguages
+              })]
+            })]
+          })]
+        })]
+      });
+    },
+    _v166 = ["source language", "source term", "target language", "target term"];
+  class _v167 extends Error {
+    code;
+    constructor(_v0) {
+      super(_v0), this.code = _v0;
+    }
+  }
+  let _v168 = _v0 => _v0.trim().toLocaleLowerCase().replaceAll("_", "-");
+  var _v169 = _v0.i(0);
+  async function _v170({
+    baseUrl: _v0,
+    select: _v1,
+    variables: _v2,
+    where: {
+      userId: _v3
+    },
+    ..._v4
+  }) {
+    return (0, _v20.measureLatency)("postUserAccountDictionaryTranslationRulesBatch", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v3}/account_dictionary/translation_rules/batch?fields=${_v1.map(_v19.intoSnakeCase).join(",")}`, {
+        ..._v4,
+        method: "POST",
+        body: JSON.stringify((0, _v19.deepSnakeCase)(_v2))
+      });
+      if (!_v0.ok) throw new _v19.NetworkError("A network error occurred", _v0.status, _v0);
+      if (204 === _v0.status) return null;
+      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
+      let _v1 = await _v0.json();
+      return (0, _v19.deepCamelCase)(_v1);
+    });
+  }
+  let _v171 = ["created", "results", "results.errors", "results.errors.message", "results.index", "results.status"],
+    _v172 = (_v0, _v1, _v2) => {
+      let _v3 = (_v2?.results ?? []).flatMap(_v0 => {
+        if ("failed" !== _v0.status) return [];
+        let _v1 = _v0[_v0.index]?.line ?? 0;
+        return _v0.errors.length ? _v0.errors.map(({
+          message: _v0
+        }) => ({
+          code: "server",
+          line: _v1,
+          message: _v0
+        })) : [{
+          code: "server",
+          line: _v1
+        }];
+      }) ?? [];
+      return {
+        created: _v2?.created ?? 0,
+        failures: [..._v1, ..._v3].sort((_v0, _v1) => _v0.line - _v1.line)
+      };
+    },
+    _v173 = ({
+      ownerUserId: _v0,
+      translations: _v1,
+      onClose: _v2,
+      onImported: _v3
+    }) => {
+      let _v4 = (0, _v2.useRef)(null),
+        _v5 = (0, _v2.useRef)(null),
+        _v6 = (_v0 => {
+          let {
+            baseUrl: _v1,
+            jwt: _v2,
+            xVimeoPage: _v3,
+            locale: _v4
+          } = (0, _v25.useGctlConfig)();
+          return (0, _v2.useCallback)(async (_v0, _v1) => {
+            var _v2;
+            let _v3, _v4;
+            if (0 === _v0.length) return _v172(_v0, _v1);
+            let _v5 = {
+                "Content-Type": "application/json",
+                Authorization: _v2 ? `jwt ${_v2}` : "",
+                "Vimeo-Page": `${_v3}`,
+                "Accept-Language": _v4 ?? "en"
+              },
+              _v6 = [],
+              _v7 = 1;
+            for (;;) {
+              let _v0 = await (0, _v169.getLanguages)({
+                baseUrl: _v1,
+                headers: _v5,
+                query: {
+                  filter: "texttracks",
+                  page: _v7,
+                  perPage: 100
+                },
+                select: ["code"]
+              });
+              if (_v6.push(..._v0.data.map(({
+                code: _v0
+              }) => _v0)), !_v0.paging.next) break;
+              _v7 += 1;
+            }
+            let _v8 = (_v3 = new Set(_v6.map(_v168)), _v0.reduce((_v0, _v1) => {
+                let _v2 = _v168(_v1.sourceLanguage),
+                  _v3 = _v168(_v1.targetLanguage),
+                  _v4 = _v3.has(_v2),
+                  _v5 = _v3.has(_v3);
+                return _v4 || _v0.failures.push({
+                  code: "invalid_source_language",
+                  line: _v1.line
+                }), _v5 || _v0.failures.push({
+                  code: "invalid_target_language",
+                  line: _v1.line
+                }), _v4 && _v5 && _v2 === _v3 ? _v0.failures.push({
+                  code: "matching_source_target_language",
+                  line: _v1.line
+                }) : _v4 && _v5 && _v0.entries.push(_v1), _v0;
+              }, {
+                entries: [],
+                failures: []
+              })),
+              _v9 = [..._v1, ..._v8.failures];
+            if (0 === _v8.entries.length) return _v172(_v8.entries, _v9);
+            let _v10 = [],
+              _v11 = 1;
+            for (;;) {
+              let _v0 = await _v23({
+                baseUrl: _v1,
+                headers: _v5,
+                query: {
+                  page: _v11,
+                  perPage: 100,
+                  ruleType: "mapping"
+                },
+                select: ["sourceLanguage", "targetLanguage"],
+                where: {
+                  userId: _v0
+                }
+              });
+              if (_v10.push(..._v0.data), !_v0.paging.next) break;
+              _v11 += 1;
+            }
+            let _v12 = (_v2 = _v8.entries, _v4 = new Map(), _v10.forEach(({
+              sourceLanguage: _v0,
+              targetLanguage: _v1
+            }) => {
+              if (!_v0 || !_v1) return;
+              let _v2 = _v168(_v0),
+                _v3 = _v4.get(_v2) ?? new Set();
+              _v3.add(_v168(_v1)), _v4.set(_v2, _v3);
+            }), _v2.reduce((_v0, _v1) => {
+              let _v2 = _v168(_v1.sourceLanguage),
+                _v3 = _v168(_v1.targetLanguage),
+                _v4 = _v4.get(_v2) ?? new Set();
+              return !_v4.has(_v3) && _v4.size >= 10 ? _v0.failures.push({
+                code: "target_language_limit",
+                line: _v1.line
+              }) : (_v4.add(_v3), _v4.set(_v2, _v4), _v0.entries.push(_v1)), _v0;
+            }, {
+              entries: [],
+              failures: []
+            }));
+            if (_v9.push(..._v12.failures), 0 === _v12.entries.length) return _v172(_v12.entries, _v9);
+            let _v13 = await _v170({
+              baseUrl: _v1,
+              headers: _v5,
+              select: _v171,
+              variables: {
+                rules: _v12.entries.map(_v0 => ({
+                  replacementText: _v0.replacementText,
+                  ruleType: "mapping",
+                  sourceLanguage: _v0.sourceLanguage,
+                  sourceText: _v0.sourceText,
+                  targetLanguage: _v0.targetLanguage
+                }))
+              },
+              where: {
+                userId: _v0
+              }
+            });
+            return _v172(_v12.entries, _v9, _v13);
+          }, [_v1, _v2, _v4, _v0, _v3]);
+        })(_v0),
+        [_v7, _v8] = (0, _v2.useState)(),
+        [_v9, _v10] = (0, _v2.useState)(),
+        [_v11, _v12] = (0, _v2.useState)(!1),
+        _v13 = (0, _v52.useToast)({
+          title: _v1.replacementsChangesSaved,
+          duration: 0
+        }),
+        _v14 = (0, _v2.useMemo)(() => `data:text/csv;charset=utf-8,${encodeURIComponent(`${_v166.join(",")}\r
+`)}`, []);
+      (0, _v2.useEffect)(() => {
+        (_v9 || _v7) && _v5.current?.focus();
+      }, [_v9, _v7]);
+      let _v15 = async _v0 => {
+        if (_v8(void 0), _v10(void 0), !_v0 || !_v0.name.toLowerCase().endsWith(".csv")) return void _v10("file");
+        _v12(!0);
+        try {
+          let _v0 = (_v0 => {
+              let _v1,
+                _v2 = (_v0 => {
+                  let _v1 = [],
+                    _v2 = 1,
+                    _v3 = 1,
+                    _v4 = !1,
+                    _v5 = !1;
+                  for (let _v0 = 0; _v0 < _v0.length; _v0 += 1) {
+                    let _v0 = _v0[_v0];
+                    '"' === _v0 && (_v4 && '"' === _v0[_v0 + 1] ? _v0 += 1 : _v4 = !_v4), /\s/.test(_v0) || (_v5 = !0);
+                    let _v1 = "\n" === _v0 || "\r" === _v0 && "\n" !== _v0[_v0 + 1];
+                    !_v4 && _v1 ? (_v1.push({
+                      isBlank: !_v5,
+                      line: _v3
+                    }), _v2 += 1, _v3 = _v2, _v5 = !1) : _v1 && (_v2 += 1);
+                  }
+                  return !_v0 || _v0.endsWith("\n") || _v0.endsWith("\r") || _v1.push({
+                    isBlank: !_v5,
+                    line: _v3
+                  }), _v1;
+                })(_v0);
+              if (_v2.filter(({
+                isBlank: _v0
+              }) => !_v0).length - 1 > 0) throw new _v167("too_many_rows");
+              try {
+                _v1 = _v104(_v0, {
+                  bom: !0,
+                  record_delimiter: ["\r\n", "\n", "\r"],
+                  relax_column_count: !0
+                });
+              } catch {
+                throw new _v167("malformed");
+              }
+              let _v3 = _v1[0]?.map(_v0 => _v0.trim().toLowerCase());
+              if (!_v3) throw new _v167("empty");
+              if (_v3.length !== _v166.length || _v3.some((_v0, _v1) => _v0 !== _v166[_v1])) throw new _v167("header");
+              let _v4 = _v1.slice(1).map((_v0, _v1) => ({
+                isBlank: _v2[_v1 + 1]?.isBlank ?? !1,
+                line: _v2[_v1 + 1]?.line ?? _v1 + 2,
+                record: _v0
+              })).filter(({
+                isBlank: _v0
+              }) => !_v0);
+              if (0 === _v4.length) throw new _v167("empty");
+              let _v5 = [],
+                _v6 = [];
+              return _v4.forEach(({
+                line: _v0,
+                record: _v1
+              }) => {
+                if (_v1.length !== _v166.length) return void _v6.push({
+                  code: "column_count",
+                  line: _v0
+                });
+                let [_v2, _v3, _v4, _v5] = _v1.map(_v0 => _v0.trim());
+                _v2 && _v3 && _v4 && _v5 ? Array.from(_v2).length > 16 || Array.from(_v4).length > 16 || Array.from(_v3).length > 500 || Array.from(_v5).length > 500 ? _v6.push({
+                  code: "field_length",
+                  line: _v0
+                }) : _v5.push({
+                  line: _v0,
+                  replacementText: _v5,
+                  sourceLanguage: _v2,
+                  sourceText: _v3,
+                  targetLanguage: _v4
+                }) : _v6.push({
+                  code: "required",
+                  line: _v0
+                });
+              }), {
+                entries: _v5,
+                failures: _v6
+              };
+            })(await _v0.text()),
+            _v1 = await _v6(_v0.entries, _v0.failures);
+          _v1.created > 0 && (await _v3().catch(() => void 0)), _v1.failures.length > 0 ? _v8(_v1) : (_v13(), _v2());
+        } catch (_v0) {
+          _v10(_v0 instanceof _v167 ? _v0.code : "network");
+        } finally {
+          _v12(!1);
+        }
+      };
+      return (0, _v1.jsxs)(_v47.Modal, {
+        isOpen: !0,
+        closeOnEsc: !_v11,
+        closeOnOverlayClick: !_v11,
+        onClose: _v11 ? () => void 0 : _v2,
+        children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v49.ModalContent, {
+          maxWidth: (0, _v5.rem)(480),
+          children: [(0, _v1.jsx)(_v50.ModalHeader, {
+            children: _v1.replacementsCsvImport
+          }), (0, _v1.jsxs)(_v48.ModalBody, {
+            children: [(0, _v1.jsx)(_v14.Text, {
+              variant: "body-md",
+              color: "text-secondary",
+              children: _v1.replacementsCsvInstructions
+            }), (0, _v1.jsx)(_v14.Text, {
+              variant: "body-md",
+              color: "text-secondary",
+              children: _v2.Children.toArray(_v1.replacementsCsvTemplatePrompt(_v0 => (0, _v1.jsx)(_v4.Link, {
+                href: _v14,
+                download: "terms-translations-template.csv",
+                textDecoration: "underline",
+                children: _v2.Children.toArray(_v0)
+              }, "csv-template-link")))
+            }), (0, _v1.jsx)(_v36.Box, {
+              marginTop: (0, _v5.rem)(24),
+              onDragOver: _v0 => _v0.preventDefault(),
+              onDrop: _v0 => {
+                _v0.preventDefault(), _v11 || _v15(_v0.dataTransfer.files[0]);
+              },
+              children: (0, _v1.jsx)(_v46.FileInput, {
+                ref: _v4,
+                accept: ".csv,text/csv",
+                "aria-label": _v1.replacementsCsvUploadFile,
+                isDisabled: _v11,
+                isLoading: _v11,
+                label: (0, _v1.jsxs)(_v3.Flex, {
+                  as: "span",
+                  alignItems: "center",
+                  flexDirection: "column",
+                  gap: (0, _v5.rem)(4),
+                  pointerEvents: "none",
+                  textAlign: "center",
+                  children: [(0, _v1.jsx)(_v44.Upload, {
+                    boxSize: (0, _v5.rem)(32),
+                    "aria-hidden": !0
+                  }), (0, _v1.jsx)(_v14.Text, {
+                    as: "span",
+                    variant: "heading-sm",
+                    children: _v1.replacementsCsvUploadFile
+                  }), (0, _v1.jsx)(_v14.Text, {
+                    as: "span",
+                    variant: "body-sm",
+                    color: "text-secondary",
+                    children: _v1.replacementsCsvDropzone
+                  })]
+                }),
+                variant: "secondary",
+                sx: {
+                  alignItems: "center",
+                  background: "transparent",
+                  borderColor: "stroke",
+                  borderRadius: 0,
+                  borderStyle: "dashed",
+                  borderWidth: (0, _v5.rem)(1),
+                  display: "flex",
+                  justifyContent: "center",
+                  minHeight: (0, _v5.rem)(180),
+                  padding: (0, _v5.rem)(24),
+                  width: "100%",
+                  "& svg": {
+                    height: (0, _v5.rem)(32),
+                    width: (0, _v5.rem)(32)
+                  }
+                },
+                onChange: _v0 => {
+                  let _v1 = _v0.currentTarget.files?.[0];
+                  _v0.currentTarget.value = "", _v15(_v1);
+                }
+              })
+            }), _v9 && (0, _v1.jsx)(_v9.Alert, {
+              ref: _v5,
+              status: "error",
+              marginTop: (0, _v5.rem)(24),
+              tabIndex: -1,
+              children: (0, _v1.jsx)(_v7.AlertDescription, {
+                children: "empty" === _v9 ? _v1.replacementsCsvEmpty : "header" === _v9 ? _v1.replacementsCsvInvalidHeader : "malformed" === _v9 ? _v1.replacementsCsvMalformed : "too_many_rows" === _v9 ? _v1.replacementsCsvTooManyRows : "file" === _v9 ? _v1.replacementsCsvInvalidFile : _v1.replacementsCsvImportError
+              })
+            }), _v7 && (0, _v1.jsx)(_v9.Alert, {
+              ref: _v5,
+              status: _v7.created > 0 ? "warning" : "error",
+              marginTop: (0, _v5.rem)(24),
+              alignItems: "flex-start",
+              tabIndex: -1,
+              children: (0, _v1.jsxs)(_v36.Box, {
+                children: [(0, _v1.jsxs)(_v7.AlertDescription, {
+                  children: [_v7.created > 0 && (0, _v1.jsx)(_v14.Text, {
+                    variant: "body-sm",
+                    children: _v1.replacementsCsvImported(_v7.created)
+                  }), (0, _v1.jsx)(_v14.Text, {
+                    variant: "body-sm",
+                    children: _v7.created > 0 ? _v1.replacementsCsvPartialFailure : _v1.replacementsCsvAllFailed
+                  })]
+                }), (0, _v1.jsx)(_v36.Box, {
+                  maxHeight: (0, _v5.rem)(160),
+                  overflowY: "auto",
+                  marginTop: (0, _v5.rem)(8),
+                  children: _v7.failures.map((_v0, _v1) => (0, _v1.jsx)(_v14.Text, {
+                    variant: "body-sm",
+                    children: _v1.replacementsCsvFailureLine(_v0.line, "column_count" === _v0.code ? _v1.replacementsCsvColumnCountError : "required" === _v0.code ? _v1.replacementsCsvRequiredError : "field_length" === _v0.code ? _v1.replacementsCsvFieldLengthError : "invalid_source_language" === _v0.code ? _v1.replacementsCsvInvalidSourceLanguage : "invalid_target_language" === _v0.code ? _v1.replacementsCsvInvalidTargetLanguage : "matching_source_target_language" === _v0.code ? _v1.replacementsCsvMatchingLanguages : "target_language_limit" === _v0.code ? _v1.replacementsLanguageLimitReached : _v0.message ?? _v1.replacementsCsvServerError)
+                  }, `${_v0.line}:${_v1}`))
+                })]
+              })
+            })]
+          })]
+        })]
+      });
     };
-  async function _v157({
+  var _v174 = _v0.i(0);
+  let _v175 = ({
+    languageItems: _v0,
+    translations: _v1,
+    onClose: _v2,
+    onSave: _v3
+  }) => {
+    let [_v4, _v5] = (0, _v2.useState)();
+    return (0, _v1.jsxs)(_v47.Modal, {
+      isOpen: !0,
+      onClose: _v2,
+      children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v49.ModalContent, {
+        maxWidth: (0, _v5.rem)(480),
+        children: [(0, _v1.jsx)(_v50.ModalHeader, {
+          children: _v1.replacementsNewLanguageTitle
+        }), (0, _v1.jsxs)(_v48.ModalBody, {
+          overflow: "visible",
+          children: [(0, _v1.jsx)(_v14.Text, {
+            variant: "body-md",
+            color: "text-secondary",
+            marginBottom: (0, _v5.rem)(24),
+            children: _v1.replacementsNewLanguageDescription
+          }), (0, _v1.jsx)(_v36.Box, {
+            sx: {
+              '& [role="listbox"]': {
+                maxHeight: (0, _v5.rem)(160),
+                overflowY: "auto"
+              }
+            },
+            children: (0, _v1.jsx)(_v149.Select, {
+              items: [..._v0],
+              label: _v1.replacementsLanguage,
+              placeholder: _v1.replacementsSelectLanguage,
+              value: void 0 === _v4 ? [] : [_v4],
+              positioning: {
+                placement: "bottom-start",
+                sameWidth: !0,
+                flip: !1
+              },
+              withPortal: !1,
+              onValueChange: ({
+                value: _v0
+              }) => {
+                let _v1 = _v0[0];
+                _v1 && _v5(_v1);
+              },
+              children: _v0 => (0, _v1.jsx)(_v149.SelectItem, {
+                item: _v0,
+                children: (0, _v1.jsx)(_v149.SelectItemText, {
+                  children: _v0.label
+                })
+              })
+            })
+          })]
+        }), (0, _v1.jsxs)(_v121.ModalFooter, {
+          gap: (0, _v5.rem)(8),
+          children: [(0, _v1.jsx)(_v10.Button, {
+            variant: "tertiary",
+            onClick: _v2,
+            children: _v1.cancel
+          }), (0, _v1.jsx)(_v10.Button, {
+            variant: "primary",
+            isDisabled: void 0 === _v4,
+            onClick: () => {
+              void 0 !== _v4 && _v3(_v4);
+            },
+            children: _v1.save
+          })]
+        })]
+      })]
+    });
+  };
+  class _v176 extends Error {
+    isConflict;
+    snapshot;
+    constructor(_v0, _v1) {
+      super("Terms translations could not be saved"), this.name = "TermsTranslationsSaveError", this.isConflict = _v0.some(_v0 => _v0 instanceof _v19.NetworkError && 409 === _v0.status), this.snapshot = _v1;
+    }
+  }
+  let _v177 = _v0 => _v0.split("/").pop() ?? "",
+    _v178 = _v0 => _v0.flatMap(_v0 => _v0.mappings.map(_v0 => ({
+      ..._v0,
+      sourceLanguage: _v0.sourceLanguage,
+      sourceText: _v0.sourceText.trim(),
+      replacementText: _v0.replacementText.trim()
+    }))),
+    _v179 = (_v0, _v1) => {
+      let _v2 = _v178(_v0),
+        _v3 = _v178(_v1),
+        _v4 = new Map(_v2.filter(_v0 => _v0.uri).map(_v0 => [_v0.uri, _v0])),
+        _v5 = new Map(_v3.filter(_v0 => _v0.uri).map(_v0 => [_v0.uri, _v0]));
+      return {
+        created: _v3.filter(_v0 => !_v0.uri && _v0.sourceText && _v0.replacementText),
+        deleted: _v2.filter(_v0 => {
+          if (!_v0.uri) return !1;
+          let _v1 = _v5.get(_v0.uri);
+          return !_v1 || !_v1.sourceText || !_v1.replacementText;
+        }),
+        updated: _v3.filter(_v0 => {
+          if (!_v0.uri || !_v0.sourceText || !_v0.replacementText) return !1;
+          let _v1 = _v4.get(_v0.uri);
+          return !!(_v1 && (_v1.sourceLanguage !== _v0.sourceLanguage || _v1.sourceText !== _v0.sourceText || _v1.targetLanguage !== _v0.targetLanguage || _v1.replacementText !== _v0.replacementText));
+        })
+      };
+    },
+    _v180 = (_v0, _v1) => {
+      let _v2 = new Map(),
+        _v3 = new Set();
+      return _v0.forEach(_v0 => {
+        if (!_v0.sourceText || !_v0.targetLanguage || !_v0.replacementText) return;
+        let _v1 = _v2.get(_v0.sourceText) ?? {
+          mappings: [],
+          sourceLanguage: _v1,
+          sourceText: _v0.sourceText
+        };
+        _v1.mappings.push({
+          replacementText: _v0.replacementText,
+          targetLanguage: _v0.targetLanguage,
+          uri: _v0.uri
+        }), _v2.set(_v0.sourceText, _v1), _v3.add(_v0.targetLanguage);
+      }), {
+        rows: Array.from(_v2.values()).map(_v0 => ({
+          ..._v0,
+          clientId: `${_v0.sourceLanguage}:${_v0.sourceText}`,
+          mappings: _v0.mappings.map(_v0 => ({
+            ..._v0
+          }))
+        })),
+        targetLanguages: Array.from(_v3)
+      };
+    },
+    _v181 = _v0 => _v0.flatMap(_v0 => "rejected" === _v0.status ? [_v0.reason] : []),
+    _v182 = _v0 => `new-terms-translation-row-${_v0}`,
+    _v183 = (_v0, _v1, _v2, _v3) => [..._v0.map(_v0 => ({
+      ..._v0,
+      mappings: _v2.map(_v0 => _v0.mappings.find(_v0 => _v0.targetLanguage === _v0) ?? {
+        targetLanguage: _v0,
+        replacementText: ""
+      })
+    })), {
+      clientId: _v3,
+      mappings: _v2.map(_v0 => ({
+        targetLanguage: _v0,
+        replacementText: ""
+      })),
+      sourceLanguage: _v1,
+      sourceText: ""
+    }],
+    _v184 = _v0 => {
+      let _v1 = _v0.trim().toLowerCase().replaceAll("_", "-"),
+        _v2 = _v1.indexOf("-x-");
+      return -1 === _v2 ? _v1 : _v1.slice(0, _v2);
+    },
+    _v185 = (_v0, _v1, _v2) => `${_v184(_v0)}\u0000${_v1.trim()}\u0000${_v184(_v2)}`,
+    _v186 = ({
+      editor: _v0,
+      sourceLanguage: _v1,
+      sourceLanguages: _v2,
+      supportedLanguages: _v3,
+      translations: _v4,
+      onClose: _v5,
+      onSaved: _v6,
+      onSourceLanguageChange: _v7
+    }) => {
+      let _v8 = (0, _v157.useLocale)(),
+        _v9 = (0, _v2.useMemo)(() => _v161(_v3.map(({
+          code: _v0,
+          localized: _v1
+        }) => ({
+          code: _v0,
+          name: _v1
+        }))), [_v3]),
+        _v10 = (0, _v2.useCallback)(_v0 => _v162(_v0, _v8, _v9), [_v9, _v8]),
+        _v11 = (0, _v2.useRef)(1),
+        _v12 = (0, _v2.useRef)(null),
+        _v13 = (0, _v2.useCallback)(() => _v182(_v11.current++), []),
+        _v14 = _v0.targetLanguages,
+        [_v15, _v16] = (0, _v2.useState)(() => _v183(_v0.rows, _v1, _v14, _v182(0))),
+        [_v17, _v18] = (0, _v2.useState)(_v15),
+        [_v19, _v20] = (0, _v2.useState)(_v14),
+        [_v21, _v22] = (0, _v2.useState)(!1),
+        [_v23, _v24] = (0, _v2.useState)(),
+        [_v25, _v26] = (0, _v2.useState)(),
+        [_v27, _v28] = (0, _v2.useState)(!1),
+        [_v29, _v30] = (0, _v2.useState)(),
+        [_v31, _v32] = (0, _v2.useState)(!1),
+        _v33 = (0, _v2.useRef)(_v0.isLoading ? void 0 : _v1),
+        _v34 = (0, _v52.useToast)({
+          title: _v4.replacementsChangesSaved,
+          duration: 0
+        }),
+        _v35 = (0, _v2.useMemo)(() => Array.from(new Set([_v1, ..._v2])).map(_v0 => ({
+          label: _v10(_v0),
+          value: _v0
+        })).sort((_v0, _v1) => _v0.label.localeCompare(_v1.label, _v8)), [_v10, _v8, _v1, _v2]),
+        _v36 = (0, _v2.useMemo)(() => _v17.filter(_v0 => _v0.sourceText.trim() || _v0.mappings.some(_v0 => _v0.uri || _v0.replacementText.trim())), [_v17]),
+        _v37 = _v179(_v15, _v36),
+        _v38 = !!(_v37.created.length || _v37.updated.length || _v37.deleted.length),
+        _v39 = (0, _v2.useCallback)(_v0 => {
+          let _v1 = _v183(_v0.rows, _v1, _v0.targetLanguages, _v13());
+          _v16(_v1), _v18(_v1), _v20(_v0.targetLanguages);
+        }, [_v13, _v1]);
+      (0, _v2.useEffect)(() => {
+        _v0.isLoading || _v0.error || _v33.current === _v1 || (_v39({
+          rows: _v0.rows,
+          targetLanguages: _v0.targetLanguages
+        }), _v30(void 0), _v32(!1), _v33.current = _v1);
+      }, [_v39, _v0.error, _v0.isLoading, _v0.rows, _v0.targetLanguages, _v1]);
+      let _v40 = (0, _v2.useCallback)(_v0 => {
+          let _v1 = new Set(_v0.rows.flatMap(_v0 => _v0.mappings.flatMap(_v0 => _v0.uri ? [_v0.uri] : []))),
+            _v2 = new Map(_v0.rows.flatMap(_v0 => _v0.mappings.flatMap(_v0 => _v0.uri ? [[_v185(_v0.sourceLanguage, _v0.sourceText, _v0.targetLanguage), _v0.uri]] : [])));
+          _v16(_v183(_v0.rows, _v1, _v0.targetLanguages, _v13())), _v18(_v0 => _v0.map(_v0 => ({
+            ..._v0,
+            mappings: _v0.mappings.map(_v0 => ({
+              ..._v0,
+              uri: (_v0.uri && _v1.has(_v0.uri) ? _v0.uri : void 0) ?? _v2.get(_v185(_v0.sourceLanguage, _v0.sourceText, _v0.targetLanguage))
+            }))
+          }))), _v20(_v0 => [...new Set([..._v0, ..._v0.targetLanguages])]), _v32(!1);
+        }, [_v13, _v1]),
+        _v41 = (0, _v2.useCallback)(_v0 => [..._v0, {
+          clientId: _v13(),
+          mappings: _v19.map(_v0 => ({
+            targetLanguage: _v0,
+            replacementText: ""
+          })),
+          sourceLanguage: _v1,
+          sourceText: ""
+        }], [_v13, _v1, _v19]),
+        _v42 = _v0 => {
+          _v18(_v0 => {
+            let _v1 = _v0.filter(_v0 => _v0.clientId !== _v0);
+            return _v1.length ? _v1 : _v41([]);
+          });
+        },
+        _v43 = async () => {
+          _v28(!0), _v30(void 0);
+          try {
+            await _v0.save(_v15, _v36), await _v6().catch(() => void 0), _v34(), _v5();
+          } catch (_v0) {
+            let _v1 = _v0 instanceof _v176 ? _v0.snapshot : void 0;
+            _v1 ? _v40(_v1) : _v32(!0), _v30(_v0);
+          } finally {
+            _v28(!1);
+          }
+        },
+        _v44 = (_v19.length + 1) * 140 + 44,
+        _v45 = async () => {
+          _v28(!0);
+          try {
+            let _v0 = await _v0.refresh();
+            _v31 ? _v40(_v0) : _v39(_v0), _v30(void 0);
+          } catch {
+            _v31 && _v32(!0);
+          } finally {
+            _v28(!1);
+          }
+        };
+      return (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsxs)(_v47.Modal, {
+          isOpen: !0,
+          onClose: _v27 ? () => void 0 : _v5,
+          closeOnOverlayClick: !_v27,
+          children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v49.ModalContent, {
+            ref: _v12,
+            width: `calc(100vw - ${(0, _v5.rem)(32)})`,
+            maxWidth: (0, _v5.rem)(700),
+            height: `min(${(0, _v5.rem)(700)}, calc(100vh - ${(0, _v5.rem)(32)}))`,
+            maxHeight: `calc(100vh - ${(0, _v5.rem)(32)})`,
+            children: [(0, _v1.jsx)(_v50.ModalHeader, {
+              paddingBottom: (0, _v5.rem)(16),
+              children: _v4.replacementsTitle
+            }), (0, _v1.jsxs)(_v48.ModalBody, {
+              display: "flex",
+              flexDirection: "column",
+              minHeight: 0,
+              overflow: "visible",
+              paddingX: (0, _v5.rem)(32),
+              paddingY: (0, _v5.rem)(24),
+              children: [(0, _v1.jsx)(_v14.Text, {
+                variant: "body-md",
+                color: "text-secondary",
+                marginBottom: (0, _v5.rem)(16),
+                children: _v4.replacementsEditorDescription
+              }), (0, _v1.jsx)(_v36.Box, {
+                "aria-live": "polite",
+                children: !!(_v0.error || _v29) && (0, _v1.jsxs)(_v9.Alert, {
+                  status: "error",
+                  marginBottom: (0, _v5.rem)(16),
+                  children: [(0, _v1.jsx)(_v7.AlertDescription, {
+                    flex: "1",
+                    children: _v0.error ? _v4.replacementsLoadingError : _v4.replacementsChangesCouldNotBeSaved
+                  }), (_v0.error || _v31) && (0, _v1.jsx)(_v10.Button, {
+                    variant: "secondary",
+                    size: "sm",
+                    isLoading: _v27,
+                    onClick: () => void _v45(),
+                    children: _v4.tryAgain
+                  })]
+                })
+              }), (0, _v1.jsx)(_v36.Box, {
+                width: {
+                  base: "100%",
+                  md: (0, _v5.rem)(252)
+                },
+                marginBottom: (0, _v5.rem)(16),
+                sx: {
+                  '& [role="listbox"]': {
+                    maxHeight: (0, _v5.rem)(240),
+                    overflowY: "auto"
+                  }
+                },
+                children: (0, _v1.jsx)(_v149.Select, {
+                  items: _v35,
+                  label: _v4.replacementsSourceLanguage,
+                  value: [_v1],
+                  size: "md",
+                  withPortal: !1,
+                  disabled: _v27 || _v0.isLoading || _v38,
+                  onValueChange: ({
+                    value: _v0
+                  }) => {
+                    let _v1,
+                      _v2 = _v0[0];
+                    _v2 && (_v16(_v1 = _v183([], _v2, [], _v13())), _v18(_v1), _v20([]), _v30(void 0), _v32(!1), _v7(_v2));
+                  },
+                  children: _v0 => (0, _v1.jsx)(_v149.SelectItem, {
+                    item: _v0,
+                    children: (0, _v1.jsx)(_v149.SelectItemText, {
+                      children: _v0.label
+                    })
+                  })
+                })
+              }), (0, _v1.jsxs)(_v36.Box, {
+                position: "relative",
+                flex: "1",
+                marginLeft: (0, _v5.rem)(-24),
+                width: `calc(100% + ${(0, _v5.rem)(24)})`,
+                minHeight: {
+                  base: (0, _v5.rem)(160),
+                  md: (0, _v5.rem)(260)
+                },
+                children: [(0, _v1.jsx)(_v150.TableContainer, {
+                  height: "100%",
+                  width: "100%",
+                  maxWidth: "100%",
+                  overflowX: "auto",
+                  overflowY: "auto",
+                  paddingX: 0,
+                  "aria-busy": _v0.isLoading,
+                  children: (0, _v1.jsx)(_v36.Box, {
+                    paddingLeft: (0, _v5.rem)(24),
+                    minWidth: (0, _v5.rem)(_v44 + 24),
+                    minHeight: "100%",
+                    children: (0, _v1.jsx)(_v36.Box, {
+                      borderWidth: "1px",
+                      borderColor: "stroke",
+                      borderRadius: "sm",
+                      minHeight: "100%",
+                      children: (0, _v1.jsxs)(_v136.Table, {
+                        width: "100%",
+                        height: "auto",
+                        sx: {
+                          tableLayout: "fixed",
+                          "& th, & td": {
+                            borderBottomWidth: "1px",
+                            borderColor: "stroke",
+                            borderRightWidth: "1px"
+                          },
+                          "& tr > :last-child": {
+                            borderRightWidth: 0
+                          }
+                        },
+                        children: [(0, _v1.jsx)(_v140.Thead, {
+                          backgroundColor: "fill-component",
+                          children: (0, _v1.jsxs)(_v141.Tr, {
+                            height: (0, _v5.rem)(44),
+                            children: [(0, _v1.jsx)(_v139.Th, {
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                              whiteSpace: "nowrap",
+                              children: _v4.replacementsOriginalLanguage(_v10(_v1))
+                            }), _v19.map(_v0 => {
+                              let _v1 = _v10(_v0);
+                              return (0, _v1.jsx)(_v139.Th, {
+                                children: (0, _v1.jsxs)(_v3.Flex, {
+                                  role: "group",
+                                  alignItems: "center",
+                                  justifyContent: "space-between",
+                                  gap: (0, _v5.rem)(8),
+                                  children: [(0, _v1.jsx)(_v36.Box, {
+                                    as: "span",
+                                    flex: "1",
+                                    minWidth: 0,
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap",
+                                    children: _v1
+                                  }), (0, _v1.jsxs)(_v117.Menu, {
+                                    placement: "bottom-end",
+                                    strategy: "fixed",
+                                    children: [(0, _v1.jsx)(_v118.MenuButton, {
+                                      as: _v115.IconButton,
+                                      "aria-label": _v4.replacementsLanguageOptions(_v1),
+                                      icon: (0, _v1.jsx)(_v122.EllipsisV, {
+                                        boxSize: 16
+                                      }),
+                                      variant: "primary",
+                                      size: "xs",
+                                      width: (0, _v5.rem)(16),
+                                      minWidth: (0, _v5.rem)(16),
+                                      height: (0, _v5.rem)(32),
+                                      padding: 0,
+                                      opacity: 0,
+                                      _focusVisible: {
+                                        opacity: 1
+                                      },
+                                      _expanded: {
+                                        opacity: 1
+                                      },
+                                      _groupHover: {
+                                        opacity: 1
+                                      },
+                                      isDisabled: _v27 || _v0.isLoading
+                                    }), (0, _v1.jsx)(_v174.Portal, {
+                                      containerRef: _v12,
+                                      children: (0, _v1.jsx)(_v120.MenuList, {
+                                        zIndex: "popover",
+                                        children: (0, _v1.jsx)(_v119.MenuItem, {
+                                          onClick: () => {
+                                            _v20(_v0 => _v0.filter(_v0 => _v0 !== _v0)), _v18(_v0 => _v0.map(_v0 => ({
+                                              ..._v0,
+                                              mappings: _v0.mappings.filter(_v0 => _v0.targetLanguage !== _v0)
+                                            })));
+                                          },
+                                          children: _v4.replacementsDeleteLanguage
+                                        })
+                                      })
+                                    })]
+                                  })]
+                                })
+                              }, _v0);
+                            }), (0, _v1.jsx)(_v139.Th, {
+                              width: (0, _v5.rem)(44),
+                              padding: (0, _v5.rem)(4),
+                              children: (0, _v1.jsx)(_v40.Tooltip, {
+                                label: _v4.replacementsAddLanguageTooltip,
+                                children: (0, _v1.jsx)(_v115.IconButton, {
+                                  "aria-label": _v4.replacementsAddLanguage,
+                                  icon: (0, _v1.jsx)(_v43.Plus, {}),
+                                  variant: "tertiary",
+                                  size: "sm",
+                                  isDisabled: _v19.length >= 10 || _v27 || _v0.isLoading,
+                                  onClick: () => _v22(!0)
+                                })
+                              })
+                            })]
+                          })
+                        }), (0, _v1.jsx)(_v137.Tbody, {
+                          children: _v17.map((_v0, _v1) => (0, _v1.jsxs)(_v141.Tr, {
+                            height: (0, _v5.rem)(44),
+                            outline: _v23 === _v0.clientId || _v25 === _v0.clientId ? "2px solid var(--vimeo-colors-text-primary)" : void 0,
+                            outlineOffset: "-2px",
+                            sx: {
+                              "&:hover .remove-row, &:focus-within .remove-row": {
+                                opacity: 1
+                              }
+                            },
+                            children: [(0, _v1.jsxs)(_v138.Td, {
+                              position: "relative",
+                              height: (0, _v5.rem)(44),
+                              padding: "0",
+                              children: [!!(_v0.sourceText || _v0.mappings.some(_v0 => _v0.uri || _v0.replacementText)) && (0, _v1.jsxs)(_v117.Menu, {
+                                placement: "left-start",
+                                strategy: "fixed",
+                                onOpen: () => _v26(_v0.clientId),
+                                onClose: () => _v26(void 0),
+                                children: [(0, _v1.jsx)(_v118.MenuButton, {
+                                  as: _v115.IconButton,
+                                  "aria-label": _v4.replacementsRemoveRow(_v1 + 1),
+                                  onMouseEnter: () => _v24(_v0.clientId),
+                                  onMouseLeave: () => _v24(void 0),
+                                  onFocus: () => _v24(_v0.clientId),
+                                  onBlur: () => _v24(void 0),
+                                  icon: (0, _v1.jsx)(_v122.EllipsisV, {
+                                    boxSize: 16
+                                  }),
+                                  variant: "primary",
+                                  size: "xs",
+                                  className: "remove-row",
+                                  isDisabled: _v27 || _v0.isLoading,
+                                  position: "absolute",
+                                  top: (0, _v5.rem)(6),
+                                  left: (0, _v5.rem)(-24),
+                                  width: (0, _v5.rem)(16),
+                                  minWidth: (0, _v5.rem)(16),
+                                  height: (0, _v5.rem)(32),
+                                  padding: 0,
+                                  zIndex: 1,
+                                  opacity: 0,
+                                  _focusVisible: {
+                                    opacity: 1
+                                  },
+                                  _expanded: {
+                                    opacity: 1
+                                  },
+                                  onKeyDown: _v0 => {
+                                    "Delete" === _v0.key && (_v0.preventDefault(), _v42(_v0.clientId));
+                                  }
+                                }), (0, _v1.jsx)(_v174.Portal, {
+                                  containerRef: _v12,
+                                  children: (0, _v1.jsx)(_v120.MenuList, {
+                                    zIndex: "popover",
+                                    minWidth: (0, _v5.rem)(151),
+                                    paddingY: (0, _v5.rem)(8),
+                                    children: (0, _v1.jsx)(_v119.MenuItem, {
+                                      onClick: () => _v42(_v0.clientId),
+                                      children: _v4.removeTerm
+                                    })
+                                  })
+                                })]
+                              }), (0, _v1.jsx)(_v116.Input, {
+                                "aria-label": _v4.replacementsSourceTerm(_v1 + 1),
+                                value: _v0.sourceText,
+                                placeholder: _v4.replacementsEnterTerm,
+                                maxLength: 500,
+                                width: "100%",
+                                minWidth: 0,
+                                height: (0, _v5.rem)(44),
+                                border: 0,
+                                borderRadius: 0,
+                                backgroundColor: "transparent",
+                                paddingX: (0, _v5.rem)(12),
+                                paddingY: (0, _v5.rem)(12),
+                                _focus: {
+                                  boxShadow: "none"
+                                },
+                                _focusVisible: {
+                                  boxShadow: "inset 0 0 0 2px var(--vimeo-colors-text-primary)"
+                                },
+                                isDisabled: _v27 || _v0.isLoading,
+                                onChange: _v0 => {
+                                  var _v1, _v2;
+                                  return _v1 = _v0.clientId, _v2 = _v0.currentTarget.value, void _v18(_v0 => {
+                                    let _v1 = _v0.map(_v0 => _v0.clientId === _v1 ? {
+                                        ..._v0,
+                                        sourceText: _v2
+                                      } : _v0),
+                                      _v2 = _v1[_v1.length - 1];
+                                    return _v2?.sourceText.trim() ? _v41(_v1) : _v1;
+                                  });
+                                }
+                              })]
+                            }), _v19.map(_v0 => {
+                              let _v1 = _v0.mappings.find(_v0 => _v0.targetLanguage === _v0);
+                              return (0, _v1.jsx)(_v138.Td, {
+                                height: (0, _v5.rem)(44),
+                                padding: "0",
+                                children: (0, _v1.jsx)(_v116.Input, {
+                                  "aria-label": _v4.replacementsTargetTerm(_v10(_v0), _v1 + 1),
+                                  value: _v1?.replacementText ?? "",
+                                  placeholder: _v0.sourceText.trim() ? _v4.replacementsEnterTerm : void 0,
+                                  maxLength: 500,
+                                  width: "100%",
+                                  minWidth: 0,
+                                  height: (0, _v5.rem)(44),
+                                  border: 0,
+                                  borderRadius: 0,
+                                  backgroundColor: "transparent",
+                                  paddingX: (0, _v5.rem)(12),
+                                  paddingY: (0, _v5.rem)(12),
+                                  _focus: {
+                                    boxShadow: "none"
+                                  },
+                                  _focusVisible: {
+                                    boxShadow: "inset 0 0 0 2px var(--vimeo-colors-text-primary)"
+                                  },
+                                  isDisabled: _v27 || _v0.isLoading || !_v0.sourceText.trim(),
+                                  onChange: _v0 => {
+                                    var _v1, _v2;
+                                    return _v1 = _v0.clientId, _v2 = _v0.currentTarget.value, void _v18(_v0 => _v0.map(_v0 => _v0.clientId === _v1 ? {
+                                      ..._v0,
+                                      mappings: _v0.mappings.map(_v0 => _v0.targetLanguage === _v0 ? {
+                                        ..._v0,
+                                        replacementText: _v2
+                                      } : _v0)
+                                    } : _v0));
+                                  }
+                                })
+                              }, _v0);
+                            }), (0, _v1.jsx)(_v138.Td, {
+                              width: (0, _v5.rem)(44),
+                              height: (0, _v5.rem)(44),
+                              padding: (0, _v5.rem)(4)
+                            })]
+                          }, _v0.clientId))
+                        })]
+                      })
+                    })
+                  })
+                }), _v0.isLoading && (0, _v1.jsx)(_v3.Flex, {
+                  position: "absolute",
+                  inset: "0",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  pointerEvents: "none",
+                  children: (0, _v1.jsx)(_v45.Spinner, {})
+                })]
+              })]
+            }), (0, _v1.jsxs)(_v121.ModalFooter, {
+              justifyContent: "space-between",
+              alignItems: {
+                base: "stretch",
+                sm: "center"
+              },
+              flexDirection: {
+                base: "column",
+                sm: "row"
+              },
+              paddingTop: (0, _v5.rem)(16),
+              paddingBottom: (0, _v5.rem)(24),
+              children: [(0, _v1.jsx)(_v10.Button, {
+                variant: "secondary",
+                width: {
+                  base: "100%",
+                  sm: "auto"
+                },
+                isDisabled: _v27 || _v0.isLoading || _v19.length >= 10,
+                onClick: () => _v22(!0),
+                children: _v4.replacementsAddLanguage
+              }), (0, _v1.jsxs)(_v3.Flex, {
+                gap: (0, _v5.rem)(8),
+                justifyContent: "flex-end",
+                children: [(0, _v1.jsx)(_v10.Button, {
+                  variant: "tertiary",
+                  isDisabled: _v27,
+                  onClick: _v5,
+                  children: _v4.cancel
+                }), (0, _v1.jsx)(_v10.Button, {
+                  variant: "primary",
+                  isLoading: _v27,
+                  isDisabled: _v0.isLoading || !!_v0.error || _v31 || !_v38,
+                  onClick: _v43,
+                  children: _v4.save
+                })]
+              })]
+            })]
+          })]
+        }), _v21 && (0, _v1.jsx)(_v165, {
+          existingLanguages: [_v1, ..._v19],
+          languages: _v3,
+          targetLanguageCount: _v19.length,
+          translations: _v4,
+          onClose: () => _v22(!1),
+          onSelect: _v0 => {
+            _v20(_v0 => [..._v0, ..._v0]), _v18(_v0 => _v0.map(_v0 => ({
+              ..._v0,
+              mappings: [..._v0.mappings, ..._v0.map(_v0 => _v15.find(_v0 => _v0.clientId === _v0.clientId)?.mappings.find(_v0 => _v0.targetLanguage === _v0) ?? {
+                targetLanguage: _v0,
+                replacementText: ""
+              })]
+            }))), _v22(!1);
+          }
+        })]
+      });
+    },
+    _v187 = ({
+      initialSourceLanguage: _v0,
+      mode: _v1 = "edit",
+      ownerUserId: _v2,
+      sourceLanguages: _v3,
+      supportedLanguages: _v4,
+      translations: _v5,
+      onClose: _v6,
+      onSaved: _v7
+    }) => "create" === _v1 ? (0, _v1.jsx)(_v189, {
+      initialSourceLanguage: _v0,
+      ownerUserId: _v2,
+      sourceLanguages: _v3,
+      supportedLanguages: _v4,
+      translations: _v5,
+      onClose: _v6,
+      onSaved: _v7
+    }) : (0, _v1.jsx)(_v188, {
+      initialSourceLanguage: _v0,
+      ownerUserId: _v2,
+      sourceLanguages: _v3,
+      supportedLanguages: _v4,
+      translations: _v5,
+      onClose: _v6,
+      onSaved: _v7
+    }),
+    _v188 = ({
+      initialSourceLanguage: _v0,
+      ownerUserId: _v1,
+      sourceLanguages: _v2,
+      supportedLanguages: _v3,
+      translations: _v4,
+      onClose: _v5,
+      onSaved: _v6
+    }) => {
+      let [_v7, _v8] = (0, _v2.useState)(_v0),
+        _v9 = ((_v0, _v1) => {
+          let {
+              baseUrl: _v2,
+              jwt: _v3,
+              xVimeoPage: _v4,
+              locale: _v5
+            } = (0, _v25.useGctlConfig)(),
+            {
+              data: _v6,
+              error: _v7,
+              isLoading: _v8,
+              isValidating: _v9,
+              mutate: _v10,
+              setSize: _v11,
+              size: _v12
+            } = _v31({
+              select: ["replacementText", "sourceLanguage", "sourceText", "targetLanguage", "uri"],
+              where: {
+                userId: _v0
+              },
+              query: {
+                perPage: 100,
+                ruleType: "mapping",
+                sourceLanguage: _v1
+              }
+            }, {
+              revalidateOnFocus: !1
+            }),
+            _v13 = _v6?.[_v6.length - 1],
+            _v14 = !!_v13?.paging.next;
+          (0, _v2.useEffect)(() => {
+            !_v14 || _v9 || _v7 || _v11(_v12 + 1);
+          }, [_v7, _v14, _v9, _v11, _v12]);
+          let _v15 = (0, _v2.useMemo)(() => _v180(_v6?.flatMap(_v0 => _v0.data) ?? [], _v1), [_v6, _v1]),
+            _v16 = (0, _v2.useMemo)(() => ({
+              "Content-Type": "application/json",
+              Authorization: _v3 ? `jwt ${_v3}` : "",
+              "Vimeo-Page": `${_v4}`,
+              "Accept-Language": _v5 ?? "en"
+            }), [_v3, _v5, _v4]),
+            _v17 = (0, _v2.useCallback)(async () => {
+              let _v0 = await _v10();
+              for (; _v0?.[_v0.length - 1]?.paging.next;) {
+                let _v0 = await _v11(_v0.length + 1);
+                if (!_v0 || _v0.length <= _v0.length) throw Error("Unable to load every terms translation page");
+                _v0 = _v0;
+              }
+              return _v180(_v0?.flatMap(_v0 => _v0.data) ?? [], _v1);
+            }, [_v10, _v11, _v1]),
+            _v18 = (0, _v2.useCallback)(async (_v0, _v1) => {
+              let _v2 = _v179(_v0, _v1);
+              try {
+                let _v0 = await Promise.allSettled(_v2.deleted.map(_v0 => _v21({
+                    baseUrl: _v2,
+                    headers: _v16,
+                    where: {
+                      userId: _v0,
+                      ruleId: _v177(_v0.uri ?? "")
+                    }
+                  }))),
+                  _v1 = _v181(_v0);
+                if (_v1.length) throw _v1;
+                let _v2 = await Promise.allSettled(_v2.updated.map(_v0 => _v22({
+                    baseUrl: _v2,
+                    headers: _v16,
+                    select: ["uri"],
+                    variables: {
+                      sourceLanguage: _v0.sourceLanguage,
+                      sourceText: _v0.sourceText,
+                      targetLanguage: _v0.targetLanguage,
+                      replacementText: _v0.replacementText
+                    },
+                    where: {
+                      userId: _v0,
+                      ruleId: _v177(_v0.uri ?? "")
+                    }
+                  }))),
+                  _v3 = _v181(_v2);
+                if (_v3.length) throw _v3;
+                let _v4 = await Promise.allSettled(_v2.created.map(_v0 => _v24({
+                    baseUrl: _v2,
+                    headers: _v16,
+                    select: ["uri"],
+                    variables: {
+                      ruleType: "mapping",
+                      sourceLanguage: _v0.sourceLanguage,
+                      sourceText: _v0.sourceText,
+                      targetLanguage: _v0.targetLanguage,
+                      replacementText: _v0.replacementText
+                    },
+                    where: {
+                      userId: _v0
+                    }
+                  }))),
+                  _v5 = _v181(_v4);
+                if (_v5.length) throw _v5;
+              } catch (_v0) {
+                let _v1;
+                try {
+                  _v1 = await _v17();
+                } catch {}
+                throw new _v176(Array.isArray(_v0) ? _v0 : [_v0], _v1);
+              }
+              return _v17().catch(() => void 0);
+            }, [_v2, _v16, _v0, _v17]);
+          return {
+            rows: _v15.rows,
+            targetLanguages: _v15.targetLanguages,
+            isLoading: _v8 || _v14 && !_v7,
+            error: _v7,
+            refresh: _v17,
+            save: _v18
+          };
+        })(_v1, _v7);
+      return (0, _v1.jsx)(_v186, {
+        editor: _v9,
+        sourceLanguage: _v7,
+        sourceLanguages: _v2,
+        supportedLanguages: _v3,
+        translations: _v4,
+        onClose: _v5,
+        onSaved: _v6,
+        onSourceLanguageChange: _v8
+      });
+    },
+    _v189 = ({
+      sourceLanguages: _v0,
+      supportedLanguages: _v1,
+      translations: _v2,
+      ..._v3
+    }) => {
+      let [_v4, _v5] = (0, _v2.useState)(),
+        _v6 = _v163(_v1, _v0);
+      return 0 === _v6.length ? (0, _v1.jsxs)(_v47.Modal, {
+        isOpen: !0,
+        onClose: _v3.onClose,
+        children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v49.ModalContent, {
+          width: `calc(100vw - ${(0, _v5.rem)(32)})`,
+          maxWidth: (0, _v5.rem)(700),
+          children: [(0, _v1.jsx)(_v50.ModalHeader, {
+            children: _v2.replacementsTitle
+          }), (0, _v1.jsx)(_v48.ModalBody, {
+            children: (0, _v1.jsx)(_v9.Alert, {
+              status: "info",
+              children: (0, _v1.jsx)(_v7.AlertDescription, {
+                flex: "1",
+                children: _v2.replacementsNoLanguagesAvailable
+              })
+            })
+          }), (0, _v1.jsx)(_v121.ModalFooter, {
+            children: (0, _v1.jsx)(_v10.Button, {
+              variant: "tertiary",
+              onClick: _v3.onClose,
+              children: _v2.cancel
+            })
+          })]
+        })]
+      }) : void 0 === _v4 ? (0, _v1.jsx)(_v175, {
+        languageItems: _v6,
+        translations: _v2,
+        onClose: _v3.onClose,
+        onSave: _v5
+      }) : (0, _v2.createElement)(_v188, {
+        ..._v3,
+        key: _v4,
+        initialSourceLanguage: _v4,
+        sourceLanguages: _v6.map(({
+          value: _v0
+        }) => _v0),
+        supportedLanguages: _v1,
+        translations: _v2
+      });
+    };
+  async function _v190({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -3315,27 +4816,27 @@ ${_v2}`;
     query: _v3,
     ..._v4
   }) {
-    return (0, _v19.measureLatency)("getUserAccountDictionaryTranslationRulesMatrix", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/account_dictionary/translation_rules/matrix?${(0, _v18.searchQueryString)(_v3)}&fields=${_v1.map(_v18.intoSnakeCase).join(",")}`, {
+    return (0, _v20.measureLatency)("getUserAccountDictionaryTranslationRulesMatrix", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/account_dictionary/translation_rules/matrix?${(0, _v19.searchQueryString)(_v3)}&fields=${_v1.map(_v19.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v18.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v19.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v18.deepCamelCase)(_v1);
+      return (0, _v19.deepCamelCase)(_v1);
     });
   }
-  function _v158(_v0, _v1) {
+  function _v191(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v24.useGctlConfig)();
-    return (0, _v27.default)(_v2 ? `/users/${_v2.where.userId}/account_dictionary/translation_rules/matrix${(0, _v26.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v157({
+      } = (0, _v25.useGctlConfig)();
+    return (0, _v28.default)(_v2 ? `/users/${_v2.where.userId}/account_dictionary/translation_rules/matrix${(0, _v27.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v190({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -3347,26 +4848,26 @@ ${_v2}`;
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v25.default.env.STORYBOOK && (0, _v26.assignMswData)(_v158, {
+  "true" === _v26.default.env.STORYBOOK && (0, _v27.assignMswData)(_v191, {
     endpoint: "/users/:userId/account_dictionary/translation_rules/matrix",
     method: "GET"
-  }), "true" === _v25.default.env.STORYBOOK && (0, _v26.assignMswData)(function () {
+  }), "true" === _v26.default.env.STORYBOOK && (0, _v27.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v28.useSWRConfig)(),
+      } = (0, _v29.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v24.useGctlConfig)(),
-      [_v5, _v6] = (0, _v26.useInternalState)();
+      } = (0, _v25.useGctlConfig)(),
+      [_v5, _v6] = (0, _v27.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/account_dictionary/translation_rules/matrix${(0, _v26.serializeQuery)(_v0)}`, _v157({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/account_dictionary/translation_rules/matrix${(0, _v27.serializeQuery)(_v0)}`, _v190({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -3392,2858 +4893,4144 @@ ${_v2}`;
     endpoint: "/users/:userId/account_dictionary/translation_rules/matrix",
     method: "GET"
   });
-  let _v159 = ({
-    ownerUserId: _v0,
-    translations: _v1
-  }) => {
-    let _v2,
-      _v3,
-      _v4,
-      _v5,
-      _v6 = (0, _v154.useLocale)(),
-      [_v7, _v8] = (0, _v2.useState)(1),
-      [_v9, _v10] = (0, _v2.useState)("en"),
-      [_v11, _v12] = (0, _v2.useState)(""),
-      {
-        rows: _v13,
-        sourceLanguages: _v14,
-        targetLanguages: _v15,
-        total: _v16,
-        page: _v17,
-        perPage: _v18,
-        quota: _v19,
-        isInitialLoading: _v20,
-        hasData: _v21,
-        error: _v22,
-        retry: _v23
-      } = (_v2 = (0, _v153.useDebouncedValue)(_v11, 300).trim(), _v3 = _v158(() => ({
-        select: ["data.mappings.replacementText", "data.mappings.targetLanguage", "data.sourceLanguage", "data.sourceText", "page", "perPage", "sourceLanguages", "targetLanguages", "total"],
-        where: {
-          userId: _v0
-        },
-        query: {
-          sourceLanguage: _v9,
-          page: _v7,
-          perPage: 10,
-          ...(_v2.length > 0 ? {
-            search: _v2
-          } : {})
-        }
-      }), {
-        keepPreviousData: !0
-      }), _v4 = (0, _v129.useGetUser)(() => ({
-        select: ["accountDictionaryQuota.languageReplacementTerms.used", "accountDictionaryQuota.languageReplacementTerms.limit"],
-        where: {
-          userId: _v0
-        }
-      })), _v5 = (0, _v2.useCallback)(async () => {
-        await _v3.mutate(), await _v4.mutate().catch(() => void 0);
-      }, [_v3, _v4]), {
-        rows: _v3.data?.data ?? [],
-        sourceLanguages: _v3.data?.sourceLanguages ?? [],
-        targetLanguages: _v3.data?.targetLanguages ?? [],
-        total: _v3.data?.total ?? 0,
-        page: _v3.data?.page ?? _v7,
-        perPage: _v3.data?.perPage ?? 10,
-        quota: _v4.data?.accountDictionaryQuota?.languageReplacementTerms,
-        isLoading: _v3.isLoading,
-        isInitialLoading: _v3.isLoading && void 0 === _v3.data,
-        hasData: void 0 !== _v3.data,
-        error: _v3.error,
-        retry: _v5
-      }),
-      _v24 = _v19?.used ?? _v16,
-      _v25 = _v19?.limit ?? 0,
-      _v26 = _v11.trim().length > 0,
-      _v27 = _v14.length > 0,
-      _v28 = _v15.length + 1,
-      _v29 = (_v14.includes(_v9) ? _v14 : [_v9, ..._v14]).map(_v0 => ({
-        label: _v156(_v0, _v6),
-        value: _v0
-      })),
-      _v30 = _v0 => {
-        _v12(_v0), _v8(1);
-      };
-    return (0, _v1.jsx)(_v16.TeamSettingsPageCategory, {
-      title: _v1.replacementsTitle,
-      description: _v1.replacementsDescription,
-      headingAs: "h2",
-      children: _v20 ? (0, _v1.jsx)(_v4.Flex, {
-        minHeight: (0, _v5.rem)(180),
-        alignItems: "center",
-        justifyContent: "center",
-        children: (0, _v1.jsx)(_v44.Spinner, {})
-      }) : _v22 && !_v21 ? (0, _v1.jsxs)(_v9.Alert, {
-        status: "error",
-        marginTop: (0, _v5.rem)(24),
-        alignItems: "center",
-        children: [(0, _v1.jsx)(_v8.AlertIcon, {}), (0, _v1.jsx)(_v7.AlertDescription, {
-          flex: "1",
-          children: _v1.replacementsLoadingError
-        }), (0, _v1.jsx)(_v3.Button, {
-          variant: "secondary",
-          size: "sm",
-          onClick: _v23,
-          children: _v1.tryAgain
-        })]
-      }) : 0 !== _v16 || _v26 || _v27 ? (0, _v1.jsxs)(_v35.Box, {
-        marginTop: (0, _v5.rem)(24),
-        children: [_v29.length > 1 && (0, _v1.jsx)(_v35.Box, {
-          width: {
-            base: "100%",
-            md: (0, _v5.rem)(252)
+  let _v192 = "__new-translations-set__",
+    _v193 = ({
+      ownerUserId: _v0,
+      translations: _v1
+    }) => {
+      let _v2,
+        _v3,
+        _v4,
+        _v5,
+        _v6 = (0, _v157.useLocale)(),
+        [_v7, _v8] = (0, _v2.useState)(1),
+        [_v9, _v10] = (0, _v2.useState)("en"),
+        [_v11, _v12] = (0, _v2.useState)(""),
+        [_v13, _v14] = (0, _v2.useState)(""),
+        [_v15, _v16] = (0, _v2.useState)(!1),
+        _v17 = (0, _v156.useDebouncedValue)(_v13, 300),
+        [_v18, _v19] = (0, _v2.useState)(),
+        _v20 = (0, _v155.useGetVideosTranslationsLanguages)({
+          query: {
+            type: "subtitling",
+            perPage: 100
           },
-          marginBottom: (0, _v5.rem)(24),
-          children: (0, _v1.jsx)(_v149.Select, {
-            items: _v29,
-            label: _v1.replacementsSourceLanguage,
-            value: [_v9],
-            size: "sm",
-            onValueChange: ({
-              value: _v0
-            }) => {
-              let _v1 = _v0[0];
-              "string" == typeof _v1 && (_v10(_v1), _v8(1));
-            },
-            children: _v0 => (0, _v1.jsx)(_v149.SelectItem, {
-              item: _v0,
-              children: (0, _v1.jsx)(_v149.SelectItemText, {
-                children: _v0.label
-              })
-            })
-          })
-        }), (0, _v1.jsxs)(_v4.Flex, {
-          gap: (0, _v5.rem)(8),
-          alignItems: "center",
-          marginBottom: (0, _v5.rem)(24),
-          children: [(0, _v1.jsxs)(_v147.InputGroup, {
-            size: "sm",
-            children: [(0, _v1.jsx)(_v148.InputLeftElement, {
-              pointerEvents: "none",
-              children: (0, _v1.jsx)(_v152.SearchMagnifier, {
-                boxSize: 20,
-                color: "text-secondary"
-              })
-            }), (0, _v1.jsx)(_v116.Input, {
-              value: _v11,
-              onChange: _v0 => _v30(_v0.currentTarget.value),
-              placeholder: _v1.replacementsSearchPlaceholder,
-              "aria-label": _v1.replacementsSearchLabel,
-              paddingLeft: (0, _v5.rem)(40)
+          select: ["code", "localized", "native"]
+        }, {
+          revalidateOnFocus: !1
+        }),
+        _v21 = (0, _v2.useMemo)(() => _v20.data?.data ?? [], [_v20.data?.data]),
+        _v22 = (0, _v2.useMemo)(() => _v161(_v21.map(({
+          code: _v0,
+          localized: _v1
+        }) => ({
+          code: _v0,
+          name: _v1
+        }))), [_v21]),
+        _v23 = (0, _v2.useCallback)(_v0 => _v162(_v0, _v6, _v22), [_v22, _v6]),
+        [_v24, _v25] = (0, _v2.useState)(!1),
+        {
+          rows: _v26,
+          sourceLanguages: _v27,
+          targetLanguages: _v28,
+          total: _v29,
+          page: _v30,
+          perPage: _v31,
+          quota: _v32,
+          isInitialLoading: _v33,
+          hasData: _v34,
+          error: _v35,
+          retry: _v36
+        } = (_v2 = _v17.trim(), _v3 = _v191(() => ({
+          select: ["data.mappings.replacementText", "data.mappings.targetLanguage", "data.sourceLanguage", "data.sourceText", "page", "perPage", "sourceLanguages", "targetLanguages", "total"],
+          where: {
+            userId: _v0
+          },
+          query: {
+            sourceLanguage: _v9,
+            page: _v7,
+            perPage: 10,
+            ...(_v2.length > 0 ? {
+              search: _v2
+            } : {})
+          }
+        }), {
+          keepPreviousData: !0
+        }), _v4 = (0, _v129.useGetUser)(() => ({
+          select: ["accountDictionaryQuota.languageReplacementTerms.used", "accountDictionaryQuota.languageReplacementTerms.limit"],
+          where: {
+            userId: _v0
+          }
+        })), _v5 = (0, _v2.useCallback)(async () => {
+          await _v3.mutate(), await _v4.mutate().catch(() => void 0);
+        }, [_v3, _v4]), {
+          rows: _v3.data?.data ?? [],
+          sourceLanguages: _v3.data?.sourceLanguages ?? [],
+          targetLanguages: _v3.data?.targetLanguages ?? [],
+          total: _v3.data?.total ?? 0,
+          page: _v3.data?.page ?? _v7,
+          perPage: _v3.data?.perPage ?? 10,
+          quota: _v4.data?.accountDictionaryQuota?.languageReplacementTerms,
+          isLoading: _v3.isLoading,
+          isInitialLoading: _v3.isLoading && void 0 === _v3.data,
+          hasData: void 0 !== _v3.data,
+          error: _v3.error,
+          retry: _v5
+        }),
+        _v37 = _v32?.used ?? _v29,
+        _v38 = _v32?.limit ?? 0,
+        _v39 = _v13.trim().length > 0,
+        _v40 = _v27.length > 0,
+        _v41 = _v28.length + 1,
+        _v42 = _v27.includes(_v9) ? _v27 : [_v9, ..._v27],
+        _v43 = [{
+          label: _v1.replacementsNewTranslationsSet,
+          value: _v192
+        }, ..._v42.map(_v0 => ({
+          label: _v23(_v0),
+          value: _v0
+        })).sort((_v0, _v1) => _v0.label.localeCompare(_v1.label, _v6))],
+        _v44 = _v27.join("\0");
+      if (_v44 !== _v11) {
+        _v12(_v44);
+        let _v0 = _v27[0];
+        _v0 && !_v27.includes(_v9) && (_v10(_v0), _v8(1));
+      }
+      let _v45 = _v0 => {
+          _v14(_v0), _v8(1);
+        },
+        _v46 = (_v0, _v1) => {
+          _v19({
+            mode: _v0,
+            sourceLanguage: _v1
+          });
+        };
+      return (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsx)(_v17.TeamSettingsPageCategory, {
+          title: _v1.replacementsTitle,
+          description: _v1.replacementsDescription,
+          descriptionMaxWidth: (0, _v5.rem)(297),
+          headingAs: "h2",
+          headerActionsShouldWrap: !0,
+          headerActions: !_v33 && !(_v35 && !_v34) && (0, _v1.jsxs)(_v3.Flex, {
+            gap: (0, _v5.rem)(8),
+            flexWrap: "wrap",
+            children: [(0, _v1.jsx)(_v10.Button, {
+              leftIcon: (0, _v1.jsx)(_v44.Upload, {}),
+              variant: "tertiary",
+              size: "sm",
+              onClick: () => _v25(!0),
+              children: _v1.csv
+            }), (0, _v1.jsx)(_v10.Button, {
+              variant: "secondary",
+              size: "sm",
+              leftIcon: (0, _v1.jsx)(_v43.Plus, {}),
+              isLoading: _v20.isLoading,
+              onClick: () => _v46("create", "en"),
+              children: _v1.replacementsNewTranslationsSet
             })]
-          }), _v26 && (0, _v1.jsx)(_v115.IconButton, {
-            "aria-label": _v1.replacementsClearSearch,
-            icon: (0, _v1.jsx)(_v151.CloseX, {}),
-            size: "sm",
-            variant: "tertiary",
-            onClick: () => _v30("")
-          })]
-        }), 0 === _v16 ? (0, _v1.jsxs)(_v4.Flex, {
-          minHeight: (0, _v5.rem)(140),
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
-          textAlign: "center",
-          children: [(0, _v1.jsx)(_v13.Text, {
-            variant: _v26 ? "body-md" : "heading-sm",
-            color: "text-secondary",
-            children: _v26 ? _v1.replacementsNoResults : _v1.replacementsEmptyTitle
-          }), !_v26 && (0, _v1.jsx)(_v13.Text, {
-            variant: "body-sm",
-            color: "text-secondary",
-            marginTop: (0, _v5.rem)(4),
-            children: _v1.replacementsEmptyDescription
-          })]
-        }) : (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v150.TableContainer, {
-            borderWidth: "1px",
-            borderColor: "stroke",
-            borderRadius: "md",
-            children: (0, _v1.jsxs)(_v136.Table, {
-              width: "100%",
-              minWidth: (0, _v5.rem)(Math.max(592, 196 * _v28)),
-              sx: {
-                tableLayout: "fixed"
-              },
-              children: [(0, _v1.jsx)(_v140.Thead, {
-                backgroundColor: "fill-component",
-                children: (0, _v1.jsxs)(_v141.Tr, {
-                  children: [(0, _v1.jsx)(_v139.Th, {
-                    children: _v156(_v9, _v6)
-                  }), _v15.map(_v0 => (0, _v1.jsx)(_v139.Th, {
-                    children: _v156(_v0, _v6)
-                  }, _v0))]
+          }),
+          children: _v33 ? (0, _v1.jsx)(_v3.Flex, {
+            minHeight: (0, _v5.rem)(180),
+            alignItems: "center",
+            justifyContent: "center",
+            children: (0, _v1.jsx)(_v45.Spinner, {})
+          }) : _v35 && !_v34 ? (0, _v1.jsxs)(_v9.Alert, {
+            status: "error",
+            marginTop: (0, _v5.rem)(24),
+            alignItems: "center",
+            children: [(0, _v1.jsx)(_v7.AlertDescription, {
+              flex: "1",
+              children: _v1.replacementsLoadingError
+            }), (0, _v1.jsx)(_v10.Button, {
+              variant: "secondary",
+              size: "sm",
+              onClick: _v36,
+              children: _v1.tryAgain
+            })]
+          }) : 0 !== _v29 || _v39 || _v40 ? (0, _v1.jsxs)(_v36.Box, {
+            marginTop: (0, _v5.rem)(24),
+            children: [_v15 || _v39 ? (0, _v1.jsxs)(_v3.Flex, {
+              gap: (0, _v5.rem)(8),
+              alignItems: "center",
+              marginBottom: (0, _v5.rem)(24),
+              children: [(0, _v1.jsxs)(_v147.InputGroup, {
+                size: "sm",
+                flex: "1",
+                children: [(0, _v1.jsx)(_v148.InputLeftElement, {
+                  pointerEvents: "none",
+                  children: (0, _v1.jsx)(_v153.SearchMagnifier, {
+                    boxSize: 20,
+                    color: "text-secondary"
+                  })
+                }), (0, _v1.jsx)(_v116.Input, {
+                  autoFocus: !0,
+                  value: _v13,
+                  onChange: _v0 => _v45(_v0.currentTarget.value),
+                  onBlur: () => {
+                    0 === _v13.trim().length && _v16(!1);
+                  },
+                  placeholder: _v1.replacementsSearchPlaceholder,
+                  "aria-label": _v1.replacementsSearchLabel,
+                  paddingLeft: (0, _v5.rem)(40)
+                })]
+              }), (0, _v1.jsx)(_v115.IconButton, {
+                "aria-label": _v1.replacementsClearSearch,
+                icon: (0, _v1.jsx)(_v151.CloseX, {}),
+                size: "sm",
+                variant: "tertiary",
+                onClick: () => {
+                  _v45(""), _v16(!1);
+                }
+              })]
+            }) : (0, _v1.jsxs)(_v3.Flex, {
+              gap: (0, _v5.rem)(8),
+              alignItems: "center",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              marginBottom: (0, _v5.rem)(24),
+              children: [_v40 ? (0, _v1.jsx)(_v36.Box, {
+                width: "fit-content",
+                maxWidth: {
+                  base: "100%",
+                  md: (0, _v5.rem)(280)
+                },
+                children: (0, _v1.jsx)(_v149.Select, {
+                  items: _v43,
+                  value: [],
+                  placeholder: _v1.replacementsTranslationsSetValue(_v23(_v9)),
+                  leftIcon: (0, _v1.jsx)(_v152.CommentList, {}),
+                  size: "sm",
+                  onValueChange: ({
+                    value: _v0
+                  }) => {
+                    let _v1 = _v0[0];
+                    if ("string" == typeof _v1) {
+                      if (_v1 === _v192) return void _v46("create", "en");
+                      _v10(_v1), _v8(1);
+                    }
+                  },
+                  children: _v0 => _v0.value === _v192 ? (0, _v1.jsx)(_v149.SelectItem, {
+                    item: _v0,
+                    children: (0, _v1.jsxs)(_v3.Flex, {
+                      alignItems: "center",
+                      gap: (0, _v5.rem)(8),
+                      children: [(0, _v1.jsx)(_v43.Plus, {
+                        boxSize: 16
+                      }), (0, _v1.jsx)(_v149.SelectItemText, {
+                        children: _v0.label
+                      })]
+                    })
+                  }) : (0, _v1.jsx)(_v149.SelectItem, {
+                    item: _v0,
+                    children: (0, _v1.jsx)(_v149.SelectItemText, {
+                      children: _v0.label
+                    })
+                  })
                 })
-              }), (0, _v1.jsx)(_v137.Tbody, {
-                children: _v13.map(_v0 => {
-                  let _v1 = new Map(_v0.mappings.map(_v0 => [_v0.targetLanguage, _v0.replacementText]));
-                  return (0, _v1.jsxs)(_v141.Tr, {
-                    height: (0, _v5.rem)(60),
-                    children: [(0, _v1.jsx)(_v138.Td, {
-                      fontFamily: "heading",
-                      children: _v0.sourceText
-                    }), _v15.map(_v0 => (0, _v1.jsx)(_v138.Td, {
-                      color: "text-secondary",
-                      children: _v1.get(_v0) ?? "-"
-                    }, _v0))]
-                  }, `${_v0.sourceLanguage}:${_v0.sourceText}`);
+              }) : (0, _v1.jsx)(_v36.Box, {}), (0, _v1.jsxs)(_v3.Flex, {
+                gap: (0, _v5.rem)(8),
+                alignItems: "center",
+                children: [(0, _v1.jsx)(_v115.IconButton, {
+                  "aria-label": _v1.replacementsOpenSearch,
+                  icon: (0, _v1.jsx)(_v153.SearchMagnifier, {
+                    boxSize: 20
+                  }),
+                  size: "sm",
+                  variant: "tertiary",
+                  onClick: () => _v16(!0)
+                }), (0, _v1.jsx)(_v10.Button, {
+                  variant: "primary",
+                  size: "sm",
+                  leftIcon: (0, _v1.jsx)(_v43.Plus, {}),
+                  onClick: () => _v46(_v40 ? "edit" : "create", _v9),
+                  children: _v1.addTerm
+                })]
+              })]
+            }), 0 === _v29 ? (0, _v1.jsxs)(_v3.Flex, {
+              minHeight: (0, _v5.rem)(140),
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
+              textAlign: "center",
+              children: [(0, _v1.jsx)(_v14.Text, {
+                variant: _v39 ? "body-md" : "heading-sm",
+                color: "text-secondary",
+                children: _v39 ? _v1.replacementsNoResults : _v1.replacementsEmptyTitle
+              }), !_v39 && (0, _v1.jsx)(_v14.Text, {
+                variant: "body-sm",
+                color: "text-secondary",
+                marginTop: (0, _v5.rem)(4),
+                children: _v1.replacementsEmptyDescription
+              })]
+            }) : (0, _v1.jsxs)(_v1.Fragment, {
+              children: [(0, _v1.jsx)(_v150.TableContainer, {
+                borderWidth: "1px",
+                borderColor: "stroke",
+                borderRadius: "md",
+                children: (0, _v1.jsxs)(_v136.Table, {
+                  width: "100%",
+                  minWidth: (0, _v5.rem)(140 * _v41),
+                  sx: {
+                    tableLayout: "fixed"
+                  },
+                  children: [(0, _v1.jsx)(_v140.Thead, {
+                    backgroundColor: "fill-component",
+                    children: (0, _v1.jsxs)(_v141.Tr, {
+                      children: [(0, _v1.jsx)(_v139.Th, {
+                        children: _v23(_v9)
+                      }), _v28.map(_v0 => (0, _v1.jsx)(_v139.Th, {
+                        children: _v23(_v0)
+                      }, _v0))]
+                    })
+                  }), (0, _v1.jsx)(_v137.Tbody, {
+                    children: _v26.map(_v0 => {
+                      let _v1 = new Map(_v0.mappings.map(_v0 => [_v0.targetLanguage, _v0.replacementText]));
+                      return (0, _v1.jsxs)(_v141.Tr, {
+                        height: (0, _v5.rem)(60),
+                        position: "relative",
+                        cursor: "pointer",
+                        tabIndex: 0,
+                        onClick: () => _v46("edit", _v0.sourceLanguage),
+                        onKeyDown: _v0 => {
+                          var _v1, _v2;
+                          return _v1 = _v0, _v2 = _v0.sourceLanguage, void (("Enter" === _v1.key || " " === _v1.key) && (_v1.preventDefault(), _v46("edit", _v2)));
+                        },
+                        sx: {
+                          "&:hover .edit-row, &:focus-within .edit-row, &:focus .edit-row": {
+                            opacity: 1
+                          }
+                        },
+                        children: [(0, _v1.jsxs)(_v138.Td, {
+                          fontFamily: "heading",
+                          children: [_v0.sourceText, (0, _v1.jsx)(_v10.Button, {
+                            className: "edit-row",
+                            position: "absolute",
+                            right: (0, _v5.rem)(16),
+                            top: "50%",
+                            transform: "translateY(-50%)",
+                            opacity: 0,
+                            _focusVisible: {
+                              opacity: 1
+                            },
+                            variant: "secondary",
+                            size: "sm",
+                            leftIcon: (0, _v1.jsx)(_v42.EditPencil, {}),
+                            "aria-label": _v1.replacementsEditTerm(_v0.sourceText),
+                            onClick: _v0 => {
+                              _v0.stopPropagation(), _v46("edit", _v0.sourceLanguage);
+                            },
+                            children: _v1.edit
+                          })]
+                        }), _v28.map(_v0 => (0, _v1.jsx)(_v138.Td, {
+                          color: "text-secondary",
+                          children: _v1.get(_v0) ?? "-"
+                        }, _v0))]
+                      }, `${_v0.sourceLanguage}:${_v0.sourceText}`);
+                    })
+                  })]
+                })
+              }), _v29 > _v31 && (0, _v1.jsx)(_v3.Flex, {
+                justifyContent: "center",
+                marginTop: (0, _v5.rem)(24),
+                children: (0, _v1.jsx)(_v37.Pagination, {
+                  size: "sm",
+                  count: _v29,
+                  pageSize: _v31,
+                  page: _v30,
+                  onPageChange: ({
+                    page: _v0
+                  }) => _v8(_v0)
                 })
               })]
-            })
-          }), _v16 > _v18 && (0, _v1.jsx)(_v4.Flex, {
+            }), _v38 > 0 && (0, _v1.jsxs)(_v3.Flex, {
+              marginTop: (0, _v5.rem)(24),
+              marginX: (0, _v5.rem)(-16),
+              paddingX: (0, _v5.rem)(24),
+              paddingY: (0, _v5.rem)(16),
+              gap: (0, _v5.rem)(16),
+              alignItems: "center",
+              backgroundColor: "fill-component",
+              borderRadius: "sm",
+              children: [(0, _v1.jsx)(_v14.Text, {
+                variant: "heading-xs",
+                whiteSpace: "nowrap",
+                children: _v1.replacementsCount(_v37, _v38)
+              }), (0, _v1.jsx)(_v38.Progress, {
+                flex: "1",
+                width: "auto",
+                minWidth: 0,
+                value: Math.min(_v37 / _v38 * 100, 100),
+                size: "xs"
+              }), (0, _v1.jsxs)(_v14.Text, {
+                variant: "body-sm",
+                whiteSpace: "nowrap",
+                children: [_v1.needMorePrompt, " ", (0, _v1.jsx)(_v4.Link, {
+                  href: "/enterprise/contact-us",
+                  color: "text-primary",
+                  textDecoration: "underline",
+                  children: _v1.contactSales
+                })]
+              })]
+            })]
+          }) : (0, _v1.jsxs)(_v3.Flex, {
+            minHeight: (0, _v5.rem)(140),
+            alignItems: "center",
             justifyContent: "center",
-            marginTop: (0, _v5.rem)(24),
-            children: (0, _v1.jsx)(_v36.Pagination, {
-              size: "sm",
-              count: _v16,
-              pageSize: _v18,
-              page: _v17,
-              onPageChange: ({
-                page: _v0
-              }) => _v8(_v0)
+            flexDirection: "column",
+            textAlign: "center",
+            children: [(0, _v1.jsx)(_v154.Translate, {
+              boxSize: 32,
+              color: "text-secondary",
+              marginBottom: (0, _v5.rem)(16)
+            }), (0, _v1.jsx)(_v14.Text, {
+              variant: "heading-sm",
+              children: _v1.replacementsEmptyTitle
+            }), (0, _v1.jsx)(_v14.Text, {
+              variant: "body-sm",
+              color: "text-secondary",
+              marginTop: (0, _v5.rem)(4),
+              children: _v1.replacementsEmptyDescription
+            })]
+          })
+        }), _v18 && (0, _v1.jsx)(_v187, {
+          initialSourceLanguage: _v18.sourceLanguage,
+          mode: _v18.mode,
+          ownerUserId: _v0,
+          sourceLanguages: _v27,
+          supportedLanguages: _v21,
+          translations: _v1,
+          onClose: () => _v19(void 0),
+          onSaved: async () => {
+            _v8(1), await _v36();
+          }
+        }), _v24 && (0, _v1.jsx)(_v173, {
+          ownerUserId: _v0,
+          translations: _v1,
+          onClose: () => _v25(!1),
+          onImported: async () => {
+            _v8(1), await _v36();
+          }
+        })]
+      });
+    };
+  var _v194 = _v0.i(0);
+  let _v195 = {
+      SOURCE_LANGUAGE: "source language",
+      SOURCE_TERM: "source term",
+      TARGET_LANGUAGE: "target language",
+      TARGET_TERM: "target term"
+    },
+    _v196 = ({
+      ownerUserId: _v0
+    }) => {
+      let [_v1, _v2] = (0, _v2.useState)(!1),
+        _v3 = (0, _v2.useMemo)(() => ({
+          title: (0, _v194.translate)({
+            singular: "Custom dictionary",
+            dictionary: {
+              es: {
+                singular: "Diccionario personalizado"
+              },
+              "de-DE": {
+                singular: "Benutzerdefiniertes Wörterbuch"
+              },
+              "fr-FR": {
+                singular: "Dictionnaire personnalisé"
+              },
+              "ja-JP": {
+                singular: "カスタム辞書"
+              },
+              "ko-KR": {
+                singular: "사용자 지정 사전"
+              },
+              "pt-BR": {
+                singular: "Dicionário personalizado"
+              },
+              "zh-CN": {
+                singular: "自定义词典"
+              }
+            }
+          }),
+          description: (0, _v194.translate)({
+            singular: "Define your brand names, product terms, and acronyms once, and they'll be applied consistently across all AI-generated content.",
+            dictionary: {
+              es: {
+                singular: "Define los nombres de tus marcas, los términos de producto y los acrónimos una sola vez, y se aplicarán de manera consistente en todo el contenido generado por IA."
+              },
+              "de-DE": {
+                singular: "Definieren Sie Ihre Markennamen, Produktbegriffe und Akronyme einmal, und sie werden konsequent in allen KI-generierten Inhalten angewendet."
+              },
+              "fr-FR": {
+                singular: "Définissez une fois les noms de marque, les termes de produit et les acronymes, et ils seront appliqués de manière cohérente dans l'ensemble du contenu généré par l'IA."
+              },
+              "ja-JP": {
+                singular: "ブランド名、製品用語、略語を一度定義しておくと、AI生成コンテンツ全体で一貫して適用されます."
+              },
+              "ko-KR": {
+                singular: "브랜드명, 제품 용어 및 약어를 한 번 정의하면 모든 AI 생성 콘텐츠에 일관되게 적용됩니다."
+              },
+              "pt-BR": {
+                singular: "Defina seus nomes de marca, termos de produto e siglas uma vez, e eles serão aplicados de forma consistente em todo o conteúdo gerado por IA."
+              },
+              "zh-CN": {
+                singular: "只需定义一次您的品牌名称、产品术语和首字母缩略词，它们就会在所有 AI 生成的内容中保持一致地应用。"
+              }
+            }
+          }),
+          limitsSummary: (0, _v194.translate)({
+            singular: "Some features have terms limits.",
+            dictionary: {
+              es: {
+                singular: "Algunas funciones tienen límites en los términos."
+              },
+              "de-DE": {
+                singular: "Einige Funktionen haben Begrenzungen für Begriffe."
+              },
+              "fr-FR": {
+                singular: "Certaines fonctionnalités ont des limites de termes."
+              },
+              "ja-JP": {
+                singular: "一部の機能には用語の制限があります。"
+              },
+              "ko-KR": {
+                singular: "일부 기능에는 용어 제한이 있습니다."
+              },
+              "pt-BR": {
+                singular: "Alguns recursos têm limites de termos."
+              },
+              "zh-CN": {
+                singular: "某些功能有术语数量限制。"
+              }
+            }
+          }),
+          learnMore: (0, _v194.translate)({
+            singular: "Learn more",
+            dictionary: {
+              es: {
+                singular: "Ver más"
+              },
+              "de-DE": {
+                singular: "Mehr dazu"
+              },
+              "fr-FR": {
+                singular: "En savoir plus "
+              },
+              "ja-JP": {
+                singular: "詳細を見る"
+              },
+              "ko-KR": {
+                singular: "자세히 보기"
+              },
+              "pt-BR": {
+                singular: "Saiba mais"
+              },
+              "zh-CN": {
+                singular: "了解更多"
+              }
+            }
+          }),
+          notice: (0, _v194.translate)({
+            singular: "Dictionary support for dubbing is coming soon — for now, your terms apply to AI Transcription and Subtitle Translations.",
+            dictionary: {
+              es: {
+                singular: "El soporte de diccionario para el doblaje llegará pronto — por ahora, tus términos se aplican a la transcripción por IA y a las traducciones de subtítulos."
+              },
+              "de-DE": {
+                singular: "Wörterbuchunterstützung für die Synchronisation kommt bald — vorerst gelten Ihre Begriffe für KI-Transkription und Untertitelübersetzungen."
+              },
+              "fr-FR": {
+                singular: "La prise en charge des dictionnaires pour le doublage arrive bientôt — pour l'instant, vos termes s'appliquent à la Transcription par IA et aux Traductions de sous-titres."
+              },
+              "ja-JP": {
+                singular: "吹き替え向けの辞書サポートは近日対応予定です — 現時点では、用語はAI文字起こしおよび字幕翻訳に適用されます。"
+              },
+              "ko-KR": {
+                singular: "더빙용 사전 지원은 곧 제공될 예정입니다 — 현재로서는 귀하의 용어가 AI 전사 및 자막 번역에 적용됩니다."
+              },
+              "pt-BR": {
+                singular: "Suporte a dicionário para dublagem será disponibilizado em breve — por enquanto, seus termos se aplicam à Transcrição por IA e às Traduções de Legendas."
+              },
+              "zh-CN": {
+                singular: "配音的词典支持即将推出 — 目前，您的术语适用于 AI 转写和字幕翻译。"
+              }
+            }
+          }),
+          glossaryTitle: (0, _v194.translate)({
+            singular: "Glossary",
+            dictionary: {
+              es: {
+                singular: "Glosario"
+              },
+              "de-DE": {
+                singular: "Glossar"
+              },
+              "fr-FR": {
+                singular: "Glossaire"
+              },
+              "ja-JP": {
+                singular: "用語集"
+              },
+              "ko-KR": {
+                singular: "용어집"
+              },
+              "pt-BR": {
+                singular: "Glossário"
+              },
+              "zh-CN": {
+                singular: "术语表"
+              }
+            }
+          }),
+          glossaryDescription: (0, _v194.translate)({
+            singular: "Ensures specific terms are spelled and capitalized correctly during AI generation.",
+            dictionary: {
+              es: {
+                singular: "Garantiza que los términos específicos estén escritos y capitalizados correctamente durante la generación por IA."
+              },
+              "de-DE": {
+                singular: "Stellt sicher, dass bestimmte Begriffe während der KI-Generierung korrekt geschrieben und bezüglich der Groß-/Kleinschreibung korrekt sind."
+              },
+              "fr-FR": {
+                singular: "Garantit que les termes spécifiques sont orthographiés et capitalisés correctement lors de la génération par l'IA."
+              },
+              "ja-JP": {
+                singular: "AI生成時に特定の用語の綴りや大文字・小文字の表記が正しく維持されることを保証します。"
+              },
+              "ko-KR": {
+                singular: "AI 생성 과정에서 특정 용어의 철자와 대소문자가 올바르게 적용되도록 합니다."
+              },
+              "pt-BR": {
+                singular: "Garante que termos específicos sejam soletrados e capitalizados corretamente durante a geração por IA."
+              },
+              "zh-CN": {
+                singular: "确保在 AI 生成过程中特定术语的拼写和大小写正确。"
+              }
+            }
+          }),
+          glossaryCount: (_v0, _v1) => (0, _v194.translate)({
+            singular: "{USED}/{LIMIT} terms",
+            replacements: {
+              USED: _v0,
+              LIMIT: _v1
+            },
+            dictionary: {
+              es: {
+                singular: "{USED}/{LIMIT} términos"
+              },
+              "de-DE": {
+                singular: "{USED}/{LIMIT} Begriffe"
+              },
+              "fr-FR": {
+                singular: "{USED}/{LIMIT} termes"
+              },
+              "ja-JP": {
+                singular: "{USED}/{LIMIT} 件の用語"
+              },
+              "ko-KR": {
+                singular: "{USED}/{LIMIT}개의 용어"
+              },
+              "pt-BR": {
+                singular: "{USED}/{LIMIT} termos"
+              },
+              "zh-CN": {
+                singular: "{USED}/{LIMIT} 个术语"
+              }
+            }
+          }),
+          glossaryEmptyTitle: (0, _v194.translate)({
+            singular: "No terms added yet.",
+            dictionary: {
+              es: {
+                singular: "Aún no se han añadido términos."
+              },
+              "de-DE": {
+                singular: "Noch keine Begriffe hinzugefügt."
+              },
+              "fr-FR": {
+                singular: "Aucun terme ajouté pour le moment."
+              },
+              "ja-JP": {
+                singular: "用語がまだ追加されていません。"
+              },
+              "ko-KR": {
+                singular: "아직 용어가 추가되지 않았습니다."
+              },
+              "pt-BR": {
+                singular: "Nenhum termo adicionado ainda."
+              },
+              "zh-CN": {
+                singular: "尚未添加任何术语。"
+              }
+            }
+          }),
+          glossaryEmptyDescription: (0, _v194.translate)({
+            singular: "Start adding your custom glossary",
+            dictionary: {
+              es: {
+                singular: "Comience a agregar su glosario personalizado"
+              },
+              "de-DE": {
+                singular: "Beginnen Sie mit dem Hinzufügen Ihres eigenen Glossars"
+              },
+              "fr-FR": {
+                singular: "Commencez à ajouter votre glossaire personnalisé"
+              },
+              "ja-JP": {
+                singular: "カスタム用語集の追加を始めましょう"
+              },
+              "ko-KR": {
+                singular: "맞춤 용어집 추가를 시작하세요"
+              },
+              "pt-BR": {
+                singular: "Comece a adicionar seu glossário personalizado"
+              },
+              "zh-CN": {
+                singular: "开始添加您的自定义术语表"
+              }
+            }
+          }),
+          glossaryTerm: (0, _v194.translate)({
+            singular: "Term",
+            dictionary: {
+              es: {
+                singular: "Término"
+              },
+              "de-DE": {
+                singular: "Begriff"
+              },
+              "fr-FR": {
+                singular: "Terme"
+              },
+              "ja-JP": {
+                singular: "用語"
+              },
+              "ko-KR": {
+                singular: "용어"
+              },
+              "pt-BR": {
+                singular: "Termo"
+              },
+              "zh-CN": {
+                singular: "术语"
+              }
+            }
+          }),
+          glossaryEditorDescription: (0, _v194.translate)({
+            singular: "You can paste a CSV-formatted list into the first input field to enter multiple terms at once.",
+            dictionary: {
+              es: {
+                singular: "Puede pegar una lista en formato CSV en el primer campo de entrada para introducir varios términos a la vez."
+              },
+              "de-DE": {
+                singular: "Sie können eine im CSV-Format vorliegende Liste in das erste Eingabefeld einfügen, um mehrere Begriffe auf einmal einzugeben."
+              },
+              "fr-FR": {
+                singular: "Vous pouvez coller une liste au format CSV dans le premier champ de saisie pour saisir plusieurs termes à la fois."
+              },
+              "ja-JP": {
+                singular: "複数の用語を一度に入力するには、CSV形式のリストを最初の入力欄に貼り付けることができます。"
+              },
+              "ko-KR": {
+                singular: "여러 용어를 한 번에 입력하려면 CSV 형식의 목록을 첫 번째 입력 필드에 붙여넣을 수 있습니다."
+              },
+              "pt-BR": {
+                singular: "Você pode colar uma lista formatada em CSV no primeiro campo de entrada para inserir vários termos de uma só vez."
+              },
+              "zh-CN": {
+                singular: "您可以将 CSV 格式的列表粘贴到第一个输入字段，以一次输入多个术语。"
+              }
+            }
+          }),
+          glossaryDownloadTemplate: (0, _v194.translate)({
+            singular: "Download template",
+            dictionary: {
+              es: {
+                singular: "Descargar plantilla"
+              },
+              "de-DE": {
+                singular: "Vorlage herunterladen"
+              },
+              "fr-FR": {
+                singular: "Télécharger le modèle"
+              },
+              "ja-JP": {
+                singular: "テンプレートをダウンロード"
+              },
+              "ko-KR": {
+                singular: "템플릿 다운로드"
+              },
+              "pt-BR": {
+                singular: "Baixar modelo"
+              },
+              "zh-CN": {
+                singular: "下载模板"
+              }
+            }
+          }),
+          glossaryTermNumber: _v0 => (0, _v194.translate)({
+            singular: "Glossary term {NUMBER}",
+            replacements: {
+              NUMBER: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "Término del glosario {NUMBER}"
+              },
+              "de-DE": {
+                singular: "Glossarbegriff {NUMBER}"
+              },
+              "fr-FR": {
+                singular: "Terme du glossaire {NUMBER}"
+              },
+              "ja-JP": {
+                singular: "用語集の用語 {NUMBER}"
+              },
+              "ko-KR": {
+                singular: "용어집 항목 {NUMBER}"
+              },
+              "pt-BR": {
+                singular: "Termo do glossário {NUMBER}"
+              },
+              "zh-CN": {
+                singular: "词汇表术语 {NUMBER}"
+              }
+            }
+          }),
+          glossaryLoadingError: (0, _v194.translate)({
+            singular: "Unable to load the glossary.",
+            dictionary: {
+              es: {
+                singular: "No se pudo cargar el glosario."
+              },
+              "de-DE": {
+                singular: "Das Glossar konnte nicht geladen werden."
+              },
+              "fr-FR": {
+                singular: "Impossible de charger le glossaire."
+              },
+              "ja-JP": {
+                singular: "用語集を読み込めませんでした。"
+              },
+              "ko-KR": {
+                singular: "용어집을 불러올 수 없습니다."
+              },
+              "pt-BR": {
+                singular: "Não foi possível carregar o glossário."
+              },
+              "zh-CN": {
+                singular: "无法加载词汇表。"
+              }
+            }
+          }),
+          glossaryCsvTitle: (0, _v194.translate)({
+            singular: "Import CSV",
+            dictionary: {
+              es: {
+                singular: "Importar CSV"
+              },
+              "de-DE": {
+                singular: "CSV importieren"
+              },
+              "fr-FR": {
+                singular: "Importer un fichier CSV"
+              },
+              "ja-JP": {
+                singular: "CSVをインポート"
+              },
+              "ko-KR": {
+                singular: "CSV 가져오기"
+              },
+              "pt-BR": {
+                singular: "Importar CSV"
+              },
+              "zh-CN": {
+                singular: "导入 CSV"
+              }
+            }
+          }),
+          glossaryCsvDescription: (0, _v194.translate)({
+            singular: "Upload a CSV with a single source term column.",
+            dictionary: {
+              es: {
+                singular: "Suba un CSV con una sola columna de términos fuente."
+              },
+              "de-DE": {
+                singular: "Laden Sie eine CSV mit genau einer Spalte für Quellbegriffe hoch."
+              },
+              "fr-FR": {
+                singular: "Téléversez un CSV contenant une seule colonne de termes source."
+              },
+              "ja-JP": {
+                singular: "ソース用語の列が1つだけあるCSVをアップロードしてください。"
+              },
+              "ko-KR": {
+                singular: "단일 원본 용어 열이 포함된 CSV를 업로드하세요."
+              },
+              "pt-BR": {
+                singular: "Envie um CSV com uma única coluna de termo de origem."
+              },
+              "zh-CN": {
+                singular: "上传仅包含单个源术语列的 CSV。"
+              }
+            }
+          }),
+          glossaryCsvInstructions: (0, _v194.translate)({
+            singular: "Upload a CSV with a single source term column.",
+            dictionary: {
+              es: {
+                singular: "Suba un CSV con una sola columna de términos fuente."
+              },
+              "de-DE": {
+                singular: "Laden Sie eine CSV mit genau einer Spalte für Quellbegriffe hoch."
+              },
+              "fr-FR": {
+                singular: "Téléversez un CSV contenant une seule colonne de termes source."
+              },
+              "ja-JP": {
+                singular: "ソース用語の列が1つだけあるCSVをアップロードしてください。"
+              },
+              "ko-KR": {
+                singular: "단일 원본 용어 열이 포함된 CSV를 업로드하세요."
+              },
+              "pt-BR": {
+                singular: "Envie um CSV com uma única coluna de termo de origem."
+              },
+              "zh-CN": {
+                singular: "上传仅包含单个源术语列的 CSV。"
+              }
+            }
+          }),
+          glossaryCsvTemplatePrompt: _v0 => (0, _v194.translate)({
+            singular: "{LINK}Download the template{/LINK} file to start.",
+            replacements: {
+              LINK: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "{LINK}Descargue la plantilla{/LINK} para comenzar."
+              },
+              "de-DE": {
+                singular: "{LINK}Laden Sie die Vorlagendatei herunter{/LINK}, um zu beginnen."
+              },
+              "fr-FR": {
+                singular: "{LINK}Téléchargez le fichier modèle{/LINK} pour commencer."
+              },
+              "ja-JP": {
+                singular: "{LINK}テンプレートをダウンロード{/LINK}して開始してください。"
+              },
+              "ko-KR": {
+                singular: "{LINK}템플릿 파일을 다운로드{/LINK}하여 시작하세요."
+              },
+              "pt-BR": {
+                singular: "{LINK}Baixe o arquivo de modelo{/LINK} para começar."
+              },
+              "zh-CN": {
+                singular: "{LINK}下载模板{/LINK} 文件即可开始。"
+              }
+            }
+          }),
+          glossaryCsvUploadFile: (0, _v194.translate)({
+            singular: "Upload file",
+            dictionary: {
+              es: {
+                singular: "Subir archivo"
+              },
+              "de-DE": {
+                singular: "Datei hochladen"
+              },
+              "fr-FR": {
+                singular: "Mettre le fichier en ligne"
+              },
+              "ja-JP": {
+                singular: "ファイルをアップロードする"
+              },
+              "ko-KR": {
+                singular: "파일 업로드"
+              },
+              "pt-BR": {
+                singular: "Carregar arquivo"
+              },
+              "zh-CN": {
+                singular: "上传文件"
+              }
+            }
+          }),
+          glossaryCsvDropFile: (0, _v194.translate)({
+            singular: "Drop file here or click to browse file.",
+            dictionary: {
+              es: {
+                singular: "Suelte el archivo aquí o haga clic para examinar el archivo."
+              },
+              "de-DE": {
+                singular: "Datei hier ablegen oder klicken, um eine Datei auszuwählen."
+              },
+              "fr-FR": {
+                singular: "Déposez le fichier ici ou cliquez pour parcourir le fichier."
+              },
+              "ja-JP": {
+                singular: "ファイルをここにドロップするか、クリックして参照してください。"
+              },
+              "ko-KR": {
+                singular: "파일을 여기에 놓거나 클릭하여 찾아보세요."
+              },
+              "pt-BR": {
+                singular: "Solte o arquivo aqui ou clique para procurar o arquivo."
+              },
+              "zh-CN": {
+                singular: "将文件拖到此处或点击以浏览文件。"
+              }
+            }
+          }),
+          glossaryCsvBrowseFile: (0, _v194.translate)({
+            singular: "Browse file",
+            dictionary: {
+              es: {
+                singular: "Examinar archivo"
+              },
+              "de-DE": {
+                singular: "Datei durchsuchen"
+              },
+              "fr-FR": {
+                singular: "Parcourir le fichier"
+              },
+              "ja-JP": {
+                singular: "ファイルを参照"
+              },
+              "ko-KR": {
+                singular: "파일 찾아보기"
+              },
+              "pt-BR": {
+                singular: "Procurar arquivo"
+              },
+              "zh-CN": {
+                singular: "浏览文件"
+              }
+            }
+          }),
+          glossaryCsvUnsupportedFile: (0, _v194.translate)({
+            singular: "Upload a CSV file.",
+            dictionary: {
+              es: {
+                singular: "Suba un archivo CSV."
+              },
+              "de-DE": {
+                singular: "Laden Sie eine CSV-Datei hoch."
+              },
+              "fr-FR": {
+                singular: "Téléversez un fichier CSV."
+              },
+              "ja-JP": {
+                singular: "CSVファイルをアップロードしてください。"
+              },
+              "ko-KR": {
+                singular: "CSV 파일을 업로드하세요."
+              },
+              "pt-BR": {
+                singular: "Envie um arquivo CSV."
+              },
+              "zh-CN": {
+                singular: "上传 CSV 文件。"
+              }
+            }
+          }),
+          glossaryCsvFileTooLarge: (0, _v194.translate)({
+            singular: "The CSV file is too large. Upload a file under 5 MB.",
+            dictionary: {
+              es: {
+                singular: "El archivo CSV es demasiado grande. Suba un archivo de menos de 5 MB."
+              },
+              "de-DE": {
+                singular: "Die CSV-Datei ist zu groß. Laden Sie eine Datei unter 5 MB hoch."
+              },
+              "fr-FR": {
+                singular: "Le fichier CSV est trop volumineux. Téléversez un fichier de moins de 5 Mo."
+              },
+              "ja-JP": {
+                singular: "CSVファイルが大きすぎます。5 MB未満のファイルをアップロードしてください。"
+              },
+              "ko-KR": {
+                singular: "CSV 파일이 너무 큽니다. 5 MB 미만의 파일을 업로드하세요."
+              },
+              "pt-BR": {
+                singular: "O arquivo CSV é muito grande. Envie um arquivo com menos de 5 MB."
+              },
+              "zh-CN": {
+                singular: "CSV 文件过大。请上传小于 5 MB 的文件。"
+              }
+            }
+          }),
+          glossaryCsvInvalidFile: (0, _v194.translate)({
+            singular: "The CSV file is invalid.",
+            dictionary: {
+              es: {
+                singular: "El archivo CSV no es válido."
+              },
+              "de-DE": {
+                singular: "Die CSV-Datei ist ungültig."
+              },
+              "fr-FR": {
+                singular: "Le fichier CSV est invalide."
+              },
+              "ja-JP": {
+                singular: "CSVファイルが無効です。"
+              },
+              "ko-KR": {
+                singular: "CSV 파일이 유효하지 않습니다."
+              },
+              "pt-BR": {
+                singular: "O arquivo CSV é inválido."
+              },
+              "zh-CN": {
+                singular: "CSV 文件无效。"
+              }
+            }
+          }),
+          glossaryCsvInvalidHeader: (0, _v194.translate)({
+            singular: "The CSV must contain a single source term column.",
+            dictionary: {
+              es: {
+                singular: "El CSV debe contener una sola columna de términos fuente."
+              },
+              "de-DE": {
+                singular: "Die CSV muss genau eine Spalte mit Quellbegriffen enthalten."
+              },
+              "fr-FR": {
+                singular: "Le CSV doit contenir une seule colonne de termes source."
+              },
+              "ja-JP": {
+                singular: "CSVにはソース用語の列を1つだけ含める必要があります。"
+              },
+              "ko-KR": {
+                singular: "CSV는 단일 원본 용어 열만 포함해야 합니다."
+              },
+              "pt-BR": {
+                singular: "O CSV deve conter uma única coluna de termo de origem."
+              },
+              "zh-CN": {
+                singular: "CSV 必须包含单个源术语列。"
+              }
+            }
+          }),
+          glossaryCsvTooManyRows: (0, _v194.translate)({
+            singular: "The CSV can contain at most 1,000 terms.",
+            dictionary: {
+              es: {
+                singular: "El CSV puede contener como máximo 1,000 términos."
+              },
+              "de-DE": {
+                singular: "Die CSV darf höchstens 1.000 Begriffe enthalten."
+              },
+              "fr-FR": {
+                singular: "Le CSV peut contenir au maximum 1 000 termes."
+              },
+              "ja-JP": {
+                singular: "CSVには最大1,000件の用語を含めることができます。"
+              },
+              "ko-KR": {
+                singular: "CSV에는 최대 1,000개의 용어만 포함할 수 있습니다."
+              },
+              "pt-BR": {
+                singular: "O CSV pode conter no máximo 1,000 termos."
+              },
+              "zh-CN": {
+                singular: "CSV 最多可包含 1,000 个术语。"
+              }
+            }
+          }),
+          glossaryCsvSourceTermRequired: (0, _v194.translate)({
+            singular: "A source term is required.",
+            dictionary: {
+              es: {
+                singular: "Se requiere un término fuente."
+              },
+              "de-DE": {
+                singular: "Ein Quellbegriff ist erforderlich."
+              },
+              "fr-FR": {
+                singular: "Un terme source est requis."
+              },
+              "ja-JP": {
+                singular: "ソース用語は必須です。"
+              },
+              "ko-KR": {
+                singular: "원본 용어는 필수입니다."
+              },
+              "pt-BR": {
+                singular: "Um termo de origem é obrigatório."
+              },
+              "zh-CN": {
+                singular: "必须提供源术语。"
+              }
+            }
+          }),
+          glossaryCsvSingleColumnRequired: (0, _v194.translate)({
+            singular: "Each row must contain one source term.",
+            dictionary: {
+              es: {
+                singular: "Cada fila debe contener un término fuente."
+              },
+              "de-DE": {
+                singular: "Jede Zeile muss genau einen Quellbegriff enthalten."
+              },
+              "fr-FR": {
+                singular: "Chaque ligne doit contenir un terme source."
+              },
+              "ja-JP": {
+                singular: "各行には1つのソース用語が必要です。"
+              },
+              "ko-KR": {
+                singular: "각 행에는 하나의 원본 용어가 포함되어야 합니다."
+              },
+              "pt-BR": {
+                singular: "Cada linha deve conter um termo de origem."
+              },
+              "zh-CN": {
+                singular: "每行必须包含一个源术语。"
+              }
+            }
+          }),
+          glossaryCsvImportError: (0, _v194.translate)({
+            singular: "The CSV could not be imported.",
+            dictionary: {
+              es: {
+                singular: "No se pudo importar el CSV."
+              },
+              "de-DE": {
+                singular: "Die CSV konnte nicht importiert werden."
+              },
+              "fr-FR": {
+                singular: "Le CSV n'a pas pu être importé."
+              },
+              "ja-JP": {
+                singular: "CSVをインポートできませんでした。"
+              },
+              "ko-KR": {
+                singular: "CSV를 가져올 수 없습니다."
+              },
+              "pt-BR": {
+                singular: "Não foi possível importar o CSV."
+              },
+              "zh-CN": {
+                singular: "无法导入 CSV。"
+              }
+            }
+          }),
+          glossaryCsvImported: _v0 => 0 === _v0 ? (0, _v194.translate)({
+            singular: "No terms imported",
+            dictionary: {
+              es: {
+                singular: "No se importaron términos"
+              },
+              "de-DE": {
+                singular: "Es wurden keine Begriffe importiert."
+              },
+              "fr-FR": {
+                singular: "Aucun terme importé"
+              },
+              "ja-JP": {
+                singular: "用語はインポートされませんでした。"
+              },
+              "ko-KR": {
+                singular: "가져온 용어가 없습니다."
+              },
+              "pt-BR": {
+                singular: "Nenhum termo importado"
+              },
+              "zh-CN": {
+                singular: "未导入任何术语"
+              }
+            }
+          }) : (0, _v194.translate)({
+            singular: "{COUNT} term imported",
+            plural: "{COUNT} terms imported",
+            count: _v0,
+            replacements: {
+              COUNT: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "{COUNT} término importado",
+                plural: "{COUNT} términos importados"
+              },
+              "de-DE": {
+                singular: "{COUNT} Begriff importiert",
+                plural: "{COUNT} Begriffe importiert"
+              },
+              "fr-FR": {
+                singular: "{COUNT} terme importé",
+                plural: "{COUNT} termes importés"
+              },
+              "ja-JP": {
+                singular: "{COUNT}件の用語がインポートされました",
+                plural: "{COUNT}件の用語がインポートされました"
+              },
+              "ko-KR": {
+                singular: "{COUNT}개의 용어가 가져와졌습니다.",
+                plural: "{COUNT}개의 용어가 가져와졌습니다."
+              },
+              "pt-BR": {
+                singular: "{COUNT} termo importado",
+                plural: "{COUNT} termos importados"
+              },
+              "zh-CN": {
+                singular: "{COUNT} 个术语已导入",
+                plural: "{COUNT} 个术语已导入"
+              }
+            }
+          }),
+          glossaryCsvRowsFailed: _v0 => (0, _v194.translate)({
+            singular: "{COUNT} row could not be imported",
+            plural: "{COUNT} rows could not be imported",
+            count: _v0,
+            replacements: {
+              COUNT: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "{COUNT} fila no se pudo importar",
+                plural: "{COUNT} filas no se pudieron importar"
+              },
+              "de-DE": {
+                singular: "{COUNT} Zeile konnte nicht importiert werden",
+                plural: "{COUNT} Zeilen konnten nicht importiert werden"
+              },
+              "fr-FR": {
+                singular: "{COUNT} ligne n'a pas pu être importée",
+                plural: "{COUNT} lignes n'ont pas pu être importées"
+              },
+              "ja-JP": {
+                singular: "{COUNT}行をインポートできませんでした",
+                plural: "{COUNT}行をインポートできませんでした"
+              },
+              "ko-KR": {
+                singular: "{COUNT}개의 행을 가져올 수 없습니다.",
+                plural: "{COUNT}개의 행을 가져올 수 없습니다."
+              },
+              "pt-BR": {
+                singular: "{COUNT} linha não pôde ser importada",
+                plural: "{COUNT} linhas não puderam ser importadas"
+              },
+              "zh-CN": {
+                singular: "{COUNT} 行无法导入",
+                plural: "{COUNT} 行无法导入"
+              }
+            }
+          }),
+          glossaryCsvLineError: (_v0, _v1) => (0, _v194.translate)({
+            singular: "Line {LINE}: {MESSAGE}",
+            replacements: {
+              LINE: _v0,
+              MESSAGE: _v1
+            },
+            dictionary: {
+              es: {
+                singular: "Línea {LINE}: {MESSAGE}"
+              },
+              "de-DE": {
+                singular: "Zeile {LINE}: {MESSAGE}"
+              },
+              "fr-FR": {
+                singular: "Ligne {LINE}: {MESSAGE}"
+              },
+              "ja-JP": {
+                singular: "行 {LINE}: {MESSAGE}"
+              },
+              "ko-KR": {
+                singular: "행 {LINE}: {MESSAGE}"
+              },
+              "pt-BR": {
+                singular: "Linha {LINE}: {MESSAGE}"
+              },
+              "zh-CN": {
+                singular: "第{LINE}行: {MESSAGE}"
+              }
+            }
+          }),
+          csv: (0, _v194.translate)("CSV"),
+          addTerm: (0, _v194.translate)({
+            singular: "Add term",
+            dictionary: {
+              es: {
+                singular: "Agregar término"
+              },
+              "de-DE": {
+                singular: "Begriff hinzufügen"
+              },
+              "fr-FR": {
+                singular: "Ajouter un terme"
+              },
+              "ja-JP": {
+                singular: "用語を追加"
+              },
+              "ko-KR": {
+                singular: "용어 추가"
+              },
+              "pt-BR": {
+                singular: "Adicionar termo"
+              },
+              "zh-CN": {
+                singular: "添加术语"
+              }
+            }
+          }),
+          edit: (0, _v194.translate)({
+            singular: "Edit",
+            dictionary: {
+              es: {
+                singular: "Editar"
+              },
+              "de-DE": {
+                singular: "Bearbeiten"
+              },
+              "fr-FR": {
+                singular: "Modifier"
+              },
+              "ja-JP": {
+                singular: "編集"
+              },
+              "ko-KR": {
+                singular: "편집"
+              },
+              "pt-BR": {
+                singular: "Editar"
+              },
+              "zh-CN": {
+                singular: "编辑"
+              }
+            }
+          }),
+          uploadCsv: (0, _v194.translate)({
+            singular: "Upload CSV",
+            dictionary: {
+              es: {
+                singular: "Subir archivo CSV"
+              },
+              "de-DE": {
+                singular: "CSV-Datei hochladen"
+              },
+              "fr-FR": {
+                singular: "Importer un fichier CSV"
+              },
+              "ja-JP": {
+                singular: "CSVをアップロード"
+              },
+              "ko-KR": {
+                singular: "CSV 업로드"
+              },
+              "pt-BR": {
+                singular: "Carregar CSV"
+              },
+              "zh-CN": {
+                singular: "上传 CSV"
+              }
+            }
+          }),
+          removeTerm: (0, _v194.translate)({
+            singular: "Remove term",
+            dictionary: {
+              es: {
+                singular: "Eliminar término"
+              },
+              "de-DE": {
+                singular: "Begriff entfernen"
+              },
+              "fr-FR": {
+                singular: "Supprimer le terme"
+              },
+              "ja-JP": {
+                singular: "用語を削除"
+              },
+              "ko-KR": {
+                singular: "용어 제거"
+              },
+              "pt-BR": {
+                singular: "Remover termo"
+              },
+              "zh-CN": {
+                singular: "移除术语"
+              }
+            }
+          }),
+          removeGlossaryTermNumber: _v0 => (0, _v194.translate)({
+            singular: "Remove glossary term {NUMBER}",
+            replacements: {
+              NUMBER: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "Eliminar término del glosario {NUMBER}"
+              },
+              "de-DE": {
+                singular: "Glossarbegriff {NUMBER} entfernen"
+              },
+              "fr-FR": {
+                singular: "Supprimer le terme du glossaire {NUMBER}"
+              },
+              "ja-JP": {
+                singular: "用語集の用語 {NUMBER} を削除"
+              },
+              "ko-KR": {
+                singular: "용어집 항목 {NUMBER} 제거"
+              },
+              "pt-BR": {
+                singular: "Remover termo do glossário {NUMBER}"
+              },
+              "zh-CN": {
+                singular: "删除术语表条目 {NUMBER}"
+              }
+            }
+          }),
+          cancel: (0, _v194.translate)({
+            singular: "Cancel",
+            dictionary: {
+              es: {
+                singular: "Cancelar"
+              },
+              "de-DE": {
+                singular: "Abbrechen"
+              },
+              "fr-FR": {
+                singular: "Annuler"
+              },
+              "ja-JP": {
+                singular: "キャンセル"
+              },
+              "ko-KR": {
+                singular: "취소"
+              },
+              "pt-BR": {
+                singular: "Cancelar"
+              },
+              "zh-CN": {
+                singular: "取消"
+              }
+            }
+          }),
+          save: (0, _v194.translate)({
+            singular: "Save",
+            dictionary: {
+              es: {
+                singular: "Guardar"
+              },
+              "de-DE": {
+                singular: "Speichern"
+              },
+              "fr-FR": {
+                singular: "Enregistrer"
+              },
+              "ja-JP": {
+                singular: "保存"
+              },
+              "ko-KR": {
+                singular: "저장"
+              },
+              "pt-BR": {
+                singular: "Salvar"
+              },
+              "zh-CN": {
+                singular: "保存"
+              }
+            }
+          }),
+          changesSaved: (0, _v194.translate)({
+            singular: "Changes saved",
+            dictionary: {
+              es: {
+                singular: "Guardamos los cambios"
+              },
+              "de-DE": {
+                singular: "Änderungen wurden gespeichert"
+              },
+              "fr-FR": {
+                singular: "Changements sauvegardés"
+              },
+              "ja-JP": {
+                singular: "変更内容が保存されました"
+              },
+              "ko-KR": {
+                singular: "변경 사항 저장 완료"
+              },
+              "pt-BR": {
+                singular: "Alterações salvas"
+              },
+              "zh-CN": {
+                singular: "已保存更改"
+              }
+            }
+          }),
+          changesCouldNotBeSaved: (0, _v194.translate)({
+            singular: "Changes could not be saved",
+            dictionary: {
+              es: {
+                singular: "No se pudieron guardar los cambios"
+              },
+              "de-DE": {
+                singular: "Änderungen konnten nicht gespeichert werden"
+              },
+              "fr-FR": {
+                singular: "Les modifications n'ont pas pu être enregistrées"
+              },
+              "ja-JP": {
+                singular: "変更を保存できませんでした"
+              },
+              "ko-KR": {
+                singular: "변경 사항이 저장되지 않았습니다"
+              },
+              "pt-BR": {
+                singular: "As alterações não puderam ser salvas"
+              },
+              "zh-CN": {
+                singular: "无法保存更改"
+              }
+            }
+          }),
+          close: (0, _v194.translate)({
+            singular: "Close",
+            dictionary: {
+              es: {
+                singular: "Cerrar"
+              },
+              "de-DE": {
+                singular: "Schließen"
+              },
+              "fr-FR": {
+                singular: "Fermer "
+              },
+              "ja-JP": {
+                singular: "閉じる"
+              },
+              "ko-KR": {
+                singular: "닫기"
+              },
+              "pt-BR": {
+                singular: "Fechar"
+              },
+              "zh-CN": {
+                singular: "关闭"
+              }
+            }
+          }),
+          tryAgain: (0, _v194.translate)({
+            singular: "Try again",
+            dictionary: {
+              es: {
+                singular: "Intentar de nuevo"
+              },
+              "de-DE": {
+                singular: "Nochmal versuchen"
+              },
+              "fr-FR": {
+                singular: "Veuillez réessayer"
+              },
+              "ja-JP": {
+                singular: "再試行してください"
+              },
+              "ko-KR": {
+                singular: "다시 시도하세요"
+              },
+              "pt-BR": {
+                singular: "Tente de novo"
+              },
+              "zh-CN": {
+                singular: "再试一次"
+              }
+            }
+          }),
+          replacementsTitle: (0, _v194.translate)({
+            singular: "Terms translations",
+            dictionary: {
+              es: {
+                singular: "Traducciones de términos"
+              },
+              "de-DE": {
+                singular: "Übersetzungen der Begriffe"
+              },
+              "fr-FR": {
+                singular: "Traductions des termes"
+              },
+              "ja-JP": {
+                singular: "用語の翻訳"
+              },
+              "ko-KR": {
+                singular: "용어 번역"
+              },
+              "pt-BR": {
+                singular: "Traduções de termos"
+              },
+              "zh-CN": {
+                singular: "术语翻译"
+              }
+            }
+          }),
+          replacementsDescription: (0, _v194.translate)({
+            singular: "Controls how specific terms are translated, or kept unchanged, across languages.",
+            dictionary: {
+              es: {
+                singular: "Controla cómo se traducen términos específicos, o se mantienen sin cambios, entre idiomas."
+              },
+              "de-DE": {
+                singular: "Steuert, wie bestimmte Begriffe über Sprachen hinweg übersetzt oder unverändert beibehalten werden."
+              },
+              "fr-FR": {
+                singular: "Contrôle la manière dont des termes spécifiques sont traduits ou maintenus inchangés d'une langue à l'autre."
+              },
+              "ja-JP": {
+                singular: "特定の用語を各言語でどのように翻訳するか、あるいは原語のままにするかを制御します。"
+              },
+              "ko-KR": {
+                singular: "특정 용어가 여러 언어에서 어떻게 번역되거나 변경 없이 유지될지를 제어합니다."
+              },
+              "pt-BR": {
+                singular: "Controla como termos específicos são traduzidos, ou mantidos inalterados, entre idiomas."
+              },
+              "zh-CN": {
+                singular: "控制特定术语在各语言中的翻译方式或是否保持不变。"
+              }
+            }
+          }),
+          replacementsCount: (_v0, _v1) => (0, _v194.translate)({
+            singular: "{USED}/{LIMIT} terms",
+            replacements: {
+              USED: _v0,
+              LIMIT: _v1
+            },
+            dictionary: {
+              es: {
+                singular: "{USED}/{LIMIT} términos"
+              },
+              "de-DE": {
+                singular: "{USED}/{LIMIT} Begriffe"
+              },
+              "fr-FR": {
+                singular: "{USED}/{LIMIT} termes"
+              },
+              "ja-JP": {
+                singular: "{USED}/{LIMIT} 件の用語"
+              },
+              "ko-KR": {
+                singular: "{USED}/{LIMIT}개의 용어"
+              },
+              "pt-BR": {
+                singular: "{USED}/{LIMIT} termos"
+              },
+              "zh-CN": {
+                singular: "{USED}/{LIMIT} 个术语"
+              }
+            }
+          }),
+          replacementsSearchPlaceholder: (0, _v194.translate)({
+            singular: "Search term",
+            dictionary: {
+              es: {
+                singular: "Término de búsqueda"
+              },
+              "de-DE": {
+                singular: "Suchbegriff"
+              },
+              "fr-FR": {
+                singular: "Terme de recherche"
+              },
+              "ja-JP": {
+                singular: "検索語"
+              },
+              "ko-KR": {
+                singular: "검색어"
+              },
+              "pt-BR": {
+                singular: "Termo de pesquisa"
+              },
+              "zh-CN": {
+                singular: "搜索术语"
+              }
+            }
+          }),
+          replacementsSearchLabel: (0, _v194.translate)({
+            singular: "Search terms translations",
+            dictionary: {
+              es: {
+                singular: "Traducciones de términos de búsqueda"
+              },
+              "de-DE": {
+                singular: "Übersetzungen der Suchbegriffe"
+              },
+              "fr-FR": {
+                singular: "Traductions des termes de recherche"
+              },
+              "ja-JP": {
+                singular: "検索用語の翻訳"
+              },
+              "ko-KR": {
+                singular: "검색어 번역"
+              },
+              "pt-BR": {
+                singular: "Traduções de termos de pesquisa"
+              },
+              "zh-CN": {
+                singular: "搜索术语翻译"
+              }
+            }
+          }),
+          replacementsOpenSearch: (0, _v194.translate)({
+            singular: "Open search",
+            dictionary: {
+              es: {
+                singular: "Abrir búsqueda"
+              },
+              "de-DE": {
+                singular: "Suche öffnen"
+              },
+              "fr-FR": {
+                singular: "Ouvrir la recherche"
+              },
+              "ja-JP": {
+                singular: "検索を開く"
+              },
+              "ko-KR": {
+                singular: "검색 열기"
+              },
+              "pt-BR": {
+                singular: "Abrir pesquisa"
+              },
+              "zh-CN": {
+                singular: "打开搜索"
+              }
+            }
+          }),
+          replacementsSourceLanguage: (0, _v194.translate)({
+            singular: "Source language",
+            dictionary: {
+              es: {
+                singular: "Idioma de origen"
+              },
+              "de-DE": {
+                singular: "Ausgangssprache"
+              },
+              "fr-FR": {
+                singular: "Langue source"
+              },
+              "ja-JP": {
+                singular: "ソース言語"
+              },
+              "ko-KR": {
+                singular: "원본 언어"
+              },
+              "pt-BR": {
+                singular: "Idioma de origem"
+              },
+              "zh-CN": {
+                singular: "源语言"
+              }
+            }
+          }),
+          replacementsTranslationsSet: (0, _v194.translate)({
+            singular: "Translations set",
+            dictionary: {
+              es: {
+                singular: "Conjunto de traducciones"
+              },
+              "de-DE": {
+                singular: "Übersetzungsset"
+              },
+              "fr-FR": {
+                singular: "Ensemble de traductions"
+              },
+              "ja-JP": {
+                singular: "翻訳セット"
+              },
+              "ko-KR": {
+                singular: "번역 세트"
+              },
+              "pt-BR": {
+                singular: "Conjunto de traduções"
+              },
+              "zh-CN": {
+                singular: "翻译集"
+              }
+            }
+          }),
+          replacementsTranslationsSetValue: _v0 => (0, _v194.translate)({
+            singular: "Translations set: {LANGUAGE}",
+            replacements: {
+              LANGUAGE: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "Conjunto de traducciones: {LANGUAGE}"
+              },
+              "de-DE": {
+                singular: "Übersetzungen festgelegt: {LANGUAGE}"
+              },
+              "fr-FR": {
+                singular: "Jeu de traductions : {LANGUAGE}"
+              },
+              "ja-JP": {
+                singular: "翻訳セット: {LANGUAGE}"
+              },
+              "ko-KR": {
+                singular: "번역 설정: {LANGUAGE}"
+              },
+              "pt-BR": {
+                singular: "Conjunto de traduções: {LANGUAGE}"
+              },
+              "zh-CN": {
+                singular: "翻译已设置: {LANGUAGE}"
+              }
+            }
+          }),
+          replacementsClearSearch: (0, _v194.translate)({
+            singular: "Clear search",
+            dictionary: {
+              es: {
+                singular: "Borrar búsqueda"
+              },
+              "de-DE": {
+                singular: "Suche löschen"
+              },
+              "fr-FR": {
+                singular: "Effacer la recherche"
+              },
+              "ja-JP": {
+                singular: "検索をクリア"
+              },
+              "ko-KR": {
+                singular: "검색 지우기"
+              },
+              "pt-BR": {
+                singular: "Limpar pesquisa"
+              },
+              "zh-CN": {
+                singular: "清除搜索"
+              }
+            }
+          }),
+          replacementsEditorDescription: (0, _v194.translate)({
+            singular: "Choose the language your content is spoken in, add your terms, and set how each should appear in the languages you translate to. Leave a language blank and the AI translates it as usual.",
+            dictionary: {
+              es: {
+                singular: "Elige el idioma en el que se habla tu contenido, agrega tus términos y define cómo debe aparecer cada uno en los idiomas a los que traduzcas. Deja un idioma en blanco y la IA lo traducirá como de costumbre."
+              },
+              "de-DE": {
+                singular: "Wählen Sie die Sprache, in der Ihr Inhalt gesprochen wird, fügen Sie Ihre Begriffe hinzu und legen Sie fest, wie jeder Begriff in den Zielsprachen erscheinen soll. Lassen Sie eine Sprache leer, und die KI übersetzt wie gewohnt."
+              },
+              "fr-FR": {
+                singular: "Choisissez la langue dans laquelle votre contenu est parlé, ajoutez vos termes et définissez l'apparence de chacun dans les langues vers lesquelles vous traduisez. Laissez une langue vide et l'IA la traduira comme d'habitude."
+              },
+              "ja-JP": {
+                singular: "コンテンツが話されている言語を選択し、用語を追加して、翻訳先言語ごとにどのように表示されるかを設定してください。言語を空欄のままにすると、AIが通常どおり翻訳します。"
+              },
+              "ko-KR": {
+                singular: "콘텐츠가 사용되는 원어를 선택하고 용어를 추가한 다음 번역 대상 언어에서 각 용어가 어떻게 표시될지 설정하세요. 언어를 비워두면 AI가 평소처럼 번역합니다."
+              },
+              "pt-BR": {
+                singular: "Escolha o idioma em que seu conteúdo é falado, adicione seus termos e defina como cada um deve aparecer nos idiomas para os quais você traduz. Deixe um idioma em branco e a IA traduzirá normalmente."
+              },
+              "zh-CN": {
+                singular: "选择您的内容所使用的语言，添加术语，并为每个目标翻译语言设置其显示方式。将某个语言项留空，AI 会照常翻译。"
+              }
+            }
+          }),
+          replacementsOriginalLanguage: _v0 => (0, _v194.translate)({
+            singular: "{LANGUAGE} (original)",
+            replacements: {
+              LANGUAGE: _v0
+            },
+            dictionary: {
+              "de-DE": {
+                singular: "{LANGUAGE} (Original)"
+              },
+              "fr-FR": {
+                singular: "{LANGUAGE} (originale)"
+              },
+              "ja-JP": {
+                singular: "{LANGUAGE} (原文)"
+              },
+              "ko-KR": {
+                singular: "{LANGUAGE} (원본)"
+              },
+              "zh-CN": {
+                singular: "{LANGUAGE} (原文)"
+              }
+            }
+          }),
+          replacementsSourceTerm: _v0 => (0, _v194.translate)({
+            singular: "Source term {NUMBER}",
+            replacements: {
+              NUMBER: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "Término de origen {NUMBER}"
+              },
+              "de-DE": {
+                singular: "Quellbegriff {NUMBER}"
+              },
+              "fr-FR": {
+                singular: "Terme source {NUMBER}"
+              },
+              "ja-JP": {
+                singular: "ソース用語 {NUMBER}"
+              },
+              "ko-KR": {
+                singular: "원본 용어 {NUMBER}"
+              },
+              "pt-BR": {
+                singular: "Termo de origem {NUMBER}"
+              },
+              "zh-CN": {
+                singular: "源术语 {NUMBER}"
+              }
+            }
+          }),
+          replacementsTargetTerm: (_v0, _v1) => (0, _v194.translate)({
+            singular: "{LANGUAGE} translation for source term {NUMBER}",
+            replacements: {
+              LANGUAGE: _v0,
+              NUMBER: _v1
+            },
+            dictionary: {
+              es: {
+                singular: "{LANGUAGE} traducción para el término de origen {NUMBER}"
+              },
+              "de-DE": {
+                singular: "{LANGUAGE}-Übersetzung für Quellbegriff {NUMBER}"
+              },
+              "fr-FR": {
+                singular: "Traduction en {LANGUAGE} pour le terme source {NUMBER}"
+              },
+              "ja-JP": {
+                singular: "{LANGUAGE} のソース用語 {NUMBER} の翻訳"
+              },
+              "ko-KR": {
+                singular: "{LANGUAGE}의 원본 용어 {NUMBER} 번역"
+              },
+              "pt-BR": {
+                singular: "{LANGUAGE} tradução para o termo de origem {NUMBER}"
+              },
+              "zh-CN": {
+                singular: "{LANGUAGE} 对源术语 {NUMBER} 的翻译"
+              }
+            }
+          }),
+          replacementsAddLanguage: (0, _v194.translate)({
+            singular: "Add language",
+            dictionary: {
+              es: {
+                singular: "Agregar idioma"
+              },
+              "de-DE": {
+                singular: "Sprache hinzufügen"
+              },
+              "fr-FR": {
+                singular: "Ajouter une langue"
+              },
+              "ja-JP": {
+                singular: "言語を追加"
+              },
+              "ko-KR": {
+                singular: "언어 추가"
+              },
+              "pt-BR": {
+                singular: "Adicionar idioma"
+              },
+              "zh-CN": {
+                singular: "添加语言"
+              }
+            }
+          }),
+          replacementsAddLanguageTooltip: (0, _v194.translate)({
+            singular: "Add a new language to set language-specific replacements for the terms that need it.",
+            dictionary: {
+              es: {
+                singular: "Agregar un nuevo idioma para establecer reemplazos específicos por idioma para los términos que lo necesiten."
+              },
+              "de-DE": {
+                singular: "Fügen Sie eine neue Sprache hinzu, um sprachspezifische Ersetzungen für Begriffe vorzunehmen, die sie benötigen."
+              },
+              "fr-FR": {
+                singular: "Ajoutez une nouvelle langue pour définir des remplacements spécifiques à la langue pour les termes qui en ont besoin."
+              },
+              "ja-JP": {
+                singular: "必要な用語の言語別置換を設定するために、新しい言語を追加してください。"
+              },
+              "ko-KR": {
+                singular: "필요한 용어에 대해 언어별 대체 문구를 설정하려면 새 언어를 추가하세요."
+              },
+              "pt-BR": {
+                singular: "Adicione um novo idioma para definir substituições específicas por idioma para os termos que precisam delas."
+              },
+              "zh-CN": {
+                singular: "添加一种新语言，以便为需要的术语设置特定语言的替换。"
+              }
+            }
+          }),
+          replacementsNewTranslationsSet: (0, _v194.translate)({
+            singular: "New translations set",
+            dictionary: {
+              es: {
+                singular: "Nuevo conjunto de traducciones"
+              },
+              "de-DE": {
+                singular: "Neues Übersetzungsset"
+              },
+              "fr-FR": {
+                singular: "Nouvel ensemble de traductions"
+              },
+              "ja-JP": {
+                singular: "新しい翻訳セット"
+              },
+              "ko-KR": {
+                singular: "새 번역 세트"
+              },
+              "pt-BR": {
+                singular: "Novo conjunto de traduções"
+              },
+              "zh-CN": {
+                singular: "新的翻译集"
+              }
+            }
+          }),
+          replacementsNewLanguageTitle: (0, _v194.translate)({
+            singular: "New language",
+            dictionary: {
+              es: {
+                singular: "Nuevo idioma"
+              },
+              "de-DE": {
+                singular: "Neue Sprache"
+              },
+              "fr-FR": {
+                singular: "Nouvelle langue"
+              },
+              "ja-JP": {
+                singular: "新しい言語"
+              },
+              "ko-KR": {
+                singular: "새 언어"
+              },
+              "pt-BR": {
+                singular: "Novo idioma"
+              },
+              "zh-CN": {
+                singular: "新语言"
+              }
+            }
+          }),
+          replacementsNewLanguageDescription: (0, _v194.translate)({
+            singular: "Select a source language and create a new set of terms for videos spoken in that language.",
+            dictionary: {
+              es: {
+                singular: "Seleccione un idioma de origen y cree un nuevo conjunto de términos para los videos hablados en ese idioma."
+              },
+              "de-DE": {
+                singular: "Wählen Sie eine Ausgangssprache und erstellen Sie einen neuen Satz von Begriffen für Videos, die in dieser Sprache gesprochen werden."
+              },
+              "fr-FR": {
+                singular: "Sélectionnez une langue source et créez un nouvel ensemble de termes pour les vidéos parlées dans cette langue."
+              },
+              "ja-JP": {
+                singular: "ソース言語を選択し、その言語で話される動画向けの新しい用語セットを作成してください。"
+              },
+              "ko-KR": {
+                singular: "원본 언어를 선택하고 해당 언어로 말하는 동영상에 사용할 새 용어 세트를 만드세요."
+              },
+              "pt-BR": {
+                singular: "Selecione um idioma de origem e crie um novo conjunto de termos para vídeos falados nesse idioma."
+              },
+              "zh-CN": {
+                singular: "选择源语言并为以该语言配音的视频创建一组新术语。"
+              }
+            }
+          }),
+          replacementsNewLanguagesTitle: (0, _v194.translate)({
+            singular: "New languages",
+            dictionary: {
+              es: {
+                singular: "Nuevos idiomas"
+              },
+              "de-DE": {
+                singular: "Neue Sprachen"
+              },
+              "fr-FR": {
+                singular: "Nouvelles langues"
+              },
+              "ja-JP": {
+                singular: "新しい言語"
+              },
+              "ko-KR": {
+                singular: "새 언어"
+              },
+              "pt-BR": {
+                singular: "Novos idiomas"
+              },
+              "zh-CN": {
+                singular: "新语言"
+              }
+            }
+          }),
+          replacementsNewLanguagesDescription: _v0 => (0, _v194.translate)({
+            singular: "You're about to add {LANGUAGES}. All existing terms will translate normally unless you manually edit it.",
+            replacements: {
+              LANGUAGES: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "Estás a punto de agregar {LANGUAGES}. Todos los términos existentes se traducirán normalmente a menos que los edites manualmente."
+              },
+              "de-DE": {
+                singular: "Sie sind dabei, {LANGUAGES} hinzuzufügen. Alle vorhandenen Begriffe werden normal übersetzt, es sei denn, Sie bearbeiten sie manuell."
+              },
+              "fr-FR": {
+                singular: "Vous êtes sur le point d'ajouter {LANGUAGES}. Tous les termes existants seront traduits normalement à moins que vous ne les modifiiez manuellement."
+              },
+              "ja-JP": {
+                singular: "{LANGUAGES} を追加しようとしています。既存の用語は手動で編集しない限り通常どおり翻訳されます。"
+              },
+              "ko-KR": {
+                singular: "{LANGUAGES}을 추가하려고 합니다. 기존의 모든 용어는 사용자가 수동으로 편집하지 않는 한 정상적으로 번역됩니다."
+              },
+              "pt-BR": {
+                singular: "Você está prestes a adicionar {LANGUAGES}. Todos os termos existentes serão traduzidos normalmente, a menos que você os edite manualmente."
+              },
+              "zh-CN": {
+                singular: "您即将添加 {LANGUAGES}。所有现有术语将照常翻译，除非您手动编辑它。"
+              }
+            }
+          }),
+          replacementsAddLanguages: (0, _v194.translate)({
+            singular: "Add languages",
+            dictionary: {
+              es: {
+                singular: "Agregar idiomas"
+              },
+              "de-DE": {
+                singular: "Sprachen hinzufügen"
+              },
+              "fr-FR": {
+                singular: "Ajouter des langues"
+              },
+              "ja-JP": {
+                singular: "言語を追加"
+              },
+              "ko-KR": {
+                singular: "언어 추가"
+              },
+              "pt-BR": {
+                singular: "Adicionar idiomas"
+              },
+              "zh-CN": {
+                singular: "添加语言"
+              }
+            }
+          }),
+          replacementsDeleteLanguage: (0, _v194.translate)({
+            singular: "Delete language",
+            dictionary: {
+              es: {
+                singular: "Eliminar idioma"
+              },
+              "de-DE": {
+                singular: "Sprache löschen"
+              },
+              "fr-FR": {
+                singular: "Supprimer la langue"
+              },
+              "ja-JP": {
+                singular: "言語を削除"
+              },
+              "ko-KR": {
+                singular: "언어 삭제"
+              },
+              "pt-BR": {
+                singular: "Excluir idioma"
+              },
+              "zh-CN": {
+                singular: "删除语言"
+              }
+            }
+          }),
+          replacementsLanguageOptions: _v0 => (0, _v194.translate)({
+            singular: "Options for {LANGUAGE}",
+            replacements: {
+              LANGUAGE: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "Opciones para {LANGUAGE}"
+              },
+              "de-DE": {
+                singular: "Optionen für {LANGUAGE}"
+              },
+              "fr-FR": {
+                singular: "Options pour {LANGUAGE}"
+              },
+              "ja-JP": {
+                singular: "{LANGUAGE} のオプション"
+              },
+              "ko-KR": {
+                singular: "{LANGUAGE} 옵션"
+              },
+              "pt-BR": {
+                singular: "Opções para {LANGUAGE}"
+              },
+              "zh-CN": {
+                singular: "为 {LANGUAGE} 的选项"
+              }
+            }
+          }),
+          replacementsTargetLanguageDescription: (0, _v194.translate)({
+            singular: "Adding a language lets you define a language-specific replacement for every term. Leave a language blank and the AI translates it as usual.",
+            dictionary: {
+              es: {
+                singular: "Al agregar un idioma, puedes definir una sustitución específica para cada término en ese idioma. Deja un idioma en blanco y la IA lo traducirá como de costumbre."
+              },
+              "de-DE": {
+                singular: "Durch das Hinzufügen einer Sprache können Sie für jeden Begriff eine sprachspezifische Ersetzung festlegen. Lassen Sie eine Sprache leer, und die KI übersetzt wie gewohnt."
+              },
+              "fr-FR": {
+                singular: "L'ajout d'une langue vous permet de définir un remplacement spécifique à une langue pour chaque terme. Laissez une langue vide et l'IA la traduira comme d'habitude."
+              },
+              "ja-JP": {
+                singular: "言語を追加すると、各用語に対して言語ごとの置換を定義できます。言語を空欄のままにすると、AIが通常どおり翻訳します。"
+              },
+              "ko-KR": {
+                singular: "언어를 추가하면 각 용어에 대해 언어별 대체어를 정의할 수 있습니다. 언어를 비워두면 AI가 평소처럼 번역합니다."
+              },
+              "pt-BR": {
+                singular: "Adicionar um idioma permite definir uma substituição específica por idioma para cada termo. Deixe um idioma em branco e a IA traduzirá normalmente."
+              },
+              "zh-CN": {
+                singular: "添加语言可让您为每个术语定义特定语言的替代项。将某个语言项留空，AI 会照常翻译。"
+              }
+            }
+          }),
+          replacementsLanguage: (0, _v194.translate)({
+            singular: "Language",
+            dictionary: {
+              es: {
+                singular: "Idioma"
+              },
+              "de-DE": {
+                singular: "Sprache"
+              },
+              "fr-FR": {
+                singular: "Langue"
+              },
+              "ja-JP": {
+                singular: "言語"
+              },
+              "ko-KR": {
+                singular: "언어"
+              },
+              "pt-BR": {
+                singular: "Idioma"
+              },
+              "zh-CN": {
+                singular: "语言"
+              }
+            }
+          }),
+          replacementsLanguages: (0, _v194.translate)({
+            singular: "Languages",
+            dictionary: {
+              es: {
+                singular: "Idiomas"
+              },
+              "de-DE": {
+                singular: "Sprachen"
+              },
+              "fr-FR": {
+                singular: "Langues"
+              },
+              "ja-JP": {
+                singular: "言語"
+              },
+              "ko-KR": {
+                singular: "언어"
+              },
+              "pt-BR": {
+                singular: "Idiomas"
+              }
+            }
+          }),
+          replacementsPendingLanguage: _v0 => (0, _v194.translate)({
+            singular: "Language {NUMBER}",
+            replacements: {
+              NUMBER: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "Idioma {NUMBER}"
+              },
+              "de-DE": {
+                singular: "Sprache {NUMBER}"
+              },
+              "fr-FR": {
+                singular: "Langue {NUMBER}"
+              },
+              "ja-JP": {
+                singular: "言語 {NUMBER}"
+              },
+              "ko-KR": {
+                singular: "언어 {NUMBER}"
+              },
+              "pt-BR": {
+                singular: "Idioma {NUMBER}"
+              },
+              "zh-CN": {
+                singular: "语言 {NUMBER}"
+              }
+            }
+          }),
+          replacementsRemoveLanguage: _v0 => (0, _v194.translate)({
+            singular: "Remove {LANGUAGE}",
+            replacements: {
+              LANGUAGE: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "Eliminar {LANGUAGE}"
+              },
+              "de-DE": {
+                singular: "{LANGUAGE} entfernen"
+              },
+              "fr-FR": {
+                singular: "Supprimer {LANGUAGE}"
+              },
+              "ja-JP": {
+                singular: "{LANGUAGE} を削除"
+              },
+              "ko-KR": {
+                singular: "{LANGUAGE} 제거"
+              },
+              "pt-BR": {
+                singular: "Remover {LANGUAGE}"
+              },
+              "zh-CN": {
+                singular: "移除 {LANGUAGE}"
+              }
+            }
+          }),
+          replacementsLanguageCount: (_v0, _v1) => (0, _v194.translate)({
+            singular: "{USED} of {LIMIT}",
+            replacements: {
+              USED: _v0,
+              LIMIT: _v1
+            },
+            dictionary: {
+              es: {
+                singular: "{USED} de {LIMIT}"
+              },
+              "de-DE": {
+                singular: "{USED} von {LIMIT}"
+              },
+              "fr-FR": {
+                singular: "{USED} sur {LIMIT}"
+              },
+              "ja-JP": {
+                singular: "{USED} / {LIMIT}"
+              },
+              "ko-KR": {
+                singular: "{USED}/{LIMIT}"
+              },
+              "pt-BR": {
+                singular: "{USED} de {LIMIT}"
+              },
+              "zh-CN": {
+                singular: "{USED} / {LIMIT}"
+              }
+            }
+          }),
+          replacementsSelectLanguage: (0, _v194.translate)({
+            singular: "Select language",
+            dictionary: {
+              es: {
+                singular: "Seleccionar el idioma"
+              },
+              "de-DE": {
+                singular: "Sprache aussuchen"
+              },
+              "fr-FR": {
+                singular: "Sélectionner la langue"
+              },
+              "ja-JP": {
+                singular: "言語を選択"
+              },
+              "ko-KR": {
+                singular: "언어 선택"
+              },
+              "pt-BR": {
+                singular: "Selecione o idioma"
+              },
+              "zh-CN": {
+                singular: "选择语言"
+              }
+            }
+          }),
+          replacementsLanguageLimitReached: (0, _v194.translate)({
+            singular: "You can add up to 10 translation languages for each source language.",
+            dictionary: {
+              es: {
+                singular: "Puedes agregar hasta 10 idiomas de traducción por cada idioma de origen."
+              },
+              "de-DE": {
+                singular: "Sie können für jede Ausgangssprache bis zu 10 Übersetzungssprachen hinzufügen."
+              },
+              "fr-FR": {
+                singular: "Vous pouvez ajouter jusqu'à 10 langues de traduction pour chaque langue source."
+              },
+              "ja-JP": {
+                singular: "各ソース言語につき最大10の翻訳先言語を追加できます。"
+              },
+              "ko-KR": {
+                singular: "각 원본 언어당 최대 10개의 번역 언어를 추가할 수 있습니다."
+              },
+              "pt-BR": {
+                singular: "Você pode adicionar até 10 idiomas de tradução para cada idioma de origem."
+              },
+              "zh-CN": {
+                singular: "每个源语言最多可添加 10 种翻译语言。"
+              }
+            }
+          }),
+          replacementsNoLanguagesAvailable: (0, _v194.translate)({
+            singular: "No additional languages are available.",
+            dictionary: {
+              es: {
+                singular: "No hay idiomas adicionales disponibles."
+              },
+              "de-DE": {
+                singular: "Es stehen keine zusätzlichen Sprachen zur Verfügung."
+              },
+              "fr-FR": {
+                singular: "Aucune langue supplémentaire n'est disponible."
+              },
+              "ja-JP": {
+                singular: "追加できる言語はありません。"
+              },
+              "ko-KR": {
+                singular: "추가 가능한 언어가 없습니다."
+              },
+              "pt-BR": {
+                singular: "Não há idiomas adicionais disponíveis."
+              },
+              "zh-CN": {
+                singular: "没有其他可用语言。"
+              }
+            }
+          }),
+          replacementsLanguagesLoadingError: (0, _v194.translate)({
+            singular: "Unable to load languages.",
+            dictionary: {
+              es: {
+                singular: "No se pudieron cargar los idiomas."
+              },
+              "de-DE": {
+                singular: "Sprachen konnten nicht geladen werden."
+              },
+              "fr-FR": {
+                singular: "Impossible de charger les langues."
+              },
+              "ja-JP": {
+                singular: "言語を読み込めませんでした。"
+              },
+              "ko-KR": {
+                singular: "언어를 불러올 수 없습니다."
+              },
+              "pt-BR": {
+                singular: "Não foi possível carregar os idiomas."
+              },
+              "zh-CN": {
+                singular: "无法加载语言。"
+              }
+            }
+          }),
+          replacementsRemoveRow: _v0 => (0, _v194.translate)({
+            singular: "Remove source term {NUMBER}",
+            replacements: {
+              NUMBER: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "Eliminar término fuente {NUMBER}"
+              },
+              "de-DE": {
+                singular: "Quellbegriff {NUMBER} entfernen"
+              },
+              "fr-FR": {
+                singular: "Supprimer le terme source {NUMBER}"
+              },
+              "ja-JP": {
+                singular: "ソース用語 {NUMBER} を削除"
+              },
+              "ko-KR": {
+                singular: "원본 용어 {NUMBER} 제거"
+              },
+              "pt-BR": {
+                singular: "Remover termo de origem {NUMBER}"
+              },
+              "zh-CN": {
+                singular: "移除源术语 {NUMBER}"
+              }
+            }
+          }),
+          replacementsEditTerm: _v0 => (0, _v194.translate)({
+            singular: "Edit {TERM}",
+            replacements: {
+              TERM: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "Editar {TERM}"
+              },
+              "de-DE": {
+                singular: "Bearbeiten von {TERM}"
+              },
+              "fr-FR": {
+                singular: "Modifier {TERM}"
+              },
+              "ja-JP": {
+                singular: "{TERM} を編集"
+              },
+              "ko-KR": {
+                singular: "{TERM} 편집"
+              },
+              "pt-BR": {
+                singular: "Editar {TERM}"
+              },
+              "zh-CN": {
+                singular: "编辑 {TERM}"
+              }
+            }
+          }),
+          replacementsEnterTerm: (0, _v194.translate)({
+            singular: "Enter term",
+            dictionary: {
+              es: {
+                singular: "Ingrese término"
+              },
+              "de-DE": {
+                singular: "Begriff eingeben"
+              },
+              "fr-FR": {
+                singular: "Saisissez le terme"
+              },
+              "ja-JP": {
+                singular: "用語を入力"
+              },
+              "ko-KR": {
+                singular: "용어 입력"
+              },
+              "pt-BR": {
+                singular: "Insira o termo"
+              },
+              "zh-CN": {
+                singular: "输入术语"
+              }
+            }
+          }),
+          replacementsChangesSaved: (0, _v194.translate)({
+            singular: "Terms translations saved",
+            dictionary: {
+              es: {
+                singular: "Traducciones de los términos guardadas."
+              },
+              "de-DE": {
+                singular: "Begriffübersetzungen wurden gespeichert."
+              },
+              "fr-FR": {
+                singular: "Traductions des termes enregistrées"
+              },
+              "ja-JP": {
+                singular: "用語の翻訳を保存しました"
+              },
+              "ko-KR": {
+                singular: "용어 번역이 저장되었습니다"
+              },
+              "pt-BR": {
+                singular: "Traduções dos termos salvas"
+              },
+              "zh-CN": {
+                singular: "术语翻译已保存。"
+              }
+            }
+          }),
+          replacementsChangesCouldNotBeSaved: (0, _v194.translate)({
+            singular: "Terms translations could not be saved",
+            dictionary: {
+              es: {
+                singular: "No se pudieron guardar las traducciones de los términos."
+              },
+              "de-DE": {
+                singular: "Begriffübersetzungen konnten nicht gespeichert werden."
+              },
+              "fr-FR": {
+                singular: "Les traductions des termes n'ont pas pu être enregistrées"
+              },
+              "ja-JP": {
+                singular: "用語の翻訳を保存できませんでした"
+              },
+              "ko-KR": {
+                singular: "용어 번역을 저장할 수 없습니다"
+              },
+              "pt-BR": {
+                singular: "Não foi possível salvar as traduções dos termos"
+              },
+              "zh-CN": {
+                singular: "术语翻译无法保存。"
+              }
+            }
+          }),
+          replacementsCsvImport: (0, _v194.translate)({
+            singular: "Import CSV",
+            dictionary: {
+              es: {
+                singular: "Importar CSV"
+              },
+              "de-DE": {
+                singular: "CSV importieren"
+              },
+              "fr-FR": {
+                singular: "Importer un fichier CSV"
+              },
+              "ja-JP": {
+                singular: "CSVをインポート"
+              },
+              "ko-KR": {
+                singular: "CSV 가져오기"
+              },
+              "pt-BR": {
+                singular: "Importar CSV"
+              },
+              "zh-CN": {
+                singular: "导入 CSV"
+              }
+            }
+          }),
+          replacementsCsvInstructions: (0, _v194.translate)({
+            singular: "Upload a CSV with the following columns: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Use supported language codes, such as en and es.",
+            replacements: _v195,
+            dictionary: {
+              es: {
+                singular: "Suba un CSV con las siguientes columnas: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Use códigos de idioma compatibles, como en y es."
+              },
+              "de-DE": {
+                singular: "Laden Sie eine CSV-Datei mit den folgenden Spalten hoch: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Verwenden Sie unterstützte Sprachcodes, wie z. B. en und es."
+              },
+              "fr-FR": {
+                singular: "Importez un fichier CSV avec les colonnes suivantes : {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Utilisez des codes de langue pris en charge, comme en et es."
+              },
+              "ja-JP": {
+                singular: "次の列を含むCSVをアップロードしてください: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}。たとえば en や es のようなサポートされている言語コードを使用してください。"
+              },
+              "ko-KR": {
+                singular: "다음 열을 포함한 CSV를 업로드하세요: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. en 및 es와 같은 지원되는 언어 코드를 사용하세요."
+              },
+              "pt-BR": {
+                singular: "Envie um CSV com as seguintes colunas: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Use códigos de idioma suportados, como en e es."
+              },
+              "zh-CN": {
+                singular: "上传包含以下列的 CSV: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. 使用受支持的语言代码，例如 en 和 es。"
+              }
+            }
+          }),
+          replacementsCsvTemplatePrompt: _v0 => (0, _v194.translate)({
+            singular: "{A}Download the template{/A} file to start.",
+            replacements: {
+              A: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "{A}Descargue la plantilla{/A} para comenzar."
+              },
+              "de-DE": {
+                singular: "{A}Laden Sie die Vorlagendatei herunter{/A}, um zu beginnen."
+              },
+              "fr-FR": {
+                singular: "{A}Téléchargez le fichier modèle{/A} pour commencer."
+              },
+              "ja-JP": {
+                singular: "{A}テンプレートをダウンロード{/A}して始めてください。"
+              },
+              "ko-KR": {
+                singular: "{A}템플릿 파일을 다운로드{/A}하여 시작하세요."
+              },
+              "pt-BR": {
+                singular: "{A}Baixe o arquivo de modelo{/A} para começar."
+              },
+              "zh-CN": {
+                singular: "要开始，请{A}下载模板{/A}文件。"
+              }
+            }
+          }),
+          replacementsCsvUploadFile: (0, _v194.translate)({
+            singular: "Upload file",
+            dictionary: {
+              es: {
+                singular: "Subir archivo"
+              },
+              "de-DE": {
+                singular: "Datei hochladen"
+              },
+              "fr-FR": {
+                singular: "Mettre le fichier en ligne"
+              },
+              "ja-JP": {
+                singular: "ファイルをアップロードする"
+              },
+              "ko-KR": {
+                singular: "파일 업로드"
+              },
+              "pt-BR": {
+                singular: "Carregar arquivo"
+              },
+              "zh-CN": {
+                singular: "上传文件"
+              }
+            }
+          }),
+          replacementsCsvDropzone: (0, _v194.translate)({
+            singular: "Drop file here or click to browse file.",
+            dictionary: {
+              es: {
+                singular: "Suelte el archivo aquí o haga clic para examinar el archivo."
+              },
+              "de-DE": {
+                singular: "Datei hier ablegen oder klicken, um eine Datei auszuwählen."
+              },
+              "fr-FR": {
+                singular: "Déposez le fichier ici ou cliquez pour parcourir le fichier."
+              },
+              "ja-JP": {
+                singular: "ファイルをここにドロップするか、クリックして参照してください。"
+              },
+              "ko-KR": {
+                singular: "파일을 여기에 놓거나 클릭하여 찾아보세요."
+              },
+              "pt-BR": {
+                singular: "Solte o arquivo aqui ou clique para procurar o arquivo."
+              },
+              "zh-CN": {
+                singular: "将文件拖到此处或点击以浏览文件。"
+              }
+            }
+          }),
+          replacementsCsvImported: _v0 => (0, _v194.translate)({
+            singular: "{COUNT} row imported",
+            plural: "{COUNT} rows imported",
+            count: _v0,
+            replacements: {
+              COUNT: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "{COUNT} fila importada",
+                plural: "{COUNT} filas importadas"
+              },
+              "de-DE": {
+                singular: "{COUNT} Zeile importiert",
+                plural: "{COUNT} Zeilen importiert"
+              },
+              "fr-FR": {
+                singular: "{COUNT} ligne importée",
+                plural: "{COUNT} lignes importées"
+              },
+              "ja-JP": {
+                singular: "{COUNT} 行がインポートされました。",
+                plural: "{COUNT} 行がインポートされました。"
+              },
+              "ko-KR": {
+                singular: "{COUNT}개의 행을 가져왔습니다.",
+                plural: "{COUNT}개의 행을 가져왔습니다."
+              },
+              "pt-BR": {
+                singular: "{COUNT} linha importada",
+                plural: "{COUNT} linhas importadas"
+              },
+              "zh-CN": {
+                singular: "{COUNT} 行已导入",
+                plural: "{COUNT} 行已导入"
+              }
+            }
+          }),
+          replacementsCsvPartialFailure: (0, _v194.translate)({
+            singular: "Some rows could not be imported.",
+            dictionary: {
+              es: {
+                singular: "Algunas filas no se pudieron importar."
+              },
+              "de-DE": {
+                singular: "Einige Zeilen konnten nicht importiert werden."
+              },
+              "fr-FR": {
+                singular: "Certaines lignes n'ont pas pu être importées."
+              },
+              "ja-JP": {
+                singular: "一部の行はインポートできませんでした。"
+              },
+              "ko-KR": {
+                singular: "일부 행을 가져오지 못했습니다."
+              },
+              "pt-BR": {
+                singular: "Algumas linhas não puderam ser importadas."
+              },
+              "zh-CN": {
+                singular: "部分行无法导入。"
+              }
+            }
+          }),
+          replacementsCsvAllFailed: (0, _v194.translate)({
+            singular: "No rows were imported.",
+            dictionary: {
+              es: {
+                singular: "No se importaron filas."
+              },
+              "de-DE": {
+                singular: "Es wurden keine Zeilen importiert."
+              },
+              "fr-FR": {
+                singular: "Aucune ligne n'a été importée."
+              },
+              "ja-JP": {
+                singular: "行はインポートされませんでした。"
+              },
+              "ko-KR": {
+                singular: "행이 하나도 가져오지 못했습니다."
+              },
+              "pt-BR": {
+                singular: "Nenhuma linha foi importada."
+              },
+              "zh-CN": {
+                singular: "未导入任何行。"
+              }
+            }
+          }),
+          replacementsCsvFailureLine: (_v0, _v1) => (0, _v194.translate)({
+            singular: "Line {LINE}: {MESSAGE}",
+            replacements: {
+              LINE: _v0,
+              MESSAGE: _v1
+            },
+            dictionary: {
+              es: {
+                singular: "Línea {LINE}: {MESSAGE}"
+              },
+              "de-DE": {
+                singular: "Zeile {LINE}: {MESSAGE}"
+              },
+              "fr-FR": {
+                singular: "Ligne {LINE}: {MESSAGE}"
+              },
+              "ja-JP": {
+                singular: "行 {LINE}: {MESSAGE}"
+              },
+              "ko-KR": {
+                singular: "행 {LINE}: {MESSAGE}"
+              },
+              "pt-BR": {
+                singular: "Linha {LINE}: {MESSAGE}"
+              },
+              "zh-CN": {
+                singular: "第{LINE}行: {MESSAGE}"
+              }
+            }
+          }),
+          replacementsCsvEmpty: (0, _v194.translate)({
+            singular: "The CSV file is empty.",
+            dictionary: {
+              es: {
+                singular: "El archivo CSV está vacío."
+              },
+              "de-DE": {
+                singular: "Die CSV-Datei ist leer."
+              },
+              "fr-FR": {
+                singular: "Le fichier CSV est vide."
+              },
+              "ja-JP": {
+                singular: "CSVファイルが空です。"
+              },
+              "ko-KR": {
+                singular: "CSV 파일이 비어 있습니다."
+              },
+              "pt-BR": {
+                singular: "O arquivo CSV está vazio."
+              },
+              "zh-CN": {
+                singular: "CSV 文件为空。"
+              }
+            }
+          }),
+          replacementsCsvInvalidHeader: (0, _v194.translate)({
+            singular: "The CSV header must be: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}.",
+            replacements: _v195,
+            dictionary: {
+              es: {
+                singular: "El encabezado del CSV debe ser: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}."
+              },
+              "de-DE": {
+                singular: "Der CSV-Header muss lauten: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}."
+              },
+              "fr-FR": {
+                singular: "L'en-tête du CSV doit être : {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}."
+              },
+              "ja-JP": {
+                singular: "CSV のヘッダーは: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM} である必要があります。"
+              },
+              "ko-KR": {
+                singular: "CSV 헤더는 다음이어야 합니다: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}."
+              },
+              "pt-BR": {
+                singular: "O cabeçalho do CSV deve ser: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}."
+              },
+              "zh-CN": {
+                singular: "CSV 头部必须为: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}."
+              }
+            }
+          }),
+          replacementsCsvMalformed: (0, _v194.translate)({
+            singular: "The CSV contains malformed quoted content.",
+            dictionary: {
+              es: {
+                singular: "El CSV contiene contenido entrecomillado malformado."
+              },
+              "de-DE": {
+                singular: "Die CSV-Datei enthält fehlerhaft formatierte, in Anführungszeichen gesetzte Inhalte."
+              },
+              "fr-FR": {
+                singular: "Le fichier CSV contient du contenu entre guillemets mal formé."
+              },
+              "ja-JP": {
+                singular: "CSV に引用の形式が不正な内容が含まれています。"
+              },
+              "ko-KR": {
+                singular: "CSV에 잘못된 따옴표 형식의 내용이 포함되어 있습니다."
+              },
+              "pt-BR": {
+                singular: "O CSV contém conteúdo entre aspas malformado."
+              },
+              "zh-CN": {
+                singular: "CSV 包含格式错误的引号内容。"
+              }
+            }
+          }),
+          replacementsCsvInvalidFile: (0, _v194.translate)({
+            singular: "Select a CSV file.",
+            dictionary: {
+              es: {
+                singular: "Seleccione un archivo CSV."
+              },
+              "de-DE": {
+                singular: "Wählen Sie eine CSV-Datei aus."
+              },
+              "fr-FR": {
+                singular: "Sélectionnez un fichier CSV."
+              },
+              "ja-JP": {
+                singular: "CSVファイルを選択してください。"
+              },
+              "ko-KR": {
+                singular: "CSV 파일을 선택하세요."
+              },
+              "pt-BR": {
+                singular: "Selecione um arquivo CSV."
+              },
+              "zh-CN": {
+                singular: "请选择 CSV 文件。"
+              }
+            }
+          }),
+          replacementsCsvImportError: (0, _v194.translate)({
+            singular: "The CSV could not be imported.",
+            dictionary: {
+              es: {
+                singular: "No se pudo importar el CSV."
+              },
+              "de-DE": {
+                singular: "Die CSV konnte nicht importiert werden."
+              },
+              "fr-FR": {
+                singular: "Le CSV n'a pas pu être importé."
+              },
+              "ja-JP": {
+                singular: "CSVをインポートできませんでした。"
+              },
+              "ko-KR": {
+                singular: "CSV를 가져올 수 없습니다."
+              },
+              "pt-BR": {
+                singular: "Não foi possível importar o CSV."
+              },
+              "zh-CN": {
+                singular: "无法导入 CSV。"
+              }
+            }
+          }),
+          replacementsCsvColumnCountError: (0, _v194.translate)({
+            singular: "The row must contain exactly four columns.",
+            dictionary: {
+              es: {
+                singular: "La fila debe contener exactamente cuatro columnas."
+              },
+              "de-DE": {
+                singular: "Die Zeile muss genau vier Spalten enthalten."
+              },
+              "fr-FR": {
+                singular: "La ligne doit contenir exactement quatre colonnes."
+              },
+              "ja-JP": {
+                singular: "その行は正確に4列でなければなりません。"
+              },
+              "ko-KR": {
+                singular: "해당 행은 정확히 네 개의 열을 포함해야 합니다."
+              },
+              "pt-BR": {
+                singular: "A linha deve conter exatamente quatro colunas."
+              },
+              "zh-CN": {
+                singular: "该行必须正好包含四列。"
+              }
+            }
+          }),
+          replacementsCsvRequiredError: (0, _v194.translate)({
+            singular: "All four columns are required.",
+            dictionary: {
+              es: {
+                singular: "Las cuatro columnas son obligatorias."
+              },
+              "de-DE": {
+                singular: "Alle vier Spalten sind erforderlich."
+              },
+              "fr-FR": {
+                singular: "Les quatre colonnes sont requises."
+              },
+              "ja-JP": {
+                singular: "4 列すべてが必須です。"
+              },
+              "ko-KR": {
+                singular: "네 개의 열 모두 필요합니다."
+              },
+              "pt-BR": {
+                singular: "As quatro colunas são obrigatórias."
+              },
+              "zh-CN": {
+                singular: "所有四列均为必填。"
+              }
+            }
+          }),
+          replacementsCsvFieldLengthError: (0, _v194.translate)({
+            singular: "One or more fields exceed the maximum length.",
+            dictionary: {
+              es: {
+                singular: "Uno o más campos exceden la longitud máxima."
+              },
+              "de-DE": {
+                singular: "Ein oder mehrere Felder überschreiten die maximale Länge."
+              },
+              "fr-FR": {
+                singular: "Un ou plusieurs champs dépassent la longueur maximale."
+              },
+              "ja-JP": {
+                singular: "1つ以上のフィールドが最大長を超えています。"
+              },
+              "ko-KR": {
+                singular: "하나 이상의 필드가 최대 길이를 초과합니다."
+              },
+              "pt-BR": {
+                singular: "Um ou mais campos excedem o comprimento máximo."
+              },
+              "zh-CN": {
+                singular: "一个或多个字段超出最大长度。"
+              }
+            }
+          }),
+          replacementsCsvInvalidSourceLanguage: (0, _v194.translate)({
+            singular: "The source language is not supported.",
+            dictionary: {
+              es: {
+                singular: "El idioma de origen no es compatible."
+              },
+              "de-DE": {
+                singular: "Die Quellsprache wird nicht unterstützt."
+              },
+              "fr-FR": {
+                singular: "La langue source n'est pas prise en charge."
+              },
+              "ja-JP": {
+                singular: "ソース言語はサポートされていません。"
+              },
+              "ko-KR": {
+                singular: "원본 언어는 지원되지 않습니다."
+              },
+              "pt-BR": {
+                singular: "O idioma de origem não é suportado."
+              },
+              "zh-CN": {
+                singular: "源语言不受支持。"
+              }
+            }
+          }),
+          replacementsCsvInvalidTargetLanguage: (0, _v194.translate)({
+            singular: "The target language is not supported.",
+            dictionary: {
+              es: {
+                singular: "El idioma de destino no es compatible."
+              },
+              "de-DE": {
+                singular: "Die Zielsprache wird nicht unterstützt."
+              },
+              "fr-FR": {
+                singular: "La langue cible n'est pas prise en charge."
+              },
+              "ja-JP": {
+                singular: "ターゲット言語はサポートされていません。"
+              },
+              "ko-KR": {
+                singular: "대상 언어는 지원되지 않습니다."
+              },
+              "pt-BR": {
+                singular: "O idioma de destino não é suportado."
+              },
+              "zh-CN": {
+                singular: "目标语言不受支持。"
+              }
+            }
+          }),
+          replacementsCsvMatchingLanguages: (0, _v194.translate)({
+            singular: "Source and target languages must be different.",
+            dictionary: {
+              es: {
+                singular: "Los idiomas de origen y destino deben ser diferentes."
+              },
+              "de-DE": {
+                singular: "Quell- und Zielsprache müssen unterschiedlich sein."
+              },
+              "fr-FR": {
+                singular: "La langue source et la langue cible doivent être différentes."
+              },
+              "ja-JP": {
+                singular: "ソース言語とターゲット言語は異なる必要があります。"
+              },
+              "ko-KR": {
+                singular: "원본 언어와 대상 언어는 서로 달라야 합니다."
+              },
+              "pt-BR": {
+                singular: "Os idiomas de origem e destino devem ser diferentes."
+              },
+              "zh-CN": {
+                singular: "源语言和目标语言必须不同。"
+              }
+            }
+          }),
+          replacementsCsvTooManyRows: (0, _v194.translate)({
+            singular: "Only 1,000 rows can be imported at once.",
+            dictionary: {
+              es: {
+                singular: "Solo se pueden importar 1,000 filas a la vez."
+              },
+              "de-DE": {
+                singular: "Es können nur 1,000 Zeilen gleichzeitig importiert werden."
+              },
+              "fr-FR": {
+                singular: "Seules 1,000 lignes peuvent être importées à la fois."
+              },
+              "ja-JP": {
+                singular: "一度にインポートできるのは最大1,000行です。"
+              },
+              "ko-KR": {
+                singular: "한 번에 최대 1,000개의 행만 가져올 수 있습니다."
+              },
+              "pt-BR": {
+                singular: "Somente 1.000 linhas podem ser importadas de cada vez."
+              },
+              "zh-CN": {
+                singular: "一次最多只能导入 1,000 行。"
+              }
+            }
+          }),
+          replacementsCsvServerError: (0, _v194.translate)({
+            singular: "The row could not be imported.",
+            dictionary: {
+              es: {
+                singular: "No se pudo importar la fila."
+              },
+              "de-DE": {
+                singular: "Die Zeile konnte nicht importiert werden."
+              },
+              "fr-FR": {
+                singular: "La ligne n'a pas pu être importée."
+              },
+              "ja-JP": {
+                singular: "その行はインポートできませんでした。"
+              },
+              "ko-KR": {
+                singular: "해당 행을 가져오지 못했습니다."
+              },
+              "pt-BR": {
+                singular: "A linha não pôde ser importada."
+              },
+              "zh-CN": {
+                singular: "该行无法导入。"
+              }
+            }
+          }),
+          replacementsEmptyTitle: (0, _v194.translate)({
+            singular: "No terms added yet.",
+            dictionary: {
+              es: {
+                singular: "Aún no se han añadido términos."
+              },
+              "de-DE": {
+                singular: "Noch keine Begriffe hinzugefügt."
+              },
+              "fr-FR": {
+                singular: "Aucun terme ajouté pour le moment."
+              },
+              "ja-JP": {
+                singular: "用語がまだ追加されていません。"
+              },
+              "ko-KR": {
+                singular: "아직 용어가 추가되지 않았습니다."
+              },
+              "pt-BR": {
+                singular: "Nenhum termo adicionado ainda."
+              },
+              "zh-CN": {
+                singular: "尚未添加任何术语。"
+              }
+            }
+          }),
+          replacementsEmptyDescription: (0, _v194.translate)({
+            singular: "Start adding your first term translation.",
+            dictionary: {
+              es: {
+                singular: "Comienza a agregar la traducción de tu primer término."
+              },
+              "de-DE": {
+                singular: "Fügen Sie Ihre erste Begriffsübersetzung hinzu."
+              },
+              "fr-FR": {
+                singular: "Commencez à ajouter la traduction de votre premier terme."
+              },
+              "ja-JP": {
+                singular: "最初の用語の翻訳を追加し始めましょう。"
+              },
+              "ko-KR": {
+                singular: "첫 용어 번역 추가를 시작하세요."
+              },
+              "pt-BR": {
+                singular: "Comece adicionando sua primeira tradução de termo."
+              },
+              "zh-CN": {
+                singular: "开始添加您的第一个术语翻译。"
+              }
+            }
+          }),
+          replacementsNoResults: (0, _v194.translate)({
+            singular: "No matching terms found.",
+            dictionary: {
+              es: {
+                singular: "No se encontraron términos coincidentes."
+              },
+              "de-DE": {
+                singular: "Keine passenden Begriffe gefunden."
+              },
+              "fr-FR": {
+                singular: "Aucun terme correspondant trouvé."
+              },
+              "ja-JP": {
+                singular: "該当する用語は見つかりませんでした。"
+              },
+              "ko-KR": {
+                singular: "일치하는 용어가 없습니다."
+              },
+              "pt-BR": {
+                singular: "Nenhum termo correspondente encontrado."
+              },
+              "zh-CN": {
+                singular: "未找到匹配的术语。"
+              }
+            }
+          }),
+          replacementsLoadingError: (0, _v194.translate)({
+            singular: "Unable to load terms translations.",
+            dictionary: {
+              es: {
+                singular: "No se pueden cargar las traducciones de términos."
+              },
+              "de-DE": {
+                singular: "Begriffsübersetzungen konnten nicht geladen werden."
+              },
+              "fr-FR": {
+                singular: "Impossible de charger les traductions des termes."
+              },
+              "ja-JP": {
+                singular: "用語の翻訳を読み込めませんでした。"
+              },
+              "ko-KR": {
+                singular: "용어 번역을 불러올 수 없습니다."
+              },
+              "pt-BR": {
+                singular: "Não foi possível carregar as traduções dos termos."
+              },
+              "zh-CN": {
+                singular: "无法加载术语翻译。"
+              }
+            }
+          }),
+          add: (0, _v194.translate)({
+            singular: "Add",
+            dictionary: {
+              es: {
+                singular: "Agregar"
+              },
+              "de-DE": {
+                singular: "Hinzufügen"
+              },
+              "fr-FR": {
+                singular: "Ajouter"
+              },
+              "ja-JP": {
+                singular: "追加"
+              },
+              "ko-KR": {
+                singular: "추가"
+              },
+              "pt-BR": {
+                singular: "Adicionar"
+              },
+              "zh-CN": {
+                singular: "添加"
+              }
+            }
+          }),
+          import: (0, _v194.translate)({
+            singular: "Import",
+            dictionary: {
+              es: {
+                singular: "IMPORTAR"
+              },
+              "de-DE": {
+                singular: "Importieren"
+              },
+              "fr-FR": {
+                singular: "Importer"
+              },
+              "ja-JP": {
+                singular: "インポート"
+              },
+              "ko-KR": {
+                singular: "가져오기"
+              },
+              "pt-BR": {
+                singular: "Importar"
+              },
+              "zh-CN": {
+                singular: "导入"
+              }
+            }
+          }),
+          needMorePrompt: (0, _v194.translate)({
+            singular: "Need more?",
+            dictionary: {
+              es: {
+                singular: "¿Necesitas más?"
+              },
+              "de-DE": {
+                singular: "Brauchen Sie mehr?"
+              },
+              "fr-FR": {
+                singular: "Besoin de plus ?"
+              },
+              "ja-JP": {
+                singular: "もっと必要ですか?"
+              },
+              "ko-KR": {
+                singular: "더 필요하신가요?"
+              },
+              "pt-BR": {
+                singular: "Precisa de mais?"
+              },
+              "zh-CN": {
+                singular: "需要更多?"
+              }
+            }
+          }),
+          contactSales: (0, _v194.translate)({
+            singular: "Contact Sales",
+            dictionary: {
+              es: {
+                singular: "Comunicarse con Ventas"
+              },
+              "de-DE": {
+                singular: "Sales-Team kontaktieren"
+              },
+              "fr-FR": {
+                singular: "Service commercial"
+              },
+              "ja-JP": {
+                singular: "営業チームへ問い合わせる"
+              },
+              "ko-KR": {
+                singular: "영업팀에 문의"
+              },
+              "pt-BR": {
+                singular: "Falar com vendas"
+              },
+              "zh-CN": {
+                singular: "联系销售"
+              }
+            }
+          }),
+          rulesTitle: (0, _v194.translate)({
+            singular: "Custom rules",
+            dictionary: {
+              es: {
+                singular: "Reglas personalizadas"
+              },
+              "de-DE": {
+                singular: "Benutzerdefinierte Regeln"
+              },
+              "fr-FR": {
+                singular: "Règles personnalisées"
+              },
+              "ja-JP": {
+                singular: "カスタムルール"
+              },
+              "ko-KR": {
+                singular: "사용자 지정 규칙"
+              },
+              "pt-BR": {
+                singular: "Regras personalizadas"
+              },
+              "zh-CN": {
+                singular: "自定义规则"
+              }
+            }
+          }),
+          rulesDescription: (0, _v194.translate)({
+            singular: "Add your own instructions in plain language to guide how words are captioned or translated. (example: always spell out numbers under ten).",
+            dictionary: {
+              es: {
+                singular: "Agrega tus propias instrucciones en lenguaje sencillo para guiar cómo se subtitulan o traducen las palabras. (ejemplo: siempre escribe con letras los números menores de diez)."
+              },
+              "de-DE": {
+                singular: "Fügen Sie Ihre eigenen Anweisungen in einfacher Sprache hinzu, um zu steuern, wie Wörter untertitelt oder übersetzt werden. (Beispiel: Zahlen unter zehn immer ausschreiben)."
+              },
+              "fr-FR": {
+                singular: "Ajoutez vos propres instructions en langage clair pour guider la façon dont les mots sont sous-titrés ou traduits. (exemple: écrivez toujours en toutes lettres les nombres inférieurs à dix)."
+              },
+              "ja-JP": {
+                singular: "語句のキャプション付けや翻訳の方法を案内するため、わかりやすい言葉で独自の指示を追加してください (例: 10未満の数字は常に綴りで表記する)."
+              },
+              "ko-KR": {
+                singular: "단순한 언어로 자체 지침을 추가하여 단어가 자막 처리되거나 번역되는 방식을 안내하세요. (예: 열 미만의 숫자는 항상 철자로 쓰세요)."
+              },
+              "pt-BR": {
+                singular: "Adicione suas próprias instruções em linguagem simples para orientar como as palavras são legendadas ou traduzidas. (exemplo: sempre escreva por extenso os números menores que dez)."
+              },
+              "zh-CN": {
+                singular: "使用简单明了的语言添加您自己的说明，以指导字幕或翻译如何处理词语。 (例如：始终将十以下的数字拼写出来。)"
+              }
+            }
+          }),
+          rulesInputLabel: (0, _v194.translate)({
+            singular: "Rules",
+            dictionary: {
+              es: {
+                singular: "Reglas"
+              },
+              "de-DE": {
+                singular: "Regeln"
+              },
+              "fr-FR": {
+                singular: "Règles"
+              },
+              "ja-JP": {
+                singular: "ルール"
+              },
+              "ko-KR": {
+                singular: "규칙"
+              },
+              "pt-BR": {
+                singular: "Regras"
+              },
+              "zh-CN": {
+                singular: "规则"
+              }
+            }
+          }),
+          rulesCharacterCount: (_v0, _v1) => (0, _v194.translate)({
+            singular: "{USED}/{LIMIT}",
+            replacements: {
+              USED: _v0,
+              LIMIT: _v1
+            }
+          }),
+          rulesPlaceholder: (0, _v194.translate)({
+            singular: "Describe any rules with simple words",
+            dictionary: {
+              es: {
+                singular: "Describe cualquier regla con palabras sencillas"
+              },
+              "de-DE": {
+                singular: "Beschreiben Sie Regeln mit einfachen Worten"
+              },
+              "fr-FR": {
+                singular: "Décrivez les règles en termes simples"
+              },
+              "ja-JP": {
+                singular: "ルールはわかりやすい言葉で説明してください"
+              },
+              "ko-KR": {
+                singular: "규칙을 간단한 단어로 설명하세요"
+              },
+              "pt-BR": {
+                singular: "Descreva quaisquer regras com palavras simples"
+              },
+              "zh-CN": {
+                singular: "用简单词语描述任何规则"
+              }
+            }
+          }),
+          rulesHelper: (0, _v194.translate)({
+            singular: "Separate rules with a comma.",
+            dictionary: {
+              es: {
+                singular: "Separa las reglas con una coma."
+              },
+              "de-DE": {
+                singular: "Trennen Sie Regeln durch ein Komma."
+              },
+              "fr-FR": {
+                singular: "Séparez les règles par une virgule."
+              },
+              "ja-JP": {
+                singular: "ルールはカンマで区切ってください."
+              },
+              "ko-KR": {
+                singular: "규칙을 쉼표로 구분하세요."
+              },
+              "pt-BR": {
+                singular: "Separe as regras por vírgula."
+              },
+              "zh-CN": {
+                singular: "用逗号分隔规则."
+              }
+            }
+          }),
+          rulesSaving: (0, _v194.translate)({
+            singular: "Saving...",
+            dictionary: {
+              es: {
+                singular: "Guardando..."
+              },
+              "de-DE": {
+                singular: "Speichern..."
+              },
+              "fr-FR": {
+                singular: "Enregistrement..."
+              },
+              "ja-JP": {
+                singular: "保存中..."
+              },
+              "ko-KR": {
+                singular: "저장 중..."
+              },
+              "pt-BR": {
+                singular: "Salvando..."
+              },
+              "zh-CN": {
+                singular: "正在保存..."
+              }
+            }
+          }),
+          rulesLoadingLabel: (0, _v194.translate)({
+            singular: "Loading custom rules",
+            dictionary: {
+              es: {
+                singular: "Cargando reglas personalizadas"
+              },
+              "de-DE": {
+                singular: "Benutzerdefinierte Regeln werden geladen"
+              },
+              "fr-FR": {
+                singular: "Chargement des règles personnalisées"
+              },
+              "ja-JP": {
+                singular: "カスタムルールを読み込み中"
+              },
+              "ko-KR": {
+                singular: "사용자 지정 규칙을 불러오는 중"
+              },
+              "pt-BR": {
+                singular: "Carregando regras personalizadas"
+              },
+              "zh-CN": {
+                singular: "正在加载自定义规则"
+              }
+            }
+          }),
+          rulesLoadingError: (0, _v194.translate)({
+            singular: "Unable to load custom rules.",
+            dictionary: {
+              es: {
+                singular: "No se pudieron cargar las reglas personalizadas."
+              },
+              "de-DE": {
+                singular: "Benutzerdefinierte Regeln konnten nicht geladen werden."
+              },
+              "fr-FR": {
+                singular: "Impossible de charger les règles personnalisées."
+              },
+              "ja-JP": {
+                singular: "カスタムルールを読み込めませんでした."
+              },
+              "ko-KR": {
+                singular: "사용자 지정 규칙을 불러올 수 없습니다."
+              },
+              "pt-BR": {
+                singular: "Não foi possível carregar as regras personalizadas."
+              },
+              "zh-CN": {
+                singular: "无法加载自定义规则."
+              }
+            }
+          }),
+          rulesSaveError: (0, _v194.translate)({
+            singular: "Changes could not be saved.",
+            dictionary: {
+              es: {
+                singular: "No se pudieron guardar los cambios."
+              },
+              "de-DE": {
+                singular: "Änderungen konnten nicht gespeichert werden."
+              },
+              "fr-FR": {
+                singular: "Les modifications n'ont pas pu être enregistrées."
+              },
+              "ja-JP": {
+                singular: "変更を保存できませんでした."
+              },
+              "ko-KR": {
+                singular: "변경 사항을 저장할 수 없습니다."
+              },
+              "pt-BR": {
+                singular: "Não foi possível salvar as alterações."
+              },
+              "zh-CN": {
+                singular: "更改无法保存."
+              }
+            }
+          }),
+          limitsByFeatureTitle: (0, _v194.translate)({
+            singular: "Limits by feature",
+            dictionary: {
+              es: {
+                singular: "Límites por función"
+              },
+              "de-DE": {
+                singular: "Grenzwerte nach Funktion"
+              },
+              "fr-FR": {
+                singular: "Limites par fonctionnalité"
+              },
+              "ja-JP": {
+                singular: "機能ごとの制限"
+              },
+              "ko-KR": {
+                singular: "기능별 제한"
+              },
+              "pt-BR": {
+                singular: "Limites por recurso"
+              },
+              "zh-CN": {
+                singular: "各功能限制"
+              }
+            }
+          }),
+          limitsByFeatureDescription: (0, _v194.translate)({
+            singular: "Each feature uses a limited number of words during processing. You can add more words, up to your account's maximum limit, but only the first entries within the processing limit are applied.",
+            dictionary: {
+              es: {
+                singular: "Cada función utiliza un número limitado de palabras durante el procesamiento. Puedes añadir más palabras, hasta el límite máximo de tu cuenta, pero solo se aplican las primeras entradas dentro del límite de procesamiento."
+              },
+              "de-DE": {
+                singular: "Jede Funktion verwendet während der Verarbeitung eine begrenzte Anzahl von Wörtern. Sie können bis zum maximalen Limit Ihres Kontos weitere Wörter hinzufügen, aber es werden nur die ersten Einträge innerhalb der Verarbeitungsgrenze berücksichtigt."
+              },
+              "fr-FR": {
+                singular: "Chaque fonctionnalité utilise un nombre limité de mots lors du traitement. Vous pouvez ajouter davantage de mots, jusqu'à la limite maximale de votre compte, mais seules les premières entrées incluses dans la limite de traitement sont prises en compte."
+              },
+              "ja-JP": {
+                singular: "各機能は処理中に使用する語数が制限されています。アカウントの最大上限まで語を追加できますが、処理の制限内で先頭にあるエントリのみが適用されます。"
+              },
+              "ko-KR": {
+                singular: "각 기능은 처리 중에 제한된 수의 단어를 사용합니다. 계정의 최대 한도까지 단어를 추가할 수 있지만 처리 한도 내에서 앞에 있는 항목만 적용됩니다."
+              },
+              "pt-BR": {
+                singular: "Cada recurso utiliza um número limitado de palavras durante o processamento. Você pode adicionar mais palavras, até o limite máximo da sua conta, mas apenas as primeiras entradas dentro do limite de processamento são aplicadas."
+              },
+              "zh-CN": {
+                singular: "每项功能在处理时使用的词汇数量有限。您可以添加更多词汇，最多不超过您账户的最大限制，但只有位于处理限制范围内的前几条条目会被应用。"
+              }
+            }
+          }),
+          orderingExplanation: (0, _v194.translate)({
+            singular: "Glossary terms are currently applied in the order they were added.",
+            dictionary: {
+              es: {
+                singular: "Los términos del glosario se aplican actualmente en el orden en que se añadieron."
+              },
+              "de-DE": {
+                singular: "Glossarbegriffe werden derzeit in der Reihenfolge angewendet, in der sie hinzugefügt wurden."
+              },
+              "fr-FR": {
+                singular: "Les termes du glossaire sont actuellement appliqués dans l'ordre dans lequel ils ont été ajoutés."
+              },
+              "ja-JP": {
+                singular: "用語集の用語は現在、追加された順に適用されています。"
+              },
+              "ko-KR": {
+                singular: "용어집 항목은 현재 추가된 순서대로 적용됩니다."
+              },
+              "pt-BR": {
+                singular: "Os termos do glossário são aplicados atualmente na ordem em que foram adicionados."
+              },
+              "zh-CN": {
+                singular: "术语表中的术语当前按添加顺序应用。"
+              }
+            }
+          }),
+          featureLimitsTableScrollLabel: (0, _v194.translate)({
+            singular: "Feature limits table. Scroll horizontally to view all columns.",
+            dictionary: {
+              es: {
+                singular: "Tabla de límites de funciones. Desplácese horizontalmente para ver todas las columnas."
+              },
+              "de-DE": {
+                singular: "Tabelle der Funktionslimits. Scrollen Sie horizontal, um alle Spalten anzuzeigen."
+              },
+              "fr-FR": {
+                singular: "Tableau des limites des fonctionnalités. Faites défiler horizontalement pour voir toutes les colonnes."
+              },
+              "ja-JP": {
+                singular: "機能制限テーブル。すべての列を表示するには横にスクロールしてください。"
+              },
+              "ko-KR": {
+                singular: "기능 제한 표입니다. 모든 열을 보려면 가로로 스크롤하십시오."
+              },
+              "pt-BR": {
+                singular: "Tabela de limites de recursos. Role horizontalmente para ver todas as colunas."
+              },
+              "zh-CN": {
+                singular: "功能限制表。水平滚动以查看所有列。"
+              }
+            }
+          }),
+          featureColumnLabel: (0, _v194.translate)({
+            singular: "Feature",
+            dictionary: {
+              es: {
+                singular: "Función"
+              },
+              "de-DE": {
+                singular: "Funktion"
+              },
+              "fr-FR": {
+                singular: "Fonctionnalité"
+              },
+              "ja-JP": {
+                singular: "機能"
+              },
+              "ko-KR": {
+                singular: "기능"
+              },
+              "pt-BR": {
+                singular: "Recurso"
+              },
+              "zh-CN": {
+                singular: "功能"
+              }
+            }
+          }),
+          featureNames: {
+            autocaptioning: (0, _v194.translate)({
+              singular: "Autocaptioning",
+              dictionary: {
+                es: {
+                  singular: "Generación automática de subtítulos"
+                },
+                "de-DE": {
+                  singular: "Automatische Untertitelung"
+                },
+                "fr-FR": {
+                  singular: "Sous-titrage automatique"
+                },
+                "ja-JP": {
+                  singular: "自動キャプション"
+                },
+                "ko-KR": {
+                  singular: "자동 자막"
+                },
+                "pt-BR": {
+                  singular: "Legendas automáticas"
+                },
+                "zh-CN": {
+                  singular: "自动生成字幕"
+                }
+              }
+            }),
+            liveCaptioning: (0, _v194.translate)({
+              singular: "Live captioning",
+              dictionary: {
+                es: {
+                  singular: "Subtitulación en tiempo real"
+                },
+                "de-DE": {
+                  singular: "Live-Untertitelung"
+                },
+                "fr-FR": {
+                  singular: "Sous-titrage en direct"
+                },
+                "ja-JP": {
+                  singular: "ライブキャプション"
+                },
+                "ko-KR": {
+                  singular: "실시간 자막"
+                },
+                "pt-BR": {
+                  singular: "Legendas ao vivo"
+                },
+                "zh-CN": {
+                  singular: "实时字幕"
+                }
+              }
+            }),
+            subtitleTranslation: (0, _v194.translate)({
+              singular: "Subtitle translation",
+              dictionary: {
+                es: {
+                  singular: "Traducción de subtítulos"
+                },
+                "de-DE": {
+                  singular: "Untertitelübersetzung"
+                },
+                "fr-FR": {
+                  singular: "Traduction de sous-titres"
+                },
+                "ja-JP": {
+                  singular: "字幕翻訳"
+                },
+                "ko-KR": {
+                  singular: "자막 번역"
+                },
+                "pt-BR": {
+                  singular: "Tradução de legendas"
+                },
+                "zh-CN": {
+                  singular: "字幕翻译"
+                }
+              }
+            }),
+            liveCaptionTranslation: (0, _v194.translate)({
+              singular: "Live caption translation",
+              dictionary: {
+                es: {
+                  singular: "Traducción de subtítulos en tiempo real"
+                },
+                "de-DE": {
+                  singular: "Live-Untertitelübersetzung"
+                },
+                "fr-FR": {
+                  singular: "Traduction de sous-titres en direct"
+                },
+                "ja-JP": {
+                  singular: "ライブキャプション翻訳"
+                },
+                "ko-KR": {
+                  singular: "실시간 자막 번역"
+                },
+                "pt-BR": {
+                  singular: "Tradução de legendas ao vivo"
+                },
+                "zh-CN": {
+                  singular: "实时字幕翻译"
+                }
+              }
+            }),
+            dubbing: (0, _v194.translate)({
+              singular: "Dubbing",
+              dictionary: {
+                es: {
+                  singular: "Doblaje"
+                },
+                "de-DE": {
+                  singular: "Synchronisation"
+                },
+                "fr-FR": {
+                  singular: "Doublage"
+                },
+                "ja-JP": {
+                  singular: "吹き替え"
+                },
+                "ko-KR": {
+                  singular: "더빙"
+                },
+                "pt-BR": {
+                  singular: "Dublagem"
+                },
+                "zh-CN": {
+                  singular: "配音"
+                }
+              }
             })
-          })]
-        }), _v25 > 0 && (0, _v1.jsxs)(_v4.Flex, {
-          marginTop: (0, _v5.rem)(24),
-          paddingX: (0, _v5.rem)(24),
-          paddingY: (0, _v5.rem)(16),
-          gap: (0, _v5.rem)(16),
-          alignItems: "center",
-          backgroundColor: "fill-component",
-          borderRadius: "sm",
-          children: [(0, _v1.jsx)(_v13.Text, {
-            variant: "heading-xs",
-            whiteSpace: "nowrap",
-            children: _v1.replacementsCount(_v24, _v25)
-          }), (0, _v1.jsx)(_v37.Progress, {
-            flex: "1",
-            width: "auto",
-            minWidth: 0,
-            value: Math.min(_v24 / _v25 * 100, 100),
-            size: "xs"
-          })]
-        })]
-      }) : (0, _v1.jsxs)(_v4.Flex, {
-        minHeight: (0, _v5.rem)(140),
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        textAlign: "center",
-        children: [(0, _v1.jsx)(_v13.Text, {
-          variant: "heading-sm",
-          children: _v1.replacementsEmptyTitle
-        }), (0, _v1.jsx)(_v13.Text, {
-          variant: "body-sm",
-          color: "text-secondary",
-          marginTop: (0, _v5.rem)(4),
-          children: _v1.replacementsEmptyDescription
-        })]
-      })
-    });
-  };
-  var _v160 = _v0.i(0);
-  let _v161 = ({
-    ownerUserId: _v0
-  }) => {
-    let [_v1, _v2] = (0, _v2.useState)(!1),
-      _v3 = (0, _v2.useMemo)(() => ({
-        title: (0, _v160.translate)({
-          singular: "Custom dictionary",
-          dictionary: {
-            es: {
-              singular: "Diccionario personalizado"
-            },
-            "de-DE": {
-              singular: "Benutzerdefiniertes Wörterbuch"
-            },
-            "fr-FR": {
-              singular: "Dictionnaire personnalisé"
-            },
-            "ja-JP": {
-              singular: "カスタム辞書"
-            },
-            "ko-KR": {
-              singular: "사용자 지정 사전"
-            },
-            "pt-BR": {
-              singular: "Dicionário personalizado"
-            },
-            "zh-CN": {
-              singular: "自定义词典"
-            }
-          }
-        }),
-        description: (0, _v160.translate)({
-          singular: "Define your brand names, product terms, and acronyms once, and they will be applied consistently across AI-generated content.",
-          dictionary: {
-            es: {
-              singular: "Defina los nombres de su marca, términos de producto y acrónimos una vez, y se aplicarán de forma coherente en todo el contenido generado por IA."
-            },
-            "de-DE": {
-              singular: "Definieren Sie Ihre Markennamen, Produktbegriffe und Akronyme einmal, und sie werden konsistent in KI-generierten Inhalten angewendet."
-            },
-            "fr-FR": {
-              singular: "Définissez une fois vos noms de marque, termes produits et acronymes, et ils seront appliqués de manière cohérente à l'ensemble du contenu généré par l'IA."
-            },
-            "ja-JP": {
-              singular: "ブランド名、製品用語、頭字語を一度定義すれば、AI生成コンテンツ全体に一貫して適用されます。"
-            },
-            "ko-KR": {
-              singular: "브랜드 이름, 제품 용어 및 약어를 한 번 정의하면 AI 생성 콘텐츠 전반에 걸쳐 일관되게 적용됩니다."
-            },
-            "pt-BR": {
-              singular: "Defina os nomes da sua marca, termos de produto e siglas uma vez, e eles serão aplicados de forma consistente em conteúdos gerados por IA."
-            },
-            "zh-CN": {
-              singular: "一次性定义您的品牌名称、产品术语和首字母缩略词，它们将在 AI 生成的所有内容中保持一致应用。"
-            }
-          }
-        }),
-        limitsSummary: (0, _v160.translate)({
-          singular: "Some features have terms limits.",
-          dictionary: {
-            es: {
-              singular: "Algunas funciones tienen límites en los términos."
-            },
-            "de-DE": {
-              singular: "Einige Funktionen haben Begrenzungen für Begriffe."
-            },
-            "fr-FR": {
-              singular: "Certaines fonctionnalités ont des limites de termes."
-            },
-            "ja-JP": {
-              singular: "一部の機能には用語の制限があります。"
-            },
-            "ko-KR": {
-              singular: "일부 기능에는 용어 제한이 있습니다."
-            },
-            "pt-BR": {
-              singular: "Alguns recursos têm limites de termos."
-            },
-            "zh-CN": {
-              singular: "某些功能有术语数量限制。"
-            }
-          }
-        }),
-        learnMore: (0, _v160.translate)({
-          singular: "Learn more",
-          dictionary: {
-            es: {
-              singular: "Ver más"
-            },
-            "de-DE": {
-              singular: "Mehr dazu"
-            },
-            "fr-FR": {
-              singular: "En savoir plus "
-            },
-            "ja-JP": {
-              singular: "詳細を見る"
-            },
-            "ko-KR": {
-              singular: "자세히 보기"
-            },
-            "pt-BR": {
-              singular: "Saiba mais"
-            },
-            "zh-CN": {
-              singular: "了解更多"
-            }
-          }
-        }),
-        notice: (0, _v160.translate)({
-          singular: "Dictionary support for dubbing is coming soon — for now, your terms apply to AI Transcription and Subtitle Translations.",
-          dictionary: {
-            es: {
-              singular: "El soporte de diccionario para el doblaje llegará pronto — por ahora, tus términos se aplican a la transcripción por IA y a las traducciones de subtítulos."
-            },
-            "de-DE": {
-              singular: "Wörterbuchunterstützung für die Synchronisation kommt bald — vorerst gelten Ihre Begriffe für KI-Transkription und Untertitelübersetzungen."
-            },
-            "fr-FR": {
-              singular: "La prise en charge des dictionnaires pour le doublage arrive bientôt — pour l'instant, vos termes s'appliquent à la Transcription par IA et aux Traductions de sous-titres."
-            },
-            "ja-JP": {
-              singular: "吹き替え向けの辞書サポートは近日対応予定です — 現時点では、用語はAI文字起こしおよび字幕翻訳に適用されます。"
-            },
-            "ko-KR": {
-              singular: "더빙용 사전 지원은 곧 제공될 예정입니다 — 현재로서는 귀하의 용어가 AI 전사 및 자막 번역에 적용됩니다."
-            },
-            "pt-BR": {
-              singular: "Suporte a dicionário para dublagem será disponibilizado em breve — por enquanto, seus termos se aplicam à Transcrição por IA e às Traduções de Legendas."
-            },
-            "zh-CN": {
-              singular: "配音的词典支持即将推出 — 目前，您的术语适用于 AI 转写和字幕翻译。"
-            }
-          }
-        }),
-        glossaryTitle: (0, _v160.translate)({
-          singular: "Glossary",
-          dictionary: {
-            es: {
-              singular: "Glosario"
-            },
-            "de-DE": {
-              singular: "Glossar"
-            },
-            "fr-FR": {
-              singular: "Glossaire"
-            },
-            "ja-JP": {
-              singular: "用語集"
-            },
-            "ko-KR": {
-              singular: "용어집"
-            },
-            "pt-BR": {
-              singular: "Glossário"
-            },
-            "zh-CN": {
-              singular: "术语表"
-            }
-          }
-        }),
-        glossaryDescription: (0, _v160.translate)({
-          singular: "Ensures specific terms are spelled and capitalized correctly during AI generation.",
-          dictionary: {
-            es: {
-              singular: "Garantiza que los términos específicos estén escritos y capitalizados correctamente durante la generación por IA."
-            },
-            "de-DE": {
-              singular: "Stellt sicher, dass bestimmte Begriffe während der KI-Generierung korrekt geschrieben und bezüglich der Groß-/Kleinschreibung korrekt sind."
-            },
-            "fr-FR": {
-              singular: "Garantit que les termes spécifiques sont orthographiés et capitalisés correctement lors de la génération par l'IA."
-            },
-            "ja-JP": {
-              singular: "AI生成時に特定の用語の綴りや大文字・小文字の表記が正しく維持されることを保証します。"
-            },
-            "ko-KR": {
-              singular: "AI 생성 과정에서 특정 용어의 철자와 대소문자가 올바르게 적용되도록 합니다."
-            },
-            "pt-BR": {
-              singular: "Garante que termos específicos sejam soletrados e capitalizados corretamente durante a geração por IA."
-            },
-            "zh-CN": {
-              singular: "确保在 AI 生成过程中特定术语的拼写和大小写正确。"
-            }
-          }
-        }),
-        glossaryCount: (_v0, _v1) => (0, _v160.translate)({
-          singular: "{USED}/{LIMIT} terms",
-          replacements: {
-            USED: _v0,
-            LIMIT: _v1
           },
-          dictionary: {
-            es: {
-              singular: "{USED}/{LIMIT} términos"
-            },
-            "de-DE": {
-              singular: "{USED}/{LIMIT} Begriffe"
-            },
-            "fr-FR": {
-              singular: "{USED}/{LIMIT} termes"
-            },
-            "ja-JP": {
-              singular: "{USED}/{LIMIT} 件の用語"
-            },
-            "ko-KR": {
-              singular: "{USED}/{LIMIT}개의 용어"
-            },
-            "pt-BR": {
-              singular: "{USED}/{LIMIT} termos"
-            },
-            "zh-CN": {
-              singular: "{USED}/{LIMIT} 个术语"
-            }
-          }
-        }),
-        glossaryEmptyTitle: (0, _v160.translate)({
-          singular: "No terms added yet.",
-          dictionary: {
-            es: {
-              singular: "Aún no se han añadido términos."
-            },
-            "de-DE": {
-              singular: "Noch keine Begriffe hinzugefügt."
-            },
-            "fr-FR": {
-              singular: "Aucun terme ajouté pour le moment."
-            },
-            "ja-JP": {
-              singular: "用語がまだ追加されていません。"
-            },
-            "ko-KR": {
-              singular: "아직 용어가 추가되지 않았습니다."
-            },
-            "pt-BR": {
-              singular: "Nenhum termo adicionado ainda."
-            },
-            "zh-CN": {
-              singular: "尚未添加任何术语。"
-            }
-          }
-        }),
-        glossaryEmptyDescription: (0, _v160.translate)({
-          singular: "Start adding your custom glossary",
-          dictionary: {
-            es: {
-              singular: "Comience a agregar su glosario personalizado"
-            },
-            "de-DE": {
-              singular: "Beginnen Sie mit dem Hinzufügen Ihres eigenen Glossars"
-            },
-            "fr-FR": {
-              singular: "Commencez à ajouter votre glossaire personnalisé"
-            },
-            "ja-JP": {
-              singular: "カスタム用語集の追加を始めましょう"
-            },
-            "ko-KR": {
-              singular: "맞춤 용어집 추가를 시작하세요"
-            },
-            "pt-BR": {
-              singular: "Comece a adicionar seu glossário personalizado"
-            },
-            "zh-CN": {
-              singular: "开始添加您的自定义术语表"
-            }
-          }
-        }),
-        glossaryTerm: (0, _v160.translate)({
-          singular: "Term",
-          dictionary: {
-            es: {
-              singular: "Término"
-            },
-            "de-DE": {
-              singular: "Begriff"
-            },
-            "fr-FR": {
-              singular: "Terme"
-            },
-            "ja-JP": {
-              singular: "用語"
-            },
-            "ko-KR": {
-              singular: "용어"
-            },
-            "pt-BR": {
-              singular: "Termo"
-            },
-            "zh-CN": {
-              singular: "术语"
-            }
-          }
-        }),
-        glossaryEditorDescription: (0, _v160.translate)({
-          singular: "You can paste a CSV-formatted list into the first input field to enter multiple terms at once.",
-          dictionary: {
-            es: {
-              singular: "Puede pegar una lista en formato CSV en el primer campo de entrada para introducir varios términos a la vez."
-            },
-            "de-DE": {
-              singular: "Sie können eine im CSV-Format vorliegende Liste in das erste Eingabefeld einfügen, um mehrere Begriffe auf einmal einzugeben."
-            },
-            "fr-FR": {
-              singular: "Vous pouvez coller une liste au format CSV dans le premier champ de saisie pour saisir plusieurs termes à la fois."
-            },
-            "ja-JP": {
-              singular: "複数の用語を一度に入力するには、CSV形式のリストを最初の入力欄に貼り付けることができます。"
-            },
-            "ko-KR": {
-              singular: "여러 용어를 한 번에 입력하려면 CSV 형식의 목록을 첫 번째 입력 필드에 붙여넣을 수 있습니다."
-            },
-            "pt-BR": {
-              singular: "Você pode colar uma lista formatada em CSV no primeiro campo de entrada para inserir vários termos de uma só vez."
-            },
-            "zh-CN": {
-              singular: "您可以将 CSV 格式的列表粘贴到第一个输入字段，以一次输入多个术语。"
-            }
-          }
-        }),
-        glossaryDownloadTemplate: (0, _v160.translate)({
-          singular: "Download template",
-          dictionary: {
-            es: {
-              singular: "Descargar plantilla"
-            },
-            "de-DE": {
-              singular: "Vorlage herunterladen"
-            },
-            "fr-FR": {
-              singular: "Télécharger le modèle"
-            },
-            "ja-JP": {
-              singular: "テンプレートをダウンロード"
-            },
-            "ko-KR": {
-              singular: "템플릿 다운로드"
-            },
-            "pt-BR": {
-              singular: "Baixar modelo"
-            },
-            "zh-CN": {
-              singular: "下载模板"
-            }
-          }
-        }),
-        glossaryTermNumber: _v0 => (0, _v160.translate)({
-          singular: "Glossary term {NUMBER}",
-          replacements: {
-            NUMBER: _v0
-          },
-          dictionary: {
-            es: {
-              singular: "Término del glosario {NUMBER}"
-            },
-            "de-DE": {
-              singular: "Glossarbegriff {NUMBER}"
-            },
-            "fr-FR": {
-              singular: "Terme du glossaire {NUMBER}"
-            },
-            "ja-JP": {
-              singular: "用語集の用語 {NUMBER}"
-            },
-            "ko-KR": {
-              singular: "용어집 항목 {NUMBER}"
-            },
-            "pt-BR": {
-              singular: "Termo do glossário {NUMBER}"
-            },
-            "zh-CN": {
-              singular: "词汇表术语 {NUMBER}"
-            }
-          }
-        }),
-        glossaryLoadingError: (0, _v160.translate)({
-          singular: "Unable to load the glossary.",
-          dictionary: {
-            es: {
-              singular: "No se pudo cargar el glosario."
-            },
-            "de-DE": {
-              singular: "Das Glossar konnte nicht geladen werden."
-            },
-            "fr-FR": {
-              singular: "Impossible de charger le glossaire."
-            },
-            "ja-JP": {
-              singular: "用語集を読み込めませんでした。"
-            },
-            "ko-KR": {
-              singular: "용어집을 불러올 수 없습니다."
-            },
-            "pt-BR": {
-              singular: "Não foi possível carregar o glossário."
-            },
-            "zh-CN": {
-              singular: "无法加载词汇表。"
-            }
-          }
-        }),
-        glossaryCsvTitle: (0, _v160.translate)({
-          singular: "Import CSV",
-          dictionary: {
-            es: {
-              singular: "Importar CSV"
-            },
-            "de-DE": {
-              singular: "CSV importieren"
-            },
-            "fr-FR": {
-              singular: "Importer un fichier CSV"
-            },
-            "ja-JP": {
-              singular: "CSVをインポート"
-            },
-            "ko-KR": {
-              singular: "CSV 가져오기"
-            },
-            "pt-BR": {
-              singular: "Importar CSV"
-            },
-            "zh-CN": {
-              singular: "导入 CSV"
-            }
-          }
-        }),
-        glossaryCsvDescription: (0, _v160.translate)({
-          singular: "Upload a CSV with a single source term column.",
-          dictionary: {
-            es: {
-              singular: "Suba un CSV con una sola columna de términos fuente."
-            },
-            "de-DE": {
-              singular: "Laden Sie eine CSV mit genau einer Spalte für Quellbegriffe hoch."
-            },
-            "fr-FR": {
-              singular: "Téléversez un CSV contenant une seule colonne de termes source."
-            },
-            "ja-JP": {
-              singular: "ソース用語の列が1つだけあるCSVをアップロードしてください。"
-            },
-            "ko-KR": {
-              singular: "단일 원본 용어 열이 포함된 CSV를 업로드하세요."
-            },
-            "pt-BR": {
-              singular: "Envie um CSV com uma única coluna de termo de origem."
-            },
-            "zh-CN": {
-              singular: "上传仅包含单个源术语列的 CSV。"
-            }
-          }
-        }),
-        glossaryCsvInstructions: (0, _v160.translate)({
-          singular: "Upload a CSV with a single source term column.",
-          dictionary: {
-            es: {
-              singular: "Suba un CSV con una sola columna de términos fuente."
-            },
-            "de-DE": {
-              singular: "Laden Sie eine CSV mit genau einer Spalte für Quellbegriffe hoch."
-            },
-            "fr-FR": {
-              singular: "Téléversez un CSV contenant une seule colonne de termes source."
-            },
-            "ja-JP": {
-              singular: "ソース用語の列が1つだけあるCSVをアップロードしてください。"
-            },
-            "ko-KR": {
-              singular: "단일 원본 용어 열이 포함된 CSV를 업로드하세요."
-            },
-            "pt-BR": {
-              singular: "Envie um CSV com uma única coluna de termo de origem."
-            },
-            "zh-CN": {
-              singular: "上传仅包含单个源术语列的 CSV。"
-            }
-          }
-        }),
-        glossaryCsvTemplatePrompt: _v0 => (0, _v160.translate)({
-          singular: "{LINK}Download the template{/LINK} file to start.",
-          replacements: {
-            LINK: _v0
-          },
-          dictionary: {
-            es: {
-              singular: "{LINK}Descargue la plantilla{/LINK} para comenzar."
-            },
-            "de-DE": {
-              singular: "{LINK}Laden Sie die Vorlagendatei herunter{/LINK}, um zu beginnen."
-            },
-            "fr-FR": {
-              singular: "{LINK}Téléchargez le fichier modèle{/LINK} pour commencer."
-            },
-            "ja-JP": {
-              singular: "{LINK}テンプレートをダウンロード{/LINK}して開始してください。"
-            },
-            "ko-KR": {
-              singular: "{LINK}템플릿 파일을 다운로드{/LINK}하여 시작하세요."
-            },
-            "pt-BR": {
-              singular: "{LINK}Baixe o arquivo de modelo{/LINK} para começar."
-            },
-            "zh-CN": {
-              singular: "{LINK}下载模板{/LINK} 文件即可开始。"
-            }
-          }
-        }),
-        glossaryCsvUploadFile: (0, _v160.translate)({
-          singular: "Upload file",
-          dictionary: {
-            es: {
-              singular: "Subir archivo"
-            },
-            "de-DE": {
-              singular: "Datei hochladen"
-            },
-            "fr-FR": {
-              singular: "Mettre le fichier en ligne"
-            },
-            "ja-JP": {
-              singular: "ファイルをアップロードする"
-            },
-            "ko-KR": {
-              singular: "파일 업로드"
-            },
-            "pt-BR": {
-              singular: "Carregar arquivo"
-            },
-            "zh-CN": {
-              singular: "上传文件"
-            }
-          }
-        }),
-        glossaryCsvDropFile: (0, _v160.translate)({
-          singular: "Drop file here or click to browse file.",
-          dictionary: {
-            es: {
-              singular: "Suelte el archivo aquí o haga clic para examinar el archivo."
-            },
-            "de-DE": {
-              singular: "Datei hier ablegen oder klicken, um eine Datei auszuwählen."
-            },
-            "fr-FR": {
-              singular: "Déposez le fichier ici ou cliquez pour parcourir le fichier."
-            },
-            "ja-JP": {
-              singular: "ファイルをここにドロップするか、クリックして参照してください。"
-            },
-            "ko-KR": {
-              singular: "파일을 여기에 놓거나 클릭하여 찾아보세요."
-            },
-            "pt-BR": {
-              singular: "Solte o arquivo aqui ou clique para procurar o arquivo."
-            },
-            "zh-CN": {
-              singular: "将文件拖到此处或点击以浏览文件。"
-            }
-          }
-        }),
-        glossaryCsvBrowseFile: (0, _v160.translate)({
-          singular: "Browse file",
-          dictionary: {
-            es: {
-              singular: "Examinar archivo"
-            },
-            "de-DE": {
-              singular: "Datei durchsuchen"
-            },
-            "fr-FR": {
-              singular: "Parcourir le fichier"
-            },
-            "ja-JP": {
-              singular: "ファイルを参照"
-            },
-            "ko-KR": {
-              singular: "파일 찾아보기"
-            },
-            "pt-BR": {
-              singular: "Procurar arquivo"
-            },
-            "zh-CN": {
-              singular: "浏览文件"
-            }
-          }
-        }),
-        glossaryCsvUnsupportedFile: (0, _v160.translate)({
-          singular: "Upload a CSV file.",
-          dictionary: {
-            es: {
-              singular: "Suba un archivo CSV."
-            },
-            "de-DE": {
-              singular: "Laden Sie eine CSV-Datei hoch."
-            },
-            "fr-FR": {
-              singular: "Téléversez un fichier CSV."
-            },
-            "ja-JP": {
-              singular: "CSVファイルをアップロードしてください。"
-            },
-            "ko-KR": {
-              singular: "CSV 파일을 업로드하세요."
-            },
-            "pt-BR": {
-              singular: "Envie um arquivo CSV."
-            },
-            "zh-CN": {
-              singular: "上传 CSV 文件。"
-            }
-          }
-        }),
-        glossaryCsvFileTooLarge: (0, _v160.translate)({
-          singular: "The CSV file is too large. Upload a file under 5 MB.",
-          dictionary: {
-            es: {
-              singular: "El archivo CSV es demasiado grande. Suba un archivo de menos de 5 MB."
-            },
-            "de-DE": {
-              singular: "Die CSV-Datei ist zu groß. Laden Sie eine Datei unter 5 MB hoch."
-            },
-            "fr-FR": {
-              singular: "Le fichier CSV est trop volumineux. Téléversez un fichier de moins de 5 Mo."
-            },
-            "ja-JP": {
-              singular: "CSVファイルが大きすぎます。5 MB未満のファイルをアップロードしてください。"
-            },
-            "ko-KR": {
-              singular: "CSV 파일이 너무 큽니다. 5 MB 미만의 파일을 업로드하세요."
-            },
-            "pt-BR": {
-              singular: "O arquivo CSV é muito grande. Envie um arquivo com menos de 5 MB."
-            },
-            "zh-CN": {
-              singular: "CSV 文件过大。请上传小于 5 MB 的文件。"
-            }
-          }
-        }),
-        glossaryCsvInvalidFile: (0, _v160.translate)({
-          singular: "The CSV file is invalid.",
-          dictionary: {
-            es: {
-              singular: "El archivo CSV no es válido."
-            },
-            "de-DE": {
-              singular: "Die CSV-Datei ist ungültig."
-            },
-            "fr-FR": {
-              singular: "Le fichier CSV est invalide."
-            },
-            "ja-JP": {
-              singular: "CSVファイルが無効です。"
-            },
-            "ko-KR": {
-              singular: "CSV 파일이 유효하지 않습니다."
-            },
-            "pt-BR": {
-              singular: "O arquivo CSV é inválido."
-            },
-            "zh-CN": {
-              singular: "CSV 文件无效。"
-            }
-          }
-        }),
-        glossaryCsvInvalidHeader: (0, _v160.translate)({
-          singular: "The CSV must contain a single source term column.",
-          dictionary: {
-            es: {
-              singular: "El CSV debe contener una sola columna de términos fuente."
-            },
-            "de-DE": {
-              singular: "Die CSV muss genau eine Spalte mit Quellbegriffen enthalten."
-            },
-            "fr-FR": {
-              singular: "Le CSV doit contenir une seule colonne de termes source."
-            },
-            "ja-JP": {
-              singular: "CSVにはソース用語の列を1つだけ含める必要があります。"
-            },
-            "ko-KR": {
-              singular: "CSV는 단일 원본 용어 열만 포함해야 합니다."
-            },
-            "pt-BR": {
-              singular: "O CSV deve conter uma única coluna de termo de origem."
-            },
-            "zh-CN": {
-              singular: "CSV 必须包含单个源术语列。"
-            }
-          }
-        }),
-        glossaryCsvTooManyRows: (0, _v160.translate)({
-          singular: "The CSV can contain at most 1,000 terms.",
-          dictionary: {
-            es: {
-              singular: "El CSV puede contener como máximo 1,000 términos."
-            },
-            "de-DE": {
-              singular: "Die CSV darf höchstens 1.000 Begriffe enthalten."
-            },
-            "fr-FR": {
-              singular: "Le CSV peut contenir au maximum 1 000 termes."
-            },
-            "ja-JP": {
-              singular: "CSVには最大1,000件の用語を含めることができます。"
-            },
-            "ko-KR": {
-              singular: "CSV에는 최대 1,000개의 용어만 포함할 수 있습니다."
-            },
-            "pt-BR": {
-              singular: "O CSV pode conter no máximo 1,000 termos."
-            },
-            "zh-CN": {
-              singular: "CSV 最多可包含 1,000 个术语。"
-            }
-          }
-        }),
-        glossaryCsvSourceTermRequired: (0, _v160.translate)({
-          singular: "A source term is required.",
-          dictionary: {
-            es: {
-              singular: "Se requiere un término fuente."
-            },
-            "de-DE": {
-              singular: "Ein Quellbegriff ist erforderlich."
-            },
-            "fr-FR": {
-              singular: "Un terme source est requis."
-            },
-            "ja-JP": {
-              singular: "ソース用語は必須です。"
-            },
-            "ko-KR": {
-              singular: "원본 용어는 필수입니다."
-            },
-            "pt-BR": {
-              singular: "Um termo de origem é obrigatório."
-            },
-            "zh-CN": {
-              singular: "必须提供源术语。"
-            }
-          }
-        }),
-        glossaryCsvSingleColumnRequired: (0, _v160.translate)({
-          singular: "Each row must contain one source term.",
-          dictionary: {
-            es: {
-              singular: "Cada fila debe contener un término fuente."
-            },
-            "de-DE": {
-              singular: "Jede Zeile muss genau einen Quellbegriff enthalten."
-            },
-            "fr-FR": {
-              singular: "Chaque ligne doit contenir un terme source."
-            },
-            "ja-JP": {
-              singular: "各行には1つのソース用語が必要です。"
-            },
-            "ko-KR": {
-              singular: "각 행에는 하나의 원본 용어가 포함되어야 합니다."
-            },
-            "pt-BR": {
-              singular: "Cada linha deve conter um termo de origem."
-            },
-            "zh-CN": {
-              singular: "每行必须包含一个源术语。"
-            }
-          }
-        }),
-        glossaryCsvImportError: (0, _v160.translate)({
-          singular: "The CSV could not be imported.",
-          dictionary: {
-            es: {
-              singular: "No se pudo importar el CSV."
-            },
-            "de-DE": {
-              singular: "Die CSV konnte nicht importiert werden."
-            },
-            "fr-FR": {
-              singular: "Le CSV n'a pas pu être importé."
-            },
-            "ja-JP": {
-              singular: "CSVをインポートできませんでした。"
-            },
-            "ko-KR": {
-              singular: "CSV를 가져올 수 없습니다."
-            },
-            "pt-BR": {
-              singular: "Não foi possível importar o CSV."
-            },
-            "zh-CN": {
-              singular: "无法导入 CSV。"
-            }
-          }
-        }),
-        glossaryCsvImported: _v0 => 0 === _v0 ? (0, _v160.translate)({
-          singular: "No terms imported",
-          dictionary: {
-            es: {
-              singular: "No se importaron términos"
-            },
-            "de-DE": {
-              singular: "Es wurden keine Begriffe importiert."
-            },
-            "fr-FR": {
-              singular: "Aucun terme importé"
-            },
-            "ja-JP": {
-              singular: "用語はインポートされませんでした。"
-            },
-            "ko-KR": {
-              singular: "가져온 용어가 없습니다."
-            },
-            "pt-BR": {
-              singular: "Nenhum termo importado"
-            },
-            "zh-CN": {
-              singular: "未导入任何术语"
-            }
-          }
-        }) : (0, _v160.translate)({
-          singular: "{COUNT} term imported",
-          plural: "{COUNT} terms imported",
-          count: _v0,
-          replacements: {
-            COUNT: _v0
-          },
-          dictionary: {
-            es: {
-              singular: "{COUNT} término importado",
-              plural: "{COUNT} términos importados"
-            },
-            "de-DE": {
-              singular: "{COUNT} Begriff importiert",
-              plural: "{COUNT} Begriffe importiert"
-            },
-            "fr-FR": {
-              singular: "{COUNT} terme importé",
-              plural: "{COUNT} termes importés"
-            },
-            "ja-JP": {
-              singular: "{COUNT}件の用語がインポートされました",
-              plural: "{COUNT}件の用語がインポートされました"
-            },
-            "ko-KR": {
-              singular: "{COUNT}개의 용어가 가져와졌습니다.",
-              plural: "{COUNT}개의 용어가 가져와졌습니다."
-            },
-            "pt-BR": {
-              singular: "{COUNT} termo importado",
-              plural: "{COUNT} termos importados"
-            },
-            "zh-CN": {
-              singular: "{COUNT} 个术语已导入",
-              plural: "{COUNT} 个术语已导入"
-            }
-          }
-        }),
-        glossaryCsvRowsFailed: _v0 => (0, _v160.translate)({
-          singular: "{COUNT} row could not be imported",
-          plural: "{COUNT} rows could not be imported",
-          count: _v0,
-          replacements: {
-            COUNT: _v0
-          },
-          dictionary: {
-            es: {
-              singular: "{COUNT} fila no se pudo importar",
-              plural: "{COUNT} filas no se pudieron importar"
-            },
-            "de-DE": {
-              singular: "{COUNT} Zeile konnte nicht importiert werden",
-              plural: "{COUNT} Zeilen konnten nicht importiert werden"
-            },
-            "fr-FR": {
-              singular: "{COUNT} ligne n'a pas pu être importée",
-              plural: "{COUNT} lignes n'ont pas pu être importées"
-            },
-            "ja-JP": {
-              singular: "{COUNT}行をインポートできませんでした",
-              plural: "{COUNT}行をインポートできませんでした"
-            },
-            "ko-KR": {
-              singular: "{COUNT}개의 행을 가져올 수 없습니다.",
-              plural: "{COUNT}개의 행을 가져올 수 없습니다."
-            },
-            "pt-BR": {
-              singular: "{COUNT} linha não pôde ser importada",
-              plural: "{COUNT} linhas não puderam ser importadas"
-            },
-            "zh-CN": {
-              singular: "{COUNT} 行无法导入",
-              plural: "{COUNT} 行无法导入"
-            }
-          }
-        }),
-        glossaryCsvLineError: (_v0, _v1) => (0, _v160.translate)({
-          singular: "Line {LINE}: {MESSAGE}",
-          replacements: {
-            LINE: _v0,
-            MESSAGE: _v1
-          },
-          dictionary: {
-            es: {
-              singular: "Línea {LINE}: {MESSAGE}"
-            },
-            "de-DE": {
-              singular: "Zeile {LINE}: {MESSAGE}"
-            },
-            "fr-FR": {
-              singular: "Ligne {LINE}: {MESSAGE}"
-            },
-            "ja-JP": {
-              singular: "行 {LINE}: {MESSAGE}"
-            },
-            "ko-KR": {
-              singular: "행 {LINE}: {MESSAGE}"
-            },
-            "pt-BR": {
-              singular: "Linha {LINE}: {MESSAGE}"
-            },
-            "zh-CN": {
-              singular: "第{LINE}行: {MESSAGE}"
-            }
-          }
-        }),
-        csv: (0, _v160.translate)("CSV"),
-        addTerm: (0, _v160.translate)({
-          singular: "Add term",
-          dictionary: {
-            es: {
-              singular: "Agregar término"
-            },
-            "de-DE": {
-              singular: "Begriff hinzufügen"
-            },
-            "fr-FR": {
-              singular: "Ajouter un terme"
-            },
-            "ja-JP": {
-              singular: "用語を追加"
-            },
-            "ko-KR": {
-              singular: "용어 추가"
-            },
-            "pt-BR": {
-              singular: "Adicionar termo"
-            },
-            "zh-CN": {
-              singular: "添加术语"
-            }
-          }
-        }),
-        edit: (0, _v160.translate)({
-          singular: "Edit",
-          dictionary: {
-            es: {
-              singular: "Editar"
-            },
-            "de-DE": {
-              singular: "Bearbeiten"
-            },
-            "fr-FR": {
-              singular: "Modifier"
-            },
-            "ja-JP": {
-              singular: "編集"
-            },
-            "ko-KR": {
-              singular: "편집"
-            },
-            "pt-BR": {
-              singular: "Editar"
-            },
-            "zh-CN": {
-              singular: "编辑"
-            }
-          }
-        }),
-        uploadCsv: (0, _v160.translate)({
-          singular: "Upload CSV",
-          dictionary: {
-            es: {
-              singular: "Subir archivo CSV"
-            },
-            "de-DE": {
-              singular: "CSV-Datei hochladen"
-            },
-            "fr-FR": {
-              singular: "Importer un fichier CSV"
-            },
-            "ja-JP": {
-              singular: "CSVをアップロード"
-            },
-            "ko-KR": {
-              singular: "CSV 업로드"
-            },
-            "pt-BR": {
-              singular: "Carregar CSV"
-            },
-            "zh-CN": {
-              singular: "上传 CSV"
-            }
-          }
-        }),
-        removeTerm: (0, _v160.translate)({
-          singular: "Remove term",
-          dictionary: {
-            es: {
-              singular: "Eliminar término"
-            },
-            "de-DE": {
-              singular: "Begriff entfernen"
-            },
-            "fr-FR": {
-              singular: "Supprimer le terme"
-            },
-            "ja-JP": {
-              singular: "用語を削除"
-            },
-            "ko-KR": {
-              singular: "용어 제거"
-            },
-            "pt-BR": {
-              singular: "Remover termo"
-            },
-            "zh-CN": {
-              singular: "移除术语"
-            }
-          }
-        }),
-        removeGlossaryTermNumber: _v0 => (0, _v160.translate)({
-          singular: "Remove glossary term {NUMBER}",
-          replacements: {
-            NUMBER: _v0
-          },
-          dictionary: {
-            es: {
-              singular: "Eliminar término del glosario {NUMBER}"
-            },
-            "de-DE": {
-              singular: "Glossarbegriff {NUMBER} entfernen"
-            },
-            "fr-FR": {
-              singular: "Supprimer le terme du glossaire {NUMBER}"
-            },
-            "ja-JP": {
-              singular: "用語集の用語 {NUMBER} を削除"
-            },
-            "ko-KR": {
-              singular: "용어집 항목 {NUMBER} 제거"
-            },
-            "pt-BR": {
-              singular: "Remover termo do glossário {NUMBER}"
-            },
-            "zh-CN": {
-              singular: "删除术语表条目 {NUMBER}"
-            }
-          }
-        }),
-        cancel: (0, _v160.translate)({
-          singular: "Cancel",
-          dictionary: {
-            es: {
-              singular: "Cancelar"
-            },
-            "de-DE": {
-              singular: "Abbrechen"
-            },
-            "fr-FR": {
-              singular: "Annuler"
-            },
-            "ja-JP": {
-              singular: "キャンセル"
-            },
-            "ko-KR": {
-              singular: "취소"
-            },
-            "pt-BR": {
-              singular: "Cancelar"
-            },
-            "zh-CN": {
-              singular: "取消"
-            }
-          }
-        }),
-        save: (0, _v160.translate)({
-          singular: "Save",
-          dictionary: {
-            es: {
-              singular: "Guardar"
-            },
-            "de-DE": {
-              singular: "Speichern"
-            },
-            "fr-FR": {
-              singular: "Enregistrer"
-            },
-            "ja-JP": {
-              singular: "保存"
-            },
-            "ko-KR": {
-              singular: "저장"
-            },
-            "pt-BR": {
-              singular: "Salvar"
-            },
-            "zh-CN": {
-              singular: "保存"
-            }
-          }
-        }),
-        changesSaved: (0, _v160.translate)({
-          singular: "Changes saved",
-          dictionary: {
-            es: {
-              singular: "Guardamos los cambios"
-            },
-            "de-DE": {
-              singular: "Änderungen wurden gespeichert"
-            },
-            "fr-FR": {
-              singular: "Changements sauvegardés"
-            },
-            "ja-JP": {
-              singular: "変更内容が保存されました"
-            },
-            "ko-KR": {
-              singular: "변경 사항 저장 완료"
-            },
-            "pt-BR": {
-              singular: "Alterações salvas"
-            },
-            "zh-CN": {
-              singular: "已保存更改"
-            }
-          }
-        }),
-        changesCouldNotBeSaved: (0, _v160.translate)({
-          singular: "Changes could not be saved",
-          dictionary: {
-            es: {
-              singular: "No se pudieron guardar los cambios"
-            },
-            "de-DE": {
-              singular: "Änderungen konnten nicht gespeichert werden"
-            },
-            "fr-FR": {
-              singular: "Les modifications n'ont pas pu être enregistrées"
-            },
-            "ja-JP": {
-              singular: "変更を保存できませんでした"
-            },
-            "ko-KR": {
-              singular: "변경 사항이 저장되지 않았습니다"
-            },
-            "pt-BR": {
-              singular: "As alterações não puderam ser salvas"
-            },
-            "zh-CN": {
-              singular: "无法保存更改"
-            }
-          }
-        }),
-        close: (0, _v160.translate)({
-          singular: "Close",
-          dictionary: {
-            es: {
-              singular: "Cerrar"
-            },
-            "de-DE": {
-              singular: "Schließen"
-            },
-            "fr-FR": {
-              singular: "Fermer "
-            },
-            "ja-JP": {
-              singular: "閉じる"
-            },
-            "ko-KR": {
-              singular: "닫기"
-            },
-            "pt-BR": {
-              singular: "Fechar"
-            },
-            "zh-CN": {
-              singular: "关闭"
-            }
-          }
-        }),
-        tryAgain: (0, _v160.translate)({
-          singular: "Try again",
-          dictionary: {
-            es: {
-              singular: "Intentar de nuevo"
-            },
-            "de-DE": {
-              singular: "Nochmal versuchen"
-            },
-            "fr-FR": {
-              singular: "Veuillez réessayer"
-            },
-            "ja-JP": {
-              singular: "再試行してください"
-            },
-            "ko-KR": {
-              singular: "다시 시도하세요"
-            },
-            "pt-BR": {
-              singular: "Tente de novo"
-            },
-            "zh-CN": {
-              singular: "再试一次"
-            }
-          }
-        }),
-        replacementsTitle: (0, _v160.translate)({
-          singular: "Terms translations",
-          dictionary: {
-            es: {
-              singular: "Traducciones de términos"
-            },
-            "de-DE": {
-              singular: "Übersetzungen der Begriffe"
-            },
-            "fr-FR": {
-              singular: "Traductions des termes"
-            },
-            "ja-JP": {
-              singular: "用語の翻訳"
-            },
-            "ko-KR": {
-              singular: "용어 번역"
-            },
-            "pt-BR": {
-              singular: "Traduções de termos"
-            },
-            "zh-CN": {
-              singular: "术语翻译"
-            }
-          }
-        }),
-        replacementsDescription: (0, _v160.translate)({
-          singular: "Controls how specific terms are translated, or kept unchanged, across languages.",
-          dictionary: {
-            es: {
-              singular: "Controla cómo se traducen términos específicos, o se mantienen sin cambios, entre idiomas."
-            },
-            "de-DE": {
-              singular: "Steuert, wie bestimmte Begriffe über Sprachen hinweg übersetzt oder unverändert beibehalten werden."
-            },
-            "fr-FR": {
-              singular: "Contrôle la manière dont des termes spécifiques sont traduits ou maintenus inchangés d'une langue à l'autre."
-            },
-            "ja-JP": {
-              singular: "特定の用語を各言語でどのように翻訳するか、あるいは原語のままにするかを制御します。"
-            },
-            "ko-KR": {
-              singular: "특정 용어가 여러 언어에서 어떻게 번역되거나 변경 없이 유지될지를 제어합니다."
-            },
-            "pt-BR": {
-              singular: "Controla como termos específicos são traduzidos, ou mantidos inalterados, entre idiomas."
-            },
-            "zh-CN": {
-              singular: "控制特定术语在各语言中的翻译方式或是否保持不变。"
-            }
-          }
-        }),
-        replacementsCount: (_v0, _v1) => (0, _v160.translate)({
-          singular: "{USED}/{LIMIT} terms",
-          replacements: {
-            USED: _v0,
-            LIMIT: _v1
-          },
-          dictionary: {
-            es: {
-              singular: "{USED}/{LIMIT} términos"
-            },
-            "de-DE": {
-              singular: "{USED}/{LIMIT} Begriffe"
-            },
-            "fr-FR": {
-              singular: "{USED}/{LIMIT} termes"
-            },
-            "ja-JP": {
-              singular: "{USED}/{LIMIT} 件の用語"
-            },
-            "ko-KR": {
-              singular: "{USED}/{LIMIT}개의 용어"
-            },
-            "pt-BR": {
-              singular: "{USED}/{LIMIT} termos"
-            },
-            "zh-CN": {
-              singular: "{USED}/{LIMIT} 个术语"
-            }
-          }
-        }),
-        replacementsSearchPlaceholder: (0, _v160.translate)({
-          singular: "Search term",
-          dictionary: {
-            es: {
-              singular: "Término de búsqueda"
-            },
-            "de-DE": {
-              singular: "Suchbegriff"
-            },
-            "fr-FR": {
-              singular: "Terme de recherche"
-            },
-            "ja-JP": {
-              singular: "検索語"
-            },
-            "ko-KR": {
-              singular: "검색어"
-            },
-            "pt-BR": {
-              singular: "Termo de pesquisa"
-            },
-            "zh-CN": {
-              singular: "搜索术语"
-            }
-          }
-        }),
-        replacementsSearchLabel: (0, _v160.translate)({
-          singular: "Search terms translations",
-          dictionary: {
-            es: {
-              singular: "Traducciones de términos de búsqueda"
-            },
-            "de-DE": {
-              singular: "Übersetzungen der Suchbegriffe"
-            },
-            "fr-FR": {
-              singular: "Traductions des termes de recherche"
-            },
-            "ja-JP": {
-              singular: "検索用語の翻訳"
-            },
-            "ko-KR": {
-              singular: "검색어 번역"
-            },
-            "pt-BR": {
-              singular: "Traduções de termos de pesquisa"
-            },
-            "zh-CN": {
-              singular: "搜索术语翻译"
-            }
-          }
-        }),
-        replacementsSourceLanguage: (0, _v160.translate)({
-          singular: "Source language",
-          dictionary: {
-            es: {
-              singular: "Idioma de origen"
-            },
-            "de-DE": {
-              singular: "Ausgangssprache"
-            },
-            "fr-FR": {
-              singular: "Langue source"
-            },
-            "ja-JP": {
-              singular: "ソース言語"
-            },
-            "ko-KR": {
-              singular: "원본 언어"
-            },
-            "pt-BR": {
-              singular: "Idioma de origem"
-            },
-            "zh-CN": {
-              singular: "源语言"
-            }
-          }
-        }),
-        replacementsClearSearch: (0, _v160.translate)({
-          singular: "Clear search",
-          dictionary: {
-            es: {
-              singular: "Borrar búsqueda"
-            },
-            "de-DE": {
-              singular: "Suche löschen"
-            },
-            "fr-FR": {
-              singular: "Effacer la recherche"
-            },
-            "ja-JP": {
-              singular: "検索をクリア"
-            },
-            "ko-KR": {
-              singular: "검색 지우기"
-            },
-            "pt-BR": {
-              singular: "Limpar pesquisa"
-            },
-            "zh-CN": {
-              singular: "清除搜索"
-            }
-          }
-        }),
-        replacementsEditorDescription: (0, _v160.translate)({
-          singular: "Choose the language your content is spoken in, add your terms, and set how each should appear in the languages you translate to. Leave a language blank and the AI translates it as usual.",
-          dictionary: {
-            es: {
-              singular: "Elige el idioma en el que se habla tu contenido, agrega tus términos y define cómo debe aparecer cada uno en los idiomas a los que traduzcas. Deja un idioma en blanco y la IA lo traducirá como de costumbre."
-            },
-            "de-DE": {
-              singular: "Wählen Sie die Sprache, in der Ihr Inhalt gesprochen wird, fügen Sie Ihre Begriffe hinzu und legen Sie fest, wie jeder Begriff in den Zielsprachen erscheinen soll. Lassen Sie eine Sprache leer, und die KI übersetzt wie gewohnt."
-            },
-            "fr-FR": {
-              singular: "Choisissez la langue dans laquelle votre contenu est parlé, ajoutez vos termes et définissez l'apparence de chacun dans les langues vers lesquelles vous traduisez. Laissez une langue vide et l'IA la traduira comme d'habitude."
-            },
-            "ja-JP": {
-              singular: "コンテンツが話されている言語を選択し、用語を追加して、翻訳先言語ごとにどのように表示されるかを設定してください。言語を空欄のままにすると、AIが通常どおり翻訳します。"
-            },
-            "ko-KR": {
-              singular: "콘텐츠가 사용되는 원어를 선택하고 용어를 추가한 다음 번역 대상 언어에서 각 용어가 어떻게 표시될지 설정하세요. 언어를 비워두면 AI가 평소처럼 번역합니다."
-            },
-            "pt-BR": {
-              singular: "Escolha o idioma em que seu conteúdo é falado, adicione seus termos e defina como cada um deve aparecer nos idiomas para os quais você traduz. Deixe um idioma em branco e a IA traduzirá normalmente."
-            },
-            "zh-CN": {
-              singular: "选择您的内容所使用的语言，添加术语，并为每个目标翻译语言设置其显示方式。将某个语言项留空，AI 会照常翻译。"
-            }
-          }
-        }),
-        replacementsOriginalLanguage: _v0 => (0, _v160.translate)({
-          singular: "{LANGUAGE} (original)",
-          replacements: {
-            LANGUAGE: _v0
-          },
-          dictionary: {
-            "de-DE": {
-              singular: "{LANGUAGE} (Original)"
-            },
-            "fr-FR": {
-              singular: "{LANGUAGE} (originale)"
-            },
-            "ja-JP": {
-              singular: "{LANGUAGE} (原文)"
-            },
-            "ko-KR": {
-              singular: "{LANGUAGE} (원본)"
-            },
-            "zh-CN": {
-              singular: "{LANGUAGE} (原文)"
-            }
-          }
-        }),
-        replacementsSourceTerm: _v0 => (0, _v160.translate)({
-          singular: "Source term {NUMBER}",
-          replacements: {
-            NUMBER: _v0
-          },
-          dictionary: {
-            es: {
-              singular: "Término de origen {NUMBER}"
-            },
-            "de-DE": {
-              singular: "Quellbegriff {NUMBER}"
-            },
-            "fr-FR": {
-              singular: "Terme source {NUMBER}"
-            },
-            "ja-JP": {
-              singular: "ソース用語 {NUMBER}"
-            },
-            "ko-KR": {
-              singular: "원본 용어 {NUMBER}"
-            },
-            "pt-BR": {
-              singular: "Termo de origem {NUMBER}"
-            },
-            "zh-CN": {
-              singular: "源术语 {NUMBER}"
-            }
-          }
-        }),
-        replacementsTargetTerm: (_v0, _v1) => (0, _v160.translate)({
-          singular: "{LANGUAGE} translation for source term {NUMBER}",
-          replacements: {
-            LANGUAGE: _v0,
-            NUMBER: _v1
-          },
-          dictionary: {
-            es: {
-              singular: "{LANGUAGE} traducción para el término de origen {NUMBER}"
-            },
-            "de-DE": {
-              singular: "{LANGUAGE}-Übersetzung für Quellbegriff {NUMBER}"
-            },
-            "fr-FR": {
-              singular: "Traduction en {LANGUAGE} pour le terme source {NUMBER}"
-            },
-            "ja-JP": {
-              singular: "{LANGUAGE} のソース用語 {NUMBER} の翻訳"
-            },
-            "ko-KR": {
-              singular: "{LANGUAGE}의 원본 용어 {NUMBER} 번역"
-            },
-            "pt-BR": {
-              singular: "{LANGUAGE} tradução para o termo de origem {NUMBER}"
-            },
-            "zh-CN": {
-              singular: "{LANGUAGE} 对源术语 {NUMBER} 的翻译"
-            }
-          }
-        }),
-        replacementsAddLanguage: (0, _v160.translate)({
-          singular: "Add language",
-          dictionary: {
-            es: {
-              singular: "Agregar idioma"
-            },
-            "de-DE": {
-              singular: "Sprache hinzufügen"
-            },
-            "fr-FR": {
-              singular: "Ajouter une langue"
-            },
-            "ja-JP": {
-              singular: "言語を追加"
-            },
-            "ko-KR": {
-              singular: "언어 추가"
-            },
-            "pt-BR": {
-              singular: "Adicionar idioma"
-            },
-            "zh-CN": {
-              singular: "添加语言"
-            }
-          }
-        }),
-        replacementsNewLanguage: (0, _v160.translate)({
-          singular: "New language",
-          dictionary: {
-            es: {
-              singular: "Nuevo idioma"
-            },
-            "de-DE": {
-              singular: "Neue Sprache"
-            },
-            "fr-FR": {
-              singular: "Nouvelle langue"
-            },
-            "ja-JP": {
-              singular: "新しい言語"
-            },
-            "ko-KR": {
-              singular: "새 언어"
-            },
-            "pt-BR": {
-              singular: "Novo idioma"
-            },
-            "zh-CN": {
-              singular: "新语言"
-            }
-          }
-        }),
-        replacementsNewLanguageDescription: (0, _v160.translate)({
-          singular: "Select a source language and create a new set of terms for videos spoken in that language.",
-          dictionary: {
-            es: {
-              singular: "Seleccione un idioma de origen y cree un nuevo conjunto de términos para los videos hablados en ese idioma."
-            },
-            "de-DE": {
-              singular: "Wählen Sie eine Ausgangssprache und erstellen Sie einen neuen Satz von Begriffen für Videos, die in dieser Sprache gesprochen werden."
-            },
-            "fr-FR": {
-              singular: "Sélectionnez une langue source et créez un nouvel ensemble de termes pour les vidéos parlées dans cette langue."
-            },
-            "ja-JP": {
-              singular: "ソース言語を選択し、その言語で話される動画向けの新しい用語セットを作成してください。"
-            },
-            "ko-KR": {
-              singular: "원본 언어를 선택하고 해당 언어로 말하는 동영상에 사용할 새 용어 세트를 만드세요."
-            },
-            "pt-BR": {
-              singular: "Selecione um idioma de origem e crie um novo conjunto de termos para vídeos falados nesse idioma."
-            },
-            "zh-CN": {
-              singular: "选择源语言并为以该语言配音的视频创建一组新术语。"
-            }
-          }
-        }),
-        replacementsTargetLanguageDescription: (0, _v160.translate)({
-          singular: "Adding a language lets you define a language-specific replacement for every term. Leave a language blank and the AI translates it as usual.",
-          dictionary: {
-            es: {
-              singular: "Al agregar un idioma, puedes definir una sustitución específica para cada término en ese idioma. Deja un idioma en blanco y la IA lo traducirá como de costumbre."
-            },
-            "de-DE": {
-              singular: "Durch das Hinzufügen einer Sprache können Sie für jeden Begriff eine sprachspezifische Ersetzung festlegen. Lassen Sie eine Sprache leer, und die KI übersetzt wie gewohnt."
-            },
-            "fr-FR": {
-              singular: "L'ajout d'une langue vous permet de définir un remplacement spécifique à une langue pour chaque terme. Laissez une langue vide et l'IA la traduira comme d'habitude."
-            },
-            "ja-JP": {
-              singular: "言語を追加すると、各用語に対して言語ごとの置換を定義できます。言語を空欄のままにすると、AIが通常どおり翻訳します。"
-            },
-            "ko-KR": {
-              singular: "언어를 추가하면 각 용어에 대해 언어별 대체어를 정의할 수 있습니다. 언어를 비워두면 AI가 평소처럼 번역합니다."
-            },
-            "pt-BR": {
-              singular: "Adicionar um idioma permite definir uma substituição específica por idioma para cada termo. Deixe um idioma em branco e a IA traduzirá normalmente."
-            },
-            "zh-CN": {
-              singular: "添加语言可让您为每个术语定义特定语言的替代项。将某个语言项留空，AI 会照常翻译。"
-            }
-          }
-        }),
-        replacementsLanguages: (0, _v160.translate)({
-          singular: "Languages",
-          dictionary: {
-            es: {
-              singular: "Idiomas"
-            },
-            "de-DE": {
-              singular: "Sprachen"
-            },
-            "fr-FR": {
-              singular: "Langues"
-            },
-            "ja-JP": {
-              singular: "言語"
-            },
-            "ko-KR": {
-              singular: "언어"
-            },
-            "pt-BR": {
-              singular: "Idiomas"
-            }
-          }
-        }),
-        replacementsLanguageCount: (_v0, _v1) => (0, _v160.translate)({
-          singular: "{USED} of {LIMIT}",
-          replacements: {
-            USED: _v0,
-            LIMIT: _v1
-          },
-          dictionary: {
-            es: {
-              singular: "{USED} de {LIMIT}"
-            },
-            "de-DE": {
-              singular: "{USED} von {LIMIT}"
-            },
-            "fr-FR": {
-              singular: "{USED} sur {LIMIT}"
-            },
-            "ja-JP": {
-              singular: "{USED} / {LIMIT}"
-            },
-            "ko-KR": {
-              singular: "{USED}/{LIMIT}"
-            },
-            "pt-BR": {
-              singular: "{USED} de {LIMIT}"
-            },
-            "zh-CN": {
-              singular: "{USED} / {LIMIT}"
-            }
-          }
-        }),
-        replacementsSelectLanguage: (0, _v160.translate)({
-          singular: "Select language",
-          dictionary: {
-            es: {
-              singular: "Seleccionar el idioma"
-            },
-            "de-DE": {
-              singular: "Sprache aussuchen"
-            },
-            "fr-FR": {
-              singular: "Sélectionner la langue"
-            },
-            "ja-JP": {
-              singular: "言語を選択"
-            },
-            "ko-KR": {
-              singular: "언어 선택"
-            },
-            "pt-BR": {
-              singular: "Selecione o idioma"
-            },
-            "zh-CN": {
-              singular: "选择语言"
-            }
-          }
-        }),
-        replacementsLanguageLimitReached: (0, _v160.translate)({
-          singular: "You can add up to 10 translation languages for each source language.",
-          dictionary: {
-            es: {
-              singular: "Puedes agregar hasta 10 idiomas de traducción por cada idioma de origen."
-            },
-            "de-DE": {
-              singular: "Sie können für jede Ausgangssprache bis zu 10 Übersetzungssprachen hinzufügen."
-            },
-            "fr-FR": {
-              singular: "Vous pouvez ajouter jusqu'à 10 langues de traduction pour chaque langue source."
-            },
-            "ja-JP": {
-              singular: "各ソース言語につき最大10の翻訳先言語を追加できます。"
-            },
-            "ko-KR": {
-              singular: "각 원본 언어당 최대 10개의 번역 언어를 추가할 수 있습니다."
-            },
-            "pt-BR": {
-              singular: "Você pode adicionar até 10 idiomas de tradução para cada idioma de origem."
-            },
-            "zh-CN": {
-              singular: "每个源语言最多可添加 10 种翻译语言。"
-            }
-          }
-        }),
-        replacementsNoLanguagesAvailable: (0, _v160.translate)({
-          singular: "No additional languages are available.",
-          dictionary: {
-            es: {
-              singular: "No hay idiomas adicionales disponibles."
-            },
-            "de-DE": {
-              singular: "Es stehen keine zusätzlichen Sprachen zur Verfügung."
-            },
-            "fr-FR": {
-              singular: "Aucune langue supplémentaire n'est disponible."
-            },
-            "ja-JP": {
-              singular: "追加できる言語はありません。"
-            },
-            "ko-KR": {
-              singular: "추가 가능한 언어가 없습니다."
-            },
-            "pt-BR": {
-              singular: "Não há idiomas adicionais disponíveis."
-            },
-            "zh-CN": {
-              singular: "没有其他可用语言。"
-            }
-          }
-        }),
-        replacementsLanguagesLoadingError: (0, _v160.translate)({
-          singular: "Unable to load languages.",
-          dictionary: {
-            es: {
-              singular: "No se pudieron cargar los idiomas."
-            },
-            "de-DE": {
-              singular: "Sprachen konnten nicht geladen werden."
-            },
-            "fr-FR": {
-              singular: "Impossible de charger les langues."
-            },
-            "ja-JP": {
-              singular: "言語を読み込めませんでした。"
-            },
-            "ko-KR": {
-              singular: "언어를 불러올 수 없습니다."
-            },
-            "pt-BR": {
-              singular: "Não foi possível carregar os idiomas."
-            },
-            "zh-CN": {
-              singular: "无法加载语言。"
-            }
-          }
-        }),
-        replacementsRemoveRow: (0, _v160.translate)({
-          singular: "Remove source term",
-          dictionary: {
-            es: {
-              singular: "Eliminar término de origen"
-            },
-            "de-DE": {
-              singular: "Quellbegriff entfernen"
-            },
-            "fr-FR": {
-              singular: "Supprimer le terme source"
-            },
-            "ja-JP": {
-              singular: "ソース用語を削除"
-            },
-            "ko-KR": {
-              singular: "원본 용어 제거"
-            },
-            "pt-BR": {
-              singular: "Remover termo de origem"
-            },
-            "zh-CN": {
-              singular: "移除源术语"
-            }
-          }
-        }),
-        replacementsChangesSaved: (0, _v160.translate)({
-          singular: "Terms translations saved",
-          dictionary: {
-            es: {
-              singular: "Traducciones de los términos guardadas."
-            },
-            "de-DE": {
-              singular: "Begriffübersetzungen wurden gespeichert."
-            },
-            "fr-FR": {
-              singular: "Traductions des termes enregistrées"
-            },
-            "ja-JP": {
-              singular: "用語の翻訳を保存しました"
-            },
-            "ko-KR": {
-              singular: "용어 번역이 저장되었습니다"
-            },
-            "pt-BR": {
-              singular: "Traduções dos termos salvas"
-            },
-            "zh-CN": {
-              singular: "术语翻译已保存。"
-            }
-          }
-        }),
-        replacementsChangesCouldNotBeSaved: (0, _v160.translate)({
-          singular: "Terms translations could not be saved",
-          dictionary: {
-            es: {
-              singular: "No se pudieron guardar las traducciones de los términos."
-            },
-            "de-DE": {
-              singular: "Begriffübersetzungen konnten nicht gespeichert werden."
-            },
-            "fr-FR": {
-              singular: "Les traductions des termes n'ont pas pu être enregistrées"
-            },
-            "ja-JP": {
-              singular: "用語の翻訳を保存できませんでした"
-            },
-            "ko-KR": {
-              singular: "용어 번역을 저장할 수 없습니다"
-            },
-            "pt-BR": {
-              singular: "Não foi possível salvar as traduções dos termos"
-            },
-            "zh-CN": {
-              singular: "术语翻译无法保存。"
-            }
-          }
-        }),
-        replacementsEmptyTitle: (0, _v160.translate)({
-          singular: "No language replacements yet.",
-          dictionary: {
-            es: {
-              singular: "Aún no hay reemplazos de idioma."
-            },
-            "de-DE": {
-              singular: "Noch keine Sprachersetzungen vorhanden."
-            },
-            "fr-FR": {
-              singular: "Aucun remplacement de langue pour le moment."
-            },
-            "ja-JP": {
-              singular: "まだ言語の置換はありません。"
-            },
-            "ko-KR": {
-              singular: "아직 언어 대체 항목이 없습니다."
-            },
-            "pt-BR": {
-              singular: "Ainda não há substituições de idioma."
-            },
-            "zh-CN": {
-              singular: "尚无语言替换。"
-            }
-          }
-        }),
-        replacementsEmptyDescription: (0, _v160.translate)({
-          singular: "Add terms to control how they are translated across languages.",
-          dictionary: {
-            es: {
-              singular: "Agrega términos para controlar cómo se traducen entre idiomas."
-            },
-            "de-DE": {
-              singular: "Fügen Sie Begriffe hinzu, um deren Übersetzung zwischen Sprachen zu steuern."
-            },
-            "fr-FR": {
-              singular: "Ajoutez des termes pour contrôler la manière dont ils sont traduits entre les langues."
-            },
-            "ja-JP": {
-              singular: "用語を追加して、言語間での翻訳方法を制御します。"
-            },
-            "ko-KR": {
-              singular: "용어를 추가하여 여러 언어에서 번역되는 방식을 제어하세요."
-            },
-            "pt-BR": {
-              singular: "Adicione termos para controlar como eles são traduzidos entre idiomas."
-            },
-            "zh-CN": {
-              singular: "添加术语以控制其在不同语言中的翻译方式。"
-            }
-          }
-        }),
-        replacementsNoResults: (0, _v160.translate)({
-          singular: "No matching terms found.",
-          dictionary: {
-            es: {
-              singular: "No se encontraron términos coincidentes."
-            },
-            "de-DE": {
-              singular: "Keine passenden Begriffe gefunden."
-            },
-            "fr-FR": {
-              singular: "Aucun terme correspondant trouvé."
-            },
-            "ja-JP": {
-              singular: "該当する用語は見つかりませんでした。"
-            },
-            "ko-KR": {
-              singular: "일치하는 용어가 없습니다."
-            },
-            "pt-BR": {
-              singular: "Nenhum termo correspondente encontrado."
-            },
-            "zh-CN": {
-              singular: "未找到匹配的术语。"
-            }
-          }
-        }),
-        replacementsLoadingError: (0, _v160.translate)({
-          singular: "Unable to load terms translations.",
-          dictionary: {
-            es: {
-              singular: "No se pueden cargar las traducciones de términos."
-            },
-            "de-DE": {
-              singular: "Begriffsübersetzungen konnten nicht geladen werden."
-            },
-            "fr-FR": {
-              singular: "Impossible de charger les traductions des termes."
-            },
-            "ja-JP": {
-              singular: "用語の翻訳を読み込めませんでした。"
-            },
-            "ko-KR": {
-              singular: "용어 번역을 불러올 수 없습니다."
-            },
-            "pt-BR": {
-              singular: "Não foi possível carregar as traduções dos termos."
-            },
-            "zh-CN": {
-              singular: "无法加载术语翻译。"
-            }
-          }
-        }),
-        add: (0, _v160.translate)({
-          singular: "Add",
-          dictionary: {
-            es: {
-              singular: "Agregar"
-            },
-            "de-DE": {
-              singular: "Hinzufügen"
-            },
-            "fr-FR": {
-              singular: "Ajouter"
-            },
-            "ja-JP": {
-              singular: "追加"
-            },
-            "ko-KR": {
-              singular: "추가"
-            },
-            "pt-BR": {
-              singular: "Adicionar"
-            },
-            "zh-CN": {
-              singular: "添加"
-            }
-          }
-        }),
-        rulesTitle: (0, _v160.translate)({
-          singular: "Custom rules",
-          dictionary: {
-            es: {
-              singular: "Reglas personalizadas"
-            },
-            "de-DE": {
-              singular: "Benutzerdefinierte Regeln"
-            },
-            "fr-FR": {
-              singular: "Règles personnalisées"
-            },
-            "ja-JP": {
-              singular: "カスタムルール"
-            },
-            "ko-KR": {
-              singular: "사용자 지정 규칙"
-            },
-            "pt-BR": {
-              singular: "Regras personalizadas"
-            },
-            "zh-CN": {
-              singular: "自定义规则"
-            }
-          }
-        }),
-        rulesDescription: (0, _v160.translate)({
-          singular: "Add your own instructions in plain language to guide how words are translated. (Example: always spell out numbers under ten).",
-          dictionary: {
-            es: {
-              singular: "Añade tus propias instrucciones en lenguaje sencillo para guiar cómo se traducen las palabras. (Ejemplo: escribir siempre con palabras los números menores de diez)."
-            },
-            "de-DE": {
-              singular: "Fügen Sie eigene Anweisungen in klarer Sprache hinzu, um zu steuern, wie Wörter übersetzt werden. (Beispiel: Zahlen unter zehn immer ausschreiben)."
-            },
-            "fr-FR": {
-              singular: "Ajoutez vos propres instructions en langage clair pour indiquer comment traduire les mots. (Exemple : écrivez toujours en toutes lettres les nombres inférieurs à dix)."
-            },
-            "ja-JP": {
-              singular: "単純な言葉で独自の指示を追加して、単語の翻訳方法を指定してください。 (例：10未満の数字は常に文字で表記する)."
-            },
-            "ko-KR": {
-              singular: "단어 번역 방식을 안내하기 위해 평이한 언어로 직접 지침을 추가하세요. (예: 10 미만의 숫자는 항상 글자로 표기하세요)."
-            },
-            "pt-BR": {
-              singular: "Adicione suas próprias instruções em linguagem clara para orientar como as palavras devem ser traduzidas. (Exemplo: escreva por extenso números menores que dez)."
-            },
-            "zh-CN": {
-              singular: "用简明语言添加您自己的指示来指导单词如何翻译. (示例: 始终将十以下的数字拼写出来)."
-            }
-          }
-        }),
-        rulesInputLabel: (0, _v160.translate)({
-          singular: "Rules",
-          dictionary: {
-            es: {
-              singular: "Reglas"
-            },
-            "de-DE": {
-              singular: "Regeln"
-            },
-            "fr-FR": {
-              singular: "Règles"
-            },
-            "ja-JP": {
-              singular: "ルール"
-            },
-            "ko-KR": {
-              singular: "규칙"
-            },
-            "pt-BR": {
-              singular: "Regras"
-            },
-            "zh-CN": {
-              singular: "规则"
-            }
-          }
-        }),
-        rulesCharacterCount: (_v0, _v1) => (0, _v160.translate)({
-          singular: "{USED}/{LIMIT}",
-          replacements: {
-            USED: _v0,
-            LIMIT: _v1
-          }
-        }),
-        rulesPlaceholder: (0, _v160.translate)({
-          singular: "Describe any rules with simple words",
-          dictionary: {
-            es: {
-              singular: "Describe cualquier regla con palabras sencillas"
-            },
-            "de-DE": {
-              singular: "Beschreiben Sie Regeln mit einfachen Worten"
-            },
-            "fr-FR": {
-              singular: "Décrivez les règles en termes simples"
-            },
-            "ja-JP": {
-              singular: "ルールはわかりやすい言葉で説明してください"
-            },
-            "ko-KR": {
-              singular: "규칙을 간단한 단어로 설명하세요"
-            },
-            "pt-BR": {
-              singular: "Descreva quaisquer regras com palavras simples"
-            },
-            "zh-CN": {
-              singular: "用简单词语描述任何规则"
-            }
-          }
-        }),
-        rulesHelper: (0, _v160.translate)({
-          singular: "Separate rules with a comma.",
-          dictionary: {
-            es: {
-              singular: "Separa las reglas con una coma."
-            },
-            "de-DE": {
-              singular: "Trennen Sie Regeln durch ein Komma."
-            },
-            "fr-FR": {
-              singular: "Séparez les règles par une virgule."
-            },
-            "ja-JP": {
-              singular: "ルールはカンマで区切ってください."
-            },
-            "ko-KR": {
-              singular: "규칙을 쉼표로 구분하세요."
-            },
-            "pt-BR": {
-              singular: "Separe as regras por vírgula."
-            },
-            "zh-CN": {
-              singular: "用逗号分隔规则."
-            }
-          }
-        }),
-        rulesSaving: (0, _v160.translate)({
-          singular: "Saving...",
-          dictionary: {
-            es: {
-              singular: "Guardando..."
-            },
-            "de-DE": {
-              singular: "Speichern..."
-            },
-            "fr-FR": {
-              singular: "Enregistrement..."
-            },
-            "ja-JP": {
-              singular: "保存中..."
-            },
-            "ko-KR": {
-              singular: "저장 중..."
-            },
-            "pt-BR": {
-              singular: "Salvando..."
-            },
-            "zh-CN": {
-              singular: "正在保存..."
-            }
-          }
-        }),
-        rulesLoadingLabel: (0, _v160.translate)({
-          singular: "Loading custom rules",
-          dictionary: {
-            es: {
-              singular: "Cargando reglas personalizadas"
-            },
-            "de-DE": {
-              singular: "Benutzerdefinierte Regeln werden geladen"
-            },
-            "fr-FR": {
-              singular: "Chargement des règles personnalisées"
-            },
-            "ja-JP": {
-              singular: "カスタムルールを読み込み中"
-            },
-            "ko-KR": {
-              singular: "사용자 지정 규칙을 불러오는 중"
-            },
-            "pt-BR": {
-              singular: "Carregando regras personalizadas"
-            },
-            "zh-CN": {
-              singular: "正在加载自定义规则"
-            }
-          }
-        }),
-        rulesLoadingError: (0, _v160.translate)({
-          singular: "Unable to load custom rules.",
-          dictionary: {
-            es: {
-              singular: "No se pudieron cargar las reglas personalizadas."
-            },
-            "de-DE": {
-              singular: "Benutzerdefinierte Regeln konnten nicht geladen werden."
-            },
-            "fr-FR": {
-              singular: "Impossible de charger les règles personnalisées."
-            },
-            "ja-JP": {
-              singular: "カスタムルールを読み込めませんでした."
-            },
-            "ko-KR": {
-              singular: "사용자 지정 규칙을 불러올 수 없습니다."
-            },
-            "pt-BR": {
-              singular: "Não foi possível carregar as regras personalizadas."
-            },
-            "zh-CN": {
-              singular: "无法加载自定义规则."
-            }
-          }
-        }),
-        rulesSaveError: (0, _v160.translate)({
-          singular: "Changes could not be saved.",
-          dictionary: {
-            es: {
-              singular: "No se pudieron guardar los cambios."
-            },
-            "de-DE": {
-              singular: "Änderungen konnten nicht gespeichert werden."
-            },
-            "fr-FR": {
-              singular: "Les modifications n'ont pas pu être enregistrées."
-            },
-            "ja-JP": {
-              singular: "変更を保存できませんでした."
-            },
-            "ko-KR": {
-              singular: "변경 사항을 저장할 수 없습니다."
-            },
-            "pt-BR": {
-              singular: "Não foi possível salvar as alterações."
-            },
-            "zh-CN": {
-              singular: "更改无法保存."
-            }
-          }
-        }),
-        limitsByFeatureTitle: (0, _v160.translate)({
-          singular: "Limits by feature",
-          dictionary: {
-            es: {
-              singular: "Límites por función"
-            },
-            "de-DE": {
-              singular: "Grenzwerte nach Funktion"
-            },
-            "fr-FR": {
-              singular: "Limites par fonctionnalité"
-            },
-            "ja-JP": {
-              singular: "機能ごとの制限"
-            },
-            "ko-KR": {
-              singular: "기능별 제한"
-            },
-            "pt-BR": {
-              singular: "Limites por recurso"
-            },
-            "zh-CN": {
-              singular: "各功能限制"
-            }
-          }
-        }),
-        limitsByFeatureDescription: (0, _v160.translate)({
-          singular: "Each feature uses a limited number of words during processing. You can add more words, up to your account's maximum limit, but only the first entries within the processing limit are applied.",
-          dictionary: {
-            es: {
-              singular: "Cada función utiliza un número limitado de palabras durante el procesamiento. Puedes añadir más palabras, hasta el límite máximo de tu cuenta, pero solo se aplican las primeras entradas dentro del límite de procesamiento."
-            },
-            "de-DE": {
-              singular: "Jede Funktion verwendet während der Verarbeitung eine begrenzte Anzahl von Wörtern. Sie können bis zum maximalen Limit Ihres Kontos weitere Wörter hinzufügen, aber es werden nur die ersten Einträge innerhalb der Verarbeitungsgrenze berücksichtigt."
-            },
-            "fr-FR": {
-              singular: "Chaque fonctionnalité utilise un nombre limité de mots lors du traitement. Vous pouvez ajouter davantage de mots, jusqu'à la limite maximale de votre compte, mais seules les premières entrées incluses dans la limite de traitement sont prises en compte."
-            },
-            "ja-JP": {
-              singular: "各機能は処理中に使用する語数が制限されています。アカウントの最大上限まで語を追加できますが、処理の制限内で先頭にあるエントリのみが適用されます。"
-            },
-            "ko-KR": {
-              singular: "각 기능은 처리 중에 제한된 수의 단어를 사용합니다. 계정의 최대 한도까지 단어를 추가할 수 있지만 처리 한도 내에서 앞에 있는 항목만 적용됩니다."
-            },
-            "pt-BR": {
-              singular: "Cada recurso utiliza um número limitado de palavras durante o processamento. Você pode adicionar mais palavras, até o limite máximo da sua conta, mas apenas as primeiras entradas dentro do limite de processamento são aplicadas."
-            },
-            "zh-CN": {
-              singular: "每项功能在处理时使用的词汇数量有限。您可以添加更多词汇，最多不超过您账户的最大限制，但只有位于处理限制范围内的前几条条目会被应用。"
-            }
-          }
-        }),
-        orderingExplanation: (0, _v160.translate)({
-          singular: "Glossary terms are currently applied in the order they were added.",
-          dictionary: {
-            es: {
-              singular: "Los términos del glosario se aplican actualmente en el orden en que se añadieron."
-            },
-            "de-DE": {
-              singular: "Glossarbegriffe werden derzeit in der Reihenfolge angewendet, in der sie hinzugefügt wurden."
-            },
-            "fr-FR": {
-              singular: "Les termes du glossaire sont actuellement appliqués dans l'ordre dans lequel ils ont été ajoutés."
-            },
-            "ja-JP": {
-              singular: "用語集の用語は現在、追加された順に適用されています。"
-            },
-            "ko-KR": {
-              singular: "용어집 항목은 현재 추가된 순서대로 적용됩니다."
-            },
-            "pt-BR": {
-              singular: "Os termos do glossário são aplicados atualmente na ordem em que foram adicionados."
-            },
-            "zh-CN": {
-              singular: "术语表中的术语当前按添加顺序应用。"
-            }
-          }
-        }),
-        featureLimitsTableScrollLabel: (0, _v160.translate)({
-          singular: "Feature limits table. Scroll horizontally to view all columns.",
-          dictionary: {
-            es: {
-              singular: "Tabla de límites de funciones. Desplácese horizontalmente para ver todas las columnas."
-            },
-            "de-DE": {
-              singular: "Tabelle der Funktionslimits. Scrollen Sie horizontal, um alle Spalten anzuzeigen."
-            },
-            "fr-FR": {
-              singular: "Tableau des limites des fonctionnalités. Faites défiler horizontalement pour voir toutes les colonnes."
-            },
-            "ja-JP": {
-              singular: "機能制限テーブル。すべての列を表示するには横にスクロールしてください。"
-            },
-            "ko-KR": {
-              singular: "기능 제한 표입니다. 모든 열을 보려면 가로로 스크롤하십시오."
-            },
-            "pt-BR": {
-              singular: "Tabela de limites de recursos. Role horizontalmente para ver todas as colunas."
-            },
-            "zh-CN": {
-              singular: "功能限制表。水平滚动以查看所有列。"
-            }
-          }
-        }),
-        featureColumnLabel: (0, _v160.translate)({
-          singular: "Feature",
-          dictionary: {
-            es: {
-              singular: "Función"
-            },
-            "de-DE": {
-              singular: "Funktion"
-            },
-            "fr-FR": {
-              singular: "Fonctionnalité"
-            },
-            "ja-JP": {
-              singular: "機能"
-            },
-            "ko-KR": {
-              singular: "기능"
-            },
-            "pt-BR": {
-              singular: "Recurso"
-            },
-            "zh-CN": {
-              singular: "功能"
-            }
-          }
-        }),
-        featureNames: {
-          autocaptioning: (0, _v160.translate)({
-            singular: "Autocaptioning",
+          notSupportedYet: (0, _v194.translate)({
+            singular: "not supported yet",
             dictionary: {
               es: {
-                singular: "Generación automática de subtítulos"
+                singular: "todavía no es compatible"
               },
               "de-DE": {
-                singular: "Automatische Untertitelung"
+                singular: "noch nicht unterstützt"
               },
               "fr-FR": {
-                singular: "Sous-titrage automatique"
+                singular: "pas encore pris en charge"
               },
               "ja-JP": {
-                singular: "自動キャプション"
+                singular: "まだサポートされていません"
               },
               "ko-KR": {
-                singular: "자동 자막"
+                singular: "아직 지원되지 않습니다"
               },
               "pt-BR": {
-                singular: "Legendas automáticas"
+                singular: "ainda não é suportado"
               },
               "zh-CN": {
-                singular: "自动生成字幕"
+                singular: "尚不支持"
               }
             }
           }),
-          liveCaptioning: (0, _v160.translate)({
-            singular: "Live captioning",
+          processingLimit: _v0 => (0, _v194.translate)({
+            count: _v0,
+            singular: "{COUNT} word",
+            plural: "{COUNT} words",
+            replacements: {
+              COUNT: _v0.toLocaleString()
+            },
             dictionary: {
               es: {
-                singular: "Subtitulación en tiempo real"
+                singular: "{COUNT} palabra",
+                plural: "{COUNT} palabras"
               },
               "de-DE": {
-                singular: "Live-Untertitelung"
+                singular: "{COUNT} Wort",
+                plural: "{COUNT} Wörter"
               },
               "fr-FR": {
-                singular: "Sous-titrage en direct"
+                singular: "{COUNT} mot",
+                plural: "{COUNT} mots"
               },
               "ja-JP": {
-                singular: "ライブキャプション"
+                singular: "{COUNT}語",
+                plural: "{COUNT}語"
               },
               "ko-KR": {
-                singular: "실시간 자막"
+                singular: "{COUNT}개의 단어",
+                plural: "{COUNT}개의 단어"
               },
               "pt-BR": {
-                singular: "Legendas ao vivo"
+                singular: "{COUNT} palavra",
+                plural: "{COUNT} palavras"
               },
               "zh-CN": {
-                singular: "实时字幕"
+                singular: "{COUNT} 个词",
+                plural: "{COUNT} 个词"
               }
             }
           }),
-          subtitleTranslation: (0, _v160.translate)({
-            singular: "Subtitle translation",
+          replacementsNewLanguage: (0, _v194.translate)({
+            singular: "New language",
             dictionary: {
               es: {
-                singular: "Traducción de subtítulos"
+                singular: "Nuevo idioma"
               },
               "de-DE": {
-                singular: "Untertitelübersetzung"
+                singular: "Neue Sprache"
               },
               "fr-FR": {
-                singular: "Traduction de sous-titres"
+                singular: "Nouvelle langue"
               },
               "ja-JP": {
-                singular: "字幕翻訳"
+                singular: "新しい言語"
               },
               "ko-KR": {
-                singular: "자막 번역"
+                singular: "새 언어"
               },
               "pt-BR": {
-                singular: "Tradução de legendas"
+                singular: "Novo idioma"
               },
               "zh-CN": {
-                singular: "字幕翻译"
-              }
-            }
-          }),
-          liveCaptionTranslation: (0, _v160.translate)({
-            singular: "Live caption translation",
-            dictionary: {
-              es: {
-                singular: "Traducción de subtítulos en tiempo real"
-              },
-              "de-DE": {
-                singular: "Live-Untertitelübersetzung"
-              },
-              "fr-FR": {
-                singular: "Traduction de sous-titres en direct"
-              },
-              "ja-JP": {
-                singular: "ライブキャプション翻訳"
-              },
-              "ko-KR": {
-                singular: "실시간 자막 번역"
-              },
-              "pt-BR": {
-                singular: "Tradução de legendas ao vivo"
-              },
-              "zh-CN": {
-                singular: "实时字幕翻译"
-              }
-            }
-          }),
-          dubbing: (0, _v160.translate)({
-            singular: "Dubbing",
-            dictionary: {
-              es: {
-                singular: "Doblaje"
-              },
-              "de-DE": {
-                singular: "Synchronisation"
-              },
-              "fr-FR": {
-                singular: "Doublage"
-              },
-              "ja-JP": {
-                singular: "吹き替え"
-              },
-              "ko-KR": {
-                singular: "더빙"
-              },
-              "pt-BR": {
-                singular: "Dublagem"
-              },
-              "zh-CN": {
-                singular: "配音"
+                singular: "新语言"
               }
             }
           })
-        },
-        notSupportedYet: (0, _v160.translate)({
-          singular: "not supported yet",
-          dictionary: {
-            es: {
-              singular: "todavía no es compatible"
-            },
-            "de-DE": {
-              singular: "noch nicht unterstützt"
-            },
-            "fr-FR": {
-              singular: "pas encore pris en charge"
-            },
-            "ja-JP": {
-              singular: "まだサポートされていません"
-            },
-            "ko-KR": {
-              singular: "아직 지원되지 않습니다"
-            },
-            "pt-BR": {
-              singular: "ainda não é suportado"
-            },
-            "zh-CN": {
-              singular: "尚不支持"
-            }
-          }
-        }),
-        processingLimit: _v0 => (0, _v160.translate)({
-          count: _v0,
-          singular: "{COUNT} word",
-          plural: "{COUNT} words",
-          replacements: {
-            COUNT: _v0.toLocaleString()
-          },
-          dictionary: {
-            es: {
-              singular: "{COUNT} palabra",
-              plural: "{COUNT} palabras"
-            },
-            "de-DE": {
-              singular: "{COUNT} Wort",
-              plural: "{COUNT} Wörter"
-            },
-            "fr-FR": {
-              singular: "{COUNT} mot",
-              plural: "{COUNT} mots"
-            },
-            "ja-JP": {
-              singular: "{COUNT}語",
-              plural: "{COUNT}語"
-            },
-            "ko-KR": {
-              singular: "{COUNT}개의 단어",
-              plural: "{COUNT}개의 단어"
-            },
-            "pt-BR": {
-              singular: "{COUNT} palavra",
-              plural: "{COUNT} palavras"
-            },
-            "zh-CN": {
-              singular: "{COUNT} 个词",
-              plural: "{COUNT} 个词"
-            }
-          }
-        })
-      }), []);
-    return (0, _v1.jsxs)(_v4.Flex, {
-      width: "100%",
-      maxWidth: (0, _v5.rem)(640),
-      margin: "0 auto",
-      flexDirection: "column",
-      paddingBottom: (0, _v5.rem)(48),
-      children: [(0, _v1.jsx)(_v6.SettingsPageContentHeader, {
-        title: _v3.title,
-        description: (0, _v1.jsxs)(_v1.Fragment, {
-          children: [_v3.description, " ", _v3.limitsSummary, " ", (0, _v1.jsx)(_v3.Button, {
-            variant: "link",
-            padding: "0",
-            height: "auto",
-            verticalAlign: "unset",
-            onClick: () => _v2(!0),
-            children: _v3.learnMore
-          })]
-        }),
-        notice: {
-          status: "info",
-          message: _v3.notice
-        }
-      }), (0, _v1.jsxs)(_v4.Flex, {
+        }), []);
+      return (0, _v1.jsxs)(_v3.Flex, {
+        width: "100%",
+        maxWidth: (0, _v5.rem)(640),
+        margin: "0 auto",
         flexDirection: "column",
-        children: [(0, _v1.jsx)(_v134, {
-          ownerUserId: _v0,
-          translations: _v3
-        }), (0, _v1.jsx)(_v159, {
-          ownerUserId: _v0,
-          translations: _v3
-        }), (0, _v1.jsx)(_v34, {
-          ownerUserId: _v0,
+        paddingBottom: (0, _v5.rem)(48),
+        children: [(0, _v1.jsx)(_v6.SettingsPageContentHeader, {
+          title: _v3.title,
+          description: (0, _v1.jsxs)(_v1.Fragment, {
+            children: [_v3.description, " ", _v3.limitsSummary, " ", (0, _v1.jsx)(_v4.Link, {
+              as: "button",
+              type: "button",
+              color: "text-primary",
+              textDecoration: "underline",
+              onClick: () => _v2(!0),
+              children: _v3.learnMore
+            })]
+          }),
+          notice: {
+            status: "info",
+            message: _v3.notice
+          }
+        }), (0, _v1.jsxs)(_v3.Flex, {
+          flexDirection: "column",
+          children: [(0, _v1.jsx)(_v134, {
+            ownerUserId: _v0,
+            translations: _v3
+          }), (0, _v1.jsx)(_v193, {
+            ownerUserId: _v0,
+            translations: _v3
+          }), (0, _v1.jsx)(_v35, {
+            ownerUserId: _v0,
+            translations: _v3
+          })]
+        }), (0, _v1.jsx)(_v146, {
+          isOpen: _v1,
+          onClose: () => _v2(!1),
           translations: _v3
         })]
-      }), (0, _v1.jsx)(_v146, {
-        isOpen: _v1,
-        onClose: () => _v2(!1),
-        translations: _v3
-      })]
-    });
-  };
-  var _v162 = _v0.i(0),
-    _v163 = _v0.i(0),
-    _v164 = _v0.i(0);
+      });
+    };
+  var _v197 = _v0.i(0),
+    _v198 = _v0.i(0),
+    _v199 = _v0.i(0);
   _v0.s(["AccountDictionaryRoute", 0, ({
     ownerUserId: _v0
   }) => {
     let {
       settings: _v1,
       isLoadingResponse: _v2
-    } = (0, _v163.useOrionSettings)();
-    return _v2 ? (0, _v1.jsx)(_v44.Spinner, {}) : _v1.enable_account_wide_dictionary_management ? (0, _v1.jsx)(_v161, {
+    } = (0, _v198.useOrionSettings)();
+    return _v2 ? (0, _v1.jsx)(_v45.Spinner, {}) : _v1.enable_account_wide_dictionary_management ? (0, _v1.jsx)(_v196, {
       ownerUserId: _v0
-    }) : (0, _v1.jsx)(_v164.ErrorPage, {
-      error: new _v162.ResourceNotFoundError()
+    }) : (0, _v1.jsx)(_v199.ErrorPage, {
+      error: new _v197.ResourceNotFoundError()
     });
   }], 0);
 }

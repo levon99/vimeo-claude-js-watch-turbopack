@@ -954,7 +954,7 @@
             singular: "Rôle"
           },
           "ja-JP": {
-            singular: "役割"
+            singular: "肩書き"
           },
           "ko-KR": {
             singular: "역할"
@@ -963,7 +963,7 @@
             singular: "Função"
           },
           "zh-CN": {
-            singular: "角色"
+            singular: "职位"
           }
         }
       }),

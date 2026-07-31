@@ -131,17 +131,17 @@
       if (_v0.content) {
         let _v0 = (_v0 => {
           if (0 === _v0.length) return _v0;
-          for (; "hardBreak" === _v0[0].type;) _v0.shift();
-          return "text" === _v0[0].type && (_v0[0].text = _v0[0].text.trimStart(), _v0[0].text || _v0.shift()), _v0;
+          for (; _v0.length > 0 && "hardBreak" === _v0[0].type;) _v0.shift();
+          return _v0.length > 0 && "text" === _v0[0].type && (_v0[0].text = _v0[0].text.trimStart(), _v0[0].text || _v0.shift()), _v0;
         })(_v0.content);
         _v1.content[0].content = _v0;
       }
       if (_v1.content) {
         let _v0 = (_v0 => {
           if (0 === _v0.length) return _v0;
-          for (; "hardBreak" === _v0[_v0.length - 1].type;) _v0.pop();
+          for (; _v0.length > 0 && "hardBreak" === _v0[_v0.length - 1].type;) _v0.pop();
           let _v1 = _v0.length - 1;
-          return _v0.length > 0 && "text" === _v0[_v1].type && (_v0[_v1].text = _v0[_v1].text.trimEnd(), _v0[_v1].text || ("mention" === _v0[_v1 - 1].type ? _v0[_v1].text += " " : _v0.pop())), _v0;
+          return _v0.length > 0 && "text" === _v0[_v1].type && (_v0[_v1].text = _v0[_v1].text.trimEnd(), _v0[_v1].text || (_v0[_v1 - 1]?.type === "mention" ? _v0[_v1].text += " " : _v0.pop())), _v0;
         })(_v1.content);
         _v1.content[_v2.length - 1].content = _v0;
       }
