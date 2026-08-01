@@ -1,5 +1,0 @@
-{
-  "use strict";
-
-  _v0.s(["FAILED_TO_CREATE_ELEMENT_FROM_LOGO", 0, "failed_to_create_element_from_logo", "FAILED_TO_GENERATE_OVERLAY_THUMBNAIL", 0, "failed_to_generate_overlay_thumbnail", "FAILED_TO_LOAD", 0, "failed_to_load", "FAILED_TO_SAVE", 0, "failed_to_save", "FAILED_TO_UPLOAD_MEDIA", 0, "failed_to_upload_media", "FAILED_TO_UPLOAD_MUSIC", 0, "failed_to_upload_music", "INTERACTIVE_ELEMENT_MISSING_OVERLAY", 0, "interactive_element_missing_overlay", "INVALID_COMPOSITION_TIMING", 0, "invalid_composition_timing", "INVALID_RECT", 0, "invalid_rect", "INVALID_SOUND_EFFECTS_TIMING", 0, "invalid_sound_effects_timing", "MISSING_COMPOSITION_TIMING", 0, "missing_composition_timing", "MISSING_DATA_URL", 0, "missing_data_url", "MISSING_LOCAL_URL", 0, "missing_local_url", "MISSING_SELECTED_ELEMENT", 0, "missing_selected_element", "MISSING_SOURCE", 0, "missing_source", "OVERLAY_ELEMENT_MISSING_OVERLAY", 0, "overlay_element_missing_overlay", "OVERLAY_MISSING_LINKED_ELEMENT", 0, "overlay_no_linked_element", "STALE_CREDITS", 0, "stale_credits", "TOO_SHORT_COMPOSITION_TIMING", 0, "too_short_composition_timing", "UNAUTHORIZED", 0, "unauthorized"]);
-}

@@ -1,5 +1,0 @@
-{
-  "use strict";
-
-  _v0.s(["API_ACCEPT_HEADER", 0, "application/vnd.vimeo.*+json;version=3.4.10", "COMMENTS_PANEL_WIDTH", 0, 360, "DEFAULT_ASPECT_RATIO", 0, 16 / 9, "DEFAULT_VERSION_NUMBER", 0, 1, "FILE_SIZE_DECIMAL_PLACES", 0, 1, "MAX_REVIEW_LINKS", 0, 50, "MIN_WIDTH_FOR_SEQUENCE_NUMBER", 0, 30, "REVIEW_LINK_MAX_HEIGHT_FOR_DEKSTOP", 0, 522, "REVIEW_LINK_MAX_HEIGHT_FOR_MOBILE", 0, 400, "SEQUENCE_NUMBER_WIDTH_FOR_EACH_DIGIT", 0, 10, "TARGET_API_VERSION", 0, "3.4.12", "TIME_INTERVAL_MINUTES", 0, 30, "TIME_SEARCH_REGEX", 0, /(1[0-2]|0?[1-9])?:?([0-5][0-9]?)?([aApP][mM])?/, "VERSION_PAGE_HEADER_HEIGHT", 0, 64, "VIDEO_VERSION_FIELDS", 0, ["active", "app.uri", "configUrl", "canRestoreCreate", "createdTime", "downloadConfig", "duration", "editSession", "filename", "filesize", "uploadDate", "uri", "user.name", "versionType", "pictures.baseLink", "pictures.sizes", "isDeleted", "sequenceNumber", "versionTranscodeStatus"]]);
-}
