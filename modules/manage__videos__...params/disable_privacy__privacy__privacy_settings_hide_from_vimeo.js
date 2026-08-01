@@ -1201,9 +1201,11 @@
         data: _v7
       } = (0, _v27.useGetVideoSharingData)(),
       _v8 = _v7?.user?.uri ? (0, _v28.idFromUri)(_v7.user.uri) : null,
+      _v9 = (0, _v4.useViewer)(),
+      _v10 = !!_v9?.user?.uri && _v9.user.uri === _v7?.user?.uri,
       {
-        data: _v9,
-        isLoading: _v10
+        data: _v11,
+        isLoading: _v12
       } = (0, _v24.useGetUser)(() => _v1 && _v8 ? {
         where: {
           userId: _v8
@@ -1213,38 +1215,48 @@
           Accept: "application/vnd.vimeo.*+json;version=3.4.1"
         }
       } : null),
-      _v11 = _v9?.preferences?.videos?.sharingLinkDefaultExpiryDays ?? _v29.DEFAULT_EXPIRY_DAYS,
-      [_v12, {
-        data: _v13,
-        loading: _v14,
-        error: _v15
-      }] = (0, _v25.usePostVideoSharingLink)(),
-      [_v16, {
+      {
+        intervalDays: _v13,
+        hasExpiration: _v14
+      } = (0, _v29.resolveDefaultExpiry)({
+        prefDays: _v11?.preferences?.videos?.sharingLinkDefaultExpiryDays ?? null,
+        orionDays: _v0?.bi_expiring_links_default_expiry_days ?? 0
+      }),
+      [_v15, {
+        data: _v16,
         loading: _v17,
         error: _v18
+      }] = (0, _v25.usePostVideoSharingLink)(),
+      [_v19, {
+        loading: _v20,
+        error: _v21
       }] = (0, _v25.usePatchVideoSharingLink)(),
-      [_v19, _v20] = (0, _v9.useState)(null);
+      [_v22, _v23] = (0, _v9.useState)(null);
     (0, _v9.useEffect)(() => {
-      _v13?.url && _v20(_v13);
-    }, [_v13]), (0, _v9.useEffect)(() => {
-      _v20(null);
+      _v16?.url && _v23(_v16);
+    }, [_v16]), (0, _v9.useEffect)(() => {
+      _v23(null);
     }, [_v2]);
-    let _v21 = (0, _v9.useRef)(_v4);
-    _v21.current = _v4;
-    let _v22 = (0, _v9.useCallback)((_v0, _v1) => {
+    let _v24 = (0, _v9.useRef)(_v4);
+    _v24.current = _v4;
+    let _v25 = (0, _v9.useCallback)((_v0 = {}) => {
         if (!_v2) return;
-        let _v2 = _v21.current;
-        if (_v2?.url && !(_v2?.expiresOn && !1 !== _v2.hasExpiration && new Date(_v2.expiresOn).getTime() < Date.now())) return;
-        let _v3 = {};
-        _v0 && (_v3.expiresOn = _v0), void 0 !== _v1 && (_v3.intervalDays = _v1), _v12({
+        let _v1 = _v24.current;
+        if (_v1?.url && !(_v1?.expiresOn && !1 !== _v1.hasExpiration && new Date(_v1.expiresOn).getTime() < Date.now())) return;
+        let {
+            intervalDays: _v2,
+            intervalDaysFallback: _v3
+          } = _v0,
+          _v4 = {};
+        void 0 !== _v2 && (_v4.intervalDays = _v2), void 0 === _v2 && void 0 !== _v3 && (_v4.intervalDaysFallback = _v3), _v15({
           where: {
             videoId: Number(_v2)
           },
           select: [..._v30],
-          variables: _v3
+          variables: _v4
         });
-      }, [_v2, _v12]),
-      _v23 = (0, _v9.useCallback)((_v0, _v1, _v2) => {
+      }, [_v2, _v15]),
+      _v26 = (0, _v9.useCallback)((_v0, _v1, _v2) => {
         _v5(_v0 => _v0 ? {
           ..._v0,
           expiresOn: _v0,
@@ -1254,8 +1266,8 @@
           revalidate: !1
         });
       }, [_v5]),
-      _v24 = (0, _v9.useCallback)(async (_v0, _v1, _v2) => {
-        _v2 && (await _v16({
+      _v27 = (0, _v9.useCallback)(async (_v0, _v1, _v2) => {
+        _v2 && (await _v19({
           where: {
             videoId: Number(_v2)
           },
@@ -1266,9 +1278,9 @@
             hasExpiration: _v2
           }
         }));
-      }, [_v2, _v16]),
-      _v25 = (0, _v9.useCallback)(async _v0 => {
-        _v2 && (await _v16({
+      }, [_v2, _v19]),
+      _v28 = (0, _v9.useCallback)(async _v0 => {
+        _v2 && (await _v19({
           where: {
             videoId: Number(_v2)
           },
@@ -1277,23 +1289,25 @@
             hasExpiration: _v0
           }
         }));
-      }, [_v2, _v16]),
-      _v26 = _v1 && (_v6 || _v10);
+      }, [_v2, _v19]),
+      _v29 = _v1 && (_v6 || _v12);
     return {
       isEnabled: _v1,
       sharingLink: _v4,
-      createdLink: _v19,
-      defaultExpiryDays: _v11,
+      createdLink: _v22,
+      isOwner: _v10,
+      defaultExpiryDays: _v13,
+      defaultHasExpiration: _v14,
       isLoading: _v6,
-      isPatchLoading: _v17,
-      isCreateLoading: _v14,
-      isInitialLoading: _v26,
-      patchError: _v18,
-      createError: _v15,
-      getOrCreateLink: _v22,
-      setOptimisticUpdate: _v23,
-      saveInterval: _v24,
-      saveHasExpiration: _v25
+      isPatchLoading: _v20,
+      isCreateLoading: _v17,
+      isInitialLoading: _v29,
+      patchError: _v21,
+      createError: _v18,
+      getOrCreateLink: _v25,
+      setOptimisticUpdate: _v26,
+      saveInterval: _v27,
+      saveHasExpiration: _v28
     };
   }], 0);
   var _v31 = _v0.i(0);

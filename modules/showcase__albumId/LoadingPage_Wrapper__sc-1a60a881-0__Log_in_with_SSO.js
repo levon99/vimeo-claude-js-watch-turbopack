@@ -9389,22 +9389,23 @@
         position: _v3
       });
     };
-  var _v500 = _v0.i(0);
-  let _v501 = _v14.default.div.withConfig({
+  var _v500 = _v0.i(0),
+    _v501 = _v0.i(0);
+  let _v502 = _v14.default.div.withConfig({
       displayName: "ErrorPage__Container",
       componentId: "sc-5dea97be-0"
     })`
   margin-top: ${(0, _v13.rem)(40)};
   text-align: center;
 `,
-    _v502 = _v14.default.h1.withConfig({
+    _v503 = _v14.default.h1.withConfig({
       displayName: "ErrorPage__Title",
       componentId: "sc-5dea97be-1"
     })`
   margin-top: 0;
   margin-bottom: ${(0, _v13.rem)(10)};
 `,
-    _v503 = _v14.default.div.withConfig({
+    _v504 = _v14.default.div.withConfig({
       displayName: "ErrorPage__Content",
       componentId: "sc-5dea97be-2"
     })`
@@ -9412,25 +9413,26 @@
   max-width: ${(0, _v13.rem)(660)};
   padding: 0 ${(0, _v13.rem)(15)} ${(0, _v13.rem)(10)};
 `,
-    _v504 = _v14.default.div.withConfig({
+    _v505 = _v14.default.div.withConfig({
       displayName: "ErrorPage__Message",
       componentId: "sc-5dea97be-3"
     })`
   margin-bottom: ${(0, _v13.rem)(30)};
 `,
-    _v505 = ({
+    _v506 = ({
       title: _v0,
-      message: _v1
-    }) => (0, _v6.jsxs)(_v501, {
-      children: [(0, _v6.jsx)(_v502, {
+      message: _v1,
+      afterMessage: _v2
+    }) => (0, _v6.jsxs)(_v502, {
+      children: [(0, _v6.jsx)(_v503, {
         children: _v0
-      }), (0, _v6.jsx)(_v503, {
-        children: (0, _v6.jsx)(_v504, {
+      }), (0, _v6.jsxs)(_v504, {
+        children: [(0, _v6.jsx)(_v505, {
           children: _v1
-        })
+        }), _v2]
       })]
     });
-  function _v506({
+  function _v507({
     error: _v0
   }) {
     let {
@@ -9468,7 +9470,7 @@
           window.DD_RUM.addError(_v0, {
             component: "TechnicalDifficulties"
           });
-        }), (0, _v6.jsx)(_v505, {
+        }), (0, _v6.jsx)(_v506, {
           title: (0, _v30.translate)({
             singular: "Technical Difficulties",
             dictionary: {
@@ -9523,7 +9525,7 @@
           })
         });
       case _v18.RateLimitError:
-        return (0, _v6.jsx)(_v505, {
+        return (0, _v6.jsx)(_v506, {
           title: (0, _v30.translate)({
             singular: "Whoa there!",
             dictionary: {
@@ -9578,7 +9580,7 @@
           })
         });
       case _v18.ResourceNotFoundError:
-        return (0, _v6.jsx)(_v505, {
+        return (0, _v6.jsx)(_v506, {
           title: (0, _v30.translate)({
             singular: "Sorry, we couldn’t find that page",
             dictionary: {
@@ -9630,10 +9632,14 @@
                 singular: "请确保您输入的 URL 正确无误，或尝试搜索 Vimeo。"
               }
             }
+          }),
+          afterMessage: (0, _v6.jsx)(_v501.PageNotFoundHelpButton, {
+            errorPageType: "showcase",
+            ..._v2
           })
         });
       case _v18.ForbiddenError:
-        return (0, _v6.jsx)(_v505, {
+        return (0, _v6.jsx)(_v506, {
           title: (0, _v30.translate)({
             singular: "Permission Denied",
             dictionary: {
@@ -9688,7 +9694,7 @@
           })
         });
       case _v18.UnauthorizedError:
-        return (0, _v6.jsx)(_v505, {
+        return (0, _v6.jsx)(_v506, {
           title: (0, _v30.translate)({
             singular: "Unauthorized",
             dictionary: {
@@ -9743,7 +9749,7 @@
           })
         });
       case _v161:
-        return (0, _v6.jsx)(_v505, {
+        return (0, _v6.jsx)(_v506, {
           title: (0, _v30.translate)({
             singular: "Sorry, there was an error",
             dictionary: {
@@ -9799,10 +9805,10 @@
         });
     }
   }
-  let _v507 = "theme__dark",
-    _v508 = new _v101.BasicCache(),
-    _v509 = "vimeo_sso_auth",
-    _v510 = function ({
+  let _v508 = "theme__dark",
+    _v509 = new _v101.BasicCache(),
+    _v510 = "vimeo_sso_auth",
+    _v511 = function ({
       albumId: _v0,
       albumHash: _v1,
       handleError: _v2,
@@ -9874,7 +9880,7 @@
         _v28 = _v16 && _v16.items,
         _v29 = (0, _v8.useMemo)(() => !!_v28 && _v28.some(_v0 => _v0.contentRatingClass === _v145.MATURE || _v0.contentRatingClass === _v145.UNRATED), [_v28]);
       if ((0, _v8.useMemo)(() => {
-        "1" === _v100.default.get(_v509) && _v7 && (_v100.default.remove(_v509, {
+        "1" === _v100.default.get(_v510) && _v7 && (_v100.default.remove(_v510, {
           path: "/",
           domain: document.domain
         }), _v12.FatalAttraction.trackImpression({
@@ -9886,7 +9892,7 @@
           component: "team_home_page",
           keyword: "layout_" + _v11
         }));
-      }, [_v7]), _v17) return (0, _v6.jsx)(_v506, {
+      }, [_v7]), _v17) return (0, _v6.jsx)(_v507, {
         error: new _v161()
       });
       if (!_v16 || !_v28 || !_v26 || !_v24) return _v16 && 0 === _v16.errorCode && (window.location.hostname === _v4.domain ? location.assign("/") : location.assign(`/showcase/${_v0}`)), (0, _v6.jsx)(_v17, {});
@@ -9908,11 +9914,11 @@
           allowContinuousPlay: _v38,
           theme: _v39
         } = _v4;
-      (_v8 = document.querySelector(".footer_v2")) && ("dark" === _v39 ? _v8.classList.add(_v507) : _v8.classList.remove(_v507));
+      (_v8 = document.querySelector(".footer_v2")) && ("dark" === _v39 ? _v8.classList.add(_v508) : _v8.classList.remove(_v508));
       let _v40 = !_v16 || !_v16.total || 0 === _v16.total || 0 === _v28.length,
         _v41 = _v22 && !_v13?.isShowcaseEmbeded;
       return (0, _v6.jsx)(_v101.RestfulProvider, {
-        cache: _v508,
+        cache: _v509,
         children: _v32 && _v29 && !_v21 ? (0, _v6.jsx)(_v235, {
           albumId: _v0,
           xsrft: _v31
@@ -10051,8 +10057,8 @@
         })
       });
     };
-  var _v511 = _v8;
-  class _v512 extends _v511.Component {
+  var _v512 = _v8;
+  class _v513 extends _v512.Component {
     constructor(_v0) {
       super(_v0), this.state = {
         handleError: this.handleError
@@ -10088,8 +10094,8 @@
       if (_v0 && _v1) return `${_v1}: ${_v0}`;
     };
   }
-  let _v513 = {};
-  function _v514({
+  let _v514 = {};
+  function _v515({
     id: _v0,
     albumHash: _v1,
     viewer: _v2,
@@ -10161,7 +10167,7 @@
       _v24 = "standard" === _v17 ? "light" : "dark";
     return (0, _v6.jsx)(_v99.Provider, {
       value: _v11,
-      children: (0, _v6.jsx)(_v512, {
+      children: (0, _v6.jsx)(_v513, {
         children: ({
           handleError: _v0
         }) => (0, _v6.jsx)(_v14.ThemeProvider, {
@@ -10176,7 +10182,7 @@
               layout: _v18,
               theme: _v17,
               webBrandColor: _v19,
-              children: _v6 === _v513 ? (0, _v6.jsx)(_v17, {}) : (0, _v6.jsx)(_v510, {
+              children: _v6 === _v514 ? (0, _v6.jsx)(_v17, {}) : (0, _v6.jsx)(_v511, {
                 albumId: _v0,
                 albumHash: _v1,
                 handleError: _v0,
@@ -10191,15 +10197,15 @@
       })
     });
   }
-  let _v515 = ({
+  let _v516 = ({
       brandColor: _v0,
       customLogo: _v1,
       name: _v2,
       theme: _v3
-    }) => (0, _v6.jsxs)(_v516, {
+    }) => (0, _v6.jsxs)(_v517, {
       brandColor: _v0,
       theme: _v3,
-      children: [null !== _v1 && (0, _v6.jsx)(_v517, {
+      children: [null !== _v1 && (0, _v6.jsx)(_v518, {
         src: _v1,
         alt: _v2
       }), (0, _v6.jsx)(_v42.Header, {
@@ -10258,7 +10264,7 @@
             }
           }
         })
-      }), (0, _v6.jsx)(_v518, {
+      }), (0, _v6.jsx)(_v519, {
         brandColor: _v0,
         onClick: () => location.reload(),
         children: (0, _v30.translate)({
@@ -10289,7 +10295,7 @@
         })
       })]
     }),
-    _v516 = _v14.default.div.withConfig({
+    _v517 = _v14.default.div.withConfig({
       displayName: "UserNotAllowed__Wrapper",
       componentId: "sc-b544cb3f-0"
     })`
@@ -10309,14 +10315,14 @@
     color: ${_v0 => (0, _v13.darken)(.1, _v0.brandColor)};
   }
 `,
-    _v517 = _v14.default.img.withConfig({
+    _v518 = _v14.default.img.withConfig({
       displayName: "UserNotAllowed__CustomLogoImg",
       componentId: "sc-b544cb3f-1"
     })`
   width: ${(0, _v13.rem)(185)};
   margin-bottom: ${(0, _v13.rem)(25)};
 `,
-    _v518 = (0, _v14.default)(_v39.Button).withConfig({
+    _v519 = (0, _v14.default)(_v39.Button).withConfig({
       displayName: "UserNotAllowed__TryAgainButton",
       componentId: "sc-b544cb3f-2"
     })`
@@ -10331,8 +10337,8 @@
   }
 `;
   _v12.GoogleTagManager.init(window._gtm || []);
-  var _v519 = ((_v2 = _v519 || {})[_v2.passwordPrivacy = 0] = "passwordPrivacy", _v2[_v2.incorrectPassword = 1] = "incorrectPassword", _v2[_v2.teamPrivacy = 2] = "teamPrivacy", _v2[_v2.teamPrivacyLoggedInUser = 3] = "teamPrivacyLoggedInUser", _v2[_v2.embedOnly = 4] = "embedOnly", _v2[_v2.unknownReason = 5] = "unknownReason", _v2[_v2.unlisted = 6] = "unlisted", _v2[_v2.showcaseNotFound = 7] = "showcaseNotFound", _v2);
-  let _v520 = function ({
+  var _v520 = ((_v2 = _v520 || {})[_v2.passwordPrivacy = 0] = "passwordPrivacy", _v2[_v2.incorrectPassword = 1] = "incorrectPassword", _v2[_v2.teamPrivacy = 2] = "teamPrivacy", _v2[_v2.teamPrivacyLoggedInUser = 3] = "teamPrivacyLoggedInUser", _v2[_v2.embedOnly = 4] = "embedOnly", _v2[_v2.unknownReason = 5] = "unknownReason", _v2[_v2.unlisted = 6] = "unlisted", _v2[_v2.showcaseNotFound = 7] = "showcaseNotFound", _v2);
+  let _v521 = function ({
     viewer: _v0,
     match: _v1,
     location: _v2,
@@ -10463,7 +10469,7 @@
           ssoConnectionsCount: _v10.sso_connections_count
         });
       case 3:
-        return (0, _v6.jsx)(_v515, {
+        return (0, _v6.jsx)(_v516, {
           name: _v10.name,
           brandColor: _v149(_v10.brand_color),
           customLogo: _v10.custom_logo,
@@ -10474,7 +10480,7 @@
       default:
         return (0, _v6.jsx)(_v37, {});
     }
-    return (0, _v6.jsx)(_v514, {
+    return (0, _v6.jsx)(_v515, {
       viewer: _v0,
       match: _v1,
       location: _v2,
@@ -10484,14 +10490,14 @@
       albumHash: _v13
     });
   };
-  var _v521 = _v0.i(0),
-    _v522 = _v0.i(0),
+  var _v522 = _v0.i(0),
     _v523 = _v0.i(0),
     _v524 = _v0.i(0),
     _v525 = _v0.i(0),
     _v526 = _v0.i(0),
-    _v527 = _v0.i(0);
-  function _v528({
+    _v527 = _v0.i(0),
+    _v528 = _v0.i(0);
+  function _v529({
     match: _v0,
     history: _v1,
     ssrData: _v2,
@@ -10517,15 +10523,15 @@
       } = (0, _v7.useRouter)().query;
     if ((0, _v10.useEnterpriseSiteRedirect)(_v5?.teamUser?.enterpriseSiteDomain), null !== _v5 && null !== _v6 && _v7) {
       if (Array.isArray(_v7)) throw Error("Invalid query params");else if (_v6) {
-        let _v0 = (0, _v6.jsx)(_v521.ViewerShowcasesAuthorization, {
+        let _v0 = (0, _v6.jsx)(_v522.ViewerShowcasesAuthorization, {
           albumIdOrUrl: _v7,
           renderDocumentTitle: !1
         });
-        _v4 = _v2 ? (0, _v6.jsx)(_v522.ShowcaseSSRContext.Provider, {
+        _v4 = _v2 ? (0, _v6.jsx)(_v523.ShowcaseSSRContext.Provider, {
           value: _v2,
           children: _v0
         }) : _v0;
-      } else _v4 = (0, _v6.jsx)(_v520, {
+      } else _v4 = (0, _v6.jsx)(_v521, {
         viewer: _v5,
         match: _v0,
         history: _v1,
@@ -10533,7 +10539,7 @@
       });
     } else _v4 = (0, _v6.jsx)("div", {});
     return (0, _v6.jsxs)(_v6.Fragment, {
-      children: [(0, _v6.jsx)(_v523.ShowcaseHead, {
+      children: [(0, _v6.jsx)(_v524.ShowcaseHead, {
         authData: _v2?.authData,
         albumData: _v2?.albumData,
         showcaseMetadata: _v3,
@@ -10551,7 +10557,7 @@
     };
     let _v3 = _v0.vimeoConfig.get("vimeo_url"),
       _v4 = _v0.req.headers.cookie || "",
-      _v5 = (0, _v527.fetchShowcaseMetadata)(_v3, _v1),
+      _v5 = (0, _v528.fetchShowcaseMetadata)(_v3, _v1),
       _v6 = Array.isArray(_v0.query.sh) ? _v0.query.sh[0] : _v0.query.sh,
       _v7 = _v6 ? `?sh=${encodeURIComponent(_v6)}` : "",
       _v8 = `https://${_v3}/showcase/${encodeURIComponent(_v1)}/auth${_v7}`,
@@ -10566,7 +10572,7 @@
         redirect: "manual"
       });
       if (_v0.status < 300 || _v0.status >= 400) {
-        let _v0 = await (0, _v525.parseShowcaseAuthResponse)(_v0);
+        let _v0 = await (0, _v526.parseShowcaseAuthResponse)(_v0);
         if (404 !== _v0.status && _v0.data) if (_v0.ok) {
           _v9.authData = _v0.data;
           let _v0 = _v0.data.metadata?.id;
@@ -10577,7 +10583,7 @@
                 where: {
                   albumId: _v0
                 },
-                select: [..._v524.SHOWCASE_ALBUM_FIELDS],
+                select: [..._v525.SHOWCASE_ALBUM_FIELDS],
                 query: {
                   isEmbed: !1
                 },
@@ -10611,8 +10617,8 @@
   }, {
     inlineViewer: "all",
     inlinePlayerAssets: !0
-  }), _v528.getLayout = _v0 => (0, _v6.jsx)(_v526.ReactRouterLayout, {
+  }), _v529.getLayout = _v0 => (0, _v6.jsx)(_v527.ReactRouterLayout, {
     path: "/showcase/:albumId",
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v528], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v529], 0);
 }

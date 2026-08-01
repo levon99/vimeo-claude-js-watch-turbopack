@@ -182,29 +182,27 @@
       teamMemberCount: _v9 = 1,
       storageQuotaLabel: _v10,
       videoTitle: _v11,
-      dismissible: _v12 = !0,
-      returnUrl: _v13,
-      phase: _v14 = "grace"
+      returnUrl: _v12,
+      phase: _v13 = "grace"
     }) => {
-      let _v15 = (0, _v2.useRef)(!1),
-        _v16 = "suspended" === _v14,
-        _v17 = (0, _v20.buildGracePeriodCheckoutHref)({
-          routeThroughDunning: !0,
-          returnUrl: _v13
+      let _v14 = (0, _v2.useRef)(!1),
+        _v15 = "suspended" === _v13,
+        _v16 = (0, _v20.buildGracePeriodCheckoutHref)({
+          returnUrl: _v12
         });
       (0, _v2.useEffect)(() => {
-        _v2 && !_v15.current && _v1.trackModalDisplayed({
+        _v2 && !_v14.current && _v1.trackModalDisplayed({
           variant: "admin",
           daysRemaining: _v4
-        }), _v15.current = _v2;
+        }), _v14.current = _v2;
       }, [_v1, _v4, _v2]);
-      let _v18 = (0, _v2.useCallback)(() => {
+      let _v17 = (0, _v2.useCallback)(() => {
           _v1.trackModalDismissed({
             variant: "admin",
             daysRemaining: _v4
           }), _v3();
         }, [_v1, _v4, _v3]),
-        _v19 = (0, _v2.useCallback)(() => {
+        _v18 = (0, _v2.useCallback)(() => {
           _v1.trackModalCtaClicked({
             variant: "admin",
             daysRemaining: _v4
@@ -212,7 +210,7 @@
         }, [_v1, _v4]);
       return _v2 ? (0, _v1.jsxs)(_v26.Modal, {
         isOpen: !0,
-        onClose: _v18,
+        onClose: _v17,
         closeOnEsc: !1,
         closeOnOverlayClick: !1,
         size: ["full", "md"],
@@ -265,7 +263,7 @@
               flex: "1",
               children: [(0, _v1.jsx)(_v32.Text, {
                 variant: "heading-md",
-                children: _v16 ? (0, _v41.translate)({
+                children: _v15 ? (0, _v41.translate)({
                   singular: "Some of your videos may be restricted",
                   dictionary: {
                     es: {
@@ -347,7 +345,7 @@
                   }
                 })
               })]
-            }), _v12 && (0, _v1.jsx)(_v28.ModalCloseButton, {
+            }), (0, _v1.jsx)(_v28.ModalCloseButton, {
               position: "static"
             })]
           }), (0, _v1.jsx)(_v27.ModalBody, {
@@ -359,7 +357,7 @@
             children: (0, _v1.jsxs)(_v33.VStack, {
               gap: "24px",
               align: "stretch",
-              children: [_v16 ? (0, _v1.jsxs)(_v1.Fragment, {
+              children: [_v15 ? (0, _v1.jsxs)(_v1.Fragment, {
                 children: [(0, _v1.jsxs)(_v25.HStack, {
                   gap: "10px",
                   px: "16px",
@@ -1072,12 +1070,12 @@
             flexShrink: 0,
             children: (0, _v1.jsx)(_v22.Button, {
               as: "a",
-              href: _v17,
+              href: _v16,
               variant: "primary",
               size: "md",
               width: "100%",
-              onClick: _v19,
-              children: _v16 ? (0, _v41.translate)({
+              onClick: _v18,
+              children: _v15 ? (0, _v41.translate)({
                 singular: "Update payment method",
                 dictionary: {
                   es: {
@@ -1139,28 +1137,26 @@
       variant: _v1,
       playerWidth: _v2,
       onMemberLearnMore: _v3,
-      routeThroughDunning: _v4 = !1,
-      returnUrl: _v5
+      returnUrl: _v4
     }) => {
-      let _v6 = "admin" === _v1,
-        _v7 = (0, _v2.useRef)(!1),
-        _v8 = (0, _v20.buildGracePeriodCheckoutHref)({
-          routeThroughDunning: _v4,
-          returnUrl: _v5
+      let _v5 = "admin" === _v1,
+        _v6 = (0, _v2.useRef)(!1),
+        _v7 = (0, _v20.buildGracePeriodCheckoutHref)({
+          returnUrl: _v4
         });
       (0, _v2.useEffect)(() => {
-        _v7.current || (_v0.trackBannerDisplayed({
+        _v6.current || (_v0.trackBannerDisplayed({
           variant: _v1,
           daysRemaining: 0
-        }), _v7.current = !0);
+        }), _v6.current = !0);
       }, [_v0, _v1]);
-      let _v9 = (0, _v2.useCallback)(() => {
+      let _v8 = (0, _v2.useCallback)(() => {
           _v0.trackBannerCtaClicked({
             variant: _v1,
             daysRemaining: 0
           });
         }, [_v0, _v1]),
-        _v10 = (0, _v2.useCallback)(() => {
+        _v9 = (0, _v2.useCallback)(() => {
           _v0.trackBannerCtaClicked({
             variant: _v1,
             daysRemaining: 0
@@ -1190,7 +1186,7 @@
           }), (0, _v1.jsx)(_v32.Text, {
             variant: "heading-xs",
             color: "text-primary",
-            children: _v6 ? (0, _v41.translate)({
+            children: _v5 ? (0, _v41.translate)({
               singular: "We have not been able to process your payment, so your videos over the Free plan limits will be restricted or set to private.",
               dictionary: {
                 es: {
@@ -1242,14 +1238,14 @@
               }
             })
           })]
-        }), _v6 ? (0, _v1.jsx)(_v22.Button, {
+        }), _v5 ? (0, _v1.jsx)(_v22.Button, {
           as: "a",
-          href: _v8,
+          href: _v7,
           size: "sm",
           variant: "primary",
           width: ["100%", "auto"],
           flexShrink: 0,
-          onClick: _v9,
+          onClick: _v8,
           children: (0, _v41.translate)({
             singular: "Update payment method",
             dictionary: {
@@ -1281,7 +1277,7 @@
           variant: "primary",
           width: ["100%", "auto"],
           flexShrink: 0,
-          onClick: _v10,
+          onClick: _v9,
           children: (0, _v41.translate)({
             singular: "Learn more",
             dictionary: {
@@ -1316,28 +1312,26 @@
       daysRemaining: _v1,
       variant: _v2,
       onAction: _v3,
-      routeThroughDunning: _v4 = !1,
-      returnUrl: _v5
+      returnUrl: _v4
     }) => {
-      let _v6 = "admin" === _v2,
-        _v7 = (0, _v20.buildGracePeriodCheckoutHref)({
-          routeThroughDunning: _v4,
-          returnUrl: _v5
+      let _v5 = "admin" === _v2,
+        _v6 = (0, _v20.buildGracePeriodCheckoutHref)({
+          returnUrl: _v4
         }),
-        _v8 = (0, _v2.useRef)(!1);
+        _v7 = (0, _v2.useRef)(!1);
       (0, _v2.useEffect)(() => {
-        _v8.current || (_v0.trackBannerDisplayed({
+        _v7.current || (_v0.trackBannerDisplayed({
           variant: _v2,
           daysRemaining: _v1
-        }), _v8.current = !0);
+        }), _v7.current = !0);
       }, [_v0, _v1, _v2]);
-      let _v9 = (0, _v2.useCallback)(() => {
+      let _v8 = (0, _v2.useCallback)(() => {
           _v0.trackBannerCtaClicked({
             variant: _v2,
             daysRemaining: _v1
           });
         }, [_v0, _v1, _v2]),
-        _v10 = (0, _v2.useCallback)(() => {
+        _v9 = (0, _v2.useCallback)(() => {
           _v0.trackBannerCtaClicked({
             variant: _v2,
             daysRemaining: _v1
@@ -1365,7 +1359,7 @@
             variant: "body-md",
             fontWeight: "500",
             color: "orange.700",
-            children: _v6 ? (0, _v41.translate)({
+            children: _v5 ? (0, _v41.translate)({
               singular: "Your payment failed — {DAYS} day left to update before your account is suspended",
               plural: "Your payment failed — {DAYS} days left to update before your account is suspended",
               count: _v1,
@@ -1441,14 +1435,14 @@
               }
             })
           })]
-        }), _v6 ? (0, _v1.jsx)(_v22.Button, {
+        }), _v5 ? (0, _v1.jsx)(_v22.Button, {
           as: "a",
-          href: _v7,
+          href: _v6,
           size: "sm",
           variant: "primary",
           width: ["100%", "auto"],
           flexShrink: 0,
-          onClick: _v9,
+          onClick: _v8,
           children: (0, _v41.translate)({
             singular: "Update payment method",
             dictionary: {
@@ -1480,7 +1474,7 @@
           variant: "primary",
           width: ["100%", "auto"],
           flexShrink: 0,
-          onClick: _v10,
+          onClick: _v9,
           children: (0, _v41.translate)({
             singular: "Learn more",
             dictionary: {
@@ -1516,17 +1510,16 @@
       isOpen: _v1,
       onClose: _v2,
       daysRemaining: _v3,
-      ownerName: _v4,
-      useHigherFrictionCopy: _v5 = !1
+      ownerName: _v4
     }) => {
-      let _v6 = (0, _v2.useRef)(!1);
+      let _v5 = (0, _v2.useRef)(!1);
       (0, _v2.useEffect)(() => {
-        _v1 && !_v6.current && _v0.trackModalDisplayed({
+        _v1 && !_v5.current && _v0.trackModalDisplayed({
           variant: "member",
           daysRemaining: _v3
-        }), _v6.current = _v1;
+        }), _v5.current = _v1;
       }, [_v0, _v3, _v1]);
-      let _v7 = (0, _v2.useCallback)(() => {
+      let _v6 = (0, _v2.useCallback)(() => {
         _v0.trackModalDismissed({
           variant: "member",
           daysRemaining: _v3
@@ -1534,7 +1527,7 @@
       }, [_v0, _v3, _v2]);
       return _v1 ? (0, _v1.jsxs)(_v26.Modal, {
         isOpen: !0,
-        onClose: _v7,
+        onClose: _v6,
         size: ["full", "md"],
         scrollBehavior: "outside",
         children: [(0, _v1.jsx)(_v31.ModalOverlay, {}), (0, _v1.jsxs)(_v29.ModalContent, {
@@ -1733,7 +1726,7 @@
                     children: (0, _v1.jsx)(_v32.Text, {
                       variant: "body-sm",
                       color: "text-tertiary",
-                      children: _v5 ? (0, _v41.translate)({
+                      children: (0, _v41.translate)({
                         singular: "If this isn't resolved within {DAYS} day, your team could lose access to videos, storage, and collaboration features. Please contact the account owner to solve the issue.",
                         plural: "If this isn't resolved within {DAYS} days, your team could lose access to videos, storage, and collaboration features. Please contact the account owner to solve the issue.",
                         count: _v3,
@@ -1770,43 +1763,6 @@
                             plural: "如果在 {DAYS} 天内未解决此问题，您的团队可能会失去对视频、存储和协作功能的访问权限。请联系帐户所有者以解决该问题。"
                           }
                         }
-                      }) : (0, _v41.translate)({
-                        singular: "If unresolved in {DAYS} day, your team may lose access to some videos. Please contact the account owner to solve the issue.",
-                        plural: "If unresolved in {DAYS} days, your team may lose access to some videos. Please contact the account owner to solve the issue.",
-                        count: _v3,
-                        replacements: {
-                          DAYS: _v3
-                        },
-                        dictionary: {
-                          es: {
-                            singular: "Si no se resuelve en {DAYS} día, es posible que su equipo pierda acceso a algunos videos. Por favor, póngase en contacto con el propietario de la cuenta para solucionar el problema.",
-                            plural: "Si no se resuelve en {DAYS} días, es posible que su equipo pierda acceso a algunos videos. Por favor, póngase en contacto con el propietario de la cuenta para solucionar el problema."
-                          },
-                          "de-DE": {
-                            singular: "Wenn das Problem nicht innerhalb von {DAYS} Tag gelöst wird, könnte Ihr Team den Zugriff auf einige Videos verlieren. Bitte kontaktieren Sie den Kontoinhaber, um das Problem zu beheben.",
-                            plural: "Wenn das Problem nicht innerhalb von {DAYS} Tagen gelöst wird, könnte Ihr Team den Zugriff auf einige Videos verlieren. Bitte kontaktieren Sie den Kontoinhaber, um das Problem zu beheben."
-                          },
-                          "fr-FR": {
-                            singular: "Si cela n'est pas résolu dans {DAYS} jour, votre équipe pourrait perdre l'accès à certaines vidéos. Veuillez contacter le propriétaire du compte pour résoudre le problème.",
-                            plural: "Si cela n'est pas résolu dans {DAYS} jours, votre équipe pourrait perdre l'accès à certaines vidéos. Veuillez contacter le propriétaire du compte pour résoudre le problème."
-                          },
-                          "ja-JP": {
-                            singular: "{DAYS}日以内に解決されない場合、チームは一部の動画へのアクセスを失う可能性があります。問題を解決するためにアカウント所有者に連絡してください。",
-                            plural: "{DAYS}日以内に解決されない場合、チームは一部の動画へのアクセスを失う可能性があります。問題を解決するためにアカウント所有者に連絡してください。"
-                          },
-                          "ko-KR": {
-                            singular: "{DAYS}일 이내에 해결되지 않으면, 팀이 일부 동영상에 대한 접근 권한을 잃을 수 있습니다. 문제를 해결하려면 계정 소유자에게 문의하세요.",
-                            plural: "{DAYS}일 이내에 해결되지 않으면, 팀이 일부 동영상에 대한 접근 권한을 잃을 수 있습니다. 문제를 해결하려면 계정 소유자에게 문의하세요."
-                          },
-                          "pt-BR": {
-                            singular: "Se não for resolvido em {DAYS} dia, sua equipe pode perder acesso a alguns vídeos. Por favor, entre em contato com o titular da conta para resolver o problema.",
-                            plural: "Se não for resolvido em {DAYS} dias, sua equipe pode perder acesso a alguns vídeos. Por favor, entre em contato com o titular da conta para resolver o problema."
-                          },
-                          "zh-CN": {
-                            singular: "如果在 {DAYS} 天内未解决，您的团队可能会失去对部分视频的访问权限。请联系账户所有者以解决该问题。",
-                            plural: "如果在 {DAYS} 天内未解决，您的团队可能会失去对部分视频的访问权限。请联系账户所有者以解决该问题。"
-                          }
-                        }
                       })
                     })
                   })]
@@ -1824,28 +1780,26 @@
       videoTitle: _v3,
       playerWidth: _v4,
       onMemberLearnMore: _v5,
-      routeThroughDunning: _v6 = !1,
-      returnUrl: _v7
+      returnUrl: _v6
     }) => {
-      let _v8 = "admin" === _v1,
-        _v9 = (0, _v20.buildGracePeriodCheckoutHref)({
-          routeThroughDunning: _v6,
-          returnUrl: _v7
+      let _v7 = "admin" === _v1,
+        _v8 = (0, _v20.buildGracePeriodCheckoutHref)({
+          returnUrl: _v6
         }),
-        _v10 = (0, _v2.useRef)(!1);
+        _v9 = (0, _v2.useRef)(!1);
       (0, _v2.useEffect)(() => {
-        _v10.current || (_v0.trackBannerDisplayed({
+        _v9.current || (_v0.trackBannerDisplayed({
           variant: _v1,
           daysRemaining: _v2
-        }), _v10.current = !0);
+        }), _v9.current = !0);
       }, [_v0, _v2, _v1]);
-      let _v11 = (0, _v2.useCallback)(() => {
+      let _v10 = (0, _v2.useCallback)(() => {
           _v0.trackBannerCtaClicked({
             variant: _v1,
             daysRemaining: _v2
           });
         }, [_v0, _v2, _v1]),
-        _v12 = (0, _v2.useCallback)(() => {
+        _v11 = (0, _v2.useCallback)(() => {
           _v0.trackBannerCtaClicked({
             variant: _v1,
             daysRemaining: _v2
@@ -1876,7 +1830,7 @@
             variant: "body-md",
             fontWeight: "500",
             color: "orange.700",
-            children: _v8 ? (0, _v41.translate)({
+            children: _v7 ? (0, _v41.translate)({
               singular: "Payment failed — “{TITLE}” goes offline in {DAYS} day. Update payment to keep it playing.",
               plural: "Payment failed — “{TITLE}” goes offline in {DAYS} days. Update payment to keep it playing.",
               count: _v2,
@@ -1953,14 +1907,14 @@
               }
             })
           })]
-        }), _v8 ? (0, _v1.jsx)(_v22.Button, {
+        }), _v7 ? (0, _v1.jsx)(_v22.Button, {
           as: "a",
-          href: _v9,
+          href: _v8,
           size: "sm",
           variant: "primary",
           width: ["100%", "auto"],
           flexShrink: 0,
-          onClick: _v11,
+          onClick: _v10,
           children: (0, _v41.translate)({
             singular: "Update payment",
             dictionary: {
@@ -1992,7 +1946,7 @@
           variant: "primary",
           width: ["100%", "auto"],
           flexShrink: 0,
-          onClick: _v12,
+          onClick: _v11,
           children: (0, _v41.translate)({
             singular: "Learn more",
             dictionary: {
@@ -2021,21 +1975,17 @@
           })
         })]
       });
-    },
-    _v52 = new Date("2026-06-20T00:00:00Z"),
-    _v53 = {
-      0: "control",
-      1: "higher_friction",
-      2: "suspension"
     };
-  var _v54 = _v0.i(0),
-    _v55 = _v0.i(0),
-    _v56 = _v0.i(0);
-  let _v57 = ["gracePeriodType", "isStorageEntitlementSuspended", "endDate", "originalEndDate", "seatCount", "totalPriceForDisplay", "paymentMethod", "paymentMethod.lastFour", "paymentMethod.textType", "paymentMethod.type"],
-    _v58 = ["gracePeriodType", "isStorageEntitlementSuspended", "endDate", "originalEndDate", "totalPriceForDisplay", "paymentMethod", "paymentMethod.lastFour", "paymentMethod.textType", "paymentMethod.type"];
+  var _v52 = _v0.i(0),
+    _v53 = _v0.i(0),
+    _v54 = _v0.i(0);
+  let _v55 = ["gracePeriodType", "isStorageEntitlementSuspended", "endDate", "originalEndDate", "seatCount", "totalPriceForDisplay", "paymentMethod", "paymentMethod.lastFour", "paymentMethod.textType", "paymentMethod.type"],
+    _v56 = ["gracePeriodType", "isStorageEntitlementSuspended", "endDate", "originalEndDate", "totalPriceForDisplay", "paymentMethod", "paymentMethod.lastFour", "paymentMethod.textType", "paymentMethod.type"];
   _v0.s(["useGracePeriodBillingUi", 0, function (_v0) {
-    var _v1, _v2, _v3;
-    let _v4,
+    var _v1;
+    let _v2,
+      _v3,
+      _v4,
       _v5,
       _v6,
       _v7,
@@ -2043,349 +1993,296 @@
       _v9,
       _v10,
       _v11,
-      _v12,
-      _v13,
-      _v14,
-      _v15,
-      _v16,
-      _v17,
-      _v18,
       {
-        orionFlag: _v19,
-        billingOwnerUserId: _v20,
-        layout: _v21
+        orionFlag: _v12,
+        billingOwnerUserId: _v13,
+        layout: _v14
       } = _v0,
       {
-        settings: _v22
+        settings: _v15
       } = (0, _v16.useOrionSettings)(),
-      _v23 = !!_v22[_v19],
-      _v24 = (0, _v19.useViewer)(),
-      _v25 = (0, _v3.getViewerBootstrap)(),
-      _v26 = _v24?.user?.id ?? _v25?.user?.id,
-      _v27 = _v24?.teamUser ?? _v25?.teamUser,
-      _v28 = _v24?.teamUser?.plainTextPermissionLevel ?? _v25?.teamUser?.plainTextPermissionLevel,
-      _v29 = _v24?.teamUser?.ownerId ?? _v25?.teamUser?.ownerId ?? _v26,
-      _v30 = null != _v20 ? _v20 : _v29,
-      _v31 = !!_v27 && (_v28 ? _v28 !== _v18.TeamUserPermissionLevel.Owner : null != _v30 && null != _v26 && _v30 !== _v26),
-      _v32 = "home" === _v21.type || "library" === _v21.type,
-      _v33 = "watch" !== _v21.type || null != _v20 && (_v24?.user?.id === _v20 || _v31 && Number(_v29) === _v20),
-      _v34 = _v23 && null != _v30 && _v33,
-      _v35 = (_v1 = (0, _v2.useMemo)(() => "home" === _v21.type || "library" === _v21.type ? {
+      _v16 = !!_v15[_v12],
+      _v17 = (0, _v19.useViewer)(),
+      _v18 = (0, _v3.getViewerBootstrap)(),
+      _v19 = _v17?.user?.id ?? _v18?.user?.id,
+      _v20 = _v17?.teamUser ?? _v18?.teamUser,
+      _v21 = _v17?.teamUser?.plainTextPermissionLevel ?? _v18?.teamUser?.plainTextPermissionLevel,
+      _v22 = _v17?.teamUser?.ownerId ?? _v18?.teamUser?.ownerId ?? _v19,
+      _v23 = null != _v13 ? _v13 : _v22,
+      _v24 = !!_v20 && (_v21 ? _v21 !== _v18.TeamUserPermissionLevel.Owner : null != _v23 && null != _v19 && _v23 !== _v19),
+      _v25 = "home" === _v14.type || "library" === _v14.type,
+      _v26 = "watch" !== _v14.type || null != _v13 && (_v17?.user?.id === _v13 || _v24 && Number(_v22) === _v13),
+      _v27 = _v16 && null != _v23 && _v26,
+      _v28 = (_v1 = (0, _v2.useMemo)(() => "home" === _v14.type || "library" === _v14.type ? {
         scope: "home"
       } : {
         scope: "video",
-        surface: "watch" === _v21.type ? "watch" : "manage"
-      }, [_v21.type]), _v4 = (0, _v54.usePico)(), _v5 = (0, _v2.useCallback)(_v0 => ({
+        surface: "watch" === _v14.type ? "watch" : "manage"
+      }, [_v14.type]), _v2 = (0, _v52.usePico)(), _v3 = (0, _v2.useCallback)(_v0 => ({
         variant: _v0.variant,
         days_remaining: _v0.daysRemaining
-      }), []), _v6 = (0, _v2.useCallback)(_v0 => null !== _v4 && (_v4.track("grace_period_banner_displayed", _v5(_v0)), !0), [_v5, _v4]), _v7 = (0, _v2.useCallback)(_v0 => null !== _v4 && (_v4.track("grace_period_banner_cta_clicked", _v5(_v0)), !0), [_v5, _v4]), _v8 = {
-        trackGracePeriodBannerDisplayed: _v6,
-        trackGracePeriodBannerCtaClicked: _v7,
-        trackGracePeriodModalDisplayed: (0, _v2.useCallback)(_v0 => null !== _v4 && (_v4.track("grace_period_modal_displayed", _v5(_v0)), !0), [_v5, _v4]),
-        trackGracePeriodModalCtaClicked: (0, _v2.useCallback)(_v0 => null !== _v4 && (_v4.track("grace_period_modal_cta_clicked", _v5(_v0)), !0), [_v5, _v4]),
-        trackGracePeriodModalDismissed: (0, _v2.useCallback)(_v0 => null !== _v4 && (_v4.track("grace_period_modal_dismissed", _v5(_v0)), !0), [_v5, _v4])
-      }, _v9 = (0, _v54.usePico)(), _v10 = (0, _v2.useCallback)(_v0 => ({
+      }), []), _v4 = (0, _v2.useCallback)(_v0 => null !== _v2 && (_v2.track("grace_period_banner_displayed", _v3(_v0)), !0), [_v3, _v2]), _v5 = (0, _v2.useCallback)(_v0 => null !== _v2 && (_v2.track("grace_period_banner_cta_clicked", _v3(_v0)), !0), [_v3, _v2]), _v6 = {
+        trackGracePeriodBannerDisplayed: _v4,
+        trackGracePeriodBannerCtaClicked: _v5,
+        trackGracePeriodModalDisplayed: (0, _v2.useCallback)(_v0 => null !== _v2 && (_v2.track("grace_period_modal_displayed", _v3(_v0)), !0), [_v3, _v2]),
+        trackGracePeriodModalCtaClicked: (0, _v2.useCallback)(_v0 => null !== _v2 && (_v2.track("grace_period_modal_cta_clicked", _v3(_v0)), !0), [_v3, _v2]),
+        trackGracePeriodModalDismissed: (0, _v2.useCallback)(_v0 => null !== _v2 && (_v2.track("grace_period_modal_dismissed", _v3(_v0)), !0), [_v3, _v2])
+      }, _v7 = (0, _v52.usePico)(), _v8 = (0, _v2.useCallback)(_v0 => ({
         days_remaining: _v0.daysRemaining,
         surface: _v0.surface
-      }), []), _v11 = (0, _v2.useCallback)(_v0 => null !== _v9 && (_v9.track("video_page_grace_period_banner_displayed", _v10(_v0)), !0), [_v10, _v9]), _v12 = (0, _v2.useCallback)(_v0 => null !== _v9 && (_v9.track("video_page_grace_period_banner_cta_clicked", _v10(_v0)), !0), [_v10, _v9]), _v13 = {
-        trackVideoPageGracePeriodBannerDisplayed: _v11,
-        trackVideoPageGracePeriodBannerCtaClicked: _v12,
-        trackVideoPageGracePeriodModalDisplayed: (0, _v2.useCallback)(_v0 => null !== _v9 && (_v9.track("video_page_grace_period_modal_displayed", _v10(_v0)), !0), [_v10, _v9]),
-        trackVideoPageGracePeriodModalCtaClicked: (0, _v2.useCallback)(_v0 => null !== _v9 && (_v9.track("video_page_grace_period_modal_cta_clicked", _v10(_v0)), !0), [_v10, _v9]),
-        trackVideoPageGracePeriodModalDismissed: (0, _v2.useCallback)(_v0 => null !== _v9 && (_v9.track("video_page_grace_period_modal_dismissed", _v10(_v0)), !0), [_v10, _v9])
+      }), []), _v9 = (0, _v2.useCallback)(_v0 => null !== _v7 && (_v7.track("video_page_grace_period_banner_displayed", _v8(_v0)), !0), [_v8, _v7]), _v10 = (0, _v2.useCallback)(_v0 => null !== _v7 && (_v7.track("video_page_grace_period_banner_cta_clicked", _v8(_v0)), !0), [_v8, _v7]), _v11 = {
+        trackVideoPageGracePeriodBannerDisplayed: _v9,
+        trackVideoPageGracePeriodBannerCtaClicked: _v10,
+        trackVideoPageGracePeriodModalDisplayed: (0, _v2.useCallback)(_v0 => null !== _v7 && (_v7.track("video_page_grace_period_modal_displayed", _v8(_v0)), !0), [_v8, _v7]),
+        trackVideoPageGracePeriodModalCtaClicked: (0, _v2.useCallback)(_v0 => null !== _v7 && (_v7.track("video_page_grace_period_modal_cta_clicked", _v8(_v0)), !0), [_v8, _v7]),
+        trackVideoPageGracePeriodModalDismissed: (0, _v2.useCallback)(_v0 => null !== _v7 && (_v7.track("video_page_grace_period_modal_dismissed", _v8(_v0)), !0), [_v8, _v7])
       }, (0, _v2.useMemo)(() => {
         if ("home" === _v1.scope) return {
           trackBannerDisplayed: _v0 => {
-            _v8.trackGracePeriodBannerDisplayed(_v0);
+            _v6.trackGracePeriodBannerDisplayed(_v0);
           },
           trackBannerCtaClicked: _v0 => {
-            _v8.trackGracePeriodBannerCtaClicked(_v0);
+            _v6.trackGracePeriodBannerCtaClicked(_v0);
           },
           trackModalDisplayed: _v0 => {
-            _v8.trackGracePeriodModalDisplayed(_v0);
+            _v6.trackGracePeriodModalDisplayed(_v0);
           },
           trackModalCtaClicked: _v0 => {
-            _v8.trackGracePeriodModalCtaClicked(_v0);
+            _v6.trackGracePeriodModalCtaClicked(_v0);
           },
           trackModalDismissed: _v0 => {
-            _v8.trackGracePeriodModalDismissed(_v0);
+            _v6.trackGracePeriodModalDismissed(_v0);
           }
         };
         let _v0 = _v1.surface;
         return {
           trackBannerDisplayed: _v0 => {
-            _v13.trackVideoPageGracePeriodBannerDisplayed({
+            _v11.trackVideoPageGracePeriodBannerDisplayed({
               daysRemaining: _v0.daysRemaining,
               surface: _v0
             });
           },
           trackBannerCtaClicked: _v0 => {
-            _v13.trackVideoPageGracePeriodBannerCtaClicked({
+            _v11.trackVideoPageGracePeriodBannerCtaClicked({
               daysRemaining: _v0.daysRemaining,
               surface: _v0
             });
           },
           trackModalDisplayed: _v0 => {
-            _v13.trackVideoPageGracePeriodModalDisplayed({
+            _v11.trackVideoPageGracePeriodModalDisplayed({
               daysRemaining: _v0.daysRemaining,
               surface: _v0
             });
           },
           trackModalCtaClicked: _v0 => {
-            _v13.trackVideoPageGracePeriodModalCtaClicked({
+            _v11.trackVideoPageGracePeriodModalCtaClicked({
               daysRemaining: _v0.daysRemaining,
               surface: _v0
             });
           },
           trackModalDismissed: _v0 => {
-            _v13.trackVideoPageGracePeriodModalDismissed({
+            _v11.trackVideoPageGracePeriodModalDismissed({
               daysRemaining: _v0.daysRemaining,
               surface: _v0
             });
           }
         };
-      }, [_v1, _v8, _v13])),
-      _v36 = _v32 ? _v57 : _v58,
+      }, [_v1, _v6, _v11])),
+      _v29 = _v25 ? _v55 : _v56,
       {
-        data: _v37
-      } = (0, _v6.useGetUserSettingsBillingMembership)(() => !_v34 || _v31 || null == _v30 ? null : {
-        select: _v36,
+        data: _v30
+      } = (0, _v6.useGetUserSettingsBillingMembership)(() => !_v27 || _v24 || null == _v23 ? null : {
+        select: _v29,
         where: {
-          userId: Number(_v30)
+          userId: Number(_v23)
         }
       }),
       {
-        data: _v38
-      } = (0, _v5.useGetUser)(() => _v34 && !_v31 && _v32 && null != _v30 ? {
+        data: _v31
+      } = (0, _v5.useGetUser)(() => _v27 && !_v24 && _v25 && null != _v23 ? {
         select: ["uploadQuota.space.max"],
         where: {
-          userId: Number(_v30)
+          userId: Number(_v23)
         }
       } : null),
-      _v39 = _v38?.uploadQuota?.space?.max ? (0, _v17.formatBytes)(_v38.uploadQuota.space.max, !1) : "",
+      _v32 = _v31?.uploadQuota?.space?.max ? (0, _v17.formatBytes)(_v31.uploadQuota.space.max, !1) : "",
       {
-        data: _v40
-      } = (0, _v4.useGetMePaymentMethods)(() => !_v34 || _v31 || !_v37?.gracePeriodType || _v37.paymentMethod ? null : {
+        data: _v33
+      } = (0, _v4.useGetMePaymentMethods)(() => !_v27 || _v24 || !_v30?.gracePeriodType || _v30.paymentMethod ? null : {
         select: ["card.brand", "card.lastFourDigits", "isDefault", "type"],
         query: {
           showDisabled: !1
         }
       }),
       {
-        data: _v41
-      } = _v15(() => _v34 && _v31 && null != _v30 ? {
+        data: _v34
+      } = _v15(() => _v27 && _v24 && null != _v23 ? {
         select: ["gracePeriodType", "ownerName", "originalEndDate", "endDate", "uri"],
         where: {
-          userId: Number(_v30)
+          userId: Number(_v23)
         }
       } : null),
-      _v42 = !!(_v34 && (_v31 ? _v41?.gracePeriodType : _v37?.gracePeriodType)),
-      _v43 = _v42 ? _v31 ? "member" : "admin" : null,
-      _v44 = _v31 ? !!_v41?.gracePeriodType : !!_v37?.gracePeriodType || !!_v37?.isStorageEntitlementSuspended,
-      {
-        isHigherFriction: _v45,
-        isSuspensionArm: _v46
-      } = (_v2 = null != _v30 ? Number(_v30) : null, _v3 = {
-        hasGracePeriodStartDate: _v44
-      }, _v14 = (0, _v19.useViewer)(), _v15 = (0, _v3.getViewerBootstrap)(), _v16 = _v14?.user?.id ?? _v15?.user?.id, _v17 = _v2 ?? (null != _v16 ? Number(_v16) : null), _v18 = _v3?.hasGracePeriodStartDate, (0, _v2.useMemo)(() => {
-        let _v0 = !1 === _v18 ? "control" : function (_v0, _v1 = new Date()) {
-          return null == _v0 || !Number.isFinite(_v0) || _v1.getTime() < _v52.getTime() ? "control" : _v53[Math.abs(Math.trunc(_v0)) % 3] ?? "control";
-        }(_v17);
-        return {
-          arm: _v0,
-          isHigherFriction: "control" !== _v0,
-          isSuspensionArm: "suspension" === _v0
-        };
-      }, [_v17, _v18])),
-      _v47 = function ({
+      _v35 = !!(_v27 && (_v24 ? _v34?.gracePeriodType : _v30?.gracePeriodType)),
+      _v36 = _v35 ? _v24 ? "member" : "admin" : null,
+      _v37 = "suspended" === function ({
         gracePeriodType: _v0,
         isStorageEntitlementSuspended: _v1
       }) {
         return _v0 ? _v1 ? "suspended" : "grace" : "none";
       }({
-        gracePeriodType: _v37?.gracePeriodType,
-        isStorageEntitlementSuspended: _v37?.isStorageEntitlementSuspended
+        gracePeriodType: _v30?.gracePeriodType,
+        isStorageEntitlementSuspended: _v30?.isStorageEntitlementSuspended
       }),
-      _v48 = _v46 && "suspended" === _v47,
-      _v49 = function ({
+      _v38 = function ({
         eligible: _v0,
-        isHigherFriction: _v1,
-        phase: _v2
+        phase: _v1
       }) {
-        let _v3 = (0, _v55.useDismissCooldown)({
-            storageKey: "grace_period_hard_modal_shown_until",
-            cooldownMs: 0
-          }),
-          _v4 = (0, _v55.useDismissCooldown)({
+        let _v2 = (0, _v53.useDismissCooldown)({
             storageKey: "grace_period_soft_modal_shown_until",
             cooldownMs: 0
           }),
-          _v5 = (0, _v55.useDismissCooldown)({
-            storageKey: "grace_period_suspended_hard_modal_shown_until",
-            cooldownMs: 0
-          }),
-          _v6 = (0, _v55.useDismissCooldown)({
+          _v3 = (0, _v53.useDismissCooldown)({
             storageKey: "grace_period_suspended_soft_modal_shown_until",
             cooldownMs: 0
           }),
-          _v7 = "suspended" === _v2,
           {
-            isDismissed: _v8,
-            dismiss: _v9
-          } = _v7 ? _v5 : _v3,
-          {
-            isDismissed: _v10,
-            dismiss: _v11
-          } = _v7 ? _v6 : _v4,
-          [_v12, _v13] = (0, _v2.useState)("none"),
-          _v14 = (0, _v2.useRef)(!1);
+            isDismissed: _v4,
+            dismiss: _v5
+          } = "suspended" === _v1 ? _v3 : _v2,
+          [_v6, _v7] = (0, _v2.useState)("none"),
+          _v8 = (0, _v2.useRef)(!1);
         return (0, _v2.useEffect)(() => {
-          if (!_v14.current && _v0) {
-            if (_v14.current = !0, _v1 && !_v8) {
-              _v13("hard"), _v9(), _v11();
-              return;
-            }
-            _v10 || (_v13("soft"), _v11());
-          }
-        }, [_v0, _v1, _v8, _v10, _v9, _v11]), _v12;
+          !_v8.current && _v0 && (_v8.current = !0, _v4 || (_v7("soft"), _v5()));
+        }, [_v0, _v4, _v5]), _v6;
       }({
-        eligible: _v42 && "admin" === _v43,
-        isHigherFriction: _v45,
-        phase: _v48 ? "suspended" : "grace"
+        eligible: _v35 && "admin" === _v36,
+        phase: _v37 ? "suspended" : "grace"
       }),
-      [_v50, _v51] = (0, _v2.useState)(!1),
-      _v52 = (0, _v2.useCallback)(() => {
-        _v51(!0);
+      [_v39, _v40] = (0, _v2.useState)(!1),
+      _v41 = (0, _v2.useCallback)(() => {
+        _v40(!0);
       }, []),
-      [_v53, _v54] = (0, _v2.useState)(!1),
-      _v55 = (0, _v2.useCallback)(() => {
-        _v54(!0);
+      [_v42, _v43] = (0, _v2.useState)(!1),
+      _v44 = (0, _v2.useCallback)(() => {
+        _v43(!0);
       }, []),
-      _v56 = (0, _v2.useCallback)(() => {
-        _v54(!1);
+      _v45 = (0, _v2.useCallback)(() => {
+        _v43(!1);
       }, []);
     (0, _v2.useEffect)(() => {
-      "member" !== _v43 && _v54(!1);
-    }, [_v43]);
-    let _v57 = "watch" === _v21.type || "manage" === _v21.type ? _v21.videoTitle : void 0,
-      _v58 = "manage" === _v21.type ? _v21.playerWidth : void 0;
-    if (!_v23 || !_v34 || null === _v43 || !_v32 && !_v57) return {
+      "member" !== _v36 && _v43(!1);
+    }, [_v36]);
+    let _v46 = "watch" === _v14.type || "manage" === _v14.type ? _v14.videoTitle : void 0,
+      _v47 = "manage" === _v14.type ? _v14.playerWidth : void 0;
+    if (!_v16 || !_v27 || null === _v36 || !_v25 && !_v46) return {
       banner: null,
       modal: null,
-      isStorageSuspended: _v48
+      isStorageSuspended: _v37
     };
-    let _v59 = _v31 ? (0, _v56.getDisplayedGracePeriodEndDate)(_v41?.gracePeriodType, _v41?.originalEndDate, _v41?.endDate) : (0, _v56.getDisplayedGracePeriodEndDate)(_v37?.gracePeriodType, _v37?.originalEndDate, _v37?.endDate),
-      _v60 = (0, _v20.daysUntil)(_v59);
-    if ("member" === _v43) {
-      if (!_v41?.gracePeriodType || !_v41?.ownerName) return {
+    let _v48 = _v24 ? (0, _v54.getDisplayedGracePeriodEndDate)(_v34?.gracePeriodType, _v34?.originalEndDate, _v34?.endDate) : (0, _v54.getDisplayedGracePeriodEndDate)(_v30?.gracePeriodType, _v30?.originalEndDate, _v30?.endDate),
+      _v49 = (0, _v20.daysUntil)(_v48);
+    if ("member" === _v36) {
+      if (!_v34?.gracePeriodType || !_v34?.ownerName) return {
         banner: null,
         modal: null,
-        isStorageSuspended: _v48
+        isStorageSuspended: _v37
       };
       let _v0 = (0, _v1.jsx)(_v50, {
-        analytics: _v35,
-        isOpen: _v53,
-        onClose: _v56,
-        daysRemaining: _v60,
-        ownerName: _v41.ownerName,
-        useHigherFrictionCopy: _v45
+        analytics: _v28,
+        isOpen: _v42,
+        onClose: _v45,
+        daysRemaining: _v49,
+        ownerName: _v34.ownerName
       });
-      return _v32 ? {
+      return _v25 ? {
         banner: (0, _v1.jsx)(_v48, {
-          analytics: _v35,
+          analytics: _v28,
           variant: "member",
-          daysRemaining: _v60,
-          onAction: _v55
+          daysRemaining: _v49,
+          onAction: _v44
         }),
         modal: _v0,
         isStorageSuspended: !1
       } : {
         banner: (0, _v1.jsx)(_v51, {
-          analytics: _v35,
+          analytics: _v28,
           variant: "member",
-          daysRemaining: _v60,
-          videoTitle: _v57 ?? "",
-          playerWidth: _v58,
-          onMemberLearnMore: _v55
+          daysRemaining: _v49,
+          videoTitle: _v46 ?? "",
+          playerWidth: _v47,
+          onMemberLearnMore: _v44
         }),
         modal: _v0,
         isStorageSuspended: !1
       };
     }
-    let _v61 = _v37?.paymentMethod,
-      _v62 = _v40?.data.find(_v0 => _v0.isDefault) ?? _v40?.data[0],
-      _v63 = _v61?.textType || (_v61?.type ? _v20.PAYMENT_TYPE_FALLBACK_LABEL[_v61.type] : "") || (0, _v20.getPaymentsServiceCardBrandLabel)(_v62),
-      _v64 = _v61?.lastFour ?? _v62?.card?.lastFourDigits ?? "",
-      _v65 = "soft" === _v49,
-      _v66 = "hard" === _v49 || "soft" === _v49 && !_v50,
-      _v67 = _v48 ? "suspended" : "grace",
-      _v68 = `${window.location.pathname}${window.location.search}`;
-    return _v32 ? {
-      banner: _v48 ? (0, _v1.jsx)(_v47, {
-        analytics: _v35,
+    let _v50 = _v30?.paymentMethod,
+      _v51 = _v33?.data.find(_v0 => _v0.isDefault) ?? _v33?.data[0],
+      _v52 = _v50?.textType || (_v50?.type ? _v20.PAYMENT_TYPE_FALLBACK_LABEL[_v50.type] : "") || (0, _v20.getPaymentsServiceCardBrandLabel)(_v51),
+      _v53 = _v50?.lastFour ?? _v51?.card?.lastFourDigits ?? "",
+      _v54 = "soft" === _v38 && !_v39,
+      _v55 = _v37 ? "suspended" : "grace",
+      _v56 = `${window.location.pathname}${window.location.search}`;
+    return _v25 ? {
+      banner: _v37 ? (0, _v1.jsx)(_v47, {
+        analytics: _v28,
         variant: "admin",
-        onMemberLearnMore: _v55,
-        routeThroughDunning: _v45,
-        returnUrl: _v68
+        onMemberLearnMore: _v44,
+        returnUrl: _v56
       }) : (0, _v1.jsx)(_v48, {
-        analytics: _v35,
+        analytics: _v28,
         variant: "admin",
-        daysRemaining: _v60,
-        onAction: _v55,
-        routeThroughDunning: _v45,
-        returnUrl: _v68
+        daysRemaining: _v49,
+        onAction: _v44,
+        returnUrl: _v56
       }),
       modal: (0, _v1.jsx)(_v45, {
         layout: "home",
-        analytics: _v35,
-        isOpen: _v66,
-        onClose: _v52,
-        dismissible: _v65,
-        returnUrl: _v68,
-        phase: _v67,
-        daysRemaining: _v60,
-        suspensionDate: (0, _v20.formatSuspensionDate)(_v59),
-        lastFourDigits: _v64,
-        cardBrand: _v63,
-        amountDue: _v37?.totalPriceForDisplay ?? "",
-        teamMemberCount: _v37?.seatCount ?? 1,
-        storageQuotaLabel: _v39
+        analytics: _v28,
+        isOpen: _v54,
+        onClose: _v41,
+        returnUrl: _v56,
+        phase: _v55,
+        daysRemaining: _v49,
+        suspensionDate: (0, _v20.formatSuspensionDate)(_v48),
+        lastFourDigits: _v53,
+        cardBrand: _v52,
+        amountDue: _v30?.totalPriceForDisplay ?? "",
+        teamMemberCount: _v30?.seatCount ?? 1,
+        storageQuotaLabel: _v32
       }),
-      isStorageSuspended: _v48
+      isStorageSuspended: _v37
     } : {
-      banner: _v48 ? (0, _v1.jsx)(_v47, {
-        analytics: _v35,
+      banner: _v37 ? (0, _v1.jsx)(_v47, {
+        analytics: _v28,
         variant: "admin",
-        playerWidth: _v58,
-        onMemberLearnMore: _v55,
-        routeThroughDunning: _v45,
-        returnUrl: _v68
+        playerWidth: _v47,
+        onMemberLearnMore: _v44,
+        returnUrl: _v56
       }) : (0, _v1.jsx)(_v51, {
-        analytics: _v35,
+        analytics: _v28,
         variant: "admin",
-        daysRemaining: _v60,
-        videoTitle: _v57 ?? "",
-        playerWidth: _v58,
-        onMemberLearnMore: _v55,
-        routeThroughDunning: _v45,
-        returnUrl: _v68
+        daysRemaining: _v49,
+        videoTitle: _v46 ?? "",
+        playerWidth: _v47,
+        onMemberLearnMore: _v44,
+        returnUrl: _v56
       }),
       modal: (0, _v1.jsx)(_v45, {
         layout: "video",
-        analytics: _v35,
-        isOpen: _v66,
-        onClose: _v52,
-        dismissible: _v65,
-        returnUrl: _v68,
-        phase: _v67,
-        daysRemaining: _v60,
-        suspensionDate: (0, _v20.formatSuspensionDate)(_v59),
-        lastFourDigits: _v64,
-        cardBrand: _v63,
-        amountDue: _v37?.totalPriceForDisplay ?? "",
-        videoTitle: _v57
+        analytics: _v28,
+        isOpen: _v54,
+        onClose: _v41,
+        returnUrl: _v56,
+        phase: _v55,
+        daysRemaining: _v49,
+        suspensionDate: (0, _v20.formatSuspensionDate)(_v48),
+        lastFourDigits: _v53,
+        cardBrand: _v52,
+        amountDue: _v30?.totalPriceForDisplay ?? "",
+        videoTitle: _v46
       }),
-      isStorageSuspended: _v48
+      isStorageSuspended: _v37
     };
   }], 0);
 }

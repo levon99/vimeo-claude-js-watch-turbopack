@@ -26,7 +26,7 @@
     applepay: "Apple Pay"
   }, "buildGracePeriodCheckoutHref", 0, function (_v0) {
     let _v1 = new URLSearchParams();
-    _v0?.routeThroughDunning && _v1.set("source", "dunning"), _v0?.returnUrl && _v1.set("return_url", _v0.returnUrl);
+    _v0?.returnUrl && _v1.set("return_url", _v0.returnUrl);
     let _v2 = _v1.toString();
     return _v2 ? `${_v3}?${_v2}` : _v3;
   }, "daysUntil", 0, function (_v0) {

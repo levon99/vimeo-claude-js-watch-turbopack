@@ -111,7 +111,7 @@
           video: _v12.current
         })) : _v15.current?.(), _v18.current = null;
       }
-    }, [_v5, _v0, _v7]), (0, _v1.useCallback)((_v0, _v1, _v2) => {
+    }, [_v5, _v0, _v7]), (0, _v1.useCallback)((_v0, _v1, _v2, _v3) => {
       _v18.current || (_v18.current = {
         videoId: _v0,
         shareLoopParams: _v1,
@@ -121,7 +121,9 @@
           videoId: _v0
         },
         select: ["url", "hasExpiration", "expiresOn", "intervalDays"],
-        variables: {}
+        variables: void 0 === _v3 ? {} : {
+          intervalDaysFallback: _v3
+        }
       }));
     }, [_v3]);
   }], 0);

@@ -116,7 +116,7 @@
           singular: "Your bank declined this payment. Please contact your card issuer or try a different card.",
           dictionary: {
             es: {
-              singular: "Su banco rechazó este pago. Póngase en contacto con el emisor de su tarjeta o pruebe con otra tarjeta."
+              singular: "Su banco rechazó este pago. Por favor, póngase en contacto con el emisor de su tarjeta o pruebe con otra tarjeta."
             },
             "de-DE": {
               singular: "Ihre Bank hat diese Zahlung abgelehnt. Bitte kontaktieren Sie Ihren Kartenaussteller oder versuchen Sie eine andere Karte."
@@ -125,16 +125,16 @@
               singular: "Votre banque a refusé ce paiement. Veuillez contacter l'émetteur de votre carte ou essayer une autre carte."
             },
             "ja-JP": {
-              singular: "ご利用の銀行はこの支払いを拒否しました。カード発行会社にお問い合わせいただくか、別のカードをお試しください。"
+              singular: "銀行がこの支払いを拒否しました。カード発行会社にお問い合わせいただくか、別のカードをお試しください。"
             },
             "ko-KR": {
-              singular: "귀하의 은행이 이 결제를 거부했습니다. 카드 발급사에 문의하시거나 다른 카드를 사용해 주세요."
+              singular: "은행이 이 결제를 거절했습니다. 카드 발급사에 문의하시거나 다른 카드를 사용해 보세요."
             },
             "pt-BR": {
-              singular: "Seu banco recusou este pagamento. Por favor, entre em contato com o emissor do seu cartão ou tente outro cartão."
+              singular: "Seu banco recusou este pagamento. Entre em contato com a emissora do seu cartão ou tente outro cartão."
             },
             "zh-CN": {
-              singular: "您的银行拒绝了此次付款。请联系发卡机构或尝试使用其他卡。"
+              singular: "您的银行拒绝了此次支付。请联系发卡行或尝试使用其他卡。"
             }
           }
         });
@@ -143,25 +143,25 @@
           singular: "This payment was declined due to insufficient funds. Please try a different card.",
           dictionary: {
             es: {
-              singular: "Este pago fue rechazado debido a fondos insuficientes. Por favor, pruebe con otra tarjeta."
+              singular: "Este pago fue rechazado por fondos insuficientes. Por favor, pruebe con otra tarjeta."
             },
             "de-DE": {
-              singular: "Diese Zahlung wurde aufgrund unzureichender Kontodeckung abgelehnt. Bitte versuchen Sie eine andere Karte."
+              singular: "Diese Zahlung wurde wegen unzureichender Mittel abgelehnt. Bitte versuchen Sie eine andere Karte."
             },
             "fr-FR": {
-              singular: "Ce paiement a été refusé en raison de fonds insuffisants. Veuillez essayer une autre carte."
+              singular: "Ce paiement a été refusé pour insuffisance de fonds. Veuillez essayer une autre carte."
             },
             "ja-JP": {
-              singular: "残高不足によりこの支払いは拒否されました。別のカードをお試しください。"
+              singular: "残高不足のため、この支払いは拒否されました。別のカードをお試しください。"
             },
             "ko-KR": {
-              singular: "잔액 부족으로 이 결제가 거부되었습니다. 다른 카드를 사용해 주세요."
+              singular: "잔액 부족으로 인해 결제가 거절되었습니다. 다른 카드를 사용해 주세요."
             },
             "pt-BR": {
-              singular: "Este pagamento foi recusado por insuficiência de fundos. Por favor, tente outro cartão."
+              singular: "Este pagamento foi recusado por fundos insuficientes. Tente outro cartão."
             },
             "zh-CN": {
-              singular: "此笔付款因资金不足被拒。请尝试使用其他卡。"
+              singular: "付款因资金不足被拒。请尝试使用其他卡。"
             }
           }
         });
@@ -170,7 +170,7 @@
           singular: "Your card has expired. Please update the expiry date or try a different card.",
           dictionary: {
             es: {
-              singular: "Su tarjeta ha caducado. Por favor, actualice la fecha de caducidad o pruebe con otra tarjeta."
+              singular: "Su tarjeta ha caducado. Actualice la fecha de vencimiento o pruebe con otra tarjeta."
             },
             "de-DE": {
               singular: "Ihre Karte ist abgelaufen. Bitte aktualisieren Sie das Ablaufdatum oder versuchen Sie eine andere Karte."
@@ -182,13 +182,13 @@
               singular: "カードの有効期限が切れています。有効期限を更新するか、別のカードをお試しください。"
             },
             "ko-KR": {
-              singular: "카드의 유효기간이 만료되었습니다. 유효기간을 업데이트하시거나 다른 카드를 사용해 주세요."
+              singular: "카드가 만료되었습니다. 유효기간을 업데이트하시거나 다른 카드를 사용해 주세요."
             },
             "pt-BR": {
-              singular: "Seu cartão expirou. Por favor, atualize a data de validade ou tente outro cartão."
+              singular: "Seu cartão expirou. Atualize a data de validade ou tente outro cartão."
             },
             "zh-CN": {
-              singular: "您的卡已过期。请更新到期日或尝试使用其他卡。"
+              singular: "您的卡已过期。请更新有效期或尝试使用其他卡。"
             }
           }
         });
@@ -197,7 +197,7 @@
           singular: "This card cannot be used for this payment. Please try a different card.",
           dictionary: {
             es: {
-              singular: "Esta tarjeta no se puede usar para este pago. Por favor, pruebe con otra tarjeta."
+              singular: "Esta tarjeta no puede utilizarse para este pago. Por favor, pruebe con otra tarjeta."
             },
             "de-DE": {
               singular: "Diese Karte kann für diese Zahlung nicht verwendet werden. Bitte versuchen Sie eine andere Karte."
@@ -209,13 +209,13 @@
               singular: "このカードはこの支払いに使用できません。別のカードをお試しください。"
             },
             "ko-KR": {
-              singular: "이 카드는 해당 결제에 사용할 수 없습니다. 다른 카드를 사용해 주세요."
+              singular: "이 카드는 이 결제에 사용할 수 없습니다. 다른 카드를 사용해 주세요."
             },
             "pt-BR": {
-              singular: "Este cartão não pode ser usado para este pagamento. Por favor, tente outro cartão."
+              singular: "Este cartão não pode ser usado para este pagamento. Tente outro cartão."
             },
             "zh-CN": {
-              singular: "此卡无法用于本次付款。请尝试使用其他卡。"
+              singular: "该卡无法用于此次支付。请尝试使用其他卡。"
             }
           }
         });
@@ -224,25 +224,25 @@
           singular: "We were unable to verify your card details. Please check them or try a different card.",
           dictionary: {
             es: {
-              singular: "No pudimos verificar los datos de su tarjeta. Por favor, revíselos o pruebe con otra tarjeta."
+              singular: "No pudimos verificar los datos de su tarjeta. Por favor, compruébelos o pruebe con otra tarjeta."
             },
             "de-DE": {
               singular: "Wir konnten Ihre Kartendaten nicht verifizieren. Bitte überprüfen Sie diese oder versuchen Sie eine andere Karte."
             },
             "fr-FR": {
-              singular: "Nous n'avons pas pu vérifier les informations de votre carte. Veuillez les vérifier ou essayer une autre carte."
+              singular: "Nous n'avons pas pu vérifier les détails de votre carte. Veuillez les vérifier ou essayer une autre carte."
             },
             "ja-JP": {
-              singular: "カード情報の確認ができませんでした。ご確認いただくか、別のカードをお試しください。"
+              singular: "カード情報を確認できませんでした。情報を確認するか、別のカードをお試しください。"
             },
             "ko-KR": {
-              singular: "카드 정보를 확인할 수 없습니다. 정보를 확인하시거나 다른 카드를 사용해 주세요."
+              singular: "카드 정보를 확인할 수 없습니다. 정보를 확인하시거나 다른 카드를 사용해 보세요."
             },
             "pt-BR": {
-              singular: "Não conseguimos verificar os dados do seu cartão. Por favor, verifique-os ou tente outro cartão."
+              singular: "Não foi possível verificar os dados do seu cartão. Verifique-os ou tente outro cartão."
             },
             "zh-CN": {
-              singular: "我们无法验证您的卡信息。请检查后重试，或尝试使用其他卡。"
+              singular: "我们无法验证您的卡信息。请检查后重试或尝试使用其他卡。"
             }
           }
         });
@@ -251,25 +251,25 @@
           singular: "Your PayPal payment could not be completed. Please try a different funding source in your PayPal account, or pay with a card.",
           dictionary: {
             es: {
-              singular: "No se pudo completar su pago con PayPal. Por favor, pruebe con otra fuente de financiación en su cuenta de PayPal, o pague con una tarjeta."
+              singular: "No se pudo completar su pago con PayPal. Por favor, pruebe con una fuente de financiación diferente en su cuenta de PayPal o pague con una tarjeta."
             },
             "de-DE": {
-              singular: "Ihre PayPal-Zahlung konnte nicht abgeschlossen werden. Bitte wählen Sie eine andere Zahlungsquelle in Ihrem PayPal-Konto oder zahlen Sie mit einer Karte."
+              singular: "Ihre PayPal-Zahlung konnte nicht abgeschlossen werden. Bitte wählen Sie eine andere Finanzierungsquelle in Ihrem PayPal-Konto oder bezahlen Sie mit einer Karte."
             },
             "fr-FR": {
-              singular: "Votre paiement PayPal n'a pas pu être effectué. Veuillez essayer une autre source de financement dans votre compte PayPal, ou payer par carte."
+              singular: "Votre paiement PayPal n'a pas pu être effectué. Veuillez essayer une autre source de financement dans votre compte PayPal, ou payer avec une carte."
             },
             "ja-JP": {
-              singular: "PayPalでの支払いを完了できませんでした。PayPalアカウントの資金源を変更するか、カードでお支払いください。"
+              singular: "PayPalでの支払いを完了できませんでした。PayPalアカウント内の別の資金源をお試しいただくか、カードでお支払いください。"
             },
             "ko-KR": {
-              singular: "PayPal 결제를 완료할 수 없습니다. PayPal 계정에서 다른 결제 수단을 시도하시거나 카드로 결제해 주세요."
+              singular: "PayPal 결제를 완료할 수 없습니다. PayPal 계정에서 다른 결제 수단을 시도하거나 카드로 결제해 주세요."
             },
             "pt-BR": {
-              singular: "Seu pagamento via PayPal não pôde ser concluído. Por favor, tente outra fonte de pagamento na sua conta PayPal, ou pague com um cartão."
+              singular: "Seu pagamento via PayPal não pôde ser concluído. Tente uma fonte de financiamento diferente na sua conta PayPal ou pague com um cartão."
             },
             "zh-CN": {
-              singular: "您的 PayPal 支付无法完成。请尝试在您的 PayPal 帐户中使用其他资金来源，或改用银行卡付款。"
+              singular: "您的 PayPal 支付未能完成。请尝试在您的 PayPal 帐户中更换资金来源，或改用银行卡支付。"
             }
           }
         });
@@ -278,25 +278,25 @@
           singular: "Some information could not be verified. Please check the information or try a different card.",
           dictionary: {
             es: {
-              singular: "No se ha podido verificar cierta información. Comprueba la información o inténtalo con una tarjeta distinta."
+              singular: "No se pudo verificar parte de la información. Por favor, compruebe la información o pruebe con otra tarjeta."
             },
             "de-DE": {
-              singular: "Einige Informationen konnten nicht verifiziert werden. Bitte überprüfe die Informationen oder versuche es mit einer anderen Karte."
+              singular: "Einige Informationen konnten nicht verifiziert werden. Bitte überprüfen Sie die Angaben oder versuchen Sie eine andere Karte."
             },
             "fr-FR": {
-              singular: "Certaines informations n'ont pas pu être vérifiées. Veuillez vérifier ces informations ou essayez une autre carte."
+              singular: "Certaines informations n'ont pas pu être vérifiées. Veuillez vérifier les informations ou essayer une autre carte."
             },
             "ja-JP": {
-              singular: "いくつかの情報が承認されませんでした。情報をご確認いただくか、別のカードをお試しください。"
+              singular: "一部の情報を確認できませんでした。情報を確認するか、別のカードをお試しください。"
             },
             "ko-KR": {
-              singular: "일부 정보를 검증할 수 없습니다. 정보를 확인하거나 다른 카드로 시도해보세요."
+              singular: "일부 정보를 확인할 수 없습니다. 정보를 확인하시거나 다른 카드를 사용해 보세요."
             },
             "pt-BR": {
-              singular: "Não foi possível verificar algumas informações. Revise os dados ou tente um cartão diferente."
+              singular: "Algumas informações não puderam ser verificadas. Verifique os dados ou tente outro cartão."
             },
             "zh-CN": {
-              singular: "有些信息无法核实。请检查信息或尝试使用另一张卡。"
+              singular: "某些信息无法验证。请检查信息或尝试使用其他卡。"
             }
           }
         });
@@ -316,8 +316,26 @@
             })
           },
           dictionary: {
+            es: {
+              singular: "No pudimos procesar esta transacción. Por favor, {A}contáctenos{/A} directamente."
+            },
+            "de-DE": {
+              singular: "Wir konnten diese Transaktion nicht verarbeiten. Bitte {A}kontaktieren Sie uns{/A} direkt."
+            },
+            "fr-FR": {
+              singular: "Nous n'avons pas pu traiter cette transaction. Veuillez {A}nous contacter{/A} directement."
+            },
+            "ja-JP": {
+              singular: "この取引を処理できませんでした。{A}お問い合わせ{/A}に直接ご連絡ください。"
+            },
+            "ko-KR": {
+              singular: "거래를 처리할 수 없습니다. {A}직접 문의해 주세요{/A}."
+            },
+            "pt-BR": {
+              singular: "Não foi possível processar esta transação. Por favor, {A}entre em contato conosco{/A} diretamente."
+            },
             "zh-CN": {
-              singular: "我们无法处理该交易。请直接{A}联系我们{/A}。"
+              singular: "我们无法处理此交易。请直接{A}联系我们{/A}。"
             }
           }
         });
@@ -326,10 +344,10 @@
           singular: "Unable to connect to PayPal.",
           dictionary: {
             es: {
-              singular: "No se puede conectar a PayPal."
+              singular: "No se pudo conectar con PayPal."
             },
             "de-DE": {
-              singular: "Keine Verbindung zu PayPal möglich."
+              singular: "Die Verbindung zu PayPal konnte nicht hergestellt werden."
             },
             "fr-FR": {
               singular: "Impossible de se connecter à PayPal."
@@ -367,25 +385,25 @@
           },
           dictionary: {
             es: {
-              singular: "Parece que hay un problema con la tarjeta que intenta usar. Si quiere pagar con JCB, haga clic {A}aquí{/A} para actualizar su moneda a USD (los precios pueden variar). De lo contrario, pruebe con otro método de pago."
+              singular: "Parece haber un problema con la tarjeta que está intentando usar. Si desea pagar con JCB, haga clic {A}aquí{/A} para actualizar su moneda a USD (los precios pueden variar). De lo contrario, pruebe otro método de pago."
             },
             "de-DE": {
-              singular: "Es scheint ein Problem mit der Karte vorzuliegen, die Sie verwenden möchten. Wenn Sie mit JCB zahlen möchten, klicken Sie bitte {A}hier{/A} , um Ihre Währung auf USD zu aktualisieren (die Preise können variieren). Andernfalls versuchen Sie es bitte mit einer anderen Zahlungsmethode."
+              singular: "Bei der von Ihnen verwendeten Karte scheint ein Problem vorzuliegen. Wenn Sie mit JCB bezahlen möchten, klicken Sie bitte {A}hier{/A}, um Ihre Währung auf USD zu aktualisieren (Preise können variieren). Andernfalls versuchen Sie bitte eine andere Zahlungsmethode."
             },
             "fr-FR": {
-              singular: "Il semble y avoir un problème avec la carte que vous essayez d'utiliser. Si vous souhaitez payer avec JCB, veuillez cliquer {A}ici{/A} pour mettre à jour votre devise en USD (les prix peuvent varier). Sinon, veuillez essayer un autre mode de paiement."
+              singular: "Il semble y avoir un problème avec la carte que vous essayez d'utiliser. Si vous souhaitez payer avec JCB, cliquez {A}ici{/A} pour basculer votre devise en USD (les prix peuvent varier). Sinon, veuillez essayer un autre mode de paiement."
             },
             "ja-JP": {
-              singular: "使用しようとしているカードに問題があるようです。JCBで支払う場合は、{A}ここ{/A}をクリックして通貨を米ドルに更新してください（価格が変化する可能性があります）。それ以外の場合は、別のお支払い方法をお試しください。"
+              singular: "お使いのカードに問題があるようです。JCBで支払う場合は{A}こちら{/A}をクリックして通貨をUSDに変更してください（価格は異なる場合があります）。それ以外の場合は別の支払方法をお試しください。"
             },
             "ko-KR": {
-              singular: "사용하려는 카드에 문제가 발생했습니다. JCB로 결제하려는 경우 {A}여기{/A}를 클릭하여 통화를 USD로 변경하세요(가격은 다를 수 있음). 그렇지 않은 경우 다른 결제 수단을 사용하시기 바랍니다."
+              singular: "사용하려는 카드에 문제가 있는 것 같습니다. JCB로 결제하려는 경우 {A}여기{/A}를 클릭하여 통화를 USD로 변경하세요(가격이 달라질 수 있음). 그렇지 않으면 다른 결제 수단을 시도해 주세요."
             },
             "pt-BR": {
               singular: "Parece haver um problema com o cartão que você está tentando usar. Se você pretende pagar com JCB, clique {A}aqui{/A} para atualizar sua moeda para USD (os preços podem variar). Caso contrário, tente outro método de pagamento."
             },
             "zh-CN": {
-              singular: "您尝试使用的卡似乎有问题。如果您想使用 JCB 卡支付，请点击{A}此处{/A}将您的币种刷新为美元（价格可能会变动）。否则，请尝试其他付款方式。"
+              singular: "您尝试使用的卡片似乎有问题。如果您打算使用 JCB 支付，请点击 {A}这里{/A} 将货币刷新为 USD（价格可能有所不同）。否则，请尝试其他支付方式。"
             }
           }
         });
@@ -394,25 +412,25 @@
           singular: "Some information could not be verified. Please check the information or try a different card.",
           dictionary: {
             es: {
-              singular: "No se ha podido verificar cierta información. Comprueba la información o inténtalo con una tarjeta distinta."
+              singular: "No se pudo verificar parte de la información. Por favor, compruebe la información o pruebe con otra tarjeta."
             },
             "de-DE": {
-              singular: "Einige Informationen konnten nicht verifiziert werden. Bitte überprüfe die Informationen oder versuche es mit einer anderen Karte."
+              singular: "Einige Informationen konnten nicht verifiziert werden. Bitte überprüfen Sie die Angaben oder versuchen Sie eine andere Karte."
             },
             "fr-FR": {
-              singular: "Certaines informations n'ont pas pu être vérifiées. Veuillez vérifier ces informations ou essayez une autre carte."
+              singular: "Certaines informations n'ont pas pu être vérifiées. Veuillez vérifier les informations ou essayer une autre carte."
             },
             "ja-JP": {
-              singular: "いくつかの情報が承認されませんでした。情報をご確認いただくか、別のカードをお試しください。"
+              singular: "一部の情報を確認できませんでした。情報を確認するか、別のカードをお試しください。"
             },
             "ko-KR": {
-              singular: "일부 정보를 검증할 수 없습니다. 정보를 확인하거나 다른 카드로 시도해보세요."
+              singular: "일부 정보를 확인할 수 없습니다. 정보를 확인하시거나 다른 카드를 사용해 보세요."
             },
             "pt-BR": {
-              singular: "Não foi possível verificar algumas informações. Revise os dados ou tente um cartão diferente."
+              singular: "Algumas informações não puderam ser verificadas. Verifique os dados ou tente outro cartão."
             },
             "zh-CN": {
-              singular: "有些信息无法核实。请检查信息或尝试使用另一张卡。"
+              singular: "某些信息无法验证。请检查信息或尝试使用其他卡。"
             }
           }
         });

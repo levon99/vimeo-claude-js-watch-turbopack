@@ -704,7 +704,13 @@
         _v15 = () => {
           window.innerWidth <= 489 && "hidden" !== document.documentElement.style.overflow && (document.documentElement.style.overflowY = ""), _v8(!1);
         },
-        _v16 = () => _v0.shouldIndicateUndisplayedActivities && "/activity" !== location.pathname && 1 !== _v4.default.parse(location.search).activityReferer;
+        _v16 = () => _v0.shouldIndicateUndisplayedActivities && "/activity" !== location.pathname && !(() => {
+          try {
+            return 1 === _v4.default.parse(location.search).activityReferer;
+          } catch {
+            return !1;
+          }
+        })();
       return (0, _v5.useEffect)(() => {
         _v0.fetchOlderActivities(window.innerWidth <= 489 ? _v46 : _v47).then(() => {
           _v10(!1);

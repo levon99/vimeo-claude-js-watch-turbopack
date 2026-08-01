@@ -3271,7 +3271,7 @@
       isColdPrivacyLoading: _v7,
       isPaymentSuspended: _v0,
       onUpdatePayment: () => {
-        window.location.assign("/checkout/payments/new?source=dunning&return_url=%2Fhome");
+        window.location.assign("/checkout/payments/new?return_url=%2Fhome");
       }
     }) : null;
   };

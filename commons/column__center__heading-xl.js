@@ -2163,4 +2163,405 @@
       })]
     });
   }], 0);
+  var _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0),
+    _v44 = _v0.i(0),
+    _v45 = _v0.i(0),
+    _v46 = _v0.i(0),
+    _v47 = _v0.i(0),
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0),
+    _v52 = _v0.i(0),
+    _v53 = _v0.i(0),
+    _v54 = _v0.i(0),
+    _v55 = _v0.i(0),
+    _v56 = _v0.i(0);
+  let _v57 = "standard",
+    _v58 = {
+      t1: {
+        showSavedCard: !0,
+        isMonthly: !1
+      },
+      t2: {
+        showSavedCard: !1,
+        isMonthly: !1
+      },
+      t3: {
+        showSavedCard: !1,
+        isMonthly: !0
+      }
+    },
+    _v59 = _v0 => (0, _v53.isInPlaceChargeable)(_v0) && (0, _v53.filterSavedPaymentMethods)(_v0) && !(0, _v53.isPaymentMethodExpired)(_v0) && !(0, _v54.isAutorenewalOptInProtected)(_v0.card?.billingAddress);
+  function _v60({
+    params: _v0
+  }) {
+    let _v1 = {
+        h: (0, _v45.rem)(16),
+        w: (0, _v45.rem)(16)
+      },
+      _v2 = [_v0?.teamSeats != null && {
+        icon: (0, _v1.jsx)(_v48.Users, {
+          ..._v1
+        }),
+        label: (0, _v6.translate)({
+          singular: "Up to {COUNT} user",
+          plural: "Up to {COUNT} users",
+          count: _v0.teamSeats,
+          replacements: {
+            COUNT: String(_v0.teamSeats)
+          },
+          dictionary: {
+            es: {
+              singular: "Hasta {COUNT} usuario",
+              plural: "Hasta {COUNT} usuarios"
+            },
+            "de-DE": {
+              singular: "Bis zu {COUNT} Nutzer",
+              plural: "Bis zu {COUNT} Nutzer"
+            },
+            "fr-FR": {
+              singular: "Jusqu'à {COUNT} utilisateur",
+              plural: "Jusqu'à {COUNT} utilisateurs"
+            },
+            "ja-JP": {
+              singular: "最大{COUNT}ユーザー",
+              plural: "最大{COUNT}ユーザー"
+            },
+            "ko-KR": {
+              singular: "최대 {COUNT}명의 사용자",
+              plural: "최대 {COUNT}명의 사용자"
+            },
+            "pt-BR": {
+              singular: "Até {COUNT} usuário",
+              plural: "Até {COUNT} usuários"
+            },
+            "zh-CN": {
+              singular: "最多 {COUNT} 位用户",
+              plural: "最多 {COUNT} 位用户"
+            }
+          }
+        })
+      }, _v0?.videoStoragePeriodicQuota && {
+        icon: (0, _v1.jsx)(_v46.Database, {
+          ..._v1
+        }),
+        label: (0, _v6.translate)({
+          singular: "{AMOUNT} storage",
+          replacements: {
+            AMOUNT: _v0.videoStoragePeriodicQuota
+          },
+          dictionary: {
+            es: {
+              singular: "{AMOUNT} de almacenamiento"
+            },
+            "de-DE": {
+              singular: "{AMOUNT} Speicherplatz"
+            },
+            "fr-FR": {
+              singular: "{AMOUNT} de stockage"
+            },
+            "ja-JP": {
+              singular: "{AMOUNT}のストレージ"
+            },
+            "ko-KR": {
+              singular: "총 저장 공간 {AMOUNT}"
+            },
+            "pt-BR": {
+              singular: "{AMOUNT} de armazenamento"
+            },
+            "zh-CN": {
+              singular: "{AMOUNT} 存储空间"
+            }
+          }
+        })
+      }, _v0?.bandwidth?.periodicQuota && {
+        icon: (0, _v1.jsx)(_v47.Speedometer, {
+          ..._v1
+        }),
+        label: (0, _v6.translate)({
+          singular: "{AMOUNT} monthly bandwidth",
+          replacements: {
+            AMOUNT: _v0.bandwidth.periodicQuota
+          },
+          dictionary: {
+            es: {
+              singular: "{AMOUNT} de ancho de banda mensual"
+            },
+            "de-DE": {
+              singular: "{AMOUNT} monatliche Bandbreite"
+            },
+            "fr-FR": {
+              singular: "{AMOUNT} de bande passante mensuelle"
+            },
+            "ja-JP": {
+              singular: "{AMOUNT}の月間帯域幅"
+            },
+            "ko-KR": {
+              singular: "{AMOUNT} 월간 대역폭"
+            },
+            "pt-BR": {
+              singular: "{AMOUNT} de largura de banda mensal"
+            },
+            "zh-CN": {
+              singular: "{AMOUNT} 每月带宽"
+            }
+          }
+        })
+      }].filter(Boolean);
+    return (0, _v1.jsx)(_v4.Flex, {
+      direction: "column",
+      gap: (0, _v45.rem)(12),
+      children: _v2.map((_v0, _v1) => (0, _v1.jsxs)(_v4.Flex, {
+        alignItems: "center",
+        gap: (0, _v45.rem)(8),
+        children: [_v0.icon, (0, _v1.jsx)(_v5.Text, {
+          variant: "body-md",
+          children: _v0.label
+        })]
+      }, _v1))
+    });
+  }
+  _v0.s(["ONE_TAP_TIER", 0, _v57, "usePaywallOneTap", 0, function ({
+    isPaywallReady: _v0
+  }) {
+    var _v1, _v2;
+    let _v3,
+      _v4 = (0, _v51.useViewer)(),
+      {
+        settings: _v5,
+        isLoadingResponse: _v6
+      } = (0, _v56.useOrionSettings)(),
+      _v7 = _v4?.teamUser?.accountType ?? _v4?.user?.account,
+      _v8 = !!_v4?.user && "free" === _v7,
+      {
+        data: _v9,
+        isLoading: _v10
+      } = (0, _v52.useGetMePaymentMethods)(_v8 ? {
+        select: _v53.PAYMENT_METHOD_FIELDS,
+        query: {
+          showDisabled: !1
+        }
+      } : () => null),
+      _v11 = _v58[_v5.paywall_one_tap_arm ?? "control"],
+      _v12 = _v8 && (_v6 || _v10),
+      _v13 = _v8 && !_v6 && (_v1 = _v9?.data ?? [], _v2 = !!_v11?.isMonthly, (_v3 = _v1.filter(_v59)).length > 0 && (_v2 || !_v3.some(_v0 => _v0.card?.billingAddress?.country === "DE"))),
+      {
+        trackOneTapEligible: _v14
+      } = (0, _v55.useOneTapUpsellTracking)(),
+      _v15 = (0, _v40.useRef)(!1);
+    return (0, _v40.useEffect)(() => {
+      !_v15.current && _v0 && _v13 && (_v15.current = !0, _v14({
+        tier: _v57,
+        periodicity: _v11?.isMonthly ? "monthly" : "annual"
+      }));
+    }, [_v11?.isMonthly, _v13, _v0, _v14]), {
+      isResolving: _v12,
+      variant: _v0 && _v13 ? _v11 ?? null : null
+    };
+  }], 0), _v0.s(["OneTapPaywallModal", 0, function ({
+    plan: _v0,
+    onClose: _v1,
+    isMonthly: _v2,
+    showSavedCard: _v3,
+    paywallTracking: _v4
+  }) {
+    let _v5 = (0, _v51.useViewer)(),
+      [_v6, _v7] = (0, _v40.useState)(!1),
+      [_v8, _v9] = (0, _v49.usePostMeOrders)(),
+      [_v10, ..._v11] = (_v5?.user?.name ?? "").split(" "),
+      _v12 = _v11.join(" ") || "_",
+      _v13 = _v0.name ?? _v57,
+      _v14 = (0, _v1.jsx)(_v60, {
+        params: _v0.metadata?.entitlements?.params
+      }),
+      _v15 = (0, _v6.translate)({
+        singular: "Upgrade",
+        dictionary: {
+          es: {
+            singular: "Actualizar"
+          },
+          "de-DE": {
+            singular: "Upgraden"
+          },
+          "fr-FR": {
+            singular: "Mettre à niveau"
+          },
+          "ja-JP": {
+            singular: "アップグレード"
+          },
+          "ko-KR": {
+            singular: "업그레이드"
+          },
+          "zh-CN": {
+            singular: "升级"
+          }
+        }
+      });
+    return (0, _v1.jsxs)(_v41.Modal, {
+      isOpen: !0,
+      onClose: _v1,
+      size: "md",
+      closeOnOverlayClick: !_v6,
+      children: [(0, _v1.jsx)(_v44.ModalOverlay, {}), (0, _v1.jsxs)(_v43.ModalContent, {
+        maxWidth: (0, _v45.rem)(560),
+        borderRadius: (0, _v45.rem)(24),
+        padding: 0,
+        children: [(0, _v1.jsx)(_v42.ModalCloseButton, {
+          top: (0, _v45.rem)(34),
+          right: (0, _v45.rem)(32),
+          zIndex: 1,
+          isDisabled: _v6
+        }), (0, _v1.jsx)(_v50.UpsellCard, {
+          plan: _v0,
+          displayName: _v13,
+          quota: _v14,
+          title: (0, _v6.translate)({
+            singular: "Everything you need to grow",
+            dictionary: {
+              es: {
+                singular: "Todo lo que necesitas para crecer"
+              },
+              "de-DE": {
+                singular: "Alles, was Sie brauchen, um zu wachsen"
+              },
+              "fr-FR": {
+                singular: "Tout ce dont vous avez besoin pour vous développer"
+              },
+              "ja-JP": {
+                singular: "成長に必要なすべて"
+              },
+              "ko-KR": {
+                singular: "성장에 필요한 모든 것"
+              },
+              "pt-BR": {
+                singular: "Tudo o que você precisa para crescer"
+              },
+              "zh-CN": {
+                singular: "让您成长所需的一切"
+              }
+            }
+          }),
+          subtitle: (0, _v6.translate)({
+            singular: "More storage, player branding, review pages, custom end screens, and deeper analytics.",
+            dictionary: {
+              es: {
+                singular: "Más almacenamiento, personalización del reproductor, páginas de revisión, pantallas finales personalizadas y análisis más detallados."
+              },
+              "de-DE": {
+                singular: "Mehr Speicher, Player-Branding, Review-Seiten, benutzerdefinierte Endscreens und detailliertere Analysen."
+              },
+              "fr-FR": {
+                singular: "Plus de stockage, personnalisation du lecteur, pages de révision, écrans de fin personnalisés et analyses plus approfondies."
+              },
+              "ja-JP": {
+                singular: "ストレージ容量の増加、プレイヤーブランディング、レビュー用ページ、カスタム終了画面、より詳細な分析。"
+              },
+              "ko-KR": {
+                singular: "더 많은 저장 공간, 플레이어 브랜딩, 리뷰 페이지, 맞춤형 종료 화면 및 심층 분석."
+              },
+              "pt-BR": {
+                singular: "Mais armazenamento, personalização do player, páginas de revisão, telas finais personalizadas e análises mais aprofundadas."
+              },
+              "zh-CN": {
+                singular: "更多存储空间、播放器品牌定制、审阅页面、自定义结束画面，以及更深入的分析。"
+              }
+            }
+          }),
+          isModal: !0,
+          ctaLabel: _v15,
+          showSavedCard: _v3,
+          isMonthly: _v2,
+          isFreeTrial: !1,
+          continueLabel: (0, _v6.translate)({
+            singular: "Maybe later",
+            dictionary: {
+              es: {
+                singular: "Quizá más tarde"
+              },
+              "de-DE": {
+                singular: "Vielleicht später"
+              },
+              "fr-FR": {
+                singular: "Peut-être plus tard"
+              },
+              "ja-JP": {
+                singular: "後で"
+              },
+              "ko-KR": {
+                singular: "나중에"
+              },
+              "pt-BR": {
+                singular: "Talvez depois"
+              },
+              "zh-CN": {
+                singular: "稍后再说"
+              }
+            }
+          }),
+          next: window.location.pathname,
+          checkoutTracking: _v4,
+          accountRequiresOptIn: !1,
+          accountGateLoading: !1,
+          freshPurchase: {
+            charge: (_v0, _v1) => {
+              _v8({
+                select: ["id", "orderId", "shouldBlockPurchase"],
+                variables: (({
+                  billingPlanId: _v0,
+                  currency: _v1,
+                  card: _v2,
+                  firstName: _v3,
+                  lastName: _v4,
+                  hpmSessionId: _v5
+                }) => {
+                  let _v6 = _v2.card?.billingAddress;
+                  if (!_v6) throw Error("one-tap charge requires a billing address on the saved card");
+                  return {
+                    currency: _v1,
+                    billingAddress: {
+                      address: _v6.address ?? "",
+                      city: _v6.city ?? "",
+                      country: _v6.country ?? "",
+                      postalCode: _v6.postalCode ?? "",
+                      state: _v6.state ?? ""
+                    },
+                    firstName: _v3,
+                    lastName: _v4,
+                    isTrial: !1,
+                    items: [{
+                      billingPlanId: _v0,
+                      quantity: 1
+                    }],
+                    paymentFormType: "PAYMENT_METHOD_TYPES_CC_REF" === _v2.type ? 4 : 2,
+                    paymentMethodId: _v2.id,
+                    userEntity: "personal",
+                    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                    hpmSessionId: _v5
+                  };
+                })({
+                  billingPlanId: _v0,
+                  currency: _v0.currency?.currencyCode ?? "USD",
+                  card: _v1,
+                  firstName: _v10 || "_",
+                  lastName: _v12,
+                  hpmSessionId: _v5?.xsrft ?? ""
+                })
+              });
+            },
+            state: _v9
+          },
+          onUpgrade: () => {
+            window.location.href = `/onboarding?product_name=${encodeURIComponent(_v13)}&upsold=1`;
+          },
+          onContinue: _v1,
+          isLocked: _v6,
+          onChargingChange: _v7
+        })]
+      })]
+    });
+  }], 0);
 }

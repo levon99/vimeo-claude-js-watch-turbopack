@@ -1047,7 +1047,7 @@
       error: !1,
       applyViewPrivacyToAll: !1,
       applyEmbedPrivacyToAll: !1,
-      sharingLinkExpiryDays: 7
+      sharingLinkExpiryDays: 0
     },
     _v66 = [{
       value: 0,
@@ -1195,27 +1195,31 @@
         _v18 = (0, _v3.useMemo)(() => _v63(), []),
         _v19 = "password" === _v9.view,
         _v20 = "whitelist" === _v9.embed,
-        _v21 = (0, _v50.useEmbedPrivacyOptions)(!0);
+        _v21 = (0, _v50.useEmbedPrivacyOptions)(!0),
+        _v22 = _v13?.bi_expiring_links_default_expiry_days ?? 0;
       (0, _v3.useEffect)(() => {
-        _v3 && _v6({
+        if (!_v3) return;
+        let _v0 = _v22 > 0 ? Math.min(_v22, 365) : 0,
+          _v1 = null != _v3.sharingLinkDefaultExpiryDays ? _v3.sharingLinkDefaultExpiryDays : _v0;
+        _v6({
           view: _v3.privacy?.view,
           embed: _v3.privacy?.embed,
           password: _v3.password || "",
           domainAllowlist: _v3.privacy?.clipEmbedAllowedDomains || [],
-          sharingLinkExpiryDays: _v3?.sharingLinkDefaultExpiryDays ?? 7
+          sharingLinkExpiryDays: _v1
         });
-      }, [_v3, _v6]);
-      let _v22 = (0, _v3.useCallback)((_v0, _v1) => {
+      }, [_v3, _v6, _v22]);
+      let _v23 = (0, _v3.useCallback)((_v0, _v1) => {
           _v16.current.isActive(_v64) || _v16.current({
             title: _v0,
             status: _v1,
             id: _v64
           });
         }, []),
-        _v23 = () => {
+        _v24 = () => {
           _v7(), _v1();
         },
-        _v24 = async () => {
+        _v25 = async () => {
           let {
               view: _v0,
               embed: _v1,
@@ -1252,18 +1256,18 @@
               entityType: "workspace_default",
               previousPrivacy: _v6,
               newPrivacy: _v0
-            }), _v2(), _v23();
+            }), _v2(), _v24();
           } catch {
-            _v22(_v18.changesWereNotSaved, "error");
+            _v23(_v18.changesWereNotSaved, "error");
           }
         },
-        _v25 = (0, _v49.useDefaultPrivacyOptions)(_v11, !0).map(_v0 => ({
+        _v26 = (0, _v49.useDefaultPrivacyOptions)(_v11, !0).map(_v0 => ({
           ..._v0,
           isDisabled: !_v12.includes(_v0.privacy)
         }));
       return (0, _v1.jsxs)(_v28.Modal, {
         isOpen: _v0,
-        onClose: _v23,
+        onClose: _v24,
         children: [(0, _v1.jsx)(_v33.ModalOverlay, {}), (0, _v1.jsxs)(_v30.ModalContent, {
           children: [(0, _v1.jsx)(_v32.ModalHeader, {
             children: (0, _v1.jsx)(_v4.Text, {
@@ -1288,7 +1292,7 @@
                   isVideoPrivacy: !0,
                   activePrivacy: _v9.view,
                   onSelect: _v0 => _v8("view", _v0),
-                  privacyOptions: _v25,
+                  privacyOptions: _v26,
                   variant: "outlined"
                 }), _v19 && (0, _v1.jsxs)(_v35.FormControl, {
                   w: "100%",
@@ -1466,7 +1470,7 @@
               variant: "primary",
               isDisabled: !_v10,
               isLoading: _v4,
-              onClick: _v24,
+              onClick: _v25,
               children: _v18.save
             })
           })]

@@ -51,7 +51,9 @@
     onClose: _v6,
     children: [(0, _v1.jsx)(_v10.ModalOverlay, {}), (0, _v1.jsxs)(_v7.ModalContent, {
       borderRadius: "xl",
-      children: [(0, _v1.jsx)(_v6.ModalCloseButton, {}), (0, _v1.jsx)(_v2.Box, {
+      children: [(0, _v1.jsx)(_v6.ModalCloseButton, {
+        zIndex: 1
+      }), (0, _v1.jsx)(_v2.Box, {
         as: "span",
         whiteSpace: "nowrap",
         flexGrow: 1,

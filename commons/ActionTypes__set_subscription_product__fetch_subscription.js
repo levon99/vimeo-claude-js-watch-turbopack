@@ -1,7 +1,7 @@
 {
   "use strict";
 
-  _v0.s(["ActionTypes", 0, {
+  _v0.i(0), _v0.s(["ActionTypes", 0, {
     FETCH_PRODUCT: "set_subscription_product",
     FETCH_SUBSCRIPTION: "fetch_subscription",
     ORDER_PREVIEW: "update_order_preview",
@@ -21,7 +21,7 @@
   }, "ApiActionTypes", 0, {
     ORDER_PREVIEW: "order_preview",
     SUBMIT_ORDER: "submit_order"
-  }, "OPEN_INVOICE_FIELDS", 0, ["total"], "PAYMENT_METHOD_FIELDS", 0, ["card", "createdAt", "id", "isDefault", "type"], "PaymentFormTypes", 0, {
+  }, "OPEN_INVOICE_FIELDS", 0, ["total"], "PaymentFormTypes", 0, {
     TYPE_UNSPECIFIED: 0,
     TYPE_ACH: 1,
     TYPE_CREDIT_CARD: 2,
