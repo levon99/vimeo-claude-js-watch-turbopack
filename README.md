@@ -153,6 +153,7 @@
 - https://vimeo.com/manage/workspace/brand-kits
 - https://vimeo.com/manage/workspace/brand-kits/[brand_kit_id]
 - https://vimeo.com/manage/workspace/custom-metadata
+- https://vimeo.com/manage/workspace/defaults
 - https://vimeo.com/manage/workspace/e-learning
 - https://vimeo.com/manage/workspace/groups
 - https://vimeo.com/manage/workspace/integrations
@@ -179,6 +180,7 @@
 - https://vimeo.com/manage/workspace/security-and-data/privacy-restrictions
 - https://vimeo.com/manage/workspace/security-and-data/review-page-settings
 - https://vimeo.com/manage/workspace/security-and-data/webinar-viewer-anonymisation
+- https://vimeo.com/manage/workspace/usage
 - https://vimeo.com/managed-accounts/accept/user/[userId]
 - https://vimeo.com/my-feed
 - https://vimeo.com/oauth/auth

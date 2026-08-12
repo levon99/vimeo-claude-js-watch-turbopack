@@ -1,0 +1,5 @@
+{
+  "use strict";
+
+  _v0.s(["NAV_HEIGHT", 0, 63, "PRIVACY_DISABLE", 0, "disable", "PRIVACY_FOLLOW", 0, "contacts", "PRIVACY_PASSWORD", 0, "password", "PRIVACY_PUBLIC", 0, "anybody", "PRIVACY_UNLISTED", 0, "unlisted", "PRIVACY_USER", 0, "users", "REVEAL_HEIGHT", 0, 297, "REVEAL_HEIGHT_LARGE", 0, 305, "SHOWCASE_NAV_HEIGHT", 0, 73, "SHOWCASE_REVEAL_HEIGHT", 0, 370, "SHOWCASE_REVEAL_HEIGHT_LARGE", 0, 378]);
+}
