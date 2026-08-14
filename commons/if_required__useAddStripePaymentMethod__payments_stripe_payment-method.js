@@ -747,6 +747,8 @@
       _v20(!1), _v16({
         ..._v3,
         paymentMethodId: _v9.id
+      }, {
+        provider: "stripe"
       });
     }];
   }, "useSubmitStripePayment", 0, () => {

@@ -3465,28 +3465,28 @@
         }
       }),
       dvrRequiredForLanguageFeatures: (0, _v6.translate)({
-        singular: "Turn on DVR to go live with live caption translations, or remove the caption translations first",
+        singular: "Turn on DVR to go live with live caption translations or multi-audio tracks, or remove the caption translations or audio tracks first",
         dictionary: {
           es: {
-            singular: "Activa el DVR para emitir en directo con traducciones en tiempo real de subtítulos, o elimina primero las traducciones de subtítulos"
+            singular: "Activa el DVR para emitir en directo con traducciones de subtítulos en tiempo real o múltiples pistas de audio, o elimina primero las traducciones de subtítulos o las pistas de audio"
           },
           "de-DE": {
-            singular: "Aktivieren Sie DVR, um mit Live-Untertitelübersetzungen live zu gehen, oder entfernen Sie zuerst die Untertitelübersetzungen"
+            singular: "Schalte DVR ein, um live mit Untertitelübersetzungen oder mehreren Audiokanälen zu streamen, oder entferne zuerst die Untertitelübersetzungen oder die Audiokanäle."
           },
           "fr-FR": {
-            singular: "Activez le DVR pour diffuser en direct avec des traductions des sous-titres, ou supprimez d'abord les traductions des sous-titres"
+            singular: "Activez le DVR pour passer en direct avec des traductions de sous-titres en direct ou des pistes audio multiples, ou supprimez d’abord les traductions de sous-titres ou les pistes audio"
           },
           "ja-JP": {
-            singular: "ライブキャプションの翻訳とともにライブ配信するには、DVRをオンにするか、先にキャプション翻訳を削除してください"
+            singular: "ライブキャプション翻訳またはマルチオーディオトラックでライブ配信するには、DVRをオンにするか、先にキャプション翻訳またはオーディオトラックを削除してください"
           },
           "ko-KR": {
-            singular: "실시간 자막 번역으로 생방송을 진행하려면 DVR을 켜거나, 먼저 자막 번역을 제거하세요"
+            singular: "라이브 자막 번역 또는 다중 오디오 트랙으로 생중계하려면 DVR을 켜거나, 먼저 자막 번역 또는 오디오 트랙을 제거하세요"
           },
           "pt-BR": {
-            singular: "Ative o DVR para transmitir ao vivo com traduções em tempo real das legendas, ou remova primeiro as traduções das legendas"
+            singular: "Ative o DVR para iniciar a transmissão ao vivo com traduções de legendas em tempo real ou múltiplas faixas de áudio, ou remova primeiro as traduções de legendas ou as faixas de áudio"
           },
           "zh-CN": {
-            singular: "启用 DVR 以在使用实时字幕翻译时进行直播，或先移除字幕翻译"
+            singular: "开启 DVR 以在直播时使用实时字幕翻译或多音轨，或先移除字幕翻译或音轨"
           }
         }
       }),

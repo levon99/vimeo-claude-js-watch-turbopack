@@ -16757,23 +16757,24 @@ ${_v9}
     _v711 = _v0.i(0),
     _v712 = _v0.i(0),
     _v713 = _v0.i(0),
-    _v714 = _v0.i(0);
-  let _v715 = [_v710.DebugControlManager, _v62.BroadcasterAgoraManager, _v49.BroadcasterFirebaseManager, _v702.ChatManager, _v63.ComposerSessionManager, _v186.ComposerSessionStatsManager, _v48.ComposerSessionStatusManager, _v50.ComposerSettingsManager, _v712.DestinationsManager, _v126.DragDropManager, _v115.EventSettingsManager, _v82.GraphicsManager, _v148.GuestsManager, _v193.LocalMediaManager, _v711.ModuleManager, _v376.NotificationManager, _v79.PageEventsManager, _v226.PanelsManager, _v579.PollManager, _v611.PresenceManager, _v192.QnAManager, _v597.ReactionManager, _v194.RemoteMediaManager, _v190.RoomScreenShareManager, _v56.SceneManager, _v713.TrackingManager, _v52.UserPreferencesManager],
-    _v716 = (0, _v28.createProvider)(_v715, {
+    _v714 = _v0.i(0),
+    _v715 = _v0.i(0);
+  let _v716 = [_v710.DebugControlManager, _v62.BroadcasterAgoraManager, _v49.BroadcasterFirebaseManager, _v702.ChatManager, _v63.ComposerSessionManager, _v186.ComposerSessionStatsManager, _v48.ComposerSessionStatusManager, _v50.ComposerSettingsManager, _v712.DestinationsManager, _v126.DragDropManager, _v713.EventAudioTracksManager, _v115.EventSettingsManager, _v82.GraphicsManager, _v148.GuestsManager, _v193.LocalMediaManager, _v711.ModuleManager, _v376.NotificationManager, _v79.PageEventsManager, _v226.PanelsManager, _v579.PollManager, _v611.PresenceManager, _v192.QnAManager, _v597.ReactionManager, _v194.RemoteMediaManager, _v190.RoomScreenShareManager, _v56.SceneManager, _v714.TrackingManager, _v52.UserPreferencesManager],
+    _v717 = (0, _v28.createProvider)(_v716, {
       isCombined: _v33.liveApplicationConfig.USE_COMBINED_PROVIDERS
     });
-  function _v717({
+  function _v718({
     initialState: _v0,
     pageProps: _v1,
     children: _v2
   }) {
-    return (0, _v714.useScopeViewerProvision)(), (0, _v708.useScopeGctlProvision)(), (0, _v17.jsxs)(_v80.LiveGlobalsProvider, {
+    return (0, _v715.useScopeViewerProvision)(), (0, _v708.useScopeGctlProvision)(), (0, _v17.jsxs)(_v80.LiveGlobalsProvider, {
       initialState: _v0,
       pageProps: _v1,
       children: [(0, _v17.jsx)(_v556.PlayerContextProvider, {
         assetUrls: _v1.playerAssetUrls,
         type: _v557.PlayerType.BarebonePlayer,
-        children: (0, _v17.jsx)(_v716, {
+        children: (0, _v17.jsx)(_v717, {
           initialState: _v0,
           children: _v2
         })
@@ -16782,7 +16783,7 @@ ${_v9}
       })]
     });
   }
-  function _v718(_v0) {
+  function _v719(_v0) {
     let _v1 = (0, _v43.useViewer)(),
       _v2 = (0, _v36.useInitialRenderTime)(),
       _v3 = (0, _v44.useIsVpaas)(),
@@ -16854,7 +16855,7 @@ ${_v9}
     }), (0, _v41.isAgoraSupportedInBrowser)() && (!_v32.browserConfig.BROWSER?.isMobile || _v33.liveApplicationConfig.FEATURE.USE_MOBILE_ACCESS)) ? (0, _v17.jsx)(_v28.ScopeProvider, {
       children: (0, _v17.jsx)(_v31.ScopeErrorBoundary, {
         fallback: _v27,
-        children: (0, _v17.jsxs)(_v717, {
+        children: (0, _v17.jsxs)(_v718, {
           pageProps: _v0,
           initialState: _v5,
           children: [(0, _v17.jsx)(_v707, {}), (0, _v17.jsx)(_v103, {})]
@@ -16871,7 +16872,7 @@ ${_v9}
     return _v1 ? (0, _v17.jsx)(_v18.LiveErrorBoundary, {
       component: "LiveRtcRoot",
       componentHandler: _v27,
-      children: (0, _v17.jsx)(_v718, {
+      children: (0, _v17.jsx)(_v719, {
         ..._v0,
         sessionType: _v3,
         sessionId: _v2

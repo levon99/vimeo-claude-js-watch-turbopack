@@ -420,41 +420,60 @@
             error_message: _v0
           });
         }),
-        _v35 = _v31.query?.token ? String(_v31.query?.token) : void 0,
-        [_v36, _v37] = (0, _v28.useState)(!!window.Z),
-        [_v38, _v39] = (0, _v28.useState)(),
-        [_v40, _v41] = (0, _v28.useState)(!0),
-        _v42 = (0, _v28.useRef)(null),
+        _v35 = (0, _v28.useEffectEvent)(_v0 => {
+          _v24 && (0, _v35.acquireCheckoutFailedLatch)() && _v32({
+            tier: _v24,
+            periodicity: _v33,
+            isFreeTrial: _v26,
+            error_message: _v0
+          });
+        }),
+        _v36 = _v31.query?.token ? String(_v31.query?.token) : void 0,
+        [_v37, _v38] = (0, _v28.useState)(!!window.Z),
+        [_v39, _v40] = (0, _v28.useState)(),
+        [_v41, _v42] = (0, _v28.useState)(!0),
         _v43 = (0, _v28.useRef)(null),
-        _v44 = (0, _v28.useRef)(0),
-        _v45 = (0, _v28.useRef)(null),
-        _v46 = (0, _v28.useRef)({
+        _v44 = (0, _v28.useRef)(null),
+        _v45 = (0, _v28.useRef)(0),
+        _v46 = (0, _v28.useRef)(null),
+        _v47 = (0, _v28.useRef)(null),
+        _v48 = (0, _v28.useRef)({
           generation: -1,
           settled: !0,
           timeoutId: null
         }),
-        _v47 = (0, _v28.useRef)(!1),
-        _v48 = (0, _v28.useRef)(() => void 0),
-        _v49 = "";
-      _v49 = (_v23?.locale || "en").replace(/-/g, "_").replace(/_([a-z])/g, (_v0, _v1) => `_${_v1.toUpperCase()}`), _v49 = _v38.includes(_v49) ? _v49 : "en";
-      let _v50 = (0, _v28.useEffectEvent)(_v0 => {
+        _v49 = (0, _v28.useRef)(!1),
+        _v50 = (0, _v28.useRef)(null),
+        _v51 = (0, _v28.useRef)(() => void 0),
+        _v52 = "";
+      _v52 = (_v23?.locale || "en").replace(/-/g, "_").replace(/_([a-z])/g, (_v0, _v1) => `_${_v1.toUpperCase()}`), _v52 = _v38.includes(_v52) ? _v52 : "en";
+      let _v53 = (0, _v28.useEffectEvent)(_v0 => {
           _v21?.(_v0);
         }),
-        _v51 = (0, _v28.useEffectEvent)(() => {
-          _v44.current += 1;
-          let _v0 = _v44.current,
-            _v1 = _v46.current;
-          return null != _v1.timeoutId && clearTimeout(_v1.timeoutId), _v46.current = {
+        _v54 = (0, _v28.useEffectEvent)((_v0 = !1) => {
+          _v45.current += 1;
+          let _v1 = _v45.current,
+            _v2 = _v48.current;
+          null != _v2.timeoutId && clearTimeout(_v2.timeoutId), _v48.current = {
             generation: -1,
             settled: !0,
             timeoutId: null
-          }, _v50({
+          }, _v47.current = null;
+          let _v3 = _v50.current;
+          return _v3 && (_v0 ? _v3.generation = _v1 : (_v50.current = null, _v3.reject({
+            kind: "disposed",
+            message: "The payment form was replaced before preparation completed"
+          }))), _v53({
             status: "mounting"
-          }), _v0;
+          }), _v1;
         }),
-        _v52 = (0, _v28.useEffectEvent)((_v0, _v1) => {
-          if (_v0 !== _v44.current) return;
-          let _v2 = _v46.current;
+        _v55 = (0, _v28.useEffectEvent)((_v0, _v1) => {
+          let _v2 = _v50.current;
+          _v2 && _v2.generation === _v0 && (_v50.current = null, _v2.reject(_v1));
+        }),
+        _v56 = (0, _v28.useEffectEvent)((_v0, _v1) => {
+          if (_v0 !== _v45.current) return;
+          let _v2 = _v48.current;
           if (_v2.generation === _v0) {
             if (_v2.settled) return;
             _v2.settled = !0, null != _v2.timeoutId && (clearTimeout(_v2.timeoutId), _v2.timeoutId = null);
@@ -463,8 +482,20 @@
             _v4 = {
               ..._v1,
               success: _v3
-            };
-          _v23 && ((0, _v32.trackZuoraOrderStep)({
+            },
+            _v5 = _v50.current;
+          if (_v5?.generation === _v0) {
+            _v50.current = null;
+            let _v0 = _v44.current?.type;
+            !0 === _v3 && _v4.refId && _v0 ? _v5.resolve({
+              refId: _v4.refId,
+              formType: _v0
+            }) : _v5.reject({
+              kind: !0 === _v3 ? "malformed_result" : "validation",
+              message: !0 === _v3 ? "Zuora completed without a payment method reference" : "Zuora could not prepare the payment method"
+            });
+          }
+          if (_v23 && ((0, _v32.trackZuoraOrderStep)({
             hpm_session_id: _v23.xsrft,
             user_id: `${_v23.user?.id}`,
             step_name: "HPM On Submit Callback",
@@ -474,45 +505,48 @@
             user_id: `${_v23.user?.id}`,
             step_name: "HPM onSubmissionComplete",
             payment_method_id: _v4.refId
-          })), _v8(_v11 ? {
+          })), _v8?.(_v11 ? {
             refId: _v4.refId,
             success: _v3
-          } : _v4), !1 === _v3 && _v30({
-            type: _v36.ActionTypes.PAYMENT_ALERT,
-            payload: {
-              status: "error",
-              message: (0, _v5.translate)({
-                singular: "Unable to submit payment",
-                dictionary: {
-                  es: {
-                    singular: "No se puede enviar el pago"
-                  },
-                  "de-DE": {
-                    singular: "Zahlung kann nicht übermittelt werden"
-                  },
-                  "fr-FR": {
-                    singular: "Impossible de soumettre le paiement"
-                  },
-                  "ja-JP": {
-                    singular: "支払いを送信できません"
-                  },
-                  "ko-KR": {
-                    singular: "결제를 제출할 수 없습니다"
-                  },
-                  "pt-BR": {
-                    singular: "Não foi possível enviar o pagamento"
-                  },
-                  "zh-CN": {
-                    singular: "无法提交付款"
-                  }
+          } : _v4), !1 === _v3) {
+            let _v0 = (0, _v5.translate)({
+              singular: "Unable to submit payment",
+              dictionary: {
+                es: {
+                  singular: "No se puede enviar el pago"
+                },
+                "de-DE": {
+                  singular: "Zahlung kann nicht übermittelt werden"
+                },
+                "fr-FR": {
+                  singular: "Impossible de soumettre le paiement"
+                },
+                "ja-JP": {
+                  singular: "支払いを送信できません"
+                },
+                "ko-KR": {
+                  singular: "결제를 제출할 수 없습니다"
+                },
+                "pt-BR": {
+                  singular: "Não foi possível enviar o pagamento"
+                },
+                "zh-CN": {
+                  singular: "无法提交付款"
                 }
-              })
-            }
-          });
+              }
+            });
+            _v35(_v0), _v30({
+              type: _v36.ActionTypes.PAYMENT_ALERT,
+              payload: {
+                status: "error",
+                message: _v0
+              }
+            });
+          }
         }),
-        _v53 = (0, _v28.useEffectEvent)(_v0 => {
-          if (_v0 !== _v44.current) return;
-          let _v1 = _v46.current;
+        _v57 = (0, _v28.useEffectEvent)(_v0 => {
+          if (_v0 !== _v45.current) return;
+          let _v1 = _v48.current;
           _v1.generation !== _v0 || _v1.settled || (_v23 && (0, _v32.trackZuoraOrderStep)({
             hpm_session_id: _v23.xsrft,
             user_id: `${_v23.user?.id}`,
@@ -520,46 +554,62 @@
           }), (0, _v32.trackOrderFailure)({
             userId: Number(_v23?.user?.id),
             description: "Timed out. Did not receive a response from Zuora"
-          }), _v34("Timed out. Did not receive a response from Zuora"), _v52(_v0, {
+          }), _v34("Timed out. Did not receive a response from Zuora"), _v55(_v0, {
+            kind: "timeout",
+            message: "Timed out. Did not receive a response from Zuora"
+          }), _v56(_v0, {
             refId: "",
             success: !1
           }));
         }),
-        _v54 = (0, _v28.useEffectEvent)(_v0 => {
-          _v0 === _v44.current && (_v30({
+        _v58 = (0, _v28.useEffectEvent)(_v0 => {
+          _v0 === _v45.current && (_v30({
             type: _v36.ActionTypes.PAYMENT_ALERT,
             payload: void 0
           }), (0, _v35.resetCheckoutFailedLatch)(), _v23 && (0, _v32.trackZuoraOrderStep)({
             hpm_session_id: _v23.xsrft,
             user_id: `${_v23.user?.id}`,
             step_name: "HPM Submit Started"
-          }), _v9?.(), _v46.current = {
+          }), _v9?.(), _v48.current = {
             generation: _v0,
             settled: !1,
             timeoutId: null
-          }, _v46.current.timeoutId = setTimeout(() => {
-            _v53(_v0);
+          }, _v48.current.timeoutId = setTimeout(() => {
+            _v57(_v0);
           }, 0));
         }),
-        _v55 = (0, _v28.useEffectEvent)(_v0 => {
-          if (_v0 !== _v44.current || _v45.current !== _v0) return;
-          _v41(!1), window?.Z?.setFieldValue("callbackFunctionEnabled", "true"), _v23 && (0, _v32.trackZuoraOrderStep)({
+        _v59 = (0, _v28.useEffectEvent)(_v0 => {
+          if (_v0 !== _v45.current || _v46.current !== _v0) return;
+          _v42(!1), window?.Z?.setFieldValue("callbackFunctionEnabled", "true"), _v23 && (0, _v32.trackZuoraOrderStep)({
             hpm_session_id: _v23.xsrft,
             user_id: `${_v23.user?.id}`,
             step_name: "HPM - OnLoadCallback"
           });
-          let _v1 = _v43.current?.type ?? _v2;
-          _v1 && _v6?.(_v1), _v50({
+          let _v1 = _v44.current?.type ?? _v2;
+          _v1 && _v6?.(_v1), _v47.current = _v0, _v53({
             status: "ready"
           });
         }),
-        _v56 = (0, _v28.useEffectEvent)((_v0, ..._v1) => {
-          if (_v0 !== _v44.current) return;
-          let _v2 = _v43.current,
-            _v3 = _v1[2];
-          _v2?.type === _v36.PaymentFormTypes.TYPE_CREDIT_CARD && _v3 && _v3.includes("ThreeDs2_Authentication_Exception") && _v48.current(), _v10(..._v1);
+        _v60 = (0, _v28.useEffectEvent)((_v0, ..._v1) => {
+          if (_v0 !== _v45.current) return;
+          let _v2 = _v44.current,
+            _v3 = _v1[2],
+            _v4 = _v50.current,
+            _v5 = _v2?.type === _v36.PaymentFormTypes.TYPE_CREDIT_CARD && _v3?.includes("ThreeDs2_Authentication_Exception"),
+            _v6 = null === _v4 || _v4.generation === _v0,
+            _v7 = {
+              kind: "validation",
+              message: _v3 || "Zuora could not prepare the payment method",
+              code: _v1[1] || void 0,
+              field: _v1[0] || void 0
+            };
+          if (_v5 && _v6) {
+            _v55(_v0, _v7), _v10(..._v1), _v51.current();
+            return;
+          }
+          _v55(_v0, _v7), _v10(..._v1);
         }),
-        _v57 = async (_v0, _v1, _v2) => {
+        _v61 = async (_v0, _v1, _v2) => {
           if (!window.Z) return;
           let _v3 = await _v39({
             form_type: _v0,
@@ -567,10 +617,10 @@
             token: _v23?.xsrft || "",
             require_account_id: _v12,
             currency: _v1,
-            ios_jwt: _v35,
+            ios_jwt: _v36,
             pm_id: _v17
           });
-          if (_v47.current || _v1 !== _v44.current || !window.Z) return;
+          if (_v49.current || _v1 !== _v45.current || !window.Z) return;
           let _v4 = function ({
             data: _v0,
             paymentType: _v1,
@@ -597,29 +647,64 @@
           }({
             data: _v3,
             paymentType: _v0,
-            userLocale: _v49
+            userLocale: _v52
           });
-          return _v45.current = _v1, window.Z.setEventHandler("onloadCallback", () => _v55(_v1)), window.Z.setEventHandler("onSubmit", () => _v54(_v1)), window.Z.renderWithErrorHandler(_v4, [], _v0 => _v52(_v1, _v0), (..._v0) => {
-            _v2?.onBeforeSubmitError?.(_v0), _v56(_v1, ..._v0);
+          return _v46.current = _v1, window.Z.setEventHandler("onloadCallback", () => _v59(_v1)), window.Z.setEventHandler("onSubmit", () => _v58(_v1)), window.Z.renderWithErrorHandler(_v4, [], _v0 => _v56(_v1, _v0), (..._v0) => {
+            _v2?.onBeforeSubmitError?.(_v0), _v60(_v1, ..._v0);
           }), _v3;
         },
-        _v58 = async () => {
-          let _v0 = _v51();
-          _v42.current && (_v42.current.innerHTML = ""), _v41(!0);
+        _v62 = async (_v0 = !1) => {
+          let _v1 = _v54(_v0);
+          _v43.current && (_v43.current.innerHTML = ""), _v42(!0);
           try {
-            await _v57(_v36.PaymentFormTypes.TYPE_CREDIT_CARD, _v0);
+            await _v61(_v36.PaymentFormTypes.TYPE_CREDIT_CARD, _v1);
           } catch {
-            _v41(!1), _v5?.(Error("Unable to re-render form")), _v50({
+            let _v0 = (0, _v5.translate)({
+              singular: "Unable to submit payment",
+              dictionary: {
+                es: {
+                  singular: "No se puede enviar el pago"
+                },
+                "de-DE": {
+                  singular: "Zahlung kann nicht übermittelt werden"
+                },
+                "fr-FR": {
+                  singular: "Impossible de soumettre le paiement"
+                },
+                "ja-JP": {
+                  singular: "支払いを送信できません"
+                },
+                "ko-KR": {
+                  singular: "결제를 제출할 수 없습니다"
+                },
+                "pt-BR": {
+                  singular: "Não foi possível enviar o pagamento"
+                },
+                "zh-CN": {
+                  singular: "无法提交付款"
+                }
+              }
+            });
+            _v42(!1), _v5?.(Error("Unable to re-render form")), _v55(_v1, {
+              kind: "transport",
+              message: _v0
+            }), _v30({
+              type: _v36.ActionTypes.PAYMENT_ALERT,
+              payload: {
+                status: "error",
+                message: _v0
+              }
+            }), _v53({
               status: "failed"
             });
           }
         };
       (0, _v28.useEffect)(() => {
-        _v48.current = _v58;
-      }, [_v58]), (0, _v28.useEffect)(() => {
-        _v43.current = _v38 || null;
-      }, [_v38]), (0, _v28.useEffect)(() => {
-        if (_v36) return;
+        _v51.current = _v62;
+      }, [_v62]), (0, _v28.useEffect)(() => {
+        _v44.current = _v39 || null;
+      }, [_v39]), (0, _v28.useEffect)(() => {
+        if (_v37) return;
         _v23 && (0, _v32.trackZuoraOrderStep)({
           hpm_session_id: _v23.xsrft,
           user_id: `${_v23.user?.id}`,
@@ -629,54 +714,88 @@
         let _v0 = document.createElement("script");
         _v0.src = "https://static.zuora.com/Resources/libs/hosted/1.3.1/zuora-min.js", _v0.async = !0;
         let _v1 = () => {
-          _v37(!0);
+          _v38(!0);
         };
         return _v0.addEventListener("load", _v1), document.body.appendChild(_v0), () => {
-          _v0.removeEventListener("load", _v1), _v36 || document.body.removeChild(_v0);
+          _v0.removeEventListener("load", _v1), _v37 || document.body.removeChild(_v0);
         };
-      }, [_v36, _v23]), (0, _v28.useEffect)(() => {
-        if (!_v36 || !_v23 || !window.Z || _v38) return;
+      }, [_v37, _v23]), (0, _v28.useEffect)(() => {
+        if (!_v37 || !_v23 || !window.Z || _v39) return;
         let _v0 = !1;
         return Promise.resolve().then(async () => {
           if (_v0) return;
-          let _v0 = _v51();
-          if (_v39({
+          let _v0 = _v54();
+          if (_v40({
             type: _v2,
             data: _v41(_v2)
           }), _v2 === _v36.PaymentFormTypes.TYPE_PAYPAL) {
-            _v41(!1), _v6?.(_v2), _v50({
+            _v42(!1), _v6?.(_v2), _v53({
               status: "ready"
             });
             return;
           }
           try {
-            await _v57(_v2, _v0);
+            await _v61(_v2, _v0);
           } catch {
             if (_v0) return;
-            _v41(!1), _v5?.(Error("Unable to render form")), _v50({
+            _v42(!1), _v5?.(Error("Unable to render form")), _v53({
               status: "failed"
             });
           }
         }), () => {
           _v0 = !0;
         };
-      }, [_v2, _v36, _v4, _v6, _v12, _v23, _v1, _v5, _v49, _v35, _v17, _v38, _v51, _v50]), (0, _v28.useEffect)(() => {
-        if (!_v40 && _v38?.type === _v36.PaymentFormTypes.TYPE_CREDIT_CARD && window.Z && document.getElementById(_v33.ZUORA_HPM_IFRAME_ID) && (!1 !== _v19 && _v18?.postalCode !== void 0 && window.Z.post(_v33.ZUORA_HPM_IFRAME_ID, `setField(creditCardPostalCode:${_v18.postalCode ?? ""})`), _v18?.state !== void 0 && window.Z.post(_v33.ZUORA_HPM_IFRAME_ID, `setField(creditCardState:${_v18.state ?? ""})`), _v18?.country)) {
+      }, [_v2, _v37, _v4, _v6, _v12, _v23, _v1, _v5, _v52, _v36, _v17, _v39, _v54, _v53]), (0, _v28.useEffect)(() => {
+        if (!_v41 && _v39?.type === _v36.PaymentFormTypes.TYPE_CREDIT_CARD && window.Z && document.getElementById(_v33.ZUORA_HPM_IFRAME_ID) && (!1 !== _v19 && _v18?.postalCode !== void 0 && window.Z.post(_v33.ZUORA_HPM_IFRAME_ID, `setField(creditCardPostalCode:${_v18.postalCode ?? ""})`), _v18?.state !== void 0 && window.Z.post(_v33.ZUORA_HPM_IFRAME_ID, `setField(creditCardState:${_v18.state ?? ""})`), _v18?.country)) {
           let _v0 = _v34.countries[_v18.country]?.iso3;
           window.Z.post(_v33.ZUORA_HPM_IFRAME_ID, `setField(creditCardCountry:${_v0})`);
         }
-      }, [_v18, _v40, _v38, _v19]);
-      let _v59 = (0, _v28.useMemo)(() => ({
-        submit: () => window.Z?.submit()
-      }), []);
-      return ((0, _v28.useEffect)(() => (_v20?.(_v59), () => {
+      }, [_v18, _v41, _v39, _v19]);
+      let [_v63] = (0, _v28.useState)(() => ({
+        prepare: (_v0, _v1) => {
+          let _v2 = _v45.current;
+          return _v49.current || _v47.current !== _v2 || !window.Z ? Promise.reject({
+            kind: "disposed",
+            message: "The payment form is not ready"
+          }) : _v50.current ? Promise.reject({
+            kind: "validation",
+            message: "A payment preparation is already in progress"
+          }) : new Promise((_v0, _v1) => {
+            _v50.current = {
+              attemptId: _v0.attemptId,
+              generation: _v2,
+              resolve: _v0,
+              reject: _v1
+            }, _v1.addEventListener("abort", () => {
+              _v55(_v2, {
+                kind: "disposed",
+                message: "The payment preparation was cancelled"
+              });
+            }, {
+              once: !0
+            }), window.Z?.submit();
+          });
+        },
+        dispose: () => {
+          _v55(_v45.current, {
+            kind: "disposed",
+            message: "The payment preparation was cancelled"
+          });
+        }
+      }));
+      return ((0, _v28.useEffect)(() => (_v20?.(_v63), () => {
         _v20?.(null);
-      }), [_v59, _v20]), (0, _v28.useEffect)(() => () => {
-        _v47.current = !0, _v44.current += 1;
-        let _v0 = _v46.current;
-        null != _v0.timeoutId && clearTimeout(_v0.timeoutId);
-      }, []), _v36) ? (0, _v1.jsxs)(_v22, {
-        formIsLoading: _v40,
+      }), [_v63, _v20]), (0, _v28.useEffect)(() => () => {
+        _v49.current = !0, _v45.current += 1;
+        let _v0 = _v50.current;
+        _v50.current = null, _v0?.reject({
+          kind: "disposed",
+          message: "The payment form was removed before preparation completed"
+        });
+        let _v1 = _v48.current;
+        null != _v1.timeoutId && clearTimeout(_v1.timeoutId);
+      }, []), _v37) ? (0, _v1.jsxs)(_v22, {
+        formIsLoading: _v41,
         formAlert: _v3?.message ? _v3 : void 0,
         hidePaymentTypeSelector: _v16,
         formTypes: _v14 ? [{
@@ -689,25 +808,25 @@
           type: _v36.PaymentFormTypes.TYPE_CREDIT_CARD,
           data: _v41(_v36.PaymentFormTypes.TYPE_CREDIT_CARD)
         }],
-        renderedFormType: _v38,
+        renderedFormType: _v39,
         bspStyling: _v15,
         onPaymentTypeChanged: _v0 => {
           let _v1 = _v41(_v0);
           _v22(_v33.CHECKOUT_FORM_ACTION_TYPE_CLICK, _v0 === _v36.PaymentFormTypes.TYPE_PAYPAL ? _v33.CHECKOUT_FORM_ACTION_LOCATION_PAYMENT_TYPE_PAYPAL : _v33.CHECKOUT_FORM_ACTION_LOCATION_PAYMENT_TYPE_CREDIT_CARD), _v7?.(_v0);
-          let _v2 = _v51();
-          if (_v42.current && (_v42.current.innerHTML = ""), _v30({
+          let _v2 = _v54();
+          if (_v43.current && (_v43.current.innerHTML = ""), _v30({
             type: _v36.ActionTypes.PAYMENT_ALERT,
             payload: void 0
-          }), _v41(!0), _v39({
+          }), _v42(!0), _v40({
             type: _v0,
             data: _v1
           }), _v0 === _v36.PaymentFormTypes.TYPE_PAYPAL) {
-            _v41(!1), _v6?.(_v0), _v50({
+            _v42(!1), _v6?.(_v0), _v53({
               status: "ready"
             });
             return;
           }
-          _v57(_v0, _v2, {
+          _v61(_v0, _v2, {
             onBeforeSubmitError: _v0 => {
               _v23 && (0, _v32.trackZuoraOrderStep)({
                 hpm_session_id: _v23.xsrft,
@@ -717,14 +836,14 @@
               });
             }
           }).catch(() => {
-            _v41(!1), _v5?.(Error("Unable to render form")), _v50({
+            _v42(!1), _v5?.(Error("Unable to render form")), _v53({
               status: "failed"
             });
           });
         },
         showExistingPaymentMethods: _v13,
         children: [(0, _v1.jsx)(_v3.Box, {
-          ref: _v42,
+          ref: _v43,
           width: "100%",
           sx: {
             "& > iframe": {

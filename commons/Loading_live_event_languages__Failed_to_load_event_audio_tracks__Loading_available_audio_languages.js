@@ -32,7 +32,9 @@
         })
       });
     } catch (_v0) {
-      _v0.log.error("Failed to load event audio tracks:", _v0);
+      _v0.log.error("Failed to load event audio tracks:", _v0), _v0.setContext({
+        eventLanguages: _v0.context.eventLanguages.asFailed(_v0)
+      });
     }
   }
   async function _v8(_v0) {
@@ -146,7 +148,7 @@
         type: _v2
       }
     }) {
-      console.log("yohoho"), "audioTracks" in _v0.connections && _v0.connections.audioTracks && "availableLanguages" in _v0.connections && _v0.connections.availableLanguages ? (this.log.info("Initializing event audio tracks context:", _v0.connections?.audioTracks, _v0.connections?.availableLanguages), this.connections = {
+      "audioTracks" in _v0.connections && _v0.connections.audioTracks && "availableLanguages" in _v0.connections && _v0.connections.availableLanguages ? (this.log.info("Initializing event audio tracks context:", _v0.connections?.audioTracks, _v0.connections?.availableLanguages), this.connections = {
         audioTracks: _v0.connections?.audioTracks,
         availableLanguages: _v0.connections?.availableLanguages
       }, this.setContext({

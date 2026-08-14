@@ -8301,6 +8301,7 @@
               searchId: _v1.searchId,
               searchRequestId: _v1.searchRequestId,
               valueName: _v2 ? "other_results_collapse" : "other_results_expand",
+              interactionType: _v2 ? "sources_collapse" : "sources_expand",
               entityId: null
             }), _v3(_v0 => !_v0);
           },
@@ -8584,9 +8585,10 @@
           searchRequestId: _v6
         },
         {
-          trackAgenticSearchInteraction: _v10
+          trackAgenticSearchInteraction: _v10,
+          trackAgenticSearchPageViewed: _v11
         } = (0, _v12.useSearchTracking)(),
-        [_v11, _v12] = (0, _v3.useState)(() => (_v0 => {
+        [_v12, _v13] = (0, _v3.useState)(() => (_v0 => {
           if (void 0 === _v0) return !1;
           try {
             return "true" === window.localStorage.getItem(_v204(_v0));
@@ -8594,63 +8596,95 @@
             return !1;
           }
         })(_v0)),
-        _v13 = _v1 || "",
-        _v14 = (0, _v3.useCallback)(() => {
-          _v13.trim() && (_v9.searchRequestId && _v10({
+        _v14 = (0, _v3.useRef)(_v12);
+      (0, _v3.useEffect)(() => {
+        _v14.current = _v12;
+      }, [_v12]);
+      let _v15 = _v1 || "",
+        _v16 = (0, _v3.useCallback)(() => {
+          _v15.trim() && (_v9.searchRequestId && _v10({
             searchId: _v9.searchId,
             searchRequestId: _v9.searchRequestId,
             valueName: "regenerate",
+            interactionType: "regenerate",
             entityId: null
           }), _v7());
-        }, [_v13, _v7, _v9.searchId, _v9.searchRequestId, _v10]),
-        _v15 = (0, _v3.useCallback)(() => {
-          _v12(_v0 => {
-            let _v1 = !_v0;
-            if (void 0 !== _v0) try {
-              _v1 ? window.localStorage.setItem(_v204(_v0), "true") : window.localStorage.removeItem(_v204(_v0));
-            } catch {}
-            return _v1;
+        }, [_v15, _v7, _v9.searchId, _v9.searchRequestId, _v10]),
+        _v17 = (0, _v3.useRef)(_v2),
+        _v18 = (0, _v3.useRef)(null),
+        _v19 = (0, _v3.useCallback)(() => {
+          let _v0 = !_v14.current;
+          _v14.current = _v0, _v13(_v0);
+          if (void 0 !== _v0) try {
+            _v0 ? window.localStorage.setItem(_v204(_v0), "true") : window.localStorage.removeItem(_v204(_v0));
+          } catch {}
+          _v9.searchRequestId && _v10({
+            searchId: _v9.searchId,
+            searchRequestId: _v9.searchRequestId,
+            valueName: _v0 ? "overview_collapse" : "overview_expand",
+            interactionType: _v0 ? "overview_collapse" : "overview_expand",
+            entityId: null
           });
-        }, [_v0]),
-        _v16 = (0, _v3.useRef)(_v2);
-      if ((0, _v3.useEffect)(() => {
-        let _v0 = _v245(_v16.current),
+        }, [_v0, _v9.searchId, _v9.searchRequestId, _v10]);
+      (0, _v3.useEffect)(() => {
+        let _v0 = _v245(_v17.current),
           _v1 = !_v245(_v2);
-        _v16.current = _v2, _v0 && _v1 && _v12(!0);
-      }, [_v2]), !_v13 && !_v5 && !_v3 && !_v4) return null;
-      let _v17 = {
-        isCollapsed: _v11,
-        onToggleCollapse: _v15
+        _v17.current = _v2, _v0 && _v1 && (_v14.current = !0, _v13(!0));
+      }, [_v2]);
+      let _v20 = !!(_v3 && "help" !== _v3.capability && !_v3.summary && _v3.clips.length > 0),
+        _v21 = !!_v15 && (_v5 || !!_v4 || !!(_v3 && !_v20));
+      if ((0, _v3.useEffect)(() => {
+        let _v0 = _v15.trim();
+        if (!_v0) {
+          _v18.current = null;
+          return;
+        }
+        if (!_v21) return;
+        let _v1 = `${_v0 ?? "self"}|${_v0}`;
+        if (_v18.current === _v1) return;
+        _v18.current = _v1;
+        let _v2 = _v14.current ? "collapsed" : "expanded";
+        _v11({
+          searchId: _v9.searchId,
+          searchText: _v0,
+          libraryOwnerId: _v0 ?? null,
+          contentType: _v2 ?? null,
+          overviewState: _v2
+        });
+      }, [_v0, _v9.searchId, _v2, _v21, _v15, _v11]), !_v15 && !_v5 && !_v3 && !_v4) return null;
+      let _v22 = {
+        isCollapsed: _v12,
+        onToggleCollapse: _v19
       };
       if (_v5) return (0, _v1.jsx)(_v236, {
-        ..._v17,
+        ..._v22,
         children: (0, _v1.jsx)(_v240, {})
       });
       if (_v4) return (0, _v1.jsx)(_v236, {
-        ..._v17,
+        ..._v22,
         children: (0, _v1.jsx)(_v242, {})
       });
       if (!_v3) return null;
       if ("help" === _v3.capability) return (0, _v1.jsx)(_v236, {
-        ..._v17,
+        ..._v22,
         children: (0, _v1.jsx)(_v243, {
           result: _v3,
           ids: _v9
         })
       });
-      let _v18 = _v3.clips.length > 0;
-      if (!_v3.summary && _v18) return null;
-      if (!_v3.summary && !_v18) return (0, _v1.jsx)(_v236, {
-        ..._v17,
+      let _v23 = _v3.clips.length > 0;
+      if (_v20) return null;
+      if (!_v3.summary && !_v23) return (0, _v1.jsx)(_v236, {
+        ..._v22,
         children: (0, _v1.jsx)(_v241, {
           children: _v80.NO_AI_RESULTS
         })
       });
-      let _v19 = _v3.related_searches ?? [];
+      let _v24 = _v3.related_searches ?? [];
       return (0, _v1.jsxs)(_v236, {
-        ..._v17,
-        footer: _v19.length > 0 ? (0, _v1.jsx)(_v239, {
-          searches: _v19
+        ..._v22,
+        footer: _v24.length > 0 ? (0, _v1.jsx)(_v239, {
+          searches: _v24
         }) : void 0,
         children: [_v3.partial && (0, _v1.jsx)(_v176.Box, {
           marginTop: "sm",
@@ -8679,8 +8713,8 @@
             clips: _v3.clips,
             citedTitles: _v3.cited_titles,
             ids: _v9,
-            onRegenerate: _v14
-          }), _v18 && (0, _v1.jsx)(_v176.Box, {
+            onRegenerate: _v16
+          }), _v23 && (0, _v1.jsx)(_v176.Box, {
             flex: {
               md: "1 1 0",
               xl: "2 1 0"

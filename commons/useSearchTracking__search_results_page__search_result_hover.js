@@ -185,6 +185,15 @@
         });
       }, [_v0]),
       _v22 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("agentic_search_page_viewed", {
+          search_id: _v0.searchId,
+          search_text: _v0.searchText,
+          library_owner_id: _v0.libraryOwnerId,
+          content_type: _v0.contentType,
+          overview_state: _v0.overviewState
+        });
+      }, [_v0]),
+      _v23 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_response", {
           search_id: _v0.searchId,
           search_request_id: _v0.searchRequestId,
@@ -200,7 +209,7 @@
           summary: _v0.summary
         });
       }, [_v0]),
-      _v23 = (0, _v1.useCallback)(_v0 => {
+      _v24 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_result_click", {
           search_id: _v0.searchId,
           search_request_id: _v0.searchRequestId,
@@ -212,22 +221,25 @@
           start_time_seconds: _v0.startTimeSeconds
         });
       }, [_v0]),
-      _v24 = (0, _v1.useCallback)(_v0 => {
+      _v25 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_interaction", {
           search_id: _v0.searchId,
           search_request_id: _v0.searchRequestId,
           value_name: _v0.valueName,
+          ...(_v0.interactionType ? {
+            interaction_type: _v0.interactionType
+          } : {}),
           entity_id: _v0.entityId
         });
       }, [_v0]),
-      _v25 = (0, _v1.useCallback)(_v0 => {
+      _v26 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_rated", {
           search_id: _v0.searchId,
           search_request_id: _v0.searchRequestId,
           is_positive: _v0.isPositive
         });
       }, [_v0]),
-      _v26 = (0, _v1.useCallback)(_v0 => {
+      _v27 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_feedback", {
           search_id: _v0.searchId,
           search_request_id: _v0.searchRequestId,
@@ -237,12 +249,13 @@
       }, [_v0]);
     return {
       trackSearchPageDisplayed: _v20,
+      trackAgenticSearchPageViewed: _v22,
       trackAgenticSearchSubmitted: _v21,
-      trackAgenticSearchResponse: _v22,
-      trackAgenticSearchResultClick: _v23,
-      trackAgenticSearchInteraction: _v24,
-      trackAgenticSearchRated: _v25,
-      trackAgenticSearchFeedback: _v26,
+      trackAgenticSearchResponse: _v23,
+      trackAgenticSearchResultClick: _v24,
+      trackAgenticSearchInteraction: _v25,
+      trackAgenticSearchRated: _v26,
+      trackAgenticSearchFeedback: _v27,
       trackAgenticSearchFeedbackDismissed: (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_feedback_dismissed", {
           search_id: _v0.searchId,
