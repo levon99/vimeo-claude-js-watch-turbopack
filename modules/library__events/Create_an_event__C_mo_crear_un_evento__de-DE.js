@@ -356,25 +356,32 @@
       singular: "Permanently delete this event and its associated data. This event won’t play anywhere it’s embedded.",
       dictionary: {
         es: {
-          singular: "Elimina este evento y sus datos asociados de manera permanente. Este evento no se reproducirá en ningún lugar donde esté insertado."
+          singular: "Eliminar permanentemente este evento y sus datos asociados. Este evento no se reproducirá en ningún lugar donde esté incrustado.",
+          plural: "Eliminar permanentemente estos eventos y sus datos asociados. Estos eventos no se reproducirán en ningún lugar donde estén incrustados."
         },
         "de-DE": {
-          singular: "Das Video und die damit verbundenen Daten unwiderruflich löschen. Dieses Event kann überall dort, wo es eingebettet ist, nicht abgespielt werden."
+          singular: "Dieses Event und die zugehörigen Daten dauerhaft löschen. Dieses Event wird überall, wo es eingebettet ist, nicht abgespielt.",
+          plural: "Diese Events und die zugehörigen Daten dauerhaft löschen. Diese Events werden überall, wo sie eingebettet sind, nicht abgespielt."
         },
         "fr-FR": {
-          singular: "Supprimez de manière permanente cet événement et les données associées. Cet événement ne pourra plus être visionné partout où il a été intégré."
+          singular: "Supprimer définitivement cet événement et ses données associées. Cet événement ne sera lu nulle part où il est intégré.",
+          plural: "Supprimer définitivement ces événements et leurs données associées. Ces événements ne seront lus nulle part où ils sont intégrés."
         },
         "ja-JP": {
-          singular: "この動画とそれに関連するデータを完全に削除します。埋め込まれているすべてのサイトで再生できなくなります。"
+          singular: "このイベントと関連データを完全に削除します。埋め込まれている場所ではこのイベントは再生されなくなります。",
+          plural: "これらのイベントと関連データを完全に削除します。埋め込まれている場所ではこれらのイベントは再生されなくなります。"
         },
         "ko-KR": {
-          singular: "이 동영상과 관련 데이터를 영구적으로 삭제합니다. 이 동영상은 임베드된 모든 위치에서 더 이상 재생되지 않습니다."
+          singular: "이 이벤트와 관련된 데이터를 영구 삭제합니다. 이 이벤트는 임베드된 곳 어디에서도 재생되지 않습니다.",
+          plural: "이 이벤트들과 관련된 데이터를 영구 삭제합니다. 이 이벤트들은 임베드된 곳 어디에서도 재생되지 않습니다."
         },
         "pt-BR": {
-          singular: "Exclua este evento permanentemente e todos os dados associados a ele. Estes eventos não serão reproduzidos onde foram incorporados."
+          singular: "Excluir permanentemente este evento e seus dados associados. Este evento não será reproduzido em nenhum lugar em que esteja incorporado.",
+          plural: "Excluir permanentemente estes eventos e seus dados associados. Estes eventos não serão reproduzidos em nenhum lugar em que estejam incorporados."
         },
         "zh-CN": {
-          singular: "永久删除此活动及其关联数据。此活动不会在其嵌入的任何地方播放。"
+          singular: "永久删除此事件及其相关数据。此事件在嵌入的任何位置都无法播放。",
+          plural: "永久删除这些事件及其相关数据。这些事件在嵌入的任何位置都无法播放。"
         }
       }
     }), (0, _v17.translate)({
@@ -5282,7 +5289,8 @@
         } : _v69,
         selectedItems: _v101,
         selectedItemURIs: _v82.selectedItemURIs,
-        teamOwnerId: _v7
+        teamOwnerId: _v7,
+        useEventDeleteModal: !0
       })]
     });
   }

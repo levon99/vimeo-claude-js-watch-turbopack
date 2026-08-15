@@ -187,7 +187,7 @@
     return "function" == typeof _v0 ? (_v2 = _v0, _v3 = _v1) : (_v3 = _v0, _v2 = () => ({
       props: {}
     })), async function (_v0) {
-      _v3?.noIndex && _v0.res.setHeader("X-Robots-Tag", "noindex"), _v3?.inlineViewer && !_v9(_v0.req) && _v0.res.setHeader("Cache-Control", "public, max-age=600");
+      _v3?.noIndex && _v0.res.setHeader("X-Robots-Tag", "noindex"), _v3?.inlineViewer && !_v9(_v0.req) && (_v0.req.headers["x-varnish"] ? _v0.res.setHeader("Cache-Control", "public, max-age=600") : (_v0.res.setHeader("Cache-Control", "no-store"), _v0.res.setHeader("CDN-Cache-Control", "max-age=5")));
       let _v1 = _v1.default.hrtime.bigint(),
         _v2 = function (_v0, _v1) {
           let _v2 = _v0.split("?")[0];
@@ -221,7 +221,7 @@
         _v5 = !!_v3?.googleBotPermanentRedirect && _v3?.redirect != null,
         _v6 = _v5 && _v6(_v0.req.headers["user-agent"] ?? ""),
         _v7 = () => {
-          _v5 && _v0.res.setHeader("Cache-Control", "private, no-store");
+          _v5 && (_v0.res.setHeader("Cache-Control", "private, no-store"), _v0.res.setHeader("CDN-Cache-Control", "no-store"));
         },
         _v8 = (_v0, _v1, _v2) => {
           _v15("vimeo_nextjs_ssr_setup_duration_seconds", {
@@ -292,7 +292,7 @@
           _v6 = (_v1 = _v0.req.headers["crossroads-jwt"], _v2 = {
             "Content-Type": "application/json",
             Authorization: `jwt ${_v1}`
-          }, ["x-forwarded-for", "x-geo-vary-group", "vimeo-environment-id", "vimeo-environment-tld"].forEach(_v0 => {
+          }, ["cf-connecting-ip", "x-forwarded-for", "x-geo-vary-group", "vimeo-environment-id", "vimeo-environment-tld"].forEach(_v0 => {
             let _v1 = _v0.req.headers[_v0];
             _v1 && (_v2[_v0] = _v1);
           }), {
@@ -318,8 +318,9 @@
             _v2 = _v3?.inlineCreatePreloads && _v4(_v6.req) ? _v26(_v6) : null,
             _v3 = _v3?.inlineMagistoResources ? _v27(_v6) : null,
             _v4 = _v3?.inlineModbox && !_v4(_v6.req) ? _v25(_v6) : null,
-            _v5 = await _v2(_v6);
-          return _v8(_v9(_v5), "success", _v11), _v4(_v5, {
+            _v5 = await _v2(_v6),
+            _v6 = _v0.res?.getHeader?.("Cache-Control");
+          return "string" == typeof _v6 && _v6.includes("no-store") && _v0.res.setHeader("CDN-Cache-Control", "no-store"), _v8(_v9(_v5), "success", _v11), _v4(_v5, {
             locale: _v3,
             isChinaRestricted: _v4
           }, _v0 ? await _v0 : null, _v1 ? await _v1 : null, _v2 ? await _v2 : null, _v3, _v4 ? await _v4 : null);
@@ -367,8 +368,9 @@
           _v11 = _v3?.inlineCreatePreloads && _v4(_v6.req) ? _v26(_v6) : null,
           _v12 = _v3?.inlineMagistoResources ? _v27(_v6) : null,
           _v13 = _v3?.inlineModbox ? _v25(_v6) : null,
-          _v14 = await _v2(_v6);
-        return _v8(_v9(_v14), "success", _v11), _v4(_v14, {
+          _v14 = await _v2(_v6),
+          _v15 = _v0.res?.getHeader?.("Cache-Control");
+        return "string" == typeof _v15 && _v15.includes("no-store") && _v0.res.setHeader("CDN-Cache-Control", "no-store"), _v8(_v9(_v14), "success", _v11), _v4(_v14, {
           locale: _v3,
           isChinaRestricted: _v4
         }, _v9 ? await _v9 : null, _v10 ? await _v10 : null, _v11 ? await _v11 : null, _v12, _v13 ? await _v13 : null);

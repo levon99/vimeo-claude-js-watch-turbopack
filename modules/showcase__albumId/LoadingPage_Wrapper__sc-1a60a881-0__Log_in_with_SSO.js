@@ -10567,6 +10567,9 @@
         headers: {
           Cookie: _v4,
           "User-Agent": _v0.req.headers["user-agent"] || "",
+          ...(_v0.req.headers["cf-connecting-ip"] ? {
+            "CF-Connecting-IP": _v0.req.headers["cf-connecting-ip"]
+          } : {}),
           "X-Forwarded-For": _v0.req.headers["x-forwarded-for"] || ""
         },
         redirect: "manual"

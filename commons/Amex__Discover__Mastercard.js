@@ -35,6 +35,18 @@
     if (Number.isNaN(_v1)) return 0;
     let _v2 = Math.ceil((_v1 - Date.now()) / 0);
     return _v2 > 0 ? _v2 : 0;
+  }, "formatGracePeriodRetryDate", 0, function (_v0) {
+    if (!_v0) return "";
+    let _v1 = new Date(_v0);
+    if (Number.isNaN(_v1.getTime())) return "";
+    let _v2 = "u" > typeof navigator && navigator.language || "en-US";
+    return _v1.toLocaleDateString(_v2, {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC"
+    });
   }, "formatSuspensionDate", 0, function (_v0) {
     if (!_v0) return "";
     let _v1 = new Date(_v0);

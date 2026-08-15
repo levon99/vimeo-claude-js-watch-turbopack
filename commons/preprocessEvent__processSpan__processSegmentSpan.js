@@ -3145,7 +3145,9 @@ Error:`, _v0);
   let _v287 = 0,
     _v288 = 0,
     _v289 = 0,
-    _v290 = 0;
+    _v290 = 0,
+    _v291 = 0,
+    _v292 = 0;
   !function (_v0) {
     let _v1, _v2, _v3, _v4, _v5;
     _v282 && (0, _v16.consoleSandbox)(() => {
@@ -4498,7 +4500,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "b0c83094cd6669232fc63c90b3e5a86593b27066",
+      release: "f30e304bf7365b50cbaedba92b8afab18613d054",
       ..._v0
     };
     !function (_v0) {
@@ -4678,26 +4680,30 @@ Error:`, _v0);
       let _v15 = _v0.exception?.values?.[0];
       if (_v15?.type === "InvalidStateError" && "The object is in an invalid state." === _v15.value && _v15.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v15.mechanism?.handled === !1 && _v15.mechanism?.data?.handler === "<anonymous>" && (_v290 += 1) > 1) return null;
       let _v16 = _v0.exception?.values?.[0];
-      if (_v16?.type === "InvalidStateError" && _v16.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v16.mechanism?.handled === !1 && /Failed to read the 'responseText' property from 'XMLHttpRequest'/.test(_v16.value ?? "") && /was '(arraybuffer|json|blob|document)'/.test(_v16.value ?? "")) return null;
+      if (_v16?.type === "TypeError" && _v16.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v16.mechanism?.handled === !1 && /tagName\.toLowerCase/.test(_v16.value ?? "") && (_v291 += 1) > 1) return null;
       let _v17 = _v0.exception?.values?.[0];
-      if (_v17?.mechanism?.handled === !1 && /Java exception was raised during method invocation|Java object is gone|Java bridge method invocation error/.test(_v17.value ?? "")) return null;
+      if (_v17?.type === "InvalidStateError" && _v17.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v17.mechanism?.handled === !1 && /Failed to read the 'responseText' property from 'XMLHttpRequest'/.test(_v17.value ?? "") && /was '(arraybuffer|json|blob|document)'/.test(_v17.value ?? "")) return null;
       let _v18 = _v0.exception?.values?.[0];
-      if (_v18?.type === "SecurityError" && _v18.mechanism?.handled === !1 && _v18.mechanism?.type?.startsWith("auto.browser.browserapierrors.") && /Blocked a frame with origin|'cssRules' property from 'CSSStyleSheet'|access cross-origin stylesheet/.test(_v18.value ?? "")) return null;
+      if (_v18?.mechanism?.handled === !1 && /Java exception was raised during method invocation|Java object is gone|Java bridge method invocation error/.test(_v18.value ?? "")) return null;
       let _v19 = _v0.exception?.values?.[0];
-      if (_v19?.type === "UnhandledRejection" && /Object Not Found Matching Id:\d+, MethodName:\w+, ParamCount:\d+/.test(_v19.value ?? "") && !(_v19.stacktrace?.frames ?? []).some(_v0 => {
+      if (_v19?.type === "SecurityError" && _v19.mechanism?.handled === !1 && _v19.mechanism?.type?.startsWith("auto.browser.browserapierrors.") && /Blocked a frame with origin|'cssRules' property from 'CSSStyleSheet'|access cross-origin stylesheet/.test(_v19.value ?? "")) return null;
+      let _v20 = _v0.exception?.values?.[0];
+      if (_v20?.type === "UnhandledRejection" && /Object Not Found Matching Id:\d+, MethodName:\w+, ParamCount:\d+/.test(_v20.value ?? "") && !(_v20.stacktrace?.frames ?? []).some(_v0 => {
         let _v1 = _v0.filename ?? _v0.abs_path ?? "";
         return _v1.includes("_next/static") && !1 !== _v0.in_app || _v1.includes("app:///p/") || _v1.includes("/telecine") || _v1.includes("/media-sorcerer");
       })) return null;
-      let _v20 = _v0.exception?.values?.[0];
-      if (_v20?.type === "TypeError" && /window\.webkit\.messageHandlers/.test(_v20.value ?? "")) return null;
       let _v21 = _v0.exception?.values?.[0];
-      if (_v21?.type === "AbortError" && "signal is aborted without reason" === _v21.value && _v21.mechanism?.handled === !1 && (_v21.mechanism?.type === "auto.browser.global_handlers.onunhandledrejection" || _v21.mechanism?.type === "onunhandledrejection") || _v0.exception?.values?.some(_v0 => "HsBackgroundServiceWorkerUnavailableError" === _v0.type || _v0.value?.includes("background service worker unavailable"))) return null;
+      if (_v21?.type === "TypeError" && /window\.webkit\.messageHandlers/.test(_v21.value ?? "")) return null;
       let _v22 = _v0.exception?.values?.[0];
-      if (_v22?.type === "ReferenceError" && _v22.mechanism?.handled === !1 && _v22.mechanism?.type?.startsWith("auto.browser.browserapierrors.") && (_v289 += 1) > 1) return null;
+      if (_v22?.type === "AbortError" && "signal is aborted without reason" === _v22.value && _v22.mechanism?.handled === !1 && (_v22.mechanism?.type === "auto.browser.global_handlers.onunhandledrejection" || _v22.mechanism?.type === "onunhandledrejection") || _v0.exception?.values?.some(_v0 => "HsBackgroundServiceWorkerUnavailableError" === _v0.type || _v0.value?.includes("background service worker unavailable"))) return null;
       let _v23 = _v0.exception?.values?.[0];
-      if (_v23?.value?.startsWith("Module load timeout") && (_v287 += 1) > 1) return null;
+      if (_v23?.type === "ReferenceError" && _v23.mechanism?.handled === !1 && _v23.mechanism?.type?.startsWith("auto.browser.browserapierrors.") && (_v289 += 1) > 1) return null;
       let _v24 = _v0.exception?.values?.[0];
-      if (_v24?.type === "TypeError" && "Cannot read properties of undefined (reading 'M_ID')" === _v24.value) return null;
+      if (_v24?.value?.startsWith("Module load timeout") && (_v287 += 1) > 1) return null;
+      let _v25 = _v0.exception?.values?.[0];
+      if (_v25?.value === "Please use the NodeViewWrapper component for your node view." && (_v292 += 1) > 1) return null;
+      let _v26 = _v0.exception?.values?.[0];
+      if (_v26?.type === "TypeError" && "Cannot read properties of undefined (reading 'M_ID')" === _v26.value) return null;
       if (_v0.exception?.values?.[0]?.type === "UnhandledRejection" && void 0 === _v1.originalException) try {
         let _v0 = document.querySelector("[data-ready]"),
           _v1 = null,

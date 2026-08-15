@@ -84,6 +84,7 @@
       className: _v1,
       direction: "column",
       height: "100%",
+      minWidth: "max-content",
       overflow: "hidden",
       children: [(0, _v1.jsx)(_v5.Flex, {
         id: (0, _v15.createDomName)(_v0, "panels"),
@@ -93,6 +94,7 @@
         alignItems: "center",
         gap: "md",
         grow: 1,
+        minWidth: "max-content",
         children: _v2 ? (0, _v16.range)(5).map(_v0 => (0, _v1.jsx)(_v17.BokehSkeleton, {
           className: (0, _v15.createDomName)(_v1, "item-loader"),
           width: (0, _v8.rem)(48),
@@ -192,6 +194,7 @@
         gridTemplateColumns: `${(0, _v8.rem)(48)} var(--panel-width)`,
         padding: `${(0, _v8.rem)(16)} 0 ${(0, _v8.rem)(16)} ${(0, _v8.rem)(16)}`,
         marginRight: _v13 ? 0 : (0, _v8.rem)(-16),
+        overflow: "hidden",
         sx: {
           "--panel-width": _v13 ? (0, _v8.rem)(324) : (0, _v8.rem)(0),
           "& > div:nth-of-type(2) > *": {
@@ -216,6 +219,11 @@
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          motionProps: {
+            transition: {
+              duration: .3
+            }
+          },
           sx: {
             height: "100%",
             maxHeight: _v6

@@ -282,6 +282,7 @@
                       ref: _v37,
                       versionType: _v0.versionType,
                       versionTranscodeStatus: _v0?.versionTranscodeStatus,
+                      uploadStatus: _v0?.upload?.status ?? null,
                       downloadConfig: _v0?.downloadConfig,
                       editSession: _v0?.editSession,
                       setIsVersionMenuActive: _v22,

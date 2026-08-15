@@ -64,31 +64,33 @@
   let _v19 = ({
     canSeePlaylist: _v0 = !1,
     showComments: _v1 = !1,
-    showcaseConfig: _v2,
-    isLiveEventView: _v3 = !1,
-    ..._v4
+    playerTopGap: _v2 = !1,
+    showcaseConfig: _v3,
+    isLiveEventView: _v4 = !1,
+    ..._v5
   }) => {
     let {
-        isSideBySideActive: _v5,
-        isSideModuleOpen: _v6,
-        isShowcaseLayout: _v7
+        isSideBySideActive: _v6,
+        isSideModuleOpen: _v7,
+        isShowcaseLayout: _v8
       } = (0, _v15.useLayout)(),
-      _v8 = _v2?.isShowcaseClipView || !1,
-      _v9 = _v7 ? (0, _v18.createShowcaseGridTemplateAreasConfig)(_v8, _v3 || _v1, _v1) : (0, _v18.createGridTemplateAreasConfig)(_v1, _v0),
-      _v10 = (0, _v18.returnActiveGridTemplateName)(_v6, _v5),
-      _v11 = (0, _v13.useBreakpointValue)({
-        base: _v9.MOBILE,
-        md: _v9[_v10]
+      _v9 = _v3?.isShowcaseClipView || !1,
+      _v10 = _v8 ? (0, _v18.createShowcaseGridTemplateAreasConfig)(_v9, _v4 || _v1, _v1) : (0, _v18.createGridTemplateAreasConfig)(_v1, _v0),
+      _v11 = (0, _v18.returnActiveGridTemplateName)(_v7, _v6),
+      _v12 = (0, _v13.useBreakpointValue)({
+        base: _v10.MOBILE,
+        md: _v10[_v11]
       }, {
         ssr: !0,
         fallback: "md"
       });
     return (0, _v1.jsx)(_v17.ClipPageBase, {
       "data-vh-view": "vh-player-view",
-      isSideBySideActive: _v5,
-      gridTemplateAreas: _v11,
-      showcaseConfig: _v2,
-      ..._v4
+      isSideBySideActive: _v6,
+      gridTemplateAreas: _v12,
+      showcaseConfig: _v3,
+      playerTopGap: _v2,
+      ..._v5
     });
   };
   _v19.Media = (0, _v3.forwardRef)(({

@@ -15026,80 +15026,15 @@
     _v491 = _v0.i(0),
     _v492 = _v0.i(0),
     _v493 = _v0.i(0),
-    _v494 = _v0.i(0);
-  function _v495(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v145.useGctlConfig)();
-    return (0, _v15.default)(_v2 ? `/me/invoices/open${(0, _v143.serializeQuery)(_v2)}` : () => null, _v2 ? () => (0, _v494.getMeInvoicesOpen)({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  "true" === _v138.default.env.STORYBOOK && (0, _v143.assignMswData)(_v495, {
-    endpoint: "/me/invoices/open",
-    method: "GET"
-  }), "true" === _v138.default.env.STORYBOOK && (0, _v143.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v142.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v145.useGctlConfig)(),
-      [_v5, _v6] = (0, _v143.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/me/invoices/open${(0, _v143.serializeQuery)(_v0)}`, (0, _v494.getMeInvoicesOpen)({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/me/invoices/open",
-    method: "GET"
-  });
-  var _v496 = _v0.i(0),
+    _v494 = _v0.i(0),
+    _v495 = _v0.i(0),
+    _v496 = _v0.i(0),
     _v497 = _v0.i(0),
-    _v498 = _v0.i(0),
-    _v499 = _v0.i(0);
-  let _v500 = "/checkout/payments/new?verify=1",
-    _v501 = ["renewalDate", "hasAutorenew", "gracePeriodType", "paymentMethod", "paymentMethod.lastFour", "paymentMethod.textType", "paymentMethod.type"],
-    _v502 = "vimeo:card-verification-modal:last-shown",
-    _v503 = {
+    _v498 = _v0.i(0);
+  let _v499 = "/checkout/payments/new?verify=1",
+    _v500 = ["renewalDate", "hasAutorenew", "gracePeriodType", "paymentMethod", "paymentMethod.lastFour", "paymentMethod.textType", "paymentMethod.type"],
+    _v501 = "vimeo:card-verification-modal:last-shown",
+    _v502 = {
       CARD_BRAND_AMERICAN_EXPRESS: "Amex",
       CARD_BRAND_DISCOVER: "Discover",
       CARD_BRAND_JCB: "JCB",
@@ -15107,17 +15042,17 @@
       CARD_BRAND_UNION_PAY: "UnionPay",
       CARD_BRAND_VISA: "Visa"
     },
-    _v504 = {
+    _v503 = {
       amex: _v487.AmexNegative,
       discover: _v488.DiscoverNegative,
       mastercard: _v489.MastercardNegative,
       paypal: _v490.PaypalNegative,
       visa: _v491.VisaNegative
     },
-    _v505 = ({
+    _v504 = ({
       cardBrand: _v0
     }) => {
-      let _v1 = _v504[_v0.toLowerCase().replace(/[^a-z]/g, "")] || _v485.CreditCard;
+      let _v1 = _v503[_v0.toLowerCase().replace(/[^a-z]/g, "")] || _v485.CreditCard;
       return (0, _v1.jsx)(_v206.Center, {
         minW: "32px",
         h: "24px",
@@ -15128,7 +15063,7 @@
         })
       });
     },
-    _v506 = () => {
+    _v505 = () => {
       let _v0 = (0, _v42.useViewer)(),
         _v1 = _v0?.teamUser?.ownerId ?? _v0?.user?.id,
         {
@@ -15143,7 +15078,7 @@
         [_v10] = (0, _v3.useState)(() => {
           let _v0 = (() => {
             try {
-              let _v0 = window.localStorage.getItem(_v502);
+              let _v0 = window.localStorage.getItem(_v501);
               if (!_v0) return null;
               let _v1 = Number(_v0);
               return Number.isFinite(_v1) ? _v1 : null;
@@ -15157,18 +15092,18 @@
           trackModalDisplayed: _v11,
           trackModalClicked: _v12,
           trackBalanceWithoutGracePeriod: _v13
-        } = (0, _v499.useCardVerificationTracking)(),
+        } = (0, _v498.useCardVerificationTracking)(),
         {
           data: _v14
-        } = (0, _v498.useGetUserSettingsBillingMembership)(() => _v5 && null != _v1 ? {
-          select: _v501,
+        } = (0, _v497.useGetUserSettingsBillingMembership)(() => _v5 && null != _v1 ? {
+          select: _v500,
           where: {
             userId: Number(_v1)
           }
         } : null),
         {
           data: _v15
-        } = (0, _v496.useGetMePaymentMethods)(() => _v5 ? {
+        } = (0, _v495.useGetMePaymentMethods)(() => _v5 ? {
           select: ["id", "card.brand", "card.lastFourDigits", "isDefault", "type"],
           query: {
             showDisabled: !1
@@ -15181,7 +15116,7 @@
         } : null),
         {
           data: _v17
-        } = (0, _v497.useGetMeSubscriptions)(() => _v5 ? {
+        } = (0, _v496.useGetMeSubscriptions)(() => _v5 ? {
           select: ["paymentMethodId", "isLatest"],
           query: {
             status: "SUBSCRIPTION_STATUS_ACTIVE",
@@ -15191,7 +15126,7 @@
         {
           data: _v18,
           error: _v19
-        } = _v495(() => _v5 ? {
+        } = (0, _v494.useGetMeInvoicesOpen)(() => _v5 ? {
           select: ["total"]
         } : null),
         _v20 = void 0 !== _v18 || void 0 !== _v19,
@@ -15203,7 +15138,7 @@
         _v26 = _v14?.paymentMethod,
         _v27 = (_v25 ? _v15?.data.find(_v0 => _v0.id === _v25) : void 0) ?? _v15?.data.find(_v0 => _v0.isDefault) ?? _v15?.data[0],
         _v28 = _v26?.lastFour ?? _v27?.card?.lastFourDigits ?? "",
-        _v29 = _v26?.textType || (_v27?.card?.brand ? _v503[_v27.card.brand] ?? "Card" : ""),
+        _v29 = _v26?.textType || (_v27?.card?.brand ? _v502[_v27.card.brand] ?? "Card" : ""),
         _v30 = (_v0 => {
           if (!_v0) return "";
           let _v1 = new Date(_v0.includes(" ") ? _v0.replace(" ", "T") : _v0);
@@ -15278,7 +15213,7 @@
         if (_v40 && !_v42.current) {
           _v42.current = !0;
           try {
-            window.localStorage.setItem(_v502, String(Date.now()));
+            window.localStorage.setItem(_v501, String(Date.now()));
           } catch {}
         }
       }, [_v40]);
@@ -15482,7 +15417,7 @@
                 children: (0, _v1.jsx)(_v492.AddPaymentMethod, {
                   isInline: !0,
                   pmId: _v31,
-                  addNewPaymentMethodHref: _v500,
+                  addNewPaymentMethodHref: _v499,
                   paymentFormType: _v493.PaymentFormTypes.TYPE_CREDIT_CARD,
                   stripeConfig: null,
                   openInvoice: null,
@@ -15679,7 +15614,7 @@
                 borderRadius: "8px",
                 children: [(0, _v1.jsxs)(_v281.HStack, {
                   gap: "8px",
-                  children: [(0, _v1.jsx)(_v505, {
+                  children: [(0, _v1.jsx)(_v504, {
                     cardBrand: _v29
                   }), (0, _v1.jsxs)(_v31.Text, {
                     variant: "body-md",
@@ -15769,7 +15704,7 @@
                 })
               }), (0, _v1.jsx)(_v22.Button, {
                 as: "a",
-                href: _v500,
+                href: _v499,
                 variant: "secondary",
                 size: "md",
                 width: "100%",
@@ -15806,13 +15741,13 @@
         })]
       }) : null;
     };
-  var _v507 = _v0.i(0),
+  var _v506 = _v0.i(0),
+    _v507 = _v0.i(0),
     _v508 = _v0.i(0),
     _v509 = _v0.i(0),
     _v510 = _v0.i(0),
-    _v511 = _v0.i(0),
-    _v512 = _v0.i(0);
-  function _v513() {
+    _v511 = _v0.i(0);
+  function _v512() {
     return (0, _v1.jsx)(_v50.Flex, {
       align: "center",
       justify: "center",
@@ -15824,16 +15759,16 @@
       })
     });
   }
-  let _v514 = "--toast-z-index";
-  function _v515({
+  let _v513 = "--toast-z-index";
+  function _v514({
     onClose: _v0,
     children: _v1
   }) {
     return (0, _v3.useEffect)(() => {
       let _v0 = document.documentElement,
-        _v1 = _v0.style.getPropertyValue(_v514);
-      return _v0.style.setProperty(_v514, String(0)), () => {
-        _v1 ? _v0.style.setProperty(_v514, _v1) : _v0.style.removeProperty(_v514);
+        _v1 = _v0.style.getPropertyValue(_v513);
+      return _v0.style.setProperty(_v513, String(0)), () => {
+        _v1 ? _v0.style.setProperty(_v513, _v1) : _v0.style.removeProperty(_v513);
       };
     }, []), (0, _v1.jsxs)(_v25.Modal, {
       isOpen: !0,
@@ -15867,9 +15802,9 @@
       })]
     });
   }
-  var _v516 = _v0.i(0),
-    _v517 = _v0.i(0);
-  function _v518({
+  var _v515 = _v0.i(0),
+    _v516 = _v0.i(0);
+  function _v517({
     name: _v0,
     src: _v1
   }) {
@@ -15880,7 +15815,7 @@
       p: (0, _v62.rem)(8),
       borderRadius: (0, _v62.rem)(16),
       minW: 0,
-      children: [(0, _v1.jsx)(_v516.Avatar, {
+      children: [(0, _v1.jsx)(_v515.Avatar, {
         size: "lg",
         shape: "full",
         src: _v1,
@@ -15899,7 +15834,7 @@
       })]
     });
   }
-  function _v519({
+  function _v518({
     agency: _v0,
     clientName: _v1,
     title: _v2,
@@ -15922,14 +15857,14 @@
           alignItems: "center",
           gap: (0, _v62.rem)(4),
           maxW: "100%",
-          children: [(0, _v1.jsx)(_v518, {
+          children: [(0, _v1.jsx)(_v517, {
             name: _v0.displayName,
             src: _v0.avatarSrc
-          }), (0, _v1.jsx)(_v517.ArrowRight, {
+          }), (0, _v1.jsx)(_v516.ArrowRight, {
             boxSize: (0, _v62.rem)(20),
             color: "text-primary",
             "aria-hidden": !0
-          }), (0, _v1.jsx)(_v518, {
+          }), (0, _v1.jsx)(_v517, {
             name: _v1
           })]
         }), (0, _v1.jsxs)(_v51.Box, {
@@ -16026,13 +15961,13 @@
       })]
     });
   }
-  var _v520 = _v0.i(0);
-  function _v521({
+  var _v519 = _v0.i(0);
+  function _v520({
     agencyUserId: _v0
   }) {
     let {
         displayName: _v1
-      } = (0, _v509.useAgencyIdentity)(_v0, "the"),
+      } = (0, _v508.useAgencyIdentity)(_v0, "the"),
       _v2 = (0, _v8.translate)({
         singular: "{name} can upload and manage videos on your behalf. You can remove their access at any time.",
         replacements: {
@@ -16069,7 +16004,7 @@
       borderRadius: (0, _v62.rem)(12),
       bg: "status-info-secondary",
       width: "100%",
-      children: [(0, _v1.jsx)(_v520.Eye, {
+      children: [(0, _v1.jsx)(_v519.Eye, {
         boxSize: (0, _v62.rem)(20),
         color: "status-info-primary",
         flexShrink: 0,
@@ -16112,7 +16047,7 @@
       })]
     });
   }
-  function _v522({
+  function _v521({
     agency: _v0,
     agencyUserId: _v1,
     clientName: _v2,
@@ -16155,7 +16090,7 @@
         pt: (0, _v62.rem)(24),
         pb: (0, _v62.rem)(8),
         px: (0, _v62.rem)(24),
-        children: (0, _v1.jsx)(_v519, {
+        children: (0, _v1.jsx)(_v518, {
           agency: _v0,
           clientName: _v2,
           title: _v7,
@@ -16164,7 +16099,7 @@
       }), (0, _v1.jsx)(_v26.ModalBody, {
         px: (0, _v62.rem)(24),
         py: (0, _v62.rem)(20),
-        children: (0, _v1.jsx)(_v521, {
+        children: (0, _v1.jsx)(_v520, {
           agencyUserId: _v1
         })
       }), (0, _v1.jsx)(_v29.ModalFooter, {
@@ -16245,11 +16180,11 @@
       })]
     });
   }
-  var _v523 = _v0.i(0),
+  var _v522 = _v0.i(0),
+    _v523 = _v0.i(0),
     _v524 = _v0.i(0),
-    _v525 = _v0.i(0),
-    _v526 = _v0.i(0);
-  function _v527({
+    _v525 = _v0.i(0);
+  function _v526({
     agency: _v0,
     agencyUserId: _v1,
     clientName: _v2,
@@ -16343,7 +16278,7 @@
         pt: (0, _v62.rem)(24),
         pb: (0, _v62.rem)(8),
         px: (0, _v62.rem)(24),
-        children: (0, _v1.jsx)(_v519, {
+        children: (0, _v1.jsx)(_v518, {
           agency: _v0,
           clientName: _v2,
           title: _v7,
@@ -16389,7 +16324,7 @@
             gap: (0, _v62.rem)(16),
             width: "100%",
             children: [{
-              icon: (0, _v1.jsx)(_v523.Groups, {
+              icon: (0, _v1.jsx)(_v522.Groups, {
                 boxSize: (0, _v62.rem)(20),
                 color: "text-primary"
               }),
@@ -16443,7 +16378,7 @@
                 }
               })
             }, {
-              icon: (0, _v1.jsx)(_v524.StyleSparkle, {
+              icon: (0, _v1.jsx)(_v523.StyleSparkle, {
                 boxSize: (0, _v62.rem)(20),
                 color: "text-primary"
               }),
@@ -16500,7 +16435,7 @@
                 }
               })
             }, {
-              icon: (0, _v1.jsx)(_v526.WatchPlay, {
+              icon: (0, _v1.jsx)(_v525.WatchPlay, {
                 boxSize: (0, _v62.rem)(20),
                 color: "text-primary"
               }),
@@ -16554,7 +16489,7 @@
                 }
               })
             }, {
-              icon: (0, _v1.jsx)(_v525.Verified, {
+              icon: (0, _v1.jsx)(_v524.Verified, {
                 boxSize: (0, _v62.rem)(20),
                 color: "text-primary"
               }),
@@ -16661,7 +16596,7 @@
                 })]
               })]
             }, _v0.title))
-          }), (0, _v1.jsx)(_v521, {
+          }), (0, _v1.jsx)(_v520, {
             agencyUserId: _v1
           })]
         })
@@ -16717,8 +16652,8 @@
     });
   }
   _v0.i(0);
-  var _v528 = _v0.i(0);
-  async function _v529(_v0) {
+  var _v527 = _v0.i(0);
+  async function _v528(_v0) {
     try {
       let _v0 = await _v0.json();
       return "number" == typeof _v0.error_code ? _v0.error_code : null;
@@ -16726,22 +16661,22 @@
       return null;
     }
   }
-  let _v530 = {
+  let _v529 = {
     upsell: "managed_accounts",
     feature: "managed_accounts",
     integration: "managed_accounts"
   };
-  function _v531() {
-    let _v0 = (0, _v512.useHasMounted)(),
+  function _v530() {
+    let _v0 = (0, _v511.useHasMounted)(),
       _v1 = (0, _v42.useViewer)(),
       {
         payload: _v2
-      } = (0, _v510.useManagedAccountsInvite)();
-    return _v0 && _v1 && null != _v2 ? (0, _v1.jsx)(_v532, {
+      } = (0, _v509.useManagedAccountsInvite)();
+    return _v0 && _v1 && null != _v2 ? (0, _v1.jsx)(_v531, {
       payload: _v2
     }) : null;
   }
-  function _v532({
+  function _v531({
     payload: _v0
   }) {
     let _v1 = (0, _v42.useViewer)(),
@@ -16750,18 +16685,18 @@
       } = _v1 ?? {},
       {
         clear: _v3
-      } = (0, _v510.useManagedAccountsInvite)(),
+      } = (0, _v509.useManagedAccountsInvite)(),
       _v4 = (0, _v5.useToast)(),
       {
         trackAcceptModalShown: _v5,
         trackActionClicked: _v6,
         trackAcceptFailed: _v7
-      } = (0, _v511.useManagedAccountsTracking)(),
+      } = (0, _v510.useManagedAccountsTracking)(),
       [_v8, _v9] = (0, _v3.useState)(!1),
       {
         agencyUserId: _v10
       } = _v0,
-      _v11 = (0, _v509.useAgencyIdentity)(_v10, "an"),
+      _v11 = (0, _v508.useAgencyIdentity)(_v10, "an"),
       _v12 = _v1?.user?.id === _v10;
     (0, _v3.useEffect)(() => {
       _v12 && _v3();
@@ -16857,10 +16792,10 @@
           _v4 = (0, _v5.useToast)(),
           {
             mutate: _v5
-          } = (0, _v528.useSWRConfig)(),
+          } = (0, _v527.useSWRConfig)(),
           {
             clear: _v6
-          } = (0, _v510.useManagedAccountsInvite)(),
+          } = (0, _v509.useManagedAccountsInvite)(),
           {
             baseUrl: _v7,
             jwt: _v8
@@ -16869,7 +16804,7 @@
             trackActionClicked: _v9,
             trackFlowCompleted: _v10,
             trackAcceptFailed: _v11
-          } = (0, _v511.useManagedAccountsTracking)(),
+          } = (0, _v510.useManagedAccountsTracking)(),
           [_v12, _v13] = (0, _v3.useState)(!1),
           _v14 = (0, _v3.useCallback)(_v0 => {
             let _v1;
@@ -17038,7 +16973,7 @@
                   })
                 });
                 if (!_v0.ok) {
-                  let _v0 = await _v529(_v0);
+                  let _v0 = await _v528(_v0);
                   _v14(_v0), _v11({
                     invitingUserId: _v2,
                     reason: function (_v0) {
@@ -17156,7 +17091,7 @@
           paywallType: "popup",
           paywallFeature: "managed_accounts",
           postCheckoutUrl: "/home"
-        }, _v530);
+        }, _v529);
         await _v6({
           action: _v19 ? "accept_and_try_standard" : "accept_and_upgrade",
           invitingUserId: _v10
@@ -17176,7 +17111,7 @@
           } : {}).toString(),
           credentials: "same-origin"
         }).catch(() => void 0).finally(() => {
-          window.location.href = (0, _v508.getManagedAccountsAcceptPath)(_v10);
+          window.location.href = (0, _v507.getManagedAccountsAcceptPath)(_v10);
         });
       }, [_v2, _v10, _v6]),
       _v28 = (0, _v3.useMemo)(() => _v8 || !_v1 || _v12 ? null : _v15 && _v18 ? "simple" : _v20 ? null : "upgrade", [_v8, _v1, _v12, _v15, _v18, _v20]);
@@ -17188,9 +17123,9 @@
       });
     }, [_v28, _v11.isLoading, _v11.isError, _v17, _v10, _v5], {
       once: !0
-    }), null === _v28 || _v11.isError) ? null : (0, _v1.jsx)(_v515, {
+    }), null === _v28 || _v11.isError) ? null : (0, _v1.jsx)(_v514, {
       onClose: _v25,
-      children: _v11.isLoading || !_v17 ? (0, _v1.jsx)(_v513, {}) : "simple" === _v28 ? (0, _v1.jsx)(_v522, {
+      children: _v11.isLoading || !_v17 ? (0, _v1.jsx)(_v512, {}) : "simple" === _v28 ? (0, _v1.jsx)(_v521, {
         agency: _v11,
         agencyUserId: _v10,
         clientName: _v14,
@@ -17198,7 +17133,7 @@
         onAccept: _v24,
         onDecline: _v25,
         onLogout: _v27
-      }) : (0, _v1.jsx)(_v527, {
+      }) : (0, _v1.jsx)(_v526, {
         agency: _v11,
         agencyUserId: _v10,
         clientName: _v14,
@@ -17209,16 +17144,16 @@
       })
     });
   }
-  var _v533 = _v0.i(0),
+  var _v532 = _v0.i(0),
+    _v533 = _v0.i(0),
     _v534 = _v0.i(0),
     _v535 = _v0.i(0),
-    _v536 = _v0.i(0),
-    _v537 = _v0.i(0);
-  let _v538 = [.2, .8, .2, 1],
-    _v539 = "product-sentiment-pulse-question",
-    _v540 = "product-sentiment-pulse-reason",
-    _v541 = "product-sentiment-pulse-thanks";
-  function _v542({
+    _v536 = _v0.i(0);
+  let _v537 = [.2, .8, .2, 1],
+    _v538 = "product-sentiment-pulse-question",
+    _v539 = "product-sentiment-pulse-reason",
+    _v540 = "product-sentiment-pulse-thanks";
+  function _v541({
     phase: _v0,
     selectedAnswer: _v1,
     reason: _v2,
@@ -17354,7 +17289,7 @@
       children: [(0, _v1.jsx)(_v30.ModalOverlay, {}), (0, _v1.jsx)(_v28.ModalContent, {
         role: "dialog",
         "aria-modal": "true",
-        "aria-labelledby": "thanks" === _v0 ? _v541 : _v539,
+        "aria-labelledby": "thanks" === _v0 ? _v540 : _v538,
         backgroundColor: "surface",
         color: "text-primary",
         borderRadius: (0, _v62.rem)(24),
@@ -17364,10 +17299,10 @@
         my: "auto",
         p: [(0, _v62.rem)(24), (0, _v62.rem)(40)],
         overflow: "hidden",
-        children: (0, _v1.jsx)(_v533.AnimatePresence, {
+        children: (0, _v1.jsx)(_v532.AnimatePresence, {
           mode: "wait",
           initial: !1,
-          children: (0, _v1.jsx)(_v534.motion.div, {
+          children: (0, _v1.jsx)(_v533.motion.div, {
             initial: {
               opacity: 0,
               y: 8
@@ -17419,7 +17354,7 @@
                 })
               }), (0, _v1.jsx)(_v31.Text, {
                 as: "h2",
-                id: _v539,
+                id: _v538,
                 fontSize: (0, _v62.rem)(28),
                 fontWeight: 500,
                 lineHeight: "1.2",
@@ -17452,10 +17387,10 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v535.RadioGroup, {
+              }), (0, _v1.jsx)(_v534.RadioGroup, {
                 value: _v1 ?? "",
                 onChange: _v0 => _v5(_v0),
-                "aria-labelledby": _v539,
+                "aria-labelledby": _v538,
                 children: (0, _v1.jsx)(_v271.Stack, {
                   spacing: (0, _v62.rem)(4),
                   children: _v8.map(_v0 => (0, _v1.jsx)(_v275.Radio, {
@@ -17469,9 +17404,9 @@
                     })
                   }, _v0.value))
                 })
-              }), (0, _v1.jsx)(_v533.AnimatePresence, {
+              }), (0, _v1.jsx)(_v532.AnimatePresence, {
                 initial: !1,
-                children: _v4 && (0, _v1.jsx)(_v534.motion.div, {
+                children: _v4 && (0, _v1.jsx)(_v533.motion.div, {
                   initial: {
                     opacity: 0,
                     height: 0
@@ -17487,7 +17422,7 @@
                   transition: {
                     height: {
                       duration: .4,
-                      ease: _v538
+                      ease: _v537
                     },
                     opacity: {
                       duration: .3,
@@ -17502,7 +17437,7 @@
                     pt: (0, _v62.rem)(20),
                     children: [(0, _v1.jsx)(_v31.Text, {
                       as: "label",
-                      htmlFor: _v540,
+                      htmlFor: _v539,
                       display: "block",
                       fontSize: (0, _v62.rem)(13),
                       color: "text-tertiary",
@@ -17533,8 +17468,8 @@
                           }
                         }
                       })
-                    }), (0, _v1.jsx)(_v536.Textarea, {
-                      id: _v540,
+                    }), (0, _v1.jsx)(_v535.Textarea, {
+                      id: _v539,
                       size: "md",
                       rows: 3,
                       resize: "none",
@@ -17639,7 +17574,7 @@
               textAlign: "center",
               px: (0, _v62.rem)(8),
               py: (0, _v62.rem)(28),
-              children: [(0, _v1.jsx)(_v534.motion.div, {
+              children: [(0, _v1.jsx)(_v533.motion.div, {
                 initial: {
                   scale: .7
                 },
@@ -17648,7 +17583,7 @@
                 },
                 transition: {
                   duration: .42,
-                  ease: _v538
+                  ease: _v537
                 },
                 children: (0, _v1.jsx)(_v50.Flex, {
                   width: (0, _v62.rem)(64),
@@ -17660,14 +17595,14 @@
                   mb: (0, _v62.rem)(20),
                   mx: "auto",
                   color: "vimeoBlue.500",
-                  children: (0, _v1.jsx)(_v537.Checkmark, {
+                  children: (0, _v1.jsx)(_v536.Checkmark, {
                     width: 32,
                     height: 32
                   })
                 })
               }), (0, _v1.jsx)(_v31.Text, {
                 as: "h2",
-                id: _v541,
+                id: _v540,
                 fontSize: (0, _v62.rem)(26),
                 fontWeight: 700,
                 letterSpacing: "-0.035em",
@@ -17735,9 +17670,9 @@
       })]
     });
   }
-  let _v543 = "logged_in_homepage",
-    _v544 = _v0 => `product_sentiment_pulse_seen_${_v0}`,
-    _v545 = () => {
+  let _v542 = "logged_in_homepage",
+    _v543 = _v0 => `product_sentiment_pulse_seen_${_v0}`,
+    _v544 = () => {
       let _v0,
         _v1,
         _v2,
@@ -17903,8 +17838,8 @@
         })]
       });
     },
-    _v546 = "pico-new-update-card-tracking",
-    _v547 = ({
+    _v545 = "pico-new-update-card-tracking",
+    _v546 = ({
       playerAssetUrls: _v0
     }) => {
       !function () {
@@ -18076,15 +18011,15 @@
           onGuideDisplayed: _v0 => _v4(_v0.guideName),
           onClick: _v0 => _v5(_v0.guide?.guideName),
           onGuideDismiss: _v0 => _v6(_v0.guide?.guideName)
-        }, _v546), () => {
-          _v10.PendoClient.removeHandler(_v546);
+        }, _v545), () => {
+          _v10.PendoClient.removeHandler(_v545);
         };
       }, [_v2, _v4, _v5, _v6]);
       let {
           banner: _v14,
           modal: _v15,
           isStorageSuspended: _v16
-        } = (0, _v507.useGracePeriodBillingUi)({
+        } = (0, _v506.useGracePeriodBillingUi)({
           orionFlag: "enable_home_grace_period_notifications",
           layout: {
             type: "home"
@@ -18112,7 +18047,7 @@
               userTier: _v0
             }) => {
               _v1?.track("product_sentiment_pulse_shown", {
-                surface: _v543,
+                surface: _v542,
                 user_tier: _v0
               });
             }, [_v1]), {
@@ -18121,7 +18056,7 @@
                 answer: _v0
               }) => {
                 _v1?.track("product_sentiment_pulse_selected", {
-                  surface: _v543,
+                  surface: _v542,
                   answer: _v0
                 });
               }, [_v1]),
@@ -18132,7 +18067,7 @@
                 reason: _v3
               }) => {
                 _v1?.track("product_sentiment_pulse_submitted", {
-                  surface: _v543,
+                  surface: _v542,
                   answer: _v0,
                   user_tier: _v1,
                   country: _v2,
@@ -18169,7 +18104,7 @@
             }();
             !_v4 && !_v0 || !_v0 && function (_v0) {
               try {
-                return "1" === window.localStorage.getItem(_v544(_v0));
+                return "1" === window.localStorage.getItem(_v543(_v0));
               } catch {
                 return !1;
               }
@@ -18199,7 +18134,7 @@
                 reason: "not_sure" !== _v14 && _v0 ? _v0 : void 0
               }), null !== _v6 && function (_v0) {
                 try {
-                  window.localStorage.setItem(_v544(_v0), "1");
+                  window.localStorage.setItem(_v543(_v0), "1");
                 } catch {}
               }(_v6), _v13("thanks"), _v19.current = setTimeout(() => _v13("closed"), 0);
             }, [_v12, _v14, _v16, _v7, _v8, _v6, _v11]);
@@ -18230,11 +18165,11 @@
           console.log("Failed to stop pendo guides for managed accounts:", _v0);
         }
       }, [_v17]), (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v531, {}), (0, _v1.jsx)(_v545, {}), !_v17 && (0, _v1.jsx)(_v506, {}), (0, _v1.jsx)(_v21, {
+        children: [(0, _v1.jsx)(_v530, {}), (0, _v1.jsx)(_v544, {}), !_v17 && (0, _v1.jsx)(_v505, {}), (0, _v1.jsx)(_v21, {
           isSuppressed: _v17
         }), (0, _v1.jsx)(_v39, {
           isSuppressed: _v17
-        }), !_v17 && _v15, (0, _v1.jsx)(_v542, {
+        }), !_v17 && _v15, (0, _v1.jsx)(_v541, {
           phase: _v18.phase,
           selectedAnswer: _v18.selectedAnswer,
           reason: _v18.reason,
@@ -18263,7 +18198,7 @@
     noIndex: !0,
     inlineViewer: !0,
     inlinePlayerAssets: !0
-  }), _v547.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v41.VideoLibraryLayout, {
+  }), _v546.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v41.VideoLibraryLayout, {
     hasSideNav: !0,
     sideNavContent: (0, _v1.jsx)(_v40.SideNavContent, {
       surface: "home"
@@ -18271,5 +18206,5 @@
     playerAssetUrls: _v1.playerAssetUrls,
     hasUploader: _v1.hasUploader,
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v547], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v546], 0);
 }

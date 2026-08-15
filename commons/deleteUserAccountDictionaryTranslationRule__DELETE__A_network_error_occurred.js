@@ -2192,10 +2192,11 @@
     _v125 = ({
       ownerUserId: _v0,
       translations: _v1,
-      onClose: _v2,
-      onImported: _v3
+      hasExistingTerms: _v2,
+      onClose: _v3,
+      onImported: _v4
     }) => {
-      let _v4 = (_v0 => {
+      let _v5 = (_v0 => {
           let [_v1, _v2] = _v121(),
             _v3 = (0, _v2.useRef)(void 0),
             _v4 = (0, _v2.useRef)(0);
@@ -2216,6 +2217,7 @@
               }, _v1({
                 select: _v122,
                 variables: {
+                  replaceExisting: !0,
                   terms: _v0.map(({
                     sourceText: _v0
                   }) => ({
@@ -2242,22 +2244,22 @@
             };
           }, [_v2.callCount, _v0, _v1]);
         })(_v0),
-        [_v5, _v6] = (0, _v2.useState)(),
-        [_v7, _v8] = (0, _v2.useState)([]),
-        [_v9, _v10] = (0, _v2.useState)(!1),
-        [_v11, _v12] = (0, _v2.useState)(!1),
-        [_v13, _v14] = (0, _v2.useState)(),
-        [_v15, _v16] = (0, _v2.useState)(),
-        [_v17, _v18] = (0, _v2.useState)([]),
-        _v19 = (0, _v59.useToast)({
+        [_v6, _v7] = (0, _v2.useState)(),
+        [_v8, _v9] = (0, _v2.useState)([]),
+        [_v10, _v11] = (0, _v2.useState)(!1),
+        [_v12, _v13] = (0, _v2.useState)(!1),
+        [_v14, _v15] = (0, _v2.useState)(),
+        [_v16, _v17] = (0, _v2.useState)(),
+        [_v18, _v19] = (0, _v2.useState)([]),
+        _v20 = (0, _v59.useToast)({
           duration: 0
         }),
-        _v20 = _v9 || _v11,
-        _v21 = !!_v5?.some(_v0 => !_v0.sourceText.trim()),
-        _v22 = async _v0 => {
-          if (_v14(void 0), _v16(void 0), _v18([]), !_v0.name.toLowerCase().endsWith(".csv")) return void _v14(_v1.glossaryCsvUnsupportedFile);
-          if (_v0.size > 0) return void _v14(_v1.glossaryCsvFileTooLarge);
-          _v10(!0);
+        _v21 = _v10 || _v12,
+        _v22 = !!_v6?.some(_v0 => !_v0.sourceText.trim()),
+        _v23 = async _v0 => {
+          if (_v15(void 0), _v17(void 0), _v19([]), !_v0.name.toLowerCase().endsWith(".csv")) return void _v15(_v1.glossaryCsvUnsupportedFile);
+          if (_v0.size > 0) return void _v15(_v1.glossaryCsvFileTooLarge);
+          _v11(!0);
           try {
             let _v0 = _v119(await _v0.text()),
               _v1 = _v0.failures.map(_v0 => ({
@@ -2267,53 +2269,62 @@
                 }) => "source_term_required" === _v0 ? _v1.glossaryCsvSourceTermRequired : _v1.glossaryCsvSingleColumnRequired)(_v0)
               }));
             if (0 === _v0.terms.length) {
-              _v16(0), _v18(_v1);
+              _v17(0), _v19(_v1);
               return;
             }
-            _v8(_v1), _v6(_v0.terms);
+            _v9(_v1), _v7(_v0.terms);
           } catch (_v0) {
-            _v0 instanceof _v118 ? _v14("invalid_header" === _v0.code ? _v1.glossaryCsvInvalidHeader : "too_many_rows" === _v0.code ? _v1.glossaryCsvTooManyRows : _v1.glossaryCsvInvalidFile) : _v14(_v1.glossaryCsvImportError);
+            _v0 instanceof _v118 ? _v15("invalid_header" === _v0.code ? _v1.glossaryCsvInvalidHeader : "too_many_rows" === _v0.code ? _v1.glossaryCsvTooManyRows : _v1.glossaryCsvInvalidFile) : _v15(_v1.glossaryCsvImportError);
           } finally {
-            _v10(!1);
+            _v11(!1);
           }
         },
-        _v23 = async () => {
-          if (_v5) {
-            _v12(!0), _v14(void 0);
+        _v24 = async () => {
+          if (_v6) {
+            _v13(!0), _v15(void 0);
             try {
-              let _v0 = _v5.map(_v0 => ({
+              let _v0 = _v6.map(_v0 => ({
                   ..._v0,
                   sourceText: _v0.sourceText.trim()
                 })),
-                _v1 = await _v4(_v0),
-                _v2 = [..._v7, ..._v1.failures];
-              _v1.created > 0 && (await _v3().catch(() => void 0)), _v2.length > 0 ? (_v6(void 0), _v16(_v1.created), _v18(_v2)) : (_v19({
+                _v1 = await _v5(_v0),
+                _v2 = [..._v8, ..._v1.failures];
+              _v1.created > 0 && (await _v4().catch(() => void 0)), _v2.length > 0 ? (_v7(void 0), _v17(_v1.created), _v19(_v2)) : (_v20({
                 title: _v1.glossaryCsvImported(_v1.created)
-              }), _v2());
+              }), _v3());
             } catch {
-              _v14(_v1.glossaryCsvImportError);
+              _v15(_v1.glossaryCsvImportError);
             } finally {
-              _v12(!1);
+              _v13(!1);
             }
           }
         };
       return (0, _v1.jsxs)(_v47.Modal, {
         isOpen: !0,
-        onClose: _v20 ? () => void 0 : _v2,
-        closeOnEsc: !_v20,
-        closeOnOverlayClick: !_v20,
+        onClose: _v21 ? () => void 0 : _v3,
+        closeOnEsc: !_v21,
+        closeOnOverlayClick: !_v21,
         children: [(0, _v1.jsx)(_v52.ModalOverlay, {}), (0, _v1.jsxs)(_v49.ModalContent, {
           maxWidth: (0, _v5.rem)(480),
           children: [(0, _v1.jsx)(_v51.ModalHeader, {
             paddingBottom: (0, _v5.rem)(16),
-            children: _v5 ? _v1.csvReviewTitle : _v1.glossaryCsvTitle
+            children: _v6 ? _v1.csvReviewTitle : _v1.glossaryCsvTitle
           }), (0, _v1.jsxs)(_v48.ModalBody, {
             paddingX: (0, _v5.rem)(32),
             paddingY: (0, _v5.rem)(24),
-            children: [_v5 ? (0, _v1.jsxs)(_v1.Fragment, {
+            children: [_v6 ? (0, _v1.jsxs)(_v1.Fragment, {
               children: [(0, _v1.jsx)(_v63, {
-                count: _v5.length,
+                count: _v6.length,
                 translations: _v1
+              }), _v2 && (0, _v1.jsx)(_v37.Box, {
+                backgroundColor: "fill-component",
+                borderRadius: "sm",
+                padding: (0, _v5.rem)(12),
+                marginBottom: (0, _v5.rem)(16),
+                children: (0, _v1.jsx)(_v14.Text, {
+                  variant: "body-sm",
+                  children: _v1.glossaryCsvReplaceConfirmation
+                })
               }), (0, _v1.jsx)(_v54.TableContainer, {
                 borderWidth: "1px",
                 borderColor: "stroke",
@@ -2334,13 +2345,13 @@
                       })
                     })
                   }), (0, _v1.jsx)(_v55.Tbody, {
-                    children: _v5.map((_v0, _v1) => (0, _v1.jsx)(_v58.Tr, {
+                    children: _v6.map((_v0, _v1) => (0, _v1.jsx)(_v58.Tr, {
                       children: (0, _v1.jsx)(_v64, {
                         label: _v1.glossaryTermNumber(_v1 + 1),
                         value: _v0.sourceText,
-                        isDisabled: _v11,
+                        isDisabled: _v12,
                         onChange: _v0 => {
-                          _v6(_v0 => _v0?.map((_v0, _v1) => _v1 === _v1 ? {
+                          _v7(_v0 => _v0?.map((_v0, _v1) => _v1 === _v1 ? {
                             ..._v0,
                             sourceText: _v0
                           } : _v0));
@@ -2349,12 +2360,12 @@
                     }, _v0.line))
                   })]
                 })
-              }), _v7.length > 0 && (0, _v1.jsxs)(_v37.Box, {
+              }), _v8.length > 0 && (0, _v1.jsxs)(_v37.Box, {
                 marginTop: (0, _v5.rem)(16),
                 children: [(0, _v1.jsx)(_v14.Text, {
                   variant: "body-sm",
-                  children: _v1.glossaryCsvRowsFailed(_v7.length)
-                }), _v7.map(({
+                  children: _v1.glossaryCsvRowsFailed(_v8.length)
+                }), _v8.map(({
                   line: _v0,
                   message: _v1
                 }) => (0, _v1.jsx)(_v14.Text, {
@@ -2371,36 +2382,46 @@
               }), (0, _v1.jsx)(_v14.Text, {
                 variant: "body-md",
                 color: "text-secondary",
-                marginBottom: (0, _v5.rem)(24),
+                marginBottom: _v2 ? void 0 : (0, _v5.rem)(24),
                 children: _v1.glossaryCsvTemplatePrompt(_v124)
+              }), _v2 && (0, _v1.jsx)(_v37.Box, {
+                backgroundColor: "fill-component",
+                borderRadius: "sm",
+                padding: (0, _v5.rem)(12),
+                marginTop: (0, _v5.rem)(16),
+                marginBottom: (0, _v5.rem)(24),
+                children: (0, _v1.jsx)(_v14.Text, {
+                  variant: "body-sm",
+                  children: _v1.glossaryCsvReplaceNotice
+                })
               }), (0, _v1.jsx)(_v60, {
                 dropLabel: _v1.glossaryCsvDropFile,
                 uploadLabel: _v1.glossaryCsvUploadFile,
                 uploadingHint: _v1.csvUploadingHint,
                 uploadingLabel: _v1.csvUploading,
-                isBusy: _v9,
-                onFileSelected: _v0 => void _v22(_v0)
+                isBusy: _v10,
+                onFileSelected: _v0 => void _v23(_v0)
               })]
-            }), _v13 && (0, _v1.jsx)(_v9.Alert, {
+            }), _v14 && (0, _v1.jsx)(_v9.Alert, {
               status: "error",
               marginTop: (0, _v5.rem)(16),
               children: (0, _v1.jsx)(_v7.AlertDescription, {
-                children: _v13
+                children: _v14
               })
             }), (0, _v1.jsxs)(_v37.Box, {
               "aria-live": "polite",
-              children: [void 0 !== _v15 && (0, _v1.jsxs)(_v37.Box, {
+              children: [void 0 !== _v16 && (0, _v1.jsxs)(_v37.Box, {
                 marginTop: (0, _v5.rem)(16),
                 children: [(0, _v1.jsx)(_v14.Text, {
                   variant: "body-sm",
-                  children: _v1.glossaryCsvImported(_v15)
-                }), _v17.length > 0 && (0, _v1.jsx)(_v14.Text, {
+                  children: _v1.glossaryCsvImported(_v16)
+                }), _v18.length > 0 && (0, _v1.jsx)(_v14.Text, {
                   variant: "body-sm",
-                  children: _v1.glossaryCsvRowsFailed(_v17.length)
+                  children: _v1.glossaryCsvRowsFailed(_v18.length)
                 })]
-              }), _v17.length > 0 && (0, _v1.jsx)(_v37.Box, {
+              }), _v18.length > 0 && (0, _v1.jsx)(_v37.Box, {
                 marginTop: (0, _v5.rem)(8),
-                children: _v17.map(({
+                children: _v18.map(({
                   line: _v0,
                   message: _v1
                 }) => (0, _v1.jsx)(_v14.Text, {
@@ -2410,19 +2431,19 @@
                 }, `${_v0}-${_v1}`))
               })]
             })]
-          }), _v5 && (0, _v1.jsxs)(_v50.ModalFooter, {
+          }), _v6 && (0, _v1.jsxs)(_v50.ModalFooter, {
             gap: (0, _v5.rem)(12),
             children: [(0, _v1.jsx)(_v10.Button, {
               variant: "tertiary",
-              isDisabled: _v11,
-              onClick: _v2,
+              isDisabled: _v12,
+              onClick: _v3,
               children: _v1.cancel
             }), (0, _v1.jsx)(_v10.Button, {
               variant: "primary",
-              isLoading: _v11,
-              isDisabled: _v21,
-              onClick: () => void _v23(),
-              children: _v1.save
+              isLoading: _v12,
+              isDisabled: _v22,
+              onClick: () => void _v24(),
+              children: _v2 ? _v1.replaceGlossary : _v1.save
             })]
           })]
         })]
@@ -3436,6 +3457,7 @@ ${_v2}`;
         }), _v7 && (0, _v1.jsx)(_v125, {
           ownerUserId: _v0,
           translations: _v1,
+          hasExistingTerms: _v12 > 0,
           onClose: () => _v8(!1),
           onImported: async () => {
             _v6(1), await _v18();
@@ -3704,12 +3726,13 @@ ${_v2}`;
     _v181 = ({
       ownerUserId: _v0,
       translations: _v1,
-      onClose: _v2,
-      onImported: _v3
+      hasExistingEntries: _v2,
+      onClose: _v3,
+      onImported: _v4
     }) => {
-      let _v4 = (0, _v167.useLocale)(),
-        _v5 = (0, _v2.useRef)(null),
-        _v6 = (_v0 => {
+      let _v5 = (0, _v167.useLocale)(),
+        _v6 = (0, _v2.useRef)(null),
+        _v7 = (_v0 => {
           let {
             baseUrl: _v1,
             jwt: _v2,
@@ -3771,6 +3794,7 @@ ${_v2}`;
               headers: _v3,
               select: _v178,
               variables: {
+                replaceExisting: !0,
                 rules: _v6.entries.map(_v0 => ({
                   replacementText: _v0.replacementText,
                   ruleType: "mapping",
@@ -3786,22 +3810,22 @@ ${_v2}`;
             return _v179(_v6.entries, _v7, _v8);
           }, [_v1, _v2, _v4, _v0, _v3]);
         })(_v0),
-        [_v7, _v8] = (0, _v2.useState)(),
-        [_v9, _v10] = (0, _v2.useState)([]),
-        [_v11, _v12] = (0, _v2.useState)(),
-        [_v13, _v14] = (0, _v2.useState)(),
-        [_v15, _v16] = (0, _v2.useState)(!1),
-        [_v17, _v18] = (0, _v2.useState)(!1),
-        _v19 = (0, _v59.useToast)({
+        [_v8, _v9] = (0, _v2.useState)(),
+        [_v10, _v11] = (0, _v2.useState)([]),
+        [_v12, _v13] = (0, _v2.useState)(),
+        [_v14, _v15] = (0, _v2.useState)(),
+        [_v16, _v17] = (0, _v2.useState)(!1),
+        [_v18, _v19] = (0, _v2.useState)(!1),
+        _v20 = (0, _v59.useToast)({
           title: _v1.replacementsChangesSaved,
           duration: 0
         }),
-        _v20 = (0, _v2.useMemo)(() => `data:text/csv;charset=utf-8,${encodeURIComponent(`${_v173.join(",")}\r
+        _v21 = (0, _v2.useMemo)(() => `data:text/csv;charset=utf-8,${encodeURIComponent(`${_v173.join(",")}\r
 `)}`, []),
-        _v21 = (0, _v2.useMemo)(() => {
+        _v22 = (0, _v2.useMemo)(() => {
           var _v0;
           let _v1;
-          return _v0 = _v7 ?? [], _v1 = new Map(), _v0.forEach((_v0, _v1) => {
+          return _v0 = _v8 ?? [], _v1 = new Map(), _v0.forEach((_v0, _v1) => {
             let {
                 sourceLanguage: _v2,
                 targetLanguage: _v3
@@ -3818,15 +3842,15 @@ ${_v2}`;
               index: _v1
             });
           }), [..._v1.values()];
-        }, [_v7]),
-        _v22 = !!_v7?.some(_v0 => !_v0.sourceText.trim() || !_v0.replacementText.trim()),
-        _v23 = _v15 || _v17;
+        }, [_v8]),
+        _v23 = !!_v8?.some(_v0 => !_v0.sourceText.trim() || !_v0.replacementText.trim()),
+        _v24 = _v16 || _v18;
       (0, _v2.useEffect)(() => {
-        (_v13 || _v11) && _v5.current?.focus();
-      }, [_v13, _v11]);
-      let _v24 = async _v0 => {
-          if (_v12(void 0), _v14(void 0), !_v0.name.toLowerCase().endsWith(".csv")) return void _v14("file");
-          _v16(!0);
+        (_v14 || _v12) && _v6.current?.focus();
+      }, [_v14, _v12]);
+      let _v25 = async _v0 => {
+          if (_v13(void 0), _v15(void 0), !_v0.name.toLowerCase().endsWith(".csv")) return void _v15("file");
+          _v17(!0);
           try {
             let _v0 = (_v0 => {
               let _v1,
@@ -3902,57 +3926,66 @@ ${_v2}`;
                 failures: _v6
               };
             })(await _v0.text());
-            if (0 === _v0.entries.length) return void _v12({
+            if (0 === _v0.entries.length) return void _v13({
               created: 0,
               failures: _v0.failures
             });
-            _v10(_v0.failures), _v8(_v0.entries);
+            _v11(_v0.failures), _v9(_v0.entries);
           } catch (_v0) {
-            _v14(_v0 instanceof _v174 ? _v0.code : "network");
+            _v15(_v0 instanceof _v174 ? _v0.code : "network");
           } finally {
-            _v16(!1);
+            _v17(!1);
           }
         },
-        _v25 = (_v0, _v1, _v2) => {
-          _v8(_v0 => _v0?.map((_v0, _v1) => _v1 === _v0 ? {
+        _v26 = (_v0, _v1, _v2) => {
+          _v9(_v0 => _v0?.map((_v0, _v1) => _v1 === _v0 ? {
             ..._v0,
             [_v1]: _v2
           } : _v0));
         },
-        _v26 = async () => {
-          if (_v7) {
-            _v18(!0), _v14(void 0);
+        _v27 = async () => {
+          if (_v8) {
+            _v19(!0), _v15(void 0);
             try {
-              let _v0 = _v7.map(_v0 => ({
+              let _v0 = _v8.map(_v0 => ({
                   ..._v0,
                   replacementText: _v0.replacementText.trim(),
                   sourceText: _v0.sourceText.trim()
                 })),
-                _v1 = await _v6(_v0, _v9);
-              _v1.created > 0 && (await _v3().catch(() => void 0)), _v1.failures.length > 0 ? (_v8(void 0), _v12(_v1)) : (_v19(), _v2());
+                _v1 = await _v7(_v0, _v10);
+              _v1.created > 0 && (await _v4().catch(() => void 0)), _v1.failures.length > 0 ? (_v9(void 0), _v13(_v1)) : (_v20(), _v3());
             } catch {
-              _v14("network");
+              _v15("network");
             } finally {
-              _v18(!1);
+              _v19(!1);
             }
           }
         };
       return (0, _v1.jsxs)(_v47.Modal, {
         isOpen: !0,
-        closeOnEsc: !_v23,
-        closeOnOverlayClick: !_v23,
-        onClose: _v23 ? () => void 0 : _v2,
+        closeOnEsc: !_v24,
+        closeOnOverlayClick: !_v24,
+        onClose: _v24 ? () => void 0 : _v3,
         children: [(0, _v1.jsx)(_v52.ModalOverlay, {}), (0, _v1.jsxs)(_v49.ModalContent, {
           maxWidth: (0, _v5.rem)(480),
           children: [(0, _v1.jsx)(_v51.ModalHeader, {
-            children: _v7 ? _v1.csvReviewTitle : _v1.replacementsCsvImport
+            children: _v8 ? _v1.csvReviewTitle : _v1.replacementsCsvImport
           }), (0, _v1.jsxs)(_v48.ModalBody, {
-            children: [_v7 ? (0, _v1.jsxs)(_v1.Fragment, {
+            children: [_v8 ? (0, _v1.jsxs)(_v1.Fragment, {
               children: [(0, _v1.jsx)(_v63, {
-                count: _v7.length,
+                count: _v8.length,
                 translations: _v1
-              }), _v21.map(_v0 => {
-                let _v1 = _v170(_v0.targetLanguage, _v4);
+              }), _v2 && (0, _v1.jsx)(_v37.Box, {
+                backgroundColor: "fill-component",
+                borderRadius: "sm",
+                padding: (0, _v5.rem)(12),
+                marginBottom: (0, _v5.rem)(16),
+                children: (0, _v1.jsx)(_v14.Text, {
+                  variant: "body-sm",
+                  children: _v1.replacementsCsvReplaceConfirmation
+                })
+              }), _v22.map(_v0 => {
+                let _v1 = _v170(_v0.targetLanguage, _v5);
                 return (0, _v1.jsx)(_v54.TableContainer, {
                   borderWidth: "1px",
                   borderColor: "stroke",
@@ -3970,7 +4003,7 @@ ${_v2}`;
                       backgroundColor: "fill-component",
                       children: (0, _v1.jsxs)(_v58.Tr, {
                         children: [(0, _v1.jsx)(_v56.Th, {
-                          children: _v1.replacementsOriginalLanguage(_v170(_v0.sourceLanguage, _v4))
+                          children: _v1.replacementsOriginalLanguage(_v170(_v0.sourceLanguage, _v5))
                         }), (0, _v1.jsx)(_v56.Th, {
                           children: _v1
                         })]
@@ -3983,19 +4016,19 @@ ${_v2}`;
                         children: [(0, _v1.jsx)(_v64, {
                           label: _v1.replacementsSourceTerm(_v2 + 1),
                           value: _v0.sourceText,
-                          isDisabled: _v17,
-                          onChange: _v0 => _v25(_v1, "sourceText", _v0)
+                          isDisabled: _v18,
+                          onChange: _v0 => _v26(_v1, "sourceText", _v0)
                         }), (0, _v1.jsx)(_v64, {
                           label: _v1.replacementsTargetTerm(_v1, _v2 + 1),
                           value: _v0.replacementText,
-                          isDisabled: _v17,
-                          onChange: _v0 => _v25(_v1, "replacementText", _v0)
+                          isDisabled: _v18,
+                          onChange: _v0 => _v26(_v1, "replacementText", _v0)
                         })]
                       }, _v0.line))
                     })]
                   })
                 }, _v0.key);
-              }), _v9.length > 0 && (0, _v1.jsx)(_v9.Alert, {
+              }), _v10.length > 0 && (0, _v1.jsx)(_v9.Alert, {
                 status: "warning",
                 marginBottom: (0, _v5.rem)(8),
                 alignItems: "flex-start",
@@ -4009,7 +4042,7 @@ ${_v2}`;
                     maxHeight: (0, _v5.rem)(120),
                     overflowY: "auto",
                     marginTop: (0, _v5.rem)(8),
-                    children: _v9.map((_v0, _v1) => (0, _v1.jsx)(_v14.Text, {
+                    children: _v10.map((_v0, _v1) => (0, _v1.jsx)(_v14.Text, {
                       variant: "body-sm",
                       children: _v1.replacementsCsvFailureLine(_v0.line, _v180(_v0, _v1))
                     }, `${_v0.line}:${_v1}`))
@@ -4025,11 +4058,20 @@ ${_v2}`;
                 variant: "body-md",
                 color: "text-secondary",
                 children: _v2.Children.toArray(_v1.replacementsCsvTemplatePrompt(_v0 => (0, _v1.jsx)(_v4.Link, {
-                  href: _v20,
+                  href: _v21,
                   download: "terms-translations-template.csv",
                   textDecoration: "underline",
                   children: _v2.Children.toArray(_v0)
                 }, "csv-template-link")))
+              }), _v2 && (0, _v1.jsx)(_v37.Box, {
+                backgroundColor: "fill-component",
+                borderRadius: "sm",
+                padding: (0, _v5.rem)(12),
+                marginTop: (0, _v5.rem)(16),
+                children: (0, _v1.jsx)(_v14.Text, {
+                  variant: "body-sm",
+                  children: _v1.replacementsCsvReplaceNotice
+                })
               }), (0, _v1.jsx)(_v37.Box, {
                 marginTop: (0, _v5.rem)(24),
                 children: (0, _v1.jsx)(_v60, {
@@ -4037,57 +4079,57 @@ ${_v2}`;
                   uploadLabel: _v1.replacementsCsvUploadFile,
                   uploadingHint: _v1.csvUploadingHint,
                   uploadingLabel: _v1.csvUploading,
-                  isBusy: _v15,
-                  onFileSelected: _v0 => void _v24(_v0)
+                  isBusy: _v16,
+                  onFileSelected: _v0 => void _v25(_v0)
                 })
               })]
-            }), _v13 && (0, _v1.jsx)(_v9.Alert, {
-              ref: _v5,
+            }), _v14 && (0, _v1.jsx)(_v9.Alert, {
+              ref: _v6,
               status: "error",
               marginTop: (0, _v5.rem)(24),
               tabIndex: -1,
               children: (0, _v1.jsx)(_v7.AlertDescription, {
-                children: "empty" === _v13 ? _v1.replacementsCsvEmpty : "header" === _v13 ? _v1.replacementsCsvInvalidHeader : "malformed" === _v13 ? _v1.replacementsCsvMalformed : "too_many_rows" === _v13 ? _v1.replacementsCsvTooManyRows : "file" === _v13 ? _v1.replacementsCsvInvalidFile : _v1.replacementsCsvImportError
+                children: "empty" === _v14 ? _v1.replacementsCsvEmpty : "header" === _v14 ? _v1.replacementsCsvInvalidHeader : "malformed" === _v14 ? _v1.replacementsCsvMalformed : "too_many_rows" === _v14 ? _v1.replacementsCsvTooManyRows : "file" === _v14 ? _v1.replacementsCsvInvalidFile : _v1.replacementsCsvImportError
               })
-            }), _v11 && (0, _v1.jsx)(_v9.Alert, {
-              ref: _v5,
-              status: _v11.created > 0 ? "warning" : "error",
+            }), _v12 && (0, _v1.jsx)(_v9.Alert, {
+              ref: _v6,
+              status: _v12.created > 0 ? "warning" : "error",
               marginTop: (0, _v5.rem)(24),
               alignItems: "flex-start",
               tabIndex: -1,
               children: (0, _v1.jsxs)(_v37.Box, {
                 children: [(0, _v1.jsxs)(_v7.AlertDescription, {
-                  children: [_v11.created > 0 && (0, _v1.jsx)(_v14.Text, {
+                  children: [_v12.created > 0 && (0, _v1.jsx)(_v14.Text, {
                     variant: "body-sm",
-                    children: _v1.replacementsCsvImported(_v11.created)
+                    children: _v1.replacementsCsvImported(_v12.created)
                   }), (0, _v1.jsx)(_v14.Text, {
                     variant: "body-sm",
-                    children: _v11.created > 0 ? _v1.replacementsCsvPartialFailure : _v1.replacementsCsvAllFailed
+                    children: _v12.created > 0 ? _v1.replacementsCsvPartialFailure : _v1.replacementsCsvAllFailed
                   })]
                 }), (0, _v1.jsx)(_v37.Box, {
                   maxHeight: (0, _v5.rem)(160),
                   overflowY: "auto",
                   marginTop: (0, _v5.rem)(8),
-                  children: _v11.failures.map((_v0, _v1) => (0, _v1.jsx)(_v14.Text, {
+                  children: _v12.failures.map((_v0, _v1) => (0, _v1.jsx)(_v14.Text, {
                     variant: "body-sm",
                     children: _v1.replacementsCsvFailureLine(_v0.line, _v180(_v0, _v1))
                   }, `${_v0.line}:${_v1}`))
                 })]
               })
             })]
-          }), _v7 && (0, _v1.jsxs)(_v50.ModalFooter, {
+          }), _v8 && (0, _v1.jsxs)(_v50.ModalFooter, {
             gap: (0, _v5.rem)(12),
             children: [(0, _v1.jsx)(_v10.Button, {
               variant: "tertiary",
-              isDisabled: _v17,
-              onClick: _v2,
+              isDisabled: _v18,
+              onClick: _v3,
               children: _v1.cancel
             }), (0, _v1.jsx)(_v10.Button, {
               variant: "primary",
-              isLoading: _v17,
-              isDisabled: _v22,
-              onClick: () => void _v26(),
-              children: _v1.save
+              isLoading: _v18,
+              isDisabled: _v23,
+              onClick: () => void _v27(),
+              children: _v2 ? _v1.replaceTermsTranslations : _v1.save
             })]
           })]
         })]
@@ -5681,6 +5723,7 @@ ${_v2}`;
         }), _v25 && (0, _v1.jsx)(_v181, {
           ownerUserId: _v0,
           translations: _v1,
+          hasExistingEntries: _v41,
           onClose: () => _v26(!1),
           onImported: async () => {
             _v9(1), await _v37();
@@ -6371,6 +6414,58 @@ ${_v2}`;
               },
               "zh-CN": {
                 singular: "上传仅包含单个源术语列的 CSV。"
+              }
+            }
+          }),
+          glossaryCsvReplaceNotice: (0, _v205.translate)({
+            singular: "Uploading a CSV replaces all existing glossary terms.",
+            dictionary: {
+              es: {
+                singular: "Subir un CSV reemplaza todos los términos existentes del glosario."
+              },
+              "de-DE": {
+                singular: "Das Hochladen einer CSV ersetzt alle vorhandenen Glossarbegriffe."
+              },
+              "fr-FR": {
+                singular: "Le téléversement d'un fichier CSV remplace tous les termes existants du glossaire."
+              },
+              "ja-JP": {
+                singular: "CSVをアップロードすると既存のすべての用語集の用語が置き換わります。"
+              },
+              "ko-KR": {
+                singular: "CSV 업로드 시 기존의 모든 용어집 항목이 대체됩니다."
+              },
+              "pt-BR": {
+                singular: "O envio de um CSV substitui todos os termos do glossário existentes."
+              },
+              "zh-CN": {
+                singular: "上传 CSV 会替换所有现有的词汇表术语。"
+              }
+            }
+          }),
+          glossaryCsvReplaceConfirmation: (0, _v205.translate)({
+            singular: "Saving will replace all existing glossary terms with the terms in this CSV.",
+            dictionary: {
+              es: {
+                singular: "Al guardar se reemplazarán todos los términos existentes del glosario por los términos de este CSV."
+              },
+              "de-DE": {
+                singular: "Durch das Speichern werden alle vorhandenen Glossarbegriffe durch die Begriffe in dieser CSV ersetzt."
+              },
+              "fr-FR": {
+                singular: "L'enregistrement remplacera tous les termes du glossaire existants par les termes de ce fichier CSV."
+              },
+              "ja-JP": {
+                singular: "保存すると、このCSVにある用語で既存の用語集の項目がすべて置き換えられます。"
+              },
+              "ko-KR": {
+                singular: "저장하면 이 CSV에 있는 용어로 기존 용어집의 모든 항목이 대체됩니다."
+              },
+              "pt-BR": {
+                singular: "Ao salvar, todos os termos do glossário existentes serão substituídos pelos termos deste CSV."
+              },
+              "zh-CN": {
+                singular: "保存将用此 CSV 中的术语替换所有现有的词汇表条目."
               }
             }
           }),
@@ -7094,6 +7189,58 @@ ${_v2}`;
               },
               "zh-CN": {
                 singular: "保存"
+              }
+            }
+          }),
+          replaceGlossary: (0, _v205.translate)({
+            singular: "Replace glossary",
+            dictionary: {
+              es: {
+                singular: "Reemplazar glosario"
+              },
+              "de-DE": {
+                singular: "Glossar ersetzen"
+              },
+              "fr-FR": {
+                singular: "Remplacer le glossaire"
+              },
+              "ja-JP": {
+                singular: "用語集を置換"
+              },
+              "ko-KR": {
+                singular: "용어집 교체"
+              },
+              "pt-BR": {
+                singular: "Substituir glossário"
+              },
+              "zh-CN": {
+                singular: "替换词汇表"
+              }
+            }
+          }),
+          replaceTermsTranslations: (0, _v205.translate)({
+            singular: "Replace terms translations",
+            dictionary: {
+              es: {
+                singular: "Reemplazar traducciones de términos"
+              },
+              "de-DE": {
+                singular: "Begriffübersetzungen ersetzen"
+              },
+              "fr-FR": {
+                singular: "Remplacer les traductions des termes"
+              },
+              "ja-JP": {
+                singular: "用語の翻訳を置換"
+              },
+              "ko-KR": {
+                singular: "용어 번역 교체"
+              },
+              "pt-BR": {
+                singular: "Substituir traduções de termos"
+              },
+              "zh-CN": {
+                singular: "替换术语翻译"
               }
             }
           }),
@@ -8239,6 +8386,58 @@ ${_v2}`;
               },
               "zh-CN": {
                 singular: "上传一个 CSV，包含以下列：{SOURCE_LANGUAGE}、{SOURCE_TERM}、{TARGET_LANGUAGE}、{TARGET_TERM}。使用支持字幕的语言代码，例如 en、pt-BR 或 zh-HK。"
+              }
+            }
+          }),
+          replacementsCsvReplaceNotice: (0, _v205.translate)({
+            singular: "Uploading a CSV replaces all existing terms translations.",
+            dictionary: {
+              es: {
+                singular: "Al subir un CSV se reemplazarán todas las traducciones de términos existentes."
+              },
+              "de-DE": {
+                singular: "Beim Hochladen einer CSV werden alle vorhandenen Begriffübersetzungen ersetzt."
+              },
+              "fr-FR": {
+                singular: "Le téléchargement d'un fichier CSV remplace toutes les traductions de termes existantes."
+              },
+              "ja-JP": {
+                singular: "CSVをアップロードすると、既存の用語の翻訳がすべて置き換えられます。"
+              },
+              "ko-KR": {
+                singular: "CSV를 업로드하면 기존의 모든 용어 번역이 대체됩니다."
+              },
+              "pt-BR": {
+                singular: "Ao enviar um CSV, serão substituídas todas as traduções de termos existentes."
+              },
+              "zh-CN": {
+                singular: "上传 CSV 会替换所有现有的术语翻译."
+              }
+            }
+          }),
+          replacementsCsvReplaceConfirmation: (0, _v205.translate)({
+            singular: "Saving will replace all existing terms translations with the entries in this CSV.",
+            dictionary: {
+              es: {
+                singular: "Al guardar se reemplazarán todas las traducciones de términos existentes por las entradas de este CSV."
+              },
+              "de-DE": {
+                singular: "Durch das Speichern werden alle vorhandenen Begriffübersetzungen durch die Einträge in dieser CSV ersetzt."
+              },
+              "fr-FR": {
+                singular: "L'enregistrement remplacera toutes les traductions de termes existantes par les entrées de ce fichier CSV."
+              },
+              "ja-JP": {
+                singular: "保存すると、このCSVのエントリで既存の用語の翻訳がすべて置き換えられます。"
+              },
+              "ko-KR": {
+                singular: "저장하면 이 CSV의 항목으로 기존의 모든 용어 번역이 대체됩니다."
+              },
+              "pt-BR": {
+                singular: "Ao salvar, todas as traduções de termos existentes serão substituídas pelas entradas deste CSV."
+              },
+              "zh-CN": {
+                singular: "保存将用此 CSV 中的条目替换所有现有的术语翻译."
               }
             }
           }),

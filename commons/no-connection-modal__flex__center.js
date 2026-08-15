@@ -2287,11 +2287,14 @@
       return (0, _v17.jsxs)(_v95.Flex, {
         id: _v0,
         className: _v1,
-        borderRadius: (0, _v61.rem)(8),
+        alignItems: "center",
+        backgroundColor: "fill-component",
+        backdropFilter: "blur(40px)",
+        borderRadius: "lg",
+        gap: "md",
         padding: (0, _v61.rem)(4),
         marginRight: (0, _v61.rem)(8),
         height: (0, _v61.rem)(48),
-        minWidth: (0, _v61.rem)(180),
         children: [(0, _v17.jsxs)(_v95.Flex, {
           gap: (0, _v61.rem)(4),
           children: [(0, _v17.jsx)(_v214.AudioControlButton, {
@@ -2306,8 +2309,6 @@
             isDisabled: _v24,
             place: _v39.EComposerApplicationType.BROADCASTER,
             onSettingsClicked: _v17
-          }), (0, _v17.jsx)(_v227, {
-            id: _v0
           }), (0, _v17.jsx)(_v233, {
             id: _v0,
             isDisabled: _v24
@@ -2320,6 +2321,12 @@
               isGuest: !1
             })
           }) : null]
+        }), (0, _v17.jsx)(_v95.Flex, {
+          height: (0, _v61.rem)(20),
+          borderLeftWidth: (0, _v61.rem)(1),
+          borderColor: "stroke"
+        }), (0, _v17.jsx)(_v227, {
+          id: _v0
         }), _v23 ? (0, _v17.jsx)(_v18.LiveErrorBoundary, {
           component: "Teleprompter",
           children: (0, _v17.jsx)(_v21.Suspense, {
