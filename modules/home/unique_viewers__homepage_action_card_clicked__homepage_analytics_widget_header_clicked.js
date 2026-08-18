@@ -4718,31 +4718,32 @@
       bpEvent: _v2
     }) => {
       let {
-          upload: _v3,
-          uploads: _v4
+          fileInputAccept: _v3,
+          upload: _v4,
+          uploads: _v5
         } = (0, _v230.useUploader)(),
         {
-          open: _v5,
-          close: _v6
+          open: _v6,
+          close: _v7
         } = (0, _v178.useUpsellModal)(),
-        _v7 = (0, _v3.useRef)(null),
-        _v8 = _v1?.user?.id,
-        _v9 = _v1?.teamUser ? _v1?.teamUser.ownerId : _v8,
+        _v8 = (0, _v3.useRef)(null),
+        _v9 = _v1?.user?.id,
+        _v10 = _v1?.teamUser ? _v1?.teamUser.ownerId : _v9,
         {
-          data: _v10,
-          isValidating: _v11
-        } = (0, _v229.useGetUserFoldersDefault)(() => _v9 ? {
+          data: _v11,
+          isValidating: _v12
+        } = (0, _v229.useGetUserFoldersDefault)(() => _v10 ? {
           where: {
-            userId: _v9
+            userId: _v10
           },
           select: ["uri"]
         } : null, {
           revalidateOnFocus: !1
         }),
-        _v12 = Number(_v10?.uri.split("/").pop());
+        _v13 = Number(_v11?.uri.split("/").pop());
       return (0, _v3.useEffect)(() => {
-        let _v0 = _v4?.find(_v0 => _v0.state === _v231.STATES.FAILED);
-        _v0 && (_v0.error.includes("Your account doesn't have enough free space to upload this video") || _v0.error.includes("You have reached the storage limit for private or embeddable videos")) && _v5({
+        let _v0 = _v5?.find(_v0 => _v0.state === _v231.STATES.FAILED);
+        _v0 && (_v0.error.includes("Your account doesn't have enough free space to upload this video") || _v0.error.includes("You have reached the storage limit for private or embeddable videos")) && _v6({
           tracking: {
             params: {
               feature: "quota",
@@ -4808,32 +4809,32 @@
               }
             })
           },
-          onClose: _v6
+          onClose: _v7
         });
-      }, [_v4]), (0, _v1.jsxs)(_v51.Box, {
+      }, [_v5]), (0, _v1.jsxs)(_v51.Box, {
         display: "contents",
         onClick: _v0 => {
-          _v0.stopPropagation(), _v7.current && _v7.current.click();
+          _v0.stopPropagation(), _v8.current && _v8.current.click();
         },
         children: [(0, _v1.jsx)(_v227.FileInput, {
           multiple: !0,
-          ref: _v7,
+          ref: _v8,
           onChange: _v0 => {
             let _v1 = _v0?.target?.files;
-            _v1 && _v3(_v1 || new FileList(), {
-              targetUserId: _v9 || void 0,
-              folderId: _v12,
+            _v1 && _v4(_v1 || new FileList(), {
+              targetUserId: _v10 || void 0,
+              folderId: _v13,
               origin: {
                 isDropzone: !1,
                 surface: "homepage"
               }
-            });
+            }), _v0.currentTarget.value = "";
           },
-          isDisabled: _v11,
+          isDisabled: _v12,
           sx: {
             display: "none"
           },
-          accept: "video/*,.mkv,.m2ts"
+          accept: _v3
         }), (0, _v1.jsx)(_v195, {
           copy: (0, _v32.translate)({
             singular: "{B}Upload{/B} {C}from computer{/C}",

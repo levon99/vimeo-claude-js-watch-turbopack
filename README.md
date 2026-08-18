@@ -64,6 +64,7 @@
 - https://vimeo.com/forbidden
 - https://vimeo.com/help/contact/billing
 - https://vimeo.com/help/contact/internal-request
+- https://vimeo.com/help/contact/offer
 - https://vimeo.com/help/contact/partners/[partner]
 - https://vimeo.com/home
 - https://vimeo.com/integration/live/guest/[sessionType]/[sessionId]/[sessionCode]

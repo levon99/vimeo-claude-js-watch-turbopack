@@ -38,60 +38,62 @@
     },
     _v23 = ({
       paymentFormType: _v0,
-      stripeConfig: _v1,
-      openInvoice: _v2
+      isIndianUser: _v1,
+      stripeConfig: _v2,
+      openInvoice: _v3
     }) => {
-      let _v3,
-        _v4 = (0, _v20.useViewer)(),
-        _v5 = (0, _v4.useRouter)(),
+      let _v4,
+        _v5 = (0, _v20.useViewer)(),
+        _v6 = (0, _v4.useRouter)(),
         {
-          settings: _v6,
-          isLoadingResponse: _v7
+          settings: _v7,
+          isLoadingResponse: _v8
         } = (0, _v18.useOrionSettings)(),
-        _v8 = _v6.force_stripe_checkout ? _v7.PaymentFormTypes.TYPE_STRIPE : _v0,
-        _v9 = _v8 === _v7.PaymentFormTypes.TYPE_STRIPE && null === _v1,
+        _v9 = _v7.force_stripe_checkout ? _v7.PaymentFormTypes.TYPE_STRIPE : _v0,
+        _v10 = _v9 === _v7.PaymentFormTypes.TYPE_STRIPE && null === _v2,
         {
-          data: _v10,
-          isLoading: _v11
-        } = (0, _v17.useGetMeStripeConfig)(() => _v9 ? {
+          data: _v11,
+          isLoading: _v12
+        } = (0, _v17.useGetMeStripeConfig)(() => _v10 ? {
           select: _v7.STRIPE_CONFIG_FIELDS,
           query: {
             withBalance: !0
           }
         } : null),
-        _v12 = _v1 ?? _v10 ?? null;
-      _v4?.user || _v5.query?.token || (window.location.href = "/log_in");
-      let _v13 = "u" > typeof document && document.referrer ? new URL(document.referrer) : "",
-        _v14 = _v5.query?.verify === "1",
-        _v15 = _v5.query?.token ? `?token=${_v5.query?.token}&mwru=${_v5.query?.mwru}` : "",
-        _v16 = (0, _v5.useMemo)(() => _v12?.publishableKey ? (0, _v3.loadStripe)(_v12.publishableKey) : null, [_v12?.publishableKey]);
-      if (_v7 || _v9 && _v11) return null;
-      if (_v8 === _v7.PaymentFormTypes.TYPE_STRIPE) {
-        if (!_v4?.locale || !_v12) return null;
-        _v3 = _v12.clientSecret ? (0, _v8.getStripeOptions)({
-          clientSecret: _v12.clientSecret,
-          customerSessionClientSecret: _v12.customerSessionClientSecret
+        _v13 = _v2 ?? _v11 ?? null;
+      _v5?.user || _v6.query?.token || (window.location.href = "/log_in");
+      let _v14 = "u" > typeof document && document.referrer ? new URL(document.referrer) : "",
+        _v15 = _v6.query?.verify === "1",
+        _v16 = _v6.query?.token ? `?token=${_v6.query?.token}&mwru=${_v6.query?.mwru}` : "",
+        _v17 = (0, _v5.useMemo)(() => _v13?.publishableKey ? (0, _v3.loadStripe)(_v13.publishableKey) : null, [_v13?.publishableKey]);
+      if (_v8 || _v10 && _v12) return null;
+      if (_v9 === _v7.PaymentFormTypes.TYPE_STRIPE) {
+        if (!_v5?.locale || !_v13) return null;
+        _v4 = _v13.clientSecret ? (0, _v8.getStripeOptions)({
+          clientSecret: _v13.clientSecret,
+          customerSessionClientSecret: _v13.customerSessionClientSecret
         }) : (0, _v8.getStripeOptions)({
           mode: "setup",
-          locale: _v4.locale,
-          amount: _v12.balance.unit,
-          currency: _v12.currency,
-          paymentMethodConfigId: _v12.paymentMethodConfigId,
-          customerSessionClientSecret: _v12.customerSessionClientSecret
+          locale: _v5.locale,
+          amount: _v13.balance.unit,
+          currency: _v13.currency,
+          paymentMethodConfigId: _v13.paymentMethodConfigId,
+          customerSessionClientSecret: _v13.customerSessionClientSecret
         });
       }
       return (0, _v1.jsx)(_v2.Elements, {
-        stripe: _v16,
-        options: _v3,
+        stripe: _v17,
+        options: _v4,
         children: (0, _v1.jsx)(_v6.AddPaymentMethod, {
-          redirectUrl: _v14 ? "/home" : _v13 ? `${_v13.pathname}${_v15}` : void 0,
-          isVerificationFlow: _v14,
-          paymentFormType: _v8,
-          forceStripeCheckout: _v6.force_stripe_checkout,
-          stripeConfig: _v12,
-          openInvoice: _v2
+          redirectUrl: _v15 ? "/home" : _v14 ? `${_v14.pathname}${_v16}` : void 0,
+          isVerificationFlow: _v15,
+          paymentFormType: _v9,
+          forceStripeCheckout: _v7.force_stripe_checkout,
+          isIndianUser: _v1,
+          stripeConfig: _v13,
+          openInvoice: _v3
         })
-      }, _v8);
+      }, _v9);
     };
   _v22.getLayout = _v0 => (0, _v1.jsxs)(_v21.QueryParamProvider, {
     children: [(0, _v1.jsx)(_v13.DefaultNavigation, {}), _v0, (0, _v1.jsx)(_v19.MinimalFooterLayout, {})]
@@ -152,6 +154,7 @@
     return {
       props: {
         paymentFormType: _v6,
+        isIndianUser: _v4,
         stripeConfig: _v8,
         openInvoice: _v7
       }

@@ -989,17 +989,19 @@
   var _v98 = _v0.i(0);
   _v0.s(["SectionRenderer", 0, ({
     section: _v0,
-    index: _v1
+    index: _v1,
+    ..._v2
   }) => {
     let {
-      isV2: _v2
+      isV2: _v3
     } = _v95();
     return 0 === _v0.length ? null : (0, _v1.jsxs)(_v2.default.Fragment, {
-      children: [_v1 > 0 && (_v2 ? (0, _v1.jsx)(_v15.NestedMenuDivider, {}) : (0, _v1.jsx)(_v98.MenuDivider, {
+      children: [_v1 > 0 && (_v3 ? (0, _v1.jsx)(_v15.NestedMenuDivider, {}) : (0, _v1.jsx)(_v98.MenuDivider, {
         mt: "sm",
         mb: "sm"
       })), _v0.map((_v0, _v1) => (0, _v1.jsx)(_v13.Box, {
         px: "sm",
+        ..._v2,
         children: _v0
       }, `component=${_v1}-${_v1}`))]
     }, `section-${_v1}`);

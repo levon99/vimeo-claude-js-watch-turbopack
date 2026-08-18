@@ -1103,6 +1103,8 @@
             }),
             header: _v54.translations.customizeRegistration,
             description: _v54.translations.customizeRegistrationDetails,
+            isDisabled: !_v25,
+            disabledTooltip: _v54.translations.editAndManageVideoUnavailable,
             onClick: _v32
           }) : null]
         })]

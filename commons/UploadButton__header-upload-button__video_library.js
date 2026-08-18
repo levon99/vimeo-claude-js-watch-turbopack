@@ -8,7 +8,8 @@
     _v5 = _v0.i(0),
     _v6 = _v0.i(0),
     _v7 = _v0.i(0),
-    _v8 = _v0.i(0);
+    _v8 = _v0.i(0),
+    _v9 = _v0.i(0);
   _v0.s(["UploadButton", 0, ({
     folderId: _v0,
     paywallTrigger: _v1,
@@ -19,9 +20,12 @@
   }) => {
     let _v6 = (0, _v2.useRef)(null),
       {
-        uploadFiles: _v7,
-        isLoading: _v8
-      } = (0, _v8.useUploadFileList)({
+        fileInputAccept: _v7
+      } = (0, _v8.useUploader)(),
+      {
+        uploadFiles: _v8,
+        isLoading: _v9
+      } = (0, _v9.useUploadFileList)({
         targetUserId: _v2,
         origin: _v5 ? {
           isDropzone: !1,
@@ -34,10 +38,10 @@
           paywallFeature: "quota"
         }
       }),
-      _v9 = () => {
+      _v10 = () => {
         _v4?.(), _v6.current?.click();
       },
-      _v10 = (0, _v7.translate)({
+      _v11 = (0, _v7.translate)({
         singular: "Upload",
         dictionary: {
           es: {
@@ -69,20 +73,20 @@
         ref: _v6,
         onChange: _v0 => {
           let _v1 = _v0.target.files;
-          _v1?.length && _v7({
+          _v1?.length && _v8({
             files: _v1,
             targetUserId: _v2,
             folderId: _v0,
             uploadClipProperties: void 0
           }), _v6.current && (_v6.current.value = "");
         },
-        isDisabled: _v8,
+        isDisabled: _v9,
         sx: {
           display: "none"
         },
-        accept: "video/*,.mkv,.m2ts"
+        accept: _v7
       }), (0, _v1.jsx)(_v5.IconButton, {
-        "aria-label": _v10,
+        "aria-label": _v11,
         "data-testid": `${_v3}-mobile`,
         display: {
           base: "inline-flex",
@@ -91,8 +95,8 @@
         icon: (0, _v1.jsx)(_v6.Upload, {}),
         variant: "secondary",
         size: "md",
-        onClick: _v9,
-        isDisabled: _v8
+        onClick: _v10,
+        isDisabled: _v9
       }), (0, _v1.jsx)(_v3.Button, {
         "data-testid": _v3,
         display: {
@@ -101,9 +105,9 @@
         },
         variant: "secondary",
         size: "md",
-        onClick: _v9,
-        isDisabled: _v8,
-        children: _v10
+        onClick: _v10,
+        isDisabled: _v9,
+        children: _v11
       })]
     });
   }]);

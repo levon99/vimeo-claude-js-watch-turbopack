@@ -386,7 +386,37 @@
             versionTranscodeStatus: _v16 ?? null,
             status: _v0 instanceof Error ? "failed" : "succeeded",
             error: _v0 instanceof Error ? _v0.message : null
-          }), _v0 instanceof Error || (_v32.close(_v76.current), _v76.current = _v32({
+          }), _v0 instanceof Error ? _v32({
+            title: (0, _v18.translate)({
+              singular: "Unable to delete version",
+              dictionary: {
+                es: {
+                  singular: "No se pudo eliminar la versión"
+                },
+                "de-DE": {
+                  singular: "Version konnte nicht gelöscht werden"
+                },
+                "fr-FR": {
+                  singular: "Impossible de supprimer la version"
+                },
+                "ja-JP": {
+                  singular: "バージョンを削除できません"
+                },
+                "ko-KR": {
+                  singular: "버전을 삭제할 수 없습니다"
+                },
+                "pt-BR": {
+                  singular: "Não foi possível excluir a versão"
+                },
+                "zh-CN": {
+                  singular: "无法删除版本"
+                }
+              }
+            }),
+            duration: _v31.TOAST_DURATION,
+            isClosable: !1,
+            variant: "warning"
+          }) : (_v32.close(_v76.current), _v76.current = _v32({
             title: (0, _v18.translate)({
               singular: "{versionNumber} deleted",
               replacements: {

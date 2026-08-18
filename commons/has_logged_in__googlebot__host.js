@@ -292,7 +292,7 @@
           _v6 = (_v1 = _v0.req.headers["crossroads-jwt"], _v2 = {
             "Content-Type": "application/json",
             Authorization: `jwt ${_v1}`
-          }, ["cf-connecting-ip", "x-forwarded-for", "x-geo-vary-group", "vimeo-environment-id", "vimeo-environment-tld"].forEach(_v0 => {
+          }, ["x-forwarded-for", "x-geo-vary-group", "vimeo-environment-id", "vimeo-environment-tld"].forEach(_v0 => {
             let _v1 = _v0.req.headers[_v0];
             _v1 && (_v2[_v0] = _v1);
           }), {

@@ -1993,19 +1993,22 @@
       onFileSelected: _v4
     }) => {
       let _v5 = (0, _v6.useRef)(null),
-        _v6 = (0, _v96.useMediaQueryVisibility)(`screen and (max-width: ${(0, _v46.rem)(768)})`);
+        {
+          fileInputAccept: _v6
+        } = (0, _v73.useUploader)(),
+        _v7 = (0, _v96.useMediaQueryVisibility)(`screen and (max-width: ${(0, _v46.rem)(768)})`);
       return (0, _v2.jsx)(_v122.FileInput, {
         label: (0, _v2.jsx)(_v80.Button, {
           size: "lg",
           variant: "primary",
           onClick: () => _v5?.current?.click(),
-          children: _v6 ? _v117[_v3] : _v116[_v3]
+          children: _v7 ? _v117[_v3] : _v116[_v3]
         }),
         ref: _v5,
         multiple: !0,
         onClick: () => _v143(_v3),
         onChange: _v4,
-        accept: "video/*,.mkv,.m2ts",
+        accept: _v6,
         isDisabled: _v1,
         isLoading: _v0,
         variant: "filled",
@@ -2211,14 +2214,14 @@
               });
             }, [_v12, _v3, _v14.activeCount, _v17?.teamUserPermissionLevel, _v5]),
             _v19 = (0, _v6.useCallback)((_v0, _v1) => {
-              _v9(!0), _v13(_v0, {
+              _v9(_v13(_v0, {
                 targetUserId: _v2 || void 0,
                 folderId: _v11 || void 0,
                 origin: {
                   isDropzone: _v1,
                   surface: "upload_page"
                 }
-              }, _v4);
+              }, _v4));
             }, [_v11, _v2, _v13, _v4]),
             _v20 = (0, _v6.useCallback)(_v0 => {
               if (!_v0.target || !_v0.target.files) return;
@@ -2227,7 +2230,7 @@
               } = _v0.target;
               _v19(_v1, !1), _v18(_v1, "filepicker"), _v10({
                 uploadMethod: "file_picker"
-              });
+              }), _v0.currentTarget.value = "";
             }, [_v18, _v10, _v19]),
             _v21 = (0, _v6.useCallback)(() => {
               _v7(!1);

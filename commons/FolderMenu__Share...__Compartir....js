@@ -30,8 +30,9 @@
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
-    _v30 = _v0.i(0);
-  let _v31 = (0, _v4.rem)(_v27.ACTION_ICON_BOX_SIZE);
+    _v30 = _v0.i(0),
+    _v31 = _v0.i(0);
+  let _v32 = (0, _v4.rem)(_v28.ACTION_ICON_BOX_SIZE);
   _v0.s(["FolderMenu", 0, ({
     size: _v0,
     disabled: _v1,
@@ -58,12 +59,12 @@
     isConnectedToSlack: _v22,
     onSlackIntegration: _v23,
     deleteIcon: _v24 = (0, _v1.jsx)(_v13.TrashBin, {
-      boxSize: _v31
+      boxSize: _v32
     }),
     canStar: _v25 = !0,
     onStarClick: _v26,
     starIcon: _v27 = (0, _v1.jsx)(_v12.Star, {
-      boxSize: _v31
+      boxSize: _v32
     }),
     starIconLabel: _v28,
     placement: _v29,
@@ -86,16 +87,16 @@
   }) => {
     let {
         settings: _v46
-      } = (0, _v23.useOrionSettings)(),
-      _v47 = (0, _v19.useIsMobile)(),
+      } = (0, _v24.useOrionSettings)(),
+      _v47 = (0, _v20.useIsMobile)(),
       _v48 = _v46.enable_compact_folder_menu && !_v47,
       _v49 = _v3 && !_v42 && (_v35 || _v37 || _v40),
       _v50 = {
         share: _v4 ? {
           icon: (0, _v1.jsx)(_v11.Share, {
-            boxSize: _v31
+            boxSize: _v32
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Share...",
             dictionary: {
               es: {
@@ -122,7 +123,7 @@
             }
           }),
           onClick: _v5,
-          badge: _v20 && (0, _v1.jsx)(_v22.UpgradeBadge, {
+          badge: _v20 && (0, _v1.jsx)(_v23.UpgradeBadge, {
             noMargin: !0,
             name: "folder_menu_share_upgrade_button",
             location: "folder_menu"
@@ -130,7 +131,7 @@
         } : void 0,
         copyLink: _v13 ? {
           content: _v13,
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Copy link",
             dictionary: {
               es: {
@@ -159,39 +160,39 @@
           onClick: _v12
         } : void 0,
         reviewLinkSubmenu: _v49 && _v46.enable_review_link_submenu ? {
-          icon: (0, _v1.jsx)(_v27.REVIEW_LINK_ICON, {
-            boxSize: _v31
+          icon: (0, _v1.jsx)(_v28.REVIEW_LINK_ICON, {
+            boxSize: _v32
           }),
-          label: _v40 ? _v27.REVIEW_LINKS_COPY : _v27.REVIEW_LINK_COPY
+          label: _v40 ? _v28.REVIEW_LINKS_COPY : _v28.REVIEW_LINK_COPY
         } : void 0,
         copyReviewLink: _v37 ? {
           content: _v38,
-          icon: (0, _v1.jsx)(_v27.COPY_REVIEW_LINK_ICON, {
-            boxSize: _v31
+          icon: (0, _v1.jsx)(_v28.COPY_REVIEW_LINK_ICON, {
+            boxSize: _v32
           }),
-          label: _v27.COPY_REVIEW_LINK_COPY,
+          label: _v28.COPY_REVIEW_LINK_COPY,
           onClick: _v39
         } : void 0,
         manageReviewLinks: _v40 ? {
-          icon: (0, _v1.jsx)(_v27.MANAGE_REVIEW_LINKS_ICON, {
-            boxSize: _v31
+          icon: (0, _v1.jsx)(_v28.MANAGE_REVIEW_LINKS_ICON, {
+            boxSize: _v32
           }),
-          label: _v27.MANAGE_REVIEW_LINKS_COPY,
+          label: _v28.MANAGE_REVIEW_LINKS_COPY,
           onClick: _v41
         } : void 0,
         createReviewLink: _v49 ? {
-          icon: (0, _v1.jsx)(_v27.CREATE_NEW_REVIEW_LINK_ICON, {
-            boxSize: _v31
+          icon: (0, _v1.jsx)(_v28.CREATE_NEW_REVIEW_LINK_ICON, {
+            boxSize: _v32
           }),
-          label: _v27.CREATE_NEW_REVIEW_LINK_COPY,
+          label: _v28.CREATE_NEW_REVIEW_LINK_COPY,
           onClick: _v36,
           isDisabled: !_v35
         } : void 0,
         reviewPages: _v40 ? {
-          icon: (0, _v1.jsx)(_v17.ReviewCheck, {
-            boxSize: _v31
+          icon: (0, _v1.jsx)(_v18.ReviewCheck, {
+            boxSize: _v32
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Review pages",
             dictionary: {
               es: {
@@ -221,9 +222,9 @@
         } : void 0,
         createReviewLinksLegacy: _v46.enable_review_link_submenu || !_v3 || _v42 ? void 0 : {
           icon: (0, _v1.jsx)(_v15.Link, {
-            boxSize: _v31
+            boxSize: _v32
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Create review links",
             dictionary: {
               es: {
@@ -253,9 +254,9 @@
         },
         analytics: _v3 && _v17 && !_v47 ? {
           icon: (0, _v1.jsx)(_v5.Analytics, {
-            boxSize: _v31
+            boxSize: _v32
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Analytics",
             dictionary: {
               es: {
@@ -286,9 +287,9 @@
         } : void 0,
         bulkPrivacy: _v10 ? {
           icon: (0, _v1.jsx)(_v7.Eye, {
-            boxSize: _v31
+            boxSize: _v32
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Override privacy settings",
             dictionary: {
               es: {
@@ -317,10 +318,10 @@
           onClick: _v11
         } : void 0,
         addToShowcase: _v44 && _v45 ? {
-          icon: (0, _v1.jsx)(_v18._3GridLeftLayout, {
-            boxSize: _v31
+          icon: (0, _v1.jsx)(_v19._3GridLeftLayout, {
+            boxSize: _v32
           }),
-          actionCopy: (0, _v20.translate)({
+          actionCopy: (0, _v21.translate)({
             singular: "Add to showcase",
             dictionary: {
               es: {
@@ -348,13 +349,13 @@
           }),
           onClick: _v45,
           showTooltip: !_v43,
-          tooltipCopy: _v43 ? void 0 : (0, _v20.translate)("Folders added to a Showcase must contain between 1 and 100 items.")
+          tooltipCopy: _v43 ? void 0 : (0, _v21.translate)("Folders added to a Showcase must contain between 1 and 100 items.")
         } : void 0,
         move: _v8 ? {
           icon: (0, _v1.jsx)(_v9.FolderOpen, {
-            boxSize: _v31
+            boxSize: _v32
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Move folder...",
             dictionary: {
               es: {
@@ -384,9 +385,9 @@
         } : void 0,
         rename: _v14 && _v32 && _v46.enable_rename_folder ? {
           icon: (0, _v1.jsx)(_v8.RenamePencil, {
-            boxSize: _v31
+            boxSize: _v32
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Rename",
             dictionary: {
               es: {
@@ -416,9 +417,9 @@
         } : void 0,
         changeColor: _v14 ? {
           icon: (0, _v1.jsx)(_v6.ColorPicker, {
-            boxSize: _v31
+            boxSize: _v32
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Change color...",
             dictionary: {
               es: {
@@ -448,9 +449,9 @@
         } : void 0,
         folderDefaults: _v14 ? {
           icon: (0, _v1.jsx)(_v10.SettingsGear, {
-            boxSize: _v31
+            boxSize: _v32
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Folder defaults",
             dictionary: {
               es: {
@@ -477,7 +478,7 @@
             }
           }),
           onClick: _v16,
-          badge: _v19 && (0, _v1.jsx)(_v22.UpgradeBadge, {
+          badge: _v19 && (0, _v1.jsx)(_v23.UpgradeBadge, {
             noMargin: !0,
             name: "folder_menu_defaults_upgrade_button",
             location: "folder_menu"
@@ -485,9 +486,9 @@
         } : void 0,
         folderStyle: _v14 ? {
           icon: (0, _v1.jsx)(_v16.Palette, {
-            boxSize: _v31
+            boxSize: _v32
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Folder style",
             dictionary: {
               es: {
@@ -522,14 +523,14 @@
                 fill: "text-primary"
               }
             },
-            boxSize: _v31,
-            children: (0, _v1.jsx)(_v21.SlackMark, {
+            boxSize: _v32,
+            children: (0, _v1.jsx)(_v22.SlackMark, {
               style: {
                 transform: "scale(0.9)"
               }
             })
           }),
-          label: _v22 ? (0, _v20.translate)({
+          label: _v22 ? (0, _v21.translate)({
             singular: "Slack settings",
             dictionary: {
               es: {
@@ -554,7 +555,7 @@
                 singular: "Slack 设置"
               }
             }
-          }) : (0, _v20.translate)({
+          }) : (0, _v21.translate)({
             singular: "Connect to Slack",
             dictionary: {
               es: {
@@ -584,9 +585,9 @@
         } : void 0,
         folderSettings: _v14 ? {
           icon: (0, _v1.jsx)(_v10.SettingsGear, {
-            boxSize: _v31
+            boxSize: _v32
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Folder settings",
             dictionary: {
               es: {
@@ -616,9 +617,9 @@
         } : void 0,
         translate: _v34 ? {
           icon: (0, _v1.jsx)(_v14.AiSparkles, {
-            boxSize: _v31
+            boxSize: _v32
           }),
-          label: (0, _v20.translate)({
+          label: (0, _v21.translate)({
             singular: "Translate folder",
             dictionary: {
               es: {
@@ -649,8 +650,8 @@
         star: _v25 ? {
           icon: (0, _v2.cloneElement)(_v27, {
             style: {
-              width: _v31,
-              height: _v31
+              width: _v32,
+              height: _v32
             }
           }),
           label: _v28 || "",
@@ -658,7 +659,7 @@
         } : void 0,
         delete: _v6 ? {
           icon: _v24,
-          label: _v46.enable_compact_folder_menu ? (0, _v20.translate)({
+          label: _v46.enable_compact_folder_menu ? (0, _v21.translate)({
             singular: "Delete",
             dictionary: {
               es: {
@@ -683,7 +684,7 @@
                 singular: "删除"
               }
             }
-          }) : (0, _v20.translate)({
+          }) : (0, _v21.translate)({
             singular: "Delete folder",
             dictionary: {
               es: {
@@ -714,61 +715,97 @@
       };
     if (!(_v4 || _v13 || _v3 && _v17 || _v8 || _v21 || _v14 || _v25 || _v6 || _v44)) return (0, _v1.jsx)(_v1.Fragment, {});
     let _v51 = (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v50.copyReviewLink && (_v38 ? (0, _v1.jsx)(_v30.CopyAction, {
+        children: [_v50.copyReviewLink && (_v38 ? (0, _v1.jsx)(_v31.CopyAction, {
           ..._v50.copyReviewLink,
           content: _v38
-        }) : (0, _v1.jsx)(_v28.Action, {
+        }) : (0, _v1.jsx)(_v29.Action, {
           ..._v50.copyReviewLink
-        })), _v50.manageReviewLinks && (0, _v1.jsx)(_v28.Action, {
+        })), _v50.manageReviewLinks && (0, _v1.jsx)(_v29.Action, {
           ..._v50.manageReviewLinks
-        }), _v50.createReviewLink && (0, _v1.jsx)(_v28.Action, {
+        }), _v50.createReviewLink && (0, _v1.jsx)(_v29.Action, {
           ..._v50.createReviewLink
-        }), _v50.reviewPages && (0, _v1.jsx)(_v28.Action, {
+        }), _v50.reviewPages && (0, _v1.jsx)(_v29.Action, {
           ..._v50.reviewPages
         })]
       }),
-      _v52 = [_v50.share && (0, _v1.jsx)(_v28.Action, {
+      _v52 = [_v50.share && (0, _v1.jsx)(_v29.Action, {
         ..._v50.share
-      }), _v50.copyLink && (0, _v1.jsx)(_v30.CopyAction, {
+      }, "share"), _v50.copyLink && (0, _v1.jsx)(_v31.CopyAction, {
         ..._v50.copyLink
-      }), _v50.reviewLinkSubmenu && (_v47 ? (0, _v1.jsx)(_v1.Fragment, {
+      }, "copyLink"), _v50.reviewLinkSubmenu && (_v47 ? (0, _v1.jsx)(_v2.default.Fragment, {
         children: _v51
-      }) : (0, _v1.jsx)(_v28.MenuAction, {
+      }, "reviewLinkSubmenu") : (0, _v1.jsx)(_v29.MenuAction, {
         ..._v50.reviewLinkSubmenu,
         children: _v51
-      })), _v50.createReviewLinksLegacy && (0, _v1.jsx)(_v28.Action, {
+      }, "reviewLinkSubmenu")), _v50.createReviewLinksLegacy && (0, _v1.jsx)(_v29.Action, {
         ..._v50.createReviewLinksLegacy
-      })],
-      _v53 = _v48 ? [_v50.analytics && (0, _v1.jsx)(_v28.Action, {
+      }, "createReviewLinksLegacy")],
+      _v53 = _v48 ? [_v50.analytics && (0, _v1.jsx)(_v29.Action, {
         ..._v50.analytics
-      }), _v50.translate && (0, _v1.jsx)(_v28.Action, {
+      }, "analytics"), _v50.translate && (0, _v1.jsx)(_v29.Action, {
         ..._v50.translate
-      })] : [_v50.analytics && (0, _v1.jsx)(_v28.Action, {
+      }, "translate")] : [_v50.analytics && (0, _v1.jsx)(_v29.Action, {
         ..._v50.analytics
-      }), _v50.bulkPrivacy && (0, _v1.jsx)(_v28.Action, {
+      }, "analytics"), _v50.bulkPrivacy && (0, _v1.jsx)(_v29.Action, {
         ..._v50.bulkPrivacy
-      })],
-      _v54 = [[_v50.move && (0, _v1.jsx)(_v28.Action, {
-        ..._v50.move
-      }), _v50.addToShowcase && (0, _v1.jsx)(_v29.ActionWithTooltip, {
-        ..._v50.addToShowcase
-      }), _v50.star && (0, _v1.jsx)(_v28.Action, {
-        ..._v50.star
-      })]].map(_v26.createSection).filter(_v0 => !!_v0.length),
-      _v55 = [[_v50.rename && (0, _v1.jsx)(_v28.Action, {
+      }, "bulkPrivacy")],
+      _v54 = [[_v50.rename && (0, _v1.jsx)(_v29.Action, {
         ..._v50.rename
-      }), _v50.folderStyle && (0, _v1.jsx)(_v28.Action, {
+      }, "rename"), _v50.folderStyle && (0, _v1.jsx)(_v29.Action, {
         ..._v50.folderStyle
-      })], [_v50.bulkPrivacy && (0, _v1.jsx)(_v28.Action, {
+      }, "folderStyle")]].map(_v27.createSection).filter(_v0 => !!_v0.length),
+      _v55 = [[_v50.move && (0, _v1.jsx)(_v29.Action, {
+        ..._v50.move
+      }, "move"), _v50.addToShowcase && (0, _v1.jsx)(_v30.ActionWithTooltip, {
+        ..._v50.addToShowcase
+      }, "addToShowcase"), _v50.star && (0, _v1.jsx)(_v29.Action, {
+        ..._v50.star
+      }, "star")]].map(_v27.createSection).filter(_v0 => !!_v0.length),
+      _v56 = [[_v50.bulkPrivacy && (0, _v1.jsx)(_v29.Action, {
         ..._v50.bulkPrivacy
-      }), _v50.slack && (0, _v1.jsx)(_v28.Action, {
+      }, "bulkPrivacy"), _v50.slack && (0, _v1.jsx)(_v29.Action, {
         ..._v50.slack
-      })]].map(_v26.createSection).filter(_v0 => !!_v0.length),
-      _v56 = [_v52, _v53, _v48 ? [_v54.length > 0 && (0, _v1.jsx)(_v28.MenuAction, {
-        icon: (0, _v1.jsx)(_v9.FolderOpen, {
-          boxSize: _v31
+      }, "slack")]].map(_v27.createSection).filter(_v0 => !!_v0.length),
+      _v57 = [_v52, _v53, _v48 ? [_v54.length > 0 && (0, _v1.jsx)(_v29.MenuAction, {
+        icon: (0, _v1.jsx)(_v17.EditPencil, {
+          boxSize: _v32
         }),
-        label: (0, _v20.translate)({
+        label: (0, _v21.translate)({
+          singular: "Edit folder",
+          dictionary: {
+            es: {
+              singular: "Editar carpeta"
+            },
+            "de-DE": {
+              singular: "Ordner bearbeiten"
+            },
+            "fr-FR": {
+              singular: "Modifier le dossier"
+            },
+            "ja-JP": {
+              singular: "フォルダを編集"
+            },
+            "ko-KR": {
+              singular: "폴더 편집"
+            },
+            "pt-BR": {
+              singular: "Editar pasta"
+            },
+            "zh-CN": {
+              singular: "编辑文件夹"
+            }
+          }
+        }),
+        children: _v54.map((_v0, _v1) => (0, _v1.jsx)(_v27.SectionRenderer, {
+          section: _v0,
+          index: _v1,
+          px: "0"
+        }, _v1))
+      }, "editFolder"), _v55.length > 0 && (0, _v1.jsx)(_v29.MenuAction, {
+        icon: (0, _v1.jsx)(_v9.FolderOpen, {
+          boxSize: _v32
+        }),
+        label: (0, _v21.translate)({
           singular: "Organize",
           dictionary: {
             es: {
@@ -794,81 +831,83 @@
             }
           }
         }),
-        children: _v54.map((_v0, _v1) => (0, _v1.jsx)(_v26.SectionRenderer, {
+        children: _v55.map((_v0, _v1) => (0, _v1.jsx)(_v27.SectionRenderer, {
           section: _v0,
-          index: _v1
+          index: _v1,
+          px: "0"
         }, _v1))
-      }), _v55.length > 0 && (0, _v1.jsx)(_v28.MenuAction, {
+      }, "organize"), _v56.length > 0 && (0, _v1.jsx)(_v29.MenuAction, {
         icon: (0, _v1.jsx)(_v10.SettingsGear, {
-          boxSize: _v31
+          boxSize: _v32
         }),
-        label: (0, _v20.translate)({
-          singular: "Folder settings",
+        label: (0, _v21.translate)({
+          singular: "Settings",
           dictionary: {
             es: {
-              singular: "Configuración de la carpeta"
+              singular: "Configuración"
             },
             "de-DE": {
-              singular: "Ordnereinstellungen"
+              singular: "Einstellungen"
             },
             "fr-FR": {
-              singular: "Paramètres du dossier"
+              singular: "Paramètres"
             },
             "ja-JP": {
-              singular: "フォルダー設定"
+              singular: "設定"
             },
             "ko-KR": {
-              singular: "폴더 설정"
+              singular: "설정"
             },
             "pt-BR": {
-              singular: "Configurações da pasta"
+              singular: "Configurações"
             },
             "zh-CN": {
-              singular: "文件夹设置"
+              singular: "设置"
             }
           }
         }),
-        children: _v55.map((_v0, _v1) => (0, _v1.jsx)(_v26.SectionRenderer, {
+        children: _v56.map((_v0, _v1) => (0, _v1.jsx)(_v27.SectionRenderer, {
           section: _v0,
-          index: _v1
+          index: _v1,
+          px: "0"
         }, _v1))
-      })] : [_v50.addToShowcase && (0, _v1.jsx)(_v29.ActionWithTooltip, {
+      }, "folderSettings")] : [_v50.addToShowcase && (0, _v1.jsx)(_v30.ActionWithTooltip, {
         ..._v50.addToShowcase
-      }), _v50.move && (0, _v1.jsx)(_v28.Action, {
+      }, "addToShowcase"), _v50.move && (0, _v1.jsx)(_v29.Action, {
         ..._v50.move
-      }), _v50.rename && (0, _v1.jsx)(_v28.Action, {
+      }, "move"), _v50.rename && (0, _v1.jsx)(_v29.Action, {
         ..._v50.rename
-      }), _v50.changeColor && (0, _v1.jsx)(_v24.FeatureFlag, {
+      }, "rename"), _v50.changeColor && (0, _v1.jsx)(_v25.FeatureFlag, {
         feature: "change_color",
         checkLocalStorage: !0,
-        children: (0, _v1.jsx)(_v28.Action, {
+        children: (0, _v1.jsx)(_v29.Action, {
           ..._v50.changeColor
         })
-      }), _v50.folderDefaults && (0, _v1.jsx)(_v24.FeatureFlag, {
+      }, "changeColor"), _v50.folderDefaults && (0, _v1.jsx)(_v25.FeatureFlag, {
         feature: "folder_defaults",
         checkLocalStorage: !0,
-        children: (0, _v1.jsx)(_v28.Action, {
+        children: (0, _v1.jsx)(_v29.Action, {
           ..._v50.folderDefaults
         })
-      }), _v50.slack && (0, _v1.jsx)(_v28.Action, {
+      }, "folderDefaults"), _v50.slack && (0, _v1.jsx)(_v29.Action, {
         ..._v50.slack
-      }), _v50.folderSettings && (0, _v1.jsx)(_v28.Action, {
+      }, "slack"), _v50.folderSettings && (0, _v1.jsx)(_v29.Action, {
         ..._v50.folderSettings
-      }), _v50.translate && (0, _v1.jsx)(_v28.Action, {
+      }, "folderSettings"), _v50.translate && (0, _v1.jsx)(_v29.Action, {
         ..._v50.translate
-      }), _v50.star && (0, _v1.jsx)(_v28.Action, {
+      }, "translate"), _v50.star && (0, _v1.jsx)(_v29.Action, {
         ..._v50.star
-      })], [_v50.delete && (0, _v1.jsx)(_v28.Action, {
+      }, "star")], [_v50.delete && (0, _v1.jsx)(_v29.Action, {
         ..._v50.delete
-      })]].map(_v26.createSection).filter(_v0 => !!_v0.length);
-    return (0, _v1.jsx)(_v25.ActionsMenu, {
+      }, "delete")]].map(_v27.createSection).filter(_v0 => !!_v0.length);
+    return (0, _v1.jsx)(_v26.ActionsMenu, {
       placement: _v29,
       usePortal: _v30,
       onClick: _v2,
       disabled: _v1,
       size: _v0,
       zIndex: _v31,
-      children: _v56.map((_v0, _v1) => (0, _v1.jsx)(_v26.SectionRenderer, {
+      children: _v57.map((_v0, _v1) => (0, _v1.jsx)(_v27.SectionRenderer, {
         section: _v0,
         index: _v1
       }, _v1))

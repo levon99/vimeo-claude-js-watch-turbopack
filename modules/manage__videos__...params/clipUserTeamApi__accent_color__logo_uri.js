@@ -10019,20 +10019,21 @@
       ownerUri: _v4
     }) => {
       let _v5 = (0, _v29.useContext)(_v32.ViewerContext),
-        _v6 = (0, _v29.useRef)(null),
-        [_v7, _v8] = (0, _v29.useState)(""),
-        [_v9, _v10] = (0, _v29.useState)({
+        _v6 = (0, _v190.useToast)(),
+        _v7 = (0, _v29.useRef)(null),
+        [_v8, _v9] = (0, _v29.useState)(""),
+        [_v10, _v11] = (0, _v29.useState)({
           type: null,
           version: null
         }),
         {
           capabilities: {
-            hasMultipleVersions: _v11
+            hasMultipleVersions: _v12
           },
-          loading: _v12
+          loading: _v13
         } = (0, _v122.useCapability)(["hasMultipleVersions"], _v4),
         {
-          data: _v13
+          data: _v14
         } = (0, _v212.useGetVideo)({
           where: {
             videoId: _v3
@@ -10043,29 +10044,29 @@
           }
         }),
         {
-          settings: _v14
+          settings: _v15
         } = (0, _v81.useOrionSettings)(),
-        _v15 = _v14.new_replace_feature,
-        _v16 = (0, _v464.useVersionsStore)(_v0 => _v0.deleteVersion),
-        _v17 = (0, _v464.useVersionsStore)(_v0 => _v0.addNewVersion),
-        [_v18, {
-          loading: _v19
+        _v16 = _v15.new_replace_feature,
+        _v17 = (0, _v464.useVersionsStore)(_v0 => _v0.deleteVersion),
+        _v18 = (0, _v464.useVersionsStore)(_v0 => _v0.addNewVersion),
+        [_v19, {
+          loading: _v20
         }] = (0, _v461.usePatchVideoVersion)(),
         {
-          trackDeleteVersion: _v20,
-          trackRestoreVersion: _v21
+          trackDeleteVersion: _v21,
+          trackRestoreVersion: _v22
         } = (0, _v76.useVideoManageTracking)(),
-        [_v22, {
-          loading: _v23
+        [_v23, {
+          loading: _v24
         }] = (0, _v461.useDeleteVideoVersion)(),
         {
-          deleteVersionWorkflow: _v24,
-          isDeleteInProgress: _v25
+          deleteVersionWorkflow: _v25,
+          isDeleteInProgress: _v26
         } = (0, _v463.useDeleteVersionWorkflow)(),
-        _v26 = _v15 ? _v25 : _v23,
+        _v27 = _v16 ? _v26 : _v24,
         {
-          data: _v27,
-          mutate: _v28
+          data: _v28,
+          mutate: _v29
         } = (0, _v193.useGetVideoVersions)({
           where: {
             videoId: _v3
@@ -10081,139 +10082,261 @@
             Accept: "application/vnd.vimeo.*+json;version=3.4.10"
           }
         }),
-        _v29 = _v27?.data[0],
-        _v30 = _v27?.data.find(_v0 => _v0.active),
-        _v31 = _v30?.editSession?.status === "failed",
-        _v32 = _v27?.data.find(_v0 => _v7 === _v0.uri),
-        _v33 = _v32?.editSession?.status === "failed",
-        _v34 = _v32?.uploadDate ?? _v30?.uploadDate ?? _v29?.uploadDate ?? new Date().toUTCString(),
+        _v30 = _v28?.data[0],
+        _v31 = _v28?.data.find(_v0 => _v0.active),
+        _v32 = _v31?.editSession?.status === "failed",
+        _v33 = _v28?.data.find(_v0 => _v8 === _v0.uri),
+        _v34 = _v33?.editSession?.status === "failed",
+        _v35 = _v33?.uploadDate ?? _v31?.uploadDate ?? _v30?.uploadDate ?? new Date().toUTCString(),
         {
-          player: _v35
-        } = (0, _v214.usePlayer)(_v6, _v3, !0, _v30?.configUrl ?? _v29?.configUrl ?? "", !1),
-        _v36 = !_v12 && !1 === _v11,
-        _v37 = _v13?.metadata?.connections?.versions?.latestIncompleteVersion,
-        _v38 = () => _v10({
+          player: _v36
+        } = (0, _v214.usePlayer)(_v7, _v3, !0, _v31?.configUrl ?? _v30?.configUrl ?? "", !1),
+        _v37 = !_v13 && !1 === _v12,
+        _v38 = _v14?.metadata?.connections?.versions?.latestIncompleteVersion,
+        _v39 = () => _v11({
           type: null,
           version: null
         }),
-        _v39 = async () => {
+        _v40 = async () => {
           (0, _v383.sendConfirmDeleteVersionEvent)();
-          let _v0 = (0, _v90.versionIdFromUri)(_v9.version?.uri ?? "");
-          if (_v15) {
-            let _v0 = await _v24(_v3, _v0, {
+          let _v0 = (0, _v90.versionIdFromUri)(_v10.version?.uri ?? "");
+          try {
+            if (_v16) {
+              let _v0 = await _v25(_v3, _v0, {
+                headers: {
+                  Accept: "application/vnd.vimeo.*+json;version=3.4.10"
+                }
+              }).catch(_v0 => _v0);
+              if (_v21({
+                clipId: String(_v3),
+                versionNumber: _v10.version?.sequenceNumber ?? void 0,
+                versionId: String(_v0),
+                filename: _v10.version?.filename ?? null,
+                filesize: _v10.version?.filesize ?? null,
+                uploadStatus: _v10.version?.upload?.status ?? null,
+                versionTranscodeStatus: _v10.version?.versionTranscodeStatus ?? null,
+                status: _v0 instanceof Error ? "failed" : "succeeded",
+                error: _v0 instanceof Error ? _v0.message : null
+              }), _v0 instanceof Error) throw _v0;
+              _v10.version?.uri && _v17(_v10.version.uri);
+            } else await _v23({
+              where: {
+                videoId: _v3,
+                versionId: _v0
+              },
               headers: {
                 Accept: "application/vnd.vimeo.*+json;version=3.4.10"
               }
-            }).catch(_v0 => _v0);
-            if (_v20({
-              clipId: String(_v3),
-              versionNumber: _v9.version?.sequenceNumber ?? void 0,
-              versionId: String(_v0),
-              filename: _v9.version?.filename ?? null,
-              filesize: _v9.version?.filesize ?? null,
-              uploadStatus: _v9.version?.upload?.status ?? null,
-              versionTranscodeStatus: _v9.version?.versionTranscodeStatus ?? null,
-              status: _v0 instanceof Error ? "failed" : "succeeded",
-              error: _v0 instanceof Error ? _v0.message : null
-            }), _v0 instanceof Error) throw _v0;
-            _v9.version?.uri && _v16(_v9.version.uri), _v38(), _v28();
-            return;
+            });
+            _v39(), _v29(), _v6({
+              title: (0, _v142.translate)({
+                singular: "Version deleted",
+                dictionary: {
+                  es: {
+                    singular: "Versión eliminada"
+                  },
+                  "de-DE": {
+                    singular: "Version gelöscht"
+                  },
+                  "fr-FR": {
+                    singular: "Version supprimée"
+                  },
+                  "ja-JP": {
+                    singular: "バージョンが削除されました"
+                  },
+                  "ko-KR": {
+                    singular: "버전이 삭제되었습니다"
+                  },
+                  "pt-BR": {
+                    singular: "Versão excluída"
+                  },
+                  "zh-CN": {
+                    singular: "版本已删除"
+                  }
+                }
+              })
+            });
+          } catch {
+            _v39(), _v6({
+              title: (0, _v142.translate)({
+                singular: "Unable to delete version",
+                dictionary: {
+                  es: {
+                    singular: "No se pudo eliminar la versión"
+                  },
+                  "de-DE": {
+                    singular: "Version konnte nicht gelöscht werden"
+                  },
+                  "fr-FR": {
+                    singular: "Impossible de supprimer la version"
+                  },
+                  "ja-JP": {
+                    singular: "バージョンを削除できません"
+                  },
+                  "ko-KR": {
+                    singular: "버전을 삭제할 수 없습니다"
+                  },
+                  "pt-BR": {
+                    singular: "Não foi possível excluir a versão"
+                  },
+                  "zh-CN": {
+                    singular: "无法删除版本"
+                  }
+                }
+              }),
+              variant: "warning"
+            });
           }
-          await _v22({
-            where: {
-              videoId: _v3,
-              versionId: _v0
-            },
-            headers: {
-              Accept: "application/vnd.vimeo.*+json;version=3.4.10"
-            }
-          }), _v38(), _v28();
         },
-        _v40 = async () => {
-          let _v0 = _v9.version?.uri;
+        _v41 = async () => {
+          let _v0 = _v10.version?.uri;
           (0, _v383.sendConfirmRestoreVersionEvent)();
           let _v1 = (0, _v90.versionIdFromUri)(_v0 ?? "");
-          if (_v15) {
-            let _v0 = await (0, _v462.restoreVersion)(_v3, _v1, {
-              headers: {
-                Accept: "application/vnd.vimeo.*+json;version=3.4.10"
-              }
-            }).then(_v0 => ({
-              ok: !0,
-              version: _v0
-            }), _v0 => ({
-              ok: !1,
-              error: _v0
-            }));
-            if (_v21({
-              clipId: String(_v3),
-              versionNumber: _v9.version?.sequenceNumber ?? void 0,
-              versionId: String(_v1),
-              filename: _v9.version?.filename ?? null,
-              filesize: _v9.version?.filesize ?? null,
-              uploadStatus: _v9.version?.upload?.status ?? null,
-              versionTranscodeStatus: _v9.version?.versionTranscodeStatus ?? null,
-              status: _v0.ok ? "succeeded" : "failed",
-              error: _v0.ok ? null : _v0.error instanceof Error ? _v0.error.message : String(_v0.error)
-            }), !_v0.ok) throw _v0.error;
-            let _v1 = _v0.version;
-            _v17(_v1), _v28(), _v38(), _v2(_v27?.data.find(_v0 => _v0 === _v0.uri)?.configUrl ?? _v1.configUrl ?? "");
-            return;
-          }
-          await _v18({
-            where: {
-              videoId: _v3,
-              versionId: _v1
-            },
-            select: ["uri"],
-            variables: {
-              isCurrent: !0
-            },
-            headers: {
-              Accept: "application/vnd.vimeo.*+json;version=3.4.10"
+          try {
+            if (_v16) {
+              let _v0 = await (0, _v462.restoreVersion)(_v3, _v1, {
+                headers: {
+                  Accept: "application/vnd.vimeo.*+json;version=3.4.10"
+                }
+              }).then(_v0 => ({
+                ok: !0,
+                version: _v0
+              }), _v0 => ({
+                ok: !1,
+                error: _v0
+              }));
+              if (_v22({
+                clipId: String(_v3),
+                versionNumber: _v10.version?.sequenceNumber ?? void 0,
+                versionId: String(_v1),
+                filename: _v10.version?.filename ?? null,
+                filesize: _v10.version?.filesize ?? null,
+                uploadStatus: _v10.version?.upload?.status ?? null,
+                versionTranscodeStatus: _v10.version?.versionTranscodeStatus ?? null,
+                status: _v0.ok ? "succeeded" : "failed",
+                error: _v0.ok ? null : _v0.error instanceof Error ? _v0.error.message : String(_v0.error)
+              }), !_v0.ok) throw _v0.error;
+              let _v1 = _v0.version;
+              _v18(_v1), _v29(), _v39();
+              let _v2 = _v28?.data.find(_v0 => _v0 === _v0.uri)?.configUrl ?? _v1.configUrl ?? "";
+              _v2(_v2);
+            } else {
+              await _v19({
+                where: {
+                  videoId: _v3,
+                  versionId: _v1
+                },
+                select: ["uri"],
+                variables: {
+                  isCurrent: !0
+                },
+                headers: {
+                  Accept: "application/vnd.vimeo.*+json;version=3.4.10"
+                }
+              }), _v29(), _v39();
+              let _v0 = _v28?.data.find(_v0 => _v0 === _v0.uri)?.configUrl ?? "";
+              _v2(_v0);
             }
-          }), _v28(), _v38(), _v2(_v27?.data.find(_v0 => _v0 === _v0.uri)?.configUrl ?? "");
+            _v6({
+              title: (0, _v142.translate)({
+                singular: "Version restored",
+                dictionary: {
+                  es: {
+                    singular: "Versión restaurada"
+                  },
+                  "de-DE": {
+                    singular: "Version wiederhergestellt"
+                  },
+                  "fr-FR": {
+                    singular: "Version restaurée"
+                  },
+                  "ja-JP": {
+                    singular: "バージョンを復元しました"
+                  },
+                  "ko-KR": {
+                    singular: "버전이 복원되었습니다."
+                  },
+                  "pt-BR": {
+                    singular: "Versão restaurada"
+                  },
+                  "zh-CN": {
+                    singular: "版本已恢复"
+                  }
+                }
+              })
+            });
+          } catch {
+            _v39(), _v6({
+              title: (0, _v142.translate)({
+                singular: "Unable to restore",
+                dictionary: {
+                  es: {
+                    singular: "No se puede restaurar"
+                  },
+                  "de-DE": {
+                    singular: "Wiederherstellung nicht möglich"
+                  },
+                  "fr-FR": {
+                    singular: "Restauration impossible"
+                  },
+                  "ja-JP": {
+                    singular: "復元できません"
+                  },
+                  "ko-KR": {
+                    singular: "복원할 수 없습니다."
+                  },
+                  "pt-BR": {
+                    singular: "Não foi possível restaurar"
+                  },
+                  "zh-CN": {
+                    singular: "无法恢复"
+                  }
+                }
+              }),
+              variant: "warning"
+            });
+          }
         },
-        _v41 = () => {
-          _v36 ? (0, _v383.sendDismissVersionsUpsellEvent)() : (0, _v383.sendCloseVersionHistoryEvent)(), _v1();
+        _v42 = () => {
+          _v37 ? (0, _v383.sendDismissVersionsUpsellEvent)() : (0, _v383.sendCloseVersionHistoryEvent)(), _v1();
         },
-        _v42 = _v11 && _v27?.data ? _v27.data.filter(_v0 => null !== _v0.uploadDate && null !== _v0.filesize) : _v30 ? [_v30] : _v29 ? [_v29] : [];
+        _v43 = _v12 && _v28?.data ? _v28.data.filter(_v0 => null !== _v0.uploadDate && null !== _v0.filesize) : _v31 ? [_v31] : _v30 ? [_v30] : [];
       return (0, _v16.jsxs)(_v16.Fragment, {
         children: [(0, _v16.jsxs)(_v179.Modal, {
           isOpen: _v0,
-          onClose: _v41,
+          onClose: _v42,
           children: [(0, _v16.jsx)(_v183.ModalOverlay, {}), (0, _v16.jsx)(_v181.ModalContent, {
             maxWidth: "64rem",
             children: (0, _v16.jsx)(_v180.ModalBody, {
               p: "0",
               children: (0, _v16.jsx)(_v500, {
-                loading: !_v27,
-                isSelectedVersionFailed: _v32 ? _v33 : _v31,
-                onClose: _v41,
+                loading: !_v28,
+                isSelectedVersionFailed: _v33 ? _v34 : _v32,
+                onClose: _v42,
                 player: (0, _v16.jsx)(_v508, {
-                  ref: _v6,
-                  showLoader: _v32?.uri === _v37
+                  ref: _v7,
+                  showLoader: _v33?.uri === _v38
                 }),
-                versionsTotal: _v42.length,
-                uploadDate: _v488(_v34, _v5?.locale),
-                showUpsell: _v36,
-                children: _v42.map(_v0 => {
-                  let _v1 = _v0.uri === _v37,
-                    _v2 = _v32?.uri === _v0.uri,
+                versionsTotal: _v43.length,
+                uploadDate: _v488(_v35, _v5?.locale),
+                showUpsell: _v37,
+                children: _v43.map(_v0 => {
+                  let _v1 = _v0.uri === _v38,
+                    _v2 = _v33?.uri === _v0.uri,
                     _v3 = _v0.active ? "current" : _v1 ? "optimizing" : null,
-                    _v4 = _v13?.editSession?.isEditedByTve || !_v13?.metadata?.isVimeoCreate && 0 === _v506(_v0.app?.uri) ? "trim" : _v13?.metadata?.isVimeoCreate ? "create" : 0 === _v506(_v0.app?.uri) ? "live" : null,
+                    _v4 = _v14?.editSession?.isEditedByTve || !_v14?.metadata?.isVimeoCreate && 0 === _v506(_v0.app?.uri) ? "trim" : _v14?.metadata?.isVimeoCreate ? "create" : 0 === _v506(_v0.app?.uri) ? "live" : null,
                     _v5 = _v0.editSession?.status === "failed";
                   return ("trim" === _v4 || "create" === _v4) && ("optimizing" === _v3 || 0 === _v0.filesize) ? null : (0, _v16.jsx)(_v497, {
                     active: _v2,
                     badgeType: _v3,
                     onClick: () => {
                       (0, _v383.sendSelectAVersionEvent)(), (_v0 => {
-                        if (_v7 === _v0 || (_v8(_v0), _v37 === _v0)) return;
-                        let _v1 = _v27?.data.find(_v0 => _v0 === _v0.uri);
+                        if (_v8 === _v0 || (_v9(_v0), _v38 === _v0)) return;
+                        let _v1 = _v28?.data.find(_v0 => _v0 === _v0.uri);
                         if (_v1?.editSession?.status === "failed") return;
                         let _v2 = _v1?.configUrl ?? "";
-                        _v2 && _v35 && "function" == typeof _v35.ready && _v35.ready(() => {
-                          _v35.loadVideo?.(_v2), _v35.pause?.();
+                        _v2 && _v36 && "function" == typeof _v36.ready && _v36.ready(() => {
+                          _v36.loadVideo?.(_v2), _v36.pause?.();
                         });
                       })(_v0.uri);
                     },
@@ -10222,7 +10345,7 @@
                     children: (0, _v16.jsxs)(_v389.Menu, {
                       children: [(0, _v16.jsx)(_v234.MenuButton, {
                         as: _v233.IconButton,
-                        disabled: !_v30 || _v1,
+                        disabled: !_v31 || _v1,
                         size: "sm",
                         "aria-label": "Toggle actions menu",
                         icon: (0, _v16.jsx)(_v460.EllipsisH, {}),
@@ -10235,7 +10358,7 @@
                             children: [(0, _v16.jsx)(_v391.MenuItem, {
                               isDisabled: _v0.active || "create" === _v4 && !_v0.canRestoreCreate || _v5,
                               onClick: _v0 => {
-                                _v0.stopPropagation(), (0, _v383.sendRestoreVersionEvent)(), _v10({
+                                _v0.stopPropagation(), (0, _v383.sendRestoreVersionEvent)(), _v11({
                                   type: "restore",
                                   version: _v0
                                 });
@@ -10268,7 +10391,7 @@
                               })
                             }), (0, _v16.jsx)(_v391.MenuItem, {
                               onClick: _v0 => {
-                                _v0.stopPropagation(), (0, _v383.sendDownloadVersionEvent)(), _v10({
+                                _v0.stopPropagation(), (0, _v383.sendDownloadVersionEvent)(), _v11({
                                   type: "download",
                                   version: _v0
                                 });
@@ -10304,7 +10427,7 @@
                           }), (0, _v16.jsx)(_v399.MenuDivider, {}), (0, _v16.jsx)(_v391.MenuItem, {
                             isDisabled: _v0.active,
                             onClick: _v0 => {
-                              _v0.stopPropagation(), (0, _v383.sendDeleteVersionEvent)(), _v10({
+                              _v0.stopPropagation(), (0, _v383.sendDeleteVersionEvent)(), _v11({
                                 type: "delete",
                                 version: _v0
                               });
@@ -10345,23 +10468,23 @@
               })
             })
           })]
-        }), "delete" === _v9.type && (0, _v16.jsx)(_v503, {
+        }), "delete" === _v10.type && (0, _v16.jsx)(_v503, {
           onCancel: () => {
-            (0, _v383.sendCancelDeleteVersionEvent)(), _v38();
+            (0, _v383.sendCancelDeleteVersionEvent)(), _v39();
           },
-          onDelete: _v39,
-          uploadDate: _v488(_v9.version.uploadDate, _v5?.locale),
-          loading: _v26
-        }), "restore" === _v9.type && (0, _v16.jsx)(_v504, {
+          onDelete: _v40,
+          uploadDate: _v488(_v10.version.uploadDate, _v5?.locale),
+          loading: _v27
+        }), "restore" === _v10.type && (0, _v16.jsx)(_v504, {
           onCancel: () => {
-            (0, _v383.sendCancelRestoreVersionEvent)(), _v38();
+            (0, _v383.sendCancelRestoreVersionEvent)(), _v39();
           },
-          onRestore: _v40,
-          uploadDate: _v488(_v9.version.uploadDate, _v5?.locale),
-          loading: _v19
-        }), "download" === _v9.type && (0, _v16.jsx)(_v505, {
-          onClose: _v38,
-          version: _v9.version,
+          onRestore: _v41,
+          uploadDate: _v488(_v10.version.uploadDate, _v5?.locale),
+          loading: _v20
+        }), "download" === _v10.type && (0, _v16.jsx)(_v505, {
+          onClose: _v39,
+          version: _v10.version,
           videoId: _v3
         })]
       });
@@ -11235,7 +11358,7 @@
               videoId: _v10,
               onClose: _v1,
               onRestoreVersion: _v0 => {
-                _v8?.(!0, _v0), _v1();
+                _v8?.(!1, _v0), _v1();
               },
               ownerUri: _v9?.user?.uri
             })
@@ -33368,10 +33491,11 @@
       fill: "currentColor"
     })]
   });
-  var _v933 = _v0.i(0);
-  async function _v934(_v0, _v1, _v2) {
+  var _v933 = _v0.i(0),
+    _v934 = _v0.i(0);
+  async function _v935(_v0, _v1, _v2) {
     try {
-      return await (0, _v933.deleteVideoVersion)({
+      return await (0, _v934.deleteVideoVersion)({
         ..._v2,
         where: {
           videoId: _v0,
@@ -33382,22 +33506,21 @@
       return !1;
     }
   }
-  let _v935 = _v0 => (0, _v16.jsx)(_v405.Icon, {
-    viewBox: "0 0 64 64",
-    ..._v0,
-    fill: "currentColor",
-    children: (0, _v16.jsx)("path", {
-      fillRule: "evenodd",
-      clipRule: "evenodd",
-      d: "M21.3333 21.3334H10.6667C9.19391 21.3334 8 20.1395 8 18.6667L8 8.00004C8 6.52728 9.19391 5.33337 10.6667 5.33337C12.1394 5.33337 13.3333 6.52728 13.3333 8.00004L13.3333 12.9559C18.1433 8.24078 24.7319 5.33342 31.9996 5.33342C46.7272 5.33342 58.6663 17.2725 58.6663 32.0001C58.6663 46.7277 46.7272 58.6668 31.9996 58.6668C18.1708 58.6668 6.80047 48.1403 5.46427 34.663C5.31896 33.1974 6.52688 32.0001 7.99964 32.0001C9.4724 32.0001 10.6488 33.2 10.8307 34.6615C12.1406 45.1875 21.1188 53.3334 31.9996 53.3334C43.7817 53.3334 53.333 43.7822 53.333 32.0001C53.333 20.218 43.7817 10.6667 31.9996 10.6667C26.5893 10.6667 21.6493 12.6808 17.8886 16H21.3333C22.8061 16 24 17.194 24 18.6667C24 20.1395 22.8061 21.3334 21.3333 21.3334Z"
-    })
-  });
-  var _v936 = _v0.i(0);
-  let _v937 = ({
+  let _v936 = _v0 => (0, _v16.jsx)(_v405.Icon, {
+      viewBox: "0 0 64 64",
+      ..._v0,
+      fill: "currentColor",
+      children: (0, _v16.jsx)("path", {
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        d: "M21.3333 21.3334H10.6667C9.19391 21.3334 8 20.1395 8 18.6667L8 8.00004C8 6.52728 9.19391 5.33337 10.6667 5.33337C12.1394 5.33337 13.3333 6.52728 13.3333 8.00004L13.3333 12.9559C18.1433 8.24078 24.7319 5.33342 31.9996 5.33342C46.7272 5.33342 58.6663 17.2725 58.6663 32.0001C58.6663 46.7277 46.7272 58.6668 31.9996 58.6668C18.1708 58.6668 6.80047 48.1403 5.46427 34.663C5.31896 33.1974 6.52688 32.0001 7.99964 32.0001C9.4724 32.0001 10.6488 33.2 10.8307 34.6615C12.1406 45.1875 21.1188 53.3334 31.9996 53.3334C43.7817 53.3334 53.333 43.7822 53.333 32.0001C53.333 20.218 43.7817 10.6667 31.9996 10.6667C26.5893 10.6667 21.6493 12.6808 17.8886 16H21.3333C22.8061 16 24 17.194 24 18.6667C24 20.1395 22.8061 21.3334 21.3333 21.3334Z"
+      })
+    }),
+    _v937 = ({
       isDisabled: _v0,
       onClick: _v1
     }) => (0, _v16.jsx)(_v235.Tooltip, {
-      label: (0, _v936.translate)({
+      label: (0, _v933.translate)({
         singular: "Changed your mind? Restore this video to the previous version.",
         dictionary: {
           es: {
@@ -33432,8 +33555,8 @@
         size: "sm",
         isDisabled: _v0,
         onClick: _v1,
-        leftIcon: (0, _v16.jsx)(_v935, {}),
-        children: (0, _v936.translate)({
+        leftIcon: (0, _v16.jsx)(_v936, {}),
+        children: (0, _v933.translate)({
           singular: "Revert",
           dictionary: {
             es: {
@@ -33471,7 +33594,7 @@
       onClose: _v2,
       children: [(0, _v16.jsx)(_v183.ModalOverlay, {}), (0, _v16.jsxs)(_v181.ModalContent, {
         children: [(0, _v16.jsx)(_v442.ModalHeader, {
-          children: (0, _v936.translate)({
+          children: (0, _v933.translate)({
             singular: "Revert to previous version?",
             dictionary: {
               es: {
@@ -33500,7 +33623,7 @@
         }), (0, _v16.jsx)(_v443.ModalCloseButton, {}), (0, _v16.jsx)(_v180.ModalBody, {
           children: (0, _v16.jsx)(_v441.Paragraph, {
             size: "md",
-            children: (0, _v936.translate)({
+            children: (0, _v933.translate)({
               singular: "The new version being optimized will be discarded. Your previous video will remain active.",
               dictionary: {
                 es: {
@@ -33531,7 +33654,7 @@
           children: [(0, _v16.jsx)(_v177.Button, {
             variant: "secondary",
             onClick: _v2,
-            children: (0, _v936.translate)({
+            children: (0, _v933.translate)({
               singular: "Cancel",
               dictionary: {
                 es: {
@@ -33562,7 +33685,7 @@
             isLoading: _v1,
             isDisabled: _v1,
             onClick: _v3,
-            children: (0, _v936.translate)({
+            children: (0, _v933.translate)({
               singular: "Revert",
               dictionary: {
                 es: {
@@ -33629,7 +33752,7 @@
                 versionTranscodeStatus: _v1?.versionTranscodeStatus ?? null
               };
               try {
-                let _v0 = await _v934(_v0, _v1, {
+                let _v0 = await _v935(_v0, _v1, {
                   baseUrl: _v3,
                   headers: {
                     Accept: "application/vnd.vimeo.*+json;version=3.4.10",
@@ -33660,7 +33783,8 @@
             isLoading: _v7
           };
         })(_v0),
-        [_v4, _v5] = (0, _v29.useState)(!1);
+        [_v4, _v5] = (0, _v29.useState)(!1),
+        _v6 = (0, _v190.useToast)();
       return (0, _v16.jsxs)(_v16.Fragment, {
         children: [(0, _v16.jsx)(_v937, {
           isDisabled: _v3,
@@ -33670,7 +33794,96 @@
           isCanceling: _v3,
           onClose: () => _v5(!1),
           onConfirm: async () => {
-            (await _v2()) && _v1?.(), _v5(!1);
+            try {
+              (await _v2()) ? (_v1?.(), _v6({
+                title: (0, _v933.translate)({
+                  singular: "Video reverted successfully",
+                  dictionary: {
+                    es: {
+                      singular: "Vídeo revertido correctamente"
+                    },
+                    "de-DE": {
+                      singular: "Video erfolgreich zurückgesetzt"
+                    },
+                    "fr-FR": {
+                      singular: "Vidéo restaurée avec succès"
+                    },
+                    "ja-JP": {
+                      singular: "動画を元に戻しました。"
+                    },
+                    "ko-KR": {
+                      singular: "비디오가 성공적으로 되돌려졌습니다"
+                    },
+                    "pt-BR": {
+                      singular: "Vídeo revertido com sucesso"
+                    },
+                    "zh-CN": {
+                      singular: "视频已成功还原"
+                    }
+                  }
+                }),
+                variant: "success"
+              })) : _v6({
+                title: (0, _v933.translate)({
+                  singular: "Could not revert video. Please try again.",
+                  dictionary: {
+                    es: {
+                      singular: "No se pudo revertir el vídeo. Por favor, inténtelo de nuevo."
+                    },
+                    "de-DE": {
+                      singular: "Video konnte nicht zurückgesetzt werden. Bitte versuchen Sie es erneut."
+                    },
+                    "fr-FR": {
+                      singular: "Impossible de restaurer la vidéo. Veuillez réessayer."
+                    },
+                    "ja-JP": {
+                      singular: "動画を元に戻せませんでした。もう一度お試しください。"
+                    },
+                    "ko-KR": {
+                      singular: "비디오를 되돌릴 수 없습니다. 다시 시도해 주세요."
+                    },
+                    "pt-BR": {
+                      singular: "Não foi possível reverter o vídeo. Por favor, tente novamente."
+                    },
+                    "zh-CN": {
+                      singular: "无法还原视频。请再试一次。"
+                    }
+                  }
+                }),
+                variant: "warning"
+              });
+            } catch {
+              _v6({
+                title: (0, _v933.translate)({
+                  singular: "Could not revert video. Please try again.",
+                  dictionary: {
+                    es: {
+                      singular: "No se pudo revertir el vídeo. Por favor, inténtelo de nuevo."
+                    },
+                    "de-DE": {
+                      singular: "Video konnte nicht zurückgesetzt werden. Bitte versuchen Sie es erneut."
+                    },
+                    "fr-FR": {
+                      singular: "Impossible de restaurer la vidéo. Veuillez réessayer."
+                    },
+                    "ja-JP": {
+                      singular: "動画を元に戻せませんでした。もう一度お試しください。"
+                    },
+                    "ko-KR": {
+                      singular: "비디오를 되돌릴 수 없습니다. 다시 시도해 주세요."
+                    },
+                    "pt-BR": {
+                      singular: "Não foi possível reverter o vídeo. Por favor, tente novamente."
+                    },
+                    "zh-CN": {
+                      singular: "无法还原视频。请再试一次。"
+                    }
+                  }
+                }),
+                variant: "warning"
+              });
+            }
+            _v5(!1);
           }
         })]
       });
@@ -35629,39 +35842,41 @@
   z-index: 100;
 `;
   let _v983 = ({
-      isTranscoding: _v0
+      isTranscoding: _v0,
+      onRevertComplete: _v1
     }) => {
       let {
-          uploadFile: _v1
+          uploadFile: _v2
         } = _v87(),
         {
-          pauseAll: _v2,
-          resumeAll: _v3,
-          cancelAll: _v4,
-          clearAll: _v5
+          pauseAll: _v3,
+          resumeAll: _v4,
+          cancelAll: _v5,
+          clearAll: _v6
         } = (0, _v84.useUploader)(),
-        _v6 = (0, _v29.useContext)(_v872.CacheContext),
-        [_v7, _v8] = (0, _v29.useState)(!1),
-        _v9 = _v1?.uploadType === "replace_clip",
+        _v7 = (0, _v29.useContext)(_v872.CacheContext),
+        _v8 = (0, _v190.useToast)(),
+        [_v9, _v10] = (0, _v29.useState)(!1),
+        _v11 = _v2?.uploadType === "replace_clip",
         {
-          settings: _v10
+          settings: _v12
         } = (0, _v81.useOrionSettings)(),
-        _v11 = (0, _v86.useAppSelector)(_v85.clipIdSelector),
-        _v12 = (0, _v108.useSelector)(_v112),
-        _v13 = _v9 ? _v1.pause : _v2,
-        _v14 = _v9 ? _v1.resume : _v3,
-        _v15 = (0, _v29.useCallback)(() => {
-          _v14(), _v8(!1);
-        }, [_v14]);
+        _v13 = (0, _v86.useAppSelector)(_v85.clipIdSelector),
+        _v14 = (0, _v108.useSelector)(_v112),
+        _v15 = _v11 ? _v2.pause : _v3,
+        _v16 = _v11 ? _v2.resume : _v4,
+        _v17 = (0, _v29.useCallback)(() => {
+          _v16(), _v10(!1);
+        }, [_v16]);
       (0, _v977.useUploadLifecycle)((_v0, _v1) => {
         if ("UPLOADING" === _v1.state) {
           let _v0 = _v1?.targetUserId ? `UPLOAD_PAGE_CONFIG_${_v1.targetUserId}` : "UPLOAD_PAGE_CONFIG";
-          _v6?.delete(_v0);
+          _v7?.delete(_v0);
         }
-        _v1.state === _v83.STATES.CANCELED && (_v9 ? _v5() : window.location.replace("/upload/videos"));
+        _v1.state === _v83.STATES.CANCELED && (_v11 ? _v6() : window.location.replace("/upload/videos"));
       }, []);
-      let _v16 = _v1?.state === _v83.STATES.PAUSED,
-        _v17 = (0, _v16.jsx)(_v16.Fragment, {
+      let _v18 = _v2?.state === _v83.STATES.PAUSED,
+        _v19 = (0, _v16.jsx)(_v16.Fragment, {
           children: (0, _v16.jsxs)(_v982, {
             children: [(0, _v16.jsx)(_v981, {
               width: 60,
@@ -35743,10 +35958,10 @@
               variant: "tertiary"
             })
           }), (0, _v16.jsx)(_v592.PopoverContent, {
-            children: _v17
+            children: _v19
           })]
-        }) : _v1?.state !== _v83.STATES.VALIDATING && (0, _v16.jsxs)(_v16.Fragment, {
-          children: [_v16 ? (0, _v16.jsx)(_v235.Tooltip, {
+        }) : _v2?.state !== _v83.STATES.VALIDATING && (0, _v16.jsxs)(_v16.Fragment, {
+          children: [_v18 ? (0, _v16.jsx)(_v235.Tooltip, {
             label: (0, _v142.translate)({
               singular: "Resume",
               dictionary: {
@@ -35783,7 +35998,7 @@
                 var _v0;
                 _v839.GoogleTagManager.trackEvent("video_upload_resume_all", {
                   clip_ids: _v0?.join(",")
-                }), _v14();
+                }), _v16();
               }
             })
           }) : (0, _v16.jsx)(_v235.Tooltip, {
@@ -35817,11 +36032,11 @@
                 var _v0;
                 _v839.GoogleTagManager.trackEvent("video_upload_pause_all", {
                   clip_ids: _v0?.join(",")
-                }), _v13();
+                }), _v15();
               }
             })
           }), (0, _v16.jsxs)(_v591.Popover, {
-            isOpen: _v7,
+            isOpen: _v9,
             placement: "bottom",
             children: [(0, _v16.jsx)(_v593.PopoverTrigger, {
               children: (0, _v16.jsx)(_v235.Tooltip, {
@@ -35858,25 +36073,107 @@
                   size: "sm",
                   variant: "tertiary",
                   onClick: () => {
-                    _v13(), _v8(!0);
+                    _v15(), _v10(!0);
                   }
                 })
               })
             }), (0, _v16.jsx)(_v592.PopoverContent, {
               children: (0, _v16.jsx)(_v979, {
                 onCancel: () => {
-                  if (_v1) {
+                  if (_v2) {
                     var _v0;
-                    if (_v0 = _v1.clipId ? parseInt(_v1.clipId, 10) : void 0, _v839.GoogleTagManager.trackEvent("video_upload_cancel", {
+                    if (_v0 = _v2.clipId ? parseInt(_v2.clipId, 10) : void 0, _v839.GoogleTagManager.trackEvent("video_upload_cancel", {
                       clip_id: _v0
-                    }), _v10.new_replace_feature && _v0) {
-                      let _v0 = (0, _v90.versionIdFromUri)(_v12?.uri);
-                      _v0 && _v934(_v11, _v0);
+                    }), _v12.new_replace_feature && _v0) {
+                      let _v0 = (0, _v90.versionIdFromUri)(_v14?.uri);
+                      _v0 && _v935(_v13, _v0).then(_v0 => {
+                        _v0 && _v1?.(), _v8({
+                          title: _v0 ? (0, _v142.translate)({
+                            singular: "Previous version restored",
+                            dictionary: {
+                              es: {
+                                singular: "Versión anterior restaurada"
+                              },
+                              "de-DE": {
+                                singular: "Vorherige Version wiederhergestellt"
+                              },
+                              "fr-FR": {
+                                singular: "Version précédente restaurée"
+                              },
+                              "ja-JP": {
+                                singular: "過去のバージョンが復元されました"
+                              },
+                              "ko-KR": {
+                                singular: "이전 버전 복원됨"
+                              },
+                              "pt-BR": {
+                                singular: "Versão anterior restaurada"
+                              },
+                              "zh-CN": {
+                                singular: "已恢复以前的版本"
+                              }
+                            }
+                          }) : (0, _v142.translate)({
+                            singular: "Could not revert video. Please try again.",
+                            dictionary: {
+                              es: {
+                                singular: "No se pudo revertir el vídeo. Por favor, inténtelo de nuevo."
+                              },
+                              "de-DE": {
+                                singular: "Video konnte nicht zurückgesetzt werden. Bitte versuchen Sie es erneut."
+                              },
+                              "fr-FR": {
+                                singular: "Impossible de restaurer la vidéo. Veuillez réessayer."
+                              },
+                              "ja-JP": {
+                                singular: "動画を元に戻せませんでした。もう一度お試しください。"
+                              },
+                              "ko-KR": {
+                                singular: "비디오를 되돌릴 수 없습니다. 다시 시도해 주세요."
+                              },
+                              "pt-BR": {
+                                singular: "Não foi possível reverter o vídeo. Por favor, tente novamente."
+                              },
+                              "zh-CN": {
+                                singular: "无法还原视频。请再试一次。"
+                              }
+                            }
+                          }),
+                          variant: _v0 ? void 0 : "warning"
+                        });
+                      });
                     }
-                    _v4();
+                    _v5(), _v11 && !_v0 && _v8({
+                      title: (0, _v142.translate)({
+                        singular: "Replacement upload canceled",
+                        dictionary: {
+                          es: {
+                            singular: "Carga de reemplazo cancelada"
+                          },
+                          "de-DE": {
+                            singular: "Ersatz-Upload abgebrochen"
+                          },
+                          "fr-FR": {
+                            singular: "Téléversement de remplacement annulé"
+                          },
+                          "ja-JP": {
+                            singular: "差し替えのアップロードがキャンセルされました"
+                          },
+                          "ko-KR": {
+                            singular: "교체 업로드가 취소되었습니다"
+                          },
+                          "pt-BR": {
+                            singular: "Envio de substituição cancelado"
+                          },
+                          "zh-CN": {
+                            singular: "替换上传已取消"
+                          }
+                        }
+                      })
+                    });
                   }
                 },
-                onClose: _v15
+                onClose: _v17
               })
             })]
           })]
@@ -36710,7 +37007,8 @@
               clipId: _v4,
               onRevertComplete: _v1
             }), (0, _v16.jsx)(_v983, {
-              isTranscoding: !0
+              isTranscoding: !0,
+              onRevertComplete: _v1
             })]
           })]
         })
@@ -36781,7 +37079,35 @@
               }
             }
           })
-        }), _v3?.(_v6?.configUrl ?? void 0), _v10.enable_vertical_player && _v2?.(), _v12()) : _v17.current && "available" !== _v17.current && "available" === _v5 && (_v2?.(), _v12()), _v17.current = _v5;
+        }), _v3?.(_v6?.configUrl ?? void 0), _v10.enable_vertical_player && _v2?.(), _v12()) : _v17.current && _v992.includes(_v17.current) && ("upload_failed" === _v5 || "transcode_failed" === _v5) ? _v9({
+          title: (0, _v142.translate)({
+            singular: "Unable to replace your video",
+            dictionary: {
+              es: {
+                singular: "No se pudo reemplazar su video"
+              },
+              "de-DE": {
+                singular: "Ihr Video konnte nicht ersetzt werden"
+              },
+              "fr-FR": {
+                singular: "Impossible de remplacer votre vidéo"
+              },
+              "ja-JP": {
+                singular: "動画を置き換えられませんでした"
+              },
+              "ko-KR": {
+                singular: "동영상을 교체할 수 없습니다"
+              },
+              "pt-BR": {
+                singular: "Não foi possível substituir seu vídeo"
+              },
+              "zh-CN": {
+                singular: "无法替换您的视频"
+              }
+            }
+          }),
+          variant: "warning"
+        }) : _v17.current && "available" !== _v17.current && "available" === _v5 && (_v2?.(), _v12()), _v17.current = _v5;
       }, [_v6?.configUrl, _v5, _v2, _v3, _v12, _v10.enable_vertical_player, _v9]);
       let _v20 = ("replace_transcoding" === _v5 || "replace_preparing" === _v5) && !_v16 && (!_v13 || _v14 || _v15.hasRequested);
       return "available" !== _v5 && "upload_failed" !== _v5 && "transcode_failed" !== _v5 || _v16 ? (0, _v16.jsx)(_v127.Flex, {

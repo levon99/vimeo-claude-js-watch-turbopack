@@ -1053,8 +1053,9 @@
       })]
     });
   var _v51 = _v0.i(0),
-    _v52 = _v0.i(0);
-  let _v53 = ({
+    _v52 = _v0.i(0),
+    _v53 = _v0.i(0);
+  let _v54 = ({
       item: _v0
     }) => {
       let [_v1, _v2] = (0, _v3.useState)(!1);
@@ -1066,25 +1067,76 @@
           children: [(0, _v1.jsxs)(_v13.Flex, {
             align: "center",
             "aria-expanded": _v1,
-            as: "button",
+            justifyContent: "space-between",
             backgroundColor: "unset",
+            as: "button",
             gap: "sm",
-            justify: "space-between",
             onClick: () => _v2(_v0 => !_v0),
-            p: "0",
             textAlign: "left",
             type: "button",
             w: "100%",
+            p: "0",
             children: [(0, _v1.jsx)(_v14.Text, {
               color: "text-primary",
               variant: "heading-lg",
               children: _v0.question
-            }), (0, _v1.jsx)(_v13.Flex, {
-              align: "center",
-              color: "text-primary",
-              flexShrink: 0,
-              justify: "center",
-              children: _v1 ? (0, _v1.jsx)(_v51.Minus, {}) : (0, _v1.jsx)(_v52.Plus, {})
+            }), (0, _v1.jsx)(_v51.IconButton, {
+              "aria-label": _v1 ? (0, _v15.translate)({
+                singular: "Collapse",
+                dictionary: {
+                  es: {
+                    singular: "Contraer"
+                  },
+                  "de-DE": {
+                    singular: "Ausblenden"
+                  },
+                  "fr-FR": {
+                    singular: "Réduire"
+                  },
+                  "ja-JP": {
+                    singular: "折り畳む"
+                  },
+                  "ko-KR": {
+                    singular: "접기"
+                  },
+                  "pt-BR": {
+                    singular: "Minimizar"
+                  },
+                  "zh-CN": {
+                    singular: "折叠"
+                  }
+                }
+              }) : (0, _v15.translate)({
+                singular: "Expand",
+                dictionary: {
+                  es: {
+                    singular: "Expandir"
+                  },
+                  "de-DE": {
+                    singular: "Vergrößern"
+                  },
+                  "fr-FR": {
+                    singular: "Agrandir"
+                  },
+                  "ja-JP": {
+                    singular: "拡大"
+                  },
+                  "ko-KR": {
+                    singular: "펼치기"
+                  },
+                  "pt-BR": {
+                    singular: "Expandir"
+                  },
+                  "zh-CN": {
+                    singular: "展开"
+                  }
+                }
+              }),
+              icon: _v1 ? (0, _v1.jsx)(_v52.Minus, {}) : (0, _v1.jsx)(_v53.Plus, {}),
+              variant: "tertiary",
+              onClick: _v0 => {
+                _v0.stopPropagation(), _v2(_v0 => !_v0);
+              }
             })]
           }), _v1 ? (0, _v1.jsx)(_v14.Text, {
             color: "text-secondary",
@@ -1098,7 +1150,7 @@
         })]
       });
     },
-    _v54 = ({
+    _v55 = ({
       items: _v0
     }) => (0, _v1.jsx)(_v13.Flex, {
       direction: "column",
@@ -1157,14 +1209,14 @@
           flex: "1",
           gap: "md",
           minW: 0,
-          children: _v0.map((_v0, _v1) => (0, _v1.jsx)(_v53, {
+          children: _v0.map((_v0, _v1) => (0, _v1.jsx)(_v54, {
             item: _v0
           }, _v1))
         })]
       })
     });
-  var _v55 = _v0.i(0);
-  let _v56 = ({
+  var _v56 = _v0.i(0);
+  let _v57 = ({
       icon: _v0,
       label: _v1
     }) => (0, _v1.jsxs)(_v13.Flex, {
@@ -1182,7 +1234,7 @@
         children: _v1
       })]
     }),
-    _v57 = ({
+    _v58 = ({
       name: _v0,
       description: _v1,
       dateRange: _v2,
@@ -1309,13 +1361,13 @@
           }), (0, _v1.jsxs)(_v13.Flex, {
             gap: "md",
             wrap: "wrap",
-            children: [_v2 ? (0, _v1.jsx)(_v56, {
+            children: [_v2 ? (0, _v1.jsx)(_v57, {
               icon: (0, _v1.jsx)(_v48.Calendar, {
                 color: "white"
               }),
               label: _v2
-            }) : null, _v3 ? (0, _v1.jsx)(_v56, {
-              icon: (0, _v1.jsx)(_v55.ClockThree, {
+            }) : null, _v3 ? (0, _v1.jsx)(_v57, {
+              icon: (0, _v1.jsx)(_v56.ClockThree, {
                 color: "white"
               }),
               label: _v3
@@ -1324,7 +1376,7 @@
         })
       });
     },
-    _v58 = ({
+    _v59 = ({
       count: _v0,
       href: _v1
     }) => (0, _v1.jsxs)(_v13.Flex, {
@@ -1375,8 +1427,8 @@
         })
       })]
     }),
-    _v59 = ["banner", "upcoming"],
-    _v60 = ({
+    _v60 = ["banner", "upcoming"],
+    _v61 = ({
       series: _v0
     }) => {
       let _v1 = _v0.description?.trim() ?? "",
@@ -1438,12 +1490,12 @@
           let _v2 = [..._v1].sort((_v0, _v1) => (_v1.width ?? 0) - (_v0.width ?? 0));
           return _v2[0]?.link ?? _v0?.baseLink ?? null;
         })(_v0.pictures),
-        _v11 = _v0.landingPageConfig?.contentConfig ?? _v59,
+        _v11 = _v0.landingPageConfig?.contentConfig ?? _v60,
         _v12 = _v0.landingPageConfig?.timeZone,
         _v13 = _v0.landingPageConfig?.faqConfig ?? [],
         _v14 = _v11.includes("upcoming") || _v11.includes("on-demand") || _v11.includes("agenda"),
         _v15 = (_v11.includes("upcoming") || _v11.includes("agenda")) && _v2.length > 0 || _v11.includes("on-demand") && _v5.length > 0,
-        _v16 = _v11.map(_v0 => "banner" === _v0 ? (0, _v1.jsx)(_v57, {
+        _v16 = _v11.map(_v0 => "banner" === _v0 ? (0, _v1.jsx)(_v58, {
           dateRange: _v8,
           description: _v1,
           heroImageSrc: _v10,
@@ -1511,14 +1563,14 @@
           }),
           children: [_v3.map(_v0 => (0, _v1.jsx)(_v49, {
             event: _v0
-          }, _v0.uri)), _v4 ? (0, _v1.jsx)(_v58, {
+          }, _v0.uri)), _v4 ? (0, _v1.jsx)(_v59, {
             count: _v2.length - _v3.length,
             href: _v8(_v0)
           }, "see-more") : null]
         }, _v0) : "agenda" === _v0 && _v2.length > 0 ? (0, _v1.jsx)(_v46, {
           events: _v2,
           timeZone: _v12
-        }, _v0) : "faq" === _v0 && _v13.length > 0 ? (0, _v1.jsx)(_v54, {
+        }, _v0) : "faq" === _v0 && _v13.length > 0 ? (0, _v1.jsx)(_v55, {
           items: _v13
         }, _v0) : "on-demand" === _v0 && _v6.length > 0 ? (0, _v1.jsxs)(_v50, {
           action: _v7 ? (0, _v1.jsx)(_v12.Button, {
@@ -1582,7 +1634,7 @@
           }),
           children: [_v6.map(_v0 => (0, _v1.jsx)(_v32, {
             recording: _v0
-          }, _v0.uri)), _v7 ? (0, _v1.jsx)(_v58, {
+          }, _v0.uri)), _v7 ? (0, _v1.jsx)(_v59, {
             count: _v5.length - _v6.length,
             href: _v9(_v0)
           }, "see-more") : null]
@@ -1592,13 +1644,13 @@
         children: [_v16, _v14 && !_v15 ? (0, _v1.jsx)(_v17, {}) : null]
       });
     };
-  var _v61 = _v0.i(0),
-    _v62 = _v0.i(0),
+  var _v62 = _v0.i(0),
     _v63 = _v0.i(0),
-    _v64 = _v0.i(0);
-  let _v65 = _v0 => "object" == typeof _v0 && null !== _v0 ? _v0 : null,
-    _v66 = async _v0 => {
-      let _v1 = _v65(_v0);
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0);
+  let _v66 = _v0 => "object" == typeof _v0 && null !== _v0 ? _v0 : null,
+    _v67 = async _v0 => {
+      let _v1 = _v66(_v0);
       if (_v1?.status !== 403 || !_v1.res) return !1;
       try {
         let _v0 = await _v1.res.json();
@@ -1607,9 +1659,9 @@
         return !1;
       }
     };
-  var _v67 = _v0.i(0),
-    _v68 = _v0.i(0);
-  async function _v69({
+  var _v68 = _v0.i(0),
+    _v69 = _v0.i(0);
+  async function _v70({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1618,21 +1670,21 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v67.measureLatency)("getEventSery", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/event_series/${_v2}?${(0, _v68.searchQueryString)(_v3)}&fields=${_v1.map(_v68.intoSnakeCase).join(",")}`, {
+    return (0, _v68.measureLatency)("getEventSery", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/event_series/${_v2}?${(0, _v69.searchQueryString)(_v3)}&fields=${_v1.map(_v69.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v68.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v69.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v68.deepCamelCase)(_v1);
+      return (0, _v69.deepCamelCase)(_v1);
     });
   }
-  let _v70 = ["id", "name", "description", "link", "status", "landingPageConfig", "landingPageConfig.theme", "landingPageConfig.startDate", "landingPageConfig.endDate", "landingPageConfig.timeZone", "landingPageConfig.logo", "landingPageConfig.logo.type", "landingPageConfig.logo.uri", "landingPageConfig.logo.url", "landingPageConfig.contentConfig", "landingPageConfig.navConfig", "landingPageConfig.faqConfig", "pictures", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "pictures.baseLink", "events.uri", "events.title", "events.link", "events.description", "events.nextOccurrenceTime", "events.startTime", "events.isLive", "events.pictures", "events.pictures.sizes", "events.pictures.sizes.link", "events.pictures.sizes.width", "events.speakers", "events.speakers.name", "events.speakers.avatar"],
-    _v71 = [..._v70, "events.recordings", "events.recordings.uri", "events.recordings.link", "events.recordings.title", "events.recordings.duration", "events.recordings.streamedOn", "events.recordings.pictures", "events.recordings.pictures.sizes", "events.recordings.pictures.sizes.link", "events.recordings.pictures.sizes.width"],
-    _v72 = async ({
+  let _v71 = ["id", "name", "description", "link", "status", "landingPageConfig", "landingPageConfig.theme", "landingPageConfig.startDate", "landingPageConfig.endDate", "landingPageConfig.timeZone", "landingPageConfig.logo", "landingPageConfig.logo.type", "landingPageConfig.logo.uri", "landingPageConfig.logo.url", "landingPageConfig.contentConfig", "landingPageConfig.navConfig", "landingPageConfig.faqConfig", "pictures", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "pictures.baseLink", "events.uri", "events.title", "events.link", "events.description", "events.nextOccurrenceTime", "events.startTime", "events.isLive", "events.pictures", "events.pictures.sizes", "events.pictures.sizes.link", "events.pictures.sizes.width", "events.speakers", "events.speakers.name", "events.speakers.avatar"],
+    _v72 = [..._v71, "events.recordings", "events.recordings.uri", "events.recordings.link", "events.recordings.title", "events.recordings.duration", "events.recordings.streamedOn", "events.recordings.pictures", "events.recordings.pictures.sizes", "events.recordings.pictures.sizes.link", "events.recordings.pictures.sizes.width"],
+    _v73 = async ({
       baseUrl: _v0,
       headers: _v1,
       seriesId: _v2,
@@ -1654,21 +1706,21 @@
             }
           } : {})
         },
-        _v7 = await _v69({
+        _v7 = await _v70({
           ..._v6,
-          select: _v70
+          select: _v71
         });
       if (!_v7.landingPageConfig?.contentConfig?.includes("on-demand")) return _v7;
       try {
-        return await _v69({
+        return await _v70({
           ..._v6,
-          select: _v71
+          select: _v72
         });
       } catch {
         return _v7;
       }
     },
-    _v73 = async () => {
+    _v74 = async () => {
       let _v0 = await fetch("/_next/jwt", {
         headers: {
           "X-Requested-With": "XMLHttpRequest"
@@ -1680,7 +1732,7 @@
       } = await _v0.json();
       return _v1;
     },
-    _v74 = ({
+    _v75 = ({
       seriesId: _v0,
       baseUrl: _v1,
       onUnlock: _v2
@@ -1692,8 +1744,8 @@
           if (_v0.preventDefault(), _v3.trim() && !_v7) {
             _v8(!0), _v6(null);
             try {
-              let _v0 = await _v73(),
-                _v1 = await _v72({
+              let _v0 = await _v74(),
+                _v1 = await _v73({
                   baseUrl: _v1,
                   seriesId: _v0,
                   password: _v3,
@@ -1704,7 +1756,7 @@
                 });
               _v2(_v1);
             } catch (_v0) {
-              _v65(_v0)?.status === 403 ? _v6((0, _v15.translate)({
+              _v66(_v0)?.status === 403 ? _v6((0, _v15.translate)({
                 singular: "Sorry, that password was incorrect. Please try again.",
                 dictionary: {
                   es: {
@@ -1782,7 +1834,7 @@
               children: [(0, _v1.jsxs)(_v13.Flex, {
                 align: "center",
                 gap: "sm",
-                children: [(0, _v1.jsx)(_v64.Lock, {}), (0, _v1.jsx)(_v14.Text, {
+                children: [(0, _v1.jsx)(_v65.Lock, {}), (0, _v1.jsx)(_v14.Text, {
                   color: "text-primary",
                   variant: "heading-md",
                   children: (0, _v15.translate)({
@@ -1841,9 +1893,9 @@
                     }
                   }
                 })
-              }), (0, _v1.jsxs)(_v61.FormControl, {
+              }), (0, _v1.jsxs)(_v62.FormControl, {
                 isInvalid: !!_v5,
-                children: [(0, _v1.jsx)(_v62.FormLabel, {
+                children: [(0, _v1.jsx)(_v63.FormLabel, {
                   children: (0, _v15.translate)({
                     singular: "Password",
                     dictionary: {
@@ -1870,7 +1922,7 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v63.Input, {
+                }), (0, _v1.jsx)(_v64.Input, {
                   autoComplete: "current-password",
                   autoFocus: !0,
                   onChange: _v0 => {
@@ -1947,7 +1999,7 @@
         })
       });
     },
-    _v75 = ({
+    _v76 = ({
       series: _v0
     }) => {
       let {
@@ -2052,9 +2104,9 @@
         })]
       });
     };
-  var _v76 = _v0.i(0),
-    _v77 = _v0.i(0),
-    _v78 = _v0.i(0);
+  var _v77 = _v0.i(0),
+    _v78 = _v0.i(0),
+    _v79 = _v0.i(0);
   (0, _v4.withPageSetup)(async _v0 => {
     let _v1 = _v0.params?.params,
       _v2 = Array.isArray(_v1) ? _v1 : _v1 ? [_v1] : [],
@@ -2072,7 +2124,7 @@
     try {
       return {
         props: {
-          series: await _v72({
+          series: await _v73({
             seriesId: _v3,
             headers: _v7,
             baseUrl: _v0.baseUrl
@@ -2084,7 +2136,7 @@
         }
       };
     } catch (_v0) {
-      if (await _v66(_v0)) return {
+      if (await _v67(_v0)) return {
         props: {
           series: null,
           seriesId: _v3,
@@ -2104,25 +2156,25 @@
     baseUrl: _v3
   }) => {
     let [_v4, _v5] = (0, _v3.useState)(_v0),
-      _v6 = (0, _v78.useViewer)(),
+      _v6 = (0, _v79.useViewer)(),
       {
         trackEventSeriesLandingPageDisplayed: _v7
-      } = (0, _v76.useEventSeriesTracking)(),
+      } = (0, _v77.useEventSeriesTracking)(),
       _v8 = (0, _v3.useRef)(null);
     if ((0, _v3.useEffect)(() => {
       if (!_v4 || !_v6) return;
       let _v0 = `${_v1}:${_v2}`;
       _v8.current !== _v0 && (_v8.current = _v0, _v7({
         eventSeriesId: String(_v1),
-        landingPage: (0, _v76.deriveEventSeriesLandingPage)(_v2),
-        viewerAuthStatus: (0, _v77.deriveViewerAuthStatus)(_v6)
+        landingPage: (0, _v77.deriveEventSeriesLandingPage)(_v2),
+        viewerAuthStatus: (0, _v78.deriveViewerAuthStatus)(_v6)
       }));
     }, [_v4, _v1, _v2, _v6, _v7]), !_v4) return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
           children: "Event series"
         })
-      }), (0, _v1.jsx)(_v74, {
+      }), (0, _v1.jsx)(_v75, {
         baseUrl: _v3,
         onUnlock: _v5,
         seriesId: _v1
@@ -2156,11 +2208,11 @@
           href: _v13,
           rel: "canonical"
         }) : null]
-      }), "upcoming" === _v2 ? (0, _v1.jsx)(_v75, {
+      }), "upcoming" === _v2 ? (0, _v1.jsx)(_v76, {
         series: _v4
       }) : "on-demand" === _v2 ? (0, _v1.jsx)(_v39, {
         series: _v4
-      }) : (0, _v1.jsx)(_v60, {
+      }) : (0, _v1.jsx)(_v61, {
         series: _v4
       })]
     });

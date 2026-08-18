@@ -5814,31 +5814,31 @@
         onSaved: () => _v12()
       }, `edit-speaker-modal-${_v17.id}`) : null, _v18 ? (0, _v41.jsx)(_v208, {
         title: (0, _v58.translate)({
-          singular: 'Delete "{NAME}?"',
+          singular: 'Delete "{NAME}"?',
           replacements: {
             NAME: _v18.name
           },
           dictionary: {
             es: {
-              singular: 'Eliminar "{NAME}?"'
+              singular: '¿Eliminar "{NAME}"?'
             },
             "de-DE": {
-              singular: 'Löschen "{NAME}?"'
+              singular: '"{NAME}" löschen?'
             },
             "fr-FR": {
-              singular: 'Supprimer "{NAME} ?"'
+              singular: 'Supprimer "{NAME}" ?'
             },
             "ja-JP": {
-              singular: '削除 "{NAME}?"'
+              singular: '"{NAME}"を削除しますか?'
             },
             "ko-KR": {
-              singular: '삭제 "{NAME}?"'
+              singular: '"{NAME}"을(를) 삭제하시겠습니까?'
             },
             "pt-BR": {
-              singular: 'Excluir "{NAME}?"'
+              singular: 'Excluir "{NAME}"?'
             },
             "zh-CN": {
-              singular: '删除 "{NAME}?"'
+              singular: '删除 "{NAME}"?'
             }
           }
         }),
