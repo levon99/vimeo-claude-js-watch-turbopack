@@ -18059,60 +18059,64 @@
     _v753 = _v0.i(0);
   let _v754 = ({
       videoHash: _v0,
-      useRevision: _v1 = !1,
-      vimeoVideoId: _v2,
-      featureFlags: _v3,
-      videoVersionId: _v4,
-      videoUploadAttemptId: _v5,
-      isThirdPartyIntegration: _v6
+      isBlankEntry: _v1,
+      useRevision: _v2 = !1,
+      vimeoVideoId: _v3,
+      featureFlags: _v4,
+      videoVersionId: _v5,
+      videoUploadAttemptId: _v6,
+      isThirdPartyIntegration: _v7
     }) => {
-      let _v7 = (0, _v168.useAppDispatch)();
+      let _v8 = (0, _v168.useAppDispatch)();
       return (({
         videoHash: _v0,
-        useRevision: _v1,
-        vimeoVideoId: _v2,
-        featureFlags: _v3,
-        videoVersionId: _v4,
-        videoUploadAttemptId: _v5,
-        isThirdPartyIntegration: _v6
+        isBlankEntry: _v1,
+        useRevision: _v2,
+        vimeoVideoId: _v3,
+        featureFlags: _v4,
+        videoVersionId: _v5,
+        videoUploadAttemptId: _v6,
+        isThirdPartyIntegration: _v7
       }) => {
-        let _v7 = (0, _v168.useAppDispatch)(),
-          _v8 = (0, _v8.useContext)(_v92.ViewerContext)?.jwt,
-          _v9 = (0, _v168.useAppSelector)(_v167.videoSessionIdSelector),
-          _v10 = (0, _v168.useAppSelector)(_v389.fontsSelector),
+        let _v8 = (0, _v168.useAppDispatch)(),
+          _v9 = (0, _v8.useContext)(_v92.ViewerContext)?.jwt,
+          _v10 = (0, _v168.useAppSelector)(_v167.videoSessionIdSelector),
+          _v11 = (0, _v168.useAppSelector)(_v389.fontsSelector),
           {
-            trackEditorPageDisplayed: _v11
+            trackEditorPageDisplayed: _v12
           } = (0, _v221.useEditorTracking)();
         (({
-          isThirdPartyIntegration: _v0
+          isBlankEntry: _v0,
+          isThirdPartyIntegration: _v1
         }) => {
-          let _v1 = (0, _v168.useAppDispatch)(),
+          let _v2 = (0, _v168.useAppDispatch)(),
             {
-              settings: _v2
+              settings: _v3
             } = (0, _v235.useOrionSettings)();
           (0, _v8.useLayoutEffect)(() => {
-            !_v0 && _v2.editor_ui_reworked && _v1((0, _v166.closeInspectorAction)());
-          }, [_v1, _v0, _v2.editor_ui_reworked]);
+            _v0 || _v1 || !_v3.editor_ui_reworked || _v2((0, _v166.closeInspectorAction)());
+          }, [_v2, _v0, _v1, _v3.editor_ui_reworked]);
         })({
-          isThirdPartyIntegration: _v6
+          isBlankEntry: _v1,
+          isThirdPartyIntegration: _v7
         });
-        let _v12 = (0, _v168.useAppSelector)(_v176.isInteractiveSelector),
-          _v13 = (0, _v217.useIsStaff)(),
+        let _v13 = (0, _v168.useAppSelector)(_v176.isInteractiveSelector),
+          _v14 = (0, _v217.useIsStaff)(),
           {
-            initFeatureFlags: _v14
+            initFeatureFlags: _v15
           } = _v310(),
-          [_v15, {
-            data: _v16,
-            isSuccess: _v17
+          [_v16, {
+            data: _v17,
+            isSuccess: _v18
           }] = (0, _v256.useLazyFetchStoryboardQuery)(),
-          [_v18] = (0, _v256.useLazyInitStoryboardQuery)(),
-          [_v19] = (0, _v256.useLazyInitStoryboardFromClipQuery)(),
-          [_v20] = (0, _v753.useLazyFetchGraphicsCategoriesQuery)(),
-          [_v21, {
-            isUninitialized: _v22
+          [_v19] = (0, _v256.useLazyInitStoryboardQuery)(),
+          [_v20] = (0, _v256.useLazyInitStoryboardFromClipQuery)(),
+          [_v21] = (0, _v753.useLazyFetchGraphicsCategoriesQuery)(),
+          [_v22, {
+            isUninitialized: _v23
           }] = (0, _v752.useLazyFetchFontsQuery)(),
           {
-            handleKeyboardShortcuts: _v23
+            handleKeyboardShortcuts: _v24
           } = (() => {
             let _v0 = (0, _v168.useAppDispatch)(),
               _v1 = (0, _v168.useAppSelector)(_v383.selectedElementsIdsSelector),
@@ -18281,30 +18285,30 @@
             };
           })(),
           {
-            alertProblemOccurred: _v24,
-            alertConnectivityProblem: _v25,
-            alertLowResolution: _v26,
-            alertNoPermissionsToEdit: _v27,
-            alertVideoIsDeletedForLoad: _v28
+            alertProblemOccurred: _v25,
+            alertConnectivityProblem: _v26,
+            alertLowResolution: _v27,
+            alertNoPermissionsToEdit: _v28,
+            alertVideoIsDeletedForLoad: _v29
           } = (0, _v162.useAlerts)(),
           {
-            isOnline: _v29
+            isOnline: _v30
           } = _v240(),
-          [_v30] = (0, _v731.default)(_v409.SHOW_GUIDES_LOCAL_STORAGE_KEY, !1),
-          [_v31] = (0, _v731.default)(_v409.SNAP_GUIDES_LOCAL_STORAGE_KEY, !0),
-          [_v32, _v33] = (0, _v731.default)(_v409.SAVE_AS_GUIDE_LOCAL_STORAGE_KEY, !0),
+          [_v31] = (0, _v731.default)(_v409.SHOW_GUIDES_LOCAL_STORAGE_KEY, !1),
+          [_v32] = (0, _v731.default)(_v409.SNAP_GUIDES_LOCAL_STORAGE_KEY, !0),
+          [_v33, _v34] = (0, _v731.default)(_v409.SAVE_AS_GUIDE_LOCAL_STORAGE_KEY, !0),
           {
-            resetAutoSaveStatus: _v34,
-            savedLocalStoryboardData: _v35,
-            removeSavedStoryboard: _v36,
-            loadStoryboardFromResponse: _v37,
-            showAutoSaveAlert: _v38,
-            showLocalAutoSaveAlert: _v39,
-            showCrossEditingToolAlert: _v40
+            resetAutoSaveStatus: _v35,
+            savedLocalStoryboardData: _v36,
+            removeSavedStoryboard: _v37,
+            loadStoryboardFromResponse: _v38,
+            showAutoSaveAlert: _v39,
+            showLocalAutoSaveAlert: _v40,
+            showCrossEditingToolAlert: _v41
           } = _v326({
-            storyboardFetchResponse: _v16,
+            storyboardFetchResponse: _v17,
             videoHash: _v0,
-            isThirdPartyIntegration: _v6
+            isThirdPartyIntegration: _v7
           });
         (0, _v738.default)(), (() => {
           let _v0 = (0, _v168.useAppDispatch)(),
@@ -18324,18 +18328,18 @@
           }, [_v3, _v1, _v2, _v0]);
         })();
         let {
-            totalSavedEdits: _v41
+            totalSavedEdits: _v42
           } = (0, _v242.useEditorCsat)(),
-          _v42 = (0, _v153.shouldShowInDevelopmentFeature)("hideSidebar"),
-          _v43 = (0, _v153.shouldShowInDevelopmentFeature)("transcript"),
-          _v44 = _v237.default.isShopifyUser,
-          _v45 = (0, _v8.useCallback)(async () => {
+          _v43 = (0, _v153.shouldShowInDevelopmentFeature)("hideSidebar"),
+          _v44 = (0, _v153.shouldShowInDevelopmentFeature)("transcript"),
+          _v45 = _v237.default.isShopifyUser,
+          _v46 = (0, _v8.useCallback)(async () => {
             let {
               default: _v0
             } = await _v0.A(0);
-            _v7((0, _v415.initTextAnimationsAction)(_v0));
-          }, [_v7]),
-          _v46 = (0, _v8.useCallback)(async (_v0, _v1) => {
+            _v8((0, _v415.initTextAnimationsAction)(_v0));
+          }, [_v8]),
+          _v47 = (0, _v8.useCallback)(async (_v0, _v1) => {
             let _v2 = "",
               _v3 = !1;
             try {
@@ -18359,8 +18363,8 @@
                   id: _v0
                 } = _v3;
                 _v2 = _v0, _v237.default.setIsTemplate((0, _v248.isTemplate)(_v0, _v2)), _v237.default.setHasBeenRendered(!!_v4?.id), _v4?.id && (0, _v245.replaceUrlParams)("vid", _v4.id.toString());
-                let _v1 = !_v12 && (null !== (0, _v245.getVimeoVideoId)() || !!_v237.default.hasBeenRendered && !_v237.default.isTemplate);
-                _v237.default.setIsSaveAsAllowed(_v1), 0 === _v41 ? _v33(!1) : _v1 && _v32 && (_v732.PendoClient.showGuideById(_v736.EDITOR_SAVE_AS_GUIDE_ID), _v33(!1));
+                let _v1 = !_v13 && (null !== (0, _v245.getVimeoVideoId)() || !!_v237.default.hasBeenRendered && !_v237.default.isTemplate);
+                _v237.default.setIsSaveAsAllowed(_v1), 0 === _v42 ? _v34(!1) : _v1 && _v33 && (_v732.PendoClient.showGuideById(_v736.EDITOR_SAVE_AS_GUIDE_ID), _v34(!1));
               }
               return _v1;
             } catch (_v0) {
@@ -18369,22 +18373,22 @@
                 error: _v0.data?.error_code || _v0.status || "unknown"
               });
               let _v1 = _v0.data?.error_code;
-              if (_v29) {
-                if (_v1 === _v251.SESSION_IS_ARCHIVED) throw _v0;else _v1 === _v251.LOW_QUALITY_VIDEO ? _v26(_v2) : _v1 === _v251.STILL_TRANSCODING_IN_VIMEO ? setTimeout(() => {
-                  _v46(_v0, _v1);
-                }, 0) : _v0.status === _v251.FORBIDDEN ? _v27(_v237.default.teams.length > 1) : _v0.status === _v251.NOT_FOUND || _v1 === _v251.VIDEO_NOT_FOUND ? _v28() : _v24({
+              if (_v30) {
+                if (_v1 === _v251.SESSION_IS_ARCHIVED) throw _v0;else _v1 === _v251.LOW_QUALITY_VIDEO ? _v27(_v3) : _v1 === _v251.STILL_TRANSCODING_IN_VIMEO ? setTimeout(() => {
+                  _v47(_v0, _v1);
+                }, 0) : _v0.status === _v251.FORBIDDEN ? _v28(_v237.default.teams.length > 1) : _v0.status === _v251.NOT_FOUND || _v1 === _v251.VIDEO_NOT_FOUND ? _v29() : _v25({
                   onPrimaryClick: _v0,
                   error: _v0
                 });
-              } else _v25({
+              } else _v26({
                 onPrimaryClick: _v0
               });
             } finally {
               _v1 && (0, _v192.sendTrackViewEditor)({
                 viewStatus: "enable"
-              }), _v1 && _v2 && _v11(_v2);
+              }), _v1 && _v2 && _v12(_v2);
             }
-          }, [_v41, _v32, _v12, _v33, _v29, _v25, _v26, _v2, _v27, _v28, _v24, _v11]);
+          }, [_v42, _v33, _v13, _v34, _v30, _v26, _v27, _v3, _v28, _v29, _v25, _v12]);
         !function () {
           let _v0 = (0, _v168.useAppSelector)(_v167.sourcesSelector),
             {
@@ -18445,62 +18449,62 @@
             window.removeEventListener("beforeunload", _v0);
           };
         }, []), _v750(), (0, _v8.useEffect)(() => {
-          _v9 || _v17 || (_v0 ? (_v237.default.setHasBeenRendered(!!_v2), _v46(() => _v15({
+          _v10 || _v18 || (_v0 ? (_v237.default.setHasBeenRendered(!!_v3), _v47(() => _v16({
             videoHash: _v0,
-            useRevision: _v1,
-            videoVersionId: _v4,
-            videoUploadAttemptId: _v5,
-            isInteractive: _v12,
-            vimeoVideoId: _v2
+            useRevision: _v2,
+            videoVersionId: _v5,
+            videoUploadAttemptId: _v6,
+            isInteractive: _v13,
+            vimeoVideoId: _v3
           }), !0).catch(_v0 => {
-            if (_v0.data.error_code === _v251.SESSION_IS_ARCHIVED) return _v46(() => _v18({
-              vimeoVideoId: _v2
+            if (_v0.data.error_code === _v251.SESSION_IS_ARCHIVED) return _v47(() => _v19({
+              vimeoVideoId: _v3
             })).then(({
               storyboardId: _v0
             }) => {
-              _v36(), (0, _v245.replaceUrlParams)("hash", _v0);
+              _v37(), (0, _v245.replaceUrlParams)("hash", _v0);
             });
-          })) : (_v237.default.setIsEVV(!!_v2), _v2 ? _v46(() => _v19({
-            vimeoVideoId: _v2
+          })) : (_v237.default.setIsEVV(!!_v3), _v3 ? _v47(() => _v20({
+            vimeoVideoId: _v3
           })).then(({
             storyboard: _v0,
             storyboardId: _v1
           }) => {
             let _v2 = _v1 || _v0?.id;
-            _v46(() => _v15({
+            _v47(() => _v16({
               videoHash: _v2,
-              isInteractive: _v12,
-              vimeoVideoId: _v2
+              isInteractive: _v13,
+              vimeoVideoId: _v3
             }), !0), (0, _v245.setHashUrlParam)(_v2);
-          }) : _v46(() => _v18({})).then(({
+          }) : _v47(() => _v19({})).then(({
             storyboardId: _v0
           }) => {
-            _v46(() => _v15({
+            _v47(() => _v16({
               videoHash: _v0,
-              isInteractive: _v12
+              isInteractive: _v13
             }), !0), (0, _v245.setHashUrlParam)(_v0);
           })));
-        }, [_v46, _v15, _v0, _v2, _v4, _v5, _v18, _v9, _v21, _v12, _v36, _v13, _v17, _v19, _v1]), (0, _v8.useEffect)(() => {
-          if (!_v16 || !_v10) return void _v34();
+        }, [_v47, _v16, _v0, _v3, _v5, _v6, _v19, _v10, _v22, _v13, _v37, _v14, _v18, _v20, _v2]), (0, _v8.useEffect)(() => {
+          if (!_v17 || !_v11) return void _v35();
           let {
               lastUserSavedStoryboard: _v0,
               editingTool: _v1,
               storyboard: _v2
-            } = _v16,
-            _v3 = _v35 && _v237.default.isLocalAutoSaveAllowed && !_v237.default.isEditingTeamTemplate,
+            } = _v17,
+            _v3 = _v36 && _v237.default.isLocalAutoSaveAllowed && !_v237.default.isEditingTeamTemplate,
             _v4 = _v0 && !_v237.default.isLocalAutoSaveAllowed;
-          _v3 ? _v39() : _v4 ? _v1 === _v733.EditingToolType.INTERACTIVE && !_v12 || _v1 === _v733.EditingToolType.EDITOR && _v12 ? _v40() : _v38() : _v37({
+          _v3 ? _v40() : _v4 ? _v1 === _v733.EditingToolType.INTERACTIVE && !_v13 || _v1 === _v733.EditingToolType.EDITOR && _v13 ? _v41() : _v39() : _v38({
             storyboard: _v2
           });
-        }, [_v10, _v37, _v39, _v35, _v16, _v12, _v40, _v38, _v34]), (0, _v8.useLayoutEffect)(() => {
-          if (_v8 && _v22) {
-            _v20({
-              tag: _v12 ? _v751.GraphicsTag.INTERACTIVE : _v751.GraphicsTag.EDITOR
+        }, [_v11, _v38, _v40, _v36, _v17, _v13, _v41, _v39, _v35]), (0, _v8.useLayoutEffect)(() => {
+          if (_v9 && _v23) {
+            _v21({
+              tag: _v13 ? _v751.GraphicsTag.INTERACTIVE : _v751.GraphicsTag.EDITOR
             });
             let _v0 = performance.now();
             _v165.default.sendAction(_v252.EditorLoad, {
               step: "start fetch fonts"
-            }), _v21().unwrap().then(() => {
+            }), _v22().unwrap().then(() => {
               _v165.default.sendAction(_v252.EditorLoad, {
                 step: "end fetch fonts",
                 durationMs: (0, _v407.durationSince)(_v0)
@@ -18513,36 +18517,37 @@
               });
             });
           }
-        }, [_v20, _v21, _v12, _v22, _v8]), (0, _v8.useLayoutEffect)(() => {
-          _v7((0, _v166.setInspectorInitialWidthAction)(_v44 ? _v735.INSPECTOR_WIDTH_LG : _v735.INSPECTOR_WIDTH));
-        }, [_v7, _v44]), (0, _v491.default)(() => {
-          _v14(_v3), _v7((0, _v406.setIsShowGuidesStageAction)(_v30)), _v7((0, _v406.setIsSnapStageAction)(_v31)), _v324.default.setIsStaff(_v13), _v165.default.sendPageView();
+        }, [_v21, _v22, _v13, _v23, _v9]), (0, _v8.useLayoutEffect)(() => {
+          _v8((0, _v166.setInspectorInitialWidthAction)(_v45 ? _v735.INSPECTOR_WIDTH_LG : _v735.INSPECTOR_WIDTH));
+        }, [_v8, _v45]), (0, _v491.default)(() => {
+          _v15(_v4), _v8((0, _v406.setIsShowGuidesStageAction)(_v31)), _v8((0, _v406.setIsSnapStageAction)(_v32)), _v324.default.setIsStaff(_v14), _v165.default.sendPageView();
         }), (0, _v8.useLayoutEffect)(() => {
-          _v45();
-        }, [_v7, _v45]), (0, _v8.useEffect)(() => (window.addEventListener("keydown", _v23), () => {
-          window.removeEventListener("keydown", _v23);
-        }), [_v23]), (0, _v8.useLayoutEffect)(() => {
-          _v42 || (_v6 ? _v7((0, _v166.initInspectorAction)({
+          _v46();
+        }, [_v8, _v46]), (0, _v8.useEffect)(() => (window.addEventListener("keydown", _v24), () => {
+          window.removeEventListener("keydown", _v24);
+        }), [_v24]), (0, _v8.useLayoutEffect)(() => {
+          _v43 || (_v7 ? _v8((0, _v166.initInspectorAction)({
             inspectorType: _v169.InspectorType.TEMPLATES
-          })) : _v12 ? _v7((0, _v166.initInspectorAction)({
+          })) : _v13 ? _v8((0, _v166.initInspectorAction)({
             inspectorType: _v169.InspectorType.HOTSPOTS
-          })) : _v43 ? _v7((0, _v166.initInspectorAction)({
+          })) : _v44 ? _v8((0, _v166.initInspectorAction)({
             inspectorType: _v169.InspectorType.TRANSCRIPT
-          })) : _v7((0, _v166.initInspectorAction)({
+          })) : _v8((0, _v166.initInspectorAction)({
             inspectorType: _v169.InspectorType.MEDIA
           })));
-        }, [_v7, _v42, _v43, _v12, _v6]);
+        }, [_v8, _v43, _v44, _v13, _v7]);
       })({
         videoHash: _v0,
-        useRevision: _v1,
-        vimeoVideoId: _v2,
-        featureFlags: _v3,
-        videoVersionId: _v4,
-        videoUploadAttemptId: _v5,
-        isThirdPartyIntegration: _v6
+        isBlankEntry: _v1,
+        useRevision: _v2,
+        vimeoVideoId: _v3,
+        featureFlags: _v4,
+        videoVersionId: _v5,
+        videoUploadAttemptId: _v6,
+        isThirdPartyIntegration: _v7
       }), (0, _v8.useEffect)(() => () => {
-        _v7((0, _v231.appResetAction)());
-      }, [_v7]), null;
+        _v8((0, _v231.appResetAction)());
+      }, [_v8]), null;
     },
     _v755 = ({
       partnerApp: _v0,
@@ -18725,6 +18730,7 @@
                               children: (0, _v7.jsx)(_v730, {})
                             }), (0, _v7.jsx)(_v754, {
                               videoHash: _v2.location.query?.hash,
+                              isBlankEntry: _v2.location.query?.blank === "true",
                               useRevision: _v2.location.state?.useRevision ?? _v2.location.query?.useRevision === "true",
                               videoVersionId: _v2.location.query?.version_id,
                               videoUploadAttemptId: _v2.location.query?.upload_attempt_id,

@@ -3876,6 +3876,7 @@
                       viewerUri: _v1?.user?.uri,
                       contentSpaceEnabled: _v41,
                       isSoleTeamMember: _v43,
+                      canStartTeam: _v57,
                       isLoading: _v40,
                       onStartYourTeam: () => _v21(!0),
                       onInviteMembers: () => _v22.current?.click()

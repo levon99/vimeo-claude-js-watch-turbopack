@@ -40,7 +40,9 @@
     id: _v0 = (0, _v7.createDomName)("left-panel-header"),
     className: _v1 = (0, _v7.createDomName)("left-panel-header"),
     label: _v2,
-    controls: _v3
+    controls: _v3,
+    leadingElement: _v4,
+    paddingBottom: _v5 = (0, _v11.rem)(16)
   }) {
     return (0, _v1.jsxs)(_v9.Flex, {
       id: _v0,
@@ -49,13 +51,21 @@
       alignItems: "center",
       flexWrap: "nowrap",
       gap: (0, _v11.rem)(8),
-      padding: (0, _v11.rem)(16),
-      children: [(0, _v1.jsx)(_v10.Header, {
-        id: (0, _v7.createDomName)(_v0, "label"),
-        className: (0, _v7.createDomName)(_v1, "label"),
-        size: "sm",
-        fontWeight: 500,
-        children: _v2
+      paddingTop: (0, _v11.rem)(16),
+      paddingRight: (0, _v11.rem)(16),
+      paddingBottom: _v5,
+      paddingLeft: (0, _v11.rem)(16),
+      children: [(0, _v1.jsxs)(_v9.Flex, {
+        alignItems: "center",
+        gap: (0, _v11.rem)(4),
+        minWidth: 0,
+        children: [_v4, (0, _v1.jsx)(_v10.Header, {
+          id: (0, _v7.createDomName)(_v0, "label"),
+          className: (0, _v7.createDomName)(_v1, "label"),
+          size: "sm",
+          fontWeight: 500,
+          children: _v2
+        })]
       }), (0, _v1.jsx)(_v9.Flex, {
         id: (0, _v7.createDomName)(_v0, "controls"),
         className: (0, _v7.createDomName)(_v1, "controls"),

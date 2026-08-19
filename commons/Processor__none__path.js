@@ -30,10 +30,13 @@
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
-    _v18 = _v0.i(0);
-  function _v19({
-    id: _v0 = (0, _v15.createDomName)("left-panel-controls"),
-    className: _v1 = (0, _v15.createDomName)("left-panel-controls"),
+    _v18 = _v0.i(0),
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0);
+  function _v22({
+    id: _v0 = (0, _v18.createDomName)("left-panel-controls"),
+    className: _v1 = (0, _v18.createDomName)("left-panel-controls"),
     isLoading: _v2,
     defaultValue: _v3,
     value: _v4,
@@ -70,8 +73,8 @@
       defaultValue: _v3,
       isLoading: _v2,
       onPanelChange: _v7
-    }), _v9 = (0, _v13.useLogger)("🪲LTPL"), _v10 = (0, _v3.useScope)(), (0, _v4.useEffect)(() => _v10.subscribeToSignals(_v0 => {
-      if (_v0.type === _v14.ELiveSignal.LEFT_PANEL_TAB_CHANGE_REQUEST || _v0.type === _v14.ELiveSignal.LIVE_PANEL_TAB_CHANGE_REQUEST) {
+    }), _v9 = (0, _v16.useLogger)("🪲LTPL"), _v10 = (0, _v3.useScope)(), (0, _v4.useEffect)(() => _v10.subscribeToSignals(_v0 => {
+      if (_v0.type === _v17.ELiveSignal.LEFT_PANEL_TAB_CHANGE_REQUEST || _v0.type === _v17.ELiveSignal.LIVE_PANEL_TAB_CHANGE_REQUEST) {
         if (_v9.info("Left panel change request:", _v0), !_v0.data) {
           _v9.info("Left panel closed based on signal"), _v7(null);
           return;
@@ -87,38 +90,76 @@
       minWidth: "max-content",
       overflow: "hidden",
       children: [(0, _v1.jsx)(_v5.Flex, {
-        id: (0, _v15.createDomName)(_v0, "panels"),
-        className: (0, _v15.createDomName)(_v1, "panels"),
+        id: (0, _v18.createDomName)(_v0, "panels"),
+        className: (0, _v18.createDomName)(_v1, "panels"),
         direction: "column",
         justifyContent: "center",
         alignItems: "center",
         gap: "md",
         grow: 1,
         minWidth: "max-content",
-        children: _v2 ? (0, _v16.range)(5).map(_v0 => (0, _v1.jsx)(_v17.BokehSkeleton, {
-          className: (0, _v15.createDomName)(_v1, "item-loader"),
+        children: _v2 ? (0, _v19.range)(5).map(_v0 => (0, _v1.jsx)(_v20.BokehSkeleton, {
+          className: (0, _v18.createDomName)(_v1, "item-loader"),
           width: (0, _v8.rem)(48),
           maxWidth: (0, _v8.rem)(48),
           height: (0, _v8.rem)(48),
           maxHeight: (0, _v8.rem)(48),
           borderRadius: "50%"
         }, _v0)) : _v5.map(_v0 => (0, _v1.jsxs)(_v5.Flex, {
-          className: (0, _v15.createDomName)(_v1, `item-${_v0.id}`),
+          className: (0, _v18.createDomName)(_v1, `item-${_v0.id}`),
           direction: "column",
           gap: (0, _v8.rem)(4),
           alignItems: "center",
           height: "auto",
-          children: [(0, _v1.jsx)(_v11.IconButton, {
-            "aria-label": _v0.header,
-            className: (0, _v15.createDomName)(_v1, `item-button-${_v0.id === _v4 ? "active" : "inactive"}-${_v0.id}`),
-            variant: "secondary",
-            isActive: _v0.id === _v4,
-            size: "lg",
-            icon: _v0.icon,
-            borderRadius: "50%",
-            onClick: _v11(_v0)
-          }), (0, _v1.jsx)(_v12.Paragraph, {
-            className: (0, _v15.createDomName)(_v1, `item-label-${_v0.id}`),
+          children: [(0, _v1.jsxs)(_v12.Box, {
+            position: "relative",
+            children: [(0, _v1.jsx)(_v13.IconButton, {
+              "aria-label": _v0.header,
+              className: (0, _v18.createDomName)(_v1, `item-button-${_v0.id === _v4 ? "active" : "inactive"}-${_v0.id}`),
+              variant: "secondary",
+              isActive: _v0.id === _v4,
+              size: "lg",
+              icon: _v0.icon,
+              borderRadius: "50%",
+              onClick: _v11(_v0)
+            }), _v0.isNew ? (0, _v1.jsx)(_v11.Badge, {
+              size: "xs",
+              variant: "new",
+              height: (0, _v8.rem)(16),
+              paddingY: 0,
+              position: "absolute",
+              top: (0, _v8.rem)(-6),
+              left: "50%",
+              transform: "translateX(-50%)",
+              children: (0, _v15.translate)({
+                singular: "New",
+                dictionary: {
+                  es: {
+                    singular: "Nuevo"
+                  },
+                  "de-DE": {
+                    singular: "Neu"
+                  },
+                  "fr-FR": {
+                    singular: "Nouveau"
+                  },
+                  "ja-JP": {
+                    singular: "新規作成"
+                  },
+                  "ko-KR": {
+                    singular: "신규"
+                  },
+                  "pt-BR": {
+                    singular: "Novo"
+                  },
+                  "zh-CN": {
+                    singular: "新"
+                  }
+                }
+              })
+            }) : null]
+          }), (0, _v1.jsx)(_v14.Paragraph, {
+            className: (0, _v18.createDomName)(_v1, `item-label-${_v0.id}`),
             size: "xs",
             color: "text-secondary",
             whiteSpace: "nowrap",
@@ -126,32 +167,32 @@
             children: _v0.header
           })]
         }, _v0.id))
-      }), (0, _v1.jsx)(_v18.LiveErrorBoundary, {
+      }), (0, _v1.jsx)(_v21.LiveErrorBoundary, {
         component: "LeftPanelControlsFooter",
         isDetailed: !1,
         children: _v6 && !_v2 ? (0, _v1.jsx)(_v5.Flex, {
-          id: (0, _v15.createDomName)(_v0, "footer"),
-          className: (0, _v15.createDomName)(_v1, "footer"),
+          id: (0, _v18.createDomName)(_v0, "footer"),
+          className: (0, _v18.createDomName)(_v1, "footer"),
           children: _v6
         }) : null
       })]
     });
   }
-  var _v20 = _v0.i(0);
-  let _v21 = () => {};
+  var _v23 = _v0.i(0);
+  let _v24 = () => {};
   _v0.s(["LeftPanel", 0, function ({
-    id: _v0 = (0, _v15.createDomName)("left-panel"),
-    className: _v1 = (0, _v15.createDomName)("left-panel"),
+    id: _v0 = (0, _v18.createDomName)("left-panel"),
+    className: _v1 = (0, _v18.createDomName)("left-panel"),
     isLoading: _v2 = !1,
     defaultValue: _v3,
     items: _v4 = [],
     footer: _v5 = null,
     maxHeight: _v6 = "100%",
-    onUserActivateLeftPanel: _v7 = _v21,
+    onUserActivateLeftPanel: _v7 = _v24,
     panelsContext: {
       leftPanel: _v8,
       panelActions: _v9
-    } = (0, _v3.useManager)(_v20.PanelsManager, ({
+    } = (0, _v3.useManager)(_v23.PanelsManager, ({
       leftPanel: _v0
     }) => [_v0])
   }) {
@@ -176,17 +217,18 @@
         items: _v4,
         defaultValue: _v3
       }),
-      _v13 = !!(_v11 || _v12);
+      _v13 = !!(_v11 || _v12),
+      _v14 = _v10?.contentHeight === "fit";
     return (0, _v1.jsx)(_v5.Flex, {
-      id: (0, _v15.createDomName)(_v0, "panel-wrapper"),
-      className: (0, _v15.createDomName)(_v1, "panel-wrapper"),
+      id: (0, _v18.createDomName)(_v0, "panel-wrapper"),
+      className: (0, _v18.createDomName)(_v1, "panel-wrapper"),
       direction: "column",
       justifyContent: "center",
       alignItems: "center",
       zIndex: 201,
       children: (0, _v1.jsxs)(_v6.Grid, {
-        id: (0, _v15.createDomName)(_v0, "panel-grid"),
-        className: (0, _v15.createDomName)(_v1, "panel-grid"),
+        id: (0, _v18.createDomName)(_v0, "panel-grid"),
+        className: (0, _v18.createDomName)(_v1, "panel-grid"),
         transition: "300ms",
         alignItems: "center",
         gap: "md",
@@ -198,12 +240,12 @@
         sx: {
           "--panel-width": _v13 ? (0, _v8.rem)(324) : (0, _v8.rem)(0),
           "& > div:nth-of-type(2) > *": {
-            height: "100%"
+            height: _v14 ? "auto" : "100%"
           }
         },
-        children: [(0, _v1.jsx)(_v19, {
-          id: (0, _v15.createDomName)(_v0, "controls"),
-          className: (0, _v15.createDomName)(_v1, "controls"),
+        children: [(0, _v1.jsx)(_v22, {
+          id: (0, _v18.createDomName)(_v0, "controls"),
+          className: (0, _v18.createDomName)(_v1, "controls"),
           isLoading: _v2,
           defaultValue: _v3,
           value: _v8,
@@ -225,11 +267,11 @@
             }
           },
           sx: {
-            height: "100%",
+            height: _v14 ? "auto" : "100%",
             maxHeight: _v6
           },
           children: (0, _v1.jsx)(_v7.PanelBody, {
-            className: (0, _v15.createDomName)(_v1, "panel-body"),
+            className: (0, _v18.createDomName)(_v1, "panel-body"),
             overflowX: "hidden",
             overflowY: "auto",
             display: "flex",
@@ -237,13 +279,13 @@
             flexWrap: "wrap",
             justifyContent: "space-around",
             width: "100%",
-            height: "100%",
+            height: _v14 ? "auto" : "100%",
             maxHeight: "100%",
             padding: 0,
-            children: (0, _v1.jsx)(_v18.LiveErrorBoundary, {
+            children: (0, _v1.jsx)(_v21.LiveErrorBoundary, {
               additionalInfo: _v8,
               component: "LeftPanel",
-              children: _v12 ? (0, _v1.jsx)(_v17.BokehSkeleton, {
+              children: _v12 ? (0, _v1.jsx)(_v20.BokehSkeleton, {
                 width: "100%",
                 height: "100%",
                 borderRadius: 0

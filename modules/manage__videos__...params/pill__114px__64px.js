@@ -319,9 +319,10 @@
       })
     })]
   })], 0);
-  var _v27 = _v0.i(0);
-  async function _v28(_v0, _v1, _v2) {
-    await (0, _v27.deleteVideoVersion)({
+  var _v27 = _v0.i(0),
+    _v28 = _v0.i(0);
+  async function _v29(_v0, _v1, _v2) {
+    await (0, _v28.deleteVideoVersion)({
       ..._v2,
       where: {
         videoId: _v0,
@@ -330,16 +331,34 @@
     });
   }
   _v0.s(["useDeleteVersionWorkflow", 0, function () {
-    let [_v0, _v1] = (0, _v2.useState)(!1);
+    let [_v0, _v1] = (0, _v2.useState)(!1),
+      {
+        baseUrl: _v2,
+        jwt: _v3
+      } = (0, _v27.useGctlConfig)();
     return {
-      deleteVersionWorkflow: (0, _v2.useCallback)(async (_v0, _v1, _v2) => {
+      deleteVersionWorkflow: async (_v0, _v1, _v2) => {
         _v1(!0);
+        let {
+            headers: _v3,
+            ..._v4
+          } = _v2 ?? {},
+          _v5 = _v3 ? {
+            Authorization: `jwt ${_v3}`
+          } : {};
         try {
-          return await _v28(_v0, _v1, _v2);
+          return await _v29(_v0, _v1, {
+            baseUrl: _v2,
+            headers: {
+              ..._v5,
+              ..._v3
+            },
+            ..._v4
+          });
         } finally {
           _v1(!1);
         }
-      }, []),
+      },
       isDeleteInProgress: _v0
     };
   }], 0);

@@ -200,11 +200,11 @@
       let _v1 = (0, _v4.useIsBokeh)(),
         _v2 = (0, _v6.useViewer)(),
         [_v3, _v4] = (0, _v3.useState)(null),
-        _v5 = _v2?.teamUser?.ownerId ?? _v2?.user?.id,
-        _v6 = _v2?.apiUrl && null != _v5 ? {
+        _v5 = _v2?.teamUser?.ownerId == null || _v2.teamUser.ownerId === _v2.user?.id,
+        _v6 = _v2?.apiUrl && _v2?.user?.id != null && _v5 ? {
           apiUrl: _v2.apiUrl,
           jwt: _v2.jwt,
-          ownerId: _v5
+          ownerId: _v2.user.id
         } : void 0;
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v8, {

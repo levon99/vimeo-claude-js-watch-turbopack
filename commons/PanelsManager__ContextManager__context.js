@@ -25,10 +25,33 @@
           rightPanel: _v0
         }) => ({
           rightPanel: _v0 === _v0 ? null : _v0
-        }))
+        })),
+        setEngagementActiveTool: _v0 => this.setContext({
+          engagementActiveTool: _v0
+        }),
+        requestEngagementSubview: _v0 => {
+          if (this.context.leftPanel === _v2.ELeftPanelId.ENGAGEMENT && this.context.engagementActiveTool === _v0) {
+            this.setContext({
+              leftPanel: null
+            }), window.location.hash = _v2.ELeftPanelHash.NONE;
+            return;
+          }
+          this.setContext({
+            leftPanel: _v2.ELeftPanelId.ENGAGEMENT,
+            engagementSubviewRequest: {
+              subview: _v0,
+              requestId: Date.now()
+            }
+          }), window.location.hash = String(_v2.ELeftPanelId.ENGAGEMENT);
+        },
+        clearEngagementSubviewRequest: () => this.setContext({
+          engagementSubviewRequest: null
+        })
       }),
       leftPanel: null,
-      rightPanel: null
+      rightPanel: null,
+      engagementActiveTool: null,
+      engagementSubviewRequest: null
     };
     constructor(_v0) {
       super();

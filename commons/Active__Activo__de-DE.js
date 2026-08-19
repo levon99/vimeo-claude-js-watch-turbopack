@@ -6347,7 +6347,7 @@
             singular: "Kameraeinstellungen"
           },
           "fr-FR": {
-            singular: "paramètrages de la caméra"
+            singular: "Paramètrages de la caméra"
           },
           "ja-JP": {
             singular: "カメラ設定"

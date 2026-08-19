@@ -60,7 +60,7 @@
     };
   }], 0);
   var _v10 = _v0.i(0);
-  _v0.s(["PanelQnaIcon", 0, function ({
+  function _v11({
     isActive: _v0,
     isManagementAccessed: _v1,
     qnaContext: {
@@ -92,9 +92,13 @@
         }
         return !1;
       });
-    }, [_v0, _v13, _v2]), (0, _v1.jsx)(_v5.IconNotification, {
-      isVisible: _v8,
+    }, [_v0, _v13, _v2]), _v8;
+  }
+  _v0.s(["PanelQnaIcon", 0, function (_v0) {
+    let _v1 = _v11(_v0);
+    return (0, _v1.jsx)(_v5.IconNotification, {
+      isVisible: _v1,
       children: (0, _v1.jsx)(_v4.ReviewQuestion, {})
     });
-  }], 0);
+  }, "useQnaNotification", 0, _v11], 0);
 }

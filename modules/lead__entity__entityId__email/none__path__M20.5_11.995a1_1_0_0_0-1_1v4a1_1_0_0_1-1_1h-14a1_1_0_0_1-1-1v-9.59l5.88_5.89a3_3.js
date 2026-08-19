@@ -276,27 +276,28 @@
     _v71 = _v0.i(0),
     _v72 = _v0.i(0),
     _v73 = _v0.i(0),
-    _v74 = _v0.i(0);
-  let _v75 = ({
+    _v74 = _v0.i(0),
+    _v75 = _v0.i(0);
+  let _v76 = ({
       value: _v0,
       unit: _v1,
       direction: _v2
     }) => `${_v0}_${_v1}_${_v2}`,
-    _v76 = (_v0, _v1) => _v75(_v0) === _v75(_v1),
-    _v77 = {
+    _v77 = (_v0, _v1) => _v76(_v0) === _v76(_v1),
+    _v78 = {
       [_v27.REMINDER_OFFSET_UNITS.MINUTES]: 60,
       [_v27.REMINDER_OFFSET_UNITS.HOURS]: 0,
       [_v27.REMINDER_OFFSET_UNITS.DAYS]: 0
     },
-    _v78 = ({
+    _v79 = ({
       value: _v0,
       unit: _v1,
       direction: _v2
     }) => {
-      let _v3 = _v0 * _v77[_v1];
+      let _v3 = _v0 * _v78[_v1];
       return _v2 === _v27.REMINDER_DIRECTIONS.BEFORE ? -_v3 : _v3;
     },
-    _v79 = ({
+    _v80 = ({
       value: _v0,
       unit: _v1,
       direction: _v2
@@ -533,7 +534,7 @@
           });
       }
     },
-    _v80 = [{
+    _v81 = [{
       unit: _v27.REMINDER_OFFSET_UNITS.MINUTES,
       direction: _v27.REMINDER_DIRECTIONS.BEFORE
     }, {
@@ -552,15 +553,15 @@
       unit: _v27.REMINDER_OFFSET_UNITS.DAYS,
       direction: _v27.REMINDER_DIRECTIONS.AFTER
     }],
-    _v81 = (_v0, _v1) => `${_v0}_${_v1}`,
-    _v82 = _v0 => {
+    _v82 = (_v0, _v1) => `${_v0}_${_v1}`,
+    _v83 = _v0 => {
       let [_v1, _v2] = _v0.split("_");
       return {
         unit: _v1,
         direction: _v2
       };
     },
-    _v83 = ({
+    _v84 = ({
       isOpen: _v0,
       onClose: _v1,
       onSave: _v2,
@@ -568,14 +569,14 @@
       title: _v4,
       initialOffset: _v5
     }) => {
-      let _v6 = (0, _v2.useMemo)(() => _v27.REMINDER_OFFSET_PRESETS.filter(_v0 => !_v3.some(_v0 => _v76(_v0, _v0))), [_v3]),
-        _v7 = !!_v5 && _v27.REMINDER_OFFSET_PRESETS.some(_v0 => _v76(_v0, _v5)),
-        [_v8, _v9] = (0, _v2.useState)(_v5 ? _v7 ? _v75(_v5) : _v27.CUSTOM_RANGE_OPTION : null),
+      let _v6 = (0, _v2.useMemo)(() => _v27.REMINDER_OFFSET_PRESETS.filter(_v0 => !_v3.some(_v0 => _v77(_v0, _v0))), [_v3]),
+        _v7 = !!_v5 && _v27.REMINDER_OFFSET_PRESETS.some(_v0 => _v77(_v0, _v5)),
+        [_v8, _v9] = (0, _v2.useState)(_v5 ? _v7 ? _v76(_v5) : _v27.CUSTOM_RANGE_OPTION : null),
         [_v10, _v11] = (0, _v2.useState)(_v5 && !_v7 ? _v5.value : _v27.DEFAULT_REMINDER_OFFSET.value),
-        [_v12, _v13] = (0, _v2.useState)(_v5 && !_v7 ? _v81(_v5.unit, _v5.direction) : _v81(_v27.DEFAULT_REMINDER_OFFSET.unit, _v27.DEFAULT_REMINDER_OFFSET.direction)),
+        [_v12, _v13] = (0, _v2.useState)(_v5 && !_v7 ? _v82(_v5.unit, _v5.direction) : _v82(_v27.DEFAULT_REMINDER_OFFSET.unit, _v27.DEFAULT_REMINDER_OFFSET.direction)),
         _v14 = (0, _v2.useMemo)(() => _v6.map(_v0 => ({
-          label: _v79(_v0),
-          value: _v75(_v0)
+          label: _v80(_v0),
+          value: _v76(_v0)
         })), [_v6]),
         _v15 = (0, _v2.useMemo)(() => [..._v14, {
           label: (0, _v15.translate)({
@@ -606,12 +607,12 @@
           }),
           value: _v27.CUSTOM_RANGE_OPTION
         }], [_v14]),
-        _v16 = _v8 ?? (_v6[0] ? _v75(_v6[0]) : _v27.CUSTOM_RANGE_OPTION),
+        _v16 = _v8 ?? (_v6[0] ? _v76(_v6[0]) : _v27.CUSTOM_RANGE_OPTION),
         _v17 = _v16 === _v27.CUSTOM_RANGE_OPTION,
         {
           unit: _v18,
           direction: _v19
-        } = _v82(_v12),
+        } = _v83(_v12),
         _v20 = _v27.CUSTOM_RANGE_VALUE_MAX[_v18],
         _v21 = Math.min(_v10, _v20),
         _v22 = (0, _v2.useMemo)(() => Array.from({
@@ -620,7 +621,7 @@
           label: String(_v1 + 1),
           value: String(_v1 + 1)
         })), [_v20]),
-        _v23 = (0, _v2.useMemo)(() => _v80.map(_v0 => ({
+        _v23 = (0, _v2.useMemo)(() => _v81.map(_v0 => ({
           label: ((_v0, _v1, _v2) => {
             let _v3 = _v1 === _v27.REMINDER_DIRECTIONS.BEFORE;
             switch (_v0) {
@@ -836,21 +837,21 @@
                 });
             }
           })(_v0.unit, _v0.direction, _v21),
-          value: _v81(_v0.unit, _v0.direction)
+          value: _v82(_v0.unit, _v0.direction)
         })), [_v21]),
         _v24 = _v17 ? {
           value: _v21,
           unit: _v18,
           direction: _v19
-        } : _v6.find(_v0 => _v75(_v0) === _v16) ?? _v6[0],
-        _v25 = !!_v24 && _v3.some(_v0 => _v76(_v0, _v24)),
-        _v26 = !!_v5 && !!_v24 && _v76(_v24, _v5);
-      return (0, _v1.jsxs)(_v67.Modal, {
+        } : _v6.find(_v0 => _v76(_v0) === _v16) ?? _v6[0],
+        _v25 = !!_v24 && _v3.some(_v0 => _v77(_v0, _v24)),
+        _v26 = !!_v5 && !!_v24 && _v77(_v24, _v5);
+      return (0, _v1.jsxs)(_v58.Modal, {
         isOpen: _v0,
         onClose: _v1,
         size: "md",
-        children: [(0, _v1.jsx)(_v73.ModalOverlay, {}), (0, _v1.jsxs)(_v70.ModalContent, {
-          children: [(0, _v1.jsx)(_v72.ModalHeader, {
+        children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
+          children: [(0, _v1.jsx)(_v62.ModalHeader, {
             children: _v4 ?? (0, _v15.translate)({
               singular: "New reminder email",
               dictionary: {
@@ -877,7 +878,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v69.ModalCloseButton, {}), (0, _v1.jsxs)(_v68.ModalBody, {
+          }), (0, _v1.jsx)(_v74.ModalCloseButton, {}), (0, _v1.jsxs)(_v59.ModalBody, {
             children: [(0, _v1.jsx)(_v11.Paragraph, {
               size: "md",
               color: "text-secondary",
@@ -908,7 +909,7 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v74.Select, {
+            }), (0, _v1.jsx)(_v75.Select, {
               label: (0, _v15.translate)({
                 singular: "Reminder alert",
                 dictionary: {
@@ -942,9 +943,9 @@
               onValueChange: _v0 => _v9(_v0.value[0] ?? null),
               children: ({
                 label: _v0
-              }) => (0, _v1.jsx)(_v74.SelectItem, {
+              }) => (0, _v1.jsx)(_v75.SelectItem, {
                 color: "text-primary",
-                children: (0, _v1.jsx)(_v74.SelectItemText, {
+                children: (0, _v1.jsx)(_v75.SelectItemText, {
                   children: _v0
                 })
               })
@@ -953,7 +954,7 @@
               gap: (0, _v13.rem)(16),
               children: [(0, _v1.jsx)(_v5.Box, {
                 flex: 1,
-                children: (0, _v1.jsx)(_v74.Select, {
+                children: (0, _v1.jsx)(_v75.Select, {
                   "aria-label": (0, _v15.translate)({
                     singular: "Reminder amount",
                     dictionary: {
@@ -987,16 +988,16 @@
                   onValueChange: _v0 => _v11(Number(_v0.value[0] ?? "1")),
                   children: ({
                     label: _v0
-                  }) => (0, _v1.jsx)(_v74.SelectItem, {
+                  }) => (0, _v1.jsx)(_v75.SelectItem, {
                     color: "text-primary",
-                    children: (0, _v1.jsx)(_v74.SelectItemText, {
+                    children: (0, _v1.jsx)(_v75.SelectItemText, {
                       children: _v0
                     })
                   })
                 })
               }), (0, _v1.jsx)(_v5.Box, {
                 flex: 1,
-                children: (0, _v1.jsx)(_v74.Select, {
+                children: (0, _v1.jsx)(_v75.Select, {
                   "aria-label": (0, _v15.translate)({
                     singular: "Reminder unit",
                     dictionary: {
@@ -1030,13 +1031,13 @@
                   onValueChange: _v0 => {
                     var _v1;
                     let _v2;
-                    return _v13(_v1 = _v0.value[0] ?? _v12), void (_v10 > (_v2 = _v27.CUSTOM_RANGE_VALUE_MAX[_v82(_v1).unit]) && _v11(_v2));
+                    return _v13(_v1 = _v0.value[0] ?? _v12), void (_v10 > (_v2 = _v27.CUSTOM_RANGE_VALUE_MAX[_v83(_v1).unit]) && _v11(_v2));
                   },
                   children: ({
                     label: _v0
-                  }) => (0, _v1.jsx)(_v74.SelectItem, {
+                  }) => (0, _v1.jsx)(_v75.SelectItem, {
                     color: "text-primary",
-                    children: (0, _v1.jsx)(_v74.SelectItemText, {
+                    children: (0, _v1.jsx)(_v75.SelectItemText, {
                       children: _v0
                     })
                   })
@@ -1073,7 +1074,7 @@
                 }
               })
             })]
-          }), (0, _v1.jsxs)(_v71.ModalFooter, {
+          }), (0, _v1.jsxs)(_v61.ModalFooter, {
             justifyContent: "flex-end",
             borderTopWidth: "1px",
             borderStyle: "solid",
@@ -1117,144 +1118,143 @@
           })]
         })]
       });
-    };
-  var _v84 = _v0.i(0);
-  let _v85 = ({
-    isOpen: _v0,
-    onClose: _v1,
-    onConfirm: _v2,
-    isLoading: _v3
-  }) => (0, _v1.jsxs)(_v67.Modal, {
-    isOpen: _v0,
-    onClose: _v1,
-    isCentered: !0,
-    size: "md",
-    children: [(0, _v1.jsx)(_v73.ModalOverlay, {}), (0, _v1.jsxs)(_v70.ModalContent, {
-      children: [(0, _v1.jsx)(_v69.ModalCloseButton, {}), (0, _v1.jsx)(_v72.ModalHeader, {
-        children: (0, _v15.translate)({
-          singular: "Remove reminder email",
-          dictionary: {
-            es: {
-              singular: "Eliminar correo de recordatorio"
-            },
-            "de-DE": {
-              singular: "Erinnerungs-E-Mail entfernen"
-            },
-            "fr-FR": {
-              singular: "Supprimer l'e-mail de rappel"
-            },
-            "ja-JP": {
-              singular: "リマインダーメールを削除"
-            },
-            "ko-KR": {
-              singular: "알림 이메일 제거"
-            },
-            "pt-BR": {
-              singular: "Remover e-mail de lembrete"
-            },
-            "zh-CN": {
-              singular: "移除提醒邮件"
-            }
-          }
-        })
-      }), (0, _v1.jsx)(_v68.ModalBody, {
-        children: (0, _v1.jsx)(_v11.Paragraph, {
-          size: "md",
+    },
+    _v85 = ({
+      isOpen: _v0,
+      onClose: _v1,
+      onConfirm: _v2,
+      isLoading: _v3
+    }) => (0, _v1.jsxs)(_v58.Modal, {
+      isOpen: _v0,
+      onClose: _v1,
+      isCentered: !0,
+      size: "md",
+      children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
+        children: [(0, _v1.jsx)(_v74.ModalCloseButton, {}), (0, _v1.jsx)(_v62.ModalHeader, {
           children: (0, _v15.translate)({
-            singular: "This reminder is scheduled to send soon. Once removed, attendees won't receive it.",
+            singular: "Remove reminder email",
             dictionary: {
               es: {
-                singular: "Este recordatorio está programado para enviarse pronto. Una vez eliminado, los asistentes no lo recibirán."
+                singular: "Eliminar correo de recordatorio"
               },
               "de-DE": {
-                singular: "Diese Erinnerung ist für den baldigen Versand geplant. Wird sie entfernt, erhalten die Teilnehmenden sie nicht."
+                singular: "Erinnerungs-E-Mail entfernen"
               },
               "fr-FR": {
-                singular: "Ce rappel doit être envoyé prochainement. Une fois supprimé, les participants ne le recevront pas."
+                singular: "Supprimer l'e-mail de rappel"
               },
               "ja-JP": {
-                singular: "このリマインダーはまもなく送信される予定です。削除すると、参加者には届きません。"
+                singular: "リマインダーメールを削除"
               },
               "ko-KR": {
-                singular: "이 알림은 곧 발송될 예정입니다. 삭제하면 참석자들에게 전송되지 않습니다."
+                singular: "알림 이메일 제거"
               },
               "pt-BR": {
-                singular: "Este lembrete está agendado para envio em breve. Uma vez removido, os participantes não o receberão."
+                singular: "Remover e-mail de lembrete"
               },
               "zh-CN": {
-                singular: "该提醒即将发送。移除后，与会者将不会收到该提醒。"
+                singular: "移除提醒邮件"
               }
             }
           })
-        })
-      }), (0, _v1.jsx)(_v71.ModalFooter, {
-        borderTop: "1px solid",
-        borderColor: "stroke",
-        children: (0, _v1.jsxs)(_v84.HStack, {
-          children: [(0, _v1.jsx)(_v36.Button, {
-            variant: "tertiary",
-            isLoading: _v3,
-            onClick: _v2,
+        }), (0, _v1.jsx)(_v59.ModalBody, {
+          children: (0, _v1.jsx)(_v11.Paragraph, {
+            size: "md",
             children: (0, _v15.translate)({
-              singular: "Remove reminder",
+              singular: "This reminder is scheduled to send soon. Once removed, attendees won't receive it.",
               dictionary: {
                 es: {
-                  singular: "Eliminar recordatorio"
+                  singular: "Este recordatorio está programado para enviarse pronto. Una vez eliminado, los asistentes no lo recibirán."
                 },
                 "de-DE": {
-                  singular: "Erinnerung entfernen"
+                  singular: "Diese Erinnerung ist für den baldigen Versand geplant. Wird sie entfernt, erhalten die Teilnehmenden sie nicht."
                 },
                 "fr-FR": {
-                  singular: "Supprimer le rappel"
+                  singular: "Ce rappel doit être envoyé prochainement. Une fois supprimé, les participants ne le recevront pas."
                 },
                 "ja-JP": {
-                  singular: "リマインダーを削除"
+                  singular: "このリマインダーはまもなく送信される予定です。削除すると、参加者には届きません。"
                 },
                 "ko-KR": {
-                  singular: "알림 제거"
+                  singular: "이 알림은 곧 발송될 예정입니다. 삭제하면 참석자들에게 전송되지 않습니다."
                 },
                 "pt-BR": {
-                  singular: "Remover lembrete"
+                  singular: "Este lembrete está agendado para envio em breve. Uma vez removido, os participantes não o receberão."
                 },
                 "zh-CN": {
-                  singular: "移除提醒"
+                  singular: "该提醒即将发送。移除后，与会者将不会收到该提醒。"
                 }
               }
             })
-          }), (0, _v1.jsx)(_v36.Button, {
-            variant: "primary",
-            onClick: _v1,
-            children: (0, _v15.translate)({
-              singular: "Keep reminder",
-              dictionary: {
-                es: {
-                  singular: "Mantener recordatorio"
-                },
-                "de-DE": {
-                  singular: "Erinnerung behalten"
-                },
-                "fr-FR": {
-                  singular: "Conserver le rappel"
-                },
-                "ja-JP": {
-                  singular: "リマインダーを保持"
-                },
-                "ko-KR": {
-                  singular: "알림 유지"
-                },
-                "pt-BR": {
-                  singular: "Manter lembrete"
-                },
-                "zh-CN": {
-                  singular: "保留提醒"
+          })
+        }), (0, _v1.jsx)(_v61.ModalFooter, {
+          borderTop: "1px solid",
+          borderColor: "stroke",
+          children: (0, _v1.jsxs)(_v52.HStack, {
+            children: [(0, _v1.jsx)(_v36.Button, {
+              variant: "tertiary",
+              isLoading: _v3,
+              onClick: _v2,
+              children: (0, _v15.translate)({
+                singular: "Remove reminder",
+                dictionary: {
+                  es: {
+                    singular: "Eliminar recordatorio"
+                  },
+                  "de-DE": {
+                    singular: "Erinnerung entfernen"
+                  },
+                  "fr-FR": {
+                    singular: "Supprimer le rappel"
+                  },
+                  "ja-JP": {
+                    singular: "リマインダーを削除"
+                  },
+                  "ko-KR": {
+                    singular: "알림 제거"
+                  },
+                  "pt-BR": {
+                    singular: "Remover lembrete"
+                  },
+                  "zh-CN": {
+                    singular: "移除提醒"
+                  }
                 }
-              }
-            })
-          })]
-        })
+              })
+            }), (0, _v1.jsx)(_v36.Button, {
+              variant: "primary",
+              onClick: _v1,
+              children: (0, _v15.translate)({
+                singular: "Keep reminder",
+                dictionary: {
+                  es: {
+                    singular: "Mantener recordatorio"
+                  },
+                  "de-DE": {
+                    singular: "Erinnerung behalten"
+                  },
+                  "fr-FR": {
+                    singular: "Conserver le rappel"
+                  },
+                  "ja-JP": {
+                    singular: "リマインダーを保持"
+                  },
+                  "ko-KR": {
+                    singular: "알림 유지"
+                  },
+                  "pt-BR": {
+                    singular: "Manter lembrete"
+                  },
+                  "zh-CN": {
+                    singular: "保留提醒"
+                  }
+                }
+              })
+            })]
+          })
+        })]
       })]
-    })]
-  });
+    });
   function _v86({
     children: _v0,
     onOpen: _v1,
@@ -1363,49 +1363,52 @@
           user: _v5
         } = (0, _v25.useEntityStore)(),
         _v6 = (0, _v37.useToast)(),
+        [_v7, _v8] = (0, _v2.useState)(!1),
+        [_v9, _v10] = (0, _v2.useState)(!1),
+        [_v11, _v12] = _v48(),
         {
-          entityId: _v7
+          entityId: _v13
         } = (0, _v33.useConfigStore)(_v0 => _v0),
-        _v8 = (0, _v33.useConfigStore)(_v0 => _v0.entityType),
+        _v14 = (0, _v33.useConfigStore)(_v0 => _v0.entityType),
         {
-          trackLiveStreamRegistrationEmailToggled: _v9,
-          trackLiveStreamRegistrationReminderConfigured: _v10
-        } = (0, _v65.useLiveStreamBroadcasterTracking)(),
+          trackLiveStreamRegistrationEmailToggled: _v15,
+          trackLiveStreamRegistrationReminderConfigured: _v16
+        } = (0, _v72.useLiveStreamBroadcasterTracking)(),
         {
-          getEmailData: _v11
-        } = (0, _v2.useContext)(_v66.EmailContext),
+          getEmailData: _v17
+        } = (0, _v2.useContext)(_v73.EmailContext),
         {
-          sentChangeRegistrationEmailConfigEvent: _v12,
-          sentRegistrationEmailPreviewEvent: _v13
+          sentChangeRegistrationEmailConfigEvent: _v18,
+          sentRegistrationEmailPreviewEvent: _v19
         } = (0, _v29.useAnalytics)(),
         {
-          settings: _v14
+          settings: _v20
         } = (0, _v19.useOrionSettings)(),
-        _v15 = _v14.enable_configurable_event_reminders,
-        [_v16, _v17] = (0, _v2.useState)(!1),
-        [_v18, _v19] = (0, _v2.useState)(null),
-        [_v20, _v21] = (0, _v2.useState)(null),
-        [_v22, _v23] = (0, _v63.useDeleteUserLiveEventEmailReminder)(),
-        _v24 = (0, _v2.useRef)(null),
-        _v25 = _v3 === _v27.ENTITY_STATUS.ENDED,
-        _v26 = (_v0, _v1) => {
-          _v8 === _v17.ENTITY_TYPE.EVENT && _v10({
+        _v21 = _v20.enable_configurable_event_reminders,
+        [_v22, _v23] = (0, _v2.useState)(!1),
+        [_v24, _v25] = (0, _v2.useState)(null),
+        [_v26, _v27] = (0, _v2.useState)(null),
+        [_v28, _v29] = (0, _v70.useDeleteUserLiveEventEmailReminder)(),
+        _v30 = (0, _v2.useRef)(null),
+        _v31 = _v3 === _v27.ENTITY_STATUS.ENDED,
+        _v32 = (_v0, _v1) => {
+          _v14 === _v17.ENTITY_TYPE.EVENT && _v16({
             liveStreamReminderAction: _v0,
             liveStreamReminderOffsetValue: _v1.value,
             liveStreamReminderOffsetUnit: _v1.unit,
             liveStreamReminderOffsetDirection: _v1.direction
           });
         },
-        _v27 = (_v0 = _v18) => {
-          if (!_v7 || !_v0) return;
+        _v33 = (_v0 = _v24) => {
+          if (!_v13 || !_v0) return;
           let _v1 = _v0.reminders.find(_v0 => _v0.id === _v0);
           _v1({
             type: _v32.ACTION_TYPE.DELETE_REMINDER,
             payload: _v0
-          }), _v19(null), _v1 && _v26("deleted", _v1.offset), _v2(_v0) && (_v24.current = _v0, _v22({
+          }), _v25(null), _v1 && _v32("deleted", _v1.offset), _v2(_v0) && (_v30.current = _v0, _v28({
             where: {
               userId: (0, _v49.getUserIdFromUri)(_v5?.uri),
-              liveEventId: parseInt(_v7),
+              liveEventId: parseInt(_v13, 10),
               reminderId: _v0
             }
           }));
@@ -1414,11 +1417,11 @@
         let {
           loading: _v0,
           error: _v1
-        } = _v23;
-        _v24.current && !_v0 && (_v24.current = null, _v1 ? (_v6({
+        } = _v29;
+        _v30.current && !_v0 && (_v30.current = null, _v1 ? (_v6({
           title: _v34.default.SomethingWentWrong,
           status: "error"
-        }), _v11?.()) : _v6({
+        }), _v17?.()) : _v6({
           title: (0, _v15.translate)({
             singular: "Reminder removed",
             dictionary: {
@@ -1447,39 +1450,57 @@
           }),
           status: "success"
         }));
-      }, [_v23]);
-      let _v28 = navigator.language || "en-US",
-        _v29 = {
+      }, [_v29]);
+      let _v34 = navigator.language || "en-US",
+        _v35 = {
           year: "numeric",
           month: "2-digit",
           day: "2-digit"
         },
-        _v30 = (_v0, _v1) => {
-          _v1(_v1), _v13({
+        _v36 = (_v0, _v1) => {
+          _v1(_v1), _v19({
             actionName: _v31.BP_ACTION_NAMES.PREVIEW_BY_TYPE,
             type: _v31.BP_TYPE[_v0],
             copy: _v31.BP_COPY[_v0]
           });
         },
-        _v31 = (_v0, _v1, _v2, _v3) => {
-          _v8 === _v17.ENTITY_TYPE.EVENT && _v9({
+        _v37 = (_v0, _v1, _v2, _v3) => {
+          _v14 === _v17.ENTITY_TYPE.EVENT && _v15({
             liveStreamEmailType: _v1,
             liveStreamNewStatus: !_v2
-          }), _v1(_v3), _v12({
+          }), _v1(_v3), _v18({
             actionName: _v31.BP_ACTION_NAMES.ENABLE,
             actionValue: _v2 ? _v31.BP_ACTION_VALUES.OFF : _v31.BP_ACTION_VALUES.ON,
             type: _v31.BP_TYPE[_v0],
             copy: _v31.BP_COPY[_v0]
           });
         },
-        _v32 = !!_v0.followUp,
-        _v33 = _v32 ? _v25 && (0, _v1.jsx)(_v11.Paragraph, {
+        _v38 = (0, _v2.useEffectEvent)(_v0 => {
+          _v0 ? _v6({
+            title: _v34.default.SomethingWentWrong,
+            status: "error"
+          }) : (_v17?.(), _v10(!0), _v6({
+            title: _v34.default.EmailSent,
+            status: "success"
+          })), _v8(!1);
+        });
+      (0, _v2.useEffect)(() => {
+        let {
+          loading: _v0,
+          error: _v1,
+          data: _v2
+        } = _v12;
+        !_v0 && (_v1 || _v2) && _v38(_v1);
+      }, [_v12.data, _v12.error, _v12.loading]);
+      let _v39 = !!_v0.followUp,
+        _v40 = _v31 && !_v39 && !_v9 && !_v0.followUpSender,
+        _v41 = _v39 ? _v31 && (0, _v1.jsx)(_v11.Paragraph, {
           pl: (0, _v13.rem)(36),
           size: "md",
           children: (0, _v15.translate)({
             singular: "Sent automatically on {DATE}",
             replacements: {
-              DATE: (0, _v64.getIntlDate)(_v0.followUpSendOn || _v4 || void 0, _v29, _v28)
+              DATE: (0, _v71.getIntlDate)(_v0.followUpSendOn || _v4 || void 0, _v35, _v34)
             },
             dictionary: {
               "fr-FR": {
@@ -1496,13 +1517,13 @@
               }
             }
           })
-        }) : _v25 && _v0.followUpSender ? (0, _v1.jsx)(_v11.Paragraph, {
+        }) : _v31 && _v0.followUpSender ? (0, _v1.jsx)(_v11.Paragraph, {
           pl: (0, _v13.rem)(36),
           size: "md",
           children: (0, _v15.translate)({
             singular: "Sent manually on {DATE} by {NAME}",
             replacements: {
-              DATE: (0, _v64.getIntlDate)(_v0.followUpSendOn, _v29, _v28),
+              DATE: (0, _v71.getIntlDate)(_v0.followUpSendOn, _v35, _v34),
               NAME: _v0.followUpSender.name || ""
             },
             dictionary: {
@@ -1521,18 +1542,18 @@
             }
           })
         }) : null,
-        _v34 = [{
+        _v42 = [{
           key: _v27.EMAIL_TYPES.CONFIRMATION,
           kind: _v27.EMAIL_TYPES.CONFIRMATION,
           label: _v34.default.EmailToggle[_v27.EMAIL_TOGGLE_MAP.CONFIRMATION],
           enabled: !!_v0.confirmation,
           active: _v0.emailTemplateType === _v27.EMAIL_TYPES.CONFIRMATION,
           pico: "confirmation",
-          onSelect: () => _v30(_v27.EMAIL_TYPES.CONFIRMATION, {
+          onSelect: () => _v36(_v27.EMAIL_TYPES.CONFIRMATION, {
             type: _v32.ACTION_TYPE.EMAIL_TEMPLATE_TYPE,
             payload: _v27.EMAIL_TYPES.CONFIRMATION
           }),
-          onToggle: () => _v31(_v27.EMAIL_TYPES.CONFIRMATION, "confirmation", !!_v0.confirmation, {
+          onToggle: () => _v37(_v27.EMAIL_TYPES.CONFIRMATION, "confirmation", !!_v0.confirmation, {
             type: _v32.ACTION_TYPE.TOGGLE_SETTING_EMAIL,
             payload: _v27.EMAIL_TOGGLE_MAP.CONFIRMATION
           })
@@ -1540,39 +1561,45 @@
           key: _v27.EMAIL_TYPES.FOLLOWUP,
           kind: _v27.EMAIL_TYPES.FOLLOWUP,
           label: _v34.default.EmailTabName(_v27.EMAIL_TYPES.FOLLOWUP, 1),
-          enabled: _v32,
+          enabled: _v39 || !!_v0.followUpSender,
           active: _v0.emailTemplateType === _v27.EMAIL_TYPES.FOLLOWUP,
           pico: "follow_up",
-          tooltip: _v25 ? void 0 : _v34.default.FollowUpNotification,
-          onSelect: () => _v30(_v27.EMAIL_TYPES.FOLLOWUP, {
+          tooltip: _v31 ? void 0 : _v34.default.FollowUpNotification,
+          onSelect: () => _v36(_v27.EMAIL_TYPES.FOLLOWUP, {
             type: _v32.ACTION_TYPE.EMAIL_TEMPLATE_TYPE,
             payload: _v27.EMAIL_TYPES.FOLLOWUP
           }),
-          onToggle: () => _v31(_v27.EMAIL_TYPES.FOLLOWUP, "follow_up", _v32, {
-            type: _v32.ACTION_TYPE.TOGGLE_SETTING_EMAIL,
-            payload: _v27.EMAIL_TOGGLE_MAP.FOLLOWUP
-          }),
-          extra: _v33
-        }, ...[..._v0.reminders].sort((_v0, _v1) => _v78(_v0.offset) - _v78(_v1.offset)).map(_v0 => {
+          onToggle: () => {
+            if (_v31) {
+              _v40 && _v8(!0);
+              return;
+            }
+            _v37(_v27.EMAIL_TYPES.FOLLOWUP, "follow_up", _v39, {
+              type: _v32.ACTION_TYPE.TOGGLE_SETTING_EMAIL,
+              payload: _v27.EMAIL_TOGGLE_MAP.FOLLOWUP
+            });
+          },
+          extra: _v41
+        }, ...[..._v0.reminders].sort((_v0, _v1) => _v79(_v0.offset) - _v79(_v1.offset)).map(_v0 => {
           let _v1 = _v0.id === _v27.LEGACY_REMINDER_ID;
           return {
             key: _v0.id,
             kind: _v27.EMAIL_TYPES.REMINDER,
             label: _v34.default.EmailTabName(_v27.EMAIL_TYPES.REMINDER, 1),
-            sublabel: _v79(_v0.offset),
+            sublabel: _v80(_v0.offset),
             enabled: _v0.enabled,
             active: _v0.emailTemplateType === _v27.EMAIL_TYPES.REMINDER && _v0.selectedReminderId === _v0.id,
             pico: "reminder",
-            onSelect: () => _v30(_v27.EMAIL_TYPES.REMINDER, {
+            onSelect: () => _v36(_v27.EMAIL_TYPES.REMINDER, {
               type: _v32.ACTION_TYPE.SELECT_REMINDER,
               payload: _v0.id
             }),
-            onToggle: () => _v31(_v27.EMAIL_TYPES.REMINDER, "reminder", _v0.enabled, {
+            onToggle: () => _v37(_v27.EMAIL_TYPES.REMINDER, "reminder", _v0.enabled, {
               type: _v32.ACTION_TYPE.TOGGLE_REMINDER,
               payload: _v0.id
             }),
-            onEdit: _v15 && !_v1 ? () => _v21(_v0) : void 0,
-            onDelete: _v15 && !_v1 ? () => _v0.enabled ? _v19(_v0.id) : _v27(_v0.id) : void 0
+            onEdit: _v21 && !_v1 ? () => _v27(_v0) : void 0,
+            onDelete: _v21 && !_v1 ? () => _v0.enabled ? _v25(_v0.id) : _v33(_v0.id) : void 0
           };
         })];
       return (0, _v1.jsxs)(_v5.Box, {
@@ -1610,7 +1637,7 @@
                 }
               }
             })
-          }), _v15 && (0, _v1.jsxs)(_v7.Flex, {
+          }), _v21 && (0, _v1.jsxs)(_v7.Flex, {
             alignItems: "center",
             gap: (0, _v13.rem)(8),
             children: [(0, _v1.jsx)(_v11.Paragraph, {
@@ -1678,7 +1705,7 @@
                   }
                 }
               }),
-              children: (0, _v1.jsx)(_v52.IconButton, {
+              children: (0, _v1.jsx)(_v53.IconButton, {
                 size: "sm",
                 variant: "tertiary",
                 "aria-label": (0, _v15.translate)({
@@ -1707,9 +1734,9 @@
                     }
                   }
                 }),
-                icon: (0, _v1.jsx)(_v61.Plus, {}),
-                isDisabled: _v25 || _v0.reminders.length >= _v27.MAX_REMINDERS,
-                onClick: () => _v17(!0)
+                icon: (0, _v1.jsx)(_v68.Plus, {}),
+                isDisabled: _v31 || _v0.reminders.length >= _v27.MAX_REMINDERS,
+                onClick: () => _v23(!0)
               })
             })]
           })]
@@ -1745,7 +1772,7 @@
             }
           })
         }), (0, _v1.jsx)(_v88, {
-          children: _v34.map(_v0 => (0, _v1.jsx)(_v86, {
+          children: _v42.map(_v0 => (0, _v1.jsx)(_v86, {
             active: _v0.active,
             onOpen: _v0.onSelect,
             label: (0, _v1.jsxs)(_v5.Box, {
@@ -1758,11 +1785,11 @@
                   gap: (0, _v13.rem)(8),
                   flex: 1,
                   minWidth: 0,
-                  children: [_v0.enabled ? (0, _v1.jsx)(_v57.CircleCheck, {
+                  children: [_v0.enabled ? (0, _v1.jsx)(_v64.CircleCheck, {
                     boxSize: (0, _v13.rem)(24),
                     color: "status-positive-primary",
                     flexShrink: 0
-                  }) : (0, _v1.jsx)(_v60.MinusCircle, {
+                  }) : (0, _v1.jsx)(_v67.MinusCircle, {
                     boxSize: (0, _v13.rem)(24),
                     color: "text-primary",
                     flexShrink: 0
@@ -1798,9 +1825,9 @@
                       children: _v0.sublabel
                     })]
                   })]
-                }), (0, _v1.jsxs)(_v53.Menu, {
-                  children: [(0, _v1.jsx)(_v54.MenuButton, {
-                    as: _v52.IconButton,
+                }), (0, _v1.jsxs)(_v54.Menu, {
+                  children: [(0, _v1.jsx)(_v55.MenuButton, {
+                    as: _v53.IconButton,
                     "aria-label": (0, _v15.translate)({
                       singular: "Email options",
                       dictionary: {
@@ -1827,16 +1854,16 @@
                         }
                       }
                     }),
-                    icon: (0, _v1.jsx)(_v59.EllipsisH, {
+                    icon: (0, _v1.jsx)(_v66.EllipsisH, {
                       w: "xs",
                       fontSize: "text"
                     }),
                     variant: "tertiary",
                     size: "xs",
                     onClick: _v0 => _v0.stopPropagation()
-                  }), (0, _v1.jsxs)(_v56.MenuList, {
-                    children: [_v0.onEdit && (0, _v1.jsx)(_v55.MenuItem, {
-                      icon: (0, _v1.jsx)(_v58.EditPencil, {}),
+                  }), (0, _v1.jsxs)(_v57.MenuList, {
+                    children: [_v0.onEdit && (0, _v1.jsx)(_v56.MenuItem, {
+                      icon: (0, _v1.jsx)(_v65.EditPencil, {}),
                       onClick: _v0 => {
                         _v0.stopPropagation(), _v0.onEdit?.();
                       },
@@ -1866,9 +1893,9 @@
                           }
                         }
                       })
-                    }), (0, _v1.jsx)(_v55.MenuItem, {
-                      icon: _v0.enabled ? (0, _v1.jsx)(_v60.MinusCircle, {}) : (0, _v1.jsx)(_v57.CircleCheck, {}),
-                      isDisabled: _v25,
+                    }), (0, _v1.jsx)(_v56.MenuItem, {
+                      icon: _v0.enabled ? (0, _v1.jsx)(_v67.MinusCircle, {}) : (0, _v1.jsx)(_v64.CircleCheck, {}),
+                      isDisabled: _v31 && !(_v0.kind === _v27.EMAIL_TYPES.FOLLOWUP && _v40),
                       onClick: _v0 => {
                         _v0.stopPropagation(), _v0.onToggle();
                       },
@@ -1923,8 +1950,8 @@
                           }
                         }
                       })
-                    }), _v0.onDelete && (0, _v1.jsx)(_v55.MenuItem, {
-                      icon: (0, _v1.jsx)(_v62.TrashBin, {}),
+                    }), _v0.onDelete && (0, _v1.jsx)(_v56.MenuItem, {
+                      icon: (0, _v1.jsx)(_v69.TrashBin, {}),
                       onClick: _v0 => {
                         _v0.stopPropagation(), _v0.onDelete?.();
                       },
@@ -1960,10 +1987,50 @@
               }), _v0.extra]
             })
           }, _v0.key))
-        }), _v15 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v83, {
-            isOpen: _v16,
-            onClose: () => _v17(!1),
+        }), _v40 && (0, _v1.jsxs)(_v58.Modal, {
+          isOpen: _v7,
+          onClose: () => _v8(!1),
+          isCentered: !0,
+          size: "md",
+          children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
+            children: [(0, _v1.jsx)(_v62.ModalHeader, {
+              children: _v34.default.FollowUpModalHeader
+            }), (0, _v1.jsx)(_v59.ModalBody, {
+              children: (0, _v1.jsx)(_v11.Paragraph, {
+                size: "md",
+                children: _v34.default.FollowUpModalDescription
+              })
+            }), (0, _v1.jsx)(_v61.ModalFooter, {
+              borderTop: "1px solid",
+              borderColor: "stroke",
+              children: (0, _v1.jsxs)(_v52.HStack, {
+                children: [(0, _v1.jsx)(_v36.Button, {
+                  variant: "tertiary",
+                  onClick: () => _v8(!1),
+                  children: _v34.default.Cancel
+                }), (0, _v1.jsx)(_v36.Button, {
+                  variant: "primary",
+                  onClick: () => {
+                    _v13 && _v11({
+                      where: {
+                        userId: (0, _v49.getUserIdFromUri)(_v5?.uri),
+                        liveEventId: parseInt(_v13, 10)
+                      },
+                      variables: {
+                        type: "follow_up"
+                      }
+                    });
+                  },
+                  isLoading: _v12.loading,
+                  children: _v34.default.Send
+                })]
+              })
+            })]
+          })]
+        }), _v21 && (0, _v1.jsxs)(_v1.Fragment, {
+          children: [(0, _v1.jsx)(_v84, {
+            isOpen: _v22,
+            onClose: () => _v23(!1),
             onSave: _v0 => {
               let _v1 = `reminder_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
               _v1({
@@ -1972,16 +2039,16 @@
                   id: _v1,
                   offset: _v0
                 }
-              }), _v26("created", _v0);
+              }), _v32("created", _v0);
             },
             usedOffsets: _v0.reminders.map(_v0 => _v0.offset)
-          }, _v16 ? "add-timing-open" : "add-timing-closed"), (0, _v1.jsx)(_v85, {
-            isOpen: !!_v18,
-            onClose: () => _v19(null),
-            onConfirm: () => _v27(),
-            isLoading: _v23.loading
-          }), (0, _v1.jsx)(_v83, {
-            isOpen: !!_v20,
+          }, _v22 ? "add-timing-open" : "add-timing-closed"), (0, _v1.jsx)(_v85, {
+            isOpen: !!_v24,
+            onClose: () => _v25(null),
+            onConfirm: () => _v33(),
+            isLoading: _v29.loading
+          }), (0, _v1.jsx)(_v84, {
+            isOpen: !!_v26,
             title: (0, _v15.translate)({
               singular: "Edit timing",
               dictionary: {
@@ -2008,19 +2075,19 @@
                 }
               }
             }),
-            initialOffset: _v20?.offset,
-            onClose: () => _v21(null),
+            initialOffset: _v26?.offset,
+            onClose: () => _v27(null),
             onSave: _v0 => {
-              _v20 && (_v1({
+              _v26 && (_v1({
                 type: _v32.ACTION_TYPE.UPDATE_REMINDER_OFFSET,
                 payload: {
-                  id: _v20.id,
+                  id: _v26.id,
                   offset: _v0
                 }
-              }), _v26("timing_changed", _v0));
+              }), _v32("timing_changed", _v0));
             },
-            usedOffsets: _v0.reminders.filter(_v0 => _v0.id !== _v20?.id).map(_v0 => _v0.offset)
-          }, _v20?.id ?? "edit-timing")]
+            usedOffsets: _v0.reminders.filter(_v0 => _v0.id !== _v26?.id).map(_v0 => _v0.offset)
+          }, _v26?.id ?? "edit-timing")]
         })]
       });
     };
@@ -2393,7 +2460,7 @@
         return _v7(_v0), () => {
           _v0 && URL.revokeObjectURL(_v0);
         };
-      }, [_v0]), (0, _v1.jsxs)(_v67.Modal, {
+      }, [_v0]), (0, _v1.jsxs)(_v58.Modal, {
         isOpen: null !== _v0,
         onClose: _v3,
         onCloseComplete: _v5,
@@ -2401,10 +2468,10 @@
         closeOnOverlayClick: !_v1,
         isCentered: !0,
         size: "lg",
-        children: [(0, _v1.jsx)(_v73.ModalOverlay, {}), (0, _v1.jsxs)(_v70.ModalContent, {
+        children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
           maxWidth: _v116,
           borderRadius: _v114,
-          children: [(0, _v1.jsx)(_v68.ModalBody, {
+          children: [(0, _v1.jsx)(_v59.ModalBody, {
             padding: (0, _v13.rem)(8),
             children: (0, _v1.jsx)(_v112.AspectRatio, {
               ratio: 1.5,
@@ -2425,7 +2492,7 @@
                 height: "100%"
               })
             })
-          }), (0, _v1.jsx)(_v71.ModalFooter, {
+          }), (0, _v1.jsx)(_v61.ModalFooter, {
             paddingTop: (0, _v13.rem)(16),
             paddingBottom: (0, _v13.rem)(24),
             paddingX: (0, _v13.rem)(24),
@@ -2547,7 +2614,7 @@
       onClick: _v4,
       children: _v0 && _v1 && (0, _v1.jsx)(_v12.Tooltip, {
         content: _v34.default.Remove,
-        children: (0, _v1.jsx)(_v52.IconButton, {
+        children: (0, _v1.jsx)(_v53.IconButton, {
           "aria-label": "Delete",
           position: "absolute",
           top: (0, _v13.rem)(-14),
@@ -2617,7 +2684,7 @@
             md: (0, _v13.rem)(153)
           },
           children: _v10
-        }), (0, _v1.jsx)(_v52.IconButton, {
+        }), (0, _v1.jsx)(_v53.IconButton, {
           borderRadius: "50% !important",
           position: "absolute",
           top: "50%",
@@ -2633,7 +2700,7 @@
           onClick: () => {
             _v6(_v1 - 1);
           }
-        }), (0, _v1.jsx)(_v52.IconButton, {
+        }), (0, _v1.jsx)(_v53.IconButton, {
           borderRadius: "50% !important",
           position: "absolute",
           top: "50%",
@@ -2719,7 +2786,7 @@
               })
             }), _v4 && (0, _v1.jsx)(_v12.Tooltip, {
               content: _v34.default.Remove,
-              children: (0, _v1.jsx)(_v52.IconButton, {
+              children: (0, _v1.jsx)(_v53.IconButton, {
                 "aria-label": _v34.default.Remove,
                 position: "absolute",
                 top: (0, _v13.rem)(-8),
@@ -3066,7 +3133,7 @@
           flex: 1,
           children: (0, _v1.jsx)(_v5.Box, {
             width: "100%",
-            children: (0, _v1.jsx)(_v74.Select, {
+            children: (0, _v1.jsx)(_v75.Select, {
               size: "md",
               value: _v2 ? [_v2] : [],
               items: _v1.map(_v0 => ({
@@ -3076,7 +3143,7 @@
               onValueChange: _v0 => _v3(_v0.value[0]),
               children: _v0 => {
                 let _v1;
-                return (0, _v1.jsx)(_v74.SelectItem, {
+                return (0, _v1.jsx)(_v75.SelectItem, {
                   display: "flex",
                   pointerEvents: _v0.value === _v27.EMAIL_TEXT_STYLE.MIXED ? "none" : "all",
                   opacity: _v0.value === _v27.EMAIL_TEXT_STYLE.MIXED ? .5 : 1,
@@ -3087,7 +3154,7 @@
                       mr: (0, _v13.rem)(10),
                       color: "blue.500",
                       visibility: _v2 === _v0.value ? "visible" : "hidden"
-                    }), (0, _v1.jsx)(_v74.SelectItemText, {
+                    }), (0, _v1.jsx)(_v75.SelectItemText, {
                       children: (_v1 = _v0.label, _v4 ? (0, _v2.createElement)(_v27.EMAIL_TEXT_STYLE_VALUES[_v1], null, _v34.default.EmailTextStyle[_v1]) : _v34.default.EmailTextSize[_v1])
                     })]
                   })
@@ -3282,7 +3349,7 @@
               borderRadius: "input-xs",
               p: "xs",
               background: _v3 ? "stroke" : "",
-              children: (0, _v1.jsx)(_v58.EditPencil, {})
+              children: (0, _v1.jsx)(_v65.EditPencil, {})
             })]
           })
         }), (0, _v1.jsx)(_v101.PopoverContent, {
@@ -3436,7 +3503,7 @@
                   }), (0, _v1.jsx)(_v5.Box, {
                     flex: "1",
                     minW: 0
-                  }), (0, _v1.jsx)(_v52.IconButton, {
+                  }), (0, _v1.jsx)(_v53.IconButton, {
                     "aria-label": _v34.default.Remove,
                     icon: (0, _v1.jsx)(_v103.CloseX, {}),
                     variant: "tertiary",
@@ -4061,17 +4128,17 @@
             },
             children: [(0, _v1.jsxs)(_v7.Flex, {
               gap: (0, _v13.rem)(4),
-              children: [(0, _v1.jsx)(_v52.IconButton, {
+              children: [(0, _v1.jsx)(_v53.IconButton, {
                 "aria-label": "align left",
                 variant: _v10 === _v27.EMAIL_TEXT_FORMAT.LEFT ? "secondary" : "tertiary",
                 onClick: _v27(_v27.EMAIL_TEXT_FORMAT.LEFT),
                 icon: (0, _v1.jsx)(_v157.AlignLeft, {})
-              }), (0, _v1.jsx)(_v52.IconButton, {
+              }), (0, _v1.jsx)(_v53.IconButton, {
                 "aria-label": "align center",
                 variant: _v10 === _v27.EMAIL_TEXT_FORMAT.CENTER ? "secondary" : "tertiary",
                 onClick: _v27(_v27.EMAIL_TEXT_FORMAT.CENTER),
                 icon: (0, _v1.jsx)(_v156.AlignCenter, {})
-              }), (0, _v1.jsx)(_v52.IconButton, {
+              }), (0, _v1.jsx)(_v53.IconButton, {
                 "aria-label": "align right",
                 variant: _v10 === _v27.EMAIL_TEXT_FORMAT.RIGHT ? "secondary" : "tertiary",
                 onClick: _v27(_v27.EMAIL_TEXT_FORMAT.RIGHT),
@@ -4087,12 +4154,12 @@
               })]
             }), (0, _v1.jsxs)(_v7.Flex, {
               gap: (0, _v13.rem)(4),
-              children: [(0, _v1.jsx)(_v52.IconButton, {
+              children: [(0, _v1.jsx)(_v53.IconButton, {
                 "aria-label": "bullet points",
                 variant: _v11 === _v27.EMAIL_LIST_FORMAT.BULLETED ? "secondary" : "tertiary",
                 onClick: _v28(_v27.EMAIL_LIST_FORMAT.BULLETED),
                 icon: (0, _v1.jsx)(_v159.ListUl, {})
-              }), (0, _v1.jsx)(_v52.IconButton, {
+              }), (0, _v1.jsx)(_v53.IconButton, {
                 "aria-label": "number points",
                 variant: _v11 === _v27.EMAIL_LIST_FORMAT.NUMBERED ? "secondary" : "tertiary",
                 onClick: _v28(_v27.EMAIL_LIST_FORMAT.NUMBERED),
@@ -4207,7 +4274,7 @@
         };
       return (0, _v1.jsxs)(_v7.Flex, {
         gap: (0, _v13.rem)(4),
-        children: [(0, _v1.jsx)(_v52.IconButton, {
+        children: [(0, _v1.jsx)(_v53.IconButton, {
           icon: (0, _v1.jsx)(_v165.Desktop, {}),
           "aria-label": (0, _v15.translate)({
             singular: "Desktop preview",
@@ -4238,7 +4305,7 @@
           size: "sm",
           variant: _v1.previewMode === _v27.EMAIL_PREVIEW_MODE.WEB ? "secondary" : "tertiary",
           onClick: () => _v4(_v27.EMAIL_PREVIEW_MODE.WEB)
-        }), (0, _v1.jsx)(_v52.IconButton, {
+        }), (0, _v1.jsx)(_v53.IconButton, {
           icon: (0, _v1.jsx)(_v166.MobilePhone, {}),
           "aria-label": (0, _v15.translate)({
             singular: "Mobile preview",
@@ -4790,7 +4857,7 @@
     }, [_v0, _v1, _v4, _v5, _v6, _v9, _v10, _v7, _v8]), _v0 && _v1) ? (0, _v1.jsx)(_v25.default, {
       children: (0, _v1.jsx)(_v28.default, {
         children: (0, _v1.jsx)(_v22.default, {
-          children: (0, _v1.jsx)(_v66.default, {
+          children: (0, _v1.jsx)(_v73.default, {
             children: (0, _v1.jsx)(_v170.UndoRedoContextProvider, {
               children: (0, _v1.jsx)(_v168, {})
             })

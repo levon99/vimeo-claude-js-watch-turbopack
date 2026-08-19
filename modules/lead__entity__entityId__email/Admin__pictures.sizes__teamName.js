@@ -1233,36 +1233,36 @@
           case _v45.EMAIL_TYPES.FOLLOWUP:
             return (0, _v46.translate)({
               count: _v1,
-              singular: "Follow up email",
-              plural: "Follow up emails",
+              singular: "Follow-up email",
+              plural: "Follow-up emails",
               dictionary: {
                 es: {
-                  singular: "Correo electrónico de seguimiento",
-                  plural: "Correos electrónicos de seguimiento"
+                  singular: "Correo de seguimiento",
+                  plural: "Correos de seguimiento"
                 },
                 "de-DE": {
                   singular: "Follow-up-E-Mail",
                   plural: "Follow-up-E-Mails"
                 },
                 "fr-FR": {
-                  singular: "E-mail de suivi",
-                  plural: "E-mails de suivi"
+                  singular: "E-mail de relance",
+                  plural: "E-mails de relance"
                 },
                 "ja-JP": {
-                  singular: "フォローアップ メール",
-                  plural: "フォローアップ メール"
+                  singular: "フォローアップメール",
+                  plural: "フォローアップメール"
                 },
                 "ko-KR": {
-                  singular: "팔로우업 이메일",
-                  plural: "팔로우업 이메일"
+                  singular: "후속 이메일",
+                  plural: "후속 이메일"
                 },
                 "pt-BR": {
-                  singular: "E-mail de follow up",
-                  plural: "E-mails de follow up"
+                  singular: "E-mail de acompanhamento",
+                  plural: "E-mails de acompanhamento"
                 },
                 "zh-CN": {
-                  singular: "后续电子邮件",
-                  plural: "后续电子邮件"
+                  singular: "跟进邮件",
+                  plural: "跟进邮件"
                 }
               }
             });
@@ -1323,8 +1323,86 @@
           }
         }
       }),
+      EmailSent: (0, _v46.translate)({
+        singular: "Success! Your email was sent.",
+        dictionary: {
+          es: {
+            singular: "¡Éxito! Su correo electrónico ha sido enviado."
+          },
+          "de-DE": {
+            singular: "Erfolgreich! Ihre E-Mail wurde gesendet."
+          },
+          "fr-FR": {
+            singular: "Succès ! Votre e-mail a été envoyé."
+          },
+          "ja-JP": {
+            singular: "成功！メールが送信されました。"
+          },
+          "ko-KR": {
+            singular: "성공! 이메일이 전송되었습니다."
+          },
+          "pt-BR": {
+            singular: "Sucesso! Seu e-mail foi enviado."
+          },
+          "zh-CN": {
+            singular: "成功！您的邮件已发送。"
+          }
+        }
+      }),
+      FollowUpModalDescription: (0, _v46.translate)({
+        singular: "Registered attendees will be emailed immediately. This email can only be sent once and cannot be unsent.",
+        dictionary: {
+          es: {
+            singular: "A los asistentes registrados se les enviará un correo electrónico de inmediato. Este correo solo puede enviarse una vez y no puede deshacerse."
+          },
+          "de-DE": {
+            singular: "Angemeldete Teilnehmer werden sofort per E-Mail benachrichtigt. Diese E-Mail kann nur einmal gesendet werden und lässt sich nicht rückgängig machen."
+          },
+          "fr-FR": {
+            singular: "Les participants inscrits recevront immédiatement un e-mail. Cet e-mail ne peut être envoyé qu'une seule fois et ne peut pas être annulé."
+          },
+          "ja-JP": {
+            singular: "登録済みの参加者にただちにメールが送信されます。このメールは一度しか送信できず、取り消すことはできません。"
+          },
+          "ko-KR": {
+            singular: "등록된 참석자에게 즉시 이메일이 발송됩니다. 이 이메일은 한 번만 보낼 수 있으며 전송 취소할 수 없습니다."
+          },
+          "pt-BR": {
+            singular: "Os participantes registrados receberão um e-mail imediatamente. Este e-mail só pode ser enviado uma vez e não pode ser desfeito."
+          },
+          "zh-CN": {
+            singular: "已注册的参与者将会立即收到电子邮件。该邮件只能发送一次，无法撤回。"
+          }
+        }
+      }),
+      FollowUpModalHeader: (0, _v46.translate)({
+        singular: "Send follow-up email to registered guests?",
+        dictionary: {
+          es: {
+            singular: "¿Enviar correo de seguimiento a los asistentes registrados?"
+          },
+          "de-DE": {
+            singular: "Follow-up-E-Mail an angemeldete Teilnehmer senden?"
+          },
+          "fr-FR": {
+            singular: "Envoyer un e-mail de relance aux invités inscrits ?"
+          },
+          "ja-JP": {
+            singular: "登録済みの参加者にフォローアップメールを送信しますか？"
+          },
+          "ko-KR": {
+            singular: "등록된 참석자에게 후속 이메일을 보내시겠습니까?"
+          },
+          "pt-BR": {
+            singular: "Enviar e-mail de acompanhamento para convidados registrados?"
+          },
+          "zh-CN": {
+            singular: "要向已注册的嘉宾发送跟进邮件吗？"
+          }
+        }
+      }),
       FollowUpNotification: (0, _v46.translate)({
-        singular: "Follow up emails are sent only when the event is completed",
+        singular: "Follow-up emails are sent only when the event is completed",
         dictionary: {
           es: {
             singular: "Los correos de seguimiento se envían solo cuando el evento se ha completado"
@@ -1333,16 +1411,16 @@
             singular: "Follow-up-E-Mails werden nur gesendet, wenn die Veranstaltung abgeschlossen ist"
           },
           "fr-FR": {
-            singular: "Les e-mails de suivi ne sont envoyés que lorsque l'événement est terminé"
+            singular: "Les e-mails de relance sont envoyés uniquement lorsque l'événement est terminé"
           },
           "ja-JP": {
             singular: "フォローアップメールはイベントが完了したときにのみ送信されます"
           },
           "ko-KR": {
-            singular: "후속 이메일은 이벤트가 완료된 경우에만 전송됩니다"
+            singular: "후속 이메일은 이벤트가 완료된 경우에만 발송됩니다"
           },
           "pt-BR": {
-            singular: "E-mails de acompanhamento são enviados apenas quando o evento é concluído"
+            singular: "E-mails de acompanhamento são enviados somente quando o evento é concluído"
           },
           "zh-CN": {
             singular: "仅在活动完成后发送跟进邮件"
@@ -2720,6 +2798,32 @@
         }
       },
       SelectLogo: (0, _v46.translate)("Select logo"),
+      Send: (0, _v46.translate)({
+        singular: "Send",
+        dictionary: {
+          es: {
+            singular: "Enviar"
+          },
+          "de-DE": {
+            singular: "Senden"
+          },
+          "fr-FR": {
+            singular: "Envoyer"
+          },
+          "ja-JP": {
+            singular: "送信"
+          },
+          "ko-KR": {
+            singular: "전송"
+          },
+          "pt-BR": {
+            singular: "Enviar"
+          },
+          "zh-CN": {
+            singular: "发送"
+          }
+        }
+      }),
       SendTest: (0, _v46.translate)({
         singular: "Send test",
         dictionary: {

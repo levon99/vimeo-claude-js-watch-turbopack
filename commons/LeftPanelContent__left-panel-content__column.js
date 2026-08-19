@@ -8,27 +8,27 @@
   _v0.s(["LeftPanelContent", 0, function ({
     id: _v0,
     className: _v1 = (0, _v4.createDomName)("left-panel-content"),
-    alignItems: _v2,
-    justifyContent: _v3,
-    gap: _v4,
-    withTopPadding: _v5,
-    children: _v6
+    fitContent: _v2 = !1,
+    alignItems: _v3,
+    justifyContent: _v4,
+    gap: _v5,
+    withTopPadding: _v6,
+    children: _v7
   }) {
     return (0, _v1.jsx)(_v2.Flex, {
       id: _v0,
       className: _v1,
       direction: "column",
-      alignItems: _v2,
-      justifyContent: _v3,
-      gap: _v4,
-      grow: 1,
-      basis: 0,
+      alignItems: _v3,
+      justifyContent: _v4,
+      gap: _v5,
+      flex: _v2 ? void 0 : 1,
       overflowX: "hidden",
-      overflowY: "auto",
+      overflowY: _v2 ? "visible" : "auto",
       width: "100%",
-      height: "100%",
-      padding: `${_v5 ? (0, _v3.rem)(16) : 0} ${(0, _v3.rem)(16)} ${(0, _v3.rem)(16)} ${(0, _v3.rem)(16)}`,
-      children: _v6
+      height: _v2 ? "auto" : "100%",
+      padding: `${_v6 ? (0, _v3.rem)(16) : 0} ${(0, _v3.rem)(16)} ${(0, _v3.rem)(16)} ${(0, _v3.rem)(16)}`,
+      children: _v7
     });
   }]);
 }

@@ -13661,11 +13661,9 @@
           toggleSearchType: _v3
         } = (0, _v3.useContext)(_v155),
         {
-          capabilities: {
-            hasEnterprise: _v4,
-            hasPublicSearchDisabled: _v5
-          }
-        } = (0, _v64.useCapability)(["hasEnterprise", "hasPublicSearchDisabled"], _v1?.teamUser?.ownerId),
+          hasEnterprise: _v4,
+          hasPublicSearchDisabled: _v5
+        } = _v68(),
         _v6 = _v2 === _v152,
         _v7 = !1 === _v4 && !1 === _v5,
         _v8 = _v6 ? _v80.NO_LIBRARY_RESULTS : _v80.NO_PUBLIC_RESULTS,
