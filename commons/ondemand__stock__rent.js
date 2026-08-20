@@ -34,7 +34,7 @@
       let _v0 = _v1 ?? (document?.referrer !== "" ? document?.referrer : `${window.location.origin}/ondemand`),
         _v1 = new URL(_v0, window.location.origin);
       return _v1?.pathname;
-    } catch (_v0) {
+    } catch {
       return "/ondemand";
     }
     if (_v2) try {
@@ -42,7 +42,7 @@
         _v1 = _v2.getRedirectUrl(_v0),
         _v2 = new URL(_v1, window.location.origin);
       return _v2?.pathname;
-    } catch (_v0) {}
+    } catch {}
     return "/upgrade";
   }, "getFinalProductName", 0, (_v0, _v1) => {
     if (!_v0) return "";
@@ -57,7 +57,7 @@
       _v5 = `${_v2} ${_v4(_v0)} annual bandwidth`;
     }
     return _v5;
-  }, "getPlanType", 0, _v3, "isCreatorProductAction", 0, _v0 => "string" == typeof _v0 && ["rent", "buy", "subscribe"].includes(_v0), "isCreatorProductTier", 0, _v2, "isPayPalToken", 0, _v0 => _v0.startsWith("EC-") || _v0.startsWith("BA-"), "isRentalPlan", 0, _v0 => void 0 !== _v0.rentalTerms, "separateNumberAndUnit", 0, _v4, "transformToOrderItemOptions", 0, _v0 => {
+  }, "getPlanType", 0, _v3, "isCreatorProductAction", 0, _v0 => "string" == typeof _v0 && ["rent", "buy", "subscribe"].includes(_v0), "isCreatorProductTier", 0, _v2, "isPayPalToken", 0, _v0 => _v0.startsWith("EC-") || _v0.startsWith("BA-"), "isRentalPlan", 0, _v0 => void 0 !== _v0.rentalTerms, "isUpgradeToPlanAlreadyOnSubscription", 0, (_v0, _v1) => !!_v0 && !!_v1?.plans?.length && _v1.plans.some(_v0 => _v0.billingPlanId === _v0), "separateNumberAndUnit", 0, _v4, "transformToOrderItemOptions", 0, _v0 => {
     let {
       billingPlanId: _v1,
       productId: _v2,

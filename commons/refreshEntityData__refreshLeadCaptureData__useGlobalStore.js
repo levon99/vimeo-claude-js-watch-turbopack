@@ -1,17 +1,18 @@
 {
   "use strict";
 
-  _v0.s(["refreshEntityData", () => _v18, "refreshLeadCaptureData", () => _v19, "useGlobalStore", () => _v17], 0), _v0.i(0);
-  var _v1 = _v0.i(0),
-    _v2 = _v0.i(0),
-    _v3 = _v0.i(0);
-  let _v4 = (_v0, _v1) => (0, _v1.create)((0, _v3.immer)((0, _v2.devtools)(_v0, {
+  _v0.s(["refreshEntityData", () => _v18, "refreshLeadCaptureData", () => _v19, "useGlobalStore", () => _v17], 0);
+  var _v1 = _v0.i(0);
+  _v0.i(0);
+  var _v2 = _v0.i(0),
+    _v3 = _v0.i(0),
+    _v4 = _v0.i(0);
+  let _v5 = (_v0, _v1) => (0, _v2.create)((0, _v4.immer)((0, _v3.devtools)(_v0, {
     name: _v1,
     enabled: !1
   })));
-  _v0.s(["createImmerStore", 0, _v4], 0);
-  var _v5 = _v0.i(0),
-    _v6 = _v0.i(0),
+  _v0.s(["createImmerStore", 0, _v5], 0);
+  var _v6 = _v0.i(0),
     _v7 = _v0.i(0),
     _v8 = _v0.i(0);
   let _v9 = (_v0, _v1, _v2) => {
@@ -82,7 +83,7 @@
       ..._v3[_v2],
       connectedFields: _v4
     }, _v3;
-  }, "getValidator", 0, (_v0, _v1) => _v0 === _v5.FORM_FIELD_NAME_VALUES.EMAIL ? _v0 => _v11.test(_v0) ? void 0 : _v8.default.InvalidEmailAddress : _v1 ? _v0 => "string" == typeof _v0 ? _v0.length > 0 ? void 0 : _v8.default.ThisFieldIsRequired : "boolean" == typeof _v0 ? _v0 ? void 0 : _v8.default.ThisFieldIsRequired : void 0 : () => void 0, "hasAutoFilled", 0, _v0 => {
+  }, "getValidator", 0, (_v0, _v1) => _v0 === _v6.FORM_FIELD_NAME_VALUES.EMAIL ? _v0 => _v11.test(_v0) ? void 0 : _v8.default.InvalidEmailAddress : _v1 ? _v0 => "string" == typeof _v0 ? _v0.length > 0 ? void 0 : _v8.default.ThisFieldIsRequired : "boolean" == typeof _v0 ? _v0 ? void 0 : _v8.default.ThisFieldIsRequired : void 0 : () => void 0, "hasAutoFilled", 0, _v0 => {
     try {
       return !_v0.nativeEvent?.inputType;
     } catch (_v0) {
@@ -115,11 +116,12 @@
       past: [],
       future: []
     },
-    _v17 = _v4((_v0, _v1) => {
-      let _v2 = {
-        set: _v0,
-        get: _v1
-      };
+    _v17 = _v5((_v0, _v1) => {
+      let _v2 = null,
+        _v3 = {
+          set: _v0,
+          get: _v1
+        };
       return {
         ...(_v0 => {
           let {
@@ -131,9 +133,9 @@
                   past: _v4,
                   leadCapture: _v5
                 } = _v1(),
-                _v6 = (0, _v6.default)(_v5),
+                _v6 = (0, _v7.default)(_v5),
                 _v7 = _v9(_v6, _v0, _v1);
-              if (!(!_v3 && (0, _v7.default)(_v5, _v6))) return _v2 ? _v2({
+              if (!(!_v3 && (0, _v1.default)(_v5, _v6))) return _v2 ? _v2({
                 leadCapture: _v6
               }) : (_v2({
                 leadCapture: _v6
@@ -151,7 +153,7 @@
             _v4 = _v1()?.leadCapture || {};
           return {
             ..._v16,
-            leadCaptureState: _v5.defaultState,
+            leadCaptureState: _v6.defaultState,
             leadCapture: _v4,
             canUndo: () => _v1()?.past.length > 0,
             canRedo: () => _v1()?.future.length > 0,
@@ -171,7 +173,7 @@
                   value: _v4,
                   locationState: _v2.locationState
                 }, ..._v1]
-              }, void 0, "undo"), [_v2.key, _v2.value, _v2.locationState];
+              }, void 0, "undo"), [_v2.key, _v2.value, _v2.locationState, _v4];
             },
             redo: () => {
               let {
@@ -189,7 +191,7 @@
                   locationState: _v2.locationState
                 }],
                 future: _v3
-              }, void 0, "redo"), [_v2.key, _v2.value, _v2.locationState];
+              }, void 0, "redo"), [_v2.key, _v2.value, _v2.locationState, _v4];
             },
             setLeadCapture: _v0 => {
               _v2(_v0 => {
@@ -211,7 +213,7 @@
               }, void 0, "clearHistory");
             }
           };
-        })(_v2),
+        })(_v3),
         ...(_v0 => {
           let _v1,
             _v2,
@@ -247,7 +249,7 @@
               parentPreset: _v0
             }))
           };
-        })(_v2),
+        })(_v3),
         ...(_v0 => {
           var _v1;
           let _v2,
@@ -257,7 +259,7 @@
             } = _v0,
             _v5 = (_v1 = _v4, (_v2 = _v1()?.entity) || {});
           return {
-            entityState: _v5.defaultState,
+            entityState: _v6.defaultState,
             entity: _v5,
             authRoomPassword: null,
             pageReferrer: null,
@@ -285,7 +287,7 @@
               pageReferrer: _v0
             })
           };
-        })(_v2),
+        })(_v3),
         entityType: "",
         entityId: "0",
         isDefault: !0,
@@ -294,8 +296,8 @@
         viewer: null,
         entityOwnerId: null,
         uploadOption: "",
-        sideMenuType: _v5.SIDE_MENU_CONTENT.SETTINGS,
-        selectedSettingsTab: _v5.FORM_TAB_OPTIONS.APPEARANCE,
+        sideMenuType: _v6.SIDE_MENU_CONTENT.SETTINGS,
+        selectedSettingsTab: _v6.FORM_TAB_OPTIONS.APPEARANCE,
         selectedNonEditableField: "",
         providers: [],
         providerFields: {
@@ -308,6 +310,10 @@
         lastSelectedFieldIndex: 0,
         emailAddressCached: "",
         patchApiStatus: {},
+        formPendingChanges: {},
+        formSavingChanges: {},
+        formSaveHandler: null,
+        emailSaveState: null,
         calendarLinks: {
           google: "",
           outlook: "",
@@ -374,13 +380,67 @@
           emailAddressCached: _v0
         }), void 0, "setEmailAddressCached"),
         setPatchApiStatus: (_v0, _v1) => {
-          let _v2 = Object.entries(_v1().patchApiStatus).filter(_v0 => !0 === _v0[1]);
-          _v0(() => ({
-            patchApiStatus: {
-              ..._v2,
-              [_v0]: _v1
-            }
-          }), void 0, "setPatchApiStatus");
+          let _v2 = {
+            ..._v1().patchApiStatus
+          };
+          _v1 ? _v2[_v0] = _v1 : delete _v2[_v0], _v0({
+            patchApiStatus: _v2
+          }, void 0, "setPatchApiStatus");
+        },
+        recordFormChange: (_v0, _v1) => {
+          let _v2 = {
+              ..._v1().formPendingChanges
+            },
+            _v3 = _v0 in _v2 ? _v2[_v0].originalValue : _v1.originalValue;
+          (0, _v1.default)(_v1.value, _v3) ? delete _v2[_v0] : _v2[_v0] = {
+            ..._v1,
+            originalValue: _v3
+          }, _v0({
+            formPendingChanges: _v2
+          }, void 0, "recordFormChange");
+        },
+        settleFormChanges: _v0 => {
+          _v0({
+            formPendingChanges: _v0 ? _v1().formPendingChanges : {
+              ..._v1().formSavingChanges,
+              ..._v1().formPendingChanges
+            },
+            formSavingChanges: {}
+          }, void 0, "settleFormChanges");
+        },
+        setFormSaveHandler: _v0 => _v0({
+          formSaveHandler: _v0
+        }, void 0, "setFormSaveHandler"),
+        setEmailSaveState: _v0 => _v0({
+          emailSaveState: _v0
+        }, void 0, "setEmailSaveState"),
+        saveFormChanges: () => _v2 || (0 === Object.keys(_v1().formPendingChanges).length ? Promise.resolve(!0) : _v2 = (async () => {
+          for (; Object.keys(_v1().formPendingChanges).length > 0;) {
+            _v0({
+              formSavingChanges: {
+                ..._v1().formPendingChanges
+              },
+              formPendingChanges: {}
+            }, void 0, "saveFormChanges");
+            let _v0 = (await _v1().formSaveHandler?.()) ?? !1;
+            if (_v1().settleFormChanges(_v0), !_v0) return !1;
+          }
+          return _v1().clearHistory(), !0;
+        })().finally(() => {
+          _v2 = null;
+        })),
+        clearPendingFormChanges: () => _v0({
+          formPendingChanges: {}
+        }, void 0, "clearPendingFormChanges"),
+        saveRegistrationChanges: () => {
+          _v1().saveFormChanges(), _v1().emailSaveState?.save();
+        },
+        discardRegistrationChanges: (_v0 = !0) => {
+          _v1().setLeadCaptureProperties("uri", "", !0), _v1().clearHistory(), _v0({
+            formPendingChanges: {},
+            formSavingChanges: {},
+            refreshLeadCaptureDataCounter: _v1().refreshLeadCaptureDataCounter + Number(_v0)
+          }, void 0, "discardRegistrationChanges");
         },
         setCalendarLinks: _v0 => _v0(() => ({
           calendarLinks: _v0
@@ -413,8 +473,8 @@
     }, "globalStore"),
     _v18 = _v17.getState().refreshEntityData,
     _v19 = _v17.getState().refreshLeadCaptureData,
-    _v20 = _v4(_v0 => ({
-      selectedSection: _v5.SECTION_TYPES.FORM,
+    _v20 = _v5(_v0 => ({
+      selectedSection: _v6.SECTION_TYPES.FORM,
       setSelectedSection: _v0 => _v0({
         selectedSection: _v0
       })

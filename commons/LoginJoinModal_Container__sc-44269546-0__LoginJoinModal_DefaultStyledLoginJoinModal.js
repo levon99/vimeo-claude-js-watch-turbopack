@@ -23,42 +23,35 @@
     disableDismiss: _v4,
     onDismiss: _v5,
     redirectUrlAfterSocialLogin: _v6,
-    showFBCreativeConnectJoinModal: _v7,
-    redirectUrl: _v8,
-    target: _v9,
-    updateInitialType: _v10,
-    bpData: _v11
+    redirectUrl: _v7,
+    showFBCreativeConnectJoinModal: _v8,
+    target: _v9
   }) {
-    let [_v12, _v13] = (0, _v4.useState)(!!_v3),
-      [_v14, _v15] = (0, _v4.useState)(_v2);
+    let [_v10, _v11] = (0, _v4.useState)(!!_v3),
+      [_v12, _v13] = (0, _v4.useState)(_v2);
     (0, _v4.useEffect)(() => {
-      _v15(_v2);
+      _v13(_v2);
     }, [_v2]), (0, _v4.useEffect)(() => {
-      _v13(!!_v3);
+      _v11(!!_v3);
     }, [_v3]);
-    let _v16 = () => {
-      _v13(_v0 => !_v0);
+    let _v14 = () => {
+      _v11(_v0 => !_v0);
     };
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v0 ? _v0(_v16) : null, (0, _v1.jsx)(_v6, {
-        type: _v14,
-        active: _v12,
+      children: [_v0 ? _v0(_v14) : null, (0, _v1.jsx)(_v6, {
+        type: _v12,
+        active: _v10,
         disableDismiss: _v4,
         redirectUrlAfterSocialLogin: _v6,
-        redirectUrlFbForm: _v8,
-        showFBCreativeConnectJoinModal: _v7,
+        redirectUrl: _v7,
+        showFBCreativeConnectJoinModal: _v8,
         target: _v9,
-        redirectUrl: _v8,
         onDismiss: () => {
-          _v16(), _v5 && _v5(), _v15(_v2);
+          _v14(), _v5 && _v5(), _v13(_v2);
         },
         onSuccess: _v0 => {
-          _v16(), _v1 && _v1(_v0);
-        },
-        updateType: _v0 => {
-          _v10 && _v10(_v0), _v15(_v0);
-        },
-        bpData: _v11
+          _v14(), _v1 && _v1(_v0);
+        }
       })]
     });
   }

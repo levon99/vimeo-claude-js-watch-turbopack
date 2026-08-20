@@ -1301,7 +1301,18 @@
                 region: _v2
               };
             })(_v2);
-          if (await _v19(_v0, _v1, _v6, _v5), _v4 !== _v0) {
+          try {
+            await _v19(_v0, _v1, _v6, _v5);
+          } catch (_v0) {
+            "object" == typeof _v0 && null !== _v0 && "errorCode" in _v0 && 0 === _v0.errorCode ? _v27({
+              currentModalInDisplay: _v27.TeamManagementModals.ADMIN_LIMIT_UPSELL_MODAL,
+              data: {
+                adminLimitEntryPoint: "promotion"
+              }
+            }) : _v21(!0);
+            return;
+          }
+          if (_v4 !== _v0) {
             let _v0 = (0, _v63.camelizeString)(_v4.toLowerCase()),
               _v1 = (0, _v63.camelizeString)(_v0.toLowerCase());
             _v26({
@@ -1504,7 +1515,7 @@
                           role: _v0.permissionLevel.toLowerCase(),
                           team_member_id: _v0
                         });
-                      } catch (_v0) {
+                      } catch {
                         _v21(!0);
                       }
                     })(_v0),
@@ -1516,7 +1527,7 @@
                           role: _v0.role.toLowerCase(),
                           team_member_id: _v0
                         });
-                      } catch (_v0) {
+                      } catch {
                         _v21(!0);
                       }
                     })(_v0),

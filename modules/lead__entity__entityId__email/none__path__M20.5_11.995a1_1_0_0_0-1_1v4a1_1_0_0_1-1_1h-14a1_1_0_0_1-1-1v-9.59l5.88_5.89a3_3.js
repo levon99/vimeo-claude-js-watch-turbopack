@@ -543,15 +543,6 @@
     }, {
       unit: _v27.REMINDER_OFFSET_UNITS.DAYS,
       direction: _v27.REMINDER_DIRECTIONS.BEFORE
-    }, {
-      unit: _v27.REMINDER_OFFSET_UNITS.MINUTES,
-      direction: _v27.REMINDER_DIRECTIONS.AFTER
-    }, {
-      unit: _v27.REMINDER_OFFSET_UNITS.HOURS,
-      direction: _v27.REMINDER_DIRECTIONS.AFTER
-    }, {
-      unit: _v27.REMINDER_OFFSET_UNITS.DAYS,
-      direction: _v27.REMINDER_DIRECTIONS.AFTER
     }],
     _v82 = (_v0, _v1) => `${_v0}_${_v1}`,
     _v83 = _v0 => {
@@ -1355,60 +1346,61 @@
       let {
           emailState: _v0,
           dispatch: _v1,
-          isReminderSaved: _v2
+          isReminderSaved: _v2,
+          isManualSaveRequired: _v3
         } = (0, _v23.useEmailCustomization)(),
         {
-          status: _v3,
-          completedOn: _v4,
-          user: _v5
+          status: _v4,
+          completedOn: _v5,
+          user: _v6
         } = (0, _v25.useEntityStore)(),
-        _v6 = (0, _v37.useToast)(),
-        [_v7, _v8] = (0, _v2.useState)(!1),
-        [_v9, _v10] = (0, _v2.useState)(!1),
-        [_v11, _v12] = _v48(),
+        _v7 = (0, _v37.useToast)(),
+        [_v8, _v9] = (0, _v2.useState)(!1),
+        [_v10, _v11] = (0, _v2.useState)(!1),
+        [_v12, _v13] = _v48(),
         {
-          entityId: _v13
+          entityId: _v14
         } = (0, _v33.useConfigStore)(_v0 => _v0),
-        _v14 = (0, _v33.useConfigStore)(_v0 => _v0.entityType),
+        _v15 = (0, _v33.useConfigStore)(_v0 => _v0.entityType),
         {
-          trackLiveStreamRegistrationEmailToggled: _v15,
-          trackLiveStreamRegistrationReminderConfigured: _v16
+          trackLiveStreamRegistrationEmailToggled: _v16,
+          trackLiveStreamRegistrationReminderConfigured: _v17
         } = (0, _v72.useLiveStreamBroadcasterTracking)(),
         {
-          getEmailData: _v17
+          getEmailData: _v18
         } = (0, _v2.useContext)(_v73.EmailContext),
         {
-          sentChangeRegistrationEmailConfigEvent: _v18,
-          sentRegistrationEmailPreviewEvent: _v19
+          sentChangeRegistrationEmailConfigEvent: _v19,
+          sentRegistrationEmailPreviewEvent: _v20
         } = (0, _v29.useAnalytics)(),
         {
-          settings: _v20
+          settings: _v21
         } = (0, _v19.useOrionSettings)(),
-        _v21 = _v20.enable_configurable_event_reminders,
-        [_v22, _v23] = (0, _v2.useState)(!1),
-        [_v24, _v25] = (0, _v2.useState)(null),
-        [_v26, _v27] = (0, _v2.useState)(null),
-        [_v28, _v29] = (0, _v70.useDeleteUserLiveEventEmailReminder)(),
-        _v30 = (0, _v2.useRef)(null),
-        _v31 = _v3 === _v27.ENTITY_STATUS.ENDED,
-        _v32 = (_v0, _v1) => {
-          _v14 === _v17.ENTITY_TYPE.EVENT && _v16({
+        _v22 = _v21.enable_configurable_event_reminders,
+        [_v23, _v24] = (0, _v2.useState)(!1),
+        [_v25, _v26] = (0, _v2.useState)(null),
+        [_v27, _v28] = (0, _v2.useState)(null),
+        [_v29, _v30] = (0, _v70.useDeleteUserLiveEventEmailReminder)(),
+        _v31 = (0, _v2.useRef)(null),
+        _v32 = _v4 === _v27.ENTITY_STATUS.ENDED,
+        _v33 = (_v0, _v1) => {
+          _v15 === _v17.ENTITY_TYPE.EVENT && _v17({
             liveStreamReminderAction: _v0,
             liveStreamReminderOffsetValue: _v1.value,
             liveStreamReminderOffsetUnit: _v1.unit,
             liveStreamReminderOffsetDirection: _v1.direction
           });
         },
-        _v33 = (_v0 = _v24) => {
-          if (!_v13 || !_v0) return;
+        _v34 = (_v0 = _v25) => {
+          if (!_v14 || !_v0) return;
           let _v1 = _v0.reminders.find(_v0 => _v0.id === _v0);
           _v1({
             type: _v32.ACTION_TYPE.DELETE_REMINDER,
             payload: _v0
-          }), _v25(null), _v1 && _v32("deleted", _v1.offset), _v2(_v0) && (_v30.current = _v0, _v28({
+          }), _v26(null), _v1 && _v33("deleted", _v1.offset), !_v3 && _v2(_v0) && (_v31.current = _v0, _v29({
             where: {
-              userId: (0, _v49.getUserIdFromUri)(_v5?.uri),
-              liveEventId: parseInt(_v13, 10),
+              userId: (0, _v49.getUserIdFromUri)(_v6?.uri),
+              liveEventId: parseInt(_v14, 10),
               reminderId: _v0
             }
           }));
@@ -1417,11 +1409,11 @@
         let {
           loading: _v0,
           error: _v1
-        } = _v29;
-        _v30.current && !_v0 && (_v30.current = null, _v1 ? (_v6({
+        } = _v30;
+        _v31.current && !_v0 && (_v31.current = null, _v1 ? (_v7({
           title: _v34.default.SomethingWentWrong,
           status: "error"
-        }), _v17?.()) : _v6({
+        }), _v18?.()) : _v7({
           title: (0, _v15.translate)({
             singular: "Reminder removed",
             dictionary: {
@@ -1450,57 +1442,57 @@
           }),
           status: "success"
         }));
-      }, [_v29]);
-      let _v34 = navigator.language || "en-US",
-        _v35 = {
+      }, [_v30]);
+      let _v35 = navigator.language || "en-US",
+        _v36 = {
           year: "numeric",
           month: "2-digit",
           day: "2-digit"
         },
-        _v36 = (_v0, _v1) => {
-          _v1(_v1), _v19({
+        _v37 = (_v0, _v1) => {
+          _v1(_v1), _v20({
             actionName: _v31.BP_ACTION_NAMES.PREVIEW_BY_TYPE,
             type: _v31.BP_TYPE[_v0],
             copy: _v31.BP_COPY[_v0]
           });
         },
-        _v37 = (_v0, _v1, _v2, _v3) => {
-          _v14 === _v17.ENTITY_TYPE.EVENT && _v15({
+        _v38 = (_v0, _v1, _v2, _v3) => {
+          _v15 === _v17.ENTITY_TYPE.EVENT && _v16({
             liveStreamEmailType: _v1,
             liveStreamNewStatus: !_v2
-          }), _v1(_v3), _v18({
+          }), _v1(_v3), _v19({
             actionName: _v31.BP_ACTION_NAMES.ENABLE,
             actionValue: _v2 ? _v31.BP_ACTION_VALUES.OFF : _v31.BP_ACTION_VALUES.ON,
             type: _v31.BP_TYPE[_v0],
             copy: _v31.BP_COPY[_v0]
           });
         },
-        _v38 = (0, _v2.useEffectEvent)(_v0 => {
-          _v0 ? _v6({
+        _v39 = (0, _v2.useEffectEvent)(_v0 => {
+          _v0 ? _v7({
             title: _v34.default.SomethingWentWrong,
             status: "error"
-          }) : (_v17?.(), _v10(!0), _v6({
+          }) : (_v18?.(), _v11(!0), _v7({
             title: _v34.default.EmailSent,
             status: "success"
-          })), _v8(!1);
+          })), _v9(!1);
         });
       (0, _v2.useEffect)(() => {
         let {
           loading: _v0,
           error: _v1,
           data: _v2
-        } = _v12;
-        !_v0 && (_v1 || _v2) && _v38(_v1);
-      }, [_v12.data, _v12.error, _v12.loading]);
-      let _v39 = !!_v0.followUp,
-        _v40 = _v31 && !_v39 && !_v9 && !_v0.followUpSender,
-        _v41 = _v39 ? _v31 && (0, _v1.jsx)(_v11.Paragraph, {
+        } = _v13;
+        !_v0 && (_v1 || _v2) && _v39(_v1);
+      }, [_v13.data, _v13.error, _v13.loading]);
+      let _v40 = !!_v0.followUp,
+        _v41 = _v32 && !_v40 && !_v10 && !_v0.followUpSender,
+        _v42 = _v40 ? _v32 && (0, _v1.jsx)(_v11.Paragraph, {
           pl: (0, _v13.rem)(36),
           size: "md",
           children: (0, _v15.translate)({
             singular: "Sent automatically on {DATE}",
             replacements: {
-              DATE: (0, _v71.getIntlDate)(_v0.followUpSendOn || _v4 || void 0, _v35, _v34)
+              DATE: (0, _v71.getIntlDate)(_v0.followUpSendOn || _v5 || void 0, _v36, _v35)
             },
             dictionary: {
               "fr-FR": {
@@ -1517,13 +1509,13 @@
               }
             }
           })
-        }) : _v31 && _v0.followUpSender ? (0, _v1.jsx)(_v11.Paragraph, {
+        }) : _v32 && _v0.followUpSender ? (0, _v1.jsx)(_v11.Paragraph, {
           pl: (0, _v13.rem)(36),
           size: "md",
           children: (0, _v15.translate)({
             singular: "Sent manually on {DATE} by {NAME}",
             replacements: {
-              DATE: (0, _v71.getIntlDate)(_v0.followUpSendOn, _v35, _v34),
+              DATE: (0, _v71.getIntlDate)(_v0.followUpSendOn, _v36, _v35),
               NAME: _v0.followUpSender.name || ""
             },
             dictionary: {
@@ -1542,18 +1534,18 @@
             }
           })
         }) : null,
-        _v42 = [{
+        _v43 = [{
           key: _v27.EMAIL_TYPES.CONFIRMATION,
           kind: _v27.EMAIL_TYPES.CONFIRMATION,
           label: _v34.default.EmailToggle[_v27.EMAIL_TOGGLE_MAP.CONFIRMATION],
           enabled: !!_v0.confirmation,
           active: _v0.emailTemplateType === _v27.EMAIL_TYPES.CONFIRMATION,
           pico: "confirmation",
-          onSelect: () => _v36(_v27.EMAIL_TYPES.CONFIRMATION, {
+          onSelect: () => _v37(_v27.EMAIL_TYPES.CONFIRMATION, {
             type: _v32.ACTION_TYPE.EMAIL_TEMPLATE_TYPE,
             payload: _v27.EMAIL_TYPES.CONFIRMATION
           }),
-          onToggle: () => _v37(_v27.EMAIL_TYPES.CONFIRMATION, "confirmation", !!_v0.confirmation, {
+          onToggle: () => _v38(_v27.EMAIL_TYPES.CONFIRMATION, "confirmation", !!_v0.confirmation, {
             type: _v32.ACTION_TYPE.TOGGLE_SETTING_EMAIL,
             payload: _v27.EMAIL_TOGGLE_MAP.CONFIRMATION
           })
@@ -1561,25 +1553,25 @@
           key: _v27.EMAIL_TYPES.FOLLOWUP,
           kind: _v27.EMAIL_TYPES.FOLLOWUP,
           label: _v34.default.EmailTabName(_v27.EMAIL_TYPES.FOLLOWUP, 1),
-          enabled: _v39 || !!_v0.followUpSender,
+          enabled: _v40 || !!_v0.followUpSender,
           active: _v0.emailTemplateType === _v27.EMAIL_TYPES.FOLLOWUP,
           pico: "follow_up",
-          tooltip: _v31 ? void 0 : _v34.default.FollowUpNotification,
-          onSelect: () => _v36(_v27.EMAIL_TYPES.FOLLOWUP, {
+          tooltip: _v32 ? void 0 : _v34.default.FollowUpNotification,
+          onSelect: () => _v37(_v27.EMAIL_TYPES.FOLLOWUP, {
             type: _v32.ACTION_TYPE.EMAIL_TEMPLATE_TYPE,
             payload: _v27.EMAIL_TYPES.FOLLOWUP
           }),
           onToggle: () => {
-            if (_v31) {
-              _v40 && _v8(!0);
+            if (_v32) {
+              _v41 && _v9(!0);
               return;
             }
-            _v37(_v27.EMAIL_TYPES.FOLLOWUP, "follow_up", _v39, {
+            _v38(_v27.EMAIL_TYPES.FOLLOWUP, "follow_up", _v40, {
               type: _v32.ACTION_TYPE.TOGGLE_SETTING_EMAIL,
               payload: _v27.EMAIL_TOGGLE_MAP.FOLLOWUP
             });
           },
-          extra: _v41
+          extra: _v42
         }, ...[..._v0.reminders].sort((_v0, _v1) => _v79(_v0.offset) - _v79(_v1.offset)).map(_v0 => {
           let _v1 = _v0.id === _v27.LEGACY_REMINDER_ID;
           return {
@@ -1590,16 +1582,16 @@
             enabled: _v0.enabled,
             active: _v0.emailTemplateType === _v27.EMAIL_TYPES.REMINDER && _v0.selectedReminderId === _v0.id,
             pico: "reminder",
-            onSelect: () => _v36(_v27.EMAIL_TYPES.REMINDER, {
+            onSelect: () => _v37(_v27.EMAIL_TYPES.REMINDER, {
               type: _v32.ACTION_TYPE.SELECT_REMINDER,
               payload: _v0.id
             }),
-            onToggle: () => _v37(_v27.EMAIL_TYPES.REMINDER, "reminder", _v0.enabled, {
+            onToggle: () => _v38(_v27.EMAIL_TYPES.REMINDER, "reminder", _v0.enabled, {
               type: _v32.ACTION_TYPE.TOGGLE_REMINDER,
               payload: _v0.id
             }),
-            onEdit: _v21 && !_v1 ? () => _v27(_v0) : void 0,
-            onDelete: _v21 && !_v1 ? () => _v0.enabled ? _v25(_v0.id) : _v33(_v0.id) : void 0
+            onEdit: _v22 && !_v1 ? () => _v28(_v0) : void 0,
+            onDelete: _v22 && !_v1 ? () => _v0.enabled ? _v26(_v0.id) : _v34(_v0.id) : void 0
           };
         })];
       return (0, _v1.jsxs)(_v5.Box, {
@@ -1637,7 +1629,7 @@
                 }
               }
             })
-          }), _v21 && (0, _v1.jsxs)(_v7.Flex, {
+          }), _v22 && (0, _v1.jsxs)(_v7.Flex, {
             alignItems: "center",
             gap: (0, _v13.rem)(8),
             children: [(0, _v1.jsx)(_v11.Paragraph, {
@@ -1735,8 +1727,8 @@
                   }
                 }),
                 icon: (0, _v1.jsx)(_v68.Plus, {}),
-                isDisabled: _v31 || _v0.reminders.length >= _v27.MAX_REMINDERS,
-                onClick: () => _v23(!0)
+                isDisabled: _v32 || _v0.reminders.length >= _v27.MAX_REMINDERS,
+                onClick: () => _v24(!0)
               })
             })]
           })]
@@ -1772,7 +1764,7 @@
             }
           })
         }), (0, _v1.jsx)(_v88, {
-          children: _v42.map(_v0 => (0, _v1.jsx)(_v86, {
+          children: _v43.map(_v0 => (0, _v1.jsx)(_v86, {
             active: _v0.active,
             onOpen: _v0.onSelect,
             label: (0, _v1.jsxs)(_v5.Box, {
@@ -1895,7 +1887,7 @@
                       })
                     }), (0, _v1.jsx)(_v56.MenuItem, {
                       icon: _v0.enabled ? (0, _v1.jsx)(_v67.MinusCircle, {}) : (0, _v1.jsx)(_v64.CircleCheck, {}),
-                      isDisabled: _v31 && !(_v0.kind === _v27.EMAIL_TYPES.FOLLOWUP && _v40),
+                      isDisabled: _v32 && !(_v0.kind === _v27.EMAIL_TYPES.FOLLOWUP && _v41),
                       onClick: _v0 => {
                         _v0.stopPropagation(), _v0.onToggle();
                       },
@@ -1987,9 +1979,9 @@
               }), _v0.extra]
             })
           }, _v0.key))
-        }), _v40 && (0, _v1.jsxs)(_v58.Modal, {
-          isOpen: _v7,
-          onClose: () => _v8(!1),
+        }), _v41 && (0, _v1.jsxs)(_v58.Modal, {
+          isOpen: _v8,
+          onClose: () => _v9(!1),
           isCentered: !0,
           size: "md",
           children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
@@ -2006,31 +1998,31 @@
               children: (0, _v1.jsxs)(_v52.HStack, {
                 children: [(0, _v1.jsx)(_v36.Button, {
                   variant: "tertiary",
-                  onClick: () => _v8(!1),
+                  onClick: () => _v9(!1),
                   children: _v34.default.Cancel
                 }), (0, _v1.jsx)(_v36.Button, {
                   variant: "primary",
                   onClick: () => {
-                    _v13 && _v11({
+                    _v14 && _v12({
                       where: {
-                        userId: (0, _v49.getUserIdFromUri)(_v5?.uri),
-                        liveEventId: parseInt(_v13, 10)
+                        userId: (0, _v49.getUserIdFromUri)(_v6?.uri),
+                        liveEventId: parseInt(_v14, 10)
                       },
                       variables: {
                         type: "follow_up"
                       }
                     });
                   },
-                  isLoading: _v12.loading,
+                  isLoading: _v13.loading,
                   children: _v34.default.Send
                 })]
               })
             })]
           })]
-        }), _v21 && (0, _v1.jsxs)(_v1.Fragment, {
+        }), _v22 && (0, _v1.jsxs)(_v1.Fragment, {
           children: [(0, _v1.jsx)(_v84, {
-            isOpen: _v22,
-            onClose: () => _v23(!1),
+            isOpen: _v23,
+            onClose: () => _v24(!1),
             onSave: _v0 => {
               let _v1 = `reminder_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
               _v1({
@@ -2039,16 +2031,16 @@
                   id: _v1,
                   offset: _v0
                 }
-              }), _v32("created", _v0);
+              }), _v33("created", _v0);
             },
             usedOffsets: _v0.reminders.map(_v0 => _v0.offset)
-          }, _v22 ? "add-timing-open" : "add-timing-closed"), (0, _v1.jsx)(_v85, {
-            isOpen: !!_v24,
-            onClose: () => _v25(null),
-            onConfirm: () => _v33(),
-            isLoading: _v29.loading
+          }, _v23 ? "add-timing-open" : "add-timing-closed"), (0, _v1.jsx)(_v85, {
+            isOpen: !!_v25,
+            onClose: () => _v26(null),
+            onConfirm: () => _v34(),
+            isLoading: _v30.loading
           }), (0, _v1.jsx)(_v84, {
-            isOpen: !!_v26,
+            isOpen: !!_v27,
             title: (0, _v15.translate)({
               singular: "Edit timing",
               dictionary: {
@@ -2075,19 +2067,19 @@
                 }
               }
             }),
-            initialOffset: _v26?.offset,
-            onClose: () => _v27(null),
+            initialOffset: _v27?.offset,
+            onClose: () => _v28(null),
             onSave: _v0 => {
-              _v26 && (_v1({
+              _v27 && (_v1({
                 type: _v32.ACTION_TYPE.UPDATE_REMINDER_OFFSET,
                 payload: {
-                  id: _v26.id,
+                  id: _v27.id,
                   offset: _v0
                 }
-              }), _v32("timing_changed", _v0));
+              }), _v33("timing_changed", _v0));
             },
-            usedOffsets: _v0.reminders.filter(_v0 => _v0.id !== _v26?.id).map(_v0 => _v0.offset)
-          }, _v26?.id ?? "edit-timing")]
+            usedOffsets: _v0.reminders.filter(_v0 => _v0.id !== _v27?.id).map(_v0 => _v0.offset)
+          }, _v27?.id ?? "edit-timing")]
         })]
       });
     };
@@ -4394,6 +4386,9 @@
           type: _v30.ACTION_TYPE.UNDO
         }), _v0?.type === _v27.BROADCAST_ACTIONS.REDO && _v4({
           type: _v30.ACTION_TYPE.REDO
+        }), _v0?.type === _v27.BROADCAST_ACTIONS.RESET && _v4({
+          type: _v30.ACTION_TYPE.RESET,
+          payload: _v2
         });
       });
       let _v32 = !_v12 && !1 === _v11 && !_v18 && _v21 === _v17.ENTITY_TYPE.EVENT && _v27;
@@ -4834,12 +4829,13 @@
     hasUpsell: _v5,
     canCompleteEvent: _v6,
     setCanRedo: _v7,
-    setCanUndo: _v8
+    setCanUndo: _v8,
+    onSaveStateChange: _v9
   }) => {
-    let _v9 = (0, _v2.useCallback)(_v0 => {
+    let _v10 = (0, _v2.useCallback)(_v0 => {
         _v2 && _v2(_v0);
       }, [_v0, _v1]),
-      _v10 = (0, _v2.useCallback)(() => {
+      _v11 = (0, _v2.useCallback)(() => {
         _v3 && _v3();
       }, [_v0, _v1]);
     return ((0, _v2.useEffect)(() => {
@@ -4849,15 +4845,16 @@
         isRegistrationOn: _v4,
         hasUpsell: _v5,
         canCompleteEvent: _v6,
-        onAutoSave: _v9,
-        onNavigateToAttendeePage: _v10,
+        onAutoSave: _v10,
+        onNavigateToAttendeePage: _v11,
         setCanRedo: _v7,
         setCanUndo: _v8
       });
-    }, [_v0, _v1, _v4, _v5, _v6, _v9, _v10, _v7, _v8]), _v0 && _v1) ? (0, _v1.jsx)(_v25.default, {
+    }, [_v0, _v1, _v4, _v5, _v6, _v10, _v11, _v7, _v8]), _v0 && _v1) ? (0, _v1.jsx)(_v25.default, {
       children: (0, _v1.jsx)(_v28.default, {
         children: (0, _v1.jsx)(_v22.default, {
           children: (0, _v1.jsx)(_v73.default, {
+            onSaveStateChange: _v9,
             children: (0, _v1.jsx)(_v170.UndoRedoContextProvider, {
               children: (0, _v1.jsx)(_v168, {})
             })

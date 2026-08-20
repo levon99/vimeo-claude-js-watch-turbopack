@@ -231,10 +231,9 @@
         className: (0, _v18.createDomName)(_v1, "panel-grid"),
         transition: "300ms",
         alignItems: "center",
-        gap: "md",
         height: "100%",
-        gridTemplateColumns: `${(0, _v8.rem)(48)} var(--panel-width)`,
-        padding: `${(0, _v8.rem)(16)} 0 ${(0, _v8.rem)(16)} ${(0, _v8.rem)(16)}`,
+        gridTemplateColumns: `${(0, _v8.rem)(80)} var(--panel-width)`,
+        py: (0, _v8.rem)(16),
         marginRight: _v13 ? 0 : (0, _v8.rem)(-16),
         overflow: "hidden",
         sx: {

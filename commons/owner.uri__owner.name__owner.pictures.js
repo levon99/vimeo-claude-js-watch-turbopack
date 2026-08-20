@@ -61,7 +61,12 @@
       });
       if (204 === _v0.status) return (0, _v1.camelize)({});
       let _v1 = await _v0.json();
-      if (_v1.error) throw Error(_v1.error);
+      if (_v1.error) {
+        let _v0 = Error(_v1.error);
+        throw Object.assign(_v0, {
+          errorCode: _v1.error_code
+        }), _v0;
+      }
       return (0, _v1.camelize)(_v1);
     } catch (_v0) {
       throw _v0;

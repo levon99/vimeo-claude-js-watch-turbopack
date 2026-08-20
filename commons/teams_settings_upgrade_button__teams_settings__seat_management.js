@@ -134,7 +134,7 @@
     _v25 = _v0.i(0);
   let _v26 = async (_v0, _v1) => {
     let _v2 = _v0.split("/").slice(-1)[0];
-    return await fetch("/settings?action=remind_team_member", {
+    return fetch("/settings?action=remind_team_member", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -360,12 +360,12 @@
               payload: !0
             });
           } catch (_v0) {
-            _v1({
+            throw _v1({
               type: _v9.ManageTeamActionTypes.UpdateTeamMemberCancel,
               payload: {
                 teamMember: _v1.uri
               }
-            }), console.error("unable to update team member role");
+            }), console.error("unable to update team member role"), _v0;
           }
         }
       }, [_v1, _v0.accessFilter, _v2]),

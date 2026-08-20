@@ -3846,35 +3846,38 @@
   let _v73 = (0, _v1.createContext)({
     state: _v66,
     dispatch: () => console.error("dispatch not initialized"),
-    isReminderSaved: () => !0
+    isReminderSaved: () => !0,
+    isManualSaveRequired: !1
   });
   _v0.s(["EmailContext", 0, _v73, "default", 0, ({
-    children: _v0
+    children: _v0,
+    onSaveStateChange: _v1
   }) => {
-    let [_v1, _v2] = (0, _v1.useReducer)(_v70, {
+    let [_v2, _v3] = (0, _v1.useReducer)(_v70, {
         ..._v66
       }),
-      [_v3, {
-        loading: _v4,
-        data: _v5
+      [_v4, {
+        loading: _v5,
+        data: _v6
       }] = (0, _v4.useGetUserLiveEventEmailSettingsLazy)(),
-      _v6 = (0, _v43.useConfigStore)(_v0 => _v0.entityType),
-      _v7 = (0, _v43.useConfigStore)(_v0 => _v0.entityId),
+      _v7 = (0, _v43.useConfigStore)(_v0 => _v0.entityType),
+      _v8 = (0, _v43.useConfigStore)(_v0 => _v0.entityId),
       {
-        user: _v8
+        user: _v9
       } = (0, _v9.useEntityStore)(),
       {
-        teamName: _v9,
-        accentColor: _v10,
-        isLoading: _v11
+        teamName: _v10,
+        accentColor: _v11,
+        isLoading: _v12
       } = _v14(),
       {
-        settings: _v12
+        settings: _v13
       } = (0, _v8.useOrionSettings)(),
-      _v13 = _v12.enable_configurable_event_reminders,
-      _v14 = _v4 || _v11,
-      _v15 = (0, _v1.useMemo)(() => {
-        if (!_v5 || _v11) return null;
+      _v14 = _v13.enable_configurable_event_reminders,
+      _v15 = _v13.enable_explicit_registration_save,
+      _v16 = _v5 || _v12,
+      _v17 = (0, _v1.useMemo)(() => {
+        if (!_v6 || _v12) return null;
         let {
             emailPreferences: _v0,
             accentColor: _v1,
@@ -3885,13 +3888,13 @@
             emailReminders: _v6,
             emailEventReminder_24Hrs: _v7,
             ..._v8
-          } = _v5,
+          } = _v6,
           _v9 = Array.isArray(_v6) ? _v6 : [],
           _v10 = _v9[0]?.content?.default ?? _v7?.default;
         if (!_v4 || !_v5 || !_v10) return null;
         let _v11 = _v4.custom || _v4.default,
           _v12 = _v5.custom || _v5.default,
-          _v13 = (_v13 ? _v9 : _v9.slice(0, 1)).map(_v0 => ({
+          _v13 = (_v14 ? _v9 : _v9.slice(0, 1)).map(_v0 => ({
             id: _v0.reminderId,
             offset: {
               value: _v0.offset.value,
@@ -3931,9 +3934,9 @@
           reminders: _v14,
           selectedReminderId: _v13[0]?.id ?? "",
           followUp: _v0.emailPostEventThankYou,
-          accentColor: _v1 || _v10 || "#00adef",
+          accentColor: _v1 || _v11 || "#00adef",
           customLogo: _v72(_v2),
-          from: _v3 ?? _v9 ?? _v45.VIMEO,
+          from: _v3 ?? _v10 ?? _v45.VIMEO,
           subject: _v16(_v0 => _v58(_v0.subject)),
           header: _v16(_v0 => _v58(_v0.header)),
           body: _v16(_v0 => _v58(_v0.body)),
@@ -3983,56 +3986,70 @@
             }
           }
         };
-      }, [_v10, _v11, _v9, _v5, _v13]),
-      _v16 = (0, _v1.useCallback)(() => {
-        let _v0 = _v8?.uri,
+      }, [_v11, _v12, _v10, _v6, _v14]),
+      _v18 = (0, _v1.useCallback)(() => {
+        let _v0 = _v9?.uri,
           _v1 = (0, _v7.getUserIdFromUri)(_v0);
-        _v1 && _v7 && (_v6 === _v6.ENTITY_TYPE.EVENT ? _v3({
+        _v1 && _v8 && (_v7 === _v6.ENTITY_TYPE.EVENT ? _v4({
           where: {
             userId: _v1,
-            liveEventId: parseInt(_v7)
+            liveEventId: parseInt(_v8)
           },
           select: _v45.EMAIL_CUSTOMIZATION_FIELDS
-        }) : console.error(`Entity type ${_v6} not supported EM1`));
-      }, [_v7, _v8?.uri, _v6, _v3]),
+        }) : console.error(`Entity type ${_v7} not supported EM1`));
+      }, [_v8, _v9?.uri, _v7, _v4]),
       {
-        isReminderSaved: _v17
-      } = ((_v0, _v1, _v2) => {
-        let [_v3, _v4] = (0, _v1.useState)(_v0),
-          [_v5, _v6] = (0, _v1.useState)(!1),
+        isReminderSaved: _v19,
+        isDirty: _v20,
+        isSaving: _v21,
+        save: _v22
+      } = ((_v0, _v1, _v2, _v3 = !1) => {
+        let [_v4, _v5] = (0, _v1.useState)(_v0),
+          [_v6, _v7] = (0, _v1.useState)(!1),
           {
-            user: _v7,
-            privacy: _v8
+            user: _v8,
+            privacy: _v9
           } = (0, _v9.useEntityStore)();
         (0, _v43.useConfigStore)(_v0 => _v0.entityType);
-        let _v9 = (0, _v43.useConfigStore)(_v0 => _v0.entityId),
-          _v10 = (0, _v43.useConfigStore)(_v0 => _v0.onAutoSave),
-          [_v11, {
-            data: _v12,
-            loading: _v13,
-            error: _v14
+        let _v10 = (0, _v43.useConfigStore)(_v0 => _v0.entityId),
+          _v11 = (0, _v43.useConfigStore)(_v0 => _v0.onAutoSave),
+          [_v12, {
+            data: _v13,
+            loading: _v14,
+            error: _v15
           }] = (0, _v4.usePatchUserLiveEventEmailSettings)(),
-          [_v15] = _v24(),
-          _v16 = (0, _v1.useRef)(null),
-          _v17 = (0, _v16.useToast)(),
+          [_v16] = _v24(),
+          _v17 = (0, _v1.useRef)(null),
+          _v18 = (0, _v16.useToast)(),
           {
-            sentRegistrationEmailLayoutChangeEvent: _v18
+            sentRegistrationEmailLayoutChangeEvent: _v19
           } = _v44(),
-          _v19 = async _v0 => {
+          _v20 = async _v0 => {
             let {
               changedProps: _v1,
               bpChangedProps: _v2
-            } = _v62(_v3, _v0);
-            if (_v1.length > 0 && !_v5 && !_v16.current && _v3.hasApiData && _v7 && _v9 && !1 === _v2) {
-              let _v0 = (0, _v7.getUserIdFromUri)(_v7.uri),
-                _v1 = parseInt(_v9 || "0");
-              _v16.current = _v0, await Promise.all(_v3.reminders.filter(_v0 => _v0.id !== _v45.LEGACY_REMINDER_ID && !_v0.reminders.some(_v0 => _v0.id === _v0.id)).map(_v0 => _v0.id).map(_v0 => _v15({
-                where: {
-                  userId: _v0,
-                  liveEventId: _v1,
-                  reminderId: _v0
-                }
-              })));
+            } = _v62(_v4, _v0);
+            if (_v1.length > 0 && !_v6 && !_v17.current && _v4.hasApiData && _v8 && _v10 && !1 === _v2) {
+              _v7(!0), _v11?.(!0);
+              let _v0 = (0, _v7.getUserIdFromUri)(_v8.uri),
+                _v1 = parseInt(_v10 || "0");
+              _v17.current = _v0;
+              try {
+                await Promise.all(_v4.reminders.filter(_v0 => _v0.id !== _v45.LEGACY_REMINDER_ID && !_v0.reminders.some(_v0 => _v0.id === _v0.id)).map(_v0 => _v0.id).map(_v0 => _v16({
+                  where: {
+                    userId: _v0,
+                    liveEventId: _v1,
+                    reminderId: _v0
+                  }
+                })));
+              } catch {
+                _v17.current = null, _v7(!1), _v11?.(!1), _v18({
+                  title: _v51.ChangesCouldNotBeSaved,
+                  status: "error",
+                  duration: 0
+                });
+                return;
+              }
               let _v2 = ((_v0, _v1) => {
                   let _v2 = new Set(),
                     _v3 = new Map(_v0.reminders.map(_v0 => [_v0.id, _v0]));
@@ -4043,7 +4060,7 @@
                     (_v1 || _v2) && _v2.add(_v0.id);
                   }
                   return _v2;
-                })(_v3, _v0),
+                })(_v4, _v0),
                 _v3 = ((_v0, _v1, _v2) => {
                   let {
                       confirmation: _v3,
@@ -4122,7 +4139,7 @@
                     }
                   };
                 })(_v0, _v1, _v2);
-              _v11({
+              _v12({
                 where: {
                   userId: _v0,
                   liveEventId: _v1
@@ -4193,31 +4210,34 @@
                         _v2,
                         _v3 = _v1 === _v38.HEADING_TEXT_CHANGED || _v1 === _v38.BODY_TEXT_CHANGED,
                         _v4 = _v3 && (_v0 = _v1 === _v38.HEADING_TEXT_CHANGED ? "header" : "body", _v2 = (_v1 = _v2.toUpperCase()) === _v45.EMAIL_TYPES.REMINDER ? _v1.selectedReminderId : _v1, (0, _v7.htmlToText)(_v0[_v0][_v2]) !== (0, _v7.htmlToText)(_v1[_v0][_v2]));
-                      (!_v3 || _v4) && _v18({
+                      (!_v3 || _v4) && _v19({
                         actionName: _v1,
                         type: _v2
                       });
                     }
                   });
                 });
-              })(_v3, _v0);
+              })(_v4, _v0);
             }
           },
-          _v20 = (0, _v1.useRef)(_v19);
-        _v20.current = _v19;
-        let _v21 = (0, _v1.useCallback)((0, _v15.default)(_v0 => {
-          _v20.current(_v0);
-        }, _v45.EMAIL_AUTO_SAVE_DEBOUNCED_INTERVAL), []);
+          _v21 = (0, _v1.useRef)(_v20);
+        _v21.current = _v20;
+        let _v22 = (0, _v1.useRef)(_v0);
+        _v22.current = _v0;
+        let _v23 = (0, _v1.useCallback)(() => {
+            _v21.current(_v22.current);
+          }, []),
+          _v24 = (0, _v1.useCallback)((0, _v15.default)(_v0 => {
+            _v21.current(_v0);
+          }, _v45.EMAIL_AUTO_SAVE_DEBOUNCED_INTERVAL), []);
         return (0, _v1.useEffect)(() => {
-          _v0 && _v21(_v0);
-        }, [_v0, _v21]), (0, _v1.useEffect)(() => {
-          _v6?.(_v13), _v10?.(_v13);
-        }, [_v13, _v6, _v10]), (0, _v1.useEffect)(() => {
-          let _v0 = !!_v12 || !!_v14;
-          if (_v13 || !_v0 || !_v16.current) return;
-          let _v1 = _v16.current;
-          if (_v16.current = null, _v14) return;
-          _v4(_v1), _v17({
+          !_v3 && _v0 && _v24(_v0);
+        }, [_v0, _v24, _v3]), (0, _v1.useEffect)(() => {
+          let _v0 = !!_v13 || !!_v15;
+          if (_v14 || !_v0 || !_v17.current) return;
+          let _v1 = _v17.current;
+          if (_v17.current = null, _v7(!1), _v11?.(!1), _v15) return;
+          _v5(_v1), _v3 || _v18({
             id: "auto-save-toast",
             title: _v51.ChangesSaved,
             status: "success",
@@ -4226,40 +4246,50 @@
           let {
             changedProps: _v2
           } = _v62(_v1, _v0);
-          _v2.length > 0 && _v21(_v0);
-        }, [_v13, _v12, _v14]), (0, _v1.useEffect)(() => {
-          _v14 && !_v13 && _v14?.res?.json().then(_v0 => {
+          !_v3 && _v2.length > 0 && _v24(_v0);
+        }, [_v14, _v13, _v15]), (0, _v1.useEffect)(() => {
+          _v15 && !_v14 && _v15?.res?.json().then(_v0 => {
             let _v1 = (0, _v17.deepCamelCase)(_v0);
             if (_v1?.errorCode) {
               let _v0 = _v53[_v1.errorCode],
                 _v1 = _v52[_v1.invalidParameters?.[0]?.field];
-              _v17({
+              _v18({
                 title: _v1 && _v0 ? `${_v51.ChangesCouldNotBeSaved} ${_v1} - ${_v0}` : _v51.ChangesCouldNotBeSaved,
                 status: "error",
                 duration: 0
               });
             }
           });
-        }, [_v13, _v14]), (0, _v1.useEffect)(() => {
-          _v3.hasApiData || _v4(_v0);
-        }, [_v0, _v3.hasApiData]), {
-          isReminderSaved: _v0 => _v3.reminders.some(_v0 => _v0.id === _v0)
+        }, [_v14, _v15]), (0, _v1.useEffect)(() => {
+          _v4.hasApiData || _v5(_v0);
+        }, [_v0, _v4.hasApiData]), {
+          isReminderSaved: _v0 => _v4.reminders.some(_v0 => _v0.id === _v0),
+          isDirty: _v62(_v4, _v0).changedProps.length > 0,
+          isSaving: _v6,
+          save: _v23
         };
-      })(_v1, _v9 || _v45.VIMEO, _v14);
+      })(_v2, _v10 || _v45.VIMEO, _v16, _v15);
     return ((0, _v1.useEffect)(() => {
-      _v5 || _v16();
-    }, [_v16]), (0, _v1.useEffect)(() => {
-      _v15 && _v2({
-        type: _v63.SET_STATE,
-        payload: _v15
+      _v1?.({
+        isDirty: _v20,
+        isSaving: _v21,
+        save: _v22
       });
-    }, [_v15]), !_v5 || (0, _v3.default)(_v5)) ? (0, _v2.jsx)(_v5.FullScreenLoader, {}) : (0, _v2.jsx)(_v73.Provider, {
+    }, [_v20, _v21, _v1, _v22]), (0, _v1.useEffect)(() => () => _v1?.(null), [_v1]), (0, _v1.useEffect)(() => {
+      _v6 || _v18();
+    }, [_v18]), (0, _v1.useEffect)(() => {
+      _v17 && _v3({
+        type: _v63.SET_STATE,
+        payload: _v17
+      });
+    }, [_v17]), !_v6 || (0, _v3.default)(_v6)) ? (0, _v2.jsx)(_v5.FullScreenLoader, {}) : (0, _v2.jsx)(_v73.Provider, {
       value: {
-        state: _v1,
-        dispatch: _v2,
-        isLoading: _v14,
-        getEmailData: _v16,
-        isReminderSaved: _v17
+        state: _v2,
+        dispatch: _v3,
+        isLoading: _v16,
+        getEmailData: _v18,
+        isReminderSaved: _v19,
+        isManualSaveRequired: _v15
       },
       children: _v0
     });
@@ -4429,22 +4459,24 @@
     let {
         state: _v0,
         dispatch: _v1,
-        isReminderSaved: _v2
+        isReminderSaved: _v2,
+        isManualSaveRequired: _v3
       } = (0, _v1.useContext)(_v73),
       {
-        state: _v3,
-        undoRedoDispatch: _v4
+        state: _v4,
+        undoRedoDispatch: _v5
       } = (0, _v1.useContext)(_v78);
     return {
       emailState: {
         ..._v0,
-        canUndo: _v3.canUndo,
-        canRedo: _v3.canRedo
+        canUndo: _v4.canUndo,
+        canRedo: _v4.canRedo
       },
       dispatch: _v1,
-      undoRedoDispatch: _v4,
+      undoRedoDispatch: _v5,
       activeContentKey: _v0.emailTemplateType === _v45.EMAIL_TYPES.REMINDER ? _v0.selectedReminderId : _v0.emailTemplateType,
-      isReminderSaved: _v2
+      isReminderSaved: _v2,
+      isManualSaveRequired: _v3
     };
   }], 0);
 }

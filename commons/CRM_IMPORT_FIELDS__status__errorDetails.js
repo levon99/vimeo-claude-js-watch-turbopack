@@ -1,5 +1,0 @@
-{
-  "use strict";
-
-  _v0.s(["CRM_IMPORT_FIELDS", 0, ["uri", "status", "errorDetails", "emailProviderList.provider"], "ESP_API_FIELDS", 0, ["service_id", "service_type", "user_id", "name", "icon", "dark_icon", "connected", "lists.id", "lists.name"], "LEAD_CAPTURE_FORM_FIELDS", 0, ["alignment", "background", "secondaryButtonStyle", "confirmationPageDescription", "confirmationPageTitle", "primaryButtonStyle", "isEventDateSetToCalendar", "isEventDateVisible", "isSkippable", "joinPageTitle", "layout", "loginPageTitle", "logo", "metadata", "placement", "placementTimecode", "presetName", "privacyPolicyUrl", "uri", "customFields", "hiddenFields", "emailLists.name", "emailLists.providerId", "emailLists.listId", "emailLists.numberOfRegistrants", "emailLists.type", "emailLists.connectionOwnerName", "calendarLinks", "uuid", "isDefault", "isApproved", "parentForm", "nonEditableTextStyle", "privacyPolicyVersion", "hasActiveCrmExportConnection", "memberConnections"]]);
-}

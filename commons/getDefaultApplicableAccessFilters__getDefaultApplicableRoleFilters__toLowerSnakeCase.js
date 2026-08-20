@@ -359,7 +359,7 @@
       updateStatusesFilter: _v11,
       updateAccessFilter: _v11,
       updateCurrentPage: _v11,
-      updateTeamMemberPermission: _v11,
+      updateTeamMemberPermission: () => Promise.reject(Error("Not implemented")),
       updateTeamMemberRoleState: _v11,
       deleteTeamMember: _v11,
       setHasError: _v11,

@@ -76,14 +76,6 @@
       value: 10,
       unit: _v8.MINUTES,
       direction: _v9.BEFORE
-    }, {
-      value: 1,
-      unit: _v8.DAYS,
-      direction: _v9.AFTER
-    }, {
-      value: 7,
-      unit: _v8.DAYS,
-      direction: _v9.AFTER
     }],
     _v12 = {
       [_v8.MINUTES]: 59,
@@ -97,7 +89,8 @@
     };
   _v0.s(["BROADCAST_ACTIONS", 0, {
     UNDO: "undo",
-    REDO: "redo"
+    REDO: "redo",
+    RESET: "reset"
   }, "BROADCAST_CHANNEL_NAME", 0, "lead-email-broadcast-channel", "CALENDAR_LIST", 0, ["Google", "Outlook", "iCal"], "CONFIGURABLE_REMINDER_EMAIL_TYPE", 0, "email_event_reminder", "CUSTOM_RANGE_OPTION", 0, "custom_range", "CUSTOM_RANGE_VALUE_MAX", 0, _v12, "DEFAULT_REMINDER_OFFSET", 0, _v10, "EMAIL_ADDRESS", 0, "Email address", "EMAIL_AUTO_SAVE_DEBOUNCED_INTERVAL", 0, 0, "EMAIL_CUSTOMIZATION_FIELDS", 0, ["accentColor", "emailReminders.reminderId", "emailReminders.enabled", "emailReminders.offset.value", "emailReminders.offset.unit", "emailReminders.offset.direction", "emailReminders.content.custom", "emailReminders.content.default", "emailEventReminder_24Hrs.default", "emailPostEventThankYou.custom", "emailPostEventThankYou.default", "emailRegistrationConfirmation.custom", "emailRegistrationConfirmation.default", "emailPreferences", "followUpSendOn", "followUpSender.name", "followUpSender.uri", "from", "logoUri", "pictures", "replyEmail", "senderAddress", "senderPolicyUrl", "useReplyEmail", "useSenderAddress", "useSenderPolicyUrl"], "EMAIL_LIST_FORMAT", 0, {
     BULLETED: "bulletList",
     NUMBERED: "orderedList"

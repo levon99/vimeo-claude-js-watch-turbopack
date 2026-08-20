@@ -5730,6 +5730,32 @@
           }
         }
       }),
+      landingPage: (0, _v6.translate)({
+        singular: "Landing page",
+        dictionary: {
+          es: {
+            singular: "Página de destino"
+          },
+          "de-DE": {
+            singular: "Landingpage"
+          },
+          "fr-FR": {
+            singular: "Page de destination"
+          },
+          "ja-JP": {
+            singular: "ランディングページ"
+          },
+          "ko-KR": {
+            singular: "랜딩 페이지"
+          },
+          "pt-BR": {
+            singular: "Página de destino"
+          },
+          "zh-CN": {
+            singular: "着陆页"
+          }
+        }
+      }),
       language: (0, _v6.translate)({
         singular: "Language",
         dictionary: {
@@ -7897,6 +7923,32 @@
           },
           "zh-CN": {
             singular: "实时视频流运行状况"
+          }
+        }
+      }),
+      reactions: (0, _v6.translate)({
+        singular: "Reactions",
+        dictionary: {
+          es: {
+            singular: "Reacciones"
+          },
+          "de-DE": {
+            singular: "Reaktionen"
+          },
+          "fr-FR": {
+            singular: "Réactions"
+          },
+          "ja-JP": {
+            singular: "リアクション"
+          },
+          "ko-KR": {
+            singular: "반응"
+          },
+          "pt-BR": {
+            singular: "Reações"
+          },
+          "zh-CN": {
+            singular: "反应"
           }
         }
       }),
