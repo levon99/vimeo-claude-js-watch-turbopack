@@ -200,41 +200,44 @@
       children: [(0, _v1.jsx)(_v30.ModalOverlay, {}), (0, _v1.jsxs)(_v27.ModalContent, {
         children: [(0, _v1.jsx)(_v29.ModalHeader, {
           children: (0, _v10.translate)({
-            singular: "Upload profile thumbnail",
+            singular: "Upload speaker photo",
             dictionary: {
               es: {
-                singular: "Subir miniatura de perfil"
+                singular: "Subir foto del ponente"
               },
               "de-DE": {
-                singular: "Profilvorschaubild hochladen"
+                singular: "Sprecherfoto hochladen"
               },
               "fr-FR": {
-                singular: "Téléverser la miniature du profil"
+                singular: "Téléverser la photo de l'intervenant"
               },
               "ja-JP": {
-                singular: "プロフィールのサムネイルをアップロード"
+                singular: "スピーカーの写真をアップロード"
               },
               "ko-KR": {
-                singular: "프로필 썸네일 업로드"
+                singular: "발표자 사진 업로드"
               },
               "pt-BR": {
-                singular: "Enviar miniatura do perfil"
+                singular: "Carregar foto do palestrante"
               },
               "zh-CN": {
-                singular: "上传个人资料缩略图"
+                singular: "上传演讲者照片"
               }
             }
           })
         }), (0, _v1.jsx)(_v26.ModalBody, {
           px: 0,
-          py: 0,
+          display: "flex",
+          flexDirection: "column",
+          gap: "md",
           children: _v4 ? (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v73.ImageCrop, {
               ref: _v9,
               image: _v4,
               zoomRatio: (_v6 + _v11) / 100,
               imageCropCircleDiameter: _v10,
-              windowWidth: _v8
+              windowWidth: _v8,
+              cropShape: "square"
             }), (0, _v1.jsx)(_v74.ImageCropSlider, {
               value: _v6,
               onChange: _v7
@@ -334,7 +337,7 @@
   }) {
     let [_v6, _v7] = (0, _v13.useState)(!1),
       [_v8, _v9] = (0, _v13.useState)(),
-      _v10 = (0, _v57.useToast)();
+      _v10 = (0, _v39.useToast)();
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v70.ImageUploader, {
         id: _v0,
@@ -497,20 +500,20 @@
       [_v7, _v8] = (0, _v13.useState)(!1),
       [_v9, _v10] = (0, _v13.useState)(null),
       [_v11, _v12] = (0, _v13.useState)(null),
-      _v13 = (0, _v51.useSessionOwnerId)(),
+      _v13 = (0, _v52.useSessionOwnerId)(),
       {
         baseUrl: _v14,
         jwt: _v15
-      } = (0, _v59.useGctlConfig)(),
-      _v16 = (0, _v57.useToast)(),
+      } = (0, _v60.useGctlConfig)(),
+      _v16 = (0, _v39.useToast)(),
       [_v17, {
         data: _v18,
         loading: _v19
-      }] = (0, _v50.usePostUserPersonProfiles)(),
+      }] = (0, _v51.usePostUserPersonProfiles)(),
       [_v20, {
         data: _v21,
         loading: _v22
-      }] = (0, _v49.usePatchPersonProfile)(),
+      }] = (0, _v50.usePatchPersonProfile)(),
       _v23 = (0, _v13.useEffectEvent)(async _v0 => {
         if (_v9 && null != _v14) try {
           await _v69({
@@ -529,7 +532,7 @@
           _v16({
             status: "error",
             duration: 0,
-            title: (0, _v61.getErrorToastTitle)(_v0, (0, _v10.translate)({
+            title: (0, _v53.getErrorToastTitle)(_v0, (0, _v10.translate)({
               singular: "Your speaker was saved, but the photo failed to upload.",
               dictionary: {
                 es: {
@@ -686,7 +689,7 @@
                         }
                       })
                     })
-                  }), (0, _v1.jsx)(_v55.Input, {
+                  }), (0, _v1.jsx)(_v57.Input, {
                     id: "speaker-name",
                     isInvalid: _v7,
                     onChange: _v0 => _v27("name", _v0.target.value),
@@ -717,9 +720,9 @@
                       }
                     }),
                     value: _v5.name
-                  }), (0, _v1.jsx)(_v52.AnimatePresence, {
+                  }), (0, _v1.jsx)(_v54.AnimatePresence, {
                     children: _v7 ? (0, _v1.jsx)(_v7.Flex, {
-                      as: _v53.motion.div,
+                      as: _v55.motion.div,
                       initial: {
                         height: 0,
                         opacity: 0
@@ -740,7 +743,7 @@
                       },
                       overflow: "hidden",
                       mt: "xs",
-                      children: (0, _v1.jsx)(_v54.FormErrorMessage, {
+                      children: (0, _v1.jsx)(_v56.FormErrorMessage, {
                         variant: "error",
                         fontSize: "body-sm",
                         lineHeight: "body-sm",
@@ -839,12 +842,12 @@
                           }
                         }
                       }),
-                      children: (0, _v1.jsx)(_v58.InfoCircle, {
+                      children: (0, _v1.jsx)(_v59.InfoCircle, {
                         boxSize: (0, _v8.rem)(16)
                       })
                     })]
                   })
-                }), (0, _v1.jsx)(_v55.Input, {
+                }), (0, _v1.jsx)(_v57.Input, {
                   id: "speaker-role",
                   onChange: _v0 => _v27("role", _v0.target.value),
                   placeholder: (0, _v10.translate)({
@@ -933,7 +936,7 @@
                           }
                         }
                       }),
-                      children: (0, _v1.jsx)(_v58.InfoCircle, {
+                      children: (0, _v1.jsx)(_v59.InfoCircle, {
                         boxSize: (0, _v8.rem)(16)
                       })
                     })]
@@ -1019,12 +1022,12 @@
                           }
                         }
                       }),
-                      children: (0, _v1.jsx)(_v58.InfoCircle, {
+                      children: (0, _v1.jsx)(_v59.InfoCircle, {
                         boxSize: (0, _v8.rem)(16)
                       })
                     })]
                   })
-                }), (0, _v1.jsx)(_v56.Textarea, {
+                }), (0, _v1.jsx)(_v58.Textarea, {
                   id: "speaker-description",
                   minHeight: (0, _v8.rem)(120),
                   onChange: _v0 => _v27("description", _v0.target.value),
@@ -1090,7 +1093,7 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v60.SpeakerProfileCard, {
+              }), (0, _v1.jsx)(_v61.SpeakerProfileCard, {
                 name: _v5.name.trim() || "Name (required)",
                 role: _v5.role,
                 description: _v5.description,
@@ -1285,14 +1288,15 @@
     eventId: _v2
   }) {
     let _v3 = _v2 > 0,
-      _v4 = (0, _v51.useSessionOwnerId)(),
-      [_v5, _v6] = (0, _v13.useState)(!1),
-      [_v7, _v8] = (0, _v13.useState)(null),
-      [_v9, _v10] = (0, _v13.useState)(null),
+      _v4 = (0, _v52.useSessionOwnerId)(),
+      _v5 = (0, _v39.useToast)(),
+      [_v6, _v7] = (0, _v13.useState)(!1),
+      [_v8, _v9] = (0, _v13.useState)(null),
+      [_v10, _v11] = (0, _v13.useState)(null),
       {
-        data: _v11,
-        mutate: _v12
-      } = (0, _v50.useGetUserPersonProfiles)(() => _v4 <= 0 ? null : {
+        data: _v12,
+        mutate: _v13
+      } = (0, _v51.useGetUserPersonProfiles)(() => _v4 <= 0 ? null : {
         select: _v82,
         where: {
           userId: _v4
@@ -1300,11 +1304,11 @@
       }, {
         revalidateOnFocus: !1
       }),
-      _v13 = _v11?.data,
+      _v14 = _v12?.data,
       {
-        data: _v14,
-        mutate: _v15
-      } = (0, _v48.useGetLiveEventSpeakerProfiles)(() => _v3 ? {
+        data: _v15,
+        mutate: _v16
+      } = (0, _v49.useGetLiveEventSpeakerProfiles)(() => _v3 ? {
         select: _v83,
         where: {
           liveEventId: _v2
@@ -1312,21 +1316,21 @@
       } : null, {
         revalidateOnFocus: !1
       }),
-      _v16 = (0, _v13.useMemo)(() => {
+      _v17 = (0, _v13.useMemo)(() => {
         let _v0 = new Map();
-        return _v14?.data.forEach(_v0 => {
+        return _v15?.data.forEach(_v0 => {
           _v0.set(_v0.personProfile.id, _v0.id);
         }), _v0;
-      }, [_v14]),
-      _v17 = (0, _v13.useMemo)(() => _v13?.find(_v0 => _v0.id === _v7), [_v13, _v7]),
-      _v18 = (0, _v13.useMemo)(() => _v13?.find(_v0 => _v0.id === _v9), [_v13, _v9]),
-      [_v19] = (0, _v48.usePostLiveEventSpeakerProfiles)(),
-      [_v20] = (0, _v47.useDeleteLiveEventSpeakerProfile)(),
-      [_v21] = (0, _v49.useDeletePersonProfile)(),
-      [_v22, _v23] = (0, _v13.useState)(new Set()),
-      [_v24, _v25] = (0, _v13.useState)(new Set()),
-      _v26 = () => {
-        _v6(!1), _v8(null), _v10(null), _v1();
+      }, [_v15]),
+      _v18 = (0, _v13.useMemo)(() => _v14?.find(_v0 => _v0.id === _v8), [_v14, _v8]),
+      _v19 = (0, _v13.useMemo)(() => _v14?.find(_v0 => _v0.id === _v10), [_v14, _v10]),
+      [_v20] = (0, _v49.usePostLiveEventSpeakerProfiles)(),
+      [_v21] = (0, _v48.useDeleteLiveEventSpeakerProfile)(),
+      [_v22] = (0, _v50.useDeletePersonProfile)(),
+      [_v23, _v24] = (0, _v13.useState)(new Set()),
+      [_v25, _v26] = (0, _v13.useState)(new Set()),
+      _v27 = () => {
+        _v7(!1), _v9(null), _v11(null), _v1();
       };
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v25.Modal, {
@@ -1334,7 +1338,7 @@
         size: "lg",
         isCentered: !0,
         isOpen: _v0,
-        onClose: _v26,
+        onClose: _v27,
         children: [(0, _v1.jsx)(_v30.ModalOverlay, {}), (0, _v1.jsxs)(_v27.ModalContent, {
           minWidth: (0, _v8.rem)(990),
           children: [(0, _v1.jsxs)(_v29.ModalHeader, {
@@ -1364,7 +1368,7 @@
                 }
               }
             }), (0, _v1.jsx)(_v31.ModalCloseButton, {
-              onClick: _v26
+              onClick: _v27
             })]
           }), (0, _v1.jsxs)(_v26.ModalBody, {
             display: "flex",
@@ -1413,9 +1417,9 @@
                 children: (0, _v10.translate)({
                   singular: "{COUNT} Speaker",
                   plural: "{COUNT} Speakers",
-                  count: _v13?.length || 0,
+                  count: _v14?.length || 0,
                   replacements: {
-                    COUNT: _v13?.length || 0
+                    COUNT: _v14?.length || 0
                   },
                   dictionary: {
                     es: {
@@ -1449,9 +1453,9 @@
                   }
                 })
               }), (0, _v1.jsx)(_v14.Button, {
-                leftIcon: (0, _v1.jsx)(_v40.PlusCircle, {}),
+                leftIcon: (0, _v1.jsx)(_v41.PlusCircle, {}),
                 onClick: () => {
-                  _v8(null), _v6(!0);
+                  _v9(null), _v7(!0);
                 },
                 size: "md",
                 variant: "secondary",
@@ -1627,8 +1631,8 @@
                   })]
                 })
               }), (0, _v1.jsx)(_v33.Tbody, {
-                children: _v13?.map(_v0 => {
-                  let _v1 = _v16.get(_v0.id) ?? null,
+                children: _v14?.map(_v0 => {
+                  let _v1 = _v17.get(_v0.id) ?? null,
                     _v2 = _v3 && null !== _v1,
                     _v3 = _v0.pictures?.baseLink,
                     _v4 = _v0.avatarCrop && _v0.avatarCrop.width > 0 ? _v0.avatarCrop : null;
@@ -1669,7 +1673,7 @@
                           borderRadius: "input-md",
                           backgroundColor: "fill-component",
                           color: "icon-secondary",
-                          children: (0, _v1.jsx)(_v41.PersonUserFilled, {})
+                          children: (0, _v1.jsx)(_v42.PersonUserFilled, {})
                         }), (0, _v1.jsx)(_v9.Text, {
                           noOfLines: 1,
                           variant: "heading-xs",
@@ -1736,10 +1740,10 @@
                         borderRadius: "sm",
                         display: "inline-flex",
                         p: (0, _v8.rem)(6),
-                        children: _v2 ? (0, _v1.jsx)(_v42.EyeFilled, {
+                        children: _v2 ? (0, _v1.jsx)(_v43.EyeFilled, {
                           boxSize: (0, _v8.rem)(20),
                           color: "icon-tertiary"
-                        }) : (0, _v1.jsx)(_v43.EyeShutFilled, {
+                        }) : (0, _v1.jsx)(_v44.EyeShutFilled, {
                           boxSize: (0, _v8.rem)(20),
                           color: "icon-tertiary"
                         })
@@ -1823,10 +1827,10 @@
                                 }
                               }
                             }),
-                            icon: (0, _v1.jsx)(_v39.EditSheet, {}),
+                            icon: (0, _v1.jsx)(_v40.EditSheet, {}),
                             onClick: () => {
                               var _v0;
-                              return _v0 = _v0.id, void (_v6(!1), _v8(_v0));
+                              return _v0 = _v0.id, void (_v7(!1), _v9(_v0));
                             },
                             size: "sm",
                             variant: "tertiary"
@@ -1935,16 +1939,18 @@
                                 }
                               }
                             }),
-                            icon: _v2 ? (0, _v1.jsx)(_v45.Eye, {}) : (0, _v1.jsx)(_v44.EyeShut, {}),
-                            isLoading: _v22.has(_v0.id),
-                            onClick: () => {
-                              var _v0;
-                              return _v0 = _v0.id, void (!_v3 || _v22.has(_v0) || (_v23(_v0 => new Set(_v0).add(_v0)), (null !== _v1 ? _v20({
+                            icon: _v2 ? (0, _v1.jsx)(_v46.Eye, {}) : (0, _v1.jsx)(_v45.EyeShut, {}),
+                            isLoading: _v23.has(_v0.id),
+                            onClick: () => ((_v0, _v1) => {
+                              if (!_v3 || _v23.has(_v0)) return;
+                              _v24(_v0 => new Set(_v0).add(_v0));
+                              let _v2 = null !== _v1;
+                              (_v2 ? _v21({
                                 where: {
                                   liveEventId: _v2,
                                   speakerProfileId: _v1
                                 }
-                              }) : _v19({
+                              }) : _v20({
                                 select: ["id"],
                                 where: {
                                   liveEventId: _v2
@@ -1952,13 +1958,100 @@
                                 variables: {
                                   personProfileId: _v0
                                 }
-                              })).then(() => _v15()).finally(() => {
-                                _v23(_v0 => {
+                              })).then(() => {
+                                _v16(), _v5({
+                                  status: "success",
+                                  duration: 0,
+                                  title: _v2 ? (0, _v10.translate)({
+                                    singular: "Speaker hidden from the event landing page.",
+                                    dictionary: {
+                                      es: {
+                                        singular: "Ponente oculto en la página de destino del evento."
+                                      },
+                                      "de-DE": {
+                                        singular: "Sprecher auf der Landingpage der Veranstaltung ausgeblendet."
+                                      },
+                                      "fr-FR": {
+                                        singular: "L'intervenant est masqué sur la page de destination de l'événement."
+                                      },
+                                      "ja-JP": {
+                                        singular: "イベントのランディングページでスピーカーが非表示になりました。"
+                                      },
+                                      "ko-KR": {
+                                        singular: "발표자가 이벤트 랜딩 페이지에서 숨겨졌습니다."
+                                      },
+                                      "pt-BR": {
+                                        singular: "Palestrante oculto na landing page do evento."
+                                      },
+                                      "zh-CN": {
+                                        singular: "演讲者已从活动着陆页隐藏。"
+                                      }
+                                    }
+                                  }) : (0, _v10.translate)({
+                                    singular: "Speaker shown on the event landing page.",
+                                    dictionary: {
+                                      es: {
+                                        singular: "Ponente visible en la página de destino del evento."
+                                      },
+                                      "de-DE": {
+                                        singular: "Sprecher auf der Landingpage der Veranstaltung angezeigt."
+                                      },
+                                      "fr-FR": {
+                                        singular: "L'intervenant est affiché sur la page de destination de l'événement."
+                                      },
+                                      "ja-JP": {
+                                        singular: "イベントのランディングページでスピーカーが表示されました。"
+                                      },
+                                      "ko-KR": {
+                                        singular: "발표자가 이벤트 랜딩 페이지에 표시되었습니다."
+                                      },
+                                      "pt-BR": {
+                                        singular: "Palestrante exibido na landing page do evento."
+                                      },
+                                      "zh-CN": {
+                                        singular: "演讲者已在活动着陆页上显示。"
+                                      }
+                                    }
+                                  })
+                                });
+                              }).catch(_v0 => {
+                                _v5({
+                                  status: "error",
+                                  duration: 0,
+                                  title: (0, _v53.getErrorToastTitle)(_v0, (0, _v10.translate)({
+                                    singular: "Something went wrong updating speaker visibility. Try again.",
+                                    dictionary: {
+                                      es: {
+                                        singular: "Se produjo un error al actualizar la visibilidad del ponente. Inténtelo de nuevo."
+                                      },
+                                      "de-DE": {
+                                        singular: "Beim Aktualisieren der Sichtbarkeit des Sprechers ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+                                      },
+                                      "fr-FR": {
+                                        singular: "Une erreur est survenue lors de la mise à jour de la visibilité de l'intervenant. Veuillez réessayer."
+                                      },
+                                      "ja-JP": {
+                                        singular: "スピーカーの表示設定の更新中に問題が発生しました。もう一度お試しください。"
+                                      },
+                                      "ko-KR": {
+                                        singular: "발표자 가시성 업데이트 중 오류가 발생했습니다. 다시 시도해 주세요."
+                                      },
+                                      "pt-BR": {
+                                        singular: "Ocorreu um erro ao atualizar a visibilidade do palestrante. Tente novamente."
+                                      },
+                                      "zh-CN": {
+                                        singular: "更新演讲者可见性时出错。请重试。"
+                                      }
+                                    }
+                                  }))
+                                });
+                              }).finally(() => {
+                                _v24(_v0 => {
                                   let _v1 = new Set(_v0);
                                   return _v1.delete(_v0), _v1;
                                 });
-                              })));
-                            },
+                              });
+                            })(_v0.id, _v1),
                             size: "sm",
                             variant: "tertiary"
                           })
@@ -2016,9 +2109,9 @@
                                 }
                               }
                             }),
-                            icon: (0, _v1.jsx)(_v46.TrashBin, {}),
-                            isLoading: _v24.has(_v0.id),
-                            onClick: () => _v10(_v0.id),
+                            icon: (0, _v1.jsx)(_v47.TrashBin, {}),
+                            isLoading: _v25.has(_v0.id),
+                            onClick: () => _v11(_v0.id),
                             size: "sm",
                             variant: "tertiary"
                           })
@@ -2031,7 +2124,7 @@
             })]
           }), (0, _v1.jsx)(_v28.ModalFooter, {})]
         })]
-      }), _v5 ? (0, _v1.jsx)(_v79, {
+      }), _v6 ? (0, _v1.jsx)(_v79, {
         initialSpeaker: {
           name: "",
           role: "",
@@ -2039,13 +2132,13 @@
           picture: null,
           avatarCrop: null
         },
-        isOpen: _v5,
+        isOpen: _v6,
         mode: "add",
         onClose: () => {
-          _v6(!1);
+          _v7(!1);
         },
         onSaved: _v0 => {
-          _v12(), _v3 && _v19({
+          _v13(), _v3 && _v20({
             select: ["id"],
             where: {
               liveEventId: _v2
@@ -2053,28 +2146,28 @@
             variables: {
               personProfileId: _v0
             }
-          }).then(() => _v15());
+          }).then(() => _v16());
         }
-      }, "add-speaker-modal") : null, _v17 ? (0, _v1.jsx)(_v79, {
+      }, "add-speaker-modal") : null, _v18 ? (0, _v1.jsx)(_v79, {
         initialSpeaker: {
-          id: _v17.id,
-          name: _v17.name,
-          role: _v17.role || "",
-          description: _v17.description || "",
-          picture: _v17.pictures,
-          avatarCrop: _v17.avatarCrop
+          id: _v18.id,
+          name: _v18.name,
+          role: _v18.role || "",
+          description: _v18.description || "",
+          picture: _v18.pictures,
+          avatarCrop: _v18.avatarCrop
         },
-        isOpen: null !== _v17,
+        isOpen: null !== _v18,
         mode: "edit",
         onClose: () => {
-          _v8(null);
+          _v9(null);
         },
-        onSaved: () => _v12()
-      }, `edit-speaker-modal-${_v17.id}`) : null, _v18 ? (0, _v1.jsx)(_v80, {
+        onSaved: () => _v13()
+      }, `edit-speaker-modal-${_v18.id}`) : null, _v19 ? (0, _v1.jsx)(_v80, {
         title: (0, _v10.translate)({
           singular: 'Delete "{NAME}"?',
           replacements: {
-            NAME: _v18.name
+            NAME: _v19.name
           },
           dictionary: {
             es: {
@@ -2126,20 +2219,20 @@
             }
           }
         }),
-        onCancel: () => _v10(null),
+        onCancel: () => _v11(null),
         onConfirm: () => {
-          null !== _v9 && (_v24.has(_v9) || (_v25(_v0 => new Set(_v0).add(_v9)), _v21({
+          null !== _v10 && (_v25.has(_v10) || (_v26(_v0 => new Set(_v0).add(_v10)), _v22({
             where: {
-              personProfileId: _v9
+              personProfileId: _v10
             }
           }).then(() => {
-            _v12(), _v15();
+            _v13(), _v16();
           }).finally(() => {
-            _v25(_v0 => {
+            _v26(_v0 => {
               let _v1 = new Set(_v0);
-              return _v1.delete(_v9), _v1;
+              return _v1.delete(_v10), _v1;
             });
-          })), _v10(null));
+          })), _v11(null));
         }
       }) : null]
     });

@@ -326,7 +326,7 @@
   function _v83(_v0) {
     return _v0;
   }
-  _v1.exports = (_v12 = function (_v0, _v1, _v2, _v3) {
+  _v1.exports = (_v12 = function (_v0, _v1, _v2) {
     !function _v0(_v1, _v2, _v3, _v4, _v5) {
       _v1 !== _v2 && _v63(_v2, function (_v0, _v1) {
         if (_v5 || (_v5 = new _v59()), _v79(_v0)) !function (_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
@@ -383,7 +383,7 @@
           void 0 === _v2 && (_v2 = _v0), _v60(_v1, _v1, _v2);
         }
       }, _v82);
-    }(_v0, _v1, _v2, _v3);
+    }(_v0, _v1, _v2);
   }, _v71((_v6 = _v13 = function (_v0, _v1) {
     var _v2 = -1,
       _v3 = _v1.length,
@@ -395,7 +395,7 @@
       return ("number" == _v3 ? !!(_v75(_v2) && _v68(_v1, _v2.length)) : "string" == _v3 && _v1 in _v2) && _v72(_v2[_v1], _v0);
     }(_v1[0], _v1[1], _v5) && (_v4 = _v3 < 3 ? void 0 : _v4, _v3 = 1), _v0 = Object(_v0); ++_v2 < _v3;) {
       var _v6 = _v1[_v2];
-      _v6 && _v12(_v0, _v6, _v2, _v4);
+      _v6 && _v12(_v0, _v6, _v2);
     }
     return _v0;
   }, _v7 = void 0, _v8 = _v83, _v7 = _v51(void 0 === _v7 ? _v6.length - 1 : _v7, 0), function () {

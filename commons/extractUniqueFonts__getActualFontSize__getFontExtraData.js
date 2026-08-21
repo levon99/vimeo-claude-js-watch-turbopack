@@ -1,10 +1,9 @@
 {
   "use strict";
 
-  _v0.s(["extractUniqueFonts", () => _v20, "getActualFontSize", () => _v14, "getFontExtraData", () => _v23, "getFontFamily", () => _v11, "getPreferredFontByLanguage", () => _v19, "getRelativeFontSize", () => _v13, "groupFontsByFamily", () => _v16, "isFontSupportsLanguage", () => _v17, "loadFont", () => _v12, "loadFontFaceToDOM", () => _v15, "mapBrandKitFontToFont", () => _v22, "mapLoadingFontsToFontObjects", () => _v21], 0);
-  var _v1 = _v0.i(0);
-  _v0.s(["createSVGDimensions", () => _v8, "getSVGTextDimensions", () => _v9], 0);
-  var _v2 = _v0.i(0);
+  _v0.s(["extractUniqueFonts", () => _v20, "getActualFontSize", () => _v14, "getFontExtraData", () => _v23, "getFontFamily", () => _v11, "getPreferredFontByLanguage", () => _v19, "getRelativeFontSize", () => _v13, "groupFontsByFamily", () => _v16, "isFontSupportsLanguage", () => _v17, "loadFont", () => _v12, "loadFontFaceToDOM", () => _v15, "mapBrandKitFontToFont", () => _v22, "mapLoadingFontsToFontObjects", () => _v21], 0), _v0.s(["createSVGDimensions", () => _v8, "getSVGTextDimensions", () => _v9], 0);
+  var _v1 = _v0.i(0),
+    _v2 = _v0.i(0);
   let _v3 = (_v0, _v1) => {
       let _v2 = _v0.match(_v1);
       return _v2 ? _v2.length : 0;
@@ -20,7 +19,7 @@
   }, "getExtension", 0, _v0 => {
     let _v1 = _v0.match(/[^.]+$/);
     return _v1?.[0];
-  }, "getMatchesCount", 0, _v3, "getUpperSnakeCase", 0, _v0 => _v0.toUpperCase().replace("-", "_"), "lowerCaseUnderscore", 0, _v0 => (0, _v2.default)(_v0).replaceAll(" ", "_"), "prettifyString", 0, _v0 => _v6(_v0.replaceAll("_", " ").replaceAll("-", " ").replace(/\.[^/.]+$/, "")), "randomString", 0, (_v0 = 5) => (Math.random() + 1).toString(36).substring(_v0), "textFromMarkup", 0, _v5], 0), _v0.i(0);
+  }, "getMatchesCount", 0, _v3, "getUpperSnakeCase", 0, _v0 => _v0.toUpperCase().replace("-", "_"), "lowerCaseUnderscore", 0, _v0 => (0, _v2.default)(_v0).replaceAll(" ", "_"), "prettifyString", 0, _v0 => _v6(_v0.replaceAll("_", " ").replaceAll("-", " ").replace(/\.[^/.]+$/, "")), "randomString", 0, (_v0 = 5) => (Math.random() + 1).toString(36).substring(_v0), "textFromMarkup", 0, _v5], 0);
   var _v7 = _v0.i(0);
   let _v8 = _v0 => ({
       SVG_WIDTH: _v7.ORIENTATION_MAP[_v0].width,

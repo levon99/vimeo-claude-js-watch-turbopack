@@ -23,17 +23,16 @@
     report: _v0,
     isOpen: _v1,
     headerAction: _v2,
-    bodyAction: _v3,
-    footerAction: _v4
+    footerAction: _v3
   }) => {
-    let _v5 = (0, _v2.useRef)(null);
+    let _v4 = (0, _v2.useRef)(null);
     return (0, _v2.useEffect)(() => {
-      _v1 && _v0.hasData && _v5.current?.focus();
+      _v1 && _v0.hasData && _v4.current?.focus();
     }, [_v1, _v0.hasData]), (0, _v1.jsxs)(_v6.Modal, {
       isOpen: _v1,
       onClose: _v0.handleClose,
       scrollBehavior: "inside",
-      initialFocusRef: _v5,
+      initialFocusRef: _v4,
       children: [(0, _v1.jsx)(_v12.ModalOverlay, {}), (0, _v1.jsxs)(_v9.ModalContent, {
         maxHeight: "calc(100% - 3rem)",
         children: [(0, _v1.jsx)(_v11.ModalHeader, {
@@ -85,8 +84,8 @@
             selected: _v0.selected,
             onSelectNode: _v0.onSelectNode,
             onDone: _v0.handleClose,
-            firstOptionRef: _v5,
-            action: _v3
+            firstOptionRef: _v4,
+            commsOptOut: _v0.commsOptOut
           })
         }), _v0.showFooter ? (0, _v1.jsx)(_v10.ModalFooter, {
           children: (0, _v1.jsx)(_v18.ReportFooter, {
@@ -94,7 +93,7 @@
             submitDisabled: _v0.submitDisabled,
             onSubmit: _v0.onSubmit,
             help: _v0.help,
-            action: _v4
+            action: _v3
           })
         }) : null]
       })]

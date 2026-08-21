@@ -353,9 +353,9 @@
                 for (_v3 = 0; _v3 < _v8; _v3 += 1) if ("ks" in (_v2 = _v0[_v3]) && !_v2.completed) {
                   if (_v2.completed = !0, _v2.hasMask) {
                     var _v9 = _v2.masksProperties;
-                    for (_v4 = 0, _v5 = _v9.length; _v4 < _v5; _v4 += 1) if (_v9[_v4].pt.k.i) _v5(_v9[_v4].pt.k);else for (_v6 = 0, _v7 = _v9[_v4].pt.k.length; _v6 < _v7; _v6 += 1) _v9[_v4].pt.k[_v6].s && _v5(_v9[_v4].pt.k[_v6].s[0]), _v9[_v4].pt.k[_v6].e && _v5(_v9[_v4].pt.k[_v6].e[0]);
+                    for (_v5 = _v9.length, _v4 = 0; _v4 < _v5; _v4 += 1) if (_v9[_v4].pt.k.i) _v5(_v9[_v4].pt.k);else for (_v7 = _v9[_v4].pt.k.length, _v6 = 0; _v6 < _v7; _v6 += 1) _v9[_v4].pt.k[_v6].s && _v5(_v9[_v4].pt.k[_v6].s[0]), _v9[_v4].pt.k[_v6].e && _v5(_v9[_v4].pt.k[_v6].e[0]);
                   }
-                  0 === _v2.ty ? (_v2.layers = _v3(_v2.refId, _v1), _v0(_v2.layers, _v1)) : 4 === _v2.ty ? _v4(_v2.shapes) : 5 === _v2.ty && _v12(_v2);
+                  0 === _v2.ty ? (_v2.layers = _v3(_v2.refId, _v1), _v0(_v2.layers, _v1)) : 4 === _v2.ty ? _v4(_v2.shapes) : 5 === _v2.ty && _v13(_v2);
                 }
               }
               function _v1(_v0, _v1) {
@@ -379,7 +379,7 @@
               function _v4(_v0) {
                 var _v1, _v2, _v3;
                 for (_v1 = _v0.length - 1; _v1 >= 0; _v1 -= 1) if ("sh" === _v0[_v1].ty) {
-                  if (_v0[_v1].ks.k.i) _v5(_v0[_v1].ks.k);else for (_v2 = 0, _v3 = _v0[_v1].ks.k.length; _v2 < _v3; _v2 += 1) _v0[_v1].ks.k[_v2].s && _v5(_v0[_v1].ks.k[_v2].s[0]), _v0[_v1].ks.k[_v2].e && _v5(_v0[_v1].ks.k[_v2].e[0]);
+                  if (_v0[_v1].ks.k.i) _v5(_v0[_v1].ks.k);else for (_v3 = _v0[_v1].ks.k.length, _v2 = 0; _v2 < _v3; _v2 += 1) _v0[_v1].ks.k[_v2].s && _v5(_v0[_v1].ks.k[_v2].s[0]), _v0[_v1].ks.k[_v2].e && _v5(_v0[_v1].ks.k[_v2].e[0]);
                 } else "gr" === _v0[_v1].ty && _v4(_v0[_v1].it);
               }
               function _v5(_v0) {
@@ -391,7 +391,8 @@
                 var _v2 = _v1 ? _v1.split(".") : [100, 100, 100];
                 return _v0[0] > _v2[0] || !(_v2[0] > _v0[0]) && (_v0[1] > _v2[1] || !(_v2[1] > _v0[1]) && (_v0[2] > _v2[2] || !(_v2[2] > _v0[2]) && null));
               }
-              var _v7 = function () {
+              var _v7,
+                _v8 = function () {
                   var _v0 = [4, 4, 14];
                   function _v1(_v0) {
                     var _v1 = _v0.t.d;
@@ -415,73 +416,70 @@
                     }
                   };
                 }(),
-                _v8 = function () {
-                  var _v0 = [4, 7, 99];
-                  return function (_v0) {
-                    if (_v0.chars && !_v6(_v0, _v0.v)) {
-                      var _v1,
-                        _v2 = _v0.chars.length;
-                      for (_v1 = 0; _v1 < _v2; _v1 += 1) {
-                        var _v3 = _v0.chars[_v1];
-                        _v3.data && _v3.data.shapes && (_v4(_v3.data.shapes), _v3.data.ip = 0, _v3.data.op = 0, _v3.data.st = 0, _v3.data.sr = 1, _v3.data.ks = {
-                          p: {
-                            k: [0, 0],
-                            a: 0
-                          },
-                          s: {
-                            k: [100, 100],
-                            a: 0
-                          },
-                          a: {
-                            k: [0, 0],
-                            a: 0
-                          },
-                          r: {
-                            k: 0,
-                            a: 0
-                          },
-                          o: {
-                            k: 100,
-                            a: 0
-                          }
-                        }, _v0.chars[_v1].t || (_v3.data.shapes.push({
-                          ty: "no"
-                        }), _v3.data.shapes[0].it.push({
-                          p: {
-                            k: [0, 0],
-                            a: 0
-                          },
-                          s: {
-                            k: [100, 100],
-                            a: 0
-                          },
-                          a: {
-                            k: [0, 0],
-                            a: 0
-                          },
-                          r: {
-                            k: 0,
-                            a: 0
-                          },
-                          o: {
-                            k: 100,
-                            a: 0
-                          },
-                          sk: {
-                            k: 0,
-                            a: 0
-                          },
-                          sa: {
-                            k: 0,
-                            a: 0
-                          },
-                          ty: "tr"
-                        })));
-                      }
+                _v9 = (_v7 = [4, 7, 99], function (_v0) {
+                  if (_v0.chars && !_v6(_v7, _v0.v)) {
+                    var _v1,
+                      _v2 = _v0.chars.length;
+                    for (_v1 = 0; _v1 < _v2; _v1 += 1) {
+                      var _v3 = _v0.chars[_v1];
+                      _v3.data && _v3.data.shapes && (_v4(_v3.data.shapes), _v3.data.ip = 0, _v3.data.op = 0, _v3.data.st = 0, _v3.data.sr = 1, _v3.data.ks = {
+                        p: {
+                          k: [0, 0],
+                          a: 0
+                        },
+                        s: {
+                          k: [100, 100],
+                          a: 0
+                        },
+                        a: {
+                          k: [0, 0],
+                          a: 0
+                        },
+                        r: {
+                          k: 0,
+                          a: 0
+                        },
+                        o: {
+                          k: 100,
+                          a: 0
+                        }
+                      }, _v0.chars[_v1].t || (_v3.data.shapes.push({
+                        ty: "no"
+                      }), _v3.data.shapes[0].it.push({
+                        p: {
+                          k: [0, 0],
+                          a: 0
+                        },
+                        s: {
+                          k: [100, 100],
+                          a: 0
+                        },
+                        a: {
+                          k: [0, 0],
+                          a: 0
+                        },
+                        r: {
+                          k: 0,
+                          a: 0
+                        },
+                        o: {
+                          k: 100,
+                          a: 0
+                        },
+                        sk: {
+                          k: 0,
+                          a: 0
+                        },
+                        sa: {
+                          k: 0,
+                          a: 0
+                        },
+                        ty: "tr"
+                      })));
                     }
-                  };
-                }(),
-                _v9 = function () {
+                  }
+                }),
+                _v10 = function () {
                   var _v0 = [5, 7, 15];
                   function _v1(_v0) {
                     var _v1 = _v0.t.p;
@@ -509,14 +507,14 @@
                     }
                   };
                 }(),
-                _v10 = function () {
+                _v11 = function () {
                   var _v0 = [4, 1, 9];
                   function _v1(_v0) {
                     var _v1,
                       _v2,
                       _v3,
                       _v4 = _v0.length;
-                    for (_v1 = 0; _v1 < _v4; _v1 += 1) if ("gr" === _v0[_v1].ty) _v1(_v0[_v1].it);else if ("fl" === _v0[_v1].ty || "st" === _v0[_v1].ty) if (_v0[_v1].c.k && _v0[_v1].c.k[0].i) for (_v2 = 0, _v3 = _v0[_v1].c.k.length; _v2 < _v3; _v2 += 1) _v0[_v1].c.k[_v2].s && (_v0[_v1].c.k[_v2].s[0] /= 255, _v0[_v1].c.k[_v2].s[1] /= 255, _v0[_v1].c.k[_v2].s[2] /= 255, _v0[_v1].c.k[_v2].s[3] /= 255), _v0[_v1].c.k[_v2].e && (_v0[_v1].c.k[_v2].e[0] /= 255, _v0[_v1].c.k[_v2].e[1] /= 255, _v0[_v1].c.k[_v2].e[2] /= 255, _v0[_v1].c.k[_v2].e[3] /= 255);else _v0[_v1].c.k[0] /= 255, _v0[_v1].c.k[1] /= 255, _v0[_v1].c.k[2] /= 255, _v0[_v1].c.k[3] /= 255;
+                    for (_v1 = 0; _v1 < _v4; _v1 += 1) if ("gr" === _v0[_v1].ty) _v1(_v0[_v1].it);else if ("fl" === _v0[_v1].ty || "st" === _v0[_v1].ty) if (_v0[_v1].c.k && _v0[_v1].c.k[0].i) for (_v3 = _v0[_v1].c.k.length, _v2 = 0; _v2 < _v3; _v2 += 1) _v0[_v1].c.k[_v2].s && (_v0[_v1].c.k[_v2].s[0] /= 255, _v0[_v1].c.k[_v2].s[1] /= 255, _v0[_v1].c.k[_v2].s[2] /= 255, _v0[_v1].c.k[_v2].s[3] /= 255), _v0[_v1].c.k[_v2].e && (_v0[_v1].c.k[_v2].e[0] /= 255, _v0[_v1].c.k[_v2].e[1] /= 255, _v0[_v1].c.k[_v2].e[2] /= 255, _v0[_v1].c.k[_v2].e[3] /= 255);else _v0[_v1].c.k[0] /= 255, _v0[_v1].c.k[1] /= 255, _v0[_v1].c.k[2] /= 255, _v0[_v1].c.k[3] /= 255;
                   }
                   function _v2(_v0) {
                     var _v1,
@@ -531,12 +529,12 @@
                     }
                   };
                 }(),
-                _v11 = function () {
+                _v12 = function () {
                   var _v0 = [4, 4, 18];
                   function _v1(_v0) {
                     var _v1, _v2, _v3;
                     for (_v1 = _v0.length - 1; _v1 >= 0; _v1 -= 1) if ("sh" === _v0[_v1].ty) {
-                      if (_v0[_v1].ks.k.i) _v0[_v1].ks.k.c = _v0[_v1].closed;else for (_v2 = 0, _v3 = _v0[_v1].ks.k.length; _v2 < _v3; _v2 += 1) _v0[_v1].ks.k[_v2].s && (_v0[_v1].ks.k[_v2].s[0].c = _v0[_v1].closed), _v0[_v1].ks.k[_v2].e && (_v0[_v1].ks.k[_v2].e[0].c = _v0[_v1].closed);
+                      if (_v0[_v1].ks.k.i) _v0[_v1].ks.k.c = _v0[_v1].closed;else for (_v3 = _v0[_v1].ks.k.length, _v2 = 0; _v2 < _v3; _v2 += 1) _v0[_v1].ks.k[_v2].s && (_v0[_v1].ks.k[_v2].s[0].c = _v0[_v1].closed), _v0[_v1].ks.k[_v2].e && (_v0[_v1].ks.k[_v2].e[0].c = _v0[_v1].closed);
                     } else "gr" === _v0[_v1].ty && _v1(_v0[_v1].it);
                   }
                   function _v2(_v0) {
@@ -550,7 +548,7 @@
                     for (_v2 = 0; _v2 < _v7; _v2 += 1) {
                       if ((_v1 = _v0[_v2]).hasMask) {
                         var _v8 = _v1.masksProperties;
-                        for (_v3 = 0, _v4 = _v8.length; _v3 < _v4; _v3 += 1) if (_v8[_v3].pt.k.i) _v8[_v3].pt.k.c = _v8[_v3].cl;else for (_v5 = 0, _v6 = _v8[_v3].pt.k.length; _v5 < _v6; _v5 += 1) _v8[_v3].pt.k[_v5].s && (_v8[_v3].pt.k[_v5].s[0].c = _v8[_v3].cl), _v8[_v3].pt.k[_v5].e && (_v8[_v3].pt.k[_v5].e[0].c = _v8[_v3].cl);
+                        for (_v4 = _v8.length, _v3 = 0; _v3 < _v4; _v3 += 1) if (_v8[_v3].pt.k.i) _v8[_v3].pt.k.c = _v8[_v3].cl;else for (_v6 = _v8[_v3].pt.k.length, _v5 = 0; _v5 < _v6; _v5 += 1) _v8[_v3].pt.k[_v5].s && (_v8[_v3].pt.k[_v5].s[0].c = _v8[_v3].cl), _v8[_v3].pt.k[_v5].e && (_v8[_v3].pt.k[_v5].e[0].c = _v8[_v3].cl);
                       }
                       4 === _v1.ty && _v1(_v1.shapes);
                     }
@@ -563,13 +561,13 @@
                     }
                   };
                 }();
-              function _v12(_v0) {
+              function _v13(_v0) {
                 0 === _v0.t.a.length && _v0.t.p;
               }
-              var _v13 = {};
-              return _v13.completeData = function (_v0) {
-                _v0.__complete || (_v10(_v0), _v7(_v0), _v8(_v0), _v9(_v0), _v11(_v0), _v0(_v0.layers, _v0.assets), _v1(_v0.chars, _v0.assets), _v0.__complete = !0);
-              }, _v13.checkColors = _v10, _v13.checkChars = _v8, _v13.checkPathProperties = _v9, _v13.checkShapes = _v11, _v13.completeLayers = _v0, _v13;
+              var _v14 = {};
+              return _v14.completeData = function (_v0) {
+                _v0.__complete || (_v11(_v0), _v8(_v0), _v9(_v0), _v10(_v0), _v12(_v0), _v0(_v0.layers, _v0.assets), _v1(_v0.chars, _v0.assets), _v0.__complete = !0);
+              }, _v14.checkColors = _v11, _v14.checkChars = _v9, _v14.checkPathProperties = _v10, _v14.checkShapes = _v12, _v14.completeLayers = _v0, _v14;
             }
             if (_v5.dataManager || (_v5.dataManager = _v1()), _v5.assetLoader || (_v5.assetLoader = function () {
               function _v0(_v0) {
@@ -675,19 +673,16 @@
         };
       }(),
       _v63 = function () {
-        var _v0 = function () {
-          var _v0 = _v8("canvas");
-          _v0.width = 1, _v0.height = 1;
-          var _v1 = _v0.getContext("2d");
-          return _v1.fillStyle = "rgba(0,0,0,0)", _v1.fillRect(0, 0, 1, 1), _v0;
-        }();
-        function _v1() {
+        var _v0,
+          _v1,
+          _v2 = ((_v0 = _v8("canvas")).width = 1, _v0.height = 1, (_v1 = _v0.getContext("2d")).fillStyle = "rgba(0,0,0,0)", _v1.fillRect(0, 0, 1, 1), _v0);
+        function _v3() {
           this.loadedAssets += 1, this.loadedAssets === this.totalImages && this.loadedFootagesCount === this.totalFootages && this.imagesLoadedCb && this.imagesLoadedCb(null);
         }
-        function _v2() {
+        function _v4() {
           this.loadedFootagesCount += 1, this.loadedAssets === this.totalImages && this.loadedFootagesCount === this.totalFootages && this.imagesLoadedCb && this.imagesLoadedCb(null);
         }
-        function _v3(_v0, _v1, _v2) {
+        function _v5(_v0, _v1, _v2) {
           var _v3 = "";
           if (_v0.e) _v3 = _v0.p;else if (_v1) {
             var _v4 = _v0.p;
@@ -695,27 +690,27 @@
           } else _v3 = _v2 + (_v0.u ? _v0.u : "") + _v0.p;
           return _v3;
         }
-        function _v4(_v0) {
+        function _v6(_v0) {
           var _v1 = 0,
             _v2 = setInterval(function () {
               (_v0.getBBox().width || _v1 > 500) && (this._imageLoaded(), clearInterval(_v2)), _v1 += 1;
             }.bind(this), 50);
         }
-        function _v5(_v0) {
+        function _v7(_v0) {
           var _v1 = {
               assetData: _v0
             },
-            _v2 = _v3(_v0, this.assetsPath, this.path);
+            _v2 = _v5(_v0, this.assetsPath, this.path);
           return _v62.loadData(_v2, function (_v0) {
             _v1.img = _v0, this._footageLoaded();
           }.bind(this), function () {
             _v1.img = {}, this._footageLoaded();
           }.bind(this)), _v1;
         }
-        function _v6() {
-          this._imageLoaded = _v1.bind(this), this._footageLoaded = _v2.bind(this), this.testImageLoaded = _v4.bind(this), this.createFootageData = _v5.bind(this), this.assetsPath = "", this.path = "", this.totalImages = 0, this.totalFootages = 0, this.loadedAssets = 0, this.loadedFootagesCount = 0, this.imagesLoadedCb = null, this.images = [];
+        function _v8() {
+          this._imageLoaded = _v3.bind(this), this._footageLoaded = _v4.bind(this), this.testImageLoaded = _v6.bind(this), this.createFootageData = _v7.bind(this), this.assetsPath = "", this.path = "", this.totalImages = 0, this.totalFootages = 0, this.loadedAssets = 0, this.loadedFootagesCount = 0, this.imagesLoadedCb = null, this.images = [];
         }
-        return _v6.prototype = {
+        return _v8.prototype = {
           loadAssets: function (_v0, _v1) {
             this.imagesLoadedCb = _v1;
             var _v2,
@@ -745,10 +740,10 @@
             return null;
           },
           createImgData: function (_v0) {
-            var _v1 = _v3(_v0, this.assetsPath, this.path),
+            var _v1 = _v5(_v0, this.assetsPath, this.path),
               _v2 = _v8("img");
             _v2.crossOrigin = "anonymous", _v2.addEventListener("load", this._imageLoaded, !1), _v2.addEventListener("error", function () {
-              _v3.img = _v0, this._imageLoaded();
+              _v3.img = _v2, this._imageLoaded();
             }.bind(this), !1), _v2.src = _v1;
             var _v3 = {
               img: _v2,
@@ -757,10 +752,10 @@
             return _v3;
           },
           createImageData: function (_v0) {
-            var _v1 = _v3(_v0, this.assetsPath, this.path),
+            var _v1 = _v5(_v0, this.assetsPath, this.path),
               _v2 = _v60("image");
             _v20 ? this.testImageLoaded(_v2) : _v2.addEventListener("load", this._imageLoaded, !1), _v2.addEventListener("error", function () {
-              _v3.img = _v0, this._imageLoaded();
+              _v3.img = _v2, this._imageLoaded();
             }.bind(this), !1), _v2.setAttributeNS("http://www.w3.org/1999/xlink", "href", _v1), this._elementHelper.append ? this._elementHelper.append(_v2) : this._elementHelper.appendChild(_v2);
             var _v3 = {
               img: _v2,
@@ -768,12 +763,12 @@
             };
             return _v3;
           },
-          imageLoaded: _v1,
-          footageLoaded: _v2,
+          imageLoaded: _v3,
+          footageLoaded: _v4,
           setCacheType: function (_v0, _v1) {
             "svg" === _v0 ? (this._elementHelper = _v1, this._createImageData = this.createImageData.bind(this)) : this._createImageData = this.createImgData.bind(this);
           }
-        }, _v6;
+        }, _v8;
       }();
     function _v64() {}
     _v64.prototype = {
@@ -895,7 +890,7 @@
         }
         _v1 += 1;
       }
-      if ((_v0.chars || _v0.fonts) && (this.renderer.globalData.fontManager.addChars(_v0.chars), this.renderer.globalData.fontManager.addFonts(_v0.fonts, this.renderer.globalData.defs)), _v0.assets) for (_v1 = 0, _v4 = _v0.assets.length; _v1 < _v4; _v1 += 1) this.animationData.assets.push(_v0.assets[_v1]);
+      if ((_v0.chars || _v0.fonts) && (this.renderer.globalData.fontManager.addChars(_v0.chars), this.renderer.globalData.fontManager.addFonts(_v0.fonts, this.renderer.globalData.defs)), _v0.assets) for (_v4 = _v0.assets.length, _v1 = 0; _v1 < _v4; _v1 += 1) this.animationData.assets.push(_v0.assets[_v1]);
       this.animationData.__complete = !1, _v62.completeAnimation(this.animationData, this.onSegmentComplete);
     }, _v72.prototype.onSegmentComplete = function (_v0) {
       this.animationData = _v0;
@@ -1277,86 +1272,77 @@
           }
         }, _v0;
       }(),
-      _v75 = function () {
+      _v75 = {
+        double: function (_v0) {
+          return _v0.concat(_v14(_v0.length));
+        }
+      },
+      _v76 = function (_v0, _v1, _v2) {
+        var _v3 = 0,
+          _v4 = _v0,
+          _v5 = _v14(_v4);
         return {
-          double: function (_v0) {
-            return _v0.concat(_v14(_v0.length));
+          newElement: function () {
+            var _v0;
+            return _v3 ? (_v3 -= 1, _v0 = _v5[_v3]) : _v0 = _v1(), _v0;
+          },
+          release: function (_v0) {
+            _v3 === _v4 && (_v5 = _v75.double(_v5), _v4 *= 2), _v2 && _v2(_v0), _v5[_v3] = _v0, _v3 += 1;
           }
         };
-      }(),
-      _v76 = function () {
-        return function (_v0, _v1, _v2) {
-          var _v3 = 0,
-            _v4 = _v0,
-            _v5 = _v14(_v4);
-          return {
-            newElement: function () {
-              var _v0;
-              return _v3 ? (_v3 -= 1, _v0 = _v5[_v3]) : _v0 = _v1(), _v0;
-            },
-            release: function (_v0) {
-              _v3 === _v4 && (_v5 = _v75.double(_v5), _v4 *= 2), _v2 && _v2(_v0), _v5[_v3] = _v0, _v3 += 1;
-            }
-          };
+      },
+      _v77 = _v76(8, function () {
+        return {
+          addedLength: 0,
+          percents: _v13("float32", _v57()),
+          lengths: _v13("float32", _v57())
         };
-      }(),
-      _v77 = function () {
-        return _v76(8, function () {
-          return {
-            addedLength: 0,
-            percents: _v13("float32", _v57()),
-            lengths: _v13("float32", _v57())
-          };
-        });
-      }(),
-      _v78 = function () {
-        return _v76(8, function () {
-          return {
-            lengths: [],
-            totalLength: 0
-          };
-        }, function (_v0) {
-          var _v1,
-            _v2 = _v0.lengths.length;
-          for (_v1 = 0; _v1 < _v2; _v1 += 1) _v77.release(_v0.lengths[_v1]);
-          _v0.lengths.length = 0;
-        });
-      }();
+      }),
+      _v78 = _v76(8, function () {
+        return {
+          lengths: [],
+          totalLength: 0
+        };
+      }, function (_v0) {
+        var _v1,
+          _v2 = _v0.lengths.length;
+        for (_v1 = 0; _v1 < _v2; _v1 += 1) _v77.release(_v0.lengths[_v1]);
+        _v0.lengths.length = 0;
+      });
     function _v79() {
-      var _v0 = Math;
-      function _v1(_v0, _v1, _v2, _v3, _v4, _v5) {
+      var _v0,
+        _v1 = Math;
+      function _v2(_v0, _v1, _v2, _v3, _v4, _v5) {
         var _v6 = _v0 * _v3 + _v1 * _v4 + _v2 * _v5 - _v4 * _v3 - _v5 * _v0 - _v2 * _v1;
         return _v6 > -.001 && _v6 < .001;
       }
-      function _v2(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8) {
-        if (0 === _v2 && 0 === _v5 && 0 === _v8) return _v1(_v0, _v1, _v3, _v4, _v6, _v7);
+      function _v3(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8) {
+        if (0 === _v2 && 0 === _v5 && 0 === _v8) return _v2(_v0, _v1, _v3, _v4, _v6, _v7);
         var _v9,
-          _v10 = _v0.sqrt(_v0.pow(_v3 - _v0, 2) + _v0.pow(_v4 - _v1, 2) + _v0.pow(_v5 - _v2, 2)),
-          _v11 = _v0.sqrt(_v0.pow(_v6 - _v0, 2) + _v0.pow(_v7 - _v1, 2) + _v0.pow(_v8 - _v2, 2)),
-          _v12 = _v0.sqrt(_v0.pow(_v6 - _v3, 2) + _v0.pow(_v7 - _v4, 2) + _v0.pow(_v8 - _v5, 2));
+          _v10 = _v1.sqrt(_v1.pow(_v3 - _v0, 2) + _v1.pow(_v4 - _v1, 2) + _v1.pow(_v5 - _v2, 2)),
+          _v11 = _v1.sqrt(_v1.pow(_v6 - _v0, 2) + _v1.pow(_v7 - _v1, 2) + _v1.pow(_v8 - _v2, 2)),
+          _v12 = _v1.sqrt(_v1.pow(_v6 - _v3, 2) + _v1.pow(_v7 - _v4, 2) + _v1.pow(_v8 - _v5, 2));
         return (_v9 = _v10 > _v11 ? _v10 > _v12 ? _v10 - _v11 - _v12 : _v12 - _v11 - _v10 : _v12 > _v11 ? _v12 - _v11 - _v10 : _v11 - _v10 - _v12) > -1e-4 && _v9 < 1e-4;
       }
-      var _v3 = function () {
-        return function (_v0, _v1, _v2, _v3) {
-          var _v4,
-            _v5,
-            _v6,
-            _v7,
-            _v8,
-            _v9,
-            _v10 = _v57(),
-            _v11 = 0,
-            _v12 = [],
-            _v13 = [],
-            _v14 = _v77.newElement();
-          for (_v4 = 0, _v6 = _v2.length; _v4 < _v10; _v4 += 1) {
-            for (_v5 = 0, _v8 = _v4 / (_v10 - 1), _v9 = 0; _v5 < _v6; _v5 += 1) _v7 = _v22(1 - _v8, 3) * _v0[_v5] + 3 * _v22(1 - _v8, 2) * _v8 * _v2[_v5] + 3 * (1 - _v8) * _v22(_v8, 2) * _v3[_v5] + _v22(_v8, 3) * _v1[_v5], _v12[_v5] = _v7, null !== _v13[_v5] && (_v9 += _v22(_v12[_v5] - _v13[_v5], 2)), _v13[_v5] = _v12[_v5];
-            _v9 && (_v11 += _v9 = _v23(_v9)), _v14.percents[_v4] = _v8, _v14.lengths[_v4] = _v11;
-          }
-          return _v14.addedLength = _v11, _v14;
-        };
-      }();
-      function _v4(_v0) {
+      var _v4 = function (_v0, _v1, _v2, _v3) {
+        var _v4,
+          _v5,
+          _v6,
+          _v7,
+          _v8,
+          _v9,
+          _v10 = _v57(),
+          _v11 = 0,
+          _v12 = [],
+          _v13 = [],
+          _v14 = _v77.newElement();
+        for (_v6 = _v2.length, _v4 = 0; _v4 < _v10; _v4 += 1) {
+          for (_v8 = _v4 / (_v10 - 1), _v9 = 0, _v5 = 0; _v5 < _v6; _v5 += 1) _v7 = _v22(1 - _v8, 3) * _v0[_v5] + 3 * _v22(1 - _v8, 2) * _v8 * _v2[_v5] + 3 * (1 - _v8) * _v22(_v8, 2) * _v3[_v5] + _v22(_v8, 3) * _v1[_v5], _v12[_v5] = _v7, null !== _v13[_v5] && (_v9 += _v22(_v12[_v5] - _v13[_v5], 2)), _v13[_v5] = _v12[_v5];
+          _v9 && (_v11 += _v9 = _v23(_v9)), _v14.percents[_v4] = _v8, _v14.lengths[_v4] = _v11;
+        }
+        return _v14.addedLength = _v11, _v14;
+      };
+      function _v5(_v0) {
         var _v1,
           _v2 = _v78.newElement(),
           _v3 = _v0.c,
@@ -1366,42 +1352,39 @@
           _v7 = _v0._length,
           _v8 = _v2.lengths,
           _v9 = 0;
-        for (_v1 = 0; _v1 < _v7 - 1; _v1 += 1) _v8[_v1] = _v3(_v4[_v1], _v4[_v1 + 1], _v5[_v1], _v6[_v1 + 1]), _v9 += _v8[_v1].addedLength;
-        return _v3 && _v7 && (_v8[_v1] = _v3(_v4[_v1], _v4[0], _v5[_v1], _v6[0]), _v9 += _v8[_v1].addedLength), _v2.totalLength = _v9, _v2;
+        for (_v1 = 0; _v1 < _v7 - 1; _v1 += 1) _v8[_v1] = _v4(_v4[_v1], _v4[_v1 + 1], _v5[_v1], _v6[_v1 + 1]), _v9 += _v8[_v1].addedLength;
+        return _v3 && _v7 && (_v8[_v1] = _v4(_v4[_v1], _v4[0], _v5[_v1], _v6[0]), _v9 += _v8[_v1].addedLength), _v2.totalLength = _v9, _v2;
       }
-      function _v5(_v0) {
+      function _v6(_v0) {
         this.segmentLength = 0, this.points = Array(_v0);
       }
-      function _v6(_v0, _v1) {
+      function _v7(_v0, _v1) {
         this.partialLength = _v0, this.point = _v1;
       }
-      var _v7 = function () {
-        var _v0 = {};
-        return function (_v0, _v1, _v2, _v3) {
-          var _v4 = (_v0[0] + "_" + _v0[1] + "_" + _v1[0] + "_" + _v1[1] + "_" + _v2[0] + "_" + _v2[1] + "_" + _v3[0] + "_" + _v3[1]).replace(/\./g, "p");
-          if (!_v0[_v4]) {
-            var _v5,
-              _v6,
-              _v7,
-              _v8,
-              _v9,
-              _v10,
-              _v11,
-              _v12 = _v57(),
-              _v13 = 0,
-              _v14 = null;
-            2 === _v0.length && (_v0[0] !== _v1[0] || _v0[1] !== _v1[1]) && _v1(_v0[0], _v0[1], _v1[0], _v1[1], _v0[0] + _v2[0], _v0[1] + _v2[1]) && _v1(_v0[0], _v0[1], _v1[0], _v1[1], _v1[0] + _v3[0], _v1[1] + _v3[1]) && (_v12 = 2);
-            var _v15 = new _v5(_v12);
-            for (_v5 = 0, _v7 = _v2.length; _v5 < _v12; _v5 += 1) {
-              for (_v6 = 0, _v11 = _v14(_v7), _v9 = _v5 / (_v12 - 1), _v10 = 0; _v6 < _v7; _v6 += 1) _v8 = _v22(1 - _v9, 3) * _v0[_v6] + 3 * _v22(1 - _v9, 2) * _v9 * (_v0[_v6] + _v2[_v6]) + 3 * (1 - _v9) * _v22(_v9, 2) * (_v1[_v6] + _v3[_v6]) + _v22(_v9, 3) * _v1[_v6], _v11[_v6] = _v8, null !== _v14 && (_v10 += _v22(_v11[_v6] - _v14[_v6], 2));
-              _v13 += _v10 = _v23(_v10), _v15.points[_v5] = new _v6(_v10, _v11), _v14 = _v11;
-            }
-            _v15.segmentLength = _v13, _v0[_v4] = _v15;
+      var _v8 = (_v0 = {}, function (_v0, _v1, _v2, _v3) {
+        var _v4 = (_v0[0] + "_" + _v0[1] + "_" + _v1[0] + "_" + _v1[1] + "_" + _v2[0] + "_" + _v2[1] + "_" + _v3[0] + "_" + _v3[1]).replace(/\./g, "p");
+        if (!_v0[_v4]) {
+          var _v5,
+            _v6,
+            _v7,
+            _v8,
+            _v9,
+            _v10,
+            _v11,
+            _v12 = _v57(),
+            _v13 = 0,
+            _v14 = null;
+          2 === _v0.length && (_v0[0] !== _v1[0] || _v0[1] !== _v1[1]) && _v2(_v0[0], _v0[1], _v1[0], _v1[1], _v0[0] + _v2[0], _v0[1] + _v2[1]) && _v2(_v0[0], _v0[1], _v1[0], _v1[1], _v1[0] + _v3[0], _v1[1] + _v3[1]) && (_v12 = 2);
+          var _v15 = new _v6(_v12);
+          for (_v7 = _v2.length, _v5 = 0; _v5 < _v12; _v5 += 1) {
+            for (_v11 = _v14(_v7), _v9 = _v5 / (_v12 - 1), _v10 = 0, _v6 = 0; _v6 < _v7; _v6 += 1) _v8 = _v22(1 - _v9, 3) * _v0[_v6] + 3 * _v22(1 - _v9, 2) * _v9 * (_v0[_v6] + _v2[_v6]) + 3 * (1 - _v9) * _v22(_v9, 2) * (_v1[_v6] + _v3[_v6]) + _v22(_v9, 3) * _v1[_v6], _v11[_v6] = _v8, null !== _v14 && (_v10 += _v22(_v11[_v6] - _v14[_v6], 2));
+            _v13 += _v10 = _v23(_v10), _v15.points[_v5] = new _v7(_v10, _v11), _v14 = _v11;
           }
-          return _v0[_v4];
-        };
-      }();
-      function _v8(_v0, _v1) {
+          _v15.segmentLength = _v13, _v0[_v4] = _v15;
+        }
+        return _v0[_v4];
+      });
+      function _v9(_v0, _v1) {
         var _v2 = _v1.percents,
           _v3 = _v1.lengths,
           _v4 = _v2.length,
@@ -1415,19 +1398,19 @@
         }
         return _v2[_v5] + (_v2[_v5 + 1] - _v2[_v5]) * _v7;
       }
-      function _v9(_v0, _v1, _v2, _v3, _v4, _v5) {
-        var _v6 = _v8(_v4, _v5),
+      function _v10(_v0, _v1, _v2, _v3, _v4, _v5) {
+        var _v6 = _v9(_v4, _v5),
           _v7 = 1 - _v6;
-        return [_v0.round((_v7 * _v7 * _v7 * _v0[0] + (_v6 * _v7 * _v7 + _v7 * _v6 * _v7 + _v7 * _v7 * _v6) * _v2[0] + (_v6 * _v6 * _v7 + _v7 * _v6 * _v6 + _v6 * _v7 * _v6) * _v3[0] + _v6 * _v6 * _v6 * _v1[0]) * 0) / 0, _v0.round((_v7 * _v7 * _v7 * _v0[1] + (_v6 * _v7 * _v7 + _v7 * _v6 * _v7 + _v7 * _v7 * _v6) * _v2[1] + (_v6 * _v6 * _v7 + _v7 * _v6 * _v6 + _v6 * _v7 * _v6) * _v3[1] + _v6 * _v6 * _v6 * _v1[1]) * 0) / 0];
+        return [_v1.round((_v7 * _v7 * _v7 * _v0[0] + (_v6 * _v7 * _v7 + _v7 * _v6 * _v7 + _v7 * _v7 * _v6) * _v2[0] + (_v6 * _v6 * _v7 + _v7 * _v6 * _v6 + _v6 * _v7 * _v6) * _v3[0] + _v6 * _v6 * _v6 * _v1[0]) * 0) / 0, _v1.round((_v7 * _v7 * _v7 * _v0[1] + (_v6 * _v7 * _v7 + _v7 * _v6 * _v7 + _v7 * _v7 * _v6) * _v2[1] + (_v6 * _v6 * _v7 + _v7 * _v6 * _v6 + _v6 * _v7 * _v6) * _v3[1] + _v6 * _v6 * _v6 * _v1[1]) * 0) / 0];
       }
-      var _v10 = _v13("float32", 8);
+      var _v11 = _v13("float32", 8);
       return {
-        getSegmentsLength: _v4,
+        getSegmentsLength: _v5,
         getNewSegment: function (_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
           _v4 < 0 ? _v4 = 0 : _v4 > 1 && (_v4 = 1);
           var _v7,
-            _v8 = _v8(_v4, _v6),
-            _v9 = _v8(_v5 = _v5 > 1 ? 1 : _v5, _v6),
+            _v8 = _v9(_v4, _v6),
+            _v9 = _v9(_v5 = _v5 > 1 ? 1 : _v5, _v6),
             _v10 = _v0.length,
             _v11 = 1 - _v8,
             _v12 = 1 - _v9,
@@ -1447,13 +1430,13 @@
             _v26 = _v9 * _v12 * _v12 + _v12 * _v9 * _v12 + _v12 * _v12 * _v9,
             _v27 = _v9 * _v9 * _v12 + _v12 * _v9 * _v9 + _v9 * _v12 * _v9,
             _v28 = _v9 * _v9 * _v9;
-          for (_v7 = 0; _v7 < _v10; _v7 += 1) _v10[4 * _v7] = _v0.round((_v13 * _v0[_v7] + _v14 * _v2[_v7] + _v15 * _v3[_v7] + _v16 * _v1[_v7]) * 0) / 0, _v10[4 * _v7 + 1] = _v0.round((_v17 * _v0[_v7] + _v18 * _v2[_v7] + _v19 * _v3[_v7] + _v20 * _v1[_v7]) * 0) / 0, _v10[4 * _v7 + 2] = _v0.round((_v21 * _v0[_v7] + _v22 * _v2[_v7] + _v23 * _v3[_v7] + _v24 * _v1[_v7]) * 0) / 0, _v10[4 * _v7 + 3] = _v0.round((_v25 * _v0[_v7] + _v26 * _v2[_v7] + _v27 * _v3[_v7] + _v28 * _v1[_v7]) * 0) / 0;
-          return _v10;
+          for (_v7 = 0; _v7 < _v10; _v7 += 1) _v11[4 * _v7] = _v1.round((_v13 * _v0[_v7] + _v14 * _v2[_v7] + _v15 * _v3[_v7] + _v16 * _v1[_v7]) * 0) / 0, _v11[4 * _v7 + 1] = _v1.round((_v17 * _v0[_v7] + _v18 * _v2[_v7] + _v19 * _v3[_v7] + _v20 * _v1[_v7]) * 0) / 0, _v11[4 * _v7 + 2] = _v1.round((_v21 * _v0[_v7] + _v22 * _v2[_v7] + _v23 * _v3[_v7] + _v24 * _v1[_v7]) * 0) / 0, _v11[4 * _v7 + 3] = _v1.round((_v25 * _v0[_v7] + _v26 * _v2[_v7] + _v27 * _v3[_v7] + _v28 * _v1[_v7]) * 0) / 0;
+          return _v11;
         },
-        getPointInSegment: _v9,
-        buildBezierData: _v7,
-        pointOnLine2D: _v1,
-        pointOnLine3D: _v2
+        getPointInSegment: _v10,
+        buildBezierData: _v8,
+        pointOnLine2D: _v2,
+        pointOnLine3D: _v3
       };
     }
     var _v80 = _v79(),
@@ -1486,7 +1469,7 @@
         var _v14 = _v19.bezierData;
         if (_v0 >= _v12 || _v0 < _v13) {
           var _v15 = _v0 >= _v12 ? _v14.points.length - 1 : 0;
-          for (_v20 = 0, _v21 = _v14.points[_v15].point.length; _v20 < _v21; _v20 += 1) _v16[_v20] = _v14.points[_v15].point[_v20];
+          for (_v21 = _v14.points[_v15].point.length, _v20 = 0; _v20 < _v21; _v20 += 1) _v16[_v20] = _v14.points[_v15].point[_v20];
         } else {
           _v19.__fnct ? _v24 = _v19.__fnct : _v19.__fnct = _v24 = _v74.getBezierEasing(_v17.o.x, _v17.o.y, _v17.i.x, _v17.i.y, _v17.n).get;
           var _v16,
@@ -1505,11 +1488,11 @@
             _v29 = _v1.lastFrame < _v0 && _v1._lastKeyframeIndex === _v9 ? _v1._lastAddedLength : 0;
           for (_v23 = _v1.lastFrame < _v0 && _v1._lastKeyframeIndex === _v9 ? _v1._lastPoint : 0, _v11 = !0, _v22 = _v14.points.length; _v11;) {
             if (_v29 += _v14.points[_v23].partialLength, 0 === _v28 || 0 === _v27 || _v23 === _v14.points.length - 1) {
-              for (_v20 = 0, _v21 = _v14.points[_v23].point.length; _v20 < _v21; _v20 += 1) _v16[_v20] = _v14.points[_v23].point[_v20];
+              for (_v21 = _v14.points[_v23].point.length, _v20 = 0; _v20 < _v21; _v20 += 1) _v16[_v20] = _v14.points[_v23].point[_v20];
               break;
             }
             if (_v28 >= _v29 && _v28 < _v29 + _v14.points[_v23 + 1].partialLength) {
-              for (_v20 = 0, _v26 = (_v28 - _v29) / _v14.points[_v23 + 1].partialLength, _v21 = _v14.points[_v23].point.length; _v20 < _v21; _v20 += 1) _v16[_v20] = _v14.points[_v23].point[_v20] + (_v14.points[_v23 + 1].point[_v20] - _v14.points[_v23].point[_v20]) * _v26;
+              for (_v26 = (_v28 - _v29) / _v14.points[_v23 + 1].partialLength, _v21 = _v14.points[_v23].point.length, _v20 = 0; _v20 < _v21; _v20 += 1) _v16[_v20] = _v14.points[_v23].point[_v20] + (_v14.points[_v23 + 1].point[_v20] - _v14.points[_v23].point[_v20]) * _v26;
               break;
             }
             _v23 < _v22 - 1 ? _v23 += 1 : _v11 = !1;
@@ -1595,7 +1578,7 @@
       this.propType = "multidimensional", this.mult = _v2 || 1, this.data = _v1, this._mdf = !1, this.elem = _v0, this.container = _v3, this.comp = _v0.comp, this.k = !1, this.kf = !1, this.frameId = -1;
       var _v4,
         _v5 = _v1.k.length;
-      for (_v4 = 0, this.v = _v13("float32", _v5), this.pv = _v13("float32", _v5), this.vel = _v13("float32", _v5); _v4 < _v5; _v4 += 1) this.v[_v4] = _v1.k[_v4] * this.mult, this.pv[_v4] = _v1.k[_v4];
+      for (this.v = _v13("float32", _v5), this.pv = _v13("float32", _v5), this.vel = _v13("float32", _v5), _v4 = 0; _v4 < _v5; _v4 += 1) this.v[_v4] = _v1.k[_v4] * this.mult, this.pv[_v4] = _v1.k[_v4];
       this._isFirstFrame = !0, this.effectsSequence = [], this.getValue = _v89, this.setVValue = _v88, this.addEffect = _v90;
     }
     function _v93(_v0, _v1, _v2, _v3) {
@@ -1617,30 +1600,28 @@
       for (_v4 = 0; _v4 < _v9 - 1; _v4 += 1) _v1.k[_v4].to && _v1.k[_v4].s && _v1.k[_v4 + 1] && _v1.k[_v4 + 1].s && (_v5 = _v1.k[_v4].s, _v6 = _v1.k[_v4 + 1].s, _v7 = _v1.k[_v4].to, _v8 = _v1.k[_v4].ti, (2 === _v5.length && (_v5[0] !== _v6[0] || _v5[1] !== _v6[1]) && _v80.pointOnLine2D(_v5[0], _v5[1], _v6[0], _v6[1], _v5[0] + _v7[0], _v5[1] + _v7[1]) && _v80.pointOnLine2D(_v5[0], _v5[1], _v6[0], _v6[1], _v6[0] + _v8[0], _v6[1] + _v8[1]) || 3 === _v5.length && (_v5[0] !== _v6[0] || _v5[1] !== _v6[1] || _v5[2] !== _v6[2]) && _v80.pointOnLine3D(_v5[0], _v5[1], _v5[2], _v6[0], _v6[1], _v6[2], _v5[0] + _v7[0], _v5[1] + _v7[1], _v5[2] + _v7[2]) && _v80.pointOnLine3D(_v5[0], _v5[1], _v5[2], _v6[0], _v6[1], _v6[2], _v6[0] + _v8[0], _v6[1] + _v8[1], _v6[2] + _v8[2])) && (_v1.k[_v4].to = null, _v1.k[_v4].ti = null), _v5[0] === _v6[0] && _v5[1] === _v6[1] && 0 === _v7[0] && 0 === _v7[1] && 0 === _v8[0] && 0 === _v8[1] && (2 === _v5.length || _v5[2] === _v6[2] && 0 === _v7[2] && 0 === _v8[2]) && (_v1.k[_v4].to = null, _v1.k[_v4].ti = null));
       this.effectsSequence = [_v87.bind(this)], this.data = _v1, this.keyframes = _v1.k, this.keyframesMetadata = [], this.offsetTime = _v0.data.st, this.k = !0, this.kf = !0, this._isFirstFrame = !0, this.mult = _v2 || 1, this.elem = _v0, this.container = _v3, this.comp = _v0.comp, this.getValue = _v89, this.setVValue = _v88, this.interpolateValue = _v83, this.frameId = -1;
       var _v10 = _v1.k[0].s.length;
-      for (_v4 = 0, this.v = _v13("float32", _v10), this.pv = _v13("float32", _v10); _v4 < _v10; _v4 += 1) this.v[_v4] = _v81, this.pv[_v4] = _v81;
+      for (this.v = _v13("float32", _v10), this.pv = _v13("float32", _v10), _v4 = 0; _v4 < _v10; _v4 += 1) this.v[_v4] = _v81, this.pv[_v4] = _v81;
       this._caching = {
         lastFrame: _v81,
         lastIndex: 0,
         value: _v13("float32", _v10)
       }, this.addEffect = _v90;
     }
-    var _v95 = function () {
-      return {
-        getProp: function (_v0, _v1, _v2, _v3, _v4) {
-          var _v5;
-          if (_v1.sid && (_v1 = _v0.globalData.slotManager.getProp(_v1)), _v1.k.length) {
-            if ("number" == typeof _v1.k[0]) _v5 = new _v92(_v0, _v1, _v3, _v4);else switch (_v2) {
-              case 0:
-                _v5 = new _v93(_v0, _v1, _v3, _v4);
-                break;
-              case 1:
-                _v5 = new _v94(_v0, _v1, _v3, _v4);
-            }
-          } else _v5 = new _v91(_v0, _v1, _v3, _v4);
-          return _v5.effectsSequence.length && _v4.addDynamicProperty(_v5), _v5;
-        }
-      };
-    }();
+    var _v95 = {
+      getProp: function (_v0, _v1, _v2, _v3, _v4) {
+        var _v5;
+        if (_v1.sid && (_v1 = _v0.globalData.slotManager.getProp(_v1)), _v1.k.length) {
+          if ("number" == typeof _v1.k[0]) _v5 = new _v92(_v0, _v1, _v3, _v4);else switch (_v2) {
+            case 0:
+              _v5 = new _v93(_v0, _v1, _v3, _v4);
+              break;
+            case 1:
+              _v5 = new _v94(_v0, _v1, _v3, _v4);
+          }
+        } else _v5 = new _v91(_v0, _v1, _v3, _v4);
+        return _v5.effectsSequence.length && _v4.addDynamicProperty(_v5), _v5;
+      }
+    };
     function _v96() {}
     _v96.prototype = {
       addDynamicProperty: function (_v0) {
@@ -1656,11 +1637,9 @@
         this.container = _v0, this.dynamicProperties = [], this._mdf = !1, this._isAnimated = !1;
       }
     };
-    var _v97 = function () {
-      return _v76(8, function () {
-        return _v13("float32", 2);
-      });
-    }();
+    var _v97 = _v76(8, function () {
+      return _v13("float32", 2);
+    });
     function _v98() {
       this.c = !1, this._length = 0, this._maxLength = 8, this.v = _v14(this._maxLength), this.o = _v14(this._maxLength), this.i = _v14(this._maxLength);
     }
@@ -1763,7 +1742,7 @@
             for (var _v5, _v6, _v7, _v8, _v9, _v10, _v11, _v12, _v13, _v14, _v15, _v16, _v17, _v18 = _v3, _v19 = _v4.length - 1, _v20 = !0; _v20 && (_v14 = _v4[_v18], !((_v15 = _v4[_v18 + 1]).t - this.offsetTime > _v0));) _v18 < _v19 - 1 ? _v18 += 1 : _v20 = !1;
             _v16 = this.keyframesMetadata[_v18] || {}, _v7 = 1 === _v14.h, _v3 = _v18, _v7 || (_v0 >= _v15.t - this.offsetTime ? _v12 = 1 : _v0 < _v14.t - this.offsetTime ? _v12 = 0 : (_v16.__fnct ? _v17 = _v16.__fnct : _v16.__fnct = _v17 = _v74.getBezierEasing(_v14.o.x, _v14.o.y, _v14.i.x, _v14.i.y).get, _v12 = _v17((_v0 - (_v14.t - this.offsetTime)) / (_v15.t - this.offsetTime - (_v14.t - this.offsetTime)))), _v6 = _v15.s ? _v15.s[0] : _v14.e[0]), _v5 = _v14.s[0];
           }
-          for (_v8 = 0, _v10 = _v1._length, _v11 = _v5.i[0].length, _v2.lastIndex = _v3; _v8 < _v10; _v8 += 1) for (_v9 = 0; _v9 < _v11; _v9 += 1) _v13 = _v7 ? _v5.i[_v8][_v9] : _v5.i[_v8][_v9] + (_v6.i[_v8][_v9] - _v5.i[_v8][_v9]) * _v12, _v1.i[_v8][_v9] = _v13, _v13 = _v7 ? _v5.o[_v8][_v9] : _v5.o[_v8][_v9] + (_v6.o[_v8][_v9] - _v5.o[_v8][_v9]) * _v12, _v1.o[_v8][_v9] = _v13, _v13 = _v7 ? _v5.v[_v8][_v9] : _v5.v[_v8][_v9] + (_v6.v[_v8][_v9] - _v5.v[_v8][_v9]) * _v12, _v1.v[_v8][_v9] = _v13;
+          for (_v10 = _v1._length, _v11 = _v5.i[0].length, _v2.lastIndex = _v3, _v8 = 0; _v8 < _v10; _v8 += 1) for (_v9 = 0; _v9 < _v11; _v9 += 1) _v13 = _v7 ? _v5.i[_v8][_v9] : _v5.i[_v8][_v9] + (_v6.i[_v8][_v9] - _v5.i[_v8][_v9]) * _v12, _v1.i[_v8][_v9] = _v13, _v13 = _v7 ? _v5.o[_v8][_v9] : _v5.o[_v8][_v9] + (_v6.o[_v8][_v9] - _v5.o[_v8][_v9]) * _v12, _v1.o[_v8][_v9] = _v13, _v13 = _v7 ? _v5.v[_v8][_v9] : _v5.v[_v8][_v9] + (_v6.v[_v8][_v9] - _v5.v[_v8][_v9]) * _v12, _v1.v[_v8][_v9] = _v13;
         }
         function _v2() {
           var _v0 = this.comp.renderedFrame - this.offsetTime,
@@ -1864,7 +1843,7 @@
                   _v13 = -Math.PI / 2;
                 _v13 += this.r.v;
                 var _v14 = 3 === this.data.d ? -1 : 1;
-                for (_v0 = 0, this.v._length = 0; _v0 < _v4; _v0 += 1) {
+                for (this.v._length = 0, _v0 = 0; _v0 < _v4; _v0 += 1) {
                   _v1 = _v6 ? _v7 : _v8, _v2 = _v6 ? _v9 : _v10, _v3 = _v6 ? _v11 : _v12;
                   var _v15 = _v1 * Math.cos(_v13),
                     _v16 = _v1 * Math.sin(_v13),
@@ -2261,7 +2240,7 @@
           _v17 = [];
         for (_v8 = 0; _v8 < _v3; _v8 += 1) if ((_v14 = this.shapes[_v8]).shape._mdf || this._mdf || _v0 || 2 === this.m) {
           if (_v10 = (_v7 = _v14.shape.paths)._length, _v13 = 0, !_v14.shape._mdf && _v14.pathsData.length) _v13 = _v14.totalShapeLength;else {
-            for (_v9 = 0, _v11 = this.releasePathsData(_v14.pathsData); _v9 < _v10; _v9 += 1) _v12 = _v80.getSegmentsLength(_v7.shapes[_v9]), _v11.push(_v12), _v13 += _v12.totalLength;
+            for (_v11 = this.releasePathsData(_v14.pathsData), _v9 = 0; _v9 < _v10; _v9 += 1) _v12 = _v80.getSegmentsLength(_v7.shapes[_v9]), _v11.push(_v12), _v13 += _v12.totalLength;
             _v14.totalShapeLength = _v13, _v14.pathsData = _v11;
           }
           _v4 += _v13, _v14.shape._mdf = !0;
@@ -2320,7 +2299,7 @@
         _v15 = [],
         _v16 = !0;
       for (_v2 ? (_v7 = _v2._length, _v10 = _v2._length) : (_v2 = _v99.newElement(), _v7 = 0, _v10 = 0), _v15.push(_v2), _v3 = 0; _v3 < _v13; _v3 += 1) {
-        for (_v4 = 1, _v8 = _v11[_v3].lengths, _v2.c = _v12[_v3].c, _v5 = _v12[_v3].c ? _v8.length : _v8.length + 1; _v4 < _v5; _v4 += 1) if (_v14 + (_v6 = _v8[_v4 - 1]).addedLength < _v1.s) _v14 += _v6.addedLength, _v2.c = !1;else if (_v14 > _v1.e) {
+        for (_v8 = _v11[_v3].lengths, _v2.c = _v12[_v3].c, _v5 = _v12[_v3].c ? _v8.length : _v8.length + 1, _v4 = 1; _v4 < _v5; _v4 += 1) if (_v14 + (_v6 = _v8[_v4 - 1]).addedLength < _v1.s) _v14 += _v6.addedLength, _v2.c = !1;else if (_v14 > _v1.e) {
           _v2.c = !1;
           break;
         } else _v1.s <= _v14 && _v1.e >= _v14 + _v6.addedLength ? (this.addSegment(_v12[_v3].v[_v4 - 1], _v12[_v3].o[_v4 - 1], _v12[_v3].i[_v4], _v12[_v3].v[_v4], _v2, _v7, _v16), _v16 = !1) : (_v9 = _v80.getNewSegment(_v12[_v3].v[_v4 - 1], _v12[_v3].v[_v4], _v12[_v3].o[_v4 - 1], _v12[_v3].i[_v4], (_v1.s - _v14) / _v6.addedLength, (_v1.e - _v14) / _v6.addedLength, _v8[_v4 - 1]), this.addSegmentFromArray(_v9, _v2, _v7, _v16), _v16 = !1, _v2.c = !1), _v14 += _v6.addedLength, _v7 += 1;
@@ -2351,7 +2330,7 @@
       for (_v11 = 0; _v11 < _v10; _v11 += 1) _v9[0] += _v0.v[_v11][0], _v9[1] += _v0.v[_v11][1];
       _v9[0] /= _v10, _v9[1] /= _v10;
       var _v12 = _v99.newElement();
-      for (_v11 = 0, _v12.c = _v0.c; _v11 < _v10; _v11 += 1) _v2 = _v0.v[_v11][0] + (_v9[0] - _v0.v[_v11][0]) * _v8, _v3 = _v0.v[_v11][1] + (_v9[1] - _v0.v[_v11][1]) * _v8, _v4 = _v0.o[_v11][0] + -((_v9[0] - _v0.o[_v11][0]) * _v8), _v5 = _v0.o[_v11][1] + -((_v9[1] - _v0.o[_v11][1]) * _v8), _v6 = _v0.i[_v11][0] + -((_v9[0] - _v0.i[_v11][0]) * _v8), _v7 = _v0.i[_v11][1] + -((_v9[1] - _v0.i[_v11][1]) * _v8), _v12.setTripleAt(_v2, _v3, _v4, _v5, _v6, _v7, _v11);
+      for (_v12.c = _v0.c, _v11 = 0; _v11 < _v10; _v11 += 1) _v2 = _v0.v[_v11][0] + (_v9[0] - _v0.v[_v11][0]) * _v8, _v3 = _v0.v[_v11][1] + (_v9[1] - _v0.v[_v11][1]) * _v8, _v4 = _v0.o[_v11][0] + -((_v9[0] - _v0.o[_v11][0]) * _v8), _v5 = _v0.o[_v11][1] + -((_v9[1] - _v0.o[_v11][1]) * _v8), _v6 = _v0.i[_v11][0] + -((_v9[0] - _v0.i[_v11][0]) * _v8), _v7 = _v0.i[_v11][1] + -((_v9[1] - _v0.i[_v11][1]) * _v8), _v12.setTripleAt(_v2, _v3, _v4, _v5, _v6, _v7, _v11);
       return _v12;
     }, _v128.prototype.processShapes = function (_v0) {
       var _v1,
@@ -3036,13 +3015,13 @@
                 _v9.setAttribute("f-forigin", _v2[_v5].fOrigin), _v9.setAttribute("f-origin", _v2[_v5].origin), _v9.setAttribute("f-family", _v2[_v5].fFamily), _v9.type = "text/css", _v9.innerText = "@font-face {font-family: " + _v2[_v5].fFamily + "; font-style: normal; src: url('" + _v2[_v5].fPath + "');}", _v1.appendChild(_v9);
               }
             } else if ("g" === _v2[_v5].fOrigin || 1 === _v2[_v5].origin) {
-              for (_v7 = 0, _v6 = document.querySelectorAll('link[f-forigin="g"], link[f-origin="1"]'); _v7 < _v6.length; _v7 += 1) -1 !== _v6[_v7].href.indexOf(_v2[_v5].fPath) && (_v8 = !1);
+              for (_v6 = document.querySelectorAll('link[f-forigin="g"], link[f-origin="1"]'), _v7 = 0; _v7 < _v6.length; _v7 += 1) -1 !== _v6[_v7].href.indexOf(_v2[_v5].fPath) && (_v8 = !1);
               if (_v8) {
                 var _v10 = _v8("link");
                 _v10.setAttribute("f-forigin", _v2[_v5].fOrigin), _v10.setAttribute("f-origin", _v2[_v5].origin), _v10.type = "text/css", _v10.rel = "stylesheet", _v10.href = _v2[_v5].fPath, document.body.appendChild(_v10);
               }
             } else if ("t" === _v2[_v5].fOrigin || 2 === _v2[_v5].origin) {
-              for (_v7 = 0, _v6 = document.querySelectorAll('script[f-forigin="t"], script[f-origin="2"]'); _v7 < _v6.length; _v7 += 1) _v2[_v5].fPath === _v6[_v7].src && (_v8 = !1);
+              for (_v6 = document.querySelectorAll('script[f-forigin="t"], script[f-origin="2"]'), _v7 = 0; _v7 < _v6.length; _v7 += 1) _v2[_v5].fPath === _v6[_v7].src && (_v8 = !1);
               if (_v8) {
                 var _v11 = _v8("link");
                 _v11.setAttribute("f-forigin", _v2[_v5].fOrigin), _v11.setAttribute("f-origin", _v2[_v5].origin), _v11.setAttribute("rel", "stylesheet"), _v11.setAttribute("href", _v2[_v5].fPath), _v1.appendChild(_v11);
@@ -3529,7 +3508,7 @@
           invRect: _v14
         }, this.viewData[_v11].prop.k || this.drawPath(_v5[_v11], this.viewData[_v11].prop.v, this.viewData[_v11]);
       }
-      for (_v11 = 0, this.maskElement = _v60(_v9), _v4 = _v7.length; _v11 < _v4; _v11 += 1) this.maskElement.appendChild(_v7[_v11]);
+      for (this.maskElement = _v60(_v9), _v4 = _v7.length, _v11 = 0; _v11 < _v4; _v11 += 1) this.maskElement.appendChild(_v7[_v11]);
       _v6 > 0 && (this.maskElement.setAttribute("id", _v8), this.element.maskedElement.setAttribute(_v10, "url(" + _v7() + "#" + _v8 + ")"), _v3.appendChild(this.maskElement)), this.viewData.length && this.element.addRenderableComponent(this);
     }
     _v186.prototype = {
@@ -3625,7 +3604,7 @@
       var _v3,
         _v4,
         _v5 = " M" + _v1.v[0][0] + "," + _v1.v[0][1];
-      for (_v3 = 1, _v4 = _v1._length; _v3 < _v4; _v3 += 1) _v5 += " C" + _v1.o[_v3 - 1][0] + "," + _v1.o[_v3 - 1][1] + " " + _v1.i[_v3][0] + "," + _v1.i[_v3][1] + " " + _v1.v[_v3][0] + "," + _v1.v[_v3][1];
+      for (_v4 = _v1._length, _v3 = 1; _v3 < _v4; _v3 += 1) _v5 += " C" + _v1.o[_v3 - 1][0] + "," + _v1.o[_v3 - 1][1] + " " + _v1.i[_v3][0] + "," + _v1.i[_v3][1] + " " + _v1.v[_v3][0] + "," + _v1.v[_v3][1];
       if (_v1.c && _v4 > 1 && (_v5 += " C" + _v1.o[_v3 - 1][0] + "," + _v1.o[_v3 - 1][1] + " " + _v1.i[0][0] + "," + _v1.i[0][1] + " " + _v1.v[0][0] + "," + _v1.v[0][1]), _v2.lastPath !== _v5) {
         var _v6 = "";
         _v2.elem && (_v1.c && (_v6 = _v0.inv ? this.solidPath + _v5 : _v5), _v2.elem.setAttribute("d", _v6)), _v2.lastPath = _v5;
@@ -3662,7 +3641,7 @@
         _v5 = _v43(),
         _v6 = _v188.createFilter(_v5, !0),
         _v7 = 0;
-      for (_v1 = 0, this.filters = []; _v1 < _v4; _v1 += 1) {
+      for (this.filters = [], _v1 = 0; _v1 < _v4; _v1 += 1) {
         _v2 = null;
         var _v8 = _v0.data.ef[_v1].ty;
         _v190[_v8] && (_v2 = new _v190[_v8].effect(_v6, _v0.effectsManager.effectElements[_v1], _v0, _v191 + _v7, _v3), _v3 = _v191 + _v7, _v190[_v8].countsAsEffect && (_v7 += 1)), _v2 && this.filters.push(_v2);
@@ -3778,29 +3757,27 @@
       checkParenting: function () {
         void 0 !== this.data.parent && this.comp.buildElementParenting(this, this.data.parent, []);
       }
-    }, function () {
-      _v9([_v168, _v11({
-        initElement: function (_v0, _v1, _v2) {
-          this.initFrame(), this.initBaseData(_v0, _v1, _v2), this.initTransform(_v0, _v1, _v2), this.initHierarchy(), this.initRenderable(), this.initRendererElement(), this.createContainerElements(), this.createRenderableComponents(), this.createContent(), this.hide();
-        },
-        hide: function () {
-          this.hidden || this.isInRange && !this.isTransparent || ((this.baseElement || this.layerElement).style.display = "none", this.hidden = !0);
-        },
-        show: function () {
-          this.isInRange && !this.isTransparent && (this.data.hd || ((this.baseElement || this.layerElement).style.display = "block"), this.hidden = !1, this._isFirstFrame = !0);
-        },
-        renderFrame: function () {
-          this.data.hd || this.hidden || (this.renderTransform(), this.renderRenderable(), this.renderLocalTransform(), this.renderElement(), this.renderInnerContent(), this._isFirstFrame && (this._isFirstFrame = !1));
-        },
-        renderInnerContent: function () {},
-        prepareFrame: function (_v0) {
-          this._mdf = !1, this.prepareRenderableFrame(_v0), this.prepareProperties(_v0, this.isInRange), this.checkTransparency();
-        },
-        destroy: function () {
-          this.innerElem = null, this.destroyBaseElement();
-        }
-      })], _v196);
-    }(), _v9([_v180, _v186, _v194, _v195, _v181, _v196], _v197), _v197.prototype.createContent = function () {
+    }, _v9([_v168, _v11({
+      initElement: function (_v0, _v1, _v2) {
+        this.initFrame(), this.initBaseData(_v0, _v1, _v2), this.initTransform(_v0, _v1, _v2), this.initHierarchy(), this.initRenderable(), this.initRendererElement(), this.createContainerElements(), this.createRenderableComponents(), this.createContent(), this.hide();
+      },
+      hide: function () {
+        this.hidden || this.isInRange && !this.isTransparent || ((this.baseElement || this.layerElement).style.display = "none", this.hidden = !0);
+      },
+      show: function () {
+        this.isInRange && !this.isTransparent && (this.data.hd || ((this.baseElement || this.layerElement).style.display = "block"), this.hidden = !1, this._isFirstFrame = !0);
+      },
+      renderFrame: function () {
+        this.data.hd || this.hidden || (this.renderTransform(), this.renderRenderable(), this.renderLocalTransform(), this.renderElement(), this.renderInnerContent(), this._isFirstFrame && (this._isFirstFrame = !1));
+      },
+      renderInnerContent: function () {},
+      prepareFrame: function (_v0) {
+        this._mdf = !1, this.prepareRenderableFrame(_v0), this.prepareProperties(_v0, this.isInRange), this.checkTransparency();
+      },
+      destroy: function () {
+        this.innerElem = null, this.destroyBaseElement();
+      }
+    })], _v196), _v9([_v180, _v186, _v194, _v195, _v181, _v196], _v197), _v197.prototype.createContent = function () {
       var _v0 = this.globalData.getAssetsPath(this.assetData);
       this.innerElem = _v60("image"), this.innerElem.setAttribute("width", this.assetData.w + "px"), this.innerElem.setAttribute("height", this.assetData.h + "px"), this.innerElem.setAttribute("preserveAspectRatio", this.assetData.pr || this.globalData.renderConfig.imagePreserveAspectRatio), this.innerElem.setAttributeNS("http://www.w3.org/1999/xlink", "href", _v0), this.layerElement.appendChild(this.innerElem);
     }, _v197.prototype.sourceRectAtTime = function () {
@@ -3952,7 +3929,7 @@
         _v6 = _v60(1 === _v1.t ? "linearGradient" : "radialGradient");
       _v6.setAttribute("id", _v5), _v6.setAttribute("spreadMethod", "pad"), _v6.setAttribute("gradientUnits", "userSpaceOnUse");
       var _v7 = [];
-      for (_v3 = 0, _v4 = 4 * _v1.g.p; _v3 < _v4; _v3 += 4) _v2 = _v60("stop"), _v6.appendChild(_v2), _v7.push(_v2);
+      for (_v4 = 4 * _v1.g.p, _v3 = 0; _v3 < _v4; _v3 += 4) _v2 = _v60("stop"), _v6.appendChild(_v2), _v7.push(_v2);
       _v0.setAttribute("gf" === _v1.ty ? "fill" : "stroke", "url(" + _v7() + "#" + _v5 + ")"), this.gf = _v6, this.cst = _v7;
     }, _v209.prototype.setGradientOpacity = function (_v0, _v1) {
       if (this.g._hasOpacity && !this.g._collapsable) {
@@ -4043,11 +4020,11 @@
           if (_v1.g._cmdf || _v2) {
             _v3 = _v1.cst;
             var _v15 = _v1.g.c;
-            for (_v4 = 0, _v5 = _v3.length; _v4 < _v5; _v4 += 1) (_v6 = _v3[_v4]).setAttribute("offset", _v15[4 * _v4] + "%"), _v6.setAttribute("stop-color", "rgb(" + _v15[4 * _v4 + 1] + "," + _v15[4 * _v4 + 2] + "," + _v15[4 * _v4 + 3] + ")");
+            for (_v5 = _v3.length, _v4 = 0; _v4 < _v5; _v4 += 1) (_v6 = _v3[_v4]).setAttribute("offset", _v15[4 * _v4] + "%"), _v6.setAttribute("stop-color", "rgb(" + _v15[4 * _v4 + 1] + "," + _v15[4 * _v4 + 2] + "," + _v15[4 * _v4 + 3] + ")");
           }
           if (_v9 && (_v1.g._omdf || _v2)) {
             var _v16 = _v1.g.o;
-            for (_v4 = 0, _v5 = (_v3 = _v1.g._collapsable ? _v1.cst : _v1.ost).length; _v4 < _v5; _v4 += 1) _v6 = _v3[_v4], _v1.g._collapsable || _v6.setAttribute("offset", _v16[2 * _v4] + "%"), _v6.setAttribute("stop-opacity", _v16[2 * _v4 + 1]);
+            for (_v5 = (_v3 = _v1.g._collapsable ? _v1.cst : _v1.ost).length, _v4 = 0; _v4 < _v5; _v4 += 1) _v6 = _v3[_v4], _v1.g._collapsable || _v6.setAttribute("offset", _v16[2 * _v4] + "%"), _v6.setAttribute("stop-opacity", _v16[2 * _v4 + 1]);
           }
           if (1 === _v0.t) (_v1.e._mdf || _v2) && (_v8.setAttribute("x2", _v11[0]), _v8.setAttribute("y2", _v11[1]), _v9 && !_v1.g._collapsable && (_v1.of.setAttribute("x2", _v11[0]), _v1.of.setAttribute("y2", _v11[1])));else if ((_v1.s._mdf || _v1.e._mdf || _v2) && (_v7 = Math.sqrt(Math.pow(_v10[0] - _v11[0], 2) + Math.pow(_v10[1] - _v11[1], 2)), _v8.setAttribute("r", _v7), _v9 && !_v1.g._collapsable && _v1.of.setAttribute("r", _v7)), _v1.s._mdf || _v1.e._mdf || _v1.h._mdf || _v1.a._mdf || _v2) {
             _v7 || (_v7 = Math.sqrt(Math.pow(_v10[0] - _v11[0], 2) + Math.pow(_v10[1] - _v11[1], 2)));
@@ -4148,7 +4125,7 @@
         _v6 = [],
         _v7 = !1;
       for (_v2 = 0; _v2 < _v5; _v2 += 1) {
-        for (_v0 = 0, _v3 = this.stylesList[_v2], _v7 = !1, _v6.length = 0; _v0 < _v4; _v0 += 1) -1 !== (_v1 = this.shapes[_v0]).styles.indexOf(_v3) && (_v6.push(_v1), _v7 = _v1._isAnimated || _v7);
+        for (_v3 = this.stylesList[_v2], _v7 = !1, _v6.length = 0, _v0 = 0; _v0 < _v4; _v0 += 1) -1 !== (_v1 = this.shapes[_v0]).styles.indexOf(_v3) && (_v6.push(_v1), _v7 = _v1._isAnimated || _v7);
         _v6.length > 1 && _v7 && this.setShapesAsAnimated(_v6);
       }
     }, _v215.prototype.setShapesAsAnimated = function (_v0) {
@@ -4207,13 +4184,13 @@
         _v16 = [];
       for (_v7 = _v14; _v7 >= 0; _v7 -= 1) {
         if ((_v12 = this.searchProcessedElement(_v0[_v7])) ? _v1[_v7] = _v2[_v12 - 1] : _v0[_v7]._render = _v6, "fl" === _v0[_v7].ty || "st" === _v0[_v7].ty || "gf" === _v0[_v7].ty || "gs" === _v0[_v7].ty || "no" === _v0[_v7].ty) _v12 ? _v1[_v7].style.closed = _v0[_v7].hd : _v1[_v7] = this.createStyleElement(_v0[_v7], _v4), _v0[_v7]._render && _v1[_v7].style.pElem.parentNode !== _v3 && _v3.appendChild(_v1[_v7].style.pElem), _v15.push(_v1[_v7].style);else if ("gr" === _v0[_v7].ty) {
-          if (_v12) for (_v8 = 0, _v9 = _v1[_v7].it.length; _v8 < _v9; _v8 += 1) _v1[_v7].prevViewData[_v8] = _v1[_v7].it[_v8];else _v1[_v7] = this.createGroupElement(_v0[_v7]);
+          if (_v12) for (_v9 = _v1[_v7].it.length, _v8 = 0; _v8 < _v9; _v8 += 1) _v1[_v7].prevViewData[_v8] = _v1[_v7].it[_v8];else _v1[_v7] = this.createGroupElement(_v0[_v7]);
           this.searchShapes(_v0[_v7].it, _v1[_v7].it, _v1[_v7].prevViewData, _v1[_v7].gr, _v4 + 1, _v13, _v6), _v0[_v7]._render && _v1[_v7].gr.parentNode !== _v3 && _v3.appendChild(_v1[_v7].gr);
         } else "tr" === _v0[_v7].ty ? (_v12 || (_v1[_v7] = this.createTransformElement(_v0[_v7], _v3)), _v10 = _v1[_v7].transform, _v13.push(_v10)) : "sh" === _v0[_v7].ty || "rc" === _v0[_v7].ty || "el" === _v0[_v7].ty || "sr" === _v0[_v7].ty ? (_v12 || (_v1[_v7] = this.createShapeElement(_v0[_v7], _v13, _v4)), this.setElementStyles(_v1[_v7])) : "tm" === _v0[_v7].ty || "rd" === _v0[_v7].ty || "ms" === _v0[_v7].ty || "pb" === _v0[_v7].ty || "zz" === _v0[_v7].ty || "op" === _v0[_v7].ty ? (_v12 ? (_v11 = _v1[_v7]).closed = !1 : ((_v11 = _v125.getModifier(_v0[_v7].ty)).init(this, _v0[_v7]), _v1[_v7] = _v11, this.shapeModifiers.push(_v11)), _v16.push(_v11)) : "rp" === _v0[_v7].ty && (_v12 ? (_v11 = _v1[_v7]).closed = !0 : (_v11 = _v125.getModifier(_v0[_v7].ty), _v1[_v7] = _v11, _v11.init(this, _v0, _v7, _v1), this.shapeModifiers.push(_v11), _v6 = !1), _v16.push(_v11));
         this.addProcessedElement(_v0[_v7], _v7 + 1);
       }
-      for (_v7 = 0, _v14 = _v15.length; _v7 < _v14; _v7 += 1) _v15[_v7].closed = !0;
-      for (_v7 = 0, _v14 = _v16.length; _v7 < _v14; _v7 += 1) _v16[_v7].closed = !0;
+      for (_v14 = _v15.length, _v7 = 0; _v7 < _v14; _v7 += 1) _v15[_v7].closed = !0;
+      for (_v14 = _v16.length, _v7 = 0; _v7 < _v14; _v7 += 1) _v16[_v7].closed = !0;
     }, _v215.prototype.renderInnerContent = function () {
       this.renderModifiers();
       var _v0,
@@ -4780,7 +4757,7 @@
         }
         _v22.setAttribute("text-anchor", _v23), _v22.setAttribute("letter-spacing", _v12);
         var _v24 = this.buildTextContents(_v0.finalText);
-        for (_v15 = 0, _v16 = _v24.length, _v10 = _v0.ps ? _v0.ps[1] + _v0.ascent : 0; _v15 < _v16; _v15 += 1) (_v17 = this.textSpans[_v15].span || _v60("tspan")).textContent = _v24[_v15], _v17.setAttribute("x", 0), _v17.setAttribute("y", _v10), _v17.style.display = "inherit", _v22.appendChild(_v17), this.textSpans[_v15] || (this.textSpans[_v15] = {
+        for (_v16 = _v24.length, _v10 = _v0.ps ? _v0.ps[1] + _v0.ascent : 0, _v15 = 0; _v15 < _v16; _v15 += 1) (_v17 = this.textSpans[_v15].span || _v60("tspan")).textContent = _v24[_v15], _v17.setAttribute("x", 0), _v17.setAttribute("y", _v10), _v17.style.display = "inherit", _v22.appendChild(_v17), this.textSpans[_v15] || (this.textSpans[_v15] = {
           span: null,
           glyph: null
         }), this.textSpans[_v15].span = _v17, _v10 += _v0.finalLineHeight;
@@ -4804,7 +4781,7 @@
       var _v0,
         _v1,
         _v2 = this.textSpans.length;
-      for (_v0 = 0, this.renderedFrame = this.comp.renderedFrame; _v0 < _v2; _v0 += 1) (_v1 = this.textSpans[_v0].glyph) && (_v1.prepareFrame(this.comp.renderedFrame - this.data.st), _v1._mdf && (this._mdf = !0));
+      for (this.renderedFrame = this.comp.renderedFrame, _v0 = 0; _v0 < _v2; _v0 += 1) (_v1 = this.textSpans[_v0].glyph) && (_v1.prepareFrame(this.comp.renderedFrame - this.data.st), _v1._mdf && (this._mdf = !0));
     }, _v223.prototype.renderInnerContent = function () {
       if (this.validateText(), (!this.data.singleShape || this._mdf) && (this.textAnimator.getMeasures(this.textProperty.currentData, this.lettersChangedFlag), this.lettersChangedFlag || this.textAnimator.lettersChangedFlag)) {
         this._sizeChanged = !0;
@@ -4815,7 +4792,7 @@
           _v4,
           _v5 = this.textAnimator.renderedLetters,
           _v6 = this.textProperty.currentData.l;
-        for (_v0 = 0, _v1 = _v6.length; _v0 < _v1; _v0 += 1) !_v6[_v0].n && (_v2 = _v5[_v0], _v3 = this.textSpans[_v0].span, (_v4 = this.textSpans[_v0].glyph) && _v4.renderFrame(), _v2._mdf.m && _v3.setAttribute("transform", _v2.m), _v2._mdf.o && _v3.setAttribute("opacity", _v2.o), _v2._mdf.sw && _v3.setAttribute("stroke-width", _v2.sw), _v2._mdf.sc && _v3.setAttribute("stroke", _v2.sc), _v2._mdf.fc && _v3.setAttribute("fill", _v2.fc));
+        for (_v1 = _v6.length, _v0 = 0; _v0 < _v1; _v0 += 1) !_v6[_v0].n && (_v2 = _v5[_v0], _v3 = this.textSpans[_v0].span, (_v4 = this.textSpans[_v0].glyph) && _v4.renderFrame(), _v2._mdf.m && _v3.setAttribute("transform", _v2.m), _v2._mdf.o && _v3.setAttribute("opacity", _v2.o), _v2._mdf.sw && _v3.setAttribute("stroke-width", _v2.sw), _v2._mdf.sc && _v3.setAttribute("stroke", _v2.sc), _v2._mdf.fc && _v3.setAttribute("fill", _v2.fc));
       }
     }, _v9([_v197], _v224), _v224.prototype.createContent = function () {
       var _v0 = _v60("rect");
@@ -4990,19 +4967,17 @@
       var _v2 = _v8("canvas");
       return _v2.width = _v0, _v2.height = _v1, _v2;
     }
-    var _v233 = function () {
-        return {
-          loadLumaCanvas: _v231.load,
-          getLumaCanvas: _v231.get,
-          createCanvas: _v232
-        };
-      }(),
+    var _v233 = {
+        loadLumaCanvas: _v231.load,
+        getLumaCanvas: _v231.get,
+        createCanvas: _v232
+      },
       _v234 = {};
     function _v235(_v0) {
       var _v1,
         _v2,
         _v3 = _v0.data.ef ? _v0.data.ef.length : 0;
-      for (_v1 = 0, this.filters = []; _v1 < _v3; _v1 += 1) {
+      for (this.filters = [], _v1 = 0; _v1 < _v3; _v1 += 1) {
         _v2 = null;
         var _v4 = _v0.data.ef[_v1].ty;
         _v234[_v4] && (_v2 = new _v234[_v4].effect(_v0.effectsManager.effectElements[_v1], _v0)), _v2 && this.filters.push(_v2);
@@ -5334,7 +5309,7 @@
         _v14 = [].concat(_v4);
       for (_v5 = _v11; _v5 >= 0; _v5 -= 1) {
         if ((_v8 = this.searchProcessedElement(_v0[_v5])) ? _v1[_v5] = _v2[_v8 - 1] : _v0[_v5]._shouldRender = _v3, "fl" === _v0[_v5].ty || "st" === _v0[_v5].ty || "gf" === _v0[_v5].ty || "gs" === _v0[_v5].ty) _v8 ? _v1[_v5].style.closed = !1 : _v1[_v5] = this.createStyleElement(_v0[_v5], _v14), _v12.push(_v1[_v5].style);else if ("gr" === _v0[_v5].ty) {
-          if (_v8) for (_v6 = 0, _v7 = _v1[_v5].it.length; _v6 < _v7; _v6 += 1) _v1[_v5].prevViewData[_v6] = _v1[_v5].it[_v6];else _v1[_v5] = this.createGroupElement(_v0[_v5]);
+          if (_v8) for (_v7 = _v1[_v5].it.length, _v6 = 0; _v6 < _v7; _v6 += 1) _v1[_v5].prevViewData[_v6] = _v1[_v5].it[_v6];else _v1[_v5] = this.createGroupElement(_v0[_v5]);
           this.searchShapes(_v0[_v5].it, _v1[_v5].it, _v1[_v5].prevViewData, _v3, _v14);
         } else "tr" === _v0[_v5].ty ? (_v8 || (_v10 = this.createTransformElement(_v0[_v5]), _v1[_v5] = _v10), _v14.push(_v1[_v5]), this.addTransformToStyleList(_v1[_v5])) : "sh" === _v0[_v5].ty || "rc" === _v0[_v5].ty || "el" === _v0[_v5].ty || "sr" === _v0[_v5].ty ? _v8 || (_v1[_v5] = this.createShapeElement(_v0[_v5])) : "tm" === _v0[_v5].ty || "rd" === _v0[_v5].ty || "pb" === _v0[_v5].ty || "zz" === _v0[_v5].ty || "op" === _v0[_v5].ty ? (_v8 ? (_v9 = _v1[_v5]).closed = !1 : ((_v9 = _v125.getModifier(_v0[_v5].ty)).init(this, _v0[_v5]), _v1[_v5] = _v9, this.shapeModifiers.push(_v9)), _v13.push(_v9)) : "rp" === _v0[_v5].ty && (_v8 ? (_v9 = _v1[_v5]).closed = !0 : (_v9 = _v125.getModifier(_v0[_v5].ty), _v1[_v5] = _v9, _v9.init(this, _v0, _v5, _v1), this.shapeModifiers.push(_v9), _v3 = !1), _v13.push(_v9));
         this.addProcessedElement(_v0[_v5], _v5 + 1);
@@ -5383,7 +5358,7 @@
         for (_v4 = 0; _v4 < _v7; _v4 += 1) {
           var _v9 = _v6.shapes[_v4];
           if (_v9 && _v9.v) {
-            for (_v2 = 1, _v3 = _v9._length; _v2 < _v3; _v2 += 1) 1 === _v2 && _v5.push({
+            for (_v3 = _v9._length, _v2 = 1; _v2 < _v3; _v2 += 1) 1 === _v2 && _v5.push({
               t: "m",
               p: _v8.applyToPointArray(_v9.v[0][0], _v9.v[0][1], 0)
             }), _v5.push({
@@ -5476,7 +5451,7 @@
         _v3 = (_v2 = this.globalData.fontManager.getCharData(_v12.finalText[_v0], _v15.fStyle, this.globalData.fontManager.getFontByName(_v12.f).fFamily)) && _v2.data || {}, _v17.reset(), _v18 && _v16[_v0].n && (_v20 = -_v19, _v21 += _v12.yOffset, _v21 += +!!_v22, _v22 = !1), _v8 = (_v6 = _v3.shapes ? _v3.shapes[0].it : []).length, _v17.scale(_v12.finalSize / 100, _v12.finalSize / 100), _v18 && this.applyTextPropertiesToMatrix(_v12, _v17, _v16[_v0].line, _v20, _v21), _v10 = _v14(_v8 - 1);
         var _v24 = 0;
         for (_v7 = 0; _v7 < _v8; _v7 += 1) if ("sh" === _v6[_v7].ty) {
-          for (_v4 = 1, _v5 = _v6[_v7].ks.k.i.length, _v9 = _v6[_v7].ks.k, _v11 = []; _v4 < _v5; _v4 += 1) 1 === _v4 && _v11.push(_v17.applyToX(_v9.v[0][0], _v9.v[0][1], 0), _v17.applyToY(_v9.v[0][0], _v9.v[0][1], 0)), _v11.push(_v17.applyToX(_v9.o[_v4 - 1][0], _v9.o[_v4 - 1][1], 0), _v17.applyToY(_v9.o[_v4 - 1][0], _v9.o[_v4 - 1][1], 0), _v17.applyToX(_v9.i[_v4][0], _v9.i[_v4][1], 0), _v17.applyToY(_v9.i[_v4][0], _v9.i[_v4][1], 0), _v17.applyToX(_v9.v[_v4][0], _v9.v[_v4][1], 0), _v17.applyToY(_v9.v[_v4][0], _v9.v[_v4][1], 0));
+          for (_v5 = _v6[_v7].ks.k.i.length, _v9 = _v6[_v7].ks.k, _v11 = [], _v4 = 1; _v4 < _v5; _v4 += 1) 1 === _v4 && _v11.push(_v17.applyToX(_v9.v[0][0], _v9.v[0][1], 0), _v17.applyToY(_v9.v[0][0], _v9.v[0][1], 0)), _v11.push(_v17.applyToX(_v9.o[_v4 - 1][0], _v9.o[_v4 - 1][1], 0), _v17.applyToY(_v9.o[_v4 - 1][0], _v9.o[_v4 - 1][1], 0), _v17.applyToX(_v9.i[_v4][0], _v9.i[_v4][1], 0), _v17.applyToY(_v9.i[_v4][0], _v9.i[_v4][1], 0), _v17.applyToX(_v9.v[_v4][0], _v9.v[_v4][1], 0), _v17.applyToY(_v9.v[_v4][0], _v9.v[_v4][1], 0));
           _v11.push(_v17.applyToX(_v9.o[_v4 - 1][0], _v9.o[_v4 - 1][1], 0), _v17.applyToY(_v9.o[_v4 - 1][0], _v9.o[_v4 - 1][1], 0), _v17.applyToX(_v9.i[0][0], _v9.i[0][1], 0), _v17.applyToY(_v9.i[0][0], _v9.i[0][1], 0), _v17.applyToX(_v9.v[0][0], _v9.v[0][1], 0), _v17.applyToY(_v9.v[0][0], _v9.v[0][1], 0)), _v10[_v24] = _v11, _v24 += 1;
         }
         _v18 && (_v20 += _v16[_v0].l, _v20 += _v19), this.textSpans[_v23] ? this.textSpans[_v23].elem = _v10 : this.textSpans[_v23] = {
@@ -5878,7 +5853,7 @@
         var _v7 = 0,
           _v8 = this.textAnimator.renderedLetters,
           _v9 = this.textProperty.currentData.l;
-        for (_v0 = 0, _v1 = _v9.length; _v0 < _v1; _v0 += 1) _v9[_v0].n ? _v7 += 1 : (_v3 = this.textSpans[_v0], _v4 = this.textPaths[_v0], _v2 = _v8[_v7], _v7 += 1, _v2._mdf.m && (this.isMasked ? _v3.setAttribute("transform", _v2.m) : (_v3.style.webkitTransform = _v2.m, _v3.style.transform = _v2.m)), _v3.style.opacity = _v2.o, _v2.sw && _v2._mdf.sw && _v4.setAttribute("stroke-width", _v2.sw), _v2.sc && _v2._mdf.sc && _v4.setAttribute("stroke", _v2.sc), _v2.fc && _v2._mdf.fc && (_v4.setAttribute("fill", _v2.fc), _v4.style.color = _v2.fc));
+        for (_v1 = _v9.length, _v0 = 0; _v0 < _v1; _v0 += 1) _v9[_v0].n ? _v7 += 1 : (_v3 = this.textSpans[_v0], _v4 = this.textPaths[_v0], _v2 = _v8[_v7], _v7 += 1, _v2._mdf.m && (this.isMasked ? _v3.setAttribute("transform", _v2.m) : (_v3.style.webkitTransform = _v2.m, _v3.style.transform = _v2.m)), _v3.style.opacity = _v2.o, _v2.sw && _v2._mdf.sw && _v4.setAttribute("stroke-width", _v2.sw), _v2.sc && _v2._mdf.sc && _v4.setAttribute("stroke", _v2.sc), _v2.fc && _v2._mdf.fc && (_v4.setAttribute("fill", _v2.fc), _v4.style.color = _v2.fc));
         if (this.innerElem.getBBox && !this.hidden && (this._isFirstFrame || this._mdf)) {
           var _v10 = this.innerElem.getBBox();
           this.currentBBox.w !== _v10.width && (this.currentBBox.w = _v10.width, this.svgElement.setAttribute("width", _v10.width)), this.currentBBox.h !== _v10.height && (this.currentBBox.h = _v10.height, this.svgElement.setAttribute("height", _v10.height));
@@ -5905,7 +5880,7 @@
       }
     }, _v254.prototype.createElements = function () {}, _v254.prototype.hide = function () {}, _v254.prototype.renderFrame = function () {
       var _v0 = this._isFirstFrame;
-      if (this.hierarchy) for (_v2 = 0, _v3 = this.hierarchy.length; _v2 < _v3; _v2 += 1) _v0 = this.hierarchy[_v2].finalTransform.mProp._mdf || _v0;
+      if (this.hierarchy) for (_v3 = this.hierarchy.length, _v2 = 0; _v2 < _v3; _v2 += 1) _v0 = this.hierarchy[_v2].finalTransform.mProp._mdf || _v0;
       if (_v0 || this.pe._mdf || this.p && this.p._mdf || this.px && (this.px._mdf || this.py._mdf || this.pz._mdf) || this.rx._mdf || this.ry._mdf || this.rz._mdf || this.or._mdf || this.a && this.a._mdf) {
         if (this.mat.reset(), this.hierarchy) for (_v2 = _v3 = this.hierarchy.length - 1; _v2 >= 0; _v2 -= 1) {
           var _v1 = this.hierarchy[_v2].finalTransform.mProp;
@@ -5925,7 +5900,7 @@
         this.mat.rotateX(-this.rx.v).rotateY(-this.ry.v).rotateZ(this.rz.v), this.mat.rotateX(-this.or.v[0]).rotateY(-this.or.v[1]).rotateZ(this.or.v[2]), this.mat.translate(this.globalData.compSize.w / 2, this.globalData.compSize.h / 2, 0), this.mat.translate(0, 0, this.pe.v);
         var _v10 = !this._prevMat.equals(this.mat);
         if ((_v10 || this.pe._mdf) && this.comp.threeDElements) {
-          for (_v2 = 0, _v3 = this.comp.threeDElements.length; _v2 < _v3; _v2 += 1) if ("3d" === (_v11 = this.comp.threeDElements[_v2]).type) {
+          for (_v3 = this.comp.threeDElements.length, _v2 = 0; _v2 < _v3; _v2 += 1) if ("3d" === (_v11 = this.comp.threeDElements[_v2]).type) {
             if (_v10) {
               var _v11,
                 _v12,
@@ -6071,20 +6046,18 @@
     }, _v9([_v256], _v258), _v258.prototype.createComp = function (_v0) {
       return this.supports3d ? new _v257(_v0, this.globalData, this) : new _v228(_v0, this.globalData, this);
     };
-    var _v259 = function () {
-      return function (_v0) {
-        function _v1(_v0) {
-          for (var _v1 = 0, _v2 = _v0.layers.length; _v1 < _v2;) {
-            if (_v0.layers[_v1].nm === _v0 || _v0.layers[_v1].ind === _v0) return _v0.elements[_v1].layerInterface;
-            _v1 += 1;
-          }
-          return null;
+    var _v259 = function (_v0) {
+      function _v1(_v0) {
+        for (var _v1 = 0, _v2 = _v0.layers.length; _v1 < _v2;) {
+          if (_v0.layers[_v1].nm === _v0 || _v0.layers[_v1].ind === _v0) return _v0.elements[_v1].layerInterface;
+          _v1 += 1;
         }
-        return Object.defineProperty(_v1, "_name", {
-          value: _v0.data.nm
-        }), _v1.layer = _v1, _v1.pixelAspect = 1, _v1.height = _v0.data.h || _v0.globalData.compSize.h, _v1.width = _v0.data.w || _v0.globalData.compSize.w, _v1.pixelAspect = 1, _v1.frameDuration = 1 / _v0.globalData.frameRate, _v1.displayStartTime = 0, _v1.numLayers = _v0.layers.length, _v1;
-      };
-    }();
+        return null;
+      }
+      return Object.defineProperty(_v1, "_name", {
+        value: _v0.data.nm
+      }), _v1.layer = _v1, _v1.pixelAspect = 1, _v1.height = _v0.data.h || _v0.globalData.compSize.h, _v1.width = _v0.data.w || _v0.globalData.compSize.w, _v1.pixelAspect = 1, _v1.frameDuration = 1 / _v0.globalData.frameRate, _v1.displayStartTime = 0, _v1.numLayers = _v0.layers.length, _v1;
+    };
     function _v260(_v0) {
       return (_v260 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (_v0) {
         return typeof _v0;
@@ -6250,11 +6223,11 @@
             _v6 = _v264(_v1);
           if (_v10(_v5, _v0) && _v10(_v6, _v1)) return _v0 * _v1;
           if (_v9(_v0) && _v10(_v6, _v1)) {
-            for (_v3 = 0, _v2 = _v13("float32", _v4 = _v0.length); _v3 < _v4; _v3 += 1) _v2[_v3] = _v0[_v3] * _v1;
+            for (_v2 = _v13("float32", _v4 = _v0.length), _v3 = 0; _v3 < _v4; _v3 += 1) _v2[_v3] = _v0[_v3] * _v1;
             return _v2;
           }
           if (_v10(_v5, _v0) && _v9(_v1)) {
-            for (_v3 = 0, _v2 = _v13("float32", _v4 = _v1.length); _v3 < _v4; _v3 += 1) _v2[_v3] = _v0 * _v1[_v3];
+            for (_v2 = _v13("float32", _v4 = _v1.length), _v3 = 0; _v3 < _v4; _v3 += 1) _v2[_v3] = _v0 * _v1[_v3];
             return _v2;
           }
           return 0;
@@ -6267,11 +6240,11 @@
             _v6 = _v264(_v1);
           if (_v10(_v5, _v0) && _v10(_v6, _v1)) return _v0 / _v1;
           if (_v9(_v0) && _v10(_v6, _v1)) {
-            for (_v3 = 0, _v2 = _v13("float32", _v4 = _v0.length); _v3 < _v4; _v3 += 1) _v2[_v3] = _v0[_v3] / _v1;
+            for (_v2 = _v13("float32", _v4 = _v0.length), _v3 = 0; _v3 < _v4; _v3 += 1) _v2[_v3] = _v0[_v3] / _v1;
             return _v2;
           }
           if (_v10(_v5, _v0) && _v9(_v1)) {
-            for (_v3 = 0, _v2 = _v13("float32", _v4 = _v1.length); _v3 < _v4; _v3 += 1) _v2[_v3] = _v0 / _v1[_v3];
+            for (_v2 = _v13("float32", _v4 = _v1.length), _v3 = 0; _v3 < _v4; _v3 += 1) _v2[_v3] = _v0 / _v1[_v3];
             return _v2;
           }
           return 0;
@@ -6531,7 +6504,7 @@
                 value: []
               },
               _v4 = Object.prototype.hasOwnProperty.call(_v1.k[_v0], "s") ? _v1.k[_v0].s : _v1.k[_v0 - 1].e;
-            for (_v1 = 0, _v2 = _v4.length; _v1 < _v2; _v1 += 1) _v3[_v1] = _v4[_v1], _v3.value[_v1] = _v4[_v1];
+            for (_v2 = _v4.length, _v1 = 0; _v1 < _v2; _v1 += 1) _v3[_v1] = _v4[_v1], _v3.value[_v1] = _v4[_v1];
             return _v3;
           }
           function _v60(_v0, _v1) {
@@ -6667,84 +6640,82 @@
           return _v0 ? "unidimensional" === _v0.propType ? _v3(_v0) : _v4(_v0) : _v5;
         };
       }(),
-      _v269 = function () {
-        return function (_v0) {
-          var _v1, _v2, _v3, _v4;
-          function _v5(_v0) {
-            switch (_v0) {
-              case "scale":
-              case "Scale":
-              case "ADBE Scale":
-              case 6:
-                return _v5.scale;
-              case "rotation":
-              case "Rotation":
-              case "ADBE Rotation":
-              case "ADBE Rotate Z":
-              case 10:
-                return _v5.rotation;
-              case "ADBE Rotate X":
-                return _v5.xRotation;
-              case "ADBE Rotate Y":
-                return _v5.yRotation;
-              case "position":
-              case "Position":
-              case "ADBE Position":
-              case 2:
-                return _v5.position;
-              case "ADBE Position_0":
-                return _v5.xPosition;
-              case "ADBE Position_1":
-                return _v5.yPosition;
-              case "ADBE Position_2":
-                return _v5.zPosition;
-              case "anchorPoint":
-              case "AnchorPoint":
-              case "Anchor Point":
-              case "ADBE AnchorPoint":
-              case 1:
-                return _v5.anchorPoint;
-              case "opacity":
-              case "Opacity":
-              case 11:
-                return _v5.opacity;
-              default:
-                return null;
-            }
+      _v269 = function (_v0) {
+        var _v1, _v2, _v3, _v4;
+        function _v5(_v0) {
+          switch (_v0) {
+            case "scale":
+            case "Scale":
+            case "ADBE Scale":
+            case 6:
+              return _v5.scale;
+            case "rotation":
+            case "Rotation":
+            case "ADBE Rotation":
+            case "ADBE Rotate Z":
+            case 10:
+              return _v5.rotation;
+            case "ADBE Rotate X":
+              return _v5.xRotation;
+            case "ADBE Rotate Y":
+              return _v5.yRotation;
+            case "position":
+            case "Position":
+            case "ADBE Position":
+            case 2:
+              return _v5.position;
+            case "ADBE Position_0":
+              return _v5.xPosition;
+            case "ADBE Position_1":
+              return _v5.yPosition;
+            case "ADBE Position_2":
+              return _v5.zPosition;
+            case "anchorPoint":
+            case "AnchorPoint":
+            case "Anchor Point":
+            case "ADBE AnchorPoint":
+            case 1:
+              return _v5.anchorPoint;
+            case "opacity":
+            case "Opacity":
+            case 11:
+              return _v5.opacity;
+            default:
+              return null;
           }
-          return Object.defineProperty(_v5, "rotation", {
-            get: _v268(_v0.r || _v0.rz)
-          }), Object.defineProperty(_v5, "zRotation", {
-            get: _v268(_v0.rz || _v0.r)
-          }), Object.defineProperty(_v5, "xRotation", {
-            get: _v268(_v0.rx)
-          }), Object.defineProperty(_v5, "yRotation", {
-            get: _v268(_v0.ry)
-          }), Object.defineProperty(_v5, "scale", {
-            get: _v268(_v0.s)
-          }), _v0.p ? _v4 = _v268(_v0.p) : (_v1 = _v268(_v0.px), _v2 = _v268(_v0.py), _v0.pz && (_v3 = _v268(_v0.pz))), Object.defineProperty(_v5, "position", {
-            get: function () {
-              return _v0.p ? _v4() : [_v1(), _v2(), _v3 ? _v3() : 0];
-            }
-          }), Object.defineProperty(_v5, "xPosition", {
-            get: _v268(_v0.px)
-          }), Object.defineProperty(_v5, "yPosition", {
-            get: _v268(_v0.py)
-          }), Object.defineProperty(_v5, "zPosition", {
-            get: _v268(_v0.pz)
-          }), Object.defineProperty(_v5, "anchorPoint", {
-            get: _v268(_v0.a)
-          }), Object.defineProperty(_v5, "opacity", {
-            get: _v268(_v0.o)
-          }), Object.defineProperty(_v5, "skew", {
-            get: _v268(_v0.sk)
-          }), Object.defineProperty(_v5, "skewAxis", {
-            get: _v268(_v0.sa)
-          }), Object.defineProperty(_v5, "orientation", {
-            get: _v268(_v0.or)
-          }), _v5;
-        };
-      }(),
+        }
+        return Object.defineProperty(_v5, "rotation", {
+          get: _v268(_v0.r || _v0.rz)
+        }), Object.defineProperty(_v5, "zRotation", {
+          get: _v268(_v0.rz || _v0.r)
+        }), Object.defineProperty(_v5, "xRotation", {
+          get: _v268(_v0.rx)
+        }), Object.defineProperty(_v5, "yRotation", {
+          get: _v268(_v0.ry)
+        }), Object.defineProperty(_v5, "scale", {
+          get: _v268(_v0.s)
+        }), _v0.p ? _v4 = _v268(_v0.p) : (_v1 = _v268(_v0.px), _v2 = _v268(_v0.py), _v0.pz && (_v3 = _v268(_v0.pz))), Object.defineProperty(_v5, "position", {
+          get: function () {
+            return _v0.p ? _v4() : [_v1(), _v2(), _v3 ? _v3() : 0];
+          }
+        }), Object.defineProperty(_v5, "xPosition", {
+          get: _v268(_v0.px)
+        }), Object.defineProperty(_v5, "yPosition", {
+          get: _v268(_v0.py)
+        }), Object.defineProperty(_v5, "zPosition", {
+          get: _v268(_v0.pz)
+        }), Object.defineProperty(_v5, "anchorPoint", {
+          get: _v268(_v0.a)
+        }), Object.defineProperty(_v5, "opacity", {
+          get: _v268(_v0.o)
+        }), Object.defineProperty(_v5, "skew", {
+          get: _v268(_v0.sk)
+        }), Object.defineProperty(_v5, "skewAxis", {
+          get: _v268(_v0.sa)
+        }), Object.defineProperty(_v5, "orientation", {
+          get: _v268(_v0.or)
+        }), _v5;
+      },
       _v270 = function () {
         function _v0(_v0) {
           var _v1 = new _v103();
@@ -6857,23 +6828,19 @@
           }), _v3.startTime = _v0.data.st, _v3.index = _v0.data.ind, _v3.source = _v0.data.refId, _v3.height = 0 === _v0.data.ty ? _v0.data.h : 100, _v3.width = 0 === _v0.data.ty ? _v0.data.w : 100, _v3.inPoint = _v0.data.ip / _v0.comp.globalData.frameRate, _v3.outPoint = _v0.data.op / _v0.comp.globalData.frameRate, _v3._name = _v0.data.nm, _v3.registerMaskInterface = _v1, _v3.registerEffectsInterface = _v2, _v3;
         };
       }(),
-      _v271 = function () {
-        return function (_v0, _v1) {
-          return function (_v0) {
-            return (_v0 = void 0 === _v0 ? 1 : _v0) <= 0 ? _v0 : _v1(_v0 - 1);
-          };
+      _v271 = function (_v0, _v1) {
+        return function (_v0) {
+          return (_v0 = void 0 === _v0 ? 1 : _v0) <= 0 ? _v0 : _v1(_v0 - 1);
         };
-      }(),
-      _v272 = function () {
-        return function (_v0, _v1) {
-          var _v2 = {
-            _name: _v0
-          };
-          return function (_v0) {
-            return (_v0 = void 0 === _v0 ? 1 : _v0) <= 0 ? _v2 : _v1(_v0 - 1);
-          };
+      },
+      _v272 = function (_v0, _v1) {
+        var _v2 = {
+          _name: _v0
         };
-      }(),
+        return function (_v0) {
+          return (_v0 = void 0 === _v0 ? 1 : _v0) <= 0 ? _v2 : _v1(_v0 - 1);
+        };
+      },
       _v273 = function () {
         function _v0(_v0, _v1, _v2, _v3) {
           function _v4(_v0) {
@@ -6942,48 +6909,46 @@
           }
         };
       }(),
-      _v274 = function () {
-        return function (_v0, _v1, _v2) {
-          var _v3 = _v1.sh;
-          function _v4(_v0) {
-            return "Shape" === _v0 || "shape" === _v0 || "Path" === _v0 || "path" === _v0 || "ADBE Vector Shape" === _v0 || 2 === _v0 ? _v4.path : null;
-          }
-          var _v5 = _v271(_v4, _v2);
-          return _v3.setGroupProperty(_v272("Path", _v5)), Object.defineProperties(_v4, {
-            path: {
-              get: function () {
-                return _v3.k && _v3.getValue(), _v3;
-              }
-            },
-            shape: {
-              get: function () {
-                return _v3.k && _v3.getValue(), _v3;
-              }
-            },
-            _name: {
-              value: _v0.nm
-            },
-            ix: {
-              value: _v0.ix
-            },
-            propertyIndex: {
-              value: _v0.ix
-            },
-            mn: {
-              value: _v0.mn
-            },
-            propertyGroup: {
-              value: _v2
+      _v274 = function (_v0, _v1, _v2) {
+        var _v3 = _v1.sh;
+        function _v4(_v0) {
+          return "Shape" === _v0 || "shape" === _v0 || "Path" === _v0 || "path" === _v0 || "ADBE Vector Shape" === _v0 || 2 === _v0 ? _v4.path : null;
+        }
+        var _v5 = _v271(_v4, _v2);
+        return _v3.setGroupProperty(_v272("Path", _v5)), Object.defineProperties(_v4, {
+          path: {
+            get: function () {
+              return _v3.k && _v3.getValue(), _v3;
             }
-          }), _v4;
-        };
-      }(),
+          },
+          shape: {
+            get: function () {
+              return _v3.k && _v3.getValue(), _v3;
+            }
+          },
+          _name: {
+            value: _v0.nm
+          },
+          ix: {
+            value: _v0.ix
+          },
+          propertyIndex: {
+            value: _v0.ix
+          },
+          mn: {
+            value: _v0.mn
+          },
+          propertyGroup: {
+            value: _v2
+          }
+        }), _v4;
+      },
       _v275 = function () {
         function _v0(_v0, _v1, _v2) {
           var _v3,
             _v4 = [],
             _v5 = _v0 ? _v0.length : 0;
-          for (_v3 = 0; _v3 < _v5; _v3 += 1) "gr" === _v0[_v3].ty ? _v4.push(_v2(_v0[_v3], _v1[_v3], _v2)) : "fl" === _v0[_v3].ty ? _v4.push(_v3(_v0[_v3], _v1[_v3], _v2)) : "st" === _v0[_v3].ty ? _v4.push(_v6(_v0[_v3], _v1[_v3], _v2)) : "tm" === _v0[_v3].ty ? _v4.push(_v7(_v0[_v3], _v1[_v3], _v2)) : "tr" === _v0[_v3].ty || ("el" === _v0[_v3].ty ? _v4.push(_v9(_v0[_v3], _v1[_v3], _v2)) : "sr" === _v0[_v3].ty ? _v4.push(_v10(_v0[_v3], _v1[_v3], _v2)) : "sh" === _v0[_v3].ty ? _v4.push(_v274(_v0[_v3], _v1[_v3], _v2)) : "rc" === _v0[_v3].ty ? _v4.push(_v11(_v0[_v3], _v1[_v3], _v2)) : "rd" === _v0[_v3].ty ? _v4.push(_v12(_v0[_v3], _v1[_v3], _v2)) : "rp" === _v0[_v3].ty ? _v4.push(_v13(_v0[_v3], _v1[_v3], _v2)) : "gf" === _v0[_v3].ty ? _v4.push(_v4(_v0[_v3], _v1[_v3], _v2)) : _v4.push(_v5(_v0[_v3], _v1[_v3], _v2)));
+          for (_v3 = 0; _v3 < _v5; _v3 += 1) "gr" === _v0[_v3].ty ? _v4.push(_v2(_v0[_v3], _v1[_v3], _v2)) : "fl" === _v0[_v3].ty ? _v4.push(_v3(_v0[_v3], _v1[_v3], _v2)) : "st" === _v0[_v3].ty ? _v4.push(_v6(_v0[_v3], _v1[_v3], _v2)) : "tm" === _v0[_v3].ty ? _v4.push(_v7(_v0[_v3], _v1[_v3], _v2)) : "tr" === _v0[_v3].ty || ("el" === _v0[_v3].ty ? _v4.push(_v9(_v0[_v3], _v1[_v3], _v2)) : "sr" === _v0[_v3].ty ? _v4.push(_v10(_v0[_v3], _v1[_v3], _v2)) : "sh" === _v0[_v3].ty ? _v4.push(_v274(_v0[_v3], _v1[_v3], _v2)) : "rc" === _v0[_v3].ty ? _v4.push(_v11(_v0[_v3], _v1[_v3], _v2)) : "rd" === _v0[_v3].ty ? _v4.push(_v12(_v0[_v3], _v1[_v3], _v2)) : "rp" === _v0[_v3].ty ? _v4.push(_v13(_v0[_v3], _v1[_v3], _v2)) : "gf" === _v0[_v3].ty ? _v4.push(_v4(_v0[_v3], _v1[_v3], _v2)) : _v4.push(_v5(_v0[_v3], _v1[_v3])));
           return _v4;
         }
         function _v1(_v0, _v1, _v2) {
@@ -7281,27 +7246,25 @@
           }), _v3 = _v0(_v0, _v1, _v4.propertyGroup), _v4.numProperties = _v3.length, _v4._name = "Contents", _v4;
         };
       }(),
-      _v276 = function () {
-        return function (_v0) {
-          var _v1;
-          function _v2(_v0) {
-            return "ADBE Text Document" === _v0 ? _v2.sourceText : null;
+      _v276 = function (_v0) {
+        var _v1;
+        function _v2(_v0) {
+          return "ADBE Text Document" === _v0 ? _v2.sourceText : null;
+        }
+        return Object.defineProperty(_v2, "sourceText", {
+          get: function () {
+            _v0.textProperty.getValue();
+            var _v0 = _v0.textProperty.currentData.t;
+            return _v1 && _v0 === _v1.value || ((_v1 = new String(_v0)).value = _v0 || new String(_v0), Object.defineProperty(_v1, "style", {
+              get: function () {
+                return {
+                  fillColor: _v0.textProperty.currentData.fc
+                };
+              }
+            })), _v1;
           }
-          return Object.defineProperty(_v2, "sourceText", {
-            get: function () {
-              _v0.textProperty.getValue();
-              var _v0 = _v0.textProperty.currentData.t;
-              return _v1 && _v0 === _v1.value || ((_v1 = new String(_v0)).value = _v0 || new String(_v0), Object.defineProperty(_v1, "style", {
-                get: function () {
-                  return {
-                    fillColor: _v0.textProperty.currentData.fc
-                  };
-                }
-              })), _v1;
-            }
-          }), _v2;
-        };
-      }();
+        }), _v2;
+      };
     function _v277(_v0) {
       return (_v277 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (_v0) {
         return typeof _v0;
@@ -7346,44 +7309,42 @@
     function _v280(_v0) {
       return _v279[_v0] || null;
     }
-    var _v281 = function () {
-      return {
-        searchExpressions: function (_v0, _v1, _v2) {
-          _v1.x && (_v2.k = !0, _v2.x = !0, _v2.initiateExpression = _v265.initiateExpression, _v2.effectsSequence.push(_v2.initiateExpression(_v0, _v1, _v2).bind(_v2)));
-        },
-        getSpeedAtTime: function (_v0) {
-          var _v1,
-            _v2 = -.01,
-            _v3 = this.getValueAtTime(_v0),
-            _v4 = this.getValueAtTime(_v0 + _v2),
-            _v5 = 0;
-          if (_v3.length) {
-            for (_v1 = 0; _v1 < _v3.length; _v1 += 1) _v5 += Math.pow(_v4[_v1] - _v3[_v1], 2);
-            _v5 = 100 * Math.sqrt(_v5);
-          } else _v5 = 0;
-          return _v5;
-        },
-        getVelocityAtTime: function (_v0) {
-          if (void 0 !== this.vel) return this.vel;
-          var _v1,
-            _v2,
-            _v3 = -.001,
-            _v4 = this.getValueAtTime(_v0),
-            _v5 = this.getValueAtTime(_v0 + _v3);
-          if (_v4.length) for (_v2 = 0, _v1 = _v13("float32", _v4.length); _v2 < _v4.length; _v2 += 1) _v1[_v2] = (_v5[_v2] - _v4[_v2]) / _v3;else _v1 = (_v5 - _v4) / _v3;
-          return _v1;
-        },
-        getValueAtTime: function (_v0) {
-          return _v0 *= this.elem.globalData.frameRate, (_v0 -= this.offsetTime) !== this._cachingAtTime.lastFrame && (this._cachingAtTime.lastIndex = this._cachingAtTime.lastFrame < _v0 ? this._cachingAtTime.lastIndex : 0, this._cachingAtTime.value = this.interpolateValue(_v0, this._cachingAtTime), this._cachingAtTime.lastFrame = _v0), this._cachingAtTime.value;
-        },
-        getStaticValueAtTime: function () {
-          return this.pv;
-        },
-        setGroupProperty: function (_v0) {
-          this.propertyGroup = _v0;
-        }
-      };
-    }();
+    var _v281 = {
+      searchExpressions: function (_v0, _v1, _v2) {
+        _v1.x && (_v2.k = !0, _v2.x = !0, _v2.initiateExpression = _v265.initiateExpression, _v2.effectsSequence.push(_v2.initiateExpression(_v0, _v1, _v2).bind(_v2)));
+      },
+      getSpeedAtTime: function (_v0) {
+        var _v1,
+          _v2 = -.01,
+          _v3 = this.getValueAtTime(_v0),
+          _v4 = this.getValueAtTime(_v0 + _v2),
+          _v5 = 0;
+        if (_v3.length) {
+          for (_v1 = 0; _v1 < _v3.length; _v1 += 1) _v5 += Math.pow(_v4[_v1] - _v3[_v1], 2);
+          _v5 = 100 * Math.sqrt(_v5);
+        } else _v5 = 0;
+        return _v5;
+      },
+      getVelocityAtTime: function (_v0) {
+        if (void 0 !== this.vel) return this.vel;
+        var _v1,
+          _v2,
+          _v3 = -.001,
+          _v4 = this.getValueAtTime(_v0),
+          _v5 = this.getValueAtTime(_v0 + _v3);
+        if (_v4.length) for (_v1 = _v13("float32", _v4.length), _v2 = 0; _v2 < _v4.length; _v2 += 1) _v1[_v2] = (_v5[_v2] - _v4[_v2]) / _v3;else _v1 = (_v5 - _v4) / _v3;
+        return _v1;
+      },
+      getValueAtTime: function (_v0) {
+        return _v0 *= this.elem.globalData.frameRate, (_v0 -= this.offsetTime) !== this._cachingAtTime.lastFrame && (this._cachingAtTime.lastIndex = this._cachingAtTime.lastFrame < _v0 ? this._cachingAtTime.lastIndex : 0, this._cachingAtTime.value = this.interpolateValue(_v0, this._cachingAtTime), this._cachingAtTime.lastFrame = _v0), this._cachingAtTime.value;
+      },
+      getStaticValueAtTime: function () {
+        return this.pv;
+      },
+      setGroupProperty: function (_v0) {
+        this.propertyGroup = _v0;
+      }
+    };
     function _v282() {
       function _v0(_v0, _v1, _v2) {
         if (!this.k || !this.keyframes) return this.pv;
@@ -7405,7 +7366,7 @@
             _v13 = this.getValueAtTime(((_v8 - _v4) % _v3 + _v4) / this.comp.globalData.frameRate, 0),
             _v14 = Math.floor((_v8 - _v4) / _v3);
           if (this.pv.length) {
-            for (_v5 = 0, _v6 = (_v7 = Array(_v11.length)).length; _v5 < _v6; _v5 += 1) _v7[_v5] = (_v12[_v5] - _v11[_v5]) * _v14 + _v13[_v5];
+            for (_v6 = (_v7 = Array(_v11.length)).length, _v5 = 0; _v5 < _v6; _v5 += 1) _v7[_v5] = (_v12[_v5] - _v11[_v5]) * _v14 + _v13[_v5];
             return _v7;
           }
           return (_v12 - _v11) * _v14 + _v13;
@@ -7413,7 +7374,7 @@
           var _v15 = this.getValueAtTime(_v10 / this.comp.globalData.frameRate, 0),
             _v16 = this.getValueAtTime((_v10 - .001) / this.comp.globalData.frameRate, 0);
           if (this.pv.length) {
-            for (_v5 = 0, _v6 = (_v7 = Array(_v15.length)).length; _v5 < _v6; _v5 += 1) _v7[_v5] = _v15[_v5] + (_v15[_v5] - _v16[_v5]) * ((_v8 - _v10) / this.comp.globalData.frameRate) / 5e-4;
+            for (_v6 = (_v7 = Array(_v15.length)).length, _v5 = 0; _v5 < _v6; _v5 += 1) _v7[_v5] = _v15[_v5] + (_v15[_v5] - _v16[_v5]) * ((_v8 - _v10) / this.comp.globalData.frameRate) / 5e-4;
             return _v7;
           }
           return _v15 + (_v8 - _v10) / .001 * (_v15 - _v16);
@@ -7440,7 +7401,7 @@
             _v13 = this.getValueAtTime((_v3 - (_v10 - _v8) % _v3 + _v10) / this.comp.globalData.frameRate, 0),
             _v14 = Math.floor((_v10 - _v8) / _v3) + 1;
           if (this.pv.length) {
-            for (_v5 = 0, _v6 = (_v7 = Array(_v11.length)).length; _v5 < _v6; _v5 += 1) _v7[_v5] = _v13[_v5] - (_v12[_v5] - _v11[_v5]) * _v14;
+            for (_v6 = (_v7 = Array(_v11.length)).length, _v5 = 0; _v5 < _v6; _v5 += 1) _v7[_v5] = _v13[_v5] - (_v12[_v5] - _v11[_v5]) * _v14;
             return _v7;
           }
           return _v13 - (_v12 - _v11) * _v14;
@@ -7448,7 +7409,7 @@
           var _v15 = this.getValueAtTime(_v10 / this.comp.globalData.frameRate, 0),
             _v16 = this.getValueAtTime((_v10 + .001) / this.comp.globalData.frameRate, 0);
           if (this.pv.length) {
-            for (_v5 = 0, _v6 = (_v7 = Array(_v15.length)).length; _v5 < _v6; _v5 += 1) _v7[_v5] = _v15[_v5] + (_v15[_v5] - _v16[_v5]) * (_v10 - _v8) / .001;
+            for (_v6 = (_v7 = Array(_v15.length)).length, _v5 = 0; _v5 < _v6; _v5 += 1) _v7[_v5] = _v15[_v5] + (_v15[_v5] - _v16[_v5]) * (_v10 - _v8) / .001;
             return _v7;
           }
           return _v15 + (_v15 - _v16) * (_v10 - _v8) / .001;

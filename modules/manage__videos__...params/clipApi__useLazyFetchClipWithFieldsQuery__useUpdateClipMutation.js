@@ -1,15 +1,14 @@
 {
   "use strict";
 
-  _v0.s(["clipApi", () => _v13, "useLazyFetchClipWithFieldsQuery", () => _v14, "useUpdateClipMutation", () => _v15], 0);
+  _v0.s(["clipApi", () => _v13, "useLazyFetchClipWithFieldsQuery", () => _v14, "useUpdateClipMutation", () => _v15], 0), _v0.s(["clipSlice", () => _v11, "default", () => _v12], 0);
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
     _v3 = _v0.i(0),
     _v4 = _v0.i(0),
     _v5 = _v0.i(0),
-    _v6 = _v0.i(0);
-  _v0.s(["clipSlice", () => _v11, "default", () => _v12], 0);
-  var _v7 = _v0.i(0),
+    _v6 = _v0.i(0),
+    _v7 = _v0.i(0),
     _v8 = _v0.i(0),
     _v9 = _v0.i(0);
   let _v10 = (_v0, _v1) => {

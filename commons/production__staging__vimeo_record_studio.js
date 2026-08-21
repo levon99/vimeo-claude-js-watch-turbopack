@@ -24,9 +24,8 @@
     _v44 = _v0.i(0),
     _v45 = _v0.i(0),
     _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  _v0.i(0);
-  var _v48 = _v0.i(0);
+    _v47 = _v0.i(0),
+    _v48 = _v0.i(0);
   class _v49 {
     globalBPO;
     teamData;
@@ -458,7 +457,7 @@
       localRecording: "true",
       preferredFolder: null,
       experimentalFeatures: "true",
-      uploadApproach: ["live", "ipb", "tus"],
+      uploadApproach: ["live", "ipb", "tus", "tus_stream"],
       recordingInQuota: "true"
     };
   function _v74(_v0) {
@@ -777,7 +776,7 @@
       }, [])
     };
   }
-  _v81(_v87), _v0.s(["getLogger", () => _v141, "useLogger", () => _v140], 0);
+  _v81(_v87);
   var _v89 = _v0.i(0),
     _v90 = _v0.i(0);
   class _v91 extends Error {
@@ -2483,9 +2482,13 @@
     currentStreamKey;
     currentProvisionerId;
     liveSetupStep;
+    finalized;
+    get isFinalized() {
+      return this.finalized;
+    }
     retry;
     constructor(_v0, _v1, _v2 = _v139.createForCategory("Uploader")) {
-      super(_v0), this.options = _v1, this.log = _v2, this.pendingChunks = [], this.cancel = () => void 0, this.createSessionAbortController = new AbortController();
+      super(_v0), this.options = _v1, this.log = _v2, this.pendingChunks = [], this.cancel = () => void 0, this.createSessionAbortController = new AbortController(), this.finalized = !1;
     }
     start(_v0, _v1) {
       this.uploadApproach = _v0, this.createVideo(_v1);
@@ -2568,7 +2571,7 @@
         onVideoCreated: () => void 0
       }), clearInterval(this.checkIsPlayableInterval), this.checkIsPlayableInterval = void 0, clearInterval(this.pauseInterval), this.pauseInterval = void 0;
       let _v0 = this.session?.videoId;
-      _v0 && (await this.deleteVideo(_v0)), await this.invalidateCurrentLiveSession();
+      _v0 && !this.finalized && (await this.deleteVideo(_v0)), await this.invalidateCurrentLiveSession();
     }
     async checkIsVideoPlayable(_v0, _v1) {
       try {
@@ -2576,10 +2579,14 @@
           where: {
             videoId: _v0
           },
-          select: ["width", "height", "duration", "pictures.baseLink", "status", "isPlayable"]
+          select: ["width", "height", "duration", "pictures.baseLink", "status", "isPlayable", "transcode.status"]
         });
         if (!_v0) return void clearInterval(this.checkIsPlayableInterval);
-        ("transcoding" === _v0.status || "available" === _v0.status) && _v0.isPlayable && this.checkIsPlayableInterval && this.callbacks.onPlayable && (clearInterval(this.checkIsPlayableInterval), this.callbacks.onPlayable({
+        ("transcoding" === _v0.status || "available" === _v0.status) && _v0.isPlayable && this.checkIsPlayableInterval && this.callbacks.onPlayable && (clearInterval(this.checkIsPlayableInterval), this.log.info("Video became playable", {
+          videoId: _v0,
+          transcodeStatus: _v0.transcode?.status,
+          playbackMode: _v0.transcode?.status === "complete" ? "renditions" : "playable_source"
+        }), this.callbacks.onPlayable({
           id: _v0,
           link: _v1,
           name: this.options.recordingTitle,
@@ -2978,6 +2985,7 @@
       return !0;
     }
     async handleUploadFinalized(_v0) {
+      this.finalized = !0;
       let _v1 = Math.round(performance.now() - _v0.uploadStartTime) / 0;
       this.log.info(`${this.uploadApproach} upload succeeded in ${_v1}s`, {
         videoLink: _v0.videoLink
@@ -7968,7 +7976,7 @@
                         recordingState: _v0,
                         uploadingState: _v1
                       } = _v89.useUIStore.getState().common;
-                      if (_v9.current) {
+                      if (_v9.current && !_v9.current.isFinalized) {
                         if (_v9.current.retry) return void _v9.current.retry();else if ("uploading" === _v1) return;
                       }
                       let {
@@ -7981,7 +7989,7 @@
                           isResolutionChanged: _v7
                         }
                       } = _v129.useMemoryDataStorage.getState();
-                      _v9.current?.cancelAndUnsubscribe(), _v9.current = _v34(), _v4 && _v9.current.addThumbnail(_v4), "tus" !== _v10.current ? (_v9.current.start(_v10.current), _v9.current.addChunks("live" === _v10.current ? _v2 : _v3), "stopped" === _v0 && _v9.current.eof({
+                      _v9.current?.cancelAndUnsubscribe(), _v9.current = _v34(), _v4 && _v9.current.addThumbnail(_v4), "tus" !== _v10.current ? (_v9.current.start(_v10.current), _v9.current.addChunks("live" === _v10.current || "tus_stream" === _v10.current ? _v2 : _v3), "stopped" === _v0 && _v9.current.eof({
                         duration: _v5,
                         isResolutionChanged: _v7
                       })) : "stopped" === _v0 && (_v9.current.start(_v10.current, _v6), _v9.current.addChunks(_v2), _v9.current.eof({
@@ -8062,14 +8070,14 @@
                       _v12.current || (_v12.current = _v10.current), "ipb" === _v10.current ? _v8.current ? _v35() : _v37() : _v35();
                     }, [_v37, _v35, _v10]),
                     _v39 = (0, _v26.useCallback)(_v0 => {
-                      "ipb" === _v10.current && _v8.current ? _v8.current.addChunk(_v0) : "live" === _v10.current && _v9.current ? _v9.current.addChunks([_v0]) : (_v6.warn("addChunk called but no uploader or converter is ready, triggering upload start", {
+                      "ipb" === _v10.current && _v8.current ? _v8.current.addChunk(_v0) : ("live" === _v10.current || "tus_stream" === _v10.current) && _v9.current && !_v9.current.isFinalized ? _v9.current.addChunks([_v0]) : (_v6.warn("addChunk called but no uploader or converter is ready, triggering upload start", {
                         approach: _v10.current,
                         hasUploader: !!_v9.current,
                         hasConverter: !!_v8.current
                       }), _v38());
                     }, [_v6, _v38, _v10]),
                     _v40 = (0, _v26.useCallback)(async () => {
-                      if ("ipb" === _v10.current && _v8.current) _v8.current.eof();else if ("live" === _v10.current && _v9.current) {
+                      if ("ipb" === _v10.current && _v8.current) _v8.current.eof();else if (("live" === _v10.current || "tus_stream" === _v10.current) && _v9.current && !_v9.current.isFinalized) {
                         let {
                           duration: _v0,
                           isResolutionChanged: _v1
@@ -9590,8 +9598,26 @@
           clipId: _v10
         }),
         _v18 = (_v1 = (0, _v26.useCallback)(() => {
-          _v17(), _v11(Date.now()), _v5.info("[end-screen] clip is playable, refetched clip info & measured time-to-playable."), _v8("endScreenShown"), _v5.info('[end-screen] clip is playable and loaded, changed app state to "endScreenShown".'), _v6(!1);
-        }, [_v5, _v17, _v8, _v11, _v6]), _v2 = _v14?.isPlayable ?? !1, _v3 = _v14?.link, _v4 = (0, _v26.useRef)(new Set()), (0, _v26.useEffect)(() => {
+          _v17(), _v11(Date.now()), _v5.info("[end-screen] clip is playable, refetched clip info & measured time-to-playable."), (async () => {
+            if (null !== _v10) try {
+              let _v0 = await _v104.fetchWithRecordJWT(_v185.getVideo, {
+                where: {
+                  videoId: _v10
+                },
+                select: ["status", "transcode.status"]
+              });
+              _v5.info("[end-screen] playback mode at playable", {
+                status: _v0?.status,
+                transcodeStatus: _v0?.transcode?.status,
+                playbackMode: _v0?.transcode?.status === "complete" ? "renditions" : "playable_source"
+              });
+            } catch (_v0) {
+              _v5.warn("[end-screen] playback-mode probe failed", {
+                error: _v0
+              });
+            }
+          })(), _v8("endScreenShown"), _v5.info('[end-screen] clip is playable and loaded, changed app state to "endScreenShown".'), _v6(!1);
+        }, [_v10, _v5, _v17, _v8, _v11, _v6]), _v2 = _v14?.isPlayable ?? !1, _v3 = _v14?.link, _v4 = (0, _v26.useRef)(new Set()), (0, _v26.useEffect)(() => {
           _v2 && _v3 && !_v4.current.has(_v3) && (_v4.current.add(_v3), _v1());
         }, [_v3, _v2, _v1]), _v2);
       return ((_v0, _v1) => {
@@ -9624,7 +9650,7 @@
             _v3.current && (clearTimeout(_v3.current), _v3.current = null);
           };
         }, [_v1, _v2, _v4]);
-      })(_v17, "finalizing" === _v7 && !_v15 && !1 === _v18), (0, _v26.useEffect)(() => {
+      })(_v17, "finalizing" === _v7 && !_v15 && !_v18), (0, _v26.useEffect)(() => {
         _v150.includes(_v7) && _v5.info(`[end-screen] app state CHANGED TO: ${_v7}`);
       }, [_v7, _v5]), (0, _v26.useEffect)(() => {
         _v13({
@@ -11190,37 +11216,36 @@
           isInitializing: _v6,
           updateUploadToFolderUri: _v7
         } = ((_v0, _v1) => {
-          var _v2;
-          let _v3,
-            _v4 = _v1 ? _v1.ownerId : _v0,
-            [_v5, _v6] = (0, _v26.useState)(!0),
-            _v7 = _v140("useUploadData"),
+          let _v2,
+            _v3 = _v1 ? _v1.ownerId : _v0,
+            [_v4, _v5] = (0, _v26.useState)(!0),
+            _v6 = _v140("useUploadData"),
             {
-              uploadFolderUri: _v8,
-              setUploadToAccountId: _v9,
-              setUploadFolderUri: _v10,
-              setSelectedFolder: _v11
+              uploadFolderUri: _v7,
+              setUploadToAccountId: _v8,
+              setUploadFolderUri: _v9,
+              setSelectedFolder: _v10
             } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
               setUploadToAccountId: _v0.common.setUploadToAccountId,
               setUploadFolderUri: _v0.common.setUploadToFolderUri,
               setSelectedFolder: _v0.common.setSelectedFolder,
               uploadFolderUri: _v0.common.uploadToFolderUri
             }))),
-            _v12 = "root" === _v289("preferredFolder", !1).preferredFolder,
+            _v11 = "root" === _v289("preferredFolder", !1).preferredFolder,
             {
-              folder: _v13,
-              isLoading: _v14
+              folder: _v12,
+              isLoading: _v13
             } = (_v0 => {
               let {
                 preferredFolder: _v1
               } = _v289("preferredFolder", !1);
               return _v390(_v0, Number(_v1) > 0 ? Number(_v1) : null);
-            })(_v4),
-            _v15 = !!_v13 || _v14,
+            })(_v3),
+            _v14 = !!_v12 || _v13,
             {
-              folder: _v16,
-              isLoading: _v17
-            } = (_v3 = (0, _v26.useMemo)(() => {
+              folder: _v15,
+              isLoading: _v16
+            } = (_v2 = (0, _v26.useMemo)(() => {
               let _v0 = function (_v0) {
                 if ((0, _v355.isSSR)()) return null;
                 try {
@@ -11230,15 +11255,15 @@
                 } catch {
                   return localStorage.removeItem(_v391), null;
                 }
-              }(_v4);
+              }(_v3);
               return _v0 ? _v377({
                 uri: _v0
               }) : null;
-            }, [_v4]), _v390(_v4, _v3, _v2)),
-            _v18 = !!_v16 || _v17,
+            }, [_v3]), _v390(_v3, _v2, void 0)),
+            _v17 = !!_v15 || _v16,
             {
-              folder: _v19,
-              isLoading: _v20
+              folder: _v18,
+              isLoading: _v19
             } = ((_v0, _v1) => {
               let _v2 = !!(_v0 && _v0?.permissionLevel !== 5) && !_v1,
                 _v3 = _v0 && "enterprise" === _v0.accountType,
@@ -11268,27 +11293,27 @@
                 isLoading: _v2 && !_v4 && !_v5 && !_v7 && !_v6,
                 folder: _v4 ? _v378(_v4) : _v6 ? _v378(_v6) : null
               };
-            })(_v1 ?? null, _v15 || _v18),
-            _v21 = _v19?.uri ?? null,
-            _v22 = _v16?.uri ?? null,
-            _v23 = _v13?.uri ?? null,
-            _v24 = (0, _v26.useMemo)(() => _v1 && _v1?.permissionLevel !== 5 ? _v1.ownerId : _v0, [_v1, _v0]);
+            })(_v1 ?? null, _v14 || _v17),
+            _v20 = _v18?.uri ?? null,
+            _v21 = _v15?.uri ?? null,
+            _v22 = _v12?.uri ?? null,
+            _v23 = (0, _v26.useMemo)(() => _v1 && _v1?.permissionLevel !== 5 ? _v1.ownerId : _v0, [_v1, _v0]);
           (0, _v26.useEffect)(() => {
-            _v9(_v24);
-          }, [_v9, _v24]);
-          let _v25 = _v5 || _v12 ? null : _v13 ?? _v16 ?? _v19;
+            _v8(_v23);
+          }, [_v8, _v23]);
+          let _v24 = _v4 || _v11 ? null : _v12 ?? _v15 ?? _v18;
           return (0, _v26.useEffect)(() => {
             let _v0 = _v89.useUIStore.getState().common.selectedFolder;
-            (_v25 || _v12) && void 0 === _v0 ? _v11(_v25) : (_v13 || _v12) && _v0?.uri !== _v13?.uri && _v11(_v13);
-          }, [_v13, _v25, _v11, _v12]), (0, _v26.useEffect)(() => {
-            _v20 || _v17 || _v14 || !_v5 || (0, _v355.isSSR)() || (_v12 ? (_v10(null), _v7.debug("Selected root team library folder.")) : _v23 ? (_v10(_v23), _v7.debug("Selected query param passed upload folder.")) : _v22 ? (_v10(_v22), _v7.debug("Selected locally stored upload folder.")) : (_v10(_v21), _v7.debug("Selected default upload folder."), _v392(_v4, _v21)), _v6(!1));
-          }, [_v4, _v21, _v20, _v17, _v22, _v5, _v10, _v7, _v23, _v14, _v12]), {
+            (_v24 || _v11) && void 0 === _v0 ? _v10(_v24) : (_v12 || _v11) && _v0?.uri !== _v12?.uri && _v10(_v12);
+          }, [_v12, _v24, _v10, _v11]), (0, _v26.useEffect)(() => {
+            _v19 || _v16 || _v13 || !_v4 || (0, _v355.isSSR)() || (_v11 ? (_v9(null), _v6.debug("Selected root team library folder.")) : _v22 ? (_v9(_v22), _v6.debug("Selected query param passed upload folder.")) : _v21 ? (_v9(_v21), _v6.debug("Selected locally stored upload folder.")) : (_v9(_v20), _v6.debug("Selected default upload folder."), _v392(_v3, _v20)), _v5(!1));
+          }, [_v3, _v20, _v19, _v16, _v21, _v4, _v9, _v6, _v22, _v13, _v11]), {
             updateUploadToFolderUri: (0, _v26.useCallback)(_v0 => {
-              !_v5 && (_v0 ? (_v10(_v0), _v13 || _v392(_v4, _v0)) : (_v10(_v21), _v392(_v4, _v21)));
-            }, [_v5, _v13, _v10, _v21, _v4]),
-            isInitializing: _v5,
-            uploadAccountId: _v24,
-            uploadFolderUri: _v8
+              !_v4 && (_v0 ? (_v9(_v0), _v12 || _v392(_v3, _v0)) : (_v9(_v20), _v392(_v3, _v20)));
+            }, [_v4, _v12, _v9, _v20, _v3]),
+            isInitializing: _v4,
+            uploadAccountId: _v23,
+            uploadFolderUri: _v7
           };
         })(_v0, _v3),
         _v8 = _v3 ? _v3.ownerId : _v0;
@@ -12256,7 +12281,7 @@
         }
       })
     },
-    _v419 = ["live", "ipb", "tus"],
+    _v419 = ["live", "ipb", "tus", "tus_stream"],
     _v420 = (_v0, _v1) => null === _v0 || null === _v1 || _v1 < _v0 ? "—" : `${Math.round((_v1 - _v0) / 0)}s`,
     _v421 = ({
       label: _v0,
@@ -26373,7 +26398,7 @@
   }, _v1145.createFromOptions = function (_v0, _v1) {
     return _v1090(_v1145, _v0, _v1);
   }, _v1145.POSE_CONNECTIONS = _v1117;
-  class _v1146 {
+  let _v1146 = new class _v0 {
     initialization;
     static CDN_PATH = "https://recordwidget.vimeocdn.com/recordwidget/assets/@mediapipe/tasks-vision@0.10.18";
     initialize() {
@@ -26381,9 +26406,9 @@
       let {
         common: _v0
       } = _v89.useUIStore.getState();
-      return _v0.setModelLoading(!0), this.initialization = _v1025.forVisionTasks(_v1146.CDN_PATH).then(_v0 => _v1127.createFromOptions(_v0, {
+      return _v0.setModelLoading(!0), this.initialization = _v1025.forVisionTasks(_v0.CDN_PATH).then(_v0 => _v1127.createFromOptions(_v0, {
         baseOptions: {
-          modelAssetPath: `${_v1146.CDN_PATH}/selfie_segmenter.tflite`,
+          modelAssetPath: `${_v0.CDN_PATH}/selfie_segmenter.tflite`,
           delegate: "GPU"
         },
         runningMode: "VIDEO",
@@ -26394,9 +26419,8 @@
     close() {
       this.initialization && (this.initialization.then(_v0 => _v0.close()), this.initialization = void 0);
     }
-  }
-  let _v1147 = new _v1146();
-  class _v1148 {
+  }();
+  class _v1147 {
     context;
     settings;
     drawingUtils;
@@ -26452,7 +26476,7 @@
               let _v0 = _v631.getState().cameraBackground;
               if (_v0) {
                 let _v0 = this.context.getTransform();
-                this.context.resetTransform(), this.context.drawImage(_v0, ..._v1149(_v2, _v3, _v0.width, _v0.height)), this.context.setTransform(_v0);
+                this.context.resetTransform(), this.context.drawImage(_v0, ..._v1148(_v2, _v3, _v0.width, _v0.height)), this.context.setTransform(_v0);
               }
             }
         }
@@ -26463,9 +26487,9 @@
       this.context.resetTransform(), this.settings.flip && (this.context.translate(this.context.canvas.width, 0), this.context.scale(-1, 1));
     }
   }
-  _v1150(!0);
-  let _v1149 = _v1150(!1);
-  function _v1150(_v0) {
+  _v1149(!0);
+  let _v1148 = _v1149(!1);
+  function _v1149(_v0) {
     return (_v0, _v1, _v2, _v3, _v4 = 1, _v5 = .5, _v6 = .5) => {
       let _v7 = _v2 / _v3,
         _v8 = _v0 / _v1,
@@ -26474,7 +26498,7 @@
       return (_v0 ? _v7 > _v8 : _v7 < _v8) ? _v10 = _v9 / _v7 : _v9 = _v10 * _v7, [(_v0 - _v9) * _v5, (_v1 - _v10) * _v6, _v9, _v10];
     };
   }
-  async function _v1151() {
+  async function _v1150() {
     let {
         getCameraBackground: _v0
       } = _v631.getState(),
@@ -26492,7 +26516,7 @@
       }
     }));
   }
-  let _v1152 = {
+  let _v1151 = {
     numMeasuredTimeIntervals: 0,
     lastMeasuredAt: null,
     framesSinceLastMeasured: 0,
@@ -26502,17 +26526,17 @@
       minFPS: null
     }
   };
-  class _v1153 {
+  class _v1152 {
     log;
     state;
     constructor(_v0 = _v139.createForCategory("FPSMeasurer")) {
-      this.log = _v0, this.state = "idle", this.fpsStats = _v1152, this.fpsAlerts = new Set();
+      this.log = _v0, this.state = "idle", this.fpsStats = _v1151, this.fpsAlerts = new Set();
     }
     fpsStats;
     fpsAlerts;
     static MeasurementIntervalMs = 0;
     get averageFrameTimeMs() {
-      return this.fpsStats.metrics.averageFPS ? _v1154(_v1153.MeasurementIntervalMs / this.fpsStats.metrics.averageFPS) : null;
+      return this.fpsStats.metrics.averageFPS ? _v1153(_v1152.MeasurementIntervalMs / this.fpsStats.metrics.averageFPS) : null;
     }
     start({
       resetStats: _v0
@@ -26531,7 +26555,7 @@
     tick() {
       if ("started" === this.state) try {
         let _v0 = Date.now();
-        this.fpsStats.lastMeasuredAt ? _v0 > this.fpsStats.lastMeasuredAt + _v1153.MeasurementIntervalMs ? this.commitMeasuredInterval(_v0) : this.fpsStats.framesSinceLastMeasured += 1 : (this.fpsStats.lastMeasuredAt = _v0, this.fpsStats.framesSinceLastMeasured += 1);
+        this.fpsStats.lastMeasuredAt ? _v0 > this.fpsStats.lastMeasuredAt + _v1152.MeasurementIntervalMs ? this.commitMeasuredInterval(_v0) : this.fpsStats.framesSinceLastMeasured += 1 : (this.fpsStats.lastMeasuredAt = _v0, this.fpsStats.framesSinceLastMeasured += 1);
       } catch (_v0) {
         this.log.error(_v0, {
           category: _v123.UNEXPECTED,
@@ -26541,7 +26565,7 @@
       }
     }
     resetState() {
-      this.fpsStats = _v1152;
+      this.fpsStats = _v1151;
     }
     commitMeasuredInterval(_v0) {
       let _v1 = this.fpsStats.framesSinceLastMeasured;
@@ -26558,7 +26582,7 @@
           averageFPS: _v4
         }
       } = this.fpsStats;
-      _v3 > 0 && null !== _v4 && (_v2.averageFPS = _v1154((_v4 * _v3 + _v1) / (_v3 + 1), 2)), this.fpsStats.numMeasuredTimeIntervals += 1, this.fpsStats.metrics = _v2, _v76 && this.fpsStats.numMeasuredTimeIntervals % (_v76 ? 10 : 60) == 0 && this.log.debug("commitMeasuredInterval", {
+      _v3 > 0 && null !== _v4 && (_v2.averageFPS = _v1153((_v4 * _v3 + _v1) / (_v3 + 1), 2)), this.fpsStats.numMeasuredTimeIntervals += 1, this.fpsStats.metrics = _v2, _v76 && this.fpsStats.numMeasuredTimeIntervals % (_v76 ? 10 : 60) == 0 && this.log.debug("commitMeasuredInterval", {
         ..._v2,
         numMeasuredTimeIntervals: this.fpsStats.numMeasuredTimeIntervals
       }), this.fpsAlerts.forEach(_v0 => {
@@ -26566,10 +26590,10 @@
       });
     }
   }
-  function _v1154(_v0, _v1 = 0) {
+  function _v1153(_v0, _v1 = 0) {
     return Math.round(_v0 * Math.pow(10, _v1)) / Math.pow(10, _v1);
   }
-  class _v1155 {
+  class _v1154 {
     log;
     isRecording;
     eventCount;
@@ -26608,7 +26632,7 @@
       this.eventCount = 0, this.totalAbsDriftMs = 0, this.maxDriftMs = 0, this.maxDriftPercentage = 0;
     }
   }
-  let _v1156 = (() => {
+  let _v1155 = (() => {
     let _v0 = "idle",
       _v1 = null,
       _v2 = null,
@@ -26684,14 +26708,14 @@
       }
     });
   }).toString();
-  class _v1157 {
+  class _v1156 {
     log;
     worker;
     callback;
     driftReporter;
     unsubscribeFromUIStore;
     constructor(_v0 = _v139.createForCategory("RequestFrameWorker")) {
-      this.log = _v0, this.callback = null, this.driftReporter = new _v1155(_v0);
+      this.log = _v0, this.callback = null, this.driftReporter = new _v1154(_v0);
       try {
         this.worker = (_v0 => {
           let _v1 = new Blob([`(${_v0})()`], {
@@ -26700,7 +26724,7 @@
             _v2 = URL.createObjectURL(_v1),
             _v3 = new Worker(_v2);
           return setTimeout(() => URL.revokeObjectURL(_v2), 0), _v3;
-        })(_v1156), this.subscribe();
+        })(_v1155), this.subscribe();
       } catch (_v0) {
         throw this.log.error(_v0 instanceof Error ? _v0 : Error(String(_v0)), {
           category: _v123.UNEXPECTED,
@@ -26766,8 +26790,8 @@
       }), this.driftReporter.stopRecording(), this.unsubscribeFromUIStore?.(), this.unsubscribeFromUIStore = void 0, this.callback = null;
     }
   }
-  let _v1158 = null,
-    _v1159 = (0, _v26.forwardRef)(({
+  let _v1157 = null,
+    _v1158 = (0, _v26.forwardRef)(({
       userMedia: _v0,
       displayMedia: _v1
     }, _v2) => {
@@ -26802,7 +26826,7 @@
           return (0, _v26.useEffect)(() => {
             _v1 ? _v8(_v0 => {
               let _v1;
-              return _v0 ?? ((_v1 = _v1.getContext("2d")) ? new _v1148(_v1) : null);
+              return _v0 ?? ((_v1 = _v1.getContext("2d")) ? new _v1147(_v1) : null);
             }) : _v8(null);
           }, [_v1]), (0, _v26.useEffect)(() => {
             if (!_v0) return void _v6(null);
@@ -26816,7 +26840,7 @@
                 _v2 = () => {
                   _v0(_v0);
                 };
-              return _v12 && Promise.all([_v1147.initialize(), _v1151()]).then(([_v0]) => {
+              return _v12 && Promise.all([_v1146.initialize(), _v1150()]).then(([_v0]) => {
                 _v2 = () => {
                   try {
                     _v0.segmentForVideo(_v0, ++_v11.current, _v0 => {
@@ -26827,7 +26851,7 @@
               }), _v10(() => () => {
                 _v2();
               }), _v6(_v1), () => {
-                _v2 = () => void 0, _v10(null), _v7.close(), _v1147.close(), _v11.current = 0;
+                _v2 = () => void 0, _v10(null), _v7.close(), _v1146.close(), _v11.current = 0;
               };
             }
             _v10(null), _v6(_v0);
@@ -26841,7 +26865,7 @@
           }), [_v5, _v9]);
         })(_v0, _v15),
         _v19 = (0, _v26.useRef)(null),
-        _v20 = (_v3 = (0, _v26.useRef)(new _v1153()), _v4 = (0, _v89.useUIStore)(_v0 => _v0.common.setAverageFrameTime), _v6 = "recording" === (_v5 = (0, _v89.useUIStore)(_v0 => _v0.common.state)) || "paused" === _v5, _v7 = _v140("useTrackRecordingFrameRate"), (0, _v26.useEffect)(() => {
+        _v20 = (_v3 = (0, _v26.useRef)(new _v1152()), _v4 = (0, _v89.useUIStore)(_v0 => _v0.common.setAverageFrameTime), _v6 = "recording" === (_v5 = (0, _v89.useUIStore)(_v0 => _v0.common.state)) || "paused" === _v5, _v7 = _v140("useTrackRecordingFrameRate"), (0, _v26.useEffect)(() => {
           if (_v6) {
             let _v0 = _v3.current;
             return _v4(null), _v0.start({
@@ -26992,8 +27016,8 @@
         if (!_v19.current || !_v10.current) return;
         let _v1 = (_v0 = () => {
             _v19.current && _v19.current.render();
-          }, _v1158 || (_v1158 = new _v1157()), _v1158.setFPS(30), _v1158.start(_v0), () => {
-            _v1158?.stop();
+          }, _v1157 || (_v1157 = new _v1156()), _v1157.setFPS(30), _v1157.start(_v0), () => {
+            _v1157?.stop();
           }),
           _v2 = _v10.current.captureStream();
         return _v29({
@@ -27054,7 +27078,7 @@
         }), (0, _v25.jsx)(_v628, {})]
       });
     }),
-    _v1160 = (0, _v26.forwardRef)(({
+    _v1159 = (0, _v26.forwardRef)(({
       stream: _v0,
       onPlayable: _v1
     }, _v2) => {
@@ -27089,7 +27113,7 @@
         loop: !0
       }, _v0.id);
     }),
-    _v1161 = ({
+    _v1160 = ({
       cameraStream: _v0,
       displayStream: _v1
     }) => {
@@ -27113,9 +27137,9 @@
         } = _v617(),
         _v15 = (0, _v26.useRef)(null),
         _v16 = (0, _v26.useRef)(null);
-      ((_v0, _v1, {
-        onSizeChange: _v2,
-        onResizeStarted: _v3
+      ((_v0, {
+        onSizeChange: _v1,
+        onResizeStarted: _v2
       }) => {
         (0, _v26.useEffect)(() => {
           if (!_v0) return;
@@ -27134,15 +27158,15 @@
                 width: _v0,
                 height: _v1
               } = _v3.getSettings();
-              _v0 && _v1 && (_v0 !== _v4 || _v1 !== _v5) && (_v4 = _v0, _v5 = _v1, _v1 && clearTimeout(_v1), _v2 || (_v2 = !0, _v3?.()), _v1 = setTimeout(() => {
-                _v2(_v0, _v1), _v2 = !1;
-              }, _v1)), _v0 = requestAnimationFrame(_v6);
+              _v0 && _v1 && (_v0 !== _v4 || _v1 !== _v5) && (_v4 = _v0, _v5 = _v1, _v1 && clearTimeout(_v1), _v2 || (_v2 = !0, _v2?.()), _v1 = setTimeout(() => {
+                _v1(_v0, _v1), _v2 = !1;
+              }, 500)), _v0 = requestAnimationFrame(_v6);
             };
           return _v6(), () => {
             cancelAnimationFrame(_v0), _v1 && clearTimeout(_v1);
           };
-        }, [_v0, _v1, _v2, _v3]);
-      })(_v6?.srcObject, 500, {
+        }, [_v0, 500, _v1, _v2]);
+      })(_v6?.srcObject, {
         onResizeStarted: (0, _v26.useCallback)(() => _v14(!1), [_v14]),
         onSizeChange: (0, _v26.useCallback)(() => {
           _v16.current?.resizeVideo(), _v15.current?.reLayout(), _v14(!0);
@@ -27174,12 +27198,12 @@
             onLoad: _v17
           })
         }), (0, _v25.jsx)("div", {
-          children: _v0 && !_v9 && (0, _v25.jsx)(_v1160, {
+          children: _v0 && !_v9 && (0, _v25.jsx)(_v1159, {
             stream: _v0,
             onPlayable: _v5
           })
         }), (0, _v25.jsx)("div", {
-          children: _v1 && (0, _v25.jsx)(_v1160, {
+          children: _v1 && (0, _v25.jsx)(_v1159, {
             ref: _v16,
             stream: _v1,
             onPlayable: _v7
@@ -27187,7 +27211,7 @@
         }), (0, _v25.jsx)(_v239.Box, {
           display: "flex",
           flex: 1,
-          children: (0, _v25.jsx)(_v1159, {
+          children: (0, _v25.jsx)(_v1158, {
             ref: _v15,
             displayMedia: _v6,
             userMedia: _v18
@@ -27195,7 +27219,7 @@
         })]
       });
     },
-    _v1162 = ({
+    _v1161 = ({
       children: _v0,
       enabled: _v1
     }) => {
@@ -27235,7 +27259,7 @@
         })]
       });
     },
-    _v1163 = () => {
+    _v1162 = () => {
       let _v0 = (0, _v26.useContext)(_v232),
         _v1 = _v140("CanvasCapturePreview"),
         _v2 = (0, _v89.useUIStore)(_v0 => _v0.common.state),
@@ -27277,14 +27301,14 @@
           aspectRatio: _v3.width / _v3.height,
           "data-testid": "record-studio-preview",
           [_v10]: "100%",
-          children: (0, _v25.jsx)(_v1162, {
+          children: (0, _v25.jsx)(_v1161, {
             children: (0, _v25.jsxs)(_v478, {
               children: [_v6 && "pre-recording" === _v2 ? (0, _v25.jsx)(_v572, {
                 children: _v7 ? (0, _v25.jsx)(_v568, {
                   context: _v7
                 }) : (0, _v25.jsx)(_v567, {})
               }) : (0, _v25.jsxs)(_v618, {
-                children: [(0, _v25.jsx)(_v1161, {
+                children: [(0, _v25.jsx)(_v1160, {
                   displayStream: _v5.stream,
                   cameraStream: _v4.stream
                 }), (0, _v25.jsx)(_v571, {})]
@@ -27294,7 +27318,7 @@
         })]
       });
     },
-    _v1164 = () => {
+    _v1163 = () => {
       let _v0 = (() => {
         let {
           setShowGuides: _v0,
@@ -27341,15 +27365,15 @@
           height: "100%",
           position: "relative",
           marginX: "300",
-          children: (0, _v25.jsx)(_v1163, {})
+          children: (0, _v25.jsx)(_v1162, {})
         })
       });
     };
-  var _v1165 = _v0.i(0),
+  var _v1164 = _v0.i(0),
+    _v1165 = _v0.i(0),
     _v1166 = _v0.i(0),
-    _v1167 = _v0.i(0),
-    _v1168 = _v0.i(0);
-  let _v1169 = _v0 => (0, _v25.jsx)(_v276.Icon, {
+    _v1167 = _v0.i(0);
+  let _v1168 = _v0 => (0, _v25.jsx)(_v276.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -27364,9 +27388,9 @@
       })]
     })
   });
-  var _v1170 = _v0.i(0),
-    _v1171 = _v0.i(0);
-  let _v1172 = {
+  var _v1169 = _v0.i(0),
+    _v1170 = _v0.i(0);
+  let _v1171 = {
       content: "''",
       position: "absolute",
       boxSizing: "content-box",
@@ -27376,24 +27400,24 @@
       border: "2px solid var(--vimeo-colors-input-stroke-hover)",
       pointerEvents: "none"
     },
-    _v1173 = {
+    _v1172 = {
       backgroundColor: "var(--vimeo-colors-lightBlueAlpha-300) !important",
       "&:after": {
         border: "2px solid var(--vimeo-colors-surface)"
       },
       "&:before": {
-        ..._v1172,
+        ..._v1171,
         border: "2px solid var(--vimeo-colors-focus-alt)"
       }
     },
-    _v1174 = {
+    _v1173 = {
       backgroundColor: "var(--vimeo-colors-lightBlueAlpha-300) !important",
       "&:after": {
         border: "2px solid var(--vimeo-colors-surface)"
       },
-      "&:before": _v1172
+      "&:before": _v1171
     },
-    _v1175 = {
+    _v1174 = {
       "&:after": {
         content: "''",
         position: "absolute",
@@ -27408,7 +27432,7 @@
         borderColor: "none"
       }
     },
-    _v1176 = ({
+    _v1175 = ({
       type: _v0,
       isLoading: _v1,
       icon: _v2,
@@ -27448,14 +27472,14 @@
             borderRadius: "8px",
             onClick: () => _v6(_v0),
             "aria-label": _v0,
-            sx: _v1175,
-            _active: _v1173,
-            _hover: _v1174
+            sx: _v1174,
+            _active: _v1172,
+            _hover: _v1173
           }, _v0)
         })
       });
     },
-    _v1177 = ({
+    _v1176 = ({
       playbackStream: _v0,
       ref: _v1,
       playbackPlaceholderSrc: _v2,
@@ -27481,14 +27505,14 @@
         };
       }, [_v0, _v1, _v2, _v3, _v4]);
     },
-    _v1178 = {
+    _v1177 = {
       width: "100%",
       borderRadius: "8px"
     },
-    _v1179 = () => {
+    _v1178 = () => {
       let _v0 = _v87(_v0 => _v0.capture.isVideoMuted),
         _v1 = (0, _v26.useRef)(null);
-      return _v1177({
+      return _v1176({
         playbackStream: _v178(_v0 => _v0[_v149.CANVAS_CAMERA_PREVIEW]?.stream),
         ref: _v1,
         playbackPlaceholderSrc: _v79,
@@ -27498,15 +27522,15 @@
         autoPlay: !0,
         muted: !0,
         ref: _v1,
-        style: _v1178,
+        style: _v1177,
         src: _v79
       });
     },
-    _v1180 = () => (0, _v25.jsx)(_v454.Center, {
+    _v1179 = () => (0, _v25.jsx)(_v454.Center, {
       aspectRatio: "16/9",
       height: "auto",
       bg: "background",
-      style: _v1178,
+      style: _v1177,
       children: (0, _v25.jsxs)(_v29.VStack, {
         children: [(0, _v25.jsx)(_v40.CameraOff, {
           color: "text-secondary"
@@ -27544,9 +27568,9 @@
         })]
       })
     });
-  var _v1181 = _v0.i(0),
-    _v1182 = _v0.i(0);
-  let _v1183 = {
+  var _v1180 = _v0.i(0),
+    _v1181 = _v0.i(0);
+  let _v1182 = {
       label: (0, _v236.translate)({
         singular: "Upload",
         dictionary: {
@@ -27600,7 +27624,7 @@
         }
       })
     },
-    _v1184 = ({
+    _v1183 = ({
       isLoading: _v0,
       setCameraEffect: _v1,
       selectedCameraEffect: _v2
@@ -27634,13 +27658,13 @@
           });
         }, [_v8, _v1]);
       return (0, _v25.jsxs)(_v25.Fragment, {
-        children: [(0, _v25.jsx)(_v1176, {
+        children: [(0, _v25.jsx)(_v1175, {
           type: "upload",
           isLoading: _v0 || _v3,
           image: "upload" === _v2 ? _v5 : void 0,
-          icon: _v5 && "upload" === _v2 ? void 0 : (0, _v25.jsx)(_v1181.ImagePlus, {}),
-          hoverIcon: (0, _v25.jsx)(_v1182.SyncRefresh, {}),
-          label: _v5 ? _v1183.secondaryLabel : _v1183.label,
+          icon: _v5 && "upload" === _v2 ? void 0 : (0, _v25.jsx)(_v1180.ImagePlus, {}),
+          hoverIcon: (0, _v25.jsx)(_v1181.SyncRefresh, {}),
+          label: _v5 ? _v1182.secondaryLabel : _v1182.label,
           selected: _v2,
           onClick: _v0 => {
             _v7().then(({
@@ -27662,7 +27686,7 @@
         })]
       });
     },
-    _v1185 = {
+    _v1184 = {
       effects: {
         noEffect: (0, _v236.translate)({
           singular: "No effect",
@@ -27758,7 +27782,7 @@
         })
       }
     },
-    _v1186 = () => {
+    _v1185 = () => {
       let _v0 = _v140("EffectsContent"),
         {
           trackRecordingCameraBackgroundChanged: _v1
@@ -27785,7 +27809,7 @@
         children: [(0, _v25.jsxs)(_v28.Flex, {
           position: "relative",
           marginBottom: (0, _v30.rem)(8),
-          children: [_v7 ? (0, _v25.jsx)(_v1180, {}) : (0, _v25.jsx)(_v1179, {}), !_v7 && (0, _v25.jsx)(_v247.IconButton, {
+          children: [_v7 ? (0, _v25.jsx)(_v1179, {}) : (0, _v25.jsx)(_v1178, {}), !_v7 && (0, _v25.jsx)(_v247.IconButton, {
             variant: "blur",
             position: "absolute",
             bottom: "75",
@@ -27801,28 +27825,28 @@
           })]
         }), (0, _v25.jsxs)(_v351.HStack, {
           gap: "75",
-          children: [(0, _v25.jsx)(_v1176, {
+          children: [(0, _v25.jsx)(_v1175, {
             type: "none",
             isLoading: !1,
-            icon: (0, _v25.jsx)(_v1171.StopBanLeft, {}),
-            label: _v1185.effects.noEffect,
+            icon: (0, _v25.jsx)(_v1170.StopBanLeft, {}),
+            label: _v1184.effects.noEffect,
             selected: _v8,
             onClick: _v9
-          }), !_v147.isSafari && (0, _v25.jsx)(_v1176, {
+          }), !_v147.isSafari && (0, _v25.jsx)(_v1175, {
             type: "blur",
             isLoading: _v2,
-            icon: (0, _v25.jsx)(_v1170.Blur, {}),
-            label: _v1185.effects.blur,
+            icon: (0, _v25.jsx)(_v1169.Blur, {}),
+            label: _v1184.effects.blur,
             selected: _v8,
             onClick: _v9
-          }), (0, _v25.jsx)(_v1176, {
+          }), (0, _v25.jsx)(_v1175, {
             type: "transparent",
             isLoading: _v2,
-            icon: (0, _v25.jsx)(_v1169, {}),
-            label: _v1185.effects.transparent,
+            icon: (0, _v25.jsx)(_v1168, {}),
+            label: _v1184.effects.transparent,
             selected: _v8,
             onClick: _v9
-          }), (0, _v25.jsx)(_v1184, {
+          }), (0, _v25.jsx)(_v1183, {
             setCameraEffect: _v9,
             selectedCameraEffect: _v8,
             isLoading: _v2
@@ -27830,12 +27854,12 @@
         })]
       });
     },
-    _v1187 = "record-settings-quality-selector-toggle",
-    _v1188 = "record-settings-quality-selector-option";
-  var _v1189 = _v0.i(0);
-  let _v1190 = () => {
+    _v1186 = "record-settings-quality-selector-toggle",
+    _v1187 = "record-settings-quality-selector-option";
+  var _v1188 = _v0.i(0);
+  let _v1189 = () => {
     let _v0 = _v87(_v0 => _v0.update);
-    return (0, _v25.jsx)(_v1165.PanelHeader, {
+    return (0, _v25.jsx)(_v1164.PanelHeader, {
       paddingTop: (0, _v30.rem)(16),
       paddingBottom: (0, _v30.rem)(16),
       children: (0, _v25.jsxs)(_v28.Flex, {
@@ -27907,7 +27931,7 @@
             }),
             placement: "top",
             shouldWrapChildren: !0,
-            children: (0, _v25.jsx)(_v1189.CloseButton, {
+            children: (0, _v25.jsx)(_v1188.CloseButton, {
               size: "sm",
               variant: "tertiary",
               "aria-label": (0, _v236.translate)({
@@ -27948,8 +27972,8 @@
       })
     });
   };
-  var _v1191 = _v0.i(0);
-  let _v1192 = ({
+  var _v1190 = _v0.i(0);
+  let _v1191 = ({
       onClick: _v0,
       onClose: _v1
     }) => (0, _v25.jsxs)(_v239.Box, {
@@ -27958,7 +27982,7 @@
       backgroundColor: "upsell-secondary",
       borderRadius: "md",
       "data-testId": "record-ultra-quality-upsell-banner",
-      children: [(0, _v25.jsx)(_v1189.CloseButton, {
+      children: [(0, _v25.jsx)(_v1188.CloseButton, {
         position: "absolute",
         "aria-label": "hide-ultra-quality-upsell",
         size: "xs",
@@ -28026,7 +28050,7 @@
             }
           })
         })]
-      }), (0, _v25.jsx)(_v1191.UpgradeBadge, {
+      }), (0, _v25.jsx)(_v1190.UpgradeBadge, {
         "data-testId": "record-ultra-quality-upsell-banner-button",
         onClick: _v0,
         size: "sm",
@@ -28034,7 +28058,7 @@
         noMargin: !0
       })]
     }),
-    _v1193 = {
+    _v1192 = {
       "720p": (0, _v236.translate)({
         singular: "720p (HD)",
         dictionary: {
@@ -28086,7 +28110,7 @@
         }
       })
     },
-    _v1194 = {
+    _v1193 = {
       "720p": (0, _v236.translate)({
         singular: "Quick recordings to share on the go",
         dictionary: {
@@ -28192,7 +28216,7 @@
         }
       })
     },
-    _v1195 = (0, _v236.translate)({
+    _v1194 = (0, _v236.translate)({
       singular: "4K recordings",
       dictionary: {
         es: {
@@ -28218,13 +28242,13 @@
         }
       }
     }),
-    _v1196 = Object.keys(_v1193),
-    _v1197 = (0, _v399.default)(() => _v0.A(0), {
+    _v1195 = Object.keys(_v1192),
+    _v1196 = (0, _v399.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v1198 = () => {
+    _v1197 = () => {
       let [_v0, _v1] = (0, _v26.useState)(!1),
         [_v2, _v3] = (0, _v26.useState)(!1),
         [_v4, _v5] = (0, _v26.useState)(window.innerHeight - 140),
@@ -28238,9 +28262,9 @@
         }))),
         _v9 = _v156[_v7],
         _v10 = (0, _v26.useMemo)(() => _v9.map(_v0 => ({
-          label: _v1193[_v0.sizePreset],
+          label: _v1192[_v0.sizePreset],
           value: _v0.sizePreset
-        })).filter(_v0 => _v1196.includes(_v0.value)).reverse(), [_v9]),
+        })).filter(_v0 => _v1195.includes(_v0.value)).reverse(), [_v9]),
         {
           state: _v11,
           isEligibleForUltraQuality: _v12
@@ -28285,7 +28309,7 @@
         };
         return _v0(), window.addEventListener("resize", _v0), () => window.removeEventListener("resize", _v0);
       }, []), (0, _v25.jsxs)(_v25.Fragment, {
-        children: [_v0 && (0, _v25.jsx)(_v1197, {
+        children: [_v0 && (0, _v25.jsx)(_v1196, {
           "data-testId": "record-ultra-quality-upsell-modal",
           templateType: "default",
           apiUrl: _v6?.apiUrl,
@@ -28310,7 +28334,7 @@
             }
           },
           modalConfig: {
-            ..._v1168.includedInAllPlansModalConfig,
+            ..._v1167.includedInAllPlansModalConfig,
             headerText: (0, _v236.translate)({
               singular: "Upgrade for 4K recording",
               dictionary: {
@@ -28364,17 +28388,17 @@
               }
             }),
             planOverrides: {
-              [_v1168.PLANS.STARTER]: {
-                featuresList: [_v1195, ..._v1168.PLANS_DEFAULT_FEATURES[_v1168.PLANS.PLUS].slice(0, -1)]
+              [_v1167.PLANS.STARTER]: {
+                featuresList: [_v1194, ..._v1167.PLANS_DEFAULT_FEATURES[_v1167.PLANS.PLUS].slice(0, -1)]
               }
             }
           }
         }), (0, _v25.jsx)(_v239.Box, {
           marginRight: "4",
-          children: (0, _v25.jsxs)(_v1165.Panel, {
+          children: (0, _v25.jsxs)(_v1164.Panel, {
             width: (0, _v30.rem)(360),
             isVisible: _v14,
-            children: [(0, _v25.jsx)(_v1190, {}), (0, _v25.jsxs)(_v1165.PanelBody, {
+            children: [(0, _v25.jsx)(_v1189, {}), (0, _v25.jsxs)(_v1164.PanelBody, {
               paddingTop: 0,
               height: (0, _v30.rem)(_v4),
               children: [(0, _v25.jsxs)(_v239.Box, {
@@ -28408,7 +28432,7 @@
                       }
                     }
                   })
-                }), (0, _v25.jsx)(_v1166.Select, {
+                }), (0, _v25.jsx)(_v1165.Select, {
                   disabled: "pre-recording" !== _v11,
                   onValueChange: _v0 => {
                     var _v1;
@@ -28419,9 +28443,9 @@
                   value: [_v16],
                   items: _v10,
                   size: "sm",
-                  "data-testid": _v1187,
-                  children: _v0 => (0, _v25.jsx)(_v1166.SelectItem, {
-                    "data-testid": _v1188,
+                  "data-testid": _v1186,
+                  children: _v0 => (0, _v25.jsx)(_v1165.SelectItem, {
+                    "data-testid": _v1187,
                     display: "flex",
                     gap: (0, _v30.rem)(2),
                     justifyContent: "center",
@@ -28431,14 +28455,14 @@
                       w: "100%",
                       justifyContent: "space-between",
                       children: [(0, _v25.jsxs)(_v239.Box, {
-                        children: [(0, _v25.jsx)(_v1166.SelectItemText, {
+                        children: [(0, _v25.jsx)(_v1165.SelectItemText, {
                           children: _v0.label
                         }), (0, _v25.jsx)(_v234.Text, {
                           color: "text-secondary",
                           variant: "body-sm",
-                          children: _v1194[_v0.value]
+                          children: _v1193[_v0.value]
                         })]
-                      }), "4K" === _v0.value && !_v12 && (0, _v25.jsx)(_v1167.Badge, {
+                      }), "4K" === _v0.value && !_v12 && (0, _v25.jsx)(_v1166.Badge, {
                         variant: "upgrade",
                         size: "sm",
                         children: (0, _v236.translate)({
@@ -28470,7 +28494,7 @@
                 })]
               }), !_v12 && _v15 < 3 && !_v2 && (0, _v25.jsx)(_v239.Box, {
                 marginBottom: "6",
-                children: (0, _v25.jsx)(_v1192, {
+                children: (0, _v25.jsx)(_v1191, {
                   onClose: () => {
                     _v3(!0), _v13("stats", {
                       ultraQualityUpsellShownCount: _v15 + 1
@@ -28509,19 +28533,19 @@
                       }
                     }
                   })
-                }), (0, _v25.jsx)(_v1186, {})]
+                }), (0, _v25.jsx)(_v1185, {})]
               })]
             })]
           })
         })]
       });
     };
-  var _v1199 = _v0.i(0),
-    _v1200 = _v0.i(0);
-  let _v1201 = (0, _v26.createContext)({
+  var _v1198 = _v0.i(0),
+    _v1199 = _v0.i(0);
+  let _v1200 = (0, _v26.createContext)({
       pipWindow: void 0
     }),
-    _v1202 = {
+    _v1201 = {
       primary: {
         default: _v573.bokehTheme.colors.red[400],
         hover: _v573.bokehTheme.colors.red[500]
@@ -28535,7 +28559,7 @@
         hover: _v573.bokehTheme.colors.lightBlueAlpha[300]
       }
     },
-    _v1203 = ({
+    _v1202 = ({
       children: _v0,
       variant: _v1 = "primary",
       isDisabled: _v2 = !1,
@@ -28561,7 +28585,7 @@
           height: "32px",
           borderRadius: "8px",
           color: "white",
-          background: _v1202[_v1][_v5 ? "hover" : "default"],
+          background: _v1201[_v1][_v5 ? "hover" : "default"],
           opacity: _v2 ? .5 : 1,
           fontFamily: "inherit",
           cursor: _v2 ? "default" : "pointer",
@@ -28575,7 +28599,7 @@
         children: _v0
       });
     },
-    _v1204 = ({
+    _v1203 = ({
       type: _v0,
       isMinimizedMode: _v1
     }) => {
@@ -28607,13 +28631,13 @@
             flexDirection: "row",
             gap: "8px"
           },
-          children: [(0, _v25.jsx)(_v1203, {
+          children: [(0, _v25.jsx)(_v1202, {
             variant: "secondary",
             onClick: () => {
               _v2("requestDelete" === _v0 ? "cancelDelete" : "cancelRestart", "pip"), _v3(null);
             },
             children: _v4.reject
-          }), (0, _v25.jsx)(_v1203, {
+          }), (0, _v25.jsx)(_v1202, {
             onClick: () => {
               _v2("requestDelete" === _v0 ? "delete" : "restart", "pip"), _v3(null);
             },
@@ -28622,11 +28646,11 @@
         })]
       });
     },
-    _v1205 = () => {
+    _v1204 = () => {
       let _v0 = (0, _v89.useUIStore)(_v0 => _v0.controls.setControlsAction),
         _v1 = (0, _v89.useUIStore)(_v0 => !!_v0.controls.confirmDialogState),
         _v2 = (0, _v89.useUIStore)(_v0 => _v0.common.recordingStartedAt);
-      return (0, _v25.jsxs)(_v1203, {
+      return (0, _v25.jsxs)(_v1202, {
         isDisabled: _v1,
         style: {
           minWidth: "104px",
@@ -28638,10 +28662,10 @@
             width: "20px",
             height: "20px"
           }
-        }), _v2 ? (0, _v25.jsx)(_v1206, {}) : ""]
+        }), _v2 ? (0, _v25.jsx)(_v1205, {}) : ""]
       });
     };
-  function _v1206() {
+  function _v1205() {
     let _v0 = (0, _v89.useUIStore)(_v0 => _v0.common.recordingDuration),
       _v1 = _v303();
     return (0, _v25.jsx)("div", {
@@ -28649,7 +28673,7 @@
       children: _v406(0 === _v1 ? _v0 : _v1 / 0 - _v0)
     });
   }
-  let _v1207 = () => {
+  let _v1206 = () => {
       let {
         state: _v0,
         controlsDisabled: _v1,
@@ -28678,7 +28702,7 @@
             borderRadius: "8px",
             background: _v573.bokehTheme.colors.lightBlueAlpha[300]
           },
-          children: [(0, _v25.jsx)(_v1203, {
+          children: [(0, _v25.jsx)(_v1202, {
             variant: "icon",
             isDisabled: _v1,
             onClick: () => {
@@ -28690,7 +28714,7 @@
                 height: "20px"
               }
             })
-          }), (0, _v25.jsx)(_v1203, {
+          }), (0, _v25.jsx)(_v1202, {
             variant: "icon",
             isDisabled: _v1,
             onClick: () => {
@@ -28702,7 +28726,7 @@
                 height: "20px"
               }
             })
-          }), "recording" === _v0 ? (0, _v25.jsx)(_v1203, {
+          }), "recording" === _v0 ? (0, _v25.jsx)(_v1202, {
             variant: "icon",
             isDisabled: _v1,
             onClick: () => _v3("pause", "pip"),
@@ -28712,7 +28736,7 @@
                 height: "20px"
               }
             })
-          }) : (0, _v25.jsx)(_v1203, {
+          }) : (0, _v25.jsx)(_v1202, {
             variant: "icon",
             isDisabled: _v1,
             onClick: () => _v3("resume", "pip"),
@@ -28723,10 +28747,10 @@
               }
             })
           })]
-        }), (0, _v25.jsx)(_v1205, {})]
+        }), (0, _v25.jsx)(_v1204, {})]
       });
     },
-    _v1208 = {
+    _v1207 = {
       enlargePiP: (0, _v236.translate)({
         singular: "Expand this window to view picture-in-picture.",
         dictionary: {
@@ -28884,7 +28908,7 @@
         }
       })
     },
-    _v1209 = () => {
+    _v1208 = () => {
       let {
         state: _v0,
         isRecordingAvailable: _v1,
@@ -28894,27 +28918,27 @@
         isRecordingAvailable: _v0.common.recordingAvailability.available,
         setControlsAction: _v0.controls.setControlsAction
       })));
-      return (0, _v25.jsx)(_v1203, {
+      return (0, _v25.jsx)(_v1202, {
         isDisabled: !_v1,
         onClick: () => {
           _v1 && "pre-recording" === _v0 && _v2("record", "pip");
         },
-        children: _v1208.startRecording
+        children: _v1207.startRecording
       });
+    },
+    _v1209 = () => {
+      let _v0 = (0, _v89.useUIStore)(_v0 => _v0.common.state);
+      return _v150.includes(_v0) ? null : "pre-recording" === _v0 ? (0, _v25.jsx)(_v1208, {}) : (0, _v25.jsx)(_v1206, {});
     },
     _v1210 = () => {
-      let _v0 = (0, _v89.useUIStore)(_v0 => _v0.common.state);
-      return _v150.includes(_v0) ? null : "pre-recording" === _v0 ? (0, _v25.jsx)(_v1209, {}) : (0, _v25.jsx)(_v1207, {});
-    },
-    _v1211 = () => {
       let _v0 = (0, _v89.useUIStore)(_v0 => _v0.controls.setControlsAction);
-      return (0, _v25.jsx)(_v1203, {
+      return (0, _v25.jsx)(_v1202, {
         variant: "secondary",
         onClick: () => _v0("cancel", "pip"),
-        children: _v1208.countdownCancel
+        children: _v1207.countdownCancel
       });
     },
-    _v1212 = ({
+    _v1211 = ({
       secondsLeft: _v0,
       isMinimizedMode: _v1
     }) => _v1 ? (0, _v25.jsxs)("div", {
@@ -28926,7 +28950,7 @@
         alignItems: "center",
         justifyContent: "space-between"
       },
-      children: [_v1208.countdownSecondsLeft(_v0), (0, _v25.jsx)(_v1211, {})]
+      children: [_v1207.countdownSecondsLeft(_v0), (0, _v25.jsx)(_v1210, {})]
     }) : (0, _v25.jsxs)(_v25.Fragment, {
       children: [(0, _v25.jsx)("span", {
         style: {
@@ -28934,9 +28958,9 @@
           lineHeight: 1
         },
         children: _v0
-      }), (0, _v25.jsx)(_v1211, {})]
+      }), (0, _v25.jsx)(_v1210, {})]
     }),
-    _v1213 = (_v0, _v1) => {
+    _v1212 = (_v0, _v1) => {
       let [_v2, _v3] = (0, _v26.useState)(!1);
       return (0, _v26.useLayoutEffect)(() => {
         let _v0 = (_v1 ?? window).matchMedia(_v0);
@@ -28945,11 +28969,11 @@
         return _v0?.addEventListener("change", _v1), () => _v0?.removeEventListener("change", _v1);
       }, [_v0, _v1]), _v2;
     },
-    _v1214 = {
+    _v1213 = {
       width: 0,
       height: 0
     },
-    _v1215 = ({
+    _v1214 = ({
       isPreviewHidden: _v0
     }) => {
       let _v1 = _v178(_v0 => _v0[_v149.CANVAS_SCENE]?.stream),
@@ -28977,8 +29001,8 @@
           return [_v1, (0, _v26.useCallback)(_v0 => {
             _v3.current && _v3.current.removeEventListener("resize", _v4), _v0 && _v0.addEventListener("resize", _v4), _v3.current = _v0, _v4();
           }, [_v4]), _v3];
-        })(_v1214);
-      _v1177({
+        })(_v1213);
+      _v1176({
         playbackStream: _v1,
         ref: _v4,
         playbackPlaceholderSrc: _v79
@@ -29013,7 +29037,7 @@
         })
       });
     },
-    _v1216 = ({
+    _v1215 = ({
       size: _v0
     }) => (0, _v25.jsxs)(_v25.Fragment, {
       children: [(0, _v25.jsx)("style", {
@@ -29045,8 +29069,8 @@
         })]
       })]
     }),
-    _v1217 = _v573.bokehTheme.colors.blackAlpha[700],
-    _v1218 = ({
+    _v1216 = _v573.bokehTheme.colors.blackAlpha[700],
+    _v1217 = ({
       isMinimizedMode: _v0,
       appState: _v1
     }) => {
@@ -29060,7 +29084,7 @@
           width: "100%",
           height: "100%",
           borderRadius: "6px",
-          background: !_v0 && _v2 ? `linear-gradient(to right, ${_v1217}, ${_v1217}), center / cover url(${_v2})` : void 0,
+          background: !_v0 && _v2 ? `linear-gradient(to right, ${_v1216}, ${_v1216}), center / cover url(${_v2})` : void 0,
           display: "flex",
           flexDirection: _v0 ? "row-reverse" : "column",
           alignItems: "center",
@@ -29069,7 +29093,7 @@
           gap: "12px"
         },
         children: ["uploading", "finalizing"].includes(_v1) && (0, _v25.jsxs)(_v25.Fragment, {
-          children: [(0, _v25.jsx)(_v1216, {
+          children: [(0, _v25.jsx)(_v1215, {
             size: _v0 ? "sm" : "md"
           }), (0, _v25.jsx)("span", {
             children: _v575.savingToLibrary(_v3 ?? _v575.defaultLibraryName)
@@ -29077,7 +29101,7 @@
         })
       });
     },
-    _v1219 = (_v0 = window) => {
+    _v1218 = (_v0 = window) => {
       let _v1 = function () {
           let {
             state: _v0,
@@ -29114,10 +29138,10 @@
         _v3 = (0, _v26.useCallback)(() => (_v0?.addEventListener("keydown", _v2), () => _v0?.removeEventListener("keydown", _v2)), [_v2, _v0]);
       (0, _v26.useEffect)(() => _v3(), [_v3]);
     },
-    _v1220 = () => {
+    _v1219 = () => {
       let {
           pipWindow: _v0
-        } = (0, _v26.useContext)(_v1201),
+        } = (0, _v26.useContext)(_v1200),
         _v1 = _v216(_v0 => _v0.countdownSeconds),
         {
           confirmDialogState: _v2,
@@ -29131,14 +29155,14 @@
         }))),
         _v4 = (0, _v89.useUIStore)(_v0 => _v0.common.error),
         _v5 = _v178(_v0 => _v0.displayMedia?.mediaInfo?.displaySurface);
-      _v1219(_v0);
+      _v1218(_v0);
       let _v6 = _v150.includes(_v3),
         _v7 = "monitor" === _v5 || void 0 !== _v1 || !!_v2 || _v6,
         _v8 = 255,
         _v9 = _v7 ? 63 : 203,
-        _v10 = _v1213(`screen and (max-width: ${_v8}px)`, _v0),
-        _v11 = _v1213(`screen and (max-height: ${_v9}px)`, _v0),
-        _v12 = _v1213("screen and (max-height: 144px)", _v0);
+        _v10 = _v1212(`screen and (max-width: ${_v8}px)`, _v0),
+        _v11 = _v1212(`screen and (max-height: ${_v9}px)`, _v0),
+        _v12 = _v1212("screen and (max-height: 144px)", _v0);
       return (0, _v25.jsx)("div", {
         style: {
           position: "fixed",
@@ -29156,8 +29180,8 @@
           fontFamily: "ABCRepro-Medium, sans-serif",
           fontSize: "14px"
         },
-        children: _v10 || _v11 ? _v1208.enlargePiP : "blocker-error" === _v4.type && _v4.errorKey === _v172.FIREWALL_ERROR ? (0, _v25.jsxs)(_v25.Fragment, {
-          children: [(0, _v25.jsx)(_v1200.CircleExclamation, {
+        children: _v10 || _v11 ? _v1207.enlargePiP : "blocker-error" === _v4.type && _v4.errorKey === _v172.FIREWALL_ERROR ? (0, _v25.jsxs)(_v25.Fragment, {
+          children: [(0, _v25.jsx)(_v1199.CircleExclamation, {
             style: {
               width: "20px",
               height: "20px"
@@ -29166,31 +29190,31 @@
             style: {
               fontFamily: "ABCRepro-Regular"
             },
-            children: _v1208.recordingIsNotAvailable
-          }), (0, _v25.jsx)(_v1203, {
+            children: _v1207.recordingIsNotAvailable
+          }), (0, _v25.jsx)(_v1202, {
             variant: "secondary",
             onClick: () => _v0?.opener.focus(),
-            children: _v1208.backToRecordStudio
+            children: _v1207.backToRecordStudio
           })]
         }) : (0, _v25.jsxs)(_v25.Fragment, {
-          children: [(0, _v25.jsx)(_v1215, {
+          children: [(0, _v25.jsx)(_v1214, {
             isPreviewHidden: _v7
-          }), _v6 && (0, _v25.jsx)(_v1218, {
+          }), _v6 && (0, _v25.jsx)(_v1217, {
             isMinimizedMode: _v12,
             appState: _v3
-          }), void 0 !== _v1 ? (0, _v25.jsx)(_v1212, {
+          }), void 0 !== _v1 ? (0, _v25.jsx)(_v1211, {
             secondsLeft: _v1,
             isMinimizedMode: _v12
-          }) : _v2 ? (0, _v25.jsx)(_v1204, {
+          }) : _v2 ? (0, _v25.jsx)(_v1203, {
             type: _v2,
             isMinimizedMode: _v12
-          }) : (0, _v25.jsx)(_v1210, {})]
+          }) : (0, _v25.jsx)(_v1209, {})]
         })
       });
     };
-  var _v1221 = _v0.i(0),
-    _v1222 = _v0.i(0);
-  function _v1223() {
+  var _v1220 = _v0.i(0),
+    _v1221 = _v0.i(0);
+  function _v1222() {
     let {
         selectedAudioDeviceId: _v0,
         selectedVideoDeviceId: _v1
@@ -29208,11 +29232,11 @@
       }) => _v0 === _v1)
     };
   }
-  var _v1224 = _v0.i(0);
-  function _v1225(_v0, _v1, _v2, _v3) {
+  var _v1223 = _v0.i(0);
+  function _v1224(_v0, _v1, _v2, _v3) {
     return _v2 ? _v0 ? _v1 && _v1.includes(_v2) ? _v2 : _v444.DEFAULT_PRIVACY_VALUES.PRIVATE : (_v2 !== _v444.DEFAULT_PRIVACY_VALUES.UNLISTED || _v3) && Object.values(_v444.DEFAULT_PRIVACY_VALUES).includes(_v2) ? _v2 : _v444.DEFAULT_PRIVACY_VALUES.PRIVATE : _v444.DEFAULT_PRIVACY_VALUES.PRIVATE;
   }
-  function _v1226(_v0, _v1 = {}) {
+  function _v1225(_v0, _v1 = {}) {
     let _v2 = _v141("alignStreamWithRecordState"),
       {
         capture: _v3,
@@ -29242,7 +29266,7 @@
       forceUpdate: _v1[_v149.CAMERA]
     }));
   }
-  let _v1227 = _v26.useLayoutEffect;
+  let _v1226 = _v26.useLayoutEffect;
   _v0.s(["RecordStudio", 0, ({
     sessionId: _v0,
     onStateChange: _v1,
@@ -29258,14 +29282,14 @@
       setIntegrationConfiguration: _v16
     } = _v297();
     (0, _v26.useEffect)(() => {
-      let _v0 = _v87.subscribe(_v0 => _v0.capture, () => _v1226("captureConfig")),
-        _v1 = _v87.subscribe(_v0 => _v0.settings.camera.avatarAsPreview, () => _v1226("avatarToggle")),
-        _v2 = _v85.subscribe(_v0 => _v0.size, () => _v1226("canvasSize", {
+      let _v0 = _v87.subscribe(_v0 => _v0.capture, () => _v1225("captureConfig")),
+        _v1 = _v87.subscribe(_v0 => _v0.settings.camera.avatarAsPreview, () => _v1225("avatarToggle")),
+        _v2 = _v85.subscribe(_v0 => _v0.size, () => _v1225("canvasSize", {
           [_v149.CAMERA]: !0
         })),
         _v3 = _v89.useUIStore.subscribe(_v0 => _v0.common.state, (_v0, _v1) => {
           let _v2 = _v150.includes(_v0);
-          _v150.includes(_v1) !== _v2 && _v1226(_v2 ? "muteStream" : "openStream");
+          _v150.includes(_v1) !== _v2 && _v1225(_v2 ? "muteStream" : "openStream");
         });
       return () => {
         _v0(), _v1(), _v2(), _v3();
@@ -29314,7 +29338,7 @@
             _v6 = _v4 || _v5,
             {
               data: _v7
-            } = (0, _v1222.useGetUserPreferences)(() => _v6 && _v1 ? {
+            } = (0, _v1221.useGetUserPreferences)(() => _v6 && _v1 ? {
               where: {
                 userId: _v1
               },
@@ -29348,7 +29372,7 @@
         {
           data: _v13,
           error: _v14
-        } = (0, _v1224.useGetUser)(() => _v6 ? {
+        } = (0, _v1223.useGetUser)(() => _v6 ? {
           where: {
             userId: _v6
           },
@@ -29368,7 +29392,7 @@
           let _v0 = _v13?.preferences?.videos?.password || _v13?.preferences?.videos?.privacy?.password,
             _v1 = _v13?.preferences?.videos?.privacy?.view;
           _v2({
-            value: _v7 || _v5 ? _v1225(!!_v5, _v4, _v1) : _v1225(!1, void 0, _v1, _v9),
+            value: _v7 || _v5 ? _v1224(!!_v5, _v4, _v1) : _v1224(!1, void 0, _v1, _v9),
             password: _v0
           });
         }
@@ -29409,7 +29433,7 @@
         let {
             audio: _v0,
             video: _v1
-          } = _v1223(),
+          } = _v1222(),
           {
             defaultVideoDevice: _v2,
             defaultAudioDevice: _v3
@@ -29419,7 +29443,7 @@
             defaultVideoDevice: _v4,
             defaultAudioDevice: _v5
           } = _v169.getState().data,
-          _v6 = _v1223(),
+          _v6 = _v1222(),
           _v7 = [];
         _v0 && _v0.deviceId !== _v6.audio?.deviceId && _v7.push(_v0), _v1 && _v1.deviceId !== _v6.video?.deviceId && _v7.push(_v1), _v7.length > 0 && _v7.info("Devices previously used were removed", {
           devices: _v7
@@ -29590,7 +29614,7 @@
           {
             data: _v3,
             isLoading: _v4
-          } = (0, _v1222.useGetUserPreferences)(() => _v1 ? {
+          } = (0, _v1221.useGetUserPreferences)(() => _v1 ? {
             where: {
               userId: _v1
             },
@@ -29675,7 +29699,7 @@
                 _v3 = (0, _v26.useRef)(void 0);
               (0, _v26.useEffect)(() => {
                 if (!_v0) return;
-                let _v0 = (0, _v1221.default)(() => {
+                let _v0 = (0, _v1220.default)(() => {
                   _v2.current && _v3.current && (_v2.current !== _v0.innerWidth || _v3.current !== _v0.innerHeight) && _v1(), _v2.current = _v0.innerWidth, _v3.current = _v0.innerHeight;
                 }, 300);
                 return _v0.addEventListener("resize", _v0), () => {
@@ -29718,15 +29742,15 @@
                       _v1.rel = "stylesheet", _v1.type = _v0.type, _v1.href = _v0.href, _v0.document.head.appendChild(_v1);
                     }
                   });
-                  let _v2 = (0, _v1199.createRoot)(_v1);
+                  let _v2 = (0, _v1198.createRoot)(_v1);
                   (0, _v472.flushSync)(() => {
                     _v2.render((0, _v25.jsx)(_v35.ViewerContext.Provider, {
                       value: _v8,
-                      children: (0, _v25.jsx)(_v1201.Provider, {
+                      children: (0, _v25.jsx)(_v1200.Provider, {
                         value: {
                           pipWindow: _v0
                         },
-                        children: (0, _v25.jsx)(_v1220, {})
+                        children: (0, _v25.jsx)(_v1219, {})
                       })
                     }));
                   }), _v0.addEventListener("pagehide", () => {
@@ -29775,7 +29799,7 @@
           }
         }, [_v2, _v3, _v5, _v10, _v9, _v4, _v0]));
       })();
-    _v1219();
+    _v1218();
     let _v33 = (0, _v26.useCallback)(() => {
       _v127("record_studio_script_generation_started");
     }, []);
@@ -29842,7 +29866,7 @@
       userLocale: _v3 = null,
       isLiveUploadEnabled: _v4 = !1
     }, _v5) {
-      _v1227(() => {
+      _v1226(() => {
         var _v0 = {
           APP_TYPE: _v0,
           SESSION_ID: _v1,
@@ -29918,9 +29942,9 @@
                     children: [(0, _v25.jsx)(_v350, {}), _v18 ? (0, _v25.jsx)(_v430, {}) : null, _v36 && (0, _v25.jsx)(_v425, {
                       visibleNotices: _v36
                     })]
-                  }), (0, _v25.jsx)(_v1164, {}), (0, _v25.jsx)(_v314, {})]
+                  }), (0, _v25.jsx)(_v1163, {}), (0, _v25.jsx)(_v314, {})]
                 })
-              }), (0, _v25.jsx)(_v1198, {}), (0, _v25.jsx)(_v32.Teleprompter, {
+              }), (0, _v25.jsx)(_v1197, {}), (0, _v25.jsx)(_v32.Teleprompter, {
                 session: _v0,
                 visibleNotices: _v37,
                 audioTrack: _v27,

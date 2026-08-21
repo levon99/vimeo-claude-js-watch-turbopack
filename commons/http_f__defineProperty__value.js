@@ -57,7 +57,8 @@
       },
       prefetch(_v0) {
         _v0.prefetch(_v0);
-      }
+      },
+      bfcacheId: "0"
     };
   }
   function _v13(_v0) {

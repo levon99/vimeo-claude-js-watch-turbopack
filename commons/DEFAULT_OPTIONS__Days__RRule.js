@@ -126,7 +126,7 @@
     _v35 = function (_v0, _v1) {
       void 0 === _v1 && (_v1 = !0);
       var _v2 = new Date(_v0);
-      return "" + _v11(_v2.getUTCFullYear().toString(), 4, "0") + _v11(_v2.getUTCMonth() + 1, 2, "0") + _v11(_v2.getUTCDate(), 2, "0") + "T" + _v11(_v2.getUTCHours(), 2, "0") + _v11(_v2.getUTCMinutes(), 2, "0") + _v11(_v2.getUTCSeconds(), 2, "0") + (_v1 ? "Z" : "");
+      return [_v11(_v2.getUTCFullYear().toString(), 4, "0"), _v11(_v2.getUTCMonth() + 1, 2, "0"), _v11(_v2.getUTCDate(), 2, "0"), "T", _v11(_v2.getUTCHours(), 2, "0"), _v11(_v2.getUTCMinutes(), 2, "0"), _v11(_v2.getUTCSeconds(), 2, "0"), _v1 ? "Z" : ""].join("");
     },
     _v36 = function (_v0) {
       var _v1 = /^(\d{4})(\d{2})(\d{2})(T(\d{2})(\d{2})(\d{2})Z?)?$/.exec(_v0);

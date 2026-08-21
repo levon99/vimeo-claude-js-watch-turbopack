@@ -401,6 +401,58 @@
       }
     }),
     _v25 = () => (0, _v9.translate)({
+      singular: "Don’t contact me about this report.",
+      dictionary: {
+        es: {
+          singular: "No me contacten acerca de este informe."
+        },
+        "de-DE": {
+          singular: "Bitte kontaktieren Sie mich nicht wegen dieses Berichts."
+        },
+        "fr-FR": {
+          singular: "Ne me contactez pas au sujet de ce signalement."
+        },
+        "ja-JP": {
+          singular: "このレポートに関する連絡は不要です。"
+        },
+        "ko-KR": {
+          singular: "이 보고서에 관해 저에게 연락하지 마십시오."
+        },
+        "pt-BR": {
+          singular: "Não entre em contato comigo sobre este relatório."
+        },
+        "zh-CN": {
+          singular: "请不要就此报告联系我。"
+        }
+      }
+    }),
+    _v26 = () => (0, _v9.translate)({
+      singular: "We won’t send you any communications regarding this report. You will still see a temporary confirmation message on screen when you submit.",
+      dictionary: {
+        es: {
+          singular: "No le enviaremos ninguna comunicación acerca de este informe. Aún así verá un mensaje de confirmación temporal en pantalla cuando lo envíe."
+        },
+        "de-DE": {
+          singular: "Wir werden Ihnen keine Mitteilungen zu diesem Bericht senden. Auf dem Bildschirm wird Ihnen beim Absenden jedoch weiterhin eine vorübergehende Bestätigungsnachricht angezeigt."
+        },
+        "fr-FR": {
+          singular: "Nous ne vous enverrons aucune communication concernant ce signalement. Vous verrez toutefois un message de confirmation temporaire à l’écran lorsque vous soumettrez."
+        },
+        "ja-JP": {
+          singular: "このレポートに関するご連絡はお送りしません。送信すると、画面上に一時的な確認メッセージが表示されます。"
+        },
+        "ko-KR": {
+          singular: "이 보고서에 관해 어떠한 연락도 보내드리지 않습니다. 제출하시면 화면에 일시적인 확인 메시지가 표시됩니다."
+        },
+        "pt-BR": {
+          singular: "Não enviaremos nenhuma comunicação sobre este relatório. Você ainda verá uma mensagem temporária de confirmação na tela quando você enviar."
+        },
+        "zh-CN": {
+          singular: "我们不会就此报告向您发送任何通讯。提交后，屏幕上仍会短暂显示一条确认消息。"
+        }
+      }
+    }),
+    _v27 = () => (0, _v9.translate)({
       singular: "Thank you for your report",
       dictionary: {
         es: {
@@ -426,7 +478,7 @@
         }
       }
     }),
-    _v26 = () => (0, _v9.translate)({
+    _v28 = () => (0, _v9.translate)({
       singular: "We’ve received your report. We typically review and resolve these reports within 72 business hours; complex reports may take longer and urgent safety issues may be prioritized.",
       dictionary: {
         es: {
@@ -477,8 +529,35 @@
         singular: "返回"
       }
     }
-  }), "confirmationBody", 0, _v26, "confirmationTitle", 0, _v25, "contentRatingsHelpLabel", 0, _v15, "continueLabel", 0, _v17, "doneLabel", 0, _v23, "externalFormNote", 0, _v20, "genderForkNoDesc", 0, _v14, "genderForkNoLabel", 0, _v13, "genderForkPrompt", 0, _v10, "genderForkYesDesc", 0, _v12, "genderForkYesLabel", 0, _v11, "helpLabel", 0, _v16, "loadErrorMessage", 0, _v24, "openFormLabel", 0, _v19, "submitReportLabel", 0, _v18, "subtitleNested", 0, _v22, "subtitleTopLevel", 0, _v21], 0);
-  let _v27 = ({
+  }), "commsOptOutDescription", 0, _v26, "commsOptOutLabel", 0, _v25, "confirmationBody", 0, _v28, "confirmationTitle", 0, _v27, "contentRatingsHelpLabel", 0, _v15, "continueLabel", 0, _v17, "doneLabel", 0, _v23, "externalFormNote", 0, _v20, "genderForkNoDesc", 0, _v14, "genderForkNoLabel", 0, _v13, "genderForkPrompt", 0, _v10, "genderForkYesDesc", 0, _v12, "genderForkYesLabel", 0, _v11, "helpLabel", 0, _v16, "loadErrorMessage", 0, _v24, "openFormLabel", 0, _v19, "submitReportLabel", 0, _v18, "subtitleNested", 0, _v22, "subtitleTopLevel", 0, _v21], 0);
+  let _v29 = ({
+    isChecked: _v0,
+    onChange: _v1
+  }) => (0, _v1.jsxs)(_v6.Box, {
+    children: [(0, _v1.jsx)(_v8.Divider, {
+      mb: "300",
+      borderColor: "stroke"
+    }), (0, _v1.jsx)(_v7.Checkbox, {
+      alignItems: "flex-start",
+      px: "200",
+      isChecked: _v0,
+      onChange: _v0 => _v1(_v0.target.checked),
+      children: (0, _v1.jsxs)(_v6.Box, {
+        children: [(0, _v1.jsx)(_v5.Text, {
+          variant: "body-md",
+          fontWeight: "medium",
+          children: _v25()
+        }), (0, _v1.jsx)(_v5.Text, {
+          variant: "body-sm",
+          color: "text-secondary",
+          children: _v26()
+        })]
+      })
+    })]
+  });
+  var _v30 = _v0.i(0),
+    _v31 = _v0.i(0);
+  let _v32 = ({
     onDone: _v0
   }) => (0, _v1.jsxs)(_v2.Flex, {
     direction: "column",
@@ -488,28 +567,28 @@
     children: [(0, _v1.jsx)(_v6.Box, {
       mb: "200",
       fontSize: "2rem",
-      children: (0, _v1.jsx)(_v8.CircleCheckFilled, {})
+      children: (0, _v1.jsx)(_v31.CircleCheckFilled, {})
     }), (0, _v1.jsx)(_v5.Text, {
       variant: "body-xl",
       fontWeight: "medium",
       mb: "100",
-      children: _v25()
+      children: _v27()
     }), (0, _v1.jsx)(_v5.Text, {
       variant: "body-md",
       color: "text-secondary",
       mb: "300",
-      children: _v26()
-    }), (0, _v1.jsx)(_v7.Button, {
+      children: _v28()
+    }), (0, _v1.jsx)(_v30.Button, {
       variant: "primary",
       size: "md",
       onClick: _v0,
       children: _v23()
     })]
   });
-  var _v28 = _v0.i(0),
-    _v29 = _v0.i(0),
-    _v30 = _v0.i(0);
-  let _v31 = _v0 => (0, _v1.jsx)(_v30.Icon, {
+  var _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0);
+  let _v36 = _v0 => (0, _v1.jsx)(_v35.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -518,19 +597,19 @@
       fill: "currentColor"
     })
   });
-  var _v32 = _v0.i(0);
-  let _v33 = {
+  var _v37 = _v0.i(0);
+  let _v38 = {
       svg: {
         width: "16px",
         height: "16px"
       }
     },
-    _v34 = ({
+    _v39 = ({
       options: _v0,
       selectedId: _v1,
       onSelect: _v2,
       firstOptionRef: _v3
-    }) => (0, _v1.jsx)(_v29.RadioGroup, {
+    }) => (0, _v1.jsx)(_v34.RadioGroup, {
       value: _v1 ?? "",
       onChange: _v0 => {
         let _v1 = _v0.find(_v0 => _v0.id === _v0);
@@ -541,7 +620,7 @@
         children: _v0.map((_v0, _v1) => {
           let _v2 = _v0.id === _v1,
             _v3 = "menu" === _v0.kind;
-          return (0, _v1.jsxs)(_v28.Radio, {
+          return (0, _v1.jsxs)(_v33.Radio, {
             ref: 0 === _v1 ? _v3 : void 0,
             value: _v0.id,
             alignItems: "flex-start",
@@ -550,7 +629,7 @@
             py: "200",
             borderRadius: "md",
             position: "relative",
-            sx: _v33,
+            sx: _v38,
             children: [(0, _v1.jsxs)(_v6.Box, {
               pr: _v3 ? "600" : void 0,
               children: [(0, _v1.jsx)(_v5.Text, {
@@ -566,7 +645,7 @@
                 gap: "100",
                 mt: "200",
                 color: "yellow.600",
-                children: [(0, _v1.jsx)(_v31, {}), (0, _v1.jsx)(_v5.Text, {
+                children: [(0, _v1.jsx)(_v36, {}), (0, _v1.jsx)(_v5.Text, {
                   variant: "body-sm",
                   children: _v20()
                 })]
@@ -578,7 +657,7 @@
               transform: "translateY(-50%)",
               display: "flex",
               color: "text-tertiary",
-              children: (0, _v1.jsx)(_v32.ChevronRight, {})
+              children: (0, _v1.jsx)(_v37.ChevronRight, {})
             }) : null]
           }, _v0.id);
         })
@@ -594,7 +673,7 @@
     onSelectNode: _v6,
     onDone: _v7,
     firstOptionRef: _v8,
-    action: _v9
+    commsOptOut: _v9
   }) => _v0 && !_v1 ? (0, _v1.jsx)(_v2.Flex, {
     justify: "center",
     py: "400",
@@ -603,34 +682,36 @@
     variant: "body-md",
     color: "text-secondary",
     children: _v24()
-  }) : "confirmation" === _v3 ? (0, _v1.jsx)(_v27, {
+  }) : "confirmation" === _v3 ? (0, _v1.jsx)(_v32, {
     onDone: _v7
   }) : (0, _v1.jsxs)(_v4.Stack, {
     spacing: 200,
-    children: [(0, _v1.jsx)(_v34, {
+    children: [(0, _v1.jsx)(_v39, {
       options: _v4,
       selectedId: _v5?.id ?? null,
       onSelect: _v6,
       firstOptionRef: _v8
-    }), _v9]
+    }), _v9 ? (0, _v1.jsx)(_v29, {
+      ..._v9
+    }) : null]
   })], 0);
-  var _v35 = _v0.i(0),
-    _v36 = _v0.i(0),
-    _v37 = _v0.i(0);
-  let _v38 = ({
+  var _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0);
+  let _v43 = ({
     help: _v0
   }) => null == _v0.url ? (0, _v1.jsxs)(_v2.Flex, {
     align: "center",
     gap: "1",
     color: "text-secondary",
-    children: [(0, _v1.jsx)(_v37.QuestionCircle, {
+    children: [(0, _v1.jsx)(_v42.QuestionCircle, {
       "aria-hidden": "true",
-      boxSize: (0, _v36.rem)(14)
+      boxSize: (0, _v41.rem)(14)
     }), (0, _v1.jsx)(_v5.Text, {
       variant: "body-md",
       children: _v0.text
     })]
-  }) : (0, _v1.jsxs)(_v35.Link, {
+  }) : (0, _v1.jsxs)(_v40.Link, {
     href: _v0.url,
     isExternal: !0,
     variant: "inline-primary",
@@ -638,9 +719,9 @@
     display: "inline-flex",
     alignItems: "center",
     gap: "1",
-    children: [(0, _v1.jsx)(_v37.QuestionCircle, {
+    children: [(0, _v1.jsx)(_v42.QuestionCircle, {
       "aria-hidden": "true",
-      boxSize: (0, _v36.rem)(14)
+      boxSize: (0, _v41.rem)(14)
     }), _v0.text]
   });
   _v0.s(["ReportFooter", 0, ({
@@ -650,7 +731,7 @@
     help: _v3,
     action: _v4
   }) => {
-    let _v5 = (0, _v1.jsx)(_v7.Button, {
+    let _v5 = (0, _v1.jsx)(_v30.Button, {
       variant: "primary",
       size: "md",
       width: _v4 ? void 0 : "100%",
@@ -663,7 +744,7 @@
       align: "center",
       width: "100%",
       gap: "100",
-      children: [_v3 && (0, _v1.jsx)(_v38, {
+      children: [_v3 && (0, _v1.jsx)(_v43, {
         help: _v3
       }), (0, _v1.jsxs)(_v2.Flex, {
         align: "center",
@@ -679,11 +760,11 @@
       })]
     });
   }], 0);
-  var _v39 = _v0.i(0),
-    _v40 = _v0.i(0);
-  _v0.s(["ReportHelpLink", 0, _v0 => (0, _v1.jsx)(_v40.Tooltip, {
+  var _v44 = _v0.i(0),
+    _v45 = _v0.i(0);
+  _v0.s(["ReportHelpLink", 0, _v0 => (0, _v1.jsx)(_v45.Tooltip, {
     label: _v16(),
-    children: (0, _v1.jsx)(_v39.IconButton, {
+    children: (0, _v1.jsx)(_v44.IconButton, {
       as: "a",
       href: "/help/violations",
       target: "_blank",
@@ -691,13 +772,13 @@
       "aria-label": _v16(),
       variant: "tertiary",
       size: "sm",
-      icon: (0, _v1.jsx)(_v37.QuestionCircle, {}),
+      icon: (0, _v1.jsx)(_v42.QuestionCircle, {}),
       ..._v0
     })
   })], 0);
-  var _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0);
+  var _v46 = _v0.i(0),
+    _v47 = _v0.i(0),
+    _v48 = _v0.i(0);
   _v0.s(["useReport", 0, function ({
     onClose: _v0,
     discovery: _v1,
@@ -705,19 +786,21 @@
     confirmationMode: _v3,
     onSubmitted: _v4,
     submitFailureMessage: _v5,
-    resolveExternalUrl: _v6
+    resolveExternalUrl: _v6,
+    offerCommsOptOut: _v7 = !1
   }) {
-    let _v7,
-      [_v8, _v9] = (0, _v41.useState)(null),
-      [_v10, _v11] = (0, _v41.useState)("navigate"),
+    let _v8,
+      [_v9, _v10] = (0, _v46.useState)(null),
+      [_v11, _v12] = (0, _v46.useState)("navigate"),
+      [_v13, _v14] = (0, _v46.useState)(!1),
       {
-        root: _v12,
-        error: _v13,
-        isLoading: _v14
+        root: _v15,
+        error: _v16,
+        isLoading: _v17
       } = _v1,
-      _v15 = function (_v0) {
-        let [_v1, _v2] = (0, _v41.useState)([]),
-          _v3 = (0, _v41.useMemo)(() => {
+      _v18 = function (_v0) {
+        let [_v1, _v2] = (0, _v46.useState)([]),
+          _v3 = (0, _v46.useMemo)(() => {
             let _v0 = _v0;
             for (let _v0 of _v1) {
               let _v0 = _v0.children.find(_v0 => _v0.id === _v0);
@@ -726,9 +809,9 @@
             }
             return _v0;
           }, [_v0, _v1]),
-          _v4 = (0, _v41.useCallback)(_v0 => _v2(_v0 => [..._v0, _v0]), []),
-          _v5 = (0, _v41.useCallback)(() => _v2(_v0 => _v0.slice(0, -1)), []),
-          _v6 = (0, _v41.useCallback)(() => _v2([]), []);
+          _v4 = (0, _v46.useCallback)(_v0 => _v2(_v0 => [..._v0, _v0]), []),
+          _v5 = (0, _v46.useCallback)(() => _v2(_v0 => _v0.slice(0, -1)), []),
+          _v6 = (0, _v46.useCallback)(() => _v2([]), []);
         return {
           current: _v3,
           depth: _v1.length,
@@ -736,106 +819,113 @@
           back: _v5,
           reset: _v6
         };
-      }(_v12),
+      }(_v15),
       {
-        status: _v16,
-        postReport: _v17
+        status: _v19,
+        postReport: _v20
       } = _v2,
-      _v18 = (0, _v42.useToast)(),
-      _v19 = "posting" === _v16.state,
-      _v20 = (0, _v41.useEffectEvent)(_v0 => {
-        "failed" === _v0 ? _v18({
+      _v21 = (0, _v47.useToast)(),
+      _v22 = "posting" === _v19.state,
+      _v23 = (0, _v46.useEffectEvent)(_v0 => {
+        "failed" === _v0 ? _v21({
           title: _v5,
           status: "error",
-          icon: (0, _v1.jsx)(_v43.CircleExclamationFilled, {})
-        }) : ("inline" === _v3 && _v11("confirmation"), _v4?.());
+          icon: (0, _v1.jsx)(_v48.CircleExclamationFilled, {})
+        }) : ("inline" === _v3 && _v12("confirmation"), _v4?.());
       });
-    (0, _v41.useEffect)(() => {
-      ("succeeded" === _v16.state || "failed" === _v16.state) && _v20(_v16.state);
-    }, [_v16.state]);
-    let _v21 = (0, _v41.useCallback)(() => {
-        _v15.reset(), _v9(null), _v11("navigate");
-      }, [_v15]),
-      _v22 = (0, _v41.useCallback)(() => {
-        _v21(), _v0();
-      }, [_v21, _v0]),
-      _v23 = "navigate" === _v10 && _v15.depth > 0,
-      _v24 = _v15.current.name,
-      _v25 = _v15.current.question,
-      _v26 = _v15.current.children.length > 0 && _v15.current.children.every(_v0 => "submit" === _v0.kind) ? _v18() : _v17(),
-      _v27 = !0;
-    _v8 && (_v27 = !1, _v26 = "submit" === _v8.kind ? _v18() : "external" === _v8.kind ? _v19() : _v17()), _v27 = _v27 || _v19, _v7 = _v8?.kind === "submit" ? 100 : Math.min(15 + (_v15.depth + +!!_v8) * 30, 85);
-    let _v28 = "confirmation" !== _v10 && !_v13 && !(_v14 && 0 === _v15.current.children.length);
+    (0, _v46.useEffect)(() => {
+      ("succeeded" === _v19.state || "failed" === _v19.state) && _v23(_v19.state);
+    }, [_v19.state]);
+    let _v24 = (0, _v46.useCallback)(() => {
+        _v18.reset(), _v10(null), _v12("navigate"), _v14(!1);
+      }, [_v18]),
+      _v25 = (0, _v46.useCallback)(() => {
+        _v24(), _v0();
+      }, [_v24, _v0]),
+      _v26 = "navigate" === _v11 && _v18.depth > 0,
+      _v27 = _v18.current.name,
+      _v28 = _v18.current.question,
+      _v29 = _v18.current.children.length > 0 && _v18.current.children.every(_v0 => "submit" === _v0.kind) ? _v18() : _v17(),
+      _v30 = !0;
+    _v9 && (_v30 = !1, _v29 = "submit" === _v9.kind ? _v18() : "external" === _v9.kind ? _v19() : _v17()), _v30 = _v30 || _v22, _v8 = _v9?.kind === "submit" ? 100 : Math.min(15 + (_v18.depth + +!!_v9) * 30, 85);
+    let _v31 = "confirmation" !== _v11 && !_v16 && !(_v17 && 0 === _v18.current.children.length),
+      _v32 = _v7 && _v9?.kind === "submit" ? {
+        isChecked: _v13,
+        onChange: _v14
+      } : null;
     return {
-      step: _v10,
-      isLoading: _v14,
-      hasData: _v12.children.length > 0,
-      error: _v13,
-      isPosting: _v19,
-      currentOptions: _v15.current.children,
-      selected: _v8,
-      onSelectNode: _v0 => _v9(_v0),
-      title: _v24,
-      subtitle: _v25,
-      help: _v15.current.help,
-      progress: _v7,
-      canGoBack: _v23,
-      showFooter: _v28,
-      submitLabel: _v26,
-      submitDisabled: _v27,
+      step: _v11,
+      isLoading: _v17,
+      hasData: _v15.children.length > 0,
+      error: _v16,
+      isPosting: _v22,
+      currentOptions: _v18.current.children,
+      selected: _v9,
+      onSelectNode: _v0 => _v10(_v0),
+      commsOptOut: _v32,
+      title: _v27,
+      subtitle: _v28,
+      help: _v18.current.help,
+      progress: _v8,
+      canGoBack: _v26,
+      showFooter: _v31,
+      submitLabel: _v29,
+      submitDisabled: _v30,
       onSubmit: () => {
-        if (_v8) switch (_v8.kind) {
+        if (_v9) switch (_v9.kind) {
           case "menu":
-            _v15.enter(_v8.id), _v9(null);
+            _v18.enter(_v9.id), _v10(null);
             return;
           case "external":
-            window.open(_v6?.(_v8.url) ?? _v8.url, "_blank", "noopener,noreferrer"), _v22();
+            window.open(_v6?.(_v9.url) ?? _v9.url, "_blank", "noopener,noreferrer"), _v25();
             return;
           case "submit":
-            _v17(_v8.reasonUuid);
+            _v20(_v9.reasonUuid, {
+              optOutOfCommunications: _v13
+            });
             return;
         }
       },
       onBack: () => {
-        _v9(null), _v15.back();
+        _v10(null), _v18.back();
       },
-      handleClose: _v22
+      handleClose: _v25
     };
   }], 0);
-  var _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0);
-  async function _v47({
+  var _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0);
+  async function _v52({
     baseUrl: _v0,
     select: _v1,
     query: _v2,
     ..._v3
   }) {
-    return (0, _v45.measureLatency)("getReportReasons", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/report/reasons?${(0, _v46.searchQueryString)(_v2)}&fields=${_v1.map(_v46.intoSnakeCase).join(",")}`, {
+    return (0, _v50.measureLatency)("getReportReasons", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/report/reasons?${(0, _v51.searchQueryString)(_v2)}&fields=${_v1.map(_v51.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v46.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v51.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v46.deepCamelCase)(_v1);
+      return (0, _v51.deepCamelCase)(_v1);
     });
   }
-  var _v48 = _v0.i(0),
-    _v49 = _v0.i(0),
-    _v50 = _v0.i(0),
-    _v51 = _v0.i(0);
-  function _v52(_v0, _v1) {
+  var _v53 = _v0.i(0),
+    _v54 = _v0.i(0),
+    _v55 = _v0.i(0),
+    _v56 = _v0.i(0);
+  function _v57(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v51.useGctlConfig)();
-    return (0, _v48.default)(_v2 ? `/report/reasons${(0, _v50.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v47({
+      } = (0, _v56.useGctlConfig)();
+    return (0, _v53.default)(_v2 ? `/report/reasons${(0, _v55.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v52({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -847,26 +937,26 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v44.default.env.STORYBOOK && (0, _v50.assignMswData)(_v52, {
+  "true" === _v49.default.env.STORYBOOK && (0, _v55.assignMswData)(_v57, {
     endpoint: "/report/reasons",
     method: "GET"
-  }), "true" === _v44.default.env.STORYBOOK && (0, _v50.assignMswData)(function () {
+  }), "true" === _v49.default.env.STORYBOOK && (0, _v55.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v49.useSWRConfig)(),
+      } = (0, _v54.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v51.useGctlConfig)(),
-      [_v5, _v6] = (0, _v50.useInternalState)();
-    return [(0, _v41.useCallback)(async _v0 => {
+      } = (0, _v56.useGctlConfig)(),
+      [_v5, _v6] = (0, _v55.useInternalState)();
+    return [(0, _v46.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/report/reasons${(0, _v50.serializeQuery)(_v0)}`, _v47({
+        let _v0 = await _v0(`/report/reasons${(0, _v55.serializeQuery)(_v0)}`, _v52({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -892,13 +982,13 @@
     endpoint: "/report/reasons",
     method: "GET"
   });
-  let _v53 = {
+  let _v58 = {
       "incorrect-rating": () => ({
         text: _v15(),
         url: "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12426157083537-About-content-ratings"
       })
     },
-    _v54 = ["reasons.id", "reasons.parentId", "reasons.kind", "reasons.name", "reasons.description", "reasons.externalUrl", "reasons.gendered.name", "reasons.gendered.description", "reasons.gendered.uuid"];
+    _v59 = ["reasons.id", "reasons.parentId", "reasons.kind", "reasons.name", "reasons.description", "reasons.externalUrl", "reasons.gendered.name", "reasons.gendered.description", "reasons.gendered.uuid"];
   _v0.s(["useReportReasonsDiscovery", 0, function ({
     contentType: _v0,
     headerTitle: _v1
@@ -907,15 +997,15 @@
         data: _v2,
         error: _v3,
         isLoading: _v4
-      } = _v52(() => ({
-        select: _v54,
+      } = _v57(() => ({
+        select: _v59,
         query: {
           contentType: _v0
         }
       })),
       _v5 = _v2?.reasons;
     return {
-      root: (0, _v41.useMemo)(() => function (_v0, _v1) {
+      root: (0, _v46.useMemo)(() => function (_v0, _v1) {
         let _v2 = new Map();
         for (let _v0 of _v0) _v2.set(_v0.id, function (_v0) {
           let _v1 = {
@@ -927,7 +1017,7 @@
             ..._v1,
             kind: "menu",
             question: _v22(),
-            help: _v53[_v0.id]?.(),
+            help: _v58[_v0.id]?.(),
             children: []
           } : "external" === _v0.kind ? {
             ..._v1,

@@ -10,14 +10,14 @@
     _v7 = _v0.i(0),
     _v8 = new class {
       constructor() {
-        ((_v0, _v1, _v2) => {
-          let _v3;
-          return (_v3 = "symbol" != typeof _v1 ? _v1 + "" : _v1) in _v0 ? _v6(_v0, _v3, {
+        ((_v0, _v1) => {
+          let _v2, _v3;
+          _v3 = void 0, (_v2 = "symbol" != typeof _v1 ? _v1 + "" : _v1) in _v0 ? _v6(_v0, _v2, {
             enumerable: !0,
             configurable: !0,
             writable: !0,
-            value: _v2
-          }) : _v0[_v3] = _v2;
+            value: _v3
+          }) : _v0[_v2] = _v3;
         })(this, "modals"), this.modals = new Map();
       }
       add(_v0) {
@@ -230,7 +230,7 @@
         })
       });
     };
-  _v28.displayName = "Modal", _v0.s(["Modal", 0, _v28, "useModalContext", 0, _v27, "useModalStyles", 0, _v25], 0), _v0.i(0);
+  _v28.displayName = "Modal", _v0.s(["Modal", 0, _v28, "useModalContext", 0, _v27, "useModalStyles", 0, _v25], 0);
   var _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = "data-focus-lock",
@@ -1072,7 +1072,7 @@
       _v3 = _v2 && _v1 && _v1.id === _v2.id;
     _v116 = _v1, _v2 && !_v3 && (_v2.onDeactivation(), _v0.filter(function (_v0) {
       return _v0.id === _v2.id;
-    }).length || _v2.returnFocus(!_v1)), _v1 ? (_v117 = null, _v3 && _v2.observed === _v1.observed || _v1.onActivation(_v132), _v125(!0), _v113(_v125)) : (_v131(), _v117 = null);
+    }).length || _v2.returnFocus(!_v1)), _v1 ? (_v117 = null, _v3 && _v2.observed === _v1.observed || _v1.onActivation(_v132), _v125(), _v113(_v125)) : (_v131(), _v117 = null);
   }, function (_v0) {
     var _v1,
       _v2 = [];

@@ -1619,7 +1619,6 @@
       })]
     });
   }
-  _v0.i(0);
   var _v145 = ((_v1 = {}).SAFE = "safe", _v1.UNRATED = "unrated", _v1.MATURE = "explicit", _v1);
   let _v146 = "weekly",
     _v147 = (_v0, _v1) => {
@@ -8213,12 +8212,12 @@
             status: _v12
           }), (0, _v6.jsx)(_v450, {
             title: _v3.name,
-            children: _v3.name && ((_v0, _v1) => {
-              if (_v0.length <= _v1) return _v0;
-              let _v2 = _v0.substring(0, _v1),
-                _v3 = _v2.lastIndexOf(" ") > -1 ? Math.min(_v1, _v2.lastIndexOf(" ")) : _v1;
-              return `${_v2.substr(0, _v3)}...`;
-            })(_v3.name, 60)
+            children: _v3.name && (_v0 => {
+              if (_v0.length <= 60) return _v0;
+              let _v1 = _v0.substring(0, 60),
+                _v2 = _v1.lastIndexOf(" ") > -1 ? Math.min(60, _v1.lastIndexOf(" ")) : 60;
+              return `${_v1.substr(0, _v2)}...`;
+            })(_v3.name)
           }), _v3.description && (0, _v6.jsx)(_v451, {
             children: _v3.description
           })]

@@ -30,7 +30,7 @@
   });
   let _v5 = _v0.r(0),
     _v6 = _v0.r(0),
-    _v7 = "u" < typeof window ? _v0.r(0).actionAsyncStorage : void 0;
+    _v7 = _v0.r(0);
   function _v8(_v0, _v1, _v2 = _v5.RedirectStatusCode.TemporaryRedirect) {
     let _v3 = Object.defineProperty(Error(_v6.REDIRECT_ERROR_CODE), "__NEXT_ERROR_CODE", {
       value: "E394",
@@ -40,7 +40,7 @@
     return _v3.digest = `${_v6.REDIRECT_ERROR_CODE};${_v1};${_v0};${_v2};`, _v3;
   }
   function _v9(_v0, _v1) {
-    throw _v8(_v0, _v1 ??= _v7?.getStore()?.isAction ? "push" : "replace", _v5.RedirectStatusCode.TemporaryRedirect);
+    throw _v8(_v0, _v1 ??= _v7.actionAsyncStorage?.getStore()?.isAction ? "push" : "replace", _v5.RedirectStatusCode.TemporaryRedirect);
   }
   function _v10(_v0, _v1 = "replace") {
     throw _v8(_v0, _v1, _v5.RedirectStatusCode.PermanentRedirect);

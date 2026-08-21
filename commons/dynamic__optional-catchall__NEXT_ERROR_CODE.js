@@ -35,7 +35,7 @@
         tree: _v0,
         depth: 0
       }],
-      _v6 = (0, _v7.parseAppRoute)(_v2, !0);
+      _v6 = (0, _v7.parseNormalizedAppRoute)(_v2);
     for (; _v5.length > 0;) {
       let {
           tree: _v0,

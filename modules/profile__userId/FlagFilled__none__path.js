@@ -54,8 +54,9 @@
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
-    _v20 = _v0.i(0);
-  async function _v21({
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0);
+  async function _v22({
     baseUrl: _v0,
     variables: _v1,
     where: {
@@ -63,38 +64,38 @@
     },
     ..._v3
   }) {
-    return (0, _v19.measureLatency)("postUserReport", "POST", async () => {
+    return (0, _v20.measureLatency)("postUserReport", "POST", async () => {
       let _v0 = await fetch(`${_v0}/users/${_v2}/report`, {
         ..._v3,
         method: "POST",
-        body: JSON.stringify((0, _v20.deepSnakeCase)(_v1))
+        body: JSON.stringify((0, _v21.deepSnakeCase)(_v1))
       });
-      if (!_v0.ok) throw new _v20.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v21.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v20.deepCamelCase)(_v1);
+      return (0, _v21.deepCamelCase)(_v1);
     });
   }
-  var _v22 = _v0.i(0),
-    _v23 = _v0.i(0);
-  function _v24() {
+  var _v23 = _v0.i(0),
+    _v24 = _v0.i(0);
+  function _v25() {
     let {
         mutate: _v0
-      } = (0, _v22.useSWRConfig)(),
+      } = (0, _v23.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v23.useGctlConfig)(),
-      [_v5, _v6] = (0, _v18.useInternalState)();
+      } = (0, _v24.useGctlConfig)(),
+      [_v5, _v6] = (0, _v19.useInternalState)();
     return [(0, _v13.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/report${(0, _v18.serializeQuery)(_v0)}`, _v21({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/report${(0, _v19.serializeQuery)(_v0)}`, _v22({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -117,11 +118,11 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v17.default.env.STORYBOOK && (0, _v18.assignMswData)(_v24, {
+  "true" === _v18.default.env.STORYBOOK && (0, _v19.assignMswData)(_v25, {
     endpoint: "/users/:userId/report",
     method: "POST"
   });
-  let _v25 = ({
+  let _v26 = ({
     userId: _v0,
     isOpen: _v1,
     onClose: _v2,
@@ -132,7 +133,8 @@
         onClose: _v1,
         onSubmitted: _v2
       }) {
-        let [_v3, _v4] = (0, _v13.useState)(!1);
+        let [_v3, _v4] = (0, _v13.useState)(!1),
+          _v5 = (0, _v17.useViewer)();
         return {
           ...(0, _v14.useReport)({
             onClose: _v1,
@@ -173,16 +175,19 @@
                 callCount: _v3,
                 error: _v4,
                 loading: _v5
-              }] = _v24();
+              }] = _v25();
               return {
-                postReport: _v0 => {
+                postReport: (_v0, {
+                  optOutOfCommunications: _v1 = !1
+                } = {}) => {
                   _v0 && _v0 && _v2({
                     where: {
                       userId: _v0
                     },
                     variables: {
                       reason: _v0,
-                      block: _v1
+                      block: _v1,
+                      optOutOfCommunications: _v1
                     }
                   });
                 },
@@ -226,7 +231,8 @@
                 }
               }
             }),
-            resolveExternalUrl: _v0 => (0, _v16.withReportedContentUrl)(_v0, _v0)
+            resolveExternalUrl: _v0 => (0, _v16.withReportedContentUrl)(_v0, _v0),
+            offerCommsOptOut: !!_v5?.isUnitedKingdom
           }),
           blockUser: _v3,
           setBlockUser: _v4
@@ -295,35 +301,35 @@
       footerAction: _v5
     });
   };
-  _v0.s(["ReportUserModal", 0, _v0 => _v0.isOpen ? (0, _v1.jsx)(_v25, {
+  _v0.s(["ReportUserModal", 0, _v0 => _v0.isOpen ? (0, _v1.jsx)(_v26, {
     ..._v0
   }) : null], 0);
-  var _v26 = _v0.i(0),
-    _v27 = _v0.i(0),
+  var _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
-    _v32 = _v0.i(0);
+    _v32 = _v0.i(0),
+    _v33 = _v0.i(0);
   _v0.s(["default", 0, function ({
     onDismiss: _v0
   }) {
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v30.ModalHeader, {
-        children: _v32.default.ThanksForYourReport
-      }), (0, _v1.jsx)(_v29.ModalCloseButton, {
-        "aria-label": _v32.default.Dismiss,
+      children: [(0, _v1.jsx)(_v31.ModalHeader, {
+        children: _v33.default.ThanksForYourReport
+      }), (0, _v1.jsx)(_v30.ModalCloseButton, {
+        "aria-label": _v33.default.Dismiss,
         onClick: _v0
-      }), (0, _v1.jsxs)(_v28.ModalBody, {
-        children: [(0, _v1.jsx)(_v26.Header, {
+      }), (0, _v1.jsxs)(_v29.ModalBody, {
+        children: [(0, _v1.jsx)(_v27.Header, {
           size: "xs",
-          children: _v32.default.WeLookingIntoIt
-        }), (0, _v1.jsx)(_v31.Paragraph, {
+          children: _v33.default.WeLookingIntoIt
+        }), (0, _v1.jsx)(_v32.Paragraph, {
           size: "md",
           children: (0, _v11.translate)({
             singular: "For more information about what Vimeo does and does not allow, please see our {LINK}Guidelines{/LINK}.",
             replacements: {
-              LINK: _v0 => (0, _v1.jsx)(_v27.Link, {
+              LINK: _v0 => (0, _v1.jsx)(_v28.Link, {
                 href: "/help/guidelines",
                 target: "_blank",
                 textDecoration: "underline",
@@ -358,50 +364,50 @@
       })]
     });
   }], 0);
-  var _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
+  var _v34 = _v0.i(0),
     _v35 = _v0.i(0),
-    _v36 = _v0.i(0);
-  function _v37({
+    _v36 = _v0.i(0),
+    _v37 = _v0.i(0);
+  function _v38({
     label: _v0,
     description: _v1
   }) {
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v26.Header, {
+      children: [(0, _v1.jsx)(_v27.Header, {
         as: "h3",
         size: "xs",
-        mb: (0, _v36.rem)(5),
+        mb: (0, _v37.rem)(5),
         children: _v0
-      }), (0, _v1.jsx)(_v31.Paragraph, {
+      }), (0, _v1.jsx)(_v32.Paragraph, {
         size: "sm",
         children: _v1
       })]
     });
   }
-  function _v38({
+  function _v39({
     onChange: _v0
   }) {
     let _v1 = [{
       value: "inappropriate avatar",
-      label: _v32.default.InappropriateAvatar,
-      description: _v32.default.InappropriateAvatarDescription
+      label: _v33.default.InappropriateAvatar,
+      description: _v33.default.InappropriateAvatarDescription
     }, {
       value: "spammy",
-      label: _v32.default.Spammy,
-      description: _v32.default.SpammyDescription
+      label: _v33.default.Spammy,
+      description: _v33.default.SpammyDescription
     }, {
       value: "bad videos",
-      label: _v32.default.BadVideos,
+      label: _v33.default.BadVideos,
       description: (0, _v11.translate)({
         singular: "This person has uploaded videos that violate {GUIDELINES_LINK}Vimeo's Guidelines{/GUIDELINES_LINK}. {MORE_LINK}Learn more about reporting videos.{/MORE_LINK}",
         replacements: {
-          GUIDELINES_LINK: _v0 => (0, _v1.jsx)(_v27.Link, {
+          GUIDELINES_LINK: _v0 => (0, _v1.jsx)(_v28.Link, {
             href: "/help/guidelines",
             target: "_blank",
             textDecoration: "underline",
             children: _v0
           }),
-          MORE_LINK: _v0 => (0, _v1.jsx)(_v27.Link, {
+          MORE_LINK: _v0 => (0, _v1.jsx)(_v28.Link, {
             href: "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/224969908",
             target: "_blank",
             rel: "noopener noreferrer",
@@ -435,27 +441,27 @@
       })
     }, {
       value: "creepy",
-      label: _v32.default.Creepy,
-      description: _v32.default.CreepyDescription
+      label: _v33.default.Creepy,
+      description: _v33.default.CreepyDescription
     }, {
       value: "not playing nice",
-      label: _v32.default.NotPlayingNice,
-      description: _v32.default.NotPlayingNiceDescription
+      label: _v33.default.NotPlayingNice,
+      description: _v33.default.NotPlayingNiceDescription
     }, {
       value: "impersonation",
-      label: _v32.default.Impersonation,
-      description: _v32.default.ImpersonationDescription
+      label: _v33.default.Impersonation,
+      description: _v33.default.ImpersonationDescription
     }];
-    return (0, _v1.jsx)(_v34.RadioGroup, {
+    return (0, _v1.jsx)(_v35.RadioGroup, {
       onChange: _v0,
       name: "user_flag",
-      children: (0, _v1.jsx)(_v35.VStack, {
+      children: (0, _v1.jsx)(_v36.VStack, {
         align: "stretch",
         spacing: "lg",
         mt: 5,
-        children: _v1.map(_v0 => (0, _v1.jsx)(_v33.Radio, {
+        children: _v1.map(_v0 => (0, _v1.jsx)(_v34.Radio, {
           value: _v0.value,
-          children: (0, _v1.jsx)(_v37, {
+          children: (0, _v1.jsx)(_v38, {
             label: _v0.label,
             description: _v0.description
           })
@@ -463,43 +469,43 @@
       })
     });
   }
-  var _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0);
-  function _v42({
+  var _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0);
+  function _v43({
     enableSubmit: _v0,
     submitting: _v1,
     onSubmit: _v2,
     onCancel: _v3
   }) {
-    return (0, _v1.jsx)(_v41.ModalFooter, {
+    return (0, _v1.jsx)(_v42.ModalFooter, {
       borderTop: "1px solid",
       borderColor: "stroke",
       children: (0, _v1.jsxs)(_v4.Flex, {
         flexGrow: 1,
         justifyContent: "space-between",
         alignItems: "center",
-        children: [(0, _v1.jsx)(_v27.Link, {
+        children: [(0, _v1.jsx)(_v28.Link, {
           href: "/help/violations",
           target: "_blank",
           textDecoration: "underline",
           children: (0, _v1.jsx)(_v6.Text, {
             size: "sm",
-            children: _v32.default.LearnReportViolations
+            children: _v33.default.LearnReportViolations
           })
-        }), (0, _v1.jsxs)(_v40.HStack, {
-          spacing: (0, _v36.rem)(5),
-          children: [(0, _v1.jsx)(_v39.Button, {
+        }), (0, _v1.jsxs)(_v41.HStack, {
+          spacing: (0, _v37.rem)(5),
+          children: [(0, _v1.jsx)(_v40.Button, {
             variant: "destructive",
             onClick: _v2,
             isDisabled: !_v0,
             isLoading: _v1,
-            children: _v32.default.ReportThePerson
-          }), (0, _v1.jsx)(_v39.Button, {
+            children: _v33.default.ReportThePerson
+          }), (0, _v1.jsx)(_v40.Button, {
             variant: "tertiary",
             onClick: _v3,
             isDisabled: _v1,
-            children: _v32.default.Cancel
+            children: _v33.default.Cancel
           })]
         })]
       })
@@ -513,26 +519,26 @@
     let [_v3, _v4] = (0, _v13.useState)(null),
       [_v5, _v6] = (0, _v13.useState)(!1);
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v30.ModalHeader, {
-        children: _v32.default.FlagUserTitle
-      }), (0, _v1.jsx)(_v29.ModalCloseButton, {
-        "aria-label": _v32.default.Dismiss,
+      children: [(0, _v1.jsx)(_v31.ModalHeader, {
+        children: _v33.default.FlagUserTitle
+      }), (0, _v1.jsx)(_v30.ModalCloseButton, {
+        "aria-label": _v33.default.Dismiss,
         onClick: _v1
-      }), (0, _v1.jsxs)(_v28.ModalBody, {
-        children: [(0, _v1.jsx)(_v26.Header, {
+      }), (0, _v1.jsxs)(_v29.ModalBody, {
+        children: [(0, _v1.jsx)(_v27.Header, {
           size: "xs",
-          children: _v32.default.WhyReportingUser
-        }), (0, _v1.jsx)(_v38, {
+          children: _v33.default.WhyReportingUser
+        }), (0, _v1.jsx)(_v39, {
           onChange: _v4
         }), (0, _v1.jsx)(_v3.Checkbox, {
           mt: "lg",
           onChange: _v0 => _v6(_v0.target.checked),
-          children: (0, _v1.jsx)(_v31.Paragraph, {
+          children: (0, _v1.jsx)(_v32.Paragraph, {
             size: "md",
             children: (0, _v11.translate)({
               singular: "Check this box to block this person in addition to reporting them. {A}Learn more about blocking people on Vimeo.{/A}",
               replacements: {
-                A: _v0 => (0, _v1.jsx)(_v27.Link, {
+                A: _v0 => (0, _v1.jsx)(_v28.Link, {
                   href: "https://vimeo.com/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12425418952977-How-to-block-someone-on-Vimeo",
                   target: "_blank",
                   textDecoration: "underline",
@@ -565,7 +571,7 @@
             })
           })
         })]
-      }), (0, _v1.jsx)(_v42, {
+      }), (0, _v1.jsx)(_v43, {
         enableSubmit: null != _v3,
         submitting: _v0,
         onSubmit: () => {

@@ -1006,21 +1006,21 @@
           _v7("Chrome shim can not determine version, not shimming.");
           break;
         }
-        _v7("adapter.js shimming chrome."), _v3.browserShim = _v19, _v40(_v0, _v2), _v41(_v0, _v2), _v19.shimGetUserMedia(_v0, _v2), _v19.shimMediaStream(_v0, _v2), _v19.shimPeerConnection(_v0, _v2), _v19.shimOnTrack(_v0, _v2), _v19.shimAddTrackRemoveTrack(_v0, _v2), _v19.shimGetSendersWithDtmf(_v0, _v2), _v19.shimSenderReceiverGetStats(_v0, _v2), _v19.fixNegotiationNeeded(_v0, _v2), _v34(_v0, _v2), _v35(_v0, _v2), _v38(_v0, _v2), _v36(_v0, _v2), _v37(_v0, _v2), _v39(_v0, _v2);
+        _v7("adapter.js shimming chrome."), _v3.browserShim = _v19, _v40(_v0, _v2), _v41(_v0, _v2), _v19.shimGetUserMedia(_v0, _v2), _v19.shimMediaStream(_v0, _v2), _v19.shimPeerConnection(_v0, _v2), _v19.shimOnTrack(_v0, _v2), _v19.shimAddTrackRemoveTrack(_v0, _v2), _v19.shimGetSendersWithDtmf(_v0, _v2), _v19.shimSenderReceiverGetStats(_v0, _v2), _v19.fixNegotiationNeeded(_v0, _v2), _v34(_v0), _v35(_v0), _v38(_v0), _v36(_v0, _v2), _v37(_v0), _v39(_v0, _v2);
         break;
       case "firefox":
         if (!_v30 || !_v30.shimPeerConnection || !_v1.shimFirefox) {
           _v7("Firefox shim is not included in this adapter release.");
           break;
         }
-        _v7("adapter.js shimming firefox."), _v3.browserShim = _v30, _v40(_v0, _v2), _v41(_v0, _v2), _v30.shimGetUserMedia(_v0, _v2), _v30.shimPeerConnection(_v0, _v2), _v30.shimOnTrack(_v0, _v2), _v30.shimRemoveStream(_v0, _v2), _v30.shimSenderGetStats(_v0, _v2), _v30.shimReceiverGetStats(_v0, _v2), _v30.shimRTCDataChannel(_v0, _v2), _v30.shimAddTransceiver(_v0, _v2), _v30.shimGetParameters(_v0, _v2), _v30.shimCreateOffer(_v0, _v2), _v30.shimCreateAnswer(_v0, _v2), _v34(_v0, _v2), _v38(_v0, _v2), _v36(_v0, _v2), _v37(_v0, _v2);
+        _v7("adapter.js shimming firefox."), _v3.browserShim = _v30, _v40(_v0, _v2), _v41(_v0, _v2), _v30.shimGetUserMedia(_v0, _v2), _v30.shimPeerConnection(_v0, _v2), _v30.shimOnTrack(_v0, _v2), _v30.shimRemoveStream(_v0, _v2), _v30.shimSenderGetStats(_v0, _v2), _v30.shimReceiverGetStats(_v0, _v2), _v30.shimRTCDataChannel(_v0, _v2), _v30.shimAddTransceiver(_v0, _v2), _v30.shimGetParameters(_v0, _v2), _v30.shimCreateOffer(_v0, _v2), _v30.shimCreateAnswer(_v0, _v2), _v34(_v0), _v38(_v0), _v36(_v0, _v2), _v37(_v0);
         break;
       case "safari":
         if (!_v32 || !_v1.shimSafari) {
           _v7("Safari shim is not included in this adapter release.");
           break;
         }
-        _v7("adapter.js shimming safari."), _v3.browserShim = _v32, _v40(_v0, _v2), _v41(_v0, _v2), _v32.shimRTCIceServerUrls(_v0, _v2), _v32.shimCreateOfferLegacy(_v0, _v2), _v32.shimCallbacksAPI(_v0, _v2), _v32.shimLocalStreamsAPI(_v0, _v2), _v32.shimRemoteStreamsAPI(_v0, _v2), _v32.shimTrackEventTransceiver(_v0, _v2), _v32.shimGetUserMedia(_v0, _v2), _v32.shimAudioContext(_v0, _v2), _v34(_v0, _v2), _v35(_v0, _v2), _v36(_v0, _v2), _v37(_v0, _v2), _v39(_v0, _v2);
+        _v7("adapter.js shimming safari."), _v3.browserShim = _v32, _v40(_v0, _v2), _v41(_v0, _v2), _v32.shimRTCIceServerUrls(_v0, _v2), _v32.shimCreateOfferLegacy(_v0, _v2), _v32.shimCallbacksAPI(_v0, _v2), _v32.shimLocalStreamsAPI(_v0, _v2), _v32.shimRemoteStreamsAPI(_v0, _v2), _v32.shimTrackEventTransceiver(_v0, _v2), _v32.shimGetUserMedia(_v0, _v2), _v32.shimAudioContext(_v0, _v2), _v34(_v0), _v35(_v0), _v36(_v0, _v2), _v37(_v0), _v39(_v0, _v2);
         break;
       default:
         _v7("Unsupported browser!");

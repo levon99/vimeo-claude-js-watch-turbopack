@@ -5,7 +5,7 @@
   function _v3(_v0) {
     return null !== _v0 && "object" == typeof _v0 && "function" == typeof _v0.start;
   }
-  _v0.i(0), _v0.s(["createDOMMotionComponentProxy", 0, function (_v0) {
+  _v0.s(["createDOMMotionComponentProxy", 0, function (_v0) {
     if ("u" < typeof Proxy) return _v0;
     let _v1 = new Map();
     return new Proxy((..._v0) => _v0(..._v0), {
@@ -1178,7 +1178,7 @@
             mass: _v3 = 1
           }) {
             let _v4, _v5;
-            _v12(_v0 <= _v17(10), "Spring duration must be 10 seconds or less");
+            _v12(_v0 <= _v17(10));
             let _v6 = 1 - _v1;
             _v6 = _v66(.05, 1, _v6), _v0 = _v66(.01, 10, _v18(_v0)), _v6 < 1 ? (_v4 = _v0 => {
               let _v1 = _v0 * _v6,
@@ -1328,7 +1328,7 @@
     },
     _v165 = _v0 => {
       if (_v21(_v0)) {
-        _v12(4 === _v0.length, "Cubic bezier arrays must contain four numerical values.");
+        _v12(4 === _v0.length);
         let [_v0, _v1, _v2, _v3] = _v0;
         return _v55(_v0, _v1, _v2, _v3);
       }
@@ -1340,7 +1340,7 @@
     mixer: _v4
   } = {}) {
     let _v5 = _v0.length;
-    if (_v12(_v5 === _v1.length, "Both input and output ranges must be the same length"), 1 === _v5) return () => _v1[0];
+    if (_v12(_v5 === _v1.length), 1 === _v5) return () => _v1[0];
     if (2 === _v5 && _v1[0] === _v1[1]) return () => _v1[1];
     let _v6 = _v0[0] === _v0[1];
     _v0[0] > _v0[_v5 - 1] && (_v0 = [..._v0].reverse(), _v1 = [..._v1].reverse());
@@ -2745,7 +2745,7 @@
       } = this.getProps();
       if (!_v1 || !_v203(_v1)) return !1;
       let _v3 = _v1.current;
-      _v12(null !== _v3, "If `dragConstraints` is set as a React ref, that ref must be passed to another component's `ref` prop.");
+      _v12(null !== _v3);
       let {
         projection: _v4
       } = this.visualElement;

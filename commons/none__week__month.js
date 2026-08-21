@@ -7102,15 +7102,15 @@
     }
     let _v9 = [];
     return _v4?.forEach((_v0, _v1) => {
-      let _v2 = _v4?.[_v1 - 1]?.range?.endDate,
-        _v3 = _v0?.range?.endDate,
-        _v4 = _v2 && _v3 ? ((_v0, _v1, _v2) => {
+      let _v2,
+        _v3 = _v4?.[_v1 - 1]?.range?.endDate,
+        _v4 = _v0?.range?.endDate,
+        _v5 = (_v2 = _v3 && _v4 ? ((_v0, _v1, _v2) => {
           let _v3 = [],
             _v4 = _v0;
           for (; _v4 > _v1;) _v4 !== _v0 && _v3.push(_v4), _v4 = _v156(_v4.valueOf(), _v2, _v142.MINUS, 1);
           return _v3;
-        })(new Date(Date.parse(_v2)), new Date(Date.parse(_v3)), _v2) : [],
-        _v5 = _v4 ? _v4.map(_v0 => {
+        })(new Date(Date.parse(_v3)), new Date(Date.parse(_v4)), _v2) : [], _v2.map(_v0 => {
           let _v1 = _v156(_v0.valueOf(), _v2, _v142.MINUS, 1),
             _v2 = _v156(_v0.valueOf(), _v2, _v142.MINUS, 0);
           return _v2 === _v141.WEEK && _v1.setDate(_v1.getDate() + 1), {
@@ -7120,7 +7120,7 @@
               endDate: _v2.toISOString().slice(0, 10)
             }
           };
-        }) : [];
+        }));
       _v5?.length && _v9.push(..._v5), _v9.push(_v0);
     }), _v9;
   }, "shouldShowContentLimitAppliedNotice", 0, (_v0, _v1) => ("/analytics" === _v1 || "/analytics/device" === _v1 || "/analytics/region" === _v1 || "/analytics/date" === _v1 || "/analytics/source" === _v1) && _v0, "sortHandler", 0, (_v0, _v1, _v2) => _v2.sort((_v0, _v1) => {

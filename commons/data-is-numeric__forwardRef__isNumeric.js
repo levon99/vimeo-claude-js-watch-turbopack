@@ -10,12 +10,12 @@
       ..._v1
     }, _v2) => {
       let _v3 = (0, _v1.useTableStyles)();
-      return (0, _v4.jsx)(_v2.chakra.td, {
+      return (0, _v4.jsx)(_v2.chakra.th, {
         ..._v1,
         ref: _v2,
-        __css: _v3.td,
+        __css: _v3.th,
         "data-is-numeric": _v0
       });
     });
-  _v0.s(["Td", 0, _v5]);
+  _v0.s(["Th", 0, _v5]);
 }

@@ -129,7 +129,8 @@
       validate: !1
     });
     for (let [_v0, _v1] of (_v4 && (_v1 = (0, _v9.safeCompile)(_v4, {
-      validate: !1
+      validate: !1,
+      encode: encodeURIComponent
     })), Object.entries(_v5))) Array.isArray(_v1) ? _v5[_v0] = _v1.map(_v0 => _v12(_v10(_v0), _v0.params)) : "string" == typeof _v1 && (_v5[_v0] = _v12(_v10(_v1), _v0.params));
     let _v11 = Object.keys(_v0.params).filter(_v0 => "nextInternalLocale" !== _v0);
     if (_v0.appendParamsToQuery && !_v11.some(_v0 => _v8.includes(_v0))) for (let _v0 of _v11) _v0 in _v5 || (_v5[_v0] = _v0.params[_v0]);

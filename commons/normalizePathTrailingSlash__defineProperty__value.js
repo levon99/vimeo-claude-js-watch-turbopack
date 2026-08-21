@@ -12,7 +12,7 @@
   let _v3 = _v0.r(0),
     _v4 = _v0.r(0),
     _v5 = _v0 => {
-      if (!_v0.startsWith("/")) return _v0;
+      if (47 !== _v0.charCodeAt(0)) return _v0;
       let {
         pathname: _v1,
         query: _v2,

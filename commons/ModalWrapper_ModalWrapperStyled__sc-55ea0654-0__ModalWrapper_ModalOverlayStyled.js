@@ -10,9 +10,8 @@
     _v7 = _v0.i(0),
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
-    _v10 = _v0.i(0);
-  _v0.i(0);
-  var _v11 = _v4;
+    _v10 = _v0.i(0),
+    _v11 = _v4;
   let _v12 = _v6.default.div.withConfig({
       displayName: "ModalWrapper__ModalWrapperStyled",
       componentId: "sc-55ea0654-0"

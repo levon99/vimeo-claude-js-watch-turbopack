@@ -1306,99 +1306,113 @@
             apiUrl: _v6?.apiUrl,
             jwt: _v6?.jwt
           }).then(_v0 => {
-            _v1 === _v38.current && _v0.length > 0 && _v37([..._v0.slice(0, 3).map(({
-              kind: _v0,
-              prompt: _v1
-            }) => ({
-              id: `personalized-${_v0}`,
-              title: _v1,
-              subtitle: (_v0 => {
-                switch (_v0) {
-                  case "topic":
-                    return (0, _v12.translate)({
-                      singular: "Explore a topic",
-                      dictionary: {
-                        es: {
-                          singular: "Explorar un tema"
-                        },
-                        "de-DE": {
-                          singular: "Ein Thema erkunden"
-                        },
-                        "fr-FR": {
-                          singular: "Explorer un sujet"
-                        },
-                        "ja-JP": {
-                          singular: "トピックを探索"
-                        },
-                        "ko-KR": {
-                          singular: "주제 탐색"
-                        },
-                        "pt-BR": {
-                          singular: "Explorar um tópico"
-                        },
-                        "zh-CN": {
-                          singular: "探索主题"
+            _v1 === _v38.current && _v0.length > 0 && _v37(((_v0, _v1) => {
+              let _v2 = _v0.slice(0, 3).map(({
+                kind: _v0,
+                prompt: _v1
+              }) => ({
+                id: `personalized-${_v0}`,
+                title: _v1,
+                subtitle: (_v0 => {
+                  switch (_v0) {
+                    case "topic":
+                      return (0, _v12.translate)({
+                        singular: "Explore a topic",
+                        dictionary: {
+                          es: {
+                            singular: "Explorar un tema"
+                          },
+                          "de-DE": {
+                            singular: "Ein Thema erkunden"
+                          },
+                          "fr-FR": {
+                            singular: "Explorer un sujet"
+                          },
+                          "ja-JP": {
+                            singular: "トピックを探索"
+                          },
+                          "ko-KR": {
+                            singular: "주제 탐색"
+                          },
+                          "pt-BR": {
+                            singular: "Explorar um tópico"
+                          },
+                          "zh-CN": {
+                            singular: "探索主题"
+                          }
                         }
-                      }
-                    });
-                  case "answer":
-                    return (0, _v12.translate)({
-                      singular: "Ask a question about your videos",
-                      dictionary: {
-                        es: {
-                          singular: "Haz una pregunta sobre tus videos"
-                        },
-                        "de-DE": {
-                          singular: "Stellen Sie eine Frage zu Ihren Videos"
-                        },
-                        "fr-FR": {
-                          singular: "Poser une question sur vos vidéos"
-                        },
-                        "ja-JP": {
-                          singular: "動画について質問する"
-                        },
-                        "ko-KR": {
-                          singular: "동영상에 대해 질문하기"
-                        },
-                        "pt-BR": {
-                          singular: "Faça uma pergunta sobre seus vídeos"
-                        },
-                        "zh-CN": {
-                          singular: "就你的视频提问"
+                      });
+                    case "answer":
+                      return (0, _v12.translate)({
+                        singular: "Ask a question about your videos",
+                        dictionary: {
+                          es: {
+                            singular: "Haz una pregunta sobre tus videos"
+                          },
+                          "de-DE": {
+                            singular: "Stellen Sie eine Frage zu Ihren Videos"
+                          },
+                          "fr-FR": {
+                            singular: "Poser une question sur vos vidéos"
+                          },
+                          "ja-JP": {
+                            singular: "動画について質問する"
+                          },
+                          "ko-KR": {
+                            singular: "동영상에 대해 질문하기"
+                          },
+                          "pt-BR": {
+                            singular: "Faça uma pergunta sobre seus vídeos"
+                          },
+                          "zh-CN": {
+                            singular: "就你的视频提问"
+                          }
                         }
-                      }
-                    });
-                  case "visual":
-                    return (0, _v12.translate)({
-                      singular: "Find what's on screen",
-                      dictionary: {
-                        es: {
-                          singular: "Encuentra lo que aparece en pantalla"
-                        },
-                        "de-DE": {
-                          singular: "Finde, was auf dem Bildschirm zu sehen ist"
-                        },
-                        "fr-FR": {
-                          singular: "Identifier ce qui est à l’écran"
-                        },
-                        "ja-JP": {
-                          singular: "画面に表示されているものを見つける"
-                        },
-                        "ko-KR": {
-                          singular: "화면에 있는 항목 찾기"
-                        },
-                        "pt-BR": {
-                          singular: "Encontre o que está na tela"
-                        },
-                        "zh-CN": {
-                          singular: "查找屏幕上的内容"
+                      });
+                    case "visual":
+                      return (0, _v12.translate)({
+                        singular: "Find what's on screen",
+                        dictionary: {
+                          es: {
+                            singular: "Encuentra lo que aparece en pantalla"
+                          },
+                          "de-DE": {
+                            singular: "Finde, was auf dem Bildschirm zu sehen ist"
+                          },
+                          "fr-FR": {
+                            singular: "Identifier ce qui est à l’écran"
+                          },
+                          "ja-JP": {
+                            singular: "画面に表示されているものを見つける"
+                          },
+                          "ko-KR": {
+                            singular: "화면에 있는 항목 찾기"
+                          },
+                          "pt-BR": {
+                            singular: "Encontre o que está na tela"
+                          },
+                          "zh-CN": {
+                            singular: "查找屏幕上的内容"
+                          }
                         }
-                      }
-                    });
-                }
-              })(_v0),
-              scope: "library"
-            })), ..._v0].slice(0, 3));
+                      });
+                  }
+                })(_v0),
+                scope: "library"
+              }));
+              if (0 === _v2.length) return _v1.slice(0, 3);
+              let _v3 = _v1.find(({
+                id: _v0
+              }) => "filter" === _v0);
+              if (!_v3) return [..._v2, ..._v1].slice(0, 3);
+              if (3 === _v2.length) {
+                let _v0 = Math.floor(3 * Math.random());
+                return _v2.map((_v0, _v1) => _v1 === _v0 ? _v3 : _v0);
+              }
+              return [..._v2, _v3, ..._v1.filter(({
+                id: _v0
+              }) => _v0 !== _v3.id)].slice(0, 3);
+            })(_v0, _v0));
           });
         }, [_v6?.apiUrl, _v6?.jwt]),
         _v43 = (0, _v3.useCallback)(() => {
@@ -1429,12 +1443,12 @@
           _v4.events.off("routeChangeComplete", _v0), _v4.events.off("routeChangeError", _v0), window.clearTimeout(_v1);
         };
       }, [_v10, _v43, _v4.events]);
-      let _v44 = (_v0, _v1 = _v17) => {
-        let _v2 = _v0.trim();
-        if (!_v2) return;
+      let _v44 = (_v0, _v1 = _v17, _v2 = !0) => {
+        let _v3 = _v0.trim();
+        if (!_v3) return;
         if (_v5({
           location: "global_nav"
-        }), ((_v0, _v1) => {
+        }), _v2 && ((_v0, _v1) => {
           let _v2 = _v0.trim();
           if (!_v2) return _v53();
           let _v3 = {
@@ -1446,9 +1460,9 @@
           try {
             window.localStorage.setItem(_v50, JSON.stringify(_v4));
           } catch {}
-        })(_v2, _v1), _v11(!0), "vimeo" === _v1) return void _v4.push(`/search?q=${encodeURIComponent(_v2)}`);
-        let _v3 = _v20 && _v19?.type === "folder" && _v19.folderId ? `&filter_folder_include=${encodeURIComponent(_v19.folderId)}` : "";
-        _v4.push(`/search/library?q=${encodeURIComponent(_v2)}${_v3}`);
+        })(_v3, _v1), _v11(!0), "vimeo" === _v1) return void _v4.push(`/search?q=${encodeURIComponent(_v3)}`);
+        let _v4 = _v20 && _v19?.type === "folder" && _v19.folderId ? `&filter_folder_include=${encodeURIComponent(_v19.folderId)}` : "";
+        _v4.push(`/search/library?q=${encodeURIComponent(_v3)}${_v4}`);
       };
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(_v3 = _v2 ? (0, _v1.jsx)(_v34.IconButton, {
@@ -1930,7 +1944,7 @@
                         subtitle: _v0.subtitle,
                         scope: _v0.scope,
                         hoverBg: _v62,
-                        onSelect: () => _v44(_v0.title, _v0.scope)
+                        onSelect: () => _v44(_v0.title, _v0.scope, !1)
                       }, _v0.id))]
                     })]
                   }), !_v34 && _v33 && (0, _v1.jsxs)(_v21.Flex, {

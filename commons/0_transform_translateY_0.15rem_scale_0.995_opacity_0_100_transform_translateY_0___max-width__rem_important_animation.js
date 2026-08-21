@@ -52,9 +52,8 @@
     return (0, _v10.css)(_v7 || (_v7 = (0, _v8.a)(["\n    &:after,\n    &:before {\n      content: '';\n      z-index: 5000;\n      position: absolute;\n      transform: translate3d(0, 0, 0);\n      ", ": calc(50% - 0.75rem);\n      ", ": -0.75rem;\n\n      border-", ": 0.75rem solid ", ";\n      border-", ": 0.75rem solid transparent;\n      border-", ": 0.75rem solid transparent;\n    }\n\n    &:before {\n      border-", ": 0.75rem solid ", ";\n      ", ": -0.83rem;\n      ", ";\n    }\n  "], ["\n    &:after,\n    &:before {\n      content: '';\n      z-index: 5000;\n      position: absolute;\n      transform: translate3d(0, 0, 0);\n      ", ": calc(50% - 0.75rem);\n      ", ": -0.75rem;\n\n      border-", ": 0.75rem solid ", ";\n      border-", ": 0.75rem solid transparent;\n      border-", ": 0.75rem solid transparent;\n    }\n\n    &:before {\n      border-", ": 0.75rem solid ", ";\n      ", ": -0.83rem;\n      ", ";\n    }\n  "])), _v6, _v5, _v3, _v9, _v6, _v7, _v3, (0, _v11.rgba)(_v10, _v11), _v5, _v12);
   }
   var _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  _v0.i(0);
-  var _v18 = _v0.i(0);
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0);
   _v0.i(0);
   var _v19 = (0, _v16.withIris)(function (_v0) {
       var _v1,

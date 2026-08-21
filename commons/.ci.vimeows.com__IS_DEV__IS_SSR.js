@@ -2,7 +2,6 @@
   "use strict";
 
   var _v1 = _v0.i(0);
-  _v0.i(0);
   let _v2 = location.host.endsWith(".ci.vimeows.com");
   function _v3(_v0, _v1, _v2) {
     return Math.min(Math.max(_v0, _v1), _v2);

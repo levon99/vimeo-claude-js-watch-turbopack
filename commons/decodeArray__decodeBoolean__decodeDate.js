@@ -202,7 +202,6 @@
     if ("object" == typeof _v0) if ("u" > typeof window) return _v0.search;else return (0, _v24.extract)("" + _v0.pathname + (_v0.search ? _v0.search : ""));
     return "";
   }
-  _v0.i(0);
   var _v33 = _v27.createContext({
     location: {},
     getLocation: function () {

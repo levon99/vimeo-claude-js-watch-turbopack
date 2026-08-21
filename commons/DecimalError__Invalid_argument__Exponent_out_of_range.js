@@ -63,7 +63,7 @@
       var _v1, _v2, _v3, _v4;
       if (_v0 = new this.constructor(_v0), this.s !== _v0.s) return this.s || -_v0.s;
       if (this.e !== _v0.e) return this.e > _v0.e ^ this.s < 0 ? 1 : -1;
-      for (_v1 = 0, _v2 = (_v3 = this.d.length) < (_v4 = _v0.d.length) ? _v3 : _v4; _v1 < _v2; ++_v1) if (this.d[_v1] !== _v0.d[_v1]) return this.d[_v1] > _v0.d[_v1] ^ this.s < 0 ? 1 : -1;
+      for (_v3 = this.d.length, _v1 = 0, _v2 = _v3 < (_v4 = _v0.d.length) ? _v3 : _v4; _v1 < _v2; ++_v1) if (this.d[_v1] !== _v0.d[_v1]) return this.d[_v1] > _v0.d[_v1] ^ this.s < 0 ? 1 : -1;
       return _v3 === _v4 ? 0 : _v3 > _v4 ^ this.s < 0 ? 1 : -1;
     }, _v11.decimalPlaces = _v11.dp = function () {
       var _v0 = this.d.length - 1,
@@ -274,7 +274,7 @@
           _v25 = _v1.d;
         if (!_v0.s) return new _v22(_v0);
         if (!_v1.s) throw Error(_v4 + "Division by zero");
-        for (_v6 = 0, _v5 = _v0.e - _v1.e, _v20 = _v25.length, _v18 = _v24.length, _v11 = (_v10 = new _v22(_v23)).d = []; _v25[_v6] == (_v24[_v6] || 0);) ++_v6;
+        for (_v5 = _v0.e - _v1.e, _v20 = _v25.length, _v18 = _v24.length, _v11 = (_v10 = new _v22(_v23)).d = [], _v6 = 0; _v25[_v6] == (_v24[_v6] || 0);) ++_v6;
         if (_v25[_v6] > (_v24[_v6] || 0) && --_v5, (_v15 = null == _v2 ? _v2 = _v22.precision : _v3 ? _v2 + (_v17(_v0) - _v17(_v1)) + 1 : _v2) < 0) return new _v22(0);
         if (_v15 = _v15 / 7 + 2 | 0, _v6 = 0, 1 == _v20) for (_v7 = 0, _v25 = _v25[0], _v15++; (_v6 < _v18 || _v7) && _v15--; _v6++) _v16 = 0 * _v7 + (_v24[_v6] || 0), _v11[_v6] = _v16 / _v25 | 0, _v7 = _v16 % _v25 | 0;else {
           for ((_v7 = 0 / (_v25[0] + 1) | 0) > 1 && (_v25 = _v0(_v25, _v7), _v24 = _v0(_v24, _v7), _v20 = _v25.length, _v18 = _v24.length), _v17 = _v20, _v13 = (_v12 = _v24.slice(0, _v20)).length; _v13 < _v20;) _v12[_v13++] = 0;
@@ -369,7 +369,7 @@
       for (_v6 = 1, _v5 = _v11[0]; _v5 >= 10; _v5 /= 10) _v6++;
       if ((_v3 = _v1 - _v6) < 0) _v3 += 7, _v4 = _v1, _v9 = _v11[_v10 = 0];else {
         if ((_v10 = Math.ceil((_v3 + 1) / 7)) >= (_v5 = _v11.length)) return _v0;
-        for (_v6 = 1, _v9 = _v5 = _v11[_v10]; _v5 >= 10; _v5 /= 10) _v6++;
+        for (_v9 = _v5 = _v11[_v10], _v6 = 1; _v5 >= 10; _v5 /= 10) _v6++;
         _v3 %= 7, _v4 = _v3 - 7 + _v6;
       }
       if (void 0 !== _v2 && (_v7 = _v9 / (_v5 = _v8(10, _v6 - _v4 - 1)) % 10 | 0, _v8 = _v1 < 0 || void 0 !== _v11[_v10 + 1] || _v9 % _v5, _v8 = _v2 < 4 ? (_v7 || _v8) && (0 == _v2 || _v2 == (_v0.s < 0 ? 3 : 2)) : _v7 > 5 || 5 == _v7 && (4 == _v2 || _v8 || 6 == _v2 && (_v3 > 0 ? _v4 > 0 ? _v9 / _v8(10, _v6 - _v4) : 0 : _v11[_v10 - 1]) % 10 & 1 || _v2 == (_v0.s < 0 ? 8 : 7))), _v1 < 1 || !_v11[0]) return _v8 ? (_v5 = _v17(_v0), _v11.length = 1, _v1 = _v1 - _v5 - 1, _v11[0] = _v8(10, (7 - _v1 % 7) % 7), _v0.e = _v7(-_v1 / 7) || 0) : (_v11.length = 1, _v11[0] = _v0.e = _v0.s = 0), _v0;

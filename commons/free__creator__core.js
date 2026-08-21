@@ -3536,11 +3536,13 @@
           _v7({
             type: "FetchTeamInfoInit",
             payload: !0
-          }), _v7({
+          });
+          let _v0 = await _v105(_v5);
+          _v7({
             type: "FetchTeamInfoComplete",
             payload: {
               viewer: _v5,
-              teamsInfo: await _v105(_v5)
+              teamsInfo: _v0
             }
           }), _v4();
         }, _v2 = async (_v0, _v1) => {

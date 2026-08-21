@@ -7,7 +7,6 @@
   let _v4 = function (_v0) {
     _v0();
   };
-  _v0.i(0);
   var _v5 = _v0.i(0);
   let _v6 = Symbol.for(`react-redux-context-${_v5.version}`),
     _v7 = globalThis,

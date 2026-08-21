@@ -4098,8 +4098,7 @@
       }), _v9 ? null : (0, _v6.jsx)(_v16.Suspense, {
         fallback: (0, _v6.jsx)(_v6.Fragment, {}),
         children: (0, _v6.jsx)(_v234, {
-          footerRef: _v7,
-          isDesktopView: _v4
+          footerRef: _v7
         })
       })]
     });
@@ -4968,7 +4967,7 @@
       switch (_v7) {
         case 3:
           if (1 === _v8) return _v0.getUint16(_v1 + 8, !_v3);
-          for (_v6 = 0, _v4 = _v8 > 2 ? _v9 : _v1 + 8, _v5 = []; _v6 < _v8; _v6++) _v5[_v6] = _v0.getUint16(_v4 + 2 * _v6, !_v3);
+          for (_v4 = _v8 > 2 ? _v9 : _v1 + 8, _v5 = [], _v6 = 0; _v6 < _v8; _v6++) _v5[_v6] = _v0.getUint16(_v4 + 2 * _v6, !_v3);
           return _v5;
         case 4:
           if (1 === _v8) return _v0.getUint32(_v1 + 8, !_v3);
@@ -8754,7 +8753,6 @@
           mt: "lg",
           children: (0, _v6.jsx)(_v383.default, {
             forPrivatePage: !0,
-            isDesktopView: !1,
             buttonLabel: (0, _v21.translate)({
               singular: "Report this person",
               dictionary: {

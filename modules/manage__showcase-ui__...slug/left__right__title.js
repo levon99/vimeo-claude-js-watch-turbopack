@@ -1433,12 +1433,14 @@
         }, _v5))
       });
     };
-  var _v94 = _v0.i(0);
+  var _v94 = _v0.i(0),
+    _v95 = _v0.i(0),
+    _v96 = _v0.i(0);
   let {
-      WayfinderSideNav: _v95,
-      HomeSideNavContent: _v96
-    } = _v94.dynamicImportComponents,
-    _v97 = () => {
+      HomePrimaryNavbar: _v97,
+      WayfinderSideNav: _v98
+    } = _v96.dynamicImportComponents,
+    _v99 = () => {
       let _v0 = (0, _v3.useStore)(_v0 => _v0.commonStore.isDesktopView),
         {
           teamOwnerId: _v1
@@ -1446,19 +1448,40 @@
         _v2 = (0, _v3.useStore)(_v0 => _v0.commonStore.isSideNavOpen),
         {
           toggleSideNavState: _v3
-        } = _v27();
+        } = _v27(),
+        _v4 = (0, _v2.useCallback)(_v0 => {
+          _v3("function" == typeof _v0 ? _v0(_v2) : _v0);
+        }, [_v2, _v3]),
+        _v5 = (0, _v2.useMemo)(() => ({
+          isPersonalTeamFolderAdminView: !1,
+          setIsPersonalTeamFolderAdminView: () => void 0,
+          isSideNavOpen: _v2,
+          setIsSideNavOpen: _v4,
+          loadingSideNavFolderURIs: new Set(),
+          setLoadingSideNavFolderURIs: () => void 0,
+          shouldShowSideNav: !0,
+          isScrolling: !1,
+          teamOwnerId: _v1
+        }), [_v2, _v4, _v1]);
       return (0, _v1.jsx)(_v1.Fragment, {
-        children: !1 === _v0 && (0, _v1.jsx)(_v95, {
-          isMobile: !_v0,
-          isOpen: _v2,
-          onClose: () => _v3(!1),
-          teamOwnerId: _v1,
-          children: (0, _v1.jsx)(_v96, {})
+        children: !1 === _v0 && (0, _v1.jsx)(_v95.VideoLibraryLayoutContext.Provider, {
+          value: _v5,
+          children: (0, _v1.jsx)(_v94.StarredItemsProvider, {
+            children: (0, _v1.jsx)(_v98, {
+              isMobile: !_v0,
+              isOpen: _v2,
+              onClose: () => _v3(!1),
+              teamOwnerId: _v1,
+              children: (0, _v1.jsx)(_v97, {
+                variant: "full"
+              })
+            })
+          })
         })
       });
     };
-  var _v98 = _v0.i(0);
-  let _v99 = () => (0, _v1.jsx)(_v8.Flex, {
+  var _v100 = _v0.i(0);
+  let _v101 = () => (0, _v1.jsx)(_v8.Flex, {
       hideBelow: "md",
       "data-id": "showcase-sidebar",
       justify: "center",
@@ -1476,7 +1499,7 @@
         borderRadius: "round"
       }, _v1))
     }),
-    _v100 = ({
+    _v102 = ({
       children: _v0,
       isLoading: _v1
     }) => (0, _v1.jsx)(_v8.Flex, {
@@ -1485,10 +1508,10 @@
       overflowX: "hidden",
       flexGrow: "1",
       children: !0 === _v1 ? (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v99, {}), (0, _v1.jsx)(_v98.LoadingState, {})]
+        children: [(0, _v1.jsx)(_v101, {}), (0, _v1.jsx)(_v100.LoadingState, {})]
       }) : _v0
     }),
-    _v101 = ({
+    _v103 = ({
       children: _v0
     }) => (0, _v1.jsx)(_v8.Flex, {
       position: "relative",
@@ -1498,7 +1521,7 @@
       bg: "background",
       children: _v0
     }),
-    _v102 = ({
+    _v104 = ({
       children: _v0
     }) => (0, _v1.jsx)(_v8.Flex, {
       position: "relative",
@@ -1510,16 +1533,16 @@
       children: _v0
     }),
     {
-      VideoListModalWrapper: _v103,
-      DeleteShowcaseModal: _v104,
-      ResourceShareModalWrapper: _v105,
-      UpsellModalWrapper: _v106,
-      DeleteLiveEventModal: _v107,
-      EventCreationModal: _v108,
-      SaveWithoutPremiumModal: _v109,
-      MobileViewSettings: _v110
-    } = _v94.dynamicImportComponents,
-    _v111 = () => {
+      VideoListModalWrapper: _v105,
+      DeleteShowcaseModal: _v106,
+      ResourceShareModalWrapper: _v107,
+      UpsellModalWrapper: _v108,
+      DeleteLiveEventModal: _v109,
+      EventCreationModal: _v110,
+      SaveWithoutPremiumModal: _v111,
+      MobileViewSettings: _v112
+    } = _v96.dynamicImportComponents,
+    _v113 = () => {
       let _v0,
         _v1 = (0, _v3.useStore)(_v0 => _v0.commonStore.isModalOpen),
         _v2 = (0, _v3.useStore)(_v0 => _v0.commonStore.modalType),
@@ -1536,40 +1559,40 @@
       switch (_v2) {
         case _v14.ModalType.ADD_VIDEO_TO_SHOWCASE:
         case _v14.ModalType.SET_SHOWCASE_FEATURED_CONTENT:
-          return (0, _v1.jsx)(_v103, {
+          return (0, _v1.jsx)(_v105, {
             modalType: _v2
           });
         case _v14.ModalType.DELETE_SHOWCASE:
-          return (0, _v1.jsx)(_v104, {});
+          return (0, _v1.jsx)(_v106, {});
         case _v14.ModalType.RESOURCE_SHARE_MODAL:
-          return (0, _v1.jsx)(_v105, {});
+          return (0, _v1.jsx)(_v107, {});
         case _v14.ModalType.EVENT_CREATION_MODAL_UPGRADE:
         case _v14.ModalType.UPGRADE_PLAN:
-          return (0, _v1.jsx)(_v106, {});
-        case _v14.ModalType.DELETE_EVENT:
-          return (0, _v1.jsx)(_v107, {});
-        case _v14.ModalType.EVENT_CREATION_MODAL:
           return (0, _v1.jsx)(_v108, {});
+        case _v14.ModalType.DELETE_EVENT:
+          return (0, _v1.jsx)(_v109, {});
+        case _v14.ModalType.EVENT_CREATION_MODAL:
+          return (0, _v1.jsx)(_v110, {});
         case _v14.ModalType.SAVE_WITHOUT_PREMIUM:
-          return (0, _v1.jsx)(_v109, {
+          return (0, _v1.jsx)(_v111, {
             handleSaveWithoutPremium: _v3,
             handleCancelWithoutPremium: _v4
           });
         case _v14.ModalType.MOBILE_SETTINGS_VIEW:
-          return (0, _v1.jsx)(_v110, {});
+          return (0, _v1.jsx)(_v112, {});
         default:
           return null;
       }
     };
-  var _v112 = _v0.i(0),
-    _v113 = _v0.i(0),
-    _v114 = _v0.i(0),
+  var _v114 = _v0.i(0),
     _v115 = _v0.i(0),
     _v116 = _v0.i(0),
     _v117 = _v0.i(0),
     _v118 = _v0.i(0),
-    _v119 = _v0.i(0);
-  let _v120 = (0, _v7.withRouter)(_v0 => {
+    _v119 = _v0.i(0),
+    _v120 = _v0.i(0),
+    _v121 = _v0.i(0);
+  let _v122 = (0, _v7.withRouter)(_v0 => {
     let _v1,
       _v2,
       _v3,
@@ -1638,7 +1661,7 @@
         _v4 = (0, _v3.useStore)(_v0 => _v0.commonStore.actions.setCapabilities),
         _v5 = (0, _v3.useStore)(_v0 => _v0.commonStore.showcaseOwnerId);
       return (0, _v2.useEffect)(() => {
-        _v5 && (0, _v117.getUserCapabilities)({
+        _v5 && (0, _v119.getUserCapabilities)({
           capabilities: _v3,
           userId: _v5,
           jwt: _v2?.jwt,
@@ -1661,7 +1684,7 @@
           loading: _v3,
           error: _v4,
           data: _v5
-        }] = (0, _v119.useGetUserTeamLazy)();
+        }] = (0, _v121.useGetUserTeamLazy)();
       (0, _v2.useEffect)(() => {
         (0, _v6.isEmpty)(_v0?.userId) || _v2({
           select: ["id", "uri", "ownerId", "teamName", "logoUri", "pictures", "accentColor", "teamShowcaseId"],
@@ -1704,7 +1727,7 @@
           _v2 = (0, _v7.useHistory)(),
           _v3 = (0, _v2.useCallback)((_v0, _v1) => {
             let [_v2, _v3] = _v0.commonStore.actionType.split(".");
-            _v116.fieldsToTrack[_v2]?.forEach(_v0 => {
+            _v118.fieldsToTrack[_v2]?.forEach(_v0 => {
               _v3 !== _v0 || (0, _v6.isSame)(_v0[_v2][_v0], _v1[_v2][_v0]) || (_v0(_v0.commonStore.actionType, _v1[_v2][_v0], _v0[_v2][_v0]), _v1([_v1[_v2][_v0], _v0[_v2][_v0]], _v0.commonStore.actionType, _v2.location.pathname));
             });
           }, [_v0]);
@@ -1715,7 +1738,7 @@
         error: _v9,
         isLoading: _v10,
         mutate: _v11
-      } = (0, _v115.useGetAlbum)(() => (0, _v6.isEmpty)(_v0) ? null : {
+      } = (0, _v117.useGetAlbum)(() => (0, _v6.isEmpty)(_v0) ? null : {
         where: {
           albumId: Number(_v0)
         },
@@ -1726,10 +1749,10 @@
       });
       return (0, _v2.useEffect)(() => {
         if (!_v10 && !_v9 && _v8) {
-          if (!_v8.embed) throw new _v114.UnauthorizedError("You are unauthorized for this action.");
+          if (!_v8.embed) throw new _v116.UnauthorizedError("You are unauthorized for this action.");
           _v1(_v8), _v2(_v8), _v3(_v8), _v4(_v8), _v5(_v8), _v6(_v8);
         }
-        if (!_v10 && _v9) throw new _v114.UnauthorizedError("Unauthorized Action");
+        if (!_v10 && _v9) throw new _v116.UnauthorizedError("Unauthorized Action");
       }, [_v8, _v9, _v10]), (0, _v2.useEffect)(() => {
         _v7(_v11);
       }, [_v11, _v7]), {
@@ -1752,7 +1775,7 @@
         } = (0, _v45.useShowcaseManageTracking)();
       (0, _v2.useEffect)(() => {
         _v1.current || (_v1.current = !0, _v0());
-      }, [_v0]), (0, _v118.usePicoEffect)(() => {
+      }, [_v0]), (0, _v120.usePicoEffect)(() => {
         var _v0;
         _v3({
           showcaseId: _v2,
@@ -1762,7 +1785,7 @@
         once: !0
       });
     })(), (() => {
-      let _v0 = (0, _v112.useToast)(),
+      let _v0 = (0, _v114.useToast)(),
         _v1 = (0, _v3.useStore)(_v0 => _v0.appearanceStore.actions.setMutateFeaturedContent),
         _v2 = (0, _v3.useStore)(_v0 => _v0.appearanceStore.actions.setFeaturedContent),
         {
@@ -1773,7 +1796,7 @@
           isLoading: _v5,
           error: _v6,
           mutate: _v7
-        } = (0, _v113.useGetAlbumVideos)(() => _v3 ? {
+        } = (0, _v115.useGetAlbumVideos)(() => _v3 ? {
           select: _v13.videoFields,
           where: {
             albumId: _v3
@@ -1828,9 +1851,9 @@
         }
       }, [_v4, _v5, _v6]);
     })(), (0, _v1.jsxs)(_v9.UpsellModalProvider, {
-      children: [(0, _v1.jsxs)(_v101, {
-        children: [(0, _v1.jsxs)(_v102, {
-          children: [(0, _v1.jsx)(_v89, {}), (0, _v1.jsx)(_v97, {}), (0, _v1.jsxs)(_v100, {
+      children: [(0, _v1.jsxs)(_v103, {
+        children: [(0, _v1.jsxs)(_v104, {
+          children: [(0, _v1.jsx)(_v89, {}), (0, _v1.jsx)(_v99, {}), (0, _v1.jsxs)(_v102, {
             isLoading: _v6 || _v7,
             children: [(0, _v1.jsx)(_v93, {}), (0, _v1.jsx)(_v8.Flex, {
               direction: "column",
@@ -1847,7 +1870,7 @@
             })]
           })]
         }), (0, _v1.jsx)(_v16.Footer, {})]
-      }), (0, _v1.jsx)(_v111, {})]
+      }), (0, _v1.jsx)(_v113, {})]
     });
   });
   _v0.s(["default", 0, function (_v0) {
@@ -1876,7 +1899,7 @@
       uri: _v5,
       userId: _v6
     } = _v4;
-    return (0, _v1.jsx)(_v120, {
+    return (0, _v1.jsx)(_v122, {
       uri: _v5,
       userId: _v6,
       ..._v0

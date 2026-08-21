@@ -7,7 +7,9 @@
       name: "versions",
       initialState: {
         versionList: [],
-        selectedVersionUri: null
+        selectedVersionUri: null,
+        renditionStatus: null,
+        isLocalUploadActive: !1
       },
       reducers: {
         setVersions(_v0, {
@@ -48,12 +50,22 @@
           _v2 && (_v2.isDeleted = !0);
         },
         resetVersions(_v0) {
-          _v0.versionList = [], _v0.selectedVersionUri = null;
+          _v0.versionList = [], _v0.selectedVersionUri = null, _v0.renditionStatus = null;
         },
         setSelectedVersionUri(_v0, {
           payload: _v1
         }) {
           _v0.selectedVersionUri = _v1;
+        },
+        setRenditionStatus(_v0, {
+          payload: _v1
+        }) {
+          _v0.renditionStatus = _v1;
+        },
+        setIsLocalUploadActive(_v0, {
+          payload: _v1
+        }) {
+          _v0.isLocalUploadActive = _v1;
         }
       }
     });

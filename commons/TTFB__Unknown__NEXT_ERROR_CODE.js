@@ -68,7 +68,10 @@
     return (..._v0) => (_v2 || (_v2 = !0, _v1 = _v0(..._v0)), _v1);
   }
   let _v7 = /^[a-zA-Z][a-zA-Z\d+\-.]*?:/,
-    _v8 = _v0 => _v7.test(_v0);
+    _v8 = _v0 => {
+      let _v1 = _v0.charCodeAt(0);
+      return !!(_v1 >= 65 && _v1 <= 90 || _v1 >= 97 && _v1 <= 122) && _v7.test(_v0);
+    };
   function _v9() {
     let {
       protocol: _v0,

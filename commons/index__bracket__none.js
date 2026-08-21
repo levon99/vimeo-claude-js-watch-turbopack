@@ -66,15 +66,15 @@
       switch (_v0.arrayFormat) {
         case "index":
           return function (_v0, _v1, _v2) {
-            return null === _v1 ? _v5(_v0, _v0) + "[" + _v2 + "]" : _v5(_v0, _v0) + "[" + _v5(_v2, _v0) + "]=" + _v5(_v1, _v0);
+            return null === _v1 ? [_v5(_v0, _v0), "[", _v2, "]"].join("") : [_v5(_v0, _v0), "[", _v5(_v2, _v0), "]=", _v5(_v1, _v0)].join("");
           };
         case "bracket":
           return function (_v0, _v1) {
-            return null === _v1 ? _v5(_v0, _v0) : _v5(_v0, _v0) + "[]=" + _v5(_v1, _v0);
+            return null === _v1 ? _v5(_v0, _v0) : [_v5(_v0, _v0), "[]=", _v5(_v1, _v0)].join("");
           };
         default:
           return function (_v0, _v1) {
-            return null === _v1 ? _v5(_v0, _v0) : _v5(_v0, _v0) + "=" + _v5(_v1, _v0);
+            return null === _v1 ? _v5(_v0, _v0) : [_v5(_v0, _v0), "=", _v5(_v1, _v0)].join("");
           };
       }
     }(_v1 = _v4({

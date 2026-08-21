@@ -29,7 +29,7 @@
         layout: _v6
       } = (0, _v2.useStore)(_v0 => _v0.appearanceStore),
       _v7 = (0, _v6.getDeltaFieldsForLayout)(_v6),
-      _v8 = (0, _v5.createPredicateProcessor)([_v7.isInfoTitleValid, _v7.isInfoDescriptionValid, _v9, _v10, _v11]),
+      _v8 = (0, _v5.createPredicateProcessor)([_v7.isInfoTitleValid, _v7.isInfoDescriptionValid, _v7.isPrivacyValid, _v9, _v10, _v11]),
       {
         getUpgradeControlsEnabled: _v9
       } = (0, _v3.useAppearance)(),

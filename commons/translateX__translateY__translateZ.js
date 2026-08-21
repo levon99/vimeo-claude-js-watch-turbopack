@@ -286,9 +286,8 @@
   try {
     (_v1 = _v0.r(0).default) && (_v51 = _v0 => _v0.startsWith("on") ? !_v50(_v0) : _v1(_v0));
   } catch (_v0) {}
-  var _v52 = _v0.i(0);
-  _v0.i(0);
-  var _v53 = _v0.i(0),
+  var _v52 = _v0.i(0),
+    _v53 = _v0.i(0),
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),

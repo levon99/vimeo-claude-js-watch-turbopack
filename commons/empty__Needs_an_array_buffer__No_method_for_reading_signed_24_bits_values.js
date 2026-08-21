@@ -873,7 +873,7 @@
     this.configOBUs = _v0.readUint8Array(_v2);
   }), _v11.createBoxCtor("avcC", function (_v0) {
     var _v1, _v2;
-    for (_v1 = 0, this.configurationVersion = _v0.readUint8(), this.AVCProfileIndication = _v0.readUint8(), this.profile_compatibility = _v0.readUint8(), this.AVCLevelIndication = _v0.readUint8(), this.lengthSizeMinusOne = 3 & _v0.readUint8(), this.nb_SPS_nalus = 31 & _v0.readUint8(), _v2 = this.size - this.hdr_size - 6, this.SPS = []; _v1 < this.nb_SPS_nalus; _v1++) this.SPS[_v1] = {}, this.SPS[_v1].length = _v0.readUint16(), this.SPS[_v1].nalu = _v0.readUint8Array(this.SPS[_v1].length), _v2 -= 2 + this.SPS[_v1].length;
+    for (this.configurationVersion = _v0.readUint8(), this.AVCProfileIndication = _v0.readUint8(), this.profile_compatibility = _v0.readUint8(), this.AVCLevelIndication = _v0.readUint8(), this.lengthSizeMinusOne = 3 & _v0.readUint8(), this.nb_SPS_nalus = 31 & _v0.readUint8(), _v2 = this.size - this.hdr_size - 6, this.SPS = [], _v1 = 0; _v1 < this.nb_SPS_nalus; _v1++) this.SPS[_v1] = {}, this.SPS[_v1].length = _v0.readUint16(), this.SPS[_v1].nalu = _v0.readUint8Array(this.SPS[_v1].length), _v2 -= 2 + this.SPS[_v1].length;
     for (this.nb_PPS_nalus = _v0.readUint8(), _v2--, this.PPS = [], _v1 = 0; _v1 < this.nb_PPS_nalus; _v1++) this.PPS[_v1] = {}, this.PPS[_v1].length = _v0.readUint16(), this.PPS[_v1].nalu = _v0.readUint8Array(this.PPS[_v1].length), _v2 -= 2 + this.PPS[_v1].length;
     _v2 > 0 && (this.ext = _v0.readUint8Array(_v2));
   }), _v11.createBoxCtor("btrt", function (_v0) {
@@ -883,7 +883,7 @@
     this.all_ref_pics_intra = (128 & _v1) == 128, this.intra_pred_used = (64 & _v1) == 64, this.max_ref_per_pic = (63 & _v1) >> 2, _v0.readUint24();
   }), _v11.createBoxCtor("cdef", function (_v0) {
     var _v1;
-    for (_v1 = 0, this.channel_count = _v0.readUint16(), this.channel_indexes = [], this.channel_types = [], this.channel_associations = []; _v1 < this.channel_count; _v1++) this.channel_indexes.push(_v0.readUint16()), this.channel_types.push(_v0.readUint16()), this.channel_associations.push(_v0.readUint16());
+    for (this.channel_count = _v0.readUint16(), this.channel_indexes = [], this.channel_types = [], this.channel_associations = [], _v1 = 0; _v1 < this.channel_count; _v1++) this.channel_indexes.push(_v0.readUint16()), this.channel_types.push(_v0.readUint16()), this.channel_associations.push(_v0.readUint16());
   }), _v11.createBoxCtor("clap", function (_v0) {
     this.cleanApertureWidthN = _v0.readUint32(), this.cleanApertureWidthD = _v0.readUint32(), this.cleanApertureHeightN = _v0.readUint32(), this.cleanApertureHeightD = _v0.readUint32(), this.horizOffN = _v0.readUint32(), this.horizOffD = _v0.readUint32(), this.vertOffN = _v0.readUint32(), this.vertOffD = _v0.readUint32();
   }), _v11.createBoxCtor("clli", function (_v0) {
@@ -893,7 +893,7 @@
   }), _v11.createFullBoxCtor("cmin", function (_v0) {
     this.focal_length_x = _v0.readInt32(), this.principal_point_x = _v0.readInt32(), this.principal_point_y = _v0.readInt32(), 1 & this.flags && (this.focal_length_y = _v0.readInt32(), this.skew_factor = _v0.readInt32());
   }), _v11.createBoxCtor("cmpd", function (_v0) {
-    for (i = 0, this.component_count = _v0.readUint32(), this.component_types = [], this.component_type_urls = []; i < this.component_count; i++) {
+    for (this.component_count = _v0.readUint32(), this.component_types = [], this.component_type_urls = [], i = 0; i < this.component_count; i++) {
       var _v1 = _v0.readUint16();
       this.component_types.push(_v1), _v1 >= 0 && this.component_type_urls.push(_v0.readCString());
     }
@@ -978,7 +978,7 @@
     _v11[_v0 + "Box"] = function (_v0) {
       _v11.FullBox.call(this, _v0, _v0);
     }, _v11[_v0 + "Box"].prototype = new _v11.FullBox(), _v11[_v0 + "Box"].prototype.parse = function (_v0) {
-      if (this.parseFullHeader(_v0), _v1) _v1.call(this, _v0);else for (i = 0, this.group_id = _v0.readUint32(), this.num_entities_in_group = _v0.readUint32(), this.entity_ids = []; i < this.num_entities_in_group; i++) {
+      if (this.parseFullHeader(_v0), _v1) _v1.call(this, _v0);else for (this.group_id = _v0.readUint32(), this.num_entities_in_group = _v0.readUint32(), this.entity_ids = [], i = 0; i < this.num_entities_in_group; i++) {
         var _v1 = _v0.readUint32();
         this.entity_ids.push(_v1);
       }
@@ -989,7 +989,7 @@
       var _v2 = _v0.readUint32();
       this.entity_ids.push(_v2);
     }
-    for (_v1 = 0, this.tile_size_x = _v0.readUint16(), this.tile_size_y = _v0.readUint16(), this.layer_binning = [], this.tiles_in_layer_column_minus1 = [], this.tiles_in_layer_row_minus1 = []; _v1 < this.num_entities_in_group; _v1++) this.layer_binning[_v1] = _v0.readUint16(), this.tiles_in_layer_row_minus1[_v1] = _v0.readUint16(), this.tiles_in_layer_column_minus1[_v1] = _v0.readUint16();
+    for (this.tile_size_x = _v0.readUint16(), this.tile_size_y = _v0.readUint16(), this.layer_binning = [], this.tiles_in_layer_column_minus1 = [], this.tiles_in_layer_row_minus1 = [], _v1 = 0; _v1 < this.num_entities_in_group; _v1++) this.layer_binning[_v1] = _v0.readUint16(), this.tiles_in_layer_row_minus1[_v1] = _v0.readUint16(), this.tiles_in_layer_column_minus1[_v1] = _v0.readUint16();
   }), _v11.createFullBoxCtor("esds", function (_v0) {
     var _v1 = _v0.readUint8Array(this.size - this.hdr_size);
     if (void 0 !== _v10) {
@@ -1106,11 +1106,11 @@
     this.version >= 2 && (2 === this.version ? this.item_ID = _v0.readUint16() : 3 === this.version && (this.item_ID = _v0.readUint32()), this.item_protection_index = _v0.readUint16(), this.item_type = _v0.readString(4), this.item_name = _v0.readCString(), "mime" === this.item_type ? (this.content_type = _v0.readCString(), this.content_encoding = _v0.readCString()) : "uri " === this.item_type && (this.item_uri_type = _v0.readCString()));
   }), _v11.createFullBoxCtor("ipma", function (_v0) {
     var _v1, _v2;
-    for (_v1 = 0, entry_count = _v0.readUint32(), this.associations = []; _v1 < entry_count; _v1++) {
+    for (entry_count = _v0.readUint32(), this.associations = [], _v1 = 0; _v1 < entry_count; _v1++) {
       var _v3 = {};
       this.associations.push(_v3), this.version < 1 ? _v3.id = _v0.readUint16() : _v3.id = _v0.readUint32();
       var _v4 = _v0.readUint8();
-      for (_v2 = 0, _v3.props = []; _v2 < _v4; _v2++) {
+      for (_v3.props = [], _v2 = 0; _v2 < _v4; _v2++) {
         var _v5 = _v0.readUint8(),
           _v6 = {};
         _v3.props.push(_v6), _v6.essential = (128 & _v5) >> 7 == 1, 1 & this.flags ? _v6.property_index = (127 & _v5) << 8 | _v0.readUint8() : _v6.property_index = 127 & _v5;
@@ -1215,7 +1215,7 @@
     0 === this.version ? this.item_id = _v0.readUint16() : this.item_id = _v0.readUint32();
   }), _v11.createFullBoxCtor("pixi", function (_v0) {
     var _v1;
-    for (_v1 = 0, this.num_channels = _v0.readUint8(), this.bits_per_channels = []; _v1 < this.num_channels; _v1++) this.bits_per_channels[_v1] = _v0.readUint8();
+    for (this.num_channels = _v0.readUint8(), this.bits_per_channels = [], _v1 = 0; _v1 < this.num_channels; _v1++) this.bits_per_channels[_v1] = _v0.readUint8();
   }), _v11.createBoxCtor("pmax", function (_v0) {
     this.bytes = _v0.readUint32();
   }), _v11.createFullBoxCtor("prdi", function (_v0) {
@@ -1264,9 +1264,9 @@
   }), _v11.createSampleGroupCtor("alst", function (_v0) {
     var _v1,
       _v2 = _v0.readUint16();
-    for (_v1 = 0, this.first_output_sample = _v0.readUint16(), this.sample_offset = []; _v1 < _v2; _v1++) this.sample_offset[_v1] = _v0.readUint32();
+    for (this.first_output_sample = _v0.readUint16(), this.sample_offset = [], _v1 = 0; _v1 < _v2; _v1++) this.sample_offset[_v1] = _v0.readUint32();
     var _v3 = this.description_length - 4 - 4 * _v2;
-    for (_v1 = 0, this.num_output_samples = [], this.num_total_samples = []; _v1 < _v3 / 4; _v1++) this.num_output_samples[_v1] = _v0.readUint16(), this.num_total_samples[_v1] = _v0.readUint16();
+    for (this.num_output_samples = [], this.num_total_samples = [], _v1 = 0; _v1 < _v3 / 4; _v1++) this.num_output_samples[_v1] = _v0.readUint16(), this.num_total_samples[_v1] = _v0.readUint16();
   }), _v11.createSampleGroupCtor("avll", function (_v0) {
     this.layerNumber = _v0.readUint8(), this.accurateStatisticsFlag = _v0.readUint8(), this.avgBitRate = _v0.readUint16(), this.avgFrameRate = _v0.readUint16();
   }), _v11.createSampleGroupCtor("avss", function (_v0) {
@@ -1329,10 +1329,10 @@
   }), _v13.prototype.toString = function () {
     return "[row: " + this.bad_pixel_row + ", column: " + this.bad_pixel_column + "]";
   }, _v11.createFullBoxCtor("sbpm", function (_v0) {
-    for (_v1 = 0, this.component_count = _v0.readUint16(), this.component_index = []; _v1 < this.component_count; _v1++) this.component_index.push(_v0.readUint16());
+    for (this.component_count = _v0.readUint16(), this.component_index = [], _v1 = 0; _v1 < this.component_count; _v1++) this.component_index.push(_v0.readUint16());
     var _v1,
       _v2 = _v0.readUint8();
-    for (_v1 = 0, this.correction_applied = 128 == (128 & _v2), this.num_bad_rows = _v0.readUint32(), this.num_bad_cols = _v0.readUint32(), this.num_bad_pixels = _v0.readUint32(), this.bad_rows = [], this.bad_columns = [], this.bad_pixels = []; _v1 < this.num_bad_rows; _v1++) this.bad_rows.push(_v0.readUint32());
+    for (this.correction_applied = 128 == (128 & _v2), this.num_bad_rows = _v0.readUint32(), this.num_bad_cols = _v0.readUint32(), this.num_bad_pixels = _v0.readUint32(), this.bad_rows = [], this.bad_columns = [], this.bad_pixels = [], _v1 = 0; _v1 < this.num_bad_rows; _v1++) this.bad_rows.push(_v0.readUint32());
     for (_v1 = 0; _v1 < this.num_bad_cols; _v1++) this.bad_columns.push(_v0.readUint32());
     for (_v1 = 0; _v1 < this.num_bad_pixels; _v1++) {
       var _v3 = _v0.readUint32(),
@@ -1404,7 +1404,7 @@
     if (_v1 = _v0.readUint32(), this.first_chunk = [], this.samples_per_chunk = [], this.sample_description_index = [], 0 === this.version) for (_v2 = 0; _v2 < _v1; _v2++) this.first_chunk.push(_v0.readUint32()), this.samples_per_chunk.push(_v0.readUint32()), this.sample_description_index.push(_v0.readUint32());
   }), _v11.createFullBoxCtor("stsd", function (_v0) {
     var _v1, _v2, _v3, _v4;
-    for (_v1 = 1, this.entries = [], _v3 = _v0.readUint32(); _v1 <= _v3; _v1++) {
+    for (this.entries = [], _v3 = _v0.readUint32(), _v1 = 1; _v1 <= _v3; _v1++) {
       if ((_v2 = _v11.parseOneBox(_v0, !0, this.size - (_v0.getPosition() - this.start))).code !== _v11.OK) return;
       _v11[_v2.type + "SampleEntry"] ? ((_v4 = new _v11[_v2.type + "SampleEntry"](_v2.size)).hdr_size = _v2.hdr_size, _v4.start = _v2.start) : (_v5.warn("BoxParser", "Unknown sample entry type: " + _v2.type), _v4 = new _v11.SampleEntry(_v2.type, _v2.size, _v2.hdr_size, _v2.start)), _v4.write === _v11.SampleEntry.prototype.write && (_v5.info("BoxParser", "SampleEntry " + _v4.type + " box writing not yet implemented, keeping unparsed data in memory for later write"), _v4.parseDataAndRewind(_v0)), _v4.parse(_v0), this.entries.push(_v4);
     }
@@ -1418,10 +1418,10 @@
     if (_v1 = _v0.readUint32(), this.shadowed_sample_numbers = [], this.sync_sample_numbers = [], 0 === this.version) for (_v2 = 0; _v2 < _v1; _v2++) this.shadowed_sample_numbers.push(_v0.readUint32()), this.sync_sample_numbers.push(_v0.readUint32());
   }), _v11.createFullBoxCtor("stss", function (_v0) {
     var _v1, _v2;
-    if (_v2 = _v0.readUint32(), 0 === this.version) for (_v1 = 0, this.sample_numbers = []; _v1 < _v2; _v1++) this.sample_numbers.push(_v0.readUint32());
+    if (_v2 = _v0.readUint32(), 0 === this.version) for (this.sample_numbers = [], _v1 = 0; _v1 < _v2; _v1++) this.sample_numbers.push(_v0.readUint32());
   }), _v11.createFullBoxCtor("stsz", function (_v0) {
     var _v1;
-    if (this.sample_sizes = [], 0 === this.version) for (_v1 = 0, this.sample_size = _v0.readUint32(), this.sample_count = _v0.readUint32(); _v1 < this.sample_count; _v1++) 0 === this.sample_size ? this.sample_sizes.push(_v0.readUint32()) : this.sample_sizes[_v1] = this.sample_size;
+    if (this.sample_sizes = [], 0 === this.version) for (this.sample_size = _v0.readUint32(), this.sample_count = _v0.readUint32(), _v1 = 0; _v1 < this.sample_count; _v1++) 0 === this.sample_size ? this.sample_sizes.push(_v0.readUint32()) : this.sample_sizes[_v1] = this.sample_size;
   }), _v11.createFullBoxCtor("stts", function (_v0) {
     var _v1, _v2, _v3;
     if (_v1 = _v0.readUint32(), this.sample_counts = [], this.sample_deltas = [], 0 === this.version) for (_v2 = 0; _v2 < _v1; _v2++) this.sample_counts.push(_v0.readUint32()), (_v3 = _v0.readInt32()) < 0 && (_v5.warn("BoxParser", "File uses negative stts sample delta, using value 1 instead, sync may be lost!"), _v3 = 1), this.sample_deltas.push(_v3);
@@ -1445,7 +1445,7 @@
       this.sample_sizes[_v1] = _v3 >> 4 & 15, this.sample_sizes[_v1 + 1] = 15 & _v3;
     } else if (8 === this.field_size) for (_v1 = 0; _v1 < _v2; _v1++) this.sample_sizes[_v1] = _v0.readUint8();else if (16 === this.field_size) for (_v1 = 0; _v1 < _v2; _v1++) this.sample_sizes[_v1] = _v0.readUint16();else _v5.error("BoxParser", "Error in length field in stz2 box");
   }), _v11.createFullBoxCtor("subs", function (_v0) {
-    for (_v1 = 0, _v3 = _v0.readUint32(), this.entries = []; _v1 < _v3; _v1++) {
+    for (_v3 = _v0.readUint32(), this.entries = [], _v1 = 0; _v1 < _v3; _v1++) {
       var _v1,
         _v2,
         _v3,
@@ -1523,7 +1523,7 @@
   }), _v11.createFullBoxCtor("uncC", function (_v0) {
     var _v1;
     if (this.profile = _v0.readUint32(), 1 == this.version) ;else if (0 == this.version) {
-      for (_v1 = 0, this.component_count = _v0.readUint32(), this.component_index = [], this.component_bit_depth_minus_one = [], this.component_format = [], this.component_align_size = []; _v1 < this.component_count; _v1++) this.component_index.push(_v0.readUint16()), this.component_bit_depth_minus_one.push(_v0.readUint8()), this.component_format.push(_v0.readUint8()), this.component_align_size.push(_v0.readUint8());
+      for (this.component_count = _v0.readUint32(), this.component_index = [], this.component_bit_depth_minus_one = [], this.component_format = [], this.component_align_size = [], _v1 = 0; _v1 < this.component_count; _v1++) this.component_index.push(_v0.readUint16()), this.component_bit_depth_minus_one.push(_v0.readUint8()), this.component_format.push(_v0.readUint8()), this.component_align_size.push(_v0.readUint8());
       this.sampling_type = _v0.readUint8(), this.interleave_type = _v0.readUint8(), this.block_size = _v0.readUint8();
       var _v2 = _v0.readUint8();
       this.component_little_endian = _v2 >> 7 & 1, this.block_pad_lsb = _v2 >> 6 & 1, this.block_little_endian = _v2 >> 5 & 1, this.block_reversed = _v2 >> 4 & 1, this.pad_unknown = _v2 >> 3 & 1, this.pixel_size = _v0.readUint32(), this.row_align_size = _v0.readUint32(), this.tile_align_size = _v0.readUint32(), this.num_tile_cols_minus_one = _v0.readUint32(), this.num_tile_rows_minus_one = _v0.readUint32();
@@ -1697,7 +1697,7 @@
           _v3,
           _v4,
           _v5 = [];
-        for (_v3 = 0, _v2 = this.vvcC.ptl_frame_only_constraint << 7 | this.vvcC.ptl_multilayer_enabled << 6; _v3 < this.vvcC.general_constraint_info.length; ++_v3) _v2 |= this.vvcC.general_constraint_info[_v3] >> 2 & 63, _v5.push(_v2), _v2 && (_v4 = _v3), _v2 = this.vvcC.general_constraint_info[_v3] >> 2 & 3;
+        for (_v2 = this.vvcC.ptl_frame_only_constraint << 7 | this.vvcC.ptl_multilayer_enabled << 6, _v3 = 0; _v3 < this.vvcC.general_constraint_info.length; ++_v3) _v2 |= this.vvcC.general_constraint_info[_v3] >> 2 & 63, _v5.push(_v2), _v2 && (_v4 = _v3), _v2 = this.vvcC.general_constraint_info[_v3] >> 2 & 3;
         if (void 0 === _v4) _v1 = ".CA";else {
           _v1 = ".C";
           var _v6 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567",
@@ -1744,7 +1744,7 @@
     this.size = 4 * this.track_ids.length, this.writeHeader(_v0), _v0.writeUint32Array(this.track_ids);
   }, _v11.avcCBox.prototype.write = function (_v0) {
     var _v1;
-    for (_v1 = 0, this.size = 7; _v1 < this.SPS.length; _v1++) this.size += 2 + this.SPS[_v1].length;
+    for (this.size = 7, _v1 = 0; _v1 < this.SPS.length; _v1++) this.size += 2 + this.SPS[_v1].length;
     for (_v1 = 0; _v1 < this.PPS.length; _v1++) this.size += 2 + this.PPS[_v1].length;
     for (this.ext && (this.size += this.ext.length), this.writeHeader(_v0), _v0.writeUint8(this.configurationVersion), _v0.writeUint8(this.AVCProfileIndication), _v0.writeUint8(this.profile_compatibility), _v0.writeUint8(this.AVCLevelIndication), _v0.writeUint8(this.lengthSizeMinusOne + 252), _v0.writeUint8(this.SPS.length + 224), _v1 = 0; _v1 < this.SPS.length; _v1++) _v0.writeUint16(this.SPS[_v1].length), _v0.writeUint8Array(this.SPS[_v1].nalu);
     for (_v0.writeUint8(this.PPS.length), _v1 = 0; _v1 < this.PPS.length; _v1++) _v0.writeUint16(this.PPS[_v1].length), _v0.writeUint8Array(this.PPS[_v1].nalu);
@@ -1778,7 +1778,7 @@
     this.size = 20 + this.name.length + 1, this.version = 0, this.flags = 0, this.writeHeader(_v0), _v0.writeUint32(0), _v0.writeString(this.handler, null, 4), _v0.writeUint32(0), _v0.writeUint32(0), _v0.writeUint32(0), _v0.writeCString(this.name);
   }, _v11.hvcCBox.prototype.write = function (_v0) {
     var _v1, _v2;
-    for (_v1 = 0, this.size = 23; _v1 < this.nalu_arrays.length; _v1++) for (this.size += 3, _v2 = 0; _v2 < this.nalu_arrays[_v1].length; _v2++) this.size += 2 + this.nalu_arrays[_v1][_v2].data.length;
+    for (this.size = 23, _v1 = 0; _v1 < this.nalu_arrays.length; _v1++) for (this.size += 3, _v2 = 0; _v2 < this.nalu_arrays[_v1].length; _v2++) this.size += 2 + this.nalu_arrays[_v1][_v2].data.length;
     for (this.writeHeader(_v0), _v0.writeUint8(this.configurationVersion), _v0.writeUint8(this.general_profile_space << 6 + this.general_tier_flag << 5 + this.general_profile_idc), _v0.writeUint32(this.general_profile_compatibility), _v0.writeUint8Array(this.general_constraint_indicator), _v0.writeUint8(this.general_level_idc), _v0.writeUint16(this.min_spatial_segmentation_idc + 0), _v0.writeUint8(this.parallelismType + 252), _v0.writeUint8(this.chroma_format_idc + 252), _v0.writeUint8(this.bit_depth_luma_minus8 + 248), _v0.writeUint8(this.bit_depth_chroma_minus8 + 248), _v0.writeUint16(this.avgFrameRate), _v0.writeUint8((this.constantFrameRate << 6) + (this.numTemporalLayers << 3) + (this.temporalIdNested << 2) + this.lengthSizeMinusOne), _v0.writeUint8(this.nalu_arrays.length), _v1 = 0; _v1 < this.nalu_arrays.length; _v1++) for (_v0.writeUint8((this.nalu_arrays[_v1].completeness << 7) + this.nalu_arrays[_v1].nalu_type), _v0.writeUint16(this.nalu_arrays[_v1].length), _v2 = 0; _v2 < this.nalu_arrays[_v1].length; _v2++) _v0.writeUint16(this.nalu_arrays[_v1][_v2].data.length), _v0.writeUint8Array(this.nalu_arrays[_v1][_v2].data);
   }, _v11.kindBox.prototype.write = function (_v0) {
     this.version = 0, this.flags = 0, this.size = this.schemeURI.length + 1 + (this.value.length + 1), this.writeHeader(_v0), _v0.writeCString(this.schemeURI), _v0.writeCString(this.value);
@@ -1813,7 +1813,7 @@
     }
   }, _v11.sgpdBox.prototype.write = function (_v0) {
     var _v1, _v2;
-    for (_v1 = 0, this.flags = 0, this.size = 12; _v1 < this.entries.length; _v1++) _v2 = this.entries[_v1], 1 === this.version && (0 === this.default_length && (this.size += 4), this.size += _v2.data.length);
+    for (this.flags = 0, this.size = 12, _v1 = 0; _v1 < this.entries.length; _v1++) _v2 = this.entries[_v1], 1 === this.version && (0 === this.default_length && (this.size += 4), this.size += _v2.data.length);
     for (this.writeHeader(_v0), _v0.writeString(this.grouping_type, null, 4), 1 === this.version && _v0.writeUint32(this.default_length), this.version >= 2 && _v0.writeUint32(this.default_sample_description_index), _v0.writeUint32(this.entries.length), _v1 = 0; _v1 < this.entries.length; _v1++) _v2 = this.entries[_v1], 1 === this.version && 0 === this.default_length && _v0.writeUint32(_v2.description_length), _v2.write(_v0);
   }, _v11.sidxBox.prototype.write = function (_v0) {
     this.version = 0, this.flags = 0, this.size = 20 + 12 * this.references.length, this.writeHeader(_v0), _v0.writeUint32(this.reference_ID), _v0.writeUint32(this.timescale), _v0.writeUint32(this.earliest_presentation_time), _v0.writeUint32(this.first_offset), _v0.writeUint16(0), _v0.writeUint16(this.references.length);
@@ -2212,7 +2212,7 @@
       _v4 = this.getTrackById(_v0.track_id);
     return _v3.add("tfhd").set("track_id", _v0.track_id).set("flags", _v11.TFHD_FLAG_DEFAULT_BASE_IS_MOOF), _v3.add("tfdt").set("baseMediaDecodeTime", _v0.dts - (_v4.first_dts || 0)), _v3.add("trun").set("flags", _v11.TRUN_FLAGS_DATA_OFFSET | _v11.TRUN_FLAGS_DURATION | _v11.TRUN_FLAGS_SIZE | _v11.TRUN_FLAGS_FLAGS | _v11.TRUN_FLAGS_CTS_OFFSET).set("data_offset", 0).set("first_sample_flags", 0).set("sample_count", 1).set("sample_duration", [_v0.duration]).set("sample_size", [_v0.size]).set("sample_flags", [_v1]).set("sample_composition_time_offset", [_v0.cts - _v0.dts]), _v2;
   }, _v17.prototype.lastMoofIndex = 0, _v17.prototype.samplesDataSize = 0, _v17.prototype.resetTables = function () {
-    for (_v0 = 0, this.initial_duration = this.moov.mvhd.duration, this.moov.mvhd.duration = 0; _v0 < this.moov.traks.length; _v0++) {
+    for (this.initial_duration = this.moov.mvhd.duration, this.moov.mvhd.duration = 0, _v0 = 0; _v0 < this.moov.traks.length; _v0++) {
       (_v1 = this.moov.traks[_v0]).tkhd.duration = 0, _v1.mdia.mdhd.duration = 0, (_v1.mdia.minf.stbl.stco || _v1.mdia.minf.stbl.co64).chunk_offsets = [], (_v2 = _v1.mdia.minf.stbl.stsc).first_chunk = [], _v2.samples_per_chunk = [], _v2.sample_description_index = [], (_v1.mdia.minf.stbl.stsz || _v1.mdia.minf.stbl.stz2).sample_sizes = [], (_v3 = _v1.mdia.minf.stbl.stts).sample_counts = [], _v3.sample_deltas = [], (_v4 = _v1.mdia.minf.stbl.ctts) && (_v4.sample_counts = [], _v4.sample_offsets = []);
       var _v0,
         _v1,
@@ -2372,7 +2372,7 @@
           case 2:
             _v5.warn("Item storage with construction_method : not supported");
         }
-        for (_v1 = 0, _v2.extents = [], _v2.size = 0; _v1 < _v6.extents.length; _v1++) _v2.extents[_v1] = {}, _v2.extents[_v1].offset = _v6.extents[_v1].extent_offset + _v6.base_offset, _v2.extents[_v1].length = _v6.extents[_v1].extent_length, _v2.extents[_v1].alreadyRead = 0, _v2.size += _v2.extents[_v1].length;
+        for (_v2.extents = [], _v2.size = 0, _v1 = 0; _v1 < _v6.extents.length; _v1++) _v2.extents[_v1] = {}, _v2.extents[_v1].offset = _v6.extents[_v1].extent_offset + _v6.base_offset, _v2.extents[_v1].length = _v6.extents[_v1].extent_length, _v2.extents[_v1].alreadyRead = 0, _v2.size += _v2.extents[_v1].length;
       }
       if (_v5.pitm && (_v3[_v5.pitm.item_id].primary = !0), _v5.iref) for (_v0 = 0; _v0 < _v5.iref.references.length; _v0++) {
         var _v7 = _v5.iref.references[_v0];

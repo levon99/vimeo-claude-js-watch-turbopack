@@ -140,7 +140,7 @@
           return (0, _v10.resolvePromiseWithTimeout)(_v17(_v0, _v0).then(({
             scripts: _v0,
             css: _v1
-          }) => Promise.all([_v1.has(_v0) ? [] : Promise.all(_v0.map(_v5)), Promise.all(_v1.map(_v6))])).then(_v0 => this.whenEntrypoint(_v0).then(_v0 => ({
+          }) => Promise.all([_v1.has(_v0) ? [] : Promise.all(_v0.map(_v5)).then(_v0 => _v0), Promise.all(_v1.map(_v6))])).then(_v0 => this.whenEntrypoint(_v0).then(_v0 => ({
             entrypoint: _v0,
             styles: _v0[1]
           }))), _v13(Object.defineProperty(Error(`Route did not complete loading: ${_v0}`), "__NEXT_ERROR_CODE", {

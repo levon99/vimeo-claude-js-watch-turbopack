@@ -6,13 +6,13 @@
   });
   var _v3 = {
     default: function () {
-      return _v19;
+      return _v20;
     },
     handleClientScriptLoad: function () {
-      return _v16;
+      return _v17;
     },
     initScriptLoader: function () {
-      return _v17;
+      return _v18;
     }
   };
   for (var _v4 in _v3) Object.defineProperty(_v2, _v4, {
@@ -27,9 +27,10 @@
     _v10 = _v0.r(0),
     _v11 = _v0.r(0),
     _v12 = _v0.r(0),
-    _v13 = new Map(),
-    _v14 = new Set(),
-    _v15 = _v0 => {
+    _v13 = _v0.r(0),
+    _v14 = new Map(),
+    _v15 = new Set(),
+    _v16 = _v0 => {
       let {
           src: _v1,
           id: _v2,
@@ -42,13 +43,13 @@
           stylesheets: _v9
         } = _v0,
         _v10 = _v2 || _v1;
-      if (_v10 && _v14.has(_v10)) return;
-      if (_v13.has(_v1)) {
-        _v14.add(_v10), _v13.get(_v1).then(_v3, _v8);
+      if (_v10 && _v15.has(_v10)) return;
+      if (_v14.has(_v1)) {
+        _v15.add(_v10), _v14.get(_v1).then(_v3, _v8);
         return;
       }
       let _v11 = () => {
-          _v4 && _v4(), _v14.add(_v10);
+          _v4 && _v4(), _v15.add(_v10);
         },
         _v12 = document.createElement("script"),
         _v13 = new Promise((_v0, _v1) => {
@@ -60,7 +61,7 @@
         }).catch(function (_v0) {
           _v8 && _v8(_v0);
         });
-      _v5 ? (_v12.innerHTML = _v5.__html || "", _v11()) : _v6 ? (_v12.textContent = "string" == typeof _v6 ? _v6 : Array.isArray(_v6) ? _v6.join("") : "", _v11()) : _v1 && (_v12.src = _v1, _v13.set(_v1, _v13)), (0, _v11.setAttributesFromProps)(_v12, _v0), "worker" === _v7 && _v12.setAttribute("type", "text/partytown"), _v12.setAttribute("data-nscript", _v7), _v9 && (_v0 => {
+      _v5 ? (_v12.innerHTML = _v5.__html || "", _v11()) : _v6 ? (_v12.textContent = "string" == typeof _v6 ? _v6 : Array.isArray(_v6) ? _v6.join("") : "", _v11()) : _v1 && (_v12.src = _v1, _v14.set(_v1, _v13)), (0, _v11.setAttributesFromProps)(_v12, _v0), "worker" === _v7 && _v12.setAttribute("type", "text/partytown"), _v12.setAttribute("data-nscript", _v7), _v9 && (_v0 => {
         if (_v8.default.preinit) return _v0.forEach(_v0 => {
           _v8.default.preinit(_v0, {
             as: "style"
@@ -75,21 +76,21 @@
         }
       })(_v9), document.body.appendChild(_v12);
     };
-  function _v16(_v0) {
+  function _v17(_v0) {
     let {
       strategy: _v1 = "afterInteractive"
     } = _v0;
     "lazyOnload" === _v1 ? window.addEventListener("load", () => {
-      (0, _v12.requestIdleCallback)(() => _v15(_v0));
-    }) : _v15(_v0);
-  }
-  function _v17(_v0) {
-    _v0.forEach(_v16), [...document.querySelectorAll('[data-nscript="beforeInteractive"]'), ...document.querySelectorAll('[data-nscript="beforePageRender"]')].forEach(_v0 => {
-      let _v1 = _v0.id || _v0.getAttribute("src");
-      _v14.add(_v1);
-    });
+      (0, _v12.requestIdleCallback)(() => _v16(_v0));
+    }) : _v16(_v0);
   }
   function _v18(_v0) {
+    _v0.forEach(_v17), [...document.querySelectorAll('[data-nscript="beforeInteractive"]'), ...document.querySelectorAll('[data-nscript="beforePageRender"]')].forEach(_v0 => {
+      let _v1 = _v0.id || _v0.getAttribute("src");
+      _v15.add(_v1);
+    });
+  }
+  function _v19(_v0) {
     let {
         id: _v1,
         src: _v2 = "",
@@ -111,13 +112,13 @@
     let _v14 = (0, _v9.useRef)(!1);
     (0, _v9.useEffect)(() => {
       let _v0 = _v1 || _v2;
-      _v14.current || (_v4 && _v0 && _v14.has(_v0) && _v4(), _v14.current = !0);
+      _v14.current || (_v4 && _v0 && _v15.has(_v0) && _v4(), _v14.current = !0);
     }, [_v4, _v1, _v2]);
     let _v15 = (0, _v9.useRef)(!1);
     if ((0, _v9.useEffect)(() => {
       if (!_v15.current) {
-        if ("afterInteractive" === _v5) _v15(_v0);else "lazyOnload" === _v5 && ("complete" === document.readyState ? (0, _v12.requestIdleCallback)(() => _v15(_v0)) : window.addEventListener("load", () => {
-          (0, _v12.requestIdleCallback)(() => _v15(_v0));
+        if ("afterInteractive" === _v5) _v16(_v0);else "lazyOnload" === _v5 && ("complete" === document.readyState ? (0, _v12.requestIdleCallback)(() => _v16(_v0)) : window.addEventListener("load", () => {
+          (0, _v12.requestIdleCallback)(() => _v16(_v0));
         }));
         _v15.current = !0;
       }
@@ -129,7 +130,7 @@
       onError: _v6,
       ..._v8,
       nonce: _v13
-    }]), _v9(_v10)) : _v11 && _v11() ? _v14.add(_v1 || _v2) : _v11 && !_v11() && _v15({
+    }]), _v9(_v10)) : _v11 && _v11() ? _v15.add(_v1 || _v2) : _v11 && !_v11() && _v16({
       ..._v0,
       nonce: _v13
     })), _v12) {
@@ -140,10 +141,10 @@
       }), "beforeInteractive" === _v5) if (!_v2) return _v8.dangerouslySetInnerHTML && (_v8.children = _v8.dangerouslySetInnerHTML.__html, delete _v8.dangerouslySetInnerHTML), (0, _v7.jsx)("script", {
         nonce: _v13,
         dangerouslySetInnerHTML: {
-          __html: `(self.__next_s=self.__next_s||[]).push(${JSON.stringify([0, {
+          __html: `(self.__next_s=self.__next_s||[]).push(${(0, _v13.htmlEscapeJsonString)(JSON.stringify([0, {
             ..._v8,
             id: _v1
-          }])})`
+          }]))})`
         }
       });else return _v8.default.preload(_v2, _v8.integrity ? {
         as: "script",
@@ -157,10 +158,10 @@
       }), (0, _v7.jsx)("script", {
         nonce: _v13,
         dangerouslySetInnerHTML: {
-          __html: `(self.__next_s=self.__next_s||[]).push(${JSON.stringify([_v2, {
+          __html: `(self.__next_s=self.__next_s||[]).push(${(0, _v13.htmlEscapeJsonString)(JSON.stringify([_v2, {
             ..._v8,
             id: _v1
-          }])})`
+          }]))})`
         }
       });
       "afterInteractive" === _v5 && _v2 && _v8.default.preload(_v2, _v8.integrity ? {
@@ -176,10 +177,10 @@
     }
     return null;
   }
-  Object.defineProperty(_v18, "__nextScript", {
+  Object.defineProperty(_v19, "__nextScript", {
     value: !0
   });
-  let _v19 = _v18;
+  let _v20 = _v19;
   ("function" == typeof _v2.default || "object" == typeof _v2.default && null !== _v2.default) && void 0 === _v2.default.__esModule && (Object.defineProperty(_v2.default, "__esModule", {
     value: !0
   }), Object.assign(_v2.default, _v2), _v1.exports = _v2.default);

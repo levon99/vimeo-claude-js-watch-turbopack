@@ -28,9 +28,8 @@
     _v14 = _v0.r(0),
     _v15 = _v0.r(0),
     _v16 = _v0.r(0),
-    _v17 = _v0.r(0);
-  _v0.r(0);
-  let _v18 = new Set();
+    _v17 = _v0.r(0),
+    _v18 = new Set();
   function _v19(_v0, _v1, _v2, _v3) {
     if (!("u" < typeof window) && (0, _v9.isLocalURL)(_v1)) {
       if (!_v3.bypassPrefetchedCheck) {
@@ -100,6 +99,7 @@
         _v31 = (0, _v17.useMergedRef)(_v30, _v26);
       _v7.default.useEffect(() => {
         !_v20 || _v28 && _v21 && _v19(_v20, _v22, _v23, {
+          bypassPrefetchedCheck: !1,
           locale: _v12
         });
       }, [_v23, _v22, _v28, _v12, _v21, _v20?.locale, _v20]);

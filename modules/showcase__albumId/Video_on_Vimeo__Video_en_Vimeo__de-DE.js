@@ -840,11 +840,13 @@
             _v5 = _v4?.live,
             _v6 = _v5?.status,
             _v7 = _v5?.scheduledStartTime,
-            _v8 = _v5?.archivedTime;
+            _v8 = _v5?.archivedTime,
+            _v9 = "done" === _v6 && _v5?.archivedTime,
+            _v10 = _v78.some(_v0 => _v6 === _v0);
           return {
-            isArchived: "done" === _v6 && _v5?.archivedTime,
+            isArchived: _v9,
             isStreaming: "streaming" === _v6,
-            isUpcoming: _v78.some(_v0 => _v6 === _v0),
+            isUpcoming: _v10,
             startTime: _v7,
             archivedTime: _v8
           };

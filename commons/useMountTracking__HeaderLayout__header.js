@@ -13,7 +13,6 @@
     headerFixed: !1
   };
   var _v8 = _v0.i(0);
-  _v0.i(0);
   let _v9 = () => {};
   _v0.s(["useMountTracking", 0, _v9], 0), _v0.s(["HeaderLayout", 0, function ({
     layoutOptions: _v0
@@ -27,7 +26,7 @@
         ..._v7,
         ..._v0
       };
-    return _v9("HeaderLayout"), (0, _v1.jsxs)(_v6.FixableContainer, {
+    return _v9(), (0, _v1.jsxs)(_v6.FixableContainer, {
       fixed: _v2,
       as: "header",
       children: [_v3 && (0, _v1.jsx)(_v4.Ribbon, {

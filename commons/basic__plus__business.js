@@ -284,7 +284,7 @@
       });
     };
   }
-  _v0.s(["default", () => _v16], 0);
+  _v0.s(["default", 0, _v16], 0);
   let _v17 = _v3.default.createContext({
     loading: !1,
     authError: void 0,

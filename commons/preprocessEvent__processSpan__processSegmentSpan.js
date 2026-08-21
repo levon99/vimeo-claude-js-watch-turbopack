@@ -2607,7 +2607,7 @@ Error:`, _v0);
     _v174("visibilitychange", _v2 = _v0 => {
       ("pagehide" === _v0.type || _v118.document?.visibilityState === "hidden") && (() => {
         _v5("pagehide");
-      })(_v0);
+      })();
     }, {
       capture: !0,
       once: !0
@@ -3127,7 +3127,7 @@ Error:`, _v0);
     _v283 = _v17.GLOBAL_OBJ,
     _v284 = _v15.default.env.SENTRY_ENVIRONMENT ?? ("true" === _v15.default.env.IS_STAGING ? "staging" : "production"),
     _v285 = "production" === _v284;
-  globalThis._sentryRouteManifest = '{"isrRoutes":[],"dynamicRoutes":[],"staticRoutes":[]}', globalThis._sentryNextJsVersion = "16.2.2";
+  globalThis._sentryRouteManifest = '{"isrRoutes":[],"dynamicRoutes":[],"staticRoutes":[]}', globalThis._sentryNextJsVersion = "16.3.1";
   let _v286 = Promise.reject.bind(Promise);
   Promise.reject = function (_v0) {
     if (void 0 === _v0) try {
@@ -4500,7 +4500,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "c5e55f1789b6dce7fb9ca6b5363f994036bc4326",
+      release: "ce661ff07268a820923161452d2f117556b46f45",
       ..._v0
     };
     !function (_v0) {
