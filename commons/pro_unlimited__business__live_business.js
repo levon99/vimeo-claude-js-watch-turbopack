@@ -15,6 +15,7 @@
       case "advanced":
       case "standard":
       case "creator":
+      case "core":
       case "professional":
       case "studio":
       case "production":

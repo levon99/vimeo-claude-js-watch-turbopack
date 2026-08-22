@@ -721,7 +721,7 @@
           singular: "Par timecode"
         },
         "ja-JP": {
-          singular: "タイムコード別"
+          singular: "タイムコード順"
         },
         "ko-KR": {
           singular: "타임코드별"

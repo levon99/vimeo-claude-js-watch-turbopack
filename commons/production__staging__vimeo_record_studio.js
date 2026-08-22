@@ -25,21 +25,22 @@
     _v45 = _v0.i(0),
     _v46 = _v0.i(0),
     _v47 = _v0.i(0),
-    _v48 = _v0.i(0);
-  class _v49 {
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0);
+  class _v50 {
     globalBPO;
     teamData;
-    static service = "production" == (/\.ci\.vimeows.com$/.test(window.location.host) ? "staging" : "production") ? _v47.Service.FRESNEL_PROD : _v47.Service.FRESNEL_DEV;
+    static service = "production" == (/\.ci\.vimeows.com$/.test(window.location.host) ? "staging" : "production") ? _v48.Service.FRESNEL_PROD : _v48.Service.FRESNEL_DEV;
     static recordClient = function (_v0) {
       let {
         conf: _v1,
         ..._v2
-      } = _v47.BigPictureClient;
+      } = _v48.BigPictureClient;
       return {
         ..._v2,
-        conf: new _v47.Configuration(_v0)
+        conf: new _v48.Configuration(_v0)
       };
-    }(_v49.service);
+    }(_v50.service);
     sentErrors = new Set();
     constructor() {
       this.globalBPO = {
@@ -47,13 +48,13 @@
         vuid: null,
         vimeo_language: null,
         app_type: "vimeo_record_studio",
-        app_version: _v48.default.version,
+        app_version: _v49.default.version,
         app_version_number: function (_v0) {
           let _v1 = _v0.match(/^(\d+)\.(\d+)\.(\d+)\s?.*$/);
           if (!_v1) return 0;
           let [_v2, _v3, _v4] = _v1;
           return 0 * parseInt(_v2) + 0 * parseInt(_v3) + 0 * parseInt(_v4);
-        }(_v48.default.version),
+        }(_v49.default.version),
         app_id: null,
         user_id: null,
         is_mod: null,
@@ -95,26 +96,26 @@
       this.configureRecordClient();
     }
     async sendRecordEvent(_v0, _v1) {
-      await _v49.recordClient.sendEvent(_v0(this.globalBPO), _v1);
+      await _v50.recordClient.sendEvent(_v0(this.globalBPO), _v1);
     }
     async sendVimeoEvent(_v0, _v1) {
-      await _v47.BigPictureClient.sendEvent(_v0(this.globalBPO, this.teamData, this.sessionId, this.integrationName), _v1);
+      await _v48.BigPictureClient.sendEvent(_v0(this.globalBPO, this.teamData, this.sessionId, this.integrationName), _v1);
     }
     userErrorHandled(_v0) {
-      this.sentErrors.has(_v0.errorCategory) || (this.sentErrors.add(_v0.errorCategory), this.sendRecordEvent(() => new _v47.Event("recording_user_error_handled", 1, {
+      this.sentErrors.has(_v0.errorCategory) || (this.sentErrors.add(_v0.errorCategory), this.sendRecordEvent(() => new _v48.Event("recording_user_error_handled", 1, {
         severity_type: _v0.severityType,
         message: _v0.message,
         error_category: _v0.errorCategory
       })));
     }
     configureRecordClient() {
-      let _v0 = new _v47.Event("record_extension_global", 6, this.globalBPO);
-      _v49.recordClient.conf = new _v47.Configuration(_v49.service, _v0);
+      let _v0 = new _v48.Event("record_extension_global", 6, this.globalBPO);
+      _v50.recordClient.conf = new _v48.Configuration(_v50.service, _v0);
     }
   }
-  let _v50 = new _v49();
-  function _v51(_v0) {
-    _v50.sendVimeoEvent((_v0, _v1, _v2, _v3) => new _v47.Event("vimeo.record_event", 20, {
+  let _v51 = new _v50();
+  function _v52(_v0) {
+    _v51.sendVimeoEvent((_v0, _v1, _v2, _v3) => new _v48.Event("vimeo.record_event", 20, {
       event_name: _v0.name,
       event_type: _v0.eventType,
       location: _v0.location,
@@ -126,15 +127,15 @@
       integration: _v3
     }));
   }
-  let _v52 = "CAMERA",
-    _v53 = "SCREEN",
-    _v54 = "BOTH",
-    _v55 = ["soundwave"],
-    _v56 = "16:9",
-    _v57 = "9:16",
-    _v58 = [{
+  let _v53 = "CAMERA",
+    _v54 = "SCREEN",
+    _v55 = "BOTH",
+    _v56 = ["soundwave"],
+    _v57 = "16:9",
+    _v58 = "9:16",
+    _v59 = [{
       key: "big_two_in_big_screen_layout",
-      type: _v54,
+      type: _v55,
       hasFrame: !0,
       fit: "none",
       cameraEffect: "unchanged",
@@ -146,7 +147,7 @@
       }
     }, {
       key: "big_two_in_big_fullscreen_layout",
-      type: _v54,
+      type: _v55,
       hasFrame: !1,
       fit: "none",
       cameraEffect: "unchanged",
@@ -158,7 +159,7 @@
       }
     }, {
       key: "cornered_round_in_big_screen_layout",
-      type: _v54,
+      type: _v55,
       hasFrame: !0,
       fit: "none",
       cameraEffect: "unchanged",
@@ -170,7 +171,7 @@
       corner: "br"
     }, {
       key: "cornered_round_in_fullscreen_layout",
-      type: _v54,
+      type: _v55,
       hasFrame: !1,
       fit: "none",
       cameraEffect: "unchanged",
@@ -182,7 +183,7 @@
       corner: "br"
     }, {
       key: "cornered_square_in_big_screen_layout",
-      type: _v54,
+      type: _v55,
       hasFrame: !0,
       fit: "none",
       cameraEffect: "transparent",
@@ -194,7 +195,7 @@
       corner: "br"
     }, {
       key: "cornered_square_in_fullscreen_screen_layout",
-      type: _v54,
+      type: _v55,
       hasFrame: !1,
       fit: "none",
       cameraEffect: "transparent",
@@ -205,9 +206,9 @@
       },
       corner: "br"
     }],
-    _v59 = [{
+    _v60 = [{
       key: "camera_in_full_screen_layout",
-      type: _v52,
+      type: _v53,
       hasFrame: !1,
       fit: "cover",
       assetsShape: {
@@ -215,33 +216,33 @@
       }
     }, {
       key: "camera_in_big_screen_layout",
-      type: _v52,
+      type: _v53,
       hasFrame: !0,
       fit: "none",
       assetsShape: {
         userMedia: "source"
-      }
-    }],
-    _v60 = [{
-      key: "screen_in_full_screen_layout",
-      type: _v53,
-      hasFrame: !1,
-      fit: "none",
-      assetsShape: {
-        displayMedia: "source"
-      }
-    }, {
-      key: "screen_in_big_screen_layout",
-      type: _v53,
-      hasFrame: !0,
-      fit: "none",
-      assetsShape: {
-        displayMedia: "source"
       }
     }],
     _v61 = [{
-      key: "big_two_in_big_screen_layout",
+      key: "screen_in_full_screen_layout",
       type: _v54,
+      hasFrame: !1,
+      fit: "none",
+      assetsShape: {
+        displayMedia: "source"
+      }
+    }, {
+      key: "screen_in_big_screen_layout",
+      type: _v54,
+      hasFrame: !0,
+      fit: "none",
+      assetsShape: {
+        displayMedia: "source"
+      }
+    }],
+    _v62 = [{
+      key: "big_two_in_big_screen_layout",
+      type: _v55,
       hasFrame: !0,
       fit: "none",
       cameraEffect: "unchanged",
@@ -253,7 +254,7 @@
       }
     }, {
       key: "big_two_in_big_fullscreen_layout",
-      type: _v54,
+      type: _v55,
       hasFrame: !1,
       fit: "none",
       cameraEffect: "unchanged",
@@ -265,7 +266,7 @@
       }
     }, {
       key: "cornered_square_in_big_screen_layout",
-      type: _v54,
+      type: _v55,
       hasFrame: !0,
       fit: "none",
       cameraEffect: "transparent",
@@ -277,7 +278,7 @@
       corner: "br"
     }, {
       key: "cornered_square_in_fullscreen_screen_layout",
-      type: _v54,
+      type: _v55,
       hasFrame: !1,
       fit: "height",
       cameraEffect: "transparent",
@@ -288,9 +289,9 @@
       },
       corner: "br"
     }],
-    _v62 = [{
+    _v63 = [{
       key: "camera_in_full_screen_layout",
-      type: _v52,
+      type: _v53,
       hasFrame: !1,
       fit: "cover",
       assetsShape: {
@@ -298,33 +299,33 @@
       }
     }, {
       key: "camera_in_big_screen_layout",
-      type: _v52,
+      type: _v53,
       hasFrame: !0,
       fit: "none",
       assetsShape: {
         userMedia: "verticalRectangle"
-      }
-    }],
-    _v63 = [{
-      key: "screen_in_full_screen_layout",
-      type: _v53,
-      hasFrame: !1,
-      fit: "height",
-      assetsShape: {
-        displayMedia: "source"
-      }
-    }, {
-      key: "screen_in_big_screen_layout",
-      type: _v53,
-      hasFrame: !0,
-      fit: "none",
-      assetsShape: {
-        displayMedia: "source"
       }
     }],
     _v64 = [{
-      key: "big_two_in_big_screen_layout",
+      key: "screen_in_full_screen_layout",
       type: _v54,
+      hasFrame: !1,
+      fit: "height",
+      assetsShape: {
+        displayMedia: "source"
+      }
+    }, {
+      key: "screen_in_big_screen_layout",
+      type: _v54,
+      hasFrame: !0,
+      fit: "none",
+      assetsShape: {
+        displayMedia: "source"
+      }
+    }],
+    _v65 = [{
+      key: "big_two_in_big_screen_layout",
+      type: _v55,
       hasFrame: !0,
       fit: "none",
       cameraEffect: "unchanged",
@@ -336,7 +337,7 @@
       }
     }, {
       key: "big_two_in_big_fullscreen_layout",
-      type: _v54,
+      type: _v55,
       hasFrame: !1,
       fit: "none",
       cameraEffect: "unchanged",
@@ -348,7 +349,7 @@
       }
     }, {
       key: "cornered_square_in_big_screen_layout",
-      type: _v54,
+      type: _v55,
       hasFrame: !0,
       fit: "none",
       cameraEffect: "transparent",
@@ -360,7 +361,7 @@
       corner: "br"
     }, {
       key: "cornered_square_in_fullscreen_screen_layout",
-      type: _v54,
+      type: _v55,
       hasFrame: !1,
       fit: "height",
       cameraEffect: "transparent",
@@ -371,9 +372,9 @@
       },
       corner: "br"
     }],
-    _v65 = [{
+    _v66 = [{
       key: "camera_in_full_screen_layout",
-      type: _v52,
+      type: _v53,
       hasFrame: !1,
       fit: "cover",
       assetsShape: {
@@ -381,16 +382,16 @@
       }
     }, {
       key: "camera_in_big_screen_layout",
-      type: _v52,
+      type: _v53,
       hasFrame: !0,
       fit: "none",
       assetsShape: {
         userMedia: "square"
       }
     }],
-    _v66 = [{
+    _v67 = [{
       key: "screen_in_full_screen_layout",
-      type: _v53,
+      type: _v54,
       hasFrame: !1,
       fit: "height",
       assetsShape: {
@@ -398,47 +399,47 @@
       }
     }, {
       key: "screen_in_big_screen_layout",
-      type: _v53,
+      type: _v54,
       hasFrame: !0,
       fit: "none",
       assetsShape: {
         displayMedia: "source"
       }
     }],
-    _v67 = {
-      [_v56]: _v58,
-      "1:1": _v64,
-      [_v57]: _v61
-    },
     _v68 = {
-      [_v56]: _v59,
+      [_v57]: _v59,
       "1:1": _v65,
-      [_v57]: _v62
+      [_v58]: _v62
     },
     _v69 = {
-      [_v56]: _v60,
+      [_v57]: _v60,
       "1:1": _v66,
-      [_v57]: _v63
+      [_v58]: _v63
     },
     _v70 = {
-      [_v56]: {
-        [_v52]: _v59[0],
+      [_v57]: _v61,
+      "1:1": _v67,
+      [_v58]: _v64
+    },
+    _v71 = {
+      [_v57]: {
         [_v53]: _v60[0],
-        [_v54]: _v58[0]
+        [_v54]: _v61[0],
+        [_v55]: _v59[0]
       },
       "1:1": {
-        [_v52]: _v65[0],
         [_v53]: _v66[0],
-        [_v54]: _v64[0]
+        [_v54]: _v67[0],
+        [_v55]: _v65[0]
       },
-      [_v57]: {
-        [_v52]: _v62[0],
+      [_v58]: {
         [_v53]: _v63[0],
-        [_v54]: _v61[0]
+        [_v54]: _v64[0],
+        [_v55]: _v62[0]
       }
     };
-  var _v71 = _v0.i(0);
-  let _v72 = {
+  var _v72 = _v0.i(0);
+  let _v73 = {
       extensionRedirectSource: "record_extension_source",
       extensionRedirect: "record_extension",
       debugMode: "debug",
@@ -449,7 +450,7 @@
       uploadApproach: "upload_approach",
       recordingInQuota: "recording_in_quota"
     },
-    _v73 = {
+    _v74 = {
       extensionRedirectSource: ["floating_button", "top_toolbar", "install"],
       extensionRedirect: "true",
       debugMode: "on",
@@ -460,7 +461,7 @@
       uploadApproach: ["live", "ipb", "tus", "tus_stream"],
       recordingInQuota: "true"
     };
-  function _v74(_v0) {
+  function _v75(_v0) {
     let _v1 = new URLSearchParams(window.location.search),
       _v2 = new URL(window.location.href);
     for (let _v0 of [_v0].flat()) _v1.delete(_v0);
@@ -468,24 +469,24 @@
       _v4 = `${_v2.pathname}${_v3}${_v2.hash}`;
     history.replaceState?.(null, "", _v4);
   }
-  function _v75(_v0, _v1, _v2) {
+  function _v76(_v0, _v1, _v2) {
     let _v3 = new URLSearchParams(_v2 ?? window.location.search);
     return [_v0].flatMap(_v0 => _v0).reduce((_v0, _v1) => {
-      let _v2 = _v3?.get(_v72[_v1]);
+      let _v2 = _v3?.get(_v73[_v1]);
       if (_v1) {
         let _v0 = `is${_v1.charAt(0).toUpperCase() + _v1.slice(1)}`,
-          _v1 = _v73[_v1];
+          _v1 = _v74[_v1];
         null !== _v1 && _v2 ? _v0[_v0] = Array.isArray(_v1) ? _v1.includes(_v2) : _v2 === _v1 : _v0[_v0] = !1;
       } else _v0[_v1] = _v2;
       return _v0;
     }, {});
   }
-  let _v76 = location.host.endsWith(".ci.vimeows.com") || location.host.endsWith(".vimeows.work"),
-    _v77 = /^(?!-)[a-z0-9-]+(?<!-)\.vimeo\.work$/.test(window.location.hostname),
-    _v78 = _v76 && _v75("localRecording", !0).isLocalRecording,
-    _v79 = "https://recordwidget.vimeocdn.com/recordwidget/studio/resources/loading.mp4",
-    _v80 = location.host.endsWith("vimeo.com") || _v77,
-    _v81 = _v0 => {
+  let _v77 = location.host.endsWith(".ci.vimeows.com") || location.host.endsWith(".vimeows.work"),
+    _v78 = /^(?!-)[a-z0-9-]+(?<!-)\.vimeo\.work$/.test(window.location.hostname),
+    _v79 = _v77 && _v76("localRecording", !0).isLocalRecording,
+    _v80 = "https://recordwidget.vimeocdn.com/recordwidget/studio/resources/loading.mp4",
+    _v81 = location.host.endsWith("vimeo.com") || _v78,
+    _v82 = _v0 => {
       let _v1 = _v0 => {
         _v0.key === _v0.persist.getOptions().name && _v0.newValue && _v0.persist.rehydrate();
       };
@@ -493,17 +494,17 @@
         window.removeEventListener("storage", _v1);
       };
     },
-    _v82 = {
+    _v83 = {
       lastLayoutTypeUsed: null
     },
-    _v83 = (0, _v71.createPersistentStore)(_v0 => ({
+    _v84 = (0, _v72.createPersistentStore)(_v0 => ({
       currentSessionId: null,
       history: [],
       setCurrentSessionId: _v0 => {
         _v0(_v0 => {
           _v0.currentSessionId !== _v0 && (_v0.currentSessionId = _v0, !_v0.history.find(_v0 => _v0.id === _v0) && (_v0.history.push({
             id: _v0,
-            data: _v82
+            data: _v83
           }), _v0.history.length > 15 && (_v0.history = _v0.history.slice(_v0.history.length - 15))));
         });
       },
@@ -526,7 +527,7 @@
           } else _v0.addSessionToHistory({
             id: _v0.currentSessionId,
             data: {
-              ..._v82,
+              ..._v83,
               ..._v0
             }
           });
@@ -543,15 +544,15 @@
         _v1.conversationHistory || (_v1.conversationHistory = []), _v1?.isTeleprompterShown === void 0 && (_v1.isTeleprompterShown = !1), void 0 === _v1.lastLayoutTypeUsed && (_v1.lastLayoutTypeUsed = null);
       }), _v0)
     });
-  _v81(_v83);
-  let _v84 = {
-      selectedLayouts: _v70,
+  _v82(_v84);
+  let _v85 = {
+      selectedLayouts: _v71,
       currentLayout: null,
       currentLayoutKey: null,
       currentLayoutCameraEffect: null,
       selectedAsset: null,
       assetsShapeOverride: {},
-      aspectRatio: _v56,
+      aspectRatio: _v57,
       backdrop: {
         type: "gradient",
         index: 0
@@ -574,8 +575,8 @@
         height: 720
       }
     },
-    _v85 = (0, _v71.createPersistentStore)(_v0 => ({
-      ..._v84,
+    _v86 = (0, _v72.createPersistentStore)(_v0 => ({
+      ..._v85,
       setCapturedResolution: _v0 => {
         _v0(_v0 => {
           _v0.capturedResolution = _v0;
@@ -618,7 +619,7 @@
       },
       setCurrentLayout: _v0 => {
         _v0(_v0 => {
-          _v0.currentLayout = _v0, _v0 && _v83.getState().updateCurrentSessionData({
+          _v0.currentLayout = _v0, _v0 && _v84.getState().updateCurrentSessionData({
             lastLayoutTypeUsed: _v0
           });
         });
@@ -673,17 +674,17 @@
         backdrop: _v0.backdrop,
         size: _v0.size
       }),
-      migrate: (_v0, _v1) => (_v1 < 8 && (_v0.aspectRatio = _v84.aspectRatio, _v0.selectedLayouts = {
-        ..._v84.selectedLayouts
+      migrate: (_v0, _v1) => (_v1 < 8 && (_v0.aspectRatio = _v85.aspectRatio, _v0.selectedLayouts = {
+        ..._v85.selectedLayouts
       }, _v0.layoutFlip = {
-        ..._v84.layoutFlip
+        ..._v85.layoutFlip
       }, _v0.backdrop = {
-        ..._v84.backdrop
+        ..._v85.backdrop
       }), _v1 < 9 && (_v0.selectedLayouts = {
-        ..._v84.selectedLayouts
-      }), _v1 < 10 && (_v0.size = _v84.size), _v0)
+        ..._v85.selectedLayouts
+      }), _v1 < 10 && (_v0.size = _v85.size), _v0)
     }),
-    _v86 = {
+    _v87 = {
       stats: {
         recordingsCompleted: 0,
         ultraQualityUpsellShownCount: 0
@@ -713,8 +714,8 @@
         postRecordingLastSeen: null
       }
     },
-    _v87 = (0, _v71.createPersistentStore)((_v0, _v1) => ({
-      ..._v86,
+    _v88 = (0, _v72.createPersistentStore)((_v0, _v1) => ({
+      ..._v87,
       update: (_v0, _v1) => {
         let _v2 = _v1()[_v0],
           _v3 = "function" == typeof _v1 ? _v1(_v2) : _v1,
@@ -733,13 +734,13 @@
         postRecordingLastSeen: null
       }), _v0)
     });
-  function _v88() {
-    let _v0 = _v85(_v0 => _v0.currentLayoutCameraEffect),
+  function _v89() {
+    let _v0 = _v86(_v0 => _v0.currentLayoutCameraEffect),
       {
         isCameraFlipped: _v1,
         cameraEffect: _v2,
         avatarAsPreview: _v3
-      } = _v87((0, _v27.useShallow)(({
+      } = _v88((0, _v27.useShallow)(({
         settings: _v0
       }) => ({
         isCameraFlipped: _v0.camera.flipped,
@@ -756,18 +757,18 @@
             currentLayoutCameraEffect: _v0,
             setCurrentLayoutKey: _v1,
             setCurrentLayoutCameraEffect: _v2
-          } = _v85.getState();
-          null !== _v0 && (_v1(null), _v2(null)), "blur" === _v1 && _v51({
+          } = _v86.getState();
+          null !== _v0 && (_v1(null), _v2(null)), "blur" === _v1 && _v52({
             name: _v1 ? "blur_background_on" : "blur_background_off",
             eventType: "click",
             location: "camera_menu"
           });
-        } else "flipped" === _v0 && _v51({
+        } else "flipped" === _v0 && _v52({
           name: _v1 ? "mirror_camera_on" : "mirror_camera_off",
           eventType: "click",
           location: "camera_menu"
         });
-        _v87.getState().update("settings", _v0 => ({
+        _v88.getState().update("settings", _v0 => ({
           camera: {
             ..._v0.camera,
             [_v0]: _v1
@@ -776,34 +777,34 @@
       }, [])
     };
   }
-  _v81(_v87);
-  var _v89 = _v0.i(0),
-    _v90 = _v0.i(0);
-  class _v91 extends Error {
+  _v82(_v88);
+  var _v90 = _v0.i(0),
+    _v91 = _v0.i(0);
+  class _v92 extends Error {
     constructor(_v0 = "") {
       super(_v0), this.name = this.constructor.name;
     }
   }
-  class _v92 extends Error {
+  class _v93 extends Error {
     constructor(_v0) {
       super(_v0), this.name = "FatalError";
     }
   }
-  class _v93 extends Error {
+  class _v94 extends Error {
     constructor(_v0) {
       super(_v0), this.name = "FatalLiveError";
     }
   }
-  class _v94 extends Error {
+  class _v95 extends Error {
     message;
     status;
     constructor(_v0, _v1) {
       super(`${_v0} - status: ${_v1}`), this.message = _v0, this.status = _v1, this.name = "HttpError";
     }
   }
-  let _v95 = _v0 => [400, 401, 403, 404].includes(_v0.status),
-    _v96 = _v0 => _v0.split("\n").slice(1, 4).map(_v0 => _v0.trim()).join("\n"),
-    _v97 = async _v0 => {
+  let _v96 = _v0 => [400, 401, 403, 404].includes(_v0.status),
+    _v97 = _v0 => _v0.split("\n").slice(1, 4).map(_v0 => _v0.trim()).join("\n"),
+    _v98 = async _v0 => {
       try {
         let _v0 = await _v0.json(),
           _v1 = _v0 ? JSON.stringify(_v0) : "N/A";
@@ -812,32 +813,32 @@
         return `{"status": ${_v0.status}, "body": "N/A"}`;
       }
     },
-    _v98 = async _v0 => {
+    _v99 = async _v0 => {
       let _v1;
-      if (_v0 instanceof _v90.NetworkError) {
-        let _v0 = await _v97(_v0.res);
+      if (_v0 instanceof _v91.NetworkError) {
+        let _v0 = await _v98(_v0.res);
         _v1 = {
           name: _v0.name,
           message: _v0.message,
           status: _v0.status,
-          stack: _v0.stack ? _v96(_v0.stack) : null,
+          stack: _v0.stack ? _v97(_v0.stack) : null,
           response: _v0
         };
       } else _v1 = {
         name: _v0.name,
         message: _v0.message,
-        stack: _v0.stack ? _v96(_v0.stack) : null
+        stack: _v0.stack ? _v97(_v0.stack) : null
       };
       return _v1;
     };
-  function _v99(_v0) {
+  function _v100(_v0) {
     try {
       return JSON.parse(atob(_v0.split(".")[1]));
     } catch (_v0) {
       return null;
     }
   }
-  function _v100(_v0) {
+  function _v101(_v0) {
     let _v1 = new AbortController(),
       _v2 = setTimeout(() => _v1.abort(new DOMException("signal timed out", "TimeoutError")), _v0);
     return {
@@ -845,7 +846,7 @@
       clear: () => clearTimeout(_v2)
     };
   }
-  function _v101(_v0) {
+  function _v102(_v0) {
     let _v1 = new AbortController(),
       _v2 = [],
       _v3 = () => {
@@ -869,9 +870,9 @@
       clear: _v3
     };
   }
-  async function _v102(_v0, _v1, _v2, _v3 = []) {
-    let _v4 = _v100(_v2),
-      _v5 = _v101([_v4.signal, ..._v3]);
+  async function _v103(_v0, _v1, _v2, _v3 = []) {
+    let _v4 = _v101(_v2),
+      _v5 = _v102([_v4.signal, ..._v3]);
     try {
       return await fetch(_v0, {
         ..._v1,
@@ -881,7 +882,7 @@
       _v4.clear(), _v5.clear();
     }
   }
-  function _v103(_v0, _v1) {
+  function _v104(_v0, _v1) {
     return new Promise((_v0, _v1) => {
       if (_v1.aborted) return void _v1(_v1.reason);
       let _v2 = setTimeout(_v0, _v0);
@@ -892,7 +893,7 @@
       });
     });
   }
-  let _v104 = new class {
+  let _v105 = new class {
       baseUrl = null;
       isInitialized = !1;
       additionalHeaders = {};
@@ -912,7 +913,7 @@
         }, this.isInitialized = !0);
       }
       initLogger() {
-        this.log = _v139.createForCategory("RecordJWTFetchHelper");
+        this.log = _v140.createForCategory("RecordJWTFetchHelper");
       }
       async setAuthorizationHeader() {
         this.authorizationHeaderPromise = fetch("/_next/jwt?source=screen_recorder", {
@@ -921,7 +922,7 @@
             Client: "vimeo record/studio"
           }
         }).then(_v0 => _v0.json()).then(_v0 => {
-          let _v1 = _v99(_v0.token);
+          let _v1 = _v100(_v0.token);
           _v1?.user_id === null && this.log?.warn('JWT token contains only the guest user. Should prompt the "Login" notice.', {
             isGuestToken: !0
           }), this.additionalHeaders.Authorization = `jwt ${_v0.token}`;
@@ -940,8 +941,8 @@
         extraSignals: _v4
       } = {}) {
         if (void 0 !== _v3) {
-          let _v0 = _v100(_v3),
-            _v1 = _v101([_v0.signal, ...(_v4 ?? [])]);
+          let _v0 = _v101(_v3),
+            _v1 = _v102([_v0.signal, ...(_v4 ?? [])]);
           try {
             return await this.fetchWithRecordJWT(_v0, {
               ..._v1,
@@ -968,7 +969,7 @@
         try {
           return await _v0(_v1);
         } catch (_v0) {
-          if (_v2 && _v95(_v0)) {
+          if (_v2 && _v96(_v0)) {
             try {
               this.log?.debug("Refresh the JWT token after the unauthorized request."), await this.updateAuthorizationHeader();
             } catch (_v0) {
@@ -984,7 +985,7 @@
         }
       }
     }(),
-    _v105 = async _v0 => _v104.fetchWithRecordJWT(async _v0 => {
+    _v106 = async _v0 => _v105.fetchWithRecordJWT(async _v0 => {
       let _v1 = await fetch("https://record-logs-consumer-b3wyf77jyq-uc.a.run.app/write", {
         headers: {
           "Content-Type": "application/json",
@@ -996,9 +997,9 @@
           logs: _v0
         })
       });
-      if (!_v1.ok || 200 !== _v1.status) throw new _v94(`Failed to transfer logs: ${_v1.statusText}`, _v1.status);
+      if (!_v1.ok || 200 !== _v1.status) throw new _v95(`Failed to transfer logs: ${_v1.statusText}`, _v1.status);
     }, {}),
-    _v106 = (_v0, _v1) => {
+    _v107 = (_v0, _v1) => {
       let {
         message: _v2,
         type: _v3,
@@ -1017,9 +1018,9 @@
         category: _v5 || null
       };
     },
-    _v107 = ["warn", "error"],
-    _v108 = ["info", "debug"];
-  class _v109 {
+    _v108 = ["warn", "error"],
+    _v109 = ["info", "debug"];
+  class _v110 {
     dbStorage;
     config;
     isCloudLoggingStarted;
@@ -1028,7 +1029,7 @@
     urgentSyncIntervalId;
     unsubscribeUIStore;
     get isReadyToSync() {
-      return _v80 && this.config.isAppReady();
+      return _v81 && this.config.isAppReady();
     }
     get isReadyToSyncInfoLogs() {
       return this.isReadyToSync && this.isCloudLoggingStarted;
@@ -1041,11 +1042,11 @@
         let _v0 = await this.dbStorage.getLastKey();
         await this.dbStorage.setSyncedKey("lastSyncedUrgentLog", _v0);
       }
-      this.urgentSyncIntervalId = setInterval(() => this.syncUrgentLogs(), 0), this.unsubscribeUIStore = _v89.useUIStore.subscribe(({
+      this.urgentSyncIntervalId = setInterval(() => this.syncUrgentLogs(), 0), this.unsubscribeUIStore = _v90.useUIStore.subscribe(({
         logger: _v0
       }) => _v0.isCloudLoggingEnabled, async _v0 => {
         _v0 && (await this.start());
-      }), _v89.useUIStore.getState().logger.isCloudLoggingEnabled && (await this.start());
+      }), _v90.useUIStore.getState().logger.isCloudLoggingEnabled && (await this.start());
     }
     destroy() {
       void 0 !== this.urgentSyncIntervalId && (clearInterval(this.urgentSyncIntervalId), this.urgentSyncIntervalId = void 0), this.unsubscribeUIStore?.(), this.unsubscribeUIStore = void 0;
@@ -1067,7 +1068,7 @@
         try {
           let _v0 = await this.dbStorage.getLastKey();
           if (!_v0) return;
-          await this.streamSync(_v108, this.dbStorage.synchronizedLogKey ?? 0, _v0, _v0 => this.dbStorage.setSyncedKey("lastSyncedLog", _v0));
+          await this.streamSync(_v109, this.dbStorage.synchronizedLogKey ?? 0, _v0, _v0 => this.dbStorage.setSyncedKey("lastSyncedLog", _v0));
         } catch {} finally {
           this.isSyncingInfoLogs = !1;
         }
@@ -1081,7 +1082,7 @@
         try {
           let _v0 = await this.dbStorage.getLastKey();
           if (!_v0) return;
-          await this.streamSync(_v107, _v0, _v0, _v0 => this.dbStorage.setSyncedKey("lastSyncedUrgentLog", _v0));
+          await this.streamSync(_v108, _v0, _v0, _v0 => this.dbStorage.setSyncedKey("lastSyncedUrgentLog", _v0));
         } catch {} finally {
           this.isSyncingUrgentLogs = !1;
         }
@@ -1095,12 +1096,12 @@
         let _v1 = this.config.getTags(),
           _v2 = _v4,
           _v3 = [];
-        for (let [_v0, _v1] of _v0) _v3.push(_v106(_v1, _v1)), _v0 > _v2 && (_v2 = _v0);
-        await _v105(_v3), _v4 = _v2, await _v3(_v4);
+        for (let [_v0, _v1] of _v0) _v3.push(_v107(_v1, _v1)), _v0 > _v2 && (_v2 = _v0);
+        await _v106(_v3), _v4 = _v2, await _v3(_v4);
       }
     }
   }
-  let _v110 = _v0 => {
+  let _v111 = _v0 => {
       try {
         let _v0 = function _v0(_v1, _v2 = new WeakSet()) {
           return "object" != typeof _v1 || null === _v1 ? _v1 : _v2.has(_v1) ? "[Circular]" : (_v2.add(_v1), _v1 instanceof Node) ? `<${_v1.nodeName.toLowerCase()} />` : Array.isArray(_v1) ? _v1.map(_v0 => _v0(_v0, _v2)) : "function" == typeof _v1.toJSON ? _v0(_v1.toJSON(), _v2) : "function" == typeof _v1.toString && _v1.toString !== Object.prototype.toString ? _v1.toString() : Object.keys(_v1).reduce((_v0, _v1) => (_v1.startsWith("__react") || (_v0[_v1] = _v0(_v1[_v1], _v2)), _v0), {});
@@ -1111,7 +1112,7 @@
         return `${_v0}`;
       }
     },
-    _v111 = async _v0 => {
+    _v112 = async _v0 => {
       let _v1 = {
         httpStatus: _v0.res.status
       };
@@ -1124,21 +1125,21 @@
         }
         _v1.isFirewallRelated = _v0.includes("Zscaler");
       } catch (_v0) {
-        _v1.httpBody = _v110(_v0);
+        _v1.httpBody = _v111(_v0);
       }
       return _v1;
     },
-    _v112 = /([?&](?:token|jwt|signature|sig|policy|authorization|hdntl)=)[^&\s"']+/gi,
-    _v113 = /Bearer\s+[A-Za-z0-9._~+/-]+=*/g,
-    _v114 = /eyJ[A-Za-z0-9_-]{8,}(?:\.[A-Za-z0-9_-]+){1,2}/g,
-    _v115 = /[A-Za-z0-9_-]{80,}/g,
-    _v116 = _v0 => _v0.replace(_v112, "$1[REDACTED]").replace(_v113, "Bearer [REDACTED]").replace(_v114, "[REDACTED:jwt]").replace(_v115, "[REDACTED:token]"),
-    _v117 = (_v0, _v1) => {
+    _v113 = /([?&](?:token|jwt|signature|sig|policy|authorization|hdntl)=)[^&\s"']+/gi,
+    _v114 = /Bearer\s+[A-Za-z0-9._~+/-]+=*/g,
+    _v115 = /eyJ[A-Za-z0-9_-]{8,}(?:\.[A-Za-z0-9_-]+){1,2}/g,
+    _v116 = /[A-Za-z0-9_-]{80,}/g,
+    _v117 = _v0 => _v0.replace(_v113, "$1[REDACTED]").replace(_v114, "Bearer [REDACTED]").replace(_v115, "[REDACTED:jwt]").replace(_v116, "[REDACTED:token]"),
+    _v118 = (_v0, _v1) => {
       let _v2 = document.createElement("a");
       _v2.href = URL.createObjectURL(new Blob([JSON.stringify(_v0)])), _v2.download = `${_v1}.json`, _v2.style.display = "none", document.body.appendChild(_v2), _v2.click(), _v2.remove();
     },
-    _v118 = /.?Converting\scircular\sstructure\sto\sJSON.?/i,
-    _v119 = [{
+    _v119 = /.?Converting\scircular\sstructure\sto\sJSON.?/i,
+    _v120 = [{
       userId: 0
     }, {
       userId: 0
@@ -1164,29 +1165,29 @@
       errorMessage: "Uncaught RangeError: Map maximum size exceeded"
     }, {
       userId: 0,
-      errorMessage: _v118
+      errorMessage: _v119
     }, {
       userId: 0,
-      errorMessage: _v118
+      errorMessage: _v119
     }, {
       userId: 0,
-      errorMessage: _v118
+      errorMessage: _v119
     }, {
       userId: 0,
-      errorMessage: _v118
+      errorMessage: _v119
     }, {
       userId: 0,
-      errorMessage: _v118
+      errorMessage: _v119
     }].reduce((_v0, _v1) => {
       let _v2 = _v1.userId ? _v1.userId : "common",
         _v3 = _v0.get(_v2) ?? [];
       return _v1.errorMessage && _v3.push(_v1.errorMessage), _v0.set(_v2, _v3), _v0;
     }, new Map([["common", []]])),
-    _v120 = _v119.get("common");
-  function _v121(_v0, _v1) {
+    _v121 = _v120.get("common");
+  function _v122(_v0, _v1) {
     return "string" == typeof _v0 ? _v0 === _v1 : _v0.test(_v1);
   }
-  let _v122 = {
+  let _v123 = {
     APP_TYPE: "record-studio",
     SESSION_ID: null,
     USER_ID: null,
@@ -1194,60 +1195,64 @@
     LOG_ERRORS_TRACKED: 0,
     LOG_ERRORS_LIMIT: 200,
     STARTED_AT: Date.now(),
-    IS_LIVE_UPLOAD_ENABLED: !1
+    IS_LIVE_UPLOAD_ENABLED: !1,
+    UPLOAD_EXPERIMENT_ARM: null
   };
-  var _v123 = ((_v639 = {}).UNEXPECTED = "UNEXPECTED", _v639.ANALYTIC = "ANALYTIC", _v639.NETWORK = "NETWORK", _v639.UPLOADING = "UPLOADING", _v639.CHUNK_CONVERTER = "CHUNK_CONVERTER", _v639.THUMBNAIL = "THUMBNAIL", _v639.RECORDER = "RECORDER", _v639.PERMISSIONS = "PERMISSIONS", _v639.API_PERMISSIONS = "API_PERMISSIONS", _v639.DEVICE = "DEVICE", _v639.SCREEN = "SCREEN", _v639.SCRIPT_GENERATOR = "SCRIPT_GENERATOR", _v639.ROLE_UPGRADE = "ROLE_UPGRADE", _v639.CANVAS_CAPTURE = "CANVAS_CAPTURE", _v639.EDITOR_INTEGRATION = "EDITOR_INTEGRATION", _v639);
-  function _v124() {
+  var _v124 = ((_v639 = {}).UNEXPECTED = "UNEXPECTED", _v639.ANALYTIC = "ANALYTIC", _v639.NETWORK = "NETWORK", _v639.UPLOADING = "UPLOADING", _v639.CHUNK_CONVERTER = "CHUNK_CONVERTER", _v639.THUMBNAIL = "THUMBNAIL", _v639.RECORDER = "RECORDER", _v639.PERMISSIONS = "PERMISSIONS", _v639.API_PERMISSIONS = "API_PERMISSIONS", _v639.DEVICE = "DEVICE", _v639.SCREEN = "SCREEN", _v639.SCRIPT_GENERATOR = "SCRIPT_GENERATOR", _v639.ROLE_UPGRADE = "ROLE_UPGRADE", _v639.CANVAS_CAPTURE = "CANVAS_CAPTURE", _v639.EDITOR_INTEGRATION = "EDITOR_INTEGRATION", _v639);
+  function _v125() {
     return {
-      ..._v125(),
-      pageLifeDuration: Date.now() - _v122.STARTED_AT,
-      pageErrorsTracked: _v122.LOG_ERRORS_TRACKED,
+      ..._v126(),
+      pageLifeDuration: Date.now() - _v123.STARTED_AT,
+      pageErrorsTracked: _v123.LOG_ERRORS_TRACKED,
       pageIsFocused: window.document.hasFocus(),
       screenWidth: window.screen.width,
       screenHeight: window.screen.height
     };
   }
-  function _v125() {
+  function _v126() {
     return {
-      appType: _v122.APP_TYPE,
-      pageSessionId: _v122.SESSION_ID,
-      pageSessionLocale: _v122.USER_LOCALE,
-      isLiveUploadEnabled: _v122.IS_LIVE_UPLOAD_ENABLED
+      appType: _v123.APP_TYPE,
+      pageSessionId: _v123.SESSION_ID,
+      pageSessionLocale: _v123.USER_LOCALE,
+      isLiveUploadEnabled: _v123.IS_LIVE_UPLOAD_ENABLED,
+      ...(_v123.UPLOAD_EXPERIMENT_ARM ? {
+        uploadExperimentArm: _v123.UPLOAD_EXPERIMENT_ARM
+      } : {})
     };
   }
-  function _v126(_v0) {
+  function _v127(_v0) {
     let _v1 = {};
-    _v122.USER_ID && (_v1.userId = _v122.USER_ID), _v0 && "string" != typeof _v0 && (_v1.errorString = _v0.message);
+    _v123.USER_ID && (_v1.userId = _v123.USER_ID), _v0 && "string" != typeof _v0 && (_v1.errorString = _v0.message);
     try {
       return !function ({
         errorString: _v0,
         userId: _v1
       }) {
         let _v2 = !1;
-        if (_v120 && _v120?.length > 0 && _v0 && (_v2 = _v120.some(_v0 => _v121(_v0, _v0))), !_v1 || _v2) return _v2;
-        let _v3 = _v119.get(_v1);
-        return _v3?.length === 0 || (_v0 && _v3 && (_v2 = _v3.some(_v0 => _v121(_v0, _v0))), _v2);
+        if (_v121 && _v121?.length > 0 && _v0 && (_v2 = _v121.some(_v0 => _v122(_v0, _v0))), !_v1 || _v2) return _v2;
+        let _v3 = _v120.get(_v1);
+        return _v3?.length === 0 || (_v0 && _v3 && (_v2 = _v3.some(_v0 => _v122(_v0, _v0))), _v2);
       }(_v1);
     } catch {
       return !0;
     }
   }
-  function _v127(_v0, _v1 = {}) {
+  function _v128(_v0, _v1 = {}) {
     try {
-      if (!_v126()) return;
-      let _v0 = Object.assign({}, _v1, _v124());
-      _v80 && window.DD_RUM && window.DD_RUM.onReady(() => {
+      if (!_v127()) return;
+      let _v0 = Object.assign({}, _v1, _v125());
+      _v81 && window.DD_RUM && window.DD_RUM.onReady(() => {
         window.DD_RUM.addAction(_v0, _v0);
       });
     } catch {}
   }
-  function _v128(_v0) {
+  function _v129(_v0) {
     window.DD_RUM && window.DD_RUM.onReady(() => {
       for (let _v0 in _v0) window.DD_RUM.setViewContextProperty(_v0, String(_v0[_v0]));
     });
   }
-  var _v129 = _v0.i(0);
-  let _v130 = (_v0, _v1) => new Promise((_v0, _v1) => {
+  var _v130 = _v0.i(0);
+  let _v131 = (_v0, _v1) => new Promise((_v0, _v1) => {
       let _v2 = _v0.get(_v1);
       _v2.onerror = () => {
         _v1(_v2.error);
@@ -1255,7 +1260,7 @@
         _v0(_v2.result);
       };
     }),
-    _v131 = (_v0, _v1, _v2) => new Promise((_v0, _v1) => {
+    _v132 = (_v0, _v1, _v2) => new Promise((_v0, _v1) => {
       let _v2 = _v0.put(_v1, _v2);
       _v2.onerror = () => {
         _v1(_v2.error);
@@ -1263,7 +1268,7 @@
         _v0();
       };
     });
-  async function _v132(_v0) {
+  async function _v133(_v0) {
     return new Promise((_v0, _v1) => {
       let _v2 = _v0.count();
       _v2.onsuccess = () => {
@@ -1274,7 +1279,7 @@
       };
     });
   }
-  async function _v133(_v0, _v1, _v2) {
+  async function _v134(_v0, _v1, _v2) {
     return new Promise((_v0, _v1) => {
       let _v2 = _v0.openCursor(_v2);
       _v2.onsuccess = _v0 => {
@@ -1290,7 +1295,7 @@
       };
     });
   }
-  let _v134 = (_v0, _v1, _v2) => new Promise((_v0, _v1) => {
+  let _v135 = (_v0, _v1, _v2) => new Promise((_v0, _v1) => {
       let _v2 = _v0.add(_v1, _v2);
       _v2.onerror = () => {
         _v1(_v2.error);
@@ -1298,7 +1303,7 @@
         _v0(_v2.result);
       };
     }),
-    _v135 = (_v0, _v1, _v2) => new Promise((_v0, _v1) => {
+    _v136 = (_v0, _v1, _v2) => new Promise((_v0, _v1) => {
       let _v2 = window.indexedDB.open(_v0, _v1);
       _v2.onsuccess = () => {
         _v0(_v2.result);
@@ -1312,14 +1317,14 @@
         }
       };
     }),
-    _v136 = async (_v0, _v1, _v2, _v3) => {
+    _v137 = async (_v0, _v1, _v2, _v3) => {
       let _v4 = _v0.transaction(_v1, _v2),
         [_v5] = await Promise.all([_v3(_v4), new Promise((_v0, _v1) => {
           _v4.onabort = () => _v1(_v4.error), _v4.onerror = () => _v1(_v4.error), _v4.oncomplete = _v0;
         })]);
       return _v5;
     };
-  class _v137 {
+  class _v138 {
     dbName;
     dbVersion;
     callbacks;
@@ -1354,7 +1359,7 @@
     async init() {
       if (!("indexedDB" in window)) return void console.error("This browser doesn't support IndexedDB");
       try {
-        this.db = await _v135(this.dbName, this.dbVersion, (_v0, _v1) => {
+        this.db = await _v136(this.dbName, this.dbVersion, (_v0, _v1) => {
           _v1.oldVersion < 1 ? (_v0.result.createObjectStore("data", {
             autoIncrement: !0
           }).createIndex("type", "type", {
@@ -1373,8 +1378,8 @@
       }
       this.state.type = "idle";
       try {
-        await _v136(this.db, "data", "readonly", async _v0 => {
-          this.approximateCount = await _v132(_v0.objectStore("data"));
+        await _v137(this.db, "data", "readonly", async _v0 => {
+          this.approximateCount = await _v133(_v0.objectStore("data"));
         });
       } catch {}
       for (let _v0 of Object.keys(this.syncKeys)) {
@@ -1421,12 +1426,12 @@
       if ("idle" === this.state.type && 0 !== this.state.pendingRecords.length && (await this.validateConnection("flush, reinitialize db"), this.db)) {
         for (this.state.type = "writing";;) {
           try {
-            await _v136(this.db, "data", "readwrite", async _v0 => {
+            await _v137(this.db, "data", "readwrite", async _v0 => {
               let _v1 = _v0.objectStore("data");
               if ("writing" !== this.state.type) throw Error("Record Studio: Logger, unexpected state");
               let _v2 = this.state.pendingRecords;
               this.state.pendingRecords = [];
-              let _v3 = await Promise.all(_v2.map(_v0 => _v134(_v1, _v0)));
+              let _v3 = await Promise.all(_v2.map(_v0 => _v135(_v1, _v0)));
               if (this.approximateCount += _v3.length, this.subscription && "number" == typeof this.syncKeys.lastSyncedLog && _v3.length > 0) {
                 let _v0 = _v3.reduce((_v0, _v1) => _v1 > _v0 ? _v1 : _v0, 0) - this.syncKeys.lastSyncedLog;
                 !this.subscription.isRunning && _v0 >= this.subscription.threshold && (this.subscription.isRunning = !0, this.subscription.callback().then(() => {
@@ -1434,10 +1439,10 @@
                 }));
               }
               if (this.config.maxCount && this.approximateCount > this.config.maxCount) {
-                let _v0 = (await _v132(_v1)) - this.config.maxCount;
+                let _v0 = (await _v133(_v1)) - this.config.maxCount;
                 if (_v0 > 0) {
                   let _v0 = 0;
-                  await _v133(_v1, _v0 => _v0 < _v0 && (_v0.delete(), _v0.continue(), _v0++, !0)), this.approximateCount -= _v0;
+                  await _v134(_v1, _v0 => _v0 < _v0 && (_v0.delete(), _v0.continue(), _v0++, !0)), this.approximateCount -= _v0;
                 }
               }
             });
@@ -1455,10 +1460,10 @@
       let _v4 = new Map(),
         _v5 = new Set(_v2);
       try {
-        return await _v136(this.db, "data", "readonly", async _v0 => {
+        return await _v137(this.db, "data", "readonly", async _v0 => {
           let _v1 = _v0.objectStore("data"),
             _v2 = IDBKeyRange.bound(_v0, _v1, _v0 > 0, !1);
-          await _v133(_v1, _v0 => {
+          await _v134(_v1, _v0 => {
             let _v1 = _v0.value,
               _v2 = _v0.key;
             return (!_v5.has(_v1.type) || (_v4.set(_v2, {
@@ -1476,9 +1481,9 @@
       if (await this.validateConnection("getAll, reinitialize db"), !this.db) return [];
       let _v0 = [];
       try {
-        return await _v136(this.db, "data", "readonly", async _v0 => {
+        return await _v137(this.db, "data", "readonly", async _v0 => {
           let _v1 = _v0.objectStore("data");
-          await _v133(_v1, _v0 => {
+          await _v134(_v1, _v0 => {
             let _v1 = _v0.value;
             return _v0.push(_v1), _v0.continue(), !0;
           }), "failed" !== this.state.type && "idle" !== this.state.type && _v0.push(...this.state.pendingRecords);
@@ -1495,7 +1500,7 @@
     }
     async getMetaDataByKey(_v0) {
       if (await this.validateConnection("getMetaByKey, reinitialize db"), this.db) try {
-        return await _v136(this.db, "meta", "readonly", _v0 => _v130(_v0.objectStore("meta"), _v0));
+        return await _v137(this.db, "meta", "readonly", _v0 => _v131(_v0.objectStore("meta"), _v0));
       } catch (_v0) {
         this.callbacks.onError(_v0);
         return;
@@ -1503,7 +1508,7 @@
     }
     async setMetaDataByKey(_v0, _v1) {
       if (await this.validateConnection("setMetaDataByKey, reinitialize db"), this.db) try {
-        await _v136(this.db, "meta", "readwrite", async _v0 => {
+        await _v137(this.db, "meta", "readwrite", async _v0 => {
           if (void 0 === _v1) {
             let _v0;
             return void (await (_v0 = _v0.objectStore("meta"), new Promise((_v0, _v1) => {
@@ -1515,7 +1520,7 @@
               };
             })));
           }
-          await _v131(_v0.objectStore("meta"), _v1, _v0);
+          await _v132(_v0.objectStore("meta"), _v1, _v0);
         });
       } catch (_v0) {
         this.callbacks.onError(_v0);
@@ -1523,42 +1528,42 @@
       }
     }
   }
-  let _v138 = _v0 => _v0.replace(/(https:\/\/vimeo.com\/\d+\/)[0-9a-z]{10}/g, "$1***").replace(/("password":")[^"]*"/g, '$1***"');
-  class _v139 {
+  let _v139 = _v0 => _v0.replace(/(https:\/\/vimeo.com\/\d+\/)[0-9a-z]{10}/g, "$1***").replace(/("password":")[^"]*"/g, '$1***"');
+  class _v140 {
     dbStorage;
     static LOG_NAME = "record-studio-logs";
     sessionId;
     syncer;
     constructor() {
-      this.sessionId = _v83.getState().currentSessionId, _v83.subscribe(({
+      this.sessionId = _v84.getState().currentSessionId, _v84.subscribe(({
         currentSessionId: _v0
       }) => _v0, _v0 => this.sessionId = _v0);
       const {
         isDebugMode: _v0
-      } = _v75("debugMode", !0);
-      this.dbStorage = new _v137(_v139.LOG_NAME, 3, {
+      } = _v76("debugMode", !0);
+      this.dbStorage = new _v138(_v140.LOG_NAME, 3, {
         onError: _v0 => console.warn("Record Studio: Logger error", _v0)
       }, {
-        maxCount: _v0 && !_v80 ? 0 : 0
-      }), this.syncer = new _v109(this.dbStorage, {
+        maxCount: _v0 && !_v81 ? 0 : 0
+      }), this.syncer = new _v110(this.dbStorage, {
         getTags: () => this.getLogTags(),
-        isAppReady: () => !!this.sessionId && !_v89.useUIStore.getState().common.isGuest
+        isAppReady: () => !!this.sessionId && !_v90.useUIStore.getState().common.isGuest
       }), this.dbStorage.init().then(() => this.syncer.init());
     }
     static createForCategory(_v0) {
-      let _v1 = _v89.useUIStore.getState().logger.instance;
+      let _v1 = _v90.useUIStore.getState().logger.instance;
       if (_v1) return _v1.forCategory(_v0);
       {
-        let _v0 = new _v139();
-        return _v89.useUIStore.getState().logger.setLogger(_v0), _v0.forCategory(_v0);
+        let _v0 = new _v140();
+        return _v90.useUIStore.getState().logger.setLogger(_v0), _v0.forCategory(_v0);
       }
     }
     forCategory(_v0) {
       let _v1 = (_v0, _v1, _v2 = {}) => (("warn" === _v0 || "error" === _v0) && (_v2.context = this.getLogTags()), {
         type: _v0,
         category: _v0 || null,
-        args: _v138(_v110(_v2)),
-        message: _v138(_v1),
+        args: _v139(_v111(_v2)),
+        message: _v139(_v1),
         created_ts: +new Date()
       });
       return {
@@ -1571,21 +1576,21 @@
               ..._v1,
               ..._v0
             };
-            this.log(_v1("error", _v110(_v0), _v1)), function (_v0, _v1) {
-              let _v2 = _v141("trackError");
-              if (!_v126(_v0)) return;
-              if (!(_v122.LOG_ERRORS_TRACKED <= _v122.LOG_ERRORS_LIMIT)) return _v2.warn("Skipping error tracking, session facing limit");
-              _v122.LOG_ERRORS_TRACKED += 1;
+            this.log(_v1("error", _v111(_v0), _v1)), function (_v0, _v1) {
+              let _v2 = _v142("trackError");
+              if (!_v127(_v0)) return;
+              if (!(_v123.LOG_ERRORS_TRACKED <= _v123.LOG_ERRORS_LIMIT)) return _v2.warn("Skipping error tracking, session facing limit");
+              _v123.LOG_ERRORS_TRACKED += 1;
               let _v3 = {
                 ..._v1,
-                ..._v124()
+                ..._v125()
               };
-              _v80 && window.DD_RUM && window.DD_RUM.onReady(() => {
+              _v81 && window.DD_RUM && window.DD_RUM.onReady(() => {
                 window.DD_RUM.addError(_v0, _v3);
               });
             }(_v0, _v1);
           };
-          _v0 instanceof _v90.NetworkError ? _v111(_v0).then(_v2) : _v2({});
+          _v0 instanceof _v91.NetworkError ? _v112(_v0).then(_v2) : _v2({});
         },
         download: this.download.bind(this),
         getAll: this.getAll.bind(this),
@@ -1593,7 +1598,7 @@
       };
     }
     async download() {
-      _v117(await this.dbStorage.getAll(), "vimeo record studio logs");
+      _v118(await this.dbStorage.getAll(), "vimeo record studio logs");
     }
     async getAll() {
       return this.dbStorage.getAll();
@@ -1606,18 +1611,18 @@
         uploadToAccountId: _v0,
         uploadToFolderUri: _v1,
         userId: _v2
-      } = _v89.useUIStore.getState().common;
+      } = _v90.useUIStore.getState().common;
       return {
         userId: _v2,
         ownerId: _v0,
         folderUri: _v1,
-        videoUri: _v129.useMemoryDataStorage.getState().info.uri ?? null,
+        videoUri: _v130.useMemoryDataStorage.getState().info.uri ?? null,
         userAgent: navigator.userAgent,
         sessionId: this.sessionId
       };
     }
     log(_v0) {
-      this.dbStorage.enqueue(_v0), _v76 && this.printToConsole(_v0);
+      this.dbStorage.enqueue(_v0), _v77 && this.printToConsole(_v0);
     }
     printToConsole(_v0) {
       let _v1 = "";
@@ -1632,7 +1637,7 @@
           _v1 = "color: red";
       }
       let _v2 = `🎥 ${new Date().toLocaleString()}`;
-      _v0.category && _v76 && (_v2 += ` [${_v0.category}]`);
+      _v0.category && _v77 && (_v2 += ` [${_v0.category}]`);
       let _v3 = [`${_v2} %c${_v0.message}`, _v1],
         _v4 = function (_v0) {
           try {
@@ -1650,38 +1655,38 @@
       _v3.push(...[_v4].flat()), window.console.log(..._v3);
     }
   }
-  let _v140 = _v0 => {
+  let _v141 = _v0 => {
       let _v1 = (0, _v26.useRef)(void 0),
         {
           loggerInstance: _v2,
           setLoggerInstance: _v3
-        } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+        } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
           setLoggerInstance: _v0.logger.setLogger,
           loggerInstance: _v0.logger.instance
         })));
       return (0, _v26.useMemo)(() => {
         if (!_v1.current) if (_v2) _v1.current = _v2;else {
-          let _v0 = new _v139();
+          let _v0 = new _v140();
           _v1.current = _v0, _v3(_v0);
         }
         return _v1.current.forCategory(_v0);
       }, [_v0]);
     },
-    _v141 = _v0 => {
+    _v142 = _v0 => {
       let {
         setLogger: _v1,
         instance: _v2
-      } = _v89.useUIStore.getState().logger;
+      } = _v90.useUIStore.getState().logger;
       if (_v2) return _v2.forCategory(_v0);
       {
-        let _v0 = new _v139();
+        let _v0 = new _v140();
         return _v1(_v0), _v0.forCategory(_v0);
       }
     },
-    _v142 = ["hobdeidpfblapjhejaaigpicnlijdopo", "dobhiegbhmcegnodkdhgohijkmbokmck", "mffmjlddchdccijipncbjhoabgmphjfb"],
-    _v143 = _v142[0],
-    _v144 = `https://chromewebstore.google.com/detail/downloader-and-chatgpt-vi/${_v143}`;
-  async function _v145(_v0) {
+    _v143 = ["hobdeidpfblapjhejaaigpicnlijdopo", "dobhiegbhmcegnodkdhgohijkmbokmck", "mffmjlddchdccijipncbjhoabgmphjfb"],
+    _v144 = _v143[0],
+    _v145 = `https://chromewebstore.google.com/detail/downloader-and-chatgpt-vi/${_v144}`;
+  async function _v146(_v0) {
     try {
       let _v0,
         _v1 = await Promise.race([window.fetch(`chrome-extension://${_v0}/ajax-listener.js`), new Promise((_v0, _v1) => {
@@ -1694,31 +1699,31 @@
       return !1;
     }
   }
-  function _v146() {
-    let _v0 = (0, _v89.useUIStore)(_v0 => _v0.common.recordingAvailability);
+  function _v147() {
+    let _v0 = (0, _v90.useUIStore)(_v0 => _v0.common.recordingAvailability);
     return !_v0.available && "harmfulExtension" === _v0.reason;
   }
-  var _v147 = _v0.i(0);
-  let _v148 = "DisplayIdStub",
-    _v149 = {
+  var _v148 = _v0.i(0);
+  let _v149 = "DisplayIdStub",
+    _v150 = {
       CAMERA: "camera",
       MICROPHONE: "microphone",
       DISPLAY_MEDIA: "displayMedia",
       CANVAS_SCENE: "canvasScene",
       CANVAS_CAMERA_PREVIEW: "canvasCameraPreview"
     },
-    _v150 = ["uploading", "finalizing", "endScreenShown"],
-    _v151 = "prompt",
-    _v152 = "denied",
-    _v153 = "granted",
-    _v154 = "not_found",
-    _v155 = {
+    _v151 = ["uploading", "finalizing", "endScreenShown"],
+    _v152 = "prompt",
+    _v153 = "denied",
+    _v154 = "granted",
+    _v155 = "not_found",
+    _v156 = {
       NOT_READABLE: "NotReadableError",
       NOT_FOUND: "NotFoundError",
       NOT_ALLOWED: "NotAllowedError"
     },
-    _v156 = {
-      [_v56]: [{
+    _v157 = {
+      [_v57]: [{
         width: 0,
         height: 0,
         sizePreset: "4K"
@@ -1752,7 +1757,7 @@
         height: 720,
         sizePreset: "720p"
       }],
-      [_v57]: [{
+      [_v58]: [{
         width: 0,
         height: 0,
         sizePreset: "4K"
@@ -1770,8 +1775,8 @@
         sizePreset: "720p"
       }]
     },
-    _v157 = "Tab audio";
-  function _v158(_v0, _v1) {
+    _v158 = "Tab audio";
+  function _v159(_v0, _v1) {
     let _v2, _v3, _v4;
     if ("microphone" === _v1) return {};
     let {
@@ -1798,7 +1803,7 @@
     }(_v0);
     if ("displayMedia" === _v1) {
       let _v0 = _v0.getAudioTracks();
-      _v2 = _v0.some(_v0 => _v0.label === _v157), _v3 = _v5 ? "browser" === _v5 : _v2, _v4 = _v0.some(_v0 => _v0.label !== _v157), _v51({
+      _v2 = _v0.some(_v0 => _v0.label === _v158), _v3 = _v5 ? "browser" === _v5 : _v2, _v4 = _v0.some(_v0 => _v0.label !== _v158), _v52({
         name: "screen_share_source",
         eventType: "select",
         value: _v5,
@@ -1813,38 +1818,38 @@
       size: _v6
     };
   }
-  async function _v159(_v0) {
+  async function _v160(_v0) {
     let {
         kind: _v1
       } = _v0,
-      _v2 = await _v164(_v0),
-      _v3 = _v158(_v2, _v1);
+      _v2 = await _v165(_v0),
+      _v3 = _v159(_v2, _v1);
     switch (_v1) {
-      case _v149.CAMERA:
-      case _v149.MICROPHONE:
+      case _v150.CAMERA:
+      case _v150.MICROPHONE:
         return {
           deviceId: _v0.deviceId,
           kind: _v1,
           stream: _v2,
-          dispose: () => _v160(_v2),
+          dispose: () => _v161(_v2),
           mediaInfo: _v3
         };
-      case _v149.DISPLAY_MEDIA:
+      case _v150.DISPLAY_MEDIA:
         return {
           kind: _v1,
-          deviceId: _v148,
+          deviceId: _v149,
           stream: _v2,
-          dispose: () => _v160(_v2),
+          dispose: () => _v161(_v2),
           mediaInfo: _v3
         };
     }
   }
-  function _v160(_v0) {
+  function _v161(_v0) {
     _v0.getTracks().forEach(_v0 => {
       _v0.onended = null, _v0.stop();
     });
   }
-  async function _v161() {
+  async function _v162() {
     try {
       let _v0 = {
         video: {
@@ -1864,17 +1869,17 @@
       return await navigator.mediaDevices.getDisplayMedia(_v0);
     } catch (_v0) {
       let _v1 = _v0 instanceof DOMException && "Permission denied" === _v0.message,
-        _v2 = _v0 instanceof Error && _v0.name === _v155.NOT_ALLOWED;
-      if (_v1 || _v2) throw _v51({
+        _v2 = _v0 instanceof Error && _v0.name === _v156.NOT_ALLOWED;
+      if (_v1 || _v2) throw _v52({
         name: "cancel_screen_share",
         eventType: "click",
         location: "share_screen_modal"
-      }), new _v91("Choose display media popup were closed.");
+      }), new _v92("Choose display media popup were closed.");
       throw _v0;
     }
   }
-  async function _v162(_v0) {
-    let _v1 = _v141("getDeviceVideoStream"),
+  async function _v163(_v0) {
+    let _v1 = _v142("getDeviceVideoStream"),
       _v2 = await navigator.mediaDevices.getUserMedia({
         video: {
           deviceId: {
@@ -1884,8 +1889,8 @@
         audio: !1
       }),
       [_v3] = _v2.getVideoTracks(),
-      _v4 = _v85.getState().size,
-      _v5 = _v156[_v56],
+      _v4 = _v86.getState().size,
+      _v5 = _v157[_v57],
       _v6 = _v5[_v5.length - 1],
       _v7 = _v5.find(({
         sizePreset: _v0
@@ -1920,7 +1925,7 @@
       }
     }), _v2;
   }
-  async function _v163(_v0) {
+  async function _v164(_v0) {
     return await navigator.mediaDevices.getUserMedia({
       video: !1,
       audio: {
@@ -1933,34 +1938,34 @@
       }
     });
   }
-  async function _v164(_v0) {
+  async function _v165(_v0) {
     switch (_v0.kind) {
-      case _v149.CAMERA:
-        return _v162(_v0.deviceId);
-      case _v149.MICROPHONE:
+      case _v150.CAMERA:
         return _v163(_v0.deviceId);
-      case _v149.DISPLAY_MEDIA:
-        return _v161();
+      case _v150.MICROPHONE:
+        return _v164(_v0.deviceId);
+      case _v150.DISPLAY_MEDIA:
+        return _v162();
     }
   }
-  async function _v165() {
-    let _v0 = await _v166();
+  async function _v166() {
+    let _v0 = await _v167();
     try {
-      if (_v147.isFirefox && (_v0.audioDevicesFound && _v0.identifiedAudioDevices.length <= 0 || _v0.videoDevicesFound && _v0.identifiedVideoDevices.length <= 0)) {
+      if (_v148.isFirefox && (_v0.audioDevicesFound && _v0.identifiedAudioDevices.length <= 0 || _v0.videoDevicesFound && _v0.identifiedVideoDevices.length <= 0)) {
         let _v0 = await navigator.mediaDevices.getUserMedia({
           audio: _v0.audioDevicesFound,
           video: _v0.videoDevicesFound
         });
-        _v0 = await _v166(), _v160(_v0);
+        _v0 = await _v167(), _v161(_v0);
       }
     } catch {}
     return _v0;
   }
-  async function _v166() {
+  async function _v167() {
     try {
       let _v0 = await navigator.mediaDevices.enumerateDevices(),
-        _v1 = _v167(_v0, "audioinput"),
-        _v2 = _v167(_v0, "videoinput");
+        _v1 = _v168(_v0, "audioinput"),
+        _v2 = _v168(_v0, "videoinput");
       return {
         identifiedAudioDevices: _v1.identifiedDevices,
         identifiedVideoDevices: _v2.identifiedDevices,
@@ -1980,7 +1985,7 @@
       };
     }
   }
-  function _v167(_v0, _v1) {
+  function _v168(_v0, _v1) {
     var _v2;
     let _v3,
       _v4 = _v0.filter(_v0 => _v0.kind === _v1),
@@ -1990,10 +1995,10 @@
     return {
       devicesFound: _v4.length > 0,
       identifiedDevices: _v5,
-      defaultDevice: (_v3 = (_v2 = _v5).find(_v0 => "default" === _v0.deviceId)) || (_v147.isSafari && _v2.length > 0 ? _v2[0] : void 0)
+      defaultDevice: (_v3 = (_v2 = _v5).find(_v0 => "default" === _v0.deviceId)) || (_v148.isSafari && _v2.length > 0 ? _v2[0] : void 0)
     };
   }
-  let _v168 = {
+  let _v169 = {
       data: {
         identifiedAudioDevices: void 0,
         identifiedVideoDevices: void 0,
@@ -2003,25 +2008,25 @@
         defaultVideoDevice: void 0
       }
     },
-    _v169 = (0, _v71.createStore)(_v0 => ({
-      ..._v168,
+    _v170 = (0, _v72.createStore)(_v0 => ({
+      ..._v169,
       requestAndSetMediaDevices: async () => {
-        let _v0 = await _v165();
+        let _v0 = await _v166();
         _v0(_v0 => {
           _v0.data = _v0;
         }), function ({
           audioDevices: _v0,
           videoDevices: _v1
         }) {
-          _v0 && _v1 && (0, _v87.getState().update)("capture", _v0 => {
+          _v0 && _v1 && (0, _v88.getState().update)("capture", _v0 => {
             let {
                 selectedAudioDeviceId: _v1,
                 selectedVideoDeviceId: _v2,
                 isAudioMuted: _v3,
                 isVideoMuted: _v4
               } = _v0,
-              _v5 = _v170(_v1, _v0),
-              _v6 = _v170(_v2, _v1);
+              _v5 = _v171(_v1, _v0),
+              _v6 = _v171(_v2, _v1);
             return {
               selectedAudioDeviceId: _v5,
               selectedVideoDeviceId: _v6,
@@ -2035,15 +2040,15 @@
         });
       }
     }));
-  function _v170(_v0, _v1) {
+  function _v171(_v0, _v1) {
     let _v2 = _v1.find(_v0 => _v0.deviceId === _v0);
     return _v0 && _v2 ? _v2.deviceId : _v1.length > 0 ? _v1[0].deviceId : null;
   }
-  function _v171(_v0, _v1, _v2, _v3) {
+  function _v172(_v0, _v1, _v2, _v3) {
     let _v4 = null;
-    return _v1 === _v154 && _v0 === _v154 ? _v4 = _v174.CAMERA_AND_MIC_NOT_FOUND_ERROR : _v1 === _v154 || _v3 === _v155.NOT_FOUND ? _v4 = _v174.CAMERA_NOT_FOUND_ERROR : _v0 === _v154 || _v2 === _v155.NOT_FOUND ? _v4 = _v174.MICROPHONE_NOT_FOUND_ERROR : _v3 === _v155.NOT_READABLE ? _v4 = _v174.CAMERA_IN_USE_ERROR : _v2 === _v155.NOT_READABLE ? _v4 = _v174.MIC_IN_USE_ERROR : _v1 === _v152 && _v0 === _v152 ? _v4 = _v174.CAMERA_AND_MIC_PERMISSION_DENIED_ERROR : _v1 === _v152 || _v3 === _v155.NOT_ALLOWED ? _v4 = _v174.CAMERA_PERMISSION_DENIED_ERROR : (_v0 === _v152 || _v2 === _v155.NOT_ALLOWED) && (_v4 = _v174.MICROPHONE_PERMISSION_DENIED_ERROR), _v4;
+    return _v1 === _v155 && _v0 === _v155 ? _v4 = _v175.CAMERA_AND_MIC_NOT_FOUND_ERROR : _v1 === _v155 || _v3 === _v156.NOT_FOUND ? _v4 = _v175.CAMERA_NOT_FOUND_ERROR : _v0 === _v155 || _v2 === _v156.NOT_FOUND ? _v4 = _v175.MICROPHONE_NOT_FOUND_ERROR : _v3 === _v156.NOT_READABLE ? _v4 = _v175.CAMERA_IN_USE_ERROR : _v2 === _v156.NOT_READABLE ? _v4 = _v175.MIC_IN_USE_ERROR : _v1 === _v153 && _v0 === _v153 ? _v4 = _v175.CAMERA_AND_MIC_PERMISSION_DENIED_ERROR : _v1 === _v153 || _v3 === _v156.NOT_ALLOWED ? _v4 = _v175.CAMERA_PERMISSION_DENIED_ERROR : (_v0 === _v153 || _v2 === _v156.NOT_ALLOWED) && (_v4 = _v175.MICROPHONE_PERMISSION_DENIED_ERROR), _v4;
   }
-  let _v172 = {
+  let _v173 = {
       RECORDING_ERROR: "recordingError",
       SCREEN_ERROR: "screenError",
       UPLOADING_ERROR: "uploadingError",
@@ -2054,10 +2059,10 @@
       INTERNET_CONNECTION: "internetConnection",
       OFFLINE_ERROR: "offlineError"
     },
-    _v173 = {
+    _v174 = {
       UNAUTHORIZED: "unauthorized"
     },
-    _v174 = {
+    _v175 = {
       CAMERA_ERROR: "cameraError",
       MICROPHONE_ERROR: "microphoneError",
       CAMERA_IN_USE_ERROR: "cameraInUseError",
@@ -2069,24 +2074,24 @@
       CAMERA_NOT_FOUND_ERROR: "cameraNotFoundError",
       MICROPHONE_NOT_FOUND_ERROR: "microphoneNotFoundError"
     };
-  function _v175(_v0) {
+  function _v176(_v0) {
     return {
-      displayMedia: _v172.SCREEN_ERROR,
-      camera: _v174.CAMERA_ERROR,
-      microphone: _v174.MICROPHONE_ERROR
+      displayMedia: _v173.SCREEN_ERROR,
+      camera: _v175.CAMERA_ERROR,
+      microphone: _v175.MICROPHONE_ERROR
     }[_v0];
   }
   ({
-    ..._v172,
-    ..._v174,
+    ..._v173,
+    ..._v175,
     NOT_ALLOWED: "notAllowed",
     USER_QUOTA: "userQuota",
     CHAT_GPT_QUOTA: "chatGptQuota",
     INTERNAL: "internal",
     INTERNAL_INTERRUPTED: "internalInterrupted",
-    ..._v173
+    ..._v174
   });
-  let _v176 = {
+  let _v177 = {
       camera: void 0,
       microphone: void 0,
       displayMedia: void 0,
@@ -2094,9 +2099,9 @@
       canvasCameraPreview: void 0,
       initialisations: {}
     },
-    _v177 = _v141("useMediaStreamStore"),
-    _v178 = (0, _v71.createStore)((_v0, _v1) => ({
-      ..._v176,
+    _v178 = _v142("useMediaStreamStore"),
+    _v179 = (0, _v72.createStore)((_v0, _v1) => ({
+      ..._v177,
       initStream: async _v0 => {
         var _v1, _v2, _v3;
         let {
@@ -2107,41 +2112,41 @@
           _v7 = _v1();
         if (!_v6 && (_v1 = _v4, _v2 = _v5, _v3 = _v7, _v3.initialisations[_v1]?.deviceId === _v2 || _v3[_v1]?.deviceId === _v2)) return !1;
         try {
-          _v177.debug("(init stream) for: ", {
+          _v178.debug("(init stream) for: ", {
             kind: _v4
           }), _v1().setStreamInitialising(_v4, _v5, !0);
-          let _v0 = await _v159(_v0);
+          let _v0 = await _v160(_v0);
           if (!function (_v0, _v1) {
             let {
               capture: _v2
-            } = _v87.getState();
+            } = _v88.getState();
             return {
               camera: () => _v2.selectedVideoDeviceId === _v1 && !_v2.isVideoMuted,
               microphone: () => _v2.selectedAudioDeviceId === _v1 && !_v2.isAudioMuted,
               displayMedia: () => !0
             }[_v0]();
-          }(_v4, _v5)) throw _v0.dispose(), new _v91("Device was switched during initialising, MediaStream was disposed.");
+          }(_v4, _v5)) throw _v0.dispose(), new _v92("Device was switched during initialising, MediaStream was disposed.");
           return _v7.setStream(_v0), !0;
         } catch (_v0) {
-          return _v0 instanceof _v91 ? _v177.debug("(init stream) cancelled by user", {
+          return _v0 instanceof _v92 ? _v178.debug("(init stream) cancelled by user", {
             kind: _v4
           }) : function (_v0, _v1) {
             let {
               setError: _v2
-            } = _v89.useUIStore.getState().common;
-            _v179(_v1);
-            let _v3 = "displayMedia" === _v1 ? _v123.SCREEN : _v123.DEVICE,
-              _v4 = _v175(_v1);
+            } = _v90.useUIStore.getState().common;
+            _v180(_v1);
+            let _v3 = "displayMedia" === _v1 ? _v124.SCREEN : _v124.DEVICE,
+              _v4 = _v176(_v1);
             if ("displayMedia" !== _v1 && _v0 instanceof Error) {
               let _v0,
                 _v1,
-                _v2 = (_v0 = _v0.name, _v1 = Object.values(_v155).includes(_v0) && _v0, _v171(void 0, void 0, "microphone" === _v1 && _v1 || void 0, "microphone" !== _v1 && _v1 || void 0));
-              _v2 && (_v4 = _v2, _v3 = _v123.PERMISSIONS);
+                _v2 = (_v0 = _v0.name, _v1 = Object.values(_v156).includes(_v0) && _v0, _v172(void 0, void 0, "microphone" === _v1 && _v1 || void 0, "microphone" !== _v1 && _v1 || void 0));
+              _v2 && (_v4 = _v2, _v3 = _v124.PERMISSIONS);
             }
             _v2({
               type: "error",
               errorKey: _v4
-            }), _v177.error(_v0, {
+            }), _v178.error(_v0, {
               category: _v3,
               method: "initStream",
               component: "useMediaStreamStore",
@@ -2162,12 +2167,12 @@
           _v3 = "(set stream)",
           _v4 = _v1(),
           _v5 = _v4[_v1];
-        _v5 && (_v3 += " and dispose prev stream for: ", _v5.dispose()), _v177.debug(_v3, {
+        _v5 && (_v3 += " and dispose prev stream for: ", _v5.dispose()), _v178.debug(_v3, {
           kind: _v1,
           mediaInfo: _v2
         }), _v0.stream.getTracks().forEach(_v0 => {
           _v0.onended = () => {
-            _v1()[_v1] === _v0 && (_v177.warn(`MediaStreamTrack.onended for ${_v1}; device will be disabled.`), _v4.removeStream(_v1), _v179(_v1, !0));
+            _v1()[_v1] === _v0 && (_v178.warn(`MediaStreamTrack.onended for ${_v1}; device will be disabled.`), _v4.removeStream(_v1), _v180(_v1, !0));
           };
         }), _v4.update(_v0 => {
           _v0[_v1] = _v0;
@@ -2176,18 +2181,18 @@
       removeStream: _v0 => {
         let _v1 = _v1(),
           _v2 = _v1[_v0];
-        _v2 && (_v2.dispose(), _v177.debug("(remove stream) dispose prev stream for: ", {
+        _v2 && (_v2.dispose(), _v178.debug("(remove stream) dispose prev stream for: ", {
           kind: _v0
         })), _v1.update(_v0 => {
           _v0[_v0] = void 0;
         });
       },
       reset: () => {
-        _v177.debug("reset media stream store", {
+        _v178.debug("reset media stream store", {
           kind: "all"
         });
         let _v0 = _v1();
-        Object.values(_v149).forEach(_v0 => {
+        Object.values(_v150).forEach(_v0 => {
           _v0.removeStream(_v0);
         });
       },
@@ -2204,38 +2209,38 @@
         });
       }
     }));
-  function _v179(_v0, _v1) {
-    _v177.debug("muteCaptureDevices", {
+  function _v180(_v0, _v1) {
+    _v178.debug("muteCaptureDevices", {
       kind: _v0,
       notifyError: _v1
     });
     let {
         update: _v2
-      } = _v87.getState(),
+      } = _v88.getState(),
       {
         setError: _v3
-      } = _v89.useUIStore.getState().common;
+      } = _v90.useUIStore.getState().common;
     "microphone" === _v0 && (_v2("capture", {
       isAudioMuted: !0
     }), _v1 && _v3({
       type: "error",
-      errorKey: _v175(_v0)
+      errorKey: _v176(_v0)
     })), "camera" === _v0 && (_v2("capture", {
       isVideoMuted: !0
     }), _v1 && _v3({
       type: "error",
-      errorKey: _v175(_v0)
+      errorKey: _v176(_v0)
     }));
   }
-  let _v180 = "screenAndCameraCapture",
-    _v181 = "screenCapture",
-    _v182 = "cameraCapture",
-    _v183 = "audioCapture";
-  var _v184 = _v0.i(0),
-    _v185 = _v0.i(0),
+  let _v181 = "screenAndCameraCapture",
+    _v182 = "screenCapture",
+    _v183 = "cameraCapture",
+    _v184 = "audioCapture";
+  var _v185 = _v0.i(0),
     _v186 = _v0.i(0),
-    _v187 = _v0.i(0);
-  class _v188 {
+    _v187 = _v0.i(0),
+    _v188 = _v0.i(0);
+  class _v189 {
     _callbacks;
     unsubscribed;
     constructor(_v0) {
@@ -2251,8 +2256,8 @@
       this.setCallbacks(_v0), this.unsubscribed = !0;
     }
   }
-  let _v189 = "image/webp";
-  async function _v190(_v0) {
+  let _v190 = "image/webp";
+  async function _v191(_v0) {
     let _v1 = _v0.getVideoTracks();
     if (_v1.length < 1) throw Error("No video tracks");
     if ("ended" === _v1[0].readyState) throw Error("Video track is ended");
@@ -2267,9 +2272,9 @@
         once: !0
       }), _v2.srcObject = _v0, _v2.muted = !0, _v2.playsInline = !0, _v2.play().catch(_v1);
     });
-    await _v191(_v5), _v3.width = _v2.videoWidth, _v3.height = _v2.videoHeight, _v4.drawImage(_v2, 0, 0, _v3.width, _v3.height);
-    let _v6 = await _v191(new Promise(_v0 => {
-      _v3.toBlob(_v0, _v189);
+    await _v192(_v5), _v3.width = _v2.videoWidth, _v3.height = _v2.videoHeight, _v4.drawImage(_v2, 0, 0, _v3.width, _v3.height);
+    let _v6 = await _v192(new Promise(_v0 => {
+      _v3.toBlob(_v0, _v190);
     }));
     if (!_v6) throw Error("No blob made");
     return {
@@ -2278,15 +2283,15 @@
       height: _v3.height
     };
   }
-  function _v191(_v0, _v1 = 0) {
+  function _v192(_v0, _v1 = 0) {
     return new Promise((_v0, _v1) => {
       setTimeout(() => {
         _v0.then(_v0).catch(_v1);
       }, _v1);
     });
   }
-  var _v192 = _v0.i(0);
-  async function _v193({
+  var _v193 = _v0.i(0);
+  async function _v194({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -2296,20 +2301,20 @@
     },
     ..._v5
   }) {
-    return (0, _v192.measureLatency)("postUserLiveProvisionerActivate", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/live_provisioners/${_v4}/activate?fields=${_v1.map(_v90.intoSnakeCase).join(",")}`, {
+    return (0, _v193.measureLatency)("postUserLiveProvisionerActivate", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v3}/live_provisioners/${_v4}/activate?fields=${_v1.map(_v91.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "POST",
-        body: JSON.stringify((0, _v90.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v91.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v90.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v91.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v90.deepCamelCase)(_v1);
+      return (0, _v91.deepCamelCase)(_v1);
     });
   }
-  async function _v194({
+  async function _v195({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -2318,64 +2323,64 @@
     },
     ..._v4
   }) {
-    return (0, _v192.measureLatency)("postUserLiveProvisioners", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/live_provisioners?fields=${_v1.map(_v90.intoSnakeCase).join(",")}`, {
+    return (0, _v193.measureLatency)("postUserLiveProvisioners", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v3}/live_provisioners?fields=${_v1.map(_v91.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "POST",
-        body: JSON.stringify((0, _v90.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v91.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v90.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v91.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v90.deepCamelCase)(_v1);
+      return (0, _v91.deepCamelCase)(_v1);
     });
   }
-  let _v195 = _v139.createForCategory("LiveUpload"),
-    _v196 = _v76 ? "https://live-api-dev.vimeocdn.com" : "https://live-api.vimeocdn.com",
-    _v197 = async (_v0, _v1) => {
+  let _v196 = _v140.createForCategory("LiveUpload"),
+    _v197 = _v77 ? "https://live-api-dev.vimeocdn.com" : "https://live-api.vimeocdn.com",
+    _v198 = async (_v0, _v1) => {
       let _v2;
-      _v195.debug("Creating live provisioner", {
+      _v196.debug("Creating live provisioner", {
         userId: _v0,
         videoUri: _v1
       });
       let _v3 = null;
       try {
-        _v3 = await _v104.fetchWithRecordJWT(_v194, {
+        _v3 = await _v105.fetchWithRecordJWT(_v195, {
           where: {
             userId: _v0
           },
           select: ["uri", "metadata.interactions.activateSession"],
           variables: {
             contentType: "recording",
-            contentId: String(_v202(_v1))
+            contentId: String(_v203(_v1))
           }
         }, {
           timeout: 0
         });
       } catch (_v0) {
-        if (_v0 instanceof DOMException && "TimeoutError" === _v0.name) return _v195.warn("Live provisioner creation request timed out", {
+        if (_v0 instanceof DOMException && "TimeoutError" === _v0.name) return _v196.warn("Live provisioner creation request timed out", {
           timeoutMs: 0
         }), null;
         throw _v0;
       }
       let _v4 = _v3.metadata.interactions.activateSession?.uri,
         _v5 = (_v2 = _v4 ? _v4.match(/[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/) : null) ? _v2[0] : null;
-      return _v5 ? _v195.debug("Live provisioner created", {
+      return _v5 ? _v196.debug("Live provisioner created", {
         provisionerId: _v5
-      }) : _v195.warn("Failed to extract provisionerId from live provisioner activation URI", {
+      }) : _v196.warn("Failed to extract provisionerId from live provisioner activation URI", {
         activateSessionUri: _v4
       }), _v5;
     },
-    _v198 = async (_v0, _v1, _v2, _v3, _v4 = 0) => {
-      if (_v2.aborted) return _v195.warn("Skipping live provisioner activation: signal already aborted", {
+    _v199 = async (_v0, _v1, _v2, _v3, _v4 = 0) => {
+      if (_v2.aborted) return _v196.warn("Skipping live provisioner activation: signal already aborted", {
         provisionerId: _v0
       }), null;
-      _v195.debug("Activating live provisioner", {
+      _v196.debug("Activating live provisioner", {
         provisionerId: _v0
       });
       try {
-        let _v0 = await _v104.fetchWithRecordJWT(_v193, {
+        let _v0 = await _v105.fetchWithRecordJWT(_v194, {
           where: {
             provisionerId: _v0,
             userId: _v1
@@ -2391,67 +2396,67 @@
           timeout: 0,
           extraSignals: [_v2]
         });
-        return _v195.debug("Live provisioner activated", {
+        return _v196.debug("Live provisioner activated", {
           provisionerId: _v0,
           encoderType: _v0.ingest.encoderType,
           ingestStatus: _v0.ingest.status
         }), _v0.ingest.streamKey;
       } catch (_v0) {
-        if (_v0 instanceof DOMException && "TimeoutError" === _v0.name) return _v195.warn("Live provisioner activation request timed out", {
+        if (_v0 instanceof DOMException && "TimeoutError" === _v0.name) return _v196.warn("Live provisioner activation request timed out", {
           provisionerId: _v0,
           timeoutMs: 0
         }), null;
-        if (_v0 instanceof _v90.NetworkError && 500 === _v0.status) {
-          if (_v4 >= 5) return _v195.warn("Live provisioner activation hit retry limit", {
+        if (_v0 instanceof _v91.NetworkError && 500 === _v0.status) {
+          if (_v4 >= 5) return _v196.warn("Live provisioner activation hit retry limit", {
             provisionerId: _v0,
             retries: _v4
           }), null;
-          return _v195.warn("Live provisioner activation returned 500, waiting for instance to start and retrying", {
+          return _v196.warn("Live provisioner activation returned 500, waiting for instance to start and retrying", {
             provisionerId: _v0,
             retryAfterMs: 0,
             retries: _v4
-          }), await _v103(0, _v2), await _v198(_v0, _v1, _v2, _v3, _v4 + 1);
+          }), await _v104(0, _v2), await _v199(_v0, _v1, _v2, _v3, _v4 + 1);
         }
-        throw _v195.warn("Live provisioner activation failed with non-retryable error", {
+        throw _v196.warn("Live provisioner activation failed with non-retryable error", {
           provisionerId: _v0,
           errorName: _v0?.name,
           errorMessage: _v0?.message,
-          status: _v0 instanceof _v90.NetworkError ? _v0.status : void 0
+          status: _v0 instanceof _v91.NetworkError ? _v0.status : void 0
         }), _v0;
       }
     },
-    _v199 = async (_v0, _v1, _v2 = 0) => {
+    _v200 = async (_v0, _v1, _v2 = 0) => {
       let _v3;
-      if (_v1.aborted) return _v195.warn("Skipping live DASH session creation: signal already aborted"), null;
-      _v195.debug("Creating live DASH session");
+      if (_v1.aborted) return _v196.warn("Skipping live DASH session creation: signal already aborted"), null;
+      _v196.debug("Creating live DASH session");
       try {
-        _v3 = await _v102(`${_v196}/sessions/record/${_v0}`, {
+        _v3 = await _v103(`${_v197}/sessions/record/${_v0}`, {
           method: "POST"
         }, 0, [_v1]);
       } catch (_v0) {
-        if (_v0 instanceof DOMException && "TimeoutError" === _v0.name) return _v195.warn("Live DASH session request timed out", {
+        if (_v0 instanceof DOMException && "TimeoutError" === _v0.name) return _v196.warn("Live DASH session request timed out", {
           timeoutMs: 0
         }), null;
         throw _v0;
       }
       if (200 === _v3.status) {
         let _v0 = (await _v3.json()).url;
-        return _v195.debug("Live DASH session created successfully"), _v0;
+        return _v196.debug("Live DASH session created successfully"), _v0;
       }
-      return 503 !== _v3.status ? (_v195.warn("Live DASH session creation failed with unexpected status", {
+      return 503 !== _v3.status ? (_v196.warn("Live DASH session creation failed with unexpected status", {
         status: _v3.status
-      }), null) : _v2 >= 10 ? (_v195.warn("Live DASH session creation hit retry limit", {
+      }), null) : _v2 >= 10 ? (_v196.warn("Live DASH session creation hit retry limit", {
         retries: _v2
-      }), null) : (_v195.warn("Live DASH session creation returned 503, waiting for session to activate and retrying", {
+      }), null) : (_v196.warn("Live DASH session creation returned 503, waiting for session to activate and retrying", {
         retryAfterMs: 0,
         retries: _v2
-      }), await _v103(0, _v1), await _v199(_v0, _v1, _v2 + 1));
+      }), await _v104(0, _v1), await _v200(_v0, _v1, _v2 + 1));
     },
-    _v200 = async _v0 => {
+    _v201 = async _v0 => {
       let _v1;
-      _v195.debug("Getting live upload link from DASH session");
+      _v196.debug("Getting live upload link from DASH session");
       try {
-        _v1 = await _v102(`${_v0}main`, {
+        _v1 = await _v103(`${_v0}main`, {
           method: "POST",
           headers: {
             "Tus-Resumable": "1.0.0",
@@ -2459,14 +2464,14 @@
           }
         }, 0);
       } catch (_v0) {
-        if (_v0 instanceof DOMException && "TimeoutError" === _v0.name) return _v195.warn("Live upload link request timed out", {
+        if (_v0 instanceof DOMException && "TimeoutError" === _v0.name) return _v196.warn("Live upload link request timed out", {
           timeoutMs: 0
         }), null;
         throw _v0;
       }
       return _v1;
     };
-  class _v201 extends _v188 {
+  class _v202 extends _v189 {
     options;
     log;
     session;
@@ -2487,7 +2492,7 @@
       return this.finalized;
     }
     retry;
-    constructor(_v0, _v1, _v2 = _v139.createForCategory("Uploader")) {
+    constructor(_v0, _v1, _v2 = _v140.createForCategory("Uploader")) {
       super(_v0), this.options = _v1, this.log = _v2, this.pendingChunks = [], this.cancel = () => void 0, this.createSessionAbortController = new AbortController(), this.finalized = !1;
     }
     start(_v0, _v1) {
@@ -2506,7 +2511,7 @@
             uploadLink: this.session.uploadLink,
             uploadOffset: this.session.uploadOffset
           });
-          let _v0 = await _v102(this.session.uploadLink, {
+          let _v0 = await _v103(this.session.uploadLink, {
             method: "PATCH",
             headers: {
               "Tus-Resumable": "1.0.0",
@@ -2519,13 +2524,13 @@
             uploadLink: this.session.uploadLink,
             uploadOffset: this.session.uploadOffset,
             status: _v0.status,
-            message: _v97(_v0)
-          }), this.handleErrors(new _v93("Keep alive request failed by server: " + (await _v97(_v0)))));
+            message: _v98(_v0)
+          }), this.handleErrors(new _v94("Keep alive request failed by server: " + (await _v98(_v0)))));
         } else this.log.warn("No session found, skipping keep alive request");
       } catch (_v0) {
         this.log.warn("Keep alive request failed", {
           message: _v0?.message
-        }), this.handleErrors(new _v93("Keep alive request failed, unhandled http error: " + _v0.message));
+        }), this.handleErrors(new _v94("Keep alive request failed, unhandled http error: " + _v0.message));
       }
     }
     async invalidateCurrentLiveSession() {
@@ -2533,7 +2538,7 @@
       let _v0 = this.session && "live" === this.uploadApproach ? this.session.uploadLink : null;
       if (_v0) {
         try {
-          await _v102(_v0, {
+          await _v103(_v0, {
             method: "DELETE",
             headers: {
               "Tus-Resumable": "1.0.0",
@@ -2541,8 +2546,8 @@
             }
           }, 0), this.log.debug("Live session invalidated successfully");
         } catch (_v0) {
-          this.log.error(_v204(_v0, "Live session invalidation failed"), {
-            category: _v123.NETWORK,
+          this.log.error(_v205(_v0, "Live session invalidation failed"), {
+            category: _v124.NETWORK,
             method: "invalidateLiveSession",
             component: "Uploader"
           });
@@ -2575,7 +2580,7 @@
     }
     async checkIsVideoPlayable(_v0, _v1) {
       try {
-        let _v0 = await _v104.fetchWithRecordJWT(_v185.getVideo, {
+        let _v0 = await _v105.fetchWithRecordJWT(_v186.getVideo, {
           where: {
             videoId: _v0
           },
@@ -2596,8 +2601,8 @@
           thumbnailLink: _v0.pictures.baseLink
         }));
       } catch (_v0) {
-        this.log.error(_v204(_v0, "Video playable status check failed"), {
-          category: _v123.NETWORK,
+        this.log.error(_v205(_v0, "Video playable status check failed"), {
+          category: _v124.NETWORK,
           method: "checkIsVideoPlayable",
           component: "Uploader"
         });
@@ -2611,8 +2616,8 @@
         _v5 = performance.now();
       this.callbacks.onStarted(), this.retry = void 0, this.currentVideoId = void 0, this.currentStreamKey = void 0, this.currentProvisionerId = void 0, this.liveSetupStep = void 0, this.cancel = (_v1 = {
         action: async () => {
-          if (!this.options.uploadAccountId) throw new _v92("uploadAccountId is not set");
-          let _v0 = await _v104.fetchWithRecordJWT(_v184.postUserVideos, {
+          if (!this.options.uploadAccountId) throw new _v93("uploadAccountId is not set");
+          let _v0 = await _v105.fetchWithRecordJWT(_v185.postUserVideos, {
               where: {
                 userId: this.options.uploadAccountId
               },
@@ -2632,8 +2637,8 @@
                 }
               }
             }),
-            _v1 = _v202(_v0.uri);
-          if (!_v1) throw new _v92("Cannot get video ID from URI");
+            _v1 = _v203(_v0.uri);
+          if (!_v1) throw new _v93("Cannot get video ID from URI");
           if (this.currentVideoId = _v1, "live" !== this.uploadApproach) return {
             video: _v0,
             videoId: _v1,
@@ -2642,37 +2647,37 @@
           this.liveSetupStep = "provisioner", this.log.debug("Live session setup: creating provisioner", {
             videoUri: _v0.uri
           });
-          let _v2 = await _v197(this.options.uploadAccountId, _v0.uri);
-          if (!_v2) throw this.deleteVideo(_v1), new _v93("did not receive provisionerId after a live session creation");
+          let _v2 = await _v198(this.options.uploadAccountId, _v0.uri);
+          if (!_v2) throw this.deleteVideo(_v1), new _v94("did not receive provisionerId after a live session creation");
           this.currentProvisionerId = _v2, this.liveSetupStep = "activate", this.log.debug("Live session setup: activating provisioner", {
             provisionerId: _v2
           });
-          let _v3 = await _v198(_v2, this.options.uploadAccountId, this.createSessionAbortController.signal, this.options.resolution);
+          let _v3 = await _v199(_v2, this.options.uploadAccountId, this.createSessionAbortController.signal, this.options.resolution);
           if (!_v3) throw this.log.warn("Live session setup: activateLiveProvisioner returned null streamKey", {
             provisionerId: _v2,
             aborted: this.createSessionAbortController.signal.aborted
-          }), this.deleteVideo(_v1), new _v93("did not receive streamKey after a live session activation");
+          }), this.deleteVideo(_v1), new _v94("did not receive streamKey after a live session activation");
           this.currentStreamKey = _v3, this.liveSetupStep = "dashSession", this.log.debug("Live session setup: creating DASH session");
-          let _v4 = await _v199(_v3, this.createSessionAbortController.signal);
+          let _v4 = await _v200(_v3, this.createSessionAbortController.signal);
           if (!_v4) throw this.log.warn("Live session setup: createLiveDashSession returned null", {
             aborted: this.createSessionAbortController.signal.aborted
-          }), this.deleteVideo(_v1), new _v93("failed to create a live dash session");
+          }), this.deleteVideo(_v1), new _v94("failed to create a live dash session");
           this.liveSetupStep = "uploadLink", this.log.debug("Live session setup: getting upload link");
-          let _v5 = await _v200(_v4);
-          if (!_v5) throw this.deleteVideo(_v1), new _v93("live upload link request timed out");
+          let _v5 = await _v201(_v4);
+          if (!_v5) throw this.deleteVideo(_v1), new _v94("live upload link request timed out");
           if (!_v5.ok) {
             if (this.deleteVideo(_v1), 500 === _v5.status) throw this.log.warn("Live session setup: upload link request returned 500 (session expired)", {
               videoId: _v1
-            }), new _v92("live session expired");
+            }), new _v93("live session expired");
             throw this.log.warn("Live session setup: upload link request failed", {
               status: _v5.status,
               videoId: _v1
-            }), new _v93("failed to get an upload link for a live dash session");
+            }), new _v94("failed to get an upload link for a live dash session");
           }
           let _v6 = _v5.headers.get("Location");
           if (!_v6) throw this.log.warn("Live session setup: upload link response missing Location header", {
             videoId: _v1
-          }), this.deleteVideo(_v1), new _v93("failed to get a location from a live dash session upload creation - header not found");
+          }), this.deleteVideo(_v1), new _v94("failed to get a location from a live dash session upload creation - header not found");
           return {
             video: _v0,
             videoId: _v1,
@@ -2684,7 +2689,7 @@
           videoId: _v1,
           uploadLink: _v2
         }) => {
-          if (this.cancel = () => void 0, this.liveSetupStep = void 0, !_v2) throw this.deleteVideo(_v1), new _v92("did not receive an uploadLink after creating the video");
+          if (this.cancel = () => void 0, this.liveSetupStep = void 0, !_v2) throw this.deleteVideo(_v1), new _v93("did not receive an uploadLink after creating the video");
           this.callbacks.onVideoCreated(_v0.uri), this.session = {
             videoLink: _v0.manageLink || _v0.link,
             videoUri: _v0.uri,
@@ -2701,8 +2706,8 @@
           }), this.patchVideo(this.session.videoId, {
             name: this.options.recordingTitle
           }).catch(_v0 => {
-            this.log.error(_v204(_v0, "Video title update failed"), {
-              category: _v123.NETWORK,
+            this.log.error(_v205(_v0, "Video title update failed"), {
+              category: _v124.NETWORK,
               method: "createVideo",
               component: "Uploader"
             });
@@ -2713,7 +2718,7 @@
             this.log.debug("Retrying video creation", {
               reason: _v0.message
             }), this.createVideo(_v0);
-          }, _v0 instanceof _v90.NetworkError && 400 === _v0.status && "nobody" !== this.options.privacy.value) {
+          }, _v0 instanceof _v91.NetworkError && 400 === _v0.status && "nobody" !== this.options.privacy.value) {
             this.log.warn("Changing privacy to Private as fallback", {
               originalPrivacy: this.options.privacy.value
             }), this.options.privacy = {
@@ -2723,8 +2728,8 @@
           }
           this.handleErrors(_v0) ? this.log.warn("Video create - handled error", {
             error: _v0
-          }) : this.log.error(_v204(_v0, "Video creation failed"), {
-            category: _v123.UPLOADING,
+          }) : this.log.error(_v205(_v0, "Video creation failed"), {
+            category: _v124.UPLOADING,
             method: "createVideo",
             component: "Uploader"
           });
@@ -2749,7 +2754,7 @@
     }
     async deleteVideo(_v0) {
       try {
-        await _v104.fetchWithRecordJWT(_v185.deleteVideo, {
+        await _v105.fetchWithRecordJWT(_v186.deleteVideo, {
           where: {
             videoId: _v0
           },
@@ -2760,8 +2765,8 @@
           } : {})
         });
       } catch (_v0) {
-        this.log.error(_v204(_v0, "Video deletion failed"), {
-          category: _v123.NETWORK,
+        this.log.error(_v205(_v0, "Video deletion failed"), {
+          category: _v124.NETWORK,
           method: "deleteVideo",
           component: "Uploader"
         });
@@ -2786,7 +2791,7 @@
             if (_v0 < _v0.uploadOffset || _v0 > _v0.uploadOffset + _v0.byteLength) {
               let _v0 = RangeError("Upload-Offset is out of expected bounds");
               this.log.error(_v0, {
-                category: _v123.UPLOADING,
+                category: _v124.UPLOADING,
                 method: "upload",
                 component: "Uploader",
                 data: {
@@ -2797,14 +2802,14 @@
               return;
             }
             _v0 > _v0.uploadOffset && (_v0 === _v0.uploadOffset + _v0.byteLength ? (this.pendingChunks.shift(), this.log.error(RangeError("Chunk is already uploaded"), {
-              category: _v123.NETWORK,
+              category: _v124.NETWORK,
               method: "upload",
               component: "Uploader",
               data: {
                 uploadOffset: _v0
               }
             })) : (this.pendingChunks[0] = this.pendingChunks[0].slice(_v0 - _v0.uploadOffset), this.log.error(RangeError("Chunk is partially uploaded"), {
-              category: _v123.NETWORK,
+              category: _v124.NETWORK,
               method: "upload",
               component: "Uploader",
               data: {
@@ -2817,7 +2822,7 @@
             chunkSize: _v0.byteLength
           });
           let _v1 = performance.now(),
-            _v2 = await _v102(_v0.uploadLink, {
+            _v2 = await _v103(_v0.uploadLink, {
               method: "PATCH",
               headers: {
                 "Tus-Resumable": "1.0.0",
@@ -2836,13 +2841,13 @@
           }), _v2.ok) {
             let _v0 = _v2.headers.get("Upload-Offset"),
               _v1 = parseInt(_v0 || "");
-            if (_v0.uploadOffset + _v0.byteLength === _v1) _v0.requestUploadOffset = !1, _v0.uploadOffset = _v1, this.pendingChunks.shift(), this.callbacks.onChunkUploaded();else if (_v0.requestUploadOffset) throw new _v92("Chunk upload offset mismatch");else _v0.requestUploadOffset = !0;
+            if (_v0.uploadOffset + _v0.byteLength === _v1) _v0.requestUploadOffset = !1, _v0.uploadOffset = _v1, this.pendingChunks.shift(), this.callbacks.onChunkUploaded();else if (_v0.requestUploadOffset) throw new _v93("Chunk upload offset mismatch");else _v0.requestUploadOffset = !0;
           } else {
             if (this.log.warn("Chunk upload failed", {
               uploadOffset: _v0.uploadOffset,
               chunkSize: _v0.byteLength,
               status: _v2.status
-            }), _v0.requestUploadOffset) throw new _v90.NetworkError("Chunk upload failed", _v2.status, _v2);
+            }), _v0.requestUploadOffset) throw new _v91.NetworkError("Chunk upload failed", _v2.status, _v2);
             _v0.requestUploadOffset = !0;
           }
         }
@@ -2858,8 +2863,8 @@
         });else {
           let _v0 = this.pendingChunks[0],
             _v1 = _v0.uploadStartTime ? Math.round(performance.now() - _v0.uploadStartTime) / 0 : null;
-          this.log.error(_v204(_v0, "Chunk upload failed"), {
-            category: _v123.UPLOADING,
+          this.log.error(_v205(_v0, "Chunk upload failed"), {
+            category: _v124.UPLOADING,
             method: "upload",
             component: "Uploader",
             data: {
@@ -2878,7 +2883,7 @@
       }
     }
     async patchVideo(_v0, _v1) {
-      await _v104.fetchWithRecordJWT(_v185.patchVideo, {
+      await _v105.fetchWithRecordJWT(_v186.patchVideo, {
         where: {
           videoId: _v0
         },
@@ -2887,16 +2892,17 @@
       });
     }
     async finalizeVideo(_v0, _v1) {
-      if ((await this.getUploadStatus(_v0.uploadLink)).uploadDeferLength) {
-        try {
-          await this.patchVideo(_v0.videoId, _v1);
-        } catch (_v0) {
-          throw _v204(_v0, "Upload finalize API failed", !1);
-        }
+      let _v2 = await this.getUploadStatus(_v0.uploadLink);
+      try {
+        await this.patchVideo(_v0.videoId, _v1);
+      } catch (_v0) {
+        throw _v205(_v0, "Upload finalize API failed", !1);
+      }
+      if (_v2.uploadDeferLength) {
         this.log.info("Finalizing upload", {
           uploadOffset: _v0.uploadOffset
         });
-        let _v0 = await _v102(_v0.uploadLink, {
+        let _v0 = await _v103(_v0.uploadLink, {
           method: "PATCH",
           headers: {
             "Tus-Resumable": "1.0.0",
@@ -2906,33 +2912,33 @@
             "Content-Length": "0"
           }
         }, 0);
-        if (_v0.ok) this.handleUploadFinalized(_v0);else throw new _v90.NetworkError("Upload finalize failed", _v0.status, _v0);
+        if (_v0.ok) this.handleUploadFinalized(_v0);else throw new _v91.NetworkError("Upload finalize failed", _v0.status, _v0);
       } else this.handleUploadFinalized(_v0);
     }
     async uploadThumbnail() {
       if (this.session && this.pendingThumbnail) try {
         var _v0;
         let _v0,
-          _v1 = await _v104.fetchWithRecordJWT(_v187.postVideoPictures, {
+          _v1 = await _v105.fetchWithRecordJWT(_v188.postVideoPictures, {
             where: {
               videoId: this.session.videoId
             },
             select: ["uri", "link"]
           }),
           _v2 = (_v0 = (_v0 = _v1.uri) ? _v0.match(/pictures\/(\d+)/) : null) && _v0.length > 1 ? parseInt(_v0[1]) : null;
-        if (!_v2) throw new _v92("Cannot get picture ID from URI");
-        if (!_v1.link) throw new _v92("No link for thumbnail upload");
+        if (!_v2) throw new _v93("Cannot get picture ID from URI");
+        if (!_v1.link) throw new _v93("No link for thumbnail upload");
         if (!this.session || !this.pendingThumbnail) return;
-        let _v3 = await _v102(_v1.link, {
+        let _v3 = await _v103(_v1.link, {
           method: "PUT",
           headers: {
-            "Content-Type": _v189
+            "Content-Type": _v190
           },
           body: this.pendingThumbnail.blob
         }, 0);
-        if (!_v3.ok) throw new _v90.NetworkError("Thumbnail upload failed", _v3.status, _v3);
+        if (!_v3.ok) throw new _v91.NetworkError("Thumbnail upload failed", _v3.status, _v3);
         if (!this.session || !this.pendingThumbnail) return;
-        await _v104.fetchWithRecordJWT(_v186.patchVideoPicture, {
+        await _v105.fetchWithRecordJWT(_v187.patchVideoPicture, {
           where: {
             videoId: this.session.videoId,
             pictureId: _v2
@@ -2943,8 +2949,8 @@
           }
         }), this.pendingThumbnail = void 0;
       } catch (_v0) {
-        this.log.error(_v204(_v0, "Thumbnail upload failed"), {
-          category: _v123.THUMBNAIL,
+        this.log.error(_v205(_v0, "Thumbnail upload failed"), {
+          category: _v124.THUMBNAIL,
           method: "uploadThumbnail",
           component: "Uploader"
         });
@@ -2974,11 +2980,14 @@
     }
     handleErrors(_v0) {
       let _v1 = this.buildUploadFailureContext(_v0);
-      if (_v0 instanceof _v90.NetworkError) {
-        if (!_v95(_v0)) return this.callbacks.onFailed("FatalError", _v0, _v1), !1;else this.callbacks.onFailed("UnauthorizedError", _v0, _v1);
+      if (_v0 instanceof _v91.NetworkError) {
+        if (_v96(_v0)) this.callbacks.onFailed("UnauthorizedError", _v0, _v1);else {
+          if ("tus" !== this.uploadApproach || !(_v0.status >= 500) && 429 !== _v0.status) return this.callbacks.onFailed("FatalError", _v0, _v1), !1;
+          this.callbacks.onFailed("ServerError", _v0, _v1);
+        }
       } else {
-        if (_v0 instanceof _v92 || _v0 instanceof RangeError || _v203(_v0)) return this.callbacks.onFailed("FatalError", _v0, _v1), !1;
-        if (_v0 instanceof _v93) return this.callbacks.onFailed("FatalLiveError", _v0, _v1), !1;
+        if (_v0 instanceof _v93 || _v0 instanceof RangeError || _v204(_v0)) return this.callbacks.onFailed("FatalError", _v0, _v1), !1;
+        if (_v0 instanceof _v94) return this.callbacks.onFailed("FatalLiveError", _v0, _v1), !1;
         if (_v0 instanceof SyntaxError) return this.callbacks.onFailed("FirewallError", _v0, _v1), !1;
         _v0 instanceof TypeError && this.callbacks.onFailed("NoInternetError", _v0, _v1);
       }
@@ -2989,10 +2998,10 @@
       let _v1 = Math.round(performance.now() - _v0.uploadStartTime) / 0;
       this.log.info(`${this.uploadApproach} upload succeeded in ${_v1}s`, {
         videoLink: _v0.videoLink
-      }), this.callbacks.onPlayable && (this.checkIsPlayableInterval = setInterval(() => this.checkIsVideoPlayable(_v0.videoId, _v0.videoLink), 0)), this.callbacks.onUploaded(_v0.videoId, _v0.videoLink, this.uploadApproach ?? "ipb", _v1, this.checkIsPlayableInterval), await this.invalidateCurrentLiveSession();
+      }), this.callbacks.onPlayable && (this.checkIsPlayableInterval = setInterval(() => this.checkIsVideoPlayable(_v0.videoId, _v0.videoLink), 0)), this.callbacks.onUploaded(_v0.videoId, _v0.videoLink, this.uploadApproach ?? "live", _v1, this.checkIsPlayableInterval), await this.invalidateCurrentLiveSession();
     }
     async getUploadStatus(_v0) {
-      let _v1 = await _v102(_v0, {
+      let _v1 = await _v103(_v0, {
         method: "HEAD",
         headers: {
           "Tus-Resumable": "1.0.0"
@@ -3011,23 +3020,23 @@
       throw this.log.warn("Upload status check (HEAD) failed", {
         status: _v1.status,
         uploadLink: _v0
-      }), new _v90.NetworkError("Upload status get failed", _v1.status, _v1);
+      }), new _v91.NetworkError("Upload status get failed", _v1.status, _v1);
     }
   }
-  function _v202(_v0) {
+  function _v203(_v0) {
     let _v1 = _v0 ? _v0.match(/videos\/(\d+)/) : null;
     return _v1 && _v1.length > 1 ? parseInt(_v1[1]) : null;
   }
-  function _v203(_v0) {
+  function _v204(_v0) {
     return "object" == typeof _v0 && null !== _v0 && "name" in _v0 && ["AbortError", "TimeoutError"].includes(_v0.name);
   }
-  function _v204(_v0, _v1, _v2 = !0) {
-    if (_v203(_v0)) {
+  function _v205(_v0, _v1, _v2 = !0) {
+    if (_v204(_v0)) {
       let _v0 = Error(`${_v1} failed due to a request timeout; cause: ${_v0.message}.`);
       return _v0.stack = _v0.stack, _v0;
     }
     if (_v0 instanceof Error) {
-      if (_v0 instanceof _v90.NetworkError) {
+      if (_v0 instanceof _v91.NetworkError) {
         let _v0 = "A network error occurred" === _v0.message ? _v1 : _v0.message;
         _v0.message = _v2 ? `${_v0} (${_v0.res.status} ${_v0.res.statusText})` : _v0;
       }
@@ -3035,19 +3044,19 @@
     }
     return Error("string" == typeof _v0 ? _v0 : _v1);
   }
-  let _v205 = _v0 => ({
-      [_v180]: "Cam and Screen",
-      [_v182]: "Cam",
-      [_v181]: "Screen",
-      [_v183]: "Audio"
+  let _v206 = _v0 => ({
+      [_v181]: "Cam and Screen",
+      [_v183]: "Cam",
+      [_v182]: "Screen",
+      [_v184]: "Audio"
     })[_v0] ?? _v0,
-    _v206 = _v0 => _v0 ? {
+    _v207 = _v0 => _v0 ? {
       monitor: "full_screen",
       browser: "tab",
       window: "window",
       application: "window"
     }[_v0] : null,
-    _v207 = _v0 => {
+    _v208 = _v0 => {
       if (!_v0) return;
       let {
         speed: _v1,
@@ -3064,17 +3073,17 @@
         script_speed: _v1
       };
     };
-  function _v208(_v0) {
-    _v50.sendRecordEvent(_v0 => function (_v0, _v1) {
+  function _v209(_v0) {
+    _v51.sendRecordEvent(_v0 => function (_v0, _v1) {
       switch (_v0.name) {
         case "recordingStarted":
-          return new _v47.Event("recording_started", 10, {
-            capture_mode: _v205(_v0.captureMode),
+          return new _v48.Event("recording_started", 10, {
+            capture_mode: _v206(_v0.captureMode),
             clip_id: null,
             excluded_windows_count: null,
             is_mic_on: _v0.isMicOn,
             launch_type: "Button Click",
-            screen_source: _v206(_v0.displaySurface),
+            screen_source: _v207(_v0.displaySurface),
             script_length: null,
             script_source: null,
             script_speed: null,
@@ -3083,7 +3092,7 @@
             system_sound_capture: _v0.isSystemSoundCapture ?? null,
             tab_capture: _v0.isTabCapture ?? null,
             tab_sound_capture: _v0.isTabAudioCapture ?? null,
-            ..._v207(_v0.script)
+            ..._v208(_v0.script)
           });
         case "recordingPaused":
           return function ({
@@ -3091,25 +3100,25 @@
             clipURL: _v1
           }) {
             let _v2 = {
-              clip_id: _v1 ? _v202(_v1) : null
+              clip_id: _v1 ? _v203(_v1) : null
             };
-            return new _v47.Event(_v0 ? "vimeo.recording_paused" : "vimeo.recording_resumed", 2, _v2);
+            return new _v48.Event(_v0 ? "vimeo.recording_paused" : "vimeo.recording_resumed", 2, _v2);
           }(_v0);
         case "recordingDeleted":
           return function ({
             deleteType: _v0,
             clipURL: _v1
           }) {
-            return new _v47.Event("record.recording_deleted", 2, {
-              clip_id: _v1 ? _v202(_v1) : null,
+            return new _v48.Event("record.recording_deleted", 2, {
+              clip_id: _v1 ? _v203(_v1) : null,
               delete_type: _v0,
               context_page: null
             });
           }(_v0);
         case "recordingStopped":
-          return new _v47.Event("recording_stopped", 10, {
-            capture_mode: _v205(_v0.captureMode),
-            clip_id: _v0.clipURL ? _v202(_v0.clipURL) : null,
+          return new _v48.Event("recording_stopped", 10, {
+            capture_mode: _v206(_v0.captureMode),
+            clip_id: _v0.clipURL ? _v203(_v0.clipURL) : null,
             is_mic_on: _v0.isMicOn,
             launch_method: "Button Click",
             recording_duration_seconds: _v0.duration,
@@ -3124,18 +3133,18 @@
             system_sound_capture: _v0.isSystemSoundCapture ?? null,
             tab_capture: _v0.isTabCapture ?? null,
             tab_sound_capture: _v0.isTabAudioCapture ?? null,
-            ..._v207(_v0.script)
+            ..._v208(_v0.script)
           });
         case "recordingUploaded":
-          return new _v47.Event("recording_uploaded", 20, {
-            capture_mode: _v205(_v0.captureMode),
-            clip_id: Number(_v202(_v0.clipURL)),
+          return new _v48.Event("recording_uploaded", 20, {
+            capture_mode: _v206(_v0.captureMode),
+            clip_id: Number(_v203(_v0.clipURL)),
             is_mic_on: _v0.isMicOn,
             launch_method: "Button Click",
             origin_variable_frame_resolution: _v0.originVariableFrameResolution,
             recording_duration_seconds: Math.round(_v0.recordingDuration),
             recording_stop_method: "Button Click",
-            screen_source: _v206(_v0.displaySurface),
+            screen_source: _v207(_v0.displaySurface),
             script_length: null,
             script_source: null,
             script_speed: null,
@@ -3161,14 +3170,14 @@
             is_snapping_on: _v0.isSnappingOn,
             is_guidelines_on: _v0.isGuidelinesOn,
             recording_quality: _v0.recordingQuality,
-            ..._v207(_v0.script)
+            ..._v208(_v0.script)
           });
         case "permissionsRequested":
-          return new _v47.Event("record.record_permissions_requested", 2, {
+          return new _v48.Event("record.record_permissions_requested", 2, {
             context_page: "welcome_page"
           });
         case "permissionsGranted":
-          return new _v47.Event("recording_permissions_granted", 2, {
+          return new _v48.Event("recording_permissions_granted", 2, {
             context_page: "welcome_page"
           });
         case "welcomeScreenOpened":
@@ -3176,7 +3185,7 @@
             extensionEntry: _v0,
             extensionLocation: _v1
           }) {
-            return new _v47.Event("record.record_welcome_screen_opened", 4, {
+            return new _v48.Event("record.record_welcome_screen_opened", 4, {
               extension_entry: void 0 === _v0 ? null : _v0,
               extension_location: "install" === _v1 ? null : _v1
             });
@@ -3189,7 +3198,7 @@
             processingDurationUploadFinished: _v3,
             uploadMethod: _v4
           }) {
-            return new _v47.Event("record.recording_became_playable", 4, {
+            return new _v48.Event("record.recording_became_playable", 4, {
               clip_id: _v0,
               recording_duration_seconds: Math.round(_v1),
               duration_between_recording_stopped_and_video_became_playable_in_seconds: Math.round(_v2 / 0),
@@ -3201,15 +3210,15 @@
       }
     }(_v0, _v0));
   }
-  let _v209 = {
+  let _v210 = {
       permissions: {
         audio: void 0,
         video: void 0
       },
       error: {}
     },
-    _v210 = (0, _v71.createStore)((_v0, _v1) => ({
-      ..._v209,
+    _v211 = (0, _v72.createStore)((_v0, _v1) => ({
+      ..._v210,
       setPermissions: _v0 => {
         _v0(_v0 => _v0(_v0.permissions));
       },
@@ -3224,26 +3233,26 @@
         video: !0
       }) => {
         try {
-          _v208({
+          _v209({
             name: "permissionsRequested"
           });
           let _v0 = await navigator.mediaDevices.getUserMedia({
             audio: _v0,
             video: _v1
           });
-          return _v160(_v0), _v208({
+          return _v161(_v0), _v209({
             name: "permissionsGranted"
           }), _v0(_v0 => {
             _v0.permissions = {
-              audio: _v0 ? _v153 : _v0.permissions.audio || _v154,
-              video: _v1 ? _v153 : _v0.permissions.video || _v154
+              audio: _v0 ? _v154 : _v0.permissions.audio || _v155,
+              video: _v1 ? _v154 : _v0.permissions.video || _v155
             }, _v0.error = {};
-          }), _v87.getState().update("onboarding", {
+          }), _v88.getState().update("onboarding", {
             wasPermissionsEverGranted: !0
           }), !0;
         } catch (_v0) {
-          if (_v141("usePermissionsStore").error(_v0, {
-            category: _v123.PERMISSIONS,
+          if (_v142("usePermissionsStore").error(_v0, {
+            category: _v124.PERMISSIONS,
             method: "request",
             component: "usePermissionsStore"
           }), _v0 instanceof DOMException && "Permission dismissed" === _v0.message) return !1;
@@ -3252,8 +3261,8 @@
               audio: _v0 ? _v0.name : _v0.error.audio,
               video: _v1 ? _v0.name : _v0.error.video
             }, _v0.permissions = {
-              audio: _v0 ? _v152 : _v0.permissions.audio || _v154,
-              video: _v1 ? _v152 : _v0.permissions.video || _v154
+              audio: _v0 ? _v153 : _v0.permissions.audio || _v155,
+              video: _v1 ? _v153 : _v0.permissions.video || _v155
             };
           }), !1;
         }
@@ -3264,8 +3273,8 @@
       }) => {
         if (_v0(_v0 => {
           _v0.permissions = {
-            audio: _v0 ? _v0.permissions.audio : _v154,
-            video: _v1 ? _v0.permissions.video : _v154
+            audio: _v0 ? _v0.permissions.audio : _v155,
+            video: _v1 ? _v0.permissions.video : _v155
           };
         }), _v0 || _v1) try {
           let [_v0, _v1] = await Promise.all([window.navigator.permissions.query({
@@ -3275,8 +3284,8 @@
           })]);
           _v0(_v0 => {
             _v0.error = {}, _v0.permissions = {
-              audio: _v0 ? _v1.state : _v0.permissions.audio || _v154,
-              video: _v1 ? _v0.state : _v0.permissions.video || _v154
+              audio: _v0 ? _v1.state : _v0.permissions.audio || _v155,
+              video: _v1 ? _v0.state : _v0.permissions.video || _v155
             };
           });
           let _v2 = _v1 && "prompt" === _v0.state,
@@ -3288,57 +3297,57 @@
             (await _v0({
               audio: _v3,
               video: _v2
-            })) && _v211(_v2, _v3);
+            })) && _v212(_v2, _v3);
           }
           return {
             camera: _v0,
             microphone: _v1
           };
         } catch {
-          if (_v87.getState().onboarding.wasPermissionsEverGranted) {
+          if (_v88.getState().onboarding.wasPermissionsEverGranted) {
             let {
               request: _v0
             } = _v1();
             (await _v0({
               audio: _v0,
               video: _v1
-            })) && _v211(_v1, _v0);
+            })) && _v212(_v1, _v0);
           } else _v0(_v0 => {
             _v0.error = {}, _v0.permissions = {
-              video: _v1 ? _v151 : _v154,
-              audio: _v0 ? _v151 : _v154
+              video: _v1 ? _v152 : _v155,
+              audio: _v0 ? _v152 : _v155
             };
           });
           return;
         }
       }
     }));
-  async function _v211(_v0, _v1) {
-    await _v169.getState().requestAndSetMediaDevices(), _v87.getState().update("capture", _v0 => ({
+  async function _v212(_v0, _v1) {
+    await _v170.getState().requestAndSetMediaDevices(), _v88.getState().update("capture", _v0 => ({
       isVideoMuted: (!_v0 || !_v0.selectedVideoDeviceId) && _v0.isVideoMuted,
       isAudioMuted: (!_v1 || !_v0.selectedAudioDeviceId) && _v0.isAudioMuted
     }));
   }
-  let _v212 = () => {
-      let _v0 = _v140("useDeviceActions"),
-        _v1 = (0, _v26.useCallback)((_v0, _v1) => _v87.getState().update(_v0, _v1), []),
-        _v2 = (0, _v26.useCallback)(() => !!_v178.getState().displayMedia, []),
+  let _v213 = () => {
+      let _v0 = _v141("useDeviceActions"),
+        _v1 = (0, _v26.useCallback)((_v0, _v1) => _v88.getState().update(_v0, _v1), []),
+        _v2 = (0, _v26.useCallback)(() => !!_v179.getState().displayMedia, []),
         {
           permissions: _v3,
           request: _v4
-        } = _v210((0, _v27.useShallow)(({
+        } = _v211((0, _v27.useShallow)(({
           permissions: _v0,
           request: _v1
         }) => ({
           permissions: _v0,
           request: _v1
         }))),
-        _v5 = _v169(_v0 => _v0.requestAndSetMediaDevices),
+        _v5 = _v170(_v0 => _v0.requestAndSetMediaDevices),
         _v6 = (0, _v26.useCallback)((_v0, _v1 = !0) => {
           _v1("capture", {
             selectedVideoDeviceId: _v0,
             isVideoMuted: !1
-          }), _v1 && _v51({
+          }), _v1 && _v52({
             name: "camera_source",
             eventType: "select",
             location: "camera_menu"
@@ -3347,15 +3356,15 @@
         _v7 = (0, _v26.useCallback)((_v0 = !0) => {
           _v1("capture", {
             isVideoMuted: !0
-          }), _v0 && _v51({
+          }), _v0 && _v52({
             name: "close_camera",
             eventType: "click",
             location: "bottom_panel"
           });
         }, [_v1]),
         _v8 = (0, _v26.useCallback)(() => {
-          let _v0 = _v87.getState().capture;
-          _v0.isVideoMuted && _v0.selectedVideoDeviceId ? (_v6(_v0.selectedVideoDeviceId, !1), _v51({
+          let _v0 = _v88.getState().capture;
+          _v0.isVideoMuted && _v0.selectedVideoDeviceId ? (_v6(_v0.selectedVideoDeviceId, !1), _v52({
             name: "open_camera",
             eventType: "click",
             location: "bottom_panel"
@@ -3365,7 +3374,7 @@
           _v1("capture", {
             selectedAudioDeviceId: _v0,
             isAudioMuted: !1
-          }), _v1 && _v51({
+          }), _v1 && _v52({
             name: "mic_source",
             eventType: "select",
             location: "mic_menu"
@@ -3374,33 +3383,33 @@
         _v10 = (0, _v26.useCallback)((_v0 = !0) => {
           _v1("capture", {
             isAudioMuted: !0
-          }), _v0 && _v51({
+          }), _v0 && _v52({
             name: "close_mic",
             eventType: "click",
             location: "bottom_panel"
           });
         }, [_v1]),
         _v11 = (0, _v26.useCallback)(() => {
-          let _v0 = _v87.getState().capture;
-          _v0.isAudioMuted && _v0.selectedAudioDeviceId ? (_v9(_v0.selectedAudioDeviceId, !1), _v51({
+          let _v0 = _v88.getState().capture;
+          _v0.isAudioMuted && _v0.selectedAudioDeviceId ? (_v9(_v0.selectedAudioDeviceId, !1), _v52({
             name: "open_mic",
             eventType: "click",
             location: "bottom_panel"
           })) : _v10();
         }, [_v9, _v10]),
         _v12 = (0, _v26.useCallback)(async () => {
-          let _v0 = _v178.getState().initStream({
-            kind: _v149.DISPLAY_MEDIA,
-            deviceId: _v148
+          let _v0 = _v179.getState().initStream({
+            kind: _v150.DISPLAY_MEDIA,
+            deviceId: _v149
           });
-          return _v51({
+          return _v52({
             name: "open_screen_share",
             eventType: "click",
             location: "bottom_panel"
           }), _v0.info("start screen share"), await _v0;
         }, [_v0]),
         _v13 = (0, _v26.useCallback)(_v0 => {
-          _v2() && _v178.getState().removeStream(_v149.DISPLAY_MEDIA), _v0 && _v51({
+          _v2() && _v179.getState().removeStream(_v150.DISPLAY_MEDIA), _v0 && _v52({
             name: "screen_share_off",
             eventType: "click",
             location: "bottom_panel"
@@ -3420,26 +3429,26 @@
           let {
             isAudioMuted: _v0,
             selectedAudioDeviceId: _v1
-          } = _v87.getState().capture;
+          } = _v88.getState().capture;
           _v0 && _v1 && _v9(_v1, !1);
         }), [_v15, _v9]),
         _v17 = (0, _v26.useCallback)(() => _v15("video", () => {
           let {
             isVideoMuted: _v0,
             selectedVideoDeviceId: _v1
-          } = _v87.getState().capture;
+          } = _v88.getState().capture;
           _v0 && _v1 && _v6(_v1, !1);
         }), [_v15, _v6]),
         _v18 = (0, _v26.useCallback)(() => {
           let {
             isVideoMuted: _v0
-          } = _v87.getState().capture;
+          } = _v88.getState().capture;
           _v0 || _v7(!1);
         }, [_v7]),
         _v19 = (0, _v26.useCallback)(() => {
           let {
             isAudioMuted: _v0
-          } = _v87.getState().capture;
+          } = _v88.getState().capture;
           _v0 || _v10(!1);
         }, [_v10]),
         _v20 = (0, _v26.useCallback)(async () => !!_v2() || (await _v12()), [_v12, _v2]);
@@ -3463,13 +3472,13 @@
         }
       };
     },
-    _v213 = () => {
+    _v214 = () => {
       let {
           initialisations: _v0,
           camera: _v1,
           microphone: _v2,
           display: _v3
-        } = _v178((0, _v27.useShallow)(_v0 => ({
+        } = _v179((0, _v27.useShallow)(_v0 => ({
           initialisations: _v0.initialisations,
           display: _v0.displayMedia,
           camera: _v0.camera,
@@ -3480,7 +3489,7 @@
           selectedAudioDeviceId: _v5,
           isVideoMuted: _v6,
           isAudioMuted: _v7
-        } = _v87(_v0 => _v0.capture),
+        } = _v88(_v0 => _v0.capture),
         _v8 = {
           audio: {
             selectedDeviceId: _v5,
@@ -3504,16 +3513,16 @@
         noSourcesAvailable: _v8.audio.isMuted && _v8.video.isMuted && _v8.display.isMuted
       };
     };
-  var _v214 = _v0.i(0);
-  function _v215() {
-    let _v0 = _v140("useUploadQuota"),
-      _v1 = (0, _v46.useViewer)(),
+  var _v215 = _v0.i(0);
+  function _v216() {
+    let _v0 = _v141("useUploadQuota"),
+      _v1 = (0, _v47.useViewer)(),
       _v2 = _v1?.teamUser?.ownerId || _v1?.user?.id,
       _v3 = _v1?.user?.account,
       {
         capabilities: _v4,
         ready: _v5
-      } = (0, _v214.useCapability)(["solutionProduct", "recordQuotaBypass"], _v2),
+      } = (0, _v215.useCapability)(["solutionProduct", "recordQuotaBypass"], _v2),
       _v6 = _v5 ? !!_v4?.solutionProduct : void 0,
       _v7 = !!_v5 && !!_v4?.recordQuotaBypass,
       _v8 = _v1?.user?.uploadQuota,
@@ -3540,7 +3549,7 @@
       });
     }, [_v6, _v0, _v2, _v9, _v3, _v7, _v8]), _v9;
   }
-  let _v216 = (0, _v71.createStore)((_v0, _v1) => ({
+  let _v217 = (0, _v72.createStore)((_v0, _v1) => ({
       countdownInterval: void 0,
       countdownTimeout: void 0,
       countdownSeconds: void 0,
@@ -3556,14 +3565,14 @@
         let {
           common: _v0,
           recorder: _v1
-        } = _v89.useUIStore.getState();
-        _v1 ? _v1.start() : (_v141("useCountdownStore").warn("Recorder is not initialized"), _v0.setError({
+        } = _v90.useUIStore.getState();
+        _v1 ? _v1.start() : (_v142("useCountdownStore").warn("Recorder is not initialized"), _v0.setError({
           type: "error",
-          errorKey: _v172.RECORDING_ERROR
+          errorKey: _v173.RECORDING_ERROR
         }));
       },
       onCountdownCancel: () => {
-        _v1().clearCountdown(), _v89.useUIStore.getState().common.setIsRecordingStarted(!1);
+        _v1().clearCountdown(), _v90.useUIStore.getState().common.setIsRecordingStarted(!1);
       },
       onCountdownStart: () => {
         let {
@@ -3572,7 +3581,7 @@
           clearCountdown: _v2
         } = _v1();
         if (_v0) return;
-        _v89.useUIStore.getState().common.setIsRecordingStarted(!0), _v1(3);
+        _v90.useUIStore.getState().common.setIsRecordingStarted(!0), _v1(3);
         let _v3 = setInterval(() => {
           let {
               countdownSeconds: _v0,
@@ -3602,7 +3611,7 @@
         }), _v2(void 0);
       }
     })),
-    _v217 = {
+    _v218 = {
       isEnabled: !1,
       fillColor: {
         type: "customColor",
@@ -3620,8 +3629,8 @@
       },
       shadow: "none"
     },
-    _v218 = (0, _v71.createPersistentStore)(_v0 => ({
-      ..._v217,
+    _v219 = (0, _v72.createPersistentStore)(_v0 => ({
+      ..._v218,
       toggleEnabled: _v0 => {
         _v0(_v0 => {
           _v0.isEnabled = "boolean" == typeof _v0 ? _v0 : !_v0.isEnabled;
@@ -3683,17 +3692,17 @@
         count: _v6
       })
     }),
-    _v219 = "role-upgrade-request-modal",
-    _v220 = "role-upgrade-request-modal-switch-button",
-    _v221 = "role-upgrade-request-modal-request-button",
-    _v222 = "role-upgrade-request-modal-home-button",
-    _v223 = "switch-teams-alert-modal",
-    _v224 = "switch-teams-alert-modal-switch-button",
-    _v225 = "switch-teams-alert-modal-home-button",
-    _v226 = "no-account-alert-modal",
-    _v227 = "no-account-alert-modal-home-button";
-  var _v228 = _v0.i(0);
-  let _v229 = {
+    _v220 = "role-upgrade-request-modal",
+    _v221 = "role-upgrade-request-modal-switch-button",
+    _v222 = "role-upgrade-request-modal-request-button",
+    _v223 = "role-upgrade-request-modal-home-button",
+    _v224 = "switch-teams-alert-modal",
+    _v225 = "switch-teams-alert-modal-switch-button",
+    _v226 = "switch-teams-alert-modal-home-button",
+    _v227 = "no-account-alert-modal",
+    _v228 = "no-account-alert-modal-home-button";
+  var _v229 = _v0.i(0);
+  let _v230 = {
     v: "5.12.0",
     fr: 30,
     ip: 0,
@@ -4244,7 +4253,7 @@
     markers: [],
     props: {}
   };
-  class _v230 {
+  class _v231 {
     options;
     currentAudioContext;
     audioAnalyser;
@@ -4255,7 +4264,7 @@
     isOpened;
     pendingFftSize;
     constructor(_v0) {
-      this.options = _v0, this.log = _v139.createForCategory("SoundAnalyser"), this.isOpened = !1;
+      this.options = _v0, this.log = _v140.createForCategory("SoundAnalyser"), this.isOpened = !1;
     }
     setStream(_v0) {
       if (_v0.getAudioTracks().length > 0) {
@@ -4286,7 +4295,7 @@
     }
     start(_v0) {
       if (!this.audioAnalyser) return void this.log.error(Error('Audio stream should be set firstly. Please, call "setStream" method with the appropriate audio stream instance.'), {
-        category: _v123.UNEXPECTED,
+        category: _v124.UNEXPECTED,
         method: "start",
         component: "SoundAnalyser"
       });
@@ -4310,7 +4319,7 @@
       _v1 && _v1(_v2), this.options.inverval ? this.analyserTimeout = setTimeout(() => this.fillBuffer(_v0, _v1), this.options.inverval) : this.analyserAnimationRequest = requestAnimationFrame(() => this.fillBuffer(_v0, _v1));
     }
   }
-  let _v231 = () => {
+  let _v232 = () => {
       var _v0;
       let _v1,
         _v2,
@@ -4319,9 +4328,9 @@
         [_v5, _v6] = (0, _v26.useState)();
       return _v0 = (0, _v26.useCallback)(_v0 => {
         _v5 && _v5.isLoaded && (_v0 > 5 ? _v5.play() : _v5.goToAndStop(_v5.firstFrame + _v5.totalFrames - 1, !0));
-      }, [_v5]), _v1 = (0, _v26.useRef)(void 0), _v2 = (0, _v26.useRef)(void 0), _v3 = _v178(_v0 => _v0.microphone), (0, _v26.useEffect)(() => {
+      }, [_v5]), _v1 = (0, _v26.useRef)(void 0), _v2 = (0, _v26.useRef)(void 0), _v3 = _v179(_v0 => _v0.microphone), (0, _v26.useEffect)(() => {
         _v1.current = _v0;
-      }, [_v0]), (0, _v26.useEffect)(() => (_v2.current = new _v230({
+      }, [_v0]), (0, _v26.useEffect)(() => (_v2.current = new _v231({
         minSoundLevel: 25,
         fftSize: 0,
         smoothingTimeConstant: .4,
@@ -4334,12 +4343,12 @@
         }));
       }, [_v3?.stream]), (0, _v26.useEffect)(() => {
         let _v0;
-        return _v4.current ? _v6(_v0 = _v228.default.loadAnimation({
+        return _v4.current ? _v6(_v0 = _v229.default.loadAnimation({
           container: _v4?.current,
           renderer: "svg",
           loop: !0,
           autoplay: !1,
-          animationData: _v229,
+          animationData: _v230,
           rendererSettings: {
             preserveAspectRatio: "xMidYMid meet"
           }
@@ -4363,13 +4372,13 @@
         ref: _v4
       });
     },
-    _v232 = (0, _v26.createContext)(() => void 0);
-  var _v233 = _v0.i(0),
-    _v234 = _v0.i(0),
+    _v233 = (0, _v26.createContext)(() => void 0);
+  var _v234 = _v0.i(0),
     _v235 = _v0.i(0),
-    _v236 = _v0.i(0);
-  let _v237 = {
-      defaultRecordingTitle: (0, _v236.translate)({
+    _v236 = _v0.i(0),
+    _v237 = _v0.i(0);
+  let _v238 = {
+      defaultRecordingTitle: (0, _v237.translate)({
         singular: "New Recording",
         dictionary: {
           es: {
@@ -4395,7 +4404,7 @@
           }
         }
       }),
-      microphoneSettings: (0, _v236.translate)({
+      microphoneSettings: (0, _v237.translate)({
         singular: "Microphone settings",
         dictionary: {
           es: {
@@ -4421,7 +4430,7 @@
           }
         }
       }),
-      muteAudio: (0, _v236.translate)({
+      muteAudio: (0, _v237.translate)({
         singular: "Mute microphone",
         dictionary: {
           es: {
@@ -4447,7 +4456,7 @@
           }
         }
       }),
-      unmuteAudio: (0, _v236.translate)({
+      unmuteAudio: (0, _v237.translate)({
         singular: "Unmute microphone",
         dictionary: {
           es: {
@@ -4473,7 +4482,7 @@
           }
         }
       }),
-      cameraSettings: (0, _v236.translate)({
+      cameraSettings: (0, _v237.translate)({
         singular: "Camera settings",
         dictionary: {
           es: {
@@ -4499,7 +4508,7 @@
           }
         }
       }),
-      muteVideo: (0, _v236.translate)({
+      muteVideo: (0, _v237.translate)({
         singular: "Turn off camera",
         dictionary: {
           es: {
@@ -4525,7 +4534,7 @@
           }
         }
       }),
-      unmuteVideo: (0, _v236.translate)({
+      unmuteVideo: (0, _v237.translate)({
         singular: "Turn on camera",
         dictionary: {
           es: {
@@ -4551,7 +4560,7 @@
           }
         }
       }),
-      muteScreen: (0, _v236.translate)({
+      muteScreen: (0, _v237.translate)({
         singular: "Stop sharing",
         dictionary: {
           es: {
@@ -4577,7 +4586,7 @@
           }
         }
       }),
-      unmuteScreen: (0, _v236.translate)({
+      unmuteScreen: (0, _v237.translate)({
         singular: "Share screen",
         dictionary: {
           es: {
@@ -4603,7 +4612,7 @@
           }
         }
       }),
-      noCameraWarning: (0, _v236.translate)({
+      noCameraWarning: (0, _v237.translate)({
         singular: "No camera available",
         dictionary: {
           es: {
@@ -4629,7 +4638,7 @@
           }
         }
       }),
-      noMicrophoneWarning: (0, _v236.translate)({
+      noMicrophoneWarning: (0, _v237.translate)({
         singular: "No microphone available",
         dictionary: {
           es: {
@@ -4655,7 +4664,7 @@
           }
         }
       }),
-      microphoneDropdownTitle: (0, _v236.translate)({
+      microphoneDropdownTitle: (0, _v237.translate)({
         singular: "Select a microphone",
         dictionary: {
           es: {
@@ -4681,7 +4690,7 @@
           }
         }
       }),
-      cameraDropdownTitle: (0, _v236.translate)({
+      cameraDropdownTitle: (0, _v237.translate)({
         singular: "Select a camera",
         dictionary: {
           es: {
@@ -4707,7 +4716,7 @@
           }
         }
       }),
-      countdownCancel: (0, _v236.translate)({
+      countdownCancel: (0, _v237.translate)({
         singular: "Cancel",
         dictionary: {
           es: {
@@ -4733,7 +4742,7 @@
           }
         }
       }),
-      pause: (0, _v236.translate)({
+      pause: (0, _v237.translate)({
         singular: "Pause recording",
         dictionary: {
           es: {
@@ -4759,7 +4768,7 @@
           }
         }
       }),
-      resume: (0, _v236.translate)({
+      resume: (0, _v237.translate)({
         singular: "Resume recording",
         dictionary: {
           es: {
@@ -4785,7 +4794,7 @@
           }
         }
       }),
-      restart: (0, _v236.translate)({
+      restart: (0, _v237.translate)({
         singular: "Start over",
         dictionary: {
           es: {
@@ -4811,7 +4820,7 @@
           }
         }
       }),
-      delete: (0, _v236.translate)({
+      delete: (0, _v237.translate)({
         singular: "Delete recording",
         dictionary: {
           es: {
@@ -4837,7 +4846,7 @@
           }
         }
       }),
-      showPreviewPip: (0, _v236.translate)({
+      showPreviewPip: (0, _v237.translate)({
         singular: "Open picture-in-picture",
         dictionary: {
           es: {
@@ -4863,7 +4872,7 @@
           }
         }
       }),
-      hidePreviewPip: (0, _v236.translate)({
+      hidePreviewPip: (0, _v237.translate)({
         singular: "Close picture-in-picture",
         dictionary: {
           es: {
@@ -4889,7 +4898,7 @@
           }
         }
       }),
-      settingsButton: (0, _v236.translate)({
+      settingsButton: (0, _v237.translate)({
         singular: "Settings",
         dictionary: {
           es: {
@@ -4916,7 +4925,7 @@
         }
       }),
       cancelDialog: {
-        title: (0, _v236.translate)({
+        title: (0, _v237.translate)({
           singular: "Stop recording and discard",
           dictionary: {
             es: {
@@ -4943,7 +4952,7 @@
           }
         }),
         info: void 0,
-        confirm: (0, _v236.translate)({
+        confirm: (0, _v237.translate)({
           singular: "Discard",
           dictionary: {
             es: {
@@ -4969,7 +4978,7 @@
             }
           }
         }),
-        reject: (0, _v236.translate)({
+        reject: (0, _v237.translate)({
           singular: "Cancel",
           dictionary: {
             es: {
@@ -4997,7 +5006,7 @@
         })
       },
       restartDialog: {
-        title: (0, _v236.translate)({
+        title: (0, _v237.translate)({
           singular: "Start over",
           dictionary: {
             es: {
@@ -5023,7 +5032,7 @@
             }
           }
         }),
-        info: (0, _v236.translate)({
+        info: (0, _v237.translate)({
           singular: "The current recording will be discarded.",
           dictionary: {
             es: {
@@ -5049,7 +5058,7 @@
             }
           }
         }),
-        confirm: (0, _v236.translate)({
+        confirm: (0, _v237.translate)({
           singular: "Start over",
           dictionary: {
             es: {
@@ -5075,7 +5084,7 @@
             }
           }
         }),
-        reject: (0, _v236.translate)({
+        reject: (0, _v237.translate)({
           singular: "Cancel",
           dictionary: {
             es: {
@@ -5103,7 +5112,7 @@
         })
       },
       infoDialog: {
-        ok: (0, _v236.translate)({
+        ok: (0, _v237.translate)({
           singular: "OK",
           dictionary: {
             es: {
@@ -5117,7 +5126,7 @@
             }
           }
         }),
-        cancel: (0, _v236.translate)({
+        cancel: (0, _v237.translate)({
           singular: "Cancel",
           dictionary: {
             es: {
@@ -5145,7 +5154,7 @@
         })
       },
       audioOptions: {
-        soundwave: (0, _v236.translate)({
+        soundwave: (0, _v237.translate)({
           singular: "Show audio waveform",
           dictionary: {
             es: {
@@ -5173,7 +5182,7 @@
         })
       },
       cameraOptions: {
-        effects: (0, _v236.translate)({
+        effects: (0, _v237.translate)({
           singular: "Effects",
           dictionary: {
             es: {
@@ -5199,7 +5208,7 @@
             }
           }
         }),
-        profilePicture: (0, _v236.translate)({
+        profilePicture: (0, _v237.translate)({
           singular: "Profile picture",
           dictionary: {
             es: {
@@ -5227,7 +5236,7 @@
         })
       },
       toggleTeleprompter: {
-        close: (0, _v236.translate)({
+        close: (0, _v237.translate)({
           singular: "Close teleprompter",
           dictionary: {
             es: {
@@ -5253,7 +5262,7 @@
             }
           }
         }),
-        show: (0, _v236.translate)({
+        show: (0, _v237.translate)({
           singular: "Open teleprompter",
           dictionary: {
             es: {
@@ -5281,7 +5290,7 @@
         })
       }
     },
-    _v238 = ({
+    _v239 = ({
       children: _v0,
       secondsLeft: _v1,
       onCancel: _v2,
@@ -5302,7 +5311,7 @@
         left: "0",
         right: "0",
         zIndex: "100500",
-        "data-testid": _v37.TEST_IDS.COUNTDOWN_ELEMENT,
+        "data-testid": _v38.TEST_IDS.COUNTDOWN_ELEMENT,
         children: [(0, _v25.jsx)(_v28.Flex, {
           width: _v4,
           height: _v5,
@@ -5315,44 +5324,43 @@
               marginBottom: (0, _v30.rem)(10)
             }
           },
-          children: (0, _v25.jsx)(_v234.Text, {
+          children: (0, _v25.jsx)(_v235.Text, {
             variant: "body-xl",
             fontSize: _v6,
             color: "white",
             userSelect: "none",
             children: _v1
           })
-        }), _v2 && !_v3 && (0, _v25.jsx)(_v235.Button, {
-          "data-testid": _v37.TEST_IDS.COUNTDOWN_CANCEL_BUTTON,
+        }), _v2 && !_v3 && (0, _v25.jsx)(_v236.Button, {
+          "data-testid": _v38.TEST_IDS.COUNTDOWN_CANCEL_BUTTON,
           size: "sm",
           variant: "blur",
           onClick: _v2,
           color: "text-primary",
-          children: _v237.countdownCancel
+          children: _v238.countdownCancel
         }), _v3]
       }), _v0]
     });
-  var _v239 = _v0.i(0),
-    _v240 = _v0.i(0),
-    _v241 = _v0.i(0);
-  let _v242 = ({
+  var _v240 = _v0.i(0),
+    _v241 = _v0.i(0),
+    _v242 = _v0.i(0);
+  let _v243 = ({
     children: _v0,
     tipContent: _v1,
     isLoading: _v2,
     skeletonTestId: _v3
-  }) => _v2 ? (0, _v25.jsx)(_v240.Skeleton, {
+  }) => _v2 ? (0, _v25.jsx)(_v241.Skeleton, {
     "data-testid": _v3,
     width: (0, _v30.rem)(60),
     height: (0, _v30.rem)(40)
-  }) : (0, _v25.jsx)(_v241.Tooltip, {
+  }) : (0, _v25.jsx)(_v242.Tooltip, {
     label: _v1,
-    children: (0, _v25.jsx)(_v239.Box, {
+    children: (0, _v25.jsx)(_v240.Box, {
       position: "relative",
       children: _v0
     })
   });
-  var _v243 = _v0.i(0),
-    _v244 = _v0.i(0),
+  var _v244 = _v0.i(0),
     _v245 = _v0.i(0),
     _v246 = _v0.i(0),
     _v247 = _v0.i(0),
@@ -5361,8 +5369,9 @@
     _v250 = _v0.i(0),
     _v251 = _v0.i(0),
     _v252 = _v0.i(0),
-    _v253 = _v0.i(0);
-  let _v254 = function ({
+    _v253 = _v0.i(0),
+    _v254 = _v0.i(0);
+  let _v255 = function ({
     title: _v0,
     selectedDeviceId: _v1,
     onDeviceSelected: _v2,
@@ -5375,8 +5384,8 @@
     isMuted: _v9,
     testId: _v10
   }) {
-    let _v11 = _v140("DeviceDropdown"),
-      _v12 = _v169((0, _v27.useShallow)(({
+    let _v11 = _v141("DeviceDropdown"),
+      _v12 = _v170((0, _v27.useShallow)(({
         data: _v0
       }) => ("audio" === _v7 ? _v0.identifiedAudioDevices : _v0.identifiedVideoDevices) ?? []));
     _v3 ||= !_v12.length, (0, _v26.useEffect)(() => {
@@ -5386,7 +5395,7 @@
       });
     }, [_v12, _v9, _v7, _v11, _v1]);
     let _v13 = (0, _v26.useCallback)(() => {
-        _v12 && _v12.length && _v51({
+        _v12 && _v12.length && _v52({
           name: "audio" === _v7 ? "open_mic_options" : "open_camera_options",
           eventType: "select",
           location: "bottom_panel"
@@ -5397,42 +5406,42 @@
           device: _v0
         });
       }, [_v7, _v11, _v2]);
-    return (0, _v25.jsxs)(_v243.Menu, {
+    return (0, _v25.jsxs)(_v244.Menu, {
       placement: "top",
       gutter: 16,
       onOpen: _v13,
-      children: [(0, _v25.jsxs)(_v245.MenuList, {
+      children: [(0, _v25.jsxs)(_v246.MenuList, {
         minWidth: "18rem",
         maxWidth: "22rem",
-        "data-testid": `${_v37.TEST_IDS.DROPDOWN_LIST}${_v7}`,
-        children: [(0, _v25.jsx)(_v248.MenuGroup, {
+        "data-testid": `${_v38.TEST_IDS.DROPDOWN_LIST}${_v7}`,
+        children: [(0, _v25.jsx)(_v249.MenuGroup, {
           title: _v0,
           fontSize: "text-sm",
           py: "100",
-          children: _v12.map((_v0, _v1) => (0, _v25.jsx)(_v244.MenuItem, {
-            "data-testid": _v0.deviceId === _v1 && _v8 ? _v37.TEST_IDS.DROPDOWN_DEVICE_SELECTED : `${_v37.TEST_IDS.DROPDOWN_DEVICE_ITEM}${_v1}`,
+          children: _v12.map((_v0, _v1) => (0, _v25.jsx)(_v245.MenuItem, {
+            "data-testid": _v0.deviceId === _v1 && _v8 ? _v38.TEST_IDS.DROPDOWN_DEVICE_SELECTED : `${_v38.TEST_IDS.DROPDOWN_DEVICE_ITEM}${_v1}`,
             onClick: () => _v14(_v0),
             children: (0, _v25.jsxs)(_v28.Flex, {
               flex: "1",
               justifyContent: "space-between",
               alignItems: "center",
-              children: [(0, _v25.jsx)(_v234.Text, {
+              children: [(0, _v25.jsx)(_v235.Text, {
                 variant: "body-xl",
                 fontSize: "text-sm",
                 children: _v0.label
-              }), (0, _v25.jsx)(_v239.Box, {
+              }), (0, _v25.jsx)(_v240.Box, {
                 ml: "50",
                 width: "xs",
                 height: "xs",
-                children: _v0.deviceId === _v1 && _v8 && (0, _v25.jsx)(_v252.Checkmark, {
+                children: _v0.deviceId === _v1 && _v8 && (0, _v25.jsx)(_v253.Checkmark, {
                   width: "xs",
                   height: "xs"
                 })
               })]
             })
           }, _v0.deviceId))
-        }), _v5.length > 0 ? _v5.map((_v0, _v1) => "separator" === _v0 ? (0, _v25.jsx)(_v249.MenuDivider, {}, `${_v0}-${_v1}`) : (0, _v25.jsx)(_v244.MenuItem, {
-          "data-testid": `${_v37.TEST_IDS.DROPDOWN_OPTION_ITEM}${_v1}`,
+        }), _v5.length > 0 ? _v5.map((_v0, _v1) => "separator" === _v0 ? (0, _v25.jsx)(_v250.MenuDivider, {}, `${_v0}-${_v1}`) : (0, _v25.jsx)(_v245.MenuItem, {
+          "data-testid": `${_v38.TEST_IDS.DROPDOWN_OPTION_ITEM}${_v1}`,
           isDisabled: _v0.loading,
           onClick: () => _v6(_v0.name),
           children: (0, _v25.jsxs)(_v28.Flex, {
@@ -5444,22 +5453,22 @@
                 "data-testid": _v0.testId,
                 gap: "75",
                 alignItems: "center",
-                children: [_v0.icon, (0, _v25.jsx)(_v251.Paragraph, {
+                children: [_v0.icon, (0, _v25.jsx)(_v252.Paragraph, {
                   size: "md",
                   fontWeight: "bold",
                   children: _v0.label
                 })]
-              }) : (0, _v25.jsx)(_v234.Text, {
+              }) : (0, _v25.jsx)(_v235.Text, {
                 variant: "body-xl",
                 "data-testid": _v0.testId,
                 fontSize: "text-sm",
                 children: _v0.label
               })
-            }), (0, _v25.jsx)(_v239.Box, {
+            }), (0, _v25.jsx)(_v240.Box, {
               ml: "50",
               width: "xs",
               height: "xs",
-              children: _v0.loading ? (0, _v25.jsx)(_v250.Spinner, {}) : _v0.enabled && (0, _v25.jsx)(_v252.Checkmark, {
+              children: _v0.loading ? (0, _v25.jsx)(_v251.Spinner, {}) : _v0.enabled && (0, _v25.jsx)(_v253.Checkmark, {
                 "data-testid": _v0.testId && `${_v0.testId}-enabled`,
                 width: "xs",
                 height: "xs"
@@ -5467,15 +5476,15 @@
             })]
           })
         }, _v0.name)) : null]
-      }), (0, _v25.jsx)(_v241.Tooltip, {
+      }), (0, _v25.jsx)(_v242.Tooltip, {
         label: _v4,
         isDisabled: _v3,
         gutter: 16,
-        children: (0, _v25.jsx)(_v246.MenuButton, {
-          as: _v247.IconButton,
+        children: (0, _v25.jsx)(_v247.MenuButton, {
+          as: _v248.IconButton,
           "data-testid": _v10,
           isDisabled: _v3,
-          icon: (0, _v25.jsx)(_v253.ChevronUp, {
+          icon: (0, _v25.jsx)(_v254.ChevronUp, {
             boxSize: "2xs"
           }),
           size: "2xs",
@@ -5489,16 +5498,16 @@
       })]
     });
   };
-  var _v255 = _v0.i(0);
-  let _v256 = "EFFECTS",
-    _v257 = "AVATAR_AS_PREVIEW",
-    _v258 = "SOUNDWAVE";
-  function _v259() {
+  var _v256 = _v0.i(0);
+  let _v257 = "EFFECTS",
+    _v258 = "AVATAR_AS_PREVIEW",
+    _v259 = "SOUNDWAVE";
+  function _v260() {
     let _v0 = (0, _v26.useRef)(null);
     return {
       trackControlsInteraction: (0, _v26.useCallback)(_v0 => {
         let _v1 = _v0.current;
-        ("pip" === _v1 || "header" === _v1 || null === _v1) && _v51({
+        ("pip" === _v1 || "header" === _v1 || null === _v1) && _v52({
           ..._v0,
           location: "pip" === _v1 ? "picture_in_picture_modal" : "bottom_panel"
         });
@@ -5506,45 +5515,45 @@
       interactionSourceRef: _v0
     };
   }
-  function _v260(_v0) {
-    let _v1 = _v210(_v0 => _v0.permissions[_v0]);
-    return _v1 ? _v1 === _v152 ? {
+  function _v261(_v0) {
+    let _v1 = _v211(_v0 => _v0.permissions[_v0]);
+    return _v1 ? _v1 === _v153 ? {
       isDisabled: !0
-    } : _v1 === _v154 ? {
+    } : _v1 === _v155 ? {
       isDisabled: !0,
-      tipContent: "video" === _v0 ? _v237.noCameraWarning : _v237.noMicrophoneWarning
+      tipContent: "video" === _v0 ? _v238.noCameraWarning : _v238.noMicrophoneWarning
     } : {} : {
       isDisabled: !0,
       isLoading: !0
     };
   }
-  let _v261 = () => {
-    let _v0 = (0, _v26.useContext)(_v232),
+  let _v262 = () => {
+    let _v0 = (0, _v26.useContext)(_v233),
       {
         trackRecordingCameraChanged: _v1,
         trackRecordingMicrophoneChanged: _v2,
         trackRecordingAudioWaveformToggled: _v3
-      } = (0, _v45.useRecordingTracking)(),
+      } = (0, _v46.useRecordingTracking)(),
       {
         audio: _v4,
         video: _v5,
         display: _v6,
         noSourcesAvailable: _v7
-      } = _v213(),
+      } = _v214(),
       {
         audio: _v8,
         video: _v9,
         display: _v10
-      } = _v212(),
-      _v11 = _v140("PreRecordingControls"),
+      } = _v213(),
+      _v11 = _v141("PreRecordingControls"),
       {
         trackControlsInteraction: _v12,
         interactionSourceRef: _v13
-      } = _v259(),
-      _v14 = _v215(),
-      _v15 = (0, _v46.useViewer)(),
-      _v16 = _v87(_v0 => _v0.update),
-      _v17 = _v87(_v0 => _v0.settings.camera.effect),
+      } = _v260(),
+      _v14 = _v216(),
+      _v15 = (0, _v47.useViewer)(),
+      _v16 = _v88(_v0 => _v0.update),
+      _v17 = _v88(_v0 => _v0.settings.camera.effect),
       {
         isPiPSupported: _v18,
         isPiPShown: _v19,
@@ -5553,7 +5562,7 @@
         wereInvitedToRecord: _v22,
         setRecordingAvailability: _v23,
         isRecordingStarted: _v24
-      } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+      } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
         errorType: _v0.common.error.type,
         isPiPSupported: _v0.pip.supported,
         isPiPShown: _v0.pip.enabled,
@@ -5566,7 +5575,7 @@
         secondsLeft: _v25,
         onCountdownCancel: _v26,
         onCountdownStart: _v27
-      } = _v216((0, _v27.useShallow)(({
+      } = _v217((0, _v27.useShallow)(({
         countdownSeconds: _v0,
         onCountdownCancel: _v1,
         onCountdownStart: _v2
@@ -5578,61 +5587,61 @@
       _v28 = void 0 !== _v25,
       {
         promptRequestStatus: _v29
-      } = (0, _v33.useTeleprompter)(),
+      } = (0, _v34.useTeleprompter)(),
       {
         onCameraEffectToggle: _v30,
         avatarAsPreview: _v31
-      } = _v88(),
-      _v32 = _v260("video"),
-      _v33 = _v260("audio"),
+      } = _v89(),
+      _v32 = _v261("video"),
+      _v33 = _v261("audio"),
       {
         isSoundwaveEnabled: _v34,
         toggleSoundwaveEnabled: _v35
-      } = _v218((0, _v27.useShallow)(_v0 => ({
+      } = _v219((0, _v27.useShallow)(_v0 => ({
         isSoundwaveEnabled: _v0.isEnabled,
         toggleSoundwaveEnabled: _v0.toggleEnabled
       }))),
       _v36 = (0, _v26.useMemo)(() => ["separator", {
-        name: _v258,
-        label: _v237.audioOptions.soundwave,
+        name: _v259,
+        label: _v238.audioOptions.soundwave,
         enabled: _v34,
-        testId: _v37.TEST_IDS.WAVEFORM_TOGGLE_MENU_ITEM,
-        icon: (0, _v25.jsx)(_v44.SoundWaves, {})
+        testId: _v38.TEST_IDS.WAVEFORM_TOGGLE_MENU_ITEM,
+        icon: (0, _v25.jsx)(_v45.SoundWaves, {})
       }], [_v34]),
       _v37 = (0, _v26.useMemo)(() => [{
-        name: _v257,
-        label: _v237.cameraOptions.profilePicture,
+        name: _v258,
+        label: _v238.cameraOptions.profilePicture,
         enabled: _v31
       }, "separator", {
-        name: _v256,
-        icon: (0, _v25.jsx)(_v43.MagicWand, {}),
-        label: _v237.cameraOptions.effects,
+        name: _v257,
+        icon: (0, _v25.jsx)(_v44.MagicWand, {}),
+        label: _v238.cameraOptions.effects,
         enabled: !1
       }], [_v31]),
       _v38 = (0, _v26.useCallback)(_v0 => {
-        _v0 === _v258 ? (_v35(), _v3({
+        _v0 === _v259 ? (_v35(), _v3({
           recordingNewStatus: !_v34
         })) : _v11.error(Error("Unexpected audio device option: " + _v0), {
-          category: _v123.DEVICE,
+          category: _v124.DEVICE,
           method: "handleAudioDeviceOptionSelect",
           component: "PreRecordingControls"
         });
       }, [_v35, _v34, _v3, _v11]),
       _v39 = (0, _v26.useCallback)(_v0 => {
         switch (_v0) {
-          case _v256:
+          case _v257:
             "none" !== _v17 && _v9.withEnabledDevice(), _v16("settings", {
               isSettingsPanelVisible: !0
             });
             break;
-          case _v257:
+          case _v258:
             _v30("avatarAsPreview", !0), _v31 || _v1({
               recordingCameraSource: "profile_picture"
             });
             break;
           default:
             _v11.error(Error("Unexpected video device option: " + _v0), {
-              category: _v123.DEVICE,
+              category: _v124.DEVICE,
               method: "handleVideoDeviceOptionSelect",
               component: "PreRecordingControls"
             });
@@ -5640,13 +5649,13 @@
       }, [_v17, _v31, _v16, _v9, _v30, _v1, _v11]),
       _v40 = (0, _v26.useCallback)(() => {
         "reached" === _v14 ? _v11.error(Error("Could not start recording, upload quota have been reached."), {
-          category: _v123.DEVICE,
+          category: _v124.DEVICE,
           method: "handleStartClick",
           component: "PreRecordingControls"
         }) : (_v27(), _v12({
           name: "start_recording",
           eventType: "click"
-        }), _v22 && _v51({
+        }), _v22 && _v52({
           name: "click_to_record_from_invitation",
           eventType: "click",
           location: "record_invitation"
@@ -5657,17 +5666,17 @@
         record: _v40,
         cancel: _v26
       };
-      return _v89.useUIStore.subscribe(_v0 => _v0.controls.controlsAction, _v0 => {
+      return _v90.useUIStore.subscribe(_v0 => _v0.controls.controlsAction, _v0 => {
         _v0 && (_v13.current = _v0.source, _v0[_v0.kind]?.(), _v13.current = null);
       });
     }, [_v40, _v26, _v13]);
     let _v41 = _v15?.teamUser?.permissionLevel === 5,
       _v42 = function () {
-        let _v0 = _v140("useCheckForHarmfulExtension"),
+        let _v0 = _v141("useCheckForHarmfulExtension"),
           [_v1, _v2] = (0, _v26.useState)(),
           _v3 = (0, _v26.useCallback)(async () => {
-            _v2((await Promise.all(_v142.map(async _v0 => {
-              let _v1 = await _v145(_v0);
+            _v2((await Promise.all(_v143.map(async _v0 => {
+              let _v1 = await _v146(_v0);
               return _v1 ? _v0.warn(`Detected harmful extension installed. ID: ${_v0}`) : _v0.info(`Harmful extension ${_v0} not detected.`), _v1;
             }))).some(_v0 => _v0));
           }, [_v0]);
@@ -5686,7 +5695,7 @@
       });
     }, [_v23, _v43, _v42]);
     let _v44 = () => {
-        let _v0 = _v178.getState().displayMedia?.mediaInfo?.displaySurface;
+        let _v0 = _v179.getState().displayMedia?.mediaInfo?.displaySurface;
         return _v19 && "monitor" === _v0 && "maximized" === _v20;
       },
       _v45 = () => {
@@ -5699,60 +5708,60 @@
         let _v0 = await _v10.switchMediaStream();
         _v18 && (_v19 && !_v0 ? _v0(!1) : (!_v19 && _v0 || _v44()) && _v0(!0));
       };
-    return (0, _v25.jsx)(_v238, {
+    return (0, _v25.jsx)(_v239, {
       width: (0, _v30.rem)(200),
       height: (0, _v30.rem)(200),
       size: 110,
       secondsLeft: _v25,
       onCancel: _v26,
-      children: (0, _v25.jsxs)(_v233.ControlsContainer, {
-        children: [(0, _v25.jsxs)(_v242, {
+      children: (0, _v25.jsxs)(_v234.ControlsContainer, {
+        children: [(0, _v25.jsxs)(_v243, {
           tipContent: _v33.tipContent,
           isLoading: _v33.isLoading,
-          skeletonTestId: _v37.TEST_IDS.AUDIO_DEVICE_LOADING_SKELETON,
-          children: [(0, _v25.jsx)(_v255.LabelledButton, {
+          skeletonTestId: _v38.TEST_IDS.AUDIO_DEVICE_LOADING_SKELETON,
+          children: [(0, _v25.jsx)(_v256.LabelledButton, {
             isWide: !0,
-            icon: _v4.isMuted ? (0, _v25.jsx)(_v39.MicOff, {
+            icon: _v4.isMuted ? (0, _v25.jsx)(_v40.MicOff, {
               color: "red.500"
-            }) : (0, _v25.jsx)(_v231, {}),
-            "data-testid": _v37.TEST_IDS.AUDIO_DEVICE_TOGGLE_BUTTON,
+            }) : (0, _v25.jsx)(_v232, {}),
+            "data-testid": _v38.TEST_IDS.AUDIO_DEVICE_TOGGLE_BUTTON,
             isDisabled: _v33.isDisabled || _v28,
             isActive: !_v4.isMuted,
             onClick: _v8.toggleMuted,
-            tipContent: _v4.isMuted ? _v237.unmuteAudio : _v237.muteAudio
-          }), (0, _v25.jsx)(_v254, {
-            testId: _v37.TEST_IDS.AUDIO_DEVICE_DROPDOWN_BUTTON,
+            tipContent: _v4.isMuted ? _v238.unmuteAudio : _v238.muteAudio
+          }), (0, _v25.jsx)(_v255, {
+            testId: _v38.TEST_IDS.AUDIO_DEVICE_DROPDOWN_BUTTON,
             options: _v36,
             onOptionSelected: _v38,
-            title: _v237.microphoneDropdownTitle,
+            title: _v238.microphoneDropdownTitle,
             isDisabled: _v33.isDisabled || _v28,
             selectedDeviceId: _v4.selectedDeviceId,
             onDeviceSelected: _v46,
-            tipContent: _v237.microphoneSettings,
+            tipContent: _v238.microphoneSettings,
             isMuted: _v4.isMuted,
             kind: "audio"
           })]
-        }), (0, _v25.jsxs)(_v242, {
+        }), (0, _v25.jsxs)(_v243, {
           tipContent: _v32.tipContent,
           isLoading: _v32.isLoading,
-          skeletonTestId: _v37.TEST_IDS.VIDEO_DEVICE_LOADING_SKELETON,
-          children: [(0, _v25.jsx)(_v255.LabelledButton, {
+          skeletonTestId: _v38.TEST_IDS.VIDEO_DEVICE_LOADING_SKELETON,
+          children: [(0, _v25.jsx)(_v256.LabelledButton, {
             isWide: !0,
-            icon: _v5.isMuted ? (0, _v25.jsx)(_v40.CameraOff, {
+            icon: _v5.isMuted ? (0, _v25.jsx)(_v41.CameraOff, {
               color: "red.500"
-            }) : (0, _v25.jsx)(_v41.CameraOn, {}),
-            "data-testid": _v37.TEST_IDS.VIDEO_DEVICE_TOGGLE_BUTTON,
+            }) : (0, _v25.jsx)(_v42.CameraOn, {}),
+            "data-testid": _v38.TEST_IDS.VIDEO_DEVICE_TOGGLE_BUTTON,
             isDisabled: _v32.isDisabled || _v28,
             isActive: !_v5.isMuted,
             onClick: () => {
               _v9.toggleMuted(), _v45();
             },
-            tipContent: _v5.isMuted ? _v237.unmuteVideo : _v237.muteVideo
-          }), (0, _v25.jsx)(_v254, {
-            testId: _v37.TEST_IDS.VIDEO_DEVICE_DROPDOWN_BUTTON,
+            tipContent: _v5.isMuted ? _v238.unmuteVideo : _v238.muteVideo
+          }), (0, _v25.jsx)(_v255, {
+            testId: _v38.TEST_IDS.VIDEO_DEVICE_DROPDOWN_BUTTON,
             options: _v37,
             onOptionSelected: _v39,
-            title: _v237.cameraDropdownTitle,
+            title: _v238.cameraDropdownTitle,
             isDisabled: _v32.isDisabled || _v28,
             selectedDeviceId: _v5.selectedDeviceId,
             onDeviceSelected: _v0 => {
@@ -5760,24 +5769,23 @@
                 recordingCameraSource: "device"
               }), _v9.setSelectedDevice(_v0), _v45(), _v30("avatarAsPreview", !1);
             },
-            tipContent: _v237.cameraSettings,
+            tipContent: _v238.cameraSettings,
             showActiveDevice: !_v31,
             isMuted: _v5.isMuted,
             kind: "video"
           })]
-        }), (0, _v25.jsx)(_v255.LabelledButton, {
-          icon: (0, _v25.jsx)(_v42.ScreenShare, {}),
-          "data-testid": _v37.TEST_IDS.SHARE_SCREEN_BUTTON,
+        }), (0, _v25.jsx)(_v256.LabelledButton, {
+          icon: (0, _v25.jsx)(_v43.ScreenShare, {}),
+          "data-testid": _v38.TEST_IDS.SHARE_SCREEN_BUTTON,
           isDisabled: _v28,
           isActive: !_v6.isMuted,
           onClick: _v47,
-          tipContent: _v6.isMuted ? _v237.unmuteScreen : _v237.muteScreen
+          tipContent: _v6.isMuted ? _v238.unmuteScreen : _v238.muteScreen
         })]
       })
     });
   };
-  var _v262 = _v0.i(0),
-    _v263 = _v0.i(0),
+  var _v263 = _v0.i(0),
     _v264 = _v0.i(0),
     _v265 = _v0.i(0),
     _v266 = _v0.i(0),
@@ -5785,21 +5793,22 @@
     _v268 = _v0.i(0),
     _v269 = _v0.i(0),
     _v270 = _v0.i(0),
-    _v271 = _v0.i(0);
-  let _v272 = _v0 => {
+    _v271 = _v0.i(0),
+    _v272 = _v0.i(0);
+  let _v273 = _v0 => {
       let {
         currentSessionId: _v1,
         setCurrentSessionId: _v2,
         updateCurrentSessionData: _v3,
         currentSessionData: _v4
-      } = _v83((0, _v27.useShallow)(_v0 => {
+      } = _v84((0, _v27.useShallow)(_v0 => {
         var _v1;
         let _v2;
         return {
           currentSessionId: _v0.currentSessionId,
           setCurrentSessionId: _v0.setCurrentSessionId,
           updateCurrentSessionData: _v0.updateCurrentSessionData,
-          currentSessionData: (_v1 = _v0.currentSessionId, _v2 = _v0.history.find(_v0 => _v0.id === _v1), _v1 && _v2 ? _v2.data : _v82)
+          currentSessionData: (_v1 = _v0.currentSessionId, _v2 = _v0.history.find(_v0 => _v0.id === _v1), _v1 && _v2 ? _v2.data : _v83)
         };
       }));
       return (0, _v26.useMemo)(() => {
@@ -5810,7 +5819,7 @@
         updateCurrentSessionData: _v3
       };
     },
-    _v273 = {
+    _v274 = {
       is_dismissible: !1,
       add_on_feature: null,
       currency: null,
@@ -5823,18 +5832,18 @@
       usd_price: null,
       interface_type: null
     },
-    _v274 = () => {
-      let _v0 = (0, _v26.useContext)(_v35.ViewerContext),
+    _v275 = () => {
+      let _v0 = (0, _v26.useContext)(_v36.ViewerContext),
         {
           teleprompterTextContent: _v1
-        } = (0, _v33.useTeleprompter)(),
+        } = (0, _v34.useTeleprompter)(),
         {
           currentSessionId: _v2
-        } = _v272(),
+        } = _v273(),
         _v3 = (0, _v26.useMemo)(() => {
           let _v0;
-          return _v0 = (0, _v262.getScriptState)(_v1), {
-            record_context: new _v47.EventContext("record_context", 1, {
+          return _v0 = (0, _v263.getScriptState)(_v1), {
+            record_context: new _v48.EventContext("record_context", 1, {
               app_id: null,
               app_type: "vimeo_record_studio",
               capture_mode: null,
@@ -5852,37 +5861,37 @@
             })
           };
         }, [_v2, _v1]),
-        _v4 = (0, _v26.useMemo)(() => (0, _v267.buildThirdPartyIntegrationBpContext)({
+        _v4 = (0, _v26.useMemo)(() => (0, _v268.buildThirdPartyIntegrationBpContext)({
           integration_id: null,
           integration_name: null,
           is_partner: null
         }), []),
-        _v5 = (0, _v26.useMemo)(() => (0, _v269.buildWebBpContext)({
+        _v5 = (0, _v26.useMemo)(() => (0, _v270.buildWebBpContext)({
           page_name: "record",
           path: window.location.href
         }), []),
-        _v6 = (0, _v26.useMemo)(() => (0, _v266.buildTeamBpContextFromTeamUser)(_v0?.teamUser), [_v0?.teamUser]),
-        _v7 = (0, _v26.useMemo)(() => (0, _v268.buildViewBpContext)({
+        _v6 = (0, _v26.useMemo)(() => (0, _v267.buildTeamBpContextFromTeamUser)(_v0?.teamUser), [_v0?.teamUser]),
+        _v7 = (0, _v26.useMemo)(() => (0, _v269.buildViewBpContext)({
           view_type: "impression",
           feature: null
         }), []),
         _v8 = (0, _v26.useCallback)((_v0, _v1) => {
           let _v2 = _v0?.teamUser?.ownerId ?? _v0?.user?.id;
-          return (0, _v271.buildVideoBpContext)({
+          return (0, _v272.buildVideoBpContext)({
             video_id: _v0,
             video_privacy: _v1 ?? null,
             video_owner_id: Number(_v2)
           });
         }, [_v0?.teamUser?.ownerId, _v0?.user?.id]),
-        _v9 = (0, _v26.useCallback)(_v0 => (0, _v265.buildProductAnalyticsBpContext)({
+        _v9 = (0, _v26.useCallback)(_v0 => (0, _v266.buildProductAnalyticsBpContext)({
           product: "record",
-          device_type: (0, _v263.default)(),
+          device_type: (0, _v264.default)(),
           ..._v0
         }), []),
         _v10 = (0, _v26.useCallback)((_v0 = {
           action_type: "click",
           feature: null
-        }) => (0, _v264.buildActionBpContext)({
+        }) => (0, _v265.buildActionBpContext)({
           feature: null,
           ..._v0
         }), []),
@@ -5905,7 +5914,7 @@
               modal_name: null
             }
           });
-          (0, _v270.sendBpEventWithContexts)("vimeo.notification_view", _v0, 3, {
+          (0, _v271.sendBpEventWithContexts)("vimeo.notification_view", _v0, 3, {
             notification_name: "unauthorized for this action",
             notification_copy: "you are unauthorized for this action",
             checkbox_copy: null,
@@ -5922,11 +5931,11 @@
               copy: "upgrade to record"
             }
           });
-          (0, _v270.sendBpEventWithContexts)("vimeo.trigger_upsell", {
+          (0, _v271.sendBpEventWithContexts)("vimeo.trigger_upsell", {
             ..._v0,
             ..._v10()
           }, 21, {
-            ..._v273,
+            ..._v274,
             is_dismissible: !0,
             upsell_name: "at_limit_quota"
           });
@@ -5940,8 +5949,8 @@
               copy: "upgrade to record"
             }
           });
-          (0, _v270.sendBpEventWithContexts)("vimeo.upsell_trigger_impression", _v0, 22, {
-            ..._v273,
+          (0, _v271.sendBpEventWithContexts)("vimeo.upsell_trigger_impression", _v0, 22, {
+            ..._v274,
             upsell_name: "at_limit_quota"
           });
         }, [_v11]),
@@ -5952,11 +5961,11 @@
               location: "modal"
             }
           });
-          (0, _v270.sendBpEventWithContexts)("vimeo.close_upsell", {
+          (0, _v271.sendBpEventWithContexts)("vimeo.close_upsell", {
             ..._v1,
             ..._v10()
           }, 21, {
-            ..._v273,
+            ..._v274,
             is_dismissible: !0,
             interface_type: "modal",
             upsell_name: _v0 ? "at_limit_quota" : "approaching_quota"
@@ -5969,8 +5978,8 @@
               location: "modal"
             }
           });
-          (0, _v270.sendBpEventWithContexts)("vimeo.view_upsell", _v1, 22, {
-            ..._v273,
+          (0, _v271.sendBpEventWithContexts)("vimeo.view_upsell", _v1, 22, {
+            ..._v274,
             interface_type: "modal",
             is_dismissible: !0,
             upsell_name: _v0 ? "at_limit_quota" : "approaching_quota"
@@ -5987,7 +5996,7 @@
             _v3 = _v1.currency?.toLowerCase(),
             _v4 = "usd" === _v3,
             _v5 = {
-              ..._v273,
+              ..._v274,
               interface_type: "modal",
               selected_plan: _v1.plan_selected ?? null,
               purchase_type: _v1.free_trial ? "trial" : "direct",
@@ -5997,7 +6006,7 @@
               upsell_name: _v0 ? "at_limit_quota" : "approaching_quota",
               is_dismissible: !0
             };
-          (0, _v270.sendBpEventWithContexts)("vimeo.proceed_to_checkout", {
+          (0, _v271.sendBpEventWithContexts)("vimeo.proceed_to_checkout", {
             ..._v2,
             ..._v10()
           }, 21, _v5);
@@ -6011,7 +6020,7 @@
               ..._v1
             }
           });
-          (0, _v270.sendBpEventWithContexts)("vimeo.notification_view", _v2, 3, {
+          (0, _v271.sendBpEventWithContexts)("vimeo.notification_view", _v2, 3, {
             error_id: null,
             checkbox_copy: null,
             ..._v0
@@ -6030,7 +6039,7 @@
             }),
             ..._v10()
           };
-          (0, _v270.sendBpEventWithContexts)("vimeo.notification_action", _v3, 3, {
+          (0, _v271.sendBpEventWithContexts)("vimeo.notification_action", _v3, 3, {
             error_id: null,
             checkbox_copy: null,
             is_marked_checkbox: null,
@@ -6051,7 +6060,7 @@
             ..._v10(),
             ..._v3
           };
-          (0, _v270.sendBpEventWithContexts)("vimeo.open_record_settings", _v0);
+          (0, _v271.sendBpEventWithContexts)("vimeo.open_record_settings", _v0);
         }, [_v10, _v11, _v3]),
         _v21 = (0, _v26.useCallback)(_v0 => {
           let _v1 = {
@@ -6068,7 +6077,7 @@
             ..._v10(),
             ..._v3
           };
-          (0, _v270.sendBpEventWithContexts)("vimeo.select_record_quality", _v1);
+          (0, _v271.sendBpEventWithContexts)("vimeo.select_record_quality", _v1);
         }, [_v10, _v11, _v3]),
         _v22 = (0, _v26.useCallback)((_v0, _v1, _v2, _v3) => {
           let _v4 = {
@@ -6083,14 +6092,14 @@
                 is_user_facing_data: !1,
                 copy: _v2,
                 entity_type: "video",
-                device_type: (0, _v263.default)()
+                device_type: (0, _v264.default)()
               }
             }),
             ..._v10(),
             ..._v3,
             ..._v8(_v0, _v1)
           };
-          (0, _v270.sendBpEventWithContexts)("vimeo.change_link_privacy", _v4, 10, {
+          (0, _v271.sendBpEventWithContexts)("vimeo.change_link_privacy", _v4, 10, {
             is_preset_applied: null,
             privacy_field_name: "old_video_privacy",
             privacy_field_value: _v1,
@@ -6110,21 +6119,21 @@
                   is_user_facing_data: !1,
                   copy: "Copy link",
                   entity_type: "video",
-                  device_type: (0, _v263.default)()
+                  device_type: (0, _v264.default)()
                 }
               }),
               ..._v10(),
               ..._v3
             },
-            _v1 = (0, _v270.createNullObject)(["target_quality", "target_resolution", "target_file_details", "embed_config", "embed_custom_dimensions", "sharee_id", "sharee_entity_permission", "sharee_team_permission", "is_send_email_notification", "sharee_email", "collection_type", "target_transcript_language", "embed_layout", "embed_playback_toggles_on", "embed_playback_toggles_off", "number_of_items", "is_ai_translated", "audio_language_selected_for_download", "distribution_tab", "is_original_language_downloaded", "lms_completion_threshold", "lms_scoring_method", "lms_technical_standard"]);
-          (0, _v270.sendBpEventWithContexts)("vimeo.distribute_content", _v0, 18, {
+            _v1 = (0, _v271.createNullObject)(["target_quality", "target_resolution", "target_file_details", "embed_config", "embed_custom_dimensions", "sharee_id", "sharee_entity_permission", "sharee_team_permission", "is_send_email_notification", "sharee_email", "collection_type", "target_transcript_language", "embed_layout", "embed_playback_toggles_on", "embed_playback_toggles_off", "number_of_items", "is_ai_translated", "audio_language_selected_for_download", "distribution_tab", "is_original_language_downloaded", "lms_completion_threshold", "lms_scoring_method", "lms_technical_standard"]);
+          (0, _v271.sendBpEventWithContexts)("vimeo.distribute_content", _v0, 18, {
             ..._v1,
             distribution_type: "share",
             is_internal: !1
           });
         }, [_v10, _v11, _v3]),
         _v24 = (0, _v26.useCallback)((_v0, _v1, _v2) => {
-          let _v3 = (0, _v263.default)(),
+          let _v3 = (0, _v264.default)(),
             _v4 = {
               ..._v11({
                 product: {
@@ -6143,7 +6152,7 @@
               ..._v10(),
               ..._v8(_v0)
             };
-          (0, _v270.sendBpEventWithContexts)("vimeo.change_video_title", _v4, 2, {
+          (0, _v271.sendBpEventWithContexts)("vimeo.change_video_title", _v4, 2, {
             value: _v1,
             device_type: _v3,
             type: null
@@ -6162,13 +6171,13 @@
                 is_user_facing_data: !1,
                 copy: null,
                 entity_type: "video",
-                device_type: (0, _v263.default)()
+                device_type: (0, _v264.default)()
               }
             }),
             ..._v10(),
             ..._v8(_v0)
           };
-          (0, _v270.sendBpEventWithContexts)("vimeo.open_editor", _v1, 2);
+          (0, _v271.sendBpEventWithContexts)("vimeo.open_editor", _v1, 2);
         }, [_v11, _v8, _v10]),
         _v26 = (0, _v26.useCallback)((_v0, _v1) => {
           let _v2 = {
@@ -6182,8 +6191,8 @@
               }),
               ..._v8(_v0)
             },
-            _v3 = (0, _v270.createNullObject)(["checkbox_copy", "error_id", "error_name"]);
-          (0, _v270.sendBpEventWithContexts)("vimeo.notification_view", _v2, 3, {
+            _v3 = (0, _v271.createNullObject)(["checkbox_copy", "error_id", "error_name"]);
+          (0, _v271.sendBpEventWithContexts)("vimeo.notification_view", _v2, 3, {
             ..._v3,
             notification_name: "delete_recording_for_retake",
             notification_copy: _v1
@@ -6202,8 +6211,8 @@
               ..._v10(),
               ..._v8(_v0)
             },
-            _v3 = (0, _v270.createNullObject)(["checkbox_copy", "error_id", "error_name", "is_marked_checkbox"]);
-          (0, _v270.sendBpEventWithContexts)("vimeo.notification_action", _v2, 3, {
+            _v3 = (0, _v271.createNullObject)(["checkbox_copy", "error_id", "error_name", "is_marked_checkbox"]);
+          (0, _v271.sendBpEventWithContexts)("vimeo.notification_action", _v2, 3, {
             ..._v3,
             notification_name: "delete_recording_for_retake",
             notification_copy: _v1
@@ -6220,7 +6229,7 @@
                 flow: null,
                 element: "icon",
                 copy: "Manage",
-                device_type: (0, _v263.default)(),
+                device_type: (0, _v264.default)(),
                 is_user_facing_data: !1,
                 entity_type: "video"
               }
@@ -6229,7 +6238,7 @@
             ..._v8(_v0),
             ..._v3
           };
-          (0, _v270.sendBpEventWithContexts)("vimeo.click_mange_recording", _v1);
+          (0, _v271.sendBpEventWithContexts)("vimeo.click_mange_recording", _v1);
         }, [_v11, _v10, _v8, _v3]),
         _v29 = (0, _v26.useCallback)(_v0 => {
           let _v1 = {
@@ -6242,7 +6251,7 @@
                 flow: null,
                 element: "icon",
                 copy: "Retake",
-                device_type: (0, _v263.default)(),
+                device_type: (0, _v264.default)(),
                 is_user_facing_data: !1,
                 entity_type: "video"
               }
@@ -6251,7 +6260,7 @@
             ..._v8(_v0),
             ..._v3
           };
-          (0, _v270.sendBpEventWithContexts)("vimeo.recording_retake", _v1);
+          (0, _v271.sendBpEventWithContexts)("vimeo.recording_retake", _v1);
         }, [_v11, _v10, _v8, _v3]),
         _v30 = (0, _v26.useCallback)(_v0 => {
           let _v1 = {
@@ -6264,7 +6273,7 @@
                 flow: null,
                 element: "icon",
                 copy: null,
-                device_type: (0, _v263.default)(),
+                device_type: (0, _v264.default)(),
                 is_user_facing_data: !1,
                 entity_type: "video"
               }
@@ -6272,7 +6281,7 @@
             ..._v10(),
             ..._v8(_v0)
           };
-          (0, _v270.sendBpEventWithContexts)("vimeo.close_recording_end_screen", _v1, 2);
+          (0, _v271.sendBpEventWithContexts)("vimeo.close_recording_end_screen", _v1, 2);
         }, [_v11, _v10, _v8]);
       return {
         trackTriggerPricingModalClick: _v13,
@@ -6305,7 +6314,7 @@
                 flow: null,
                 element: "icon",
                 copy: null,
-                device_type: (0, _v263.default)(),
+                device_type: (0, _v264.default)(),
                 is_user_facing_data: !1,
                 entity_type: "video"
               }
@@ -6313,7 +6322,7 @@
             ..._v10(),
             ..._v8(_v0)
           };
-          (0, _v270.sendBpEventWithContexts)("vimeo.recording_preview", _v1, 2);
+          (0, _v271.sendBpEventWithContexts)("vimeo.recording_preview", _v1, 2);
         }, [_v11, _v10, _v8]),
         trackPostRecordingModalImpression: (0, _v26.useCallback)((_v0, _v1) => {
           let _v2 = {
@@ -6326,23 +6335,23 @@
                 flow: null,
                 element: "icon",
                 copy: null,
-                device_type: (0, _v263.default)(),
+                device_type: (0, _v264.default)(),
                 is_user_facing_data: !1,
                 entity_type: "video"
               }
             }),
             ..._v8(_v0)
           };
-          (0, _v270.sendBpEventWithContexts)("vimeo.view_recording_end_screen", _v2, 2, {
+          (0, _v271.sendBpEventWithContexts)("vimeo.view_recording_end_screen", _v2, 2, {
             loading_time: _v1,
             value: null
           });
         }, [_v11, _v8])
       };
     };
-  var _v275 = _v0.i(0),
-    _v276 = _v0.i(0);
-  let _v277 = _v0 => (0, _v25.jsx)(_v276.Icon, {
+  var _v276 = _v0.i(0),
+    _v277 = _v0.i(0);
+  let _v278 = _v0 => (0, _v25.jsx)(_v277.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -6355,47 +6364,47 @@
         })]
       })
     }),
-    _v278 = ({
+    _v279 = ({
       onClick: _v0,
       isPiPShown: _v1,
       isDisabled: _v2
-    }) => (0, _v25.jsx)(_v255.LabelledButton, {
-      "data-testid": _v37.TEST_IDS.MIDRECORDING_PIP_SWITCH_BUTTON,
-      icon: _v1 ? (0, _v25.jsx)(_v277, {}) : (0, _v25.jsx)(_v275.PictureInPicture, {}),
-      tipContent: _v1 ? _v237.hidePreviewPip : _v237.showPreviewPip,
+    }) => (0, _v25.jsx)(_v256.LabelledButton, {
+      "data-testid": _v38.TEST_IDS.MIDRECORDING_PIP_SWITCH_BUTTON,
+      icon: _v1 ? (0, _v25.jsx)(_v278, {}) : (0, _v25.jsx)(_v276.PictureInPicture, {}),
+      tipContent: _v1 ? _v238.hidePreviewPip : _v238.showPreviewPip,
       isDisabled: _v2,
       isActive: _v1,
       onClick: _v0
     });
-  var _v279 = _v0.i(0);
-  let _v280 = ({
+  var _v280 = _v0.i(0);
+  let _v281 = ({
     onClick: _v0,
     isDisabled: _v1,
     isActive: _v2
-  }) => (0, _v25.jsx)(_v255.LabelledButton, {
-    "data-testid": _v37.TEST_IDS.SETTINGS_BUTTON,
-    icon: (0, _v25.jsx)(_v279.SettingsGear, {}),
-    tipContent: _v237.settingsButton,
+  }) => (0, _v25.jsx)(_v256.LabelledButton, {
+    "data-testid": _v38.TEST_IDS.SETTINGS_BUTTON,
+    icon: (0, _v25.jsx)(_v280.SettingsGear, {}),
+    tipContent: _v238.settingsButton,
     isDisabled: _v1,
     isActive: _v2,
     onClick: _v0
   });
-  var _v281 = _v0.i(0),
-    _v282 = _v0.i(0);
-  let _v283 = ({
+  var _v282 = _v0.i(0),
+    _v283 = _v0.i(0);
+  let _v284 = ({
       isTeleprompterShowed: _v0,
       isDisabled: _v1,
       onClick: _v2
     }) => {
       let {
           isUpsellModalShown: _v3
-        } = (0, _v33.useTeleprompter)(),
+        } = (0, _v34.useTeleprompter)(),
         {
           trackRecordingTeleprompterToggled: _v4
-        } = (0, _v45.useRecordingTracking)(),
+        } = (0, _v46.useRecordingTracking)(),
         {
           sendToggleTeleprompterBpEvent: _v5
-        } = (0, _v282.useTeleprompterAnalytics)({
+        } = (0, _v283.useTeleprompterAnalytics)({
           element: "icon",
           feature: "teleprompter",
           location: "bottom_panel"
@@ -6403,9 +6412,9 @@
         [_v6, _v7] = (0, _v26.useState)(!1);
       return (0, _v26.useEffect)(() => {
         _v0 !== _v6 && _v7(_v0);
-      }, [_v0, _v6]), (0, _v25.jsx)(_v255.LabelledButton, {
-        icon: (0, _v25.jsx)(_v281.Script, {}),
-        "data-testid": _v37.TEST_IDS.TELEPROMPTER_TOGGLE_BUTTON,
+      }, [_v0, _v6]), (0, _v25.jsx)(_v256.LabelledButton, {
+        icon: (0, _v25.jsx)(_v282.Script, {}),
+        "data-testid": _v38.TEST_IDS.TELEPROMPTER_TOGGLE_BUTTON,
         isDisabled: _v1 || _v3,
         isActive: _v6,
         onClick: () => {
@@ -6414,51 +6423,51 @@
             recordingNewStatus: _v0
           });
         },
-        tipContent: _v6 ? _v237.toggleTeleprompter.close : _v237.toggleTeleprompter.show
+        tipContent: _v6 ? _v238.toggleTeleprompter.close : _v238.toggleTeleprompter.show
       });
     },
-    _v284 = () => {
-      let _v0 = (0, _v26.useContext)(_v232),
+    _v285 = () => {
+      let _v0 = (0, _v26.useContext)(_v233),
         {
           trackRecordingPipToggled: _v1
-        } = (0, _v45.useRecordingTracking)(),
-        _v2 = _v87(_v0 => _v0.update),
+        } = (0, _v46.useRecordingTracking)(),
+        _v2 = _v88(_v0 => _v0.update),
         {
           isSettingsPanelVisible: _v3,
           cameraEffect: _v4
-        } = _v87((0, _v27.useShallow)(_v0 => ({
+        } = _v88((0, _v27.useShallow)(_v0 => ({
           isSettingsPanelVisible: _v0.settings.isSettingsPanelVisible,
           cameraEffect: _v0.settings.camera.effect
         }))),
         {
           trackSettingsButtonClick: _v5
-        } = _v274(),
+        } = _v275(),
         {
           video: _v6
-        } = _v212(),
+        } = _v213(),
         {
           noSourcesAvailable: _v7
-        } = _v213(),
+        } = _v214(),
         {
           toggleTeleprompter: _v8,
           isTeleprompterShown: _v9
-        } = (0, _v33.useTeleprompter)(),
+        } = (0, _v34.useTeleprompter)(),
         {
           isPiPSupported: _v10,
           isPiPShown: _v11
-        } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+        } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
           isPiPSupported: _v0.pip.supported,
           isPiPShown: _v0.pip.enabled
         }))),
-        _v12 = _v216(_v0 => void 0 !== _v0.countdownSeconds);
+        _v12 = _v217(_v0 => void 0 !== _v0.countdownSeconds);
       (0, _v26.useEffect)(() => {
         var _v0;
-        return _v0 = () => _v0(!1), _v178.subscribe(_v0 => _v0.displayMedia, (_v0, _v1) => {
+        return _v0 = () => _v0(!1), _v179.subscribe(_v0 => _v0.displayMedia, (_v0, _v1) => {
           _v1 && void 0 === _v0 && _v0();
         });
       }, [_v0]);
       let _v13 = (0, _v26.useCallback)(() => {
-          _v10 && (_v0(!_v11), _v51({
+          _v10 && (_v0(!_v11), _v52({
             name: _v11 ? "hide_picture_in_picture" : "show_picture_in_picture",
             eventType: "click",
             location: "bottom_panel"
@@ -6472,19 +6481,19 @@
           });
         }, [_v4, _v3, _v5, _v2, _v6]);
       return (0, _v25.jsxs)(_v25.Fragment, {
-        children: [(0, _v25.jsx)(_v233.ControlsContainer, {
-          children: (0, _v25.jsx)(_v283, {
+        children: [(0, _v25.jsx)(_v234.ControlsContainer, {
+          children: (0, _v25.jsx)(_v284, {
             isTeleprompterShowed: _v9,
             onClick: _v8,
             isDisabled: _v12
           })
-        }), (0, _v25.jsx)(_v233.ControlsContainer, {
-          children: (0, _v25.jsx)(_v280, {
+        }), (0, _v25.jsx)(_v234.ControlsContainer, {
+          children: (0, _v25.jsx)(_v281, {
             isActive: _v3,
             onClick: _v14
           })
-        }), _v10 && (0, _v25.jsx)(_v233.ControlsContainer, {
-          children: (0, _v25.jsx)(_v278, {
+        }), _v10 && (0, _v25.jsx)(_v234.ControlsContainer, {
+          children: (0, _v25.jsx)(_v279, {
             isDisabled: _v7,
             onClick: _v13,
             isPiPShown: _v11
@@ -6492,8 +6501,8 @@
         })]
       });
     };
-  var _v285 = _v0.i(0);
-  function _v286() {
+  var _v286 = _v0.i(0);
+  function _v287() {
     let _v0 = new AudioContext({
         sampleRate: 0
       }),
@@ -6503,27 +6512,26 @@
       dest: _v1
     };
   }
-  function _v287(_v0, _v1, _v2) {
+  function _v288(_v0, _v1, _v2) {
     let _v3 = new MediaStreamAudioSourceNode(_v0, {
       mediaStream: _v2
     });
     return _v3.connect(_v1), () => _v3.disconnect();
   }
-  var _v288 = _v0.i(0);
   function _v289(_v0, _v1) {
     let _v2 = (0, _v26.useRef)(_v0),
       _v3 = window.location.search;
-    return (0, _v26.useMemo)(() => _v75(_v2.current, _v1, _v3), [_v1, _v3]);
+    return (0, _v26.useMemo)(() => _v76(_v2.current, _v1, _v3), [_v1, _v3]);
   }
   let _v290 = () => {
-      let _v0 = (0, _v46.useViewer)(),
+      let _v0 = (0, _v47.useViewer)(),
         {
           isDebugMode: _v1
         } = _v289("debugMode", !0),
         _v2 = _v0?.user?.badge?.type === "staff";
-      return _v1 && (_v2 || !_v80);
+      return _v1 && (_v2 || !_v81);
     },
-    _v291 = (0, _v71.createPersistentStore)(_v0 => ({
+    _v291 = (0, _v72.createPersistentStore)(_v0 => ({
       approachOverride: null,
       setApproachOverride: _v0 => {
         _v0(_v0 => {
@@ -6540,7 +6548,7 @@
     _v293 = _v0.i(0);
   let _v294 = "standalone",
     _v295 = "integration",
-    _v296 = (0, _v71.createStore)(_v0 => ({
+    _v296 = (0, _v72.createStore)(_v0 => ({
       name: null,
       mode: _v294,
       uploadMode: void 0,
@@ -6563,12 +6571,12 @@
           } : (0, _v293.getLocalIntegrationSupported)() ? _v1.addLocalRecordingSource ? {
             addLocalRecordingSource: _v1.addLocalRecordingSource,
             uploadMode: "local"
-          } : (_v141("useIntegrationConfigurationStore").warn('[Local upload] [Restricted] "addLocalRecordingSource" callback is not provided.'), {
+          } : (_v142("useIntegrationConfigurationStore").warn('[Local upload] [Restricted] "addLocalRecordingSource" callback is not provided.'), {
             uploadMode: "remote"
-          }) : (_v141("useIntegrationConfigurationStore").warn("[Local upload] [Restricted] Env is not supported for local upload."), {
+          }) : (_v142("useIntegrationConfigurationStore").warn("[Local upload] [Restricted] Env is not supported for local upload."), {
             uploadMode: "remote"
           });
-          "local" === _v2.uploadMode ? (_v0.uploadMode = _v2.uploadMode, _v0.addLocalRecordingSource = _v2.addLocalRecordingSource) : _v0.uploadMode = _v2.uploadMode, _v141("useIntegrationConfigurationStore").info("Set valid integration configuration: ", {
+          "local" === _v2.uploadMode ? (_v0.uploadMode = _v2.uploadMode, _v0.addLocalRecordingSource = _v2.addLocalRecordingSource) : _v0.uploadMode = _v2.uploadMode, _v142("useIntegrationConfigurationStore").info("Set valid integration configuration: ", {
             uploadMode: _v2.uploadMode
           });
         });
@@ -6598,15 +6606,15 @@
           setVideoId: _v0.setVideoId,
           videoId: _v0.videoId
         }))),
-        _v10 = (0, _v26.useContext)(_v232),
-        _v11 = _v140("useIntegrationConfiguration"),
-        _v12 = _v178(_v0 => _v0.removeStream),
-        _v13 = (0, _v89.useUIStore)(_v0 => _v0.reset),
-        _v14 = (0, _v89.useUIStore)(_v0 => _v0.common.setError),
-        _v15 = (0, _v129.useMemoryDataStorage)(_v0 => _v0.originalChunks),
+        _v10 = (0, _v26.useContext)(_v233),
+        _v11 = _v141("useIntegrationConfiguration"),
+        _v12 = _v179(_v0 => _v0.removeStream),
+        _v13 = (0, _v90.useUIStore)(_v0 => _v0.reset),
+        _v14 = (0, _v90.useUIStore)(_v0 => _v0.common.setError),
+        _v15 = (0, _v130.useMemoryDataStorage)(_v0 => _v0.originalChunks),
         {
           resetMemoryState: _v16
-        } = (0, _v33.useTeleprompter)(),
+        } = (0, _v34.useTeleprompter)(),
         _v17 = (0, _v26.useCallback)(() => {
           _v0 === _v295 && (_v12("camera"), _v12("microphone"), _v12("displayMedia"));
         }, [_v0, _v12]),
@@ -6622,7 +6630,7 @@
           let {
               originalChunks: _v0,
               info: _v1
-            } = _v129.useMemoryDataStorage.getState(),
+            } = _v130.useMemoryDataStorage.getState(),
             _v2 = _v0.length;
           if (!_v18 || !_v2) return _v11.debug("[Local upload] [Restricted] can't insert local recording, possible reason: ", {
             chunksLength: _v2,
@@ -6642,7 +6650,7 @@
             });
             let _v2 = await _v3(_v0);
             return _v2 ? _v11.debug("[Local upload] [Completed] insert of local recording") : _v11.error(Error("[Local upload] [Failed]"), {
-              category: _v123.EDITOR_INTEGRATION,
+              category: _v124.EDITOR_INTEGRATION,
               method: "saveLocalRecordingSource",
               component: "useIntegrationConfiguration"
             }), _v2;
@@ -6655,7 +6663,7 @@
       return (0, _v26.useEffect)(() => {
         "retryLocalUploadInStudio" === _v1 && _v24 > 0 && (_v11.debug("[Local upload] Show retry state for local integration."), _v14({
           type: "blocker-error",
-          errorKey: _v172.UPLOADING_ERROR
+          errorKey: _v173.UPLOADING_ERROR
         }));
       }, [_v0, _v24, _v14, _v1, _v11]), {
         onBackClick: _v23,
@@ -6691,7 +6699,7 @@
       return (-1 ^ this.value) >>> 0;
     }
   }
-  class _v299 extends _v188 {
+  class _v299 extends _v189 {
     log;
     static INITIALIZE_TIMEOUT = 0;
     worker;
@@ -6701,7 +6709,7 @@
     chunksPushed;
     chunksReceived;
     pendingChunks;
-    constructor(_v0, _v1 = _v139.createForCategory("ChunkConverter")) {
+    constructor(_v0, _v1 = _v140.createForCategory("ChunkConverter")) {
       super(_v0), this.log = _v1, this.crc32 = new _v298(), this.runtimeInitialized = !1, this.chunksPushed = 0, this.chunksReceived = 0, this.pendingChunks = [], this.worker = new Worker(URL.createObjectURL(new Blob([`try {
           importScripts('https://recordwidget.vimeocdn.com/recordwidget/studio/ipb/1.0.0/ipb_worker.js');
         } catch (e) {
@@ -6713,7 +6721,7 @@
           switch (_v0.data?.type) {
             case "log":
               "error" === _v0.data.verbosity && this.log.error(Error("Worker logged error"), {
-                category: _v123.CHUNK_CONVERTER,
+                category: _v124.CHUNK_CONVERTER,
                 method: "constructor",
                 component: "ChunkConverter",
                 data: {
@@ -6730,7 +6738,7 @@
             case "failure":
               let _v0 = Error(`Worker failed with ${_v0.data.reason}`);
               this.log.error(_v0, {
-                category: _v123.CHUNK_CONVERTER,
+                category: _v124.CHUNK_CONVERTER,
                 method: "constructor",
                 component: "ChunkConverter",
                 data: {
@@ -6753,7 +6761,7 @@
                 if (0 != _v0 && _v1 !== _v0) {
                   let _v0 = Error("Worker crc32 does not match recv crc32, reporting failure");
                   this.log.error(_v0, {
-                    category: _v123.CHUNK_CONVERTER,
+                    category: _v124.CHUNK_CONVERTER,
                     method: "constructor",
                     component: "ChunkConverter",
                     data: {
@@ -6766,21 +6774,21 @@
                 this.callbacks.onEndOfFile(), this.unsubscribeCallbacks({
                   onInitialized: () => {
                     this.log.error(Error("Initialized received after end of file"), {
-                      category: _v123.CHUNK_CONVERTER,
+                      category: _v124.CHUNK_CONVERTER,
                       method: "constructor",
                       component: "ChunkConverter"
                     });
                   },
                   onChunk: () => {
                     this.log.error(Error("Chunk received after end of file"), {
-                      category: _v123.CHUNK_CONVERTER,
+                      category: _v124.CHUNK_CONVERTER,
                       method: "constructor",
                       component: "ChunkConverter"
                     });
                   },
                   onEndOfFile: () => {
                     this.log.error(Error("End of file received twice"), {
-                      category: _v123.CHUNK_CONVERTER,
+                      category: _v124.CHUNK_CONVERTER,
                       method: "constructor",
                       component: "ChunkConverter"
                     });
@@ -6791,14 +6799,14 @@
               }
             default:
               this.log.error(Error(`unknown command ${_v0.data}`), {
-                category: _v123.CHUNK_CONVERTER,
+                category: _v124.CHUNK_CONVERTER,
                 method: "constructor",
                 component: "ChunkConverter"
               });
           }
         } catch (_v0) {
           this.log.error(_v0, {
-            category: _v123.CHUNK_CONVERTER,
+            category: _v124.CHUNK_CONVERTER,
             method: "constructor",
             component: "ChunkConverter",
             data: {
@@ -6809,7 +6817,7 @@
       }, this.worker.onerror = _v0 => {
         let _v1 = _v0.error || Error(_v0.message);
         this.log.error(_v1, {
-          category: _v123.CHUNK_CONVERTER,
+          category: _v124.CHUNK_CONVERTER,
           method: "constructor",
           component: "ChunkConverter",
           data: {
@@ -6837,7 +6845,7 @@
         this.sendPendingChunks();
       } catch (_v0) {
         this.log.error(_v0, {
-          category: _v123.CHUNK_CONVERTER,
+          category: _v124.CHUNK_CONVERTER,
           method: "addChunk",
           component: "ChunkConverter",
           data: {
@@ -6901,17 +6909,17 @@
       "720p": 0
     },
     _v303 = () => {
-      let _v0 = (0, _v26.useContext)(_v35.ViewerContext),
+      let _v0 = (0, _v26.useContext)(_v36.ViewerContext),
         _v1 = _v0?.teamUser?.ownerId || _v0?.user?.id,
         {
           capabilities: {
             hasPaid: _v2
           },
           ready: _v3
-        } = (0, _v214.useCapability)(["hasPaid"], _v1);
+        } = (0, _v215.useCapability)(["hasPaid"], _v1);
       return _v3 && !_v2 ? 0 : 0;
     },
-    _v304 = () => 0 === _v303() ? (0, _v236.translate)({
+    _v304 = () => 0 === _v303() ? (0, _v237.translate)({
       singular: "two hours",
       dictionary: {
         es: {
@@ -6936,7 +6944,7 @@
           singular: "两小时"
         }
       }
-    }) : (0, _v236.translate)({
+    }) : (0, _v237.translate)({
       singular: "30 minutes",
       dictionary: {
         es: {
@@ -7001,7 +7009,7 @@
     state;
     resolutionCantBeDeterminedReported;
     onResolutionChanged;
-    constructor(_v0, _v1, _v2 = _v139.createForCategory("VideoResolutionMonitor")) {
+    constructor(_v0, _v1, _v2 = _v140.createForCategory("VideoResolutionMonitor")) {
       this.log = _v2, this.resolutionCantBeDeterminedReported = !1;
       const [_v3] = _v0.getVideoTracks();
       this.onResolutionChanged = _v1, this.state = _v3 ? {
@@ -7047,7 +7055,7 @@
         height: _v2
       } = _v0.getSettings();
       return void 0 === _v1 || void 0 === _v2 ? (this.resolutionCantBeDeterminedReported || (this.log.error(Error("Resolution of MediaStreamTrack can't be determined"), {
-        category: _v123.RECORDER,
+        category: _v124.RECORDER,
         method: "getResolutionFromTrack",
         component: "VideoResolutionMonitor"
       }), this.resolutionCantBeDeterminedReported = !0), null) : {
@@ -7056,7 +7064,7 @@
       };
     }
   }
-  class _v308 extends _v188 {
+  class _v308 extends _v189 {
     recordingDurationLimit;
     static TIMESLICE = 0;
     static VIDEO_KEY_FRAME_INTERVAL_DURATION = 0;
@@ -7082,7 +7090,7 @@
       return this.recordedBytes;
     }
     constructor(_v0, _v1, _v2, _v3, _v4, _v5) {
-      super(_v0), this.recordingDurationLimit = _v1, this.log = _v139.createForCategory("Recorder"), this.recordedBytes = 0, this.chunksReceived = 0, this.emptyChunksReceived = 0, this.stallReported = !1, this.timestamps = {
+      super(_v0), this.recordingDurationLimit = _v1, this.log = _v140.createForCategory("Recorder"), this.recordedBytes = 0, this.chunksReceived = 0, this.emptyChunksReceived = 0, this.stallReported = !1, this.timestamps = {
         started: void 0,
         paused: void 0
       }, this.durations = {
@@ -7253,7 +7261,7 @@
     }
     logRecorderError(_v0, _v1) {
       this.log.error(_v0 instanceof Error ? _v0 : Error(String(_v0)), {
-        category: _v123.RECORDER,
+        category: _v124.RECORDER,
         method: _v1,
         component: "Recorder"
       });
@@ -7272,7 +7280,7 @@
       this.recordingDurationLimitTimer && (clearTimeout(this.recordingDurationLimitTimer), this.recordingDurationLimitTimer = void 0);
     }
   }
-  let _v309 = (0, _v71.createStore)(_v0 => ({
+  let _v309 = (0, _v72.createStore)(_v0 => ({
       recordedClipId: null,
       uploadMethodType: null,
       recordingStoppedTime: null,
@@ -7319,8 +7327,8 @@
       let {
           shown: _v0,
           ignored: _v1
-        } = _v87(_v0 => _v0.notices),
-        _v2 = _v87(_v0 => _v0.update),
+        } = _v88(_v0 => _v0.notices),
+        _v2 = _v88(_v0 => _v0.update),
         _v3 = (0, _v26.useCallback)(() => {
           _v2("notices", {
             shown: {},
@@ -7352,8 +7360,8 @@
     _v312 = "FPS_PERFORMANCE",
     _v313 = "ULTRA_QUALITY_DEVICE_WARNING",
     _v314 = () => {
-      let _v0 = (0, _v89.useUIStore)(_v0 => _v0.common.state),
-        _v1 = _v87(_v0 => _v0.capture.isAudioMuted),
+      let _v0 = (0, _v90.useUIStore)(_v0 => _v0.common.state),
+        _v1 = _v88(_v0 => _v0.capture.isAudioMuted),
         _v2 = (() => {
           let _v0,
             _v1,
@@ -7370,20 +7378,20 @@
                   audio: _v0,
                   video: _v1,
                   display: _v2
-                } = _v213(),
-                _v3 = _v85(_v0 => _v0.size),
-                _v4 = _v2.isMuted || _v1.isMuted ? _v2.isMuted ? _v1.isMuted ? _v183 : _v182 : _v181 : _v180,
+                } = _v214(),
+                _v3 = _v86(_v0 => _v0.size),
+                _v4 = _v2.isMuted || _v1.isMuted ? _v2.isMuted ? _v1.isMuted ? _v184 : _v183 : _v182 : _v181,
                 _v5 = "cameraCapture" === _v4 ? _v1.mediaInfo : _v2.mediaInfo,
                 {
                   teleprompterTextContent: _v6,
                   isTeleprompterShown: _v7
-                } = (0, _v33.useTeleprompter)(),
+                } = (0, _v34.useTeleprompter)(),
                 {
                   aspectRatio: _v8,
                   currentLayoutKey: _v9,
                   snapToGuides: _v10,
                   showGuides: _v11
-                } = _v85((0, _v27.useShallow)(_v0 => ({
+                } = _v86((0, _v27.useShallow)(_v0 => ({
                   aspectRatio: _v0.aspectRatio,
                   currentLayoutKey: _v0.currentLayoutKey,
                   showGuides: _v0.showGuides,
@@ -7391,16 +7399,16 @@
                 }))),
                 {
                   cameraEffect: _v12
-                } = _v88(),
-                _v13 = _v218(_v0 => _v0.isEnabled),
+                } = _v89(),
+                _v13 = _v219(_v0 => _v0.isEnabled),
                 {
                   trackRecordingStarted: _v14,
                   trackRecordingCompleted: _v15
-                } = (0, _v45.useRecordingTracking)();
+                } = (0, _v46.useRecordingTracking)();
               return _v300(_v0 => {
                 switch (_v0.type) {
                   case "upload":
-                    _v208({
+                    _v209({
                       name: "recordingUploaded",
                       isMicOn: !_v0.isMuted,
                       captureMode: _v4,
@@ -7410,8 +7418,8 @@
                       uploadingDuration: _v0.uploadingDuration,
                       uploadMethod: _v0.uploadMethod,
                       originVariableFrameResolution: _v0.originVariableFrameResolution,
-                      script: (0, _v262.getScriptState)(_v6),
-                      averageFrameTime: _v89.useUIStore.getState().common.averageFrameTime,
+                      script: (0, _v263.getScriptState)(_v6),
+                      averageFrameTime: _v90.useUIStore.getState().common.averageFrameTime,
                       cameraEffect: _v12,
                       canvasRatio: _v8,
                       canvasLayout: _v9,
@@ -7425,11 +7433,11 @@
                     });
                     break;
                   case "start":
-                    _v208({
+                    _v209({
                       name: "recordingStarted",
                       isMicOn: !_v0.isMuted,
                       captureMode: _v4,
-                      script: (0, _v262.getScriptState)(_v6),
+                      script: (0, _v263.getScriptState)(_v6),
                       ..._v5
                     }), _v14({
                       recordingHasCamera: !_v1.isMuted,
@@ -7441,26 +7449,26 @@
                     });
                     break;
                   case "stop":
-                    _v208({
+                    _v209({
                       name: "recordingStopped",
                       isMicOn: !_v0.isMuted,
                       captureMode: _v4,
                       clipURL: _v0.videoLink,
                       duration: _v0.duration,
                       recordingFileSizeMb: _v0.recordedBytes / 0 / 0,
-                      script: (0, _v262.getScriptState)(_v6),
+                      script: (0, _v263.getScriptState)(_v6),
                       ..._v5
                     });
                     break;
                   case "pause":
-                    _v208({
+                    _v209({
                       name: "recordingPaused",
                       paused: _v0.paused,
                       clipURL: _v0.videoLink
                     });
                     break;
                   case "delete":
-                    _v208({
+                    _v209({
                       name: "recordingDeleted",
                       deleteType: "start_new_recording",
                       clipURL: _v0.videoLink
@@ -7474,8 +7482,8 @@
               let _v0,
                 _v1,
                 _v2,
-                _v3 = (0, _v89.useUIStore)(_v0 => _v0.common.state),
-                _v4 = (0, _v89.useUIStore)(_v0 => _v0.common.isBackModalShown),
+                _v3 = (0, _v90.useUIStore)(_v0 => _v0.common.state),
+                _v4 = (0, _v90.useUIStore)(_v0 => _v0.common.isBackModalShown),
                 _v5 = _v301.includes(_v3) && !_v4,
                 {
                   subscribe: _v6,
@@ -7494,8 +7502,8 @@
                 unsubscribe: _v7
               };
             }(),
-            _v12 = (0, _v285.useRouter)(),
-            _v13 = _v140("useRecorder"),
+            _v12 = (0, _v286.useRouter)(),
+            _v13 = _v141("useRecorder"),
             {
               setState: _v14,
               setRecordingState: _v15,
@@ -7504,7 +7512,7 @@
               setRecordingStartedAt: _v18,
               setIsRecordingStarted: _v19,
               setWaitingToRouteBack: _v20
-            } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+            } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
               setState: _v0.common.setState,
               setRecordingState: _v0.common.setRecordingState,
               setRecoveryStep: _v0.common.setRecoveryStep,
@@ -7528,18 +7536,18 @@
               resetPostRecordingState: _v0.reset,
               setRecordingDuration: _v0.setRecordingDuration
             }))),
-            _v27 = _v87(_v0 => _v0.update),
+            _v27 = _v88(_v0 => _v0.update),
             {
               startTeleprompterScrolling: _v28,
               stopTeleprompterScrolling: _v29,
               pauseTeleprompterScrolling: _v30
-            } = (0, _v33.useTeleprompter)(),
+            } = (0, _v34.useTeleprompter)(),
             {
               startDurationTimer: _v31,
               stopDurationTimer: _v32,
               pauseDurationTimer: _v33,
               resumeDurationTimer: _v34
-            } = (_v0 = (0, _v26.useRef)(null), _v1 = (0, _v26.useRef)(null), _v2 = (0, _v26.useRef)(0), _v3 = (0, _v26.useRef)(void 0), _v4 = (0, _v89.useUIStore)(_v0 => _v0.common.setRecordingDuration), _v5 = (0, _v26.useCallback)(() => {
+            } = (_v0 = (0, _v26.useRef)(null), _v1 = (0, _v26.useRef)(null), _v2 = (0, _v26.useRef)(0), _v3 = (0, _v26.useRef)(void 0), _v4 = (0, _v90.useUIStore)(_v0 => _v0.common.setRecordingDuration), _v5 = (0, _v26.useCallback)(() => {
               _v3.current && (clearInterval(_v3.current), _v3.current = void 0);
             }, []), _v6 = (0, _v26.useCallback)(() => {
               _v5();
@@ -7581,7 +7589,7 @@
               setRecordingInfo: _v42,
               addOriginalChunk: _v43,
               setRecordingThumbnail: _v44
-            } = (0, _v129.useMemoryDataStorage)((0, _v27.useShallow)(_v0 => ({
+            } = (0, _v130.useMemoryDataStorage)((0, _v27.useShallow)(_v0 => ({
               resetRecording: _v0.resetRecording,
               setRecordingInfo: _v0.setInfo,
               addOriginalChunk: _v0.addOriginalChunk,
@@ -7591,7 +7599,7 @@
               getAudioStream: _v45,
               prepareAudioContext: _v46
             } = (() => {
-              let _v0 = _v140("useCombinedAudioStream"),
+              let _v0 = _v141("useCombinedAudioStream"),
                 _v1 = (0, _v26.useRef)(null),
                 _v2 = (0, _v26.useRef)({}),
                 _v3 = (0, _v26.useRef)(null),
@@ -7600,7 +7608,7 @@
                   _v2.current[_v0]?.cleanup(), _v2.current[_v0] = void 0;
                 }, []),
                 _v6 = (0, _v26.useCallback)(() => {
-                  _v4.current?.ctx.state !== "running" && (_v4.current?.ctx.close(), _v3.current?.cleanup(), _v3.current = null, _v4.current = _v286());
+                  _v4.current?.ctx.state !== "running" && (_v4.current?.ctx.close(), _v3.current?.cleanup(), _v3.current = null, _v4.current = _v287());
                 }, []);
               (0, _v26.useEffect)(() => () => {
                 _v4.current?.ctx.close(), _v4.current = null, _v3.current?.cleanup(), _v3.current = null;
@@ -7622,17 +7630,17 @@
                   } = _v4.current, _v4.current = null, "running" !== _v0.state && _v0.resume()) : {
                     ctx: _v0,
                     dest: _v1
-                  } = _v286(), _v1.current = performance.now();
+                  } = _v287(), _v1.current = performance.now();
                   let {
                     microphone: _v2,
                     displayMedia: _v3
-                  } = _v178.getState();
+                  } = _v179.getState();
                   _v2?.stream?.getAudioTracks().length && (_v2.current.microphone = {
                     stream: _v2.stream,
-                    cleanup: _v287(_v0, _v1, _v2.stream)
+                    cleanup: _v288(_v0, _v1, _v2.stream)
                   }), _v3?.stream?.getAudioTracks().length && (_v2.current.displayMedia = {
                     stream: _v3.stream,
-                    cleanup: _v287(_v0, _v1, _v3.stream)
+                    cleanup: _v288(_v0, _v1, _v3.stream)
                   });
                   let _v4 = _v0.createOscillator(),
                     _v5 = _v0.createGain();
@@ -7662,7 +7670,7 @@
                 {
                   microphone: _v8,
                   displayMedia: _v9
-                } = _v178((0, _v27.useShallow)(_v0 => ({
+                } = _v179((0, _v27.useShallow)(_v0 => ({
                   microphone: _v0.microphone,
                   displayMedia: _v0.displayMedia
                 })));
@@ -7672,20 +7680,20 @@
                   ctx: _v0,
                   dest: _v1
                 } = _v3.current;
-                return _v8?.stream && 0 !== _v8.stream.getAudioTracks().length ? _v2.current.microphone?.stream !== _v8.stream ? (_v5("microphone"), _v287(_v0, _v1, _v8.stream)) : void 0 : void _v5("microphone");
+                return _v8?.stream && 0 !== _v8.stream.getAudioTracks().length ? _v2.current.microphone?.stream !== _v8.stream ? (_v5("microphone"), _v288(_v0, _v1, _v8.stream)) : void 0 : void _v5("microphone");
               }, [_v8?.stream, _v5]), (0, _v26.useEffect)(() => {
                 if (!_v3.current) return;
                 let {
                   ctx: _v0,
                   dest: _v1
                 } = _v3.current;
-                return _v9?.stream && 0 !== _v9.stream.getAudioTracks().length ? _v2.current.displayMedia?.stream !== _v9.stream ? (_v5("displayMedia"), _v287(_v0, _v1, _v9.stream)) : void 0 : void _v5("displayMedia");
+                return _v9?.stream && 0 !== _v9.stream.getAudioTracks().length ? _v2.current.displayMedia?.stream !== _v9.stream ? (_v5("displayMedia"), _v288(_v0, _v1, _v9.stream)) : void 0 : void _v5("displayMedia");
               }, [_v9?.stream, _v5]), {
                 getAudioStream: _v7,
                 prepareAudioContext: _v6
               };
             })(),
-            _v47 = (0, _v89.useUIStore)(_v0 => _v0.common.state);
+            _v47 = (0, _v90.useUIStore)(_v0 => _v0.common.state);
           (0, _v26.useEffect)(() => {
             "pre-recording" === _v47 && _v46();
           }, [_v47, _v46]);
@@ -7710,68 +7718,74 @@
                   onUploaded: _v0,
                   onCancelled: _v1
                 }) => {
-                  let _v2,
-                    _v3,
-                    _v4,
-                    _v5,
-                    _v6 = _v140("useUploader"),
+                  let _v2 = _v141("useUploader"),
                     {
-                      settings: _v7
-                    } = (0, _v288.useOrionSettings)(),
-                    _v8 = (0, _v26.useRef)(void 0),
-                    _v9 = (0, _v26.useRef)(void 0),
-                    _v10 = (() => {
+                      settings: _v3
+                    } = (0, _v32.useOrionSettings)(),
+                    _v4 = (0, _v26.useRef)(void 0),
+                    _v5 = (0, _v26.useRef)(void 0),
+                    _v6 = (() => {
                       let _v0 = (0, _v26.useRef)("live"),
                         _v1 = (0, _v26.useRef)("default"),
-                        _v2 = (0, _v46.useViewer)(),
-                        _v3 = _v140("useUploadApproach"),
-                        _v4 = _v2?.user?.badge?.type === "staff",
+                        _v2 = (0, _v47.useViewer)(),
                         {
-                          uploadApproach: _v5
+                          settings: _v3
+                        } = (0, _v32.useOrionSettings)(),
+                        _v4 = _v141("useUploadApproach"),
+                        _v5 = _v2?.user?.badge?.type === "staff",
+                        {
+                          uploadApproach: _v6
                         } = _v289("uploadApproach", !1),
-                        _v6 = _v290(),
-                        _v7 = _v291(_v0 => _v0.approachOverride);
-                      "pre-recording" === (0, _v89.useUIStore)(_v0 => _v0.common.state) && (_v6 && _v7 ? (_v0.current = _v7, _v1.current = "debug-panel") : _v4 && _v5 && _v73.uploadApproach?.includes(_v5) ? (_v0.current = _v5, _v1.current = "query-param") : (_v0.current = "live", _v1.current = "default"));
-                      let _v8 = _v0.current;
+                        _v7 = _v290(),
+                        _v8 = _v291(_v0 => _v0.approachOverride);
+                      "pre-recording" === (0, _v90.useUIStore)(_v0 => _v0.common.state) && (_v7 && _v8 ? (_v0.current = _v8, _v1.current = "debug-panel") : _v5 && _v6 && _v74.uploadApproach?.includes(_v6) ? (_v0.current = _v6, _v1.current = "query-param") : (_v0.current = "tus" === _v3.record_upload_approach ? "tus" : "live", _v1.current = "default"));
+                      let _v9 = _v0.current;
                       return (0, _v26.useEffect)(() => {
-                        _v3.info("Upload approach resolved", {
-                          approach: _v8,
+                        _v4.info("Upload approach resolved", {
+                          approach: _v9,
                           source: _v1.current
                         });
-                      }, [_v3, _v8]), _v0;
+                      }, [_v4, _v9]), _v0;
                     })(),
-                    _v11 = _v10.current,
-                    _v12 = (0, _v26.useRef)(void 0),
-                    _v13 = (0, _v26.useRef)(void 0),
+                    _v7 = _v6.current,
+                    _v8 = (0, _v26.useRef)(void 0),
+                    _v9 = (0, _v26.useRef)(void 0),
+                    _v10 = "tus" === _v6.current,
                     {
-                      retry: _v14,
-                      resetRetryCount: _v15
-                    } = (_v2 = (0, _v26.useRef)(void 0), _v3 = (0, _v26.useRef)(0), _v4 = (0, _v26.useCallback)((_v0, _v1) => {
-                      clearTimeout(_v2.current), _v2.current = void 0, _v3.current < 1 ? (_v3.current += 1, _v2.current = setTimeout(_v0, 0)) : (_v3.current = 0, _v1());
-                    }, [1, 0]), _v5 = (0, _v26.useCallback)(() => {
-                      clearTimeout(_v2.current), _v2.current = void 0, _v3.current = 0;
-                    }, []), (0, _v26.useEffect)(() => () => {
-                      _v5();
-                    }, [_v5]), {
-                      retry: _v4,
-                      resetRetryCount: _v5
-                    }),
+                      retry: _v11,
+                      resetRetryCount: _v12
+                    } = ((_v0, _v1, _v2 = !0) => {
+                      let _v3 = (0, _v26.useRef)(void 0),
+                        _v4 = (0, _v26.useRef)(0),
+                        _v5 = (0, _v26.useCallback)((_v0, _v1) => {
+                          clearTimeout(_v3.current), _v3.current = void 0, _v4.current < _v0 ? (_v4.current += 1, _v3.current = setTimeout(_v0, _v2 ? _v1 * 2 ** (_v4.current - 1) : _v1)) : (_v4.current = 0, _v1());
+                        }, [_v0, _v1, _v2]),
+                        _v6 = (0, _v26.useCallback)(() => {
+                          clearTimeout(_v3.current), _v3.current = void 0, _v4.current = 0;
+                        }, []);
+                      return (0, _v26.useEffect)(() => () => {
+                        _v6();
+                      }, [_v6]), {
+                        retry: _v5,
+                        resetRetryCount: _v6
+                      };
+                    })(_v10 ? 3 : 1, _v10 ? 0 : 0, _v10),
                     {
-                      mode: _v16,
-                      setVideoId: _v17,
-                      onBecamePlayable: _v18,
-                      integrationWithRemoteUpload: _v19
+                      mode: _v13,
+                      setVideoId: _v14,
+                      onBecamePlayable: _v15,
+                      integrationWithRemoteUpload: _v16
                     } = _v297(),
                     {
-                      setError: _v20,
-                      setSelectedPrivacy: _v21,
-                      uploadingState: _v22,
-                      setUploadingState: _v23,
-                      setRecoveryStep: _v24,
-                      setState: _v25,
-                      state: _v26,
-                      setUploadMethod: _v27
-                    } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+                      setError: _v17,
+                      setSelectedPrivacy: _v18,
+                      uploadingState: _v19,
+                      setUploadingState: _v20,
+                      setRecoveryStep: _v21,
+                      setState: _v22,
+                      state: _v23,
+                      setUploadMethod: _v24
+                    } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
                       setError: _v0.common.setError,
                       setSelectedPrivacy: _v0.privacy.setSelected,
                       uploadingState: _v0.common.uploadingState,
@@ -7799,69 +7813,69 @@
                     }, [_v0, _v1]);
                   })({
                     onOffline: (0, _v26.useCallback)(() => {
-                      _v6.debug("useNetwork.handleOffline"), "recording" === _v26 && _v20({
+                      _v2.debug("useNetwork.handleOffline"), "recording" === _v23 && _v17({
                         type: "error",
-                        errorKey: _v172.OFFLINE_ERROR,
+                        errorKey: _v173.OFFLINE_ERROR,
                         source: "browser"
                       });
-                    }, [_v6, _v20, _v26]),
+                    }, [_v2, _v17, _v23]),
                     onOnline: (0, _v26.useCallback)(() => {
-                      _v6.debug("useNetwork.handleOnline"), _v20(_v0 => _v0?.errorKey === _v172.OFFLINE_ERROR ? void 0 : _v0);
-                    }, [_v6, _v20])
+                      _v2.debug("useNetwork.handleOnline"), _v17(_v0 => _v0?.errorKey === _v173.OFFLINE_ERROR ? void 0 : _v0);
+                    }, [_v2, _v17])
                   });
                   let {
-                      addConvertedChunk: _v28,
-                      removeConvertedChunks: _v29
-                    } = (0, _v129.useMemoryDataStorage)((0, _v27.useShallow)(_v0 => ({
+                      addConvertedChunk: _v25,
+                      removeConvertedChunks: _v26
+                    } = (0, _v130.useMemoryDataStorage)((0, _v27.useShallow)(_v0 => ({
                       addConvertedChunk: _v0.addConvertedChunk,
                       removeConvertedChunks: _v0.removeConvertedChunks
                     }))),
-                    _v30 = (0, _v26.useCallback)(async (_v0 = !0) => {
-                      _v8.current?.cancelAndUnsubscribe(), _v8.current = void 0;
-                      let _v1 = _v9.current?.cancelAndUnsubscribe();
-                      _v9.current = void 0, _v23("idle"), _v15(), _v1 && (await _v1), _v0 && (_v12.current = void 0, _v1());
-                    }, [_v1, _v15, _v23]),
-                    _v31 = (0, _v26.useCallback)((_v0, _v1) => {
-                      "stopped" === _v89.useUIStore.getState().common.recordingState && _v14(() => {
-                        _v23("retry");
+                    _v27 = (0, _v26.useCallback)(async (_v0 = !0) => {
+                      _v4.current?.cancelAndUnsubscribe(), _v4.current = void 0;
+                      let _v1 = _v5.current?.cancelAndUnsubscribe();
+                      _v5.current = void 0, _v20("idle"), _v12(), _v1 && (await _v1), _v0 && (_v8.current = void 0, _v1());
+                    }, [_v1, _v12, _v20]),
+                    _v28 = (0, _v26.useCallback)((_v0, _v1) => {
+                      "stopped" === _v90.useUIStore.getState().common.recordingState && _v11(() => {
+                        _v20("retry");
                       }, () => {
-                        _v20({
+                        _v17({
                           type: "blocker-error",
                           errorKey: (() => {
                             switch (_v0) {
                               case "NoInternetError":
-                                return _v172.INTERNET_CONNECTION;
+                                return _v173.INTERNET_CONNECTION;
                               case "UnauthorizedError":
-                                return _v172.UNAUTHORIZED_ERROR;
+                                return _v173.UNAUTHORIZED_ERROR;
                               case "FirewallError":
-                                return _v172.FIREWALL_ERROR;
+                                return _v173.FIREWALL_ERROR;
                               default:
-                                return "download" === _v89.useUIStore.getState().common.recoveryStep ? _v172.UPLOADING_RETRY_ERROR : _v172.UPLOADING_ERROR;
+                                return "download" === _v90.useUIStore.getState().common.recoveryStep ? _v173.UPLOADING_RETRY_ERROR : _v173.UPLOADING_ERROR;
                             }
                           })(),
                           source: _v1
-                        }), _v127("record_studio_upload_failed", {
+                        }), _v128("record_studio_upload_failed", {
                           reason: _v0,
                           source: _v1,
-                          uploadMethod: _v89.useUIStore.getState().common.uploadMethod,
-                          initialUploadMethod: _v12.current ?? _v89.useUIStore.getState().common.uploadMethod
-                        }), _v6.warn("Error happened during video upload, retry failed");
+                          uploadMethod: _v90.useUIStore.getState().common.uploadMethod,
+                          initialUploadMethod: _v8.current ?? _v90.useUIStore.getState().common.uploadMethod
+                        }), _v2.warn("Error happened during video upload, retry failed");
                       });
-                    }, [_v6, _v14, _v20, _v23]),
-                    _v32 = (0, _v26.useCallback)(() => {
-                      _v23("uploading"), _v20(_v0 => {
+                    }, [_v2, _v11, _v17, _v20]),
+                    _v29 = (0, _v26.useCallback)(() => {
+                      _v20("uploading"), _v17(_v0 => {
                         switch (_v0?.errorKey) {
-                          case _v172.INTERNET_CONNECTION:
-                          case _v172.UNAUTHORIZED_ERROR:
+                          case _v173.INTERNET_CONNECTION:
+                          case _v173.UNAUTHORIZED_ERROR:
                             return;
                           default:
                             return _v0;
                         }
                       });
-                    }, [_v20, _v23]),
-                    _v33 = (0, _v26.useMemo)(() => ({
+                    }, [_v17, _v20]),
+                    _v30 = (0, _v26.useMemo)(() => ({
                       onStarted: () => {
-                        _v23("uploading");
+                        _v20("uploading");
                       },
                       onFailed: async (_v0, _v1, _v2) => {
                         let {
@@ -7869,8 +7883,8 @@
                               uploadToAccountId: _v3,
                               recordingStartedAt: _v4
                             }
-                          } = _v89.useUIStore.getState(),
-                          _v5 = _v1 ? await _v98(_v1) : _v0;
+                          } = _v90.useUIStore.getState(),
+                          _v5 = _v1 ? await _v99(_v1) : _v0;
                         if (_v2) {
                           let _v0 = {
                             reason: _v0,
@@ -7879,51 +7893,51 @@
                             userId: _v3 ?? "unknown",
                             recordingStartedAt: _v4 ?? "unknown"
                           };
-                          _v6.warn("Upload attempt failed", _v0), _v127("record_studio_upload_attempt_failed", _v0);
+                          _v2.warn("Upload attempt failed", _v0), _v128("record_studio_upload_attempt_failed", _v0);
                         }
                         switch (_v0) {
                           case "FatalLiveError":
-                            {
-                              _v6.warn("Live upload failed with FatalLiveError, switching approach to IPB", {
-                                errorMessage: _v1?.message
-                              });
-                              let _v0 = _v10.current;
-                              _v10.current = "ipb", _v27("ipb"), _v128({
-                                uploadMethod: "ipb"
-                              }), _v9.current?.cancelAndUnsubscribe(), _v9.current = void 0, _v127("record_studio_switch_upload_approach", {
-                                uploadApproachBefore: _v0,
-                                uploadApproachAfter: "ipb",
-                                reason: _v5,
-                                userId: _v3 ?? "unknown",
-                                recordingStartedAt: _v4 ?? "unknown"
-                              });
-                              break;
-                            }
-                          case "FatalError":
-                            _v6.warn("Fatal upload error from Vimeo API, cancelling uploader", {
+                            _v2.warn("Live upload failed with FatalLiveError, restarting the upload", {
                               errorMessage: _v1?.message
-                            }), _v9.current?.cancelAndUnsubscribe(), _v9.current = void 0;
+                            }), _v5.current?.cancelAndUnsubscribe(), _v5.current = void 0;
+                            break;
+                          case "FatalError":
+                            _v2.warn("Fatal upload error from Vimeo API, cancelling uploader", {
+                              errorMessage: _v1?.message
+                            }), _v5.current?.cancelAndUnsubscribe(), _v5.current = void 0;
                             break;
                           case "NoInternetError":
-                            _v6.warn("Upload failed due to no internet connection"), _v20({
+                            _v2.warn("Upload failed due to no internet connection"), _v17({
                               type: "error",
-                              errorKey: _v172.INTERNET_CONNECTION,
+                              errorKey: _v173.INTERNET_CONNECTION,
                               source: "vimeo-api"
                             });
                             break;
+                          case "ServerError":
+                            _v2.warn("Upload failed with a retryable server error", {
+                              errorMessage: _v1?.message
+                            });
+                            break;
                           case "FirewallError":
-                            _v6.warn("Upload failed due to firewall blocking request"), _v20({
+                            _v2.warn("Upload failed due to firewall blocking request"), _v17({
                               type: "blocker-error",
-                              errorKey: _v172.FIREWALL_ERROR
-                            }), _v30();
+                              errorKey: _v173.FIREWALL_ERROR
+                            }), _v128("record_studio_upload_failed", {
+                              reason: _v0,
+                              source: "vimeo-api",
+                              uploadMethod: _v90.useUIStore.getState().common.uploadMethod,
+                              initialUploadMethod: _v8.current ?? _v90.useUIStore.getState().common.uploadMethod
+                            }), _v27();
                             return;
                         }
-                        _v23("idle"), _v31(_v0, "vimeo-api");
+                        _v20("idle"), _v28(_v0, "vimeo-api");
                       },
-                      onChunkUploaded: _v32,
+                      onChunkUploaded: () => {
+                        _v12(), _v29();
+                      },
                       onUploaded: (_v0, _v1, _v2, _v3, _v4) => {
-                        _v13.current = _v4, _v15(), _v23("idle"), _v24("retry");
-                        let _v5 = _v12.current ?? _v2,
+                        _v9.current = _v4, _v12(), _v20("idle"), _v21("retry");
+                        let _v5 = _v8.current ?? _v2,
                           _v6 = {
                             videoId: _v0,
                             uploadMethod: _v2,
@@ -7931,53 +7945,53 @@
                             didFallback: _v5 !== _v2,
                             uploadDurationSeconds: Math.round(_v3)
                           };
-                        _v6.info("Upload succeeded", _v6), _v127("record_studio_upload_succeeded", _v6), _v0(_v0, _v1, _v2, _v3, _v5), _v12.current = void 0;
+                        _v2.info("Upload succeeded", _v6), _v128("record_studio_upload_succeeded", _v6), _v0(_v0, _v1, _v2, _v3, _v5), _v8.current = void 0;
                       },
-                      onPlayable: _v19 ? _v0 => {
-                        _v18(_v0), _v25("pre-recording");
+                      onPlayable: _v16 ? _v0 => {
+                        _v15(_v0), _v22("pre-recording");
                       } : void 0,
                       onVideoCreated: _v0 => {
-                        _v129.useMemoryDataStorage.getState().setInfo({
+                        _v130.useMemoryDataStorage.getState().setInfo({
                           uri: _v0
-                        }), _v32();
-                        let _v1 = _v202(_v0);
-                        _v16 === _v295 && _v1 && _v17(_v1);
+                        }), _v29();
+                        let _v1 = _v203(_v0);
+                        _v13 === _v295 && _v1 && _v14(_v1);
                       }
-                    }), [_v30, _v32, _v19, _v23, _v31, _v10, _v20, _v15, _v24, _v0, _v18, _v25, _v16, _v17, _v27, _v6]);
+                    }), [_v27, _v29, _v16, _v20, _v28, _v17, _v12, _v21, _v0, _v15, _v22, _v13, _v14, _v2]);
                   (0, _v26.useEffect)(() => {
-                    _v9.current?.setCallbacks(_v33);
-                  }, [_v33]), (0, _v26.useEffect)(() => {
-                    _v27(_v11), _v128({
-                      uploadMethod: _v11
+                    _v5.current?.setCallbacks(_v30);
+                  }, [_v30]), (0, _v26.useEffect)(() => {
+                    _v24(_v7), _v129({
+                      uploadMethod: _v7
                     });
-                  }, [_v27, _v11]);
-                  let _v34 = (0, _v26.useCallback)(() => {
+                  }, [_v24, _v7]);
+                  let _v31 = (0, _v26.useCallback)(() => {
                       let {
                           privacy: _v0,
                           common: {
                             uploadToFolderUri: _v1,
                             uploadToAccountId: _v2
                           }
-                        } = _v89.useUIStore.getState(),
+                        } = _v90.useUIStore.getState(),
                         _v3 = _v0.selected;
-                      return "password" !== _v3.value || _v3.password || _v21(_v3 = {
+                      return "password" !== _v3.value || _v3.password || _v18(_v3 = {
                         value: "nobody"
-                      }), new _v201(_v33, {
-                        recordingTitle: _v129.useMemoryDataStorage.getState().info.title,
+                      }), new _v202(_v30, {
+                        recordingTitle: _v130.useMemoryDataStorage.getState().info.title,
                         uploadFolderUri: _v1 ?? void 0,
                         uploadAccountId: _v2,
                         privacy: _v3,
-                        hasRecentlyDeleted: _v7.has_recently_deleted,
-                        resolution: _v85.getState().capturedResolution
+                        hasRecentlyDeleted: _v3.has_recently_deleted,
+                        resolution: _v86.getState().capturedResolution
                       });
-                    }, [_v21, _v33, _v7.has_recently_deleted]),
-                    _v35 = (0, _v26.useCallback)(() => {
+                    }, [_v18, _v30, _v3.has_recently_deleted]),
+                    _v32 = (0, _v26.useCallback)(() => {
                       let {
                         recordingState: _v0,
                         uploadingState: _v1
-                      } = _v89.useUIStore.getState().common;
-                      if (_v9.current && !_v9.current.isFinalized) {
-                        if (_v9.current.retry) return void _v9.current.retry();else if ("uploading" === _v1) return;
+                      } = _v90.useUIStore.getState().common;
+                      if (_v5.current && !_v5.current.isFinalized) {
+                        if (_v5.current.retry) return void _v5.current.retry();else if ("uploading" === _v1) return;
                       }
                       let {
                         originalChunks: _v2,
@@ -7988,129 +8002,112 @@
                           size: _v6,
                           isResolutionChanged: _v7
                         }
-                      } = _v129.useMemoryDataStorage.getState();
-                      _v9.current?.cancelAndUnsubscribe(), _v9.current = _v34(), _v4 && _v9.current.addThumbnail(_v4), "tus" !== _v10.current ? (_v9.current.start(_v10.current), _v9.current.addChunks("live" === _v10.current || "tus_stream" === _v10.current ? _v2 : _v3), "stopped" === _v0 && _v9.current.eof({
+                      } = _v130.useMemoryDataStorage.getState();
+                      _v5.current?.cancelAndUnsubscribe(), _v5.current = _v31(), _v4 && _v5.current.addThumbnail(_v4), "tus" !== _v6.current ? (_v5.current.start(_v6.current), _v5.current.addChunks("live" === _v6.current || "tus_stream" === _v6.current ? _v2 : _v3), "stopped" === _v0 && _v5.current.eof({
                         duration: _v5,
                         isResolutionChanged: _v7
-                      })) : "stopped" === _v0 && (_v9.current.start(_v10.current, _v6), _v9.current.addChunks(_v2), _v9.current.eof({
+                      })) : "stopped" === _v0 && (_v5.current.start(_v6.current, _v6), _v5.current.addChunks(_v2), _v5.current.eof({
                         duration: _v5,
                         isResolutionChanged: _v7
                       }));
-                    }, [_v34, _v10]),
-                    _v36 = (0, _v26.useMemo)(() => ({
+                    }, [_v31, _v6]),
+                    _v33 = (0, _v26.useMemo)(() => ({
                       onInitialized: () => {
-                        _v20(void 0), _v9.current ? _v9.current.start(_v10.current) : _v35();
+                        _v17(void 0), _v5.current ? _v5.current.start(_v6.current) : _v32();
                       },
                       onChunk: _v0 => {
-                        _v28(_v0), _v9.current ? _v9.current.addChunks([_v0]) : _v35();
+                        _v25(_v0), _v5.current ? _v5.current.addChunks([_v0]) : _v32();
                       },
                       onEndOfFile: () => {
-                        if (_v9.current) {
+                        if (_v5.current) {
                           let {
                             duration: _v0,
                             isResolutionChanged: _v1
-                          } = _v129.useMemoryDataStorage.getState().info;
-                          _v9.current.eof({
+                          } = _v130.useMemoryDataStorage.getState().info;
+                          _v5.current.eof({
                             duration: _v0,
                             isResolutionChanged: _v1
                           });
-                        } else _v35();
+                        } else _v32();
                       },
                       onFailed: async (_v0, _v1, _v2) => {
-                        if (_v30(!1), _v2) {
+                        if (_v27(!1), _v2) {
                           let _v0 = {
                             reason: _v0,
                             ..._v2,
-                            errorDetails: _v1 ? await _v98(_v1) : _v0
+                            errorDetails: _v1 ? await _v99(_v1) : _v0
                           };
-                          _v6.warn("IPB conversion failed", _v0), _v127("record_studio_convert_failed", _v0);
+                          _v2.warn("IPB conversion failed", _v0), _v128("record_studio_convert_failed", _v0);
                         }
-                        if ("NoInternetError" === _v0 && (_v6.warn("IPB chunk converter failed due to no internet connection"), _v20({
+                        "NoInternetError" === _v0 && (_v2.warn("IPB chunk converter failed due to no internet connection"), _v17({
                           type: "error",
-                          errorKey: _v172.INTERNET_CONNECTION,
+                          errorKey: _v173.INTERNET_CONNECTION,
                           source: "chunk-converter"
-                        })), "stopped" === _v89.useUIStore.getState().common.recordingState) {
-                          if ("FatalError" === _v0) {
-                            let {
-                              common: {
-                                uploadToAccountId: _v0,
-                                recordingStartedAt: _v1
-                              }
-                            } = _v89.useUIStore.getState();
-                            _v6.warn("IPB chunk converter failed fatally, switching approach to TUS", {
-                              errorMessage: _v1?.message
-                            }), _v127("record_studio_switch_upload_approach", {
-                              uploadApproachBefore: _v10.current,
-                              uploadApproachAfter: "tus",
-                              reason: _v1 ? await _v98(_v1) : _v0,
-                              userId: _v0 ?? "unknown",
-                              recordingStartedAt: _v1 ?? "unknown"
-                            }), _v10.current = "tus", _v27("tus"), _v128({
-                              uploadMethod: "tus"
-                            }), _v35();
-                          } else _v31(_v0, "chunk-converter");
-                        } else _v6.warn("Chunk converter failed while recording is still in progress, not scheduling retry", {
+                        })), "stopped" === _v90.useUIStore.getState().common.recordingState ? _v28(_v0, "chunk-converter") : _v2.warn("Chunk converter failed while recording is still in progress, not scheduling retry", {
                           reason: _v0,
                           errorMessage: _v1?.message
                         });
                       }
-                    }), [_v28, _v30, _v35, _v31, _v20, _v10, _v27, _v6]),
-                    _v37 = (0, _v26.useCallback)(() => {
-                      _v30(!1), _v29();
+                    }), [_v25, _v27, _v32, _v28, _v17, _v6, _v2]),
+                    _v34 = (0, _v26.useCallback)(() => {
+                      _v27(!1), _v26();
                       let {
                         originalChunks: _v0,
                         recordingThumbnail: _v1
-                      } = _v129.useMemoryDataStorage.getState();
-                      _v9.current = _v34(), _v1 && _v9.current.addThumbnail(_v1), _v8.current = new _v299(_v36), _v8.current.addPreviousChunks(_v0), "stopped" === _v89.useUIStore.getState().common.recordingState && _v8.current.eof();
-                    }, [_v30, _v36, _v34, _v29]);
+                      } = _v130.useMemoryDataStorage.getState();
+                      _v5.current = _v31(), _v1 && _v5.current.addThumbnail(_v1), _v4.current = new _v299(_v33), _v4.current.addPreviousChunks(_v0), "stopped" === _v90.useUIStore.getState().common.recordingState && _v4.current.eof();
+                    }, [_v27, _v33, _v31, _v26]);
                   (0, _v26.useEffect)(() => {
-                    _v8.current?.setCallbacks(_v36);
-                  }, [_v36]);
-                  let _v38 = (0, _v26.useCallback)(() => {
-                      _v12.current || (_v12.current = _v10.current), "ipb" === _v10.current ? _v8.current ? _v35() : _v37() : _v35();
-                    }, [_v37, _v35, _v10]),
-                    _v39 = (0, _v26.useCallback)(_v0 => {
-                      "ipb" === _v10.current && _v8.current ? _v8.current.addChunk(_v0) : ("live" === _v10.current || "tus_stream" === _v10.current) && _v9.current && !_v9.current.isFinalized ? _v9.current.addChunks([_v0]) : (_v6.warn("addChunk called but no uploader or converter is ready, triggering upload start", {
-                        approach: _v10.current,
-                        hasUploader: !!_v9.current,
-                        hasConverter: !!_v8.current
-                      }), _v38());
-                    }, [_v6, _v38, _v10]),
-                    _v40 = (0, _v26.useCallback)(async () => {
-                      if ("ipb" === _v10.current && _v8.current) _v8.current.eof();else if (("live" === _v10.current || "tus_stream" === _v10.current) && _v9.current && !_v9.current.isFinalized) {
+                    _v4.current?.setCallbacks(_v33);
+                  }, [_v33]);
+                  let _v35 = (0, _v26.useCallback)(() => {
+                      _v8.current || (_v8.current = _v6.current), "ipb" === _v6.current ? _v4.current ? _v32() : _v34() : _v32();
+                    }, [_v34, _v32, _v6]),
+                    _v36 = (0, _v26.useCallback)(_v0 => {
+                      if ("ipb" === _v6.current && _v4.current) _v4.current.addChunk(_v0);else if (("live" === _v6.current || "tus_stream" === _v6.current) && _v5.current && !_v5.current.isFinalized) _v5.current.addChunks([_v0]);else {
+                        if ("tus" === _v6.current && "stopped" !== _v90.useUIStore.getState().common.recordingState) return;
+                        _v2.warn("addChunk called but no uploader or converter is ready, triggering upload start", {
+                          approach: _v6.current,
+                          hasUploader: !!_v5.current,
+                          hasConverter: !!_v4.current
+                        }), _v35();
+                      }
+                    }, [_v2, _v35, _v6]),
+                    _v37 = (0, _v26.useCallback)(async () => {
+                      if ("ipb" === _v6.current && _v4.current) _v4.current.eof();else if (("live" === _v6.current || "tus_stream" === _v6.current) && _v5.current && !_v5.current.isFinalized) {
                         let {
                           duration: _v0,
                           isResolutionChanged: _v1
-                        } = _v129.useMemoryDataStorage.getState().info;
-                        await _v9.current.eof({
+                        } = _v130.useMemoryDataStorage.getState().info;
+                        await _v5.current.eof({
                           duration: _v0,
                           isResolutionChanged: _v1
                         });
-                      } else _v6.warn("eof called but no uploader or converter is ready, triggering upload start", {
-                        approach: _v10.current,
-                        hasUploader: !!_v9.current,
-                        hasConverter: !!_v8.current
-                      }), _v38();
-                    }, [_v6, _v38, _v10]),
-                    _v41 = (0, _v26.useCallback)(() => {
-                      "live" === _v10.current && _v9.current && _v9.current.pause();
-                    }, [_v10]),
-                    _v42 = (0, _v26.useCallback)(() => {
-                      "live" === _v10.current && _v9.current && _v9.current.resume();
-                    }, [_v10]);
+                      } else _v2.warn("eof called but no uploader or converter is ready, triggering upload start", {
+                        approach: _v6.current,
+                        hasUploader: !!_v5.current,
+                        hasConverter: !!_v4.current
+                      }), _v35();
+                    }, [_v2, _v35, _v6]),
+                    _v38 = (0, _v26.useCallback)(() => {
+                      "live" === _v6.current && _v5.current && _v5.current.pause();
+                    }, [_v6]),
+                    _v39 = (0, _v26.useCallback)(() => {
+                      "live" === _v6.current && _v5.current && _v5.current.resume();
+                    }, [_v6]);
                   return (0, _v26.useEffect)(() => {
-                    "retry" === _v22 && _v38();
-                  }, [_v38, _v22]), (0, _v26.useEffect)(() => () => {
-                    _v13.current && clearInterval(_v13.current);
+                    "retry" === _v19 && _v35();
+                  }, [_v35, _v19]), (0, _v26.useEffect)(() => () => {
+                    _v9.current && clearInterval(_v9.current);
                   }, []), (0, _v26.useMemo)(() => ({
-                    start: _v38,
-                    addChunk: _v39,
-                    eof: _v40,
-                    cancel: _v30,
-                    addThumbnail: _v0 => _v9.current?.addThumbnail(_v0),
-                    pause: _v41,
-                    resume: _v42
-                  }), [_v39, _v30, _v40, _v41, _v42, _v38]);
+                    start: _v35,
+                    addChunk: _v36,
+                    eof: _v37,
+                    cancel: _v27,
+                    addThumbnail: _v0 => _v5.current?.addThumbnail(_v0),
+                    pause: _v38,
+                    resume: _v39
+                  }), [_v36, _v27, _v37, _v38, _v39, _v35]);
                 })(_v0),
                 _v5 = function ({
                   onUploaded: _v0
@@ -8136,9 +8133,9 @@
                     resume: _v4
                   }), [_v1, _v4, _v0, _v3, _v2]);
                 }(_v0),
-                _v6 = (_v1 = _v140("useUploaderStub"), _v2 = (0, _v26.useCallback)(async () => {
-                  _v76 || _v1.error(Error("useUploader stub should only be used only in DEV-environment"), {
-                    category: _v123.UNEXPECTED,
+                _v6 = (_v1 = _v141("useUploaderStub"), _v2 = (0, _v26.useCallback)(async () => {
+                  _v77 || _v1.error(Error("useUploader stub should only be used only in DEV-environment"), {
+                    category: _v124.UNEXPECTED,
                     method: "noopWithLog",
                     component: "useUploaderStub"
                   });
@@ -8151,15 +8148,15 @@
                   pause: _v2,
                   resume: _v2
                 }), [_v2]));
-              return _v3 ? _v5 : _v78 ? _v6 : _v4;
+              return _v3 ? _v5 : _v79 ? _v6 : _v4;
             }({
               onUploaded: (0, _v26.useCallback)((_v0, _v1, _v2, _v3, _v4) => {
                 _v11(), _v14("finalizing");
-                let _v5 = _v89.useUIStore.getState().privacy.selected.value,
+                let _v5 = _v90.useUIStore.getState().privacy.selected.value,
                   {
                     duration: _v6,
                     isResolutionChanged: _v7
-                  } = _v129.useMemoryDataStorage.getState().info;
+                  } = _v130.useMemoryDataStorage.getState().info;
                 _v10({
                   type: "upload",
                   videoLink: _v1,
@@ -8168,14 +8165,17 @@
                   duration: _v6,
                   uploadingDuration: _v3,
                   originVariableFrameResolution: _v7
-                }), _v127("record_studio_record_uploaded", {
+                });
+                let _v8 = _v309.getState().recordingStoppedTime;
+                _v128("record_studio_record_uploaded", {
                   duration: _v6,
                   uploadMethod: _v2,
                   initialUploadMethod: _v4,
-                  uploadingDuration: _v3
+                  uploadingDuration: _v3,
+                  stopToUploadedSeconds: _v8 ? Math.round((Date.now() - _v8) / 0) : null
                 }), _v27("stats", _v0 => ({
                   recordingsCompleted: _v0.recordingsCompleted + 1
-                })), _v89.useUIStore.getState().common.waitingToRouteBack ? (_v13.debug("[onUploaded] will route back"), _v12.back(), _v14("pre-recording")) : _v37 === _v294 && _v48({
+                })), _v90.useUIStore.getState().common.waitingToRouteBack ? (_v13.debug("[onUploaded] will route back"), _v12.back(), _v14("pre-recording")) : _v37 === _v294 && _v48({
                   clipId: _v0,
                   uploadMethod: _v2,
                   duration: _v6
@@ -8188,20 +8188,20 @@
                 let {
                   waitingToRouteBack: _v0,
                   recordingState: _v1
-                } = _v89.useUIStore.getState().common;
+                } = _v90.useUIStore.getState().common;
                 _v13.info("[onCancelled] video upload was cancelled", {
                   waitingToRouteBack: _v0,
                   recordingState: _v1
                 }), _v0 ? (_v13.debug("[onCancelled] will route back"), _v12.back()) : "idle" === _v1 ? (_v15("cancelled"), _v38.current?.stop().catch(_v0 => {
                   _v13.error(_v0, {
-                    category: _v123.RECORDER,
+                    category: _v124.RECORDER,
                     method: "onCancelled",
                     component: "useRecorder"
                   });
                 })) : (_v14("pre-recording"), _v29(), _v41(), _v25());
               }, [_v13, _v12, _v41, _v15, _v14, _v29, _v11, _v25])
             }),
-            _v50 = (0, _v26.useRef)(() => _v129.useMemoryDataStorage.getState().info.uri),
+            _v50 = (0, _v26.useRef)(() => _v130.useMemoryDataStorage.getState().info.uri),
             _v51 = (0, _v26.useMemo)(() => ({
               onStart: () => {
                 _v18(Date.now()), _v31(), _v14("recording"), _v16("retry"), _v28(), _v10({
@@ -8213,8 +8213,8 @@
                     uploadToFolderUri: _v1,
                     uploadToAccountId: _v2
                   }
-                } = _v89.useUIStore.getState();
-                _v127("record_studio_record_started", {
+                } = _v90.useUIStore.getState();
+                _v128("record_studio_record_started", {
                   privacy: _v0.selected.value ?? "unknown",
                   uploadToFolderUri: _v1 ?? "unknown",
                   uploadToAccountId: _v2 ?? "unknown",
@@ -8228,7 +8228,7 @@
                   type: "pause",
                   paused: !0,
                   videoLink: _v50.current()
-                }), _v127("record_studio_record_paused");
+                }), _v128("record_studio_record_paused");
               },
               onResume: () => {
                 _v34(), _v14("recording"), _v28(), _v39.current.add(async () => {
@@ -8237,19 +8237,19 @@
                   type: "pause",
                   paused: !1,
                   videoLink: _v50.current()
-                }), _v127("record_studio_record_resumed", {
+                }), _v128("record_studio_record_resumed", {
                   pauseDurationSeconds: _v36() ?? 0
                 });
               },
               onStop: (_v0, _v1, _v2, _v3) => {
                 if (_v19(!1), _v32(), _v18(null), _v23(Date.now()), _v3 && 0 === _v39.current.length() && (_v15("cancelled"), _v17({
                   type: "error",
-                  errorKey: _v172.GENERAL_ERROR
-                })), "cancelled" === _v89.useUIStore.getState().common.recordingState) {
+                  errorKey: _v173.GENERAL_ERROR
+                })), "cancelled" === _v90.useUIStore.getState().common.recordingState) {
                   _v10({
                     type: "delete",
                     videoLink: _v50.current()
-                  }), _v127("record_studio_record_cancelled"), _v14("pre-recording"), _v29(), _v39.current.clear(), _v39.current.add(async () => {
+                  }), _v128("record_studio_record_cancelled"), _v14("pre-recording"), _v29(), _v39.current.clear(), _v39.current.add(async () => {
                     _v13.debug("RecorderCallbacks.onStop: cancel upload & reset memory data."), await _v49.cancel(), _v13.debug("RecorderCallbacks.onStop: awaited [cancel]"), _v41(), _v25();
                   });
                   return;
@@ -8258,35 +8258,35 @@
                   duration: _v1,
                   size: _v0,
                   isRecordingDurationLimitReached: _v2
-                }), _v14(_v78 ? "pre-recording" : "uploading"), _v29(), _v10({
+                }), _v14(_v79 ? "pre-recording" : "uploading"), _v29(), _v10({
                   type: "stop",
                   recordedBytes: _v0,
                   duration: _v1,
                   videoLink: _v50.current()
-                }), _v127("record_studio_record_stopped", {
+                }), _v128("record_studio_record_stopped", {
                   duration: _v1,
                   size: _v0
                 }), 0 === _v0) {
                   let _v0 = {
-                    videoId: _v202(_v50.current()) ?? null,
+                    videoId: _v203(_v50.current()) ?? null,
                     duration: _v1,
                     durationLimitReached: _v2,
                     recorderError: _v3?.message ?? null,
                     ..._v38.current?.getChunkDiagnostics()
                   };
                   _v13.error(Error("Recording produced no media chunks"), {
-                    category: _v123.RECORDER,
+                    category: _v124.RECORDER,
                     method: "onStop",
                     component: "useRecorder",
                     data: _v0
-                  }), _v127("record_studio_no_media_captured", _v0);
+                  }), _v128("record_studio_no_media_captured", _v0);
                 }
                 _v39.current.add(async () => {
                   _v13.debug("RecorderCallbacks.onStop: finalize upload."), _v15("stopped"), await _v49.eof(), _v13.debug("RecorderCallbacks.onStop: awaited [eof]");
                 });
               },
               onDataAvailable: _v0 => {
-                "cancelled" !== _v89.useUIStore.getState().common.recordingState && _v39.current.add(async () => {
+                "cancelled" !== _v90.useUIStore.getState().common.recordingState && _v39.current.add(async () => {
                   let _v0 = await _v0.arrayBuffer();
                   _v43(_v0), _v49.addChunk(_v0);
                 });
@@ -8294,12 +8294,12 @@
               onMediaTrackEnded: _v0 => {
                 "display" === _v0 || "canvasScene" === _v0 ? _v13.warn(`Recording was stopped because ${_v0} track ended.`) : ("audio" === _v0 ? _v17({
                   type: "error",
-                  errorKey: _v174.MICROPHONE_ERROR
+                  errorKey: _v175.MICROPHONE_ERROR
                 }) : "camera" === _v0 && _v17({
                   type: "error",
-                  errorKey: _v174.CAMERA_ERROR
+                  errorKey: _v175.CAMERA_ERROR
                 }), _v13.error(Error(`${"audio" === _v0 ? "Mic" : "Camera"} was unplugged during the recording`), {
-                  category: _v123.DEVICE,
+                  category: _v124.DEVICE,
                   method: "onMediaTrackEnded",
                   component: "useRecorder"
                 }));
@@ -8310,7 +8310,7 @@
                 });
               },
               onChunkStall: _v0 => {
-                _v13.warn("Recording chunk flow stalled", _v0), _v127("record_studio_chunk_stall", _v0);
+                _v13.warn("Recording chunk flow stalled", _v0), _v128("record_studio_chunk_stall", _v0);
               },
               onTrackMuteChange: (_v0, _v1, _v2) => {
                 let _v3 = {
@@ -8318,7 +8318,7 @@
                   muted: _v1,
                   ..._v2
                 };
-                _v13.warn(`Recording ${_v0} track ${_v1 ? "muted" : "unmuted"}`, _v3), _v127("record_studio_track_mute_change", _v3);
+                _v13.warn(`Recording ${_v0} track ${_v1 ? "muted" : "unmuted"}`, _v3), _v128("record_studio_track_mute_change", _v3);
               }
             }), [_v43, _v13, _v33, _v30, _v41, _v34, _v17, _v42, _v18, _v14, _v15, _v16, _v19, _v31, _v32, _v10, _v49, _v28, _v29, _v35, _v36, _v23, _v25]);
           (0, _v26.useEffect)(() => {
@@ -8327,15 +8327,15 @@
             let _v0 = _v0 => {
               let {
                 state: _v1
-              } = _v89.useUIStore.getState().common;
+              } = _v90.useUIStore.getState().common;
               if ("recording" !== _v1 && "paused" !== _v1 && "uploading" !== _v1 && "finalizing" !== _v1) return;
               let _v2 = {
                 appState: _v1,
                 persisted: _v0.persisted,
-                videoId: _v202(_v50.current()) ?? null,
+                videoId: _v203(_v50.current()) ?? null,
                 ..._v38.current?.getChunkDiagnostics()
               };
-              _v13.warn("Page unloaded during recording", _v2), _v127("record_studio_unload_during_recording", _v2);
+              _v13.warn("Page unloaded during recording", _v2), _v128("record_studio_unload_during_recording", _v2);
             };
             return window.addEventListener("pagehide", _v0), () => window.removeEventListener("pagehide", _v0);
           }, [_v13]);
@@ -8345,12 +8345,12 @@
                 camera: _v0,
                 displayMedia: _v1,
                 canvasScene: _v2
-              } = _v178.getState();
+              } = _v179.getState();
               return _v2?.stream ? [_v2.stream, "canvasScene"] : _v1?.stream ? [_v1.stream, "display"] : [_v0?.stream, "camera"];
             }();
             if (!_v0) {
               _v13.error(Error("Video stream is not initialized"), {
-                category: _v123.RECORDER,
+                category: _v124.RECORDER,
                 method: "start",
                 component: "useRecorder",
                 data: {
@@ -8358,30 +8358,30 @@
                 }
               }), _v17({
                 type: "error",
-                errorKey: _v172.RECORDING_ERROR
+                errorKey: _v173.RECORDING_ERROR
               });
               return;
             }
             let _v2 = _v45(),
-              _v3 = _v85.getState().size;
+              _v3 = _v86.getState().size;
             _v38.current?.dispose(), _v39.current.clear(), _v15("idle"), _v41(), _v25(), _v20(!1), _v42({
-              title: `${_v237.defaultRecordingTitle} - ${new Date().toLocaleString()}`
+              title: `${_v238.defaultRecordingTitle} - ${new Date().toLocaleString()}`
             }), _v38.current = new _v308(_v51, _v40, _v1, _v0, _v2, _v3), _v38.current.start().then(() => {
               _v49.start();
             }, _v0 => {
               _v13.error(_v0, {
-                category: _v123.RECORDER,
+                category: _v124.RECORDER,
                 method: "start",
                 component: "useRecorder"
               }), _v17({
                 type: "error",
-                errorKey: _v172.RECORDING_ERROR
+                errorKey: _v173.RECORDING_ERROR
               });
-            }), _v190(_v0).then(_v0 => {
-              "cancelled" !== _v89.useUIStore.getState().common.recordingState && (_v49.addThumbnail(_v0), _v44(_v0));
+            }), _v191(_v0).then(_v0 => {
+              "cancelled" !== _v90.useUIStore.getState().common.recordingState && (_v49.addThumbnail(_v0), _v44(_v0));
             }).catch(_v0 => {
               _v13.error(_v0, {
-                category: _v123.THUMBNAIL,
+                category: _v124.THUMBNAIL,
                 method: "createThumbnail",
                 component: "useRecorder"
               });
@@ -8392,7 +8392,7 @@
             pause: () => {
               _v38.current?.pause().catch(_v0 => {
                 _v13.error(_v0, {
-                  category: _v123.RECORDER,
+                  category: _v124.RECORDER,
                   method: "pause",
                   component: "useRecorder"
                 });
@@ -8401,7 +8401,7 @@
             resume: () => {
               _v38.current?.resume().catch(_v0 => {
                 _v13.error(_v0, {
-                  category: _v123.RECORDER,
+                  category: _v124.RECORDER,
                   method: "resume",
                   component: "useRecorder"
                 });
@@ -8411,22 +8411,22 @@
             cancel: () => (_v17(void 0), _v15("cancelled"), _v38.current?.stop() ?? Promise.resolve())
           }), [_v52, _v17, _v15, _v13]);
         })(),
-        _v3 = (0, _v89.useUIStore)(({
+        _v3 = (0, _v90.useUIStore)(({
           setRecorder: _v0
         }) => _v0);
       (0, _v26.useEffect)(() => {
         _v3(_v2);
       }, [_v3, _v2]);
-      let _v4 = _v216(_v0 => _v0.clearCountdown);
+      let _v4 = _v217(_v0 => _v0.clearCountdown);
       (0, _v26.useEffect)(() => _v4, [_v4]);
-      let _v5 = _v210(_v0 => _v0.permissions.audio),
+      let _v5 = _v211(_v0 => _v0.permissions.audio),
         {
           setNotice: _v6
         } = _v310();
       (0, _v26.useEffect)(() => {
         _v6(_v311, !!("denied" !== _v5 && _v1));
       }, [_v1, _v6, _v5]);
-      let _v7 = _v150.includes(_v0);
+      let _v7 = _v151.includes(_v0);
       return (0, _v25.jsx)(_v28.Flex, {
         direction: "row",
         justifyContent: "center",
@@ -8434,11 +8434,11 @@
         mx: "0",
         children: (0, _v25.jsxs)(_v28.Flex, {
           "data-toolbarpopover": !0,
-          "data-testid": _v37.TEST_IDS.CONTROLS_ELEMENT,
+          "data-testid": _v38.TEST_IDS.CONTROLS_ELEMENT,
           opacity: +!_v7,
           pointerEvents: _v7 ? "none" : void 0,
           zIndex: "2",
-          children: [(0, _v25.jsx)(_v261, {}), (0, _v25.jsx)(_v284, {}), _v78 && (0, _v25.jsx)(_v38.DownloadLocalRecording, {})]
+          children: [(0, _v25.jsx)(_v262, {}), (0, _v25.jsx)(_v285, {}), _v79 && (0, _v25.jsx)(_v39.DownloadLocalRecording, {})]
         })
       });
     };
@@ -8474,20 +8474,20 @@
               children: _v1
             })
           }), (0, _v25.jsx)(_v317.ModalBody, {
-            children: (0, _v25.jsx)(_v251.Paragraph, {
+            children: (0, _v25.jsx)(_v252.Paragraph, {
               size: "md",
               children: _v2
             })
           }), (0, _v25.jsxs)(_v320.ModalFooter, {
-            children: [_v4 && (0, _v25.jsx)(_v235.Button, {
+            children: [_v4 && (0, _v25.jsx)(_v236.Button, {
               variant: "secondary",
               onClick: _v4,
               isDisabled: _v7,
-              children: _v237.infoDialog.cancel
-            }), _v6 || (0, _v25.jsx)(_v235.Button, {
+              children: _v238.infoDialog.cancel
+            }), _v6 || (0, _v25.jsx)(_v236.Button, {
               onClick: _v3,
               isDisabled: _v7,
-              children: _v237.infoDialog.ok
+              children: _v238.infoDialog.ok
             })]
           })]
         })]
@@ -8506,7 +8506,7 @@
     _v326 = _v0.i(0);
   let _v327 = {
     uploadErrorModal: {
-      startRecovery: (0, _v236.translate)({
+      startRecovery: (0, _v237.translate)({
         singular: "Start recovery",
         dictionary: {
           es: {
@@ -8532,7 +8532,7 @@
           }
         }
       }),
-      retry: (0, _v236.translate)({
+      retry: (0, _v237.translate)({
         singular: "Retry",
         dictionary: {
           es: {
@@ -8558,7 +8558,7 @@
           }
         }
       }),
-      backToHome: (0, _v236.translate)({
+      backToHome: (0, _v237.translate)({
         singular: "Back to Home",
         dictionary: {
           es: {
@@ -8584,7 +8584,7 @@
           }
         }
       }),
-      download: (0, _v236.translate)({
+      download: (0, _v237.translate)({
         singular: "Download",
         dictionary: {
           es: {
@@ -8610,7 +8610,7 @@
           }
         }
       }),
-      logIn: (0, _v236.translate)({
+      logIn: (0, _v237.translate)({
         singular: "Log in",
         dictionary: {
           es: {
@@ -8636,7 +8636,7 @@
           }
         }
       }),
-      goBack: (0, _v236.translate)({
+      goBack: (0, _v237.translate)({
         singular: "Go back",
         dictionary: {
           es: {
@@ -8662,7 +8662,7 @@
           }
         }
       }),
-      reloadPage: (0, _v236.translate)({
+      reloadPage: (0, _v237.translate)({
         singular: "Reload page",
         dictionary: {
           es: {
@@ -8691,7 +8691,7 @@
     },
     fullScreenError: {
       buttons: {
-        redirect: (0, _v236.translate)({
+        redirect: (0, _v237.translate)({
           singular: "Go to homepage",
           dictionary: {
             es: {
@@ -8717,7 +8717,7 @@
             }
           }
         }),
-        record: (0, _v236.translate)({
+        record: (0, _v237.translate)({
           singular: "Record",
           dictionary: {
             es: {
@@ -8746,9 +8746,9 @@
       }
     },
     errors: {
-      [_v174.CAMERA_AND_MIC_PERMISSION_DENIED_ERROR]: void 0,
-      [_v174.CAMERA_PERMISSION_DENIED_ERROR]: {
-        text: (0, _v236.translate)({
+      [_v175.CAMERA_AND_MIC_PERMISSION_DENIED_ERROR]: void 0,
+      [_v175.CAMERA_PERMISSION_DENIED_ERROR]: {
+        text: (0, _v237.translate)({
           singular: "Camera access not allowed. Check your permissions to record your camera.",
           dictionary: {
             es: {
@@ -8775,8 +8775,8 @@
           }
         })
       },
-      [_v174.MICROPHONE_PERMISSION_DENIED_ERROR]: {
-        text: (0, _v236.translate)({
+      [_v175.MICROPHONE_PERMISSION_DENIED_ERROR]: {
+        text: (0, _v237.translate)({
           singular: "Microphone access not allowed. Check your permissions to record your voice.",
           dictionary: {
             es: {
@@ -8803,8 +8803,8 @@
           }
         })
       },
-      [_v174.CAMERA_AND_MIC_NOT_FOUND_ERROR]: {
-        text: (0, _v236.translate)({
+      [_v175.CAMERA_AND_MIC_NOT_FOUND_ERROR]: {
+        text: (0, _v237.translate)({
           singular: "No camera or microphone detected. Check your input devices are connected.",
           dictionary: {
             es: {
@@ -8831,8 +8831,8 @@
           }
         })
       },
-      [_v174.CAMERA_NOT_FOUND_ERROR]: {
-        text: (0, _v236.translate)({
+      [_v175.CAMERA_NOT_FOUND_ERROR]: {
+        text: (0, _v237.translate)({
           singular: "Camera not detected. Check your input devices are connected.",
           dictionary: {
             es: {
@@ -8859,8 +8859,8 @@
           }
         })
       },
-      [_v174.MICROPHONE_NOT_FOUND_ERROR]: {
-        text: (0, _v236.translate)({
+      [_v175.MICROPHONE_NOT_FOUND_ERROR]: {
+        text: (0, _v237.translate)({
           singular: "Microphone not detected. Check your input devices are connected.",
           dictionary: {
             es: {
@@ -8887,8 +8887,8 @@
           }
         })
       },
-      [_v174.CAMERA_ERROR]: {
-        text: (0, _v236.translate)({
+      [_v175.CAMERA_ERROR]: {
+        text: (0, _v237.translate)({
           singular: "The camera isn’t working. Check its settings or connection and try again.",
           dictionary: {
             es: {
@@ -8915,8 +8915,8 @@
           }
         })
       },
-      [_v174.CAMERA_IN_USE_ERROR]: {
-        text: (0, _v236.translate)({
+      [_v175.CAMERA_IN_USE_ERROR]: {
+        text: (0, _v237.translate)({
           singular: "Stop using your camera elsewhere to start recording.",
           dictionary: {
             es: {
@@ -8943,8 +8943,8 @@
           }
         })
       },
-      [_v174.MIC_IN_USE_ERROR]: {
-        text: (0, _v236.translate)({
+      [_v175.MIC_IN_USE_ERROR]: {
+        text: (0, _v237.translate)({
           singular: "Stop using your microphone elsewhere to start recording.",
           dictionary: {
             es: {
@@ -8971,8 +8971,8 @@
           }
         })
       },
-      [_v174.MICROPHONE_ERROR]: {
-        text: (0, _v236.translate)({
+      [_v175.MICROPHONE_ERROR]: {
+        text: (0, _v237.translate)({
           singular: "The microphone isn’t working. Check its settings or connection and try again.",
           dictionary: {
             es: {
@@ -8999,8 +8999,8 @@
           }
         })
       },
-      [_v172.RECORDING_ERROR]: {
-        title: (0, _v236.translate)({
+      [_v173.RECORDING_ERROR]: {
+        title: (0, _v237.translate)({
           singular: "Video can’t be recorded",
           dictionary: {
             es: {
@@ -9026,7 +9026,7 @@
             }
           }
         }),
-        text: (0, _v236.translate)({
+        text: (0, _v237.translate)({
           singular: "Recording isn’t available right now. Try again or come back later.",
           dictionary: {
             es: {
@@ -9053,8 +9053,8 @@
           }
         })
       },
-      [_v172.SCREEN_ERROR]: {
-        text: (0, _v236.translate)({
+      [_v173.SCREEN_ERROR]: {
+        text: (0, _v237.translate)({
           singular: "Your screen couldn’t be shared. Check your system permissions and try again.",
           dictionary: {
             es: {
@@ -9081,8 +9081,8 @@
           }
         })
       },
-      [_v172.UPLOADING_ERROR]: {
-        title: (0, _v236.translate)({
+      [_v173.UPLOADING_ERROR]: {
+        title: (0, _v237.translate)({
           singular: "Unable to save recording",
           dictionary: {
             es: {
@@ -9108,7 +9108,7 @@
             }
           }
         }),
-        text: (0, _v236.translate)({
+        text: (0, _v237.translate)({
           singular: "Do not close or refresh this window to prevent loss of recording.{LINE_BREAK}Check your internet connection and click retry.",
           replacements: {
             LINE_BREAK: () => (0, _v25.jsxs)(_v26.Fragment, {
@@ -9140,8 +9140,8 @@
           }
         })
       },
-      [_v172.UPLOADING_RETRY_ERROR]: {
-        title: (0, _v236.translate)({
+      [_v173.UPLOADING_RETRY_ERROR]: {
+        title: (0, _v237.translate)({
           singular: "Download video",
           dictionary: {
             es: {
@@ -9167,7 +9167,7 @@
             }
           }
         }),
-        text: (0, _v236.translate)({
+        text: (0, _v237.translate)({
           singular: "Download the raw video to avoid loss of recording. This can be re-uploaded to Vimeo.{LINE_BREAK}Visit our {LINK}Help Center{/LINK} to learn more.",
           replacements: {
             LINE_BREAK: () => (0, _v25.jsxs)(_v26.Fragment, {
@@ -9206,8 +9206,8 @@
           }
         })
       },
-      [_v172.GENERAL_ERROR]: {
-        text: (0, _v236.translate)({
+      [_v173.GENERAL_ERROR]: {
+        text: (0, _v237.translate)({
           singular: "Something went wrong. Try again later.",
           dictionary: {
             es: {
@@ -9234,8 +9234,8 @@
           }
         })
       },
-      [_v172.OFFLINE_ERROR]: {
-        text: (0, _v236.translate)({
+      [_v173.OFFLINE_ERROR]: {
+        text: (0, _v237.translate)({
           singular: "The video couldn’t be saved because you’re not connected to the internet. Check your connection and try again.",
           dictionary: {
             es: {
@@ -9262,8 +9262,8 @@
           }
         })
       },
-      [_v172.INTERNET_CONNECTION]: {
-        text: (0, _v236.translate)({
+      [_v173.INTERNET_CONNECTION]: {
+        text: (0, _v237.translate)({
           singular: "The video couldn’t be saved because you’re not connected to the internet. Check your connection and try again.",
           dictionary: {
             es: {
@@ -9290,8 +9290,8 @@
           }
         })
       },
-      [_v172.UNAUTHORIZED_ERROR]: {
-        title: (0, _v236.translate)({
+      [_v173.UNAUTHORIZED_ERROR]: {
+        title: (0, _v237.translate)({
           singular: "Log in to save your recording",
           dictionary: {
             es: {
@@ -9317,7 +9317,7 @@
             }
           }
         }),
-        text: (0, _v236.translate)({
+        text: (0, _v237.translate)({
           singular: "You logged out from a different window. Log in to your account to save your recording.",
           dictionary: {
             es: {
@@ -9344,8 +9344,8 @@
           }
         })
       },
-      [_v172.FIREWALL_ERROR]: {
-        title: (0, _v236.translate)({
+      [_v173.FIREWALL_ERROR]: {
+        title: (0, _v237.translate)({
           singular: "Recording unavailable due to an internet firewall",
           dictionary: {
             es: {
@@ -9371,7 +9371,7 @@
             }
           }
         }),
-        text: (0, _v236.translate)({
+        text: (0, _v237.translate)({
           singular: "Try switching to a different internet connection, then reload this page",
           dictionary: {
             es: {
@@ -9398,8 +9398,8 @@
           }
         })
       },
-      [_v173.UNAUTHORIZED]: {
-        title: (0, _v236.translate)({
+      [_v174.UNAUTHORIZED]: {
+        title: (0, _v237.translate)({
           singular: "Unauthorized",
           dictionary: {
             es: {
@@ -9425,7 +9425,7 @@
             }
           }
         }),
-        text: (0, _v236.translate)({
+        text: (0, _v237.translate)({
           singular: "You don't have access to this page",
           dictionary: {
             es: {
@@ -9564,13 +9564,13 @@
       let _v2,
         _v3,
         _v4,
-        _v5 = _v140("PostRecordingContext"),
-        _v6 = (0, _v26.useContext)(_v232),
+        _v5 = _v141("PostRecordingContext"),
+        _v6 = (0, _v26.useContext)(_v233),
         {
           appState: _v7,
           setAppState: _v8,
           setError: _v9
-        } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+        } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
           appState: _v0.common.state,
           setAppState: _v0.common.setState,
           setError: _v0.common.setError
@@ -9600,7 +9600,7 @@
         _v18 = (_v1 = (0, _v26.useCallback)(() => {
           _v17(), _v11(Date.now()), _v5.info("[end-screen] clip is playable, refetched clip info & measured time-to-playable."), (async () => {
             if (null !== _v10) try {
-              let _v0 = await _v104.fetchWithRecordJWT(_v185.getVideo, {
+              let _v0 = await _v105.fetchWithRecordJWT(_v186.getVideo, {
                 where: {
                   videoId: _v10
                 },
@@ -9621,7 +9621,7 @@
           _v2 && _v3 && !_v4.current.has(_v3) && (_v4.current.add(_v3), _v1());
         }, [_v3, _v2, _v1]), _v2);
       return ((_v0, _v1) => {
-        let _v2 = _v140("useClipPlayableWithPoll"),
+        let _v2 = _v141("useClipPlayableWithPoll"),
           _v3 = (0, _v26.useRef)(null),
           [_v4, _v5] = (0, _v26.useState)(!1),
           _v6 = (0, _v26.useRef)(_v0),
@@ -9651,7 +9651,7 @@
           };
         }, [_v1, _v2, _v4]);
       })(_v17, "finalizing" === _v7 && !_v15 && !_v18), (0, _v26.useEffect)(() => {
-        _v150.includes(_v7) && _v5.info(`[end-screen] app state CHANGED TO: ${_v7}`);
+        _v151.includes(_v7) && _v5.info(`[end-screen] app state CHANGED TO: ${_v7}`);
       }, [_v7, _v5]), (0, _v26.useEffect)(() => {
         _v13({
           type: "setVideoLoading",
@@ -9671,17 +9671,17 @@
           payload: _v17
         });
       }, [_v17, _v13]), (0, _v26.useEffect)(() => {
-        _v15 ? _v15 instanceof _v90.NetworkError ? (_v5.warn("[end-screen] error fetching clip info:", {
+        _v15 ? _v15 instanceof _v91.NetworkError ? (_v5.warn("[end-screen] error fetching clip info:", {
           message: _v15.message,
           status: _v15.res.status,
           statusText: _v15.res.statusText
-        }), _v95(_v15) && _v9({
+        }), _v96(_v15) && _v9({
           type: "blocker-error",
-          errorKey: _v172.UNAUTHORIZED_ERROR,
+          errorKey: _v173.UNAUTHORIZED_ERROR,
           source: "vimeo-api"
         })) : _v5.warn("[end-screen] error fetching clip info:", {
           clipError: _v15
-        }) : _v9(_v0 => _v0?.errorKey === _v172.UNAUTHORIZED_ERROR ? void 0 : _v0);
+        }) : _v9(_v0 => _v0?.errorKey === _v173.UNAUTHORIZED_ERROR ? void 0 : _v0);
       }, [_v15, _v5, _v9]), (0, _v25.jsx)(_v336.Provider, {
         value: _v12,
         children: (0, _v25.jsx)(_v337.Provider, {
@@ -9700,7 +9700,7 @@
     errorSource: _v1,
     onClose: _v2
   }) => {
-    let _v3 = _v140("UploaderError"),
+    let _v3 = _v141("UploaderError"),
       {
         refetchClipInfo: _v4
       } = _v339(),
@@ -9710,7 +9710,7 @@
       {
         trackNotificationView: _v6,
         trackNotificationAction: _v7
-      } = _v274(),
+      } = _v275(),
       {
         integrationWithRemoteUpload: _v8
       } = _v297(),
@@ -9720,7 +9720,7 @@
         setUploadingState: _v11,
         setRecoveryStep: _v12,
         setError: _v13
-      } = (0, _v89.useUIStore)((0, _v27.useShallow)(({
+      } = (0, _v90.useUIStore)((0, _v27.useShallow)(({
         common: _v0
       }) => ({
         recoveryStep: _v0.recoveryStep,
@@ -9733,16 +9733,16 @@
       [_v15, _v16] = (0, _v26.useState)(!1),
       _v17 = (0, _v26.useRef)(!1);
     (0, _v26.useEffect)(() => {
-      let _v0 = _v0 === _v172.FIREWALL_ERROR ? {
+      let _v0 = _v0 === _v173.FIREWALL_ERROR ? {
         product: "record",
         feature: "record",
         location: "content_area"
       } : void 0;
-      _v6(_v344(_v0, _v9), _v0), _v343(_v0, _v9) === _v172.UPLOADING_RETRY_ERROR && _v127("record_studio_download_modal_shown", {
+      _v6(_v344(_v0, _v9), _v0), _v343(_v0, _v9) === _v173.UPLOADING_RETRY_ERROR && _v128("record_studio_download_modal_shown", {
         error_key: _v0,
         recoveryStep: _v9
       }), _v3.error(Error("Uploading went wrong"), {
-        category: _v123.UPLOADING,
+        category: _v124.UPLOADING,
         method: "useEffect",
         component: "UploaderError",
         data: {
@@ -9751,9 +9751,9 @@
         }
       });
     }, [_v0, _v1, _v3, _v9, _v6]), (0, _v26.useEffect)(() => {
-      if (_v0 === _v172.UNAUTHORIZED_ERROR && _v15) {
+      if (_v0 === _v173.UNAUTHORIZED_ERROR && _v15) {
         let _v0 = () => {
-          "finalizing" === _v89.useUIStore.getState().common.state ? (_v4(), _v3.info("refetch clip info on focus")) : (_v11("retry"), _v3.info("retry uploading on focus"));
+          "finalizing" === _v90.useUIStore.getState().common.state ? (_v4(), _v3.info("refetch clip info on focus")) : (_v11("retry"), _v3.info("retry uploading on focus"));
         };
         return window.addEventListener("focus", _v0), () => window.removeEventListener("focus", _v0);
       }
@@ -9762,18 +9762,18 @@
         _v11("retry"), _v12("download"), _v3.info("retry uploading"), _v2();
       }, [_v2, _v11, _v12, _v3]),
       _v19 = (0, _v26.useCallback)(() => {
-        _v129.useMemoryDataStorage.getState().resetRecording(), _v10("pre-recording"), _v2();
+        _v130.useMemoryDataStorage.getState().resetRecording(), _v10("pre-recording"), _v2();
       }, [_v10, _v2]),
       _v20 = (0, _v26.useCallback)(() => {
-        _v5() && !_v17.current && (_v17.current = !0, _v127("record_studio_recording_downloaded", {
+        _v5() && !_v17.current && (_v17.current = !0, _v128("record_studio_recording_downloaded", {
           error_key: _v0,
           recoveryStep: _v9
         })), _v3.info("download local recording");
       }, [_v5, _v0, _v3, _v9]),
       _v21 = (0, _v26.useMemo)(() => {
         switch (_v343(_v0, _v9)) {
-          case _v172.UPLOADING_RETRY_ERROR:
-            return [(0, _v25.jsx)(_v235.Button, {
+          case _v173.UPLOADING_RETRY_ERROR:
+            return [(0, _v25.jsx)(_v236.Button, {
               variant: "secondary",
               as: "a",
               href: "/",
@@ -9781,7 +9781,7 @@
                 _v7(_v344(_v0, _v9), "Back to Home");
               },
               children: _v327.uploadErrorModal.backToHome
-            }, "home"), (0, _v25.jsx)(_v235.Button, {
+            }, "home"), (0, _v25.jsx)(_v236.Button, {
               variant: "primary",
               leftIcon: (0, _v25.jsx)(_v325.DownloadImport, {}),
               onClick: () => {
@@ -9789,25 +9789,25 @@
               },
               children: _v327.uploadErrorModal.download
             }, "download")];
-          case _v172.UPLOADING_ERROR:
-            return [(0, _v25.jsx)(_v235.Button, {
+          case _v173.UPLOADING_ERROR:
+            return [(0, _v25.jsx)(_v236.Button, {
               variant: "secondary",
               onClick: () => {
                 _v12("download"), _v13({
                   type: "blocker-error",
-                  errorKey: _v172.UPLOADING_RETRY_ERROR
+                  errorKey: _v173.UPLOADING_RETRY_ERROR
                 }), _v7(_v344(_v0, _v9), "Start recovery");
               },
               children: _v327.uploadErrorModal.startRecovery
-            }, "recovery"), (0, _v25.jsx)(_v235.Button, {
+            }, "recovery"), (0, _v25.jsx)(_v236.Button, {
               variant: "primary",
               onClick: () => {
                 _v18(), _v7(_v344(_v0, _v9), "Retry");
               },
               children: _v327.uploadErrorModal.retry
             }, "retry")];
-          case _v172.UNAUTHORIZED_ERROR:
-            return [(0, _v25.jsx)(_v235.Button, {
+          case _v173.UNAUTHORIZED_ERROR:
+            return [(0, _v25.jsx)(_v236.Button, {
               variant: "primary",
               as: "a",
               href: "/log_in",
@@ -9818,8 +9818,8 @@
               },
               children: _v327.uploadErrorModal.logIn
             }, "login")];
-          case _v172.FIREWALL_ERROR:
-            return [(0, _v25.jsx)(_v235.Button, {
+          case _v173.FIREWALL_ERROR:
+            return [(0, _v25.jsx)(_v236.Button, {
               variant: "tertiary",
               onClick: () => {
                 history.back(), _v7(_v344(_v0, _v9), "Go back", {
@@ -9829,7 +9829,7 @@
                 });
               },
               children: _v327.uploadErrorModal.goBack
-            }, "back"), (0, _v25.jsx)(_v235.Button, {
+            }, "back"), (0, _v25.jsx)(_v236.Button, {
               variant: "primary",
               onClick: () => {
                 location.reload(), _v7(_v344(_v0, _v9), "Reload page");
@@ -9849,29 +9849,29 @@
     });
   };
   function _v343(_v0, _v1) {
-    return _v0 === _v172.INTERNET_CONNECTION ? "download" === _v1 ? _v172.UPLOADING_RETRY_ERROR : _v172.UPLOADING_ERROR : _v0;
+    return _v0 === _v173.INTERNET_CONNECTION ? "download" === _v1 ? _v173.UPLOADING_RETRY_ERROR : _v173.UPLOADING_ERROR : _v0;
   }
   function _v344(_v0, _v1) {
     switch (_v343(_v0, _v1)) {
-      case _v172.UPLOADING_ERROR:
+      case _v173.UPLOADING_ERROR:
         return {
           notification_name: "Unable to save recording",
           notification_copy: "Do not close or refresh this window to prevent loss of recording. Check your internet connection and click retry. [Start recovery/Retry]",
           error_name: _v0
         };
-      case _v172.UPLOADING_RETRY_ERROR:
+      case _v173.UPLOADING_RETRY_ERROR:
         return {
           notification_name: "Download video",
           notification_copy: "Download the raw video to avoid loss of recording. This can be re-uploaded to Vimeo. Visit our Help Center to learn more. [Back to Home/Download]",
           error_name: _v0
         };
-      case _v172.UNAUTHORIZED_ERROR:
+      case _v173.UNAUTHORIZED_ERROR:
         return {
           notification_name: "Log in to save your recording",
           notification_copy: "You logged out from a different window. Log in to your account to save your recording. [Log in]",
           error_name: _v0
         };
-      case _v172.FIREWALL_ERROR:
+      case _v173.FIREWALL_ERROR:
         return {
           notification_name: "Recording unavailable due to an internet firewall",
           notification_copy: "Try switching to a different internet connection, then reload this page. [Go back/Reload page]",
@@ -9886,9 +9886,9 @@
     }
   }
   let _v345 = () => {
-    let _v0 = (0, _v89.useUIStore)(_v0 => _v0.common.error),
-      _v1 = (0, _v89.useUIStore)(_v0 => _v0.common.setError),
-      _v2 = _v140("useErrors"),
+    let _v0 = (0, _v90.useUIStore)(_v0 => _v0.common.error),
+      _v1 = (0, _v90.useUIStore)(_v0 => _v0.common.setError),
+      _v2 = _v141("useErrors"),
       _v3 = (0, _v26.useCallback)(() => {
         _v1(void 0);
       }, [_v1]),
@@ -9900,7 +9900,7 @@
           message: _v4?.text || "",
           severityType: "error"
         };
-        _v50.userErrorHandled(_v0), _v2.debug("userErrorHandled", {
+        _v51.userErrorHandled(_v0), _v2.debug("userErrorHandled", {
           event: _v0
         });
       }
@@ -9939,11 +9939,11 @@
       } = _v345();
       if (!_v1 || !_v0.errorKey || "full-screen-error" === _v0.type) return null;
       if ("blocker-error" === _v0.type) switch (_v0.errorKey) {
-        case _v172.FIREWALL_ERROR:
-        case _v172.INTERNET_CONNECTION:
-        case _v172.UNAUTHORIZED_ERROR:
-        case _v172.UPLOADING_ERROR:
-        case _v172.UPLOADING_RETRY_ERROR:
+        case _v173.FIREWALL_ERROR:
+        case _v173.INTERNET_CONNECTION:
+        case _v173.UNAUTHORIZED_ERROR:
+        case _v173.UPLOADING_ERROR:
+        case _v173.UPLOADING_RETRY_ERROR:
           return (0, _v25.jsx)(_v342, {
             errorKey: _v0.errorKey,
             errorSource: _v0.source,
@@ -9970,7 +9970,7 @@
         errorMessage: _v2,
         onErrorClose: _v3
       } = _v345(),
-      _v4 = (0, _v26.useMemo)(() => _v1.errorKey === _v173.UNAUTHORIZED ? [{
+      _v4 = (0, _v26.useMemo)(() => _v1.errorKey === _v174.UNAUTHORIZED ? [{
         actionType: "redirect",
         onClick: _v3,
         variant: "secondary"
@@ -9986,7 +9986,7 @@
           align: "center",
           size: "2xl",
           children: _v2.title
-        }), (0, _v25.jsx)(_v251.Paragraph, {
+        }), (0, _v25.jsx)(_v252.Paragraph, {
           size: "md",
           align: "center",
           children: _v2.text
@@ -9996,7 +9996,7 @@
             onClick: _v0,
             actionType: _v1,
             ..._v2
-          }) => (0, _v26.createElement)(_v235.Button, {
+          }) => (0, _v26.createElement)(_v236.Button, {
             size: "md",
             ..._v2,
             onClick: _v0,
@@ -10014,7 +10014,7 @@
     _v356 = _v0.i(0),
     _v357 = _v0.i(0);
   let _v358 = {
-      back: (0, _v236.translate)({
+      back: (0, _v237.translate)({
         singular: "Back",
         dictionary: {
           es: {
@@ -10041,7 +10041,7 @@
         }
       }),
       backConfirmModal: {
-        title: (0, _v236.translate)({
+        title: (0, _v237.translate)({
           singular: "Return to home screen",
           dictionary: {
             es: {
@@ -10067,7 +10067,7 @@
             }
           }
         }),
-        content: (0, _v236.translate)({
+        content: (0, _v237.translate)({
           singular: "Do you wish to save your recording before existing?",
           dictionary: {
             es: {
@@ -10093,7 +10093,7 @@
             }
           }
         }),
-        leaveRecord: (0, _v236.translate)({
+        leaveRecord: (0, _v237.translate)({
           singular: "Leave without saving",
           dictionary: {
             es: {
@@ -10119,7 +10119,7 @@
             }
           }
         }),
-        saveRecordingAndLeave: (0, _v236.translate)({
+        saveRecordingAndLeave: (0, _v237.translate)({
           singular: "Save recording",
           dictionary: {
             es: {
@@ -10147,7 +10147,7 @@
         })
       },
       moreActionsMenu: {
-        tooltip: (0, _v236.translate)({
+        tooltip: (0, _v237.translate)({
           singular: "More actions",
           dictionary: {
             es: {
@@ -10173,7 +10173,7 @@
             }
           }
         }),
-        saveToFolder: (0, _v236.translate)({
+        saveToFolder: (0, _v237.translate)({
           singular: "Save to folder...",
           dictionary: {
             es: {
@@ -10200,7 +10200,7 @@
           }
         })
       },
-      downloadLogs: (0, _v236.translate)({
+      downloadLogs: (0, _v237.translate)({
         singular: "Download logs",
         dictionary: {
           es: {
@@ -10226,7 +10226,7 @@
           }
         }
       }),
-      uploadDebug: (0, _v236.translate)({
+      uploadDebug: (0, _v237.translate)({
         singular: "Upload debug",
         dictionary: {
           es: {
@@ -10253,7 +10253,7 @@
         }
       }),
       folderSelect: {
-        recordingTitle: (0, _v236.translate)({
+        recordingTitle: (0, _v237.translate)({
           singular: "New Recording",
           dictionary: {
             es: {
@@ -10280,7 +10280,7 @@
           }
         }),
         modal: {
-          noResults: (0, _v236.translate)({
+          noResults: (0, _v237.translate)({
             singular: "Sorry, no results found.",
             dictionary: {
               es: {
@@ -10306,7 +10306,7 @@
               }
             }
           }),
-          title: (0, _v236.translate)({
+          title: (0, _v237.translate)({
             singular: 'Save "New Recording" to',
             dictionary: {
               es: {
@@ -10332,7 +10332,7 @@
               }
             }
           }),
-          confirm: (0, _v236.translate)({
+          confirm: (0, _v237.translate)({
             singular: "Confirm",
             dictionary: {
               es: {
@@ -10358,7 +10358,7 @@
               }
             }
           }),
-          cancel: (0, _v236.translate)({
+          cancel: (0, _v237.translate)({
             singular: "Cancel",
             dictionary: {
               es: {
@@ -10387,7 +10387,7 @@
         }
       },
       requestRoleUpgrade: {
-        requestAccess: (0, _v236.translate)({
+        requestAccess: (0, _v237.translate)({
           singular: "Request access",
           dictionary: {
             es: {
@@ -10413,7 +10413,7 @@
             }
           }
         }),
-        switchAccounts: (0, _v236.translate)({
+        switchAccounts: (0, _v237.translate)({
           singular: "Switch accounts",
           dictionary: {
             es: {
@@ -10440,7 +10440,7 @@
           }
         }),
         waiting: {
-          title: (0, _v236.translate)({
+          title: (0, _v237.translate)({
             singular: "Request sent",
             dictionary: {
               es: {
@@ -10466,7 +10466,7 @@
               }
             }
           }),
-          text: (0, _v236.translate)({
+          text: (0, _v237.translate)({
             singular: "You’ll receive an email once your Admin gives you access.",
             dictionary: {
               es: {
@@ -10494,7 +10494,7 @@
           })
         },
         ready: {
-          title: (0, _v236.translate)({
+          title: (0, _v237.translate)({
             singular: "Request access to create a recording",
             dictionary: {
               es: {
@@ -10520,7 +10520,7 @@
               }
             }
           }),
-          text: (0, _v236.translate)({
+          text: (0, _v237.translate)({
             singular: "You need permission from your Admin to use your team account, or you can switch to your personal account.",
             dictionary: {
               es: {
@@ -10549,7 +10549,7 @@
         }
       },
       noPersonalAccountAlert: {
-        goHome: (0, _v236.translate)({
+        goHome: (0, _v237.translate)({
           singular: "Go to Home",
           dictionary: {
             es: {
@@ -10575,7 +10575,7 @@
             }
           }
         }),
-        title: (0, _v236.translate)({
+        title: (0, _v237.translate)({
           singular: "You do not have permission to record",
           dictionary: {
             es: {
@@ -10601,7 +10601,7 @@
             }
           }
         }),
-        text: (0, _v236.translate)({
+        text: (0, _v237.translate)({
           singular: "Ask your team admin for permissions",
           dictionary: {
             es: {
@@ -10629,7 +10629,7 @@
         })
       },
       switchTeamsAlert: {
-        title: (0, _v236.translate)({
+        title: (0, _v237.translate)({
           singular: "Switch teams to record a video",
           dictionary: {
             es: {
@@ -10655,7 +10655,7 @@
             }
           }
         }),
-        text: (0, _v236.translate)({
+        text: (0, _v237.translate)({
           singular: "To record a video, switch to a team where you have permissions to record",
           dictionary: {
             es: {
@@ -10681,7 +10681,7 @@
             }
           }
         }),
-        switchTeams: (0, _v236.translate)({
+        switchTeams: (0, _v237.translate)({
           singular: "Switch teams",
           dictionary: {
             es: {
@@ -10704,7 +10704,7 @@
             }
           }
         }),
-        goHome: (0, _v236.translate)({
+        goHome: (0, _v237.translate)({
           singular: "Go to Home",
           dictionary: {
             es: {
@@ -10753,18 +10753,18 @@
           }), (0, _v25.jsx)(_v318.ModalCloseButton, {
             isDisabled: !!_v5
           }), (0, _v25.jsx)(_v317.ModalBody, {
-            children: (0, _v25.jsx)(_v251.Paragraph, {
+            children: (0, _v25.jsx)(_v252.Paragraph, {
               variant: "body-md",
               children: _v358.backConfirmModal.content
             })
           }), (0, _v25.jsxs)(_v320.ModalFooter, {
-            children: [(0, _v25.jsx)(_v235.Button, {
+            children: [(0, _v25.jsx)(_v236.Button, {
               isLoading: "leave" === _v5,
               isDisabled: !!_v5,
               onClick: _v1,
               variant: "secondary",
               children: _v358.backConfirmModal.leaveRecord
-            }), (0, _v25.jsx)(_v235.Button, {
+            }), (0, _v25.jsx)(_v236.Button, {
               isLoading: "save" === _v5,
               isDisabled: !!_v5,
               variant: "primary",
@@ -10781,7 +10781,7 @@
       testId: _v2
     }) => {
       let [_v3, _v4] = (0, _v26.useState)(!1);
-      return (0, _v25.jsx)(_v235.Button, {
+      return (0, _v25.jsx)(_v236.Button, {
         "data-testid": _v2,
         variant: _v1,
         onClick: () => {
@@ -10793,17 +10793,17 @@
       });
     },
     _v361 = () => (0, _v25.jsx)(_v323, {
-      "data-testid": _v226,
+      "data-testid": _v227,
       onConfirm: () => void 0,
       header: _v358.noPersonalAccountAlert.title,
       text: _v358.noPersonalAccountAlert.text,
       buttons: [(0, _v25.jsx)(_v360, {
-        testId: _v227
+        testId: _v228
       }, "go-home")]
     });
   async function _v362(_v0, _v1) {
     try {
-      _v89.useUIStore.getState().common.setIsTeamSwitching(!0);
+      _v90.useUIStore.getState().common.setIsTeamSwitching(!0);
       let _v0 = await fetch("/manage/videos?action=SWITCH_TEAMS", {
         body: JSON.stringify({
           team_owner_id: _v0,
@@ -10819,7 +10819,7 @@
     } catch {
       return !1;
     } finally {
-      _v89.useUIStore.getState().common.setIsTeamSwitching(!1);
+      _v90.useUIStore.getState().common.setIsTeamSwitching(!1);
     }
   }
   async function _v363(_v0, _v1) {
@@ -10831,10 +10831,10 @@
       testId: _v1,
       variant: _v2 = "primary"
     }) => {
-      let _v3 = (0, _v89.useUIStore)(_v0 => _v0.common.isTeamSwitching),
-        _v4 = (0, _v46.useViewer)(),
+      let _v3 = (0, _v90.useUIStore)(_v0 => _v0.common.isTeamSwitching),
+        _v4 = (0, _v47.useViewer)(),
         _v5 = _v4?.user?.id;
-      return _v4 && _v5 ? (0, _v25.jsx)(_v235.Button, {
+      return _v4 && _v5 ? (0, _v25.jsx)(_v236.Button, {
         "data-testid": _v1,
         variant: _v2,
         onClick: () => {
@@ -10845,18 +10845,18 @@
       }) : null;
     },
     _v365 = () => {
-      let _v0 = (0, _v89.useUIStore)(_v0 => _v0.common.isTeamSwitching);
+      let _v0 = (0, _v90.useUIStore)(_v0 => _v0.common.isTeamSwitching);
       return (0, _v25.jsx)(_v323, {
-        "data-testid": _v223,
+        "data-testid": _v224,
         onConfirm: () => void 0,
         header: _v358.switchTeamsAlert.title,
         text: _v358.switchTeamsAlert.text,
         buttons: [(0, _v25.jsx)(_v360, {
           isDisabled: _v0,
           variant: "tertiary",
-          testId: _v225
+          testId: _v226
         }, "goHome"), (0, _v25.jsx)(_v364, {
-          testId: _v224,
+          testId: _v225,
           children: _v358.switchTeamsAlert.switchTeams
         }, "switch-teams")]
       });
@@ -10874,7 +10874,7 @@
         status: _v2,
         makeRoleUpgradeRequest: _v3
       } = (_v0 => {
-        let _v1 = _v140("useRoleUpgrade"),
+        let _v1 = _v141("useRoleUpgrade"),
           [_v2, _v3] = (0, _v26.useState)(_v367),
           {
             data: _v4,
@@ -10887,7 +10887,7 @@
           } : null);
         (0, _v26.useEffect)(() => {
           _v4 && _v2 === _v367 ? _v3(_v4.total > 0 ? _v369 : _v368) : _v5 && _v1.error(Error("Couldn't retrieve data regarding existing role upgrade requests"), {
-            category: _v123.ROLE_UPGRADE,
+            category: _v124.ROLE_UPGRADE,
             method: "useEffect",
             component: "useRoleUpgrade",
             data: {
@@ -10900,7 +10900,7 @@
         let [_v6, _v7] = (0, _v366.usePostTeamRoleUpgrades)();
         (0, _v26.useEffect)(() => {
           (_v7.error || _v7.data) && _v2 === _v370 && (_v7.data ? _v3(_v369) : _v3(_v368), _v7.error && _v1.error(Error("Couldn't post role upgrade requests"), {
-            category: _v123.ROLE_UPGRADE,
+            category: _v124.ROLE_UPGRADE,
             method: "useEffect",
             component: "useRoleUpgrade",
             data: {
@@ -10928,20 +10928,20 @@
       if ([_v369, _v368, _v370].includes(_v2)) {
         if (!_v0?.user) return null;
         let _v0 = [_v1 ? (0, _v25.jsx)(_v364, {
-          testId: _v220,
+          testId: _v221,
           variant: "secondary",
           children: _v358.requestRoleUpgrade.switchAccounts
         }, "switch-account") : (0, _v25.jsx)(_v360, {
-          testId: _v222,
+          testId: _v223,
           variant: "secondary"
         }, "go-home")];
-        return (_v2 === _v368 || _v2 === _v370) && _v0.push((0, _v25.jsx)(_v235.Button, {
-          "data-testid": _v221,
+        return (_v2 === _v368 || _v2 === _v370) && _v0.push((0, _v25.jsx)(_v236.Button, {
+          "data-testid": _v222,
           isLoading: _v2 === _v370,
           onClick: _v3,
           children: _v358.requestRoleUpgrade.requestAccess
         }, "request-access")), (0, _v25.jsx)(_v323, {
-          "data-testid": _v219,
+          "data-testid": _v220,
           onConfirm: () => void 0,
           header: _v2 === _v369 ? _v358.requestRoleUpgrade.waiting.title : _v358.requestRoleUpgrade.ready.title,
           text: _v2 === _v369 ? _v358.requestRoleUpgrade.waiting.text : _v358.requestRoleUpgrade.ready.text,
@@ -10960,7 +10960,7 @@
             canSwitchTeams: _v3
           },
           ready: _v4
-        } = (0, _v214.useCapability)(["canRequestTeamRoleUpgrade", "canSwitchTeams"], _v0?.teamUser?.ownerId),
+        } = (0, _v215.useCapability)(["canRequestTeamRoleUpgrade", "canSwitchTeams"], _v0?.teamUser?.ownerId),
         _v5 = _v0?.teamUser?.ownerId,
         _v6 = !!_v1.find(_v0 => _v0.id !== _v5 && "Viewer" !== _v0.role),
         _v7 = _v0?.teamUser?.permissionLevel === 5;
@@ -10988,7 +10988,7 @@
   let _v379 = ["isPrivateToUser", "name", "privacy.view", "uri"],
     _v380 = {
       folderSelect: {
-        teamLibrary: (0, _v236.translate)({
+        teamLibrary: (0, _v237.translate)({
           singular: "Team library",
           dictionary: {
             es: {
@@ -11014,7 +11014,7 @@
             }
           }
         }),
-        library: (0, _v236.translate)({
+        library: (0, _v237.translate)({
           singular: "Library",
           dictionary: {
             es: {
@@ -11043,9 +11043,9 @@
       }
     },
     _v381 = () => {
-      let _v0 = (0, _v46.useViewer)(),
+      let _v0 = (0, _v47.useViewer)(),
         _v1 = _v0?.teamUser?.ownerId ?? _v0?.user?.id,
-        _v2 = (0, _v89.useUIStore)(_v0 => _v0.common.selectedFolder),
+        _v2 = (0, _v90.useUIStore)(_v0 => _v0.common.selectedFolder),
         _v3 = _v2?.uri ? _v377(_v2) : null,
         {
           contentSpaceEnabled: _v4,
@@ -11079,7 +11079,7 @@
         manageLink: _v1,
         isLoading: _v2
       } = _v381();
-      return !_v0 || _v2 ? (0, _v25.jsx)(_v240.Skeleton, {
+      return !_v0 || _v2 ? (0, _v25.jsx)(_v241.Skeleton, {
         width: "16rem",
         height: "xs"
       }) : (0, _v25.jsxs)(_v373.Breadcrumb, {
@@ -11109,23 +11109,23 @@
     isLoading: _v3,
     isDisabled: _v4
   }) => {
-    let _v5 = _v140("FolderSelectButton"),
+    let _v5 = _v141("FolderSelectButton"),
       {
         openMoveModal: _v6,
         closeMoveModal: _v7
       } = (0, _v386.useMoveModal)(),
       {
         trackRecordingSaveToFolderClicked: _v8
-      } = (0, _v45.useRecordingTracking)();
-    return _v3 ? (0, _v25.jsx)(_v240.Skeleton, {
+      } = (0, _v46.useRecordingTracking)();
+    return _v3 ? (0, _v25.jsx)(_v241.Skeleton, {
       height: "md"
-    }) : (0, _v25.jsx)(_v244.MenuItem, {
+    }) : (0, _v25.jsx)(_v245.MenuItem, {
       icon: (0, _v25.jsx)(_v385.FolderOpen, {}),
       "data-testid": "record-studio-folder-select-button",
       isDisabled: _v3 || _v4,
       onClick: () => {
         let _v0 = _v0 => {
-          _v1(_v0), _v51({
+          _v1(_v0), _v52({
             name: "move_to_folder",
             eventType: "click",
             location: "folder_modal"
@@ -11154,12 +11154,12 @@
             selectedDestination: _v0
           }) => {
             "root" !== _v0 ? _v5.error(Error("Failed to select a folder"), {
-              category: _v123.UNEXPECTED,
+              category: _v124.UNEXPECTED,
               method: "showFoldersModal",
               component: "FolderSelectButton"
             }) : (_v0(null), _v7());
           }
-        }), _v51({
+        }), _v52({
           name: "open_folder_options",
           eventType: "click",
           location: "folder_modal"
@@ -11208,7 +11208,7 @@
       let {
           setSelectedFolder: _v4,
           selectedFolder: _v5
-        } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+        } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
           selectedFolder: _v0.common.selectedFolder,
           setSelectedFolder: _v0.common.setSelectedFolder
         }))),
@@ -11219,13 +11219,13 @@
           let _v2,
             _v3 = _v1 ? _v1.ownerId : _v0,
             [_v4, _v5] = (0, _v26.useState)(!0),
-            _v6 = _v140("useUploadData"),
+            _v6 = _v141("useUploadData"),
             {
               uploadFolderUri: _v7,
               setUploadToAccountId: _v8,
               setUploadFolderUri: _v9,
               setSelectedFolder: _v10
-            } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+            } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
               setUploadToAccountId: _v0.common.setUploadToAccountId,
               setUploadFolderUri: _v0.common.setUploadToFolderUri,
               setSelectedFolder: _v0.common.setSelectedFolder,
@@ -11303,7 +11303,7 @@
           }, [_v8, _v23]);
           let _v24 = _v4 || _v11 ? null : _v12 ?? _v15 ?? _v18;
           return (0, _v26.useEffect)(() => {
-            let _v0 = _v89.useUIStore.getState().common.selectedFolder;
+            let _v0 = _v90.useUIStore.getState().common.selectedFolder;
             (_v24 || _v11) && void 0 === _v0 ? _v10(_v24) : (_v12 || _v11) && _v0?.uri !== _v12?.uri && _v10(_v12);
           }, [_v12, _v24, _v10, _v11]), (0, _v26.useEffect)(() => {
             _v19 || _v16 || _v13 || !_v4 || (0, _v355.isSSR)() || (_v11 ? (_v9(null), _v6.debug("Selected root team library folder.")) : _v22 ? (_v9(_v22), _v6.debug("Selected query param passed upload folder.")) : _v21 ? (_v9(_v21), _v6.debug("Selected locally stored upload folder.")) : (_v9(_v20), _v6.debug("Selected default upload folder."), _v392(_v3, _v20)), _v5(!1));
@@ -11321,7 +11321,7 @@
         void 0 !== _v5 && _v7(_v5?.uri ?? null);
       }, [_v5, _v7]);
       let _v9 = (0, _v26.useCallback)(_v0 => {
-        _v74(_v72.preferredFolder), _v4(_v0), _v51({
+        _v75(_v73.preferredFolder), _v4(_v0), _v52({
           name: "folder_destination",
           eventType: "select",
           value: _v0?.name,
@@ -11339,20 +11339,20 @@
     _v394 = ({
       isDisabled: _v0
     }) => {
-      let _v1 = (0, _v46.useViewer)(),
+      let _v1 = (0, _v47.useViewer)(),
         {
           state: _v2,
           isTeamSwitching: _v3
-        } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+        } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
           state: _v0.common.state,
           isTeamSwitching: _v0.common.isTeamSwitching
         })));
-      return (0, _v25.jsxs)(_v243.Menu, {
+      return (0, _v25.jsxs)(_v244.Menu, {
         placement: "bottom-end",
-        children: [(0, _v25.jsx)(_v241.Tooltip, {
+        children: [(0, _v25.jsx)(_v242.Tooltip, {
           label: _v0 ? void 0 : _v358.moreActionsMenu.tooltip,
-          children: (0, _v25.jsx)(_v246.MenuButton, {
-            as: _v247.IconButton,
+          children: (0, _v25.jsx)(_v247.MenuButton, {
+            as: _v248.IconButton,
             isDisabled: _v0,
             "data-testid": "record-studio-header-more-actions-button",
             "aria-label": "toggle-record-more-menu",
@@ -11360,7 +11360,7 @@
             icon: (0, _v25.jsx)(_v384.EllipsisV, {})
           })
         }), (0, _v25.jsx)(_v383.Portal, {
-          children: (0, _v25.jsx)(_v245.MenuList, {
+          children: (0, _v25.jsx)(_v246.MenuList, {
             "data-testid": "record-studio-header-more-actions-menu",
             children: _v1?.user && (0, _v25.jsx)(_v393, {
               isDisabled: "pre-recording" !== _v2 || _v3,
@@ -11393,14 +11393,14 @@
     }) => {
       let [_v1, _v2] = (0, _v26.useState)(!1),
         _v3 = (0, _v26.useRef)(!1),
-        _v4 = _v215(),
-        _v5 = (0, _v46.useViewer)(),
+        _v4 = _v216(),
+        _v5 = (0, _v47.useViewer)(),
         {
           trackViewPricingModal: _v6,
           trackClosePricingModal: _v7,
           trackTriggerPricingModalClick: _v8,
           trackProceedToCheckout: _v9
-        } = _v274(),
+        } = _v275(),
         _v10 = "reached" === _v4 && _v5?.user?.uploadQuota?.space?.unit === "video_size",
         _v11 = (0, _v26.useCallback)(() => {
           _v8(), _v2(!0);
@@ -11416,7 +11416,7 @@
           showUpsell: _v11,
           hideUpsell: _v12
         }), [_v1, _v11, _v12]),
-        _v14 = "reached" === _v4 ? (0, _v236.translate)({
+        _v14 = "reached" === _v4 ? (0, _v237.translate)({
           singular: "You’ve reached your video limit",
           dictionary: {
             es: {
@@ -11441,7 +11441,7 @@
               singular: "您已达到视频限制"
             }
           }
-        }) : (0, _v236.translate)({
+        }) : (0, _v237.translate)({
           singular: "You've almost reached your storage limit",
           dictionary: {
             es: {
@@ -11480,7 +11480,7 @@
           modalConfig: {
             mkcCode: _v15,
             headerText: _v14,
-            subHeaderText: (0, _v236.translate)({
+            subHeaderText: (0, _v237.translate)({
               singular: "To get more storage, upgrade your account",
               dictionary: {
                 es: {
@@ -11537,7 +11537,7 @@
       });
     },
     _v403 = {
-      recordingAvailable: (0, _v236.translate)({
+      recordingAvailable: (0, _v237.translate)({
         singular: "Record",
         dictionary: {
           es: {
@@ -11563,7 +11563,7 @@
           }
         }
       }),
-      upgradeToRecord: (0, _v236.translate)({
+      upgradeToRecord: (0, _v237.translate)({
         singular: "Upgrade to record",
         dictionary: {
           es: {
@@ -11589,7 +11589,7 @@
           }
         }
       }),
-      uploadQuotaReached: (0, _v236.translate)({
+      uploadQuotaReached: (0, _v237.translate)({
         singular: "You've reached your storage limit.{LINE_BREAK}To get more storage, upgrade your account.",
         replacements: {
           LINE_BREAK: () => (0, _v25.jsx)("br", {}, "line-brk")
@@ -11621,19 +11621,19 @@
     },
     _v404 = () => {
       let _v0 = (0, _v26.useRef)(!1),
-        _v1 = _v215(),
+        _v1 = _v216(),
         {
           showUpsell: _v2,
           isUpsellShown: _v3
         } = (0, _v26.useContext)(_v400),
         {
           trackTriggerPricingModalImpression: _v4
-        } = _v274(),
+        } = _v275(),
         {
           state: _v5,
           isRecordingAvailable: _v6,
           setControlsAction: _v7
-        } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+        } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
           state: _v0.common.state,
           isRecordingAvailable: _v0.common.recordingAvailability.available,
           setControlsAction: _v0.controls.setControlsAction
@@ -11652,7 +11652,7 @@
                 isDisabled: _v3,
                 tooltipText: _v403.uploadQuotaReached,
                 variant: "upsell",
-                testId: _v37.TEST_IDS.UPGRADE_TO_START_RECORDING_BUTTON
+                testId: _v38.TEST_IDS.UPGRADE_TO_START_RECORDING_BUTTON
               };
             default:
               return {
@@ -11664,16 +11664,16 @@
         }, [_v1, _v6, _v3]);
       return ((0, _v26.useEffect)(() => {
         "reached" !== _v1 || _v0.current || (_v4(), _v0.current = !0);
-      }, [_v4, _v1]), _v8.isLoading) ? (0, _v25.jsx)(_v240.Skeleton, {
+      }, [_v4, _v1]), _v8.isLoading) ? (0, _v25.jsx)(_v241.Skeleton, {
         width: "8rem",
         height: "md"
-      }) : (0, _v25.jsx)(_v241.Tooltip, {
+      }) : (0, _v25.jsx)(_v242.Tooltip, {
         label: _v8.isDisabled ? void 0 : _v8.tooltipText,
         isDisabled: _v8.isDisabled,
-        children: (0, _v25.jsx)(_v235.Button, {
+        children: (0, _v25.jsx)(_v236.Button, {
           size: "md",
           variant: _v8.variant ?? "destructive",
-          "data-testid": _v8.testId ?? _v37.TEST_IDS.START_RECORDING_BUTTON,
+          "data-testid": _v8.testId ?? _v38.TEST_IDS.START_RECORDING_BUTTON,
           isDisabled: _v8.isDisabled,
           isLoading: _v8.isLoading,
           onClick: () => {
@@ -11692,11 +11692,11 @@
     return [_v1, _v2 > 9 ? _v2 : "0" + _v2, _v3 > 9 ? _v3 : "0" + _v3].filter(Boolean).join(":");
   }
   let _v407 = () => {
-    let _v0 = (0, _v89.useUIStore)(_v0 => _v0.controls.setControlsAction),
-      _v1 = (0, _v89.useUIStore)(_v0 => !!_v0.controls.confirmDialogState),
-      _v2 = (0, _v89.useUIStore)(_v0 => _v0.common.recordingStartedAt);
-    return (0, _v25.jsx)(_v241.Tooltip, {
-      label: (0, _v236.translate)({
+    let _v0 = (0, _v90.useUIStore)(_v0 => _v0.controls.setControlsAction),
+      _v1 = (0, _v90.useUIStore)(_v0 => !!_v0.controls.confirmDialogState),
+      _v2 = (0, _v90.useUIStore)(_v0 => _v0.common.recordingStartedAt);
+    return (0, _v25.jsx)(_v242.Tooltip, {
+      label: (0, _v237.translate)({
         singular: "Stop recording",
         dictionary: {
           es: {
@@ -11722,11 +11722,11 @@
           }
         }
       }),
-      children: (0, _v25.jsx)(_v235.Button, {
+      children: (0, _v25.jsx)(_v236.Button, {
         size: "md",
         variant: "destructive",
         minWidth: 104,
-        "data-testid": _v37.TEST_IDS.STOP_RECORDING_BUTTON,
+        "data-testid": _v38.TEST_IDS.STOP_RECORDING_BUTTON,
         isDisabled: _v1,
         leftIcon: (0, _v25.jsx)(_v405.StopFilled, {}),
         onClick: () => _v0("stop", "header"),
@@ -11735,10 +11735,10 @@
     });
   };
   function _v408() {
-    let _v0 = (0, _v89.useUIStore)(_v0 => _v0.common.recordingDuration),
+    let _v0 = (0, _v90.useUIStore)(_v0 => _v0.common.recordingDuration),
       _v1 = _v303();
     return (0, _v25.jsx)("div", {
-      "data-testid": _v37.TEST_IDS.RECORDING_DURATION,
+      "data-testid": _v38.TEST_IDS.RECORDING_DURATION,
       children: _v406(0 === _v1 ? _v0 : _v1 / 0 - _v0)
     });
   }
@@ -11750,7 +11750,7 @@
   let _v414 = ({
       isPaused: _v0
     }) => _v0 ? (0, _v25.jsx)(_v29.VStack, {
-      "data-testid": _v37.TEST_IDS.PAUSE_NOTIFICATION,
+      "data-testid": _v38.TEST_IDS.PAUSE_NOTIFICATION,
       width: (0, _v30.rem)(200),
       height: (0, _v30.rem)(200),
       align: "center",
@@ -11783,7 +11783,7 @@
         }[_v5],
         _v8 = `${100 * _v6}%`,
         _v9 = `${100 * _v7}%`;
-      return (0, _v25.jsx)(_v239.Box, {
+      return (0, _v25.jsx)(_v240.Box, {
         position: "absolute",
         zIndex: 0,
         bottom: "top" === _v4 ? `calc(100% + ${(0, _v30.rem)(15)})` : void 0,
@@ -11802,7 +11802,7 @@
           children: [(0, _v25.jsx)(_v315.Header, {
             size: "md",
             children: _v1
-          }), _v2 && (0, _v25.jsx)(_v251.Paragraph, {
+          }), _v2 && (0, _v25.jsx)(_v252.Paragraph, {
             size: "md",
             color: "text-primary",
             textAlign: "start",
@@ -11822,22 +11822,22 @@
       let {
           trackControlsInteraction: _v1,
           interactionSourceRef: _v2
-        } = _v259(),
+        } = _v260(),
         {
           trackRecordingInProgressActionClicked: _v3
-        } = (0, _v45.useRecordingTracking)(),
+        } = (0, _v46.useRecordingTracking)(),
         {
           confirmDialogState: _v4,
           setConfirmDialogState: _v5,
           appState: _v6
-        } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+        } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
           appState: _v0.common.state,
           confirmDialogState: _v0.controls.confirmDialogState,
           setConfirmDialogState: _v0.controls.setConfirmDialogState
         }))),
         {
           toggleTeleprompter: _v7
-        } = (0, _v33.useTeleprompter)(),
+        } = (0, _v34.useTeleprompter)(),
         _v8 = (0, _v26.useCallback)(() => {
           _v0.pause(), _v1({
             name: "pause_recording",
@@ -11858,7 +11858,7 @@
         _v11 = (0, _v26.useCallback)(() => {
           "paused" !== _v6 && _v0.pause(), _v5("requestRestart");
         }, [_v6, _v0, _v5]),
-        _v12 = _v216(_v0 => _v0.onCountdownStart),
+        _v12 = _v217(_v0 => _v0.onCountdownStart),
         _v13 = (0, _v26.useCallback)(() => {
           _v0.cancel().catch(() => void 0), _v12(), _v5(null), _v1({
             name: "restart_recording",
@@ -11903,7 +11903,7 @@
           restart: _v13,
           cancelRestart: _v14
         };
-        return _v89.useUIStore.subscribe(_v0 => _v0.controls.controlsAction, _v0 => {
+        return _v90.useUIStore.subscribe(_v0 => _v0.controls.controlsAction, _v0 => {
           _v0 && (_v2.current = _v0.source, _v0[_v0.kind]?.(), _v2.current = null);
         });
       }, [_v10, _v16, _v8, _v9, _v13, _v11, _v15, _v17, _v14, _v2]);
@@ -11911,75 +11911,75 @@
       return (0, _v25.jsxs)(_v25.Fragment, {
         children: [(0, _v25.jsx)(_v414, {
           isPaused: "paused" === _v6
-        }), (0, _v25.jsxs)(_v233.ControlsContainer, {
+        }), (0, _v25.jsxs)(_v234.ControlsContainer, {
           isCompact: !0,
-          children: [(0, _v25.jsx)(_v255.CompactLabelledButton, {
-            "data-testid": _v37.TEST_IDS.DELETE_BUTTON,
+          children: [(0, _v25.jsx)(_v256.CompactLabelledButton, {
+            "data-testid": _v38.TEST_IDS.DELETE_BUTTON,
             icon: (0, _v25.jsx)(_v412.TrashBin, {
               boxSize: "xs"
             }),
-            tipContent: _v237.delete,
+            tipContent: _v238.delete,
             onClick: _v15,
             isDisabled: _v18
-          }), (0, _v25.jsx)(_v255.CompactLabelledButton, {
-            "data-testid": _v37.TEST_IDS.RESTART_BUTTON,
+          }), (0, _v25.jsx)(_v256.CompactLabelledButton, {
+            "data-testid": _v38.TEST_IDS.RESTART_BUTTON,
             icon: (0, _v25.jsx)(_v411.Reset, {
               boxSize: "xs"
             }),
-            tipContent: _v237.restart,
+            tipContent: _v238.restart,
             onClick: _v11,
             isDisabled: _v18
-          }), "recording" === _v6 ? (0, _v25.jsx)(_v255.CompactLabelledButton, {
-            "data-testid": _v37.TEST_IDS.PAUSE_RESUME_BUTTON,
+          }), "recording" === _v6 ? (0, _v25.jsx)(_v256.CompactLabelledButton, {
+            "data-testid": _v38.TEST_IDS.PAUSE_RESUME_BUTTON,
             icon: (0, _v25.jsx)(_v409.Pause, {
               boxSize: "xs"
             }),
-            tipContent: _v237.pause,
+            tipContent: _v238.pause,
             onClick: _v8,
             isDisabled: _v18
-          }) : (0, _v25.jsx)(_v255.CompactLabelledButton, {
-            "data-testid": _v37.TEST_IDS.PAUSE_RESUME_BUTTON,
+          }) : (0, _v25.jsx)(_v256.CompactLabelledButton, {
+            "data-testid": _v38.TEST_IDS.PAUSE_RESUME_BUTTON,
             icon: (0, _v25.jsx)(_v410.Play, {
               boxSize: "xs"
             }),
-            tipContent: _v237.resume,
+            tipContent: _v238.resume,
             onClick: _v9,
             isDisabled: _v18
           }), "requestRestart" === _v4 && (0, _v25.jsx)(_v415, {
-            "data-testid": _v37.TEST_IDS.RESTART_MODAL,
-            title: _v237.restartDialog.title,
-            subtitle: _v237.restartDialog.info,
+            "data-testid": _v38.TEST_IDS.RESTART_MODAL,
+            title: _v238.restartDialog.title,
+            subtitle: _v238.restartDialog.info,
             footer: (0, _v25.jsxs)(_v25.Fragment, {
-              children: [(0, _v25.jsx)(_v235.Button, {
-                "data-testid": _v37.TEST_IDS.RESTART_MODAL_CANCEL_BUTTON,
+              children: [(0, _v25.jsx)(_v236.Button, {
+                "data-testid": _v38.TEST_IDS.RESTART_MODAL_CANCEL_BUTTON,
                 onClick: _v14,
                 size: "sm",
                 variant: "tertiary",
-                children: _v237.restartDialog.reject
-              }), (0, _v25.jsx)(_v235.Button, {
-                "data-testid": _v37.TEST_IDS.RESTART_MODAL_CONFIRM_BUTTON,
+                children: _v238.restartDialog.reject
+              }), (0, _v25.jsx)(_v236.Button, {
+                "data-testid": _v38.TEST_IDS.RESTART_MODAL_CONFIRM_BUTTON,
                 onClick: _v13,
                 size: "sm",
                 variant: "destructive",
-                children: _v237.restartDialog.confirm
+                children: _v238.restartDialog.confirm
               })]
             })
           }), "requestDelete" === _v4 && (0, _v25.jsx)(_v415, {
-            "data-testid": _v37.TEST_IDS.DELETE_MODAL,
-            title: _v237.cancelDialog.title,
+            "data-testid": _v38.TEST_IDS.DELETE_MODAL,
+            title: _v238.cancelDialog.title,
             footer: (0, _v25.jsxs)(_v25.Fragment, {
-              children: [(0, _v25.jsx)(_v235.Button, {
-                "data-testid": _v37.TEST_IDS.DELETE_MODAL_CANCEL_BUTTON,
+              children: [(0, _v25.jsx)(_v236.Button, {
+                "data-testid": _v38.TEST_IDS.DELETE_MODAL_CANCEL_BUTTON,
                 onClick: _v17,
                 size: "sm",
                 variant: "tertiary",
-                children: _v237.cancelDialog.reject
-              }), (0, _v25.jsx)(_v235.Button, {
-                "data-testid": _v37.TEST_IDS.DELETE_MODAL_CONFIRM_BUTTON,
+                children: _v238.cancelDialog.reject
+              }), (0, _v25.jsx)(_v236.Button, {
+                "data-testid": _v38.TEST_IDS.DELETE_MODAL_CONFIRM_BUTTON,
                 onClick: _v16,
                 size: "sm",
                 variant: "destructive",
-                children: _v237.cancelDialog.confirm
+                children: _v238.cancelDialog.confirm
               })]
             })
           })]
@@ -11987,9 +11987,9 @@
       });
     },
     _v417 = () => {
-      let _v0 = (0, _v89.useUIStore)(_v0 => _v0.common.state),
-        _v1 = (0, _v89.useUIStore)(_v0 => _v0.recorder),
-        _v2 = _v150.includes(_v0);
+      let _v0 = (0, _v90.useUIStore)(_v0 => _v0.common.state),
+        _v1 = (0, _v90.useUIStore)(_v0 => _v0.recorder),
+        _v2 = _v151.includes(_v0);
       return !_v1 || _v2 ? null : "pre-recording" === _v0 ? (0, _v25.jsx)(_v404, {}) : (0, _v25.jsxs)(_v25.Fragment, {
         children: [(0, _v25.jsx)(_v416, {
           recorder: _v1
@@ -11997,7 +11997,7 @@
       });
     },
     _v418 = {
-      openPanel: (0, _v236.translate)({
+      openPanel: (0, _v237.translate)({
         singular: "Upload debug",
         dictionary: {
           es: {
@@ -12023,7 +12023,7 @@
           }
         }
       }),
-      title: (0, _v236.translate)({
+      title: (0, _v237.translate)({
         singular: "Upload debug panel",
         dictionary: {
           es: {
@@ -12049,7 +12049,7 @@
           }
         }
       }),
-      approachTitle: (0, _v236.translate)({
+      approachTitle: (0, _v237.translate)({
         singular: "Upload approach",
         dictionary: {
           es: {
@@ -12075,7 +12075,7 @@
           }
         }
       }),
-      approachHint: (0, _v236.translate)({
+      approachHint: (0, _v237.translate)({
         singular: "Applies to the next recording, never mid-session.",
         dictionary: {
           es: {
@@ -12101,7 +12101,7 @@
           }
         }
       }),
-      followDefault: (0, _v236.translate)({
+      followDefault: (0, _v237.translate)({
         singular: "Default",
         dictionary: {
           es: {
@@ -12127,7 +12127,7 @@
           }
         }
       }),
-      stateTitle: (0, _v236.translate)({
+      stateTitle: (0, _v237.translate)({
         singular: "Session state",
         dictionary: {
           es: {
@@ -12153,7 +12153,7 @@
           }
         }
       }),
-      timingsTitle: (0, _v236.translate)({
+      timingsTitle: (0, _v237.translate)({
         singular: "Timings",
         dictionary: {
           es: {
@@ -12179,7 +12179,7 @@
           }
         }
       }),
-      logsTitle: (0, _v236.translate)({
+      logsTitle: (0, _v237.translate)({
         singular: "Logs",
         dictionary: {
           es: {
@@ -12202,7 +12202,7 @@
           }
         }
       }),
-      refresh: (0, _v236.translate)({
+      refresh: (0, _v237.translate)({
         singular: "Refresh",
         dictionary: {
           es: {
@@ -12228,7 +12228,7 @@
           }
         }
       }),
-      exportReport: (0, _v236.translate)({
+      exportReport: (0, _v237.translate)({
         singular: "Export debug report",
         dictionary: {
           es: {
@@ -12254,7 +12254,7 @@
           }
         }
       }),
-      close: (0, _v236.translate)({
+      close: (0, _v237.translate)({
         singular: "Close",
         dictionary: {
           es: {
@@ -12289,11 +12289,11 @@
     }) => (0, _v25.jsxs)(_v28.Flex, {
       justifyContent: "space-between",
       gap: "4",
-      children: [(0, _v25.jsx)(_v251.Paragraph, {
+      children: [(0, _v25.jsx)(_v252.Paragraph, {
         size: "sm",
         color: "text-secondary",
         children: _v0
-      }), (0, _v25.jsx)(_v251.Paragraph, {
+      }), (0, _v25.jsx)(_v252.Paragraph, {
         size: "sm",
         sx: {
           fontFamily: "mono",
@@ -12309,7 +12309,7 @@
     }) => {
       var _v2;
       let _v3 = _v290(),
-        _v4 = _v140("UploadDebugPanel"),
+        _v4 = _v141("UploadDebugPanel"),
         [_v5, _v6] = (0, _v26.useState)(null),
         {
           approachOverride: _v7,
@@ -12325,7 +12325,7 @@
           uploadMethod: _v12,
           recordingStartedAt: _v13,
           userId: _v14
-        } = (0, _v89.useUIStore)((0, _v27.useShallow)(({
+        } = (0, _v90.useUIStore)((0, _v27.useShallow)(({
           common: _v0
         }) => ({
           appState: _v0.state,
@@ -12339,7 +12339,7 @@
           originalChunksCount: _v15,
           convertedChunksCount: _v16,
           info: _v17
-        } = (0, _v129.useMemoryDataStorage)((0, _v27.useShallow)(_v0 => ({
+        } = (0, _v130.useMemoryDataStorage)((0, _v27.useShallow)(_v0 => ({
           originalChunksCount: _v0.originalChunks.length,
           convertedChunksCount: _v0.convertedChunks.length,
           info: _v0.info
@@ -12355,7 +12355,7 @@
           recordingUploadedTime: _v0.recordingUploadedTime,
           videoBecomesPlayableTime: _v0.videoBecomesPlayableTime
         }))),
-        _v22 = _v83(_v0 => _v0.currentSessionId),
+        _v22 = _v84(_v0 => _v0.currentSessionId),
         _v23 = (0, _v26.useCallback)(() => {
           _v4.getAll().then(_v0 => _v6((_v0 => {
             let _v1 = {
@@ -12379,12 +12379,12 @@
           _v1,
           _v2 = (await _v4.getAll()).map(_v0 => ({
             ..._v0,
-            message: _v116(_v0.message),
-            args: _v116(_v0.args)
+            message: _v117(_v0.message),
+            args: _v117(_v0.args)
           })),
           _v3 = {
             exportedAt: new Date().toISOString(),
-            page: _v116(window.location.href),
+            page: _v117(window.location.href),
             userAgent: navigator.userAgent,
             network: (_v1 = "object" == typeof (_v0 = navigator.connection) && null !== _v0 && "effectiveType" in _v0 && "string" == typeof _v0.effectiveType ? _v0.effectiveType : null, {
               online: navigator.onLine,
@@ -12403,7 +12403,7 @@
               sessionId: _v22,
               userId: _v14,
               clipId: _v18,
-              videoUri: _v17.uri ? _v116(_v17.uri) : null,
+              videoUri: _v17.uri ? _v117(_v17.uri) : null,
               titleLength: _v17.title?.length ?? 0
             },
             recording: {
@@ -12419,7 +12419,7 @@
             logs: _v2
           },
           _v4 = (_v22 ?? String(Date.now())).replace(/[^a-zA-Z0-9_-]/g, "");
-        _v117(_v3, `record-upload-debug-${_v4}`);
+        _v118(_v3, `record-upload-debug-${_v4}`);
       }, [_v4, _v12, _v7, _v9, _v10, _v11, _v22, _v14, _v18, _v17, _v13, _v19, _v20, _v21, _v15, _v16]);
       return _v0 && _v3 ? (0, _v25.jsxs)(_v316.Modal, {
         isOpen: !0,
@@ -12446,18 +12446,18 @@
                   children: _v418.approachTitle
                 }), (0, _v25.jsxs)(_v28.Flex, {
                   gap: "2",
-                  children: [_v419.map(_v0 => (0, _v25.jsx)(_v235.Button, {
+                  children: [_v419.map(_v0 => (0, _v25.jsx)(_v236.Button, {
                     size: "sm",
                     variant: _v7 === _v0 ? "primary" : "secondary",
                     onClick: () => _v8(_v0),
                     children: _v0
-                  }, _v0)), (0, _v25.jsx)(_v235.Button, {
+                  }, _v0)), (0, _v25.jsx)(_v236.Button, {
                     size: "sm",
                     variant: null === _v7 ? "primary" : "secondary",
                     onClick: () => _v8(null),
                     children: _v418.followDefault
                   })]
-                }), (0, _v25.jsx)(_v251.Paragraph, {
+                }), (0, _v25.jsx)(_v252.Paragraph, {
                   size: "sm",
                   color: "text-secondary",
                   children: _v418.approachHint
@@ -12518,7 +12518,7 @@
                   children: [(0, _v25.jsx)(_v315.Header, {
                     size: "xs",
                     children: _v418.logsTitle
-                  }), (0, _v25.jsx)(_v235.Button, {
+                  }), (0, _v25.jsx)(_v236.Button, {
                     size: "sm",
                     variant: "secondary",
                     onClick: _v23,
@@ -12531,7 +12531,7 @@
                   }), (0, _v25.jsx)(_v29.VStack, {
                     alignItems: "stretch",
                     gap: "1",
-                    children: _v5.recentProblems.map(_v0 => (0, _v25.jsx)(_v251.Paragraph, {
+                    children: _v5.recentProblems.map(_v0 => (0, _v25.jsx)(_v252.Paragraph, {
                       size: "sm",
                       sx: {
                         fontFamily: "mono",
@@ -12544,11 +12544,11 @@
               })]
             })
           }), (0, _v25.jsxs)(_v320.ModalFooter, {
-            children: [(0, _v25.jsx)(_v235.Button, {
+            children: [(0, _v25.jsx)(_v236.Button, {
               variant: "secondary",
               onClick: _v1,
               children: _v418.close
-            }), (0, _v25.jsx)(_v235.Button, {
+            }), (0, _v25.jsx)(_v236.Button, {
               onClick: () => void _v24(),
               children: _v418.exportReport
             })]
@@ -12557,15 +12557,15 @@
       }) : null;
     },
     _v423 = () => {
-      let _v0 = _v140("Header"),
-        _v1 = (0, _v26.useContext)(_v35.ViewerContext),
+      let _v0 = _v141("Header"),
+        _v1 = (0, _v26.useContext)(_v36.ViewerContext),
         {
           appState: _v2,
           isTeamSwitching: _v3,
           setIsTeamSwitching: _v4,
           errorType: _v5,
           isBackModalShown: _v6
-        } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+        } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
           appState: _v0.common.state,
           isBackModalShown: _v0.common.isBackModalShown,
           isTeamSwitching: _v0.common.isTeamSwitching,
@@ -12573,7 +12573,7 @@
           errorType: _v0.common.error.type
         }))),
         _v7 = (0, _v26.useCallback)(() => {
-          _v89.useUIStore.getState().common.setBackModalShown(!0);
+          _v90.useUIStore.getState().common.setBackModalShown(!0);
         }, []),
         {
           confirmSaveAndGoBack: _v8,
@@ -12583,12 +12583,12 @@
           showBackModal: _v12,
           loadingButton: _v13
         } = function (_v0) {
-          let _v1 = _v140("useBackModalActions"),
-            _v2 = (0, _v285.useRouter)(),
+          let _v1 = _v141("useBackModalActions"),
+            _v2 = (0, _v286.useRouter)(),
             [_v3, _v4] = (0, _v26.useState)(),
             {
               settings: _v5
-            } = (0, _v288.useOrionSettings)(),
+            } = (0, _v32.useOrionSettings)(),
             [_v6] = (0, _v332.useDeleteVideo)(),
             {
               state: _v7,
@@ -12597,7 +12597,7 @@
               setShowBackModal: _v10,
               showBackModal: _v11,
               setWaitingToRouteBack: _v12
-            } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+            } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
               showBackModal: _v0.common.isBackModalShown,
               state: _v0.common.state,
               recorder: _v0.recorder,
@@ -12636,16 +12636,16 @@
             }, [_v14, _v6, _v1, _v5.has_recently_deleted]),
             _v16 = "pre-recording" !== _v7 && _v8 && "idle" === _v9,
             _v17 = (0, _v26.useCallback)(() => {
-              let _v0 = _v202(_v129.useMemoryDataStorage.getState().info.uri);
+              let _v0 = _v203(_v130.useMemoryDataStorage.getState().info.uri);
               _v4("leave"), _v16 ? (_v12(!0), _v8.cancel().then(() => _v1.debug("Recorder was cancelled.")).catch(_v0 => _v1.error(_v0, {
-                category: _v123.RECORDER,
+                category: _v124.RECORDER,
                 method: "confirmLeave",
                 component: "useBackModalActions"
               }))) : _v0 ? _v15(_v0).then(_v14) : _v14();
             }, [_v16, _v14, _v15, _v1, _v8, _v12]),
             _v18 = (0, _v26.useCallback)(() => {
               _v4("save"), _v16 ? (_v12(!0), _v8.stop().then(() => _v1.debug("Recorder was stopped.")).catch(_v0 => _v1.error(_v0, {
-                category: _v123.RECORDER,
+                category: _v124.RECORDER,
                 method: "confirmSaveAndGoBack",
                 component: "useBackModalActions"
               }))) : "uploading" === _v7 ? _v12(!0) : _v14();
@@ -12665,8 +12665,8 @@
           shouldStopNavigation: _v0,
           onNavigateStopped: _v1
         }) {
-          let _v2 = (0, _v285.useRouter)(),
-            _v3 = _v140("useNavigationObserver"),
+          let _v2 = (0, _v286.useRouter)(),
+            _v3 = _v141("useNavigationObserver"),
             _v4 = _v2.asPath,
             _v5 = (0, _v26.useRef)(void 0),
             _v6 = (0, _v26.useCallback)(() => {
@@ -12678,7 +12678,7 @@
             let _v0 = !1,
               _v1 = "",
               _v2 = _v0 => {
-                _v89.useUIStore.getState().common.isBackModalShown ? _v3.debug("do not intercept routing as <BackConfirmationModal /> already shown") : (_v3.debug('received "routeChangeStart" event: ', {
+                _v90.useUIStore.getState().common.isBackModalShown ? _v3.debug("do not intercept routing as <BackConfirmationModal /> already shown") : (_v3.debug('received "routeChangeStart" event: ', {
                   url: _v0,
                   currentPath: _v4
                 }), _v4 !== _v0 && window.history.pushState(null, "", _v2.basePath + _v4), _v0 && _v0 !== _v4 && !_v0 && (_v1 = _v0.replace(_v2.basePath, ""), _v5.current = function () {
@@ -12706,7 +12706,7 @@
         {
           teamItems: _v20
         } = (() => {
-          let _v0 = (0, _v46.useViewer)(),
+          let _v0 = (0, _v47.useViewer)(),
             _v1 = _v0?.user?.id,
             {
               data: _v2
@@ -12740,7 +12740,7 @@
           teams: _v20
         }), (0, _v25.jsxs)(_v356.Navigation.LeftContent, {
           gap: "3",
-          children: [(0, _v25.jsx)(_v247.IconButton, {
+          children: [(0, _v25.jsx)(_v248.IconButton, {
             icon: (0, _v25.jsx)(_v354.VimeoV, {}),
             "aria-label": "logo",
             variant: "secondary",
@@ -12752,9 +12752,9 @@
             leaveRecord: _v9,
             saveAndLeave: _v8,
             loadingButton: _v13,
-            children: (0, _v25.jsx)(_v241.Tooltip, {
+            children: (0, _v25.jsx)(_v242.Tooltip, {
               label: _v358.back,
-              children: (0, _v25.jsx)(_v247.IconButton, {
+              children: (0, _v25.jsx)(_v248.IconButton, {
                 icon: (0, _v25.jsx)(_v353.ArrowLeft, {}),
                 "aria-label": "back",
                 variant: "secondary",
@@ -12764,14 +12764,14 @@
           }), _v1?.user && (0, _v25.jsx)(_v382, {})]
         }), (0, _v25.jsxs)(_v356.Navigation.RightContent, {
           children: [_v19 && (0, _v25.jsx)(_v25.Fragment, {
-            children: _v14 && (0, _v25.jsx)(_v235.Button, {
+            children: _v14 && (0, _v25.jsx)(_v236.Button, {
               variant: "secondary",
               hideBelow: "lg",
               onClick: () => _v0.download(),
               children: _v358.downloadLogs
             })
           }), _v18 && _v15 && (0, _v25.jsxs)(_v25.Fragment, {
-            children: [(0, _v25.jsx)(_v235.Button, {
+            children: [(0, _v25.jsx)(_v236.Button, {
               variant: "secondary",
               hideBelow: "lg",
               onClick: () => _v17(!0),
@@ -12794,7 +12794,7 @@
       notices: {
         [_v311]: {
           title: "",
-          message: (0, _v236.translate)({
+          message: (0, _v237.translate)({
             singular: "Unmute the microphone to record your voice",
             dictionary: {
               es: {
@@ -12823,7 +12823,7 @@
         },
         [_v312]: {
           title: "",
-          message: (0, _v236.translate)({
+          message: (0, _v237.translate)({
             singular: "Disable background blur to improve video quality",
             dictionary: {
               es: {
@@ -12851,7 +12851,7 @@
           })
         },
         [_v313]: {
-          title: (0, _v236.translate)({
+          title: (0, _v237.translate)({
             singular: "Your camera doesn’t support 4K",
             dictionary: {
               es: {
@@ -12877,7 +12877,7 @@
               }
             }
           }),
-          message: (0, _v236.translate)({
+          message: (0, _v237.translate)({
             singular: "Switch to a camera that supports 4K, or select a lower resolution",
             dictionary: {
               es: {
@@ -12939,7 +12939,7 @@
     }, [_v1, _v2, _v0]);
   }
   let _v428 = {
-      back: (0, _v236.translate)({
+      back: (0, _v237.translate)({
         singular: "Back",
         dictionary: {
           es: {
@@ -12965,7 +12965,7 @@
           }
         }
       }),
-      question: (0, _v236.translate)({
+      question: (0, _v237.translate)({
         singular: "Delete this recording?",
         dictionary: {
           es: {
@@ -12991,7 +12991,7 @@
           }
         }
       }),
-      confirm: (0, _v236.translate)({
+      confirm: (0, _v237.translate)({
         singular: "Delete",
         dictionary: {
           es: {
@@ -13017,7 +13017,7 @@
           }
         }
       }),
-      reject: (0, _v236.translate)({
+      reject: (0, _v237.translate)({
         singular: "Cancel",
         dictionary: {
           es: {
@@ -13050,11 +13050,11 @@
           videoId: _v1
         } = _v297(),
         [_v2, _v3] = (0, _v26.useState)(!1),
-        _v4 = (0, _v89.useUIStore)(_v0 => _v0.common.state),
-        _v5 = (0, _v89.useUIStore)(_v0 => _v0.controls.setControlsAction),
+        _v4 = (0, _v90.useUIStore)(_v0 => _v0.common.state),
+        _v5 = (0, _v90.useUIStore)(_v0 => _v0.controls.setControlsAction),
         {
           settings: _v6
-        } = (0, _v288.useOrionSettings)(),
+        } = (0, _v32.useOrionSettings)(),
         [_v7, {
           loading: _v8
         }] = (0, _v332.useDeleteVideo)(),
@@ -13073,9 +13073,9 @@
       return (0, _v25.jsxs)(_v356.Navigation, {
         children: [(0, _v25.jsxs)(_v356.Navigation.LeftContent, {
           position: "relative",
-          children: [(0, _v25.jsx)(_v241.Tooltip, {
+          children: [(0, _v25.jsx)(_v242.Tooltip, {
             label: _v428.back,
-            children: (0, _v25.jsx)(_v247.IconButton, {
+            children: (0, _v25.jsx)(_v248.IconButton, {
               icon: (0, _v25.jsx)(_v353.ArrowLeft, {}),
               "aria-label": _v428.back,
               variant: "secondary",
@@ -13088,7 +13088,7 @@
             title: _v428.question,
             align: "left",
             footer: (0, _v25.jsxs)(_v25.Fragment, {
-              children: [(0, _v25.jsx)(_v235.Button, {
+              children: [(0, _v25.jsx)(_v236.Button, {
                 size: "sm",
                 variant: "secondary",
                 isDisabled: _v8,
@@ -13096,7 +13096,7 @@
                   _v5("resume"), _v3(!1);
                 },
                 children: _v428.reject
-              }), (0, _v25.jsx)(_v235.Button, {
+              }), (0, _v25.jsx)(_v236.Button, {
                 size: "sm",
                 variant: "destructive",
                 isLoading: _v8,
@@ -13114,14 +13114,14 @@
       let _v0,
         _v1,
         [_v2, _v3] = (0, _v26.useState)(!0),
-        _v4 = (0, _v89.useUIStore)(_v0 => _v0.common.recordingDuration),
+        _v4 = (0, _v90.useUIStore)(_v0 => _v0.common.recordingDuration),
         _v5 = _v303(),
         _v6 = _v304(),
         _v7 = _v5 / 0 - _v4;
       if (!_v2 || _v7 > 600) return null;
       let _v8 = _v406(_v7);
       return (0, _v25.jsx)(_v349, {
-        message: (_v0 = _v6, _v1 = _v8, (0, _v236.translate)({
+        message: (_v0 = _v6, _v1 = _v8, (0, _v237.translate)({
           singular: "Recordings have a limit of {limit}. You have {left} left.",
           replacements: {
             limit: _v0,
@@ -13159,23 +13159,23 @@
     let {
       permissions: _v0,
       error: _v1
-    } = _v210((0, _v27.useShallow)(({
+    } = _v211((0, _v27.useShallow)(({
       permissions: _v0,
       error: _v1
     }) => ({
       permissions: _v0,
       error: _v1
     })));
-    return _v171(_v0.audio, _v0.video, _v1.audio, _v1.video);
+    return _v172(_v0.audio, _v0.video, _v1.audio, _v1.video);
   }
   var _v432 = _v0.i(0);
   function _v433() {
-    let _v0 = (0, _v26.useContext)(_v232),
+    let _v0 = (0, _v26.useContext)(_v233),
       {
         isPiPSupported: _v1,
         isPiPShown: _v2,
         currentPiPSize: _v3
-      } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+      } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
         isPiPSupported: _v0.pip.supported,
         isPiPShown: _v0.pip.enabled,
         currentPiPSize: _v0.pip.currentSize
@@ -13189,11 +13189,11 @@
           withEnabledStream: _v6,
           withDisabledStream: _v7
         }
-      } = _v212(),
-      _v8 = _v140("useAssetsActivation"),
+      } = _v213(),
+      _v8 = _v141("useAssetsActivation"),
       _v9 = _v0 => !!Object.values(_v0).every(_v0 => _v0) || (_v8.warn("assets activation failed due to conditions: ", _v0), !1),
       _v10 = () => {
-        let _v0 = _v178.getState().displayMedia?.mediaInfo?.displaySurface;
+        let _v0 = _v179.getState().displayMedia?.mediaInfo?.displaySurface;
         return _v2 && "monitor" === _v0 && "maximized" === _v3;
       };
     return {
@@ -13221,7 +13221,7 @@
     };
   }
   let _v434 = {
-      title: (0, _v236.translate)({
+      title: (0, _v237.translate)({
         singular: "Share recording",
         dictionary: {
           es: {
@@ -13247,7 +13247,7 @@
           }
         }
       }),
-      videoTitleLabel: (0, _v236.translate)({
+      videoTitleLabel: (0, _v237.translate)({
         singular: "Title",
         dictionary: {
           es: {
@@ -13273,7 +13273,7 @@
           }
         }
       }),
-      privacyLabel: (0, _v236.translate)({
+      privacyLabel: (0, _v237.translate)({
         singular: "Privacy",
         dictionary: {
           es: {
@@ -13299,7 +13299,7 @@
           }
         }
       }),
-      copyLinkAction: (0, _v236.translate)({
+      copyLinkAction: (0, _v237.translate)({
         singular: "Copy link",
         dictionary: {
           es: {
@@ -13325,7 +13325,7 @@
           }
         }
       }),
-      copyLinkSuccessMessage: (0, _v236.translate)({
+      copyLinkSuccessMessage: (0, _v237.translate)({
         singular: "Link copied",
         dictionary: {
           es: {
@@ -13351,7 +13351,7 @@
           }
         }
       }),
-      copyLinkErrorMessage: (0, _v236.translate)({
+      copyLinkErrorMessage: (0, _v237.translate)({
         singular: "Failed to copy link",
         dictionary: {
           es: {
@@ -13377,7 +13377,7 @@
           }
         }
       }),
-      manageAction: (0, _v236.translate)({
+      manageAction: (0, _v237.translate)({
         singular: "Manage",
         dictionary: {
           es: {
@@ -13403,7 +13403,7 @@
           }
         }
       }),
-      trimAction: (0, _v236.translate)({
+      trimAction: (0, _v237.translate)({
         singular: "Trim",
         dictionary: {
           es: {
@@ -13429,7 +13429,7 @@
           }
         }
       }),
-      retakeAction: (0, _v236.translate)({
+      retakeAction: (0, _v237.translate)({
         singular: "Retake",
         dictionary: {
           es: {
@@ -13455,7 +13455,7 @@
           }
         }
       }),
-      privacyUnlistedTitle: (0, _v236.translate)({
+      privacyUnlistedTitle: (0, _v237.translate)({
         singular: "Unlisted",
         dictionary: {
           es: {
@@ -13481,7 +13481,7 @@
           }
         }
       }),
-      privacyUnlistedDescription: (0, _v236.translate)({
+      privacyUnlistedDescription: (0, _v237.translate)({
         singular: "Anyone with the link can view",
         dictionary: {
           es: {
@@ -13507,7 +13507,7 @@
           }
         }
       }),
-      privacyPrivateTitle: (0, _v236.translate)({
+      privacyPrivateTitle: (0, _v237.translate)({
         singular: "Private",
         dictionary: {
           es: {
@@ -13533,7 +13533,7 @@
           }
         }
       }),
-      privacyPrivateDescription: (0, _v236.translate)({
+      privacyPrivateDescription: (0, _v237.translate)({
         singular: "Only you and people you invite can view",
         dictionary: {
           es: {
@@ -13559,7 +13559,7 @@
           }
         }
       }),
-      privacyTeamTitle: (0, _v236.translate)({
+      privacyTeamTitle: (0, _v237.translate)({
         singular: "Anyone at my company",
         dictionary: {
           es: {
@@ -13585,7 +13585,7 @@
           }
         }
       }),
-      privacyTeamDescription: (0, _v236.translate)({
+      privacyTeamDescription: (0, _v237.translate)({
         singular: "Anyone in this team can view",
         dictionary: {
           es: {
@@ -13611,7 +13611,7 @@
           }
         }
       }),
-      privacyPasswordTitle: (0, _v236.translate)({
+      privacyPasswordTitle: (0, _v237.translate)({
         singular: "Password",
         dictionary: {
           es: {
@@ -13637,7 +13637,7 @@
           }
         }
       }),
-      privacyPasswordDescription: (0, _v236.translate)({
+      privacyPasswordDescription: (0, _v237.translate)({
         singular: "Anyone with the link and password can view",
         dictionary: {
           es: {
@@ -13663,7 +13663,7 @@
           }
         }
       }),
-      privacyDisableTitle: (0, _v236.translate)({
+      privacyDisableTitle: (0, _v237.translate)({
         singular: "Embed only",
         dictionary: {
           es: {
@@ -13689,7 +13689,7 @@
           }
         }
       }),
-      privacyDisableDescription: (0, _v236.translate)({
+      privacyDisableDescription: (0, _v237.translate)({
         singular: "Embeddable anywhere, but private on Vimeo",
         dictionary: {
           es: {
@@ -13715,7 +13715,7 @@
           }
         }
       }),
-      privacyPublicTitle: (0, _v236.translate)({
+      privacyPublicTitle: (0, _v237.translate)({
         singular: "Public",
         dictionary: {
           es: {
@@ -13738,7 +13738,7 @@
           }
         }
       }),
-      privacyPublicDescription: (0, _v236.translate)({
+      privacyPublicDescription: (0, _v237.translate)({
         singular: "Anyone on the internet can find and view",
         dictionary: {
           es: {
@@ -13764,7 +13764,7 @@
           }
         }
       }),
-      trimActionTooltipVideoNotReady: (0, _v236.translate)({
+      trimActionTooltipVideoNotReady: (0, _v237.translate)({
         singular: "Video options will be available once the video is ready",
         dictionary: {
           es: {
@@ -13790,7 +13790,7 @@
           }
         }
       }),
-      trimActionTooltip360: (0, _v236.translate)({
+      trimActionTooltip360: (0, _v237.translate)({
         singular: "360 videos cannot be edited",
         dictionary: {
           es: {
@@ -13816,7 +13816,7 @@
           }
         }
       }),
-      trimActionTooltipTrimmed: (0, _v236.translate)({
+      trimActionTooltipTrimmed: (0, _v237.translate)({
         singular: "Trimmed videos can't be edited",
         dictionary: {
           es: {
@@ -13842,7 +13842,7 @@
           }
         }
       }),
-      retakeConfirmationTitle: (0, _v236.translate)({
+      retakeConfirmationTitle: (0, _v237.translate)({
         singular: "Delete video?",
         dictionary: {
           es: {
@@ -13868,7 +13868,7 @@
           }
         }
       }),
-      retakeConfirmationText: (0, _v236.translate)({
+      retakeConfirmationText: (0, _v237.translate)({
         singular: "Starting over will delete this recording and start a new one.",
         dictionary: {
           es: {
@@ -13894,7 +13894,7 @@
           }
         }
       }),
-      retakeConfirmationConfirmAction: (0, _v236.translate)({
+      retakeConfirmationConfirmAction: (0, _v237.translate)({
         singular: "Start over",
         dictionary: {
           es: {
@@ -13920,7 +13920,7 @@
           }
         }
       }),
-      videoMetadataChanged: (0, _v236.translate)({
+      videoMetadataChanged: (0, _v237.translate)({
         singular: "Changes saved",
         dictionary: {
           es: {
@@ -13946,7 +13946,7 @@
           }
         }
       }),
-      videoMetadataError: (0, _v236.translate)({
+      videoMetadataError: (0, _v237.translate)({
         singular: "Changes could not be saved",
         dictionary: {
           es: {
@@ -13972,7 +13972,7 @@
           }
         }
       }),
-      recordingDurationLimitReached: _v0 => (0, _v236.translate)({
+      recordingDurationLimitReached: _v0 => (0, _v237.translate)({
         singular: "Recordings are limited to {limit} on your current plan",
         replacements: {
           limit: _v0
@@ -14004,7 +14004,7 @@
     },
     _v435 = {
       starter: {
-        featuresList: [(0, _v236.translate)({
+        featuresList: [(0, _v237.translate)({
           singular: "Password privacy & unlisted links",
           dictionary: {
             es: {
@@ -14029,7 +14029,7 @@
               singular: "密码隐私与未公开发布的链接"
             }
           }
-        }), (0, _v236.translate)({
+        }), (0, _v237.translate)({
           singular: "Customizable video player",
           dictionary: {
             es: {
@@ -14054,7 +14054,7 @@
               singular: "可定制的视频播放器"
             }
           }
-        }), (0, _v236.translate)({
+        }), (0, _v237.translate)({
           singular: "Transfer video files",
           dictionary: {
             es: {
@@ -14079,7 +14079,7 @@
               singular: "传输视频文件"
             }
           }
-        }), (0, _v236.translate)({
+        }), (0, _v237.translate)({
           singular: "Review and collaboration tools",
           dictionary: {
             es: {
@@ -14104,7 +14104,7 @@
               singular: "审查和协作工具"
             }
           }
-        }), (0, _v236.translate)({
+        }), (0, _v237.translate)({
           singular: "Engagement analytics",
           dictionary: {
             es: {
@@ -14132,7 +14132,7 @@
         })]
       },
       standard: {
-        featuresList: [(0, _v236.translate)({
+        featuresList: [(0, _v237.translate)({
           singular: "Branding in the player",
           dictionary: {
             es: {
@@ -14157,7 +14157,7 @@
               singular: "播放器中的品牌标识"
             }
           }
-        }), (0, _v236.translate)({
+        }), (0, _v237.translate)({
           singular: "Third party player support",
           dictionary: {
             es: {
@@ -14182,7 +14182,7 @@
               singular: "第三方播放器支持"
             }
           }
-        }), (0, _v236.translate)({
+        }), (0, _v237.translate)({
           singular: "Custom watermark",
           dictionary: {
             es: {
@@ -14207,7 +14207,7 @@
               singular: "自定义水印"
             }
           }
-        }), (0, _v236.translate)({
+        }), (0, _v237.translate)({
           singular: "Lead capture",
           dictionary: {
             es: {
@@ -14235,7 +14235,7 @@
         })]
       },
       advanced: {
-        featuresList: [(0, _v236.translate)({
+        featuresList: [(0, _v237.translate)({
           singular: "Host livestreamed events",
           dictionary: {
             es: {
@@ -14260,7 +14260,7 @@
               singular: "举办直播活动"
             }
           }
-        }), (0, _v236.translate)({
+        }), (0, _v237.translate)({
           singular: "Events Q&A, polls, and chat",
           dictionary: {
             es: {
@@ -14285,7 +14285,7 @@
               singular: "活动问答、投票和聊天"
             }
           }
-        }), (0, _v236.translate)({
+        }), (0, _v237.translate)({
           singular: "Stream to multiple destinations",
           dictionary: {
             es: {
@@ -14310,7 +14310,7 @@
               singular: "串流至多个目的地"
             }
           }
-        }), (0, _v236.translate)({
+        }), (0, _v237.translate)({
           singular: "Marketing automation integrations",
           dictionary: {
             es: {
@@ -14338,7 +14338,7 @@
         })]
       },
       enterprise: {
-        featuresList: [(0, _v236.translate)({
+        featuresList: [(0, _v237.translate)({
           singular: "Custom permissions",
           dictionary: {
             es: {
@@ -14363,7 +14363,7 @@
               singular: "自定义权限"
             }
           }
-        }), (0, _v236.translate)({
+        }), (0, _v237.translate)({
           singular: "Advanced AI capabilities",
           dictionary: {
             es: {
@@ -14388,7 +14388,7 @@
               singular: "高级 AI 功能"
             }
           }
-        }), (0, _v236.translate)({
+        }), (0, _v237.translate)({
           singular: "SSO (SAML) and SCIM (OKTA, AZURE)",
           dictionary: {
             es: {
@@ -14413,7 +14413,7 @@
               singular: "SSO (SAML) 和 SCIM（OKTA、AZURE）"
             }
           }
-        }), (0, _v236.translate)({
+        }), (0, _v237.translate)({
           singular: "Quality events (backup streams, eCDN)",
           dictionary: {
             es: {
@@ -14438,7 +14438,7 @@
               singular: "高质量活动（备份流、eCDN）"
             }
           }
-        }), (0, _v236.translate)({
+        }), (0, _v237.translate)({
           singular: "Dedicated support",
           dictionary: {
             es: {
@@ -14483,7 +14483,7 @@
       }
     }),
     _v447 = () => {
-      let _v0 = _v140("PostRecordingClipPrivacy"),
+      let _v0 = _v141("PostRecordingClipPrivacy"),
         {
           video: _v1,
           isVideoLoading: _v2,
@@ -14498,11 +14498,11 @@
         [_v12, _v13] = (0, _v26.useState)(!1),
         {
           trackChangePrivacyLinkClick: _v14
-        } = _v274(),
+        } = _v275(),
         {
           trackRecordingSharePrivacyChanged: _v15
-        } = (0, _v45.useRecordingTracking)(),
-        _v16 = (0, _v46.useViewer)(),
+        } = (0, _v46.useRecordingTracking)(),
+        _v16 = (0, _v47.useViewer)(),
         _v17 = _v340(),
         {
           patchVideoPrivacy: _v18,
@@ -14595,7 +14595,7 @@
             variant: _v0 ? "warning" : "info"
           }), _v13(!1);
         }
-      }, [_v19, _v20, _v21, _v22, _v12, _v3, _v1?.privacy.view, _v12, _v0]), !_v1 || !_v7 || !_v6 || !_v10 || _v2 || _v20 || _v24) return (0, _v25.jsx)(_v240.Skeleton, {
+      }, [_v19, _v20, _v21, _v22, _v12, _v3, _v1?.privacy.view, _v12, _v0]), !_v1 || !_v7 || !_v6 || !_v10 || _v2 || _v20 || _v24) return (0, _v25.jsx)(_v241.Skeleton, {
         height: (0, _v30.rem)(67)
       });
       if (!_v4) {
@@ -14608,7 +14608,7 @@
       }
       return (0, _v25.jsxs)(_v432.Stack, {
         gap: "1rem",
-        children: [(0, _v25.jsx)(_v239.Box, {
+        children: [(0, _v25.jsx)(_v240.Box, {
           borderRadius: "input-md",
           transition: "all 120ms ease-in-out 0s",
           outlineColor: "input-stroke !important",
@@ -14684,10 +14684,10 @@
         } = _v339(),
         {
           trackDistributeContentClick: _v4
-        } = _v274(),
+        } = _v275(),
         {
           trackRecordingShareActionClicked: _v5
-        } = (0, _v45.useRecordingTracking)(),
+        } = (0, _v46.useRecordingTracking)(),
         _v6 = (0, _v26.useCallback)(async () => {
           _v1?.link && (_v4(), _v5({
             recordingShareAction: "copy_link"
@@ -14697,10 +14697,10 @@
             title: _v434.copyLinkErrorMessage
           }));
         }, [_v1?.link, _v4, _v5]);
-      return _v2 || !_v1?.link ? (0, _v25.jsx)(_v240.Skeleton, {
+      return _v2 || !_v1?.link ? (0, _v25.jsx)(_v241.Skeleton, {
         height: (0, _v30.rem)(40),
         mt: "md"
-      }) : (0, _v25.jsxs)(_v235.Button, {
+      }) : (0, _v25.jsxs)(_v236.Button, {
         mt: "md",
         width: "100%",
         variant: "primary",
@@ -14721,7 +14721,7 @@
       let _v6 = (0, _v25.jsxs)(_v29.VStack, {
         gap: "2",
         width: (0, _v30.rem)(72),
-        children: [(0, _v25.jsx)(_v247.IconButton, {
+        children: [(0, _v25.jsx)(_v248.IconButton, {
           "aria-label": _v2,
           isDisabled: _v1,
           onClick: _v0,
@@ -14735,14 +14735,14 @@
             }
           },
           ..._v5
-        }), (0, _v25.jsx)(_v234.Text, {
+        }), (0, _v25.jsx)(_v235.Text, {
           variant: "body-md",
           textAlign: "center",
           opacity: _v1 ? .5 : 1,
           children: _v2
         })]
       });
-      return _v4 ? (0, _v25.jsx)(_v241.Tooltip, {
+      return _v4 ? (0, _v25.jsx)(_v242.Tooltip, {
         placement: "top",
         label: _v4,
         children: _v6
@@ -14755,19 +14755,19 @@
         } = _v339(),
         {
           trackRecordingShareActionClicked: _v2
-        } = (0, _v45.useRecordingTracking)(),
+        } = (0, _v46.useRecordingTracking)(),
         {
           trackOpenVideoManagePageClick: _v3
-        } = _v274(),
+        } = _v275(),
         {
           currentSessionId: _v4
-        } = _v272(),
-        _v5 = _v140("PostRecording"),
+        } = _v273(),
+        _v5 = _v141("PostRecording"),
         _v6 = _v303(),
         _v7 = _v439(),
         {
           redirectToSVV: _v8
-        } = (_v0 = (0, _v285.useRouter)(), {
+        } = (_v0 = (0, _v286.useRouter)(), {
           redirectToSVV: (0, _v26.useCallback)(async ({
             retakeOnSvv: _v0,
             videoLink: _v1,
@@ -14784,7 +14784,7 @@
           }, [_v0])
         }),
         _v9 = _v309(_v0 => _v0.reset),
-        _v10 = (0, _v89.useUIStore)(_v0 => _v0.common.setState),
+        _v10 = (0, _v90.useUIStore)(_v0 => _v0.common.setState),
         _v11 = _v341(),
         _v12 = (0, _v26.useCallback)(async () => {
           if (_v11 && _v3(_v11), _v2({
@@ -14799,7 +14799,7 @@
             }), _v9(), _v10("pre-recording");
           } catch (_v0) {
             _v5.error(_v0, {
-              category: _v123.UNEXPECTED,
+              category: _v124.UNEXPECTED,
               method: "openManagePageHandler",
               component: "PostRecording",
               data: {
@@ -14810,7 +14810,7 @@
           }
         }, [_v5, _v11, _v1?.manageLink, _v3, _v8, _v7, _v6, _v4, _v9, _v10, _v2]);
       return _v1?.manageLink ? (0, _v25.jsx)(_v451, {
-        icon: (0, _v25.jsx)(_v279.SettingsGear, {}),
+        icon: (0, _v25.jsx)(_v280.SettingsGear, {}),
         title: _v434.manageAction,
         onClick: _v12,
         "data-testid": "record-studio-post-recording-video-manage-button"
@@ -14822,13 +14822,13 @@
     _v456 = _v0.i(0),
     _v457 = _v0.i(0);
   let _v458 = () => {
-      let _v0 = _v140("PostRecordingPreview"),
+      let _v0 = _v141("PostRecordingPreview"),
         {
           video: _v1
         } = _v339(),
         {
           trackPostRecordingPreviewClick: _v2
-        } = _v274(),
+        } = _v275(),
         [_v3, _v4] = (0, _v26.useState)(!1),
         _v5 = (0, _v456.getPlayerAssetUrls)()?.player_api_js ?? null,
         [_v6] = (0, _v455.useMediaQuery)(`(min-height: ${(0, _v30.rem)(580)})`),
@@ -14880,7 +14880,7 @@
           onPlay: _v8,
           src: _v1?.playerEmbedUrl
         }) : (0, _v25.jsx)(_v454.Center, {
-          children: (0, _v25.jsx)(_v250.Spinner, {
+          children: (0, _v25.jsx)(_v251.Spinner, {
             size: "lg"
           })
         })]
@@ -14890,7 +14890,7 @@
 
   ${_v434.retakeConfirmationText}
 
-  ${_v237.infoDialog.cancel}
+  ${_v238.infoDialog.cancel}
 
   ${_v434.retakeConfirmationConfirmAction}`,
     _v460 = ({
@@ -14901,7 +14901,7 @@
     }) => {
       let {
           trackRetakeVideoNotificationImpression: _v4
-        } = _v274(),
+        } = _v275(),
         _v5 = _v341();
       return ((0, _v26.useEffect)(() => {
         _v5 && _v0 && _v4(_v5, _v459);
@@ -14912,7 +14912,7 @@
         onCancel: _v1,
         onClose: _v1,
         disabled: _v3,
-        buttons: [(0, _v25.jsx)(_v235.Button, {
+        buttons: [(0, _v25.jsx)(_v236.Button, {
           "data-testid": _v329,
           onClick: _v2,
           isDisabled: _v3,
@@ -14924,14 +14924,14 @@
     _v461 = ({
       onConfirm: _v0
     }) => {
-      let _v1 = _v140("PostRecordingRetakeActionButton"),
+      let _v1 = _v141("PostRecordingRetakeActionButton"),
         _v2 = _v341(),
         {
           settings: _v3
-        } = (0, _v288.useOrionSettings)(),
+        } = (0, _v32.useOrionSettings)(),
         {
           trackRecordingShareActionClicked: _v4
-        } = (0, _v45.useRecordingTracking)(),
+        } = (0, _v46.useRecordingTracking)(),
         [_v5, _v6] = (0, _v26.useState)(!1),
         [_v7, {
           loading: _v8,
@@ -14940,7 +14940,7 @@
         {
           trackRetakeVideoNotificationConfirmation: _v10,
           trackRetakeRecordingClick: _v11
-        } = _v274(),
+        } = _v275(),
         _v12 = (0, _v26.useCallback)(() => {
           _v2 && _v11(_v2), _v4({
             recordingShareAction: "retake"
@@ -15004,7 +15004,7 @@
           }),
           {
             trackOpenVideoEditorClick: _v4
-          } = _v274(),
+          } = _v275(),
           _v5 = _v1?.isPlayable,
           _v6 = _v1?.status !== "available" && !_v5,
           _v7 = _v1?.editSession,
@@ -15015,7 +15015,7 @@
           _v12 = _v8?.editSessionVsid,
           _v13 = _v10?.createEditor?.uri,
           _v14 = _v8?.connections?.versions?.createStoryboardId,
-          _v15 = (0, _v285.useRouter)(),
+          _v15 = (0, _v286.useRouter)(),
           {
             data: {
               data: _v16 = null
@@ -15049,7 +15049,7 @@
       })(_v341()),
       {
         trackRecordingShareActionClicked: _v4
-      } = (0, _v45.useRecordingTracking)(),
+      } = (0, _v46.useRecordingTracking)(),
       _v5 = !!_v0?.spatial?.stereoFormat,
       _v6 = _v5 || !_v3,
       _v7 = (0, _v26.useMemo)(() => _v2 || _v3 ? null : _v5 ? _v434.trimActionTooltip360 : _v3 ? null : _v434.trimActionTooltipTrimmed, [_v3, _v5, _v2, !1]);
@@ -15074,11 +15074,11 @@
           isVideoLoading: _v3
         } = _v339(),
         _v4 = _v340(),
-        _v5 = _v140("PostRecordingVideoTitle"),
+        _v5 = _v141("PostRecordingVideoTitle"),
         _v6 = _v341(),
         {
           trackChangeVideoTitleClick: _v7
-        } = _v274(),
+        } = _v275(),
         _v8 = (0, _v438.useToast)(),
         {
           patchVideoTitle: _v9,
@@ -15159,7 +15159,7 @@
         }, [_v19, _v15]),
         _v22 = (0, _v26.useCallback)(() => _v18(!0), []),
         _v23 = 0 === _v15.length || _v15.length > 128;
-      return _v3 || !_v14 ? (0, _v25.jsx)(_v240.Skeleton, {
+      return _v3 || !_v14 ? (0, _v25.jsx)(_v241.Skeleton, {
         height: (0, _v30.rem)(40)
       }) : (0, _v25.jsxs)(_v432.Stack, {
         alignItems: "end",
@@ -15174,7 +15174,7 @@
           "data-testid": "record-studio-post-recording-video-title"
         }), (0, _v25.jsx)(_v432.Stack, {
           height: (0, _v30.rem)(16),
-          children: (_v17 || _v23) && (0, _v25.jsx)(_v234.Text, {
+          children: (_v17 || _v23) && (0, _v25.jsx)(_v235.Text, {
             variant: "body-sm",
             color: "text-secondary",
             children: `${_v15.length}/128`
@@ -15182,14 +15182,14 @@
         })]
       });
     },
-    _v469 = [_v54, _v53],
+    _v469 = [_v55, _v54],
     _v470 = () => {
-      let _v0 = _v140("PostRecordingRoot"),
+      let _v0 = _v141("PostRecordingRoot"),
         _v1 = _v340(),
         {
           trackClosePostRecordingModalClick: _v2,
           trackPostRecordingModalImpression: _v3
-        } = _v274(),
+        } = _v275(),
         {
           activateScreen: _v4
         } = _v433();
@@ -15214,17 +15214,17 @@
           setAppState: _v6,
           setControlsAction: _v7,
           appState: _v8
-        } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+        } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
           setAppState: _v0.common.setState,
           appState: _v0.common.state,
           setControlsAction: _v0.controls.setControlsAction
         })));
       (_v0 => {
-        let _v1 = _v87(_v0 => _v0.update),
+        let _v1 = _v88(_v0 => _v0.update),
           {
             postRecordingCsatLastSeen: _v2,
             recordingsCompleted: _v3
-          } = _v87((0, _v27.useShallow)(_v0 => ({
+          } = _v88((0, _v27.useShallow)(_v0 => ({
             recordingsCompleted: _v0.stats.recordingsCompleted,
             postRecordingCsatLastSeen: _v0.csat.postRecordingLastSeen
           }))),
@@ -15262,8 +15262,8 @@
           currentSessionData: {
             lastLayoutTypeUsed: _v15
           }
-        } = _v272(),
-        _v16 = _v178(_v0 => _v0.displayMedia),
+        } = _v273(),
+        _v16 = _v179(_v0 => _v0.displayMedia),
         _v17 = (0, _v26.useCallback)(() => {
           _v5 && _v2(_v5), _v1({
             type: "clearState"
@@ -15283,14 +15283,14 @@
             processingDurationUploadFinished: _v0,
             processingDurationRecordingStopped: _v1
           };
-          _v127("record_studio_recording_became_playable", _v0), _v208({
+          _v128("record_studio_recording_became_playable", _v0), _v209({
             name: "recordingBecamePlayable",
             ..._v0
           });
         }
       }, [_v8, _v5, _v0, _v3, _v10, _v11, _v12, _v13, _v14]);
       let _v18 = (0, _v26.useCallback)(async () => {
-        (_v17(), !_v469.includes(_v15) || _v16 || (await _v4()) || _v15 !== _v53) ? _v7("record", "other") : _v0.debug('user decided not to re-share screen after "retake" action, there\'s nothing to record');
+        (_v17(), !_v469.includes(_v15) || _v16 || (await _v4()) || _v15 !== _v54) ? _v7("record", "other") : _v0.debug('user decided not to re-share screen after "retake" action, there\'s nothing to record');
       }, [_v17, _v15, _v16, _v7, _v4, _v0]);
       return "endScreenShown" !== _v8 ? null : (0, _v25.jsxs)(_v316.Modal, {
         isOpen: !0,
@@ -15305,7 +15305,7 @@
           display: "flex",
           flexDirection: "column",
           children: [(0, _v25.jsx)(_v321.ModalHeader, {
-            children: (0, _v25.jsx)(_v234.Text, {
+            children: (0, _v25.jsx)(_v235.Text, {
               variant: "heading-md",
               children: _v434.title
             })
@@ -15327,12 +15327,12 @@
                 width: "100%",
                 gap: "0",
                 children: [(0, _v25.jsxs)(_v432.Stack, {
-                  children: [(0, _v25.jsx)(_v234.Text, {
+                  children: [(0, _v25.jsx)(_v235.Text, {
                     variant: "heading-xs",
                     children: _v434.videoTitleLabel
                   }), (0, _v25.jsx)(_v468, {})]
                 }), (0, _v25.jsxs)(_v432.Stack, {
-                  children: [(0, _v25.jsx)(_v234.Text, {
+                  children: [(0, _v25.jsx)(_v235.Text, {
                     variant: "heading-xs",
                     children: _v434.privacyLabel
                   }), (0, _v25.jsx)(_v447, {})]
@@ -15373,11 +15373,11 @@
         top: _v1.y,
         "data-testid": _v4,
         ref: _v5,
-        children: (0, _v25.jsx)(_v243.Menu, {
+        children: (0, _v25.jsx)(_v244.Menu, {
           isOpen: !0,
-          children: (0, _v25.jsx)(_v245.MenuList, {
+          children: (0, _v25.jsx)(_v246.MenuList, {
             width: _v3,
-            children: _v0.map(_v0 => (0, _v25.jsxs)(_v244.MenuItem, {
+            children: _v0.map(_v0 => (0, _v25.jsxs)(_v245.MenuItem, {
               isDisabled: _v0.isDisabled,
               "data-testid": _v0.testId,
               onClick: _v0.onClick,
@@ -15406,7 +15406,7 @@
         _v9 = (0, _v26.useCallback)(() => {
           _v6(null), _v4(!1);
         }, []);
-      return (0, _v25.jsxs)(_v239.Box, {
+      return (0, _v25.jsxs)(_v240.Box, {
         width: "100%",
         height: "100%",
         userSelect: "none",
@@ -15464,7 +15464,7 @@
     },
     _v478 = ({
       children: _v0
-    }) => _v210(_v0 => !_v0.permissions.audio && !_v0.permissions.video) ? (0, _v25.jsx)(_v240.Skeleton, {
+    }) => _v211(_v0 => !_v0.permissions.audio && !_v0.permissions.video) ? (0, _v25.jsx)(_v241.Skeleton, {
       "data-testid": "record-studio-preview-spinner",
       height: "100%",
       borderRadius: "inherit"
@@ -15475,8 +15475,8 @@
     _v480 = _v0.i(0),
     _v481 = _v0.i(0);
   let _v482 = {
-      [_v56]: {
-        text: (0, _v236.translate)({
+      [_v57]: {
+        text: (0, _v237.translate)({
           singular: "Landscape",
           dictionary: {
             es: {
@@ -15509,7 +15509,7 @@
         })
       },
       "1:1": {
-        text: (0, _v236.translate)({
+        text: (0, _v237.translate)({
           singular: "Square",
           dictionary: {
             es: {
@@ -15541,8 +15541,8 @@
           boxSize: "xs"
         })
       },
-      [_v57]: {
-        text: (0, _v236.translate)({
+      [_v58]: {
+        text: (0, _v237.translate)({
           singular: "Portrait",
           dictionary: {
             es: {
@@ -15582,7 +15582,7 @@
       onClick: _v5,
       dataTestId: _v6,
       sx: _v7
-    }, _v8) => (0, _v25.jsx)(_v235.Button, {
+    }, _v8) => (0, _v25.jsx)(_v236.Button, {
       ref: _v8,
       "data-testid": _v6,
       variant: "tertiary",
@@ -15600,7 +15600,7 @@
       children: _v4
     })),
     _v485 = (0, _v26.forwardRef)((_v0, _v1) => {
-      let _v2 = _v85(_v0 => _v0.aspectRatio);
+      let _v2 = _v86(_v0 => _v0.aspectRatio);
       return (0, _v25.jsx)(_v484, {
         dataTestId: _v552.ASPECT_RATIO_BUTTON,
         sx: {
@@ -15619,7 +15619,7 @@
     title: _v2,
     isSelected: _v3
   }) {
-    return (0, _v25.jsxs)(_v235.Button, {
+    return (0, _v25.jsxs)(_v236.Button, {
       justifyContent: "space-between",
       variant: "tertiary",
       width: "100%",
@@ -15627,20 +15627,20 @@
       gap: "lg",
       onClick: _v0,
       children: [(0, _v25.jsxs)(_v351.HStack, {
-        children: [_v1, (0, _v25.jsx)(_v251.Paragraph, {
+        children: [_v1, (0, _v25.jsx)(_v252.Paragraph, {
           size: "md",
           children: _v2
         })]
       }), _v3 ? (0, _v25.jsx)(_v486.CheckSmall, {
         boxSize: "xs"
-      }) : (0, _v25.jsx)(_v239.Box, {
+      }) : (0, _v25.jsx)(_v240.Box, {
         boxSize: "xs"
       })]
     });
   }
   let _v488 = {
     aspectRatio: {
-      header: (0, _v236.translate)({
+      header: (0, _v237.translate)({
         singular: "Ratio",
         dictionary: {
           es: {
@@ -15668,7 +15668,7 @@
       })
     },
     backdrop: {
-      gradient: (0, _v236.translate)({
+      gradient: (0, _v237.translate)({
         singular: "Gradient",
         dictionary: {
           es: {
@@ -15694,7 +15694,7 @@
           }
         }
       }),
-      solid: (0, _v236.translate)({
+      solid: (0, _v237.translate)({
         singular: "Solid",
         dictionary: {
           es: {
@@ -15720,7 +15720,7 @@
           }
         }
       }),
-      tooltip: (0, _v236.translate)({
+      tooltip: (0, _v237.translate)({
         singular: "Canvas color",
         dictionary: {
           es: {
@@ -15748,7 +15748,7 @@
       })
     },
     layout: {
-      button: (0, _v236.translate)({
+      button: (0, _v237.translate)({
         singular: "Layout",
         dictionary: {
           es: {
@@ -15768,7 +15768,7 @@
           }
         }
       }),
-      header: (0, _v236.translate)({
+      header: (0, _v237.translate)({
         singular: "Layout",
         dictionary: {
           es: {
@@ -15788,7 +15788,7 @@
           }
         }
       }),
-      camera: (0, _v236.translate)({
+      camera: (0, _v237.translate)({
         singular: "Camera only",
         dictionary: {
           es: {
@@ -15814,7 +15814,7 @@
           }
         }
       }),
-      screen: (0, _v236.translate)({
+      screen: (0, _v237.translate)({
         singular: "Screen only",
         dictionary: {
           es: {
@@ -15840,7 +15840,7 @@
           }
         }
       }),
-      both: (0, _v236.translate)({
+      both: (0, _v237.translate)({
         singular: "Camera + screen",
         dictionary: {
           es: {
@@ -15868,7 +15868,7 @@
       })
     },
     shape: {
-      header: (0, _v236.translate)({
+      header: (0, _v237.translate)({
         singular: "Shape",
         dictionary: {
           es: {
@@ -15894,7 +15894,7 @@
           }
         }
       }),
-      circleTooltip: (0, _v236.translate)({
+      circleTooltip: (0, _v237.translate)({
         singular: "Round",
         dictionary: {
           es: {
@@ -15920,7 +15920,7 @@
           }
         }
       }),
-      tooltip: (0, _v236.translate)({
+      tooltip: (0, _v237.translate)({
         singular: "Shape",
         dictionary: {
           es: {
@@ -15948,7 +15948,7 @@
       })
     },
     crop: {
-      header: (0, _v236.translate)({
+      header: (0, _v237.translate)({
         singular: "Crop ratio",
         dictionary: {
           es: {
@@ -15974,7 +15974,7 @@
           }
         }
       }),
-      tooltip: (0, _v236.translate)({
+      tooltip: (0, _v237.translate)({
         singular: "Crop",
         dictionary: {
           es: {
@@ -16002,7 +16002,7 @@
       })
     },
     flip: {
-      header: (0, _v236.translate)({
+      header: (0, _v237.translate)({
         singular: "Flip",
         dictionary: {
           es: {
@@ -16025,7 +16025,7 @@
           }
         }
       }),
-      verticallyTooltip: (0, _v236.translate)({
+      verticallyTooltip: (0, _v237.translate)({
         singular: "Flip vertically",
         dictionary: {
           es: {
@@ -16051,7 +16051,7 @@
           }
         }
       }),
-      horizontallyTooltip: (0, _v236.translate)({
+      horizontallyTooltip: (0, _v237.translate)({
         singular: "Flip horizontally",
         dictionary: {
           es: {
@@ -16079,7 +16079,7 @@
       })
     },
     effects: {
-      button: (0, _v236.translate)({
+      button: (0, _v237.translate)({
         singular: "Effects",
         dictionary: {
           es: {
@@ -16108,7 +16108,7 @@
     },
     soundwave: {
       tooltips: {
-        color: (0, _v236.translate)({
+        color: (0, _v237.translate)({
           singular: "Color",
           dictionary: {
             "de-DE": {
@@ -16131,7 +16131,7 @@
             }
           }
         }),
-        lines: (0, _v236.translate)({
+        lines: (0, _v237.translate)({
           singular: "Lines",
           dictionary: {
             es: {
@@ -16157,7 +16157,7 @@
             }
           }
         }),
-        shadow: (0, _v236.translate)({
+        shadow: (0, _v237.translate)({
           singular: "Drop shadow",
           dictionary: {
             es: {
@@ -16184,7 +16184,7 @@
           }
         })
       },
-      weightTitle: (0, _v236.translate)({
+      weightTitle: (0, _v237.translate)({
         singular: "Line weight",
         dictionary: {
           es: {
@@ -16210,7 +16210,7 @@
           }
         }
       }),
-      countTitle: (0, _v236.translate)({
+      countTitle: (0, _v237.translate)({
         singular: "Number of lines",
         dictionary: {
           es: {
@@ -16236,7 +16236,7 @@
           }
         }
       }),
-      shadowTitle: (0, _v236.translate)({
+      shadowTitle: (0, _v237.translate)({
         singular: "Drop shadow",
         dictionary: {
           es: {
@@ -16322,7 +16322,7 @@
       dataTestId: _v7,
       sx: _v8
     }, _v9) => {
-      let _v10 = (0, _v25.jsx)(_v247.IconButton, {
+      let _v10 = (0, _v25.jsx)(_v248.IconButton, {
         ref: _v9,
         "data-testid": _v7,
         size: "sm",
@@ -16335,7 +16335,7 @@
         onClick: _v4,
         sx: _v8
       });
-      return _v5 ? (0, _v25.jsx)(_v241.Tooltip, {
+      return _v5 ? (0, _v25.jsx)(_v242.Tooltip, {
         label: _v5,
         fontSize: "text-sm",
         placement: _v6 ?? "bottom",
@@ -16350,12 +16350,12 @@
       let {
           backdrop: _v4,
           setBackdrop: _v5
-        } = _v85((0, _v27.useShallow)(_v0 => ({
+        } = _v86((0, _v27.useShallow)(_v0 => ({
           backdrop: _v0.backdrop,
           setBackdrop: _v0.setBackdrop
         }))),
         _v6 = (0, _v26.useCallback)(_v0 => {
-          _v5(_v0), _v51({
+          _v5(_v0), _v52({
             name: "select_canvas_color",
             eventType: "click",
             location: "top_toolbar"
@@ -16386,9 +16386,9 @@
       background: _v0,
       tooltip: _v1,
       ..._v2
-    }) => (0, _v25.jsx)(_v241.Tooltip, {
+    }) => (0, _v25.jsx)(_v242.Tooltip, {
       label: _v1,
-      children: (0, _v25.jsx)(_v247.IconButton, {
+      children: (0, _v25.jsx)(_v248.IconButton, {
         size: "sm",
         width: "sm",
         variant: "tertiary",
@@ -16470,7 +16470,7 @@
     }),
     _v503 = [{
       color: "#0E1216",
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Black",
         dictionary: {
           es: {
@@ -16495,7 +16495,7 @@
       })
     }, {
       color: "#252D35",
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Dark gray",
         dictionary: {
           es: {
@@ -16523,7 +16523,7 @@
       })
     }, {
       color: "#68727C",
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Gray",
         dictionary: {
           es: {
@@ -16551,7 +16551,7 @@
       })
     }, {
       color: "#CBD5E0",
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Light gray",
         dictionary: {
           es: {
@@ -16579,7 +16579,7 @@
       })
     }, {
       color: "#F4F6F8",
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "White",
         dictionary: {
           es: {
@@ -16604,7 +16604,7 @@
       })
     }, {
       color: "#17D5FF",
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Blue",
         dictionary: {
           es: {
@@ -16632,7 +16632,7 @@
       })
     }, {
       color: "#8A5EE8",
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Purple",
         dictionary: {
           es: {
@@ -16660,7 +16660,7 @@
       })
     }, {
       color: "#F56565",
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Red",
         dictionary: {
           es: {
@@ -16688,7 +16688,7 @@
       })
     }, {
       color: "#ECC94B",
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Yellow",
         dictionary: {
           es: {
@@ -16716,7 +16716,7 @@
       })
     }, {
       color: "#48BB78",
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Green",
         dictionary: {
           es: {
@@ -16745,7 +16745,7 @@
     }],
     _v504 = [{
       color: ["#181E24", "#3D4751"],
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Midnight black",
         dictionary: {
           es: {
@@ -16773,7 +16773,7 @@
       })
     }, {
       color: ["#68727C", "#97A1AD"],
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Spaceship gray",
         dictionary: {
           es: {
@@ -16801,7 +16801,7 @@
       })
     }, {
       color: ["#CBD5E0", "#E4E9EF"],
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Moonlight silver",
         dictionary: {
           es: {
@@ -16829,7 +16829,7 @@
       })
     }, {
       color: ["#FFC2A3", "#C4F4FF"],
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Dandelion white",
         dictionary: {
           es: {
@@ -16857,7 +16857,7 @@
       })
     }, {
       color: ["#4299E1", "#FEEBCB"],
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Sky blue",
         dictionary: {
           es: {
@@ -16885,7 +16885,7 @@
       })
     }, {
       color: ["#0088A6", "#743ED9"],
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Ocean blue",
         dictionary: {
           es: {
@@ -16913,7 +16913,7 @@
       })
     }, {
       color: ["#8A5EE8", "#FEB2B2"],
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Twilight pink",
         dictionary: {
           es: {
@@ -16941,7 +16941,7 @@
       })
     }, {
       color: ["#68D391", "#66E3FF"],
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Turquoise blue",
         dictionary: {
           es: {
@@ -16969,7 +16969,7 @@
       })
     }, {
       color: ["#17D5FF", "#F6AD55"],
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Dawn blue",
         dictionary: {
           es: {
@@ -16997,7 +16997,7 @@
       })
     }, {
       color: ["#F56565", "#FFA575"],
-      name: (0, _v236.translate)({
+      name: (0, _v237.translate)({
         singular: "Sunset orange",
         dictionary: {
           es: {
@@ -17031,7 +17031,7 @@
       color: `linear-gradient(to left bottom, ${_v0} 0%, ${_v1} 100%)`,
       name: _v2
     })),
-    _v506 = (0, _v236.translate)({
+    _v506 = (0, _v237.translate)({
       singular: "Custom",
       dictionary: {
         es: {
@@ -17143,7 +17143,7 @@
       });
     };
   var _v508 = _v0.i(0);
-  let _v509 = _v0 => (0, _v25.jsx)(_v276.Icon, {
+  let _v509 = _v0 => (0, _v25.jsx)(_v277.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -17181,7 +17181,7 @@
             setCropRatio: _v0,
             selectedAsset: _v1,
             croppedAssetConfig: _v2
-          } = _v85((0, _v27.useShallow)(_v0 => ({
+          } = _v86((0, _v27.useShallow)(_v0 => ({
             setCropRatio: _v0.setForcedCropRatio,
             selectedAsset: _v0.selectedAsset,
             croppedAssetConfig: _v0.croppedAssetConfig
@@ -17218,7 +17218,7 @@
     _v512 = (0, _v26.forwardRef)((_v0, _v1) => (0, _v25.jsx)(_v484, {
       ref: _v1,
       text: _v488.effects.button,
-      leftIcon: (0, _v25.jsx)(_v43.MagicWand, {
+      leftIcon: (0, _v25.jsx)(_v44.MagicWand, {
         boxSize: _v553
       }),
       ..._v0
@@ -17237,7 +17237,7 @@
     _v516 = _v0.i(0);
   let _v517 = (_v0, _v1) => "bottom" === _v0 ? "left" === _v1 ? "bl" : "br" : "left" === _v1 ? "tl" : "tr",
     _v518 = {
-      [_v56]: {
+      [_v57]: {
         width: (0, _v30.rem)(140),
         height: (0, _v30.rem)(80)
       },
@@ -17245,7 +17245,7 @@
         width: (0, _v30.rem)(80),
         height: (0, _v30.rem)(80)
       },
-      [_v57]: {
+      [_v58]: {
         width: (0, _v30.rem)(80),
         height: (0, _v30.rem)(140)
       }
@@ -17256,7 +17256,7 @@
       selected: _v2,
       children: _v3
     }) => {
-      let _v4 = _v518[_v85(_v0 => _v0.aspectRatio)],
+      let _v4 = _v518[_v86(_v0 => _v0.aspectRatio)],
         _v5 = _v0 => ({
           outline: "2px solid",
           outlineOffset: "2px",
@@ -17405,7 +17405,7 @@
                 return "row";
             }
           })(),
-          children: [(0, _v25.jsx)(_v239.Box, {
+          children: [(0, _v25.jsx)(_v240.Box, {
             ...("left" === _v3.side || "right" === _v3.side ? {
               width: "70%"
             } : {
@@ -17606,7 +17606,7 @@
         d: "M0.159624 51.5033C-0.60722 53.8232 1.50512 56 4.01161 56H52.1099C54.6164 56 56.5593 53.8232 55.7925 51.5033C52.0541 40.1934 41.0517 32 28.0608 32C15.0698 32 3.89805 40.1934 0.159624 51.5033Z"
       })]
     }),
-    _v525 = _v0 => (0, _v25.jsx)(_v276.Icon, {
+    _v525 = _v0 => (0, _v25.jsx)(_v277.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -17618,7 +17618,7 @@
       })
     });
   var _v526 = _v0.i(0);
-  let _v527 = _v0 => (0, _v25.jsx)(_v276.Icon, {
+  let _v527 = _v0 => (0, _v25.jsx)(_v277.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -17629,7 +17629,7 @@
         fill: "currentColor"
       })
     }),
-    _v528 = _v0 => (0, _v25.jsx)(_v276.Icon, {
+    _v528 = _v0 => (0, _v25.jsx)(_v277.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -17648,10 +17648,10 @@
       isActive: _v4,
       isDisabled: _v5,
       highlightBorders: _v6
-    }) => (0, _v25.jsx)(_v241.Tooltip, {
+    }) => (0, _v25.jsx)(_v242.Tooltip, {
       label: _v2,
       fontSize: "text-sm",
-      children: (0, _v25.jsx)(_v247.IconButton, {
+      children: (0, _v25.jsx)(_v248.IconButton, {
         onClick: () => _v3(_v0),
         isActive: _v4,
         isDisabled: _v5,
@@ -17668,11 +17668,11 @@
     _v530 = () => {
       let {
           trackRecordingLayoutFlipped: _v0
-        } = (0, _v45.useRecordingTracking)(),
+        } = (0, _v46.useRecordingTracking)(),
         {
           currentFlip: _v1,
           setLayoutFlip: _v2
-        } = _v85((0, _v27.useShallow)(_v0 => ({
+        } = _v86((0, _v27.useShallow)(_v0 => ({
           currentFlip: _v0.layoutFlip,
           setLayoutFlip: _v0.setLayoutFlip
         }))),
@@ -17685,7 +17685,7 @@
             _v2({
               horizontal: "right" === _v1.horizontal ? "left" : "right",
               vertical: _v1.vertical
-            }), _v51({
+            }), _v52({
               name: "change_canvas_layout_orientation",
               eventType: "click",
               location: "top_toolbar"
@@ -17705,7 +17705,7 @@
             _v2({
               horizontal: _v1.horizontal,
               vertical: _v0
-            }), _v51({
+            }), _v52({
               name: "change_canvas_layout_orientation",
               eventType: "click",
               location: "top_toolbar"
@@ -17740,7 +17740,7 @@
     displayName: "LayoutContent___StyledFlex",
     componentId: "sc-937e9984-0"
   })`${_v531}`;
-  let _v533 = _v0 => (0, _v25.jsx)(_v276.Icon, {
+  let _v533 = _v0 => (0, _v25.jsx)(_v277.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -17773,12 +17773,12 @@
     let {
         fillColor: _v4,
         setFillColor: _v5
-      } = _v218((0, _v27.useShallow)(_v0 => ({
+      } = _v219((0, _v27.useShallow)(_v0 => ({
         fillColor: _v0.fillColor,
         setFillColor: _v0.setFillColor
       }))),
       _v6 = (0, _v26.useCallback)(_v0 => {
-        _v5(_v0), _v51({
+        _v5(_v0), _v52({
           name: "select_soundwave_color",
           eventType: "click",
           location: "top_toolbar"
@@ -17850,12 +17850,12 @@
         let {
             backdrop: _v0,
             setBackdrop: _v1
-          } = _v85((0, _v27.useShallow)(_v0 => ({
+          } = _v86((0, _v27.useShallow)(_v0 => ({
             backdrop: _v0.backdrop,
             setBackdrop: _v0.setBackdrop
           }))),
           _v2 = (0, _v26.useCallback)(_v0 => {
-            _v1(_v0), _v51({
+            _v1(_v0), _v52({
               name: "select_canvas_color",
               eventType: "click",
               location: "top_toolbar"
@@ -17876,19 +17876,19 @@
         ..._v0
       }),
       content: () => {
-        let _v0 = _v140("AspectRatioContent"),
+        let _v0 = _v141("AspectRatioContent"),
           {
             trackRecordingRatioChanged: _v1
-          } = (0, _v45.useRecordingTracking)(),
+          } = (0, _v46.useRecordingTracking)(),
           {
             aspectRatio: _v2,
             setAspectRatio: _v3
-          } = _v85((0, _v27.useShallow)(_v0 => ({
+          } = _v86((0, _v27.useShallow)(_v0 => ({
             aspectRatio: _v0.aspectRatio,
             setAspectRatio: _v0.setAspectRatio
           }))),
           _v4 = (0, _v26.useCallback)(_v0 => {
-            _v3(_v0), _v51({
+            _v3(_v0), _v52({
               name: "select_canvas_ratio",
               eventType: "click",
               location: "top_toolbar",
@@ -17934,7 +17934,7 @@
       }) => {
         let {
             trackRecordingLayoutChanged: _v1
-          } = (0, _v45.useRecordingTracking)(),
+          } = (0, _v46.useRecordingTracking)(),
           {
             aspectRatio: _v2,
             layoutFlip: _v3,
@@ -17943,7 +17943,7 @@
             currentFlip: _v6,
             setCurrentLayoutKey: _v7,
             selectLayout: _v8
-          } = _v85((0, _v27.useShallow)(_v0 => ({
+          } = _v86((0, _v27.useShallow)(_v0 => ({
             aspectRatio: _v0.aspectRatio,
             layoutFlip: _v0.layoutFlip,
             selectedLayouts: _v0.selectedLayouts,
@@ -17953,15 +17953,15 @@
             selectLayout: _v0.selectLayout
           }))),
           _v9 = _v517(_v3.vertical, _v3.horizontal),
-          _v10 = _v140("Layout"),
-          _v11 = _v178(_v0 => !!_v0.displayMedia),
+          _v10 = _v141("Layout"),
+          _v11 = _v179(_v0 => !!_v0.displayMedia),
           {
             activateScreen: _v12,
             activateCamera: _v13,
             activateBoth: _v14
           } = _v433(),
           _v15 = _v0 => {
-            _v7(_v0.key), _v8(_v2, _v0.type, _v0), _v51({
+            _v7(_v0.key), _v8(_v2, _v0.type, _v0), _v52({
               name: "select_canvas_layout",
               eventType: "click",
               location: "top_toolbar",
@@ -18002,49 +18002,49 @@
               direction: "column",
               px: "200",
               gap: "200",
-              children: [(0, _v25.jsxs)(_v239.Box, {
-                children: [(0, _v25.jsx)(_v234.Text, {
+              children: [(0, _v25.jsxs)(_v240.Box, {
+                children: [(0, _v25.jsx)(_v235.Text, {
                   mb: "100",
                   variant: "heading-2xs",
                   children: _v488.layout.camera
                 }), (0, _v25.jsx)(_v501.SimpleGrid, {
                   columns: 2,
                   gap: "100",
-                  children: _v68[_v2].map(_v0 => (0, _v25.jsx)(_v522, {
+                  children: _v69[_v2].map(_v0 => (0, _v25.jsx)(_v522, {
                     selected: _v0.key === _v5,
                     onClick: () => _v17(_v0),
                     layout: _v0
                   }, _v0.key))
                 })]
-              }), (0, _v25.jsxs)(_v239.Box, {
-                children: [(0, _v25.jsx)(_v234.Text, {
+              }), (0, _v25.jsxs)(_v240.Box, {
+                children: [(0, _v25.jsx)(_v235.Text, {
                   mb: "100",
                   variant: "heading-2xs",
                   children: _v488.layout.screen
                 }), (0, _v25.jsx)(_v501.SimpleGrid, {
                   columns: 2,
                   gap: "100",
-                  children: _v69[_v2].map(_v0 => (0, _v25.jsx)(_v521, {
+                  children: _v70[_v2].map(_v0 => (0, _v25.jsx)(_v521, {
                     selected: _v0.key === _v5,
                     onClick: () => _v16(_v0),
                     layout: _v0
                   }, _v0.key))
                 })]
-              }), (0, _v25.jsxs)(_v239.Box, {
-                children: [(0, _v25.jsx)(_v234.Text, {
+              }), (0, _v25.jsxs)(_v240.Box, {
+                children: [(0, _v25.jsx)(_v235.Text, {
                   mb: "100",
                   variant: "heading-2xs",
                   children: _v488.layout.both
                 }), (0, _v25.jsx)(_v501.SimpleGrid, {
                   columns: 2,
                   gap: "100",
-                  children: _v67[_v2].map(_v0 => {
+                  children: _v68[_v2].map(_v0 => {
                     let _v1 = {
                       ..._v0
                     };
                     return "side" === _v0.cameraPosition ? _v1.side = "left" === _v0.side || "right" === _v0.side ? _v3.horizontal : _v3.vertical : _v1.corner = _v9, (0, _v25.jsx)(_v520, {
                       selected: _v0.key === _v5 && (() => {
-                        let _v0 = _v4[_v2][_v54];
+                        let _v0 = _v4[_v2][_v55];
                         switch (_v0.cameraPosition) {
                           case "corner":
                             {
@@ -18092,20 +18092,20 @@
         ..._v0
       }),
       content: () => {
-        let _v0 = _v140("ShapeContent"),
-          _v1 = _v85(_v0 => _v0.selectedAsset),
-          _v2 = _v85(_v0 => _v0.setCurrentLayoutKey),
+        let _v0 = _v141("ShapeContent"),
+          _v1 = _v86(_v0 => _v0.selectedAsset),
+          _v2 = _v86(_v0 => _v0.setCurrentLayoutKey),
           _v3 = function (_v0) {
             let {
               layoutDefinedShape: _v1,
               selectedShape: _v2
-            } = _v85((0, _v27.useShallow)(_v0 => ({
+            } = _v86((0, _v27.useShallow)(_v0 => ({
               layoutDefinedShape: _v0.currentLayout && _v0 ? _v0.selectedLayouts[_v0.aspectRatio][_v0.currentLayout].assetsShape[_v0] : void 0,
               selectedShape: _v0 ? _v0.assetsShapeOverride[_v0] : void 0
             })));
             return _v2 ?? _v1;
           }(_v1),
-          _v4 = _v85(_v0 => _v0.setShapeForAsset),
+          _v4 = _v86(_v0 => _v0.setShapeForAsset),
           _v5 = _v0 => {
             if (!_v1 || _v0 === _v3) return;
             let _v1 = _v3 === _v0 ? "source" : _v0;
@@ -18113,12 +18113,12 @@
               shapeToSet: _v1
             }), _v4(_v1, _v1), _v2(null);
           };
-        return (0, _v25.jsxs)(_v239.Box, {
+        return (0, _v25.jsxs)(_v240.Box, {
           children: [(0, _v25.jsx)(_v315.Header, {
             size: "xs",
             mb: "75",
             children: _v488.shape.header
-          }), (0, _v25.jsxs)(_v239.Box, {
+          }), (0, _v25.jsxs)(_v240.Box, {
             gap: "75",
             display: "flex",
             justifyContent: "space-between",
@@ -18176,12 +18176,12 @@
         let {
             fillColor: _v0,
             setFillColor: _v1
-          } = _v218((0, _v27.useShallow)(_v0 => ({
+          } = _v219((0, _v27.useShallow)(_v0 => ({
             fillColor: _v0.fillColor,
             setFillColor: _v0.setFillColor
           }))),
           _v2 = (0, _v26.useCallback)(_v0 => {
-            _v1(_v0), _v51({
+            _v1(_v0), _v52({
               name: "select_soundwave_color",
               eventType: "click",
               location: "top_toolbar"
@@ -18205,12 +18205,12 @@
         let {
             shadow: _v0,
             setShadow: _v1
-          } = _v218((0, _v27.useShallow)(_v0 => ({
+          } = _v219((0, _v27.useShallow)(_v0 => ({
             shadow: _v0.shadow,
             setShadow: _v0.setShadow
           }))),
           _v2 = (0, _v26.useCallback)(_v0 => {
-            _v1(_v0), _v51({
+            _v1(_v0), _v52({
               name: "select_soundwave_shadow",
               eventType: "click",
               location: "top_toolbar"
@@ -18227,7 +18227,7 @@
           }), (0, _v25.jsxs)(_v28.Flex, {
             justifyContent: "space-between",
             width: "100%",
-            children: [(0, _v25.jsx)(_v247.IconButton, {
+            children: [(0, _v25.jsx)(_v248.IconButton, {
               isActive: "none" === _v0,
               onClick: () => _v2("none"),
               borderColor: "stroke",
@@ -18236,7 +18236,7 @@
               variant: "tertiary",
               "aria-label": "no-shadow",
               icon: (0, _v25.jsx)(_v547.StopBanRight, {})
-            }), (0, _v25.jsx)(_v247.IconButton, {
+            }), (0, _v25.jsx)(_v248.IconButton, {
               isActive: "light" === _v0,
               onClick: () => _v2("light"),
               borderColor: "stroke",
@@ -18245,7 +18245,7 @@
               variant: "tertiary",
               "aria-label": "light-shadow",
               icon: (0, _v25.jsx)(_v545.DropShadowSoft, {})
-            }), (0, _v25.jsx)(_v247.IconButton, {
+            }), (0, _v25.jsx)(_v248.IconButton, {
               isActive: "medium" === _v0,
               onClick: () => _v2("medium"),
               borderColor: "stroke",
@@ -18254,7 +18254,7 @@
               variant: "tertiary",
               "aria-label": "medium-shadow",
               icon: (0, _v25.jsx)(_v543.DropShadowDefault, {})
-            }), (0, _v25.jsx)(_v247.IconButton, {
+            }), (0, _v25.jsx)(_v248.IconButton, {
               isActive: "strong" === _v0,
               onClick: () => _v2("strong"),
               border: "ActiveBorder",
@@ -18282,21 +18282,21 @@
             setWeight: _v1,
             wavesCount: _v2,
             setWavesCount: _v3
-          } = _v218((0, _v27.useShallow)(_v0 => ({
+          } = _v219((0, _v27.useShallow)(_v0 => ({
             weight: _v0.weight,
             setWeight: _v0.setWeight,
             wavesCount: _v0.count,
             setWavesCount: _v0.setCount
           }))),
           _v4 = (0, _v26.useCallback)(_v0 => {
-            _v1(_v0), _v51({
+            _v1(_v0), _v52({
               name: "select_soundwave_weight",
               eventType: "click",
               location: "top_toolbar"
             });
           }, [_v1]),
           _v5 = (0, _v26.useCallback)(_v0 => {
-            _v3(_v0), _v51({
+            _v3(_v0), _v52({
               name: "select_soundwave_count",
               eventType: "click",
               location: "top_toolbar"
@@ -18475,11 +18475,11 @@
             isDisabled: _v9
           })
         }), _v18 && (0, _v25.jsxs)(_v25.Fragment, {
-          children: [(0, _v25.jsx)(_v239.Box, {
+          children: [(0, _v25.jsx)(_v240.Box, {
             width: "1px",
             height: "100%",
             bgColor: "stroke"
-          }), (0, _v25.jsx)(_v247.IconButton, {
+          }), (0, _v25.jsx)(_v248.IconButton, {
             "aria-label": "check icon button",
             icon: (0, _v25.jsx)(_v560.CheckSmallFilled, {
               boxSize: _v553
@@ -18510,11 +18510,11 @@
       let {
           setActiveTool: _v2,
           activeTool: _v3
-        } = _v85((0, _v27.useShallow)(_v0 => ({
+        } = _v86((0, _v27.useShallow)(_v0 => ({
           setActiveTool: _v0.setActiveTool,
           activeTool: _v0.activeTool
         }))),
-        _v4 = _v87(_v0 => _v0.update);
+        _v4 = _v88(_v0 => _v0.update);
       return (0, _v25.jsx)(_v25.Fragment, {
         children: _v0.map((_v0, _v1) => {
           if ("separator" === _v0) return (0, _v25.jsx)(_v496.Divider, {
@@ -18573,7 +18573,7 @@
     _v564 = ({
       isDisabled: _v0
     }) => {
-      let _v1 = (0, _v89.useUIStore)(_v0 => _v0.common.state),
+      let _v1 = (0, _v90.useUIStore)(_v0 => _v0.common.state),
         _v2 = (0, _v26.useMemo)(() => {
           switch (_v1) {
             case "pre-recording":
@@ -18587,7 +18587,7 @@
               return !0;
           }
         }, [_v0, _v1]),
-        _v3 = _v85(_v0 => _v0.selectedAsset),
+        _v3 = _v86(_v0 => _v0.selectedAsset),
         _v4 = (0, _v26.useMemo)(() => {
           switch (_v3) {
             case "userMedia":
@@ -18622,7 +18622,7 @@
   var _v565 = _v0.i(0);
   let _v566 = {
     askForDeviceAccess: {
-      title: (0, _v236.translate)({
+      title: (0, _v237.translate)({
         singular: "Give Vimeo permission to record",
         dictionary: {
           es: {
@@ -18648,7 +18648,7 @@
           }
         }
       }),
-      description: (0, _v236.translate)({
+      description: (0, _v237.translate)({
         singular: "Allow access to your camera and microphone to start recording",
         dictionary: {
           es: {
@@ -18676,7 +18676,7 @@
       })
     },
     harmfulExtensionNotice: {
-      title: (0, _v236.translate)({
+      title: (0, _v237.translate)({
         singular: "Recording unavailable",
         dictionary: {
           es: {
@@ -18702,7 +18702,7 @@
           }
         }
       }),
-      buttonText: (0, _v236.translate)({
+      buttonText: (0, _v237.translate)({
         singular: "Refresh page",
         dictionary: {
           es: {
@@ -18728,7 +18728,7 @@
           }
         }
       }),
-      secondaryButtonText: (0, _v236.translate)({
+      secondaryButtonText: (0, _v237.translate)({
         singular: "Back to home",
         dictionary: {
           es: {
@@ -18754,7 +18754,7 @@
           }
         }
       }),
-      cta: (0, _v236.translate)({
+      cta: (0, _v237.translate)({
         singular: "Learn how to disable extensions",
         dictionary: {
           es: {
@@ -18780,12 +18780,12 @@
           }
         }
       }),
-      description: (0, _v236.translate)({
+      description: (0, _v237.translate)({
         singular: "Vimeo can’t record while the browser extension “{UNDERLINE}Downloader and ChatGPT Video Assistant{/UNDERLINE}” is active. Disable or remove it, then refresh this page to start recording.",
         replacements: {
-          UNDERLINE: _v0 => (0, _v25.jsx)(_v234.Text, {
+          UNDERLINE: _v0 => (0, _v25.jsx)(_v235.Text, {
             as: "a",
-            href: _v144,
+            href: _v145,
             textDecoration: "underline",
             variant: "body-md",
             children: _v0
@@ -18816,7 +18816,7 @@
         }
       })
     },
-    shareCameraScreenOrMic: (0, _v236.translate)({
+    shareCameraScreenOrMic: (0, _v237.translate)({
       singular: "To start recording, turn on your camera or microphone or share your screen",
       dictionary: {
         es: {
@@ -18848,7 +18848,7 @@
       gap: "75",
       children: [(0, _v25.jsx)(_v565.Plus, {
         mb: "100"
-      }), (0, _v25.jsx)(_v234.Text, {
+      }), (0, _v25.jsx)(_v235.Text, {
         maxWidth: "17rem",
         variant: "body-md",
         fontWeight: "medium",
@@ -18870,7 +18870,7 @@
         size: "md",
         "data-testid": "record-studio-unable-to-record-title",
         children: _v0.title
-      }), (0, _v25.jsx)(_v234.Text, {
+      }), (0, _v25.jsx)(_v235.Text, {
         textAlign: "center",
         variant: "body-md",
         fontWeight: "medium",
@@ -18883,8 +18883,8 @@
   var _v569 = _v0.i(0);
   function _v570(_v0) {
     let _v1 = _v431(),
-      _v2 = _v146();
-    return _v1 === _v174.CAMERA_AND_MIC_PERMISSION_DENIED_ERROR ? {
+      _v2 = _v147();
+    return _v1 === _v175.CAMERA_AND_MIC_PERMISSION_DENIED_ERROR ? {
       title: _v566.askForDeviceAccess.title,
       description: _v566.askForDeviceAccess.description
     } : _v2 ? {
@@ -18894,7 +18894,7 @@
       }),
       title: _v566.harmfulExtensionNotice.title,
       description: _v566.harmfulExtensionNotice.description,
-      cta: (0, _v25.jsx)(_v234.Text, {
+      cta: (0, _v25.jsx)(_v235.Text, {
         variant: "body-md",
         as: "a",
         "data-testid": "record-studio-unable-to-record-cta",
@@ -18902,7 +18902,7 @@
         textDecoration: "underline",
         children: _v566.harmfulExtensionNotice.cta
       }),
-      button: (0, _v25.jsx)(_v235.Button, {
+      button: (0, _v25.jsx)(_v236.Button, {
         mt: _v0 ? "xl" : void 0,
         width: _v0 ? "100%" : void 0,
         variant: "primary",
@@ -18910,7 +18910,7 @@
         onClick: () => window.location.reload(),
         children: _v566.harmfulExtensionNotice.buttonText
       }),
-      buttonSecondary: _v0 ? (0, _v25.jsx)(_v235.Button, {
+      buttonSecondary: _v0 ? (0, _v25.jsx)(_v236.Button, {
         width: _v0 ? "100%" : void 0,
         variant: "tertiary",
         size: "md",
@@ -18921,7 +18921,7 @@
     } : null;
   }
   let _v571 = () => {
-    let _v0 = _v146(),
+    let _v0 = _v147(),
       _v1 = _v570(!0);
     return _v1 ? (0, _v25.jsxs)(_v316.Modal, {
       isOpen: _v0,
@@ -18956,7 +18956,7 @@
   }
   var _v573 = _v0.i(0);
   function _v574() {
-    let _v0 = (0, _v129.useMemoryDataStorage)(_v0 => _v0.recordingThumbnail),
+    let _v0 = (0, _v130.useMemoryDataStorage)(_v0 => _v0.recordingThumbnail),
       [_v1, _v2] = (0, _v26.useState)(null);
     return (0, _v26.useEffect)(() => {
       if (_v0) {
@@ -18969,7 +18969,7 @@
     }, [_v0]), _v1;
   }
   let _v575 = {
-      showPreviewPip: (0, _v236.translate)({
+      showPreviewPip: (0, _v237.translate)({
         singular: "Pop out preview",
         dictionary: {
           es: {
@@ -18995,7 +18995,7 @@
           }
         }
       }),
-      hidePreviewPip: (0, _v236.translate)({
+      hidePreviewPip: (0, _v237.translate)({
         singular: "Bring preview back here",
         dictionary: {
           es: {
@@ -19021,7 +19021,7 @@
           }
         }
       }),
-      showGuides: (0, _v236.translate)({
+      showGuides: (0, _v237.translate)({
         singular: "Show guides",
         dictionary: {
           es: {
@@ -19047,7 +19047,7 @@
           }
         }
       }),
-      snapToGuides: (0, _v236.translate)({
+      snapToGuides: (0, _v237.translate)({
         singular: "Snap to guides",
         dictionary: {
           es: {
@@ -19073,7 +19073,7 @@
           }
         }
       }),
-      savingToLibrary: _v0 => (0, _v236.translate)({
+      savingToLibrary: _v0 => (0, _v237.translate)({
         singular: "Saving to {libraryName}",
         replacements: {
           libraryName: _v0
@@ -19102,7 +19102,7 @@
           }
         }
       }),
-      defaultLibraryName: (0, _v236.translate)({
+      defaultLibraryName: (0, _v237.translate)({
         singular: "your library",
         dictionary: {
           es: {
@@ -19147,7 +19147,7 @@
         textAlign: "center",
         flexFlow: "column",
         background: _v0 ? `linear-gradient(to right, ${_v576}, ${_v576}), center / cover url(${_v0})` : _v576,
-        children: [(0, _v25.jsx)(_v250.Spinner, {
+        children: [(0, _v25.jsx)(_v251.Spinner, {
           color: "white",
           size: "md"
         }), (0, _v25.jsx)(_v315.Header, {
@@ -19206,7 +19206,7 @@
         userMedia: null,
         displayMedia: null,
         soundwave: null
-      }, this.log = _v139.createForCategory("FabricSceneManager"), this.fabricInstance = new _v578.Canvas(this.canvasNode, {
+      }, this.log = _v140.createForCategory("FabricSceneManager"), this.fabricInstance = new _v578.Canvas(this.canvasNode, {
         selection: !1,
         preserveObjectStacking: !0,
         backgroundColor: "#000000",
@@ -19267,7 +19267,7 @@
     setObjectCrop(_v0, _v1) {
       let _v2 = this.renderedFabricNodes[_v0];
       _v2 || this.log.error(Error(`Asset "${_v0}" is not rendered`), {
-        category: _v123.CANVAS_CAPTURE,
+        category: _v124.CANVAS_CAPTURE,
         component: "FabricSceneManager",
         method: "setObjectCrop"
       }), _v2 && this.fabricInstance && _v580(this.fabricInstance, _v2, _v1);
@@ -19433,7 +19433,7 @@
       let _v3 = _v0.assetsShape[_v2],
         _v4 = _v1[_v2] ?? _v3;
       if (_v4) {
-        let _v0 = "userMedia" === _v2 && _v0.type === _v54 && "corner" === _v0.cameraPosition;
+        let _v0 = "userMedia" === _v2 && _v0.type === _v55 && "corner" === _v0.cameraPosition;
         return _v587(_v4, _v0.hasFrame, _v0);
       }
       return null;
@@ -19546,7 +19546,7 @@
       let {
           position: _v1,
           size: _v2
-        } = _v218.getState(),
+        } = _v219.getState(),
         _v3 = {
           width: _v2.width * _v0.width,
           height: _v2.height * _v0.height
@@ -19618,7 +19618,7 @@
     waveBarShadow = "none";
     canvas;
     soundAnalyser;
-    log = _v139.createForCategory("SoundWavesRenderer");
+    log = _v140.createForCategory("SoundWavesRenderer");
     destinationColumns = {};
     wavesToRender = {};
     canvasContext;
@@ -19630,12 +19630,12 @@
     cachedGradient = null;
     fillColorDirty = !0;
     constructor() {
-      this.soundAnalyser = new _v230({
+      this.soundAnalyser = new _v231({
         fftSize: this.defaultFftSize,
         smoothingTimeConstant: .2,
         minDecibels: -75,
         maxDecibels: -10
-      }), this.sounwaveStateSubscription = _v218.subscribe(({
+      }), this.sounwaveStateSubscription = _v219.subscribe(({
         fillColor: _v0,
         shadow: _v1,
         weight: _v2,
@@ -19818,7 +19818,7 @@
         userMedia: null,
         displayMedia: null,
         soundwave: null
-      }, this.layout = null, this.log = _v139.createForCategory("CanvasSceneManager"), this.renderTickFn = null, this.userMediaRenderFn = null, this.onAssetsUpdatedFn = null, this.assetShapeConfig = {}, this.assetVariants = ["displayMedia", "userMedia", "soundwave"], this.sceneManagerRenderer = new _v581(this.canvasNode);
+      }, this.layout = null, this.log = _v140.createForCategory("CanvasSceneManager"), this.renderTickFn = null, this.userMediaRenderFn = null, this.onAssetsUpdatedFn = null, this.assetShapeConfig = {}, this.assetVariants = ["displayMedia", "userMedia", "soundwave"], this.sceneManagerRenderer = new _v581(this.canvasNode);
     }
     dispose() {
       this.sceneManagerRenderer.dispose(), this.soundWaveRenderer?.dispose(), this.onAssetsUpdatedFn = null, this.renderTickFn = null, this.userMediaRenderFn = null;
@@ -19911,12 +19911,12 @@
             } : null
           };
           if (!_v3) return _v5;
-          let _v6 = _v141("getMediaAssets"),
-            _v7 = _v3.type === _v52 && !_v0,
-            _v8 = _v3.type === _v53 && !_v1,
-            _v9 = _v3.type === _v54 && (!_v1 || !_v0);
+          let _v6 = _v142("getMediaAssets"),
+            _v7 = _v3.type === _v53 && !_v0,
+            _v8 = _v3.type === _v54 && !_v1,
+            _v9 = _v3.type === _v55 && (!_v1 || !_v0);
           if (_v7 || _v8 || _v9) return _v6.error(Error("Wrong assets/layout combination - return no assets"), {
-            category: _v123.CANVAS_CAPTURE,
+            category: _v124.CANVAS_CAPTURE,
             method: "getMediaAssets",
             component: ""
           }), _v5;
@@ -19934,7 +19934,7 @@
                 },
                 {
                   assetsShapeOverride: _v5
-                } = _v85.getState(),
+                } = _v86.getState(),
                 _v6 = _v588(_v0, _v5, "displayMedia"),
                 _v7 = _v588(_v0, _v5, "userMedia"),
                 _v8 = _v7 ? _v589(_v3, _v7) : _v3,
@@ -20121,7 +20121,7 @@
               return _v5;
             default:
               return _v6.error(Error("Unknown layout type"), {
-                category: _v123.CANVAS_CAPTURE,
+                category: _v124.CANVAS_CAPTURE,
                 method: "getMediaAssets",
                 component: ""
               }), _v5;
@@ -20155,10 +20155,10 @@
       if (!this.layout || !this.canvasSize || this.assetShapeConfig === _v0) return;
       let _v1 = [];
       for (let [_v0, _v1] of (this.assetShapeConfig = _v0, Object.entries(this.renderedAssets))) {
-        if (_v55.includes(_v0)) continue;
+        if (_v56.includes(_v0)) continue;
         let _v0 = this.assetShapeConfig[_v0];
         if (!_v1 || !_v0) continue;
-        let _v1 = "userMedia" === _v0 && this.layout.type === _v54 && "corner" === this.layout.cameraPosition,
+        let _v1 = "userMedia" === _v0 && this.layout.type === _v55 && "corner" === this.layout.cameraPosition,
           _v2 = _v587(_v0, this.layout.hasFrame, _v1);
         if (_v1.crop?.type !== _v2) {
           let _v0 = _v594(_v1, _v2);
@@ -20176,24 +20176,24 @@
       this.sceneManagerRenderer.hideFullSizedItem(_v0);
     }
     handleResizeStop(_v0) {
-      if (_v85.getState().setCurrentLayoutKey(null), this.onAssetInteracted(_v0, "scale"), "soundwave" !== _v0) return;
+      if (_v86.getState().setCurrentLayoutKey(null), this.onAssetInteracted(_v0, "scale"), "soundwave" !== _v0) return;
       let _v1 = this.renderedAssets[_v0];
       if (!this.canvasSize || !_v1) return;
       let {
           setPosition: _v2,
           setSize: _v3
-        } = _v218.getState(),
+        } = _v219.getState(),
         _v4 = _v1.width * _v1.scale,
         _v5 = _v1.height * _v1.scale;
       _v3(_v599(_v4 / this.canvasSize.width, 0, 1), _v599(_v5 / this.canvasSize.height, 0, 1)), _v2(_v599((_v1.x + _v4 / 2) / this.canvasSize.width, 0, 1), _v599((_v1.y + _v5 / 2) / this.canvasSize.height, 0, 1)), this.updateSoundWaveAsset();
     }
     handleDragStop(_v0) {
-      if (_v85.getState().setCurrentLayoutKey(null), this.onAssetInteracted(_v0, "drag"), "soundwave" !== _v0) return;
+      if (_v86.getState().setCurrentLayoutKey(null), this.onAssetInteracted(_v0, "drag"), "soundwave" !== _v0) return;
       let _v1 = this.renderedAssets[_v0];
       if (!this.canvasSize || !_v1) return;
       let {
         setPosition: _v2
-      } = _v218.getState();
+      } = _v219.getState();
       _v2(_v599((_v1.x + _v1.width / 2) / this.canvasSize.width, 0, 1), _v599((_v1.y + _v1.height / 2) / this.canvasSize.height, 0, 1)), this.updateSoundWaveAsset();
     }
     updateSoundWaveAsset() {
@@ -20217,7 +20217,7 @@
         ..._v2,
         crop: _v1
       };
-      this.sceneManagerRenderer.applyAssetChanges(_v0, _v2, _v3, this.canvasSize, !1), _v51({
+      this.sceneManagerRenderer.applyAssetChanges(_v0, _v2, _v3, this.canvasSize, !1), _v52({
         name: "displayMedia" === _v2.type ? "crop_canvas_screen_share" : "crop_canvas_camera_share",
         eventType: "click",
         location: "top_toolbar"
@@ -20281,7 +20281,7 @@
     preset: _v0
   }) => {
     let _v1 = (0, _v601.useColorModeValue)("rgba(255, 255, 255, 0.3)", "rgba(61, 71, 81, 0.64)");
-    return (0, _v25.jsx)(_v239.Box, {
+    return (0, _v25.jsx)(_v240.Box, {
       borderRadius: "xs",
       top: "0",
       left: "0",
@@ -20293,7 +20293,7 @@
         backdropFilter: "blur(15px)"
       },
       backgroundColor: _v1,
-      children: (0, _v25.jsx)(_v234.Text, {
+      children: (0, _v25.jsx)(_v235.Text, {
         variant: "heading-2xs",
         color: "white",
         textAlign: "start",
@@ -20432,7 +20432,7 @@
         }
         return _v0;
       }, [_v2]);
-    return (0, _v25.jsx)(_v239.Box, {
+    return (0, _v25.jsx)(_v240.Box, {
       display: "none" !== _v4 ? "flex" : "none",
       pointerEvents: "all",
       ref: _v1,
@@ -20454,12 +20454,12 @@
         color: "fill-brand",
         zIndex: "9"
       }) : "crop" === _v4 ? (0, _v25.jsxs)(_v25.Fragment, {
-        children: [(0, _v25.jsx)(_v239.Box, {
+        children: [(0, _v25.jsx)(_v240.Box, {
           style: _v7.start,
           position: "absolute",
           backgroundColor: "fill-brand",
           zIndex: "9"
-        }), (0, _v25.jsx)(_v239.Box, {
+        }), (0, _v25.jsx)(_v240.Box, {
           style: _v7.end,
           position: "absolute",
           backgroundColor: "fill-brand",
@@ -20496,7 +20496,7 @@
       soundwave: .2
     };
   class _v613 {
-    log = _v139.createForCategory("DnDBoxChangesController");
+    log = _v140.createForCategory("DnDBoxChangesController");
     id;
     state;
     statesChangesQueue = [];
@@ -20572,7 +20572,7 @@
       this.performActionInQueue("scale", () => {
         let {
             capturedResolution: _v0
-          } = _v85.getState(),
+          } = _v86.getState(),
           _v1 = {
             ...this.state
           },
@@ -20701,7 +20701,7 @@
             };
           })(_v1, _v2, _v0);
         if (!_v4 || !_v5) return void this.log.error(Error("Unknown crop area ratio"), {
-          category: _v123.CANVAS_CAPTURE,
+          category: _v124.CANVAS_CAPTURE,
           method: "setCropRatio",
           component: "DnDBoxChangesController",
           data: {
@@ -20872,7 +20872,7 @@
         ...this.state
       };
       if (!_v2) return void this.log.warn("Cropped asset config cannot be generated due to missing crop transform data.", {
-        category: _v123.CANVAS_CAPTURE,
+        category: _v124.CANVAS_CAPTURE,
         method: "getCroppedAssetConfig",
         component: "DnDBoxChangesController"
       });
@@ -21148,7 +21148,7 @@
     }) => {
       var _v1;
       let _v2,
-        _v3 = _v140("DnDCanvasContext"),
+        _v3 = _v141("DnDCanvasContext"),
         _v4 = (0, _v26.useRef)(null),
         _v5 = (0, _v26.useRef)(void 0),
         [_v6, _v7] = (0, _v26.useState)(!1),
@@ -21186,7 +21186,7 @@
         {
           setSelectedAsset: _v21,
           setActiveTool: _v22
-        } = _v85((0, _v27.useShallow)(({
+        } = _v86((0, _v27.useShallow)(({
           setActiveTool: _v0,
           setSelectedAsset: _v1
         }) => ({
@@ -21286,8 +21286,8 @@
         _v0 ? _v13?.type === "crop" && _v22("crop") : _v22(null), _v21(_v0 ?? null);
       }, [_v21, _v13, _v22]), (0, _v26.useEffect)(() => {
         let _v0 = _v13?.id,
-          _v1 = _v0 && !_v55.includes(_v0);
-        return _v85.subscribe(_v0 => "crop" === _v0.activeTool, (_v0, _v1) => {
+          _v1 = _v0 && !_v56.includes(_v0);
+        return _v86.subscribe(_v0 => "crop" === _v0.activeTool, (_v0, _v1) => {
           if (_v0 && !_v1) {
             if (!_v1) return void _v3.warn('"crop tool" was selected" but the target asset is not selected or not allowed for crop.', {
               elId: _v0,
@@ -21608,7 +21608,7 @@
             {
               forcedCropRatio: _v26,
               snapToGuides: _v27
-            } = _v85((0, _v27.useShallow)(({
+            } = _v86((0, _v27.useShallow)(({
               forcedCropRatio: _v0,
               snapToGuides: _v1
             }) => ({
@@ -21618,11 +21618,11 @@
             _v28 = "crop" === _v1,
             _v29 = _v20?.id === _v0,
             _v30 = _v20?.type !== "crop",
-            _v31 = !_v55.includes(_v0),
+            _v31 = !_v56.includes(_v0),
             _v32 = (0, _v26.useCallback)(() => {
               if (!_v13.current) return;
               let _v0 = _v13.current.getCroppedAssetConfig();
-              _v85.getState().setCroppedAssetConfig(_v0, _v0 ?? null);
+              _v86.getState().setCroppedAssetConfig(_v0, _v0 ?? null);
             }, [_v0]);
           (0, _v603.useDndMonitor)({
             onDragMove: _v0 => {
@@ -21800,7 +21800,7 @@
             size: 8
           }),
           resizeHandles: ["nw", "sw", "ne", "se"],
-          children: (0, _v25.jsx)(_v239.Box, {
+          children: (0, _v25.jsx)(_v240.Box, {
             "data-testid": `canvas-dnd-box_${_v0}`,
             "data-selection-type": _v5,
             "data-dnd-element": !0,
@@ -21841,7 +21841,7 @@
               } : {})
             }
           }, _v0)
-        }), _v6 && "crop" === _v5 && (0, _v25.jsx)(_v239.Box, {
+        }), _v6 && "crop" === _v5 && (0, _v25.jsx)(_v240.Box, {
           width: _v6.size.width * _v6.originalTansform.scaleX,
           height: _v6.size.height * _v6.originalTansform.scaleY,
           background: "rgba(0,0,0,0.5)",
@@ -21860,7 +21860,7 @@
       top: _v1,
       left: _v2,
       testId: _v3
-    }) => (0, _v25.jsx)(_v239.Box, {
+    }) => (0, _v25.jsx)(_v240.Box, {
       "data-testid": _v3,
       position: "absolute",
       zIndex: "8",
@@ -21884,7 +21884,7 @@
           borderBottom: "5px solid transparent"
         } : {})
       },
-      children: (0, _v25.jsx)(_v239.Box, {
+      children: (0, _v25.jsx)(_v240.Box, {
         backgroundColor: "blue.300",
         width: "100%",
         height: "100%"
@@ -21897,10 +21897,10 @@
         {
           stageInnerGuides: _v1
         } = _v623(),
-        _v2 = _v85(({
+        _v2 = _v86(({
           showGuides: _v0
         }) => _v0);
-      return (0, _v25.jsxs)(_v239.Box, {
+      return (0, _v25.jsxs)(_v240.Box, {
         height: "100%",
         width: "100%",
         overflow: "hidden",
@@ -21945,7 +21945,7 @@
             hoveredElementId: _v1
           };
         })();
-      return (0, _v25.jsxs)(_v239.Box, {
+      return (0, _v25.jsxs)(_v240.Box, {
         position: "absolute",
         top: 0,
         left: 0,
@@ -21960,28 +21960,28 @@
       });
     },
     _v629 = "camera-background",
-    _v630 = (_v640 = "images", _v23 = null, _v24 = async () => (null === _v23 && (_v23 = await _v135("record-studio-images", 1, (_v0, _v1) => {
+    _v630 = (_v640 = "images", _v23 = null, _v24 = async () => (null === _v23 && (_v23 = await _v136("record-studio-images", 1, (_v0, _v1) => {
       _v1.oldVersion < 1 && _v0.result.createObjectStore(_v640);
     })), _v23), {
       set: async (_v0, _v1) => {
         try {
           let _v0 = await _v24();
-          _v0 && (await _v136(_v0, _v640, "readwrite", async _v0 => {
-            await _v131(_v0.objectStore(_v640), _v1, _v0);
+          _v0 && (await _v137(_v0, _v640, "readwrite", async _v0 => {
+            await _v132(_v0.objectStore(_v640), _v1, _v0);
           }));
         } catch {}
       },
       get: async _v0 => {
         try {
           let _v0 = await _v24();
-          if (_v0) return await _v136(_v0, _v640, "readonly", _v0 => _v130(_v0.objectStore(_v640), _v0));
+          if (_v0) return await _v137(_v0, _v640, "readonly", _v0 => _v131(_v0.objectStore(_v640), _v0));
           return;
         } catch {
           return;
         }
       }
     }),
-    _v631 = (0, _v71.createStore)((_v0, _v1) => ({
+    _v631 = (0, _v72.createStore)((_v0, _v1) => ({
       cameraBackground: null,
       cameraBackgroundUrl: null,
       getCameraBackground: async () => {
@@ -26405,7 +26405,7 @@
       if (this.initialization) return this.initialization;
       let {
         common: _v0
-      } = _v89.useUIStore.getState();
+      } = _v90.useUIStore.getState();
       return _v0.setModelLoading(!0), this.initialization = _v1025.forVisionTasks(_v0.CDN_PATH).then(_v0 => _v1127.createFromOptions(_v0, {
         baseOptions: {
           modelAssetPath: `${_v0.CDN_PATH}/selfie_segmenter.tflite`,
@@ -26505,7 +26505,7 @@
       {
         settings: _v1,
         update: _v2
-      } = _v87.getState(),
+      } = _v88.getState(),
       {
         cameraBackground: _v3
       } = await _v0();
@@ -26529,7 +26529,7 @@
   class _v1152 {
     log;
     state;
-    constructor(_v0 = _v139.createForCategory("FPSMeasurer")) {
+    constructor(_v0 = _v140.createForCategory("FPSMeasurer")) {
       this.log = _v0, this.state = "idle", this.fpsStats = _v1151, this.fpsAlerts = new Set();
     }
     fpsStats;
@@ -26558,7 +26558,7 @@
         this.fpsStats.lastMeasuredAt ? _v0 > this.fpsStats.lastMeasuredAt + _v1152.MeasurementIntervalMs ? this.commitMeasuredInterval(_v0) : this.fpsStats.framesSinceLastMeasured += 1 : (this.fpsStats.lastMeasuredAt = _v0, this.fpsStats.framesSinceLastMeasured += 1);
       } catch (_v0) {
         this.log.error(_v0, {
-          category: _v123.UNEXPECTED,
+          category: _v124.UNEXPECTED,
           method: "tick",
           component: "FPSMeasurer"
         });
@@ -26582,7 +26582,7 @@
           averageFPS: _v4
         }
       } = this.fpsStats;
-      _v3 > 0 && null !== _v4 && (_v2.averageFPS = _v1153((_v4 * _v3 + _v1) / (_v3 + 1), 2)), this.fpsStats.numMeasuredTimeIntervals += 1, this.fpsStats.metrics = _v2, _v76 && this.fpsStats.numMeasuredTimeIntervals % (_v76 ? 10 : 60) == 0 && this.log.debug("commitMeasuredInterval", {
+      _v3 > 0 && null !== _v4 && (_v2.averageFPS = _v1153((_v4 * _v3 + _v1) / (_v3 + 1), 2)), this.fpsStats.numMeasuredTimeIntervals += 1, this.fpsStats.metrics = _v2, _v77 && this.fpsStats.numMeasuredTimeIntervals % (_v77 ? 10 : 60) == 0 && this.log.debug("commitMeasuredInterval", {
         ..._v2,
         numMeasuredTimeIntervals: this.fpsStats.numMeasuredTimeIntervals
       }), this.fpsAlerts.forEach(_v0 => {
@@ -26714,7 +26714,7 @@
     callback;
     driftReporter;
     unsubscribeFromUIStore;
-    constructor(_v0 = _v139.createForCategory("RequestFrameWorker")) {
+    constructor(_v0 = _v140.createForCategory("RequestFrameWorker")) {
       this.log = _v0, this.callback = null, this.driftReporter = new _v1154(_v0);
       try {
         this.worker = (_v0 => {
@@ -26727,7 +26727,7 @@
         })(_v1155), this.subscribe();
       } catch (_v0) {
         throw this.log.error(_v0 instanceof Error ? _v0 : Error(String(_v0)), {
-          category: _v123.UNEXPECTED,
+          category: _v124.UNEXPECTED,
           method: "constructor",
           component: "RequestFrameWorker"
         }), _v0;
@@ -26752,7 +26752,7 @@
             {
               let _v0 = _v0.data.message || "A warning occurred with no message provided";
               this.log.error(Error(_v0), {
-                category: _v123.UNEXPECTED,
+                category: _v124.UNEXPECTED,
                 method: "subscribe",
                 component: "RequestFrameWorker"
               });
@@ -26760,14 +26760,14 @@
         }
       }, this.worker.onerror = _v0 => {
         this.log.error(_v0.error || Error(_v0.message), {
-          category: _v123.UNEXPECTED,
+          category: _v124.UNEXPECTED,
           method: "subscribe",
           component: "RequestFrameWorker"
         });
       };
     }
     subscribeToRecordingState() {
-      this.unsubscribeFromUIStore && this.unsubscribeFromUIStore(), this.unsubscribeFromUIStore = _v89.useUIStore.subscribe(_v0 => _v0.common.state, (_v0, _v1) => {
+      this.unsubscribeFromUIStore && this.unsubscribeFromUIStore(), this.unsubscribeFromUIStore = _v90.useUIStore.subscribe(_v0 => _v0.common.state, (_v0, _v1) => {
         "recording" === _v0 ? this.driftReporter.startRecording() : "recording" === _v1 && this.driftReporter.stopRecording();
       }, {
         fireImmediately: !0
@@ -26803,10 +26803,10 @@
         _v8,
         _v9,
         _v10 = (0, _v26.useRef)(null),
-        _v11 = _v218(_v0 => _v0.isEnabled),
+        _v11 = _v219(_v0 => _v0.isEnabled),
         {
           audio: _v12
-        } = _v213(),
+        } = _v214(),
         [_v13, _v14] = (0, _v26.useState)(null),
         [_v15, _v16] = (0, _v26.useState)(null),
         {
@@ -26817,7 +26817,7 @@
               isCameraFlipped: _v2,
               cameraEffect: _v3,
               avatarAsPreview: _v4
-            } = _v88(),
+            } = _v89(),
             [_v5, _v6] = (0, _v26.useState)(null),
             [_v7, _v8] = (0, _v26.useState)(null),
             [_v9, _v10] = (0, _v26.useState)(null),
@@ -26865,7 +26865,7 @@
           }), [_v5, _v9]);
         })(_v0, _v15),
         _v19 = (0, _v26.useRef)(null),
-        _v20 = (_v3 = (0, _v26.useRef)(new _v1152()), _v4 = (0, _v89.useUIStore)(_v0 => _v0.common.setAverageFrameTime), _v6 = "recording" === (_v5 = (0, _v89.useUIStore)(_v0 => _v0.common.state)) || "paused" === _v5, _v7 = _v140("useTrackRecordingFrameRate"), (0, _v26.useEffect)(() => {
+        _v20 = (_v3 = (0, _v26.useRef)(new _v1152()), _v4 = (0, _v90.useUIStore)(_v0 => _v0.common.setAverageFrameTime), _v6 = "recording" === (_v5 = (0, _v90.useUIStore)(_v0 => _v0.common.state)) || "paused" === _v5, _v7 = _v141("useTrackRecordingFrameRate"), (0, _v26.useEffect)(() => {
           if (_v6) {
             let _v0 = _v3.current;
             return _v4(null), _v0.start({
@@ -26879,7 +26879,7 @@
             };
           }
         }, [_v6, _v4, _v7]), _v3),
-        _v21 = _v140("MainScene");
+        _v21 = _v141("MainScene");
       (0, _v26.useImperativeHandle)(_v2, () => ({
         reLayout: () => {
           _v19.current?.reLayout(_v17, _v1, _v13);
@@ -26898,7 +26898,7 @@
           setStream: _v29,
           removeStream: _v30,
           microphone: _v31
-        } = _v178((0, _v27.useShallow)(({
+        } = _v179((0, _v27.useShallow)(({
           setStream: _v0,
           removeStream: _v1,
           microphone: _v2
@@ -26907,8 +26907,8 @@
           removeStream: _v1,
           microphone: _v2
         }))),
-        _v32 = (0, _v89.useUIStore)(_v0 => _v0.common.state),
-        _v33 = _v87(_v0 => _v0.settings.isSettingsPanelVisible),
+        _v32 = (0, _v90.useUIStore)(_v0 => _v0.common.state),
+        _v33 = _v88(_v0 => _v0.settings.isSettingsPanelVisible),
         {
           activeTool: _v34,
           aspectRatio: _v35,
@@ -26920,7 +26920,7 @@
           setCurrentLayoutKey: _v41,
           setSelectedAsset: _v42,
           setCapturedResolution: _v43
-        } = _v85((0, _v27.useShallow)(_v0 => ({
+        } = _v86((0, _v27.useShallow)(_v0 => ({
           activeTool: _v0.activeTool,
           aspectRatio: _v0.aspectRatio,
           assetShapeOverride: _v0.assetsShapeOverride,
@@ -26945,21 +26945,21 @@
         if (_v10.current) return _v19.current = new _v600(_v10.current, (_v0, _v1) => {
           switch (_v0) {
             case "displayMedia":
-              _v51({
+              _v52({
                 name: "scale" === _v1 ? "resize_screen_share" : "move_screen_share",
                 eventType: "drag_and_drop",
                 location: "recording_canvas"
               });
               break;
             case "userMedia":
-              _v51({
+              _v52({
                 name: "scale" === _v1 ? "resize_camera" : "move_camera",
                 eventType: "drag_and_drop",
                 location: "recording_canvas"
               });
               break;
             case "soundwave":
-              _v51({
+              _v52({
                 name: "scale" === _v1 ? "resize_soundwave" : "move_soundwave",
                 eventType: "drag_and_drop",
                 location: "recording_canvas"
@@ -26969,11 +26969,11 @@
           _v19.current?.dispose();
         };
       }, []);
-      let _v49 = !_v150.includes(_v32);
+      let _v49 = !_v151.includes(_v32);
       (0, _v26.useEffect)(() => {
         _v25(_v49);
       }, [_v49, _v25]);
-      let _v50 = (_v8 = _v156[_v85(_v0 => _v0.aspectRatio)], _v9 = _v85(_v0 => _v0.size), (0, _v26.useMemo)(() => {
+      let _v50 = (_v8 = _v157[_v86(_v0 => _v0.aspectRatio)], _v9 = _v86(_v0 => _v0.size), (0, _v26.useMemo)(() => {
         let _v0 = _v8[_v8.length - 1];
         return _v8.find(({
           sizePreset: _v0
@@ -27021,15 +27021,15 @@
           }),
           _v2 = _v10.current.captureStream();
         return _v29({
-          kind: _v149.CANVAS_SCENE,
+          kind: _v150.CANVAS_SCENE,
           stream: _v2,
           dispose: () => {
-            _v1(), _v160(_v2), _v2.getTracks().forEach(_v0 => _v0.dispatchEvent(new Event("ended")));
+            _v1(), _v161(_v2), _v2.getTracks().forEach(_v0 => _v0.dispatchEvent(new Event("ended")));
           },
           deviceId: "CanvasSceneIdStub",
-          mediaInfo: _v158(_v2, _v149.CANVAS_SCENE)
+          mediaInfo: _v159(_v2, _v150.CANVAS_SCENE)
         }), () => {
-          _v2 ? _v30(_v149.CANVAS_SCENE) : _v1();
+          _v2 ? _v30(_v150.CANVAS_SCENE) : _v1();
         };
       }, [_v30, _v29, _v21]);
       let _v51 = ("effects" === _v34 || _v33) && !!_v0;
@@ -27037,18 +27037,18 @@
         if (!_v15 || !_v51) return;
         let _v0 = _v15.captureStream();
         return _v29({
-          kind: _v149.CANVAS_CAMERA_PREVIEW,
+          kind: _v150.CANVAS_CAMERA_PREVIEW,
           stream: _v0,
           dispose: () => {
-            _v160(_v0), _v0.getTracks().forEach(_v0 => _v0.dispatchEvent(new Event("ended")));
+            _v161(_v0), _v0.getTracks().forEach(_v0 => _v0.dispatchEvent(new Event("ended")));
           },
           deviceId: "CanvasCameraPreviewIdStub",
-          mediaInfo: _v158(_v0, _v149.CANVAS_CAMERA_PREVIEW)
+          mediaInfo: _v159(_v0, _v150.CANVAS_CAMERA_PREVIEW)
         }), () => {
-          _v0 && _v30(_v149.CANVAS_CAMERA_PREVIEW);
+          _v0 && _v30(_v150.CANVAS_CAMERA_PREVIEW);
         };
       }, [_v34, _v30, _v29, _v15, _v21, _v33, _v51]), (0, _v25.jsxs)(_v25.Fragment, {
-        children: [(0, _v25.jsxs)(_v239.Box, {
+        children: [(0, _v25.jsxs)(_v240.Box, {
           width: "100%",
           height: "100%",
           position: "absolute",
@@ -27057,14 +27057,14 @@
           borderWidth: "1px",
           overflow: "hidden",
           ref: _v48,
-          children: [_v11 && !_v12.isMuted && (0, _v25.jsx)(_v239.Box, {
+          children: [_v11 && !_v12.isMuted && (0, _v25.jsx)(_v240.Box, {
             as: "canvas",
             width: "100%",
             height: "100%",
             position: "absolute",
             ref: _v14,
             "data-testid": "record-studio-waveform-canvas"
-          }), (0, _v25.jsx)(_v239.Box, {
+          }), (0, _v25.jsx)(_v240.Box, {
             as: "canvas",
             width: "100%",
             height: "100%",
@@ -27095,7 +27095,7 @@
           let _v1 = _v0.currentTarget;
           _v1.width = _v1.videoWidth, _v1.height = _v1.videoHeight, _v1(_v1);
         }, [_v1]);
-      return (0, _v25.jsx)(_v239.Box, {
+      return (0, _v25.jsx)(_v240.Box, {
         position: "fixed",
         top: "0",
         left: "0",
@@ -27107,7 +27107,7 @@
         onLoadedData: _v5,
         onCanPlay: _v5,
         muted: !0,
-        src: _v79,
+        src: _v80,
         playsInline: !0,
         autoPlay: !0,
         loop: !0
@@ -27124,9 +27124,9 @@
         _v8 = (0, _v26.useRef)(null),
         {
           avatarAsPreview: _v9
-        } = _v88(),
-        _v10 = _v87(_v0 => _v0.capture.isVideoMuted),
-        _v11 = (_v2 = (0, _v46.useViewer)(), _v3 = _v2?.user?.pictures.sizes, (0, _v26.useMemo)(() => function (_v0) {
+        } = _v89(),
+        _v10 = _v88(_v0 => _v0.capture.isVideoMuted),
+        _v11 = (_v2 = (0, _v47.useViewer)(), _v3 = _v2?.user?.pictures.sizes, (0, _v26.useMemo)(() => function (_v0) {
           if (!_v0) return;
           let _v1 = _v0.sort((_v0, _v1) => _v0.height < _v1.height ? -1 : +(_v0.height > _v1.height));
           if (0 !== _v1.length) return _v1[_v1.length - 1].link;
@@ -27176,7 +27176,7 @@
       }, [_v0]), (0, _v26.useEffect)(() => {
         _v1 || _v7(null);
       }, [_v1]), (0, _v26.useEffect)(() => () => {
-        _v178.getState().reset();
+        _v179.getState().reset();
       }, []);
       let _v17 = (0, _v26.useCallback)(() => {
           _v13(!0);
@@ -27184,7 +27184,7 @@
         _v18 = !_v10 && _v9 && _v12 ? _v8.current : _v4;
       return (0, _v25.jsxs)(_v25.Fragment, {
         children: [(0, _v25.jsx)("div", {
-          children: (0, _v25.jsx)(_v239.Box, {
+          children: (0, _v25.jsx)(_v240.Box, {
             as: "img",
             position: "fixed",
             top: "0",
@@ -27208,7 +27208,7 @@
             stream: _v1,
             onPlayable: _v7
           })
-        }), (0, _v25.jsx)(_v239.Box, {
+        }), (0, _v25.jsx)(_v240.Box, {
           display: "flex",
           flex: 1,
           children: (0, _v25.jsx)(_v1158, {
@@ -27223,9 +27223,9 @@
       children: _v0,
       enabled: _v1
     }) => {
-      let _v2 = _v216(_v0 => _v0.countdownSeconds),
-        _v3 = (0, _v89.useUIStore)(_v0 => _v0.controls.setControlsAction);
-      return (0, _v25.jsxs)(_v239.Box, {
+      let _v2 = _v217(_v0 => _v0.countdownSeconds),
+        _v3 = (0, _v90.useUIStore)(_v0 => _v0.controls.setControlsAction);
+      return (0, _v25.jsxs)(_v240.Box, {
         width: "100%",
         height: "100%",
         borderRadius: "sm",
@@ -27241,13 +27241,13 @@
             zIndex: "100",
             background: "blackAlpha.700",
             borderRadius: "button",
-            children: (0, _v25.jsx)(_v234.Text, {
+            children: (0, _v25.jsx)(_v235.Text, {
               variant: "body-xl",
               color: "white",
               fontSize: `max(calc(1vw * 8), ${(0, _v30.rem)(60)})`,
               children: _v2
             })
-          }), (0, _v25.jsx)(_v239.Box, {
+          }), (0, _v25.jsx)(_v240.Box, {
             position: "fixed",
             top: "0",
             bottom: "0",
@@ -27260,22 +27260,22 @@
       });
     },
     _v1162 = () => {
-      let _v0 = (0, _v26.useContext)(_v232),
-        _v1 = _v140("CanvasCapturePreview"),
-        _v2 = (0, _v89.useUIStore)(_v0 => _v0.common.state),
-        _v3 = _v156[_v85(_v0 => _v0.aspectRatio)][1],
+      let _v0 = (0, _v26.useContext)(_v233),
+        _v1 = _v141("CanvasCapturePreview"),
+        _v2 = (0, _v90.useUIStore)(_v0 => _v0.common.state),
+        _v3 = _v157[_v86(_v0 => _v0.aspectRatio)][1],
         {
           video: _v4,
           display: _v5,
           noSourcesAvailable: _v6
-        } = _v213(),
+        } = _v214(),
         _v7 = _v570(),
         [, _v8, _v9] = _v476(),
         {
           bestDimension: _v10,
           setContainerRef: _v11
         } = _v477(_v3.width, _v3.height, 0, _v8),
-        _v12 = (0, _v89.useUIStore)(_v0 => _v0.pip.supported) && _v6;
+        _v12 = (0, _v90.useUIStore)(_v0 => _v0.pip.supported) && _v6;
       (0, _v26.useEffect)(() => {
         _v12 && _v0(!1);
       }, [_v0, _v12]), (0, _v26.useEffect)(() => {
@@ -27291,12 +27291,12 @@
         height: "100%",
         justify: "center",
         gap: "0",
-        children: [(0, _v25.jsx)(_v239.Box, {
+        children: [(0, _v25.jsx)(_v240.Box, {
           ref: _v9,
           children: (0, _v25.jsx)(_v564, {
             isDisabled: _v6
           })
-        }), (0, _v25.jsx)(_v239.Box, {
+        }), (0, _v25.jsx)(_v240.Box, {
           position: "relative",
           aspectRatio: _v3.width / _v3.height,
           "data-testid": "record-studio-preview",
@@ -27325,7 +27325,7 @@
           setSnapToGuides: _v1,
           showGuides: _v2,
           snapToGuides: _v3
-        } = _v85((0, _v27.useShallow)(({
+        } = _v86((0, _v27.useShallow)(({
           setShowGuides: _v0,
           setSnapToGuides: _v1,
           showGuides: _v2,
@@ -27340,7 +27340,7 @@
           title: _v575.showGuides,
           testId: "canvas-right-click-menu-show-guides-item",
           onClick: () => _v0(!_v2),
-          icon: (0, _v25.jsx)(_v252.Checkmark, {
+          icon: (0, _v25.jsx)(_v253.Checkmark, {
             color: "fill-brand",
             width: (0, _v30.rem)(16),
             height: (0, _v30.rem)(16),
@@ -27350,7 +27350,7 @@
           title: _v575.snapToGuides,
           testId: "canvas-right-click-menu-snap-to-guides-item",
           onClick: () => _v1(!_v3),
-          icon: (0, _v25.jsx)(_v252.Checkmark, {
+          icon: (0, _v25.jsx)(_v253.Checkmark, {
             color: "fill-brand",
             width: (0, _v30.rem)(16),
             height: (0, _v30.rem)(16),
@@ -27373,7 +27373,7 @@
     _v1165 = _v0.i(0),
     _v1166 = _v0.i(0),
     _v1167 = _v0.i(0);
-  let _v1168 = _v0 => (0, _v25.jsx)(_v276.Icon, {
+  let _v1168 = _v0 => (0, _v25.jsx)(_v277.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -27442,18 +27442,18 @@
       onClick: _v6,
       image: _v7
     }) => {
-      let [_v8, _v9] = (0, _v26.useState)(_v1 ? (0, _v25.jsx)(_v250.Spinner, {}) : _v2),
+      let [_v8, _v9] = (0, _v26.useState)(_v1 ? (0, _v25.jsx)(_v251.Spinner, {}) : _v2),
         [_v10, _v11] = (0, _v26.useState)(!1);
       return (0, _v26.useEffect)(() => {
-        _v1 ? _v9((0, _v25.jsx)(_v250.Spinner, {})) : _v2 ? _v9(_v2) : _v9(void 0);
-      }, [_v2, _v1]), (0, _v25.jsx)(_v241.Tooltip, {
+        _v1 ? _v9((0, _v25.jsx)(_v251.Spinner, {})) : _v2 ? _v9(_v2) : _v9(void 0);
+      }, [_v2, _v1]), (0, _v25.jsx)(_v242.Tooltip, {
         isOpen: _v10,
         placement: "bottom",
         label: _v4,
-        children: (0, _v25.jsx)(_v239.Box, {
+        children: (0, _v25.jsx)(_v240.Box, {
           width: "76px",
           height: "76px",
-          children: (0, _v25.jsx)(_v247.IconButton, {
+          children: (0, _v25.jsx)(_v248.IconButton, {
             onMouseEnter: () => {
               _v11(!0), _v3 && _v5 === _v0 && _v9(_v3);
             },
@@ -27510,12 +27510,12 @@
       borderRadius: "8px"
     },
     _v1178 = () => {
-      let _v0 = _v87(_v0 => _v0.capture.isVideoMuted),
+      let _v0 = _v88(_v0 => _v0.capture.isVideoMuted),
         _v1 = (0, _v26.useRef)(null);
       return _v1176({
-        playbackStream: _v178(_v0 => _v0[_v149.CANVAS_CAMERA_PREVIEW]?.stream),
+        playbackStream: _v179(_v0 => _v0[_v150.CANVAS_CAMERA_PREVIEW]?.stream),
         ref: _v1,
-        playbackPlaceholderSrc: _v79,
+        playbackPlaceholderSrc: _v80,
         mutePlayback: _v0
       }), (0, _v25.jsx)("video", {
         playsInline: !0,
@@ -27523,7 +27523,7 @@
         muted: !0,
         ref: _v1,
         style: _v1177,
-        src: _v79
+        src: _v80
       });
     },
     _v1179 = () => (0, _v25.jsx)(_v454.Center, {
@@ -27532,14 +27532,14 @@
       bg: "background",
       style: _v1177,
       children: (0, _v25.jsxs)(_v29.VStack, {
-        children: [(0, _v25.jsx)(_v40.CameraOff, {
+        children: [(0, _v25.jsx)(_v41.CameraOff, {
           color: "text-secondary"
-        }), (0, _v25.jsx)(_v234.Text, {
+        }), (0, _v25.jsx)(_v235.Text, {
           align: "center",
           w: "260px",
           color: "text-secondary",
           variant: "body-sm",
-          children: (0, _v236.translate)({
+          children: (0, _v237.translate)({
             singular: "Your camera is turned off. Selecting an effect will turn it on. ",
             dictionary: {
               es: {
@@ -27571,7 +27571,7 @@
   var _v1180 = _v0.i(0),
     _v1181 = _v0.i(0);
   let _v1182 = {
-      label: (0, _v236.translate)({
+      label: (0, _v237.translate)({
         singular: "Upload",
         dictionary: {
           es: {
@@ -27597,7 +27597,7 @@
           }
         }
       }),
-      secondaryLabel: (0, _v236.translate)({
+      secondaryLabel: (0, _v237.translate)({
         singular: "Replace image",
         dictionary: {
           es: {
@@ -27688,7 +27688,7 @@
     },
     _v1184 = {
       effects: {
-        noEffect: (0, _v236.translate)({
+        noEffect: (0, _v237.translate)({
           singular: "No effect",
           dictionary: {
             es: {
@@ -27714,7 +27714,7 @@
             }
           }
         }),
-        blur: (0, _v236.translate)({
+        blur: (0, _v237.translate)({
           singular: "Blur",
           dictionary: {
             es: {
@@ -27740,7 +27740,7 @@
             }
           }
         }),
-        transparent: (0, _v236.translate)({
+        transparent: (0, _v237.translate)({
           singular: "Transparent",
           dictionary: {
             "ko-KR": {
@@ -27754,7 +27754,7 @@
             }
           }
         }),
-        upload: (0, _v236.translate)({
+        upload: (0, _v237.translate)({
           singular: "Upload",
           dictionary: {
             es: {
@@ -27783,20 +27783,20 @@
       }
     },
     _v1185 = () => {
-      let _v0 = _v140("EffectsContent"),
+      let _v0 = _v141("EffectsContent"),
         {
           trackRecordingCameraBackgroundChanged: _v1
-        } = (0, _v45.useRecordingTracking)(),
-        _v2 = (0, _v89.useUIStore)(_v0 => _v0.common.isModelLoading),
+        } = (0, _v46.useRecordingTracking)(),
+        _v2 = (0, _v90.useUIStore)(_v0 => _v0.common.isModelLoading),
         {
           isCameraFlipped: _v3,
           cameraEffect: _v4,
           onCameraEffectToggle: _v5
-        } = _v88(),
+        } = _v89(),
         {
           video: _v6
-        } = _v212(),
-        _v7 = _v87(_v0 => _v0.capture.isVideoMuted),
+        } = _v213(),
+        _v7 = _v88(_v0 => _v0.capture.isVideoMuted),
         _v8 = _v7 ? "none" : _v4,
         _v9 = (0, _v26.useCallback)(_v0 => {
           "none" !== _v0 && _v6.withEnabledDevice(), _v5("effect", _v0), _v0 !== _v8 && _v1({
@@ -27805,11 +27805,11 @@
             type: _v0
           });
         }, [_v5, _v8, _v1, _v0, _v6]);
-      return (0, _v25.jsxs)(_v239.Box, {
+      return (0, _v25.jsxs)(_v240.Box, {
         children: [(0, _v25.jsxs)(_v28.Flex, {
           position: "relative",
           marginBottom: (0, _v30.rem)(8),
-          children: [_v7 ? (0, _v25.jsx)(_v1179, {}) : (0, _v25.jsx)(_v1178, {}), !_v7 && (0, _v25.jsx)(_v247.IconButton, {
+          children: [_v7 ? (0, _v25.jsx)(_v1179, {}) : (0, _v25.jsx)(_v1178, {}), !_v7 && (0, _v25.jsx)(_v248.IconButton, {
             variant: "blur",
             position: "absolute",
             bottom: "75",
@@ -27832,7 +27832,7 @@
             label: _v1184.effects.noEffect,
             selected: _v8,
             onClick: _v9
-          }), !_v147.isSafari && (0, _v25.jsx)(_v1175, {
+          }), !_v148.isSafari && (0, _v25.jsx)(_v1175, {
             type: "blur",
             isLoading: _v2,
             icon: (0, _v25.jsx)(_v1169.Blur, {}),
@@ -27858,7 +27858,7 @@
     _v1187 = "record-settings-quality-selector-option";
   var _v1188 = _v0.i(0);
   let _v1189 = () => {
-    let _v0 = _v87(_v0 => _v0.update);
+    let _v0 = _v88(_v0 => _v0.update);
     return (0, _v25.jsx)(_v1164.PanelHeader, {
       paddingTop: (0, _v30.rem)(16),
       paddingBottom: (0, _v30.rem)(16),
@@ -27873,7 +27873,7 @@
           children: (0, _v25.jsx)(_v315.Header, {
             variant: "heading-sm",
             size: "xl",
-            children: (0, _v236.translate)({
+            children: (0, _v237.translate)({
               singular: "Settings",
               dictionary: {
                 es: {
@@ -27902,8 +27902,8 @@
           })
         }), (0, _v25.jsx)(_v28.Flex, {
           gap: "xs",
-          children: (0, _v25.jsx)(_v241.Tooltip, {
-            label: (0, _v236.translate)({
+          children: (0, _v25.jsx)(_v242.Tooltip, {
+            label: (0, _v237.translate)({
               singular: "Close",
               dictionary: {
                 es: {
@@ -27934,7 +27934,7 @@
             children: (0, _v25.jsx)(_v1188.CloseButton, {
               size: "sm",
               variant: "tertiary",
-              "aria-label": (0, _v236.translate)({
+              "aria-label": (0, _v237.translate)({
                 singular: "close",
                 dictionary: {
                   es: {
@@ -27976,7 +27976,7 @@
   let _v1191 = ({
       onClick: _v0,
       onClose: _v1
-    }) => (0, _v25.jsxs)(_v239.Box, {
+    }) => (0, _v25.jsxs)(_v240.Box, {
       position: "relative",
       padding: "4",
       backgroundColor: "upsell-secondary",
@@ -27990,12 +27990,12 @@
         right: (0, _v30.rem)(16),
         top: (0, _v30.rem)(16),
         onClick: _v1
-      }), (0, _v25.jsxs)(_v239.Box, {
+      }), (0, _v25.jsxs)(_v240.Box, {
         w: "80%",
-        children: [(0, _v25.jsx)(_v234.Text, {
+        children: [(0, _v25.jsx)(_v235.Text, {
           marginBottom: "xs",
           variant: "heading-sm",
-          children: (0, _v236.translate)({
+          children: (0, _v237.translate)({
             singular: "Your recordings, now in 4K",
             dictionary: {
               es: {
@@ -28021,9 +28021,9 @@
               }
             }
           })
-        }), (0, _v25.jsx)(_v234.Text, {
+        }), (0, _v25.jsx)(_v235.Text, {
           variant: "body-md",
-          children: (0, _v236.translate)({
+          children: (0, _v237.translate)({
             singular: "Record crisp, professional videos in Ultra HD",
             dictionary: {
               es: {
@@ -28059,7 +28059,7 @@
       })]
     }),
     _v1192 = {
-      "720p": (0, _v236.translate)({
+      "720p": (0, _v237.translate)({
         singular: "720p (HD)",
         dictionary: {
           "ja-JP": {
@@ -28070,7 +28070,7 @@
           }
         }
       }),
-      "1080p": (0, _v236.translate)({
+      "1080p": (0, _v237.translate)({
         singular: "1080p (Full HD)",
         dictionary: {
           "ja-JP": {
@@ -28084,7 +28084,7 @@
           }
         }
       }),
-      "2K": (0, _v236.translate)({
+      "2K": (0, _v237.translate)({
         singular: "2K (Quad HD)",
         dictionary: {
           "ja-JP": {
@@ -28095,7 +28095,7 @@
           }
         }
       }),
-      "4K": (0, _v236.translate)({
+      "4K": (0, _v237.translate)({
         singular: "4K (Ultra HD)",
         dictionary: {
           "ja-JP": {
@@ -28111,7 +28111,7 @@
       })
     },
     _v1193 = {
-      "720p": (0, _v236.translate)({
+      "720p": (0, _v237.translate)({
         singular: "Quick recordings to share on the go",
         dictionary: {
           es: {
@@ -28137,7 +28137,7 @@
           }
         }
       }),
-      "1080p": (0, _v236.translate)({
+      "1080p": (0, _v237.translate)({
         singular: "Sharp recordings that look great on most screens",
         dictionary: {
           es: {
@@ -28163,7 +28163,7 @@
           }
         }
       }),
-      "2K": (0, _v236.translate)({
+      "2K": (0, _v237.translate)({
         singular: "Enhanced detail for larger monitors",
         dictionary: {
           es: {
@@ -28189,7 +28189,7 @@
           }
         }
       }),
-      "4K": (0, _v236.translate)({
+      "4K": (0, _v237.translate)({
         singular: "Ultimate sharpness on big screens",
         dictionary: {
           es: {
@@ -28216,7 +28216,7 @@
         }
       })
     },
-    _v1194 = (0, _v236.translate)({
+    _v1194 = (0, _v237.translate)({
       singular: "4K recordings",
       dictionary: {
         es: {
@@ -28252,15 +28252,15 @@
       let [_v0, _v1] = (0, _v26.useState)(!1),
         [_v2, _v3] = (0, _v26.useState)(!1),
         [_v4, _v5] = (0, _v26.useState)(window.innerHeight - 140),
-        _v6 = (0, _v46.useViewer)(),
+        _v6 = (0, _v47.useViewer)(),
         {
           aspectRatio: _v7,
           currentLayout: _v8
-        } = _v85((0, _v27.useShallow)(_v0 => ({
+        } = _v86((0, _v27.useShallow)(_v0 => ({
           aspectRatio: _v0.aspectRatio,
           currentLayout: _v0.currentLayout
         }))),
-        _v9 = _v156[_v7],
+        _v9 = _v157[_v7],
         _v10 = (0, _v26.useMemo)(() => _v9.map(_v0 => ({
           label: _v1192[_v0.sizePreset],
           value: _v0.sizePreset
@@ -28268,34 +28268,34 @@
         {
           state: _v11,
           isEligibleForUltraQuality: _v12
-        } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+        } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
           state: _v0.common.state,
           isEligibleForUltraQuality: _v0.common.isEligibleForUltraQuality
         }))),
-        _v13 = _v87(_v0 => _v0.update),
+        _v13 = _v88(_v0 => _v0.update),
         {
           isVisible: _v14,
           ultraQualityUpsellShownCount: _v15
-        } = _v87((0, _v27.useShallow)(_v0 => ({
+        } = _v88((0, _v27.useShallow)(_v0 => ({
           isVisible: _v0.settings.isSettingsPanelVisible,
           ultraQualityUpsellShownCount: _v0.stats.ultraQualityUpsellShownCount
         }))),
         {
           canvasSize: _v16,
           setCanvasSize: _v17
-        } = _v85((0, _v27.useShallow)(_v0 => ({
+        } = _v86((0, _v27.useShallow)(_v0 => ({
           canvasSize: _v0.size,
           setCanvasSize: _v0.setSize
         }))),
         {
           trackSelectRecordQualityButtonClick: _v18
-        } = _v274(),
+        } = _v275(),
         {
           trackRecordingQualityChanged: _v19
-        } = (0, _v45.useRecordingTracking)(),
+        } = (0, _v46.useRecordingTracking)(),
         {
           video: _v20
-        } = _v213(),
+        } = _v214(),
         {
           setNotice: _v21
         } = _v310();
@@ -28335,7 +28335,7 @@
           },
           modalConfig: {
             ..._v1167.includedInAllPlansModalConfig,
-            headerText: (0, _v236.translate)({
+            headerText: (0, _v237.translate)({
               singular: "Upgrade for 4K recording",
               dictionary: {
                 es: {
@@ -28361,7 +28361,7 @@
                 }
               }
             }),
-            subHeaderText: (0, _v236.translate)({
+            subHeaderText: (0, _v237.translate)({
               singular: "Unlock unparalleled quality and elevate your content to a professional level with stunning 4K detail",
               dictionary: {
                 es: {
@@ -28393,7 +28393,7 @@
               }
             }
           }
-        }), (0, _v25.jsx)(_v239.Box, {
+        }), (0, _v25.jsx)(_v240.Box, {
           marginRight: "4",
           children: (0, _v25.jsxs)(_v1164.Panel, {
             width: (0, _v30.rem)(360),
@@ -28401,12 +28401,12 @@
             children: [(0, _v25.jsx)(_v1189, {}), (0, _v25.jsxs)(_v1164.PanelBody, {
               paddingTop: 0,
               height: (0, _v30.rem)(_v4),
-              children: [(0, _v25.jsxs)(_v239.Box, {
+              children: [(0, _v25.jsxs)(_v240.Box, {
                 marginBottom: "6",
                 children: [(0, _v25.jsx)(_v315.Header, {
                   marginBottom: (0, _v30.rem)(4),
                   size: "xs",
-                  children: (0, _v236.translate)({
+                  children: (0, _v237.translate)({
                     singular: "Quality",
                     dictionary: {
                       es: {
@@ -28454,10 +28454,10 @@
                     children: (0, _v25.jsxs)(_v28.Flex, {
                       w: "100%",
                       justifyContent: "space-between",
-                      children: [(0, _v25.jsxs)(_v239.Box, {
+                      children: [(0, _v25.jsxs)(_v240.Box, {
                         children: [(0, _v25.jsx)(_v1165.SelectItemText, {
                           children: _v0.label
-                        }), (0, _v25.jsx)(_v234.Text, {
+                        }), (0, _v25.jsx)(_v235.Text, {
                           color: "text-secondary",
                           variant: "body-sm",
                           children: _v1193[_v0.value]
@@ -28465,7 +28465,7 @@
                       }), "4K" === _v0.value && !_v12 && (0, _v25.jsx)(_v1166.Badge, {
                         variant: "upgrade",
                         size: "sm",
-                        children: (0, _v236.translate)({
+                        children: (0, _v237.translate)({
                           singular: "Upgrade",
                           dictionary: {
                             es: {
@@ -28492,7 +28492,7 @@
                     })
                   })
                 })]
-              }), !_v12 && _v15 < 3 && !_v2 && (0, _v25.jsx)(_v239.Box, {
+              }), !_v12 && _v15 < 3 && !_v2 && (0, _v25.jsx)(_v240.Box, {
                 marginBottom: "6",
                 children: (0, _v25.jsx)(_v1191, {
                   onClose: () => {
@@ -28502,12 +28502,12 @@
                   },
                   onClick: () => _v1(!0)
                 })
-              }), (0, _v25.jsxs)(_v239.Box, {
+              }), (0, _v25.jsxs)(_v240.Box, {
                 "data-testid": "record-settings-panel-camera-effects",
                 children: [(0, _v25.jsx)(_v315.Header, {
                   marginBottom: (0, _v30.rem)(4),
                   size: "xs",
-                  children: (0, _v236.translate)({
+                  children: (0, _v237.translate)({
                     singular: "Camera background",
                     dictionary: {
                       es: {
@@ -28603,9 +28603,9 @@
       type: _v0,
       isMinimizedMode: _v1
     }) => {
-      let _v2 = (0, _v89.useUIStore)(_v0 => _v0.controls.setControlsAction),
-        _v3 = (0, _v89.useUIStore)(_v0 => _v0.controls.setConfirmDialogState),
-        _v4 = _v237["requestDelete" === _v0 ? "cancelDialog" : "restartDialog"];
+      let _v2 = (0, _v90.useUIStore)(_v0 => _v0.controls.setControlsAction),
+        _v3 = (0, _v90.useUIStore)(_v0 => _v0.controls.setConfirmDialogState),
+        _v4 = _v238["requestDelete" === _v0 ? "cancelDialog" : "restartDialog"];
       return (0, _v25.jsxs)(_v25.Fragment, {
         children: [!_v1 && (0, _v25.jsxs)("div", {
           style: {
@@ -28647,9 +28647,9 @@
       });
     },
     _v1204 = () => {
-      let _v0 = (0, _v89.useUIStore)(_v0 => _v0.controls.setControlsAction),
-        _v1 = (0, _v89.useUIStore)(_v0 => !!_v0.controls.confirmDialogState),
-        _v2 = (0, _v89.useUIStore)(_v0 => _v0.common.recordingStartedAt);
+      let _v0 = (0, _v90.useUIStore)(_v0 => _v0.controls.setControlsAction),
+        _v1 = (0, _v90.useUIStore)(_v0 => !!_v0.controls.confirmDialogState),
+        _v2 = (0, _v90.useUIStore)(_v0 => _v0.common.recordingStartedAt);
       return (0, _v25.jsxs)(_v1202, {
         isDisabled: _v1,
         style: {
@@ -28666,10 +28666,10 @@
       });
     };
   function _v1205() {
-    let _v0 = (0, _v89.useUIStore)(_v0 => _v0.common.recordingDuration),
+    let _v0 = (0, _v90.useUIStore)(_v0 => _v0.common.recordingDuration),
       _v1 = _v303();
     return (0, _v25.jsx)("div", {
-      "data-testid": _v37.TEST_IDS.RECORDING_DURATION,
+      "data-testid": _v38.TEST_IDS.RECORDING_DURATION,
       children: _v406(0 === _v1 ? _v0 : _v1 / 0 - _v0)
     });
   }
@@ -28679,7 +28679,7 @@
         controlsDisabled: _v1,
         setConfirmDialogState: _v2,
         setControlsAction: _v3
-      } = (0, _v89.useUIStore)((0, _v27.useShallow)(({
+      } = (0, _v90.useUIStore)((0, _v27.useShallow)(({
         common: _v0,
         controls: _v1
       }) => ({
@@ -28751,7 +28751,7 @@
       });
     },
     _v1207 = {
-      enlargePiP: (0, _v236.translate)({
+      enlargePiP: (0, _v237.translate)({
         singular: "Expand this window to view picture-in-picture.",
         dictionary: {
           es: {
@@ -28777,7 +28777,7 @@
           }
         }
       }),
-      recordingIsNotAvailable: (0, _v236.translate)({
+      recordingIsNotAvailable: (0, _v237.translate)({
         singular: "Recording is not available right now",
         dictionary: {
           es: {
@@ -28803,7 +28803,7 @@
           }
         }
       }),
-      backToRecordStudio: (0, _v236.translate)({
+      backToRecordStudio: (0, _v237.translate)({
         singular: "Back to Record studio",
         dictionary: {
           es: {
@@ -28829,7 +28829,7 @@
           }
         }
       }),
-      startRecording: (0, _v236.translate)({
+      startRecording: (0, _v237.translate)({
         singular: "Record",
         dictionary: {
           es: {
@@ -28855,7 +28855,7 @@
           }
         }
       }),
-      countdownCancel: (0, _v236.translate)({
+      countdownCancel: (0, _v237.translate)({
         singular: "Cancel",
         dictionary: {
           es: {
@@ -28881,7 +28881,7 @@
           }
         }
       }),
-      countdownSecondsLeft: _v0 => (0, _v236.translate)({
+      countdownSecondsLeft: _v0 => (0, _v237.translate)({
         singular: "Starting in {SECONDS}...",
         replacements: {
           SECONDS: _v0
@@ -28913,7 +28913,7 @@
         state: _v0,
         isRecordingAvailable: _v1,
         setControlsAction: _v2
-      } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+      } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
         state: _v0.common.state,
         isRecordingAvailable: _v0.common.recordingAvailability.available,
         setControlsAction: _v0.controls.setControlsAction
@@ -28927,11 +28927,11 @@
       });
     },
     _v1209 = () => {
-      let _v0 = (0, _v89.useUIStore)(_v0 => _v0.common.state);
-      return _v150.includes(_v0) ? null : "pre-recording" === _v0 ? (0, _v25.jsx)(_v1208, {}) : (0, _v25.jsx)(_v1206, {});
+      let _v0 = (0, _v90.useUIStore)(_v0 => _v0.common.state);
+      return _v151.includes(_v0) ? null : "pre-recording" === _v0 ? (0, _v25.jsx)(_v1208, {}) : (0, _v25.jsx)(_v1206, {});
     },
     _v1210 = () => {
-      let _v0 = (0, _v89.useUIStore)(_v0 => _v0.controls.setControlsAction);
+      let _v0 = (0, _v90.useUIStore)(_v0 => _v0.controls.setControlsAction);
       return (0, _v25.jsx)(_v1202, {
         variant: "secondary",
         onClick: () => _v0("cancel", "pip"),
@@ -28976,7 +28976,7 @@
     _v1214 = ({
       isPreviewHidden: _v0
     }) => {
-      let _v1 = _v178(_v0 => _v0[_v149.CANVAS_SCENE]?.stream),
+      let _v1 = _v179(_v0 => _v0[_v150.CANVAS_SCENE]?.stream),
         [_v2, _v3, _v4] = ((_v0 = {
           width: 0,
           height: 0
@@ -29005,7 +29005,7 @@
       _v1176({
         playbackStream: _v1,
         ref: _v4,
-        playbackPlaceholderSrc: _v79
+        playbackPlaceholderSrc: _v80
       });
       let {
         bestDimension: _v5,
@@ -29108,7 +29108,7 @@
             isRecordingAvailable: _v1,
             controlsDisabled: _v2,
             setControlsAction: _v3
-          } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+          } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
             state: _v0.common.state,
             isRecordingAvailable: _v0.common.recordingAvailability.available,
             controlsDisabled: !!_v0.controls.confirmDialogState,
@@ -29142,21 +29142,21 @@
       let {
           pipWindow: _v0
         } = (0, _v26.useContext)(_v1200),
-        _v1 = _v216(_v0 => _v0.countdownSeconds),
+        _v1 = _v217(_v0 => _v0.countdownSeconds),
         {
           confirmDialogState: _v2,
           state: _v3
-        } = (0, _v89.useUIStore)((0, _v27.useShallow)(({
+        } = (0, _v90.useUIStore)((0, _v27.useShallow)(({
           controls: _v0,
           common: _v1
         }) => ({
           confirmDialogState: _v0.confirmDialogState,
           state: _v1.state
         }))),
-        _v4 = (0, _v89.useUIStore)(_v0 => _v0.common.error),
-        _v5 = _v178(_v0 => _v0.displayMedia?.mediaInfo?.displaySurface);
+        _v4 = (0, _v90.useUIStore)(_v0 => _v0.common.error),
+        _v5 = _v179(_v0 => _v0.displayMedia?.mediaInfo?.displaySurface);
       _v1218(_v0);
-      let _v6 = _v150.includes(_v3),
+      let _v6 = _v151.includes(_v3),
         _v7 = "monitor" === _v5 || void 0 !== _v1 || !!_v2 || _v6,
         _v8 = 255,
         _v9 = _v7 ? 63 : 203,
@@ -29180,7 +29180,7 @@
           fontFamily: "ABCRepro-Medium, sans-serif",
           fontSize: "14px"
         },
-        children: _v10 || _v11 ? _v1207.enlargePiP : "blocker-error" === _v4.type && _v4.errorKey === _v172.FIREWALL_ERROR ? (0, _v25.jsxs)(_v25.Fragment, {
+        children: _v10 || _v11 ? _v1207.enlargePiP : "blocker-error" === _v4.type && _v4.errorKey === _v173.FIREWALL_ERROR ? (0, _v25.jsxs)(_v25.Fragment, {
           children: [(0, _v25.jsx)(_v1199.CircleExclamation, {
             style: {
               width: "20px",
@@ -29218,11 +29218,11 @@
     let {
         selectedAudioDeviceId: _v0,
         selectedVideoDeviceId: _v1
-      } = _v87.getState().capture,
+      } = _v88.getState().capture,
       {
         identifiedAudioDevices: _v2,
         identifiedVideoDevices: _v3
-      } = _v169.getState().data;
+      } = _v170.getState().data;
     return {
       audio: _v2?.find(({
         deviceId: _v0
@@ -29237,33 +29237,33 @@
     return _v2 ? _v0 ? _v1 && _v1.includes(_v2) ? _v2 : _v444.DEFAULT_PRIVACY_VALUES.PRIVATE : (_v2 !== _v444.DEFAULT_PRIVACY_VALUES.UNLISTED || _v3) && Object.values(_v444.DEFAULT_PRIVACY_VALUES).includes(_v2) ? _v2 : _v444.DEFAULT_PRIVACY_VALUES.PRIVATE : _v444.DEFAULT_PRIVACY_VALUES.PRIVATE;
   }
   function _v1225(_v0, _v1 = {}) {
-    let _v2 = _v141("alignStreamWithRecordState"),
+    let _v2 = _v142("alignStreamWithRecordState"),
       {
         capture: _v3,
         settings: {
           camera: _v4
         }
-      } = _v87.getState(),
+      } = _v88.getState(),
       {
         initStream: _v5,
         removeStream: _v6
-      } = _v178.getState();
+      } = _v179.getState();
     _v3.isAudioMuted || "muteStream" === _v0 ? (_v2.debug("remove MICROPHONE stream", {
       trigger: _v0
-    }), _v6(_v149.MICROPHONE)) : _v3.selectedAudioDeviceId && (_v2.debug("init MICROPHONE stream", {
+    }), _v6(_v150.MICROPHONE)) : _v3.selectedAudioDeviceId && (_v2.debug("init MICROPHONE stream", {
       trigger: _v0
     }), _v5({
-      kind: _v149.MICROPHONE,
+      kind: _v150.MICROPHONE,
       deviceId: _v3.selectedAudioDeviceId,
-      forceUpdate: _v1[_v149.MICROPHONE]
+      forceUpdate: _v1[_v150.MICROPHONE]
     })), _v3.isVideoMuted || _v4.avatarAsPreview || "muteStream" === _v0 ? (_v2.debug("remove CAMERA stream", {
       trigger: _v0
-    }), _v6(_v149.CAMERA)) : _v3.selectedVideoDeviceId && !_v4.avatarAsPreview && (_v2.debug("init CAMERA stream", {
+    }), _v6(_v150.CAMERA)) : _v3.selectedVideoDeviceId && !_v4.avatarAsPreview && (_v2.debug("init CAMERA stream", {
       trigger: _v0
     }), _v5({
-      kind: _v149.CAMERA,
+      kind: _v150.CAMERA,
       deviceId: _v3.selectedVideoDeviceId,
-      forceUpdate: _v1[_v149.CAMERA]
+      forceUpdate: _v1[_v150.CAMERA]
     }));
   }
   let _v1226 = _v26.useLayoutEffect;
@@ -29277,35 +29277,38 @@
     zIndex: _v6
   }) => {
     let _v7, _v8, _v9, _v10, _v11, _v12, _v13, _v14, _v15;
-    _v272(_v0);
+    _v273(_v0);
     let {
-      setIntegrationConfiguration: _v16
-    } = _v297();
+        setIntegrationConfiguration: _v16
+      } = _v297(),
+      {
+        settings: _v17
+      } = (0, _v32.useOrionSettings)();
     (0, _v26.useEffect)(() => {
-      let _v0 = _v87.subscribe(_v0 => _v0.capture, () => _v1225("captureConfig")),
-        _v1 = _v87.subscribe(_v0 => _v0.settings.camera.avatarAsPreview, () => _v1225("avatarToggle")),
-        _v2 = _v85.subscribe(_v0 => _v0.size, () => _v1225("canvasSize", {
-          [_v149.CAMERA]: !0
+      let _v0 = _v88.subscribe(_v0 => _v0.capture, () => _v1225("captureConfig")),
+        _v1 = _v88.subscribe(_v0 => _v0.settings.camera.avatarAsPreview, () => _v1225("avatarToggle")),
+        _v2 = _v86.subscribe(_v0 => _v0.size, () => _v1225("canvasSize", {
+          [_v150.CAMERA]: !0
         })),
-        _v3 = _v89.useUIStore.subscribe(_v0 => _v0.common.state, (_v0, _v1) => {
-          let _v2 = _v150.includes(_v0);
-          _v150.includes(_v1) !== _v2 && _v1225(_v2 ? "muteStream" : "openStream");
+        _v3 = _v90.useUIStore.subscribe(_v0 => _v0.common.state, (_v0, _v1) => {
+          let _v2 = _v151.includes(_v0);
+          _v151.includes(_v1) !== _v2 && _v1225(_v2 ? "muteStream" : "openStream");
         });
       return () => {
         _v0(), _v1(), _v2(), _v3();
       };
     }, []);
     let {
-      state: _v17,
-      recordingStartedAt: _v18,
-      uploadMethod: _v19,
-      setUploadToFolderUri: _v20,
-      setUploadToAccountId: _v21,
-      setCloudLoggingEnabled: _v22,
-      setUserId: _v23,
-      setAppMode: _v24,
-      setIsGuest: _v25
-    } = (0, _v89.useUIStore)((0, _v27.useShallow)(({
+      state: _v18,
+      recordingStartedAt: _v19,
+      uploadMethod: _v20,
+      setUploadToFolderUri: _v21,
+      setUploadToAccountId: _v22,
+      setCloudLoggingEnabled: _v23,
+      setUserId: _v24,
+      setAppMode: _v25,
+      setIsGuest: _v26
+    } = (0, _v90.useUIStore)((0, _v27.useShallow)(({
       common: _v0,
       logger: _v1
     }) => ({
@@ -29320,17 +29323,17 @@
       setIsGuest: _v0.setIsGuest
     })));
     (() => {
-      let _v0 = (0, _v26.useContext)(_v35.ViewerContext),
+      let _v0 = (0, _v26.useContext)(_v36.ViewerContext),
         {
           setAvailable: _v1,
           setSelected: _v2,
           resetCount: _v3
-        } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => _v0.privacy)),
+        } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => _v0.privacy)),
         {
           privacies: _v4,
           isEnabled: _v5
         } = (() => {
-          let _v0 = (0, _v26.useContext)(_v35.ViewerContext),
+          let _v0 = (0, _v26.useContext)(_v36.ViewerContext),
             _v1 = _v0?.teamUser?.ownerId ?? _v0?.user?.id,
             [_v2, _v3] = (0, _v26.useState)(),
             _v4 = _v0?.user && null === _v0.teamUser && "enterprise" === _v0.user.account,
@@ -29368,7 +29371,7 @@
             hasVideoPasswordPrivacyUpsell: _v11
           },
           ready: _v12
-        } = (0, _v214.useCapability)(["activeSsoTeamMember", "canHideVideos", "canUnlistVideo", "hasRestrictedPrivacyOptions", "hasVideoPasswordPrivacyUpsell"], _v6),
+        } = (0, _v215.useCapability)(["activeSsoTeamMember", "canHideVideos", "canUnlistVideo", "hasRestrictedPrivacyOptions", "hasVideoPasswordPrivacyUpsell"], _v6),
         {
           data: _v13,
           error: _v14
@@ -29398,8 +29401,8 @@
         }
       }, [_v7, _v9, _v12, _v5, _v4, _v13, _v14, _v3, _v2]);
     })(), function (_v0, _v1) {
-      let _v2 = _v140("useBigPictureGlobals"),
-        _v3 = (0, _v26.useContext)(_v35.ViewerContext),
+      let _v2 = _v141("useBigPictureGlobals"),
+        _v3 = (0, _v26.useContext)(_v36.ViewerContext),
         _v4 = !!_v3,
         _v5 = _v3?.user?.id,
         _v6 = _v3?.user?.account,
@@ -29410,7 +29413,7 @@
           currentTeamSize: _v10
         } = _v3?.teamUser ?? {},
         _v11 = _v3?.team?.currentTeamSize;
-      _v50.sessionId = _v0, _v50.integrationName = _v1 || null, (0, _v26.useEffect)(() => {
+      _v51.sessionId = _v0, _v51.integrationName = _v1 || null, (0, _v26.useEffect)(() => {
         if (!_v4) return;
         let _v0 = {
           user_id: _v5,
@@ -29422,13 +29425,13 @@
           team_role: _v8?.toLowerCase(),
           team_account_type: _v9
         };
-        _v2.debug("updated globals: ", _v0), _v50.updateGlobals(_v0);
+        _v2.debug("updated globals: ", _v0), _v51.updateGlobals(_v0);
       }, [_v2, _v4, _v5, _v3?.vuid, _v3?.locale, _v3?.xsrft, _v7, _v8, _v9, _v6]), (0, _v26.useEffect)(() => {
-        _v50.updateTeamData({
+        _v51.updateTeamData({
           team_size: _v10 ?? _v11 ?? null
         });
       }, [_v10, _v11]);
-    }(_v0, _v5?.name), _v7 = _v140("useMediaDevices"), _v8 = _v169(_v0 => _v0.requestAndSetMediaDevices), (0, _v26.useEffect)(() => {
+    }(_v0, _v5?.name), _v7 = _v141("useMediaDevices"), _v8 = _v170(_v0 => _v0.requestAndSetMediaDevices), (0, _v26.useEffect)(() => {
       async function _v0() {
         let {
             audio: _v0,
@@ -29437,12 +29440,12 @@
           {
             defaultVideoDevice: _v2,
             defaultAudioDevice: _v3
-          } = _v169.getState().data;
+          } = _v170.getState().data;
         await _v8();
         let {
             defaultVideoDevice: _v4,
             defaultAudioDevice: _v5
-          } = _v169.getState().data,
+          } = _v170.getState().data,
           _v6 = _v1222(),
           _v7 = [];
         _v0 && _v0.deviceId !== _v6.audio?.deviceId && _v7.push(_v0), _v1 && _v1.deviceId !== _v6.video?.deviceId && _v7.push(_v1), _v7.length > 0 && _v7.info("Devices previously used were removed", {
@@ -29453,18 +29456,18 @@
         navigator.mediaDevices.removeEventListener("devicechange", _v0);
       };
     }, [_v7, _v8]), (() => {
-      let _v0 = (0, _v89.useUIStore)(_v0 => _v0.common.setError),
-        _v1 = _v210(_v0 => _v0.setPermissions),
-        _v2 = _v210(_v0 => _v0.setError),
-        _v3 = _v210(_v0 => _v0.check),
-        _v4 = _v210(_v0 => _v0.permissions),
+      let _v0 = (0, _v90.useUIStore)(_v0 => _v0.common.setError),
+        _v1 = _v211(_v0 => _v0.setPermissions),
+        _v2 = _v211(_v0 => _v0.setError),
+        _v3 = _v211(_v0 => _v0.check),
+        _v4 = _v211(_v0 => _v0.permissions),
         _v5 = _v431(),
         {
           isMediaDevicesReceived: _v6,
           audioDevicesFound: _v7,
           videoDevicesFound: _v8,
           requestAndSetMediaDevices: _v9
-        } = _v169((0, _v27.useShallow)(({
+        } = _v170((0, _v27.useShallow)(({
           requestAndSetMediaDevices: _v0,
           data: _v1
         }) => ({
@@ -29477,7 +29480,7 @@
         _v0(_v0 => _v5 ? {
           type: "error",
           errorKey: _v5
-        } : _v0?.errorKey && Object.values(_v174).includes(_v0.errorKey) ? void 0 : _v0);
+        } : _v0?.errorKey && Object.values(_v175).includes(_v0.errorKey) ? void 0 : _v0);
       }, [_v5, _v0]), (0, _v26.useEffect)(() => {
         let _v0,
           _v1 = !0;
@@ -29485,14 +29488,14 @@
           _v8 && (_v1(_v0 => {
             _v0.video = this.state;
           }), _v2(_v0 => {
-            _v0.video = "denied" === this.state ? _v155.NOT_ALLOWED : void 0;
+            _v0.video = "denied" === this.state ? _v156.NOT_ALLOWED : void 0;
           }), _v9());
         }
         function _v3() {
           _v7 && (_v1(_v0 => {
             _v0.audio = this.state;
           }), _v2(_v0 => {
-            _v0.audio = "denied" === this.state ? _v155.NOT_ALLOWED : void 0;
+            _v0.audio = "denied" === this.state ? _v156.NOT_ALLOWED : void 0;
           }), _v9());
         }
         return _v6 && _v3({
@@ -29508,14 +29511,14 @@
       let {
           user: _v1,
           teamUser: _v2
-        } = (0, _v26.useContext)(_v35.ViewerContext) ?? {},
+        } = (0, _v26.useContext)(_v36.ViewerContext) ?? {},
         _v3 = _v1?.account,
         _v4 = _v2?.accountType,
-        _v5 = (0, _v89.useUIStore)(_v0 => _v0.common.setIsEligibleForUltraQuality),
+        _v5 = (0, _v90.useUIStore)(_v0 => _v0.common.setIsEligibleForUltraQuality),
         {
           setCanvasSize: _v6,
           canvasSize: _v7
-        } = _v85((0, _v27.useShallow)(_v0 => ({
+        } = _v86((0, _v27.useShallow)(_v0 => ({
           setCanvasSize: _v0.setSize,
           canvasSize: _v0.size
         })));
@@ -29547,7 +29550,7 @@
           _v5(_v0), "4K" !== _v7 || _v0 || _v6("720p");
         }
       }, [_v3, _v7, _v0, _v6, _v5, _v2?.ownerId, _v4, _v1?.id]);
-    }(), _v9 = _v140("useWindowUnloadMonitor"), _v10 = (0, _v89.useUIStore)(_v0 => _v0.common.state), (0, _v26.useEffect)(() => {
+    }(), _v9 = _v141("useWindowUnloadMonitor"), _v10 = (0, _v90.useUIStore)(_v0 => _v0.common.state), (0, _v26.useEffect)(() => {
       let _v0 = () => {
         _v9.info("Page is going to be unloaded", {
           state: _v10
@@ -29558,22 +29561,22 @@
       };
     }, [_v9, _v10]);
     let {
-        audio: _v26
-      } = _v213(),
-      [_v27] = _v26.stream ? _v26.stream.getAudioTracks() : [];
+        audio: _v27
+      } = _v214(),
+      [_v28] = _v27.stream ? _v27.stream.getAudioTracks() : [];
     !function (_v0) {
-      let _v1 = _v210(_v0 => "prompt" === _v0.permissions.video || "granted" === _v0.permissions.video),
+      let _v1 = _v211(_v0 => "prompt" === _v0.permissions.video || "granted" === _v0.permissions.video),
         {
           currentSessionData: {
             lastLayoutTypeUsed: _v2
           }
-        } = _v272(),
+        } = _v273(),
         {
           activateScreen: _v3,
           activateCamera: _v4,
           activateBoth: _v5
         } = _v433(),
-        _v6 = _v140("useRetakeWithAssets"),
+        _v6 = _v141("useRetakeWithAssets"),
         _v7 = (0, _v26.useRef)(null),
         _v8 = (0, _v26.useRef)(_v2),
         {
@@ -29599,34 +29602,37 @@
         }).catch(_v0 => {
           _v6.warn("useRetakeWithAssets: activateNecessaryAssets failed", _v0), _v7.current = "failed";
         }).finally(() => {
-          _v74(_v72.svvRetake);
+          _v75(_v73.svvRetake);
         }));
       }, [_v11, _v10, _v12, _v6]);
-    }("pre-recording" === _v17);
-    let _v28 = (0, _v31.useGctlConfig)(),
-      _v29 = (0, _v26.useContext)(_v35.ViewerContext),
-      _v30 = (() => {
-        let _v0 = (0, _v26.useContext)(_v35.ViewerContext),
+    }("pre-recording" === _v18);
+    let _v29 = (0, _v31.useGctlConfig)(),
+      _v30 = (0, _v26.useContext)(_v36.ViewerContext),
+      _v31 = (() => {
+        let _v0 = (0, _v26.useContext)(_v36.ViewerContext),
           _v1 = _v0?.user?.id,
           {
             isDebugMode: _v2
           } = _v289("debugMode", !0),
           {
-            data: _v3,
-            isLoading: _v4
+            settings: _v3
+          } = (0, _v32.useOrionSettings)(),
+          {
+            data: _v4,
+            isLoading: _v5
           } = (0, _v1221.useGetUserPreferences)(() => _v1 ? {
             where: {
               userId: _v1
             },
             select: ["rscle"]
           } : null);
-        return !!(!_v4 && _v3?.rscle) || _v0?.user?.badge?.type === "staff" && _v2;
+        return !!("live" !== _v3.record_upload_approach || !_v5 && _v4?.rscle) || _v0?.user?.badge?.type === "staff" && _v2;
       })(),
       {
-        clear: _v31
+        clear: _v32
       } = _v310(),
-      _v32 = (() => {
-        let _v0 = _v140("usePreviewPiP"),
+      _v33 = (() => {
+        let _v0 = _v141("usePreviewPiP"),
           _v1 = (0, _v26.useRef)(!1),
           {
             isPiPSupported: _v2,
@@ -29634,7 +29640,7 @@
             setPiPEnabled: _v4,
             setReloading: _v5,
             setCurrentPiPSize: _v6
-          } = (0, _v89.useUIStore)((0, _v27.useShallow)(_v0 => ({
+          } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
             isPiPSupported: _v0.pip.supported,
             isPiPEnabled: _v0.pip.enabled,
             setPiPEnabled: _v0.pip.setEnabled,
@@ -29643,7 +29649,7 @@
           }))),
           _v7 = (0, _v26.useCallback)(() => {
             let _v0 = "maximized";
-            return "monitor" === _v178.getState().displayMedia?.mediaInfo?.displaySurface && (_v0 = "minimized"), _v6(_v0), "maximized" === _v0 ? 204 : 64;
+            return "monitor" === _v179.getState().displayMedia?.mediaInfo?.displaySurface && (_v0 = "minimized"), _v6(_v0), "maximized" === _v0 ? 204 : 64;
           }, [_v6]),
           _v8 = (0, _v26.useCallback)(_v0 => {
             _v4(_v0), _v1.current = _v0;
@@ -29659,7 +29665,7 @@
             let [_v3, _v4] = (0, _v26.useState)(null),
               [_v5, _v6] = (0, _v26.useState)(!1),
               _v7 = (0, _v26.useRef)(!1),
-              _v8 = (0, _v26.useContext)(_v35.ViewerContext);
+              _v8 = (0, _v26.useContext)(_v36.ViewerContext);
             (({
               win: _v0,
               onMoved: _v1
@@ -29685,7 +29691,7 @@
             })({
               win: _v3,
               onMoved: (0, _v26.useCallback)(() => {
-                _v51({
+                _v52({
                   name: "move_picture_in_picture",
                   eventType: "drag_and_drop",
                   location: "picture_in_picture_modal"
@@ -29709,7 +29715,7 @@
             })({
               win: _v3,
               onResized: (0, _v26.useCallback)(() => {
-                _v51({
+                _v52({
                   name: "resize_picture_in_picture",
                   eventType: "drag_and_drop",
                   location: "picture_in_picture_modal"
@@ -29717,7 +29723,7 @@
               }, [])
             });
             let _v9 = (0, _v26.useCallback)(() => {
-                _v2(!1), _v6(!1), _v4(null), _v7.current || _v51({
+                _v2(!1), _v6(!1), _v4(null), _v7.current || _v52({
                   name: "close_picture_in_picture",
                   eventType: "click",
                   location: "picture_in_picture_modal"
@@ -29744,7 +29750,7 @@
                   });
                   let _v2 = (0, _v1198.createRoot)(_v1);
                   (0, _v472.flushSync)(() => {
-                    _v2.render((0, _v25.jsx)(_v35.ViewerContext.Provider, {
+                    _v2.render((0, _v25.jsx)(_v36.ViewerContext.Provider, {
                       value: _v8,
                       children: (0, _v25.jsx)(_v1200.Provider, {
                         value: {
@@ -29787,7 +29793,7 @@
         return _v300((0, _v26.useCallback)(async _v0 => {
           if (_v2) try {
             let _v0 = void 0 !== _v0 ? _v0 : !_v3;
-            _v0 && _v1.current ? (_v5(!0), await _v10().finally(() => _v5(!1))) : await _v9(_v0), _v0 && (_v51({
+            _v0 && _v1.current ? (_v5(!0), await _v10().finally(() => _v5(!1))) : await _v9(_v0), _v0 && (_v52({
               name: "view_picture_in_picture",
               eventType: "impression",
               location: "picture_in_picture_modal"
@@ -29800,21 +29806,21 @@
         }, [_v2, _v3, _v5, _v10, _v9, _v4, _v0]));
       })();
     _v1218();
-    let _v33 = (0, _v26.useCallback)(() => {
-      _v127("record_studio_script_generation_started");
+    let _v34 = (0, _v26.useCallback)(() => {
+      _v128("record_studio_script_generation_started");
     }, []);
     (0, _v26.useLayoutEffect)(() => {
-      _v31();
-    }, [_v31]);
+      _v32();
+    }, [_v32]);
     let {
-        isTeleprompterShown: _v34,
-        showUpsell: _v35
-      } = (0, _v33.useTeleprompter)(),
-      _v36 = _v427((0, _v26.useCallback)(_v0 => {
-        let _v1 = _v34 && !_v35;
+        isTeleprompterShown: _v35,
+        showUpsell: _v36
+      } = (0, _v34.useTeleprompter)(),
+      _v37 = _v427((0, _v26.useCallback)(_v0 => {
+        let _v1 = _v35 && !_v36;
         return _v0 !== _v311 || !_v1;
-      }, [_v34, _v35])),
-      _v37 = (() => {
+      }, [_v35, _v36])),
+      _v38 = (() => {
         let _v0 = _v427((0, _v26.useCallback)(_v0 => _v0 === _v311, [])) ?? [],
           {
             ignore: _v1
@@ -29827,84 +29833,87 @@
         }));
       })();
     (0, _v26.useEffect)(() => () => {
-      _v32(!1);
-    }, [_v32]), (0, _v26.useEffect)(() => {
-      _v1?.(_v17);
-    }, [_v17, _v1]), (0, _v26.useEffect)(() => {
-      _v29?.user?.id && _v23(_v29.user.id);
-    }, [_v23, _v29?.user?.id]), (0, _v26.useEffect)(() => {
-      _v2 === _v295 && _v21(_v3);
-    }, [_v2, _v21, _v3]), (0, _v26.useEffect)(() => {
-      _v2 === _v295 && _v20(_v4);
-    }, [_v2, _v20, _v4]), (0, _v26.useEffect)(() => {
+      _v33(!1);
+    }, [_v33]), (0, _v26.useEffect)(() => {
+      _v1?.(_v18);
+    }, [_v18, _v1]), (0, _v26.useEffect)(() => {
+      _v30?.user?.id && _v24(_v30.user.id);
+    }, [_v24, _v30?.user?.id]), (0, _v26.useEffect)(() => {
+      _v2 === _v295 && _v22(_v3);
+    }, [_v2, _v22, _v3]), (0, _v26.useEffect)(() => {
+      _v2 === _v295 && _v21(_v4);
+    }, [_v2, _v21, _v4]), (0, _v26.useEffect)(() => {
       _v2 === _v295 && _v16(_v5);
     }, [_v5, _v2, _v16]), (0, _v26.useEffect)(() => {
-      _v104.initialize(_v28);
-    }, [_v28]);
-    let _v38 = (_v11 = _v140("useIsGuest"), _v12 = (0, _v26.useContext)(_v35.ViewerContext), _v13 = _v12?.jwt, _v15 = (_v14 = (0, _v26.useMemo)(() => _v13 ? _v99(_v13) : null, [_v13])) ? null === _v14.user_id : void 0, (0, _v26.useEffect)(() => {
+      _v105.initialize(_v29);
+    }, [_v29]);
+    let _v39 = (_v11 = _v141("useIsGuest"), _v12 = (0, _v26.useContext)(_v36.ViewerContext), _v13 = _v12?.jwt, _v15 = (_v14 = (0, _v26.useMemo)(() => _v13 ? _v100(_v13) : null, [_v13])) ? null === _v14.user_id : void 0, (0, _v26.useEffect)(() => {
       _v11.debug(`RecordStudio: "isGuest" status changed: [${_v15}]`);
     }, [_v15, _v11]), _v15);
     (0, _v26.useEffect)(() => {
-      void 0 !== _v38 && _v25(_v38);
-    }, [_v38, _v25]);
+      void 0 !== _v39 && _v26(_v39);
+    }, [_v39, _v26]);
     let {
-        isExtensionRedirect: _v39
+        isExtensionRedirect: _v40
       } = _v289("extensionRedirect", !0),
       {
-        extensionRedirectSource: _v40
+        extensionRedirectSource: _v41
       } = _v289("extensionRedirectSource", !1);
     (0, _v26.useEffect)(() => {
-      _v208({
+      _v209({
         name: "welcomeScreenOpened",
-        extensionEntry: _v39,
-        extensionLocation: _v40
+        extensionEntry: _v40,
+        extensionLocation: _v41
       });
-    }, [_v40, _v39]), function ({
+    }, [_v41, _v40]), function ({
       appType: _v0,
       sessionId: _v1 = null,
       userId: _v2 = null,
       userLocale: _v3 = null,
-      isLiveUploadEnabled: _v4 = !1
-    }, _v5) {
+      isLiveUploadEnabled: _v4 = !1,
+      uploadExperimentArm: _v5 = null
+    }, _v6) {
       _v1226(() => {
         var _v0 = {
           APP_TYPE: _v0,
           SESSION_ID: _v1,
           USER_ID: _v2,
           USER_LOCALE: _v3,
-          IS_LIVE_UPLOAD_ENABLED: _v4
+          IS_LIVE_UPLOAD_ENABLED: _v4,
+          UPLOAD_EXPERIMENT_ARM: _v5
         };
-        for (let _v0 in _v0) _v122[_v0] = _v0[_v0];
-        _v5 && _v128(_v125());
-      }, [_v1, _v2, _v3, _v4]);
+        for (let _v0 in _v0) _v123[_v0] = _v0[_v0];
+        _v6 && _v129(_v126());
+      }, [_v1, _v2, _v3, _v4, _v5]);
     }({
       appType: _v2 === _v295 ? `record-${_v5.name}-integration` : "record-studio",
       sessionId: _v0,
-      userId: _v29?.user?.id,
-      userLocale: _v29?.locale,
-      isLiveUploadEnabled: "live" === _v19
+      userId: _v30?.user?.id,
+      userLocale: _v30?.locale,
+      isLiveUploadEnabled: "live" === _v20,
+      uploadExperimentArm: "live" === _v17.record_upload_approach ? null : _v17.record_upload_approach
     }, _v2 === _v294), (0, _v26.useEffect)(() => {
-      _v24(_v2), _v127(`record_studio_rendered_${_v2}`);
-    }, [_v2, _v24]), (0, _v26.useEffect)(() => {
-      _v77 && _v127("record_studio_subdomain_entry", {
+      _v25(_v2), _v128(`record_studio_rendered_${_v2}`);
+    }, [_v2, _v25]), (0, _v26.useEffect)(() => {
+      _v78 && _v128("record_studio_subdomain_entry", {
         subdomain: window.location.hostname
       });
     }, []), (0, _v26.useEffect)(() => {
-      _v22(_v30);
-    }, [_v30, _v22]);
-    let _v41 = function () {
-      let _v0 = _v140("useDefaultInputSelected"),
-        _v1 = _v169(_v0 => _v0.data.defaultAudioDevice?.deviceId),
-        _v2 = _v178(_v0 => _v0.microphone?.deviceId),
-        _v3 = _v178(_v0 => _v0.initialisations.microphone);
+      _v23(_v31);
+    }, [_v31, _v23]);
+    let _v42 = function () {
+      let _v0 = _v141("useDefaultInputSelected"),
+        _v1 = _v170(_v0 => _v0.data.defaultAudioDevice?.deviceId),
+        _v2 = _v179(_v0 => _v0.microphone?.deviceId),
+        _v3 = _v179(_v0 => _v0.initialisations.microphone);
       if ((0, _v26.useEffect)(() => {
         _v0.debug(`System default microphone changed. ID: ${_v1}`);
       }, [_v1, _v0]), (0, _v26.useEffect)(() => {
         _v0.debug(`Microphone with open stream changed. ID: ${_v2}`);
       }, [_v2, _v0]), void 0 !== _v1 && void 0 !== _v2 && !_v3) return _v1 === _v2;
     }();
-    return (0, _v25.jsx)(_v232.Provider, {
-      value: _v32,
+    return (0, _v25.jsx)(_v233.Provider, {
+      value: _v33,
       children: (0, _v25.jsx)(_v402, {
         children: (0, _v25.jsxs)(_v28.Flex, {
           flexDirection: "column",
@@ -29920,7 +29929,7 @@
             position: "relative",
             minWidth: (0, _v30.rem)(900)
           }),
-          children: [(0, _v25.jsx)(_v34.MoveModalContextProvider, {
+          children: [(0, _v25.jsx)(_v35.MoveModalContextProvider, {
             children: _v2 === _v295 ? (0, _v25.jsx)(_v429, {}) : (0, _v25.jsx)(_v423, {})
           }), (0, _v25.jsx)(_v28.Flex, {
             "data-testid": "record-studio",
@@ -29939,22 +29948,22 @@
                 children: (0, _v25.jsxs)(_v471, {
                   children: [(0, _v25.jsxs)(_v29.VStack, {
                     marginX: "auto",
-                    children: [(0, _v25.jsx)(_v350, {}), _v18 ? (0, _v25.jsx)(_v430, {}) : null, _v36 && (0, _v25.jsx)(_v425, {
-                      visibleNotices: _v36
+                    children: [(0, _v25.jsx)(_v350, {}), _v19 ? (0, _v25.jsx)(_v430, {}) : null, _v37 && (0, _v25.jsx)(_v425, {
+                      visibleNotices: _v37
                     })]
                   }), (0, _v25.jsx)(_v1163, {}), (0, _v25.jsx)(_v314, {})]
                 })
-              }), (0, _v25.jsx)(_v1197, {}), (0, _v25.jsx)(_v32.Teleprompter, {
+              }), (0, _v25.jsx)(_v1197, {}), (0, _v25.jsx)(_v33.Teleprompter, {
                 session: _v0,
-                visibleNotices: _v37,
-                audioTrack: _v27,
-                micId: _v26.selectedDeviceId,
-                defaultMicSelected: _v41,
-                audioMuted: _v26.isMuted,
-                onUserInteractionEvent: _v51,
-                logger: _v141,
-                onScriptGenerationStarted: _v33
-              }), (0, _v25.jsx)(_v36.BottomBar, {})]
+                visibleNotices: _v38,
+                audioTrack: _v28,
+                micId: _v27.selectedDeviceId,
+                defaultMicSelected: _v42,
+                audioMuted: _v27.isMuted,
+                onUserInteractionEvent: _v52,
+                logger: _v142,
+                onScriptGenerationStarted: _v34
+              }), (0, _v25.jsx)(_v37.BottomBar, {})]
             })
           })]
         })

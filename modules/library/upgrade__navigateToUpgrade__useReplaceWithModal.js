@@ -12,28 +12,29 @@
   let _v9 = new Set();
   var _v10 = _v0.i(0);
   let _v11 = () => window.location.assign("/upgrade");
-  _v0.s(["navigateToUpgrade", 0, _v11, "useReplaceWithModal", 0, function (_v0, _v1, _v2, _v3 = _v11, _v4) {
-    let [_v5, _v6] = (0, _v2.useState)(null);
+  _v0.s(["navigateToUpgrade", 0, _v11, "useReplaceWithModal", 0, function (_v0, _v1, _v2, _v3 = _v11, _v4, _v5 = "library") {
+    let [_v6, _v7] = (0, _v2.useState)(null);
     (0, _v4.useQuotaCheck)({
       targetUserId: _v4,
       onQuotaReached: _v1 ? _v3 : void 0
     });
     let {
-      triggerReplace: _v7,
-      replaceInput: _v8
-    } = function (_v0, _v1, _v2, _v3) {
+      triggerReplace: _v8,
+      replaceInput: _v9
+    } = function (_v0, _v1, _v2, _v3, _v4 = "library") {
       let {
-          upload: _v4
+          upload: _v5
         } = (0, _v7.useUploader)(),
-        _v5 = (0, _v2.useRef)(null),
+        _v6 = (0, _v2.useRef)(null),
         {
-          trackReplaceVersion: _v6
+          trackReplaceVersion: _v7
         } = (0, _v5.useVideoManageTracking)();
       return (0, _v8.useUploadLifecycle)((_v0, _v1) => {
         if (!_v3 || "replace_clip" !== _v1.uploadType || _v1.clipId !== String(_v0) || _v9.has(_v1.id)) return;
         let _v2 = _v0 === _v6.STATES.COMPLETED ? "succeeded" : _v0 === _v6.STATES.FAILED ? "failed" : null;
-        _v2 && (_v9.add(_v1.id), _v6({
+        _v2 && (_v9.add(_v1.id), _v7({
           clipId: _v1.clipId,
+          location: _v4,
           versionId: null,
           filename: _v1.file.name,
           filesize: _v1.file.size,
@@ -42,10 +43,10 @@
           status: _v2,
           error: "failed" === _v2 ? _v1.error ?? null : null
         }));
-      }, [_v0, _v3, _v6]), {
-        triggerReplace: (0, _v2.useCallback)(() => _v5.current?.click(), []),
+      }, [_v0, _v3, _v4, _v7]), {
+        triggerReplace: (0, _v2.useCallback)(() => _v6.current?.click(), []),
         replaceInput: (0, _v1.jsx)("input", {
-          ref: _v5,
+          ref: _v6,
           type: "file",
           accept: "video/*",
           style: {
@@ -61,21 +62,21 @@
                 targetUserId: _v2
               })
             };
-            _v1 ? _v1(_v1[0], () => _v4(_v1, _v2)) : _v4(_v1, _v2);
+            _v1 ? _v1(_v1[0], () => _v5(_v1, _v2)) : _v5(_v1, _v2);
           }
         })
       };
-    }(_v0, _v1 ? (_v0, _v1) => _v6({
+    }(_v0, _v1 ? (_v0, _v1) => _v7({
       file: _v0,
       proceed: _v1
-    }) : void 0, _v4, _v1);
+    }) : void 0, _v4, _v1, _v5);
     return {
-      triggerReplace: _v7,
-      replaceInput: _v8,
-      replaceModal: _v5 ? (0, _v1.jsx)(_v10.ReplaceModal, {
-        onCancel: () => _v6(null),
+      triggerReplace: _v8,
+      replaceInput: _v9,
+      replaceModal: _v6 ? (0, _v1.jsx)(_v10.ReplaceModal, {
+        onCancel: () => _v7(null),
         onConfirm: () => {
-          _v5.proceed(), _v6(null);
+          _v6.proceed(), _v7(null);
         },
         primaryCtaText: (0, _v3.translate)({
           singular: "Replace",
@@ -103,7 +104,7 @@
             }
           }
         }),
-        fileToReplaceName: _v5.file.name,
+        fileToReplaceName: _v6.file.name,
         isInteractive: _v2
       }) : null
     };

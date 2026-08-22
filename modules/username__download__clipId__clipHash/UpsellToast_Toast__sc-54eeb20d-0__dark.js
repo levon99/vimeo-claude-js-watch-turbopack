@@ -630,28 +630,28 @@
               }
             }
           }) : "in_progress" === _v7 ? (0, _v65.translate)({
-            singular: "Transcoding",
+            singular: "Optimizing",
             dictionary: {
               es: {
-                singular: "Transcodificando"
+                singular: "Optimizando"
               },
               "de-DE": {
-                singular: "Transkodierung"
+                singular: "Optimierung"
               },
               "fr-FR": {
-                singular: "Transcodage en cours"
+                singular: "Optimisation en cours"
               },
               "ja-JP": {
-                singular: "トランスコード中"
+                singular: "最適化中"
               },
               "ko-KR": {
-                singular: "트랜스코딩"
+                singular: "최적화 중"
               },
               "pt-BR": {
-                singular: "Transcodificando"
+                singular: "Otimizando"
               },
               "zh-CN": {
-                singular: "转码中"
+                singular: "优化中"
               }
             }
           }) : "error" === _v7 ? (0, _v65.translate)({

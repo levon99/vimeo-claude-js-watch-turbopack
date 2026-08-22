@@ -1127,7 +1127,7 @@
     _v61 = async ({
       baseUrl: _v0,
       headers: _v1,
-      seriesId: _v2,
+      seriesIdOrUrl: _v2,
       password: _v3,
       credentials: _v4,
       signal: _v5
@@ -1173,7 +1173,7 @@
       return _v1;
     },
     _v63 = ({
-      seriesId: _v0,
+      seriesIdOrUrl: _v0,
       baseUrl: _v1,
       onUnlock: _v2
     }) => {
@@ -1187,7 +1187,7 @@
               let _v0 = await _v62(),
                 _v1 = await _v61({
                   baseUrl: _v1,
-                  seriesId: _v0,
+                  seriesIdOrUrl: _v0,
                   password: _v3,
                   headers: {
                     Authorization: `jwt ${_v0}`
@@ -1547,30 +1547,34 @@
   var _v65 = _v0.i(0),
     _v66 = _v0.i(0),
     _v67 = _v0.i(0);
+  let _v68 = /^[A-Za-z0-9-]{1,128}$/;
   (0, _v4.withPageSetup)(async _v0 => {
     let _v1 = _v0.params?.params,
       _v2 = Array.isArray(_v1) ? _v1 : _v1 ? [_v1] : [],
-      _v3 = Number.parseInt(_v2[0] ?? "", 10);
-    if (!Number.isFinite(_v3)) return {
+      _v3 = _v2[0] ?? "",
+      _v4 = /^\d+$/.test(_v3);
+    if (!_v4 && !_v68.test(_v3)) return {
       notFound: !0
     };
-    let _v4 = _v2[_v2.length - 1],
-      _v5 = _v2.length >= 3 && _v4 === _v5 ? "upcoming" : _v2.length >= 3 && _v4 === _v6 ? "on-demand" : "landing",
-      _v6 = _v0.req.headers.cookie,
-      _v7 = _v6 ? {
+    let _v5 = _v4 ? Number.parseInt(_v3, 10) : _v3,
+      _v6 = _v2[_v2.length - 1],
+      _v7 = _v4 ? _v2.length >= 3 : 2 === _v2.length,
+      _v8 = _v7 && _v6 === _v5 ? "upcoming" : _v7 && _v6 === _v6 ? "on-demand" : "landing",
+      _v9 = _v0.req.headers.cookie,
+      _v10 = _v9 ? {
         ..._v0.headers,
-        cookie: _v6
+        cookie: _v9
       } : _v0.headers;
     try {
       return {
         props: {
           series: await _v61({
-            seriesId: _v3,
-            headers: _v7,
+            seriesIdOrUrl: _v5,
+            headers: _v10,
             baseUrl: _v0.baseUrl
           }),
-          seriesId: _v3,
-          view: _v5,
+          seriesIdOrUrl: _v5,
+          view: _v8,
           baseUrl: _v0.baseUrl,
           hasThemeSupport: !0
         }
@@ -1579,8 +1583,8 @@
       if (await _v55(_v0)) return {
         props: {
           series: null,
-          seriesId: _v3,
-          view: _v5,
+          seriesIdOrUrl: _v5,
+          view: _v8,
           baseUrl: _v0.baseUrl,
           hasThemeSupport: !0
         }
@@ -1591,7 +1595,7 @@
     }
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, ({
     series: _v0,
-    seriesId: _v1,
+    seriesIdOrUrl: _v1,
     view: _v2,
     baseUrl: _v3
   }) => {
@@ -1603,13 +1607,13 @@
       _v8 = (0, _v3.useRef)(null);
     if ((0, _v3.useEffect)(() => {
       if (!_v4 || !_v6) return;
-      let _v0 = `${_v1}:${_v2}`;
+      let _v0 = `${_v4.id}:${_v2}`;
       _v8.current !== _v0 && (_v8.current = _v0, _v7({
-        eventSeriesId: String(_v1),
+        eventSeriesId: String(_v4.id),
         landingPage: (0, _v65.deriveEventSeriesLandingPage)(_v2),
         viewerAuthStatus: (0, _v66.deriveViewerAuthStatus)(_v6)
       }));
-    }, [_v4, _v1, _v2, _v6, _v7]), !_v4) return (0, _v1.jsxs)(_v1.Fragment, {
+    }, [_v4, _v2, _v6, _v7]), !_v4) return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
           children: "Event series"
@@ -1617,7 +1621,7 @@
       }), (0, _v1.jsx)(_v63, {
         baseUrl: _v3,
         onUnlock: _v5,
-        seriesId: _v1
+        seriesIdOrUrl: _v1
       })]
     });
     let _v9 = _v4.name?.trim() || "Event series",

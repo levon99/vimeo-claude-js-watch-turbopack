@@ -96,6 +96,9 @@
       _v4 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_replace_version", {
           clip_id: _v0.clipId,
+          ...(void 0 !== _v0.location && {
+            location: _v0.location
+          }),
           ...(void 0 !== _v0.versionNumber && {
             version_number: _v0.versionNumber
           }),

@@ -468,26 +468,27 @@
       }
     }
   });
-  async function _v53(_v0, _v1, _v2) {
-    let _v3 = _v51.ssoDataInitialState;
+  async function _v53(_v0, _v1, _v2, _v3) {
+    let _v4 = _v51.ssoDataInitialState;
     if (await (0, _v51.validateSSOEmail)(_v0, _v0 => {
-      _v3 = _v0;
-    }), _v3.SSO && !_v3.bypassSSO) return {
+      _v4 = _v0;
+    }), _v4.SSO && !_v4.bypassSSO) return {
       step: "sso",
-      connection: _v3.connection,
-      customDomain: _v3.customDomain || void 0,
-      firstTimeSSOLogin: _v3.firstTimeSSOLogin
+      connection: _v4.connection,
+      customDomain: _v4.customDomain || void 0,
+      firstTimeSSOLogin: _v4.firstTimeSSOLogin
     };
-    let _v4 = new URLSearchParams({
+    let _v5 = new URLSearchParams({
       email: _v0,
       token: _v1,
       action: "join",
       service: "vimeo",
-      email_validation: "true"
+      email_validation: "true",
+      unified_auth_flow_id: _v3
     });
-    _v2 && _v4.set("hcaptcha_token", _v2);
+    _v2 && _v5.set("hcaptcha_token", _v2);
     try {
-      let _v0 = await (0, _v50.Login)(_v4.toString(), "/join");
+      let _v0 = await (0, _v50.Login)(_v5.toString(), "/join");
       if (_v0?.status === 429) return {
         step: "error",
         message: (0, _v6.translate)({
@@ -986,7 +987,7 @@
           if (_v21({
             outcome: _v2 ? "token_minted" : _v3 ?? (_v24 ? "empty_response" : "inactive")
           }), _v2) _v1 = _v2;else if (_v3 && _v16) return void _v22(_v3);
-          let _v4 = await _v53(_v0.email, _v11, _v1);
+          let _v4 = await _v53(_v0.email, _v11, _v1, _v0);
           (_v18({
             flowId: _v0,
             resolvedStep: _v4.step

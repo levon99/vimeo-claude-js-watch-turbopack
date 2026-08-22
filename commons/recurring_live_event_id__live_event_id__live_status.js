@@ -65,7 +65,7 @@
         _v18 = _v10.length,
         _v19 = (0, _v35.useGlobalStore)(_v0 => _v0.leadCapture.placement),
         _v20 = (0, _v2.useMemo)(() => {
-          if (_v0 === _v5.ENTITY_TYPE.EVENT) switch (_v5) {
+          if (_v0 === _v6.ENTITY_TYPE.EVENT) switch (_v5) {
             case "anybody":
               return "public";
             case "nobody":
@@ -79,7 +79,7 @@
           }
           return null;
         }, [_v5, _v0]),
-        _v21 = (0, _v2.useMemo)(() => Array.from(new Set(_v8.map(_v0 => _v0.providerId ? _v5.PROVIDER_ID_TO_SERVICE_ID_MAPPING[parseInt(_v0.providerId)] : null).filter(_v0 => !!_v0))), [_v8]),
+        _v21 = (0, _v2.useMemo)(() => Array.from(new Set(_v8.map(_v0 => _v0.providerId ? _v6.PROVIDER_ID_TO_SERVICE_ID_MAPPING[parseInt(_v0.providerId)] : null).filter(_v0 => !!_v0))), [_v8]),
         _v22 = _v21.length > 0;
       return {
         sendViewerBpEvent: ({
@@ -102,7 +102,7 @@
               })),
               ...(0, _v30.buildWebBpContext)({
                 path: window.location.href,
-                page_name: _v0 === _v5.ENTITY_TYPE.EVENT ? "live_event_view_page" : "viewer_home"
+                page_name: _v0 === _v6.ENTITY_TYPE.EVENT ? "live_event_view_page" : "viewer_home"
               }),
               ...(0, _v26.buildProductAnalyticsBpContext)({
                 product: "gates",
@@ -114,13 +114,13 @@
                 entity_type: (0, _v17.getFormattedEntityType)(_v0),
                 scrolling_percentage: null
               }),
-              ...(_v0 === _v5.ENTITY_TYPE.VIDEO && (0, _v29.buildVideoBpContext)({
+              ...(_v0 === _v6.ENTITY_TYPE.VIDEO && (0, _v29.buildVideoBpContext)({
                 video_id: Number(_v2),
                 video_privacy: _v5,
                 video_embed_privacy: _v6,
                 duration: _v3
               })),
-              ...(_v0 === _v5.ENTITY_TYPE.EVENT && (_v2 = {
+              ...(_v0 === _v6.ENTITY_TYPE.EVENT && (_v2 = {
                 recurring_live_event_id: _v2,
                 event_privacy: _v20,
                 live_feature: "registration",
@@ -153,7 +153,7 @@
             is_logo_added: _v11,
             is_background_added: _v12,
             is_skippable: _v14,
-            placement: _v0 === _v5.ENTITY_TYPE.VIDEO ? _v19 : null,
+            placement: _v0 === _v6.ENTITY_TYPE.VIDEO ? _v19 : null,
             is_privacy_policy_url: _v7,
             view_location: "local",
             prefilled_data: null,
@@ -178,7 +178,7 @@
       _v5 = (0, _v43.useRtfStore)(_v0 => _v0.buttonLivePreview.buttonColor),
       _v6 = (_v3 && _v4?.role === _v34.BUTTON_ROLES.PRIMARY ? _v5 : _v2) || "blue.500";
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v10.Box, {
+      children: [(0, _v1.jsx)(_v3.Box, {
         pb: "sm",
         fontSize: "body-lg",
         zIndex: 100,
@@ -276,7 +276,7 @@
         _v12?.chain().focus().selectAll().run();
       },
       getText: () => _v12?.getText()
-    })), (0, _v1.jsx)(_v3.Flex, {
+    })), (0, _v1.jsx)(_v4.Flex, {
       fontSize: (0, _v11.rem)(14),
       ref: _v11,
       ..._v9,
@@ -310,11 +310,11 @@
     return (0, _v2.useEffect)(() => {
       let _v0 = _v12.current?.getHTML();
       _v2 && _v0 && _v2 !== _v0 && _v12.current?.setHTML(_v2);
-    }, [_v2]), (0, _v1.jsx)(_v10.Box, {
+    }, [_v2]), (0, _v1.jsx)(_v3.Box, {
       position: "relative",
       children: (0, _v1.jsx)(_v51.Checkbox, {
         ref: _v5,
-        label: (0, _v1.jsx)(_v3.Flex, {
+        label: (0, _v1.jsx)(_v4.Flex, {
           border: `${(0, _v11.rem)(2)} solid`,
           borderColor: "transparent",
           borderRadius: (0, _v11.rem)(8),
@@ -325,7 +325,7 @@
           onClick: () => {
             _v9 === _v34.PAGE_TYPES.ADMIN && (_v11(_v0), _v10(_v34.SIDE_MENU_CONTENT.CHECKBOX_STYLING));
           },
-          children: (0, _v1.jsxs)(_v3.Flex, {
+          children: (0, _v1.jsxs)(_v4.Flex, {
             textAlign: "left",
             color: _v13,
             overflow: "hidden",
@@ -379,9 +379,9 @@
       }, [_v4, _v15]), (0, _v2.useImperativeHandle)(_v7, () => ({
         validate: () => _v16(_v8?.optionLabel),
         getValue: () => _v8?.optionLabel || ""
-      })), (0, _v1.jsxs)(_v10.Box, {
+      })), (0, _v1.jsxs)(_v3.Box, {
         position: "relative",
-        children: [(0, _v1.jsxs)(_v10.Box, {
+        children: [(0, _v1.jsxs)(_v3.Box, {
           as: "select",
           ref: _v15,
           width: "100%",
@@ -400,17 +400,17 @@
           "aria-required": _v3,
           color: "black",
           background: "white",
-          children: [(0, _v1.jsx)(_v10.Box, {
+          children: [(0, _v1.jsx)(_v3.Box, {
             as: "option",
             value: "",
             selected: !0,
             children: _v1
-          }), _v0.map((_v0, _v1) => (0, _v1.jsx)(_v10.Box, {
+          }), _v0.map((_v0, _v1) => (0, _v1.jsx)(_v3.Box, {
             as: "option",
             value: _v0?.optionLabel,
             children: _v0?.optionLabel
           }, _v0.optionLabel + _v1))]
-        }), (0, _v1.jsxs)(_v10.Box, {
+        }), (0, _v1.jsxs)(_v3.Box, {
           borderRadius: "sm",
           height: (0, _v11.rem)(55),
           textAlign: "left",
@@ -426,10 +426,10 @@
           top: 0,
           left: 0,
           children: [_v8 ? (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsxs)(_v3.Flex, {
+            children: [(0, _v1.jsxs)(_v4.Flex, {
               alignItems: "center",
               width: "90%",
-              children: [(0, _v1.jsx)(_v10.Box, {
+              children: [(0, _v1.jsx)(_v3.Box, {
                 pt: (0, _v11.rem)(7),
                 fontSize: "body-md",
                 overflow: "hidden",
@@ -437,7 +437,7 @@
                 whiteSpace: "nowrap",
                 children: _v1
               }), _v3 && (0, _v1.jsx)(_v65, {})]
-            }), (0, _v1.jsx)(_v10.Box, {
+            }), (0, _v1.jsx)(_v3.Box, {
               fontSize: "body-md",
               overflow: "hidden",
               textOverflow: "ellipsis",
@@ -446,18 +446,18 @@
               textColor: "black",
               children: _v8.optionLabel
             })]
-          }) : (0, _v1.jsxs)(_v3.Flex, {
+          }) : (0, _v1.jsxs)(_v4.Flex, {
             alignItems: "center",
             width: "90%",
             height: "100%",
-            children: [(0, _v1.jsx)(_v10.Box, {
+            children: [(0, _v1.jsx)(_v3.Box, {
               fontSize: "body-md",
               overflow: "hidden",
               textOverflow: "ellipsis",
               whiteSpace: "nowrap",
               children: _v1
             }), _v3 && (0, _v1.jsx)(_v65, {})]
-          }), (0, _v1.jsx)(_v10.Box, {
+          }), (0, _v1.jsx)(_v3.Box, {
             position: "absolute",
             top: (0, _v11.rem)(15),
             right: (0, _v11.rem)(10),
@@ -471,7 +471,7 @@
         })]
       });
     }),
-    _v65 = () => (0, _v1.jsx)(_v10.Box, {
+    _v65 = () => (0, _v1.jsx)(_v3.Box, {
       as: "span",
       pl: (0, _v11.rem)(2),
       color: "red.500",
@@ -550,7 +550,7 @@
         }
       })()
     }) : null,
-    _v68 = _v0 => (0, _v1.jsx)(_v10.Box, {
+    _v68 = _v0 => (0, _v1.jsx)(_v3.Box, {
       mb: "md",
       width: "100%",
       mt: (0, _v11.rem)(2),
@@ -631,9 +631,9 @@
           setPreviewType: _v19
         } = (0, _v2.useContext)(_v19.PreviewContext),
         _v20 = (0, _v35.useGlobalStore)(_v0 => _v0.setCurrentSelectedFieldIndex);
-      return (0, _v1.jsxs)(_v10.Box, {
+      return (0, _v1.jsxs)(_v3.Box, {
         pt: "sm",
-        children: [(0, _v1.jsx)(_v10.Box, {
+        children: [(0, _v1.jsx)(_v3.Box, {
           position: "relative",
           width: "100%",
           minHeight: (0, _v11.rem)(_v18.current[_v15]?.clientHeight || 60),
@@ -641,7 +641,7 @@
           zIndex: 1,
           children: _v17.map((_v0, _v1) => {
             let _v2 = _v1 === _v15;
-            return (0, _v1.jsx)(_v10.Box, {
+            return (0, _v1.jsx)(_v3.Box, {
               ref: _v0 => {
                 _v18.current[_v1] = _v0;
               },
@@ -669,7 +669,7 @@
           error: _v10,
           onChange: _v0 => _v2(_v0)
         }), (0, _v1.jsxs)(_v79, {
-          children: [0 !== _v15 && (0, _v1.jsx)(_v3.Flex, {
+          children: [0 !== _v15 && (0, _v1.jsx)(_v4.Flex, {
             flex: 1,
             children: (0, _v1.jsx)(_v75.StylableButton, {
               disabled: 0 === _v15 || _v13,
@@ -679,7 +679,7 @@
               role: _v34.BUTTON_ROLES.SECONDARY,
               textType: _v34.BUTTON_TEXT_TYPE.BACK
             })
-          }), (0, _v1.jsxs)(_v3.Flex, {
+          }), (0, _v1.jsxs)(_v4.Flex, {
             flex: 1,
             children: [_v15 < _v17.length - 1 && (0, _v1.jsx)(_v75.StylableButton, {
               role: _v34.BUTTON_ROLES.PRIMARY,
@@ -695,18 +695,18 @@
               disabled: _v13
             })]
           })]
-        }), (0, _v1.jsx)(_v10.Box, {
+        }), (0, _v1.jsx)(_v3.Box, {
           mt: "md",
           children: (0, _v1.jsx)(_v76.StylableNonEditText, {
             fieldName: _v34.NON_EDIT_FIELDS.ALREADY_REGISTERED,
-            children: (0, _v1.jsx)(_v10.Box, {
+            children: (0, _v1.jsx)(_v3.Box, {
               px: "xs",
               children: (0, _v1.jsx)(_v46.Text, {
                 variant: "body-md",
                 children: (0, _v47.translate)({
                   singular: "Already registered? {LINK}Sign in{/LINK}",
                   replacements: {
-                    LINK: _v0 => (0, _v1.jsx)(_v10.Box, {
+                    LINK: _v0 => (0, _v1.jsx)(_v3.Box, {
                       as: "u",
                       cursor: "pointer",
                       tabIndex: 0,
@@ -745,7 +745,7 @@
         })]
       });
     },
-    _v79 = _v0 => (0, _v1.jsx)(_v3.Flex, {
+    _v79 = _v0 => (0, _v1.jsx)(_v4.Flex, {
       justifyContent: "center",
       width: "100%",
       gap: (0, _v11.rem)(8),
@@ -772,7 +772,7 @@
           setPreviewType: _v12
         } = (0, _v2.useContext)(_v19.PreviewContext),
         _v13 = (0, _v35.useGlobalStore)(_v0 => _v0.leadCapture.customFields);
-      return (0, _v1.jsxs)(_v10.Box, {
+      return (0, _v1.jsxs)(_v3.Box, {
         py: "md",
         children: [_v13.map((_v0, _v1) => (0, _v1.jsx)(_v67, {
           value: _v6.find(_v0 => _v0.cid === _v0?.cid)?.value,
@@ -796,18 +796,18 @@
             loading: _v11,
             disabled: _v11
           })
-        }), (0, _v1.jsx)(_v10.Box, {
+        }), (0, _v1.jsx)(_v3.Box, {
           mt: "md",
           children: (0, _v1.jsx)(_v76.StylableNonEditText, {
             fieldName: _v34.NON_EDIT_FIELDS.ALREADY_REGISTERED,
-            children: (0, _v1.jsx)(_v10.Box, {
+            children: (0, _v1.jsx)(_v3.Box, {
               px: "xs",
               children: (0, _v1.jsx)(_v46.Text, {
                 variant: "body-md",
                 children: (0, _v47.translate)({
                   singular: "Already registered? {LINK}Sign in{/LINK}",
                   replacements: {
-                    LINK: _v0 => (0, _v1.jsx)(_v10.Box, {
+                    LINK: _v0 => (0, _v1.jsx)(_v3.Box, {
                       as: "u",
                       cursor: "pointer",
                       tabIndex: 0,
@@ -846,7 +846,7 @@
         })]
       });
     },
-    _v81 = _v0 => (0, _v1.jsx)(_v3.Flex, {
+    _v81 = _v0 => (0, _v1.jsx)(_v4.Flex, {
       justifyContent: "center",
       width: "100%",
       gap: (0, _v11.rem)(8),
@@ -951,7 +951,7 @@
               },
               where: {
                 resourceId: _v32,
-                resourceType: _v5.ENTITY_TO_PATH_MAP[_v31]
+                resourceType: _v6.ENTITY_TO_PATH_MAP[_v31]
               }
             });
           } else _v17.current = "up", _v12(_v13 + 1);
@@ -972,7 +972,7 @@
           }), _v9 = (0, _v16.getEntityCookiePassword)(_v32, _v31) ?? _v33, _v42({
             where: {
               resourceId: _v32,
-              resourceType: _v5.ENTITY_TO_PATH_MAP[_v31]
+              resourceType: _v6.ENTITY_TO_PATH_MAP[_v31]
             },
             select: [],
             query: {
@@ -1108,10 +1108,10 @@
               onBlur: _v50,
               overRideFontSize: !0,
               content: _v35 === _v34.PAGE_TYPES.ADMIN ? _v4 : _v3
-            }), (0, _v1.jsx)(_v10.Box, {
+            }), (0, _v1.jsx)(_v3.Box, {
               px: "xs",
               children: (0, _v1.jsx)(_v40.EventDate, {})
-            }), (0, _v1.jsx)(_v10.Box, {
+            }), (0, _v1.jsx)(_v3.Box, {
               px: "xs",
               children: _v2 === _v34.FORM_LAYOUT_OPTIONS.SINGLE_STEP_FORM ? (0, _v1.jsx)(_v80, {
                 onSaveValue: _v58,
@@ -1145,7 +1145,7 @@
               })
             })]
           })
-        }), _v2 === _v34.FORM_LAYOUT_OPTIONS.MULTI_STEP_FORM && (0, _v1.jsx)(_v10.Box, {
+        }), _v2 === _v34.FORM_LAYOUT_OPTIONS.MULTI_STEP_FORM && (0, _v1.jsx)(_v3.Box, {
           position: "absolute",
           left: 0,
           bottom: 0,
@@ -1186,7 +1186,7 @@
             href: _v0.customLink || "",
             target: "_blank"
           }),
-          children: (0, _v1.jsx)(_v10.Box, {
+          children: (0, _v1.jsx)(_v3.Box, {
             as: "img",
             maxHeight: (0, _v11.rem)(56),
             mb: "md",
@@ -1207,12 +1207,12 @@
             fontWeight: "normal",
             children: _v2
           })]
-        }), (0, _v1.jsx)(_v10.Box, {
+        }), (0, _v1.jsx)(_v3.Box, {
           pt: "md",
           pl: "xs",
           pr: "xs",
           children: (0, _v1.jsx)(_v40.EventDate, {})
-        }), (0, _v1.jsx)(_v10.Box, {
+        }), (0, _v1.jsx)(_v3.Box, {
           px: "xs",
           mt: "md",
           children: (0, _v1.jsx)(_v46.Text, {
@@ -1220,7 +1220,7 @@
             children: (0, _v47.translate)({
               singular: "Already registered? {LINK}Sign in{/LINK}",
               replacements: {
-                LINK: _v0 => (0, _v1.jsx)(_v10.Box, {
+                LINK: _v0 => (0, _v1.jsx)(_v3.Box, {
                   as: "u",
                   cursor: "pointer",
                   tabIndex: 0,
@@ -1277,28 +1277,42 @@
       _v6 = (0, _v35.useGlobalStore)(_v0 => _v0.entityType);
     return (0, _v2.useEffect)(() => {
       setTimeout(() => {
-        _v2 === _v34.PAGE_TYPES.ADMIN && (0, _v6.setLocationQuery)(_v5.LOCATION_STATE.PREVIEW_TYPE, _v1);
+        _v2 === _v34.PAGE_TYPES.ADMIN && (0, _v7.setLocationQuery)(_v6.LOCATION_STATE.PREVIEW_TYPE, _v1);
       }, 0);
     }, [_v1, _v2]), (0, _v2.useEffect)(() => {
       _v2 === _v34.PAGE_TYPES.REGISTRATION && [_v34.PREVIEW_TYPE.FORM, _v34.PREVIEW_TYPE.LOGIN_SCREEN].includes(_v1) && !_v4 && _v3({
         eventName: _v33.BP_EVENT_NAMES.REGISTRATION_FORM_VIEWED
       });
-    }, []), _v5 ? (0, _v1.jsx)(_v4.Skeleton, {
-      width: "100%",
-      height: "100%"
-    }) : (0, _v1.jsx)(_v3.Flex, {
+    }, []), (0, _v1.jsxs)(_v3.Box, {
+      position: "relative",
       width: "100%",
       height: "100%",
-      justifyContent: "space-around",
-      flexWrap: "wrap",
-      children: (0, _v1.jsxs)(_v7.BackgroundWrapper, {
-        disableBackground: _v1 === _v34.PREVIEW_TYPE.FORM_FULL,
-        children: [_v1 === _v34.PREVIEW_TYPE.CONFIRMATION && _v6 !== _v5.ENTITY_TYPE.SHOWCASE && (0, _v1.jsx)(_v8.ConfirmationView, {}), _v1 === _v34.PREVIEW_TYPE.LOGIN_SCREEN && (0, _v1.jsx)(_v9.LoginView, {
-          setLeadUuid: _v0
-        }), _v1 === _v34.PREVIEW_TYPE.FORM && (0, _v1.jsx)(_v82, {
-          setLeadUuid: _v0
-        }), _v1 === _v34.PREVIEW_TYPE.FORM_FULL && (0, _v1.jsx)(_v84, {})]
-      })
+      "aria-busy": _v5,
+      children: [(0, _v1.jsx)(_v4.Flex, {
+        width: "100%",
+        height: "100%",
+        justifyContent: "space-around",
+        flexWrap: "wrap",
+        inert: _v5 || void 0,
+        children: (0, _v1.jsxs)(_v8.BackgroundWrapper, {
+          disableBackground: _v1 === _v34.PREVIEW_TYPE.FORM_FULL,
+          children: [_v1 === _v34.PREVIEW_TYPE.CONFIRMATION && _v6 !== _v6.ENTITY_TYPE.SHOWCASE && (0, _v1.jsx)(_v9.ConfirmationView, {}), _v1 === _v34.PREVIEW_TYPE.LOGIN_SCREEN && (0, _v1.jsx)(_v10.LoginView, {
+            setLeadUuid: _v0
+          }), _v1 === _v34.PREVIEW_TYPE.FORM && (0, _v1.jsx)(_v82, {
+            setLeadUuid: _v0
+          }), _v1 === _v34.PREVIEW_TYPE.FORM_FULL && (0, _v1.jsx)(_v84, {})]
+        })
+      }), _v5 && (0, _v1.jsx)(_v4.Flex, {
+        position: "absolute",
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        alignItems: "center",
+        justifyContent: "center",
+        pointerEvents: "auto",
+        children: (0, _v1.jsx)(_v5.Spinner, {})
+      })]
     });
   }], 0);
 }

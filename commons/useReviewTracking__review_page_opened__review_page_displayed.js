@@ -51,6 +51,12 @@
         review_id: _v0.reviewId,
         clip_id: _v0.clipId,
         clip_owner_id: _v0.clipOwnerId
+      }), !0), [_v0]),
+      _v8 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_page_comments_sorted", {
+        user_id: _v0.userId ?? null,
+        new_sort: _v0.newSort,
+        prev_sort: _v0.prevSort,
+        default_sort: _v0.defaultSort
       }), !0), [_v0]);
     return {
       trackReviewPageOpened: _v1,
@@ -60,6 +66,7 @@
       trackReviewPlaybackSpeedChanged: _v5,
       trackReviewNotePosted: _v6,
       trackReviewCommentPosted: _v7,
+      trackReviewCommentSortChanged: _v8,
       trackReviewCommentReactionAdded: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_comment_reaction_added", {
         review_id: _v0.reviewId,
         clip_id: _v0.clipId,

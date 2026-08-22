@@ -38,7 +38,7 @@
         },
         throttleDelay: _v7.interactionToolsConfig.CHAT.MESSAGE_UPDATE_THROTTLE,
         onUpdate: _v0 => {
-          _v0.setContext({
+          _v0.context.isHydrated && _v0.setContext({
             [_v2]: _v0.context[_v2].asMerged(_v0)
           });
         }
@@ -152,14 +152,16 @@
             isCreator: !!_v3.isCreator
           }
         }), this.publicChatBuffer = new _v14.InMemoryBuffer(_v20.createBufferConfig(this, "publicChatBuffer", _v9.EChatType.PUBLIC));
-        let _v2 = [(0, _v5.hydrateChatHistory)(this, this.publicChatRef, this.publicChatBuffer), (0, _v5.hydrateBanList)(this, _v9.EChatType.PUBLIC)],
-          _v3 = [(0, _v5.subscribeToChatStatus)(this, this.metaChatEnabledRef), (0, _v5.subscribeToChatMessages)(this, this.publicChatRef, this.publicChatBuffer), (0, _v5.subscribeToBanList)(this, _v9.EChatType.PUBLIC)];
-        _v1 && (this.backstageChatBuffer = new _v14.InMemoryBuffer(_v20.createBufferConfig(this, "backstageChatBuffer", _v9.EChatType.BACKSTAGE)), _v2.push((0, _v5.hydrateChatHistory)(this, this.guestsChatRef, this.backstageChatBuffer)), _v3.push((0, _v5.subscribeToChatMessages)(this, this.guestsChatRef, this.backstageChatBuffer))), await Promise.all(_v2).finally(() => {
-          this.setContext({
-            isHydrated: !0,
-            hydratedAt: (0, _v12.getAbsoluteNow)()
-          });
-        }), this.addUnSubscribers(_v3);
+        let _v2 = [(0, _v5.hydrateChatHistory)(this, _v9.EChatType.PUBLIC, this.publicChatRef, this.publicChatBuffer), (0, _v5.hydrateBanList)(this, _v9.EChatType.PUBLIC)],
+          _v3 = [(0, _v5.subscribeToChatStatus)(this, this.metaChatEnabledRef), (0, _v5.subscribeToChatMessages)(this, _v9.EChatType.PUBLIC, this.publicChatRef, this.publicChatBuffer), (0, _v5.subscribeToBanList)(this, _v9.EChatType.PUBLIC)];
+        if (_v1 && (this.backstageChatBuffer = new _v14.InMemoryBuffer(_v20.createBufferConfig(this, "backstageChatBuffer", _v9.EChatType.BACKSTAGE)), _v2.push((0, _v5.hydrateChatHistory)(this, _v9.EChatType.BACKSTAGE, this.guestsChatRef, this.backstageChatBuffer)), _v3.push((0, _v5.subscribeToChatMessages)(this, _v9.EChatType.BACKSTAGE, this.guestsChatRef, this.backstageChatBuffer))), await Promise.all(_v2), this.IS_DISPOSED) {
+          this.log.info("Manager disposed during hydration, unsubscribing"), _v3.forEach(_v0 => _v0());
+          return;
+        }
+        this.setContext({
+          isHydrated: !0,
+          hydratedAt: (0, _v12.getAbsoluteNow)()
+        }), this.addUnSubscribers(_v3), this.publicChatBuffer?.flush(), this.backstageChatBuffer?.flush();
       } else this.log.info("🚀Skipping chat connection");
     }
     onInteractionSessionLogout() {

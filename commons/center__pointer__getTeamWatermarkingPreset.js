@@ -2913,19 +2913,11 @@
   });
   var _v98 = _v0.i(0),
     _v99 = _v0.i(0),
-    _v100 = _v0.i(0);
-  let _v101 = _v0 => (0, _v1.jsxs)(_v100.Icon, {
-    viewBox: "0 0 24 24",
-    ..._v0,
-    fill: "currentColor",
-    children: [(0, _v1.jsx)("path", {
-      d: "M16 2C17.1046 2 18 2.89543 18 4V16C18 17.1046 17.1046 18 16 18H4C2.89543 18 2 17.1046 2 16V4C2 2.89543 2.89543 2 4 2H16ZM16 4H4V16H16V4ZM22 18C22 20.209 20.209 22 18 22H7C5.895 22 5 21.105 5 20H18C19.105 20 20 19.105 20 18V5C21.105 5 22 5.895 22 7V18ZM9 6H11V9H14V11H11V14H9V11H6V9H9V6Z"
-    }), " "]
-  });
-  var _v102 = _v0.i(0),
-    _v103 = _v0.i(0),
-    _v104 = _v0.i(0);
-  let _v105 = ({
+    _v100 = _v0.i(0),
+    _v101 = _v0.i(0),
+    _v102 = _v0.i(0),
+    _v103 = _v0.i(0);
+  let _v104 = ({
     preset: _v0,
     onDelete: _v1,
     onEdit: _v2,
@@ -2999,14 +2991,14 @@
             children: [(0, _v1.jsx)(_v86.MenuButton, {
               as: _v98.IconButton,
               "aria-label": `Actions for ${_v0.name}`,
-              icon: (0, _v1.jsx)(_v102.EllipsisV, {}),
+              icon: (0, _v1.jsx)(_v101.EllipsisV, {}),
               variant: "tertiary",
               size: "sm",
               isDisabled: _v4
             }), (0, _v1.jsxs)(_v88.MenuList, {
               minW: (0, _v12.rem)(160),
               children: [(0, _v1.jsx)(_v87.MenuItem, {
-                icon: (0, _v1.jsx)(_v103.EditPencil, {}),
+                icon: (0, _v1.jsx)(_v102.EditPencil, {}),
                 onClick: () => _v2(_v0),
                 isDisabled: _v4,
                 children: (0, _v21.translate)({
@@ -3036,7 +3028,7 @@
                   }
                 })
               }), (0, _v1.jsx)(_v87.MenuItem, {
-                icon: (0, _v1.jsx)(_v101, {}),
+                icon: (0, _v1.jsx)(_v100.Duplicate, {}),
                 onClick: () => _v3(_v0),
                 isDisabled: _v4,
                 children: (0, _v21.translate)({
@@ -3066,7 +3058,7 @@
                   }
                 })
               }), (0, _v1.jsx)(_v87.MenuItem, {
-                icon: (0, _v1.jsx)(_v104.TrashBin, {}),
+                icon: (0, _v1.jsx)(_v103.TrashBin, {}),
                 onClick: () => _v1(_v0),
                 color: "red.500",
                 isDisabled: _v4,
@@ -3593,7 +3585,7 @@
                   })]
                 })
               }), (0, _v1.jsx)(_v14.Tbody, {
-                children: _v2.map(_v0 => (0, _v1.jsx)(_v105, {
+                children: _v2.map(_v0 => (0, _v1.jsx)(_v104, {
                   preset: _v0,
                   onDelete: _v24,
                   onEdit: _v26,
@@ -3766,7 +3758,7 @@
       })]
     });
   }], 0);
-  let _v106 = ["name", "id", "createdOn", "createdBy", "updatedOn", "ownerId", "elements.id", "elements.config", "elements.config.content", "elements.layout"];
+  let _v105 = ["name", "id", "createdOn", "createdBy", "updatedOn", "ownerId", "elements.id", "elements.config", "elements.config.content", "elements.layout"];
   _v0.s(["useWatermarkingPresets", 0, ({
     ownerId: _v0,
     isModalOpen: _v1,
@@ -3781,7 +3773,7 @@
         mutate: _v6,
         error: _v7
       } = _v51(() => _v4 && _v0 && _v1 ? {
-        select: _v106,
+        select: _v105,
         where: {
           workspaceUuid: _v0
         },
@@ -3796,7 +3788,7 @@
         mutate: _v10,
         error: _v11
       } = _v42(() => !_v4 && _v0 && _v1 ? {
-        select: _v106,
+        select: _v105,
         where: {
           userId: "number" == typeof _v0 ? _v0 : parseInt(_v0)
         },

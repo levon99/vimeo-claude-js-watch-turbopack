@@ -1417,73 +1417,78 @@
     });
   var _v84 = _v0.i(0),
     _v85 = _v0.i(0);
-  let _v86 = ({
-    fields: _v0
-  }) => {
-    let {
-        status: _v1
-      } = (0, _v43.useEntityStore)(),
-      _v2 = (0, _v15.useConfigStore)(_v0 => _v0.entityType),
-      _v3 = _v2 === _v14.ENTITY_TYPE.VIDEO,
-      {
-        hasEnterprise: _v4
-      } = (0, _v39.useEventCapability)(),
-      {
-        sendUpsellEvent: _v5
-      } = (0, _v12.useUpsellAnalytics)(),
-      _v6 = (0, _v11.useIsBokeh)(),
-      _v7 = () => {
-        _v5({
-          pageName: _v2 === _v14.ENTITY_TYPE.EVENT ? _v29.BP_PAGE_NAME.EVENT_REGISTRATION_PAGE : _v29.BP_PAGE_NAME.VIDEO_REGISTRATION_PAGE,
-          target: _v29.BP_TARGET.UPGRADE_PAGE,
-          targetPath: window.location.pathname,
-          upsellName: "watch_time_analytics",
-          interfaceType: "page",
-          product: _v2 === _v14.ENTITY_TYPE.EVENT ? "events" : "gates",
-          feature: "watch_time_analytics",
-          location: _v29.BP_LOCATION.TOP_ACTION_BAR,
-          entityType: _v2,
-          copy: _v29.BP_COPY.WATCH_TIME,
-          flow: null,
-          element: "icon"
-        });
-      };
-    return (0, _v1.jsx)("thead", {
-      children: (0, _v1.jsx)("tr", {
-        children: _v0.filter(_v0 => !!_v0.isVisible && !_v30.HIDDEN_COLUMNS_FOR_ENTITY[_v2].includes(_v0.name)).map((_v0, _v1) => {
-          let _v2 = _v0.align;
-          return "viewPercentage" === _v0.name && _v1 !== _v30.EVENT_STATUS.ENDED && (_v2 = _v30.ALIGN.CENTER), (0, _v1.jsx)(_v83, {
-            borderStyle: _v6 ? "none" : "solid",
-            as: "th",
-            width: _v0.minWidth || (0, _v9.rem)(36),
-            children: (0, _v1.jsxs)(_v7.Flex, {
-              justifyContent: _v2 || _v30.ALIGN.LEFT,
-              alignItems: "center",
-              children: [(0, _v1.jsx)(_v77.Text, {
-                variant: "body-md",
-                children: _v16.DISPLAY_MAP[_v0.name] ?? _v0.name
-              }), _v3 && _v0.name === _v30.ATTENDEE_TABLE_FIELDS.VIEW_PERCENTAGE && (0, _v1.jsx)(_v55.Tooltip, {
-                maxWidth: (0, _v9.rem)(280),
-                label: _v16.default.VideoWatchTime,
-                children: (0, _v1.jsx)(_v5.Box, {
-                  children: (0, _v1.jsx)(_v84.InfoCircle, {
-                    ml: "x"
+  let _v86 = {
+      mkcCode: "ent-upgrade-webinar-advanced-analytics"
+    },
+    _v87 = ({
+      fields: _v0
+    }) => {
+      let {
+          status: _v1
+        } = (0, _v43.useEntityStore)(),
+        _v2 = (0, _v15.useConfigStore)(_v0 => _v0.entityType),
+        _v3 = _v2 === _v14.ENTITY_TYPE.VIDEO,
+        {
+          hasEnterprise: _v4
+        } = (0, _v39.useEventCapability)(),
+        {
+          sendUpsellEvent: _v5
+        } = (0, _v12.useUpsellAnalytics)(),
+        _v6 = (0, _v11.useIsBokeh)(),
+        _v7 = () => {
+          _v5({
+            pageName: _v2 === _v14.ENTITY_TYPE.EVENT ? _v29.BP_PAGE_NAME.EVENT_REGISTRATION_PAGE : _v29.BP_PAGE_NAME.VIDEO_REGISTRATION_PAGE,
+            target: _v29.BP_TARGET.UPGRADE_PAGE,
+            targetPath: window.location.pathname,
+            upsellName: "watch_time_analytics",
+            interfaceType: "page",
+            product: _v2 === _v14.ENTITY_TYPE.EVENT ? "events" : "gates",
+            feature: "watch_time_analytics",
+            location: _v29.BP_LOCATION.TOP_ACTION_BAR,
+            entityType: _v2,
+            copy: _v29.BP_COPY.WATCH_TIME,
+            flow: null,
+            element: "icon"
+          });
+        };
+      return (0, _v1.jsx)("thead", {
+        children: (0, _v1.jsx)("tr", {
+          children: _v0.filter(_v0 => !!_v0.isVisible && !_v30.HIDDEN_COLUMNS_FOR_ENTITY[_v2].includes(_v0.name)).map((_v0, _v1) => {
+            let _v2 = _v0.align;
+            return "viewPercentage" === _v0.name && _v1 !== _v30.EVENT_STATUS.ENDED && (_v2 = _v30.ALIGN.CENTER), (0, _v1.jsx)(_v83, {
+              borderStyle: _v6 ? "none" : "solid",
+              as: "th",
+              width: _v0.minWidth || (0, _v9.rem)(36),
+              children: (0, _v1.jsxs)(_v7.Flex, {
+                justifyContent: _v2 || _v30.ALIGN.LEFT,
+                alignItems: "center",
+                children: [(0, _v1.jsx)(_v77.Text, {
+                  variant: "body-md",
+                  children: _v16.DISPLAY_MAP[_v0.name] ?? _v0.name
+                }), _v3 && _v0.name === _v30.ATTENDEE_TABLE_FIELDS.VIEW_PERCENTAGE && (0, _v1.jsx)(_v55.Tooltip, {
+                  maxWidth: (0, _v9.rem)(280),
+                  label: _v16.default.VideoWatchTime,
+                  children: (0, _v1.jsx)(_v5.Box, {
+                    children: (0, _v1.jsx)(_v84.InfoCircle, {
+                      ml: "x"
+                    })
                   })
-                })
-              }), !_v4 && _v0.name === _v30.ATTENDEE_TABLE_FIELDS.VIEW_PERCENTAGE && (0, _v1.jsx)(_v5.Box, {
-                pl: (0, _v9.rem)(8),
-                children: (0, _v1.jsx)(_v85.UpsellBadge, {
-                  onClick: _v7
-                })
-              })]
-            })
-          }, `table-head-cell-${_v1}`);
+                }), !_v4 && _v0.name === _v30.ATTENDEE_TABLE_FIELDS.VIEW_PERCENTAGE && (0, _v1.jsx)(_v5.Box, {
+                  pl: (0, _v9.rem)(8),
+                  children: (0, _v1.jsx)(_v85.UpsellBadge, {
+                    enterpriseFeatureOverride: _v2 === _v14.ENTITY_TYPE.EVENT ? _v16.default.AdvancedWebinarAnalytics : void 0,
+                    modalConfig: _v2 === _v14.ENTITY_TYPE.EVENT ? _v86 : void 0,
+                    onClick: _v7
+                  })
+                })]
+              })
+            }, `table-head-cell-${_v1}`);
+          })
         })
-      })
-    });
-  };
-  var _v87 = _v0.i(0);
-  let _v88 = ({
+      });
+    };
+  var _v88 = _v0.i(0);
+  let _v89 = ({
       isLoading: _v0,
       noData: _v1
     }) => {
@@ -1539,7 +1544,7 @@
       }, [_v13]), (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v79, {
           as: "table",
-          children: [(0, _v1.jsx)(_v86, {
+          children: [(0, _v1.jsx)(_v87, {
             fields: _v64
           }), _v0 && (0, _v1.jsx)(_v5.Box, {
             as: "tbody",
@@ -1552,7 +1557,7 @@
                 children: (0, _v1.jsx)(_v7.Flex, {
                   justifyContent: _v0.align,
                   children: (0, _v1.jsx)(_v5.Box, {
-                    sx: (0, _v87.PlaceholderStyles)()
+                    sx: (0, _v88.PlaceholderStyles)()
                   })
                 })
               }, _v1))
@@ -1627,7 +1632,7 @@
         })]
       });
     },
-    _v89 = ({
+    _v90 = ({
       fields: _v0,
       payload: _v1,
       onRowClick: _v2,
@@ -1649,7 +1654,7 @@
           behavior: "smooth"
         });
       }, [_v3]), !_v1.length || _v3) ? (0, _v1.jsx)(_v78, {
-        children: (0, _v1.jsx)(_v88, {
+        children: (0, _v1.jsx)(_v89, {
           isLoading: _v3,
           noData: !0
         })
@@ -1657,7 +1662,7 @@
         ref: _v10,
         children: (0, _v1.jsxs)(_v79, {
           as: "table",
-          children: [(0, _v1.jsx)(_v86, {
+          children: [(0, _v1.jsx)(_v87, {
             fields: _v0
           }), (0, _v1.jsx)(_v5.Box, {
             overflowY: "scroll",
@@ -1715,7 +1720,7 @@
         })
       });
     },
-    _v90 = {
+    _v91 = {
       data: [],
       total: 0,
       page: 1,
@@ -1727,7 +1732,7 @@
         last: null
       }
     },
-    _v91 = () => {
+    _v92 = () => {
       let {
           PROCESSING: _v0,
           PENDING: _v1
@@ -1758,7 +1763,7 @@
         {
           setMessage: _v19
         } = (0, _v13.useUpsellContext)(),
-        [_v20, _v21] = (0, _v2.useState)(_v90),
+        [_v20, _v21] = (0, _v2.useState)(_v91),
         [_v22, _v23] = (0, _v2.useState)(!1),
         [_v24, _v25] = (0, _v2.useState)(1),
         [_v26, _v27] = (0, _v2.useState)(null),
@@ -1945,7 +1950,7 @@
               isCRMLoading: _v52,
               isCRMStatusLoading: _v55
             }
-          }), (0, _v1.jsx)(_v89, {
+          }), (0, _v1.jsx)(_v90, {
             fields: _v64,
             payload: _v20 ? _v20.data : [],
             onRowClick: _v27,
@@ -2001,13 +2006,13 @@
         })]
       });
     };
-  var _v92 = _v0.i(0),
-    _v93 = _v0.i(0),
+  var _v93 = _v0.i(0),
     _v94 = _v0.i(0),
     _v95 = _v0.i(0),
     _v96 = _v0.i(0),
     _v97 = _v0.i(0),
-    _v98 = _v0.i(0);
+    _v98 = _v0.i(0),
+    _v99 = _v0.i(0);
   _v0.s(["LeadCaptureDashboard", 0, ({
     entityId: _v0,
     entityOwnerId: _v1,
@@ -2025,18 +2030,18 @@
         let [_v3, {
             loading: _v4,
             data: _v5
-          }] = (0, _v97.useGetUserLiveEventLazy)(),
+          }] = (0, _v98.useGetUserLiveEventLazy)(),
           [_v6, {
             loading: _v7,
             data: _v8
-          }] = (0, _v98.useGetVideoLazy)(),
+          }] = (0, _v99.useGetVideoLazy)(),
           [_v9, {
             data: _v10,
             loading: _v11
-          }] = (0, _v95.useGetAlbumLazy)(),
+          }] = (0, _v96.useGetAlbumLazy)(),
           [_v12, {
             data: _v13
-          }] = (0, _v96.useGetLeadCaptureResourceIdFormLazy)(),
+          }] = (0, _v97.useGetLeadCaptureResourceIdFormLazy)(),
           _v14 = (0, _v2.useCallback)(() => {
             if (_v0 && _v1) {
               switch (_v1) {
@@ -2152,7 +2157,7 @@
       _v10 = (0, _v2.useMemo)(() => _v8 && _v9 ? {
         ..._v8,
         entityLink: _v9
-      } : _v92.defaultValue, [_v8, _v9]);
+      } : _v93.defaultValue, [_v8, _v9]);
     return ((0, _v2.useEffect)(() => {
       _v15.useConfigStore.setState({
         entityType: _v2,
@@ -2161,15 +2166,15 @@
         canCompleteEvent: _v4,
         setSelectedSection: _v5
       });
-    }, [_v4, _v0, _v2, _v8?.uri, _v3, _v5]), _v8) ? (0, _v1.jsx)(_v92.default, {
+    }, [_v4, _v0, _v2, _v8?.uri, _v3, _v5]), _v8) ? (0, _v1.jsx)(_v93.default, {
       initialValue: _v10,
       children: (0, _v1.jsx)(_v39.default, {
-        children: (0, _v1.jsx)(_v93.default, {
+        children: (0, _v1.jsx)(_v94.default, {
           isOwner: _v8?.user?.uri === _v7?.uri,
           canEdit: !!_v8?.metadata?.interactions.edit?.uri,
-          children: (0, _v1.jsx)(_v94.default, {
+          children: (0, _v1.jsx)(_v95.default, {
             entityLink: _v8?.uri,
-            children: (0, _v1.jsx)(_v91, {})
+            children: (0, _v1.jsx)(_v92, {})
           })
         })
       })

@@ -141,7 +141,7 @@
     _v38 = ((_v16 = {})[_v16.MUTED = 0] = "MUTED", _v16[_v16.FULL = 100] = "FULL", _v16);
   _v0.s(["EAudioMixingMode", () => _v37, "EAudioVolume", () => _v38, "EDeviceWeight", () => _v34, "EMediaError", () => _v33, "ETrackKind", () => _v35, "EVideoTransitionState", () => _v36], 0);
   var _v39 = ((_v17 = {}).ONBOARDING_RTMP = "rtmpobtp", _v17.ONBOARDING_RTC = "slobtp", _v17.ONBOARDING_RTC_BOKEH = "slnwbrdnbh", _v17.ONBOARDING_RTC_SIMULIVE = "sltrschld", _v17.PUBLISH_TO_SOCIAL = "psaa", _v17.ECDN_KOLLECTIVE_JITC = "kj", _v17.EXTENDED_STREAM_WITH_DVR = "ldful", _v17.EXTENDED_STREAM_WITH_SIMULCAST = "lsful", _v17.AUDIO_TRACKS_MANAGEMENT = "latm", _v17),
-    _v40 = ((_v18 = {}).LIVE_GUEST_API_MANAGEMENT = "liveGuestApiManagement", _v18.LIVE_MEDIA_API_MANAGEMENT = "liveMediaApiManagement", _v18.LIVE_COMPOSER_TEMPLATES_ACCESS = "liveComposerTemplatesAccess", _v18);
+    _v40 = ((_v18 = {}).LIVE_GUEST_API_MANAGEMENT = "liveGuestApiManagement", _v18.LIVE_MEDIA_API_MANAGEMENT = "liveMediaApiManagement", _v18.LIVE_COMPOSER_TEMPLATES_ACCESS = "liveComposerTemplatesAccess", _v18.LIVE_WEBINAR_ANALYTICS = "liveWebinarAnalytics", _v18);
   function _v41(_v0, _v1 = !0) {
     try {
       let _v0 = localStorage?.getItem(_v1 ? btoa(_v0) : _v0) || null;

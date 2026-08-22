@@ -48,6 +48,7 @@
       return (0, _v4.deepCamelCase)(_v1);
     });
   }
+  _v0.s(["getVideoVersions", 0, _v5, "postVideoVersions", 0, _v6], 0);
   var _v7 = _v0.i(0),
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
