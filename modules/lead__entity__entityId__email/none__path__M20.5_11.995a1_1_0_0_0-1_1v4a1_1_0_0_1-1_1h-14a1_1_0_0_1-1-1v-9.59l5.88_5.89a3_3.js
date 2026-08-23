@@ -1801,13 +1801,17 @@
                         label: _v0.tooltip,
                         placement: "top",
                         shouldWrapChildren: !0,
-                        children: (0, _v1.jsx)(_v14.InfoCircle, {
-                          "aria-label": _v0.tooltip,
-                          boxSize: "2xs",
-                          color: "text-tertiary",
-                          cursor: "help",
+                        children: (0, _v1.jsx)(_v5.Box, {
+                          display: "flex",
+                          alignItems: "center",
                           flexShrink: 0,
-                          tabIndex: 0
+                          children: (0, _v1.jsx)(_v14.InfoCircle, {
+                            "aria-label": _v0.tooltip,
+                            boxSize: "2xs",
+                            color: "text-tertiary",
+                            cursor: "help",
+                            tabIndex: 0
+                          })
                         })
                       })]
                     }), _v0.sublabel && (0, _v1.jsx)(_v11.Paragraph, {

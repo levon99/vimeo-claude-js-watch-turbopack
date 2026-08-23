@@ -34,7 +34,7 @@
       [_v8, _v9] = (0, _v3.useState)(!1),
       _v10 = (0, _v3.useRef)(null),
       {
-        idOrUserName: _v11
+        userId: _v11
       } = (0, _v3.useContext)(_v20.default),
       _v12 = _v3 ?? _v11,
       {

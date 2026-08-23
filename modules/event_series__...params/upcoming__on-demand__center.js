@@ -96,59 +96,35 @@
       })
     })]
   });
-  var _v19 = _v0.i(0);
-  let _v20 = ({
-    label: _v0
-  }) => (0, _v1.jsx)(_v11.Box, {
-    alignItems: "center",
-    backdropFilter: "blur(20px)",
-    backgroundColor: "rgba(14, 18, 22, 0.48)",
-    borderRadius: (0, _v17.rem)(4),
-    bottom: (0, _v17.rem)(7.5),
-    display: "flex",
-    height: (0, _v17.rem)(20),
-    justifyContent: "center",
-    position: "absolute",
-    px: (0, _v17.rem)(4),
-    right: (0, _v17.rem)(7.5),
-    children: (0, _v1.jsx)(_v14.Text, {
-      color: "white",
-      fontWeight: "medium",
-      variant: "body-sm",
-      whiteSpace: "nowrap",
-      children: _v0
-    })
-  });
-  var _v21 = _v0.i(0);
-  let _v22 = ({
-      src: _v0,
-      borderRadius: _v1 = "sm",
-      children: _v2
-    }) => (0, _v1.jsxs)(_v11.Box, {
-      backgroundColor: "gray.400",
-      border: "0.5px solid",
-      borderColor: "stroke",
-      borderRadius: _v1,
-      overflow: "hidden",
-      paddingBottom: "56.25%",
-      position: "relative",
-      width: "100%",
-      children: [_v0 ? (0, _v1.jsx)(_v21.Image, {
-        alt: "",
-        height: "100%",
-        left: 0,
-        objectFit: "cover",
-        position: "absolute",
-        src: _v0,
-        top: 0,
-        width: "100%"
-      }) : null, _v2]
+  var _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
+  let _v21 = ({
+      label: _v0
+    }) => (0, _v1.jsx)(_v11.Box, {
+      alignItems: "center",
+      backdropFilter: "blur(20px)",
+      backgroundColor: "rgba(14, 18, 22, 0.48)",
+      borderRadius: (0, _v17.rem)(4),
+      bottom: (0, _v17.rem)(7.5),
+      display: "flex",
+      height: (0, _v17.rem)(20),
+      justifyContent: "center",
+      position: "absolute",
+      px: (0, _v17.rem)(4),
+      right: (0, _v17.rem)(7.5),
+      children: (0, _v1.jsx)(_v14.Text, {
+        color: "white",
+        fontWeight: "medium",
+        variant: "body-sm",
+        whiteSpace: "nowrap",
+        children: _v0
+      })
     }),
-    _v23 = _v0 => {
+    _v22 = _v0 => {
       let _v1 = _v0.pictures?.sizes;
       if (_v1 && 0 !== _v1.length) return _v1[_v1.length - 1]?.link ?? void 0;
     },
-    _v24 = _v0 => _v0.title?.trim() || (0, _v16.translate)({
+    _v23 = _v0 => _v0.title?.trim() || (0, _v16.translate)({
       singular: "Untitled event",
       dictionary: {
         es: {
@@ -174,19 +150,42 @@
         }
       }
     }),
-    _v25 = _v0 => {
+    _v24 = _v0 => {
       if (!_v0) return null;
       let _v1 = new Date(_v0).getTime();
       return Number.isNaN(_v1) ? null : _v1;
     },
+    _v25 = _v0 => ({
+      title: _v23(_v0),
+      description: _v0.description,
+      date: (_v0 => {
+        let _v1 = _v24(_v0.nextOccurrenceTime ?? _v0.startTime);
+        if (null === _v1) return null;
+        let _v2 = new Date(_v1),
+          _v3 = new Intl.DateTimeFormat("en", {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+          }).format(_v2),
+          _v4 = new Intl.DateTimeFormat("en", {
+            hour: "numeric",
+            minute: "2-digit"
+          }).format(_v2);
+        return `${_v3} \xb7 ${_v4}`;
+      })(_v0),
+      isLive: _v0.isLive,
+      link: _v0.link,
+      thumbnailSrc: _v22(_v0),
+      speakers: (_v0.speakers ?? []).filter(_v0 => !!_v0?.name)
+    }),
     _v26 = _v0 => {
       let _v1 = Date.now(),
         _v2 = [],
         _v3 = [];
       return _v0.forEach(_v0 => {
-        let _v1 = _v25(_v0.nextOccurrenceTime);
+        let _v1 = _v24(_v0.nextOccurrenceTime);
         _v0.isLive || null !== _v1 && _v1 >= _v1 ? _v2.push(_v0) : _v3.push(_v0);
-      }), _v2.sort((_v0, _v1) => _v0.isLive !== _v1.isLive ? _v0.isLive ? -1 : 1 : (_v25(_v0.nextOccurrenceTime) ?? 0) - (_v25(_v1.nextOccurrenceTime) ?? 0)), {
+      }), _v2.sort((_v0, _v1) => _v0.isLive !== _v1.isLive ? _v0.isLive ? -1 : 1 : (_v24(_v0.nextOccurrenceTime) ?? 0) - (_v24(_v1.nextOccurrenceTime) ?? 0)), {
         upcoming: _v2,
         onDemand: _v3
       };
@@ -249,13 +248,13 @@
         _hover: {
           backgroundColor: "fill-component-hover"
         },
-        children: [(0, _v1.jsx)(_v22, {
+        children: [(0, _v1.jsx)(_v20.EventThumbnail, {
           borderRadius: "md",
           src: (_v0 => {
             let _v1 = _v0.pictures?.sizes;
             if (_v1 && 0 !== _v1.length) return _v1[_v1.length - 1]?.link ?? void 0;
           })(_v0),
-          children: _v2 ? (0, _v1.jsx)(_v20, {
+          children: _v2 ? (0, _v1.jsx)(_v21, {
             label: _v2
           }) : null
         }), (0, _v1.jsxs)(_v13.Flex, {
@@ -603,144 +602,8 @@
     _v40 = _v0.i(0),
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
-    _v45 = _v0.i(0);
-  let _v46 = ({
-      event: _v0
-    }) => {
-      let _v1 = _v0.isLive,
-        _v2 = (_v0 => {
-          let _v1 = _v25(_v0.nextOccurrenceTime ?? _v0.startTime);
-          if (null === _v1) return null;
-          let _v2 = new Date(_v1),
-            _v3 = new Intl.DateTimeFormat("en", {
-              month: "short",
-              day: "numeric",
-              year: "numeric"
-            }).format(_v2),
-            _v4 = new Intl.DateTimeFormat("en", {
-              hour: "numeric",
-              minute: "2-digit"
-            }).format(_v2);
-          return `${_v3} \xb7 ${_v4}`;
-        })(_v0),
-        _v3 = _v0.description?.trim(),
-        _v4 = (_v0.speakers ?? []).filter(_v0 => !!_v0?.name).slice(0, 3),
-        _v5 = _v24(_v0);
-      return (0, _v1.jsxs)(_v13.Flex, {
-        backgroundColor: "fill-component",
-        borderRadius: "lg",
-        direction: "column",
-        gap: "md",
-        height: "100%",
-        overflow: "hidden",
-        pb: "md",
-        position: "relative",
-        pt: "sm",
-        px: "sm",
-        role: "group",
-        width: "100%",
-        _hover: {
-          backgroundColor: "fill-component-hover"
-        },
-        children: [(0, _v1.jsxs)(_v11.Box, {
-          position: "relative",
-          children: [(0, _v1.jsx)(_v22, {
-            src: _v23(_v0)
-          }), _v1 ? (0, _v1.jsx)(_v11.Box, {
-            left: "sm",
-            position: "absolute",
-            top: "sm",
-            zIndex: 2,
-            children: (0, _v1.jsx)(_v45.CardBadge, {
-              format: "live",
-              size: "sm",
-              children: (0, _v16.translate)({
-                singular: "Live",
-                dictionary: {
-                  es: {
-                    singular: "En vivo"
-                  },
-                  "fr-FR": {
-                    singular: "Direct"
-                  },
-                  "ja-JP": {
-                    singular: "ライブ"
-                  },
-                  "ko-KR": {
-                    singular: "라이브"
-                  },
-                  "pt-BR": {
-                    singular: "Ao vivo"
-                  },
-                  "zh-CN": {
-                    singular: "直播"
-                  }
-                }
-              })
-            })
-          }) : null]
-        }), (0, _v1.jsxs)(_v13.Flex, {
-          direction: "column",
-          gap: "sm",
-          pl: "sm",
-          children: [_v2 ? (0, _v1.jsxs)(_v13.Flex, {
-            align: "center",
-            gap: "sm",
-            children: [(0, _v1.jsx)(_v44.Calendar, {
-              boxSize: "2xs",
-              color: "var(--vimeo-colors-text-secondary)"
-            }), (0, _v1.jsx)(_v14.Text, {
-              color: "text-secondary",
-              lineHeight: (0, _v17.rem)(16),
-              variant: "body-md",
-              whiteSpace: "nowrap",
-              children: _v2
-            })]
-          }) : null, (0, _v1.jsxs)(_v13.Flex, {
-            direction: "column",
-            gap: "xs",
-            children: [(0, _v1.jsx)(_v14.Text, {
-              color: "text-primary",
-              noOfLines: 1,
-              variant: "heading-md",
-              children: _v5
-            }), (0, _v1.jsx)(_v11.Box, {
-              minHeight: (0, _v17.rem)(40),
-              children: _v3 ? (0, _v1.jsx)(_v14.Text, {
-                color: "text-secondary",
-                noOfLines: 2,
-                variant: "body-md",
-                children: _v3
-              }) : null
-            })]
-          }), (0, _v1.jsx)(_v13.Flex, {
-            align: "center",
-            minHeight: (0, _v17.rem)(28),
-            children: _v4.map((_v0, _v1) => (0, _v1.jsx)(_v11.Box, {
-              ml: 0 === _v1 ? 0 : (0, _v17.rem)(-4),
-              children: (0, _v1.jsx)(_v43.Avatar, {
-                alt: _v0.name ?? "",
-                nameProps: {
-                  name: _v0.name ?? ""
-                },
-                size: "xs",
-                src: _v0.avatar ?? void 0
-              })
-            }, `${_v0.name}-${_v1}`))
-          })]
-        }), _v0.link ? (0, _v1.jsx)(_v11.Box, {
-          "aria-label": _v5,
-          as: "a",
-          href: _v0.link,
-          inset: 0,
-          position: "absolute",
-          zIndex: 1
-        }) : null]
-      });
-    },
-    _v47 = ({
+    _v43 = _v0.i(0);
+  let _v44 = ({
       count: _v0,
       href: _v1
     }) => (0, _v1.jsxs)(_v13.Flex, {
@@ -791,8 +654,8 @@
         })
       })]
     }),
-    _v48 = ["banner", "upcoming"],
-    _v49 = ({
+    _v45 = ["banner", "upcoming"],
+    _v46 = ({
       series: _v0
     }) => {
       let _v1 = _v0.description?.trim() ?? "",
@@ -819,7 +682,7 @@
           }
           return null;
         })(_v0.landingPageConfig?.startDate, _v0.landingPageConfig?.endDate) ?? (_v0 => {
-          let _v1 = _v0.map(_v0 => _v25(_v0.nextOccurrenceTime)).filter(_v0 => null !== _v0).sort((_v0, _v1) => _v0 - _v1);
+          let _v1 = _v0.map(_v0 => _v24(_v0.nextOccurrenceTime)).filter(_v0 => null !== _v0).sort((_v0, _v1) => _v0 - _v1);
           if (0 === _v1.length) return null;
           let _v2 = new Date(_v1[0]),
             _v3 = new Date(_v1[_v1.length - 1]),
@@ -854,20 +717,20 @@
           let _v2 = [..._v1].sort((_v0, _v1) => (_v1.width ?? 0) - (_v0.width ?? 0));
           return _v2[0]?.link ?? _v0?.baseLink ?? null;
         })(_v0.pictures),
-        _v11 = _v0.landingPageConfig?.contentConfig ?? _v48,
+        _v11 = _v0.landingPageConfig?.contentConfig ?? _v45,
         _v12 = _v0.landingPageConfig?.timeZone,
         _v13 = _v0.landingPageConfig?.faqConfig ?? [],
         _v14 = _v11.includes("upcoming") || _v11.includes("on-demand") || _v11.includes("agenda"),
         _v15 = (_v11.includes("upcoming") || _v11.includes("agenda")) && _v2.length > 0 || _v11.includes("on-demand") && _v5.length > 0,
         _v16 = _v11.map(_v0 => {
-          if ("banner" === _v0) return (0, _v1.jsx)(_v42.Hero, {
+          if ("banner" === _v0) return (0, _v1.jsx)(_v43.Hero, {
             dateRange: _v8,
             description: _v1,
             heroImageSrc: _v10,
             name: _v0.name?.trim() ?? "",
             timeZoneLabel: _v9
           }, _v0);
-          if ("upcoming" === _v0 && _v3.length > 0) return (0, _v1.jsxs)(_v40.EventsSection, {
+          if ("upcoming" === _v0 && _v3.length > 0) return (0, _v1.jsxs)(_v41.EventsSection, {
             action: _v4 ? (0, _v1.jsx)(_v12.Button, {
               as: _v10.default,
               href: _v8(_v0),
@@ -927,9 +790,9 @@
                 }
               }
             }),
-            children: [_v3.map(_v0 => (0, _v1.jsx)(_v46, {
-              event: _v0
-            }, _v0.uri)), _v4 ? (0, _v1.jsx)(_v47, {
+            children: [_v3.map(_v0 => (0, _v1.jsx)(_v40.EventCard, {
+              ..._v25(_v0)
+            }, _v0.uri)), _v4 ? (0, _v1.jsx)(_v44, {
               count: _v2.length - _v3.length,
               href: _v8(_v0)
             }, "see-more") : null]
@@ -939,7 +802,7 @@
             return (0, _v1.jsx)(_v39.AgendaSection, {
               groups: (_v0 = [], _v1 = new Map(), _v2 = new Date().toISOString(), _v2.forEach(_v0 => {
                 let _v1 = _v0.nextOccurrenceTime ?? _v0.startTime,
-                  _v2 = _v1 && null !== _v25(_v1) ? _v1 : _v0.isLive ? _v2 : null;
+                  _v2 = _v1 && null !== _v24(_v1) ? _v1 : _v0.isLive ? _v2 : null;
                 if (null === _v2) return;
                 let _v3 = _v28({
                     year: "numeric",
@@ -950,7 +813,7 @@
                 _v4 || (_v4 = {
                   key: _v3,
                   label: ((_v0, _v1) => {
-                    let _v2 = _v25(_v0);
+                    let _v2 = _v24(_v0);
                     if (null === _v2) return null;
                     let _v3 = new Date(_v2),
                       _v4 = _v28({
@@ -980,9 +843,9 @@
                   events: []
                 }, _v1.set(_v3, _v4), _v0.push(_v4)), _v4.events.push({
                   key: _v0.uri,
-                  title: _v24(_v0),
+                  title: _v23(_v0),
                   time: _v1 ? ((_v0, _v1) => {
-                    let _v2 = _v25(_v0);
+                    let _v2 = _v24(_v0);
                     if (null === _v2) return null;
                     let _v3 = new Date(_v2),
                       _v4 = _v28({
@@ -1002,16 +865,16 @@
                     return _v5 ? `${_v4} ${_v5}` : _v4;
                   })(_v1, _v12) : null,
                   description: _v0.description,
-                  thumbnailSrc: _v23(_v0),
+                  thumbnailSrc: _v22(_v0),
                   isLive: _v0.isLive,
                   link: _v0.link
                 });
               }), _v0)
             }, _v0);
           }
-          return "faq" === _v0 && _v13.length > 0 ? (0, _v1.jsx)(_v41.FaqSection, {
+          return "faq" === _v0 && _v13.length > 0 ? (0, _v1.jsx)(_v42.FaqSection, {
             items: _v13
-          }, _v0) : "on-demand" === _v0 && _v6.length > 0 ? (0, _v1.jsxs)(_v40.EventsSection, {
+          }, _v0) : "on-demand" === _v0 && _v6.length > 0 ? (0, _v1.jsxs)(_v41.EventsSection, {
             action: _v7 ? (0, _v1.jsx)(_v12.Button, {
               as: _v10.default,
               href: _v9(_v0),
@@ -1073,7 +936,7 @@
             }),
             children: [_v6.map(_v0 => (0, _v1.jsx)(_v31, {
               recording: _v0
-            }, _v0.uri)), _v7 ? (0, _v1.jsx)(_v47, {
+            }, _v0.uri)), _v7 ? (0, _v1.jsx)(_v44, {
               count: _v5.length - _v6.length,
               href: _v9(_v0)
             }, "see-more") : null]
@@ -1084,13 +947,13 @@
         children: [_v16, _v14 && !_v15 ? (0, _v1.jsx)(_v18, {}) : null]
       });
     };
-  var _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
-    _v52 = _v0.i(0),
-    _v53 = _v0.i(0);
-  let _v54 = _v0 => "object" == typeof _v0 && null !== _v0 ? _v0 : null,
-    _v55 = async _v0 => {
-      let _v1 = _v54(_v0);
+  var _v47 = _v0.i(0),
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0),
+    _v50 = _v0.i(0);
+  let _v51 = _v0 => "object" == typeof _v0 && null !== _v0 ? _v0 : null,
+    _v52 = async _v0 => {
+      let _v1 = _v51(_v0);
       if (_v1?.status !== 403 || !_v1.res) return !1;
       try {
         let _v0 = await _v1.res.json();
@@ -1099,9 +962,9 @@
         return !1;
       }
     };
-  var _v56 = _v0.i(0),
-    _v57 = _v0.i(0);
-  async function _v58({
+  var _v53 = _v0.i(0),
+    _v54 = _v0.i(0);
+  async function _v55({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1110,21 +973,21 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v56.measureLatency)("getEventSery", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/event_series/${_v2}?${(0, _v57.searchQueryString)(_v3)}&fields=${_v1.map(_v57.intoSnakeCase).join(",")}`, {
+    return (0, _v53.measureLatency)("getEventSery", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/event_series/${_v2}?${(0, _v54.searchQueryString)(_v3)}&fields=${_v1.map(_v54.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v57.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v54.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v57.deepCamelCase)(_v1);
+      return (0, _v54.deepCamelCase)(_v1);
     });
   }
-  let _v59 = ["id", "name", "description", "link", "status", "landingPageConfig", "landingPageConfig.theme", "landingPageConfig.startDate", "landingPageConfig.endDate", "landingPageConfig.timeZone", "landingPageConfig.logo", "landingPageConfig.logo.type", "landingPageConfig.logo.uri", "landingPageConfig.logo.url", "landingPageConfig.contentConfig", "landingPageConfig.navConfig", "landingPageConfig.faqConfig", "pictures", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "pictures.baseLink", "events.uri", "events.title", "events.link", "events.description", "events.nextOccurrenceTime", "events.startTime", "events.isLive", "events.pictures", "events.pictures.sizes", "events.pictures.sizes.link", "events.pictures.sizes.width", "events.speakers", "events.speakers.name", "events.speakers.avatar"],
-    _v60 = [..._v59, "events.recordings", "events.recordings.uri", "events.recordings.link", "events.recordings.title", "events.recordings.duration", "events.recordings.streamedOn", "events.recordings.pictures", "events.recordings.pictures.sizes", "events.recordings.pictures.sizes.link", "events.recordings.pictures.sizes.width"],
-    _v61 = async ({
+  let _v56 = ["id", "name", "description", "link", "status", "landingPageConfig", "landingPageConfig.theme", "landingPageConfig.startDate", "landingPageConfig.endDate", "landingPageConfig.timeZone", "landingPageConfig.logo", "landingPageConfig.logo.type", "landingPageConfig.logo.uri", "landingPageConfig.logo.url", "landingPageConfig.contentConfig", "landingPageConfig.navConfig", "landingPageConfig.faqConfig", "pictures", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "pictures.baseLink", "events.uri", "events.title", "events.link", "events.description", "events.nextOccurrenceTime", "events.startTime", "events.isLive", "events.pictures", "events.pictures.sizes", "events.pictures.sizes.link", "events.pictures.sizes.width", "events.speakers", "events.speakers.name", "events.speakers.avatar"],
+    _v57 = [..._v56, "events.recordings", "events.recordings.uri", "events.recordings.link", "events.recordings.title", "events.recordings.duration", "events.recordings.streamedOn", "events.recordings.pictures", "events.recordings.pictures.sizes", "events.recordings.pictures.sizes.link", "events.recordings.pictures.sizes.width"],
+    _v58 = async ({
       baseUrl: _v0,
       headers: _v1,
       seriesIdOrUrl: _v2,
@@ -1146,21 +1009,21 @@
             }
           } : {})
         },
-        _v7 = await _v58({
+        _v7 = await _v55({
           ..._v6,
-          select: _v59
+          select: _v56
         });
       if (!_v7.landingPageConfig?.contentConfig?.includes("on-demand")) return _v7;
       try {
-        return await _v58({
+        return await _v55({
           ..._v6,
-          select: _v60
+          select: _v57
         });
       } catch {
         return _v7;
       }
     },
-    _v62 = async () => {
+    _v59 = async () => {
       let _v0 = await fetch("/_next/jwt", {
         headers: {
           "X-Requested-With": "XMLHttpRequest"
@@ -1172,7 +1035,7 @@
       } = await _v0.json();
       return _v1;
     },
-    _v63 = ({
+    _v60 = ({
       seriesIdOrUrl: _v0,
       baseUrl: _v1,
       onUnlock: _v2
@@ -1184,8 +1047,8 @@
           if (_v0.preventDefault(), _v3.trim() && !_v7) {
             _v8(!0), _v6(null);
             try {
-              let _v0 = await _v62(),
-                _v1 = await _v61({
+              let _v0 = await _v59(),
+                _v1 = await _v58({
                   baseUrl: _v1,
                   seriesIdOrUrl: _v0,
                   password: _v3,
@@ -1196,7 +1059,7 @@
                 });
               _v2(_v1);
             } catch (_v0) {
-              _v54(_v0)?.status === 403 ? _v6((0, _v16.translate)({
+              _v51(_v0)?.status === 403 ? _v6((0, _v16.translate)({
                 singular: "Sorry, that password was incorrect. Please try again.",
                 dictionary: {
                   es: {
@@ -1274,7 +1137,7 @@
               children: [(0, _v1.jsxs)(_v13.Flex, {
                 align: "center",
                 gap: "sm",
-                children: [(0, _v1.jsx)(_v53.Lock, {}), (0, _v1.jsx)(_v14.Text, {
+                children: [(0, _v1.jsx)(_v50.Lock, {}), (0, _v1.jsx)(_v14.Text, {
                   color: "text-primary",
                   variant: "heading-md",
                   children: (0, _v16.translate)({
@@ -1333,9 +1196,9 @@
                     }
                   }
                 })
-              }), (0, _v1.jsxs)(_v50.FormControl, {
+              }), (0, _v1.jsxs)(_v47.FormControl, {
                 isInvalid: !!_v5,
-                children: [(0, _v1.jsx)(_v51.FormLabel, {
+                children: [(0, _v1.jsx)(_v48.FormLabel, {
                   children: (0, _v16.translate)({
                     singular: "Password",
                     dictionary: {
@@ -1362,7 +1225,7 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v52.Input, {
+                }), (0, _v1.jsx)(_v49.Input, {
                   autoComplete: "current-password",
                   autoFocus: !0,
                   onChange: _v0 => {
@@ -1439,7 +1302,7 @@
         })
       });
     },
-    _v64 = ({
+    _v61 = ({
       series: _v0
     }) => {
       let {
@@ -1526,8 +1389,8 @@
             pb: "md",
             width: "100%",
             children: (0, _v1.jsx)(_v15.EventsGrid, {
-              children: _v1.map(_v0 => (0, _v1.jsx)(_v46, {
-                event: _v0
+              children: _v1.map(_v0 => (0, _v1.jsx)(_v40.EventCard, {
+                ..._v25(_v0)
               }, _v0.uri))
             })
           }) : (0, _v1.jsx)(_v18, {})]
@@ -1544,16 +1407,16 @@
         })]
       });
     };
-  var _v65 = _v0.i(0),
-    _v66 = _v0.i(0),
-    _v67 = _v0.i(0);
-  let _v68 = /^[A-Za-z0-9-]{1,128}$/;
+  var _v62 = _v0.i(0),
+    _v63 = _v0.i(0),
+    _v64 = _v0.i(0);
+  let _v65 = /^[A-Za-z0-9-]{1,128}$/;
   (0, _v4.withPageSetup)(async _v0 => {
     let _v1 = _v0.params?.params,
       _v2 = Array.isArray(_v1) ? _v1 : _v1 ? [_v1] : [],
       _v3 = _v2[0] ?? "",
       _v4 = /^\d+$/.test(_v3);
-    if (!_v4 && !_v68.test(_v3)) return {
+    if (!_v4 && !_v65.test(_v3)) return {
       notFound: !0
     };
     let _v5 = _v4 ? Number.parseInt(_v3, 10) : _v3,
@@ -1568,7 +1431,7 @@
     try {
       return {
         props: {
-          series: await _v61({
+          series: await _v58({
             seriesIdOrUrl: _v5,
             headers: _v10,
             baseUrl: _v0.baseUrl
@@ -1580,7 +1443,7 @@
         }
       };
     } catch (_v0) {
-      if (await _v55(_v0)) return {
+      if (await _v52(_v0)) return {
         props: {
           series: null,
           seriesIdOrUrl: _v5,
@@ -1600,25 +1463,25 @@
     baseUrl: _v3
   }) => {
     let [_v4, _v5] = (0, _v3.useState)(_v0),
-      _v6 = (0, _v67.useViewer)(),
+      _v6 = (0, _v64.useViewer)(),
       {
         trackEventSeriesLandingPageDisplayed: _v7
-      } = (0, _v65.useEventSeriesTracking)(),
+      } = (0, _v62.useEventSeriesTracking)(),
       _v8 = (0, _v3.useRef)(null);
     if ((0, _v3.useEffect)(() => {
       if (!_v4 || !_v6) return;
       let _v0 = `${_v4.id}:${_v2}`;
       _v8.current !== _v0 && (_v8.current = _v0, _v7({
         eventSeriesId: String(_v4.id),
-        landingPage: (0, _v65.deriveEventSeriesLandingPage)(_v2),
-        viewerAuthStatus: (0, _v66.deriveViewerAuthStatus)(_v6)
+        landingPage: (0, _v62.deriveEventSeriesLandingPage)(_v2),
+        viewerAuthStatus: (0, _v63.deriveViewerAuthStatus)(_v6)
       }));
     }, [_v4, _v2, _v6, _v7]), !_v4) return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
           children: "Event series"
         })
-      }), (0, _v1.jsx)(_v63, {
+      }), (0, _v1.jsx)(_v60, {
         baseUrl: _v3,
         onUnlock: _v5,
         seriesIdOrUrl: _v1
@@ -1652,11 +1515,11 @@
           href: _v13,
           rel: "canonical"
         }) : null]
-      }), "upcoming" === _v2 ? (0, _v1.jsx)(_v64, {
+      }), "upcoming" === _v2 ? (0, _v1.jsx)(_v61, {
         series: _v4
       }) : "on-demand" === _v2 ? (0, _v1.jsx)(_v38, {
         series: _v4
-      }) : (0, _v1.jsx)(_v49, {
+      }) : (0, _v1.jsx)(_v46, {
         series: _v4
       })]
     });

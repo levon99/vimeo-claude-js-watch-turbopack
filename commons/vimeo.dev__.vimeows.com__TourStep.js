@@ -24,15 +24,16 @@
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
-    _v24 = _v0.i(0);
-  function _v25({
+    _v24 = _v0.i(0),
+    _v25 = _v0.i(0);
+  function _v26({
     step: _v0,
     children: _v1
   }) {
     let {
         registerTarget: _v2,
         unregisterTarget: _v3
-      } = (0, _v24.useTourContext)(),
+      } = (0, _v25.useTourContext)(),
       _v4 = (0, _v4.useCallback)(_v0 => {
         if (null === _v0) return void _v3(_v0._id);
         if (!(_v0 instanceof HTMLElement)) {
@@ -45,9 +46,8 @@
       ref: _v4
     });
   }
-  _v0.s(["TourStep", 0, _v25], 0);
-  var _v26 = _v0.i(0),
-    _v27 = _v0.i(0),
+  _v0.s(["TourStep", 0, _v26], 0);
+  var _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
@@ -58,8 +58,9 @@
     _v35 = _v0.i(0),
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
-    _v38 = _v0.i(0);
-  let _v39 = ({
+    _v38 = _v0.i(0),
+    _v39 = _v0.i(0);
+  let _v40 = ({
       videoId: _v0
     }) => (0, _v1.jsx)("div", {
       style: {
@@ -82,11 +83,11 @@
         }
       })
     }),
-    _v40 = ({
+    _v41 = ({
       title: _v0,
       description: _v1,
       videoId: _v2
-    }) => (0, _v1.jsxs)(_v37.Flex, {
+    }) => (0, _v1.jsxs)(_v38.Flex, {
       direction: "column",
       gap: 3,
       align: "stretch",
@@ -94,7 +95,7 @@
         variant: "heading-md",
         color: "text-primary",
         children: _v0
-      }), _v2 && (0, _v1.jsx)(_v39, {
+      }), _v2 && (0, _v1.jsx)(_v40, {
         videoId: _v2
       }), (0, _v1.jsx)(_v9.Text, {
         variant: "body-md",
@@ -102,13 +103,13 @@
         children: _v1
       })]
     }),
-    _v41 = "review-page",
-    _v42 = (0, _v38.defineTour)(_v41, {
+    _v42 = "review-page",
+    _v43 = (0, _v39.defineTour)(_v42, {
       player: {
         order: 0,
         placement: "right",
-        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v40, {
-          title: (0, _v18.translate)({
+        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v41, {
+          title: (0, _v19.translate)({
             singular: "Comment anywhere on the video",
             dictionary: {
               es: {
@@ -135,7 +136,7 @@
             }
           }),
           videoId: 0,
-          description: (0, _v18.translate)({
+          description: (0, _v19.translate)({
             singular: "Click on the video at any moment along the timeline to leave a timestamped comment, pinned to that exact frame.",
             dictionary: {
               es: {
@@ -166,8 +167,8 @@
       comments: {
         order: 1,
         placement: "auto",
-        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v40, {
-          title: (0, _v18.translate)({
+        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v41, {
+          title: (0, _v19.translate)({
             singular: "Everyone's feedback, in one place",
             dictionary: {
               es: {
@@ -193,7 +194,7 @@
               }
             }
           }),
-          description: (0, _v18.translate)({
+          description: (0, _v19.translate)({
             singular: "Comments from collaborators lands here as they come in. Reply in a thread, and mark each one Resolved when it's handled.",
             dictionary: {
               es: {
@@ -224,8 +225,8 @@
       copyLink: {
         order: 2,
         placement: "auto",
-        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v40, {
-          title: (0, _v18.translate)({
+        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v41, {
+          title: (0, _v19.translate)({
             singular: "Copy a secure review link",
             dictionary: {
               es: {
@@ -251,7 +252,7 @@
               }
             }
           }),
-          description: (0, _v18.translate)({
+          description: (0, _v19.translate)({
             singular: "Send it to anyone — they comment without an account, and you stay in control of access.",
             dictionary: {
               es: {
@@ -280,16 +281,16 @@
         }), {})
       }
     });
-  _v0.s(["REVIEW_TOUR_NAME", 0, _v41, "ReviewTour", 0, _v42], 0);
-  var _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
+  _v0.s(["REVIEW_TOUR_NAME", 0, _v42, "ReviewTour", 0, _v43], 0);
+  var _v44 = _v0.i(0),
     _v45 = _v0.i(0),
     _v46 = _v0.i(0),
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
     _v49 = _v0.i(0),
-    _v50 = _v0.i(0);
-  let _v51 = (0, _v2.default)(async () => ({
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0);
+  let _v52 = (0, _v2.default)(async () => ({
     default: (await _v0.A(0)).LoginJoinModal
   }), {
     loadableGenerated: {
@@ -321,67 +322,69 @@
     showDeleteVersion: _v21 = !0,
     showNewVersion: _v22 = !0
   }) => {
-    let _v23 = (0, _v16.useMediaQueryVisibility)(`screen and (max-width: ${(0, _v6.rem)(_v26.BREAKPOINTS.small)})`),
+    let _v23 = (0, _v16.useMediaQueryVisibility)(`screen and (max-width: ${(0, _v6.rem)(_v27.BREAKPOINTS.small)})`),
       _v24 = (0, _v17.useIsMobile)(),
-      _v25 = (0, _v33.useViewer)(),
+      _v25 = (0, _v34.useViewer)(),
       _v26 = _v25?.user,
       {
-        replaceEnabled: _v27,
-        isLoading: _v28
-      } = (0, _v46.useReplace)(_v1, _v12),
-      [_v29, _v30] = (0, _v4.useState)(),
-      _v31 = (0, _v43.getVersionNumber)(_v7 || _v45.DEFAULT_VERSION_NUMBER),
-      [_v32, _v33] = (0, _v4.useState)(!1),
+        baseUrl: _v27,
+        jwt: _v28
+      } = (0, _v18.useGctlConfig)(),
       {
-        settings: _v34
-      } = (0, _v22.useOrionSettings)(),
-      _v35 = (0, _v13.useToast)(),
+        replaceEnabled: _v29,
+        isLoading: _v30
+      } = (0, _v47.useReplace)(_v1, _v12),
+      [_v31, _v32] = (0, _v4.useState)(),
+      _v33 = (0, _v44.getVersionNumber)(_v7 || _v46.DEFAULT_VERSION_NUMBER),
+      [_v34, _v35] = (0, _v4.useState)(!1),
       {
-        setVersions: _v36
-      } = (0, _v32.useVersionsStore)(_v0 => ({
+        settings: _v36
+      } = (0, _v23.useOrionSettings)(),
+      _v37 = (0, _v13.useToast)(),
+      {
+        setVersions: _v38
+      } = (0, _v33.useVersionsStore)(_v0 => ({
         setVersions: _v0.setVersions
       })),
       {
-        restoreVersion: _v37,
-        isRestoreInProgress: _v38
-      } = (0, _v47.useRestoreVersion)(),
-      {
-        restore: _v39,
+        restoreVersion: _v39,
         isRestoreInProgress: _v40
-      } = (0, _v31.useRestoreVersionWorkflow)(),
-      _v41 = _v34.new_replace_feature ? _v40 : _v38,
-      _v42 = (0, _v4.useCallback)(async () => _v36(await (0, _v29.getVersionsList)(_v1, {
-        headers: {
-          Accept: _v45.API_ACCEPT_HEADER
-        },
-        fields: _v45.VIDEO_VERSION_FIELDS,
+      } = (0, _v48.useRestoreVersion)(),
+      {
+        restore: _v41,
+        isRestoreInProgress: _v42
+      } = (0, _v32.useRestoreVersionWorkflow)(),
+      _v43 = _v36.new_replace_feature ? _v42 : _v40,
+      _v44 = (0, _v4.useCallback)(() => (0, _v30.refreshVersions)(_v1, {
+        baseUrl: _v27,
+        jwt: _v28,
         reviewId: _v12,
-        password: (0, _v50.getReviewPasswordHashFromCookie)(_v12)
-      })), [_v12, _v36, _v1]),
+        password: (0, _v51.getReviewPasswordHashFromCookie)(_v12)
+      }, _v38), [_v27, _v28, _v12, _v38, _v1]),
       {
-        trackRestoreVersion: _v43
-      } = (0, _v23.useVideoManageTracking)(),
+        trackRestoreVersion: _v45
+      } = (0, _v24.useVideoManageTracking)(),
       {
-        allowStatusChange: _v44,
-        isDark: _v45,
-        showMyLogo: _v46,
-        logoUrl: _v47
-      } = (0, _v4.useContext)(_v48.ReviewLinkContext);
+        allowStatusChange: _v46,
+        isDark: _v47,
+        showMyLogo: _v48,
+        logoUrl: _v49
+      } = (0, _v4.useContext)(_v49.ReviewLinkContext);
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v3.default, {
         children: (0, _v1.jsx)("title", {
           children: _v0
         })
-      }), (0, _v1.jsxs)(_v19.Navigation, {
+      }), (0, _v1.jsxs)(_v20.Navigation, {
         id: "review-header",
         position: "sticky",
         minHeight: "64px",
         zIndex: 0,
         top: "0",
-        children: [(0, _v1.jsxs)(_v19.Navigation.LeftContent, {
+        children: [(0, _v1.jsxs)(_v20.Navigation.LeftContent, {
           "data-id": "review-header-left",
           gap: "md",
-          children: [_v46 && _v47 ? (0, _v1.jsx)(_v12.Link, {
+          children: [_v48 && _v49 ? (0, _v1.jsx)(_v12.Link, {
             href: "/",
             ...(!_v25?.user && {
               pointerEvents: "none"
@@ -392,17 +395,17 @@
                 md: (0, _v6.rem)(400)
               },
               height: (0, _v6.rem)(40),
-              src: _v47,
+              src: _v49,
               alt: "Team Logo"
             })
-          }) : (0, _v1.jsx)(_v27.default, {}), !_v23 && (0, _v1.jsx)(_v7.Breadcrumb, {
+          }) : (0, _v1.jsx)(_v28.default, {}), !_v23 && (0, _v1.jsx)(_v7.Breadcrumb, {
             maxWidth: "500px",
             children: (0, _v1.jsx)(_v7.BreadcrumbItem, {
               overflow: "hidden",
               whiteSpace: "nowrap",
               children: _v15 ? (0, _v1.jsx)(_v8.BreadcrumbLink, {
                 href: _v15,
-                children: (0, _v1.jsx)(_v28.OverflowToolTip, {
+                children: (0, _v1.jsx)(_v29.OverflowToolTip, {
                   labelToolTip: _v0,
                   placement: "bottom",
                   children: (0, _v1.jsx)(_v9.Text, {
@@ -419,13 +422,13 @@
                 children: _v0
               })
             })
-          }), (0, _v1.jsx)(_v44.VersionListPicker, {
+          }), (0, _v1.jsx)(_v45.VersionListPicker, {
             videoId: _v1,
             clipHash: _v2,
-            allowReplace: _v27,
+            allowReplace: _v29,
             analyticsProps: _v5,
             shouldRedirectOnUpload: !0,
-            showLoading: _v28,
+            showLoading: _v30,
             activeVersionSequenceNumber: _v7,
             canOnlyComment: _v23 || !_v19 || _v9 < 2 && !!_v12,
             setIsReplaceOverQuota: _v8,
@@ -438,19 +441,19 @@
             showNewVersion: _v22,
             isVideoProcessing: _v16
           })]
-        }), (0, _v1.jsx)(_v19.Navigation.RightContent, {
+        }), (0, _v1.jsx)(_v20.Navigation.RightContent, {
           "data-id": "video-versions-header-right",
           justifyContent: "flex-end",
           gap: "sm",
-          children: (0, _v1.jsxs)(_v21.LoginJoinModalContext.Provider, {
+          children: (0, _v1.jsxs)(_v22.LoginJoinModalContext.Provider, {
             value: {
-              modal: _v29,
-              setModal: _v30
+              modal: _v31,
+              setModal: _v32
             },
-            children: [!_v24 && _v11 && (0, _v1.jsx)(_v36.ReviewStatusMenu, {
+            children: [!_v24 && _v11 && (0, _v1.jsx)(_v37.ReviewStatusMenu, {
               clipId: _v1,
               defaultStatus: _v10 ?? null,
-              isReadOnly: !_v44,
+              isReadOnly: !_v46,
               analyticsProps: _v5,
               reviewId: _v12
             }), _v17 && (0, _v1.jsx)(_v5.IconButton, {
@@ -470,14 +473,14 @@
               isDisabled: _v4
             }), _v20 && _v13 && !_v14 && (0, _v1.jsx)(_v10.Button, {
               variant: "primary",
-              onClick: () => void (_v33(!0), _v5 && (0, _v49.bpStartRestoreVersion)({
+              onClick: () => void (_v35(!0), _v5 && (0, _v50.bpStartRestoreVersion)({
                 videoId: _v1,
                 viewer: _v25,
-                currentVersion: _v31,
-                chosenVersion: _v31,
+                currentVersion: _v33,
+                chosenVersion: _v33,
                 analyticsProps: _v5
               })),
-              children: (0, _v18.translate)({
+              children: (0, _v19.translate)({
                 singular: "Restore this version",
                 dictionary: {
                   es: {
@@ -500,30 +503,30 @@
                   }
                 }
               })
-            }), _v12 && (0, _v1.jsx)(_v25, {
-              step: _v42.copyLink,
-              children: (0, _v1.jsx)(_v34.CopyReviewLinkButton, {
+            }), _v12 && (0, _v1.jsx)(_v26, {
+              step: _v43.copyLink,
+              children: (0, _v1.jsx)(_v35.CopyReviewLinkButton, {
                 surface: "video_review_page",
                 clipId: String(_v1)
               })
-            }), (0, _v1.jsx)(_v20.AccountMenu, {
-              hasThemeSupport: !_v45
-            }), _v25 && !_v26 && (0, _v1.jsx)(_v51, {})]
+            }), (0, _v1.jsx)(_v21.AccountMenu, {
+              hasThemeSupport: !_v47
+            }), _v25 && !_v26 && (0, _v1.jsx)(_v52, {})]
           })
         })]
-      }), (0, _v1.jsx)(_v35.RestoreConfirmationModal, {
-        isOpen: _v32,
-        onClose: () => _v33(!1),
+      }), (0, _v1.jsx)(_v36.RestoreConfirmationModal, {
+        isOpen: _v34,
+        onClose: () => _v35(!1),
         onRestoreVersion: () => {
           if (_v13) {
-            if (_v5 && (0, _v49.bpRestoreVersion)({
+            if (_v5 && (0, _v50.bpRestoreVersion)({
               videoId: _v1,
               viewer: _v25,
-              currentVersion: _v31,
-              chosenVersion: _v31,
+              currentVersion: _v33,
+              chosenVersion: _v33,
               analyticsProps: _v5
-            }), _v34.new_replace_feature) return void _v39(_v1, _v13).then(async _v0 => {
-              await _v42().catch(() => (0, _v30.handleVersionRefreshError)(_v35)), _v33(!1), _v43({
+            }), _v36.new_replace_feature) return void _v41(_v1, _v13).then(async _v0 => {
+              await _v44().catch(() => (0, _v31.handleVersionRefreshError)(_v37)), _v35(!1), _v45({
                 clipId: String(_v1),
                 versionNumber: _v7,
                 versionId: String(_v13),
@@ -533,8 +536,8 @@
                 versionTranscodeStatus: _v0.versionTranscodeStatus ?? null,
                 status: "succeeded",
                 error: null
-              }), _v35({
-                title: (0, _v18.translate)({
+              }), _v37({
+                title: (0, _v19.translate)({
                   singular: "Version restored",
                   dictionary: {
                     es: {
@@ -560,12 +563,12 @@
                     }
                   }
                 }),
-                duration: _v50.TOAST_DURATION,
+                duration: _v51.TOAST_DURATION,
                 isClosable: !1
               });
             }).catch(_v0 => {
-              _v35({
-                title: (0, _v18.translate)({
+              _v37({
+                title: (0, _v19.translate)({
                   singular: "Unable to restore",
                   dictionary: {
                     es: {
@@ -591,10 +594,10 @@
                     }
                   }
                 }),
-                duration: _v50.TOAST_DURATION,
+                duration: _v51.TOAST_DURATION,
                 isClosable: !1,
                 variant: "warning"
-              }), _v43({
+              }), _v45({
                 clipId: String(_v1),
                 versionNumber: _v7,
                 versionId: String(_v13),
@@ -606,12 +609,12 @@
                 error: _v0 instanceof Error ? _v0.message : String(_v0)
               });
             });
-            _v37(_v1, _v13).then(() => {
-              _v33(!1);
+            _v39(_v1, _v13).then(() => {
+              _v35(!1);
             });
           }
         },
-        isRestoreApiInProgress: _v41
+        isRestoreApiInProgress: _v43
       })]
     });
   }], 0);

@@ -38,14 +38,14 @@
         let _v0 = new Set(),
           _v1 = [];
         return _v2 && _v2.forEach(_v0 => {
-          _v0?.data.forEach(_v0 => {
-            let _v1 = _v0.user?.uri.split("/").pop(),
+          _v0?.data?.forEach(_v0 => {
+            let _v1 = _v0?.user?.uri?.split("/")?.pop(),
               _v2 = _v0?.active,
               _v3 = !!_v0?.user?.name && _v0?.user?.name.length > 0,
-              _v4 = _v0.has(_v1),
+              _v4 = !!(_v1 && _v0.has(_v1)),
               _v5 = _v0?.user?.pictures?.sizes?.[0]?.link ?? "";
-            _v2 && _v3 && !_v4 && (_v0.add(_v1), _v1.push({
-              name: _v0.user?.name || "",
+            _v1 && _v2 && _v3 && !_v4 && (_v0.add(_v1), _v1.push({
+              name: _v0?.user?.name || "",
               userId: _v1,
               avatarLink: _v5
             }));

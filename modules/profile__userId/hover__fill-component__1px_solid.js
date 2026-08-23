@@ -8930,30 +8930,31 @@
   let _v386 = ({
     playerAssetUrls: _v0,
     userId: _v1,
-    isPrivate: _v2,
-    isMod: _v3,
-    profileMeta: _v4
+    numericUserId: _v2,
+    isPrivate: _v3,
+    isMod: _v4,
+    profileMeta: _v5
   }) => {
-    let _v5 = (0, _v104.useViewer)(),
-      _v6 = _v4.crawlable,
-      _v7 = (0, _v6.jsxs)(_v7.default, {
+    let _v6 = (0, _v104.useViewer)(),
+      _v7 = _v5.crawlable,
+      _v8 = (0, _v6.jsxs)(_v7.default, {
         children: [(0, _v6.jsx)("title", {
-          children: _v4.title
+          children: _v5.title
         }), (0, _v6.jsx)("meta", {
           name: "description",
-          content: _v4.description
-        }), _v4.robots && (0, _v6.jsx)("meta", {
+          content: _v5.description
+        }), _v5.robots && (0, _v6.jsx)("meta", {
           name: "robots",
-          content: _v4.robots
+          content: _v5.robots
         }), (0, _v6.jsx)("link", {
           rel: "canonical",
-          href: _v4.canonical
-        }), _v6 && (0, _v6.jsxs)(_v6.Fragment, {
-          children: [_v6.hasPublicVideos && (0, _v6.jsx)("link", {
+          href: _v5.canonical
+        }), _v7 && (0, _v6.jsxs)(_v6.Fragment, {
+          children: [_v7.hasPublicVideos && (0, _v6.jsx)("link", {
             rel: "alternate",
             type: "application/rss+xml",
-            href: `${_v6.pageUrl}/videos/rss`,
-            title: _v6.rssTitle
+            href: `${_v7.pageUrl}/videos/rss`,
+            title: _v7.rssTitle
           }), (0, _v6.jsx)("meta", {
             property: "og:type",
             content: "profile"
@@ -8962,14 +8963,14 @@
             content: "Vimeo"
           }), (0, _v6.jsx)("meta", {
             property: "og:url",
-            content: _v6.pageUrl
+            content: _v7.pageUrl
           }), (0, _v6.jsx)("meta", {
             property: "og:title",
-            content: _v6.name
-          }), _v6.portrait && (0, _v6.jsxs)(_v6.Fragment, {
+            content: _v7.name
+          }), _v7.portrait && (0, _v6.jsxs)(_v6.Fragment, {
             children: [(0, _v6.jsx)("meta", {
               property: "og:image",
-              content: _v6.portrait
+              content: _v7.portrait
             }), (0, _v6.jsx)("meta", {
               property: "og:image:height",
               content: "640"
@@ -8979,7 +8980,7 @@
             })]
           }), (0, _v6.jsx)("meta", {
             property: "og:description",
-            content: _v4.description
+            content: _v5.description
           }), (0, _v6.jsx)("meta", {
             property: "al:ios:app_name",
             content: "Vimeo"
@@ -8988,7 +8989,7 @@
             content: "425194759"
           }), (0, _v6.jsx)("meta", {
             property: "al:ios:url",
-            content: `vimeo://app.vimeo.com/users/${_v6.userId}`
+            content: `vimeo://app.vimeo.com/users/${_v7.userId}`
           }), (0, _v6.jsx)("meta", {
             property: "al:android:app_name",
             content: "Vimeo"
@@ -8997,7 +8998,7 @@
             content: "com.vimeo.android.videoapp"
           }), (0, _v6.jsx)("meta", {
             property: "al:android:url",
-            content: `vimeo://app.vimeo.com/users/${_v6.userId}`
+            content: `vimeo://app.vimeo.com/users/${_v7.userId}`
           }), (0, _v6.jsx)("meta", {
             property: "al:web:should_fallback",
             content: "true"
@@ -9009,13 +9010,13 @@
             content: "@vimeo"
           }), (0, _v6.jsx)("meta", {
             name: "twitter:title",
-            content: _v6.name
+            content: _v7.name
           }), (0, _v6.jsx)("meta", {
             name: "twitter:description",
-            content: _v4.description
-          }), _v6.portrait && (0, _v6.jsx)("meta", {
+            content: _v5.description
+          }), _v7.portrait && (0, _v6.jsx)("meta", {
             name: "twitter:image",
-            content: _v6.portrait
+            content: _v7.portrait
           }), (0, _v6.jsx)("meta", {
             name: "twitter:app:name:iphone",
             content: "Vimeo"
@@ -9024,7 +9025,7 @@
             content: "425194759"
           }), (0, _v6.jsx)("meta", {
             name: "twitter:app:url:iphone",
-            content: `vimeo://app.vimeo.com/users/${_v6.userId}`
+            content: `vimeo://app.vimeo.com/users/${_v7.userId}`
           }), (0, _v6.jsx)("meta", {
             name: "twitter:app:name:ipad",
             content: "Vimeo"
@@ -9033,7 +9034,7 @@
             content: "425194759"
           }), (0, _v6.jsx)("meta", {
             name: "twitter:app:url:ipad",
-            content: `vimeo://app.vimeo.com/users/${_v6.userId}`
+            content: `vimeo://app.vimeo.com/users/${_v7.userId}`
           }), (0, _v6.jsx)("meta", {
             name: "twitter:app:name:googleplay",
             content: "Vimeo"
@@ -9042,30 +9043,30 @@
             content: "com.vimeo.android.videoapp"
           }), (0, _v6.jsx)("meta", {
             name: "twitter:app:url:googleplay",
-            content: `vimeo://app.vimeo.com/users/${_v6.userId}`
+            content: `vimeo://app.vimeo.com/users/${_v7.userId}`
           })]
         })]
       }),
-      _v8 = _v6 && (0, _v6.jsx)("div", {
+      _v9 = _v7 && (0, _v6.jsx)("div", {
         suppressHydrationWarning: !0,
         dangerouslySetInnerHTML: {
-          __html: `<script type="application/ld+json">${_v6.jsonLd}</script>`
+          __html: `<script type="application/ld+json">${_v7.jsonLd}</script>`
         }
       });
-    return _v5 ? _v2 && !_v3 ? (0, _v6.jsxs)(_v6.Fragment, {
-      children: [_v7, (0, _v6.jsx)(_v8.SWRConfig, {
+    return _v6 ? _v3 && !_v4 ? (0, _v6.jsxs)(_v6.Fragment, {
+      children: [_v8, (0, _v6.jsx)(_v8.SWRConfig, {
         value: {
           revalidateOnFocus: !1,
           revalidateOnReconnect: !1
         },
         children: (0, _v6.jsx)(_v91.default, {
           children: (0, _v6.jsx)(_v384, {
-            userId: _v1
+            userId: _v2
           })
         })
       })]
     }) : (0, _v6.jsxs)(_v6.Fragment, {
-      children: [_v7, _v8, (0, _v6.jsx)(_v8.SWRConfig, {
+      children: [_v8, _v9, (0, _v6.jsx)(_v8.SWRConfig, {
         value: {
           revalidateOnFocus: !1,
           revalidateOnReconnect: !1
@@ -9074,12 +9075,12 @@
           children: (0, _v6.jsx)(_v385, {
             playerAssetUrls: _v0,
             userId: _v1,
-            isMod: _v3
+            isMod: _v4
           })
         })
       })]
     }) : (0, _v6.jsxs)(_v6.Fragment, {
-      children: [_v7, _v8]
+      children: [_v8, _v9]
     });
   };
   function _v387({
@@ -9304,6 +9305,7 @@
         isPrivate: _v5,
         isMod: _v6,
         userId: _v2 ?? _v3,
+        numericUserId: _v9,
         hasThemeSupport: !0,
         layoutOptions: {
           headerFixed: !0

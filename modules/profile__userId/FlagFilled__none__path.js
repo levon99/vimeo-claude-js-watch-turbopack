@@ -231,7 +231,7 @@
                 }
               }
             }),
-            resolveExternalUrl: _v0 => (0, _v16.withReportedContentUrl)(_v0, _v0),
+            resolveExternalUrl: _v0 => (0, _v16.withReportedContentUrl)(_v0, `user${_v0}`),
             offerCommsOptOut: !!_v5?.isUnitedKingdom
           }),
           blockUser: _v3,
