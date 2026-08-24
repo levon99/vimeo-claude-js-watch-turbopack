@@ -169,13 +169,12 @@
         _v25 = (0, _v2.useRef)(null),
         _v26 = _v14.seatCapTrial || _v18.seatDetails?.basePlanCount || 0,
         _v27 = _v18.seatDetails?.currentUnassignedCount ?? _v14.currentUnassignedSeatCount,
-        _v28 = _v18.maxTeamSize || _v14.seatCount,
-        _v29 = (_v15 ? _v18.owner.maxTeamMembers : _v18.maxTeamSize) || _v18.maxTeamSize,
-        _v30 = !_v14.isFreeTrial && _v27 <= 0 && _v14.seatCapPaid > 0 && _v14.seatCapPaid < _v29 && _v28 >= _v14.seatCapPaid,
-        _v31 = !1 === _v17,
-        _v32 = _v14.tier === _v31.Tier.Professional || _v14.tier === _v31.Tier.Studio || _v14.tier === _v31.Tier.Production,
-        _v33 = _v18.untranslatedUserRole === _v31.TeamRole.Owner && _v32,
-        _v34 = _v0 => !(_v0 !== _v31.TeamRole.Admin || !_v31 && (!_v16 || (_v0 => {
+        _v28 = _v14.seatCount,
+        _v29 = !_v14.isFreeTrial && _v27 <= 0 && _v14.seatCapPaid > 0 && _v28 >= _v14.seatCapPaid,
+        _v30 = !1 === _v17,
+        _v31 = _v14.tier === _v31.Tier.Professional || _v14.tier === _v31.Tier.Studio || _v14.tier === _v31.Tier.Production,
+        _v32 = _v18.untranslatedUserRole === _v31.TeamRole.Owner && _v31,
+        _v33 = _v0 => !(_v0 !== _v31.TeamRole.Admin || !_v30 && (!_v16 || (_v0 => {
           if (!_v18.teamSeats) return !0;
           let _v1 = (0, _v26.camelizeString)(_v0.toLowerCase()),
             _v2 = _v0.toLowerCase().concat("Seats"),
@@ -244,13 +243,13 @@
               onClick: () => {
                 _v2 && _v2(_v0), _v8();
               },
-              disabled: _v34(_v0.value),
+              disabled: _v33(_v0.value),
               children: [(0, _v1.jsx)(_v39, {
                 children: _v3?.value === _v0?.value && (0, _v1.jsx)(_v49, {
                   isShareModal: _v24
                 })
               }), (0, _v1.jsxs)(_v42, {
-                disabled: _v34(_v0.value),
+                disabled: _v33(_v0.value),
                 size: "md",
                 children: [(0, _v1.jsxs)(_v46, {
                   children: [(0, _v1.jsx)("b", {
@@ -262,16 +261,16 @@
                     children: _v32.T.MonthlyPrice(_v0 ?? "")
                   })]
                 }), (0, _v1.jsx)(_v50, {
-                  disabled: _v34(_v0.value),
+                  disabled: _v33(_v0.value),
                   children: _v13(_v0)?.description
                 })]
               })]
             }, _v1));
           }
         })() : _v1.map((_v0, _v1) => {
-          let _v2 = _v0.value === _v31.TeamRole.Admin && _v31,
-            _v3 = _v2 && _v33,
-            _v4 = _v0.isDisabled || _v34(_v0.value) && !_v3;
+          let _v2 = _v0.value === _v31.TeamRole.Admin && _v30,
+            _v3 = _v2 && _v32,
+            _v4 = _v0.isDisabled || _v33(_v0.value) && !_v3;
           return (0, _v1.jsx)(_v17.Box, {
             ref: _v25,
             children: (0, _v1.jsx)(_v23.Tooltip, {
@@ -334,7 +333,7 @@
               }, _v1)
             })
           }, _v1);
-        }), _v18.untranslatedUserRole == _v31.TeamRole.Owner && _v20 && !_v14.isFreeTrial && (_v30 || _v19 ? (0, _v1.jsx)(_v45, {
+        }), _v18.untranslatedUserRole == _v31.TeamRole.Owner && _v20 && !_v14.isFreeTrial && (_v29 || _v19 ? (0, _v1.jsx)(_v45, {
           marginTop: 11,
           children: _v32.T.UpgradePlan
         }) : (0, _v1.jsxs)(_v40, {
@@ -354,7 +353,7 @@
           })]
         })), _v18.untranslatedUserRole == _v31.TeamRole.Admin && _v20 && !_v14.isFreeTrial && (0, _v1.jsx)(_v40, {
           children: (0, _v1.jsx)(_v33.GeneralNotice, {
-            children: _v30 ? _v32.T.UpgradePlan : _v32.T.ContactOwnerForSeats
+            children: _v29 ? _v32.T.UpgradePlan : _v32.T.ContactOwnerForSeats
           })
         }), _v14.isFreeTrial && _v20 && _v22 && (0, _v1.jsx)(_v45, {
           marginTop: 11,

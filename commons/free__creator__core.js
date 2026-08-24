@@ -32,8 +32,9 @@
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
-    _v32 = _v0.i(0);
-  let _v33 = {
+    _v32 = _v0.i(0),
+    _v33 = _v0.i(0);
+  let _v34 = {
       Free: "free",
       Creator: "creator",
       Core: "core",
@@ -45,11 +46,11 @@
       Studio: "studio",
       Production: "production"
     },
-    _v34 = {
+    _v35 = {
       Year: "year",
       Month: "month"
     },
-    _v35 = () => ({
+    _v36 = () => ({
       teamInfo: {
         owner: {
           uri: "",
@@ -96,7 +97,7 @@
         }
       },
       membership: {
-        billingPeriod: _v34.Month,
+        billingPeriod: _v35.Month,
         currency: "",
         currentUnassignedSeatCount: 0,
         isFreeTrial: !1,
@@ -106,7 +107,9 @@
         productId: "",
         seatCount: 0,
         status: "Active",
-        tier: _v33.Starter
+        tier: _v34.Starter,
+        hasAutorenew: !1,
+        subscriptionId: ""
       },
       invitesRemaining: 0,
       teamCapabilities: {
@@ -131,58 +134,58 @@
         periodic: null
       }
     }),
-    _v36 = () => Error("Not implemented"),
-    _v37 = (0, _v2.createContext)(_v35()),
-    _v38 = (0, _v2.createContext)({
-      fetchTeamInfo: _v36,
-      updateTeamApiConfig: _v36,
-      updateTeamCapabilities: _v36,
-      updateMembershipInfo: _v36,
-      updateEmails: _v36,
-      updatePlanQuota: _v36,
-      addEmail: _v36,
-      removeEmail: _v36,
-      updateInvitesRemaining: _v36,
-      clearEmails: _v36
+    _v37 = () => Error("Not implemented"),
+    _v38 = (0, _v2.createContext)(_v36()),
+    _v39 = (0, _v2.createContext)({
+      fetchTeamInfo: _v37,
+      updateTeamApiConfig: _v37,
+      updateTeamCapabilities: _v37,
+      updateMembershipInfo: _v37,
+      updateEmails: _v37,
+      updatePlanQuota: _v37,
+      addEmail: _v37,
+      removeEmail: _v37,
+      updateInvitesRemaining: _v37,
+      clearEmails: _v37
     });
-  var _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
+  var _v40 = _v0.i(0),
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
     _v43 = _v0.i(0),
     _v44 = _v0.i(0),
     _v45 = _v0.i(0),
-    _v46 = _v0.i(0);
-  let _v47 = "FetchTeamMemberInit",
-    _v48 = "FetchTeamMemberComplete",
-    _v49 = "team_manager",
-    _v50 = () => {
-      let _v0 = (0, _v46.useViewer)(),
+    _v46 = _v0.i(0),
+    _v47 = _v0.i(0);
+  let _v48 = "FetchTeamMemberInit",
+    _v49 = "FetchTeamMemberComplete",
+    _v50 = "team_manager",
+    _v51 = () => {
+      let _v0 = (0, _v47.useViewer)(),
         _v1 = _v0?.teamUser,
         _v2 = _v0?.user,
-        _v3 = (0, _v2.useCallback)(() => (0, _v43.buildTeamBpContextFromTeamUser)(_v1), [_v1]),
-        _v4 = (0, _v2.useCallback)(_v0 => (0, _v44.buildWebBpContext)({
-          page_name: (0, _v39.getPageNameFromPath)(window.location.pathname, _v2),
-          referrer_page_name: (0, _v39.getPageNameFromPath)(document.referrer, _v2),
+        _v3 = (0, _v2.useCallback)(() => (0, _v44.buildTeamBpContextFromTeamUser)(_v1), [_v1]),
+        _v4 = (0, _v2.useCallback)(_v0 => (0, _v45.buildWebBpContext)({
+          page_name: (0, _v40.getPageNameFromPath)(window.location.pathname, _v2),
+          referrer_page_name: (0, _v40.getPageNameFromPath)(document.referrer, _v2),
           referrer: document.referrer || window.location.href,
           path: document.location.pathname,
           ..._v0
         }), [_v2]),
-        _v5 = (0, _v2.useCallback)(_v0 => (0, _v42.buildProductAnalyticsBpContext)({
+        _v5 = (0, _v2.useCallback)(_v0 => (0, _v43.buildProductAnalyticsBpContext)({
           product: "collaboration",
           feature: "teams",
-          device_type: (0, _v40.default)(),
+          device_type: (0, _v41.default)(),
           ..._v0
         }), []),
-        _v6 = (0, _v2.useCallback)(_v0 => (0, _v41.buildActionBpContext)({
+        _v6 = (0, _v2.useCallback)(_v0 => (0, _v42.buildActionBpContext)({
           action_type: "click",
           feature: null,
           ..._v0
         }), []);
       return {
         trackOpenTeamInviteModal: (0, _v2.useCallback)(() => {
-          let _v0 = (0, _v39.getPageNameFromPath)(window.location.pathname) === _v49;
-          (0, _v45.sendBpEventWithContexts)("vimeo.open_team_invite_modal", {
+          let _v0 = (0, _v40.getPageNameFromPath)(window.location.pathname) === _v50;
+          (0, _v46.sendBpEventWithContexts)("vimeo.open_team_invite_modal", {
             ..._v3(),
             ..._v6(),
             ..._v4({
@@ -195,8 +198,8 @@
           }, 4, {});
         }, [_v3, _v6, _v4, _v5]),
         trackInviteMembersToTeam: (0, _v2.useCallback)(_v0 => {
-          let _v1 = (0, _v39.getPageNameFromPath)(window.location.pathname) === _v49;
-          (0, _v45.sendBpEventWithContexts)("vimeo.invite_members_to_team", {
+          let _v1 = (0, _v40.getPageNameFromPath)(window.location.pathname) === _v50;
+          (0, _v46.sendBpEventWithContexts)("vimeo.invite_members_to_team", {
             ..._v3(),
             ..._v6(),
             ..._v4({
@@ -213,8 +216,8 @@
         }, [_v3, _v6, _v4, _v5])
       };
     },
-    _v51 = {
-      AddEmails: (0, _v26.translate)({
+    _v52 = {
+      AddEmails: (0, _v27.translate)({
         singular: "Add emails",
         dictionary: {
           es: {
@@ -240,7 +243,7 @@
           }
         }
       }),
-      MaxOf: _v0 => (0, _v26.translate)({
+      MaxOf: _v0 => (0, _v27.translate)({
         singular: "(max of {INVITES})",
         replacements: {
           INVITES: _v0
@@ -269,7 +272,7 @@
           }
         }
       }),
-      AddSeats: (0, _v26.translate)({
+      AddSeats: (0, _v27.translate)({
         singular: "Add seats",
         dictionary: {
           es: {
@@ -295,7 +298,7 @@
           }
         }
       }),
-      AboutSeats: (0, _v26.translate)({
+      AboutSeats: (0, _v27.translate)({
         singular: "Learn more about seats.",
         dictionary: {
           es: {
@@ -321,7 +324,7 @@
           }
         }
       }),
-      AccountUpgradeMessage: _v0 => (0, _v26.translate)({
+      AccountUpgradeMessage: _v0 => (0, _v27.translate)({
         singular: "You’ve reached your limit of {COUNT} team members. ",
         replacements: {
           COUNT: _v0
@@ -350,7 +353,7 @@
           }
         }
       }),
-      AddAdminsContributors: (0, _v26.translate)({
+      AddAdminsContributors: (0, _v27.translate)({
         singular: "You can still add team members as Contributors or Admins because you have unassigned seats.",
         dictionary: {
           es: {
@@ -376,7 +379,7 @@
           }
         }
       }),
-      AdditionalInvites: (0, _v26.translate)({
+      AdditionalInvites: (0, _v27.translate)({
         singular: "You can send additional invitations once you’re on a paid plan.",
         dictionary: {
           es: {
@@ -402,7 +405,7 @@
           }
         }
       }),
-      AdditionalSeats: (0, _v26.translate)({
+      AdditionalSeats: (0, _v27.translate)({
         singular: "Purchase additional seats to send your invitations. Or invite Viewers for free.",
         dictionary: {
           es: {
@@ -428,7 +431,33 @@
           }
         }
       }),
-      AddMoreWhenOutofSeats: (0, _v26.translate)({
+      AddSeatsDowngradeTooltip: (0, _v27.translate)({
+        singular: "Adding seats is not available while a plan change is scheduled",
+        dictionary: {
+          es: {
+            singular: "Agregar asientos no está disponible mientras haya un cambio de plan programado"
+          },
+          "de-DE": {
+            singular: "Das Hinzufügen von Plätzen ist nicht möglich, solange eine Tarifänderung geplant ist"
+          },
+          "fr-FR": {
+            singular: "L'ajout de sièges n'est pas disponible tant qu'un changement d'abonnement est programmé"
+          },
+          "ja-JP": {
+            singular: "プラン変更が予定されている間は席を追加できません"
+          },
+          "ko-KR": {
+            singular: "플랜 변경이 예정되어 있는 동안 좌석 추가 기능은 이용할 수 없습니다."
+          },
+          "pt-BR": {
+            singular: "Adicionar assentos não está disponível enquanto uma alteração de plano está agendada"
+          },
+          "zh-CN": {
+            singular: "在已安排的计划变更期间无法添加席位"
+          }
+        }
+      }),
+      AddMoreWhenOutofSeats: (0, _v27.translate)({
         singular: "To add more, please contact your Account Owner. Or invite Viewers for free.",
         dictionary: {
           es: {
@@ -454,7 +483,7 @@
           }
         }
       }),
-      AddMoreContactAccountManager: (0, _v26.translate)({
+      AddMoreContactAccountManager: (0, _v27.translate)({
         singular: "To add more, please contact your Account Manager.",
         dictionary: {
           es: {
@@ -480,7 +509,33 @@
           }
         }
       }),
-      ContactOwnerUpgradeTierForPaidMembers: (0, _v26.translate)({
+      AdminLimitReached: (0, _v27.translate)({
+        singular: "You’ve reached your admin limit. Upgrade your plan to add more admins.",
+        dictionary: {
+          es: {
+            singular: "Ha alcanzado su límite de administradores. Actualice su plan para añadir más administradores."
+          },
+          "de-DE": {
+            singular: "Sie haben die maximale Anzahl an Administratoren erreicht. Aktualisieren Sie Ihren Plan, um weitere Administratoren hinzuzufügen."
+          },
+          "fr-FR": {
+            singular: "Vous avez atteint la limite d’administration. Mettez à niveau votre forfait pour ajouter d’autres administrateurs."
+          },
+          "ja-JP": {
+            singular: "管理者数の上限に達しました。 プランをアップグレードして管理者を追加してください。"
+          },
+          "ko-KR": {
+            singular: "관리자 한도에 도달했습니다. 요금제를 업그레이드하여 더 많은 관리자를 추가하세요."
+          },
+          "pt-BR": {
+            singular: "Você atingiu o limite de administradores. Atualize seu plano para adicionar mais administradores."
+          },
+          "zh-CN": {
+            singular: "您已达到管理员上限。升级您的计划以添加更多管理员。"
+          }
+        }
+      }),
+      ContactOwnerUpgradeTierForPaidMembers: (0, _v27.translate)({
         singular: "To add more paid seats, contact your Account Owner about upgrading to a higher tier.",
         dictionary: {
           es: {
@@ -506,7 +561,7 @@
           }
         }
       }),
-      AddViewers: (0, _v26.translate)({
+      AddViewers: (0, _v27.translate)({
         singular: "To add more Viewers, upgrade to Enterprise.",
         dictionary: {
           es: {
@@ -532,7 +587,7 @@
           }
         }
       }),
-      Cancel: (0, _v26.translate)({
+      Cancel: (0, _v27.translate)({
         singular: "Cancel",
         dictionary: {
           es: {
@@ -558,7 +613,7 @@
           }
         }
       }),
-      ChooseFolder: (0, _v26.translate)({
+      ChooseFolder: (0, _v27.translate)({
         singular: "Choose folder",
         dictionary: {
           es: {
@@ -584,7 +639,7 @@
           }
         }
       }),
-      ContactMessage: (0, _v26.translate)({
+      ContactMessage: (0, _v27.translate)({
         singular: "To add more members, contact your Account Owner.",
         dictionary: {
           es: {
@@ -610,7 +665,7 @@
           }
         }
       }),
-      ContactOwnerForViewers: (0, _v26.translate)({
+      ContactOwnerForViewers: (0, _v27.translate)({
         singular: "To add more Viewers, contact your Account Owner.",
         dictionary: {
           es: {
@@ -636,7 +691,7 @@
           }
         }
       }),
-      ContactUs: (0, _v26.translate)({
+      ContactUs: (0, _v27.translate)({
         singular: "Contact us",
         dictionary: {
           es: {
@@ -662,7 +717,7 @@
           }
         }
       }),
-      CreateFolder: (0, _v26.translate)({
+      CreateFolder: (0, _v27.translate)({
         singular: "Create folder",
         dictionary: {
           es: {
@@ -688,7 +743,7 @@
           }
         }
       }),
-      CreateNew: (0, _v26.translate)({
+      CreateNew: (0, _v27.translate)({
         singular: "Create new",
         dictionary: {
           es: {
@@ -711,7 +766,7 @@
           }
         }
       }),
-      AddNote: (0, _v26.translate)({
+      AddNote: (0, _v27.translate)({
         singular: "Add a note",
         dictionary: {
           es: {
@@ -737,7 +792,7 @@
           }
         }
       }),
-      CustomNote: (0, _v26.translate)({
+      CustomNote: (0, _v27.translate)({
         singular: "Hi, I’ve invited you to view folders and join my team on Vimeo!",
         dictionary: {
           es: {
@@ -763,7 +818,7 @@
           }
         }
       }),
-      EnterAValidEmailAddress: (0, _v26.translate)({
+      EnterAValidEmailAddress: (0, _v27.translate)({
         singular: "Enter a valid email address.",
         dictionary: {
           es: {
@@ -789,7 +844,7 @@
           }
         }
       }),
-      FolderName: (0, _v26.translate)({
+      FolderName: (0, _v27.translate)({
         singular: "Folder name",
         dictionary: {
           es: {
@@ -815,7 +870,7 @@
           }
         }
       }),
-      FreeTrialSeatLimitReached: (0, _v26.translate)({
+      FreeTrialSeatLimitReached: (0, _v27.translate)({
         singular: "You’ve reached the seat limit on your trial.",
         dictionary: {
           es: {
@@ -841,7 +896,7 @@
           }
         }
       }),
-      FreeTrialTeamLimitReached: (0, _v26.translate)({
+      FreeTrialTeamLimitReached: (0, _v27.translate)({
         singular: "You’ve reached the team member limit on your trial.",
         dictionary: {
           es: {
@@ -867,7 +922,7 @@
           }
         }
       }),
-      FreeTrialViewerLimitReached: (0, _v26.translate)({
+      FreeTrialViewerLimitReached: (0, _v27.translate)({
         singular: "You’ve reached the viewer limit on your trial.",
         dictionary: {
           es: {
@@ -893,7 +948,7 @@
           }
         }
       }),
-      Invite: (0, _v26.translate)({
+      Invite: (0, _v27.translate)({
         singular: "Invite",
         dictionary: {
           es: {
@@ -919,7 +974,7 @@
           }
         }
       }),
-      InviteLimitReach: (0, _v26.translate)({
+      InviteLimitReach: (0, _v27.translate)({
         singular: "You hit your maximum number of invites.",
         dictionary: {
           es: {
@@ -945,7 +1000,7 @@
           }
         }
       }),
-      InviteSent: (0, _v26.translate)({
+      InviteSent: (0, _v27.translate)({
         singular: "Invite Sent",
         dictionary: {
           es: {
@@ -971,7 +1026,7 @@
           }
         }
       }),
-      InviteTeamMembers: (0, _v26.translate)({
+      InviteTeamMembers: (0, _v27.translate)({
         singular: "Invite team members",
         dictionary: {
           es: {
@@ -997,7 +1052,7 @@
           }
         }
       }),
-      InviteViewers: _v0 => (0, _v26.translate)({
+      InviteViewers: _v0 => (0, _v27.translate)({
         singular: "Or invite up to {COUNT} Viewers for free.",
         replacements: {
           COUNT: _v0
@@ -1026,7 +1081,7 @@
           }
         }
       }),
-      MaxEmailInvitesInOneGo: (0, _v26.translate)({
+      MaxEmailInvitesInOneGo: (0, _v27.translate)({
         singular: "You’ve reached the max amount of emails for one invite. Once you send the invite, you can return here to add more team members.",
         dictionary: {
           es: {
@@ -1052,7 +1107,7 @@
           }
         }
       }),
-      PurchaseAdditionlSeats: (0, _v26.translate)({
+      PurchaseAdditionlSeats: (0, _v27.translate)({
         singular: "You can purchase additional seats once you’re on a paid plan.",
         dictionary: {
           es: {
@@ -1078,7 +1133,7 @@
           }
         }
       }),
-      PurchaseSeats: (0, _v26.translate)({
+      PurchaseSeats: (0, _v27.translate)({
         singular: "Purchase seats",
         dictionary: {
           es: {
@@ -1105,7 +1160,7 @@
         }
       }),
       Roles: {
-        Owner: (0, _v26.translate)({
+        Owner: (0, _v27.translate)({
           singular: "Owner",
           dictionary: {
             es: {
@@ -1131,7 +1186,7 @@
             }
           }
         }),
-        Admin: (0, _v26.translate)({
+        Admin: (0, _v27.translate)({
           singular: "Admin",
           dictionary: {
             es: {
@@ -1154,7 +1209,7 @@
             }
           }
         }),
-        Contributor: (0, _v26.translate)({
+        Contributor: (0, _v27.translate)({
           singular: "Contributor",
           dictionary: {
             es: {
@@ -1180,7 +1235,7 @@
             }
           }
         }),
-        "Contributor Plus": (0, _v26.translate)({
+        "Contributor Plus": (0, _v27.translate)({
           singular: "Contributor Plus",
           dictionary: {
             es: {
@@ -1203,7 +1258,7 @@
             }
           }
         }),
-        Uploader: (0, _v26.translate)({
+        Uploader: (0, _v27.translate)({
           singular: "Uploader",
           dictionary: {
             es: {
@@ -1223,7 +1278,7 @@
             }
           }
         }),
-        Viewer: (0, _v26.translate)({
+        Viewer: (0, _v27.translate)({
           singular: "Viewer",
           dictionary: {
             es: {
@@ -1250,7 +1305,7 @@
           }
         })
       },
-      Save: (0, _v26.translate)({
+      Save: (0, _v27.translate)({
         singular: "Save",
         dictionary: {
           es: {
@@ -1276,7 +1331,7 @@
           }
         }
       }),
-      Seat: (0, _v26.translate)({
+      Seat: (0, _v27.translate)({
         singular: "Seat",
         dictionary: {
           es: {
@@ -1302,7 +1357,7 @@
           }
         }
       }),
-      SelectFolder: (0, _v26.translate)({
+      SelectFolder: (0, _v27.translate)({
         singular: "Select a folder",
         dictionary: {
           es: {
@@ -1328,7 +1383,7 @@
           }
         }
       }),
-      ServerError: (0, _v26.translate)({
+      ServerError: (0, _v27.translate)({
         singular: "Unable to send invite. Try again.",
         dictionary: {
           es: {
@@ -1354,7 +1409,7 @@
           }
         }
       }),
-      MigrationInProgress: (0, _v26.translate)({
+      MigrationInProgress: (0, _v27.translate)({
         singular: "You can't add members while your Team Library is being set up.",
         dictionary: {
           es: {
@@ -1380,7 +1435,7 @@
           }
         }
       }),
-      SkipForNow: (0, _v26.translate)({
+      SkipForNow: (0, _v27.translate)({
         singular: "Skip for now",
         dictionary: {
           es: {
@@ -1406,7 +1461,7 @@
           }
         }
       }),
-      Tax: _v0 => (0, _v26.translate)({
+      Tax: _v0 => (0, _v27.translate)({
         singular: "+ tax per {PERIOD}",
         replacements: {
           PERIOD: _v0
@@ -1435,7 +1490,7 @@
           }
         }
       }),
-      TeamMemberAlreadyInvited: _v0 => (0, _v26.translate)({
+      TeamMemberAlreadyInvited: _v0 => (0, _v27.translate)({
         singular: "{BOLD}'{EMAIL}'{/BOLD} is already invited and is yet to respond.",
         replacements: {
           EMAIL: _v0,
@@ -1467,7 +1522,7 @@
           }
         }
       }),
-      TeamMemberAlreadyJoined: _v0 => (0, _v26.translate)({
+      TeamMemberAlreadyJoined: _v0 => (0, _v27.translate)({
         singular: "{BOLD}'{EMAIL}'{/BOLD} is already part of your team.",
         replacements: {
           EMAIL: _v0,
@@ -1499,7 +1554,7 @@
           }
         }
       }),
-      TrialAdditionalSeats: (0, _v26.translate)({
+      TrialAdditionalSeats: (0, _v27.translate)({
         singular: "Add seats to your trial to send your invitations. Or invite Viewers for free.",
         dictionary: {
           es: {
@@ -1525,7 +1580,7 @@
           }
         }
       }),
-      TypeOrPasteEmails: (0, _v26.translate)({
+      TypeOrPasteEmails: (0, _v27.translate)({
         singular: "Type or paste emails to invite to team",
         dictionary: {
           es: {
@@ -1551,7 +1606,7 @@
           }
         }
       }),
-      Optional: (0, _v26.translate)({
+      Optional: (0, _v27.translate)({
         singular: "(optional)",
         dictionary: {
           es: {
@@ -1574,7 +1629,7 @@
           }
         }
       }),
-      Required: (0, _v26.translate)({
+      Required: (0, _v27.translate)({
         singular: "(required)",
         dictionary: {
           es: {
@@ -1600,7 +1655,7 @@
           }
         }
       }),
-      User: (0, _v26.translate)({
+      User: (0, _v27.translate)({
         singular: "User",
         dictionary: {
           es: {
@@ -1626,7 +1681,7 @@
           }
         }
       }),
-      OutofPaidSeats: (0, _v26.translate)({
+      OutofPaidSeats: (0, _v27.translate)({
         singular: "You’ve run out of seats.",
         dictionary: {
           es: {
@@ -1652,7 +1707,7 @@
           }
         }
       }),
-      PaidSeatLimitReached: _v0 => (0, _v26.translate)({
+      PaidSeatLimitReached: _v0 => (0, _v27.translate)({
         singular: "You’ve reached your limit of {COUNT} paid seat.",
         plural: "You’ve reached your limit of {COUNT} paid seats.",
         count: _v0,
@@ -1690,7 +1745,7 @@
           }
         }
       }),
-      Upgrade: (0, _v26.translate)({
+      Upgrade: (0, _v27.translate)({
         singular: "Upgrade",
         dictionary: {
           es: {
@@ -1713,7 +1768,7 @@
           }
         }
       }),
-      UpgradeEnterprise: (0, _v26.translate)({
+      UpgradeEnterprise: (0, _v27.translate)({
         singular: "To add more, upgrade to Enterprise.",
         dictionary: {
           es: {
@@ -1739,7 +1794,7 @@
           }
         }
       }),
-      UpgradeTierForPaidMembers: (0, _v26.translate)({
+      UpgradeTierForPaidMembers: (0, _v27.translate)({
         singular: "To add more paid seats, upgrade to a higher tier.",
         dictionary: {
           es: {
@@ -1765,7 +1820,7 @@
           }
         }
       }),
-      UpgradeMessage: (0, _v26.translate)({
+      UpgradeMessage: (0, _v27.translate)({
         singular: "Upgrade for more.",
         dictionary: {
           es: {
@@ -1791,7 +1846,7 @@
           }
         }
       }),
-      VideoInfo: (_v0, _v1) => (0, _v26.translate)({
+      VideoInfo: (_v0, _v1) => (0, _v27.translate)({
         singular: "Includes {COUNT} videos per {PERIOD}",
         replacements: {
           COUNT: _v0,
@@ -1821,7 +1876,7 @@
           }
         }
       }),
-      EmailAlreadyATeamMember: _v0 => (0, _v26.translate)({
+      EmailAlreadyATeamMember: _v0 => (0, _v27.translate)({
         singular: "{BOLD}{EMAIL}{/BOLD} is already a team member.",
         replacements: {
           EMAIL: _v0,
@@ -1853,7 +1908,7 @@
           }
         }
       }),
-      EmailNotAValidDomain: _v0 => (0, _v26.translate)({
+      EmailNotAValidDomain: _v0 => (0, _v27.translate)({
         singular: "{BOLD}{EMAIL}{/BOLD} is not a valid domain.",
         replacements: {
           EMAIL: _v0,
@@ -1885,7 +1940,7 @@
           }
         }
       }),
-      EmailEnteredTwice: _v0 => (0, _v26.translate)({
+      EmailEnteredTwice: _v0 => (0, _v27.translate)({
         singular: "{BOLD}{EMAIL}{/BOLD} has been entered twice.",
         replacements: {
           EMAIL: _v0,
@@ -1917,7 +1972,7 @@
           }
         }
       }),
-      Next: (0, _v26.translate)({
+      Next: (0, _v27.translate)({
         singular: "Next",
         dictionary: {
           es: {
@@ -1943,7 +1998,7 @@
           }
         }
       }),
-      InvitePeopleToTeam: (0, _v26.translate)({
+      InvitePeopleToTeam: (0, _v27.translate)({
         singular: "Invite people to your team",
         dictionary: {
           es: {
@@ -1969,7 +2024,7 @@
           }
         }
       }),
-      OutOfAdminSeats: (0, _v26.translate)({
+      OutOfAdminSeats: (0, _v27.translate)({
         singular: "You’ve run out of admin seats.",
         dictionary: {
           es: {
@@ -1996,15 +2051,15 @@
         }
       })
     };
-  var _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
+  var _v53 = _v0.i(0),
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),
     _v57 = _v0.i(0),
     _v58 = _v0.i(0),
-    _v59 = _v0.i(0);
-  let _v60 = ({
+    _v59 = _v0.i(0),
+    _v60 = _v0.i(0);
+  let _v61 = ({
     onTagClose: _v0,
     values: _v1 = [],
     invalidIndices: _v2 = [],
@@ -2035,11 +2090,11 @@
       ref: _v10,
       children: (0, _v1.jsx)(_v6.Box, {
         ref: _v11,
-        children: (0, _v1.jsxs)(_v56.InputGroup, {
+        children: (0, _v1.jsxs)(_v57.InputGroup, {
           ref: _v14,
           height: "auto",
           width: "100%",
-          children: [(0, _v1.jsx)(_v57.InputLeftElement, {
+          children: [(0, _v1.jsx)(_v58.InputLeftElement, {
             flexWrap: "wrap",
             gap: "xs",
             height: "auto",
@@ -2050,18 +2105,18 @@
             ref: _v13,
             children: _v1.map((_v0, _v1) => {
               let _v2 = _v2[_v1] ? "stroke" : "status-destructive-secondary";
-              return (0, _v1.jsxs)(_v58.Tag, {
+              return (0, _v1.jsxs)(_v59.Tag, {
                 maxW: (0, _v22.rem)(_v16 - 16),
                 backgroundColor: _v2,
-                children: [(0, _v1.jsx)(_v58.TagLabel, {
+                children: [(0, _v1.jsx)(_v59.TagLabel, {
                   children: _v0
-                }), (0, _v1.jsx)(_v58.TagCloseButton, {
+                }), (0, _v1.jsx)(_v59.TagCloseButton, {
                   onClick: () => _v0?.(_v1),
-                  children: (0, _v1.jsx)(_v59.CloseX, {})
+                  children: (0, _v1.jsx)(_v60.CloseX, {})
                 })]
               }, _v0);
             })
-          }), (0, _v1.jsx)(_v55.Input, {
+          }), (0, _v1.jsx)(_v56.Input, {
             isInvalid: _v8,
             "data-id": "textField",
             type: "text",
@@ -2084,7 +2139,7 @@
       })
     });
   };
-  function _v61({
+  function _v62({
     onChange: _v0,
     onTabPress: _v1,
     values: _v2,
@@ -2101,7 +2156,7 @@
       _v10 = (0, _v2.useCallback)(() => {
         _v4 && !_v2.includes(_v4) && _v1();
       }, [_v1, _v4, _v2]);
-    return (0, _v1.jsx)(_v60, {
+    return (0, _v1.jsx)(_v61, {
       onChange: _v9,
       onTabPress: _v10,
       onBlur: _v10,
@@ -2114,11 +2169,11 @@
       disableInput: _v8
     });
   }
-  var _v62 = _v0.i(0),
-    _v63 = _v0.i(0),
+  var _v63 = _v0.i(0),
     _v64 = _v0.i(0),
-    _v65 = _v0.i(0);
-  let _v66 = ({
+    _v65 = _v0.i(0),
+    _v66 = _v0.i(0);
+  let _v67 = ({
     onChange: _v0
   }) => {
     let [_v1, _v2] = (0, _v2.useState)(""),
@@ -2130,7 +2185,7 @@
         membership: {
           isFreeTrial: _v5
         }
-      } = (0, _v2.useContext)(_v37),
+      } = (0, _v2.useContext)(_v38),
       _v6 = _v3?.user?.createdTime,
       _v7 = "custom" === String(_v3?.user?.account),
       _v8 = (0, _v2.useMemo)(() => {
@@ -2147,17 +2202,17 @@
         justify: "space-between",
         align: "center",
         children: [(0, _v1.jsxs)(_v17.Flex, {
-          children: [(0, _v1.jsx)(_v54.Paragraph, {
+          children: [(0, _v1.jsx)(_v55.Paragraph, {
             size: "md",
             mr: "xs",
-            children: _v51.AddNote
-          }), (0, _v1.jsx)(_v54.Paragraph, {
+            children: _v52.AddNote
+          }), (0, _v1.jsx)(_v55.Paragraph, {
             size: "md",
             color: "text-secondary",
-            children: _v51.Optional
+            children: _v52.Optional
           })]
         }), (0, _v1.jsx)(_v6.Box, {
-          children: (0, _v1.jsxs)(_v64.Text, {
+          children: (0, _v1.jsxs)(_v65.Text, {
             fontSize: "body-md",
             variant: "body-xl",
             color: _v11 ? "red.500" : "gray.500",
@@ -2165,12 +2220,12 @@
             children: [_v1.length, "/", _v9]
           })
         })]
-      }), (0, _v1.jsx)(_v65.Textarea, {
+      }), (0, _v1.jsx)(_v66.Textarea, {
         mb: (0, _v22.rem)(10),
         borderRadius: (0, _v22.rem)(6),
         height: (0, _v22.rem)(80),
         value: _v1,
-        placeholder: _v51.CustomNote,
+        placeholder: _v52.CustomNote,
         maxLength: _v9,
         onChange: _v0 => {
           let _v1 = _v0.currentTarget.value;
@@ -2179,8 +2234,7 @@
       })]
     }) : null;
   };
-  var _v67 = _v0.i(0),
-    _v68 = _v0.i(0),
+  var _v68 = _v0.i(0),
     _v69 = _v0.i(0),
     _v70 = _v0.i(0),
     _v71 = _v0.i(0),
@@ -2190,35 +2244,40 @@
     _v75 = _v0.i(0),
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
-    _v78 = _v0.i(0);
-  let _v79 = ({
+    _v78 = _v0.i(0),
+    _v79 = _v0.i(0),
+    _v80 = _v0.i(0),
+    _v81 = _v0.i(0);
+  let _v82 = ({
       onRoleSelect: _v0,
       selectedRole: _v1,
       onRegionChange: _v2,
       region: _v3,
       permissionPolicies: _v4,
-      onPermissionPoliciesChange: _v5
-    }, _v6) => {
-      let _v7 = (0, _v2.useContext)(_v16.ViewerContext),
+      onPermissionPoliciesChange: _v5,
+      isAdminDisabled: _v6,
+      onAdminLimitClick: _v7
+    }, _v8) => {
+      let _v9 = (0, _v2.useContext)(_v16.ViewerContext),
         {
           capabilities: {
-            canRegionalDeliveryFlagRegionalTeamMembers: _v8,
-            canRegionalDeliveryManageRegionalPublishers: _v9
+            canRegionalDeliveryFlagRegionalTeamMembers: _v10,
+            canRegionalDeliveryManageRegionalPublishers: _v11
           }
-        } = (0, _v13.useCapability)(["canRegionalDeliveryFlagRegionalTeamMembers", "canRegionalDeliveryManageRegionalPublishers"], _v7?.teamUser?.ownerId),
+        } = (0, _v13.useCapability)(["canRegionalDeliveryFlagRegionalTeamMembers", "canRegionalDeliveryManageRegionalPublishers"], _v9?.teamUser?.ownerId),
         {
-          teamInfo: _v10
-        } = (0, _v2.useContext)(_v37),
-        _v11 = (_v10.owner.metadata?.connections?.teamMembers?.roles ?? []).map(_v0 => ({
+          teamInfo: _v12
+        } = (0, _v2.useContext)(_v38),
+        _v13 = (_v12.owner.metadata?.connections?.teamMembers?.roles ?? []).map(_v0 => ({
           permissionLevel: _v0.permissionLevel,
           displayName: _v0.displayName,
           description: _v0.displayDescription,
-          permissionPolicyToggles: _v9 ? (_v0.applicablePermissionPolicies?.regionalDelivery ?? []).map(_v0 => ({
+          permissionPolicyToggles: _v11 ? (_v0.applicablePermissionPolicies?.regionalDelivery ?? []).map(_v0 => ({
             label: _v0.displayDescription,
             value: _v0.name,
             checked: !1
           })) : [],
-          regionToggle: _v8 && _v0.regionOptions && _v0.regionOptions.length > 0 ? {
+          regionToggle: _v10 && _v0.regionOptions && _v0.regionOptions.length > 0 ? {
             label: _v0.regionOptions[0].displayDescription,
             value: _v0.regionOptions[0].code,
             checked: !1
@@ -2226,86 +2285,110 @@
         }));
       return (0, _v1.jsx)(_v6.Box, {
         "data-id": "rolesMenuContent",
-        ref: _v6,
-        children: _v11.map((_v0, _v1) => (0, _v1.jsxs)(_v69.MenuItem, {
-          maxW: (0, _v22.rem)(340),
-          "data-id": "rolesMenuOption",
-          children: [(0, _v1.jsxs)(_v6.Box, {
-            children: [(0, _v1.jsxs)(_v74.VStack, {
-              alignItems: "flex-start",
-              gap: "0",
-              onClick: () => _v0.permissionLevel && _v0(_v0.permissionLevel),
-              children: [(0, _v1.jsx)(_v64.Text, {
-                variant: "heading-xs",
-                children: _v0.displayName
-              }), (0, _v1.jsx)(_v64.Text, {
-                variant: "body-md",
-                color: "text-secondary",
-                fontWeight: "400",
-                children: _v0.description
-              })]
-            }), _v1 == _v0.permissionLevel && _v0.regionToggle && (0, _v1.jsx)(_v71.Switch, {
-              size: "sm",
-              id: "isInChinaToggle",
-              isChecked: !!_v3,
-              onChange: () => {
-                let _v0 = _v3 ? null : _v0.regionToggle && _v0.regionToggle.value;
-                _v2?.(_v0);
-              },
-              children: (0, _v1.jsx)(_v64.Text, {
-                variant: "body-xl",
-                fontSize: (0, _v22.rem)(13),
-                display: "inline",
-                verticalAlign: "top",
-                children: _v0.regionToggle.label
+        ref: _v8,
+        children: _v13.map((_v0, _v1) => {
+          let _v2 = "Admin" === _v0.permissionLevel && _v6;
+          return (0, _v1.jsx)(_v6.Box, {
+            children: (0, _v1.jsx)(_v74.Tooltip, {
+              shouldWrapChildren: !0,
+              isDisabled: !_v2,
+              label: _v52.AdminLimitReached,
+              children: (0, _v1.jsxs)(_v71.MenuItem, {
+                maxW: (0, _v22.rem)(340),
+                "data-id": "rolesMenuOption",
+                "aria-disabled": _v2,
+                onClick: _v2 ? _v7 : void 0,
+                children: [(0, _v1.jsxs)(_v6.Box, {
+                  children: [(0, _v1.jsxs)(_v77.VStack, {
+                    alignItems: "flex-start",
+                    gap: "0",
+                    onClick: () => {
+                      !_v2 && _v0.permissionLevel && _v0(_v0.permissionLevel);
+                    },
+                    children: [(0, _v1.jsxs)(_v17.Flex, {
+                      alignItems: "center",
+                      gap: "xs",
+                      children: [(0, _v1.jsx)(_v65.Text, {
+                        variant: "heading-xs",
+                        children: _v0.displayName
+                      }), _v2 && (0, _v1.jsx)(_v68.Badge, {
+                        variant: "upgrade",
+                        size: "sm",
+                        children: _v52.Upgrade
+                      })]
+                    }), (0, _v1.jsx)(_v65.Text, {
+                      variant: "body-md",
+                      color: "text-secondary",
+                      fontWeight: "400",
+                      children: _v0.description
+                    })]
+                  }), _v1 == _v0.permissionLevel && _v0.regionToggle && (0, _v1.jsx)(_v73.Switch, {
+                    size: "sm",
+                    id: "isInChinaToggle",
+                    isChecked: !!_v3,
+                    onChange: () => {
+                      let _v0 = _v3 ? null : _v0.regionToggle && _v0.regionToggle.value;
+                      _v2?.(_v0);
+                    },
+                    children: (0, _v1.jsx)(_v65.Text, {
+                      variant: "body-xl",
+                      fontSize: (0, _v22.rem)(13),
+                      display: "inline",
+                      verticalAlign: "top",
+                      children: _v0.regionToggle.label
+                    })
+                  }), _v1 == _v0.permissionLevel && _v0.permissionPolicyToggles.map(_v0 => (0, _v1.jsx)(_v73.Switch, {
+                    size: "sm",
+                    id: `${_v0.permissionLevel}-${_v0.value}`,
+                    isChecked: _v4.some(_v0 => _v0 === _v0.value),
+                    onChange: () => {
+                      let _v0 = _v4.some(_v0 => _v0 === _v0.value) ? _v4.filter(_v0 => _v0 !== _v0.value) : [..._v4, _v0.value];
+                      _v5?.(_v0);
+                    },
+                    children: (0, _v1.jsx)(_v65.Text, {
+                      variant: "body-xl",
+                      fontSize: (0, _v22.rem)(13),
+                      display: "inline",
+                      verticalAlign: "top",
+                      children: _v0.label
+                    })
+                  }, `${_v0.permissionLevel}-${_v0.value}`))]
+                }), _v1 == _v0.permissionLevel && (0, _v1.jsx)(_v78.Checkmark, {
+                  boxSize: (0, _v22.rem)(20)
+                })]
               })
-            }), _v1 == _v0.permissionLevel && _v0.permissionPolicyToggles.map(_v0 => (0, _v1.jsx)(_v71.Switch, {
-              size: "sm",
-              id: `${_v0.permissionLevel}-${_v0.value}`,
-              isChecked: _v4.some(_v0 => _v0 === _v0.value),
-              onChange: () => {
-                let _v0 = _v4.some(_v0 => _v0 === _v0.value) ? _v4.filter(_v0 => _v0 !== _v0.value) : [..._v4, _v0.value];
-                _v5?.(_v0);
-              },
-              children: (0, _v1.jsx)(_v64.Text, {
-                variant: "body-xl",
-                fontSize: (0, _v22.rem)(13),
-                display: "inline",
-                verticalAlign: "top",
-                children: _v0.label
-              })
-            }, `${_v0.permissionLevel}-${_v0.value}`))]
-          }), _v1 == _v0.permissionLevel && (0, _v1.jsx)(_v75.Checkmark, {
-            boxSize: (0, _v22.rem)(20)
-          })]
-        }, `${_v1}-${_v0}`))
+            })
+          }, `${_v1}-${_v0}`);
+        })
       });
     },
-    _v80 = ({
+    _v83 = ({
       onSelect: _v0,
       hasLiveSubscription: _v1,
       onRegionChange: _v2,
       region: _v3,
       permissionPolicies: _v4,
-      onPermissionPoliciesChange: _v5
+      onPermissionPoliciesChange: _v5,
+      isAdminDisabled: _v6,
+      onAdminLimitClick: _v7
     }) => {
       let {
-          isOpen: _v6,
-          onOpen: _v7,
-          onClose: _v8
-        } = (0, _v72.useDisclosure)(),
-        _v9 = (0, _v2.useRef)(null),
-        [_v10, _v11] = (0, _v2.useState)("Contributor"),
-        _v12 = _v2.default.forwardRef(_v79);
-      return (0, _v73.useOutsideClick)({
-        ref: _v9,
+          isOpen: _v8,
+          onOpen: _v9,
+          onClose: _v10
+        } = (0, _v75.useDisclosure)(),
+        _v11 = (0, _v2.useRef)(null),
+        [_v12, _v13] = (0, _v2.useState)("Contributor"),
+        _v14 = _v2.default.forwardRef(_v82);
+      return (0, _v76.useOutsideClick)({
+        ref: _v11,
         handler: () => {
-          _v9 && null !== _v9.current && _v8();
+          _v11 && null !== _v11.current && _v10();
         }
-      }), (0, _v1.jsxs)(_v67.Menu, {
-        isOpen: _v6,
-        onOpen: _v7,
-        children: [(0, _v1.jsx)(_v68.MenuButton, {
+      }), (0, _v1.jsxs)(_v69.Menu, {
+        isOpen: _v8,
+        onOpen: _v9,
+        children: [(0, _v1.jsx)(_v70.MenuButton, {
           as: _v7.Button,
           height: (0, _v22.rem)(40),
           variant: "secondary",
@@ -2314,163 +2397,167 @@
           onClick: () => {
             _v4.GoogleTagManager.trackEvent("team_open_role_menu");
           },
-          rightIcon: (0, _v1.jsx)(_v76.ChevronDownSmall, {}),
-          children: _v51.Roles[_v10]
-        }), (0, _v1.jsx)(_v70.MenuList, {
-          children: (0, _v1.jsx)(_v12, {
-            ref: _v9,
+          rightIcon: (0, _v1.jsx)(_v79.ChevronDownSmall, {}),
+          children: _v52.Roles[_v12]
+        }), (0, _v1.jsx)(_v72.MenuList, {
+          children: (0, _v1.jsx)(_v14, {
+            ref: _v11,
             onRoleSelect: _v0 => {
-              _v0(_v0), _v11(_v0), _v2?.(null), _v5?.([]), _v8();
+              _v0(_v0), _v13(_v0), _v2?.(null), _v5?.([]), _v10();
             },
-            selectedRole: _v10,
+            selectedRole: _v12,
             hasLiveSubscription: _v1,
             onRegionChange: _v2,
             region: _v3,
             permissionPolicies: _v4,
-            onPermissionPoliciesChange: _v5
+            onPermissionPoliciesChange: _v5,
+            isAdminDisabled: _v6,
+            onAdminLimitClick: _v7
           })
         })]
       });
     };
-  var _v81 = _v0.i(0),
-    _v82 = _v0.i(0),
-    _v83 = _v0.i(0),
-    _v84 = _v0.i(0);
-  let _v85 = () => (0, _v1.jsxs)(_v81.Alert, {
-      children: [(0, _v1.jsx)(_v83.AlertTitle, {
-        children: _v51.OutofPaidSeats
-      }), (0, _v1.jsx)(_v82.AlertDescription, {
-        children: _v51.AddMoreWhenOutofSeats
+  var _v84 = _v0.i(0),
+    _v85 = _v0.i(0),
+    _v86 = _v0.i(0),
+    _v87 = _v0.i(0);
+  let _v88 = () => (0, _v1.jsxs)(_v84.Alert, {
+      children: [(0, _v1.jsx)(_v86.AlertTitle, {
+        children: _v52.OutofPaidSeats
+      }), (0, _v1.jsx)(_v85.AlertDescription, {
+        children: _v52.AddMoreWhenOutofSeats
       })]
     }),
-    _v86 = ({
-      maxTeamSize: _v0
-    }) => (0, _v1.jsxs)(_v81.Alert, {
-      children: [(0, _v1.jsx)(_v83.AlertTitle, {
-        children: _v51.AccountUpgradeMessage(_v0)
-      }), (0, _v1.jsx)(_v82.AlertDescription, {
-        children: _v51.ContactMessage
-      })]
-    }),
-    _v87 = ({
-      maxTeamSize: _v0
-    }) => (0, _v1.jsxs)(_v81.Alert, {
-      children: [(0, _v1.jsx)(_v83.AlertTitle, {
-        fontWeight: 700,
-        children: _v51.AccountUpgradeMessage(_v0)
-      }), (0, _v1.jsx)(_v82.AlertDescription, {
-        children: `${_v51.AddAdminsContributors} ${_v51.ContactOwnerForViewers}`
-      })]
-    }),
-    _v88 = () => {
-      let {
-          membership: _v0
-        } = (0, _v2.useContext)(_v37),
-        _v1 = _v0.isFreeTrial ? _v51.TrialAdditionalSeats : `${_v51.AdditionalSeats} `;
-      return (0, _v1.jsxs)(_v81.Alert, {
-        background: "upsell-secondary",
-        children: [(0, _v1.jsx)(_v83.AlertTitle, {
-          children: _v51.OutofPaidSeats
-        }), (0, _v1.jsxs)(_v82.AlertDescription, {
-          children: [_v1, !_v0.isFreeTrial && (0, _v1.jsx)(_v84.Link, {
-            href: "https://vimeo.zendesk.com/hc/en-us/articles/7131832878605-How-many-videos-can-I-add-to-my-Starter-Standard-or-Advanced-account-",
-            target: "_blank",
-            children: _v51.AboutSeats
-          })]
-        })]
-      });
-    },
     _v89 = ({
-      title: _v0,
-      description: _v1,
-      isUpsell: _v2 = !1
-    }) => (0, _v1.jsxs)(_v81.Alert, {
-      background: _v2 ? "upsell-secondary" : void 0,
-      children: [(0, _v1.jsx)(_v83.AlertTitle, {
-        children: _v0
-      }), (0, _v1.jsx)(_v82.AlertDescription, {
-        children: _v1
+      maxTeamSize: _v0
+    }) => (0, _v1.jsxs)(_v84.Alert, {
+      children: [(0, _v1.jsx)(_v86.AlertTitle, {
+        children: _v52.AccountUpgradeMessage(_v0)
+      }), (0, _v1.jsx)(_v85.AlertDescription, {
+        children: _v52.ContactMessage
       })]
     }),
     _v90 = ({
       maxTeamSize: _v0
-    }) => (0, _v1.jsx)(_v81.Alert, {
-      background: "upsell-secondary",
-      children: (0, _v1.jsx)(_v82.AlertDescription, {
-        children: `${_v51.AccountUpgradeMessage(_v0)} ${_v51.UpgradeEnterprise}`
-      })
-    }),
-    _v91 = () => (0, _v1.jsxs)(_v81.Alert, {
-      children: [(0, _v1.jsx)(_v83.AlertTitle, {
-        children: _v51.FreeTrialSeatLimitReached
-      }), (0, _v1.jsx)(_v82.AlertDescription, {
-        children: _v51.PurchaseAdditionlSeats + " " + _v51.InviteViewers(5)
+    }) => (0, _v1.jsxs)(_v84.Alert, {
+      children: [(0, _v1.jsx)(_v86.AlertTitle, {
+        fontWeight: 700,
+        children: _v52.AccountUpgradeMessage(_v0)
+      }), (0, _v1.jsx)(_v85.AlertDescription, {
+        children: `${_v52.AddAdminsContributors} ${_v52.ContactOwnerForViewers}`
       })]
     }),
-    _v92 = () => (0, _v1.jsxs)(_v81.Alert, {
-      children: [(0, _v1.jsx)(_v83.AlertTitle, {
-        children: _v51.FreeTrialTeamLimitReached
-      }), (0, _v1.jsx)(_v82.AlertDescription, {
-        children: _v51.AdditionalInvites
+    _v91 = ({
+      isScheduledDowngrade: _v0 = !1
+    }) => {
+      let {
+          membership: _v1
+        } = (0, _v2.useContext)(_v38),
+        _v2 = _v1.isFreeTrial ? _v52.TrialAdditionalSeats : `${_v52.AdditionalSeats} `;
+      return (0, _v1.jsxs)(_v84.Alert, {
+        background: "upsell-secondary",
+        children: [(0, _v1.jsx)(_v86.AlertTitle, {
+          children: _v0 ? _v52.AddSeatsDowngradeTooltip : _v52.OutofPaidSeats
+        }), !_v0 && (0, _v1.jsxs)(_v85.AlertDescription, {
+          children: [_v2, !_v1.isFreeTrial && (0, _v1.jsx)(_v87.Link, {
+            href: "https://vimeo.zendesk.com/hc/en-us/articles/7131832878605-How-many-videos-can-I-add-to-my-Starter-Standard-or-Advanced-account-",
+            target: "_blank",
+            children: _v52.AboutSeats
+          })]
+        })]
+      });
+    },
+    _v92 = ({
+      title: _v0,
+      description: _v1,
+      isUpsell: _v2 = !1
+    }) => (0, _v1.jsxs)(_v84.Alert, {
+      background: _v2 ? "upsell-secondary" : void 0,
+      children: [(0, _v1.jsx)(_v86.AlertTitle, {
+        children: _v0
+      }), (0, _v1.jsx)(_v85.AlertDescription, {
+        children: _v1
       })]
     }),
-    _v93 = () => (0, _v1.jsxs)(_v81.Alert, {
-      children: [(0, _v1.jsx)(_v83.AlertTitle, {
-        children: _v51.FreeTrialViewerLimitReached
-      }), (0, _v1.jsx)(_v82.AlertDescription, {
-        children: _v51.AddAdminsContributors
-      })]
-    }),
-    _v94 = ({
+    _v93 = ({
       maxTeamSize: _v0
-    }) => (0, _v1.jsxs)(_v81.Alert, {
+    }) => (0, _v1.jsx)(_v84.Alert, {
       background: "upsell-secondary",
-      children: [(0, _v1.jsx)(_v83.AlertTitle, {
-        children: _v51.AccountUpgradeMessage(_v0)
-      }), (0, _v1.jsx)(_v82.AlertDescription, {
-        children: `${_v51.AddAdminsContributors} ${_v51.AddViewers}`
-      })]
-    }),
-    _v95 = () => (0, _v1.jsx)(_v81.Alert, {
-      children: (0, _v1.jsx)(_v100, {
-        color: "text-primary",
-        fontWeight: 400,
-        children: _v51.MaxEmailInvitesInOneGo
+      children: (0, _v1.jsx)(_v85.AlertDescription, {
+        children: `${_v52.AccountUpgradeMessage(_v0)} ${_v52.UpgradeEnterprise}`
       })
     }),
-    _v96 = () => (0, _v1.jsxs)(_v81.Alert, {
-      children: [(0, _v1.jsx)(_v83.AlertTitle, {
-        children: _v51.OutOfAdminSeats
-      }), (0, _v1.jsx)(_v82.AlertDescription, {
-        children: _v51.AddMoreContactAccountManager
+    _v94 = () => (0, _v1.jsxs)(_v84.Alert, {
+      children: [(0, _v1.jsx)(_v86.AlertTitle, {
+        children: _v52.FreeTrialSeatLimitReached
+      }), (0, _v1.jsx)(_v85.AlertDescription, {
+        children: _v52.PurchaseAdditionlSeats + " " + _v52.InviteViewers(5)
+      })]
+    }),
+    _v95 = () => (0, _v1.jsxs)(_v84.Alert, {
+      children: [(0, _v1.jsx)(_v86.AlertTitle, {
+        children: _v52.FreeTrialTeamLimitReached
+      }), (0, _v1.jsx)(_v85.AlertDescription, {
+        children: _v52.AdditionalInvites
+      })]
+    }),
+    _v96 = () => (0, _v1.jsxs)(_v84.Alert, {
+      children: [(0, _v1.jsx)(_v86.AlertTitle, {
+        children: _v52.FreeTrialViewerLimitReached
+      }), (0, _v1.jsx)(_v85.AlertDescription, {
+        children: _v52.AddAdminsContributors
       })]
     }),
     _v97 = ({
       maxTeamSize: _v0
-    }) => (0, _v1.jsxs)(_v81.Alert, {
-      children: [(0, _v1.jsx)(_v83.AlertTitle, {
-        children: _v51.OutofPaidSeats
-      }), (0, _v1.jsx)(_v82.AlertDescription, {
-        children: `${_v51.AccountUpgradeMessage(_v0)}${_v51.ContactMessage}`
+    }) => (0, _v1.jsxs)(_v84.Alert, {
+      background: "upsell-secondary",
+      children: [(0, _v1.jsx)(_v86.AlertTitle, {
+        children: _v52.AccountUpgradeMessage(_v0)
+      }), (0, _v1.jsx)(_v85.AlertDescription, {
+        children: `${_v52.AddAdminsContributors} ${_v52.AddViewers}`
       })]
     }),
-    _v98 = ({
-      isOwner: _v0
-    }) => (0, _v1.jsxs)(_v81.Alert, {
-      children: [(0, _v1.jsx)(_v83.AlertTitle, {
-        children: _v51.OutofPaidSeats
-      }), (0, _v1.jsx)(_v82.AlertDescription, {
-        children: _v0 ? _v51.AddMoreContactAccountManager : _v51.ContactMessage
+    _v98 = () => (0, _v1.jsx)(_v84.Alert, {
+      children: (0, _v1.jsx)(_v103, {
+        color: "text-primary",
+        fontWeight: 400,
+        children: _v52.MaxEmailInvitesInOneGo
+      })
+    }),
+    _v99 = () => (0, _v1.jsxs)(_v84.Alert, {
+      children: [(0, _v1.jsx)(_v86.AlertTitle, {
+        children: _v52.OutOfAdminSeats
+      }), (0, _v1.jsx)(_v85.AlertDescription, {
+        children: _v52.AddMoreContactAccountManager
       })]
     }),
-    _v99 = ({
+    _v100 = ({
       maxTeamSize: _v0
-    }) => (0, _v1.jsx)(_v81.Alert, {
+    }) => (0, _v1.jsxs)(_v84.Alert, {
+      children: [(0, _v1.jsx)(_v86.AlertTitle, {
+        children: _v52.OutofPaidSeats
+      }), (0, _v1.jsx)(_v85.AlertDescription, {
+        children: `${_v52.AccountUpgradeMessage(_v0)}${_v52.ContactMessage}`
+      })]
+    }),
+    _v101 = ({
+      isOwner: _v0
+    }) => (0, _v1.jsxs)(_v84.Alert, {
+      children: [(0, _v1.jsx)(_v86.AlertTitle, {
+        children: _v52.OutofPaidSeats
+      }), (0, _v1.jsx)(_v85.AlertDescription, {
+        children: _v0 ? _v52.AddMoreContactAccountManager : _v52.ContactMessage
+      })]
+    }),
+    _v102 = ({
+      maxTeamSize: _v0
+    }) => (0, _v1.jsx)(_v84.Alert, {
       background: "upsell-secondary",
       children: (0, _v1.jsxs)(_v17.Flex, {
         alignItems: "space-between",
-        children: [(0, _v1.jsx)(_v82.AlertDescription, {
-          children: `${_v51.AccountUpgradeMessage(_v0)} ${_v51.UpgradeMessage}`
+        children: [(0, _v1.jsx)(_v85.AlertDescription, {
+          children: `${_v52.AccountUpgradeMessage(_v0)} ${_v52.UpgradeMessage}`
         }), (0, _v1.jsx)(_v7.Button, {
           variant: "upsell",
           minWidth: (0, _v22.rem)(100),
@@ -2478,15 +2565,15 @@
           onClick: () => {
             3 == _v0 ? window.open("/upgrade", "_blank") : window.open("/enterprise/contact-us?mkc=team_seats_upgrade", "_blank");
           },
-          children: 3 == _v0 ? _v51.Upgrade : _v51.ContactUs
+          children: 3 == _v0 ? _v52.Upgrade : _v52.ContactUs
         })]
       })
     }),
-    _v100 = ({
+    _v103 = ({
       children: _v0,
       fontWeight: _v1,
       ..._v2
-    }) => (0, _v1.jsx)(_v64.Text, {
+    }) => (0, _v1.jsx)(_v65.Text, {
       variant: "body-xl",
       position: "static",
       lineHeight: (0, _v22.rem)(20),
@@ -2497,10 +2584,10 @@
       ..._v2,
       children: _v0
     });
-  var _v101 = _v0.i(0);
-  let _v102 = ["owner.uri", "owner.name", "owner.account", "owner.email", "owner.max_team_members", "owner.metadata.connections.team_members.roles", "owner.metadata.connections.team_members.roles.applicable_permission_policies.regional_delivery.display_description", "owner.metadata.connections.team_members.roles.region_options", "team_data.owner_id", "untranslated_user_role", "current_team_size", "max_team_size", "seat_details", "team_members_count", "team_seats"],
-    _v103 = ["email", "role", "permission_level", "metadata.connections.owner.email", "uri", "invite_url", "user", "applicable_permission_policies.folder.name", "applicable_permission_policies.folder.display_name", "applicable_permission_policies.folder.display_description", "applicable_permission_policies.folder.uri"];
-  async function _v104(_v0, _v1, _v2 = "GET", _v3) {
+  var _v104 = _v0.i(0);
+  let _v105 = ["owner.uri", "owner.name", "owner.account", "owner.email", "owner.max_team_members", "owner.metadata.connections.team_members.roles", "owner.metadata.connections.team_members.roles.applicable_permission_policies.regional_delivery.display_description", "owner.metadata.connections.team_members.roles.region_options", "team_data.owner_id", "untranslated_user_role", "current_team_size", "max_team_size", "seat_details", "team_members_count", "team_seats"],
+    _v106 = ["email", "role", "permission_level", "metadata.connections.owner.email", "uri", "invite_url", "user", "applicable_permission_policies.folder.name", "applicable_permission_policies.folder.display_name", "applicable_permission_policies.folder.display_description", "applicable_permission_policies.folder.uri"];
+  async function _v107(_v0, _v1, _v2 = "GET", _v3) {
     _v0 = _v0.trim();
     try {
       if (!/^\//.test(_v0)) throw Error();
@@ -2516,10 +2603,10 @@
           body: JSON.stringify(_v3)
         } : {})
       });
-      if (204 === _v0.status) return (0, _v101.camelize)({});
+      if (204 === _v0.status) return (0, _v104.camelize)({});
       let _v1 = await _v0.json();
       if (_v1.error) throw Error(_v1.error);
-      return (0, _v101.camelize)(_v1);
+      return (0, _v104.camelize)(_v1);
     } catch (_v0) {
       throw _v0;
     }
@@ -2529,17 +2616,17 @@
     exclude_private_to_me_folder: "true",
     per_page: "5"
   }).toString();
-  let _v105 = async _v0 => {
-      let _v1 = encodeURIComponent(_v102.join(","));
-      return _v104(`/users/${_v0.user?.id}/teams?fields=${_v1}`, _v0);
+  let _v108 = async _v0 => {
+      let _v1 = encodeURIComponent(_v105.join(","));
+      return _v107(`/users/${_v0.user?.id}/teams?fields=${_v1}`, _v0);
     },
-    _v106 = async (_v0, _v1, _v2) => {
-      let _v3 = encodeURIComponent(_v103.join(",")),
+    _v109 = async (_v0, _v1, _v2) => {
+      let _v3 = encodeURIComponent(_v106.join(",")),
         _v4 = _v2 && _v2.length ? `&search=${_v2}` : "";
-      return _v104(`${_v1}/teammembers?fields=${_v3}${_v4}`, _v0);
+      return _v107(`${_v1}/teammembers?fields=${_v3}${_v4}`, _v0);
     },
-    _v107 = async (_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7) => {
-      let _v8 = encodeURIComponent(_v103.join(",")),
+    _v110 = async (_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7) => {
+      let _v8 = encodeURIComponent(_v106.join(",")),
         _v9 = await fetch(`${_v5}?fields=${_v8}`, {
           method: "POST",
           headers: {
@@ -2556,69 +2643,68 @@
             permission_policies: _v4
           })
         });
-      return (0, _v101.camelize)(await _v9.json());
+      return (0, _v104.camelize)(await _v9.json());
     },
-    _v108 = ({
+    _v111 = ({
       hasPerSeatPricingModelTeamMember: _v0,
       teamInfo: _v1
     }) => _v0 && _v1.owner.maxTeamMembers ? _v1.owner.maxTeamMembers : _v1.maxTeamSize || 200,
-    _v109 = (0, _v2.forwardRef)(function ({
+    _v112 = (0, _v2.forwardRef)(function ({
       onSubmitSuccess: _v0,
       onSubmitFailure: _v1,
-      actionButtons: _v2
-    }, _v3) {
+      hasScheduledDowngrade: _v2,
+      isSeatChangeBlocked: _v3,
+      onAdminLimitClick: _v4,
+      actionButtons: _v5
+    }, _v6) {
       let {
-          isTeamInfoLoading: _v4,
-          isTeamMemberLoading: _v5,
-          membership: _v6,
-          newEmails: _v7,
-          teamApiConfig: _v8,
-          teamInfo: _v9,
-          teamMember: _v10,
+          isTeamInfoLoading: _v7,
+          isTeamMemberLoading: _v8,
+          membership: _v9,
+          newEmails: _v10,
+          teamApiConfig: _v11,
+          teamInfo: _v12,
+          teamMember: _v13,
           teamCapabilities: {
-            hasEnterprise: _v11,
-            hasPerSeatPricingModelTeamMember: _v12,
-            hasLiveSubscription: _v13
+            hasEnterprise: _v14,
+            hasPerSeatPricingModelTeamMember: _v15,
+            hasLiveSubscription: _v16,
+            haveMoreAdminTeamMembers: _v17
           }
-        } = (0, _v2.useContext)(_v37),
-        {
-          addEmail: _v14,
-          updateEmails: _v15,
-          removeEmail: _v16
         } = (0, _v2.useContext)(_v38),
         {
-          isBlocked: _v17
-        } = (0, _v27.useIsSeatChangeBlocked)({
-          tier: _v6.tier
-        }),
+          addEmail: _v18,
+          updateEmails: _v19,
+          removeEmail: _v20
+        } = (0, _v2.useContext)(_v39),
         {
-          trackInviteMembersToTeam: _v18
-        } = _v50(),
-        _v19 = (0, _v11.useToast)(),
-        [_v20, _v21] = (0, _v2.useState)(!1),
-        [_v22, _v23] = (0, _v2.useState)(!1),
-        [_v24, _v25] = (0, _v2.useState)(!1),
-        [_v26, _v27] = (0, _v2.useState)(!1),
-        [_v28, _v29] = (0, _v2.useState)(!1),
-        [_v30, _v31] = (0, _v2.useState)(!1),
-        [_v32, _v33] = (0, _v2.useState)([]),
-        [_v34, _v35] = (0, _v2.useState)([]),
-        [_v36, _v37] = (0, _v2.useState)(!1),
-        _v38 = (0, _v46.useViewer)(),
-        _v39 = _v38?.locale,
-        _v40 = _v9?.owner?.account === "custom",
-        _v41 = _v6.seatCapTrial || _v9.seatDetails?.basePlanCount || 0,
-        _v42 = _v9.maxTeamSize || _v6.seatCount,
-        _v43 = _v9.seatDetails?.currentUnassignedCount ?? _v6.currentUnassignedSeatCount,
-        _v44 = _v9.seatDetails ? _v9.seatDetails.currentAssignedCount + _v9.seatDetails.currentUnassignedCount : _v42,
-        _v45 = _v108({
-          hasPerSeatPricingModelTeamMember: _v12,
-          teamInfo: _v9
+          trackInviteMembersToTeam: _v21
+        } = _v51(),
+        _v22 = (0, _v11.useToast)(),
+        [_v23, _v24] = (0, _v2.useState)(!1),
+        [_v25, _v26] = (0, _v2.useState)(!1),
+        [_v27, _v28] = (0, _v2.useState)(!1),
+        [_v29, _v30] = (0, _v2.useState)(!1),
+        [_v31, _v32] = (0, _v2.useState)(!1),
+        [_v33, _v34] = (0, _v2.useState)(!1),
+        [_v35, _v36] = (0, _v2.useState)([]),
+        [_v37, _v38] = (0, _v2.useState)([]),
+        [_v39, _v40] = (0, _v2.useState)(!1),
+        _v41 = (0, _v47.useViewer)(),
+        _v42 = _v41?.locale,
+        _v43 = _v12?.owner?.account === "custom",
+        _v44 = _v9.seatCapTrial || _v12.seatDetails?.basePlanCount || 0,
+        _v45 = _v12.maxTeamSize || _v9.seatCount,
+        _v46 = _v12.seatDetails?.currentUnassignedCount ?? _v9.currentUnassignedSeatCount,
+        _v47 = _v12.seatDetails ? _v12.seatDetails.currentAssignedCount + _v12.seatDetails.currentUnassignedCount : _v45,
+        _v48 = _v111({
+          hasPerSeatPricingModelTeamMember: _v15,
+          teamInfo: _v12
         }),
-        _v46 = _v6.isFreeTrial && _v45 <= 10,
-        _v47 = (0, _v62.useForm)({
-          validationSchema: _v52.object({
-            role: _v52.string().required()
+        _v49 = _v9.isFreeTrial && _v48 <= 10,
+        _v50 = (0, _v63.useForm)({
+          validationSchema: _v53.object({
+            role: _v53.string().required()
           }),
           initialValues: {
             email: null,
@@ -2629,42 +2715,42 @@
           },
           onSubmit: async _v0 => {
             var _v1, _v2;
-            _v37(!0);
-            let _v3 = (_v1 = _v7.length, _v2 = _v0.role ?? "", _v12 && _v46 && _v2 !== _v15.TeamUserPermissionLevel.Viewer ? Math.min(_v1, _v41 - (_v9.seatDetails?.basePlanCount ?? 0) + (_v9.seatDetails?.currentUnassignedCount ?? 0)) : _v1),
-              _v4 = await Promise.allSettled(_v7.slice(0, _v3).map(_v0 => _v107(_v0, _v0.role, _v0.customMessage, _v0.region, _v0.permissionPolicies, `https://${_v8.apiUrl}${_v8.ownerUri}/teammembers`, _v8.jwt, _v39)));
-            _v37(!1);
+            _v40(!0);
+            let _v3 = (_v1 = _v10.length, _v2 = _v0.role ?? "", _v15 && _v49 && _v2 !== _v15.TeamUserPermissionLevel.Viewer ? Math.min(_v1, _v44 - (_v12.seatDetails?.basePlanCount ?? 0) + (_v12.seatDetails?.currentUnassignedCount ?? 0)) : _v1),
+              _v4 = await Promise.allSettled(_v10.slice(0, _v3).map(_v0 => _v110(_v0, _v0.role, _v0.customMessage, _v0.region, _v0.permissionPolicies, `https://${_v11.apiUrl}${_v11.ownerUri}/teammembers`, _v11.jwt, _v42)));
+            _v40(!1);
             let _v5 = [];
             _v4.forEach((_v0, _v1) => {
-              if ("rejected" === _v0.status) _v19({
+              if ("rejected" === _v0.status) _v22({
                 id: "invite-failed-toast",
-                title: _v51.ServerError,
+                title: _v52.ServerError,
                 variant: "warning"
-              }), _v1(_v49.input.value ?? "");else if (_v0.value.errorCode) {
+              }), _v1(_v52.input.value ?? "");else if (_v0.value.errorCode) {
                 let _v0 = _v0.value.errorCode;
-                0 === _v0 ? _v19({
+                0 === _v0 ? _v22({
                   id: "invite-failed-toast",
-                  title: _v51.InviteLimitReach,
+                  title: _v52.InviteLimitReach,
                   variant: "warning"
-                }) : 0 === _v0 ? _v19({
+                }) : 0 === _v0 ? _v22({
                   id: "invite-failed-toast",
-                  title: _v51.TeamMemberAlreadyInvited(_v7[_v1]),
+                  title: _v52.TeamMemberAlreadyInvited(_v10[_v1]),
                   variant: "warning"
-                }) : 0 === _v0 ? _v19({
+                }) : 0 === _v0 ? _v22({
                   id: "invite-failed-toast",
-                  title: _v51.TeamMemberAlreadyJoined(_v7[_v1]),
+                  title: _v52.TeamMemberAlreadyJoined(_v10[_v1]),
                   variant: "warning"
-                }) : 0 === _v0 ? _v19({
+                }) : 0 === _v0 ? _v22({
                   id: "invite-failed-toast",
-                  title: _v51.MigrationInProgress,
+                  title: _v52.MigrationInProgress,
                   variant: "warning"
-                }) : _v19({
+                }) : _v22({
                   id: "invite-failed-toast",
-                  title: _v51.ServerError,
+                  title: _v52.ServerError,
                   variant: "warning"
-                }), _v1(_v49.input.value ?? "", _v0);
+                }), _v1(_v52.input.value ?? "", _v0);
               } else _v5.push(_v0.value);
-            }), _v5.length === _v4.length && (_v0(_v49.input.value !== _v15.TeamUserPermissionLevel.Admin && _v49.input.value !== _v15.TeamUserPermissionLevel.Uploader ? _v5 : []), _v18({
-              number_of_users_invited: _v7.length,
+            }), _v5.length === _v4.length && (_v0(_v52.input.value !== _v15.TeamUserPermissionLevel.Admin && _v52.input.value !== _v15.TeamUserPermissionLevel.Uploader ? _v5 : []), _v21({
+              number_of_users_invited: _v10.length,
               new_role: _v0.role?.toLowerCase() ?? null,
               includes_message: !!_v0.customMessage
             }));
@@ -2672,108 +2758,107 @@
           validateOnFirstRun: !1
         });
       (0, _v2.useEffect)(() => {
-        _v48.handlers.setValue(null);
-      }, [_v7]), (0, _v2.useImperativeHandle)(_v3, () => ({
+        _v51.handlers.setValue(null);
+      }, [_v10]), (0, _v2.useImperativeHandle)(_v6, () => ({
         submitForm: _v0 => {
-          _v47.handleSubmit(_v0);
+          _v50.handleSubmit(_v0);
         }
       }));
-      let _v48 = (0, _v62.useField)(_v47, "email"),
-        _v49 = (0, _v62.useField)(_v47, "role"),
-        _v50 = (0, _v62.useField)(_v47, "customMessage"),
-        _v51 = (0, _v62.useField)(_v47, "region"),
-        _v52 = (0, _v62.useField)(_v47, "permissionPolicies"),
-        _v53 = _v49.input.value !== _v15.TeamUserPermissionLevel.Viewer,
-        _v54 = _v53 ? Math.max(0, _v7.length - _v43) : 0,
-        _v55 = _v6.seatCapPaid > 0 && _v6.seatCapPaid < _v45 && _v44 >= _v6.seatCapPaid,
-        _v56 = (0, _v2.useMemo)(() => _v7.length && _v53 && _v6.seatCapPaid && !(_v54 <= 0) && !_v28 && _v55 ? _v51.PaidSeatLimitReached(_v6.seatCapPaid) : null, [_v7.length, _v54, _v55, _v53, _v6.seatCapPaid, _v28]),
-        _v57 = (0, _v2.useMemo)(() => !!_v7.length && _v12 && _v54 > 0 && _v53 && !_v56 && (!_v46 && !_v28 || _v46 && _v6.seatCount < _v41), [_v7.length, _v12, _v54, _v53, _v56, _v46, _v6.seatCount, _v28, _v41]),
-        _v58 = (0, _v2.useMemo)(() => {
-          if (_v11) return 10;
-          if (_v12 && _v46) return Math.max(0, 10 - _v9.currentTeamSize);
+      let _v51 = (0, _v63.useField)(_v50, "email"),
+        _v52 = (0, _v63.useField)(_v50, "role"),
+        _v53 = (0, _v63.useField)(_v50, "customMessage"),
+        _v54 = (0, _v63.useField)(_v50, "region"),
+        _v55 = (0, _v63.useField)(_v50, "permissionPolicies"),
+        _v56 = _v52.input.value !== _v15.TeamUserPermissionLevel.Viewer,
+        _v57 = _v56 ? Math.max(0, _v10.length - _v46) : 0,
+        _v58 = _v9.seatCapPaid > 0 && _v47 >= _v9.seatCapPaid,
+        _v59 = _v12.teamSeats?.adminSeats ?? 0,
+        _v60 = !1 === _v17 || _v59 > 0 && (_v12.teamMembersCount.admin >= _v59 || _v12.teamMembersCount.admin + _v10.length > _v59),
+        _v61 = (0, _v2.useMemo)(() => _v10.length && _v56 && _v9.seatCapPaid && !(_v57 <= 0) && !_v31 && _v58 ? _v52.PaidSeatLimitReached(_v9.seatCapPaid) : null, [_v10.length, _v57, _v58, _v56, _v9.seatCapPaid, _v31]),
+        _v62 = (0, _v2.useMemo)(() => !!_v10.length && _v15 && _v57 > 0 && _v56 && !_v61 && (!_v49 && !_v31 || _v49 && _v9.seatCount < _v44), [_v10.length, _v15, _v57, _v56, _v61, _v49, _v9.seatCount, _v31, _v44]),
+        _v63 = (0, _v2.useMemo)(() => {
+          if (_v14) return 10;
+          if (_v15 && _v49) return Math.max(0, 10 - _v12.currentTeamSize);
           let _v0 = (({
             currentTeamSize: _v0,
             subtractOwner: _v1 = !0,
             totalTeamMembersCap: _v2
           }) => Math.max(0, _v2 - _v0 - !!_v1))({
-            currentTeamSize: _v9.currentTeamSize,
-            subtractOwner: _v12,
-            totalTeamMembersCap: _v45
+            currentTeamSize: _v12.currentTeamSize,
+            subtractOwner: _v15,
+            totalTeamMembersCap: _v48
           });
           return _v0 >= 10 ? 10 : _v0;
-        }, [_v11, _v46, _v9.currentTeamSize, _v45, _v12]),
-        _v59 = Math.max(0, _v58 - _v7.length),
-        _v60 = (0, _v2.useMemo)(() => {
-          let _v0 = _v9.teamSeats;
-          return !!_v11 && _v49.input.value === _v15.TeamUserPermissionLevel.Admin && void 0 !== _v0 && _v0.adminSeats > 0 && _v0.adminSeats < _v9.teamMembersCount.admin + _v7.length;
-        }, [_v7, _v9, _v49.input.value, _v11]);
+        }, [_v14, _v49, _v12.currentTeamSize, _v48, _v15]),
+        _v64 = Math.max(0, _v63 - _v10.length),
+        _v65 = _v60 && _v52.input.value === _v15.TeamUserPermissionLevel.Admin;
       (0, _v2.useEffect)(() => {
-        let _v0 = _v49.input.value,
+        let _v0 = _v52.input.value,
           _v1 = !1,
           _v2 = !1;
-        !_v11 && _v12 && _v9.currentTeamSize + 1 >= _v45 && (_v1 = !0), !_v11 && _v12 && _v9.currentTeamSize + 1 + _v43 >= _v45 && _v0 === _v15.TeamUserPermissionLevel.Viewer && (_v2 = !0), _v29(_v1), _v31(_v2);
-      }, [_v9, _v12, _v49.input.value, _v43, _v7, _v11, _v45]), (0, _v2.useEffect)(() => {
-        _v11 || _v12 || _v4 || _v23(_v9.currentTeamSize >= _v9.maxTeamSize);
-      }, [_v7, _v9, _v4, _v11, _v12]), (0, _v2.useEffect)(() => {
-        let _v0 = _v49.input.value;
-        if (_v12 && _v46) {
-          if ((_v9.seatDetails?.currentAssignedCount ?? 0) + _v7.length > _v41 + (_v9.seatDetails?.additionalPurchasedCount ?? 0) && _v0 !== _v15.TeamUserPermissionLevel.Viewer && _v9.teamMembersCount.viewer < 5) return void _v25(!0);
-          if (_v9.teamMembersCount.viewer + _v7.length > 5 && _v0 === _v15.TeamUserPermissionLevel.Viewer && (_v9.seatDetails?.currentAssignedCount ?? 0) < _v41) return void _v21(!0);
-          if ((_v9.seatDetails?.currentAssignedCount ?? 0) === _v41 && _v7.length + _v9.teamMembersCount.viewer > 5 || 5 === _v9.teamMembersCount.viewer && _v7.length + (_v9.seatDetails?.currentAssignedCount ?? 0) > _v41) return void _v27(!0);
-          _v27(!1), _v25(!1), _v21(!1);
+        !_v14 && _v15 && _v12.currentTeamSize + 1 >= _v48 && (_v1 = !0), !_v14 && _v15 && _v12.currentTeamSize + 1 + _v46 >= _v48 && _v0 === _v15.TeamUserPermissionLevel.Viewer && (_v2 = !0), _v32(_v1), _v34(_v2);
+      }, [_v12, _v15, _v52.input.value, _v46, _v10, _v14, _v48]), (0, _v2.useEffect)(() => {
+        _v14 || _v15 || _v7 || _v26(_v12.currentTeamSize >= _v12.maxTeamSize);
+      }, [_v10, _v12, _v7, _v14, _v15]), (0, _v2.useEffect)(() => {
+        let _v0 = _v52.input.value;
+        if (_v15 && _v49) {
+          if ((_v12.seatDetails?.currentAssignedCount ?? 0) + _v10.length > _v44 + (_v12.seatDetails?.additionalPurchasedCount ?? 0) && _v0 !== _v15.TeamUserPermissionLevel.Viewer && _v12.teamMembersCount.viewer < 5) return void _v28(!0);
+          if (_v12.teamMembersCount.viewer + _v10.length > 5 && _v0 === _v15.TeamUserPermissionLevel.Viewer && (_v12.seatDetails?.currentAssignedCount ?? 0) < _v44) return void _v24(!0);
+          if ((_v12.seatDetails?.currentAssignedCount ?? 0) === _v44 && _v10.length + _v12.teamMembersCount.viewer > 5 || 5 === _v12.teamMembersCount.viewer && _v10.length + (_v12.seatDetails?.currentAssignedCount ?? 0) > _v44) return void _v30(!0);
+          _v30(!1), _v28(!1), _v24(!1);
         }
-      }, [_v12, _v46, _v6, _v49.input.value, _v9, _v7, _v41]);
-      let _v61 = (0, _v2.useCallback)(() => {
-        let _v0 = _v48.input.value?.trim() || "";
-        if (_v59 <= 0) return void _v48.handlers.setValue(null);
+      }, [_v15, _v49, _v9, _v52.input.value, _v12, _v10, _v44]);
+      let _v66 = (0, _v2.useCallback)(() => {
+        let _v0 = _v51.input.value?.trim() || "";
+        if (_v64 <= 0) return void _v51.handlers.setValue(null);
         let _v1 = !0;
-        _v0 && (_v63.EMAIL_REGEX.test(_v0) || (_v1 = !1, _v35([..._v34, {
-          [_v0]: _v51.EmailNotAValidDomain(_v0)
-        }])), _v7.some(_v0 => _v0 === _v0) && (_v1 = !1, _v35([..._v34, {
-          [_v0]: _v51.EmailEnteredTwice(_v0)
-        }])), _v9.owner.email === _v0 && (_v1 = !1, _v35([..._v34, {
-          [_v0]: _v51.EmailAlreadyATeamMember(_v0)
-        }])), _v33([..._v32, _v1]), _v14(_v0)), _v48.handlers.setValue(null);
-      }, [_v14, _v48, _v34, _v32, _v7, _v59, _v9.owner.email]);
+        _v0 && (_v64.EMAIL_REGEX.test(_v0) || (_v1 = !1, _v38([..._v37, {
+          [_v0]: _v52.EmailNotAValidDomain(_v0)
+        }])), _v10.some(_v0 => _v0 === _v0) && (_v1 = !1, _v38([..._v37, {
+          [_v0]: _v52.EmailEnteredTwice(_v0)
+        }])), _v12.owner.email === _v0 && (_v1 = !1, _v38([..._v37, {
+          [_v0]: _v52.EmailAlreadyATeamMember(_v0)
+        }])), _v36([..._v35, _v1]), _v18(_v0)), _v51.handlers.setValue(null);
+      }, [_v18, _v51, _v37, _v35, _v10, _v64, _v12.owner.email]);
       (0, _v2.useEffect)(() => {
-        if (_v32[_v32.length - 1] && _v10?.length && _v10.find(_v0 => _v7.includes(_v0.email))) {
-          let _v0 = _v7[_v7.length - 1];
-          _v33(_v32.map((_v0, _v1) => _v1 !== _v32.length - 1 && _v0)), _v35([..._v34, {
-            [_v0]: _v51.EmailAlreadyATeamMember(_v0)
+        if (_v35[_v35.length - 1] && _v13?.length && _v13.find(_v0 => _v10.includes(_v0.email))) {
+          let _v0 = _v10[_v10.length - 1];
+          _v36(_v35.map((_v0, _v1) => _v1 !== _v35.length - 1 && _v0)), _v38([..._v37, {
+            [_v0]: _v52.EmailAlreadyATeamMember(_v0)
           }]);
         }
-      }, [_v10]);
-      let _v62 = (0, _v2.useCallback)(_v0 => {
-        let _v1 = _v7[_v0];
-        _v33(_v32.filter((_v0, _v1) => _v1 !== _v0)), _v35(_v34.filter(_v0 => !_v0[_v1])), _v16(_v0);
-      }, [_v7, _v34, _v32]);
+      }, [_v13]);
+      let _v67 = (0, _v2.useCallback)(_v0 => {
+        let _v1 = _v10[_v0];
+        _v36(_v35.filter((_v0, _v1) => _v1 !== _v0)), _v38(_v37.filter(_v0 => !_v0[_v1])), _v20(_v0);
+      }, [_v10, _v37, _v35]);
       (0, _v2.useEffect)(() => {
-        let _v0 = _v48.input.value?.trim() || "",
+        let _v0 = _v51.input.value?.trim() || "",
           _v1 = [];
-        _v0.includes(",") ? _v1 = _v0.split(",").filter(_v0 => !!_v0.trim()) : _v0.includes(";") ? _v1 = _v0.split(";").filter(_v0 => !!_v0.trim()) : _v0.includes(" ") && (_v1 = _v0.split(" ").filter(_v0 => !!_v0.trim())), _v1.length > _v59 && (_v1 = _v1.slice(0, _v59));
+        _v0.includes(",") ? _v1 = _v0.split(",").filter(_v0 => !!_v0.trim()) : _v0.includes(";") ? _v1 = _v0.split(";").filter(_v0 => !!_v0.trim()) : _v0.includes(" ") && (_v1 = _v0.split(" ").filter(_v0 => !!_v0.trim())), _v1.length > _v64 && (_v1 = _v1.slice(0, _v64));
         let _v2 = [],
           _v3 = [],
           _v4 = [],
           _v5 = [];
         _v1.forEach(function (_v0) {
           let _v1 = !0;
-          _v0 && (_v63.EMAIL_REGEX.test(_v0) || (_v1 = !1, _v2.push({
-            [_v0]: _v51.EmailNotAValidDomain(_v0)
-          })), (_v7.filter(_v0 => _v0 === _v0).length > 1 || _v5.some(_v0 => _v0 === _v0)) && (_v1 = !1, _v2.push({
-            [_v0]: _v51.EmailEnteredTwice(_v0)
-          })), _v9.owner.email === _v0 && (_v1 = !1, _v2.push({
-            [_v0]: _v51.EmailAlreadyATeamMember(_v0)
+          _v0 && (_v64.EMAIL_REGEX.test(_v0) || (_v1 = !1, _v2.push({
+            [_v0]: _v52.EmailNotAValidDomain(_v0)
+          })), (_v10.filter(_v0 => _v0 === _v0).length > 1 || _v5.some(_v0 => _v0 === _v0)) && (_v1 = !1, _v2.push({
+            [_v0]: _v52.EmailEnteredTwice(_v0)
+          })), _v12.owner.email === _v0 && (_v1 = !1, _v2.push({
+            [_v0]: _v52.EmailAlreadyATeamMember(_v0)
           })), _v3.push(_v1), _v4.push(_v0)), _v5.push(_v0);
-        }), _v1.length && (_v35([..._v34, ..._v2]), _v33([..._v32, ..._v3]), _v15([..._v4]), _v48.handlers.setValue(null));
-      }, [_v48.input.value, _v48.handlers, _v34, _v32, _v7, _v59, _v35, _v33, _v9.owner.email, _v15]);
-      let _v63 = (_v28 || _v30) && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner,
-        _v64 = !!_v57 && !_v17 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && _v49.input.value !== _v15.TeamUserPermissionLevel.Viewer,
-        _v65 = (!!_v56 || !!_v57 && _v17) && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner,
-        _v66 = _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner ? _v51.UpgradeTierForPaidMembers : _v51.ContactOwnerUpgradeTierForPaidMembers,
-        _v67 = _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner;
+        }), _v1.length && (_v38([..._v37, ..._v2]), _v36([..._v35, ..._v3]), _v19([..._v4]), _v51.handlers.setValue(null));
+      }, [_v51.input.value, _v51.handlers, _v37, _v35, _v10, _v64, _v38, _v36, _v12.owner.email, _v19]);
+      let _v68 = (_v31 || _v33) && _v12.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner,
+        _v69 = !!_v62 && !_v3 && _v12.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && _v52.input.value !== _v15.TeamUserPermissionLevel.Viewer && !_v65,
+        _v70 = !_v65 && (!!_v61 || !!_v62 && _v3) && _v12.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner,
+        _v71 = _v12.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner ? _v52.UpgradeTierForPaidMembers : _v52.ContactOwnerUpgradeTierForPaidMembers,
+        _v72 = _v12.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner;
       return (0, _v1.jsxs)(_v6.Box, {
         mt: "sm",
-        children: [_v4 ? (0, _v1.jsx)(_v23.Skeleton, {
+        children: [_v7 ? (0, _v1.jsx)(_v23.Skeleton, {
           display: "flex",
           marginBottom: (0, _v22.rem)(30),
           width: (0, _v22.rem)(390),
@@ -2782,112 +2867,116 @@
           pb: "xs",
           children: [(0, _v1.jsx)(_v6.Box, {
             width: "100%",
-            children: _v4 ? (0, _v1.jsx)(_v23.Skeleton, {
+            children: _v7 ? (0, _v1.jsx)(_v23.Skeleton, {
               display: "flex",
               mb: (0, _v22.rem)(10),
               width: (0, _v22.rem)(100),
               height: (0, _v22.rem)(18)
             }) : (0, _v1.jsxs)(_v17.Flex, {
               mb: "sm",
-              children: [(0, _v1.jsxs)(_v110, {
+              children: [(0, _v1.jsxs)(_v113, {
                 isOptional: !1,
-                children: [" ", _v51.AddEmails, " "]
-              }), (0, _v1.jsx)(_v110, {
+                children: [" ", _v52.AddEmails, " "]
+              }), (0, _v1.jsx)(_v113, {
                 isOptional: !0,
-                children: _v51.MaxOf(_v58)
+                children: _v52.MaxOf(_v63)
               })]
             })
           }), (0, _v1.jsxs)(_v17.Flex, {
             gap: "sm",
-            children: [(0, _v1.jsx)(_v61, {
-              onChange: _v48.handlers.setValue,
-              onTabPress: _v61,
-              values: _v7,
-              invalidIndices: _v32,
-              inputValue: _v48.input.value,
-              handleTagClose: _v62,
-              placeholder: _v51.TypeOrPasteEmails,
-              disableInput: _v59 <= 0,
-              hasError: !!_v34.length
-            }), (0, _v1.jsx)(_v80, {
-              onSelect: _v49.handlers.setValue,
-              hasLiveSubscription: !!_v13,
-              region: _v51.input.value,
-              onRegionChange: _v51.handlers.setValue,
-              permissionPolicies: _v52.input.value,
-              onPermissionPoliciesChange: _v52.handlers.setValue
+            children: [(0, _v1.jsx)(_v62, {
+              onChange: _v51.handlers.setValue,
+              onTabPress: _v66,
+              values: _v10,
+              invalidIndices: _v35,
+              inputValue: _v51.input.value,
+              handleTagClose: _v67,
+              placeholder: _v52.TypeOrPasteEmails,
+              disableInput: _v64 <= 0,
+              hasError: !!_v37.length
+            }), (0, _v1.jsx)(_v83, {
+              onSelect: _v52.handlers.setValue,
+              hasLiveSubscription: !!_v16,
+              isAdminDisabled: _v60,
+              onAdminLimitClick: _v4,
+              region: _v54.input.value,
+              onRegionChange: _v54.handlers.setValue,
+              permissionPolicies: _v55.input.value,
+              onPermissionPoliciesChange: _v55.handlers.setValue
             })]
           })]
-        }), !!_v34.length && _v34.map(_v0 => (0, _v1.jsx)(_v54.Paragraph, {
+        }), !!_v37.length && _v37.map(_v0 => (0, _v1.jsx)(_v55.Paragraph, {
           margin: "0",
           color: "status-destructive-primary",
           display: "block",
           size: "md",
           children: Object.values(_v0)?.[0]
-        }, Object.keys(_v0)?.[0])), !_v4 && _v7.length >= _v58 && !_v40 && (0, _v1.jsx)(_v6.Box, {
+        }, Object.keys(_v0)?.[0])), !_v7 && _v10.length >= _v63 && !_v43 && (0, _v1.jsx)(_v6.Box, {
           mb: "sm",
-          children: (0, _v1.jsx)(_v95, {})
-        }), !_v4 && _v60 && (0, _v1.jsx)(_v96, {}), (0, _v1.jsx)(_v6.Box, {
+          children: (0, _v1.jsx)(_v98, {})
+        }), !_v7 && _v65 && (0, _v1.jsx)(_v99, {}), (0, _v1.jsx)(_v6.Box, {
           width: "100%",
           mt: "md",
-          children: _v4 ? (0, _v1.jsx)(_v23.Skeleton, {
+          children: _v7 ? (0, _v1.jsx)(_v23.Skeleton, {
             display: "flex",
             marginBottom: (0, _v22.rem)(20),
             width: (0, _v22.rem)(390),
             height: (0, _v22.rem)(100)
-          }) : (0, _v1.jsx)(_v66, {
-            onChange: _v50.handlers.setValue
+          }) : (0, _v1.jsx)(_v67, {
+            onChange: _v53.handlers.setValue
           })
         }), (0, _v1.jsxs)(_v17.Flex, {
           flexDir: "column",
           gap: "sm",
-          children: [_v20 && (0, _v1.jsx)(_v93, {}), !_v64 && _v24 && (0, _v1.jsx)(_v91, {}), _v26 && (0, _v1.jsx)(_v92, {}), _v22 && !_v11 && !_v40 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Admin && (0, _v1.jsx)(_v97, {
-            maxTeamSize: _v9.maxTeamSize
-          }), _v22 && !_v11 && !_v40 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v99, {
-              maxTeamSize: _v9.maxTeamSize
-            }), (0, _v1.jsx)(_v53.Divider, {
+          children: [_v23 && (0, _v1.jsx)(_v96, {}), !_v69 && _v27 && (0, _v1.jsx)(_v94, {}), _v29 && (0, _v1.jsx)(_v95, {}), _v25 && !_v14 && !_v43 && _v12.untranslatedUserRole === _v15.TeamUserPermissionLevel.Admin && (0, _v1.jsx)(_v100, {
+            maxTeamSize: _v12.maxTeamSize
+          }), _v25 && !_v14 && !_v43 && _v12.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && (0, _v1.jsxs)(_v1.Fragment, {
+            children: [(0, _v1.jsx)(_v102, {
+              maxTeamSize: _v12.maxTeamSize
+            }), (0, _v1.jsx)(_v54.Divider, {
               orientation: "horizontal",
               borderColor: "stroke"
             })]
-          }), _v22 && _v40 && (0, _v1.jsx)(_v98, {
-            isOwner: _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner
-          }), _v57 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v88, {}), (0, _v1.jsx)(_v53.Divider, {
+          }), _v25 && _v43 && (0, _v1.jsx)(_v101, {
+            isOwner: _v12.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner
+          }), _v62 && _v12.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && (0, _v1.jsxs)(_v1.Fragment, {
+            children: [(0, _v1.jsx)(_v91, {
+              isScheduledDowngrade: _v2
+            }), (0, _v1.jsx)(_v54.Divider, {
               orientation: "horizontal",
               borderColor: "stroke"
             })]
-          }), null !== _v56 && null !== _v66 && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v89, {
-              title: _v56,
-              description: _v66,
-              isUpsell: _v67
-            }), _v67 && (0, _v1.jsx)(_v53.Divider, {
+          }), null !== _v61 && null !== _v71 && (0, _v1.jsxs)(_v1.Fragment, {
+            children: [(0, _v1.jsx)(_v92, {
+              title: _v61,
+              description: _v71,
+              isUpsell: _v72
+            }), _v72 && (0, _v1.jsx)(_v54.Divider, {
               orientation: "horizontal",
               borderColor: "stroke"
             })]
-          }), _v57 && _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Admin && (0, _v1.jsx)(_v85, {}), _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && _v28 && (0, _v1.jsx)(_v90, {
-            maxTeamSize: _v45
-          }), _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && _v30 && (0, _v1.jsx)(_v94, {
-            maxTeamSize: _v45
-          }), _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Admin && _v28 && (0, _v1.jsx)(_v86, {
-            maxTeamSize: _v45
-          }), _v9.untranslatedUserRole === _v15.TeamUserPermissionLevel.Admin && _v30 && (0, _v1.jsx)(_v87, {
-            maxTeamSize: _v45
+          }), _v62 && _v12.untranslatedUserRole === _v15.TeamUserPermissionLevel.Admin && (0, _v1.jsx)(_v88, {}), _v12.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && _v31 && (0, _v1.jsx)(_v93, {
+            maxTeamSize: _v48
+          }), _v12.untranslatedUserRole === _v15.TeamUserPermissionLevel.Owner && _v33 && (0, _v1.jsx)(_v97, {
+            maxTeamSize: _v48
+          }), _v12.untranslatedUserRole === _v15.TeamUserPermissionLevel.Admin && _v31 && (0, _v1.jsx)(_v89, {
+            maxTeamSize: _v48
+          }), _v12.untranslatedUserRole === _v15.TeamUserPermissionLevel.Admin && _v33 && (0, _v1.jsx)(_v90, {
+            maxTeamSize: _v48
           })]
-        }), (0, _v1.jsx)(_v2, {
-          submitDisabled: _v28 || _v30 || _v57 || !!_v56 || _v7.length <= 0 || _v34.length > 0 || _v20 || _v24 || _v26 || _v22 || _v5 || !_v47.valid || _v60,
-          isLoading: _v36,
-          showPurchase: _v64,
-          showUpgrade: _v65,
-          showContact: _v63
+        }), (0, _v1.jsx)(_v5, {
+          submitDisabled: _v31 || _v33 || _v62 || !!_v61 || _v10.length <= 0 || _v37.length > 0 || _v23 || _v27 || _v29 || _v25 || _v8 || !_v50.valid || _v65,
+          isLoading: _v39,
+          showPurchase: _v69,
+          showUpgrade: _v70,
+          showContact: _v68
         })]
       });
     }),
-    _v110 = ({
+    _v113 = ({
       children: _v0,
       isOptional: _v1
-    }) => (0, _v1.jsx)(_v54.Paragraph, {
+    }) => (0, _v1.jsx)(_v55.Paragraph, {
       display: "flex",
       fontSize: (0, _v22.rem)(14),
       fontWeight: _v1 ? 400 : 700,
@@ -2895,17 +2984,18 @@
       color: _v1 ? "text-secondary" : "text-primary",
       children: _v0
     });
-  var _v111 = _v0.i(0);
-  let _v112 = _v0 => (0, _v1.jsx)(_v111.IconButton, {
-    position: "absolute",
-    top: (0, _v22.rem)(16),
-    right: (0, _v22.rem)(24),
-    icon: (0, _v1.jsx)(_v59.CloseX, {}),
-    size: "sm",
-    variant: "tertiary",
-    ..._v0
-  });
-  function _v113({
+  var _v114 = _v0.i(0);
+  let _v115 = _v0 => (0, _v1.jsx)(_v114.IconButton, {
+      position: "absolute",
+      top: (0, _v22.rem)(16),
+      right: (0, _v22.rem)(24),
+      icon: (0, _v1.jsx)(_v60.CloseX, {}),
+      size: "sm",
+      variant: "tertiary",
+      ..._v0
+    }),
+    _v116 = _v0 => _v0?.trim().toLowerCase().replace(/^vimeo\s+/, "").replace(/\s+/g, "_");
+  function _v117({
     onSubmitSuccess: _v0,
     closeModal: _v1,
     inviteFormRef: _v2
@@ -2926,62 +3016,82 @@
           seatCapTrial: _v12,
           seatCount: _v13,
           billingPeriod: _v14,
-          tier: _v15
+          tier: _v15,
+          hasAutorenew: _v16,
+          subscriptionId: _v17
         },
-        newEmails: _v16,
-        isMembershipInfoLoading: _v17,
-        isTeamInfoLoading: _v18
-      } = (0, _v2.useContext)(_v37),
-      _v19 = (0, _v2.useContext)(_v16.ViewerContext),
-      {
-        fetchTeamInfo: _v20,
-        updateMembershipInfo: _v21,
-        updatePlanQuota: _v22
+        newEmails: _v18,
+        isMembershipInfoLoading: _v19,
+        isTeamInfoLoading: _v20
       } = (0, _v2.useContext)(_v38),
-      [_v23, _v24] = (0, _v25.useGetUserSettingsBillingMembershipLazy)(),
-      [_v25, _v26] = (0, _v2.useState)(!1),
-      [_v27, _v28] = (0, _v2.useState)(!1),
+      _v21 = (0, _v2.useContext)(_v16.ViewerContext),
+      {
+        fetchTeamInfo: _v22,
+        updateMembershipInfo: _v23,
+        updatePlanQuota: _v24
+      } = (0, _v2.useContext)(_v39),
+      [_v25, _v26] = (0, _v26.useGetUserSettingsBillingMembershipLazy)(),
+      {
+        data: _v27,
+        isLoading: _v28
+      } = (0, _v25.useGetMeSubscriptionScheduledOrder)(() => _v17 ? {
+        select: ["productName"],
+        where: {
+          subscriptionId: _v17
+        }
+      } : null, {
+        revalidateIfStale: !1,
+        revalidateOnFocus: !1,
+        revalidateOnReconnect: !1
+      }),
       [_v29, _v30] = (0, _v2.useState)(!1),
       [_v31, _v32] = (0, _v2.useState)(!1),
-      _v33 = (0, _v2.useRef)(null),
-      _v34 = (0, _v32.useGetSubscriptionPlansData)([_v15]),
+      [_v33, _v34] = (0, _v2.useState)(!1),
+      [_v35, _v36] = (0, _v2.useState)(!1),
+      _v37 = (0, _v2.useRef)(null),
+      _v38 = (0, _v33.useGetSubscriptionPlansData)([_v15]),
       {
-        trackOpenTeamInviteModal: _v35
-      } = _v50(),
-      _v36 = _v15 === _v33.Creator,
+        trackOpenTeamInviteModal: _v39
+      } = _v51(),
+      _v40 = _v15 === _v34.Creator,
+      _v41 = _v116(_v27?.productName),
+      _v42 = _v116(_v15),
+      _v43 = !!(_v16 && _v41 && _v42 && _v41 !== _v42),
       {
-        isBlocked: _v37
-      } = (0, _v27.useIsSeatChangeBlocked)({
-        tier: _v15
+        isBlocked: _v44
+      } = (0, _v28.useIsSeatChangeBlocked)({
+        tier: _v15,
+        hasScheduledDowngrade: _v43
       }),
-      _v38 = _v108({
+      _v45 = _v28 || _v44,
+      _v46 = _v111({
         hasPerSeatPricingModelTeamMember: _v6,
         teamInfo: _v3
       }),
-      _v39 = _v9 && _v38 <= 10,
-      _v40 = _v15 === _v33.Production,
-      _v41 = _v40 ? "/enterprise/contact-us?mkc=team_seats_upgrade" : (0, _v28.buildUpgradePlanUrl)({
+      _v47 = _v9 && _v46 <= 10,
+      _v48 = _v15 === _v34.Production,
+      _v49 = _v48 ? "/enterprise/contact-us?mkc=team_seats_upgrade" : (0, _v29.buildUpgradePlanUrl)({
         paywallTrigger: "team_admin_limit_invite",
         paywallLocation: "teams_settings",
         paywallFeature: "team_admin_seats"
       });
     (0, _v2.useEffect)(() => {
-      _v19?.user && _v6 && _v23({
-        select: ["billingPeriod", "currency", "currentUnassignedSeatCount", "isFreeTrial", "pricePerSeatForDisplay", "productId", "seatCapPaid", "seatCapTrial", "seatCount", "status", "tier"],
+      _v21?.user && _v6 && _v25({
+        select: ["billingPeriod", "currency", "currentUnassignedSeatCount", "hasAutorenew", "isFreeTrial", "pricePerSeatForDisplay", "productId", "seatCapPaid", "seatCapTrial", "seatCount", "status", "subscriptionId", "tier"],
         where: {
           userId: _v4.ownerId
         }
       });
-    }, [_v19?.user, _v6, _v3.seatDetails?.basePlanCount]);
+    }, [_v21?.user, _v6, _v3.seatDetails?.basePlanCount]);
     let {
-      data: _v42,
-      loading: _v43
-    } = _v24;
+      data: _v50,
+      loading: _v51
+    } = _v26;
     (0, _v2.useEffect)(() => {
       let _v0;
-      !_v43 && _v6 && _v19?.user && _v42 && _v21({
+      !_v51 && _v6 && _v21?.user && _v50 && _v23({
         currency: (_v0 = {
-          ..._v42
+          ..._v50
         }).currency,
         currentUnassignedSeatCount: _v0.currentUnassignedSeatCount,
         isFreeTrial: _v0?.isFreeTrial,
@@ -2989,29 +3099,31 @@
         seatCapTrial: _v0.seatCapTrial ?? 6,
         pricePerSeatForDisplay: _v0.pricePerSeatForDisplay,
         seatCount: _v0.seatCount,
-        billingPeriod: _v34[(0, _v77.default)(String(_v0.billingPeriod))],
-        tier: _v33[(0, _v78.default)(String(_v0.tier).replaceAll("_", " ")).replaceAll(" ", "")],
+        billingPeriod: _v35[(0, _v80.default)(String(_v0.billingPeriod))],
+        tier: _v34[(0, _v81.default)(String(_v0.tier).replaceAll("_", " ")).replaceAll(" ", "")],
         productId: _v0?.productId,
-        status: _v0?.status
+        status: _v0?.status,
+        hasAutorenew: _v0?.hasAutorenew ?? !1,
+        subscriptionId: _v0?.subscriptionId ?? ""
       });
-    }, [_v24, _v43, _v6, _v19?.user]), (0, _v2.useEffect)(() => {
-      _v19?.user && (async () => {
-        await _v20();
+    }, [_v26, _v51, _v6, _v21?.user]), (0, _v2.useEffect)(() => {
+      _v21?.user && (async () => {
+        await _v22();
       })();
-    }, [_v19?.user]), (0, _v2.useEffect)(() => {
-      if (_v34 && !_v17) {
+    }, [_v21?.user]), (0, _v2.useEffect)(() => {
+      if (_v38 && !_v19) {
         let {
           entitlements: _v0
-        } = _v34[0].metadata;
-        _v22(_v0);
+        } = _v38[0].metadata;
+        _v24(_v0);
       }
-    }, [_v34, _v17]), (0, _v2.useEffect)(() => {
-      _v18 || _v27 || !_v3.owner || (_v28(!0), _v35());
-    }, [_v3.owner, _v18]);
-    let _v44 = _v12 || _v3.seatDetails?.basePlanCount || 0,
-      _v45 = _v3.maxTeamSize || _v13,
-      _v46 = _v3.seatDetails?.currentUnassignedCount ?? _v8,
-      _v47 = Math.max(0, (_v39 ? _v44 : _v11) - _v45);
+    }, [_v38, _v19]), (0, _v2.useEffect)(() => {
+      _v20 || _v31 || !_v3.owner || (_v32(!0), _v39());
+    }, [_v3.owner, _v20]);
+    let _v52 = _v12 || _v3.seatDetails?.basePlanCount || 0,
+      _v53 = _v3.maxTeamSize || _v13,
+      _v54 = _v3.seatDetails?.currentUnassignedCount ?? _v8,
+      _v55 = Math.max(0, (_v47 ? _v52 : _v11) - _v53);
     return (0, _v1.jsxs)(_v6.Box, {
       height: "100%",
       p: `${(0, _v22.rem)(27)} 0 ${(0, _v22.rem)(16)} 0`,
@@ -3026,7 +3138,7 @@
         m: 0,
         py: 0,
         px: (0, _v22.rem)(21),
-        children: [_v18 ? (0, _v1.jsx)(_v23.Skeleton, {
+        children: [_v20 ? (0, _v1.jsx)(_v23.Skeleton, {
           display: "flex",
           mb: (0, _v22.rem)(10),
           width: (0, _v22.rem)(224),
@@ -3036,35 +3148,35 @@
           size: "sm",
           marginBottom: "13",
           letterSpacing: (0, _v22.rem)(.2),
-          children: _v51.InvitePeopleToTeam
-        }), (0, _v1.jsx)(_v112, {
+          children: _v52.InvitePeopleToTeam
+        }), (0, _v1.jsx)(_v115, {
           "data-id": "closeInviteModal",
           className: "invite-modal-close-button",
           onClick: () => {
             _v1();
           }
         })]
-      }), _v25 && (0, _v1.jsx)(_v31.PurchaseSeatsNotice, {
-        noticeType: _v29.NOTICE_TYPES.PURCHASE_SUCCESSFULL
-      }), _v29 && !_v36 && !_v37 && (0, _v1.jsx)(_v30.PurchaseSeatsModal, {
+      }), _v29 && (0, _v1.jsx)(_v32.PurchaseSeatsNotice, {
+        noticeType: _v30.NOTICE_TYPES.PURCHASE_SUCCESSFULL
+      }), _v33 && !_v40 && !_v45 && (0, _v1.jsx)(_v31.PurchaseSeatsModal, {
         canUsePaymentsService: !!_v5,
         hasScreen: !1,
-        isActive: _v29,
-        isTrial: _v39,
+        isActive: _v33,
+        isTrial: _v47,
         productId: String(_v10),
-        userId: _v19?.user?.id ?? 0,
+        userId: _v21?.user?.id ?? 0,
         ownerId: _v4.ownerId,
-        minSeatsPurchase: Math.min(_v16.length - _v46, _v47),
-        initSeatsPurchase: Math.min(_v16.length - _v46, _v47),
-        maxSeatsPurchase: _v47,
+        minSeatsPurchase: Math.min(_v18.length - _v54, _v55),
+        initSeatsPurchase: Math.min(_v18.length - _v54, _v55),
+        maxSeatsPurchase: _v55,
         onPurchaseSuccess: () => {
-          _v33?.current?.(), _v30(!1);
+          _v37?.current?.(), _v34(!1);
         },
         onPurchaseFailure: () => {},
         onClose: () => {
-          _v30(!1);
+          _v34(!1);
         },
-        triggeredFrom: _v29.PURCHASE_TRIGGERED_FROM.INVITE_MODAL,
+        triggeredFrom: _v30.PURCHASE_TRIGGERED_FROM.INVITE_MODAL,
         analyticsData: {
           teamInfo: _v3,
           folderId: null,
@@ -3079,11 +3191,14 @@
         py: 0,
         px: (0, _v22.rem)(21),
         m: 0,
-        children: (0, _v1.jsx)(_v109, {
+        children: (0, _v1.jsx)(_v112, {
           onSubmitSuccess: _v0,
           onSubmitFailure: (_v0, _v1) => {
-            _v0 === _v15.TeamUserPermissionLevel.Admin && 0 === _v1 && _v32(!0);
+            _v0 === _v15.TeamUserPermissionLevel.Admin && 0 === _v1 && _v36(!0);
           },
+          hasScheduledDowngrade: _v43,
+          isSeatChangeBlocked: _v45,
+          onAdminLimitClick: () => _v36(!0),
           ref: _v2,
           closeModal: _v1,
           actionButtons: ({
@@ -3101,11 +3216,11 @@
             mt: (0, _v22.rem)(16),
             borderRadius: (0, _v22.rem)(8),
             onClick: _v0 => {
-              _v3 ? window.open("/upgrade", "_blank") : _v4 ? window.open("/enterprise/contact-us?mkc=team_seats_upgrade", "_blank") : (_v33.current = () => {
+              _v3 ? window.open("/upgrade", "_blank") : _v4 ? window.open("/enterprise/contact-us?mkc=team_seats_upgrade", "_blank") : (_v37.current = () => {
                 _v2?.current?.submitForm(_v0);
-              }, _v30(!0));
+              }, _v34(!0));
             },
-            children: _v3 ? _v51.Upgrade : _v4 ? _v51.ContactUs : _v39 ? _v51.AddSeats : _v51.PurchaseSeats
+            children: _v3 ? _v52.Upgrade : _v4 ? _v52.ContactUs : _v47 ? _v52.AddSeats : _v52.PurchaseSeats
           }) : (0, _v1.jsx)(_v20.ModalFooter, {
             className: "invite-modal-footer",
             px: "0",
@@ -3113,7 +3228,7 @@
             children: (0, _v1.jsx)(_v17.Flex, {
               ml: "auto",
               mr: "0",
-              children: _v18 ? (0, _v1.jsx)(_v23.Skeleton, {
+              children: _v20 ? (0, _v1.jsx)(_v23.Skeleton, {
                 display: "flex",
                 width: (0, _v22.rem)(200),
                 height: (0, _v22.rem)(40)
@@ -3126,7 +3241,7 @@
                       marginRight: (0, _v22.rem)(16)
                     }
                   },
-                  children: _v51.Cancel
+                  children: _v52.Cancel
                 }), (0, _v1.jsx)(_v7.Button, {
                   variant: "primary",
                   size: "md",
@@ -3140,46 +3255,21 @@
                       marginRight: (0, _v22.rem)(16)
                     }
                   },
-                  children: _v51.Invite
+                  children: _v52.Invite
                 })]
               })
             })
           })
         })
       }), (0, _v1.jsx)(_v24.AdminLimitUpsellModal, {
-        cancelLabel: _v51.Cancel,
-        isOpen: _v31,
-        message: (0, _v26.translate)({
-          singular: "You’ve reached your admin limit. Upgrade your plan to add more admins.",
-          dictionary: {
-            es: {
-              singular: "Ha alcanzado su límite de administradores. Actualice su plan para añadir más administradores."
-            },
-            "de-DE": {
-              singular: "Sie haben die maximale Anzahl an Administratoren erreicht. Aktualisieren Sie Ihren Plan, um weitere Administratoren hinzuzufügen."
-            },
-            "fr-FR": {
-              singular: "Vous avez atteint la limite d’administration. Mettez à niveau votre forfait pour ajouter d’autres administrateurs."
-            },
-            "ja-JP": {
-              singular: "管理者数の上限に達しました。 プランをアップグレードして管理者を追加してください。"
-            },
-            "ko-KR": {
-              singular: "관리자 한도에 도달했습니다. 요금제를 업그레이드하여 더 많은 관리자를 추가하세요."
-            },
-            "pt-BR": {
-              singular: "Você atingiu o limite de administradores. Atualize seu plano para adicionar mais administradores."
-            },
-            "zh-CN": {
-              singular: "您已达到管理员上限。升级您的计划以添加更多管理员。"
-            }
-          }
-        }),
-        onClose: () => _v32(!1),
-        paywallStyle: _v40 ? "enterprise_modal" : "default_modal",
+        cancelLabel: _v52.Cancel,
+        isOpen: _v35,
+        message: _v52.AdminLimitReached,
+        onClose: () => _v36(!1),
+        paywallStyle: _v48 ? "enterprise_modal" : "default_modal",
         paywallTrigger: "team_admin_limit_invite",
-        primaryButtonLabel: _v51.Upgrade,
-        title: (0, _v26.translate)({
+        primaryButtonLabel: _v52.Upgrade,
+        title: (0, _v27.translate)({
           singular: "Need more admin seats?",
           dictionary: {
             es: {
@@ -3205,11 +3295,11 @@
             }
           }
         }),
-        upgradeUrl: _v41
+        upgradeUrl: _v49
       })]
     });
   }
-  let _v114 = ({
+  let _v118 = ({
       onSuccess: _v0 = async () => void 0,
       onClick: _v1,
       disabled: _v2 = !1,
@@ -3224,7 +3314,7 @@
         {
           updateTeamApiConfig: _v12,
           updateTeamCapabilities: _v13
-        } = (0, _v2.useContext)(_v38),
+        } = (0, _v2.useContext)(_v39),
         [_v14, _v15] = (0, _v2.useState)([]),
         _v16 = "invite-sent-toast",
         _v17 = {
@@ -3242,22 +3332,24 @@
           hasContributorPlusEnabled: _v19,
           hasEnterprise: _v20,
           hasLiveSubscription: _v21,
-          hasPerSeatPricingModelTeamMember: _v22
+          haveMoreAdminTeamMembers: _v22,
+          hasPerSeatPricingModelTeamMember: _v23
         },
-        loading: _v23
-      } = (0, _v13.useCapability)(["canUsePaymentsService", "hasContributorPlusEnabled", "hasEnterprise", "hasLiveSubscription", "hasPerSeatPricingModelTeamMember"], _v17.ownerUri);
+        loading: _v24
+      } = (0, _v13.useCapability)(["canUsePaymentsService", "hasContributorPlusEnabled", "hasEnterprise", "hasLiveSubscription", "haveMoreAdminTeamMembers", "hasPerSeatPricingModelTeamMember"], _v17.ownerUri);
       (0, _v2.useEffect)(() => {
         _v13({
           canUsePaymentsService: _v18,
           hasContributorPlusEnabled: _v19,
           hasEnterprise: _v20,
           hasLiveSubscription: _v21,
-          hasPerSeatPricingModelTeamMember: _v22
+          haveMoreAdminTeamMembers: _v22,
+          hasPerSeatPricingModelTeamMember: _v23
         });
-      }, [_v18, _v19, _v20, _v21, _v22, _v23]);
+      }, [_v18, _v19, _v20, _v21, _v22, _v23, _v24]);
       let {
-        data: _v24,
-        isValidating: _v25
+        data: _v25,
+        isValidating: _v26
       } = (0, _v14.useGetUserProjects)({
         query: {
           excludePrivateToMeFolder: !0,
@@ -3273,12 +3365,12 @@
         revalidateOnFocus: !1
       });
       (0, _v2.useEffect)(() => {
-        !_v25 && _v24 && _v24?.total > 0 && _v7(!0);
-      }, [_v24, _v25]);
-      let [_v26, _v27, _v28] = function () {
+        !_v26 && _v25 && _v25?.total > 0 && _v7(!0);
+      }, [_v25, _v26]);
+      let [_v27, _v28, _v29] = function () {
           let {
               clearEmails: _v0
-            } = (0, _v2.useContext)(_v38),
+            } = (0, _v2.useContext)(_v39),
             [_v1, _v2] = (0, _v2.useState)(!1),
             _v3 = (0, _v2.useCallback)(() => {
               let _v0 = document.querySelector("body");
@@ -3289,27 +3381,27 @@
             _v0 && (_v0.style.overflow = "hidden"), _v2(!0);
           }, []), _v3];
         }(),
-        _v29 = (_v5 = (0, _v2.useRef)(null), (0, _v2.useEffect)(() => {
+        _v30 = (_v5 = (0, _v2.useRef)(null), (0, _v2.useEffect)(() => {
           _v5.current = window.parent.document.querySelector(".iris_modal-btn--close");
         }), _v5),
-        _v30 = (0, _v2.useCallback)(() => {
-          _v28(), _v29.current?.click();
-        }, [_v28, _v29]),
-        _v31 = (0, _v2.useCallback)((_v0, _v1) => {
-          _v0?.(_v0, _v1), _v30(), _v9(!0), setTimeout(() => _v9(!1), 0);
-        }, [_v0, _v30]),
-        _v32 = (0, _v2.useCallback)(() => (0, _v1.jsx)(_v1.Fragment, {
+        _v31 = (0, _v2.useCallback)(() => {
+          _v29(), _v30.current?.click();
+        }, [_v29, _v30]),
+        _v32 = (0, _v2.useCallback)((_v0, _v1) => {
+          _v0?.(_v0, _v1), _v31(), _v9(!0), setTimeout(() => _v9(!1), 0);
+        }, [_v0, _v31]),
+        _v33 = (0, _v2.useCallback)(() => (0, _v1.jsx)(_v1.Fragment, {
           children: _v14.length > 0 && _v6 ? (0, _v1.jsx)(_v5.AddToFoldersModalContent, {
             onClose: () => {
-              _v15([]), _v0?.(), _v30();
+              _v15([]), _v0?.(), _v31();
             },
             ownerId: _v17.ownerId,
             teamUsers: _v14,
             onSuccess: () => {
-              _v15([]), _v31();
+              _v15([]), _v32();
             },
             actionButtonOverrides: {
-              cancelButtonLabel: _v51.SkipForNow,
+              cancelButtonLabel: _v52.SkipForNow,
               bigPictureOverrides: {
                 entryPoint: "invite_modal",
                 page: "team_management_page",
@@ -3322,28 +3414,28 @@
           }) : (0, _v1.jsx)(_v6.Box, {
             height: "100%",
             overflow: "auto",
-            children: (0, _v1.jsx)(_v113, {
-              closeModal: _v30,
+            children: (0, _v1.jsx)(_v117, {
+              closeModal: _v31,
               inviteFormRef: _v10,
               onSubmitSuccess: _v0 => {
-                _v0.length && _v6 ? (_v9(!0), setTimeout(() => _v9(!1), 0), _v15(_v0)) : _v31();
+                _v0.length && _v6 ? (_v9(!0), setTimeout(() => _v9(!1), 0), _v15(_v0)) : _v32();
               }
             })
           })
         }), [_v10, _v6, _v14]),
-        _v33 = (0, _v11.useToast)(),
-        _v34 = () => {
-          _v1?.(), _v27(), _v15([]), _v4.GoogleTagManager.trackEvent("team_open_invite_modal");
+        _v34 = (0, _v11.useToast)(),
+        _v35 = () => {
+          _v1?.(), _v28(), _v15([]), _v4.GoogleTagManager.trackEvent("team_open_invite_modal");
         };
       return (0, _v2.useEffect)(() => {
-        _v8 && !_v33.isActive(_v16) && _v33({
+        _v8 && !_v34.isActive(_v16) && _v34({
           id: _v16,
-          title: _v51.InviteSent,
+          title: _v52.InviteSent,
           status: "neutral"
         });
-      }, [_v8, _v33]), (0, _v1.jsxs)(_v1.Fragment, {
+      }, [_v8, _v34]), (0, _v1.jsxs)(_v1.Fragment, {
         children: [_v4 ? _v2.default.cloneElement(_v4, {
-          onClick: _v34,
+          onClick: _v35,
           isDisabled: _v2,
           "data-id": "inviteButton"
         }) : (0, _v1.jsx)(_v7.Button, {
@@ -3351,32 +3443,32 @@
           py: (0, _v3.rem)(4),
           "data-id": "inviteButton",
           isDisabled: _v2,
-          onClick: _v34,
+          onClick: _v35,
           leftIcon: (0, _v1.jsx)(_v12.PersonUserAdd, {
             boxSize: "2xs"
           }),
           height: (0, _v3.rem)(40),
           borderRadius: "md",
           variant: "primary",
-          children: _v51.Invite
+          children: _v52.Invite
         }), (0, _v1.jsxs)(_v8.Modal, {
-          isOpen: _v26,
+          isOpen: _v27,
           closeOnOverlayClick: !_v3,
           onClose: () => {
-            _v14.length > 0 && (_v15([]), _v0?.()), _v30();
+            _v14.length > 0 && (_v15([]), _v0?.()), _v31();
           },
           children: [!_v3 && (0, _v1.jsx)(_v10.ModalOverlay, {}), (0, _v1.jsx)(_v9.ModalContent, {
             maxW: (0, _v3.rem)(500),
             borderRadius: "xl",
-            children: _v32()
+            children: _v33()
           })]
         })]
       });
     },
-    _v115 = ({
+    _v119 = ({
       untranslatedUserRole: _v0
     }) => _v0 === _v15.TeamUserPermissionLevel.Owner || _v0 === _v15.TeamUserPermissionLevel.Admin,
-    _v116 = {
+    _v120 = {
       FetchTeamInfoInit: _v0 => ({
         ..._v0,
         isTeamInfoLoading: !0
@@ -3384,7 +3476,7 @@
       FetchTeamInfoComplete: (_v0, _v1) => {
         if (!_v1.payload || !_v1.payload.viewer || !_v1.payload?.teamsInfo) throw Error("no payload");
         let _v2 = _v1.payload.viewer.teamUser?.ownerId,
-          _v3 = _v1.payload.teamsInfo.data.filter(_v115),
+          _v3 = _v1.payload.teamsInfo.data.filter(_v119),
           _v4 = _v3.find(({
             untranslatedUserRole: _v0
           }) => _v0 === _v15.TeamUserPermissionLevel.Owner),
@@ -3518,11 +3610,11 @@
         planQuota: _v1.payload
       })
     },
-    _v117 = (_v0, _v1) => {
-      let _v2 = _v116[_v1.type];
+    _v121 = (_v0, _v1) => {
+      let _v2 = _v120[_v1.type];
       return _v2 ? _v2(_v0, _v1) : _v0;
     },
-    _v118 = ({
+    _v122 = ({
       children: _v0
     }) => {
       let _v1,
@@ -3530,14 +3622,14 @@
         _v3,
         _v4,
         _v5 = (0, _v2.useContext)(_v16.ViewerContext),
-        [_v6, _v7] = (0, _v2.useReducer)(_v117, _v35()),
+        [_v6, _v7] = (0, _v2.useReducer)(_v121, _v36()),
         _v8 = (_v1 = async () => {
           if (!_v5) throw Error("no viewer");
           _v7({
             type: "FetchTeamInfoInit",
             payload: !0
           });
-          let _v0 = await _v105(_v5);
+          let _v0 = await _v108(_v5);
           _v7({
             type: "FetchTeamInfoComplete",
             payload: {
@@ -3553,9 +3645,9 @@
               newEmails: _v0
             }
           }), _v7({
-            type: _v47,
+            type: _v48,
             payload: !0
-          }), Promise.all(_v0.map(_v0 => _v106(_v1 || _v5, _v6.teamInfo.owner.uri, _v0))).then(_v0 => {
+          }), Promise.all(_v0.map(_v0 => _v109(_v1 || _v5, _v6.teamInfo.owner.uri, _v0))).then(_v0 => {
             let _v1 = {
                 total: 0,
                 data: []
@@ -3564,7 +3656,7 @@
             _v0.map(_v0 => {
               _v0.data && (_v2 = [..._v2, ..._v0.data]);
             }), _v1.data = _v2, _v7({
-              type: _v48,
+              type: _v49,
               payload: {
                 teamMember: _v1
               }
@@ -3578,12 +3670,12 @@
               newEmail: _v0
             }
           }), _v7({
-            type: _v47,
+            type: _v48,
             payload: !0
           }), _v7({
-            type: _v48,
+            type: _v49,
             payload: {
-              teamMember: await _v106(_v1 || _v5, _v6.teamInfo.owner.uri, _v0)
+              teamMember: await _v109(_v1 || _v5, _v6.teamInfo.owner.uri, _v0)
             }
           }));
         }, {
@@ -3650,22 +3742,22 @@
             });
           }
         });
-      return (0, _v1.jsx)(_v38.Provider, {
+      return (0, _v1.jsx)(_v39.Provider, {
         value: _v8,
-        children: (0, _v1.jsx)(_v37.Provider, {
+        children: (0, _v1.jsx)(_v38.Provider, {
           value: _v6,
           children: _v0
         })
       });
     },
-    _v119 = _v2.default.memo(({
+    _v123 = _v2.default.memo(({
       onSuccess: _v0,
       onClick: _v1,
       disabled: _v2 = !1,
       children: _v3,
       hideModalOverlay: _v4 = !1
-    }) => (0, _v1.jsx)(_v118, {
-      children: (0, _v1.jsx)(_v114, {
+    }) => (0, _v1.jsx)(_v122, {
+      children: (0, _v1.jsx)(_v118, {
         onSuccess: _v0,
         onClick: _v1,
         disabled: _v2,
@@ -3673,5 +3765,5 @@
         children: _v3
       })
     }));
-  _v0.s(["default", 0, _v119], 0);
+  _v0.s(["default", 0, _v123], 0);
 }
