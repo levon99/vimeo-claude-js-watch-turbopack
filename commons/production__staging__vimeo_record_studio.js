@@ -29452,8 +29452,8 @@
           devices: _v7
         }), _v3 && _v5 !== _v3 && _v7.debug(`System default mic changed to: ${_v5?.label}`), _v2 && _v4 !== _v2 && _v7.debug(`System default webcam changed to: ${_v4?.label}`);
       }
-      return _v8(), navigator.mediaDevices.addEventListener("devicechange", _v0), () => {
-        navigator.mediaDevices.removeEventListener("devicechange", _v0);
+      return _v8(), navigator?.mediaDevices?.addEventListener?.("devicechange", _v0), () => {
+        navigator?.mediaDevices?.removeEventListener?.("devicechange", _v0);
       };
     }, [_v7, _v8]), (() => {
       let _v0 = (0, _v90.useUIStore)(_v0 => _v0.common.setError),

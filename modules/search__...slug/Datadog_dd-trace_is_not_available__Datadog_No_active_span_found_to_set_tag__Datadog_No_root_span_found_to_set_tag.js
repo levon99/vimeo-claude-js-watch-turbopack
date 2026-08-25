@@ -17556,6 +17556,7 @@
       sideNavContent: (0, _v1.jsx)(_v536.SideNavContent, {
         surface: "home"
       }),
+      sideNavSurface: "home",
       children: _v0
     });
   }, _v0.s(["__N_SSP", 0, !0, "default", 0, _v538], 0);

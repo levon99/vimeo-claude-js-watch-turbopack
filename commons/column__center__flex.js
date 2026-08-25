@@ -30,32 +30,28 @@
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
-    _v30 = _v0.i(0),
-    _v31 = _v0.i(0);
-  let _v32 = ({
+    _v30 = _v0.i(0);
+  let _v31 = ({
     isMobile: _v0,
     quota: _v1,
     showZeroCreditsMessage: _v2,
     isWorkspaceAdminUser: _v3
   }) => {
-    let _v4 = (0, _v29.useLocale)(),
-      {
-        settings: _v5
-      } = (0, _v13.useOrionSettings)(),
-      _v6 = _v1?.remaining ?? null,
-      _v7 = _v1?.balances ?? null,
-      _v8 = Number.isFinite(Number(_v6)) ? Number(_v6).toLocaleString() : _v6;
+    let _v4 = (0, _v28.useLocale)(),
+      _v5 = _v1?.remaining ?? null,
+      _v6 = _v1?.balances ?? null,
+      _v7 = Number.isFinite(Number(_v5)) ? Number(_v5).toLocaleString() : _v5;
     return (0, _v1.jsxs)(_v3.Flex, {
       gap: "sm",
       flexDirection: "column",
       paddingX: "md",
       paddingTop: "sm",
-      paddingBottom: _v5.enable_new_sidebar ? (0, _v6.rem)(12) : "sm",
+      paddingBottom: (0, _v6.rem)(12),
       children: [(0, _v1.jsxs)(_v3.Flex, {
         flexDirection: "column",
         justifyContent: "center",
         gap: "sm",
-        children: [(0, _v1.jsxs)(_v22.Text, {
+        children: [(0, _v1.jsxs)(_v21.Text, {
           as: "div",
           display: "flex",
           variant: "heading-2xs",
@@ -85,39 +81,39 @@
                 singular: "AI 积分"
               }
             }
-          }), _v6 && _v6 > 0 ? (0, _v1.jsxs)(_v23.Popover, {
+          }), _v5 && _v5 > 0 ? (0, _v1.jsxs)(_v22.Popover, {
             placement: _v0 ? "top" : "right",
-            children: [(0, _v1.jsx)(_v25.PopoverTrigger, {
+            children: [(0, _v1.jsx)(_v24.PopoverTrigger, {
               children: (0, _v1.jsx)(_v3.Flex, {
                 height: "xs",
                 width: "xs",
                 cursor: "pointer",
                 justifyContent: "center",
                 alignItems: "center",
-                children: (0, _v1.jsx)(_v28.InfoCircle, {
+                children: (0, _v1.jsx)(_v27.InfoCircle, {
                   height: "2xs",
                   width: "2xs"
                 })
               })
-            }), (0, _v1.jsx)(_v24.PopoverContent, {
-              children: (0, _v1.jsx)(_v16.Box, {
-                children: _v1?.resetDate ? _v7?.length ? (0, _v1.jsxs)(_v1.Fragment, {
-                  children: [_v7.map((_v0, _v1) => {
-                    if (_v0.expirationDate) return (0, _v1.jsxs)(_v26.HStack, {
+            }), (0, _v1.jsx)(_v23.PopoverContent, {
+              children: (0, _v1.jsx)(_v15.Box, {
+                children: _v1?.resetDate ? _v6?.length ? (0, _v1.jsxs)(_v1.Fragment, {
+                  children: [_v6.map((_v0, _v1) => {
+                    if (_v0.expirationDate) return (0, _v1.jsxs)(_v25.HStack, {
                       gap: "4px",
-                      children: [(0, _v1.jsx)(_v27.VimeoCoin, {
+                      children: [(0, _v1.jsx)(_v26.VimeoCoin, {
                         h: "16px",
                         w: "16px",
                         color: "text-primary"
-                      }), (0, _v1.jsx)(_v22.Text, {
+                      }), (0, _v1.jsx)(_v21.Text, {
                         variant: "body-md",
-                        children: (0, _v31.renderAiCreditsExpirationDate)(_v0.remaining || 0, _v4, new Date(_v0.expirationDate))
+                        children: (0, _v30.renderAiCreditsExpirationDate)(_v0.remaining || 0, _v4, new Date(_v0.expirationDate))
                       })]
                     }, `ai-credit-balance-${_v1}`);
-                  }), (0, _v1.jsx)(_v16.Box, {
+                  }), (0, _v1.jsx)(_v15.Box, {
                     margin: "4px 0",
                     children: (0, _v1.jsx)("hr", {})
-                  }), (0, _v1.jsx)(_v22.Text, {
+                  }), (0, _v1.jsx)(_v21.Text, {
                     variant: "body-md",
                     children: (0, _v12.translate)({
                       singular: "Credits will not renew",
@@ -146,7 +142,7 @@
                       }
                     })
                   })]
-                }) : (0, _v1.jsx)(_v22.Text, {
+                }) : (0, _v1.jsx)(_v21.Text, {
                   variant: "body-md",
                   children: (0, _v12.translate)({
                     singular: "Credits renew on {DATE} at {TIME}",
@@ -186,7 +182,7 @@
                       }
                     }
                   })
-                }) : (0, _v1.jsx)(_v22.Text, {
+                }) : (0, _v1.jsx)(_v21.Text, {
                   variant: "body-md",
                   children: (0, _v12.translate)({
                     singular: "Credits will not renew",
@@ -220,11 +216,11 @@
           }) : null]
         }), !_v2 && (0, _v1.jsxs)(_v3.Flex, {
           gap: "xs",
-          children: [(0, _v1.jsx)(_v27.VimeoCoin, {
+          children: [(0, _v1.jsx)(_v26.VimeoCoin, {
             h: "16px",
             w: "16px",
             color: "text-secondary"
-          }), (0, _v1.jsx)(_v22.Text, {
+          }), (0, _v1.jsx)(_v21.Text, {
             variant: "body-sm",
             textAlign: "left",
             color: "text-secondary",
@@ -234,7 +230,7 @@
             children: (0, _v12.translate)({
               singular: "{AMOUNT} remaining",
               replacements: {
-                AMOUNT: _v8
+                AMOUNT: _v7
               },
               dictionary: {
                 es: {
@@ -262,13 +258,13 @@
             })
           })]
         })]
-      }), (0, _v1.jsx)(_v16.Box, {
-        children: (0, _v1.jsx)(_v22.Text, {
+      }), (0, _v1.jsx)(_v15.Box, {
+        children: (0, _v1.jsx)(_v21.Text, {
           as: "div",
           variant: "body-xs",
           color: "text-secondary",
-          children: (0, _v1.jsx)(_v30.AiCreditsRemainingUpsellMessage, {
-            quotaRemaining: _v6,
+          children: (0, _v1.jsx)(_v29.AiCreditsRemainingUpsellMessage, {
+            quotaRemaining: _v5,
             location: "side_nav",
             showZeroCreditsMessage: _v2,
             isWorkspaceAdminUser: _v3
@@ -277,8 +273,8 @@
       })]
     });
   };
-  var _v33 = _v0.i(0);
-  let _v34 = ({
+  var _v32 = _v0.i(0);
+  let _v33 = ({
     isMobile: _v0,
     onUpgradeClick: _v1,
     quota: _v2,
@@ -290,7 +286,7 @@
       _v7 = _v2?.period ?? null,
       _v8 = _v2?.used ?? null,
       _v9 = _v2?.resetDate ?? "";
-    return _v6 && _v6 > 0 ? (0, _v1.jsx)(_v33.QuotaMeter, {
+    return _v6 && _v6 > 0 ? (0, _v1.jsx)(_v32.QuotaMeter, {
       isMobile: _v0,
       onUpgradeClick: _v1,
       quotaAvailable: _v6,
@@ -306,10 +302,10 @@
       hideQuotaTooltip: _v5
     }) : null;
   };
-  var _v35 = _v0.i(0),
-    _v36 = _v0.i(0),
-    _v37 = _v0.i(0);
-  let _v38 = ({
+  var _v34 = _v0.i(0),
+    _v35 = _v0.i(0),
+    _v36 = _v0.i(0);
+  let _v37 = ({
     isMobile: _v0,
     onUpgradeClick: _v1,
     uploadQuota: _v2,
@@ -319,9 +315,9 @@
     showUpgrade: _v6,
     showAutoRenewBadge: _v7
   }) => {
-    let _v8 = (0, _v20.useViewer)(),
+    let _v8 = (0, _v19.useViewer)(),
       _v9 = _v8?.user?.account === "enterprise",
-      _v10 = (0, _v17.useIsStaff)(),
+      _v10 = (0, _v16.useIsStaff)(),
       {
         capabilities: _v11
       } = (0, _v11.useCapability)(["canViewDrmQuota"]),
@@ -331,16 +327,16 @@
       {
         isWorkspaceAdminUser: _v13
       } = (() => {
-        let _v0 = (0, _v20.useViewer)(),
+        let _v0 = (0, _v19.useViewer)(),
           {
             data: _v1
-          } = (0, _v35.useGetMePreferences)({
-            select: [_v36.USER_PREFERENCE_ID.PREF_WORKSPACE_UUID]
+          } = (0, _v34.useGetMePreferences)({
+            select: [_v35.USER_PREFERENCE_ID.PREF_WORKSPACE_UUID]
           }, {
             revalidateOnFocus: !1,
             revalidateIfStale: !1
           }),
-          _v2 = !!_v1?.[_v36.USER_PREFERENCE_ID.PREF_WORKSPACE_UUID],
+          _v2 = !!_v1?.[_v35.USER_PREFERENCE_ID.PREF_WORKSPACE_UUID],
           _v3 = _v2 && _v0?.teamUser?.plainTextPermissionLevel === "Admin";
         return {
           isWorkspaceUser: _v2,
@@ -349,10 +345,10 @@
       })(),
       _v14 = _v3 && (_v9 || _v13) && (0 === _v3.remaining || void 0 !== _v3.limit && Number.isFinite(_v3.limit) && _v3.used === _v3.limit),
       _v15 = _v8?.user?.id ?? null,
-      _v16 = (0, _v19.shouldFetchColdStorageVideoFallback)(_v8),
+      _v16 = (0, _v18.shouldFetchColdStorageVideoFallback)(_v8),
       {
         data: _v17
-      } = (0, _v18.useGetUserVideos)(() => _v15 && _v16 ? {
+      } = (0, _v17.useGetUserVideos)(() => _v15 && _v16 ? {
         where: {
           userId: _v15
         },
@@ -368,11 +364,11 @@
         revalidateOnFocus: !1
       }),
       _v18 = _v16 && (_v17?.total ?? 0) > 0;
-    return (0, _v1.jsxs)(_v16.Box, {
+    return (0, _v1.jsxs)(_v15.Box, {
       background: "surface",
       borderRadius: "lg",
       paddingY: "sm",
-      children: [(0, _v1.jsx)(_v37.UploadQuotaMeter, {
+      children: [(0, _v1.jsx)(_v36.UploadQuotaMeter, {
         isMobile: _v0,
         onUpgradeClick: _v1,
         quota: _v2,
@@ -381,7 +377,7 @@
         isWorkspaceAdminUser: _v13,
         showColdStorageWarning: _v18,
         showAutoRenewBadge: _v7
-      }), _v3 ? _v9 || _v13 ? (0, _v1.jsx)(_v21.AiCreditsQuotaMeter, {
+      }), _v3 ? _v9 || _v13 ? (0, _v1.jsx)(_v20.AiCreditsQuotaMeter, {
         isMobile: _v0,
         onUpgradeClick: _v1,
         quota: _v3,
@@ -389,12 +385,12 @@
         showUpgrade: _v6 && !_v10,
         showZeroCreditsMessage: _v14,
         isWorkspaceAdminUser: _v13
-      }) : (0, _v1.jsx)(_v32, {
+      }) : (0, _v1.jsx)(_v31, {
         isMobile: _v0,
         quota: _v3,
         showZeroCreditsMessage: _v14,
         isWorkspaceAdminUser: _v13
-      }) : null, _v12 && _v4 ? (0, _v1.jsx)(_v34, {
+      }) : null, _v12 && _v4 ? (0, _v1.jsx)(_v33, {
         isMobile: _v0,
         onUpgradeClick: () => void 0,
         quota: _v4,
@@ -404,10 +400,10 @@
       }) : null]
     });
   };
-  var _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0);
-  let _v42 = _v0 => (0, _v1.jsx)(_v41.Icon, {
+  var _v38 = _v0.i(0),
+    _v39 = _v0.i(0),
+    _v40 = _v0.i(0);
+  let _v41 = _v0 => (0, _v1.jsx)(_v40.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -416,9 +412,9 @@
       fill: "currentColor"
     })
   });
-  var _v43 = _v0.i(0),
-    _v44 = _v0.i(0);
-  let _v45 = {
+  var _v42 = _v0.i(0),
+    _v43 = _v0.i(0);
+  let _v44 = {
       fontSize: (0, _v6.rem)(24),
       sx: {
         "> svg": {
@@ -427,7 +423,7 @@
         }
       }
     },
-    _v46 = ({
+    _v45 = ({
       isMobile: _v0,
       uploadQuota: _v1,
       aiCreditsQuota: _v2,
@@ -442,8 +438,8 @@
         _v10 = null != _v6 && null != _v7 ? (0, _v12.translate)({
           singular: "{USED} of {LIMIT}",
           replacements: {
-            USED: (0, _v31.getQuotaAmount)(_v7, _v8 ?? void 0),
-            LIMIT: (0, _v31.getQuotaAmount)(_v6, _v8 ?? void 0)
+            USED: (0, _v30.getQuotaAmount)(_v7, _v8 ?? void 0),
+            LIMIT: (0, _v30.getQuotaAmount)(_v6, _v8 ?? void 0)
           },
           dictionary: {
             es: {
@@ -497,7 +493,7 @@
         _v11 = _v2?.remaining ?? null,
         _v12 = _v0 ? "top" : "right",
         _v13 = _v9 >= 100,
-        _v14 = (0, _v44.buildUpgradePlanUrl)({
+        _v14 = (0, _v43.buildUpgradePlanUrl)({
           paywallTrigger: "quota_meter_upgrade_button",
           paywallLocation: "quota_meter",
           paywallFeature: "quota"
@@ -509,7 +505,7 @@
           upsellFeatureCategory: "Storage",
           upsellSpecificFeature: _v13 ? "Storage_at_limit" : "Storage_general"
         }),
-        _v15 = (0, _v40.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300");
+        _v15 = (0, _v39.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300");
       return (0, _v1.jsxs)(_v3.Flex, {
         flexDirection: "column",
         alignItems: "center",
@@ -565,14 +561,14 @@
                     }
                   }
                 }),
-                icon: (0, _v1.jsx)(_v42, {}),
+                icon: (0, _v1.jsx)(_v41, {}),
                 variant: "tertiary",
                 size: "md",
                 color: "text-primary",
                 pointerEvents: "none",
                 tabIndex: -1,
-                ..._v45
-              }), (0, _v1.jsx)(_v39.Progress, {
+                ..._v44
+              }), (0, _v1.jsx)(_v38.Progress, {
                 value: _v9,
                 size: "xs",
                 width: (0, _v6.rem)(30),
@@ -668,14 +664,14 @@
                     }
                   }
                 }),
-                icon: (0, _v1.jsx)(_v27.VimeoCoin, {}),
+                icon: (0, _v1.jsx)(_v26.VimeoCoin, {}),
                 variant: "tertiary",
                 size: "md",
                 color: "text-secondary",
                 pointerEvents: "none",
                 tabIndex: -1,
-                ..._v45
-              }), (0, _v1.jsx)(_v22.Text, {
+                ..._v44
+              }), (0, _v1.jsx)(_v21.Text, {
                 variant: "body-xs",
                 color: "text-secondary",
                 marginBottom: 0,
@@ -732,7 +728,7 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v43.Diamond, {}),
+            icon: (0, _v1.jsx)(_v42.Diamond, {}),
             variant: "upsell",
             size: "md",
             ...(_v4 ? {
@@ -741,15 +737,15 @@
               as: "a",
               href: _v14
             }),
-            ..._v45
+            ..._v44
           })
         }) : null]
       });
     };
-  var _v47 = _v0.i(0),
-    _v48 = _v0.i(0),
-    _v49 = _v0.i(0);
-  let _v50 = _v0 => (0, _v1.jsx)(_v41.Icon, {
+  var _v46 = _v0.i(0),
+    _v47 = _v0.i(0),
+    _v48 = _v0.i(0);
+  let _v49 = _v0 => (0, _v1.jsx)(_v40.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -760,7 +756,8 @@
       fill: "currentColor"
     })
   });
-  var _v51 = _v0.i(0),
+  var _v50 = _v0.i(0),
+    _v51 = _v0.i(0),
     _v52 = _v0.i(0),
     _v53 = _v0.i(0),
     _v54 = _v0.i(0),
@@ -770,10 +767,9 @@
     _v58 = _v0.i(0),
     _v59 = _v0.i(0),
     _v60 = _v0.i(0),
-    _v61 = _v0.i(0),
-    _v62 = _v0.i(0);
-  let _v63 = () => {
-    let _v0 = (0, _v62.usePico)(),
+    _v61 = _v0.i(0);
+  let _v62 = () => {
+    let _v0 = (0, _v61.usePico)(),
       _v1 = (0, _v2.useCallback)(_v0 => null !== _v0 && (_v0.track("whats_new_modal_opened", {
         whats_new_modal_opened_manually: _v0.whatsNewModalOpenedManually
       }), !0), [_v0]),
@@ -801,13 +797,13 @@
       }), !0), [_v0])
     };
   };
-  var _v64 = _v0.i(0),
+  var _v63 = _v0.i(0),
+    _v64 = _v0.i(0),
     _v65 = _v0.i(0),
     _v66 = _v0.i(0),
     _v67 = _v0.i(0),
-    _v68 = _v0.i(0),
-    _v69 = _v0.i(0);
-  let _v70 = ({
+    _v68 = _v0.i(0);
+  let _v69 = ({
     announcement: _v0,
     onPrimaryCtaClick: _v1,
     onSecondaryCtaClick: _v2,
@@ -820,9 +816,9 @@
     paddingTop: "6",
     paddingBottom: "6",
     borderBottom: "1px solid var(--vimeo-colors-stroke)",
-    children: [(0, _v1.jsx)(_v71, {
+    children: [(0, _v1.jsx)(_v70, {
       announcement: _v0
-    }), (0, _v1.jsx)(_v22.Text, {
+    }), (0, _v1.jsx)(_v21.Text, {
       marginTop: "1",
       variant: "body-sm",
       color: "text-secondary",
@@ -839,14 +835,14 @@
           return _v0;
         }
       })(_v0.releaseDate, _v3)
-    }), (0, _v1.jsx)(_v68.Header, {
+    }), (0, _v1.jsx)(_v67.Header, {
       as: "h3",
       size: "md",
       fontWeight: "semibold",
       children: _v0.title
     }), (0, _v1.jsx)("div", {
       ref: _v4,
-      children: (0, _v1.jsx)(_v66.Paragraph, {
+      children: (0, _v1.jsx)(_v65.Paragraph, {
         variant: "body-sm",
         children: _v0.description
       })
@@ -854,7 +850,7 @@
       display: "flex",
       justifyContent: "flex-end",
       gap: "8px",
-      children: [_v0.blogPostUrl && (0, _v1.jsx)(_v65.Button, {
+      children: [_v0.blogPostUrl && (0, _v1.jsx)(_v64.Button, {
         as: "a",
         href: _v0.blogPostUrl,
         target: "_blank",
@@ -887,7 +883,7 @@
             }
           }
         })
-      }), _v0.ctaUrl && (0, _v1.jsx)(_v65.Button, {
+      }), _v0.ctaUrl && (0, _v1.jsx)(_v64.Button, {
         as: "a",
         href: _v0.ctaUrl,
         target: "_blank",
@@ -898,30 +894,30 @@
       })]
     })]
   });
-  function _v71({
+  function _v70({
     announcement: _v0
   }) {
     let _v1 = _v0.imageUrl,
       _v2 = _v0.clipId && _v0.clipEmbedUrl;
     return (0, _v1.jsx)(_v1.Fragment, {
-      children: _v1 ? (0, _v1.jsx)(_v72, {
+      children: _v1 ? (0, _v1.jsx)(_v71, {
         title: _v0.title,
         imageUrl: _v0.imageUrl
-      }) : _v2 ? (0, _v1.jsx)(_v73, {
+      }) : _v2 ? (0, _v1.jsx)(_v72, {
         title: _v0.title,
         clipEmbedUrl: _v0.clipEmbedUrl
       }) : null
     });
   }
-  function _v72({
+  function _v71({
     title: _v0,
     imageUrl: _v1
   }) {
-    return (0, _v1.jsx)(_v16.Box, {
+    return (0, _v1.jsx)(_v15.Box, {
       position: "relative",
       width: "100%",
       paddingBottom: "56.25%",
-      children: (0, _v1.jsx)(_v67.Image, {
+      children: (0, _v1.jsx)(_v66.Image, {
         src: _v1,
         alt: _v0,
         borderRadius: "lg",
@@ -934,7 +930,7 @@
       })
     });
   }
-  function _v73({
+  function _v72({
     title: _v0,
     clipEmbedUrl: _v1
   }) {
@@ -942,7 +938,7 @@
       aspectRatio: 16 / 9,
       borderRadius: (0, _v6.rem)(12),
       overflow: "hidden",
-      children: (0, _v1.jsx)(_v69.EmbedPlayer, {
+      children: (0, _v1.jsx)(_v68.EmbedPlayer, {
         title: _v0,
         src: _v1,
         style: {
@@ -959,44 +955,44 @@
       })
     });
   }
-  var _v74 = _v0.i(0),
+  var _v73 = _v0.i(0),
+    _v74 = _v0.i(0),
     _v75 = _v0.i(0),
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
     _v78 = _v0.i(0),
-    _v79 = _v0.i(0),
-    _v80 = _v0.i(0);
-  let _v81 = (_v0, _v1) => {
+    _v79 = _v0.i(0);
+  let _v80 = (_v0, _v1) => {
       let {
           actionContextOverrides: _v2,
           productAnalyticsContextOverrides: _v3,
           webContextOverrides: _v4
         } = _v1 || {},
-        _v5 = (0, _v77.buildActionBpContext)({
+        _v5 = (0, _v76.buildActionBpContext)({
           action_type: _v2?.action_type || "click",
           feature: _v2?.feature || null
         }),
-        _v6 = (0, _v80.buildThirdPartyIntegrationBpContext)({
+        _v6 = (0, _v79.buildThirdPartyIntegrationBpContext)({
           integration_id: null,
           integration_name: null,
           is_partner: !1
         }),
-        _v7 = (0, _v76.buildProductAnalyticsBpContext)({
+        _v7 = (0, _v75.buildProductAnalyticsBpContext)({
           entity_type: _v3?.entity_type || "modal",
           element: _v3?.element || "button",
           feature: _v3?.feature || "whats_new",
           location: _v3?.location || "modal",
           product: _v3?.product || "web_onboarding",
           copy: _v3?.copy || null,
-          device_type: (0, _v75.default)(),
+          device_type: (0, _v74.default)(),
           scrolling_percentage: _v3?.scrolling_percentage || null,
           modal_name: _v3?.modal_name || "whats_new_modal"
         }),
-        _v8 = (0, _v79.buildWebBpContext)({
+        _v8 = (0, _v78.buildWebBpContext)({
           page_name: _v4?.page_name || "changelog",
           path: (_v4?.path, window.location.pathname)
         }),
-        _v9 = (0, _v78.buildTeamBpContextFromTeamUser)(_v0?.teamUser);
+        _v9 = (0, _v77.buildTeamBpContextFromTeamUser)(_v0?.teamUser);
       return {
         ..._v5,
         ..._v7,
@@ -1005,7 +1001,7 @@
         ..._v6
       };
     },
-    _v82 = _v0 => {
+    _v81 = _v0 => {
       if (_v0.current) {
         let _v0 = _v0.current.scrollHeight,
           _v1 = _v0.current.clientHeight,
@@ -1014,7 +1010,7 @@
       }
       return 0;
     };
-  function _v83({
+  function _v82({
     announcement: _v0,
     viewer: _v1,
     scrollRoot: _v2,
@@ -1028,15 +1024,15 @@
         trackWhatsNewModalSecondaryCtaClicked: _v8,
         trackWhatsNewModalAnnouncementScrolledTo: _v9,
         trackWhatsNewModalAnnouncementRead: _v10
-      } = _v63(),
+      } = _v62(),
       _v11 = (0, _v2.useRef)(!1),
-      _v12 = (0, _v64.useOnScreen)(_v5, {
+      _v12 = (0, _v63.useOnScreen)(_v5, {
         root: _v2.current,
         threshold: .5
       }),
       _v13 = (0, _v2.useRef)(!1),
       _v14 = (0, _v2.useRef)(!1),
-      _v15 = (0, _v64.useOnScreen)(_v6, {
+      _v15 = (0, _v63.useOnScreen)(_v6, {
         root: _v2.current,
         threshold: 0
       });
@@ -1046,18 +1042,18 @@
       if (_v12 && !_v11.current) {
         var _v0, _v1;
         let _v0;
-        _v0 = _v81(_v1, {
+        _v0 = _v80(_v1, {
           productAnalyticsContextOverrides: {
-            scrolling_percentage: _v82(_v2)
+            scrolling_percentage: _v81(_v2)
           }
         }), _v1 = {
           feature_name: _v0.name,
           publish_date: _v0.startDate,
           release_type: _v0.announcementType,
           announcement_header: _v0.title
-        }, _v0 = new _v74.Event("vimeo.announcement_impression", 3, _v1), _v74.BigPictureClient.sendEventWithContexts(_v0, {
+        }, _v0 = new _v73.Event("vimeo.announcement_impression", 3, _v1), _v73.BigPictureClient.sendEventWithContexts(_v0, {
           ..._v0,
-          view_context: new _v74.EventContext("view_context", 7, {
+          view_context: new _v73.EventContext("view_context", 7, {
             view_type: "impression",
             is_empty_state: !1,
             feature: null
@@ -1079,25 +1075,25 @@
       }, 0);
       return () => clearTimeout(_v0);
     }, [_v15, _v3, _v0, _v10]);
-    let _v16 = (0, _v2.useMemo)(() => _v81(_v1, {
+    let _v16 = (0, _v2.useMemo)(() => _v80(_v1, {
         productAnalyticsContextOverrides: {
           location: "modal",
           copy: _v0.ctaText,
-          scrolling_percentage: _v82(_v2)
+          scrolling_percentage: _v81(_v2)
         }
       }), [_v1, _v0.ctaText, _v2]),
-      _v17 = (0, _v2.useMemo)(() => _v81(_v1, {
+      _v17 = (0, _v2.useMemo)(() => _v80(_v1, {
         productAnalyticsContextOverrides: {
           location: "modal",
           copy: "Learn more",
-          scrolling_percentage: _v82(_v2)
+          scrolling_percentage: _v81(_v2)
         }
       }), [_v1, _v2]);
-    return (0, _v1.jsx)(_v61.Card, {
+    return (0, _v1.jsx)(_v60.Card, {
       borderRadius: "none",
       boxShadow: "none",
       ref: _v5,
-      children: (0, _v1.jsx)(_v70, {
+      children: (0, _v1.jsx)(_v69, {
         announcement: _v0,
         onPrimaryCtaClick: () => {
           var _v0;
@@ -1107,7 +1103,7 @@
             publish_date: _v0.startDate,
             release_type: _v0.announcementType,
             announcemnt_header: _v0.title
-          }, _v1 = new _v74.Event("vimeo.select_primary_cta", 1, _v0), _v74.BigPictureClient.sendEventWithContexts(_v1, _v16), _v7({
+          }, _v1 = new _v73.Event("vimeo.select_primary_cta", 1, _v0), _v73.BigPictureClient.sendEventWithContexts(_v1, _v16), _v7({
             whatsNewModalAnnouncementName: _v0.name,
             whatsNewModalAnnouncementTitle: _v0.title,
             whatsNewModalButtonUrl: _v0.ctaUrl ?? null
@@ -1121,7 +1117,7 @@
             publish_date: _v0.startDate,
             release_type: _v0.announcementType,
             announcemnt_header: _v0.title
-          }, _v1 = new _v74.Event("vimeo.select_secondery_cta", 1, _v0), _v74.BigPictureClient.sendEventWithContexts(_v1, _v17), _v8({
+          }, _v1 = new _v73.Event("vimeo.select_secondery_cta", 1, _v0), _v73.BigPictureClient.sendEventWithContexts(_v1, _v17), _v8({
             whatsNewModalAnnouncementName: _v0.name,
             whatsNewModalAnnouncementTitle: _v0.title,
             whatsNewModalButtonUrl: _v0.blogPostUrl ?? null
@@ -1132,34 +1128,34 @@
       })
     });
   }
-  let _v84 = ({
+  let _v83 = ({
     isLoadingMore: _v0,
     onLoadMore: _v1,
     rootRef: _v2
   }) => {
     let _v3 = (0, _v2.useRef)(null),
-      _v4 = (0, _v64.useOnScreen)(_v3, {
+      _v4 = (0, _v63.useOnScreen)(_v3, {
         root: _v2?.current,
         threshold: .1
       });
     return (0, _v2.useEffect)(() => {
       _v4 && !_v0 && _v1();
-    }, [_v0, _v4, _v1]), (0, _v1.jsx)(_v61.Card, {
+    }, [_v0, _v4, _v1]), (0, _v1.jsx)(_v60.Card, {
       padding: "6",
       borderRadius: "none",
       boxShadow: "none",
       ref: _v3,
-      children: (0, _v1.jsx)(_v60.Skeleton, {
+      children: (0, _v1.jsx)(_v59.Skeleton, {
         width: "100%",
         aspectRatio: "16/9"
       })
     }, "skeleton");
   };
-  function _v85({
+  function _v84({
     isOpen: _v0,
     onClose: _v1
   }) {
-    let _v2 = (0, _v20.useViewer)(),
+    let _v2 = (0, _v19.useViewer)(),
       {
         isLoadingMore: _v3,
         isDone: _v4,
@@ -1179,7 +1175,7 @@
       }
     }, [_v0]);
     let _v10 = (0, _v2.useMemo)(() => 0 === _v8.length ? null : new Date(_v8[0].releaseDate), [_v8]),
-      _v11 = (0, _v2.useMemo)(() => _v81(_v2 ?? void 0, {
+      _v11 = (0, _v2.useMemo)(() => _v80(_v2 ?? void 0, {
         productAnalyticsContextOverrides: {
           location: "modal",
           copy: "x"
@@ -1189,24 +1185,24 @@
         if (_v9.current && (_v9.current.scrollHeight && _v9.current.clientHeight ? _v9.current.scrollHeight - _v9.current.clientHeight : 0) > 0) {
           var _v0;
           let _v0;
-          _v0 = _v81(_v2 ?? void 0, {
+          _v0 = _v80(_v2 ?? void 0, {
             productAnalyticsContextOverrides: {
               location: "modal",
               copy: null,
-              scrolling_percentage: _v82(_v9)
+              scrolling_percentage: _v81(_v9)
             },
             actionContextOverrides: {
               action_type: "scroll"
             }
-          }), _v0 = new _v74.Event("vimeo.scroll_in_modal", 1, {
+          }), _v0 = new _v73.Event("vimeo.scroll_in_modal", 1, {
             announcemnt_header: null,
             publish_date: null,
             release_type: null,
             feature_name: null
-          }), _v74.BigPictureClient.sendEventWithContexts(_v0, _v0);
+          }), _v73.BigPictureClient.sendEventWithContexts(_v0, _v0);
         }
       }, [_v9, _v2]),
-      _v13 = (0, _v2.useMemo)(() => (0, _v51.default)(() => _v12(), 100), [_v12]);
+      _v13 = (0, _v2.useMemo)(() => (0, _v50.default)(() => _v12(), 100), [_v12]);
     return (0, _v2.useEffect)(() => {
       _v0 && _v8.length > 0 && _v10 && _v7(_v10.toISOString());
     }, [_v0, _v10, _v8, _v7]), (0, _v2.useEffect)(() => {
@@ -1217,22 +1213,22 @@
         let _v0 = `${_v0.pathname}?${_v1.toString()}`;
         window.history.replaceState(null, "", _v0);
       }
-    }, [_v0]), (0, _v1.jsxs)(_v52.Modal, {
+    }, [_v0]), (0, _v1.jsxs)(_v51.Modal, {
       isOpen: _v0,
       onClose: () => {
         let _v0;
-        _v1(), _v0 = new _v74.Event("vimeo.dismiss_modal", 1, {
+        _v1(), _v0 = new _v73.Event("vimeo.dismiss_modal", 1, {
           announcemnt_header: null,
           publish_date: null,
           release_type: null,
           feature_name: null
-        }), _v74.BigPictureClient.sendEventWithContexts(_v0, _v11);
+        }), _v73.BigPictureClient.sendEventWithContexts(_v0, _v11);
       },
       scrollBehavior: "inside",
-      children: [(0, _v1.jsx)(_v53.ModalOverlay, {}), (0, _v1.jsxs)(_v54.ModalContent, {
+      children: [(0, _v1.jsx)(_v52.ModalOverlay, {}), (0, _v1.jsxs)(_v53.ModalContent, {
         maxWidth: (0, _v6.rem)(660),
         maxHeight: (0, _v6.rem)(560),
-        children: [(0, _v1.jsx)(_v55.ModalHeader, {
+        children: [(0, _v1.jsx)(_v54.ModalHeader, {
           children: (0, _v12.translate)({
             singular: "What's new",
             dictionary: {
@@ -1259,38 +1255,38 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v58.ModalCloseButton, {}), (0, _v1.jsx)(_v56.ModalBody, {
+        }), (0, _v1.jsx)(_v57.ModalCloseButton, {}), (0, _v1.jsx)(_v55.ModalBody, {
           ref: _v9,
           onScroll: _v13,
-          children: (0, _v1.jsxs)(_v59.Stack, {
+          children: (0, _v1.jsxs)(_v58.Stack, {
             gap: "0",
-            children: [0 === _v8.length && (0, _v1.jsx)(_v60.Skeleton, {
+            children: [0 === _v8.length && (0, _v1.jsx)(_v59.Skeleton, {
               width: (0, _v6.rem)(660),
               aspectRatio: "16/9"
-            }), _v8.map((_v0, _v1) => (0, _v1.jsx)(_v83, {
+            }), _v8.map((_v0, _v1) => (0, _v1.jsx)(_v82, {
               announcement: _v0,
               viewer: _v2 ?? void 0,
               scrollRoot: _v9,
               isModalOpen: _v0,
               isFirst: 0 === _v1
-            }, _v1)), !_v4 && _v8.length > 0 && (0, _v1.jsx)(_v84, {
+            }, _v1)), !_v4 && _v8.length > 0 && (0, _v1.jsx)(_v83, {
               isLoadingMore: _v3,
               onLoadMore: () => _v6(_v5 + 1),
               rootRef: _v9
             })]
           })
-        }), (0, _v1.jsx)(_v57.ModalFooter, {})]
+        }), (0, _v1.jsx)(_v56.ModalFooter, {})]
       })]
     });
   }
-  let _v86 = ({
+  let _v85 = ({
     count: _v0,
     showPlus: _v1
-  }) => (0, _v1.jsxs)(_v16.Box, {
+  }) => (0, _v1.jsxs)(_v15.Box, {
     as: "span",
     display: "inline-flex",
     alignItems: "center",
-    children: [_v0, _v1 && (0, _v1.jsx)(_v16.Box, {
+    children: [_v0, _v1 && (0, _v1.jsx)(_v15.Box, {
       as: "span",
       display: "inline-flex",
       alignItems: "center",
@@ -1298,187 +1294,69 @@
       children: "+"
     })]
   });
-  var _v87 = _v0.i(0);
-  let _v88 = ({
-    variant: _v0 = "full"
-  }) => {
-    let _v1 = (0, _v20.useViewer)(),
-      {
-        settings: _v2
-      } = (0, _v13.useOrionSettings)(),
-      _v3 = _v81(_v1, {
-        productAnalyticsContextOverrides: {
-          copy: "whats new",
-          location: "side_nav"
-        },
-        webContextOverrides: {
-          page_name: "logged_in_home_page"
-        }
-      }),
-      {
-        trackWhatsNewModalOpened: _v4
-      } = _v63(),
-      _v5 = new URLSearchParams(window.location.search).get("changelog"),
-      _v6 = (0, _v2.useRef)(_v5),
-      [_v7, _v8] = (0, _v2.useState)("true" === _v5),
-      {
-        newAnnouncementsCount: _v9,
-        isLoading: _v10
-      } = (0, _v8.useChangelog)();
-    (0, _v87.usePicoEffect)(() => {
-      "true" === _v6.current && _v4({
-        whatsNewModalOpenedManually: !1
-      });
-    }, [], {
-      once: !0
-    });
-    let _v11 = (0, _v40.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
-      _v12 = !!_v9 && parseInt(_v9.count) > 0,
-      _v13 = () => {
-        _v8(!0), (({
-          contexts: _v0
-        }) => {
-          let _v1 = new _v74.Event("vimeo.content_navigation", -1, {});
-          _v74.BigPictureClient.sendEventWithContexts(_v1, _v0);
-        })({
-          contexts: _v3
-        }), _v4({
-          whatsNewModalOpenedManually: !0
-        });
-      },
-      _v14 = _v0 => {
-        ("Enter" === _v0.key || " " === _v0.key) && (_v0.preventDefault(), _v13());
-      },
-      _v15 = () => {
-        let _v0 = new URLSearchParams(window.location.search);
-        _v0.delete("changelog");
-        let _v1 = _v0.toString(),
-          _v2 = _v1 ? `${window.location.pathname}?${_v1}` : window.location.pathname;
-        window.history.replaceState(null, "", _v2), _v8(!1);
-      };
-    return _v10 ? (0, _v1.jsx)(_v9.LoadingBlock, {
-      style: {
-        borderRadius: (0, _v6.rem)(10),
-        height: (0, _v6.rem)(28),
-        marginBottom: (0, _v6.rem)(20),
-        width: "icons" === _v0 ? (0, _v6.rem)(28) : "50%"
-      }
-    }) : "icons" === _v0 ? (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v5.Tooltip, {
-        label: (0, _v12.translate)({
-          singular: "What's new",
-          dictionary: {
-            es: {
-              singular: "Novedades"
-            },
-            "de-DE": {
-              singular: "Was gibt es Neues?"
-            },
-            "fr-FR": {
-              singular: "Quoi de neuf ?"
-            },
-            "ja-JP": {
-              singular: "新着情報"
-            },
-            "ko-KR": {
-              singular: "새로운 기능"
-            },
-            "pt-BR": {
-              singular: "Novidades"
-            },
-            "zh-CN": {
-              singular: "新增内容"
-            }
+  var _v86 = _v0.i(0);
+  let _v87 = () => () => void 0,
+    _v88 = () => new URLSearchParams(window.location.search).get("changelog"),
+    _v89 = ({
+      variant: _v0 = "full"
+    }) => {
+      let _v1 = _v80((0, _v19.useViewer)(), {
+          productAnalyticsContextOverrides: {
+            copy: "whats new",
+            location: "side_nav"
+          },
+          webContextOverrides: {
+            page_name: "logged_in_home_page"
           }
         }),
-        placement: "right",
-        children: (0, _v1.jsxs)(_v16.Box, {
-          position: "relative",
-          width: "max-content",
-          children: [(0, _v1.jsx)(_v4.IconButton, {
-            "aria-label": (0, _v12.translate)({
-              singular: "What's new",
-              dictionary: {
-                es: {
-                  singular: "Novedades"
-                },
-                "de-DE": {
-                  singular: "Was gibt es Neues?"
-                },
-                "fr-FR": {
-                  singular: "Quoi de neuf ?"
-                },
-                "ja-JP": {
-                  singular: "新着情報"
-                },
-                "ko-KR": {
-                  singular: "새로운 기능"
-                },
-                "pt-BR": {
-                  singular: "Novidades"
-                },
-                "zh-CN": {
-                  singular: "新增内容"
-                }
-              }
-            }),
-            icon: (0, _v1.jsx)(_v50, {}),
-            variant: "tertiary",
-            size: "md",
-            fontSize: (0, _v6.rem)(24),
-            sx: {
-              "> svg": {
-                width: (0, _v6.rem)(24),
-                height: (0, _v6.rem)(24)
-              }
-            },
-            onClick: _v13,
-            onKeyDown: _v14,
-            "aria-haspopup": "dialog",
-            "aria-expanded": _v7
-          }), _v12 && (0, _v1.jsx)(_v49.Badge, {
-            variant: "new",
-            size: "sm",
-            borderRadius: "full",
-            position: "absolute",
-            top: (0, _v6.rem)(-2),
-            right: (0, _v6.rem)(-2),
-            minWidth: (0, _v6.rem)(16),
-            height: (0, _v6.rem)(16),
-            textAlign: "center",
-            children: (0, _v1.jsx)(_v86, {
-              count: _v9.count,
-              showPlus: _v9.showPlus
-            })
-          })]
-        })
-      }), (0, _v1.jsx)(_v85, {
-        isOpen: _v7,
-        onClose: _v15
-      })]
-    }) : (0, _v1.jsxs)(_v3.Flex, {
-      flexDirection: "column",
-      gap: 10,
-      marginTop: -10,
-      children: [(0, _v1.jsxs)(_v3.Flex, {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        _hover: {
-          backgroundColor: _v11,
-          cursor: "pointer"
+        {
+          trackWhatsNewModalOpened: _v2
+        } = _v62(),
+        [_v3, _v4] = (0, _v2.useState)(!1),
+        _v5 = (0, _v2.useSyncExternalStore)(_v87, _v88, () => null),
+        {
+          newAnnouncementsCount: _v6,
+          isLoading: _v7
+        } = (0, _v8.useChangelog)(),
+        _v8 = _v3 || "true" === _v5;
+      (0, _v86.usePicoEffect)(() => "true" === _v5 && (_v2({
+        whatsNewModalOpenedManually: !1
+      }), !0), [_v5], {
+        once: !0
+      });
+      let _v9 = (0, _v39.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
+        _v10 = !!_v6 && parseInt(_v6.count) > 0,
+        _v11 = () => {
+          _v4(!0), (({
+            contexts: _v0
+          }) => {
+            let _v1 = new _v73.Event("vimeo.content_navigation", -1, {});
+            _v73.BigPictureClient.sendEventWithContexts(_v1, _v0);
+          })({
+            contexts: _v1
+          }), _v2({
+            whatsNewModalOpenedManually: !0
+          });
         },
-        borderRadius: "input-sm",
-        paddingRight: 3,
-        onClick: _v13,
-        onKeyDown: _v14,
-        "aria-haspopup": "dialog",
-        "aria-expanded": _v7,
-        children: [(0, _v1.jsx)(_v48.MenuItem, {
-          icon: (0, _v1.jsx)(_v50, {
-            boxSize: "lg"
-          }),
-          iconSize: "1.5rem",
+        _v12 = _v0 => {
+          ("Enter" === _v0.key || " " === _v0.key) && (_v0.preventDefault(), _v11());
+        },
+        _v13 = () => {
+          let _v0 = new URLSearchParams(window.location.search);
+          _v0.delete("changelog");
+          let _v1 = _v0.toString(),
+            _v2 = _v1 ? `${window.location.pathname}?${_v1}` : window.location.pathname;
+          window.history.replaceState(null, "", _v2), _v4(!1);
+        };
+      return _v7 ? (0, _v1.jsx)(_v9.LoadingBlock, {
+        style: {
+          borderRadius: (0, _v6.rem)(10),
+          height: (0, _v6.rem)(28),
+          marginBottom: (0, _v6.rem)(20),
+          width: "icons" === _v0 ? (0, _v6.rem)(28) : "50%"
+        }
+      }) : "icons" === _v0 ? (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsx)(_v5.Tooltip, {
           label: (0, _v12.translate)({
             singular: "What's new",
             dictionary: {
@@ -1505,26 +1383,140 @@
               }
             }
           }),
-          dataId: "side_nav_whats_new_menu_item",
-          hoverBackgroundColor: "none"
-        }), _v12 && (0, _v1.jsx)(_v49.Badge, {
-          variant: "new",
-          size: "sm",
-          borderRadius: "full",
-          minWidth: (0, _v6.rem)(20),
-          height: (0, _v6.rem)(20),
-          textAlign: "center",
-          children: (0, _v1.jsx)(_v86, {
-            count: _v9.count,
-            showPlus: _v9.showPlus
+          placement: "right",
+          children: (0, _v1.jsxs)(_v15.Box, {
+            position: "relative",
+            width: "max-content",
+            children: [(0, _v1.jsx)(_v4.IconButton, {
+              "aria-label": (0, _v12.translate)({
+                singular: "What's new",
+                dictionary: {
+                  es: {
+                    singular: "Novedades"
+                  },
+                  "de-DE": {
+                    singular: "Was gibt es Neues?"
+                  },
+                  "fr-FR": {
+                    singular: "Quoi de neuf ?"
+                  },
+                  "ja-JP": {
+                    singular: "新着情報"
+                  },
+                  "ko-KR": {
+                    singular: "새로운 기능"
+                  },
+                  "pt-BR": {
+                    singular: "Novidades"
+                  },
+                  "zh-CN": {
+                    singular: "新增内容"
+                  }
+                }
+              }),
+              icon: (0, _v1.jsx)(_v49, {}),
+              variant: "tertiary",
+              size: "md",
+              fontSize: (0, _v6.rem)(24),
+              sx: {
+                "> svg": {
+                  width: (0, _v6.rem)(24),
+                  height: (0, _v6.rem)(24)
+                }
+              },
+              onClick: _v11,
+              onKeyDown: _v12,
+              "aria-haspopup": "dialog",
+              "aria-expanded": _v8
+            }), _v10 && (0, _v1.jsx)(_v48.Badge, {
+              variant: "new",
+              size: "sm",
+              borderRadius: "full",
+              position: "absolute",
+              top: (0, _v6.rem)(-2),
+              right: (0, _v6.rem)(-2),
+              minWidth: (0, _v6.rem)(16),
+              height: (0, _v6.rem)(16),
+              textAlign: "center",
+              children: (0, _v1.jsx)(_v85, {
+                count: _v6.count,
+                showPlus: _v6.showPlus
+              })
+            })]
           })
+        }), (0, _v1.jsx)(_v84, {
+          isOpen: _v8,
+          onClose: _v13
         })]
-      }), !_v2.enable_new_sidebar && (0, _v1.jsx)(_v10.ResizableSideNav.Divider, {}), (0, _v1.jsx)(_v85, {
-        isOpen: _v7,
-        onClose: _v15
-      })]
-    });
-  };
+      }) : (0, _v1.jsxs)(_v3.Flex, {
+        flexDirection: "column",
+        gap: 10,
+        marginTop: -10,
+        children: [(0, _v1.jsxs)(_v3.Flex, {
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          _hover: {
+            backgroundColor: _v9,
+            cursor: "pointer"
+          },
+          borderRadius: "input-sm",
+          paddingRight: 3,
+          onClick: _v11,
+          onKeyDown: _v12,
+          "aria-haspopup": "dialog",
+          "aria-expanded": _v8,
+          children: [(0, _v1.jsx)(_v47.MenuItem, {
+            icon: (0, _v1.jsx)(_v49, {
+              boxSize: "lg"
+            }),
+            iconSize: "1.5rem",
+            label: (0, _v12.translate)({
+              singular: "What's new",
+              dictionary: {
+                es: {
+                  singular: "Novedades"
+                },
+                "de-DE": {
+                  singular: "Was gibt es Neues?"
+                },
+                "fr-FR": {
+                  singular: "Quoi de neuf ?"
+                },
+                "ja-JP": {
+                  singular: "新着情報"
+                },
+                "ko-KR": {
+                  singular: "새로운 기능"
+                },
+                "pt-BR": {
+                  singular: "Novidades"
+                },
+                "zh-CN": {
+                  singular: "新增内容"
+                }
+              }
+            }),
+            dataId: "side_nav_whats_new_menu_item",
+            hoverBackgroundColor: "none"
+          }), _v10 && (0, _v1.jsx)(_v48.Badge, {
+            variant: "new",
+            size: "sm",
+            borderRadius: "full",
+            minWidth: (0, _v6.rem)(20),
+            height: (0, _v6.rem)(20),
+            textAlign: "center",
+            children: (0, _v1.jsx)(_v85, {
+              count: _v6.count,
+              showPlus: _v6.showPlus
+            })
+          })]
+        }), (0, _v1.jsx)(_v84, {
+          isOpen: _v8,
+          onClose: _v13
+        })]
+      });
+    };
   _v0.s(["SideNavFooter", 0, ({
     variant: _v0,
     isMobile: _v1,
@@ -1535,31 +1527,28 @@
     quota: _v6,
     onUpgradeClick: _v7
   }) => {
-    let _v8 = (0, _v2.useContext)(_v47.ViewerContext),
+    let _v8 = (0, _v2.useContext)(_v46.ViewerContext),
       {
         trackSidebarNavClicked: _v9
-      } = (0, _v15.useWatchTracking)(),
+      } = (0, _v14.useWatchTracking)(),
       {
-        settings: _v10
-      } = (0, _v13.useOrionSettings)(),
-      {
-        capabilities: _v11,
-        loading: _v12
+        capabilities: _v10,
+        loading: _v11
       } = (0, _v11.useCapability)(["hasSimplifiedEnterpriseAccount"]),
       {
-        capabilities: _v13
+        capabilities: _v12
       } = (0, _v11.useCapability)(["hasWatchButton"], _v8?.teamUser?.ownerId),
-      _v14 = _v8?.isSimplifiedSite ?? !1,
-      _v15 = !!(_v2 && !_v8?.isEnterpriseSite && !_v14 && !_v11?.hasSimplifiedEnterpriseAccount && _v13.hasWatchButton),
-      _v16 = _v5 || _v4 && !!_v6.uploadQuota,
-      _v17 = _v10.enable_new_sidebar && _v3 && !_v16,
-      _v18 = () => {
+      _v13 = _v8?.isSimplifiedSite ?? !1,
+      _v14 = !!(_v2 && !_v8?.isEnterpriseSite && !_v13 && !_v10?.hasSimplifiedEnterpriseAccount && _v12.hasWatchButton),
+      _v15 = _v5 || _v4 && !!_v6.uploadQuota,
+      _v16 = _v3 && !_v15,
+      _v17 = () => {
         _v9({
           sidebarNavDestination: "watch",
-          sidebarNavContext: (0, _v14.deriveCanonicalPage)(new URL(window.location.href), {
+          sidebarNavContext: (0, _v13.deriveCanonicalPage)(new URL(window.location.href), {
             is_team_user: _v8?.user?.isTeamUser ?? !1
           }),
-          version: _v10.enable_new_sidebar ? "2" : "1"
+          version: "2"
         });
       };
     return "icons" === _v0 ? (0, _v1.jsxs)(_v3.Flex, {
@@ -1568,7 +1557,7 @@
       gap: 12,
       padding: "0.5rem",
       paddingBottom: 0,
-      children: [_v15 && !_v12 && (0, _v1.jsx)(_v5.Tooltip, {
+      children: [_v14 && !_v11 && (0, _v1.jsx)(_v5.Tooltip, {
         label: (0, _v12.translate)({
           singular: "Watch",
           dictionary: {
@@ -1599,7 +1588,7 @@
         children: (0, _v1.jsx)(_v4.IconButton, {
           as: "a",
           href: "/watch",
-          onClick: _v18,
+          onClick: _v17,
           "aria-label": (0, _v12.translate)({
             singular: "Watch",
             dictionary: {
@@ -1638,7 +1627,7 @@
           }
         })
       }), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
-        children: (0, _v1.jsx)(_v88, {
+        children: (0, _v1.jsx)(_v89, {
           variant: "icons"
         })
       }), _v5 ? (0, _v1.jsx)(_v9.LoadingBlock, {
@@ -1647,7 +1636,7 @@
           height: (0, _v6.rem)(40),
           width: (0, _v6.rem)(40)
         }
-      }) : _v4 && _v6.uploadQuota ? (0, _v1.jsx)(_v46, {
+      }) : _v4 && _v6.uploadQuota ? (0, _v1.jsx)(_v45, {
         isMobile: _v1,
         uploadQuota: _v6.uploadQuota,
         aiCreditsQuota: _v6.aiCreditsQuota,
@@ -1658,8 +1647,8 @@
       direction: "column",
       gap: (0, _v6.rem)(16),
       padding: "1rem",
-      paddingBottom: _v4 ? "1rem" : _v17 ? (0, _v6.rem)(10) : 0,
-      children: [_v15 && (_v12 ? (0, _v1.jsx)(_v9.LoadingBlock, {
+      paddingBottom: _v4 ? "1rem" : _v16 ? (0, _v6.rem)(10) : 0,
+      children: [_v14 && (_v11 ? (0, _v1.jsx)(_v9.LoadingBlock, {
         style: {
           borderRadius: (0, _v6.rem)(10),
           height: (0, _v6.rem)(28),
@@ -1669,7 +1658,7 @@
       }) : (0, _v1.jsxs)(_v3.Flex, {
         flexDirection: "column",
         gap: 10,
-        children: [(0, _v1.jsx)(_v48.MenuItem, {
+        children: [(0, _v1.jsx)(_v47.MenuItem, {
           icon: (0, _v1.jsx)(_v7.WatchPlay, {}),
           iconSize: (0, _v6.rem)(24),
           label: (0, _v12.translate)({
@@ -1700,16 +1689,16 @@
           }),
           href: "/watch",
           "data-id": "side_nav_watch_menu_item",
-          onClick: _v18
+          onClick: _v17
         }), (0, _v1.jsx)(_v10.ResizableSideNav.Divider, {})]
       })), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
-        children: (0, _v1.jsx)(_v88, {})
+        children: (0, _v1.jsx)(_v89, {})
       }), _v5 ? (0, _v1.jsx)(_v9.LoadingBlock, {
         style: {
           borderRadius: (0, _v6.rem)(10),
           height: (0, _v6.rem)(60)
         }
-      }) : _v4 && _v6.uploadQuota && (0, _v1.jsx)(_v38, {
+      }) : _v4 && _v6.uploadQuota && (0, _v1.jsx)(_v37, {
         isMobile: _v1,
         onUpgradeClick: _v7,
         ..._v6,
@@ -1717,7 +1706,7 @@
         showAutoRenewBadge: !0
       })]
     });
-  }], 0), _v0.s(["CollapseDrawer", 0, _v0 => (0, _v1.jsx)(_v41.Icon, {
+  }], 0), _v0.s(["CollapseDrawer", 0, _v0 => (0, _v1.jsx)(_v40.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -1731,7 +1720,7 @@
         d: "M7 3a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4H7Zm10 2h-7v14h7a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2ZM7 5h1v14H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
       })]
     })
-  })], 0), _v0.s(["ExpandDrawer", 0, _v0 => (0, _v1.jsx)(_v41.Icon, {
+  })], 0), _v0.s(["ExpandDrawer", 0, _v0 => (0, _v1.jsx)(_v40.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",

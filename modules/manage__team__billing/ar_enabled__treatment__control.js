@@ -17,99 +17,105 @@
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  let _v18 = "ar_enabled",
-    _v19 = () => {
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0);
+  let _v19 = "ar_enabled",
+    _v20 = () => {
       let _v0,
         {
-          isEligible: _v1,
-          isAudienceMatch: _v2,
-          isTreatment: _v3,
-          isReady: _v4,
-          daysToRenewal: _v5,
-          currentTier: _v6,
-          currentPlanName: _v7,
-          endDate: _v8,
-          subscriptionId: _v9
-        } = (0, _v15.useAutoRenewEncouragementEligibility)(),
+          settings: _v1
+        } = (0, _v13.useOrionSettings)(),
         {
-          trackEligible: _v10,
-          trackDisplayed: _v11,
-          trackCtaClicked: _v12,
-          trackEnabled: _v13
-        } = (0, _v17.useAutoRenewEncouragementTracking)(),
+          isEligible: _v2,
+          isAudienceMatch: _v3,
+          isTreatment: _v4,
+          isReady: _v5,
+          daysToRenewal: _v6,
+          currentTier: _v7,
+          currentPlanName: _v8,
+          endDate: _v9,
+          subscriptionId: _v10
+        } = (0, _v16.useAutoRenewEncouragementEligibility)({
+          skipRenewalWindow: _v1.enable_auto_renew_encouragement_always
+        }),
         {
-          trackAutoRenewSwitchedOn: _v14
-        } = (0, _v13.useBillingTracking)(),
+          trackEligible: _v11,
+          trackDisplayed: _v12,
+          trackCtaClicked: _v13,
+          trackEnabled: _v14
+        } = (0, _v18.useAutoRenewEncouragementTracking)(),
         {
-          baseUrl: _v15,
-          jwt: _v16,
-          xVimeoPage: _v17,
-          locale: _v18
+          trackAutoRenewSwitchedOn: _v15
+        } = (0, _v14.useBillingTracking)(),
+        {
+          baseUrl: _v16,
+          jwt: _v17,
+          xVimeoPage: _v18,
+          locale: _v19
         } = (0, _v11.useGctlConfig)(),
         {
-          showEnableSuccessToast: _v19,
-          showEnableFailureToast: _v20
-        } = (0, _v16.useAutoRenewEncouragementEnableToasts)(),
-        [_v21, _v22] = (0, _v3.useState)(!1),
-        _v23 = _v3 ? "treatment" : "control";
+          showEnableSuccessToast: _v20,
+          showEnableFailureToast: _v21
+        } = (0, _v17.useAutoRenewEncouragementEnableToasts)(),
+        [_v22, _v23] = (0, _v3.useState)(!1),
+        _v24 = _v4 ? "treatment" : "control";
       (0, _v3.useEffect)(() => {
         let _v0 = new URL(window.location.href);
-        null != _v0.searchParams.get(_v18) && (_v19(), _v0.searchParams.delete(_v18), window.history.replaceState(window.history.state, "", _v0.toString()));
-      }, [_v19]), (0, _v14.usePicoEffect)(() => {
-        if (!_v4 || !_v2) return !1;
+        null != _v0.searchParams.get(_v19) && (_v20(), _v0.searchParams.delete(_v19), window.history.replaceState(window.history.state, "", _v0.toString()));
+      }, [_v20]), (0, _v15.usePicoEffect)(() => {
+        if (!_v5 || !_v3) return !1;
         let _v0 = {
           surface: "billing_banner",
-          variant: _v3 ? "treatment" : "control",
-          daysToRenewal: _v5,
-          tier: _v6
+          variant: _v4 ? "treatment" : "control",
+          daysToRenewal: _v6,
+          tier: _v7
         };
-        _v10(_v0), _v1 && _v11(_v0);
-      }, [_v4, _v2, _v1, _v3, _v5, _v6], {
+        _v11(_v0), _v2 && _v12(_v0);
+      }, [_v5, _v3, _v2, _v4, _v6, _v7], {
         once: !0
       });
-      let _v24 = (0, _v3.useCallback)(async () => {
-        if (null != _v9) {
-          _v12({
+      let _v25 = (0, _v3.useCallback)(async () => {
+        if (null != _v10) {
+          _v13({
             surface: "billing_banner",
-            variant: _v23,
-            daysToRenewal: _v5,
-            tier: _v6
-          }), _v22(!0);
+            variant: _v24,
+            daysToRenewal: _v6,
+            tier: _v7
+          }), _v23(!0);
           try {
             await (0, _v10.patchMeSubscription)({
               select: [],
               where: {
-                subscriptionId: _v9
+                subscriptionId: _v10
               },
               variables: {
                 autoRenew: !0
               },
-              baseUrl: _v15,
+              baseUrl: _v16,
               headers: {
                 "Content-Type": "application/json",
-                Authorization: _v16 ? `jwt ${_v16}` : "",
-                "Vimeo-Page": `${_v17}`,
-                "Accept-Language": _v18 ?? "en"
+                Authorization: _v17 ? `jwt ${_v17}` : "",
+                "Vimeo-Page": `${_v18}`,
+                "Accept-Language": _v19 ?? "en"
               }
-            }), _v13({
-              surface: "billing_banner",
-              variant: _v23,
-              daysToRenewal: _v5,
-              tier: _v6
             }), _v14({
-              tier: _v6 ?? void 0,
+              surface: "billing_banner",
+              variant: _v24,
+              daysToRenewal: _v6,
+              tier: _v7
+            }), _v15({
+              tier: _v7 ?? void 0,
               periodicity: "annual"
             });
             let _v0 = new URL(window.location.href);
-            _v0.searchParams.set(_v18, "1"), setTimeout(() => window.location.assign(_v0.toString()), 0);
+            _v0.searchParams.set(_v19, "1"), setTimeout(() => window.location.assign(_v0.toString()), 0);
           } catch {
-            _v22(!1), _v20();
+            _v23(!1), _v21();
           }
         }
-      }, [_v9, _v15, _v16, _v17, _v18, _v23, _v5, _v6, _v12, _v13, _v14, _v20]);
-      if (!_v1 || null == _v8) return null;
-      let _v25 = _v7 ?? _v6 ?? "";
+      }, [_v10, _v16, _v17, _v18, _v19, _v24, _v6, _v7, _v13, _v14, _v15, _v21]);
+      if (!_v2 || null == _v9) return null;
+      let _v26 = _v8 ?? _v7 ?? "";
       return (0, _v1.jsxs)(_v5.AlertRoot, {
         backgroundColor: "status-caution-secondary",
         size: "sm",
@@ -169,10 +175,10 @@
                 }
               })
             }), " ", (0, _v12.translate)({
-              singular: "Turn it back on, or your {PLAN} plan will downgrade to Free on {DATE}.",
+              singular: "Turn it back on, or your {PLAN} plan will downgrade to Free on {DATE} and ",
               replacements: {
-                PLAN: _v25,
-                DATE: Number.isNaN(_v0 = Date.parse(_v8)) ? "" : new Date(_v0).toLocaleDateString("en-US", {
+                PLAN: _v26,
+                DATE: Number.isNaN(_v0 = Date.parse(_v9)) ? "" : new Date(_v0).toLocaleDateString("en-US", {
                   weekday: "short",
                   month: "short",
                   day: "numeric",
@@ -182,35 +188,64 @@
               },
               dictionary: {
                 es: {
-                  singular: "Vuelve a activarlo, o tu plan {PLAN} pasará a Free el {DATE}."
+                  singular: "Vuelve a activarlo, o tu plan {PLAN} se degradará a Free el {DATE} y "
                 },
                 "de-DE": {
-                  singular: "Schalten Sie die automatische Verlängerung wieder ein, sonst wird Ihr {PLAN}-Plan am {DATE} auf Free herabgestuft."
+                  singular: "Schalten Sie es wieder ein, sonst wird Ihr {PLAN}-Tarif am {DATE} auf Free herabgestuft und "
                 },
                 "fr-FR": {
-                  singular: "Réactivez-le, sinon votre forfait {PLAN} sera rétrogradé vers Free le {DATE}."
+                  singular: "Réactivez-le, sinon votre forfait {PLAN} sera rétrogradé vers Free le {DATE} et "
                 },
                 "ja-JP": {
-                  singular: "自動更新を再度オンにするか、あなたの {PLAN} プランは {DATE} に Free にダウングレードされます。"
+                  singular: "それを再び有効にしないと、お使いの{PLAN}プランは{DATE}にFreeにダウングレードされ、 "
                 },
                 "ko-KR": {
-                  singular: "다시 켜지 않으면 {DATE}에 귀하의 {PLAN} 요금제가 Free로 다운그레이드됩니다."
+                  singular: "다시 활성화하지 않으면, 귀하의 {PLAN} 요금제가 {DATE}에 Free로 다운그레이드되고 "
                 },
                 "pt-BR": {
-                  singular: "Ative-a novamente, ou seu plano {PLAN} será rebaixado para Gratuito em {DATE}."
+                  singular: "Reative-o, ou seu plano {PLAN} será rebaixado para Free em {DATE} e "
                 },
                 "zh-CN": {
-                  singular: "请重新开启，否则您的 {PLAN} 计划将于 {DATE} 降级为免费版。"
+                  singular: "请重新开启，否则您的 {PLAN} 计划将在 {DATE} 降级为 Free，并且 "
                 }
               }
+            }), (0, _v1.jsx)(_v6.Box, {
+              as: "span",
+              fontFamily: "heading",
+              children: (0, _v12.translate)({
+                singular: "some videos might be restricted.",
+                dictionary: {
+                  es: {
+                    singular: "algunos vídeos podrían estar restringidos."
+                  },
+                  "de-DE": {
+                    singular: "einige Videos könnten eingeschränkt sein."
+                  },
+                  "fr-FR": {
+                    singular: "certaines vidéos pourraient être restreintes."
+                  },
+                  "ja-JP": {
+                    singular: "一部の動画が制限される可能性があります。"
+                  },
+                  "ko-KR": {
+                    singular: "일부 동영상은 제한될 수 있습니다."
+                  },
+                  "pt-BR": {
+                    singular: "alguns vídeos podem ficar restritos."
+                  },
+                  "zh-CN": {
+                    singular: "部分视频可能会受到限制。"
+                  }
+                }
+              })
             })]
           }), (0, _v1.jsx)(_v8.Flex, {
             justifyContent: "flex-end",
             flexShrink: 0,
             children: (0, _v1.jsx)(_v7.Button, {
               size: "sm",
-              isLoading: _v21,
-              onClick: _v24,
+              isLoading: _v22,
+              onClick: _v25,
               children: (0, _v12.translate)({
                 singular: "Enable auto-renew",
                 dictionary: {
@@ -242,16 +277,15 @@
         })]
       });
     };
-  var _v20 = _v0.i(0),
-    _v21 = _v0.i(0),
+  var _v21 = _v0.i(0),
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
-    _v26 = _v0.i(0);
+    _v26 = _v0.i(0),
+    _v27 = _v0.i(0);
   _v0.i(0);
-  var _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
+  var _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
@@ -377,7 +411,7 @@
       paywallLocation: "about_plan_modal",
       paywallFeature: "billing"
     }),
-    _v84 = (0, _v25.rem)(20),
+    _v84 = (0, _v26.rem)(20),
     _v85 = "https://help.vimeo.com/hc/en-us/articles/12426259745937-How-to-customize-the-embedded-player",
     _v86 = _v0 => (0, _v1.jsx)(_v37.Link, {
       variant: "inline-secondary",
@@ -1577,10 +1611,10 @@
         children: [(0, _v1.jsx)(_v77.ModalOverlay, {}), (0, _v1.jsxs)(_v74.ModalContent, {
           maxW: {
             base: "95vw",
-            md: (0, _v25.rem)(720)
+            md: (0, _v26.rem)(720)
           },
           children: [(0, _v1.jsx)(_v76.ModalHeader, {
-            children: (0, _v1.jsx)(_v22.Header, {
+            children: (0, _v1.jsx)(_v23.Header, {
               size: "lg",
               children: _v8.title
             })
@@ -1612,10 +1646,10 @@
               }
             })
           }), (0, _v1.jsx)(_v72.ModalBody, {
-            children: (0, _v1.jsxs)(_v24.VStack, {
+            children: (0, _v1.jsxs)(_v25.VStack, {
               align: "stretch",
               spacing: 4,
-              children: [(0, _v1.jsxs)(_v23.HStack, {
+              children: [(0, _v1.jsxs)(_v24.HStack, {
                 align: "baseline",
                 spacing: 2,
                 children: [(0, _v1.jsx)(_v46.Text, {
@@ -1682,10 +1716,10 @@
               }), (0, _v1.jsx)(_v46.Text, {
                 variant: "body-md",
                 children: _v8.moveDescription
-              }), (0, _v1.jsx)(_v24.VStack, {
+              }), (0, _v1.jsx)(_v25.VStack, {
                 align: "stretch",
                 spacing: 3,
-                children: _v9.map((_v0, _v1) => (0, _v1.jsxs)(_v23.HStack, {
+                children: _v9.map((_v0, _v1) => (0, _v1.jsxs)(_v24.HStack, {
                   align: "flex-start",
                   spacing: 1,
                   children: [(0, _v1.jsx)(_v6.Box, {
@@ -1703,7 +1737,7 @@
               }), (0, _v1.jsx)(_v6.Box, {
                 as: "ul",
                 m: 0,
-                pl: (0, _v25.rem)(21),
+                pl: (0, _v26.rem)(21),
                 sx: {
                   listStyleType: "disc"
                 },
@@ -1784,7 +1818,7 @@
       active: _v3,
       size: "lg",
       content: _v1 === _v68.UserEntity.Personal ? (0, _v1.jsxs)(_v99, {
-        children: [(0, _v1.jsxs)(_v22.Header, {
+        children: [(0, _v1.jsxs)(_v23.Header, {
           as: "h4",
           size: "md",
           marginBottom: "17",
@@ -1916,7 +1950,7 @@
           })]
         })]
       }) : (0, _v1.jsxs)(_v99, {
-        children: [(0, _v1.jsxs)(_v22.Header, {
+        children: [(0, _v1.jsxs)(_v23.Header, {
           as: "h4",
           size: "md",
           marginBottom: "17",
@@ -2107,7 +2141,7 @@
     ..._v1
   }) => {
     let _v2 = (0, _v104.useLocale)();
-    return (0, _v1.jsx)(_v24.VStack, {
+    return (0, _v1.jsx)(_v25.VStack, {
       ..._v1,
       children: (0, _v1.jsxs)(_v6.Box, {
         children: [(0, _v1.jsxs)(_v46.Text, {
@@ -2132,7 +2166,7 @@
                 textStyle: "body-md",
                 children: [_v0?.resetDate && (0, _v1.jsx)(_v1.Fragment, {
                   children: _v0?.balances && _v0.balances.map((_v0, _v1) => {
-                    if (_v0.expirationDate) return (0, _v1.jsxs)(_v23.HStack, {
+                    if (_v0.expirationDate) return (0, _v1.jsxs)(_v24.HStack, {
                       gap: "4px",
                       children: [(0, _v1.jsx)(_v101, {
                         h: "16px",
@@ -2152,14 +2186,14 @@
             })]
           }) : null]
         }), (0, _v1.jsx)(_v6.Box, {
-          children: (0, _v1.jsxs)(_v23.HStack, {
+          children: (0, _v1.jsxs)(_v24.HStack, {
             children: [(0, _v1.jsx)(_v102, {}), (0, _v1.jsx)(_v46.Text, {
               variant: "heading-md",
               children: _v0?.remaining
             })]
           })
         }), "number" == typeof _v0?.remaining && _v0?.remaining <= 50 && (0, _v1.jsx)(_v6.Box, {
-          padding: `${(0, _v25.rem)(8)} 0 ${(0, _v25.rem)(8)}`,
+          padding: `${(0, _v26.rem)(8)} 0 ${(0, _v26.rem)(8)}`,
           maxWidth: "248px",
           children: (0, _v1.jsx)(_v46.Text, {
             variant: "body-sm",
@@ -2185,13 +2219,13 @@
     tier: _v6,
     billingPeriod: _v7
   }) {
-    let _v8 = (0, _v26.useIsMobile)(),
+    let _v8 = (0, _v27.useIsMobile)(),
       {
         trackBillingAction: _v9
       } = (0, _v3.useContext)(_v107.ManageTeamAnalytics),
       {
         trackAutoRenewSwitchedOn: _v10
-      } = (0, _v13.useBillingTracking)(),
+      } = (0, _v14.useBillingTracking)(),
       _v11 = (0, _v3.useRef)(!1);
     return (0, _v3.useEffect)(() => {
       _v0 && !_v11.current && (_v9({
@@ -2231,7 +2265,7 @@
             children: _v8 ? _v69.T.AutoRenewModalDisclaimerMobile(_v3) : _v69.T.AutoRenewModalDisclaimerDesktop(_v3)
           })]
         }), (0, _v1.jsx)(_v75.ModalFooter, {
-          children: (0, _v1.jsxs)(_v23.HStack, {
+          children: (0, _v1.jsxs)(_v24.HStack, {
             spacing: 3,
             justifyContent: "space-between",
             width: "100%",
@@ -2546,7 +2580,7 @@
   function _v121() {
     let {
         settings: _v0
-      } = (0, _v28.useOrionSettings)(),
+      } = (0, _v13.useOrionSettings)(),
       {
         membership: _v1
       } = (0, _v3.useContext)(_v107.ManageTeamStateCtx),
@@ -2692,23 +2726,23 @@
             children: (0, _v1.jsxs)(_v126.Stack, {
               spacing: "6",
               width: "100%",
-              maxWidth: (0, _v25.rem)(400),
+              maxWidth: (0, _v26.rem)(400),
               align: "center",
               children: [(0, _v1.jsxs)(_v8.Flex, {
-                borderRadius: (0, _v25.rem)(4),
+                borderRadius: (0, _v26.rem)(4),
                 backgroundColor: "var(--button-primary-default, var(--vimeo-colors-text-primary))",
                 color: "text-button-inverted",
                 alignItems: "center",
                 justifyContent: "center",
                 gap: "1",
-                height: (0, _v25.rem)(28),
-                minHeight: (0, _v25.rem)(28),
+                height: (0, _v26.rem)(28),
+                minHeight: (0, _v26.rem)(28),
                 paddingX: "1",
                 paddingY: "0",
                 children: [(0, _v1.jsx)(_v128.AiSparkles, {
-                  boxSize: (0, _v25.rem)(14)
+                  boxSize: (0, _v26.rem)(14)
                 }), (0, _v1.jsx)(_v46.Text, {
-                  fontSize: (0, _v25.rem)(14),
+                  fontSize: (0, _v26.rem)(14),
                   lineHeight: "1.4",
                   letterSpacing: "-0.42px",
                   fontWeight: "500",
@@ -2782,8 +2816,8 @@
                   }), (0, _v1.jsx)(_v36.Badge, {
                     variant: "upgrade",
                     size: "sm",
-                    height: (0, _v25.rem)(28),
-                    minHeight: (0, _v25.rem)(28),
+                    height: (0, _v26.rem)(28),
+                    minHeight: (0, _v26.rem)(28),
                     children: _v0
                   })]
                 }), (0, _v1.jsx)(_v46.Text, {
@@ -2833,7 +2867,7 @@
             children: (0, _v1.jsxs)(_v126.Stack, {
               spacing: "6",
               width: "100%",
-              maxWidth: (0, _v25.rem)(400),
+              maxWidth: (0, _v26.rem)(400),
               align: "center",
               children: [(0, _v1.jsx)(_v8.Flex, {
                 width: "100%",
@@ -2843,8 +2877,8 @@
                   src: _v8,
                   alt: "",
                   width: "100%",
-                  maxWidth: (0, _v25.rem)(490),
-                  maxHeight: (0, _v25.rem)(280),
+                  maxWidth: (0, _v26.rem)(490),
+                  maxHeight: (0, _v26.rem)(280),
                   objectFit: "contain"
                 })
               }), (0, _v1.jsxs)(_v126.Stack, {
@@ -2861,7 +2895,7 @@
                     paddingTop: "2px",
                     children: (0, _v1.jsx)(_v129, {
                       color: "status-positive-primary",
-                      boxSize: (0, _v25.rem)(16)
+                      boxSize: (0, _v26.rem)(16)
                     })
                   }), (0, _v1.jsx)(_v46.Text, {
                     variant: "heading-xs",
@@ -3074,7 +3108,7 @@
             children: (0, _v1.jsxs)(_v126.Stack, {
               spacing: "2",
               width: "100%",
-              maxWidth: (0, _v25.rem)(400),
+              maxWidth: (0, _v26.rem)(400),
               children: [_v5 ? (0, _v1.jsx)(_v46.Text, {
                 variant: "body-sm",
                 color: "status-negative-primary",
@@ -3917,7 +3951,7 @@
         children: [(0, _v1.jsx)(_v76.ModalHeader, {
           paddingLeft: "60px",
           paddingBottom: "12px",
-          children: (0, _v1.jsx)(_v22.Header, {
+          children: (0, _v1.jsx)(_v23.Header, {
             size: "md",
             textAlign: "left",
             children: _v0
@@ -4385,7 +4419,7 @@
           children: (0, _v1.jsxs)(_v126.Stack, {
             spacing: "1",
             align: "flex-start",
-            children: [(0, _v1.jsx)(_v22.Header, {
+            children: [(0, _v1.jsx)(_v23.Header, {
               size: "md",
               fontWeight: "500",
               letterSpacing: "-0.8px",
@@ -4570,7 +4604,7 @@
         children: (0, _v1.jsx)(_v126.Stack, {
           spacing: "1",
           align: "flex-start",
-          children: (0, _v1.jsx)(_v22.Header, {
+          children: (0, _v1.jsx)(_v23.Header, {
             size: "md",
             fontWeight: "500",
             letterSpacing: "-0.8px",
@@ -4814,7 +4848,7 @@
         children: (0, _v1.jsxs)(_v126.Stack, {
           spacing: "1",
           align: "flex-start",
-          children: [(0, _v1.jsx)(_v22.Header, {
+          children: [(0, _v1.jsx)(_v23.Header, {
             size: "md",
             fontWeight: "500",
             letterSpacing: "-0.8px",
@@ -5121,7 +5155,7 @@
         children: (0, _v1.jsxs)(_v126.Stack, {
           spacing: "1",
           align: "flex-start",
-          children: [(0, _v1.jsx)(_v22.Header, {
+          children: [(0, _v1.jsx)(_v23.Header, {
             size: "md",
             fontWeight: "500",
             letterSpacing: "-0.8px",
@@ -5293,7 +5327,7 @@
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v76.ModalHeader, {
           paddingLeft: "64px",
-          children: (0, _v1.jsx)(_v22.Header, {
+          children: (0, _v1.jsx)(_v23.Header, {
             size: "md",
             fontWeight: "500",
             letterSpacing: "-0.8px",
@@ -5773,7 +5807,7 @@
       children: (0, _v1.jsxs)(_v126.Stack, {
         spacing: "1",
         align: "flex-start",
-        children: [(0, _v1.jsx)(_v22.Header, {
+        children: [(0, _v1.jsx)(_v23.Header, {
           size: "md",
           fontWeight: "500",
           letterSpacing: "-0.8px",
@@ -6129,7 +6163,7 @@
           trackCancellationFirstVideoInterstitialDisplayed: _v39,
           trackCancellationFirstVideoActionClicked: _v40,
           trackCancellationFirstVideoSkipped: _v41
-        } = (0, _v13.useBillingTracking)(),
+        } = (0, _v14.useBillingTracking)(),
         _v42 = "none" === _v16 ? _v20 ? "lapsingSelection" : "confirm" : "survey",
         _v43 = _v15.cancellation_first_video_interstitial && !_v13,
         _v44 = !!_v4.isImpactedByGermanConsumerLaw,
@@ -7497,7 +7531,7 @@
       {
         trackCancelSubscriptionPopupDisplayed: _v9,
         trackCancelSubscriptionPopupDismissed: _v10
-      } = (0, _v13.useBillingTracking)(),
+      } = (0, _v14.useBillingTracking)(),
       [_v11, _v12] = (0, _v3.useState)(_v4),
       _v13 = _v2?.space?.unit === "video_size" ? "space" : "count",
       _v14 = _v2?.space?.max || 0,
@@ -7553,7 +7587,7 @@
         size: ["sm", "md"],
         children: [(0, _v1.jsx)(_v77.ModalOverlay, {}), (0, _v1.jsxs)(_v74.ModalContent, {
           children: [(0, _v1.jsx)(_v76.ModalHeader, {
-            children: (0, _v1.jsx)(_v22.Header, {
+            children: (0, _v1.jsx)(_v23.Header, {
               size: "md",
               children: _v69.T.CancelYourSubscription
             })
@@ -7564,7 +7598,7 @@
           }), (0, _v1.jsxs)(_v72.ModalBody, {
             paddingTop: "0",
             children: [(0, _v1.jsx)(_v172.Paragraph, {
-              fontSize: (0, _v25.rem)(14),
+              fontSize: (0, _v26.rem)(14),
               color: "text-secondary",
               marginBottom: "3",
               children: (0, _v12.translate)({
@@ -7574,7 +7608,7 @@
                   LOSE_ACCESS: (0, _v1.jsx)(_v37.Link, {
                     href: "https://help.vimeo.com/hc/en-us/articles/12425417275665-What-happens-when-I-lapse-to-the-Free-plan",
                     target: "_blank",
-                    fontSize: (0, _v25.rem)(14),
+                    fontSize: (0, _v26.rem)(14),
                     variant: "inline-secondary",
                     color: "vimeoBlue.600",
                     onClick: () => {
@@ -7634,7 +7668,7 @@
               })
             }), (0, _v1.jsxs)(_v126.Stack, {
               spacing: "300",
-              children: [(0, _v1.jsxs)(_v21.Card, {
+              children: [(0, _v1.jsxs)(_v22.Card, {
                 backgroundColor: "red.50",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -8004,7 +8038,7 @@
           trackCancelPlanButtonClicked: _v42,
           trackCancelSubscriptionPopupDisplayed: _v43,
           trackCancelSubscriptionPopupDismissed: _v44
-        } = (0, _v13.useBillingTracking)(),
+        } = (0, _v14.useBillingTracking)(),
         _v45 = (0, _v3.useRef)(!1),
         _v46 = (0, _v3.useRef)(!1),
         _v47 = new Date(_v24).toLocaleDateString(navigator.language || "en-US", {
@@ -8052,7 +8086,7 @@
               justifyContent: "space-between",
               children: [(0, _v1.jsx)(_v122.Column, {
                 justifyContent: "flex-start",
-                children: (0, _v1.jsx)(_v22.Header, {
+                children: (0, _v1.jsx)(_v23.Header, {
                   as: "h4",
                   size: "md",
                   marginBottom: "17",
@@ -8087,11 +8121,11 @@
                       justifyContent: "flex-start",
                       alignItems: "center",
                       children: [_v57 ? (0, _v1.jsx)(_v91.CloseX, {
-                        height: (0, _v25.rem)(24),
-                        width: (0, _v25.rem)(24)
+                        height: (0, _v26.rem)(24),
+                        width: (0, _v26.rem)(24)
                       }) : (0, _v1.jsx)(_v91.CloseX, {
-                        height: (0, _v25.rem)(16),
-                        width: (0, _v25.rem)(16),
+                        height: (0, _v26.rem)(16),
+                        width: (0, _v26.rem)(16),
                         color: "status-destructive-primary"
                       }), (0, _v1.jsx)(_v176.ListItemText, {
                         children: _v57 ? _v69.T.teamMemberSeats(_v12) : _v69.T.VideosPerSeatPerYear(_v40.periodic)
@@ -8102,11 +8136,11 @@
                       justifyContent: "flex-start",
                       alignItems: "center",
                       children: [_v57 ? (0, _v1.jsx)(_v91.CloseX, {
-                        height: (0, _v25.rem)(24),
-                        width: (0, _v25.rem)(24)
+                        height: (0, _v26.rem)(24),
+                        width: (0, _v26.rem)(24)
                       }) : (0, _v1.jsx)(_v91.CloseX, {
-                        height: (0, _v25.rem)(16),
-                        width: (0, _v25.rem)(16),
+                        height: (0, _v26.rem)(16),
+                        width: (0, _v26.rem)(16),
                         color: "status-destructive-primary"
                       }), (0, _v1.jsx)(_v176.ListItemText, {
                         children: _v0
@@ -8124,7 +8158,7 @@
             }), (0, _v1.jsx)(_v176.StyledSecondaryParagraph, {
               size: "3",
               style: {
-                marginTop: _v52 || _v58 ? (0, _v25.rem)(20) : 0
+                marginTop: _v52 || _v58 ? (0, _v26.rem)(20) : 0
               },
               children: _v59
             }), (0, _v1.jsx)(_v176.StyledCancelButton, {
@@ -8232,7 +8266,7 @@
   }) => {
     let {
         trackCancellationSurveyAnswered: _v4
-      } = (0, _v13.useBillingTracking)(),
+      } = (0, _v14.useBillingTracking)(),
       [_v5, _v6] = (0, _v3.useState)(null),
       [_v7, _v8] = (0, _v3.useState)(""),
       _v9 = (0, _v3.useMemo)(() => [{
@@ -8479,7 +8513,7 @@
       size: ["sm", "md"],
       children: [(0, _v1.jsx)(_v77.ModalOverlay, {}), (0, _v1.jsxs)(_v74.ModalContent, {
         children: [(0, _v1.jsxs)(_v76.ModalHeader, {
-          children: [(0, _v1.jsx)(_v22.Header, {
+          children: [(0, _v1.jsx)(_v23.Header, {
             size: "md",
             children: (0, _v12.translate)({
               singular: "Tell us why you canceled",
@@ -8507,7 +8541,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v22.Header, {
+          }), (0, _v1.jsx)(_v23.Header, {
             size: "xs",
             children: (0, _v12.translate)({
               singular: "Your feedback will help improve Vimeo",
@@ -8578,7 +8612,7 @@
             })
           }), (0, _v1.jsx)(_v179.FormLabel, {
             marginTop: "4",
-            fontSize: (0, _v25.rem)(14),
+            fontSize: (0, _v26.rem)(14),
             children: (0, _v12.translate)({
               singular: "Add more context (optional)",
               dictionary: {
@@ -8756,7 +8790,7 @@
         } = (0, _v48.useDisclosure)(),
         {
           trackBillingPageDowngradeClicked: _v8
-        } = (0, _v13.useBillingTracking)(),
+        } = (0, _v14.useBillingTracking)(),
         _v9 = (0, _v82.useGetSubscriptionPlansData)(),
         {
           data: _v10
@@ -8847,12 +8881,12 @@
         bg: "fill-surface",
         width: {
           base: "100%",
-          lg: (0, _v25.rem)(300)
+          lg: (0, _v26.rem)(300)
         },
         flexShrink: 0,
         alignSelf: "stretch",
         flexDirection: "column",
-        children: [(0, _v1.jsx)(_v22.Header, {
+        children: [(0, _v1.jsx)(_v23.Header, {
           as: "h2",
           size: "md",
           children: _v11.name
@@ -8918,7 +8952,7 @@
               }
             })]
           })]
-        }), (0, _v1.jsxs)(_v24.VStack, {
+        }), (0, _v1.jsxs)(_v25.VStack, {
           align: "flex-start",
           spacing: 3,
           mt: 5,
@@ -9101,7 +9135,7 @@
         _v15 = function () {
           let {
             settings: _v0
-          } = (0, _v28.useOrionSettings)();
+          } = (0, _v13.useOrionSettings)();
           return "rp_2026_high" === ("null" !== _v0.campaign_id_override_top_priority ? _v0.campaign_id_override_top_priority : _v0.campaign_id_override) ? "high" : "low";
         }(),
         _v16 = _v6?.productName?.toLowerCase().replace("vimeo ", ""),
@@ -9188,7 +9222,7 @@
           trackCancelSubscriptionDowngradeModalDisplayed: _v31,
           trackCancelSubscriptionDowngradeClicked: _v32,
           trackCancelSubscriptionDowngradeSkipped: _v33
-        } = (0, _v13.useBillingTracking)(),
+        } = (0, _v14.useBillingTracking)(),
         {
           trackUserScheduledDowngrade: _v34,
           trackDowngradeFailed: _v35
@@ -9531,7 +9565,7 @@
               onClick: _v3
             }), (0, _v1.jsxs)(_v72.ModalBody, {
               p: 0,
-              children: [(0, _v1.jsx)(_v22.Header, {
+              children: [(0, _v1.jsx)(_v23.Header, {
                 size: "md",
                 paddingLeft: "48px",
                 children: (0, _v12.translate)({
@@ -9708,7 +9742,7 @@
                     }
                   })
                 })]
-              }), (0, _v1.jsxs)(_v24.VStack, {
+              }), (0, _v1.jsxs)(_v25.VStack, {
                 align: "flex-start",
                 spacing: 3,
                 mt: 5,
@@ -10093,7 +10127,7 @@
             onClick: _v3
           }), (0, _v1.jsxs)(_v72.ModalBody, {
             p: 0,
-            children: [(0, _v1.jsxs)(_v22.Header, {
+            children: [(0, _v1.jsxs)(_v23.Header, {
               size: "md",
               paddingLeft: "48px",
               children: [(0, _v12.translate)({
@@ -10298,7 +10332,7 @@
                   }
                 })
               })]
-            }), (0, _v1.jsxs)(_v24.VStack, {
+            }), (0, _v1.jsxs)(_v25.VStack, {
               align: "flex-start",
               spacing: 3,
               mt: 5,
@@ -10642,7 +10676,7 @@
           trackWithdrawModalClosed: _v6,
           trackWithdrawRequested: _v7,
           trackWithdrawAbandoned: _v8
-        } = (0, _v13.useBillingTracking)(),
+        } = (0, _v14.useBillingTracking)(),
         _v9 = (0, _v3.useMemo)(() => ({
           tier: _v0.tierForDisplay,
           periodicity: _v0.nextCycle?.billingPeriod
@@ -10873,7 +10907,7 @@
               },
               paddingTop: "24px",
               paddingBottom: "16px",
-              children: (0, _v1.jsx)(_v24.VStack, {
+              children: (0, _v1.jsx)(_v25.VStack, {
                 gap: "4px",
                 align: "stretch",
                 children: (0, _v1.jsx)(_v46.Text, {
@@ -10918,7 +10952,7 @@
                 base: "auto",
                 sm: "visible"
               },
-              children: (0, _v1.jsxs)(_v24.VStack, {
+              children: (0, _v1.jsxs)(_v25.VStack, {
                 gap: "24px",
                 align: "stretch",
                 children: [_v12 && (0, _v1.jsx)(_v6.Box, {
@@ -10926,7 +10960,7 @@
                   borderColor: "stroke",
                   borderRadius: "12px",
                   padding: "16px",
-                  children: (0, _v1.jsxs)(_v24.VStack, {
+                  children: (0, _v1.jsxs)(_v25.VStack, {
                     gap: "12px",
                     align: "stretch",
                     children: [(0, _v1.jsxs)(_v8.Flex, {
@@ -11039,12 +11073,12 @@
                   alignItems: "stretch",
                   gap: "8px",
                   padding: "16px",
-                  children: [(0, _v1.jsxs)(_v23.HStack, {
+                  children: [(0, _v1.jsxs)(_v24.HStack, {
                     gap: "8px",
                     align: "center",
                     children: [(0, _v1.jsx)(_v51.CircleExclamationFilled, {
                       color: "yellow.500",
-                      boxSize: (0, _v25.rem)(20)
+                      boxSize: (0, _v26.rem)(20)
                     }), (0, _v1.jsx)(_v46.Text, {
                       variant: "heading-2xs",
                       color: "text-primary",
@@ -11174,7 +11208,7 @@
                 base: "20px",
                 md: "60px"
               },
-              children: (0, _v1.jsxs)(_v24.VStack, {
+              children: (0, _v1.jsxs)(_v25.VStack, {
                 gap: "8px",
                 align: "stretch",
                 width: "100%",
@@ -11257,7 +11291,7 @@
               children: (0, _v1.jsx)(_v8.Flex, {
                 justifyContent: "center",
                 children: (0, _v1.jsx)(_v202.CircleCheckFilled, {
-                  boxSize: (0, _v25.rem)(56),
+                  boxSize: (0, _v26.rem)(56),
                   color: "status-positive-primary"
                 })
               })
@@ -11268,7 +11302,7 @@
                 base: "20px",
                 md: "60px"
               },
-              children: (0, _v1.jsxs)(_v24.VStack, {
+              children: (0, _v1.jsxs)(_v25.VStack, {
                 gap: "12px",
                 align: "center",
                 textAlign: "center",
@@ -11484,7 +11518,7 @@
         } = (0, _v64.useUserQuotaApi)(),
         {
           settings: _v20
-        } = (0, _v28.useOrionSettings)(),
+        } = (0, _v13.useOrionSettings)(),
         _v21 = _v19?.restricted ?? null,
         _v22 = (0, _v3.useContext)(_v66.ViewerContext),
         _v23 = _v22?.teamUser,
@@ -11524,7 +11558,7 @@
           trackBillingPageChangePlanClicked: _v53,
           trackCancellationConfirmed: _v54,
           trackWithdrawButtonClicked: _v55
-        } = (0, _v13.useBillingTracking)(),
+        } = (0, _v14.useBillingTracking)(),
         _v56 = (0, _v62.usePico)(),
         {
           trackBillingAction: _v57
@@ -11932,8 +11966,8 @@
       return ((0, _v3.useEffect)(() => {
         _v158 || _v159 || _v160(!0);
       }, [_v158, _v159]), _v158 && !_v159) ? (0, _v1.jsx)(_v44.Skeleton, {
-        marginTop: (0, _v25.rem)(26),
-        minHeight: (0, _v25.rem)(411)
+        marginTop: (0, _v26.rem)(26),
+        minHeight: (0, _v26.rem)(411)
       }) : (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v8.Flex, {
           mt: 6,
@@ -11957,23 +11991,23 @@
                 base: _v80 || _v81 ? "flex-start" : _v126,
                 md: _v80 || _v81 ? "center" : _v126
               },
-              children: [(0, _v1.jsxs)(_v24.VStack, {
+              children: [(0, _v1.jsxs)(_v25.VStack, {
                 align: "flex-start",
                 flexGrow: 1,
-                children: [(0, _v1.jsxs)(_v23.HStack, {
+                children: [(0, _v1.jsxs)(_v24.HStack, {
                   width: "max-content",
                   children: [(0, _v1.jsxs)(_v46.Text, {
                     variant: "heading-md",
                     children: [_v141, _v142]
                   }), _v27 ? (0, _v1.jsx)(_v36.Badge, {
-                    ml: (0, _v25.rem)("5px"),
+                    ml: (0, _v26.rem)("5px"),
                     size: "sm",
                     backgroundColor: _v37 ? "status-positive-primary" : "status-caution-primary",
                     textColor: "white",
                     border: "none",
                     children: _v69.T.ActiveAtNextRenewal
                   }) : (0, _v1.jsx)(_v36.Badge, {
-                    ml: (0, _v25.rem)("5px"),
+                    ml: (0, _v26.rem)("5px"),
                     size: "sm",
                     variant: "Cancelled" === _v11.status ? "mature" : void 0,
                     backgroundColor: _v80 || _v81 ? "status-caution-primary" : "Cancelled" !== _v11.status ? "status-positive-primary" : void 0,
@@ -12014,7 +12048,7 @@
                     children: _v69.T.SeePlanDetails
                   })]
                 })]
-              }), (0, _v1.jsx)(_v24.VStack, {
+              }), (0, _v1.jsx)(_v25.VStack, {
                 hidden: _v81,
                 align: _v128,
                 flexGrow: 1,
@@ -12074,7 +12108,7 @@
                 flexDirection: _v129,
                 flexWrap: "wrap",
                 justifyContent: "space-between",
-                children: [(0, _v1.jsx)(_v24.VStack, {
+                children: [(0, _v1.jsx)(_v25.VStack, {
                   align: "flex-start",
                   spacing: _v127,
                   flexGrow: 1,
@@ -12115,7 +12149,7 @@
                       children: _v69.T.CostAtRenewalTaxNote
                     })]
                   })
-                }), (0, _v1.jsx)(_v24.VStack, {
+                }), (0, _v1.jsx)(_v25.VStack, {
                   align: "flex-start",
                   spacing: _v127,
                   flexGrow: 1,
@@ -12191,7 +12225,7 @@
                           })]
                         }), _v9 && (0, _v1.jsx)(_v45.Spinner, {
                           size: "xs",
-                          ml: (0, _v25.rem)(15)
+                          ml: (0, _v26.rem)(15)
                         })]
                       }) : (0, _v1.jsx)(_v8.Flex, {
                         alignItems: "center",
@@ -12218,7 +12252,7 @@
                       })
                     })]
                   })
-                }), (0, _v1.jsx)(_v24.VStack, {
+                }), (0, _v1.jsx)(_v25.VStack, {
                   align: "flex-start",
                   spacing: _v127,
                   flexGrow: 1,
@@ -12251,7 +12285,7 @@
                           })]
                         })]
                       }), (0, _v1.jsx)(_v6.Box, {
-                        children: (0, _v1.jsxs)(_v23.HStack, {
+                        children: (0, _v1.jsxs)(_v24.HStack, {
                           mt: 1,
                           mb: 2,
                           justifyContent: "space-between",
@@ -12292,7 +12326,7 @@
                       })]
                     })
                   })
-                }), _v11.tier === _v68.Tier.Free && _v17.lifetime && _v17.lifetime?.unit === "video_count" && (0, _v1.jsx)(_v24.VStack, {
+                }), _v11.tier === _v68.Tier.Free && _v17.lifetime && _v17.lifetime?.unit === "video_count" && (0, _v1.jsx)(_v25.VStack, {
                   align: "flex-start",
                   spacing: _v127,
                   flexGrow: 1,
@@ -12368,7 +12402,7 @@
                 base: 16,
                 md: 32
               },
-              children: [(0, _v1.jsxs)(_v24.VStack, {
+              children: [(0, _v1.jsxs)(_v25.VStack, {
                 align: "flex-start",
                 spacing: 4,
                 flexGrow: 1,
@@ -12383,7 +12417,7 @@
                 children: [(0, _v1.jsx)(_v46.Text, {
                   variant: "heading-xs",
                   children: _v69.T.PaymentMethod
-                }), (0, _v1.jsxs)(_v24.VStack, {
+                }), (0, _v1.jsxs)(_v25.VStack, {
                   alignItems: "start",
                   width: "100%",
                   children: [_v12?.length ? (0, _v1.jsx)(_v63.default, {
@@ -12468,7 +12502,7 @@
                   color: "status-destructive-primary",
                   children: _v69.T.IncorrectPaymentMethodLink
                 })]
-              }), (0, _v1.jsxs)(_v24.VStack, {
+              }), (0, _v1.jsxs)(_v25.VStack, {
                 align: "flex-start",
                 spacing: 4,
                 flexGrow: 1,
@@ -12503,7 +12537,7 @@
                       })
                     })]
                   })]
-                }), (0, _v1.jsxs)(_v24.VStack, {
+                }), (0, _v1.jsxs)(_v25.VStack, {
                   spacing: 2,
                   children: [(0, _v1.jsx)(_v43.Radio, {
                     id: _v68.UserEntity.Personal,
@@ -12561,7 +12595,7 @@
                     })), _v68(!1);
                   }
                 })]
-              }), _v92 && (0, _v1.jsxs)(_v24.VStack, {
+              }), _v92 && (0, _v1.jsxs)(_v25.VStack, {
                 align: "flex-start",
                 spacing: 4,
                 flexGrow: 1,
@@ -12618,7 +12652,7 @@
                 justifyContent: "flex-start",
                 mt: 6,
                 hidden: !_v133 && !_v134 && !_v135,
-                children: (0, _v1.jsxs)(_v24.VStack, {
+                children: (0, _v1.jsxs)(_v25.VStack, {
                   align: "flex-start",
                   spacing: 4,
                   flexGrow: 1,
@@ -12950,7 +12984,7 @@
           onClick: _v0
         }), (0, _v1.jsxs)(_v72.ModalBody, {
           children: [(0, _v1.jsx)(_v46.Text, {
-            marginBottom: (0, _v25.rem)(12),
+            marginBottom: (0, _v26.rem)(12),
             variant: "body-md",
             children: ` ${_v69.T.DeleteSeatsSummary(_v19)} `
           }), (0, _v1.jsx)(_v46.Text, {
@@ -13119,8 +13153,8 @@
       _v9 = _v7 ? _v0.basePlanPrice + Math.max(0, _v8 - 1) * _v5 : _v5 * _v8;
     return (0, _v1.jsxs)(_v6.Box, {
       backgroundColor: "background",
-      gap: (0, _v25.rem)("8px"),
-      padding: (0, _v25.rem)("12px"),
+      gap: (0, _v26.rem)("8px"),
+      padding: (0, _v26.rem)("12px"),
       borderRadius: "md",
       children: [(0, _v1.jsxs)(_v6.Box, {
         display: "flex",
@@ -13129,7 +13163,7 @@
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
-          paddingBottom: (0, _v25.rem)("12px"),
+          paddingBottom: (0, _v26.rem)("12px"),
           children: [(0, _v1.jsx)(_v46.Text, {
             variant: "heading-xs",
             children: _v69.T.DueAtRenewal
@@ -13154,7 +13188,7 @@
       }), (0, _v1.jsx)(_v6.Box, {
         display: "flex",
         justifyContent: "space-between",
-        paddingTop: (0, _v25.rem)("12px"),
+        paddingTop: (0, _v26.rem)("12px"),
         children: (0, _v1.jsx)(_v6.Box, {
           display: "flex",
           flexDirection: "column",
@@ -13192,8 +13226,8 @@
         min: 1,
         max: _v5,
         size: "sm",
-        width: (0, _v25.rem)("78px"),
-        marginRight: (0, _v25.rem)("10px"),
+        width: (0, _v26.rem)("78px"),
+        marginRight: (0, _v26.rem)("10px"),
         onChange: _v0 => _v1(Number(_v0)),
         children: [(0, _v1.jsx)(_v235.NumberInputField, {
           value: _v0
@@ -13208,7 +13242,7 @@
             }
           })]
         })]
-      }), (0, _v1.jsx)(_v22.Header, {
+      }), (0, _v1.jsx)(_v23.Header, {
         as: "h6",
         size: "xs",
         children: _v69.T.SeatDenominator(_v5)
@@ -13217,11 +13251,11 @@
   }
   function _v237() {
     return (0, _v1.jsxs)(_v6.Box, {
-      paddingBottom: (0, _v25.rem)(24),
+      paddingBottom: (0, _v26.rem)(24),
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      children: [(0, _v1.jsx)(_v22.Header, {
+      children: [(0, _v1.jsx)(_v23.Header, {
         as: "h6",
         size: "xs",
         alignItems: "flex-start",
@@ -13246,7 +13280,7 @@
           onClick: _v0
         }), (0, _v1.jsxs)(_v72.ModalBody, {
           children: [(0, _v1.jsx)(_v237, {}), (0, _v1.jsx)(_v234, {}), (0, _v1.jsx)(_v6.Box, {
-            paddingTop: (0, _v25.rem)("16px"),
+            paddingTop: (0, _v26.rem)("16px"),
             fontSize: "body-sm",
             color: "text-secondary",
             children: _v69.T.TermsConditionsPrivacyPolicy("/terms", "/privacy", () => void 0)
@@ -13261,7 +13295,7 @@
             },
             children: _v69.T.DeleteSeats
           }), (0, _v1.jsx)(_v7.Button, {
-            marginTop: (0, _v25.rem)(8),
+            marginTop: (0, _v26.rem)(8),
             width: "100%",
             variant: "tertiary",
             onClick: _v0,
@@ -13400,7 +13434,7 @@
         } = (0, _v3.useContext)(_v107.ManageTeamAnalytics),
         {
           trackBillingPageAddSeatsClicked: _v22
-        } = (0, _v13.useBillingTracking)(),
+        } = (0, _v14.useBillingTracking)(),
         {
           reason: _v23
         } = (0, _v217.useIsSeatChangeBlocked)({
@@ -13435,8 +13469,8 @@
           lg: 4
         });
       return _v6 || _v7 || _v3 || _v2 ? (0, _v1.jsx)(_v44.Skeleton, {
-        marginTop: (0, _v25.rem)(26),
-        height: (0, _v25.rem)(259)
+        marginTop: (0, _v26.rem)(26),
+        height: (0, _v26.rem)(259)
       }) : (0, _v1.jsx)(_v6.Box, {
         display: "flex",
         justifyContent: "space-between",
@@ -13498,10 +13532,10 @@
             }) : (0, _v1.jsx)(_v216.Container, {
               bg: "upsell-secondary",
               borderRadius: "sm",
-              children: (0, _v1.jsxs)(_v23.HStack, {
+              children: (0, _v1.jsxs)(_v24.HStack, {
                 justifyContent: "space-between",
-                px: (0, _v25.rem)(10),
-                py: (0, _v25.rem)(8),
+                px: (0, _v26.rem)(10),
+                py: (0, _v26.rem)(8),
                 children: [(0, _v1.jsx)(_v46.Text, {
                   variant: "body-sm",
                   children: _v69.T.UpgradeToAddSeats
@@ -13515,11 +13549,11 @@
             wrap: "wrap",
             justifyContent: "space-between",
             alignItems: "flex-start",
-            children: [(0, _v1.jsxs)(_v24.VStack, {
+            children: [(0, _v1.jsxs)(_v25.VStack, {
               align: "flex-start",
               flexBasis: `calc(100% / ${_v35})`,
               mb: _v36,
-              children: [(0, _v1.jsxs)(_v23.HStack, {
+              children: [(0, _v1.jsxs)(_v24.HStack, {
                 alignItems: "center",
                 children: [(0, _v1.jsx)(_v46.Text, {
                   variant: "heading-xs",
@@ -13549,7 +13583,7 @@
                 variant: "heading-md",
                 children: _v67.OWNER
               })]
-            }), (0, _v1.jsxs)(_v24.VStack, {
+            }), (0, _v1.jsxs)(_v25.VStack, {
               align: "flex-start",
               flexBasis: `calc(100% / ${_v35})`,
               mb: _v36,
@@ -13561,7 +13595,7 @@
                 variant: "heading-md",
                 children: _v13
               })]
-            }), (0, _v1.jsxs)(_v24.VStack, {
+            }), (0, _v1.jsxs)(_v25.VStack, {
               align: "flex-start",
               flexBasis: `calc(100% / ${_v35})`,
               mb: _v36,
@@ -13573,7 +13607,7 @@
                 variant: "heading-md",
                 children: _v14
               })]
-            }), (0, _v1.jsxs)(_v24.VStack, {
+            }), (0, _v1.jsxs)(_v25.VStack, {
               align: "flex-start",
               flexBasis: `calc(100% / ${_v35})`,
               children: [(0, _v1.jsx)(_v46.Text, {
@@ -13616,11 +13650,11 @@
         sx: {
           paddingRight: "3rem"
         },
-        children: [(0, _v1.jsx)(_v20.AlertIcon, {
+        children: [(0, _v1.jsx)(_v21.AlertIcon, {
           children: (0, _v1.jsx)(_v9.CircleExclamationFilled, {
             color: "status-caution-primary"
           })
-        }), (0, _v1.jsxs)(_v23.HStack, {
+        }), (0, _v1.jsxs)(_v24.HStack, {
           justifyContent: "space-between",
           alignItems: "center",
           width: "100%",
@@ -13790,7 +13824,7 @@
             transform: "translate(0, +4px)"
           })]
         })]
-      }), _v7 && (0, _v1.jsxs)(_v23.HStack, {
+      }), _v7 && (0, _v1.jsxs)(_v24.HStack, {
         mt: 2,
         gap: 1,
         px: 3,
@@ -13918,7 +13952,7 @@
       } = (0, _v246.useWindowSize)(),
       {
         settings: _v5
-      } = (0, _v28.useOrionSettings)(),
+      } = (0, _v13.useOrionSettings)(),
       _v6 = (0, _v3.useMemo)(() => _v5.core_tier_enabled ? _v254(_v2, _v252) : _v254("core" === _v2 ? "creator" : _v2, _v252.filter(_v0 => "core" !== _v0)), [_v2, _v5.core_tier_enabled]),
       {
         capabilities: {
@@ -13957,12 +13991,12 @@
       children: [(0, _v1.jsx)(_v77.ModalOverlay, {}), (0, _v1.jsxs)(_v74.ModalContent, {
         maxW: {
           base: "95vw",
-          md: (0, _v25.rem)(0)
+          md: (0, _v26.rem)(0)
         },
         children: [(0, _v1.jsx)(_v76.ModalHeader, {
-          paddingBottom: (0, _v25.rem)(8),
-          paddingX: (0, _v25.rem)(48),
-          children: (0, _v1.jsx)(_v22.Header, {
+          paddingBottom: (0, _v26.rem)(8),
+          paddingX: (0, _v26.rem)(48),
+          children: (0, _v1.jsx)(_v23.Header, {
             size: "lg",
             textAlign: "center",
             children: (0, _v243.translate)({
@@ -14047,7 +14081,7 @@
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            minHeight: (0, _v25.rem)(320),
+            minHeight: (0, _v26.rem)(320),
             children: (0, _v1.jsx)(_v45.Spinner, {})
           })
         }), (0, _v1.jsx)(_v75.ModalFooter, {
@@ -14132,13 +14166,13 @@
       [_v19, _v20] = (0, _v3.useState)(() => (0, _v33.parseLocationSearch)("rns")),
       {
         trackBillingPageRepackagingLearnMoreClicked: _v21
-      } = (0, _v13.useBillingTracking)(),
+      } = (0, _v14.useBillingTracking)(),
       {
         trackIndividualEligibilityCtaClicked: _v22
       } = (0, _v30.useIndividualEligibilityTracking)(),
       {
         settings: _v23
-      } = (0, _v28.useOrionSettings)(),
+      } = (0, _v13.useOrionSettings)(),
       {
         scheduledOrder: _v24,
         hasScheduledDowngrade: _v25,
@@ -14183,10 +14217,12 @@
         return !!(_v0 && _v3 && _v1 && null !== _v2);
       }, [_v7]),
       _v48 = !!_v7?.isStorageEntitlementSuspended,
-      _v49 = (0, _v26.useIsMobile)(),
+      _v49 = (0, _v27.useIsMobile)(),
       {
         isEligible: _v50
-      } = (0, _v15.useAutoRenewEncouragementEligibility)(),
+      } = (0, _v16.useAutoRenewEncouragementEligibility)({
+        skipRenewalWindow: _v23.enable_auto_renew_encouragement_always
+      }),
       _v51 = _v7.tier === _v68.Tier.Creator,
       _v52 = (0, _v207.getDisplayedGracePeriodEndDate)(_v7?.gracePeriodType, _v7?.originalEndDate, _v7?.endDate);
     (0, _v3.useEffect)(() => {
@@ -14202,13 +14238,13 @@
       _v4.replace(_v1, void 0, {
         shallow: !0
       });
-    }, [_v53, _v31, _v34, _v4]), !1 === _v12 || !_v6 && _v13 !== _v68.TeamRole.Owner) return (0, _v1.jsx)(_v21.Card, {
-      mt: (0, _v25.rem)(100),
+    }, [_v53, _v31, _v34, _v4]), !1 === _v12 || !_v6 && _v13 !== _v68.TeamRole.Owner) return (0, _v1.jsx)(_v22.Card, {
+      mt: (0, _v26.rem)(100),
       children: (0, _v1.jsx)(_v8.Flex, {
         justify: "center",
         align: "center",
-        minH: (0, _v25.rem)(100),
-        children: (0, _v1.jsx)(_v22.Header, {
+        minH: (0, _v26.rem)(100),
+        children: (0, _v1.jsx)(_v23.Header, {
           as: "h5",
           size: "sm",
           color: "text-secondary",
@@ -14221,12 +14257,12 @@
     return (0, _v1.jsxs)(_v6.Box, {
       sx: {
         "& > * + *": {
-          marginTop: (0, _v25.rem)(12)
+          marginTop: (0, _v26.rem)(12)
         }
       },
-      children: [(0, _v1.jsx)(_v27.SettingsPageContentHeader, {
+      children: [(0, _v1.jsx)(_v28.SettingsPageContentHeader, {
         title: _v69.T.Billing
-      }), (0, _v1.jsx)(_v19, {}), _v55 && _v8.canShow && (0, _v1.jsx)(_v5.Alert, {
+      }), (0, _v1.jsx)(_v20, {}), _v55 && _v8.canShow && (0, _v1.jsx)(_v5.Alert, {
         status: "positive" === _v8.type ? "success" : "negative" === _v8.type ? "error" : "info",
         onClose: () => {
           _v15({
@@ -14266,7 +14302,7 @@
           }), _v20(null), _v16(null);
         }
       }), _v55 && _v10 && !_v51 && Object.values(_v32.NOTICE_TYPES).includes(_v10) && (0, _v1.jsx)(_v6.Box, {
-        mt: (0, _v25.rem)(4),
+        mt: (0, _v26.rem)(4),
         children: (0, _v1.jsx)(_v31.PurchaseSeatsNotice, {
           noticeType: _v10,
           onClose: () => _v16(null),
@@ -14279,12 +14315,12 @@
         alignItems: "center",
         children: [(0, _v1.jsx)(_v9.CircleExclamationFilled, {
           color: "status-destructive-primary"
-        }), (0, _v1.jsxs)(_v23.HStack, {
+        }), (0, _v1.jsxs)(_v24.HStack, {
           gap: 0,
           justifyContent: "space-between",
           alignItems: "center",
           width: "100%",
-          children: [(0, _v1.jsx)(_v24.VStack, {
+          children: [(0, _v1.jsx)(_v25.VStack, {
             gap: 0,
             align: "flex-start",
             children: (0, _v1.jsx)(_v4.AlertDescription, {
@@ -14338,12 +14374,12 @@
         alignItems: "center",
         children: [(0, _v1.jsx)(_v9.CircleExclamationFilled, {
           color: "status-destructive-primary"
-        }), (0, _v1.jsxs)(_v23.HStack, {
+        }), (0, _v1.jsxs)(_v24.HStack, {
           gap: 0,
           justifyContent: "space-between",
           alignItems: "center",
           width: "100%",
-          children: [(0, _v1.jsx)(_v24.VStack, {
+          children: [(0, _v1.jsx)(_v25.VStack, {
             gap: 0,
             align: "flex-start",
             children: (0, _v1.jsx)(_v4.AlertDescription, {
@@ -14409,11 +14445,11 @@
         sx: {
           paddingRight: "3rem"
         },
-        children: [(0, _v1.jsx)(_v20.AlertIcon, {
+        children: [(0, _v1.jsx)(_v21.AlertIcon, {
           children: (0, _v1.jsx)(_v9.CircleExclamationFilled, {
             color: `${_v1}-primary`
           })
-        }), (0, _v1.jsxs)(_v23.HStack, {
+        }), (0, _v1.jsxs)(_v24.HStack, {
           justifyContent: "space-between",
           alignItems: "center",
           width: "100%",

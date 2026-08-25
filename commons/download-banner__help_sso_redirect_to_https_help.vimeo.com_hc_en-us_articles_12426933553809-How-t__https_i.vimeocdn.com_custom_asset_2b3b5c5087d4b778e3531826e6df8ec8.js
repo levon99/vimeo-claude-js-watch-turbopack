@@ -1003,9 +1003,36 @@
     _v132 = _v0.i(0),
     _v133 = _v0.i(0),
     _v134 = _v0.i(0),
-    _v135 = _v0.i(0),
-    _v136 = _v0.i(0),
-    _v137 = _v0.i(0),
+    _v135 = _v0.i(0);
+  function _v136({
+    id: _v0 = (0, _v50.createDomName)("landing-page-tab"),
+    className: _v1 = (0, _v50.createDomName)("landing-page-tab")
+  }) {
+    let _v2 = (0, _v135.useScrollbarStyles)();
+    return (0, _v1.jsxs)(_v79.Box, {
+      id: _v0,
+      className: _v1,
+      sx: (0, _v134.createTabWrapperStyle)(),
+      children: [(0, _v1.jsx)(_v133.LeftPanelHeader, {
+        label: _v57.translations.eventLandingPage,
+        controls: (0, _v1.jsx)(_v132.LeftPanelDismiss, {})
+      }), (0, _v1.jsx)(_v131.LeftPanelContent, {
+        children: (0, _v1.jsx)(_v79.Box, {
+          id: (0, _v50.createDomName)(_v0, "scroll"),
+          className: (0, _v50.createDomName)(_v1, "scroll"),
+          width: "100%",
+          sx: {
+            ...(0, _v134.createTabListScrollStyle)({
+              position: "inherit"
+            }),
+            ..._v2
+          },
+          children: (0, _v1.jsx)(_v130.LandingPageSettings, {})
+        })
+      })]
+    });
+  }
+  var _v137 = _v0.i(0),
     _v138 = _v0.i(0),
     _v139 = _v0.i(0),
     _v140 = _v0.i(0),
@@ -1021,9 +1048,13 @@
     _v150 = _v0.i(0),
     _v151 = _v0.i(0),
     _v152 = _v0.i(0),
-    _v153 = _v0.i(0);
-  let _v154 = (0, _v0.i(0).createDefaultPollInteractionObject)();
-  function _v155({
+    _v153 = _v0.i(0),
+    _v154 = _v0.i(0),
+    _v155 = _v0.i(0),
+    _v156 = _v0.i(0),
+    _v157 = _v0.i(0);
+  let _v158 = (0, _v0.i(0).createDefaultPollInteractionObject)();
+  function _v159({
     id: _v0 = (0, _v50.createDomName)("poll-tab"),
     className: _v1 = (0, _v50.createDomName)("poll-tab"),
     pollContext: {
@@ -1037,7 +1068,7 @@
         deletePoll: _v8,
         setActivePoll: _v9
       }
-    } = (0, _v12.useManager)(_v151.PollManager),
+    } = (0, _v12.useManager)(_v155.PollManager),
     composerSessionContext: {
       sessionType: _v10
     } = (0, _v12.useManager)(_v36.ComposerSessionManager, ({
@@ -1048,29 +1079,29 @@
       [_v13, _v14] = (0, _v5.useState)(null),
       {
         setIsHeaderEnabled: _v15
-      } = (0, _v149.useResponsiveSidebarContext)(),
+      } = (0, _v154.useResponsiveSidebarContext)(),
       _v16 = (0, _v5.useMemo)(() => Object.values(_v3), [_v3]),
       _v17 = (0, _v22.useIsVpaas)(),
       _v18 = (0, _v5.useCallback)(() => {
-        _v12(!0), _v15(!1), (0, _v152.trackClickAddPoll)();
+        _v12(!0), _v15(!1), (0, _v156.trackClickAddPoll)();
       }, [_v15]),
       {
         panels: _v19,
         activePolls: _v20,
         activePanelId: _v21,
         setActivePanelId: _v22
-      } = (0, _v140.usePollPanels)(_v3),
+      } = (0, _v149.usePollPanels)(_v3),
       _v23 = (0, _v5.useCallback)(_v0 => {
-        _v0.state = _v153.EPollState.CLOSED, _v7(_v0.id, _v0);
+        _v0.state = _v157.EPollState.CLOSED, _v7(_v0.id, _v0);
       }, [_v7]),
       _v24 = (0, _v5.useCallback)(_v0 => {
-        _v0.state = _v153.EPollState.ARCHIVED, _v7(_v0.id, _v0);
+        _v0.state = _v157.EPollState.ARCHIVED, _v7(_v0.id, _v0);
       }, [_v7]),
       _v25 = (0, _v5.useCallback)(_v0 => {
         let _v1 = _v5 ? _v3[_v5] : null;
         _v1 && _v24(_v1), _v7(_v0.id, {
           ..._v0,
-          state: _v153.EPollState.OPENED
+          state: _v157.EPollState.OPENED
         }), _v9(_v0.id);
       }, [_v5, _v3, _v7, _v9, _v24]),
       _v26 = (0, _v5.useCallback)(_v0 => {
@@ -1079,8 +1110,8 @@
       _v27 = (0, _v5.useCallback)(_v0 => {
         _v8(_v0);
       }, [_v8]),
-      _v28 = _v16.some(_v0 => _v0.state === _v153.EPollState.OPENED),
-      _v29 = _v16.some(_v0 => _v0.state === _v153.EPollState.CLOSED),
+      _v28 = _v16.some(_v0 => _v0.state === _v157.EPollState.OPENED),
+      _v29 = _v16.some(_v0 => _v0.state === _v157.EPollState.CLOSED),
       _v30 = !_v28,
       _v31 = _v10 === _v20.EComposerSessionType.VENUE,
       _v32 = !_v17 && !_v31,
@@ -1093,17 +1124,17 @@
       }, [_v15]),
       _v36 = (0, _v5.useCallback)(_v0 => (_v15(!0), _v14(null), _v7(_v0.id, _v0)), [_v15, _v7]);
     (0, _v5.useEffect)(() => {
-      (0, _v152.trackViewPoll)();
+      (0, _v156.trackViewPoll)();
     }, []);
-    let _v37 = (0, _v150.useScrollbarStyles)();
+    let _v37 = (0, _v135.useScrollbarStyles)();
     return _v11 ? (0, _v1.jsx)(_v79.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v147.createTabWrapperStyle)(),
-      children: (0, _v1.jsx)(_v144.LeftPanelContent, {
+      sx: (0, _v134.createTabWrapperStyle)(),
+      children: (0, _v1.jsx)(_v131.LeftPanelContent, {
         withTopPadding: !0,
-        children: (0, _v1.jsx)(_v138.PollForm, {
-          poll: _v154,
+        children: (0, _v1.jsx)(_v147.PollForm, {
+          poll: _v158,
           onClose: _v33,
           onSubmit: _v34
         })
@@ -1111,10 +1142,10 @@
     }) : _v13 ? (_v15(!1), (0, _v1.jsx)(_v79.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v147.createTabWrapperStyle)(),
-      children: (0, _v1.jsx)(_v144.LeftPanelContent, {
+      sx: (0, _v134.createTabWrapperStyle)(),
+      children: (0, _v1.jsx)(_v131.LeftPanelContent, {
         withTopPadding: !0,
-        children: (0, _v1.jsx)(_v138.PollForm, {
+        children: (0, _v1.jsx)(_v147.PollForm, {
           poll: _v13,
           onClose: _v35,
           onSubmit: _v36
@@ -1123,64 +1154,64 @@
     })) : _v2 ? _v16.length ? (0, _v1.jsxs)(_v79.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v147.createTabWrapperStyle)(),
-      children: [(0, _v1.jsx)(_v146.LeftPanelHeader, {
+      sx: (0, _v134.createTabWrapperStyle)(),
+      children: [(0, _v1.jsx)(_v133.LeftPanelHeader, {
         label: _v94.T_POLLS,
         controls: (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v137.TooltipIconButton, {
+          children: [(0, _v1.jsx)(_v146.TooltipIconButton, {
             id: (0, _v50.createDomName)(_v0, "add-button"),
             className: (0, _v50.createDomName)(_v1, "add-button"),
             "aria-label": _v57.translations.addPoll,
-            icon: (0, _v1.jsx)(_v135.Plus, {}),
+            icon: (0, _v1.jsx)(_v144.Plus, {}),
             size: "sm",
             variant: "tertiary",
             placement: "bottom",
             label: _v57.translations.addPoll,
             onClick: _v18
-          }), (0, _v1.jsx)(_v142.PollSettingsButton, {
+          }), (0, _v1.jsx)(_v151.PollSettingsButton, {
             id: (0, _v50.createDomName)(_v0, "settings-button"),
             className: (0, _v50.createDomName)(_v1, "settings-button"),
             withInteractionSubmenu: _v32,
-            buttonIcon: (0, _v1.jsx)(_v134.EllipsisV, {})
-          }), (0, _v1.jsx)(_v145.LeftPanelDismiss, {
+            buttonIcon: (0, _v1.jsx)(_v143.EllipsisV, {})
+          }), (0, _v1.jsx)(_v132.LeftPanelDismiss, {
             id: (0, _v50.createDomName)(_v0, "dismiss-button"),
             className: (0, _v50.createDomName)(_v1, "dismiss-button")
           })]
         })
-      }), (0, _v1.jsxs)(_v144.LeftPanelContent, {
-        children: [(0, _v1.jsxs)(_v128.Tabs, {
+      }), (0, _v1.jsxs)(_v131.LeftPanelContent, {
+        children: [(0, _v1.jsxs)(_v137.Tabs, {
           size: "sm",
-          sx: _v147.TABS_STYLES,
+          sx: _v134.TABS_STYLES,
           onChange: _v22,
-          children: [(0, _v1.jsxs)(_v129.TabList, {
+          children: [(0, _v1.jsxs)(_v138.TabList, {
             children: [_v19.map(({
               id: _v0,
               label: _v1
-            }) => (0, _v1.jsx)(_v130.Tab, {
+            }) => (0, _v1.jsx)(_v139.Tab, {
               className: (0, _v50.createDomName)(_v0, _v0, "tab"),
               children: _v1
-            }, _v0)), (0, _v1.jsx)(_v128.TabIndicator, {})]
-          }), (0, _v1.jsx)(_v131.TabPanels, {
-            sx: _v147.TAB_PANELS_STYLES,
+            }, _v0)), (0, _v1.jsx)(_v137.TabIndicator, {})]
+          }), (0, _v1.jsx)(_v140.TabPanels, {
+            sx: _v134.TAB_PANELS_STYLES,
             children: _v19.map(({
               id: _v0,
               polls: _v1
-            }) => (0, _v1.jsx)(_v132.TabPanel, {
+            }) => (0, _v1.jsx)(_v141.TabPanel, {
               className: (0, _v50.createDomName)(_v0, _v0, "tab-panel"),
               maxWidth: "100%",
               maxHeight: "100%",
               overflowY: "visible",
-              sx: _v147.TAB_PANEL_STYLES,
+              sx: _v134.TAB_PANEL_STYLES,
               children: (0, _v1.jsx)(_v79.Box, {
                 id: (0, _v50.createDomName)(_v0, _v0, "scroll"),
                 sx: {
-                  ...(0, _v147.createTabListScrollStyle)(),
+                  ...(0, _v134.createTabListScrollStyle)(),
                   ..._v37
                 },
                 children: (0, _v1.jsx)(_v79.Box, {
                   id: (0, _v50.createDomName)(_v0, _v0, "column"),
-                  sx: (0, _v147.createTabListColumnStyle)(!0),
-                  children: 0 === _v1.length ? (0, _v1.jsx)(_v141.PollEmptyState, {
+                  sx: (0, _v134.createTabListColumnStyle)(!0),
+                  children: 0 === _v1.length ? (0, _v1.jsx)(_v150.PollEmptyState, {
                     id: (0, _v50.createDomName)(_v0, _v0, "empty-placeholder"),
                     className: (0, _v50.createDomName)(_v0, _v0, "empty-placeholder"),
                     width: "100%",
@@ -1195,8 +1226,8 @@
                     var _v1;
                     let _v2, _v3;
                     return (0, _v1.jsx)(_v79.Box, {
-                      sx: _v147.TAB_LIST_COLUMN_FULL_ITEM_STYLE,
-                      children: (0, _v1.jsx)(_v139.PollItem, {
+                      sx: _v134.TAB_LIST_COLUMN_FULL_ITEM_STYLE,
+                      children: (0, _v1.jsx)(_v148.PollItem, {
                         poll: _v0,
                         isAnyPollPublished: _v29,
                         canOpenPoll: _v30,
@@ -1209,20 +1240,20 @@
                         menuActions: (_v1 = {
                           onPollEdit: _v26,
                           onPollDelete: _v27
-                        }, _v2 = _v0.state === _v153.EPollState.DRAFT, _v3 = [], _v2 && _v3.push({
+                        }, _v2 = _v0.state === _v157.EPollState.DRAFT, _v3 = [], _v2 && _v3.push({
                           key: "edit",
                           label: _v57.translations.edit,
                           onClick: () => {
-                            _v1.onPollEdit(_v0), (0, _v152.trackClickEditPoll)();
+                            _v1.onPollEdit(_v0), (0, _v156.trackClickEditPoll)();
                           },
-                          icon: (0, _v1.jsx)(_v133.EditPencil, {})
+                          icon: (0, _v1.jsx)(_v142.EditPencil, {})
                         }, {
                           key: "delete",
                           label: _v57.translations.removeFromEvent,
                           onClick: () => {
-                            _v1.onPollDelete(_v0.id), (0, _v152.trackRemovePollFromEvent)();
+                            _v1.onPollDelete(_v0.id), (0, _v156.trackRemovePollFromEvent)();
                           },
-                          icon: (0, _v1.jsx)(_v136.TrashBin, {})
+                          icon: (0, _v1.jsx)(_v145.TrashBin, {})
                         }), _v3)
                       })
                     }, _v0.id);
@@ -1233,43 +1264,43 @@
           }, _v21)]
         }), (0, _v1.jsx)(_v79.Box, {
           position: "relative",
-          children: (0, _v1.jsx)(_v148.HorizontalScrollShadow, {
+          children: (0, _v1.jsx)(_v153.HorizontalScrollShadow, {
             color: "surface"
           })
         })]
       })]
     }) : (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v146.LeftPanelHeader, {
+      children: [(0, _v1.jsx)(_v133.LeftPanelHeader, {
         label: _v94.T_POLLS,
         controls: (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v137.TooltipIconButton, {
+          children: [(0, _v1.jsx)(_v146.TooltipIconButton, {
             id: (0, _v50.createDomName)(_v0, "add-button"),
             className: (0, _v50.createDomName)(_v1, "add-button"),
             "aria-label": _v57.translations.addPoll,
-            icon: (0, _v1.jsx)(_v135.Plus, {}),
+            icon: (0, _v1.jsx)(_v144.Plus, {}),
             size: "sm",
             variant: "tertiary",
             placement: "bottom",
             label: _v57.translations.addPoll,
             onClick: _v18
-          }), (0, _v1.jsx)(_v142.PollSettingsButton, {
+          }), (0, _v1.jsx)(_v151.PollSettingsButton, {
             id: (0, _v50.createDomName)(_v0, "settings-button"),
             className: (0, _v50.createDomName)(_v1, "settings-button"),
             withInteractionSubmenu: _v32,
-            buttonIcon: (0, _v1.jsx)(_v134.EllipsisV, {})
-          }), (0, _v1.jsx)(_v145.LeftPanelDismiss, {
+            buttonIcon: (0, _v1.jsx)(_v143.EllipsisV, {})
+          }), (0, _v1.jsx)(_v132.LeftPanelDismiss, {
             id: (0, _v50.createDomName)(_v0, "dismiss-button"),
             className: (0, _v50.createDomName)(_v1, "dismiss-button")
           })]
         })
-      }), (0, _v1.jsx)(_v144.LeftPanelContent, {
-        children: (0, _v1.jsx)(_v141.PollEmptyState, {
+      }), (0, _v1.jsx)(_v131.LeftPanelContent, {
+        children: (0, _v1.jsx)(_v150.PollEmptyState, {
           id: _v0,
           className: _v1,
           buttonLabel: _v94.T_CREATE_POLL,
           description: _v57.translations.createPollToInteractWithAudience,
           history: _v4,
-          sx: (0, _v147.createTabWrapperStyle)(),
+          sx: (0, _v134.createTabWrapperStyle)(),
           onCreateClick: _v18
         })
       })]
@@ -1277,19 +1308,15 @@
       id: _v0,
       className: _v1,
       position: "relative",
-      sx: (0, _v147.createTabWrapperStyle)(),
-      children: (0, _v1.jsx)(_v143.BlockingLoadingWrapper, {
+      sx: (0, _v134.createTabWrapperStyle)(),
+      children: (0, _v1.jsx)(_v152.BlockingLoadingWrapper, {
         id: (0, _v50.createDomName)(_v0, "loader"),
         opacity: .25,
         withAnimation: !0
       })
     });
   }
-  var _v156 = _v0.i(0),
-    _v157 = _v0.i(0),
-    _v158 = _v0.i(0),
-    _v159 = _v0.i(0),
-    _v160 = _v0.i(0),
+  var _v160 = _v0.i(0),
     _v161 = _v0.i(0),
     _v162 = _v0.i(0),
     _v163 = _v0.i(0),
@@ -1302,8 +1329,12 @@
     _v170 = _v0.i(0),
     _v171 = _v0.i(0),
     _v172 = _v0.i(0),
-    _v173 = _v0.i(0);
-  function _v174({
+    _v173 = _v0.i(0),
+    _v174 = _v0.i(0),
+    _v175 = _v0.i(0),
+    _v176 = _v0.i(0),
+    _v177 = _v0.i(0);
+  function _v178({
     id: _v0 = (0, _v50.createDomName)("qna-tab"),
     className: _v1 = (0, _v50.createDomName)("qna-tab"),
     qnaContext: {
@@ -1323,7 +1354,7 @@
         unPinQuestion: _v12,
         deleteQuestionReply: _v13
       }
-    } = (0, _v12.useManager)(_v169.QnAManager),
+    } = (0, _v12.useManager)(_v173.QnAManager),
     composerSessionContext: {
       sessionType: _v14
     } = (0, _v12.useManager)(_v36.ComposerSessionManager, ({
@@ -1336,47 +1367,47 @@
         selectedQuestionState: _v17,
         onSelectedQuestion: _v18,
         onDeselectQuestion: _v19
-      } = (0, _v171.useQnaResponding)(),
+      } = (0, _v175.useQnaResponding)(),
       {
         panels: _v20,
         currentQuestions: _v21,
         activePanelId: _v22,
         setActivePanelId: _v23
-      } = (0, _v165.useQnaPanels)(),
+      } = (0, _v169.useQnaPanels)(),
       {
         getIdByIndex: _v24,
         getIndexById: _v25
-      } = (0, _v167.useTabsMapping)(_v20),
-      _v26 = (0, _v168.useSimpleNotification)(),
+      } = (0, _v171.useTabsMapping)(_v20),
+      _v26 = (0, _v172.useSimpleNotification)(),
       _v27 = (0, _v22.useIsVpaas)(),
-      _v28 = null !== _v15 && (0, _v170.canReplyQuestion)(_v21.find(_v0 => _v0.id === _v15)) && !(0, _v170.hasQuestionReplies)(_v15 ? _v7?.[_v15] : void 0),
+      _v28 = null !== _v15 && (0, _v174.canReplyQuestion)(_v21.find(_v0 => _v0.id === _v15)) && !(0, _v174.hasQuestionReplies)(_v15 ? _v7?.[_v15] : void 0),
       _v29 = _v14 === _v20.EComposerSessionType.VENUE,
       _v30 = !_v27 && !_v29;
     (0, _v5.useEffect)(() => {
-      (0, _v172.trackViewQna)();
+      (0, _v176.trackViewQna)();
     }, []);
     let _v31 = (0, _v5.useCallback)(_v0 => {
-        _v8(_v0.id), (0, _v172.trackApproveModeratedQuestion)(), _v26({
+        _v8(_v0.id), (0, _v176.trackApproveModeratedQuestion)(), _v26({
           message: _v94.T_QUESTION_APPROVED
         });
       }, [_v8, _v26]),
       _v32 = (0, _v5.useCallback)(_v0 => {
-        _v9(_v0.id, !!_v0.approved), (0, _v172.trackArchiveQuestion)(_v4), _v26({
+        _v9(_v0.id, !!_v0.approved), (0, _v176.trackArchiveQuestion)(_v4), _v26({
           message: _v94.T_QUESTION_ARCHIVED
         });
       }, [_v9, _v4, _v26]),
       _v33 = (0, _v5.useCallback)(_v0 => {
-        _v10(_v0.id, !!_v0.approved), (0, _v172.trackUnarchiveQuestion)(_v4), _v26({
+        _v10(_v0.id, !!_v0.approved), (0, _v176.trackUnarchiveQuestion)(_v4), _v26({
           message: _v94.T_QUESTION_UNARCHIVED
         });
       }, [_v4, _v26, _v10]),
       _v34 = (0, _v5.useCallback)(_v0 => {
-        _v11(_v0), (0, _v172.trackPinQuestion)(), _v26({
+        _v11(_v0), (0, _v176.trackPinQuestion)(), _v26({
           message: _v94.T_QUESTION_PINNED
         });
       }, [_v26, _v11]),
       _v35 = (0, _v5.useCallback)(_v0 => {
-        _v12(_v0), (0, _v172.trackUnpinQuestion)(), _v26({
+        _v12(_v0), (0, _v176.trackUnpinQuestion)(), _v26({
           message: _v94.T_QUESTION_UNPINNED
         });
       }, [_v26, _v12]),
@@ -1386,48 +1417,48 @@
         });
       }, [_v26, _v13]),
       _v37 = (0, _v5.useCallback)(_v0 => {
-        _v23(_v24(_v0)), _v19(), (0, _v172.trackSwitchActiveTab)();
+        _v23(_v24(_v0)), _v19(), (0, _v176.trackSwitchActiveTab)();
       }, [_v24, _v19, _v23]);
     return _v5 ? _v2 ? (0, _v1.jsxs)(_v79.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v147.createTabWrapperStyle)(),
-      children: [(0, _v1.jsx)(_v146.LeftPanelHeader, {
+      sx: (0, _v134.createTabWrapperStyle)(),
+      children: [(0, _v1.jsx)(_v133.LeftPanelHeader, {
         label: _v94.T_QNA,
         controls: (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v160.QnaSettingsButton, {
+          children: [(0, _v1.jsx)(_v164.QnaSettingsButton, {
             id: (0, _v50.createDomName)(_v0, "settings-button"),
             className: (0, _v50.createDomName)(_v1, "settings-button"),
             withInteractionSubmenu: _v30,
-            buttonIcon: (0, _v1.jsx)(_v134.EllipsisV, {})
-          }), (0, _v1.jsx)(_v145.LeftPanelDismiss, {
+            buttonIcon: (0, _v1.jsx)(_v143.EllipsisV, {})
+          }), (0, _v1.jsx)(_v132.LeftPanelDismiss, {
             id: (0, _v50.createDomName)(_v0, "dismiss-button"),
             className: (0, _v50.createDomName)(_v1, "dismiss-button")
           })]
         })
-      }), (0, _v1.jsxs)(_v144.LeftPanelContent, {
-        children: [(0, _v1.jsxs)(_v128.Tabs, {
+      }), (0, _v1.jsxs)(_v131.LeftPanelContent, {
+        children: [(0, _v1.jsxs)(_v137.Tabs, {
           size: "sm",
           index: _v25(_v22),
-          sx: _v147.TABS_STYLES,
+          sx: _v134.TABS_STYLES,
           onChange: _v37,
-          children: [(0, _v1.jsxs)(_v129.TabList, {
+          children: [(0, _v1.jsxs)(_v138.TabList, {
             children: [_v20.map(({
               id: _v0,
               label: _v1
-            }) => (0, _v1.jsx)(_v130.Tab, {
+            }) => (0, _v1.jsx)(_v139.Tab, {
               className: (0, _v50.createDomName)(_v0, _v0, "tab"),
               children: _v1
-            }, _v0)), (0, _v1.jsx)(_v128.TabIndicator, {})]
-          }), (0, _v1.jsx)(_v131.TabPanels, {
-            sx: _v147.TAB_PANELS_STYLES,
+            }, _v0)), (0, _v1.jsx)(_v137.TabIndicator, {})]
+          }), (0, _v1.jsx)(_v140.TabPanels, {
+            sx: _v134.TAB_PANELS_STYLES,
             children: _v20.map(({
               id: _v0,
               questions: _v1
-            }) => (0, _v1.jsx)(_v132.TabPanel, {
+            }) => (0, _v1.jsx)(_v141.TabPanel, {
               className: (0, _v50.createDomName)(_v0, _v0, "tab-panel"),
-              sx: _v147.TAB_PANEL_STYLES,
-              children: (0, _v1.jsx)(_v162.QuestionsList, {
+              sx: _v134.TAB_PANEL_STYLES,
+              children: (0, _v1.jsx)(_v166.QuestionsList, {
                 id: (0, _v50.createDomName)(_v0, _v0, "questions-list"),
                 tabId: _v0,
                 selectedQuestionElement: _v16,
@@ -1438,8 +1469,8 @@
                 itemRenderer: _v0 => {
                   let _v1 = _v15 === _v0.id ? _v66.FOCUSED_STATE_COLOR : "transparent";
                   return (0, _v1.jsxs)(_v79.Box, {
-                    sx: _v147.TAB_LIST_COLUMN_FULL_ITEM_STYLE,
-                    children: [(0, _v1.jsx)(_v161.NewQuestionManageItem, {
+                    sx: _v134.TAB_LIST_COLUMN_FULL_ITEM_STYLE,
+                    children: [(0, _v1.jsx)(_v165.NewQuestionManageItem, {
                       question: _v0,
                       isActive: _v0.id === _v15,
                       isPinned: _v0.id === _v3,
@@ -1452,7 +1483,7 @@
                       onQuestionPin: _v34,
                       onQuestionUnPin: _v35,
                       onDeleteQuestionReply: _v36
-                    }), (0, _v1.jsx)(_v157.SceneItemOverlay, {
+                    }), (0, _v1.jsx)(_v161.SceneItemOverlay, {
                       size: "sm",
                       width: 2,
                       borderRadius: 8,
@@ -1461,14 +1492,14 @@
                     })]
                   }, _v0.id);
                 },
-                placeholder: (0, _v1.jsx)(_v166.EmptyStatePlaceholder, {
+                placeholder: (0, _v1.jsx)(_v170.EmptyStatePlaceholder, {
                   id: (0, _v50.createDomName)(_v0, _v0, "empty-placeholder"),
                   className: (0, _v50.createDomName)(_v0, _v0, "empty-placeholder"),
                   isWithPadding: !0,
-                  icon: (0, _v1.jsx)(_v156.ReviewQuestion, {
+                  icon: (0, _v1.jsx)(_v160.ReviewQuestion, {
                     boxSize: "lg"
                   }),
-                  description: _v0 === _v153.EQnaTab.PENDING ? _v94.T_NO_QUESTIONS_PENDING : _v94.T_NO_QUESTIONS_YET,
+                  description: _v0 === _v157.EQnaTab.PENDING ? _v94.T_NO_QUESTIONS_PENDING : _v94.T_NO_QUESTIONS_YET,
                   control: null
                 })
               })
@@ -1477,16 +1508,16 @@
         }), (0, _v1.jsxs)(_v79.Box, {
           position: "relative",
           width: "100%",
-          onMouseDown: _v173.stopEventPropagation,
-          onTouchStart: _v173.stopEventPropagation,
-          children: [(0, _v1.jsx)(_v148.HorizontalScrollShadow, {
+          onMouseDown: _v177.stopEventPropagation,
+          onTouchStart: _v177.stopEventPropagation,
+          children: [(0, _v1.jsx)(_v153.HorizontalScrollShadow, {
             color: "surface"
-          }), _v28 ? (0, _v1.jsx)(_v159.QnaReplyForm, {
+          }), _v28 ? (0, _v1.jsx)(_v163.QnaReplyForm, {
             id: (0, _v50.createDomName)(_v0, "reply-form"),
             selectedQuestionId: _v15,
-            isApproveNeeded: _v17 === _v153.EQuestionState.PENDING,
+            isApproveNeeded: _v17 === _v157.EQuestionState.PENDING,
             onDismiss: _v19
-          }) : (0, _v1.jsx)(_v163.SessionControlButton, {
+          }) : (0, _v1.jsx)(_v167.SessionControlButton, {
             id: (0, _v50.createDomName)(_v0, "session-control-button")
           })]
         })]
@@ -1494,27 +1525,27 @@
     }) : (0, _v1.jsxs)(_v79.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v147.createTabWrapperStyle)(),
-      children: [(0, _v1.jsx)(_v146.LeftPanelHeader, {
+      sx: (0, _v134.createTabWrapperStyle)(),
+      children: [(0, _v1.jsx)(_v133.LeftPanelHeader, {
         label: _v94.T_QNA,
         controls: (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v160.QnaSettingsButton, {
+          children: [(0, _v1.jsx)(_v164.QnaSettingsButton, {
             id: (0, _v50.createDomName)(_v0, "settings-button"),
             className: (0, _v50.createDomName)(_v1, "settings-button"),
             withInteractionSubmenu: _v30,
-            buttonIcon: (0, _v1.jsx)(_v134.EllipsisV, {})
-          }), (0, _v1.jsx)(_v145.LeftPanelDismiss, {
+            buttonIcon: (0, _v1.jsx)(_v143.EllipsisV, {})
+          }), (0, _v1.jsx)(_v132.LeftPanelDismiss, {
             id: (0, _v50.createDomName)(_v0, "dismiss-button"),
             className: (0, _v50.createDomName)(_v1, "dismiss-button")
           })]
         })
-      }), (0, _v1.jsxs)(_v144.LeftPanelContent, {
+      }), (0, _v1.jsxs)(_v131.LeftPanelContent, {
         justifyContent: "center",
         alignItems: "center",
-        children: [(0, _v1.jsx)(_v164.SessionInactive, {
+        children: [(0, _v1.jsx)(_v168.SessionInactive, {
           flexGrow: 0,
           height: "auto"
-        }), _v27 ? null : (0, _v1.jsx)(_v158.QnAUpsell, {
+        }), _v27 ? null : (0, _v1.jsx)(_v162.QnAUpsell, {
           canUseQnaModeration: _v6
         })]
       })]
@@ -1522,18 +1553,18 @@
       id: _v0,
       className: _v1,
       position: "relative",
-      sx: (0, _v147.createTabWrapperStyle)(),
-      children: (0, _v1.jsx)(_v143.BlockingLoadingWrapper, {
+      sx: (0, _v134.createTabWrapperStyle)(),
+      children: (0, _v1.jsx)(_v152.BlockingLoadingWrapper, {
         id: (0, _v50.createDomName)(_v0, "loader"),
         opacity: .1,
         withAnimation: !0
       })
     });
   }
-  let _v175 = (0, _v5.lazy)(() => _v0.A(0).then(_v0 => ({
+  let _v179 = (0, _v5.lazy)(() => _v0.A(0).then(_v0 => ({
     default: _v0.RtmpDebugTab
   })));
-  function _v176({
+  function _v180({
     id: _v0 = (0, _v50.createDomName)("rtmp-panel-left"),
     className: _v1 = (0, _v50.createDomName)("rtmp-panel-left"),
     composerSessionStatusContext: {
@@ -1543,54 +1574,65 @@
     }) => [_v0]),
     panelsContext: {
       leftPanel: _v3
-    } = (0, _v12.useManager)(_v127.PanelsManager)
+    } = (0, _v12.useManager)(_v128.PanelsManager)
   }) {
     let _v4 = (0, _v22.useIsVpaas)(),
-      _v5 = (0, _v126.useCanSeeDebugTools)(),
-      _v6 = (0, _v5.useMemo)(() => {
+      _v5 = (0, _v127.useCanSeeDebugTools)(),
+      _v6 = !_v4,
+      {
+        settings: _v7
+      } = (0, _v129.useOrionSettings)(),
+      _v8 = (0, _v5.useMemo)(() => {
         let _v0 = [{
-          id: _v124.ELeftPanelId.QNA,
-          icon: (0, _v1.jsx)(_v123.PanelQnaIcon, {
-            isActive: _v3 === _v124.ELeftPanelId.QNA,
+          id: _v125.ELeftPanelId.QNA,
+          icon: (0, _v1.jsx)(_v124.PanelQnaIcon, {
+            isActive: _v3 === _v125.ELeftPanelId.QNA,
             isManagementAccessed: !0
           }),
           header: _v94.T_QNA,
-          content: _v174,
-          hash: _v124.ELeftPanelHash.QNA
+          content: _v178,
+          hash: _v125.ELeftPanelHash.QNA
         }, {
-          id: _v124.ELeftPanelId.POLLS,
-          icon: (0, _v1.jsx)(_v122.PanelPollIcon, {
-            isActive: _v3 === _v124.ELeftPanelId.POLLS
+          id: _v125.ELeftPanelId.POLLS,
+          icon: (0, _v1.jsx)(_v123.PanelPollIcon, {
+            isActive: _v3 === _v125.ELeftPanelId.POLLS
           }),
           header: _v94.T_POLLS,
-          content: _v155,
-          hash: _v124.ELeftPanelHash.POLLS
+          content: _v159,
+          hash: _v125.ELeftPanelHash.POLLS
         }];
-        return _v5 && _v0.push({
-          id: _v124.ELeftPanelId.DEBUG,
+        return !_v4 && _v7.enable_event_series_in_dev_features && _v0.push({
+          id: _v125.ELeftPanelId.LANDING_PAGE,
+          icon: (0, _v1.jsx)(_v121.BrowserWindow, {}),
+          header: _v57.translations.landingPage,
+          content: _v136,
+          isNew: !0,
+          hash: _v125.ELeftPanelHash.LANDING_PAGE
+        }), _v5 && _v0.push({
+          id: _v125.ELeftPanelId.DEBUG,
           icon: (0, _v1.jsx)(_v120.Processor, {}),
           header: _v57.translations.debug,
-          hash: _v124.ELeftPanelHash.DEBUG,
+          hash: _v125.ELeftPanelHash.DEBUG,
           content: () => (0, _v1.jsx)(_v5.Suspense, {
             fallback: null,
-            children: (0, _v1.jsx)(_v175, {})
+            children: (0, _v1.jsx)(_v179, {})
           })
         }), _v0;
-      }, [_v5, _v3]);
-    return (0, _v1.jsx)(_v125.LeftPanel, {
+      }, [_v5, _v3, _v4, _v7.enable_event_series_in_dev_features]);
+    return (0, _v1.jsx)(_v126.LeftPanel, {
       id: _v0,
       className: _v1,
       isLoading: !_v2,
       defaultValue: null,
-      items: _v6,
-      footer: _v4 ? null : (0, _v1.jsx)(_v121.FooterHelpMenu, {})
+      items: _v8,
+      footer: _v6 ? (0, _v1.jsx)(_v122.FooterHelpMenu, {}) : null
     });
   }
-  var _v177 = _v0.i(0),
-    _v178 = _v0.i(0),
-    _v179 = _v0.i(0),
-    _v180 = _v0.i(0);
-  function _v181({
+  var _v181 = _v0.i(0),
+    _v182 = _v0.i(0),
+    _v183 = _v0.i(0),
+    _v184 = _v0.i(0);
+  function _v185({
     id: _v0 = (0, _v50.createDomName)("right-panel-back-button"),
     className: _v1 = (0, _v50.createDomName)("right-panel-back-button"),
     onClick: _v2
@@ -1600,24 +1642,24 @@
       className: (0, _v50.createDomName)(_v1, "back"),
       "aria-label": "back",
       variant: "tertiary",
-      icon: (0, _v1.jsx)(_v180.ChevronLeft, {}),
+      icon: (0, _v1.jsx)(_v184.ChevronLeft, {}),
       size: "sm",
       onClick: _v2
     });
   }
-  var _v182 = _v0.i(0),
-    _v183 = _v0.i(0),
-    _v184 = _v0.i(0),
-    _v185 = _v0.i(0),
-    _v186 = _v0.i(0),
+  var _v186 = _v0.i(0),
     _v187 = _v0.i(0),
-    _v188 = _v0.i(0);
-  function _v189({
+    _v188 = _v0.i(0),
+    _v189 = _v0.i(0),
+    _v190 = _v0.i(0),
+    _v191 = _v0.i(0),
+    _v192 = _v0.i(0);
+  function _v193({
     id: _v0 = (0, _v50.createDomName)("audio-tracks-tab"),
     className: _v1 = (0, _v50.createDomName)("audio-tracks-tab"),
     panelsContext: {
       panelActions: _v2
-    } = (0, _v12.useManager)(_v127.PanelsManager),
+    } = (0, _v12.useManager)(_v128.PanelsManager),
     composerSessionStatusContext: {
       liveComposerStatuses: _v3
     } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager),
@@ -1632,7 +1674,7 @@
       }
     } = (0, _v12.useManager)(_v62.EventSettingsManager)
   }) {
-    let _v6 = (0, _v150.useScrollbarStyles)({
+    let _v6 = (0, _v135.useScrollbarStyles)({
         width: (0, _v44.rem)(0),
         scrollbarColor: "transparent"
       }),
@@ -1640,7 +1682,7 @@
         isOpen: _v7,
         onOpen: _v8,
         onClose: _v9
-      } = (0, _v179.useDisclosure)(),
+      } = (0, _v183.useDisclosure)(),
       {
         primaryLanguageInfo: _v10,
         secondaryLanguagesInfo: _v11
@@ -1648,27 +1690,27 @@
       _v12 = _v3.isSessionLive,
       {
         selectedMode: _v13
-      } = (0, _v186.useEncoderTabState)(),
+      } = (0, _v190.useEncoderTabState)(),
       _v14 = _v5?.streamKey ?? "",
-      _v15 = (0, _v64.inline)(() => _v13 === _v187.EEncoderMode.RTMPS ? _v5?.rtmpsLink ?? "" : _v13 === _v187.EEncoderMode.RTMP ? _v5?.rtmpLink ?? "" : ""),
+      _v15 = (0, _v64.inline)(() => _v13 === _v191.EEncoderMode.RTMPS ? _v5?.rtmpsLink ?? "" : _v13 === _v191.EEncoderMode.RTMP ? _v5?.rtmpLink ?? "" : ""),
       _v16 = (0, _v5.useCallback)(() => {
         _v2.setRightPanel(_v39.ERightPanelId.EVENT_SETTINGS);
       }, [_v2]);
     return _v10 ? (0, _v1.jsxs)(_v79.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v147.createTabWrapperStyle)({
+      sx: (0, _v134.createTabWrapperStyle)({
         withScroll: !0
       }),
-      children: [(0, _v1.jsx)(_v184.RightPanelHeader, {
+      children: [(0, _v1.jsx)(_v188.RightPanelHeader, {
         id: (0, _v50.createDomName)(_v0, "header"),
         className: (0, _v50.createDomName)(_v1, "header"),
         label: _v94.T_LANGUAGE_STREAMS,
-        leftControls: (0, _v1.jsx)(_v181, {
+        leftControls: (0, _v1.jsx)(_v185, {
           onClick: _v16
         }),
-        rightControls: (0, _v1.jsx)(_v183.RightPanelDismiss, {})
-      }), (0, _v1.jsxs)(_v182.RightPanelContent, {
+        rightControls: (0, _v1.jsx)(_v187.RightPanelDismiss, {})
+      }), (0, _v1.jsxs)(_v186.RightPanelContent, {
         id: (0, _v50.createDomName)(_v0, "content"),
         className: (0, _v50.createDomName)(_v1, "content"),
         children: [(0, _v1.jsxs)(_v43.Flex, {
@@ -1701,7 +1743,7 @@
                 variant: "heading-sm",
                 children: [_v10.label, " (", _v57.translations.primary, ")"]
               })]
-            }), (0, _v1.jsx)(_v185.StreamConnectionInfo, {
+            }), (0, _v1.jsx)(_v189.StreamConnectionInfo, {
               id: (0, _v50.createDomName)(_v0, "primary"),
               className: (0, _v50.createDomName)(_v1, "primary"),
               url: _v15,
@@ -1730,7 +1772,7 @@
                 variant: "heading-sm",
                 children: _v0.label
               })]
-            }), (0, _v1.jsx)(_v185.StreamConnectionInfo, {
+            }), (0, _v1.jsx)(_v189.StreamConnectionInfo, {
               id: (0, _v50.createDomName)(_v0, "secondary", _v0.code),
               className: (0, _v50.createDomName)(_v1, "secondary"),
               streamKey: `${_v14}_${_v0.code}`,
@@ -1752,23 +1794,23 @@
             onClick: _v8,
             children: _v94.T_MANAGE_LANGUAGE_STREAMS
           })
-        }), _v7 ? (0, _v1.jsx)(_v188.TracksManagementModal, {
+        }), _v7 ? (0, _v1.jsx)(_v192.TracksManagementModal, {
           onClose: _v9
         }) : null]
       })]
     }) : null;
   }
-  var _v190 = _v0.i(0),
-    _v191 = _v0.i(0),
-    _v192 = _v0.i(0),
-    _v193 = _v0.i(0),
-    _v194 = _v0.i(0),
+  var _v194 = _v0.i(0),
     _v195 = _v0.i(0),
     _v196 = _v0.i(0),
     _v197 = _v0.i(0),
     _v198 = _v0.i(0),
-    _v199 = _v0.i(0);
-  function _v200({
+    _v199 = _v0.i(0),
+    _v200 = _v0.i(0),
+    _v201 = _v0.i(0),
+    _v202 = _v0.i(0),
+    _v203 = _v0.i(0);
+  function _v204({
     id: _v0 = (0, _v50.createDomName)("tabbed-chat"),
     className: _v1 = (0, _v50.createDomName)("tabbed-chat"),
     chatContext: {
@@ -1777,25 +1819,25 @@
       chatActions: {
         enableChat: _v4
       }
-    } = (0, _v12.useManager)(_v198.ChatManager),
+    } = (0, _v12.useManager)(_v202.ChatManager),
     firebaseContext: {
       interactionCredentials: _v5,
       connectionStatuses: {
         isInteractionConnected: _v6
       }
-    } = (0, _v12.useManager)(_v197.RtmpFirebaseManager)
+    } = (0, _v12.useManager)(_v201.RtmpFirebaseManager)
   }) {
     let _v7 = (0, _v22.useIsVpaas)(),
       {
         initialState: {
           sessionType: _v8
         }
-      } = (0, _v196.useLiveGlobals)(),
+      } = (0, _v200.useLiveGlobals)(),
       _v9 = _v5?.user?.id,
       _v10 = !_v2 || !_v9,
       _v11 = _v8 === _v20.EComposerSessionType.VENUE,
       _v12 = (0, _v5.useCallback)(() => {
-        _v4(), (0, _v199.trackEnableAudienceChat)();
+        _v4(), (0, _v203.trackEnableAudienceChat)();
       }, [_v4]);
     return _v10 ? (0, _v1.jsxs)(_v43.Flex, {
       id: _v0,
@@ -1803,10 +1845,10 @@
       overflow: "hidden",
       grow: 1,
       width: "100%",
-      children: [(0, _v1.jsx)(_v184.RightPanelHeader, {
+      children: [(0, _v1.jsx)(_v188.RightPanelHeader, {
         label: _v94.T_CHAT,
-        rightControls: (0, _v1.jsx)(_v183.RightPanelDismiss, {})
-      }), (0, _v1.jsx)(_v194.ChatPreloader, {
+        rightControls: (0, _v1.jsx)(_v187.RightPanelDismiss, {})
+      }), (0, _v1.jsx)(_v198.ChatPreloader, {
         id: (0, _v50.createDomName)(_v0, "preloader")
       })]
     }) : (0, _v1.jsxs)(_v43.Flex, {
@@ -1815,20 +1857,20 @@
       overflow: "hidden",
       grow: 1,
       width: "100%",
-      children: [(0, _v1.jsx)(_v184.RightPanelHeader, {
+      children: [(0, _v1.jsx)(_v188.RightPanelHeader, {
         label: _v94.T_CHAT,
         rightControls: (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v195.ChatSettingsButton, {
+          children: [(0, _v1.jsx)(_v199.ChatSettingsButton, {
             id: (0, _v50.createDomName)(_v0, "settings-button"),
             className: (0, _v50.createDomName)(_v1, "settings-button"),
             withInteractionSubmenu: !_v7 && !_v11,
-            buttonIcon: (0, _v1.jsx)(_v134.EllipsisV, {})
-          }), (0, _v1.jsx)(_v183.RightPanelDismiss, {
+            buttonIcon: (0, _v1.jsx)(_v143.EllipsisV, {})
+          }), (0, _v1.jsx)(_v187.RightPanelDismiss, {
             id: (0, _v50.createDomName)(_v0, "dismiss-button"),
             className: (0, _v50.createDomName)(_v1, "dismiss-button")
           })]
         })
-      }), (0, _v1.jsx)(_v182.RightPanelContent, {
+      }), (0, _v1.jsx)(_v186.RightPanelContent, {
         children: (0, _v1.jsx)(_v43.Flex, {
           id: (0, _v50.createDomName)(_v0, "content"),
           direction: "column",
@@ -1837,17 +1879,17 @@
           grow: 1,
           overflow: "hidden",
           children: _v3 ? (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v192.ChatHistory, {
-              chatType: _v153.EChatType.PUBLIC,
+            children: [(0, _v1.jsx)(_v196.ChatHistory, {
+              chatType: _v157.EChatType.PUBLIC,
               currentUserId: _v9,
               scrollBackground: "surface"
-            }), (0, _v1.jsx)(_v193.ChatInput, {
-              chatType: _v153.EChatType.PUBLIC,
+            }), (0, _v1.jsx)(_v197.ChatInput, {
+              chatType: _v157.EChatType.PUBLIC,
               isDisabled: !_v6
             })]
-          }) : (0, _v1.jsx)(_v166.EmptyStatePlaceholder, {
+          }) : (0, _v1.jsx)(_v170.EmptyStatePlaceholder, {
             id: (0, _v50.createDomName)(_v0, "placeholder"),
-            icon: (0, _v1.jsx)(_v191.Chats, {
+            icon: (0, _v1.jsx)(_v195.Chats, {
               boxSize: "lg"
             }),
             buttonLabel: _v57.translations.turnOn,
@@ -1858,9 +1900,9 @@
       })]
     });
   }
-  var _v201 = _v0.i(0),
-    _v202 = _v0.i(0);
-  let _v203 = (0, _v5.memo)(({
+  var _v205 = _v0.i(0),
+    _v206 = _v0.i(0);
+  let _v207 = (0, _v5.memo)(({
       id: _v0,
       className: _v1,
       status: _v2,
@@ -1878,25 +1920,25 @@
         _v5 = (0, _v64.inline)(() => {
           switch (_v2) {
             case _v91.EBackupStreamStatus.CONNECTED:
-              return _v202.rtmpTranslations.connected;
+              return _v206.rtmpTranslations.connected;
             case _v91.EBackupStreamStatus.STREAMING:
-              return _v202.rtmpTranslations.streaming;
+              return _v206.rtmpTranslations.streaming;
             case _v91.EBackupStreamStatus.NOT_AVAILABLE:
-              return _v202.rtmpTranslations.notAvailable;
+              return _v206.rtmpTranslations.notAvailable;
             case _v91.EBackupStreamStatus.NOT_CONNECTED:
-              return _v202.rtmpTranslations.notConnected;
+              return _v206.rtmpTranslations.notConnected;
           }
         }),
         _v6 = (0, _v64.inline)(() => {
           switch (_v2) {
             case _v91.EBackupStreamStatus.CONNECTED:
-              return _v202.rtmpTranslations.backupStreamConnected;
+              return _v206.rtmpTranslations.backupStreamConnected;
             case _v91.EBackupStreamStatus.STREAMING:
-              return _v202.rtmpTranslations.backupStreamStreaming;
+              return _v206.rtmpTranslations.backupStreamStreaming;
             case _v91.EBackupStreamStatus.NOT_AVAILABLE:
-              return _v202.rtmpTranslations.backupStreamIsUnavailable;
+              return _v206.rtmpTranslations.backupStreamIsUnavailable;
             case _v91.EBackupStreamStatus.NOT_CONNECTED:
-              return _v202.rtmpTranslations.connectSecondaryStream;
+              return _v206.rtmpTranslations.connectSecondaryStream;
           }
         });
       return (0, _v1.jsxs)(_v43.Flex, {
@@ -1911,7 +1953,7 @@
           children: [(0, _v1.jsx)(_v51.Header, {
             size: "xs",
             margin: 0,
-            children: _v202.rtmpTranslations.backUpStreamStatus
+            children: _v206.rtmpTranslations.backUpStreamStatus
           }), (0, _v1.jsx)(_v112.Badge, {
             size: _v3 ? "xs" : "sm",
             backgroundColor: _v4,
@@ -1928,7 +1970,7 @@
         })]
       });
     }),
-    _v204 = (0, _v5.memo)(({
+    _v208 = (0, _v5.memo)(({
       id: _v0,
       className: _v1,
       stats: _v2
@@ -1983,9 +2025,9 @@
         })]
       });
     });
-  var _v205 = _v0.i(0),
-    _v206 = _v0.i(0);
-  function _v207(_v0) {
+  var _v209 = _v0.i(0),
+    _v210 = _v0.i(0);
+  function _v211(_v0) {
     return _v0.payload ? (0, _v1.jsxs)(_v43.Flex, {
       background: "background",
       border: "1px solid",
@@ -2024,7 +2066,7 @@
       }, `row-${_v1}`))]
     }) : null;
   }
-  function _v208({
+  function _v212({
     payload: _v0
   }) {
     return _v0 ? (0, _v1.jsx)(_v43.Flex, {
@@ -2040,27 +2082,27 @@
           width: (0, _v44.rem)(8),
           height: (0, _v44.rem)(8),
           color: _v0.color
-        }) : null, "fps" === _v0.value ? `${_v202.rtmpTranslations.frameRate} (fps)` : _v202.rtmpTranslations.bitrate]
+        }) : null, "fps" === _v0.value ? `${_v206.rtmpTranslations.frameRate} (fps)` : _v206.rtmpTranslations.bitrate]
       }, _v1))
     }) : null;
   }
-  var _v209 = _v0.i(0);
-  function _v210(_v0, _v1 = "", _v2) {
+  var _v213 = _v0.i(0);
+  function _v214(_v0, _v1 = "", _v2) {
     let _v3 = parseInt(_v0);
-    return _v0 === _v201.STREAM_HEALTH_NA || isNaN(_v3) ? _v201.STREAM_HEALTH_NA : _v2 && _v3 > 0 ? `${(_v3 / 0).toLocaleString(void 0, {
+    return _v0 === _v205.STREAM_HEALTH_NA || isNaN(_v3) ? _v205.STREAM_HEALTH_NA : _v2 && _v3 > 0 ? `${(_v3 / 0).toLocaleString(void 0, {
       maximumFractionDigits: 3
     })} ${_v2}` : `${parseFloat(_v0).toLocaleString(void 0, {
       maximumFractionDigits: 3
     })} ${_v1}`;
   }
-  function _v211({
+  function _v215({
     ticks: _v0
   }) {
     let {
         ReCharts: _v1,
         loadError: _v2
-      } = (0, _v206.useReCharts)(),
-      _v3 = (0, _v205.useColorModeValue)("#000000", "#ffffff"),
+      } = (0, _v210.useReCharts)(),
+      _v3 = (0, _v209.useColorModeValue)("#000000", "#ffffff"),
       _v4 = _v0 && _v0.length - 2;
     return _v2 || !_v1 ? null : (0, _v1.jsxs)(_v43.Flex, {
       width: "100%",
@@ -2071,7 +2113,7 @@
         size: "sm",
         color: "text-primary",
         marginBottom: (0, _v44.rem)(12),
-        children: _v202.rtmpTranslations.streamMetrics
+        children: _v206.rtmpTranslations.streamMetrics
       }), (0, _v1.jsx)(_v1.ResponsiveContainer, {
         width: "100%",
         height: "100%",
@@ -2098,10 +2140,10 @@
             interval: _v4,
             tickFormatter: _v0 => {
               let _v1, _v2, _v3;
-              return _v2 = !!(_v1 = (0, _v209.default)(_v0)) && _v1.timestamp === _v0, _v3 = new Date(_v0), `${_v3.toLocaleTimeString("en", {
+              return _v2 = !!(_v1 = (0, _v213.default)(_v0)) && _v1.timestamp === _v0, _v3 = new Date(_v0), `${_v3.toLocaleTimeString("en", {
                 hour: "numeric",
                 minute: "numeric"
-              })} ${_v2 ? `(${_v202.rtmpTranslations.now})` : ""}`;
+              })} ${_v2 ? `(${_v206.rtmpTranslations.now})` : ""}`;
             },
             dx: -28,
             textAnchor: "middle"
@@ -2122,7 +2164,7 @@
             stroke: _v3,
             width: 30 * !!_v0.length
           }), 0 === _v0.length ? null : (0, _v1.jsx)(_v1.Tooltip, {
-            content: _v207,
+            content: _v211,
             wrapperStyle: {
               top: -100,
               bottom: 300
@@ -2130,7 +2172,7 @@
           }), (0, _v1.jsx)(_v1.Legend, {
             height: 50,
             verticalAlign: "top",
-            content: _v208
+            content: _v212
           }), (0, _v1.jsx)(_v1.Line, {
             activeDot: !0,
             dot: !1,
@@ -2154,7 +2196,7 @@
       })]
     });
   }
-  function _v212({
+  function _v216({
     label: _v0,
     displayValue: _v1
   }) {
@@ -2173,7 +2215,7 @@
       })]
     });
   }
-  function _v213({
+  function _v217({
     sessionId: _v0,
     stats: {
       currentBitrate: _v1,
@@ -2197,19 +2239,19 @@
         direction: "column",
         width: "100%",
         gap: (0, _v44.rem)(8),
-        children: [(0, _v1.jsx)(_v212, {
+        children: [(0, _v1.jsx)(_v216, {
           label: _v57.translations.bitrate,
-          displayValue: _v210(String(_v1), "Kbps", "Mbps")
-        }), (0, _v1.jsx)(_v212, {
+          displayValue: _v214(String(_v1), "Kbps", "Mbps")
+        }), (0, _v1.jsx)(_v216, {
           label: _v57.translations.averageBitrate,
-          displayValue: _v210(String(_v2), "Kbps", "Mbps")
-        }), (0, _v1.jsx)(_v212, {
+          displayValue: _v214(String(_v2), "Kbps", "Mbps")
+        }), (0, _v1.jsx)(_v216, {
           label: _v57.translations.frameRate,
-          displayValue: _v210(String(_v3), "fps")
-        }), (0, _v1.jsx)(_v212, {
+          displayValue: _v214(String(_v3), "fps")
+        }), (0, _v1.jsx)(_v216, {
           label: _v57.translations.averageFrameRate,
-          displayValue: _v210(String(_v4), "fps")
-        }), (0, _v1.jsx)(_v212, {
+          displayValue: _v214(String(_v4), "fps")
+        }), (0, _v1.jsx)(_v216, {
           label: _v57.translations.videoResolution,
           displayValue: _v5
         })]
@@ -2225,21 +2267,21 @@
           width: "100%",
           gap: (0, _v44.rem)(8),
           visibility: _v10 ? "visible" : "hidden",
-          children: [(0, _v1.jsx)(_v212, {
+          children: [(0, _v1.jsx)(_v216, {
             label: _v57.translations.audioCodec,
             displayValue: String(_v8)
-          }), (0, _v1.jsx)(_v212, {
+          }), (0, _v1.jsx)(_v216, {
             label: _v57.translations.videoCodec,
             displayValue: String(_v9)
-          }), (0, _v1.jsx)(_v212, {
+          }), (0, _v1.jsx)(_v216, {
             label: _v57.translations.avcProfile,
-            displayValue: _v210(String(_v7))
-          }), (0, _v1.jsx)(_v212, {
+            displayValue: _v214(String(_v7))
+          }), (0, _v1.jsx)(_v216, {
             label: _v57.translations.avcLevel,
-            displayValue: _v210(String(_v6))
-          }), (0, _v1.jsx)(_v212, {
+            displayValue: _v214(String(_v6))
+          }), (0, _v1.jsx)(_v216, {
             label: _v57.translations.sessionId,
-            displayValue: _v0 || _v201.STREAM_HEALTH_NA
+            displayValue: _v0 || _v205.STREAM_HEALTH_NA
           })]
         })
       }), (0, _v1.jsx)(_v52.Text, {
@@ -2253,7 +2295,7 @@
       })]
     });
   }
-  let _v214 = (0, _v5.memo)(({
+  let _v218 = (0, _v5.memo)(({
     id: _v0,
     className: _v1,
     status: _v2,
@@ -2273,25 +2315,25 @@
       _v5 = (0, _v64.inline)(() => {
         switch (_v2) {
           case _v91.EStreamStatus.GOOD:
-            return _v202.rtmpTranslations.good;
+            return _v206.rtmpTranslations.good;
           case _v91.EStreamStatus.READY:
-            return _v202.rtmpTranslations.ready;
+            return _v206.rtmpTranslations.ready;
           case _v91.EStreamStatus.UNSTABLE:
-            return _v202.rtmpTranslations.unstable;
+            return _v206.rtmpTranslations.unstable;
           default:
-            return _v202.rtmpTranslations.unknown;
+            return _v206.rtmpTranslations.unknown;
         }
       }),
       _v6 = (0, _v64.inline)(() => {
         switch (_v2) {
           case _v91.EStreamStatus.GOOD:
-            return _v202.rtmpTranslations.youHaveStableStream;
+            return _v206.rtmpTranslations.youHaveStableStream;
           case _v91.EStreamStatus.READY:
-            return _v202.rtmpTranslations.yourConnectionReadyForStreaming;
+            return _v206.rtmpTranslations.yourConnectionReadyForStreaming;
           case _v91.EStreamStatus.UNSTABLE:
-            return _v202.rtmpTranslations.viewersMayExperienceBufferingProblems;
+            return _v206.rtmpTranslations.viewersMayExperienceBufferingProblems;
           default:
-            return _v202.rtmpTranslations.streamHealthUnavailable;
+            return _v206.rtmpTranslations.streamHealthUnavailable;
         }
       });
     return (0, _v1.jsxs)(_v43.Flex, {
@@ -2306,7 +2348,7 @@
         children: [(0, _v1.jsx)(_v51.Header, {
           size: "xs",
           margin: 0,
-          children: _v202.rtmpTranslations.currentStatus
+          children: _v206.rtmpTranslations.currentStatus
         }), (0, _v1.jsx)(_v112.Badge, {
           size: _v3 ? "xs" : "sm",
           backgroundColor: _v4,
@@ -2323,7 +2365,7 @@
       })]
     });
   });
-  function _v215({
+  function _v219({
     streamHealthContext: {
       stats: _v0,
       ticks: _v1
@@ -2344,7 +2386,7 @@
     } = (0, _v12.useManager)(_v36.ComposerSessionManager)
   }) {
     let _v6 = (0, _v5.useMemo)(() => _v3 && 0 !== _v3.secondary.length ? _v3.secondary.map(_v0 => ({
-      ...(_v0.altEncoders.find(_v0 => _v0.language === _v0) ?? _v201.ENCODER_STATS_STATE_NA),
+      ...(_v0.altEncoders.find(_v0 => _v0.language === _v0) ?? _v205.ENCODER_STATS_STATE_NA),
       language: _v0,
       languageLabel: _v4.getLanguageLabelByCode(_v0)
     })) : [], [_v3, _v4, _v0.altEncoders]);
@@ -2352,12 +2394,12 @@
       width: "100%",
       direction: "column",
       gap: (0, _v44.rem)(24),
-      children: [(0, _v1.jsx)(_v214, {
+      children: [(0, _v1.jsx)(_v218, {
         status: _v0.streamStatus,
         hasAudioTracksManagement: _v5
       }), (0, _v1.jsx)(_v88.Divider, {
         borderColor: "stroke"
-      }), (0, _v1.jsx)(_v203, {
+      }), (0, _v1.jsx)(_v207, {
         status: _v0.backupStreamStatus,
         hasAudioTracksManagement: _v5
       }), (0, _v1.jsx)(_v88.Divider, {
@@ -2367,39 +2409,39 @@
           size: "sm",
           margin: 0,
           children: _v57.translations.languageStreams
-        }), _v6.map(_v0 => (0, _v1.jsx)(_v204, {
+        }), _v6.map(_v0 => (0, _v1.jsx)(_v208, {
           stats: _v0,
           isPrimary: _v0.language === _v3?.primary
         }, _v0.language)), (0, _v1.jsx)(_v88.Divider, {
           borderColor: "stroke"
         })]
-      }) : null, (0, _v1.jsx)(_v211, {
+      }) : null, (0, _v1.jsx)(_v215, {
         ticks: _v1
       }), (0, _v1.jsx)(_v88.Divider, {
         borderColor: "stroke"
-      }), (0, _v1.jsx)(_v213, {
+      }), (0, _v1.jsx)(_v217, {
         stats: _v0,
         sessionId: _v2
       })]
     });
   }
-  function _v216({
+  function _v220({
     id: _v0 = (0, _v50.createDomName)("stream-health-tab"),
     className: _v1 = (0, _v50.createDomName)("stream-health-tab")
   }) {
-    let _v2 = (0, _v150.useScrollbarStyles)();
+    let _v2 = (0, _v135.useScrollbarStyles)();
     return (0, _v1.jsxs)(_v79.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v147.createTabWrapperStyle)({
+      sx: (0, _v134.createTabWrapperStyle)({
         withScroll: !0
       }),
-      children: [(0, _v1.jsx)(_v184.RightPanelHeader, {
+      children: [(0, _v1.jsx)(_v188.RightPanelHeader, {
         id: (0, _v50.createDomName)(_v0, "header"),
         className: (0, _v50.createDomName)(_v1, "header"),
         label: _v57.translations.streamHealth,
-        rightControls: (0, _v1.jsx)(_v183.RightPanelDismiss, {})
-      }), (0, _v1.jsx)(_v182.RightPanelContent, {
+        rightControls: (0, _v1.jsx)(_v187.RightPanelDismiss, {})
+      }), (0, _v1.jsx)(_v186.RightPanelContent, {
         id: (0, _v50.createDomName)(_v0, "content"),
         className: (0, _v50.createDomName)(_v1, "content"),
         children: (0, _v1.jsx)(_v43.Flex, {
@@ -2407,12 +2449,12 @@
           marginRight: (0, _v44.rem)(-16),
           overflowY: "scroll",
           sx: _v2,
-          children: (0, _v1.jsx)(_v215, {})
+          children: (0, _v1.jsx)(_v219, {})
         })
       })]
     });
   }
-  function _v217({
+  function _v221({
     id: _v0 = (0, _v50.createDomName)("rtmp-panel-right"),
     className: _v1 = (0, _v50.createDomName)("rtmp-panel-right"),
     composerSessionStatusContext: {
@@ -2423,33 +2465,33 @@
   }) {
     let _v3 = (0, _v5.useMemo)(() => [{
       id: _v39.ERightPanelId.EVENT_SETTINGS,
-      content: _v178.EventSettingsTab,
+      content: _v182.EventSettingsTab,
       isVisible: !0
     }, {
       id: _v39.ERightPanelId.ANALYTICS,
-      content: _v177.AnalyticsTab,
+      content: _v181.AnalyticsTab,
       isVisible: !0
     }, {
       id: _v39.ERightPanelId.STREAM_HEALTH,
-      content: _v216,
+      content: _v220,
       isVisible: !0
     }, {
       id: _v39.ERightPanelId.CHAT,
-      content: _v200,
+      content: _v204,
       isVisible: !0
     }, {
       id: _v39.ERightPanelId.AUDIO_TRACKS,
-      content: _v189,
+      content: _v193,
       isVisible: !0
     }], []);
-    return (0, _v1.jsx)(_v190.RightPanel, {
+    return (0, _v1.jsx)(_v194.RightPanel, {
       id: _v0,
       className: _v1,
       items: _v3,
       isLoading: !_v2
     });
   }
-  function _v218() {
+  function _v222() {
     let _v0 = (0, _v49.useIsLiveDemoSubscription)();
     return (0, _v1.jsxs)(_v43.Flex, {
       id: (0, _v50.createDomName)("page"),
@@ -2469,7 +2511,7 @@
         basis: 0,
         grow: 1,
         overflow: "hidden",
-        children: [(0, _v1.jsx)(_v176, {
+        children: [(0, _v1.jsx)(_v180, {
           id: (0, _v50.createDomName)("left-panel")
         }), (0, _v1.jsxs)(_v43.Flex, {
           id: (0, _v50.createDomName)("workspace"),
@@ -2485,40 +2527,40 @@
           }), (0, _v1.jsx)(_v48.LiveComposerFooter, {
             id: (0, _v50.createDomName)("footer")
           })]
-        }), (0, _v1.jsx)(_v217, {
+        }), (0, _v1.jsx)(_v221, {
           id: (0, _v50.createDomName)("right-panel")
         })]
       })]
     });
   }
-  var _v219 = _v0.i(0),
-    _v220 = _v0.i(0),
-    _v221 = _v0.i(0),
-    _v222 = _v0.i(0),
-    _v223 = _v0.i(0),
+  var _v223 = _v0.i(0),
     _v224 = _v0.i(0),
     _v225 = _v0.i(0),
     _v226 = _v0.i(0),
-    _v227 = _v0.i(0);
-  let _v228 = [_v220.DebugControlManager, _v198.ChatManager, _v36.ComposerSessionManager, _v82.ComposerSessionStatsManager, _v25.ComposerSessionStatusManager, _v222.DestinationsManager, _v223.DragDropManager, _v90.EventAudioTracksManager, _v62.EventSettingsManager, _v221.ModuleManager, _v224.NotificationManager, _v225.PageEventsManager, _v127.PanelsManager, _v151.PollManager, _v169.QnAManager, _v197.RtmpFirebaseManager, _v92.StreamHealthManager, _v63.StudioManager, _v226.TrackingManager, _v26.UserPreferencesManager],
-    _v229 = (0, _v12.createProvider)(_v228, {
+    _v227 = _v0.i(0),
+    _v228 = _v0.i(0),
+    _v229 = _v0.i(0),
+    _v230 = _v0.i(0),
+    _v231 = _v0.i(0);
+  let _v232 = [_v224.DebugControlManager, _v202.ChatManager, _v36.ComposerSessionManager, _v82.ComposerSessionStatsManager, _v25.ComposerSessionStatusManager, _v226.DestinationsManager, _v227.DragDropManager, _v90.EventAudioTracksManager, _v62.EventSettingsManager, _v225.ModuleManager, _v228.NotificationManager, _v229.PageEventsManager, _v128.PanelsManager, _v155.PollManager, _v173.QnAManager, _v201.RtmpFirebaseManager, _v92.StreamHealthManager, _v63.StudioManager, _v230.TrackingManager, _v26.UserPreferencesManager],
+    _v233 = (0, _v12.createProvider)(_v232, {
       isCombined: _v17.liveApplicationConfig.USE_COMBINED_PROVIDERS
     });
-  function _v230({
+  function _v234({
     initialState: _v0,
     pageProps: _v1,
     children: _v2
   }) {
-    return (0, _v227.useScopeViewerProvision)(), (0, _v219.useScopeGctlProvision)(), (0, _v1.jsx)(_v196.LiveGlobalsProvider, {
+    return (0, _v231.useScopeViewerProvision)(), (0, _v223.useScopeGctlProvision)(), (0, _v1.jsx)(_v200.LiveGlobalsProvider, {
       initialState: _v0,
       pageProps: _v1,
-      children: (0, _v1.jsx)(_v229, {
+      children: (0, _v1.jsx)(_v233, {
         initialState: _v0,
         children: _v2
       })
     });
   }
-  function _v231(_v0) {
+  function _v235(_v0) {
     let _v1 = (0, _v21.useViewer)(),
       _v2 = (0, _v18.useInitialRenderTime)(),
       _v3 = (0, _v22.useIsVpaas)(),
@@ -2558,10 +2600,10 @@
     }), !_v16.browserConfig.BROWSER?.isMobile || _v17.liveApplicationConfig.FEATURE.USE_MOBILE_ACCESS) ? (0, _v1.jsx)(_v12.ScopeProvider, {
       children: (0, _v1.jsx)(_v15.ScopeErrorBoundary, {
         fallback: _v11,
-        children: (0, _v1.jsxs)(_v230, {
+        children: (0, _v1.jsxs)(_v234, {
           pageProps: _v0,
           initialState: _v4,
-          children: [(0, _v1.jsx)(_v218, {}), (0, _v1.jsx)(_v42, {})]
+          children: [(0, _v1.jsx)(_v222, {}), (0, _v1.jsx)(_v42, {})]
         })
       })
     }) : _v16.browserConfig.BROWSER?.isMobile ? (0, _v1.jsx)(_v14.MobileUnsupportedModal, {}) : (0, _v1.jsx)(_v13.BrowserUnsupportedModal, {});
@@ -2575,7 +2617,7 @@
     return _v1 ? (0, _v1.jsx)(_v2.LiveErrorBoundary, {
       component: "LiveRtmpRoot",
       componentHandler: _v11,
-      children: (0, _v1.jsx)(_v231, {
+      children: (0, _v1.jsx)(_v235, {
         ..._v0,
         sessionType: _v3,
         sessionId: _v2

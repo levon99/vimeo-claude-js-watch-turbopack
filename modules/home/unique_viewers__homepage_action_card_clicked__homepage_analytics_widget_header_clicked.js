@@ -18204,6 +18204,7 @@
     sideNavContent: (0, _v1.jsx)(_v40.SideNavContent, {
       surface: "home"
     }),
+    sideNavSurface: "home",
     playerAssetUrls: _v1.playerAssetUrls,
     hasUploader: _v1.hasUploader,
     children: _v0

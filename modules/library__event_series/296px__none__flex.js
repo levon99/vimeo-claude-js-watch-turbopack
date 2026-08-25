@@ -2022,6 +2022,7 @@
     sideNavContent: (0, _v1.jsx)(_v96.SideNavContent, {
       surface: "home"
     }),
+    sideNavSurface: "home",
     children: _v0
   }), (0, _v4.withPageSetup)(() => ({
     props: {

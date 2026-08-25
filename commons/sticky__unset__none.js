@@ -27,7 +27,7 @@
     hasThemeSupport: _v1 = !0,
     isSideNavActive: _v2,
     setIsSideNavActive: _v3,
-    isNewSidebar: _v4 = !1,
+    hasSideNavLayout: _v4 = !1,
     children: _v5
   }) => {
     let _v6 = (0, _v15.useBreakpointValue)({
@@ -137,18 +137,17 @@
         {
           isOpen: _v12,
           collapsed: _v13,
-          isNewDesktopSidebar: _v14,
-          toggle: _v15,
-          open: _v16
+          toggle: _v14,
+          open: _v15
         } = (0, _v14.useSideNavSurfaceState)({
           surface: _v10 === _v23.PATH.ORGANIZATION ? "organization-settings" : "workspace-settings",
           userId: _v8?.user?.id,
           isMobile: _v11
         }),
         {
-          isOrganizationOutOfCredits: _v17,
-          isAtLeastOneWorkspaceOutOfCredits: _v18,
-          isOrganizationOutOfStorage: _v19
+          isOrganizationOutOfCredits: _v16,
+          isAtLeastOneWorkspaceOutOfCredits: _v17,
+          isOrganizationOutOfStorage: _v18
         } = (0, _v26.useOrganizationUsage)({
           organizationUuid: _v1
         });
@@ -156,20 +155,20 @@
         _v6(!0);
       }, []), (0, _v4.useEffect)(() => {
         if (_v10 === _v23.PATH.ORGANIZATION && !_v4.current) {
-          if (_v19 && _v17) {
+          if (_v18 && _v16) {
             _v10.PendoClient.showGuideById(_v22.USAGE_PENDO_IDS.ORG_OUT_OF_CREDITS_AND_OUT_OF_STORAGE_ID), _v4.current = !0;
             return;
           }
-          _v19 ? (_v10.PendoClient.showGuideById(_v22.USAGE_PENDO_IDS.ORG_OUT_OF_STORAGE_ID), _v4.current = !0) : _v17 ? (_v10.PendoClient.showGuideById(_v22.USAGE_PENDO_IDS.ORG_OUT_OF_CREDITS_ID), _v4.current = !0) : _v18 && (_v10.PendoClient.showGuideById(_v22.USAGE_PENDO_IDS.WORKSPACE_OUT_OF_CREDITS_ID), _v4.current = !0);
+          _v18 ? (_v10.PendoClient.showGuideById(_v22.USAGE_PENDO_IDS.ORG_OUT_OF_STORAGE_ID), _v4.current = !0) : _v16 ? (_v10.PendoClient.showGuideById(_v22.USAGE_PENDO_IDS.ORG_OUT_OF_CREDITS_ID), _v4.current = !0) : _v17 && (_v10.PendoClient.showGuideById(_v22.USAGE_PENDO_IDS.WORKSPACE_OUT_OF_CREDITS_ID), _v4.current = !0);
         }
-      }, [_v10, _v18, _v17, _v19]), (0, _v1.jsxs)(_v5.Flex, {
+      }, [_v10, _v17, _v16, _v18]), (0, _v1.jsxs)(_v5.Flex, {
         width: "100vw",
         height: "100vh",
         overflow: "hidden",
         children: [(0, _v1.jsxs)(_v13.WayfinderSideNav, {
           isOpen: _v12,
           collapsed: _v13,
-          onClose: _v15,
+          onClose: _v14,
           isMobile: _v11,
           teamOwnerId: _v10 === _v23.PATH.WORKSPACE ? _v8?.team?.ownerId ?? 0 : 0,
           hideQuotaMeter: _v10 === _v23.PATH.ORGANIZATION,
@@ -187,14 +186,14 @@
           children: (0, _v1.jsxs)(_v6.Box, {
             overflowY: "auto",
             children: [_v10 === _v23.PATH.WORKSPACE ? (0, _v1.jsx)(_v9.DefaultNavigation, {
-              setIsSideNavActive: _v14 ? void 0 : _v16,
+              setIsSideNavActive: _v11 ? _v15 : void 0,
               isSideNavActive: _v12,
-              isNewSidebar: _v14,
+              hasSideNavLayout: !_v11,
               fixed: !1
             }) : (0, _v1.jsx)(_v21, {
-              setIsSideNavActive: _v14 ? void 0 : _v16,
+              setIsSideNavActive: _v11 ? _v15 : void 0,
               isSideNavActive: _v12,
-              isNewSidebar: _v14,
+              hasSideNavLayout: !_v11,
               fixed: !1,
               children: (0, _v1.jsx)(_v7.Text, {
                 variant: "heading-xs",

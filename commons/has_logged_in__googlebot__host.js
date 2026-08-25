@@ -247,8 +247,9 @@
         _v7 = () => {
           _v5 && (_v0.res.setHeader("Cache-Control", "private, no-store"), _v0.res.setHeader("CDN-Cache-Control", "no-store"));
         },
-        _v8 = (_v0, _v1, _v2) => {
-          _v15.metrics.histogram("vimeo_nextjs_ssr_setup_duration_seconds", {
+        _v8 = null,
+        _v9 = (_v0, _v1, _v2) => {
+          _v8 = _v0, _v15.metrics.histogram("vimeo_nextjs_ssr_setup_duration_seconds", {
             route: _v2,
             result: _v1
           }, _v2), _v15.metrics.histogram("vimeo_nextjs_http_request_duration_seconds", {
@@ -256,24 +257,32 @@
             method: _v3,
             status_code: _v0
           }, _v4());
-        },
-        _v9 = _v0 => {
+        };
+      _v0.res?.once?.("finish", () => {
+        let _v0 = String(_v0.res.statusCode);
+        _v0.startsWith("5") && _v0 !== _v8 && _v15.metrics.counter("vimeo_nextjs_http_request_errors_total", {
+          route: _v2,
+          method: _v3,
+          status_code: _v0
+        });
+      });
+      let _v10 = _v0 => {
           var _v1;
           return "redirect" in _v0 ? "number" == typeof (_v1 = _v0.redirect).statusCode ? String(_v1.statusCode) : _v1.permanent ? "308" : "307" : "notFound" in _v0 ? "404" : String(_v0.res?.statusCode || 200);
         },
-        _v10 = (_v0, _v1) => {
+        _v11 = (_v0, _v1) => {
           let _v2 = _v6 ? 308 : 302;
           return _v15.metrics.counter("vimeo_nextjs_ssr_auth_redirect_total", {
             reason: _v0,
             destination: "/join" === _v1 ? "join" : "/log_in" === _v1 ? "log_in" : "custom"
-          }), _v7(), _v8(String(_v2), "auth_redirect", _v4()), {
+          }), _v7(), _v9(String(_v2), "auth_redirect", _v4()), {
             redirect: {
               destination: _v1,
               statusCode: _v2
             }
           };
         },
-        _v11 = null;
+        _v12 = null;
       _v15.metrics.gaugeInc("vimeo_nextjs_http_requests_active");
       try {
         let _v0,
@@ -322,7 +331,7 @@
             }
           };
         if (!_v3?.requireLogin && !_v3?.capability && !_v3?.staffOnly) {
-          _v11 = _v4();
+          _v12 = _v4();
           let _v0 = _v3?.inlineViewer === "all" || _v3?.inlineViewer && _v4.jwt && !_v4(_v4.req) ? _v24(_v4) : null,
             _v1 = _v3?.inlinePlayerAssets ? _v25(_v4) : null,
             _v2 = _v3?.inlineCreatePreloads && _v4(_v4.req) ? _v27(_v4) : null,
@@ -330,7 +339,7 @@
             _v4 = _v3?.inlineModbox && !_v4(_v4.req) ? _v26(_v4) : null,
             _v5 = await _v2(_v4),
             _v6 = _v0.res?.getHeader?.("Cache-Control");
-          return "string" == typeof _v6 && _v6.includes("no-store") && _v0.res.setHeader("CDN-Cache-Control", "no-store"), _v8(_v9(_v5), "success", _v11), _v4(_v5, {
+          return "string" == typeof _v6 && _v6.includes("no-store") && _v0.res.setHeader("CDN-Cache-Control", "no-store"), _v9(_v10(_v5), "success", _v12), _v4(_v5, {
             locale: _v1,
             isChinaRestricted: _v2
           }, _v0 ? await _v0 : null, _v1 ? await _v1 : null, _v2 ? await _v2 : null, _v3, _v4 ? await _v4 : null);
@@ -338,9 +347,9 @@
         if (_v4(_v4.req)) {
           console.log("requireLogin: User is logged-out");
           let _v0 = _v5(_v5(_v4.req) ? "/log_in" : "/join");
-          return _v10("logged_out", _v0);
+          return _v11("logged_out", _v0);
         }
-        if (!_v4.jwt) return console.log("requireLogin: Missing JWT"), _v10("missing_jwt", _v5("/log_in"));
+        if (!_v4.jwt) return console.log("requireLogin: Missing JWT"), _v11("missing_jwt", _v5("/log_in"));
         let _v6 = {};
         if (_v3?.staffOnly || _v3?.capability) try {
           let _v0 = ["canViewStaffOnlyPage"];
@@ -349,7 +358,7 @@
             capabilities: _v0,
             apiUrl: _v4.baseUrl,
             headers: _v4.headers
-          }), _v3?.staffOnly && !1 === _v6.canViewStaffOnlyPage) return console.log("staffOnly: User does not have staff access"), _v8("404", "capability_denied", _v4()), {
+          }), _v3?.staffOnly && !1 === _v6.canViewStaffOnlyPage) return console.log("staffOnly: User does not have staff access"), _v9("404", "capability_denied", _v4()), {
             notFound: !0
           };
           if (_v3?.capability && !1 === _v6[_v3.capability]) {
@@ -358,21 +367,21 @@
               return _v15.metrics.counter("vimeo_nextjs_ssr_auth_redirect_total", {
                 reason: "capability_denied",
                 destination: "custom"
-              }), _v7(), _v8(String(_v0), "auth_redirect", _v4()), {
+              }), _v7(), _v9(String(_v0), "auth_redirect", _v4()), {
                 redirect: {
                   destination: _v5("/log_in"),
                   statusCode: _v0
                 }
               };
             }
-            return _v8("404", "capability_denied", _v4()), {
+            return _v9("404", "capability_denied", _v4()), {
               notFound: !0
             };
           }
         } catch (_v0) {
-          return console.log("Failed to fetch capabilities ", _v0), _v10("capability_fetch_failed", _v5("/log_in"));
+          return console.log("Failed to fetch capabilities ", _v0), _v11("capability_fetch_failed", _v5("/log_in"));
         }
-        _v4.capabilities = _v6, _v11 = _v4();
+        _v4.capabilities = _v6, _v12 = _v4();
         let _v7 = _v3?.inlineViewer ? _v24(_v4) : null,
           _v8 = _v3?.inlinePlayerAssets ? _v25(_v4) : null,
           _v9 = _v3?.inlineCreatePreloads && _v4(_v4.req) ? _v27(_v4) : null,
@@ -380,12 +389,12 @@
           _v11 = _v3?.inlineModbox ? _v26(_v4) : null,
           _v12 = await _v2(_v4),
           _v13 = _v0.res?.getHeader?.("Cache-Control");
-        return "string" == typeof _v13 && _v13.includes("no-store") && _v0.res.setHeader("CDN-Cache-Control", "no-store"), _v8(_v9(_v12), "success", _v11), _v4(_v12, {
+        return "string" == typeof _v13 && _v13.includes("no-store") && _v0.res.setHeader("CDN-Cache-Control", "no-store"), _v9(_v10(_v12), "success", _v12), _v4(_v12, {
           locale: _v1,
           isChinaRestricted: _v2
         }, _v7 ? await _v7 : null, _v8 ? await _v8 : null, _v9 ? await _v9 : null, _v10, _v11 ? await _v11 : null);
       } catch (_v0) {
-        throw _v8("500", "error", _v11 ?? _v4()), _v0;
+        throw _v9("500", "error", _v12 ?? _v4()), _v0;
       } finally {
         _v15.metrics.gaugeDec("vimeo_nextjs_http_requests_active");
       }

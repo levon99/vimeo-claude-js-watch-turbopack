@@ -354,268 +354,50 @@
       target: "on_demand"
     }],
     _v50 = ({
-      userId: _v0,
-      navContext: _v1
-    }) => {
-      let {
-          pathname: _v2
-        } = (0, _v14.useRouter)(),
-        _v3 = _v2.substring(_v2.lastIndexOf("/") + 1),
-        _v4 = (0, _v9.useViewer)(),
-        {
-          trackSidebarNavClicked: _v5
-        } = (0, _v34.useWatchTracking)();
-      return (0, _v1.jsxs)(_v3.Box, {
-        style: {
-          flexGrow: 1,
-          display: "flex",
-          flexDirection: "column"
-        },
-        children: [(0, _v1.jsx)(_v5.ResizableSideNav.Section, {
-          children: (0, _v1.jsx)(_v3.Box, {
-            as: "li",
-            listStyleType: "none",
-            children: (0, _v1.jsx)(_v35.MenuItem, {
-              icon: (0, _v1.jsx)(_v19.ArrowLeft, {}),
-              label: (0, _v33.translate)({
-                singular: "Back to home",
-                dictionary: {
-                  es: {
-                    singular: "Volver al inicio"
-                  },
-                  "de-DE": {
-                    singular: "Zurück zur Startseite"
-                  },
-                  "fr-FR": {
-                    singular: "Retour à l'accueil"
-                  },
-                  "ja-JP": {
-                    singular: "ホームに戻る"
-                  },
-                  "ko-KR": {
-                    singular: "홈으로 돌아가기"
-                  },
-                  "pt-BR": {
-                    singular: "Voltar à página inicial"
-                  },
-                  "zh-CN": {
-                    singular: "返回主页"
-                  }
-                }
-              }),
-              active: !1,
-              dataId: "manage_team_side_nav_home_menu_item",
-              href: "/",
-              onClick: () => {
-                _v46({
-                  target: "home",
-                  targetPath: "/",
-                  copy: "Back to home"
-                }, _v4?.teamUser);
-              }
-            })
-          })
-        }), (0, _v1.jsx)(_v5.ResizableSideNav.Divider, {}), (0, _v1.jsx)(_v5.ResizableSideNav.Section, {
-          children: (0, _v1.jsxs)(_v5.ResizableSideNav.MenuItems, {
-            children: [(0, _v1.jsx)(_v3.Box, {
-              as: "li",
-              listStyleType: "none",
-              children: (0, _v1.jsx)(_v35.MenuItem, {
-                icon: (0, _v1.jsx)(_v23, {}),
-                label: (0, _v33.translate)({
-                  singular: "Feed",
-                  dictionary: {
-                    es: {
-                      singular: "Fuente"
-                    },
-                    "fr-FR": {
-                      singular: "Flux"
-                    },
-                    "ja-JP": {
-                      singular: "フィード"
-                    },
-                    "ko-KR": {
-                      singular: "피드"
-                    }
-                  }
-                }),
-                active: "my-feed" === _v3,
-                href: "/my-feed",
-                onClick: () => {
-                  _v46({
-                    target: "my_feed",
-                    targetPath: "/my-feed",
-                    copy: "Feed"
-                  }, _v4?.teamUser), _v5({
-                    sidebarNavDestination: "my_feed",
-                    sidebarNavContext: _v1
-                  });
-                }
-              })
-            }, "feed"), (0, _v1.jsx)(_v3.Box, {
-              as: "li",
-              listStyleType: "none",
-              children: (0, _v1.jsx)(_v35.MenuItem, {
-                icon: (0, _v1.jsx)(_v21, {}),
-                label: (0, _v33.translate)({
-                  singular: "Explore",
-                  dictionary: {
-                    es: {
-                      singular: "Explora"
-                    },
-                    "de-DE": {
-                      singular: "Entdecken"
-                    },
-                    "fr-FR": {
-                      singular: "Explorer"
-                    },
-                    "ja-JP": {
-                      singular: "検索"
-                    },
-                    "ko-KR": {
-                      singular: "탐색"
-                    },
-                    "zh-CN": {
-                      singular: "探索"
-                    }
-                  }
-                }),
-                active: "watch" === _v3,
-                href: "/watch",
-                onClick: () => {
-                  _v46({
-                    target: "watch",
-                    targetPath: "/watch",
-                    copy: "Explore"
-                  }, _v4?.teamUser), _v5({
-                    sidebarNavDestination: "watch",
-                    sidebarNavContext: _v1
-                  });
-                }
-              })
-            }, "watch"), (0, _v1.jsx)(_v35.MenuItem, {
-              icon: (0, _v1.jsx)(_v30.StaffPicks, {}),
-              label: (0, _v33.translate)({
-                singular: "Staff Picks",
-                dictionary: {
-                  es: {
-                    singular: "Selecciones del equipo"
-                  },
-                  "de-DE": {
-                    singular: "Empfehlungen des Teams"
-                  },
-                  "fr-FR": {
-                    singular: "Sélections de l'équipe"
-                  },
-                  "ja-JP": {
-                    singular: "スタッフのおすすめ"
-                  },
-                  "ko-KR": {
-                    singular: "스태프 픽"
-                  },
-                  "pt-BR": {
-                    singular: "Escolhas da Equipe"
-                  },
-                  "zh-CN": {
-                    singular: "编辑精选"
-                  }
-                }
-              }),
-              active: "staffpicks" === _v3,
-              href: "/channels/staffpicks",
-              onClick: () => {
-                _v46({
-                  target: "staff_picks",
-                  targetPath: "/staffpicks",
-                  copy: "Staff Picks"
-                }, _v4?.teamUser), _v5({
-                  sidebarNavDestination: "staff_picks",
-                  sidebarNavContext: _v1
-                });
-              }
-            })]
-          })
-        }), (0, _v1.jsx)(_v5.ResizableSideNav.Divider, {}), !!_v0 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v5.ResizableSideNav.Section, {
-            children: (0, _v1.jsx)(_v5.ResizableSideNav.MenuItems, {
-              children: _v48(_v0).map(({
-                icon: _v0,
-                label: _v1,
-                link: _v2,
-                target: _v3
-              }) => (0, _v1.jsx)(_v51, {
-                icon: _v0,
-                label: _v1,
-                link: _v2,
-                target: _v3,
-                navContext: _v1
-              }, _v1))
-            })
-          }), (0, _v1.jsx)(_v5.ResizableSideNav.Divider, {})]
-        }), (0, _v1.jsx)(_v5.ResizableSideNav.Section, {
-          children: (0, _v1.jsx)(_v5.ResizableSideNav.MenuItems, {
-            children: _v49().map(({
-              icon: _v0,
-              label: _v1,
-              link: _v2,
-              target: _v3
-            }) => (0, _v1.jsx)(_v51, {
-              icon: _v0,
-              label: _v1,
-              link: _v2,
-              target: _v3,
-              navContext: _v1
-            }, _v1))
-          })
-        })]
-      });
-    },
-    _v51 = ({
       icon: _v0,
       label: _v1,
       link: _v2,
       target: _v3,
-      navContext: _v4,
-      isNewSidebar: _v5 = !1
+      navContext: _v4
     }) => {
-      let _v6 = (0, _v9.useViewer)(),
+      let _v5 = (0, _v9.useViewer)(),
         {
-          trackSidebarNavClicked: _v7
+          trackSidebarNavClicked: _v6
         } = (0, _v34.useWatchTracking)(),
-        _v8 = _v2.slice(1) + "_link",
-        _v9 = _v0 => {
-          _v0?.preventDefault(), window.open(_v2, "_blank", "noopener,noreferrer"), document.getElementsByClassName(_v8)[0].blur(), _v46({
+        _v7 = _v2.slice(1) + "_link",
+        _v8 = _v0 => {
+          _v0?.preventDefault(), window.open(_v2, "_blank", "noopener,noreferrer"), document.getElementsByClassName(_v7)[0].blur(), _v46({
             target: _v3,
             targetPath: _v2,
             copy: _v3.split("_").join(" ")
-          }, _v6?.teamUser), _v7({
+          }, _v5?.teamUser), _v6({
             sidebarNavDestination: _v3,
             sidebarNavContext: _v4,
-            version: _v5 ? "2" : "1"
+            version: "2"
           });
         };
       return (0, _v1.jsx)(_v3.Box, {
         as: "li",
         listStyleType: "none",
         onKeyDown: _v0 => {
-          "Enter" === _v0.key && _v9(_v0);
+          "Enter" === _v0.key && _v8(_v0);
         },
         children: (0, _v1.jsx)(_v35.MenuItem, {
-          ...(_v5 ? _v47 : {}),
-          className: _v8,
+          ..._v47,
+          className: _v7,
           icon: _v0,
           label: _v1,
           href: _v2,
-          onClick: _v9,
+          onClick: _v8,
           action: (0, _v1.jsx)(_v29.PopOut, {
             boxSize: "2xs",
-            onClick: _v9
+            onClick: _v8
           }),
           showActionOnHover: !0
         })
       });
     },
-    _v52 = () => {
+    _v51 = () => {
       let _v0 = (0, _v15.useColorModeValue)("darkBlueAlpha.200", "stroke");
       return (0, _v1.jsx)(_v3.Box, {
         width: (0, _v16.rem)(40),
@@ -624,7 +406,7 @@
         marginY: (0, _v16.rem)(8)
       });
     },
-    _v53 = ({
+    _v52 = ({
       icon: _v0,
       label: _v1,
       href: _v2,
@@ -641,7 +423,7 @@
         onClick: _v4
       }
     }),
-    _v54 = ({
+    _v53 = ({
       userId: _v0,
       navContext: _v1
     }) => {
@@ -777,7 +559,7 @@
         gap: (0, _v16.rem)(2),
         alignItems: "center",
         paddingBottom: (0, _v16.rem)(8),
-        children: [(0, _v1.jsx)(_v53, {
+        children: [(0, _v1.jsx)(_v52, {
           icon: (0, _v1.jsx)(_v19.ArrowLeft, {}),
           label: (0, _v33.translate)({
             singular: "Back to home",
@@ -807,7 +589,7 @@
           }),
           href: "/",
           onClick: _v9
-        }), (0, _v1.jsx)(_v52, {}), _v8.map(_v0 => (0, _v1.jsx)(_v53, {
+        }), (0, _v1.jsx)(_v51, {}), _v8.map(_v0 => (0, _v1.jsx)(_v52, {
           icon: _v0.active ? _v0.iconActive : _v0.icon,
           label: _v0.label,
           href: _v0.href,
@@ -823,24 +605,24 @@
               version: "2"
             });
           }
-        }, _v0.key)), (0, _v1.jsx)(_v52, {}), !!_v0 && (0, _v1.jsxs)(_v1.Fragment, {
+        }, _v0.key)), (0, _v1.jsx)(_v51, {}), null != _v0 && (0, _v1.jsxs)(_v1.Fragment, {
           children: [_v48(_v0).map(({
             icon: _v0,
             label: _v1,
             link: _v2,
             target: _v3
-          }) => (0, _v1.jsx)(_v53, {
+          }) => (0, _v1.jsx)(_v52, {
             icon: _v0,
             label: _v1,
             href: _v2,
             onClick: _v10(_v2, _v3)
-          }, _v1)), (0, _v1.jsx)(_v52, {})]
+          }, _v1)), (0, _v1.jsx)(_v51, {})]
         }), _v49().map(({
           icon: _v0,
           label: _v1,
           link: _v2,
           target: _v3
-        }) => (0, _v1.jsx)(_v53, {
+        }) => (0, _v1.jsx)(_v52, {
           icon: _v0,
           label: _v1,
           href: _v2,
@@ -932,7 +714,7 @@
             })
           }), (0, _v1.jsx)(_v5.ResizableSideNav.Divider, {
             my: (0, _v16.rem)(8)
-          }), !!_v0 && (0, _v1.jsxs)(_v1.Fragment, {
+          }), null != _v0 && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v5.ResizableSideNav.MenuItems, {
               customStyles: {
                 gap: (0, _v16.rem)(2)
@@ -942,13 +724,12 @@
                 label: _v1,
                 link: _v2,
                 target: _v3
-              }) => (0, _v1.jsx)(_v51, {
+              }) => (0, _v1.jsx)(_v50, {
                 icon: _v0,
                 label: _v1,
                 link: _v2,
                 target: _v3,
-                navContext: _v1,
-                isNewSidebar: !0
+                navContext: _v1
               }, _v1))
             }), (0, _v1.jsx)(_v5.ResizableSideNav.Divider, {
               my: (0, _v16.rem)(8)
@@ -962,21 +743,20 @@
               label: _v1,
               link: _v2,
               target: _v3
-            }) => (0, _v1.jsx)(_v51, {
+            }) => (0, _v1.jsx)(_v50, {
               icon: _v0,
               label: _v1,
               link: _v2,
               target: _v3,
-              navContext: _v1,
-              isNewSidebar: !0
+              navContext: _v1
             }, _v1))
           })]
         })
       });
     },
-    _v55 = (0, _v2.createContext)(256);
-  _v0.s(["DEFAULT_INITIAL_WIDTH", 0, 256, "DEFAULT_MAX_WIDTH", 0, 600, "SideNavWidthContext", 0, _v55], 0);
-  let _v56 = ({
+    _v54 = (0, _v2.createContext)(256);
+  _v0.s(["DEFAULT_INITIAL_WIDTH", 0, 256, "DEFAULT_MAX_WIDTH", 0, 600, "SideNavWidthContext", 0, _v54], 0);
+  let _v55 = ({
     children: _v0
   }) => {
     let _v1 = (0, _v9.useViewer)(),
@@ -986,25 +766,23 @@
         isOpen: _v5,
         toggle: _v6,
         open: _v7,
-        collapsed: _v8,
-        isNewSidebar: _v9,
-        isNewDesktopSidebar: _v10
+        collapsed: _v8
       } = (0, _v12.useSideNavSurfaceState)({
         surface: "watch-feed",
         userId: _v1?.user?.id,
         isMobile: _v2
       }),
-      _v11 = (0, _v13.useTrackSidebarToggled)(),
-      _v12 = (0, _v2.useMemo)(() => ({
-        active: _v10,
+      _v9 = (0, _v13.useTrackSidebarToggled)(),
+      _v10 = (0, _v2.useMemo)(() => ({
+        active: !_v2,
         anchor: "active"
-      }), [_v10]);
+      }), [_v2]);
     return (0, _v1.jsxs)(_v4.Flex, {
       width: "100vw",
       height: "100vh",
       overflow: "hidden",
       children: [(0, _v1.jsx)(_v10.NewSidebarIntroContext.Provider, {
-        value: _v12,
+        value: _v10,
         children: (0, _v1.jsx)(_v11.WayfinderSideNav, {
           isOpen: _v5,
           collapsed: _v8,
@@ -1020,10 +798,7 @@
             min: 256,
             max: 600
           },
-          children: _v9 ? (0, _v1.jsx)(_v54, {
-            userId: _v1?.user?.id,
-            navContext: "watch_page"
-          }) : (0, _v1.jsx)(_v50, {
+          children: (0, _v1.jsx)(_v53, {
             userId: _v1?.user?.id,
             navContext: "watch_page"
           })
@@ -1034,12 +809,12 @@
         width: "50%",
         overflowY: "auto",
         children: [(0, _v1.jsx)(_v6.DefaultNavigation, {
-          setIsSideNavActive: _v10 ? void 0 : () => {
-            _v11("open", _v9, _v2), _v7();
-          },
+          setIsSideNavActive: _v2 ? () => {
+            _v9("open", _v2), _v7();
+          } : void 0,
           isSideNavActive: _v5,
-          isNewSidebar: _v10
-        }), (0, _v1.jsx)(_v55.Provider, {
+          hasSideNavLayout: !_v2
+        }), (0, _v1.jsx)(_v54.Provider, {
           value: _v5 ? _v3 : _v8 ? _v5.COLLAPSED_RAIL_WIDTH : 0,
           children: _v0
         }), _v2 && _v5 && (0, _v1.jsx)(_v3.Box, {
@@ -1059,14 +834,14 @@
       })]
     });
   };
-  _v0.s(["getLayout", 0, _v0 => (0, _v1.jsx)(_v56, {
+  _v0.s(["getLayout", 0, _v0 => (0, _v1.jsx)(_v55, {
     children: _v0
   })], 0);
-  var _v57 = _v0.i(0);
-  let _v58 = (0, _v44.createNullObject)(["object_actor_type", "object_placement", "object_actor_title"]);
+  var _v56 = _v0.i(0);
+  let _v57 = (0, _v44.createNullObject)(["object_actor_type", "object_placement", "object_actor_title"]);
   _v0.s(["buildCommunityBpContext", 0, _v0 => ({
-    community_context: new _v57.EventContext("community_context", 2, {
-      ..._v58,
+    community_context: new _v56.EventContext("community_context", 2, {
+      ..._v57,
       ..._v0
     })
   })], 0);

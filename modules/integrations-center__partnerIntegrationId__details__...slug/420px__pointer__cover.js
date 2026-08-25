@@ -3010,6 +3010,7 @@
     sideNavContent: (0, _v1.jsx)(_v106.SideNavContent, {
       surface: "home"
     }),
+    sideNavSurface: "home",
     children: _v0
   }), (0, _v104.withPageSetup)(async _v0 => {
     try {

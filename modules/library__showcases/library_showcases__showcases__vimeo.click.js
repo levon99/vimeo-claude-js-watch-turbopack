@@ -2276,6 +2276,7 @@
     sideNavContent: (0, _v1.jsx)(_v128.SideNavContent, {
       surface: "home"
     }),
+    sideNavSurface: "home",
     children: _v0
   }), (0, _v2.withPageSetup)(() => ({
     props: {

@@ -1812,6 +1812,7 @@
     sideNavContent: (0, _v1.jsx)(_v106.SideNavContent, {
       surface: "home"
     }),
+    sideNavSurface: "home",
     hasUploader: _v1.hasUploader,
     children: _v0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v108], 0);

@@ -1397,6 +1397,7 @@
     sideNavContent: (0, _v1.jsx)(_v72.SideNavContent, {
       surface: "home"
     }),
+    sideNavSurface: "home",
     alwaysMinimiseSearch: !0,
     children: _v0
   }), (0, _v71.withPageSetup)(() => ({
