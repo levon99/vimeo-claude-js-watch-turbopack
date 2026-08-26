@@ -14481,7 +14481,7 @@
           tierLabel: _v44,
           isEligibleForIndividualPlans: _v28 && _v41,
           onLearnMore: () => {
-            window.open("https://vimeo.com/new-plans-businesses", "_blank", "noopener,noreferrer");
+            window.open("https://vimeo.com/studio-plan", "_blank", "noopener,noreferrer");
           },
           onRequestEligibility: _v45 ? () => {
             _v22({

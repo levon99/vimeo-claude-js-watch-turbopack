@@ -488,7 +488,7 @@
     });
     _v2 && _v5.set("hcaptcha_token", _v2);
     try {
-      let _v0 = await (0, _v50.Login)(_v5.toString(), "/join");
+      let _v0 = await (0, _v50.Login)(_v5.toString(), "/auth/email-validation");
       if (_v0?.status === 429) return {
         step: "error",
         message: (0, _v6.translate)({

@@ -263,7 +263,7 @@
       ariaLabel: "Video card",
       tabIndex: _v30,
       shouldUseNextLink: _v32,
-      hoverZIndex: _v38 && _v39 ? 25 : void 0,
+      hoverZIndex: _v38 && _v39 || _v31?.showCard ? 25 : void 0,
       onMouseEnter: _v0 => {
         _v18?.(_v0), _v34 && _v51(!0);
       },

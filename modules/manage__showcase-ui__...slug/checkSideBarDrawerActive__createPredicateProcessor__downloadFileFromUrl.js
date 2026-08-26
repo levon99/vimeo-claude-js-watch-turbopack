@@ -528,7 +528,7 @@
           interactions: _v1,
           connections: _v2
         } = _v0.metadata;
-        _v1.metadataInteractionsDeleteUri = _v1?.delete?.uri || "", _v1.metadataInteractionsAddLiveEventsUri = _v1?.addLiveEvents?.uri || "", _v1.metadataInteractionsEditLiveEventsUri = _v1?.editLiveEvents?.uri || "", _v1.metadataInteractionsCanUpdatePrivacyToPublic = _v1?.canUpdatePrivacyToPublic || {}, _v1.metadataConnectionsVideosTotal = _v2?.videos?.total || 0;
+        _v1.metadataInteractionsDeleteUri = _v1?.delete?.uri || "", _v1.metadataInteractionsAddVideosUri = _v1?.addVideos?.uri ?? "", _v1.metadataInteractionsAddLiveEventsUri = _v1?.addLiveEvents?.uri || "", _v1.metadataInteractionsEditLiveEventsUri = _v1?.editLiveEvents?.uri || "", _v1.metadataInteractionsCanUpdatePrivacyToPublic = _v1?.canUpdatePrivacyToPublic || {}, _v1.metadataConnectionsVideosTotal = _v2?.videos?.total || 0;
       }, _v50(_v1, _v2)]);
     },
     _v53 = (_v0, _v1, _v2) => {
@@ -805,6 +805,7 @@
       allowedPrivacies: [],
       metadataConnectionsVideosTotal: 0,
       metadataInteractionsDeleteUri: "",
+      metadataInteractionsAddVideosUri: "",
       metadataInteractionsAddLiveEventsUri: "",
       metadataInteractionsEditLiveEventsUri: "",
       metadataInteractionsCanUpdatePrivacyToPublic: {},

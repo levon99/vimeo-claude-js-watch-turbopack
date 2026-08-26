@@ -11,9 +11,10 @@
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
-    _v11 = _v0.i(0);
-  let _v12 = "0px 4px 32px 0px rgba(11, 26, 41, 0.12)",
-    _v13 = [{
+    _v11 = _v0.i(0),
+    _v12 = _v0.i(0);
+  let _v13 = "0px 4px 32px 0px rgba(11, 26, 41, 0.12)",
+    _v14 = [{
       name: "trackAnchorPosition",
       enabled: !0,
       phase: "main",
@@ -43,29 +44,32 @@
     note: _v5,
     footerStart: _v6,
     onAcknowledge: _v7,
-    acknowledgeLabel: _v8,
-    placement: _v9 = "left-start",
-    offset: _v10,
-    backgroundColor: _v11 = "popover",
-    anchorWithinChildren: _v12 = !1
+    trackingId: _v8,
+    userId: _v9,
+    acknowledgeLabel: _v10,
+    placement: _v11 = "left-start",
+    offset: _v12,
+    backgroundColor: _v13 = "popover",
+    anchorWithinChildren: _v14 = !1
   }) {
+    let _v15 = (0, _v12.usePico)();
     return (0, _v1.jsxs)(_v4.Popover, {
       isOpen: _v0,
-      placement: _v9,
+      placement: _v11,
       gutter: 16,
-      offset: _v10,
+      offset: _v12,
       strategy: "fixed",
-      modifiers: _v13,
+      modifiers: _v14,
       isLazy: !0,
       closeOnBlur: !1,
-      children: [_v12 ? _v1 : (0, _v1.jsx)(_v7.PopoverTrigger, {
+      children: [_v14 ? _v1 : (0, _v1.jsx)(_v7.PopoverTrigger, {
         children: _v1
       }), (0, _v1.jsx)(_v8.Portal, {
         children: (0, _v1.jsxs)(_v6.PopoverContent, {
           width: (0, _v10.rem)(320),
-          backgroundColor: _v11,
+          backgroundColor: _v13,
           borderRadius: (0, _v10.rem)(8),
-          boxShadow: _v12,
+          boxShadow: _v13,
           padding: (0, _v10.rem)(16),
           border: "none",
           rootProps: {
@@ -76,10 +80,10 @@
           },
           _focus: {
             outline: "none",
-            boxShadow: _v12
+            boxShadow: _v13
           },
           children: [(0, _v1.jsx)(_v5.PopoverArrow, {
-            backgroundColor: _v11
+            backgroundColor: _v13
           }), (0, _v1.jsxs)(_v3.Flex, {
             direction: "column",
             gap: (0, _v10.rem)(24),
@@ -116,8 +120,15 @@
               children: [_v6, (0, _v1.jsx)(_v2.Button, {
                 variant: "primary",
                 size: "md",
-                onClick: _v7,
-                children: _v8 ?? (0, _v11.translate)({
+                onClick: () => {
+                  _v8 && _v15.track("announcement_popover_dismissed", {
+                    tracking_id: _v8,
+                    user_id: _v9 ?? null,
+                    title: "string" == typeof _v3 ? _v3 : "",
+                    description: "string" == typeof _v4 ? _v4 : ""
+                  }), _v7();
+                },
+                children: _v10 ?? (0, _v11.translate)({
                   singular: "Got it",
                   dictionary: {
                     es: {

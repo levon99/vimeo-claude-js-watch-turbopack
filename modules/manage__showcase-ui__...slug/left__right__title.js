@@ -212,131 +212,186 @@
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
-    _v39 = _v0.i(0);
-  let _v40 = ({
-    onClick: _v0
-  }) => {
-    let _v1 = (0, _v7.useHistory)().location.pathname.includes(_v14.ShowcaseRouteMap.ANALYTICS) ? "secondary" : "minimal",
-      _v2 = (0, _v25.translate)({
-        singular: "Showcase Analytics",
-        dictionary: {
-          es: {
-            singular: "Análisis de presentaciones"
-          },
-          "de-DE": {
-            singular: "Analytik für Präsentationen"
-          },
-          "fr-FR": {
-            singular: "Statistiques des présentations"
-          },
-          "ja-JP": {
-            singular: "ショーケース分析"
-          },
-          "ko-KR": {
-            singular: "쇼케이스 분석"
-          },
-          "pt-BR": {
-            singular: "Análises da vitrine"
-          },
-          "zh-CN": {
-            singular: "展示分析"
-          }
-        }
-      });
-    return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v38.Box, {
-        hideBelow: "lg",
-        children: (0, _v1.jsx)(_v37.Button, {
-          leftIcon: (0, _v1.jsx)(_v39.Analytics, {}),
-          onClick: _v0,
-          size: "md",
-          variant: _v1,
-          id: "desktop-showcase-analytics-cta-button",
-          "data-id": "desktop-showcase-cta-analytics",
-          "aria-label": _v2,
-          children: (0, _v25.translate)({
-            singular: "Analytics",
-            dictionary: {
-              es: {
-                singular: "Análisis"
-              },
-              "de-DE": {
-                singular: "Analytik"
-              },
-              "fr-FR": {
-                singular: "Analyses"
-              },
-              "ja-JP": {
-                singular: "分析"
-              },
-              "ko-KR": {
-                singular: "애널리틱스"
-              },
-              "pt-BR": {
-                singular: "Análises"
-              },
-              "zh-CN": {
-                singular: "分析"
-              }
-            }
-          })
-        })
-      }), (0, _v1.jsx)(_v38.Box, {
-        display: {
-          base: "none",
-          md: "block",
-          lg: "none"
+    _v39 = _v0.i(0),
+    _v40 = _v0.i(0);
+  let _v41 = _v0 => _v0.commonStore.metadataInteractionsAddVideosUri,
+    _v42 = _v0 => _v0.commonStore.actions.setOpenModal,
+    _v43 = _v0 => String(_v0.commonStore.showcaseConfig.showcaseId),
+    _v44 = () => {
+      let [_v0] = (0, _v33.useMediaQuery)(`(min-width: ${_v4.bokehTheme.breakpoints.md})`),
+        _v1 = (0, _v3.useStore)(_v41),
+        _v2 = (0, _v3.useStore)(_v42),
+        _v3 = (0, _v3.useStore)(_v43),
+        {
+          sendVideoListTopActionBarEvents: _v4
+        } = (0, _v40.useBpEventService)(),
+        {
+          trackShowcaseManageVideosAddVideosClicked: _v5
+        } = (0, _v39.useShowcaseManageTracking)();
+      return _v1 ? (0, _v1.jsx)(_v37.Button, {
+        "data-id": "header-add-videos-button",
+        variant: "secondary",
+        hideBelow: "sm",
+        size: _v0 ? "md" : "sm",
+        leftIcon: (0, _v1.jsx)(_v38.VideosStack, {}),
+        onClick: () => {
+          _v5({
+            showcaseId: _v3,
+            location: "header"
+          }), _v2(_v14.ModalType.ADD_VIDEO_TO_SHOWCASE), _v4("vimeo.showcase_add_video_modal_open", "add videos");
         },
-        children: (0, _v1.jsx)(_v23.IconButton, {
-          icon: (0, _v1.jsx)(_v39.Analytics, {}),
-          onClick: _v0,
-          size: "md",
-          variant: _v1,
-          id: "mobile-showcase-analytics-cta-button",
-          "data-id": "mobile-showcase-cta-analytics",
-          "aria-label": _v2
-        })
-      })]
-    });
-  };
-  var _v41 = _v0.i(0);
-  let _v42 = () => {
-    let _v0 = (() => {
-      let _v0 = (0, _v7.useHistory)(),
-        {
-          sendShowcaseAnalyticsClickEvent: _v1
-        } = (0, _v41.useBpEventService)(),
-        {
-          showcaseConfig: {
-            showcaseId: _v2
+        children: (0, _v25.translate)({
+          singular: "Add videos",
+          dictionary: {
+            es: {
+              singular: "Agregar videos"
+            },
+            "de-DE": {
+              singular: "Video hinzufügen"
+            },
+            "fr-FR": {
+              singular: "Ajouter des vidéos"
+            },
+            "ja-JP": {
+              singular: "動画を追加"
+            },
+            "ko-KR": {
+              singular: "동영상 추가"
+            },
+            "pt-BR": {
+              singular: "Adicionar vídeos"
+            },
+            "zh-CN": {
+              singular: "添加视频"
+            }
           }
-        } = (0, _v3.useStore)(_v0 => _v0.commonStore);
-      return (0, _v2.useCallback)(() => {
-        let _v0 = `${_v14.ShowcaseRouteMap.BASE_URL}${_v2}`,
-          _v1 = _v0.location.pathname,
-          _v2 = _v1.includes(_v14.ShowcaseRouteMap.ANALYTICS) ? `${_v0}${_v14.ShowcaseRouteMap.INFO}` : `${_v0}${_v14.ShowcaseRouteMap.ANALYTICS}`;
-        _v1 !== _v2 && _v0.replace(_v2), _v1("vimeo.showcase_analytics_drawer_open", "top_navigation_bar", "analytics");
-      }, [_v0, _v2]);
-    })();
-    return (0, _v1.jsx)(_v40, {
+        })
+      }) : null;
+    };
+  var _v45 = _v0.i(0),
+    _v46 = _v0.i(0);
+  let _v47 = ({
       onClick: _v0
-    });
-  };
-  var _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0),
-    _v49 = _v0.i(0),
+    }) => {
+      let _v1 = (0, _v7.useHistory)().location.pathname.includes(_v14.ShowcaseRouteMap.ANALYTICS) ? "secondary" : "minimal",
+        _v2 = (0, _v25.translate)({
+          singular: "Showcase Analytics",
+          dictionary: {
+            es: {
+              singular: "Análisis de presentaciones"
+            },
+            "de-DE": {
+              singular: "Analytik für Präsentationen"
+            },
+            "fr-FR": {
+              singular: "Statistiques des présentations"
+            },
+            "ja-JP": {
+              singular: "ショーケース分析"
+            },
+            "ko-KR": {
+              singular: "쇼케이스 분석"
+            },
+            "pt-BR": {
+              singular: "Análises da vitrine"
+            },
+            "zh-CN": {
+              singular: "展示分析"
+            }
+          }
+        });
+      return (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsx)(_v45.Box, {
+          hideBelow: "lg",
+          children: (0, _v1.jsx)(_v37.Button, {
+            leftIcon: (0, _v1.jsx)(_v46.Analytics, {}),
+            onClick: _v0,
+            size: "md",
+            variant: _v1,
+            id: "desktop-showcase-analytics-cta-button",
+            "data-id": "desktop-showcase-cta-analytics",
+            "aria-label": _v2,
+            children: (0, _v25.translate)({
+              singular: "Analytics",
+              dictionary: {
+                es: {
+                  singular: "Análisis"
+                },
+                "de-DE": {
+                  singular: "Analytik"
+                },
+                "fr-FR": {
+                  singular: "Analyses"
+                },
+                "ja-JP": {
+                  singular: "分析"
+                },
+                "ko-KR": {
+                  singular: "애널리틱스"
+                },
+                "pt-BR": {
+                  singular: "Análises"
+                },
+                "zh-CN": {
+                  singular: "分析"
+                }
+              }
+            })
+          })
+        }), (0, _v1.jsx)(_v45.Box, {
+          display: {
+            base: "none",
+            md: "block",
+            lg: "none"
+          },
+          children: (0, _v1.jsx)(_v23.IconButton, {
+            icon: (0, _v1.jsx)(_v46.Analytics, {}),
+            onClick: _v0,
+            size: "md",
+            variant: _v1,
+            id: "mobile-showcase-analytics-cta-button",
+            "data-id": "mobile-showcase-cta-analytics",
+            "aria-label": _v2
+          })
+        })]
+      });
+    },
+    _v48 = () => {
+      let _v0 = (() => {
+        let _v0 = (0, _v7.useHistory)(),
+          {
+            sendShowcaseAnalyticsClickEvent: _v1
+          } = (0, _v40.useBpEventService)(),
+          {
+            showcaseConfig: {
+              showcaseId: _v2
+            }
+          } = (0, _v3.useStore)(_v0 => _v0.commonStore);
+        return (0, _v2.useCallback)(() => {
+          let _v0 = `${_v14.ShowcaseRouteMap.BASE_URL}${_v2}`,
+            _v1 = _v0.location.pathname,
+            _v2 = _v1.includes(_v14.ShowcaseRouteMap.ANALYTICS) ? `${_v0}${_v14.ShowcaseRouteMap.INFO}` : `${_v0}${_v14.ShowcaseRouteMap.ANALYTICS}`;
+          _v1 !== _v2 && _v0.replace(_v2), _v1("vimeo.showcase_analytics_drawer_open", "top_navigation_bar", "analytics");
+        }, [_v0, _v2]);
+      })();
+      return (0, _v1.jsx)(_v47, {
+        onClick: _v0
+      });
+    };
+  var _v49 = _v0.i(0),
     _v50 = _v0.i(0),
     _v51 = _v0.i(0),
     _v52 = _v0.i(0),
     _v53 = _v0.i(0),
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
-    _v56 = _v0.i(0);
-  let _v57 = ({
+    _v56 = _v0.i(0),
+    _v57 = _v0.i(0),
+    _v58 = _v0.i(0),
+    _v59 = _v0.i(0),
+    _v60 = _v0.i(0),
+    _v61 = _v0.i(0);
+  let _v62 = ({
       children: _v0
     }) => {
       let _v1 = (0, _v3.useStore)(_v0 => _v0.commonStore.showcaseOwnerId),
@@ -353,7 +408,7 @@
             [_v3, _v4] = (0, _v2.useState)(!1),
             {
               sendShowcaseDeleteEvents: _v5
-            } = (0, _v41.useBpEventService)();
+            } = (0, _v40.useBpEventService)();
           return {
             handleMenuButtonClick: () => {
               _v2(!_v1), _v5("vimeo.showcase_options_open", "top_action_bar", null, null);
@@ -365,12 +420,12 @@
             setIsTooltipOpen: _v4
           };
         })();
-      return (0, _v1.jsxs)(_v52.Menu, {
+      return (0, _v1.jsxs)(_v57.Menu, {
         isOpen: _v4,
         placement: "bottom",
         onClose: () => _v6(!1),
         onOpen: () => _v7(!1),
-        children: [(0, _v1.jsx)(_v55.Tooltip, {
+        children: [(0, _v1.jsx)(_v60.Tooltip, {
           isOpen: _v5,
           label: (0, _v25.translate)({
             singular: "File actions",
@@ -399,12 +454,12 @@
             }
           }),
           hideBelow: "md",
-          children: (0, _v1.jsx)(_v53.MenuButton, {
+          children: (0, _v1.jsx)(_v58.MenuButton, {
             onMouseEnter: () => _v7(!0),
             onMouseLeave: () => _v7(!1),
             as: _v23.IconButton,
             isDisabled: !_v1,
-            icon: (0, _v1.jsx)(_v56.EllipsisV, {}),
+            icon: (0, _v1.jsx)(_v61.EllipsisV, {}),
             onClick: _v2,
             "aria-label": (0, _v25.translate)({
               singular: "Delete showcase",
@@ -435,44 +490,44 @@
             variant: "tertiary",
             size: _v3 ? "md" : "sm"
           })
-        }), (0, _v1.jsx)(_v54.MenuList, {
+        }), (0, _v1.jsx)(_v59.MenuList, {
           minW: (0, _v22.rem)(217),
           children: _v0
         })]
       });
     },
-    _v58 = _v0 => _v0.commonStore.metadataInteractionsDeleteUri,
-    _v59 = _v0 => _v0.commonStore.actions.setOpenModal,
-    _v60 = _v0 => ({
+    _v63 = _v0 => _v0.commonStore.metadataInteractionsDeleteUri,
+    _v64 = _v0 => _v0.commonStore.actions.setOpenModal,
+    _v65 = _v0 => ({
       showcaseId: _v0.commonStore.showcaseConfig.showcaseId,
       userId: _v0.commonStore.showcaseConfig.userId,
       name: _v0.infoStore.name
     }),
-    _v61 = () => {
+    _v66 = () => {
       let [_v0, _v1] = (0, _v2.useState)(!1),
         [_v2, _v3] = (0, _v2.useState)(""),
         [_v4, _v5] = (0, _v2.useState)(void 0),
-        _v6 = (0, _v51.useNotification)(),
-        _v7 = (0, _v3.useStore)(_v58),
-        _v8 = (0, _v3.useStore)(_v59),
+        _v6 = (0, _v56.useNotification)(),
+        _v7 = (0, _v3.useStore)(_v63),
+        _v8 = (0, _v3.useStore)(_v64),
         {
           showcaseId: _v9,
           userId: _v10,
           name: _v11
-        } = (0, _v3.useStore)(_v60),
+        } = (0, _v3.useStore)(_v65),
         {
           sendShowcaseDeleteEvents: _v12
-        } = (0, _v41.useBpEventService)(),
+        } = (0, _v40.useBpEventService)(),
         {
           trackShowcaseManageOverflowActionClicked: _v13
-        } = (0, _v45.useShowcaseManageTracking)(),
+        } = (0, _v39.useShowcaseManageTracking)(),
         _v14 = String(_v9),
         _v15 = _v10 && _v9 ? `/users/${_v10}/albums/${_v9}` : "",
         _v16 = (0, _v2.useCallback)(_v0 => {
           "invalid_name" === _v0 ? _v5((0, _v25.translate)({
             singular: "Your title is invalid or longer than {LIMIT} characters.",
             replacements: {
-              LIMIT: _v47.SHOWCASE_TITLE_MAX_LENGTH
+              LIMIT: _v52.SHOWCASE_TITLE_MAX_LENGTH
             },
             dictionary: {
               es: {
@@ -538,13 +593,13 @@
           uri: _v1
         }) => {
           let _v2 = _v0 ?? _v2,
-            _v3 = (0, _v49.uriToShowcaseLink)(_v1, !0);
+            _v3 = (0, _v54.uriToShowcaseLink)(_v1, !0);
           _v17(), _v6({
             content: (0, _v25.translate)({
               singular: 'Created "{SHOWCASE_NAME}". {LINK}Open page{/LINK}',
               replacements: {
                 SHOWCASE_NAME: _v2,
-                LINK: _v0 => (0, _v1.jsx)(_v43.Link, {
+                LINK: _v0 => (0, _v1.jsx)(_v49.Link, {
                   href: _v3,
                   cursor: "pointer",
                   fontSize: (0, _v22.rem)(14),
@@ -582,19 +637,19 @@
         }, [_v2, _v17, _v6]),
         [_v20, {
           loading: _v21
-        }] = (0, _v50.useCopyShowcase)({
+        }] = (0, _v55.useCopyShowcase)({
           onFailure: _v16,
           onSuccess: _v19
         });
       return _v7 || _v15 ? (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v57, {
-          children: [_v15 && (0, _v1.jsx)(_v44.MenuItem, {
+        children: [(0, _v1.jsxs)(_v62, {
+          children: [_v15 && (0, _v1.jsx)(_v50.MenuItem, {
             "data-id": "copy-showcase-menu-item",
             onClick: () => {
               _v13({
                 showcaseId: _v14,
                 showcaseManageOverflowAction: "make_a_copy"
-              }), _v3((0, _v48.buildCopyPrefilledTitle)(_v11 ?? "", _v47.SHOWCASE_TITLE_MAX_LENGTH)), _v5(void 0), _v1(!0);
+              }), _v3((0, _v53.buildCopyPrefilledTitle)(_v11 ?? "", _v52.SHOWCASE_TITLE_MAX_LENGTH)), _v5(void 0), _v1(!0);
             },
             children: (0, _v25.translate)({
               singular: "Make a copy",
@@ -622,7 +677,7 @@
                 }
               }
             })
-          }), _v7 && (0, _v1.jsx)(_v44.MenuItem, {
+          }), _v7 && (0, _v1.jsx)(_v50.MenuItem, {
             "data-id": "delete-showcase-menu-item",
             onClick: () => {
               _v13({
@@ -657,7 +712,7 @@
               }
             })
           })]
-        }), (0, _v1.jsx)(_v46.NameInputModal, {
+        }), (0, _v1.jsx)(_v51.NameInputModal, {
           isOpen: _v0,
           isLoading: _v21,
           title: (0, _v25.translate)({
@@ -688,7 +743,7 @@
           }),
           name: _v2,
           error: _v4,
-          maxLength: _v47.SHOWCASE_TITLE_MAX_LENGTH,
+          maxLength: _v52.SHOWCASE_TITLE_MAX_LENGTH,
           onClose: _v17,
           onNameChange: _v18,
           onSubmit: _v0 => {
@@ -697,19 +752,19 @@
         })]
       }) : null;
     };
-  var _v62 = _v0.i(0),
-    _v63 = _v0.i(0),
-    _v64 = _v0.i(0);
-  let _v65 = () => {
+  var _v67 = _v0.i(0),
+    _v68 = _v0.i(0),
+    _v69 = _v0.i(0);
+  let _v70 = () => {
     let {
         loading: _v0,
         handleCancel: _v1,
         handleSave: _v2
-      } = (0, _v63.useFinalSaveHook)(),
+      } = (0, _v68.useFinalSaveHook)(),
       {
         isSaveDisabled: _v3
-      } = (0, _v64.useForm)();
-    return (0, _v1.jsxs)(_v62.ButtonGroup, {
+      } = (0, _v69.useForm)();
+    return (0, _v1.jsxs)(_v67.ButtonGroup, {
       spacing: "md",
       hideBelow: "md",
       children: [(0, _v1.jsx)(_v37.Button, {
@@ -777,13 +832,13 @@
       })]
     });
   };
-  var _v66 = _v0.i(0),
-    _v67 = _v0.i(0);
-  let _v68 = () => {
+  var _v71 = _v0.i(0),
+    _v72 = _v0.i(0);
+  let _v73 = () => {
     let _v0 = (0, _v3.useStore)(_v0 => _v0.commonStore.isSearchOpen),
       _v1 = (0, _v3.useStore)(_v0 => _v0.commonStore.actions.setIsSearchOpen);
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v43.Link, {
+      children: [(0, _v1.jsx)(_v49.Link, {
         href: "/search",
         target: "_blank",
         hideFrom: "md",
@@ -814,15 +869,15 @@
               }
             }
           }),
-          icon: (0, _v1.jsx)(_v66.SearchMagnifier, {}),
+          icon: (0, _v1.jsx)(_v71.SearchMagnifier, {}),
           variant: "tertiary",
           size: "sm"
         })
-      }), (0, _v1.jsx)(_v38.Box, {
+      }), (0, _v1.jsx)(_v45.Box, {
         flexGrow: +!!_v0,
         maxW: (0, _v22.rem)(480),
         hideBelow: "md",
-        children: (0, _v1.jsx)(_v67.SearchField, {
+        children: (0, _v1.jsx)(_v72.SearchField, {
           withToggle: !0,
           updateGlobalNavSearchState: _v0 => {
             _v1(_v0);
@@ -831,11 +886,11 @@
       })]
     });
   };
-  var _v69 = _v0.i(0),
-    _v70 = _v0.i(0),
-    _v71 = _v0.i(0),
-    _v72 = _v0.i(0);
-  let _v73 = () => {
+  var _v74 = _v0.i(0),
+    _v75 = _v0.i(0),
+    _v76 = _v0.i(0),
+    _v77 = _v0.i(0);
+  let _v78 = () => {
     let _v0 = (0, _v3.useStore)(_v0 => _v0.commonStore.actions.setOpenModal);
     return (0, _v1.jsx)(_v23.IconButton, {
       "aria-label": (0, _v25.translate)({
@@ -865,47 +920,47 @@
         }
       }),
       "data-id": "share-button-mobile",
-      icon: (0, _v1.jsx)(_v72.Share, {}),
+      icon: (0, _v1.jsx)(_v77.Share, {}),
       variant: "primary",
       onClick: () => _v0(_v14.ModalType.RESOURCE_SHARE_MODAL),
       size: "sm",
       hideFrom: "sm"
     });
   };
-  var _v74 = _v0.i(0),
-    _v75 = _v0.i(0);
-  let _v76 = () => {
+  var _v79 = _v0.i(0),
+    _v80 = _v0.i(0);
+  let _v81 = () => {
     let {
         isTooltipOpen: _v0,
         menuState: _v1,
         onMoreSharingOptionsClick: _v2,
         setIsTooltipOpen: _v3,
         shareMenu: _v4
-      } = (0, _v75.useShareMenu)(),
+      } = (0, _v80.useShareMenu)(),
       _v5 = (0, _v2.useMemo)(() => _v4.map((_v0, _v1) => {
         let {
           disabled: _v2,
           label: _v3,
           ..._v4
         } = _v0;
-        return (0, _v1.jsx)(_v44.MenuItem, {
+        return (0, _v1.jsx)(_v50.MenuItem, {
           "data-id": `share-menu-item-${_v1}`,
           isDisabled: !!_v2,
           ..._v4,
-          children: (0, _v1.jsx)(_v74.Text, {
+          children: (0, _v1.jsx)(_v79.Text, {
             variant: "body-md",
             children: _v3
           })
         }, `share-menu-item-${_v1}`);
       }), [_v4]);
-    return (0, _v1.jsx)(_v38.Box, {
+    return (0, _v1.jsx)(_v45.Box, {
       hideBelow: "md",
-      children: (0, _v1.jsxs)(_v52.Menu, {
+      children: (0, _v1.jsxs)(_v57.Menu, {
         "data-id": "more-sharing-options-menu",
         placement: "bottom",
         ..._v1,
-        children: [(0, _v1.jsx)(_v55.Tooltip, {
-          label: (0, _v1.jsx)(_v74.Text, {
+        children: [(0, _v1.jsx)(_v60.Tooltip, {
+          label: (0, _v1.jsx)(_v79.Text, {
             variant: "body-md",
             children: (0, _v25.translate)({
               singular: "More sharing options",
@@ -935,7 +990,7 @@
             })
           }),
           isOpen: _v0,
-          children: (0, _v1.jsx)(_v71.SplitButtonSecondaryMenu, {
+          children: (0, _v1.jsx)(_v76.SplitButtonSecondaryMenu, {
             "data-id": "more-sharing-split-menu",
             "aria-label": (0, _v25.translate)({
               singular: "More sharing options",
@@ -967,16 +1022,16 @@
             onMouseEnter: () => _v3(!0),
             onMouseLeave: () => _v3(!1)
           })
-        }), (0, _v1.jsx)(_v54.MenuList, {
+        }), (0, _v1.jsx)(_v59.MenuList, {
           w: (0, _v22.rem)(217),
           children: _v5
         })]
       })
     });
   };
-  var _v77 = _v0.i(0),
-    _v78 = _v0.i(0);
-  let _v79 = () => {
+  var _v82 = _v0.i(0),
+    _v83 = _v0.i(0);
+  let _v84 = () => {
       let [_v0, _v1] = (0, _v2.useState)(!1),
         {
           actions: {
@@ -984,12 +1039,12 @@
           },
           privacy: _v3
         } = (0, _v3.useStore)(_v0 => _v0.commonStore),
-        _v4 = _v3?.view === _v77.EVENT_PRIVACY_VALUES.TEAM ? _v77.EVENT_PRIVACY_VALUES.PRIVATE : _v3?.view,
-        _v5 = (0, _v78.getEventShowcaseCopy)(_v77.DEFAULT_PRIVACY_OPTIONS).find(_v0 => _v0.privacy === _v4),
+        _v4 = _v3?.view === _v82.EVENT_PRIVACY_VALUES.TEAM ? _v82.EVENT_PRIVACY_VALUES.PRIVATE : _v3?.view,
+        _v5 = (0, _v83.getEventShowcaseCopy)(_v82.DEFAULT_PRIVACY_OPTIONS).find(_v0 => _v0.privacy === _v4),
         _v6 = {
           description: _v5?.description ?? "",
           title: _v5?.title ?? "",
-          icon: _v77.VIDEO_PRIVACY_ICON_MAP[_v5?.privacy]?.icon ?? null
+          icon: _v82.VIDEO_PRIVACY_ICON_MAP[_v5?.privacy]?.icon ?? null
         };
       return {
         isPrivacyTooltipOpen: _v0,
@@ -1000,21 +1055,21 @@
         setIsPrivacyTooltipOpen: _v1
       };
     },
-    _v80 = () => {
+    _v85 = () => {
       let [_v0] = (0, _v33.useMediaQuery)(`(min-width: ${_v4.bokehTheme.breakpoints.md})`),
         {
           isPrivacyTooltipOpen: _v1,
           onShareClick: _v2,
           privacyTooltipFields: _v3,
           setIsPrivacyTooltipOpen: _v4
-        } = _v79(),
+        } = _v84(),
         {
           description: _v5,
           icon: _v6,
           title: _v7
         } = _v3;
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v73, {}), (0, _v1.jsxs)(_v71.SplitButton, {
+        children: [(0, _v1.jsx)(_v78, {}), (0, _v1.jsxs)(_v76.SplitButton, {
           "aria-label": (0, _v25.translate)({
             singular: "Share button",
             dictionary: {
@@ -1045,22 +1100,22 @@
           variant: "primary",
           hideBelow: "sm",
           size: _v0 ? "md" : "sm",
-          children: [(0, _v1.jsx)(_v55.Tooltip, {
+          children: [(0, _v1.jsx)(_v60.Tooltip, {
             maxW: "fit-content",
             label: (0, _v1.jsxs)(_v8.Flex, {
               align: "flex-start",
               direction: "column",
               textAlign: "left",
-              children: [(0, _v1.jsx)(_v70.Header, {
+              children: [(0, _v1.jsx)(_v75.Header, {
                 size: "sm",
                 children: _v7
-              }), (0, _v1.jsx)(_v69.Paragraph, {
+              }), (0, _v1.jsx)(_v74.Paragraph, {
                 size: "md",
                 children: _v5
               })]
             }),
             isOpen: _v1,
-            children: (0, _v1.jsx)(_v71.SplitButtonPrimary, {
+            children: (0, _v1.jsx)(_v76.SplitButtonPrimary, {
               onClick: _v2,
               leftIcon: _v6,
               onMouseEnter: () => _v4(!0),
@@ -1092,13 +1147,13 @@
                 }
               })
             })
-          }), (0, _v1.jsx)(_v76, {})]
+          }), (0, _v1.jsx)(_v81, {})]
         })]
       });
     };
-  var _v81 = _v0.i(0),
-    _v82 = _v0.i(0);
-  let _v83 = () => {
+  var _v86 = _v0.i(0),
+    _v87 = _v0.i(0);
+  let _v88 = () => {
       let {
         undoAction: _v0,
         redoAction: _v1,
@@ -1180,27 +1235,27 @@
           isTimelineEmpty: () => !_v0 || null === _v2.headId
         };
       })();
-      return (0, _v1.jsxs)(_v62.ButtonGroup, {
+      return (0, _v1.jsxs)(_v67.ButtonGroup, {
         spacing: "sm",
         hideBelow: "md",
-        children: [(0, _v1.jsx)(_v55.Tooltip, {
+        children: [(0, _v1.jsx)(_v60.Tooltip, {
           variant: "speech-bubble",
           placement: "bottom",
           label: _v14.UndoRedoBtnEnum.UNDO,
           children: (0, _v1.jsx)(_v23.IconButton, {
-            icon: (0, _v1.jsx)(_v82.Undo, {}),
+            icon: (0, _v1.jsx)(_v87.Undo, {}),
             onClick: _v0,
             variant: "tertiary",
             isDisabled: _v2(),
             "data-id": "desktop-view-undo-btn",
             "aria-label": "Desktop view undo button"
           })
-        }), (0, _v1.jsx)(_v55.Tooltip, {
+        }), (0, _v1.jsx)(_v60.Tooltip, {
           variant: "speech-bubble",
           placement: "bottom",
           label: _v14.UndoRedoBtnEnum.REDO,
           children: (0, _v1.jsx)(_v23.IconButton, {
-            icon: (0, _v1.jsx)(_v81.Redo, {}),
+            icon: (0, _v1.jsx)(_v86.Redo, {}),
             onClick: _v1,
             variant: "tertiary",
             isDisabled: _v3(),
@@ -1210,7 +1265,7 @@
         })]
       });
     },
-    _v84 = (0, _v32.default)(async () => {
+    _v89 = (0, _v32.default)(async () => {
       let {
         Facepile: _v0
       } = await _v0.A(0);
@@ -1224,15 +1279,15 @@
       loading: _v34.FacepileLoader,
       ssr: !1
     }),
-    _v85 = () => {
+    _v90 = () => {
       let [_v0] = (0, _v33.useMediaQuery)(`(min-width: ${_v4.bokehTheme.breakpoints.md})`),
         _v1 = (0, _v36.useViewer)(),
         {
           isDeltaEmpty: _v2
-        } = (0, _v64.useForm)(),
+        } = (0, _v69.useForm)(),
         {
           onShareClick: _v3
-        } = _v79(),
+        } = _v84(),
         _v4 = (0, _v3.useStore)(_v0 => _v0.commonStore.showcaseConfig.showcaseId),
         _v5 = !!_v0 && !_v2();
       return (0, _v1.jsxs)(_v1.Fragment, {
@@ -1247,10 +1302,10 @@
           justifyContent: "flex-end",
           children: [(0, _v1.jsx)(_v18.Navigation.Upgrade, {
             viewer: _v1
-          }), (0, _v1.jsx)(_v42, {}), (0, _v1.jsx)(_v84, {
+          }), (0, _v1.jsx)(_v48, {}), (0, _v1.jsx)(_v89, {
             resourceUri: `showcases/${_v4}`,
             onAddPeopleClick: _v3
-          }), (0, _v1.jsx)(_v80, {}), (0, _v1.jsx)(_v61, {}), (0, _v1.jsx)(_v68, {}), (0, _v1.jsx)(_v35.AccountMenu, {})]
+          }), (0, _v1.jsx)(_v44, {}), (0, _v1.jsx)(_v85, {}), (0, _v1.jsx)(_v66, {}), (0, _v1.jsx)(_v73, {}), (0, _v1.jsx)(_v35.AccountMenu, {})]
         }), (0, _v1.jsxs)(_v18.Navigation.RightContent, {
           "data-id": "showcase-home-header-right",
           display: _v5 ? "flex" : "none",
@@ -1260,35 +1315,35 @@
           },
           flexGrow: 1,
           justifyContent: "flex-end",
-          children: [(0, _v1.jsx)(_v83, {}), (0, _v1.jsx)(_v65, {})]
+          children: [(0, _v1.jsx)(_v88, {}), (0, _v1.jsx)(_v70, {})]
         })]
       });
     };
-  var _v86 = _v0.i(0);
-  let _v87 = _v0 => (0, _v1.jsx)(_v86.Skeleton, {
+  var _v91 = _v0.i(0);
+  let _v92 = _v0 => (0, _v1.jsx)(_v91.Skeleton, {
       borderRadius: "sm",
       ..._v0
     }),
-    _v88 = () => (0, _v1.jsxs)(_v18.Navigation, {
+    _v93 = () => (0, _v1.jsxs)(_v18.Navigation, {
       ..._v13.loaderAriaProperties,
       children: [(0, _v1.jsxs)(_v18.Navigation.LeftContent, {
         gap: {
           base: "sm",
           md: (0, _v22.rem)(23)
         },
-        children: [(0, _v1.jsx)(_v87, {
+        children: [(0, _v1.jsx)(_v92, {
           hideFrom: "md",
           boxSize: {
             base: "xs",
             sm: "sm"
           }
-        }), (0, _v1.jsx)(_v87, {
+        }), (0, _v1.jsx)(_v92, {
           w: {
             base: "xs",
             md: (0, _v22.rem)(78)
           },
           h: "xs"
-        }), (0, _v1.jsx)(_v87, {
+        }), (0, _v1.jsx)(_v92, {
           hideBelow: "md",
           w: (0, _v22.rem)(220),
           h: "xs"
@@ -1298,7 +1353,7 @@
           base: "sm",
           md: "md"
         },
-        children: [(0, _v1.jsx)(_v34.FacepileLoader, {}), (0, _v1.jsx)(_v87, {
+        children: [(0, _v1.jsx)(_v34.FacepileLoader, {}), (0, _v1.jsx)(_v92, {
           w: {
             base: "sm",
             sm: (0, _v22.rem)(100),
@@ -1308,12 +1363,12 @@
             base: "sm",
             md: "md"
           }
-        }), (0, _v1.jsx)(_v87, {
+        }), (0, _v1.jsx)(_v92, {
           boxSize: {
             base: "sm",
             md: "md"
           }
-        }), (0, _v1.jsx)(_v87, {
+        }), (0, _v1.jsx)(_v92, {
           borderRadius: "50%",
           boxSize: {
             base: "sm",
@@ -1322,12 +1377,12 @@
         })]
       })]
     }),
-    _v89 = () => {
+    _v94 = () => {
       let {
         showcaseOwnerId: _v0
       } = (0, _v3.useStore)(_v0 => _v0.commonStore);
-      return (0, _v6.isEmpty)(_v0) ? (0, _v1.jsx)(_v88, {}) : (0, _v1.jsxs)(_v17.ErrorBoundary, {
-        errorPage: _v88,
+      return (0, _v6.isEmpty)(_v0) ? (0, _v1.jsx)(_v93, {}) : (0, _v1.jsxs)(_v17.ErrorBoundary, {
+        errorPage: _v93,
         children: [(0, _v1.jsx)(_v21, {}), (0, _v1.jsxs)(_v18.Navigation, {
           id: "header",
           gap: {
@@ -1338,16 +1393,16 @@
             base: "3",
             md: "lg"
           },
-          children: [(0, _v1.jsx)(_v31, {}), (0, _v1.jsx)(_v85, {})]
+          children: [(0, _v1.jsx)(_v31, {}), (0, _v1.jsx)(_v90, {})]
         })]
       });
     };
-  var _v90 = _v0.i(0),
-    _v91 = _v0.i(0);
-  let _v92 = ({
+  var _v95 = _v0.i(0),
+    _v96 = _v0.i(0);
+  let _v97 = ({
       dataId: _v0,
       ..._v1
-    }) => (0, _v1.jsxs)(_v90.Center, {
+    }) => (0, _v1.jsxs)(_v95.Center, {
       flexDirection: "column",
       children: [(0, _v1.jsx)(_v23.IconButton, {
         "data-id": _v0,
@@ -1355,7 +1410,7 @@
         size: "lg",
         borderRadius: "round",
         ..._v1
-      }), (0, _v1.jsx)(_v91.FormLabel, {
+      }), (0, _v1.jsx)(_v96.FormLabel, {
         textAlign: "center",
         textStyle: "body-xs",
         color: "text-secondary",
@@ -1365,7 +1420,7 @@
         children: _v1["aria-label"]
       })]
     }),
-    _v93 = () => {
+    _v98 = () => {
       let {
         handleSidebarItemClick: _v0,
         checkIfCurrentPath: _v1
@@ -1378,10 +1433,10 @@
           } = (0, _v3.useStore)(_v0 => _v0.commonStore),
           {
             sendSidebarDrawerOpenCloseEvent: _v2
-          } = (0, _v41.useBpEventService)(),
+          } = (0, _v40.useBpEventService)(),
           {
             trackShowcaseManageTabSwitched: _v3
-          } = (0, _v45.useShowcaseManageTracking)(),
+          } = (0, _v39.useShowcaseManageTracking)(),
           _v4 = {
             [_v14.ShowcaseRouteMap.INFO]: "settings",
             [_v14.ShowcaseRouteMap.LAYOUT]: "layout",
@@ -1421,7 +1476,7 @@
           path: _v2,
           dataId: _v3,
           activePath: _v4
-        }, _v5) => (0, _v1.jsx)(_v92, {
+        }, _v5) => (0, _v1.jsx)(_v97, {
           dataId: _v3,
           "aria-label": _v0,
           id: `showcase-sidebar-item-${_v5}`,
@@ -1433,14 +1488,14 @@
         }, _v5))
       });
     };
-  var _v94 = _v0.i(0),
-    _v95 = _v0.i(0),
-    _v96 = _v0.i(0);
+  var _v99 = _v0.i(0),
+    _v100 = _v0.i(0),
+    _v101 = _v0.i(0);
   let {
-      HomePrimaryNavbar: _v97,
-      WayfinderSideNav: _v98
-    } = _v96.dynamicImportComponents,
-    _v99 = () => {
+      HomePrimaryNavbar: _v102,
+      WayfinderSideNav: _v103
+    } = _v101.dynamicImportComponents,
+    _v104 = () => {
       let _v0 = (0, _v3.useStore)(_v0 => _v0.commonStore.isDesktopView),
         {
           teamOwnerId: _v1
@@ -1464,15 +1519,15 @@
           teamOwnerId: _v1
         }), [_v2, _v4, _v1]);
       return (0, _v1.jsx)(_v1.Fragment, {
-        children: !1 === _v0 && (0, _v1.jsx)(_v95.VideoLibraryLayoutContext.Provider, {
+        children: !1 === _v0 && (0, _v1.jsx)(_v100.VideoLibraryLayoutContext.Provider, {
           value: _v5,
-          children: (0, _v1.jsx)(_v94.StarredItemsProvider, {
-            children: (0, _v1.jsx)(_v98, {
+          children: (0, _v1.jsx)(_v99.StarredItemsProvider, {
+            children: (0, _v1.jsx)(_v103, {
               isMobile: !_v0,
               isOpen: _v2,
               onClose: () => _v3(!1),
               teamOwnerId: _v1,
-              children: (0, _v1.jsx)(_v97, {
+              children: (0, _v1.jsx)(_v102, {
                 variant: "full"
               })
             })
@@ -1480,8 +1535,8 @@
         })
       });
     };
-  var _v100 = _v0.i(0);
-  let _v101 = () => (0, _v1.jsx)(_v8.Flex, {
+  var _v105 = _v0.i(0);
+  let _v106 = () => (0, _v1.jsx)(_v8.Flex, {
       hideBelow: "md",
       "data-id": "showcase-sidebar",
       justify: "center",
@@ -1494,12 +1549,12 @@
       ..._v13.loaderAriaProperties,
       children: Array.from({
         length: 3
-      }).map((_v0, _v1) => (0, _v1.jsx)(_v86.Skeleton, {
+      }).map((_v0, _v1) => (0, _v1.jsx)(_v91.Skeleton, {
         boxSize: "lg",
         borderRadius: "round"
       }, _v1))
     }),
-    _v102 = ({
+    _v107 = ({
       children: _v0,
       isLoading: _v1
     }) => (0, _v1.jsx)(_v8.Flex, {
@@ -1508,10 +1563,10 @@
       overflowX: "hidden",
       flexGrow: "1",
       children: !0 === _v1 ? (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v101, {}), (0, _v1.jsx)(_v100.LoadingState, {})]
+        children: [(0, _v1.jsx)(_v106, {}), (0, _v1.jsx)(_v105.LoadingState, {})]
       }) : _v0
     }),
-    _v103 = ({
+    _v108 = ({
       children: _v0
     }) => (0, _v1.jsx)(_v8.Flex, {
       position: "relative",
@@ -1521,7 +1576,7 @@
       bg: "background",
       children: _v0
     }),
-    _v104 = ({
+    _v109 = ({
       children: _v0
     }) => (0, _v1.jsx)(_v8.Flex, {
       position: "relative",
@@ -1533,23 +1588,23 @@
       children: _v0
     }),
     {
-      VideoListModalWrapper: _v105,
-      DeleteShowcaseModal: _v106,
-      ResourceShareModalWrapper: _v107,
-      UpsellModalWrapper: _v108,
-      DeleteLiveEventModal: _v109,
-      EventCreationModal: _v110,
-      SaveWithoutPremiumModal: _v111,
-      MobileViewSettings: _v112
-    } = _v96.dynamicImportComponents,
-    _v113 = () => {
+      VideoListModalWrapper: _v110,
+      DeleteShowcaseModal: _v111,
+      ResourceShareModalWrapper: _v112,
+      UpsellModalWrapper: _v113,
+      DeleteLiveEventModal: _v114,
+      EventCreationModal: _v115,
+      SaveWithoutPremiumModal: _v116,
+      MobileViewSettings: _v117
+    } = _v101.dynamicImportComponents,
+    _v118 = () => {
       let _v0,
         _v1 = (0, _v3.useStore)(_v0 => _v0.commonStore.isModalOpen),
         _v2 = (0, _v3.useStore)(_v0 => _v0.commonStore.modalType),
         {
           handleSaveWithoutPremium: _v3,
           handleCancelWithoutPremium: _v4
-        } = (0, _v63.useFinalSaveHook)();
+        } = (0, _v68.useFinalSaveHook)();
       if (_v0 = (0, _v3.useStore)(_v0 => _v0.commonStore.isModalOpen), (0, _v2.useLayoutEffect)(() => {
         let _v0 = document.body.style.overflow;
         return _v0 && (document.body.style.overflow = "hidden"), () => {
@@ -1559,40 +1614,40 @@
       switch (_v2) {
         case _v14.ModalType.ADD_VIDEO_TO_SHOWCASE:
         case _v14.ModalType.SET_SHOWCASE_FEATURED_CONTENT:
-          return (0, _v1.jsx)(_v105, {
+          return (0, _v1.jsx)(_v110, {
             modalType: _v2
           });
         case _v14.ModalType.DELETE_SHOWCASE:
-          return (0, _v1.jsx)(_v106, {});
+          return (0, _v1.jsx)(_v111, {});
         case _v14.ModalType.RESOURCE_SHARE_MODAL:
-          return (0, _v1.jsx)(_v107, {});
+          return (0, _v1.jsx)(_v112, {});
         case _v14.ModalType.EVENT_CREATION_MODAL_UPGRADE:
         case _v14.ModalType.UPGRADE_PLAN:
-          return (0, _v1.jsx)(_v108, {});
+          return (0, _v1.jsx)(_v113, {});
         case _v14.ModalType.DELETE_EVENT:
-          return (0, _v1.jsx)(_v109, {});
+          return (0, _v1.jsx)(_v114, {});
         case _v14.ModalType.EVENT_CREATION_MODAL:
-          return (0, _v1.jsx)(_v110, {});
+          return (0, _v1.jsx)(_v115, {});
         case _v14.ModalType.SAVE_WITHOUT_PREMIUM:
-          return (0, _v1.jsx)(_v111, {
+          return (0, _v1.jsx)(_v116, {
             handleSaveWithoutPremium: _v3,
             handleCancelWithoutPremium: _v4
           });
         case _v14.ModalType.MOBILE_SETTINGS_VIEW:
-          return (0, _v1.jsx)(_v112, {});
+          return (0, _v1.jsx)(_v117, {});
         default:
           return null;
       }
     };
-  var _v114 = _v0.i(0),
-    _v115 = _v0.i(0),
-    _v116 = _v0.i(0),
-    _v117 = _v0.i(0),
-    _v118 = _v0.i(0),
-    _v119 = _v0.i(0),
+  var _v119 = _v0.i(0),
     _v120 = _v0.i(0),
-    _v121 = _v0.i(0);
-  let _v122 = (0, _v7.withRouter)(_v0 => {
+    _v121 = _v0.i(0),
+    _v122 = _v0.i(0),
+    _v123 = _v0.i(0),
+    _v124 = _v0.i(0),
+    _v125 = _v0.i(0),
+    _v126 = _v0.i(0);
+  let _v127 = (0, _v7.withRouter)(_v0 => {
     let _v1,
       _v2,
       _v3,
@@ -1601,7 +1656,7 @@
     (() => {
       let {
         isDeltaEmpty: _v0
-      } = (0, _v64.useForm)();
+      } = (0, _v69.useForm)();
       (0, _v2.useEffect)(() => {
         let _v0 = _v0 => {
           if (!_v0()) return _v0.preventDefault(), _v0.returnValue = _v13.PreventWindowCloseMsg, _v13.PreventWindowCloseMsg;
@@ -1661,7 +1716,7 @@
         _v4 = (0, _v3.useStore)(_v0 => _v0.commonStore.actions.setCapabilities),
         _v5 = (0, _v3.useStore)(_v0 => _v0.commonStore.showcaseOwnerId);
       return (0, _v2.useEffect)(() => {
-        _v5 && (0, _v119.getUserCapabilities)({
+        _v5 && (0, _v124.getUserCapabilities)({
           capabilities: _v3,
           userId: _v5,
           jwt: _v2?.jwt,
@@ -1684,7 +1739,7 @@
           loading: _v3,
           error: _v4,
           data: _v5
-        }] = (0, _v121.useGetUserTeamLazy)();
+        }] = (0, _v126.useGetUserTeamLazy)();
       (0, _v2.useEffect)(() => {
         (0, _v6.isEmpty)(_v0?.userId) || _v2({
           select: ["id", "uri", "ownerId", "teamName", "logoUri", "pictures", "accentColor", "teamShowcaseId"],
@@ -1727,7 +1782,7 @@
           _v2 = (0, _v7.useHistory)(),
           _v3 = (0, _v2.useCallback)((_v0, _v1) => {
             let [_v2, _v3] = _v0.commonStore.actionType.split(".");
-            _v118.fieldsToTrack[_v2]?.forEach(_v0 => {
+            _v123.fieldsToTrack[_v2]?.forEach(_v0 => {
               _v3 !== _v0 || (0, _v6.isSame)(_v0[_v2][_v0], _v1[_v2][_v0]) || (_v0(_v0.commonStore.actionType, _v1[_v2][_v0], _v0[_v2][_v0]), _v1([_v1[_v2][_v0], _v0[_v2][_v0]], _v0.commonStore.actionType, _v2.location.pathname));
             });
           }, [_v0]);
@@ -1738,7 +1793,7 @@
         error: _v9,
         isLoading: _v10,
         mutate: _v11
-      } = (0, _v117.useGetAlbum)(() => (0, _v6.isEmpty)(_v0) ? null : {
+      } = (0, _v122.useGetAlbum)(() => (0, _v6.isEmpty)(_v0) ? null : {
         where: {
           albumId: Number(_v0)
         },
@@ -1749,10 +1804,10 @@
       });
       return (0, _v2.useEffect)(() => {
         if (!_v10 && !_v9 && _v8) {
-          if (!_v8.embed) throw new _v116.UnauthorizedError("You are unauthorized for this action.");
+          if (!_v8.embed) throw new _v121.UnauthorizedError("You are unauthorized for this action.");
           _v1(_v8), _v2(_v8), _v3(_v8), _v4(_v8), _v5(_v8), _v6(_v8);
         }
-        if (!_v10 && _v9) throw new _v116.UnauthorizedError("Unauthorized Action");
+        if (!_v10 && _v9) throw new _v121.UnauthorizedError("Unauthorized Action");
       }, [_v8, _v9, _v10]), (0, _v2.useEffect)(() => {
         _v7(_v11);
       }, [_v11, _v7]), {
@@ -1767,15 +1822,15 @@
     }, [_v4]), (() => {
       let {
           sendShowcaseManagePageImpressionEvent: _v0
-        } = (0, _v41.useBpEventService)(),
+        } = (0, _v40.useBpEventService)(),
         _v1 = (0, _v2.useRef)(!1),
         _v2 = (0, _v3.useStore)(_v0 => String(_v0.commonStore.showcaseConfig.showcaseId)),
         {
           trackShowcaseManagePageDisplayed: _v3
-        } = (0, _v45.useShowcaseManageTracking)();
+        } = (0, _v39.useShowcaseManageTracking)();
       (0, _v2.useEffect)(() => {
         _v1.current || (_v1.current = !0, _v0());
-      }, [_v0]), (0, _v120.usePicoEffect)(() => {
+      }, [_v0]), (0, _v125.usePicoEffect)(() => {
         var _v0;
         _v3({
           showcaseId: _v2,
@@ -1785,7 +1840,7 @@
         once: !0
       });
     })(), (() => {
-      let _v0 = (0, _v114.useToast)(),
+      let _v0 = (0, _v119.useToast)(),
         _v1 = (0, _v3.useStore)(_v0 => _v0.appearanceStore.actions.setMutateFeaturedContent),
         _v2 = (0, _v3.useStore)(_v0 => _v0.appearanceStore.actions.setFeaturedContent),
         {
@@ -1796,7 +1851,7 @@
           isLoading: _v5,
           error: _v6,
           mutate: _v7
-        } = (0, _v115.useGetAlbumVideos)(() => _v3 ? {
+        } = (0, _v120.useGetAlbumVideos)(() => _v3 ? {
           select: _v13.videoFields,
           where: {
             albumId: _v3
@@ -1851,11 +1906,11 @@
         }
       }, [_v4, _v5, _v6]);
     })(), (0, _v1.jsxs)(_v9.UpsellModalProvider, {
-      children: [(0, _v1.jsxs)(_v103, {
-        children: [(0, _v1.jsxs)(_v104, {
-          children: [(0, _v1.jsx)(_v89, {}), (0, _v1.jsx)(_v99, {}), (0, _v1.jsxs)(_v102, {
+      children: [(0, _v1.jsxs)(_v108, {
+        children: [(0, _v1.jsxs)(_v109, {
+          children: [(0, _v1.jsx)(_v94, {}), (0, _v1.jsx)(_v104, {}), (0, _v1.jsxs)(_v107, {
             isLoading: _v6 || _v7,
-            children: [(0, _v1.jsx)(_v93, {}), (0, _v1.jsx)(_v8.Flex, {
+            children: [(0, _v1.jsx)(_v98, {}), (0, _v1.jsx)(_v8.Flex, {
               direction: "column",
               flex: "1",
               minW: 0,
@@ -1870,7 +1925,7 @@
             })]
           })]
         }), (0, _v1.jsx)(_v16.Footer, {})]
-      }), (0, _v1.jsx)(_v113, {})]
+      }), (0, _v1.jsx)(_v118, {})]
     });
   });
   _v0.s(["default", 0, function (_v0) {
@@ -1899,7 +1954,7 @@
       uri: _v5,
       userId: _v6
     } = _v4;
-    return (0, _v1.jsx)(_v122, {
+    return (0, _v1.jsx)(_v127, {
       uri: _v5,
       userId: _v6,
       ..._v0

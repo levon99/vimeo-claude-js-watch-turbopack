@@ -58,32 +58,32 @@
         }
       }
     });
-  _v0.s(["backLabel", 0, () => (0, _v5.translate)({
-    singular: "Back",
+  _v0.s(["reportFailedMessage", 0, _v7, "reportModalHeader", 0, _v6, "returnToVideoLabel", 0, () => (0, _v5.translate)({
+    singular: "Return to video",
     dictionary: {
       es: {
-        singular: "Atrás"
+        singular: "Volver al video"
       },
       "de-DE": {
-        singular: "Zurück"
+        singular: "Zurück zum Video"
       },
       "fr-FR": {
-        singular: "Retour"
+        singular: "Retour à la vidéo"
       },
       "ja-JP": {
-        singular: "戻る"
+        singular: "動画に戻る"
       },
       "ko-KR": {
-        singular: "뒤로"
+        singular: "동영상으로 돌아가기"
       },
       "pt-BR": {
-        singular: "Voltar"
+        singular: "Voltar ao vídeo"
       },
       "zh-CN": {
-        singular: "返回"
+        singular: "返回视频"
       }
     }
-  }), "reportFailedMessage", 0, _v7, "reportModalHeader", 0, _v6], 0);
+  })], 0);
   var _v8 = _v0.i(0),
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
@@ -157,10 +157,9 @@
   }), _v0.s(["useVideoReport", 0, function ({
     clipId: _v0,
     onClose: _v1,
-    onSubmitted: _v2,
-    confirmationMode: _v3
+    onSubmitted: _v2
   }) {
-    let _v4 = (0, _v4.useViewer)();
+    let _v3 = (0, _v4.useViewer)();
     return (0, _v1.useReport)({
       onClose: _v1,
       discovery: (0, _v2.useReportReasonsDiscovery)({
@@ -200,11 +199,10 @@
       }({
         clipId: _v0
       }),
-      confirmationMode: _v3,
       onSubmitted: _v2,
       submitFailureMessage: _v7(),
       resolveExternalUrl: _v0 => (0, _v3.withReportedContentUrl)(_v0, _v0),
-      offerCommsOptOut: !!_v4?.isUnitedKingdom
+      offerCommsOptOut: !!_v3?.isUnitedKingdom
     });
   }], 0);
 }

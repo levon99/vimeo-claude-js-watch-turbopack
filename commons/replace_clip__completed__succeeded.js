@@ -289,7 +289,7 @@
                     return _v0.isDeleted ? (0, _v1.jsx)(_v27.DeletedVersion, {
                       index: _v1,
                       isLastElement: _v2,
-                      sequenceNumber: _v0.sequenceNumber ?? _v35.DEFAULT_VERSION_NUMBER,
+                      sequenceNumber: _v0.sequenceNumber ?? null,
                       isLoadingMoreVersion: _v27,
                       ref: _v29,
                       uri: (0, _v36.formVersionRedirectUri)((0, _v36.idFromUri)(_v0.uri), _v0.toString(), _v1, _v14),

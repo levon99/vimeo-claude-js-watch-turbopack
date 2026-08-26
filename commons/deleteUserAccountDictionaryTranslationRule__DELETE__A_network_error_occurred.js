@@ -3670,16 +3670,37 @@ ${_v2}`;
       name: _v1
     }) => [_v169(_v0), _v1])),
     _v172 = (_v0, _v1, _v2) => _v2.get(_v169(_v0)) ?? _v170(_v0, _v1),
-    _v173 = ["source language", "source term", "target language", "target term"];
-  class _v174 extends Error {
+    _v173 = () => {
+      let _v0 = (0, _v59.useToast)();
+      return (0, _v2.useCallback)((_v0, _v1) => {
+        _v0({
+          duration: _v1?.action ? null : 0,
+          isClosable: !0,
+          render: _v0 => (0, _v1.jsxs)(_v59.ToastRoot, {
+            ..._v0,
+            variant: "warning",
+            children: [(0, _v1.jsx)(_v59.ToastIcon, {}), (0, _v1.jsx)(_v59.ToastTitle, {
+              children: _v0
+            }), _v1?.action && (0, _v1.jsx)(_v59.ToastButton, {
+              onClick: () => {
+                _v0.closeAll(), _v1.action?.onClick();
+              },
+              children: _v1.action.label
+            })]
+          })
+        });
+      }, [_v0]);
+    },
+    _v174 = ["source language", "source term", "target language", "target term"];
+  class _v175 extends Error {
     code;
     constructor(_v0) {
       super(_v0), this.code = _v0;
     }
   }
-  let _v175 = _v0 => _v0.trim().toLocaleLowerCase().replaceAll("_", "-");
-  var _v176 = _v0.i(0);
-  async function _v177({
+  let _v176 = _v0 => _v0.trim().toLocaleLowerCase().replaceAll("_", "-");
+  var _v177 = _v0.i(0);
+  async function _v178({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -3701,8 +3722,8 @@ ${_v2}`;
       return (0, _v18.deepCamelCase)(_v1);
     });
   }
-  let _v178 = ["created", "results", "results.errors", "results.errors.message", "results.index", "results.status"],
-    _v179 = (_v0, _v1, _v2) => {
+  let _v179 = ["created", "results", "results.errors", "results.errors.message", "results.index", "results.status"],
+    _v180 = (_v0, _v1, _v2) => {
       let _v3 = (_v2?.results ?? []).flatMap(_v0 => {
         if ("failed" !== _v0.status) return [];
         let _v1 = _v0[_v0.index]?.line ?? 0;
@@ -3722,8 +3743,9 @@ ${_v2}`;
         failures: [..._v1, ..._v3].sort((_v0, _v1) => _v0.line - _v1.line)
       };
     },
-    _v180 = (_v0, _v1) => "column_count" === _v0.code ? _v1.replacementsCsvColumnCountError : "required" === _v0.code ? _v1.replacementsCsvRequiredError : "field_length" === _v0.code ? _v1.replacementsCsvFieldLengthError : "invalid_source_language" === _v0.code ? _v1.replacementsCsvInvalidSourceLanguage(_v0.language) : "invalid_target_language" === _v0.code ? _v1.replacementsCsvInvalidTargetLanguage(_v0.language) : "matching_source_target_language" === _v0.code ? _v1.replacementsCsvMatchingLanguages : _v0.message ?? _v1.replacementsCsvServerError,
-    _v181 = ({
+    _v181 = (_v0, _v1) => "column_count" === _v0.code ? _v1.replacementsCsvColumnCountError : "required" === _v0.code ? _v1.replacementsCsvRequiredError : "field_length" === _v0.code ? _v1.replacementsCsvFieldLengthError : "invalid_source_language" === _v0.code ? _v1.replacementsCsvInvalidSourceLanguage(_v0.language) : "invalid_target_language" === _v0.code ? _v1.replacementsCsvInvalidTargetLanguage(_v0.language) : "matching_source_target_language" === _v0.code ? _v1.replacementsCsvMatchingLanguages : _v0.message ?? _v1.replacementsCsvServerError,
+    _v182 = (_v0, _v1) => "empty" === _v0 ? _v1.replacementsCsvEmpty : "header" === _v0 ? _v1.replacementsCsvInvalidHeader : "malformed" === _v0 ? _v1.replacementsCsvMalformed : "too_many_rows" === _v0 ? _v1.replacementsCsvTooManyRows : "file" === _v0 ? _v1.replacementsCsvInvalidFile : _v1.replacementsCsvImportError,
+    _v183 = ({
       ownerUserId: _v0,
       translations: _v1,
       hasExistingEntries: _v2,
@@ -3741,7 +3763,7 @@ ${_v2}`;
           } = (0, _v24.useGctlConfig)();
           return (0, _v2.useCallback)(async (_v0, _v1) => {
             let _v2;
-            if (0 === _v0.length) return _v179(_v0, _v1);
+            if (0 === _v0.length) return _v180(_v0, _v1);
             let _v3 = {
                 "Content-Type": "application/json",
                 Authorization: _v2 ? `jwt ${_v2}` : "",
@@ -3751,7 +3773,7 @@ ${_v2}`;
               _v4 = [],
               _v5 = 1;
             for (;;) {
-              let _v0 = await (0, _v176.getLanguages)({
+              let _v0 = await (0, _v177.getLanguages)({
                 baseUrl: _v1,
                 headers: _v3,
                 query: {
@@ -3766,9 +3788,9 @@ ${_v2}`;
               }) => _v0)), !_v0.paging.next) break;
               _v5 += 1;
             }
-            let _v6 = (_v2 = new Set(_v4.map(_v175)), _v0.reduce((_v0, _v1) => {
-                let _v2 = _v175(_v1.sourceLanguage),
-                  _v3 = _v175(_v1.targetLanguage),
+            let _v6 = (_v2 = new Set(_v4.map(_v176)), _v0.reduce((_v0, _v1) => {
+                let _v2 = _v176(_v1.sourceLanguage),
+                  _v3 = _v176(_v1.targetLanguage),
                   _v4 = _v2.has(_v2),
                   _v5 = _v2.has(_v3);
                 return _v4 || _v0.failures.push({
@@ -3788,11 +3810,11 @@ ${_v2}`;
                 failures: []
               })),
               _v7 = [..._v1, ..._v6.failures];
-            if (0 === _v6.entries.length) return _v179(_v6.entries, _v7);
-            let _v8 = await _v177({
+            if (0 === _v6.entries.length) return _v180(_v6.entries, _v7);
+            let _v8 = await _v178({
               baseUrl: _v1,
               headers: _v3,
-              select: _v178,
+              select: _v179,
               variables: {
                 replaceExisting: !0,
                 rules: _v6.entries.map(_v0 => ({
@@ -3807,22 +3829,22 @@ ${_v2}`;
                 userId: _v0
               }
             });
-            return _v179(_v6.entries, _v7, _v8);
+            return _v180(_v6.entries, _v7, _v8);
           }, [_v1, _v2, _v4, _v0, _v3]);
         })(_v0),
         [_v8, _v9] = (0, _v2.useState)(),
         [_v10, _v11] = (0, _v2.useState)([]),
         [_v12, _v13] = (0, _v2.useState)(),
-        [_v14, _v15] = (0, _v2.useState)(),
+        [_v14, _v15] = (0, _v2.useState)(!1),
         [_v16, _v17] = (0, _v2.useState)(!1),
-        [_v18, _v19] = (0, _v2.useState)(!1),
-        _v20 = (0, _v59.useToast)({
+        _v18 = (0, _v59.useToast)({
           title: _v1.replacementsChangesSaved,
           duration: 0
         }),
-        _v21 = (0, _v2.useMemo)(() => `data:text/csv;charset=utf-8,${encodeURIComponent(`${_v173.join(",")}\r
+        _v19 = _v173(),
+        _v20 = (0, _v2.useMemo)(() => `data:text/csv;charset=utf-8,${encodeURIComponent(`${_v174.join(",")}\r
 `)}`, []),
-        _v22 = (0, _v2.useMemo)(() => {
+        _v21 = (0, _v2.useMemo)(() => {
           var _v0;
           let _v1;
           return _v0 = _v8 ?? [], _v1 = new Map(), _v0.forEach((_v0, _v1) => {
@@ -3843,14 +3865,14 @@ ${_v2}`;
             });
           }), [..._v1.values()];
         }, [_v8]),
-        _v23 = !!_v8?.some(_v0 => !_v0.sourceText.trim() || !_v0.replacementText.trim()),
-        _v24 = _v16 || _v18;
+        _v22 = !!_v8?.some(_v0 => !_v0.sourceText.trim() || !_v0.replacementText.trim()),
+        _v23 = _v14 || _v16;
       (0, _v2.useEffect)(() => {
-        (_v14 || _v12) && _v6.current?.focus();
-      }, [_v14, _v12]);
-      let _v25 = async _v0 => {
-          if (_v13(void 0), _v15(void 0), !_v0.name.toLowerCase().endsWith(".csv")) return void _v15("file");
-          _v17(!0);
+        _v12 && _v6.current?.focus();
+      }, [_v12]);
+      let _v24 = async _v0 => {
+          if (_v13(void 0), !_v0.name.toLowerCase().endsWith(".csv")) return void _v19(_v182("file", _v1));
+          _v15(!0);
           try {
             let _v0 = (_v0 => {
               let _v1,
@@ -3876,7 +3898,7 @@ ${_v2}`;
                 })(_v0);
               if (_v2.filter(({
                 isBlank: _v0
-              }) => !_v0).length - 1 > 0) throw new _v174("too_many_rows");
+              }) => !_v0).length - 1 > 0) throw new _v175("too_many_rows");
               try {
                 _v1 = _v116(_v0, {
                   bom: !0,
@@ -3884,11 +3906,11 @@ ${_v2}`;
                   relax_column_count: !0
                 });
               } catch {
-                throw new _v174("malformed");
+                throw new _v175("malformed");
               }
               let _v3 = _v1[0]?.map(_v0 => _v0.trim().toLowerCase());
-              if (!_v3) throw new _v174("empty");
-              if (_v3.length !== _v173.length || _v3.some((_v0, _v1) => _v0 !== _v173[_v1])) throw new _v174("header");
+              if (!_v3) throw new _v175("empty");
+              if (_v3.length !== _v174.length || _v3.some((_v0, _v1) => _v0 !== _v174[_v1])) throw new _v175("header");
               let _v4 = _v1.slice(1).map((_v0, _v1) => ({
                 isBlank: _v2[_v1 + 1]?.isBlank ?? !1,
                 line: _v2[_v1 + 1]?.line ?? _v1 + 2,
@@ -3896,14 +3918,14 @@ ${_v2}`;
               })).filter(({
                 isBlank: _v0
               }) => !_v0);
-              if (0 === _v4.length) throw new _v174("empty");
+              if (0 === _v4.length) throw new _v175("empty");
               let _v5 = [],
                 _v6 = [];
               return _v4.forEach(({
                 line: _v0,
                 record: _v1
               }) => {
-                if (_v1.length !== _v173.length) return void _v6.push({
+                if (_v1.length !== _v174.length) return void _v6.push({
                   code: "column_count",
                   line: _v0
                 });
@@ -3932,20 +3954,20 @@ ${_v2}`;
             });
             _v11(_v0.failures), _v9(_v0.entries);
           } catch (_v0) {
-            _v15(_v0 instanceof _v174 ? _v0.code : "network");
+            _v19(_v182(_v0 instanceof _v175 ? _v0.code : "network", _v1));
           } finally {
-            _v17(!1);
+            _v15(!1);
           }
         },
-        _v26 = (_v0, _v1, _v2) => {
+        _v25 = (_v0, _v1, _v2) => {
           _v9(_v0 => _v0?.map((_v0, _v1) => _v1 === _v0 ? {
             ..._v0,
             [_v1]: _v2
           } : _v0));
         },
-        _v27 = async () => {
+        _v26 = async () => {
           if (_v8) {
-            _v19(!0), _v15(void 0);
+            _v17(!0);
             try {
               let _v0 = _v8.map(_v0 => ({
                   ..._v0,
@@ -3953,19 +3975,19 @@ ${_v2}`;
                   sourceText: _v0.sourceText.trim()
                 })),
                 _v1 = await _v7(_v0, _v10);
-              _v1.created > 0 && (await _v4().catch(() => void 0)), _v1.failures.length > 0 ? (_v9(void 0), _v13(_v1)) : (_v20(), _v3());
+              _v1.created > 0 && (await _v4().catch(() => void 0)), _v1.failures.length > 0 ? (_v9(void 0), _v13(_v1)) : (_v18(), _v3());
             } catch {
-              _v15("network");
+              _v19(_v182("network", _v1));
             } finally {
-              _v19(!1);
+              _v17(!1);
             }
           }
         };
       return (0, _v1.jsxs)(_v47.Modal, {
         isOpen: !0,
-        closeOnEsc: !_v24,
-        closeOnOverlayClick: !_v24,
-        onClose: _v24 ? () => void 0 : _v3,
+        closeOnEsc: !_v23,
+        closeOnOverlayClick: !_v23,
+        onClose: _v23 ? () => void 0 : _v3,
         children: [(0, _v1.jsx)(_v52.ModalOverlay, {}), (0, _v1.jsxs)(_v49.ModalContent, {
           maxWidth: (0, _v5.rem)(480),
           children: [(0, _v1.jsx)(_v51.ModalHeader, {
@@ -3975,16 +3997,13 @@ ${_v2}`;
               children: [(0, _v1.jsx)(_v63, {
                 count: _v8.length,
                 translations: _v1
-              }), _v2 && (0, _v1.jsx)(_v37.Box, {
-                backgroundColor: "fill-component",
-                borderRadius: "sm",
-                padding: (0, _v5.rem)(12),
+              }), _v2 && (0, _v1.jsx)(_v9.Alert, {
+                status: "warning",
                 marginBottom: (0, _v5.rem)(16),
-                children: (0, _v1.jsx)(_v14.Text, {
-                  variant: "body-sm",
+                children: (0, _v1.jsx)(_v7.AlertDescription, {
                   children: _v1.replacementsCsvReplaceConfirmation
                 })
-              }), _v22.map(_v0 => {
+              }), _v21.map(_v0 => {
                 let _v1 = _v170(_v0.targetLanguage, _v5);
                 return (0, _v1.jsx)(_v54.TableContainer, {
                   borderWidth: "1px",
@@ -4016,13 +4035,13 @@ ${_v2}`;
                         children: [(0, _v1.jsx)(_v64, {
                           label: _v1.replacementsSourceTerm(_v2 + 1),
                           value: _v0.sourceText,
-                          isDisabled: _v18,
-                          onChange: _v0 => _v26(_v1, "sourceText", _v0)
+                          isDisabled: _v16,
+                          onChange: _v0 => _v25(_v1, "sourceText", _v0)
                         }), (0, _v1.jsx)(_v64, {
                           label: _v1.replacementsTargetTerm(_v1, _v2 + 1),
                           value: _v0.replacementText,
-                          isDisabled: _v18,
-                          onChange: _v0 => _v26(_v1, "replacementText", _v0)
+                          isDisabled: _v16,
+                          onChange: _v0 => _v25(_v1, "replacementText", _v0)
                         })]
                       }, _v0.line))
                     })]
@@ -4044,7 +4063,7 @@ ${_v2}`;
                     marginTop: (0, _v5.rem)(8),
                     children: _v10.map((_v0, _v1) => (0, _v1.jsx)(_v14.Text, {
                       variant: "body-sm",
-                      children: _v1.replacementsCsvFailureLine(_v0.line, _v180(_v0, _v1))
+                      children: _v1.replacementsCsvFailureLine(_v0.line, _v181(_v0, _v1))
                     }, `${_v0.line}:${_v1}`))
                   })]
                 })
@@ -4058,18 +4077,18 @@ ${_v2}`;
                 variant: "body-md",
                 color: "text-secondary",
                 children: _v2.Children.toArray(_v1.replacementsCsvTemplatePrompt(_v0 => (0, _v1.jsx)(_v4.Link, {
-                  href: _v21,
+                  href: _v20,
                   download: "terms-translations-template.csv",
                   textDecoration: "underline",
+                  _hover: {
+                    textDecoration: "none"
+                  },
                   children: _v2.Children.toArray(_v0)
                 }, "csv-template-link")))
-              }), _v2 && (0, _v1.jsx)(_v37.Box, {
-                backgroundColor: "fill-component",
-                borderRadius: "sm",
-                padding: (0, _v5.rem)(12),
+              }), _v2 && (0, _v1.jsx)(_v9.Alert, {
+                status: "warning",
                 marginTop: (0, _v5.rem)(16),
-                children: (0, _v1.jsx)(_v14.Text, {
-                  variant: "body-sm",
+                children: (0, _v1.jsx)(_v7.AlertDescription, {
                   children: _v1.replacementsCsvReplaceNotice
                 })
               }), (0, _v1.jsx)(_v37.Box, {
@@ -4079,18 +4098,10 @@ ${_v2}`;
                   uploadLabel: _v1.replacementsCsvUploadFile,
                   uploadingHint: _v1.csvUploadingHint,
                   uploadingLabel: _v1.csvUploading,
-                  isBusy: _v16,
-                  onFileSelected: _v0 => void _v25(_v0)
+                  isBusy: _v14,
+                  onFileSelected: _v0 => void _v24(_v0)
                 })
               })]
-            }), _v14 && (0, _v1.jsx)(_v9.Alert, {
-              ref: _v6,
-              status: "error",
-              marginTop: (0, _v5.rem)(24),
-              tabIndex: -1,
-              children: (0, _v1.jsx)(_v7.AlertDescription, {
-                children: "empty" === _v14 ? _v1.replacementsCsvEmpty : "header" === _v14 ? _v1.replacementsCsvInvalidHeader : "malformed" === _v14 ? _v1.replacementsCsvMalformed : "too_many_rows" === _v14 ? _v1.replacementsCsvTooManyRows : "file" === _v14 ? _v1.replacementsCsvInvalidFile : _v1.replacementsCsvImportError
-              })
             }), _v12 && (0, _v1.jsx)(_v9.Alert, {
               ref: _v6,
               status: _v12.created > 0 ? "warning" : "error",
@@ -4112,7 +4123,7 @@ ${_v2}`;
                   marginTop: (0, _v5.rem)(8),
                   children: _v12.failures.map((_v0, _v1) => (0, _v1.jsx)(_v14.Text, {
                     variant: "body-sm",
-                    children: _v1.replacementsCsvFailureLine(_v0.line, _v180(_v0, _v1))
+                    children: _v1.replacementsCsvFailureLine(_v0.line, _v181(_v0, _v1))
                   }, `${_v0.line}:${_v1}`))
                 })]
               })
@@ -4121,22 +4132,23 @@ ${_v2}`;
             gap: (0, _v5.rem)(12),
             children: [(0, _v1.jsx)(_v10.Button, {
               variant: "tertiary",
-              isDisabled: _v18,
+              isDisabled: _v16,
               onClick: _v3,
               children: _v1.cancel
             }), (0, _v1.jsx)(_v10.Button, {
               variant: "primary",
-              isLoading: _v18,
-              isDisabled: _v23,
-              onClick: () => void _v27(),
+              isLoading: _v16,
+              isDisabled: _v22,
+              onClick: () => void _v26(),
               children: _v2 ? _v1.replaceTermsTranslations : _v1.save
             })]
           })]
         })]
       });
     };
-  var _v182 = _v0.i(0);
-  let _v183 = (_v0, _v1) => _v0.filter(({
+  var _v184 = _v0.i(0),
+    _v185 = _v0.i(0);
+  let _v186 = (_v0, _v1) => _v0.filter(({
       code: _v0
     }) => !_v1.includes(_v0)).map(({
       code: _v0,
@@ -4154,7 +4166,7 @@ ${_v2}`;
         value: _v0
       };
     }).sort((_v0, _v1) => _v0.label.localeCompare(_v1.label)),
-    _v184 = {
+    _v187 = {
       border: 0,
       clip: "rect(0, 0, 0, 0)",
       height: "1px",
@@ -4165,7 +4177,7 @@ ${_v2}`;
       whiteSpace: "nowrap",
       width: "1px"
     },
-    _v185 = ({
+    _v188 = ({
       existingLanguages: _v0,
       languages: _v1,
       translations: _v2,
@@ -4175,7 +4187,7 @@ ${_v2}`;
       let _v5 = (0, _v167.useLocale)(),
         [_v6, _v7] = (0, _v2.useState)([]),
         [_v8, _v9] = (0, _v2.useState)(!1),
-        _v10 = (0, _v2.useMemo)(() => _v183(_v1, _v0), [_v0, _v1]),
+        _v10 = (0, _v2.useMemo)(() => _v186(_v1, _v0), [_v0, _v1]),
         _v11 = _v10.filter(({
           value: _v0
         }) => !_v6.includes(_v0));
@@ -4187,7 +4199,6 @@ ${_v2}`;
           children: [(0, _v1.jsx)(_v51.ModalHeader, {
             children: _v2.replacementsAddLanguage
           }), (0, _v1.jsxs)(_v48.ModalBody, {
-            overflow: "visible",
             children: [(0, _v1.jsx)(_v14.Text, {
               variant: "body-md",
               color: "text-secondary",
@@ -4218,7 +4229,7 @@ ${_v2}`;
                   children: [(0, _v1.jsx)(_v37.Box, {
                     flex: "1",
                     sx: {
-                      '& [data-part="label"]': _v184,
+                      '& [data-part="label"]': _v187,
                       '& [role="listbox"]': {
                         maxHeight: (0, _v5.rem)(160),
                         overflowY: "auto"
@@ -4262,7 +4273,7 @@ ${_v2}`;
                 children: [(0, _v1.jsx)(_v37.Box, {
                   flex: "1",
                   sx: {
-                    '& [data-part="label"]': _v184,
+                    '& [data-part="label"]': _v187,
                     '& [role="listbox"]': {
                       maxHeight: (0, _v5.rem)(160),
                       overflowY: "auto"
@@ -4347,7 +4358,7 @@ ${_v2}`;
         })]
       });
     },
-    _v186 = ({
+    _v189 = ({
       languageItems: _v0,
       translations: _v1,
       onClose: _v2,
@@ -4418,23 +4429,23 @@ ${_v2}`;
         })]
       });
     };
-  class _v187 extends Error {
+  class _v190 extends Error {
     isConflict;
     snapshot;
     constructor(_v0, _v1) {
       super("Terms translations could not be saved"), this.name = "TermsTranslationsSaveError", this.isConflict = _v0.some(_v0 => _v0 instanceof _v18.NetworkError && 409 === _v0.status), this.snapshot = _v1;
     }
   }
-  let _v188 = _v0 => _v0.split("/").pop() ?? "",
-    _v189 = _v0 => _v0.flatMap(_v0 => _v0.mappings.map(_v0 => ({
+  let _v191 = _v0 => _v0.split("/").pop() ?? "",
+    _v192 = _v0 => _v0.flatMap(_v0 => _v0.mappings.map(_v0 => ({
       ..._v0,
       sourceLanguage: _v0.sourceLanguage,
       sourceText: _v0.sourceText.trim(),
       replacementText: _v0.replacementText.trim()
     }))),
-    _v190 = (_v0, _v1) => {
-      let _v2 = _v189(_v0),
-        _v3 = _v189(_v1),
+    _v193 = (_v0, _v1) => {
+      let _v2 = _v192(_v0),
+        _v3 = _v192(_v1),
         _v4 = new Map(_v2.filter(_v0 => _v0.uri).map(_v0 => [_v0.uri, _v0])),
         _v5 = new Map(_v3.filter(_v0 => _v0.uri).map(_v0 => [_v0.uri, _v0]));
       return {
@@ -4451,7 +4462,7 @@ ${_v2}`;
         })
       };
     },
-    _v191 = (_v0, _v1) => {
+    _v194 = (_v0, _v1) => {
       let _v2 = new Map(),
         _v3 = new Set();
       return _v0.forEach(_v0 => {
@@ -4477,9 +4488,9 @@ ${_v2}`;
         targetLanguages: Array.from(_v3)
       };
     },
-    _v192 = _v0 => _v0.flatMap(_v0 => "rejected" === _v0.status ? [_v0.reason] : []),
-    _v193 = _v0 => `new-terms-translation-row-${_v0}`,
-    _v194 = (_v0, _v1, _v2, _v3) => [..._v0.map(_v0 => ({
+    _v195 = _v0 => _v0.flatMap(_v0 => "rejected" === _v0.status ? [_v0.reason] : []),
+    _v196 = _v0 => `new-terms-translation-row-${_v0}`,
+    _v197 = (_v0, _v1, _v2, _v3) => [..._v0.map(_v0 => ({
       ..._v0,
       mappings: _v2.map(_v0 => _v0.mappings.find(_v0 => _v0.targetLanguage === _v0) ?? {
         targetLanguage: _v0,
@@ -4494,13 +4505,13 @@ ${_v2}`;
       sourceLanguage: _v1,
       sourceText: ""
     }],
-    _v195 = _v0 => {
+    _v198 = _v0 => {
       let _v1 = _v0.trim().toLowerCase().replaceAll("_", "-"),
         _v2 = _v1.indexOf("-x-");
       return -1 === _v2 ? _v1 : _v1.slice(0, _v2);
     },
-    _v196 = (_v0, _v1, _v2) => `${_v195(_v0)}\u0000${_v1.trim()}\u0000${_v195(_v2)}`,
-    _v197 = ({
+    _v199 = (_v0, _v1, _v2) => `${_v198(_v0)}\u0000${_v1.trim()}\u0000${_v198(_v2)}`,
+    _v200 = ({
       editor: _v0,
       sourceLanguage: _v1,
       sourceLanguages: _v2,
@@ -4521,51 +4532,55 @@ ${_v2}`;
         _v10 = (0, _v2.useCallback)(_v0 => _v172(_v0, _v8, _v9), [_v9, _v8]),
         _v11 = (0, _v2.useRef)(1),
         _v12 = (0, _v2.useRef)(null),
-        _v13 = (0, _v2.useCallback)(() => _v193(_v11.current++), []),
+        _v13 = (0, _v2.useCallback)(() => _v196(_v11.current++), []),
         _v14 = _v0.targetLanguages,
-        [_v15, _v16] = (0, _v2.useState)(() => _v194(_v0.rows, _v1, _v14, _v193(0))),
+        [_v15, _v16] = (0, _v2.useState)(() => _v197(_v0.rows, _v1, _v14, _v196(0))),
         [_v17, _v18] = (0, _v2.useState)(_v15),
         [_v19, _v20] = (0, _v2.useState)(_v14),
         [_v21, _v22] = (0, _v2.useState)(!1),
         [_v23, _v24] = (0, _v2.useState)(),
         [_v25, _v26] = (0, _v2.useState)(),
-        [_v27, _v28] = (0, _v2.useState)(!1),
+        [_v27, _v28] = (0, _v2.useState)(),
         [_v29, _v30] = (0, _v2.useState)(),
         [_v31, _v32] = (0, _v2.useState)(!1),
-        _v33 = (0, _v2.useRef)(_v0.isLoading ? void 0 : _v1),
-        _v34 = (0, _v59.useToast)({
+        [_v33, _v34] = (0, _v2.useState)(!1),
+        _v35 = (0, _v2.useRef)(_v0.isLoading ? void 0 : _v1),
+        _v36 = (0, _v2.useRef)(!1),
+        _v37 = (0, _v2.useRef)(() => Promise.resolve()),
+        _v38 = (0, _v59.useToast)({
           title: _v4.replacementsChangesSaved,
           duration: 0
         }),
-        _v35 = (0, _v2.useMemo)(() => Array.from(new Set([_v1, ..._v2])).map(_v0 => ({
+        _v39 = _v173(),
+        _v40 = (0, _v2.useMemo)(() => Array.from(new Set([_v1, ..._v2])).map(_v0 => ({
           label: _v10(_v0),
           value: _v0
         })).sort((_v0, _v1) => _v0.label.localeCompare(_v1.label, _v8)), [_v10, _v8, _v1, _v2]),
-        _v36 = (0, _v2.useMemo)(() => _v17.filter(_v0 => _v0.sourceText.trim() || _v0.mappings.some(_v0 => _v0.uri || _v0.replacementText.trim())), [_v17]),
-        _v37 = _v190(_v15, _v36),
-        _v38 = !!(_v37.created.length || _v37.updated.length || _v37.deleted.length),
-        _v39 = (0, _v2.useCallback)(_v0 => {
-          let _v1 = _v194(_v0.rows, _v1, _v0.targetLanguages, _v13());
+        _v41 = (0, _v2.useMemo)(() => _v17.filter(_v0 => _v0.sourceText.trim() || _v0.mappings.some(_v0 => _v0.uri || _v0.replacementText.trim())), [_v17]),
+        _v42 = _v193(_v15, _v41),
+        _v43 = !!(_v42.created.length || _v42.updated.length || _v42.deleted.length),
+        _v44 = (0, _v2.useCallback)(_v0 => {
+          let _v1 = _v197(_v0.rows, _v1, _v0.targetLanguages, _v13());
           _v16(_v1), _v18(_v1), _v20(_v0.targetLanguages);
         }, [_v13, _v1]);
       (0, _v2.useEffect)(() => {
-        _v0.isLoading || _v0.error || _v33.current === _v1 || (_v39({
+        _v0.isLoading || _v0.error || _v35.current === _v1 || (_v44({
           rows: _v0.rows,
           targetLanguages: _v0.targetLanguages
-        }), _v30(void 0), _v32(!1), _v33.current = _v1);
-      }, [_v39, _v0.error, _v0.isLoading, _v0.rows, _v0.targetLanguages, _v1]);
-      let _v40 = (0, _v2.useCallback)(_v0 => {
+        }), _v34(!1), _v35.current = _v1);
+      }, [_v44, _v0.error, _v0.isLoading, _v0.rows, _v0.targetLanguages, _v1]);
+      let _v45 = (0, _v2.useCallback)(_v0 => {
           let _v1 = new Set(_v0.rows.flatMap(_v0 => _v0.mappings.flatMap(_v0 => _v0.uri ? [_v0.uri] : []))),
-            _v2 = new Map(_v0.rows.flatMap(_v0 => _v0.mappings.flatMap(_v0 => _v0.uri ? [[_v196(_v0.sourceLanguage, _v0.sourceText, _v0.targetLanguage), _v0.uri]] : [])));
-          _v16(_v194(_v0.rows, _v1, _v0.targetLanguages, _v13())), _v18(_v0 => _v0.map(_v0 => ({
+            _v2 = new Map(_v0.rows.flatMap(_v0 => _v0.mappings.flatMap(_v0 => _v0.uri ? [[_v199(_v0.sourceLanguage, _v0.sourceText, _v0.targetLanguage), _v0.uri]] : [])));
+          _v16(_v197(_v0.rows, _v1, _v0.targetLanguages, _v13())), _v18(_v0 => _v0.map(_v0 => ({
             ..._v0,
             mappings: _v0.mappings.map(_v0 => ({
               ..._v0,
-              uri: (_v0.uri && _v1.has(_v0.uri) ? _v0.uri : void 0) ?? _v2.get(_v196(_v0.sourceLanguage, _v0.sourceText, _v0.targetLanguage))
+              uri: (_v0.uri && _v1.has(_v0.uri) ? _v0.uri : void 0) ?? _v2.get(_v199(_v0.sourceLanguage, _v0.sourceText, _v0.targetLanguage))
             }))
-          }))), _v20(_v0 => [...new Set([..._v0, ..._v0.targetLanguages])]), _v32(!1);
+          }))), _v20(_v0 => [...new Set([..._v0, ..._v0.targetLanguages])]), _v34(!1);
         }, [_v13, _v1]),
-        _v41 = (0, _v2.useCallback)(_v0 => [..._v0, {
+        _v46 = (0, _v2.useCallback)(_v0 => [..._v0, {
           clientId: _v13(),
           mappings: _v19.map(_v0 => ({
             targetLanguage: _v0,
@@ -4574,40 +4589,67 @@ ${_v2}`;
           sourceLanguage: _v1,
           sourceText: ""
         }], [_v13, _v1, _v19]),
-        _v42 = _v0 => {
+        _v47 = _v0 => {
           _v18(_v0 => {
             let _v1 = _v0.filter(_v0 => _v0.clientId !== _v0);
-            return _v1.length ? _v1 : _v41([]);
+            return _v1.length ? _v1 : _v46([]);
           });
         },
-        _v43 = async () => {
-          _v28(!0), _v30(void 0);
+        _v48 = async () => {
+          _v32(!0);
           try {
-            await _v0.save(_v15, _v36), await _v6().catch(() => void 0), _v34(), _v5();
+            await _v0.save(_v15, _v41), await _v6().catch(() => void 0), _v38(), _v5();
           } catch (_v0) {
-            let _v1 = _v0 instanceof _v187 ? _v0.snapshot : void 0;
-            _v1 ? _v40(_v1) : _v32(!0), _v30(_v0);
+            var _v0;
+            let _v1 = _v0 instanceof _v190 ? _v0.snapshot : void 0;
+            _v1 ? _v45(_v1) : _v34(!0), _v0 = !_v1, _v39(_v4.replacementsChangesCouldNotBeSaved, _v0 ? {
+              action: {
+                label: _v4.tryAgain,
+                onClick: () => void _v50(!0)
+              }
+            } : void 0);
           } finally {
-            _v28(!1);
+            _v32(!1);
           }
         },
-        _v44 = (_v19.length + 1) * 140 + 44,
-        _v45 = async () => {
-          _v28(!0);
+        _v49 = (_v19.length + 1) * 140 + 44,
+        _v50 = (0, _v2.useCallback)(async _v0 => {
+          _v32(!0);
           try {
             let _v0 = await _v0.refresh();
-            _v31 ? _v40(_v0) : _v39(_v0), _v30(void 0);
+            _v0 ? _v45(_v0) : _v44(_v0);
           } catch {
-            _v31 && _v32(!0);
+            let _v0 = _v0 ? _v4.replacementsChangesCouldNotBeSaved : _v4.replacementsLoadingError;
+            _v34(_v0), _v39(_v0, {
+              action: {
+                label: _v4.tryAgain,
+                onClick: () => void _v37.current(_v0)
+              }
+            });
           } finally {
-            _v28(!1);
+            _v32(!1);
           }
-        };
-      return (0, _v1.jsxs)(_v1.Fragment, {
+        }, [_v44, _v0, _v45, _v39, _v4.replacementsChangesCouldNotBeSaved, _v4.replacementsLoadingError, _v4.tryAgain]);
+      return (0, _v2.useEffect)(() => {
+        _v37.current = _v50;
+      }, [_v50]), (0, _v2.useEffect)(() => {
+        if (!_v0.error) {
+          _v36.current = !1;
+          return;
+        }
+        _v36.current || (_v36.current = !0, _v39(_v4.replacementsLoadingError, {
+          action: {
+            label: _v4.tryAgain,
+            onClick: () => {
+              _v36.current = !1, _v50(!1);
+            }
+          }
+        }));
+      }, [_v0.error, _v50, _v39, _v4.replacementsLoadingError, _v4.tryAgain]), (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v47.Modal, {
           isOpen: !0,
-          onClose: _v27 ? () => void 0 : _v5,
-          closeOnOverlayClick: !_v27,
+          onClose: _v31 ? () => void 0 : _v5,
+          closeOnOverlayClick: !_v31,
           children: [(0, _v1.jsx)(_v52.ModalOverlay, {}), (0, _v1.jsxs)(_v49.ModalContent, {
             ref: _v12,
             width: `calc(100vw - ${(0, _v5.rem)(32)})`,
@@ -4630,22 +4672,6 @@ ${_v2}`;
                 marginBottom: (0, _v5.rem)(16),
                 children: _v4.replacementsEditorDescription
               }), (0, _v1.jsx)(_v37.Box, {
-                "aria-live": "polite",
-                children: !!(_v0.error || _v29) && (0, _v1.jsxs)(_v9.Alert, {
-                  status: "error",
-                  marginBottom: (0, _v5.rem)(16),
-                  children: [(0, _v1.jsx)(_v7.AlertDescription, {
-                    flex: "1",
-                    children: _v0.error ? _v4.replacementsLoadingError : _v4.replacementsChangesCouldNotBeSaved
-                  }), (_v0.error || _v31) && (0, _v1.jsx)(_v10.Button, {
-                    variant: "secondary",
-                    size: "sm",
-                    isLoading: _v27,
-                    onClick: () => void _v45(),
-                    children: _v4.tryAgain
-                  })]
-                })
-              }), (0, _v1.jsx)(_v37.Box, {
                 width: {
                   base: "100%",
                   md: (0, _v5.rem)(252)
@@ -4658,18 +4684,18 @@ ${_v2}`;
                   }
                 },
                 children: (0, _v1.jsx)(_v160.Select, {
-                  items: _v35,
+                  items: _v40,
                   label: _v4.replacementsSourceLanguage,
                   value: [_v1],
                   size: "md",
                   withPortal: !1,
-                  disabled: _v27 || _v0.isLoading || _v38,
+                  disabled: _v31 || _v0.isLoading || _v43,
                   onValueChange: ({
                     value: _v0
                   }) => {
                     let _v1,
                       _v2 = _v0[0];
-                    _v2 && (_v16(_v1 = _v194([], _v2, [], _v13())), _v18(_v1), _v20([]), _v30(void 0), _v32(!1), _v7(_v2));
+                    _v2 && (_v16(_v1 = _v197([], _v2, [], _v13())), _v18(_v1), _v20([]), _v34(!1), _v7(_v2));
                   },
                   children: _v0 => (0, _v1.jsx)(_v160.SelectItem, {
                     item: _v0,
@@ -4682,10 +4708,11 @@ ${_v2}`;
                 position: "relative",
                 flex: "1",
                 marginLeft: (0, _v5.rem)(-24),
+                marginTop: (0, _v5.rem)(-16),
                 width: `calc(100% + ${(0, _v5.rem)(24)})`,
                 minHeight: {
-                  base: (0, _v5.rem)(160),
-                  md: (0, _v5.rem)(260)
+                  base: `calc(${(0, _v5.rem)(160)} + ${(0, _v5.rem)(16)})`,
+                  md: `calc(${(0, _v5.rem)(260)} + ${(0, _v5.rem)(16)})`
                 },
                 children: [(0, _v1.jsx)(_v54.TableContainer, {
                   height: "100%",
@@ -4693,14 +4720,17 @@ ${_v2}`;
                   maxWidth: "100%",
                   overflowX: "auto",
                   overflowY: "auto",
-                  paddingX: 0,
+                  padding: 0,
+                  borderRadius: 0,
+                  backgroundColor: "transparent",
                   "aria-busy": _v0.isLoading,
                   children: (0, _v1.jsx)(_v37.Box, {
                     paddingLeft: (0, _v5.rem)(24),
-                    minWidth: (0, _v5.rem)(_v44 + 24),
+                    paddingTop: (0, _v5.rem)(24),
+                    minWidth: (0, _v5.rem)(_v49 + 24),
                     minHeight: "100%",
                     children: (0, _v1.jsx)(_v37.Box, {
-                      borderWidth: "1px",
+                      border: "1px solid",
                       borderColor: "stroke",
                       borderRadius: "sm",
                       minHeight: "100%",
@@ -4709,6 +4739,11 @@ ${_v2}`;
                         height: "auto",
                         sx: {
                           tableLayout: "fixed",
+                          borderCollapse: "separate",
+                          borderSpacing: 0,
+                          "& tr": {
+                            display: "table-row"
+                          },
                           "& th, & td": {
                             borderBottomWidth: "1px",
                             borderColor: "stroke",
@@ -4716,6 +4751,36 @@ ${_v2}`;
                           },
                           "& tr > :last-child": {
                             borderRightWidth: 0
+                          },
+                          "& thead th": {
+                            position: "sticky",
+                            top: (0, _v5.rem)(23),
+                            zIndex: 2
+                          },
+                          "& .target-language-header:hover .column-options, & .target-language-header:focus-within .column-options": {
+                            opacity: 1
+                          },
+                          "& thead th::after": {
+                            content: '""',
+                            position: "absolute",
+                            top: (0, _v5.rem)(-25),
+                            left: "-1px",
+                            right: "-1px",
+                            height: (0, _v5.rem)(24),
+                            backgroundColor: "fill-surface",
+                            borderBottomWidth: "1px",
+                            borderBottomColor: "stroke",
+                            boxSizing: "border-box",
+                            pointerEvents: "none"
+                          },
+                          "& thead th:first-of-type::after": {
+                            left: `calc(${(0, _v5.rem)(-24)} - 2px)`,
+                            borderBottomLeftRadius: (0, _v5.rem)(8),
+                            pointerEvents: "none"
+                          },
+                          "& thead th:last-of-type::after": {
+                            borderBottomRightRadius: (0, _v5.rem)(8),
+                            pointerEvents: "none"
                           }
                         },
                         children: [(0, _v1.jsx)(_v57.Thead, {
@@ -4723,73 +4788,96 @@ ${_v2}`;
                           children: (0, _v1.jsxs)(_v58.Tr, {
                             height: (0, _v5.rem)(44),
                             children: [(0, _v1.jsx)(_v56.Th, {
-                              overflow: "hidden",
-                              textOverflow: "ellipsis",
-                              whiteSpace: "nowrap",
-                              children: _v4.replacementsOriginalLanguage(_v10(_v1))
+                              backgroundColor: "fill-surface",
+                              boxShadow: "inset 0 0 0 999px var(--vimeo-colors-fill-component)",
+                              borderTopLeftRadius: (0, _v5.rem)(8),
+                              children: (0, _v1.jsx)(_v37.Box, {
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                whiteSpace: "nowrap",
+                                children: _v4.replacementsOriginalLanguage(_v10(_v1))
+                              })
                             }), _v19.map(_v0 => {
-                              let _v1 = _v10(_v0);
-                              return (0, _v1.jsx)(_v56.Th, {
-                                children: (0, _v1.jsxs)(_v3.Flex, {
-                                  role: "group",
-                                  alignItems: "center",
-                                  justifyContent: "space-between",
-                                  gap: (0, _v5.rem)(8),
-                                  children: [(0, _v1.jsx)(_v37.Box, {
-                                    as: "span",
-                                    flex: "1",
-                                    minWidth: 0,
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    whiteSpace: "nowrap",
-                                    children: _v1
-                                  }), (0, _v1.jsxs)(_v131.Menu, {
-                                    placement: "bottom-end",
-                                    strategy: "fixed",
-                                    children: [(0, _v1.jsx)(_v132.MenuButton, {
-                                      as: _v130.IconButton,
-                                      "aria-label": _v4.replacementsLanguageOptions(_v1),
-                                      icon: (0, _v1.jsx)(_v136.EllipsisV, {
-                                        boxSize: 16
-                                      }),
-                                      variant: "primary",
-                                      size: "xs",
-                                      width: (0, _v5.rem)(16),
-                                      minWidth: (0, _v5.rem)(16),
-                                      height: (0, _v5.rem)(32),
-                                      padding: 0,
-                                      opacity: 0,
-                                      _focusVisible: {
-                                        opacity: 1
-                                      },
-                                      _expanded: {
-                                        opacity: 1
-                                      },
-                                      _groupHover: {
-                                        opacity: 1
-                                      },
-                                      isDisabled: _v27 || _v0.isLoading
-                                    }), (0, _v1.jsx)(_v182.Portal, {
-                                      containerRef: _v12,
-                                      children: (0, _v1.jsx)(_v134.MenuList, {
-                                        zIndex: "popover",
-                                        children: (0, _v1.jsx)(_v133.MenuItem, {
-                                          onClick: () => {
-                                            _v20(_v0 => _v0.filter(_v0 => _v0 !== _v0)), _v18(_v0 => _v0.map(_v0 => ({
-                                              ..._v0,
-                                              mappings: _v0.mappings.filter(_v0 => _v0.targetLanguage !== _v0)
-                                            })));
-                                          },
-                                          children: _v4.replacementsDeleteLanguage
-                                        })
+                              let _v1 = _v10(_v0),
+                                _v2 = _v27 === _v0 || _v29 === _v0;
+                              return (0, _v1.jsxs)(_v56.Th, {
+                                className: "target-language-header",
+                                position: "relative",
+                                backgroundColor: "fill-surface",
+                                boxShadow: _v2 ? `inset ${(0, _v5.rem)(2)} 0 var(--vimeo-colors-text-primary),inset -${(0, _v5.rem)(2)} 0 var(--vimeo-colors-text-primary),inset 0 ${(0, _v5.rem)(2)} var(--vimeo-colors-text-primary)` : "inset 0 0 0 999px var(--vimeo-colors-fill-component)",
+                                borderTopRadius: _v2 ? (0, _v5.rem)(8) : void 0,
+                                zIndex: _v2 ? 2 : void 0,
+                                children: [(0, _v1.jsxs)(_v131.Menu, {
+                                  placement: "bottom-end",
+                                  strategy: "fixed",
+                                  onOpen: () => _v30(_v0),
+                                  onClose: () => _v30(void 0),
+                                  children: [(0, _v1.jsx)(_v132.MenuButton, {
+                                    as: _v130.IconButton,
+                                    "aria-label": _v4.replacementsLanguageOptions(_v1),
+                                    className: "column-options",
+                                    onMouseEnter: () => _v28(_v0),
+                                    onMouseLeave: () => _v28(void 0),
+                                    onFocus: () => _v28(_v0),
+                                    onBlur: () => _v28(void 0),
+                                    icon: (0, _v1.jsx)(_v185.EllipsisH, {
+                                      boxSize: 16
+                                    }),
+                                    variant: "primary",
+                                    size: "xs",
+                                    position: "absolute",
+                                    top: (0, _v5.rem)(-24),
+                                    left: "50%",
+                                    transform: "translateX(-50%)",
+                                    width: (0, _v5.rem)(32),
+                                    minWidth: (0, _v5.rem)(32),
+                                    height: (0, _v5.rem)(16),
+                                    padding: 0,
+                                    zIndex: 1,
+                                    opacity: 0,
+                                    sx: {
+                                      '&[data-type="icon-button"]': {
+                                        height: (0, _v5.rem)(16),
+                                        minHeight: (0, _v5.rem)(16)
+                                      }
+                                    },
+                                    _focusVisible: {
+                                      opacity: 1
+                                    },
+                                    _expanded: {
+                                      opacity: 1
+                                    },
+                                    isDisabled: _v31 || _v0.isLoading
+                                  }), (0, _v1.jsx)(_v184.Portal, {
+                                    containerRef: _v12,
+                                    children: (0, _v1.jsx)(_v134.MenuList, {
+                                      zIndex: "popover",
+                                      children: (0, _v1.jsx)(_v133.MenuItem, {
+                                        onClick: () => {
+                                          _v20(_v0 => _v0.filter(_v0 => _v0 !== _v0)), _v18(_v0 => _v0.map(_v0 => ({
+                                            ..._v0,
+                                            mappings: _v0.mappings.filter(_v0 => _v0.targetLanguage !== _v0)
+                                          })));
+                                        },
+                                        children: _v4.replacementsDeleteLanguage
                                       })
-                                    })]
+                                    })
                                   })]
-                                })
+                                }), (0, _v1.jsx)(_v37.Box, {
+                                  as: "span",
+                                  display: "block",
+                                  overflow: "hidden",
+                                  textOverflow: "ellipsis",
+                                  whiteSpace: "nowrap",
+                                  children: _v1
+                                })]
                               }, _v0);
                             }), (0, _v1.jsx)(_v56.Th, {
                               width: (0, _v5.rem)(44),
                               padding: (0, _v5.rem)(4),
+                              backgroundColor: "fill-surface",
+                              boxShadow: "inset 0 0 0 999px var(--vimeo-colors-fill-component)",
+                              borderTopRightRadius: (0, _v5.rem)(8),
                               children: (0, _v1.jsx)(_v41.Tooltip, {
                                 label: _v4.replacementsAddLanguageTooltip,
                                 children: (0, _v1.jsx)(_v130.IconButton, {
@@ -4797,116 +4885,89 @@ ${_v2}`;
                                   icon: (0, _v1.jsx)(_v44.Plus, {}),
                                   variant: "tertiary",
                                   size: "sm",
-                                  isDisabled: _v27 || _v0.isLoading,
+                                  isDisabled: _v31 || _v0.isLoading,
                                   onClick: () => _v22(!0)
                                 })
                               })
                             })]
                           })
                         }), (0, _v1.jsx)(_v55.Tbody, {
-                          children: _v17.map((_v0, _v1) => (0, _v1.jsxs)(_v58.Tr, {
-                            height: (0, _v5.rem)(44),
-                            outline: _v23 === _v0.clientId || _v25 === _v0.clientId ? "2px solid var(--vimeo-colors-text-primary)" : void 0,
-                            outlineOffset: "-2px",
-                            sx: {
-                              "&:hover .remove-row, &:focus-within .remove-row": {
-                                opacity: 1
-                              }
-                            },
-                            children: [(0, _v1.jsxs)(_v62.Td, {
-                              position: "relative",
+                          children: _v17.map((_v0, _v1) => {
+                            let _v2 = _v1 === _v17.length - 1,
+                              _v3 = _v23 === _v0.clientId || _v25 === _v0.clientId,
+                              _v4 = _v3 ? `inset 0 ${(0, _v5.rem)(2)} var(--vimeo-colors-text-primary),inset 0 -${(0, _v5.rem)(2)} var(--vimeo-colors-text-primary)` : void 0;
+                            return (0, _v1.jsxs)(_v58.Tr, {
                               height: (0, _v5.rem)(44),
-                              padding: "0",
-                              children: [!!(_v0.sourceText || _v0.mappings.some(_v0 => _v0.uri || _v0.replacementText)) && (0, _v1.jsxs)(_v131.Menu, {
-                                placement: "left-start",
-                                strategy: "fixed",
-                                onOpen: () => _v26(_v0.clientId),
-                                onClose: () => _v26(void 0),
-                                children: [(0, _v1.jsx)(_v132.MenuButton, {
-                                  as: _v130.IconButton,
-                                  "aria-label": _v4.replacementsRemoveRow(_v1 + 1),
-                                  onMouseEnter: () => _v24(_v0.clientId),
-                                  onMouseLeave: () => _v24(void 0),
-                                  onFocus: () => _v24(_v0.clientId),
-                                  onBlur: () => _v24(void 0),
-                                  icon: (0, _v1.jsx)(_v136.EllipsisV, {
-                                    boxSize: 16
-                                  }),
-                                  variant: "primary",
-                                  size: "xs",
-                                  className: "remove-row",
-                                  isDisabled: _v27 || _v0.isLoading,
-                                  position: "absolute",
-                                  top: (0, _v5.rem)(6),
-                                  left: (0, _v5.rem)(-24),
-                                  width: (0, _v5.rem)(16),
-                                  minWidth: (0, _v5.rem)(16),
-                                  height: (0, _v5.rem)(32),
-                                  padding: 0,
-                                  zIndex: 1,
-                                  opacity: 0,
-                                  _focusVisible: {
-                                    opacity: 1
-                                  },
-                                  _expanded: {
-                                    opacity: 1
-                                  },
-                                  onKeyDown: _v0 => {
-                                    "Delete" === _v0.key && (_v0.preventDefault(), _v42(_v0.clientId));
-                                  }
-                                }), (0, _v1.jsx)(_v182.Portal, {
-                                  containerRef: _v12,
-                                  children: (0, _v1.jsx)(_v134.MenuList, {
-                                    zIndex: "popover",
-                                    minWidth: (0, _v5.rem)(151),
-                                    paddingY: (0, _v5.rem)(8),
-                                    children: (0, _v1.jsx)(_v133.MenuItem, {
-                                      onClick: () => _v42(_v0.clientId),
-                                      children: _v4.removeTerm
-                                    })
-                                  })
-                                })]
-                              }), (0, _v1.jsx)(_v61.Input, {
-                                "aria-label": _v4.replacementsSourceTerm(_v1 + 1),
-                                value: _v0.sourceText,
-                                placeholder: _v4.replacementsEnterTerm,
-                                maxLength: 500,
-                                width: "100%",
-                                minWidth: 0,
-                                height: (0, _v5.rem)(44),
-                                border: 0,
-                                borderRadius: 0,
-                                backgroundColor: "transparent",
-                                paddingX: (0, _v5.rem)(12),
-                                paddingY: (0, _v5.rem)(12),
-                                _focus: {
-                                  boxShadow: "none"
-                                },
-                                _focusVisible: {
-                                  boxShadow: "inset 0 0 0 2px var(--vimeo-colors-text-primary)"
-                                },
-                                isDisabled: _v27 || _v0.isLoading,
-                                onChange: _v0 => {
-                                  var _v1, _v2;
-                                  return _v1 = _v0.clientId, _v2 = _v0.currentTarget.value, void _v18(_v0 => {
-                                    let _v1 = _v0.map(_v0 => _v0.clientId === _v1 ? {
-                                        ..._v0,
-                                        sourceText: _v2
-                                      } : _v0),
-                                      _v2 = _v1[_v1.length - 1];
-                                    return _v2?.sourceText.trim() ? _v41(_v1) : _v1;
-                                  });
+                              sx: {
+                                "&:hover .remove-row, &:focus-within .remove-row": {
+                                  opacity: 1
                                 }
-                              })]
-                            }), _v19.map(_v0 => {
-                              let _v1 = _v0.mappings.find(_v0 => _v0.targetLanguage === _v0);
-                              return (0, _v1.jsx)(_v62.Td, {
+                              },
+                              children: [(0, _v1.jsxs)(_v62.Td, {
                                 height: (0, _v5.rem)(44),
                                 padding: "0",
-                                children: (0, _v1.jsx)(_v61.Input, {
-                                  "aria-label": _v4.replacementsTargetTerm(_v10(_v0), _v1 + 1),
-                                  value: _v1?.replacementText ?? "",
-                                  placeholder: _v0.sourceText.trim() ? _v4.replacementsEnterTerm : void 0,
+                                position: "relative",
+                                boxShadow: _v3 ? `${_v4},inset ${(0, _v5.rem)(2)} 0 var(--vimeo-colors-text-primary)` : void 0,
+                                borderBottomLeftRadius: _v2 ? (0, _v5.rem)(8) : 0,
+                                children: [!!(_v0.sourceText || _v0.mappings.some(_v0 => _v0.uri || _v0.replacementText)) && (0, _v1.jsxs)(_v131.Menu, {
+                                  placement: "left-start",
+                                  strategy: "fixed",
+                                  onOpen: () => _v26(_v0.clientId),
+                                  onClose: () => _v26(void 0),
+                                  children: [(0, _v1.jsx)(_v132.MenuButton, {
+                                    as: _v130.IconButton,
+                                    "aria-label": _v4.replacementsRemoveRow(_v1 + 1),
+                                    onMouseEnter: () => _v24(_v0.clientId),
+                                    onMouseLeave: () => _v24(void 0),
+                                    onFocus: () => _v24(_v0.clientId),
+                                    onBlur: () => _v24(void 0),
+                                    icon: (0, _v1.jsx)(_v136.EllipsisV, {
+                                      boxSize: 16
+                                    }),
+                                    variant: "primary",
+                                    size: "xs",
+                                    className: "remove-row",
+                                    isDisabled: _v31 || _v0.isLoading,
+                                    position: "absolute",
+                                    top: (0, _v5.rem)(6),
+                                    left: (0, _v5.rem)(-24),
+                                    width: (0, _v5.rem)(16),
+                                    minWidth: (0, _v5.rem)(16),
+                                    height: (0, _v5.rem)(32),
+                                    padding: 0,
+                                    zIndex: 1,
+                                    opacity: 0,
+                                    sx: {
+                                      '&[data-type="icon-button"]': {
+                                        height: (0, _v5.rem)(32),
+                                        minHeight: (0, _v5.rem)(32)
+                                      }
+                                    },
+                                    _focusVisible: {
+                                      opacity: 1
+                                    },
+                                    _expanded: {
+                                      opacity: 1
+                                    },
+                                    onKeyDown: _v0 => {
+                                      "Delete" === _v0.key && (_v0.preventDefault(), _v47(_v0.clientId));
+                                    }
+                                  }), (0, _v1.jsx)(_v184.Portal, {
+                                    containerRef: _v12,
+                                    children: (0, _v1.jsx)(_v134.MenuList, {
+                                      zIndex: "popover",
+                                      minWidth: (0, _v5.rem)(151),
+                                      paddingY: (0, _v5.rem)(8),
+                                      children: (0, _v1.jsx)(_v133.MenuItem, {
+                                        onClick: () => _v47(_v0.clientId),
+                                        children: _v4.removeTerm
+                                      })
+                                    })
+                                  })]
+                                }), (0, _v1.jsx)(_v61.Input, {
+                                  "aria-label": _v4.replacementsSourceTerm(_v1 + 1),
+                                  value: _v0.sourceText,
+                                  placeholder: _v4.replacementsEnterTerm,
                                   maxLength: 500,
                                   width: "100%",
                                   minWidth: 0,
@@ -4916,31 +4977,94 @@ ${_v2}`;
                                   backgroundColor: "transparent",
                                   paddingX: (0, _v5.rem)(12),
                                   paddingY: (0, _v5.rem)(12),
+                                  sx: {
+                                    outline: "none",
+                                    "&:hover": {
+                                      outline: "none"
+                                    }
+                                  },
+                                  _placeholder: {
+                                    color: "text-tertiary"
+                                  },
                                   _focus: {
                                     boxShadow: "none"
                                   },
                                   _focusVisible: {
                                     boxShadow: "inset 0 0 0 2px var(--vimeo-colors-text-primary)"
                                   },
-                                  isDisabled: _v27 || _v0.isLoading || !_v0.sourceText.trim(),
+                                  isDisabled: _v31 || _v0.isLoading,
                                   onChange: _v0 => {
                                     var _v1, _v2;
-                                    return _v1 = _v0.clientId, _v2 = _v0.currentTarget.value, void _v18(_v0 => _v0.map(_v0 => _v0.clientId === _v1 ? {
-                                      ..._v0,
-                                      mappings: _v0.mappings.map(_v0 => _v0.targetLanguage === _v0 ? {
-                                        ..._v0,
-                                        replacementText: _v2
-                                      } : _v0)
-                                    } : _v0));
+                                    return _v1 = _v0.clientId, _v2 = _v0.currentTarget.value, void _v18(_v0 => {
+                                      let _v1 = _v0.map(_v0 => _v0.clientId === _v1 ? {
+                                          ..._v0,
+                                          sourceText: _v2
+                                        } : _v0),
+                                        _v2 = _v1[_v1.length - 1];
+                                      return _v2?.sourceText.trim() ? _v46(_v1) : _v1;
+                                    });
                                   }
-                                })
-                              }, _v0);
-                            }), (0, _v1.jsx)(_v62.Td, {
-                              width: (0, _v5.rem)(44),
-                              height: (0, _v5.rem)(44),
-                              padding: (0, _v5.rem)(4)
-                            })]
-                          }, _v0.clientId))
+                                })]
+                              }), _v19.map(_v0 => {
+                                let _v1 = _v0.mappings.find(_v0 => _v0.targetLanguage === _v0),
+                                  _v2 = _v27 === _v0 || _v29 === _v0,
+                                  _v3 = [_v2 ? `inset ${(0, _v5.rem)(2)} 0 var(--vimeo-colors-text-primary),inset -${(0, _v5.rem)(2)} 0 var(--vimeo-colors-text-primary)` + (_v2 ? `, inset 0 -${(0, _v5.rem)(2)} var(--vimeo-colors-text-primary)` : "") : void 0, _v4].filter(Boolean).join(",");
+                                return (0, _v1.jsx)(_v62.Td, {
+                                  height: (0, _v5.rem)(44),
+                                  padding: "0",
+                                  boxShadow: _v3 || void 0,
+                                  borderBottomRadius: _v2 && _v2 ? (0, _v5.rem)(8) : void 0,
+                                  zIndex: _v2 || _v3 ? 2 : void 0,
+                                  children: (0, _v1.jsx)(_v61.Input, {
+                                    "aria-label": _v4.replacementsTargetTerm(_v10(_v0), _v1 + 1),
+                                    value: _v1?.replacementText ?? "",
+                                    placeholder: _v0.sourceText.trim() ? _v4.replacementsEnterTerm : void 0,
+                                    maxLength: 500,
+                                    width: "100%",
+                                    minWidth: 0,
+                                    height: (0, _v5.rem)(44),
+                                    border: 0,
+                                    borderRadius: 0,
+                                    backgroundColor: "transparent",
+                                    paddingX: (0, _v5.rem)(12),
+                                    paddingY: (0, _v5.rem)(12),
+                                    sx: {
+                                      outline: "none",
+                                      "&:hover": {
+                                        outline: "none"
+                                      }
+                                    },
+                                    _placeholder: {
+                                      color: "text-tertiary"
+                                    },
+                                    _focus: {
+                                      boxShadow: "none"
+                                    },
+                                    _focusVisible: {
+                                      boxShadow: "inset 0 0 0 2px var(--vimeo-colors-text-primary)"
+                                    },
+                                    isDisabled: _v31 || _v0.isLoading || !_v0.sourceText.trim(),
+                                    onChange: _v0 => {
+                                      var _v1, _v2;
+                                      return _v1 = _v0.clientId, _v2 = _v0.currentTarget.value, void _v18(_v0 => _v0.map(_v0 => _v0.clientId === _v1 ? {
+                                        ..._v0,
+                                        mappings: _v0.mappings.map(_v0 => _v0.targetLanguage === _v0 ? {
+                                          ..._v0,
+                                          replacementText: _v2
+                                        } : _v0)
+                                      } : _v0));
+                                    }
+                                  })
+                                }, _v0);
+                              }), (0, _v1.jsx)(_v62.Td, {
+                                width: (0, _v5.rem)(44),
+                                height: (0, _v5.rem)(44),
+                                padding: (0, _v5.rem)(4),
+                                boxShadow: _v3 ? `${_v4},inset -${(0, _v5.rem)(2)} 0 var(--vimeo-colors-text-primary)` : void 0,
+                                borderBottomRightRadius: _v2 ? (0, _v5.rem)(8) : 0
+                              })]
+                            }, _v0.clientId);
+                          })
                         })]
                       })
                     })
@@ -4972,7 +5096,7 @@ ${_v2}`;
                   base: "100%",
                   sm: "auto"
                 },
-                isDisabled: _v27 || _v0.isLoading,
+                isDisabled: _v31 || _v0.isLoading,
                 onClick: () => _v22(!0),
                 children: _v4.replacementsAddLanguage
               }), (0, _v1.jsxs)(_v3.Flex, {
@@ -4980,20 +5104,20 @@ ${_v2}`;
                 justifyContent: "flex-end",
                 children: [(0, _v1.jsx)(_v10.Button, {
                   variant: "tertiary",
-                  isDisabled: _v27,
+                  isDisabled: _v31,
                   onClick: _v5,
                   children: _v4.cancel
                 }), (0, _v1.jsx)(_v10.Button, {
                   variant: "primary",
-                  isLoading: _v27,
-                  isDisabled: _v0.isLoading || !!_v0.error || _v31 || !_v38,
-                  onClick: _v43,
+                  isLoading: _v31,
+                  isDisabled: _v0.isLoading || !!_v0.error || _v33 || !_v43,
+                  onClick: _v48,
                   children: _v4.save
                 })]
               })]
             })]
           })]
-        }), _v21 && (0, _v1.jsx)(_v185, {
+        }), _v21 && (0, _v1.jsx)(_v188, {
           existingLanguages: [_v1, ..._v19],
           languages: _v3,
           translations: _v4,
@@ -5010,16 +5134,16 @@ ${_v2}`;
         })]
       });
     },
-    _v198 = ({
+    _v201 = ({
       initialSourceLanguage: _v0,
-      mode: _v1 = "edit",
+      mode: _v1,
       ownerUserId: _v2,
       sourceLanguages: _v3,
       supportedLanguages: _v4,
       translations: _v5,
       onClose: _v6,
       onSaved: _v7
-    }) => "create" === _v1 ? (0, _v1.jsx)(_v200, {
+    }) => "create" === _v1 ? (0, _v1.jsx)(_v203, {
       initialSourceLanguage: _v0,
       ownerUserId: _v2,
       sourceLanguages: _v3,
@@ -5027,7 +5151,7 @@ ${_v2}`;
       translations: _v5,
       onClose: _v6,
       onSaved: _v7
-    }) : (0, _v1.jsx)(_v199, {
+    }) : (0, _v1.jsx)(_v202, {
       initialSourceLanguage: _v0,
       ownerUserId: _v2,
       sourceLanguages: _v3,
@@ -5036,7 +5160,7 @@ ${_v2}`;
       onClose: _v6,
       onSaved: _v7
     }),
-    _v199 = ({
+    _v202 = ({
       initialSourceLanguage: _v0,
       ownerUserId: _v1,
       sourceLanguages: _v2,
@@ -5079,7 +5203,7 @@ ${_v2}`;
           (0, _v2.useEffect)(() => {
             !_v14 || _v9 || _v7 || _v11(_v12 + 1);
           }, [_v7, _v14, _v9, _v11, _v12]);
-          let _v15 = (0, _v2.useMemo)(() => _v191(_v6?.flatMap(_v0 => _v0.data) ?? [], _v1), [_v6, _v1]),
+          let _v15 = (0, _v2.useMemo)(() => _v194(_v6?.flatMap(_v0 => _v0.data) ?? [], _v1), [_v6, _v1]),
             _v16 = (0, _v2.useMemo)(() => ({
               "Content-Type": "application/json",
               Authorization: _v3 ? `jwt ${_v3}` : "",
@@ -5093,20 +5217,20 @@ ${_v2}`;
                 if (!_v0 || _v0.length <= _v0.length) throw Error("Unable to load every terms translation page");
                 _v0 = _v0;
               }
-              return _v191(_v0?.flatMap(_v0 => _v0.data) ?? [], _v1);
+              return _v194(_v0?.flatMap(_v0 => _v0.data) ?? [], _v1);
             }, [_v10, _v11, _v1]),
             _v18 = (0, _v2.useCallback)(async (_v0, _v1) => {
-              let _v2 = _v190(_v0, _v1);
+              let _v2 = _v193(_v0, _v1);
               try {
                 let _v0 = await Promise.allSettled(_v2.deleted.map(_v0 => _v20({
                     baseUrl: _v2,
                     headers: _v16,
                     where: {
                       userId: _v0,
-                      ruleId: _v188(_v0.uri ?? "")
+                      ruleId: _v191(_v0.uri ?? "")
                     }
                   }))),
-                  _v1 = _v192(_v0);
+                  _v1 = _v195(_v0);
                 if (_v1.length) throw _v1;
                 let _v2 = await Promise.allSettled(_v2.updated.map(_v0 => _v21({
                     baseUrl: _v2,
@@ -5120,10 +5244,10 @@ ${_v2}`;
                     },
                     where: {
                       userId: _v0,
-                      ruleId: _v188(_v0.uri ?? "")
+                      ruleId: _v191(_v0.uri ?? "")
                     }
                   }))),
-                  _v3 = _v192(_v2);
+                  _v3 = _v195(_v2);
                 if (_v3.length) throw _v3;
                 let _v4 = await Promise.allSettled(_v2.created.map(_v0 => _v23({
                     baseUrl: _v2,
@@ -5140,14 +5264,14 @@ ${_v2}`;
                       userId: _v0
                     }
                   }))),
-                  _v5 = _v192(_v4);
+                  _v5 = _v195(_v4);
                 if (_v5.length) throw _v5;
               } catch (_v0) {
                 let _v1;
                 try {
                   _v1 = await _v17();
                 } catch {}
-                throw new _v187(Array.isArray(_v0) ? _v0 : [_v0], _v1);
+                throw new _v190(Array.isArray(_v0) ? _v0 : [_v0], _v1);
               }
               return _v17().catch(() => void 0);
             }, [_v2, _v16, _v0, _v17]);
@@ -5160,7 +5284,7 @@ ${_v2}`;
             save: _v18
           };
         })(_v1, _v7);
-      return (0, _v1.jsx)(_v197, {
+      return (0, _v1.jsx)(_v200, {
         editor: _v9,
         sourceLanguage: _v7,
         sourceLanguages: _v2,
@@ -5171,55 +5295,58 @@ ${_v2}`;
         onSourceLanguageChange: _v8
       });
     },
-    _v200 = ({
-      sourceLanguages: _v0,
-      supportedLanguages: _v1,
-      translations: _v2,
-      ..._v3
+    _v203 = ({
+      initialSourceLanguage: _v0,
+      sourceLanguages: _v1,
+      supportedLanguages: _v2,
+      translations: _v3,
+      ..._v4
     }) => {
-      let [_v4, _v5] = (0, _v2.useState)(),
-        _v6 = _v183(_v1, _v0);
-      return 0 === _v6.length ? (0, _v1.jsxs)(_v47.Modal, {
+      let _v5 = _v186(_v2, _v1),
+        [_v6, _v7] = (0, _v2.useState)(_v5.some(({
+          value: _v0
+        }) => _v0 === _v0) ? _v0 : void 0);
+      return 0 === _v5.length ? (0, _v1.jsxs)(_v47.Modal, {
         isOpen: !0,
-        onClose: _v3.onClose,
+        onClose: _v4.onClose,
         children: [(0, _v1.jsx)(_v52.ModalOverlay, {}), (0, _v1.jsxs)(_v49.ModalContent, {
           width: `calc(100vw - ${(0, _v5.rem)(32)})`,
           maxWidth: (0, _v5.rem)(700),
           children: [(0, _v1.jsx)(_v51.ModalHeader, {
-            children: _v2.replacementsTitle
+            children: _v3.replacementsTitle
           }), (0, _v1.jsx)(_v48.ModalBody, {
             children: (0, _v1.jsx)(_v9.Alert, {
               status: "info",
               children: (0, _v1.jsx)(_v7.AlertDescription, {
                 flex: "1",
-                children: _v2.replacementsNoLanguagesAvailable
+                children: _v3.replacementsNoLanguagesAvailable
               })
             })
           }), (0, _v1.jsx)(_v50.ModalFooter, {
             children: (0, _v1.jsx)(_v10.Button, {
               variant: "tertiary",
-              onClick: _v3.onClose,
-              children: _v2.cancel
+              onClick: _v4.onClose,
+              children: _v3.cancel
             })
           })]
         })]
-      }) : void 0 === _v4 ? (0, _v1.jsx)(_v186, {
-        languageItems: _v6,
-        translations: _v2,
-        onClose: _v3.onClose,
-        onSave: _v5
-      }) : (0, _v2.createElement)(_v199, {
-        ..._v3,
-        key: _v4,
-        initialSourceLanguage: _v4,
-        sourceLanguages: _v6.map(({
+      }) : void 0 === _v6 ? (0, _v1.jsx)(_v189, {
+        languageItems: _v5,
+        translations: _v3,
+        onClose: _v4.onClose,
+        onSave: _v7
+      }) : (0, _v2.createElement)(_v202, {
+        ..._v4,
+        key: _v6,
+        initialSourceLanguage: _v6,
+        sourceLanguages: _v5.map(({
           value: _v0
         }) => _v0),
-        supportedLanguages: _v1,
-        translations: _v2
+        supportedLanguages: _v2,
+        translations: _v3
       });
     };
-  async function _v201({
+  async function _v204({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -5240,7 +5367,7 @@ ${_v2}`;
       return (0, _v18.deepCamelCase)(_v1);
     });
   }
-  function _v202(_v0, _v1) {
+  function _v205(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
@@ -5248,7 +5375,7 @@ ${_v2}`;
         xVimeoPage: _v5,
         locale: _v6
       } = (0, _v24.useGctlConfig)();
-    return (0, _v28.default)(_v2 ? `/users/${_v2.where.userId}/account_dictionary/translation_rules/matrix${(0, _v27.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v201({
+    return (0, _v28.default)(_v2 ? `/users/${_v2.where.userId}/account_dictionary/translation_rules/matrix${(0, _v27.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v204({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -5260,7 +5387,7 @@ ${_v2}`;
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v26.default.env.STORYBOOK && (0, _v27.assignMswData)(_v202, {
+  "true" === _v26.default.env.STORYBOOK && (0, _v27.assignMswData)(_v205, {
     endpoint: "/users/:userId/account_dictionary/translation_rules/matrix",
     method: "GET"
   }), "true" === _v26.default.env.STORYBOOK && (0, _v27.assignMswData)(function () {
@@ -5279,7 +5406,7 @@ ${_v2}`;
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/account_dictionary/translation_rules/matrix${(0, _v27.serializeQuery)(_v0)}`, _v201({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/account_dictionary/translation_rules/matrix${(0, _v27.serializeQuery)(_v0)}`, _v204({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -5305,8 +5432,8 @@ ${_v2}`;
     endpoint: "/users/:userId/account_dictionary/translation_rules/matrix",
     method: "GET"
   });
-  let _v203 = "__new-translations-set__",
-    _v204 = ({
+  let _v206 = "__new-translations-set__",
+    _v207 = ({
       ownerUserId: _v0,
       translations: _v1
     }) => {
@@ -5354,7 +5481,7 @@ ${_v2}`;
           hasData: _v35,
           error: _v36,
           retry: _v37
-        } = (_v2 = _v18.trim(), _v3 = _v202(() => ({
+        } = (_v2 = _v18.trim(), _v3 = _v205(() => ({
           select: ["data.mappings.replacementText", "data.mappings.targetLanguage", "data.sourceLanguage", "data.sourceText", "page", "perPage", "sourceLanguages", "sourceTotal", "targetLanguages", "total"],
           where: {
             userId: _v0
@@ -5397,25 +5524,24 @@ ${_v2}`;
         _v39 = _v33?.limit ?? 0,
         _v40 = _v14.trim().length > 0,
         _v41 = _v28.length > 0,
-        _v42 = _v29.length + 1,
-        _v43 = _v28.includes(_v10) ? _v28 : [_v10, ..._v28],
-        _v44 = [{
+        _v42 = _v28.includes(_v10) ? _v28 : [_v10, ..._v28],
+        _v43 = [{
           label: _v1.replacementsNewTranslationsSet,
-          value: _v203
-        }, ..._v43.map(_v0 => ({
+          value: _v206
+        }, ..._v42.map(_v0 => ({
           label: _v24(_v0),
           value: _v0
         })).sort((_v0, _v1) => _v0.label.localeCompare(_v1.label, _v7))],
-        _v45 = _v28.join("\0");
-      if (_v45 !== _v12) {
-        _v13(_v45);
+        _v44 = _v28.join("\0");
+      if (_v44 !== _v12) {
+        _v13(_v44);
         let _v0 = _v28[0];
         _v0 && !_v28.includes(_v10) && (_v11(_v0), _v9(1));
       }
-      let _v46 = _v0 => {
+      let _v45 = _v0 => {
           _v15(_v0), _v9(1);
         },
-        _v47 = (_v0, _v1) => {
+        _v46 = (_v0, _v1) => {
           _v20({
             mode: _v0,
             sourceLanguage: _v1
@@ -5442,7 +5568,7 @@ ${_v2}`;
               size: "sm",
               leftIcon: (0, _v1.jsx)(_v44.Plus, {}),
               isLoading: _v21.isLoading,
-              onClick: () => _v47("create", "en"),
+              onClick: () => _v46("create", "en"),
               children: _v1.replacementsNewTranslationsSet
             })]
           }),
@@ -5482,7 +5608,7 @@ ${_v2}`;
                 }), (0, _v1.jsx)(_v61.Input, {
                   autoFocus: !0,
                   value: _v14,
-                  onChange: _v0 => _v46(_v0.currentTarget.value),
+                  onChange: _v0 => _v45(_v0.currentTarget.value),
                   onBlur: () => {
                     0 === _v14.trim().length && _v17(!1);
                   },
@@ -5496,7 +5622,7 @@ ${_v2}`;
                 size: "sm",
                 variant: "tertiary",
                 onClick: () => {
-                  _v46(""), _v17(!1);
+                  _v45(""), _v17(!1);
                 }
               })]
             }) : (0, _v1.jsxs)(_v3.Flex, {
@@ -5512,7 +5638,7 @@ ${_v2}`;
                   md: (0, _v5.rem)(280)
                 },
                 children: (0, _v1.jsx)(_v160.Select, {
-                  items: _v44,
+                  items: _v43,
                   value: [],
                   placeholder: _v1.replacementsTranslationsSetValue(_v24(_v10)),
                   leftIcon: (0, _v1.jsx)(_v162.CommentList, {}),
@@ -5522,11 +5648,11 @@ ${_v2}`;
                   }) => {
                     let _v1 = _v0[0];
                     if ("string" == typeof _v1) {
-                      if (_v1 === _v203) return void _v47("create", "en");
+                      if (_v1 === _v206) return void _v46("create", "en");
                       _v11(_v1), _v9(1);
                     }
                   },
-                  children: _v0 => _v0.value === _v203 ? (0, _v1.jsx)(_v160.SelectItem, {
+                  children: _v0 => _v0.value === _v206 ? (0, _v1.jsx)(_v160.SelectItem, {
                     item: _v0,
                     children: (0, _v1.jsxs)(_v3.Flex, {
                       alignItems: "center",
@@ -5559,7 +5685,7 @@ ${_v2}`;
                   variant: "primary",
                   size: "sm",
                   leftIcon: (0, _v1.jsx)(_v44.Plus, {}),
-                  onClick: () => _v47(_v41 ? "edit" : "create", _v10),
+                  onClick: () => _v46(_v41 ? "edit" : "create", _v10),
                   children: _v1.addTerm
                 })]
               })]
@@ -5584,64 +5710,101 @@ ${_v2}`;
                 borderWidth: "1px",
                 borderColor: "stroke",
                 borderRadius: "md",
+                padding: 0,
                 children: (0, _v1.jsxs)(_v53.Table, {
                   width: "100%",
-                  minWidth: (0, _v5.rem)(140 * _v42),
+                  minWidth: (0, _v5.rem)((_v29.length + 1) * 140 + 112),
                   sx: {
-                    tableLayout: "fixed"
+                    tableLayout: "fixed",
+                    "& th, & td": {
+                      padding: (0, _v5.rem)(12)
+                    },
+                    "& th:first-of-type, & td:first-of-type": {
+                      position: "sticky",
+                      left: 0,
+                      zIndex: 1,
+                      borderRightWidth: "1px",
+                      borderRightStyle: "solid",
+                      borderRightColor: "stroke"
+                    },
+                    "& td:first-of-type": {
+                      backgroundColor: "fill-surface"
+                    },
+                    "& th:last-of-type, & td:last-of-type": {
+                      position: "sticky",
+                      right: 0,
+                      zIndex: 1,
+                      padding: 0
+                    }
                   },
                   children: [(0, _v1.jsx)(_v57.Thead, {
                     backgroundColor: "fill-component",
                     children: (0, _v1.jsxs)(_v58.Tr, {
                       children: [(0, _v1.jsx)(_v56.Th, {
+                        backgroundColor: "fill-surface",
+                        boxShadow: "inset 0 0 0 999px var(--vimeo-colors-fill-component)",
                         children: _v24(_v10)
                       }), _v29.map(_v0 => (0, _v1.jsx)(_v56.Th, {
                         children: _v24(_v0)
-                      }, _v0))]
+                      }, _v0)), (0, _v1.jsx)(_v56.Th, {
+                        width: (0, _v5.rem)(112),
+                        backgroundColor: "fill-surface",
+                        boxShadow: "inset 0 0 0 999px var(--vimeo-colors-fill-component)"
+                      })]
                     })
                   }), (0, _v1.jsx)(_v55.Tbody, {
                     children: _v27.map(_v0 => {
                       let _v1 = new Map(_v0.mappings.map(_v0 => [_v0.targetLanguage, _v0.replacementText]));
                       return (0, _v1.jsxs)(_v58.Tr, {
                         height: (0, _v5.rem)(60),
-                        position: "relative",
                         cursor: "pointer",
                         tabIndex: 0,
-                        onClick: () => _v47("edit", _v0.sourceLanguage),
+                        onClick: () => _v46("edit", _v0.sourceLanguage),
                         onKeyDown: _v0 => {
                           var _v1, _v2;
-                          return _v1 = _v0, _v2 = _v0.sourceLanguage, void (("Enter" === _v1.key || " " === _v1.key) && (_v1.preventDefault(), _v47("edit", _v2)));
+                          return _v1 = _v0, _v2 = _v0.sourceLanguage, void (("Enter" === _v1.key || " " === _v1.key) && (_v1.preventDefault(), _v46("edit", _v2)));
                         },
                         sx: {
                           "&:hover .edit-row, &:focus-within .edit-row, &:focus .edit-row": {
                             opacity: 1
                           }
                         },
-                        children: [(0, _v1.jsxs)(_v62.Td, {
+                        children: [(0, _v1.jsx)(_v62.Td, {
                           fontFamily: "heading",
-                          children: [_v0.sourceText, (0, _v1.jsx)(_v10.Button, {
-                            className: "edit-row",
-                            position: "absolute",
-                            right: (0, _v5.rem)(16),
-                            top: "50%",
-                            transform: "translateY(-50%)",
-                            opacity: 0,
-                            _focusVisible: {
-                              opacity: 1
-                            },
-                            variant: "secondary",
-                            size: "sm",
-                            leftIcon: (0, _v1.jsx)(_v43.EditPencil, {}),
-                            "aria-label": _v1.replacementsEditTerm(_v0.sourceText),
-                            onClick: _v0 => {
-                              _v0.stopPropagation(), _v47("edit", _v0.sourceLanguage);
-                            },
-                            children: _v1.edit
-                          })]
+                          children: _v0.sourceText
                         }), _v29.map(_v0 => (0, _v1.jsx)(_v62.Td, {
                           color: "text-secondary",
                           children: _v1.get(_v0) ?? "-"
-                        }, _v0))]
+                        }, _v0)), (0, _v1.jsx)(_v62.Td, {
+                          position: "relative",
+                          height: (0, _v5.rem)(60),
+                          width: (0, _v5.rem)(112),
+                          backgroundColor: "fill-surface",
+                          children: (0, _v1.jsx)(_v37.Box, {
+                            className: "edit-row",
+                            position: "absolute",
+                            inset: 0,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "flex-end",
+                            paddingRight: (0, _v5.rem)(12),
+                            opacity: 0,
+                            background: "linear-gradient(to right, transparent, var(--vimeo-colors-fill-surface) 40%)",
+                            children: (0, _v1.jsx)(_v10.Button, {
+                              "aria-label": _v1.replacementsEditTerm(_v0.sourceText),
+                              variant: "secondary",
+                              size: "sm",
+                              leftIcon: (0, _v1.jsx)(_v43.EditPencil, {}),
+                              _focusVisible: {
+                                opacity: 1
+                              },
+                              onClick: _v0 => {
+                                _v0.stopPropagation(), _v46("edit", _v0.sourceLanguage);
+                              },
+                              children: _v1.edit
+                            })
+                          })
+                        })]
                       }, `${_v0.sourceLanguage}:${_v0.sourceText}`);
                     })
                   })]
@@ -5662,6 +5825,7 @@ ${_v2}`;
             }), _v39 > 0 && (0, _v1.jsxs)(_v3.Flex, {
               marginTop: (0, _v5.rem)(24),
               marginX: (0, _v5.rem)(-16),
+              marginBottom: (0, _v5.rem)(-16),
               paddingX: (0, _v5.rem)(24),
               paddingY: (0, _v5.rem)(16),
               gap: (0, _v5.rem)(16),
@@ -5685,6 +5849,9 @@ ${_v2}`;
                   href: "/enterprise/contact-us",
                   color: "text-primary",
                   textDecoration: "underline",
+                  _hover: {
+                    textDecoration: "none"
+                  },
                   children: _v1.contactSales
                 })]
               })]
@@ -5709,7 +5876,7 @@ ${_v2}`;
               children: _v1.replacementsEmptyDescription
             })]
           })
-        }), _v19 && (0, _v1.jsx)(_v198, {
+        }), _v19 && (0, _v1.jsx)(_v201, {
           initialSourceLanguage: _v19.sourceLanguage,
           mode: _v19.mode,
           ownerUserId: _v0,
@@ -5720,7 +5887,7 @@ ${_v2}`;
           onSaved: async () => {
             _v9(1), await _v37();
           }
-        }), _v25 && (0, _v1.jsx)(_v181, {
+        }), _v25 && (0, _v1.jsx)(_v183, {
           ownerUserId: _v0,
           translations: _v1,
           hasExistingEntries: _v41,
@@ -5731,19 +5898,19 @@ ${_v2}`;
         })]
       });
     };
-  var _v205 = _v0.i(0);
-  let _v206 = {
+  var _v208 = _v0.i(0);
+  let _v209 = {
       SOURCE_LANGUAGE: "source language",
       SOURCE_TERM: "source term",
       TARGET_LANGUAGE: "target language",
       TARGET_TERM: "target term"
     },
-    _v207 = ({
+    _v210 = ({
       ownerUserId: _v0
     }) => {
       let [_v1, _v2] = (0, _v2.useState)(!1),
         _v3 = (0, _v2.useMemo)(() => ({
-          title: (0, _v205.translate)({
+          title: (0, _v208.translate)({
             singular: "Custom dictionary",
             dictionary: {
               es: {
@@ -5769,7 +5936,7 @@ ${_v2}`;
               }
             }
           }),
-          description: (0, _v205.translate)({
+          description: (0, _v208.translate)({
             singular: "Define your brand names, product terms, and acronyms once, and they'll be applied consistently across all AI-generated content.",
             dictionary: {
               es: {
@@ -5795,7 +5962,7 @@ ${_v2}`;
               }
             }
           }),
-          limitsSummary: (0, _v205.translate)({
+          limitsSummary: (0, _v208.translate)({
             singular: "Some features have terms limits.",
             dictionary: {
               es: {
@@ -5821,7 +5988,7 @@ ${_v2}`;
               }
             }
           }),
-          learnMore: (0, _v205.translate)({
+          learnMore: (0, _v208.translate)({
             singular: "Learn more",
             dictionary: {
               es: {
@@ -5847,7 +6014,7 @@ ${_v2}`;
               }
             }
           }),
-          notice: (0, _v205.translate)({
+          notice: (0, _v208.translate)({
             singular: "Dictionary support for dubbing is coming soon — for now, your terms apply to AI Transcription and Subtitle Translations.",
             dictionary: {
               es: {
@@ -5873,7 +6040,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryTitle: (0, _v205.translate)({
+          glossaryTitle: (0, _v208.translate)({
             singular: "Glossary",
             dictionary: {
               es: {
@@ -5899,7 +6066,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryDescription: (0, _v205.translate)({
+          glossaryDescription: (0, _v208.translate)({
             singular: "Ensures specific terms are spelled and capitalized correctly during AI generation.",
             dictionary: {
               es: {
@@ -5925,7 +6092,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCount: (_v0, _v1) => (0, _v205.translate)({
+          glossaryCount: (_v0, _v1) => (0, _v208.translate)({
             singular: "{USED}/{LIMIT} terms",
             replacements: {
               USED: _v0,
@@ -5955,7 +6122,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryEmptyTitle: (0, _v205.translate)({
+          glossaryEmptyTitle: (0, _v208.translate)({
             singular: "No terms added yet.",
             dictionary: {
               es: {
@@ -5981,7 +6148,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryEmptyDescription: (0, _v205.translate)({
+          glossaryEmptyDescription: (0, _v208.translate)({
             singular: "Start adding your custom glossary",
             dictionary: {
               es: {
@@ -6007,7 +6174,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryTerm: (0, _v205.translate)({
+          glossaryTerm: (0, _v208.translate)({
             singular: "Term",
             dictionary: {
               es: {
@@ -6033,7 +6200,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryEditorDescription: (0, _v205.translate)({
+          glossaryEditorDescription: (0, _v208.translate)({
             singular: "You can paste a CSV-formatted list into the first input field to enter multiple terms at once.",
             dictionary: {
               es: {
@@ -6059,7 +6226,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryDownloadTemplate: (0, _v205.translate)({
+          glossaryDownloadTemplate: (0, _v208.translate)({
             singular: "Download template",
             dictionary: {
               es: {
@@ -6085,7 +6252,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryTermNumber: _v0 => (0, _v205.translate)({
+          glossaryTermNumber: _v0 => (0, _v208.translate)({
             singular: "Glossary term {NUMBER}",
             replacements: {
               NUMBER: _v0
@@ -6114,7 +6281,7 @@ ${_v2}`;
               }
             }
           }),
-          moveGlossaryTermNumber: _v0 => (0, _v205.translate)({
+          moveGlossaryTermNumber: _v0 => (0, _v208.translate)({
             singular: "Move glossary term {NUMBER}",
             replacements: {
               NUMBER: _v0
@@ -6143,7 +6310,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryDragInstructions: (0, _v205.translate)({
+          glossaryDragInstructions: (0, _v208.translate)({
             singular: "To move a glossary term, press Space. Use the arrow keys to choose a new position, then press Space again to drop.",
             dictionary: {
               es: {
@@ -6169,7 +6336,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryTermPickedUp: _v0 => (0, _v205.translate)({
+          glossaryTermPickedUp: _v0 => (0, _v208.translate)({
             singular: "Picked up glossary term {NUMBER}.",
             replacements: {
               NUMBER: _v0
@@ -6198,7 +6365,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryTermMoved: (_v0, _v1) => (0, _v205.translate)({
+          glossaryTermMoved: (_v0, _v1) => (0, _v208.translate)({
             singular: "Glossary term {FROM} moved to position {TO}.",
             replacements: {
               FROM: _v0,
@@ -6228,7 +6395,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryTermDropped: (_v0, _v1) => (0, _v205.translate)({
+          glossaryTermDropped: (_v0, _v1) => (0, _v208.translate)({
             singular: "Glossary term {FROM} was dropped at position {TO}.",
             replacements: {
               FROM: _v0,
@@ -6258,7 +6425,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryTermMoveCanceled: _v0 => (0, _v205.translate)({
+          glossaryTermMoveCanceled: _v0 => (0, _v208.translate)({
             singular: "Moving glossary term {NUMBER} was canceled.",
             replacements: {
               NUMBER: _v0
@@ -6287,7 +6454,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryOrderConflict: (0, _v205.translate)({
+          glossaryOrderConflict: (0, _v208.translate)({
             singular: "The glossary changed while you were editing. Review the latest terms and try again.",
             dictionary: {
               es: {
@@ -6313,7 +6480,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryLoadingError: (0, _v205.translate)({
+          glossaryLoadingError: (0, _v208.translate)({
             singular: "Unable to load the glossary.",
             dictionary: {
               es: {
@@ -6339,7 +6506,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvTitle: (0, _v205.translate)({
+          glossaryCsvTitle: (0, _v208.translate)({
             singular: "Import CSV",
             dictionary: {
               es: {
@@ -6365,7 +6532,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvDescription: (0, _v205.translate)({
+          glossaryCsvDescription: (0, _v208.translate)({
             singular: "Upload a CSV with a single source term column.",
             dictionary: {
               es: {
@@ -6391,7 +6558,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvInstructions: (0, _v205.translate)({
+          glossaryCsvInstructions: (0, _v208.translate)({
             singular: "Upload a CSV with a single source term column.",
             dictionary: {
               es: {
@@ -6417,7 +6584,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvReplaceNotice: (0, _v205.translate)({
+          glossaryCsvReplaceNotice: (0, _v208.translate)({
             singular: "Uploading a CSV replaces all existing glossary terms.",
             dictionary: {
               es: {
@@ -6443,7 +6610,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvReplaceConfirmation: (0, _v205.translate)({
+          glossaryCsvReplaceConfirmation: (0, _v208.translate)({
             singular: "Saving will replace all existing glossary terms with the terms in this CSV.",
             dictionary: {
               es: {
@@ -6469,7 +6636,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvTemplatePrompt: _v0 => (0, _v205.translate)({
+          glossaryCsvTemplatePrompt: _v0 => (0, _v208.translate)({
             singular: "{LINK}Download the template{/LINK} file to start.",
             replacements: {
               LINK: _v0
@@ -6498,7 +6665,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvUploadFile: (0, _v205.translate)({
+          glossaryCsvUploadFile: (0, _v208.translate)({
             singular: "Upload file",
             dictionary: {
               es: {
@@ -6524,7 +6691,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvDropFile: (0, _v205.translate)({
+          glossaryCsvDropFile: (0, _v208.translate)({
             singular: "Drop file here or click to browse file.",
             dictionary: {
               es: {
@@ -6550,7 +6717,7 @@ ${_v2}`;
               }
             }
           }),
-          csvReviewTitle: (0, _v205.translate)({
+          csvReviewTitle: (0, _v208.translate)({
             singular: "Review",
             dictionary: {
               es: {
@@ -6576,7 +6743,7 @@ ${_v2}`;
               }
             }
           }),
-          csvReviewSummary: (_v0, _v1) => (0, _v205.translate)({
+          csvReviewSummary: (_v0, _v1) => (0, _v208.translate)({
             count: _v1,
             singular: "{STRONG}{COUNT} term{/STRONG} was found. Confirm the terms look correct, or adjust them now.",
             plural: "{STRONG}{COUNT} terms{/STRONG} were found. Confirm the terms look correct, or adjust them now.",
@@ -6615,7 +6782,7 @@ ${_v2}`;
               }
             }
           }),
-          csvUploading: (0, _v205.translate)({
+          csvUploading: (0, _v208.translate)({
             singular: "Uploading...",
             dictionary: {
               es: {
@@ -6641,7 +6808,7 @@ ${_v2}`;
               }
             }
           }),
-          csvUploadingHint: (0, _v205.translate)({
+          csvUploadingHint: (0, _v208.translate)({
             singular: "Big files might take up to a minute.",
             dictionary: {
               es: {
@@ -6667,7 +6834,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvUnsupportedFile: (0, _v205.translate)({
+          glossaryCsvUnsupportedFile: (0, _v208.translate)({
             singular: "Upload a CSV file.",
             dictionary: {
               es: {
@@ -6693,7 +6860,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvFileTooLarge: (0, _v205.translate)({
+          glossaryCsvFileTooLarge: (0, _v208.translate)({
             singular: "The CSV file is too large. Upload a file under 5 MB.",
             dictionary: {
               es: {
@@ -6719,7 +6886,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvInvalidFile: (0, _v205.translate)({
+          glossaryCsvInvalidFile: (0, _v208.translate)({
             singular: "The CSV file is invalid.",
             dictionary: {
               es: {
@@ -6745,7 +6912,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvInvalidHeader: (0, _v205.translate)({
+          glossaryCsvInvalidHeader: (0, _v208.translate)({
             singular: "The CSV must contain a single source term column.",
             dictionary: {
               es: {
@@ -6771,7 +6938,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvTooManyRows: (0, _v205.translate)({
+          glossaryCsvTooManyRows: (0, _v208.translate)({
             singular: "The CSV can contain at most 1,000 terms.",
             dictionary: {
               es: {
@@ -6797,7 +6964,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvSourceTermRequired: (0, _v205.translate)({
+          glossaryCsvSourceTermRequired: (0, _v208.translate)({
             singular: "A source term is required.",
             dictionary: {
               es: {
@@ -6823,7 +6990,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvSingleColumnRequired: (0, _v205.translate)({
+          glossaryCsvSingleColumnRequired: (0, _v208.translate)({
             singular: "Each row must contain one source term.",
             dictionary: {
               es: {
@@ -6849,7 +7016,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvImportError: (0, _v205.translate)({
+          glossaryCsvImportError: (0, _v208.translate)({
             singular: "The CSV could not be imported.",
             dictionary: {
               es: {
@@ -6875,7 +7042,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvImported: _v0 => 0 === _v0 ? (0, _v205.translate)({
+          glossaryCsvImported: _v0 => 0 === _v0 ? (0, _v208.translate)({
             singular: "No terms imported",
             dictionary: {
               es: {
@@ -6900,7 +7067,7 @@ ${_v2}`;
                 singular: "未导入任何术语"
               }
             }
-          }) : (0, _v205.translate)({
+          }) : (0, _v208.translate)({
             singular: "{COUNT} term imported",
             plural: "{COUNT} terms imported",
             count: _v0,
@@ -6938,7 +7105,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvRowsFailed: _v0 => (0, _v205.translate)({
+          glossaryCsvRowsFailed: _v0 => (0, _v208.translate)({
             singular: "{COUNT} row could not be imported",
             plural: "{COUNT} rows could not be imported",
             count: _v0,
@@ -6976,7 +7143,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvLineError: (_v0, _v1) => (0, _v205.translate)({
+          glossaryCsvLineError: (_v0, _v1) => (0, _v208.translate)({
             singular: "Line {LINE}: {MESSAGE}",
             replacements: {
               LINE: _v0,
@@ -7006,8 +7173,8 @@ ${_v2}`;
               }
             }
           }),
-          csv: (0, _v205.translate)("CSV"),
-          addTerm: (0, _v205.translate)({
+          csv: (0, _v208.translate)("CSV"),
+          addTerm: (0, _v208.translate)({
             singular: "Add term",
             dictionary: {
               es: {
@@ -7033,7 +7200,7 @@ ${_v2}`;
               }
             }
           }),
-          edit: (0, _v205.translate)({
+          edit: (0, _v208.translate)({
             singular: "Edit",
             dictionary: {
               es: {
@@ -7059,7 +7226,7 @@ ${_v2}`;
               }
             }
           }),
-          uploadCsv: (0, _v205.translate)({
+          uploadCsv: (0, _v208.translate)({
             singular: "Upload CSV",
             dictionary: {
               es: {
@@ -7085,7 +7252,7 @@ ${_v2}`;
               }
             }
           }),
-          removeTerm: (0, _v205.translate)({
+          removeTerm: (0, _v208.translate)({
             singular: "Remove term",
             dictionary: {
               es: {
@@ -7111,7 +7278,7 @@ ${_v2}`;
               }
             }
           }),
-          removeGlossaryTermNumber: _v0 => (0, _v205.translate)({
+          removeGlossaryTermNumber: _v0 => (0, _v208.translate)({
             singular: "Remove glossary term {NUMBER}",
             replacements: {
               NUMBER: _v0
@@ -7140,7 +7307,7 @@ ${_v2}`;
               }
             }
           }),
-          cancel: (0, _v205.translate)({
+          cancel: (0, _v208.translate)({
             singular: "Cancel",
             dictionary: {
               es: {
@@ -7166,7 +7333,7 @@ ${_v2}`;
               }
             }
           }),
-          save: (0, _v205.translate)({
+          save: (0, _v208.translate)({
             singular: "Save",
             dictionary: {
               es: {
@@ -7192,7 +7359,7 @@ ${_v2}`;
               }
             }
           }),
-          replaceGlossary: (0, _v205.translate)({
+          replaceGlossary: (0, _v208.translate)({
             singular: "Replace glossary",
             dictionary: {
               es: {
@@ -7218,7 +7385,7 @@ ${_v2}`;
               }
             }
           }),
-          replaceTermsTranslations: (0, _v205.translate)({
+          replaceTermsTranslations: (0, _v208.translate)({
             singular: "Replace terms translations",
             dictionary: {
               es: {
@@ -7244,7 +7411,7 @@ ${_v2}`;
               }
             }
           }),
-          changesSaved: (0, _v205.translate)({
+          changesSaved: (0, _v208.translate)({
             singular: "Changes saved",
             dictionary: {
               es: {
@@ -7270,7 +7437,7 @@ ${_v2}`;
               }
             }
           }),
-          changesCouldNotBeSaved: (0, _v205.translate)({
+          changesCouldNotBeSaved: (0, _v208.translate)({
             singular: "Changes could not be saved",
             dictionary: {
               es: {
@@ -7296,7 +7463,7 @@ ${_v2}`;
               }
             }
           }),
-          close: (0, _v205.translate)({
+          close: (0, _v208.translate)({
             singular: "Close",
             dictionary: {
               es: {
@@ -7322,7 +7489,7 @@ ${_v2}`;
               }
             }
           }),
-          tryAgain: (0, _v205.translate)({
+          tryAgain: (0, _v208.translate)({
             singular: "Try again",
             dictionary: {
               es: {
@@ -7348,7 +7515,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsTitle: (0, _v205.translate)({
+          replacementsTitle: (0, _v208.translate)({
             singular: "Terms translations",
             dictionary: {
               es: {
@@ -7374,7 +7541,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsDescription: (0, _v205.translate)({
+          replacementsDescription: (0, _v208.translate)({
             singular: "Controls how specific terms are translated, or kept unchanged, across languages.",
             dictionary: {
               es: {
@@ -7400,7 +7567,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCount: (_v0, _v1) => (0, _v205.translate)({
+          replacementsCount: (_v0, _v1) => (0, _v208.translate)({
             singular: "{USED}/{LIMIT} terms",
             replacements: {
               USED: _v0,
@@ -7430,7 +7597,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsSearchPlaceholder: (0, _v205.translate)({
+          replacementsSearchPlaceholder: (0, _v208.translate)({
             singular: "Search term",
             dictionary: {
               es: {
@@ -7456,7 +7623,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsSearchLabel: (0, _v205.translate)({
+          replacementsSearchLabel: (0, _v208.translate)({
             singular: "Search terms translations",
             dictionary: {
               es: {
@@ -7482,7 +7649,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsOpenSearch: (0, _v205.translate)({
+          replacementsOpenSearch: (0, _v208.translate)({
             singular: "Open search",
             dictionary: {
               es: {
@@ -7508,7 +7675,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsSourceLanguage: (0, _v205.translate)({
+          replacementsSourceLanguage: (0, _v208.translate)({
             singular: "Source language",
             dictionary: {
               es: {
@@ -7534,7 +7701,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsTranslationsSet: (0, _v205.translate)({
+          replacementsTranslationsSet: (0, _v208.translate)({
             singular: "Translations set",
             dictionary: {
               es: {
@@ -7560,7 +7727,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsTranslationsSetValue: _v0 => (0, _v205.translate)({
+          replacementsTranslationsSetValue: _v0 => (0, _v208.translate)({
             singular: "Translations set: {LANGUAGE}",
             replacements: {
               LANGUAGE: _v0
@@ -7589,7 +7756,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsClearSearch: (0, _v205.translate)({
+          replacementsClearSearch: (0, _v208.translate)({
             singular: "Clear search",
             dictionary: {
               es: {
@@ -7615,7 +7782,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsEditorDescription: (0, _v205.translate)({
+          replacementsEditorDescription: (0, _v208.translate)({
             singular: "Choose the language your content is spoken in, add your terms, and set how each should appear in the languages you translate to. Leave a language blank and the AI translates it as usual.",
             dictionary: {
               es: {
@@ -7641,7 +7808,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsOriginalLanguage: _v0 => (0, _v205.translate)({
+          replacementsOriginalLanguage: _v0 => (0, _v208.translate)({
             singular: "{LANGUAGE} (original)",
             replacements: {
               LANGUAGE: _v0
@@ -7664,7 +7831,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsSourceTerm: _v0 => (0, _v205.translate)({
+          replacementsSourceTerm: _v0 => (0, _v208.translate)({
             singular: "Source term {NUMBER}",
             replacements: {
               NUMBER: _v0
@@ -7693,7 +7860,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsTargetTerm: (_v0, _v1) => (0, _v205.translate)({
+          replacementsTargetTerm: (_v0, _v1) => (0, _v208.translate)({
             singular: "{LANGUAGE} translation for source term {NUMBER}",
             replacements: {
               LANGUAGE: _v0,
@@ -7723,7 +7890,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsAddLanguage: (0, _v205.translate)({
+          replacementsAddLanguage: (0, _v208.translate)({
             singular: "Add language",
             dictionary: {
               es: {
@@ -7749,7 +7916,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsAddLanguageTooltip: (0, _v205.translate)({
+          replacementsAddLanguageTooltip: (0, _v208.translate)({
             singular: "Add a new language to set language-specific replacements for the terms that need it.",
             dictionary: {
               es: {
@@ -7775,7 +7942,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNewTranslationsSet: (0, _v205.translate)({
+          replacementsNewTranslationsSet: (0, _v208.translate)({
             singular: "New translations set",
             dictionary: {
               es: {
@@ -7801,7 +7968,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNewLanguageTitle: (0, _v205.translate)({
+          replacementsNewLanguageTitle: (0, _v208.translate)({
             singular: "New language",
             dictionary: {
               es: {
@@ -7827,7 +7994,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNewLanguageDescription: (0, _v205.translate)({
+          replacementsNewLanguageDescription: (0, _v208.translate)({
             singular: "Select a source language and create a new set of terms for videos spoken in that language.",
             dictionary: {
               es: {
@@ -7853,7 +8020,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNewLanguagesTitle: (0, _v205.translate)({
+          replacementsNewLanguagesTitle: (0, _v208.translate)({
             singular: "New languages",
             dictionary: {
               es: {
@@ -7879,7 +8046,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNewLanguagesDescription: _v0 => (0, _v205.translate)({
+          replacementsNewLanguagesDescription: _v0 => (0, _v208.translate)({
             singular: "You're about to add {LANGUAGES}. All existing terms will translate normally unless you manually edit it.",
             replacements: {
               LANGUAGES: _v0
@@ -7908,7 +8075,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsAddLanguages: (0, _v205.translate)({
+          replacementsAddLanguages: (0, _v208.translate)({
             singular: "Add languages",
             dictionary: {
               es: {
@@ -7934,7 +8101,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsDeleteLanguage: (0, _v205.translate)({
+          replacementsDeleteLanguage: (0, _v208.translate)({
             singular: "Delete language",
             dictionary: {
               es: {
@@ -7960,7 +8127,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsLanguageOptions: _v0 => (0, _v205.translate)({
+          replacementsLanguageOptions: _v0 => (0, _v208.translate)({
             singular: "Options for {LANGUAGE}",
             replacements: {
               LANGUAGE: _v0
@@ -7989,7 +8156,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsTargetLanguageDescription: (0, _v205.translate)({
+          replacementsTargetLanguageDescription: (0, _v208.translate)({
             singular: "Adding a language lets you define a language-specific replacement for every term. Leave a language blank and the AI translates it as usual.",
             dictionary: {
               es: {
@@ -8015,7 +8182,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsLanguage: (0, _v205.translate)({
+          replacementsLanguage: (0, _v208.translate)({
             singular: "Language",
             dictionary: {
               es: {
@@ -8041,7 +8208,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsLanguages: (0, _v205.translate)({
+          replacementsLanguages: (0, _v208.translate)({
             singular: "Languages",
             dictionary: {
               es: {
@@ -8064,7 +8231,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsPendingLanguage: _v0 => (0, _v205.translate)({
+          replacementsPendingLanguage: _v0 => (0, _v208.translate)({
             singular: "Language {NUMBER}",
             replacements: {
               NUMBER: _v0
@@ -8093,7 +8260,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsRemoveLanguage: _v0 => (0, _v205.translate)({
+          replacementsRemoveLanguage: _v0 => (0, _v208.translate)({
             singular: "Remove {LANGUAGE}",
             replacements: {
               LANGUAGE: _v0
@@ -8122,7 +8289,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsSelectLanguage: (0, _v205.translate)({
+          replacementsSelectLanguage: (0, _v208.translate)({
             singular: "Select language",
             dictionary: {
               es: {
@@ -8148,7 +8315,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNoLanguagesAvailable: (0, _v205.translate)({
+          replacementsNoLanguagesAvailable: (0, _v208.translate)({
             singular: "No additional languages are available.",
             dictionary: {
               es: {
@@ -8174,7 +8341,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsLanguagesLoadingError: (0, _v205.translate)({
+          replacementsLanguagesLoadingError: (0, _v208.translate)({
             singular: "Unable to load languages.",
             dictionary: {
               es: {
@@ -8200,7 +8367,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsRemoveRow: _v0 => (0, _v205.translate)({
+          replacementsRemoveRow: _v0 => (0, _v208.translate)({
             singular: "Remove source term {NUMBER}",
             replacements: {
               NUMBER: _v0
@@ -8229,7 +8396,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsEditTerm: _v0 => (0, _v205.translate)({
+          replacementsEditTerm: _v0 => (0, _v208.translate)({
             singular: "Edit {TERM}",
             replacements: {
               TERM: _v0
@@ -8258,7 +8425,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsEnterTerm: (0, _v205.translate)({
+          replacementsEnterTerm: (0, _v208.translate)({
             singular: "Enter term",
             dictionary: {
               es: {
@@ -8284,7 +8451,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsChangesSaved: (0, _v205.translate)({
+          replacementsChangesSaved: (0, _v208.translate)({
             singular: "Terms translations saved",
             dictionary: {
               es: {
@@ -8310,7 +8477,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsChangesCouldNotBeSaved: (0, _v205.translate)({
+          replacementsChangesCouldNotBeSaved: (0, _v208.translate)({
             singular: "Terms translations could not be saved",
             dictionary: {
               es: {
@@ -8336,7 +8503,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvImport: (0, _v205.translate)({
+          replacementsCsvImport: (0, _v208.translate)({
             singular: "Import CSV",
             dictionary: {
               es: {
@@ -8362,9 +8529,9 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvInstructions: (0, _v205.translate)({
+          replacementsCsvInstructions: (0, _v208.translate)({
             singular: "Upload a CSV with the following columns: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Use the language codes supported for captions, such as en, pt-BR, or zh-HK.",
-            replacements: _v206,
+            replacements: _v209,
             dictionary: {
               es: {
                 singular: "Suba un CSV con las siguientes columnas: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Utilice los códigos de idioma compatibles con los subtítulos, como en, pt-BR o zh-HK."
@@ -8389,7 +8556,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvReplaceNotice: (0, _v205.translate)({
+          replacementsCsvReplaceNotice: (0, _v208.translate)({
             singular: "Uploading a CSV replaces all existing terms translations.",
             dictionary: {
               es: {
@@ -8415,7 +8582,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvReplaceConfirmation: (0, _v205.translate)({
+          replacementsCsvReplaceConfirmation: (0, _v208.translate)({
             singular: "Saving will replace all existing terms translations with the entries in this CSV.",
             dictionary: {
               es: {
@@ -8441,7 +8608,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvTemplatePrompt: _v0 => (0, _v205.translate)({
+          replacementsCsvTemplatePrompt: _v0 => (0, _v208.translate)({
             singular: "{A}Download the template{/A} file to start.",
             replacements: {
               A: _v0
@@ -8470,7 +8637,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvUploadFile: (0, _v205.translate)({
+          replacementsCsvUploadFile: (0, _v208.translate)({
             singular: "Upload file",
             dictionary: {
               es: {
@@ -8496,7 +8663,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvDropzone: (0, _v205.translate)({
+          replacementsCsvDropzone: (0, _v208.translate)({
             singular: "Drop file here or click to browse file.",
             dictionary: {
               es: {
@@ -8522,7 +8689,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvImported: _v0 => (0, _v205.translate)({
+          replacementsCsvImported: _v0 => (0, _v208.translate)({
             singular: "{COUNT} row imported",
             plural: "{COUNT} rows imported",
             count: _v0,
@@ -8560,7 +8727,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvPartialFailure: (0, _v205.translate)({
+          replacementsCsvPartialFailure: (0, _v208.translate)({
             singular: "Some rows could not be imported.",
             dictionary: {
               es: {
@@ -8586,7 +8753,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvAllFailed: (0, _v205.translate)({
+          replacementsCsvAllFailed: (0, _v208.translate)({
             singular: "No rows were imported.",
             dictionary: {
               es: {
@@ -8612,7 +8779,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvFailureLine: (_v0, _v1) => (0, _v205.translate)({
+          replacementsCsvFailureLine: (_v0, _v1) => (0, _v208.translate)({
             singular: "Line {LINE}: {MESSAGE}",
             replacements: {
               LINE: _v0,
@@ -8642,7 +8809,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvEmpty: (0, _v205.translate)({
+          replacementsCsvEmpty: (0, _v208.translate)({
             singular: "The CSV file is empty.",
             dictionary: {
               es: {
@@ -8668,9 +8835,9 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvInvalidHeader: (0, _v205.translate)({
+          replacementsCsvInvalidHeader: (0, _v208.translate)({
             singular: "The CSV header must be: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}.",
-            replacements: _v206,
+            replacements: _v209,
             dictionary: {
               es: {
                 singular: "El encabezado del CSV debe ser: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}."
@@ -8695,7 +8862,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvMalformed: (0, _v205.translate)({
+          replacementsCsvMalformed: (0, _v208.translate)({
             singular: "The CSV contains malformed quoted content.",
             dictionary: {
               es: {
@@ -8721,7 +8888,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvInvalidFile: (0, _v205.translate)({
+          replacementsCsvInvalidFile: (0, _v208.translate)({
             singular: "Select a CSV file.",
             dictionary: {
               es: {
@@ -8747,7 +8914,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvImportError: (0, _v205.translate)({
+          replacementsCsvImportError: (0, _v208.translate)({
             singular: "The CSV could not be imported.",
             dictionary: {
               es: {
@@ -8773,7 +8940,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvColumnCountError: (0, _v205.translate)({
+          replacementsCsvColumnCountError: (0, _v208.translate)({
             singular: "The row must contain exactly four columns.",
             dictionary: {
               es: {
@@ -8799,7 +8966,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvRequiredError: (0, _v205.translate)({
+          replacementsCsvRequiredError: (0, _v208.translate)({
             singular: "All four columns are required.",
             dictionary: {
               es: {
@@ -8825,7 +8992,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvFieldLengthError: (0, _v205.translate)({
+          replacementsCsvFieldLengthError: (0, _v208.translate)({
             singular: "One or more fields exceed the maximum length.",
             dictionary: {
               es: {
@@ -8851,7 +9018,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvInvalidSourceLanguage: _v0 => (0, _v205.translate)({
+          replacementsCsvInvalidSourceLanguage: _v0 => (0, _v208.translate)({
             singular: "{LANGUAGE} is not a supported source language code.",
             replacements: {
               LANGUAGE: _v0
@@ -8880,7 +9047,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvInvalidTargetLanguage: _v0 => (0, _v205.translate)({
+          replacementsCsvInvalidTargetLanguage: _v0 => (0, _v208.translate)({
             singular: "{LANGUAGE} is not a supported target language code.",
             replacements: {
               LANGUAGE: _v0
@@ -8909,7 +9076,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvMatchingLanguages: (0, _v205.translate)({
+          replacementsCsvMatchingLanguages: (0, _v208.translate)({
             singular: "Source and target languages must be different.",
             dictionary: {
               es: {
@@ -8935,7 +9102,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvTooManyRows: (0, _v205.translate)({
+          replacementsCsvTooManyRows: (0, _v208.translate)({
             singular: "Only 1,000 rows can be imported at once.",
             dictionary: {
               es: {
@@ -8961,7 +9128,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvServerError: (0, _v205.translate)({
+          replacementsCsvServerError: (0, _v208.translate)({
             singular: "The row could not be imported.",
             dictionary: {
               es: {
@@ -8987,7 +9154,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsEmptyTitle: (0, _v205.translate)({
+          replacementsEmptyTitle: (0, _v208.translate)({
             singular: "No terms added yet.",
             dictionary: {
               es: {
@@ -9013,7 +9180,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsEmptyDescription: (0, _v205.translate)({
+          replacementsEmptyDescription: (0, _v208.translate)({
             singular: "Start adding your first term translation.",
             dictionary: {
               es: {
@@ -9039,7 +9206,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNoResults: (0, _v205.translate)({
+          replacementsNoResults: (0, _v208.translate)({
             singular: "No matching terms found.",
             dictionary: {
               es: {
@@ -9065,7 +9232,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsLoadingError: (0, _v205.translate)({
+          replacementsLoadingError: (0, _v208.translate)({
             singular: "Unable to load terms translations.",
             dictionary: {
               es: {
@@ -9091,7 +9258,7 @@ ${_v2}`;
               }
             }
           }),
-          add: (0, _v205.translate)({
+          add: (0, _v208.translate)({
             singular: "Add",
             dictionary: {
               es: {
@@ -9117,7 +9284,7 @@ ${_v2}`;
               }
             }
           }),
-          import: (0, _v205.translate)({
+          import: (0, _v208.translate)({
             singular: "Import",
             dictionary: {
               es: {
@@ -9143,7 +9310,7 @@ ${_v2}`;
               }
             }
           }),
-          needMorePrompt: (0, _v205.translate)({
+          needMorePrompt: (0, _v208.translate)({
             singular: "Need more?",
             dictionary: {
               es: {
@@ -9169,7 +9336,7 @@ ${_v2}`;
               }
             }
           }),
-          contactSales: (0, _v205.translate)({
+          contactSales: (0, _v208.translate)({
             singular: "Contact Sales",
             dictionary: {
               es: {
@@ -9195,7 +9362,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesTitle: (0, _v205.translate)({
+          rulesTitle: (0, _v208.translate)({
             singular: "Custom rules",
             dictionary: {
               es: {
@@ -9221,7 +9388,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesDescription: (0, _v205.translate)({
+          rulesDescription: (0, _v208.translate)({
             singular: "Add your own instructions in plain language to guide how words are captioned or translated. (example: always spell out numbers under ten).",
             dictionary: {
               es: {
@@ -9247,7 +9414,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesInputLabel: (0, _v205.translate)({
+          rulesInputLabel: (0, _v208.translate)({
             singular: "Rules",
             dictionary: {
               es: {
@@ -9273,14 +9440,14 @@ ${_v2}`;
               }
             }
           }),
-          rulesCharacterCount: (_v0, _v1) => (0, _v205.translate)({
+          rulesCharacterCount: (_v0, _v1) => (0, _v208.translate)({
             singular: "{USED}/{LIMIT}",
             replacements: {
               USED: _v0,
               LIMIT: _v1
             }
           }),
-          rulesPlaceholder: (0, _v205.translate)({
+          rulesPlaceholder: (0, _v208.translate)({
             singular: "Describe any rules with simple words",
             dictionary: {
               es: {
@@ -9306,7 +9473,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesHelper: (0, _v205.translate)({
+          rulesHelper: (0, _v208.translate)({
             singular: "Write one rule per line.",
             dictionary: {
               es: {
@@ -9332,7 +9499,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesSaving: (0, _v205.translate)({
+          rulesSaving: (0, _v208.translate)({
             singular: "Saving...",
             dictionary: {
               es: {
@@ -9358,7 +9525,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesLoadingLabel: (0, _v205.translate)({
+          rulesLoadingLabel: (0, _v208.translate)({
             singular: "Loading custom rules",
             dictionary: {
               es: {
@@ -9384,7 +9551,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesLoadingError: (0, _v205.translate)({
+          rulesLoadingError: (0, _v208.translate)({
             singular: "Unable to load custom rules.",
             dictionary: {
               es: {
@@ -9410,7 +9577,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesSaveError: (0, _v205.translate)({
+          rulesSaveError: (0, _v208.translate)({
             singular: "Changes could not be saved.",
             dictionary: {
               es: {
@@ -9436,7 +9603,7 @@ ${_v2}`;
               }
             }
           }),
-          limitsByFeatureTitle: (0, _v205.translate)({
+          limitsByFeatureTitle: (0, _v208.translate)({
             singular: "Limits by feature",
             dictionary: {
               es: {
@@ -9462,7 +9629,7 @@ ${_v2}`;
               }
             }
           }),
-          limitsByFeatureDescription: (0, _v205.translate)({
+          limitsByFeatureDescription: (0, _v208.translate)({
             singular: "Each feature uses a limited number of words during processing. You can add more words, up to your account's maximum limit, but only the first entries within the processing limit are applied.",
             dictionary: {
               es: {
@@ -9488,7 +9655,7 @@ ${_v2}`;
               }
             }
           }),
-          orderingExplanation: (0, _v205.translate)({
+          orderingExplanation: (0, _v208.translate)({
             singular: "Words are selected by order, top to bottom. To include or leave out specific words, reorder the list so the ones you want come first.",
             dictionary: {
               es: {
@@ -9514,7 +9681,7 @@ ${_v2}`;
               }
             }
           }),
-          featureLimitsTableScrollLabel: (0, _v205.translate)({
+          featureLimitsTableScrollLabel: (0, _v208.translate)({
             singular: "Feature limits table. Scroll horizontally to view all columns.",
             dictionary: {
               es: {
@@ -9540,7 +9707,7 @@ ${_v2}`;
               }
             }
           }),
-          featureColumnLabel: (0, _v205.translate)({
+          featureColumnLabel: (0, _v208.translate)({
             singular: "Feature",
             dictionary: {
               es: {
@@ -9567,7 +9734,7 @@ ${_v2}`;
             }
           }),
           featureNames: {
-            autocaptioning: (0, _v205.translate)({
+            autocaptioning: (0, _v208.translate)({
               singular: "Autocaptioning",
               dictionary: {
                 es: {
@@ -9593,7 +9760,7 @@ ${_v2}`;
                 }
               }
             }),
-            liveCaptioning: (0, _v205.translate)({
+            liveCaptioning: (0, _v208.translate)({
               singular: "Live captioning",
               dictionary: {
                 es: {
@@ -9619,7 +9786,7 @@ ${_v2}`;
                 }
               }
             }),
-            subtitleTranslation: (0, _v205.translate)({
+            subtitleTranslation: (0, _v208.translate)({
               singular: "Subtitle translation",
               dictionary: {
                 es: {
@@ -9645,7 +9812,7 @@ ${_v2}`;
                 }
               }
             }),
-            liveCaptionTranslation: (0, _v205.translate)({
+            liveCaptionTranslation: (0, _v208.translate)({
               singular: "Live caption translation",
               dictionary: {
                 es: {
@@ -9671,7 +9838,7 @@ ${_v2}`;
                 }
               }
             }),
-            dubbing: (0, _v205.translate)({
+            dubbing: (0, _v208.translate)({
               singular: "Dubbing",
               dictionary: {
                 es: {
@@ -9698,7 +9865,7 @@ ${_v2}`;
               }
             })
           },
-          notSupportedYet: (0, _v205.translate)({
+          notSupportedYet: (0, _v208.translate)({
             singular: "not supported yet",
             dictionary: {
               es: {
@@ -9724,7 +9891,7 @@ ${_v2}`;
               }
             }
           }),
-          processingLimit: _v0 => (0, _v205.translate)({
+          processingLimit: _v0 => (0, _v208.translate)({
             count: _v0,
             singular: "{COUNT} word",
             plural: "{COUNT} words",
@@ -9762,7 +9929,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNewLanguage: (0, _v205.translate)({
+          replacementsNewLanguage: (0, _v208.translate)({
             singular: "New language",
             dictionary: {
               es: {
@@ -9816,7 +9983,7 @@ ${_v2}`;
           children: [(0, _v1.jsx)(_v151, {
             ownerUserId: _v0,
             translations: _v3
-          }), (0, _v1.jsx)(_v204, {
+          }), (0, _v1.jsx)(_v207, {
             ownerUserId: _v0,
             translations: _v3
           }), (0, _v1.jsx)(_v36, {
@@ -9830,20 +9997,20 @@ ${_v2}`;
         })]
       });
     };
-  var _v208 = _v0.i(0),
-    _v209 = _v0.i(0),
-    _v210 = _v0.i(0);
+  var _v211 = _v0.i(0),
+    _v212 = _v0.i(0),
+    _v213 = _v0.i(0);
   _v0.s(["AccountDictionaryRoute", 0, ({
     ownerUserId: _v0
   }) => {
     let {
       settings: _v1,
       isLoadingResponse: _v2
-    } = (0, _v209.useOrionSettings)();
-    return _v2 ? (0, _v1.jsx)(_v46.Spinner, {}) : _v1.enable_account_wide_dictionary_management ? (0, _v1.jsx)(_v207, {
+    } = (0, _v212.useOrionSettings)();
+    return _v2 ? (0, _v1.jsx)(_v46.Spinner, {}) : _v1.enable_account_wide_dictionary_management ? (0, _v1.jsx)(_v210, {
       ownerUserId: _v0
-    }) : (0, _v1.jsx)(_v210.ErrorPage, {
-      error: new _v208.ResourceNotFoundError()
+    }) : (0, _v1.jsx)(_v213.ErrorPage, {
+      error: new _v211.ResourceNotFoundError()
     });
   }], 0);
 }

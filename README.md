@@ -241,9 +241,11 @@
 - https://vimeo.com/upload/videos/complete
 - https://vimeo.com/upload/[...params]
 - https://vimeo.com/user/[userId]/folder/[folderId]
+- https://vimeo.com/user/[userId]/report
 - https://vimeo.com/user/[userId]/survey/[surveyType]
 - https://vimeo.com/user/[userId]/team-settings
 - https://vimeo.com/video/[clipId]
+- https://vimeo.com/video/[clipId]/comment/[commentId]/report
 - https://vimeo.com/video/[clipId]/report
 - https://vimeo.com/video/[clipId]/[clipHash]
 - https://vimeo.com/videos/[clipId]/versions/[versionId]
