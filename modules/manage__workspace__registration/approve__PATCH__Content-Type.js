@@ -623,5 +623,5 @@
   };
   (0, _v4.withPageSetup)(_v49.getWspServerSideProps, {
     requireLogin: !0
-  }), _v50.getLayout = (_v0, _v1) => (0, _v8.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v50], 0);
+  }), _v50.getLayout = (_v0, _v1) => (0, _v8.getLayout)(_v0, _v1, _v8.WORKSPACE_COMPACT_SETTINGS_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v50], 0);
 }

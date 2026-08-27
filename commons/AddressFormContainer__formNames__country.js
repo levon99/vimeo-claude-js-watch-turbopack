@@ -45,8 +45,12 @@
           _v2 = _v0?.postalCode,
           _v3 = _v1?.billingAddress?.country,
           _v4 = _v1?.billingAddress?.postalCode,
-          _v5 = "US" === _v1 || "CA" === _v1 ? !!_v2 && !_v9 && _v2 !== _v4 : !!_v1 && _v1 !== _v3;
-        if (_v1 && _v1 && _v5) {
+          _v5 = "US" === _v1 || "CA" === _v1,
+          _v6 = (0, _v11.validatePostalCode)(_v1, _v2),
+          _v7 = (0, _v11.validatePostalCode)(_v3, _v4),
+          _v8 = !!_v6 && !_v9 && _v6 !== _v7,
+          _v9 = !!_v1 && _v1 !== _v3;
+        if (_v1 && _v1 && (_v5 ? _v8 : _v9)) {
           let _v0 = {
             ..._v1,
             billingAddress: _v0,
@@ -59,34 +63,25 @@
         }
       }, [_v2, _v1, _v3, _v7, _v9]);
       let _v12 = (0, _v2.useCallback)(_v0 => {
-        _v3({
-          type: _v10.ActionTypes.SET_BILLING_ADDRESS,
-          payload: {
-            country: _v0
-          }
-        }), _v8(_v9.CHECKOUT_FORM_ACTION_TYPE_SELECT, _v9.CHECKOUT_FORM_ACTION_LOCATION_COUNTRY), _v10(!1), _v6 && _v3({
-          type: _v10.ActionTypes.PAYMENT_ALERT,
-          payload: void 0
-        });
-      }, [_v3, _v8, _v6]);
-      return (0, _v2.useEffect)(() => {
-        !_v2 && _v4?.location && _v12(_v4.location);
-      }, [_v2, _v4, _v12]), (0, _v2.useEffect)(() => {
-        _v1 && _v2 && _v1.billingAddress?.postalCode === _v2.postalCode && _v10(!1);
-      }, [_v2, _v1]), (0, _v1.jsx)(_v6.AddressForm, {
-        billingAddress: _v2,
-        onCountryChange: _v12,
-        onCountryClick: () => _v8(_v9.CHECKOUT_FORM_ACTION_TYPE_CLICK, _v9.CHECKOUT_FORM_ACTION_LOCATION_COUNTRY),
-        onPostalCodeChange: _v0 => {
+          _v3({
+            type: _v10.ActionTypes.SET_BILLING_ADDRESS,
+            payload: {
+              country: _v0
+            }
+          }), _v8(_v9.CHECKOUT_FORM_ACTION_TYPE_SELECT, _v9.CHECKOUT_FORM_ACTION_LOCATION_COUNTRY), _v10(!1), _v6 && _v3({
+            type: _v10.ActionTypes.PAYMENT_ALERT,
+            payload: void 0
+          });
+        }, [_v3, _v8, _v6]),
+        _v13 = (0, _v2.useCallback)(_v0 => {
           let _v1 = _v11.current;
           if (!_v1?.country) return;
           let _v2 = _v1.country,
-            _v3 = _v0.length < ("US" === _v2 ? 5 : 6 * ("CA" === _v2)),
-            _v4 = _v6 && "US" === _v2 && !_v3 && !(0, _v11.isUsZipCodeFormatValid)(_v0),
-            _v5 = _v3 || _v4;
-          _v8(_v5 ? _v9.CHECKOUT_FORM_ACTION_TYPE_ERROR : _v9.CHECKOUT_FORM_ACTION_TYPE_INPUT, _v9.CHECKOUT_FORM_ACTION_LOCATION_ZIP_CODE), _v10(_v5), _v6 && _v3({
+            _v3 = (0, _v11.validatePostalCode)(_v2, _v0),
+            _v4 = ("US" === _v2 || "CA" === _v2) && null === _v3;
+          _v8(_v4 ? _v9.CHECKOUT_FORM_ACTION_TYPE_ERROR : _v9.CHECKOUT_FORM_ACTION_TYPE_INPUT, _v9.CHECKOUT_FORM_ACTION_LOCATION_ZIP_CODE), _v10(_v4), _v6 && _v3({
             type: _v10.ActionTypes.PAYMENT_ALERT,
-            payload: _v5 ? {
+            payload: _v4 ? {
               status: "error",
               message: "US" === _v2 ? (0, _v3.translate)({
                 singular: "Please enter a valid ZIP code, for example 12345 or 12345-6789.",
@@ -141,20 +136,29 @@
               })
             } : void 0
           });
-          let _v6 = {
+          let _v5 = {
             address: _v1.address ?? "",
             city: _v1.city ?? "",
             country: _v1.country ?? "",
-            postalCode: _v0,
+            postalCode: _v3 ?? _v0,
             state: _v1.state ?? ""
           };
           _v3({
             type: _v10.ActionTypes.SET_BILLING_ADDRESS,
-            payload: _v6
+            payload: _v5
           });
-        },
+        }, [_v3, _v8, _v6]);
+      return (0, _v2.useEffect)(() => {
+        !_v2 && _v4?.location && _v12(_v4.location);
+      }, [_v2, _v4, _v12]), (0, _v2.useEffect)(() => {
+        _v1 && _v2 && _v1.billingAddress?.postalCode === _v2.postalCode && _v10(!1);
+      }, [_v2, _v1]), (0, _v1.jsx)(_v6.AddressForm, {
+        billingAddress: _v2,
+        onCountryChange: _v12,
+        onCountryClick: () => _v8(_v9.CHECKOUT_FORM_ACTION_TYPE_CLICK, _v9.CHECKOUT_FORM_ACTION_LOCATION_COUNTRY),
+        onPostalCodeChange: _v13,
         postalCodeIsInvalid: _v9,
         bspStyling: _v0
-      });
+      }, _v2?.country);
     };
 }

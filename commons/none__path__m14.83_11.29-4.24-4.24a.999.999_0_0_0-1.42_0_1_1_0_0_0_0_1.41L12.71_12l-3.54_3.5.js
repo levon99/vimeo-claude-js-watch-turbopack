@@ -496,6 +496,32 @@
                 singular: "允许列表"
               }
             }
+          }),
+          Usage: (0, _v9.translate)({
+            singular: "Usage",
+            dictionary: {
+              es: {
+                singular: "Uso"
+              },
+              "de-DE": {
+                singular: "Nutzung"
+              },
+              "fr-FR": {
+                singular: "Utilisation"
+              },
+              "ja-JP": {
+                singular: "使用状況"
+              },
+              "ko-KR": {
+                singular: "사용량"
+              },
+              "pt-BR": {
+                singular: "Uso"
+              },
+              "zh-CN": {
+                singular: "使用情况"
+              }
+            }
           })
         };
         return [{
@@ -517,6 +543,11 @@
           key: "branding",
           href: "/manage/team/branding",
           label: _v0.Branding,
+          priority: 3
+        }, {
+          key: "usage",
+          href: "/manage/team/usage",
+          label: _v0.Usage,
           priority: 3
         }, {
           key: "groups",

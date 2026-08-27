@@ -3758,12 +3758,13 @@
       });
     };
   var _v71 = _v0.i(0),
-    _v72 = _v0.i(0);
+    _v72 = _v0.i(0),
+    _v73 = _v0.i(0);
   (0, _v3.withPageSetup)({
     requireLogin: !1,
     inlineViewer: "all"
   });
-  let _v73 = () => {
+  let _v74 = () => {
     let _v0 = (0, _v72.useViewer)(),
       _v1 = (0, _v2.useRouter)(),
       _v2 = "string" == typeof _v1.query.reason ? _v1.query.reason : void 0,
@@ -3773,13 +3774,14 @@
         xsrft: _v0?.xsrft,
         userEmail: _v0?.user?.email,
         initialReasonParam: _v2,
-        initialUrlParam: _v3
+        initialUrlParam: _v3,
+        onSubmitSuccess: () => (0, _v73.emitReportComplete)("submitted")
       }), _v0 && (0, _v1.jsx)(_v71.EssentialFooter, {
         ..._v0
       })]
     });
   };
-  _v73.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
+  _v74.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v4.DefaultNavigation, {}), _v0]
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v73], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v74], 0);
 }

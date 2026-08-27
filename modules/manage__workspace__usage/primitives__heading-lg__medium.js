@@ -55,13 +55,13 @@
               singular: "使用状況"
             },
             "ko-KR": {
-              singular: "사용 내역"
+              singular: "사용량"
             },
             "pt-BR": {
               singular: "Uso"
             },
             "zh-CN": {
-              singular: "使用方法"
+              singular: "使用情况"
             }
           }
         })
@@ -91,5 +91,5 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v14.getLayout = (_v0, _v1) => (0, _v12.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v14], 0);
+  }), _v14.getLayout = (_v0, _v1) => (0, _v12.getLayout)(_v0, _v1, _v12.WORKSPACE_ROOT_LIST_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v14], 0);
 }

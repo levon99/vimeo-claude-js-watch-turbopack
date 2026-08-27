@@ -19,14 +19,15 @@
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
-  let _v20 = ({
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
+  let _v21 = ({
     playerAssetUrls: _v0,
     userId: _v1,
     folderId: _v2,
     folderData: _v3
   }) => {
-    let _v4 = (0, _v3.useContext)(_v19.ViewerContext),
+    let _v4 = (0, _v3.useContext)(_v20.ViewerContext),
       _v5 = (0, _v1.jsxs)(_v2.default, {
         children: [(0, _v1.jsx)("title", {
           children: _v3?.name ? (0, _v13.translate)({
@@ -120,7 +121,7 @@
             playerAssetUrls: _v0,
             userId: _v1,
             viewer: _v4
-          }), (0, _v1.jsx)(_v18.VimeoReviewUpsellPromo, {})]
+          }), (0, _v1.jsx)(_v19.VimeoReviewUpsellPromo, {})]
         })
       })]
     });
@@ -204,12 +205,13 @@
   }, {
     inlineViewer: "all",
     inlinePlayerAssets: !0
-  }), _v20.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v17.VideoLibraryLayout, {
+  }), _v21.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v17.VideoLibraryLayout, {
     hasUploader: _v1.hasUploader,
+    searchContentAlignment: _v18.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
     sideNavContent: (0, _v1.jsx)(_v16.SideNavContent, {
       surface: "library"
     }),
     sideNavSurface: "library",
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v20], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v21], 0);
 }

@@ -17,8 +17,9 @@
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  function _v18() {
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0);
+  function _v19() {
     return (0, _v1.jsxs)(_v2.default, {
       children: [(0, _v1.jsx)("title", {
         children: (0, _v12.translate)("Vimeo")
@@ -56,7 +57,7 @@
       })]
     });
   }
-  function _v19({
+  function _v20({
     ogTitle: _v0,
     ogDescription: _v1,
     ogImage: _v2,
@@ -140,7 +141,7 @@
       })]
     });
   }
-  let _v20 = ({
+  let _v21 = ({
     folderData: _v0,
     folderId: _v1,
     playerAssetUrls: _v2,
@@ -152,13 +153,13 @@
     ogImage: _v8,
     ogUrl: _v9
   }) => {
-    let _v10 = (0, _v17.useViewer)(),
-      _v11 = (0, _v3.useMemo)(() => _v6 ? (0, _v1.jsx)(_v19, {
+    let _v10 = (0, _v18.useViewer)(),
+      _v11 = (0, _v3.useMemo)(() => _v6 ? (0, _v1.jsx)(_v20, {
         ogTitle: _v6,
         ogDescription: _v7,
         ogImage: _v8,
         ogUrl: _v9
-      }) : (0, _v1.jsx)(_v18, {}), []);
+      }) : (0, _v1.jsx)(_v19, {}), []);
     if (!_v10) return _v11;
     (0, _v9.setCdnUrl)(_v10.viewmasterCdnUrl);
     let _v12 = {
@@ -351,11 +352,12 @@
   }, {
     inlineViewer: "all",
     inlinePlayerAssets: !0
-  }), _v20.getLayout = (_v0, _v1) => _v1.isDisabledOrExpired ? (0, _v1.jsxs)(_v1.Fragment, {
-    children: [(0, _v1.jsx)(_v18, {}), (0, _v1.jsx)(_v15.default, {}), (0, _v1.jsx)(_v14.DisabledReviewLinkErrorPage, {})]
+  }), _v21.getLayout = (_v0, _v1) => _v1.isDisabledOrExpired ? (0, _v1.jsxs)(_v1.Fragment, {
+    children: [(0, _v1.jsx)(_v19, {}), (0, _v1.jsx)(_v15.default, {}), (0, _v1.jsx)(_v14.DisabledReviewLinkErrorPage, {})]
   }) : (0, _v1.jsx)(_v16.VideoLibraryLayout, {
     isReviewPage: !0,
     hasThemeSupport: !_v1.isReviewLinkDarkMode,
+    searchContentAlignment: _v17.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v20], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v21], 0);
 }

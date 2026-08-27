@@ -1814,6 +1814,7 @@
     }),
     sideNavSurface: "home",
     hasUploader: _v1.hasUploader,
+    searchContentAlignment: _v26.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
     children: _v0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v108], 0);
 }

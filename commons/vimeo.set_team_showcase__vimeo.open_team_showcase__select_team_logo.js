@@ -63,6 +63,7 @@
     billing: "billing",
     settings: "settings",
     "manage-ai": "manage-ai",
+    usage: "usage",
     "brand-kits": "brand-kits",
     "[brand_kit_id]": "brand-kits",
     "custom-metadata": "custom-metadata"

@@ -203,8 +203,9 @@
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
-    _v32 = _v0.i(0);
-  let _v33 = {
+    _v32 = _v0.i(0),
+    _v33 = _v0.i(0);
+  let _v34 = {
       exit: {
         duration: .16
       },
@@ -212,7 +213,7 @@
         duration: .16
       }
     },
-    _v34 = {
+    _v35 = {
       exit: {
         duration: .16
       },
@@ -221,11 +222,11 @@
         delay: .16
       }
     };
-  function _v35({
+  function _v36({
     onDismiss: _v0,
     postCheckoutUrl: _v1
   }) {
-    let _v2 = (0, _v31.useViewer)(),
+    let _v2 = (0, _v32.useViewer)(),
       _v3 = _v2?.user?.capabilities?.hasFreeTrialEligibility ?? !1,
       {
         settings: _v4
@@ -235,41 +236,45 @@
       _v7 = _v4.onboarding_paywall_default_periodicity,
       _v8 = _v4.onboarding_paywall_monthly_free_trial,
       _v9 = _v4.onboarding_paywall_dismiss_button_position,
-      _v10 = _v4.reverse_free_trial_arm,
-      _v11 = "control" !== _v10,
-      _v12 = _v11 && _v3,
-      _v13 = _v11 && !_v3,
-      [_v14, _v15] = (0, _v7.useState)(!1),
-      _v16 = _v12 ? {
+      _v10 = _v4.onboarding_welcome_offer_dismiss_variant,
+      _v11 = _v4.reverse_free_trial_arm,
+      _v12 = "control" !== _v11,
+      _v13 = _v12 && _v3,
+      _v14 = _v12 && !_v3,
+      _v15 = "welcomeOffer" === _v5,
+      [_v16, _v17] = (0, _v7.useState)(!1),
+      _v18 = _v13 || _v16,
+      [_v19, _v20] = (0, _v7.useState)(!1),
+      _v21 = _v18 ? {
         paywallStyle: "reverse_trial",
         paywallPlansDisplayed: ["starter"],
         paywallPeriodicitiesDisplayed: []
       } : {
-        paywallStyle: _v5.replace(/[A-Z]/g, _v0 => `_${_v0.toLowerCase()}`),
-        paywallPlansDisplayed: [_v6],
-        paywallPeriodicitiesDisplayed: "plansComparison" === _v5 ? ["monthly", "yearly"] : []
+        paywallStyle: _v15 ? "welcome_offer_modal" : _v5.replace(/[A-Z]/g, _v0 => `_${_v0.toLowerCase()}`),
+        paywallPlansDisplayed: _v15 ? ["starter"] : [_v6],
+        paywallPeriodicitiesDisplayed: "plansComparison" === _v5 ? ["monthly", "yearly"] : _v15 ? ["yearly"] : []
       },
-      _v17 = {
-        paywallTrigger: _v12 ? `registration_survey_reverse_trial_${_v10}` : `registration_survey_trial_upsell_page_${_v5}`,
+      _v22 = {
+        paywallTrigger: _v18 ? `registration_survey_reverse_trial_${_v11}` : `registration_survey_trial_upsell_page_${_v5}`,
         paywallLocation: "registration_survey",
         paywallType: "page",
         paywallFeature: "registration_survey",
-        ..._v16
+        ..._v21
       },
       {
-        trackPaywallDismissed: _v18
-      } = (0, _v30.usePaywallTracking)({
-        ..._v17,
-        isVisible: !_v11
+        trackPaywallDismissed: _v23
+      } = (0, _v31.usePaywallTracking)({
+        ..._v22,
+        isVisible: !_v14 && !_v18
       }),
-      _v19 = (0, _v7.useRef)(!1);
+      _v24 = (0, _v7.useRef)(!1);
     (0, _v7.useEffect)(() => {
-      _v13 && !_v19.current && (_v19.current = !0, _v0());
-    }, [_v13, _v0]);
-    let _v20 = () => {
-      _v18(), _v0();
+      _v14 && !_v24.current && (_v24.current = !0, _v0());
+    }, [_v14, _v0]);
+    let _v25 = () => {
+      (_v23(), _v15 && !_v12 && !_v16 && _v4.onboarding_welcome_offer_reverse_trial_on_dismiss && _v3) ? _v17(!0) : _v0();
     };
-    return _v13 ? (0, _v1.jsx)(_v32.default, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+    return _v14 ? (0, _v1.jsx)(_v33.default, {}) : (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v12.Flex, {
         grow: "1",
         gap: "3",
@@ -278,7 +283,7 @@
         width: "100%",
         children: [(0, _v1.jsx)(_v13.SlideFade, {
           in: !0,
-          transition: _v33,
+          transition: _v34,
           children: (0, _v1.jsx)(_v1.Fragment, {})
         }, "animate-title"), (0, _v1.jsx)(_v12.Flex, {
           width: "100%",
@@ -286,58 +291,66 @@
           justifyContent: "center",
           children: (0, _v1.jsxs)(_v13.SlideFade, {
             in: !0,
-            transition: _v34,
+            transition: _v35,
             style: {
               width: "100%"
             },
-            children: [_v12 && (0, _v1.jsx)(_v29.ReverseTrialPaywall, {
-              trialDays: "14d" === _v10 ? 14 : 7,
-              paywallTracking: _v17,
-              onComplete: _v20,
-              onActivated: () => _v15(!0),
+            children: [_v18 && (0, _v1.jsx)(_v30.ReverseTrialPaywall, {
+              trialDays: "14d" === _v11 ? 14 : 7,
+              paywallTracking: _v22,
+              onComplete: _v25,
+              onActivated: () => _v20(!0),
               postActivationUrl: _v1
-            }), !_v11 && "plansComparison" === _v5 && (0, _v1.jsx)(_v27.PlansComparisonPaywall, {
+            }), !_v18 && "plansComparison" === _v5 && (0, _v1.jsx)(_v27.PlansComparisonPaywall, {
               tier: _v6,
-              paywallTracking: _v17,
+              paywallTracking: _v22,
               defaultPeriodicity: _v7,
               monthlyFreeTrial: _v8,
               postCheckoutUrl: _v1
-            }), !_v11 && "featureList" === _v5 && (0, _v1.jsx)(_v26, {
+            }), !_v18 && "featureList" === _v5 && (0, _v1.jsx)(_v26, {
               tier: _v6,
-              paywallTracking: _v17,
+              paywallTracking: _v22,
               isUserEligibleForFreeTrial: _v3,
               postCheckoutUrl: _v1
+            }), !_v18 && _v15 && (0, _v1.jsx)(_v29.WelcomeOfferModalPaywall, {
+              isOpen: !0,
+              isPage: !0,
+              showContinueLink: _v4.onboarding_welcome_offer_show_continue_link,
+              paywallTracking: _v22,
+              postCheckoutUrl: _v1,
+              onClose: _v25
             })]
           }, "animate-content")
         })]
-      }), _v12 && !_v14 && (0, _v1.jsx)(_v28.PlansComparisonPaywallNavigation, {
+      }), _v18 && !_v19 && (0, _v1.jsx)(_v28.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: "responsive",
-        onDismiss: _v20
-      }), !_v11 && (0, _v1.jsx)(_v28.PlansComparisonPaywallNavigation, {
+        onDismiss: _v25
+      }), !_v18 && !(_v15 && "none" === _v10) && (0, _v1.jsx)(_v28.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: _v9,
-        onDismiss: _v20
+        dismissButtonVariant: _v15 ? _v10 : "skip",
+        onDismiss: _v25
       })]
     });
   }
-  var _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0);
-  let _v39 = _v0 => ({
+  var _v37 = _v0.i(0),
+    _v38 = _v0.i(0),
+    _v39 = _v0.i(0);
+  let _v40 = _v0 => ({
     question_id: _v0.id,
     question_text: _v0.question,
     question_description: _v0.description ?? null
   });
-  var _v40 = _v0.i(0),
-    _v41 = _v0.i(0),
-    _v42 = _v0.i(0);
-  function _v43({
+  var _v41 = _v0.i(0),
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0);
+  function _v44({
     text: _v0,
     Icon: _v1,
     isSelected: _v2,
     onToggle: _v3,
     ..._v4
   }) {
-    return (0, _v1.jsx)(_v42.Card, {
+    return (0, _v1.jsx)(_v43.Card, {
       onKeyDown: _v0 => {
         "Enter" === _v0.key && _v3();
       },
@@ -381,13 +394,13 @@
       })
     });
   }
-  function _v44({
+  function _v45({
     answers: _v0,
     onToggleAnswer: _v1,
     gridProps: _v2,
     renderSubAnswers: _v3
   }) {
-    return _v0 && 0 !== _v0.length ? (0, _v1.jsx)(_v40.Grid, {
+    return _v0 && 0 !== _v0.length ? (0, _v1.jsx)(_v41.Grid, {
       gap: 3,
       ..._v2,
       width: "100%",
@@ -398,7 +411,7 @@
       children: _v0.map(_v0 => {
         let _v1 = _v0.icon,
           _v2 = _v3?.(_v0.id),
-          _v3 = (0, _v1.jsx)(_v43, {
+          _v3 = (0, _v1.jsx)(_v44, {
             text: _v0.label,
             Icon: _v1,
             isSelected: _v0.isSelected,
@@ -408,20 +421,20 @@
           direction: "column",
           gap: "3",
           children: [_v3, _v2]
-        }, _v0.id) : (0, _v1.jsx)(_v43, {
+        }, _v0.id) : (0, _v1.jsx)(_v44, {
           text: _v0.label,
           Icon: _v1,
           isSelected: _v0.isSelected,
           onToggle: () => _v1(_v0.id)
         }, _v0.id);
       })
-    }) : (0, _v1.jsx)(_v41.Spinner, {});
+    }) : (0, _v1.jsx)(_v42.Spinner, {});
   }
-  var _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
+  var _v46 = _v0.i(0),
     _v47 = _v0.i(0),
-    _v48 = _v0.i(0);
-  let _v49 = _v0 => (0, _v1.jsx)(_v48.Icon, {
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0);
+  let _v50 = _v0 => (0, _v1.jsx)(_v49.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -430,11 +443,11 @@
       fill: "currentColor"
     })
   });
-  var _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
+  var _v51 = _v0.i(0),
     _v52 = _v0.i(0),
-    _v53 = _v0.i(0);
-  let _v54 = _v0 => (0, _v1.jsx)(_v48.Icon, {
+    _v53 = _v0.i(0),
+    _v54 = _v0.i(0);
+  let _v55 = _v0 => (0, _v1.jsx)(_v49.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -443,14 +456,14 @@
         fill: "currentColor"
       })
     }),
-    _v55 = "profile",
-    _v56 = "upload_audience",
-    _v57 = "usage",
-    _v58 = "org_size",
-    _v59 = "what_brings_you",
-    _v60 = "other",
-    _v61 = "video_professional",
-    _v62 = [{
+    _v56 = "profile",
+    _v57 = "upload_audience",
+    _v58 = "usage",
+    _v59 = "org_size",
+    _v60 = "what_brings_you",
+    _v61 = "other",
+    _v62 = "video_professional",
+    _v63 = [{
       id: "video_professional_freelance",
       label: (0, _v19.translate)({
         singular: "Freelance",
@@ -475,7 +488,7 @@
           }
         }
       }),
-      icon: _v50.PersonUser
+      icon: _v51.PersonUser
     }, {
       id: "video_professional_agency",
       label: (0, _v19.translate)({
@@ -504,7 +517,7 @@
           }
         }
       }),
-      icon: _v54
+      icon: _v55
     }, {
       id: "video_professional_in_house",
       label: (0, _v19.translate)({
@@ -533,10 +546,10 @@
           }
         }
       }),
-      icon: _v45.Building
+      icon: _v46.Building
     }],
-    _v63 = [{
-      id: _v55,
+    _v64 = [{
+      id: _v56,
       question: (0, _v19.translate)({
         singular: "Which best describes you?",
         dictionary: {
@@ -566,7 +579,7 @@
       placeholder: "",
       isMultiChoice: !1,
       answers: [{
-        id: _v61,
+        id: _v62,
         label: (0, _v19.translate)({
           singular: "Video professional",
           dictionary: {
@@ -593,7 +606,7 @@
             }
           }
         }),
-        icon: _v51.PresentationPlay
+        icon: _v52.PresentationPlay
       }, {
         id: "independent_filmmaker",
         label: (0, _v19.translate)({
@@ -622,7 +635,7 @@
             }
           }
         }),
-        icon: _v51.PresentationPlay
+        icon: _v52.PresentationPlay
       }, {
         id: "non_video_freelancer",
         label: (0, _v19.translate)({
@@ -651,7 +664,7 @@
             }
           }
         }),
-        icon: _v50.PersonUser
+        icon: _v51.PersonUser
       }, {
         id: "business_owner_employee",
         label: (0, _v19.translate)({
@@ -680,7 +693,7 @@
             }
           }
         }),
-        icon: _v45.Building
+        icon: _v46.Building
       }, {
         id: "viewer_only",
         label: (0, _v19.translate)({
@@ -709,10 +722,10 @@
             }
           }
         }),
-        icon: _v52.SearchMagnifier
+        icon: _v53.SearchMagnifier
       }]
     }, {
-      id: _v56,
+      id: _v57,
       question: (0, _v19.translate)({
         singular: "Do you upload videos? Who are these videos for?",
         dictionary: {
@@ -792,7 +805,7 @@
             }
           }
         }),
-        icon: _v46.Chats
+        icon: _v47.Chats
       }, {
         id: "own_brand",
         label: (0, _v19.translate)({
@@ -821,7 +834,7 @@
             }
           }
         }),
-        icon: _v49
+        icon: _v50
       }, {
         id: "my_company",
         label: (0, _v19.translate)({
@@ -850,7 +863,7 @@
             }
           }
         }),
-        icon: _v45.Building
+        icon: _v46.Building
       }, {
         id: "creative_audience",
         label: (0, _v19.translate)({
@@ -879,7 +892,7 @@
             }
           }
         }),
-        icon: _v53.Share
+        icon: _v54.Share
       }, {
         id: "just_me",
         label: (0, _v19.translate)({
@@ -908,7 +921,7 @@
             }
           }
         }),
-        icon: _v50.PersonUser
+        icon: _v51.PersonUser
       }, {
         id: "mainly_watch",
         label: (0, _v19.translate)({
@@ -937,10 +950,10 @@
             }
           }
         }),
-        icon: _v52.SearchMagnifier
+        icon: _v53.SearchMagnifier
       }]
     }, {
-      id: _v57,
+      id: _v58,
       question: (0, _v19.translate)({
         singular: "What are you using Vimeo for?",
         dictionary: {
@@ -1023,7 +1036,7 @@
             }
           }
         }),
-        icon: _v53.Share
+        icon: _v54.Share
       }, {
         id: "review_feedback",
         label: (0, _v19.translate)({
@@ -1052,7 +1065,7 @@
             }
           }
         }),
-        icon: _v46.Chats
+        icon: _v47.Chats
       }, {
         id: "embed_videos",
         label: (0, _v19.translate)({
@@ -1081,7 +1094,7 @@
             }
           }
         }),
-        icon: _v51.PresentationPlay
+        icon: _v52.PresentationPlay
       }, {
         id: "store_organize",
         label: (0, _v19.translate)({
@@ -1110,7 +1123,7 @@
             }
           }
         }),
-        icon: _v54
+        icon: _v55
       }, {
         id: "showcase_portfolio",
         label: (0, _v19.translate)({
@@ -1139,7 +1152,7 @@
             }
           }
         }),
-        icon: _v54
+        icon: _v55
       }, {
         id: "share_films",
         label: (0, _v19.translate)({
@@ -1168,7 +1181,7 @@
             }
           }
         }),
-        icon: _v53.Share
+        icon: _v54.Share
       }, {
         id: "inspiration_discovery",
         label: (0, _v19.translate)({
@@ -1197,7 +1210,7 @@
             }
           }
         }),
-        icon: _v52.SearchMagnifier
+        icon: _v53.SearchMagnifier
       }, {
         id: "other",
         label: (0, _v19.translate)({
@@ -1226,10 +1239,10 @@
             }
           }
         }),
-        icon: _v47.EllipsisV
+        icon: _v48.EllipsisV
       }]
     }, {
-      id: _v58,
+      id: _v59,
       question: (0, _v19.translate)({
         singular: "Organization size?",
         dictionary: {
@@ -1286,31 +1299,31 @@
             }
           }
         }),
-        icon: _v50.PersonUser
+        icon: _v51.PersonUser
       }, {
         id: "2_10",
         label: (0, _v19.translate)("2-10"),
-        icon: _v50.PersonUser
+        icon: _v51.PersonUser
       }, {
         id: "11_50",
         label: (0, _v19.translate)("11-50"),
-        icon: _v50.PersonUser
+        icon: _v51.PersonUser
       }, {
         id: "51_200",
         label: (0, _v19.translate)("51-200"),
-        icon: _v50.PersonUser
+        icon: _v51.PersonUser
       }, {
         id: "201_1000",
         label: (0, _v19.translate)("201-1,000"),
-        icon: _v50.PersonUser
+        icon: _v51.PersonUser
       }, {
         id: "1000_plus",
         label: (0, _v19.translate)("1,000+"),
-        icon: _v50.PersonUser
+        icon: _v51.PersonUser
       }]
     }],
-    _v64 = {
-      id: _v59,
+    _v65 = {
+      id: _v60,
       question: (0, _v19.translate)({
         singular: "What brings you to Vimeo today?",
         dictionary: {
@@ -1393,7 +1406,7 @@
             }
           }
         }),
-        icon: _v51.PresentationPlay
+        icon: _v52.PresentationPlay
       }, {
         id: "embed_on_site",
         label: (0, _v19.translate)({
@@ -1422,7 +1435,7 @@
             }
           }
         }),
-        icon: _v49
+        icon: _v50
       }, {
         id: "share_via_link",
         label: (0, _v19.translate)({
@@ -1451,7 +1464,7 @@
             }
           }
         }),
-        icon: _v53.Share
+        icon: _v54.Share
       }, {
         id: "store_videos",
         label: (0, _v19.translate)({
@@ -1480,7 +1493,7 @@
             }
           }
         }),
-        icon: _v54
+        icon: _v55
       }, {
         id: "record_video",
         label: (0, _v19.translate)({
@@ -1509,7 +1522,7 @@
             }
           }
         }),
-        icon: _v51.PresentationPlay
+        icon: _v52.PresentationPlay
       }, {
         id: "create_portfolio",
         label: (0, _v19.translate)({
@@ -1538,7 +1551,7 @@
             }
           }
         }),
-        icon: _v45.Building
+        icon: _v46.Building
       }, {
         id: "get_feedback",
         label: (0, _v19.translate)({
@@ -1567,7 +1580,7 @@
             }
           }
         }),
-        icon: _v46.Chats
+        icon: _v47.Chats
       }, {
         id: "find_inspiration",
         label: (0, _v19.translate)({
@@ -1596,7 +1609,7 @@
             }
           }
         }),
-        icon: _v52.SearchMagnifier
+        icon: _v53.SearchMagnifier
       }, {
         id: "run_live_event",
         label: (0, _v19.translate)({
@@ -1625,9 +1638,9 @@
             }
           }
         }),
-        icon: _v50.PersonUser
+        icon: _v51.PersonUser
       }, {
-        id: _v60,
+        id: _v61,
         label: (0, _v19.translate)({
           singular: "Other",
           dictionary: {
@@ -1654,12 +1667,12 @@
             }
           }
         }),
-        icon: _v47.EllipsisV
+        icon: _v48.EllipsisV
       }]
     };
-  var _v65 = _v0.i(0),
-    _v66 = _v0.i(0);
-  function _v67({
+  var _v66 = _v0.i(0),
+    _v67 = _v0.i(0);
+  function _v68({
     progressPct: _v0,
     onBack: _v1,
     onNext: _v2,
@@ -1692,7 +1705,7 @@
           md: "120px"
         },
         children: (0, _v1.jsx)(_v15.Box, {
-          as: _v65.motion.div,
+          as: _v66.motion.div,
           bg: "fill-brand",
           height: "100%",
           animate: {
@@ -1708,7 +1721,7 @@
           justifyContent: "center",
           gap: "2",
           width: "100%",
-          children: [(0, _v1.jsx)(_v68, {
+          children: [(0, _v1.jsx)(_v69, {
             variant: "secondary",
             onClick: _v1,
             hidden: 0 === _v0,
@@ -1741,7 +1754,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v68, {
+          }), (0, _v1.jsx)(_v69, {
             variant: "primary",
             onClick: _v2,
             isDisabled: _v4 || _v5,
@@ -1799,7 +1812,7 @@
               }
             })
           })]
-        }), (0, _v1.jsx)(_v68, {
+        }), (0, _v1.jsx)(_v69, {
           variant: "tertiary",
           onClick: _v3,
           isDisabled: _v4,
@@ -1839,27 +1852,27 @@
       })]
     });
   }
-  let _v68 = ({
+  let _v69 = ({
       children: _v0,
       loading: _v1,
       ..._v2
-    }) => (0, _v1.jsxs)(_v66.Button, {
+    }) => (0, _v1.jsxs)(_v67.Button, {
       size: "sm",
       p: "1.25rem",
       borderRadius: "md",
       ..._v2,
-      children: [_v1 && (0, _v1.jsx)(_v41.Spinner, {
+      children: [_v1 && (0, _v1.jsx)(_v42.Spinner, {
         size: "sm",
         position: "absolute"
       }), (0, _v1.jsx)(_v15.Box, {
-        as: _v65.motion.div,
+        as: _v66.motion.div,
         animate: {
           opacity: +!_v1
         },
         children: _v0
       })]
     }),
-    _v69 = {
+    _v70 = {
       exit: {
         duration: .16
       },
@@ -1867,7 +1880,7 @@
         duration: .16
       }
     },
-    _v70 = {
+    _v71 = {
       exit: {
         duration: .16
       },
@@ -1876,7 +1889,7 @@
         delay: .16
       }
     };
-  function _v71({
+  function _v72({
     randomizeAnswers: _v0 = !0,
     isFinalPhase: _v1,
     useSingleQuestionSurvey: _v2 = !1,
@@ -1889,13 +1902,13 @@
         trackOnboardingSurveyViewed: _v7,
         trackOnboardingSurveyAnswered: _v8,
         trackOnboardingSurveySkipped: _v9
-      } = (_v4 = (0, _v38.usePico)(), _v5 = (0, _v7.useRef)(!1), _v6 = (0, _v7.useCallback)(() => {
+      } = (_v4 = (0, _v39.usePico)(), _v5 = (0, _v7.useRef)(!1), _v6 = (0, _v7.useCallback)(() => {
         null === _v4 || _v5.current || (_v4.track("onboarding_survey_viewed", {}), _v5.current = !0);
       }, [_v4]), {
         trackOnboardingSurveyViewed: _v6,
         trackOnboardingSurveyAnswered: (0, _v7.useCallback)(_v0 => {
           null !== _v4 && _v4.track("onboarding_survey_answered", {
-            ..._v39(_v0.question),
+            ..._v40(_v0.question),
             answers: _v0.answers.map(_v0 => ({
               answer_id: _v0.id,
               answer_text: _v0.label,
@@ -1906,7 +1919,7 @@
         }, [_v4]),
         trackOnboardingSurveySkipped: (0, _v7.useCallback)((_v0, _v1 = !1) => {
           null !== _v4 && _v4.track("onboarding_survey_skipped", {
-            ..._v39(_v0),
+            ..._v40(_v0),
             skipped_to_paywall: _v1
           });
         }, [_v4])
@@ -1917,24 +1930,24 @@
       [_v11, _v12] = (0, _v7.useState)(),
       [_v13, _v14] = (0, _v7.useState)({}),
       [_v15, _v16] = (0, _v7.useState)({}),
-      _v17 = _v13[_v55] ?? [],
-      _v18 = _v17.find(_v0 => !_v62.some(_v0 => _v0.id === _v0)) ?? null,
-      _v19 = _v62.find(_v0 => _v17.includes(_v0.id))?.id ?? null,
-      _v20 = _v18 === _v61,
+      _v17 = _v13[_v56] ?? [],
+      _v18 = _v17.find(_v0 => !_v63.some(_v0 => _v0.id === _v0)) ?? null,
+      _v19 = _v63.find(_v0 => _v17.includes(_v0.id))?.id ?? null,
+      _v20 = _v18 === _v62,
       _v21 = _v20 || "non_video_freelancer" === _v18 || "business_owner_employee" === _v18;
     (0, _v7.useEffect)(() => {
       !_v20 && _v19 && _v14(_v0 => ({
         ..._v0,
-        [_v55]: (_v0[_v55] ?? []).filter(_v0 => !_v62.some(_v0 => _v0.id === _v0))
+        [_v56]: (_v0[_v56] ?? []).filter(_v0 => !_v63.some(_v0 => _v0.id === _v0))
       }));
     }, [_v20, _v19]), (0, _v7.useEffect)(() => {
-      let _v0 = _v13[_v58] ?? [];
+      let _v0 = _v13[_v59] ?? [];
       !_v21 && _v0.length > 0 && _v14(_v0 => ({
         ..._v0,
-        [_v58]: []
+        [_v59]: []
       }));
     }, [_v13, _v21]);
-    let _v22 = (0, _v7.useMemo)(() => _v2 ? [_v64] : _v21 ? _v63 : _v63.filter(_v0 => _v0.id !== _v58), [_v21, _v2]),
+    let _v22 = (0, _v7.useMemo)(() => _v2 ? [_v65] : _v21 ? _v64 : _v64.filter(_v0 => _v0.id !== _v59), [_v21, _v2]),
       _v23 = (0, _v7.useRef)({}),
       _v24 = (0, _v7.useMemo)(() => _v22.map(_v0 => {
         let _v1 = _v13[_v0.id] ?? [],
@@ -1949,7 +1962,7 @@
             randomizedOrders: _v3
           }) => {
             let _v4;
-            if (!_v2 || _v0 === _v58) return _v1;
+            if (!_v2 || _v0 === _v59) return _v1;
             let _v5 = _v1.map(_v0 => _v0.id),
               _v6 = _v3.current?.[_v0],
               _v7 = _v6 && _v6.length === _v5.length && _v5.every(_v0 => _v6.includes(_v0)),
@@ -1960,7 +1973,7 @@
                   [_v1[_v0], _v1[_v0]] = [_v1[_v0], _v1[_v0]];
                 }
                 return _v1;
-              })(_v5.filter(_v0 => _v0 !== _v60)), _v5.includes(_v60) && _v4.push(_v60), _v4);
+              })(_v5.filter(_v0 => _v0 !== _v61)), _v5.includes(_v61) && _v4.push(_v61), _v4);
             !_v7 && _v3.current && (_v3.current[_v0] = _v8);
             let _v9 = new Map(_v1.map(_v0 => [_v0.id, _v0]));
             return _v8.map(_v0 => _v9.get(_v0)).filter(_v0 => !!_v0);
@@ -2031,26 +2044,26 @@
     }, [_v28, _v3]), (0, _v7.useEffect)(() => {
       _v28 || _v7();
     }, [_v7, _v28]);
-    let _v31 = !!_v29?.answers.some(_v0 => _v0.id === _v60),
+    let _v31 = !!_v29?.answers.some(_v0 => _v0.id === _v61),
       _v32 = _v29 ? _v13[_v29.id] ?? [] : [],
-      _v33 = _v31 && _v32.includes(_v60),
-      _v34 = _v29 ? _v15[_v29.id]?.[_v60] ?? "" : "",
+      _v33 = _v31 && _v32.includes(_v61),
+      _v34 = _v29 ? _v15[_v29.id]?.[_v61] ?? "" : "",
       _v35 = (() => {
         if (!_v29) return !1;
         switch (_v29.id) {
-          case _v55:
-            if (!_v18) return !1;
-            if (_v18 === _v61) return !!_v19;
-            return !0;
           case _v56:
-            return (_v13[_v56] ?? []).length > 0;
+            if (!_v18) return !1;
+            if (_v18 === _v62) return !!_v19;
+            return !0;
           case _v57:
-          case _v59:
+            return (_v13[_v57] ?? []).length > 0;
+          case _v58:
+          case _v60:
             if (0 === _v32.length) return !1;
             if (_v33) return _v34.trim().length > 0;
             return !0;
-          case _v58:
-            return (_v13[_v58] ?? []).length > 0;
+          case _v59:
+            return (_v13[_v59] ?? []).length > 0;
           default:
             return !1;
         }
@@ -2063,14 +2076,14 @@
       },
       _v38 = _v0 => {
         _v14(_v0 => {
-          let _v1 = (_v0[_v55] ?? []).includes(_v0) ? [] : [_v0];
+          let _v1 = (_v0[_v56] ?? []).includes(_v0) ? [] : [_v0];
           return {
             ..._v0,
-            [_v55]: [_v61, ..._v1]
+            [_v56]: [_v62, ..._v1]
           };
         });
       },
-      _v39 = _v62.map(_v0 => ({
+      _v39 = _v63.map(_v0 => ({
         ..._v0,
         isSelected: _v17.includes(_v0.id)
       }));
@@ -2082,7 +2095,7 @@
         width: "100%",
         children: [(0, _v1.jsx)(_v13.SlideFade, {
           in: !_v11,
-          transition: _v69,
+          transition: _v70,
           children: (0, _v1.jsx)(_v1.Fragment, {
             children: _v29 && (0, _v1.jsxs)(_v12.Flex, {
               flexDirection: "column",
@@ -2120,61 +2133,58 @@
           },
           children: (0, _v1.jsx)(_v13.SlideFade, {
             in: !_v11,
-            transition: _v70,
+            transition: _v71,
             children: _v29 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v44, {
+              children: [(0, _v1.jsx)(_v45, {
                 answers: _v29.answers,
                 onToggleAnswer: _v0 => {
                   var _v1;
-                  _v29.id === _v55 ? _v14(_v0 => {
-                    let _v1 = _v0[_v55] ?? [],
-                      _v2 = _v62.find(_v0 => _v1.includes(_v0.id))?.id ?? null;
+                  _v29.id === _v56 ? _v14(_v0 => {
+                    let _v1 = _v0[_v56] ?? [],
+                      _v2 = _v63.find(_v0 => _v1.includes(_v0.id))?.id ?? null;
                     if (_v1.includes(_v0)) return {
                       ..._v0,
-                      [_v55]: [],
-                      [_v58]: []
+                      [_v56]: [],
+                      [_v59]: []
                     };
-                    let _v3 = _v0 === _v61 ? [_v61, ...(_v2 ? [_v2] : [])] : [_v0];
+                    let _v3 = _v0 === _v62 ? [_v62, ...(_v2 ? [_v2] : [])] : [_v0];
                     return {
                       ..._v0,
-                      [_v55]: _v3
+                      [_v56]: _v3
                     };
-                  }) : _v29.id === _v56 ? _v14(_v0 => {
-                    let _v1 = _v0[_v56] ?? [];
+                  }) : _v29.id === _v57 ? _v14(_v0 => {
+                    let _v1 = _v0[_v57] ?? [];
                     if ("mainly_watch" === _v0) return {
                       ..._v0,
-                      [_v56]: _v1.includes(_v0) ? [] : [_v0]
+                      [_v57]: _v1.includes(_v0) ? [] : [_v0]
                     };
                     let _v2 = _v1.includes(_v0) ? _v1.filter(_v0 => _v0 !== _v0) : [..._v1, _v0];
                     return {
                       ..._v0,
-                      [_v56]: _v2.filter(_v0 => "mainly_watch" !== _v0)
+                      [_v57]: _v2.filter(_v0 => "mainly_watch" !== _v0)
                     };
-                  }) : _v29.id === _v57 || _v29.id === _v59 ? (_v1 = _v29.id, _v14(_v0 => {
+                  }) : _v29.id === _v58 || _v29.id === _v60 ? (_v1 = _v29.id, _v14(_v0 => {
                     let _v1 = _v0[_v1] ?? [],
                       _v2 = _v1.includes(_v0) ? _v1.filter(_v0 => _v0 !== _v0) : [..._v1, _v0];
-                    return _v2.includes(_v60) || _v16(_v0 => ({
+                    return _v2.includes(_v61) || _v16(_v0 => ({
                       ..._v0,
                       [_v1]: {
                         ...(_v0[_v1] ?? {}),
-                        [_v60]: ""
+                        [_v61]: ""
                       }
                     })), {
                       ..._v0,
                       [_v1]: _v2
                     };
-                  })) : _v29.id === _v58 && _v14(_v0 => {
-                    let _v1 = _v0[_v58] ?? [];
+                  })) : _v29.id === _v59 && _v14(_v0 => {
+                    let _v1 = _v0[_v59] ?? [];
                     return {
                       ..._v0,
-                      [_v58]: _v1.includes(_v0) ? [] : [_v0]
+                      [_v59]: _v1.includes(_v0) ? [] : [_v0]
                     };
                   });
                 },
                 gridProps: {
-                  [_v55]: {
-                    gridAutoFlow: "row"
-                  },
                   [_v56]: {
                     gridAutoFlow: "row"
                   },
@@ -2186,11 +2196,14 @@
                   },
                   [_v59]: {
                     gridAutoFlow: "row"
+                  },
+                  [_v60]: {
+                    gridAutoFlow: "row"
                   }
                 }[_v29.id],
-                renderSubAnswers: _v0 => _v29.id === _v55 && _v0 === _v61 && _v20 ? (0, _v1.jsx)(_v13.SlideFade, {
+                renderSubAnswers: _v0 => _v29.id === _v56 && _v0 === _v62 && _v20 ? (0, _v1.jsx)(_v13.SlideFade, {
                   in: _v20,
-                  transition: _v69,
+                  transition: _v70,
                   offsetY: "-20px",
                   children: (0, _v1.jsx)(_v15.Box, {
                     width: "100%",
@@ -2198,7 +2211,7 @@
                       base: 2,
                       md: 4
                     },
-                    children: (0, _v1.jsx)(_v44, {
+                    children: (0, _v1.jsx)(_v45, {
                       answers: _v39,
                       onToggleAnswer: _v38,
                       gridProps: {
@@ -2209,7 +2222,7 @@
                 }) : null
               }), (0, _v1.jsx)(_v13.SlideFade, {
                 in: _v33,
-                transition: _v69,
+                transition: _v70,
                 offsetY: "-20px",
                 children: (0, _v1.jsxs)(_v12.Flex, {
                   visibility: _v33 ? "visible" : "hidden",
@@ -2252,7 +2265,7 @@
                         }
                       })
                     })
-                  }), (0, _v1.jsx)(_v37.Input, {
+                  }), (0, _v1.jsx)(_v38.Input, {
                     autoFocus: !0,
                     bg: "transparent",
                     value: _v34,
@@ -2260,7 +2273,7 @@
                       ..._v0,
                       [_v29.id]: {
                         ...(_v0[_v29.id] ?? {}),
-                        [_v60]: _v0.target.value
+                        [_v61]: _v0.target.value
                       }
                     }))
                   }, `autoFocus-${_v33}`)]
@@ -2269,7 +2282,7 @@
             })
           }, `animate-content-${_v27}`)
         })]
-      }), (0, _v1.jsx)(_v67, {
+      }), (0, _v1.jsx)(_v68, {
         progressPct: _v26 > 1 ? (_v27 - 1) / (_v26 - 1) * 100 : 0,
         showFinishLabel: _v1,
         isNextDisabled: !_v35,
@@ -2285,10 +2298,10 @@
               question: _v29.question,
               description: _v29.description
             },
-            answers: (_v2 = _v13[_v1 = (_v0 = _v29).id] ?? [], _v3 = _v1 === _v55 ? [..._v0.answers, ..._v62] : _v0.answers, _v4 = _v1 === _v55 && _v2.includes(_v61) ? _v2.filter(_v0 => _v0 !== _v61) : _v2, _v3.filter(_v0 => _v4.includes(_v0.id)).map(_v0 => ({
+            answers: (_v2 = _v13[_v1 = (_v0 = _v29).id] ?? [], _v3 = _v1 === _v56 ? [..._v0.answers, ..._v63] : _v0.answers, _v4 = _v1 === _v56 && _v2.includes(_v62) ? _v2.filter(_v0 => _v0 !== _v62) : _v2, _v3.filter(_v0 => _v4.includes(_v0.id)).map(_v0 => ({
               id: _v0.id,
               label: _v0.label,
-              text: _v0.id === _v60 ? _v15[_v1]?.[_v60] : void 0
+              text: _v0.id === _v61 ? _v15[_v1]?.[_v61] : void 0
             })))
           }), _v36());
         },
@@ -2300,14 +2313,14 @@
           }), _v29 && (_v14(_v0 => ({
             ..._v0,
             [_v29.id]: [],
-            ...(_v29.id === _v55 ? {
-              [_v58]: []
+            ...(_v29.id === _v56 ? {
+              [_v59]: []
             } : {})
-          })), _v29.answers.some(_v0 => _v0.id === _v60) && _v16(_v0 => ({
+          })), _v29.answers.some(_v0 => _v0.id === _v61) && _v16(_v0 => ({
             ..._v0,
             [_v29.id]: {
               ...(_v0[_v29.id] ?? {}),
-              [_v60]: ""
+              [_v61]: ""
             }
           }))), _v36());
         },
@@ -2316,21 +2329,21 @@
       })]
     });
   }
-  var _v72 = _v0.i(0),
-    _v73 = _v0.i(0),
+  var _v73 = _v0.i(0),
     _v74 = _v0.i(0),
     _v75 = _v0.i(0),
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
     _v78 = _v0.i(0),
-    _v79 = _v0.i(0);
-  let _v80 = {
+    _v79 = _v0.i(0),
+    _v80 = _v0.i(0);
+  let _v81 = {
       upload: "/upload/videos",
       record: "/upload/screen-recording",
       create: "/upload/video-maker"
     },
-    _v81 = `${_v80.upload}?upload_notice=reselect`,
-    _v82 = [{
+    _v82 = `${_v81.upload}?upload_notice=reselect`,
+    _v83 = [{
       id: "upload",
       label: (0, _v19.translate)({
         singular: "Upload",
@@ -2410,7 +2423,7 @@
           }
         }
       }),
-      Icon: _v79.Upload
+      Icon: _v80.Upload
     }, {
       id: "record",
       label: (0, _v19.translate)({
@@ -2491,7 +2504,7 @@
           }
         }
       }),
-      Icon: _v78.Record
+      Icon: _v79.Record
     }, {
       id: "create",
       label: (0, _v19.translate)({
@@ -2572,12 +2585,12 @@
           }
         }
       }),
-      Icon: _v77.CreateVideo
+      Icon: _v78.CreateVideo
     }],
-    _v83 = {
+    _v84 = {
       position: "relative",
       width: "100%",
-      height: `clamp(${(0, _v73.rem)(400)}, 56vh, ${(0, _v73.rem)(518)})`,
+      height: `clamp(${(0, _v74.rem)(400)}, 56vh, ${(0, _v74.rem)(518)})`,
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -2590,7 +2603,7 @@
       borderColor: "stroke",
       borderRadius: "2xl"
     };
-  function _v84({
+  function _v85({
     onComplete: _v0,
     onSkip: _v1,
     defaultTab: _v2 = "upload",
@@ -2607,7 +2620,7 @@
         trackOnboardingUploadTabSelected: _v12,
         trackOnboardingUploadCtaClicked: _v13,
         trackOnboardingUploadSkipped: _v14
-      } = (_v5 = (0, _v38.usePico)(), _v6 = (0, _v7.useRef)(!1), _v7 = (0, _v7.useCallback)(_v0 => {
+      } = (_v5 = (0, _v39.usePico)(), _v6 = (0, _v7.useRef)(!1), _v7 = (0, _v7.useCallback)(_v0 => {
         null === _v5 || _v6.current || (_v5.track("onboarding_upload_viewed", {
           default_tab: _v0.defaultTab,
           show_create: _v0.showCreate
@@ -2638,7 +2651,7 @@
         showCreate: _v3
       });
     }, [_v11, _v2, _v3]);
-    let _v15 = _v82.filter(_v0 => "create" !== _v0.id || _v3),
+    let _v15 = _v83.filter(_v0 => "create" !== _v0.id || _v3),
       _v16 = Math.max(0, _v15.findIndex(_v0 => _v0.id === _v9)),
       _v17 = _v15[_v16],
       _v18 = _v17.Icon,
@@ -2662,14 +2675,14 @@
           textAlign: "center",
           maxWidth: "520px",
           children: _v17.heading
-        }), (0, _v1.jsx)(_v66.Button, {
+        }), (0, _v1.jsx)(_v67.Button, {
           variant: "brand",
-          onClick: _v19 ? () => _v20.current?.click() : () => _v21(_v80[_v17.id]),
+          onClick: _v19 ? () => _v20.current?.click() : () => _v21(_v81[_v17.id]),
           children: _v17.ctaLabel
         })]
       });
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v66.Button, {
+      children: [(0, _v1.jsx)(_v67.Button, {
         variant: "tertiary",
         size: "sm",
         onClick: () => {
@@ -2712,7 +2725,7 @@
         alignItems: "center",
         gap: "6",
         width: "100%",
-        maxWidth: (0, _v73.rem)(896),
+        maxWidth: (0, _v74.rem)(896),
         children: [(0, _v1.jsx)(_v16.Text, {
           variant: {
             base: "heading-md",
@@ -2746,12 +2759,12 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v75.Tabs, {
+        }), (0, _v1.jsx)(_v76.Tabs, {
           variant: "default",
           size: "md",
           width: {
             base: "100%",
-            md: (0, _v73.rem)(576)
+            md: (0, _v74.rem)(576)
           },
           maxWidth: "100%",
           index: _v16,
@@ -2762,15 +2775,15 @@
               toTab: _v1
             }), _v10(_v1);
           },
-          children: (0, _v1.jsxs)(_v76.TabList, {
-            children: [_v15.map(_v0 => (0, _v1.jsx)(_v74.Tab, {
+          children: (0, _v1.jsxs)(_v77.TabList, {
+            children: [_v15.map(_v0 => (0, _v1.jsx)(_v75.Tab, {
               children: _v0.label
-            }, _v0.id)), (0, _v1.jsx)(_v75.TabIndicator, {})]
+            }, _v0.id)), (0, _v1.jsx)(_v76.TabIndicator, {})]
           })
-        }, _v15.length), _v19 ? (0, _v1.jsx)(_v72.Dropzone, {
+        }, _v15.length), _v19 ? (0, _v1.jsx)(_v73.Dropzone, {
           ref: _v20,
           accept: "video/*",
-          ..._v83,
+          ..._v84,
           sx: {
             input: {
               position: "absolute",
@@ -2783,20 +2796,20 @@
             }
           },
           onChange: _v0 => {
-            (_v0.target.files?.[0] ?? _v0.dataTransfer?.files?.[0]) && _v21(_v81);
+            (_v0.target.files?.[0] ?? _v0.dataTransfer?.files?.[0]) && _v21(_v82);
           },
           children: _v22
         }) : (0, _v1.jsx)(_v12.Flex, {
-          ..._v83,
+          ..._v84,
           children: _v22
         })]
       })]
     });
   }
-  function _v85(_v0, _v1) {
+  function _v86(_v0, _v1) {
     return _v0[_v0.indexOf(_v1) + 1] ?? null;
   }
-  function _v86({
+  function _v87({
     randomizeAnswers: _v0 = !0
   }) {
     var _v1;
@@ -2833,7 +2846,7 @@
       },
       _v19 = () => {
         if (!_v14) return;
-        let _v0 = _v85(_v13, _v14);
+        let _v0 = _v86(_v13, _v14);
         if (!_v0) return void _v18();
         let _v1 = new URLSearchParams(_v3.toString());
         _v1.delete("page"), _v1.set("phase", _v0), _v2.push({
@@ -2841,20 +2854,20 @@
           search: _v1.toString()
         });
       };
-    return _v5 || _v7 ? (0, _v1.jsx)(_v32.default, {}) : (0, _v1.jsxs)(_v36.OnboardingShell, {
-      children: ["survey" === _v14 && (0, _v1.jsx)(_v71, {
+    return _v5 || _v7 ? (0, _v1.jsx)(_v33.default, {}) : (0, _v1.jsxs)(_v37.OnboardingShell, {
+      children: ["survey" === _v14 && (0, _v1.jsx)(_v72, {
         randomizeAnswers: _v0,
-        isFinalPhase: null === _v85(_v13, "survey"),
+        isFinalPhase: null === _v86(_v13, "survey"),
         useSingleQuestionSurvey: _v12,
         onComplete: _v19
-      }), "upload" === _v14 && (0, _v1.jsx)(_v84, {
+      }), "upload" === _v14 && (0, _v1.jsx)(_v85, {
         showCreate: !!_v6?.hasCreation,
         enableFileSelector: "t3" === _v11,
         onComplete: _v0 => {
           _v10(_v0), _v19();
         },
         onSkip: _v19
-      }), ("paywall" === _v14 || null === _v14) && (0, _v1.jsx)(_v35, {
+      }), ("paywall" === _v14 || null === _v14) && (0, _v1.jsx)(_v36, {
         postCheckoutUrl: _v17,
         onDismiss: _v18
       })]
@@ -2897,5 +2910,5 @@
     requireLogin: !0,
     noIndex: !0,
     inlineViewer: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => (0, _v1.jsx)(_v86, {})], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => (0, _v1.jsx)(_v87, {})], 0);
 }

@@ -28,7 +28,7 @@
         modules: [0]
       },
       loading: () => (0, _v1.jsx)(_v4.Box, {
-        width: "66%",
+        width: "100%",
         height: "100%"
       })
     }),
@@ -44,7 +44,7 @@
         modules: [0]
       },
       loading: () => (0, _v1.jsx)(_v4.Box, {
-        width: "66%",
+        width: "100%",
         height: "100%"
       })
     }),
@@ -60,7 +60,7 @@
         modules: [0]
       },
       loading: () => (0, _v1.jsx)(_v4.Box, {
-        width: "66%",
+        width: "100%",
         height: "100%"
       })
     });

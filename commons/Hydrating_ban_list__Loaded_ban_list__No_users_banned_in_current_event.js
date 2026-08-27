@@ -121,7 +121,8 @@
   }, "subscribeToChatMessages", 0, function (_v0, _v1, _v2, _v3) {
     let _v4 = (0, _v1.default)(_v0 => (0, _v10.trackLiveAction)("chat_message_delivery_lag", {
         chatType: _v4.CHAT_TYPE_LABELS[_v1],
-        lagMs: _v0
+        lagMs: _v0,
+        visibility: document.visibilityState
       }), _v2.interactionToolsConfig.CHAT.DELIVERY_LAG_TRACK_INTERVAL, {
         trailing: !1
       }),

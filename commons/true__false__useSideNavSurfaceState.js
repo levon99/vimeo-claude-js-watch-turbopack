@@ -16,35 +16,35 @@
   _v0.s(["useSideNavSurfaceState", 0, ({
     surface: _v0,
     userId: _v1,
-    isMobile: _v2
+    isMobile: _v2,
+    persist: _v3 = !0
   }) => {
-    let [_v3, _v4] = (0, _v1.useState)(!_v2),
-      _v5 = (0, _v1.useRef)(_v0);
+    let [_v4, _v5] = (0, _v1.useState)(!_v2),
+      _v6 = (0, _v1.useRef)(_v0);
     (0, _v1.useLayoutEffect)(() => {
-      let _v0 = _v5.current !== _v0;
-      _v5.current = _v0;
-      let _v1 = !_v2 && (_v0 ? _v3(_v1, _v0) ?? !0 : _v3(_v1, _v0));
-      void 0 !== _v1 && _v4(_v1);
-    }, [_v1, _v0, _v2]);
-    let _v6 = (0, _v1.useCallback)(() => {
-        _v4(_v0 => {
+      let _v0,
+        _v1 = _v6.current !== _v0;
+      _v6.current = _v0, void 0 !== (_v0 = !_v2 && (!_v3 || (_v1 ? _v3(_v1, _v0) ?? !0 : _v3(_v1, _v0)))) && _v5(_v0);
+    }, [_v1, _v0, _v2, _v3]);
+    let _v7 = (0, _v1.useCallback)(() => {
+        _v5(_v0 => {
           let _v1 = !_v0;
-          return !_v2 && _v1 && _v4(_v1, _v0, _v1), _v1;
+          return _v3 && !_v2 && _v1 && _v4(_v1, _v0, _v1), _v1;
         });
-      }, [_v2, _v1, _v0]),
-      _v7 = (0, _v1.useCallback)(() => {
-        _v4(!0), !_v2 && _v1 && _v4(_v1, _v0, !0);
-      }, [_v2, _v1, _v0]),
+      }, [_v2, _v1, _v0, _v3]),
       _v8 = (0, _v1.useCallback)(() => {
-        _v4(!1), !_v2 && _v1 && _v4(_v1, _v0, !1);
-      }, [_v2, _v1, _v0]),
-      _v9 = !_v2 && !_v3;
+        _v5(!0), _v3 && !_v2 && _v1 && _v4(_v1, _v0, !0);
+      }, [_v2, _v1, _v0, _v3]),
+      _v9 = (0, _v1.useCallback)(() => {
+        _v5(!1), _v3 && !_v2 && _v1 && _v4(_v1, _v0, !1);
+      }, [_v2, _v1, _v0, _v3]),
+      _v10 = !_v2 && !_v4;
     return {
-      isOpen: _v3,
-      collapsed: _v9,
-      toggle: _v6,
-      open: _v7,
-      close: _v8
+      isOpen: _v4,
+      collapsed: _v10,
+      toggle: _v7,
+      open: _v8,
+      close: _v9
     };
   }]);
 }

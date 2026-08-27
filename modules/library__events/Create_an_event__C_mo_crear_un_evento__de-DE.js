@@ -5333,6 +5333,7 @@
   _v200.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v196.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
+    searchContentAlignment: _v30.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
     sideNavContent: (0, _v1.jsx)(_v195.SideNavContent, {
       surface: "home"
     }),

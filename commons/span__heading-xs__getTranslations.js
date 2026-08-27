@@ -964,13 +964,13 @@
           singular: "使用状況"
         },
         "ko-KR": {
-          singular: "사용 내역"
+          singular: "사용량"
         },
         "pt-BR": {
           singular: "Uso"
         },
         "zh-CN": {
-          singular: "使用方法"
+          singular: "使用情况"
         }
       }
     }),

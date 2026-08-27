@@ -14295,7 +14295,11 @@
           link: _v7,
           locationDetails: _v8
         } = _v0,
-        [_v9, _v10] = (0, _v439.getAvatarImages)(_v6?.sizes);
+        [_v9, _v10] = (0, _v439.getAvatarImages)(_v6?.sizes),
+        {
+          settings: _v11
+        } = (0, _v65.useOrionSettings)(),
+        _v12 = _v11.enable_search_people_avatar_image_fix;
       return (0, _v1.jsxs)(_v284.VStack, {
         as: "a",
         justifyContent: "center",
@@ -14314,9 +14318,13 @@
         children: [(0, _v1.jsx)(_v176.Box, {
           h: (0, _v9.rem)(96),
           w: (0, _v9.rem)(96),
-          borderRadius: "100%",
+          borderRadius: _v12 ? "50%" : "100%",
           border: "1px solid",
           borderColor: "stroke",
+          overflow: _v12 ? "hidden" : void 0,
+          display: _v12 ? "flex" : void 0,
+          alignItems: _v12 ? "center" : void 0,
+          justifyContent: _v12 ? "center" : void 0,
           children: (0, _v1.jsx)(_v207.Avatar, {
             size: "auto",
             alt: _v5,
@@ -14324,7 +14332,19 @@
             srcSet: _v10,
             nameProps: {
               name: _v5
-            }
+            },
+            sx: _v12 ? {
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center",
+              "& img": {
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center"
+              }
+            } : void 0
           })
         }), (0, _v1.jsx)(_v180.Text, {
           variant: "heading-sm",
@@ -14360,7 +14380,11 @@
           link: _v4,
           locationDetails: _v5
         } = _v0,
-        [_v6, _v7] = (0, _v439.getAvatarImages)(_v3?.sizes);
+        [_v6, _v7] = (0, _v439.getAvatarImages)(_v3?.sizes),
+        {
+          settings: _v8
+        } = (0, _v65.useOrionSettings)(),
+        _v9 = _v8.enable_search_people_avatar_image_fix;
       return (0, _v1.jsxs)(_v283.HStack, {
         as: "a",
         href: _v4,
@@ -14372,12 +14396,17 @@
         _hover: {
           backgroundColor: "fill-component-hover"
         },
-        children: ["+", (0, _v1.jsx)(_v176.Box, {
+        children: [(0, _v1.jsx)(_v176.Box, {
           h: (0, _v9.rem)(64),
           w: (0, _v9.rem)(64),
-          borderRadius: "100%",
+          borderRadius: _v9 ? "50%" : "100%",
           border: "1px solid",
           borderColor: "stroke",
+          overflow: _v9 ? "hidden" : void 0,
+          display: _v9 ? "flex" : void 0,
+          alignItems: _v9 ? "center" : void 0,
+          justifyContent: _v9 ? "center" : void 0,
+          flexShrink: _v9 ? 0 : void 0,
           children: (0, _v1.jsx)(_v207.Avatar, {
             size: "auto",
             alt: _v2,
@@ -14385,7 +14414,19 @@
             srcSet: _v7,
             nameProps: {
               name: _v2
-            }
+            },
+            sx: _v9 ? {
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center",
+              "& img": {
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center"
+              }
+            } : void 0
           })
         }), (0, _v1.jsxs)(_v284.VStack, {
           justifyContent: "center",
@@ -17389,7 +17430,11 @@
         children: [(_v0 === _v31 || "sort" === _v0) && (0, _v1.jsx)(_v510, {}), _v4 && (0, _v1.jsx)(_v528, {})]
       }) : (0, _v1.jsx)(_v1.Fragment, {});
     },
-    _v532 = () => {
+    _v532 = {
+      contentMaxWidth: (0, _v9.rem)(0),
+      contentInlineStart: (0, _v9.rem)(16)
+    },
+    _v533 = () => {
       let {
           searchType: _v0
         } = (0, _v3.useContext)(_v155),
@@ -17444,7 +17489,7 @@
         alignSelf: "center",
         children: (0, _v1.jsx)(_v61, {
           children: (0, _v1.jsx)(_v158, {
-            children: (0, _v1.jsxs)(_v533, {
+            children: (0, _v1.jsxs)(_v534, {
               enabled: _v1,
               isPublicSearch: _v8,
               children: [_v9 && _v4 && _v1 && (0, _v1.jsx)(_v331, {
@@ -17481,7 +17526,7 @@
         })
       }) : null;
     },
-    _v533 = ({
+    _v534 = ({
       children: _v0,
       enabled: _v1,
       isPublicSearch: _v2
@@ -17489,15 +17534,15 @@
       enabled: _v1,
       children: _v0
     }),
-    _v534 = () => (0, _v1.jsx)(_v320, {
+    _v535 = () => (0, _v1.jsx)(_v320, {
       children: (0, _v1.jsx)(_v156, {
-        children: (0, _v1.jsx)(_v532, {})
+        children: (0, _v1.jsx)(_v533, {})
       })
     });
-  var _v535 = _v0.i(0),
-    _v536 = _v0.i(0),
-    _v537 = _v0.i(0);
-  let _v538 = () => {
+  var _v536 = _v0.i(0),
+    _v537 = _v0.i(0),
+    _v538 = _v0.i(0);
+  let _v539 = () => {
     let _v0 = (0, _v3.useContext)(_v67.ViewerContext),
       _v1 = (0, _v2.useRouter)();
     return (0, _v3.useEffect)(() => {
@@ -17515,7 +17560,7 @@
         shallow: !0
       });
     }, [_v1.isReady]), (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v534, {}), _v0 && (0, _v1.jsx)(_v535.EssentialFooter, {
+      children: [(0, _v1.jsx)(_v535, {}), _v0 && (0, _v1.jsx)(_v536.EssentialFooter, {
         ..._v0,
         enableQuotaMenu: !1
       })]
@@ -17543,21 +17588,22 @@
     });
   }, {
     inlineViewer: "all"
-  }), _v538.getLayout = _v0 => {
+  }), _v539.getLayout = _v0 => {
     let _v1;
     {
       let _v0 = new URLSearchParams(window.location.search).get("q"),
         _v1 = window.location.pathname.includes(`/${_v152}`);
       _v1 = !!_v0 || _v1;
     }
-    return (0, _v1.jsx)(_v537.VideoLibraryLayout, {
+    return (0, _v1.jsx)(_v538.VideoLibraryLayout, {
       hasSideNav: !0,
       hasGlobalSearch: _v1,
-      sideNavContent: (0, _v1.jsx)(_v536.SideNavContent, {
+      searchContentAlignment: _v532,
+      sideNavContent: (0, _v1.jsx)(_v537.SideNavContent, {
         surface: "home"
       }),
       sideNavSurface: "home",
       children: _v0
     });
-  }, _v0.s(["__N_SSP", 0, !0, "default", 0, _v538], 0);
+  }, _v0.s(["__N_SSP", 0, !0, "default", 0, _v539], 0);
 }

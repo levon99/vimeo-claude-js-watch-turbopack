@@ -51,5 +51,5 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v12.getLayout = (_v0, _v1) => (0, _v9.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v12], 0);
+  }), _v12.getLayout = (_v0, _v1) => (0, _v9.getLayout)(_v0, _v1, _v9.WORKSPACE_DETAILS_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v12], 0);
 }

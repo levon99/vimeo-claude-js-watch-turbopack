@@ -1,7 +1,7 @@
 {
   "use strict";
 
-  _v0.s(["AddressForm", () => _v15, "LabelContainer", () => _v16]);
+  _v0.s(["AddressForm", () => _v16, "LabelContainer", () => _v17]);
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
     _v3 = _v0.i(0),
@@ -15,8 +15,9 @@
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
-    _v14 = _v0.i(0);
-  let _v15 = ({
+    _v14 = _v0.i(0),
+    _v15 = _v0.i(0);
+  let _v16 = ({
       billingAddress: _v0,
       postalCodeIsInvalid: _v1,
       onPostalCodeChange: _v2,
@@ -40,10 +41,10 @@
       (0, _v3.useEffect)(() => {
         if (!_v11 && !_v0?.postalCode) return;
         let _v0 = _v0?.country;
-        return "US" !== _v0 && "CA" !== _v0 && _v11 ? void _v12("") : (_v11 !== _v0?.postalCode && _v14(_v11), () => {
+        return "US" !== _v0 && "CA" !== _v0 && _v11 ? void _v12("") : (((0, _v15.validatePostalCode)(_v0, _v11) ?? _v11) !== ((0, _v15.validatePostalCode)(_v0, _v0?.postalCode) ?? _v0?.postalCode) && _v14(_v11), () => {
           _v14.cancel();
         });
-      }, [_v11, _v0, _v14]);
+      }, [_v11, _v0?.country, _v0?.postalCode, _v14]);
       let _v15 = _v6 || void 0 === _v5 ? (0, _v1.jsx)(_v13.VatContainer, {}) : (0, _v1.jsx)(_v12.PaymentMethodVatContainer, {
         country: _v0?.country,
         onSubmitVatId: _v5
@@ -61,7 +62,7 @@
             lg: "row"
           },
           width: "100%",
-          children: [(0, _v1.jsx)(_v16, {
+          children: [(0, _v1.jsx)(_v17, {
             flex: "1",
             labelCopy: (0, _v10.translate)({
               singular: "Country",
@@ -104,7 +105,7 @@
                 _v4?.();
               }
             })
-          }), _v0?.country && _v14.countries[_v0?.country]?.subdivisions && (0, _v1.jsx)(_v16, {
+          }), _v0?.country && _v14.countries[_v0?.country]?.subdivisions && (0, _v1.jsx)(_v17, {
             flex: "1",
             labelCopy: _v0?.country === "US" ? (0, _v10.translate)({
               singular: "Zip code",
@@ -172,7 +173,7 @@
         }), _v15]
       });
     },
-    _v16 = ({
+    _v17 = ({
       labelCopy: _v0,
       children: _v1,
       flex: _v2,

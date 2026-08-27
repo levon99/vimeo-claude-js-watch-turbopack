@@ -147,6 +147,7 @@
 - https://vimeo.com/manage/team/settings/review-page-privacy
 - https://vimeo.com/manage/team/settings/sso
 - https://vimeo.com/manage/team/settings/webinar-viewer-anonymisation
+- https://vimeo.com/manage/team/usage
 - https://vimeo.com/manage/videos/newest
 - https://vimeo.com/manage/videos/[...params]
 - https://vimeo.com/manage/webinars/[webinarUuid]

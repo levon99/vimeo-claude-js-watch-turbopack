@@ -17,8 +17,10 @@
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  let _v18 = _v0 => (0, _v1.jsx)(_v17.Icon, {
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0),
+    _v19 = _v0.i(0);
+  let _v20 = _v0 => (0, _v1.jsx)(_v19.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -27,9 +29,8 @@
       fill: "currentColor"
     })
   });
-  var _v19 = _v0.i(0),
-    _v20 = _v0.i(0);
-  let _v21 = _v0 => (0, _v1.jsx)(_v17.Icon, {
+  var _v21 = _v0.i(0);
+  let _v22 = _v0 => (0, _v1.jsx)(_v19.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -38,8 +39,8 @@
       fill: "currentColor"
     })
   });
-  _v0.s(["Compass", 0, _v21], 0);
-  let _v22 = _v0 => (0, _v1.jsx)(_v17.Icon, {
+  _v0.s(["Compass", 0, _v22], 0);
+  let _v23 = _v0 => (0, _v1.jsx)(_v19.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -48,7 +49,7 @@
         fill: "currentColor"
       })
     }),
-    _v23 = _v0 => (0, _v1.jsx)(_v17.Icon, {
+    _v24 = _v0 => (0, _v1.jsx)(_v19.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -63,8 +64,8 @@
         })]
       })
     });
-  _v0.s(["Feed", 0, _v23], 0);
-  let _v24 = _v0 => (0, _v1.jsx)(_v17.Icon, {
+  _v0.s(["Feed", 0, _v24], 0);
+  let _v25 = _v0 => (0, _v1.jsx)(_v19.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -79,8 +80,7 @@
       })]
     })
   });
-  var _v25 = _v0.i(0),
-    _v26 = _v0.i(0),
+  var _v26 = _v0.i(0),
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
@@ -97,10 +97,8 @@
     _v40 = _v0.i(0),
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
-    _v45 = _v0.i(0);
-  let _v46 = ({
+    _v43 = _v0.i(0);
+  let _v44 = ({
       target: _v0,
       targetPath: _v1,
       copy: _v2
@@ -115,11 +113,11 @@
           _v5 = "watch";
       }
       let _v6 = {
-        ...(0, _v40.buildActionBpContext)({
+        ...(0, _v38.buildActionBpContext)({
           action_type: "click",
           feature: null
         }),
-        ...(0, _v43.buildWebBpContext)({
+        ...(0, _v41.buildWebBpContext)({
           page_name: _v5 ?? "other",
           referrer_page_name: null,
           referrer: document.referrer,
@@ -127,7 +125,7 @@
           target: _v0,
           target_path: _v1
         }),
-        ...(0, _v41.buildProductAnalyticsBpContext)({
+        ...(0, _v39.buildProductAnalyticsBpContext)({
           flow: null,
           modal_name: null,
           entity_type: null,
@@ -136,10 +134,10 @@
           feature: _v5 ?? "test",
           product: "community",
           copy: _v2,
-          device_type: (0, _v39.default)()
+          device_type: (0, _v37.default)()
         }),
-        ...(0, _v42.buildTeamBpContextFromTeamUser)(_v3),
-        ...(0, _v45.buildThirdPartyIntegrationBpContext)({
+        ...(0, _v40.buildTeamBpContextFromTeamUser)(_v3),
+        ...(0, _v43.buildThirdPartyIntegrationBpContext)({
           is_integration: !1,
           integration_id: null,
           integration_name: null,
@@ -150,223 +148,29 @@
           is_partner: null
         })
       };
-      (0, _v44.sendBpEventWithContexts)("vimeo.content_navigation", _v6);
+      (0, _v42.sendBpEventWithContexts)("vimeo.content_navigation", _v6);
     },
-    _v47 = {
-      iconSize: (0, _v16.rem)(24),
-      iconMarginRight: (0, _v16.rem)(12),
-      borderRadius: (0, _v16.rem)(12),
-      paddingX: (0, _v16.rem)(8),
-      paddingLeft: (0, _v16.rem)(6)
+    _v45 = {
+      iconSize: (0, _v18.rem)(24),
+      iconMarginRight: (0, _v18.rem)(12),
+      borderRadius: (0, _v18.rem)(12),
+      paddingX: (0, _v18.rem)(8),
+      paddingLeft: (0, _v18.rem)(6)
     },
-    _v48 = _v0 => [{
-      icon: (0, _v1.jsx)(_v18, {}),
-      label: (0, _v33.translate)({
-        singular: "Collections",
-        dictionary: {
-          es: {
-            singular: "Colecciones"
-          },
-          "de-DE": {
-            singular: "Sammlungen"
-          },
-          "ja-JP": {
-            singular: "コレクション"
-          },
-          "ko-KR": {
-            singular: "컬렉션"
-          },
-          "pt-BR": {
-            singular: "Coleções"
-          },
-          "zh-CN": {
-            singular: "合集"
-          }
-        }
-      }),
-      link: `/user${_v0}/collections`,
-      target: "collections"
-    }, {
-      icon: (0, _v1.jsx)(_v20.Clock, {}),
-      label: (0, _v33.translate)({
-        singular: "Watch later",
-        dictionary: {
-          es: {
-            singular: "Ver después"
-          },
-          "de-DE": {
-            singular: "Später anschauen"
-          },
-          "fr-FR": {
-            singular: "Regarder plus tard"
-          },
-          "ja-JP": {
-            singular: "後で見る"
-          },
-          "ko-KR": {
-            singular: "나중에 보기"
-          },
-          "pt-BR": {
-            singular: "Assistir depois"
-          },
-          "zh-CN": {
-            singular: "稍后观看"
-          }
-        }
-      }),
-      link: "/watchlater",
-      target: "watch_later"
-    }, {
-      icon: (0, _v1.jsx)(_v27.Heart, {}),
-      label: (0, _v33.translate)({
-        singular: "Liked videos",
-        dictionary: {
-          es: {
-            singular: "Videos con Me gusta"
-          },
-          "de-DE": {
-            singular: "Gelikte Videos"
-          },
-          "fr-FR": {
-            singular: "Vidéos appréciées"
-          },
-          "ja-JP": {
-            singular: "お気に入り動画"
-          },
-          "ko-KR": {
-            singular: "좋아요 표시한 동영상"
-          },
-          "pt-BR": {
-            singular: "Vídeos curtidos"
-          },
-          "zh-CN": {
-            singular: "点赞的视频"
-          }
-        }
-      }),
-      link: `/user${_v0}/likes`,
-      target: "liked_videos"
-    }],
-    _v49 = () => [{
-      icon: (0, _v1.jsx)(_v32.TvRetro, {}),
-      label: (0, _v33.translate)({
-        singular: "Channels",
-        dictionary: {
-          es: {
-            singular: "Canales"
-          },
-          "de-DE": {
-            singular: "Kanäle"
-          },
-          "fr-FR": {
-            singular: "Chaînes"
-          },
-          "ja-JP": {
-            singular: "チャンネル"
-          },
-          "ko-KR": {
-            singular: "채널"
-          },
-          "pt-BR": {
-            singular: "Canais"
-          },
-          "zh-CN": {
-            singular: "频道"
-          }
-        }
-      }),
-      link: "/channels",
-      target: "channels"
-    }, {
-      icon: (0, _v1.jsx)(_v25.GridView, {}),
-      label: (0, _v33.translate)({
-        singular: "Categories",
-        dictionary: {
-          es: {
-            singular: "Categorías"
-          },
-          "de-DE": {
-            singular: "Kategorien"
-          },
-          "fr-FR": {
-            singular: "Catégories"
-          },
-          "ja-JP": {
-            singular: "カテゴリー"
-          },
-          "ko-KR": {
-            singular: "카테고리"
-          },
-          "pt-BR": {
-            singular: "Categorias"
-          },
-          "zh-CN": {
-            singular: "类别"
-          }
-        }
-      }),
-      link: "/categories",
-      target: "categories"
-    }, {
-      icon: (0, _v1.jsx)(_v26.Groups, {}),
-      label: (0, _v33.translate)({
-        singular: "Groups",
-        dictionary: {
-          es: {
-            singular: "Grupos"
-          },
-          "de-DE": {
-            singular: "Gruppen"
-          },
-          "fr-FR": {
-            singular: "Groupes"
-          },
-          "ja-JP": {
-            singular: "グループ"
-          },
-          "ko-KR": {
-            singular: "그룹"
-          },
-          "pt-BR": {
-            singular: "Grupos"
-          },
-          "zh-CN": {
-            singular: "群组"
-          }
-        }
-      }),
-      link: "/groups",
-      target: "groups"
-    }, {
-      icon: (0, _v1.jsx)(_v28.OnDemand, {}),
-      label: (0, _v33.translate)({
-        singular: "On Demand",
-        dictionary: {
-          "ja-JP": {
-            singular: "オンデマンド"
-          },
-          "ko-KR": {
-            singular: "온디맨드"
-          }
-        }
-      }),
-      link: "/ondemand",
-      target: "on_demand"
-    }],
-    _v50 = ({
+    _v46 = ({
       icon: _v0,
       label: _v1,
       link: _v2,
       target: _v3,
       navContext: _v4
     }) => {
-      let _v5 = (0, _v9.useViewer)(),
+      let _v5 = (0, _v13.useViewer)(),
         {
           trackSidebarNavClicked: _v6
-        } = (0, _v34.useWatchTracking)(),
+        } = (0, _v35.useWatchTracking)(),
         _v7 = _v2.slice(1) + "_link",
         _v8 = _v0 => {
-          _v0?.preventDefault(), window.open(_v2, "_blank", "noopener,noreferrer"), document.getElementsByClassName(_v7)[0].blur(), _v46({
+          _v0?.preventDefault(), window.open(_v2, "_blank", "noopener,noreferrer"), document.getElementsByClassName(_v7)[0].blur(), _v44({
             target: _v3,
             targetPath: _v2,
             copy: _v3.split("_").join(" ")
@@ -382,14 +186,14 @@
         onKeyDown: _v0 => {
           "Enter" === _v0.key && _v8(_v0);
         },
-        children: (0, _v1.jsx)(_v35.MenuItem, {
-          ..._v47,
+        children: (0, _v1.jsx)(_v36.MenuItem, {
+          ..._v45,
           className: _v7,
           icon: _v0,
           label: _v1,
           href: _v2,
           onClick: _v8,
-          action: (0, _v1.jsx)(_v29.PopOut, {
+          action: (0, _v1.jsx)(_v30.PopOut, {
             boxSize: "2xs",
             onClick: _v8
           }),
@@ -397,51 +201,21 @@
         })
       });
     },
-    _v51 = () => {
-      let _v0 = (0, _v15.useColorModeValue)("darkBlueAlpha.200", "stroke");
-      return (0, _v1.jsx)(_v3.Box, {
-        width: (0, _v16.rem)(40),
-        height: "1px",
-        bg: _v0,
-        marginY: (0, _v16.rem)(8)
-      });
-    },
-    _v52 = ({
-      icon: _v0,
-      label: _v1,
-      href: _v2,
-      active: _v3 = !1,
-      onClick: _v4
-    }) => (0, _v1.jsx)(_v37.PrimaryNavItem, {
-      variant: "icons",
-      item: {
-        key: _v2,
-        label: _v1,
-        icon: _v0,
-        href: _v2,
-        active: _v3,
-        onClick: _v4
-      }
-    }),
-    _v53 = ({
+    _v47 = ({
       userId: _v0,
       navContext: _v1
     }) => {
       let {
           pathname: _v2
-        } = (0, _v14.useRouter)(),
+        } = (0, _v17.useRouter)(),
         _v3 = _v2.substring(_v2.lastIndexOf("/") + 1),
-        _v4 = (0, _v9.useViewer)(),
+        _v4 = (0, _v13.useViewer)(),
         {
           trackSidebarNavClicked: _v5
-        } = (0, _v34.useWatchTracking)(),
-        _v6 = (0, _v38.useSideNavCollapsed)(),
-        {
-          active: _v7
-        } = (0, _v10.useNewSidebarIntroContext)(),
-        _v8 = [{
+        } = (0, _v35.useWatchTracking)(),
+        _v6 = [{
           key: "explore",
-          label: (0, _v33.translate)({
+          label: (0, _v34.translate)({
             singular: "Explore",
             dictionary: {
               es: {
@@ -465,8 +239,8 @@
             }
           }),
           href: "/watch",
-          icon: (0, _v1.jsx)(_v21, {}),
-          iconActive: (0, _v1.jsx)(_v22, {}),
+          icon: (0, _v1.jsx)(_v22, {}),
+          iconActive: (0, _v1.jsx)(_v23, {}),
           target: "watch",
           targetPath: "/watch",
           copy: "Explore",
@@ -474,7 +248,7 @@
           active: "watch" === _v3
         }, {
           key: "staff_picks",
-          label: (0, _v33.translate)({
+          label: (0, _v34.translate)({
             singular: "Staff Picks",
             dictionary: {
               es: {
@@ -501,8 +275,8 @@
             }
           }),
           href: "/channels/staffpicks",
-          icon: (0, _v1.jsx)(_v30.StaffPicks, {}),
-          iconActive: (0, _v1.jsx)(_v31.StaffPicksFilled, {}),
+          icon: (0, _v1.jsx)(_v31.StaffPicks, {}),
+          iconActive: (0, _v1.jsx)(_v32.StaffPicksFilled, {}),
           target: "staff_picks",
           targetPath: "/staffpicks",
           copy: "Staff Picks",
@@ -510,7 +284,7 @@
           active: "staffpicks" === _v3
         }, {
           key: "feed",
-          label: (0, _v33.translate)({
+          label: (0, _v34.translate)({
             singular: "Feed",
             dictionary: {
               es: {
@@ -528,107 +302,15 @@
             }
           }),
           href: "/my-feed",
-          icon: (0, _v1.jsx)(_v23, {}),
-          iconActive: (0, _v1.jsx)(_v24, {}),
+          icon: (0, _v1.jsx)(_v24, {}),
+          iconActive: (0, _v1.jsx)(_v25, {}),
           target: "my_feed",
           targetPath: "/my-feed",
           copy: "Feed",
           destination: "my_feed",
           active: "my-feed" === _v3
-        }],
-        _v9 = () => {
-          _v46({
-            target: "home",
-            targetPath: "/",
-            copy: "Back to home"
-          }, _v4?.teamUser);
-        },
-        _v10 = (_v0, _v1) => _v0 => {
-          _v0?.preventDefault(), window.open(_v0, "_blank", "noopener,noreferrer"), _v46({
-            target: _v1,
-            targetPath: _v0,
-            copy: _v1.split("_").join(" ")
-          }, _v4?.teamUser), _v5({
-            sidebarNavDestination: _v1,
-            sidebarNavContext: _v1,
-            version: "2"
-          });
-        };
-      return _v6 ? (0, _v1.jsxs)(_v4.Flex, {
-        flexDirection: "column",
-        gap: (0, _v16.rem)(2),
-        alignItems: "center",
-        paddingBottom: (0, _v16.rem)(8),
-        children: [(0, _v1.jsx)(_v52, {
-          icon: (0, _v1.jsx)(_v19.ArrowLeft, {}),
-          label: (0, _v33.translate)({
-            singular: "Back to home",
-            dictionary: {
-              es: {
-                singular: "Volver al inicio"
-              },
-              "de-DE": {
-                singular: "Zurück zur Startseite"
-              },
-              "fr-FR": {
-                singular: "Retour à l'accueil"
-              },
-              "ja-JP": {
-                singular: "ホームに戻る"
-              },
-              "ko-KR": {
-                singular: "홈으로 돌아가기"
-              },
-              "pt-BR": {
-                singular: "Voltar à página inicial"
-              },
-              "zh-CN": {
-                singular: "返回主页"
-              }
-            }
-          }),
-          href: "/",
-          onClick: _v9
-        }), (0, _v1.jsx)(_v51, {}), _v8.map(_v0 => (0, _v1.jsx)(_v52, {
-          icon: _v0.active ? _v0.iconActive : _v0.icon,
-          label: _v0.label,
-          href: _v0.href,
-          active: _v0.active,
-          onClick: () => {
-            _v46({
-              target: _v0.target,
-              targetPath: _v0.targetPath,
-              copy: _v0.copy
-            }, _v4?.teamUser), _v5({
-              sidebarNavDestination: _v0.destination,
-              sidebarNavContext: _v1,
-              version: "2"
-            });
-          }
-        }, _v0.key)), (0, _v1.jsx)(_v51, {}), null != _v0 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [_v48(_v0).map(({
-            icon: _v0,
-            label: _v1,
-            link: _v2,
-            target: _v3
-          }) => (0, _v1.jsx)(_v52, {
-            icon: _v0,
-            label: _v1,
-            href: _v2,
-            onClick: _v10(_v2, _v3)
-          }, _v1)), (0, _v1.jsx)(_v51, {})]
-        }), _v49().map(({
-          icon: _v0,
-          label: _v1,
-          link: _v2,
-          target: _v3
-        }) => (0, _v1.jsx)(_v52, {
-          icon: _v0,
-          label: _v1,
-          href: _v2,
-          onClick: _v10(_v2, _v3)
-        }, _v1))]
-      }) : (0, _v1.jsx)(_v3.Box, {
+        }];
+      return (0, _v1.jsx)(_v3.Box, {
         style: {
           flexGrow: 1,
           display: "flex",
@@ -636,64 +318,22 @@
         },
         children: (0, _v1.jsxs)(_v4.Flex, {
           flexDirection: "column",
-          gap: (0, _v16.rem)(2),
-          children: [(0, _v1.jsx)(_v5.ResizableSideNav.MenuItems, {
+          gap: (0, _v18.rem)(2),
+          children: [(0, _v1.jsx)(_v7.ResizableSideNav.MenuItems, {
             customStyles: {
-              gap: (0, _v16.rem)(2)
+              gap: (0, _v18.rem)(2)
             },
-            children: (0, _v1.jsx)(_v3.Box, {
+            children: _v6.map(_v0 => (0, _v1.jsx)(_v3.Box, {
               as: "li",
               listStyleType: "none",
-              children: (0, _v1.jsx)(_v35.MenuItem, {
-                ..._v47,
-                icon: (0, _v1.jsx)(_v19.ArrowLeft, {}),
-                label: (0, _v33.translate)({
-                  singular: "Back to home",
-                  dictionary: {
-                    es: {
-                      singular: "Volver al inicio"
-                    },
-                    "de-DE": {
-                      singular: "Zurück zur Startseite"
-                    },
-                    "fr-FR": {
-                      singular: "Retour à l'accueil"
-                    },
-                    "ja-JP": {
-                      singular: "ホームに戻る"
-                    },
-                    "ko-KR": {
-                      singular: "홈으로 돌아가기"
-                    },
-                    "pt-BR": {
-                      singular: "Voltar à página inicial"
-                    },
-                    "zh-CN": {
-                      singular: "返回主页"
-                    }
-                  }
-                }),
-                active: !1,
-                dataId: "manage_team_side_nav_home_menu_item",
-                href: "/",
-                onClick: _v9
-              })
-            })
-          }), (0, _v1.jsx)(_v5.ResizableSideNav.Divider, {
-            my: (0, _v16.rem)(8)
-          }), (0, _v1.jsx)(_v5.ResizableSideNav.MenuItems, {
-            customStyles: {
-              gap: (0, _v16.rem)(2)
-            },
-            children: _v8.map(_v0 => {
-              let _v1 = (0, _v1.jsx)(_v35.MenuItem, {
-                ..._v47,
+              children: (0, _v1.jsx)(_v36.MenuItem, {
+                ..._v45,
                 icon: _v0.active ? _v0.iconActive : _v0.icon,
                 label: _v0.label,
                 active: _v0.active,
                 href: _v0.href,
                 onClick: () => {
-                  _v46({
+                  _v44({
                     target: _v0.target,
                     targetPath: _v0.targetPath,
                     copy: _v0.copy
@@ -703,47 +343,232 @@
                     version: "2"
                   });
                 }
-              });
-              return (0, _v1.jsx)(_v3.Box, {
-                as: "li",
-                listStyleType: "none",
-                children: _v7 && _v0.active ? (0, _v1.jsx)(_v36.NewSidebarIntroPopover, {
-                  children: _v1
-                }) : _v1
-              }, _v0.key);
-            })
-          }), (0, _v1.jsx)(_v5.ResizableSideNav.Divider, {
-            my: (0, _v16.rem)(8)
+              })
+            }, _v0.key))
+          }), (0, _v1.jsx)(_v7.ResizableSideNav.Divider, {
+            my: (0, _v18.rem)(8)
           }), null != _v0 && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v5.ResizableSideNav.MenuItems, {
+            children: [(0, _v1.jsx)(_v7.ResizableSideNav.MenuItems, {
               customStyles: {
-                gap: (0, _v16.rem)(2)
+                gap: (0, _v18.rem)(2)
               },
-              children: _v48(_v0).map(({
+              children: [{
+                icon: (0, _v1.jsx)(_v20, {}),
+                label: (0, _v34.translate)({
+                  singular: "Collections",
+                  dictionary: {
+                    es: {
+                      singular: "Colecciones"
+                    },
+                    "de-DE": {
+                      singular: "Sammlungen"
+                    },
+                    "ja-JP": {
+                      singular: "コレクション"
+                    },
+                    "ko-KR": {
+                      singular: "컬렉션"
+                    },
+                    "pt-BR": {
+                      singular: "Coleções"
+                    },
+                    "zh-CN": {
+                      singular: "合集"
+                    }
+                  }
+                }),
+                link: `/user${_v0}/collections`,
+                target: "collections"
+              }, {
+                icon: (0, _v1.jsx)(_v21.Clock, {}),
+                label: (0, _v34.translate)({
+                  singular: "Watch later",
+                  dictionary: {
+                    es: {
+                      singular: "Ver después"
+                    },
+                    "de-DE": {
+                      singular: "Später anschauen"
+                    },
+                    "fr-FR": {
+                      singular: "Regarder plus tard"
+                    },
+                    "ja-JP": {
+                      singular: "後で見る"
+                    },
+                    "ko-KR": {
+                      singular: "나중에 보기"
+                    },
+                    "pt-BR": {
+                      singular: "Assistir depois"
+                    },
+                    "zh-CN": {
+                      singular: "稍后观看"
+                    }
+                  }
+                }),
+                link: "/watchlater",
+                target: "watch_later"
+              }, {
+                icon: (0, _v1.jsx)(_v28.Heart, {}),
+                label: (0, _v34.translate)({
+                  singular: "Liked videos",
+                  dictionary: {
+                    es: {
+                      singular: "Videos con Me gusta"
+                    },
+                    "de-DE": {
+                      singular: "Gelikte Videos"
+                    },
+                    "fr-FR": {
+                      singular: "Vidéos appréciées"
+                    },
+                    "ja-JP": {
+                      singular: "お気に入り動画"
+                    },
+                    "ko-KR": {
+                      singular: "좋아요 표시한 동영상"
+                    },
+                    "pt-BR": {
+                      singular: "Vídeos curtidos"
+                    },
+                    "zh-CN": {
+                      singular: "点赞的视频"
+                    }
+                  }
+                }),
+                link: `/user${_v0}/likes`,
+                target: "liked_videos"
+              }].map(({
                 icon: _v0,
                 label: _v1,
                 link: _v2,
                 target: _v3
-              }) => (0, _v1.jsx)(_v50, {
+              }) => (0, _v1.jsx)(_v46, {
                 icon: _v0,
                 label: _v1,
                 link: _v2,
                 target: _v3,
                 navContext: _v1
               }, _v1))
-            }), (0, _v1.jsx)(_v5.ResizableSideNav.Divider, {
-              my: (0, _v16.rem)(8)
+            }), (0, _v1.jsx)(_v7.ResizableSideNav.Divider, {
+              my: (0, _v18.rem)(8)
             })]
-          }), (0, _v1.jsx)(_v5.ResizableSideNav.MenuItems, {
+          }), (0, _v1.jsx)(_v7.ResizableSideNav.MenuItems, {
             customStyles: {
-              gap: (0, _v16.rem)(2)
+              gap: (0, _v18.rem)(2)
             },
-            children: _v49().map(({
+            children: [{
+              icon: (0, _v1.jsx)(_v33.TvRetro, {}),
+              label: (0, _v34.translate)({
+                singular: "Channels",
+                dictionary: {
+                  es: {
+                    singular: "Canales"
+                  },
+                  "de-DE": {
+                    singular: "Kanäle"
+                  },
+                  "fr-FR": {
+                    singular: "Chaînes"
+                  },
+                  "ja-JP": {
+                    singular: "チャンネル"
+                  },
+                  "ko-KR": {
+                    singular: "채널"
+                  },
+                  "pt-BR": {
+                    singular: "Canais"
+                  },
+                  "zh-CN": {
+                    singular: "频道"
+                  }
+                }
+              }),
+              link: "/channels",
+              target: "channels"
+            }, {
+              icon: (0, _v1.jsx)(_v26.GridView, {}),
+              label: (0, _v34.translate)({
+                singular: "Categories",
+                dictionary: {
+                  es: {
+                    singular: "Categorías"
+                  },
+                  "de-DE": {
+                    singular: "Kategorien"
+                  },
+                  "fr-FR": {
+                    singular: "Catégories"
+                  },
+                  "ja-JP": {
+                    singular: "カテゴリー"
+                  },
+                  "ko-KR": {
+                    singular: "카테고리"
+                  },
+                  "pt-BR": {
+                    singular: "Categorias"
+                  },
+                  "zh-CN": {
+                    singular: "类别"
+                  }
+                }
+              }),
+              link: "/categories",
+              target: "categories"
+            }, {
+              icon: (0, _v1.jsx)(_v27.Groups, {}),
+              label: (0, _v34.translate)({
+                singular: "Groups",
+                dictionary: {
+                  es: {
+                    singular: "Grupos"
+                  },
+                  "de-DE": {
+                    singular: "Gruppen"
+                  },
+                  "fr-FR": {
+                    singular: "Groupes"
+                  },
+                  "ja-JP": {
+                    singular: "グループ"
+                  },
+                  "ko-KR": {
+                    singular: "그룹"
+                  },
+                  "pt-BR": {
+                    singular: "Grupos"
+                  },
+                  "zh-CN": {
+                    singular: "群组"
+                  }
+                }
+              }),
+              link: "/groups",
+              target: "groups"
+            }, {
+              icon: (0, _v1.jsx)(_v29.OnDemand, {}),
+              label: (0, _v34.translate)({
+                singular: "On Demand",
+                dictionary: {
+                  "ja-JP": {
+                    singular: "オンデマンド"
+                  },
+                  "ko-KR": {
+                    singular: "온디맨드"
+                  }
+                }
+              }),
+              link: "/ondemand",
+              target: "on_demand"
+            }].map(({
               icon: _v0,
               label: _v1,
               link: _v2,
               target: _v3
-            }) => (0, _v1.jsx)(_v50, {
+            }) => (0, _v1.jsx)(_v46, {
               icon: _v0,
               label: _v1,
               link: _v2,
@@ -754,53 +579,52 @@
         })
       });
     },
-    _v54 = (0, _v2.createContext)(256);
-  _v0.s(["DEFAULT_INITIAL_WIDTH", 0, 256, "DEFAULT_MAX_WIDTH", 0, 600, "SideNavWidthContext", 0, _v54], 0);
-  let _v55 = ({
+    _v48 = (0, _v2.createContext)(256);
+  _v0.s(["SideNavWidthContext", 0, _v48], 0);
+  let _v49 = ({
     children: _v0
   }) => {
-    let _v1 = (0, _v9.useViewer)(),
-      _v2 = (0, _v7.useWindowSize)().width <= _v8.BreakPoints.md,
-      [_v3, _v4] = (0, _v2.useState)(256),
+    let _v1 = (0, _v13.useViewer)(),
+      [_v2] = (0, _v6.useToken)("breakpoints", ["lg"]),
+      [_v3] = (0, _v5.useMediaQuery)([`(max-width: ${_v2})`]),
       {
-        isOpen: _v5,
-        toggle: _v6,
-        open: _v7,
-        collapsed: _v8
-      } = (0, _v12.useSideNavSurfaceState)({
+        isOpen: _v4,
+        toggle: _v5,
+        open: _v6,
+        collapsed: _v7
+      } = (0, _v15.useSideNavSurfaceState)({
         surface: "watch-feed",
         userId: _v1?.user?.id,
-        isMobile: _v2
+        isMobile: _v3,
+        persist: !1
       }),
-      _v9 = (0, _v13.useTrackSidebarToggled)(),
-      _v10 = (0, _v2.useMemo)(() => ({
-        active: !_v2,
-        anchor: "active"
-      }), [_v2]);
+      _v8 = (0, _v16.useTrackSidebarToggled)(),
+      _v9 = (0, _v2.useMemo)(() => ({
+        active: !_v3,
+        anchor: _v7 ? "active" : "first"
+      }), [_v3, _v7]),
+      _v10 = _v4 ? _v10.SECONDARY_SIDE_NAV_WIDTH : _v7 ? _v7.COLLAPSED_RAIL_WIDTH : 0;
     return (0, _v1.jsxs)(_v4.Flex, {
       width: "100vw",
       height: "100vh",
       overflow: "hidden",
-      children: [(0, _v1.jsx)(_v10.NewSidebarIntroContext.Provider, {
-        value: _v10,
-        children: (0, _v1.jsx)(_v11.WayfinderSideNav, {
-          isOpen: _v5,
-          collapsed: _v8,
-          onClose: _v6,
-          isMobile: _v2,
-          teamOwnerId: (_v1?.teamUser?.ownerId ?? _v1?.user?.id) || 0,
-          hideWhatsNew: !0,
-          hideQuotaMeter: !1,
-          onResize: _v0 => {
-            _v4(_v0);
-          },
-          dragConstraint: {
-            min: 256,
-            max: 600
-          },
-          children: (0, _v1.jsx)(_v53, {
-            userId: _v1?.user?.id,
-            navContext: "watch_page"
+      children: [(0, _v1.jsx)(_v14.NewSidebarIntroContext.Provider, {
+        value: _v9,
+        children: (0, _v1.jsx)(_v12.UpsellModalProvider, {
+          children: (0, _v1.jsx)(_v11.TransferFileModalProvider, {
+            children: (0, _v1.jsx)(_v9.ReviewModalProvider, {
+              children: (0, _v1.jsx)(_v10.SecondarySideNav, {
+                isOpen: _v4,
+                collapsed: _v7,
+                onClose: _v5,
+                isMobile: _v3,
+                hideWhatsNew: !0,
+                children: (0, _v1.jsx)(_v47, {
+                  userId: _v1?.user?.id,
+                  navContext: "watch_page"
+                })
+              })
+            })
           })
         })
       }), (0, _v1.jsxs)(_v4.Flex, {
@@ -808,16 +632,16 @@
         flex: "1 1 auto",
         width: "50%",
         overflowY: "auto",
-        children: [(0, _v1.jsx)(_v6.DefaultNavigation, {
-          setIsSideNavActive: _v2 ? () => {
-            _v9("open", _v2), _v7();
+        children: [(0, _v1.jsx)(_v8.DefaultNavigation, {
+          setIsSideNavActive: _v3 ? () => {
+            _v8("open", _v3), _v6();
           } : void 0,
-          isSideNavActive: _v5,
-          hasSideNavLayout: !_v2
-        }), (0, _v1.jsx)(_v54.Provider, {
-          value: _v5 ? _v3 : _v8 ? _v5.COLLAPSED_RAIL_WIDTH : 0,
+          isSideNavActive: _v4,
+          hasSideNavLayout: !_v3
+        }), (0, _v1.jsx)(_v48.Provider, {
+          value: _v10,
           children: _v0
-        }), _v2 && _v5 && (0, _v1.jsx)(_v3.Box, {
+        }), _v3 && _v4 && (0, _v1.jsx)(_v3.Box, {
           position: "absolute",
           top: 0,
           left: 0,
@@ -834,14 +658,14 @@
       })]
     });
   };
-  _v0.s(["getLayout", 0, _v0 => (0, _v1.jsx)(_v55, {
+  _v0.s(["getLayout", 0, _v0 => (0, _v1.jsx)(_v49, {
     children: _v0
   })], 0);
-  var _v56 = _v0.i(0);
-  let _v57 = (0, _v44.createNullObject)(["object_actor_type", "object_placement", "object_actor_title"]);
+  var _v50 = _v0.i(0);
+  let _v51 = (0, _v42.createNullObject)(["object_actor_type", "object_placement", "object_actor_title"]);
   _v0.s(["buildCommunityBpContext", 0, _v0 => ({
-    community_context: new _v56.EventContext("community_context", 2, {
-      ..._v57,
+    community_context: new _v50.EventContext("community_context", 2, {
+      ..._v51,
       ..._v0
     })
   })], 0);

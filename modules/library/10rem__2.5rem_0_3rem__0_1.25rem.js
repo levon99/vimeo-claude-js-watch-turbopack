@@ -4418,6 +4418,7 @@
   _v216.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v213.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
+    searchContentAlignment: _v66.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
     sideNavContent: (0, _v1.jsx)(_v212.SideNavContent, {
       surface: "library"
     }),

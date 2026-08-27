@@ -677,16 +677,16 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v34.measureLatency)("getOrganizationEnterpriseCreditsUsageOperations", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/organizations/${_v2}/enterprise_credits/usage_operations?${(0, _v35.searchQueryString)(_v3)}&fields=${_v1.map(_v35.intoSnakeCase).join(",")}`, {
+    return (0, _v35.measureLatency)("getOrganizationEnterpriseCreditsUsageOperations", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/organizations/${_v2}/enterprise_credits/usage_operations?${(0, _v34.searchQueryString)(_v3)}&fields=${_v1.map(_v34.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v35.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v34.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v35.deepCamelCase)(_v1);
+      return (0, _v34.deepCamelCase)(_v1);
     });
   }
   var _v37 = _v0.i(0);
@@ -699,16 +699,16 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v34.measureLatency)("getWorkspaceEnterpriseCreditsUsageOperations", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/workspaces/${_v2}/enterprise_credits/usage_operations?${(0, _v35.searchQueryString)(_v3)}&fields=${_v1.map(_v35.intoSnakeCase).join(",")}`, {
+    return (0, _v35.measureLatency)("getWorkspaceEnterpriseCreditsUsageOperations", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/workspaces/${_v2}/enterprise_credits/usage_operations?${(0, _v34.searchQueryString)(_v3)}&fields=${_v1.map(_v34.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v35.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v34.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v35.deepCamelCase)(_v1);
+      return (0, _v34.deepCamelCase)(_v1);
     });
   }
   var _v39 = _v0.i(0);
@@ -725,7 +725,7 @@
         xVimeoPage: _v5,
         locale: _v6
       } = (0, _v39.useGctlConfig)();
-    return (0, _v42.default)(_v2 ? `/organizations/${_v2.where.orgUuid}/enterprise_credits/usage_operations${(0, _v44.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v36({
+    return (0, _v41.default)(_v2 ? `/organizations/${_v2.where.orgUuid}/enterprise_credits/usage_operations${(0, _v44.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v36({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -745,7 +745,7 @@
         xVimeoPage: _v5,
         locale: _v6
       } = (0, _v39.useGctlConfig)();
-    return (0, _v42.default)(_v2 ? `/workspaces/${_v2.where.workspaceUuid}/enterprise_credits/usage_operations${(0, _v44.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v38({
+    return (0, _v41.default)(_v2 ? `/workspaces/${_v2.where.workspaceUuid}/enterprise_credits/usage_operations${(0, _v44.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v38({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -757,10 +757,10 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v41.default.env.STORYBOOK && (0, _v44.assignMswData)(_v45, {
+  "true" === _v42.default.env.STORYBOOK && (0, _v44.assignMswData)(_v45, {
     endpoint: "/organizations/:orgUuid/enterprise_credits/usage_operations",
     method: "GET"
-  }), "true" === _v41.default.env.STORYBOOK && (0, _v44.assignMswData)(function () {
+  }), "true" === _v42.default.env.STORYBOOK && (0, _v44.assignMswData)(function () {
     let {
         mutate: _v0
       } = (0, _v43.useSWRConfig)(),
@@ -801,10 +801,10 @@
   }, {
     endpoint: "/organizations/:orgUuid/enterprise_credits/usage_operations",
     method: "GET"
-  }), "true" === _v41.default.env.STORYBOOK && (0, _v44.assignMswData)(_v46, {
+  }), "true" === _v42.default.env.STORYBOOK && (0, _v44.assignMswData)(_v46, {
     endpoint: "/workspaces/:workspaceUuid/enterprise_credits/usage_operations",
     method: "GET"
-  }), "true" === _v41.default.env.STORYBOOK && (0, _v44.assignMswData)(function () {
+  }), "true" === _v42.default.env.STORYBOOK && (0, _v44.assignMswData)(function () {
     let {
         mutate: _v0
       } = (0, _v43.useSWRConfig)(),
@@ -849,83 +849,108 @@
   let _v47 = ["data.operationKey", "data.creditsUsed", "data.occurredAt", "data.clipId", "data.targetLang", "data.consumerService", "data.triggeringUserId", "data.workspaceId", "paging.next"];
   _v0.s(["AiCreditsConsumptionList", 0, ({
     organizationUuid: _v0,
-    workspaceUuid: _v1
+    workspaceUuid: _v1,
+    teamOwnerId: _v2
   }) => {
     let {
-        operations: _v2,
-        loadMore: _v3,
-        hasMore: _v4,
-        isLoading: _v5,
-        isLoadingInitial: _v6
+        operations: _v3,
+        loadMore: _v4,
+        hasMore: _v5,
+        isLoading: _v6,
+        isLoadingInitial: _v7
       } = function ({
         organizationUuid: _v0,
-        workspaceUuid: _v1
+        workspaceUuid: _v1,
+        teamOwnerId: _v2
       }) {
-        let [_v2, _v3] = (0, _v2.useState)(void 0),
-          [_v4, _v5] = (0, _v2.useState)([]),
-          _v6 = (0, _v2.useRef)(new Set()),
-          _v7 = !!_v0,
-          _v8 = !_v7 && !!_v1,
-          _v9 = _v45(() => _v7 && _v0 ? {
+        let [_v3, _v4] = (0, _v2.useState)(void 0),
+          [_v5, _v6] = (0, _v2.useState)([]),
+          _v7 = (0, _v2.useRef)(new Set()),
+          _v8 = !!_v0,
+          _v9 = !_v8 && !!_v1,
+          {
+            baseUrl: _v10,
+            jwt: _v11,
+            xVimeoPage: _v12,
+            locale: _v13
+          } = (0, _v39.useGctlConfig)(),
+          _v14 = _v45(() => _v8 && _v0 ? {
             where: {
               orgUuid: _v0
             },
             select: _v47,
-            query: _v2 ? {
-              cursor: _v2
+            query: _v3 ? {
+              cursor: _v3
             } : {}
           } : null),
-          _v10 = _v46(() => _v8 && _v1 ? {
+          _v15 = _v46(() => _v9 && _v1 ? {
             where: {
               workspaceUuid: _v1
             },
             select: _v47,
-            query: _v2 ? {
-              cursor: _v2
+            query: _v3 ? {
+              cursor: _v3
             } : {}
           } : null),
-          {
-            data: _v11,
-            error: _v12,
-            isLoading: _v13
-          } = _v7 ? _v9 : _v10;
+          _v16 = !_v8 && !_v9 && _v2 && _v2 ? `${_v10}/users/${_v2}/enterprise_credits/usage_operations?${new URLSearchParams({
+            per_page: "15",
+            ...(_v3 ? {
+              cursor: _v3
+            } : {})
+          })}` : null,
+          _v17 = (0, _v41.default)(_v16, async _v0 => {
+            let _v1 = await fetch(_v0, {
+              headers: {
+                Authorization: _v11 ? `jwt ${_v11}` : "",
+                "Vimeo-Page": `${_v12}`,
+                "Accept-Language": _v13 ?? "en"
+              }
+            });
+            if (!_v1.ok) throw Error(`Failed to fetch team credit usage: ${_v1.status}`);
+            return (0, _v34.deepCamelCase)(await _v1.json());
+          }),
+          _v18 = _v8 ? _v14.data : _v9 ? _v15.data : _v17.data,
+          _v19 = _v8 ? _v14.error : _v9 ? _v15.error : _v17.error,
+          _v20 = _v8 ? _v14.isLoading : _v9 ? _v15.isLoading : _v17.isLoading;
         (0, _v2.useEffect)(() => {
-          if (!_v11) return;
-          let _v0 = (_v11.data ?? []).filter(_v0 => !_v6.current.has(_v0.operationKey));
-          _v0.length > 0 && (_v0.forEach(_v0 => _v6.current.add(_v0.operationKey)), _v5(_v0 => [..._v0, ..._v0]));
-        }, [_v11]);
-        let _v14 = _v11?.paging?.next ?? null;
+          if (!_v18) return;
+          let _v0 = (_v18.data ?? []).filter(_v0 => !_v7.current.has(_v0.operationKey));
+          _v0.length > 0 && (_v0.forEach(_v0 => _v7.current.add(_v0.operationKey)), _v6(_v0 => [..._v0, ..._v0]));
+        }, [_v18]);
+        let _v21 = _v18?.paging?.next ?? null;
         return {
-          operations: _v4,
+          operations: _v5,
           loadMore: (0, _v2.useCallback)(() => {
-            _v14 && _v3(_v14);
-          }, [_v14]),
-          hasMore: !!_v14,
-          isLoading: !!_v13,
-          isLoadingInitial: !!_v13 && 0 === _v4.length,
-          error: _v12
+            _v21 && _v4(_v21);
+          }, [_v21]),
+          hasMore: !!_v21,
+          isLoading: !!_v20,
+          isLoadingInitial: !!_v20 && 0 === _v5.length,
+          error: _v19
         };
       }({
         organizationUuid: _v0,
-        workspaceUuid: _v1
+        workspaceUuid: _v1,
+        teamOwnerId: _v2
       }),
       {
-        fetchAllOperations: _v7,
-        isExporting: _v8
+        fetchAllOperations: _v8,
+        isExporting: _v9
       } = function ({
         organizationUuid: _v0,
-        workspaceUuid: _v1
+        workspaceUuid: _v1,
+        teamOwnerId: _v2
       }) {
         let {
-            baseUrl: _v2,
-            jwt: _v3,
-            xVimeoPage: _v4,
-            locale: _v5
+            baseUrl: _v3,
+            jwt: _v4,
+            xVimeoPage: _v5,
+            locale: _v6
           } = (0, _v39.useGctlConfig)(),
-          [_v6, _v7] = (0, _v2.useState)(!1);
+          [_v7, _v8] = (0, _v2.useState)(!1);
         return {
           fetchAllOperations: async () => {
-            _v7(!0);
+            _v8(!0);
             try {
               let _v0,
                 _v1 = [],
@@ -933,9 +958,9 @@
                 _v3 = !1,
                 _v4 = {
                   "Content-Type": "application/json",
-                  Authorization: _v3 ? `jwt ${_v3}` : "",
-                  "Vimeo-Page": `${_v4}`,
-                  "Accept-Language": _v5 ?? "en"
+                  Authorization: _v4 ? `jwt ${_v4}` : "",
+                  "Vimeo-Page": `${_v5}`,
+                  "Accept-Language": _v6 ?? "en"
                 };
               for (let _v0 = 0; _v0 < 100; _v0 += 1) {
                 let _v0 = {
@@ -951,15 +976,25 @@
                     select: _v40,
                     query: _v0,
                     headers: _v4,
-                    baseUrl: _v2
-                  }) : await _v38({
+                    baseUrl: _v3
+                  }) : _v1 ? await _v38({
                     where: {
-                      workspaceUuid: _v1 ?? ""
+                      workspaceUuid: _v1
                     },
                     select: _v40,
                     query: _v0,
                     headers: _v4,
-                    baseUrl: _v2
+                    baseUrl: _v3
+                  }) : await fetch(`${_v3}/users/${_v2 ?? ""}/enterprise_credits/usage_operations?${new URLSearchParams({
+                    per_page: String(0),
+                    ...(_v0 ? {
+                      cursor: _v0
+                    } : {})
+                  })}`, {
+                    headers: _v4
+                  }).then(async _v0 => {
+                    if (!_v0.ok) throw Error(`Failed to fetch team credit usage: ${_v0.status}`);
+                    return (0, _v34.deepCamelCase)(await _v0.json());
                   });
                 for (let _v0 of _v1?.data ?? []) _v2.has(_v0.operationKey) || (_v2.add(_v0.operationKey), _v1.push(_v0));
                 let _v2 = _v1?.paging?.next ?? null;
@@ -981,7 +1016,7 @@
                       uris: _v0.map(_v0 => `/videos/${_v0}`).join(",")
                     },
                     headers: _v4,
-                    baseUrl: _v2
+                    baseUrl: _v3
                   });
                   for (let _v0 of _v0?.data ?? []) {
                     let _v0 = _v0.uri,
@@ -998,20 +1033,21 @@
                 isTruncated: _v3
               };
             } finally {
-              _v7(!1);
+              _v8(!1);
             }
           },
-          isExporting: _v6
+          isExporting: _v7
         };
       }({
         organizationUuid: _v0,
-        workspaceUuid: _v1
+        workspaceUuid: _v1,
+        teamOwnerId: _v2
       }),
-      _v9 = (0, _v14.usePico)(),
-      _v10 = _v1 ?? _v0,
-      _v11 = _v1 ? "workspace" : "organization",
-      [_v12, _v13] = (0, _v2.useState)(""),
-      _v14 = function (_v0) {
+      _v10 = (0, _v14.usePico)(),
+      _v11 = _v1 ?? _v0,
+      _v12 = _v1 ? "workspace" : "organization",
+      [_v13, _v14] = (0, _v2.useState)(""),
+      _v15 = function (_v0) {
         let _v1 = Array.from(new Set(_v0.filter(_v0 => Number.isFinite(_v0)))),
           {
             data: _v2
@@ -1030,14 +1066,14 @@
           Number.isFinite(_v2) && (_v3[_v2] = _v1);
         }
         return _v3;
-      }((0, _v2.useMemo)(() => _v2.map(_v0 => _v0.clipId).filter(_v0 => null !== _v0), [_v2])),
-      _v15 = (0, _v2.useMemo)(() => {
-        let _v0 = _v12.trim().toLowerCase();
-        return _v0 ? _v2.filter(_v0 => {
-          let _v1 = null !== _v0.clipId ? _v14[_v0.clipId] ?? "" : "";
+      }((0, _v2.useMemo)(() => _v3.map(_v0 => _v0.clipId).filter(_v0 => null !== _v0), [_v3])),
+      _v16 = (0, _v2.useMemo)(() => {
+        let _v0 = _v13.trim().toLowerCase();
+        return _v0 ? _v3.filter(_v0 => {
+          let _v1 = null !== _v0.clipId ? _v15[_v0.clipId] ?? "" : "";
           return [_v22(_v0.consumerService), _v1, _v0.targetLang ?? "", null !== _v0.clipId ? String(_v0.clipId) : "", null !== _v0.triggeringUserId ? String(_v0.triggeringUserId) : ""].join(" ").toLowerCase().includes(_v0);
-        }) : _v2;
-      }, [_v12, _v2, _v14]);
+        }) : _v3;
+      }, [_v13, _v3, _v15]);
     return (0, _v1.jsxs)(_v12.VStack, {
       width: "100%",
       gap: "md",
@@ -1140,23 +1176,23 @@
                   }
                 }
               }),
-              value: _v12,
-              onChange: _v0 => _v13(_v0.target.value)
+              value: _v13,
+              onChange: _v0 => _v14(_v0.target.value)
             })
           }), (0, _v1.jsx)(_v4.Button, {
             variant: "primary",
-            isDisabled: 0 === _v2.length,
-            isLoading: _v8,
+            isDisabled: 0 === _v3.length,
+            isLoading: _v9,
             onClick: async () => {
-              _v10 && _v9.track("vimeo_ai_credits_usage_csv_export_requested", {
-                entity_id: _v10,
-                entity_type: _v11
+              _v11 && _v10.track("vimeo_ai_credits_usage_csv_export_requested", {
+                entity_id: _v11,
+                entity_type: _v12
               });
               try {
-                let _v0 = await _v7();
+                let _v0 = await _v8();
                 if (_v0.operations.length > 0) return void _v32(_v0.operations, _v0.clipNames, _v0.isTruncated ? "ai-credits-usage-truncated.csv" : "ai-credits-usage.csv");
               } catch {}
-              _v32(_v2, _v14);
+              _v32(_v3, _v15);
             },
             children: (0, _v13.translate)({
               singular: "Export to CSV",
@@ -1193,13 +1229,13 @@
             }
           },
           children: [(0, _v1.jsx)(_v19, {}), (0, _v1.jsx)(_v10.Tbody, {
-            children: _v15.map(_v0 => (0, _v1.jsx)(_v30, {
+            children: _v16.map(_v0 => (0, _v1.jsx)(_v30, {
               operation: _v0,
-              clipName: null !== _v0.clipId ? _v14[_v0.clipId] : void 0
+              clipName: null !== _v0.clipId ? _v15[_v0.clipId] : void 0
             }, _v0.operationKey))
           })]
         })]
-      }), !_v6 && 0 === _v2.length && (0, _v1.jsx)(_v5.Center, {
+      }), !_v7 && 0 === _v3.length && (0, _v1.jsx)(_v5.Center, {
         width: "100%",
         paddingY: "lg",
         children: (0, _v1.jsx)(_v11.Text, {
@@ -1232,10 +1268,10 @@
             }
           })
         })
-      }), _v4 && (0, _v1.jsx)(_v4.Button, {
+      }), _v5 && (0, _v1.jsx)(_v4.Button, {
         variant: "tertiary",
-        isLoading: _v5,
-        onClick: _v3,
+        isLoading: _v6,
+        onClick: _v4,
         children: (0, _v13.translate)({
           singular: "Load more",
           dictionary: {

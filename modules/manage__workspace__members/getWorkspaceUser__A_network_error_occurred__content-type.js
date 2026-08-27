@@ -2097,5 +2097,5 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v132.getLayout = (_v0, _v1) => (0, _v5.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v132], 0);
+  }), _v132.getLayout = (_v0, _v1) => (0, _v5.getLayout)(_v0, _v1, _v5.WORKSPACE_ROOT_LIST_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v132], 0);
 }

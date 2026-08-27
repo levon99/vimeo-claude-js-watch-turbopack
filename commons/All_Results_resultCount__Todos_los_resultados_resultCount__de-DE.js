@@ -86,7 +86,7 @@
           }
         }
       });
-    if (!_v4 && _v0 && _v0?.metadata?.connections?.ancestorPath.length) {
+    if (!_v4 && _v0 && _v0?.metadata?.connections?.ancestorPath?.length) {
       let {
           ancestorPath: _v0
         } = _v0?.metadata?.connections,

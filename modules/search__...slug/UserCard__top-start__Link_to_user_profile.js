@@ -26,7 +26,9 @@
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
-    _v26 = _v0.i(0);
+    _v26 = _v0.i(0),
+    _v27 = _v0.i(0),
+    _v28 = _v0.i(0);
   _v0.s(["UserCard", 0, function ({
     onProfileClick: _v0,
     openDelay: _v1,
@@ -39,12 +41,16 @@
     ..._v8
   }) {
     let [_v9, _v10] = _v2.default.useState(!1),
-      _v11 = _v25.T.followersCount(_v6?.metadata?.connections?.followers?.total),
-      _v12 = _v25.T.videosCount(_v6?.metadata?.publicVideos?.total),
-      _v13 = void 0 !== _v6?.metadata?.publicVideos?.total,
-      _v14 = _v6?.skills ?? [],
-      [_v15, _v16] = (0, _v26.getAvatarImages)(_v6?.pictures?.sizes),
-      _v17 = (0, _v19.translate)({
+      {
+        settings: _v11
+      } = (0, _v21.useOrionSettings)(),
+      _v12 = _v11.enable_search_people_avatar_image_fix ? _v12.Portal : _v2.default.Fragment,
+      _v13 = _v27.T.followersCount(_v6?.metadata?.connections?.followers?.total),
+      _v14 = _v27.T.videosCount(_v6?.metadata?.publicVideos?.total),
+      _v15 = void 0 !== _v6?.metadata?.publicVideos?.total,
+      _v16 = _v6?.skills ?? [],
+      [_v17, _v18] = (0, _v28.getAvatarImages)(_v6?.pictures?.sizes),
+      _v19 = (0, _v20.translate)({
         singular: "Link to user profile",
         dictionary: {
           es: {
@@ -70,7 +76,7 @@
           }
         }
       }),
-      _v18 = _v6?.backgroundVideo?.[0];
+      _v20 = _v6?.backgroundVideo?.[0];
     return (0, _v1.jsxs)(_v7.Popover, {
       placement: _v2,
       trigger: "hover",
@@ -80,178 +86,180 @@
       ..._v8,
       children: [(0, _v1.jsx)(_v11.PopoverTrigger, {
         children: _v7
-      }), (0, _v1.jsxs)(_v9.PopoverContent, {
-        w: 320,
-        borderRadius: "drawer",
-        p: 0,
-        onClick: _v0 => _v0.stopPropagation(),
-        children: [_v18 && (0, _v18.getPlayerAssetUrls)() ? (0, _v1.jsx)(_v20.PlayerContextProvider, {
-          type: _v21.PlayerType.BarebonePlayer,
-          assetUrls: (0, _v18.getPlayerAssetUrls)(),
-          children: (0, _v1.jsx)(_v10.PopoverHeader, {
-            textStyle: "heading-sm",
-            display: "flex",
-            justifyContent: "space-between",
-            children: (0, _v1.jsx)(_v24.default, {
-              backgroundVideo: _v18,
-              elemWidth: 320,
-              isVisible: _v9
-            })
-          })
-        }) : null, (0, _v1.jsx)(_v8.PopoverBody, {
-          px: 50,
-          pb: 50,
-          children: (0, _v1.jsxs)(_v14.VStack, {
-            w: "100%",
-            p: 200,
-            pt: 400,
-            spacing: 200,
-            children: [(0, _v1.jsx)(_v23.LinkOrStaticElem, {
-              label: _v17,
-              newTab: !0,
-              onClick: _v0,
-              url: _v3,
-              children: (0, _v1.jsx)(_v3.Avatar, {
-                size: "2xl",
-                alt: _v6.name,
-                src: _v15,
-                srcSet: _v16,
-                nameProps: {
-                  name: _v6.name
-                }
+      }), (0, _v1.jsx)(_v12, {
+        children: (0, _v1.jsxs)(_v9.PopoverContent, {
+          w: 320,
+          borderRadius: "drawer",
+          p: 0,
+          onClick: _v0 => _v0.stopPropagation(),
+          children: [_v20 && (0, _v19.getPlayerAssetUrls)() ? (0, _v1.jsx)(_v22.PlayerContextProvider, {
+            type: _v23.PlayerType.BarebonePlayer,
+            assetUrls: (0, _v19.getPlayerAssetUrls)(),
+            children: (0, _v1.jsx)(_v10.PopoverHeader, {
+              textStyle: "heading-sm",
+              display: "flex",
+              justifyContent: "space-between",
+              children: (0, _v1.jsx)(_v26.default, {
+                backgroundVideo: _v20,
+                elemWidth: 320,
+                isVisible: _v9
               })
-            }), (0, _v1.jsxs)(_v14.VStack, {
-              children: [(0, _v1.jsx)(_v23.LinkOrStaticElem, {
-                label: _v17,
+            })
+          }) : null, (0, _v1.jsx)(_v8.PopoverBody, {
+            px: 50,
+            pb: 50,
+            children: (0, _v1.jsxs)(_v15.VStack, {
+              w: "100%",
+              p: 200,
+              pt: 400,
+              spacing: 200,
+              children: [(0, _v1.jsx)(_v25.LinkOrStaticElem, {
+                label: _v19,
                 newTab: !0,
                 onClick: _v0,
                 url: _v3,
-                children: (0, _v1.jsx)(_v13.Text, {
-                  as: "h4",
-                  variant: "heading-md",
-                  align: "center",
-                  children: _v6.name
+                children: (0, _v1.jsx)(_v3.Avatar, {
+                  size: "2xl",
+                  alt: _v6.name,
+                  src: _v17,
+                  srcSet: _v18,
+                  nameProps: {
+                    name: _v6.name
+                  }
                 })
-              }), _v6.locationDetails?.formattedAddress && (0, _v1.jsxs)(_v6.HStack, {
-                spacing: 50,
-                textAlign: "center",
-                children: [(0, _v1.jsx)(_v17.UserLocation, {
-                  color: "text-secondary"
-                }), (0, _v1.jsx)(_v13.Text, {
-                  variant: "body-md",
-                  color: "text-secondary",
-                  children: _v6.locationDetails?.formattedAddress
+              }), (0, _v1.jsxs)(_v15.VStack, {
+                children: [(0, _v1.jsx)(_v25.LinkOrStaticElem, {
+                  label: _v19,
+                  newTab: !0,
+                  onClick: _v0,
+                  url: _v3,
+                  children: (0, _v1.jsx)(_v14.Text, {
+                    as: "h4",
+                    variant: "heading-md",
+                    align: "center",
+                    children: _v6.name
+                  })
+                }), _v6.locationDetails?.formattedAddress && (0, _v1.jsxs)(_v6.HStack, {
+                  spacing: 50,
+                  textAlign: "center",
+                  children: [(0, _v1.jsx)(_v18.UserLocation, {
+                    color: "text-secondary"
+                  }), (0, _v1.jsx)(_v14.Text, {
+                    variant: "body-md",
+                    color: "text-secondary",
+                    children: _v6.locationDetails?.formattedAddress
+                  })]
                 })]
-              })]
-            }), _v14.length > 0 ? (0, _v1.jsx)(_v6.HStack, {
-              wrap: "wrap",
-              justify: "center",
-              children: _v14.map(_v0 => (0, _v1.jsx)(_v12.Tag, {
+              }), _v16.length > 0 ? (0, _v1.jsx)(_v6.HStack, {
+                wrap: "wrap",
+                justify: "center",
+                children: _v16.map(_v0 => (0, _v1.jsx)(_v13.Tag, {
+                  size: "sm",
+                  fontSize: "text-sm",
+                  fontWeight: "regular",
+                  cursor: "default",
+                  px: 200,
+                  children: _v0.name
+                }, _v0.name))
+              }) : null, (0, _v1.jsxs)(_v15.VStack, {
+                w: "100%",
+                spacing: 100,
+                children: [(0, _v1.jsx)(_v5.Divider, {
+                  borderColor: "stroke",
+                  _dark: {
+                    borderColor: "stroke"
+                  }
+                }), (0, _v1.jsxs)(_v6.HStack, {
+                  spacing: 200,
+                  children: [_v15 ? (0, _v1.jsxs)(_v6.HStack, {
+                    spacing: 75,
+                    children: [(0, _v1.jsx)(_v16.VideosStack, {}), (0, _v1.jsx)(_v14.Text, {
+                      variant: "body-xl",
+                      fontSize: "text-sm",
+                      children: _v14
+                    })]
+                  }) : null, (0, _v1.jsxs)(_v6.HStack, {
+                    spacing: 75,
+                    children: [(0, _v1.jsx)(_v17.PersonUser, {}), (0, _v1.jsx)(_v14.Text, {
+                      variant: "body-xl",
+                      fontSize: "text-sm",
+                      children: _v13
+                    })]
+                  })]
+                }), (0, _v1.jsx)(_v5.Divider, {
+                  borderColor: "stroke",
+                  _dark: {
+                    borderColor: "stroke"
+                  }
+                })]
+              }), _v3 ? (0, _v1.jsx)(_v4.Button, {
+                as: "a",
+                href: _v3,
+                rel: "noopener noreferrer",
+                target: "_blank",
+                "aria-label": (0, _v20.translate)({
+                  singular: "View profile",
+                  dictionary: {
+                    es: {
+                      singular: "Ver perfil"
+                    },
+                    "de-DE": {
+                      singular: "Profil anzeigen"
+                    },
+                    "fr-FR": {
+                      singular: "Voir le profil"
+                    },
+                    "ja-JP": {
+                      singular: "プロフィールを見る"
+                    },
+                    "ko-KR": {
+                      singular: "프로필 보기"
+                    },
+                    "pt-BR": {
+                      singular: "Ver perfil"
+                    },
+                    "zh-CN": {
+                      singular: "查看个人资料"
+                    }
+                  }
+                }),
                 size: "sm",
-                fontSize: "text-sm",
-                fontWeight: "regular",
-                cursor: "default",
-                px: 200,
-                children: _v0.name
-              }, _v0.name))
-            }) : null, (0, _v1.jsxs)(_v14.VStack, {
-              w: "100%",
-              spacing: 100,
-              children: [(0, _v1.jsx)(_v5.Divider, {
-                borderColor: "stroke",
-                _dark: {
-                  borderColor: "stroke"
-                }
-              }), (0, _v1.jsxs)(_v6.HStack, {
-                spacing: 200,
-                children: [_v13 ? (0, _v1.jsxs)(_v6.HStack, {
-                  spacing: 75,
-                  children: [(0, _v1.jsx)(_v15.VideosStack, {}), (0, _v1.jsx)(_v13.Text, {
-                    variant: "body-xl",
-                    fontSize: "text-sm",
-                    children: _v12
-                  })]
-                }) : null, (0, _v1.jsxs)(_v6.HStack, {
-                  spacing: 75,
-                  children: [(0, _v1.jsx)(_v16.PersonUser, {}), (0, _v1.jsx)(_v13.Text, {
-                    variant: "body-xl",
-                    fontSize: "text-sm",
-                    children: _v11
-                  })]
-                })]
-              }), (0, _v1.jsx)(_v5.Divider, {
-                borderColor: "stroke",
-                _dark: {
-                  borderColor: "stroke"
-                }
+                w: "100%",
+                onClick: _v0,
+                variant: "primary",
+                children: (0, _v20.translate)({
+                  singular: "View profile",
+                  dictionary: {
+                    es: {
+                      singular: "Ver perfil"
+                    },
+                    "de-DE": {
+                      singular: "Profil anzeigen"
+                    },
+                    "fr-FR": {
+                      singular: "Voir le profil"
+                    },
+                    "ja-JP": {
+                      singular: "プロフィールを見る"
+                    },
+                    "ko-KR": {
+                      singular: "프로필 보기"
+                    },
+                    "pt-BR": {
+                      singular: "Ver perfil"
+                    },
+                    "zh-CN": {
+                      singular: "查看个人资料"
+                    }
+                  }
+                })
+              }) : null, _v4 && _v6 && (0, _v1.jsx)(_v24.FollowButton, {
+                user: _v6,
+                source: _v5
               })]
-            }), _v3 ? (0, _v1.jsx)(_v4.Button, {
-              as: "a",
-              href: _v3,
-              rel: "noopener noreferrer",
-              target: "_blank",
-              "aria-label": (0, _v19.translate)({
-                singular: "View profile",
-                dictionary: {
-                  es: {
-                    singular: "Ver perfil"
-                  },
-                  "de-DE": {
-                    singular: "Profil anzeigen"
-                  },
-                  "fr-FR": {
-                    singular: "Voir le profil"
-                  },
-                  "ja-JP": {
-                    singular: "プロフィールを見る"
-                  },
-                  "ko-KR": {
-                    singular: "프로필 보기"
-                  },
-                  "pt-BR": {
-                    singular: "Ver perfil"
-                  },
-                  "zh-CN": {
-                    singular: "查看个人资料"
-                  }
-                }
-              }),
-              size: "sm",
-              w: "100%",
-              onClick: _v0,
-              variant: "primary",
-              children: (0, _v19.translate)({
-                singular: "View profile",
-                dictionary: {
-                  es: {
-                    singular: "Ver perfil"
-                  },
-                  "de-DE": {
-                    singular: "Profil anzeigen"
-                  },
-                  "fr-FR": {
-                    singular: "Voir le profil"
-                  },
-                  "ja-JP": {
-                    singular: "プロフィールを見る"
-                  },
-                  "ko-KR": {
-                    singular: "프로필 보기"
-                  },
-                  "pt-BR": {
-                    singular: "Ver perfil"
-                  },
-                  "zh-CN": {
-                    singular: "查看个人资料"
-                  }
-                }
-              })
-            }) : null, _v4 && _v6 && (0, _v1.jsx)(_v22.FollowButton, {
-              user: _v6,
-              source: _v5
-            })]
-          })
-        })]
+            })
+          })]
+        })
       })]
     });
   }]);
