@@ -501,6 +501,7 @@
         WatchLater: 0,
         Like: 0,
         share: 0,
+        embed: 0,
         transparent: 0,
         anonSignature: _v7
       } : {
@@ -509,6 +510,7 @@
         WatchLater: 0,
         Like: 0,
         share: 0,
+        embed: 0,
         transparent: 0,
         anonSignature: _v7
       };

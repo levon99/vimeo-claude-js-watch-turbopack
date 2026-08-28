@@ -44,7 +44,8 @@
         _v2 = new URL(_v1, window.location.origin);
       return _v2?.pathname;
     } catch {}
-    return "/upgrade";
+    let _v3 = window.location.search;
+    return `/upgrade${_v3}`;
   }, "getFinalProductName", 0, (_v0, _v1) => {
     if (!_v0) return "";
     let {

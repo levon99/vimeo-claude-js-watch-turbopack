@@ -13932,16 +13932,17 @@
     _v248 = _v0.i(0),
     _v249 = _v0.i(0),
     _v250 = _v0.i(0),
-    _v251 = _v0.i(0);
-  let _v252 = ["creator", "core", "professional", "studio"],
-    _v253 = ["creator", "core", "professional"];
-  function _v254(_v0, _v1) {
+    _v251 = _v0.i(0),
+    _v252 = _v0.i(0);
+  let _v253 = ["creator", "core", "professional", "studio"],
+    _v254 = ["creator", "core", "professional"];
+  function _v255(_v0, _v1) {
     let _v2 = _v1.indexOf(_v0);
     if (-1 === _v2) return [];
     let _v3 = Math.max(0, _v2 - 1);
     return _v1.slice(_v3, _v3 + 3);
   }
-  let _v255 = ({
+  let _v256 = ({
     isOpen: _v0,
     onClose: _v1,
     scheduledTier: _v2
@@ -13949,43 +13950,51 @@
     let _v3 = (0, _v3.useContext)(_v66.ViewerContext),
       {
         width: _v4
-      } = (0, _v246.useWindowSize)(),
+      } = (0, _v247.useWindowSize)(),
       {
         settings: _v5
       } = (0, _v13.useOrionSettings)(),
-      _v6 = (0, _v3.useMemo)(() => _v5.core_tier_enabled ? _v254(_v2, _v252) : _v254("core" === _v2 ? "creator" : _v2, _v252.filter(_v0 => "core" !== _v0)), [_v2, _v5.core_tier_enabled]),
+      {
+        isLoading: _v6,
+        showIndividualPlans: _v7
+      } = (0, _v193.useB2BRepackagingContext)(),
+      _v8 = !_v6 && !(0, _v245.isB2BRepackagingPlanAvailable)(_v2, _v7);
+    (0, _v3.useEffect)(() => {
+      !_v6 && _v8 && _v1();
+    }, [_v6, _v8, _v1]);
+    let _v9 = (0, _v3.useMemo)(() => _v5.core_tier_enabled ? _v255(_v2, _v253) : _v255("core" === _v2 ? "creator" : _v2, _v253.filter(_v0 => "core" !== _v0)), [_v2, _v5.core_tier_enabled]),
       {
         capabilities: {
-          hasMonthlyBilling: _v7
+          hasMonthlyBilling: _v10
         },
-        ready: _v8
+        ready: _v11
       } = (0, _v53.useCapability)(["hasMonthlyBilling"]),
-      _v9 = !(_v8 && _v7),
-      _v10 = (0, _v245.useCampaignIdOverride)(),
+      _v12 = !(_v11 && _v10),
+      _v13 = (0, _v246.useCampaignIdOverride)(),
       {
-        campaignId: _v11,
-        isLoading: _v12
-      } = (0, _v249.useRepackagingCampaign)(_v10),
-      _v13 = _v10 ?? _v11,
-      _v14 = (0, _v82.useGetSubscriptionPlansData)(void 0, void 0, !0, {
+        campaignId: _v14,
+        isLoading: _v15
+      } = (0, _v250.useRepackagingCampaign)(_v13),
+      _v16 = _v13 ?? _v14,
+      _v17 = (0, _v82.useGetSubscriptionPlansData)(void 0, void 0, !0, {
         bypassTierHierarchy: !0,
-        ...(_v13 ? {
-          campaignId: _v13
+        ...(_v16 ? {
+          campaignId: _v16
         } : {}),
         usePaymentsService: !0
       }),
       {
-        data: _v15
-      } = (0, _v250.useSubscriptionPlansUsageCheck)(_v6),
-      _v16 = (0, _v3.useMemo)(() => ({
-        plans: _v6,
+        data: _v18
+      } = (0, _v251.useSubscriptionPlansUsageCheck)(_v9),
+      _v19 = (0, _v3.useMemo)(() => ({
+        plans: _v9,
         showMonthlyDropdown: !1,
         showCardBorder: !0,
         compact: !0
-      }), [_v6]),
-      _v17 = !!_v3?.user,
-      _v18 = !!_v14 && _v8 && !_v12;
-    return _v253.includes(_v2) && _v3 ? (0, _v1.jsxs)(_v71.Modal, {
+      }), [_v9]),
+      _v20 = !!_v3?.user,
+      _v21 = !!_v17 && _v11 && !_v15;
+    return !_v254.includes(_v2) || !_v3 || _v6 || _v8 ? null : (0, _v1.jsxs)(_v71.Modal, {
       isOpen: _v0,
       onClose: _v1,
       children: [(0, _v1.jsx)(_v77.ModalOverlay, {}), (0, _v1.jsxs)(_v74.ModalContent, {
@@ -14052,23 +14061,23 @@
           })
         }), (0, _v1.jsx)(_v72.ModalBody, {
           paddingTop: 0,
-          children: _v18 ? (0, _v1.jsx)(_v247.OverridesContextProvider, {
-            showYearly: _v9,
+          children: _v21 ? (0, _v1.jsx)(_v248.OverridesContextProvider, {
+            showYearly: _v12,
             viewer: _v3,
-            overrides: _v16,
-            children: (0, _v1.jsx)(_v248.PlansDataProvider, {
-              overrides: _v16,
-              plansData: _v14,
-              isLoggedIn: _v17,
-              capabilitiesReady: _v8,
+            overrides: _v19,
+            children: (0, _v1.jsx)(_v249.PlansDataProvider, {
+              overrides: _v19,
+              plansData: _v17,
+              isLoggedIn: _v20,
+              capabilitiesReady: _v11,
               isPricingRedesign: !0,
               downgradeEnabled: !0,
               effectiveTier: _v2,
               upcomingTier: _v2,
-              usageCheckData: _v15,
+              usageCheckData: _v18,
               hideIndividualPlans: !1,
-              children: (0, _v1.jsx)(_v251.default, {
-                showYearly: _v9,
+              children: (0, _v1.jsx)(_v252.default, {
+                showYearly: _v12,
                 isBillingFreqToggleAvailable: !1,
                 isPageTopToggleVisible: !1,
                 showStrikePrice: !1,
@@ -14123,15 +14132,15 @@
           })
         })]
       })]
-    }) : null;
+    });
   };
-  var _v256 = _v0.i(0),
-    _v257 = _v0.i(0),
+  var _v257 = _v0.i(0),
     _v258 = _v0.i(0),
     _v259 = _v0.i(0),
     _v260 = _v0.i(0),
-    _v261 = _v0.i(0);
-  function _v262() {
+    _v261 = _v0.i(0),
+    _v262 = _v0.i(0);
+  function _v263() {
     let _v0,
       _v1,
       _v2,
@@ -14190,7 +14199,7 @@
       {
         open: _v34,
         modal: _v35
-      } = (0, _v256.useIndividualEligibilityModal)({
+      } = (0, _v257.useIndividualEligibilityModal)({
         initialStep: _v29 && !_v28 ? "not_qualified" : void 0
       }),
       [_v36, _v37] = (0, _v3.useState)(!1),
@@ -14339,12 +14348,12 @@
               backgroundColor: "red.100"
             },
             onClick: () => {
-              (0, _v257.sendBpEventWithContexts)("vimeo.update_payment_method_click", {
-                ...(0, _v258.buildActionBpContext)({
+              (0, _v258.sendBpEventWithContexts)("vimeo.update_payment_method_click", {
+                ...(0, _v259.buildActionBpContext)({
                   action_type: "click",
                   feature: null
                 }),
-                ...(0, _v259.buildProductAnalyticsBpContext)({
+                ...(0, _v260.buildProductAnalyticsBpContext)({
                   location: "upper_banner",
                   device_type: (0, _v162.default)(),
                   element: "button",
@@ -14354,10 +14363,10 @@
                   is_user_facing_data: !1,
                   entity_type: null
                 }),
-                ...(0, _v260.buildTeamBpContext)({
+                ...(0, _v261.buildTeamBpContext)({
                   is_team_member: !0
                 }),
-                ...(0, _v261.buildThirdPartyIntegrationBpContext)({
+                ...(0, _v262.buildThirdPartyIntegrationBpContext)({
                   integration_id: null,
                   integration_name: null,
                   is_partner: null
@@ -14398,12 +14407,12 @@
               backgroundColor: "red.100"
             },
             onClick: () => {
-              (0, _v257.sendBpEventWithContexts)("vimeo.update_payment_method_click", {
-                ...(0, _v258.buildActionBpContext)({
+              (0, _v258.sendBpEventWithContexts)("vimeo.update_payment_method_click", {
+                ...(0, _v259.buildActionBpContext)({
                   action_type: "click",
                   feature: null
                 }),
-                ...(0, _v259.buildProductAnalyticsBpContext)({
+                ...(0, _v260.buildProductAnalyticsBpContext)({
                   location: "upper_banner",
                   device_type: (0, _v162.default)(),
                   element: "button",
@@ -14413,10 +14422,10 @@
                   is_user_facing_data: !1,
                   entity_type: null
                 }),
-                ...(0, _v260.buildTeamBpContext)({
+                ...(0, _v261.buildTeamBpContext)({
                   is_team_member: !0
                 }),
-                ...(0, _v261.buildThirdPartyIntegrationBpContext)({
+                ...(0, _v262.buildThirdPartyIntegrationBpContext)({
                   integration_id: null,
                   integration_name: null,
                   is_partner: null
@@ -14499,12 +14508,12 @@
         }) => _v11 && (0, _v1.jsx)(_v241, {
           hasScheduledDowngrade: _v0
         })
-      }), null !== _v38 && (0, _v1.jsx)(_v255, {
+      }), null !== _v38 && (0, _v1.jsx)(_v256, {
         isOpen: !0,
         scheduledTier: _v38,
         onClose: () => _v39(null)
       })]
     });
   }
-  _v262.getLayout = _v242.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v262], 0);
+  _v263.getLayout = _v242.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v263], 0);
 }

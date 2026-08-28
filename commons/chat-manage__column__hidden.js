@@ -1219,8 +1219,8 @@
         _v1(_v0);
       }, [_v1]),
       _v8 = (0, _v3.useCallback)(_v0 => {
-        _v0?.native && (_v1(_v0.native), _v4());
-      }, [_v1, _v4]);
+        _v0?.native && _v1(_v0.native);
+      }, [_v1]);
     return _v0 ? (0, _v1.jsxs)(_v24.Flex, {
       flexDirection: {
         base: "row",

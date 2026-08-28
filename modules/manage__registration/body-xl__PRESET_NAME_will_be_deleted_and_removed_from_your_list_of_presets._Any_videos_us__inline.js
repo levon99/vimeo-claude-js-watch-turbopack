@@ -345,61 +345,13 @@
     },
     _v38 = () => (0, _v1.jsx)(_v37, {
       children: (0, _v1.jsxs)(_v3.Box, {
-        children: [(0, _v1.jsx)(_v34.Header, {}), (0, _v1.jsx)(_v35.RegistrationInfo, {}), (0, _v1.jsx)(_v33, {})]
+        children: [(0, _v1.jsx)(_v34.Header, {}), (0, _v1.jsx)(_v35.RegistrationInfo, {
+          emailDefaultsHref: _v19.EMAIL_DEFAULTS_URL
+        }), (0, _v1.jsx)(_v33, {})]
       })
     });
-  var _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0);
-  let _v45 = ({
-      children: _v0
-    }) => {
-      let _v1 = (0, _v4.useContext)(_v44.ViewerContext),
-        [_v2, _v3] = (0, _v4.useState)(!1);
-      return !_v1 || _v2 ? (0, _v1.jsx)(_v39.Flex, {
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        children: (0, _v1.jsx)(_v40.Spinner, {
-          size: "lg"
-        })
-      }) : (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v42.DefaultNavigation, {}), (0, _v1.jsx)(_v39.Flex, {
-          marginTop: "2xl",
-          marginLeft: "xl",
-          children: (0, _v1.jsx)(_v21.Button, {
-            size: "lg",
-            variant: "tertiary",
-            leftIcon: (0, _v1.jsx)(_v41.ArrowLeft, {}),
-            onClick: () => {
-              _v3(!0), window.location.href = _v19.settingsPageUrl;
-            },
-            children: _v20.default.BackToSettings
-          })
-        }), (0, _v1.jsx)(_v3.Box, {
-          sx: {
-            width: "56%",
-            alignSelf: "center",
-            overflow: "hidden",
-            height: "calc(100vh - 12rem)"
-          },
-          children: (0, _v1.jsx)(_v3.Box, {
-            padding: 16,
-            children: _v0
-          })
-        }), (0, _v1.jsx)(_v3.Box, {
-          height: "60",
-          children: _v1 && (0, _v1.jsx)(_v43.EssentialFooter, {
-            ..._v1,
-            enableQuotaMenu: !1
-          })
-        })]
-      });
-    },
-    _v46 = () => (0, _v1.jsx)(_v38, {});
+  var _v39 = _v0.i(0);
+  let _v40 = () => (0, _v1.jsx)(_v38, {});
   (0, _v2.withPageSetup)(() => ({
     props: {
       hasThemeSupport: !0
@@ -408,7 +360,5 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v46.getLayout = _v0 => (0, _v1.jsx)(_v45, {
-    children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v46], 0);
+  }), _v40.getLayout = _v39.getSharedContentLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v40], 0);
 }

@@ -3253,6 +3253,7 @@
     like: 0,
     watch_later: 0,
     share: 0,
+    embed: 0,
     ask_ai: 0,
     title: 0,
     byline: 0,

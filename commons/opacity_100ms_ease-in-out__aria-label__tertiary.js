@@ -296,6 +296,7 @@
       _v18 = _v10 ? (0, _v1.jsx)(_v5.Tooltip, {
         label: _v15,
         placement: "right",
+        openDelay: 300,
         children: _v17
       }) : _v17;
     return _v3 ? (0, _v1.jsx)(_v3.Box, {

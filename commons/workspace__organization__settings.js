@@ -43,7 +43,8 @@
       MANAGE_AI: `/manage/${_v1.WORKSPACE}/manage-ai`,
       E_LEARNING: `/manage/${_v1.WORKSPACE}/e-learning`,
       REGISTRATION: `/manage/${_v1.WORKSPACE}/registration`,
-      USAGE: `/manage/${_v1.WORKSPACE}/usage`
+      USAGE: `/manage/${_v1.WORKSPACE}/usage`,
+      EMAIL_DEFAULTS: `/manage/${_v1.WORKSPACE}/registration/email-defaults`
     },
     _v5 = {
       ANALYTICS: `/manage/${_v1.ORGANIZATION}/analytics`,

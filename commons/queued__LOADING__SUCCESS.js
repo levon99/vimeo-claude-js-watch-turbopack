@@ -133,43 +133,43 @@
       return null == _v0 ? null : (this.users[_v0] || this.setCache(_v0), this.users[_v0].capabilitiesCache);
     }
   }();
-  _v0.s(["useCapability", 0, function (_v0, _v1) {
-    var _v2;
-    let _v3,
-      _v4 = (0, _v1.useContext)(_v2.ViewerContext),
-      _v5 = null != _v1 ? (0, _v8.getUserId)(`${_v1}`) : _v4?.user?.id,
-      [_v6, _v7] = (0, _v1.useReducer)(_v5, {
+  _v0.s(["useCapability", 0, function (_v0, _v1, _v2) {
+    var _v3;
+    let _v4,
+      _v5 = (0, _v1.useContext)(_v2.ViewerContext),
+      _v6 = null != _v1 ? (0, _v8.getUserId)(`${_v1}`) : _v5?.user?.id,
+      [_v7, _v8] = (0, _v1.useReducer)(_v5, {
         loading: !1,
         error: null,
         ready: !1
       }),
-      _v8 = _v9.getQueuedRequest(_v5),
-      _v9 = _v9.getCapabilities(_v5),
-      _v10 = ((_v3 = (0, _v1.useRef)(void 0)).current && (_v2 = _v3.current, _v2.length === _v0.length && _v2.every((_v0, _v1) => _v0 === _v0[_v1])) || (_v3.current = _v0), _v3.current);
+      _v9 = _v9.getQueuedRequest(_v6),
+      _v10 = _v9.getCapabilities(_v6),
+      _v11 = ((_v4 = (0, _v1.useRef)(void 0)).current && (_v3 = _v4.current, _v3.length === _v0.length && _v3.every((_v0, _v1) => _v0 === _v0[_v1])) || (_v4.current = _v0), _v4.current);
     return (0, _v1.useEffect)(() => {
-      if (!_v4 || !_v5 || !_v9 || !_v8) return;
+      if (!_v5 || !_v6 || !_v10 || !_v9) return;
       let {
         missing: _v0,
         queued: _v1
-      } = (0, _v8.getCapabilitiesByStatus)(_v10, _v9);
-      _v0.length || _v1.length ? (_v8.addSubscriber(_v7, _v10), _v7({
+      } = (0, _v8.getCapabilitiesByStatus)(_v11, _v10);
+      _v0.length || _v1.length ? (_v9.addSubscriber(_v8, _v11), _v8({
         type: "LOADING"
       }), _v0.length && (_v0.forEach(_v0 => {
-        _v9.update({
+        _v10.update({
           [_v0]: "queued"
         });
-      }), _v8.addCapabilities(_v0), _v8.scheduleBatch(() => _v4(_v8, _v9, {
-        userId: _v5,
-        jwt: _v4.jwt,
-        apiUrl: _v4.apiUrl
-      })))) : _v7({
+      }), _v9.addCapabilities(_v0), _v9.scheduleBatch(() => _v4(_v9, _v10, {
+        userId: _v6,
+        jwt: _v2 ?? _v5.jwt,
+        apiUrl: _v5.apiUrl
+      })))) : _v8({
         type: "SUCCESS"
       });
-    }, [_v9, _v8, _v10, _v5, _v4]), {
-      capabilities: _v9?.getAll() ?? _v0.reduce((_v0, _v1) => (_v0[_v1] = !1, _v0), {}),
-      loading: _v6.loading,
-      error: _v6.error,
-      ready: _v6.ready
+    }, [_v10, _v2, _v9, _v11, _v6, _v5]), {
+      capabilities: _v10?.getAll() ?? _v0.reduce((_v0, _v1) => (_v0[_v1] = !1, _v0), {}),
+      loading: _v7.loading,
+      error: _v7.error,
+      ready: _v7.ready
     };
   }, "userCache", 0, _v9], 0);
 }

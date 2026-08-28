@@ -12230,6 +12230,7 @@ ${_v9}
           email: !1,
           fullscreen: !1,
           share: !1,
+          embed: !1,
           watch_later: !1,
           like: !1,
           collections: !1,

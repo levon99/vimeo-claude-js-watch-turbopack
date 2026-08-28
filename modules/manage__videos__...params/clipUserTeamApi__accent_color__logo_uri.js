@@ -27400,48 +27400,49 @@
           trackVideoManageAppearanceDetailToggled: _v22,
           trackVideoManageAppearanceSaved: _v23,
           trackVideoManageAppearanceControlChanged: _v24,
-          trackVideoManageLanguagesDisplayed: _v25,
-          trackVideoManageSubtitlesUploaded: _v26,
-          trackVideoManageSubtitlesGenerationStarted: _v27,
-          trackVideoManageInteractivityDisplayed: _v28,
-          trackVideoManageInteractivityChapterAdded: _v29,
-          trackVideoManageInteractivityChapterSaved: _v30,
-          trackVideoManageInteractivityRegistrationToggled: _v31,
-          trackVideoManageInteractivityRegistrationCustomizeClicked: _v32,
-          trackVideoManageInteractivityRegistrationManageRegistrantsClicked: _v33,
-          trackVideoManageInteractivityEndScreenSourceChanged: _v34,
-          trackVideoManageInteractivityEndScreenSaved: _v35,
-          trackVideoManageInteractivityVideoRatingTypeChanged: _v36,
-          trackVideoManageInteractivityVideoRatingSaved: _v37,
-          trackVideoManageVimeoAiPanelDisplayed: _v38,
-          trackVideoManageVimeoAiPanelClosed: _v39,
-          trackVideoManageInteractivityRegistrationFormTabSwitched: _v40,
-          trackVideoManageInteractivityRegistrationFormPresetChanged: _v41,
-          trackVideoManageInteractivityRegistrationFormConnectProviders: _v42,
-          trackVideoManageInteractivityRegistrationFormPlacementChanged: _v43,
-          trackVideoManageInteractivityRegistrationFormSettingToggled: _v44,
-          trackVideoManageInteractivityRegistrationFormSectionSwitched: _v45,
-          trackVideoManageInteractivityRegistrationFormFieldAdded: _v46,
-          trackVideoManageInteractivityRegistrationFormHiddenFieldAdded: _v47,
-          trackVideoManageInteractivityRegistrationFormPrivacyPolicyChanged: _v48,
-          trackVideoManageInteractivityRegistrationFormAppearanceChanged: _v49,
-          trackVideoManageInteractivityRegistrationFormPreviewTypeChanged: _v50,
-          trackVideoManageInteractivityRegistrationFormPreviewDeviceChanged: _v51,
-          trackVideoManageInteractivityRegistrationRegistrantsActionClicked: _v52
+          trackVideoManageAppearanceSettingsToggled: _v25,
+          trackVideoManageLanguagesDisplayed: _v26,
+          trackVideoManageSubtitlesUploaded: _v27,
+          trackVideoManageSubtitlesGenerationStarted: _v28,
+          trackVideoManageInteractivityDisplayed: _v29,
+          trackVideoManageInteractivityChapterAdded: _v30,
+          trackVideoManageInteractivityChapterSaved: _v31,
+          trackVideoManageInteractivityRegistrationToggled: _v32,
+          trackVideoManageInteractivityRegistrationCustomizeClicked: _v33,
+          trackVideoManageInteractivityRegistrationManageRegistrantsClicked: _v34,
+          trackVideoManageInteractivityEndScreenSourceChanged: _v35,
+          trackVideoManageInteractivityEndScreenSaved: _v36,
+          trackVideoManageInteractivityVideoRatingTypeChanged: _v37,
+          trackVideoManageInteractivityVideoRatingSaved: _v38,
+          trackVideoManageVimeoAiPanelDisplayed: _v39,
+          trackVideoManageVimeoAiPanelClosed: _v40,
+          trackVideoManageInteractivityRegistrationFormTabSwitched: _v41,
+          trackVideoManageInteractivityRegistrationFormPresetChanged: _v42,
+          trackVideoManageInteractivityRegistrationFormConnectProviders: _v43,
+          trackVideoManageInteractivityRegistrationFormPlacementChanged: _v44,
+          trackVideoManageInteractivityRegistrationFormSettingToggled: _v45,
+          trackVideoManageInteractivityRegistrationFormSectionSwitched: _v46,
+          trackVideoManageInteractivityRegistrationFormFieldAdded: _v47,
+          trackVideoManageInteractivityRegistrationFormHiddenFieldAdded: _v48,
+          trackVideoManageInteractivityRegistrationFormPrivacyPolicyChanged: _v49,
+          trackVideoManageInteractivityRegistrationFormAppearanceChanged: _v50,
+          trackVideoManageInteractivityRegistrationFormPreviewTypeChanged: _v51,
+          trackVideoManageInteractivityRegistrationFormPreviewDeviceChanged: _v52,
+          trackVideoManageInteractivityRegistrationRegistrantsActionClicked: _v53
         } = (0, _v76.useVideoManageTracking)(),
-        _v53 = (0, _v86.useAppSelector)(_v99.clipUserUriSelector),
-        _v54 = (0, _v86.useAppSelector)(_v92.clipMetadataSelector),
-        _v55 = (0, _v86.useAppSelector)(_v96.clipStatusSelector),
-        _v56 = (0, _v86.useAppSelector)(_v96.clipLiveStatusSelector),
-        _v57 = (0, _v86.useAppSelector)(_v85.clipTypeSelector),
-        _v58 = (0, _v86.useAppSelector)(_v721),
-        _v59 = (0, _v86.useAppSelector)(_v390),
-        _v60 = (0, _v86.useAppSelector)(_v85.clipDurationSelector),
-        _v61 = (0, _v86.useAppSelector)(_v85.clipHasMandatoryEmailCaptureSelector),
-        _v62 = (0, _v86.useAppSelector)(_v92.clipMetadataConnectionsVersionIdSelector),
-        _v63 = (0, _v86.useAppSelector)(_v92.clipMetadataConnectionsVersionUriSelector),
+        _v54 = (0, _v86.useAppSelector)(_v99.clipUserUriSelector),
+        _v55 = (0, _v86.useAppSelector)(_v92.clipMetadataSelector),
+        _v56 = (0, _v86.useAppSelector)(_v96.clipStatusSelector),
+        _v57 = (0, _v86.useAppSelector)(_v96.clipLiveStatusSelector),
+        _v58 = (0, _v86.useAppSelector)(_v85.clipTypeSelector),
+        _v59 = (0, _v86.useAppSelector)(_v721),
+        _v60 = (0, _v86.useAppSelector)(_v390),
+        _v61 = (0, _v86.useAppSelector)(_v85.clipDurationSelector),
+        _v62 = (0, _v86.useAppSelector)(_v85.clipHasMandatoryEmailCaptureSelector),
+        _v63 = (0, _v86.useAppSelector)(_v92.clipMetadataConnectionsVersionIdSelector),
+        _v64 = (0, _v86.useAppSelector)(_v92.clipMetadataConnectionsVersionUriSelector),
         {
-          onUpdateMetadata: _v64
+          onUpdateMetadata: _v65
         } = (() => {
           let _v0 = (0, _v198.useToast)(),
             _v1 = (0, _v86.useAppSelector)(_v85.clipIdSelector),
@@ -27558,57 +27559,57 @@
             isPutVideoTagsLoading: _v8
           };
         })(),
-        _v65 = (0, _v86.useAppSelector)(_v96.clipTranscodeStatusSelector),
-        _v66 = (0, _v86.useAppSelector)(_v125),
-        _v67 = (0, _v86.useAppSelector)(_v124),
-        [_v68] = (0, _v37.useLazyFetchClipWithFieldsQuery)(),
+        _v66 = (0, _v86.useAppSelector)(_v96.clipTranscodeStatusSelector),
+        _v67 = (0, _v86.useAppSelector)(_v125),
+        _v68 = (0, _v86.useAppSelector)(_v124),
+        [_v69] = (0, _v37.useLazyFetchClipWithFieldsQuery)(),
         {
-          subscribe: _v69,
-          closeChannel: _v70
+          subscribe: _v70,
+          closeChannel: _v71
         } = (0, _v783.useBroadcastChannel)({
           name: "ai-channel"
         }),
-        [_v71, _v72] = (0, _v29.useState)(),
-        [_v73, _v74] = (0, _v29.useState)(0),
-        [_v75, _v76] = (0, _v29.useState)(!1),
-        [_v77, _v78] = (0, _v29.useState)(""),
-        [_v79, _v80] = (0, _v29.useState)(360),
-        [_v81, _v82] = (0, _v29.useState)(""),
-        [_v83, _v84] = (0, _v29.useState)(!1),
+        [_v72, _v73] = (0, _v29.useState)(),
+        [_v74, _v75] = (0, _v29.useState)(0),
+        [_v76, _v77] = (0, _v29.useState)(!1),
+        [_v78, _v79] = (0, _v29.useState)(""),
+        [_v80, _v81] = (0, _v29.useState)(360),
+        [_v82, _v83] = (0, _v29.useState)(""),
+        [_v84, _v85] = (0, _v29.useState)(!1),
         {
-          activeRoute: _v85,
-          closeDrawer: _v86
+          activeRoute: _v86,
+          closeDrawer: _v87
         } = _v173(),
-        _v87 = (0, _v29.useRef)(null),
         _v88 = (0, _v29.useRef)(null),
         _v89 = (0, _v29.useRef)(null),
         _v90 = (0, _v29.useRef)(null),
-        _v91 = (0, _v29.useRef)(!1),
-        _v92 = (0, _v29.useCallback)(_v0 => {
-          null !== _v0 && (_v73 !== _v0.clientHeight && _v74(_v0.clientHeight), _v72(_v0));
-        }, [_v73]),
-        _v93 = 80 + _v73,
-        [_v94, _v95] = (0, _v29.useState)(window.innerHeight - _v93),
+        _v91 = (0, _v29.useRef)(null),
+        _v92 = (0, _v29.useRef)(!1),
+        _v93 = (0, _v29.useCallback)(_v0 => {
+          null !== _v0 && (_v74 !== _v0.clientHeight && _v75(_v0.clientHeight), _v73(_v0));
+        }, [_v74]),
+        _v94 = 80 + _v74,
+        [_v95, _v96] = (0, _v29.useState)(window.innerHeight - _v94),
         {
-          sendSvvEvent: _v96
+          sendSvvEvent: _v97
         } = (0, _v246.useSvvBPEvents)(),
-        _v97 = (0, _v158.useIsMobile)(),
-        _v98 = (0, _v205.useAnalyticsEvent)(),
-        _v99 = (0, _v164.useViewer)(),
-        _v100 = !!(_v54?.connections?.privateComments?.isEnabled && "available" === _v55 && !_v54?.connections?.versions?.latestIncompleteVersion),
+        _v98 = (0, _v158.useIsMobile)(),
+        _v99 = (0, _v205.useAnalyticsEvent)(),
+        _v100 = (0, _v164.useViewer)(),
+        _v101 = !!(_v55?.connections?.privateComments?.isEnabled && "available" === _v56 && !_v55?.connections?.versions?.latestIncompleteVersion),
         {
-          canOnlyComment: _v101
+          canOnlyComment: _v102
         } = _v386(),
         {
-          capabilities: _v102,
-          ready: _v103
-        } = (0, _v130.useCapability)(["canAddReactionOnClip", "hasWirewax", "hasUpsellsForFlatRateTiers", "hasAvsDeprecation", "hasAutoClosedCaptions"], _v53),
-        _v104 = (0, _v29.useCallback)(() => {
+          capabilities: _v103,
+          ready: _v104
+        } = (0, _v130.useCapability)(["canAddReactionOnClip", "hasWirewax", "hasUpsellsForFlatRateTiers", "hasAvsDeprecation", "hasAutoClosedCaptions"], _v54),
+        _v105 = (0, _v29.useCallback)(() => {
           _v781.PendoClient.showGuideById("X39odvl0_IFUPQWTg3CM8vcNy-Q");
         }, []),
         {
-          isUploading: _v105,
-          startForcePolling: _v106
+          isUploading: _v106,
+          startForcePolling: _v107
         } = ((_v0, _v1 = !1, _v2) => {
           let [_v3, _v4] = (0, _v29.useState)(!1),
             {
@@ -27657,8 +27658,8 @@
             isTranscripting: _v15,
             startForcePolling: _v17
           }), [_v15, _v13, _v17]);
-        })(_v16, !!_v102.hasAutoClosedCaptions, _v104),
-        _v107 = (() => {
+        })(_v16, !!_v103.hasAutoClosedCaptions, _v105),
+        _v108 = (() => {
           let [_v0, _v1] = (0, _v29.useState)(!1),
             _v2 = (0, _v29.useRef)(!1),
             _v3 = (0, _v29.useRef)(!1),
@@ -27672,36 +27673,36 @@
           }, [_v6, _v0]), _v0;
         })();
       (0, _v29.useEffect)(() => {
-        _v107 && !_v91.current && _v10(), _v91.current = _v107;
-      }, [_v10, _v107]);
-      let _v108 = (0, _v29.useMemo)(() => _v85 && _v170(_v85) ? {
-          title: _v152[_v85].title,
-          subtitle: _v152[_v85].subtitle,
-          redesignTitle: _v152[_v85].redesignTitle,
-          backButton: _v152[_v85].backButton,
-          name: _v85,
-          id: `sidebar_panel__${_v85}`
-        } : null, [_v85]),
-        _v109 = _v108?.name !== _v151.CUSTOM_PAGE || _v17.video_page_customization_v1 || _v17.enable_video_customization_v2 ? _v108 : null,
-        _v110 = _v54?.hasChapterSuggestions ?? !1,
-        [_v111, _v112] = (0, _v29.useState)(_v110);
+        _v108 && !_v92.current && _v10(), _v92.current = _v108;
+      }, [_v10, _v108]);
+      let _v109 = (0, _v29.useMemo)(() => _v86 && _v170(_v86) ? {
+          title: _v152[_v86].title,
+          subtitle: _v152[_v86].subtitle,
+          redesignTitle: _v152[_v86].redesignTitle,
+          backButton: _v152[_v86].backButton,
+          name: _v86,
+          id: `sidebar_panel__${_v86}`
+        } : null, [_v86]),
+        _v110 = _v109?.name !== _v151.CUSTOM_PAGE || _v17.video_page_customization_v1 || _v17.enable_video_customization_v2 ? _v109 : null,
+        _v111 = _v55?.hasChapterSuggestions ?? !1,
+        [_v112, _v113] = (0, _v29.useState)(_v111);
       (0, _v29.useEffect)(() => {
-        _v110 && (0, _v391.sendChaptersImpression)();
-      }, [_v110]), (0, _v29.useEffect)(() => {
+        _v111 && (0, _v391.sendChaptersImpression)();
+      }, [_v111]), (0, _v29.useEffect)(() => {
         let _v0 = () => {
-          _v95(window.innerHeight - _v93);
+          _v96(window.innerHeight - _v94);
         };
         return window.addEventListener("resize", _v0), () => window.removeEventListener("resize", _v0);
-      }, [_v93]), (0, _v29.useEffect)(() => {
-        if (!_v71) return;
+      }, [_v94]), (0, _v29.useEffect)(() => {
+        if (!_v72) return;
         let _v0 = new ResizeObserver(_v0 => {
-          _v74(_v0[0].contentRect.height);
+          _v75(_v0[0].contentRect.height);
         });
-        return _v0.observe(_v71), () => _v0.unobserve(_v71);
-      }, [_v71]), (0, _v29.useEffect)(() => {
-        _v95(window.innerHeight - _v93);
-      }, [_v93]);
-      let _v113 = (0, _v29.useMemo)(() => {
+        return _v0.observe(_v72), () => _v0.unobserve(_v72);
+      }, [_v72]), (0, _v29.useEffect)(() => {
+        _v96(window.innerHeight - _v94);
+      }, [_v94]);
+      let _v114 = (0, _v29.useMemo)(() => {
           let _v0 = _v13.asPath.indexOf("?");
           if (-1 === _v0) return `${_v15}`;
           let _v1 = new URLSearchParams(_v13.asPath.slice(_v0));
@@ -27709,8 +27710,8 @@
           let _v2 = _v1.toString();
           return `${_v15}${_v2 ? `?${_v2}` : ""}`;
         }, [_v15, _v13.asPath]),
-        _v114 = _v109?.name === _v151.TRACK_EDIT_BOKEH,
-        _v115 = (0, _v29.useCallback)((_v0, _v1, _v2 = !0) => {
+        _v115 = _v110?.name === _v151.TRACK_EDIT_BOKEH,
+        _v116 = (0, _v29.useCallback)((_v0, _v1, _v2 = !0) => {
           let _v3 = _v13.asPath.includes("?") ? _v13.asPath.substring(_v13.asPath.indexOf("?")) : "",
             _v4 = `${_v15}/${_v0}${_v3}`;
           _v1 && (_v4 = _v1.reduce((_v0, [_v1, _v2], _v3) => {
@@ -27718,56 +27719,56 @@
             return `${_v0}${_v4}${_v1}=${_v2}`;
           }, _v4));
           let _v5 = _v13.asPath.split("?")[0];
-          _v13.replace(_v5.includes(_v0) && _v2 ? _v113 : _v4, void 0, {
+          _v13.replace(_v5.includes(_v0) && _v2 ? _v114 : _v4, void 0, {
             shallow: !0
           });
-        }, [_v113, _v15, _v13]),
-        _v116 = (0, _v29.useCallback)(() => _v115(_v151.INTERACTIVITY), [_v115]),
-        _v117 = (0, _v29.useCallback)(() => _v115(_v151.LANGUAGES), [_v115]),
-        _v118 = (0, _v29.useCallback)(_v0 => {
-          _v114 && _v88?.current?.showCloseConfirmationModal ? _v88?.current?.openOnCloseConfirmationModal?.(() => {
-            _v115(_v151.TRACK_EDIT_BOKEH, [["text-track-id", _v0]]);
-          }) : _v115(_v151.TRACK_EDIT_BOKEH, [["text-track-id", _v0]]);
-        }, [_v114, _v115]),
-        _v119 = (0, _v29.useCallback)(() => _v115(_v151.GIFS), [_v115]),
-        _v120 = (0, _v29.useCallback)(() => _v115(_v151.ANALYTICS), [_v115]),
-        _v121 = (0, _v29.useCallback)(() => _v115(_v151.SHARE), [_v115]),
-        _v122 = (0, _v29.useCallback)(() => {
+        }, [_v114, _v15, _v13]),
+        _v117 = (0, _v29.useCallback)(() => _v116(_v151.INTERACTIVITY), [_v116]),
+        _v118 = (0, _v29.useCallback)(() => _v116(_v151.LANGUAGES), [_v116]),
+        _v119 = (0, _v29.useCallback)(_v0 => {
+          _v115 && _v89?.current?.showCloseConfirmationModal ? _v89?.current?.openOnCloseConfirmationModal?.(() => {
+            _v116(_v151.TRACK_EDIT_BOKEH, [["text-track-id", _v0]]);
+          }) : _v116(_v151.TRACK_EDIT_BOKEH, [["text-track-id", _v0]]);
+        }, [_v115, _v116]),
+        _v120 = (0, _v29.useCallback)(() => _v116(_v151.GIFS), [_v116]),
+        _v121 = (0, _v29.useCallback)(() => _v116(_v151.ANALYTICS), [_v116]),
+        _v122 = (0, _v29.useCallback)(() => _v116(_v151.SHARE), [_v116]),
+        _v123 = (0, _v29.useCallback)(() => {
           let _v0 = () => {
-            _v109?.backButton && _v115(_v109?.backButton);
+            _v110?.backButton && _v116(_v110?.backButton);
           };
-          _v109?.name === _v151.CHAPTERS && _v89?.current?.hasUnsavedChapters ? _v89?.current?.onOpenDiscardModal(_v0) : _v109?.name === _v151.TRACK_EDIT_BOKEH && _v88?.current?.showCloseConfirmationModal ? _v88?.current?.openOnCloseConfirmationModal?.(_v0) : _v0();
-        }, [_v109?.name, _v109?.backButton, _v115]),
-        _v123 = () => {
+          _v110?.name === _v151.CHAPTERS && _v90?.current?.hasUnsavedChapters ? _v90?.current?.onOpenDiscardModal(_v0) : _v110?.name === _v151.TRACK_EDIT_BOKEH && _v89?.current?.showCloseConfirmationModal ? _v89?.current?.openOnCloseConfirmationModal?.(_v0) : _v0();
+        }, [_v110?.name, _v110?.backButton, _v116]),
+        _v124 = () => {
           ((0, _v254.sendCommentBPEvent)({
             eventName: "vimeo.close_comment_panel",
             copy: "X",
             settingValue: !0,
             settingOption: null,
             element: "button",
-            viewer: _v99 ?? void 0,
+            viewer: _v100 ?? void 0,
             videoId: _v16,
-            videoOwnerUri: _v53,
-            videoPrivacy: _v59?.view
-          }), _v109?.name === _v151.CHAPTERS && _v89?.current?.hasUnsavedChapters) ? _v89?.current?.onOpenDiscardModal(() => {
-            _v13.replace(_v113, void 0, {
+            videoOwnerUri: _v54,
+            videoPrivacy: _v60?.view
+          }), _v110?.name === _v151.CHAPTERS && _v90?.current?.hasUnsavedChapters) ? _v90?.current?.onOpenDiscardModal(() => {
+            _v13.replace(_v114, void 0, {
               shallow: !0
             });
-          }) : _v114 && _v88?.current?.showCloseConfirmationModal ? _v88?.current?.openOnCloseConfirmationModal?.(() => {
-            _v13.replace(_v113, void 0, {
+          }) : _v115 && _v89?.current?.showCloseConfirmationModal ? _v89?.current?.openOnCloseConfirmationModal?.(() => {
+            _v13.replace(_v114, void 0, {
               shallow: !0
             });
-          }) : _v13.replace(_v113, void 0, {
+          }) : _v13.replace(_v114, void 0, {
             shallow: !0
           });
         },
-        _v124 = (0, _v29.useCallback)(_v0 => {
+        _v125 = (0, _v29.useCallback)(_v0 => {
           _v1.currentTime = _v0;
         }, [_v1]),
-        [_v125, _v126] = (0, _v29.useState)(0);
+        [_v126, _v127] = (0, _v29.useState)(0);
       (0, _v29.useEffect)(() => {
         let _v0 = _v0 => {
-          _v126(_v0.seconds);
+          _v127(_v0.seconds);
         };
         return _v1?.ready?.(() => {
           _v1.on("pause", _v0), _v1.on("seeked", _v0);
@@ -27775,102 +27776,102 @@
           _v1?.off && (_v1.off("pause", _v0), _v1.off("seeked", _v0));
         };
       }, [_v1]);
-      let _v127 = (0, _v29.useCallback)(() => {
+      let _v128 = (0, _v29.useCallback)(() => {
           _v1.pause();
         }, [_v1]),
-        _v128 = _v17.enable_svv_redesign && _v0 === _v153,
-        _v129 = _v0 === _v154 ? (0, _v136.rem)(_v94) : void 0,
-        _v130 = _v0 === _v154 && _v97 ? {
+        _v129 = _v17.enable_svv_redesign && _v0 === _v153,
+        _v130 = _v0 === _v154 ? (0, _v136.rem)(_v95) : void 0,
+        _v131 = _v0 === _v154 && _v98 ? {
           display: "flex",
           flexGrow: "1",
           width: "100%"
         } : void 0,
-        _v131 = _v0 === _v154 && _v97 ? "absolute" : "relative",
-        _v132 = _v109?.name === _v151.LANGUAGES || _v109?.name === _v151.CAPTIONS_AND_AUDIO || _v109?.name === _v151.AUDIO_TRACKS || _v109?.name === _v151.TRANSCRIPT,
-        _v133 = _v109?.name === _v151.CUSTOM_PAGE && _v17.enable_video_customization_v2;
+        _v132 = _v0 === _v154 && _v98 ? "absolute" : "relative",
+        _v133 = _v110?.name === _v151.LANGUAGES || _v110?.name === _v151.CAPTIONS_AND_AUDIO || _v110?.name === _v151.AUDIO_TRACKS || _v110?.name === _v151.TRANSCRIPT,
+        _v134 = _v110?.name === _v151.CUSTOM_PAGE && _v17.enable_video_customization_v2;
       (0, _v75.usePicoEffect)(() => {
-        _v109?.name === _v151.LANGUAGES && _v25({
+        _v110?.name === _v151.LANGUAGES && _v26({
           clipId: String(_v16)
         });
-      }, [_v109?.name, _v16]), (0, _v75.usePicoEffect)(() => {
-        _v109?.name === _v151.INTERACTIVITY && _v28({
+      }, [_v110?.name, _v16]), (0, _v75.usePicoEffect)(() => {
+        _v110?.name === _v151.INTERACTIVITY && _v29({
           clipId: String(_v16)
         });
-      }, [_v109?.name, _v16]);
-      let _v134 = (0, _v29.useRef)("outside_click"),
-        _v135 = (0, _v29.useRef)(!1);
+      }, [_v110?.name, _v16]);
+      let _v135 = (0, _v29.useRef)("outside_click"),
+        _v136 = (0, _v29.useRef)(!1);
       (0, _v75.usePicoEffect)(() => {
-        let _v0 = _v109?.name === _v151.AI_MANAGE;
-        _v0 && !_v135.current && (_v38({
+        let _v0 = _v110?.name === _v151.AI_MANAGE;
+        _v0 && !_v136.current && (_v39({
           clipId: String(_v16),
           source: "sidebar"
-        }), _v135.current = !0), !_v0 && _v135.current && (_v39({
+        }), _v136.current = !0), !_v0 && _v136.current && (_v40({
           clipId: String(_v16),
-          closeReason: _v134.current
-        }), _v134.current = "outside_click", _v135.current = !1);
-      }, [_v109?.name, _v16]);
-      let _v136 = _v29.default.useRef(null),
-        _v137 = (0, _v29.useCallback)(_v0 => {
-          "open-language-panel-with-upload-modal" === _v0.type && (_v132 ? _v87?.current?.openModal() : (_v115(_v151.LANGUAGES, void 0, !1), _v84(!0))), "open-language-panel" === _v0.type && _v115(_v151.LANGUAGES, void 0, !1);
-        }, [_v132, _v115]);
-      (0, _v29.useEffect)(() => (_v69(_v0 => _v137(_v0)), () => _v70()), []);
-      let _v138 = (0, _v29.useRef)(null),
-        _v139 = (0, _v29.useCallback)(() => {
+          closeReason: _v135.current
+        }), _v135.current = "outside_click", _v136.current = !1);
+      }, [_v110?.name, _v16]);
+      let _v137 = _v29.default.useRef(null),
+        _v138 = (0, _v29.useCallback)(_v0 => {
+          "open-language-panel-with-upload-modal" === _v0.type && (_v133 ? _v88?.current?.openModal() : (_v116(_v151.LANGUAGES, void 0, !1), _v85(!0))), "open-language-panel" === _v0.type && _v116(_v151.LANGUAGES, void 0, !1);
+        }, [_v133, _v116]);
+      (0, _v29.useEffect)(() => (_v70(_v0 => _v138(_v0)), () => _v71()), []);
+      let _v139 = (0, _v29.useRef)(null),
+        _v140 = (0, _v29.useCallback)(() => {
           (0, _v254.bpStartSearchComment)({
             isInternal: !0,
             videoId: _v16,
-            videoPrivacy: _v59?.view,
-            viewer: _v99 ?? void 0,
+            videoPrivacy: _v60?.view,
+            viewer: _v100 ?? void 0,
             analyticsProps: {
               webContextFields: {
                 page_name: "single_video_view"
               }
             }
-          }), _v76(!0);
-        }, [_v76, _v99, _v16, _v59?.view]),
-        _v140 = (0, _v29.useCallback)(() => {
-          _v78(""), _v76(!1);
-        }, [_v78, _v76]);
-      return _v109?.name === _v151.SHARE && _v61 ? (0, _v16.jsx)(_v16.Fragment, {}) : (0, _v16.jsx)(_v780, {
+          }), _v77(!0);
+        }, [_v77, _v100, _v16, _v60?.view]),
+        _v141 = (0, _v29.useCallback)(() => {
+          _v79(""), _v77(!1);
+        }, [_v79, _v77]);
+      return _v110?.name === _v151.SHARE && _v62 ? (0, _v16.jsx)(_v16.Fragment, {}) : (0, _v16.jsx)(_v780, {
         children: (0, _v16.jsx)(_v138.Center, {
           marginLeft: _v0 === _v154 ? "auto" : "2",
           marginRight: _v0 === _v154 ? "4" : "auto",
           zIndex: "100",
-          position: _v131,
-          sx: _v130,
-          display: _v109?.id ? "flex" : "none",
-          alignItems: _v128 ? "flex-start" : void 0,
-          paddingTop: _v128 ? "md" : void 0,
+          position: _v132,
+          sx: _v131,
+          display: _v110?.id ? "flex" : "none",
+          alignItems: _v129 ? "flex-start" : void 0,
+          paddingTop: _v129 ? "md" : void 0,
           children: (0, _v16.jsxs)(_v139.Panel, {
-            isVisible: !!_v109?.id,
-            id: _v109?.id,
-            width: (0, _v136.rem)(_v79),
+            isVisible: !!_v110?.id,
+            id: _v110?.id,
+            width: (0, _v136.rem)(_v80),
             flex: "1",
             sx: {
-              ..._v130,
-              ...((_v109?.name === _v151.AI_MANAGE || _v109?.name === _v151.GIFS) && {
+              ..._v131,
+              ...((_v110?.name === _v151.AI_MANAGE || _v110?.name === _v151.GIFS) && {
                 overflow: "visible !important"
               })
             },
             transition: "width 0.3s ease-in",
-            children: [_v109?.name !== _v151.AI_MANAGE && _v109?.name !== _v151.SHARE && _v109?.name !== _v151.OTT_PUBLISH && (0, _v16.jsx)(_v139.PanelHeader, {
-              ref: _v92,
-              px: _v109?.name === _v151.COMMENTS ? {
+            children: [_v110?.name !== _v151.AI_MANAGE && _v110?.name !== _v151.SHARE && _v110?.name !== _v151.OTT_PUBLISH && (0, _v16.jsx)(_v139.PanelHeader, {
+              ref: _v93,
+              px: _v110?.name === _v151.COMMENTS ? {
                 base: 200,
                 md: 300
               } : _v17.enable_svv_redesign ? "20px" : void 0,
-              pb: _v17.enable_svv_redesign && _v109?.name !== _v151.COMMENTS ? "0" : void 0,
-              children: _v109?.name === _v151.COMMENTS ? (0, _v16.jsx)(_v806, {
+              pb: _v17.enable_svv_redesign && _v110?.name !== _v151.COMMENTS ? "0" : void 0,
+              children: _v110?.name === _v151.COMMENTS ? (0, _v16.jsx)(_v806, {
                 clipId: _v16,
-                clipUserUri: _v53,
-                clipPrivacy: _v59,
-                closeDrawer: _v123,
-                onCloseSearch: _v140,
-                searchCommentQuery: _v77,
-                setSearchCommentQuery: _v78,
-                showCommentSearchBar: _v75,
-                onSearchClick: _v139,
-                searchInputRef: _v136
+                clipUserUri: _v54,
+                clipPrivacy: _v60,
+                closeDrawer: _v124,
+                onCloseSearch: _v141,
+                searchCommentQuery: _v78,
+                setSearchCommentQuery: _v79,
+                showCommentSearchBar: _v76,
+                onSearchClick: _v140,
+                searchInputRef: _v137
               }) : (0, _v16.jsxs)(_v135.Flex, {
                 flexDirection: "column",
                 gap: _v17.enable_svv_redesign ? "12px" : "sm",
@@ -27884,7 +27885,7 @@
                     alignItems: "center",
                     gap: "sm",
                     minWidth: 0,
-                    children: [_v109?.backButton && (0, _v16.jsx)(_v241.IconButton, {
+                    children: [_v110?.backButton && (0, _v16.jsx)(_v241.IconButton, {
                       size: "sm",
                       variant: "tertiary",
                       color: _v17.enable_svv_redesign ? "text-secondary" : void 0,
@@ -27916,33 +27917,33 @@
                           }
                         }
                       }),
-                      onClick: _v122
+                      onClick: _v123
                     }), (0, _v16.jsxs)(_v476.Header, {
                       variant: "heading-sm",
                       size: _v17.enable_svv_redesign ? void 0 : "xl",
                       mb: _v17.enable_svv_redesign ? "0" : void 0,
                       display: "flex",
                       alignItems: "center",
-                      ...(_v109?.name === _v151.TRACK_EDIT_BOKEH && {
+                      ...(_v110?.name === _v151.TRACK_EDIT_BOKEH && {
                         whiteSpace: "nowrap",
                         overflow: "hidden",
                         textOverflow: "ellipsis"
                       }),
-                      children: [_v109?.name === _v151.TRACK_EDIT_BOKEH && (0, _v16.jsx)("span", {
-                        children: _v81
-                      }), _v109?.name !== _v151.TRACK_EDIT_BOKEH && (0, _v16.jsx)("span", {
-                        children: _v17.enable_svv_redesign && _v109?.redesignTitle ? _v109.redesignTitle : _v109?.title
+                      children: [_v110?.name === _v151.TRACK_EDIT_BOKEH && (0, _v16.jsx)("span", {
+                        children: _v82
+                      }), _v110?.name !== _v151.TRACK_EDIT_BOKEH && (0, _v16.jsx)("span", {
+                        children: _v17.enable_svv_redesign && _v110?.redesignTitle ? _v110.redesignTitle : _v110?.title
                       })]
                     })]
                   }), (0, _v16.jsxs)(_v135.Flex, {
                     gap: _v17.enable_svv_redesign ? "8px" : "xs",
-                    children: [_v109?.name === _v151.LANGUAGES && (0, _v16.jsx)(_v811, {
+                    children: [_v110?.name === _v151.LANGUAGES && (0, _v16.jsx)(_v811, {
                       videoId: _v16,
-                      languagePanelRef: _v87
-                    }), _v109?.name === _v151.TRACK_EDIT_BOKEH && (0, _v16.jsx)(_v812, {
-                      textTrackEditRef: _v88
+                      languagePanelRef: _v88
+                    }), _v110?.name === _v151.TRACK_EDIT_BOKEH && (0, _v16.jsx)(_v812, {
+                      textTrackEditRef: _v89
                     }), (0, _v16.jsx)(_v134.Box, {
-                      ref: _v138,
+                      ref: _v139,
                       children: (0, _v16.jsx)(_v243.Tooltip, {
                         label: (0, _v150.translate)({
                           singular: "Close",
@@ -27973,7 +27974,7 @@
                         placement: "top",
                         shouldWrapChildren: !0,
                         portalProps: {
-                          containerRef: _v138
+                          containerRef: _v139
                         },
                         children: (0, _v16.jsx)(_v475.CloseButton, {
                           size: "sm",
@@ -28005,60 +28006,60 @@
                               }
                             }
                           }),
-                          onClick: () => _v123()
+                          onClick: () => _v124()
                         })
                       })
                     })]
                   })]
-                }), _v17.enable_svv_redesign && _v109?.subtitle && (0, _v16.jsx)(_v450.Paragraph, {
+                }), _v17.enable_svv_redesign && _v110?.subtitle && (0, _v16.jsx)(_v450.Paragraph, {
                   size: "md",
                   color: "text-secondary",
                   "data-testid": "drawer-header-subtitle",
-                  children: _v109.subtitle
+                  children: _v110.subtitle
                 })]
               })
             }), (0, _v16.jsxs)(_v139.PanelBody, {
-              ref: _v90,
+              ref: _v91,
               position: "relative",
-              maxHeight: _v133 ? (0, _v136.rem)(_v94 - 16) : _v109?.name === _v151.SHARE || _v109?.name === _v151.CUSTOM_PAGE ? "calc(100vh - 80px)" : _v17.enable_svv_redesign && (_v109?.name === _v151.PLAYER || _v109?.name === _v151.LANGUAGES) ? (0, _v136.rem)(_v94 - 16) : (0, _v136.rem)(_v94),
-              height: _v109?.name === _v151.CUSTOM_PAGE ? "auto" : _v109?.name === _v151.SHARE ? "calc(100vh - 80px)" : _v17.enable_svv_redesign && (_v109?.name === _v151.AI_MANAGE || _v109?.name === _v151.LANGUAGES) ? (0, _v136.rem)(_v94 - 16) : _v129,
-              display: _v133 ? "flex" : void 0,
-              flexDirection: _v133 ? "column" : void 0,
-              overflowY: _v133 ? "hidden" : _v109?.name === _v151.AI_MANAGE || _v109?.name === _v151.GIFS || _v109?.name === _v151.CUSTOM_PAGE ? "visible" : "auto",
-              ...(_v109?.name === _v151.SHARE && {
+              maxHeight: _v134 ? (0, _v136.rem)(_v95 - 16) : _v110?.name === _v151.SHARE || _v110?.name === _v151.CUSTOM_PAGE ? "calc(100vh - 80px)" : _v17.enable_svv_redesign && (_v110?.name === _v151.PLAYER || _v110?.name === _v151.LANGUAGES) ? (0, _v136.rem)(_v95 - 16) : (0, _v136.rem)(_v95),
+              height: _v110?.name === _v151.CUSTOM_PAGE ? "auto" : _v110?.name === _v151.SHARE ? "calc(100vh - 80px)" : _v17.enable_svv_redesign && (_v110?.name === _v151.AI_MANAGE || _v110?.name === _v151.LANGUAGES) ? (0, _v136.rem)(_v95 - 16) : _v130,
+              display: _v134 ? "flex" : void 0,
+              flexDirection: _v134 ? "column" : void 0,
+              overflowY: _v134 ? "hidden" : _v110?.name === _v151.AI_MANAGE || _v110?.name === _v151.GIFS || _v110?.name === _v151.CUSTOM_PAGE ? "visible" : "auto",
+              ...(_v110?.name === _v151.SHARE && {
                 overflow: "hidden"
               }),
-              p: _v109?.name === _v151.COMMENTS || _v109?.name === _v151.AI_MANAGE || _v109?.name === _v151.TRACK_EDIT_BOKEH || _v109?.name === _v151.SHARE || _v109?.name === _v151.OTT_PUBLISH ? "0" : void 0,
+              p: _v110?.name === _v151.COMMENTS || _v110?.name === _v151.AI_MANAGE || _v110?.name === _v151.TRACK_EDIT_BOKEH || _v110?.name === _v151.SHARE || _v110?.name === _v151.OTT_PUBLISH ? "0" : void 0,
               paddingTop: "0",
-              px: _v133 ? "0" : void 0,
-              paddingBottom: _v109?.name === _v151.PLAYER ? "0" : "auto",
-              children: [!_v97 && (0, _v16.jsxs)(_v16.Fragment, {
-                children: [_v109?.name === _v151.CUSTOM_PAGE && (_v17.enable_video_customization_v2 ? (0, _v16.jsx)(_v821, {
+              px: _v134 ? "0" : void 0,
+              paddingBottom: _v110?.name === _v151.PLAYER ? "0" : "auto",
+              children: [!_v98 && (0, _v16.jsxs)(_v16.Fragment, {
+                children: [_v110?.name === _v151.CUSTOM_PAGE && (_v17.enable_video_customization_v2 ? (0, _v16.jsx)(_v821, {
                   videoId: _v16
                 }) : (0, _v16.jsx)(_v820, {
                   videoId: _v16,
-                  onClose: _v123
-                })), _v109?.name === _v151.INTERACTIVITY && (0, _v16.jsx)(_v813, {
-                  toggleDrawer: _v115,
+                  onClose: _v124
+                })), _v110?.name === _v151.INTERACTIVITY && (0, _v16.jsx)(_v813, {
+                  toggleDrawer: _v116,
                   openInteractiveStudio: () => {
-                    if ((0, _v391.sendInteractiveEntryClickEvent)(), _v102?.hasWirewax) {
+                    if ((0, _v391.sendInteractiveEntryClickEvent)(), _v103?.hasWirewax) {
                       let _v0 = (0, _v782.shouldShowInDevelopmentFeature)("wirewax_staging", !0);
                       window.location.href = `/manage/${_v16}/wirewax_forwarding${_v0 ? "?wirewax_staging=true" : ""}`;
                       return;
                     }
                     window.location.href = "https://lp.vimeo.com/interactive-enterprise-contact.html";
                   },
-                  showChapterSuggestions: _v111,
-                  isUploading: _v105
-                }), _v109?.name === _v151.CHAPTERS && (0, _v16.jsx)(_v815, {
+                  showChapterSuggestions: _v112,
+                  isUploading: _v106
+                }), _v110?.name === _v151.CHAPTERS && (0, _v16.jsx)(_v815, {
                   playerApi: _v1,
-                  setShowChapterSuggestions: _v112,
-                  showChapterSuggestions: _v111,
+                  setShowChapterSuggestions: _v113,
+                  showChapterSuggestions: _v112,
                   videoId: _v16,
                   setHasChapters: _v9,
                   timecodeSelectionService: _v4,
                   sendAIEvent: _v0 => {
-                    _v96?.("vimeo.open_ai_to_generate", {
+                    _v97?.("vimeo.open_ai_to_generate", {
                       value: null,
                       action_type: "click",
                       copy: _v0,
@@ -28067,136 +28068,136 @@
                       target: "editor"
                     });
                   },
-                  forwardedRef: _v89,
-                  onChapterAdded: () => _v29({
+                  forwardedRef: _v90,
+                  onChapterAdded: () => _v30({
                     clipId: String(_v16)
                   }),
-                  onChapterSaved: () => _v30({
+                  onChapterSaved: () => _v31({
                     clipId: String(_v16)
                   })
-                }), _v109?.name === _v151.REGISTRATION && (0, _v16.jsx)(_v826, {
-                  onBackClick: _v116,
-                  onClose: _v116,
+                }), _v110?.name === _v151.REGISTRATION && (0, _v16.jsx)(_v826, {
+                  onBackClick: _v117,
+                  onClose: _v117,
                   getBreadCrumb: _v0 => (0, _v16.jsx)(_v406, {
                     page: "manage",
                     videoId: _v16,
                     title: _v0
                   }),
-                  onRegistrationToggled: _v0 => _v31({
+                  onRegistrationToggled: _v0 => _v32({
                     clipId: String(_v16),
                     newStatus: _v0
                   }),
-                  onCustomizeClicked: () => _v32({
+                  onCustomizeClicked: () => _v33({
                     clipId: String(_v16)
                   }),
-                  onManageRegistrantsClicked: () => _v33({
+                  onManageRegistrantsClicked: () => _v34({
                     clipId: String(_v16)
                   }),
-                  onFormTabSwitched: _v0 => _v40({
+                  onFormTabSwitched: _v0 => _v41({
                     clipId: String(_v16),
                     tab: _v0
                   }),
-                  onFormPresetChanged: _v0 => _v41({
+                  onFormPresetChanged: _v0 => _v42({
                     clipId: String(_v16),
                     action: _v0
                   }),
-                  onConnectProvidersClicked: () => _v42({
+                  onConnectProvidersClicked: () => _v43({
                     clipId: String(_v16)
                   }),
-                  onFormPlacementChanged: _v0 => _v43({
+                  onFormPlacementChanged: _v0 => _v44({
                     clipId: String(_v16),
                     placement: _v0
                   }),
-                  onFormSettingToggled: (_v0, _v1) => _v44({
+                  onFormSettingToggled: (_v0, _v1) => _v45({
                     clipId: String(_v16),
                     setting: _v0,
                     newStatus: _v1
                   }),
-                  onFormSectionSwitched: _v0 => _v45({
+                  onFormSectionSwitched: _v0 => _v46({
                     clipId: String(_v16),
                     section: _v0
                   }),
-                  onFormFieldAdded: _v0 => _v46({
+                  onFormFieldAdded: _v0 => _v47({
                     clipId: String(_v16),
                     fieldType: _v0
                   }),
-                  onFormHiddenFieldAdded: _v0 => _v47({
+                  onFormHiddenFieldAdded: _v0 => _v48({
                     clipId: String(_v16),
                     fieldType: _v0
                   }),
-                  onPrivacyPolicyChanged: () => _v48({
+                  onPrivacyPolicyChanged: () => _v49({
                     clipId: String(_v16)
                   }),
-                  onFormAppearanceChanged: _v0 => _v49({
+                  onFormAppearanceChanged: _v0 => _v50({
                     clipId: String(_v16),
                     setting: _v0
                   }),
-                  onFormPreviewTypeChanged: _v0 => _v50({
+                  onFormPreviewTypeChanged: _v0 => _v51({
                     clipId: String(_v16),
                     previewType: _v0
                   }),
-                  onFormPreviewDeviceChanged: _v0 => _v51({
+                  onFormPreviewDeviceChanged: _v0 => _v52({
                     clipId: String(_v16),
                     device: _v0
                   }),
-                  onRegistrantsActionClicked: _v0 => _v52({
+                  onRegistrantsActionClicked: _v0 => _v53({
                     clipId: String(_v16),
                     action: _v0
                   })
-                }), _v109?.name === _v151.CARDS && (0, _v16.jsx)(_v816, {
+                }), _v110?.name === _v151.CARDS && (0, _v16.jsx)(_v816, {
                   playerApi: _v1,
                   videoId: _v16,
-                  hasUpsellsForFlatRateTiers: _v102.hasUpsellsForFlatRateTiers,
+                  hasUpsellsForFlatRateTiers: _v103.hasUpsellsForFlatRateTiers,
                   onForceReloadPlayer: _v10
-                }), _v109?.name === _v151.VIDEO_RATING && !!_v60 && (0, _v16.jsx)(_v817, {
+                }), _v110?.name === _v151.VIDEO_RATING && !!_v61 && (0, _v16.jsx)(_v817, {
                   videoId: _v16,
-                  clipDuration: _v60,
+                  clipDuration: _v61,
                   playerApi: _v1,
-                  onOpenAnalyticsDrawer: _v120,
+                  onOpenAnalyticsDrawer: _v121,
                   onVideoRatingSaved: _v0 => {
-                    _v37({
+                    _v38({
                       clipId: String(_v16),
                       ratingType: _v0
                     });
                   },
                   onVideoRatingTypeChanged: _v0 => {
-                    _v36({
+                    _v37({
                       clipId: String(_v16),
                       ratingType: _v0
                     });
                   }
-                }), _v109?.name === _v151.END_SCREEN && (0, _v16.jsx)(_v818, {
+                }), _v110?.name === _v151.END_SCREEN && (0, _v16.jsx)(_v818, {
                   playerApi: _v1,
                   presetId: _v2.presetId,
                   videoId: _v16,
-                  hasUpsellsForFlatRateTiers: _v102.hasUpsellsForFlatRateTiers,
+                  hasUpsellsForFlatRateTiers: _v103.hasUpsellsForFlatRateTiers,
                   onSubmit: () => _v3({
                     type: "RESET_PRESET"
                   }),
-                  onBack: _v116,
-                  onSourceChanged: _v0 => _v34({
+                  onBack: _v117,
+                  onSourceChanged: _v0 => _v35({
                     clipId: String(_v16),
                     source: _v0
                   }),
-                  onEndScreenSaved: (_v0, _v1) => _v35({
+                  onEndScreenSaved: (_v0, _v1) => _v36({
                     clipId: String(_v16),
                     source: _v0,
                     videoCount: _v1
                   })
-                }), _v109?.name === _v151.PLAYER && (_v103 ? (0, _v16.jsx)(_v819, {
+                }), _v110?.name === _v151.PLAYER && (_v104 ? (0, _v16.jsx)(_v819, {
                   isRedesign: _v17.enable_svv_redesign,
                   videoId: _v16,
-                  videoUserUri: _v53 || "",
+                  videoUserUri: _v54 || "",
                   hasAudioTracks: _v7,
                   hasChapters: _v6,
-                  hasReaction: _v102?.canAddReactionOnClip && ("video" === _v57 || "done" === _v56),
+                  hasReaction: _v103?.canAddReactionOnClip && ("video" === _v58 || "done" === _v57),
                   hasTextTracks: _v5,
-                  interactionsAskAi: _v54?.interactions?.askAiViewer,
-                  isCommentsEnabled: _v100,
+                  interactionsAskAi: _v55?.interactions?.askAiViewer,
+                  isCommentsEnabled: _v101,
                   onShow: () => {
                     _v18({
                       clipId: String(_v16)
-                    }), _v98((0, _v391.openPlayerCustomizationExperienceEvent)());
+                    }), _v99((0, _v391.openPlayerCustomizationExperienceEvent)());
                   },
                   onModeSwitch: _v0 => _v19({
                     clipId: String(_v16),
@@ -28228,102 +28229,108 @@
                     field: _v0,
                     mode: _v1
                   }),
+                  onSettingsToggle: (_v0, _v1, _v2) => _v25({
+                    clipId: String(_v16),
+                    field: _v0,
+                    newStatus: _v1,
+                    mode: _v2
+                  }),
                   onSave: () => {
                     _v12(_v2), (0, _v391.clickAnalyticsForGeneralPlayerCustomizationEvent)("save_customization_settings", _v16);
                   },
                   playerApi: _v1,
                   playerSettingsDispatch: _v3,
                   playerSettingsState: _v2,
-                  privacy: _v59,
-                  refetchPrivacy: () => _v68({
+                  privacy: _v60,
+                  refetchPrivacy: () => _v69({
                     clipId: _v16,
                     fields: ["privacy.add", "privacy.download"]
                   }),
                   setIsEditingMode: _v11,
-                  usesDRM: _v58 || !1
+                  usesDRM: _v59 || !1
                 }) : (0, _v16.jsx)(_v138.Center, {
                   style: {
                     height: "100%"
                   },
                   children: (0, _v16.jsx)(_v456.Spinner, {})
                 }))]
-              }), !!_v132 && (0, _v16.jsx)(_v823, {
+              }), !!_v133 && (0, _v16.jsx)(_v823, {
                 isRedesign: _v17.enable_svv_redesign,
-                startForcePolling: _v106,
-                onTextEdit: _v118,
+                startForcePolling: _v107,
+                onTextEdit: _v119,
                 onTrackChange: _v10,
                 videoId: _v16,
-                videoVersionId: _v62,
-                forwardedRef: _v87,
-                isTranscriptReady: _v107,
-                clipTranscodeStatus: _v65,
-                clipTranscriptStatus: _v66,
-                clipTranscriptLanguage: _v67,
-                openLanguagePanelWithUploadModal: _v83,
-                removeLanguagePanelWithUploadModal: () => _v84(!1),
-                onSubtitleUploadSuccess: () => _v26({
+                videoVersionId: _v63,
+                forwardedRef: _v88,
+                isTranscriptReady: _v108,
+                clipTranscodeStatus: _v66,
+                clipTranscriptStatus: _v67,
+                clipTranscriptLanguage: _v68,
+                openLanguagePanelWithUploadModal: _v84,
+                removeLanguagePanelWithUploadModal: () => _v85(!1),
+                onSubtitleUploadSuccess: () => _v27({
                   clipId: String(_v16)
                 }),
-                onSubtitlesGenerationStarted: () => _v27({
+                onSubtitlesGenerationStarted: () => _v28({
                   clipId: String(_v16)
                 })
-              }), _v109?.name === _v151.TRACK_EDIT_BOKEH && (0, _v16.jsx)(_v824, {
+              }), _v110?.name === _v151.TRACK_EDIT_BOKEH && (0, _v16.jsx)(_v824, {
                 clipId: _v16,
-                setPanelWidth: _v80,
-                onEmptyLinkSearch: _v117,
+                setPanelWidth: _v81,
+                onEmptyLinkSearch: _v118,
                 onSaveSuccess: _v10,
-                forwardedRef: _v88,
-                containerRef: _v90,
+                forwardedRef: _v89,
+                containerRef: _v91,
                 playerApi: _v1,
-                setTextTrackEditHeader: _v82
-              }), _v109?.name === _v151.ANALYTICS && (0, _v16.jsx)(_v828, {
+                setTextTrackEditHeader: _v83
+              }), _v110?.name === _v151.ANALYTICS && (0, _v16.jsx)(_v828, {
                 active: !0,
                 videoId: _v16
-              }), _v109?.name === _v151.COMMENTS && _v59?.view ? (0, _v16.jsx)(_v814, {
+              }), _v110?.name === _v151.COMMENTS && _v60?.view ? (0, _v16.jsx)(_v814, {
                 clipHash: _v14,
                 clipId: _v16.toString(),
-                clipPrivacy: _v59?.view,
-                onClose: _v123,
-                onMomentPlay: _v124,
-                searchQuery: _v77,
-                showCommentsHiddenAlert: !_v101,
-                videoVersionUri: _v63,
+                clipPrivacy: _v60?.view,
+                onClose: _v124,
+                onMomentPlay: _v125,
+                searchQuery: _v78,
+                showCommentsHiddenAlert: !_v102,
+                videoVersionUri: _v64,
                 targetCollabCommentApiVersion: _v41.TARGET_API_VERSION,
-                reviewCommentTimeCode: _v125,
-                pausePlayer: _v127
-              }) : null, !_v97 && _v109?.name === _v151.EDIT && (0, _v16.jsx)(_v830, {
-                isUploading: _v105,
-                openGifMakerPanel: _v119
+                reviewCommentTimeCode: _v126,
+                pausePlayer: _v128
+              }) : null, !_v98 && _v110?.name === _v151.EDIT && (0, _v16.jsx)(_v830, {
+                isUploading: _v106,
+                openGifMakerPanel: _v120
               }), (0, _v16.jsx)(_v22.PlayerContextProvider, {
                 type: _v23.PlayerType.BarebonePlayer,
                 assetUrls: (0, _v443.getPlayerAssetUrls)(),
-                children: !_v97 && _v109?.name === _v151.GIFS && (0, _v16.jsx)(_v829, {
-                  onOpenShareDrawer: _v121
+                children: !_v98 && _v110?.name === _v151.GIFS && (0, _v16.jsx)(_v829, {
+                  onOpenShareDrawer: _v122
                 })
-              }), _v109?.name === _v151.AI_MANAGE && (0, _v16.jsx)(_v822, {
+              }), _v110?.name === _v151.AI_MANAGE && (0, _v16.jsx)(_v822, {
                 onAiRequestsPlayerReload: _v10,
                 player: _v1,
                 videoId: _v16,
                 videoHash: _v14,
-                updateMetadata: _v64,
-                panelRef: _v90,
+                updateMetadata: _v65,
+                panelRef: _v91,
                 isRedesign: _v17.enable_svv_redesign,
                 onClose: () => {
-                  _v134.current = "button", _v123();
+                  _v135.current = "button", _v124();
                 }
-              }, _v62), _v109?.name === _v151.SHARE && (0, _v16.jsx)(_v827, {
+              }, _v63), _v110?.name === _v151.SHARE && (0, _v16.jsx)(_v827, {
                 clipId: _v16,
                 clipHash: _v14,
                 playerApi: _v1,
                 revalidateKey: _v8,
                 onForceReloadPlayer: _v10,
-                onGifClick: _v119,
+                onGifClick: _v120,
                 onClose: () => {
-                  _v86(!0);
+                  _v87(!0);
                 }
-              }), _v109?.name === _v151.OTT_PUBLISH && (0, _v16.jsx)(_v825, {
+              }), _v110?.name === _v151.OTT_PUBLISH && (0, _v16.jsx)(_v825, {
                 clipId: _v16,
-                onClose: _v86
+                onClose: _v87
               })]
             })]
           })
@@ -30079,7 +30086,7 @@
   function _v897(_v0) {
     return "center" === _v0.playButtonPosition || "auto" === _v0.playButtonPosition && !_v0.progressBar;
   }
-  function _v898(_v0, _v1, _v2, _v3, _v4) {
+  function _v898(_v0, _v1, _v2, _v3) {
     if (_v1 && void 0 !== _v2) switch (_v1) {
       case "byline":
       case "portrait":
@@ -30099,23 +30106,10 @@
         return;
       case "share":
       case "embed":
-        _v0._setEmbedSettings?.((_v5 = _v3.share, _v6 = _v3.embed, _v4?.separateShareEmbed ? {
-          share: +!!_v5,
-          embed: +!!_v6
-        } : !_v5 && !_v6 ? {
-          share: 0,
-          embed: 0
-        } : _v6 && !_v5 ? {
-          share: {
-            embed_only: 1
-          },
-          embed: 1
-        } : {
-          share: {
-            embed_only: 0
-          },
-          embed: +!!_v6
-        }));
+        _v0._setEmbedSettings?.({
+          share: +!!_v3.share,
+          embed: +!!_v3.embed
+        });
         return;
       case "fullscreen":
       case "like":
@@ -30151,7 +30145,6 @@
         _v896(_v0, _v2);
         return;
       case "colors":
-        var _v5, _v6;
         try {
           _v0.colorOne = _v2.colorOne, _v0.colorTwo = _v2.colorTwo, _v0.color = _v2.colorTwo, _v0.colorThree = _v2.colorThree, _v0.colorFour = _v2.colorFour;
         } catch (_v0) {
@@ -31042,43 +31035,41 @@
       playerSettingsState: _v6,
       setOverlayMode: _v7,
       hasChapters: _v8,
-      scrollContainerRef: _v9,
-      separateShareEmbed: _v10 = !1
+      scrollContainerRef: _v9
     }) => {
-      let _v11 = (0, _v164.useViewer)(),
-        [_v12] = (0, _v853.useToken)("colors", ["blue.500"]),
-        [_v13, _v14] = (0, _v29.useState)(!1),
-        _v15 = (0, _v86.useAppSelector)(_v92.clipMetadataSelector),
-        _v16 = (0, _v86.useAppSelector)(_v85.clipHasTextTracksSelector),
-        _v17 = (0, _v86.useAppSelector)(_v85.clipHasAudioTracksSelector),
-        _v18 = (0, _v86.useAppSelector)(_v85.clipIdSelector),
-        _v19 = (0, _v86.useAppSelector)(_v85.clipManageLinkSelector),
-        _v20 = (0, _v86.useAppSelector)(_v99.clipUserUriSelector),
-        _v21 = (0, _v86.useAppSelector)(_v85.clipDurationSelector),
-        _v22 = (0, _v86.useAppSelector)(_v389.clipHasWirewaxSelector),
-        _v23 = (0, _v86.useAppSelector)(_v85.showSvvTimecodedCommentsSelector),
-        _v24 = (0, _v86.useAppSelector)(_v85.allowMultipleReviewLinksSelector),
-        _v25 = _v11?.user?.id,
-        _v26 = _v15?.interactions?.askAiViewer,
+      let _v10 = (0, _v164.useViewer)(),
+        [_v11] = (0, _v853.useToken)("colors", ["blue.500"]),
+        [_v12, _v13] = (0, _v29.useState)(!1),
+        _v14 = (0, _v86.useAppSelector)(_v92.clipMetadataSelector),
+        _v15 = (0, _v86.useAppSelector)(_v85.clipHasTextTracksSelector),
+        _v16 = (0, _v86.useAppSelector)(_v85.clipHasAudioTracksSelector),
+        _v17 = (0, _v86.useAppSelector)(_v85.clipIdSelector),
+        _v18 = (0, _v86.useAppSelector)(_v85.clipManageLinkSelector),
+        _v19 = (0, _v86.useAppSelector)(_v99.clipUserUriSelector),
+        _v20 = (0, _v86.useAppSelector)(_v85.clipDurationSelector),
+        _v21 = (0, _v86.useAppSelector)(_v389.clipHasWirewaxSelector),
+        _v22 = (0, _v86.useAppSelector)(_v85.showSvvTimecodedCommentsSelector),
+        _v23 = (0, _v86.useAppSelector)(_v85.allowMultipleReviewLinksSelector),
+        _v24 = _v10?.user?.id,
+        _v25 = _v14?.interactions?.askAiViewer,
         {
           capabilities: {
-            canAskAiViewer: _v27,
-            hasAskAiViewerPlayerControl: _v28,
-            canAddReactionOnClip: _v29,
-            canViewViewerRetentionGraph: _v30,
-            hasExtraEmbedOptions: _v31,
-            hasProEmbedOptions: _v32,
-            hasUpsellsForFlatRateTiers: _v33
+            canAskAiViewer: _v26,
+            hasAskAiViewerPlayerControl: _v27,
+            canAddReactionOnClip: _v28,
+            canViewViewerRetentionGraph: _v29,
+            hasProEmbedOptions: _v30,
+            hasUpsellsForFlatRateTiers: _v31
           },
-          loading: _v34
-        } = (0, _v130.useCapability)(["canAskAiViewer", "hasAskAiViewerPlayerControl", "canAddReactionOnClip", "canViewViewerRetentionGraph", "hasExtraEmbedOptions", "hasProEmbedOptions", "hasUpsellsForFlatRateTiers"], _v20),
-        _v35 = (0, _v465.usePrevious)(_v6),
-        _v36 = (0, _v29.useRef)(_v6);
+          loading: _v32
+        } = (0, _v130.useCapability)(["canAskAiViewer", "hasAskAiViewerPlayerControl", "canAddReactionOnClip", "canViewViewerRetentionGraph", "hasProEmbedOptions", "hasUpsellsForFlatRateTiers"], _v19),
+        _v33 = (0, _v465.usePrevious)(_v6),
+        _v34 = (0, _v29.useRef)(_v6);
       (0, _v29.useEffect)(() => {
-        _v36.current = _v6;
+        _v34.current = _v6;
       }, [_v6]);
       let {
-          interactionZones: _v37
+          interactionZones: _v35
         } = function (_v0, _v1, _v2, _v3) {
           let [_v4, _v5] = (0, _v29.useState)(null),
             [_v6, _v7] = (0, _v29.useState)(),
@@ -31160,7 +31151,14 @@
                   top: 10,
                   right: 10,
                   width: 36,
-                  height: 36 * (3 + Number(_v14) + Number(_v15) + Number(_v16)) + 10
+                  height: (({
+                    canAddReactionOnClip: _v0,
+                    hasAskAiViewerPlayerControl: _v1,
+                    hasSeparateEmbedButton: _v2
+                  } = {}) => {
+                    let _v3 = 3 + Number(!!_v0) + Number(!!_v1) + Number(!!_v2);
+                    return 36 * _v3 + 5 * (_v3 - 1);
+                  })(_v3)
                 },
                 _v2 = {
                   bottom: 10,
@@ -31183,23 +31181,23 @@
           progressBar: _v6.playbar,
           playButtonPosition: _v6.playButton.position
         }, {
-          canAddReactionOnClip: _v29,
-          hasAskAiViewerPlayerControl: _v28,
-          hasSeparateEmbedButton: _v10 && _v6.share && _v6.embed
+          canAddReactionOnClip: _v28,
+          hasAskAiViewerPlayerControl: _v27,
+          hasSeparateEmbedButton: _v6.share && _v6.embed
         }),
         {
-          isCommentsShowing: _v38
+          isCommentsShowing: _v36
         } = (0, _v29.useContext)(_v71.CommentsContext),
         {
-          isTranscoding: _v39
+          isTranscoding: _v37
         } = _v387(),
-        _v40 = (0, _v86.useAppSelector)(_v85.clipHashSelector),
-        _v41 = (0, _v86.useAppSelector)(_v91.isRenderFailedSelector),
-        _v42 = _v40 ? `${_v18}:${_v40}` : _v18,
+        _v38 = (0, _v86.useAppSelector)(_v85.clipHashSelector),
+        _v39 = (0, _v86.useAppSelector)(_v91.isRenderFailedSelector),
+        _v40 = _v38 ? `${_v17}:${_v38}` : _v17,
         {
-          canOnlyComment: _v43
+          canOnlyComment: _v41
         } = _v386(),
-        _v44 = function () {
+        _v42 = function () {
           let _v0 = (0, _v86.useAppSelector)(_v99.clipUserUriSelector),
             {
               data: _v1
@@ -31215,17 +31213,15 @@
         _v7("InteractionZones");
       }, [_v2, _v7]), (0, _v29.useEffect)(() => {
         if ("ClickToPlay" === _v3) _v4 && _v4.ready?.().then(() => {
-          _v4._setEmbedSettings?.(_v912), _v896(_v4, _v12);
+          _v4._setEmbedSettings?.(_v912), _v896(_v4, _v11);
         }).catch(_v0 => {
           if (void 0 !== _v0) throw _v0;
         });else if ("InteractionZones" === _v3) {
           if (_v4) {
-            let _v0 = _v36.current;
+            let _v0 = _v34.current;
             _v4.ready?.().then(() => {
               Object.keys(_v0).forEach(_v0 => {
-                _v898(_v4, _v871[_v0], _v0[_v0], _v0, {
-                  separateShareEmbed: _v10
-                });
+                _v898(_v4, _v871[_v0], _v0[_v0], _v0);
               });
             }).catch(_v0 => {
               if (void 0 !== _v0) throw _v0;
@@ -31256,9 +31252,9 @@
             if (void 0 !== _v0) throw _v0;
           });
         }
-      }, [_v3, _v4, _v12, _v10]), (0, _v29.useEffect)(() => {
+      }, [_v3, _v4, _v11]), (0, _v29.useEffect)(() => {
         _v4 && _v4.ready && _v4.ready(() => {
-          _v4._setEmbedSetting("like", _v36.current.like), _v4._setEmbedSetting("reaction", _v36.current.reaction ?? void 0);
+          _v4._setEmbedSetting("like", _v34.current.like), _v4._setEmbedSetting("reaction", _v34.current.reaction ?? void 0);
         });
       }, [_v4]), (0, _v29.useEffect)(() => {
         _v4 && _v4.ready && _v4.ready(() => {
@@ -31273,21 +31269,19 @@
               ..._v6.colors,
               colorTwo: _v6.color
             };
-          "SelectingThumbnail" !== _v3 || _v6.playbar || (_v6.playbar = !0), Object.keys(_v6).filter(_v0 => !_v35 || _v35[_v0] !== _v6[_v0] || "color" === _v0 && _v0 !== _v6.color || "colors" === _v0 && !(0, _v852.default)(_v1, _v6.colors) && !(0, _v852.default)(_v1, _v2)).forEach(_v0 => {
+          "SelectingThumbnail" !== _v3 || _v6.playbar || (_v6.playbar = !0), Object.keys(_v6).filter(_v0 => !_v33 || _v33[_v0] !== _v6[_v0] || "color" === _v0 && _v0 !== _v6.color || "colors" === _v0 && !(0, _v852.default)(_v1, _v6.colors) && !(0, _v852.default)(_v1, _v2)).forEach(_v0 => {
             let _v1 = _v871[_v0],
               _v2 = _v6[_v0];
-            _v1 === _v871.askAi && _v26?.disabled || _v898(_v4, _v1, _v2, _v6, {
-              separateShareEmbed: _v10
-            });
+            _v1 === _v871.askAi && _v25?.disabled || _v898(_v4, _v1, _v2, _v6);
           });
         });
-      }, [_v4, _v35, _v6, _v6.color, _v6.colors, _v6.embed, _v6.fullscreen, _v6.like, _v6.reaction, _v6.name, _v6.playbar, _v6.owner, _v6.portrait, _v6.share, _v6.vimeoLogo, _v6.pip, _v6.volume, _v6.watchlater, _v6.speed, _v6.customLogo?.active, _v6.customLogo?.url, _v6.chapters, _v6.airplay, _v6.chromecast, _v6.closedCaptions, _v6.transcript, _v6.qualitySelector, _v6.playButton.position, _v6.audioTracks, _v6.skippingForward, _v6.muted, _v3, _v26, _v10]), (0, _v16.jsxs)(_v134.Box, {
+      }, [_v4, _v33, _v6, _v6.color, _v6.colors, _v6.embed, _v6.fullscreen, _v6.like, _v6.reaction, _v6.name, _v6.playbar, _v6.owner, _v6.portrait, _v6.share, _v6.vimeoLogo, _v6.pip, _v6.volume, _v6.watchlater, _v6.speed, _v6.customLogo?.active, _v6.customLogo?.url, _v6.chapters, _v6.airplay, _v6.chromecast, _v6.closedCaptions, _v6.transcript, _v6.qualitySelector, _v6.playButton.position, _v6.audioTracks, _v6.skippingForward, _v6.muted, _v3, _v25]), (0, _v16.jsxs)(_v134.Box, {
         position: "relative",
         w: "100%",
-        children: ["InteractionZones" === _v3 && !_v39 && !_v43 && (0, _v16.jsx)(_v856.GatesBanner, {
-          videoId: _v18,
-          videoLink: _v19 || ""
-        }), _v41 && (0, _v16.jsx)(_v134.Box, {
+        children: ["InteractionZones" === _v3 && !_v37 && !_v41 && (0, _v16.jsx)(_v856.GatesBanner, {
+          videoId: _v17,
+          videoLink: _v18 || ""
+        }), _v39 && (0, _v16.jsx)(_v134.Box, {
           width: "100%",
           height: "100%",
           background: "black",
@@ -31298,47 +31292,47 @@
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center"
         }), "InteractionZones" === _v3 && (0, _v16.jsx)(_v905, {
-          canAskAiViewer: !!_v27,
-          askAiViewerInteraction: _v26,
-          hasAskAiViewerPlayerControl: !!_v28,
-          canAddReactionOnClip: _v29,
+          canAskAiViewer: !!_v26,
+          askAiViewerInteraction: _v25,
+          hasAskAiViewerPlayerControl: !!_v27,
+          canAddReactionOnClip: _v28,
           dispatch: _v1,
           isEditingMode: _v2,
-          interactionZones: _v37,
-          hasProEmbedOptions: !!_v32,
+          interactionZones: _v35,
+          hasProEmbedOptions: !!_v30,
           playerSettingsState: _v6,
-          hasUpsellsForFlatRateTiers: !!_v33,
-          videoId: _v18,
-          videoUserUri: _v20 || "",
-          hasTextTracks: !!_v16,
+          hasUpsellsForFlatRateTiers: !!_v31,
+          videoId: _v17,
+          videoUserUri: _v19 || "",
+          hasTextTracks: !!_v15,
           hasChapters: _v8,
-          hasAudioTracks: !!_v17,
+          hasAudioTracks: !!_v16,
           scrollContainerRef: _v9
-        }), _v25 && "Analytics" === _v3 && (0, _v16.jsx)(_v870, {
-          areCapabilitiesLoading: _v34,
-          canViewViewerRetentionGraph: !!_v30,
-          isInteractive: _v22,
+        }), _v24 && "Analytics" === _v3 && (0, _v16.jsx)(_v870, {
+          areCapabilitiesLoading: _v32,
+          canViewViewerRetentionGraph: !!_v29,
+          isInteractive: _v21,
           playerElementRef: _v5,
           player: _v4,
-          videoId: _v18,
-          videoUserUri: _v20 || "",
-          videoDuration: _v21 || 0
+          videoId: _v17,
+          videoUserUri: _v19 || "",
+          videoDuration: _v20 || 0
         }), _v2 && "InteractionZones" === _v3 && (0, _v16.jsx)(_v911, {
           player: _v4
-        }), _v0, _v38 && (0, _v16.jsx)(_v855.AnnotationsOverlay, {
+        }), _v0, _v36 && (0, _v16.jsx)(_v855.AnnotationsOverlay, {
           playerContainerRef: _v5,
-          teamAccentColor: _v44,
-          showSvvTimecodedComments: !!(_v23 || _v24),
+          teamAccentColor: _v42,
+          showSvvTimecodedComments: !!(_v22 || _v23),
           player: _v4,
-          clipRequestId: _v42.toString()
-        }), _v13 && (0, _v16.jsx)(_v446.default, {
-          apiUrl: _v11?.apiUrl,
+          clipRequestId: _v40.toString()
+        }), _v12 && (0, _v16.jsx)(_v446.default, {
+          apiUrl: _v10?.apiUrl,
           userConfig: {
-            jwt: _v11?.jwt,
-            userId: _v11?.user?.id
+            jwt: _v10?.jwt,
+            userId: _v10?.user?.id
           },
           templateType: "default",
-          onClose: () => _v14(!1),
+          onClose: () => _v13(!1),
           modalConfig: {
             hidePlansSummary: !0,
             hasFreeFeaturedBanner: !0,
@@ -38327,9 +38321,8 @@
         _v95 = (0, _v80.useOrionSettings)().settings.enable_video_customization_v2,
         _v96 = _v95 && _v35 === _v151.CUSTOM_PAGE,
         _v97 = (0, _v80.useOrionSettings)().settings.enable_svv_redesign,
-        _v98 = (0, _v80.useOrionSettings)().settings.player_separate_share_embed,
-        _v99 = (0, _v80.useOrionSettings)().settings.enable_vertical_player,
-        _v100 = _v99 && (({
+        _v98 = (0, _v80.useOrionSettings)().settings.enable_vertical_player,
+        _v99 = _v98 && (({
           width: _v0,
           height: _v1,
           videoType: _v2,
@@ -38341,11 +38334,11 @@
           liveStatus: _v20.live?.status
         }),
         {
-          width: _v101,
-          height: _v102,
+          width: _v100,
+          height: _v101,
           playerDimensions: {
-            width: _v103,
-            height: _v104
+            width: _v102,
+            height: _v103
           }
         } = _v178({
           containerRef: _v90,
@@ -38355,24 +38348,24 @@
           },
           advancedControlsLayout: _v40,
           advancedControlsHeight: _v42,
-          fitPortraitPlayer: _v100,
-          fitPlayerToAspectRatio: _v99
+          fitPortraitPlayer: _v99,
+          fitPlayerToAspectRatio: _v98
         }),
         {
-          player: _v105,
-          playerElementRef: _v106,
-          forceReload: _v107,
-          reloadPlayer: _v108,
-          getPlayerCurrentTime: _v109
+          player: _v104,
+          playerElementRef: _v105,
+          forceReload: _v106,
+          reloadPlayer: _v107,
+          getPlayerCurrentTime: _v108
         } = _v223(_v15, _v16),
-        _v110 = (0, _v29.useRef)(_v105),
-        _v111 = (0, _v29.useRef)(_v107);
+        _v109 = (0, _v29.useRef)(_v104),
+        _v110 = (0, _v29.useRef)(_v106);
       (0, _v29.useLayoutEffect)(() => {
-        _v110.current = _v105, _v111.current = _v107;
-      }, [_v105, _v107]);
-      let _v112 = (0, _v29.useCallback)(_v0 => {
-        _v106.current = _v0, _v0 && _v110.current && _v111.current();
-      }, [_v106]);
+        _v109.current = _v104, _v110.current = _v106;
+      }, [_v104, _v106]);
+      let _v111 = (0, _v29.useCallback)(_v0 => {
+        _v105.current = _v0, _v0 && _v109.current && _v110.current();
+      }, [_v105]);
       _v12 = (0, _v29.useRef)(!1), _v13 = (() => {
         try {
           return JSON.parse(localStorage.getItem(_v837) || "null");
@@ -38409,14 +38402,14 @@
           (_v0.getTime() - _v0.getTime()) / 0 > 90 && _v14();
         } else (_v13 ? _v13.count : 0) >= 3 && _v14();
       }, [_v14, _v13]), (0, _v200.useEditorCsat)();
-      let _v113 = (0, _v199.useSelectTimecodeFromVideo)({
+      let _v112 = (0, _v199.useSelectTimecodeFromVideo)({
           setOverlayMode: _v79,
           overlayMode: _v78,
-          player: _v105
+          player: _v104
         }),
         {
-          banner: _v114,
-          modal: _v115
+          banner: _v113,
+          modal: _v114
         } = function ({
           videoTitle: _v0,
           playerWidth: _v1
@@ -38431,15 +38424,15 @@
           });
         }({
           videoTitle: _v20.name,
-          playerWidth: _v101
+          playerWidth: _v100
         }),
-        _v116 = _v48?.user?.uri === _v20.user?.uri,
-        _v117 = _v71 && "Uploader" !== _v71 || _v116,
-        _v118 = _v117 && _v20.metadata.connections?.pictures?.uri,
+        _v115 = _v48?.user?.uri === _v20.user?.uri,
+        _v116 = _v71 && "Uploader" !== _v71 || _v115,
+        _v117 = _v116 && _v20.metadata.connections?.pictures?.uri,
         {
-          isOpen: _v119,
-          open: _v120,
-          close: _v121
+          isOpen: _v118,
+          open: _v119,
+          close: _v120
         } = function () {
           let [_v0, _v1] = (0, _v29.useState)(!1);
           return {
@@ -38485,52 +38478,52 @@
           };
         }(),
         {
-          trackModalShown: _v122,
-          trackModalDismissed: _v123,
-          trackCtaClicked: _v124
+          trackModalShown: _v121,
+          trackModalDismissed: _v122,
+          trackCtaClicked: _v123
         } = (0, _v202.useVideoPageCustomizationModalTracking)(),
-        _v125 = _v95 ? "v2" : _v94 ? "v1" : null,
-        _v126 = (0, _v29.useRef)(!1);
+        _v124 = _v95 ? "v2" : _v94 ? "v1" : null,
+        _v125 = (0, _v29.useRef)(!1);
       (0, _v29.useEffect)(() => {
-        !_v126.current && _v117 && _v125 && !_v47 && (_v126.current = !0, _v120(_v125));
-      }, [_v117, _v125, _v47, _v120]), (0, _v75.usePicoEffect)(() => {
-        if (!_v119) return !1;
-        _v122({
+        !_v125.current && _v116 && _v124 && !_v47 && (_v125.current = !0, _v119(_v124));
+      }, [_v116, _v124, _v47, _v119]), (0, _v75.usePicoEffect)(() => {
+        if (!_v118) return !1;
+        _v121({
           clipId: String(_v15),
           source: "manage_page"
         });
-      }, [_v119, _v15, _v122], {
+      }, [_v118, _v15, _v121], {
         once: !0
       });
-      let _v127 = (0, _v29.useCallback)(_v0 => {
-          _v123({
+      let _v126 = (0, _v29.useCallback)(_v0 => {
+          _v122({
             clipId: String(_v15),
             source: "manage_page",
             actionType: _v0
-          }), _v121();
-        }, [_v15, _v121, _v123]),
-        _v128 = (0, _v29.useCallback)(() => {
-          _v124({
+          }), _v120();
+        }, [_v15, _v120, _v122]),
+        _v127 = (0, _v29.useCallback)(() => {
+          _v123({
             clipId: String(_v15),
             source: "manage_page"
-          }), _v121(), _v38(_v151.CUSTOM_PAGE);
-        }, [_v15, _v121, _v38, _v124]),
-        _v129 = _v20.upload?.status == "in_progress" || _v20.transcode?.status == "in_progress",
-        _v130 = (0, _v68.useRouter)();
+          }), _v120(), _v38(_v151.CUSTOM_PAGE);
+        }, [_v15, _v120, _v38, _v123]),
+        _v128 = _v20.upload?.status == "in_progress" || _v20.transcode?.status == "in_progress",
+        _v129 = (0, _v68.useRouter)();
       (0, _v29.useEffect)(() => {
         if ("Uploader" === _v71) {
-          _v58.isComplete && _v130.replace("/upload/videos/complete");
+          _v58.isComplete && _v129.replace("/upload/videos/complete");
           let _v0 = _v57.find(_v0 => _v0.clipId && _v168.includes(_v0.state));
-          _v0 && _v130.replace(`/manage/videos/${_v0.clipId}`);
+          _v0 && _v129.replace(`/manage/videos/${_v0.clipId}`);
         }
-      }, [_v71, _v58, _v58.isComplete, _v57, _v130]);
+      }, [_v71, _v58, _v58.isComplete, _v57, _v129]);
       let {
-          capabilities: _v131
+          capabilities: _v130
         } = (0, _v130.useCapability)(["canAskAiViewer", "canAddReactionOnClip", "hasDrmSetting", "hasProEmbedOptions", "hasUpsellsForFlatRateTiers", "hasEnterprise"], _v20.user?.uri),
-        _v132 = (0, _v205.useAnalyticsEvent)(),
-        _v133 = _v64 || (_v20.transcode?.status === "error" ? 2 : "quota_exceeded" !== _v20.status && (_v20.upload?.status === "error" || _v20.upload?.status === "canceled") ? _v20.upload?.error || 1 : void 0),
+        _v131 = (0, _v205.useAnalyticsEvent)(),
+        _v132 = _v64 || (_v20.transcode?.status === "error" ? 2 : "quota_exceeded" !== _v20.status && (_v20.upload?.status === "error" || _v20.upload?.status === "canceled") ? _v20.upload?.error || 1 : void 0),
         {
-          updateEmbedSettings: _v134
+          updateEmbedSettings: _v133
         } = function (_v0, _v1, _v2) {
           let _v3 = (0, _v198.useToast)(),
             _v4 = (0, _v29.useRef)(_v3),
@@ -38617,14 +38610,14 @@
             updateEmbedSettings: _v7
           };
         }(_v15, _v60, (0, _v29.useCallback)(() => {
-          _v76 && (_v108(_v16), _v77(!1));
-        }, [_v76, _v108, _v16]));
+          _v76 && (_v107(_v16), _v77(!1));
+        }, [_v76, _v107, _v16]));
       (0, _v29.useEffect)(() => {
-        !_v74 && _v105 && _v105?.unload?.();
-      }, [_v74, _v105]), (0, _v29.useEffect)(() => {
+        !_v74 && _v104 && _v104?.unload?.();
+      }, [_v74, _v104]), (0, _v29.useEffect)(() => {
         _v79(_v35 === _v151.ANALYTICS ? "Analytics" : "InteractionZones");
       }, [_v35]);
-      let _v135 = _v0 => {
+      let _v134 = _v0 => {
           _v60({
             type: "SET_SUBMITTING",
             payload: !0
@@ -38693,11 +38686,11 @@
                 new_toggled_off: _v1,
                 new_let_users_decide: _v2
               });
-            _v132((0, _v391.changeEmbedSettingsEvent)({
+            _v131((0, _v391.changeEmbedSettingsEvent)({
               product: "embed settings",
               location: _v2,
               ..._v6
-            })), "" === _v0.presetId && _v134(_v1);
+            })), "" === _v0.presetId && _v133(_v1);
             let _v7 = _v19?.split("/").pop();
             _v0.presetId !== _v7 && _v45({
               clipId: _v15,
@@ -38708,7 +38701,7 @@
           }
         },
         {
-          updateClipsPrivacy: _v136
+          updateClipsPrivacy: _v135
         } = (({
           clipIds: _v0
         }) => {
@@ -38737,15 +38730,15 @@
         })({
           clipIds: _v57.filter(_v0 => _v0.clipId).map(_v0 => _v0.clipId)
         }),
-        [_v137] = (0, _v37.useUpdateClipMutation)(),
-        _v138 = async (_v0, _v1, _v2 = !0) => {
+        [_v136] = (0, _v37.useUpdateClipMutation)(),
+        _v137 = async (_v0, _v1, _v2 = !0) => {
           if (_v0 !== _v17?.view || _v1 !== _v18) {
             _v60({
               type: "SET_SUBMITTING",
               payload: !1
             });
             try {
-              await _v137({
+              await _v136({
                 clipId: _v15,
                 fields: {
                   privacy: _v0,
@@ -38753,7 +38746,7 @@
                     password: _v1
                   } : {})
                 }
-              }).unwrap(), _v2 && (await _v136({
+              }).unwrap(), _v2 && (await _v135({
                 privacy: _v0,
                 ...(_v1 ? {
                   password: _v1
@@ -38761,11 +38754,11 @@
               })), await _v45({
                 clipId: _v15,
                 fields: ["manageLink"]
-              }).unwrap(), _v73(_v0.view ?? ""), _v76 && (_v108(_v16), _v77(!1));
+              }).unwrap(), _v73(_v0.view ?? ""), _v76 && (_v107(_v16), _v77(!1));
             } catch (_v0) {}
           }
         },
-        _v139 = (0, _v29.useCallback)((_v0, _v1) => {
+        _v138 = (0, _v29.useCallback)((_v0, _v1) => {
           _v33(!0), _v34(_v0 => "string" == typeof _v0 && (_v0.startsWith(`/videos/${_v15}/versions?`) && _v0.includes("fields=active,createStoryboardId") || _v0 === `/videos/${_v15}?fields=download.quality`), void 0, {
             revalidate: !0
           }).catch(() => void 0).finally(() => _v33(!1)), _v0 && _v44({
@@ -38795,9 +38788,9 @@
                 }
               }
             })
-          }), _v0?.(), _v108(_v1);
-        }, [_v15, _v34, _v0, _v108, _v44]),
-        _v140 = function ({
+          }), _v0?.(), _v107(_v1);
+        }, [_v15, _v34, _v0, _v107, _v44]),
+        _v139 = function ({
           clipDuration: _v0,
           clipId: _v1
         }) {
@@ -38818,9 +38811,9 @@
           clipId: _v15
         }),
         {
-          data: _v141,
-          isLoading: _v142,
-          isValidating: _v143
+          data: _v140,
+          isLoading: _v141,
+          isValidating: _v142
         } = (0, _v201.useGetVideoVersions)({
           where: {
             videoId: _v15
@@ -38831,11 +38824,11 @@
           },
           headers: _v104.API_HEADERS
         }),
-        _v144 = !!((_v62 || _v67) && (_v133 || "uploading_error" === _v20.status)),
-        _v145 = _v141?.data;
+        _v143 = !!((_v62 || _v67) && (_v132 || "uploading_error" === _v20.status)),
+        _v144 = _v140?.data;
       (0, _v29.useEffect)(() => {
-        if (_v145 && _v20?.metadata?.connections?.versions && _v145.length === _v20.metadata.connections.versions.total && _v26 && _v144 && (!_v144 || !_v142 && !_v143) && _v145.length > 1) {
-          let _v0 = _v145?.[0];
+        if (_v144 && _v20?.metadata?.connections?.versions && _v144.length === _v20.metadata.connections.versions.total && _v26 && _v143 && (!_v143 || !_v141 && !_v142) && _v144.length > 1) {
+          let _v0 = _v144?.[0];
           if (_v0 && !_v0.active) {
             let _v0 = Number(_v0.uri.split("/").pop());
             _v0 !== _v24 && (_v23({
@@ -38843,30 +38836,30 @@
             }), _v25(_v0), _v27(!1));
           }
         }
-      }, [_v24, _v26, _v23, _v142, _v144, _v143, _v145, _v20?.metadata?.connections?.versions]), (0, _v29.useEffect)(() => {
+      }, [_v24, _v26, _v23, _v141, _v143, _v142, _v144, _v20?.metadata?.connections?.versions]), (0, _v29.useEffect)(() => {
         (_v67 || _v68) && _v63 && _v57.length > 0 && 0 === _v58.activeCount && 0 === _v58.inProgressCount && "transcoding" === _v20.status && (!_v66 || "replace_uploading" !== _v70 && "initial_uploading" !== _v70) && (_v27(!0), _v65());
       }, [_v65, _v67, _v68, _v66, _v70, _v63, _v58.activeCount, _v58.inProgressCount, _v57.length, _v20.status]);
-      let _v146 = (0, _v29.useRef)({
+      let _v145 = (0, _v29.useRef)({
         clipId: 0,
         done: !1
       });
       (0, _v29.useEffect)(() => {
-        if (!_v20 || (_v146.current.clipId !== _v15 && (_v146.current = {
+        if (!_v20 || (_v145.current.clipId !== _v15 && (_v145.current = {
           clipId: _v15,
           done: !1
-        }), _v146.current.done || "string" != typeof _v20.privacy?.view)) return;
+        }), _v145.current.done || "string" != typeof _v20.privacy?.view)) return;
         if (_v49) {
-          _v146.current.done = !0;
+          _v145.current.done = !0;
           return;
         }
-        _v146.current.done = !0;
+        _v145.current.done = !0;
         let _v0 = _v35 === _v151.COMMENTS;
         _v50 && !_v0 && _v38(_v151.COMMENTS);
       }, [_v35, _v50, _v15, _v49, _v38, _v20]);
-      let _v147 = (0, _v29.useCallback)(() => {
+      let _v146 = (0, _v29.useCallback)(() => {
         _v31(_v0 => _v0 + 1);
       }, []);
-      return _v140 ? null : (0, _v16.jsx)(_v161, {
+      return _v139 ? null : (0, _v16.jsx)(_v161, {
         children: (0, _v16.jsx)(_v206.VideoPrivacyModalContextProvider, {
           children: (0, _v16.jsxs)(_v207, {
             children: [(0, _v16.jsx)(_v940, {
@@ -38888,22 +38881,22 @@
               onCloseThankYou: _v55.closeThankYou
             }), (0, _v16.jsx)(_v141, {}), (0, _v16.jsxs)(_v207.ContentContainer, {
               children: [(0, _v16.jsx)(_v594, {
-                hasPlayerLoaded: !!_v105,
-                getPlayerCurrentTime: _v109,
+                hasPlayerLoaded: !!_v104,
+                getPlayerCurrentTime: _v108,
                 setIsReplaceOverQuota: _v81,
                 setIsNewVersionErrorMessage: _v83,
-                onRestoreVersion: _v139,
+                onRestoreVersion: _v138,
                 playerMeasurements: {
-                  width: _v101,
-                  height: _v102
+                  width: _v100,
+                  height: _v101
                 },
-                canEditSettings: _v117,
+                canEditSettings: _v116,
                 isStorageLimitLockedVideo: _v49
               }), (0, _v16.jsx)(_v238, {
                 enabled: _v95,
                 videoId: _v15,
                 children: (0, _v16.jsxs)(_v207.InnerContentContainer, {
-                  children: [_v117 && !_v50 && !_v40 && (0, _v16.jsxs)(_v16.Fragment, {
+                  children: [_v116 && !_v50 && !_v40 && (0, _v16.jsxs)(_v16.Fragment, {
                     children: [!_v47 && (0, _v16.jsx)(_v777, {
                       activeDrawer: _v35,
                       isEditorEligibilityRefreshing: _v32,
@@ -38911,32 +38904,32 @@
                     }), !_v37 && !_v47 && (0, _v16.jsx)(_v831, {
                       anchor: _v153,
                       setHasChapters: _v88,
-                      playerApi: _v105,
+                      playerApi: _v104,
                       playerSettingsState: _v59,
                       playerSettingsDispatch: _v60,
-                      timecodeSelectionService: _v113,
+                      timecodeSelectionService: _v112,
                       setIsEditingMode: _v75,
-                      savePlayerSettings: _v135,
+                      savePlayerSettings: _v134,
                       hasTextTracks: _v86,
                       hasChapters: _v87,
                       hasAudioTracks: _v89,
                       "data-id": "left-panel-container",
-                      forceReloadPlayer: _v107,
+                      forceReloadPlayer: _v106,
                       sharePanelRevalidateKey: (_v72 || _v28) + (_v30 > 0 ? `|embed:${_v30}` : "")
                     })]
                   }), (0, _v16.jsxs)(_v207.MainContentWrapper, {
                     refProp: _v90,
                     advancedControlsShown: _v40,
-                    children: [_v114, !_v129 && (0, _v16.jsx)(_v847, {
+                    children: [_v113, !_v128 && (0, _v16.jsx)(_v847, {
                       videoId: _v15
-                    }), !_v144 && (_v133 || !_v68 && _v67 && _v62 && _v64 || _v80) && (0, _v16.jsx)(_v204.UploadErrorMessage, {
-                      error: _v133 || _v67 && _v62 && _v64 || 4,
-                      link: _v133 && !_v67 ? "/upload/videos" : void 0,
+                    }), !_v143 && (_v132 || !_v68 && _v67 && _v62 && _v64 || _v80) && (0, _v16.jsx)(_v204.UploadErrorMessage, {
+                      error: _v132 || _v67 && _v62 && _v64 || 4,
+                      link: _v132 && !_v67 ? "/upload/videos" : void 0,
                       onClose: () => {
                         _v62 && _v61 && _v69 && _v65(), _v80 && (_v81(!1), _v83(!1));
                       },
-                      playerWidth: _v101,
-                      isEnterprise: _v131?.hasEnterprise,
+                      playerWidth: _v100,
+                      isEnterprise: _v130?.hasEnterprise,
                       isNewVersionErrorMessage: _v82,
                       onClickQuotaMessage: () => {
                         _v85(!0), _v53();
@@ -38945,10 +38938,10 @@
                       videoId: _v15
                     }), (0, _v16.jsx)(_v1003, {
                       isMobile: _v47,
-                      width: _v101,
+                      width: _v100,
                       refetchVideo: _v0,
-                      reloadPlayer: _v108,
-                      onRestoreVersion: _v139
+                      reloadPlayer: _v107,
+                      onRestoreVersion: _v138
                     }), (0, _v16.jsxs)(_v236, {
                       clipId: _v15,
                       active: _v96,
@@ -38956,43 +38949,42 @@
                       children: [(0, _v16.jsx)(_v203.PlayerAdvancedControls, {
                         width: "100%",
                         alignItems: "center",
-                        player: _v105,
+                        player: _v104,
                         isShown: _v40 && _v41 && !_v47,
-                        playerContainerHeight: _v104,
-                        playerContainerWidth: _v103,
+                        playerContainerHeight: _v103,
+                        playerContainerWidth: _v102,
                         onControlsHeightChange: _v43,
                         enableLinks: !0,
                         children: (0, _v16.jsx)(_v149, {
-                          maxWidth: (0, _v136.rem)(_v103),
+                          maxWidth: (0, _v136.rem)(_v102),
                           children: (0, _v16.jsxs)(_v851, {
-                            playerApi: _v105,
+                            playerApi: _v104,
                             dimensions: {
-                              width: _v103,
-                              height: _v104
+                              width: _v102,
+                              height: _v103
                             },
                             advancedControlsShown: _v40,
-                            constrainWidth: _v100,
-                            children: [_v118 && (0, _v16.jsx)(_v918, {
+                            constrainWidth: _v99,
+                            children: [_v117 && (0, _v16.jsx)(_v918, {
                               overlayMode: _v78,
-                              timecodeSelectionService: _v113
+                              timecodeSelectionService: _v112
                             }), (0, _v16.jsx)(_v913, {
                               dispatch: _v60,
                               isEditingMode: _v74,
                               overlayMode: _v78,
-                              playerApi: _v105,
-                              playerElementRef: _v106,
+                              playerApi: _v104,
+                              playerElementRef: _v105,
                               playerSettingsState: _v59,
                               setOverlayMode: _v79,
                               hasChapters: _v87,
                               scrollContainerRef: _v90,
-                              separateShareEmbed: _v98,
                               children: (0, _v16.jsx)("div", {
-                                ref: _v112,
+                                ref: _v111,
                                 className: "player js-player",
                                 "data-testid": "svv-player",
                                 style: {
-                                  maxWidth: _v103,
-                                  minHeight: _v104
+                                  maxWidth: _v102,
+                                  minHeight: _v103
                                 }
                               })
                             })]
@@ -39002,18 +38994,18 @@
                         appUri: _v20?.app?.uri,
                         videoId: _v15
                       }), (0, _v16.jsx)(_v149, {
-                        maxWidth: (0, _v136.rem)(_v101),
-                        children: !_v40 && _v117 && (0, _v16.jsx)(_v145, {
-                          width: _v101,
+                        maxWidth: (0, _v136.rem)(_v100),
+                        children: !_v40 && _v116 && (0, _v16.jsx)(_v145, {
+                          width: _v100,
                           children: (0, _v16.jsxs)(_v705, {
                             videoId: _v15,
                             onFocus: _v91?.current?.playHoverInOutAnimation,
                             children: [(0, _v16.jsx)(_v751, {
                               canEditTitle: "hide" !== _v59.name,
-                              playerTitleSelector: _v105?._controlSelectors?.details,
-                              reloadPlayer: () => _v108(_v16),
-                              viewerOwnsVideo: _v116,
-                              canViewerUseDRM: _v131?.hasDrmSetting,
+                              playerTitleSelector: _v104?._controlSelectors?.details,
+                              reloadPlayer: () => _v107(_v16),
+                              viewerOwnsVideo: _v115,
+                              canViewerUseDRM: _v130?.hasDrmSetting,
                               onContentRatingUpdate: () => {
                                 _v92.current?.includes("unrated") && (_v29(_v21?.join(",") || ""), _v92.current = _v21);
                               }
@@ -39022,34 +39014,34 @@
                         })
                       })]
                     })]
-                  }), _v37 && _v117 && (0, _v16.jsx)(_v831, {
+                  }), _v37 && _v116 && (0, _v16.jsx)(_v831, {
                     setHasChapters: _v88,
-                    playerApi: _v105,
+                    playerApi: _v104,
                     playerSettingsState: _v59,
                     playerSettingsDispatch: _v60,
-                    timecodeSelectionService: _v113,
+                    timecodeSelectionService: _v112,
                     setIsEditingMode: _v75,
-                    savePlayerSettings: _v135,
+                    savePlayerSettings: _v134,
                     hasTextTracks: _v86,
                     hasChapters: _v87,
                     hasAudioTracks: _v89,
-                    forceReloadPlayer: _v107,
+                    forceReloadPlayer: _v106,
                     sharePanelRevalidateKey: `${_v72 || _v28}|embed:${_v30}`
                   })]
                 })
               }), (0, _v16.jsx)(_v761, {
                 privacy: _v17?.view ?? "nobody",
                 password: _v18 ?? "",
-                onPrivacyChange: _v138,
-                showPrivacyMenu: _v117,
+                onPrivacyChange: _v137,
+                showPrivacyMenu: _v116,
                 isRightDrawerOpen: _v35 === _v151.COMMENTS || _v35 === _v151.ANALYTICS && _v47 || _v22,
                 clipId: _v15.toString(),
                 openShareModal: () => {
                   _v38(_v151.SHARE);
                 },
-                onEmbedChange: _v147
+                onEmbedChange: _v146
               })]
-            }), _v115, !_v129 && (0, _v16.jsx)(_v846, {
+            }), _v114, !_v128 && (0, _v16.jsx)(_v846, {
               videoId: _v15
             }), _v84 && (0, _v16.jsx)(_v1005, {
               apiUrl: _v48?.apiUrl,
@@ -39062,9 +39054,9 @@
               onClose: () => _v85(!1),
               tracking: _v52
             }), (0, _v16.jsx)(_v927, {
-              isOpen: _v119,
-              onDismiss: _v127,
-              onCustomize: _v128
+              isOpen: _v118,
+              onDismiss: _v126,
+              onCustomize: _v127
             }), !_v47 && (0, _v16.jsx)(_v135.Flex, {
               position: "fixed",
               zIndex: "1000",
@@ -39073,8 +39065,8 @@
               bottom: _v97 ? (0, _v136.rem)(28) : (0, _v136.rem)(8),
               left: _v97 ? (0, _v136.rem)(28) : (0, _v136.rem)(21),
               children: (0, _v16.jsx)(_v247, {})
-            }), _v1 && _v116 && _v46 && "done" === _v46.status && (0, _v16.jsx)(_v1006, {}), _v48 && (0, _v16.jsx)(_v248, {
-              enableQuotaMenu: _v116 && !_v93 && _v48?.user?.uploadQuota?.restricted == null,
+            }), _v1 && _v115 && _v46 && "done" === _v46.status && (0, _v16.jsx)(_v1006, {}), _v48 && (0, _v16.jsx)(_v248, {
+              enableQuotaMenu: _v115 && !_v93 && _v48?.user?.uploadQuota?.restricted == null,
               isPanelShowing: _v36,
               isRightDrawer: _v37
             }), (0, _v16.jsx)(_v1008, {

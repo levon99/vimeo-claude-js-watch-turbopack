@@ -5,7 +5,7 @@
     _v2 = _v0.i(0);
   let _v3 = "satellite_next",
     _v4 = "page",
-    _v5 = ["starter", "standard", "advanced", "creator", "professional"],
+    _v5 = ["starter", "standard", "advanced", "creator", "core", "professional"],
     _v6 = /^[a-z0-9_-]+$/i,
     _v7 = new Set(Object.values(_v2.PLANS)),
     _v8 = _v0 => "string" == typeof _v0 ? _v0 : Array.isArray(_v0) ? _v0[0] : void 0;

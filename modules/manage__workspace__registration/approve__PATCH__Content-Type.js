@@ -477,125 +477,128 @@
           })]
         })]
       });
-    },
-    _v48 = ({
-      workspaceInternalId: _v0
-    }) => {
-      let _v1 = (0, _v34.getTranslations)(),
-        _v2 = (0, _v23.useLocale)(),
-        _v3 = _v1.RegistrationPresetsDescription("/library", "/library/events"),
-        {
-          data: _v4,
-          mutate: _v5,
-          isLoading: _v6,
-          isValidating: _v7
-        } = (0, _v19.useGetUserLeadCaptureForms)(() => _v0 ? {
-          where: {
-            userId: _v0
-          },
-          select: _v44,
-          query: {
-            perPage: 100,
-            page: 1,
-            filter: "preset"
-          }
-        } : null),
-        _v8 = (_v4?.data ?? []).filter(_v0 => !_v0.isDefault),
-        _v9 = _v8.filter(_v0 => _v0.isApproved),
-        _v10 = _v9.length > 0,
-        [_v11, _v12] = (0, _v9.useState)(null),
-        [_v13, _v14] = (0, _v9.useState)(null),
-        [_v15, _v16] = (0, _v9.useState)(null);
-      return (0, _v1.jsxs)(_v2.Box, {
-        maxW: _v22.SETTING_PAGES_MAX_WIDTH,
-        width: "100%",
-        margin: "0 auto",
-        children: [(0, _v1.jsx)(_v20.Header, {}), (0, _v1.jsx)(_v21.RegistrationInfo, {}), (0, _v1.jsxs)(_v10.Card, {
-          padding: "xl",
-          marginBottom: "lg",
-          children: [(0, _v1.jsx)(_v16.Text, {
-            variant: "heading-md",
-            fontSize: (0, _v14.rem)(20),
-            children: _v1.RegistrationPresets
-          }), (0, _v1.jsx)(_v16.Text, {
-            color: "text-secondary",
-            variant: "body-md",
-            marginTop: "sm",
-            children: _v3
-          }), _v6 || _v7 ? (0, _v1.jsx)(_v11.Flex, {
-            alignItems: "center",
-            justifyContent: "center",
-            paddingY: (0, _v14.rem)(60),
-            children: (0, _v1.jsx)(_v15.Spinner, {})
-          }) : 0 === _v8.length ? (0, _v1.jsxs)(_v11.Flex, {
-            direction: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            paddingY: (0, _v14.rem)(60),
-            gap: (0, _v14.rem)(8),
-            children: [(0, _v1.jsx)(_v18.Registration, {
-              boxSize: "48px"
-            }), (0, _v1.jsx)(_v12.Header, {
-              variant: "heading-md",
-              size: "xl",
-              children: _v1.NoPresetAvailable
-            }), (0, _v1.jsx)(_v13.Paragraph, {
-              variant: "body-md",
-              color: "text-secondary",
-              textAlign: "center",
-              children: _v3
-            })]
-          }) : (0, _v1.jsxs)(_v1.Fragment, {
-            children: [!_v10 && (0, _v1.jsxs)(_v11.Flex, {
-              alignItems: "flex-start",
-              gap: "md",
-              padding: "md",
-              marginTop: "md",
-              borderRadius: "md",
-              backgroundColor: "status-caution-secondary",
-              children: [(0, _v1.jsx)(_v17.CircleExclamationFilled, {
-                color: "status-caution-primary",
-                boxSize: "md"
-              }), (0, _v1.jsx)(_v16.Text, {
-                variant: "body-md",
-                children: _v1.NoApprovedPresetNotification
-              })]
-            }), (0, _v1.jsx)(_v46, {
-              presets: _v8,
-              locale: _v2,
-              onApprove: _v0 => {
-                let _v1 = (_v0.metadata?.connections?.video?.total ?? 0) + (_v0.metadata?.connections?.event?.total ?? 0) + (_v0.metadata?.connections?.showcase?.total ?? 0);
-                _v0.isApproved && _v1 > 0 ? _v14(_v0) : _v12(_v0);
-              },
-              onDelete: _v16
-            })]
-          })]
-        }), (0, _v1.jsx)(_v35, {
-          isOpen: null !== _v11,
-          userId: _v0,
-          presetId: _v11?.uuid ?? null,
-          mode: _v11?.isApproved ? "revoke" : "approve",
-          onClose: () => _v12(null),
-          onSuccess: () => _v5()
-        }), (0, _v1.jsx)(_v39, {
-          isOpen: null !== _v15,
-          userId: _v0,
-          preset: _v15,
-          approvedPresets: _v9,
-          onClose: () => _v16(null),
-          onSuccess: () => _v5()
-        }), (0, _v1.jsx)(_v47, {
-          isOpen: null !== _v13,
-          userId: _v0,
-          preset: _v13,
-          approvedPresets: _v9,
-          onClose: () => _v14(null),
-          onSuccess: () => _v5()
-        })]
-      });
     };
-  var _v49 = _v0.i(0);
-  let _v50 = ({
+  var _v48 = _v0.i(0);
+  let _v49 = ({
+    workspaceInternalId: _v0
+  }) => {
+    let _v1 = (0, _v34.getTranslations)(),
+      _v2 = (0, _v23.useLocale)(),
+      _v3 = _v1.RegistrationPresetsDescription("/library", "/library/events"),
+      {
+        data: _v4,
+        mutate: _v5,
+        isLoading: _v6,
+        isValidating: _v7
+      } = (0, _v19.useGetUserLeadCaptureForms)(() => _v0 ? {
+        where: {
+          userId: _v0
+        },
+        select: _v44,
+        query: {
+          perPage: 100,
+          page: 1,
+          filter: "preset"
+        }
+      } : null),
+      _v8 = (_v4?.data ?? []).filter(_v0 => !_v0.isDefault),
+      _v9 = _v8.filter(_v0 => _v0.isApproved),
+      _v10 = _v9.length > 0,
+      [_v11, _v12] = (0, _v9.useState)(null),
+      [_v13, _v14] = (0, _v9.useState)(null),
+      [_v15, _v16] = (0, _v9.useState)(null);
+    return (0, _v1.jsxs)(_v2.Box, {
+      maxW: _v22.SETTING_PAGES_MAX_WIDTH,
+      width: "100%",
+      margin: "0 auto",
+      children: [(0, _v1.jsx)(_v20.Header, {}), (0, _v1.jsx)(_v21.RegistrationInfo, {
+        emailDefaultsHref: _v48.WORKSPACE_SETTINGS_ROUTES.EMAIL_DEFAULTS
+      }), (0, _v1.jsxs)(_v10.Card, {
+        padding: "xl",
+        marginBottom: "lg",
+        children: [(0, _v1.jsx)(_v16.Text, {
+          variant: "heading-md",
+          fontSize: (0, _v14.rem)(20),
+          children: _v1.RegistrationPresets
+        }), (0, _v1.jsx)(_v16.Text, {
+          color: "text-secondary",
+          variant: "body-md",
+          marginTop: "sm",
+          children: _v3
+        }), _v6 || _v7 ? (0, _v1.jsx)(_v11.Flex, {
+          alignItems: "center",
+          justifyContent: "center",
+          paddingY: (0, _v14.rem)(60),
+          children: (0, _v1.jsx)(_v15.Spinner, {})
+        }) : 0 === _v8.length ? (0, _v1.jsxs)(_v11.Flex, {
+          direction: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          paddingY: (0, _v14.rem)(60),
+          gap: (0, _v14.rem)(8),
+          children: [(0, _v1.jsx)(_v18.Registration, {
+            boxSize: "48px"
+          }), (0, _v1.jsx)(_v12.Header, {
+            variant: "heading-md",
+            size: "xl",
+            children: _v1.NoPresetAvailable
+          }), (0, _v1.jsx)(_v13.Paragraph, {
+            variant: "body-md",
+            color: "text-secondary",
+            textAlign: "center",
+            children: _v3
+          })]
+        }) : (0, _v1.jsxs)(_v1.Fragment, {
+          children: [!_v10 && (0, _v1.jsxs)(_v11.Flex, {
+            alignItems: "flex-start",
+            gap: "md",
+            padding: "md",
+            marginTop: "md",
+            borderRadius: "md",
+            backgroundColor: "status-caution-secondary",
+            children: [(0, _v1.jsx)(_v17.CircleExclamationFilled, {
+              color: "status-caution-primary",
+              boxSize: "md"
+            }), (0, _v1.jsx)(_v16.Text, {
+              variant: "body-md",
+              children: _v1.NoApprovedPresetNotification
+            })]
+          }), (0, _v1.jsx)(_v46, {
+            presets: _v8,
+            locale: _v2,
+            onApprove: _v0 => {
+              let _v1 = (_v0.metadata?.connections?.video?.total ?? 0) + (_v0.metadata?.connections?.event?.total ?? 0) + (_v0.metadata?.connections?.showcase?.total ?? 0);
+              _v0.isApproved && _v1 > 0 ? _v14(_v0) : _v12(_v0);
+            },
+            onDelete: _v16
+          })]
+        })]
+      }), (0, _v1.jsx)(_v35, {
+        isOpen: null !== _v11,
+        userId: _v0,
+        presetId: _v11?.uuid ?? null,
+        mode: _v11?.isApproved ? "revoke" : "approve",
+        onClose: () => _v12(null),
+        onSuccess: () => _v5()
+      }), (0, _v1.jsx)(_v39, {
+        isOpen: null !== _v15,
+        userId: _v0,
+        preset: _v15,
+        approvedPresets: _v9,
+        onClose: () => _v16(null),
+        onSuccess: () => _v5()
+      }), (0, _v1.jsx)(_v47, {
+        isOpen: null !== _v13,
+        userId: _v0,
+        preset: _v13,
+        approvedPresets: _v9,
+        onClose: () => _v14(null),
+        onSuccess: () => _v5()
+      })]
+    });
+  };
+  var _v50 = _v0.i(0);
+  let _v51 = ({
     workspaceUuid: _v0,
     workspaceInternalId: _v1
   }) => {
@@ -615,13 +618,13 @@
     if (_v3?.adminForcedPreset === !1 && !_v2.enable_admin_forced_preset) throw new _v3.UnauthorizedError();
     return (0, _v1.jsx)(_v2.Box, {
       paddingTop: "lg",
-      children: (0, _v1.jsx)(_v48, {
+      children: (0, _v1.jsx)(_v49, {
         workspaceInternalId: _v1,
         workspaceUuid: _v0
       })
     });
   };
-  (0, _v4.withPageSetup)(_v49.getWspServerSideProps, {
+  (0, _v4.withPageSetup)(_v50.getWspServerSideProps, {
     requireLogin: !0
-  }), _v50.getLayout = (_v0, _v1) => (0, _v8.getLayout)(_v0, _v1, _v8.WORKSPACE_COMPACT_SETTINGS_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v50], 0);
+  }), _v51.getLayout = (_v0, _v1) => (0, _v8.getLayout)(_v0, _v1, _v8.WORKSPACE_COMPACT_SETTINGS_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v51], 0);
 }

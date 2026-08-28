@@ -279,974 +279,142 @@
     _v74 = _v0.i(0),
     _v75 = _v0.i(0);
   let _v76 = ({
-      value: _v0,
-      unit: _v1,
-      direction: _v2
-    }) => `${_v0}_${_v1}_${_v2}`,
-    _v77 = (_v0, _v1) => _v76(_v0) === _v76(_v1),
-    _v78 = {
-      [_v27.REMINDER_OFFSET_UNITS.MINUTES]: 60,
-      [_v27.REMINDER_OFFSET_UNITS.HOURS]: 0,
-      [_v27.REMINDER_OFFSET_UNITS.DAYS]: 0
-    },
-    _v79 = ({
-      value: _v0,
-      unit: _v1,
-      direction: _v2
-    }) => {
-      let _v3 = _v0 * _v78[_v1];
-      return _v2 === _v27.REMINDER_DIRECTIONS.BEFORE ? -_v3 : _v3;
-    },
-    _v80 = ({
-      value: _v0,
-      unit: _v1,
-      direction: _v2
-    }) => {
-      let _v3 = _v2 === _v27.REMINDER_DIRECTIONS.BEFORE;
-      switch (_v1) {
-        case _v27.REMINDER_OFFSET_UNITS.MINUTES:
-          return _v3 ? (0, _v15.translate)({
-            count: _v0,
-            singular: "{value} minute before event",
-            plural: "{value} minutes before event",
-            replacements: {
-              value: _v0
+    isOpen: _v0,
+    onClose: _v1,
+    onConfirm: _v2,
+    isLoading: _v3
+  }) => (0, _v1.jsxs)(_v58.Modal, {
+    isOpen: _v0,
+    onClose: _v1,
+    isCentered: !0,
+    size: "md",
+    children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
+      children: [(0, _v1.jsx)(_v75.ModalCloseButton, {}), (0, _v1.jsx)(_v62.ModalHeader, {
+        children: (0, _v15.translate)({
+          singular: "Remove reminder email",
+          dictionary: {
+            es: {
+              singular: "Eliminar correo de recordatorio"
             },
-            dictionary: {
-              es: {
-                singular: "{value} minuto antes del evento",
-                plural: "{value} minutos antes del evento"
-              },
-              "de-DE": {
-                singular: "{value} Minute vor dem Ereignis",
-                plural: "{value} Minuten vor dem Ereignis"
-              },
-              "fr-FR": {
-                singular: "{value} minute avant l'événement",
-                plural: "{value} minutes avant l'événement"
-              },
-              "ja-JP": {
-                singular: "イベントの{value}分前",
-                plural: "イベントの{value}分前"
-              },
-              "ko-KR": {
-                singular: "{value}분 전 이벤트",
-                plural: "{value}분 전 이벤트"
-              },
-              "pt-BR": {
-                singular: "{value} minuto antes do evento",
-                plural: "{value} minutos antes do evento"
-              },
-              "zh-CN": {
-                singular: "{value} 分钟前（活动）",
-                plural: "{value} 分钟前（活动）"
-              }
-            }
-          }) : (0, _v15.translate)({
-            count: _v0,
-            singular: "{value} minute after event",
-            plural: "{value} minutes after event",
-            replacements: {
-              value: _v0
+            "de-DE": {
+              singular: "Erinnerungs-E-Mail entfernen"
             },
-            dictionary: {
-              es: {
-                singular: "{value} minuto después del evento",
-                plural: "{value} minutos después del evento"
-              },
-              "de-DE": {
-                singular: "{value} Minute nach dem Ereignis",
-                plural: "{value} Minuten nach dem Ereignis"
-              },
-              "fr-FR": {
-                singular: "{value} minute après l'événement",
-                plural: "{value} minutes après l'événement"
-              },
-              "ja-JP": {
-                singular: "イベントの{value}分後",
-                plural: "イベントの{value}分後"
-              },
-              "ko-KR": {
-                singular: "{value}분 후 이벤트",
-                plural: "{value}분 후 이벤트"
-              },
-              "pt-BR": {
-                singular: "{value} minuto após o evento",
-                plural: "{value} minutos após o evento"
-              },
-              "zh-CN": {
-                singular: "{value} 分钟后（活动）",
-                plural: "{value} 分钟后（活动）"
-              }
-            }
-          });
-        case _v27.REMINDER_OFFSET_UNITS.HOURS:
-          return _v3 ? (0, _v15.translate)({
-            count: _v0,
-            singular: "{value} hour before event",
-            plural: "{value} hours before event",
-            replacements: {
-              value: _v0
+            "fr-FR": {
+              singular: "Supprimer l'e-mail de rappel"
             },
-            dictionary: {
-              es: {
-                singular: "{value} hora antes del evento",
-                plural: "{value} horas antes del evento"
-              },
-              "de-DE": {
-                singular: "{value} Stunde vor dem Ereignis",
-                plural: "{value} Stunden vor dem Ereignis"
-              },
-              "fr-FR": {
-                singular: "{value} heure avant l'événement",
-                plural: "{value} heures avant l'événement"
-              },
-              "ja-JP": {
-                singular: "イベントの{value}時間前",
-                plural: "イベントの{value}時間前"
-              },
-              "ko-KR": {
-                singular: "{value}시간 전 이벤트",
-                plural: "{value}시간 전 이벤트"
-              },
-              "pt-BR": {
-                singular: "{value} hora antes do evento",
-                plural: "{value} horas antes do evento"
-              },
-              "zh-CN": {
-                singular: "{value} 小时前（活动）",
-                plural: "{value} 小时前（活动）"
-              }
-            }
-          }) : (0, _v15.translate)({
-            count: _v0,
-            singular: "{value} hour after event",
-            plural: "{value} hours after event",
-            replacements: {
-              value: _v0
+            "ja-JP": {
+              singular: "リマインダーメールを削除"
             },
-            dictionary: {
-              es: {
-                singular: "{value} hora después del evento",
-                plural: "{value} horas después del evento"
-              },
-              "de-DE": {
-                singular: "{value} Stunde nach dem Ereignis",
-                plural: "{value} Stunden nach dem Ereignis"
-              },
-              "fr-FR": {
-                singular: "{value} heure après l'événement",
-                plural: "{value} heures après l'événement"
-              },
-              "ja-JP": {
-                singular: "イベントの{value}時間後",
-                plural: "イベントの{value}時間後"
-              },
-              "ko-KR": {
-                singular: "{value}시간 후 이벤트",
-                plural: "{value}시간 후 이벤트"
-              },
-              "pt-BR": {
-                singular: "{value} hora após o evento",
-                plural: "{value} horas após o evento"
-              },
-              "zh-CN": {
-                singular: "{value} 小时后（活动）",
-                plural: "{value} 小时后（活动）"
-              }
-            }
-          });
-        case _v27.REMINDER_OFFSET_UNITS.DAYS:
-          return _v3 ? (0, _v15.translate)({
-            count: _v0,
-            singular: "{value} day before event",
-            plural: "{value} days before event",
-            replacements: {
-              value: _v0
+            "ko-KR": {
+              singular: "알림 이메일 제거"
             },
-            dictionary: {
-              es: {
-                singular: "{value} día antes del evento",
-                plural: "{value} días antes del evento"
-              },
-              "de-DE": {
-                singular: "{value} Tag vor dem Ereignis",
-                plural: "{value} Tage vor dem Ereignis"
-              },
-              "fr-FR": {
-                singular: "{value} jour avant l'événement",
-                plural: "{value} jours avant l'événement"
-              },
-              "ja-JP": {
-                singular: "イベントの{value}日前",
-                plural: "イベントの{value}日前"
-              },
-              "ko-KR": {
-                singular: "{value}일 전 이벤트",
-                plural: "{value}일 전 이벤트"
-              },
-              "pt-BR": {
-                singular: "{value} dia antes do evento",
-                plural: "{value} dias antes do evento"
-              },
-              "zh-CN": {
-                singular: "{value} 天前（活动）",
-                plural: "{value} 天前（活动）"
-              }
-            }
-          }) : (0, _v15.translate)({
-            count: _v0,
-            singular: "{value} day after event",
-            plural: "{value} days after event",
-            replacements: {
-              value: _v0
+            "pt-BR": {
+              singular: "Remover e-mail de lembrete"
             },
-            dictionary: {
-              es: {
-                singular: "{value} día después del evento",
-                plural: "{value} días después del evento"
-              },
-              "de-DE": {
-                singular: "{value} Tag nach dem Ereignis",
-                plural: "{value} Tage nach dem Ereignis"
-              },
-              "fr-FR": {
-                singular: "{value} jour après l'événement",
-                plural: "{value} jours après l'événement"
-              },
-              "ja-JP": {
-                singular: "イベントの{value}日後",
-                plural: "イベントの{value}日後"
-              },
-              "ko-KR": {
-                singular: "{value}일 후 이벤트",
-                plural: "{value}일 후 이벤트"
-              },
-              "pt-BR": {
-                singular: "{value} dia após o evento",
-                plural: "{value} dias após o evento"
-              },
-              "zh-CN": {
-                singular: "{value} 天后（活动）",
-                plural: "{value} 天后（活动）"
-              }
+            "zh-CN": {
+              singular: "移除提醒邮件"
             }
-          });
-      }
-    },
-    _v81 = [{
-      unit: _v27.REMINDER_OFFSET_UNITS.MINUTES,
-      direction: _v27.REMINDER_DIRECTIONS.BEFORE
-    }, {
-      unit: _v27.REMINDER_OFFSET_UNITS.HOURS,
-      direction: _v27.REMINDER_DIRECTIONS.BEFORE
-    }, {
-      unit: _v27.REMINDER_OFFSET_UNITS.DAYS,
-      direction: _v27.REMINDER_DIRECTIONS.BEFORE
-    }],
-    _v82 = (_v0, _v1) => `${_v0}_${_v1}`,
-    _v83 = _v0 => {
-      let [_v1, _v2] = _v0.split("_");
-      return {
-        unit: _v1,
-        direction: _v2
-      };
-    },
-    _v84 = ({
-      isOpen: _v0,
-      onClose: _v1,
-      onSave: _v2,
-      usedOffsets: _v3,
-      title: _v4,
-      initialOffset: _v5
-    }) => {
-      let _v6 = (0, _v2.useMemo)(() => _v27.REMINDER_OFFSET_PRESETS.filter(_v0 => !_v3.some(_v0 => _v77(_v0, _v0))), [_v3]),
-        _v7 = !!_v5 && _v27.REMINDER_OFFSET_PRESETS.some(_v0 => _v77(_v0, _v5)),
-        [_v8, _v9] = (0, _v2.useState)(_v5 ? _v7 ? _v76(_v5) : _v27.CUSTOM_RANGE_OPTION : null),
-        [_v10, _v11] = (0, _v2.useState)(_v5 && !_v7 ? _v5.value : _v27.DEFAULT_REMINDER_OFFSET.value),
-        [_v12, _v13] = (0, _v2.useState)(_v5 && !_v7 ? _v82(_v5.unit, _v5.direction) : _v82(_v27.DEFAULT_REMINDER_OFFSET.unit, _v27.DEFAULT_REMINDER_OFFSET.direction)),
-        _v14 = (0, _v2.useMemo)(() => _v6.map(_v0 => ({
-          label: _v80(_v0),
-          value: _v76(_v0)
-        })), [_v6]),
-        _v15 = (0, _v2.useMemo)(() => [..._v14, {
-          label: (0, _v15.translate)({
-            singular: "Custom range",
-            dictionary: {
-              es: {
-                singular: "Rango personalizado"
-              },
-              "de-DE": {
-                singular: "Benutzerdefinierter Zeitraum"
-              },
-              "fr-FR": {
-                singular: "Plage personnalisée"
-              },
-              "ja-JP": {
-                singular: "カスタム範囲"
-              },
-              "ko-KR": {
-                singular: "사용자 지정 범위"
-              },
-              "pt-BR": {
-                singular: "Intervalo personalizado"
-              },
-              "zh-CN": {
-                singular: "自定义范围"
-              }
-            }
-          }),
-          value: _v27.CUSTOM_RANGE_OPTION
-        }], [_v14]),
-        _v16 = _v8 ?? (_v6[0] ? _v76(_v6[0]) : _v27.CUSTOM_RANGE_OPTION),
-        _v17 = _v16 === _v27.CUSTOM_RANGE_OPTION,
-        {
-          unit: _v18,
-          direction: _v19
-        } = _v83(_v12),
-        _v20 = _v27.CUSTOM_RANGE_VALUE_MAX[_v18],
-        _v21 = Math.min(_v10, _v20),
-        _v22 = (0, _v2.useMemo)(() => Array.from({
-          length: _v20
-        }, (_v0, _v1) => ({
-          label: String(_v1 + 1),
-          value: String(_v1 + 1)
-        })), [_v20]),
-        _v23 = (0, _v2.useMemo)(() => _v81.map(_v0 => ({
-          label: ((_v0, _v1, _v2) => {
-            let _v3 = _v1 === _v27.REMINDER_DIRECTIONS.BEFORE;
-            switch (_v0) {
-              case _v27.REMINDER_OFFSET_UNITS.MINUTES:
-                return _v3 ? (0, _v15.translate)({
-                  count: _v2,
-                  singular: "minute before",
-                  plural: "minutes before",
-                  dictionary: {
-                    es: {
-                      singular: "minuto antes",
-                      plural: "minutos antes"
-                    },
-                    "de-DE": {
-                      singular: "Minute vorher",
-                      plural: "Minuten vorher"
-                    },
-                    "fr-FR": {
-                      singular: "minute avant",
-                      plural: "minutes avant"
-                    },
-                    "ja-JP": {
-                      singular: "分前",
-                      plural: "分前"
-                    },
-                    "ko-KR": {
-                      singular: "한 분 전",
-                      plural: "분 전"
-                    },
-                    "pt-BR": {
-                      singular: "minuto antes",
-                      plural: "minutos antes"
-                    },
-                    "zh-CN": {
-                      singular: "分钟前",
-                      plural: "分钟前"
-                    }
-                  }
-                }) : (0, _v15.translate)({
-                  count: _v2,
-                  singular: "minute after",
-                  plural: "minutes after",
-                  dictionary: {
-                    es: {
-                      singular: "minuto después",
-                      plural: "minutos después"
-                    },
-                    "de-DE": {
-                      singular: "Minute später",
-                      plural: "Minuten später"
-                    },
-                    "fr-FR": {
-                      singular: "minute après",
-                      plural: "minutes après"
-                    },
-                    "ja-JP": {
-                      singular: "分後",
-                      plural: "分後"
-                    },
-                    "ko-KR": {
-                      singular: "한 분 후",
-                      plural: "분 후"
-                    },
-                    "pt-BR": {
-                      singular: "minuto depois",
-                      plural: "minutos depois"
-                    },
-                    "zh-CN": {
-                      singular: "分钟后",
-                      plural: "分钟后"
-                    }
-                  }
-                });
-              case _v27.REMINDER_OFFSET_UNITS.HOURS:
-                return _v3 ? (0, _v15.translate)({
-                  count: _v2,
-                  singular: "hour before",
-                  plural: "hours before",
-                  dictionary: {
-                    es: {
-                      singular: "hora antes",
-                      plural: "horas antes"
-                    },
-                    "de-DE": {
-                      singular: "Stunde vorher",
-                      plural: "Stunden vorher"
-                    },
-                    "fr-FR": {
-                      singular: "heure avant",
-                      plural: "heures avant"
-                    },
-                    "ja-JP": {
-                      singular: "時間前",
-                      plural: "時間前"
-                    },
-                    "ko-KR": {
-                      singular: "한 시간 전",
-                      plural: "시간 전"
-                    },
-                    "pt-BR": {
-                      singular: "hora antes",
-                      plural: "horas antes"
-                    },
-                    "zh-CN": {
-                      singular: "小时前",
-                      plural: "小时前"
-                    }
-                  }
-                }) : (0, _v15.translate)({
-                  count: _v2,
-                  singular: "hour after",
-                  plural: "hours after",
-                  dictionary: {
-                    es: {
-                      singular: "hora después",
-                      plural: "horas después"
-                    },
-                    "de-DE": {
-                      singular: "Stunde später",
-                      plural: "Stunden später"
-                    },
-                    "fr-FR": {
-                      singular: "heure après",
-                      plural: "heures après"
-                    },
-                    "ja-JP": {
-                      singular: "時間後",
-                      plural: "時間後"
-                    },
-                    "ko-KR": {
-                      singular: "한 시간 후",
-                      plural: "시간 후"
-                    },
-                    "pt-BR": {
-                      singular: "hora depois",
-                      plural: "horas depois"
-                    },
-                    "zh-CN": {
-                      singular: "小时后",
-                      plural: "小时后"
-                    }
-                  }
-                });
-              case _v27.REMINDER_OFFSET_UNITS.DAYS:
-                return _v3 ? (0, _v15.translate)({
-                  count: _v2,
-                  singular: "day before",
-                  plural: "days before",
-                  dictionary: {
-                    es: {
-                      singular: "día antes",
-                      plural: "días antes"
-                    },
-                    "de-DE": {
-                      singular: "Tag davor",
-                      plural: "Tage davor"
-                    },
-                    "fr-FR": {
-                      singular: "jour avant",
-                      plural: "jours avant"
-                    },
-                    "ja-JP": {
-                      singular: "日前",
-                      plural: "日前"
-                    },
-                    "ko-KR": {
-                      singular: "하루 전",
-                      plural: "일 전"
-                    },
-                    "pt-BR": {
-                      singular: "dia antes",
-                      plural: "dias antes"
-                    },
-                    "zh-CN": {
-                      singular: "天前",
-                      plural: "天前"
-                    }
-                  }
-                }) : (0, _v15.translate)({
-                  count: _v2,
-                  singular: "day after",
-                  plural: "days after",
-                  dictionary: {
-                    es: {
-                      singular: "día después",
-                      plural: "días después"
-                    },
-                    "de-DE": {
-                      singular: "Tag danach",
-                      plural: "Tage danach"
-                    },
-                    "fr-FR": {
-                      singular: "jour après",
-                      plural: "jours après"
-                    },
-                    "ja-JP": {
-                      singular: "日後",
-                      plural: "日後"
-                    },
-                    "ko-KR": {
-                      singular: "하루 후",
-                      plural: "일 후"
-                    },
-                    "pt-BR": {
-                      singular: "dia depois",
-                      plural: "dias depois"
-                    },
-                    "zh-CN": {
-                      singular: "天后",
-                      plural: "天后"
-                    }
-                  }
-                });
-            }
-          })(_v0.unit, _v0.direction, _v21),
-          value: _v82(_v0.unit, _v0.direction)
-        })), [_v21]),
-        _v24 = _v17 ? {
-          value: _v21,
-          unit: _v18,
-          direction: _v19
-        } : _v6.find(_v0 => _v76(_v0) === _v16) ?? _v6[0],
-        _v25 = !!_v24 && _v3.some(_v0 => _v77(_v0, _v24)),
-        _v26 = !!_v5 && !!_v24 && _v77(_v24, _v5);
-      return (0, _v1.jsxs)(_v58.Modal, {
-        isOpen: _v0,
-        onClose: _v1,
-        size: "md",
-        children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
-          children: [(0, _v1.jsx)(_v62.ModalHeader, {
-            children: _v4 ?? (0, _v15.translate)({
-              singular: "New reminder email",
-              dictionary: {
-                es: {
-                  singular: "Nuevo correo de recordatorio"
-                },
-                "de-DE": {
-                  singular: "Neue Erinnerungs-E-Mail"
-                },
-                "fr-FR": {
-                  singular: "Nouvel e-mail de rappel"
-                },
-                "ja-JP": {
-                  singular: "新しいリマインダーメール"
-                },
-                "ko-KR": {
-                  singular: "새 알림 이메일"
-                },
-                "pt-BR": {
-                  singular: "Novo e-mail de lembrete"
-                },
-                "zh-CN": {
-                  singular: "新提醒邮件"
-                }
-              }
-            })
-          }), (0, _v1.jsx)(_v74.ModalCloseButton, {}), (0, _v1.jsxs)(_v59.ModalBody, {
-            children: [(0, _v1.jsx)(_v11.Paragraph, {
-              size: "md",
-              color: "text-secondary",
-              mb: "md",
-              children: (0, _v15.translate)({
-                singular: "Schedule the email to notify registered users at the right time.",
-                dictionary: {
-                  es: {
-                    singular: "Programa el correo para notificar a los usuarios registrados en el momento adecuado."
-                  },
-                  "de-DE": {
-                    singular: "Planen Sie die E-Mail, um registrierte Nutzer zur richtigen Zeit zu benachrichtigen."
-                  },
-                  "fr-FR": {
-                    singular: "Planifiez l'e-mail pour notifier les utilisateurs enregistrés au bon moment."
-                  },
-                  "ja-JP": {
-                    singular: "メールをスケジュールして、登録ユーザーに適切なタイミングで通知します。"
-                  },
-                  "ko-KR": {
-                    singular: "등록된 사용자에게 적시에 알림 이메일을 발송하도록 일정을 설정하세요."
-                  },
-                  "pt-BR": {
-                    singular: "Agende o e-mail para notificar os usuários registrados no momento certo."
-                  },
-                  "zh-CN": {
-                    singular: "安排该邮件在适当的时间通知已注册用户。"
-                  }
-                }
-              })
-            }), (0, _v1.jsx)(_v75.Select, {
-              label: (0, _v15.translate)({
-                singular: "Reminder alert",
-                dictionary: {
-                  es: {
-                    singular: "Alerta de recordatorio"
-                  },
-                  "de-DE": {
-                    singular: "Erinnerungsbenachrichtigung"
-                  },
-                  "fr-FR": {
-                    singular: "Alerte de rappel"
-                  },
-                  "ja-JP": {
-                    singular: "リマインダー通知"
-                  },
-                  "ko-KR": {
-                    singular: "미리 알림 경고"
-                  },
-                  "pt-BR": {
-                    singular: "Alerta de lembrete"
-                  },
-                  "zh-CN": {
-                    singular: "提醒通知"
-                  }
-                }
-              }),
-              size: "md",
-              items: _v15,
-              withPortal: !1,
-              value: [_v16],
-              onValueChange: _v0 => _v9(_v0.value[0] ?? null),
-              children: ({
-                label: _v0
-              }) => (0, _v1.jsx)(_v75.SelectItem, {
-                color: "text-primary",
-                children: (0, _v1.jsx)(_v75.SelectItemText, {
-                  children: _v0
-                })
-              })
-            }), _v17 && (0, _v1.jsxs)(_v7.Flex, {
-              mt: "md",
-              gap: (0, _v13.rem)(16),
-              children: [(0, _v1.jsx)(_v5.Box, {
-                flex: 1,
-                children: (0, _v1.jsx)(_v75.Select, {
-                  "aria-label": (0, _v15.translate)({
-                    singular: "Reminder amount",
-                    dictionary: {
-                      es: {
-                        singular: "Cantidad del recordatorio"
-                      },
-                      "de-DE": {
-                        singular: "Erinnerungsanzahl"
-                      },
-                      "fr-FR": {
-                        singular: "Valeur du rappel"
-                      },
-                      "ja-JP": {
-                        singular: "リマインダーの数"
-                      },
-                      "ko-KR": {
-                        singular: "알림 수량"
-                      },
-                      "pt-BR": {
-                        singular: "Quantidade do lembrete"
-                      },
-                      "zh-CN": {
-                        singular: "提醒数值"
-                      }
-                    }
-                  }),
-                  size: "md",
-                  items: _v22,
-                  withPortal: !1,
-                  value: [String(_v21)],
-                  onValueChange: _v0 => _v11(Number(_v0.value[0] ?? "1")),
-                  children: ({
-                    label: _v0
-                  }) => (0, _v1.jsx)(_v75.SelectItem, {
-                    color: "text-primary",
-                    children: (0, _v1.jsx)(_v75.SelectItemText, {
-                      children: _v0
-                    })
-                  })
-                })
-              }), (0, _v1.jsx)(_v5.Box, {
-                flex: 1,
-                children: (0, _v1.jsx)(_v75.Select, {
-                  "aria-label": (0, _v15.translate)({
-                    singular: "Reminder unit",
-                    dictionary: {
-                      es: {
-                        singular: "Unidad del recordatorio"
-                      },
-                      "de-DE": {
-                        singular: "Erinnerungseinheit"
-                      },
-                      "fr-FR": {
-                        singular: "Unité du rappel"
-                      },
-                      "ja-JP": {
-                        singular: "リマインダーの単位"
-                      },
-                      "ko-KR": {
-                        singular: "알림 단위"
-                      },
-                      "pt-BR": {
-                        singular: "Unidade do lembrete"
-                      },
-                      "zh-CN": {
-                        singular: "提醒单位"
-                      }
-                    }
-                  }),
-                  size: "md",
-                  items: _v23,
-                  withPortal: !1,
-                  value: [_v12],
-                  onValueChange: _v0 => {
-                    var _v1;
-                    let _v2;
-                    return _v13(_v1 = _v0.value[0] ?? _v12), void (_v10 > (_v2 = _v27.CUSTOM_RANGE_VALUE_MAX[_v83(_v1).unit]) && _v11(_v2));
-                  },
-                  children: ({
-                    label: _v0
-                  }) => (0, _v1.jsx)(_v75.SelectItem, {
-                    color: "text-primary",
-                    children: (0, _v1.jsx)(_v75.SelectItemText, {
-                      children: _v0
-                    })
-                  })
-                })
-              })]
-            }), _v25 && (0, _v1.jsx)(_v11.Paragraph, {
-              size: "sm",
-              color: "red.500",
-              mt: "sm",
-              children: (0, _v15.translate)({
-                singular: "A reminder with this timing already exists.",
-                dictionary: {
-                  es: {
-                    singular: "Ya existe un recordatorio con este horario."
-                  },
-                  "de-DE": {
-                    singular: "Für diesen Zeitpunkt existiert bereits eine Erinnerung."
-                  },
-                  "fr-FR": {
-                    singular: "Un rappel avec ce délai existe déjà."
-                  },
-                  "ja-JP": {
-                    singular: "このタイミングのリマインダーはすでに存在します。"
-                  },
-                  "ko-KR": {
-                    singular: "동일한 타이밍의 알림이 이미 존재합니다."
-                  },
-                  "pt-BR": {
-                    singular: "Já existe um lembrete com esse horário."
-                  },
-                  "zh-CN": {
-                    singular: "已存在具有此时间设置的提醒。"
-                  }
-                }
-              })
-            })]
-          }), (0, _v1.jsxs)(_v61.ModalFooter, {
-            justifyContent: "flex-end",
-            borderTopWidth: "1px",
-            borderStyle: "solid",
-            borderColor: "stroke",
-            children: [(0, _v1.jsx)(_v36.Button, {
-              variant: "tertiary",
-              onClick: _v1,
-              children: _v34.default.Cancel
-            }), (0, _v1.jsx)(_v36.Button, {
-              onClick: () => {
-                !_v24 || _v25 || _v26 || _v2(_v24), _v1();
-              },
-              isDisabled: !_v24 || _v25 || _v26,
-              children: (0, _v15.translate)({
-                singular: "Save",
-                dictionary: {
-                  es: {
-                    singular: "Guardar"
-                  },
-                  "de-DE": {
-                    singular: "Speichern"
-                  },
-                  "fr-FR": {
-                    singular: "Enregistrer"
-                  },
-                  "ja-JP": {
-                    singular: "保存"
-                  },
-                  "ko-KR": {
-                    singular: "저장"
-                  },
-                  "pt-BR": {
-                    singular: "Salvar"
-                  },
-                  "zh-CN": {
-                    singular: "保存"
-                  }
-                }
-              })
-            })]
-          })]
-        })]
-      });
-    },
-    _v85 = ({
-      isOpen: _v0,
-      onClose: _v1,
-      onConfirm: _v2,
-      isLoading: _v3
-    }) => (0, _v1.jsxs)(_v58.Modal, {
-      isOpen: _v0,
-      onClose: _v1,
-      isCentered: !0,
-      size: "md",
-      children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
-        children: [(0, _v1.jsx)(_v74.ModalCloseButton, {}), (0, _v1.jsx)(_v62.ModalHeader, {
+          }
+        })
+      }), (0, _v1.jsx)(_v59.ModalBody, {
+        children: (0, _v1.jsx)(_v11.Paragraph, {
+          size: "md",
           children: (0, _v15.translate)({
-            singular: "Remove reminder email",
+            singular: "This reminder is scheduled to send soon. Once removed, attendees won't receive it.",
             dictionary: {
               es: {
-                singular: "Eliminar correo de recordatorio"
+                singular: "Este recordatorio está programado para enviarse pronto. Una vez eliminado, los asistentes no lo recibirán."
               },
               "de-DE": {
-                singular: "Erinnerungs-E-Mail entfernen"
+                singular: "Diese Erinnerung ist für den baldigen Versand geplant. Wird sie entfernt, erhalten die Teilnehmenden sie nicht."
               },
               "fr-FR": {
-                singular: "Supprimer l'e-mail de rappel"
+                singular: "Ce rappel doit être envoyé prochainement. Une fois supprimé, les participants ne le recevront pas."
               },
               "ja-JP": {
-                singular: "リマインダーメールを削除"
+                singular: "このリマインダーはまもなく送信される予定です。削除すると、参加者には届きません。"
               },
               "ko-KR": {
-                singular: "알림 이메일 제거"
+                singular: "이 알림은 곧 발송될 예정입니다. 삭제하면 참석자들에게 전송되지 않습니다."
               },
               "pt-BR": {
-                singular: "Remover e-mail de lembrete"
+                singular: "Este lembrete está agendado para envio em breve. Uma vez removido, os participantes não o receberão."
               },
               "zh-CN": {
-                singular: "移除提醒邮件"
+                singular: "该提醒即将发送。移除后，与会者将不会收到该提醒。"
               }
             }
           })
-        }), (0, _v1.jsx)(_v59.ModalBody, {
-          children: (0, _v1.jsx)(_v11.Paragraph, {
-            size: "md",
+        })
+      }), (0, _v1.jsx)(_v61.ModalFooter, {
+        borderTop: "1px solid",
+        borderColor: "stroke",
+        children: (0, _v1.jsxs)(_v52.HStack, {
+          children: [(0, _v1.jsx)(_v36.Button, {
+            variant: "tertiary",
+            isLoading: _v3,
+            onClick: _v2,
             children: (0, _v15.translate)({
-              singular: "This reminder is scheduled to send soon. Once removed, attendees won't receive it.",
+              singular: "Remove reminder",
               dictionary: {
                 es: {
-                  singular: "Este recordatorio está programado para enviarse pronto. Una vez eliminado, los asistentes no lo recibirán."
+                  singular: "Eliminar recordatorio"
                 },
                 "de-DE": {
-                  singular: "Diese Erinnerung ist für den baldigen Versand geplant. Wird sie entfernt, erhalten die Teilnehmenden sie nicht."
+                  singular: "Erinnerung entfernen"
                 },
                 "fr-FR": {
-                  singular: "Ce rappel doit être envoyé prochainement. Une fois supprimé, les participants ne le recevront pas."
+                  singular: "Supprimer le rappel"
                 },
                 "ja-JP": {
-                  singular: "このリマインダーはまもなく送信される予定です。削除すると、参加者には届きません。"
+                  singular: "リマインダーを削除"
                 },
                 "ko-KR": {
-                  singular: "이 알림은 곧 발송될 예정입니다. 삭제하면 참석자들에게 전송되지 않습니다."
+                  singular: "알림 제거"
                 },
                 "pt-BR": {
-                  singular: "Este lembrete está agendado para envio em breve. Uma vez removido, os participantes não o receberão."
+                  singular: "Remover lembrete"
                 },
                 "zh-CN": {
-                  singular: "该提醒即将发送。移除后，与会者将不会收到该提醒。"
+                  singular: "移除提醒"
                 }
               }
             })
-          })
-        }), (0, _v1.jsx)(_v61.ModalFooter, {
-          borderTop: "1px solid",
-          borderColor: "stroke",
-          children: (0, _v1.jsxs)(_v52.HStack, {
-            children: [(0, _v1.jsx)(_v36.Button, {
-              variant: "tertiary",
-              isLoading: _v3,
-              onClick: _v2,
-              children: (0, _v15.translate)({
-                singular: "Remove reminder",
-                dictionary: {
-                  es: {
-                    singular: "Eliminar recordatorio"
-                  },
-                  "de-DE": {
-                    singular: "Erinnerung entfernen"
-                  },
-                  "fr-FR": {
-                    singular: "Supprimer le rappel"
-                  },
-                  "ja-JP": {
-                    singular: "リマインダーを削除"
-                  },
-                  "ko-KR": {
-                    singular: "알림 제거"
-                  },
-                  "pt-BR": {
-                    singular: "Remover lembrete"
-                  },
-                  "zh-CN": {
-                    singular: "移除提醒"
-                  }
+          }), (0, _v1.jsx)(_v36.Button, {
+            variant: "primary",
+            onClick: _v1,
+            children: (0, _v15.translate)({
+              singular: "Keep reminder",
+              dictionary: {
+                es: {
+                  singular: "Mantener recordatorio"
+                },
+                "de-DE": {
+                  singular: "Erinnerung behalten"
+                },
+                "fr-FR": {
+                  singular: "Conserver le rappel"
+                },
+                "ja-JP": {
+                  singular: "リマインダーを保持"
+                },
+                "ko-KR": {
+                  singular: "알림 유지"
+                },
+                "pt-BR": {
+                  singular: "Manter lembrete"
+                },
+                "zh-CN": {
+                  singular: "保留提醒"
                 }
-              })
-            }), (0, _v1.jsx)(_v36.Button, {
-              variant: "primary",
-              onClick: _v1,
-              children: (0, _v15.translate)({
-                singular: "Keep reminder",
-                dictionary: {
-                  es: {
-                    singular: "Mantener recordatorio"
-                  },
-                  "de-DE": {
-                    singular: "Erinnerung behalten"
-                  },
-                  "fr-FR": {
-                    singular: "Conserver le rappel"
-                  },
-                  "ja-JP": {
-                    singular: "リマインダーを保持"
-                  },
-                  "ko-KR": {
-                    singular: "알림 유지"
-                  },
-                  "pt-BR": {
-                    singular: "Manter lembrete"
-                  },
-                  "zh-CN": {
-                    singular: "保留提醒"
-                  }
-                }
-              })
-            })]
-          })
-        })]
+              }
+            })
+          })]
+        })
       })]
-    });
-  function _v86({
+    })]
+  });
+  function _v77({
     children: _v0,
     onOpen: _v1,
     ..._v2
@@ -1258,7 +426,7 @@
       children: _v0
     });
   }
-  function _v87({
+  function _v78({
     index: _v0,
     children: _v1,
     selected: _v2,
@@ -1285,393 +453,420 @@
       children: _v1
     });
   }
-  let _v88 = ({
-      children: _v0,
-      forwardRef: _v1,
-      ..._v2
-    }) => {
-      let [_v3, _v4] = (0, _v2.useState)(0);
-      function _v5({
-        key: _v0
-      }) {
-        let {
-          length: _v1
-        } = _v0;
-        "ArrowDown" === _v0 && _v4(_v3 === _v1 - 1 ? 0 : _v3 + 1), "ArrowUp" === _v0 && _v4(0 === _v3 ? _v1 - 1 : _v3 - 1);
-      }
-      (0, _v2.useLayoutEffect)(() => {
-        let _v0 = _v0.map(({
-          props: {
-            active: _v0
-          }
-        }, _v1) => _v0 && _v1).filter(_v0 => "number" == typeof _v0 && _v0 >= 0);
-        return 0 === _v0.length ? _v4(0) : 1 === _v0.length ? _v4(_v0[0] || 0) : void _v4(_v0[_v0.length - 1] || 0);
-      }, [_v0]);
-      let _v6 = _v0.map(({
-          props: _v0
-        }, _v1) => (0, _v1.jsx)(_v5.Box, {
-          as: "li",
-          display: "block",
-          onClick: _v0 => {
-            _v0.stopPropagation(), _v4(_v1);
-          },
-          children: (0, _v1.jsx)(_v87, {
-            onKeyUp: _v5,
-            index: _v1,
-            selected: _v3 === _v1,
-            children: _v0.label
-          })
-        }, _v1)),
-        _v7 = _v0.map((_v0, _v1) => _v3 === _v1 && (0, _v2.cloneElement)(_v0, {
-          id: `#tab-${_v1}`,
-          key: _v1
-        }));
-      return (0, _v1.jsxs)(_v7.Flex, {
-        ref: _v1,
-        ..._v2,
-        children: [(0, _v1.jsx)(_v7.Flex, {
-          as: "ol",
-          listStyleType: "none",
-          flexDirection: "column",
-          width: "100%",
-          gap: (0, _v13.rem)(12),
-          px: "lg",
-          children: _v6
-        }), (0, _v1.jsx)("div", {
-          children: _v7
-        })]
-      });
-    },
-    _v89 = () => {
+  let _v79 = ({
+    children: _v0,
+    forwardRef: _v1,
+    ..._v2
+  }) => {
+    let [_v3, _v4] = (0, _v2.useState)(0);
+    function _v5({
+      key: _v0
+    }) {
       let {
-          emailState: _v0,
-          dispatch: _v1,
-          isReminderSaved: _v2,
-          isManualSaveRequired: _v3
-        } = (0, _v23.useEmailCustomization)(),
-        {
-          status: _v4,
-          completedOn: _v5,
-          user: _v6
-        } = (0, _v25.useEntityStore)(),
-        _v7 = (0, _v37.useToast)(),
-        [_v8, _v9] = (0, _v2.useState)(!1),
-        [_v10, _v11] = (0, _v2.useState)(!1),
-        [_v12, _v13] = _v48(),
-        {
-          entityId: _v14
-        } = (0, _v33.useConfigStore)(_v0 => _v0),
-        _v15 = (0, _v33.useConfigStore)(_v0 => _v0.entityType),
-        {
-          trackLiveStreamRegistrationEmailToggled: _v16,
-          trackLiveStreamRegistrationReminderConfigured: _v17
-        } = (0, _v72.useLiveStreamBroadcasterTracking)(),
-        {
-          getEmailData: _v18
-        } = (0, _v2.useContext)(_v73.EmailContext),
-        {
-          sentChangeRegistrationEmailConfigEvent: _v19,
-          sentRegistrationEmailPreviewEvent: _v20
-        } = (0, _v29.useAnalytics)(),
-        {
-          settings: _v21
-        } = (0, _v19.useOrionSettings)(),
-        _v22 = _v21.enable_configurable_event_reminders,
-        [_v23, _v24] = (0, _v2.useState)(!1),
-        [_v25, _v26] = (0, _v2.useState)(null),
-        [_v27, _v28] = (0, _v2.useState)(null),
-        [_v29, _v30] = (0, _v70.useDeleteUserLiveEventEmailReminder)(),
-        _v31 = (0, _v2.useRef)(null),
-        _v32 = _v4 === _v27.ENTITY_STATUS.ENDED,
-        _v33 = (_v0, _v1) => {
-          _v15 === _v17.ENTITY_TYPE.EVENT && _v17({
-            liveStreamReminderAction: _v0,
-            liveStreamReminderOffsetValue: _v1.value,
-            liveStreamReminderOffsetUnit: _v1.unit,
-            liveStreamReminderOffsetDirection: _v1.direction
-          });
+        length: _v1
+      } = _v0;
+      "ArrowDown" === _v0 && _v4(_v3 === _v1 - 1 ? 0 : _v3 + 1), "ArrowUp" === _v0 && _v4(0 === _v3 ? _v1 - 1 : _v3 - 1);
+    }
+    (0, _v2.useLayoutEffect)(() => {
+      let _v0 = _v0.map(({
+        props: {
+          active: _v0
+        }
+      }, _v1) => _v0 && _v1).filter(_v0 => "number" == typeof _v0 && _v0 >= 0);
+      return 0 === _v0.length ? _v4(0) : 1 === _v0.length ? _v4(_v0[0] || 0) : void _v4(_v0[_v0.length - 1] || 0);
+    }, [_v0]);
+    let _v6 = _v0.map(({
+        props: _v0
+      }, _v1) => (0, _v1.jsx)(_v5.Box, {
+        as: "li",
+        display: "block",
+        onClick: _v0 => {
+          _v0.stopPropagation(), _v4(_v1);
         },
-        _v34 = (_v0 = _v25) => {
-          if (!_v14 || !_v0) return;
-          let _v1 = _v0.reminders.find(_v0 => _v0.id === _v0);
-          _v1({
-            type: _v32.ACTION_TYPE.DELETE_REMINDER,
-            payload: _v0
-          }), _v26(null), _v1 && _v33("deleted", _v1.offset), !_v3 && _v2(_v0) && (_v31.current = _v0, _v29({
-            where: {
-              userId: (0, _v49.getUserIdFromUri)(_v6?.uri),
-              liveEventId: parseInt(_v14, 10),
-              reminderId: _v0
+        children: (0, _v1.jsx)(_v78, {
+          onKeyUp: _v5,
+          index: _v1,
+          selected: _v3 === _v1,
+          children: _v0.label
+        })
+      }, _v1)),
+      _v7 = _v0.map((_v0, _v1) => _v3 === _v1 && (0, _v2.cloneElement)(_v0, {
+        id: `#tab-${_v1}`,
+        key: _v1
+      }));
+    return (0, _v1.jsxs)(_v7.Flex, {
+      ref: _v1,
+      ..._v2,
+      children: [(0, _v1.jsx)(_v7.Flex, {
+        as: "ol",
+        listStyleType: "none",
+        flexDirection: "column",
+        width: "100%",
+        gap: (0, _v13.rem)(12),
+        px: "lg",
+        children: _v6
+      }), (0, _v1.jsx)("div", {
+        children: _v7
+      })]
+    });
+  };
+  var _v80 = _v0.i(0);
+  let _v81 = () => {
+    let {
+        emailState: _v0,
+        dispatch: _v1,
+        isReminderSaved: _v2,
+        isManualSaveRequired: _v3,
+        canUseConfigurableEventReminders: _v4
+      } = (0, _v23.useEmailCustomization)(),
+      {
+        status: _v5,
+        completedOn: _v6,
+        user: _v7
+      } = (0, _v25.useEntityStore)(),
+      _v8 = (0, _v37.useToast)(),
+      [_v9, _v10] = (0, _v2.useState)(!1),
+      [_v11, _v12] = (0, _v2.useState)(!1),
+      [_v13, _v14] = _v48(),
+      {
+        entityId: _v15
+      } = (0, _v33.useConfigStore)(_v0 => _v0),
+      _v16 = (0, _v33.useConfigStore)(_v0 => _v0.entityType),
+      {
+        trackLiveStreamRegistrationEmailToggled: _v17,
+        trackLiveStreamRegistrationReminderConfigured: _v18
+      } = (0, _v72.useLiveStreamBroadcasterTracking)(),
+      {
+        getEmailData: _v19
+      } = (0, _v2.useContext)(_v73.EmailContext),
+      {
+        sentChangeRegistrationEmailConfigEvent: _v20,
+        sentRegistrationEmailPreviewEvent: _v21
+      } = (0, _v29.useAnalytics)(),
+      [_v22, _v23] = (0, _v2.useState)(!1),
+      [_v24, _v25] = (0, _v2.useState)(null),
+      [_v26, _v27] = (0, _v2.useState)(null),
+      [_v28, _v29] = (0, _v70.useDeleteUserLiveEventEmailReminder)(),
+      _v30 = (0, _v2.useRef)(null),
+      _v31 = _v5 === _v27.ENTITY_STATUS.ENDED,
+      _v32 = (_v0, _v1) => {
+        _v16 === _v17.ENTITY_TYPE.EVENT && _v18({
+          liveStreamReminderAction: _v0,
+          liveStreamReminderOffsetValue: _v1.value,
+          liveStreamReminderOffsetUnit: _v1.unit,
+          liveStreamReminderOffsetDirection: _v1.direction
+        });
+      },
+      _v33 = (_v0 = _v24) => {
+        if (!_v15 || !_v0) return;
+        let _v1 = _v0.reminders.find(_v0 => _v0.id === _v0);
+        _v1({
+          type: _v32.ACTION_TYPE.DELETE_REMINDER,
+          payload: _v0
+        }), _v25(null), _v1 && _v32("deleted", _v1.offset), !_v3 && _v2(_v0) && (_v30.current = _v0, _v28({
+          where: {
+            userId: (0, _v49.getUserIdFromUri)(_v7?.uri),
+            liveEventId: parseInt(_v15, 10),
+            reminderId: _v0
+          }
+        }));
+      };
+    (0, _v2.useEffect)(() => {
+      let {
+        loading: _v0,
+        error: _v1
+      } = _v29;
+      _v30.current && !_v0 && (_v30.current = null, _v1 ? (_v8({
+        title: _v34.default.SomethingWentWrong,
+        status: "error"
+      }), _v19?.()) : _v8({
+        title: (0, _v15.translate)({
+          singular: "Reminder removed",
+          dictionary: {
+            es: {
+              singular: "Recordatorio eliminado"
+            },
+            "de-DE": {
+              singular: "Erinnerung entfernt"
+            },
+            "fr-FR": {
+              singular: "Rappel supprimé"
+            },
+            "ja-JP": {
+              singular: "リマインダーが削除されました"
+            },
+            "ko-KR": {
+              singular: "알림이 제거되었습니다"
+            },
+            "pt-BR": {
+              singular: "Lembrete removido"
+            },
+            "zh-CN": {
+              singular: "提醒已移除"
             }
-          }));
-        };
-      (0, _v2.useEffect)(() => {
-        let {
-          loading: _v0,
-          error: _v1
-        } = _v30;
-        _v31.current && !_v0 && (_v31.current = null, _v1 ? (_v7({
+          }
+        }),
+        status: "success"
+      }));
+    }, [_v29]);
+    let _v34 = navigator.language || "en-US",
+      _v35 = {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      },
+      _v36 = (_v0, _v1) => {
+        _v1(_v1), _v21({
+          actionName: _v31.BP_ACTION_NAMES.PREVIEW_BY_TYPE,
+          type: _v31.BP_TYPE[_v0],
+          copy: _v31.BP_COPY[_v0]
+        });
+      },
+      _v37 = (_v0, _v1, _v2, _v3) => {
+        _v16 === _v17.ENTITY_TYPE.EVENT && _v17({
+          liveStreamEmailType: _v1,
+          liveStreamNewStatus: !_v2
+        }), _v1(_v3), _v20({
+          actionName: _v31.BP_ACTION_NAMES.ENABLE,
+          actionValue: _v2 ? _v31.BP_ACTION_VALUES.OFF : _v31.BP_ACTION_VALUES.ON,
+          type: _v31.BP_TYPE[_v0],
+          copy: _v31.BP_COPY[_v0]
+        });
+      },
+      _v38 = (0, _v2.useEffectEvent)(_v0 => {
+        _v0 ? _v8({
           title: _v34.default.SomethingWentWrong,
           status: "error"
-        }), _v18?.()) : _v7({
-          title: (0, _v15.translate)({
-            singular: "Reminder removed",
+        }) : (_v19?.(), _v12(!0), _v8({
+          title: _v34.default.EmailSent,
+          status: "success"
+        })), _v10(!1);
+      });
+    (0, _v2.useEffect)(() => {
+      let {
+        loading: _v0,
+        error: _v1,
+        data: _v2
+      } = _v14;
+      !_v0 && (_v1 || _v2) && _v38(_v1);
+    }, [_v14.data, _v14.error, _v14.loading]);
+    let _v39 = !!_v0.followUp,
+      _v40 = _v31 && !_v39 && !_v11 && !_v0.followUpSender,
+      _v41 = _v39 ? _v31 && (0, _v1.jsx)(_v11.Paragraph, {
+        pl: (0, _v13.rem)(36),
+        size: "md",
+        children: (0, _v15.translate)({
+          singular: "Sent automatically on {DATE}",
+          replacements: {
+            DATE: (0, _v71.getIntlDate)(_v0.followUpSendOn || _v6 || void 0, _v35, _v34)
+          },
+          dictionary: {
+            "fr-FR": {
+              singular: "Envoyé automatiquement le {DATE}"
+            },
+            "ja-JP": {
+              singular: "{DATE}に自動送信されました"
+            },
+            "ko-KR": {
+              singular: "{DATE}에 자동 전송됨"
+            },
+            "zh-CN": {
+              singular: "在 {DATE} 自动发送"
+            }
+          }
+        })
+      }) : _v31 && _v0.followUpSender ? (0, _v1.jsx)(_v11.Paragraph, {
+        pl: (0, _v13.rem)(36),
+        size: "md",
+        children: (0, _v15.translate)({
+          singular: "Sent manually on {DATE} by {NAME}",
+          replacements: {
+            DATE: (0, _v71.getIntlDate)(_v0.followUpSendOn, _v35, _v34),
+            NAME: _v0.followUpSender.name || ""
+          },
+          dictionary: {
+            "fr-FR": {
+              singular: "Envoyé manuellement le {DATE} par {NAME}"
+            },
+            "ja-JP": {
+              singular: "{NAME}さんが{DATE}にマニュアル送信しました"
+            },
+            "ko-KR": {
+              singular: "{NAME} 님이 {DATE}에 수동으로 전송함"
+            },
+            "zh-CN": {
+              singular: "由 {NAME} 在 {DATE} 手动发送"
+            }
+          }
+        })
+      }) : null,
+      _v42 = [{
+        key: _v27.EMAIL_TYPES.CONFIRMATION,
+        kind: _v27.EMAIL_TYPES.CONFIRMATION,
+        label: _v34.default.EmailToggle[_v27.EMAIL_TOGGLE_MAP.CONFIRMATION],
+        enabled: !!_v0.confirmation,
+        active: _v0.emailTemplateType === _v27.EMAIL_TYPES.CONFIRMATION,
+        pico: "confirmation",
+        onSelect: () => _v36(_v27.EMAIL_TYPES.CONFIRMATION, {
+          type: _v32.ACTION_TYPE.EMAIL_TEMPLATE_TYPE,
+          payload: _v27.EMAIL_TYPES.CONFIRMATION
+        }),
+        onToggle: () => _v37(_v27.EMAIL_TYPES.CONFIRMATION, "confirmation", !!_v0.confirmation, {
+          type: _v32.ACTION_TYPE.TOGGLE_SETTING_EMAIL,
+          payload: _v27.EMAIL_TOGGLE_MAP.CONFIRMATION
+        })
+      }, {
+        key: _v27.EMAIL_TYPES.FOLLOWUP,
+        kind: _v27.EMAIL_TYPES.FOLLOWUP,
+        label: _v34.default.EmailTabName(_v27.EMAIL_TYPES.FOLLOWUP, 1),
+        enabled: _v39 || !!_v0.followUpSender,
+        active: _v0.emailTemplateType === _v27.EMAIL_TYPES.FOLLOWUP,
+        pico: "follow_up",
+        tooltip: _v31 ? void 0 : _v34.default.FollowUpNotification,
+        onSelect: () => _v36(_v27.EMAIL_TYPES.FOLLOWUP, {
+          type: _v32.ACTION_TYPE.EMAIL_TEMPLATE_TYPE,
+          payload: _v27.EMAIL_TYPES.FOLLOWUP
+        }),
+        onToggle: () => {
+          if (_v31) {
+            _v40 && _v10(!0);
+            return;
+          }
+          _v37(_v27.EMAIL_TYPES.FOLLOWUP, "follow_up", _v39, {
+            type: _v32.ACTION_TYPE.TOGGLE_SETTING_EMAIL,
+            payload: _v27.EMAIL_TOGGLE_MAP.FOLLOWUP
+          });
+        },
+        extra: _v41
+      }, ...[..._v0.reminders].sort((_v0, _v1) => (0, _v80.offsetToSignedSeconds)(_v0.offset) - (0, _v80.offsetToSignedSeconds)(_v1.offset)).map(_v0 => {
+        let _v1 = _v0.id === _v27.LEGACY_REMINDER_ID;
+        return {
+          key: _v0.id,
+          kind: _v27.EMAIL_TYPES.REMINDER,
+          label: _v34.default.EmailTabName(_v27.EMAIL_TYPES.REMINDER, 1),
+          sublabel: (0, _v80.getReminderOffsetLabel)(_v0.offset),
+          enabled: _v0.enabled,
+          active: _v0.emailTemplateType === _v27.EMAIL_TYPES.REMINDER && _v0.selectedReminderId === _v0.id,
+          pico: "reminder",
+          onSelect: () => _v36(_v27.EMAIL_TYPES.REMINDER, {
+            type: _v32.ACTION_TYPE.SELECT_REMINDER,
+            payload: _v0.id
+          }),
+          onToggle: () => _v37(_v27.EMAIL_TYPES.REMINDER, "reminder", _v0.enabled, {
+            type: _v32.ACTION_TYPE.TOGGLE_REMINDER,
+            payload: _v0.id
+          }),
+          onEdit: _v4 && !_v1 ? () => _v27(_v0) : void 0,
+          onDelete: _v4 && !_v1 ? () => _v0.enabled ? _v25(_v0.id) : _v33(_v0.id) : void 0
+        };
+      })];
+    return (0, _v1.jsxs)(_v5.Box, {
+      children: [(0, _v1.jsxs)(_v7.Flex, {
+        px: "lg",
+        pt: "lg",
+        pb: "sm",
+        alignItems: "center",
+        justifyContent: "space-between",
+        children: [(0, _v1.jsx)(_v51.Header, {
+          size: "md",
+          children: (0, _v15.translate)({
+            singular: "Email",
             dictionary: {
               es: {
-                singular: "Recordatorio eliminado"
+                singular: "Correo electrónico"
               },
               "de-DE": {
-                singular: "Erinnerung entfernt"
+                singular: "E-Mail-Adresse"
               },
               "fr-FR": {
-                singular: "Rappel supprimé"
+                singular: "E-mail"
               },
               "ja-JP": {
-                singular: "リマインダーが削除されました"
+                singular: "E メール"
               },
               "ko-KR": {
-                singular: "알림이 제거되었습니다"
+                singular: "이메일"
               },
               "pt-BR": {
-                singular: "Lembrete removido"
+                singular: "E-mail"
               },
               "zh-CN": {
-                singular: "提醒已移除"
-              }
-            }
-          }),
-          status: "success"
-        }));
-      }, [_v30]);
-      let _v35 = navigator.language || "en-US",
-        _v36 = {
-          year: "numeric",
-          month: "2-digit",
-          day: "2-digit"
-        },
-        _v37 = (_v0, _v1) => {
-          _v1(_v1), _v20({
-            actionName: _v31.BP_ACTION_NAMES.PREVIEW_BY_TYPE,
-            type: _v31.BP_TYPE[_v0],
-            copy: _v31.BP_COPY[_v0]
-          });
-        },
-        _v38 = (_v0, _v1, _v2, _v3) => {
-          _v15 === _v17.ENTITY_TYPE.EVENT && _v16({
-            liveStreamEmailType: _v1,
-            liveStreamNewStatus: !_v2
-          }), _v1(_v3), _v19({
-            actionName: _v31.BP_ACTION_NAMES.ENABLE,
-            actionValue: _v2 ? _v31.BP_ACTION_VALUES.OFF : _v31.BP_ACTION_VALUES.ON,
-            type: _v31.BP_TYPE[_v0],
-            copy: _v31.BP_COPY[_v0]
-          });
-        },
-        _v39 = (0, _v2.useEffectEvent)(_v0 => {
-          _v0 ? _v7({
-            title: _v34.default.SomethingWentWrong,
-            status: "error"
-          }) : (_v18?.(), _v11(!0), _v7({
-            title: _v34.default.EmailSent,
-            status: "success"
-          })), _v9(!1);
-        });
-      (0, _v2.useEffect)(() => {
-        let {
-          loading: _v0,
-          error: _v1,
-          data: _v2
-        } = _v13;
-        !_v0 && (_v1 || _v2) && _v39(_v1);
-      }, [_v13.data, _v13.error, _v13.loading]);
-      let _v40 = !!_v0.followUp,
-        _v41 = _v32 && !_v40 && !_v10 && !_v0.followUpSender,
-        _v42 = _v40 ? _v32 && (0, _v1.jsx)(_v11.Paragraph, {
-          pl: (0, _v13.rem)(36),
-          size: "md",
-          children: (0, _v15.translate)({
-            singular: "Sent automatically on {DATE}",
-            replacements: {
-              DATE: (0, _v71.getIntlDate)(_v0.followUpSendOn || _v5 || void 0, _v36, _v35)
-            },
-            dictionary: {
-              "fr-FR": {
-                singular: "Envoyé automatiquement le {DATE}"
-              },
-              "ja-JP": {
-                singular: "{DATE}に自動送信されました"
-              },
-              "ko-KR": {
-                singular: "{DATE}에 자동 전송됨"
-              },
-              "zh-CN": {
-                singular: "在 {DATE} 自动发送"
+                singular: "电子邮件"
               }
             }
           })
-        }) : _v32 && _v0.followUpSender ? (0, _v1.jsx)(_v11.Paragraph, {
-          pl: (0, _v13.rem)(36),
-          size: "md",
-          children: (0, _v15.translate)({
-            singular: "Sent manually on {DATE} by {NAME}",
-            replacements: {
-              DATE: (0, _v71.getIntlDate)(_v0.followUpSendOn, _v36, _v35),
-              NAME: _v0.followUpSender.name || ""
-            },
-            dictionary: {
-              "fr-FR": {
-                singular: "Envoyé manuellement le {DATE} par {NAME}"
-              },
-              "ja-JP": {
-                singular: "{NAME}さんが{DATE}にマニュアル送信しました"
-              },
-              "ko-KR": {
-                singular: "{NAME} 님이 {DATE}에 수동으로 전송함"
-              },
-              "zh-CN": {
-                singular: "由 {NAME} 在 {DATE} 手动发送"
-              }
-            }
-          })
-        }) : null,
-        _v43 = [{
-          key: _v27.EMAIL_TYPES.CONFIRMATION,
-          kind: _v27.EMAIL_TYPES.CONFIRMATION,
-          label: _v34.default.EmailToggle[_v27.EMAIL_TOGGLE_MAP.CONFIRMATION],
-          enabled: !!_v0.confirmation,
-          active: _v0.emailTemplateType === _v27.EMAIL_TYPES.CONFIRMATION,
-          pico: "confirmation",
-          onSelect: () => _v37(_v27.EMAIL_TYPES.CONFIRMATION, {
-            type: _v32.ACTION_TYPE.EMAIL_TEMPLATE_TYPE,
-            payload: _v27.EMAIL_TYPES.CONFIRMATION
-          }),
-          onToggle: () => _v38(_v27.EMAIL_TYPES.CONFIRMATION, "confirmation", !!_v0.confirmation, {
-            type: _v32.ACTION_TYPE.TOGGLE_SETTING_EMAIL,
-            payload: _v27.EMAIL_TOGGLE_MAP.CONFIRMATION
-          })
-        }, {
-          key: _v27.EMAIL_TYPES.FOLLOWUP,
-          kind: _v27.EMAIL_TYPES.FOLLOWUP,
-          label: _v34.default.EmailTabName(_v27.EMAIL_TYPES.FOLLOWUP, 1),
-          enabled: _v40 || !!_v0.followUpSender,
-          active: _v0.emailTemplateType === _v27.EMAIL_TYPES.FOLLOWUP,
-          pico: "follow_up",
-          tooltip: _v32 ? void 0 : _v34.default.FollowUpNotification,
-          onSelect: () => _v37(_v27.EMAIL_TYPES.FOLLOWUP, {
-            type: _v32.ACTION_TYPE.EMAIL_TEMPLATE_TYPE,
-            payload: _v27.EMAIL_TYPES.FOLLOWUP
-          }),
-          onToggle: () => {
-            if (_v32) {
-              _v41 && _v9(!0);
-              return;
-            }
-            _v38(_v27.EMAIL_TYPES.FOLLOWUP, "follow_up", _v40, {
-              type: _v32.ACTION_TYPE.TOGGLE_SETTING_EMAIL,
-              payload: _v27.EMAIL_TOGGLE_MAP.FOLLOWUP
-            });
-          },
-          extra: _v42
-        }, ...[..._v0.reminders].sort((_v0, _v1) => _v79(_v0.offset) - _v79(_v1.offset)).map(_v0 => {
-          let _v1 = _v0.id === _v27.LEGACY_REMINDER_ID;
-          return {
-            key: _v0.id,
-            kind: _v27.EMAIL_TYPES.REMINDER,
-            label: _v34.default.EmailTabName(_v27.EMAIL_TYPES.REMINDER, 1),
-            sublabel: _v80(_v0.offset),
-            enabled: _v0.enabled,
-            active: _v0.emailTemplateType === _v27.EMAIL_TYPES.REMINDER && _v0.selectedReminderId === _v0.id,
-            pico: "reminder",
-            onSelect: () => _v37(_v27.EMAIL_TYPES.REMINDER, {
-              type: _v32.ACTION_TYPE.SELECT_REMINDER,
-              payload: _v0.id
-            }),
-            onToggle: () => _v38(_v27.EMAIL_TYPES.REMINDER, "reminder", _v0.enabled, {
-              type: _v32.ACTION_TYPE.TOGGLE_REMINDER,
-              payload: _v0.id
-            }),
-            onEdit: _v22 && !_v1 ? () => _v28(_v0) : void 0,
-            onDelete: _v22 && !_v1 ? () => _v0.enabled ? _v26(_v0.id) : _v34(_v0.id) : void 0
-          };
-        })];
-      return (0, _v1.jsxs)(_v5.Box, {
-        children: [(0, _v1.jsxs)(_v7.Flex, {
-          px: "lg",
-          pt: "lg",
-          pb: "sm",
+        }), _v4 && (0, _v1.jsxs)(_v7.Flex, {
           alignItems: "center",
-          justifyContent: "space-between",
-          children: [(0, _v1.jsx)(_v51.Header, {
-            size: "md",
+          gap: (0, _v13.rem)(8),
+          children: [(0, _v1.jsx)(_v11.Paragraph, {
+            size: "sm",
+            color: "text-secondary",
             children: (0, _v15.translate)({
-              singular: "Email",
-              dictionary: {
-                es: {
-                  singular: "Correo electrónico"
-                },
-                "de-DE": {
-                  singular: "E-Mail-Adresse"
-                },
-                "fr-FR": {
-                  singular: "E-mail"
-                },
-                "ja-JP": {
-                  singular: "E メール"
-                },
-                "ko-KR": {
-                  singular: "이메일"
-                },
-                "pt-BR": {
-                  singular: "E-mail"
-                },
-                "zh-CN": {
-                  singular: "电子邮件"
-                }
+              singular: "{count}/{max}",
+              replacements: {
+                count: _v0.reminders.length,
+                max: _v27.MAX_REMINDERS
               }
             })
-          }), _v22 && (0, _v1.jsxs)(_v7.Flex, {
-            alignItems: "center",
-            gap: (0, _v13.rem)(8),
-            children: [(0, _v1.jsx)(_v11.Paragraph, {
-              size: "sm",
-              color: "text-secondary",
-              children: (0, _v15.translate)({
-                singular: "{count}/{max}",
-                replacements: {
-                  count: _v0.reminders.length,
-                  max: _v27.MAX_REMINDERS
-                }
-              })
-            }), (0, _v1.jsx)(_v12.Tooltip, {
-              label: _v0.reminders.length >= _v27.MAX_REMINDERS ? (0, _v15.translate)({
-                singular: "Maximum of {max} reminders reached",
-                replacements: {
-                  max: _v27.MAX_REMINDERS
+          }), (0, _v1.jsx)(_v12.Tooltip, {
+            label: _v0.reminders.length >= _v27.MAX_REMINDERS ? (0, _v15.translate)({
+              singular: "Maximum of {max} reminders reached",
+              replacements: {
+                max: _v27.MAX_REMINDERS
+              },
+              dictionary: {
+                es: {
+                  singular: "Se alcanzó el máximo de {max} recordatorios"
                 },
-                dictionary: {
-                  es: {
-                    singular: "Se alcanzó el máximo de {max} recordatorios"
-                  },
-                  "de-DE": {
-                    singular: "Die maximale Anzahl von {max} Erinnerungen wurde erreicht"
-                  },
-                  "fr-FR": {
-                    singular: "Nombre maximal de {max} rappels atteint"
-                  },
-                  "ja-JP": {
-                    singular: "リマインダーは最大{max}件に達しました"
-                  },
-                  "ko-KR": {
-                    singular: "최대 {max}개의 알림에 도달했습니다"
-                  },
-                  "pt-BR": {
-                    singular: "Máximo de {max} lembretes atingido"
-                  },
-                  "zh-CN": {
-                    singular: "已达到 {max} 个提醒的上限"
-                  }
+                "de-DE": {
+                  singular: "Die maximale Anzahl von {max} Erinnerungen wurde erreicht"
+                },
+                "fr-FR": {
+                  singular: "Nombre maximal de {max} rappels atteint"
+                },
+                "ja-JP": {
+                  singular: "リマインダーは最大{max}件に達しました"
+                },
+                "ko-KR": {
+                  singular: "최대 {max}개의 알림에 도달했습니다"
+                },
+                "pt-BR": {
+                  singular: "Máximo de {max} lembretes atingido"
+                },
+                "zh-CN": {
+                  singular: "已达到 {max} 个提醒的上限"
                 }
-              }) : (0, _v15.translate)({
+              }
+            }) : (0, _v15.translate)({
+              singular: "New reminder email",
+              dictionary: {
+                es: {
+                  singular: "Nuevo correo de recordatorio"
+                },
+                "de-DE": {
+                  singular: "Neue Erinnerungs-E-Mail"
+                },
+                "fr-FR": {
+                  singular: "Nouvel e-mail de rappel"
+                },
+                "ja-JP": {
+                  singular: "新しいリマインダーメール"
+                },
+                "ko-KR": {
+                  singular: "새 알림 이메일"
+                },
+                "pt-BR": {
+                  singular: "Novo e-mail de lembrete"
+                },
+                "zh-CN": {
+                  singular: "新提醒邮件"
+                }
+              }
+            }),
+            children: (0, _v1.jsx)(_v53.IconButton, {
+              size: "sm",
+              variant: "tertiary",
+              "aria-label": (0, _v15.translate)({
                 singular: "New reminder email",
                 dictionary: {
                   es: {
@@ -1697,398 +892,369 @@
                   }
                 }
               }),
-              children: (0, _v1.jsx)(_v53.IconButton, {
-                size: "sm",
-                variant: "tertiary",
-                "aria-label": (0, _v15.translate)({
-                  singular: "New reminder email",
-                  dictionary: {
-                    es: {
-                      singular: "Nuevo correo de recordatorio"
-                    },
-                    "de-DE": {
-                      singular: "Neue Erinnerungs-E-Mail"
-                    },
-                    "fr-FR": {
-                      singular: "Nouvel e-mail de rappel"
-                    },
-                    "ja-JP": {
-                      singular: "新しいリマインダーメール"
-                    },
-                    "ko-KR": {
-                      singular: "새 알림 이메일"
-                    },
-                    "pt-BR": {
-                      singular: "Novo e-mail de lembrete"
-                    },
-                    "zh-CN": {
-                      singular: "新提醒邮件"
-                    }
-                  }
-                }),
-                icon: (0, _v1.jsx)(_v68.Plus, {}),
-                isDisabled: _v32 || _v0.reminders.length >= _v27.MAX_REMINDERS,
-                onClick: () => _v24(!0)
-              })
-            })]
+              icon: (0, _v1.jsx)(_v68.Plus, {}),
+              isDisabled: _v31 || _v0.reminders.length >= _v27.MAX_REMINDERS,
+              onClick: () => _v23(!0)
+            })
           })]
-        }), (0, _v1.jsx)(_v11.Paragraph, {
-          px: "lg",
-          pb: "sm",
-          size: "md",
-          color: "text-secondary",
-          children: (0, _v15.translate)({
-            singular: "Select an email to preview it.",
-            dictionary: {
-              es: {
-                singular: "Selecciona un correo para previsualizarlo."
-              },
-              "de-DE": {
-                singular: "Wählen Sie eine E-Mail, um sie in der Vorschau anzuzeigen."
-              },
-              "fr-FR": {
-                singular: "Sélectionnez un e-mail pour le prévisualiser."
-              },
-              "ja-JP": {
-                singular: "プレビューするメールを選択してください。"
-              },
-              "ko-KR": {
-                singular: "미리보기를 위해 이메일을 선택하세요."
-              },
-              "pt-BR": {
-                singular: "Selecione um e-mail para visualizá-lo."
-              },
-              "zh-CN": {
-                singular: "选择一封邮件以预览。"
-              }
+        })]
+      }), (0, _v1.jsx)(_v11.Paragraph, {
+        px: "lg",
+        pb: "sm",
+        size: "md",
+        color: "text-secondary",
+        children: (0, _v15.translate)({
+          singular: "Select an email to preview it.",
+          dictionary: {
+            es: {
+              singular: "Selecciona un correo para previsualizarlo."
+            },
+            "de-DE": {
+              singular: "Wählen Sie eine E-Mail, um sie in der Vorschau anzuzeigen."
+            },
+            "fr-FR": {
+              singular: "Sélectionnez un e-mail pour le prévisualiser."
+            },
+            "ja-JP": {
+              singular: "プレビューするメールを選択してください。"
+            },
+            "ko-KR": {
+              singular: "미리보기를 위해 이메일을 선택하세요."
+            },
+            "pt-BR": {
+              singular: "Selecione um e-mail para visualizá-lo."
+            },
+            "zh-CN": {
+              singular: "选择一封邮件以预览。"
             }
-          })
-        }), (0, _v1.jsx)(_v88, {
-          children: _v43.map(_v0 => (0, _v1.jsx)(_v86, {
-            active: _v0.active,
-            onOpen: _v0.onSelect,
-            label: (0, _v1.jsxs)(_v5.Box, {
-              color: "text-primary",
+          }
+        })
+      }), (0, _v1.jsx)(_v79, {
+        children: _v42.map(_v0 => (0, _v1.jsx)(_v77, {
+          active: _v0.active,
+          onOpen: _v0.onSelect,
+          label: (0, _v1.jsxs)(_v5.Box, {
+            color: "text-primary",
+            children: [(0, _v1.jsxs)(_v7.Flex, {
+              alignItems: "center",
+              justifyContent: "space-between",
               children: [(0, _v1.jsxs)(_v7.Flex, {
                 alignItems: "center",
-                justifyContent: "space-between",
-                children: [(0, _v1.jsxs)(_v7.Flex, {
-                  alignItems: "center",
-                  gap: (0, _v13.rem)(8),
+                gap: (0, _v13.rem)(8),
+                flex: 1,
+                minWidth: 0,
+                children: [_v0.enabled ? (0, _v1.jsx)(_v64.CircleCheck, {
+                  boxSize: (0, _v13.rem)(24),
+                  color: "status-positive-primary",
+                  flexShrink: 0
+                }) : (0, _v1.jsx)(_v67.MinusCircle, {
+                  boxSize: (0, _v13.rem)(24),
+                  color: "text-primary",
+                  flexShrink: 0
+                }), (0, _v1.jsxs)(_v5.Box, {
                   flex: 1,
                   minWidth: 0,
-                  children: [_v0.enabled ? (0, _v1.jsx)(_v64.CircleCheck, {
-                    boxSize: (0, _v13.rem)(24),
-                    color: "status-positive-primary",
-                    flexShrink: 0
-                  }) : (0, _v1.jsx)(_v67.MinusCircle, {
-                    boxSize: (0, _v13.rem)(24),
-                    color: "text-primary",
-                    flexShrink: 0
-                  }), (0, _v1.jsxs)(_v5.Box, {
-                    flex: 1,
-                    minWidth: 0,
-                    children: [(0, _v1.jsxs)(_v7.Flex, {
-                      alignItems: "center",
-                      gap: (0, _v13.rem)(4),
-                      maxWidth: "100%",
-                      children: [(0, _v1.jsx)(_v51.Header, {
-                        size: "xs",
-                        noOfLines: 1,
-                        minWidth: 0,
-                        children: _v0.label
-                      }), _v0.tooltip && (0, _v1.jsx)(_v12.Tooltip, {
-                        label: _v0.tooltip,
-                        placement: "top",
-                        shouldWrapChildren: !0,
-                        children: (0, _v1.jsx)(_v5.Box, {
-                          display: "flex",
-                          alignItems: "center",
-                          flexShrink: 0,
-                          children: (0, _v1.jsx)(_v14.InfoCircle, {
-                            "aria-label": _v0.tooltip,
-                            boxSize: "2xs",
-                            color: "text-tertiary",
-                            cursor: "help",
-                            tabIndex: 0
-                          })
-                        })
-                      })]
-                    }), _v0.sublabel && (0, _v1.jsx)(_v11.Paragraph, {
-                      size: "sm",
-                      color: "text-secondary",
+                  children: [(0, _v1.jsxs)(_v7.Flex, {
+                    alignItems: "center",
+                    gap: (0, _v13.rem)(4),
+                    maxWidth: "100%",
+                    children: [(0, _v1.jsx)(_v51.Header, {
+                      size: "xs",
                       noOfLines: 1,
-                      children: _v0.sublabel
+                      minWidth: 0,
+                      children: _v0.label
+                    }), _v0.tooltip && (0, _v1.jsx)(_v12.Tooltip, {
+                      label: _v0.tooltip,
+                      placement: "top",
+                      shouldWrapChildren: !0,
+                      children: (0, _v1.jsx)(_v5.Box, {
+                        display: "flex",
+                        alignItems: "center",
+                        flexShrink: 0,
+                        children: (0, _v1.jsx)(_v14.InfoCircle, {
+                          "aria-label": _v0.tooltip,
+                          boxSize: "2xs",
+                          color: "text-tertiary",
+                          cursor: "help",
+                          tabIndex: 0
+                        })
+                      })
                     })]
+                  }), _v0.sublabel && (0, _v1.jsx)(_v11.Paragraph, {
+                    size: "sm",
+                    color: "text-secondary",
+                    noOfLines: 1,
+                    children: _v0.sublabel
                   })]
-                }), (0, _v1.jsxs)(_v54.Menu, {
-                  children: [(0, _v1.jsx)(_v55.MenuButton, {
-                    as: _v53.IconButton,
-                    "aria-label": (0, _v15.translate)({
-                      singular: "Email options",
+                })]
+              }), (0, _v1.jsxs)(_v54.Menu, {
+                children: [(0, _v1.jsx)(_v55.MenuButton, {
+                  as: _v53.IconButton,
+                  "aria-label": (0, _v15.translate)({
+                    singular: "Email options",
+                    dictionary: {
+                      es: {
+                        singular: "Opciones de correo electrónico"
+                      },
+                      "de-DE": {
+                        singular: "E-Mail-Optionen"
+                      },
+                      "fr-FR": {
+                        singular: "Options E-mail"
+                      },
+                      "ja-JP": {
+                        singular: "メール設定"
+                      },
+                      "ko-KR": {
+                        singular: "이메일 옵션"
+                      },
+                      "pt-BR": {
+                        singular: "Opções de e-mail"
+                      },
+                      "zh-CN": {
+                        singular: "电子邮件选项"
+                      }
+                    }
+                  }),
+                  icon: (0, _v1.jsx)(_v66.EllipsisH, {
+                    w: "xs",
+                    fontSize: "text"
+                  }),
+                  variant: "tertiary",
+                  size: "xs",
+                  onClick: _v0 => _v0.stopPropagation()
+                }), (0, _v1.jsxs)(_v57.MenuList, {
+                  children: [_v0.onEdit && (0, _v1.jsx)(_v56.MenuItem, {
+                    icon: (0, _v1.jsx)(_v65.EditPencil, {}),
+                    onClick: _v0 => {
+                      _v0.stopPropagation(), _v0.onEdit?.();
+                    },
+                    children: (0, _v15.translate)({
+                      singular: "Edit timing",
                       dictionary: {
                         es: {
-                          singular: "Opciones de correo electrónico"
+                          singular: "Editar tiempo"
                         },
                         "de-DE": {
-                          singular: "E-Mail-Optionen"
+                          singular: "Timing bearbeiten"
                         },
                         "fr-FR": {
-                          singular: "Options E-mail"
+                          singular: "Modifier le timing"
                         },
                         "ja-JP": {
-                          singular: "メール設定"
+                          singular: "タイミングを編集"
                         },
                         "ko-KR": {
-                          singular: "이메일 옵션"
+                          singular: "타이밍 수정"
                         },
                         "pt-BR": {
-                          singular: "Opções de e-mail"
+                          singular: "Editar tempo"
                         },
                         "zh-CN": {
-                          singular: "电子邮件选项"
+                          singular: "编辑时间"
                         }
                       }
-                    }),
-                    icon: (0, _v1.jsx)(_v66.EllipsisH, {
-                      w: "xs",
-                      fontSize: "text"
-                    }),
-                    variant: "tertiary",
-                    size: "xs",
-                    onClick: _v0 => _v0.stopPropagation()
-                  }), (0, _v1.jsxs)(_v57.MenuList, {
-                    children: [_v0.onEdit && (0, _v1.jsx)(_v56.MenuItem, {
-                      icon: (0, _v1.jsx)(_v65.EditPencil, {}),
-                      onClick: _v0 => {
-                        _v0.stopPropagation(), _v0.onEdit?.();
-                      },
-                      children: (0, _v15.translate)({
-                        singular: "Edit timing",
-                        dictionary: {
-                          es: {
-                            singular: "Editar tiempo"
-                          },
-                          "de-DE": {
-                            singular: "Timing bearbeiten"
-                          },
-                          "fr-FR": {
-                            singular: "Modifier le timing"
-                          },
-                          "ja-JP": {
-                            singular: "タイミングを編集"
-                          },
-                          "ko-KR": {
-                            singular: "타이밍 수정"
-                          },
-                          "pt-BR": {
-                            singular: "Editar tempo"
-                          },
-                          "zh-CN": {
-                            singular: "编辑时间"
-                          }
+                    })
+                  }), (0, _v1.jsx)(_v56.MenuItem, {
+                    icon: _v0.enabled ? (0, _v1.jsx)(_v67.MinusCircle, {}) : (0, _v1.jsx)(_v64.CircleCheck, {}),
+                    isDisabled: _v31 && !(_v0.kind === _v27.EMAIL_TYPES.FOLLOWUP && _v40),
+                    onClick: _v0 => {
+                      _v0.stopPropagation(), _v0.onToggle();
+                    },
+                    children: _v0.enabled ? (0, _v15.translate)({
+                      singular: "Deactivate",
+                      dictionary: {
+                        es: {
+                          singular: "Desactivar"
+                        },
+                        "de-DE": {
+                          singular: "Deaktivieren"
+                        },
+                        "fr-FR": {
+                          singular: "Désactiver"
+                        },
+                        "ja-JP": {
+                          singular: "無効化"
+                        },
+                        "ko-KR": {
+                          singular: "비활성화"
+                        },
+                        "pt-BR": {
+                          singular: "Desativar"
+                        },
+                        "zh-CN": {
+                          singular: "停用"
                         }
-                      })
-                    }), (0, _v1.jsx)(_v56.MenuItem, {
-                      icon: _v0.enabled ? (0, _v1.jsx)(_v67.MinusCircle, {}) : (0, _v1.jsx)(_v64.CircleCheck, {}),
-                      isDisabled: _v32 && !(_v0.kind === _v27.EMAIL_TYPES.FOLLOWUP && _v41),
-                      onClick: _v0 => {
-                        _v0.stopPropagation(), _v0.onToggle();
-                      },
-                      children: _v0.enabled ? (0, _v15.translate)({
-                        singular: "Deactivate",
-                        dictionary: {
-                          es: {
-                            singular: "Desactivar"
-                          },
-                          "de-DE": {
-                            singular: "Deaktivieren"
-                          },
-                          "fr-FR": {
-                            singular: "Désactiver"
-                          },
-                          "ja-JP": {
-                            singular: "無効化"
-                          },
-                          "ko-KR": {
-                            singular: "비활성화"
-                          },
-                          "pt-BR": {
-                            singular: "Desativar"
-                          },
-                          "zh-CN": {
-                            singular: "停用"
-                          }
+                      }
+                    }) : (0, _v15.translate)({
+                      singular: "Activate",
+                      dictionary: {
+                        es: {
+                          singular: "Activar"
+                        },
+                        "de-DE": {
+                          singular: "Aktivieren"
+                        },
+                        "fr-FR": {
+                          singular: "Activer"
+                        },
+                        "ja-JP": {
+                          singular: "有効化"
+                        },
+                        "ko-KR": {
+                          singular: "활성화"
+                        },
+                        "pt-BR": {
+                          singular: "Ativar"
+                        },
+                        "zh-CN": {
+                          singular: "启用"
                         }
-                      }) : (0, _v15.translate)({
-                        singular: "Activate",
-                        dictionary: {
-                          es: {
-                            singular: "Activar"
-                          },
-                          "de-DE": {
-                            singular: "Aktivieren"
-                          },
-                          "fr-FR": {
-                            singular: "Activer"
-                          },
-                          "ja-JP": {
-                            singular: "有効化"
-                          },
-                          "ko-KR": {
-                            singular: "활성화"
-                          },
-                          "pt-BR": {
-                            singular: "Ativar"
-                          },
-                          "zh-CN": {
-                            singular: "启用"
-                          }
+                      }
+                    })
+                  }), _v0.onDelete && (0, _v1.jsx)(_v56.MenuItem, {
+                    icon: (0, _v1.jsx)(_v69.TrashBin, {}),
+                    onClick: _v0 => {
+                      _v0.stopPropagation(), _v0.onDelete?.();
+                    },
+                    children: (0, _v15.translate)({
+                      singular: "Remove reminder email",
+                      dictionary: {
+                        es: {
+                          singular: "Eliminar correo de recordatorio"
+                        },
+                        "de-DE": {
+                          singular: "Erinnerungs-E-Mail entfernen"
+                        },
+                        "fr-FR": {
+                          singular: "Supprimer l'e-mail de rappel"
+                        },
+                        "ja-JP": {
+                          singular: "リマインダーメールを削除"
+                        },
+                        "ko-KR": {
+                          singular: "알림 이메일 제거"
+                        },
+                        "pt-BR": {
+                          singular: "Remover e-mail de lembrete"
+                        },
+                        "zh-CN": {
+                          singular: "移除提醒邮件"
                         }
-                      })
-                    }), _v0.onDelete && (0, _v1.jsx)(_v56.MenuItem, {
-                      icon: (0, _v1.jsx)(_v69.TrashBin, {}),
-                      onClick: _v0 => {
-                        _v0.stopPropagation(), _v0.onDelete?.();
-                      },
-                      children: (0, _v15.translate)({
-                        singular: "Remove reminder email",
-                        dictionary: {
-                          es: {
-                            singular: "Eliminar correo de recordatorio"
-                          },
-                          "de-DE": {
-                            singular: "Erinnerungs-E-Mail entfernen"
-                          },
-                          "fr-FR": {
-                            singular: "Supprimer l'e-mail de rappel"
-                          },
-                          "ja-JP": {
-                            singular: "リマインダーメールを削除"
-                          },
-                          "ko-KR": {
-                            singular: "알림 이메일 제거"
-                          },
-                          "pt-BR": {
-                            singular: "Remover e-mail de lembrete"
-                          },
-                          "zh-CN": {
-                            singular: "移除提醒邮件"
-                          }
-                        }
-                      })
-                    })]
+                      }
+                    })
                   })]
                 })]
-              }), _v0.extra]
+              })]
+            }), _v0.extra]
+          })
+        }, _v0.key))
+      }), _v40 && (0, _v1.jsxs)(_v58.Modal, {
+        isOpen: _v9,
+        onClose: () => _v10(!1),
+        isCentered: !0,
+        size: "md",
+        children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
+          children: [(0, _v1.jsx)(_v62.ModalHeader, {
+            children: _v34.default.FollowUpModalHeader
+          }), (0, _v1.jsx)(_v59.ModalBody, {
+            children: (0, _v1.jsx)(_v11.Paragraph, {
+              size: "md",
+              children: _v34.default.FollowUpModalDescription
             })
-          }, _v0.key))
-        }), _v41 && (0, _v1.jsxs)(_v58.Modal, {
-          isOpen: _v8,
-          onClose: () => _v9(!1),
-          isCentered: !0,
-          size: "md",
-          children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
-            children: [(0, _v1.jsx)(_v62.ModalHeader, {
-              children: _v34.default.FollowUpModalHeader
-            }), (0, _v1.jsx)(_v59.ModalBody, {
-              children: (0, _v1.jsx)(_v11.Paragraph, {
-                size: "md",
-                children: _v34.default.FollowUpModalDescription
-              })
-            }), (0, _v1.jsx)(_v61.ModalFooter, {
-              borderTop: "1px solid",
-              borderColor: "stroke",
-              children: (0, _v1.jsxs)(_v52.HStack, {
-                children: [(0, _v1.jsx)(_v36.Button, {
-                  variant: "tertiary",
-                  onClick: () => _v9(!1),
-                  children: _v34.default.Cancel
-                }), (0, _v1.jsx)(_v36.Button, {
-                  variant: "primary",
-                  onClick: () => {
-                    _v14 && _v12({
-                      where: {
-                        userId: (0, _v49.getUserIdFromUri)(_v6?.uri),
-                        liveEventId: parseInt(_v14, 10)
-                      },
-                      variables: {
-                        type: "follow_up"
-                      }
-                    });
-                  },
-                  isLoading: _v13.loading,
-                  children: _v34.default.Send
-                })]
-              })
-            })]
+          }), (0, _v1.jsx)(_v61.ModalFooter, {
+            borderTop: "1px solid",
+            borderColor: "stroke",
+            children: (0, _v1.jsxs)(_v52.HStack, {
+              children: [(0, _v1.jsx)(_v36.Button, {
+                variant: "tertiary",
+                onClick: () => _v10(!1),
+                children: _v34.default.Cancel
+              }), (0, _v1.jsx)(_v36.Button, {
+                variant: "primary",
+                onClick: () => {
+                  _v15 && _v13({
+                    where: {
+                      userId: (0, _v49.getUserIdFromUri)(_v7?.uri),
+                      liveEventId: parseInt(_v15, 10)
+                    },
+                    variables: {
+                      type: "follow_up"
+                    }
+                  });
+                },
+                isLoading: _v14.loading,
+                children: _v34.default.Send
+              })]
+            })
           })]
-        }), _v22 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v84, {
-            isOpen: _v23,
-            onClose: () => _v24(!1),
-            onSave: _v0 => {
-              let _v1 = `reminder_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
-              _v1({
-                type: _v32.ACTION_TYPE.ADD_REMINDER,
-                payload: {
-                  id: _v1,
-                  offset: _v0
-                }
-              }), _v33("created", _v0);
-            },
-            usedOffsets: _v0.reminders.map(_v0 => _v0.offset)
-          }, _v23 ? "add-timing-open" : "add-timing-closed"), (0, _v1.jsx)(_v85, {
-            isOpen: !!_v25,
-            onClose: () => _v26(null),
-            onConfirm: () => _v34(),
-            isLoading: _v30.loading
-          }), (0, _v1.jsx)(_v84, {
-            isOpen: !!_v27,
-            title: (0, _v15.translate)({
-              singular: "Edit timing",
-              dictionary: {
-                es: {
-                  singular: "Editar tiempo"
-                },
-                "de-DE": {
-                  singular: "Timing bearbeiten"
-                },
-                "fr-FR": {
-                  singular: "Modifier le timing"
-                },
-                "ja-JP": {
-                  singular: "タイミングを編集"
-                },
-                "ko-KR": {
-                  singular: "타이밍 수정"
-                },
-                "pt-BR": {
-                  singular: "Editar tempo"
-                },
-                "zh-CN": {
-                  singular: "编辑时间"
-                }
-              }
-            }),
-            initialOffset: _v27?.offset,
-            onClose: () => _v28(null),
-            onSave: _v0 => {
-              _v27 && (_v1({
-                type: _v32.ACTION_TYPE.UPDATE_REMINDER_OFFSET,
-                payload: {
-                  id: _v27.id,
-                  offset: _v0
-                }
-              }), _v33("timing_changed", _v0));
-            },
-            usedOffsets: _v0.reminders.filter(_v0 => _v0.id !== _v27?.id).map(_v0 => _v0.offset)
-          }, _v27?.id ?? "edit-timing")]
         })]
-      });
-    };
-  var _v90 = _v0.i(0);
-  let _v91 = () => {
+      }), _v4 && (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsx)(_v74.ReminderTimingModal, {
+          isOpen: _v22,
+          onClose: () => _v23(!1),
+          onSave: _v0 => {
+            let _v1 = `reminder_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
+            _v1({
+              type: _v32.ACTION_TYPE.ADD_REMINDER,
+              payload: {
+                id: _v1,
+                offset: _v0
+              }
+            }), _v32("created", _v0);
+          },
+          usedOffsets: _v0.reminders.map(_v0 => _v0.offset)
+        }, _v22 ? "add-timing-open" : "add-timing-closed"), (0, _v1.jsx)(_v76, {
+          isOpen: !!_v24,
+          onClose: () => _v25(null),
+          onConfirm: () => _v33(),
+          isLoading: _v29.loading
+        }), (0, _v1.jsx)(_v74.ReminderTimingModal, {
+          isOpen: !!_v26,
+          title: (0, _v15.translate)({
+            singular: "Edit timing",
+            dictionary: {
+              es: {
+                singular: "Editar tiempo"
+              },
+              "de-DE": {
+                singular: "Timing bearbeiten"
+              },
+              "fr-FR": {
+                singular: "Modifier le timing"
+              },
+              "ja-JP": {
+                singular: "タイミングを編集"
+              },
+              "ko-KR": {
+                singular: "타이밍 수정"
+              },
+              "pt-BR": {
+                singular: "Editar tempo"
+              },
+              "zh-CN": {
+                singular: "编辑时间"
+              }
+            }
+          }),
+          initialOffset: _v26?.offset,
+          onClose: () => _v27(null),
+          onSave: _v0 => {
+            _v26 && (_v1({
+              type: _v32.ACTION_TYPE.UPDATE_REMINDER_OFFSET,
+              payload: {
+                id: _v26.id,
+                offset: _v0
+              }
+            }), _v32("timing_changed", _v0));
+          },
+          usedOffsets: _v0.reminders.filter(_v0 => _v0.id !== _v26?.id).map(_v0 => _v0.offset)
+        }, _v26?.id ?? "edit-timing")]
+      })]
+    });
+  };
+  var _v82 = _v0.i(0);
+  let _v83 = () => {
     let {
         emailState: _v0
       } = (0, _v23.useEmailCustomization)(),
@@ -2096,8 +1262,14 @@
         teamName: _v1,
         isLoading: _v2
       } = (0, _v28.useTeamStore)(),
-      _v3 = (0, _v21.useViewer)(),
-      _v4 = _v3?.user;
+      {
+        title: _v3
+      } = (0, _v25.useEntityStore)(),
+      _v4 = (0, _v33.useConfigStore)(_v0 => _v0.entityType),
+      _v5 = (0, _v21.useViewer)(),
+      _v6 = _v5?.user,
+      _v7 = _v1 && !_v2 ? _v1 : _v6?.name,
+      _v8 = _v4 === _v17.ENTITY_TYPE.EVENT;
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v7.Flex, {
         p: "sm",
@@ -2105,15 +1277,33 @@
         children: (0, _v1.jsx)("strong", {
           children: "View this email in your browser."
         })
-      }), (0, _v1.jsxs)(_v7.Flex, {
+      }), (0, _v1.jsxs)(_v5.Box, {
         p: "sm",
-        justifyContent: "center",
-        children: [`This email was sent to you by ${_v1 && !_v2 ? _v1 : _v4?.name}.`, _v0.useReplyEmail && _v0?.replyEmail && `You can respond to the sender at ${_v0?.replyEmail}.`]
+        textAlign: "center",
+        children: [_v8 && _v3 ? `You're receiving this email in connection with ${_v3}. It was sent by Vimeo on behalf of ${_v7}.` : `This email was sent to you by ${_v7}.`, _v0.useReplyEmail && _v0?.replyEmail && ` You can respond to the sender at ${_v0?.replyEmail}.`]
+      }), _v8 && _v3 && (0, _v1.jsx)(_v5.Box, {
+        p: "sm",
+        textAlign: "center",
+        children: (0, _v1.jsx)("strong", {
+          children: (0, _v1.jsx)("a", {
+            href: "https://vimeo.com/help/contact",
+            target: "_blank",
+            rel: "noopener noreferrer",
+            onClick: _v0 => _v0.stopPropagation(),
+            children: "Report this email"
+          })
+        })
       }), _v0.useSenderAddress && _v0?.senderAddress && (0, _v1.jsx)(_v7.Flex, {
         p: "sm",
         justifyContent: "center",
         children: _v0?.senderAddress
-      }), (0, _v1.jsx)(_v7.Flex, {
+      }), _v8 && _v3 ? _v0.useSenderPolicyUrl && _v0?.senderPolicyUrl && (0, _v1.jsx)(_v5.Box, {
+        p: "sm",
+        textAlign: "center",
+        children: (0, _v1.jsx)("strong", {
+          children: "Privacy"
+        })
+      }) : (0, _v1.jsx)(_v7.Flex, {
         p: "sm",
         justifyContent: "center",
         children: (0, _v1.jsx)("strong", {
@@ -2122,12 +1312,13 @@
       })]
     });
   };
-  var _v92 = _v0.i(0),
-    _v93 = _v0.i(0),
-    _v94 = _v0.i(0),
-    _v95 = _v0.i(0),
-    _v96 = _v0.i(0);
-  let _v97 = () => {
+  var _v84 = _v0.i(0),
+    _v85 = _v0.i(0),
+    _v86 = _v0.i(0),
+    _v87 = _v0.i(0),
+    _v88 = _v0.i(0),
+    _v89 = _v0.i(0);
+  let _v90 = () => {
     let {
         emailState: _v0,
         dispatch: _v1,
@@ -2154,11 +1345,12 @@
       } = (0, _v25.useEntityStore)(),
       {
         hasUpsell: _v16,
-        hasEmailEditAccess: _v17
+        hasEmailEditAccess: _v17,
+        hasMagicLinks: _v18
       } = (0, _v22.useEntityCapability)(),
-      _v18 = !(_v27.TRAIL_STATUS === _v12?.membership?.subscription?.trial?.status || _v16 || !_v17),
-      _v19 = (0, _v2.useMemo)(() => !_v8 || (0, _v96.isValidUrl)(_v10 || ""), [_v8, _v10]),
-      _v20 = _v0 => {
+      _v19 = !(_v27.TRAIL_STATUS === _v12?.membership?.subscription?.trial?.status || _v16 || !_v17),
+      _v20 = (0, _v2.useMemo)(() => !_v8 || (0, _v89.isValidUrl)(_v10 || ""), [_v8, _v10]),
+      _v21 = _v0 => {
         _v1({
           type: _v32.ACTION_TYPE.SET_BUTTON_INFO,
           payload: {
@@ -2167,8 +1359,8 @@
           }
         });
       },
-      _v21 = () => {
-        _v18 && (_v20({
+      _v22 = () => {
+        _v19 && (_v21({
           ..._v7,
           isCustomLink: !_v8
         }), _v8 && _v3({
@@ -2176,12 +1368,12 @@
         }));
       };
     return (0, _v2.useEffect)(() => {
-      _v19 && _v8 && !_v5 && _v20({
+      _v20 && _v8 && !_v5 && _v21({
         text: _v9,
         isCustomLink: !0,
         customLink: _v10
       });
-    }, [_v19, _v10, _v9, _v8, _v5]), (0, _v1.jsxs)(_v5.Box, {
+    }, [_v20, _v10, _v9, _v8, _v5]), (0, _v1.jsxs)(_v5.Box, {
       children: [(0, _v1.jsx)(_v51.Header, {
         size: "md",
         mb: (0, _v13.rem)(30),
@@ -2197,7 +1389,7 @@
           value: _v9,
           onChange: _v0 => {
             let _v1 = _v0.target.value;
-            _v20({
+            _v21({
               ..._v7,
               text: _v1
             });
@@ -2216,29 +1408,34 @@
           size: "xs",
           mb: "md",
           children: _v34.default.URL
-        }), (0, _v1.jsxs)(_v95.Stack, {
+        }), (0, _v1.jsxs)(_v87.Stack, {
           spacing: (0, _v13.rem)(16),
-          children: [(0, _v1.jsx)(_v94.Radio, {
+          children: [(0, _v1.jsx)(_v86.Radio, {
             name: "link",
             isChecked: !_v8,
-            onChange: _v21,
+            onChange: _v22,
             children: _v34.default.VimeoLink
-          }), (0, _v1.jsx)(_v94.Radio, {
+          }), (0, _v1.jsx)(_v86.Radio, {
             name: "link",
             isChecked: !!_v8,
-            onChange: _v21,
-            isDisabled: !_v18,
+            onChange: _v22,
+            isDisabled: !_v19,
             children: _v34.default.CustomLink
           })]
+        }), _v4 === _v17.ENTITY_TYPE.EVENT && _v18 && _v8 && (0, _v1.jsx)(_v88.Text, {
+          variant: "body-sm",
+          mt: "md",
+          color: "text-secondary",
+          children: _v34.default.CustomLinkSkipsOneClickJoin
         })]
       }), (0, _v1.jsxs)(_v8.FormControl, {
-        isInvalid: !_v19,
+        isInvalid: !_v20,
         children: [(0, _v1.jsx)(_v9.Input, {
           placeholder: _v34.default.EnterValidURL,
           isDisabled: !_v8,
           onChange: _v0 => {
             let _v1 = _v0.target.value;
-            _v11((0, _v96.isValidUrl)((0, _v96.appendProtocol)(_v1)) ? (0, _v96.appendProtocol)(_v1) : _v1);
+            _v11((0, _v89.isValidUrl)((0, _v89.appendProtocol)(_v1)) ? (0, _v89.appendProtocol)(_v1) : _v1);
           },
           maxLength: _v27.EMAIL_MAX_LENGTH.LINK,
           value: _v8 ? _v10 || "" : (() => {
@@ -2254,26 +1451,25 @@
           })(),
           onFocus: () => _v6(!0),
           onBlur: () => _v6(!1)
-        }), !_v19 && (0, _v1.jsx)(_v93.FormErrorMessage, {
+        }), !_v20 && (0, _v1.jsx)(_v85.FormErrorMessage, {
           py: (0, _v13.rem)(12),
           children: _v34.default.InvalidURL
         })]
       })]
     });
   };
-  var _v98 = _v0.i(0),
+  var _v91 = _v0.i(0),
+    _v92 = _v0.i(0),
+    _v93 = _v0.i(0),
+    _v94 = _v0.i(0),
+    _v95 = _v0.i(0),
+    _v96 = _v0.i(0),
+    _v97 = _v0.i(0),
+    _v98 = _v0.i(0),
     _v99 = _v0.i(0),
-    _v100 = _v0.i(0),
-    _v101 = _v0.i(0),
-    _v102 = _v0.i(0),
-    _v103 = _v0.i(0),
-    _v104 = _v0.i(0),
-    _v105 = _v0.i(0),
-    _v106 = _v0.i(0),
-    _v107 = _v0.i(0),
-    _v108 = _v0.i(0);
-  let _v109 = _v0 => {
-    let _v1 = (0, _v105.useCache)(),
+    _v100 = _v0.i(0);
+  let _v101 = _v0 => {
+    let _v1 = (0, _v97.useCache)(),
       {
         canAccessCustomLogo: _v2
       } = (0, _v22.useEntityCapability)(),
@@ -2292,12 +1488,12 @@
         data: _v14,
         error: _v15,
         loading: _v16
-      }] = (0, _v107.useGetUserTeamLogosLazy)(),
+      }] = (0, _v99.useGetUserTeamLogosLazy)(),
       [_v17, {
         data: _v18,
         error: _v19,
         loading: _v20
-      }] = (0, _v106.useGetUserCustomlogosLazy)();
+      }] = (0, _v98.useGetUserCustomlogosLazy)();
     return (0, _v2.useEffect)(() => {
       if (!_v5) return;
       let _v0 = (0, _v49.getUserIdFromUri)(_v4?.uri);
@@ -2332,7 +1528,7 @@
       }
     }, [_v14, _v18, _v1]), (0, _v2.useEffect)(() => {
       if (_v8?.items) if (_v12 && _v12 !== _v27.FALLBACK_PLAYER_CUSTOM_LOGO) {
-        let _v0 = (0, _v108.findLogoIndex)(_v8.items, _v12);
+        let _v0 = (0, _v100.findLogoIndex)(_v8.items, _v12);
         _v7(_v0), _v10 && _v10 < 0 && _v11(_v0);
       } else _v7(0);
     }, [_v12, _v10, _v8]), (0, _v2.useEffect)(() => {
@@ -2343,6 +1539,7 @@
         _v0();
       };
     }, [_v1]), {
+      ownerUserId: (0, _v49.getUserIdFromUri)(_v4?.uri),
       isLoadingLogos: _v16 || _v20,
       originalIndex: _v10,
       setOriginalIndex: _v11,
@@ -2351,639 +1548,15 @@
       customLogoResponse: _v8
     };
   };
-  function _v110(_v0) {
-    let _v1 = (0, _v105.useCache)(),
-      _v2 = _v1.get(_v0) || [];
-    return {
-      removeLogoFromCache: (0, _v2.useCallback)(_v0 => {
-        _v1.set(_v0, {
-          ..._v2,
-          ...{
-            total: _v2.total - 1,
-            items: _v2.items.filter(({
-              uri: _v0
-            }) => !_v0?.includes(_v0))
-          }
-        });
-      }, [_v2]),
-      addLogoToCache: (0, _v2.useCallback)(_v0 => {
-        _v2.items.some(({
-          uri: _v0
-        }) => _v0 === _v0?.uri) || _v1.set(_v0, {
-          ..._v2,
-          ...{
-            total: _v2.total + 1,
-            items: [..._v2.items, _v0]
-          }
-        });
-      }, [_v2])
-    };
-  }
-  function _v111(_v0, _v1, _v2) {
-    let [_v3, _v4] = (0, _v2.useState)(!1),
-      [_v5, {
-        data: _v6,
-        error: _v7
-      }] = (0, _v107.usePostUserTeamLogos)(),
-      [_v8, {
-        data: _v9
-      }] = (0, _v107.useGetUserTeamLogosLazy)(),
-      {
-        addLogoToCache: _v10
-      } = _v110(_v2),
-      _v11 = (0, _v37.useToast)(),
-      {
-        user: _v12
-      } = (0, _v25.useEntityStore)(),
-      _v13 = (0, _v49.getUserIdFromUri)(_v12?.uri);
-    return (0, _v2.useEffect)(() => {
-      _v0 && (_v4(!0), _v5({
-        where: {
-          userId: _v13
-        },
-        select: ["link"]
-      }));
-    }, [_v0]), (0, _v2.useEffect)(() => {
-      _v7 && (_v4(!1), _v11({
-        title: _v34.default.UploadFailed,
-        status: "error"
-      }));
-    }, [_v7]), (0, _v2.useEffect)(() => {
-      _v6?.link && _v0 && (_v4(!0), (0, _v108.putFileUpload)(_v6.link, _v0).then(() => {
-        _v8({
-          where: {
-            userId: _v13
-          },
-          select: ["uri", "sizes"],
-          query: {
-            sizes: _v27.logoFetchOptions.sizes
-          }
-        });
-      }).catch(() => {
-        _v4(!1), _v11({
-          title: _v34.default.UploadFailed,
-          status: "error"
-        });
-      }));
-    }, [_v6?.link]), (0, _v2.useEffect)(() => {
-      if (_v9?.data) {
-        _v4(!1);
-        let _v0 = (0, _v108.findLogoIndex)(_v9.data, _v6?.link),
-          _v1 = _v9.data[_v0];
-        _v1?.sizes.length > 0 && (_v10(_v1), _v1 && _v1(_v1));
-      }
-    }, [_v9]), {
-      isUploading: _v3
-    };
-  }
-  var _v112 = _v0.i(0),
-    _v113 = _v0.i(0);
-  let _v114 = (0, _v13.rem)(20),
-    _v115 = (0, _v13.rem)(16),
-    _v116 = (0, _v13.rem)(544),
-    _v117 = `repeating-conic-gradient(#dee4e9 0% 25%, transparent 0% 50%) 50% / ${(0, _v13.rem)(16)} ${(0, _v13.rem)(16)}`,
-    _v118 = ({
-      file: _v0,
-      isSaving: _v1,
-      onChange: _v2,
-      onCancel: _v3,
-      onSave: _v4,
-      onCloseComplete: _v5
-    }) => {
-      let [_v6, _v7] = (0, _v2.useState)(null);
-      return (0, _v2.useEffect)(() => {
-        let _v0 = _v0 ? URL.createObjectURL(_v0) : null;
-        return _v7(_v0), () => {
-          _v0 && URL.revokeObjectURL(_v0);
-        };
-      }, [_v0]), (0, _v1.jsxs)(_v58.Modal, {
-        isOpen: null !== _v0,
-        onClose: _v3,
-        onCloseComplete: _v5,
-        closeOnEsc: !_v1,
-        closeOnOverlayClick: !_v1,
-        isCentered: !0,
-        size: "lg",
-        children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
-          maxWidth: _v116,
-          borderRadius: _v114,
-          children: [(0, _v1.jsx)(_v59.ModalBody, {
-            padding: (0, _v13.rem)(8),
-            children: (0, _v1.jsx)(_v112.AspectRatio, {
-              ratio: 1.5,
-              width: "100%",
-              borderRadius: _v115,
-              overflow: "hidden",
-              sx: {
-                background: _v117
-              },
-              children: _v6 ? (0, _v1.jsx)(_v98.Image, {
-                src: _v6,
-                alt: _v34.default.Logo,
-                width: "100%",
-                height: "100%",
-                objectFit: "contain"
-              }) : (0, _v1.jsx)(_v5.Box, {
-                width: "100%",
-                height: "100%"
-              })
-            })
-          }), (0, _v1.jsx)(_v61.ModalFooter, {
-            paddingTop: (0, _v13.rem)(16),
-            paddingBottom: (0, _v13.rem)(24),
-            paddingX: (0, _v13.rem)(24),
-            children: (0, _v1.jsxs)(_v7.Flex, {
-              align: "center",
-              gap: (0, _v13.rem)(12),
-              width: "100%",
-              children: [(0, _v1.jsx)(_v36.Button, {
-                variant: "secondary",
-                size: "md",
-                leftIcon: (0, _v1.jsx)(_v113.Redo, {}),
-                onClick: _v2,
-                isDisabled: _v1,
-                children: _v34.default.Change
-              }), (0, _v1.jsxs)(_v7.Flex, {
-                flex: "1",
-                justify: "flex-end",
-                align: "center",
-                gap: (0, _v13.rem)(12),
-                minWidth: 0,
-                children: [(0, _v1.jsx)(_v36.Button, {
-                  variant: "tertiary",
-                  size: "md",
-                  onClick: _v3,
-                  isDisabled: _v1,
-                  children: _v34.default.Cancel
-                }), (0, _v1.jsx)(_v36.Button, {
-                  variant: "primary",
-                  size: "md",
-                  onClick: _v4,
-                  isLoading: _v1,
-                  children: _v34.default.Save
-                })]
-              })]
-            })
-          })]
-        })]
-      });
-    };
-  var _v119 = _v0.i(0),
-    _v120 = _v0.i(0),
-    _v121 = _v0.i(0),
-    _v122 = _v0.i(0),
-    _v123 = _v0.i(0),
-    _v124 = _v0.i(0);
-  let _v125 = ({
-    errorMessage: _v0
-  }) => (0, _v1.jsxs)(_v6.Center, {
-    width: {
-      base: (0, _v13.rem)(131),
-      md: (0, _v13.rem)(256)
-    },
-    height: {
-      base: (0, _v13.rem)(59),
-      md: (0, _v13.rem)(129)
-    },
-    shadow: "shadow-lg",
-    my: (0, _v13.rem)(12),
-    border: `${(0, _v13.rem)(1)} solid`,
-    borderColor: "red.500",
-    flexDir: "column",
-    p: (0, _v13.rem)(30),
-    textAlign: "center",
-    borderRadius: (0, _v13.rem)(3),
-    children: [(0, _v1.jsx)(_v124.CircleExclamation, {
-      color: "red.500",
-      height: (0, _v13.rem)(24),
-      width: (0, _v13.rem)(24)
-    }), (0, _v1.jsx)(_v102.Text, {
-      variant: "body-xl",
-      color: "red.500",
-      children: _v0
-    })]
-  });
-  var _v126 = _v0.i(0);
-  let _v127 = () => (0, _v1.jsx)(_v6.Center, {
-    width: {
-      base: (0, _v13.rem)(131),
-      md: (0, _v13.rem)(256)
-    },
-    height: {
-      base: (0, _v13.rem)(59),
-      md: (0, _v13.rem)(129)
-    },
-    shadow: "shadow-lg",
-    my: (0, _v13.rem)(12),
-    border: `${(0, _v13.rem)(1)} solid`,
-    borderColor: "blue.500",
-    borderRadius: (0, _v13.rem)(3),
-    children: (0, _v1.jsx)(_v126.Spinner, {})
-  });
-  var _v128 = _v0.i(0);
-  let _v129 = ({
-      isCurrent: _v0,
-      isRemovable: _v1,
-      onDelete: _v2,
-      src: _v3,
-      onClick: _v4
-    }) => (0, _v1.jsx)(_v5.Box, {
-      p: (0, _v13.rem)(10),
-      position: "relative",
-      display: "inline-block",
-      m: `${(0, _v13.rem)(12)} ${(0, _v13.rem)(10)} ${(0, _v13.rem)(12)} 0`,
-      height: {
-        base: (0, _v13.rem)(59),
-        md: (0, _v13.rem)(129)
-      },
-      width: {
-        base: (0, _v13.rem)(131),
-        md: (0, _v13.rem)(256)
-      },
-      cursor: "pointer",
-      borderRadius: (0, _v13.rem)(3),
-      shadow: "shadow-sm",
-      transition: "border 0.3s ease-out",
-      border: `${(0, _v13.rem)(1)} solid`,
-      borderColor: _v0 ? "blue.500" : "transparent",
-      background: `url(${_v3}) center/contain no-repeat content-box`,
-      onClick: _v4,
-      children: _v0 && _v1 && (0, _v1.jsx)(_v12.Tooltip, {
-        content: _v34.default.Remove,
-        children: (0, _v1.jsx)(_v53.IconButton, {
-          "aria-label": "Delete",
-          position: "absolute",
-          top: (0, _v13.rem)(-14),
-          right: (0, _v13.rem)(-15),
-          variant: "secondary",
-          icon: (0, _v1.jsx)(_v128.CloseXSmall, {}),
-          size: "xs",
-          onClick: _v0 => {
-            _v0.stopPropagation(), _v2();
-          }
-        })
-      })
-    }),
-    _v130 = ({
-      availableLogos: _v0,
-      currentLogoIndex: _v1,
-      originalIndex: _v2,
-      errorMessage: _v3,
-      isLoading: _v4,
-      shouldAnimate: _v5 = !0,
-      setCurrentLogoIndex: _v6,
-      onLogoDelete: _v7
-    }) => {
-      let [_v8] = (0, _v123.useDeleteUserCustomlogo)(),
-        {
-          user: _v9
-        } = (0, _v25.useEntityStore)(),
-        _v10 = _v0.map((_v0, _v1) => {
-          let _v2 = _v0.sizes[0]?.link.replace(/(mw=([^&]*))|(&mh=([^&]*))/g, "");
-          return (0, _v1.jsx)(_v129, {
-            onClick: () => _v6(_v1),
-            src: _v2,
-            isRemovable: _v0.uri.indexOf("customlogos") > -1 && _v1 !== _v2,
-            logoData: _v0,
-            isCurrent: _v1 === _v1,
-            onDelete: () => {
-              _v7(_v0.uri), _v8({
-                where: {
-                  userId: (0, _v49.getUserIdFromUri)(_v9?.uri),
-                  logoId: (0, _v49.getLastIdFromUri)(_v0.uri)
-                }
-              });
-            }
-          }, _v0.uri);
-        });
-      _v4 && (_v10 = [(0, _v1.jsx)(_v127, {}, "loading-state")]), _v3 && (_v10 = [(0, _v1.jsx)(_v125, {
-        errorMessage: _v3
-      }, "error-state")]);
-      let _v11 = !_v4 && !_v3;
-      return (0, _v1.jsxs)(_v5.Box, {
-        position: "relative",
-        height: {
-          base: (0, _v13.rem)(86),
-          md: (0, _v13.rem)(153)
-        },
-        children: [(0, _v1.jsx)(_v5.Box, {
-          display: "inline-block",
-          whiteSpace: "nowrap",
-          position: "absolute",
-          transition: _v11 && _v5 ? "left 0.3s ease-out" : "none",
-          left: {
-            base: (0, _v13.rem)(12 - (_v11 ? _v1 : 0) * 140),
-            md: (0, _v13.rem)(26 - (_v11 ? _v1 : 0) * 266)
-          },
-          height: {
-            base: (0, _v13.rem)(70),
-            md: (0, _v13.rem)(153)
-          },
-          children: _v10
-        }), (0, _v1.jsx)(_v53.IconButton, {
-          borderRadius: "50% !important",
-          position: "absolute",
-          top: "50%",
-          left: (0, _v13.rem)(-15),
-          transform: "translateY(-50%)",
-          _active: {
-            transform: "translateY(-50%)"
-          },
-          variant: "secondary",
-          "aria-label": "Previous",
-          display: _v11 && _v1 > 0 ? "flex" : "none",
-          icon: (0, _v1.jsx)(_v121.ChevronLeftSmall, {}),
-          onClick: () => {
-            _v6(_v1 - 1);
-          }
-        }), (0, _v1.jsx)(_v53.IconButton, {
-          borderRadius: "50% !important",
-          position: "absolute",
-          top: "50%",
-          right: (0, _v13.rem)(-15),
-          transform: "translateY(-50%)",
-          _active: {
-            transform: "translateY(-50%)"
-          },
-          variant: "secondary",
-          "aria-label": "Previous",
-          display: _v11 && _v1 < _v0.length - 1 ? "flex" : "none",
-          icon: (0, _v1.jsx)(_v122.ChevronRightSmall, {}),
-          onClick: () => {
-            _v6(_v1 + 1);
-          }
-        })]
-      });
-    },
-    _v131 = (0, _v13.rem)(8),
-    _v132 = (0, _v13.rem)(8),
-    _v133 = ({
-      availableLogos: _v0,
-      currentLogoIndex: _v1,
-      originalIndex: _v2,
-      isLoading: _v3,
-      errorMessage: _v4,
-      setCurrentLogoIndex: _v5,
-      onLogoDelete: _v6
-    }) => {
-      let [_v7] = (0, _v123.useDeleteUserCustomlogo)(),
-        {
-          user: _v8
-        } = (0, _v25.useEntityStore)();
-      return _v4 ? (0, _v1.jsx)(_v125, {
-        errorMessage: _v4
-      }) : _v3 ? (0, _v1.jsx)(_v5.Box, {
-        display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
-        gap: _v132,
-        width: "100%",
-        children: Array.from({
-          length: 4
-        }).map((_v0, _v1) => (0, _v1.jsx)(_v112.AspectRatio, {
-          ratio: 1.5,
-          width: "100%",
-          children: (0, _v1.jsx)(_v5.Box, {
-            borderRadius: _v131,
-            background: "fill-component"
-          })
-        }, _v1))
-      }) : (0, _v1.jsx)(_v5.Box, {
-        display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
-        gap: _v132,
-        width: "100%",
-        children: _v0.map((_v0, _v1) => {
-          let _v2 = _v0.sizes[0]?.link.replace(/(mw=([^&]*))|(&mh=([^&]*))/g, ""),
-            _v3 = _v1 === _v1,
-            _v4 = _v3 && _v0.uri.indexOf("customlogos") > -1 && _v1 !== _v2;
-          return (0, _v1.jsxs)(_v5.Box, {
-            position: "relative",
-            children: [(0, _v1.jsx)(_v112.AspectRatio, {
-              ratio: 1.5,
-              width: "100%",
-              children: (0, _v1.jsx)(_v5.Box, {
-                as: "button",
-                type: "button",
-                borderRadius: _v131,
-                borderWidth: "2px",
-                borderStyle: "solid",
-                borderColor: _v3 ? "stroke-focus" : "stroke",
-                background: "fill-surface",
-                cursor: "pointer",
-                onClick: () => _v5(_v1),
-                sx: {
-                  backgroundImage: `url(${_v2})`,
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                  backgroundOrigin: "content-box",
-                  padding: (0, _v13.rem)(8)
-                }
-              })
-            }), _v4 && (0, _v1.jsx)(_v12.Tooltip, {
-              content: _v34.default.Remove,
-              children: (0, _v1.jsx)(_v53.IconButton, {
-                "aria-label": _v34.default.Remove,
-                position: "absolute",
-                top: (0, _v13.rem)(-8),
-                right: (0, _v13.rem)(-8),
-                variant: "secondary",
-                icon: (0, _v1.jsx)(_v128.CloseXSmall, {}),
-                size: "xs",
-                onClick: _v0 => {
-                  _v0.stopPropagation(), _v6(_v0.uri), _v7({
-                    where: {
-                      userId: (0, _v49.getUserIdFromUri)(_v8?.uri),
-                      logoId: (0, _v49.getLastIdFromUri)(_v0.uri)
-                    }
-                  });
-                }
-              })
-            })]
-          }, _v0.uri);
-        })
-      });
-    },
-    _v134 = ({
-      availableLogos: _v0 = [],
-      currentLogoIndex: _v1,
-      originalIndex: _v2,
-      onLogoDelete: _v3,
-      handleImageUpload: _v4,
-      errorMessage: _v5 = "",
-      isLoadingLogos: _v6,
-      setCurrentLogoIndex: _v7,
-      shouldAnimate: _v8 = !0,
-      uploadVariant: _v9 = "file-input",
-      onUploadClick: _v10
-    }) => {
-      if ("image-uploader" === _v9) {
-        let _v0 = _v6 || _v0.length > 0 || !!_v5;
-        return (0, _v1.jsxs)(_v7.Flex, {
-          flexDir: "column",
-          gap: (0, _v13.rem)(16),
-          p: (0, _v13.rem)(8),
-          width: (0, _v13.rem)(260),
-          maxHeight: (0, _v13.rem)(320),
-          overflow: "hidden",
-          children: [(0, _v1.jsx)(_v36.Button, {
-            variant: "secondary",
-            size: "md",
-            width: "100%",
-            flexShrink: 0,
-            leftIcon: (0, _v1.jsx)(_v120.Upload, {}),
-            isDisabled: _v6,
-            onClick: _v10,
-            children: _v34.default.UploadImage
-          }), _v0 && (0, _v1.jsxs)(_v7.Flex, {
-            flexDir: "column",
-            gap: (0, _v13.rem)(8),
-            flex: "1",
-            minHeight: 0,
-            children: [(0, _v1.jsx)(_v102.Text, {
-              variant: "body-sm",
-              color: "text-tertiary",
-              children: _v34.default.PreviouslyUsed
-            }), (0, _v1.jsx)(_v5.Box, {
-              flex: "1",
-              minHeight: 0,
-              overflowY: "auto",
-              children: (0, _v1.jsx)(_v133, {
-                availableLogos: _v0,
-                currentLogoIndex: _v1,
-                originalIndex: _v2,
-                isLoading: _v6,
-                errorMessage: _v5,
-                setCurrentLogoIndex: _v7,
-                onLogoDelete: _v3
-              })
-            })]
-          })]
-        });
-      }
-      return (0, _v1.jsxs)(_v7.Flex, {
-        flexDir: "column",
-        overflow: "hidden",
-        p: (0, _v13.rem)(20),
-        width: {
-          base: (0, _v13.rem)(250),
-          md: (0, _v13.rem)(350)
-        },
-        children: [(0, _v1.jsxs)(_v7.Flex, {
-          mb: "sm",
-          justifyContent: "space-between",
-          children: [(0, _v1.jsx)(_v51.Header, {
-            size: "xs",
-            children: _v34.default.Logo
-          }), (0, _v1.jsx)(_v51.Header, {
-            size: "xs",
-            children: _v0.length > 0 && (0, _v1.jsx)("span", {
-              children: _v34.default.LogoOutOf(_v1 + 1, _v0.length)
-            })
-          })]
-        }), (0, _v1.jsxs)(_v7.Flex, {
-          position: "relative",
-          flexDirection: "column",
-          children: [_v6 || _v0.length || _v5 ? (0, _v1.jsx)(_v130, {
-            availableLogos: _v0,
-            currentLogoIndex: _v1,
-            originalIndex: _v2,
-            onLogoDelete: _v3,
-            errorMessage: _v5,
-            isLoading: _v6,
-            setCurrentLogoIndex: _v7,
-            shouldAnimate: _v8
-          }) : (0, _v1.jsx)(_v135, {}), (0, _v1.jsx)(_v119.FileInput, {
-            variant: "secondary",
-            accept: _v27.SUPPORTED_IMAGE_FILES,
-            onChange: _v0 => {
-              _v0.target?.files?.length && _v4(_v0.target.files[0]);
-            },
-            isDisabled: _v6,
-            label: (0, _v1.jsxs)(_v6.Center, {
-              width: {
-                base: (0, _v13.rem)(180),
-                md: (0, _v13.rem)(280)
-              },
-              gap: (0, _v13.rem)(8),
-              children: [(0, _v1.jsx)(_v104.Image, {}), (0, _v1.jsx)(_v51.Header, {
-                size: "xs",
-                children: _v34.default.Upload
-              })]
-            })
-          })]
-        })]
-      });
-    },
-    _v135 = () => (0, _v1.jsx)(_v7.Flex, {
-      mb: (0, _v13.rem)(14),
-      height: {
-        base: (0, _v13.rem)(63),
-        md: (0, _v13.rem)(139)
-      },
-      width: "100%",
-      backgroundSize: `${(0, _v13.rem)(16)} ${(0, _v13.rem)(16)}`,
-      backgroundPosition: `0 0, 0 ${(0, _v13.rem)(8)}, ${(0, _v13.rem)(8)} ${(0, _v13.rem)(-8)}, ${(0, _v13.rem)(-8)} 0`,
-      justifyContent: "center",
-      background: `repeating-conic-gradient(#dee4e9 0% 25%, transparent 0% 50%) 50% / ${(0, _v13.rem)(18)} ${(0, _v13.rem)(18)}`
-    }),
-    _v136 = ({
-      onSelectLogoSource: _v0,
-      onUnsetLogo: _v1,
-      setUploadFile: _v2,
-      setOriginalIndex: _v3,
-      selectedIndex: _v4,
-      originalIndex: _v5,
-      availableLogos: _v6,
-      isLoadingLogos: _v7,
-      errorMessage: _v8,
-      cacheKey: _v9,
-      onDelete: _v10,
-      uploadVariant: _v11,
-      onUploadClick: _v12
-    }) => {
-      let _v13 = (0, _v2.useRef)(_v6.length),
-        [_v14, _v15] = (0, _v2.useState)(!1);
-      (0, _v2.useEffect)(() => {
-        _v7 || _v14 || setTimeout(() => {
-          _v15(!0);
-        }, 500);
-      }, [_v4]);
-      let _v16 = (0, _v2.useCallback)(_v0 => {
-        if (null !== _v0) {
-          let _v0 = _v6[_v0];
-          _v0 && _v0(_v0);
-        }
-      }, [_v6]);
-      (0, _v2.useEffect)(() => {
-        _v13.current ? _v6.length ? _v13.current > _v6.length && (_v4 < _v5 && _v3(_v5 - 1), _v16(_v4 < _v6.length ? _v4 : _v4 - 1)) : _v1() : 1 === _v6.length && (_v3(-1), _v16(0)), _v13.current = _v6.length;
-      }, [_v6.length, _v1, _v5, _v16, _v4, _v3]);
-      let {
-        removeLogoFromCache: _v17
-      } = _v110(_v9);
-      return (0, _v1.jsx)(_v134, {
-        errorMessage: _v8,
-        isLoadingLogos: _v7,
-        onLogoDelete: _v0 => {
-          _v17(_v0), _v10?.(_v0);
-        },
-        availableLogos: _v6,
-        originalIndex: _v5,
-        currentLogoIndex: _v4,
-        setCurrentLogoIndex: _v16,
-        handleImageUpload: _v0 => {
-          _v2(_v0), _v15(!1);
-        },
-        shouldAnimate: _v14,
-        uploadVariant: _v11,
-        onUploadClick: _v12
-      });
-    };
-  var _v137 = _v0.i(0),
-    _v138 = _v0.i(0),
-    _v139 = _v0.i(0),
-    _v140 = _v0.i(0);
-  function _v141() {
+  var _v102 = _v0.i(0),
+    _v103 = _v0.i(0),
+    _v104 = _v0.i(0),
+    _v105 = _v0.i(0),
+    _v106 = _v0.i(0),
+    _v107 = _v0.i(0),
+    _v108 = _v0.i(0),
+    _v109 = _v0.i(0);
+  function _v110() {
     let {
       innerWidth: _v0,
       innerHeight: _v1
@@ -2994,11 +1567,11 @@
       isMobileOrTablet: _v0 <= _v27.TABLET_SIZE || document.body.clientWidth <= _v27.TABLET_SIZE
     };
   }
-  function _v142() {
-    let [_v0, _v1] = (0, _v2.useState)(_v141());
+  function _v111() {
+    let [_v0, _v1] = (0, _v2.useState)(_v110());
     return (0, _v2.useEffect)(() => {
       let _v0 = () => {
-        _v1(_v141());
+        _v1(_v110());
       };
       return window.addEventListener("resize", _v0), () => window.removeEventListener("resize", _v0);
     }, []), {
@@ -3006,7 +1579,7 @@
       canShowOverlay: () => !0
     };
   }
-  let _v143 = ({
+  let _v112 = ({
       selectedColor: _v0,
       handleOnChange: _v1,
       title: _v2,
@@ -3024,18 +1597,18 @@
           pr: (0, _v13.rem)(10),
           size: "md",
           children: _v0?.toUpperCase()
-        }), (0, _v1.jsx)(_v139.ColorPickerBrandKit, {
+        }), (0, _v1.jsx)(_v108.ColorPickerBrandKit, {
           onChange: _v1,
           color: _v0,
           onClose: () => _v3?.(_v0),
           productName: "registration",
-          children: (0, _v1.jsx)(_v146, {
+          children: (0, _v1.jsx)(_v115, {
             color: _v0
           })
         })]
       })]
     }),
-    _v144 = ({
+    _v113 = ({
       emailTemplate: _v0,
       emailToolBar: _v1,
       handleOnClick: _v2,
@@ -3053,7 +1626,7 @@
           } = (0, _v33.useConfigStore)(_v0 => _v0),
           [_v6, {
             data: _v7
-          }] = (0, _v140.useGetLeadCaptureResourceIdFormLazy)();
+          }] = (0, _v109.useGetLeadCaptureResourceIdFormLazy)();
         return (0, _v2.useEffect)(() => {
           _v4 && _v5 && _v6({
             where: {
@@ -3093,7 +1666,7 @@
           flexWrap: "wrap",
           mt: (0, _v13.rem)(20),
           ref: _v3,
-          children: _v4.map((_v0, _v1) => (0, _v1.jsx)(_v137.Tag, {
+          children: _v4.map((_v0, _v1) => (0, _v1.jsx)(_v106.Tag, {
             size: "md",
             onClick: () => (_v5[_v1], void _v2(_v0)),
             children: (0, _v1.jsx)(_v11.Paragraph, {
@@ -3105,7 +1678,7 @@
         })]
       });
     },
-    _v145 = ({
+    _v114 = ({
       title: _v0,
       values: _v1,
       selectedValue: _v2,
@@ -3116,7 +1689,7 @@
         windowDimensions: {
           width: _v5
         }
-      } = _v142();
+      } = _v111();
       return (0, _v1.jsxs)(_v7.Flex, {
         justifyContent: "space-between",
         alignItems: "center",
@@ -3129,7 +1702,7 @@
           flex: 1,
           children: (0, _v1.jsx)(_v5.Box, {
             width: "100%",
-            children: (0, _v1.jsx)(_v75.Select, {
+            children: (0, _v1.jsx)(_v105.Select, {
               size: "md",
               value: _v2 ? [_v2] : [],
               items: _v1.map(_v0 => ({
@@ -3139,18 +1712,18 @@
               onValueChange: _v0 => _v3(_v0.value[0]),
               children: _v0 => {
                 let _v1;
-                return (0, _v1.jsx)(_v75.SelectItem, {
+                return (0, _v1.jsx)(_v105.SelectItem, {
                   display: "flex",
                   pointerEvents: _v0.value === _v27.EMAIL_TEXT_STYLE.MIXED ? "none" : "all",
                   opacity: _v0.value === _v27.EMAIL_TEXT_STYLE.MIXED ? .5 : 1,
                   children: (0, _v1.jsxs)(_v7.Flex, {
                     alignItems: "center",
-                    children: [(0, _v1.jsx)(_v138.CheckmarkFilled, {
+                    children: [(0, _v1.jsx)(_v107.CheckmarkFilled, {
                       boxSize: (0, _v13.rem)(14),
                       mr: (0, _v13.rem)(10),
                       color: "blue.500",
                       visibility: _v2 === _v0.value ? "visible" : "hidden"
-                    }), (0, _v1.jsx)(_v75.SelectItemText, {
+                    }), (0, _v1.jsx)(_v105.SelectItemText, {
                       children: (_v1 = _v0.label, _v4 ? (0, _v2.createElement)(_v27.EMAIL_TEXT_STYLE_VALUES[_v1], null, _v34.default.EmailTextStyle[_v1]) : _v34.default.EmailTextSize[_v1])
                     })]
                   })
@@ -3161,7 +1734,7 @@
         })]
       });
     },
-    _v146 = ({
+    _v115 = ({
       color: _v0,
       ..._v1
     }) => (0, _v1.jsx)(_v5.Box, {
@@ -3177,9 +1750,9 @@
       ..._v1,
       children: _v1.children
     });
-  var _v147 = _v0.i(0),
-    _v148 = _v0.i(0);
-  let _v149 = ({
+  var _v116 = _v0.i(0),
+    _v117 = _v0.i(0);
+  let _v118 = ({
       inline: _v0 = !1
     } = {}) => {
       let {
@@ -3223,9 +1796,9 @@
           }));
         }, [_v2, _v18]),
         _v25 = (0, _v2.useCallback)(() => {
-          let _v0 = !_v16 || (0, _v96.isValidUrl)(_v16);
+          let _v0 = !_v16 || (0, _v89.isValidUrl)(_v16);
           if (_v6(_v0), _v0 || !_v16) {
-            let _v0 = _v16 ? (0, _v96.appendProtocol)(_v16) : "";
+            let _v0 = _v16 ? (0, _v89.appendProtocol)(_v16) : "";
             _v17(_v0), _v2({
               type: _v32.ACTION_TYPE.SET_FOOTER_POLICY,
               payload: _v0
@@ -3247,11 +1820,11 @@
         _v17(_v9), _v19(_v11), _v6(!0), _v8(!0);
       }, [_v15, _v3]);
       let _v27 = () => (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v150, {
-          children: [(0, _v1.jsx)(_v102.Text, {
+        children: [(0, _v1.jsxs)(_v119, {
+          children: [(0, _v1.jsx)(_v88.Text, {
             variant: "body-md",
             children: _v34.default.FooterReplayMail
-          }), (0, _v1.jsx)(_v148.Switch, {
+          }), (0, _v1.jsx)(_v117.Switch, {
             onChange: _v23(_v27.EMAIL_TOGGLE_MAP.FOOTER_REPLY_MAIL),
             size: "sm",
             isChecked: _v10,
@@ -3266,14 +1839,14 @@
             placeholder: "email@address.com",
             maxLength: _v27.EMAIL_MAX_LENGTH.LINK,
             value: _v18 || ""
-          }, "email-field"), (0, _v1.jsx)(_v93.FormErrorMessage, {
+          }, "email-field"), (0, _v1.jsx)(_v85.FormErrorMessage, {
             children: _v34.default.PleaseEnterValidEmail
           })]
-        }), (0, _v1.jsxs)(_v150, {
-          children: [(0, _v1.jsx)(_v102.Text, {
+        }), (0, _v1.jsxs)(_v119, {
+          children: [(0, _v1.jsx)(_v88.Text, {
             variant: "body-md",
             children: _v34.default.FooterCompanyAddress
-          }), (0, _v1.jsx)(_v148.Switch, {
+          }), (0, _v1.jsx)(_v117.Switch, {
             onChange: _v23(_v27.EMAIL_TOGGLE_MAP.FOOTER_COMPANY_ADDRESS),
             size: "sm",
             isChecked: _v12,
@@ -3297,11 +1870,11 @@
               maxCharacters: _v27.EMAIL_MAX_LENGTH.FOOTER_ADDRESS
             })
           })]
-        }), (0, _v1.jsxs)(_v150, {
-          children: [(0, _v1.jsx)(_v102.Text, {
+        }), (0, _v1.jsxs)(_v119, {
+          children: [(0, _v1.jsx)(_v88.Text, {
             variant: "body-md",
             children: _v34.default.FooterPolicyLink
-          }), (0, _v1.jsx)(_v148.Switch, {
+          }), (0, _v1.jsx)(_v117.Switch, {
             onChange: _v23(_v27.EMAIL_TOGGLE_MAP.FOOTER_POLICY_LINK),
             size: "sm",
             isChecked: _v14,
@@ -3316,7 +1889,7 @@
             placeholder: _v34.default.EnterValidURL,
             maxLength: _v27.EMAIL_MAX_LENGTH.LINK,
             value: _v16 || ""
-          }, "link-field"), (0, _v1.jsx)(_v93.FormErrorMessage, {
+          }, "link-field"), (0, _v1.jsx)(_v85.FormErrorMessage, {
             children: _v34.default.InvalidURL
           })]
         })]
@@ -3329,9 +1902,9 @@
           mb: (0, _v13.rem)(10),
           children: _v34.default.Footer
         }), _v27()]
-      }) : (0, _v1.jsxs)(_v99.Popover, {
+      }) : (0, _v1.jsxs)(_v92.Popover, {
         isOpen: _v3,
-        children: [(0, _v1.jsx)(_v147.PopoverTrigger, {
+        children: [(0, _v1.jsx)(_v116.PopoverTrigger, {
           children: (0, _v1.jsxs)(_v7.Flex, {
             cursor: "pointer",
             mt: (0, _v13.rem)(25),
@@ -3348,14 +1921,14 @@
               children: (0, _v1.jsx)(_v65.EditPencil, {})
             })]
           })
-        }), (0, _v1.jsx)(_v101.PopoverContent, {
+        }), (0, _v1.jsx)(_v94.PopoverContent, {
           children: (0, _v1.jsxs)(_v5.Box, {
             width: (0, _v13.rem)(320),
             pt: "px",
             pr: "lg",
             pb: "lg",
             ref: _v20,
-            children: [(0, _v1.jsx)(_v150, {
+            children: [(0, _v1.jsx)(_v119, {
               children: (0, _v1.jsx)(_v51.Header, {
                 size: "xs",
                 children: _v34.default.Footer
@@ -3365,7 +1938,7 @@
         })]
       });
     },
-    _v150 = _v0 => (0, _v1.jsx)(_v7.Flex, {
+    _v119 = _v0 => (0, _v1.jsx)(_v7.Flex, {
       justifyContent: "space-between",
       mb: (0, _v13.rem)(10),
       alignItems: "center",
@@ -3373,7 +1946,7 @@
       ..._v0,
       children: _v0.children
     }),
-    _v151 = () => {
+    _v120 = () => {
       let {
           emailState: _v0,
           dispatch: _v1
@@ -3388,47 +1961,50 @@
           sentRegistrationEmailLayoutChangeEvent: _v4
         } = (0, _v29.useAnalytics)(),
         _v5 = (0, _v33.useConfigStore)(_v0 => _v0.onNavigateToAttendeePage),
-        [_v6, _v7] = (0, _v2.useState)(!1),
+        _v6 = (0, _v33.useConfigStore)(_v0 => _v0.onNavigateToRegistrationDefaults),
+        _v7 = !!_v6 && _v3,
         [_v8, _v9] = (0, _v2.useState)(!1),
+        [_v10, _v11] = (0, _v2.useState)(!1),
         {
-          customLogoResponse: _v10,
-          customLogoResponseError: _v11,
-          originalIndex: _v12,
-          setOriginalIndex: _v13,
-          selectedLogoIndex: _v14,
-          isLoadingLogos: _v15
-        } = _v109(_v0),
-        _v16 = (0, _v2.useCallback)(_v0 => {
+          customLogoResponse: _v12,
+          customLogoResponseError: _v13,
+          originalIndex: _v14,
+          setOriginalIndex: _v15,
+          selectedLogoIndex: _v16,
+          isLoadingLogos: _v17,
+          ownerUserId: _v18
+        } = _v101(_v0),
+        _v19 = (0, _v2.useCallback)(_v0 => {
           _v1({
             type: _v32.ACTION_TYPE.SET_CUSTOM_LOGO_IMAGE,
-            payload: (0, _v108.getCustomLogoImagePayload)(_v0)
+            payload: (0, _v100.getCustomLogoImagePayload)(_v0)
           }), _v4({
             actionName: _v31.BP_ACTION_NAMES.LOGO_ADDED
           });
         }, [_v1]),
-        [_v17, _v18] = (0, _v2.useState)(),
+        [_v20, _v21] = (0, _v2.useState)(),
         {
-          isUploading: _v19
-        } = _v111(_v17, _v16, _v27.EMAIL_LOGOS_CACHE_KEY),
-        _v20 = () => _v1({
+          isUploading: _v22
+        } = (0, _v102.useTeamLogoUpload)(_v20, _v19, _v27.EMAIL_LOGOS_CACHE_KEY, _v18),
+        _v23 = () => _v1({
           type: _v32.ACTION_TYPE.SET_CUSTOM_LOGO_IMAGE,
           payload: {
             url: ""
           }
         }),
-        _v21 = !!_v0.customLogo?.url,
-        _v22 = () => {
-          _v2 && _v7(!0);
+        _v24 = !!_v0.customLogo?.url,
+        _v25 = () => {
+          _v2 && _v9(!0);
         },
-        _v23 = (0, _v2.useRef)(null),
-        [_v24, _v25] = (0, _v2.useState)(null),
-        [_v26, _v27] = (0, _v2.useState)(!1),
-        _v28 = () => _v23.current?.click(),
-        _v29 = () => _v25(null),
-        _v30 = (0, _v2.useRef)(!1);
+        _v26 = (0, _v2.useRef)(null),
+        [_v27, _v28] = (0, _v2.useState)(null),
+        [_v29, _v30] = (0, _v2.useState)(!1),
+        _v31 = () => _v26.current?.click(),
+        _v32 = () => _v28(null),
+        _v33 = (0, _v2.useRef)(!1);
       return (0, _v2.useEffect)(() => {
-        _v30.current && !_v19 && (_v25(null), _v27(!1)), _v30.current = _v19;
-      }, [_v19]), (0, _v1.jsxs)(_v92.Panel, {
+        _v33.current && !_v22 && (_v28(null), _v30(!1)), _v33.current = _v22;
+      }, [_v22]), (0, _v1.jsxs)(_v84.Panel, {
         isVisible: !0,
         background: "fill-surface",
         borderRadius: "md",
@@ -3438,7 +2014,7 @@
         sx: {
           minHeight: "100%"
         },
-        children: [(0, _v1.jsx)(_v92.PanelHeader, {
+        children: [(0, _v1.jsx)(_v84.PanelHeader, {
           px: (0, _v13.rem)(16),
           pt: (0, _v13.rem)(24),
           pb: (0, _v13.rem)(4),
@@ -3446,11 +2022,11 @@
             size: "md",
             children: _v34.default.General
           })
-        }), (0, _v1.jsxs)(_v92.PanelBody, {
+        }), (0, _v1.jsxs)(_v84.PanelBody, {
           px: (0, _v13.rem)(16),
           pt: 0,
           pb: (0, _v13.rem)(24),
-          children: [(0, _v1.jsx)(_v143, {
+          children: [(0, _v1.jsx)(_v112, {
             handleOnChange: _v0 => {
               (0, _v49.isValidHex)(_v0) && _v1({
                 type: _v32.ACTION_TYPE.SET_COLOR,
@@ -3468,13 +2044,13 @@
               size: "xs",
               mb: (0, _v13.rem)(10),
               children: _v34.default.Logo
-            }), (0, _v1.jsxs)(_v99.Popover, {
+            }), (0, _v1.jsxs)(_v92.Popover, {
               placement: "bottom-start",
               isLazy: !0,
-              isOpen: _v6,
-              onClose: () => _v7(!1),
-              children: [(0, _v1.jsx)(_v100.PopoverAnchor, {
-                children: _v21 ? (0, _v1.jsxs)(_v7.Flex, {
+              isOpen: _v8,
+              onClose: () => _v9(!1),
+              children: [(0, _v1.jsx)(_v93.PopoverAnchor, {
+                children: _v24 ? (0, _v1.jsxs)(_v7.Flex, {
                   align: "center",
                   gap: (0, _v13.rem)(12),
                   py: (0, _v13.rem)(8),
@@ -3487,8 +2063,8 @@
                   borderRadius: (0, _v13.rem)(12),
                   backgroundColor: "fill-surface",
                   cursor: _v2 ? "pointer" : "default",
-                  onClick: _v22,
-                  children: [(0, _v1.jsx)(_v98.Image, {
+                  onClick: _v25,
+                  children: [(0, _v1.jsx)(_v91.Image, {
                     src: _v0.customLogo?.url ?? void 0,
                     alt: _v34.default.Logo,
                     boxSize: (0, _v13.rem)(48),
@@ -3501,12 +2077,12 @@
                     minW: 0
                   }), (0, _v1.jsx)(_v53.IconButton, {
                     "aria-label": _v34.default.Remove,
-                    icon: (0, _v1.jsx)(_v103.CloseX, {}),
+                    icon: (0, _v1.jsx)(_v95.CloseX, {}),
                     variant: "tertiary",
                     size: "sm",
                     isDisabled: !_v2,
                     onClick: _v0 => {
-                      _v0.stopPropagation(), _v2 && _v20();
+                      _v0.stopPropagation(), _v2 && _v23();
                     }
                   })]
                 }) : (0, _v1.jsxs)(_v5.Box, {
@@ -3528,7 +2104,7 @@
                   cursor: _v2 ? "pointer" : "not-allowed",
                   opacity: _v2 ? 1 : .6,
                   disabled: !_v2,
-                  onClick: _v22,
+                  onClick: _v25,
                   children: [(0, _v1.jsx)(_v7.Flex, {
                     align: "center",
                     justify: "center",
@@ -3536,76 +2112,109 @@
                     borderRadius: (0, _v13.rem)(8),
                     backgroundColor: "fill-component",
                     flexShrink: 0,
-                    children: (0, _v1.jsx)(_v104.Image, {
+                    children: (0, _v1.jsx)(_v96.Image, {
                       color: "text-secondary"
                     })
                   }), (0, _v1.jsxs)(_v7.Flex, {
                     direction: "column",
                     gap: (0, _v13.rem)(2),
-                    children: [(0, _v1.jsx)(_v102.Text, {
+                    children: [(0, _v1.jsx)(_v88.Text, {
                       variant: "body-md",
                       fontFamily: "heading",
                       color: "text-primary",
                       children: _v34.default.SelectLogo
-                    }), (0, _v1.jsx)(_v102.Text, {
+                    }), (0, _v1.jsx)(_v88.Text, {
                       variant: "body-sm",
                       color: "text-secondary",
                       children: _v34.default.LogoFormatHint
                     })]
                   })]
                 })
-              }), (0, _v1.jsx)(_v101.PopoverContent, {
+              }), (0, _v1.jsx)(_v94.PopoverContent, {
                 borderRadius: "sm",
-                children: (0, _v1.jsx)(_v136, {
+                children: (0, _v1.jsx)(_v104.LogoPickerContainer, {
+                  ownerUserId: _v18,
                   uploadVariant: "image-uploader",
-                  onUploadClick: _v28,
-                  onUnsetLogo: _v20,
-                  onSelectLogoSource: _v16,
-                  selectedIndex: _v14 || 0,
-                  originalIndex: void 0 === _v12 ? -1 : _v12,
-                  setOriginalIndex: _v13,
-                  availableLogos: void 0 === _v14 || _v15 ? [] : _v10?.items,
-                  isLoadingLogos: _v15 || void 0 === _v14 || _v19,
-                  setUploadFile: _v18,
-                  errorMessage: _v11,
+                  onUploadClick: _v31,
+                  onUnsetLogo: _v23,
+                  onSelectLogoSource: _v19,
+                  selectedIndex: _v16 || 0,
+                  originalIndex: void 0 === _v14 ? -1 : _v14,
+                  setOriginalIndex: _v15,
+                  availableLogos: void 0 === _v16 || _v17 ? [] : _v12?.items,
+                  isLoadingLogos: _v17 || void 0 === _v16 || _v22,
+                  setUploadFile: _v21,
+                  errorMessage: _v13,
                   cacheKey: _v27.EMAIL_LOGOS_CACHE_KEY
                 })
               })]
             }), (0, _v1.jsx)("input", {
-              ref: _v23,
+              ref: _v26,
               type: "file",
               accept: _v27.SUPPORTED_IMAGE_FILES,
               hidden: !0,
               onChange: _v0 => {
                 let _v1 = _v0.target.files?.[0];
-                _v0.target.value = "", _v1 && (_v7(!1), _v25(_v1));
+                _v0.target.value = "", _v1 && (_v9(!1), _v28(_v1));
               }
-            }), (0, _v1.jsx)(_v118, {
-              file: _v24,
-              isSaving: _v26,
-              onChange: _v28,
-              onCancel: _v29,
+            }), (0, _v1.jsx)(_v103.LogoConfirmModal, {
+              file: _v27,
+              isSaving: _v29,
+              onChange: _v31,
+              onCancel: _v32,
               onSave: () => {
-                _v24 && (_v27(!0), _v18(_v24));
+                _v27 && (_v30(!0), _v21(_v27));
               },
-              onCloseComplete: _v29
+              onCloseComplete: _v32
             }), (0, _v1.jsx)(_v11.Paragraph, {
               size: "sm",
               color: "text-secondary",
               mt: (0, _v13.rem)(12),
-              children: (0, _v15.translate)("Set the default accent color and logo for new events in registration settings. Changes here apply to this event only.")
+              children: _v7 ? (0, _v15.translate)({
+                singular: "Set the default accent color and logo for new events in {LINK}registration settings{/LINK}. Changes here apply to this event only.",
+                replacements: {
+                  LINK: _v0 => (0, _v1.jsx)(_v10.Link, {
+                    textDecoration: "underline",
+                    onClick: () => _v6?.(),
+                    children: _v0
+                  })
+                },
+                dictionary: {
+                  es: {
+                    singular: "Establece el color de acento y el logotipo predeterminados para nuevos eventos en {LINK}ajustes de registro{/LINK}. Los cambios aquí se aplican únicamente a este evento."
+                  },
+                  "de-DE": {
+                    singular: "Legen Sie die Standardakzentfarbe und das Logo für neue Veranstaltungen in {LINK}registration settings{/LINK} fest. Änderungen hier gelten nur für diese Veranstaltung."
+                  },
+                  "fr-FR": {
+                    singular: "Définissez la couleur d’accent par défaut et le logo pour les nouveaux événements dans {LINK}paramètres d’inscription{/LINK}. Les modifications apportées ici s’appliquent uniquement à cet événement."
+                  },
+                  "ja-JP": {
+                    singular: "新しいイベントのデフォルトのアクセントカラーとロゴを{LINK}登録設定{/LINK}で設定します。ここでの変更はこのイベントにのみ適用されます。"
+                  },
+                  "ko-KR": {
+                    singular: "새 이벤트의 기본 강조 색상과 로고를 {LINK}등록 설정{/LINK}에서 설정하세요. 여기에서의 변경 사항은 이 이벤트에만 적용됩니다."
+                  },
+                  "pt-BR": {
+                    singular: "Defina a cor de destaque e o logotipo padrão para novos eventos nas {LINK}configurações de inscrição{/LINK}. As alterações aqui se aplicam apenas a este evento."
+                  },
+                  "zh-CN": {
+                    singular: "在 {LINK}注册设置{/LINK} 中为新活动设置默认强调色和徽标. 此处的更改仅适用于此活动."
+                  }
+                }
+              }) : (0, _v15.translate)("Set the default accent color and logo for new events in registration settings. Changes here apply to this event only.")
             })]
           }), _v3 && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v5.Box, {
               borderTop: `${(0, _v13.rem)(1)} solid`,
               borderColor: "stroke",
               mt: (0, _v13.rem)(24)
-            }), (0, _v1.jsx)(_v149, {
+            }), (0, _v1.jsx)(_v118, {
               inline: !0
             })]
-          }), !_v3 && !_v8 && (0, _v1.jsx)(_v3.Alert, {
+          }), !_v3 && !_v10 && (0, _v1.jsx)(_v3.Alert, {
             mt: (0, _v13.rem)(20),
-            onClose: () => _v9(!0),
+            onClose: () => _v11(!0),
             children: (0, _v1.jsx)(_v4.AlertDescription, {
               children: (0, _v15.translate)({
                 singular: "Text customization is currently unavailable. If you prefer to send an email on your own, you can {LINK}export the list of attendees{/LINK}.",
@@ -3644,8 +2253,8 @@
         })]
       });
     };
-  var _v152 = _v0.i(0);
-  let _v153 = () => {
+  var _v121 = _v0.i(0);
+  let _v122 = () => {
       let {
           emailState: _v0,
           dispatch: _v1
@@ -3674,20 +2283,21 @@
           originalIndex: _v18,
           setOriginalIndex: _v19,
           selectedLogoIndex: _v20,
-          isLoadingLogos: _v21
-        } = _v109(_v0),
-        _v22 = (0, _v2.useCallback)(_v0 => {
+          isLoadingLogos: _v21,
+          ownerUserId: _v22
+        } = _v101(_v0),
+        _v23 = (0, _v2.useCallback)(_v0 => {
           _v1({
             type: _v32.ACTION_TYPE.SET_CUSTOM_LOGO_IMAGE,
-            payload: (0, _v108.getCustomLogoImagePayload)(_v0)
+            payload: (0, _v100.getCustomLogoImagePayload)(_v0)
           }), _v15({
             actionName: _v31.BP_ACTION_NAMES.LOGO_ADDED
           });
         }, [_v1]),
-        [_v23, _v24] = (0, _v2.useState)(),
+        [_v24, _v25] = (0, _v2.useState)(),
         {
-          isUploading: _v25
-        } = _v111(_v23, _v22, _v27.EMAIL_LOGOS_CACHE_KEY);
+          isUploading: _v26
+        } = (0, _v102.useTeamLogoUpload)(_v24, _v23, _v27.EMAIL_LOGOS_CACHE_KEY, _v22);
       return (0, _v2.useEffect)(() => {
         _v13(!_v11);
       }, [_v11]), (0, _v1.jsxs)(_v1.Fragment, {
@@ -3736,7 +2346,7 @@
               })
             })]
           })]
-        }), (0, _v1.jsx)(_v143, {
+        }), (0, _v1.jsx)(_v112, {
           handleOnChange: _v0 => {
             (0, _v49.isValidHex)(_v0) && _v1 && _v1({
               type: _v32.ACTION_TYPE.SET_COLOR,
@@ -3760,11 +2370,11 @@
           children: [(0, _v1.jsx)(_v51.Header, {
             size: "xs",
             children: _v34.default.Logo
-          }), (0, _v1.jsxs)(_v99.Popover, {
+          }), (0, _v1.jsxs)(_v92.Popover, {
             placement: "bottom-start",
             isLazy: !0,
             isOpen: _v7,
-            children: [(0, _v1.jsx)(_v147.PopoverTrigger, {
+            children: [(0, _v1.jsx)(_v116.PopoverTrigger, {
               children: (0, _v1.jsx)("div", {
                 ref: _v9,
                 children: _v0.customLogo?.url ? (0, _v1.jsx)(_v5.Box, {
@@ -3794,36 +2404,37 @@
                     mr: (0, _v13.rem)(10),
                     size: "md",
                     children: _v34.default.Add
-                  }), (0, _v1.jsx)(_v152.PlusCircle, {
+                  }), (0, _v1.jsx)(_v121.PlusCircle, {
                     boxSize: (0, _v13.rem)(28)
                   })]
                 })
               })
-            }), (0, _v1.jsx)(_v101.PopoverContent, {
+            }), (0, _v1.jsx)(_v94.PopoverContent, {
               borderRadius: "sm",
               children: (0, _v1.jsx)("div", {
                 ref: _v10,
-                children: (0, _v1.jsx)(_v136, {
+                children: (0, _v1.jsx)(_v104.LogoPickerContainer, {
+                  ownerUserId: _v22,
                   onUnsetLogo: () => _v1({
                     type: _v32.ACTION_TYPE.SET_CUSTOM_LOGO_IMAGE,
                     payload: {
                       url: ""
                     }
                   }),
-                  onSelectLogoSource: _v22,
+                  onSelectLogoSource: _v23,
                   selectedIndex: _v20 || 0,
                   originalIndex: void 0 === _v18 ? -1 : _v18,
                   setOriginalIndex: _v19,
                   availableLogos: void 0 === _v20 || _v21 ? [] : _v16?.items,
-                  isLoadingLogos: _v21 || void 0 === _v20 || _v25,
-                  setUploadFile: _v24,
+                  isLoadingLogos: _v21 || void 0 === _v20 || _v26,
+                  setUploadFile: _v25,
                   errorMessage: _v17,
                   cacheKey: _v27.EMAIL_LOGOS_CACHE_KEY
                 })
               })
             })]
           })]
-        }), _v11 && (0, _v1.jsx)(_v149, {}), _v12 && (0, _v1.jsx)(_v3.Alert, {
+        }), _v11 && (0, _v1.jsx)(_v118, {}), _v12 && (0, _v1.jsx)(_v3.Alert, {
           mt: (0, _v13.rem)(20),
           onClose: () => _v13(!1),
           children: (0, _v1.jsx)(_v4.AlertDescription, {
@@ -3863,7 +2474,7 @@
         })]
       });
     },
-    _v154 = ({
+    _v123 = ({
       dynamicTagRef: _v0
     }) => {
       let {
@@ -3879,7 +2490,7 @@
           size: "md",
           mb: (0, _v13.rem)(5),
           children: _v34.default.SubjectGeneral
-        }), (0, _v1.jsx)(_v144, {
+        }), (0, _v1.jsx)(_v113, {
           emailTemplate: _v1.emailTemplateType,
           emailToolBar: _v27.EMAIL_TOOLBAR_TYPES.SUBJECT,
           handleOnClick: _v0 => {
@@ -3908,14 +2519,14 @@
         })]
       });
     };
-  var _v155 = _v0.i(0),
-    _v156 = _v0.i(0),
-    _v157 = _v0.i(0),
-    _v158 = _v0.i(0),
-    _v159 = _v0.i(0),
-    _v160 = _v0.i(0),
-    _v161 = _v0.i(0);
-  let _v162 = _v0 => {
+  var _v124 = _v0.i(0),
+    _v125 = _v0.i(0),
+    _v126 = _v0.i(0),
+    _v127 = _v0.i(0),
+    _v128 = _v0.i(0),
+    _v129 = _v0.i(0),
+    _v130 = _v0.i(0);
+  let _v131 = _v0 => {
       let {
         LEFT: _v1,
         CENTER: _v2,
@@ -3929,7 +2540,7 @@
         textAlign: _v3
       }) ? _v3 : null;
     },
-    _v163 = ({
+    _v132 = ({
       editorStates: _v0
     }) => {
       let {
@@ -3947,7 +2558,7 @@
         } = (0, _v29.useAnalytics)(),
         _v8 = _v4 === _v27.EMAIL_TOOLBAR_TYPES.BODY || _v4 === _v27.EMAIL_TOOLBAR_TYPES.TITLE,
         _v9 = _v8 ? _v0[_v5][_v4] : null,
-        _v10 = _v162(_v9),
+        _v10 = _v131(_v9),
         _v11 = (_v0 => {
           let {
             NUMBERED: _v1,
@@ -4004,14 +2615,14 @@
         windowDimensions: {
           width: _v26
         }
-      } = _v142();
+      } = _v111();
       (0, _v2.useEffect)(() => {
         _v17(!1), _v22(!1);
       }, [_v26]);
       let _v27 = _v0 => () => {
           let _v0 = "",
             _v1 = _v13 ? _v9?.chain().selectAll().focus() : _v9?.chain().focus();
-          _v162(_v9) === _v0 ? _v1?.unsetTextAlign().run() : (_v0 = _v0, _v1?.setTextAlign(_v0).run()), _v2({
+          _v131(_v9) === _v0 ? _v1?.unsetTextAlign().run() : (_v0 = _v0, _v1?.setTextAlign(_v0).run()), _v2({
             type: _v4 === _v27.EMAIL_TOOLBAR_TYPES.TITLE ? _v32.ACTION_TYPE.SET_HEADER_TEXT_ALIGN : _v32.ACTION_TYPE.SET_BODY_TEXT_ALIGN,
             payload: {
               text: _v0,
@@ -4064,7 +2675,7 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v145, {
+        }), (0, _v1.jsx)(_v114, {
           title: _v34.default.Size,
           isActive: _v21,
           handleDropDownClick: () => _v22(!_v21),
@@ -4083,7 +2694,7 @@
             let _v1 = _v13 ? _v9?.chain().selectAll().focus() : _v9?.chain().focus();
             _v1?.setFontSize(_v27.EMAIL_TEXT_SIZE_VALUES[_v0]).run(), _v22(!1);
           }
-        }), (0, _v1.jsx)(_v145, {
+        }), (0, _v1.jsx)(_v114, {
           title: _v34.default.Style,
           isActive: _v16,
           handleDropDownClick: () => _v17(!_v16),
@@ -4128,18 +2739,18 @@
                 "aria-label": "align left",
                 variant: _v10 === _v27.EMAIL_TEXT_FORMAT.LEFT ? "secondary" : "tertiary",
                 onClick: _v27(_v27.EMAIL_TEXT_FORMAT.LEFT),
-                icon: (0, _v1.jsx)(_v157.AlignLeft, {})
+                icon: (0, _v1.jsx)(_v126.AlignLeft, {})
               }), (0, _v1.jsx)(_v53.IconButton, {
                 "aria-label": "align center",
                 variant: _v10 === _v27.EMAIL_TEXT_FORMAT.CENTER ? "secondary" : "tertiary",
                 onClick: _v27(_v27.EMAIL_TEXT_FORMAT.CENTER),
-                icon: (0, _v1.jsx)(_v156.AlignCenter, {})
+                icon: (0, _v1.jsx)(_v125.AlignCenter, {})
               }), (0, _v1.jsx)(_v53.IconButton, {
                 "aria-label": "align right",
                 variant: _v10 === _v27.EMAIL_TEXT_FORMAT.RIGHT ? "secondary" : "tertiary",
                 onClick: _v27(_v27.EMAIL_TEXT_FORMAT.RIGHT),
-                icon: (0, _v1.jsx)(_v158.AlignRight, {})
-              }), (0, _v1.jsx)(_v155.Divider, {
+                icon: (0, _v1.jsx)(_v127.AlignRight, {})
+              }), (0, _v1.jsx)(_v124.Divider, {
                 display: {
                   base: "none",
                   "2xl": "block"
@@ -4154,16 +2765,16 @@
                 "aria-label": "bullet points",
                 variant: _v11 === _v27.EMAIL_LIST_FORMAT.BULLETED ? "secondary" : "tertiary",
                 onClick: _v28(_v27.EMAIL_LIST_FORMAT.BULLETED),
-                icon: (0, _v1.jsx)(_v159.ListUl, {})
+                icon: (0, _v1.jsx)(_v128.ListUl, {})
               }), (0, _v1.jsx)(_v53.IconButton, {
                 "aria-label": "number points",
                 variant: _v11 === _v27.EMAIL_LIST_FORMAT.NUMBERED ? "secondary" : "tertiary",
                 onClick: _v28(_v27.EMAIL_LIST_FORMAT.NUMBERED),
-                icon: (0, _v1.jsx)(_v160.NumberedList, {})
+                icon: (0, _v1.jsx)(_v129.NumberedList, {})
               })]
             })]
           })]
-        }), (0, _v1.jsx)(_v143, {
+        }), (0, _v1.jsx)(_v112, {
           handleOnChange: _v0 => {
             let _v1 = _v8 ? _v0[_v5][_v4] : null;
             if (_v1) {
@@ -4171,7 +2782,7 @@
               _v1.state.selection.empty && _v14.from !== _v14.to && _v0.setTextSelection(_v14), _v0.run();
             }
           },
-          selectedColor: (0, _v161.convertColorToHex)(_v12),
+          selectedColor: (0, _v130.convertColorToHex)(_v12),
           title: _v34.default.Color,
           onSubmit: _v0 => {
             _v2({
@@ -4182,9 +2793,9 @@
               }
             });
           }
-        }), (0, _v1.jsx)(_v155.Divider, {
+        }), (0, _v1.jsx)(_v124.Divider, {
           mt: (0, _v13.rem)(30)
-        }), (0, _v1.jsx)(_v144, {
+        }), (0, _v1.jsx)(_v113, {
           emailTemplate: _v5,
           emailToolBar: _v4,
           handleOnClick: _v0 => {
@@ -4196,7 +2807,7 @@
         })]
       });
     },
-    _v164 = ({
+    _v133 = ({
       editorStates: _v0,
       dynamicTagRef: _v1
     }) => {
@@ -4207,7 +2818,7 @@
           settings: _v3
         } = (0, _v19.useOrionSettings)(),
         _v4 = _v3.enable_email_section_redesign,
-        _v5 = _v0 => _v4 ? (0, _v1.jsx)(_v92.Panel, {
+        _v5 = _v0 => _v4 ? (0, _v1.jsx)(_v84.Panel, {
           isVisible: !0,
           background: "fill-surface",
           borderRadius: "md",
@@ -4217,7 +2828,7 @@
           sx: {
             minHeight: "100%"
           },
-          children: (0, _v1.jsx)(_v92.PanelBody, {
+          children: (0, _v1.jsx)(_v84.PanelBody, {
             px: (0, _v13.rem)(16),
             pt: (0, _v13.rem)(24),
             pb: (0, _v13.rem)(24),
@@ -4231,23 +2842,23 @@
           md: `${(0, _v13.rem)(26)}`
         },
         children: {
-          [_v27.EMAIL_TOOLBAR_TYPES.GENERAL]: _v4 ? (0, _v1.jsx)(_v151, {}) : (0, _v1.jsx)(_v153, {}),
-          [_v27.EMAIL_TOOLBAR_TYPES.BUTTON]: _v5((0, _v1.jsx)(_v97, {})),
-          [_v27.EMAIL_TOOLBAR_TYPES.TITLE]: _v5((0, _v1.jsx)(_v163, {
+          [_v27.EMAIL_TOOLBAR_TYPES.GENERAL]: _v4 ? (0, _v1.jsx)(_v120, {}) : (0, _v1.jsx)(_v122, {}),
+          [_v27.EMAIL_TOOLBAR_TYPES.BUTTON]: _v5((0, _v1.jsx)(_v90, {})),
+          [_v27.EMAIL_TOOLBAR_TYPES.TITLE]: _v5((0, _v1.jsx)(_v132, {
             editorStates: _v0
           })),
-          [_v27.EMAIL_TOOLBAR_TYPES.BODY]: _v5((0, _v1.jsx)(_v163, {
+          [_v27.EMAIL_TOOLBAR_TYPES.BODY]: _v5((0, _v1.jsx)(_v132, {
             editorStates: _v0
           })),
-          [_v27.EMAIL_TOOLBAR_TYPES.SUBJECT]: _v5((0, _v1.jsx)(_v154, {
+          [_v27.EMAIL_TOOLBAR_TYPES.SUBJECT]: _v5((0, _v1.jsx)(_v123, {
             dynamicTagRef: _v1
           }))
         }[_v2.emailToolbar]
       });
     };
-  var _v165 = _v0.i(0),
-    _v166 = _v0.i(0);
-  let _v167 = ({
+  var _v134 = _v0.i(0),
+    _v135 = _v0.i(0);
+  let _v136 = ({
       clearAllTextSelections: _v0
     }) => {
       let {
@@ -4271,7 +2882,7 @@
       return (0, _v1.jsxs)(_v7.Flex, {
         gap: (0, _v13.rem)(4),
         children: [(0, _v1.jsx)(_v53.IconButton, {
-          icon: (0, _v1.jsx)(_v165.Desktop, {}),
+          icon: (0, _v1.jsx)(_v134.Desktop, {}),
           "aria-label": (0, _v15.translate)({
             singular: "Desktop preview",
             dictionary: {
@@ -4302,7 +2913,7 @@
           variant: _v1.previewMode === _v27.EMAIL_PREVIEW_MODE.WEB ? "secondary" : "tertiary",
           onClick: () => _v4(_v27.EMAIL_PREVIEW_MODE.WEB)
         }), (0, _v1.jsx)(_v53.IconButton, {
-          icon: (0, _v1.jsx)(_v166.MobilePhone, {}),
+          icon: (0, _v1.jsx)(_v135.MobilePhone, {}),
           "aria-label": (0, _v15.translate)({
             singular: "Mobile preview",
             dictionary: {
@@ -4335,7 +2946,7 @@
         })]
       });
     },
-    _v168 = () => {
+    _v137 = () => {
       let [_v0, _v1] = (0, _v2.useState)(!1),
         {
           emailState: _v2,
@@ -4494,7 +3105,7 @@
             maxWidth: (0, _v13.rem)(400),
             background: "fill-surface",
             borderRadius: "xl",
-            children: (0, _v1.jsx)(_v89, {})
+            children: (0, _v1.jsx)(_v81, {})
           }), (0, _v1.jsx)(_v5.Box, {
             flex: 5,
             maxWidth: (0, _v13.rem)(0),
@@ -4521,7 +3132,7 @@
                   justifyContent: "space-between",
                   alignItems: "center",
                   mb: "lg",
-                  children: [(0, _v1.jsx)(_v167, {
+                  children: [(0, _v1.jsx)(_v136, {
                     clearAllTextSelections: _v34
                   }), (0, _v1.jsx)(_v50, {
                     clearAllTextSelections: _v34
@@ -4581,7 +3192,7 @@
                       color: "text-secondary",
                       size: "md",
                       children: _v34.default.Subject
-                    }), (0, _v1.jsx)(_v169, {
+                    }), (0, _v1.jsx)(_v138, {
                       isDisabled: !_v10,
                       showHoverState: !!_v10,
                       children: _v8
@@ -4646,7 +3257,7 @@
                       color: "text-secondary",
                       size: "md",
                       children: _v34.default.From
-                    }), (0, _v1.jsx)(_v169, {
+                    }), (0, _v1.jsx)(_v138, {
                       isDisabled: !_v10,
                       showHoverState: !!_v10,
                       onClick: () => {
@@ -4766,7 +3377,7 @@
                       transition: "0.5s",
                       p: _v2.previewMode === _v27.EMAIL_PREVIEW_MODE.WEB ? `${(0, _v13.rem)(22)} ${(0, _v13.rem)(95)} ${(0, _v13.rem)(45)}` : `${(0, _v13.rem)(22)} ${(0, _v13.rem)(20)} ${(0, _v13.rem)(45)}`,
                       width: _v2.previewMode === _v27.EMAIL_PREVIEW_MODE.WEB ? "90%" : "100%",
-                      children: (0, _v1.jsx)(_v90.EmailTemplate, {
+                      children: (0, _v1.jsx)(_v82.EmailTemplate, {
                         editorStates: _v6,
                         canEdit: _v10
                       })
@@ -4786,7 +3397,7 @@
                         type: _v32.ACTION_TYPE.SET_EMAIL_TOOL_BAR,
                         payload: _v27.EMAIL_TOOLBAR_TYPES.GENERAL
                       }),
-                      children: (0, _v1.jsx)(_v91, {})
+                      children: (0, _v1.jsx)(_v83, {})
                     })]
                   })]
                 })
@@ -4800,7 +3411,7 @@
             maxWidth: (0, _v13.rem)(400),
             background: "fill-surface",
             borderRadius: "xl",
-            children: (0, _v1.jsx)(_v164, {
+            children: (0, _v1.jsx)(_v133, {
               editorStates: _v6,
               dynamicTagRef: _v30
             })
@@ -4808,7 +3419,7 @@
         })
       });
     },
-    _v169 = _v0 => (0, _v1.jsx)(_v5.Box, {
+    _v138 = _v0 => (0, _v1.jsx)(_v5.Box, {
       ml: (0, _v13.rem)(18),
       wordBreak: "break-all",
       fontSize: "body-md",
@@ -4823,44 +3434,46 @@
       ..._v0,
       children: _v0.children
     });
-  var _v170 = _v0.i(0);
+  var _v139 = _v0.i(0);
   _v0.s(["LeadEmail", 0, ({
     entityId: _v0,
     entityType: _v1,
     onAutoSave: _v2,
     onNavigateToAttendeePage: _v3,
-    isRegistrationOn: _v4,
-    hasUpsell: _v5,
-    canCompleteEvent: _v6,
-    setCanRedo: _v7,
-    setCanUndo: _v8,
-    onSaveStateChange: _v9
+    onNavigateToRegistrationDefaults: _v4,
+    isRegistrationOn: _v5,
+    hasUpsell: _v6,
+    canCompleteEvent: _v7,
+    setCanRedo: _v8,
+    setCanUndo: _v9,
+    onSaveStateChange: _v10
   }) => {
-    let _v10 = (0, _v2.useCallback)(_v0 => {
+    let _v11 = (0, _v2.useCallback)(_v0 => {
         _v2 && _v2(_v0);
       }, [_v0, _v1]),
-      _v11 = (0, _v2.useCallback)(() => {
+      _v12 = (0, _v2.useCallback)(() => {
         _v3 && _v3();
       }, [_v0, _v1]);
     return ((0, _v2.useEffect)(() => {
       _v33.useConfigStore.setState({
         entityId: _v0,
         entityType: _v1,
-        isRegistrationOn: _v4,
-        hasUpsell: _v5,
-        canCompleteEvent: _v6,
-        onAutoSave: _v10,
-        onNavigateToAttendeePage: _v11,
-        setCanRedo: _v7,
-        setCanUndo: _v8
+        isRegistrationOn: _v5,
+        hasUpsell: _v6,
+        canCompleteEvent: _v7,
+        onAutoSave: _v11,
+        onNavigateToAttendeePage: _v12,
+        onNavigateToRegistrationDefaults: _v4,
+        setCanRedo: _v8,
+        setCanUndo: _v9
       });
-    }, [_v0, _v1, _v4, _v5, _v6, _v10, _v11, _v7, _v8]), _v0 && _v1) ? (0, _v1.jsx)(_v25.default, {
+    }, [_v0, _v1, _v5, _v6, _v7, _v11, _v12, _v4, _v8, _v9]), _v0 && _v1) ? (0, _v1.jsx)(_v25.default, {
       children: (0, _v1.jsx)(_v28.default, {
         children: (0, _v1.jsx)(_v22.default, {
           children: (0, _v1.jsx)(_v73.default, {
-            onSaveStateChange: _v9,
-            children: (0, _v1.jsx)(_v170.UndoRedoContextProvider, {
-              children: (0, _v1.jsx)(_v168, {})
+            onSaveStateChange: _v10,
+            children: (0, _v1.jsx)(_v139.UndoRedoContextProvider, {
+              children: (0, _v1.jsx)(_v137, {})
             })
           })
         })

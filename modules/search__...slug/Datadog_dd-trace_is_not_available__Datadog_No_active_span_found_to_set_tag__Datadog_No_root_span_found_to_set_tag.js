@@ -178,6 +178,7 @@
       ask_ai: 0,
       like: 0,
       share: 0,
+      embed: 0,
       watch_later: 0,
       badge: 0,
       byline: 0,

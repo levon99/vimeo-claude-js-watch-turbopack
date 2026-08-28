@@ -115,6 +115,7 @@
 - https://vimeo.com/manage/organization/usage
 - https://vimeo.com/manage/organization/workspaces
 - https://vimeo.com/manage/registration
+- https://vimeo.com/manage/registration/email-defaults
 - https://vimeo.com/manage/showcase-ui/[...slug]
 - https://vimeo.com/manage/showcases/[...slug]
 - https://vimeo.com/manage/team/basics
@@ -170,6 +171,7 @@
 - https://vimeo.com/manage/workspace/members/[member_id]/team-library/folders/[folder_id]
 - https://vimeo.com/manage/workspace/presets
 - https://vimeo.com/manage/workspace/registration
+- https://vimeo.com/manage/workspace/registration/email-defaults
 - https://vimeo.com/manage/workspace/security-and-data
 - https://vimeo.com/manage/workspace/security-and-data/audit-logs
 - https://vimeo.com/manage/workspace/security-and-data/clip-extension
