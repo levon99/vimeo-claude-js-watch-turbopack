@@ -242,7 +242,9 @@
   "true" === _v18.default.env.STORYBOOK && (0, _v19.assignMswData)(_v25, {
     endpoint: "/users/:userId/report",
     method: "POST"
-  }), _v0.s(["useUserReport", 0, function ({
+  });
+  var _v26 = _v0.i(0);
+  _v0.s(["useUserReport", 0, function ({
     userId: _v0,
     onClose: _v1,
     onSubmitted: _v2
@@ -275,7 +277,8 @@
                 variables: {
                   reason: _v0,
                   block: _v1,
-                  optOutOfCommunications: _v1
+                  optOutOfCommunications: _v1,
+                  source: (0, _v26.reportSourceHint)()
                 }
               });
             },

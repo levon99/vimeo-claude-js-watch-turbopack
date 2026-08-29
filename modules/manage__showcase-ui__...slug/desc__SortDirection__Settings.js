@@ -2194,19 +2194,22 @@
         singular: "On",
         dictionary: {
           es: {
-            singular: "No"
+            singular: "Activado"
           },
           "de-DE": {
             singular: "An"
           },
           "fr-FR": {
-            singular: "Actif"
+            singular: "Activé"
+          },
+          "ja-JP": {
+            singular: "オン"
           },
           "ko-KR": {
-            singular: "켜기"
+            singular: "켜짐"
           },
           "pt-BR": {
-            singular: "Em, Na, No"
+            singular: "Ligado"
           },
           "zh-CN": {
             singular: "开启"
@@ -2223,16 +2226,16 @@
             singular: "Aus"
           },
           "fr-FR": {
-            singular: "Inactif"
+            singular: "Désactivé"
           },
           "ja-JP": {
             singular: "オフ"
           },
           "ko-KR": {
-            singular: "해제"
+            singular: "꺼짐"
           },
           "pt-BR": {
-            singular: "Desligar"
+            singular: "Desligado"
           },
           "zh-CN": {
             singular: "关闭"

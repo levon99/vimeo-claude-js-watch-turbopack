@@ -603,11 +603,122 @@
           execute: _v6
         } = _v42(_v29),
         _v7 = _v49();
-      if ((0, _v3.useEffect)(() => {
+      (0, _v3.useEffect)(() => {
         _v3.home || _v6().then(_v0 => {
           _v0 && _v2("home", _v0);
         });
-      }, [_v3.home, _v6, _v2]), _v4 || !_v3.home) return (0, _v1.jsxs)(_v19.Box, {
+      }, [_v3.home, _v6, _v2]);
+      let _v8 = (0, _v1.jsxs)(_v4.Flex, {
+        direction: "column",
+        gap: "xs",
+        mt: 5,
+        children: [(0, _v1.jsx)(_v20.Text, {
+          variant: "heading-xs",
+          children: (0, _v18.translate)({
+            singular: "Contact support",
+            dictionary: {
+              es: {
+                singular: "Contactar con soporte"
+              },
+              "de-DE": {
+                singular: "Support kontaktieren"
+              },
+              "fr-FR": {
+                singular: "Contacter le support"
+              },
+              "ja-JP": {
+                singular: "サポートにお問い合わせください"
+              },
+              "ko-KR": {
+                singular: "지원팀에 문의"
+              },
+              "pt-BR": {
+                singular: "Contate o suporte"
+              },
+              "zh-CN": {
+                singular: "联系客服"
+              }
+            }
+          })
+        }), (0, _v1.jsxs)(_v20.Text, {
+          variant: "body-md",
+          children: [(0, _v18.translate)({
+            singular: "Can't find what you're looking for?",
+            dictionary: {
+              es: {
+                singular: "¿No encuentra lo que está buscando?"
+              },
+              "de-DE": {
+                singular: "Sie finden nicht, wonach Sie suchen?"
+              },
+              "fr-FR": {
+                singular: "Vous ne trouvez pas ce que vous cherchez ?"
+              },
+              "ja-JP": {
+                singular: "お探しのものが見つかりませんか?"
+              },
+              "ko-KR": {
+                singular: "원하시는 항목을 찾을 수 없나요?"
+              },
+              "pt-BR": {
+                singular: "Não encontra o que está procurando?"
+              },
+              "zh-CN": {
+                singular: "找不到您想要的内容？"
+              }
+            }
+          }), " ", " ", (0, _v1.jsx)(_v20.Text, {
+            as: "a",
+            href: "https://vimeo.com/help/contact",
+            target: "_blank",
+            rel: "noopener noreferrer",
+            color: "text/secondary",
+            textDecoration: "underline",
+            _hover: {
+              color: "text/primary"
+            },
+            onClick: () => _v7({
+              eventName: "vimeo.in_app_support_panel_button_click",
+              element: "button",
+              copy: "contact us"
+            }),
+            children: (0, _v18.translate)({
+              singular: "Contact us",
+              dictionary: {
+                es: {
+                  singular: "Contáctenos"
+                },
+                "de-DE": {
+                  singular: "Kontaktieren Sie uns"
+                },
+                "fr-FR": {
+                  singular: "Contactez-nous"
+                },
+                "ja-JP": {
+                  singular: "お問い合わせ"
+                },
+                "ko-KR": {
+                  singular: "문의하기"
+                },
+                "pt-BR": {
+                  singular: "Entre em contato conosco"
+                },
+                "zh-CN": {
+                  singular: "联系我们"
+                }
+              }
+            })
+          })]
+        })]
+      });
+      if (_v5) return (0, _v1.jsxs)(_v19.Box, {
+        children: [(0, _v1.jsx)(_v19.Box, {
+          p: 4,
+          color: "status-destructive-primary",
+          children: "Failed to load help content. Please try again."
+        }), _v8]
+      });
+      if (_v4 || !_v3.home) return (0, _v1.jsxs)(_v19.Box, {
         gap: 4,
         width: "100%",
         children: [(0, _v1.jsx)(_v55.Skeleton, {
@@ -638,21 +749,16 @@
           })]
         })]
       });
-      if (_v5) return (0, _v1.jsx)(_v19.Box, {
-        p: 4,
-        color: "status-destructive-primary",
-        children: "Failed to load help content. Please try again."
-      });
       let {
-        categories: _v8,
-        featured: _v9
+        categories: _v9,
+        featured: _v10
       } = _v3.home;
       return (0, _v1.jsxs)(_v19.Box, {
         children: [(0, _v1.jsx)(_v54.Grid, {
           templateColumns: "repeat(2, 1fr)",
           gap: 3,
           p: "3px",
-          children: _v8.map(_v0 => (0, _v1.jsxs)(_v4.Flex, {
+          children: _v9.map(_v0 => (0, _v1.jsxs)(_v4.Flex, {
             as: _v22.Button,
             variant: "tertiary",
             direction: "column",
@@ -682,7 +788,7 @@
               children: _v0.title
             })]
           }, _v0.id))
-        }), (0, _v1.jsxs)(_v4.Flex, {
+        }), _v8, (0, _v1.jsxs)(_v4.Flex, {
           direction: "column",
           gap: 1,
           mt: 5,
@@ -690,7 +796,7 @@
             variant: "heading-xs",
             mb: 8,
             children: "Featured articles"
-          }), _v9.map(_v0 => (0, _v1.jsxs)(_v4.Flex, {
+          }), _v10.map(_v0 => (0, _v1.jsxs)(_v4.Flex, {
             as: _v22.Button,
             variant: "tertiary",
             p: "sm",
@@ -726,9 +832,8 @@
     _v69 = _v0.i(0),
     _v70 = _v0.i(0),
     _v71 = _v0.i(0),
-    _v72 = _v0.i(0),
-    _v73 = _v0.i(0);
-  let _v74 = _v0 => (0, _v1.jsx)(_v56.Icon, {
+    _v72 = _v0.i(0);
+  let _v73 = _v0 => (0, _v1.jsx)(_v56.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -739,104 +844,79 @@
       fill: "currentColor"
     })
   });
-  _v0.s(["PopOutFilled", 0, _v74], 0);
-  var _v75 = _v0.i(0),
-    _v76 = _v0.i(0),
-    _v77 = _v0.i(0);
-  let _v78 = (_v0, _v1) => _v0.length <= _v1 ? _v0 : `${_v0.substring(0, _v1)}...`;
-  async function _v79() {
-    let _v0 = await fetch("/help/zendesk_messenger_jwt");
-    if (!_v0.ok) throw Error("Failed to fetch Zendesk credentials.");
-    return _v0.json();
-  }
-  async function _v80() {
-    try {
+  _v0.s(["PopOutFilled", 0, _v73], 0);
+  var _v74 = _v0.i(0),
+    _v75 = _v0.i(0),
+    _v76 = _v0.i(0);
+  let _v77 = () => {
       let {
-        token: _v0,
-        widget_key: _v1,
-        messenger_detection_id: _v2
-      } = await _v79();
-      await new Promise((_v0, _v1) => {
-        if (document.getElementById("ze-snippet")) return void _v0();
-        let _v2 = document.createElement("script");
-        _v2.id = "ze-snippet", _v2.src = `https://static.zdassets.com/ekr/snippet.js?key=${_v1}`, _v2.async = !0, _v2.onload = () => _v0(), _v2.onerror = () => _v1(Error("Zendesk script failed to load.")), document.body.appendChild(_v2);
-      }), window.zE && window.zE(() => {
-        window.zE && (window.zE ? (window.zE("messenger:set", "conversationTags", ["in_product_support"]), window.zE("messenger:set", "conversationFields", [{
-          id: _v2,
-          value: "in_product_support"
-        }]), _v0 && window.zE("messenger", "loginUser", _v0 => {
-          _v0(_v0);
-        }), window.zE("messenger:on", "close", () => {
-          window.zE && window.zE("messenger", "hide");
-        }), window.zE("messenger", "hide")) : console.error("Zendesk Messenger is not available."));
-      });
-    } catch (_v0) {
-      console.error("Error initializing Zendesk Messenger:", _v0);
-    }
-  }
-  let _v81 = () => {
-      let _v0 = (0, _v11.useViewer)(),
+          currentHCUrl: _v0
+        } = _v41(),
         _v1 = _v49();
       return (0, _v1.jsx)(_v22.Button, {
+        as: "a",
+        href: `https://vimeo.com/help/sso?redirect_to=${_v0}/requests`,
+        target: "_blank",
+        rel: "noopener noreferrer",
         variant: "primary",
         size: "sm",
-        onClick: () => {
-          !function (_v0) {
-            if (!window.zE) return;
-            let _v1 = (0, _v43.getPageNameFromPath)(window.location.pathname, _v0?.user),
-              _v2 = ((_v0, _v1 = window.location.origin) => {
-                if (RegExp("(.*/videos/[0-9]+.*|.*/[0-9]+.*|/clip)").test(_v0)) {
-                  let _v0 = /(\/videos\/|^\/)(\d+)(.*)/;
-                  if (_v0.test(_v0)) return _v1 + _v0.replace(_v0, "$1{video_id}$3");
-                }
-                return _v1 + _v0;
-              })(window.location.pathname);
-            window?.location?.host?.endsWith(".ci.vimeows.com") || window?.location?.host === "vimeo.dev" ? (window.zE("messenger:set", "conversationFields", [{
-              id: "36670937261713",
-              value: _v1
-            }]), window.zE("messenger:set", "conversationFields", [{
-              id: "36670971897489",
-              value: _v2
-            }])) : (window.zE("messenger:set", "conversationFields", [{
-              id: "41039307846929",
-              value: _v1
-            }]), window.zE("messenger:set", "conversationFields", [{
-              id: "41039366484753",
-              value: _v2
-            }])), window.zE("messenger", "open"), window.zE("messenger", "show");
-          }(_v0), _v1({
-            eventName: "vimeo.in_app_support_panel_button_click",
-            element: "button",
-            copy: "contact us"
-          });
-        },
+        onClick: () => _v1({
+          eventName: "vimeo.in_app_support_panel_button_click",
+          element: "button",
+          copy: "your requests"
+        }),
         mr: "2",
-        children: "Contact us"
+        children: (0, _v18.translate)({
+          singular: "Your requests",
+          dictionary: {
+            es: {
+              singular: "Sus solicitudes"
+            },
+            "de-DE": {
+              singular: "Ihre Anfragen"
+            },
+            "fr-FR": {
+              singular: "Vos demandes"
+            },
+            "ja-JP": {
+              singular: "あなたのリクエスト"
+            },
+            "ko-KR": {
+              singular: "요청 내역"
+            },
+            "pt-BR": {
+              singular: "Suas solicitações"
+            },
+            "zh-CN": {
+              singular: "您的请求"
+            }
+          }
+        })
       });
     },
-    _v82 = ({
+    _v78 = (_v0, _v1) => _v0.length <= _v1 ? _v0 : `${_v0.substring(0, _v1)}...`,
+    _v79 = ({
       title: _v0,
       showBackButton: _v1,
       showSearchButton: _v2,
-      showContactUsMenu: _v3,
-      showViewRequestsButton: _v4
+      showContactUsMenu: _v3
     }) => {
       let {
-          goBack: _v5,
-          goToPage: _v6,
-          currentHCUrl: _v7,
-          handleSearch: _v8,
-          isSearching: _v9,
-          hasEnterprise: _v10,
-          closePanel: _v11
+          goBack: _v4,
+          goToPage: _v5,
+          currentHCUrl: _v6,
+          handleSearch: _v7,
+          isSearching: _v8,
+          hasEnterprise: _v9,
+          closePanel: _v10
         } = _v41(),
-        _v12 = _v49(),
-        [_v13, _v14] = (0, _v3.useState)(""),
-        _v15 = _v78(_v0, 20),
-        _v16 = (0, _v3.useRef)(null),
-        _v17 = _v13 ? (0, _v1.jsx)(_v76.CloseXCircleFilled, {
+        _v11 = _v49(),
+        [_v12, _v13] = (0, _v3.useState)(""),
+        _v14 = _v78(_v0, 20),
+        _v15 = (0, _v3.useRef)(null),
+        _v16 = _v12 ? (0, _v1.jsx)(_v75.CloseXCircleFilled, {
           onClick: () => {
-            _v14(""), _v16.current?.focus();
+            _v13(""), _v15.current?.focus();
           },
           tabIndex: 0,
           "aria-label": "Clear search",
@@ -844,20 +924,20 @@
           boxSize: 20,
           mr: "sm"
         }) : void 0,
-        _v18 = () => {
-          _v13.trim() && (_v6("search", []), _v8(_v13), _v12({
+        _v17 = () => {
+          _v12.trim() && (_v5("search", []), _v7(_v12), _v11({
             eventName: "vimeo.in_app_support_search",
             element: "search_bar",
-            copy: _v13,
+            copy: _v12,
             flow: "search"
           }));
         },
-        _v19 = (0, _v1.jsxs)(_v67.Menu, {
+        _v18 = (0, _v1.jsxs)(_v67.Menu, {
           placement: "bottom-end",
           children: [(0, _v1.jsx)(_v68.MenuButton, {
             as: _v14.IconButton,
             "aria-label": "Resources",
-            icon: (0, _v1.jsx)(_v73.EllipsisV, {}),
+            icon: (0, _v1.jsx)(_v72.EllipsisV, {}),
             variant: "tertiary",
             size: "sm"
           }), (0, _v1.jsxs)(_v69.MenuList, {
@@ -865,22 +945,72 @@
             height: 205,
             children: [(0, _v1.jsx)(_v70.MenuItem, {
               as: "a",
-              href: "https://vimeo.com/blog/post/spring-2025-release?utm_source=resource-center&utm_medium=pendo&utm_campaign=Spring-Release-2025",
+              href: "https://vimeo.com/product-updates?wpsrc=In+Product+Support+Panel",
               target: "_blank",
               height: 62,
               width: 260,
-              onClick: () => _v12({
+              onClick: () => _v11({
                 eventName: "vimeo.in_app_support_panel_button_click",
                 element: "button",
-                copy: "spring 2025 release"
+                copy: "product updates"
               }),
               children: (0, _v1.jsxs)(_v19.Box, {
                 children: [(0, _v1.jsx)(_v20.Text, {
                   variant: "heading-xs",
-                  children: "Spring 2025 release"
+                  children: (0, _v18.translate)({
+                    singular: "Product updates",
+                    dictionary: {
+                      es: {
+                        singular: "Actualizaciones del producto"
+                      },
+                      "de-DE": {
+                        singular: "Produkt-Updates"
+                      },
+                      "fr-FR": {
+                        singular: "Mises à jour du produit"
+                      },
+                      "ja-JP": {
+                        singular: "製品アップデート"
+                      },
+                      "ko-KR": {
+                        singular: "제품 업데이트"
+                      },
+                      "pt-BR": {
+                        singular: "Atualizações do produto"
+                      },
+                      "zh-CN": {
+                        singular: "产品更新"
+                      }
+                    }
+                  })
                 }), (0, _v1.jsx)(_v20.Text, {
                   variant: "body-sm",
-                  children: "Explore the latest product releases"
+                  children: (0, _v18.translate)({
+                    singular: "Explore the latest releases",
+                    dictionary: {
+                      es: {
+                        singular: "Explora los últimos lanzamientos"
+                      },
+                      "de-DE": {
+                        singular: "Entdecken Sie die neuesten Veröffentlichungen"
+                      },
+                      "fr-FR": {
+                        singular: "Découvrez les dernières nouveautés"
+                      },
+                      "ja-JP": {
+                        singular: "最新リリースをチェックする"
+                      },
+                      "ko-KR": {
+                        singular: "최신 릴리스 살펴보기"
+                      },
+                      "pt-BR": {
+                        singular: "Explore os lançamentos mais recentes"
+                      },
+                      "zh-CN": {
+                        singular: "查看最新发布"
+                      }
+                    }
+                  })
                 })]
               })
             }), (0, _v1.jsx)(_v70.MenuItem, {
@@ -889,7 +1019,7 @@
               target: "_blank",
               height: 62,
               width: 260,
-              onClick: () => _v12({
+              onClick: () => _v11({
                 eventName: "vimeo.in_app_support_panel_button_click",
                 element: "button",
                 copy: "integrations hub"
@@ -909,7 +1039,7 @@
               target: "_blank",
               height: 62,
               width: 260,
-              onClick: () => _v12({
+              onClick: () => _v11({
                 eventName: "vimeo.in_app_support_panel_button_click",
                 element: "button",
                 copy: "live and on-demand events"
@@ -933,7 +1063,7 @@
           children: [_v1 && (0, _v1.jsx)(_v14.IconButton, {
             icon: (0, _v1.jsx)(_v71.ChevronLeft, {}),
             "aria-label": "Back",
-            onClick: _v5,
+            onClick: _v4,
             variant: "tertiary",
             size: "sm",
             mr: 2
@@ -942,21 +1072,21 @@
             flex: "1",
             children: [(0, _v1.jsx)(_v20.Text, {
               variant: "heading-sm",
-              children: _v15
+              children: _v14
             }), (0, _v1.jsx)(_v15.Tooltip, {
               label: "View in Help Center",
               placement: "bottom",
               children: (0, _v1.jsx)(_v14.IconButton, {
                 as: "a",
-                href: `https://vimeo.com/help/sso?redirect_to=${_v7}`,
+                href: `https://vimeo.com/help/sso?redirect_to=${_v6}`,
                 target: "_blank",
                 rel: "noopener noreferrer",
-                icon: (0, _v1.jsx)(_v74, {}),
+                icon: (0, _v1.jsx)(_v73, {}),
                 "aria-label": "Go to Help Center",
                 variant: "tertiary",
                 ml: 2,
                 size: "sm",
-                onClick: () => _v12({
+                onClick: () => _v11({
                   eventName: "vimeo.in_app_support_panel_button_click",
                   element: "button",
                   copy: "view in Help Center"
@@ -968,35 +1098,17 @@
             alignItems: "center",
             children: [(0, _v1.jsx)(_v19.Box, {
               w: "md"
-            }), (0, _v1.jsx)(_v81, {})]
-          }), _v4 && (0, _v1.jsx)(_v15.Tooltip, {
-            label: "View requests",
-            placement: "bottom",
-            children: (0, _v1.jsx)(_v14.IconButton, {
-              as: "a",
-              href: `https://vimeo.com/help/sso?redirect_to=${_v7}/requests`,
-              target: "_blank",
-              rel: "noopener noreferrer",
-              icon: (0, _v1.jsx)(_v72.ListUlFilled, {}),
-              "aria-label": "Requests",
-              variant: "tertiary",
-              size: "sm",
-              onClick: () => _v12({
-                eventName: "vimeo.in_app_support_panel_button_click",
-                element: "button",
-                copy: "view requests"
-              })
-            })
-          }), _v10 && (0, _v1.jsx)(_v15.Tooltip, {
+            }), (0, _v1.jsx)(_v77, {})]
+          }), _v9 && (0, _v1.jsx)(_v15.Tooltip, {
             label: "Resources",
             placement: "bottom",
-            children: _v19
+            children: _v18
           }), (0, _v1.jsx)(_v14.IconButton, {
-            icon: (0, _v1.jsx)(_v77.CloseXSmall, {}),
+            icon: (0, _v1.jsx)(_v76.CloseXSmall, {}),
             "aria-label": "Close help panel",
             variant: "tertiary",
             size: "sm",
-            onClick: _v11,
+            onClick: _v10,
             ml: 2,
             display: {
               base: "inline-flex",
@@ -1008,14 +1120,14 @@
           children: (0, _v1.jsxs)(_v65.InputGroup, {
             children: [(0, _v1.jsx)(_v64.Input, {
               placeholder: "Search for help",
-              value: _v13,
-              onChange: _v0 => _v14(_v0.target.value),
+              value: _v12,
+              onChange: _v0 => _v13(_v0.target.value),
               onKeyDown: _v0 => {
-                "Enter" === _v0.key && (_v18(), _v0.preventDefault());
+                "Enter" === _v0.key && (_v17(), _v0.preventDefault());
               },
-              isDisabled: _v9,
+              isDisabled: _v8,
               pr: "60px",
-              ref: _v16
+              ref: _v15
             }), (0, _v1.jsxs)(_v66.InputRightElement, {
               _hover: {
                 backgroundColor: "var(--vimeo-colors-darkBlueAlpha-200)"
@@ -1024,20 +1136,20 @@
               margin: "xs",
               width: "var(--vimeo-sizes-sm)",
               height: "var(--vimeo-sizes-sm)",
-              children: [_v17, (0, _v1.jsx)(_v75.SearchMagnifier, {
-                mr: 6 * !!_v17,
+              children: [_v16, (0, _v1.jsx)(_v74.SearchMagnifier, {
+                mr: 6 * !!_v16,
                 boxSize: 20,
                 tabIndex: 0,
                 "aria-label": "Search",
                 role: "button",
-                onClick: _v18
+                onClick: _v17
               })]
             })]
           })
         })]
       });
     },
-    _v83 = () => {
+    _v80 = () => {
       let {
           data: _v0,
           goToArticle: _v1,
@@ -1110,7 +1222,7 @@
         children: "No results found."
       });
     },
-    _v84 = () => {
+    _v81 = () => {
       let {
           goToArticleList: _v0,
           data: _v1
@@ -1170,52 +1282,40 @@
         }, _v0.id))
       });
     },
-    _v85 = (0, _v3.forwardRef)((_v0, _v1) => {
-      let _v2 = (0, _v11.useViewer)(),
-        {
-          isPanelOpen: _v3,
-          currentPage: _v4,
-          history: _v5,
-          data: _v6
-        } = _v41();
-      (0, _v3.useEffect)(() => {
-        (async () => {
-          try {
-            await _v80(), console.log("Zendesk widget initialized and hidden, ready for widgetOpen call.");
-          } catch (_v0) {
-            console.error("Failed to initialize Zendesk widget:", _v0);
+    _v82 = (0, _v3.forwardRef)((_v0, _v1) => {
+      let {
+          isPanelOpen: _v2,
+          currentPage: _v3,
+          history: _v4,
+          data: _v5
+        } = _v41(),
+        _v6 = (0, _v3.useMemo)(() => {
+          let _v0 = _v4.length > 0 && "home" !== _v3,
+            _v1 = "home" === _v3 || "search" === _v3,
+            _v2 = "";
+          switch (_v3) {
+            case "home":
+            case "search":
+            default:
+              _v2 = "Help";
+              break;
+            case "section":
+              _v2 = _v5?.section?.title || "Section";
+              break;
+            case "article":
+              _v2 = _v5?.article?.title || "Article";
+              break;
+            case "article_list":
+              _v2 = _v5?.article_list?.title || "Article List";
           }
-        })();
-      }, []);
-      let _v7 = (0, _v3.useMemo)(() => {
-        let _v0 = _v5.length > 0 && "home" !== _v4,
-          _v1 = "home" === _v4 || "search" === _v4,
-          _v2 = "home" === _v4 && !!_v2?.user?.id,
-          _v3 = "";
-        switch (_v4) {
-          case "home":
-          case "search":
-          default:
-            _v3 = "Help";
-            break;
-          case "section":
-            _v3 = _v6?.section?.title || "Section";
-            break;
-          case "article":
-            _v3 = _v6?.article?.title || "Article";
-            break;
-          case "article_list":
-            _v3 = _v6?.article_list?.title || "Article List";
-        }
-        return {
-          title: _v3,
-          showBackButton: _v0,
-          showSearchButton: _v1,
-          showContactUsMenu: _v1,
-          showViewRequestsButton: _v2
-        };
-      }, [_v4, _v5, _v6, _v2?.user?.id]);
-      return _v3 ? (0, _v1.jsxs)(_v19.Box, {
+          return {
+            title: _v2,
+            showBackButton: _v0,
+            showSearchButton: _v1,
+            showContactUsMenu: _v1
+          };
+        }, [_v3, _v4, _v5]);
+      return _v2 ? (0, _v1.jsxs)(_v19.Box, {
         ref: _v1,
         position: "absolute",
         top: "100%",
@@ -1233,8 +1333,8 @@
         isolation: "isolate",
         fontFamily: "body",
         backdropFilter: "blur(12px)",
-        children: [(0, _v1.jsx)(_v82, {
-          ..._v7
+        children: [(0, _v1.jsx)(_v79, {
+          ..._v6
         }), (0, _v1.jsx)(_v19.Box, {
           flex: "1",
           overflowY: "auto",
@@ -1250,29 +1350,29 @@
               default:
                 return (0, _v1.jsx)(_v63, {});
               case "section":
-                return (0, _v1.jsx)(_v84, {});
+                return (0, _v1.jsx)(_v81, {});
               case "article_list":
                 return (0, _v1.jsx)(_v51, {});
               case "article":
                 return (0, _v1.jsx)(_v53, {});
               case "search":
-                return (0, _v1.jsx)(_v83, {});
+                return (0, _v1.jsx)(_v80, {});
             }
-          })(_v4)
+          })(_v3)
         })]
       }) : null;
     });
-  var _v86 = _v0.i(0);
-  let _v87 = (_v0, _v1, _v2, _v3) => {
+  var _v83 = _v0.i(0);
+  let _v84 = (_v0, _v1, _v2, _v3) => {
       setTimeout(() => {
         let _v0 = document.getElementById(_v0);
         _v0 && _v0.addEventListener("click", function () {
           let _v0;
-          (_v0 = document.getElementById(_v1)) && (_v0.style.display = "none"), _v87(_v2, _v3, _v0, _v1);
+          (_v0 = document.getElementById(_v1)) && (_v0.style.display = "none"), _v84(_v2, _v3, _v0, _v1);
         });
       }, 0);
     },
-    _v88 = () => {
+    _v85 = () => {
       let _v0 = (0, _v11.useViewer)(),
         {
           openPanel: _v1,
@@ -1296,7 +1396,7 @@
         _v14 = (() => {
           let {
             settings: _v0
-          } = (0, _v86.useOrionSettings)();
+          } = (0, _v83.useOrionSettings)();
           return _v0.in_product_support_panel;
         })() && _v13 && !_v12,
         _v15 = (0, _v3.useMemo)(() => _v14 ? {
@@ -1355,7 +1455,7 @@
               _v4(), _v14 ? _v3 ? _v2() : (_v1(_v10), _v5({
                 eventName: "vimeo.in_app_support_panel_launch_button",
                 element: "button"
-              })) : (_v87("pendo-link-9e2e9ac7-1", "pendo-g-gGIq9Pjwp5KjK6P-yRQzNQ_Zy-g", "pendo-left-caret-229848f1", "pendo-g-0VqsBgo3lrYNn-v0y0Mj3DYh46k"), (0, _v12.trackNavigationActionEvent)({
+              })) : (_v84("pendo-link-9e2e9ac7-1", "pendo-g-gGIq9Pjwp5KjK6P-yRQzNQ_Zy-g", "pendo-left-caret-229848f1", "pendo-g-0VqsBgo3lrYNn-v0y0Mj3DYh46k"), (0, _v12.trackNavigationActionEvent)({
                 copy: "help",
                 element: "button",
                 feature: "help_center",
@@ -1369,16 +1469,19 @@
             isActive: _v3,
             ..._v15
           })
-        }), _v14 && (0, _v1.jsx)(_v85, {
+        }), _v14 && (0, _v1.jsx)(_v82, {
           ref: _v7
         })]
       });
     },
-    _v89 = () => (0, _v1.jsx)(_v40, {
-      children: (0, _v1.jsx)(_v88, {})
+    _v86 = () => (0, _v1.jsx)(_v40, {
+      children: (0, _v1.jsx)(_v85, {})
     });
-  _v0.s(["HelpCTA", 0, _v89], 0);
-  var _v90 = _v0.i(0),
+  _v0.s(["HelpCTA", 0, _v86], 0);
+  var _v87 = _v0.i(0),
+    _v88 = _v0.i(0),
+    _v89 = _v0.i(0),
+    _v90 = _v0.i(0),
     _v91 = _v0.i(0),
     _v92 = _v0.i(0),
     _v93 = _v0.i(0),
@@ -1388,11 +1491,8 @@
     _v97 = _v0.i(0),
     _v98 = _v0.i(0),
     _v99 = _v0.i(0),
-    _v100 = _v0.i(0),
-    _v101 = _v0.i(0),
-    _v102 = _v0.i(0),
-    _v103 = _v0.i(0);
-  let _v104 = (0, _v18.translate)({
+    _v100 = _v0.i(0);
+  let _v101 = (0, _v18.translate)({
       singular: "Untitled showcase",
       dictionary: {
         es: {
@@ -1418,18 +1518,18 @@
         }
       }
     }),
-    _v105 = (0, _v2.default)(() => _v0.A(0), {
+    _v102 = (0, _v2.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v106 = (0, _v2.default)(() => _v0.A(0), {
+    _v103 = (0, _v2.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       },
       ssr: !1
     }),
-    _v107 = (0, _v2.default)(async () => {
+    _v104 = (0, _v2.default)(async () => {
       let {
         EventCreationWizardModal: _v0
       } = await _v0.A(0);
@@ -1442,7 +1542,7 @@
       },
       ssr: !1
     }),
-    _v108 = (0, _v2.default)(async () => {
+    _v105 = (0, _v2.default)(async () => {
       let {
         MobileContentMenu: _v0
       } = await _v0.A(0);
@@ -1455,16 +1555,16 @@
       },
       ssr: !1
     });
-  function _v109({
+  function _v106({
     hasUploader: _v0
   }) {
     let _v1 = (0, _v11.useViewer)();
-    return !_v1 || _v1.teamUser?.plainTextPermissionLevel === "Viewer" || _v1.isSimplifiedSite ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsx)(_v110, {
+    return !_v1 || _v1.teamUser?.plainTextPermissionLevel === "Viewer" || _v1.isSimplifiedSite ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsx)(_v107, {
       viewer: _v1,
       hasUploader: _v0
     });
   }
-  function _v110({
+  function _v107({
     viewer: _v0,
     hasUploader: _v1
   }) {
@@ -1502,7 +1602,7 @@
         isOpen: _v27,
         onOpen: _v28,
         onClose: _v29
-      } = (0, _v93.useDisclosure)(),
+      } = (0, _v90.useDisclosure)(),
       {
         canCreateShowcase: _v30,
         isCreatingShowcase: _v31,
@@ -1513,7 +1613,7 @@
         canManageTeamCollections: _v0,
         viewer: _v1
       }) => {
-        let _v2 = (0, _v101.useToast)(),
+        let _v2 = (0, _v98.useToast)(),
           [_v3, _v4] = (0, _v3.useState)(!1),
           _v5 = _v1?.teamUser?.ownerId || _v1?.user?.id,
           {
@@ -1538,7 +1638,7 @@
               data: _v5,
               error: _v6,
               loading: _v7
-            }] = (0, _v103.usePostUserAlbums)();
+            }] = (0, _v100.usePostUserAlbums)();
             return (0, _v3.useEffect)(() => {
               _v4 && !_v7 && (_v5 && _v1?.({
                 uri: _v5.uri
@@ -1550,7 +1650,7 @@
                 },
                 select: ["uri"],
                 variables: {
-                  name: _v104
+                  name: _v101
                 }
               });
             }, {
@@ -1586,7 +1686,7 @@
                   }
                 }),
                 variant: "warning",
-                icon: (0, _v1.jsx)(_v102.CircleExclamationFilled, {
+                icon: (0, _v1.jsx)(_v99.CircleExclamationFilled, {
                   color: "status-destructive-primary"
                 }),
                 isClosable: !1
@@ -1627,11 +1727,11 @@
         trackHeaderCreateMenuItemClicked: _v36
       } = (0, _v10.useHeaderTracking)();
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsxs)(_v94.NestedMenu, {
+      children: [(0, _v1.jsxs)(_v91.NestedMenu, {
         positioning: {
           placement: "bottom-end"
         },
-        children: [(0, _v1.jsx)(_v94.NestedMenuTrigger, {
+        children: [(0, _v1.jsx)(_v91.NestedMenuTrigger, {
           onClick: _v0 => {
             _v2 && (_v0.preventDefault(), _v28()), (0, _v12.trackNavigationActionEvent)({
               copy: "new",
@@ -1646,7 +1746,7 @@
             sm: "md"
           },
           "data-id": "new_content_menu_button",
-          leftIcon: (0, _v1.jsx)(_v100.PlusSmall, {}),
+          leftIcon: (0, _v1.jsx)(_v97.PlusSmall, {}),
           children: (0, _v18.translate)({
             singular: "Create",
             dictionary: {
@@ -1673,13 +1773,13 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v94.NestedMenuPositioner, {
-          children: (0, _v1.jsxs)(_v94.NestedMenuContent, {
+        }), (0, _v1.jsx)(_v91.NestedMenuPositioner, {
+          children: (0, _v1.jsxs)(_v91.NestedMenuContent, {
             minWidth: (0, _v5.rem)(202),
-            children: [(0, _v1.jsxs)(_v94.NestedMenuItem, {
+            children: [(0, _v1.jsxs)(_v91.NestedMenuItem, {
               id: "upload",
               value: "upload",
-              as: _v92.default,
+              as: _v89.default,
               href: _v20,
               prefetch: !1,
               onClick: () => {
@@ -1696,7 +1796,7 @@
                   createMenuItem: "upload"
                 });
               },
-              children: [(0, _v1.jsx)(_v96.Upload, {}), " ", (0, _v18.translate)({
+              children: [(0, _v1.jsx)(_v93.Upload, {}), " ", (0, _v18.translate)({
                 singular: "Upload",
                 dictionary: {
                   es: {
@@ -1722,7 +1822,7 @@
                   }
                 }
               })]
-            }), _v1 ? (0, _v1.jsxs)(_v94.NestedMenuItem, {
+            }), _v1 ? (0, _v1.jsxs)(_v91.NestedMenuItem, {
               id: "import",
               value: "import",
               onClick: () => {
@@ -1730,7 +1830,7 @@
                   createMenuItem: "import"
                 });
               },
-              children: [(0, _v1.jsx)(_v99.DownloadImport, {}), " ", (0, _v18.translate)({
+              children: [(0, _v1.jsx)(_v96.DownloadImport, {}), " ", (0, _v18.translate)({
                 singular: "Import",
                 dictionary: {
                   es: {
@@ -1756,10 +1856,10 @@
                   }
                 }
               })]
-            }) : null, (0, _v1.jsx)(_v94.NestedMenuDivider, {}), _v7 && (0, _v1.jsxs)(_v94.NestedMenuItem, {
+            }) : null, (0, _v1.jsx)(_v91.NestedMenuDivider, {}), _v7 && (0, _v1.jsxs)(_v91.NestedMenuItem, {
               id: "create",
               value: "create",
-              as: _v92.default,
+              as: _v89.default,
               href: _v26,
               prefetch: !1,
               onClick: () => {
@@ -1775,7 +1875,7 @@
                   createMenuItem: "video_project"
                 });
               },
-              children: [(0, _v1.jsx)(_v98.ClapperBoard, {}), " ", (0, _v18.translate)({
+              children: [(0, _v1.jsx)(_v95.ClapperBoard, {}), " ", (0, _v18.translate)({
                 singular: "Video project",
                 dictionary: {
                   es: {
@@ -1801,10 +1901,10 @@
                   }
                 }
               })]
-            }), (0, _v1.jsxs)(_v94.NestedMenuItem, {
+            }), (0, _v1.jsxs)(_v91.NestedMenuItem, {
               id: "record",
               value: "record",
-              as: _v92.default,
+              as: _v89.default,
               href: _v25,
               prefetch: !1,
               onClick: () => {
@@ -1820,7 +1920,7 @@
                   createMenuItem: "recording"
                 });
               },
-              children: [(0, _v1.jsx)(_v97.Record, {}), " ", (0, _v18.translate)({
+              children: [(0, _v1.jsx)(_v94.Record, {}), " ", (0, _v18.translate)({
                 singular: "Recording",
                 dictionary: {
                   es: {
@@ -1846,7 +1946,7 @@
                   }
                 }
               })]
-            }), _v16 && (0, _v1.jsxs)(_v94.NestedMenuItem, {
+            }), _v16 && (0, _v1.jsxs)(_v91.NestedMenuItem, {
               id: "host",
               value: "host",
               onClick: () => {
@@ -1884,7 +1984,7 @@
                   }
                 }
               })]
-            }), _v30 && (0, _v1.jsxs)(_v94.NestedMenuItem, {
+            }), _v30 && (0, _v1.jsxs)(_v91.NestedMenuItem, {
               id: "showcase",
               value: "showcase",
               disabled: _v31,
@@ -1893,7 +1993,7 @@
                   createMenuItem: "showcase"
                 }), _v33();
               },
-              children: [(0, _v1.jsx)(_v95._3GridLeftLayout, {}), " ", (0, _v18.translate)({
+              children: [(0, _v1.jsx)(_v92._3GridLeftLayout, {}), " ", (0, _v18.translate)({
                 singular: "Showcase",
                 dictionary: {
                   es: {
@@ -1921,11 +2021,11 @@
               })]
             })]
           })
-        }), (0, _v1.jsx)(_v107, {
+        }), (0, _v1.jsx)(_v104, {
           active: _v9,
           activeSet: _v10
         })]
-      }), (0, _v1.jsx)(_v108, {
+      }), (0, _v1.jsx)(_v105, {
         isOpen: _v27,
         onClose: _v29,
         canCreateLiveEvents: !0,
@@ -1939,7 +2039,7 @@
         ...(_v7 && {
           creationLink: _v26
         })
-      }), _v32 && (0, _v1.jsx)(_v105, {
+      }), _v32 && (0, _v1.jsx)(_v102, {
         apiUrl: _v0?.apiUrl,
         onClose: () => _v34(!1),
         templateType: "default",
@@ -1964,7 +2064,7 @@
         modalConfig: {
           mkcCode: "unified-top-nav-legacy"
         }
-      }), _v11 ? (0, _v1.jsx)(_v106, {
+      }), _v11 ? (0, _v1.jsx)(_v103, {
         isOpen: _v11,
         setIsOpen: _v12,
         referrerPage: "create_menu",
@@ -1972,12 +2072,12 @@
       }) : null]
     });
   }
-  let _v111 = (0, _v0.i(0).buildUpgradePlanUrl)({
+  let _v108 = (0, _v0.i(0).buildUpgradePlanUrl)({
       paywallTrigger: "top_nav_bar_pricing_button",
       paywallLocation: "top_navigation",
       paywallFeature: "general"
     }),
-    _v112 = () => {
+    _v109 = () => {
       let _v0 = (0, _v3.useRef)(!1),
         _v1 = (0, _v12.useTrackNavigationEvent)();
       return (0, _v3.useEffect)(() => {
@@ -1995,7 +2095,7 @@
       }, [_v1]), (0, _v1.jsx)(_v22.Button, {
         variant: "tertiary",
         as: "a",
-        href: _v111,
+        href: _v108,
         onClick: () => {
           _v1({
             actionType: "click",
@@ -2045,17 +2145,17 @@
         })
       });
     };
-  _v0.s(["PricingCTA", 0, _v112], 0);
-  var _v113 = _v0.i(0),
-    _v114 = _v0.i(0);
-  let _v115 = ({
+  _v0.s(["PricingCTA", 0, _v109], 0);
+  var _v110 = _v0.i(0),
+    _v111 = _v0.i(0);
+  let _v112 = ({
     isSideNavActive: _v0,
     setIsSideNavActive: _v1
   }) => {
     let _v2 = (0, _v11.useViewer)();
     return (0, _v1.jsx)(_v14.IconButton, {
       "aria-label": "open-sidenav",
-      icon: (0, _v1.jsx)(_v114.Menu, {}),
+      icon: (0, _v1.jsx)(_v111.Menu, {}),
       variant: "tertiary",
       display: _v0 ? "none" : "flex",
       onClick: () => {
@@ -2073,8 +2173,8 @@
       "data-testid": "open-sidenav"
     });
   };
-  _v0.s(["SideNavToggle", 0, _v115], 0);
-  let _v116 = ({
+  _v0.s(["SideNavToggle", 0, _v112], 0);
+  let _v113 = ({
       itemsCount: _v0
     }) => {
       let _v1 = (0, _v12.useTrackNavigationEvent)();
@@ -2119,14 +2219,14 @@
         })
       }) : (0, _v1.jsx)(_v1.Fragment, {});
     },
-    _v117 = (0, _v2.default)(async () => ({
+    _v114 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).LoginJoinModal
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v118 = (0, _v5.rem)(24);
+    _v115 = (0, _v5.rem)(24);
   _v0.s(["DefaultNavigation", 0, ({
     fixed: _v0 = !0,
     hasSearch: _v1 = !0,
@@ -2161,7 +2261,7 @@
       _v21 = _v9?.isSimplifiedSite,
       _v22 = _v9?.isEnterpriseSite,
       _v23 = _v7 && !_v3,
-      _v24 = _v7 && _v8 ? `calc(max(0px, calc((100cqw - var(--search-content-max-width)) / 2)) + var(--search-content-inline-start) - ${_v118})` : _v23 ? (0, _v5.rem)(24) : void 0;
+      _v24 = _v7 && _v8 ? `calc(max(0px, calc((100cqw - var(--search-content-max-width)) / 2)) + var(--search-content-inline-start) - ${_v115})` : _v23 ? (0, _v5.rem)(24) : void 0;
     return (0, _v1.jsxs)(_v7.Navigation, {
       position: _v0 ? "sticky" : "unset",
       top: "0",
@@ -2187,7 +2287,7 @@
         },
         flexShrink: _v17 ? void 0 : 0,
         zIndex: 1,
-        children: [_v4 && (0, _v1.jsx)(_v115, {
+        children: [_v4 && (0, _v1.jsx)(_v112, {
           isSideNavActive: !!_v3,
           setIsSideNavActive: _v4
         }), (0, _v1.jsx)(_v7.Navigation.VimeoLogo, {
@@ -2197,7 +2297,7 @@
           flexGrow: 1,
           minWidth: 0,
           marginLeft: _v24,
-          children: (0, _v1.jsx)(_v113.Search, {})
+          children: (0, _v1.jsx)(_v110.Search, {})
         })]
       }), (0, _v1.jsx)(_v7.Navigation.RightContent, {
         justifyContent: "end",
@@ -2206,7 +2306,7 @@
           base: "sm",
           md: "md"
         },
-        children: (0, _v1.jsx)(_v91.LoginJoinModalContext.Provider, {
+        children: (0, _v1.jsx)(_v88.LoginJoinModalContext.Provider, {
           value: {
             modal: _v19,
             setModal: _v20
@@ -2221,20 +2321,20 @@
             justifyContent: "end",
             children: [!_v18 && (0, _v1.jsx)(_v7.Navigation.Upgrade, {
               viewer: _v9
-            }), _v1 && !_v17 && (0, _v1.jsx)(_v113.Search, {
+            }), _v1 && !_v17 && (0, _v1.jsx)(_v110.Search, {
               withToggle: !0,
               updateGlobalNavSearchState: _v12
             }), !_v16 && !_v21 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v89, {}), (0, _v1.jsx)(_v13, {}), (0, _v1.jsx)(_v116, {
+              children: [(0, _v1.jsx)(_v86, {}), (0, _v1.jsx)(_v13, {}), (0, _v1.jsx)(_v113, {
                 itemsCount: _v9?.cart?.itemsCount
               })]
             }), _v9 && !_v10 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [!_v18 && !_v22 && (0, _v1.jsx)(_v112, {}), !(_v15 && _v11) && (0, _v1.jsx)(_v90.Login, {})]
-            }), !_v16 && (_v10 ? (0, _v1.jsx)(_v109, {
+              children: [!_v18 && !_v22 && (0, _v1.jsx)(_v109, {}), !(_v15 && _v11) && (0, _v1.jsx)(_v87.Login, {})]
+            }), !_v16 && (_v10 ? (0, _v1.jsx)(_v106, {
               hasUploader: _v5
-            }) : _v9 && !_v22 && (0, _v1.jsx)(_v90.Join, {})), !(_v15 && _v11) && (0, _v1.jsx)(_v8.AccountMenu, {
+            }) : _v9 && !_v22 && (0, _v1.jsx)(_v87.Join, {})), !(_v15 && _v11) && (0, _v1.jsx)(_v8.AccountMenu, {
               hasThemeSupport: _v2
-            }), _v9 && !_v10 && _v19 && (0, _v1.jsx)(_v117, {})]
+            }), _v9 && !_v10 && _v19 && (0, _v1.jsx)(_v114, {})]
           })
         })
       })]

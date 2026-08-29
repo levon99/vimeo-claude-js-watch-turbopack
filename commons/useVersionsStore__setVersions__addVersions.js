@@ -13,18 +13,21 @@
     resetVersions: _v8,
     setSelectedVersionUri: _v9,
     setRenditionStatus: _v10,
-    setIsLocalUploadActive: _v11
+    setIsLocalUploadActive: _v11,
+    setIsReverted: _v12
   } = _v0.i(0).versionsSlice.actions;
   _v0.s(["useVersionsStore", 0, _v0 => {
     let _v1 = (0, _v2.useDispatch)(),
       _v2 = (0, _v3.useSelector)(_v0 => _v0.versions.versionList),
       _v3 = (0, _v3.useSelector)(_v0 => _v0.versions.selectedVersionUri),
-      _v4 = (0, _v3.useSelector)(_v0 => _v0.versions.renditionStatus);
+      _v4 = (0, _v3.useSelector)(_v0 => _v0.versions.renditionStatus),
+      _v5 = (0, _v3.useSelector)(_v0 => _v0.versions.isLocalUploadActive);
     return _v0({
       versionList: _v2,
       selectedVersionUri: _v3,
       renditionStatus: _v4,
-      isLocalUploadActive: (0, _v3.useSelector)(_v0 => _v0.versions.isLocalUploadActive),
+      isLocalUploadActive: _v5,
+      isReverted: (0, _v3.useSelector)(_v0 => _v0.versions.isReverted),
       setVersions: (0, _v1.useCallback)(_v0 => _v1(_v4(_v0)), [_v1]),
       addVersions: (0, _v1.useCallback)(_v0 => _v1(_v5(_v0)), [_v1]),
       addNewVersion: (0, _v1.useCallback)(_v0 => _v1(_v6(_v0)), [_v1]),
@@ -32,7 +35,8 @@
       resetVersions: (0, _v1.useCallback)(() => _v1(_v8()), [_v1]),
       setSelected: (0, _v1.useCallback)(_v0 => _v1(_v9(_v0)), [_v1]),
       setRenditionStatus: (0, _v1.useCallback)(_v0 => _v1(_v10(_v0)), [_v1]),
-      setIsLocalUploadActive: (0, _v1.useCallback)(_v0 => _v1(_v11(_v0)), [_v1])
+      setIsLocalUploadActive: (0, _v1.useCallback)(_v0 => _v1(_v11(_v0)), [_v1]),
+      setIsReverted: (0, _v1.useCallback)(_v0 => _v1(_v12(_v0)), [_v1])
     });
   }]);
 }

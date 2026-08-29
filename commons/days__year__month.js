@@ -138,7 +138,11 @@
       isMobile: _v2
     });
   }], 0), _v0.s(["getEqualPreviousTimeRange", 0, (_v0, _v1) => {
-    let _v2 = _v1.diff(_v0, "days"),
+    let _v2 = _v1.setZone("utc", {
+        keepLocalTime: !0
+      }).diff(_v0.setZone("utc", {
+        keepLocalTime: !0
+      }), "days"),
       _v3 = _v0.minus({
         days: 1
       }).endOf("day");

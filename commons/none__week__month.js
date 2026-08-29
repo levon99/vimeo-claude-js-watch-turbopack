@@ -6975,11 +6975,17 @@
       let _v4 = new Date(_v0);
       return _v1 === _v141.DAY && (_v2 === _v142.PLUS ? _v4.setDate(_v4.getDate() + _v3) : _v4.setDate(_v4.getDate() - _v3)), _v1 === _v141.WEEK && (_v2 === _v142.PLUS ? _v4.setDate(_v4.getDate() + 7 * _v3) : _v4.setDate(_v4.getDate() - 7 * _v3)), _v1 === _v141.MONTH && (_v2 === _v142.PLUS ? _v4.setUTCMonth(_v4.getUTCMonth() + _v3) : _v4.setUTCMonth(_v4.getUTCMonth() - _v3)), _v1 === _v141.YEAR && (_v2 === _v142.PLUS ? _v4.setFullYear(_v4.getFullYear() + _v3) : _v4.setFullYear(_v4.getFullYear() - _v3)), _v4;
     },
-    _v157 = (_v0, _v1, _v2) => {
+    _v157 = _v0 => {
+      let _v1 = String(_v0.getFullYear()).padStart(4, "0"),
+        _v2 = String(_v0.getMonth() + 1).padStart(2, "0"),
+        _v3 = String(_v0.getDate()).padStart(2, "0");
+      return `${_v1}-${_v2}-${_v3}`;
+    },
+    _v158 = (_v0, _v1, _v2) => {
       if (_v1 === _v141.MONTH) {
         let _v0 = new Date(_v0.getFullYear(), _v0.getMonth() + 1, 1),
           _v1 = new Date(_v0.getFullYear(), _v0.getMonth(), 1);
-        return "START" === _v2 ? _v1.toISOString().slice(0, 10) : _v0.toISOString().slice(0, 10);
+        return "START" === _v2 ? _v157(_v1) : _v157(_v0);
       }
       if (_v1 !== _v141.WEEK) return _v0.toISOString().slice(0, 10);
       {
@@ -6989,7 +6995,7 @@
           _v3 = new Date(_v0);
         _v3.setDate(_v3.getDate() + _v2);
         let _v4 = new Date(_v0);
-        return _v4.setDate(_v4.getDate() + _v2 + 1), "START" === _v2 ? _v4.toISOString().slice(0, 10) : _v3.toISOString().slice(0, 10);
+        return _v4.setDate(_v4.getDate() + _v2 + 1), "START" === _v2 ? _v157(_v4) : _v157(_v3);
       }
     };
   _v0.s(["formatPercent", 0, (_v0, _v1 = 1) => _v0 ? +parseFloat(`${_v0}`).toFixed(_v1) : 0, "getDateRangeArray", 0, (_v0, _v1, _v2) => {
@@ -7076,8 +7082,8 @@
     }
   }, "getVideoDetailReportUrlPath", 0, _v0 => `${_v0?.uri?.slice(1, _v0?.uri?.length)}`, "getZeroFilledGraphData", 0, (_v0, _v1, _v2, _v3) => {
     let _v4 = _v3 ?? [],
-      _v5 = _v157(new Date(Date.parse(_v1)), _v2, "END"),
-      _v6 = _v157(new Date(Date.parse(_v0)), _v2, "START"),
+      _v5 = _v158(new Date(Date.parse(_v1)), _v2, "END"),
+      _v6 = _v158(new Date(Date.parse(_v0)), _v2, "START"),
       _v7 = _v4?.find(_v0 => _v0?.range?.endDate === _v5),
       _v8 = _v4?.find(_v0 => _v0?.range?.startDate === _v6);
     if (!_v7) {

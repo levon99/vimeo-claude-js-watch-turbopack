@@ -7719,12 +7719,9 @@
                   onCancelled: _v1
                 }) => {
                   let _v2 = _v141("useUploader"),
-                    {
-                      settings: _v3
-                    } = (0, _v32.useOrionSettings)(),
+                    _v3 = (0, _v26.useRef)(void 0),
                     _v4 = (0, _v26.useRef)(void 0),
-                    _v5 = (0, _v26.useRef)(void 0),
-                    _v6 = (() => {
+                    _v5 = (() => {
                       let _v0 = (0, _v26.useRef)("live"),
                         _v1 = (0, _v26.useRef)("default"),
                         _v2 = (0, _v47.useViewer)(),
@@ -7747,13 +7744,13 @@
                         });
                       }, [_v4, _v9]), _v0;
                     })(),
-                    _v7 = _v6.current,
+                    _v6 = _v5.current,
+                    _v7 = (0, _v26.useRef)(void 0),
                     _v8 = (0, _v26.useRef)(void 0),
-                    _v9 = (0, _v26.useRef)(void 0),
-                    _v10 = "tus" === _v6.current,
+                    _v9 = "tus" === _v5.current,
                     {
-                      retry: _v11,
-                      resetRetryCount: _v12
+                      retry: _v10,
+                      resetRetryCount: _v11
                     } = ((_v0, _v1, _v2 = !0) => {
                       let _v3 = (0, _v26.useRef)(void 0),
                         _v4 = (0, _v26.useRef)(0),
@@ -7769,22 +7766,22 @@
                         retry: _v5,
                         resetRetryCount: _v6
                       };
-                    })(_v10 ? 3 : 1, _v10 ? 0 : 0, _v10),
+                    })(_v9 ? 3 : 1, _v9 ? 0 : 0, _v9),
                     {
-                      mode: _v13,
-                      setVideoId: _v14,
-                      onBecamePlayable: _v15,
-                      integrationWithRemoteUpload: _v16
+                      mode: _v12,
+                      setVideoId: _v13,
+                      onBecamePlayable: _v14,
+                      integrationWithRemoteUpload: _v15
                     } = _v297(),
                     {
-                      setError: _v17,
-                      setSelectedPrivacy: _v18,
-                      uploadingState: _v19,
-                      setUploadingState: _v20,
-                      setRecoveryStep: _v21,
-                      setState: _v22,
-                      state: _v23,
-                      setUploadMethod: _v24
+                      setError: _v16,
+                      setSelectedPrivacy: _v17,
+                      uploadingState: _v18,
+                      setUploadingState: _v19,
+                      setRecoveryStep: _v20,
+                      setState: _v21,
+                      state: _v22,
+                      setUploadMethod: _v23
                     } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
                       setError: _v0.common.setError,
                       setSelectedPrivacy: _v0.privacy.setSelected,
@@ -7813,33 +7810,33 @@
                     }, [_v0, _v1]);
                   })({
                     onOffline: (0, _v26.useCallback)(() => {
-                      _v2.debug("useNetwork.handleOffline"), "recording" === _v23 && _v17({
+                      _v2.debug("useNetwork.handleOffline"), "recording" === _v22 && _v16({
                         type: "error",
                         errorKey: _v173.OFFLINE_ERROR,
                         source: "browser"
                       });
-                    }, [_v2, _v17, _v23]),
+                    }, [_v2, _v16, _v22]),
                     onOnline: (0, _v26.useCallback)(() => {
-                      _v2.debug("useNetwork.handleOnline"), _v17(_v0 => _v0?.errorKey === _v173.OFFLINE_ERROR ? void 0 : _v0);
-                    }, [_v2, _v17])
+                      _v2.debug("useNetwork.handleOnline"), _v16(_v0 => _v0?.errorKey === _v173.OFFLINE_ERROR ? void 0 : _v0);
+                    }, [_v2, _v16])
                   });
                   let {
-                      addConvertedChunk: _v25,
-                      removeConvertedChunks: _v26
+                      addConvertedChunk: _v24,
+                      removeConvertedChunks: _v25
                     } = (0, _v130.useMemoryDataStorage)((0, _v27.useShallow)(_v0 => ({
                       addConvertedChunk: _v0.addConvertedChunk,
                       removeConvertedChunks: _v0.removeConvertedChunks
                     }))),
-                    _v27 = (0, _v26.useCallback)(async (_v0 = !0) => {
-                      _v4.current?.cancelAndUnsubscribe(), _v4.current = void 0;
-                      let _v1 = _v5.current?.cancelAndUnsubscribe();
-                      _v5.current = void 0, _v20("idle"), _v12(), _v1 && (await _v1), _v0 && (_v8.current = void 0, _v1());
-                    }, [_v1, _v12, _v20]),
-                    _v28 = (0, _v26.useCallback)((_v0, _v1) => {
-                      "stopped" === _v90.useUIStore.getState().common.recordingState && _v11(() => {
-                        _v20("retry");
+                    _v26 = (0, _v26.useCallback)(async (_v0 = !0) => {
+                      _v3.current?.cancelAndUnsubscribe(), _v3.current = void 0;
+                      let _v1 = _v4.current?.cancelAndUnsubscribe();
+                      _v4.current = void 0, _v19("idle"), _v11(), _v1 && (await _v1), _v0 && (_v7.current = void 0, _v1());
+                    }, [_v1, _v11, _v19]),
+                    _v27 = (0, _v26.useCallback)((_v0, _v1) => {
+                      "stopped" === _v90.useUIStore.getState().common.recordingState && _v10(() => {
+                        _v19("retry");
                       }, () => {
-                        _v17({
+                        _v16({
                           type: "blocker-error",
                           errorKey: (() => {
                             switch (_v0) {
@@ -7858,12 +7855,12 @@
                           reason: _v0,
                           source: _v1,
                           uploadMethod: _v90.useUIStore.getState().common.uploadMethod,
-                          initialUploadMethod: _v8.current ?? _v90.useUIStore.getState().common.uploadMethod
+                          initialUploadMethod: _v7.current ?? _v90.useUIStore.getState().common.uploadMethod
                         }), _v2.warn("Error happened during video upload, retry failed");
                       });
-                    }, [_v2, _v11, _v17, _v20]),
-                    _v29 = (0, _v26.useCallback)(() => {
-                      _v20("uploading"), _v17(_v0 => {
+                    }, [_v2, _v10, _v16, _v19]),
+                    _v28 = (0, _v26.useCallback)(() => {
+                      _v19("uploading"), _v16(_v0 => {
                         switch (_v0?.errorKey) {
                           case _v173.INTERNET_CONNECTION:
                           case _v173.UNAUTHORIZED_ERROR:
@@ -7872,10 +7869,10 @@
                             return _v0;
                         }
                       });
-                    }, [_v17, _v20]),
-                    _v30 = (0, _v26.useMemo)(() => ({
+                    }, [_v16, _v19]),
+                    _v29 = (0, _v26.useMemo)(() => ({
                       onStarted: () => {
-                        _v20("uploading");
+                        _v19("uploading");
                       },
                       onFailed: async (_v0, _v1, _v2) => {
                         let {
@@ -7899,15 +7896,15 @@
                           case "FatalLiveError":
                             _v2.warn("Live upload failed with FatalLiveError, restarting the upload", {
                               errorMessage: _v1?.message
-                            }), _v5.current?.cancelAndUnsubscribe(), _v5.current = void 0;
+                            }), _v4.current?.cancelAndUnsubscribe(), _v4.current = void 0;
                             break;
                           case "FatalError":
                             _v2.warn("Fatal upload error from Vimeo API, cancelling uploader", {
                               errorMessage: _v1?.message
-                            }), _v5.current?.cancelAndUnsubscribe(), _v5.current = void 0;
+                            }), _v4.current?.cancelAndUnsubscribe(), _v4.current = void 0;
                             break;
                           case "NoInternetError":
-                            _v2.warn("Upload failed due to no internet connection"), _v17({
+                            _v2.warn("Upload failed due to no internet connection"), _v16({
                               type: "error",
                               errorKey: _v173.INTERNET_CONNECTION,
                               source: "vimeo-api"
@@ -7919,25 +7916,25 @@
                             });
                             break;
                           case "FirewallError":
-                            _v2.warn("Upload failed due to firewall blocking request"), _v17({
+                            _v2.warn("Upload failed due to firewall blocking request"), _v16({
                               type: "blocker-error",
                               errorKey: _v173.FIREWALL_ERROR
                             }), _v128("record_studio_upload_failed", {
                               reason: _v0,
                               source: "vimeo-api",
                               uploadMethod: _v90.useUIStore.getState().common.uploadMethod,
-                              initialUploadMethod: _v8.current ?? _v90.useUIStore.getState().common.uploadMethod
-                            }), _v27();
+                              initialUploadMethod: _v7.current ?? _v90.useUIStore.getState().common.uploadMethod
+                            }), _v26();
                             return;
                         }
-                        _v20("idle"), _v28(_v0, "vimeo-api");
+                        _v19("idle"), _v27(_v0, "vimeo-api");
                       },
                       onChunkUploaded: () => {
-                        _v12(), _v29();
+                        _v11(), _v28();
                       },
                       onUploaded: (_v0, _v1, _v2, _v3, _v4) => {
-                        _v9.current = _v4, _v12(), _v20("idle"), _v21("retry");
-                        let _v5 = _v8.current ?? _v2,
+                        _v8.current = _v4, _v11(), _v19("idle"), _v20("retry");
+                        let _v5 = _v7.current ?? _v2,
                           _v6 = {
                             videoId: _v0,
                             uploadMethod: _v2,
@@ -7945,27 +7942,27 @@
                             didFallback: _v5 !== _v2,
                             uploadDurationSeconds: Math.round(_v3)
                           };
-                        _v2.info("Upload succeeded", _v6), _v128("record_studio_upload_succeeded", _v6), _v0(_v0, _v1, _v2, _v3, _v5), _v8.current = void 0;
+                        _v2.info("Upload succeeded", _v6), _v128("record_studio_upload_succeeded", _v6), _v0(_v0, _v1, _v2, _v3, _v5), _v7.current = void 0;
                       },
-                      onPlayable: _v16 ? _v0 => {
-                        _v15(_v0), _v22("pre-recording");
+                      onPlayable: _v15 ? _v0 => {
+                        _v14(_v0), _v21("pre-recording");
                       } : void 0,
                       onVideoCreated: _v0 => {
                         _v130.useMemoryDataStorage.getState().setInfo({
                           uri: _v0
-                        }), _v29();
+                        }), _v28();
                         let _v1 = _v203(_v0);
-                        _v13 === _v295 && _v1 && _v14(_v1);
+                        _v12 === _v295 && _v1 && _v13(_v1);
                       }
-                    }), [_v27, _v29, _v16, _v20, _v28, _v17, _v12, _v21, _v0, _v15, _v22, _v13, _v14, _v2]);
+                    }), [_v26, _v28, _v15, _v19, _v27, _v16, _v11, _v20, _v0, _v14, _v21, _v12, _v13, _v2]);
                   (0, _v26.useEffect)(() => {
-                    _v5.current?.setCallbacks(_v30);
-                  }, [_v30]), (0, _v26.useEffect)(() => {
-                    _v24(_v7), _v129({
-                      uploadMethod: _v7
+                    _v4.current?.setCallbacks(_v29);
+                  }, [_v29]), (0, _v26.useEffect)(() => {
+                    _v23(_v6), _v129({
+                      uploadMethod: _v6
                     });
-                  }, [_v24, _v7]);
-                  let _v31 = (0, _v26.useCallback)(() => {
+                  }, [_v23, _v6]);
+                  let _v30 = (0, _v26.useCallback)(() => {
                       let {
                           privacy: _v0,
                           common: {
@@ -7974,24 +7971,24 @@
                           }
                         } = _v90.useUIStore.getState(),
                         _v3 = _v0.selected;
-                      return "password" !== _v3.value || _v3.password || _v18(_v3 = {
+                      return "password" !== _v3.value || _v3.password || _v17(_v3 = {
                         value: "nobody"
-                      }), new _v202(_v30, {
+                      }), new _v202(_v29, {
                         recordingTitle: _v130.useMemoryDataStorage.getState().info.title,
                         uploadFolderUri: _v1 ?? void 0,
                         uploadAccountId: _v2,
                         privacy: _v3,
-                        hasRecentlyDeleted: _v3.has_recently_deleted,
+                        hasRecentlyDeleted: !0,
                         resolution: _v86.getState().capturedResolution
                       });
-                    }, [_v18, _v30, _v3.has_recently_deleted]),
-                    _v32 = (0, _v26.useCallback)(() => {
+                    }, [_v17, _v29]),
+                    _v31 = (0, _v26.useCallback)(() => {
                       let {
                         recordingState: _v0,
                         uploadingState: _v1
                       } = _v90.useUIStore.getState().common;
-                      if (_v5.current && !_v5.current.isFinalized) {
-                        if (_v5.current.retry) return void _v5.current.retry();else if ("uploading" === _v1) return;
+                      if (_v4.current && !_v4.current.isFinalized) {
+                        if (_v4.current.retry) return void _v4.current.retry();else if ("uploading" === _v1) return;
                       }
                       let {
                         originalChunks: _v2,
@@ -8003,35 +8000,35 @@
                           isResolutionChanged: _v7
                         }
                       } = _v130.useMemoryDataStorage.getState();
-                      _v5.current?.cancelAndUnsubscribe(), _v5.current = _v31(), _v4 && _v5.current.addThumbnail(_v4), "tus" !== _v6.current ? (_v5.current.start(_v6.current), _v5.current.addChunks("live" === _v6.current || "tus_stream" === _v6.current ? _v2 : _v3), "stopped" === _v0 && _v5.current.eof({
+                      _v4.current?.cancelAndUnsubscribe(), _v4.current = _v30(), _v4 && _v4.current.addThumbnail(_v4), "tus" !== _v5.current ? (_v4.current.start(_v5.current), _v4.current.addChunks("live" === _v5.current || "tus_stream" === _v5.current ? _v2 : _v3), "stopped" === _v0 && _v4.current.eof({
                         duration: _v5,
                         isResolutionChanged: _v7
-                      })) : "stopped" === _v0 && (_v5.current.start(_v6.current, _v6), _v5.current.addChunks(_v2), _v5.current.eof({
+                      })) : "stopped" === _v0 && (_v4.current.start(_v5.current, _v6), _v4.current.addChunks(_v2), _v4.current.eof({
                         duration: _v5,
                         isResolutionChanged: _v7
                       }));
-                    }, [_v31, _v6]),
-                    _v33 = (0, _v26.useMemo)(() => ({
+                    }, [_v30, _v5]),
+                    _v32 = (0, _v26.useMemo)(() => ({
                       onInitialized: () => {
-                        _v17(void 0), _v5.current ? _v5.current.start(_v6.current) : _v32();
+                        _v16(void 0), _v4.current ? _v4.current.start(_v5.current) : _v31();
                       },
                       onChunk: _v0 => {
-                        _v25(_v0), _v5.current ? _v5.current.addChunks([_v0]) : _v32();
+                        _v24(_v0), _v4.current ? _v4.current.addChunks([_v0]) : _v31();
                       },
                       onEndOfFile: () => {
-                        if (_v5.current) {
+                        if (_v4.current) {
                           let {
                             duration: _v0,
                             isResolutionChanged: _v1
                           } = _v130.useMemoryDataStorage.getState().info;
-                          _v5.current.eof({
+                          _v4.current.eof({
                             duration: _v0,
                             isResolutionChanged: _v1
                           });
-                        } else _v32();
+                        } else _v31();
                       },
                       onFailed: async (_v0, _v1, _v2) => {
-                        if (_v27(!1), _v2) {
+                        if (_v26(!1), _v2) {
                           let _v0 = {
                             reason: _v0,
                             ..._v2,
@@ -8039,75 +8036,75 @@
                           };
                           _v2.warn("IPB conversion failed", _v0), _v128("record_studio_convert_failed", _v0);
                         }
-                        "NoInternetError" === _v0 && (_v2.warn("IPB chunk converter failed due to no internet connection"), _v17({
+                        "NoInternetError" === _v0 && (_v2.warn("IPB chunk converter failed due to no internet connection"), _v16({
                           type: "error",
                           errorKey: _v173.INTERNET_CONNECTION,
                           source: "chunk-converter"
-                        })), "stopped" === _v90.useUIStore.getState().common.recordingState ? _v28(_v0, "chunk-converter") : _v2.warn("Chunk converter failed while recording is still in progress, not scheduling retry", {
+                        })), "stopped" === _v90.useUIStore.getState().common.recordingState ? _v27(_v0, "chunk-converter") : _v2.warn("Chunk converter failed while recording is still in progress, not scheduling retry", {
                           reason: _v0,
                           errorMessage: _v1?.message
                         });
                       }
-                    }), [_v25, _v27, _v32, _v28, _v17, _v6, _v2]),
-                    _v34 = (0, _v26.useCallback)(() => {
-                      _v27(!1), _v26();
+                    }), [_v24, _v26, _v31, _v27, _v16, _v5, _v2]),
+                    _v33 = (0, _v26.useCallback)(() => {
+                      _v26(!1), _v25();
                       let {
                         originalChunks: _v0,
                         recordingThumbnail: _v1
                       } = _v130.useMemoryDataStorage.getState();
-                      _v5.current = _v31(), _v1 && _v5.current.addThumbnail(_v1), _v4.current = new _v299(_v33), _v4.current.addPreviousChunks(_v0), "stopped" === _v90.useUIStore.getState().common.recordingState && _v4.current.eof();
-                    }, [_v27, _v33, _v31, _v26]);
+                      _v4.current = _v30(), _v1 && _v4.current.addThumbnail(_v1), _v3.current = new _v299(_v32), _v3.current.addPreviousChunks(_v0), "stopped" === _v90.useUIStore.getState().common.recordingState && _v3.current.eof();
+                    }, [_v26, _v32, _v30, _v25]);
                   (0, _v26.useEffect)(() => {
-                    _v4.current?.setCallbacks(_v33);
-                  }, [_v33]);
-                  let _v35 = (0, _v26.useCallback)(() => {
-                      _v8.current || (_v8.current = _v6.current), "ipb" === _v6.current ? _v4.current ? _v32() : _v34() : _v32();
-                    }, [_v34, _v32, _v6]),
-                    _v36 = (0, _v26.useCallback)(_v0 => {
-                      if ("ipb" === _v6.current && _v4.current) _v4.current.addChunk(_v0);else if (("live" === _v6.current || "tus_stream" === _v6.current) && _v5.current && !_v5.current.isFinalized) _v5.current.addChunks([_v0]);else {
-                        if ("tus" === _v6.current && "stopped" !== _v90.useUIStore.getState().common.recordingState) return;
+                    _v3.current?.setCallbacks(_v32);
+                  }, [_v32]);
+                  let _v34 = (0, _v26.useCallback)(() => {
+                      _v7.current || (_v7.current = _v5.current), "ipb" === _v5.current ? _v3.current ? _v31() : _v33() : _v31();
+                    }, [_v33, _v31, _v5]),
+                    _v35 = (0, _v26.useCallback)(_v0 => {
+                      if ("ipb" === _v5.current && _v3.current) _v3.current.addChunk(_v0);else if (("live" === _v5.current || "tus_stream" === _v5.current) && _v4.current && !_v4.current.isFinalized) _v4.current.addChunks([_v0]);else {
+                        if ("tus" === _v5.current && "stopped" !== _v90.useUIStore.getState().common.recordingState) return;
                         _v2.warn("addChunk called but no uploader or converter is ready, triggering upload start", {
-                          approach: _v6.current,
-                          hasUploader: !!_v5.current,
-                          hasConverter: !!_v4.current
-                        }), _v35();
+                          approach: _v5.current,
+                          hasUploader: !!_v4.current,
+                          hasConverter: !!_v3.current
+                        }), _v34();
                       }
-                    }, [_v2, _v35, _v6]),
-                    _v37 = (0, _v26.useCallback)(async () => {
-                      if ("ipb" === _v6.current && _v4.current) _v4.current.eof();else if (("live" === _v6.current || "tus_stream" === _v6.current) && _v5.current && !_v5.current.isFinalized) {
+                    }, [_v2, _v34, _v5]),
+                    _v36 = (0, _v26.useCallback)(async () => {
+                      if ("ipb" === _v5.current && _v3.current) _v3.current.eof();else if (("live" === _v5.current || "tus_stream" === _v5.current) && _v4.current && !_v4.current.isFinalized) {
                         let {
                           duration: _v0,
                           isResolutionChanged: _v1
                         } = _v130.useMemoryDataStorage.getState().info;
-                        await _v5.current.eof({
+                        await _v4.current.eof({
                           duration: _v0,
                           isResolutionChanged: _v1
                         });
                       } else _v2.warn("eof called but no uploader or converter is ready, triggering upload start", {
-                        approach: _v6.current,
-                        hasUploader: !!_v5.current,
-                        hasConverter: !!_v4.current
-                      }), _v35();
-                    }, [_v2, _v35, _v6]),
+                        approach: _v5.current,
+                        hasUploader: !!_v4.current,
+                        hasConverter: !!_v3.current
+                      }), _v34();
+                    }, [_v2, _v34, _v5]),
+                    _v37 = (0, _v26.useCallback)(() => {
+                      "live" === _v5.current && _v4.current && _v4.current.pause();
+                    }, [_v5]),
                     _v38 = (0, _v26.useCallback)(() => {
-                      "live" === _v6.current && _v5.current && _v5.current.pause();
-                    }, [_v6]),
-                    _v39 = (0, _v26.useCallback)(() => {
-                      "live" === _v6.current && _v5.current && _v5.current.resume();
-                    }, [_v6]);
+                      "live" === _v5.current && _v4.current && _v4.current.resume();
+                    }, [_v5]);
                   return (0, _v26.useEffect)(() => {
-                    "retry" === _v19 && _v35();
-                  }, [_v35, _v19]), (0, _v26.useEffect)(() => () => {
-                    _v9.current && clearInterval(_v9.current);
+                    "retry" === _v18 && _v34();
+                  }, [_v34, _v18]), (0, _v26.useEffect)(() => () => {
+                    _v8.current && clearInterval(_v8.current);
                   }, []), (0, _v26.useMemo)(() => ({
-                    start: _v35,
-                    addChunk: _v36,
-                    eof: _v37,
-                    cancel: _v27,
-                    addThumbnail: _v0 => _v5.current?.addThumbnail(_v0),
-                    pause: _v38,
-                    resume: _v39
-                  }), [_v36, _v27, _v37, _v38, _v39, _v35]);
+                    start: _v34,
+                    addChunk: _v35,
+                    eof: _v36,
+                    cancel: _v26,
+                    addThumbnail: _v0 => _v4.current?.addThumbnail(_v0),
+                    pause: _v37,
+                    resume: _v38
+                  }), [_v35, _v26, _v36, _v37, _v38, _v34]);
                 })(_v0),
                 _v5 = function ({
                   onUploaded: _v0
@@ -12649,17 +12646,14 @@
           let _v1 = _v141("useBackModalActions"),
             _v2 = (0, _v286.useRouter)(),
             [_v3, _v4] = (0, _v26.useState)(),
+            [_v5] = (0, _v336.useDeleteVideo)(),
             {
-              settings: _v5
-            } = (0, _v32.useOrionSettings)(),
-            [_v6] = (0, _v336.useDeleteVideo)(),
-            {
-              state: _v7,
-              recorder: _v8,
-              recordingState: _v9,
-              setShowBackModal: _v10,
-              showBackModal: _v11,
-              setWaitingToRouteBack: _v12
+              state: _v6,
+              recorder: _v7,
+              recordingState: _v8,
+              setShowBackModal: _v9,
+              showBackModal: _v10,
+              setWaitingToRouteBack: _v11
             } = (0, _v90.useUIStore)((0, _v27.useShallow)(_v0 => ({
               showBackModal: _v0.common.isBackModalShown,
               state: _v0.common.state,
@@ -12668,60 +12662,58 @@
               setShowBackModal: _v0.common.setBackModalShown,
               setWaitingToRouteBack: _v0.common.setWaitingToRouteBack
             }))),
-            _v13 = (0, _v26.useCallback)(() => {
-              _v10(!1), _v0.current = void 0, _v1.debug("[hideModal] unset commitNavigation ref");
-            }, [_v0, _v1, _v10]);
+            _v12 = (0, _v26.useCallback)(() => {
+              _v9(!1), _v0.current = void 0, _v1.debug("[hideModal] unset commitNavigation ref");
+            }, [_v0, _v1, _v9]);
           (0, _v26.useEffect)(() => () => {
-            _v12(!1), _v13();
-          }, [_v13, _v12]);
-          let _v14 = (0, _v26.useCallback)(() => {
+            _v11(!1), _v12();
+          }, [_v12, _v11]);
+          let _v13 = (0, _v26.useCallback)(() => {
               _v0.current ? _v0.current() : (_v1.debug("calling [nextRouter.back]"), _v2.back());
             }, [_v0, _v1, _v2]),
-            _v15 = (0, _v26.useCallback)(_v0 => {
+            _v14 = (0, _v26.useCallback)(_v0 => {
               let _v1;
-              return _v6({
+              return _v5({
                 where: {
                   videoId: _v0
                 },
-                ...(_v5.has_recently_deleted ? {
-                  variables: {
-                    sendToRecentlyDeleted: !0
-                  }
-                } : {})
+                variables: {
+                  sendToRecentlyDeleted: !0
+                }
               }).catch(_v0 => {
                 _v1 = _v0;
               }).finally(() => {
                 _v1.debug(`video was ${_v1 ? "not " : " "}deleted.`, {
                   videoId: _v0,
                   deleteError: _v1
-                }), _v14();
+                }), _v13();
               });
-            }, [_v14, _v6, _v1, _v5.has_recently_deleted]),
-            _v16 = "pre-recording" !== _v7 && _v8 && "idle" === _v9,
-            _v17 = (0, _v26.useCallback)(() => {
+            }, [_v13, _v5, _v1]),
+            _v15 = "pre-recording" !== _v6 && _v7 && "idle" === _v8,
+            _v16 = (0, _v26.useCallback)(() => {
               let _v0 = _v203(_v130.useMemoryDataStorage.getState().info.uri);
-              _v4("leave"), _v16 ? (_v12(!0), _v8.cancel().then(() => _v1.debug("Recorder was cancelled.")).catch(_v0 => _v1.error(_v0, {
+              _v4("leave"), _v15 ? (_v11(!0), _v7.cancel().then(() => _v1.debug("Recorder was cancelled.")).catch(_v0 => _v1.error(_v0, {
                 category: _v124.RECORDER,
                 method: "confirmLeave",
                 component: "useBackModalActions"
-              }))) : _v0 ? _v15(_v0).then(_v14) : _v14();
-            }, [_v16, _v14, _v15, _v1, _v8, _v12]),
-            _v18 = (0, _v26.useCallback)(() => {
-              _v4("save"), _v16 ? (_v12(!0), _v8.stop().then(() => _v1.debug("Recorder was stopped.")).catch(_v0 => _v1.error(_v0, {
+              }))) : _v0 ? _v14(_v0).then(_v13) : _v13();
+            }, [_v15, _v13, _v14, _v1, _v7, _v11]),
+            _v17 = (0, _v26.useCallback)(() => {
+              _v4("save"), _v15 ? (_v11(!0), _v7.stop().then(() => _v1.debug("Recorder was stopped.")).catch(_v0 => _v1.error(_v0, {
                 category: _v124.RECORDER,
                 method: "confirmSaveAndGoBack",
                 component: "useBackModalActions"
-              }))) : "uploading" === _v7 ? _v12(!0) : _v14();
-            }, [_v16, _v14, _v1, _v8, _v12, _v7]),
-            _v19 = _v301.includes(_v7);
+              }))) : "uploading" === _v6 ? _v11(!0) : _v13();
+            }, [_v15, _v13, _v1, _v7, _v11, _v6]),
+            _v18 = _v301.includes(_v6);
           return {
-            showBackModal: _v11,
-            confirmCancelAndBack: _v17,
+            showBackModal: _v10,
+            confirmCancelAndBack: _v16,
             onBackClick: (0, _v26.useCallback)(() => {
-              _v19 ? _v10(!0) : _v2.back();
-            }, [_v2, _v10, _v19]),
-            confirmSaveAndGoBack: _v18,
-            hideModal: _v13,
+              _v18 ? _v9(!0) : _v2.back();
+            }, [_v2, _v9, _v18]),
+            confirmSaveAndGoBack: _v17,
+            hideModal: _v12,
             loadingButton: _v3
           };
         }(function ({
@@ -13115,22 +13107,17 @@
         [_v2, _v3] = (0, _v26.useState)(!1),
         _v4 = (0, _v90.useUIStore)(_v0 => _v0.common.state),
         _v5 = (0, _v90.useUIStore)(_v0 => _v0.controls.setControlsAction),
-        {
-          settings: _v6
-        } = (0, _v32.useOrionSettings)(),
-        [_v7, {
-          loading: _v8
+        [_v6, {
+          loading: _v7
         }] = (0, _v336.useDeleteVideo)(),
-        _v9 = async () => {
-          "paused" === _v4 && (_v3(!1), _v5("delete"), _v0()), "uploading" === _v4 && _v1 && (await _v7({
+        _v8 = async () => {
+          "paused" === _v4 && (_v3(!1), _v5("delete"), _v0()), "uploading" === _v4 && _v1 && (await _v6({
             where: {
               videoId: _v1
             },
-            ...(_v6.has_recently_deleted ? {
-              variables: {
-                sendToRecentlyDeleted: !0
-              }
-            } : {})
+            variables: {
+              sendToRecentlyDeleted: !0
+            }
           }), _v3(!1), _v0());
         };
       return (0, _v25.jsxs)(_v360.Navigation, {
@@ -13154,7 +13141,7 @@
               children: [(0, _v25.jsx)(_v236.Button, {
                 size: "sm",
                 variant: "secondary",
-                isDisabled: _v8,
+                isDisabled: _v7,
                 onClick: () => {
                   _v5("resume"), _v3(!1);
                 },
@@ -13162,8 +13149,8 @@
               }), (0, _v25.jsx)(_v236.Button, {
                 size: "sm",
                 variant: "destructive",
-                isLoading: _v8,
-                onClick: _v9,
+                isLoading: _v7,
+                onClick: _v8,
                 children: _v432.confirm
               })]
             })
@@ -14987,54 +14974,49 @@
       let _v1 = _v141("PostRecordingRetakeActionButton"),
         _v2 = _v345(),
         {
-          settings: _v3
-        } = (0, _v32.useOrionSettings)(),
-        {
-          trackRecordingShareActionClicked: _v4
+          trackRecordingShareActionClicked: _v3
         } = (0, _v46.useRecordingTracking)(),
-        [_v5, _v6] = (0, _v26.useState)(!1),
-        [_v7, {
-          loading: _v8,
-          called: _v9
+        [_v4, _v5] = (0, _v26.useState)(!1),
+        [_v6, {
+          loading: _v7,
+          called: _v8
         }] = (0, _v336.useDeleteVideo)(),
         {
-          trackRetakeVideoNotificationConfirmation: _v10,
-          trackRetakeRecordingClick: _v11
+          trackRetakeVideoNotificationConfirmation: _v9,
+          trackRetakeRecordingClick: _v10
         } = _v275(),
-        _v12 = (0, _v26.useCallback)(() => {
-          _v2 && _v11(_v2), _v4({
+        _v11 = (0, _v26.useCallback)(() => {
+          _v2 && _v10(_v2), _v3({
             recordingShareAction: "retake"
-          }), _v6(!0);
-        }, [_v2, _v11, _v4]),
-        _v13 = (0, _v26.useCallback)(() => {
+          }), _v5(!0);
+        }, [_v2, _v10, _v3]),
+        _v12 = (0, _v26.useCallback)(() => {
           _v1.info("retake action confirmed, delete the video clip", {
             clipId: _v2
-          }), _v2 && (_v10(_v2, _v460), _v7({
+          }), _v2 && (_v9(_v2, _v460), _v6({
             where: {
               videoId: _v2
             },
-            ...(_v3.has_recently_deleted ? {
-              variables: {
-                sendToRecentlyDeleted: !0
-              }
-            } : {})
+            variables: {
+              sendToRecentlyDeleted: !0
+            }
           }));
-        }, [_v2, _v1, _v7, _v3.has_recently_deleted, _v10]);
+        }, [_v2, _v1, _v6, _v9]);
       return (0, _v26.useEffect)(() => {
-        !_v8 && _v9 && (_v1.info("video clip deleted successfully", {
+        !_v7 && _v8 && (_v1.info("video clip deleted successfully", {
           clipId: _v2
-        }), _v6(!1), _v0());
-      }, [_v9, _v8, _v0, _v1, _v2]), (0, _v25.jsxs)(_v25.Fragment, {
+        }), _v5(!1), _v0());
+      }, [_v8, _v7, _v0, _v1, _v2]), (0, _v25.jsxs)(_v25.Fragment, {
         children: [(0, _v25.jsx)(_v455, {
           icon: (0, _v25.jsx)(_v415.Reset, {}),
           title: _v438.retakeAction,
-          onClick: _v12,
+          onClick: _v11,
           "data-testid": "record-studio-post-recording-video-retake-button"
         }), (0, _v25.jsx)(_v461, {
-          disabled: _v8 || _v9,
-          isOpen: _v5,
-          onClose: () => _v6(!1),
-          onConfirm: _v13
+          disabled: _v7 || _v8,
+          isOpen: _v4,
+          onClose: () => _v5(!1),
+          onConfirm: _v12
         })]
       });
     };

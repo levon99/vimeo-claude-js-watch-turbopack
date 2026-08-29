@@ -9,7 +9,8 @@
         versionList: [],
         selectedVersionUri: null,
         renditionStatus: null,
-        isLocalUploadActive: !1
+        isLocalUploadActive: !1,
+        isReverted: !1
       },
       reducers: {
         setVersions(_v0, {
@@ -48,10 +49,15 @@
           payload: _v1
         }) {
           let _v2 = _v0.versionList.find(_v0 => _v0.uri === _v1);
-          _v2 && (_v2.isDeleted = !0);
+          _v2 && (_v2.isDeleted = !0), _v0.renditionStatus?.versionUri === _v1 && (_v0.renditionStatus = null), _v0.selectedVersionUri === _v1 && (_v0.selectedVersionUri = null);
+        },
+        setIsReverted(_v0, {
+          payload: _v1
+        }) {
+          _v0.isReverted = _v1;
         },
         resetVersions(_v0) {
-          _v0.versionList = [], _v0.selectedVersionUri = null, _v0.renditionStatus = null;
+          _v0.versionList = [], _v0.selectedVersionUri = null, _v0.renditionStatus = null, _v0.isReverted = !1;
         },
         setSelectedVersionUri(_v0, {
           payload: _v1

@@ -208,8 +208,9 @@
       })
     });
   var _v20 = _v0.i(0),
-    _v21 = _v0.i(0);
-  function _v22(_v0) {
+    _v21 = _v0.i(0),
+    _v22 = _v0.i(0);
+  function _v23(_v0) {
     switch (_v0) {
       case "coyote":
         return (0, _v13.translate)({
@@ -348,7 +349,7 @@
         });
     }
   }
-  function _v23(_v0) {
+  function _v24(_v0) {
     if (!_v0) return "";
     let _v1 = new Date(_v0);
     return Number.isNaN(_v1.getTime()) ? "" : _v1.toLocaleDateString(void 0, {
@@ -357,210 +358,214 @@
       day: "numeric"
     });
   }
-  var _v24 = _v0.i(0),
-    _v25 = _v0.i(0),
+  var _v25 = _v0.i(0),
     _v26 = _v0.i(0),
-    _v27 = _v0.i(0);
-  let _v28 = ({
-      userId: _v0
-    }) => {
-      let {
-        data: _v1,
-        isLoading: _v2,
-        error: _v3
-      } = (0, _v27.useGetUser)(() => _v0 ? {
-        where: {
-          userId: _v0
-        },
-        select: ["name", "link", "pictures.sizes"]
-      } : null);
-      if (null === _v0) return (0, _v1.jsx)(_v11.Text, {
-        variant: "body-md",
-        color: "text-tertiary",
-        children: "—"
-      });
-      if (_v2 && !_v1) return (0, _v1.jsx)(_v26.Skeleton, {
-        borderRadius: "sm",
-        height: "2rem",
-        variant: "text"
-      });
-      let _v4 = _v1?.name,
-        _v5 = _v1?.link,
-        _v6 = _v1?.pictures?.sizes,
-        _v7 = _v6 && _v6.length > 0 ? _v6[0].link : void 0;
-      if (!_v4 || _v3) return (0, _v1.jsxs)(_v25.HStack, {
-        children: [(0, _v1.jsx)(_v24.Avatar, {
-          shape: "full",
-          size: "sm",
-          alt: "",
-          nameProps: {
-            name: "?"
-          }
-        }), (0, _v1.jsxs)(_v12.VStack, {
-          alignItems: "flex-start",
-          gap: "0",
-          children: [(0, _v1.jsx)(_v11.Text, {
-            variant: "heading-xs",
-            children: (0, _v13.translate)({
-              singular: "Removed member",
-              dictionary: {
-                es: {
-                  singular: "Miembro eliminado"
-                },
-                "de-DE": {
-                  singular: "Entferntes Mitglied"
-                },
-                "fr-FR": {
-                  singular: "Membre supprimé"
-                },
-                "ja-JP": {
-                  singular: "削除されたメンバー"
-                },
-                "ko-KR": {
-                  singular: "제거된 구성원"
-                },
-                "pt-BR": {
-                  singular: "Membro removido"
-                },
-                "zh-CN": {
-                  singular: "已移除成员"
-                }
-              }
-            })
-          }), (0, _v1.jsx)(_v11.Text, {
-            variant: "body-sm",
-            color: "text-secondary",
-            children: (0, _v13.translate)({
-              singular: "User ID {ID}",
-              replacements: {
-                ID: _v0
+    _v27 = _v0.i(0),
+    _v28 = _v0.i(0);
+  let _v29 = ({
+    userId: _v0
+  }) => {
+    let {
+      data: _v1,
+      isLoading: _v2,
+      error: _v3
+    } = (0, _v28.useGetUser)(() => _v0 ? {
+      where: {
+        userId: _v0
+      },
+      select: ["name", "link", "pictures.sizes"]
+    } : null);
+    if (null === _v0) return (0, _v1.jsx)(_v11.Text, {
+      variant: "body-md",
+      color: "text-tertiary",
+      children: "—"
+    });
+    if (_v2 && !_v1) return (0, _v1.jsx)(_v27.Skeleton, {
+      borderRadius: "sm",
+      height: "2rem",
+      variant: "text"
+    });
+    let _v4 = _v1?.name,
+      _v5 = _v1?.link,
+      _v6 = _v1?.pictures?.sizes,
+      _v7 = _v6 && _v6.length > 0 ? _v6[0].link : void 0;
+    if (!_v4 || _v3) return (0, _v1.jsxs)(_v26.HStack, {
+      children: [(0, _v1.jsx)(_v25.Avatar, {
+        shape: "full",
+        size: "sm",
+        alt: "",
+        nameProps: {
+          name: "?"
+        }
+      }), (0, _v1.jsxs)(_v12.VStack, {
+        alignItems: "flex-start",
+        gap: "0",
+        children: [(0, _v1.jsx)(_v11.Text, {
+          variant: "heading-xs",
+          children: (0, _v13.translate)({
+            singular: "Removed member",
+            dictionary: {
+              es: {
+                singular: "Miembro eliminado"
               },
-              dictionary: {
-                es: {
-                  singular: "ID de usuario {ID}"
-                },
-                "de-DE": {
-                  singular: "Benutzer-ID {ID}"
-                },
-                "fr-FR": {
-                  singular: "ID utilisateur {ID}"
-                },
-                "ja-JP": {
-                  singular: "ユーザーID {ID}"
-                },
-                "ko-KR": {
-                  singular: "사용자 ID {ID}"
-                },
-                "pt-BR": {
-                  singular: "ID do usuário {ID}"
-                },
-                "zh-CN": {
-                  singular: "用户 ID {ID}"
-                }
-              }
-            })
-          })]
-        })]
-      });
-      if (/^user\d+$/i.test(_v4)) return (0, _v1.jsxs)(_v25.HStack, {
-        children: [(0, _v1.jsx)(_v24.Avatar, {
-          shape: "full",
-          size: "sm",
-          alt: "",
-          nameProps: {
-            name: "W"
-          }
-        }), (0, _v1.jsxs)(_v12.VStack, {
-          alignItems: "flex-start",
-          gap: "0",
-          children: [(0, _v1.jsx)(_v11.Text, {
-            variant: "heading-xs",
-            children: (0, _v13.translate)({
-              singular: "Workspace account",
-              dictionary: {
-                es: {
-                  singular: "Cuenta del espacio de trabajo"
-                },
-                "de-DE": {
-                  singular: "Workspace-Konto"
-                },
-                "fr-FR": {
-                  singular: "Compte de l'espace de travail"
-                },
-                "ja-JP": {
-                  singular: "ワークスペースアカウント"
-                },
-                "ko-KR": {
-                  singular: "워크스페이스 계정"
-                },
-                "pt-BR": {
-                  singular: "Conta do espaço de trabalho"
-                },
-                "zh-CN": {
-                  singular: "工作区账户"
-                }
-              }
-            })
-          }), (0, _v1.jsx)(_v11.Text, {
-            variant: "body-sm",
-            color: "text-secondary",
-            children: (0, _v13.translate)({
-              singular: "User ID {ID}",
-              replacements: {
-                ID: _v0
+              "de-DE": {
+                singular: "Entferntes Mitglied"
               },
-              dictionary: {
-                es: {
-                  singular: "ID de usuario {ID}"
-                },
-                "de-DE": {
-                  singular: "Benutzer-ID {ID}"
-                },
-                "fr-FR": {
-                  singular: "ID utilisateur {ID}"
-                },
-                "ja-JP": {
-                  singular: "ユーザーID {ID}"
-                },
-                "ko-KR": {
-                  singular: "사용자 ID {ID}"
-                },
-                "pt-BR": {
-                  singular: "ID do usuário {ID}"
-                },
-                "zh-CN": {
-                  singular: "用户 ID {ID}"
-                }
+              "fr-FR": {
+                singular: "Membre supprimé"
+              },
+              "ja-JP": {
+                singular: "削除されたメンバー"
+              },
+              "ko-KR": {
+                singular: "제거된 구성원"
+              },
+              "pt-BR": {
+                singular: "Membro removido"
+              },
+              "zh-CN": {
+                singular: "已移除成员"
               }
-            })
-          })]
+            }
+          })
+        }), (0, _v1.jsx)(_v11.Text, {
+          variant: "body-sm",
+          color: "text-secondary",
+          children: (0, _v13.translate)({
+            singular: "User ID {ID}",
+            replacements: {
+              ID: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "ID de usuario {ID}"
+              },
+              "de-DE": {
+                singular: "Benutzer-ID {ID}"
+              },
+              "fr-FR": {
+                singular: "ID utilisateur {ID}"
+              },
+              "ja-JP": {
+                singular: "ユーザーID {ID}"
+              },
+              "ko-KR": {
+                singular: "사용자 ID {ID}"
+              },
+              "pt-BR": {
+                singular: "ID do usuário {ID}"
+              },
+              "zh-CN": {
+                singular: "用户 ID {ID}"
+              }
+            }
+          })
         })]
-      });
-      let _v8 = _v5 ? _v5.replace(/^https?:\/\/[^/]+\//, "") : null;
-      return (0, _v1.jsxs)(_v25.HStack, {
-        children: [(0, _v1.jsx)(_v24.Avatar, {
-          shape: "full",
-          size: "sm",
-          src: _v7,
-          alt: _v4,
-          nameProps: {
-            name: _v4
-          }
-        }), (0, _v1.jsxs)(_v12.VStack, {
-          alignItems: "flex-start",
-          gap: "0",
-          children: [(0, _v1.jsx)(_v11.Text, {
-            variant: "heading-xs",
-            children: _v4
-          }), _v8 && (0, _v1.jsx)(_v11.Text, {
-            variant: "body-sm",
-            color: "text-secondary",
-            children: _v8
-          })]
+      })]
+    });
+    if (/^user\d+$/i.test(_v4)) return (0, _v1.jsxs)(_v26.HStack, {
+      children: [(0, _v1.jsx)(_v25.Avatar, {
+        shape: "full",
+        size: "sm",
+        alt: "",
+        nameProps: {
+          name: "W"
+        }
+      }), (0, _v1.jsxs)(_v12.VStack, {
+        alignItems: "flex-start",
+        gap: "0",
+        children: [(0, _v1.jsx)(_v11.Text, {
+          variant: "heading-xs",
+          children: (0, _v13.translate)({
+            singular: "Workspace account",
+            dictionary: {
+              es: {
+                singular: "Cuenta del espacio de trabajo"
+              },
+              "de-DE": {
+                singular: "Workspace-Konto"
+              },
+              "fr-FR": {
+                singular: "Compte de l'espace de travail"
+              },
+              "ja-JP": {
+                singular: "ワークスペースアカウント"
+              },
+              "ko-KR": {
+                singular: "워크스페이스 계정"
+              },
+              "pt-BR": {
+                singular: "Conta do espaço de trabalho"
+              },
+              "zh-CN": {
+                singular: "工作区账户"
+              }
+            }
+          })
+        }), (0, _v1.jsx)(_v11.Text, {
+          variant: "body-sm",
+          color: "text-secondary",
+          children: (0, _v13.translate)({
+            singular: "User ID {ID}",
+            replacements: {
+              ID: _v0
+            },
+            dictionary: {
+              es: {
+                singular: "ID de usuario {ID}"
+              },
+              "de-DE": {
+                singular: "Benutzer-ID {ID}"
+              },
+              "fr-FR": {
+                singular: "ID utilisateur {ID}"
+              },
+              "ja-JP": {
+                singular: "ユーザーID {ID}"
+              },
+              "ko-KR": {
+                singular: "사용자 ID {ID}"
+              },
+              "pt-BR": {
+                singular: "ID do usuário {ID}"
+              },
+              "zh-CN": {
+                singular: "用户 ID {ID}"
+              }
+            }
+          })
         })]
-      });
-    },
-    _v29 = ({
+      })]
+    });
+    let _v8 = _v5 ? _v5.replace(/^https?:\/\/[^/]+\//, "") : null;
+    return (0, _v1.jsxs)(_v26.HStack, {
+      children: [(0, _v1.jsx)(_v25.Avatar, {
+        shape: "full",
+        size: "sm",
+        src: _v7,
+        alt: _v4,
+        nameProps: {
+          name: _v4
+        }
+      }), (0, _v1.jsxs)(_v12.VStack, {
+        alignItems: "flex-start",
+        gap: "0",
+        children: [(0, _v1.jsx)(_v11.Text, {
+          variant: "heading-xs",
+          children: _v4
+        }), _v8 && (0, _v1.jsx)(_v11.Text, {
+          variant: "body-sm",
+          color: "text-secondary",
+          children: _v8
+        })]
+      })]
+    });
+  };
+  var _v30 = _v0.i(0);
+  let _v31 = new Set(["live_captions", "live_translations"]),
+    _v32 = _v0 => _v31.has(_v0 ?? ""),
+    _v33 = (_v0, _v1) => `${_v32(_v1) ? "live" : "video"}:${_v0}`,
+    _v34 = ({
       value: _v0,
       secondary: _v1
     }) => _v0 ? (0, _v1.jsx)(_v11.Text, {
@@ -572,11 +577,11 @@
       color: "text-tertiary",
       children: "—"
     }),
-    _v30 = ({
+    _v35 = ({
       operation: _v0,
-      clipName: _v1
+      clipReference: _v1
     }) => {
-      let _v2 = _v1 ?? (null !== _v0.clipId ? `#${_v0.clipId}` : "");
+      let _v2 = _v1?.name ?? (null !== _v0.clipId ? `#${_v0.clipId}` : "");
       return (0, _v1.jsxs)(_v17.Tr, {
         height: (0, _v7.rem)(64),
         sx: {
@@ -585,46 +590,61 @@
             borderColor: "stroke"
           }
         },
-        children: [(0, _v1.jsx)(_v21.Td, {
+        children: [(0, _v1.jsx)(_v22.Td, {
           paddingY: "sm",
           paddingX: "sm",
-          children: (0, _v1.jsx)(_v29, {
-            value: _v23(_v0.occurredAt)
+          children: (0, _v1.jsx)(_v34, {
+            value: _v24(_v0.occurredAt)
           })
-        }), (0, _v1.jsx)(_v21.Td, {
+        }), (0, _v1.jsx)(_v22.Td, {
           paddingY: "sm",
           paddingX: "sm",
           width: (0, _v7.rem)(240),
-          children: (0, _v1.jsx)(_v29, {
-            value: _v22(_v0.consumerService),
+          children: (0, _v1.jsx)(_v34, {
+            value: _v23(_v0.consumerService),
             secondary: !0
           })
-        }), (0, _v1.jsx)(_v21.Td, {
+        }), (0, _v1.jsx)(_v22.Td, {
+          paddingY: "sm",
+          paddingX: "sm",
+          children: null !== _v0.clipId ? (0, _v1.jsx)(_v20.default, {
+            href: _v1?.href ?? (_v32(_v0.consumerService) ? "/library/events" : `/manage/videos/${_v0.clipId}`),
+            passHref: !0,
+            children: (0, _v1.jsx)(_v11.Text, {
+              as: "a",
+              variant: "body-md",
+              color: "text-link",
+              sx: {
+                textDecoration: "none",
+                "&:hover": {
+                  textDecoration: "underline"
+                }
+              },
+              children: _v2
+            })
+          }) : (0, _v1.jsx)(_v34, {
+            value: _v2
+          })
+        }), (0, _v1.jsx)(_v22.Td, {
           paddingY: "sm",
           paddingX: "sm",
           children: (0, _v1.jsx)(_v29, {
-            value: _v2
-          })
-        }), (0, _v1.jsx)(_v21.Td, {
-          paddingY: "sm",
-          paddingX: "sm",
-          children: (0, _v1.jsx)(_v28, {
             userId: _v0.triggeringUserId
           })
-        }), (0, _v1.jsx)(_v21.Td, {
+        }), (0, _v1.jsx)(_v22.Td, {
           paddingY: "sm",
           paddingX: "sm",
           children: (0, _v1.jsx)(_v11.Text, {
             variant: "heading-xs",
             children: _v0.creditsUsed.toLocaleString()
           })
-        }), (0, _v1.jsx)(_v21.Td, {
+        }), (0, _v1.jsx)(_v22.Td, {
           paddingY: "sm",
           paddingX: "sm",
-          children: (0, _v1.jsx)(_v20.Tag, {
+          children: (0, _v1.jsx)(_v21.Tag, {
             size: "md",
             borderRadius: "sm",
-            children: (0, _v1.jsx)(_v20.TagLabel, {
+            children: (0, _v1.jsx)(_v21.TagLabel, {
               children: (0, _v13.translate)({
                 singular: "Done",
                 dictionary: {
@@ -656,19 +676,18 @@
         })]
       }, _v0.operationKey);
     };
-  function _v31(_v0) {
+  function _v36(_v0) {
     let _v1 = _v0;
     return (/^[=+\-@\t\r]/.test(_v1) && (_v1 = `'${_v1}`), /[",\n\r\t]/.test(_v1)) ? `"${_v1.replace(/"/g, '""')}"` : _v1;
   }
-  function _v32(_v0, _v1, _v2 = "ai-credits-usage.csv") {
-    let _v3 = [["Date", "Action performed", "Affected object", "Affected object ID", "User ID", "Language", "Workspace ID", "Credits used", "Status"], ..._v0.map(_v0 => [_v23(_v0.occurredAt), _v22(_v0.consumerService), null !== _v0.clipId ? _v1[_v0.clipId] ?? "" : "", null !== _v0.clipId ? String(_v0.clipId) : "", null !== _v0.triggeringUserId ? String(_v0.triggeringUserId) : "", _v0.targetLang ?? "", null !== _v0.workspaceId ? String(_v0.workspaceId) : "", String(_v0.creditsUsed), "Done"])].map(_v0 => _v0.map(_v31).join(",")).join("\n"),
+  function _v37(_v0, _v1, _v2 = "ai-credits-usage.csv") {
+    let _v3 = [["Date", "Action performed", "Affected object", "Affected object ID", "User ID", "Language", "Workspace ID", "Credits used", "Status"], ..._v0.map(_v0 => [_v24(_v0.occurredAt), _v23(_v0.consumerService), null !== _v0.clipId ? _v1[_v33(_v0.clipId, _v0.consumerService)]?.name ?? "" : "", null !== _v0.clipId ? String(_v0.clipId) : "", null !== _v0.triggeringUserId ? String(_v0.triggeringUserId) : "", _v0.targetLang ?? "", null !== _v0.workspaceId ? String(_v0.workspaceId) : "", String(_v0.creditsUsed), "Done"])].map(_v0 => _v0.map(_v36).join(",")).join("\n"),
       _v4 = document.createElement("a");
     _v4.setAttribute("href", "data:text/csv;charset=utf-8," + encodeURIComponent(_v3)), _v4.setAttribute("download", _v2), document.body.appendChild(_v4), _v4.click(), document.body.removeChild(_v4);
   }
-  var _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
-    _v35 = _v0.i(0);
-  async function _v36({
+  var _v38 = _v0.i(0),
+    _v39 = _v0.i(0);
+  async function _v40({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -677,20 +696,20 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v35.measureLatency)("getOrganizationEnterpriseCreditsUsageOperations", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/organizations/${_v2}/enterprise_credits/usage_operations?${(0, _v34.searchQueryString)(_v3)}&fields=${_v1.map(_v34.intoSnakeCase).join(",")}`, {
+    return (0, _v39.measureLatency)("getOrganizationEnterpriseCreditsUsageOperations", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/organizations/${_v2}/enterprise_credits/usage_operations?${(0, _v38.searchQueryString)(_v3)}&fields=${_v1.map(_v38.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v34.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v38.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v34.deepCamelCase)(_v1);
+      return (0, _v38.deepCamelCase)(_v1);
     });
   }
-  var _v37 = _v0.i(0);
-  async function _v38({
+  var _v41 = _v0.i(0);
+  async function _v42({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -699,33 +718,33 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v35.measureLatency)("getWorkspaceEnterpriseCreditsUsageOperations", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/workspaces/${_v2}/enterprise_credits/usage_operations?${(0, _v34.searchQueryString)(_v3)}&fields=${_v1.map(_v34.intoSnakeCase).join(",")}`, {
+    return (0, _v39.measureLatency)("getWorkspaceEnterpriseCreditsUsageOperations", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/workspaces/${_v2}/enterprise_credits/usage_operations?${(0, _v38.searchQueryString)(_v3)}&fields=${_v1.map(_v38.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v34.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v38.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v34.deepCamelCase)(_v1);
+      return (0, _v38.deepCamelCase)(_v1);
     });
   }
-  var _v39 = _v0.i(0);
-  let _v40 = ["data.operationKey", "data.creditsUsed", "data.occurredAt", "data.clipId", "data.targetLang", "data.consumerService", "data.triggeringUserId", "data.workspaceId", "paging.next"];
-  var _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0);
-  function _v45(_v0, _v1) {
+  var _v43 = _v0.i(0);
+  let _v44 = ["data.operationKey", "data.creditsUsed", "data.occurredAt", "data.clipId", "data.targetLang", "data.consumerService", "data.triggeringUserId", "data.workspaceId", "data.objectName", "data.objectUri", "paging.next"];
+  var _v45 = _v0.i(0),
+    _v46 = _v0.i(0),
+    _v47 = _v0.i(0),
+    _v48 = _v0.i(0);
+  function _v49(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v39.useGctlConfig)();
-    return (0, _v41.default)(_v2 ? `/organizations/${_v2.where.orgUuid}/enterprise_credits/usage_operations${(0, _v44.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v36({
+      } = (0, _v43.useGctlConfig)();
+    return (0, _v45.default)(_v2 ? `/organizations/${_v2.where.orgUuid}/enterprise_credits/usage_operations${(0, _v48.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v40({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -737,15 +756,15 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  function _v46(_v0, _v1) {
+  function _v50(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v39.useGctlConfig)();
-    return (0, _v41.default)(_v2 ? `/workspaces/${_v2.where.workspaceUuid}/enterprise_credits/usage_operations${(0, _v44.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v38({
+      } = (0, _v43.useGctlConfig)();
+    return (0, _v45.default)(_v2 ? `/workspaces/${_v2.where.workspaceUuid}/enterprise_credits/usage_operations${(0, _v48.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v42({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -757,26 +776,26 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v42.default.env.STORYBOOK && (0, _v44.assignMswData)(_v45, {
+  "true" === _v46.default.env.STORYBOOK && (0, _v48.assignMswData)(_v49, {
     endpoint: "/organizations/:orgUuid/enterprise_credits/usage_operations",
     method: "GET"
-  }), "true" === _v42.default.env.STORYBOOK && (0, _v44.assignMswData)(function () {
+  }), "true" === _v46.default.env.STORYBOOK && (0, _v48.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v43.useSWRConfig)(),
+      } = (0, _v47.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v39.useGctlConfig)(),
-      [_v5, _v6] = (0, _v44.useInternalState)();
+      } = (0, _v43.useGctlConfig)(),
+      [_v5, _v6] = (0, _v48.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/organizations/${_v0.where.orgUuid}/enterprise_credits/usage_operations${(0, _v44.serializeQuery)(_v0)}`, _v36({
+        let _v0 = await _v0(`/organizations/${_v0.where.orgUuid}/enterprise_credits/usage_operations${(0, _v48.serializeQuery)(_v0)}`, _v40({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -801,26 +820,26 @@
   }, {
     endpoint: "/organizations/:orgUuid/enterprise_credits/usage_operations",
     method: "GET"
-  }), "true" === _v42.default.env.STORYBOOK && (0, _v44.assignMswData)(_v46, {
+  }), "true" === _v46.default.env.STORYBOOK && (0, _v48.assignMswData)(_v50, {
     endpoint: "/workspaces/:workspaceUuid/enterprise_credits/usage_operations",
     method: "GET"
-  }), "true" === _v42.default.env.STORYBOOK && (0, _v44.assignMswData)(function () {
+  }), "true" === _v46.default.env.STORYBOOK && (0, _v48.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v43.useSWRConfig)(),
+      } = (0, _v47.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v39.useGctlConfig)(),
-      [_v5, _v6] = (0, _v44.useInternalState)();
+      } = (0, _v43.useGctlConfig)(),
+      [_v5, _v6] = (0, _v48.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/enterprise_credits/usage_operations${(0, _v44.serializeQuery)(_v0)}`, _v38({
+        let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/enterprise_credits/usage_operations${(0, _v48.serializeQuery)(_v0)}`, _v42({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -846,7 +865,7 @@
     endpoint: "/workspaces/:workspaceUuid/enterprise_credits/usage_operations",
     method: "GET"
   });
-  let _v47 = ["data.operationKey", "data.creditsUsed", "data.occurredAt", "data.clipId", "data.targetLang", "data.consumerService", "data.triggeringUserId", "data.workspaceId", "paging.next"];
+  let _v51 = ["data.operationKey", "data.creditsUsed", "data.occurredAt", "data.clipId", "data.targetLang", "data.consumerService", "data.triggeringUserId", "data.workspaceId", "data.objectName", "data.objectUri", "paging.next"];
   _v0.s(["AiCreditsConsumptionList", 0, ({
     organizationUuid: _v0,
     workspaceUuid: _v1,
@@ -873,21 +892,21 @@
             jwt: _v11,
             xVimeoPage: _v12,
             locale: _v13
-          } = (0, _v39.useGctlConfig)(),
-          _v14 = _v45(() => _v8 && _v0 ? {
+          } = (0, _v43.useGctlConfig)(),
+          _v14 = _v49(() => _v8 && _v0 ? {
             where: {
               orgUuid: _v0
             },
-            select: _v47,
+            select: _v51,
             query: _v3 ? {
               cursor: _v3
             } : {}
           } : null),
-          _v15 = _v46(() => _v9 && _v1 ? {
+          _v15 = _v50(() => _v9 && _v1 ? {
             where: {
               workspaceUuid: _v1
             },
-            select: _v47,
+            select: _v51,
             query: _v3 ? {
               cursor: _v3
             } : {}
@@ -898,7 +917,7 @@
               cursor: _v3
             } : {})
           })}` : null,
-          _v17 = (0, _v41.default)(_v16, async _v0 => {
+          _v17 = (0, _v45.default)(_v16, async _v0 => {
             let _v1 = await fetch(_v0, {
               headers: {
                 Authorization: _v11 ? `jwt ${_v11}` : "",
@@ -907,7 +926,7 @@
               }
             });
             if (!_v1.ok) throw Error(`Failed to fetch team credit usage: ${_v1.status}`);
-            return (0, _v34.deepCamelCase)(await _v1.json());
+            return (0, _v38.deepCamelCase)(await _v1.json());
           }),
           _v18 = _v8 ? _v14.data : _v9 ? _v15.data : _v17.data,
           _v19 = _v8 ? _v14.error : _v9 ? _v15.error : _v17.error,
@@ -946,7 +965,7 @@
             jwt: _v4,
             xVimeoPage: _v5,
             locale: _v6
-          } = (0, _v39.useGctlConfig)(),
+          } = (0, _v43.useGctlConfig)(),
           [_v7, _v8] = (0, _v2.useState)(!1);
         return {
           fetchAllOperations: async () => {
@@ -969,19 +988,19 @@
                       cursor: _v0
                     } : {})
                   },
-                  _v1 = _v0 ? await _v36({
+                  _v1 = _v0 ? await _v40({
                     where: {
                       orgUuid: _v0
                     },
-                    select: _v40,
+                    select: _v44,
                     query: _v0,
                     headers: _v4,
                     baseUrl: _v3
-                  }) : _v1 ? await _v38({
+                  }) : _v1 ? await _v42({
                     where: {
                       workspaceUuid: _v1
                     },
-                    select: _v40,
+                    select: _v44,
                     query: _v0,
                     headers: _v4,
                     baseUrl: _v3
@@ -994,7 +1013,7 @@
                     headers: _v4
                   }).then(async _v0 => {
                     if (!_v0.ok) throw Error(`Failed to fetch team credit usage: ${_v0.status}`);
-                    return (0, _v34.deepCamelCase)(await _v0.json());
+                    return (0, _v38.deepCamelCase)(await _v0.json());
                   });
                 for (let _v0 of _v1?.data ?? []) _v2.has(_v0.operationKey) || (_v2.add(_v0.operationKey), _v1.push(_v0));
                 let _v2 = _v1?.paging?.next ?? null;
@@ -1005,12 +1024,16 @@
                 }
                 _v0 = _v2;
               }
-              let _v5 = {},
-                _v6 = Array.from(new Set(_v1.map(_v0 => _v0.clipId).filter(_v0 => null !== _v0)));
+              let _v5 = {};
+              for (let _v0 of _v1) null !== _v0.clipId && _v32(_v0.consumerService) && _v0.objectName && _v0.objectUri && (_v5[_v33(_v0.clipId, _v0.consumerService)] = {
+                name: _v0.objectName,
+                href: _v0.objectUri
+              });
+              let _v6 = Array.from(new Set(_v1.filter(_v0 => !_v32(_v0.consumerService)).map(_v0 => _v0.clipId).filter(_v0 => null !== _v0)));
               for (let _v0 = 0; _v0 < _v6.length; _v0 += 50) {
                 let _v0 = _v6.slice(_v0, _v0 + 50);
                 try {
-                  let _v0 = await (0, _v37.getVideos)({
+                  let _v0 = await (0, _v41.getVideos)({
                     select: ["name", "uri"],
                     query: {
                       uris: _v0.map(_v0 => `/videos/${_v0}`).join(",")
@@ -1023,7 +1046,10 @@
                       _v1 = _v0.name;
                     if (!_v0 || !_v1) continue;
                     let _v2 = Number(_v0.split("/").pop());
-                    Number.isFinite(_v2) && (_v5[_v2] = _v1);
+                    Number.isFinite(_v2) && (_v5[`video:${_v2}`] = {
+                      name: _v1,
+                      href: `/manage/videos/${_v2}`
+                    });
                   }
                 } catch {}
               }
@@ -1044,14 +1070,14 @@
         teamOwnerId: _v2
       }),
       _v10 = (0, _v14.usePico)(),
-      _v11 = _v1 ?? _v0,
-      _v12 = _v1 ? "workspace" : "organization",
+      _v11 = _v1 ?? _v0 ?? (_v2 ? String(_v2) : void 0),
+      _v12 = _v1 ? "workspace" : _v2 ? "team" : "organization",
       [_v13, _v14] = (0, _v2.useState)(""),
       _v15 = function (_v0) {
         let _v1 = Array.from(new Set(_v0.filter(_v0 => Number.isFinite(_v0)))),
           {
             data: _v2
-          } = (0, _v33.useGetVideos)(() => _v1.length > 0 ? {
+          } = (0, _v30.useGetVideos)(() => _v1.length > 0 ? {
             select: ["name", "uri"],
             query: {
               uris: _v1.map(_v0 => `/videos/${_v0}`).join(",")
@@ -1063,17 +1089,27 @@
             _v1 = _v0.name;
           if (!_v0 || !_v1) continue;
           let _v2 = Number(_v0.split("/").pop());
-          Number.isFinite(_v2) && (_v3[_v2] = _v1);
+          Number.isFinite(_v2) && (_v3[`video:${_v2}`] = {
+            name: _v1,
+            href: `/manage/videos/${_v2}`
+          });
         }
         return _v3;
-      }((0, _v2.useMemo)(() => _v3.map(_v0 => _v0.clipId).filter(_v0 => null !== _v0), [_v3])),
-      _v16 = (0, _v2.useMemo)(() => {
+      }((0, _v2.useMemo)(() => _v3.filter(_v0 => !_v32(_v0.consumerService)).map(_v0 => _v0.clipId).filter(_v0 => null !== _v0), [_v3])),
+      _v16 = (0, _v2.useCallback)(_v0 => {
+        if (null !== _v0.clipId) return _v32(_v0.consumerService) ? _v0.objectName && _v0.objectUri ? {
+          name: _v0.objectName,
+          href: _v0.objectUri
+        } : void 0 : _v15[_v33(_v0.clipId, _v0.consumerService)];
+      }, [_v15]),
+      _v17 = (0, _v2.useMemo)(() => {
         let _v0 = _v13.trim().toLowerCase();
         return _v0 ? _v3.filter(_v0 => {
-          let _v1 = null !== _v0.clipId ? _v15[_v0.clipId] ?? "" : "";
-          return [_v22(_v0.consumerService), _v1, _v0.targetLang ?? "", null !== _v0.clipId ? String(_v0.clipId) : "", null !== _v0.triggeringUserId ? String(_v0.triggeringUserId) : ""].join(" ").toLowerCase().includes(_v0);
+          let _v1 = _v16(_v0)?.name ?? "";
+          return [_v23(_v0.consumerService), _v1, _v0.targetLang ?? "", null !== _v0.clipId ? String(_v0.clipId) : "", null !== _v0.triggeringUserId ? String(_v0.triggeringUserId) : ""].join(" ").toLowerCase().includes(_v0);
         }) : _v3;
-      }, [_v13, _v3, _v15]);
+      }, [_v13, _v3, _v16]),
+      _v18 = (0, _v2.useMemo)(() => Object.fromEntries(_v3.map(_v0 => [_v33(_v0.clipId ?? 0, _v0.consumerService), _v16(_v0)]).filter(([, _v0]) => void 0 !== _v0)), [_v3, _v16]);
     return (0, _v1.jsxs)(_v12.VStack, {
       width: "100%",
       gap: "md",
@@ -1190,9 +1226,9 @@
               });
               try {
                 let _v0 = await _v8();
-                if (_v0.operations.length > 0) return void _v32(_v0.operations, _v0.clipNames, _v0.isTruncated ? "ai-credits-usage-truncated.csv" : "ai-credits-usage.csv");
+                if (_v0.operations.length > 0) return void _v37(_v0.operations, _v0.clipNames, _v0.isTruncated ? "ai-credits-usage-truncated.csv" : "ai-credits-usage.csv");
               } catch {}
-              _v32(_v3, _v15);
+              _v37(_v3, _v18);
             },
             children: (0, _v13.translate)({
               singular: "Export to CSV",
@@ -1229,9 +1265,9 @@
             }
           },
           children: [(0, _v1.jsx)(_v19, {}), (0, _v1.jsx)(_v10.Tbody, {
-            children: _v16.map(_v0 => (0, _v1.jsx)(_v30, {
+            children: _v17.map(_v0 => (0, _v1.jsx)(_v35, {
               operation: _v0,
-              clipName: null !== _v0.clipId ? _v15[_v0.clipId] : void 0
+              clipReference: _v16(_v0)
             }, _v0.operationKey))
           })]
         })]
@@ -1301,7 +1337,9 @@
       })]
     });
   }], 0);
-  let _v48 = [{
+  var _v52 = _v0.i(0);
+  let _v53 = "gray.300",
+    _v54 = [{
       key: "base",
       color: "vimeoBlue.400",
       label: (0, _v13.translate)({
@@ -1374,12 +1412,12 @@
         }
       })
     }],
-    _v49 = ({
+    _v55 = ({
       totalCount: _v0,
       breakdown: _v1
     }) => {
-      let _v2 = Math.max(_v0 && _v0 > 0 ? _v0 : 0, _v48.reduce((_v0, _v1) => _v0 + Math.max(0, _v1[_v1.key]?.used ?? 0), 0)),
-        _v3 = _v48.map(_v0 => {
+      let _v2 = Math.max(_v0 && _v0 > 0 ? _v0 : 0, _v54.reduce((_v0, _v1) => _v0 + Math.max(0, _v1[_v1.key]?.used ?? 0), 0)),
+        _v3 = _v54.map(_v0 => {
           let _v1 = _v1[_v0.key],
             _v2 = Math.max(0, _v1?.used ?? 0),
             _v3 = Math.max(0, _v1?.granted ?? 0);
@@ -1399,7 +1437,7 @@
           height: (0, _v7.rem)(8),
           width: "100%",
           borderRadius: "999px",
-          backgroundColor: "rgba(26, 54, 93, 0.04)",
+          backgroundColor: _v53,
           overflow: "hidden",
           children: _v3.map(_v0 => _v0.widthPercentage > 0 ? (0, _v1.jsx)(_v3.Box, {
             height: "100%",
@@ -1407,10 +1445,10 @@
             backgroundColor: _v0.color,
             "data-testid": `ai-credits-segment-${_v0.key}`
           }, _v0.key) : null)
-        }), _v4.length > 0 && (0, _v1.jsx)(_v6.Flex, {
+        }), (0, _v1.jsxs)(_v6.Flex, {
           gap: "md",
           flexWrap: "wrap",
-          children: _v4.map(_v0 => (0, _v1.jsxs)(_v25.HStack, {
+          children: [_v4.map(_v0 => (0, _v1.jsxs)(_v26.HStack, {
             align: "center",
             gap: "xs",
             children: [(0, _v1.jsx)(_v3.Box, {
@@ -1422,15 +1460,52 @@
               color: "text-secondary",
               children: _v0.label
             })]
-          }, _v0.key))
+          }, _v0.key)), (0, _v1.jsxs)(_v26.HStack, {
+            align: "center",
+            gap: "xs",
+            children: [(0, _v1.jsx)(_v3.Box, {
+              boxSize: (0, _v7.rem)(12),
+              borderRadius: "full",
+              backgroundColor: _v53
+            }), (0, _v1.jsx)(_v11.Text, {
+              variant: "body-md",
+              color: "text-secondary",
+              children: (0, _v13.translate)({
+                singular: "Available credits",
+                dictionary: {
+                  es: {
+                    singular: "Créditos disponibles"
+                  },
+                  "de-DE": {
+                    singular: "Verfügbares Guthaben"
+                  },
+                  "fr-FR": {
+                    singular: "Crédits disponibles"
+                  },
+                  "ja-JP": {
+                    singular: "利用可能クレジット"
+                  },
+                  "ko-KR": {
+                    singular: "사용 가능한 크레딧"
+                  },
+                  "pt-BR": {
+                    singular: "Créditos disponíveis"
+                  },
+                  "zh-CN": {
+                    singular: "可用积分"
+                  }
+                }
+              })
+            })]
+          })]
         })]
       });
     };
-  var _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
-    _v52 = _v0.i(0),
-    _v53 = _v0.i(0);
-  let _v54 = ({
+  var _v56 = _v0.i(0),
+    _v57 = _v0.i(0),
+    _v58 = _v0.i(0),
+    _v59 = _v0.i(0);
+  let _v60 = ({
     variant: _v0
   }) => {
     let _v1 = "error" === _v0 ? (0, _v13.translate)({
@@ -1484,15 +1559,15 @@
         }
       }
     });
-    return (0, _v1.jsxs)(_v50.Alert, {
+    return (0, _v1.jsxs)(_v56.Alert, {
       status: _v0,
       borderRadius: "0",
       alignItems: "center",
       width: "100%",
       "data-testid": `ai-credits-usage-banner-${_v0}`,
-      children: [(0, _v1.jsx)(_v51.AlertIcon, {}), (0, _v1.jsx)(_v52.AlertTitle, {
+      children: [(0, _v1.jsx)(_v57.AlertIcon, {}), (0, _v1.jsx)(_v58.AlertTitle, {
         children: _v1
-      }), (0, _v1.jsx)(_v53.Spacer, {}), (0, _v1.jsx)(_v4.Button, {
+      }), (0, _v1.jsx)(_v59.Spacer, {}), (0, _v1.jsx)(_v4.Button, {
         variant: "secondary",
         size: "sm",
         onClick: () => window.open("https://vimeo.com/enterprise/contact-us", "_blank"),
@@ -1525,10 +1600,13 @@
       })]
     });
   };
-  var _v55 = _v0.i(0),
-    _v56 = _v0.i(0),
-    _v57 = _v0.i(0);
-  let _v58 = ({
+  var _v61 = _v0.i(0),
+    _v62 = _v0.i(0);
+  let _v63 = (_v0, _v1) => {
+      let _v2 = "number" == typeof _v0 && "number" == typeof _v1 && _v1 > 0 ? _v0 / _v1 : 0;
+      return _v2 >= .9 ? "status-destructive-primary" : _v2 >= .75 ? "status-caution-primary" : "fill-brand";
+    },
+    _v64 = ({
       children: _v0,
       ..._v1
     }) => (0, _v1.jsx)(_v12.VStack, {
@@ -1543,7 +1621,7 @@
       ..._v1,
       children: _v0
     }),
-    _v59 = ({
+    _v65 = ({
       children: _v0,
       title: _v1,
       tooltip: _v2,
@@ -1557,16 +1635,16 @@
       children: [_v1 && (0, _v1.jsxs)(_v6.Flex, {
         justify: "space-between",
         width: "100%",
-        children: [(0, _v1.jsxs)(_v25.HStack, {
+        children: [(0, _v1.jsxs)(_v26.HStack, {
           align: "center",
           children: [(0, _v1.jsx)(_v11.Text, {
             variant: "heading-xs",
             children: _v1
-          }), _v2 && (0, _v1.jsx)(_v56.Tooltip, {
+          }), _v2 && (0, _v1.jsx)(_v61.Tooltip, {
             placement: "top-start",
             label: _v2,
             shouldWrapChildren: !0,
-            children: (0, _v1.jsx)(_v57.InfoCircle, {
+            children: (0, _v1.jsx)(_v62.InfoCircle, {
               boxSize: "2xs",
               display: "block"
             })
@@ -1602,36 +1680,46 @@
             }
           })
         })]
-      }), (0, _v1.jsx)(_v25.HStack, {
+      }), (0, _v1.jsx)(_v26.HStack, {
         flexDirection: "column",
         width: "100%",
         alignItems: "flex-start",
         children: _v0
       })]
     }),
-    _v60 = ({
+    _v66 = ({
       currentCount: _v0,
       totalCount: _v1
     }) => {
-      let _v2 = _v0 && _v0 >= .9 * (_v1 || 0) ? "status-destructive-primary" : _v0 && _v0 >= .75 * (_v1 || 0) ? "status-caution-primary" : "fill-brand";
-      return (0, _v1.jsx)(_v55.Progress, {
-        value: _v1 && _v0 && _v1 > 0 ? _v0 / _v1 * 100 : 0,
-        size: "sm",
-        sx: {
-          "& > div": {
-            backgroundColor: _v2
-          }
-        }
+      let _v2 = "number" == typeof _v0 && "number" == typeof _v1 && _v1 > 0 ? Math.min(100, Math.max(0, _v0 / _v1 * 100)) : 0,
+        _v3 = _v63(_v0, _v1);
+      return (0, _v1.jsx)(_v6.Flex, {
+        role: "progressbar",
+        "aria-valuemin": 0,
+        "aria-valuemax": 100,
+        "aria-valuenow": Math.round(_v2),
+        height: (0, _v7.rem)(8),
+        width: "100%",
+        borderRadius: "999px",
+        backgroundColor: "gray.300",
+        overflow: "hidden",
+        "data-testid": "quota-progress",
+        children: (0, _v1.jsx)(_v3.Box, {
+          height: "100%",
+          width: `${_v2}%`,
+          backgroundColor: _v3,
+          "data-testid": "quota-progress-fill"
+        })
       });
     },
-    _v61 = ({
+    _v67 = ({
       currentCount: _v0,
       totalCount: _v1,
       currentCountText: _v2,
       totalCountText: _v3,
       hideLimitIndicator: _v4 = !1
     }) => {
-      if (void 0 === _v0 || void 0 === _v1) return (0, _v1.jsx)(_v26.Skeleton, {
+      if (void 0 === _v0 || void 0 === _v1) return (0, _v1.jsx)(_v27.Skeleton, {
         borderRadius: "sm",
         height: (0, _v7.rem)(28),
         variant: "text",
@@ -1685,10 +1773,10 @@
               }
             }
           })
-        }), _v7 && (0, _v1.jsxs)(_v25.HStack, {
+        }), _v7 && (0, _v1.jsxs)(_v26.HStack, {
           align: "center",
           gap: "xs",
-          children: [(0, _v1.jsx)(_v57.InfoCircle, {
+          children: [(0, _v1.jsx)(_v62.InfoCircle, {
             boxSize: "2xs",
             color: "red.400"
           }), (0, _v1.jsx)(_v11.Text, {
@@ -1734,7 +1822,15 @@
     let _v6 = (0, _v13.translate)({
         singular: "Renews on {RESET_DATE}",
         replacements: {
-          RESET_DATE: _v2 || "N/A"
+          RESET_DATE: (_v0 => {
+            if (!_v0) return "N/A";
+            let _v1 = new Date(_v0);
+            return Number.isNaN(_v1.getTime()) ? _v0 : _v1.toLocaleDateString(void 0, {
+              year: "numeric",
+              month: "short",
+              day: "numeric"
+            });
+          })(_v2)
         },
         dictionary: {
           es: {
@@ -1760,8 +1856,168 @@
           }
         }
       }),
-      _v7 = (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v59, {
+      _v7 = _v3 ? (0, _v1.jsxs)(_v12.VStack, {
+        align: "flex-start",
+        gap: "xs",
+        children: [(0, _v1.jsx)(_v11.Text, {
+          children: _v6
+        }), (0, _v1.jsx)(_v52.Divider, {
+          borderColor: "stroke",
+          width: "100%"
+        }), (0, _v1.jsx)(_v11.Text, {
+          children: (0, _v13.translate)({
+            singular: "Your account's credit allocation includes:",
+            dictionary: {
+              es: {
+                singular: "La asignación de créditos de su cuenta incluye:"
+              },
+              "de-DE": {
+                singular: "Die Ihrem Konto zugewiesenen Guthaben umfassen:"
+              },
+              "fr-FR": {
+                singular: "L'allocation de crédits de votre compte inclut :"
+              },
+              "ja-JP": {
+                singular: "お客様のアカウントのクレジット割り当てには以下が含まれます："
+              },
+              "ko-KR": {
+                singular: "계정의 크레딧 할당에는 다음이 포함됩니다:"
+              },
+              "pt-BR": {
+                singular: "A alocação de créditos da sua conta inclui:"
+              },
+              "zh-CN": {
+                singular: "您的账户的积分分配包括："
+              }
+            }
+          })
+        }), (0, _v1.jsxs)(_v26.HStack, {
+          justify: "space-between",
+          width: "100%",
+          children: [(0, _v1.jsx)(_v11.Text, {
+            children: (0, _v13.translate)({
+              singular: "Base credits",
+              dictionary: {
+                es: {
+                  singular: "Créditos base"
+                },
+                "de-DE": {
+                  singular: "Basisguthaben"
+                },
+                "fr-FR": {
+                  singular: "Crédits de base"
+                },
+                "ja-JP": {
+                  singular: "基本クレジット"
+                },
+                "ko-KR": {
+                  singular: "기본 크레딧"
+                },
+                "pt-BR": {
+                  singular: "Créditos base"
+                },
+                "zh-CN": {
+                  singular: "基础积分"
+                }
+              }
+            })
+          }), (0, _v1.jsx)(_v11.Text, {
+            children: (_v3.base?.granted ?? 0).toLocaleString()
+          })]
+        }), (0, _v1.jsxs)(_v26.HStack, {
+          justify: "space-between",
+          width: "100%",
+          children: [(0, _v1.jsx)(_v11.Text, {
+            children: (0, _v13.translate)({
+              singular: "Add-on credits",
+              dictionary: {
+                es: {
+                  singular: "Créditos adicionales"
+                },
+                "de-DE": {
+                  singular: "Add-on-Guthaben"
+                },
+                "fr-FR": {
+                  singular: "Crédits complémentaires"
+                },
+                "ja-JP": {
+                  singular: "追加クレジット"
+                },
+                "ko-KR": {
+                  singular: "추가 크레딧"
+                },
+                "pt-BR": {
+                  singular: "Créditos adicionais"
+                },
+                "zh-CN": {
+                  singular: "附加积分"
+                }
+              }
+            })
+          }), (0, _v1.jsx)(_v11.Text, {
+            children: (_v3.addons?.granted ?? 0).toLocaleString()
+          })]
+        }), (0, _v1.jsxs)(_v26.HStack, {
+          justify: "space-between",
+          width: "100%",
+          children: [(0, _v1.jsx)(_v11.Text, {
+            children: (0, _v13.translate)({
+              singular: "Gifted credits",
+              dictionary: {
+                es: {
+                  singular: "Créditos otorgados"
+                },
+                "de-DE": {
+                  singular: "Geschenktes Guthaben"
+                },
+                "fr-FR": {
+                  singular: "Crédits offerts"
+                },
+                "ja-JP": {
+                  singular: "付与クレジット"
+                },
+                "ko-KR": {
+                  singular: "증정 크레딧"
+                },
+                "pt-BR": {
+                  singular: "Créditos concedidos"
+                },
+                "zh-CN": {
+                  singular: "赠送积分"
+                }
+              }
+            })
+          }), (0, _v1.jsx)(_v11.Text, {
+            children: (_v3.gift?.granted ?? 0).toLocaleString()
+          })]
+        }), (0, _v1.jsxs)(_v26.HStack, {
+          justify: "space-between",
+          width: "100%",
+          children: [(0, _v1.jsx)(_v11.Text, {
+            children: (0, _v13.translate)({
+              singular: "Total",
+              dictionary: {
+                "de-DE": {
+                  singular: "Insgesamt"
+                },
+                "ja-JP": {
+                  singular: "合計"
+                },
+                "ko-KR": {
+                  singular: "총계"
+                },
+                "zh-CN": {
+                  singular: "总计"
+                }
+              }
+            })
+          }), (0, _v1.jsx)(_v11.Text, {
+            children: [_v3.base?.granted ?? 0, _v3.addons?.granted ?? 0, _v3.gift?.granted ?? 0].reduce((_v0, _v1) => _v0 + _v1, 0).toLocaleString()
+          })]
+        })]
+      }) : _v6,
+      _v8 = (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsx)(_v65, {
           title: (0, _v13.translate)({
             singular: "AI credits",
             dictionary: {
@@ -1788,19 +2044,19 @@
               }
             }
           }),
-          tooltip: _v6,
+          tooltip: _v7,
           currentCount: _v0,
           totalCount: _v1,
           hideContactButton: !!_v4,
-          children: (0, _v1.jsx)(_v61, {
+          children: (0, _v1.jsx)(_v67, {
             currentCount: _v0,
             totalCount: _v1,
             hideLimitIndicator: !!_v4
           })
-        }), _v3 ? (0, _v1.jsx)(_v49, {
+        }), _v3 ? (0, _v1.jsx)(_v55, {
           totalCount: _v1,
           breakdown: _v3
-        }) : (0, _v1.jsx)(_v60, {
+        }) : (0, _v1.jsx)(_v66, {
           currentCount: _v0,
           totalCount: _v1
         })]
@@ -1815,7 +2071,7 @@
       gap: "0",
       minHeight: (0, _v7.rem)(120),
       ..._v5,
-      children: [(0, _v1.jsx)(_v54, {
+      children: [(0, _v1.jsx)(_v60, {
         variant: _v4
       }), (0, _v1.jsx)(_v12.VStack, {
         padding: "lg",
@@ -1824,9 +2080,9 @@
         alignItems: "flex-start",
         justifyContent: "space-between",
         flex: "1",
-        children: _v7
+        children: _v8
       })]
-    }) : (0, _v1.jsx)(_v58, {
+    }) : (0, _v1.jsx)(_v64, {
       "data-testid": "ai-credits-total-count",
       ...(_v3 ? {
         minHeight: (0, _v7.rem)(120)
@@ -1834,21 +2090,21 @@
         height: (0, _v7.rem)(120)
       }),
       ..._v5,
-      children: _v7
+      children: _v8
     });
   }], 0);
-  var _v62 = _v0.i(0);
+  var _v68 = _v0.i(0);
   _v0.s(["StorageTotalCount", 0, ({
     currentCount: _v0,
     totalCount: _v1,
     ..._v2
   }) => {
-    let _v3 = (0, _v62.bytesToSize)(_v0 || 0, 1),
-      _v4 = (0, _v62.bytesToSize)(_v1 || 0, 1);
-    return (0, _v1.jsxs)(_v58, {
+    let _v3 = (0, _v68.bytesToSize)(_v0 || 0, 1),
+      _v4 = (0, _v68.bytesToSize)(_v1 || 0, 1);
+    return (0, _v1.jsxs)(_v64, {
       "data-testid": "storage-total-count",
       ..._v2,
-      children: [(0, _v1.jsx)(_v59, {
+      children: [(0, _v1.jsx)(_v65, {
         title: (0, _v13.translate)({
           singular: "Storage",
           dictionary: {
@@ -1877,15 +2133,94 @@
         }),
         currentCount: _v0,
         totalCount: _v1,
-        children: (0, _v1.jsx)(_v61, {
+        children: (0, _v1.jsx)(_v67, {
           currentCount: _v0,
           totalCount: _v1,
           currentCountText: _v3,
           totalCountText: _v4
         })
-      }), (0, _v1.jsx)(_v60, {
+      }), (0, _v1.jsx)(_v66, {
         currentCount: _v0,
         totalCount: _v1
+      }), (0, _v1.jsxs)(_v6.Flex, {
+        gap: "md",
+        flexWrap: "wrap",
+        justify: "flex-start",
+        children: [(0, _v1.jsxs)(_v26.HStack, {
+          align: "center",
+          gap: "xs",
+          children: [(0, _v1.jsx)(_v3.Box, {
+            boxSize: (0, _v7.rem)(12),
+            borderRadius: "full",
+            backgroundColor: _v63(_v0, _v1)
+          }), (0, _v1.jsx)(_v11.Text, {
+            variant: "body-md",
+            color: "text-secondary",
+            children: (0, _v13.translate)({
+              singular: "Used storage",
+              dictionary: {
+                es: {
+                  singular: "Almacenamiento utilizado"
+                },
+                "de-DE": {
+                  singular: "Genutzter Speicher"
+                },
+                "fr-FR": {
+                  singular: "Espace de stockage utilisé"
+                },
+                "ja-JP": {
+                  singular: "使用済みストレージ容量"
+                },
+                "ko-KR": {
+                  singular: "사용 중인 저장 공간"
+                },
+                "pt-BR": {
+                  singular: "Armazenamento utilizado"
+                },
+                "zh-CN": {
+                  singular: "已用存储"
+                }
+              }
+            })
+          })]
+        }), (0, _v1.jsxs)(_v26.HStack, {
+          align: "center",
+          gap: "xs",
+          children: [(0, _v1.jsx)(_v3.Box, {
+            boxSize: (0, _v7.rem)(12),
+            borderRadius: "full",
+            backgroundColor: "gray.300"
+          }), (0, _v1.jsx)(_v11.Text, {
+            variant: "body-md",
+            color: "text-secondary",
+            children: (0, _v13.translate)({
+              singular: "Available storage",
+              dictionary: {
+                es: {
+                  singular: "Almacenamiento disponible"
+                },
+                "de-DE": {
+                  singular: "Verfügbarer Speicher"
+                },
+                "fr-FR": {
+                  singular: "Espace de stockage disponible"
+                },
+                "ja-JP": {
+                  singular: "利用可能ストレージ容量"
+                },
+                "ko-KR": {
+                  singular: "사용 가능한 저장 공간"
+                },
+                "pt-BR": {
+                  singular: "Armazenamento disponível"
+                },
+                "zh-CN": {
+                  singular: "可用存储"
+                }
+              }
+            })
+          })]
+        })]
       })]
     });
   }], 0);

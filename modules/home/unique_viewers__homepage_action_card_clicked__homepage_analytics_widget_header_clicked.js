@@ -9004,10 +9004,7 @@
           analyticsElement: "ellipses",
           manageActionLocation: "VL_grid_view_overflow"
         }),
-        _v52 = (0, _v391.useCreateAndCopyVideoReviewLink)((0, _v3.useCallback)((_v0, _v1) => _v50(() => _v49(_v0, "CREATE_REVIEW_LINK_MODAL", _v1)), [_v50, _v49])),
-        {
-          settings: _v53
-        } = (0, _v16.useOrionSettings)();
+        _v52 = (0, _v391.useCreateAndCopyVideoReviewLink)((0, _v3.useCallback)((_v0, _v1) => _v50(() => _v49(_v0, "CREATE_REVIEW_LINK_MODAL", _v1)), [_v50, _v49]));
       return ((0, _v3.useEffect)(() => {
         _v15.called && (_v15.loading || (_v13(), _v15.error ? _v9({
           content: _v397.deleteVideoFailed,
@@ -9086,11 +9083,11 @@
                       where: {
                         videoId: _v353(_v2?.uri)
                       },
-                      ...(_v53.has_recently_deleted ? {
+                      ...{
                         variables: {
                           sendToRecentlyDeleted: !0
                         }
-                      } : {})
+                      }
                     }), _v22(_v405({
                       live_event_id: null,
                       origin_folder_id: null,
@@ -9304,11 +9301,11 @@
                 where: {
                   videoId: _v353(_v2?.uri)
                 },
-                ...(_v53.has_recently_deleted ? {
+                ...{
                   variables: {
                     sendToRecentlyDeleted: !0
                   }
-                } : {})
+                }
               }), _v22(_v405({
                 live_event_id: null,
                 origin_folder_id: null,

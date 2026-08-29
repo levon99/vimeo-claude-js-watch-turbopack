@@ -53,6 +53,9 @@
         (_v4 || _v5) && (_v4 = {
           ..._v4,
           password: _v2
+        }, _v5 = !0), "string" == typeof _v2.link && _v4.link !== _v2.link && (_v4 = {
+          ..._v4,
+          link: _v2.link
         }, _v5 = !0), void 0 !== _v2.isColdStorage && _v0.isColdStorage !== _v2.isColdStorage && (_v4 = {
           ..._v4,
           isColdStorage: _v2.isColdStorage

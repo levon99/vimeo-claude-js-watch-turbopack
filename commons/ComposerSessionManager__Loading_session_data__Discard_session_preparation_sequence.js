@@ -90,6 +90,7 @@
         canActivate: !!_v0?.metadata.interactions?.activateSession,
         canUseAutoCC: !!_v0?.metadata.connections?.autoClosedCaptions,
         canUseBackupStream: !!_v0?.owner?.capabilities?.canUseBackupStream,
+        canEnableAudienceSpeaker: !!_v0?.owner?.capabilities?.canEnableAudienceSpeaker,
         canUseScheduledMediaPlayback: !!(_v0?.metadata.interactions.updateSchedule && _v0?.owner.capabilities?.hasScheduledMediaPlayback),
         canUseRecordMode: !!_v0?.metadata.interactions?.startSession,
         canSeeTemplatesTab: !!_v0?.owner?.entitlements?.[_v15.EUserEntitlement.LIVE_COMPOSER_TEMPLATES_ACCESS],

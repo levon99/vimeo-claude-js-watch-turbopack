@@ -155,7 +155,9 @@
   "true" === _v9.default.env.STORYBOOK && (0, _v10.assignMswData)(_v16, {
     endpoint: "/videos/:videoId/comments/:commentId/report",
     method: "POST"
-  }), _v0.s(["usePostVideoCommentReport", 0, _v16], 0), _v0.s(["useCommentReport", 0, function ({
+  }), _v0.s(["usePostVideoCommentReport", 0, _v16], 0);
+  var _v17 = _v0.i(0);
+  _v0.s(["useCommentReport", 0, function ({
     clipId: _v0,
     commentId: _v1,
     onClose: _v2,
@@ -188,7 +190,8 @@
               },
               variables: {
                 reason: _v0,
-                optOutOfCommunications: _v1
+                optOutOfCommunications: _v1,
+                source: (0, _v17.reportSourceHint)()
               }
             });
           },

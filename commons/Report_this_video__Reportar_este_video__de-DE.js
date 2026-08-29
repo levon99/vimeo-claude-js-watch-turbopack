@@ -154,7 +154,9 @@
   "true" === _v9.default.env.STORYBOOK && (0, _v10.assignMswData)(_v16, {
     endpoint: "/videos/:videoId/report",
     method: "POST"
-  }), _v0.s(["useVideoReport", 0, function ({
+  });
+  var _v17 = _v0.i(0);
+  _v0.s(["useVideoReport", 0, function ({
     clipId: _v0,
     onClose: _v1,
     onSubmitted: _v2
@@ -184,7 +186,8 @@
               },
               variables: {
                 optOutOfCommunications: _v1,
-                reason: _v0
+                reason: _v0,
+                source: (0, _v17.reportSourceHint)()
               }
             });
           },

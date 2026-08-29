@@ -3000,24 +3000,25 @@
     _v105 = _v0.i(0),
     _v106 = _v0.i(0),
     _v107 = _v0.i(0),
-    _v108 = _v0.i(0);
-  let _v109 = () => {
+    _v108 = _v0.i(0),
+    _v109 = _v0.i(0);
+  let _v110 = () => {
     let _v0 = (0, _v2.useRouter)(),
       _v1 = _v0?.query?.partnerIntegrationId,
       _v2 = _v0?.query?.slug;
     return _v1 ? !_v2 || Array.isArray(_v2) && 1 === _v2.length && _v61.APP_CENTER_DETAILS_SLUG.includes(_v2[0]) ? (0, _v1.jsx)(_v103, {}) : (0, _v1.jsx)(_v16.ErrorPage, {
       error: new _v12.ResourceNotFoundError()
-    }) : (0, _v1.jsx)(_v106.default, {});
+    }) : (0, _v1.jsx)(_v107.default, {});
   };
-  _v109.getLayout = _v0 => (0, _v1.jsx)(_v108.VideoLibraryLayout, {
+  _v110.getLayout = _v0 => (0, _v1.jsx)(_v109.VideoLibraryLayout, {
     hasSideNav: !0,
     searchContentAlignment: _v102,
-    sideNavContent: (0, _v1.jsx)(_v107.SideNavContent, {
+    sideNavContent: (0, _v1.jsx)(_v108.SideNavContent, {
       surface: "home"
     }),
     sideNavSurface: "home",
     children: _v0
-  }), (0, _v105.withPageSetup)(async _v0 => {
+  }), (0, _v106.withPageSetup)(async _v0 => {
     try {
       if ((await (0, _v104.fetchAndFormatCapabilties)({
         jwt: _v0.jwt,
@@ -3036,7 +3037,9 @@
         }
       };
     } catch (_v0) {
-      return console.log("Failed to fetch capabilities ", _v0), {
+      return _v105.serverLogger.warn({
+        err: _v0
+      }, "Failed to fetch capabilities"), {
         redirect: {
           destination: "/log_in",
           statusCode: 302
@@ -3046,5 +3049,5 @@
   }, {
     inlineViewer: !0,
     noIndex: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v109], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v110], 0);
 }

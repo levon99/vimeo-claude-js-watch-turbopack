@@ -140,9 +140,10 @@
       showPasswordPage: _v11,
       isVideoProcessing: _v12,
       clipOwnerId: _v13,
-      onPlaybackRateChange: _v14
+      videoContentAspectRatio: _v14,
+      onPlaybackRateChange: _v15
     }) => {
-      let _v15 = (0, _v16.useIsMobile)();
+      let _v16 = (0, _v16.useIsMobile)();
       return _v11 ? (0, _v1.jsx)(_v29.PasswordPage, {
         reviewId: _v0
       }) : (0, _v1.jsxs)(_v14.Flex, {
@@ -150,8 +151,8 @@
         justifyContent: "center",
         alignItems: "center",
         position: "relative",
-        width: _v15 || _v9 ? "100%" : "80%",
-        gap: _v15 || !_v9 ? "md" : "0",
+        width: _v16 || _v9 ? "100%" : "80%",
+        gap: _v16 || !_v9 ? "md" : "0",
         children: [(0, _v1.jsx)(_v28.CommentContextProvider, {
           children: (0, _v1.jsx)(_v30.ReviewPlayerContainer, {
             isLoading: _v8,
@@ -164,13 +165,13 @@
             isDeleted: !1,
             isReplaceOverQuota: !1,
             hasEnterprise: !1,
-            isMobile: _v15,
+            isMobile: _v16,
             analyticsProps: _v5,
             showVersionDetails: !1,
             playerContainerProps: {
-              paddingX: _v15 ? "0px" : "md",
+              paddingX: _v16 ? "0px" : "md",
               paddingBottom: "0px",
-              paddingTop: _v15 ? "0px" : "md"
+              paddingTop: _v16 ? "0px" : "md"
             },
             isPreviousVersion: !1,
             allowTimecodeComments: !0,
@@ -179,13 +180,14 @@
             isVideoProcessing: _v12,
             isShowAdvancedPlayBar: !0,
             clipOwnerId: _v13,
-            onPlaybackRateChange: _v14
+            videoContentAspectRatio: _v14,
+            onPlaybackRateChange: _v15
           })
         }), !_v9 && (0, _v1.jsx)(_v14.Flex, {
           width: "100%",
           justifyContent: "center",
-          height: _v15 ? "100%" : "auto",
-          paddingX: _v15 ? "0px" : "4",
+          height: _v16 ? "100%" : "auto",
+          paddingX: _v16 ? "0px" : "4",
           children: (0, _v1.jsx)(_v36, {
             title: _v3,
             description: _v7
@@ -227,7 +229,8 @@
           trackReviewPageDisplayed: _v22,
           trackReviewPlaybackSpeedChanged: _v23
         } = (0, _v9.useReviewTracking)(),
-        _v24 = (0, _v20.idFromUri)(_v5?.user?.uri)?.toString() ?? null;
+        _v24 = (0, _v20.idFromUri)(_v5?.user?.uri)?.toString() ?? null,
+        _v25 = _v5?.width != null && _v5.width > 0 && _v5?.height != null && _v5.height > 0 ? _v5.width / _v5.height : void 0;
       (0, _v18.usePicoEffect)(() => {
         if (_v6 || !_v5 || !_v20) return !1;
         let _v0 = (0, _v20.idFromUri)(_v5?.user?.uri);
@@ -240,15 +243,15 @@
       }, [_v6, _v5, _v1, _v3, _v20], {
         once: !0
       });
-      let [_v25, _v26] = (0, _v3.useState)(!1),
-        _v27 = (_v5?.metadata?.connections?.versions?.totalIncludingDeleted ?? 0) <= 1 && _v5?.status !== "available",
-        _v28 = _v17 || _v16 || !_v13 || _v27,
-        [_v29, _v30] = (0, _v3.useState)(!1),
-        _v31 = (0, _v20.getReviewPasswordHashFromCookie)(_v1);
+      let [_v26, _v27] = (0, _v3.useState)(!1),
+        _v28 = (_v5?.metadata?.connections?.versions?.totalIncludingDeleted ?? 0) <= 1 && _v5?.status !== "available",
+        _v29 = _v17 || _v16 || !_v13 || _v28,
+        [_v30, _v31] = (0, _v3.useState)(!1),
+        _v32 = (0, _v20.getReviewPasswordHashFromCookie)(_v1);
       (0, _v3.useEffect)(() => {
-        _v30(!!_v11);
-      }, [_v11]), (0, _v25.useReviewBPViewPage)(_v3, "clip", _v31, "vimeo.open_review_page", "review_page");
-      let _v32 = (0, _v3.useMemo)(() => ({
+        _v31(!!_v11);
+      }, [_v11]), (0, _v25.useReviewBPViewPage)(_v3, "clip", _v32, "vimeo.open_review_page", "review_page");
+      let _v33 = (0, _v3.useMemo)(() => ({
           webContextFields: {
             page_name: "review_page",
             path: _v19
@@ -265,7 +268,7 @@
             access_permission_to_folder: (0, _v20.getPermissionToFolder)(_v5?.parentProject?.metadata?.interactions)
           }
         }), [_v3, _v19, _v5?.contentRating, _v5?.privacy?.view, _v5?.parentProject?.metadata?.interactions, _v5?.parentProject?.uri, _v5?.user.uri, _v4]),
-        _v33 = (0, _v3.useCallback)(_v0 => {
+        _v34 = (0, _v3.useCallback)(_v0 => {
           _v23({
             reviewId: _v1,
             clipId: _v3.toString(),
@@ -273,16 +276,16 @@
             reviewNewSpeed: `${_v0}x`
           });
         }, [_v1, _v3, _v24, _v23]),
-        _v34 = _v0 => {
-          _v30(_v0 => !_v0), (0, _v15.sendCommentBPEvent)({
+        _v35 = _v0 => {
+          _v31(_v0 => !_v0), (0, _v15.sendCommentBPEvent)({
             eventName: _v0 ? "vimeo.close_comment_panel" : "vimeo.open_comments",
             copy: _v0 ? "X" : "Comments",
-            settingValue: _v0 ?? !_v29,
+            settingValue: _v0 ?? !_v30,
             settingOption: null,
             element: "button",
             viewer: _v20 ?? void 0,
             videoId: _v3,
-            analyticsProps: _v32
+            analyticsProps: _v33
           });
         };
       return _v6 && !_v7 ? (0, _v1.jsx)(_v26.default, {}) : (0, _v1.jsxs)(_v1.Fragment, {
@@ -293,11 +296,11 @@
             videoName: _v5?.name ?? "",
             videoId: _v3,
             onDownload: () => {
-              _v26(!0);
+              _v27(!0);
             },
-            isDownloadDisabled: _v28,
-            analyticsProps: _v32,
-            toggleDrawer: _v34,
+            isDownloadDisabled: _v29,
+            analyticsProps: _v33,
+            toggleDrawer: _v35,
             totalVersionsCount: _v10,
             currentVersionSequenceNumber: _v9,
             reviewStatus: _v5?.reviewStatus,
@@ -309,7 +312,7 @@
             showRestore: !1,
             showDeleteVersion: !1,
             showNewVersion: !1,
-            isVideoProcessing: _v27
+            isVideoProcessing: _v28
           }), (0, _v1.jsx)(_v37, {
             reviewId: _v1,
             videoId: _v3,
@@ -317,23 +320,24 @@
             description: _v5?.descriptionHtml ?? "",
             versionId: _v4,
             embedPlayerConfigUrl: _v0,
-            analyticsProps: _v32,
-            toggleDrawer: _v34,
+            analyticsProps: _v33,
+            toggleDrawer: _v35,
             isLoading: _v6,
-            isCommentsPanelOpen: _v29,
+            isCommentsPanelOpen: _v30,
             showResolvedComments: _v14,
             showPasswordPage: _v2,
-            isVideoProcessing: _v27,
+            isVideoProcessing: _v28,
             clipOwnerId: _v24,
-            onPlaybackRateChange: _v33
-          }), !_v28 && _v4 && (0, _v1.jsx)(_v23.DownloadVersionModal, {
-            isOpen: _v25,
-            onClose: () => _v26(!1),
+            videoContentAspectRatio: _v25,
+            onPlaybackRateChange: _v34
+          }), !_v29 && _v4 && (0, _v1.jsx)(_v23.DownloadVersionModal, {
+            isOpen: _v26,
+            onClose: () => _v27(!1),
             videoId: _v3,
             downloadConfig: _v18,
             versionSequenceNumber: _v9,
             versionUri: (0, _v20.formVersionRedirectUri)(_v4, _v3.toString()),
-            pageName: _v32?.webContextFields?.page_name,
+            pageName: _v33?.webContextFields?.page_name,
             reviewId: _v1
           })]
         }), !_v21 && (0, _v1.jsx)(_v22.ReviewFooter, {})]

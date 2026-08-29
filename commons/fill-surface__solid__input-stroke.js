@@ -697,14 +697,23 @@
       } : null),
       _v13 = void 0 !== _v11 || !!_v12,
       _v14 = !!_v11?.createLiveEvents,
-      _v15 = (0, _v12.useToast)();
+      _v15 = !!_v7 || !!_v12,
+      [_v16, _v17] = (0, _v2.useState)(!1),
+      [_v18, _v19] = (0, _v2.useState)(_v15);
+    _v18 !== _v15 && (_v19(_v15), _v17(!1)), (0, _v2.useEffect)(() => {
+      if (!_v15) return;
+      let _v0 = setTimeout(() => _v17(!0), 0);
+      return () => clearTimeout(_v0);
+    }, [_v15]);
+    let _v20 = _v15 && _v16,
+      _v21 = (0, _v12.useToast)();
     return (0, _v2.useEffect)(() => {
-      _v8 && _v15({
+      _v8 && _v21({
         duration: _v15.NOTIFICATION_DURATION,
         title: _v37.default.SomethingWentWrong,
         status: "error"
       });
-    }, [_v8, _v15]), (0, _v1.jsxs)(_v7.Flex, {
+    }, [_v8, _v21]), (0, _v1.jsxs)(_v7.Flex, {
       flexDirection: "column",
       gap: (0, _v11.rem)(16),
       maxWidth: (0, _v11.rem)(640),
@@ -735,7 +744,7 @@
         children: (0, _v1.jsx)(_v4.AlertDescription, {
           children: _v37.default.EmailDefaultsBanner
         })
-      }), _v7 || _v12 ? (0, _v1.jsx)(_v7.Flex, {
+      }), _v20 ? (0, _v1.jsx)(_v7.Flex, {
         justifyContent: "center",
         paddingY: "2xl",
         children: (0, _v1.jsx)(_v9.Paragraph, {
@@ -744,7 +753,7 @@
           role: "alert",
           children: _v37.default.SomethingWentWrong
         })
-      }) : _v1 || _v6 || !_v4 || !_v13 ? (0, _v1.jsx)(_v7.Flex, {
+      }) : _v1 || _v15 || _v6 || !_v4 || !_v13 ? (0, _v1.jsx)(_v7.Flex, {
         justifyContent: "center",
         paddingY: "2xl",
         children: (0, _v1.jsx)(_v10.Spinner, {

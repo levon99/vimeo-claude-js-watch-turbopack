@@ -87,7 +87,8 @@
         children: [(0, _v1.jsx)(_v13.AiCreditsTotalCount, {
           currentCount: _v5?.used,
           totalCount: _v5?.available,
-          resetDate: _v5?.resetDate
+          resetDate: _v5?.resetDate,
+          breakdown: _v5?.breakdown
         }), (0, _v1.jsx)(_v14.StorageTotalCount, {
           currentCount: _v6?.space?.used ?? void 0,
           totalCount: _v6?.space?.max ?? void 0

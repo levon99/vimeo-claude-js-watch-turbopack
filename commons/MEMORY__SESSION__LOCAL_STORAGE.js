@@ -35,6 +35,15 @@
           MODERATION: _v0 => `/settings/${_v0}/isQnaModerated`,
           ANONYMOUS_QUESTIONS: _v0 => `/settings/${_v0}/isAnonymousQuestionsDisabled`,
           REPLIES_SESSIONS: _v0 => `/qna_replies/${_v0}/sessions`
+        },
+        AUDIENCE_SPEAKERS: {
+          META: _v0 => `/audience_speakers/${_v0}/meta`,
+          META_ENABLED: _v0 => `/audience_speakers/${_v0}/meta/enabled`,
+          META_CAMERA_ENABLED: _v0 => `/audience_speakers/${_v0}/meta/cameraEnabled`,
+          REQUESTS: _v0 => `/audience_speakers/${_v0}/requests`,
+          REQUEST: (_v0, _v1) => `/audience_speakers/${_v0}/requests/${_v1}`,
+          GRANTS: _v0 => `/audience_speakers/${_v0}/grants`,
+          GRANT: (_v0, _v1) => `/audience_speakers/${_v0}/grants/${_v1}`
         }
       },
       STREAM_HEALTH: {
@@ -51,6 +60,7 @@
         GUESTS: {
           GUESTS: _v0 => `/guests/${_v0}`,
           GUEST_INVITES: _v0 => `/guest_invites/${_v0}`,
+          AUDIENCE_SPEAKER_INVITES: _v0 => `/audience_speaker_invites/${_v0}`,
           GUEST_SETTINGS: _v0 => `/guest_settings/${_v0}`
         },
         GRAPHICS: {

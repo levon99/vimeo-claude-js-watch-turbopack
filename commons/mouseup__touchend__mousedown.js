@@ -255,35 +255,79 @@
         playerContainerRefNode: _v4,
         clickAreaRef: _v5,
         player: _v6,
-        videoData: _v7
+        videoData: _v7,
+        videoAspectRatio: _v8
       } = _v0,
-      _v8 = Number((0, _v30.getVideoIdFromClipRequestId)(_v3)),
-      [_v9, _v10] = (0, _v2.useState)(0),
-      [_v11, _v12] = (0, _v2.useState)(0),
-      [_v13, _v14] = (0, _v2.useState)(!1),
+      _v9 = Number((0, _v30.getVideoIdFromClipRequestId)(_v3)),
+      [_v10, _v11] = (0, _v2.useState)(0),
+      [_v12, _v13] = (0, _v2.useState)(0),
+      [_v14, _v15] = (0, _v2.useState)(!1),
+      [_v16, _v17] = (0, _v2.useState)(!1),
       {
-        setAnnotationForm: _v15
+        setAnnotationForm: _v18
       } = (0, _v2.useContext)(_v24),
       {
-        setActiveComment: _v16
+        setActiveComment: _v19
       } = (0, _v2.useContext)(_v26.CommentsContext),
-      _v17 = _v4.getBoundingClientRect(),
-      _v18 = {
-        top: _v17.top,
-        left: _v17.left,
+      _v20 = _v4.getBoundingClientRect(),
+      _v21 = {
+        top: _v20.top,
+        left: _v20.left,
         height: _v4.offsetHeight,
         width: _v4.offsetWidth
       },
-      _v19 = _v0 => {
+      _v22 = (_v0, _v1) => {
+        let {
+            bottom: _v2,
+            left: _v3,
+            right: _v4,
+            top: _v5
+          } = (() => {
+            let {
+              height: _v0,
+              width: _v1
+            } = _v21;
+            if (null == _v8 || _v8 <= 0 || 0 === _v0 || 0 === _v1) return {
+              bottom: _v0,
+              left: 0,
+              right: _v1,
+              top: 0
+            };
+            let _v2 = _v0 * _v8;
+            if (_v2 <= _v1) {
+              let _v0 = (_v1 - _v2) / 2;
+              return {
+                bottom: _v0,
+                left: _v0,
+                right: _v0 + _v2,
+                top: 0
+              };
+            }
+            let _v3 = _v1 / _v8,
+              _v4 = (_v0 - _v3) / 2;
+            return {
+              bottom: _v4 + _v3,
+              left: 0,
+              right: _v1,
+              top: _v4
+            };
+          })(),
+          _v6 = _v0 - _v21.left,
+          _v7 = _v1 - _v21.top;
+        return _v6 >= _v3 && _v6 <= _v4 && _v7 >= _v5 && _v7 <= _v2;
+      },
+      _v23 = _v0 => {
         let {
             left: _v1,
             top: _v2
-          } = _v18,
+          } = _v21,
           {
             clientX: _v3,
             clientY: _v4
           } = _v0;
-        _v10(_v3 - _v1 + 30), _v12(_v4 - _v2 - 10);
+        _v11(_v3 - _v1 + 30), _v13(_v4 - _v2 - 10);
+        let _v5 = _v22(_v3, _v4);
+        _v15(_v5), _v17(_v5);
       };
     return (0, _v1.jsx)(_v3.Box, {
       as: "button",
@@ -296,9 +340,10 @@
       outline: "none",
       padding: "0",
       width: "100%",
-      cursor: "pointer",
+      cursor: _v16 ? "pointer" : "default",
       onClick: _v0 => {
-        (_v0 => {
+        let _v1 = (_v0 => {
+          if (!_v22(_v0.clientX, _v0.clientY) || !_v6) return !1;
           let {
               clientX: _v1,
               clientY: _v2
@@ -306,37 +351,38 @@
             {
               left: _v3,
               top: _v4
-            } = _v18,
+            } = _v21,
             _v5 = _v27({
               x: _v1 - _v3,
               y: _v2 - _v4
-            }, _v18);
-          _v6 && (_v6.pause(), _v15(_v0 => ({
+            }, _v21);
+          return _v6.pause(), _v18(_v0 => ({
             ..._v0,
             position: _v5,
             timecode: _v6.currentTime,
             isShowing: !0
-          }))), _v16();
-        })(_v0), _v14(!1), (0, _v29.bpStartComment)(_v8, _v7?.videoPrivacy, !1, {
+          })), _v19(), !0;
+        })(_v0);
+        _v15(!1), _v1 && (0, _v29.bpStartComment)(_v9, _v7?.videoPrivacy, !1, {
           webContextFields: {
             page_name: "single_video_view_manage"
           }
         }, _v7?.uploaderLink, "text", !0, _v1);
       },
       onMouseEnter: _v0 => {
-        _v19(_v0), _v14(!0);
+        _v23(_v0);
       },
-      onMouseMove: _v19,
+      onMouseMove: _v23,
       onMouseLeave: () => {
-        _v14(!1);
+        _v15(!1), _v17(!1);
       },
       visibility: _v2 ? "hidden" : "visible",
       children: (0, _v1.jsx)(_v3.Box, {
         position: "absolute",
         top: 0,
         left: 0,
-        transform: `translate3d(${_v9}px, ${_v11}px, 0)`,
-        display: _v13 ? "block" : "none",
+        transform: `translate3d(${_v10}px, ${_v12}px, 0)`,
+        display: _v14 ? "block" : "none",
         fontSize: "14px",
         fontFamily: "body",
         padding: "8px 16px",
@@ -1001,52 +1047,53 @@
           reviewId: _v7,
           isPaused: _v8,
           currentTime: _v9,
-          isSeeked: _v10
+          isSeeked: _v10,
+          videoAspectRatio: _v11
         } = _v0,
         {
-          comments: _v11,
-          activeComment: _v12,
-          setActiveComment: _v13,
-          setCommentAnnotationFormShown: _v14
+          comments: _v12,
+          activeComment: _v13,
+          setActiveComment: _v14,
+          setCommentAnnotationFormShown: _v15
         } = (0, _v2.useContext)(_v26.CommentsContext),
-        _v15 = (0, _v2.useContext)(_v8.ViewerContext),
+        _v16 = (0, _v2.useContext)(_v8.ViewerContext),
         {
-          videoData: _v16
+          videoData: _v17
         } = (0, _v44.useVideoData)(_v5, void 0, _v7),
         {
-          annotationForm: _v17,
-          setAnnotationForm: _v18
+          annotationForm: _v18,
+          setAnnotationForm: _v19
         } = (0, _v2.useContext)(_v24),
         {
-          setHighlightedCommentId: _v19
+          setHighlightedCommentId: _v20
         } = (0, _v2.useContext)(_v7.CommentHighlightContext),
-        _v20 = (0, _v2.useRef)(null),
         _v21 = (0, _v2.useRef)(null),
-        [_v22, _v23] = (0, _v2.useState)(!1),
+        _v22 = (0, _v2.useRef)(null),
+        [_v23, _v24] = (0, _v2.useState)(!1),
         {
-          updateCommentPosition: _v24
-        } = (0, _v54.useEditPrivateComment)(_v5, _v16, void 0, _v55, void 0, void 0, _v7);
+          updateCommentPosition: _v25
+        } = (0, _v54.useEditPrivateComment)(_v5, _v17, void 0, _v55, void 0, void 0, _v7);
       (0, _v2.useEffect)(() => {
-        _v14(_v17.isShowing);
-      }, [_v17.isShowing, _v14]);
-      let _v25 = (0, _v2.useMemo)(() => _v9 && (_v8 || _v10) ? _v11?.filter(_v0 => {
+        _v15(_v18.isShowing);
+      }, [_v18.isShowing, _v15]);
+      let _v26 = (0, _v2.useMemo)(() => _v9 && (_v8 || _v10) ? _v12?.filter(_v0 => {
           let _v1;
           return _v1 = _v0?.timeCode ?? -1, _v53(_v1, .01) === _v53(_v9, .01);
-        }) : [], [_v9, _v11, _v8, _v10]),
-        _v26 = {
+        }) : [], [_v9, _v12, _v8, _v10]),
+        _v27 = {
           bottom: _v1.height,
           left: 0,
           right: _v1.width,
           top: 0
         },
-        _v27 = (_v0, _v1) => {
-          _v1 = _v27(_v1, _v1), _v18(_v0 => ({
+        _v28 = (_v0, _v1) => {
+          _v1 = _v27(_v1, _v1), _v19(_v0 => ({
             ..._v0,
             position: _v1
-          })), _v23(!1), _v12 && _v24(_v12.id, _v1).then(() => _v12.coordinates = _v1);
+          })), _v24(!1), _v13 && _v25(_v13.id, _v1).then(() => _v13.coordinates = _v1);
         };
       return (0, _v1.jsxs)(_v3.Box, {
-        ref: _v20,
+        ref: _v21,
         fontSize: "14px",
         lineHeight: "1.2",
         top: "0",
@@ -1056,7 +1103,7 @@
         position: "absolute",
         width: "100%",
         height: "100%",
-        zIndex: _v17.isShowing ? 36 : 8,
+        zIndex: _v18.isShowing ? 36 : 8,
         onClick: () => {
           if (_v6) {
             if (_v4.paused) return void _v4?.play()?.catch(_v0 => {
@@ -1066,59 +1113,60 @@
           }
         },
         children: [_v2.current && !_v6 && (0, _v1.jsx)(_v31, {
-          isHidden: _v17.isShowing,
+          isHidden: _v18.isShowing,
           clipRequestId: _v5,
           playerContainerRefNode: _v2.current,
-          clickAreaRef: _v21,
+          clickAreaRef: _v22,
           player: _v4,
+          videoAspectRatio: _v11,
           videoData: {
-            videoPrivacy: _v16?.privacy.view,
-            uploaderLink: _v16?.uploader?.link
+            videoPrivacy: _v17?.privacy.view,
+            uploaderLink: _v17?.uploader?.link
           }
-        }), _v25.map(_v0 => {
+        }), _v26.map(_v0 => {
           if (!_v0) return null;
           let _v1 = _v0.coordinates;
           if (_v1?.x === 0 && _v1?.y === 0) return null;
-          let _v2 = _v0.id === _v12?.id,
-            _v3 = !!_v15?.user?.uri && _v15?.user?.uri === _v0.user?.uri;
+          let _v2 = _v0.id === _v13?.id,
+            _v3 = !!_v16?.user?.uri && _v16?.user?.uri === _v0.user?.uri;
           return (0, _v1.jsx)(_v18, {
             id: `anchor_${_v0.id.split("/").pop()}`,
             onClick: _v0 => {
-              _v6 && _v0.stopPropagation(), _v13(_v0);
+              _v6 && _v0.stopPropagation(), _v14(_v0);
             },
             onMouseEnter: () => {
-              _v19(_v0.id);
+              _v20(_v0.id);
             },
             onMouseLeave: () => {
-              _v19(null);
+              _v20(null);
             },
             isActive: _v2,
             isDisabled: !_v2 || !_v3,
             disabled: !_v2 || !_v3,
-            bounds: _v26,
-            onStart: () => _v23(!0),
-            onStop: _v27,
+            bounds: _v27,
+            onStart: () => _v24(!0),
+            onStop: _v28,
             position: _v28({
               x: _v1?.x || 1,
               y: _v1?.y || 1
             }, _v1),
-            boardRef: _v20,
+            boardRef: _v21,
             accentColor: _v3,
             showCheckmark: "open" !== _v0.status
           }, _v0.id);
-        }), !_v17.isShowing || _v6 ? null : (0, _v1.jsx)(_v52, {
-          bounds: _v26,
-          onDragStart: () => _v23(!0),
-          onDragStop: _v27,
+        }), !_v18.isShowing || _v6 ? null : (0, _v1.jsx)(_v52, {
+          bounds: _v27,
+          onDragStart: () => _v24(!0),
+          onDragStop: _v28,
           position: _v28({
-            x: _v17.position.x,
-            y: _v17.position.y
+            x: _v18.position.x,
+            y: _v18.position.y
           }, _v1),
-          boardRef: _v20,
-          clickAreaRef: _v21,
+          boardRef: _v21,
+          clickAreaRef: _v22,
           playerMeasurements: _v1,
           accentColor: _v3,
-          isDragging: _v22,
+          isDragging: _v23,
           clipRequestId: _v5,
           reviewId: _v7
         })]
@@ -1160,20 +1208,21 @@
         clipRequestId: _v4,
         showSvvTimecodedComments: _v5,
         isViewOnly: _v6,
-        reviewId: _v7
+        reviewId: _v7,
+        videoAspectRatio: _v8
       } = _v0,
       {
-        activeComment: _v8
+        activeComment: _v9
       } = (0, _v2.useContext)(_v26.CommentsContext),
-      [_v9, _v10] = (0, _v2.useState)({
+      [_v10, _v11] = (0, _v2.useState)({
         width: 0,
         height: 0
       }),
-      _v11 = !_v5 || _v9.width < _v6.BREAKPOINTS.medium,
+      _v12 = !_v5 || _v10.width < _v6.BREAKPOINTS.medium,
       {
-        isPaused: _v12,
-        currentTime: _v13,
-        isSeeked: _v14
+        isPaused: _v13,
+        currentTime: _v14,
+        isSeeked: _v15
       } = (_v0 => {
         let [_v1, _v2] = (0, _v2.useState)(!1),
           [_v3, _v4] = (0, _v2.useState)(0),
@@ -1196,51 +1245,52 @@
           isSeeked: _v5
         };
       })(_v3),
-      _v15 = (0, _v2.useCallback)(() => {
-        _v1.current && _v10({
+      _v16 = (0, _v2.useCallback)(() => {
+        _v1.current && _v11({
           height: _v1.current.offsetHeight,
           width: _v1.current.offsetWidth
         });
       }, [_v1]),
-      _v16 = (0, _v2.useCallback)(() => {
-        document.fullscreenElement || _v15();
-      }, [_v15]);
-    (0, _v2.useEffect)(() => (window.addEventListener("resize", _v15), window.addEventListener("fullscreenchange", _v16), () => {
-      window.removeEventListener("resize", _v15), window.removeEventListener("fullscreenchange", _v16);
-    }), [_v16, _v15]), (0, _v2.useEffect)(() => {
-      _v1.current && (_v15(), setTimeout(() => {
+      _v17 = (0, _v2.useCallback)(() => {
+        document.fullscreenElement || _v16();
+      }, [_v16]);
+    (0, _v2.useEffect)(() => (window.addEventListener("resize", _v16), window.addEventListener("fullscreenchange", _v17), () => {
+      window.removeEventListener("resize", _v16), window.removeEventListener("fullscreenchange", _v17);
+    }), [_v17, _v16]), (0, _v2.useEffect)(() => {
+      _v1.current && (_v16(), setTimeout(() => {
         window.dispatchEvent(new Event("resize"));
       }, 0));
-    }, [_v1, _v15, _v1?.current?.offsetHeight, _v1?.current?.offsetWidth]), (0, _v2.useEffect)(() => {
-      _v3 && !_v12 && _v3?.ready?.(() => {
+    }, [_v1, _v16, _v1?.current?.offsetHeight, _v1?.current?.offsetWidth]), (0, _v2.useEffect)(() => {
+      _v3 && !_v13 && _v3?.ready?.(() => {
         _v3.pause();
       });
     }, []);
-    let _v17 = (0, _v2.useCallback)(() => {
+    let _v18 = (0, _v2.useCallback)(() => {
       _v3 && _v3?.ready?.(() => {
         _v3.play()?.catch(_v0 => {
           if (_v0 && "AbortError" !== _v0.name) throw _v0;
         });
       });
     }, [_v3]);
-    return _v11 ? null : _v13 || _v8 || _v6 ? (0, _v1.jsx)(_v57, {
+    return _v12 ? null : _v14 || _v9 || _v6 ? (0, _v1.jsx)(_v57, {
       children: (0, _v1.jsx)(_v25, {
         children: (0, _v1.jsx)(_v56, {
-          playerMeasurements: _v9,
+          playerMeasurements: _v10,
           playerContainerRef: _v1,
           accentColor: _v2 ?? "vimeoBlue.500",
           player: _v3,
           clipRequestId: _v4,
           isViewOnly: _v6,
           reviewId: _v7,
-          currentTime: _v13,
-          isPaused: _v12,
-          isSeeked: _v14
+          videoAspectRatio: _v8,
+          currentTime: _v14,
+          isPaused: _v13,
+          isSeeked: _v15
         })
       })
     }) : (0, _v1.jsx)(_v57, {
       zIndex: 2,
-      onClick: _v17,
+      onClick: _v18,
       children: (0, _v1.jsx)(_v3.Box, {
         display: "flex",
         alignItems: "center",
@@ -1254,7 +1304,7 @@
         children: (0, _v1.jsx)(_v4.Button, {
           variant: "primary",
           size: "lg",
-          onClick: _v17,
+          onClick: _v18,
           marginTop: {
             base: "0",
             md: "60px"

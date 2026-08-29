@@ -70,16 +70,16 @@
           singular: "Aus"
         },
         "fr-FR": {
-          singular: "Inactif"
+          singular: "Désactivé"
         },
         "ja-JP": {
           singular: "オフ"
         },
         "ko-KR": {
-          singular: "해제"
+          singular: "꺼짐"
         },
         "pt-BR": {
-          singular: "Desligar"
+          singular: "Desligado"
         },
         "zh-CN": {
           singular: "关闭"

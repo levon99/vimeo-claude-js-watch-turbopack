@@ -1256,6 +1256,7 @@
     }
   }
   async function _v86(_v0, _v1 = 0) {
+    if (_v0.IS_DISPOSED) return;
     let {
       connectionConfig: _v2,
       mediaUid: _v3,
@@ -1286,12 +1287,14 @@
         _v4 = _v82.liveMediaConfig.AGORA.CLOUD_PROXY ?? _v2;
       _v0.log.info("[SAMC] Set media connection proxy mode:", _v4), _v85(_v0.mediaClient, _v4);
       let _v5 = await _v0.mediaClient.join(_v0, _v1, _v3.token, _v3.uid);
-      _v0.log.info("[SAMC] Connected to agora room as:", _v5), _v0.setContext({
+      if (_v0.log.info("[SAMC] Connected to agora room as:", _v5), _v0.IS_DISPOSED || _v0.context.isDestroyed || !_v0.mediaClient) return;
+      _v0.setContext({
         isMediaJoined: !0,
         mediaJoinedAt: Date.now(),
         mediaUid: _v0.context.mediaUid.asReady(_v5)
       }), await _v0.attemptToPublishLocalMedia(), (0, _v19.trackLiveAction)("agora_media_connection_started");
     } catch (_v0) {
+      if (_v0.IS_DISPOSED) return;
       (0, _v19.trackLiveError)(_v0, {
         category: _v18.ELiveErrorCategory.AGORA,
         method: "startAgoraMediaConnection",
@@ -1304,6 +1307,7 @@
     }
   }
   async function _v87(_v0, _v1, _v2) {
+    if (_v0.IS_DISPOSED) return;
     _v0.log.info("[UL] Agora user left room:", _v1.uid, _v2);
     let {
       roomParticipants: _v3
@@ -1317,8 +1321,9 @@
   }
   async function _v88(_v0, _v1, _v2) {
     var _v3, _v4;
-    let _v5,
-      {
+    let _v5;
+    if (_v0.IS_DISPOSED) return;
+    let {
         isDestroyed: _v6
       } = _v0.context,
       _v7 = (_v3 = _v0, _v4 = _v1.uid, _v3.log.info("[S] Checking security of uid:", _v4), _v5 = (0, _v12.parseConnectionTypeFromUid)(_v4), !![_v8.EAgoraConnectionType.MEDIA, _v8.EAgoraConnectionType.PREVIEW, _v8.EAgoraConnectionType.BROADCASTER_SCREEN, _v8.EAgoraConnectionType.BROADCASTER].includes(_v5) || !!_v3.queryDataSync({
@@ -1326,31 +1331,32 @@
         data: (0, _v12.parseUidFromAgora)(_v4)
       })?.data);
     if (_v6) return _v0.log.warn("[STUM] Cannot subscribe to media in destroyed context");
+    if (!_v0.mediaClient) return _v0.log.warn("[STUM] Cannot subscribe to media before client initialization");
     if ((0, _v12.isAgoraClientDisconnected)(_v0.mediaClient)) return _v0.log.warn("[STUM] Cannot subscribe to media when disconnected");
     if (!_v7) return _v0.log.info("[STUM] Skip subscribing to user media, not allowed:", _v2, _v1.uid);
     _v0.log.info("[STUM] Subscribing to user media:", _v2, _v1.uid);
     let _v8 = await _v0.mediaClient.subscribe(_v1, _v2);
-    _v0.log.info("[STUM] Subscribed to user media:", _v2, _v1.uid), _v0.emitSignal({
+    !_v0.IS_DISPOSED && _v0.mediaClient && (_v0.log.info("[STUM] Subscribed to user media:", _v2, _v1.uid), _v0.emitSignal({
       type: _v7.EAgoraSignal.AGORA_MEDIA_RECEIVED,
       data: {
         mediaType: _v2,
         user: _v1,
         track: _v8
       }
-    });
+    }));
   }
   async function _v89(_v0, _v1, _v2) {
+    if (_v0.IS_DISPOSED) return;
     let {
       isDestroyed: _v3
     } = _v0.context;
-    if (_v3) return _v0.log.info("[UFUM] Skipping unsubscribe in destroyed context");
-    _v0.log.info("[UFUM] Unsubscribing from user media:", _v2, _v1), await Promise.all([_v0.mediaClient.unsubscribe(_v1, _v2), _v0.emitSignal({
+    return _v3 ? _v0.log.info("[UFUM] Skipping unsubscribe in destroyed context") : _v0.mediaClient ? void (_v0.log.info("[UFUM] Unsubscribing from user media:", _v2, _v1), await _v0.mediaClient.unsubscribe(_v1, _v2), _v0.IS_DISPOSED || _v0.emitSignal({
       type: _v7.EAgoraSignal.AGORA_MEDIA_REMOVED,
       data: {
         user: _v1,
         mediaType: _v2
       }
-    })]);
+    })) : _v0.log.info("[UFUM] Skipping unsubscribe before client initialization");
   }
   async function _v90(_v0, _v1, _v2) {
     try {
@@ -1383,7 +1389,9 @@
   }
   async function _v91(_v0) {
     try {
-      if (await _v0.mutex.acquire("publishing-media"), _v0.context.isDestroyed) return _v0.log.warn("Skip publish, destroyed");
+      if (_v0.IS_DISPOSED) return;
+      if (await _v0.mutex.acquire("publishing-media"), _v0.IS_DISPOSED || _v0.context.isDestroyed) return _v0.log.warn("Skip publish, destroyed");
+      if (!_v0.mediaClient) return _v0.log.warn("Skip publish, media client is not initialized");
       let {
         data: {
           video: _v0,
@@ -1392,7 +1400,7 @@
       } = _v0.queryDataSync({
         type: _v6.ELiveMediaQuery.CURRENT_LOCAL_MEDIA
       });
-      _v0.log.info("[ATPLM] Checking sync of current local media:", _v1, _v0);
+      if (_v0.log.info("[ATPLM] Checking sync of current local media:", _v1, _v0), _v0.IS_DISPOSED || !_v0.mediaClient) return;
       let _v2 = (0, _v84.filterTracks)(_v0, _v1).filter(_v0 => !_v0.mediaClient.localTracks.includes(_v0) && !(0, _v84.isAgoraTrackMuted)(_v0)),
         _v3 = _v2.reduce((_v0, _v1) => {
           let _v2 = _v0.mediaClient.localTracks.find(_v0 => _v0.trackMediaType === _v1.trackMediaType);
@@ -1422,6 +1430,7 @@
     }
   }
   async function _v93(_v0, _v1, _v2) {
+    if (_v0.IS_DISPOSED) return;
     _v0.log.info("[UP] Remote media published:", _v1.uid, _v2);
     let {
       roomParticipants: _v3,
@@ -1432,9 +1441,9 @@
     }), await _v0.subscribeToUserMedia(_v1, _v2, "user_published"), _v97(_v0));
   }
   async function _v94(_v0, _v1) {
-    _v0.setContext({
+    !_v0.IS_DISPOSED && _v0.mediaClient && (_v0.setContext({
       roomParticipants: _v0.context.roomParticipants.concat([_v1])
-    }), await _v0.mediaClient.setStreamFallbackOption(_v1.uid, _v0.remoteStreamFallbackType), _v97(_v0);
+    }), await _v0.mediaClient.setStreamFallbackOption(_v1.uid, _v0.remoteStreamFallbackType), _v97(_v0));
   }
   function _v95(_v0, _v1, _v2) {
     _v0.log.info("[MQC] Remote media quality changed:", _v1, _v2), _v0.emitSignal({
@@ -1446,6 +1455,7 @@
     });
   }
   async function _v96(_v0, _v1, _v2) {
+    if (_v0.IS_DISPOSED) return;
     _v0.log.info("[UU] Remote media unpublished:", _v1.uid, _v2);
     let {
       roomParticipants: _v3,
@@ -1456,7 +1466,7 @@
     }), await _v89(_v0, _v1, _v2), _v97(_v0));
   }
   function _v97(_v0) {
-    if (_v0.context.isDestroyed || null === _v0.mediaClient) return;
+    if (_v0.IS_DISPOSED || _v0.context.isDestroyed || !_v0.mediaClient) return;
     let _v1 = 0,
       _v2 = _v0.mediaClient.remoteUsers.filter(_v0 => _v0.hasVideo && (String(_v0.uid).startsWith(_v8.EAgoraConnectionType.GUEST) || String(_v8.EAgoraConnectionType.BROADCASTER))).length;
     for (let _v0 = 0; _v0 < _v82.liveMediaConfig.DUAL_STREAM.ROOM_SCALE_BREAKPOINTS.length && (_v1 = _v0, !(_v2 < _v82.liveMediaConfig.DUAL_STREAM.ROOM_SCALE_BREAKPOINTS[_v0])); _v0++);
@@ -1495,7 +1505,7 @@
       let _v0 = await _v0.loadInitialAgoraConfig();
       if (_v0.log.info("Loaded agora config for channel:", _v0.channel), _v0.log.info("Planned token expiration (M):", new Date(0 * _v0.media.ttl)), _v0.setContext({
         connectionConfig: _v0
-      }), _v0.context.isDestroyed) return (0, _v19.trackLiveAction)("agora_info_load_cancel"), _v0.log.info("Fetched information after manager destruction, skip connection");
+      }), _v0.IS_DISPOSED || _v0.context.isDestroyed) return (0, _v19.trackLiveAction)("agora_info_load_cancel"), _v0.log.info("Fetched information after manager destruction, skip connection");
       _v0.emitSignal({
         type: _v7.EAgoraSignal.AGORA_CONFIG_LOADED,
         data: _v0
@@ -1530,7 +1540,7 @@
       _v0.mediaClient.setLowStreamParameter(_v0.dualStreamConfig), _v0.log.info("Updated dual stream parameters for agora (media):", _v0.dualStreamConfig);
     }).catch(_v0 => _v0.log.error("Could not enable dual stream:", _v0)) : _v0.log.info("Dual stream option is disabled for media"), _v0.isVolumeIndicatorEnabled) {
       let _v0 = (0, _v81.default)(_v0 => {
-        _v0.setContext({
+        _v0.IS_DISPOSED || _v0.setContext({
           roomVolume: _v0.reduce((_v0, _v1) => (_v0[_v1.uid] = _v1, _v0), (0, _v3.createNested)({}))
         });
       }, _v82.liveMediaConfig.AGORA.ROOM_VOLUME_CHECK_THROTTLE);
@@ -1558,13 +1568,13 @@
         });
       }
     }), _v0.mediaClient.on("network-quality", _v0 => {
-      _v0.setContext({
+      _v0.IS_DISPOSED || _v0.setContext({
         mediaConnectionQuality: (0, _v3.createNested)(_v0)
       });
     }), _v0.mediaClient.on("connection-state-change", _v0 => {
-      _v0.setContext({
+      _v0.IS_DISPOSED || (_v0.setContext({
         mediaConnectionState: _v0
-      }), _v0 === _v8.EAgoraConnectionState.CONNECTED && (_v0.log.info("🧲Media agora connected"), _v0.attemptToPublishLocalMedia());
+      }), _v0 === _v8.EAgoraConnectionState.CONNECTED && (_v0.log.info("🧲Media agora connected"), _v0.attemptToPublishLocalMedia()));
     }), _v0.mediaClient.on("stream-type-changed", (_v0, _v1) => _v95(_v0, _v0, _v1)), _v0.mediaClient.on("user-joined", _v0 => _v94(_v0, _v0)), _v0.mediaClient.on("user-left", (_v0, _v1) => _v87(_v0, _v0, _v1)), _v0.mediaClient.on("user-published", (_v0, _v1) => _v93(_v0, _v0, _v1)), _v0.mediaClient.on("user-unpublished", (_v0, _v1) => _v96(_v0, _v0, _v1)), _v0.mediaClient.on("user-info-updated", (_v0, _v1) => {
       var _v2, _v3, _v4;
       return _v2 = _v0, _v3 = _v0, _v4 = _v1, void (_v2.log.info("Remote user state update:", _v3, _v4), _v97(_v2));
@@ -1587,13 +1597,13 @@
         }
       });
     }), _v0.screenClient.on("network-quality", _v0 => {
-      _v0.setContext({
+      _v0.IS_DISPOSED || _v0.setContext({
         screenConnectionQuality: (0, _v3.createNested)(_v0)
       });
     }), _v0.screenClient.on("connection-state-change", _v0 => {
-      _v0.setContext({
+      _v0.IS_DISPOSED || (_v0.setContext({
         screenConnectionState: _v0
-      }), _v0.log.info("🧲Screen connection state:", _v0), _v0 === _v8.EAgoraConnectionState.CONNECTED && _v0.attemptToPublishScreen();
+      }), _v0.log.info("🧲Screen connection state:", _v0), _v0 === _v8.EAgoraConnectionState.CONNECTED && _v0.attemptToPublishScreen());
     }), _v0.screenClient.on("exception", _v0 => _v110(_v0, _v0)), _v0.screenClient.on("is-using-cloud-proxy", _v0 => {
       _v0 ? (_v0.log.info("✨️ Proxy usage is enabled [screen]"), (0, _v19.trackLiveAction)("agora_screen_use_with_cloud_proxy")) : (_v0.log.info("✨️ Proxy usage is disabled [screen]"), (0, _v19.trackLiveAction)("agora_screen_use_without_cloud_proxy"));
     }), _v0.isStatsCollectionEnabled && _v0.statsCollector.start(_v0.mediaClient, _v0.screenClient, _v0.getScope()), _v0.log.info("Initialized agora clients"), _v0.setContext({
@@ -1601,6 +1611,7 @@
     });
   }
   async function _v103(_v0) {
+    if (_v0.IS_DISPOSED) return;
     let {
       isDestroyed: _v1,
       isReady: _v2
@@ -1609,11 +1620,13 @@
     (0, _v19.trackLiveAction)("agora_info_refresh_start");
     try {
       let _v0 = await _v0.loadRefreshedAgoraConfig();
-      await _v0.mediaClient.renewToken(_v0.media.token), ((0, _v12.isAgoraClientConnected)(_v0.screenClient) || (0, _v12.isAgoraClientConnecting)(_v0.screenClient)) && (await _v0.screenClient.renewToken(_v0.screen.token)), _v0.setContext({
+      if (_v0.IS_DISPOSED || !_v0.mediaClient || (await _v0.mediaClient.renewToken(_v0.media.token), ((0, _v12.isAgoraClientConnected)(_v0.screenClient) || (0, _v12.isAgoraClientConnecting)(_v0.screenClient)) && (await _v0.screenClient.renewToken(_v0.screen.token)), _v0.IS_DISPOSED)) return;
+      _v0.setContext({
         connectionConfig: _v0
       }), _v0.log.info("Refreshed tokens"), _v0.log.info("Planned token expiration (M):", new Date(0 * _v0.media.ttl));
     } catch (_v0) {
-      _v0.log.error("Failed to refresh tokens:", _v0), (0, _v19.trackLiveError)(_v0, {
+      if (_v0.log.error("Failed to refresh tokens:", _v0), _v0.IS_DISPOSED) return;
+      (0, _v19.trackLiveError)(_v0, {
         category: _v18.ELiveErrorCategory.AGORA,
         method: "refreshToken",
         data: {
@@ -1641,7 +1654,7 @@
       CUR_LOCAL_SCREEN_STATS: _v0.screenClient?.getLocalVideoStats(),
       CUR_LOCAL_VIDEO_STATS: _v0.mediaClient?.getLocalVideoStats(),
       CUR_LOCAL_AUDIO_STATS: _v0.mediaClient?.getLocalAudioStats(),
-      CUR_REMOTE_STATS: _v0.mediaClient?.remoteUsers.map(_v0 => ({
+      CUR_REMOTE_STATS: _v0.mediaClient?.remoteUsers?.map(_v0 => ({
         UID: _v0.uid,
         VIDEO_STATS: _v0.videoTrack?.getStats() || null,
         VIDEO_SETTINGS: _v0.videoTrack?.getMediaStreamTrack()?.getSettings() || null,
@@ -2427,7 +2440,7 @@
       return _v111(this, _v0.data);
     }
     async onAgoraLoaded(_v0) {
-      if (this.agoraSDK = _v0.data.agoraSDK, this.context.isDestroyed) return this.log.info("Cancel init process, already destroyed");
+      if (this.agoraSDK = _v0.data.agoraSDK, this.IS_DISPOSED || this.context.isDestroyed) return this.log.info("Cancel init process, already destroyed");
       try {
         _v98(this), _v102(this), await this.tryEstablishConnection();
       } catch (_v0) {
@@ -2442,9 +2455,9 @@
         metadata: _v0
       }
     }) {
-      this.connections = {
+      this.IS_DISPOSED || (this.connections = {
         getRtcCredentials: _v0.connections.rtc
-      }, await this.initializeRoomConfig();
+      }, await this.initializeRoomConfig());
     }
   }
   (0, _v2._)([(0, _v79.OnSignal)(_v7.EAgoraSignal.ALLOWED_REMOTE_GUEST_ADDED)], _v121.prototype, "onAllowedRemoteGuestAdded", null), (0, _v2._)([(0, _v79.OnSignal)(_v7.EAgoraSignal.ALLOWED_REMOTE_GUEST_REMOVED)], _v121.prototype, "onAllowedRemoteGuestRemoved", null), (0, _v2._)([(0, _v79.OnQuery)(_v6.ELiveConnectionQuery.CURRENT_CONNECTION_UID)], _v121.prototype, "onCurrentConnectionUidQueried", null), (0, _v2._)([(0, _v79.OnQuery)(_v6.ELiveConnectionQuery.CURRENT_CONNECTION_MEDIA_UID)], _v121.prototype, "onCurrentConnectionMediaUidQueried", null), (0, _v2._)([(0, _v79.OnQuery)(_v6.ELiveConnectionQuery.CURRENT_CONNECTION_SCREEN_UID)], _v121.prototype, "onCurrentConnectionScreenUidQueried", null), (0, _v2._)([(0, _v79.OnQuery)(_v6.ELiveConnectionQuery.IS_EVENT_BROADCASTER_CONNECTION)], _v121.prototype, "onIsEventBroadcasterConnectionQueried", null), (0, _v2._)([(0, _v79.OnSignal)(_v7.ELiveMediaSignal.LOCAL_MEDIA_ACCESS_DENIED)], _v121.prototype, "onLocalMediaAccessDenied", null), (0, _v2._)([(0, _v79.OnSignal)(_v7.ELiveMediaSignal.LOCAL_MEDIA_INITIALIZED)], _v121.prototype, "onLocalMediaUpdated", null), (0, _v2._)([(0, _v79.OnSignal)(_v7.ELiveMediaSignal.SCREEN_MEDIA_STARTED)], _v121.prototype, "onScreenMediaStarted", null), (0, _v2._)([(0, _v79.OnSignal)(_v7.ELiveMediaSignal.SCREEN_MEDIA_STOPPED)], _v121.prototype, "onScreenMediaStopped", null), (0, _v2._)([(0, _v79.OnSignal)(_v7.EAgoraSignal.AGORA_MEDIA_QUALITY_CHANGE_REQUIRED)], _v121.prototype, "onAgoraMediaQualityChangeRequired", null), (0, _v2._)([(0, _v79.OnSignal)(_v7.EAgoraSignal.AGORA_MEDIA_BULK_QUALITY_CHANGE_REQUIRED)], _v121.prototype, "onAgoraMediaBulkQualityChangeRequired", null), (0, _v2._)([(0, _v79.OnSignal)(_v7.ELiveSignal.LIVE_EVENT_ENDED), (0, _v79.OnSignal)(_v7.EPageSignal.PAGE_INACTIVE)], _v121.prototype, "onLiveEventEnded", null), (0, _v2._)([(0, _v79.OnSignal)(_v7.ELiveMediaSignal.SCREEN_MEDIA_START_REQUIRED)], _v121.prototype, "onScreenMediaStartRequired", null), (0, _v2._)([(0, _v79.OnSignal)(_v7.ELiveMediaSignal.SCREEN_MEDIA_STOP_REQUIRED)], _v121.prototype, "onScreenMediaStopRequired", null), (0, _v2._)([(0, _v79.OnSignal)(_v7.ELiveMediaSignal.LOCAL_TRACK_UPDATED)], _v121.prototype, "onMediaMuteStateChange", null), (0, _v2._)([(0, _v79.OnSignal)(_v7.ELiveMediaSignal.LOCAL_TRACK_DISPOSED)], _v121.prototype, "onLocalTrackDisposed", null), (0, _v2._)([(0, _v79.OnSignal)(_v7.EDependencySignal.AGORA_DEPENDENCIES_LOADED)], _v121.prototype, "onAgoraLoaded", null), (0, _v2._)([(0, _v79.OnSignal)(_v7.ELiveSignal.COMPOSER_SESSION_READY)], _v121.prototype, "onComposerSessionReady", null), _v0.s(["AbstractAgoraManager", 0, _v121], 0);

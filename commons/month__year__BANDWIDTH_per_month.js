@@ -5320,7 +5320,7 @@
       free: !1,
       creator: !1,
       core: !1,
-      professional: !1,
+      professional: "1",
       studio: "3",
       production: "10",
       enterprise: (0, _v1.translate)({

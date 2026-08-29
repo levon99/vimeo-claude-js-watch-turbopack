@@ -246,7 +246,7 @@
       DEFAULT_AUDIO_MIXING_MODE: _v37.ALL
     },
     USER: {
-      REQUIRED_OWNER_CAPABILITIES: ["canSendGuestEmailInvites", "canUseBackupStream", "hasAutoClosedCaptions", "hasDashStreaming", "hasDisableAutoArchiving", "hasEcdn", "hasEnterprise", "hasGeoBlock", "hasLiveComposerApp", "hasLiveSubscription", "hasLiveSupportChat", "hasScheduledMediaPlayback", "hasUnlimitedLiveEventDuration", "hasUhdStreaming"],
+      REQUIRED_OWNER_CAPABILITIES: ["canEnableAudienceSpeaker", "canSendGuestEmailInvites", "canUseBackupStream", "hasAutoClosedCaptions", "hasDashStreaming", "hasDisableAutoArchiving", "hasEcdn", "hasEnterprise", "hasGeoBlock", "hasLiveComposerApp", "hasLiveSubscription", "hasLiveSupportChat", "hasScheduledMediaPlayback", "hasUnlimitedLiveEventDuration", "hasUhdStreaming"],
       REQUIRED_OWNER_ENTITLEMENTS: [_v40.LIVE_COMPOSER_TEMPLATES_ACCESS, _v40.LIVE_GUEST_API_MANAGEMENT, _v40.LIVE_MEDIA_API_MANAGEMENT],
       REQUIRED_OWNER_PREFERENCES: [_v39.ECDN_KOLLECTIVE_JITC, _v39.EXTENDED_STREAM_WITH_DVR, _v39.EXTENDED_STREAM_WITH_SIMULCAST, _v39.AUDIO_TRACKS_MANAGEMENT],
       REQUIRED_PREFERENCES: [_v39.ONBOARDING_RTMP, _v39.ONBOARDING_RTC, _v39.ONBOARDING_RTC_BOKEH, _v39.ONBOARDING_RTC_SIMULIVE, _v39.PUBLISH_TO_SOCIAL]
