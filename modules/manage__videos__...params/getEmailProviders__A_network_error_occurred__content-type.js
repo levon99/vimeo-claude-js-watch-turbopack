@@ -983,17 +983,18 @@
       }
     }
   }).replace("-", "-⁠");
-  let _v43 = _v0 => "image" === _v0 ? 3 : 2;
-  var _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
+  let _v43 = _v0 => _v0.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;"),
+    _v44 = _v0 => "image" === _v0 ? 3 : 2;
+  var _v45 = _v0.i(0),
     _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  let _v48 = ({
+    _v47 = _v0.i(0),
+    _v48 = _v0.i(0);
+  let _v49 = ({
       onClick: _v0,
       disabled: _v1
-    }) => (0, _v1.jsx)(_v49, {
+    }) => (0, _v1.jsx)(_v50, {
       format: "soft",
-      icon: (0, _v1.jsx)(_v47.ChevronRight, {
+      icon: (0, _v1.jsx)(_v48.ChevronRight, {
         sx: {
           width: "1rem !important",
           minW: "1rem !important"
@@ -1008,58 +1009,58 @@
       onClick: _v0,
       children: "GIF"
     }),
-    _v49 = (0, _v4.default)(_v21.Button).withConfig({
+    _v50 = (0, _v4.default)(_v21.Button).withConfig({
       displayName: "NewAssetCta__NewCard",
       componentId: "sc-a2d329ff-0"
     })`
-  border-radius: ${(0, _v46.rem)(6)};
-  height: ${(0, _v46.rem)(80)};
-  margin: ${(0, _v46.rem)(8)};
+  border-radius: ${(0, _v47.rem)(6)};
+  height: ${(0, _v47.rem)(80)};
+  margin: ${(0, _v47.rem)(8)};
   margin-left: 0;
-  min-width: ${(0, _v46.rem)(80)};
+  min-width: ${(0, _v47.rem)(80)};
 `;
-  var _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
+  var _v51 = _v0.i(0),
     _v52 = _v0.i(0),
     _v53 = _v0.i(0),
-    _v54 = _v0.i(0);
-  let _v55 = _v4.default.div.withConfig({
+    _v54 = _v0.i(0),
+    _v55 = _v0.i(0);
+  let _v56 = _v4.default.div.withConfig({
       displayName: "styles__Wrapper",
       componentId: "sc-f117cfde-0"
     })`
   position: relative;
 `,
-    _v56 = _v4.default.div.withConfig({
+    _v57 = _v4.default.div.withConfig({
       displayName: "styles__Container",
       componentId: "sc-f117cfde-1"
     })`
   display: grid;
 `;
-  (0, _v4.default)(_v51.Menu.Item).withConfig({
+  (0, _v4.default)(_v52.Menu.Item).withConfig({
     displayName: "styles__MenuItem",
     componentId: "sc-f117cfde-2"
   })`
-  color: ${_v54.core.color.text(100)};
-  font-size: ${_v54.core.typography.size(200)}px;
+  color: ${_v55.core.color.text(100)};
+  font-size: ${_v55.core.typography.size(200)}px;
 
   ${({
     disabled: _v0
   }) => _v0 && _v4.css`
-      color: ${_v54.core.color.text(600)};
+      color: ${_v55.core.color.text(600)};
       opacity: 0.5;
       pointer-events: none;
       user-select: none;
     `};
 `;
-  let _v57 = _v4.default.div.withConfig({
+  let _v58 = _v4.default.div.withConfig({
       displayName: "styles__CardContainer",
       componentId: "sc-f117cfde-3"
     })`
   display: inline-block;
-  margin: ${(0, _v46.rem)(8)} ${(0, _v46.rem)(8)} ${(0, _v46.rem)(8)} 0;
+  margin: ${(0, _v47.rem)(8)} ${(0, _v47.rem)(8)} ${(0, _v47.rem)(8)} 0;
   position: relative;
 `,
-    _v58 = _v4.default.div.withConfig({
+    _v59 = _v4.default.div.withConfig({
       displayName: "styles__Center",
       componentId: "sc-f117cfde-4"
     })`
@@ -1070,54 +1071,54 @@
   top: 50%;
   transform: translate3d(-50%, -60%, 0);
 `,
-    _v59 = _v4.css`
+    _v60 = _v4.css`
   ${({
       selected: _v0
     }) => _v0 && _v4.css`
-      outline: ${(0, _v46.rem)(2)} solid ${_v54.core.color.format.primary};
+      outline: ${(0, _v47.rem)(2)} solid ${_v55.core.color.format.primary};
     `}
 `,
-    _v60 = _v4.default.img.withConfig({
+    _v61 = _v4.default.img.withConfig({
       displayName: "styles__Card",
       componentId: "sc-f117cfde-5"
     })`
-  border-radius: ${(0, _v46.rem)(6)};
+  border-radius: ${(0, _v47.rem)(6)};
   cursor: pointer;
-  height: ${(0, _v46.rem)(80)};
+  height: ${(0, _v47.rem)(80)};
   position: relative;
-  ${_v59}
+  ${_v60}
 `,
-    _v61 = _v4.default.aside.withConfig({
+    _v62 = _v4.default.aside.withConfig({
       displayName: "styles__LoadingWrapper",
       componentId: "sc-f117cfde-6"
     })`
   align-items: center;
   display: flex;
   justify-content: center;
-  min-height: ${(0, _v46.rem)(96)};
+  min-height: ${(0, _v47.rem)(96)};
   width: 100%;
 `,
-    _v62 = _v4.default.div.withConfig({
+    _v63 = _v4.default.div.withConfig({
       displayName: "styles__LoaderCard",
       componentId: "sc-f117cfde-7"
     })`
-  background: ${_v54.core.color.surface.secondary};
-  border-radius: ${(0, _v46.rem)(6)};
+  background: ${_v55.core.color.surface.secondary};
+  border-radius: ${(0, _v47.rem)(6)};
   display: inline-block;
-  height: ${(0, _v46.rem)(80)};
-  margin: ${(0, _v46.rem)(8)} ${(0, _v46.rem)(8)} ${(0, _v46.rem)(8)} 0;
-  min-width: ${(0, _v46.rem)(142)};
+  height: ${(0, _v47.rem)(80)};
+  margin: ${(0, _v47.rem)(8)} ${(0, _v47.rem)(8)} ${(0, _v47.rem)(8)} 0;
+  min-width: ${(0, _v47.rem)(142)};
   position: relative;
-  ${_v59}
+  ${_v60}
 `,
-    _v63 = _v4.default.div.withConfig({
+    _v64 = _v4.default.div.withConfig({
       displayName: "styles__ScrollingWrapper",
       componentId: "sc-f117cfde-8"
     })`
   display: flex;
-  height: ${(0, _v46.rem)(96)};
+  height: ${(0, _v47.rem)(96)};
   overflow-x: auto;
-  padding-left: ${_v0 => (0, _v46.rem)(_v0.hasNavigation ? 25 : 6)};
+  padding-left: ${_v0 => (0, _v47.rem)(_v0.hasNavigation ? 25 : 6)};
   position: relative;
   white-space: nowrap;
   -ms-overflow-style: none; /* IE 11 */
@@ -1127,9 +1128,9 @@
     display: none;
   }
 
-  & ${_v57} {
+  & ${_v58} {
     &:last-child {
-      margin-right: ${_v0 => (0, _v46.rem)(25 * !!_v0.hasNavigation)};
+      margin-right: ${_v0 => (0, _v47.rem)(25 * !!_v0.hasNavigation)};
 
       img {
         margin-right: 0;
@@ -1137,18 +1138,18 @@
     }
   }
 `,
-    _v64 = _v4.css`
+    _v65 = _v4.css`
   background-color: ${({
       theme: _v0
     }) => _v0.item.bg};
-  bottom: ${(0, _v46.rem)(32)};
+  bottom: ${(0, _v47.rem)(32)};
   cursor: pointer;
   display: none;
-  height: ${(0, _v46.rem)(48)};
+  height: ${(0, _v47.rem)(48)};
   position: absolute;
   transform: scaleX(-1);
   user-select: none;
-  width: ${(0, _v46.rem)(24)};
+  width: ${(0, _v47.rem)(24)};
 
   ${({
       show: _v0
@@ -1156,85 +1157,85 @@
       display: inline-block;
     `}
 `,
-    _v65 = _v4.default.div.withConfig({
+    _v66 = _v4.default.div.withConfig({
       displayName: "styles__LeftNavigation",
       componentId: "sc-f117cfde-9"
     })`
-  ${_v64}
-  border-bottom-left-radius: ${(0, _v46.rem)(48)};
-  border-top-left-radius: ${(0, _v46.rem)(48)};
-  box-shadow: ${(0, _v46.rem)(-10)} 0 ${(0, _v46.rem)(14)} 0 rgba(31, 31, 31, 0.2);
+  ${_v65}
+  border-bottom-left-radius: ${(0, _v47.rem)(48)};
+  border-top-left-radius: ${(0, _v47.rem)(48)};
+  box-shadow: ${(0, _v47.rem)(-10)} 0 ${(0, _v47.rem)(14)} 0 rgba(31, 31, 31, 0.2);
   left: 0;
 `,
-    _v66 = _v4.default.div.withConfig({
+    _v67 = _v4.default.div.withConfig({
       displayName: "styles__RightNavigation",
       componentId: "sc-f117cfde-10"
     })`
-  ${_v64}
-  border-bottom-right-radius: ${(0, _v46.rem)(48)};
-  border-top-right-radius: ${(0, _v46.rem)(48)};
-  box-shadow: ${(0, _v46.rem)(10)} 0 ${(0, _v46.rem)(14)} 0 rgba(31, 31, 31, 0.2);
+  ${_v65}
+  border-bottom-right-radius: ${(0, _v47.rem)(48)};
+  border-top-right-radius: ${(0, _v47.rem)(48)};
+  box-shadow: ${(0, _v47.rem)(10)} 0 ${(0, _v47.rem)(14)} 0 rgba(31, 31, 31, 0.2);
   right: 0;
 `,
-    _v67 = _v4.css`
-  height: ${(0, _v46.rem)(25)};
+    _v68 = _v4.css`
+  height: ${(0, _v47.rem)(25)};
   pointer-events: none;
   position: absolute;
-  top: ${(0, _v46.rem)(12)};
-  width: ${(0, _v46.rem)(25)};
+  top: ${(0, _v47.rem)(12)};
+  width: ${(0, _v47.rem)(25)};
 
   path {
-    fill: ${_v54.core.color.text(0)};
+    fill: ${_v55.core.color.text(0)};
   }
 `;
-  (0, _v4.default)(_v52.ChevronDown).withConfig({
+  (0, _v4.default)(_v53.ChevronDown).withConfig({
     displayName: "styles__ChevronDownIcon",
     componentId: "sc-f117cfde-11"
   })`
-  height: ${(0, _v46.rem)(25)};
-  width: ${(0, _v46.rem)(25)};
+  height: ${(0, _v47.rem)(25)};
+  width: ${(0, _v47.rem)(25)};
 
   path {
-    fill: ${_v54.core.color.text.secondary};
+    fill: ${_v55.core.color.text.secondary};
   }
 `;
-  let _v68 = (0, _v4.default)(_v53.ChevronRight).withConfig({
+  let _v69 = (0, _v4.default)(_v54.ChevronRight).withConfig({
       displayName: "styles__ChevronRightIcon",
       componentId: "sc-f117cfde-12"
     })`
-  ${_v67}
-  right: ${(0, _v46.rem)(8)};
+  ${_v68}
+  right: ${(0, _v47.rem)(8)};
   transform: scaleX(-1);
 `,
-    _v69 = (0, _v4.default)(_v53.ChevronRight).withConfig({
+    _v70 = (0, _v4.default)(_v54.ChevronRight).withConfig({
       displayName: "styles__ChevronLeftIcon",
       componentId: "sc-f117cfde-13"
     })`
-  ${_v67}
-  left: ${(0, _v46.rem)(8)};
+  ${_v68}
+  left: ${(0, _v47.rem)(8)};
 `,
-    _v70 = _v4.default.span.withConfig({
+    _v71 = _v4.default.span.withConfig({
       displayName: "styles__GIFTag",
       componentId: "sc-f117cfde-14"
     })`
-  border-radius: ${(0, _v46.rem)(2)};
-  background-color: ${(0, _v50.slate)(800)};
+  border-radius: ${(0, _v47.rem)(2)};
+  background-color: ${(0, _v51.slate)(800)};
   color: #fff;
-  font-size: ${(0, _v46.rem)(9)};
+  font-size: ${(0, _v47.rem)(9)};
   font-weight: 700;
-  left: ${(0, _v46.rem)(6)};
+  left: ${(0, _v47.rem)(6)};
   opacity: 0.8;
-  padding: ${(0, _v46.rem)(3)} ${(0, _v46.rem)(4)};
+  padding: ${(0, _v47.rem)(3)} ${(0, _v47.rem)(4)};
   position: absolute;
-  top: ${(0, _v46.rem)(6)};
+  top: ${(0, _v47.rem)(6)};
 `,
-    _v71 = (0, _v4.default)(_v45.Text).withConfig({
+    _v72 = (0, _v4.default)(_v46.Text).withConfig({
       displayName: "styles__AssetCountText",
       componentId: "sc-f117cfde-15"
     })`
-  color: ${_v54.core.color.text(700)};
+  color: ${_v55.core.color.text(700)};
 `;
-  function _v72({
+  function _v73({
     assets: _v0,
     onNewGif: _v1,
     isLoading: _v2 = !1,
@@ -1262,60 +1263,60 @@
       _v11 = (_v0, _v1) => {
         "Enter" === _v0 ? _v9(_v1) : "Tab" === _v0 ? _v10("right", 150) : "ArrowLeft" === _v0 ? (_v10("left", 150), _v9(_v3 - 1)) : "ArrowRight" === _v0 && (_v10("right", 150), _v9(_v3 + 1));
       };
-    return (0, _v1.jsxs)(_v55, {
-      children: [(0, _v1.jsx)(_v45.Text, {
+    return (0, _v1.jsxs)(_v56, {
+      children: [(0, _v1.jsx)(_v46.Text, {
         size: 200,
         children: _v41
-      }), _v0?.length > 0 || !_v2 ? (0, _v1.jsxs)(_v56, {
-        children: [(0, _v1.jsxs)(_v63, {
+      }), _v0?.length > 0 || !_v2 ? (0, _v1.jsxs)(_v57, {
+        children: [(0, _v1.jsxs)(_v64, {
           ref: _v5,
           hasNavigation: _v7,
-          children: [_v0?.length < 8 && (0, _v1.jsx)(_v48, {
+          children: [_v0?.length < 8 && (0, _v1.jsx)(_v49, {
             disabled: _v8 >= 4,
             onClick: _v1
-          }), _v0?.map((_v0, _v1) => _v0.item?.status === "started" ? (0, _v1.jsxs)(_v62, {
+          }), _v0?.map((_v0, _v1) => _v0.item?.status === "started" ? (0, _v1.jsxs)(_v63, {
             tabIndex: 0,
             selected: _v3 === _v1,
             onClick: () => _v4(_v1),
             onKeyDown: _v0 => _v11(_v0.key, _v1),
-            children: [(0, _v1.jsx)(_v58, {
-              children: (0, _v1.jsx)(_v44.Spinner, {
+            children: [(0, _v1.jsx)(_v59, {
+              children: (0, _v1.jsx)(_v45.Spinner, {
                 size: "md"
               })
-            }), (0, _v1.jsx)(_v70, {
+            }), (0, _v1.jsx)(_v71, {
               children: "GIF"
             })]
-          }, `loader-card-${_v1}`) : (0, _v1.jsxs)(_v57, {
-            children: [(0, _v1.jsx)(_v60, {
+          }, `loader-card-${_v1}`) : (0, _v1.jsxs)(_v58, {
+            children: [(0, _v1.jsx)(_v61, {
               tabIndex: 0,
               src: _v0.item?.sizes[1].link,
               selected: _v3 === _v1,
               onClick: () => _v4(_v1),
               onKeyDown: _v0 => _v11(_v0.key, _v1)
-            }), "gif" === _v0.type && (0, _v1.jsx)(_v70, {
+            }), "gif" === _v0.type && (0, _v1.jsx)(_v71, {
               children: "GIF"
             })]
           }, `card-${_v1}`))]
-        }), (0, _v1.jsx)(_v65, {
+        }), (0, _v1.jsx)(_v66, {
           onClick: () => _v10("left", 150),
           show: _v7,
-          children: (0, _v1.jsx)(_v69, {})
-        }), (0, _v1.jsx)(_v66, {
+          children: (0, _v1.jsx)(_v70, {})
+        }), (0, _v1.jsx)(_v67, {
           onClick: () => _v10("right", 150),
           show: _v7,
-          children: (0, _v1.jsx)(_v68, {})
+          children: (0, _v1.jsx)(_v69, {})
         })]
-      }) : (0, _v1.jsx)(_v61, {
-        children: (0, _v1.jsx)(_v44.Spinner, {
+      }) : (0, _v1.jsx)(_v62, {
+        children: (0, _v1.jsx)(_v45.Spinner, {
           size: "lg"
         })
       })]
     });
   }
-  let _v73 = ({
+  let _v74 = ({
     currentIndex: _v0,
     total: _v1
-  }) => (0, _v1.jsx)(_v71, {
+  }) => (0, _v1.jsx)(_v72, {
     size: 200,
     children: (0, _v20.translate)({
       singular: "{CURRENT_INDEX} of {TOTAL}",
@@ -1348,28 +1349,28 @@
       }
     })
   });
-  var _v74 = _v0.i(0);
-  let _v75 = /^(https?|s?ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i,
-    _v76 = _v0 => {
-      let _v1 = _v77(_v0);
-      return _v1.length <= 256 && _v75.test(_v1);
-    },
+  var _v75 = _v0.i(0);
+  let _v76 = /^(https?|s?ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i,
     _v77 = _v0 => {
+      let _v1 = _v78(_v0);
+      return _v1.length <= 256 && _v76.test(_v1);
+    },
+    _v78 = _v0 => {
       let _v1 = _v0.trim();
       return _v1 && !_v1.match(/^(https?|s?ftp):\/\//) && (_v1 = `https://${_v1}`), _v1;
     },
-    _v78 = ({
+    _v79 = ({
       url: _v0,
       onChange: _v1,
       onValid: _v2,
       onError: _v3
     }) => {
       let [_v4, _v5] = (0, _v3.useState)(""),
-        _v6 = _v76(_v0);
-      return (0, _v1.jsx)(_v74.Input, {
+        _v6 = _v77(_v0);
+      return (0, _v1.jsx)(_v75.Input, {
         autoFocus: !0,
         onChange: _v0 => {
-          _v76(_v0.target.value) ? (_v5(""), _v6 || _v2?.()) : (_v5((0, _v20.translate)({
+          _v77(_v0.target.value) ? (_v5(""), _v6 || _v2?.()) : (_v5((0, _v20.translate)({
             singular: "Invalid URL",
             dictionary: {
               es: {
@@ -1404,13 +1405,13 @@
         }
       });
     };
-  var _v79 = _v0.i(0),
-    _v80 = _v0.i(0),
+  var _v80 = _v0.i(0),
     _v81 = _v0.i(0),
     _v82 = _v0.i(0),
     _v83 = _v0.i(0),
-    _v84 = _v0.i(0);
-  let _v85 = ({
+    _v84 = _v0.i(0),
+    _v85 = _v0.i(0);
+  let _v86 = ({
       emailProviders: _v0,
       onChange: _v1,
       showUpsell: _v2,
@@ -1421,7 +1422,7 @@
         _v7 = _v0 => {
           _v5(!1), _v1(_v0);
         };
-      (0, _v82.useOutsideClick)([_v6], () => _v5(!1));
+      (0, _v83.useOutsideClick)([_v6], () => _v5(!1));
       let _v8 = _v0.concat({
           name: "Generic Code",
           key: "other",
@@ -1431,22 +1432,22 @@
         _v9 = _v8.find(_v0 => _v0.key === _v3),
         _v10 = _v8.filter(_v0 => _v0.isPaid),
         _v11 = _v8.filter(_v0 => !_v0.isPaid),
-        _v12 = (0, _v1.jsx)(_v79.Pop.List, {
-          children: (0, _v1.jsxs)(_v90, {
-            children: [_v11.map(_v0 => (0, _v1.jsxs)(_v89, {
+        _v12 = (0, _v1.jsx)(_v80.Pop.List, {
+          children: (0, _v1.jsxs)(_v91, {
+            children: [_v11.map(_v0 => (0, _v1.jsxs)(_v90, {
               onClick: () => _v7(_v0.key),
-              children: [_v0.icon && (0, _v1.jsx)(_v88, {
+              children: [_v0.icon && (0, _v1.jsx)(_v89, {
                 alt: "",
                 src: _v0.icon
               }), (0, _v1.jsx)("span", {
                 children: _v0.name
               })]
-            }, _v0.key)), (0, _v1.jsxs)(_v93, {
-              children: [(0, _v1.jsx)(_v87, {
+            }, _v0.key)), (0, _v1.jsxs)(_v94, {
+              children: [(0, _v1.jsx)(_v88, {
                 size: "5",
                 children: _v33
-              }), _v2 && (0, _v1.jsx)(_v83.UpgradeBadge, {
-                href: (0, _v84.buildUpgradePlanUrl)({
+              }), _v2 && (0, _v1.jsx)(_v84.UpgradeBadge, {
+                href: (0, _v85.buildUpgradePlanUrl)({
                   paywallTrigger: "email_provider_dropdown_upgrade_button",
                   paywallLocation: "email_embed",
                   paywallFeature: "email_marketing"
@@ -1459,9 +1460,9 @@
                 name: "email_provider_dropdown_upgrade_button",
                 location: "email_embed"
               })]
-            }), _v10.map(_v0 => (0, _v1.jsxs)(_v89, {
+            }), _v10.map(_v0 => (0, _v1.jsxs)(_v90, {
               onClick: () => _v7(_v0.key),
-              children: [_v0.icon && (0, _v1.jsx)(_v88, {
+              children: [_v0.icon && (0, _v1.jsx)(_v89, {
                 alt: "",
                 src: _v0.icon
               }), (0, _v1.jsx)("span", {
@@ -1470,106 +1471,106 @@
             }, _v0.key))]
           })
         });
-      return (0, _v1.jsx)(_v80.PopOver, {
+      return (0, _v1.jsx)(_v81.PopOver, {
         active: _v4,
         attach: "bottom",
         content: _v12,
-        children: (0, _v1.jsxs)(_v86, {
+        children: (0, _v1.jsxs)(_v87, {
           ref: _v6,
           onClick: () => _v5(_v0 => !_v0),
-          children: [(0, _v1.jsxs)(_v91, {
-            children: [_v9?.icon && (0, _v1.jsx)(_v88, {
+          children: [(0, _v1.jsxs)(_v92, {
+            children: [_v9?.icon && (0, _v1.jsx)(_v89, {
               alt: "",
               src: _v9.icon
-            }), (0, _v1.jsx)(_v81.Paragraph, {
+            }), (0, _v1.jsx)(_v82.Paragraph, {
               size: 1,
               children: _v9?.name
             })]
-          }), (0, _v1.jsx)(_v92, {})]
+          }), (0, _v1.jsx)(_v93, {})]
         })
       });
     },
-    _v86 = _v4.default.div.withConfig({
+    _v87 = _v4.default.div.withConfig({
       displayName: "EmailProviderDropdown__SelectedProvider",
       componentId: "sc-15b8e86b-0"
     })`
-  border: ${(0, _v46.rem)(1)} solid ${({
+  border: ${(0, _v47.rem)(1)} solid ${({
       theme: _v0
     }) => _v0.additions.content.border};
-  border-radius: ${(0, _v46.rem)(3)};
-  height: ${(0, _v46.rem)(40)};
+  border-radius: ${(0, _v47.rem)(3)};
+  height: ${(0, _v47.rem)(40)};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 ${(0, _v46.rem)(8)};
+  padding: 0 ${(0, _v47.rem)(8)};
   cursor: pointer;
   p {
     margin: 0;
   }
 `,
-    _v87 = (0, _v4.default)(_v24.Header).withConfig({
+    _v88 = (0, _v4.default)(_v24.Header).withConfig({
       displayName: "EmailProviderDropdown__PopListTitle",
       componentId: "sc-15b8e86b-1"
     })`
-  padding: ${(0, _v46.rem)(10)};
+  padding: ${(0, _v47.rem)(10)};
   margin: 0;
 `,
-    _v88 = _v4.default.img.withConfig({
+    _v89 = _v4.default.img.withConfig({
       displayName: "EmailProviderDropdown__Logo",
       componentId: "sc-15b8e86b-2"
     })`
-  height: ${(0, _v46.rem)(24)};
-  margin-right: ${(0, _v46.rem)(10)};
+  height: ${(0, _v47.rem)(24)};
+  margin-right: ${(0, _v47.rem)(10)};
 `,
-    _v89 = (0, _v4.default)(_v79.Pop.Item).withConfig({
+    _v90 = (0, _v4.default)(_v80.Pop.Item).withConfig({
       displayName: "EmailProviderDropdown__PopItem",
       componentId: "sc-15b8e86b-3"
     })`
-  padding: ${(0, _v46.rem)(10)} 1rem;
+  padding: ${(0, _v47.rem)(10)} 1rem;
 `,
-    _v90 = _v4.default.div.withConfig({
+    _v91 = _v4.default.div.withConfig({
       displayName: "EmailProviderDropdown__PopListWrapper",
       componentId: "sc-15b8e86b-4"
     })`
-  width: ${(0, _v46.rem)(352)};
+  width: ${(0, _v47.rem)(352)};
 `,
-    _v91 = _v4.default.div.withConfig({
+    _v92 = _v4.default.div.withConfig({
       displayName: "EmailProviderDropdown__TextWrapper",
       componentId: "sc-15b8e86b-5"
     })`
   display: flex;
   align-items: center;
 `,
-    _v92 = (0, _v4.default)(_v52.ChevronDown).withConfig({
+    _v93 = (0, _v4.default)(_v53.ChevronDown).withConfig({
       displayName: "EmailProviderDropdown__ChevronDown",
       componentId: "sc-15b8e86b-6"
     })`
-  width: ${(0, _v46.rem)(28)};
+  width: ${(0, _v47.rem)(28)};
   path {
     fill: ${({
       theme: _v0
     }) => _v0.icons.contentColor90};
   }
 `,
-    _v93 = _v4.default.div.withConfig({
+    _v94 = _v4.default.div.withConfig({
       displayName: "EmailProviderDropdown__PaidProvidersTitleContainer",
       componentId: "sc-15b8e86b-7"
     })`
   display: flex;
   align-items: center;
-  border-top: ${(0, _v46.rem)(1)} solid ${({
+  border-top: ${(0, _v47.rem)(1)} solid ${({
       theme: _v0
     }) => _v0.additions.content.border};
 `;
-  var _v94 = _v0.i(0);
-  let _v95 = ({
+  var _v95 = _v0.i(0);
+  let _v96 = ({
       onEditPrivacy: _v0
-    }) => (0, _v1.jsx)(_v81.Paragraph, {
+    }) => (0, _v1.jsx)(_v82.Paragraph, {
       size: "2",
       children: (0, _v20.translate)({
         singular: "This video is password protected. Make sure your audience can watch it before you share. {LINK}Edit privacy{/LINK}",
         replacements: {
-          LINK: _v0 => (0, _v1.jsx)(_v94.Link, {
+          LINK: _v0 => (0, _v1.jsx)(_v95.Link, {
             onClick: _v0,
             children: _v0
           }, "password-privacy-notice")
@@ -1599,14 +1600,14 @@
         }
       })
     }),
-    _v96 = ({
+    _v97 = ({
       onEditPrivacy: _v0
-    }) => (0, _v1.jsx)(_v81.Paragraph, {
+    }) => (0, _v1.jsx)(_v82.Paragraph, {
       size: "2",
       children: (0, _v20.translate)({
         singular: "This video's privacy is set to Private. Make sure your audience can watch it before you share. {LINK}Edit privacy{/LINK}",
         replacements: {
-          LINK: _v0 => (0, _v1.jsx)(_v94.Link, {
+          LINK: _v0 => (0, _v1.jsx)(_v95.Link, {
             onClick: _v0,
             children: _v0
           }, "private-privacy-notice")
@@ -1636,12 +1637,12 @@
         }
       })
     }),
-    _v97 = () => (0, _v1.jsx)(_v81.Paragraph, {
+    _v98 = () => (0, _v1.jsx)(_v82.Paragraph, {
       size: "2",
       children: (0, _v20.translate)({
         singular: "To let your viewers watch on Vimeo, disable Private Mode in your {LINK}account settings{/LINK}.",
         replacements: {
-          LINK: _v0 => (0, _v1.jsx)(_v94.Link, {
+          LINK: _v0 => (0, _v1.jsx)(_v95.Link, {
             href: "/settings/account/privacy",
             children: _v0
           }, "private-mode-notice")
@@ -1671,64 +1672,64 @@
         }
       })
     });
-  function _v98({
+  function _v99({
     asset: _v0,
     showPlayButton: _v1
   }) {
     let _v2 = _v0?.item?.status === "started",
-      _v3 = _v0 && _v0?.item?.sizes[_v43(_v0.type)],
+      _v3 = _v0 && _v0?.item?.sizes[_v44(_v0.type)],
       _v4 = _v0 && _v3?.height && _v3.width ? _v3.width / _v3.height : 1.78;
-    return (0, _v1.jsxs)(_v100, {
-      children: [(0, _v1.jsxs)(_v101, {
+    return (0, _v1.jsxs)(_v101, {
+      children: [(0, _v1.jsxs)(_v102, {
         paddingBottom: 10,
-        children: [(0, _v1.jsx)(_v103, {
+        children: [(0, _v1.jsx)(_v104, {
           paddingRight: 8,
           children: _v39
-        }), " ", (0, _v1.jsx)(_v102, {
+        }), " ", (0, _v1.jsx)(_v103, {
           width: "68%"
         })]
-      }), (0, _v1.jsxs)(_v101, {
+      }), (0, _v1.jsxs)(_v102, {
         paddingBottom: 18,
-        children: [(0, _v1.jsx)(_v103, {
+        children: [(0, _v1.jsx)(_v104, {
           paddingRight: 24,
           children: _v36
-        }), " ", (0, _v1.jsx)(_v102, {
+        }), " ", (0, _v1.jsx)(_v103, {
           width: "42%"
         })]
-      }), (0, _v1.jsxs)(_v104, {
+      }), (0, _v1.jsxs)(_v105, {
         src: _v2 ? "" : _v3?.link,
         aspectRatio: _v4,
-        children: [(0, _v1.jsx)(_v105, {
+        children: [(0, _v1.jsx)(_v106, {
           show: _v1
-        }), _v2 && (0, _v1.jsx)(_v106, {
+        }), _v2 && (0, _v1.jsx)(_v107, {
           size: 200,
           children: _v37
         })]
-      }), (0, _v1.jsx)(_v101, {
+      }), (0, _v1.jsx)(_v102, {
         paddingBottom: 16,
-        children: (0, _v1.jsx)(_v102, {
+        children: (0, _v1.jsx)(_v103, {
           width: "71%"
         })
-      }), (0, _v1.jsx)(_v101, {
+      }), (0, _v1.jsx)(_v102, {
         paddingBottom: 16,
-        children: (0, _v1.jsx)(_v102, {
+        children: (0, _v1.jsx)(_v103, {
           width: "85%"
         })
-      }), (0, _v1.jsx)(_v101, {
+      }), (0, _v1.jsx)(_v102, {
         paddingBottom: 0,
-        children: (0, _v1.jsx)(_v102, {
+        children: (0, _v1.jsx)(_v103, {
           width: "77%"
         })
       })]
     });
   }
-  let _v99 = _v4.css`
+  let _v100 = _v4.css`
   left: 50%;
   top: 50%;
   position: absolute;
   transform: translate3d(-50%, -50%, 0);
 `,
-    _v100 = _v4.default.div.withConfig({
+    _v101 = _v4.default.div.withConfig({
       displayName: "PreviewPanel__Container",
       componentId: "sc-18739291-0"
     })`
@@ -1738,43 +1739,43 @@
   background-color: ${({
       theme: _v0
     }) => _v0.element.bg5};
-  padding: 0 ${(0, _v46.rem)(24)} 8%;
+  padding: 0 ${(0, _v47.rem)(24)} 8%;
   margin: auto;
 `,
-    _v101 = _v4.default.div.withConfig({
+    _v102 = _v4.default.div.withConfig({
       displayName: "PreviewPanel__FieldWrapper",
       componentId: "sc-18739291-1"
     })`
   display: flex;
-  padding-bottom: ${_v0 => (0, _v46.rem)(_v0.paddingBottom)};
+  padding-bottom: ${_v0 => (0, _v47.rem)(_v0.paddingBottom)};
 `,
-    _v102 = _v4.default.span.withConfig({
+    _v103 = _v4.default.span.withConfig({
       displayName: "PreviewPanel__GreyBar",
       componentId: "sc-18739291-2"
     })`
-  height: ${(0, _v46.rem)(16)};
+  height: ${(0, _v47.rem)(16)};
   background-color: ${({
       theme: _v0
     }) => _v0.additions.item.highlight2};
-  margin-top: ${(0, _v46.rem)(3)};
+  margin-top: ${(0, _v47.rem)(3)};
   width: ${_v0 => _v0.width};
 `,
-    _v103 = _v4.default.div.withConfig({
+    _v104 = _v4.default.div.withConfig({
       displayName: "PreviewPanel__Title",
       componentId: "sc-18739291-3"
     })`
-  color: ${_v54.core.color.text.secondary};
-  font-size: ${(0, _v46.rem)(14)};
+  color: ${_v55.core.color.text.secondary};
+  font-size: ${(0, _v47.rem)(14)};
   font-weight: 500;
-  line-height: ${(0, _v46.rem)(20)};
-  padding-right: ${_v0 => (0, _v46.rem)(_v0.paddingRight)};
+  line-height: ${(0, _v47.rem)(20)};
+  padding-right: ${_v0 => (0, _v47.rem)(_v0.paddingRight)};
 `,
-    _v104 = _v4.default.div.withConfig({
+    _v105 = _v4.default.div.withConfig({
       displayName: "PreviewPanel__ImageWrapper",
       componentId: "sc-18739291-4"
     })`
   position: relative;
-  margin: 0 auto ${(0, _v46.rem)(16)};
+  margin: 0 auto ${(0, _v47.rem)(16)};
   ${({
       aspectRatio: _v0,
       src: _v1,
@@ -1785,24 +1786,24 @@
         _v5 = _v0 >= 165 / 288 ? 165 : 288;
       return _v4.css`
       background: ${_v1 ? `url(${_v1}) center/contain no-repeat` : _v2.additions.item.highlight2};
-      width: ${(0, _v46.rem)(Math.min(_v5, _v0 * _v5))};
-      height: ${(0, _v46.rem)(Math.min(_v5, _v5 / _v0))};
-      @media screen and (min-width: ${(0, _v46.rem)(768)}) {
-        width: ${(0, _v46.rem)(Math.min(_v4, _v0 * _v4))};
-        height: ${(0, _v46.rem)(Math.min(_v4, _v4 / _v0))};
+      width: ${(0, _v47.rem)(Math.min(_v5, _v0 * _v5))};
+      height: ${(0, _v47.rem)(Math.min(_v5, _v5 / _v0))};
+      @media screen and (min-width: ${(0, _v47.rem)(768)}) {
+        width: ${(0, _v47.rem)(Math.min(_v4, _v0 * _v4))};
+        height: ${(0, _v47.rem)(Math.min(_v4, _v4 / _v0))};
       }
-      @media screen and (min-width: ${(0, _v46.rem)(0)}) {
-        width: ${(0, _v46.rem)(Math.min(_v3, _v0 * _v3))};
-        height: ${(0, _v46.rem)(Math.min(_v3, _v3 / _v0))};
+      @media screen and (min-width: ${(0, _v47.rem)(0)}) {
+        width: ${(0, _v47.rem)(Math.min(_v3, _v0 * _v3))};
+        height: ${(0, _v47.rem)(Math.min(_v3, _v3 / _v0))};
       }
     `;
     }}
 `,
-    _v105 = _v4.default.div.withConfig({
+    _v106 = _v4.default.div.withConfig({
       displayName: "PreviewPanel__PlayButtonWrapper",
       componentId: "sc-18739291-5"
     })`
-  ${_v99}
+  ${_v100}
   height: 18%;
   width: 18%;
   opacity: 0;
@@ -1813,7 +1814,7 @@
       opacity: 1;
     `}
 `,
-    _v106 = (0, _v4.default)(_v45.Text).withConfig({
+    _v107 = (0, _v4.default)(_v46.Text).withConfig({
       displayName: "PreviewPanel__InProgressText",
       componentId: "sc-18739291-6"
     })`
@@ -1823,119 +1824,119 @@
   text-align: center;
   @media (min-width: ${768}) {
     top: 70%;
-    font-size: ${(0, _v46.rem)(12)};
-    line-height: ${(0, _v46.rem)(18)};
+    font-size: ${(0, _v47.rem)(12)};
+    line-height: ${(0, _v47.rem)(18)};
   }
 `;
-  var _v107 = _v0.i(0),
-    _v108 = _v0.i(0),
+  var _v108 = _v0.i(0),
     _v109 = _v0.i(0),
     _v110 = _v0.i(0),
-    _v111 = _v0.i(0);
-  let _v112 = _v4.default.div.withConfig({
+    _v111 = _v0.i(0),
+    _v112 = _v0.i(0);
+  let _v113 = _v4.default.div.withConfig({
       displayName: "styles__ModalContent",
       componentId: "sc-2e0fc84f-0"
     })`
   background-color: ${({
       theme: _v0
     }) => _v0.element.bg5};
-  border-radius: ${(0, _v46.rem)(8)};
+  border-radius: ${(0, _v47.rem)(8)};
   display: flex;
-  max-width: ${(0, _v46.rem)(0)};
+  max-width: ${(0, _v47.rem)(0)};
   overflow: hidden;
   width: 100%;
 `,
-    _v113 = _v4.default.div.withConfig({
+    _v114 = _v4.default.div.withConfig({
       displayName: "styles__ContentWrapper",
       componentId: "sc-2e0fc84f-1"
     })`
   flex: 1;
-  padding: ${(0, _v46.rem)(24)};
-  background-color: ${_v54.core.color.surface.tertiary};
+  padding: ${(0, _v47.rem)(24)};
+  background-color: ${_v55.core.color.surface.tertiary};
 `,
-    _v114 = _v4.default.div.withConfig({
+    _v115 = _v4.default.div.withConfig({
       displayName: "styles__HeaderWrapper",
       componentId: "sc-2e0fc84f-2"
     })`
-  padding-bottom: ${(0, _v46.rem)(20)};
+  padding-bottom: ${(0, _v47.rem)(20)};
   justify-content: space-between;
 `,
-    _v115 = _v4.default.form.withConfig({
+    _v116 = _v4.default.form.withConfig({
       displayName: "styles__Options",
       componentId: "sc-2e0fc84f-3"
     })`
   flex: 1 1 0%;
   display: flex;
   flex-direction: column;
-  gap: ${(0, _v46.rem)(18)};
+  gap: ${(0, _v47.rem)(18)};
 `,
-    _v116 = (0, _v4.default)(_v107.Modal).withConfig({
+    _v117 = (0, _v4.default)(_v108.Modal).withConfig({
       displayName: "styles__StyledModal",
       componentId: "sc-2e0fc84f-4"
     })`
   max-width: unset;
-  width: ${(0, _v46.rem)(420)};
+  width: ${(0, _v47.rem)(420)};
   @media (min-width: ${768}px) {
-    width: ${(0, _v46.rem)(700)};
+    width: ${(0, _v47.rem)(700)};
   }
   @media (min-width: ${0}px) {
-    width: ${(0, _v46.rem)(800)};
+    width: ${(0, _v47.rem)(800)};
   }
 `,
-    _v117 = (0, _v4.default)(_v45.Text).withConfig({
+    _v118 = (0, _v4.default)(_v46.Text).withConfig({
       displayName: "styles__Description",
       componentId: "sc-2e0fc84f-5"
     })`
-  font-size: ${_v54.core.typography.size(200)};
+  font-size: ${_v55.core.typography.size(200)};
 `,
-    _v118 = _v4.default.header.withConfig({
+    _v119 = _v4.default.header.withConfig({
       displayName: "styles__HeaderContainer",
       componentId: "sc-2e0fc84f-6"
     })`
   display: flex;
   justify-content: ${_v0 => _v0.justifyContent ?? "flex-start"};
 `,
-    _v119 = (0, _v4.default)(_v108.Radio).withConfig({
+    _v120 = (0, _v4.default)(_v109.Radio).withConfig({
       displayName: "styles__RadioButton",
       componentId: "sc-2e0fc84f-7"
     })`
   overflow-wrap: anywhere;
-  padding-right: ${_v54.core.space(100)};
+  padding-right: ${_v55.core.space(100)};
 `,
-    _v120 = (0, _v4.default)(_v110.Checkmark).withConfig({
+    _v121 = (0, _v4.default)(_v111.Checkmark).withConfig({
       displayName: "styles__CheckmarkIcon",
       componentId: "sc-2e0fc84f-8"
     })`
-  margin: ${(0, _v46.rem)(4)} !important;
+  margin: ${(0, _v47.rem)(4)} !important;
 `,
-    _v121 = (0, _v4.default)(_v109.Notice).withConfig({
+    _v122 = (0, _v4.default)(_v110.Notice).withConfig({
       displayName: "styles__Notice",
       componentId: "sc-2e0fc84f-9"
     })`
   p {
-    padding-right: ${(0, _v46.rem)(4)};
+    padding-right: ${(0, _v47.rem)(4)};
   }
 `,
-    _v122 = (0, _v4.default)(_v21.Button).withConfig({
+    _v123 = (0, _v4.default)(_v21.Button).withConfig({
       displayName: "styles__DismissButton",
       componentId: "sc-2e0fc84f-10"
     })`
   position: absolute;
-  right: ${(0, _v46.rem)(14)};
-  top: ${(0, _v46.rem)(14)};
+  right: ${(0, _v47.rem)(14)};
+  top: ${(0, _v47.rem)(14)};
 `,
-    _v123 = (0, _v4.default)(_v111.Skeleton).withConfig({
+    _v124 = (0, _v4.default)(_v112.Skeleton).withConfig({
       displayName: "styles__LinkSkeleton",
       componentId: "sc-2e0fc84f-11"
     })`
-  height: ${(0, _v46.rem)(36)};
+  height: ${(0, _v47.rem)(36)};
 `,
-    _v124 = ({
+    _v125 = ({
       title: _v0,
       subTitle: _v1 = null,
       children: _v2
     }) => (0, _v1.jsxs)("div", {
-      children: [(0, _v1.jsxs)(_v118, {
+      children: [(0, _v1.jsxs)(_v119, {
         justifyContent: _v1 ? "space-between" : "flex-start",
         children: [(0, _v1.jsx)(_v24.Header, {
           size: "5",
@@ -1943,13 +1944,13 @@
         }), _v1]
       }), _v2]
     }),
-    _v125 = ({
+    _v126 = ({
       children: _v0
     }) => (0, _v1.jsx)(_v4.ThemeProvider, {
       theme: _v5.applyCustomThemeSVV,
-      children: (0, _v1.jsx)(_v116, {
+      children: (0, _v1.jsx)(_v117, {
         active: !0,
-        content: (0, _v1.jsx)(_v112, {
+        content: (0, _v1.jsx)(_v113, {
           children: _v0
         })
       })
@@ -1997,7 +1998,7 @@
       }),
       _v28 = _v26?.[_v9],
       _v29 = _v28?.type === "gif",
-      _v30 = _v7 && _v29 ? 1 : _v43(_v28?.type);
+      _v30 = _v7 && _v29 ? 1 : _v44(_v28?.type);
     (0, _v19.usePollGif)(_v26?.map(_v0 => _v0?.item) ?? [], _v24), (0, _v3.useEffect)(() => {
       _v20(!1);
     }, [_v13, _v9, _v7, _v17, _v11]);
@@ -2008,17 +2009,17 @@
       _v35 = _v29 && _v28?.item?.status !== "completed",
       _v36 = !_v21 || "custom" === _v17 && (0 === _v13.length || !_v15) || _v35 || _v33,
       _v37 = _v28?.item?.sizes.find(_v0 => _v0.linkWithPlayButton);
-    return (0, _v1.jsxs)(_v125, {
-      children: [(0, _v1.jsxs)(_v113, {
-        children: [(0, _v1.jsxs)(_v114, {
+    return (0, _v1.jsxs)(_v126, {
+      children: [(0, _v1.jsxs)(_v114, {
+        children: [(0, _v1.jsxs)(_v115, {
           children: [(0, _v1.jsx)(_v24.Header, {
             size: "4",
             children: _v35
-          }), (0, _v1.jsx)(_v117, {
+          }), (0, _v1.jsx)(_v118, {
             size: 200,
             children: _v34
           })]
-        }), (0, _v1.jsxs)(_v115, {
+        }), (0, _v1.jsxs)(_v116, {
           onSubmit: _v0 => {
             let _v1;
             if (_v0.preventDefault(), !_v21) return null;
@@ -2037,6 +2038,7 @@
               _v4 = _v28?.item?.sizes[_v30],
               _v5 = _v31 && _v4?.linkWithPlayButton || _v4?.link;
             if (!_v32 && _v5) {
+              var _v6;
               let _v0;
               _v20(function (_v0, _v1) {
                 if (!document) return !1;
@@ -2052,24 +2054,24 @@
                 } catch (_v0) {
                   return document.body.removeChild(_v2), !1;
                 }
-              }((_v0 = _v21.name, `<a style="display: block; text-align:center;" ${_v3 ? `href="${_v3}` : ""}"><img src="${_v5}" alt="${_v0}" style=" max-height:100%; max-width:100%;"/></a>`), "gmail" === _v11));
+              }((_v6 = _v21.name, _v0 = _v3 ? ` href="${_v43(_v3)}"` : "", `<a style="display: block; text-align:center;"${_v0}><img src="${_v43(_v5)}" alt="${_v43(_v6 ?? "")}" style=" max-height:100%; max-width:100%;"/></a>`), "gmail" === _v11));
             }
           },
-          children: [(0, _v1.jsx)(_v124, {
+          children: [(0, _v1.jsx)(_v125, {
             title: _v32,
-            children: _v27 && _v27?.data && (0, _v1.jsx)(_v85, {
+            children: _v27 && _v27?.data && (0, _v1.jsx)(_v86, {
               value: _v11,
               onChange: _v12,
               showUpsell: _v0,
               emailProviders: _v27.data
             })
-          }), (0, _v1.jsxs)(_v124, {
+          }), (0, _v1.jsxs)(_v125, {
             title: _v29,
-            subTitle: _v26?.length ? (0, _v1.jsx)(_v73, {
+            subTitle: _v26?.length ? (0, _v1.jsx)(_v74, {
               currentIndex: _v9 + 1,
               total: _v26.length
             }) : null,
-            children: [(0, _v1.jsx)(_v72, {
+            children: [(0, _v1.jsx)(_v73, {
               isLoading: _v25,
               assets: _v26,
               selectedAssetIndex: _v9,
@@ -2084,10 +2086,10 @@
               onChange: () => _v8(_v0 => !_v0),
               size: "sm"
             }) : null]
-          }), (0, _v1.jsx)(_v124, {
+          }), (0, _v1.jsx)(_v125, {
             title: _v38,
             children: (0, _v1.jsxs)("fieldset", {
-              children: [_v21 ? (0, _v1.jsx)(_v119, {
+              children: [_v21 ? (0, _v1.jsx)(_v120, {
                 label: (0, _v20.translate)({
                   singular: '"{TITLE}" on Vimeo',
                   replacements: {
@@ -2121,7 +2123,7 @@
                 value: "vimeo",
                 checked: "vimeo" === _v17,
                 onChange: _v0 => _v18(_v0.currentTarget.value)
-              }) : (0, _v1.jsx)(_v123, {}), (0, _v1.jsx)(_v119, {
+              }) : (0, _v1.jsx)(_v124, {}), (0, _v1.jsx)(_v120, {
                 label: (0, _v20.translate)({
                   singular: "Custom URL",
                   dictionary: {
@@ -2152,12 +2154,12 @@
                 value: "custom",
                 checked: "custom" === _v17,
                 onChange: _v0 => _v18(_v0.currentTarget.value)
-              }), "custom" === _v17 && (0, _v1.jsx)(_v78, {
+              }), "custom" === _v17 && (0, _v1.jsx)(_v79, {
                 url: _v13,
                 onChange: _v0 => _v14(_v0.target.value),
                 onValid: () => _v16(!0),
                 onError: () => _v16(!1)
-              }), (0, _v1.jsx)(_v119, {
+              }), (0, _v1.jsx)(_v120, {
                 label: (0, _v20.translate)({
                   singular: "Do not link",
                   dictionary: {
@@ -2190,12 +2192,12 @@
                 onChange: _v0 => _v18(_v0.currentTarget.value)
               })]
             })
-          }), _v34 && (0, _v1.jsxs)(_v121, {
+          }), _v34 && (0, _v1.jsxs)(_v122, {
             format: "negative",
             icon: null,
-            children: [_v33 && (0, _v1.jsx)(_v97, {}), _v21?.privacy?.view === "password" && !_v33 && (0, _v1.jsx)(_v95, {
+            children: [_v33 && (0, _v1.jsx)(_v98, {}), _v21?.privacy?.view === "password" && !_v33 && (0, _v1.jsx)(_v96, {
               onEditPrivacy: _v4
-            }), _v21?.privacy?.view === "nobody" && !_v33 && (0, _v1.jsx)(_v96, {
+            }), _v21?.privacy?.view === "nobody" && !_v33 && (0, _v1.jsx)(_v97, {
               onEditPrivacy: _v4
             })]
           }), (0, _v1.jsx)(_v21.Button, {
@@ -2223,14 +2225,14 @@
             format: _v32 ? "upsell-new" : "primary",
             type: "submit",
             disabled: _v36 && !_v32,
-            icon: _v19 ? (0, _v1.jsx)(_v120, {}) : null,
+            icon: _v19 ? (0, _v1.jsx)(_v121, {}) : null,
             children: _v32 ? _v42 : _v19 ? _v31 : _v30
           })]
         })]
-      }), (0, _v1.jsx)(_v98, {
+      }), (0, _v1.jsx)(_v99, {
         asset: _v28,
         showPlayButton: _v31
-      }), (0, _v1.jsx)(_v122, {
+      }), (0, _v1.jsx)(_v123, {
         format: "soft",
         size: "md",
         variant: "minimalTransparent",
