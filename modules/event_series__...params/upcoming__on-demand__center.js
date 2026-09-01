@@ -608,7 +608,7 @@
               }, _v0.uri))
             })
           }) : (0, _v1.jsx)(_v19, {})]
-        }), (0, _v1.jsx)(_v13.Flex, {
+        }), _v1.length > 8 && (0, _v1.jsx)(_v13.Flex, {
           justify: "center",
           width: "100%",
           children: (0, _v1.jsx)(_v12.Button, {
@@ -1419,7 +1419,7 @@
               }, _v0.key))
             })
           }) : (0, _v1.jsx)(_v19, {})]
-        }), (0, _v1.jsx)(_v13.Flex, {
+        }), _v1.length > 8 && (0, _v1.jsx)(_v13.Flex, {
           justify: "center",
           width: "100%",
           children: (0, _v1.jsx)(_v12.Button, {

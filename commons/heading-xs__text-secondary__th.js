@@ -2139,86 +2139,90 @@
           currentCountText: _v3,
           totalCountText: _v4
         })
-      }), (0, _v1.jsx)(_v66, {
-        currentCount: _v0,
-        totalCount: _v1
       }), (0, _v1.jsxs)(_v6.Flex, {
-        gap: "md",
-        flexWrap: "wrap",
-        justify: "flex-start",
-        children: [(0, _v1.jsxs)(_v26.HStack, {
-          align: "center",
-          gap: "xs",
-          children: [(0, _v1.jsx)(_v3.Box, {
-            boxSize: (0, _v7.rem)(12),
-            borderRadius: "full",
-            backgroundColor: _v63(_v0, _v1)
-          }), (0, _v1.jsx)(_v11.Text, {
-            variant: "body-md",
-            color: "text-secondary",
-            children: (0, _v13.translate)({
-              singular: "Used storage",
-              dictionary: {
-                es: {
-                  singular: "Almacenamiento utilizado"
-                },
-                "de-DE": {
-                  singular: "Genutzter Speicher"
-                },
-                "fr-FR": {
-                  singular: "Espace de stockage utilisé"
-                },
-                "ja-JP": {
-                  singular: "使用済みストレージ容量"
-                },
-                "ko-KR": {
-                  singular: "사용 중인 저장 공간"
-                },
-                "pt-BR": {
-                  singular: "Armazenamento utilizado"
-                },
-                "zh-CN": {
-                  singular: "已用存储"
+        direction: "column",
+        width: "100%",
+        gap: "sm",
+        children: [(0, _v1.jsx)(_v66, {
+          currentCount: _v0,
+          totalCount: _v1
+        }), (0, _v1.jsxs)(_v6.Flex, {
+          gap: "md",
+          flexWrap: "wrap",
+          children: [(0, _v1.jsxs)(_v26.HStack, {
+            align: "center",
+            gap: "xs",
+            children: [(0, _v1.jsx)(_v3.Box, {
+              boxSize: (0, _v7.rem)(12),
+              borderRadius: "full",
+              backgroundColor: _v63(_v0, _v1)
+            }), (0, _v1.jsx)(_v11.Text, {
+              variant: "body-md",
+              color: "text-secondary",
+              children: (0, _v13.translate)({
+                singular: "Used storage",
+                dictionary: {
+                  es: {
+                    singular: "Almacenamiento utilizado"
+                  },
+                  "de-DE": {
+                    singular: "Genutzter Speicher"
+                  },
+                  "fr-FR": {
+                    singular: "Espace de stockage utilisé"
+                  },
+                  "ja-JP": {
+                    singular: "使用済みストレージ容量"
+                  },
+                  "ko-KR": {
+                    singular: "사용 중인 저장 공간"
+                  },
+                  "pt-BR": {
+                    singular: "Armazenamento utilizado"
+                  },
+                  "zh-CN": {
+                    singular: "已用存储"
+                  }
                 }
-              }
-            })
-          })]
-        }), (0, _v1.jsxs)(_v26.HStack, {
-          align: "center",
-          gap: "xs",
-          children: [(0, _v1.jsx)(_v3.Box, {
-            boxSize: (0, _v7.rem)(12),
-            borderRadius: "full",
-            backgroundColor: "gray.300"
-          }), (0, _v1.jsx)(_v11.Text, {
-            variant: "body-md",
-            color: "text-secondary",
-            children: (0, _v13.translate)({
-              singular: "Available storage",
-              dictionary: {
-                es: {
-                  singular: "Almacenamiento disponible"
-                },
-                "de-DE": {
-                  singular: "Verfügbarer Speicher"
-                },
-                "fr-FR": {
-                  singular: "Espace de stockage disponible"
-                },
-                "ja-JP": {
-                  singular: "利用可能ストレージ容量"
-                },
-                "ko-KR": {
-                  singular: "사용 가능한 저장 공간"
-                },
-                "pt-BR": {
-                  singular: "Armazenamento disponível"
-                },
-                "zh-CN": {
-                  singular: "可用存储"
+              })
+            })]
+          }), (0, _v1.jsxs)(_v26.HStack, {
+            align: "center",
+            gap: "xs",
+            children: [(0, _v1.jsx)(_v3.Box, {
+              boxSize: (0, _v7.rem)(12),
+              borderRadius: "full",
+              backgroundColor: "gray.300"
+            }), (0, _v1.jsx)(_v11.Text, {
+              variant: "body-md",
+              color: "text-secondary",
+              children: (0, _v13.translate)({
+                singular: "Available storage",
+                dictionary: {
+                  es: {
+                    singular: "Almacenamiento disponible"
+                  },
+                  "de-DE": {
+                    singular: "Verfügbarer Speicher"
+                  },
+                  "fr-FR": {
+                    singular: "Espace de stockage disponible"
+                  },
+                  "ja-JP": {
+                    singular: "利用可能ストレージ容量"
+                  },
+                  "ko-KR": {
+                    singular: "사용 가능한 저장 공간"
+                  },
+                  "pt-BR": {
+                    singular: "Armazenamento disponível"
+                  },
+                  "zh-CN": {
+                    singular: "可用存储"
+                  }
                 }
-              }
-            })
+              })
+            })]
           })]
         })]
       })]

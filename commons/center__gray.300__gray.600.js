@@ -87,31 +87,36 @@
     isPlayerReady: _v11,
     isShowAdvancedPlayBar: _v12,
     videoContentAspectRatio: _v13,
-    isReviewPageReworkEnabled: _v14
+    isReviewPageReworkEnabled: _v14,
+    fillAvailableHeight: _v15
   }) {
-    let _v15 = _v1 ? "0px" : "8px",
+    let _v16 = _v1 ? "0px" : "8px",
       {
-        colorMode: _v16
+        colorMode: _v17
       } = (0, _v5.useColorMode)(),
-      _v17 = _v2 || _v11,
-      _v18 = (0, _v6.useTheme)(),
+      _v18 = _v2 || _v11,
+      _v19 = (0, _v6.useTheme)(),
       {
-        reviewId: _v19
+        reviewId: _v20
       } = (0, _v2.useContext)(_v9.ReviewLinkContext),
-      _v20 = (0, _v8.useShowAdvancedControlsFeature)(_v12),
-      _v21 = () => {
-        _v5 && !_v20 && _v4?.played.length > 0 && _v4._setControlbarVisibility(!0);
+      _v21 = (0, _v8.useShowAdvancedControlsFeature)(_v12),
+      _v22 = () => {
+        _v5 && !_v21 && _v4?.played.length > 0 && _v4._setControlbarVisibility(!0);
       };
     return (0, _v1.jsxs)(_v3.Box, {
       position: "relative",
       width: "100%",
       maxHeight: _v8,
-      aspectRatio: _v9,
+      ...(_v15 ? {
+        height: "100%"
+      } : {
+        aspectRatio: _v9
+      }),
       ref: _v0,
-      onMouseEnter: _v21,
-      onMouseOver: _v21,
+      onMouseEnter: _v22,
+      onMouseOver: _v22,
       onMouseLeave: () => {
-        _v5 && !_v20 && _v4?.played.length > 0 && _v4._setControlbarVisibility(!1);
+        _v5 && !_v21 && _v4?.played.length > 0 && _v4._setControlbarVisibility(!1);
       },
       children: [_v4 && _v5 && (0, _v1.jsx)(_v7.AnnotationsOverlay, {
         playerContainerRef: _v0,
@@ -120,13 +125,13 @@
         clipRequestId: _v6,
         teamAccentColor: _v7,
         isViewOnly: !_v10,
-        reviewId: _v19,
+        reviewId: _v20,
         videoAspectRatio: _v14 ? _v13 : void 0
       }), (0, _v1.jsx)(_v3.Box, {
         width: "100%",
         height: "100%",
         maxHeight: _v8,
-        display: _v17 ? "block" : "none",
+        display: _v18 ? "block" : "none",
         sx: {
           position: "relative",
           ...(_v14 ? {
@@ -142,9 +147,9 @@
               content: '""',
               position: "absolute",
               pointerEvents: "none",
-              borderRadius: _v15,
+              borderRadius: _v16,
               border: "2px solid",
-              borderColor: "dark" === _v16 ? _v18.colors.gray[900] : _v18.colors.gray[100],
+              borderColor: "dark" === _v17 ? _v19.colors.gray[900] : _v19.colors.gray[100],
               top: "-0.5px",
               left: "-0.5px",
               bottom: "-0.5px",
@@ -168,8 +173,8 @@
       }), (0, _v1.jsx)(_v4.Skeleton, {
         w: "100%",
         h: "100%",
-        borderRadius: _v15,
-        display: _v17 ? "none" : "block"
+        borderRadius: _v16,
+        display: _v18 ? "none" : "block"
       })]
     });
   }], 0);

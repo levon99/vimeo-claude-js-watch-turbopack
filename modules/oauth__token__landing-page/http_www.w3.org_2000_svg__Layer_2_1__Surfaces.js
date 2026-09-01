@@ -270,7 +270,8 @@
       _v3 = _v2.plugin,
       _v4 = _v2.code;
     return (0, _v4.useEffect)(() => {
-      _v1(new URLSearchParams((window.location.hash ?? "").substr(1)).get("access_token") || "");
+      let _v0 = new URLSearchParams((window.location.hash ?? "").substr(1)).get("access_token");
+      _v0 && (_v1(_v0), window.history.replaceState(null, "", window.location.pathname + window.location.search));
     }, []), _v0 || _v4 ? (0, _v2.jsxs)(_v2.Fragment, {
       children: [(0, _v2.jsx)(_v5.Box, {
         margin: (0, _v8.rem)(32),

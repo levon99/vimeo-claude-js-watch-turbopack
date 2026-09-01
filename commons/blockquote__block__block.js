@@ -482,7 +482,7 @@
       return _v3 && _v3.isTextblock;
     }
     static findGapCursorFrom(_v0, _v1, _v2 = !1) {
-      t: for (;;) {
+      e: for (;;) {
         if (!_v2 && _v23.valid(_v0)) return _v0;
         let _v0 = _v0.pos,
           _v1 = null;
@@ -502,7 +502,7 @@
           if (!_v0) {
             if (_v1.isAtom && !_v1.isText && !_v20.NodeSelection.isSelectable(_v1)) {
               _v0 = _v0.doc.resolve(_v0 + _v1.nodeSize * _v1), _v2 = !1;
-              continue t;
+              continue e;
             }
             break;
           }

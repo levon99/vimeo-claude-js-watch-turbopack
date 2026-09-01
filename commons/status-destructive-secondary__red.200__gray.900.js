@@ -44,47 +44,45 @@
     planName: _v3 = "Advanced",
     hasColdStorage: _v4 = !0,
     hasColdPrivacy: _v5 = !1,
-    hasColdPrivacyForTracking: _v6,
-    isColdPrivacyLoading: _v7 = !1,
-    isPaymentSuspended: _v8 = !1,
-    onUpdatePayment: _v9,
-    className: _v10
+    isColdPrivacyLoading: _v6 = !1,
+    isPaymentSuspended: _v7 = !1,
+    onUpdatePayment: _v8,
+    className: _v9
   }) => {
     let {
-        trackColdStorageUxDisplayed: _v11,
-        trackColdStorageUxClicked: _v12
+        trackColdStorageUxDisplayed: _v10,
+        trackColdStorageUxClicked: _v11
       } = (0, _v15.useColdStorageTracking)(),
-      _v13 = _v5 && !_v4,
-      _v14 = _v6 ?? _v5,
-      _v15 = (0, _v2.useMemo)(() => (0, _v15.deriveColdStorageRestrictions)({
+      _v12 = _v5 && !_v4,
+      _v13 = (0, _v2.useMemo)(() => (0, _v15.deriveColdStorageRestrictions)({
         hasColdStorage: _v4,
-        hasColdPrivacy: _v14
-      }), [_v4, _v14]);
+        hasColdPrivacy: _v5
+      }), [_v4, _v5]);
     (0, _v16.usePicoEffect)(() => {
-      if (_v7) return !1;
-      _v11({
+      if (_v6) return !1;
+      _v10({
         surface: _v0,
-        restrictions: _v15
+        restrictions: _v13
       });
-    }, [_v0, _v15, _v7, _v11], {
+    }, [_v0, _v13, _v6, _v10], {
       once: !0
     });
-    let _v16 = () => {
-        (_v12({
+    let _v14 = () => {
+        (_v11({
           element: "learn_more",
-          restrictions: _v15
+          restrictions: _v13
         }), _v1) ? _v1() : window.dispatchEvent(new Event(_v17.COLD_STORAGE_INTRO_MODAL_FORCE_OPEN_EVENT));
       },
-      _v17 = () => {
-        _v12({
+      _v15 = () => {
+        _v11({
           element: "view_videos",
-          restrictions: _v15
+          restrictions: _v13
         }), _v2?.();
       },
-      _v18 = _v0 => (0, _v1.jsx)(_v8.Link, {
+      _v16 = _v0 => (0, _v1.jsx)(_v8.Link, {
         as: "button",
         type: "button",
-        onClick: _v16,
+        onClick: _v14,
         background: "transparent",
         border: "none",
         padding: 0,
@@ -110,7 +108,7 @@
         },
         children: _v0
       }),
-      _v19 = (_v0, _v1) => (0, _v1.jsx)(_v18.default, {
+      _v17 = (_v0, _v1) => (0, _v1.jsx)(_v18.default, {
         size: _v0,
         noMargin: !0,
         variant: "primary",
@@ -121,24 +119,24 @@
         name: "cold_storage_banner_upgrade_button",
         location: `cold_storage_banner_${_v0}`,
         onClick: () => {
-          _v12({
+          _v11({
             element: "upgrade_button",
-            restrictions: _v15
+            restrictions: _v13
           });
         },
         modalConfig: {},
         modalTracking: {
           params: {
             page: _v0,
-            feature: _v13 ? "privacy" : "storage",
+            feature: _v12 ? "privacy" : "storage",
             location: `cold_storage_banner_${_v0}`,
             upsell_name: "cold_storage_banner"
           },
           paywallTracking: {
-            paywallTrigger: _v13 ? `cold_privacy_banner_upgrade_${_v0}` : `cold_storage_banner_upgrade_${_v0}`,
+            paywallTrigger: _v12 ? `cold_privacy_banner_upgrade_${_v0}` : `cold_storage_banner_upgrade_${_v0}`,
             paywallLocation: `cold_storage_banner_${_v0}`,
             paywallType: "popup",
-            paywallFeature: _v13 ? "privacy" : "storage_limit"
+            paywallFeature: _v12 ? "privacy" : "storage_limit"
           }
         },
         children: (0, _v14.translate)({
@@ -192,7 +190,7 @@
             size: "md",
             height: (0, _v10.rem)(40),
             minHeight: (0, _v10.rem)(40),
-            onClick: _v17,
+            onClick: _v15,
             children: (0, _v14.translate)({
               singular: "View videos",
               dictionary: {
@@ -219,13 +217,13 @@
                 }
               }
             })
-          }), _v19("md", {
+          }), _v17("md", {
             height: (0, _v10.rem)(40),
             minHeight: (0, _v10.rem)(40)
           })]
         });
       if (_v0) return (0, _v1.jsx)(_v3.AlertRoot, {
-        className: _v10,
+        className: _v9,
         backgroundColor: _v19,
         color: "text-primary",
         borderRadius: "lg",
@@ -327,7 +325,7 @@
                 children: (0, _v14.translate)({
                   singular: "You've reached the storage limit on your current plan. {LINK}Learn more{/LINK} or upgrade to restore your videos.",
                   replacements: {
-                    LINK: _v18
+                    LINK: _v16
                   },
                   dictionary: {
                     es: {
@@ -404,7 +402,7 @@
                 children: (0, _v14.translate)({
                   singular: "Your plan doesn't support some privacy settings, so these videos are now private. {LINK}Learn more{/LINK} or upgrade to restore your original privacy settings.",
                   replacements: {
-                    LINK: _v18
+                    LINK: _v16
                   },
                   dictionary: {
                     es: {
@@ -470,7 +468,7 @@
           body: (0, _v14.translate)({
             singular: "Your plan doesn't support some privacy settings, so these videos are now private. {LINK}Learn more{/LINK} or upgrade to restore your previous settings.",
             replacements: {
-              LINK: _v18
+              LINK: _v16
             },
             dictionary: {
               es: {
@@ -527,7 +525,7 @@
           body: (0, _v14.translate)({
             singular: "You've reached the storage limit on your current plan. {LINK}Learn more{/LINK} or upgrade to {PLAN} for more storage.",
             replacements: {
-              LINK: _v18,
+              LINK: _v16,
               PLAN: _v3
             },
             dictionary: {
@@ -565,7 +563,7 @@
             size: "md",
             height: (0, _v10.rem)(40),
             minHeight: (0, _v10.rem)(40),
-            onClick: _v17,
+            onClick: _v15,
             children: (0, _v14.translate)({
               singular: "View videos",
               dictionary: {
@@ -598,10 +596,10 @@
             height: (0, _v10.rem)(40),
             minHeight: (0, _v10.rem)(40),
             onClick: () => {
-              _v12({
+              _v11({
                 element: "upgrade_button",
-                restrictions: _v15
-              }), _v9?.();
+                restrictions: _v13
+              }), _v8?.();
             },
             children: (0, _v14.translate)({
               singular: "Update payment method",
@@ -632,7 +630,7 @@
           })]
         });
       return (0, _v1.jsx)(_v3.AlertRoot, {
-        className: _v10,
+        className: _v9,
         backgroundColor: _v19,
         color: "text-primary",
         borderRadius: "lg",
@@ -646,7 +644,7 @@
           width: "100%",
           alignItems: "center",
           textAlign: "center",
-          children: [_v1(_v8 ? _v11.CircleExclamation : _v3), (0, _v1.jsxs)(_v7.Flex, {
+          children: [_v1(_v7 ? _v11.CircleExclamation : _v3), (0, _v1.jsxs)(_v7.Flex, {
             direction: "column",
             gap: (0, _v10.rem)(8),
             alignItems: "center",
@@ -654,11 +652,11 @@
             children: [(0, _v1.jsx)(_v9.Text, {
               variant: "heading-xl",
               color: "text-primary",
-              whiteSpace: _v8 ? {
+              whiteSpace: _v7 ? {
                 base: "normal",
                 md: "nowrap"
               } : void 0,
-              children: _v8 ? (0, _v14.translate)({
+              children: _v7 ? (0, _v14.translate)({
                 singular: "We couldn't process your payment",
                 dictionary: {
                   es: {
@@ -687,12 +685,12 @@
             }), (0, _v1.jsx)(_v9.Text, {
               variant: "body-lg",
               color: "text-primary",
-              children: _v8 ? (0, _v14.translate)({
+              children: _v7 ? (0, _v14.translate)({
                 singular: "We couldn't process your payment for the Vimeo {PLAN} Plan. For this reason, all the videos that exceed the Free storage limit are now restricted.{BREAK}{LINK}Learn more{/LINK} or update your payment method to restore your videos.",
                 replacements: {
                   PLAN: _v3,
                   BREAK: (0, _v1.jsx)("br", {}),
-                  LINK: _v18
+                  LINK: _v16
                 },
                 dictionary: {
                   es: {
@@ -719,13 +717,13 @@
                 }
               }) : _v5
             })]
-          }), _v8 ? _v6 : _v2]
+          }), _v7 ? _v6 : _v2]
         })
       });
     }
     let {
-      Icon: _v20,
-      text: _v21
+      Icon: _v18,
+      text: _v19
     } = _v5 && _v4 ? {
       Icon: _v11.CircleExclamation,
       text: (0, _v14.translate)({
@@ -812,7 +810,7 @@
       })
     };
     return (0, _v1.jsx)(_v3.AlertRoot, {
-      className: _v10,
+      className: _v9,
       backgroundColor: _v19,
       color: "text-primary",
       borderRadius: "lg",
@@ -837,13 +835,13 @@
           gap: "sm",
           flex: "1",
           minWidth: 0,
-          children: [(0, _v1.jsx)(_v20, {
+          children: [(0, _v1.jsx)(_v18, {
             boxSize: (0, _v10.rem)(20),
             color: "status-destructive-primary"
           }), (0, _v1.jsx)(_v9.Text, {
             variant: "heading-xs",
             color: "text-primary",
-            children: _v21
+            children: _v19
           })]
         }), (0, _v1.jsxs)(_v7.Flex, {
           alignItems: "center",
@@ -858,7 +856,7 @@
             size: "sm",
             height: (0, _v10.rem)(24),
             minHeight: (0, _v10.rem)(24),
-            onClick: _v16,
+            onClick: _v14,
             backgroundColor: "white",
             _hover: {
               backgroundColor: "white"
@@ -892,7 +890,7 @@
                 }
               }
             })
-          }), _v19("sm", {
+          }), _v17("sm", {
             height: (0, _v10.rem)(24),
             minHeight: (0, _v10.rem)(24)
           })]

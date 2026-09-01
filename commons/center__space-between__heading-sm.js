@@ -469,20 +469,21 @@
     isMobile: _v6,
     playerHeight: _v7,
     showComments: _v8,
-    analyticsProps: _v9,
-    showResolvedComments: _v10 = !0,
-    isPreviousVersion: _v11,
-    commentTimeCode: _v12,
-    pausePlayer: _v13
+    desktopPanelHeight: _v9,
+    analyticsProps: _v10,
+    showResolvedComments: _v11 = !0,
+    isPreviousVersion: _v12,
+    commentTimeCode: _v13,
+    pausePlayer: _v14
   }) => {
-    let [_v14, _v15] = (0, _v2.useState)(!1),
-      [_v16, _v17] = (0, _v2.useState)(0),
-      _v18 = (0, _v11.useViewer)(),
+    let [_v15, _v16] = (0, _v2.useState)(!1),
+      [_v17, _v18] = (0, _v2.useState)(0),
+      _v19 = (0, _v11.useViewer)(),
       {
-        settings: _v19,
-        isLoadingResponse: _v20
+        settings: _v20,
+        isLoadingResponse: _v21
       } = (0, _v9.useOrionSettings)(),
-      _v21 = (0, _v2.useMemo)(() => _v19.review_comment_default_sort ? {
+      _v22 = (0, _v2.useMemo)(() => _v20.review_comment_default_sort ? {
         value: "timecode",
         label: (0, _v8.translate)({
           singular: "By timecode",
@@ -542,79 +543,79 @@
         }),
         type: "date",
         direction: "desc"
-      }, [_v19.review_comment_default_sort]),
-      [_v22, _v23] = (0, _v7.useSortPreference)(_v21, "comments-container-sort", !_v20),
-      [_v24, _v25] = (0, _v2.useState)(""),
-      [_v26, _v27] = (0, _v2.useState)(!1),
+      }, [_v20.review_comment_default_sort]),
+      [_v23, _v24] = (0, _v7.useSortPreference)(_v22, "comments-container-sort", !_v21),
+      [_v25, _v26] = (0, _v2.useState)(""),
+      [_v27, _v28] = (0, _v2.useState)(!1),
       {
-        reviewId: _v28
+        reviewId: _v29
       } = (0, _v2.useContext)(_v39.ReviewLinkContext),
       {
-        videoData: _v29
-      } = (0, _v38.useVideoData)(_v1, _v28),
+        videoData: _v30
+      } = (0, _v38.useVideoData)(_v1, _v29),
       {
-        trackReviewCommentPosted: _v30,
-        trackReviewCommentReactionAdded: _v31,
-        trackReviewCommentReactionRemoved: _v32
+        trackReviewCommentPosted: _v31,
+        trackReviewCommentReactionAdded: _v32,
+        trackReviewCommentReactionRemoved: _v33
       } = (0, _v10.useReviewTracking)(),
-      _v33 = (0, _v2.useCallback)(() => {
-        let _v0 = (0, _v40.idFromUri)(_v29?.user?.uri);
+      _v34 = (0, _v2.useCallback)(() => {
+        let _v0 = (0, _v40.idFromUri)(_v30?.user?.uri);
         return {
-          reviewId: _v28 ?? "",
+          reviewId: _v29 ?? "",
           clipId: _v1,
           clipOwnerId: _v0 ? _v0.toString() : null
         };
-      }, [_v28, _v1, _v29?.user?.uri]),
-      _v34 = (0, _v2.useCallback)(() => {
-        _v30(_v33());
-      }, [_v33, _v30]),
-      _v35 = (0, _v2.useCallback)((_v0, _v1) => {
-        _v31({
-          ..._v33(),
-          reviewCommentReaction: _v0,
-          isReply: _v1
-        });
-      }, [_v33, _v31]),
+      }, [_v29, _v1, _v30?.user?.uri]),
+      _v35 = (0, _v2.useCallback)(() => {
+        _v31(_v34());
+      }, [_v34, _v31]),
       _v36 = (0, _v2.useCallback)((_v0, _v1) => {
         _v32({
-          ..._v33(),
+          ..._v34(),
           reviewCommentReaction: _v0,
           isReply: _v1
         });
-      }, [_v33, _v32]),
-      _v37 = _v2 ? `${_v1}:${_v2}` : _v1,
-      _v38 = _v2.default.useRef(null),
-      _v39 = _v6 ? 10 : 48,
-      [_v40, _v41] = (0, _v2.useState)(0),
-      _v42 = `calc(100vh - ${_v6 ? _v7 : "0"}px - ${_v25.VERSION_PAGE_HEADER_HEIGHT + _v40 + _v39}px )`,
-      _v43 = (0, _v2.useCallback)(() => {
-        _v25(""), _v27(!1);
-      }, [_v25, _v27]),
-      _v44 = (0, _v2.useCallback)(_v0 => {
-        null !== _v0 && _v40 !== _v0.clientHeight && _v41(_v0.clientHeight);
-      }, [_v40]),
-      _v45 = (0, _v2.useCallback)(() => {
+      }, [_v34, _v32]),
+      _v37 = (0, _v2.useCallback)((_v0, _v1) => {
+        _v33({
+          ..._v34(),
+          reviewCommentReaction: _v0,
+          isReply: _v1
+        });
+      }, [_v34, _v33]),
+      _v38 = _v2 ? `${_v1}:${_v2}` : _v1,
+      _v39 = _v2.default.useRef(null),
+      _v40 = _v6 ? 10 : _v25.COMMENTS_PANEL_DESKTOP_VERTICAL_SPACING,
+      [_v41, _v42] = (0, _v2.useState)(0),
+      _v43 = `calc(100vh - ${_v6 ? _v7 : "0"}px - ${_v25.VERSION_PAGE_HEADER_HEIGHT + _v41 + _v40}px )`,
+      _v44 = (0, _v2.useCallback)(() => {
+        _v26(""), _v28(!1);
+      }, [_v26, _v28]),
+      _v45 = (0, _v2.useCallback)(_v0 => {
+        null !== _v0 && _v41 !== _v0.clientHeight && _v42(_v0.clientHeight);
+      }, [_v41]),
+      _v46 = (0, _v2.useCallback)(() => {
         (0, _v6.bpStartSearchComment)({
           isInternal: !0,
           videoId: parseFloat(_v1),
-          viewer: _v18,
-          analyticsProps: _v9
-        }), _v27(!0);
-      }, [_v27, _v18, _v1, _v9]),
-      _v46 = (0, _v2.useCallback)(() => {
-        if (!_v1 || !_v28) return;
-        let _v0 = (0, _v40.getReviewPasswordHashFromCookie)(_v28),
+          viewer: _v19,
+          analyticsProps: _v10
+        }), _v28(!0);
+      }, [_v28, _v19, _v1, _v10]),
+      _v47 = (0, _v2.useCallback)(() => {
+        if (!_v1 || !_v29) return;
+        let _v0 = (0, _v40.getReviewPasswordHashFromCookie)(_v29),
           _v1 = new URLSearchParams({
             format: "csv",
             source: "collaborator"
           });
-        _v1.set("review_id", _v28), _v0 && _v1.set("password", _v0);
+        _v1.set("review_id", _v29), _v0 && _v1.set("password", _v0);
         let _v2 = `/videos/${_v1}/comments/export?${_v1.toString()}`;
-        window.location.assign(_v2), _v15(!1);
-      }, [_v1, _v28]),
-      _v47 = (0, _v2.useCallback)((_v0, _v1) => {
-        _v1 || _v17(_v0);
-      }, [_v17]);
+        window.location.assign(_v2), _v16(!1);
+      }, [_v1, _v29]),
+      _v48 = (0, _v2.useCallback)((_v0, _v1) => {
+        _v1 || _v18(_v0);
+      }, [_v18]);
     return (0, _v1.jsxs)(_v26, {
       showComments: _v8,
       isMobile: _v6,
@@ -622,60 +623,66 @@
         ref: _v0,
         direction: "column",
         width: "100%",
+        height: _v9,
         borderRadius: "20px",
         backgroundColor: "fill-surface",
         children: [(0, _v1.jsx)(_v4.Box, {
           children: (0, _v1.jsx)(_v21, {
-            searchCommentQuery: _v24,
-            setSearchCommentQuery: _v25,
-            searchInputRef: _v38,
-            showCommentSearchBar: _v26,
-            onSearchClick: _v45,
-            onCloseSearch: _v43,
+            searchCommentQuery: _v25,
+            setSearchCommentQuery: _v26,
+            searchInputRef: _v39,
+            showCommentSearchBar: _v27,
+            onSearchClick: _v46,
+            onCloseSearch: _v44,
             closeDrawer: _v5,
-            panelHeaderRef: _v44,
+            panelHeaderRef: _v45,
             onDownloadComments: () => {
-              _v15(!0);
+              _v16(!0);
             },
-            isPreviousVersion: _v11
+            isPreviousVersion: _v12
           })
         }), (0, _v1.jsx)(_v3.Flex, {
           direction: "column",
           width: "100%",
-          height: _v42,
-          maxHeight: _v42,
+          ...(_v9 ? {
+            flexGrow: 1,
+            minHeight: 0
+          } : {
+            height: _v43,
+            maxHeight: _v43
+          }),
           overflowY: "auto",
-          children: !_v20 && (0, _v1.jsx)(_v5.CommentsContainer, {
-            clipRequestId: _v37,
+          children: !_v21 && (0, _v1.jsx)(_v5.CommentsContainer, {
+            clipRequestId: _v38,
             clipId: _v1,
             isPublic: !1,
             enableLinks: !0,
-            analyticsProps: _v9,
+            analyticsProps: _v10,
             onMomentPlay: _v3,
-            searchQuery: _v24,
+            searchQuery: _v25,
             showCommentsHiddenAlert: !1,
             videoVersionUri: _v4,
             targetApiVersion: _v25.TARGET_API_VERSION,
-            isPreviousVersion: _v11,
-            reviewId: _v28,
-            showResolvedComments: _v10,
+            isPreviousVersion: _v12,
+            reviewId: _v29,
+            showResolvedComments: _v11,
             canInsertTimecode: !0,
-            commentTimeCode: _v12,
-            pausePlayer: _v13,
-            setCommentsCount: _v47,
-            onCommentPosted: _v34,
-            onCommentReactionAdded: _v35,
-            onCommentReactionRemoved: _v36,
-            defaultSort: _v21,
-            sort: _v22,
-            setSort: _v23
+            commentTimeCode: _v13,
+            pausePlayer: _v14,
+            setCommentsCount: _v48,
+            onCommentPosted: _v35,
+            onCommentReactionAdded: _v36,
+            onCommentReactionRemoved: _v37,
+            defaultSort: _v22,
+            sort: _v23,
+            setSort: _v24
           })
         })]
       }), (0, _v1.jsx)(_v37, {
-        isOpen: _v14,
-        close: () => _v15(!1),
-        onDownload: _v46,
-        collaboratorCommentsCount: _v16
+        isOpen: _v15,
+        close: () => _v16(!1),
+        onDownload: _v47,
+        collaboratorCommentsCount: _v17
       })]
     });
   }], 0);

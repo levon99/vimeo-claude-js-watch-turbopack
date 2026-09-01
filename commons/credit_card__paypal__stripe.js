@@ -277,7 +277,10 @@
         data: _v93,
         loading: _v94,
         error: _v95
-      }] = (0, _v12.useSubmitStripePayment)();
+      }] = (0, _v12.useSubmitStripePayment)(),
+      _v96 = (0, _v3.useCallback)(() => {
+        _v9 ? _v14?.() : _v6 ? window.location.href = `${_v5}?card_verified=1` : _v7 ? window.location.href = `${_v5}?card_added=1` : window.location.href = `${_v5}?added_payment_method=1`;
+      }, [_v9, _v14, _v6, _v7, _v5]);
     (0, _v3.useEffect)(function () {
       if (_v91) {
         (0, _v15.trackOrderFailure)({
@@ -313,8 +316,8 @@
         _v22(Error(`${_v0} (${_v91.message})`)), _v20(!1), _v65(_v91, !1, _v91.message);
         return;
       }
-      _v89 && !_v90 && (_v65(_v89, !0), _v87 ? window.location.href = "/manage/team/billing?invoice_paid=1" : _v9 ? _v14?.() : _v6 ? window.location.href = `${_v5}?card_verified=1` : _v7 ? window.location.href = `${_v5}?card_added=1` : window.location.href = `${_v5}?added_payment_method=1`);
-    }, [_v89, _v90, _v91, _v5, _v51, _v87, _v65, _v6, _v7, _v9, _v14]), (0, _v3.useEffect)(function () {
+      _v89 && !_v90 && (_v65(_v89, !0), _v87 ? window.location.href = "/manage/team/billing?invoice_paid=1" : _v96());
+    }, [_v89, _v90, _v91, _v51, _v87, _v65, _v96]), (0, _v3.useEffect)(function () {
       if (_v95) {
         (0, _v15.trackOrderFailure)({
           userId: Number(_v51?.user?.id),
@@ -353,7 +356,7 @@
     }, [_v93, _v94, _v95, _v5, _v51, _v65]), (0, _v3.useEffect)(function () {
       if (_v31) throw _v31;
     }, [_v31]);
-    let _v96 = _v0 => {
+    let _v97 = _v0 => {
         if (!_v88 || !_v0) {
           _v20(!1), _v22(Error((0, _v7.translate)({
             singular: "Unable to submit payment method",
@@ -385,7 +388,7 @@
         }
         _v20(!0), _v88(_v0, _v0, _v42, _v23, _v25, _v87, void 0, _v60);
       },
-      _v97 = _v0 => {
+      _v98 = _v0 => {
         if (!_v92) {
           _v20(!1), _v22(Error((0, _v7.translate)({
             singular: "An unexpected error occurred while processing your payment",
@@ -437,7 +440,7 @@
         formLoaded: _v17,
         onZuoraControllerChange: _v40,
         onZuoraStatusChange: _v0 => {
-          "ready" !== _v0.status && _v18(!1);
+          "ready" !== _v0.status && _v18(!1), "preparing" === _v0.status && _v20(!0);
         },
         isLoading: _v19 || _v79 || _v81 || _v85,
         gracePeriodType: _v67?.gracePeriodType,
@@ -473,14 +476,45 @@
             hpm_session_id: _v51.xsrft,
             step_name: "HPM onSubmissionComplete",
             step_message: JSON.stringify(_v0)
-          }), _v0.redirectUrl) {
+          }), "zuora_hpm" === _v0.kind && _v0.redirectUrl) {
             sessionStorage.setItem("addPmState", JSON.stringify({
               vatId: _v23,
               billingAddress: _v25
             })), document.location.href = `${_v0.redirectUrl}${_v0.redirectUrl.includes("?") ? "&" : "?"}addPm=1`;
             return;
           }
-          if (!0 === _v0.success && _v88 && _v0.refId) {
+          if ("juno" === _v0.kind) {
+            if (_v0.success) (0, _v15.trackAddPaymentMethodSuccess)(_v72), _v63(!0), _v96();else {
+              _v20(!1);
+              let _v0 = _v0.errorMessage ?? (0, _v7.translate)({
+                singular: "Unable to submit payment method",
+                dictionary: {
+                  es: {
+                    singular: "No se puede enviar el método de pago"
+                  },
+                  "de-DE": {
+                    singular: "Zahlungsmethode kann nicht angegeben werden"
+                  },
+                  "fr-FR": {
+                    singular: "Impossible de soumettre un mode de paiement"
+                  },
+                  "ja-JP": {
+                    singular: "お支払い方法を送信できません"
+                  },
+                  "ko-KR": {
+                    singular: "결제 수단을 입력할 수 없습니다."
+                  },
+                  "pt-BR": {
+                    singular: "Não foi possível enviar a forma de pagamento"
+                  },
+                  "zh-CN": {
+                    singular: "无法提交付款方式"
+                  }
+                }
+              });
+              _v22(Error(_v0)), (0, _v15.trackAddPaymentMethodError)(_v72, _v0), _v63(!1, _v0);
+            }
+          } else if ("zuora_hpm" === _v0.kind && _v0.success && _v88 && _v0.refId) {
             _v38(_v0.refId);
             try {
               _v51 && _v51.user && (0, _v15.trackZuoraOrderStep)({
@@ -578,12 +612,12 @@
                 clientSecret: _v3.clientSecret,
                 billingName: _v35,
                 billingAddress: _v25,
-                onSubmissionComplete: _v97,
+                onSubmissionComplete: _v98,
                 onSubmitError: _v0 => _v22(Error(_v0))
               }) : _v80({
                 billingName: _v35,
                 billingAddress: _v25,
-                onSubmissionComplete: _v96,
+                onSubmissionComplete: _v97,
                 onSubmitError: _v0 => _v22(Error(_v0))
               });
           }

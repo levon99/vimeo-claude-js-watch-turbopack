@@ -718,6 +718,7 @@
             } : void 0,
             includeAddressFields: !1,
             isAddingPaymentMethod: !0,
+            isDefault: _v24,
             showPaypalOption: !_v28 && !_v4,
             pmId: _v30,
             billingAddress: _v22,

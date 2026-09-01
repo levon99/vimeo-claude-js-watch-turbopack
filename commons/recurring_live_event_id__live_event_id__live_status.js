@@ -203,8 +203,10 @@
     _v46 = _v0.i(0),
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
-    _v49 = _v0.i(0);
-  let _v50 = _v0 => (0, _v1.jsx)(_v49.Icon, {
+    _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0);
+  let _v52 = _v0 => (0, _v1.jsx)(_v51.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -213,17 +215,17 @@
       fill: "currentColor"
     })
   });
-  _v0.s(["Asterisk", 0, _v50], 0);
-  var _v51 = _v0.i(0),
-    _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
+  _v0.s(["Asterisk", 0, _v52], 0);
+  var _v53 = _v0.i(0),
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),
     _v57 = _v0.i(0),
-    _v58 = _v0.i(916),
-    _v59 = _v0.i(0);
-  let _v60 = (0, _v2.forwardRef)(({
+    _v58 = _v0.i(0),
+    _v59 = _v0.i(0),
+    _v60 = _v0.i(916),
+    _v61 = _v0.i(0);
+  let _v62 = (0, _v2.forwardRef)(({
     content: _v0,
     editable: _v1 = !1,
     maxCharacter: _v2 = 0,
@@ -236,18 +238,18 @@
     ..._v9
   }, _v10) => {
     let _v11 = (0, _v2.useRef)(null),
-      _v12 = (0, _v55.useEditor)({
-        extensions: [_v56.default, _v54.default, _v52.default, _v58.Underline, _v58.Color, _v58.NoNewLine, _v53.default.configure({
+      _v12 = (0, _v57.useEditor)({
+        extensions: [_v58.default, _v56.default, _v54.default, _v60.Underline, _v60.Color, _v60.NoNewLine, _v55.default.configure({
           openOnClick: !1
-        }), _v58.TextAlign.configure({
+        }), _v60.TextAlign.configure({
           types: ["heading", "paragraph"],
           alignments: ["left", "center", "right", "justify"]
-        }), _v58.CharacterCount.configure({
+        }), _v60.CharacterCount.configure({
           limit: _v2
-        }), _v58.PasteHandler.configure({
+        }), _v60.PasteHandler.configure({
           stripStyles: !0
         })],
-        content: `${_v57.default.sanitize(_v0, {
+        content: `${_v59.default.sanitize(_v0, {
           ADD_ATTR: ["target"]
         })}`,
         onFocus: () => {
@@ -280,7 +282,7 @@
       fontSize: (0, _v11.rem)(14),
       ref: _v11,
       ..._v9,
-      children: (0, _v1.jsx)(_v59.StyledEditorContent, {
+      children: (0, _v1.jsx)(_v61.StyledEditorContent, {
         editor: _v12,
         padding: 0,
         onKeyDown: _v6,
@@ -289,8 +291,8 @@
       })
     });
   });
-  _v0.s(["EditableTextWithRTF", 0, _v60], 0);
-  let _v61 = (0, _v2.forwardRef)(({
+  _v0.s(["EditableTextWithRTF", 0, _v62], 0);
+  let _v63 = (0, _v2.forwardRef)(({
     index: _v0,
     isRequired: _v1,
     label: _v2,
@@ -312,7 +314,7 @@
       _v2 && _v0 && _v2 !== _v0 && _v12.current?.setHTML(_v2);
     }, [_v2]), (0, _v1.jsx)(_v3.Box, {
       position: "relative",
-      children: (0, _v1.jsx)(_v51.Checkbox, {
+      children: (0, _v1.jsx)(_v53.Checkbox, {
         ref: _v5,
         label: (0, _v1.jsx)(_v4.Flex, {
           border: `${(0, _v11.rem)(2)} solid`,
@@ -335,11 +337,11 @@
                 textDecorationColor: "white"
               }
             },
-            children: [(0, _v1.jsx)(_v60, {
+            children: [(0, _v1.jsx)(_v62, {
               ref: _v12,
               fontSize: (0, _v11.rem)(11),
               content: _v2
-            }), _v1 && (0, _v1.jsx)(_v50, {
+            }), _v1 && (0, _v1.jsx)(_v52, {
               marginLeft: (0, _v11.rem)(4),
               boxSize: (0, _v11.rem)(10),
               color: "red",
@@ -347,14 +349,14 @@
             })]
           })
         }),
-        validator: (0, _v48.getValidator)(_v2, _v1),
+        validator: (0, _v50.getValidator)(_v2, _v1),
         onChange: _v4
       })
     });
   });
-  var _v62 = _v0.i(0),
-    _v63 = _v0.i(0);
-  let _v64 = (0, _v2.forwardRef)(({
+  var _v64 = _v0.i(0),
+    _v65 = _v0.i(0);
+  let _v66 = (0, _v2.forwardRef)(({
       options: _v0 = [],
       placeholder: _v1,
       selected: _v2,
@@ -377,8 +379,8 @@
       }, [_v2]), (0, _v2.useEffect)(() => {
         _v4 && _v15.current?.focus();
       }, [_v4, _v15]), (0, _v2.useImperativeHandle)(_v7, () => ({
-        validate: () => _v16(_v8?.optionLabel),
-        getValue: () => _v8?.optionLabel || ""
+        validate: () => _v16(_v8?.optionValue ?? _v8?.optionLabel),
+        getValue: () => _v8?.optionValue ?? _v8?.optionLabel ?? ""
       })), (0, _v1.jsxs)(_v3.Box, {
         position: "relative",
         children: [(0, _v1.jsxs)(_v3.Box, {
@@ -388,7 +390,7 @@
           height: (0, _v11.rem)(55),
           onChange: _v0 => {
             let _v1 = _v0.target.value,
-              _v2 = _v0.find(_v0 => _v0.optionLabel === _v1);
+              _v2 = _v0.find(_v0 => (_v0.optionValue ?? _v0.optionLabel) === _v1);
             _v5?.(_v2), _v9?.(_v2), _v16(_v1);
           },
           opacity: 0,
@@ -396,7 +398,7 @@
           onBlur: () => _v13(!1),
           outline: "none",
           "aria-label": _v1 + " dropdown",
-          value: _v8?.optionLabel,
+          value: _v8?.optionValue ?? _v8?.optionLabel,
           "aria-required": _v3,
           color: "black",
           background: "white",
@@ -407,9 +409,9 @@
             children: _v1
           }), _v0.map((_v0, _v1) => (0, _v1.jsx)(_v3.Box, {
             as: "option",
-            value: _v0?.optionLabel,
+            value: _v0.optionValue ?? _v0.optionLabel,
             children: _v0?.optionLabel
-          }, _v0.optionLabel + _v1))]
+          }, _v0.optionCid ?? _v0.optionLabel + _v1))]
         }), (0, _v1.jsxs)(_v3.Box, {
           borderRadius: "sm",
           height: (0, _v11.rem)(55),
@@ -436,7 +438,7 @@
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
                 children: _v1
-              }), _v3 && (0, _v1.jsx)(_v65, {})]
+              }), _v3 && (0, _v1.jsx)(_v67, {})]
             }), (0, _v1.jsx)(_v3.Box, {
               fontSize: "body-md",
               overflow: "hidden",
@@ -456,29 +458,29 @@
               textOverflow: "ellipsis",
               whiteSpace: "nowrap",
               children: _v1
-            }), _v3 && (0, _v1.jsx)(_v65, {})]
+            }), _v3 && (0, _v1.jsx)(_v67, {})]
           }), (0, _v1.jsx)(_v3.Box, {
             position: "absolute",
             top: (0, _v11.rem)(15),
             right: (0, _v11.rem)(10),
-            children: (0, _v1.jsx)(_v62.ChevronDown, {
+            children: (0, _v1.jsx)(_v64.ChevronDown, {
               width: (0, _v11.rem)(18)
             })
           })]
-        }), _v10 && (0, _v1.jsx)(_v63.StyledError, {
+        }), _v10 && (0, _v1.jsx)(_v65.StyledError, {
           error: _v10,
           ref: _v14
         })]
       });
     }),
-    _v65 = () => (0, _v1.jsx)(_v3.Box, {
+    _v67 = () => (0, _v1.jsx)(_v3.Box, {
       as: "span",
       pl: (0, _v11.rem)(2),
       color: "red.500",
       children: "*"
     });
-  var _v66 = _v0.i(0);
-  let _v67 = ({
+  var _v68 = _v0.i(0);
+  let _v69 = ({
       field: _v0,
       value: _v1,
       onSaveValue: _v2,
@@ -487,93 +489,101 @@
       autoFocus: _v5 = !0,
       onEnterKeyPressed: _v6,
       errorMessage: _v7
-    }) => _v0 ? (0, _v1.jsx)(_v68, {
-      children: (() => {
-        let {
-          type: _v0,
-          name: _v1,
-          metadata: _v2,
-          isRequired: _v3
-        } = _v0;
-        switch (_v0) {
-          case _v34.CustomFieldTypes.Text:
-            return (0, _v1.jsx)(_v66.Input, {
-              onBlur: _v0 => {
-                _v2(_v0);
-              },
-              onEnterKeyPressed: _v0 => _v6(_v0),
-              autoFocus: _v5,
-              ref: _v0 => {
-                _v3[_v4] = _v0;
-              },
-              value: "string" == typeof _v1 ? _v1 : void 0,
-              placeholder: _v1,
-              required: _v3,
-              validator: (0, _v48.getValidator)(_v1, _v3),
-              errorMessage: _v7
-            });
-          case _v34.CustomFieldTypes.Dropdown:
-            return (0, _v1.jsx)(_v64, {
-              onSelectedChanged: _v0 => {
-                _v2(_v0);
-              },
-              autoFocus: _v5,
-              ref: _v0 => {
-                _v3[_v4] = _v0;
-              },
-              selected: _v1 || void 0,
-              placeholder: _v1,
-              required: _v0.isRequired,
-              options: _v2?.options || [],
-              validator: (0, _v48.getValidator)(_v1, _v3)
-            });
-          case _v34.CustomFieldTypes.Checkbox:
-            return (0, _v1.jsx)(_v61, {
-              index: _v4,
-              label: _v0.metadata?.description || "",
-              isRequired: _v0.isRequired,
-              color: _v0.metadata?.color || "white",
-              ref: _v0 => {
-                _v3[_v4] = _v0;
-              },
-              onChange: _v0 => _v2(_v0.target.checked)
-            });
-          case _v34.CustomFieldTypes.Description:
-            return (0, _v1.jsx)(_v46.Text, {
-              variant: "body-md",
-              textAlign: "center",
-              width: "100%",
-              children: _v1
-            });
-          default:
-            return null;
-        }
-      })()
-    }) : null,
-    _v68 = _v0 => (0, _v1.jsx)(_v3.Box, {
+    }) => {
+      let _v8 = (0, _v48.useFormLocale)();
+      if (!_v0) return null;
+      let _v9 = (0, _v49.resolveLocalizedField)(_v0, _v8);
+      return (0, _v1.jsx)(_v70, {
+        children: (() => {
+          let {
+            type: _v0,
+            name: _v1,
+            metadata: _v2,
+            isRequired: _v3
+          } = _v9;
+          switch (_v0) {
+            case _v34.CustomFieldTypes.Text:
+              return (0, _v1.jsx)(_v68.Input, {
+                onBlur: _v0 => {
+                  _v2(_v0);
+                },
+                onEnterKeyPressed: _v0 => _v6(_v0),
+                autoFocus: _v5,
+                ref: _v0 => {
+                  _v3[_v4] = _v0;
+                },
+                value: "string" == typeof _v1 ? _v1 : void 0,
+                placeholder: _v1,
+                required: _v3,
+                validator: (0, _v50.getValidator)(_v1, _v3),
+                errorMessage: _v7
+              });
+            case _v34.CustomFieldTypes.Dropdown:
+              {
+                let _v0 = null != _v1 && "object" == typeof _v1 ? _v2?.options?.find(_v0 => (_v0.optionValue ?? _v0.optionLabel) === (_v1.optionValue ?? _v1.optionLabel)) : void 0;
+                return (0, _v1.jsx)(_v66, {
+                  onSelectedChanged: _v0 => {
+                    _v2(_v0);
+                  },
+                  autoFocus: _v5,
+                  ref: _v0 => {
+                    _v3[_v4] = _v0;
+                  },
+                  selected: _v0,
+                  placeholder: _v1,
+                  required: _v9.isRequired,
+                  options: _v2?.options || [],
+                  validator: (0, _v50.getValidator)(_v1, _v3)
+                });
+              }
+            case _v34.CustomFieldTypes.Checkbox:
+              return (0, _v1.jsx)(_v63, {
+                index: _v4,
+                label: _v9.metadata?.description || "",
+                isRequired: _v9.isRequired,
+                color: _v9.metadata?.color || "white",
+                ref: _v0 => {
+                  _v3[_v4] = _v0;
+                },
+                onChange: _v0 => _v2(_v0.target.checked)
+              });
+            case _v34.CustomFieldTypes.Description:
+              return (0, _v1.jsx)(_v46.Text, {
+                variant: "body-md",
+                textAlign: "center",
+                width: "100%",
+                children: _v1
+              });
+            default:
+              return null;
+          }
+        })()
+      });
+    },
+    _v70 = _v0 => (0, _v1.jsx)(_v3.Box, {
       mb: "md",
       width: "100%",
       mt: (0, _v11.rem)(2),
       ..._v0,
       children: _v0.children
     });
-  var _v69 = _v0.i(0);
-  let _v70 = "30px",
-    _v71 = _v69.keyframes`
+  var _v71 = _v0.i(0);
+  let _v72 = "30px",
+    _v73 = _v71.keyframes`
   0%{
     transform: translateY(0);
     opacity: 1;
   }
   100%{
-    transform: translateY(-${_v70});
+    transform: translateY(-${_v72});
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
   }
 `,
-    _v72 = _v69.keyframes`
+    _v74 = _v71.keyframes`
   0% {
-    transform: translateY(${_v70});
+    transform: translateY(${_v72});
      opacity: 0;
    }
    100% {
@@ -581,9 +591,9 @@
      opacity: 1;
    }
 `,
-    _v73 = _v69.keyframes`
+    _v75 = _v71.keyframes`
 0% {
-    transform: translateY(-${_v70});
+    transform: translateY(-${_v72});
     opacity: 0;
   }
   100% {
@@ -591,22 +601,22 @@
     opacity: 1;
   }
 `,
-    _v74 = _v69.keyframes`
+    _v76 = _v71.keyframes`
   0% {
     transform: translateY(0);
     opacity: 1;
   }
   100% {
-    transform: translateY(${_v70});
+    transform: translateY(${_v72});
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
   }
 `;
-  var _v75 = _v0.i(0),
-    _v76 = _v0.i(0),
-    _v77 = _v0.i(0);
-  let _v78 = ({
+  var _v77 = _v0.i(0),
+    _v78 = _v0.i(0),
+    _v79 = _v0.i(0);
+  let _v80 = ({
       onSaveValue: _v0,
       onEnterKeyPressed: _v1,
       onCheckboxChecked: _v2,
@@ -649,9 +659,9 @@
               top: 0,
               left: 0,
               width: "100%",
-              animation: "up" === _v7.current ? _v2 ? `${_v72} .2s forwards` : `${_v71} .2s forwards` : _v2 ? `${_v73} .2s forwards` : `${_v74} .2s forwards`,
+              animation: "up" === _v7.current ? _v2 ? `${_v74} .2s forwards` : `${_v73} .2s forwards` : _v2 ? `${_v75} .2s forwards` : `${_v76} .2s forwards`,
               visibility: [_v15, _v16].includes(_v1) ? "visible" : "hidden",
-              children: (0, _v1.jsx)(_v67, {
+              children: (0, _v1.jsx)(_v69, {
                 value: _v8.find(_v0 => _v0.cid === _v0?.cid)?.value,
                 onSaveValue: _v0 => _v0(_v0, _v1),
                 onEnterKeyPressed: _v0 => _v1(_v0, _v0.cid),
@@ -663,15 +673,15 @@
               })
             }, _v0.cid);
           })
-        }), _v15 === _v17.length - 1 && (0, _v1.jsx)(_v77.default, {
+        }), _v15 === _v17.length - 1 && (0, _v1.jsx)(_v79.default, {
           ref: _v6,
           checked: _v9,
           error: _v10,
           onChange: _v0 => _v2(_v0)
-        }), (0, _v1.jsxs)(_v79, {
+        }), (0, _v1.jsxs)(_v81, {
           children: [0 !== _v15 && (0, _v1.jsx)(_v4.Flex, {
             flex: 1,
-            children: (0, _v1.jsx)(_v75.StylableButton, {
+            children: (0, _v1.jsx)(_v77.StylableButton, {
               disabled: 0 === _v15 || _v13,
               onClick: () => {
                 _v7.current = "down", _v20(_v15 - 1);
@@ -681,13 +691,13 @@
             })
           }), (0, _v1.jsxs)(_v4.Flex, {
             flex: 1,
-            children: [_v15 < _v17.length - 1 && (0, _v1.jsx)(_v75.StylableButton, {
+            children: [_v15 < _v17.length - 1 && (0, _v1.jsx)(_v77.StylableButton, {
               role: _v34.BUTTON_ROLES.PRIMARY,
               onClick: _v3,
               textType: _v34.BUTTON_TEXT_TYPE.NEXT,
               loading: _v11,
               disabled: _v11
-            }), _v15 === _v17.length - 1 && (0, _v1.jsx)(_v75.StylableButton, {
+            }), _v15 === _v17.length - 1 && (0, _v1.jsx)(_v77.StylableButton, {
               role: _v34.BUTTON_ROLES.PRIMARY,
               onClick: _v4,
               textType: _v34.BUTTON_TEXT_TYPE.REGISTER,
@@ -697,7 +707,7 @@
           })]
         }), (0, _v1.jsx)(_v3.Box, {
           mt: "md",
-          children: (0, _v1.jsx)(_v76.StylableNonEditText, {
+          children: (0, _v1.jsx)(_v78.StylableNonEditText, {
             fieldName: _v34.NON_EDIT_FIELDS.ALREADY_REGISTERED,
             children: (0, _v1.jsx)(_v3.Box, {
               px: "xs",
@@ -745,7 +755,7 @@
         })]
       });
     },
-    _v79 = _v0 => (0, _v1.jsx)(_v4.Flex, {
+    _v81 = _v0 => (0, _v1.jsx)(_v4.Flex, {
       justifyContent: "center",
       width: "100%",
       gap: (0, _v11.rem)(8),
@@ -754,7 +764,7 @@
       ..._v0,
       children: _v0.children
     }),
-    _v80 = ({
+    _v82 = ({
       onSaveValue: _v0,
       onEnterKeyPressed: _v1,
       onCheckboxChecked: _v2,
@@ -774,7 +784,7 @@
         _v13 = (0, _v35.useGlobalStore)(_v0 => _v0.leadCapture.customFields);
       return (0, _v1.jsxs)(_v3.Box, {
         py: "md",
-        children: [_v13.map((_v0, _v1) => (0, _v1.jsx)(_v67, {
+        children: [_v13.map((_v0, _v1) => (0, _v1.jsx)(_v69, {
           value: _v6.find(_v0 => _v0.cid === _v0?.cid)?.value,
           onSaveValue: _v0 => _v0(_v0, _v1),
           onEnterKeyPressed: _v0 => _v1(_v0, _v0.cid),
@@ -783,13 +793,13 @@
           index: _v1,
           autoFocus: !1,
           errorMessage: _v0?.name === _v34.FORM_FIELD_NAME_VALUES.EMAIL ? _v8 : ""
-        }, _v0.cid)), (0, _v1.jsx)(_v77.default, {
+        }, _v0.cid)), (0, _v1.jsx)(_v79.default, {
           ref: _v5,
           error: _v9,
           checked: _v10,
           onChange: _v0 => _v2(_v0)
-        }), (0, _v1.jsx)(_v81, {
-          children: (0, _v1.jsx)(_v75.StylableButton, {
+        }), (0, _v1.jsx)(_v83, {
+          children: (0, _v1.jsx)(_v77.StylableButton, {
             role: _v34.BUTTON_ROLES.PRIMARY,
             onClick: _v3,
             textType: _v34.BUTTON_TEXT_TYPE.REGISTER,
@@ -798,7 +808,7 @@
           })
         }), (0, _v1.jsx)(_v3.Box, {
           mt: "md",
-          children: (0, _v1.jsx)(_v76.StylableNonEditText, {
+          children: (0, _v1.jsx)(_v78.StylableNonEditText, {
             fieldName: _v34.NON_EDIT_FIELDS.ALREADY_REGISTERED,
             children: (0, _v1.jsx)(_v3.Box, {
               px: "xs",
@@ -846,7 +856,7 @@
         })]
       });
     },
-    _v81 = _v0 => (0, _v1.jsx)(_v4.Flex, {
+    _v83 = _v0 => (0, _v1.jsx)(_v4.Flex, {
       justifyContent: "center",
       width: "100%",
       gap: (0, _v11.rem)(8),
@@ -855,7 +865,7 @@
       ..._v0,
       children: _v0.children
     }),
-    _v82 = ({
+    _v84 = ({
       setLeadUuid: _v0
     }) => {
       let _v1 = (0, _v35.useGlobalStore)(_v0 => _v0.leadCapture.alignment),
@@ -962,7 +972,7 @@
             var _v1;
             let _v2;
             return {
-              [_v0.name]: (_v1 = _v0.cid, "string" == typeof (_v2 = _v29.find(_v0 => _v0.cid === _v1)?.value) || "boolean" == typeof _v2 ? _v2 : _v2?.optionLabel)
+              [_v0.name]: (_v1 = _v0.cid, "string" == typeof (_v2 = _v29.find(_v0 => _v0.cid === _v1)?.value) || "boolean" == typeof _v2 ? _v2 : _v2?.optionValue ?? _v2?.optionLabel)
             };
           }), _v8 = {}, _v7.forEach(_v0 => {
             for (let [, _v0] of Object.entries(_v0)) ("string" == typeof _v0 && _v0.length > 0 || "boolean" == typeof _v0 && _v0) && (_v8 = {
@@ -1113,7 +1123,7 @@
               children: (0, _v1.jsx)(_v40.EventDate, {})
             }), (0, _v1.jsx)(_v3.Box, {
               px: "xs",
-              children: _v2 === _v34.FORM_LAYOUT_OPTIONS.SINGLE_STEP_FORM ? (0, _v1.jsx)(_v80, {
+              children: _v2 === _v34.FORM_LAYOUT_OPTIONS.SINGLE_STEP_FORM ? (0, _v1.jsx)(_v82, {
                 onSaveValue: _v58,
                 onEnterKeyPressed: _v57,
                 onCheckboxChecked: _v56,
@@ -1126,7 +1136,7 @@
                 agreeCheckboxNotCheckedError: _v21,
                 agreeCheckboxChecked: _v19,
                 disableButton: _v49
-              }) : (0, _v1.jsx)(_v78, {
+              }) : (0, _v1.jsx)(_v80, {
                 animationDirection: _v17,
                 inputtedData: _v29,
                 onSaveValue: _v58,
@@ -1160,8 +1170,8 @@
         })]
       });
     };
-  var _v83 = _v0.i(0);
-  let _v84 = () => {
+  var _v85 = _v0.i(0);
+  let _v86 = () => {
     let _v0 = (0, _v35.useGlobalStore)(_v0 => _v0.leadCapture.logo),
       _v1 = (0, _v35.useGlobalStore)(_v0 => _v0.leadCapture.alignment),
       _v2 = (0, _v35.useGlobalStore)(_v0 => _v0.entity.title),
@@ -1193,7 +1203,7 @@
             mx: "sm",
             src: _v0.url
           })
-        }), (0, _v1.jsxs)(_v83.Header, {
+        }), (0, _v1.jsxs)(_v85.Header, {
           variant: "heading-2xl",
           lineHeight: (0, _v11.rem)(41.7),
           letterSpacing: (0, _v11.rem)(-1.2),
@@ -1298,9 +1308,9 @@
           disableBackground: _v1 === _v34.PREVIEW_TYPE.FORM_FULL,
           children: [_v1 === _v34.PREVIEW_TYPE.CONFIRMATION && _v6 !== _v6.ENTITY_TYPE.SHOWCASE && (0, _v1.jsx)(_v9.ConfirmationView, {}), _v1 === _v34.PREVIEW_TYPE.LOGIN_SCREEN && (0, _v1.jsx)(_v10.LoginView, {
             setLeadUuid: _v0
-          }), _v1 === _v34.PREVIEW_TYPE.FORM && (0, _v1.jsx)(_v82, {
+          }), _v1 === _v34.PREVIEW_TYPE.FORM && (0, _v1.jsx)(_v84, {
             setLeadUuid: _v0
-          }), _v1 === _v34.PREVIEW_TYPE.FORM_FULL && (0, _v1.jsx)(_v84, {})]
+          }), _v1 === _v34.PREVIEW_TYPE.FORM_FULL && (0, _v1.jsx)(_v86, {})]
         })
       }), _v5 && (0, _v1.jsx)(_v4.Flex, {
         position: "absolute",

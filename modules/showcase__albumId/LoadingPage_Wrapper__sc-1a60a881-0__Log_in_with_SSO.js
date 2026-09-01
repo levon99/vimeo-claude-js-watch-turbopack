@@ -10566,7 +10566,7 @@
         headers: {
           Cookie: _v4,
           "User-Agent": _v0.req.headers["user-agent"] || "",
-          "X-Forwarded-For": _v0.req.headers["x-forwarded-for"] || ""
+          "X-Forwarded-For": _v0.headers["x-forwarded-for"] || ""
         },
         redirect: "manual"
       });

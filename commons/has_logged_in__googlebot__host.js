@@ -59,8 +59,27 @@
           "Content-Type": "application/json",
           Authorization: `jwt ${_v2}`
         };
-      return ["x-forwarded-for", "x-geo-vary-group", "vimeo-environment-id", "vimeo-environment-tld"].forEach(_v0 => {
-        let _v1 = _v0.req.headers[_v0];
+      return Object.entries({
+        "x-forwarded-for": (_v0 => {
+          let _v1 = _v0.req.headers["cf-connecting-ip"],
+            _v2 = Array.isArray(_v1) ? _v1[0] : _v1,
+            _v3 = _v0.req.headers["x-forwarded-for"],
+            _v4 = _v2?.trim(),
+            _v5 = _v4 && !_v4.includes(",") ? _v4 : void 0;
+          try {
+            let _v0,
+              _v1 = ((Array.isArray(_v3) ? _v3.join(",") : _v3) ?? "").split(",").map(_v0 => _v0.trim()).filter(Boolean);
+            _v0 = _v5 ? 0 === _v1.length ? "no_xff" : _v1[_v1.length - 1] === _v5 ? "match" : "divergence" : "no_source", _v15.metrics.counter("vimeo_nextjs_client_ip_parity_total", {
+              parity: _v0,
+              xff_entries: _v1.length >= 3 ? "3plus" : String(_v1.length)
+            });
+          } catch {}
+          return _v5 ?? _v3;
+        })(_v0),
+        "x-geo-vary-group": _v0.req.headers["x-geo-vary-group"],
+        "vimeo-environment-id": _v0.req.headers["vimeo-environment-id"],
+        "vimeo-environment-tld": _v0.req.headers["vimeo-environment-tld"]
+      }).forEach(([_v0, _v1]) => {
         _v1 && (_v3[_v0] = _v1);
       }), {
         ..._v0,

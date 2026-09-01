@@ -194,7 +194,7 @@
         children: [_v0, _v4 && (0, _v1.jsxs)(_v1.Fragment, {
           children: [" ", (0, _v1.jsxs)(_v7.Text, {
             as: "span",
-            variant: "body-xl",
+            fontSize: "body-md",
             color: "text-primary",
             children: [" ", "*"]
           })]

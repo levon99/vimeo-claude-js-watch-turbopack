@@ -9146,28 +9146,32 @@
           width: 0,
           height: 0
         }),
+        _v9 = (0, _v7.useRef)({
+          width: 0,
+          height: 0
+        }),
         {
-          getCurrentTimeFromRef: _v9,
-          pause: _v10,
-          play: _v11,
-          DFRef: _v12
+          getCurrentTimeFromRef: _v10,
+          pause: _v11,
+          play: _v12,
+          DFRef: _v13
         } = (0, _v222.useDragonfly)(),
         {
-          isReplacing: _v13
+          isReplacing: _v14
         } = (0, _v498.useReplaceElement)(),
         {
-          addElement: _v14
+          addElement: _v15
         } = (0, _v496.useAddElement)(),
-        _v15 = !_v5 && _v6 && !_v4,
-        _v16 = !_v5 && _v6 && _v4,
-        _v17 = (0, _v7.useRef)(null),
-        _v18 = (0, _v499.default)(_v17),
-        _v19 = (0, _v7.useCallback)(async _v0 => {
+        _v16 = !_v5 && _v6 && !_v4,
+        _v17 = !_v5 && _v6 && _v4,
+        _v18 = (0, _v7.useRef)(null),
+        _v19 = (0, _v499.default)(_v18),
+        _v20 = (0, _v7.useCallback)(async _v0 => {
           let {
               active: _v1,
               over: _v2
             } = _v0,
-            _v3 = _v9();
+            _v3 = _v10();
           if (_v2 && _v1.data.current && _v2.data.current?.accepts.includes(_v1.data.current.type) && _v2.data.current.type === _v493.DndDropAreaType.STAGE) {
             let _v0 = _v1.rect.current.translated;
             if (_v0) {
@@ -9182,7 +9186,7 @@
                   },
                   time: _v3
                 });
-                _v0 && !_v13 && (_v14(_v0), _v1.data.current.onElementAdded && _v1.data.current.onElementAdded({
+                _v0 && !_v14 && (_v15(_v0), _v1.data.current.onElementAdded && _v1.data.current.onElementAdded({
                   element: _v0
                 }));
               }
@@ -9195,33 +9199,36 @@
               });
             }
           }
-        }, [_v14, _v9, _v13]);
+        }, [_v15, _v10, _v14]);
       return (0, _v7.useEffect)(() => {
         let _v0 = _v286.OrientationRatio[_v1];
-        if (_v18.width > 0) {
-          let _v0 = _v18.width - 30,
-            _v1 = _v18.height - 30,
+        if (_v19.width > 0) {
+          let _v0 = _v19.width - 30,
+            _v1 = _v19.height - 30,
             _v2 = _v0 * _v1;
-          _v2 > _v0 && (_v1 = (_v2 = _v0) / _v0), _v12.current && !_v12.current.paused && (Math.abs(_v2 - _v8.current.width) > 1 || Math.abs(_v1 - _v8.current.height) > 1) && (_v10(), _v7.current = !0), _v8.current = {
+          _v2 > _v0 && (_v1 = (_v2 = _v0) / _v0), _v13.current && !_v13.current.paused && (Math.abs(_v2 - _v8.current.width) > 1 || Math.abs(_v1 - _v8.current.height) > 1) && (_v11(), _v7.current = !0), _v8.current = {
+            width: _v2,
+            height: _v1
+          }, (_v2 !== _v9.current.width || _v1 !== _v9.current.height) && (_v9.current = {
             width: _v2,
             height: _v1
           }, _v0((0, _v405.setSizeAction)({
             width: _v2,
             height: _v1
-          }));
+          })));
         }
-      }, [_v1, _v18, _v0, _v12, _v10]), (0, _v320.useDebouncedEffect)(() => {
-        _v7.current && (_v11(), _v7.current = !1);
-      }, [_v18, _v11]), (0, _v7.useEffect)(() => {
+      }, [_v1, _v19, _v0, _v13, _v11]), (0, _v320.useDebouncedEffect)(() => {
+        _v7.current && (_v12(), _v7.current = !1);
+      }, [_v19, _v12]), (0, _v7.useEffect)(() => {
         _v6 && (0, _v343.sendTrackViewOverlayEditor)();
       }, [_v6]), (0, _v384.useDndMonitor)({
-        onDragEnd: _v19
-      }), (0, _v497.useFocusArea)(_v17, _v500.FocusAreaType.STAGE), (0, _v6.jsxs)(_v420, {
-        ref: _v17,
+        onDragEnd: _v20
+      }), (0, _v497.useFocusArea)(_v18, _v500.FocusAreaType.STAGE), (0, _v6.jsxs)(_v420, {
+        ref: _v18,
         "data-testid": _v180.testIds.stageContainer,
         className: _v381.STAGE_DRAG_SELECT_ALLOWED_CLASS,
         children: [(0, _v6.jsxs)(_v495, {
-          shouldDisplayOverlayEditorEmptyView: _v15,
+          shouldDisplayOverlayEditorEmptyView: _v16,
           children: [(0, _v6.jsxs)(_v422, {
             "data-testid": _v180.testIds.canvas,
             className: _v381.STAGE_DRAG_SELECT_ALLOWED_CLASS,
@@ -9229,12 +9236,12 @@
               "data-stage-element": _v2 ? "dragonfly" : "dragonite"
             }),
             children: [_v2 ? (0, _v6.jsxs)(_v6.Fragment, {
-              children: [_v16 && (0, _v6.jsx)(_v387, {}), (0, _v6.jsx)(_v398, {}), (0, _v6.jsx)(_v399.ScreenshotContainer, {})]
+              children: [_v17 && (0, _v6.jsx)(_v387, {}), (0, _v6.jsx)(_v398, {}), (0, _v6.jsx)(_v399.ScreenshotContainer, {})]
             }) : (0, _v6.jsx)(_v407, {}), (0, _v6.jsx)(_v428, {})]
           }), (0, _v6.jsx)(_v486, {
             "data-testid": "selection-layers"
           }), (0, _v6.jsx)(_v418, {}), (0, _v6.jsx)(_v492, {})]
-        }), _v15 && (0, _v6.jsxs)(_v74.Flex, {
+        }), _v16 && (0, _v6.jsxs)(_v74.Flex, {
           ..._v501,
           children: [(0, _v6.jsx)(_v385.Interactive, {
             boxSize: "xs",

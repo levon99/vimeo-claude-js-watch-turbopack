@@ -1,17 +1,16 @@
 {
   "use strict";
 
-  _v0.s(["extractUniqueFonts", () => _v20, "getActualFontSize", () => _v14, "getFontExtraData", () => _v23, "getFontFamily", () => _v11, "getPreferredFontByLanguage", () => _v19, "getRelativeFontSize", () => _v13, "groupFontsByFamily", () => _v16, "isFontSupportsLanguage", () => _v17, "loadFont", () => _v12, "loadFontFaceToDOM", () => _v15, "mapBrandKitFontToFont", () => _v22, "mapLoadingFontsToFontObjects", () => _v21], 0), _v0.s(["createSVGDimensions", () => _v8, "getSVGTextDimensions", () => _v9], 0);
+  _v0.s(["extractUniqueFonts", () => _v20, "getActualFontSize", () => _v14, "getFontExtraData", () => _v23, "getFontFamily", () => _v11, "getPreferredFontByLanguage", () => _v19, "getRelativeFontSize", () => _v13, "groupFontsByFamily", () => _v16, "isFontSupportsLanguage", () => _v17, "loadFont", () => _v12, "loadFontFaceToDOM", () => _v15, "mapBrandKitFontToFont", () => _v22, "mapLoadingFontsToFontObjects", () => _v21], 0), _v0.s(["createSVGDimensions", () => _v7, "getSVGTextDimensions", () => _v9], 0);
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0);
   let _v3 = (_v0, _v1) => {
       let _v2 = _v0.match(_v1);
       return _v2 ? _v2.length : 0;
     },
-    _v4 = _v0 => _v0.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"),
-    _v5 = _v0 => _v0.replace(/<[^>]*>/g, "").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&amp;/g, "&"),
-    _v6 = _v0 => _v0.charAt(0).toUpperCase() + _v0.slice(1);
-  _v0.s(["capitalizeFirstLetter", 0, _v6, "convertSpecialHtmlChars", 0, _v4, "extractNumberFromString", 0, function (_v0, {
+    _v4 = _v0 => _v0.replace(/<[^>]*>/g, "").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&amp;/g, "&"),
+    _v5 = _v0 => _v0.charAt(0).toUpperCase() + _v0.slice(1);
+  _v0.s(["capitalizeFirstLetter", 0, _v5, "extractNumberFromString", 0, function (_v0, {
     returnInteger: _v1 = !1
   } = {}) {
     let _v2 = _v0.match(/#(\d+)/);
@@ -19,12 +18,13 @@
   }, "getExtension", 0, _v0 => {
     let _v1 = _v0.match(/[^.]+$/);
     return _v1?.[0];
-  }, "getMatchesCount", 0, _v3, "getUpperSnakeCase", 0, _v0 => _v0.toUpperCase().replace("-", "_"), "lowerCaseUnderscore", 0, _v0 => (0, _v2.default)(_v0).replaceAll(" ", "_"), "prettifyString", 0, _v0 => _v6(_v0.replaceAll("_", " ").replaceAll("-", " ").replace(/\.[^/.]+$/, "")), "randomString", 0, (_v0 = 5) => (Math.random() + 1).toString(36).substring(_v0), "textFromMarkup", 0, _v5], 0);
-  var _v7 = _v0.i(0);
-  let _v8 = _v0 => ({
-      SVG_WIDTH: _v7.ORIENTATION_MAP[_v0].width,
-      SVG_HEIGHT: _v7.ORIENTATION_MAP[_v0].height
+  }, "getMatchesCount", 0, _v3, "getUpperSnakeCase", 0, _v0 => _v0.toUpperCase().replace("-", "_"), "lowerCaseUnderscore", 0, _v0 => (0, _v2.default)(_v0).replaceAll(" ", "_"), "prettifyString", 0, _v0 => _v5(_v0.replaceAll("_", " ").replaceAll("-", " ").replace(/\.[^/.]+$/, "")), "randomString", 0, (_v0 = 5) => (Math.random() + 1).toString(36).substring(_v0), "textFromMarkup", 0, _v4], 0);
+  var _v6 = _v0.i(0);
+  let _v7 = _v0 => ({
+      SVG_WIDTH: _v6.ORIENTATION_MAP[_v0].width,
+      SVG_HEIGHT: _v6.ORIENTATION_MAP[_v0].height
     }),
+    _v8 = "http://www.w3.org/2000/svg",
     _v9 = ({
       font: _v0,
       fontSize: _v1 = .3,
@@ -37,7 +37,7 @@
         {
           SVG_WIDTH: _v7,
           SVG_HEIGHT: _v8
-        } = _v8(_v3),
+        } = _v7(_v3),
         _v9 = _v11(_v0),
         _v10 = (_v5 = (({
           width: _v0,
@@ -45,35 +45,27 @@
           text: _v2,
           fontSize: _v3,
           fontFamily: _v4
-        }) => `
-	<svg width="${_v0}" height="${_v1}">
-		<text x="0" y="50%" text-anchor="left" dominant-baseline="central">
-			${_v2.map(_v4).map(_v0 => `
-	<tspan 
-		x="0"
-		alignment-baseline="middle" 
-		style="font-size: ${_v3}px; 
-		font-family: ${_v4}; 
-		white-space: pre; 
-		-webkit-font-kerning: none; 
-		font-kerning: none;"
-	>${_v0}</tspan>
-`).join("")}
-		</text>
-	</svg>
-`)({
+        }) => {
+          let _v5 = document.createElementNS(_v8, "svg");
+          _v5.setAttribute("width", String(_v0)), _v5.setAttribute("height", String(_v1));
+          let _v6 = document.createElementNS(_v8, "text");
+          return _v6.setAttribute("x", "0"), _v6.setAttribute("y", "50%"), _v6.setAttribute("text-anchor", "left"), _v6.setAttribute("dominant-baseline", "central"), _v2.forEach(_v0 => {
+            let _v1;
+            _v6.appendChild(((_v1 = document.createElementNS(_v8, "tspan")).setAttribute("x", "0"), _v1.setAttribute("alignment-baseline", "middle"), _v1.style.fontSize = `${_v3}px`, _v1.style.fontFamily = _v4, _v1.style.whiteSpace = "pre", _v1.style.setProperty("-webkit-font-kerning", "none"), _v1.style.fontKerning = "none", _v1.textContent = _v0, _v1));
+          }), _v5.appendChild(_v6), _v5;
+        })({
           width: _v7,
           height: _v8,
-          text: _v2.map(_v0 => _v5(_v0)),
+          text: _v2.map(_v0 => _v4(_v0)),
           fontSize: _v1,
           fontFamily: _v9
-        }), (_v6 = document.createElement("div")).setAttribute("style", `position: absolute; visibility: hidden; width: ${window.innerWidth}px; overflow: hidden;`), _v6.innerHTML = _v5, _v6);
+        }), (_v6 = document.createElement("div")).setAttribute("style", `position: absolute; visibility: hidden; width: ${window.innerWidth}px; overflow: hidden;`), _v6.appendChild(_v5), _v6);
       document.body.appendChild(_v10);
       let _v11 = _v10.querySelector("text"),
         _v12 = [..._v10.querySelectorAll("tspan")],
         _v13 = _v11?.getBBox?.().width;
       if (!_v13) throw Error("Failed while measuring text");
-      return _v10 && _v10.parentNode?.removeChild(_v10), {
+      return _v10.remove(), {
         width: _v13 / _v7,
         height: parseFloat(_v12[0].style.fontSize) * _v4 * _v2.length / _v8
       };
@@ -94,13 +86,13 @@
     _v13 = (_v0, _v1) => {
       let {
         SVG_HEIGHT: _v2
-      } = _v8(_v1);
+      } = _v7(_v1);
       return _v0 / _v2;
     },
     _v14 = (_v0, _v1) => {
       let {
         SVG_HEIGHT: _v2
-      } = _v8(_v1);
+      } = _v7(_v1);
       return _v0 * _v2;
     },
     _v15 = async _v0 => {

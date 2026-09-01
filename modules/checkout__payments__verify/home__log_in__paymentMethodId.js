@@ -16,28 +16,33 @@
     _v13 = _v0.i(0),
     _v14 = _v0.i(0);
   let _v15 = ({
-    pmId: _v0
-  }) => {
-    let _v1 = (0, _v3.useRouter)(),
-      _v2 = (0, _v13.useViewer)();
-    return _v1.isReady && _v2 ? (0, _v1.jsx)(_v11.GctlProvider, {
-      xVimeoPage: _v1.pathname,
-      jwt: _v2?.jwt,
-      baseUrl: _v2 ? `https://${_v2.apiUrl}` : "",
-      locale: _v2?.locale,
-      children: (0, _v1.jsx)(_v2.Elements, {
-        stripe: null,
-        children: (0, _v1.jsx)(_v4.AddPaymentMethod, {
-          isVerification: !0,
-          pmId: _v0,
-          paymentFormType: _v5.PaymentFormTypes.TYPE_CREDIT_CARD,
-          stripeConfig: null,
-          openInvoice: null,
-          redirectUrl: "/home"
+      pmId: _v0
+    }) => {
+      let _v1 = (0, _v3.useRouter)(),
+        _v2 = (0, _v13.useViewer)();
+      return _v1.isReady && _v2 ? (0, _v1.jsx)(_v11.GctlProvider, {
+        xVimeoPage: _v1.pathname,
+        jwt: _v2?.jwt,
+        baseUrl: _v2 ? `https://${_v2.apiUrl}` : "",
+        locale: _v2?.locale,
+        children: (0, _v1.jsx)(_v2.Elements, {
+          stripe: null,
+          children: (0, _v1.jsx)(_v16, {
+            pmId: _v0
+          })
         })
-      })
-    }) : null;
-  };
+      }) : null;
+    },
+    _v16 = ({
+      pmId: _v0
+    }) => (0, _v1.jsx)(_v4.AddPaymentMethod, {
+      isVerification: !0,
+      pmId: _v0,
+      paymentFormType: _v5.PaymentFormTypes.TYPE_CREDIT_CARD,
+      stripeConfig: null,
+      openInvoice: null,
+      redirectUrl: "/home"
+    });
   _v15.getLayout = _v0 => (0, _v1.jsxs)(_v14.QueryParamProvider, {
     children: [(0, _v1.jsx)(_v8.DefaultNavigation, {}), _v0, (0, _v1.jsx)(_v12.MinimalFooterLayout, {})]
   }), (0, _v6.withPageSetup)(async _v0 => {
