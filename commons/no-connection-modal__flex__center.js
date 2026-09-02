@@ -13360,23 +13360,20 @@ ${_v9}
         audienceSpeakerActions: _v7
       } = (0, _v28.useManager)(_v621.AudienceSpeakersManager),
       {
-        settings: _v8
-      } = (0, _v130.useOrionSettings)(),
-      {
-        trackLiveStreamBackstageToggled: _v9
+        trackLiveStreamBackstageToggled: _v8
       } = (0, _v75.useLiveStreamBroadcasterTracking)(),
-      _v10 = _v8.enable_audience_speaker || _v4.canEnableAudienceSpeaker,
-      _v11 = (0, _v21.useCallback)(_v0 => {
+      _v9 = _v4.canEnableAudienceSpeaker,
+      _v10 = (0, _v21.useCallback)(_v0 => {
         let _v1 = _v0.target.checked;
-        (0, _v238.trackToggleAudioMode)(_v1), _v9({
+        (0, _v238.trackToggleAudioMode)(_v1), _v8({
           liveStreamNewStatus: _v1
         }), _v3.setAudioMode(_v1 ? _v301.EAudioMixingMode.SCENE : _v301.EAudioMixingMode.ALL);
-      }, [_v3, _v9]),
-      _v12 = _v2 === _v301.EAudioMixingMode.SCENE,
-      _v13 = (0, _v21.useCallback)(_v0 => {
+      }, [_v3, _v8]),
+      _v11 = _v2 === _v301.EAudioMixingMode.SCENE,
+      _v12 = (0, _v21.useCallback)(_v0 => {
         _v7.setEnabled(_v0.target.checked);
       }, [_v7]),
-      _v14 = (0, _v21.useCallback)(_v0 => {
+      _v13 = (0, _v21.useCallback)(_v0 => {
         _v7.setCameraEnabled(_v0.target.checked);
       }, [_v7]);
     return (0, _v17.jsx)(_v251.BokehPopover, {
@@ -13405,11 +13402,11 @@ ${_v9}
         children: [(0, _v17.jsx)(_v624, {
           title: _v66.translations.backstage,
           description: _v66.translations.backstageModeDescription,
-          isChecked: _v12,
-          onSwitchChange: _v11,
+          isChecked: _v11,
+          onSwitchChange: _v10,
           badgeEnabled: _v66.translations.open,
           badgeDisabled: _v66.translations.closed
-        }), _v10 ? (0, _v17.jsx)(_v624, {
+        }), _v9 ? (0, _v17.jsx)(_v624, {
           title: (0, _v111.translate)({
             singular: "Audience speakers",
             dictionary: {
@@ -13463,7 +13460,7 @@ ${_v9}
             }
           }),
           isChecked: _v5,
-          onSwitchChange: _v13,
+          onSwitchChange: _v12,
           badgeEnabled: _v66.translations.on,
           badgeDisabled: _v66.translations.off
         }) : null, _v5 ? (0, _v17.jsx)(_v624, {
@@ -13520,7 +13517,7 @@ ${_v9}
             }
           }),
           isChecked: _v6,
-          onSwitchChange: _v14,
+          onSwitchChange: _v13,
           badgeEnabled: _v66.translations.on,
           badgeDisabled: _v66.translations.off
         }) : null]

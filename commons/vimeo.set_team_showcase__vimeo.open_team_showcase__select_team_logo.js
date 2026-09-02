@@ -347,6 +347,7 @@
     basePlanPriceForDisplay: _v0.basePlanPriceForDisplay ?? null,
     subscriptionId: _v0.subscriptionId,
     rejoinOfferEligible: _v0.rejoinOfferEligible ?? !1,
+    vendor: _v0.vendor ?? null,
     totalPrice: _v0.totalPrice,
     totalPriceForDisplay: _v0.totalPriceForDisplay,
     currency: _v0.currency,

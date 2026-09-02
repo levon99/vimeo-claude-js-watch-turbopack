@@ -16,24 +16,45 @@
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
-    _v16 = _v0.i(0);
-  function _v17() {
+    _v16 = _v0.i(0),
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0),
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0),
+    _v22 = _v0.i(0),
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0),
+    _v25 = _v0.i(0),
+    _v26 = _v0.i(0),
+    _v27 = _v0.i(0),
+    _v28 = _v0.i(0),
+    _v29 = _v0.i(0),
+    _v30 = _v0.i(0),
+    _v31 = _v0.i(0),
+    _v32 = _v0.i(0),
+    _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0),
+    _v36 = _v0.i(0),
+    _v37 = _v0.i(0);
+  function _v38() {
     let {
         mutate: _v0
-      } = (0, _v15.useSWRConfig)(),
+      } = (0, _v37.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v16.useGctlConfig)(),
-      [_v5, _v6] = (0, _v13.useInternalState)();
+      } = (0, _v32.useGctlConfig)(),
+      [_v5, _v6] = (0, _v34.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/brandkits/${_v0.where.kitUuid}/colors${(0, _v13.serializeQuery)(_v0)}`, (0, _v14.postUserBrandkitColors)({
+        let _v0 = await _v0(`/videos/${_v0.where.videoId}/pictures/${_v0.where.pictureId}${(0, _v34.serializeQuery)(_v0)}`, (0, _v35.deleteVideoPicture)({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -56,1152 +77,1435 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v12.default.env.STORYBOOK && (0, _v13.assignMswData)(_v17, {
-    endpoint: "/users/:userId/brandkits/:kitUuid/colors",
-    method: "POST"
-  });
-  var _v18 = _v0.i(0),
-    _v19 = _v0.i(0),
-    _v20 = _v0.i(0),
-    _v21 = _v0.i(0),
-    _v22 = _v0.i(0),
-    _v23 = _v0.i(0),
-    _v24 = _v0.i(0),
-    _v25 = _v0.i(0),
-    _v26 = _v0.i(0),
-    _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
-    _v29 = _v0.i(0),
-    _v30 = _v0.i(0),
-    _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  function _v35({
-    items: _v0,
-    handleSelect: _v1,
-    selectedItem: _v2,
-    maxWidth: _v3
-  }) {
-    let _v4 = (0, _v2.useMemo)(() => [_v0?.[0]?.value || ""], [_v0]);
-    return (0, _v2.useEffect)(() => {
-      _v2 && "" !== _v2 || _v1(_v4[0]);
-    }, [_v4, _v1, _v2]), (0, _v1.jsx)(_v6.Flex, {
-      direction: "column",
-      sx: {
-        '& [data-part="trigger"]': {
-          outline: "none",
-          paddingLeft: "0",
-          border: "none",
-          width: "initial",
-          maxWidth: _v3 ?? "140px",
-          "&:focus": {
-            outline: "none",
-            border: "none",
-            boxShadow: "none"
-          },
-          "&:hover": {
-            outline: "none"
+  function _v39() {
+    let {
+        mutate: _v0
+      } = (0, _v37.useSWRConfig)(),
+      {
+        baseUrl: _v1,
+        jwt: _v2,
+        xVimeoPage: _v3,
+        locale: _v4
+      } = (0, _v32.useGctlConfig)(),
+      [_v5, _v6] = (0, _v34.useInternalState)();
+    return [(0, _v2.useCallback)(async _v0 => {
+      _v6({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await _v0(`/videos/${_v0.where.videoId}/pictures/${_v0.where.pictureId}${(0, _v34.serializeQuery)(_v0)}`, (0, _v35.patchVideoPicture)({
+          ..._v0,
+          baseUrl: _v1,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v2 ? `jwt ${_v2}` : "",
+            "Vimeo-Page": `${_v3}`,
+            "Accept-Language": _v4 ?? "en"
           }
+        }), !1);
+        _v6({
+          type: "SUCCESS",
+          payload: _v0
+        });
+      } catch (_v0) {
+        _v6({
+          type: "FAILURE",
+          payload: _v0
+        });
+      }
+    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+  }
+  "true" === _v33.default.env.STORYBOOK && (0, _v34.assignMswData)(function (_v0, _v1) {
+    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
+      {
+        baseUrl: _v3,
+        jwt: _v4,
+        xVimeoPage: _v5,
+        locale: _v6
+      } = (0, _v32.useGctlConfig)();
+    return (0, _v36.default)(_v2 ? `/videos/${_v2.where.videoId}/pictures/${_v2.where.pictureId}${(0, _v34.serializeQuery)(_v2)}` : () => null, _v2 ? () => (0, _v35.getVideoPicture)({
+      ..._v2,
+      headers: {
+        ..._v2.headers,
+        "Content-Type": "application/json",
+        Authorization: _v4 ? `jwt ${_v4}` : "",
+        "Vimeo-Page": `${_v5}`,
+        "Accept-Language": _v6 ?? "en"
+      },
+      baseUrl: _v3
+    }) : null, _v1);
+  }, {
+    endpoint: "/videos/:videoId/pictures/:pictureId",
+    method: "GET"
+  }), "true" === _v33.default.env.STORYBOOK && (0, _v34.assignMswData)(function () {
+    let {
+        mutate: _v0
+      } = (0, _v37.useSWRConfig)(),
+      {
+        baseUrl: _v1,
+        jwt: _v2,
+        xVimeoPage: _v3,
+        locale: _v4
+      } = (0, _v32.useGctlConfig)(),
+      [_v5, _v6] = (0, _v34.useInternalState)();
+    return [(0, _v2.useCallback)(async _v0 => {
+      _v6({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await _v0(`/videos/${_v0.where.videoId}/pictures/${_v0.where.pictureId}${(0, _v34.serializeQuery)(_v0)}`, (0, _v35.getVideoPicture)({
+          ..._v0,
+          baseUrl: _v1,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v2 ? `jwt ${_v2}` : "",
+            "Vimeo-Page": `${_v3}`,
+            "Accept-Language": _v4 ?? "en"
+          }
+        }));
+        _v6({
+          type: "SUCCESS",
+          payload: _v0
+        });
+      } catch (_v0) {
+        _v6({
+          type: "FAILURE",
+          payload: _v0
+        });
+      }
+    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+  }, {
+    endpoint: "/videos/:videoId/pictures/:pictureId",
+    method: "GET"
+  }), "true" === _v33.default.env.STORYBOOK && (0, _v34.assignMswData)(_v38, {
+    endpoint: "/videos/:videoId/pictures/:pictureId",
+    method: "DELETE"
+  }), "true" === _v33.default.env.STORYBOOK && (0, _v34.assignMswData)(_v39, {
+    endpoint: "/videos/:videoId/pictures/:pictureId",
+    method: "PATCH"
+  }), _v0.s(["useDeleteVideoPicture", 0, _v38, "usePatchVideoPicture", 0, _v39], 0);
+  var _v40 = _v0.i(0),
+    _v41 = _v0.i(0);
+  let _v42 = "image/png,image/x-png,image/jpeg,image/webp",
+    _v43 = "image/png,image/x-png,image/jpeg,image/webp,.jpg,.jpeg,.png,.webp";
+  function _v44(_v0) {
+    return !!(_v0?.configUrl && !1 !== _v0.isPlayable);
+  }
+  _v0.s(["THUMBNAIL_HEIGHT", 0, 360, "THUMBNAIL_SUPPORTED_IMAGE_INPUTS", 0, _v43, "THUMBNAIL_SUPPORTED_IMAGE_MIME", 0, _v42, "THUMBNAIL_WIDTH", 0, 640], 0);
+  let _v45 = (0, _v2.createContext)(null);
+  function _v46({
+    clipId: _v0,
+    onSaveSuccess: _v1,
+    onClose: _v2,
+    children: _v3
+  }) {
+    let _v4,
+      _v5,
+      [_v6, _v7] = (0, _v2.useState)(null),
+      [_v8, _v9] = (0, _v2.useState)(!1),
+      [_v10, _v11] = (0, _v2.useState)(!1),
+      [_v12, _v13] = (0, _v2.useState)(!1),
+      [_v14, _v15] = (0, _v2.useState)(!1),
+      [_v16, _v17] = (0, _v2.useState)(null),
+      [_v18, _v19] = (0, _v2.useState)(!1),
+      _v20 = (0, _v2.useRef)(null),
+      _v21 = (0, _v30.useToast)(),
+      _v22 = (0, _v2.useRef)(null),
+      _v23 = (0, _v2.useRef)(null),
+      {
+        data: _v24,
+        isLoading: _v25,
+        mutate: _v26
+      } = (0, _v40.useGetVideoPictures)({
+        where: {
+          videoId: _v0
         },
-        ' & [data-part="value-text"]': {
-          paddingRight: "5px",
-          fontWeight: "bold"
+        select: ["uri", "active", "baseLink", "sizes"],
+        query: {
+          sizes: ["640x360"]
+        }
+      }),
+      {
+        data: _v27,
+        isLoading: _v28
+      } = (0, _v41.useGetVideoVersions)({
+        where: {
+          videoId: _v0
         },
-        ' & [data-part="content"]': {
-          width: "initial"
+        select: ["configUrl", "width", "height", "active", "isPlayable", "versionTranscodeStatus", "sourceMetadata.video.width", "sourceMetadata.video.height", "sourceMetadata.video.fps"],
+        query: {
+          access_gates: 0
+        }
+      }, {
+        refreshInterval: _v0 => {
+          let _v1 = _v0?.data ?? [];
+          if (_v44(_v1.find(_v0 => _v0.active))) return 0;
+          let _v2 = _v1.find(_v0 => !_v0.active);
+          return 0 * (_v2?.versionTranscodeStatus !== "error");
+        },
+        revalidateOnFocus: !1
+      }),
+      _v29 = _v27?.data?.find(_v0 => _v0.active),
+      _v30 = _v29?.sourceMetadata?.video?.fps ?? 30,
+      _v31 = _v29?.configUrl,
+      _v32 = !_v28 && !_v44(_v29),
+      _v33 = (_v4 = _v29?.width ?? _v29?.sourceMetadata?.video?.width, _v5 = _v29?.height ?? _v29?.sourceMetadata?.video?.height, _v4 && _v5 ? `${_v4}/${_v5}` : "16/9"),
+      _v34 = (0, _v32.useGctlConfig)(),
+      [_v35] = _v39(),
+      [_v36] = _v38(),
+      _v37 = (_v24?.data ?? []).map(_v0 => {
+        let _v1 = _v0.uri.split("/");
+        return {
+          id: Number(_v1[_v1.length - 1]) || 0,
+          src: _v0.sizes?.[0]?.link ?? _v0.baseLink,
+          active: _v0.active
+        };
+      }),
+      _v38 = async _v0 => {
+        let _v1 = _v0[0];
+        if (!_v1 || !_v42.split(",").includes(_v1.type)) return;
+        if (_v13(!1), _v15(!1), _v1.size > 0) {
+          _v15(!0), _v13(!0);
+          return;
+        }
+        _v22.current = _v1, _v9(!0);
+        let _v2 = new AbortController();
+        _v23.current = _v2;
+        let _v3 = null;
+        try {
+          let _v0 = await (0, _v31.postVideoPictures)({
+            select: ["link", "uri"],
+            where: {
+              videoId: _v0
+            },
+            baseUrl: _v34.baseUrl,
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: _v34.jwt ? `jwt ${_v34.jwt}` : "",
+              "Vimeo-Page": `${_v34.xVimeoPage}`,
+              "Accept-Language": _v34.locale ?? "en"
+            }
+          });
+          if (_v0?.link && _v22.current) {
+            let _v0 = Number(_v0.uri?.split("/").pop());
+            _v3 = Number.isInteger(_v0) && _v0 > 0 ? _v0 : null;
+            let _v1 = await (await fetch(_v0.link, {
+              method: "PUT",
+              headers: {
+                "Content-Type": _v22.current.type
+              },
+              body: _v22.current,
+              signal: _v2.signal
+            })).json();
+            _v1?.status === "failure" ? (_v3 && (await _v36({
+              where: {
+                videoId: _v0,
+                pictureId: _v3
+              }
+            })), _v13(!0)) : _v3 && (await _v35({
+              select: ["active"],
+              where: {
+                videoId: _v0,
+                pictureId: _v3
+              },
+              variables: {
+                active: !0
+              }
+            }), _v1?.(), _v2());
+          }
+        } catch (_v0) {
+          if (_v0 instanceof DOMException && "AbortError" === _v0.name) {
+            if (null !== _v3) try {
+              await _v36({
+                where: {
+                  videoId: _v0,
+                  pictureId: _v3
+                }
+              });
+            } catch {}
+            return;
+          }
+          _v13(!0);
+        } finally {
+          _v9(!1);
         }
       },
-      children: 1 === _v0.length ? (0, _v1.jsx)(_v27.Text, {
-        variant: "heading-xs",
-        maxWidth: _v3 ?? "140px",
-        whiteSpace: "nowrap",
-        overflow: "hidden",
-        textOverflow: "ellipsis",
-        children: _v0[0].label
-      }) : (0, _v1.jsx)(_v34.Select, {
-        onValueChange: _v0 => {
-          _v1(_v0.value[0]);
-        },
-        size: "sm",
-        items: _v0,
-        variant: "outlined",
-        style: {
-          maxWidth: _v3 ?? "140px"
-        },
-        value: _v2 ? [_v2] : [],
-        children: _v0 => (0, _v1.jsx)(_v34.SelectItem, {
-          display: "flex",
-          children: (0, _v1.jsx)(_v34.SelectItemText, {
-            style: {
-              gridColumn: "2"
+      _v39 = async _v0 => {
+        _v11(!0);
+        try {
+          await _v35({
+            select: ["active"],
+            where: {
+              videoId: _v0,
+              pictureId: _v0
             },
-            children: _v0.label
-          })
-        }, _v0.value)
-      })
+            variables: {
+              active: !0
+            }
+          }), await _v26(), _v1?.(), _v2();
+        } catch {
+          _v21({
+            title: (0, _v24.translate)({
+              singular: "Changes could not be saved",
+              dictionary: {
+                es: {
+                  singular: "No se pudieron guardar los cambios"
+                },
+                "de-DE": {
+                  singular: "Änderungen konnten nicht gespeichert werden"
+                },
+                "fr-FR": {
+                  singular: "Les modifications n'ont pas pu être enregistrées"
+                },
+                "ja-JP": {
+                  singular: "変更を保存できませんでした"
+                },
+                "ko-KR": {
+                  singular: "변경 사항이 저장되지 않았습니다"
+                },
+                "pt-BR": {
+                  singular: "As alterações não puderam ser salvas"
+                },
+                "zh-CN": {
+                  singular: "无法保存更改"
+                }
+              }
+            })
+          });
+        } finally {
+          _v11(!1);
+        }
+      },
+      _v40 = async () => {
+        _v23.current?.abort(), _v2();
+      },
+      _v41 = async _v0 => {
+        _v11(!0);
+        let _v1 = null;
+        try {
+          let _v0 = await (0, _v31.postVideoPictures)({
+              select: ["uri"],
+              where: {
+                videoId: _v0
+              },
+              baseUrl: _v34.baseUrl,
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: _v34.jwt ? `jwt ${_v34.jwt}` : "",
+                "Vimeo-Page": `${_v34.xVimeoPage}`,
+                "Accept-Language": _v34.locale ?? "en"
+              },
+              variables: {
+                time: _v0,
+                createForVersion: !0
+              }
+            }),
+            _v1 = Number(_v0?.uri?.split("/").pop());
+          if (!(_v1 = Number.isInteger(_v1) && _v1 > 0 ? _v1 : null)) return void _v19(!0);
+          await _v35({
+            select: ["active"],
+            where: {
+              videoId: _v0,
+              pictureId: _v1
+            },
+            variables: {
+              active: !0
+            }
+          }), await _v26(), _v1?.(), _v2();
+        } catch {
+          if (null !== _v1) try {
+            await _v36({
+              where: {
+                videoId: _v0,
+                pictureId: _v1
+              }
+            });
+          } catch {}
+          _v19(!0);
+        } finally {
+          _v11(!1);
+        }
+      };
+    return (0, _v1.jsx)(_v45.Provider, {
+      value: {
+        clipId: _v0,
+        videoFps: _v30,
+        clipConfigUrl: _v31,
+        isLoadingVersions: _v28,
+        isFramePickerUnavailable: _v32,
+        thumbnails: _v37,
+        isLoadingThumbnails: _v25,
+        savedPendingId: _v6,
+        setSavedPendingId: _v7,
+        uploadFile: _v38,
+        isUploading: _v8,
+        isSaving: _v10,
+        uploadError: _v12,
+        fileTooLarge: _v14,
+        pendingTimecode: _v16,
+        setPendingTimecode: _v17,
+        timecodeError: _v18,
+        setTimecodeError: _v19,
+        selectFromVideoPlayerRef: _v20,
+        videoAspectRatio: _v33,
+        saveFromTimecode: _v41,
+        onSave: _v39,
+        onClose: _v40
+      },
+      children: _v3
     });
   }
-  var _v36 = _v0.i(0);
-  function _v37({
-    onChangeAdditionalColors: _v0,
-    setCurrentColor: _v1,
-    currentColor: _v2,
-    currentColorType: _v3
-  }) {
-    let [_v4, _v5] = _v2.default.useState(_v3 === _v36.ColorType.SOLID || _v3 === _v36.ColorType.GRADIENT ? _v3 : _v36.ColorType.SOLID),
-      _v6 = _v0 => _v3 === _v36.ColorType.SOLID && _v2.toLowerCase() === _v0.toLowerCase(),
-      _v7 = (0, _v2.useMemo)(() => _v33.ADDITIONAL_COLORS_LIST.find(_v0 => _v0.type === _v4), [_v4]);
-    return (0, _v1.jsxs)(_v6.Flex, {
-      flexDir: "column",
-      gap: "xs",
-      children: [(0, _v1.jsx)(_v35, {
-        handleSelect: _v0 => {
-          _v5(_v0);
-        },
-        items: _v33.ADDITIONAL_COLORS_LIST.map(_v0 => ({
-          label: _v0.name,
-          value: _v0.type
-        })),
-        selectedItem: _v4
-      }), _v7 && _v7.colors.length > 0 ? _v7.type === _v36.ColorType.GRADIENT ? (0, _v1.jsx)(_v6.Flex, {
-        gap: "sm",
-        flexWrap: "wrap",
-        children: _v7.colors.map((_v0, _v1) => {
-          let _v2;
-          return (0, _v1.jsx)(_v30.Tooltip, {
-            label: _v0.colorName,
-            children: (0, _v1.jsx)(_v29.IconButton, {
-              size: "xs",
-              width: (0, _v9.rem)(22),
-              variant: "tertiary",
-              isActive: (_v2 = _v0.colorValue, _v3 === _v36.ColorType.GRADIENT && _v2.toLowerCase() === _v2.toLowerCase()),
-              _active: {
-                outlineColor: "focus-alt",
-                outlineWidth: "2px",
-                outlineOffset: "2px"
-              },
-              _hover: {
-                background: _v0.colorValue,
-                outlineColor: "input-stroke-hover",
-                outlineWidth: "2px",
-                outlineOffset: "2px"
-              },
-              borderWidth: "1px",
-              borderColor: "check-radio-stroke",
-              borderRadius: "round !important",
-              background: `${_v0.colorValue} !important`,
-              sx: {
-                backgroundOrigin: "border-box !important",
-                height: `${(0, _v9.rem)(22)}!important`
-              },
-              onClick: () => {
-                _v0?.({
-                  value: _v0.colorValue,
-                  type: _v36.ColorType.GRADIENT,
-                  index: _v1
-                }), _v1(_v0.colorValue);
-              },
-              "aria-label": _v0.colorName,
-              marginLeft: "xs",
-              marginBottom: "xs"
-            })
-          }, `${_v0.colorName}-${_v0.colorValue}`);
-        })
-      }) : (0, _v1.jsx)(_v4.ColorPickerSwatchGroup, {
-        style: {
-          flexWrap: "wrap",
-          gap: "sm"
-        },
-        children: _v7.colors.map((_v0, _v1) => (0, _v1.jsx)(_v30.Tooltip, {
-          label: _v0.colorName,
-          children: (0, _v1.jsx)(_v3.Box, {
-            paddingLeft: "xs",
-            paddingBottom: "xs",
-            children: (0, _v1.jsx)(_v4.ColorPickerSwatchTrigger, {
-              value: _v0.colorValue,
-              "data-active": _v6(_v0.colorValue) ? "true" : void 0,
-              "data-state": _v6(_v0.colorValue) ? "checked" : "unchecked",
-              onClick: () => {
-                _v0?.({
-                  value: _v0.colorValue,
-                  type: _v36.ColorType.SOLID,
-                  index: _v1
-                }), _v1(_v0.colorValue);
-              },
-              children: (0, _v1.jsx)(_v4.ColorPickerSwatch, {
-                style: {
-                  width: (0, _v9.rem)(22),
-                  height: (0, _v9.rem)(22)
-                },
-                value: _v0.colorValue
-              })
-            })
+  function _v47() {
+    let _v0 = (0, _v2.useContext)(_v45);
+    if (!_v0) throw Error("useThumbnailChangeModal must be used within ThumbnailChangeModalProvider");
+    return _v0;
+  }
+  function _v48() {
+    let {
+      thumbnails: _v0,
+      isLoadingThumbnails: _v1,
+      savedPendingId: _v2,
+      setSavedPendingId: _v3,
+      videoAspectRatio: _v4
+    } = _v47();
+    return _v1 ? (0, _v1.jsx)(_v29.TabPanel, {
+      children: (0, _v1.jsx)(_v7.Flex, {
+        justifyContent: "center",
+        paddingY: "lg",
+        children: (0, _v1.jsx)(_v28.Spinner, {})
+      })
+    }) : _v0.length ? (0, _v1.jsx)(_v29.TabPanel, {
+      children: (0, _v1.jsx)(_v3.Box, {
+        display: "grid",
+        gridTemplateColumns: "repeat(4, 1fr)",
+        gap: "md",
+        paddingY: "sm",
+        children: _v0.map(_v0 => (0, _v1.jsx)(_v3.Box, {
+          as: "button",
+          onClick: () => _v3(_v0.id === _v2 ? null : _v0.id),
+          borderRadius: "md",
+          overflow: "hidden",
+          outline: _v0.id === _v2 ? "2px solid" : "1px solid",
+          outlineColor: _v0.id === _v2 ? "currentColor" : "stroke",
+          outlineOffset: _v0.id === _v2 ? "2px" : void 0,
+          cursor: "pointer",
+          padding: 0,
+          width: "100%",
+          bg: "surface",
+          style: {
+            aspectRatio: _v4
+          },
+          children: (0, _v1.jsx)(_v27.Image, {
+            src: _v0.src,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            display: "block",
+            alt: "",
+            style: {
+              transform: "scale(1.05)"
+            }
           })
-        }, `${_v0.colorName}-${_v0.colorValue}`))
-      }) : (0, _v1.jsx)(_v27.Text, {
-        variant: "body-sm",
-        children: (0, _v19.translate)({
-          singular: "No colors available in this list",
+        }, _v0.id))
+      })
+    }) : (0, _v1.jsx)(_v29.TabPanel, {
+      children: (0, _v1.jsx)(_v7.Flex, {
+        justifyContent: "center",
+        paddingY: "lg",
+        children: (0, _v24.translate)({
+          singular: "No saved thumbnails",
           dictionary: {
             es: {
-              singular: "No hay colores disponibles en esta lista"
+              singular: "No hay miniaturas guardadas"
             },
             "de-DE": {
-              singular: "Keine Farben in dieser Liste verfügbar"
+              singular: "Keine gespeicherten Vorschaubilder"
             },
             "fr-FR": {
-              singular: "Aucune couleur n'est disponible dans cette liste"
+              singular: "Pas de vignettes enregistrées"
             },
             "ja-JP": {
-              singular: "このリストには利用可能な色がありません"
+              singular: "保存されたサムネイルはありません"
             },
             "ko-KR": {
-              singular: "이 목록에는 사용할 수 있는 색상이 없습니다."
+              singular: "저장된 썸네일이 없습니다"
             },
             "pt-BR": {
-              singular: "Não há cores disponíveis nesta lista"
+              singular: "Sem miniaturas salvas"
             },
             "zh-CN": {
-              singular: "此列表中没有可用的颜色"
+              singular: "没有已保存的缩略图"
             }
           }
         })
-      })]
+      })
     });
   }
-  var _v38 = _v0.i(0);
-  function _v39({
-    onClick: _v0,
-    currentColor: _v1 = _v33.DEFAULT_BRANDING_COLOR,
-    isSelected: _v2
+  var _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0),
+    _v52 = _v0.i(0),
+    _v53 = _v0.i(0),
+    _v54 = _v0.i(0);
+  let _v55 = [.05, .15, .25, .35, .45, .55, .65, .75, .85, .95];
+  function _v56(_v0, _v1) {
+    let _v2 = Math.floor(_v0 / 0),
+      _v3 = Math.floor(_v0 % 0 / 60),
+      _v4 = Math.floor(_v0 % 60),
+      _v5 = String(_v3).padStart(2, "0"),
+      _v6 = String(_v4).padStart(2, "0");
+    return _v1 ? `${String(_v2).padStart(2, "0")}:${_v5}:${_v6}` : `${_v5}:${_v6}`;
+  }
+  function _v57({
+    children: _v0
   }) {
-    return (0, _v1.jsx)(_v30.Tooltip, {
-      label: (0, _v19.translate)({
-        singular: "Choose custom color",
+    return (0, _v1.jsx)(_v3.Box, {
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      borderWidth: "1px",
+      borderColor: "text-secondary",
+      color: "text-secondary",
+      fontSize: "body-xs",
+      lineHeight: 1,
+      px: (0, _v20.rem)(2),
+      py: (0, _v20.rem)(2),
+      children: _v0
+    });
+  }
+  function _v58() {
+    let {
+        clipId: _v0,
+        clipConfigUrl: _v1,
+        isLoadingVersions: _v2,
+        isFramePickerUnavailable: _v3,
+        videoAspectRatio: _v4,
+        pendingTimecode: _v5,
+        setPendingTimecode: _v6,
+        timecodeError: _v7,
+        setTimecodeError: _v8,
+        selectFromVideoPlayerRef: _v9,
+        videoFps: _v10
+      } = _v47(),
+      _v11 = (0, _v2.useRef)(_v5),
+      [_v12, _v13] = (0, _v2.useState)(_v5 ?? 0),
+      [_v14, _v15] = (0, _v2.useState)(0),
+      _v16 = (0, _v2.useRef)(!1),
+      _v17 = (0, _v2.useRef)(null),
+      _v18 = (0, _v2.useRef)(_v12),
+      _v19 = (0, _v2.useRef)(0),
+      _v20 = _v14 >= 0,
+      [_v21, _v22] = (0, _v2.useState)(null),
+      _v23 = (0, _v22.useIsMobile)(),
+      {
+        player: _v24
+      } = (0, _v54.usePlayer)(_v17, _v0, !!_v1, _v1 ?? "", !1);
+    (0, _v2.useEffect)(() => {
+      _v18.current = _v12;
+    }, [_v12]);
+    let _v25 = (0, _v2.useCallback)(_v0 => {
+      if ("ArrowLeft" !== _v0.key && "ArrowRight" !== _v0.key) return;
+      _v0.preventDefault(), _v0.stopPropagation();
+      let _v1 = 1 / _v10,
+        _v2 = _v0.shiftKey ? 1 : _v1,
+        _v3 = "ArrowRight" === _v0.key ? _v2 : -_v2,
+        _v4 = Math.max(0, Math.min(_v14, _v18.current + _v3));
+      _v9.current?.seekTo(_v4), _v13(_v4), _v6(_v4);
+    }, [_v14, _v10, _v6, _v9]);
+    (0, _v2.useEffect)(() => {
+      if (!_v24) return;
+      let _v0 = _v0 => _v25(_v0);
+      return document.addEventListener("keydown", _v0, !0), () => document.removeEventListener("keydown", _v0, !0);
+    }, [_v24, _v25]), (0, _v2.useEffect)(() => {
+      if (!_v24) return;
+      _v9.current = _v24;
+      let _v0 = () => {
+        _v24._overrideControlbarBehavior(!0), _v24._setControlbarVisibility(!1), _v24._setEmbedSettings({
+          title: 0,
+          byline: 0,
+          portrait: 0,
+          like: 0,
+          watch_later: 0,
+          share: 0,
+          embed: 0,
+          controls: 0,
+          ask_ai: 0
+        });
+      };
+      _v24.ready(() => {
+        _v0(), _v24.on("durationchange", _v0 => _v15(_v0.duration)), _v24.on("play", () => {
+          _v6(null), _v8(!1);
+        }), _v24.on("pause", _v0 => _v6(_v0.seconds)), _v24.on("timeupdate", _v0 => {
+          _v16.current || _v13(_v0.seconds);
+        }), _v24.play().then(() => {
+          _v24.pause(), _v0(), _v15(_v24.duration), _v22(_v24.config?.request?.thumb_preview ?? null);
+          let _v0 = _v11.current;
+          null !== _v0 && (_v24.seekTo(_v0), _v6(_v0), _v13(_v0));
+        });
+      });
+    }, [_v24, _v9, _v6, _v8]), (0, _v2.useEffect)(() => () => {
+      _v6(null);
+    }, [_v6]);
+    let _v26 = _v21 ? Math.ceil(_v21.frames / _v21.columns) : 0,
+      _v27 = _v55.reduce((_v0, _v1, _v2) => Math.abs(_v1 * _v14 - _v12) < Math.abs(_v55[_v0] * _v14 - _v12) ? _v2 : _v0, 0);
+    return (0, _v1.jsx)(_v29.TabPanel, {
+      children: _v2 ? (0, _v1.jsx)(_v7.Flex, {
+        justifyContent: "center",
+        alignItems: "center",
+        py: "xl",
+        children: (0, _v1.jsx)(_v28.Spinner, {
+          size: "lg"
+        })
+      }) : _v3 ? (0, _v1.jsxs)(_v7.Flex, {
+        direction: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        minH: (0, _v20.rem)(288),
+        p: "sm",
+        children: [(0, _v1.jsx)(_v28.Spinner, {
+          size: "md",
+          mb: "sm"
+        }), (0, _v1.jsx)(_v19.Text, {
+          variant: "heading-md",
+          textAlign: "center",
+          mb: "xs",
+          children: (0, _v24.translate)({
+            singular: "We're still processing this video...",
+            dictionary: {
+              es: {
+                singular: "Todavía estamos procesando este vídeo..."
+              },
+              "de-DE": {
+                singular: "Wir verarbeiten dieses Video noch..."
+              },
+              "fr-FR": {
+                singular: "Le traitement de cette vidéo est toujours en cours..."
+              },
+              "ja-JP": {
+                singular: "この動画はまだ処理中です..."
+              },
+              "ko-KR": {
+                singular: "이 비디오를 아직 처리하고 있습니다..."
+              },
+              "pt-BR": {
+                singular: "Ainda estamos processando este vídeo..."
+              },
+              "zh-CN": {
+                singular: "我们仍在处理此视频..."
+              }
+            }
+          })
+        }), (0, _v1.jsx)(_v19.Text, {
+          variant: "body-md",
+          color: "text-secondary",
+          textAlign: "center",
+          maxW: (0, _v20.rem)(256),
+          children: (0, _v24.translate)({
+            singular: "Frames will be available shortly, check back in a few minutes.",
+            dictionary: {
+              es: {
+                singular: "Los fotogramas estarán disponibles en breve, vuelve a comprobarlo en unos minutos."
+              },
+              "de-DE": {
+                singular: "Frames werden in Kürze verfügbar sein. Bitte schauen Sie in ein paar Minuten noch einmal vorbei."
+              },
+              "fr-FR": {
+                singular: "Les vignettes seront disponibles sous peu ; veuillez revenir dans quelques minutes."
+              },
+              "ja-JP": {
+                singular: "フレームは間もなく利用可能になります。数分後に再度ご確認ください。"
+              },
+              "ko-KR": {
+                singular: "프레임은 곧 제공됩니다. 몇 분 후에 다시 확인해 주세요."
+              },
+              "pt-BR": {
+                singular: "Os quadros estarão disponíveis em breve. Volte em alguns minutos."
+              },
+              "zh-CN": {
+                singular: "帧将很快可用，请在几分钟后再来查看。"
+              }
+            }
+          })
+        })]
+      }) : (0, _v1.jsxs)(_v3.Box, {
+        display: "flex",
+        flexDirection: "column",
+        gap: _v23 ? "md" : "sm",
+        children: [(0, _v1.jsxs)(_v3.Box, {
+          position: "relative",
+          w: "100%",
+          mx: "auto",
+          maxH: "40vh",
+          style: {
+            aspectRatio: _v4,
+            maxWidth: `calc(40vh * (${_v4}))`
+          },
+          bg: "black",
+          borderRadius: "sm",
+          overflow: "hidden",
+          children: [(0, _v1.jsx)("div", {
+            ref: _v17,
+            className: "player player-js",
+            style: {
+              width: "100%",
+              height: "100%"
+            }
+          }), !_v14 && (0, _v1.jsx)(_v7.Flex, {
+            position: "absolute",
+            inset: 0,
+            justifyContent: "center",
+            alignItems: "center",
+            bg: "surface",
+            children: (0, _v1.jsx)(_v28.Spinner, {
+              size: "lg"
+            })
+          }), !!_v14 && (0, _v1.jsxs)(_v1.Fragment, {
+            children: [(0, _v1.jsx)(_v3.Box, {
+              position: "absolute",
+              inset: 0,
+              onDoubleClick: _v0 => _v0.preventDefault()
+            }), (0, _v1.jsxs)(_v51.Badge, {
+              position: "absolute",
+              size: "sm",
+              fontWeight: "500",
+              bottom: (0, _v20.rem)(8),
+              right: (0, _v20.rem)(8),
+              children: [_v56(_v12, _v20), " / ", _v56(_v14, _v20)]
+            })]
+          })]
+        }), !!_v14 && (0, _v1.jsxs)(_v1.Fragment, {
+          children: [(0, _v1.jsxs)(_v52.Slider, {
+            min: 0,
+            max: _v14,
+            step: .001,
+            value: _v12,
+            focusThumbOnChange: !1,
+            overflow: "visible",
+            onChange: _v0 => {
+              _v16.current = !0, _v13(_v0);
+              let _v1 = Date.now();
+              _v1 - _v19.current >= 33 && (_v19.current = _v1, _v9.current?.seekTo(_v0));
+            },
+            onChangeEnd: _v0 => {
+              _v16.current = !1, _v9.current?.seekTo(_v0), _v6(_v0);
+            },
+            onKeyDown: _v0 => _v25(_v0),
+            children: [(0, _v1.jsx)(_v53.SliderTrack, {
+              children: (0, _v1.jsx)(_v53.SliderFilledTrack, {})
+            }), (0, _v1.jsx)(_v53.SliderThumb, {})]
+          }), null !== _v21 && (0, _v1.jsx)(_v3.Box, {
+            display: "flex",
+            children: _v55.map((_v0, _v1) => {
+              let _v2 = Math.min(Math.round(_v0 * _v21.frames), _v21.frames - 1),
+                _v3 = _v2 % _v21.columns,
+                _v4 = Math.floor(_v2 / _v21.columns),
+                _v5 = _v21.columns <= 1 ? 0 : _v3 / (_v21.columns - 1) * 100;
+              return (0, _v1.jsx)(_v3.Box, {
+                as: "button",
+                flex: "1 1 0",
+                cursor: "pointer",
+                position: "relative",
+                borderLeftRadius: 0 === _v1 ? "sm" : void 0,
+                borderRightRadius: _v1 === _v55.length - 1 ? "sm" : void 0,
+                overflow: "hidden",
+                style: {
+                  backgroundImage: `url(${_v21.url})`,
+                  backgroundSize: `${100 * _v21.columns}% ${100 * _v26}%`,
+                  backgroundPosition: `${_v5}% ${_v26 <= 1 ? 0 : _v4 / (_v26 - 1) * 100}%`,
+                  aspectRatio: _v4,
+                  outline: "none",
+                  ...(_v1 === _v27 && {
+                    zIndex: 1,
+                    overflow: "visible"
+                  })
+                },
+                onClick: () => {
+                  let _v0 = _v55[_v1] * _v14;
+                  _v9.current?.seekTo(_v0), _v13(_v0), _v6(_v0);
+                },
+                children: _v1 === _v27 && (0, _v1.jsx)(_v3.Box, {
+                  position: "absolute",
+                  inset: 0,
+                  borderRadius: "sm",
+                  pointerEvents: "none",
+                  style: {
+                    boxShadow: "0 0 0 2px var(--vimeo-colors-surface), 0 0 0 4px var(--vimeo-colors-text-primary)"
+                  }
+                })
+              }, _v1);
+            })
+          }), (0, _v1.jsxs)(_v7.Flex, {
+            justifyContent: "space-between",
+            alignItems: "center",
+            children: [(0, _v1.jsx)(_v19.Text, {
+              variant: "body-xs",
+              color: "text-secondary",
+              children: (0, _v24.translate)({
+                singular: "Drag to choose a frame",
+                dictionary: {
+                  es: {
+                    singular: "Arrastra para elegir un fotograma"
+                  },
+                  "de-DE": {
+                    singular: "Ziehen, um ein Einzelbild auszuwählen"
+                  },
+                  "fr-FR": {
+                    singular: "Faites glisser pour choisir une image"
+                  },
+                  "ja-JP": {
+                    singular: "フレームを選択するにはドラッグしてください"
+                  },
+                  "ko-KR": {
+                    singular: "프레임을 선택하려면 드래그하세요"
+                  },
+                  "pt-BR": {
+                    singular: "Arraste para escolher um quadro"
+                  },
+                  "zh-CN": {
+                    singular: "拖动以选择帧"
+                  }
+                }
+              })
+            }), (0, _v1.jsxs)(_v3.Box, {
+              display: {
+                base: "none",
+                md: "grid"
+              },
+              gridTemplateColumns: "auto auto",
+              columnGap: "xs",
+              rowGap: (0, _v20.rem)(2),
+              alignItems: "center",
+              children: [(0, _v1.jsx)(_v7.Flex, {
+                gap: "xs",
+                justifyContent: "flex-end",
+                alignItems: "center",
+                children: ["←", "→"].map(_v0 => (0, _v1.jsx)(_v57, {
+                  children: _v0
+                }, _v0))
+              }), (0, _v1.jsx)(_v19.Text, {
+                variant: "body-xs",
+                color: "text-secondary",
+                children: (0, _v24.translate)({
+                  singular: "step frame",
+                  dictionary: {
+                    es: {
+                      singular: "paso de fotograma"
+                    },
+                    "de-DE": {
+                      singular: "nächste Filmbild"
+                    },
+                    "fr-FR": {
+                      singular: "avancez image"
+                    },
+                    "ja-JP": {
+                      singular: "ステップ フレーム"
+                    },
+                    "ko-KR": {
+                      singular: "프레임 단위"
+                    },
+                    "pt-BR": {
+                      singular: "passo de quadro"
+                    },
+                    "zh-CN": {
+                      singular: "逐帧"
+                    }
+                  }
+                })
+              }), (0, _v1.jsxs)(_v7.Flex, {
+                gap: "xs",
+                justifyContent: "flex-end",
+                alignItems: "center",
+                children: [(0, _v1.jsx)(_v57, {
+                  children: "⇧"
+                }), (0, _v1.jsx)(_v19.Text, {
+                  variant: "body-xs",
+                  color: "text-secondary",
+                  children: "+"
+                }), ["←", "→"].map(_v0 => (0, _v1.jsx)(_v57, {
+                  children: _v0
+                }, _v0))]
+              }), (0, _v1.jsx)(_v19.Text, {
+                variant: "body-xs",
+                color: "text-secondary",
+                children: (0, _v24.translate)({
+                  singular: "step 1s",
+                  dictionary: {
+                    es: {
+                      singular: "paso 1s"
+                    },
+                    "de-DE": {
+                      singular: "nächste Sekunde"
+                    },
+                    "fr-FR": {
+                      singular: "avancez 1s"
+                    },
+                    "ja-JP": {
+                      singular: "ステップ 1秒"
+                    },
+                    "ko-KR": {
+                      singular: "1초 단위"
+                    },
+                    "pt-BR": {
+                      singular: "passo 1s"
+                    },
+                    "zh-CN": {
+                      singular: "步进 1 秒"
+                    }
+                  }
+                })
+              })]
+            })]
+          }), _v7 && (0, _v1.jsx)(_v49.Alert, {
+            status: "error",
+            children: (0, _v1.jsx)(_v50.AlertDescription, {
+              fontSize: "body-sm",
+              children: (0, _v24.translate)({
+                singular: "Could not save thumbnail",
+                dictionary: {
+                  es: {
+                    singular: "No se pudo guardar la miniatura"
+                  },
+                  "de-DE": {
+                    singular: "Das Thumbnail konnte nicht gespeichert werden"
+                  },
+                  "fr-FR": {
+                    singular: "Impossible d'enregistrer la miniature"
+                  },
+                  "ja-JP": {
+                    singular: "サムネイルを保存できませんでした"
+                  },
+                  "ko-KR": {
+                    singular: "섬네일을 저장할 수 없습니다"
+                  },
+                  "pt-BR": {
+                    singular: "Não foi possível salvar a miniatura"
+                  },
+                  "zh-CN": {
+                    singular: "无法保存缩略图"
+                  }
+                }
+              })
+            })
+          })]
+        })]
+      })
+    });
+  }
+  var _v59 = _v0.i(0);
+  function _v60() {
+    let {
+        uploadFile: _v0,
+        isUploading: _v1,
+        uploadError: _v2,
+        fileTooLarge: _v3
+      } = _v47(),
+      _v4 = (0, _v2.useRef)(null);
+    return (0, _v1.jsx)(_v29.TabPanel, {
+      children: (0, _v1.jsxs)(_v7.Flex, {
+        direction: "column",
+        alignItems: "center",
+        gap: "md",
+        paddingY: "lg",
+        children: [_v1 ? (0, _v1.jsx)(_v28.Spinner, {
+          size: "xl"
+        }) : (0, _v1.jsxs)(_v1.Fragment, {
+          children: [(0, _v1.jsx)(_v59.Upload, {
+            boxSize: "md"
+          }), (0, _v1.jsx)(_v19.Text, {
+            variant: "heading-md",
+            color: _v2 ? "text-error" : void 0,
+            children: _v3 ? (0, _v24.translate)({
+              singular: "File exceeds 10MB limit",
+              dictionary: {
+                es: {
+                  singular: "El archivo excede el límite de 10 MB"
+                },
+                "de-DE": {
+                  singular: "Datei überschreitet das 10 MB-Limit"
+                },
+                "fr-FR": {
+                  singular: "Le fichier dépasse la limite de 10 Mo"
+                },
+                "ja-JP": {
+                  singular: "ファイルが10MBの上限を超えています"
+                },
+                "ko-KR": {
+                  singular: "파일이 10MB 제한을 초과합니다"
+                },
+                "pt-BR": {
+                  singular: "O arquivo excede o limite de 10MB"
+                },
+                "zh-CN": {
+                  singular: "文件超过10MB限制"
+                }
+              }
+            }) : _v2 ? (0, _v24.translate)({
+              singular: "Upload failed",
+              dictionary: {
+                es: {
+                  singular: "Error en la subida"
+                },
+                "de-DE": {
+                  singular: "Hochladen ist fehlgeschlagen"
+                },
+                "fr-FR": {
+                  singular: "Échec de la mise en ligne"
+                },
+                "ja-JP": {
+                  singular: "アップロードが失敗しました"
+                },
+                "ko-KR": {
+                  singular: "업로드 실패"
+                },
+                "pt-BR": {
+                  singular: "Falha no carregamento"
+                },
+                "zh-CN": {
+                  singular: "上传失败"
+                }
+              }
+            }) : (0, _v24.translate)({
+              singular: "Select a file to upload",
+              dictionary: {
+                es: {
+                  singular: "Seleccione un archivo para subir"
+                },
+                "de-DE": {
+                  singular: "Wählen Sie eine Datei zum Hochladen aus"
+                },
+                "fr-FR": {
+                  singular: "Sélectionnez un fichier à téléverser"
+                },
+                "ja-JP": {
+                  singular: "アップロードするファイルを選択"
+                },
+                "ko-KR": {
+                  singular: "업로드할 파일을 선택하세요"
+                },
+                "pt-BR": {
+                  singular: "Selecione um arquivo para enviar"
+                },
+                "zh-CN": {
+                  singular: "选择要上传的文件"
+                }
+              }
+            })
+          }), !_v2 && (0, _v1.jsx)(_v19.Text, {
+            variant: "body-md",
+            color: "text-secondary",
+            children: (0, _v24.translate)({
+              singular: "JPG, PNG or WEBP. Max 10MB",
+              dictionary: {
+                es: {
+                  singular: "JPG, PNG o WEBP. Máx. 10MB"
+                },
+                "de-DE": {
+                  singular: "JPG, PNG oder WEBP. Max. 10 MB"
+                },
+                "fr-FR": {
+                  singular: "JPG, PNG ou WEBP. Max 10MB"
+                },
+                "ja-JP": {
+                  singular: "JPG、PNG、またはWEBP。最大10MB"
+                },
+                "ko-KR": {
+                  singular: "JPG, PNG 또는 WEBP. 최대 10MB"
+                },
+                "pt-BR": {
+                  singular: "JPG, PNG ou WEBP. Máx 10MB"
+                },
+                "zh-CN": {
+                  singular: "JPG、PNG 或 WEBP。最大 10MB"
+                }
+              }
+            })
+          })]
+        }), (0, _v1.jsx)("input", {
+          ref: _v4,
+          type: "file",
+          accept: _v43,
+          style: {
+            display: "none"
+          },
+          onChange: _v0 => {
+            _v0.target.files?.length && (_v0(_v0.target.files), _v0.target.value = "");
+          }
+        }), !_v1 && (0, _v1.jsx)(_v4.Button, {
+          variant: "secondary",
+          onClick: () => _v4.current?.click(),
+          children: (0, _v24.translate)({
+            singular: "Browse files",
+            dictionary: {
+              es: {
+                singular: "Explorar archivos"
+              },
+              "de-DE": {
+                singular: "Dateien durchsuchen"
+              },
+              "fr-FR": {
+                singular: "Parcourir les fichiers"
+              },
+              "ja-JP": {
+                singular: "ファイルを閲覧"
+              },
+              "ko-KR": {
+                singular: "파일 찾아보기"
+              },
+              "pt-BR": {
+                singular: "Navegar nos arquivos"
+              },
+              "zh-CN": {
+                singular: "浏览文件"
+              }
+            }
+          })
+        })]
+      })
+    });
+  }
+  function _v61({
+    description: _v0,
+    showChooseExisting: _v1,
+    ..._v2
+  }) {
+    let _v3 = (0, _v22.useIsMobile)(),
+      {
+        onClose: _v4,
+        onSave: _v5,
+        isSaving: _v6,
+        savedPendingId: _v7,
+        pendingTimecode: _v8,
+        selectFromVideoPlayerRef: _v9,
+        saveFromTimecode: _v10
+      } = _v47(),
+      [_v11, _v12] = (0, _v2.useState)(0),
+      _v13 = ["select-from-video", "upload-image", "saved"][_v11],
+      _v14 = "select-from-video" === _v13 && null !== _v8 || "saved" === _v13 && null !== _v7,
+      _v15 = _v1 ? (0, _v24.translate)({
+        singular: "Change thumbnail",
         dictionary: {
           es: {
-            singular: "Elija un color personalizado"
+            singular: "Cambiar miniatura"
           },
           "de-DE": {
-            singular: "Benutzerdefinierte Farbe auswählen"
+            singular: "Vorschaubild ändern"
           },
           "fr-FR": {
-            singular: "Choisir une couleur personnalisée"
+            singular: "Modifier la vignette"
           },
           "ja-JP": {
-            singular: "カスタムカラーを選択"
+            singular: "サムネイルを変更"
           },
           "ko-KR": {
-            singular: "커스텀 색상 선택"
+            singular: "썸네일 변경"
           },
           "pt-BR": {
-            singular: "Escolher cor customizada"
+            singular: "Alterar miniatura"
           },
           "zh-CN": {
-            singular: "选择自定义颜色"
+            singular: "更改缩略图"
+          }
+        }
+      }) : (0, _v24.translate)({
+        singular: "Add thumbnail",
+        dictionary: {
+          es: {
+            singular: "Agregar miniatura"
+          },
+          "de-DE": {
+            singular: "Vorschaubild hinzufügen"
+          },
+          "fr-FR": {
+            singular: "Ajouter une vignette"
+          },
+          "ja-JP": {
+            singular: "サムネイルを追加"
+          },
+          "ko-KR": {
+            singular: "썸네일 추가"
+          },
+          "pt-BR": {
+            singular: "Adicionar miniatura"
+          },
+          "zh-CN": {
+            singular: "添加缩略图"
           }
         }
       }),
-      placement: "top",
-      children: (0, _v1.jsx)(_v3.Box, {
-        children: (0, _v1.jsx)(_v38.Center, {
-          borderRadius: "round",
-          width: (0, _v9.rem)(25),
-          height: (0, _v9.rem)(25),
-          background: _v2 ? "transparent" : "linear-gradient(to right,#73D2F6,#10B5FC,#8BCF0D,#FFC34E,#FB8920,#FA4343,#9F3D5C,#503873)",
-          onClick: _v0,
-          cursor: "pointer",
-          sx: {
-            "&:hover": {
-              background: "transparent",
-              borderWidth: "2px",
-              borderColor: "input-stroke-hover"
+      _v16 = (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsxs)(_v13.ModalHeader, {
+          children: [(0, _v1.jsxs)(_v7.Flex, {
+            direction: "column",
+            gap: "xs",
+            children: [(0, _v1.jsx)(_v19.Text, {
+              variant: "heading-md",
+              translate: "no",
+              children: (0, _v1.jsx)("span", {
+                children: _v15
+              })
+            }), _v0 ? (0, _v1.jsx)(_v19.Text, {
+              maxW: "80%",
+              variant: "body-sm",
+              color: "text-secondary",
+              translate: "no",
+              children: (0, _v1.jsx)("span", {
+                children: _v0
+              })
+            }) : null]
+          }), (0, _v1.jsx)(_v10.ModalCloseButton, {
+            position: _v3 ? "unset" : void 0,
+            alignSelf: _v3 ? "center" : void 0
+          })]
+        }), (0, _v1.jsx)(_v9.ModalBody, {
+          paddingY: _v3 ? "lg" : void 0,
+          children: (0, _v1.jsxs)(_v16.Tabs, {
+            w: "100%",
+            variant: "soft",
+            isLazy: !0,
+            lazyBehavior: "keepMounted",
+            defaultIndex: 0,
+            onChange: _v0 => {
+              "select-from-video" === _v13 && _v9.current?.pause(), _v12(_v0);
             },
-            ...(_v2 && {
-              borderColor: "focus-alt",
-              borderWidth: "2px"
-            })
-          },
-          children: (0, _v1.jsx)(_v38.Center, {
-            width: (0, _v9.rem)(21),
-            height: (0, _v9.rem)(21),
-            borderRadius: "round",
-            background: _v2 ? "transparent" : "fill-blur",
-            sx: {
-              "&:hover": {
-                background: "transparent"
-              }
-            },
-            children: (0, _v1.jsx)(_v38.Center, {
-              width: (0, _v9.rem)(17),
-              height: (0, _v9.rem)(17),
-              borderRadius: "round",
-              background: _v1
-            })
+            children: [(0, _v1.jsx)(_v3.Box, {
+              position: "sticky",
+              top: 0,
+              zIndex: 1,
+              bg: "surface",
+              children: (0, _v1.jsxs)(_v17.TabList, {
+                children: [(0, _v1.jsx)(_v15.Tab, {
+                  whiteSpace: "normal",
+                  value: "select-from-video",
+                  isDisabled: _v6,
+                  height: _v3 ? "auto" : void 0,
+                  minH: _v3 ? (0, _v20.rem)(40) : void 0,
+                  _selected: _v3 ? {
+                    bg: "surface",
+                    borderRadius: "md"
+                  } : void 0,
+                  children: (0, _v24.translate)({
+                    singular: "Select from video",
+                    dictionary: {
+                      es: {
+                        singular: "Seleccionar del video"
+                      },
+                      "de-DE": {
+                        singular: "Aus dem Video auswählen"
+                      },
+                      "fr-FR": {
+                        singular: "Sélectionner dans la vidéo"
+                      },
+                      "ja-JP": {
+                        singular: "動画から選択"
+                      },
+                      "ko-KR": {
+                        singular: "동영상에서 선택"
+                      },
+                      "pt-BR": {
+                        singular: "Selecionar a partir do vídeo"
+                      },
+                      "zh-CN": {
+                        singular: "从视频中选择"
+                      }
+                    }
+                  })
+                }), (0, _v1.jsx)(_v15.Tab, {
+                  whiteSpace: "normal",
+                  value: "upload-image",
+                  isDisabled: _v6,
+                  height: _v3 ? "auto" : void 0,
+                  minH: _v3 ? (0, _v20.rem)(40) : void 0,
+                  _selected: _v3 ? {
+                    bg: "surface",
+                    borderRadius: "md"
+                  } : void 0,
+                  children: (0, _v24.translate)({
+                    singular: "Upload image",
+                    dictionary: {
+                      es: {
+                        singular: "Subir imagen"
+                      },
+                      "de-DE": {
+                        singular: "Bild hochladen"
+                      },
+                      "fr-FR": {
+                        singular: "Téléverser une image"
+                      },
+                      "ja-JP": {
+                        singular: "画像をアップロード"
+                      },
+                      "ko-KR": {
+                        singular: "이미지 업로드"
+                      },
+                      "pt-BR": {
+                        singular: "Enviar imagem"
+                      },
+                      "zh-CN": {
+                        singular: "上传图片"
+                      }
+                    }
+                  })
+                }), _v1 ? (0, _v1.jsx)(_v15.Tab, {
+                  whiteSpace: "normal",
+                  value: "saved",
+                  isDisabled: _v6,
+                  height: _v3 ? "auto" : void 0,
+                  minH: _v3 ? (0, _v20.rem)(40) : void 0,
+                  _selected: _v3 ? {
+                    bg: "surface",
+                    borderRadius: "md"
+                  } : void 0,
+                  children: (0, _v24.translate)({
+                    singular: "Saved",
+                    dictionary: {
+                      es: {
+                        singular: "Guardado"
+                      },
+                      "de-DE": {
+                        singular: "Gespeichert"
+                      },
+                      "fr-FR": {
+                        singular: "Enregistrée"
+                      },
+                      "ja-JP": {
+                        singular: "保存しました"
+                      },
+                      "ko-KR": {
+                        singular: "저장됨"
+                      },
+                      "pt-BR": {
+                        singular: "Salvo"
+                      },
+                      "zh-CN": {
+                        singular: "已保存"
+                      }
+                    }
+                  })
+                }) : null, !_v3 && (0, _v1.jsx)(_v16.TabIndicator, {})]
+              })
+            }), (0, _v1.jsxs)(_v18.TabPanels, {
+              children: [(0, _v1.jsx)(_v58, {}), (0, _v1.jsx)(_v60, {}), _v1 ? (0, _v1.jsx)(_v48, {}) : null]
+            })]
           })
+        }), "upload-image" !== _v13 && (0, _v1.jsx)(_v12.ModalFooter, {
+          borderTopWidth: "1px",
+          borderColor: "stroke",
+          children: (0, _v1.jsxs)(_v7.Flex, {
+            w: "100%",
+            justifyContent: "flex-end",
+            gap: "md",
+            children: [(0, _v1.jsx)(_v4.Button, {
+              type: "button",
+              variant: "ghost",
+              size: "md",
+              onClick: _v4,
+              children: (0, _v24.translate)({
+                singular: "Cancel",
+                dictionary: {
+                  es: {
+                    singular: "Cancelar"
+                  },
+                  "de-DE": {
+                    singular: "Abbrechen"
+                  },
+                  "fr-FR": {
+                    singular: "Annuler"
+                  },
+                  "ja-JP": {
+                    singular: "キャンセル"
+                  },
+                  "ko-KR": {
+                    singular: "취소"
+                  },
+                  "pt-BR": {
+                    singular: "Cancelar"
+                  },
+                  "zh-CN": {
+                    singular: "取消"
+                  }
+                }
+              })
+            }), (0, _v1.jsx)(_v4.Button, {
+              type: "button",
+              variant: "primary",
+              size: "md",
+              isDisabled: !_v14 || _v6,
+              isLoading: _v6,
+              onClick: () => {
+                "select-from-video" === _v13 && null !== _v8 ? _v10(_v8) : null !== _v7 && _v5(_v7);
+              },
+              children: (0, _v24.translate)({
+                singular: "Save",
+                dictionary: {
+                  es: {
+                    singular: "Guardar"
+                  },
+                  "de-DE": {
+                    singular: "Speichern"
+                  },
+                  "fr-FR": {
+                    singular: "Enregistrer"
+                  },
+                  "ja-JP": {
+                    singular: "保存"
+                  },
+                  "ko-KR": {
+                    singular: "저장"
+                  },
+                  "pt-BR": {
+                    singular: "Salvar"
+                  },
+                  "zh-CN": {
+                    singular: "保存"
+                  }
+                }
+              })
+            })]
+          })
+        })]
+      });
+    return _v3 ? (0, _v1.jsxs)(_v5.Drawer, {
+      isOpen: !0,
+      onClose: _v4,
+      placement: "bottom",
+      children: [(0, _v1.jsx)(_v14.ModalOverlay, {}), (0, _v1.jsx)(_v6.DrawerContent, {
+        children: _v16
+      })]
+    }) : (0, _v1.jsxs)(_v8.Modal, {
+      isOpen: !0,
+      onClose: _v4,
+      children: [(0, _v1.jsx)(_v14.ModalOverlay, {}), (0, _v1.jsx)(_v11.ModalContent, {
+        minW: _v21.bokehTheme.breakpoints.sm,
+        maxW: "40em",
+        ..._v2,
+        children: _v16
+      })]
+    });
+  }
+  _v0.s(["ThumbnailChangeModal", 0, function ({
+    clipId: _v0,
+    description: _v1,
+    isOpen: _v2,
+    showChooseExisting: _v3,
+    onClose: _v4,
+    onSaveSuccess: _v5,
+    ..._v6
+  }) {
+    return _v2 ? (0, _v1.jsx)(_v25.PlayerContextProvider, {
+      assetUrls: (0, _v23.getPlayerAssetUrls)(),
+      type: _v26.PlayerType.VimeoPlayer,
+      children: (0, _v1.jsx)(_v46, {
+        clipId: _v0,
+        onSaveSuccess: _v5,
+        onClose: _v4,
+        children: (0, _v1.jsx)(_v61, {
+          description: _v1,
+          showChooseExisting: _v3,
+          ..._v6
         })
       })
-    });
-  }
-  var _v40 = _v0.i(0);
-  function _v41({
-    brandCenterUrl: _v0,
-    onClickAddColor: _v1,
-    brandKits: _v2,
-    colors: _v3,
-    isOrganization: _v4,
-    isLocked: _v5,
-    handleOpenUpsellModal: _v6,
-    canUpsell: _v7,
-    hideUpsell: _v8,
-    canEdit: _v9,
-    selectedBrandKit: _v10,
-    setSelectedBrandKit: _v11,
-    currentColor: _v12,
-    isTeamOwner: _v13,
-    onChangeAdditionalColors: _v14,
-    onColorClick: _v15,
-    setCurrentColor: _v16,
-    currentColorType: _v17,
-    currentCustomColor: _v18,
-    useSolidAndGradientColors: _v19
-  }) {
-    let _v20 = _v0 => _v17 === _v36.ColorType.BRAND && _v12.toLowerCase() === _v0.toLowerCase();
-    return (0, _v1.jsxs)(_v6.Flex, {
-      direction: "column",
-      gap: "sm",
-      width: "208px",
-      children: [_v2?.length ? (0, _v1.jsxs)(_v6.Flex, {
-        gap: "xs",
-        flexDir: "column",
-        maxHeight: (0, _v9.rem)(200),
-        overflowY: "auto",
-        overflowX: "hidden",
-        marginBottom: "sm",
-        sx: {
-          "::-webkit-scrollbar": {
-            width: (0, _v9.rem)(6),
-            backgroundColor: "transparent"
-          },
-          "::-webkit-scrollbar-thumb": {
-            borderRadius: (0, _v9.rem)(50),
-            background: "fill-component",
-            filter: "opacity(30%)"
-          }
-        },
-        children: [(0, _v1.jsxs)(_v6.Flex, {
-          alignItems: "center",
-          justifyContent: "space-between",
-          children: [(0, _v1.jsx)(_v35, {
-            handleSelect: _v0 => {
-              _v11(_v0);
-            },
-            items: _v2,
-            selectedItem: _v10
-          }), _v9 && (0, _v1.jsx)(_v28.Button, {
-            className: "edit-button",
-            size: "xs",
-            variant: "secondary",
-            paddingX: "sm",
-            leftIcon: (0, _v1.jsx)(_v31.PopOut, {}),
-            onClick: () => {
-              window.open(_v0, "_blank");
-            },
-            children: (0, _v19.translate)({
-              singular: "Edit",
-              dictionary: {
-                es: {
-                  singular: "Editar"
-                },
-                "de-DE": {
-                  singular: "Bearbeiten"
-                },
-                "fr-FR": {
-                  singular: "Modifier"
-                },
-                "ja-JP": {
-                  singular: "編集"
-                },
-                "ko-KR": {
-                  singular: "편집"
-                },
-                "pt-BR": {
-                  singular: "Editar"
-                },
-                "zh-CN": {
-                  singular: "编辑"
-                }
-              }
-            })
-          })]
-        }), _v3?.length || _v9 ? (0, _v1.jsxs)(_v4.ColorPickerSwatchGroup, {
-          style: {
-            flexWrap: "wrap",
-            gap: "sm"
-          },
-          children: [_v3?.filter(_v0 => (0, _v40.isHexColor)(_v0.hex)).map((_v0, _v1) => (0, _v1.jsx)(_v30.Tooltip, {
-            label: _v0.name,
-            children: (0, _v1.jsx)(_v3.Box, {
-              paddingLeft: "xs",
-              paddingBottom: "xs",
-              children: (0, _v1.jsx)(_v4.ColorPickerSwatchTrigger, {
-                value: _v0.hex,
-                onClick: () => _v15?.(_v0),
-                "data-active": _v20(_v0.hex) ? "true" : void 0,
-                "data-state": _v20(_v0.hex) ? "checked" : "unchecked",
-                children: (0, _v1.jsx)(_v4.ColorPickerSwatch, {
-                  style: {
-                    width: (0, _v9.rem)(22),
-                    height: (0, _v9.rem)(22)
-                  },
-                  value: _v0.hex,
-                  "data-active": _v20(_v0.hex) ? "true" : void 0,
-                  "data-state": _v20(_v0.hex) ? "checked" : "unchecked"
-                })
-              })
-            })
-          }, _v1)), _v9 && !(_v4 && _v5) && (0, _v1.jsx)(_v30.Tooltip, {
-            label: (0, _v19.translate)({
-              singular: "Add brand color",
-              dictionary: {
-                es: {
-                  singular: "Agregue el color de la marca"
-                },
-                "de-DE": {
-                  singular: "Markenfarbe hinzufügen"
-                },
-                "fr-FR": {
-                  singular: "Ajouter une couleur de marque"
-                },
-                "ja-JP": {
-                  singular: "ブランドカラーを追加"
-                },
-                "ko-KR": {
-                  singular: "브랜드 색상 추가"
-                },
-                "pt-BR": {
-                  singular: "Adicionar cor da marca"
-                },
-                "zh-CN": {
-                  singular: "添加品牌颜色"
-                }
-              }
-            }),
-            children: (0, _v1.jsx)(_v29.IconButton, {
-              size: "xs",
-              variant: "secondary",
-              borderRadius: "round",
-              padding: "0",
-              icon: (0, _v1.jsx)(_v32.PlusSmall, {}),
-              "aria-label": "Add brand color",
-              onClick: () => _v1(!0)
-            })
-          })]
-        }) : _v13 && _v7 ? (0, _v1.jsxs)(_v6.Flex, {
-          flexDir: "column",
-          gap: "sm",
-          children: [(0, _v1.jsx)(_v27.Text, {
-            variant: "body-sm",
-            children: (0, _v19.translate)({
-              singular: "Create a shared color library to reuse across all your videos",
-              dictionary: {
-                es: {
-                  singular: "Cree una biblioteca de colores compartida para reutilizarla en todos sus videos"
-                },
-                "de-DE": {
-                  singular: "Erstellen einer gemeinsamen Farbbibliothek, die in allen Ihren Videos wiederverwendet werden kann"
-                },
-                "fr-FR": {
-                  singular: "Créez une bibliothèque de couleurs partagée que vous pourrez réutiliser dans toutes vos vidéos"
-                },
-                "ja-JP": {
-                  singular: "すべての動画で再利用するための共有カラーライブラリを作成"
-                },
-                "ko-KR": {
-                  singular: "모든 동영상에서 재사용할 공유 색상 라이브러리 만들기"
-                },
-                "pt-BR": {
-                  singular: "Crie uma biblioteca de cores compartilhada para reutilizar em todos os seus vídeos"
-                },
-                "zh-CN": {
-                  singular: "创建一个共享颜色库，以便在所有视频中重复使用"
-                }
-              }
-            })
-          }), (0, _v1.jsx)(_v28.Button, {
-            size: "xs",
-            width: "fit-content",
-            variant: "upsell",
-            onClick: _v6,
-            children: (0, _v19.translate)({
-              singular: "Upgrade to Team",
-              dictionary: {
-                es: {
-                  singular: "Actualizar a Team"
-                },
-                "de-DE": {
-                  singular: "Auf Team upgraden"
-                },
-                "fr-FR": {
-                  singular: "Passer à Team"
-                },
-                "ja-JP": {
-                  singular: "チームにアップグレード"
-                },
-                "ko-KR": {
-                  singular: "팀으로 업그레이드"
-                },
-                "pt-BR": {
-                  singular: "Fazer upgrade para a equipe"
-                },
-                "zh-CN": {
-                  singular: "升级到 Team"
-                }
-              }
-            })
-          })]
-        }) : _v13 && _v8 ? null : (0, _v1.jsx)(_v27.Text, {
-          variant: "body-sm",
-          height: (0, _v9.rem)(31),
-          children: (0, _v19.translate)({
-            singular: "Ask your admin to add colors to reuse across all your videos",
-            dictionary: {
-              es: {
-                singular: "Pídale a su administrador que agregue colores para reutilizarlos en todos sus videos"
-              },
-              "de-DE": {
-                singular: "Bitten Sie Ihren Admin, Farben hinzuzufügen, die Sie in allen Ihren Videos wiederverwenden können"
-              },
-              "fr-FR": {
-                singular: "Demandez à votre administrateur d'ajouter des couleurs que vous pourrez réutiliser dans toutes vos vidéos"
-              },
-              "ja-JP": {
-                singular: "すべての動画で再利用できるように管理者に色の追加を依頼"
-              },
-              "ko-KR": {
-                singular: "관리자에게 모든 동영상에 재사용할 색상을 추가해달라고 요청합니다."
-              },
-              "pt-BR": {
-                singular: "Peça ao seu administrador para adicionar cores para reutilizar em todos os seus vídeos"
-              },
-              "zh-CN": {
-                singular: "请让您的管理员添加颜色，以便在所有视频中重复使用"
-              }
-            }
-          })
-        })]
-      }) : _v13 && (0, _v1.jsxs)(_v6.Flex, {
-        gap: "sm",
-        flexDir: "column",
-        children: [(0, _v1.jsxs)(_v6.Flex, {
-          alignItems: "baseline",
-          justifyContent: "space-between",
-          children: [(0, _v1.jsx)(_v27.Text, {
-            variant: "heading-xs",
-            children: (0, _v19.translate)({
-              singular: "Brand kit",
-              dictionary: {
-                es: {
-                  singular: "Kit de marca"
-                },
-                "de-DE": {
-                  singular: "Brand Kit"
-                },
-                "fr-FR": {
-                  singular: "Kit de marque"
-                },
-                "ja-JP": {
-                  singular: "ブランドキット"
-                },
-                "ko-KR": {
-                  singular: "브랜드 키트"
-                },
-                "pt-BR": {
-                  singular: "Kit de marca"
-                },
-                "zh-CN": {
-                  singular: "品牌工具包"
-                }
-              }
-            })
-          }), _v9 && (0, _v1.jsx)(_v30.Tooltip, {
-            label: (0, _v19.translate)({
-              singular: "Create kit",
-              dictionary: {
-                es: {
-                  singular: "Crear kit"
-                },
-                "de-DE": {
-                  singular: "Kit erstellen"
-                },
-                "fr-FR": {
-                  singular: "Créer un kit"
-                },
-                "ja-JP": {
-                  singular: "キットを作成"
-                },
-                "ko-KR": {
-                  singular: "키트 만들기"
-                },
-                "pt-BR": {
-                  singular: "Criar kit"
-                },
-                "zh-CN": {
-                  singular: "创建工具包"
-                }
-              }
-            }),
-            placement: "top",
-            mt: "sm",
-            children: (0, _v1.jsx)(_v29.IconButton, {
-              "aria-label": "Create kit",
-              variant: "secondary",
-              icon: (0, _v1.jsx)(_v32.PlusSmall, {}),
-              size: "xs",
-              onClick: () => {
-                window.open(_v0, "_blank");
-              }
-            })
-          })]
-        }), (0, _v1.jsxs)(_v6.Flex, {
-          flexDir: "column",
-          gap: "sm",
-          children: [(0, _v1.jsx)(_v27.Text, {
-            variant: "body-sm",
-            children: (0, _v19.translate)({
-              singular: "Create a shared color library to reuse across all your videos",
-              dictionary: {
-                es: {
-                  singular: "Cree una biblioteca de colores compartida para reutilizarla en todos sus videos"
-                },
-                "de-DE": {
-                  singular: "Erstellen einer gemeinsamen Farbbibliothek, die in allen Ihren Videos wiederverwendet werden kann"
-                },
-                "fr-FR": {
-                  singular: "Créez une bibliothèque de couleurs partagée que vous pourrez réutiliser dans toutes vos vidéos"
-                },
-                "ja-JP": {
-                  singular: "すべての動画で再利用するための共有カラーライブラリを作成"
-                },
-                "ko-KR": {
-                  singular: "모든 동영상에서 재사용할 공유 색상 라이브러리 만들기"
-                },
-                "pt-BR": {
-                  singular: "Crie uma biblioteca de cores compartilhada para reutilizar em todos os seus vídeos"
-                },
-                "zh-CN": {
-                  singular: "创建一个共享颜色库，以便在所有视频中重复使用"
-                }
-              }
-            })
-          }), _v7 && !_v9 && (0, _v1.jsx)(_v28.Button, {
-            size: "xs",
-            width: "fit-content",
-            variant: "upsell",
-            onClick: _v6,
-            children: (0, _v19.translate)({
-              singular: "Upgrade to Team",
-              dictionary: {
-                es: {
-                  singular: "Actualizar a Team"
-                },
-                "de-DE": {
-                  singular: "Auf Team upgraden"
-                },
-                "fr-FR": {
-                  singular: "Passer à Team"
-                },
-                "ja-JP": {
-                  singular: "チームにアップグレード"
-                },
-                "ko-KR": {
-                  singular: "팀으로 업그레이드"
-                },
-                "pt-BR": {
-                  singular: "Fazer upgrade para a equipe"
-                },
-                "zh-CN": {
-                  singular: "升级到 Team"
-                }
-              }
-            })
-          })]
-        })]
-      }), _v19 && (0, _v1.jsx)(_v37, {
-        onChangeAdditionalColors: _v14,
-        setCurrentColor: _v16,
-        currentColor: _v12,
-        currentColorType: _v17
-      }), (_v2?.length || _v13 || _v19) && (0, _v1.jsx)(_v26.Divider, {
-        orientation: "horizontal",
-        borderColor: "stroke"
-      }), (0, _v1.jsxs)(_v6.Flex, {
-        alignItems: "center",
-        gap: "sm",
-        children: [(0, _v1.jsx)(_v39, {
-          currentColor: _v18,
-          onClick: () => _v1(!1),
-          isSelected: _v17 === _v36.ColorType.CUSTOM
-        }), (0, _v1.jsx)(_v25.Input, {
-          size: "sm",
-          isReadOnly: !0,
-          value: _v18
-        })]
-      })]
-    });
-  }
-  var _v42 = _v0.i(0);
-  function _v43({
-    onSave: _v0,
-    onCancel: _v1,
-    isAddingBrandColor: _v2,
-    brandKitName: _v3,
-    isLoading: _v4
-  }) {
-    return (0, _v1.jsxs)(_v6.Flex, {
-      gap: "3",
-      flexDir: "column",
-      children: [_v2 && (0, _v1.jsx)(_v27.Text, {
-        textAlign: "start",
-        variant: "heading-xs",
-        children: (0, _v19.translate)({
-          singular: "Add color to ",
-          dictionary: {
-            es: {
-              singular: "Agregar color a "
-            },
-            "de-DE": {
-              singular: "Farbe hinzufügen zu "
-            },
-            "fr-FR": {
-              singular: "Ajouter de la couleur à "
-            },
-            "ja-JP": {
-              singular: "色の次に追加： "
-            },
-            "ko-KR": {
-              singular: "다음에 색상 추가 "
-            },
-            "pt-BR": {
-              singular: "Adicionar cor a "
-            },
-            "zh-CN": {
-              singular: "添加颜色到 "
-            }
-          }
-        }) + _v3
-      }), (0, _v1.jsx)(_v4.ColorPickerArea, {}), (0, _v1.jsx)(_v42.Grid, {
-        gap: "200",
-        children: (0, _v1.jsx)(_v6.Flex, {
-          direction: "column",
-          gap: "200",
-          justifyContent: "center",
-          children: (0, _v1.jsxs)(_v4.ColorPickerChannelSlider, {
-            channel: "hue",
-            children: [(0, _v1.jsx)(_v4.ColorPickerChannelSliderTrack, {}), (0, _v1.jsx)(_v4.ColorPickerChannelSliderThumb, {})]
-          })
-        })
-      }), (0, _v1.jsxs)(_v6.Flex, {
-        gap: "3",
-        height: "sm",
-        children: [(0, _v1.jsx)(_v4.ColorPickerChannelInput, {
-          channel: "hex"
-        }), (0, _v1.jsx)(_v4.ColorPickerEyeDropperTrigger, {
-          style: {
-            paddingRight: "sm",
-            paddingLeft: "sm"
-          },
-          size: "sm"
-        })]
-      }), _v2 && (0, _v1.jsxs)(_v6.Flex, {
-        gap: "sm",
-        children: [(0, _v1.jsx)(_v28.Button, {
-          size: "sm",
-          variant: "secondary",
-          width: "50%",
-          onClick: _v1,
-          children: (0, _v19.translate)({
-            singular: "Cancel",
-            dictionary: {
-              es: {
-                singular: "Cancelar"
-              },
-              "de-DE": {
-                singular: "Abbrechen"
-              },
-              "fr-FR": {
-                singular: "Annuler"
-              },
-              "ja-JP": {
-                singular: "キャンセル"
-              },
-              "ko-KR": {
-                singular: "취소"
-              },
-              "pt-BR": {
-                singular: "Cancelar"
-              },
-              "zh-CN": {
-                singular: "取消"
-              }
-            }
-          })
-        }), (0, _v1.jsx)(_v28.Button, {
-          isLoading: _v4,
-          size: "sm",
-          variant: "primary",
-          width: "50%",
-          onClick: _v0,
-          children: (0, _v19.translate)({
-            singular: "Add",
-            dictionary: {
-              es: {
-                singular: "Agregar"
-              },
-              "de-DE": {
-                singular: "Hinzufügen"
-              },
-              "fr-FR": {
-                singular: "Ajouter"
-              },
-              "ja-JP": {
-                singular: "追加"
-              },
-              "ko-KR": {
-                singular: "추가"
-              },
-              "pt-BR": {
-                singular: "Adicionar"
-              },
-              "zh-CN": {
-                singular: "添加"
-              }
-            }
-          })
-        })]
-      })]
-    });
-  }
-  _v0.s(["ColorPickerBrandKit", 0, function ({
-    children: _v0,
-    onChange: _v1,
-    onClose: _v2,
-    controlled: _v3 = !1,
-    color: _v4,
-    colorIndex: _v5,
-    position: _v6 = _v33.DEFAULT_PICKER_PLACEMENT,
-    disabled: _v7 = !1,
-    productName: _v8 = "general",
-    hideUpsell: _v9 = !1,
-    useSolidAndGradientColors: _v10 = !1,
-    colorType: _v11 = _v36.ColorType.CUSTOM,
-    onChangeColorWithType: _v12,
-    testId: _v13
-  }) {
-    let [_v14, _v15] = (0, _v2.useState)(!1),
-      [_v16, _v17] = (0, _v2.useState)(_v36.ColorPickerMode.SWATCHES),
-      [_v18, _v19] = (0, _v2.useState)(""),
-      [_v20, _v21] = (0, _v2.useState)(!1),
-      _v22 = (0, _v40.determineColor)(_v4, _v5, _v11),
-      [_v23, _v24] = (0, _v2.useState)(_v22 || _v33.DEFAULT_BRANDING_COLOR),
-      [_v25, _v26] = (0, _v2.useState)(_v11 === _v36.ColorType.CUSTOM ? _v23 : _v33.DEFAULT_BRANDING_COLOR),
-      _v27 = _v2.default.Children.toArray(_v0),
-      _v28 = _v27.find(_v0 => _v2.default.isValidElement(_v0) && _v0.type === _v4.ColorPickerLabel),
-      _v29 = _v27.filter(_v0 => _v2.default.isValidElement(_v0) && _v0.type !== _v4.ColorPickerLabel);
-    (0, _v2.useEffect)(() => {
-      _v24((0, _v40.determineColor)(_v4, _v5, _v11));
-    }, [_v4, _v5, _v11]);
-    let _v30 = (0, _v2.useContext)(_v24.ViewerContext),
-      _v31 = _v30?.teamUser?.ownerId || _v30?.user?.id,
-      {
-        isWorkspace: _v32
-      } = (0, _v22.useIsWorkspace)(),
-      _v33 = _v32 ? _v21.BRANDKITS_WORKSPACE_URL : _v21.BRANDKITS_TEAM_URL,
-      _v34 = (0, _v10.useToast)(),
-      {
-        sendCreateBrandKitItemEvent: _v35,
-        sendAddBrandKitItemEvent: _v36
-      } = (0, _v23.useBrandKitsEvents)(),
-      _v37 = _v32 ? "workspace" : "team",
-      _v38 = Number(_v31 || 0),
-      {
-        data: _v39,
-        mutate: _v40
-      } = (0, _v18.useGetUserBrandkits)(() => _v31 ? {
-        where: {
-          userId: _v31
-        },
-        select: ["name", "uri", "colors", "isLocked", "isOrganization"]
-      } : null),
-      [_v41, {
-        loading: _v42
-      }] = _v17(),
-      _v43 = _v30?.user?.account,
-      _v44 = (0, _v2.useMemo)(() => ["free", "basic", "starter", "plus"], []),
-      _v45 = !_v30?.teamUser || _v30?.user?.id === _v30?.team?.ownerId,
-      _v46 = (0, _v2.useMemo)(() => !_v9 && _v44.includes(_v43) && _v45, [_v9, _v43, _v44, _v45]),
-      _v47 = _v39?.data,
-      _v48 = (0, _v2.useMemo)(() => _v47?.map(_v0 => ({
-        value: _v0?.uri?.split("/").pop() || "",
-        label: _v0?.name
-      })), [_v47]),
-      _v49 = (0, _v2.useMemo)(() => _v47?.find(_v0 => _v0?.uri.split("/").pop() === _v18), [_v47, _v18]),
-      [_v50, _v51] = (0, _v2.useState)(void 0),
-      _v52 = (0, _v2.useMemo)(() => (0, _v40.determineColorType)(_v50, _v11, _v23, _v10, _v47), [_v50, _v11, _v23, _v10, _v47]),
-      _v53 = _v49?.colors || [],
-      _v54 = _v49?.isOrganization,
-      _v55 = _v49?.isLocked,
-      _v56 = _v49?.uri;
-    (0, _v2.useEffect)(() => {
-      _v48?.length || _v45 || _v10 ? _v17(_v36.ColorPickerMode.SWATCHES) : _v17(_v36.ColorPickerMode.STANDARD);
-    }, [_v48, _v45]), (0, _v2.useEffect)(() => {
-      _v48?.length && !_v18 && _v19(_v48[0].value);
-    }, [_v48, _v18]);
-    let {
-        capabilities: {
-          hasManageBranding: _v57
-        }
-      } = (0, _v11.useCapability)(["hasManageBranding"], _v31),
-      _v58 = async () => {
-        try {
-          _v31 && (await _v41({
-            where: {
-              userId: _v54 && Number(_v56?.split("/").at(2)) || _v31,
-              kitUuid: _v18
-            },
-            select: ["name"],
-            variables: {
-              hex: _v23,
-              name: `Color ${_v53.length + 1}`
-            }
-          })), _v35({
-            itemId: _v23,
-            brandName: _v49?.name || "",
-            brandId: _v18,
-            ownershipEntity: _v37,
-            ownershipEntityId: _v38,
-            modalName: null,
-            itemType: "color",
-            location: _v33.BRAND_KIT_MODAL_LOCATION,
-            product: _v8
-          });
-        } catch (_v0) {
-          _v34({
-            title: "Failed to add color",
-            variant: "warning"
-          }), console.error("Error adding color:", _v0);
-        }
-        _v40(), _v51(_v36.ColorType.BRAND), _v17(_v36.ColorPickerMode.SWATCHES), _v21(!1);
-      },
-      _v59 = (0, _v40.isHexColor)(_v23);
-    return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v4.ColorPickerRoot, {
-        onInteractOutside: () => {
-          _v17(_v36.ColorPickerMode.SWATCHES), _v21(!1);
-        },
-        onExitComplete: () => {
-          _v17(_v36.ColorPickerMode.SWATCHES), _v59 && _v2?.(_v23);
-        },
-        ...(_v3 ? {
-          value: (0, _v7.parseColor)(_v59 ? _v23 : _v33.DEFAULT_BRANDING_COLOR)
-        } : {
-          defaultValue: _v59 ? (0, _v7.parseColor)(_v23) : void 0
-        }),
-        onValueChange: _v0 => {
-          if (!_v7) {
-            let _v0 = (0, _v8.toHex)(_v0.valueAsString);
-            _v24(_v0), _v26(_v0), _v51(_v36.ColorType.CUSTOM), _v1?.(_v0), _v12?.({
-              value: _v0,
-              type: _v36.ColorType.CUSTOM
-            });
-          }
-        },
-        open: !_v7 && _v20,
-        positioning: {
-          placement: _v6,
-          strategy: "fixed"
-        },
-        disabled: _v7,
-        style: {
-          width: "100%",
-          cursor: _v7 ? "not-allowed" : "pointer"
-        },
-        children: (0, _v1.jsxs)(_v6.Flex, {
-          gap: "xs",
-          alignItems: "center",
-          width: "100%",
-          style: {
-            cursor: _v7 ? "not-allowed" : "pointer"
-          },
-          children: [_v28 && (0, _v1.jsx)(_v1.Fragment, {
-            children: _v28
-          }), (0, _v1.jsx)(_v5.ColorPickerControl, {
-            style: {
-              width: "100%"
-            },
-            children: (0, _v1.jsx)(_v4.ColorPickerTrigger, {
-              onMouseDown: _v0 => {
-                _v0.preventDefault();
-              },
-              onClick: () => {
-                if (!_v7) {
-                  let _v0 = (0, _v40.findBrandkitForColor)(_v23, _v47);
-                  _v0 && _v19(_v0), _v21(!0);
-                }
-              },
-              children: _v29 ? (0, _v1.jsx)(_v3.Box, {
-                style: {
-                  opacity: _v7 ? .6 : 1,
-                  cursor: _v7 ? "not-allowed" : "pointer",
-                  pointerEvents: _v7 ? "none" : "auto"
-                },
-                children: _v29
-              }) : (0, _v1.jsx)(_v3.Box, {
-                height: "sm",
-                width: "sm",
-                cursor: "pointer",
-                borderRadius: "button",
-                bgColor: _v23
-              })
-            })
-          }), (0, _v1.jsx)(_v4.ColorPickerPositioner, {
-            style: {
-              boxShadow: "none",
-              backdropFilter: "none"
-            },
-            children: (0, _v1.jsx)(_v6.Flex, {
-              "data-testid": _v13,
-              children: (0, _v1.jsx)(_v4.ColorPickerContent, {
-                style: {
-                  border: "none",
-                  backgroundColor: "transparent",
-                  padding: 0,
-                  height: "max-content",
-                  maxHeight: (0, _v9.rem)(313),
-                  width: "max-content"
-                },
-                children: (0, _v1.jsx)(_v6.Flex, {
-                  gap: "xs",
-                  children: (0, _v1.jsx)(_v6.Flex, {
-                    boxShadow: "var(--vimeo-shadows-md)",
-                    backdropFilter: "blur(var(--vimeo-blur-md))",
-                    backgroundColor: "fill-blur",
-                    borderWidth: "px",
-                    borderColor: "var(--vimeo-colors-stroke)",
-                    padding: "3",
-                    borderRadius: "sm",
-                    maxWidth: (0, _v9.rem)(320),
-                    children: _v16 === _v36.ColorPickerMode.SWATCHES ? (0, _v1.jsx)(_v41, {
-                      currentColorType: _v52,
-                      setCurrentColor: _v24,
-                      brandCenterUrl: _v33,
-                      onClickAddColor: _v0 => {
-                        _v0 ? (_v17(_v36.ColorPickerMode.BRANDKIT), _v51(_v36.ColorType.BRAND)) : (_v17(_v36.ColorPickerMode.STANDARD), _v51(_v36.ColorType.CUSTOM)), _v21(!0);
-                      },
-                      currentCustomColor: _v25,
-                      brandKits: _v48,
-                      colors: _v53,
-                      isOrganization: _v54,
-                      isLocked: _v55,
-                      handleOpenUpsellModal: () => {
-                        _v15(!0);
-                      },
-                      canUpsell: _v46,
-                      hideUpsell: _v9,
-                      canEdit: _v57,
-                      setSelectedBrandKit: _v19,
-                      selectedBrandKit: _v18,
-                      currentColor: _v23,
-                      isTeamOwner: _v45,
-                      onChangeAdditionalColors: ({
-                        value: _v0,
-                        type: _v1,
-                        index: _v2
-                      }) => {
-                        _v51(_v1), _v1?.(_v0), _v12?.({
-                          value: _v0,
-                          type: _v1,
-                          index: _v2
-                        });
-                      },
-                      onColorClick: _v0 => {
-                        _v24(_v0.hex), _v1?.(_v0.hex), _v51(_v36.ColorType.BRAND), _v12?.({
-                          value: _v0.hex,
-                          type: _v36.ColorType.BRAND
-                        }), _v36({
-                          ownershipEntity: _v37,
-                          ownershipEntityId: _v38,
-                          itemId: _v0.hex,
-                          brandName: _v49?.name || "",
-                          brandId: _v18,
-                          itemType: "color",
-                          location: _v33.BRAND_KIT_MODAL_LOCATION,
-                          product: _v8
-                        });
-                      },
-                      useSolidAndGradientColors: _v10
-                    }) : (0, _v1.jsx)(_v43, {
-                      isAddingBrandColor: _v16 === _v36.ColorPickerMode.BRANDKIT,
-                      brandKitName: _v49?.name || "",
-                      onSave: _v58,
-                      onCancel: () => {
-                        _v17(_v36.ColorPickerMode.SWATCHES), _v21(!1);
-                      },
-                      isLoading: _v42
-                    })
-                  })
-                })
-              })
-            })
-          })]
-        })
-      }), _v14 && (0, _v1.jsx)(_v20.default, {
-        apiUrl: _v30?.apiUrl,
-        userConfig: {
-          jwt: _v30?.jwt,
-          userId: _v30?.user?.id
-        },
-        templateType: "default",
-        modalConfig: {
-          headerText: (0, _v19.translate)({
-            singular: "Upgrade to unlock more video tools",
-            dictionary: {
-              es: {
-                singular: "Cambie de plan para acceder a más herramientas de video"
-              },
-              "de-DE": {
-                singular: "Upgrade zur Freischaltung weiterer Video-Tools vornehmen"
-              },
-              "fr-FR": {
-                singular: "Mettre à niveau pour débloquer plus d'outils vidéo"
-              },
-              "ja-JP": {
-                singular: "アップグレードして、さらに多くの動画ツールをご利用ください"
-              },
-              "ko-KR": {
-                singular: "업그레이드하여 더 많은 동영상 도구를 이용하세요"
-              },
-              "pt-BR": {
-                singular: "Faça upgrade para acessar mais ferramentas de vídeo"
-              }
-            }
-          }),
-          subHeaderText: ""
-        },
-        onClose: () => _v15(!1),
-        tracking: {
-          params: {
-            feature: "color_picker_brand_kit"
-          },
-          paywallTracking: {
-            paywallTrigger: "color_picker_brand_kit_upgrade_button",
-            paywallLocation: "color_picker",
-            paywallType: "popup",
-            paywallFeature: "brand_kit"
-          }
-        }
-      })]
-    });
+    }) : null;
   }], 0);
 }

@@ -13636,13 +13636,14 @@
           } = (0, _v16.useOrionSettings)(),
           [_v3, _v4] = (0, _v3.useState)(!1),
           _v5 = _v0?.user?.id,
-          _v6 = null != _v5 && !_v0?.user?.capabilities?.hasPaid && (_v0?.teamUser?.accountType?.toString() ?? _v0?.user?.account?.toString()) === "free",
-          _v7 = (0, _v3.useCallback)(() => {
-            !_v2.default_modal_dismiss_offer_enabled || !_v6 || _v1 || null == _v5 || (0, _v167.hasDismissOfferBeenDisplayed)(_v5, "default_modal", _v2.default_modal_dismiss_offer_max_displays) || ((0, _v167.markDismissOfferDisplayed)(_v5, "default_modal"), _v4(!0));
-          }, [_v2.default_modal_dismiss_offer_enabled, _v2.default_modal_dismiss_offer_max_displays, _v6, _v1, _v5]);
-        return (0, _v3.useEffect)(() => (window.addEventListener(_v168.DEFAULT_MODAL_DISMISSED_EVENT, _v7), () => {
-          window.removeEventListener(_v168.DEFAULT_MODAL_DISMISSED_EVENT, _v7);
-        }), [_v7]), {
+          _v6 = _v0?.teamUser?.accountType?.toString() ?? _v0?.user?.account?.toString(),
+          _v7 = null != _v5 && !_v0?.user?.capabilities?.hasPaid && ("free" === _v6 || "basic" === _v6),
+          _v8 = (0, _v3.useCallback)(() => {
+            !_v2.default_modal_dismiss_offer_enabled || !_v7 || _v1 || null == _v5 || (0, _v167.hasDismissOfferBeenDisplayed)(_v5, "default_modal", _v2.default_modal_dismiss_offer_max_displays) || ((0, _v167.markDismissOfferDisplayed)(_v5, "default_modal"), _v4(!0));
+          }, [_v2.default_modal_dismiss_offer_enabled, _v2.default_modal_dismiss_offer_max_displays, _v7, _v1, _v5]);
+        return (0, _v3.useEffect)(() => (window.addEventListener(_v168.DEFAULT_MODAL_DISMISSED_EVENT, _v8), () => {
+          window.removeEventListener(_v168.DEFAULT_MODAL_DISMISSED_EVENT, _v8);
+        }), [_v8]), {
           isOpen: _v3,
           variant: _v2.dismiss_offer_paywall_variant,
           tracking: {

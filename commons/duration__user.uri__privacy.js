@@ -265,7 +265,7 @@
             _v9?.calendarLinks && _v4(_v9.calendarLinks);
           }, [_v4, _v9?.calendarLinks]);
         })(_v0, _v1), (0, _v2.useEffect)(() => {
-          if (_v0 && !_v13) {
+          if (_v0 && (!_v13 || _v19 > 0)) {
             let _v0 = (0, _v15.getCookie)(_v1),
               _v1 = (0, _v15.getEntityCookiePassword)(_v1, _v0) ?? _v9;
             _v14({
@@ -317,7 +317,7 @@
             let _v2 = {
               ..._v1
             };
-            _v0 && _v5(_v0), _v2.logo = (0, _v27.responseTransformer)("logo", _v2.logo), _v2.background = (0, _v27.responseTransformer)("background", _v2.background), _v2.customFields = (0, _v27.formatFields)(_v2.customFields), _v2.hiddenFields = (0, _v27.formatFields)(_v2.hiddenFields), _v3(_v2), _v7(_v2.enabledLocales ?? []), _v8(_v26.DEFAULT_LANGUAGE), _v18(_v25.RESPONSE_KEYS_MAP.customFields, _v2.customFields), _v18(_v25.RESPONSE_KEYS_MAP.hiddenFields, _v2.hiddenFields);
+            _v0 && _v5(_v0), _v2.logo = (0, _v27.responseTransformer)("logo", _v2.logo), _v2.background = (0, _v27.responseTransformer)("background", _v2.background), _v2.customFields = (0, _v27.formatFields)(_v2.customFields), _v2.hiddenFields = (0, _v27.formatFields)(_v2.hiddenFields), _v2.htmlLocalizations = (0, _v26.canonicalizeLocaleKeys)(_v2.htmlLocalizations), _v2.buttonLocalizations = (0, _v26.canonicalizeLocaleKeys)(_v2.buttonLocalizations), _v2.defaultHtmlLocalizations = (0, _v26.canonicalizeLocaleKeys)(_v2.defaultHtmlLocalizations), _v2.defaultButtonLocalizations = (0, _v26.canonicalizeLocaleKeys)(_v2.defaultButtonLocalizations), _v3(_v2), _v7(_v2.enabledLocales ?? []), _v8(_v26.DEFAULT_LANGUAGE), _v18(_v25.RESPONSE_KEYS_MAP.customFields, _v2.customFields), _v18(_v25.RESPONSE_KEYS_MAP.hiddenFields, _v2.hiddenFields);
           }
         }, [_v17, _v15]);
       })(_v1, _v2, {

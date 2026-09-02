@@ -975,23 +975,24 @@
             [_v6, _v7] = (0, _v11.useState)("pricing_logo_click"),
             _v8 = _v1?.user?.id,
             _v9 = (0, _v11.useRef)(!1),
-            _v10 = null != _v8 && !_v1?.user?.capabilities?.hasPaid && (_v1?.teamUser?.accountType?.toString() ?? _v1?.user?.account?.toString()) === "free",
-            _v11 = (0, _v11.useCallback)(_v0 => {
+            _v10 = _v1?.teamUser?.accountType?.toString() ?? _v1?.user?.account?.toString(),
+            _v11 = null != _v8 && !_v1?.user?.capabilities?.hasPaid && ("free" === _v10 || "basic" === _v10),
+            _v12 = (0, _v11.useCallback)(_v0 => {
               let _v1 = _v3.pricing_page_dismiss_offer_triggers;
-              return !(!_v0 || !_v10 || _v2 || "off" === _v1 || "pricing_logo_click" === _v0 && "logo_click" !== _v1 && "both" !== _v1 || null == _v8 || _v9.current || (0, _v46.hasDismissOfferBeenDisplayed)(_v8, "pricing_page", _v3.pricing_page_dismiss_offer_max_displays)) && (_v9.current = !0, (0, _v46.markDismissOfferDisplayed)(_v8, "pricing_page"), _v7(_v0), _v5(!0), !0);
-            }, [_v0, _v10, _v2, _v3.pricing_page_dismiss_offer_triggers, _v3.pricing_page_dismiss_offer_max_displays, _v8]),
-            _v12 = (0, _v11.useCallback)(() => _v5(!1), []),
-            _v13 = (0, _v11.useEffectEvent)(_v0 => {
-              null !== _v0.relatedTarget || _v4 || _v11("pricing_exit_intent");
+              return !(!_v0 || !_v11 || _v2 || "off" === _v1 || "pricing_logo_click" === _v0 && "logo_click" !== _v1 && "both" !== _v1 || null == _v8 || _v9.current || (0, _v46.hasDismissOfferBeenDisplayed)(_v8, "pricing_page", _v3.pricing_page_dismiss_offer_max_displays)) && (_v9.current = !0, (0, _v46.markDismissOfferDisplayed)(_v8, "pricing_page"), _v7(_v0), _v5(!0), !0);
+            }, [_v0, _v11, _v2, _v3.pricing_page_dismiss_offer_triggers, _v3.pricing_page_dismiss_offer_max_displays, _v8]),
+            _v13 = (0, _v11.useCallback)(() => _v5(!1), []),
+            _v14 = (0, _v11.useEffectEvent)(_v0 => {
+              null !== _v0.relatedTarget || _v4 || _v12("pricing_exit_intent");
             });
           return (0, _v11.useEffect)(() => {
             let _v0 = _v3.pricing_page_dismiss_offer_triggers;
-            if (!_v0 || !_v10 || _v2 || "cursor_leave" !== _v0 && "both" !== _v0 || _v1?.user?.id == null) return;
+            if (!_v0 || !_v11 || _v2 || "cursor_leave" !== _v0 && "both" !== _v0 || _v1?.user?.id == null) return;
             let _v1 = _v0 => {
-              _v13(_v0);
+              _v14(_v0);
             };
             return document.addEventListener("mouseout", _v1), () => document.removeEventListener("mouseout", _v1);
-          }, [_v0, _v10, _v2, _v3.pricing_page_dismiss_offer_triggers, _v1?.user?.id]), {
+          }, [_v0, _v11, _v2, _v3.pricing_page_dismiss_offer_triggers, _v1?.user?.id]), {
             isOpen: _v4,
             variant: _v3.dismiss_offer_paywall_variant,
             tracking: {
@@ -1000,8 +1001,8 @@
               paywallType: "popup",
               paywallFeature: "dismiss_offer"
             },
-            open: _v11,
-            close: _v12
+            open: _v12,
+            close: _v13
           };
         }(null !== _v11 && void 0 !== _v57 && void 0 !== _v7 && !_v31 && !(!_v25 && _v7?.redirectLoggedOut));
       return ((0, _v32.usePaywallTracking)({
@@ -1134,11 +1135,15 @@
           })
         }), _v43 && (0, _v1.jsx)(_v78, {}), _v80.isOpen && "wt_offer" === _v80.variant && (0, _v1.jsx)(_v25.PricingDismissOfferPaywall, {
           isOpen: !0,
-          onClose: _v80.close,
+          onClose: () => {
+            _v80.close(), "pricing_logo_click" === _v80.tracking.paywallTrigger && window.location.assign("/");
+          },
           paywallTracking: _v80.tracking
         }), _v80.isOpen && "ev_offer" === _v80.variant && (0, _v1.jsx)(_v26.WelcomeOfferModalPaywall, {
           isOpen: !0,
-          onClose: _v80.close,
+          onClose: () => {
+            _v80.close(), "pricing_logo_click" === _v80.tracking.paywallTrigger && window.location.assign("/");
+          },
           onDismiss: _v80.close,
           paywallTracking: _v80.tracking
         }), _v20]

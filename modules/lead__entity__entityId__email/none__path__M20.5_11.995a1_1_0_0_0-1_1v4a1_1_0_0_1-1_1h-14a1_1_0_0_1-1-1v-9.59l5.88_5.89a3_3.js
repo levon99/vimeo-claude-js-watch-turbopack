@@ -3095,6 +3095,8 @@
           alignItems: "flex-start",
           justifyContent: "center",
           flex: 1,
+          width: "100%",
+          minWidth: 0,
           gap: "2xl",
           p: (0, _v13.rem)(16),
           children: [(0, _v1.jsx)(_v5.Box, {
@@ -3108,6 +3110,7 @@
             children: (0, _v1.jsx)(_v81, {})
           }), (0, _v1.jsx)(_v5.Box, {
             flex: 5,
+            minWidth: 0,
             maxWidth: (0, _v13.rem)(0),
             height: "100%",
             overflowY: "auto",
@@ -3311,6 +3314,7 @@
               }), (0, _v1.jsx)(_v5.Box, {
                 position: "relative",
                 width: "100%",
+                overflowX: "hidden",
                 pb: (0, _v13.rem)(26),
                 height: (_v31.current?.clientHeight || 230) + 65 - 230,
                 ref: _v35,
@@ -3405,7 +3409,7 @@
             })
           }), (0, _v1.jsx)(_v5.Box, {
             flex: 2,
-            minWidth: (0, _v13.rem)(200),
+            minWidth: _v14 ? (0, _v13.rem)(320) : (0, _v13.rem)(200),
             overflowY: "auto",
             height: "100%",
             maxWidth: (0, _v13.rem)(400),

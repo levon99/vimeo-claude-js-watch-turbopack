@@ -7204,8 +7204,8 @@
   }
   class _v311 extends _v189 {
     recordingDurationLimit;
-    static TIMESLICE = 0;
     static VIDEO_KEY_FRAME_INTERVAL_DURATION = 0;
+    static TIMESLICE = _v148.isSafari ? _v311.VIDEO_KEY_FRAME_INTERVAL_DURATION : 0;
     static CHUNK_STALL_TIMEOUT = 2 * _v311.TIMESLICE + 0;
     log;
     mediaRecorder;

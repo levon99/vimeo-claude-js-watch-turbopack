@@ -4500,7 +4500,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "ec1ee2e864fc3d239b0f1ad80f6493a54e14d379",
+      release: "32660d2717099ffc292aafbbb13a519ade5670b3",
       ..._v0
     };
     !function (_v0) {
@@ -4638,9 +4638,14 @@ Error:`, _v0);
           }));
         if (_v0 && !_v1) return null;
       }
-      let _v9 = _v0.exception?.values?.[0];
-      if (_v9?.type === "TypeError" && _v9.value?.startsWith("Failed to fetch")) {
-        let _v0 = _v9.stacktrace?.frames ?? [],
+      let _v9 = _v0.exception?.values ?? [];
+      if (_v9.some(_v0 => (_v0.stacktrace?.frames ?? []).some(_v0 => (_v0.filename ?? _v0.abs_path ?? "").includes("fingerprint-spoof.js"))) && !_v9.some(_v0 => (_v0.stacktrace?.frames ?? []).some(_v0 => {
+        let _v1 = _v0.filename ?? _v0.abs_path ?? "";
+        return _v1.includes("_next/static") && !1 !== _v0.in_app || _v1.includes("app:///p/");
+      }))) return null;
+      let _v10 = _v0.exception?.values?.[0];
+      if (_v10?.type === "TypeError" && _v10.value?.startsWith("Failed to fetch")) {
+        let _v0 = _v10.stacktrace?.frames ?? [],
           _v1 = _v0.findIndex(_v0 => {
             let _v1 = _v0.filename ?? _v0.abs_path ?? "";
             return _v1.includes("datadog-rum.js") || _v1.includes("ajax-listener.js");
@@ -4652,24 +4657,24 @@ Error:`, _v0);
           }));
         if (-1 !== _v1 && !_v2 || (_v288 += 1) > 1) return null;
       }
-      let _v10 = _v0.exception?.values?.[0];
-      if (_v10?.type === "TypeError" && _v10.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && /\.split is not a function/.test(_v10.value ?? "")) {
+      let _v11 = _v0.exception?.values?.[0];
+      if (_v11?.type === "TypeError" && _v11.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && /\.split is not a function/.test(_v11.value ?? "")) {
         let _v0 = "u" > typeof navigator ? navigator.userAgent : "";
         if (/Tizen|SMART-TV/i.test(_v0)) return null;
       }
-      let _v11 = _v0.exception?.values?.[0];
-      if (_v11?.type === "TypeError" && "Illegal invocation" === _v11.value) {
-        let _v0 = _v11.stacktrace?.frames ?? [];
+      let _v12 = _v0.exception?.values?.[0];
+      if (_v12?.type === "TypeError" && "Illegal invocation" === _v12.value) {
+        let _v0 = _v12.stacktrace?.frames ?? [];
         if (_v0.length > 0 && _v0.every(_v0 => (_v0.filename ?? _v0.abs_path ?? "").includes("airgap.js"))) return null;
       }
-      let _v12 = _v0.exception?.values?.[0];
-      if (_v12?.type === "TypeError") {
-        let _v0 = _v12.stacktrace?.frames ?? [];
+      let _v13 = _v0.exception?.values?.[0];
+      if (_v13?.type === "TypeError") {
+        let _v0 = _v13.stacktrace?.frames ?? [];
         if (_v0.length > 0 && _v0.every(_v0 => (_v0.filename ?? _v0.abs_path ?? "").includes("mises_safe_injected.bundle.js"))) return null;
       }
-      let _v13 = _v0.exception?.values?.[0]?.value ?? "";
-      if (_v13.includes("Transcend Consent Manager cannot run on")) {
-        let _v0 = _v13.match(/cannot run on (\S+?)!/)?.[1],
+      let _v14 = _v0.exception?.values?.[0]?.value ?? "";
+      if (_v14.includes("Transcend Consent Manager cannot run on")) {
+        let _v0 = _v14.match(/cannot run on (\S+?)!/)?.[1],
           _v1 = "";
         try {
           _v1 = _v0 ? new URL(_v0).hostname : window.location.hostname;
@@ -4679,40 +4684,40 @@ Error:`, _v0);
         let _v2 = "vimeo.com" === _v1 || _v1.endsWith(".vimeo.com") || _v1.endsWith(".vimeows.com");
         if (_v1 && !_v2) return null;
       }
-      let _v14 = _v0.exception?.values?.[0];
-      if (_v14?.type === "TypeError" && "Cannot read properties of null (reading 'lastChild')" === _v14.value && (_v14.mechanism?.type === "auto.browser.global_handlers.onerror" || _v14.mechanism?.type === "onerror") && (_v14.stacktrace?.frames ?? []).some(_v0 => "prepareVideo" === _v0.function)) return null;
       let _v15 = _v0.exception?.values?.[0];
-      if (_v15?.type === "TypeError" && "Cannot read properties of null (reading 'style')" === _v15.value && (_v15.mechanism?.type === "auto.browser.global_handlers.onerror" || _v15.mechanism?.type === "onerror")) {
-        let _v0 = _v15.stacktrace?.frames ?? [];
+      if (_v15?.type === "TypeError" && "Cannot read properties of null (reading 'lastChild')" === _v15.value && (_v15.mechanism?.type === "auto.browser.global_handlers.onerror" || _v15.mechanism?.type === "onerror") && (_v15.stacktrace?.frames ?? []).some(_v0 => "prepareVideo" === _v0.function)) return null;
+      let _v16 = _v0.exception?.values?.[0];
+      if (_v16?.type === "TypeError" && "Cannot read properties of null (reading 'style')" === _v16.value && (_v16.mechanism?.type === "auto.browser.global_handlers.onerror" || _v16.mechanism?.type === "onerror")) {
+        let _v0 = _v16.stacktrace?.frames ?? [];
         if (_v0.length > 0 && _v0.every(_v0 => (_v0.filename ?? _v0.abs_path ?? "") === "<anonymous>")) return null;
       }
-      let _v16 = _v0.exception?.values?.[0];
-      if (_v16?.type === "InvalidStateError" && "The object is in an invalid state." === _v16.value && _v16.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v16.mechanism?.handled === !1 && _v16.mechanism?.data?.handler === "<anonymous>" && (_v290 += 1) > 1) return null;
       let _v17 = _v0.exception?.values?.[0];
-      if (_v17?.type === "TypeError" && _v17.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v17.mechanism?.handled === !1 && /tagName\.toLowerCase/.test(_v17.value ?? "") && (_v291 += 1) > 1) return null;
+      if (_v17?.type === "InvalidStateError" && "The object is in an invalid state." === _v17.value && _v17.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v17.mechanism?.handled === !1 && _v17.mechanism?.data?.handler === "<anonymous>" && (_v290 += 1) > 1) return null;
       let _v18 = _v0.exception?.values?.[0];
-      if (_v18?.type === "InvalidStateError" && _v18.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v18.mechanism?.handled === !1 && /Failed to read the 'responseText' property from 'XMLHttpRequest'/.test(_v18.value ?? "") && /was '(arraybuffer|json|blob|document)'/.test(_v18.value ?? "")) return null;
+      if (_v18?.type === "TypeError" && _v18.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v18.mechanism?.handled === !1 && /tagName\.toLowerCase/.test(_v18.value ?? "") && (_v291 += 1) > 1) return null;
       let _v19 = _v0.exception?.values?.[0];
-      if (_v19?.mechanism?.handled === !1 && /Java exception was raised during method invocation|Java object is gone|Java bridge method invocation error/.test(_v19.value ?? "")) return null;
+      if (_v19?.type === "InvalidStateError" && _v19.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v19.mechanism?.handled === !1 && /Failed to read the 'responseText' property from 'XMLHttpRequest'/.test(_v19.value ?? "") && /was '(arraybuffer|json|blob|document)'/.test(_v19.value ?? "")) return null;
       let _v20 = _v0.exception?.values?.[0];
-      if (_v20?.type === "SecurityError" && _v20.mechanism?.handled === !1 && _v20.mechanism?.type?.startsWith("auto.browser.browserapierrors.") && /Blocked a frame with origin|'cssRules' property from 'CSSStyleSheet'|access cross-origin stylesheet/.test(_v20.value ?? "")) return null;
+      if (_v20?.mechanism?.handled === !1 && /Java exception was raised during method invocation|Java object is gone|Java bridge method invocation error/.test(_v20.value ?? "")) return null;
       let _v21 = _v0.exception?.values?.[0];
-      if (_v21?.type === "UnhandledRejection" && /Object Not Found Matching Id:\d+, MethodName:\w+, ParamCount:\d+/.test(_v21.value ?? "") && !(_v21.stacktrace?.frames ?? []).some(_v0 => {
+      if (_v21?.type === "SecurityError" && _v21.mechanism?.handled === !1 && _v21.mechanism?.type?.startsWith("auto.browser.browserapierrors.") && /Blocked a frame with origin|'cssRules' property from 'CSSStyleSheet'|access cross-origin stylesheet/.test(_v21.value ?? "")) return null;
+      let _v22 = _v0.exception?.values?.[0];
+      if (_v22?.type === "UnhandledRejection" && /Object Not Found Matching Id:\d+, MethodName:\w+, ParamCount:\d+/.test(_v22.value ?? "") && !(_v22.stacktrace?.frames ?? []).some(_v0 => {
         let _v1 = _v0.filename ?? _v0.abs_path ?? "";
         return _v1.includes("_next/static") && !1 !== _v0.in_app || _v1.includes("app:///p/") || _v1.includes("/telecine") || _v1.includes("/media-sorcerer");
       })) return null;
-      let _v22 = _v0.exception?.values?.[0];
-      if (_v22?.type === "TypeError" && /window\.webkit\.messageHandlers/.test(_v22.value ?? "")) return null;
       let _v23 = _v0.exception?.values?.[0];
-      if (_v23?.type === "AbortError" && "signal is aborted without reason" === _v23.value && _v23.mechanism?.handled === !1 && (_v23.mechanism?.type === "auto.browser.global_handlers.onunhandledrejection" || _v23.mechanism?.type === "onunhandledrejection") || _v0.exception?.values?.some(_v0 => "HsBackgroundServiceWorkerUnavailableError" === _v0.type || _v0.value?.includes("background service worker unavailable"))) return null;
+      if (_v23?.type === "TypeError" && /window\.webkit\.messageHandlers/.test(_v23.value ?? "")) return null;
       let _v24 = _v0.exception?.values?.[0];
-      if (_v24?.type === "ReferenceError" && _v24.mechanism?.handled === !1 && _v24.mechanism?.type?.startsWith("auto.browser.browserapierrors.") && (_v289 += 1) > 1) return null;
+      if (_v24?.type === "AbortError" && "signal is aborted without reason" === _v24.value && _v24.mechanism?.handled === !1 && (_v24.mechanism?.type === "auto.browser.global_handlers.onunhandledrejection" || _v24.mechanism?.type === "onunhandledrejection") || _v0.exception?.values?.some(_v0 => "HsBackgroundServiceWorkerUnavailableError" === _v0.type || _v0.value?.includes("background service worker unavailable"))) return null;
       let _v25 = _v0.exception?.values?.[0];
-      if (_v25?.value?.startsWith("Module load timeout") && (_v287 += 1) > 1) return null;
+      if (_v25?.type === "ReferenceError" && _v25.mechanism?.handled === !1 && _v25.mechanism?.type?.startsWith("auto.browser.browserapierrors.") && (_v289 += 1) > 1) return null;
       let _v26 = _v0.exception?.values?.[0];
-      if (_v26?.value === "Please use the NodeViewWrapper component for your node view." && (_v292 += 1) > 1) return null;
+      if (_v26?.value?.startsWith("Module load timeout") && (_v287 += 1) > 1) return null;
       let _v27 = _v0.exception?.values?.[0];
-      if (_v27?.type === "TypeError" && "Cannot read properties of undefined (reading 'M_ID')" === _v27.value) return null;
+      if (_v27?.value === "Please use the NodeViewWrapper component for your node view." && (_v292 += 1) > 1) return null;
+      let _v28 = _v0.exception?.values?.[0];
+      if (_v28?.type === "TypeError" && "Cannot read properties of undefined (reading 'M_ID')" === _v28.value) return null;
       if (_v0.exception?.values?.[0]?.type === "UnhandledRejection" && void 0 === _v1.originalException) try {
         let _v0 = document.querySelector("[data-ready]"),
           _v1 = null,

@@ -119,14 +119,15 @@
       (0, _v5.offRefEvent)(_v0.firebase, _v4, "child_added", _v2), (0, _v5.offRefEvent)(_v0.firebase, _v4, "child_removed", _v3);
     }) : _v3.CallablePlaceholder;
   }, "subscribeToChatMessages", 0, function (_v0, _v1, _v2, _v3) {
-    let _v4 = (0, _v1.default)(_v0 => (0, _v10.trackLiveAction)("chat_message_delivery_lag", {
+    let _v4 = 0,
+      _v5 = (0, _v1.default)(_v0 => (0, _v10.trackLiveAction)("chat_message_delivery_lag", {
         chatType: _v4.CHAT_TYPE_LABELS[_v1],
         lagMs: _v0,
         visibility: document.visibilityState
       }), _v2.interactionToolsConfig.CHAT.DELIVERY_LAG_TRACK_INTERVAL, {
         trailing: !1
       }),
-      _v5 = _v0 => {
+      _v6 = _v0 => {
         let _v1 = _v0.val();
         if (!_v0.key) return _v0.log.error("Failed to add message, no snapshot key:", _v1);
         try {
@@ -164,7 +165,7 @@
                   participants: _v1
                 });
               }
-            }(_v0, _v3), _v0.context.hydratedAt && _v0.createdAt > _v0.context.hydratedAt && _v4((0, _v9.getAbsoluteNow)() - _v0.createdAt);
+            }(_v0, _v3), _v0.context.hydratedAt && _v0.createdAt > _v0.context.hydratedAt && _v0.createdAt >= _v4 && (_v4 = _v0.createdAt, _v5((0, _v9.getAbsoluteNow)() - _v0.createdAt));
           }
         } catch (_v0) {
           (0, _v10.trackLiveError)(_v0, {
@@ -177,7 +178,7 @@
           });
         }
       },
-      _v6 = _v0 => {
+      _v7 = _v0 => {
         if (!_v0.key) return _v0.log.error("Failed to remove message, no snapshot key:", _v0.key);
         {
           let {
@@ -190,8 +191,8 @@
           });
         }
       };
-    return (0, _v5.onRefEvent)(_v0.firebase, _v0.firebase.database.query(_v2, _v0.firebase.database.limitToLast(25)), "child_added", _v5, "chat-messages"), (0, _v5.onRefEvent)(_v0.firebase, _v2, "child_removed", _v6, "chat-messages"), () => {
-      (0, _v5.offRefEvent)(_v0.firebase, _v2, "child_added", _v5), (0, _v5.offRefEvent)(_v0.firebase, _v2, "child_removed", _v6);
+    return (0, _v5.onRefEvent)(_v0.firebase, _v0.firebase.database.query(_v2, _v0.firebase.database.limitToLast(25)), "child_added", _v6, "chat-messages"), (0, _v5.onRefEvent)(_v0.firebase, _v2, "child_removed", _v7, "chat-messages"), () => {
+      (0, _v5.offRefEvent)(_v0.firebase, _v2, "child_added", _v6), (0, _v5.offRefEvent)(_v0.firebase, _v2, "child_removed", _v7);
     };
   }, "subscribeToChatStatus", 0, function (_v0, _v1) {
     let _v2 = _v0 => {

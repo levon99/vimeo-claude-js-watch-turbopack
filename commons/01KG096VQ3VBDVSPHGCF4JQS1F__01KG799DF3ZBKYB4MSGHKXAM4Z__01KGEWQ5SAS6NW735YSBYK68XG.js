@@ -13,15 +13,16 @@
     },
     _v4 = ["rp_2026", "rp_2026_strict", "rp_2026_low", "rp_2026_high"].map(_v0 => _v3[_v0]),
     _v5 = _v3.rp_2026_low,
-    _v6 = _v0 => _v0 && "null" !== _v0 && _v3.hasOwnProperty(_v0) ? _v3[_v0] : null;
-  _v0.s(["REPACKAGING_CAMPAIGN_IDS", 0, _v4, "RP_2026_LOW_CAMPAIGN_ID", 0, _v5, "useCampaignIdOverride", 0, () => {
+    _v6 = _v3.rp_2026_high,
+    _v7 = _v0 => _v0 && "null" !== _v0 && _v3.hasOwnProperty(_v0) ? _v3[_v0] : null;
+  _v0.s(["REPACKAGING_CAMPAIGN_IDS", 0, _v4, "RP_2026_HIGH_CAMPAIGN_ID", 0, _v6, "RP_2026_LOW_CAMPAIGN_ID", 0, _v5, "useCampaignIdOverride", 0, () => {
     let {
         settings: _v0
       } = (0, _v2.useOrionSettings)(),
       _v1 = (0, _v1.useViewer)(),
-      _v2 = _v6(_v0.campaign_id_override_top_priority);
+      _v2 = _v7(_v0.campaign_id_override_top_priority);
     if (_v2) return _v2;
     let _v3 = _v0.campaign_id_override;
-    return "pi_2026" === _v3 && (_v3 = ["basic", "plus", "pro", "pro_unlimited", "pro_custom", "business", "live_business", "live_pro", "live_premium"].includes(_v1?.teamUser?.accountType?.toString() ?? _v1?.user?.account?.toString() ?? "") ? "pi_2026_legacy_plans" : "pi_2026_storage_seat"), _v6(_v3);
+    return "pi_2026" === _v3 && (_v3 = ["basic", "plus", "pro", "pro_unlimited", "pro_custom", "business", "live_business", "live_pro", "live_premium"].includes(_v1?.teamUser?.accountType?.toString() ?? _v1?.user?.account?.toString() ?? "") ? "pi_2026_legacy_plans" : "pi_2026_storage_seat"), _v7(_v3);
   }]);
 }

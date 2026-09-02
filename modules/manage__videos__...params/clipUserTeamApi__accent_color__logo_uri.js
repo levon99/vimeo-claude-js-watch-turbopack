@@ -349,8 +349,9 @@
         _v3 = (0, _v84.useVersionsStore)(_v0 => _v0.setIsLocalUploadActive),
         _v4 = (0, _v29.useMemo)(() => _v1.find(_v0 => _v0.clipId === _v0.toString()), [_v1, _v0]);
       (0, _v29.useEffect)(() => {
-        _v3(_v4?.state === _v82.STATES.UPLOADING);
-      }, [_v4?.state, _v3]);
+        let _v0 = !_v4?.state || [_v82.STATES.COMPLETED, _v82.STATES.FAILED, _v82.STATES.CANCELED, _v82.STATES.REMOVED].includes(_v4.state);
+        _v3(!!(_v4 && !_v0));
+      }, [_v4, _v3]);
       let _v5 = (0, _v29.useMemo)(() => _v4?.uploadType === "clip", [_v4?.uploadType]),
         _v6 = (0, _v29.useMemo)(() => _v4?.uploadType === "replace_clip", [_v4?.uploadType]),
         _v7 = (0, _v29.useMemo)(() => _v4?.state, [_v4?.state]),
@@ -419,23 +420,23 @@
       let _v1 = _v112(_v0);
       return "complete" === _v1 || "error" === _v1;
     };
-  function _v114(_v0, _v1, _v2, _v3 = !0) {
+  function _v114(_v0, _v1, _v2, _v3 = !1) {
     let _v4 = _v0.filter(_v0 => !_v0.isDeleted),
       _v5 = _v1 ?? {},
       _v6 = _v5.status;
     if (_v5.isReverted) return "available";
-    let _v7 = _v4.find(_v0 => _v0.upload?.status === "in_progress" && "complete" !== _v0.versionTranscodeStatus && _v3);
-    if (_v7) return _v4.some(_v0 => _v0.active && _v0.uri !== _v7.uri) ? "replace_uploading" : "initial_uploading";
-    let _v8 = _v4.find(_v0 => _v0.upload?.status === "complete" && !_v0.versionTranscodeStatus && !_v0.active);
-    if (_v8) return _v4.some(_v0 => _v0.active && _v0.uri !== _v8.uri) ? "replace_preparing" : "initial_preparing";
-    let _v9 = _v4.find(_v0 => "in_progress" === _v0.versionTranscodeStatus);
-    if (_v9) {
-      let _v0 = _v4.some(_v0 => _v0.active && _v0.uri !== _v9.uri) ? "replace_transcoding" : "initial_transcoding";
+    let _v7 = _v4.find(_v0 => "in_progress" === _v0.versionTranscodeStatus);
+    if (_v7) {
+      let _v0 = _v4.some(_v0 => _v0.active && _v0.uri !== _v7.uri) ? "replace_transcoding" : "initial_transcoding";
       return "available" === _v6 ? `${_v0}_available` : _v0;
     }
-    let _v10 = _v2?.versionUri ? _v4.find(_v0 => _v0.uri === _v2.versionUri) : void 0;
-    if (_v2 && (!_v2.versionUri || _v10)) {
-      let _v0 = _v10 ? !_v10.active && _v4.some(_v0 => _v0.active) : _v4.some(_v0 => _v0.active);
+    if (_v3 || "uploading" === _v6) return _v4.some(_v0 => _v0.active) ? "replace_uploading" : "initial_uploading";
+    if (_v5.isReverted) return "available";
+    let _v8 = _v4.find(_v0 => !_v0.active && !_v0.versionTranscodeStatus && (_v0.upload?.status === "complete" || _v0.upload?.status === "in_progress"));
+    if (_v8) return _v4.some(_v0 => _v0.active && _v0.uri !== _v8.uri) ? "replace_preparing" : "initial_preparing";
+    let _v9 = _v2?.versionUri ? _v4.find(_v0 => _v0.uri === _v2.versionUri) : void 0;
+    if (_v2 && (!_v2.versionUri || _v9)) {
+      let _v0 = _v9 ? !_v9.active && _v4.some(_v0 => _v0.active) : _v4.some(_v0 => _v0.active);
       if (_v2.renditions.some(_v0 => "error" === _v112(_v0.status))) return _v0 ? "replace_failed" : "transcode_failed";
       if ("error" !== _v2.state) {
         let _v0 = _v2.renditions.length > 0 && _v2.renditions.some(_v0 => !_v113(_v0.status)),
@@ -450,8 +451,8 @@
     if ("available" === _v6 && _v5.latestIncompleteVersionUri) return _v4.length > 1 ? "replace_transcoding_available" : "initial_transcoding_available";
     if ("processing" === _v6 || "unavailable" === _v6) return _v4.some(_v0 => _v0.active) ? "replace_rendering" : "initial_rendering";
     if ("failed" === _v6) return "transcode_failed";
-    let _v11 = _v4.find(_v0 => !_v0.active);
-    return _v4.some(_v0 => _v0.active) || _v11?.upload?.status !== "error" ? _v4.some(_v0 => _v0.active) || _v11?.versionTranscodeStatus !== "error" ? _v11?.versionTranscodeStatus === "error" ? "replace_failed" : "available" : "transcode_failed" : "upload_failed";
+    let _v10 = _v4.find(_v0 => !_v0.active);
+    return _v4.some(_v0 => _v0.active) || _v10?.upload?.status !== "error" ? _v4.some(_v0 => _v0.active) || _v10?.versionTranscodeStatus !== "error" ? _v10?.versionTranscodeStatus === "error" ? "replace_failed" : "available" : "transcode_failed" : "upload_failed";
   }
   let _v115 = _v0 => _v0.versions.versionList,
     _v116 = _v0 => _v0.versions.renditionStatus,
@@ -27589,7 +27590,8 @@
           });
         },
         _v126 = (0, _v29.useCallback)(_v0 => {
-          _v1.currentTime = _v0;
+          let _v1 = _v1?.duration;
+          _v1.currentTime = "number" == typeof _v1 && _v1 > 0 ? Math.min(_v0, _v1) : _v0;
         }, [_v1]),
         [_v127, _v128] = (0, _v29.useState)(0);
       (0, _v29.useEffect)(() => {
@@ -37251,7 +37253,7 @@
         }, [_v8, _v11]);
       (0, _v29.useEffect)(() => {
         let _v0 = _v17.current;
-        _v0 !== _v5 && (void 0 !== _v0 && !_v1001.includes(_v0) && _v1001.includes(_v5) ? (_v1000.includes(_v0) ? (_v9({
+        _v0 !== _v5 && (void 0 !== _v0 && !_v1001.includes(_v0) && _v1001.includes(_v5) ? (_v1000.includes(_v0) && "replace_transcoding_available" === _v5 ? (_v9({
           title: (0, _v150.translate)({
             singular: "Upload complete, your video has been replaced.",
             dictionary: {
@@ -37278,34 +37280,7 @@
               }
             }
           })
-        }), _v3?.(_v6?.configUrl ?? void 0), _v10.enable_vertical_player && _v2?.()) : _v2?.(), _v12()) : "available" === _v5 && _v1000.includes(_v0) && (_v22.current ? _v22.current = !1 : _v9({
-          title: (0, _v150.translate)({
-            singular: "Upload complete, your video has been replaced.",
-            dictionary: {
-              es: {
-                singular: "Se completó la subida. Se ha reemplazado tu video."
-              },
-              "de-DE": {
-                singular: "Upload abgeschlossen, dein Video wurde ersetzt."
-              },
-              "fr-FR": {
-                singular: "Mise en ligne terminée. Votre vidéo a été remplacée."
-              },
-              "ja-JP": {
-                singular: "アップロードが完了しました。動画は差し替えられました。"
-              },
-              "ko-KR": {
-                singular: "업로드 완료 - 동영상이 교체되었습니다."
-              },
-              "pt-BR": {
-                singular: "Carregamento concluído. Seu vídeo foi substituído."
-              },
-              "zh-CN": {
-                singular: "上传完成，您的视频已被替换。"
-              }
-            }
-          })
-        }), _v3?.(_v6?.configUrl ?? void 0), _v10.enable_vertical_player && _v2?.(), _v12()), _v12()), _v17.current && _v1000.includes(_v17.current) && ("upload_failed" === _v5 || "transcode_failed" === _v5) ? _v9({
+        }), _v3?.(_v6?.configUrl ?? void 0), _v10.enable_vertical_player && _v2?.()) : _v1000.includes(_v0) || _v2?.(), _v12()) : "available" === _v5 && _v1000.includes(_v0) && (_v22.current && (_v22.current = !1), _v3?.(_v6?.configUrl ?? void 0), _v10.enable_vertical_player && _v2?.(), _v12()), _v12()), _v17.current && _v1000.includes(_v17.current) && ("upload_failed" === _v5 || "transcode_failed" === _v5) ? _v9({
           title: (0, _v150.translate)({
             singular: "Unable to replace your video",
             dictionary: {

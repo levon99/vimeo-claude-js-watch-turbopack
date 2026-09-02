@@ -37,28 +37,30 @@
       quality: _v5,
       objectFit: _v6,
       setIsPlayerReady: _v7,
-      isDefaultPicture: _v8,
-      thumbnailSrc: _v9,
-      thumbnailSrcSet: _v10,
-      aspectRatio: _v11,
-      isPlayerReady: _v12,
-      isColdStorage: _v13,
-      spinnerSize: _v14,
-      defaultIconProps: _v15,
-      thumbnailClickEvent: _v16,
-      isSelectable: _v17,
-      selectionType: _v18,
-      hoverActions: _v19,
-      videoPrivacy: _v20,
-      privacyBadgeVariant: _v21,
-      onPrivacyBadgeClick: _v22,
-      privacyBadgeTooltip: _v23,
-      managedStorageIndicator: _v24,
-      tagText: _v25,
-      tagTextVariant: _v26,
-      tagTextStyles: _v27,
-      topLeftDecoration: _v28,
-      progress: _v29
+      setIsPlayerBroken: _v8,
+      isDefaultPicture: _v9,
+      thumbnailSrc: _v10,
+      thumbnailSrcSet: _v11,
+      aspectRatio: _v12,
+      isPlayerReady: _v13,
+      isPlayerBroken: _v14,
+      isColdStorage: _v15,
+      spinnerSize: _v16,
+      defaultIconProps: _v17,
+      thumbnailClickEvent: _v18,
+      isSelectable: _v19,
+      selectionType: _v20,
+      hoverActions: _v21,
+      videoPrivacy: _v22,
+      privacyBadgeVariant: _v23,
+      onPrivacyBadgeClick: _v24,
+      privacyBadgeTooltip: _v25,
+      managedStorageIndicator: _v26,
+      tagText: _v27,
+      tagTextVariant: _v28,
+      tagTextStyles: _v29,
+      topLeftDecoration: _v30,
+      progress: _v31
     }) => (0, _v1.jsxs)(_v1.Fragment, {
       children: [_v0 && (0, _v1.jsx)(_v1.Fragment, {
         children: (0, _v1.jsx)(_v6.Box, {
@@ -74,10 +76,11 @@
             isHovering: _v4,
             quality: _v5,
             objectFit: _v6,
-            setIsPlayerReady: _v7
+            setIsPlayerReady: _v7,
+            setIsPlayerBroken: _v8
           })
         })
-      }), _v8 ? (0, _v1.jsx)(_v6.Box, {
+      }), _v9 ? (0, _v1.jsx)(_v6.Box, {
         background: "background",
         width: "100%",
         height: "100%",
@@ -85,31 +88,31 @@
         inset: "0",
         border: "0",
         borderRadius: "md",
-        opacity: _v12 && _v4 ? 0 : 1,
+        opacity: _v13 && _v4 ? 0 : 1,
         children: (0, _v1.jsx)(_v6.Box, {
           background: "background",
           opacity: "0.6",
           children: (0, _v1.jsx)(_v14.ContentCard.DefaultThumbnail, {
             background: "fill-component",
-            isLocked: _v13,
-            onClick: _v16,
+            isLocked: _v15,
+            onClick: _v18,
             children: (0, _v1.jsx)(_v12.PlayerFilled, {
               color: "text-secondary",
               boxSize: "2xl",
               opacity: "0.4",
-              ..._v15
+              ..._v17
             })
           })
         })
       }) : (0, _v1.jsx)(_v14.ContentCard.Thumbnail, {
         alt: "",
-        src: _v9,
-        srcSet: _v10,
-        aspectRatio: _v11,
-        opacity: _v12 && _v4 ? 0 : 1,
-        isLocked: _v13,
-        onClick: _v16
-      }), _v4 && !_v12 && !_v13 && (0, _v1.jsx)(_v7.Flex, {
+        src: _v10,
+        srcSet: _v11,
+        aspectRatio: _v12,
+        opacity: _v13 && _v4 ? 0 : 1,
+        isLocked: _v15,
+        onClick: _v18
+      }), _v4 && !_v13 && !_v14 && !_v15 && (0, _v1.jsx)(_v7.Flex, {
         height: "100%",
         width: "100%",
         alignItems: "center",
@@ -117,46 +120,46 @@
         position: "absolute",
         top: "0",
         background: "transparent",
-        onClick: _v16,
+        onClick: _v18,
         children: (0, _v1.jsx)(_v9.Spinner, {
-          size: _v14
+          size: _v16
         })
-      }), _v17 && (0, _v1.jsx)(_v7.Flex, {
+      }), _v19 && (0, _v1.jsx)(_v7.Flex, {
         position: "absolute",
         top: "8px",
         left: "8px",
         onClick: _v0 => {
           _v0.stopPropagation();
         },
-        children: "checkbox" === _v18 ? (0, _v1.jsx)(_v14.ContentCard.SelectCheckbox, {
+        children: "checkbox" === _v20 ? (0, _v1.jsx)(_v14.ContentCard.SelectCheckbox, {
           size: "md"
         }) : (0, _v1.jsx)(_v14.ContentCard.SelectRadio, {
           size: "lg"
         })
-      }), _v19, (0, _v1.jsx)(_v14.ContentCard.VideoPrivacyBadge, {
-        videoPrivacy: _v20,
-        variant: _v21,
-        onClick: _v22,
+      }), _v21, (0, _v1.jsx)(_v14.ContentCard.VideoPrivacyBadge, {
+        videoPrivacy: _v22,
+        variant: _v23,
+        onClick: _v24,
         layout: "overlay",
-        tooltipLabel: _v23
-      }), _v24, (0, _v1.jsx)(_v14.ContentCard.Badge, {
-        variant: _v26,
-        sx: _v27,
-        children: _v25
-      }), _v28 && (0, _v1.jsx)(_v14.ContentCard.Badge, {
+        tooltipLabel: _v25
+      }), _v26, (0, _v1.jsx)(_v14.ContentCard.Badge, {
+        variant: _v28,
+        sx: _v29,
+        children: _v27
+      }), _v30 && (0, _v1.jsx)(_v14.ContentCard.Badge, {
         bgColor: "transparent",
         backdropFilter: "none",
         top: (0, _v11.rem)(16),
         left: (0, _v11.rem)(8),
         border: "none",
-        children: _v28
-      }), _v29 > 0 && (0, _v1.jsx)(_v8.Progress, {
-        "aria-label": `${_v29}% complete`,
+        children: _v30
+      }), _v31 > 0 && (0, _v1.jsx)(_v8.Progress, {
+        "aria-label": `${_v31}% complete`,
         bottom: "0",
         left: "4px",
         position: "absolute",
         size: "xs",
-        value: _v29,
+        value: _v31,
         width: "calc(100% - 8px)",
         sx: {
           bgColor: "gray.500",
@@ -219,8 +222,9 @@
       } = (0, _v13.useOrionSettings)(),
       [_v48, _v49] = (0, _v3.useState)(!1),
       [_v50, _v51] = (0, _v3.useState)(!1),
-      _v52 = "sm" === _v26,
-      _v53 = () => {
+      [_v52, _v53] = (0, _v3.useState)(!1),
+      _v54 = "sm" === _v26,
+      _v55 = () => {
         _v4.BigPictureClient.sendEvent(new _v4.Event("vimeo.click", 151, {
           copy: _v0,
           feature: "video_library",
@@ -236,7 +240,7 @@
           third_party_integration: null
         }));
       },
-      _v54 = null;
+      _v56 = null;
     if (_v8) {
       let _v0 = (0, _v1.jsx)(_v5.Avatar, {
         alt: _v7 || "",
@@ -246,7 +250,7 @@
           name: _v7 || ""
         }
       });
-      _v54 = _v7 && _v47.enable_uploader_tooltip ? (0, _v1.jsx)(_v10.Tooltip, {
+      _v56 = _v7 && _v47.enable_uploader_tooltip ? (0, _v1.jsx)(_v10.Tooltip, {
         label: _v7,
         children: (0, _v1.jsx)(_v6.Box, {
           display: "inline-flex",
@@ -265,10 +269,10 @@
       shouldUseNextLink: _v32,
       hoverZIndex: _v38 && _v39 || _v31?.showCard ? 25 : void 0,
       onMouseEnter: _v0 => {
-        _v18?.(_v0), _v34 && _v51(!0);
+        _v18?.(_v0), _v34 && _v53(!0);
       },
       onMouseLeave: _v34 ? () => {
-        _v51(!1);
+        _v53(!1);
       } : void 0,
       isEditingContentTitle: _v46,
       children: (0, _v1.jsxs)(_v1.Fragment, {
@@ -276,25 +280,27 @@
           aspectRatio: _v25,
           children: _v38 && _v39 ? (0, _v1.jsx)(_v15.ColdStorageThumbTooltip, {
             label: _v39,
-            compactGridTooltip: _v52,
+            compactGridTooltip: _v54,
             children: (0, _v1.jsx)(_v17, {
               hasPlayOnHover: _v34,
               clipId: _v21,
               configUrl: _v22,
               playerInitEvent: _v19,
-              isHovering: _v50,
+              isHovering: _v52,
               quality: _v23,
               objectFit: _v24,
               setIsPlayerReady: _v49,
+              setIsPlayerBroken: _v51,
               isDefaultPicture: !!_v3,
               thumbnailSrc: _v4,
               thumbnailSrcSet: _v5,
               aspectRatio: _v25,
               isPlayerReady: _v48,
+              isPlayerBroken: _v50,
               isColdStorage: _v38,
               spinnerSize: _v26,
               defaultIconProps: _v29,
-              thumbnailClickEvent: _v53,
+              thumbnailClickEvent: _v55,
               isSelectable: _v14,
               selectionType: _v20,
               hoverActions: _v13,
@@ -314,19 +320,21 @@
             clipId: _v21,
             configUrl: _v22,
             playerInitEvent: _v19,
-            isHovering: _v50,
+            isHovering: _v52,
             quality: _v23,
             objectFit: _v24,
             setIsPlayerReady: _v49,
+            setIsPlayerBroken: _v51,
             isDefaultPicture: !!_v3,
             thumbnailSrc: _v4,
             thumbnailSrcSet: _v5,
             aspectRatio: _v25,
             isPlayerReady: _v48,
+            isPlayerBroken: _v50,
             isColdStorage: _v38,
             spinnerSize: _v26,
             defaultIconProps: _v29,
-            thumbnailClickEvent: _v53,
+            thumbnailClickEvent: _v55,
             isSelectable: _v14,
             selectionType: _v20,
             hoverActions: _v13,
@@ -343,7 +351,7 @@
           })
         }), (0, _v1.jsx)(_v14.ContentCard.Footer, {
           actions: _v12,
-          avatar: _v54,
+          avatar: _v56,
           title: _v0,
           subtitle: _v1,
           isLocked: _v38,

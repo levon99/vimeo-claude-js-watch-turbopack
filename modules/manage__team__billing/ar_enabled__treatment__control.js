@@ -9099,21 +9099,1013 @@
         })]
       });
     },
-    _v188 = ["plus", "starter"],
-    _v189 = ["pro", "standard"],
-    _v190 = ["business"],
-    _v191 = ["advanced", "live_premium"],
-    _v192 = {
+    _v188 = new Set([0, 0, 0, 0, 0, 0]),
+    _v189 = {
+      0: {
+        monthly: "01KGHX38SJEXEMGNX5CV4Q0EAR"
+      },
+      0: {
+        yearly: "01KGHX38SJH1PJAMDGJ7J1W29M"
+      },
+      0: {
+        monthly: "01KW9DH1F07AG38NPWVHA9EMK1"
+      },
+      0: {
+        yearly: "01KW9DH1F0Q5ZAJVBBQVW2YD5T"
+      },
+      0: {
+        monthly: "01KVWW33NQVDEVN70VEHF01WS4"
+      },
+      0: {
+        yearly: "01KVWW41K7MBQX2TXZ5PC39YKK"
+      },
+      0: {
+        monthly: "01KVWW5A3KQXYF8P2NRT6BDZM7"
+      },
+      0: {
+        yearly: "01KVWW5A3KQXYF8P2NRT9CWHK4"
+      },
+      0: {
+        monthly: "01KW9DH1F0ZS21EKV4R6QR8DK9"
+      },
+      0: {
+        yearly: "01KW9DH1F0JMZ59HN2WZQ1BN5S"
+      }
+    },
+    _v190 = {
+      0: 0,
+      0: 0,
+      0: 0,
+      0: 0,
+      0: 0,
+      0: 0,
+      0: 0,
+      0: 0
+    },
+    _v191 = (_v0, _v1) => {
+      let _v2 = _v189[_v1];
+      if (_v2) return _v0.find(_v0 => void 0 !== _v2.yearly && _v0.id?.annual === _v2.yearly || void 0 !== _v2.monthly && _v0.id?.monthly === _v2.monthly);
+    };
+  function _v192({
+    scheduledProductId: _v0,
+    renewalMonthlyPrice: _v1,
+    plans: _v2
+  }) {
+    if (null == _v0 || !_v2) return null;
+    let _v3 = _v190[_v0];
+    if (null == _v3) return null;
+    let _v4 = _v191(_v2, _v0),
+      _v5 = _v191(_v2, _v3);
+    if (!_v4 || !_v5) return null;
+    let _v6 = _v1 ?? _v4.price?.annualMonthly ?? _v4.price?.monthly,
+      _v7 = _v5.price?.annualMonthly ?? _v5.price?.monthly;
+    return null == _v6 || null == _v7 || _v7 >= _v6 ? null : {
+      savingsPercent: Math.floor((_v6 - _v7) / _v6 * 100),
+      landedPlan: _v4,
+      tierBelowPlan: _v5
+    };
+  }
+  let _v193 = ["studio", "core", "professional"],
+    _v194 = ["plus", "starter"],
+    _v195 = ["pro", "standard"],
+    _v196 = ["business"],
+    _v197 = ["advanced", "live_premium"],
+    _v198 = {
       professional: "creator",
       advanced: "professional"
     };
-  var _v193 = _v0.i(0),
-    _v194 = _v0.i(0),
-    _v195 = _v0.i(0),
-    _v196 = _v0.i(0);
-  let _v197 = "/terms",
-    _v198 = "/privacy",
-    _v199 = ({
+  var _v199 = _v0.i(0),
+    _v200 = _v0.i(0),
+    _v201 = _v0.i(0),
+    _v202 = _v0.i(0),
+    _v203 = _v0.i(0);
+  let _v204 = "/upgrade-plan",
+    _v205 = ({
+      isOpen: _v0,
+      onClose: _v1,
+      onBack: _v2,
+      onConfirmCancellation: _v3,
+      onAcceptOffer: _v4,
+      cancelRequestPending: _v5,
+      isAccepting: _v6,
+      isAnnual: _v7,
+      planName: _v8,
+      discountedPrice: _v9,
+      originalPrice: _v10,
+      savingsPercent: _v11,
+      renewalPriceLabel: _v12,
+      planFeatures: _v13,
+      exploreOtherOptionsHref: _v14 = _v204
+    }) => {
+      let _v15 = _v3.default.useRef(!1);
+      _v3.default.useEffect(() => {
+        if (!_v0) {
+          _v15.current = !1;
+          return;
+        }
+        let _v0 = window.setTimeout(() => {
+          _v15.current = !0;
+        }, 400);
+        return () => {
+          window.clearTimeout(_v0);
+        };
+      }, [_v0]);
+      let _v16 = _v0 => () => {
+          _v15.current && _v0();
+        },
+        _v17 = (_v0, _v1) => _v0 => (0, _v1.jsx)(_v37.Link, {
+          href: _v0,
+          textDecoration: "underline",
+          color: "text-primary",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          children: _v0
+        }, _v1),
+        _v18 = _v0 => (0, _v1.jsxs)(_v126.Stack, {
+          spacing: "6px",
+          width: "100%",
+          align: "flex-start",
+          children: [null !== _v0.teamSeats && (0, _v1.jsxs)(_v8.Flex, {
+            gap: "4px",
+            alignItems: "center",
+            width: "100%",
+            children: [(0, _v1.jsx)(_v81.Users, {
+              boxSize: "20px",
+              color: "text-secondary"
+            }), (0, _v1.jsx)(_v46.Text, {
+              variant: "heading-2xs",
+              color: "text-secondary",
+              children: _v0.adminSeats ? (0, _v12.translate)({
+                singular: "{USERS} users + {ADMINS} admins",
+                replacements: {
+                  USERS: _v0.teamSeats,
+                  ADMINS: _v0.adminSeats
+                },
+                dictionary: {
+                  es: {
+                    singular: "{USERS} usuarios + {ADMINS} administradores"
+                  },
+                  "de-DE": {
+                    singular: "{USERS} Benutzer + {ADMINS} Administratoren"
+                  },
+                  "fr-FR": {
+                    singular: "{USERS} utilisateurs + {ADMINS} administrateurs"
+                  },
+                  "ja-JP": {
+                    singular: "{USERS} ユーザー + {ADMINS} 管理者"
+                  },
+                  "ko-KR": {
+                    singular: "{USERS} 사용자 + {ADMINS} 관리자"
+                  },
+                  "pt-BR": {
+                    singular: "{USERS} usuários + {ADMINS} administradores"
+                  },
+                  "zh-CN": {
+                    singular: "{USERS} 用户 + {ADMINS} 管理员"
+                  }
+                }
+              }) : (0, _v12.translate)({
+                singular: "{AMOUNT} user",
+                plural: "{AMOUNT} users",
+                count: _v0.teamSeats,
+                replacements: {
+                  AMOUNT: _v0.teamSeats
+                },
+                dictionary: {
+                  es: {
+                    singular: "{AMOUNT} usuario",
+                    plural: "{AMOUNT} usuarios"
+                  },
+                  "de-DE": {
+                    singular: "{AMOUNT} Nutzer",
+                    plural: "{AMOUNT} Nutzer"
+                  },
+                  "fr-FR": {
+                    singular: "{AMOUNT} utilisateur",
+                    plural: "{AMOUNT} utilisateurs"
+                  },
+                  "ja-JP": {
+                    singular: "{AMOUNT}ユーザー",
+                    plural: "{AMOUNT}ユーザー"
+                  },
+                  "ko-KR": {
+                    singular: "{AMOUNT} 사용자",
+                    plural: "{AMOUNT} 사용자"
+                  },
+                  "pt-BR": {
+                    singular: "{AMOUNT} usuário",
+                    plural: "{AMOUNT} usuários"
+                  },
+                  "zh-CN": {
+                    singular: "{AMOUNT} 用户",
+                    plural: "{AMOUNT} 用户"
+                  }
+                }
+              })
+            })]
+          }), null !== _v0.bandwidth && (0, _v1.jsxs)(_v8.Flex, {
+            gap: "4px",
+            alignItems: "center",
+            width: "100%",
+            children: [(0, _v1.jsx)(_v80, {
+              boxSize: "20px",
+              color: "text-secondary"
+            }), (0, _v1.jsx)(_v46.Text, {
+              variant: "heading-2xs",
+              color: "text-secondary",
+              children: _v0.bandwidthIsYearly ? (0, _v12.translate)({
+                singular: "{AMOUNT} of bandwidth per year",
+                replacements: {
+                  AMOUNT: _v0.bandwidth
+                },
+                dictionary: {
+                  es: {
+                    singular: "{AMOUNT} de ancho de banda por año"
+                  },
+                  "de-DE": {
+                    singular: "{AMOUNT} Bandbreite pro Jahr"
+                  },
+                  "fr-FR": {
+                    singular: "{AMOUNT} de bande passante par an"
+                  },
+                  "ja-JP": {
+                    singular: "{AMOUNT} の年間帯域幅"
+                  },
+                  "ko-KR": {
+                    singular: "{AMOUNT}의 연간 대역폭"
+                  },
+                  "pt-BR": {
+                    singular: "{AMOUNT} de largura de banda por ano"
+                  },
+                  "zh-CN": {
+                    singular: "{AMOUNT} 年度带宽"
+                  }
+                }
+              }) : (0, _v12.translate)({
+                singular: "{AMOUNT} of bandwidth per month",
+                replacements: {
+                  AMOUNT: _v0.bandwidth
+                },
+                dictionary: {
+                  es: {
+                    singular: "{AMOUNT} de ancho de banda por mes"
+                  },
+                  "de-DE": {
+                    singular: "{AMOUNT} Bandbreite pro Monat"
+                  },
+                  "fr-FR": {
+                    singular: "{AMOUNT} de bande passante par mois"
+                  },
+                  "ja-JP": {
+                    singular: "月あたり{AMOUNT}の帯域幅"
+                  },
+                  "ko-KR": {
+                    singular: "{AMOUNT}의 월별 대역폭"
+                  },
+                  "pt-BR": {
+                    singular: "{AMOUNT} de largura de banda por mês"
+                  },
+                  "zh-CN": {
+                    singular: "{AMOUNT} 每月带宽"
+                  }
+                }
+              })
+            })]
+          }), null !== _v0.restrictedStorage && (0, _v1.jsxs)(_v8.Flex, {
+            gap: "4px",
+            alignItems: "flex-start",
+            width: "100%",
+            children: [(0, _v1.jsx)(_v79, {
+              boxSize: "20px",
+              color: "text-secondary"
+            }), (0, _v1.jsx)(_v46.Text, {
+              variant: "heading-2xs",
+              color: "text-secondary",
+              flex: "1",
+              children: (0, _v12.translate)({
+                singular: "{AMOUNT} storage for Embeds and non-Public videos",
+                replacements: {
+                  AMOUNT: _v0.restrictedStorage
+                },
+                dictionary: {
+                  es: {
+                    singular: "{AMOUNT} de almacenamiento para Embeds y videos no públicos"
+                  },
+                  "de-DE": {
+                    singular: "{AMOUNT} Speicher für Einbettungen und nicht-öffentliche Videos"
+                  },
+                  "fr-FR": {
+                    singular: "{AMOUNT} de stockage pour les intégrations et les vidéos non publiques"
+                  },
+                  "ja-JP": {
+                    singular: "{AMOUNT} の埋め込みおよび非公開ビデオ用ストレージ"
+                  },
+                  "ko-KR": {
+                    singular: "{AMOUNT} 임베드 및 비공개 동영상용 저장 공간"
+                  },
+                  "pt-BR": {
+                    singular: "{AMOUNT} de armazenamento para Embeds e vídeos não públicos"
+                  },
+                  "zh-CN": {
+                    singular: "{AMOUNT} 用于嵌入和非公开视频的存储空间"
+                  }
+                }
+              })
+            })]
+          })]
+        });
+      return (0, _v1.jsxs)(_v71.Modal, {
+        isOpen: _v0,
+        onClose: _v1,
+        size: "lg",
+        scrollBehavior: "outside",
+        closeOnOverlayClick: !1,
+        closeOnEsc: !1,
+        children: [(0, _v1.jsx)(_v77.ModalOverlay, {}), (0, _v1.jsxs)(_v74.ModalContent, {
+          borderRadius: "16px",
+          maxW: "600px",
+          sx: {
+            ".chakra-modal__body": {
+              border: "none",
+              backgroundImage: "none",
+              borderBottomRadius: "16px"
+            }
+          },
+          py: 4,
+          px: {
+            base: 4,
+            md: "60px"
+          },
+          children: [(0, _v1.jsx)(_v133.IconButton, {
+            "aria-label": "Go back",
+            icon: (0, _v1.jsx)(_v200.ChevronLeft, {}),
+            variant: "minimalTransparent",
+            size: "sm",
+            position: "absolute",
+            top: "20px",
+            left: "20px",
+            onClick: _v2
+          }), (0, _v1.jsxs)(_v72.ModalBody, {
+            p: 0,
+            paddingTop: "16px",
+            children: [(0, _v1.jsx)(_v23.Header, {
+              size: "md",
+              paddingLeft: "48px",
+              children: (0, _v12.translate)({
+                singular: "Get {PLAN} at a discounted price",
+                replacements: {
+                  PLAN: _v8
+                },
+                dictionary: {
+                  es: {
+                    singular: "Obtén {PLAN} a un precio con descuento"
+                  },
+                  "de-DE": {
+                    singular: "Erhalte {PLAN} zum vergünstigten Preis"
+                  },
+                  "fr-FR": {
+                    singular: "Obtenez {PLAN} à prix réduit"
+                  },
+                  "ja-JP": {
+                    singular: "{PLAN}を割引価格で入手"
+                  },
+                  "ko-KR": {
+                    singular: "할인된 가격으로 {PLAN} 이용하기"
+                  },
+                  "pt-BR": {
+                    singular: "Obter {PLAN} por um preço com desconto"
+                  },
+                  "zh-CN": {
+                    singular: "以折扣价获取 {PLAN}"
+                  }
+                }
+              })
+            }), (0, _v1.jsxs)(_v8.Flex, {
+              backgroundColor: "status-info-secondary",
+              gap: "8px",
+              alignItems: "center",
+              px: "16px",
+              py: "12px",
+              borderRadius: "12px",
+              width: "100%",
+              mt: 4,
+              children: [(0, _v1.jsxs)(_v8.Flex, {
+                flex: "1",
+                direction: "column",
+                minWidth: 0,
+                children: [(0, _v1.jsx)(_v46.Text, {
+                  variant: "heading-xs",
+                  color: "text-primary",
+                  children: (0, _v12.translate)({
+                    singular: "Looking for a cheaper solution?",
+                    dictionary: {
+                      es: {
+                        singular: "¿Busca una solución más económica?"
+                      },
+                      "de-DE": {
+                        singular: "Suchen Sie nach einer günstigeren Lösung?"
+                      },
+                      "fr-FR": {
+                        singular: "Vous cherchez une solution moins chère ?"
+                      },
+                      "ja-JP": {
+                        singular: "より安価な方法をお探しですか？"
+                      },
+                      "ko-KR": {
+                        singular: "더 저렴한 솔루션을 찾고 계신가요?"
+                      },
+                      "pt-BR": {
+                        singular: "Procurando uma solução mais barata?"
+                      },
+                      "zh-CN": {
+                        singular: "在寻找更便宜的方案吗？"
+                      }
+                    }
+                  })
+                }), (0, _v1.jsx)(_v46.Text, {
+                  variant: "body-sm",
+                  color: "text-secondary",
+                  children: (0, _v12.translate)({
+                    singular: "Explore other options for individuals",
+                    dictionary: {
+                      es: {
+                        singular: "Explorar otras opciones para usuarios individuales"
+                      },
+                      "de-DE": {
+                        singular: "Weitere Optionen für Einzelpersonen erkunden"
+                      },
+                      "fr-FR": {
+                        singular: "Explorez d'autres options pour les particuliers"
+                      },
+                      "ja-JP": {
+                        singular: "個人向けの他のオプションを検討する"
+                      },
+                      "ko-KR": {
+                        singular: "개인용 다른 옵션 살펴보기"
+                      },
+                      "pt-BR": {
+                        singular: "Explore outras opções para indivíduos"
+                      },
+                      "zh-CN": {
+                        singular: "为个人用户查看其他选项"
+                      }
+                    }
+                  })
+                })]
+              }), (0, _v1.jsx)(_v7.Button, {
+                variant: "secondary",
+                size: "sm",
+                as: "a",
+                href: _v14,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                children: (0, _v12.translate)({
+                  singular: "Explore other options",
+                  dictionary: {
+                    es: {
+                      singular: "Explorar otras opciones"
+                    },
+                    "de-DE": {
+                      singular: "Weitere Optionen erkunden"
+                    },
+                    "fr-FR": {
+                      singular: "Explorez d'autres options"
+                    },
+                    "ja-JP": {
+                      singular: "他のオプションを検討する"
+                    },
+                    "ko-KR": {
+                      singular: "다른 옵션 살펴보기"
+                    },
+                    "pt-BR": {
+                      singular: "Explore outras opções"
+                    },
+                    "zh-CN": {
+                      singular: "查看其他选项"
+                    }
+                  }
+                })
+              })]
+            }), (0, _v1.jsxs)(_v8.Flex, {
+              gap: "16px",
+              alignItems: "stretch",
+              width: "100%",
+              mt: 4,
+              flexDirection: {
+                base: "column",
+                md: "row"
+              },
+              children: [(0, _v1.jsxs)(_v8.Flex, {
+                flex: "1",
+                direction: "column",
+                gap: "16px",
+                backgroundColor: "background",
+                border: "1px solid",
+                borderColor: "stroke",
+                borderRadius: "20px",
+                p: "16px",
+                minWidth: 0,
+                children: [(0, _v1.jsx)(_v46.Text, {
+                  variant: "heading-sm",
+                  color: "text-primary",
+                  children: (0, _v12.translate)({
+                    singular: "Free",
+                    dictionary: {
+                      es: {
+                        singular: "Gratis"
+                      },
+                      "de-DE": {
+                        singular: "Kostenlos"
+                      },
+                      "fr-FR": {
+                        singular: "Gratuit"
+                      },
+                      "ja-JP": {
+                        singular: "無料"
+                      },
+                      "ko-KR": {
+                        singular: "무료"
+                      },
+                      "pt-BR": {
+                        singular: "Grátis"
+                      },
+                      "zh-CN": {
+                        singular: "免费"
+                      }
+                    }
+                  })
+                }), (0, _v1.jsxs)(_v126.Stack, {
+                  spacing: "4px",
+                  width: "100%",
+                  children: [(0, _v1.jsx)(_v46.Text, {
+                    variant: "heading-xl",
+                    color: "text-primary",
+                    children: (0, _v12.translate)("$0")
+                  }), (0, _v1.jsx)(_v46.Text, {
+                    variant: "body-xs",
+                    color: "text-secondary",
+                    children: _v7 ? (0, _v12.translate)({
+                      singular: "plus taxes. Per month, billed annually.",
+                      dictionary: {
+                        es: {
+                          singular: "más impuestos. Por mes, facturado anualmente."
+                        },
+                        "de-DE": {
+                          singular: "zzgl. Steuern. Pro Monat, jährlich abgerechnet."
+                        },
+                        "fr-FR": {
+                          singular: "plus taxes. Par mois, facturé annuellement."
+                        },
+                        "ja-JP": {
+                          singular: "税別。月額（年払い）。"
+                        },
+                        "ko-KR": {
+                          singular: "세금 별도. 월별 요금, 연간 청구."
+                        },
+                        "pt-BR": {
+                          singular: "mais impostos. Por mês, cobrado anualmente."
+                        },
+                        "zh-CN": {
+                          singular: "另加税。按年计费，折合每月。"
+                        }
+                      }
+                    }) : (0, _v12.translate)({
+                      singular: "plus taxes. Per month, billed monthly.",
+                      dictionary: {
+                        es: {
+                          singular: "más impuestos. Por mes, facturado mensualmente."
+                        },
+                        "de-DE": {
+                          singular: "zzgl. Steuern. Pro Monat, monatlich abgerechnet."
+                        },
+                        "fr-FR": {
+                          singular: "plus taxes. Par mois, facturé mensuellement."
+                        },
+                        "ja-JP": {
+                          singular: "税別。月額（月払い）。"
+                        },
+                        "ko-KR": {
+                          singular: "세금 별도. 월별 요금, 월간 청구."
+                        },
+                        "pt-BR": {
+                          singular: "mais impostos. Por mês, cobrado mensalmente."
+                        },
+                        "zh-CN": {
+                          singular: "另加税。按月计费，每月结算。"
+                        }
+                      }
+                    })
+                  })]
+                }), _v18({
+                  teamSeats: 1,
+                  adminSeats: null,
+                  restrictedStorage: "1 GB",
+                  bandwidth: "1 TB",
+                  bandwidthIsYearly: !1
+                }), (0, _v1.jsx)(_v46.Text, {
+                  variant: "body-xs",
+                  color: "text-secondary",
+                  children: (0, _v12.translate)({
+                    singular: "By clicking Confirm cancellation, your account will be downgraded to free at the end of your current billing period.",
+                    dictionary: {
+                      es: {
+                        singular: "Al hacer clic en Confirmar cancelación, su cuenta pasará a ser gratuita al final de su periodo de facturación actual."
+                      },
+                      "de-DE": {
+                        singular: "Wenn Sie auf 'Stornierung bestätigen' klicken, wird Ihr Konto am Ende Ihres aktuellen Abrechnungszeitraums auf ein kostenloses Konto herabgestuft."
+                      },
+                      "fr-FR": {
+                        singular: "En cliquant sur Confirmer l'annulation, votre compte sera rétrogradé en version gratuite à la fin de votre période de facturation en cours."
+                      },
+                      "ja-JP": {
+                        singular: "「Confirm cancellation」をクリックすると、現在の請求期間の終了時点でアカウントは無料プランにダウングレードされます。"
+                      },
+                      "ko-KR": {
+                        singular: "취소 확인을 클릭하면 현재 청구 기간이 종료될 때 귀하의 계정은 무료로 전환됩니다."
+                      },
+                      "pt-BR": {
+                        singular: "Ao clicar em Confirmar cancelamento, sua conta será rebaixada para o plano gratuito ao final do seu período de cobrança atual."
+                      },
+                      "zh-CN": {
+                        singular: "点击“确认取消”后，您的账户将在当前计费周期结束时降级为免费版。"
+                      }
+                    }
+                  })
+                }), (0, _v1.jsx)(_v7.Button, {
+                  variant: "destructive",
+                  size: "md",
+                  width: "100%",
+                  marginTop: "auto",
+                  onClick: _v16(_v3),
+                  isLoading: _v5,
+                  disabled: _v5 || _v6,
+                  children: (0, _v12.translate)({
+                    singular: "Confirm cancellation",
+                    dictionary: {
+                      es: {
+                        singular: "Confirmar cancelación"
+                      },
+                      "de-DE": {
+                        singular: "Kündigung bestätigen"
+                      },
+                      "fr-FR": {
+                        singular: "Confirmer l'annulation"
+                      },
+                      "ja-JP": {
+                        singular: "解約を確定する"
+                      },
+                      "ko-KR": {
+                        singular: "취소 확인"
+                      },
+                      "pt-BR": {
+                        singular: "Confirmar cancelamento"
+                      },
+                      "zh-CN": {
+                        singular: "确认取消"
+                      }
+                    }
+                  })
+                })]
+              }), (0, _v1.jsxs)(_v8.Flex, {
+                flex: "1",
+                direction: "column",
+                gap: "16px",
+                backgroundColor: "background",
+                border: "1px solid",
+                borderColor: "stroke",
+                borderRadius: "20px",
+                p: "16px",
+                minWidth: 0,
+                children: [(0, _v1.jsx)(_v46.Text, {
+                  variant: "heading-sm",
+                  color: "text-primary",
+                  children: _v8
+                }), (0, _v1.jsxs)(_v126.Stack, {
+                  spacing: "4px",
+                  width: "100%",
+                  children: [(0, _v1.jsxs)(_v8.Flex, {
+                    gap: "8px",
+                    alignItems: "center",
+                    children: [_v9 && (0, _v1.jsx)(_v46.Text, {
+                      variant: "heading-xl",
+                      as: "span",
+                      color: "text-primary",
+                      children: _v9
+                    }), _v10 && (0, _v1.jsx)(_v46.Text, {
+                      variant: "body-sm",
+                      color: "text-tertiary",
+                      as: "span",
+                      textDecoration: "line-through",
+                      children: _v10
+                    }), null !== _v11 && (0, _v1.jsx)(_v36.Badge, {
+                      size: "sm",
+                      backgroundColor: "status-positive-secondary",
+                      textColor: "status-positive-primary",
+                      border: "none",
+                      borderRadius: "999px",
+                      px: "8px",
+                      py: "4px",
+                      children: (0, _v12.translate)({
+                        singular: "Save {PERCENT}%",
+                        replacements: {
+                          PERCENT: _v11
+                        },
+                        dictionary: {
+                          es: {
+                            singular: "Ahorra {PERCENT}%"
+                          },
+                          "de-DE": {
+                            singular: "Sparen Sie {PERCENT}%"
+                          },
+                          "fr-FR": {
+                            singular: "Économisez {PERCENT}\x0f%"
+                          },
+                          "ja-JP": {
+                            singular: "{PERCENT}%オフ"
+                          },
+                          "ko-KR": {
+                            singular: "{PERCENT}% 절약"
+                          },
+                          "pt-BR": {
+                            singular: "Economize {PERCENT}%"
+                          },
+                          "zh-CN": {
+                            singular: "节省 {PERCENT}%"
+                          }
+                        }
+                      })
+                    })]
+                  }), (0, _v1.jsx)(_v46.Text, {
+                    variant: "body-xs",
+                    color: "text-secondary",
+                    children: _v7 ? (0, _v12.translate)({
+                      singular: "plus taxes. Per month, billed annually.",
+                      dictionary: {
+                        es: {
+                          singular: "más impuestos. Por mes, facturado anualmente."
+                        },
+                        "de-DE": {
+                          singular: "zzgl. Steuern. Pro Monat, jährlich abgerechnet."
+                        },
+                        "fr-FR": {
+                          singular: "plus taxes. Par mois, facturé annuellement."
+                        },
+                        "ja-JP": {
+                          singular: "税別。月額（年払い）。"
+                        },
+                        "ko-KR": {
+                          singular: "세금 별도. 월별 요금, 연간 청구."
+                        },
+                        "pt-BR": {
+                          singular: "mais impostos. Por mês, cobrado anualmente."
+                        },
+                        "zh-CN": {
+                          singular: "另加税。按年计费，折合每月。"
+                        }
+                      }
+                    }) : (0, _v12.translate)({
+                      singular: "plus taxes. Per month, billed monthly.",
+                      dictionary: {
+                        es: {
+                          singular: "más impuestos. Por mes, facturado mensualmente."
+                        },
+                        "de-DE": {
+                          singular: "zzgl. Steuern. Pro Monat, monatlich abgerechnet."
+                        },
+                        "fr-FR": {
+                          singular: "plus taxes. Par mois, facturé mensuellement."
+                        },
+                        "ja-JP": {
+                          singular: "税別。月額（月払い）。"
+                        },
+                        "ko-KR": {
+                          singular: "세금 별도. 월별 요금, 월간 청구."
+                        },
+                        "pt-BR": {
+                          singular: "mais impostos. Por mês, cobrado mensalmente."
+                        },
+                        "zh-CN": {
+                          singular: "另加税。按月计费，每月结算。"
+                        }
+                      }
+                    })
+                  })]
+                }), _v18(_v13), (0, _v1.jsx)(_v46.Text, {
+                  variant: "body-xs",
+                  color: "text-secondary",
+                  children: (0, _v12.translate)({
+                    singular: "Renews automatically at {RENEWAL_PRICE}/{PERIOD} (plus tax) unless canceled. Promotional price may change with prior notice.",
+                    replacements: {
+                      RENEWAL_PRICE: _v12 ?? "",
+                      PERIOD: _v7 ? (0, _v12.translate)({
+                        singular: "year",
+                        dictionary: {
+                          es: {
+                            singular: "año"
+                          },
+                          "de-DE": {
+                            singular: "Jahr"
+                          },
+                          "fr-FR": {
+                            singular: "année"
+                          },
+                          "ja-JP": {
+                            singular: "年"
+                          },
+                          "ko-KR": {
+                            singular: "년"
+                          },
+                          "pt-BR": {
+                            singular: "Ano"
+                          },
+                          "zh-CN": {
+                            singular: "年"
+                          }
+                        }
+                      }) : (0, _v12.translate)({
+                        singular: "month",
+                        dictionary: {
+                          es: {
+                            singular: "mes"
+                          },
+                          "de-DE": {
+                            singular: "Monat"
+                          },
+                          "fr-FR": {
+                            singular: "mois"
+                          },
+                          "ja-JP": {
+                            singular: "月"
+                          },
+                          "ko-KR": {
+                            singular: "월"
+                          },
+                          "pt-BR": {
+                            singular: "Mês"
+                          },
+                          "zh-CN": {
+                            singular: "月"
+                          }
+                        }
+                      })
+                    },
+                    dictionary: {
+                      es: {
+                        singular: "Se renueva automáticamente a {RENEWAL_PRICE}/{PERIOD} (más impuestos) a menos que se cancele. El precio promocional puede cambiar con aviso previo."
+                      },
+                      "de-DE": {
+                        singular: "Verlängert sich automatisch zu {RENEWAL_PRICE}/{PERIOD} (zzgl. Steuern), sofern nicht gekündigt. Der Aktionspreis kann sich nach vorheriger Ankündigung ändern."
+                      },
+                      "fr-FR": {
+                        singular: "Se renouvelle automatiquement à {RENEWAL_PRICE}/{PERIOD} (plus taxes) sauf annulation. Le prix promotionnel peut être modifié avec un préavis."
+                      },
+                      "ja-JP": {
+                        singular: "キャンセルしない限り、{RENEWAL_PRICE}/{PERIOD}（税別）で自動的に更新されます。プロモーション価格は事前の通知により変更される場合があります。"
+                      },
+                      "ko-KR": {
+                        singular: "취소하지 않는 한 {RENEWAL_PRICE}/{PERIOD} (세금 별도)로 자동 갱신됩니다. 프로모션 가격은 사전 통지 후 변경될 수 있습니다."
+                      },
+                      "pt-BR": {
+                        singular: "Renova automaticamente por {RENEWAL_PRICE}/{PERIOD} (mais impostos) a menos que seja cancelada. O preço promocional pode mudar mediante aviso prévio."
+                      },
+                      "zh-CN": {
+                        singular: "除非取消，否则将按 {RENEWAL_PRICE}/{PERIOD} (加税) 自动续订。促销价格可能会在事先通知后变更。"
+                      }
+                    }
+                  })
+                }), (0, _v1.jsx)(_v7.Button, {
+                  variant: "primary",
+                  size: "md",
+                  width: "100%",
+                  marginTop: "auto",
+                  onClick: _v16(_v4),
+                  isLoading: _v6,
+                  disabled: _v6 || _v5,
+                  children: (0, _v12.translate)({
+                    singular: "Accept the offer",
+                    dictionary: {
+                      es: {
+                        singular: "Aceptar la oferta"
+                      },
+                      "de-DE": {
+                        singular: "Angebot annehmen"
+                      },
+                      "fr-FR": {
+                        singular: "Accepter l'offre"
+                      },
+                      "ja-JP": {
+                        singular: "オファーを受け入れる"
+                      },
+                      "ko-KR": {
+                        singular: "제안 수락"
+                      },
+                      "pt-BR": {
+                        singular: "Aceitar a oferta"
+                      },
+                      "zh-CN": {
+                        singular: "接受此优惠"
+                      }
+                    }
+                  })
+                })]
+              })]
+            }), (0, _v1.jsx)(_v46.Text, {
+              variant: "body-xs",
+              color: "text-secondary",
+              mt: 5,
+              children: (0, _v12.translate)({
+                singular: "By accepting the discount, you agree: You’ll get a promotional discount on an automatically renewing subscription valid for one year. Your subscription will continue to automatically renew {PERIOD_ADVERB} unless you cancel from the Billing Settings page. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
+                replacements: {
+                  PERIOD_ADVERB: _v7 ? (0, _v12.translate)({
+                    singular: "annually",
+                    dictionary: {
+                      es: {
+                        singular: "anualmente"
+                      },
+                      "de-DE": {
+                        singular: "Jährlich"
+                      },
+                      "fr-FR": {
+                        singular: "annuel"
+                      },
+                      "ja-JP": {
+                        singular: "年間"
+                      },
+                      "ko-KR": {
+                        singular: "연간"
+                      },
+                      "pt-BR": {
+                        singular: "anualmente"
+                      },
+                      "zh-CN": {
+                        singular: "每年"
+                      }
+                    }
+                  }) : (0, _v12.translate)({
+                    singular: "monthly",
+                    dictionary: {
+                      es: {
+                        singular: "mensual"
+                      },
+                      "de-DE": {
+                        singular: "Monatlich"
+                      },
+                      "fr-FR": {
+                        singular: "mensuel"
+                      },
+                      "ja-JP": {
+                        singular: "月間"
+                      },
+                      "ko-KR": {
+                        singular: "월간"
+                      },
+                      "pt-BR": {
+                        singular: "mensalmente"
+                      },
+                      "zh-CN": {
+                        singular: "每月"
+                      }
+                    }
+                  }),
+                  TOS_URL: _v17("/terms", "tos"),
+                  PP_URL: _v17("/privacy", "privacy")
+                },
+                dictionary: {
+                  es: {
+                    singular: "Al aceptar el descuento, usted acepta: Recibirá un descuento promocional en una suscripción que se renueva automáticamente y es válida por un año. Su suscripción se seguirá renovando automáticamente {PERIOD_ADVERB} a menos que la cancele desde la página de Configuración de facturación. Su contenido podrá eliminarse al cancelar. Al completar esta compra, usted acepta nuestros {TOS_URL}Términos de servicio{/TOS_URL}, incluido el acuerdo de arbitraje y la renuncia a acciones colectivas, y reconoce nuestra {PP_URL}Política de privacidad{/PP_URL}."
+                  },
+                  "de-DE": {
+                    singular: "Indem Sie den Rabatt annehmen, stimmen Sie zu: Sie erhalten einen Aktionsrabatt auf ein sich automatisch verlängerndes Abonnement, das für ein Jahr gültig ist. Ihr Abonnement wird sich weiterhin automatisch {PERIOD_ADVERB} verlängern, sofern Sie es nicht über die Seite mit den Abrechnungseinstellungen kündigen. Ihre Inhalte können bei einer Kündigung gelöscht werden. Durch den Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsklausel und des Verzichts auf Sammelklagen, und erkennen unsere {PP_URL}Datenschutzerklärung{/PP_URL} an."
+                  },
+                  "fr-FR": {
+                    singular: "En acceptant la réduction, vous acceptez : vous bénéficierez d'une remise promotionnelle sur un abonnement à reconduction automatique valable un an. Votre abonnement sera automatiquement renouvelé {PERIOD_ADVERB} sauf si vous l'annulez depuis la page des paramètres de facturation. Votre contenu peut être supprimé lors de l'annulation. En finalisant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux actions collectives, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
+                  },
+                  "ja-JP": {
+                    singular: "割引を受け入れることで、次の内容に同意するものとします: 自動更新され1年間有効なサブスクリプションに対するプロモーション割引が適用されます。サブスクリプションは請求設定ページからキャンセルしない限り{PERIOD_ADVERB}自動的に更新されます。キャンセル時にコンテンツが削除される場合があります。本購入を完了することで、仲裁条項および集団訴訟放棄を含む当社の{TOS_URL}利用規約{/TOS_URL}に同意し、{PP_URL}プライバシーポリシー{/PP_URL}を確認したものとします。"
+                  },
+                  "ko-KR": {
+                    singular: "할인을 수락하면 다음에 동의하게 됩니다: 자동으로 갱신되는 구독에 대해 1년간 유효한 프로모션 할인이 적용됩니다. 구독은 청구 설정 페이지에서 취소하지 않는 한 {PERIOD_ADVERB} 자동으로 갱신됩니다. 취소 시 귀하의 콘텐츠가 삭제될 수 있습니다. 본 구매를 완료함으로써 귀하는 중재 합의 및 집단 소송 포기 조항을 포함한 당사의 {TOS_URL}서비스 약관{/TOS_URL}에 동의하고 당사의 {PP_URL}개인정보 처리방침{/PP_URL}을 확인하였음을 인정합니다."
+                  },
+                  "pt-BR": {
+                    singular: "Ao aceitar o desconto, você concorda: Você receberá um desconto promocional em uma assinatura com renovação automática válida por um ano. Sua assinatura continuará a ser renovada automaticamente {PERIOD_ADVERB} a menos que você cancele na página de Configurações de cobrança. Seu conteúdo pode ser excluído após o cancelamento. Ao concluir esta compra, você concorda com nossos {TOS_URL}Termos de Serviço{/TOS_URL}, incluindo o acordo de arbitragem e a renúncia de ação coletiva, e reconhece nossa {PP_URL}Política de Privacidade{/PP_URL}."
+                  },
+                  "zh-CN": {
+                    singular: "接受折扣即表示您同意：您将获得一项自动续订的促销折扣，订阅有效期为一年。除非您在计费设置页面取消，否则您的订阅将{PERIOD_ADVERB}自动续订。取消后您的内容可能会被删除。完成此次购买即表示您同意我们的 {TOS_URL}服务条款{/TOS_URL}，其中包括仲裁协议和集体诉讼豁免，并已阅读我们的 {PP_URL}隐私政策{/PP_URL}。"
+                  }
+                }
+              })
+            }), (0, _v1.jsx)(_v6.Box, {
+              height: "24px",
+              width: "100%",
+              "aria-hidden": "true"
+            })]
+          })]
+        })]
+      });
+    },
+    _v206 = "/terms",
+    _v207 = "/privacy",
+    _v208 = ({
       isOpen: _v0,
       onClose: _v1,
       onDecline: _v2,
@@ -9125,21 +10117,22 @@
       onRequestIndividualPlans: _v8,
       cancelRequestPending: _v9 = !1
     }) => {
-      let _v10,
-        _v11,
+      var _v10;
+      let _v11,
         _v12,
+        _v13,
         {
-          areBusinessPlansEnforced: _v13,
-          isWhitelistedForIndPlans: _v14
-        } = (0, _v193.useB2BRepackagingContext)(),
-        _v15 = function () {
+          areBusinessPlansEnforced: _v14,
+          isWhitelistedForIndPlans: _v15
+        } = (0, _v199.useB2BRepackagingContext)(),
+        _v16 = function () {
           let {
             settings: _v0
           } = (0, _v13.useOrionSettings)();
           return "rp_2026_high" === ("null" !== _v0.campaign_id_override_top_priority ? _v0.campaign_id_override_top_priority : _v0.campaign_id_override) ? "high" : "low";
         }(),
-        _v16 = _v6?.productName?.toLowerCase().replace("vimeo ", ""),
-        _v17 = function ({
+        _v17 = _v6?.productName?.toLowerCase().replace("vimeo ", ""),
+        _v18 = function ({
           tier: _v0,
           areBusinessPlansEnforced: _v1,
           isWhitelistedForIndPlans: _v2,
@@ -9169,11 +10162,11 @@
             }) {
               if (null == _v1) return null;
               let _v3 = "high" === _v2;
-              if ("core" === _v0) return _v188.includes(_v1) ? _v3 ? 70 : 60 : null;
+              if ("core" === _v0) return _v194.includes(_v1) ? _v3 ? 70 : 60 : null;
               if ("professional" === _v0) {
-                if (_v189.includes(_v1)) return _v3 ? 70 : 65;
-                if (_v190.includes(_v1)) return _v3 ? 50 : 30;
-                if (_v191.includes(_v1)) return _v3 ? 30 : null;
+                if (_v195.includes(_v1)) return _v3 ? 70 : 65;
+                if (_v196.includes(_v1)) return _v3 ? 50 : 30;
+                if (_v197.includes(_v1)) return _v3 ? 30 : null;
               }
               return null;
             }({
@@ -9187,7 +10180,7 @@
               discountPercent: _v0
             };
           }
-          let _v6 = _v0 ? _v192[_v0] : void 0;
+          let _v6 = _v0 ? _v198[_v0] : void 0;
           return _v6 ? {
             kind: "downgrade",
             targetTier: _v6
@@ -9195,60 +10188,120 @@
             kind: "none"
           };
         }({
-          tier: _v16,
-          areBusinessPlansEnforced: _v13,
-          isWhitelistedForIndPlans: _v14,
+          tier: _v17,
+          areBusinessPlansEnforced: _v14,
+          isWhitelistedForIndPlans: _v15,
           comingFromTier: _v7.tier,
-          priceSegment: _v15
+          priceSegment: _v16
         }),
-        _v18 = "discount_match_lower" === _v17.kind,
-        _v19 = _v18 && "studio" === _v16,
-        _v20 = "downgrade" === _v17.kind ? _v17.targetTier ?? null : null,
-        _v21 = "creator" === _v20 || "professional" === _v20 || "creator" === _v16 || "professional" === _v16,
-        _v22 = _v13 && !_v14 && !!_v8 && !_v21,
-        _v23 = (0, _v3.useMemo)(() => {
-          let _v0 = ["creator", "professional", "studio"];
-          return _v16 && !_v0.includes(_v16) ? [..._v0, _v16] : _v0;
-        }, [_v16]),
-        _v24 = (0, _v82.useGetSubscriptionPlansData)(_v23, void 0, !1),
+        _v19 = "discount_match_lower" === _v18.kind,
+        _v20 = _v19 && "studio" === _v17,
         {
-          baseUrl: _v25,
-          jwt: _v26,
-          xVimeoPage: _v27,
-          locale: _v28
+          settings: _v21,
+          isLoadingResponse: _v22
+        } = (0, _v13.useOrionSettings)(),
+        _v23 = function ({
+          arm: _v0,
+          offerKind: _v1,
+          effectiveTier: _v2
+        }) {
+          return "core" === _v2 || "professional" === _v2 || "discount_match_lower" === _v1 && void 0 !== _v2 && _v193.includes(_v2) ? _v0 : null;
+        }({
+          arm: _v21.b2b_cancellation_discount_type,
+          offerKind: _v18.kind,
+          effectiveTier: _v17
+        }),
+        _v24 = "core" === _v17 || "professional" === _v17,
+        _v25 = _v24 ? "b2c_cancellation_flow_discounts" : "b2b_cancellation_flow_discounts",
+        _v26 = _v24 && "one-time" === _v23,
+        _v27 = "permanent" === _v23 && (_v24 || _v19),
+        _v28 = "permanent_prominent" === _v23 && (_v24 || _v19),
+        _v29 = "downgrade" === _v18.kind ? _v18.targetTier ?? null : null,
+        _v30 = "creator" === _v29 || "professional" === _v29 || "creator" === _v17 || "professional" === _v17,
+        _v31 = _v14 && !_v15 && !!_v8 && !_v30,
+        _v32 = (0, _v3.useMemo)(() => {
+          let _v0 = ["creator", "core", "professional", "studio"];
+          return _v17 && !_v0.includes(_v17) ? [..._v0, _v17] : _v0;
+        }, [_v17]),
+        _v33 = (0, _v202.useCampaignIdOverride)(),
+        _v34 = _v6?.productId ?? _v7.productId,
+        _v35 = null != _v34 && _v188.has(_v34),
+        _v36 = !!(_v17 && _v68.RepackagedTiers.includes(_v17)),
+        _v37 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v6?.originalMonthlyPrice?.amount ?? _v6?.monthlyPrice?.amount ?? null : _v6?.originalPrice?.amount ?? _v6?.price?.amount ?? null,
+        _v38 = _v33 ?? (!_v22 && !_v33 && _v36 && _v35 ? _v202.RP_2026_LOW_CAMPAIGN_ID : void 0),
+        {
+          plans: _v39,
+          isLoading: _v40
+        } = (0, _v82.useGetSubscriptionPlansDataResult)(_v32, void 0, !1, {
+          ...(_v38 ? {
+            campaignId: _v38
+          } : {})
+        }),
+        {
+          plans: _v41
+        } = (0, _v82.useGetSubscriptionPlansDataResult)(_v32, void 0, !1, _v24 && !_v33 ? {
+          campaignId: _v202.RP_2026_HIGH_CAMPAIGN_ID
+        } : void 0),
+        {
+          plans: _v42
+        } = (0, _v82.useGetSubscriptionPlansDataResult)(_v32, void 0, !1, _v24 && !_v33 ? {
+          campaignId: _v202.RP_2026_LOW_CAMPAIGN_ID
+        } : void 0),
+        {
+          baseUrl: _v43,
+          jwt: _v44,
+          xVimeoPage: _v45,
+          locale: _v46
         } = (0, _v11.useGctlConfig)(),
-        [_v29, _v30] = (0, _v3.useState)(!1),
+        [_v47, _v48] = (0, _v3.useState)(!1),
         {
-          trackCancelSubscriptionDowngradeModalDisplayed: _v31,
-          trackCancelSubscriptionDowngradeClicked: _v32,
-          trackCancelSubscriptionDowngradeSkipped: _v33
+          trackCancelSubscriptionDowngradeModalDisplayed: _v49,
+          trackCancelSubscriptionDowngradeClicked: _v50,
+          trackCancelSubscriptionDowngradeSkipped: _v51
         } = (0, _v14.useBillingTracking)(),
         {
-          trackUserScheduledDowngrade: _v34,
-          trackDowngradeFailed: _v35
-        } = (0, _v196.usePricingTracking)(),
+          trackUserScheduledDowngrade: _v52,
+          trackDowngradeFailed: _v53
+        } = (0, _v203.usePricingTracking)(),
         {
-          trackIndividualEligibilityCtaClicked: _v36
+          trackIndividualEligibilityCtaClicked: _v54
         } = (0, _v30.useIndividualEligibilityTracking)(),
-        _v37 = _v7.billingPeriod === _v68.UserPlanType.Year ? "annual" : "monthly",
-        _v38 = _v7.subscriptionId,
-        _v39 = (0, _v3.useMemo)(() => _v24 && _v20 ? _v24.find(_v0 => _v0.tier === _v20) ?? null : null, [_v24, _v20]),
-        _v40 = (0, _v3.useMemo)(() => _v16 ? _v24?.find(_v0 => _v0.tier === _v16) ?? null : null, [_v24, _v16]),
-        _v41 = (0, _v3.useMemo)(() => _v24?.find(_v0 => "professional" === _v0.tier) ?? null, [_v24]),
-        _v42 = _v18 ? "discount" : "downgrade",
-        _v43 = _v18 ? _v16 ?? null : _v20 ?? null,
-        _v44 = _v16 ? _v24?.find(_v0 => _v0.tier === _v16) ?? null : null,
-        _v45 = (_v11 = (_v10 = _v7.billingPeriod === _v68.UserPlanType.Year) ? _v39?.price?.annualMonthly : _v39?.price?.monthly, (_v12 = _v10 ? _v44?.price?.annualMonthly : _v44?.price?.monthly) && _v11 && _v12 > _v11 ? Math.floor((_v12 - _v11) / _v12 * 100) : null),
-        _v46 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v39?.id?.annual ?? "" : _v39?.id?.monthly ?? "",
-        _v47 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v40?.id?.annual ?? "" : _v40?.id?.monthly ?? "",
-        _v48 = (0, _v3.useCallback)(async () => {
-          if (_v39) {
-            if (_v32({
+        _v55 = _v7.billingPeriod === _v68.UserPlanType.Year ? "annual" : "monthly",
+        _v56 = _v7.subscriptionId,
+        _v57 = (0, _v3.useMemo)(() => _v39 && _v29 ? _v39.find(_v0 => _v0.tier === _v29) ?? null : null, [_v39, _v29]),
+        _v58 = (0, _v3.useMemo)(() => _v39?.find(_v0 => "professional" === _v0.tier) ?? null, [_v39]),
+        _v59 = _v192({
+          scheduledProductId: _v34,
+          renewalMonthlyPrice: _v37,
+          plans: _v39
+        }) ?? _v192({
+          scheduledProductId: _v34,
+          renewalMonthlyPrice: _v37,
+          plans: _v41
+        }) ?? _v192({
+          scheduledProductId: _v34,
+          renewalMonthlyPrice: _v37,
+          plans: _v42
+        }),
+        _v60 = _v59?.landedPlan ?? null,
+        _v61 = null !== _v59,
+        _v62 = _v24 ? _v60 : _v17 ? _v39?.find(_v0 => _v0.tier === _v17) ?? null : null,
+        _v63 = _v19 ? "discount" : "downgrade",
+        _v64 = _v19 ? _v17 ?? null : _v29 ?? null,
+        _v65 = _v17 ? _v39?.find(_v0 => _v0.tier === _v17) ?? null : null,
+        _v66 = (_v12 = (_v11 = _v7.billingPeriod === _v68.UserPlanType.Year) ? _v57?.price?.annualMonthly : _v57?.price?.monthly, (_v13 = _v11 ? _v65?.price?.annualMonthly : _v65?.price?.monthly) && _v12 && _v13 > _v12 ? Math.floor((_v13 - _v12) / _v13 * 100) : null),
+        _v67 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v57?.id?.annual ?? "" : _v57?.id?.monthly ?? "",
+        _v68 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v62?.id?.annual ?? "" : _v62?.id?.monthly ?? "",
+        _v69 = (0, _v3.useCallback)(async () => {
+          if (_v57) {
+            if (_v50({
               currentPlan: _v7.tier ?? null,
-              newPlan: _v20 ?? "",
-              newPeriodicity: _v37,
+              newPlan: _v29 ?? "",
+              newPeriodicity: _v55,
               offerKind: "downgrade",
-              discountPercent: _v45
+              discountPercent: _v66,
+              priceSegment: _v16,
+              experimentName: _v25
             }), !_v7.hasAutorenew) {
               _v5?.((0, _v12.translate)({
                 singular: "To change your plan, please turn auto-renew back on first.",
@@ -9278,55 +10331,70 @@
               })), _v1();
               return;
             }
-            _v30(!0);
+            _v48(!0);
             try {
-              await (0, _v195.putMeSubscriptionScheduledOrder)({
+              await (0, _v201.putMeSubscriptionScheduledOrder)({
                 where: {
-                  subscriptionId: _v38
+                  subscriptionId: _v56
                 },
                 variables: {
-                  billingPlanId: _v46,
+                  billingPlanId: _v67,
                   acceptedFromCancellationFlow: !0
                 },
-                baseUrl: _v25,
+                baseUrl: _v43,
                 headers: {
                   "Content-Type": "application/json",
-                  Authorization: _v26 ? `jwt ${_v26}` : "",
-                  "Vimeo-Page": `${_v27}`,
-                  "Accept-Language": _v28 ?? "en"
+                  Authorization: _v44 ? `jwt ${_v44}` : "",
+                  "Vimeo-Page": `${_v45}`,
+                  "Accept-Language": _v46 ?? "en"
                 }
-              }), _v34({
+              }), _v52({
                 currentPlan: _v7.tier ?? "",
-                newPlan: _v20 ?? "",
-                newPeriodicity: _v37
+                newPlan: _v29 ?? "",
+                newPeriodicity: _v55,
+                offerKind: "downgrade",
+                offerDuration: "one_term",
+                experimentArm: _v21.b2b_cancellation_discount_type,
+                layout: "standard",
+                priceSegment: _v16,
+                experimentName: _v25
               }), _v4?.({
-                movedToPlan: _v39?.name
+                movedToPlan: _v57?.name
               }), _v1();
             } catch (_v0) {
-              _v35({
+              _v53({
                 currentPlan: _v7.tier ?? "",
-                targetPlan: _v20 ?? "",
-                targetPeriodicity: _v37,
+                targetPlan: _v29 ?? "",
+                targetPeriodicity: _v55,
                 errorMessage: _v0 instanceof Error ? _v0.message : String(_v0)
               }), _v5?.(), _v1();
             } finally {
-              _v30(!1);
+              _v48(!1);
             }
           }
-        }, [_v38, _v39, _v46, _v25, _v26, _v27, _v28, _v1, _v32, _v35, _v34, _v7.tier, _v7.hasAutorenew, _v20, _v37, _v45, _v4, _v5]),
-        _v49 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v40?.price?.annualMonthly : _v40?.price?.monthly,
-        _v50 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v41?.price?.annualMonthly : _v41?.price?.monthly,
-        _v51 = _v49 && _v50 && _v49 > _v50 ? Math.floor((_v49 - _v50) / _v49 * 100) : null,
-        _v52 = _v19 ? _v51 : _v17.discountPercent ?? null,
-        _v53 = _v18 ? _v52 : _v45,
-        _v54 = (0, _v3.useCallback)(async () => {
-          if (_v47 && null !== _v52) {
-            if (_v32({
+        }, [_v56, _v57, _v67, _v43, _v44, _v45, _v46, _v1, _v50, _v53, _v52, _v21.b2b_cancellation_discount_type, _v16, _v25, _v7.tier, _v7.hasAutorenew, _v29, _v55, _v66, _v4, _v5]),
+        _v70 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v62?.price?.annualMonthly : _v62?.price?.monthly,
+        _v71 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v58?.price?.annualMonthly : _v58?.price?.monthly,
+        _v72 = _v70 && _v71 && _v70 > _v71 ? Math.floor((_v70 - _v71) / _v70 * 100) : null,
+        _v73 = _v28 && _v24 && (null !== _v59 || _v40),
+        _v74 = _v73 || _v26 ? _v59?.savingsPercent ?? null : _v20 ? _v72 : _v18.discountPercent ?? null,
+        _v75 = (_v27 || _v28) && (!_v24 || _v73),
+        _v76 = _v28 && (!_v24 || _v73),
+        _v77 = _v75 ? _v24 ? "B2C_CANCELLATION_PERMANENT_DISCOUNT_V1" : "B2B_CANCELLATION_PERMANENT_DISCOUNT_V1" : void 0,
+        _v78 = _v19 ? _v74 : _v66,
+        _v79 = (0, _v3.useCallback)(async () => {
+          if (_v68 && null !== _v74) {
+            if (_v50({
               currentPlan: _v7.tier ?? null,
-              newPlan: _v16 ?? "",
-              newPeriodicity: _v37,
+              newPlan: _v17 ?? "",
+              newPeriodicity: _v55,
               offerKind: "discount",
-              discountPercent: _v52
+              discountPercent: _v74,
+              offerDuration: _v75 ? "permanent" : "one_term",
+              experimentArm: _v21.b2b_cancellation_discount_type,
+              layout: _v76 ? "prominent" : "standard",
+              priceSegment: _v16,
+              experimentName: _v25
             }), !_v7.hasAutorenew) {
               _v5?.((0, _v12.translate)({
                 singular: "To change your plan, please turn auto-renew back on first.",
@@ -9356,118 +10424,138 @@
               })), _v1();
               return;
             }
-            _v30(!0);
+            _v48(!0);
             try {
-              await (0, _v195.putMeSubscriptionScheduledOrder)({
+              await (0, _v201.putMeSubscriptionScheduledOrder)({
                 where: {
-                  subscriptionId: _v38
+                  subscriptionId: _v56
                 },
                 variables: {
-                  billingPlanId: _v47,
-                  discountPercent: _v52,
-                  acceptedFromCancellationFlow: !0
+                  billingPlanId: _v68,
+                  discountPercent: _v74,
+                  acceptedFromCancellationFlow: !0,
+                  ...(_v77 ? {
+                    offerMarker: _v77
+                  } : {})
                 },
-                baseUrl: _v25,
+                baseUrl: _v43,
                 headers: {
                   "Content-Type": "application/json",
-                  Authorization: _v26 ? `jwt ${_v26}` : "",
-                  "Vimeo-Page": `${_v27}`,
-                  "Accept-Language": _v28 ?? "en"
+                  Authorization: _v44 ? `jwt ${_v44}` : "",
+                  "Vimeo-Page": `${_v45}`,
+                  "Accept-Language": _v46 ?? "en"
                 }
-              }), _v34({
+              }), _v52({
                 currentPlan: _v7.tier ?? "",
-                newPlan: _v16 ?? "",
-                newPeriodicity: _v37
+                newPlan: _v17 ?? "",
+                newPeriodicity: _v55,
+                offerKind: "discount",
+                offerDuration: _v75 ? "permanent" : "one_term",
+                experimentArm: _v21.b2b_cancellation_discount_type,
+                layout: _v76 ? "prominent" : "standard",
+                priceSegment: _v16,
+                experimentName: _v25
               }), _v4?.({
-                movedToPlan: _v40?.name
+                movedToPlan: _v62?.name
               }), _v1();
             } catch (_v0) {
-              _v35({
+              _v53({
                 currentPlan: _v7.tier ?? "",
-                targetPlan: _v16 ?? "",
-                targetPeriodicity: _v37,
+                targetPlan: _v17 ?? "",
+                targetPeriodicity: _v55,
                 errorMessage: _v0 instanceof Error ? _v0.message : String(_v0)
               }), _v5?.(), _v1();
             } finally {
-              _v30(!1);
+              _v48(!1);
             }
           }
-        }, [_v47, _v40, _v16, _v52, _v38, _v25, _v26, _v27, _v28, _v1, _v32, _v35, _v34, _v7.tier, _v7.hasAutorenew, _v37, _v4, _v5]),
-        _v55 = (0, _v3.useRef)(!1),
-        _v56 = (0, _v3.useRef)(!1);
+        }, [_v68, _v62, _v17, _v74, _v56, _v77, _v75, _v76, _v43, _v44, _v45, _v46, _v1, _v50, _v53, _v52, _v21.b2b_cancellation_discount_type, _v16, _v25, _v7.tier, _v7.hasAutorenew, _v55, _v4, _v5]),
+        _v80 = (_v27 || _v28 || _v26) && _v24 && (_v40 || void 0 === _v41 || void 0 === _v42),
+        _v81 = (0, _v3.useRef)(!1),
+        _v82 = (0, _v3.useRef)(!1);
       (0, _v3.useEffect)(() => {
         if (!_v0) {
-          _v55.current = !1, _v56.current = !1;
+          _v81.current = !1, _v82.current = !1;
           return;
         }
-        _v18 || _v39 || _v20 || _v56.current || (_v56.current = !0, _v2()), (_v18 ? null == _v40 || _v19 && null == _v41 : null == _v39) || _v55.current || (_v31({
+        _v73 || _v26 && null !== _v59 || (_v19 || _v57 || _v29 || _v80 || _v82.current || (_v82.current = !0, _v2()), (_v80 ? null == _v59 : _v19 ? null == _v62 || _v20 && null == _v58 : null == _v57) || _v81.current || (_v49({
           tier: _v7.tier ?? null,
-          periodicity: _v37,
-          offerKind: _v42,
-          targetTier: _v43,
-          discountPercent: _v53
-        }), _v55.current = !0);
-      }, [_v0, _v18, _v39, _v40, _v41, _v20, _v2]);
-      let _v57 = _v7.renewalDate ? new Date(_v7.renewalDate) : null,
-        _v58 = _v57 && !Number.isNaN(_v57.getTime()) ? new Intl.DateTimeFormat(_v28 ?? "en", {
+          periodicity: _v55,
+          offerKind: _v63,
+          targetTier: _v64,
+          discountPercent: _v78,
+          offerDuration: _v75 ? "permanent" : "one_term",
+          experimentArm: _v21.b2b_cancellation_discount_type,
+          layout: _v76 ? "prominent" : "standard",
+          priceSegment: _v16,
+          experimentName: _v25
+        }), _v81.current = !0));
+      }, [_v0, _v19, _v57, _v62, _v58, _v29, _v80, _v73, _v26, _v59, _v2]);
+      let _v83 = _v7.renewalDate ? new Date(_v7.renewalDate) : null,
+        _v84 = _v83 && !Number.isNaN(_v83.getTime()) ? new Intl.DateTimeFormat(_v46 ?? "en", {
           day: "2-digit",
           month: "2-digit",
           year: "numeric"
-        }).format(_v57) : "",
-        _v59 = _v40?.priceFormatted?.annual,
-        _v60 = _v40?.priceFormatted?.annualMonthly,
-        _v61 = _v40?.price?.annual,
-        _v62 = _v40?.currency?.currencyCode,
-        _v63 = null != _v61 && null !== _v52 ? _v61 * (1 - _v52 / 100) : null,
-        _v64 = null !== _v63 && _v62 ? new Intl.NumberFormat(_v28 ?? "en", {
+        }).format(_v83) : "",
+        _v85 = _v62?.priceFormatted?.annual,
+        _v86 = _v62?.priceFormatted?.annualMonthly,
+        _v87 = _v62?.price?.annual,
+        _v88 = _v62?.currency?.currencyCode,
+        _v89 = null != _v87 && null !== _v74 ? _v87 * (1 - _v74 / 100) : null,
+        _v90 = null !== _v89 && _v88 ? new Intl.NumberFormat(_v46 ?? "en", {
           style: "currency",
-          currency: _v62,
+          currency: _v88,
           minimumFractionDigits: 0,
           maximumFractionDigits: 2
-        }).format(_v63) : null,
-        _v65 = _v39?.priceFormatted?.annual,
-        _v66 = () => {
-          _v36({
+        }).format(_v89) : null,
+        _v91 = _v57?.priceFormatted?.annual,
+        _v92 = () => {
+          _v54({
             location: "cancellation_offer",
-            offerKind: _v18 ? "discount" : "downgrade"
+            offerKind: _v19 ? "discount" : "downgrade"
           }), _v1(), _v8?.();
         },
-        _v67 = () => {
-          _v9 || (_v33({
+        _v93 = () => {
+          _v9 || (_v51({
             tier: _v7.tier ?? null,
-            periodicity: _v37,
-            offerKind: _v42,
-            targetTier: _v43
+            periodicity: _v55,
+            offerKind: _v63,
+            targetTier: _v64,
+            offerDuration: _v75 ? "permanent" : "one_term",
+            experimentArm: _v21.b2b_cancellation_discount_type,
+            layout: _v76 ? "prominent" : "standard",
+            priceSegment: _v16,
+            experimentName: _v25
           }), _v2());
         },
-        _v68 = (0, _v3.useRef)(!1);
+        _v94 = (0, _v3.useRef)(!1);
       (0, _v3.useEffect)(() => {
-        if (_v9 && !_v68.current) {
-          _v68.current = !0;
+        if (_v9 && !_v94.current) {
+          _v94.current = !0;
           return;
         }
-        !_v9 && _v68.current && (_v68.current = !1, _v1());
+        !_v9 && _v94.current && (_v94.current = !1, _v1());
       }, [_v9, _v1]);
-      let _v69 = _v0 => _v0 => (0, _v1.jsx)(_v37.Link, {
+      let _v95 = (_v0, _v1) => _v0 => (0, _v1.jsx)(_v37.Link, {
           href: _v0,
           textDecoration: "underline",
           color: "text-primary",
           target: "_blank",
           rel: "noopener noreferrer",
           children: _v0
-        }),
-        _v70 = _v0 => (0, _v1.jsx)(_v46.Text, {
+        }, _v1),
+        _v96 = _v0 => (0, _v1.jsx)(_v46.Text, {
           variant: "body-xs",
           color: "text-secondary",
           mt: 5,
           children: "discount" === _v0 ? (0, _v12.translate)({
             singular: "By accepting this discount, you agree: You’ll get a promotional discount on an automatically renewing subscription valid for one year, for a total price of {DISCOUNTED_AMOUNT}. If you don’t cancel before {RENEWAL_DATE} your subscription will renew at full price and you’ll be charged {ANNUAL_AMOUNT} (plus tax) on that date and every year thereafter until you cancel in your Billing Settings. Pricing may change. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
             replacements: {
-              DISCOUNTED_AMOUNT: _v64 ?? "",
-              RENEWAL_DATE: _v58,
-              ANNUAL_AMOUNT: _v59 ?? "",
-              TOS_URL: _v69(_v197),
-              PP_URL: _v69(_v198)
+              DISCOUNTED_AMOUNT: _v90 ?? "",
+              RENEWAL_DATE: _v84,
+              ANNUAL_AMOUNT: _v85 ?? "",
+              TOS_URL: _v95(_v206, "tos"),
+              PP_URL: _v95(_v207, "privacy")
             },
             dictionary: {
               es: {
@@ -9495,10 +10583,10 @@
           }) : (0, _v12.translate)({
             singular: "By accepting this downgrade, you agree: You’ll get a promotional discount on an automatically renewing subscription. If you don’t cancel before {RENEWAL_DATE} your subscription will renew at full price and you’ll be charged {FULL_PRICE} (plus tax) on that date and every year thereafter until you cancel in your Billing Settings. Pricing may change. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
             replacements: {
-              RENEWAL_DATE: _v58,
-              FULL_PRICE: _v65 ?? "",
-              TOS_URL: _v69(_v197),
-              PP_URL: _v69(_v198)
+              RENEWAL_DATE: _v84,
+              FULL_PRICE: _v91 ?? "",
+              TOS_URL: _v95(_v206, "tos"),
+              PP_URL: _v95(_v207, "privacy")
             },
             dictionary: {
               es: {
@@ -9524,25 +10612,957 @@
               }
             }
           })
-        });
-      if (_v18) {
+        }),
+        _v97 = () => {
+          let _v0 = _v7.billingPeriod === _v68.UserPlanType.Year ? (0, _v12.translate)({
+            singular: "year",
+            dictionary: {
+              es: {
+                singular: "año"
+              },
+              "de-DE": {
+                singular: "Jahr"
+              },
+              "fr-FR": {
+                singular: "année"
+              },
+              "ja-JP": {
+                singular: "年"
+              },
+              "ko-KR": {
+                singular: "년"
+              },
+              "pt-BR": {
+                singular: "Ano"
+              },
+              "zh-CN": {
+                singular: "年"
+              }
+            }
+          }) : (0, _v12.translate)({
+            singular: "month",
+            dictionary: {
+              es: {
+                singular: "mes"
+              },
+              "de-DE": {
+                singular: "Monat"
+              },
+              "fr-FR": {
+                singular: "mois"
+              },
+              "ja-JP": {
+                singular: "月"
+              },
+              "ko-KR": {
+                singular: "월"
+              },
+              "pt-BR": {
+                singular: "Mês"
+              },
+              "zh-CN": {
+                singular: "月"
+              }
+            }
+          });
+          return (0, _v1.jsx)(_v46.Text, {
+            variant: "body-xs",
+            color: "text-secondary",
+            mt: 3,
+            children: (0, _v12.translate)({
+              singular: "By accepting this discount, you agree: You’ll get a promotional discount on an automatically renewing subscription, for a total price of {DISCOUNTED_AMOUNT}. If you don’t cancel before {RENEWAL_DATE}, your subscription will renew at the promotional price of {DISCOUNTED_AMOUNT} (plus tax) on that date and will continue to automatically renew at the promotional price every {PERIOD} unless you cancel in Billing Settings. Subscription price may change in accordance with our Terms of Service. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
+              replacements: {
+                DISCOUNTED_AMOUNT: _v90 ?? "",
+                RENEWAL_DATE: _v84,
+                PERIOD: _v0,
+                TOS_URL: _v95(_v206, "tos"),
+                PP_URL: _v95(_v207, "privacy")
+              },
+              dictionary: {
+                es: {
+                  singular: "Al aceptar este descuento, usted acepta: Recibirá un descuento promocional en una suscripción que se renueva automáticamente, por un precio total de {DISCOUNTED_AMOUNT}. Si no cancela antes de {RENEWAL_DATE}, su suscripción se renovará al precio promocional de {DISCOUNTED_AMOUNT} (más impuestos) en esa fecha y continuará renovándose automáticamente al precio promocional cada {PERIOD} a menos que cancele en Configuración de facturación. El precio de la suscripción puede cambiar de acuerdo con nuestros Términos de servicio. Su contenido puede ser eliminado al cancelar. Al completar esta compra, usted acepta nuestros {TOS_URL}Términos de servicio{/TOS_URL}, incluyendo el acuerdo de arbitraje y la renuncia a demandas colectivas, y reconoce nuestra {PP_URL}Política de privacidad{/PP_URL}."
+                },
+                "de-DE": {
+                  singular: "Wenn Sie diesen Rabatt annehmen, stimmen Sie zu: Sie erhalten einen Aktionsrabatt auf ein sich automatisch verlängerndes Abonnement zu einem Gesamtpreis von {DISCOUNTED_AMOUNT}. Wenn Sie nicht vor dem {RENEWAL_DATE} kündigen, wird Ihr Abonnement an diesem Datum zum Aktionspreis von {DISCOUNTED_AMOUNT} (zuzüglich Steuern) verlängert und verlängert sich anschließend alle {PERIOD} automatisch zum Aktionspreis, sofern Sie nicht in den Abrechnungseinstellungen kündigen. Der Abonnementpreis kann sich gemäß unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} ändern. Ihre Inhalte können bei Kündigung gelöscht werden. Mit dem Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsvereinbarung und des Verzichts auf Sammelklagen, und erkennen unsere {PP_URL}Datenschutzerklärung{/PP_URL} an."
+                },
+                "fr-FR": {
+                  singular: "En acceptant cette remise\x0f, vous acceptez : Vous bénéficierez d'une remise promotionnelle sur un abonnement à renouvellement automatique, pour un prix total de {DISCOUNTED_AMOUNT}. Si vous n'annulez pas avant {RENEWAL_DATE}, votre abonnement sera renouvelé au prix promotionnel de {DISCOUNTED_AMOUNT} (plus taxes) à cette date et continuera d'être automatiquement renouvelé au prix promotionnel tous les {PERIOD} sauf si vous annulez dans les Paramètres de facturation. Le prix de l'abonnement peut changer conformément à nos Conditions d'utilisation. Votre contenu peut être supprimé à l'annulation. En finalisant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux recours collectifs, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
+                },
+                "ja-JP": {
+                  singular: "この割引を受け入れることで、次のことに同意するものとします：自動更新されるサブスクリプションにプロモーション割引が適用され、合計金額は {DISCOUNTED_AMOUNT} になります。{RENEWAL_DATE} より前にキャンセルしない場合、サブスクリプションはその日にプロモーション価格 {DISCOUNTED_AMOUNT}（税別）で更新され、その後も請求設定でキャンセルしない限り {PERIOD} ごとにプロモーション価格で自動更新され続けます。サブスクリプション価格は当社の利用規約に従って変更される場合があります。解約時にコンテンツが削除されることがあります。本購入を完了することで、仲裁合意および集団訴訟放棄を含む当社の {TOS_URL}利用規約{/TOS_URL} に同意し、{PP_URL}プライバシーポリシー{/PP_URL} を確認したことを承認するものとします。"
+                },
+                "ko-KR": {
+                  singular: "이 할인을 수락하면 다음에 동의하게 됩니다: 자동 갱신되는 구독에 프로모션 할인이 적용되어 총 금액은 {DISCOUNTED_AMOUNT}가 됩니다. {RENEWAL_DATE} 이전에 취소하지 않으면 귀하의 구독은 해당 날짜에 프로모션 가격 {DISCOUNTED_AMOUNT}(세금 별도)로 갱신되며, 결제 설정에서 취소하지 않는 한 매 {PERIOD}마다 프로모션 가격으로 자동 갱신됩니다. 구독 가격은 당사의 서비스 약관에 따라 변경될 수 있습니다. 취소 시 귀하의 콘텐츠가 삭제될 수 있습니다. 본 구매를 완료함으로써 귀하는 중재 합의 및 집단 소송 포기를 포함한 당사의 {TOS_URL}서비스 약관{/TOS_URL}에 동의하고 당사의 {PP_URL}개인정보 처리방침{/PP_URL}을 확인합니다."
+                },
+                "pt-BR": {
+                  singular: "Ao aceitar este desconto, você concorda: Você receberá um desconto promocional em uma assinatura com renovação automática, por um preço total de {DISCOUNTED_AMOUNT}. Se você não cancelar antes de {RENEWAL_DATE}, sua assinatura será renovada pelo preço promocional de {DISCOUNTED_AMOUNT} (mais impostos) nessa data e continuará a ser renovada automaticamente pelo preço promocional a cada {PERIOD}, a menos que você cancele nas Configurações de Cobrança. O preço da assinatura pode mudar de acordo com nossos Termos de Serviço. Seu conteúdo pode ser excluído em caso de cancelamento. Ao concluir esta compra, você concorda com nossos {TOS_URL}Termos de Serviço{/TOS_URL}, incluindo o acordo de arbitragem e a renúncia à ação coletiva, e reconhece nossa {PP_URL}Política de Privacidade{/PP_URL}."
+                },
+                "zh-CN": {
+                  singular: "接受此折扣，即表示您同意：您将获得一项自动续订订阅的促销折扣，总价为 {DISCOUNTED_AMOUNT}。如果您未在 {RENEWAL_DATE} 之前取消，您的订阅将在该日期以 {DISCOUNTED_AMOUNT} 的促销价格（另加税费）续订，并将每 {PERIOD} 自动以该促销价格续订，除非您在计费设置中取消。订阅价格可能会根据我们的服务条款发生变动。取消后，您的内容可能会被删除。完成本次购买即表示您同意我们的 {TOS_URL}服务条款{/TOS_URL}（包括仲裁协议和集体诉讼放弃条款），并已知悉我们的 {PP_URL}隐私政策{/PP_URL}。"
+                }
+              }
+            })
+          });
+        };
+      if (_v73) {
         let _v0 = _v7.billingPeriod === _v68.UserPlanType.Year,
-          _v1 = _v40?.name ?? "",
-          _v2 = _v0 ? _v40?.priceFormatted?.annualMonthly : _v40?.priceFormatted?.monthly,
-          _v3 = _v40?.currency?.currencyCode,
-          _v4 = _v49 && null !== _v52 ? _v49 * (1 - _v52 / 100) : null,
-          _v5 = null !== _v4 && _v3 ? new Intl.NumberFormat(_v28 ?? "en", {
+          _v1 = _v59?.landedPlan.name ?? "",
+          _v2 = _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v59?.landedPlan.priceFormatted?.annualMonthly ?? null : _v6?.originalPrice?.formatted ?? _v6?.price?.formatted ?? _v59?.landedPlan.priceFormatted?.monthly ?? null,
+          _v3 = _v59?.landedPlan.currency?.currencyCode,
+          _v4 = _v0 ? _v59?.tierBelowPlan.price?.annualMonthly : _v59?.tierBelowPlan.price?.monthly,
+          _v5 = null != _v4 && _v3 ? new Intl.NumberFormat(_v46 ?? "en", {
             style: "currency",
             currency: _v3,
             minimumFractionDigits: 0,
             maximumFractionDigits: 2
           }).format(_v4) : null,
-          _v6 = _v40?.metadata?.entitlements?.params,
-          _v7 = _v6?.teamSeats ?? null,
-          _v8 = _v6?.seats?.admin ?? null,
-          _v9 = _v6?.restrictedVideoStorageLimit ?? null,
-          _v10 = _v6?.bandwidth?.periodicQuota ?? null,
-          _v11 = _v6?.bandwidth?.quotaPeriod === "year";
+          _v6 = _v0 ? _v6?.originalPrice?.formatted ?? null : _v5,
+          _v7 = _v59?.landedPlan.metadata?.entitlements?.params;
+        return (0, _v1.jsx)(_v205, {
+          isOpen: _v0,
+          onClose: _v1,
+          onBack: _v3,
+          onConfirmCancellation: _v93,
+          onAcceptOffer: () => {
+            _v79();
+          },
+          cancelRequestPending: _v9,
+          isAccepting: _v47,
+          isAnnual: _v0,
+          planName: _v1,
+          discountedPrice: _v5,
+          originalPrice: _v2,
+          savingsPercent: _v74,
+          renewalPriceLabel: _v6,
+          planFeatures: {
+            teamSeats: _v7?.teamSeats ?? null,
+            adminSeats: _v7?.seats?.admin ?? null,
+            restrictedStorage: _v7?.restrictedVideoStorageLimit ?? null,
+            bandwidth: _v7?.bandwidth?.periodicQuota ?? null,
+            bandwidthIsYearly: _v7?.bandwidth?.quotaPeriod === "year"
+          }
+        });
+      }
+      if (_v19 || _v26 && null !== _v59) {
+        let _v0 = _v7.billingPeriod === _v68.UserPlanType.Year,
+          _v1 = _v62?.name ?? "",
+          _v2 = _v24 ? _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v62?.priceFormatted?.annualMonthly : _v6?.originalPrice?.formatted ?? _v6?.price?.formatted ?? _v62?.priceFormatted?.monthly : _v0 ? _v62?.priceFormatted?.annualMonthly : _v62?.priceFormatted?.monthly,
+          _v3 = _v62?.currency?.currencyCode,
+          _v4 = _v61 ? _v0 ? _v59?.tierBelowPlan.price?.annualMonthly : _v59?.tierBelowPlan.price?.monthly : _v70 && null !== _v74 ? _v70 * (1 - _v74 / 100) : null,
+          _v5 = _v61 && null !== _v74 && null != _v4 ? Math.max(0, _v4) : _v4,
+          _v6 = null != _v5 && _v3 ? new Intl.NumberFormat(_v46 ?? "en", {
+            style: "currency",
+            currency: _v3,
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 2
+          }).format(_v5) : null,
+          _v7 = _v62?.metadata?.entitlements?.params,
+          _v8 = _v7?.teamSeats ?? null,
+          _v9 = _v7?.seats?.admin ?? null,
+          _v10 = _v7?.restrictedVideoStorageLimit ?? null,
+          _v11 = _v7?.bandwidth?.periodicQuota ?? null,
+          _v12 = _v7?.bandwidth?.quotaPeriod === "year";
+        if (_v73) {
+          let _v0 = _v0 ? _v6?.originalPrice?.formatted ?? _v62?.priceFormatted?.annual ?? null : _v6;
+          return (0, _v1.jsx)(_v205, {
+            isOpen: _v0,
+            onClose: _v1,
+            onBack: _v3,
+            onConfirmCancellation: _v93,
+            onAcceptOffer: () => {
+              _v79();
+            },
+            cancelRequestPending: _v9,
+            isAccepting: _v47,
+            isAnnual: _v0,
+            planName: _v1,
+            discountedPrice: _v6,
+            originalPrice: _v2 ?? null,
+            savingsPercent: _v74,
+            renewalPriceLabel: _v0,
+            planFeatures: {
+              teamSeats: _v8,
+              adminSeats: _v9,
+              restrictedStorage: _v10,
+              bandwidth: _v11,
+              bandwidthIsYearly: _v12
+            }
+          });
+        }
+        if (_v28 && !_v24) {
+          let _v0, _v1, _v2, _v3, _v4, _v5, _v6;
+          return _v10 = {
+            teamSeats: _v8,
+            adminSeats: _v9,
+            restrictedStorage: _v10,
+            bandwidth: _v11,
+            bandwidthIsYearly: _v12
+          }, _v0 = _v7.billingPeriod === _v68.UserPlanType.Year, _v1 = _v62?.name ?? "", _v2 = _v0 ? _v62?.priceFormatted?.annualMonthly : _v62?.priceFormatted?.monthly, _v3 = _v62?.currency?.currencyCode, _v5 = null !== (_v4 = _v70 && null !== _v74 ? _v70 * (1 - _v74 / 100) : null) && _v3 ? new Intl.NumberFormat(_v46 ?? "en", {
+            style: "currency",
+            currency: _v3,
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 2
+          }).format(_v4) : null, _v6 = _v0 => (0, _v1.jsxs)(_v126.Stack, {
+            spacing: "6px",
+            width: "100%",
+            align: "flex-start",
+            children: [null !== _v0.teamSeats && (0, _v1.jsxs)(_v8.Flex, {
+              gap: "4px",
+              alignItems: "center",
+              width: "100%",
+              children: [(0, _v1.jsx)(_v81.Users, {
+                boxSize: "20px",
+                color: "text-secondary"
+              }), (0, _v1.jsx)(_v46.Text, {
+                variant: "heading-2xs",
+                color: "text-secondary",
+                children: _v0.adminSeats ? (0, _v12.translate)({
+                  singular: "{USERS} users + {ADMINS} admins",
+                  replacements: {
+                    USERS: _v0.teamSeats,
+                    ADMINS: _v0.adminSeats
+                  },
+                  dictionary: {
+                    es: {
+                      singular: "{USERS} usuarios + {ADMINS} administradores"
+                    },
+                    "de-DE": {
+                      singular: "{USERS} Benutzer + {ADMINS} Administratoren"
+                    },
+                    "fr-FR": {
+                      singular: "{USERS} utilisateurs + {ADMINS} administrateurs"
+                    },
+                    "ja-JP": {
+                      singular: "{USERS} ユーザー + {ADMINS} 管理者"
+                    },
+                    "ko-KR": {
+                      singular: "{USERS} 사용자 + {ADMINS} 관리자"
+                    },
+                    "pt-BR": {
+                      singular: "{USERS} usuários + {ADMINS} administradores"
+                    },
+                    "zh-CN": {
+                      singular: "{USERS} 用户 + {ADMINS} 管理员"
+                    }
+                  }
+                }) : (0, _v12.translate)({
+                  singular: "{AMOUNT} user",
+                  plural: "{AMOUNT} users",
+                  count: _v0.teamSeats,
+                  replacements: {
+                    AMOUNT: _v0.teamSeats
+                  },
+                  dictionary: {
+                    es: {
+                      singular: "{AMOUNT} usuario",
+                      plural: "{AMOUNT} usuarios"
+                    },
+                    "de-DE": {
+                      singular: "{AMOUNT} Nutzer",
+                      plural: "{AMOUNT} Nutzer"
+                    },
+                    "fr-FR": {
+                      singular: "{AMOUNT} utilisateur",
+                      plural: "{AMOUNT} utilisateurs"
+                    },
+                    "ja-JP": {
+                      singular: "{AMOUNT}ユーザー",
+                      plural: "{AMOUNT}ユーザー"
+                    },
+                    "ko-KR": {
+                      singular: "{AMOUNT} 사용자",
+                      plural: "{AMOUNT} 사용자"
+                    },
+                    "pt-BR": {
+                      singular: "{AMOUNT} usuário",
+                      plural: "{AMOUNT} usuários"
+                    },
+                    "zh-CN": {
+                      singular: "{AMOUNT} 用户",
+                      plural: "{AMOUNT} 用户"
+                    }
+                  }
+                })
+              })]
+            }), null !== _v0.bandwidth && (0, _v1.jsxs)(_v8.Flex, {
+              gap: "4px",
+              alignItems: "center",
+              width: "100%",
+              children: [(0, _v1.jsx)(_v80, {
+                boxSize: "20px",
+                color: "text-secondary"
+              }), (0, _v1.jsx)(_v46.Text, {
+                variant: "heading-2xs",
+                color: "text-secondary",
+                children: _v0.bandwidthIsYearly ? (0, _v12.translate)({
+                  singular: "{AMOUNT} of bandwidth per year",
+                  replacements: {
+                    AMOUNT: _v0.bandwidth
+                  },
+                  dictionary: {
+                    es: {
+                      singular: "{AMOUNT} de ancho de banda por año"
+                    },
+                    "de-DE": {
+                      singular: "{AMOUNT} Bandbreite pro Jahr"
+                    },
+                    "fr-FR": {
+                      singular: "{AMOUNT} de bande passante par an"
+                    },
+                    "ja-JP": {
+                      singular: "{AMOUNT} の年間帯域幅"
+                    },
+                    "ko-KR": {
+                      singular: "{AMOUNT}의 연간 대역폭"
+                    },
+                    "pt-BR": {
+                      singular: "{AMOUNT} de largura de banda por ano"
+                    },
+                    "zh-CN": {
+                      singular: "{AMOUNT} 年度带宽"
+                    }
+                  }
+                }) : (0, _v12.translate)({
+                  singular: "{AMOUNT} of bandwidth per month",
+                  replacements: {
+                    AMOUNT: _v0.bandwidth
+                  },
+                  dictionary: {
+                    es: {
+                      singular: "{AMOUNT} de ancho de banda por mes"
+                    },
+                    "de-DE": {
+                      singular: "{AMOUNT} Bandbreite pro Monat"
+                    },
+                    "fr-FR": {
+                      singular: "{AMOUNT} de bande passante par mois"
+                    },
+                    "ja-JP": {
+                      singular: "月あたり{AMOUNT}の帯域幅"
+                    },
+                    "ko-KR": {
+                      singular: "{AMOUNT}의 월별 대역폭"
+                    },
+                    "pt-BR": {
+                      singular: "{AMOUNT} de largura de banda por mês"
+                    },
+                    "zh-CN": {
+                      singular: "{AMOUNT} 每月带宽"
+                    }
+                  }
+                })
+              })]
+            }), null !== _v0.restrictedStorage && (0, _v1.jsxs)(_v8.Flex, {
+              gap: "4px",
+              alignItems: "flex-start",
+              width: "100%",
+              children: [(0, _v1.jsx)(_v79, {
+                boxSize: "20px",
+                color: "text-secondary"
+              }), (0, _v1.jsx)(_v46.Text, {
+                variant: "heading-2xs",
+                color: "text-secondary",
+                flex: "1",
+                children: (0, _v12.translate)({
+                  singular: "{AMOUNT} storage for Embeds and non-Public videos",
+                  replacements: {
+                    AMOUNT: _v0.restrictedStorage
+                  },
+                  dictionary: {
+                    es: {
+                      singular: "{AMOUNT} de almacenamiento para Embeds y videos no públicos"
+                    },
+                    "de-DE": {
+                      singular: "{AMOUNT} Speicher für Einbettungen und nicht-öffentliche Videos"
+                    },
+                    "fr-FR": {
+                      singular: "{AMOUNT} de stockage pour les intégrations et les vidéos non publiques"
+                    },
+                    "ja-JP": {
+                      singular: "{AMOUNT} の埋め込みおよび非公開ビデオ用ストレージ"
+                    },
+                    "ko-KR": {
+                      singular: "{AMOUNT} 임베드 및 비공개 동영상용 저장 공간"
+                    },
+                    "pt-BR": {
+                      singular: "{AMOUNT} de armazenamento para Embeds e vídeos não públicos"
+                    },
+                    "zh-CN": {
+                      singular: "{AMOUNT} 用于嵌入和非公开视频的存储空间"
+                    }
+                  }
+                })
+              })]
+            })]
+          }), (0, _v1.jsxs)(_v71.Modal, {
+            isOpen: _v0,
+            onClose: _v1,
+            size: "lg",
+            scrollBehavior: "outside",
+            closeOnOverlayClick: !1,
+            closeOnEsc: !1,
+            children: [(0, _v1.jsx)(_v77.ModalOverlay, {}), (0, _v1.jsxs)(_v74.ModalContent, {
+              borderRadius: "16px",
+              maxW: "720px",
+              sx: {
+                ".chakra-modal__body": {
+                  border: "none",
+                  backgroundImage: "none",
+                  borderBottomRadius: "16px"
+                }
+              },
+              py: 5,
+              px: 6,
+              children: [(0, _v1.jsx)(_v133.IconButton, {
+                "aria-label": "Go back",
+                icon: (0, _v1.jsx)(_v200.ChevronLeft, {}),
+                variant: "minimalTransparent",
+                size: "sm",
+                position: "absolute",
+                top: "20px",
+                left: "20px",
+                onClick: _v3
+              }), (0, _v1.jsxs)(_v72.ModalBody, {
+                p: 0,
+                paddingTop: "16px",
+                children: [(0, _v1.jsxs)(_v23.Header, {
+                  size: "md",
+                  paddingLeft: "48px",
+                  children: [(0, _v12.translate)({
+                    singular: "Get {PLAN} at a discounted price",
+                    replacements: {
+                      PLAN: _v1
+                    },
+                    dictionary: {
+                      es: {
+                        singular: "Obtén {PLAN} a un precio con descuento"
+                      },
+                      "de-DE": {
+                        singular: "Erhalte {PLAN} zum vergünstigten Preis"
+                      },
+                      "fr-FR": {
+                        singular: "Obtenez {PLAN} à prix réduit"
+                      },
+                      "ja-JP": {
+                        singular: "{PLAN}を割引価格で入手"
+                      },
+                      "ko-KR": {
+                        singular: "할인된 가격으로 {PLAN} 이용하기"
+                      },
+                      "pt-BR": {
+                        singular: "Obter {PLAN} por um preço com desconto"
+                      },
+                      "zh-CN": {
+                        singular: "以折扣价获取 {PLAN}"
+                      }
+                    }
+                  }), (0, _v1.jsx)(_v6.Box, {
+                    as: "span",
+                    display: "block",
+                    marginTop: "4px",
+                    children: (0, _v1.jsx)(_v46.Text, {
+                      variant: "body-sm",
+                      color: "text-secondary",
+                      fontWeight: "normal",
+                      children: (0, _v12.translate)({
+                        singular: "{PLAN} gives your team the essentials at a lower price.",
+                        replacements: {
+                          PLAN: _v1
+                        },
+                        dictionary: {
+                          es: {
+                            singular: "{PLAN} ofrece a tu equipo las funciones esenciales a un precio más bajo."
+                          },
+                          "de-DE": {
+                            singular: "{PLAN} bietet Ihrem Team die wesentlichen Funktionen zu einem niedrigeren Preis."
+                          },
+                          "fr-FR": {
+                            singular: "{PLAN} offre à votre équipe les fonctionnalités essentielles à un tarif inférieur."
+                          },
+                          "ja-JP": {
+                            singular: "{PLAN} はチームに基本機能をより低価格で提供します。"
+                          },
+                          "ko-KR": {
+                            singular: "{PLAN}은 팀에 필요한 필수 기능을 더 낮은 가격에 제공합니다."
+                          },
+                          "pt-BR": {
+                            singular: "{PLAN} oferece à sua equipe os recursos essenciais por um preço menor."
+                          },
+                          "zh-CN": {
+                            singular: "{PLAN} 以更低的价格为您的团队提供核心功能。"
+                          }
+                        }
+                      })
+                    })
+                  })]
+                }), (0, _v1.jsxs)(_v8.Flex, {
+                  gap: "16px",
+                  alignItems: "stretch",
+                  width: "100%",
+                  mt: 4,
+                  flexDirection: {
+                    base: "column",
+                    md: "row"
+                  },
+                  children: [(0, _v1.jsxs)(_v8.Flex, {
+                    flex: "1",
+                    direction: "column",
+                    gap: "16px",
+                    backgroundColor: "background",
+                    border: "1px solid",
+                    borderColor: "stroke",
+                    borderRadius: "20px",
+                    p: "16px",
+                    minWidth: 0,
+                    children: [(0, _v1.jsx)(_v46.Text, {
+                      variant: "heading-sm",
+                      color: "text-primary",
+                      children: (0, _v12.translate)({
+                        singular: "Free",
+                        dictionary: {
+                          es: {
+                            singular: "Gratis"
+                          },
+                          "de-DE": {
+                            singular: "Kostenlos"
+                          },
+                          "fr-FR": {
+                            singular: "Gratuit"
+                          },
+                          "ja-JP": {
+                            singular: "無料"
+                          },
+                          "ko-KR": {
+                            singular: "무료"
+                          },
+                          "pt-BR": {
+                            singular: "Grátis"
+                          },
+                          "zh-CN": {
+                            singular: "免费"
+                          }
+                        }
+                      })
+                    }), (0, _v1.jsxs)(_v126.Stack, {
+                      spacing: "4px",
+                      width: "100%",
+                      children: [(0, _v1.jsx)(_v46.Text, {
+                        variant: "heading-xl",
+                        color: "text-primary",
+                        children: (0, _v12.translate)("$0")
+                      }), (0, _v1.jsx)(_v46.Text, {
+                        variant: "body-xs",
+                        color: "text-secondary",
+                        children: _v0 ? (0, _v12.translate)({
+                          singular: "plus taxes. Per month, billed annually.",
+                          dictionary: {
+                            es: {
+                              singular: "más impuestos. Por mes, facturado anualmente."
+                            },
+                            "de-DE": {
+                              singular: "zzgl. Steuern. Pro Monat, jährlich abgerechnet."
+                            },
+                            "fr-FR": {
+                              singular: "plus taxes. Par mois, facturé annuellement."
+                            },
+                            "ja-JP": {
+                              singular: "税別。月額（年払い）。"
+                            },
+                            "ko-KR": {
+                              singular: "세금 별도. 월별 요금, 연간 청구."
+                            },
+                            "pt-BR": {
+                              singular: "mais impostos. Por mês, cobrado anualmente."
+                            },
+                            "zh-CN": {
+                              singular: "另加税。按年计费，折合每月。"
+                            }
+                          }
+                        }) : (0, _v12.translate)({
+                          singular: "plus taxes. Per month, billed monthly.",
+                          dictionary: {
+                            es: {
+                              singular: "más impuestos. Por mes, facturado mensualmente."
+                            },
+                            "de-DE": {
+                              singular: "zzgl. Steuern. Pro Monat, monatlich abgerechnet."
+                            },
+                            "fr-FR": {
+                              singular: "plus taxes. Par mois, facturé mensuellement."
+                            },
+                            "ja-JP": {
+                              singular: "税別。月額（月払い）。"
+                            },
+                            "ko-KR": {
+                              singular: "세금 별도. 월별 요금, 월간 청구."
+                            },
+                            "pt-BR": {
+                              singular: "mais impostos. Por mês, cobrado mensalmente."
+                            },
+                            "zh-CN": {
+                              singular: "另加税。按月计费，每月结算。"
+                            }
+                          }
+                        })
+                      })]
+                    }), _v6({
+                      teamSeats: 1,
+                      adminSeats: null,
+                      restrictedStorage: "1 GB",
+                      bandwidth: "1 TB",
+                      bandwidthIsYearly: !1
+                    }), (0, _v1.jsx)(_v7.Button, {
+                      variant: "destructive",
+                      size: "md",
+                      width: "100%",
+                      marginTop: "auto",
+                      onClick: _v93,
+                      isLoading: _v9,
+                      disabled: _v9 || _v47,
+                      children: (0, _v12.translate)({
+                        singular: "Confirm cancellation",
+                        dictionary: {
+                          es: {
+                            singular: "Confirmar cancelación"
+                          },
+                          "de-DE": {
+                            singular: "Kündigung bestätigen"
+                          },
+                          "fr-FR": {
+                            singular: "Confirmer l'annulation"
+                          },
+                          "ja-JP": {
+                            singular: "解約を確定する"
+                          },
+                          "ko-KR": {
+                            singular: "취소 확인"
+                          },
+                          "pt-BR": {
+                            singular: "Confirmar cancelamento"
+                          },
+                          "zh-CN": {
+                            singular: "确认取消"
+                          }
+                        }
+                      })
+                    })]
+                  }), (0, _v1.jsxs)(_v8.Flex, {
+                    flex: "1",
+                    direction: "column",
+                    gap: "16px",
+                    backgroundColor: "background",
+                    border: "1px solid",
+                    borderColor: "stroke",
+                    borderRadius: "20px",
+                    p: "16px",
+                    minWidth: 0,
+                    children: [(0, _v1.jsx)(_v46.Text, {
+                      variant: "heading-sm",
+                      color: "text-primary",
+                      children: _v1
+                    }), (0, _v1.jsxs)(_v126.Stack, {
+                      spacing: "4px",
+                      width: "100%",
+                      children: [(0, _v1.jsxs)(_v8.Flex, {
+                        gap: "8px",
+                        alignItems: "center",
+                        children: [_v5 && (0, _v1.jsx)(_v46.Text, {
+                          variant: "heading-xl",
+                          as: "span",
+                          color: "text-primary",
+                          children: _v5
+                        }), _v2 && (0, _v1.jsx)(_v46.Text, {
+                          variant: "body-sm",
+                          color: "text-tertiary",
+                          as: "span",
+                          textDecoration: "line-through",
+                          children: _v2
+                        }), null !== _v74 && (0, _v1.jsx)(_v36.Badge, {
+                          size: "sm",
+                          backgroundColor: "status-positive-secondary",
+                          textColor: "status-positive-primary",
+                          border: "none",
+                          borderRadius: "999px",
+                          px: "8px",
+                          py: "4px",
+                          children: (0, _v12.translate)({
+                            singular: "Save {PERCENT}%",
+                            replacements: {
+                              PERCENT: _v74
+                            },
+                            dictionary: {
+                              es: {
+                                singular: "Ahorra {PERCENT}%"
+                              },
+                              "de-DE": {
+                                singular: "Sparen Sie {PERCENT}%"
+                              },
+                              "fr-FR": {
+                                singular: "Économisez {PERCENT}\x0f%"
+                              },
+                              "ja-JP": {
+                                singular: "{PERCENT}%オフ"
+                              },
+                              "ko-KR": {
+                                singular: "{PERCENT}% 절약"
+                              },
+                              "pt-BR": {
+                                singular: "Economize {PERCENT}%"
+                              },
+                              "zh-CN": {
+                                singular: "节省 {PERCENT}%"
+                              }
+                            }
+                          })
+                        })]
+                      }), (0, _v1.jsx)(_v46.Text, {
+                        variant: "body-xs",
+                        color: "text-secondary",
+                        children: _v0 ? (0, _v12.translate)({
+                          singular: "plus taxes. Per month, billed annually.",
+                          dictionary: {
+                            es: {
+                              singular: "más impuestos. Por mes, facturado anualmente."
+                            },
+                            "de-DE": {
+                              singular: "zzgl. Steuern. Pro Monat, jährlich abgerechnet."
+                            },
+                            "fr-FR": {
+                              singular: "plus taxes. Par mois, facturé annuellement."
+                            },
+                            "ja-JP": {
+                              singular: "税別。月額（年払い）。"
+                            },
+                            "ko-KR": {
+                              singular: "세금 별도. 월별 요금, 연간 청구."
+                            },
+                            "pt-BR": {
+                              singular: "mais impostos. Por mês, cobrado anualmente."
+                            },
+                            "zh-CN": {
+                              singular: "另加税。按年计费，折合每月。"
+                            }
+                          }
+                        }) : (0, _v12.translate)({
+                          singular: "plus taxes. Per month, billed monthly.",
+                          dictionary: {
+                            es: {
+                              singular: "más impuestos. Por mes, facturado mensualmente."
+                            },
+                            "de-DE": {
+                              singular: "zzgl. Steuern. Pro Monat, monatlich abgerechnet."
+                            },
+                            "fr-FR": {
+                              singular: "plus taxes. Par mois, facturé mensuellement."
+                            },
+                            "ja-JP": {
+                              singular: "税別。月額（月払い）。"
+                            },
+                            "ko-KR": {
+                              singular: "세금 별도. 월별 요금, 월간 청구."
+                            },
+                            "pt-BR": {
+                              singular: "mais impostos. Por mês, cobrado mensalmente."
+                            },
+                            "zh-CN": {
+                              singular: "另加税。按月计费，每月结算。"
+                            }
+                          }
+                        })
+                      })]
+                    }), _v6(_v10), (0, _v1.jsx)(_v7.Button, {
+                      variant: "primary",
+                      size: "md",
+                      width: "100%",
+                      onClick: _v79,
+                      isLoading: _v47,
+                      disabled: _v47,
+                      children: (0, _v12.translate)({
+                        singular: "Accept the offer",
+                        replacements: {},
+                        dictionary: {
+                          es: {
+                            singular: "Aceptar la oferta"
+                          },
+                          "de-DE": {
+                            singular: "Angebot annehmen"
+                          },
+                          "fr-FR": {
+                            singular: "Accepter l'offre"
+                          },
+                          "ja-JP": {
+                            singular: "オファーを受け入れる"
+                          },
+                          "ko-KR": {
+                            singular: "제안 수락"
+                          },
+                          "pt-BR": {
+                            singular: "Aceitar a oferta"
+                          },
+                          "zh-CN": {
+                            singular: "接受此优惠"
+                          }
+                        }
+                      })
+                    })]
+                  })]
+                }), _v97(), _v31 && (0, _v1.jsxs)(_v1.Fragment, {
+                  children: [(0, _v1.jsxs)(_v8.Flex, {
+                    gap: "8px",
+                    alignItems: "center",
+                    width: "100%",
+                    mt: 5,
+                    children: [(0, _v1.jsx)(_v6.Box, {
+                      flex: "1",
+                      height: "1px",
+                      backgroundColor: "stroke"
+                    }), (0, _v1.jsx)(_v46.Text, {
+                      variant: "body-sm",
+                      color: "text-tertiary",
+                      children: (0, _v12.translate)({
+                        singular: "or",
+                        dictionary: {
+                          es: {
+                            singular: "o"
+                          },
+                          "de-DE": {
+                            singular: "oder"
+                          },
+                          "fr-FR": {
+                            singular: "ou"
+                          },
+                          "ja-JP": {
+                            singular: "または"
+                          },
+                          "ko-KR": {
+                            singular: "또는"
+                          },
+                          "pt-BR": {
+                            singular: "ou"
+                          },
+                          "zh-CN": {
+                            singular: "或"
+                          }
+                        }
+                      })
+                    }), (0, _v1.jsx)(_v6.Box, {
+                      flex: "1",
+                      height: "1px",
+                      backgroundColor: "stroke"
+                    })]
+                  }), (0, _v1.jsxs)(_v8.Flex, {
+                    backgroundColor: "status-info-secondary",
+                    gap: "8px",
+                    alignItems: "center",
+                    px: "16px",
+                    py: "12px",
+                    borderRadius: "12px",
+                    width: "100%",
+                    mt: 4,
+                    children: [(0, _v1.jsxs)(_v8.Flex, {
+                      flex: "1",
+                      direction: "column",
+                      minWidth: 0,
+                      children: [(0, _v1.jsx)(_v46.Text, {
+                        variant: "heading-xs",
+                        color: "text-primary",
+                        children: (0, _v12.translate)({
+                          singular: "Not a business?",
+                          dictionary: {
+                            es: {
+                              singular: "¿No es una empresa?"
+                            },
+                            "de-DE": {
+                              singular: "Kein Unternehmen?"
+                            },
+                            "fr-FR": {
+                              singular: "Vous n'êtes pas une entreprise ?"
+                            },
+                            "ja-JP": {
+                              singular: "法人ではありませんか？"
+                            },
+                            "ko-KR": {
+                              singular: "비즈니스 계정이 아니신가요?"
+                            },
+                            "pt-BR": {
+                              singular: "Não é uma empresa?"
+                            },
+                            "zh-CN": {
+                              singular: "不是企业?"
+                            }
+                          }
+                        })
+                      }), (0, _v1.jsx)(_v46.Text, {
+                        variant: "body-sm",
+                        color: "text-secondary",
+                        children: (0, _v12.translate)({
+                          singular: "Request an individual plan for you",
+                          dictionary: {
+                            es: {
+                              singular: "Solicitar un plan individual para usted"
+                            },
+                            "de-DE": {
+                              singular: "Einen individuellen Tarif für Sie anfordern"
+                            },
+                            "fr-FR": {
+                              singular: "Demander un forfait individuel pour vous"
+                            },
+                            "ja-JP": {
+                              singular: "あなた専用のプランをリクエストする"
+                            },
+                            "ko-KR": {
+                              singular: "귀하를 위한 개별 플랜 요청"
+                            },
+                            "pt-BR": {
+                              singular: "Solicitar um plano individual para você"
+                            },
+                            "zh-CN": {
+                              singular: "为您申请个人方案"
+                            }
+                          }
+                        })
+                      })]
+                    }), (0, _v1.jsx)(_v7.Button, {
+                      variant: "secondary",
+                      size: "sm",
+                      onClick: _v92,
+                      children: (0, _v12.translate)({
+                        singular: "Request individual plan",
+                        dictionary: {
+                          es: {
+                            singular: "Solicitar un plan individual"
+                          },
+                          "de-DE": {
+                            singular: "Individuellen Tarif anfordern"
+                          },
+                          "fr-FR": {
+                            singular: "Demander un forfait individuel"
+                          },
+                          "ja-JP": {
+                            singular: "個別プランをリクエストする"
+                          },
+                          "ko-KR": {
+                            singular: "개별 플랜 요청"
+                          },
+                          "pt-BR": {
+                            singular: "Solicitar plano individual"
+                          },
+                          "zh-CN": {
+                            singular: "申请个人方案"
+                          }
+                        }
+                      })
+                    })]
+                  })]
+                }), (0, _v1.jsx)(_v6.Box, {
+                  height: "24px",
+                  width: "100%",
+                  "aria-hidden": "true"
+                })]
+              })]
+            })]
+          });
+        }
         return (0, _v1.jsxs)(_v71.Modal, {
           isOpen: _v0,
           onClose: _v1,
@@ -9556,7 +11576,7 @@
             p: 6,
             children: [(0, _v1.jsx)(_v133.IconButton, {
               "aria-label": "Go back",
-              icon: (0, _v1.jsx)(_v194.ChevronLeft, {}),
+              icon: (0, _v1.jsx)(_v200.ChevronLeft, {}),
               variant: "minimalTransparent",
               size: "sm",
               position: "absolute",
@@ -9601,17 +11621,17 @@
                 mt: 4,
                 alignItems: "center",
                 gap: 2,
-                children: [_v5 && (0, _v1.jsx)(_v46.Text, {
+                children: [_v6 && (0, _v1.jsx)(_v46.Text, {
                   variant: "heading-xl",
                   as: "span",
-                  children: _v5
+                  children: _v6
                 }), _v2 && (0, _v1.jsx)(_v46.Text, {
                   variant: "body-lg",
                   color: "text-tertiary",
                   as: "span",
                   textDecoration: "line-through",
                   children: _v2
-                }), null !== _v52 && (0, _v1.jsx)(_v36.Badge, {
+                }), null !== _v74 && (0, _v1.jsx)(_v36.Badge, {
                   size: "sm",
                   backgroundColor: "status-positive-secondary",
                   textColor: "status-positive-primary",
@@ -9622,7 +11642,7 @@
                   children: (0, _v12.translate)({
                     singular: "Save {PERCENT}%",
                     replacements: {
-                      PERCENT: _v52
+                      PERCENT: _v74
                     },
                     dictionary: {
                       es: {
@@ -9651,7 +11671,61 @@
                 })]
               }), (0, _v1.jsxs)(_v6.Box, {
                 mt: 1,
-                children: [(0, _v1.jsx)(_v46.Text, {
+                children: [_v27 ? (0, _v1.jsx)(_v46.Text, {
+                  variant: "body-sm",
+                  color: "text-secondary",
+                  children: _v0 ? (0, _v12.translate)({
+                    singular: "Per month, billed annually",
+                    dictionary: {
+                      es: {
+                        singular: "Por mes, facturado anualmente"
+                      },
+                      "de-DE": {
+                        singular: "Pro Monat, jährlich abgerechnet"
+                      },
+                      "fr-FR": {
+                        singular: "Par mois, facturé annuellement"
+                      },
+                      "ja-JP": {
+                        singular: "月額（年払い）"
+                      },
+                      "ko-KR": {
+                        singular: "월별 요금, 연간 청구"
+                      },
+                      "pt-BR": {
+                        singular: "Por mês, cobrado anualmente"
+                      },
+                      "zh-CN": {
+                        singular: "按年计费，折合每月"
+                      }
+                    }
+                  }) : (0, _v12.translate)({
+                    singular: "Per month, billed monthly",
+                    dictionary: {
+                      es: {
+                        singular: "Por mes, facturado mensualmente"
+                      },
+                      "de-DE": {
+                        singular: "Pro Monat, monatlich abgerechnet"
+                      },
+                      "fr-FR": {
+                        singular: "Par mois, facturé mensuellement"
+                      },
+                      "ja-JP": {
+                        singular: "月額（月払い）"
+                      },
+                      "ko-KR": {
+                        singular: "월별 요금, 월간 청구"
+                      },
+                      "pt-BR": {
+                        singular: "Por mês, cobrado mensalmente"
+                      },
+                      "zh-CN": {
+                        singular: "按月计费，每月结算"
+                      }
+                    }
+                  })
+                }) : (0, _v1.jsx)(_v46.Text, {
                   variant: "body-sm",
                   color: "text-secondary",
                   children: (0, _v12.translate)({
@@ -9680,13 +11754,13 @@
                       }
                     }
                   })
-                }), _v60 && (0, _v1.jsx)(_v46.Text, {
+                }), _v86 && (0, _v1.jsx)(_v46.Text, {
                   variant: "body-sm",
                   color: "text-secondary",
                   children: (0, _v12.translate)({
                     singular: "Renews at {AMOUNT}/month, billed annually",
                     replacements: {
-                      AMOUNT: _v60
+                      AMOUNT: _v86
                     },
                     dictionary: {
                       es: {
@@ -9746,17 +11820,17 @@
                 align: "flex-start",
                 spacing: 3,
                 mt: 5,
-                children: [null !== _v7 && (0, _v1.jsxs)(_v6.Box, {
+                children: [null !== _v8 && (0, _v1.jsxs)(_v6.Box, {
                   display: "flex",
                   alignItems: "center",
                   gap: 2,
-                  children: [_v7 <= 1 ? (0, _v1.jsx)(_v182, {}) : (0, _v1.jsx)(_v81.Users, {}), (0, _v1.jsx)(_v46.Text, {
+                  children: [_v8 <= 1 ? (0, _v1.jsx)(_v182, {}) : (0, _v1.jsx)(_v81.Users, {}), (0, _v1.jsx)(_v46.Text, {
                     variant: "body-sm",
-                    children: _v8 ? (0, _v12.translate)({
+                    children: _v9 ? (0, _v12.translate)({
                       singular: "{USERS} users + {ADMINS} admins",
                       replacements: {
-                        USERS: _v7,
-                        ADMINS: _v8
+                        USERS: _v8,
+                        ADMINS: _v9
                       },
                       dictionary: {
                         es: {
@@ -9784,9 +11858,9 @@
                     }) : (0, _v12.translate)({
                       singular: "{AMOUNT} user",
                       plural: "{AMOUNT} users",
-                      count: _v7,
+                      count: _v8,
                       replacements: {
-                        AMOUNT: _v7
+                        AMOUNT: _v8
                       },
                       dictionary: {
                         es: {
@@ -9820,7 +11894,7 @@
                       }
                     })
                   })]
-                }), _v9 && (0, _v1.jsxs)(_v6.Box, {
+                }), _v10 && (0, _v1.jsxs)(_v6.Box, {
                   display: "flex",
                   alignItems: "center",
                   gap: 2,
@@ -9829,7 +11903,7 @@
                     children: (0, _v12.translate)({
                       singular: "{AMOUNT} storage for Embeds and non-Public videos",
                       replacements: {
-                        AMOUNT: _v9
+                        AMOUNT: _v10
                       },
                       dictionary: {
                         es: {
@@ -9856,16 +11930,16 @@
                       }
                     })
                   })]
-                }), _v10 && (0, _v1.jsxs)(_v6.Box, {
+                }), _v11 && (0, _v1.jsxs)(_v6.Box, {
                   display: "flex",
                   alignItems: "center",
                   gap: 2,
                   children: [(0, _v1.jsx)(_v79, {}), (0, _v1.jsx)(_v46.Text, {
                     variant: "body-sm",
-                    children: _v11 ? (0, _v12.translate)({
+                    children: _v12 ? (0, _v12.translate)({
                       singular: "{AMOUNT} of bandwidth per year",
                       replacements: {
-                        AMOUNT: _v10
+                        AMOUNT: _v11
                       },
                       dictionary: {
                         es: {
@@ -9893,7 +11967,7 @@
                     }) : (0, _v12.translate)({
                       singular: "{AMOUNT} of bandwidth per month",
                       replacements: {
-                        AMOUNT: _v10
+                        AMOUNT: _v11
                       },
                       dictionary: {
                         es: {
@@ -9921,7 +11995,7 @@
                     })
                   })]
                 })]
-              }), _v70("discount")]
+              }), _v27 ? _v97() : _v96("discount")]
             }), (0, _v1.jsx)(_v75.ModalFooter, {
               p: 0,
               mt: 6,
@@ -9932,9 +12006,9 @@
                   variant: "primary",
                   size: "md",
                   width: "100%",
-                  onClick: _v54,
-                  isLoading: _v29,
-                  disabled: _v29,
+                  onClick: _v79,
+                  isLoading: _v47,
+                  disabled: _v47,
                   children: (0, _v12.translate)({
                     singular: "Continue with {PLAN}",
                     replacements: {
@@ -9968,9 +12042,9 @@
                   variant: "destructive",
                   size: "md",
                   width: "100%",
-                  onClick: _v67,
+                  onClick: _v93,
                   isLoading: _v9,
-                  disabled: _v9 || _v29,
+                  disabled: _v9 || _v47,
                   children: (0, _v12.translate)({
                     singular: "Confirm cancellation",
                     dictionary: {
@@ -9997,12 +12071,12 @@
                       }
                     }
                   })
-                }), _v22 && (0, _v1.jsx)(_v7.Button, {
+                }), _v31 && (0, _v1.jsx)(_v7.Button, {
                   variant: "hyperminimal",
                   background: "none",
                   size: "md",
                   width: "100%",
-                  onClick: _v66,
+                  onClick: _v92,
                   children: (0, _v12.translate)({
                     singular: "Request an individual plan",
                     dictionary: {
@@ -10035,23 +12109,23 @@
           })]
         });
       }
-      if (!_v39) return null;
+      if (!_v57) return null;
       let {
-          teamSeats: _v71,
-          restrictedVideoStorageLimit: _v72,
-          bandwidth: _v73,
-          seats: _v74
-        } = _v39?.metadata?.entitlements?.params ?? {},
-        _v75 = _v74?.admin ?? null,
-        _v76 = _v73?.periodicQuota ?? null,
-        _v77 = _v73?.quotaPeriod === "year",
-        _v78 = _v7.billingPeriod === _v68.UserPlanType.Year,
-        _v79 = _v16 ? _v24?.find(_v0 => _v0.tier === _v16) ?? null : null,
-        _v80 = _v78 ? _v39?.price?.annualMonthly : _v39?.price?.monthly,
-        _v81 = _v78 ? _v79?.price?.annualMonthly : _v79?.price?.monthly,
-        _v82 = _v81 && _v80 && _v81 > _v80 ? Math.floor((_v81 - _v80) / _v81 * 100) : null,
-        _v83 = _v78 ? _v79?.priceFormatted?.annualMonthly : _v79?.priceFormatted?.monthly,
-        _v84 = "professional" === _v20 ? (0, _v12.translate)({
+          teamSeats: _v98,
+          restrictedVideoStorageLimit: _v99,
+          bandwidth: _v100,
+          seats: _v101
+        } = _v57?.metadata?.entitlements?.params ?? {},
+        _v102 = _v101?.admin ?? null,
+        _v103 = _v100?.periodicQuota ?? null,
+        _v104 = _v100?.quotaPeriod === "year",
+        _v105 = _v7.billingPeriod === _v68.UserPlanType.Year,
+        _v106 = _v17 ? _v39?.find(_v0 => _v0.tier === _v17) ?? null : null,
+        _v107 = _v105 ? _v57?.price?.annualMonthly : _v57?.price?.monthly,
+        _v108 = _v105 ? _v106?.price?.annualMonthly : _v106?.price?.monthly,
+        _v109 = _v108 && _v107 && _v108 > _v107 ? Math.floor((_v108 - _v107) / _v108 * 100) : null,
+        _v110 = _v105 ? _v106?.priceFormatted?.annualMonthly : _v106?.priceFormatted?.monthly,
+        _v111 = "professional" === _v29 ? (0, _v12.translate)({
           singular: "Professional is built for individual creators. Get the same essentials at a lower price.",
           dictionary: {
             es: {
@@ -10079,7 +12153,7 @@
         }) : (0, _v12.translate)({
           singular: "{PLAN} gives your team the essentials at a lower price.",
           replacements: {
-            PLAN: _v39?.name
+            PLAN: _v57?.name
           },
           dictionary: {
             es: {
@@ -10118,7 +12192,7 @@
           p: 6,
           children: [(0, _v1.jsx)(_v133.IconButton, {
             "aria-label": "Go back",
-            icon: (0, _v1.jsx)(_v194.ChevronLeft, {}),
+            icon: (0, _v1.jsx)(_v200.ChevronLeft, {}),
             variant: "minimalTransparent",
             size: "sm",
             position: "absolute",
@@ -10161,7 +12235,7 @@
                 children: (0, _v12.translate)({
                   singular: "Try {PLAN}",
                   replacements: {
-                    PLAN: _v39?.name
+                    PLAN: _v57?.name
                   },
                   dictionary: {
                     es: {
@@ -10192,7 +12266,7 @@
               variant: "body-md",
               color: "text-secondary",
               mt: 2,
-              children: _v84
+              children: _v111
             }), (0, _v1.jsxs)(_v8.Flex, {
               mt: 4,
               alignItems: "center",
@@ -10201,14 +12275,14 @@
               children: [(0, _v1.jsx)(_v46.Text, {
                 variant: "heading-xl",
                 as: "span",
-                children: _v78 ? _v39?.priceFormatted?.annualMonthly : _v39?.priceFormatted?.monthly
-              }), _v83 && null !== _v82 && (0, _v1.jsx)(_v46.Text, {
+                children: _v105 ? _v57?.priceFormatted?.annualMonthly : _v57?.priceFormatted?.monthly
+              }), _v110 && null !== _v109 && (0, _v1.jsx)(_v46.Text, {
                 variant: "body-lg",
                 color: "text-tertiary",
                 as: "span",
                 textDecoration: "line-through",
-                children: _v83
-              }), null !== _v82 && (0, _v1.jsx)(_v36.Badge, {
+                children: _v110
+              }), null !== _v109 && (0, _v1.jsx)(_v36.Badge, {
                 size: "sm",
                 backgroundColor: "status-positive-secondary",
                 textColor: "status-positive-primary",
@@ -10219,7 +12293,7 @@
                 children: (0, _v12.translate)({
                   singular: "Save {PERCENT}%",
                   replacements: {
-                    PERCENT: _v82
+                    PERCENT: _v109
                   },
                   dictionary: {
                     es: {
@@ -10251,7 +12325,7 @@
               children: [(0, _v1.jsx)(_v46.Text, {
                 variant: "body-sm",
                 color: "text-secondary",
-                children: _v78 ? (0, _v12.translate)({
+                children: _v105 ? (0, _v12.translate)({
                   singular: "per month, billed annually",
                   dictionary: {
                     es: {
@@ -10336,17 +12410,17 @@
               align: "flex-start",
               spacing: 3,
               mt: 5,
-              children: [null != _v71 && (0, _v1.jsxs)(_v6.Box, {
+              children: [null != _v98 && (0, _v1.jsxs)(_v6.Box, {
                 display: "flex",
                 alignItems: "center",
                 gap: 2,
-                children: [_v71 <= 1 ? (0, _v1.jsx)(_v182, {}) : (0, _v1.jsx)(_v81.Users, {}), (0, _v1.jsx)(_v46.Text, {
+                children: [_v98 <= 1 ? (0, _v1.jsx)(_v182, {}) : (0, _v1.jsx)(_v81.Users, {}), (0, _v1.jsx)(_v46.Text, {
                   variant: "body-sm",
-                  children: _v75 ? (0, _v12.translate)({
+                  children: _v102 ? (0, _v12.translate)({
                     singular: "{USERS} users + {ADMINS} admins",
                     replacements: {
-                      USERS: _v71,
-                      ADMINS: _v75
+                      USERS: _v98,
+                      ADMINS: _v102
                     },
                     dictionary: {
                       es: {
@@ -10374,9 +12448,9 @@
                   }) : (0, _v12.translate)({
                     singular: "{AMOUNT} user",
                     plural: "{AMOUNT} users",
-                    count: _v71,
+                    count: _v98,
                     replacements: {
-                      AMOUNT: _v71
+                      AMOUNT: _v98
                     },
                     dictionary: {
                       es: {
@@ -10410,7 +12484,7 @@
                     }
                   })
                 })]
-              }), _v72 && (0, _v1.jsxs)(_v6.Box, {
+              }), _v99 && (0, _v1.jsxs)(_v6.Box, {
                 display: "flex",
                 alignItems: "center",
                 gap: 2,
@@ -10419,7 +12493,7 @@
                   children: (0, _v12.translate)({
                     singular: "{AMOUNT} storage for Embeds and non-Public videos",
                     replacements: {
-                      AMOUNT: _v72
+                      AMOUNT: _v99
                     },
                     dictionary: {
                       es: {
@@ -10446,16 +12520,16 @@
                     }
                   })
                 })]
-              }), _v76 && (0, _v1.jsxs)(_v6.Box, {
+              }), _v103 && (0, _v1.jsxs)(_v6.Box, {
                 display: "flex",
                 alignItems: "center",
                 gap: 2,
                 children: [(0, _v1.jsx)(_v79, {}), (0, _v1.jsx)(_v46.Text, {
                   variant: "body-sm",
-                  children: _v77 ? (0, _v12.translate)({
+                  children: _v104 ? (0, _v12.translate)({
                     singular: "{AMOUNT} of bandwidth per year",
                     replacements: {
-                      AMOUNT: _v76
+                      AMOUNT: _v103
                     },
                     dictionary: {
                       es: {
@@ -10483,7 +12557,7 @@
                   }) : (0, _v12.translate)({
                     singular: "{AMOUNT} of bandwidth per month",
                     replacements: {
-                      AMOUNT: _v76
+                      AMOUNT: _v103
                     },
                     dictionary: {
                       es: {
@@ -10511,7 +12585,7 @@
                   })
                 })]
               })]
-            }), _v70("downgrade")]
+            }), _v96("downgrade")]
           }), (0, _v1.jsx)(_v75.ModalFooter, {
             p: 0,
             mt: 6,
@@ -10522,13 +12596,13 @@
                 variant: "primary",
                 size: "md",
                 width: "100%",
-                onClick: _v48,
-                isLoading: _v29,
-                disabled: _v29,
+                onClick: _v69,
+                isLoading: _v47,
+                disabled: _v47,
                 children: (0, _v12.translate)({
                   singular: "Downgrade to {PLAN}",
                   replacements: {
-                    PLAN: _v39?.name ?? ""
+                    PLAN: _v57?.name ?? ""
                   },
                   dictionary: {
                     es: {
@@ -10558,9 +12632,9 @@
                 variant: "destructive",
                 size: "md",
                 width: "100%",
-                onClick: _v67,
+                onClick: _v93,
                 isLoading: _v9,
-                disabled: _v9 || _v29,
+                disabled: _v9 || _v47,
                 children: (0, _v12.translate)({
                   singular: "Confirm cancellation",
                   dictionary: {
@@ -10587,12 +12661,12 @@
                     }
                   }
                 })
-              }), _v22 && (0, _v1.jsx)(_v7.Button, {
+              }), _v31 && (0, _v1.jsx)(_v7.Button, {
                 variant: "hyperminimal",
                 background: "none",
                 size: "md",
                 width: "100%",
-                onClick: _v66,
+                onClick: _v92,
                 children: (0, _v12.translate)({
                   singular: "Request an individual plan",
                   dictionary: {
@@ -10625,10 +12699,10 @@
         })]
       });
     };
-  var _v200 = _v0.i(0),
-    _v201 = _v0.i(0),
-    _v202 = _v0.i(0);
-  let _v203 = ({
+  var _v209 = _v0.i(0),
+    _v210 = _v0.i(0),
+    _v211 = _v0.i(0);
+  let _v212 = ({
       children: _v0
     }) => (0, _v1.jsx)(_v6.Box, {
       sx: {
@@ -10641,7 +12715,7 @@
       minHeight: "0",
       children: _v0
     }),
-    _v204 = ({
+    _v213 = ({
       label: _v0,
       value: _v1,
       divider: _v2
@@ -10662,7 +12736,7 @@
         children: _v1
       })]
     }),
-    _v205 = ({
+    _v214 = ({
       membership: _v0,
       isOpen: _v1,
       onClose: _v2
@@ -10899,7 +12973,7 @@
           borderRadius: "16px",
           margin: "auto",
           overflow: "hidden",
-          children: "info" === _v13 ? (0, _v1.jsxs)(_v203, {
+          children: "info" === _v13 ? (0, _v1.jsxs)(_v212, {
             children: [(0, _v1.jsx)(_v76.ModalHeader, {
               paddingX: {
                 base: "20px",
@@ -10998,7 +13072,7 @@
                         size: "sm",
                         children: _v27
                       })]
-                    }), (0, _v1.jsx)(_v204, {
+                    }), (0, _v1.jsx)(_v213, {
                       divider: !0,
                       label: (0, _v12.translate)({
                         singular: "Amount paid",
@@ -11031,7 +13105,7 @@
                         color: "text-primary",
                         children: _v28
                       })
-                    }), _v0.startDate && (0, _v1.jsx)(_v204, {
+                    }), _v0.startDate && (0, _v1.jsx)(_v213, {
                       divider: !0,
                       label: (0, _v12.translate)({
                         singular: "Payment date",
@@ -11126,7 +13200,7 @@
                       children: _v0
                     }, _v1))
                   })]
-                }), (0, _v1.jsxs)(_v200.FormControl, {
+                }), (0, _v1.jsxs)(_v209.FormControl, {
                   children: [(0, _v1.jsxs)(_v179.FormLabel, {
                     display: "flex",
                     justifyContent: "space-between",
@@ -11191,7 +13265,7 @@
                         }
                       })
                     })]
-                  }), (0, _v1.jsx)(_v201.Input, {
+                  }), (0, _v1.jsx)(_v210.Input, {
                     size: "lg",
                     type: "email",
                     value: _v15,
@@ -11280,7 +13354,7 @@
                 })]
               })
             })]
-          }) : (0, _v1.jsxs)(_v203, {
+          }) : (0, _v1.jsxs)(_v212, {
             children: [(0, _v1.jsx)(_v76.ModalHeader, {
               paddingTop: "40px",
               paddingBottom: "0",
@@ -11290,7 +13364,7 @@
               },
               children: (0, _v1.jsx)(_v8.Flex, {
                 justifyContent: "center",
-                children: (0, _v1.jsx)(_v202.CircleCheckFilled, {
+                children: (0, _v1.jsx)(_v211.CircleCheckFilled, {
                   boxSize: (0, _v26.rem)(56),
                   color: "status-positive-primary"
                 })
@@ -11479,12 +13553,12 @@
         })]
       });
     };
-  var _v206 = _v0.i(0),
-    _v207 = _v0.i(0);
-  let _v208 = [_v68.Tier.Creator, _v68.Tier.Core, _v68.Tier.Professional],
-    _v209 = [0, 0],
-    _v210 = [0, 0],
-    _v211 = ({
+  var _v215 = _v0.i(0),
+    _v216 = _v0.i(0);
+  let _v217 = [_v68.Tier.Creator, _v68.Tier.Core, _v68.Tier.Professional],
+    _v218 = [0, 0],
+    _v219 = [0, 0],
+    _v220 = ({
       children: _v0,
       onRequestIndividualPlans: _v1,
       onChangePlanClick: _v2,
@@ -11535,7 +13609,7 @@
         _v33 = _v26?.productName?.toLowerCase().replace("vimeo ", "") ?? "",
         _v34 = _v27 && _v68.RepackagedTiers.includes(_v33),
         _v35 = (_v32 || _v34) && _v20.repackaging_cancellation_position,
-        _v36 = _v27 && (0, _v206.isCorporateScheduledTier)(_v26?.productName),
+        _v36 = _v27 && (0, _v215.isCorporateScheduledTier)(_v26?.productName),
         _v37 = _v27 && _v11.tier === _v68.Tier.Advanced && "professional" === _v33,
         _v38 = "creator" === _v33,
         _v39 = _v20.show_downgrade_card_billing && _v27 && !_v36 && !_v37 && !_v38,
@@ -11565,7 +13639,7 @@
         } = (0, _v3.useContext)(_v107.ManageTeamAnalytics),
         _v58 = (0, _v3.useRef)(!1),
         _v59 = _v0 => {
-          (_v53(), _v2 && _v0 && _v208.includes(_v0)) ? _v2(_v0) : window.open((0, _v29.buildUpgradePlanUrl)({
+          (_v53(), _v2 && _v0 && _v217.includes(_v0)) ? _v2(_v0) : window.open((0, _v29.buildUpgradePlanUrl)({
             paywallTrigger: "billing_card_change_plan_button",
             paywallLocation: "billing_card",
             paywallFeature: "billing"
@@ -11599,7 +13673,7 @@
         _v79 = (0, _v3.useRef)(0),
         _v80 = !_v11.hasAutorenew,
         _v81 = !!_v11?.gracePeriodType,
-        _v82 = (0, _v207.getDisplayedGracePeriodEndDate)(_v11?.gracePeriodType, _v11?.originalEndDate, _v11?.endDate),
+        _v82 = (0, _v216.getDisplayedGracePeriodEndDate)(_v11?.gracePeriodType, _v11?.originalEndDate, _v11?.endDate),
         _v83 = (0, _v3.useMemo)(() => {
           let _v0 = {
             badge_msg: "",
@@ -11808,11 +13882,11 @@
         _v107 = null != _v11.additionalSeatPrice && null != _v11.basePlanPrice,
         _v108 = _v11.tier === _v68.Tier.Free ? _v69.T.Free : _v107 ? (0, _v136.formatAmountWithCurrency)(_v11.basePlanPrice + _v11.additionalSeatPrice * _v106, _v11.currency, 0) : (0, _v136.formatAmountWithCurrency)(_v11.pricePerSeat * (_v67.OWNER + _v106), _v11.currency, 0),
         _v109 = _v107 ? (0, _v136.formatAmountWithCurrency)(_v11.additionalSeatPrice, _v11.currency, 0) : (0, _v136.formatAmountWithCurrency)(_v11.pricePerSeat, _v11.currency, 0),
-        _v110 = _v27 ? _v29 && _v208.includes(_v29) ? _v29 : null : _v11.hasAutorenew && _v30 && _v208.includes(_v30) ? _v30 : null,
+        _v110 = _v27 ? _v29 && _v217.includes(_v29) ? _v29 : null : _v11.hasAutorenew && _v30 && _v217.includes(_v30) ? _v30 : null,
         _v111 = _v27 && _v26 ? "year" === _v26.billingPeriod : _v11.billingPeriod !== _v68.UserPlanType.Month,
         _v112 = _v27 && _v26 ? (_v111 ? _v26.monthlyPrice?.formatted : _v26.price?.formatted) ?? "" : (0, _v136.formatAmountWithCurrency)(_v111 ? _v11.pricePerSeat / 12 : _v11.pricePerSeat, _v11.currency, 0),
         _v113 = _v27 && _v26 ? _v26.productId : _v11.productId,
-        _v114 = null != _v113 && _v209.includes(_v113) ? "strict" : null != _v113 && _v210.includes(_v113) ? "july_2026" : "default",
+        _v114 = null != _v113 && _v218.includes(_v113) ? "strict" : null != _v113 && _v219.includes(_v113) ? "july_2026" : "default",
         _v115 = _v11.tier === _v68.Tier.Advanced ? "/enterprise/contact-us" : "/upgrade",
         _v116 = _v11.paymentMethod ?? _v11.suggestedPaymentMethod ?? _v12.find(_v0 => _v0.inUse) ?? _v12[0],
         _v117 = _v116 && (0, _v136.isPaymentExpired)(_v116),
@@ -12715,7 +14789,7 @@
               enableAutoRenew: _v102,
               tier: _v11.tier,
               billingPeriod: _v11.billingPeriod
-            }), _v135 && (0, _v1.jsx)(_v205, {
+            }), _v135 && (0, _v1.jsx)(_v214, {
               membership: _v11,
               isOpen: _v136,
               onClose: _v138
@@ -12781,7 +14855,7 @@
           })]
         }), "function" == typeof _v0 ? _v0({
           hasScheduledDowngrade: _v27
-        }) : _v0, (0, _v1.jsx)(_v199, {
+        }) : _v0, (0, _v1.jsx)(_v208, {
           isOpen: _v149,
           onClose: () => _v150(!1),
           onBack: () => {
@@ -12825,16 +14899,16 @@
         })]
       });
     },
-    _v212 = "RENEWAL_SUCCESSFUL",
-    _v213 = "RENEWAL_FAILED",
-    _v214 = ({
+    _v221 = "RENEWAL_SUCCESSFUL",
+    _v222 = "RENEWAL_FAILED",
+    _v223 = ({
       locale: _v0,
       membership: _v1,
       noticeType: _v2,
       onClose: _v3
     }) => {
       let _v4 = _v1.tierForDisplay,
-        _v5 = _v2 === _v212,
+        _v5 = _v2 === _v221,
         _v6 = Intl.DateTimeFormat(_v0, {
           year: "numeric",
           month: "long",
@@ -12850,10 +14924,10 @@
         children: _v5 ? _v69.T.RenewalNotice.Success(_v4, _v6.format(_v7)) : _v69.T.RenewalNotice.Failure(_v4, _v6.format(_v7), `/checkout/${_v1.tier}/renew-now`)
       });
     };
-  var _v215 = _v0.i(0),
-    _v216 = _v0.i(0),
-    _v217 = _v0.i(0);
-  async function _v218({
+  var _v224 = _v0.i(0),
+    _v225 = _v0.i(0),
+    _v226 = _v0.i(0);
+  async function _v227({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -12875,7 +14949,7 @@
       return (0, _v110.deepCamelCase)(_v1);
     });
   }
-  function _v219() {
+  function _v228() {
     let {
         mutate: _v0
       } = (0, _v58.useSWRConfig)(),
@@ -12891,7 +14965,7 @@
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/seats${(0, _v57.serializeQuery)(_v0)}`, _v218({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/seats${(0, _v57.serializeQuery)(_v0)}`, _v227({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -12914,7 +14988,7 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  function _v220({
+  function _v229({
     closeModal: _v0
   }) {
     let {
@@ -12936,7 +15010,7 @@
       {
         trackBillingAction: _v11
       } = (0, _v3.useContext)(_v107.ManageTeamAnalytics),
-      [_v12, _v13] = _v219(),
+      [_v12, _v13] = _v228(),
       _v14 = (0, _v3.useContext)(_v66.ViewerContext),
       _v15 = _v14?.teamUser?.ownerId || _v14?.user?.id || 0,
       _v16 = () => {
@@ -13007,11 +15081,11 @@
       })]
     });
   }
-  "true" === _v56.default.env.STORYBOOK && (0, _v57.assignMswData)(_v219, {
+  "true" === _v56.default.env.STORYBOOK && (0, _v57.assignMswData)(_v228, {
     endpoint: "/users/:userId/seats",
     method: "PATCH"
   });
-  let _v221 = _v3.default.memo(() => {
+  let _v230 = _v3.default.memo(() => {
     let {
         updateIsRemoveSeatsConfirmation: _v0
       } = (0, _v3.useContext)(_v107.ManageTeamDispatchCtx),
@@ -13019,16 +15093,16 @@
     return (0, _v1.jsx)(_v71.Modal, {
       isOpen: !0,
       onClose: _v1,
-      children: (0, _v1.jsx)(_v220, {
+      children: (0, _v1.jsx)(_v229, {
         closeModal: _v1
       })
     });
   });
-  var _v222 = _v0.i(0),
-    _v223 = _v0.i(0),
-    _v224 = _v0.i(0),
-    _v225 = _v0.i(0);
-  let _v226 = _v90.default.div.withConfig({
+  var _v231 = _v0.i(0),
+    _v232 = _v0.i(0),
+    _v233 = _v0.i(0),
+    _v234 = _v0.i(0);
+  let _v235 = _v90.default.div.withConfig({
       displayName: "style__ModalContent",
       componentId: "sc-11114d88-0"
     })`
@@ -13038,15 +15112,15 @@
   position: relative;
   padding: ${(0, _v89.rem)(22)} ${(0, _v89.rem)(24)};
   border-radius: ${(0, _v89.rem)(8)};
-  background: ${_v222.core.color.surface(500)};
+  background: ${_v231.core.color.surface(500)};
   transform: translate(0%, 0%);
 
   min-width: ${(0, _v89.rem)(500)};
-  ${_v224.media.xmd`
+  ${_v233.media.xmd`
     min-width: ${(0, _v89.rem)(500)};
   `}
 `,
-    _v227 = (0, _v90.default)(_v92.Button).withConfig({
+    _v236 = (0, _v90.default)(_v92.Button).withConfig({
       displayName: "style__StyledDeleteSeatsButton",
       componentId: "sc-11114d88-1"
     })`
@@ -13061,66 +15135,66 @@
     color: ${(0, _v118.red)(600)};
   }
 `,
-    _v228 = (0, _v90.default)(_v93.Modal).withConfig({
+    _v237 = (0, _v90.default)(_v93.Modal).withConfig({
       displayName: "style__StyledModal",
       componentId: "sc-11114d88-2"
     })`
   box-shadow: none;
   min-height: ${(0, _v89.rem)(350)};
 `,
-    _v229 = (0, _v90.default)(_v94.Paragraph).withConfig({
+    _v238 = (0, _v90.default)(_v94.Paragraph).withConfig({
       displayName: "style__DisableRemoveSeatsModalParagraph",
       componentId: "sc-11114d88-3"
     })`
-  color: ${_v223.color.text.secondary};
+  color: ${_v232.color.text.secondary};
 
   a {
-    color: ${_v223.color.text.secondary};
+    color: ${_v232.color.text.secondary};
   }
 `,
-    _v230 = _v90.default.div.withConfig({
+    _v239 = _v90.default.div.withConfig({
       displayName: "style__TextSection",
       componentId: "sc-11114d88-4"
     })`
   margin: ${(0, _v89.rem)(48)} ${(0, _v89.rem)(17)} ${(0, _v89.rem)(48)} ${(0, _v89.rem)(36)};
 `,
-    _v231 = (0, _v90.default)(_v225.CloseButton).withConfig({
+    _v240 = (0, _v90.default)(_v234.CloseButton).withConfig({
       displayName: "style__StyledCloseButton",
       componentId: "sc-11114d88-5"
     })`
   padding: 0;
   margin: ${(0, _v89.rem)(8)} 0;
 `;
-  function _v232({
+  function _v241({
     closeModal: _v0
   }) {
-    return (0, _v1.jsxs)(_v226, {
-      children: [(0, _v1.jsx)(_v231, {
+    return (0, _v1.jsxs)(_v235, {
+      children: [(0, _v1.jsx)(_v240, {
         className: "invite-modal-close-button",
         onClick: _v0
-      }), (0, _v1.jsx)(_v230, {
-        children: (0, _v1.jsx)(_v229, {
+      }), (0, _v1.jsx)(_v239, {
+        children: (0, _v1.jsx)(_v238, {
           size: "2",
           children: _v69.T.DisableSeatDeletion("/help/contact", () => void 0)
         })
       })]
     });
   }
-  let _v233 = _v3.default.memo(({
+  let _v242 = _v3.default.memo(({
     onClick: _v0
   }) => {
     let [_v1, _v2] = (0, _v3.useState)(!1),
       {
         trackBillingAction: _v3
       } = (0, _v3.useContext)(_v107.ManageTeamAnalytics),
-      _v4 = (0, _v3.useCallback)(() => (0, _v1.jsx)(_v232, {
+      _v4 = (0, _v3.useCallback)(() => (0, _v1.jsx)(_v241, {
         closeModal: () => _v2(!1)
       }), []);
-    return (0, _v1.jsx)(_v228, {
+    return (0, _v1.jsx)(_v237, {
       active: _v1,
       content: _v4(),
       onOpen: () => _v2(!1),
-      children: (0, _v1.jsx)(_v227, {
+      children: (0, _v1.jsx)(_v236, {
         variant: "hyperminimal",
         onClick: () => {
           _v0?.(), _v2(!0), _v3({
@@ -13132,7 +15206,7 @@
       })
     });
   });
-  function _v234() {
+  function _v243() {
     let {
         membership: _v0,
         seatCount: _v1,
@@ -13201,8 +15275,8 @@
       })]
     });
   }
-  var _v235 = _v0.i(0);
-  function _v236() {
+  var _v244 = _v0.i(0);
+  function _v245() {
     let [_v0, _v1] = (0, _v3.useState)(1),
       {
         invitesRemaining: _v2,
@@ -13220,7 +15294,7 @@
     return (0, _v1.jsxs)(_v6.Box, {
       display: "flex",
       alignItems: "baseline",
-      children: [(0, _v1.jsxs)(_v235.NumberInput, {
+      children: [(0, _v1.jsxs)(_v244.NumberInput, {
         border: "input-stroke",
         defaultValue: 1,
         min: 1,
@@ -13229,14 +15303,14 @@
         width: (0, _v26.rem)("78px"),
         marginRight: (0, _v26.rem)("10px"),
         onChange: _v0 => _v1(Number(_v0)),
-        children: [(0, _v1.jsx)(_v235.NumberInputField, {
+        children: [(0, _v1.jsx)(_v244.NumberInputField, {
           value: _v0
-        }), (0, _v1.jsxs)(_v235.NumberInputStepper, {
-          children: [(0, _v1.jsx)(_v235.NumberIncrementStepper, {
+        }), (0, _v1.jsxs)(_v244.NumberInputStepper, {
+          children: [(0, _v1.jsx)(_v244.NumberIncrementStepper, {
             _disabled: {
               color: "stroke"
             }
-          }), (0, _v1.jsx)(_v235.NumberDecrementStepper, {
+          }), (0, _v1.jsx)(_v244.NumberDecrementStepper, {
             _disabled: {
               color: "stroke"
             }
@@ -13249,7 +15323,7 @@
       })]
     });
   }
-  function _v237() {
+  function _v246() {
     return (0, _v1.jsxs)(_v6.Box, {
       paddingBottom: (0, _v26.rem)(24),
       display: "flex",
@@ -13260,10 +15334,10 @@
         size: "xs",
         alignItems: "flex-start",
         children: _v69.T.NumberOfSeats
-      }), (0, _v1.jsx)(_v236, {})]
+      }), (0, _v1.jsx)(_v245, {})]
     });
   }
-  function _v238({
+  function _v247({
     closeModal: _v0
   }) {
     let {
@@ -13279,7 +15353,7 @@
           right: "8px",
           onClick: _v0
         }), (0, _v1.jsxs)(_v72.ModalBody, {
-          children: [(0, _v1.jsx)(_v237, {}), (0, _v1.jsx)(_v234, {}), (0, _v1.jsx)(_v6.Box, {
+          children: [(0, _v1.jsx)(_v246, {}), (0, _v1.jsx)(_v243, {}), (0, _v1.jsx)(_v6.Box, {
             paddingTop: (0, _v26.rem)("16px"),
             fontSize: "body-sm",
             color: "text-secondary",
@@ -13305,7 +15379,7 @@
       })]
     });
   }
-  let _v239 = _v3.default.memo(({
+  let _v248 = _v3.default.memo(({
       onClick: _v0
     }) => {
       let [_v1, _v2, _v3] = function () {
@@ -13339,13 +15413,13 @@
         }), (0, _v1.jsx)(_v71.Modal, {
           isOpen: _v1,
           onClose: _v3,
-          children: (0, _v1.jsx)(_v238, {
+          children: (0, _v1.jsx)(_v247, {
             closeModal: _v3
           })
         })]
       });
     }),
-    _v240 = ({
+    _v249 = ({
       size: _v0
     }) => {
       let [_v1, _v2] = (0, _v3.useState)(!1),
@@ -13394,7 +15468,7 @@
         children: _v69.T.UpgradeButton
       });
     },
-    _v241 = ({
+    _v250 = ({
       hasScheduledDowngrade: _v0
     }) => {
       let {
@@ -13437,7 +15511,7 @@
         } = (0, _v14.useBillingTracking)(),
         {
           reason: _v23
-        } = (0, _v217.useIsSeatChangeBlocked)({
+        } = (0, _v226.useIsSeatChangeBlocked)({
           tier: _v8.tier,
           hasScheduledDowngrade: _v0
         }),
@@ -13450,7 +15524,7 @@
         _v29 = (_v15 ? _v9 : _v11) || _v11,
         _v30 = _v67.OWNER + _v13 + _v14 + _v1,
         _v31 = _v10 ? Math.max(0, _v10?.totalPurchasedCount - _v67.OWNER) : _v30 - _v67.OWNER,
-        _v32 = (0, _v3.useCallback)(() => 0 === _v31 || 0 === _v1 || _v8.tier && _v33(_v8.tier) ? null : _v1 > 0 && _v8.status === _v68.AccountStatus.Active && (_v8?.billingPeriod === _v68.UserPlanType.Month || _v8?.isFreeTrial ? (0, _v1.jsx)(_v239, {}) : (0, _v1.jsx)(_v233, {})), [_v1, _v8, _v31]);
+        _v32 = (0, _v3.useCallback)(() => 0 === _v31 || 0 === _v1 || _v8.tier && _v33(_v8.tier) ? null : _v1 > 0 && _v8.status === _v68.AccountStatus.Active && (_v8?.billingPeriod === _v68.UserPlanType.Month || _v8?.isFreeTrial ? (0, _v1.jsx)(_v248, {}) : (0, _v1.jsx)(_v242, {})), [_v1, _v8, _v31]);
       function _v33(_v0) {
         return _v68.SolutionTiers.includes(_v0);
       }
@@ -13496,7 +15570,7 @@
                 md: 0
               },
               children: "Lapsed" === _v8.status || _v8.tier === _v68.Tier.Free || _v16?.space?.unit === "video_size" ? _v69.T.SeatCount(_v11) : _v69.T.PaidSeats(_v8.nextCycle?.seatCount ?? _v30)
-            }), _v8.tier && !_v33(_v8.tier) ? (0, _v1.jsx)(_v215.Tooltip, {
+            }), _v8.tier && !_v33(_v8.tier) ? (0, _v1.jsx)(_v224.Tooltip, {
               shouldWrapChildren: !0,
               isDisabled: !_v25,
               label: _v25 ? _v24[0] : void 0,
@@ -13529,7 +15603,7 @@
                 },
                 children: _v69.T.AddSeats
               })
-            }) : (0, _v1.jsx)(_v216.Container, {
+            }) : (0, _v1.jsx)(_v225.Container, {
               bg: "upsell-secondary",
               borderRadius: "sm",
               children: (0, _v1.jsxs)(_v24.HStack, {
@@ -13539,7 +15613,7 @@
                 children: [(0, _v1.jsx)(_v46.Text, {
                   variant: "body-sm",
                   children: _v69.T.UpgradeToAddSeats
-                }), (0, _v1.jsx)(_v240, {
+                }), (0, _v1.jsx)(_v249, {
                   size: "xs"
                 })]
               })
@@ -13624,14 +15698,14 @@
               base: "center",
               md: "flex-end"
             },
-            children: [_v32(), _v5 && (0, _v1.jsx)(_v221, {})]
+            children: [_v32(), _v5 && (0, _v1.jsx)(_v230, {})]
           })]
         })
       });
     };
-  var _v242 = _v0.i(0),
-    _v243 = _v0.i(0);
-  function _v244({
+  var _v251 = _v0.i(0),
+    _v252 = _v0.i(0);
+  function _v253({
     tierLabel: _v0,
     isEligibleForIndividualPlans: _v1 = !1,
     onLearnMore: _v2,
@@ -13660,7 +15734,7 @@
           width: "100%",
           children: [(0, _v1.jsx)(_v4.AlertDescription, {
             children: _v1 ? (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v243.translate)({
+              children: [(0, _v252.translate)({
                 singular: "You're confirmed eligible for Individual plans. Your account is set to renew on the",
                 dictionary: {
                   es: {
@@ -13689,7 +15763,7 @@
                 as: "span",
                 fontWeight: "medium",
                 children: _v0
-              }), " ", (0, _v243.translate)({
+              }), " ", (0, _v252.translate)({
                 singular: "plan.",
                 dictionary: {
                   "de-DE": {
@@ -13710,7 +15784,7 @@
                 }
               })]
             }) : (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v243.translate)({
+              children: [(0, _v252.translate)({
                 singular: "Companies can no longer use Individual plans. Your account has been identified as corporate and moved to the",
                 dictionary: {
                   es: {
@@ -13739,7 +15813,7 @@
                 as: "span",
                 fontWeight: "medium",
                 children: _v0
-              }), " ", (0, _v243.translate)({
+              }), " ", (0, _v252.translate)({
                 singular: "plan.",
                 dictionary: {
                   "de-DE": {
@@ -13766,7 +15840,7 @@
             size: "xs",
             flexShrink: 0,
             onClick: _v2,
-            children: (0, _v243.translate)({
+            children: (0, _v252.translate)({
               singular: "Learn more",
               dictionary: {
                 es: {
@@ -13794,7 +15868,7 @@
             })
           }), (0, _v1.jsx)(_v5.AlertCloseButton, {
             color: "status-caution-primary",
-            "aria-label": (0, _v243.translate)({
+            "aria-label": (0, _v252.translate)({
               singular: "Dismiss notice",
               dictionary: {
                 es: {
@@ -13831,7 +15905,7 @@
         children: [(0, _v1.jsx)(_v46.Text, {
           variant: "body-sm",
           color: "text-tertiary",
-          children: (0, _v243.translate)({
+          children: (0, _v252.translate)({
             singular: "Not a business or Non Profit but you noticed a plan change?",
             dictionary: {
               es: {
@@ -13863,7 +15937,7 @@
           onClick: _v3,
           p: 0,
           textDecoration: "underline",
-          children: (0, _v243.translate)({
+          children: (0, _v252.translate)({
             singular: "Request eligibility for dedicated plans",
             dictionary: {
               es: {
@@ -13896,7 +15970,7 @@
           href: _v4,
           p: 0,
           textDecoration: "underline",
-          children: (0, _v243.translate)({
+          children: (0, _v252.translate)({
             singular: "Check other plans",
             dictionary: {
               es: {
@@ -13926,23 +16000,22 @@
       })]
     });
   }
-  var _v245 = _v0.i(0),
-    _v246 = _v0.i(0),
-    _v247 = _v0.i(0),
-    _v248 = _v0.i(0),
-    _v249 = _v0.i(0),
-    _v250 = _v0.i(0),
-    _v251 = _v0.i(0),
-    _v252 = _v0.i(0);
-  let _v253 = ["creator", "core", "professional", "studio"],
-    _v254 = ["creator", "core", "professional"];
-  function _v255(_v0, _v1) {
+  var _v254 = _v0.i(0),
+    _v255 = _v0.i(0),
+    _v256 = _v0.i(0),
+    _v257 = _v0.i(0),
+    _v258 = _v0.i(0),
+    _v259 = _v0.i(0),
+    _v260 = _v0.i(0);
+  let _v261 = ["creator", "core", "professional", "studio"],
+    _v262 = ["creator", "core", "professional"];
+  function _v263(_v0, _v1) {
     let _v2 = _v1.indexOf(_v0);
     if (-1 === _v2) return [];
     let _v3 = Math.max(0, _v2 - 1);
     return _v1.slice(_v3, _v3 + 3);
   }
-  let _v256 = ({
+  let _v264 = ({
     isOpen: _v0,
     onClose: _v1,
     scheduledTier: _v2
@@ -13950,19 +16023,19 @@
     let _v3 = (0, _v3.useContext)(_v66.ViewerContext),
       {
         width: _v4
-      } = (0, _v247.useWindowSize)(),
+      } = (0, _v255.useWindowSize)(),
       {
         settings: _v5
       } = (0, _v13.useOrionSettings)(),
       {
         isLoading: _v6,
         showIndividualPlans: _v7
-      } = (0, _v193.useB2BRepackagingContext)(),
-      _v8 = !_v6 && !(0, _v245.isB2BRepackagingPlanAvailable)(_v2, _v7);
+      } = (0, _v199.useB2BRepackagingContext)(),
+      _v8 = !_v6 && !(0, _v254.isB2BRepackagingPlanAvailable)(_v2, _v7);
     (0, _v3.useEffect)(() => {
       !_v6 && _v8 && _v1();
     }, [_v6, _v8, _v1]);
-    let _v9 = (0, _v3.useMemo)(() => _v5.core_tier_enabled ? _v255(_v2, _v253) : _v255("core" === _v2 ? "creator" : _v2, _v253.filter(_v0 => "core" !== _v0)), [_v2, _v5.core_tier_enabled]),
+    let _v9 = (0, _v3.useMemo)(() => _v5.core_tier_enabled ? _v263(_v2, _v261) : _v263("core" === _v2 ? "creator" : _v2, _v261.filter(_v0 => "core" !== _v0)), [_v2, _v5.core_tier_enabled]),
       {
         capabilities: {
           hasMonthlyBilling: _v10
@@ -13970,11 +16043,11 @@
         ready: _v11
       } = (0, _v53.useCapability)(["hasMonthlyBilling"]),
       _v12 = !(_v11 && _v10),
-      _v13 = (0, _v246.useCampaignIdOverride)(),
+      _v13 = (0, _v202.useCampaignIdOverride)(),
       {
         campaignId: _v14,
         isLoading: _v15
-      } = (0, _v250.useRepackagingCampaign)(_v13),
+      } = (0, _v258.useRepackagingCampaign)(_v13),
       _v16 = _v13 ?? _v14,
       _v17 = (0, _v82.useGetSubscriptionPlansData)(void 0, void 0, !0, {
         bypassTierHierarchy: !0,
@@ -13985,7 +16058,7 @@
       }),
       {
         data: _v18
-      } = (0, _v251.useSubscriptionPlansUsageCheck)(_v9),
+      } = (0, _v259.useSubscriptionPlansUsageCheck)(_v9),
       _v19 = (0, _v3.useMemo)(() => ({
         plans: _v9,
         showMonthlyDropdown: !1,
@@ -13994,7 +16067,7 @@
       }), [_v9]),
       _v20 = !!_v3?.user,
       _v21 = !!_v17 && _v11 && !_v15;
-    return !_v254.includes(_v2) || !_v3 || _v6 || _v8 ? null : (0, _v1.jsxs)(_v71.Modal, {
+    return !_v262.includes(_v2) || !_v3 || _v6 || _v8 ? null : (0, _v1.jsxs)(_v71.Modal, {
       isOpen: _v0,
       onClose: _v1,
       children: [(0, _v1.jsx)(_v77.ModalOverlay, {}), (0, _v1.jsxs)(_v74.ModalContent, {
@@ -14008,7 +16081,7 @@
           children: (0, _v1.jsx)(_v23.Header, {
             size: "lg",
             textAlign: "center",
-            children: (0, _v243.translate)({
+            children: (0, _v252.translate)({
               singular: "Upgrade to unlock more video tools",
               dictionary: {
                 es: {
@@ -14033,7 +16106,7 @@
             })
           })
         }), (0, _v1.jsx)(_v73.ModalCloseButton, {
-          "aria-label": (0, _v243.translate)({
+          "aria-label": (0, _v252.translate)({
             singular: "Close",
             dictionary: {
               es: {
@@ -14061,11 +16134,11 @@
           })
         }), (0, _v1.jsx)(_v72.ModalBody, {
           paddingTop: 0,
-          children: _v21 ? (0, _v1.jsx)(_v248.OverridesContextProvider, {
+          children: _v21 ? (0, _v1.jsx)(_v256.OverridesContextProvider, {
             showYearly: _v12,
             viewer: _v3,
             overrides: _v19,
-            children: (0, _v1.jsx)(_v249.PlansDataProvider, {
+            children: (0, _v1.jsx)(_v257.PlansDataProvider, {
               overrides: _v19,
               plansData: _v17,
               isLoggedIn: _v20,
@@ -14076,7 +16149,7 @@
               upcomingTier: _v2,
               usageCheckData: _v18,
               hideIndividualPlans: !1,
-              children: (0, _v1.jsx)(_v252.default, {
+              children: (0, _v1.jsx)(_v260.default, {
                 showYearly: _v12,
                 isBillingFreqToggleAvailable: !1,
                 isPageTopToggleVisible: !1,
@@ -14103,7 +16176,7 @@
               paywallLocation: "change_plan_modal",
               paywallFeature: "billing"
             }),
-            children: (0, _v243.translate)({
+            children: (0, _v252.translate)({
               singular: "See all details and plans",
               dictionary: {
                 es: {
@@ -14134,13 +16207,13 @@
       })]
     });
   };
-  var _v257 = _v0.i(0),
-    _v258 = _v0.i(0),
-    _v259 = _v0.i(0),
-    _v260 = _v0.i(0),
-    _v261 = _v0.i(0),
-    _v262 = _v0.i(0);
-  function _v263() {
+  var _v265 = _v0.i(0),
+    _v266 = _v0.i(0),
+    _v267 = _v0.i(0),
+    _v268 = _v0.i(0),
+    _v269 = _v0.i(0),
+    _v270 = _v0.i(0);
+  function _v271() {
     let _v0,
       _v1,
       _v2,
@@ -14193,13 +16266,13 @@
         hasSubmittedSurvey: _v29,
         showIndividualPlans: _v30,
         canRequestEligibility: _v31
-      } = (0, _v193.useB2BRepackagingContext)(),
+      } = (0, _v199.useB2BRepackagingContext)(),
       _v32 = _v26 ?? _v7.tier,
       _v33 = _v32 === _v68.Tier.Studio || _v32 === _v68.Tier.Production,
       {
         open: _v34,
         modal: _v35
-      } = (0, _v257.useIndividualEligibilityModal)({
+      } = (0, _v265.useIndividualEligibilityModal)({
         initialStep: _v29 && !_v28 ? "not_qualified" : void 0
       }),
       [_v36, _v37] = (0, _v3.useState)(!1),
@@ -14233,9 +16306,9 @@
         skipRenewalWindow: _v23.enable_auto_renew_encouragement_always
       }),
       _v51 = _v7.tier === _v68.Tier.Creator,
-      _v52 = (0, _v207.getDisplayedGracePeriodEndDate)(_v7?.gracePeriodType, _v7?.originalEndDate, _v7?.endDate);
+      _v52 = (0, _v216.getDisplayedGracePeriodEndDate)(_v7?.gracePeriodType, _v7?.originalEndDate, _v7?.endDate);
     (0, _v3.useEffect)(() => {
-      null === _v19 || _v16(_v19 && "1" === _v19 ? _v212 : _v213);
+      null === _v19 || _v16(_v19 && "1" === _v19 ? _v221 : _v222);
     }, [_v19, _v16]);
     let _v53 = _v4.query.survey;
     if ((0, _v3.useEffect)(() => {
@@ -14261,7 +16334,7 @@
         })
       })
     });
-    let _v54 = _v10 && _v7 && (_v10 === _v213 || _v10 === _v212),
+    let _v54 = _v10 && _v7 && (_v10 === _v222 || _v10 === _v221),
       _v55 = !_v6;
     return (0, _v1.jsxs)(_v6.Box, {
       sx: {
@@ -14300,7 +16373,7 @@
         children: (0, _v1.jsx)(_v4.AlertDescription, {
           children: _v69.T.Errors.MembershipInfoLoadError
         })
-      }), !_v6 && _v7.renewalDate && _v54 && (0, _v1.jsx)(_v214, {
+      }), !_v6 && _v7.renewalDate && _v54 && (0, _v1.jsx)(_v223, {
         locale: _v18?.locale,
         membership: _v7,
         noticeType: _v10,
@@ -14348,12 +16421,12 @@
               backgroundColor: "red.100"
             },
             onClick: () => {
-              (0, _v258.sendBpEventWithContexts)("vimeo.update_payment_method_click", {
-                ...(0, _v259.buildActionBpContext)({
+              (0, _v266.sendBpEventWithContexts)("vimeo.update_payment_method_click", {
+                ...(0, _v267.buildActionBpContext)({
                   action_type: "click",
                   feature: null
                 }),
-                ...(0, _v260.buildProductAnalyticsBpContext)({
+                ...(0, _v268.buildProductAnalyticsBpContext)({
                   location: "upper_banner",
                   device_type: (0, _v162.default)(),
                   element: "button",
@@ -14363,10 +16436,10 @@
                   is_user_facing_data: !1,
                   entity_type: null
                 }),
-                ...(0, _v261.buildTeamBpContext)({
+                ...(0, _v269.buildTeamBpContext)({
                   is_team_member: !0
                 }),
-                ...(0, _v262.buildThirdPartyIntegrationBpContext)({
+                ...(0, _v270.buildThirdPartyIntegrationBpContext)({
                   integration_id: null,
                   integration_name: null,
                   is_partner: null
@@ -14407,12 +16480,12 @@
               backgroundColor: "red.100"
             },
             onClick: () => {
-              (0, _v258.sendBpEventWithContexts)("vimeo.update_payment_method_click", {
-                ...(0, _v259.buildActionBpContext)({
+              (0, _v266.sendBpEventWithContexts)("vimeo.update_payment_method_click", {
+                ...(0, _v267.buildActionBpContext)({
                   action_type: "click",
                   feature: null
                 }),
-                ...(0, _v260.buildProductAnalyticsBpContext)({
+                ...(0, _v268.buildProductAnalyticsBpContext)({
                   location: "upper_banner",
                   device_type: (0, _v162.default)(),
                   element: "button",
@@ -14422,10 +16495,10 @@
                   is_user_facing_data: !1,
                   entity_type: null
                 }),
-                ...(0, _v261.buildTeamBpContext)({
+                ...(0, _v269.buildTeamBpContext)({
                   is_team_member: !0
                 }),
-                ...(0, _v262.buildThirdPartyIntegrationBpContext)({
+                ...(0, _v270.buildThirdPartyIntegrationBpContext)({
                   integration_id: null,
                   integration_name: null,
                   is_partner: null
@@ -14486,7 +16559,7 @@
         })]
       })), _v43 && (0, _v1.jsx)(_v6.Box, {
         mt: 4,
-        children: (0, _v1.jsx)(_v244, {
+        children: (0, _v1.jsx)(_v253, {
           tierLabel: _v44,
           isEligibleForIndividualPlans: _v28 && _v41,
           onLearnMore: () => {
@@ -14499,21 +16572,21 @@
           } : void 0,
           checkOtherPlansHref: _v46
         })
-      }), _v35, !_v5 && (0, _v1.jsx)(_v211, {
+      }), _v35, !_v5 && (0, _v1.jsx)(_v220, {
         onRequestIndividualPlans: () => _v34("cancellation_offer"),
         onChangePlanClick: _v0 => _v39(_v0),
         hideAutoRenewEnablement: _v50,
         children: ({
           hasScheduledDowngrade: _v0
-        }) => _v11 && (0, _v1.jsx)(_v241, {
+        }) => _v11 && (0, _v1.jsx)(_v250, {
           hasScheduledDowngrade: _v0
         })
-      }), null !== _v38 && (0, _v1.jsx)(_v256, {
+      }), null !== _v38 && (0, _v1.jsx)(_v264, {
         isOpen: !0,
         scheduledTier: _v38,
         onClose: () => _v39(null)
       })]
     });
   }
-  _v263.getLayout = _v242.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v263], 0);
+  _v271.getLayout = _v251.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v271], 0);
 }

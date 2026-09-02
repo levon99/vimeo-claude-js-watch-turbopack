@@ -12,6 +12,7 @@
 - https://vimeo.com/apps/[appId]/auto-archive/welcome
 - https://vimeo.com/apps/[appId]/dropbox-folder-select
 - https://vimeo.com/apps/[appId]/folder-select
+- https://vimeo.com/archive-restoration
 - https://vimeo.com/arrival-modal/[usageAnswer]
 - https://vimeo.com/auth-modal
 - https://vimeo.com/cancel/legacy

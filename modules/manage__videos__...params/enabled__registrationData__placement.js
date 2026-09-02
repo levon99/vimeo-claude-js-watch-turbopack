@@ -31,7 +31,7 @@
         callCount: _v10
       }] = (0, _v15.useGetLeadCaptureResourceIdFormLazy)(),
       _v11 = _v6 && _v6?.status === 404,
-      _v12 = (0, _v2.useCallback)(() => {
+      _v12 = (0, _v3.useCallback)(() => {
         _v0 && _v7({
           select: ["enabled", "registrationData", "placement"],
           where: {
@@ -40,9 +40,9 @@
           }
         });
       }, [_v0, _v1, _v7]);
-    (0, _v2.useEffect)(() => {
+    (0, _v3.useEffect)(() => {
       _v12();
-    }, [_v0, _v1, _v12, _v7]), (0, _v2.useEffect)(() => {
+    }, [_v0, _v1, _v12, _v7]), (0, _v3.useEffect)(() => {
       _v11 && !_v5 && _v2({
         where: {
           resourceId: _v0,
@@ -55,7 +55,7 @@
       });
     }, [_v0, _v1, _v11, _v5, _v2]);
     let _v13 = (0, _v16.useConfigStore)(_v0 => _v0.setLeadCaptureForm),
-      _v14 = (0, _v2.useCallback)(_v0 => (_v13({
+      _v14 = (0, _v3.useCallback)(_v0 => (_v13({
         enabled: _v0
       }), _v4({
         select: ["enabled"],
@@ -67,15 +67,15 @@
           enabled: _v0
         }
       })), [_v0, _v1, _v4]);
-    return (0, _v2.useEffect)(() => {
+    return (0, _v3.useEffect)(() => {
       _v13({
         enabled: !!_v8?.enabled
       });
-    }, [_v8?.enabled]), (0, _v2.useEffect)(() => {
+    }, [_v8?.enabled]), (0, _v3.useEffect)(() => {
       _v8 && _v16.useConfigStore.setState({
         leadCaptureFormEntityId: _v0
       });
-    }, [_v8, _v0]), (0, _v2.useEffect)(() => {
+    }, [_v8, _v0]), (0, _v3.useEffect)(() => {
       _v13({
         placement: _v8?.placement || ""
       });
@@ -92,15 +92,15 @@
     videoId: _v0,
     videoLink: _v1
   }) {
-    let _v2 = (0, _v3.useHistory)(),
+    let _v2 = (0, _v2.useRouter)(),
       {
         loading: _v3
       } = _v17(_v0 + "", _v13.ENTITY_TYPE.VIDEO),
       _v4 = (0, _v16.useConfigStore)(_v0 => _v0.leadCaptureForm.enabled),
       _v5 = (0, _v16.useConfigStore)(_v0 => _v0.leadCaptureForm.placement),
-      [_v6, _v7] = (0, _v2.useState)(!1),
+      [_v6, _v7] = (0, _v3.useState)(!1),
       _v8 = (0, _v11.useIsMobile)(),
-      _v9 = (0, _v2.useMemo)(() => {
+      _v9 = (0, _v3.useMemo)(() => {
         switch (_v5) {
           case _v18.PLACEMENT_TYPES.afterVideo:
             return _v14.default.NotchAfterVideo;
@@ -149,7 +149,9 @@
           children: (0, _v1.jsx)(_v5.Button, {
             variant: "tertiary",
             onClick: () => {
-              _v2.replace(`${_v1}/registration?section=${_v18.SECTION_TYPES.FORM}`);
+              _v2.replace(`${_v1}/registration?section=${_v18.SECTION_TYPES.FORM}`, void 0, {
+                shallow: !0
+              });
             },
             border: 0,
             height: (0, _v7.rem)(32),

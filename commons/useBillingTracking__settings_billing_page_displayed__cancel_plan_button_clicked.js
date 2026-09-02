@@ -166,7 +166,12 @@
           periodicity: _v0?.periodicity ?? null,
           offer_kind: _v0?.offerKind ?? null,
           target_tier: _v0?.targetTier ?? null,
-          discount_percent: _v0?.discountPercent ?? null
+          discount_percent: _v0?.discountPercent ?? null,
+          offer_duration: _v0?.offerDuration ?? null,
+          experiment_arm: _v0?.experimentArm ?? null,
+          layout: _v0?.layout ?? null,
+          price_segment: _v0?.priceSegment ?? null,
+          experiment_name: _v0?.experimentName ?? null
         });
       }, [_v0]),
       _v32 = (0, _v1.useCallback)(_v0 => {
@@ -175,7 +180,12 @@
           new_plan: _v0.newPlan,
           new_periodicity: _v0.newPeriodicity,
           offer_kind: _v0.offerKind ?? null,
-          discount_percent: _v0.discountPercent ?? null
+          discount_percent: _v0.discountPercent ?? null,
+          offer_duration: _v0.offerDuration ?? null,
+          experiment_arm: _v0.experimentArm ?? null,
+          layout: _v0.layout ?? null,
+          price_segment: _v0.priceSegment ?? null,
+          experiment_name: _v0.experimentName ?? null
         });
       }, [_v0]),
       _v33 = (0, _v1.useCallback)(_v0 => {
@@ -183,7 +193,12 @@
           tier: _v0?.tier ?? null,
           periodicity: _v0?.periodicity ?? null,
           offer_kind: _v0?.offerKind ?? null,
-          target_tier: _v0?.targetTier ?? null
+          target_tier: _v0?.targetTier ?? null,
+          offer_duration: _v0?.offerDuration ?? null,
+          experiment_arm: _v0?.experimentArm ?? null,
+          layout: _v0?.layout ?? null,
+          price_segment: _v0?.priceSegment ?? null,
+          experiment_name: _v0?.experimentName ?? null
         });
       }, [_v0]),
       _v34 = (0, _v1.useCallback)(_v0 => {
