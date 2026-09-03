@@ -27,9 +27,12 @@
       } = (0, _v2.useGetUser)(() => {
         let _v0 = _v0 ?? _v1?.teamUser?.ownerId ?? _v1?.user?.id;
         return _v0 ? {
-          select: ["uploadQuota", "aiCreditsQuota", "drmLicensesQuota"],
+          select: ["uploadQuota", "aiCreditsQuota", "drmLicensesQuota", "membership.type"],
           where: {
             userId: _v0
+          },
+          headers: {
+            Accept: "application/vnd.vimeo.*+json;version=3.4.14"
           }
         } : null;
       }),
@@ -68,6 +71,7 @@
         ..._v7?.aiCreditsQuota
       },
       drmLicensesQuota: _v2?.drmLicensesQuota,
+      membershipType: _v2?.membership?.type ?? null,
       ..._v3
     };
   }], 0);

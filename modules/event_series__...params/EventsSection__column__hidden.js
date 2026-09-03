@@ -42,31 +42,36 @@
     _v11 = _v0.i(0),
     _v12 = _v0.i(0);
   let _v13 = ({
-    item: _v0
+    item: _v0,
+    isMobilePreview: _v1 = !1
   }) => {
-    let [_v1, _v2] = (0, _v6.useState)(!1);
+    let [_v2, _v3] = (0, _v6.useState)(!1);
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v3.Flex, {
         direction: "column",
         overflow: "hidden",
         children: [(0, _v1.jsxs)(_v3.Flex, {
           align: "center",
-          "aria-expanded": _v1,
+          "aria-expanded": _v2,
           justifyContent: "space-between",
           backgroundColor: "unset",
           as: "button",
           gap: "sm",
-          onClick: () => _v2(_v0 => !_v0),
+          onClick: () => _v3(_v0 => !_v0),
           textAlign: "left",
+          alignItems: "flex-start",
           type: "button",
           w: "100%",
           p: "0",
           children: [(0, _v1.jsx)(_v10.Text, {
             color: "text-primary",
-            variant: "heading-lg",
+            variant: _v1 ? "heading-md" : {
+              base: "heading-md",
+              md: "heading-lg"
+            },
             children: _v0.question
           }), (0, _v1.jsx)(_v9.IconButton, {
-            "aria-label": _v1 ? (0, _v12.translate)({
+            "aria-label": _v2 ? (0, _v12.translate)({
               singular: "Collapse",
               dictionary: {
                 es: {
@@ -119,18 +124,18 @@
             }),
             icon: (0, _v1.jsx)(_v11.Plus, {}),
             onClick: _v0 => {
-              _v0.stopPropagation(), _v2(_v0 => !_v0);
+              _v0.stopPropagation(), _v3(_v0 => !_v0);
             },
             sx: {
               svg: {
-                transform: _v1 ? "rotate(45deg)" : "none",
+                transform: _v2 ? "rotate(45deg)" : "none",
                 transition: "transform 0.2s ease-out"
               }
             },
             variant: "tertiary"
           })]
         }), (0, _v1.jsx)(_v7.Collapse, {
-          in: _v1,
+          in: _v2,
           unmountOnExit: !0,
           children: (0, _v1.jsx)(_v10.Text, {
             color: "text-secondary",
@@ -186,7 +191,8 @@
         })
       }), (0, _v1.jsx)(_v5.SectionContent, {
         children: _v0.map((_v0, _v1) => (0, _v1.jsx)(_v13, {
-          item: _v0
+          item: _v0,
+          isMobilePreview: _v1
         }, `${_v0.question}-${_v1}`))
       })]
     })

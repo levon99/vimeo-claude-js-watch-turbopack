@@ -6826,6 +6826,9 @@
         select: ["uri", "personProfile.id", "personProfile.name", "personProfile.role", "personProfile.description", "personProfile.pictures.baseLink"],
         where: {
           liveEventId: Number(_v0)
+        },
+        query: {
+          visibilityStatus: "visible"
         }
       } : null, {
         revalidateOnFocus: !1
@@ -7087,7 +7090,7 @@
                   onClose: () => _v22(!1),
                   onPanelOpenChange: _v24
                 })]
-              }), _v18.enable_event_series_in_dev_features && _v4 ? (0, _v5.jsx)(_v330, {
+              }), _v18.release_single_event_customization && _v4 ? (0, _v5.jsx)(_v330, {
                 eventId: _v4
               }) : null, _v32 ? (0, _v5.jsx)(_v230, {
                 children: (0, _v5.jsx)(_v116.EssentialFooter, {

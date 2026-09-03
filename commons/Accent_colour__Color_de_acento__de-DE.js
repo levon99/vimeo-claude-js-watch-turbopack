@@ -107,6 +107,58 @@
         }
       }
     }),
+    BackToEvent: (0, _v1.translate)({
+      singular: "Back to event",
+      dictionary: {
+        es: {
+          singular: "Volver al evento"
+        },
+        "de-DE": {
+          singular: "Zurück zur Veranstaltung"
+        },
+        "fr-FR": {
+          singular: "Retour à l'événement"
+        },
+        "ja-JP": {
+          singular: "イベントに戻る"
+        },
+        "ko-KR": {
+          singular: "이벤트로 돌아가기"
+        },
+        "pt-BR": {
+          singular: "Voltar ao evento"
+        },
+        "zh-CN": {
+          singular: "返回活动"
+        }
+      }
+    }),
+    BackToRegistration: (0, _v1.translate)({
+      singular: "Back to registration",
+      dictionary: {
+        es: {
+          singular: "Volver al registro"
+        },
+        "de-DE": {
+          singular: "Zurück zur Registrierung"
+        },
+        "fr-FR": {
+          singular: "Retour à l'inscription"
+        },
+        "ja-JP": {
+          singular: "登録に戻る"
+        },
+        "ko-KR": {
+          singular: "등록으로 돌아가기"
+        },
+        "pt-BR": {
+          singular: "Voltar à inscrição"
+        },
+        "zh-CN": {
+          singular: "返回报名"
+        }
+      }
+    }),
     BackToSettings: (0, _v1.translate)({
       singular: "Back to settings",
       dictionary: {
@@ -468,6 +520,29 @@
         },
         "zh-CN": {
           singular: "邮件默认设置"
+        }
+      }
+    }),
+    Event: (0, _v1.translate)({
+      singular: "Event",
+      dictionary: {
+        es: {
+          singular: "Evento"
+        },
+        "fr-FR": {
+          singular: "Événement"
+        },
+        "ja-JP": {
+          singular: "イベント"
+        },
+        "ko-KR": {
+          singular: "이벤트"
+        },
+        "pt-BR": {
+          singular: "Evento"
+        },
+        "zh-CN": {
+          singular: "活动"
         }
       }
     }),
@@ -1417,5 +1492,5 @@
       label: _v2.Custom,
       value: _v9
     }];
-  _v0.s(["ALL_TIME", 0, _v3, "CUSTOM", 0, _v9, "DEFAULT_ACCENT_COLOR", 0, "#00adef", "DEFAULT_SENDER_NAME", 0, "Vimeo", "EMAIL_DEFAULTS_AUTOSAVE_DEBOUNCE_MS", 0, 0, "EMAIL_DEFAULTS_FROM_MAX_LENGTH", 0, 32, "EMAIL_DEFAULTS_SETTINGS", 0, ["liveEventEmailDefaultFrom", "liveEventEmailDefaultLogoUri", "liveEventEmailDefaultAccentColor", "liveEventEmailDefaultConfirmation", "liveEventEmailDefaultFollowUp", "liveEventEmailDefaultCadences"], "EMAIL_DEFAULTS_URL", 0, "/manage/registration/email-defaults", "HELP_URL", 0, "https://help.vimeo.com/hc/en-us", "LAST_30_DAYS", 0, _v7, "LAST_365_DAYS", 0, _v8, "LAST_7_DAYS", 0, _v6, "MANAGE_REG_LINK", 0, "https://help.vimeo.com/hc/en-us/articles/27504064081937-How-to-manage-registration-form-presets", "PRESET_RESULT_PER_PAGE", 0, 100, "REGISTRATION_SETTINGS_URL", 0, "/manage/registration", "TODAY", 0, _v4, "WORKSPACE_EMAIL_DEFAULTS_URL", 0, "/manage/workspace/registration/email-defaults", "YESTERDAY", 0, _v5, "getEmailDefaultsLogosCacheKey", 0, _v0 => `email-defaults-logos-${_v0}`, "selectRangeValues", 0, _v10, "settingsPageUrl", 0, "/settings/marketing/integrations"], 0);
+  _v0.s(["ALL_TIME", 0, _v3, "CUSTOM", 0, _v9, "DEFAULT_ACCENT_COLOR", 0, "#00adef", "DEFAULT_SENDER_NAME", 0, "Vimeo", "EMAIL_DEFAULTS_AUTOSAVE_DEBOUNCE_MS", 0, 0, "EMAIL_DEFAULTS_FROM_MAX_LENGTH", 0, 32, "EMAIL_DEFAULTS_RETURN_URL_PARAM", 0, "returnUrl", "EMAIL_DEFAULTS_SETTINGS", 0, ["liveEventEmailDefaultFrom", "liveEventEmailDefaultLogoUri", "liveEventEmailDefaultAccentColor", "liveEventEmailDefaultConfirmation", "liveEventEmailDefaultFollowUp", "liveEventEmailDefaultCadences"], "EMAIL_DEFAULTS_URL", 0, "/manage/registration/email-defaults", "HELP_URL", 0, "https://help.vimeo.com/hc/en-us", "LAST_30_DAYS", 0, _v7, "LAST_365_DAYS", 0, _v8, "LAST_7_DAYS", 0, _v6, "MANAGE_REG_LINK", 0, "https://help.vimeo.com/hc/en-us/articles/27504064081937-How-to-manage-registration-form-presets", "PRESET_RESULT_PER_PAGE", 0, 100, "REGISTRATION_SETTINGS_URL", 0, "/manage/registration", "TODAY", 0, _v4, "WORKSPACE_EMAIL_DEFAULTS_URL", 0, "/manage/workspace/registration/email-defaults", "YESTERDAY", 0, _v5, "getEmailDefaultsLogosCacheKey", 0, _v0 => `email-defaults-logos-${_v0}`, "selectRangeValues", 0, _v10, "settingsPageUrl", 0, "/settings/marketing/integrations"], 0);
 }

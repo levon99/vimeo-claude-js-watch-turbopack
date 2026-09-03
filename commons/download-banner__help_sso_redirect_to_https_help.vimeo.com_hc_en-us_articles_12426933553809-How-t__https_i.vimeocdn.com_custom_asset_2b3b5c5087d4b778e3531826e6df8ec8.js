@@ -1576,13 +1576,16 @@
       leftPanel: _v3
     } = (0, _v12.useManager)(_v128.PanelsManager)
   }) {
-    let _v4 = (0, _v22.useIsVpaas)(),
-      _v5 = (0, _v127.useCanSeeDebugTools)(),
-      _v6 = !_v4,
+    let {
+        permissions: _v4
+      } = (0, _v12.useManager)(_v36.ComposerSessionManager),
+      _v5 = (0, _v22.useIsVpaas)(),
+      _v6 = (0, _v127.useCanSeeDebugTools)(),
+      _v7 = !_v5,
       {
-        settings: _v7
+        settings: _v8
       } = (0, _v129.useOrionSettings)(),
-      _v8 = (0, _v5.useMemo)(() => {
+      _v9 = (0, _v5.useMemo)(() => {
         let _v0 = [{
           id: _v125.ELeftPanelId.QNA,
           icon: (0, _v1.jsx)(_v124.PanelQnaIcon, {
@@ -1601,14 +1604,14 @@
           content: _v159,
           hash: _v125.ELeftPanelHash.POLLS
         }];
-        return !_v4 && _v7.enable_event_series_in_dev_features && _v0.push({
+        return !_v5 && _v4.hasLandingPageCustomizations && _v8.release_single_event_customization && _v0.push({
           id: _v125.ELeftPanelId.LANDING_PAGE,
           icon: (0, _v1.jsx)(_v121.BrowserWindow, {}),
           header: _v57.translations.landingPage,
           content: _v136,
           isNew: !0,
           hash: _v125.ELeftPanelHash.LANDING_PAGE
-        }), _v5 && _v0.push({
+        }), _v6 && _v0.push({
           id: _v125.ELeftPanelId.DEBUG,
           icon: (0, _v1.jsx)(_v120.Processor, {}),
           header: _v57.translations.debug,
@@ -1618,14 +1621,14 @@
             children: (0, _v1.jsx)(_v179, {})
           })
         }), _v0;
-      }, [_v5, _v3, _v4, _v7.enable_event_series_in_dev_features]);
+      }, [_v6, _v3, _v5, _v8.release_single_event_customization, _v4.hasLandingPageCustomizations]);
     return (0, _v1.jsx)(_v126.LeftPanel, {
       id: _v0,
       className: _v1,
       isLoading: !_v2,
       defaultValue: null,
-      items: _v8,
-      footer: _v6 ? (0, _v1.jsx)(_v122.FooterHelpMenu, {}) : null
+      items: _v9,
+      footer: _v7 ? (0, _v1.jsx)(_v122.FooterHelpMenu, {}) : null
     });
   }
   var _v181 = _v0.i(0),

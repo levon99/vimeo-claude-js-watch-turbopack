@@ -703,22 +703,22 @@
                           singular: "más impuestos. Por mes, facturado anualmente, bloqueado durante el primer año"
                         },
                         "de-DE": {
-                          singular: "zzgl. Steuern. Pro Monat, jährlich in Rechnung gestellt, für das erste Jahr gebunden"
+                          singular: "zzgl. Steuern. Pro Monat, jährlich abgerechnet, im ersten Jahr festgeschrieben"
                         },
                         "fr-FR": {
-                          singular: "plus taxes. Par mois, facturé annuellement, verrouillé pendant la première année"
+                          singular: "hors taxes. Par mois, facturé annuellement, tarif bloqué la première année"
                         },
                         "ja-JP": {
-                          singular: "税別。月額、年額請求、初年度は料金が固定されます"
+                          singular: "税別. 月額, 請求は年払いで, 初年度は価格が固定されます"
                         },
                         "ko-KR": {
-                          singular: "세금 별도. 월별 요금, 연간 청구, 첫 해에는 고정됩니다"
+                          singular: "세금 별도. 월 요금, 연간 청구되며, 첫 해에는 요금이 고정됩니다"
                         },
                         "pt-BR": {
-                          singular: "mais impostos. Por mês, faturado anualmente, bloqueado no primeiro ano"
+                          singular: "mais impostos. Por mês, cobrado anualmente, bloqueado durante o primeiro ano"
                         },
                         "zh-CN": {
-                          singular: "另加税费。按月计价，按年结算，首年锁定"
+                          singular: "另加税费。每月，按年计费，首年价格锁定"
                         }
                       }
                     })
@@ -766,22 +766,22 @@
                           singular: "más impuestos. Por mes, facturado mensualmente"
                         },
                         "de-DE": {
-                          singular: "zzgl. Steuern. Pro Monat, monatlich in Rechnung gestellt"
+                          singular: "zzgl. Steuern. Pro Monat, monatlich abgerechnet"
                         },
                         "fr-FR": {
-                          singular: "plus taxes. Par mois, facturé mensuellement"
+                          singular: "hors taxes. Par mois, facturé mensuellement"
                         },
                         "ja-JP": {
-                          singular: "税別。月額、毎月請求"
+                          singular: "税別. 月額, 請求は毎月行われます"
                         },
                         "ko-KR": {
-                          singular: "세금 별도. 월별 요금, 월간 청구"
+                          singular: "세금 별도. 월 요금, 매월 청구됩니다"
                         },
                         "pt-BR": {
-                          singular: "mais impostos. Por mês, faturado mensalmente"
+                          singular: "mais impostos. Por mês, cobrado mensalmente"
                         },
                         "zh-CN": {
-                          singular: "另加税费。按月计费"
+                          singular: "另加税费。每月，按月计费"
                         }
                       }
                     })

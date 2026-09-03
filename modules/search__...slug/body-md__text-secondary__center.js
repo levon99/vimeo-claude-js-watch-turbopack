@@ -1310,9 +1310,10 @@
       })]
     });
   }
-  var _v67 = _v0.i(0);
-  let _v68 = "unified_auth_password_form",
-    _v69 = _v45.object({
+  var _v67 = _v0.i(0),
+    _v68 = _v0.i(0);
+  let _v69 = "unified_auth_password_form",
+    _v70 = _v45.object({
       password: _v45.string().required((0, _v6.translate)({
         singular: "Please enter your password",
         dictionary: {
@@ -1340,7 +1341,7 @@
         }
       }))
     });
-  async function _v70(_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
+  async function _v71(_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
     let _v7 = new URLSearchParams({
       email: _v0,
       password: _v1,
@@ -1408,7 +1409,7 @@
       };
       if (_v0.force_redirect) return {
         status: "redirect",
-        redirectUrl: _v0.redirect_url && (0, _v67.isVimeoRedirectableUrl)(_v0.redirect_url) ? _v0.redirect_url : "/"
+        redirectUrl: _v0.redirect_url && (0, _v68.isVimeoRedirectableUrl)(_v0.redirect_url) ? _v0.redirect_url : "/"
       };
       return {
         status: "ok",
@@ -1516,7 +1517,7 @@
       };
     }
   }
-  function _v71({
+  function _v72({
     flowId: _v0,
     email: _v1,
     isFullScreen: _v2,
@@ -1598,7 +1599,7 @@
         }
       },
       _v19 = (0, _v47.useForm)({
-        validationSchema: _v69,
+        validationSchema: _v70,
         initialValues: {
           password: "",
           otp: ""
@@ -1674,7 +1675,7 @@
             });
             return;
           }
-          _v11(null), _v18(await _v70(_v1, _v0.password, _v9, _v3 ?? null, _v0.otp, _v12?.type ?? "", !1));
+          _v11(null), _v18(await _v71(_v1, _v0.password, _v9, _v3 ?? null, _v0.otp, _v12?.type ?? "", !1));
         }
       }),
       _v20 = (0, _v47.useField)(_v19, "password"),
@@ -1683,7 +1684,7 @@
         if (!_v14 && _v12) {
           _v15(!0), _v11(null);
           try {
-            let _v0 = await _v70(_v1, _v20.input.value, _v9, _v3 ?? null, _v21.input.value, _v12.type, !0);
+            let _v0 = await _v71(_v1, _v20.input.value, _v9, _v3 ?? null, _v21.input.value, _v12.type, !0);
             _v18(_v0);
           } finally {
             _v15(!1);
@@ -1869,10 +1870,16 @@
         children: _v27
       }), (0, _v2.jsxs)(_v9.Box, {
         as: "form",
-        id: _v68,
+        id: _v69,
         onSubmit: _v19.handleSubmit,
         noValidate: !0,
-        children: [(0, _v2.jsxs)(_v61.InputWrapper, {
+        children: [(0, _v2.jsx)(_v67.VisuallyHiddenInput, {
+          name: "email",
+          type: "email",
+          value: _v1,
+          autoComplete: "username",
+          tabIndex: -1
+        }), (0, _v2.jsxs)(_v61.InputWrapper, {
           formFieldErrorMessage: _v24,
           isInvalid: !!_v24,
           children: [(0, _v2.jsx)(_v61.StyledInput, {
@@ -2017,7 +2024,7 @@
           children: [(0, _v2.jsx)(_v46.Button, {
             w: "100%",
             type: "submit",
-            form: _v68,
+            form: _v69,
             variant: "brand",
             size: "lg",
             isLoading: _v19.submitting,
@@ -2090,10 +2097,10 @@
       })]
     });
   }
-  var _v72 = _v0.i(0),
-    _v73 = _v0.i(0),
-    _v74 = _v0.i(0);
-  function _v75({
+  var _v73 = _v0.i(0),
+    _v74 = _v0.i(0),
+    _v75 = _v0.i(0);
+  function _v76({
     flowId: _v0,
     email: _v1,
     isFullScreen: _v2,
@@ -2213,7 +2220,7 @@
                 }
               }
             })
-          }), (0, _v2.jsx)(_v72.CloseButton, {
+          }), (0, _v2.jsx)(_v73.CloseButton, {
             "aria-label": (0, _v6.translate)({
               singular: "Use a different email address",
               dictionary: {
@@ -2263,7 +2270,7 @@
           })]
         })]
       });
-    return (0, _v2.jsx)(_v73.JoinEmailForm, {
+    return (0, _v2.jsx)(_v74.JoinEmailForm, {
       email: _v1,
       hideEmail: !0,
       hideName: _v3,
@@ -2278,7 +2285,7 @@
       }),
       hasF2PVariant: !0,
       header: _v15,
-      marketingCheckBox: (0, _v2.jsx)(_v74.default, {
+      marketingCheckBox: (0, _v2.jsx)(_v75.default, {
         hideHorizontalRule: !0,
         marketingOptIn: _v9,
         marketingOptInHandler: () => _v10(_v0 => !_v0),
@@ -2426,11 +2433,11 @@
       }
     });
   }
-  var _v76 = _v0.i(0),
-    _v77 = _v0.i(0),
+  var _v77 = _v0.i(0),
     _v78 = _v0.i(0),
-    _v79 = _v0.i(0);
-  function _v80({
+    _v79 = _v0.i(0),
+    _v80 = _v0.i(0);
+  function _v81({
     flowId: _v0,
     email: _v1,
     connection: _v2,
@@ -2642,7 +2649,7 @@
               }
             }
           })
-        }), (0, _v2.jsx)(_v72.CloseButton, {
+        }), (0, _v2.jsx)(_v73.CloseButton, {
           "aria-label": (0, _v6.translate)({
             singular: "Use a different email address",
             dictionary: {
@@ -2695,7 +2702,7 @@
         justify: "center",
         gap: "xs",
         marginTop: "sm",
-        children: [(0, _v2.jsx)(_v78.Lock, {
+        children: [(0, _v2.jsx)(_v79.Lock, {
           boxSize: (0, _v5.rem)(16),
           color: "text-secondary",
           "aria-hidden": !0
@@ -2729,10 +2736,10 @@
             }
           })
         })]
-      }), _v4 && (0, _v2.jsx)(_v76.Alert, {
+      }), _v4 && (0, _v2.jsx)(_v77.Alert, {
         status: "info",
         marginTop: "md",
-        children: (0, _v2.jsx)(_v77.AlertDescription, {
+        children: (0, _v2.jsx)(_v78.AlertDescription, {
           children: (0, _v2.jsx)(_v4.Text, {
             variant: "body-sm",
             children: (0, _v6.translate)({
@@ -2784,15 +2791,15 @@
               flowId: _v0,
               step: "sso",
               element: "sso_login"
-            }), (0, _v79.handleSSOLogin)(_v2, _v3 ?? "", _v7);
+            }), (0, _v80.handleSSOLogin)(_v2, _v3 ?? "", _v7);
           },
           children: _v13
         })
       })]
     });
   }
-  var _v81 = _v0.i(0);
-  function _v82({
+  var _v82 = _v0.i(0);
+  function _v83({
     isSimplifiedSite: _v0,
     onRedirect: _v1
   }) {
@@ -2857,7 +2864,7 @@
       width: "100%",
       align: "center",
       gap: "lg",
-      children: [(0, _v2.jsx)(_v81.CircleCheck, {
+      children: [(0, _v2.jsx)(_v82.CircleCheck, {
         boxSize: (0, _v5.rem)(48),
         color: "status-positive-primary",
         "aria-hidden": !0
@@ -2931,7 +2938,7 @@
       })]
     });
   }
-  function _v83(_v0, _v1) {
+  function _v84(_v0, _v1) {
     switch (_v1.type) {
       case "GO_TO_SSO":
         return {
@@ -2962,7 +2969,7 @@
         };
     }
   }
-  function _v84(_v0) {
+  function _v85(_v0) {
     let {
         authType: _v1,
         disableDismiss: _v2,
@@ -2984,7 +2991,7 @@
         goToRegister: _v16,
         goToSuccess: _v17
       } = function () {
-        let [_v0, _v1] = (0, _v3.useReducer)(_v83, {
+        let [_v0, _v1] = (0, _v3.useReducer)(_v84, {
           type: "email"
         });
         return {
@@ -3096,7 +3103,7 @@
       }), (() => {
         switch (_v12.type) {
           case "sso":
-            return (0, _v2.jsx)(_v80, {
+            return (0, _v2.jsx)(_v81, {
               flowId: _v22,
               email: _v12.email,
               connection: _v12.connection,
@@ -3109,7 +3116,7 @@
               onBack: _v26
             });
           case "login":
-            return (0, _v2.jsx)(_v71, {
+            return (0, _v2.jsx)(_v72, {
               flowId: _v22,
               email: _v12.email,
               isFullScreen: _v4,
@@ -3120,7 +3127,7 @@
               onAuthenticated: _v24
             });
           case "register":
-            return (0, _v2.jsx)(_v75, {
+            return (0, _v2.jsx)(_v76, {
               flowId: _v22,
               email: _v12.email,
               isFullScreen: _v4,
@@ -3131,7 +3138,7 @@
               onAuthenticated: _v24
             });
           case "success":
-            return (0, _v2.jsx)(_v82, {
+            return (0, _v2.jsx)(_v83, {
               isSimplifiedSite: _v5,
               onRedirect: _v12.redirect
             });
@@ -3149,9 +3156,9 @@
       })()]
     });
   }
-  var _v85 = _v0.i(0),
-    _v86 = _v0.i(0),
-    _v87 = _v0.i(0);
+  var _v86 = _v0.i(0),
+    _v87 = _v0.i(0),
+    _v88 = _v0.i(0);
   _v0.s(["AuthModal", 0, function ({
     authType: _v0,
     onSuccess: _v1,
@@ -3181,18 +3188,18 @@
         isFullScreen: _v3,
         onSuccess: _v4
       }) {
-        let _v5 = "mobile" === (0, _v86.default)() ? "/welcome" : "/home",
+        let _v5 = "mobile" === (0, _v87.default)() ? "/welcome" : "/home",
           [_v6, _v7] = (0, _v3.useState)(_v0),
           [_v8, _v9] = (0, _v3.useState)(!0);
         (0, _v3.useEffect)(() => {
-          _v6 && _v8 && (_v6 === _v23 ? (0, _v85.trackLoginModalImpression)(!0) : _v6 === _v22 && (_v3 ? (0, _v85.trackJoinPageImpressionRegFlow0625)() : (0, _v85.trackJoinModalImpression)(!0)), _v9(!1));
+          _v6 && _v8 && (_v6 === _v23 ? (0, _v86.trackLoginModalImpression)(!0) : _v6 === _v22 && (_v3 ? (0, _v86.trackJoinPageImpressionRegFlow0625)() : (0, _v86.trackJoinModalImpression)(!0)), _v9(!1));
         }, [_v6]);
-        let _v10 = (0, _v79.useIsModalInIframe)();
+        let _v10 = (0, _v80.useIsModalInIframe)();
         (0, _v3.useEffect)(() => {
           if (!_v10) return;
           let {
             modalType: _v0
-          } = (0, _v79.getRedirectAndTypeFromQueryParams)(new URLSearchParams(window.location.search));
+          } = (0, _v80.getRedirectAndTypeFromQueryParams)(new URLSearchParams(window.location.search));
           _v7(_v0 === _v23 || "log_in" === _v0 ? _v23 : _v22);
         }, [_v10]);
         let {
@@ -3204,16 +3211,16 @@
               redirect: _v0,
               joinRedirect: _v1,
               socialLoginRedirect: _v2
-            } = (0, _v79.getRedirectAndTypeFromQueryParams)(new URLSearchParams(window.location.search));
+            } = (0, _v80.getRedirectAndTypeFromQueryParams)(new URLSearchParams(window.location.search));
             if (_v10) return {
-              finalRedirectUrl: _v6 === _v23 ? _v0 || (0, _v79.getReferrerPath)() : _v1 || _v0 || _v5,
+              finalRedirectUrl: _v6 === _v23 ? _v0 || (0, _v80.getReferrerPath)() : _v1 || _v0 || _v5,
               socialLoginRedirectUrl: _v2 || _v2,
               socialJoinRedirectUrl: _v1 || _v0 || _v1 || _v5
             };
             let _v3 = _v1 || _v0 || _v1 || (_v3 ? "/survey/join" : _v5),
               _v4 = _v2 ?? _v0 ?? void 0;
             if (_v6 === _v23) {
-              let _v0 = ["/log_in", "/login-auth-modal", "/login-auth-popup"].includes(window.location.pathname) ? (0, _v79.getReferrerPath)() : window.location.pathname;
+              let _v0 = ["/log_in", "/login-auth-modal", "/login-auth-popup"].includes(window.location.pathname) ? (0, _v80.getReferrerPath)() : window.location.pathname;
               return {
                 finalRedirectUrl: _v0 || _v1 || _v0,
                 socialLoginRedirectUrl: _v4,
@@ -3221,13 +3228,13 @@
               };
             }
             return {
-              finalRedirectUrl: _v6 && _v6 !== _v0 ? _v5 : _v3,
+              finalRedirectUrl: _v3,
               socialLoginRedirectUrl: _v4,
               socialJoinRedirectUrl: _v3
             };
-          }, [_v6, _v0, _v10, _v1, _v2, _v3, _v5]),
+          }, [_v6, _v10, _v1, _v2, _v3, _v5]),
           _v14 = (0, _v3.useCallback)(_v0 => {
-            (0, _v79.handlePreRedirectTask)(_v6), (0, _v79.handleRedirect)(_v4, _v0, _v6);
+            (0, _v80.handlePreRedirectTask)(_v6), (0, _v80.handleRedirect)(_v4, _v0, _v6);
           }, [_v4, _v6]);
         return {
           type: _v6,
@@ -3293,7 +3300,7 @@
           marginBottom: (0, _v5.rem)(24),
           textAlign: "center",
           children: (0, _v6.translate)("Create and share videos in seconds.")
-        }), (0, _v2.jsx)(_v87.ConnectToFbForm, {
+        }), (0, _v2.jsx)(_v88.ConnectToFbForm, {
           xsrft: _v11?.xsrft ?? "",
           redirectUrl: _v3,
           shouldOptIntoMarketing: _v11?.shouldOptIntoMarketing,
@@ -3301,7 +3308,7 @@
           switchType: () => _v14(_v23),
           onSuccess: _v18
         })]
-      }) : (0, _v2.jsx)(_v84, {
+      }) : (0, _v2.jsx)(_v85, {
         authType: _v0,
         isFullScreen: _v8,
         isSimplifiedSite: _v12,

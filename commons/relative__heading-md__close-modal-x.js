@@ -100,33 +100,48 @@
   let _v29 = ({
     title: _v0,
     subtitle: _v1,
-    hasToggle: _v2,
-    isDisabled: _v3,
-    isLoading: _v4,
-    value: _v5,
-    onChange: _v6,
-    tooltip: _v7,
-    hasDivider: _v8 = !1,
-    dataId: _v9
+    infoTooltip: _v2,
+    hasToggle: _v3,
+    isDisabled: _v4,
+    isLoading: _v5,
+    value: _v6,
+    onChange: _v7,
+    tooltip: _v8,
+    hasDivider: _v9 = !1,
+    dataId: _v10
   }) => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsxs)(_v4.Flex, {
       justifyContent: "space-between",
       alignItems: "center",
       gap: "200",
       children: [(0, _v1.jsxs)(_v3.Box, {
-        children: [(0, _v1.jsx)(_v26.Text, {
-          variant: "heading-xs",
-          children: _v0
-        }), _v2 && (0, _v1.jsx)(_v26.Text, {
+        children: [(0, _v1.jsxs)(_v4.Flex, {
+          alignItems: "center",
+          children: [(0, _v1.jsx)(_v26.Text, {
+            variant: "heading-xs",
+            children: _v0
+          }), _v2 && (0, _v1.jsx)(_v27.Tooltip, {
+            textAlign: "center",
+            label: _v2,
+            shouldWrapChildren: !0,
+            placement: "top",
+            maxWidth: (0, _v24.rem)(300),
+            children: (0, _v1.jsx)(_v28.InfoCircle, {
+              boxSize: "2xs",
+              marginLeft: (0, _v24.rem)(5),
+              display: "block"
+            })
+          })]
+        }), _v3 && (0, _v1.jsx)(_v26.Text, {
           variant: "body-md",
           color: "text-secondary",
           marginTop: "50",
           children: _v1
         })]
-      }), _v2 ? (0, _v1.jsxs)(_v3.Box, {
-        children: [_v3 && _v7 && (0, _v1.jsx)(_v27.Tooltip, {
+      }), _v3 ? (0, _v1.jsxs)(_v3.Box, {
+        children: [_v4 && _v8 && (0, _v1.jsx)(_v27.Tooltip, {
           textAlign: "center",
-          label: _v7,
+          label: _v8,
           shouldWrapChildren: !0,
           placement: "top",
           maxWidth: (0, _v24.rem)(200),
@@ -136,17 +151,17 @@
             marginRight: (0, _v24.rem)(5)
           })
         }), (0, _v1.jsx)(_v25.Switch, {
-          isChecked: _v5,
-          onChange: () => _v6(!_v5),
-          isDisabled: _v3 || _v4,
-          "data-id": _v9
+          isChecked: _v6,
+          onChange: () => _v7(!_v6),
+          isDisabled: _v4 || _v5,
+          "data-id": _v10
         })]
       }) : (0, _v1.jsx)(_v26.Text, {
         variant: "body-md",
         color: "text-secondary",
         children: _v1
       })]
-    }), _v8 && (0, _v1.jsx)(_v22.Divider, {
+    }), _v9 && (0, _v1.jsx)(_v22.Divider, {
       borderColor: "stroke",
       marginY: "200"
     })]
@@ -235,6 +250,7 @@
         orgAdminKey: "orgVideoFileLinkAccessEnabledAdmin",
         title: _v1.VideoFileLink,
         subtitle: _v1.VideoFileLinkDescription,
+        infoTooltip: _v1.VideoFileLinkTooltip,
         hasToggle: !0
       }], [_v1]),
       [_v3, _v4] = (0, _v2.useState)(null),
@@ -500,6 +516,7 @@
                 return (0, _v1.jsx)(_v29, {
                   title: _v0.title,
                   subtitle: _v0.subtitle,
+                  infoTooltip: _v0.infoTooltip,
                   hasToggle: _v0.hasToggle,
                   value: _v34[_v0.adminKey],
                   onChange: _v0 => _v32(_v0, _v0),
@@ -556,6 +573,7 @@
                 return (0, _v1.jsx)(_v29, {
                   title: _v0.title,
                   subtitle: _v0.subtitle,
+                  infoTooltip: _v0.infoTooltip,
                   hasToggle: _v0.hasToggle,
                   value: _v34[_v0.contributorKey],
                   onChange: _v0 => _v33(_v0, _v0),

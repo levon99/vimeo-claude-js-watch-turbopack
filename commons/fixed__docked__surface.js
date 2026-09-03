@@ -22,9 +22,8 @@
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
-    _v22 = _v0.i(0),
-    _v23 = _v0.i(0);
-  let _v24 = ({
+    _v22 = _v0.i(0);
+  let _v23 = ({
     postponeHref: _v0,
     secondaryHref: _v1,
     secondaryLabel: _v2,
@@ -45,7 +44,7 @@
       justify: "center",
       gap: "md",
       wrap: "wrap",
-      children: [(0, _v1.jsx)(_v23.Button, {
+      children: [(0, _v1.jsx)(_v22.Button, {
         as: "a",
         href: _v0,
         variant: "tertiary",
@@ -77,7 +76,7 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v23.Button, {
+      }), (0, _v1.jsx)(_v22.Button, {
         as: "a",
         href: _v1,
         variant: "secondary",
@@ -87,8 +86,8 @@
       })]
     })
   });
-  var _v25 = _v0.i(0);
-  let _v26 = ({
+  var _v24 = _v0.i(0);
+  let _v25 = ({
       currency: _v0,
       paymentFormType: _v1,
       formError: _v2,
@@ -117,7 +116,7 @@
       onZuoraStatusChange: _v25,
       onPostalCodeValidityChange: _v26,
       shouldSyncPostalCode: _v27
-    }) => (0, _v1.jsxs)(_v25.VStack, {
+    }) => (0, _v1.jsxs)(_v24.VStack, {
       gap: "20px",
       align: "stretch",
       width: "100%",
@@ -231,11 +230,11 @@
             })
           })
         })]
-      }), (0, _v1.jsxs)(_v25.VStack, {
+      }), (0, _v1.jsxs)(_v24.VStack, {
         gap: "12px",
         align: "stretch",
         width: "100%",
-        children: [(0, _v1.jsx)(_v23.Button, {
+        children: [(0, _v1.jsx)(_v22.Button, {
           variant: "primary",
           size: "md",
           width: "100%",
@@ -270,7 +269,7 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v23.Button, {
+        }), (0, _v1.jsx)(_v22.Button, {
           as: "a",
           href: _v11,
           variant: "secondary",
@@ -303,7 +302,7 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v23.Button, {
+        }), (0, _v1.jsx)(_v22.Button, {
           variant: "tertiary",
           size: "md",
           width: "100%",
@@ -337,7 +336,7 @@
         })]
       })]
     }),
-    _v27 = "/checkout/payments/new?verify=1";
+    _v26 = "/checkout/payments/new?verify=1";
   _v0.s(["AddPaymentMethod", 0, _v0 => {
     let {
         canSavePaymentMethod: _v1,
@@ -363,35 +362,32 @@
         onSubmitVatId: _v21,
         billingAddress: _v22,
         setBillingAddress: _v23,
-        isDefault: _v24,
-        onDefault: _v25,
-        forceDefaultPaymentCheckbox: _v26,
-        formLoaded: _v27,
-        isVerification: _v28 = !1,
-        isVerificationFlow: _v29 = !1,
-        pmId: _v30,
-        lockedAddressFields: _v31,
-        isInline: _v32 = !1,
-        hideAddressForm: _v33 = !1,
-        addNewPaymentMethodHref: _v34 = _v27,
-        onPostpone: _v35,
-        onAddNew: _v36,
-        onConfirm: _v37,
-        onPostalCodeValidityChange: _v38,
-        shouldSyncPostalCode: _v39,
-        disableSubmit: _v40,
-        onZuoraControllerChange: _v41,
-        onZuoraStatusChange: _v42
+        formLoaded: _v24,
+        isVerification: _v25 = !1,
+        isVerificationFlow: _v26 = !1,
+        pmId: _v27,
+        lockedAddressFields: _v28,
+        isInline: _v29 = !1,
+        hideAddressForm: _v30 = !1,
+        addNewPaymentMethodHref: _v31 = _v26,
+        onPostpone: _v32,
+        onAddNew: _v33,
+        onConfirm: _v34,
+        onPostalCodeValidityChange: _v35,
+        shouldSyncPostalCode: _v36,
+        disableSubmit: _v37,
+        onZuoraControllerChange: _v38,
+        onZuoraStatusChange: _v39
       } = _v0,
-      _v43 = _v28 || _v29,
+      _v40 = _v25 || _v26,
       {
-        trackPageClicked: _v44
+        trackPageClicked: _v41
       } = (0, _v14.useCardVerificationTracking)(),
-      _v45 = _v28 ? "verify" : "add_new";
+      _v42 = _v25 ? "verify" : "add_new";
     (0, _v2.useEffect)(() => {
-      _v11 || (0, _v20.trackAddPaymentMethodPageview)(!!_v9);
+      _v11 || (0, _v19.trackAddPaymentMethodPageview)(!!_v9);
     }, [_v9, _v11]);
-    let _v46 = (0, _v13.translate)({
+    let _v43 = (0, _v13.translate)({
       singular: "Add payment method",
       dictionary: {
         es: {
@@ -417,7 +413,7 @@
         }
       }
     });
-    _v6 ? _v46 = (0, _v13.translate)({
+    _v6 ? _v43 = (0, _v13.translate)({
       singular: "Pay balance",
       dictionary: {
         es: {
@@ -442,7 +438,7 @@
           singular: "支付余额"
         }
       }
-    }) : _v9 && (_v46 = (0, _v13.translate)({
+    }) : _v9 && (_v43 = (0, _v13.translate)({
       singular: "Update payment method",
       dictionary: {
         es: {
@@ -468,8 +464,8 @@
         }
       }
     }));
-    let _v47 = _v46;
-    _v7 !== _v21.PaymentFormTypes.TYPE_PAYPAL || _v6 || (_v47 = (0, _v13.translate)({
+    let _v44 = _v43;
+    _v7 !== _v20.PaymentFormTypes.TYPE_PAYPAL || _v6 || (_v44 = (0, _v13.translate)({
       singular: "Continue to PayPal",
       dictionary: {
         es: {
@@ -495,8 +491,8 @@
         }
       }
     }));
-    let _v48 = _v46;
-    _v28 && (_v48 = (0, _v13.translate)({
+    let _v45 = _v43;
+    _v25 && (_v45 = (0, _v13.translate)({
       singular: "Verify your card",
       dictionary: {
         es: {
@@ -521,7 +517,7 @@
           singular: "验证您的银行卡"
         }
       }
-    }), _v47 = (0, _v13.translate)({
+    }), _v44 = (0, _v13.translate)({
       singular: "Renew authorization",
       dictionary: {
         es: {
@@ -547,21 +543,21 @@
         }
       }
     }));
-    let _v49 = _v7 === _v21.PaymentFormTypes.TYPE_STRIPE && !_v2,
-      _v50 = _v3 || _v4 ? _v21.PaymentFormTypes.TYPE_STRIPE : _v7;
-    return _v32 ? (0, _v1.jsx)(_v26, {
+    let _v46 = _v7 === _v20.PaymentFormTypes.TYPE_STRIPE && !_v2,
+      _v47 = _v3 || _v4 ? _v20.PaymentFormTypes.TYPE_STRIPE : _v7;
+    return _v29 ? (0, _v1.jsx)(_v25, {
       currency: _v5,
       paymentFormType: _v7,
       formError: _v8,
       isDisabled: _v10,
       isLoading: _v11,
-      formLoaded: _v27,
-      pmId: _v30,
+      formLoaded: _v24,
+      pmId: _v27,
       billingAddress: _v22,
       setBillingAddress: _v23,
-      lockedAddressFields: _v31,
-      hideAddressForm: _v33,
-      addNewPaymentMethodHref: _v34,
+      lockedAddressFields: _v28,
+      hideAddressForm: _v30,
+      addNewPaymentMethodHref: _v31,
       onBillingName: _v12,
       onErrorLoadingForm: _v13,
       onFormLoaded: _v15,
@@ -571,16 +567,16 @@
       onSubmit: _v19,
       onSubmitError: _v20,
       onSubmitVatId: _v21,
-      onPostpone: _v35,
-      onAddNew: _v36,
-      onConfirm: _v37,
-      onPostalCodeValidityChange: _v38,
-      shouldSyncPostalCode: _v39,
-      onZuoraControllerChange: _v41,
-      onZuoraStatusChange: _v42
+      onPostpone: _v32,
+      onAddNew: _v33,
+      onConfirm: _v34,
+      onPostalCodeValidityChange: _v35,
+      shouldSyncPostalCode: _v36,
+      onZuoraControllerChange: _v38,
+      onZuoraStatusChange: _v39
     }) : (0, _v1.jsxs)(_v6.Flex, {
       direction: "column",
-      paddingBottom: _v43 ? "120px" : void 0,
+      paddingBottom: _v40 ? "120px" : void 0,
       children: [_v10 && (0, _v1.jsx)(_v6.Flex, {
         align: "center",
         justify: "center",
@@ -601,9 +597,9 @@
         },
         children: [(0, _v1.jsx)(_v8.Header, {
           size: "xl",
-          marginBottom: _v43 ? (0, _v11.rem)(24) : "20",
-          children: _v48
-        }), _v43 && (0, _v1.jsxs)(_v7.HStack, {
+          marginBottom: _v40 ? (0, _v11.rem)(24) : "20",
+          children: _v45
+        }), _v40 && (0, _v1.jsxs)(_v7.HStack, {
           gap: "1",
           align: "center",
           justify: "center",
@@ -615,7 +611,7 @@
             variant: "heading-xs",
             color: "status-positive-primary",
             textAlign: "center",
-            children: _v28 ? (0, _v13.translate)({
+            children: _v25 ? (0, _v13.translate)({
               singular: "Enter your CVV to confirm your card. No charge will be applied now.",
               dictionary: {
                 es: {
@@ -711,18 +707,17 @@
           gap: "md",
           children: [(0, _v1.jsxs)(_v17.PaymentMethodFormContainer, {
             currency: _v5,
-            defaultPaymentFormType: _v50,
+            defaultPaymentFormType: _v47,
             formAlert: _v8 ? {
               status: "error",
               message: _v8.message
             } : void 0,
             includeAddressFields: !1,
             isAddingPaymentMethod: !0,
-            isDefault: _v24,
-            showPaypalOption: !_v28 && !_v4,
-            pmId: _v30,
+            showPaypalOption: !_v25 && !_v4,
+            pmId: _v27,
             billingAddress: _v22,
-            shouldSyncPostalCode: _v39,
+            shouldSyncPostalCode: _v36,
             onBillingName: _v12,
             onErrorLoadingForm: _v13,
             onFormLoaded: _v15,
@@ -731,44 +726,72 @@
             onSubmissionStart: _v18,
             requireAccountId: !0,
             onSubmitError: _v20,
-            onControllerChange: _v41,
-            onStatusChange: _v42,
-            children: [_v7 === _v21.PaymentFormTypes.TYPE_PAYPAL ? _v50 !== _v21.PaymentFormTypes.TYPE_STRIPE && (0, _v1.jsx)(_v22.PayPalBox, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+            onControllerChange: _v38,
+            onStatusChange: _v39,
+            children: [_v7 === _v20.PaymentFormTypes.TYPE_PAYPAL ? _v47 !== _v20.PaymentFormTypes.TYPE_STRIPE && (0, _v1.jsx)(_v21.PayPalBox, {}) : (0, _v1.jsxs)(_v1.Fragment, {
               children: [(0, _v1.jsx)(_v16.PaymentMethodAddressFormContainer, {
                 onSubmitVatId: _v21,
                 billingAddress: _v22,
                 setBillingAddress: _v23,
                 paymentFormType: _v7,
-                lockedAddressFields: _v31,
-                onPostalCodeValidityChange: _v38
-              }), !_v28 && (0, _v1.jsx)(_v18.SetDefaultPaymentMethodCheckbox, {
-                isChecked: _v24,
-                onChange: _v25,
-                showCheckbox: !_v49,
-                blockCheckbox: _v26
+                lockedAddressFields: _v28,
+                onPostalCodeValidityChange: _v35
+              }), !_v25 && (0, _v1.jsx)(_v5.Box, {
+                my: "4",
+                children: (0, _v1.jsx)(_v10.Text, {
+                  variant: "body-sm",
+                  color: "text-secondary",
+                  textAlign: "left",
+                  children: (0, _v13.translate)({
+                    singular: "This will be your default payment method from now on",
+                    dictionary: {
+                      es: {
+                        singular: "Este será tu método de pago predeterminado a partir de ahora"
+                      },
+                      "de-DE": {
+                        singular: "Dies ist von nun an Ihre Standardzahlungsmethode"
+                      },
+                      "fr-FR": {
+                        singular: "Ce sera désormais votre mode de paiement par défaut"
+                      },
+                      "ja-JP": {
+                        singular: "今後、これがデフォルトの支払い方法になります"
+                      },
+                      "ko-KR": {
+                        singular: "앞으로 이 결제 수단이 기본 결제 수단으로 설정됩니다"
+                      },
+                      "pt-BR": {
+                        singular: "Esta será sua forma de pagamento padrão a partir de agora"
+                      },
+                      "zh-CN": {
+                        singular: "从现在起，这将成为您的默认付款方式"
+                      }
+                    }
+                  })
+                })
               })]
-            }), _v49 && (0, _v1.jsx)(_v19.UserConsentContainer, {
+            }), _v46 && (0, _v1.jsx)(_v18.UserConsentContainer, {
               onChecked: _v0 => _v14(_v0)
             })]
           }), (0, _v1.jsx)(_v15.AddPaymentMethodButtonContainer, {
-            isDisabled: _v10 || !!_v40,
+            isDisabled: _v10 || !!_v37,
             isLoading: _v11,
-            canSave: !_v49 || _v1,
+            canSave: !_v46 || _v1,
             onSubmit: () => {
-              _v43 && _v44({
-                variant: _v45,
+              _v40 && _v41({
+                variant: _v42,
                 element: "submit_button"
-              }), _v19(), (0, _v20.trackAddPaymentMethodAddClick)(!_v9);
+              }), _v19(), (0, _v19.trackAddPaymentMethodAddClick)(!_v9);
             },
-            onCancel: () => (0, _v20.trackAddPaymentMethodCancelClick)(!_v9),
-            buttonText: _v47,
-            hideCancel: _v28
+            onCancel: () => (0, _v19.trackAddPaymentMethodCancelClick)(!_v9),
+            buttonText: _v44,
+            hideCancel: _v25
           })]
         })]
-      }), _v43 && (0, _v1.jsx)(_v24, {
+      }), _v40 && (0, _v1.jsx)(_v23, {
         postponeHref: "/home",
-        secondaryHref: _v28 ? _v27 : "/checkout/payments/verify",
-        secondaryLabel: _v28 ? (0, _v13.translate)({
+        secondaryHref: _v25 ? _v26 : "/checkout/payments/verify",
+        secondaryLabel: _v25 ? (0, _v13.translate)({
           singular: "Add new payment method instead",
           dictionary: {
             es: {
@@ -819,13 +842,13 @@
             }
           }
         }),
-        onPostpone: () => _v44({
-          variant: _v45,
+        onPostpone: () => _v41({
+          variant: _v42,
           element: "postpone_cta"
         }),
-        onSecondaryAction: () => _v44({
-          variant: _v45,
-          element: _v28 ? "add_new_cta" : "verify_cta"
+        onSecondaryAction: () => _v41({
+          variant: _v42,
+          element: _v25 ? "add_new_cta" : "verify_cta"
         })
       })]
     });

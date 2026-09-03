@@ -156,7 +156,7 @@
     _v22 = () => (0, _v1.jsx)(_v20, {});
   _v22.getLayout = _v3.getLayout, (0, _v2.withPageSetup)({
     requireLogin: !0,
-    capability: "hasMarketingSettings",
+    capability: "canConnectToHubspotMediaBridge",
     inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v22], 0);
 }

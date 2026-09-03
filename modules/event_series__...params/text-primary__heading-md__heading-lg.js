@@ -232,6 +232,7 @@
     children: (0, _v1.jsxs)(_v14, {
       isMobilePreview: _v1,
       children: [(0, _v1.jsx)(_v13, {
+        color: "text-tertiary",
         isMobilePreview: _v1,
         children: (0, _v12.translate)({
           singular: "Agenda",
@@ -358,12 +359,21 @@
           })]
         }), (0, _v1.jsx)(_v5.Flex, {
           align: "center",
-          minHeight: (0, _v8.rem)(28),
+          height: (0, _v8.rem)(24),
+          px: (0, _v8.rem)(8),
           children: _v8.map((_v0, _v1) => (0, _v1.jsx)(_v3.Box, {
             ml: 0 === _v1 ? 0 : (0, _v8.rem)(-4),
+            minHeight: (0, _v8.rem)(24),
+            height: (0, _v8.rem)(24),
+            sx: {
+              "& > div": {
+                display: "unset"
+              }
+            },
             children: (0, _v1.jsx)(_v19.Avatar, {
               alt: _v0.name ?? "",
               nameProps: {
+                color: "blue.400",
                 name: _v0.name ?? ""
               },
               size: "xs",

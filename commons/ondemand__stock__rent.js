@@ -28,8 +28,6 @@
         _v3.setFullYear(_v3.getFullYear() + _v0);
     }
     return _v3;
-  }, "getActiveValidPaymentMethod", 0, _v0 => {
-    if (_v0) return _v0.find(_v0 => _v0.isDefault && !(0, _v1.isPaymentMethodExpired)(_v0));
   }, "getBillingPeriod", 0, (_v0, _v1, _v2, _v3) => _v0 && _v1 ? _v0 === _v1.plans.monthly ? _v2 : _v0 === _v1.plans.annual ? _v3 : "" : "", "getCheckoutPeriodicity", 0, (_v0, _v1, _v2) => _v0 ? _v4(_v1) : _v2 ? "monthly" : "annual", "getErrorRedirectPath", 0, (_v0, _v1, _v2) => {
     if (_v0 && _v3(_v0)) try {
       let _v0 = _v1 ?? (document?.referrer !== "" ? document?.referrer : `${window.location.origin}/ondemand`),

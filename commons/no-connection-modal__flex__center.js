@@ -17553,7 +17553,7 @@ ${_v9}
           header: _v66.translations.reactions,
           content: _v617,
           hash: _v46.ELeftPanelHash.REACTIONS
-        }, _v9 || _v10 || !_v11.enable_event_series_in_dev_features ? null : {
+        }, _v9 || _v10 || !_v4.hasLandingPageCustomizations || !_v11.release_single_event_customization ? null : {
           id: _v46.ELeftPanelId.LANDING_PAGE,
           icon: (0, _v17.jsx)(_v426.BrowserWindow, {}),
           header: _v66.translations.landingPage,
@@ -17571,7 +17571,7 @@ ${_v9}
             children: (0, _v17.jsx)(_v708, {})
           })
         }), _v0.filter(_v0 => !!_v0);
-      }, [_v4.canSeeTemplatesTab, _v12, _v10, _v5, _v11.enable_live_reactions, _v11.enabled_new_live_engagement_ui, _v15, _v14, _v11.enable_event_series_in_dev_features, _v9]);
+      }, [_v4.canSeeTemplatesTab, _v4.hasLandingPageCustomizations, _v12, _v10, _v5, _v11.enable_live_reactions, _v11.enabled_new_live_engagement_ui, _v15, _v14, _v11.release_single_event_customization, _v9]);
     return (0, _v17.jsx)(_v437.LeftPanel, {
       id: _v0,
       className: _v1,

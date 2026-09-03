@@ -1152,6 +1152,18 @@
       } = _v0.data;
       if (this.canEditGraphic) return this.removeGraphicFromAllScenes(_v1);
     }
+    async onScreenMediaStopped() {
+      let {
+        activeScene: _v0
+      } = this.context;
+      this.isInitialized() && this.canEditGraphic && _v0 && (await (0, _v19.withLiveErrorTracking)(() => this.updateSceneSpeakerPositions(_v0.id), {
+        method: "onScreenMediaStopped",
+        category: _v18.ELiveErrorCategory.LIVE,
+        data: {
+          sceneId: _v0.id
+        }
+      }));
+    }
     async onLiveEventStarting() {
       let {
         scenes: _v0,
@@ -1215,7 +1227,7 @@
       return this.createScenesOnIndex(_v0, _v1);
     }
   }
-  (0, _v2._)([(0, _v3.OnSignal)(_v7.ELiveRealtimeSignal.FIREBASE_COMPOSER_APP_READY)], _v76.prototype, "onBroadcasterApplicationReady", null), (0, _v2._)([(0, _v3.OnSignal)(_v7.ELiveGraphicsSignal.GRAPHIC_DELETED)], _v76.prototype, "onRemoveGraphicFromAllScenes", null), (0, _v2._)([(0, _v3.OnSignal)(_v7.ELiveSignal.LIVE_EVENT_STARTING)], _v76.prototype, "onLiveEventStarting", null), (0, _v2._)([(0, _v3.OnSignal)(_v7.ELiveGraphicsSignal.GUEST_DELETED)], _v76.prototype, "onRemoveGuestFromAllScenes", null), (0, _v2._)([(0, _v3.OnQuery)(_v6.ELiveMediaQuery.IS_REMOTE_MEDIA_PLAYING)], _v76.prototype, "onMediaPlaying", null), (0, _v2._)([(0, _v3.OnQuery)(_v6.ELiveGraphicsQuery.REMOVE_ALL_SCENES)], _v76.prototype, "removeAllScenes", null), (0, _v2._)([(0, _v3.OnSignal)(_v7.EPageSignal.PAGE_KEY_PRESSED)], _v76.prototype, "onPageKeyPressed", null), (0, _v2._)([(0, _v3.OnQuery)(_v6.ELiveGraphicsQuery.CREATE_SCENES_FROM_PARTIAL)], _v76.prototype, "onCreateScenes", null), _v0.s(["SceneManager", 0, _v76], 0);
+  (0, _v2._)([(0, _v3.OnSignal)(_v7.ELiveRealtimeSignal.FIREBASE_COMPOSER_APP_READY)], _v76.prototype, "onBroadcasterApplicationReady", null), (0, _v2._)([(0, _v3.OnSignal)(_v7.ELiveGraphicsSignal.GRAPHIC_DELETED)], _v76.prototype, "onRemoveGraphicFromAllScenes", null), (0, _v2._)([(0, _v3.OnSignal)(_v7.ELiveMediaSignal.SCREEN_MEDIA_STOPPED)], _v76.prototype, "onScreenMediaStopped", null), (0, _v2._)([(0, _v3.OnSignal)(_v7.ELiveSignal.LIVE_EVENT_STARTING)], _v76.prototype, "onLiveEventStarting", null), (0, _v2._)([(0, _v3.OnSignal)(_v7.ELiveGraphicsSignal.GUEST_DELETED)], _v76.prototype, "onRemoveGuestFromAllScenes", null), (0, _v2._)([(0, _v3.OnQuery)(_v6.ELiveMediaQuery.IS_REMOTE_MEDIA_PLAYING)], _v76.prototype, "onMediaPlaying", null), (0, _v2._)([(0, _v3.OnQuery)(_v6.ELiveGraphicsQuery.REMOVE_ALL_SCENES)], _v76.prototype, "removeAllScenes", null), (0, _v2._)([(0, _v3.OnSignal)(_v7.EPageSignal.PAGE_KEY_PRESSED)], _v76.prototype, "onPageKeyPressed", null), (0, _v2._)([(0, _v3.OnQuery)(_v6.ELiveGraphicsQuery.CREATE_SCENES_FROM_PARTIAL)], _v76.prototype, "onCreateScenes", null), _v0.s(["SceneManager", 0, _v76], 0);
   var _v77 = _v0.i(0),
     _v78 = _v0.i(0);
   _v0.s(["getBroadcasterAgoraCredentials", 0, function (_v0, _v1) {

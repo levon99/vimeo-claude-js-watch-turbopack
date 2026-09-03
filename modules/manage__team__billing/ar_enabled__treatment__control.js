@@ -9634,68 +9634,14 @@
                       }
                     }
                   })
-                }), (0, _v1.jsxs)(_v126.Stack, {
+                }), (0, _v1.jsx)(_v126.Stack, {
                   spacing: "4px",
                   width: "100%",
-                  children: [(0, _v1.jsx)(_v46.Text, {
+                  children: (0, _v1.jsx)(_v46.Text, {
                     variant: "heading-xl",
                     color: "text-primary",
                     children: (0, _v12.translate)("$0")
-                  }), (0, _v1.jsx)(_v46.Text, {
-                    variant: "body-xs",
-                    color: "text-secondary",
-                    children: _v7 ? (0, _v12.translate)({
-                      singular: "plus taxes. Per month, billed annually.",
-                      dictionary: {
-                        es: {
-                          singular: "más impuestos. Por mes, facturado anualmente."
-                        },
-                        "de-DE": {
-                          singular: "zzgl. Steuern. Pro Monat, jährlich abgerechnet."
-                        },
-                        "fr-FR": {
-                          singular: "plus taxes. Par mois, facturé annuellement."
-                        },
-                        "ja-JP": {
-                          singular: "税別。月額（年払い）。"
-                        },
-                        "ko-KR": {
-                          singular: "세금 별도. 월별 요금, 연간 청구."
-                        },
-                        "pt-BR": {
-                          singular: "mais impostos. Por mês, cobrado anualmente."
-                        },
-                        "zh-CN": {
-                          singular: "另加税。按年计费，折合每月。"
-                        }
-                      }
-                    }) : (0, _v12.translate)({
-                      singular: "plus taxes. Per month, billed monthly.",
-                      dictionary: {
-                        es: {
-                          singular: "más impuestos. Por mes, facturado mensualmente."
-                        },
-                        "de-DE": {
-                          singular: "zzgl. Steuern. Pro Monat, monatlich abgerechnet."
-                        },
-                        "fr-FR": {
-                          singular: "plus taxes. Par mois, facturé mensuellement."
-                        },
-                        "ja-JP": {
-                          singular: "税別。月額（月払い）。"
-                        },
-                        "ko-KR": {
-                          singular: "세금 별도. 월별 요금, 월간 청구."
-                        },
-                        "pt-BR": {
-                          singular: "mais impostos. Por mês, cobrado mensalmente."
-                        },
-                        "zh-CN": {
-                          singular: "另加税。按月计费，每月结算。"
-                        }
-                      }
-                    })
-                  })]
+                  })
                 }), _v18({
                   teamSeats: 1,
                   adminSeats: null,
@@ -9839,141 +9785,118 @@
                     variant: "body-xs",
                     color: "text-secondary",
                     children: _v7 ? (0, _v12.translate)({
-                      singular: "plus taxes. Per month, billed annually.",
+                      singular: "plus taxes. Per month, billed annually, locked for the first year",
                       dictionary: {
                         es: {
-                          singular: "más impuestos. Por mes, facturado anualmente."
+                          singular: "más impuestos. Por mes, facturado anualmente, bloqueado durante el primer año"
                         },
                         "de-DE": {
-                          singular: "zzgl. Steuern. Pro Monat, jährlich abgerechnet."
+                          singular: "zzgl. Steuern. Pro Monat, jährlich abgerechnet, im ersten Jahr festgeschrieben"
                         },
                         "fr-FR": {
-                          singular: "plus taxes. Par mois, facturé annuellement."
+                          singular: "hors taxes. Par mois, facturé annuellement, tarif bloqué la première année"
                         },
                         "ja-JP": {
-                          singular: "税別。月額（年払い）。"
+                          singular: "税別. 月額, 請求は年払いで, 初年度は価格が固定されます"
                         },
                         "ko-KR": {
-                          singular: "세금 별도. 월별 요금, 연간 청구."
+                          singular: "세금 별도. 월 요금, 연간 청구되며, 첫 해에는 요금이 고정됩니다"
                         },
                         "pt-BR": {
-                          singular: "mais impostos. Por mês, cobrado anualmente."
+                          singular: "mais impostos. Por mês, cobrado anualmente, bloqueado durante o primeiro ano"
                         },
                         "zh-CN": {
-                          singular: "另加税。按年计费，折合每月。"
+                          singular: "另加税费。每月，按年计费，首年价格锁定"
                         }
                       }
                     }) : (0, _v12.translate)({
-                      singular: "plus taxes. Per month, billed monthly.",
+                      singular: "plus taxes. Per month, billed monthly",
                       dictionary: {
                         es: {
-                          singular: "más impuestos. Por mes, facturado mensualmente."
+                          singular: "más impuestos. Por mes, facturado mensualmente"
                         },
                         "de-DE": {
-                          singular: "zzgl. Steuern. Pro Monat, monatlich abgerechnet."
+                          singular: "zzgl. Steuern. Pro Monat, monatlich abgerechnet"
                         },
                         "fr-FR": {
-                          singular: "plus taxes. Par mois, facturé mensuellement."
+                          singular: "hors taxes. Par mois, facturé mensuellement"
                         },
                         "ja-JP": {
-                          singular: "税別。月額（月払い）。"
+                          singular: "税別. 月額, 請求は毎月行われます"
                         },
                         "ko-KR": {
-                          singular: "세금 별도. 월별 요금, 월간 청구."
+                          singular: "세금 별도. 월 요금, 매월 청구됩니다"
                         },
                         "pt-BR": {
-                          singular: "mais impostos. Por mês, cobrado mensalmente."
+                          singular: "mais impostos. Por mês, cobrado mensalmente"
                         },
                         "zh-CN": {
-                          singular: "另加税。按月计费，每月结算。"
+                          singular: "另加税费。每月，按月计费"
+                        }
+                      }
+                    })
+                  }), _v12 && (0, _v1.jsx)(_v46.Text, {
+                    variant: "body-xs",
+                    color: "text-secondary",
+                    children: _v7 ? (0, _v12.translate)({
+                      singular: "Renews at {AMOUNT}/month, billed annually",
+                      replacements: {
+                        AMOUNT: _v12
+                      },
+                      dictionary: {
+                        es: {
+                          singular: "Se renueva a {AMOUNT}/mes, facturado anualmente"
+                        },
+                        "de-DE": {
+                          singular: "Verlängert sich zu {AMOUNT}/Monat, jährlich abgerechnet"
+                        },
+                        "fr-FR": {
+                          singular: "Se renouvelle à {AMOUNT}/mois, facturé annuellement"
+                        },
+                        "ja-JP": {
+                          singular: "{AMOUNT}/月で更新され、年額請求されます"
+                        },
+                        "ko-KR": {
+                          singular: "갱신 시 {AMOUNT}/월, 연간 청구"
+                        },
+                        "pt-BR": {
+                          singular: "Renova por {AMOUNT}/mês, faturado anualmente"
+                        },
+                        "zh-CN": {
+                          singular: "续订价为 {AMOUNT}/月，按年收取"
+                        }
+                      }
+                    }) : (0, _v12.translate)({
+                      singular: "Renews at {AMOUNT}/month, billed monthly",
+                      replacements: {
+                        AMOUNT: _v12
+                      },
+                      dictionary: {
+                        es: {
+                          singular: "Se renueva a {AMOUNT}/mes, facturado mensualmente"
+                        },
+                        "de-DE": {
+                          singular: "Verlängert sich zu {AMOUNT}/Monat, monatlich abgerechnet"
+                        },
+                        "fr-FR": {
+                          singular: "Renouvellement à {AMOUNT}/mois, facturé mensuellement"
+                        },
+                        "ja-JP": {
+                          singular: "月額{AMOUNT}で更新されます, 請求は毎月です"
+                        },
+                        "ko-KR": {
+                          singular: "{AMOUNT}/month에 갱신되며, 매월 청구됩니다"
+                        },
+                        "pt-BR": {
+                          singular: "Renova por {AMOUNT}/mês, cobrado mensalmente"
+                        },
+                        "zh-CN": {
+                          singular: "续订价为 {AMOUNT}/月，按月计费"
                         }
                       }
                     })
                   })]
-                }), _v18(_v13), (0, _v1.jsx)(_v46.Text, {
-                  variant: "body-xs",
-                  color: "text-secondary",
-                  children: (0, _v12.translate)({
-                    singular: "Renews automatically at {RENEWAL_PRICE}/{PERIOD} (plus tax) unless canceled. Promotional price may change with prior notice.",
-                    replacements: {
-                      RENEWAL_PRICE: _v12 ?? "",
-                      PERIOD: _v7 ? (0, _v12.translate)({
-                        singular: "year",
-                        dictionary: {
-                          es: {
-                            singular: "año"
-                          },
-                          "de-DE": {
-                            singular: "Jahr"
-                          },
-                          "fr-FR": {
-                            singular: "année"
-                          },
-                          "ja-JP": {
-                            singular: "年"
-                          },
-                          "ko-KR": {
-                            singular: "년"
-                          },
-                          "pt-BR": {
-                            singular: "Ano"
-                          },
-                          "zh-CN": {
-                            singular: "年"
-                          }
-                        }
-                      }) : (0, _v12.translate)({
-                        singular: "month",
-                        dictionary: {
-                          es: {
-                            singular: "mes"
-                          },
-                          "de-DE": {
-                            singular: "Monat"
-                          },
-                          "fr-FR": {
-                            singular: "mois"
-                          },
-                          "ja-JP": {
-                            singular: "月"
-                          },
-                          "ko-KR": {
-                            singular: "월"
-                          },
-                          "pt-BR": {
-                            singular: "Mês"
-                          },
-                          "zh-CN": {
-                            singular: "月"
-                          }
-                        }
-                      })
-                    },
-                    dictionary: {
-                      es: {
-                        singular: "Se renueva automáticamente a {RENEWAL_PRICE}/{PERIOD} (más impuestos) a menos que se cancele. El precio promocional puede cambiar con aviso previo."
-                      },
-                      "de-DE": {
-                        singular: "Verlängert sich automatisch zu {RENEWAL_PRICE}/{PERIOD} (zzgl. Steuern), sofern nicht gekündigt. Der Aktionspreis kann sich nach vorheriger Ankündigung ändern."
-                      },
-                      "fr-FR": {
-                        singular: "Se renouvelle automatiquement à {RENEWAL_PRICE}/{PERIOD} (plus taxes) sauf annulation. Le prix promotionnel peut être modifié avec un préavis."
-                      },
-                      "ja-JP": {
-                        singular: "キャンセルしない限り、{RENEWAL_PRICE}/{PERIOD}（税別）で自動的に更新されます。プロモーション価格は事前の通知により変更される場合があります。"
-                      },
-                      "ko-KR": {
-                        singular: "취소하지 않는 한 {RENEWAL_PRICE}/{PERIOD} (세금 별도)로 자동 갱신됩니다. 프로모션 가격은 사전 통지 후 변경될 수 있습니다."
-                      },
-                      "pt-BR": {
-                        singular: "Renova automaticamente por {RENEWAL_PRICE}/{PERIOD} (mais impostos) a menos que seja cancelada. O preço promocional pode mudar mediante aviso prévio."
-                      },
-                      "zh-CN": {
-                        singular: "除非取消，否则将按 {RENEWAL_PRICE}/{PERIOD} (加税) 自动续订。促销价格可能会在事先通知后变更。"
-                      }
-                    }
-                  })
-                }), (0, _v1.jsx)(_v7.Button, {
+                }), _v18(_v13), (0, _v1.jsx)(_v7.Button, {
                   variant: "primary",
                   size: "md",
                   width: "100%",
@@ -10202,104 +10125,107 @@
         } = (0, _v13.useOrionSettings)(),
         _v23 = function ({
           arm: _v0,
-          offerKind: _v1,
-          effectiveTier: _v2
+          b2cArm: _v1,
+          offerKind: _v2,
+          effectiveTier: _v3
         }) {
-          return "core" === _v2 || "professional" === _v2 || "discount_match_lower" === _v1 && void 0 !== _v2 && _v193.includes(_v2) ? _v0 : null;
+          return "core" === _v3 || "professional" === _v3 ? "more_prominent_plans" === _v1 ? "permanent_prominent" : "one-time" : "discount_match_lower" === _v2 && void 0 !== _v3 && _v193.includes(_v3) ? _v0 : null;
         }({
           arm: _v21.b2b_cancellation_discount_type,
+          b2cArm: _v21.b2c_cancellation_discount_offer_variant,
           offerKind: _v18.kind,
           effectiveTier: _v17
         }),
         _v24 = "core" === _v17 || "professional" === _v17,
         _v25 = _v24 ? "b2c_cancellation_flow_discounts" : "b2b_cancellation_flow_discounts",
-        _v26 = _v24 && "one-time" === _v23,
-        _v27 = "permanent" === _v23 && (_v24 || _v19),
-        _v28 = "permanent_prominent" === _v23 && (_v24 || _v19),
-        _v29 = "downgrade" === _v18.kind ? _v18.targetTier ?? null : null,
-        _v30 = "creator" === _v29 || "professional" === _v29 || "creator" === _v17 || "professional" === _v17,
-        _v31 = _v14 && !_v15 && !!_v8 && !_v30,
-        _v32 = (0, _v3.useMemo)(() => {
+        _v26 = _v24 && "control" === _v21.b2c_cancellation_discount_offer_variant,
+        _v27 = _v24 && "more_prominent_plans" === _v21.b2c_cancellation_discount_offer_variant,
+        _v28 = "permanent" === _v23 && _v19,
+        _v29 = _v27 || "permanent_prominent" === _v23 && _v19,
+        _v30 = "downgrade" === _v18.kind ? _v18.targetTier ?? null : null,
+        _v31 = "creator" === _v30 || "professional" === _v30 || "creator" === _v17 || "professional" === _v17,
+        _v32 = _v14 && !_v15 && !!_v8 && !_v31,
+        _v33 = (0, _v3.useMemo)(() => {
           let _v0 = ["creator", "core", "professional", "studio"];
           return _v17 && !_v0.includes(_v17) ? [..._v0, _v17] : _v0;
         }, [_v17]),
-        _v33 = (0, _v202.useCampaignIdOverride)(),
-        _v34 = _v6?.productId ?? _v7.productId,
-        _v35 = null != _v34 && _v188.has(_v34),
-        _v36 = !!(_v17 && _v68.RepackagedTiers.includes(_v17)),
-        _v37 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v6?.originalMonthlyPrice?.amount ?? _v6?.monthlyPrice?.amount ?? null : _v6?.originalPrice?.amount ?? _v6?.price?.amount ?? null,
-        _v38 = _v33 ?? (!_v22 && !_v33 && _v36 && _v35 ? _v202.RP_2026_LOW_CAMPAIGN_ID : void 0),
+        _v34 = (0, _v202.useCampaignIdOverride)(),
+        _v35 = _v6?.productId ?? _v7.productId,
+        _v36 = null != _v35 && _v188.has(_v35),
+        _v37 = !!(_v17 && _v68.RepackagedTiers.includes(_v17)),
+        _v38 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v6?.originalMonthlyPrice?.amount ?? _v6?.monthlyPrice?.amount ?? null : _v6?.originalPrice?.amount ?? _v6?.price?.amount ?? null,
+        _v39 = _v34 ?? (!_v22 && !_v34 && _v37 && _v36 ? _v202.RP_2026_LOW_CAMPAIGN_ID : void 0),
         {
-          plans: _v39,
-          isLoading: _v40
-        } = (0, _v82.useGetSubscriptionPlansDataResult)(_v32, void 0, !1, {
-          ...(_v38 ? {
-            campaignId: _v38
+          plans: _v40,
+          isLoading: _v41
+        } = (0, _v82.useGetSubscriptionPlansDataResult)(_v33, void 0, !1, {
+          ...(_v39 ? {
+            campaignId: _v39
           } : {})
         }),
         {
-          plans: _v41
-        } = (0, _v82.useGetSubscriptionPlansDataResult)(_v32, void 0, !1, _v24 && !_v33 ? {
+          plans: _v42
+        } = (0, _v82.useGetSubscriptionPlansDataResult)(_v33, void 0, !1, _v24 && !_v34 ? {
           campaignId: _v202.RP_2026_HIGH_CAMPAIGN_ID
         } : void 0),
         {
-          plans: _v42
-        } = (0, _v82.useGetSubscriptionPlansDataResult)(_v32, void 0, !1, _v24 && !_v33 ? {
+          plans: _v43
+        } = (0, _v82.useGetSubscriptionPlansDataResult)(_v33, void 0, !1, _v24 && !_v34 ? {
           campaignId: _v202.RP_2026_LOW_CAMPAIGN_ID
         } : void 0),
         {
-          baseUrl: _v43,
-          jwt: _v44,
-          xVimeoPage: _v45,
-          locale: _v46
+          baseUrl: _v44,
+          jwt: _v45,
+          xVimeoPage: _v46,
+          locale: _v47
         } = (0, _v11.useGctlConfig)(),
-        [_v47, _v48] = (0, _v3.useState)(!1),
+        [_v48, _v49] = (0, _v3.useState)(!1),
         {
-          trackCancelSubscriptionDowngradeModalDisplayed: _v49,
-          trackCancelSubscriptionDowngradeClicked: _v50,
-          trackCancelSubscriptionDowngradeSkipped: _v51
+          trackCancelSubscriptionDowngradeModalDisplayed: _v50,
+          trackCancelSubscriptionDowngradeClicked: _v51,
+          trackCancelSubscriptionDowngradeSkipped: _v52
         } = (0, _v14.useBillingTracking)(),
         {
-          trackUserScheduledDowngrade: _v52,
-          trackDowngradeFailed: _v53
+          trackUserScheduledDowngrade: _v53,
+          trackDowngradeFailed: _v54
         } = (0, _v203.usePricingTracking)(),
         {
-          trackIndividualEligibilityCtaClicked: _v54
+          trackIndividualEligibilityCtaClicked: _v55
         } = (0, _v30.useIndividualEligibilityTracking)(),
-        _v55 = _v7.billingPeriod === _v68.UserPlanType.Year ? "annual" : "monthly",
-        _v56 = _v7.subscriptionId,
-        _v57 = (0, _v3.useMemo)(() => _v39 && _v29 ? _v39.find(_v0 => _v0.tier === _v29) ?? null : null, [_v39, _v29]),
-        _v58 = (0, _v3.useMemo)(() => _v39?.find(_v0 => "professional" === _v0.tier) ?? null, [_v39]),
-        _v59 = _v192({
-          scheduledProductId: _v34,
-          renewalMonthlyPrice: _v37,
-          plans: _v39
+        _v56 = _v7.billingPeriod === _v68.UserPlanType.Year ? "annual" : "monthly",
+        _v57 = _v7.subscriptionId,
+        _v58 = (0, _v3.useMemo)(() => _v40 && _v30 ? _v40.find(_v0 => _v0.tier === _v30) ?? null : null, [_v40, _v30]),
+        _v59 = (0, _v3.useMemo)(() => _v40?.find(_v0 => "professional" === _v0.tier) ?? null, [_v40]),
+        _v60 = _v192({
+          scheduledProductId: _v35,
+          renewalMonthlyPrice: _v38,
+          plans: _v40
         }) ?? _v192({
-          scheduledProductId: _v34,
-          renewalMonthlyPrice: _v37,
-          plans: _v41
-        }) ?? _v192({
-          scheduledProductId: _v34,
-          renewalMonthlyPrice: _v37,
+          scheduledProductId: _v35,
+          renewalMonthlyPrice: _v38,
           plans: _v42
+        }) ?? _v192({
+          scheduledProductId: _v35,
+          renewalMonthlyPrice: _v38,
+          plans: _v43
         }),
-        _v60 = _v59?.landedPlan ?? null,
-        _v61 = null !== _v59,
-        _v62 = _v24 ? _v60 : _v17 ? _v39?.find(_v0 => _v0.tier === _v17) ?? null : null,
-        _v63 = _v19 ? "discount" : "downgrade",
-        _v64 = _v19 ? _v17 ?? null : _v29 ?? null,
-        _v65 = _v17 ? _v39?.find(_v0 => _v0.tier === _v17) ?? null : null,
-        _v66 = (_v12 = (_v11 = _v7.billingPeriod === _v68.UserPlanType.Year) ? _v57?.price?.annualMonthly : _v57?.price?.monthly, (_v13 = _v11 ? _v65?.price?.annualMonthly : _v65?.price?.monthly) && _v12 && _v13 > _v12 ? Math.floor((_v13 - _v12) / _v13 * 100) : null),
-        _v67 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v57?.id?.annual ?? "" : _v57?.id?.monthly ?? "",
-        _v68 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v62?.id?.annual ?? "" : _v62?.id?.monthly ?? "",
-        _v69 = (0, _v3.useCallback)(async () => {
-          if (_v57) {
-            if (_v50({
+        _v61 = _v60?.landedPlan ?? null,
+        _v62 = null !== _v60,
+        _v63 = _v24 ? _v61 : _v17 ? _v40?.find(_v0 => _v0.tier === _v17) ?? null : null,
+        _v64 = _v19 ? "discount" : "downgrade",
+        _v65 = _v19 ? _v17 ?? null : _v30 ?? null,
+        _v66 = _v17 ? _v40?.find(_v0 => _v0.tier === _v17) ?? null : null,
+        _v67 = (_v12 = (_v11 = _v7.billingPeriod === _v68.UserPlanType.Year) ? _v58?.price?.annualMonthly : _v58?.price?.monthly, (_v13 = _v11 ? _v66?.price?.annualMonthly : _v66?.price?.monthly) && _v12 && _v13 > _v12 ? Math.floor((_v13 - _v12) / _v13 * 100) : null),
+        _v68 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v58?.id?.annual ?? "" : _v58?.id?.monthly ?? "",
+        _v69 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v63?.id?.annual ?? "" : _v63?.id?.monthly ?? "",
+        _v70 = (0, _v3.useCallback)(async () => {
+          if (_v58) {
+            if (_v51({
               currentPlan: _v7.tier ?? null,
-              newPlan: _v29 ?? "",
-              newPeriodicity: _v55,
+              newPlan: _v30 ?? "",
+              newPeriodicity: _v56,
               offerKind: "downgrade",
-              discountPercent: _v66,
+              discountPercent: _v67,
               priceSegment: _v16,
               experimentName: _v25
             }), !_v7.hasAutorenew) {
@@ -10331,68 +10257,67 @@
               })), _v1();
               return;
             }
-            _v48(!0);
+            _v49(!0);
             try {
               await (0, _v201.putMeSubscriptionScheduledOrder)({
                 where: {
-                  subscriptionId: _v56
+                  subscriptionId: _v57
                 },
                 variables: {
-                  billingPlanId: _v67,
+                  billingPlanId: _v68,
                   acceptedFromCancellationFlow: !0
                 },
-                baseUrl: _v43,
+                baseUrl: _v44,
                 headers: {
                   "Content-Type": "application/json",
-                  Authorization: _v44 ? `jwt ${_v44}` : "",
-                  "Vimeo-Page": `${_v45}`,
-                  "Accept-Language": _v46 ?? "en"
+                  Authorization: _v45 ? `jwt ${_v45}` : "",
+                  "Vimeo-Page": `${_v46}`,
+                  "Accept-Language": _v47 ?? "en"
                 }
-              }), _v52({
+              }), _v53({
                 currentPlan: _v7.tier ?? "",
-                newPlan: _v29 ?? "",
-                newPeriodicity: _v55,
+                newPlan: _v30 ?? "",
+                newPeriodicity: _v56,
                 offerKind: "downgrade",
                 offerDuration: "one_term",
-                experimentArm: _v21.b2b_cancellation_discount_type,
+                experimentArm: _v24 ? _v21.b2c_cancellation_discount_offer_variant : _v21.b2b_cancellation_discount_type,
                 layout: "standard",
                 priceSegment: _v16,
                 experimentName: _v25
               }), _v4?.({
-                movedToPlan: _v57?.name
+                movedToPlan: _v58?.name
               }), _v1();
             } catch (_v0) {
-              _v53({
+              _v54({
                 currentPlan: _v7.tier ?? "",
-                targetPlan: _v29 ?? "",
-                targetPeriodicity: _v55,
+                targetPlan: _v30 ?? "",
+                targetPeriodicity: _v56,
                 errorMessage: _v0 instanceof Error ? _v0.message : String(_v0)
               }), _v5?.(), _v1();
             } finally {
-              _v48(!1);
+              _v49(!1);
             }
           }
-        }, [_v56, _v57, _v67, _v43, _v44, _v45, _v46, _v1, _v50, _v53, _v52, _v21.b2b_cancellation_discount_type, _v16, _v25, _v7.tier, _v7.hasAutorenew, _v29, _v55, _v66, _v4, _v5]),
-        _v70 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v62?.price?.annualMonthly : _v62?.price?.monthly,
-        _v71 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v58?.price?.annualMonthly : _v58?.price?.monthly,
-        _v72 = _v70 && _v71 && _v70 > _v71 ? Math.floor((_v70 - _v71) / _v70 * 100) : null,
-        _v73 = _v28 && _v24 && (null !== _v59 || _v40),
-        _v74 = _v73 || _v26 ? _v59?.savingsPercent ?? null : _v20 ? _v72 : _v18.discountPercent ?? null,
-        _v75 = (_v27 || _v28) && (!_v24 || _v73),
-        _v76 = _v28 && (!_v24 || _v73),
-        _v77 = _v75 ? _v24 ? "B2C_CANCELLATION_PERMANENT_DISCOUNT_V1" : "B2B_CANCELLATION_PERMANENT_DISCOUNT_V1" : void 0,
-        _v78 = _v19 ? _v74 : _v66,
+        }, [_v57, _v58, _v68, _v44, _v45, _v46, _v47, _v1, _v51, _v54, _v53, _v21.b2b_cancellation_discount_type, _v21.b2c_cancellation_discount_offer_variant, _v24, _v16, _v25, _v7.tier, _v7.hasAutorenew, _v30, _v56, _v67, _v4, _v5]),
+        _v71 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v63?.price?.annualMonthly : _v63?.price?.monthly,
+        _v72 = _v7.billingPeriod === _v68.UserPlanType.Year ? _v59?.price?.annualMonthly : _v59?.price?.monthly,
+        _v73 = _v71 && _v72 && _v71 > _v72 ? Math.floor((_v71 - _v72) / _v71 * 100) : null,
+        _v74 = _v29 && _v24 && (null !== _v60 || _v41),
+        _v75 = _v74 || _v26 ? _v60?.savingsPercent ?? null : _v20 ? _v73 : _v18.discountPercent ?? null,
+        _v76 = (_v28 || _v29) && !_v24,
+        _v77 = _v76 ? "B2B_CANCELLATION_PERMANENT_DISCOUNT_V1" : void 0,
+        _v78 = _v19 ? _v75 : _v67,
         _v79 = (0, _v3.useCallback)(async () => {
-          if (_v68 && null !== _v74) {
-            if (_v50({
+          if (_v69 && null !== _v75) {
+            if (_v51({
               currentPlan: _v7.tier ?? null,
               newPlan: _v17 ?? "",
-              newPeriodicity: _v55,
+              newPeriodicity: _v56,
               offerKind: "discount",
-              discountPercent: _v74,
-              offerDuration: _v75 ? "permanent" : "one_term",
-              experimentArm: _v21.b2b_cancellation_discount_type,
-              layout: _v76 ? "prominent" : "standard",
+              discountPercent: _v75,
+              offerDuration: _v76 ? "permanent" : "one_term",
+              experimentArm: _v24 ? _v21.b2c_cancellation_discount_offer_variant : _v21.b2b_cancellation_discount_type,
+              layout: _v29 ? "prominent" : "standard",
               priceSegment: _v16,
               experimentName: _v25
             }), !_v7.hasAutorenew) {
@@ -10424,53 +10349,53 @@
               })), _v1();
               return;
             }
-            _v48(!0);
+            _v49(!0);
             try {
               await (0, _v201.putMeSubscriptionScheduledOrder)({
                 where: {
-                  subscriptionId: _v56
+                  subscriptionId: _v57
                 },
                 variables: {
-                  billingPlanId: _v68,
-                  discountPercent: _v74,
+                  billingPlanId: _v69,
+                  discountPercent: _v75,
                   acceptedFromCancellationFlow: !0,
                   ...(_v77 ? {
                     offerMarker: _v77
                   } : {})
                 },
-                baseUrl: _v43,
+                baseUrl: _v44,
                 headers: {
                   "Content-Type": "application/json",
-                  Authorization: _v44 ? `jwt ${_v44}` : "",
-                  "Vimeo-Page": `${_v45}`,
-                  "Accept-Language": _v46 ?? "en"
+                  Authorization: _v45 ? `jwt ${_v45}` : "",
+                  "Vimeo-Page": `${_v46}`,
+                  "Accept-Language": _v47 ?? "en"
                 }
-              }), _v52({
+              }), _v53({
                 currentPlan: _v7.tier ?? "",
                 newPlan: _v17 ?? "",
-                newPeriodicity: _v55,
+                newPeriodicity: _v56,
                 offerKind: "discount",
-                offerDuration: _v75 ? "permanent" : "one_term",
-                experimentArm: _v21.b2b_cancellation_discount_type,
-                layout: _v76 ? "prominent" : "standard",
+                offerDuration: _v76 ? "permanent" : "one_term",
+                experimentArm: _v24 ? _v21.b2c_cancellation_discount_offer_variant : _v21.b2b_cancellation_discount_type,
+                layout: _v29 ? "prominent" : "standard",
                 priceSegment: _v16,
                 experimentName: _v25
               }), _v4?.({
-                movedToPlan: _v62?.name
+                movedToPlan: _v63?.name
               }), _v1();
             } catch (_v0) {
-              _v53({
+              _v54({
                 currentPlan: _v7.tier ?? "",
                 targetPlan: _v17 ?? "",
-                targetPeriodicity: _v55,
+                targetPeriodicity: _v56,
                 errorMessage: _v0 instanceof Error ? _v0.message : String(_v0)
               }), _v5?.(), _v1();
             } finally {
-              _v48(!1);
+              _v49(!1);
             }
           }
-        }, [_v68, _v62, _v17, _v74, _v56, _v77, _v75, _v76, _v43, _v44, _v45, _v46, _v1, _v50, _v53, _v52, _v21.b2b_cancellation_discount_type, _v16, _v25, _v7.tier, _v7.hasAutorenew, _v55, _v4, _v5]),
-        _v80 = (_v27 || _v28 || _v26) && _v24 && (_v40 || void 0 === _v41 || void 0 === _v42),
+        }, [_v69, _v63, _v17, _v75, _v57, _v77, _v76, _v29, _v44, _v45, _v46, _v47, _v1, _v51, _v54, _v53, _v21.b2b_cancellation_discount_type, _v21.b2c_cancellation_discount_offer_variant, _v24, _v16, _v25, _v7.tier, _v7.hasAutorenew, _v56, _v4, _v5]),
+        _v80 = (_v27 || _v26) && (_v41 || void 0 === _v42 || void 0 === _v43),
         _v81 = (0, _v3.useRef)(!1),
         _v82 = (0, _v3.useRef)(!1);
       (0, _v3.useEffect)(() => {
@@ -10478,52 +10403,52 @@
           _v81.current = !1, _v82.current = !1;
           return;
         }
-        _v73 || _v26 && null !== _v59 || (_v19 || _v57 || _v29 || _v80 || _v82.current || (_v82.current = !0, _v2()), (_v80 ? null == _v59 : _v19 ? null == _v62 || _v20 && null == _v58 : null == _v57) || _v81.current || (_v49({
+        _v74 || _v26 && null !== _v60 || (_v19 || _v58 || _v30 || _v80 || _v82.current || (_v82.current = !0, _v2()), (_v80 ? null == _v60 : _v19 ? null == _v63 || _v20 && null == _v59 : null == _v58) || _v81.current || (_v50({
           tier: _v7.tier ?? null,
-          periodicity: _v55,
-          offerKind: _v63,
-          targetTier: _v64,
+          periodicity: _v56,
+          offerKind: _v64,
+          targetTier: _v65,
           discountPercent: _v78,
-          offerDuration: _v75 ? "permanent" : "one_term",
-          experimentArm: _v21.b2b_cancellation_discount_type,
-          layout: _v76 ? "prominent" : "standard",
+          offerDuration: _v76 ? "permanent" : "one_term",
+          experimentArm: _v24 ? _v21.b2c_cancellation_discount_offer_variant : _v21.b2b_cancellation_discount_type,
+          layout: _v29 ? "prominent" : "standard",
           priceSegment: _v16,
           experimentName: _v25
         }), _v81.current = !0));
-      }, [_v0, _v19, _v57, _v62, _v58, _v29, _v80, _v73, _v26, _v59, _v2]);
+      }, [_v0, _v19, _v58, _v63, _v59, _v30, _v80, _v74, _v26, _v60, _v2]);
       let _v83 = _v7.renewalDate ? new Date(_v7.renewalDate) : null,
-        _v84 = _v83 && !Number.isNaN(_v83.getTime()) ? new Intl.DateTimeFormat(_v46 ?? "en", {
+        _v84 = _v83 && !Number.isNaN(_v83.getTime()) ? new Intl.DateTimeFormat(_v47 ?? "en", {
           day: "2-digit",
           month: "2-digit",
           year: "numeric"
         }).format(_v83) : "",
-        _v85 = _v62?.priceFormatted?.annual,
-        _v86 = _v62?.priceFormatted?.annualMonthly,
-        _v87 = _v62?.price?.annual,
-        _v88 = _v62?.currency?.currencyCode,
-        _v89 = null != _v87 && null !== _v74 ? _v87 * (1 - _v74 / 100) : null,
-        _v90 = null !== _v89 && _v88 ? new Intl.NumberFormat(_v46 ?? "en", {
+        _v85 = _v63?.priceFormatted?.annual,
+        _v86 = _v63?.priceFormatted?.annualMonthly,
+        _v87 = _v63?.price?.annual,
+        _v88 = _v63?.currency?.currencyCode,
+        _v89 = null != _v87 && null !== _v75 ? _v87 * (1 - _v75 / 100) : null,
+        _v90 = null !== _v89 && _v88 ? new Intl.NumberFormat(_v47 ?? "en", {
           style: "currency",
           currency: _v88,
           minimumFractionDigits: 0,
           maximumFractionDigits: 2
         }).format(_v89) : null,
-        _v91 = _v57?.priceFormatted?.annual,
+        _v91 = _v58?.priceFormatted?.annual,
         _v92 = () => {
-          _v54({
+          _v55({
             location: "cancellation_offer",
             offerKind: _v19 ? "discount" : "downgrade"
           }), _v1(), _v8?.();
         },
         _v93 = () => {
-          _v9 || (_v51({
+          _v9 || (_v52({
             tier: _v7.tier ?? null,
-            periodicity: _v55,
-            offerKind: _v63,
-            targetTier: _v64,
-            offerDuration: _v75 ? "permanent" : "one_term",
-            experimentArm: _v21.b2b_cancellation_discount_type,
-            layout: _v76 ? "prominent" : "standard",
+            periodicity: _v56,
+            offerKind: _v64,
+            targetTier: _v65,
+            offerDuration: _v76 ? "permanent" : "one_term",
+            experimentArm: _v24 ? _v21.b2c_cancellation_discount_offer_variant : _v21.b2b_cancellation_discount_type,
+            layout: _v29 ? "prominent" : "standard",
             priceSegment: _v16,
             experimentName: _v25
           }), _v2());
@@ -10704,20 +10629,20 @@
             })
           });
         };
-      if (_v73) {
+      if (_v74) {
         let _v0 = _v7.billingPeriod === _v68.UserPlanType.Year,
-          _v1 = _v59?.landedPlan.name ?? "",
-          _v2 = _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v59?.landedPlan.priceFormatted?.annualMonthly ?? null : _v6?.originalPrice?.formatted ?? _v6?.price?.formatted ?? _v59?.landedPlan.priceFormatted?.monthly ?? null,
-          _v3 = _v59?.landedPlan.currency?.currencyCode,
-          _v4 = _v0 ? _v59?.tierBelowPlan.price?.annualMonthly : _v59?.tierBelowPlan.price?.monthly,
-          _v5 = null != _v4 && _v3 ? new Intl.NumberFormat(_v46 ?? "en", {
+          _v1 = _v60?.landedPlan.name ?? "",
+          _v2 = _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v60?.landedPlan.priceFormatted?.annualMonthly ?? null : _v6?.originalPrice?.formatted ?? _v6?.price?.formatted ?? _v60?.landedPlan.priceFormatted?.monthly ?? null,
+          _v3 = _v60?.landedPlan.currency?.currencyCode,
+          _v4 = _v0 ? _v60?.tierBelowPlan.price?.annualMonthly : _v60?.tierBelowPlan.price?.monthly,
+          _v5 = null != _v4 && _v3 ? new Intl.NumberFormat(_v47 ?? "en", {
             style: "currency",
             currency: _v3,
             minimumFractionDigits: 0,
             maximumFractionDigits: 2
           }).format(_v4) : null,
-          _v6 = _v0 ? _v6?.originalPrice?.formatted ?? null : _v5,
-          _v7 = _v59?.landedPlan.metadata?.entitlements?.params;
+          _v6 = _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v60?.landedPlan.priceFormatted?.annualMonthly ?? null : _v5,
+          _v7 = _v60?.landedPlan.metadata?.entitlements?.params;
         return (0, _v1.jsx)(_v205, {
           isOpen: _v0,
           onClose: _v1,
@@ -10727,12 +10652,12 @@
             _v79();
           },
           cancelRequestPending: _v9,
-          isAccepting: _v47,
+          isAccepting: _v48,
           isAnnual: _v0,
           planName: _v1,
           discountedPrice: _v5,
           originalPrice: _v2,
-          savingsPercent: _v74,
+          savingsPercent: _v75,
           renewalPriceLabel: _v6,
           planFeatures: {
             teamSeats: _v7?.teamSeats ?? null,
@@ -10743,27 +10668,27 @@
           }
         });
       }
-      if (_v19 || _v26 && null !== _v59) {
+      if (_v19 || _v26 && null !== _v60) {
         let _v0 = _v7.billingPeriod === _v68.UserPlanType.Year,
-          _v1 = _v62?.name ?? "",
-          _v2 = _v24 ? _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v62?.priceFormatted?.annualMonthly : _v6?.originalPrice?.formatted ?? _v6?.price?.formatted ?? _v62?.priceFormatted?.monthly : _v0 ? _v62?.priceFormatted?.annualMonthly : _v62?.priceFormatted?.monthly,
-          _v3 = _v62?.currency?.currencyCode,
-          _v4 = _v61 ? _v0 ? _v59?.tierBelowPlan.price?.annualMonthly : _v59?.tierBelowPlan.price?.monthly : _v70 && null !== _v74 ? _v70 * (1 - _v74 / 100) : null,
-          _v5 = _v61 && null !== _v74 && null != _v4 ? Math.max(0, _v4) : _v4,
-          _v6 = null != _v5 && _v3 ? new Intl.NumberFormat(_v46 ?? "en", {
+          _v1 = _v63?.name ?? "",
+          _v2 = _v24 ? _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v63?.priceFormatted?.annualMonthly : _v6?.originalPrice?.formatted ?? _v6?.price?.formatted ?? _v63?.priceFormatted?.monthly : _v0 ? _v63?.priceFormatted?.annualMonthly : _v63?.priceFormatted?.monthly,
+          _v3 = _v63?.currency?.currencyCode,
+          _v4 = _v62 ? _v0 ? _v60?.tierBelowPlan.price?.annualMonthly : _v60?.tierBelowPlan.price?.monthly : _v71 && null !== _v75 ? _v71 * (1 - _v75 / 100) : null,
+          _v5 = _v62 && null !== _v75 && null != _v4 ? Math.max(0, _v4) : _v4,
+          _v6 = null != _v5 && _v3 ? new Intl.NumberFormat(_v47 ?? "en", {
             style: "currency",
             currency: _v3,
             minimumFractionDigits: 0,
             maximumFractionDigits: 2
           }).format(_v5) : null,
-          _v7 = _v62?.metadata?.entitlements?.params,
+          _v7 = _v63?.metadata?.entitlements?.params,
           _v8 = _v7?.teamSeats ?? null,
           _v9 = _v7?.seats?.admin ?? null,
           _v10 = _v7?.restrictedVideoStorageLimit ?? null,
           _v11 = _v7?.bandwidth?.periodicQuota ?? null,
           _v12 = _v7?.bandwidth?.quotaPeriod === "year";
-        if (_v73) {
-          let _v0 = _v0 ? _v6?.originalPrice?.formatted ?? _v62?.priceFormatted?.annual ?? null : _v6;
+        if (_v74) {
+          let _v0 = _v0 ? _v6?.originalPrice?.formatted ?? _v63?.priceFormatted?.annual ?? null : _v6;
           return (0, _v1.jsx)(_v205, {
             isOpen: _v0,
             onClose: _v1,
@@ -10773,12 +10698,12 @@
               _v79();
             },
             cancelRequestPending: _v9,
-            isAccepting: _v47,
+            isAccepting: _v48,
             isAnnual: _v0,
             planName: _v1,
             discountedPrice: _v6,
             originalPrice: _v2 ?? null,
-            savingsPercent: _v74,
+            savingsPercent: _v75,
             renewalPriceLabel: _v0,
             planFeatures: {
               teamSeats: _v8,
@@ -10789,7 +10714,7 @@
             }
           });
         }
-        if (_v28 && !_v24) {
+        if (_v29 && !_v24) {
           let _v0, _v1, _v2, _v3, _v4, _v5, _v6;
           return _v10 = {
             teamSeats: _v8,
@@ -10797,7 +10722,7 @@
             restrictedStorage: _v10,
             bandwidth: _v11,
             bandwidthIsYearly: _v12
-          }, _v0 = _v7.billingPeriod === _v68.UserPlanType.Year, _v1 = _v62?.name ?? "", _v2 = _v0 ? _v62?.priceFormatted?.annualMonthly : _v62?.priceFormatted?.monthly, _v3 = _v62?.currency?.currencyCode, _v5 = null !== (_v4 = _v70 && null !== _v74 ? _v70 * (1 - _v74 / 100) : null) && _v3 ? new Intl.NumberFormat(_v46 ?? "en", {
+          }, _v0 = _v7.billingPeriod === _v68.UserPlanType.Year, _v1 = _v63?.name ?? "", _v2 = _v0 ? _v63?.priceFormatted?.annualMonthly : _v63?.priceFormatted?.monthly, _v3 = _v63?.currency?.currencyCode, _v5 = null !== (_v4 = _v71 && null !== _v75 ? _v71 * (1 - _v75 / 100) : null) && _v3 ? new Intl.NumberFormat(_v47 ?? "en", {
             style: "currency",
             currency: _v3,
             minimumFractionDigits: 0,
@@ -11143,68 +11068,14 @@
                           }
                         }
                       })
-                    }), (0, _v1.jsxs)(_v126.Stack, {
+                    }), (0, _v1.jsx)(_v126.Stack, {
                       spacing: "4px",
                       width: "100%",
-                      children: [(0, _v1.jsx)(_v46.Text, {
+                      children: (0, _v1.jsx)(_v46.Text, {
                         variant: "heading-xl",
                         color: "text-primary",
                         children: (0, _v12.translate)("$0")
-                      }), (0, _v1.jsx)(_v46.Text, {
-                        variant: "body-xs",
-                        color: "text-secondary",
-                        children: _v0 ? (0, _v12.translate)({
-                          singular: "plus taxes. Per month, billed annually.",
-                          dictionary: {
-                            es: {
-                              singular: "más impuestos. Por mes, facturado anualmente."
-                            },
-                            "de-DE": {
-                              singular: "zzgl. Steuern. Pro Monat, jährlich abgerechnet."
-                            },
-                            "fr-FR": {
-                              singular: "plus taxes. Par mois, facturé annuellement."
-                            },
-                            "ja-JP": {
-                              singular: "税別。月額（年払い）。"
-                            },
-                            "ko-KR": {
-                              singular: "세금 별도. 월별 요금, 연간 청구."
-                            },
-                            "pt-BR": {
-                              singular: "mais impostos. Por mês, cobrado anualmente."
-                            },
-                            "zh-CN": {
-                              singular: "另加税。按年计费，折合每月。"
-                            }
-                          }
-                        }) : (0, _v12.translate)({
-                          singular: "plus taxes. Per month, billed monthly.",
-                          dictionary: {
-                            es: {
-                              singular: "más impuestos. Por mes, facturado mensualmente."
-                            },
-                            "de-DE": {
-                              singular: "zzgl. Steuern. Pro Monat, monatlich abgerechnet."
-                            },
-                            "fr-FR": {
-                              singular: "plus taxes. Par mois, facturé mensuellement."
-                            },
-                            "ja-JP": {
-                              singular: "税別。月額（月払い）。"
-                            },
-                            "ko-KR": {
-                              singular: "세금 별도. 월별 요금, 월간 청구."
-                            },
-                            "pt-BR": {
-                              singular: "mais impostos. Por mês, cobrado mensalmente."
-                            },
-                            "zh-CN": {
-                              singular: "另加税。按月计费，每月结算。"
-                            }
-                          }
-                        })
-                      })]
+                      })
                     }), _v6({
                       teamSeats: 1,
                       adminSeats: null,
@@ -11218,7 +11089,7 @@
                       marginTop: "auto",
                       onClick: _v93,
                       isLoading: _v9,
-                      disabled: _v9 || _v47,
+                      disabled: _v9 || _v48,
                       children: (0, _v12.translate)({
                         singular: "Confirm cancellation",
                         dictionary: {
@@ -11277,7 +11148,7 @@
                           as: "span",
                           textDecoration: "line-through",
                           children: _v2
-                        }), null !== _v74 && (0, _v1.jsx)(_v36.Badge, {
+                        }), null !== _v75 && (0, _v1.jsx)(_v36.Badge, {
                           size: "sm",
                           backgroundColor: "status-positive-secondary",
                           textColor: "status-positive-primary",
@@ -11288,7 +11159,7 @@
                           children: (0, _v12.translate)({
                             singular: "Save {PERCENT}%",
                             replacements: {
-                              PERCENT: _v74
+                              PERCENT: _v75
                             },
                             dictionary: {
                               es: {
@@ -11375,8 +11246,8 @@
                       size: "md",
                       width: "100%",
                       onClick: _v79,
-                      isLoading: _v47,
-                      disabled: _v47,
+                      isLoading: _v48,
+                      disabled: _v48,
                       children: (0, _v12.translate)({
                         singular: "Accept the offer",
                         replacements: {},
@@ -11406,7 +11277,7 @@
                       })
                     })]
                   })]
-                }), _v97(), _v31 && (0, _v1.jsxs)(_v1.Fragment, {
+                }), _v97(), _v32 && (0, _v1.jsxs)(_v1.Fragment, {
                   children: [(0, _v1.jsxs)(_v8.Flex, {
                     gap: "8px",
                     alignItems: "center",
@@ -11631,7 +11502,7 @@
                   as: "span",
                   textDecoration: "line-through",
                   children: _v2
-                }), null !== _v74 && (0, _v1.jsx)(_v36.Badge, {
+                }), null !== _v75 && (0, _v1.jsx)(_v36.Badge, {
                   size: "sm",
                   backgroundColor: "status-positive-secondary",
                   textColor: "status-positive-primary",
@@ -11642,7 +11513,7 @@
                   children: (0, _v12.translate)({
                     singular: "Save {PERCENT}%",
                     replacements: {
-                      PERCENT: _v74
+                      PERCENT: _v75
                     },
                     dictionary: {
                       es: {
@@ -11671,7 +11542,7 @@
                 })]
               }), (0, _v1.jsxs)(_v6.Box, {
                 mt: 1,
-                children: [_v27 ? (0, _v1.jsx)(_v46.Text, {
+                children: [_v28 ? (0, _v1.jsx)(_v46.Text, {
                   variant: "body-sm",
                   color: "text-secondary",
                   children: _v0 ? (0, _v12.translate)({
@@ -11995,7 +11866,7 @@
                     })
                   })]
                 })]
-              }), _v27 ? _v97() : _v96("discount")]
+              }), _v28 ? _v97() : _v96("discount")]
             }), (0, _v1.jsx)(_v75.ModalFooter, {
               p: 0,
               mt: 6,
@@ -12007,8 +11878,8 @@
                   size: "md",
                   width: "100%",
                   onClick: _v79,
-                  isLoading: _v47,
-                  disabled: _v47,
+                  isLoading: _v48,
+                  disabled: _v48,
                   children: (0, _v12.translate)({
                     singular: "Continue with {PLAN}",
                     replacements: {
@@ -12044,7 +11915,7 @@
                   width: "100%",
                   onClick: _v93,
                   isLoading: _v9,
-                  disabled: _v9 || _v47,
+                  disabled: _v9 || _v48,
                   children: (0, _v12.translate)({
                     singular: "Confirm cancellation",
                     dictionary: {
@@ -12071,7 +11942,7 @@
                       }
                     }
                   })
-                }), _v31 && (0, _v1.jsx)(_v7.Button, {
+                }), _v32 && (0, _v1.jsx)(_v7.Button, {
                   variant: "hyperminimal",
                   background: "none",
                   size: "md",
@@ -12109,23 +11980,23 @@
           })]
         });
       }
-      if (!_v57) return null;
+      if (!_v58) return null;
       let {
           teamSeats: _v98,
           restrictedVideoStorageLimit: _v99,
           bandwidth: _v100,
           seats: _v101
-        } = _v57?.metadata?.entitlements?.params ?? {},
+        } = _v58?.metadata?.entitlements?.params ?? {},
         _v102 = _v101?.admin ?? null,
         _v103 = _v100?.periodicQuota ?? null,
         _v104 = _v100?.quotaPeriod === "year",
         _v105 = _v7.billingPeriod === _v68.UserPlanType.Year,
-        _v106 = _v17 ? _v39?.find(_v0 => _v0.tier === _v17) ?? null : null,
-        _v107 = _v105 ? _v57?.price?.annualMonthly : _v57?.price?.monthly,
+        _v106 = _v17 ? _v40?.find(_v0 => _v0.tier === _v17) ?? null : null,
+        _v107 = _v105 ? _v58?.price?.annualMonthly : _v58?.price?.monthly,
         _v108 = _v105 ? _v106?.price?.annualMonthly : _v106?.price?.monthly,
         _v109 = _v108 && _v107 && _v108 > _v107 ? Math.floor((_v108 - _v107) / _v108 * 100) : null,
         _v110 = _v105 ? _v106?.priceFormatted?.annualMonthly : _v106?.priceFormatted?.monthly,
-        _v111 = "professional" === _v29 ? (0, _v12.translate)({
+        _v111 = "professional" === _v30 ? (0, _v12.translate)({
           singular: "Professional is built for individual creators. Get the same essentials at a lower price.",
           dictionary: {
             es: {
@@ -12153,7 +12024,7 @@
         }) : (0, _v12.translate)({
           singular: "{PLAN} gives your team the essentials at a lower price.",
           replacements: {
-            PLAN: _v57?.name
+            PLAN: _v58?.name
           },
           dictionary: {
             es: {
@@ -12235,7 +12106,7 @@
                 children: (0, _v12.translate)({
                   singular: "Try {PLAN}",
                   replacements: {
-                    PLAN: _v57?.name
+                    PLAN: _v58?.name
                   },
                   dictionary: {
                     es: {
@@ -12275,7 +12146,7 @@
               children: [(0, _v1.jsx)(_v46.Text, {
                 variant: "heading-xl",
                 as: "span",
-                children: _v105 ? _v57?.priceFormatted?.annualMonthly : _v57?.priceFormatted?.monthly
+                children: _v105 ? _v58?.priceFormatted?.annualMonthly : _v58?.priceFormatted?.monthly
               }), _v110 && null !== _v109 && (0, _v1.jsx)(_v46.Text, {
                 variant: "body-lg",
                 color: "text-tertiary",
@@ -12596,13 +12467,13 @@
                 variant: "primary",
                 size: "md",
                 width: "100%",
-                onClick: _v69,
-                isLoading: _v47,
-                disabled: _v47,
+                onClick: _v70,
+                isLoading: _v48,
+                disabled: _v48,
                 children: (0, _v12.translate)({
                   singular: "Downgrade to {PLAN}",
                   replacements: {
-                    PLAN: _v57?.name ?? ""
+                    PLAN: _v58?.name ?? ""
                   },
                   dictionary: {
                     es: {
@@ -12634,7 +12505,7 @@
                 width: "100%",
                 onClick: _v93,
                 isLoading: _v9,
-                disabled: _v9 || _v47,
+                disabled: _v9 || _v48,
                 children: (0, _v12.translate)({
                   singular: "Confirm cancellation",
                   dictionary: {
@@ -12661,7 +12532,7 @@
                     }
                   }
                 })
-              }), _v31 && (0, _v1.jsx)(_v7.Button, {
+              }), _v32 && (0, _v1.jsx)(_v7.Button, {
                 variant: "hyperminimal",
                 background: "none",
                 size: "md",

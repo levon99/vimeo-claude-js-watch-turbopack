@@ -15,7 +15,7 @@
       [_v1, _v2] = (0, _v2.useState)(!1);
     (0, _v2.useEffect)(() => {
       let _v0 = _v0?.user?.uploadQuota?.restricted;
-      _v0 && _v0.max ? _v2((_v0.used ?? 0) / _v0.max * 100 >= 95) : _v2(!1);
+      _v0 && _v0.max ? _v2((_v0.used ?? 0) / _v0.max * 100 >= 100) : _v2(!1);
     }, [_v0?.user?.uploadQuota?.restricted]);
     let _v3 = (0, _v8.buildUpgradePlanUrl)({
       paywallTrigger: "storage_quota_warning_upgrade_button",

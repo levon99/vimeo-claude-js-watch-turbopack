@@ -20,10 +20,9 @@
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
-    _v20 = _v0.i(0);
-  let _v21 = window;
-  _v21?.document, _v21?.navigator, _v21?.localStorage, _v21?.sessionStorage;
-  var _v22 = _v0.i(0),
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0),
+    _v22 = _v0.i(0),
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
@@ -532,7 +531,7 @@
         }), (0, _v1.jsx)(_v5.Button, {
           variant: "primary",
           onClick: () => {
-            _v21?.location.reload();
+            _v21.safeWindow?.location.reload();
           },
           children: (0, _v24.translate)({
             singular: "Retry",

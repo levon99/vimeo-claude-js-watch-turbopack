@@ -100,7 +100,8 @@
         hasExplicitApiGuestsManagement: !!_v0?.owner?.entitlements?.[_v15.EUserEntitlement.LIVE_GUEST_API_MANAGEMENT],
         hasExplicitApiMediaManagement: !!_v0?.owner?.entitlements?.[_v15.EUserEntitlement.LIVE_MEDIA_API_MANAGEMENT],
         hasAudioTracksManagement: !!_v0?.owner.preferences?.[_v15.EUserPreference.AUDIO_TRACKS_MANAGEMENT],
-        hasKollektiv: !!_v0?.owner.preferences?.[_v15.EUserPreference.ECDN_KOLLECTIVE_JITC]
+        hasKollektiv: !!_v0?.owner.preferences?.[_v15.EUserPreference.ECDN_KOLLECTIVE_JITC],
+        hasLandingPageCustomizations: !!_v0?.owner.capabilities?.hasEnterprise
       }))
     };
     log = new _v3.Logger("🌴CSM");
