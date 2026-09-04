@@ -3993,7 +3993,7 @@
         singular: "Jahre"
       },
       "fr-FR": {
-        singular: "années"
+        singular: "ans"
       },
       "ja-JP": {
         singular: "年"

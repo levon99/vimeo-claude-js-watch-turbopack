@@ -140,7 +140,7 @@
         position: "relative",
         role: "group",
         _hover: {
-          backgroundColor: "fill-surface-hover"
+          backgroundColor: "fill-component-hover"
         },
         children: [(0, _v1.jsx)(_v16, {
           isLive: _v0.isLive,

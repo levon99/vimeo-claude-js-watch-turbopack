@@ -17988,7 +17988,11 @@
     _v746 = _v0.i(0),
     _v747 = _v0.i(0),
     _v748 = _v0.i(0);
-  let _v749 = function () {
+  let _v749 = ["QUEUED", "PREPARING", "READY", "FAILED", "CANCELED"],
+    _v750 = ["NOT_STARTED", "RENDERING", "VIMEO_READY", "RENDER_READY", "FAILED"],
+    _v751 = ["NOT_STARTED", "SESSION_REQUESTED", "DELIVERING", "COMPLETED", "FAILED"];
+  var _v752 = _v0.i(0);
+  let _v753 = function () {
     let _v0 = _v238(),
       _v1 = (0, _v167.useAppSelector)(_v0 => !!_v0.history.undoSnapshots.length),
       _v2 = (0, _v167.useAppSelector)(_v0 => _v0.teamTemplates.isShowTeamTemplatesModal),
@@ -18058,10 +18062,10 @@
       };
     }, [_v6, _v1, _v3, _v7, _v2, _v4, _v5, _v0]);
   };
-  var _v750 = _v0.i(0),
-    _v751 = _v0.i(0),
-    _v752 = _v0.i(0);
-  let _v753 = ({
+  var _v754 = _v0.i(0),
+    _v755 = _v0.i(0),
+    _v756 = _v0.i(0);
+  let _v757 = ({
       videoHash: _v0,
       isBlankEntry: _v1,
       useRevision: _v2 = !1,
@@ -18115,10 +18119,10 @@
           }] = (0, _v255.useLazyFetchStoryboardQuery)(),
           [_v19] = (0, _v255.useLazyInitStoryboardQuery)(),
           [_v20] = (0, _v255.useLazyInitStoryboardFromClipQuery)(),
-          [_v21] = (0, _v752.useLazyFetchGraphicsCategoriesQuery)(),
+          [_v21] = (0, _v756.useLazyFetchGraphicsCategoriesQuery)(),
           [_v22, {
             isUninitialized: _v23
-          }] = (0, _v751.useLazyFetchFontsQuery)(),
+          }] = (0, _v755.useLazyFetchFontsQuery)(),
           {
             handleKeyboardShortcuts: _v24
           } = (() => {
@@ -18431,7 +18435,95 @@
               _v2 = !0;
             };
           }, [_v1.enable_prewarm_filmstrip_sprite, _v3, _v0]);
-        }(), (0, _v7.useEffect)(() => {
+        }(), (_v0 => {
+          let _v1 = (0, _v167.useAppSelector)(_v166.storyboardIdSelector),
+            _v2 = (0, _v167.useAppSelector)(_v166.storyboardSelector),
+            _v3 = (0, _v7.useRef)(null),
+            _v4 = (0, _v7.useRef)(!1),
+            [_v5] = (0, _v324.useLazyGetStreamYardInitialSourceQuery)(),
+            [_v6] = (0, _v324.useLazyPollStreamYardInitialSourceQuery)(),
+            [_v7] = (0, _v255.useSaveStoryboardMutation)(),
+            {
+              addPreparedMediaSourceToStoryboard: _v8,
+              replacePreparedMediaSource: _v9
+            } = (0, _v162.useLocalFile)(),
+            {
+              alertProblemOccurred: _v10
+            } = (0, _v161.useAlerts)(),
+            _v11 = _v0?.streamyardContext;
+          (0, _v7.useEffect)(() => (_v4.current = !0, () => {
+            _v4.current = !1;
+          }), []), (0, _v7.useEffect)(() => {
+            let _v0 = () => _v4.current && (0, _v166.storyboardIdSelector)(_v230.default.getState()) === _v1;
+            if ("object" == typeof _v11 && null !== _v11 && !0 === _v11.isStreamYard && !0 === _v11.contextError) {
+              let _v0 = `context-error:${_v1}`;
+              if (_v3.current === _v0) return;
+              _v3.current = _v0, _v10({
+                onPrimaryClick: () => window.location.reload()
+              });
+              return;
+            }
+            if (!("object" == typeof _v11 && null !== _v11 && !0 === _v11.isStreamYard && ("string" == typeof _v11.sourceHash || null === _v11.sourceHash) && _v749.includes(_v11.sourceStatus) && "string" == typeof _v11.targetElementId && ("PENDING" === _v11.attachmentStatus || "ATTACHED" === _v11.attachmentStatus) && ("VIMEO" === _v11.outputDestination || "STREAMYARD" === _v11.outputDestination) && _v750.includes(_v11.renderStatus) && _v751.includes(_v11.deliveryStatus) && ("number" == typeof _v11.errorCode || null === _v11.errorCode) && "boolean" == typeof _v11.errorRetryable) || "FAILED" === _v11.sourceStatus || "CANCELED" === _v11.sourceStatus || _v1 !== _v0?.storyboard.id || _v3.current === _v11.targetElementId) return;
+            let _v1 = (0, _v247.getAllElements)(_v2.layers),
+              _v2 = _v1.find(({
+                id: _v0
+              }) => _v0 === _v11.targetElementId),
+              _v3 = _v11.sourceHash ? _v1.find(_v0 => (0, _v243.isMediaElement)(_v0) && _v0.sourceHash === _v11.sourceHash) : void 0,
+              _v4 = _v2 === _v3 && void 0 !== _v2;
+            if (("ATTACHED" !== _v11.attachmentStatus || _v4) && (!_v4 || "PREPARING" === _v11.sourceStatus)) {
+              if (!_v4 && (void 0 !== _v2 || void 0 !== _v3)) {
+                _v3.current = _v11.targetElementId, _v10({
+                  onPrimaryClick: () => window.location.reload()
+                });
+                return;
+              }
+              _v3.current = _v11.targetElementId, _v5({
+                storyboardId: _v1
+              }).unwrap().then(async ({
+                source: _v0,
+                prepareSourceJob: _v1
+              }) => {
+                if (!_v0()) return;
+                if (!_v0 || null !== _v11.sourceHash && _v0.hash !== _v11.sourceHash) throw Error("StreamYard source mismatch");
+                let _v2 = (0, _v247.getAllElements)(_v230.default.getState().storyboard.layers),
+                  _v3 = _v2.find(({
+                    id: _v0
+                  }) => _v0 === _v11.targetElementId),
+                  _v4 = _v2.find(_v0 => (0, _v243.isMediaElement)(_v0) && _v0.sourceHash === _v0.hash),
+                  _v5 = _v3 === _v4 && void 0 !== _v3;
+                if (!_v5 && (void 0 !== _v3 || void 0 !== _v4)) throw Error("StreamYard attachment conflict");
+                if (!_v5) {
+                  if (!(await _v8({
+                    source: _v0,
+                    elementId: _v11.targetElementId
+                  })) || !_v0()) return;
+                  let _v0 = _v230.default.getState().storyboard;
+                  if (await _v7({
+                    storyboard: _v0,
+                    vimeoVideoId: null,
+                    isInteractive: !1
+                  }).unwrap(), !_v0()) return;
+                }
+                if (_v1) {
+                  let {
+                    source: _v0
+                  } = await _v6({
+                    storyboardId: _v1,
+                    prepareSourceJob: _v1
+                  }).unwrap();
+                  if (!_v0()) return;
+                  if (!_v0 || _v0.hash !== _v0.hash) throw Error("StreamYard prepared source mismatch");
+                  _v9(_v0);
+                } else _v5 && _v9(_v0);
+                _v230.default.dispatch(_v752.mediaApi.util.invalidateTags(["MediaUploads"]));
+              }).catch(() => {
+                _v0() && (_v3.current = null, _v10({
+                  onPrimaryClick: () => window.location.reload()
+                }));
+              });
+            }
+          }, [_v8, _v10, _v11, _v5, _v6, _v9, _v7, _v2.layers, _v1, _v0?.storyboard.id]);
+        })(_v17), (0, _v7.useEffect)(() => {
           let _v0 = () => {
             let _v0 = {
               storyboards: {}
@@ -18452,7 +18544,7 @@
           return window.addEventListener("beforeunload", _v0), () => {
             window.removeEventListener("beforeunload", _v0);
           };
-        }, []), _v749(), (0, _v7.useEffect)(() => {
+        }, []), _v753(), (0, _v7.useEffect)(() => {
           _v10 || _v18 || (_v0 ? (_v236.default.setHasBeenRendered(!!_v3), _v47(() => _v16({
             videoHash: _v0,
             useRevision: _v2,
@@ -18503,7 +18595,7 @@
         }, [_v11, _v38, _v40, _v36, _v17, _v13, _v41, _v39, _v35]), (0, _v7.useLayoutEffect)(() => {
           if (_v9 && _v23) {
             _v21({
-              tag: _v13 ? _v750.GraphicsTag.INTERACTIVE : _v750.GraphicsTag.EDITOR
+              tag: _v13 ? _v754.GraphicsTag.INTERACTIVE : _v754.GraphicsTag.EDITOR
             });
             let _v0 = performance.now();
             _v164.default.sendAction(_v251.EditorLoad, {
@@ -18553,7 +18645,7 @@
         _v8((0, _v230.appResetAction)());
       }, [_v8]), null;
     },
-    _v754 = ({
+    _v758 = ({
       partnerApp: _v0,
       redirectUri: _v1,
       handleUpgrade: _v2,
@@ -18572,12 +18664,12 @@
         _v6();
       }, [_v6]), null;
     };
-  var _v755 = _v0.i(0),
-    _v756 = _v0.i(0),
-    _v757 = _v0.i(0),
-    _v758 = _v0.i(0),
-    _v759 = _v0.i(0);
-  let _v760 = _v0 => {
+  var _v759 = _v0.i(0),
+    _v760 = _v0.i(0),
+    _v761 = _v0.i(0),
+    _v762 = _v0.i(0),
+    _v763 = _v0.i(0);
+  let _v764 = _v0 => {
       let {
           baseUrl: _v1,
           jwt: _v2,
@@ -18585,29 +18677,29 @@
           locale: _v4
         } = (0, _v151.useGctlConfig)(),
         _v5 = (0, _v7.useMemo)(() => ({
-          baseUrl: (0, _v152.shouldShowInDevelopmentFeature)("useMasterCiApi", !0) ? _v755.MASTER_CI_API : _v1,
+          baseUrl: (0, _v152.shouldShowInDevelopmentFeature)("useMasterCiApi", !0) ? _v759.MASTER_CI_API : _v1,
           jwt: _v2,
           xVimeoPage: _v3,
           locale: _v4
         }), [_v1, _v2, _v3, _v4]);
       return (0, _v6.jsx)(_v151.GctlProvider, {
         ..._v5,
-        children: (0, _v6.jsx)(_v763, {
+        children: (0, _v6.jsx)(_v767, {
           ..._v0
         })
       });
     },
-    _v761 = () => {
+    _v765 = () => {
       _v164.default.sendAction(_v251.EditorLoad, {
         step: "start fetch auth"
       });
     },
-    _v762 = () => {
+    _v766 = () => {
       _v164.default.sendAction(_v251.EditorLoad, {
         step: "end fetch auth"
       });
     },
-    _v763 = ({
+    _v767 = ({
       serverUrl: _v0,
       vimeoSessionId: _v1,
       history: _v2,
@@ -18625,15 +18717,15 @@
         vimeoSessionId: _v1,
         isShopifyUser: _v6,
         authenticate: _v9,
-        logAuthStart: _v761,
-        logAuthEnd: _v762
+        logAuthStart: _v765,
+        logAuthEnd: _v766
       }), (({
         vimeoVideoId: _v0
       }) => {
-        let [_v1, _v2] = (0, _v756.useGetUserFoldersPrivateToMeLazy)(),
-          [_v3, _v4] = (0, _v757.useGetUserProjectsLazy)(),
-          [_v5, _v6] = (0, _v757.useGetUserProjectsLazy)(),
-          [_v7, _v8] = (0, _v758.useGetUserTeamsLazy)(),
+        let [_v1, _v2] = (0, _v760.useGetUserFoldersPrivateToMeLazy)(),
+          [_v3, _v4] = (0, _v761.useGetUserProjectsLazy)(),
+          [_v5, _v6] = (0, _v761.useGetUserProjectsLazy)(),
+          [_v7, _v8] = (0, _v762.useGetUserTeamsLazy)(),
           [_v9, _v10] = (0, _v314.useGetUserProjectLazy)(),
           _v11 = (0, _v7.useRef)(!!_v0),
           _v12 = (0, _v7.useContext)(_v91.ViewerContext),
@@ -18646,7 +18738,7 @@
             _v3 = _v6?.data?.data?.find(_v0 => _v0.name === _v249.DEFAULT_FOLDER_NAME)?.uri;
           if (_v236.default.setPrivateToMeFolderUri(_v1 || ""), _v236.default.setUserRoleInSharedFolder(_v2?.userRole), _v8?.data?.data && _v236.default.setTeams(_v8.data.data), _v11.current) {
             let _v0, _v1;
-            return void (_v0 = _v230.default.dispatch, _v1 = Number(_v0), _v0(_v759.videoParentFolderApi.endpoints.fetchVideoParentFolder.initiate(_v1, {
+            return void (_v0 = _v230.default.dispatch, _v1 = Number(_v0), _v0(_v763.videoParentFolderApi.endpoints.fetchVideoParentFolder.initiate(_v1, {
               forceRefetch: !0
             })).unwrap()).then(_v0 => {
               _v230.default.dispatch((0, _v256.setFolderUriAction)(_v0 ?? ""));
@@ -18732,7 +18824,7 @@
                           children: (0, _v6.jsxs)(_v270, {
                             children: [(0, _v6.jsx)(_v176, {
                               children: (0, _v6.jsx)(_v729, {})
-                            }), (0, _v6.jsx)(_v753, {
+                            }), (0, _v6.jsx)(_v757, {
                               videoHash: _v2.location.query?.hash,
                               isBlankEntry: _v2.location.query?.blank === "true",
                               useRevision: _v2.location.state?.useRevision ?? _v2.location.query?.useRevision === "true",
@@ -18741,7 +18833,7 @@
                               vimeoVideoId: _v2.location.query?.vid,
                               featureFlags: _v3,
                               isThirdPartyIntegration: !!_v4
-                            }), !!_v4 && !!_v10?.user && _v5?.app && (0, _v6.jsx)(_v754, {
+                            }), !!_v4 && !!_v10?.user && _v5?.app && (0, _v6.jsx)(_v758, {
                               partnerApp: _v5.app,
                               redirectUri: _v5?.iframeModeConfig?.redirectUri,
                               handleUpgrade: _v5?.handleUpgrade,
@@ -18759,10 +18851,10 @@
         })
       });
     };
-  var _v764 = _v0.i(0),
-    _v765 = _v0.i(0),
-    _v766 = _v0.i(0);
-  function _v767({
+  var _v768 = _v0.i(0),
+    _v769 = _v0.i(0),
+    _v770 = _v0.i(0);
+  function _v771({
     history: _v0,
     isShopifyUser: _v1,
     routes: _v2,
@@ -18781,7 +18873,7 @@
       _v8 = _v7?.metadata?.isVimeoCreate,
       {
         hasReachedQuotaLimit: _v9
-      } = (0, _v766.default)(),
+      } = (0, _v770.default)(),
       {
         auth: _v10,
         authenticate: _v11
@@ -18846,7 +18938,7 @@
       _v32 && _v0.push(_v3 ? _v2.home() : "/upload/videos");
     }, [_v0, _v2, _v3]);
     let _v31 = (0, _v7.useMemo)(() => {
-      let _v0 = (0, _v765.upsellFlowHookFactory)(_v15);
+      let _v0 = (0, _v769.upsellFlowHookFactory)(_v15);
       return {
         onSelectWatermarkBannerUpgrade: _v0(({
           vsid: _v0,
@@ -18929,7 +19021,7 @@
           triggerCapability: _v4,
           isBlocker: !0,
           vsid: _v0,
-          tier: _v764.blockingTier[_v1]
+          tier: _v768.blockingTier[_v1]
         })),
         onSelectTve: _v0(({
           vsid: _v0,
@@ -18973,7 +19065,7 @@
         orientation: _v12?.orientation
       } : void 0;
     return (0, _v6.jsx)(_v6.Fragment, {
-      children: (0, _v6.jsx)(_v760, {
+      children: (0, _v6.jsx)(_v764, {
         serverUrl: _v33,
         history: _v0,
         vimeoSessionId: _v10?.sessionId || "",
@@ -18987,21 +19079,21 @@
       })
     });
   }
-  var _v768 = _v0.i(0);
-  let _v769 = (0, _v7.lazy)(() => _v0.A(0).then(({
+  var _v772 = _v0.i(0);
+  let _v773 = (0, _v7.lazy)(() => _v0.A(0).then(({
       TemplateGallery: _v0
     }) => ({
       default: _v0
     }))),
-    _v770 = (0, _v7.lazy)(() => _v0.A(0)),
-    _v771 = (0, _v7.lazy)(() => _v0.A(0)),
-    _v772 = (0, _v7.lazy)(() => _v0.A(0)),
-    _v773 = (0, _v7.lazy)(() => _v0.A(0)),
     _v774 = (0, _v7.lazy)(() => _v0.A(0)),
     _v775 = (0, _v7.lazy)(() => _v0.A(0)),
     _v776 = (0, _v7.lazy)(() => _v0.A(0)),
-    _v777 = (0, _v7.lazy)(() => _v0.A(0));
-  function _v778({
+    _v777 = (0, _v7.lazy)(() => _v0.A(0)),
+    _v778 = (0, _v7.lazy)(() => _v0.A(0)),
+    _v779 = (0, _v7.lazy)(() => _v0.A(0)),
+    _v780 = (0, _v7.lazy)(() => _v0.A(0)),
+    _v781 = (0, _v7.lazy)(() => _v0.A(0));
+  function _v782({
     viewer: _v0,
     history: _v1,
     playerAssetUrls: _v2,
@@ -19018,7 +19110,7 @@
         children: (0, _v6.jsx)(_v138.default, {
           user: _v0.user,
           children: (0, _v6.jsx)(_v142, {
-            children: (0, _v6.jsx)(_v780, {
+            children: (0, _v6.jsx)(_v784, {
               history: _v1,
               routes: _v3
             })
@@ -19027,7 +19119,7 @@
       })
     }) : null;
   }
-  let _v779 = ({
+  let _v783 = ({
     children: _v0,
     canCreateUnlimitedDraftVideos: _v1,
     canSaveDraftVideos: _v2,
@@ -19099,7 +19191,7 @@
       })
     });
   };
-  function _v780({
+  function _v784({
     history: _v0,
     routes: _v1
   }) {
@@ -19270,7 +19362,7 @@
           loadingDrafts: !0,
           errorLoadingDrafts: !1
         }
-      })), _v768.default.getDrafts(1, _v4, _v12).then(_v0 => {
+      })), _v772.default.getDrafts(1, _v4, _v12).then(_v0 => {
         _v39(_v0 => ({
           ..._v0,
           draftsState: {
@@ -19321,13 +19413,13 @@
       draftsState: _v38,
       teamUser: _v8
     };
-    return _v17 ? (0, _v6.jsx)(_v779, {
+    return _v17 ? (0, _v6.jsx)(_v783, {
       ..._v45,
       children: (0, _v6.jsxs)(_v8.Switch, {
         children: [(0, _v6.jsx)(_v8.Route, {
           path: _v1.paths.edit,
           render: () => (0, _v6.jsx)(_v71, {
-            children: (0, _v6.jsx)(_v767, {
+            children: (0, _v6.jsx)(_v771, {
               history: _v0,
               routes: _v1.values,
               isShopifyUser: _v19
@@ -19336,7 +19428,7 @@
         }), (0, _v6.jsx)(_v8.Route, {
           path: _v1.paths.interactive,
           render: () => (0, _v6.jsx)(_v71, {
-            children: (0, _v6.jsx)(_v767, {
+            children: (0, _v6.jsx)(_v771, {
               history: _v0,
               routes: _v1.values,
               isShopifyUser: _v19,
@@ -19345,7 +19437,7 @@
           })
         })]
       })
-    }) : _v42 ? (0, _v6.jsx)(_v779, {
+    }) : _v42 ? (0, _v6.jsx)(_v783, {
       ..._v45,
       children: (0, _v6.jsxs)(_v6.Fragment, {
         children: [(0, _v6.jsx)(_v44, {
@@ -19385,7 +19477,7 @@
               children: [(0, _v6.jsx)(_v8.Route, {
                 path: _v1.paths.preview,
                 render: _v0 => (0, _v6.jsx)(_v71, {
-                  children: (0, _v6.jsx)(_v773, {
+                  children: (0, _v6.jsx)(_v777, {
                     hash: _v0.match.params.videoHash ?? "",
                     history: _v0,
                     canSaveDraftVideos: _v35 || !1,
@@ -19407,10 +19499,10 @@
                     children: ({
                       showUpsellIfRequired: _v0,
                       checkIfNeedUpgrade: _v1
-                    }) => (0, _v6.jsxs)(_v781, {
+                    }) => (0, _v6.jsxs)(_v785, {
                       children: [_v9?.mode === _v59.PartnerAppMode.IFRAME && _v9?.iframeModeConfig?.headerConfig && (0, _v6.jsx)(_v73.default, {
                         location: "create_homepage"
-                      }), (0, _v6.jsx)(_v769, {
+                      }), (0, _v6.jsx)(_v773, {
                         ..._v2,
                         checkIfNeedUpgrade: _v1,
                         query: _v3,
@@ -19442,10 +19534,10 @@
                   children: ({
                     showUpsellIfRequired: _v0,
                     checkIfNeedUpgrade: _v1
-                  }) => (0, _v6.jsxs)(_v781, {
+                  }) => (0, _v6.jsxs)(_v785, {
                     children: [_v9?.mode === _v59.PartnerAppMode.IFRAME && _v9?.iframeModeConfig?.headerConfig && (0, _v6.jsx)(_v73.default, {
                       location: "create_homepage"
-                    }), (0, _v6.jsx)(_v769, {
+                    }), (0, _v6.jsx)(_v773, {
                       ..._v2,
                       checkIfNeedUpgrade: _v1,
                       playerAssetUrls: _v6,
@@ -19471,7 +19563,7 @@
               }), (0, _v6.jsx)(_v8.Route, {
                 path: _v1.paths.wizard,
                 render: () => (0, _v6.jsx)(_v71, {
-                  children: (0, _v6.jsx)(_v770, {
+                  children: (0, _v6.jsx)(_v774, {
                     history: _v0,
                     canSaveDraftVideos: _v35 || !1,
                     routes: _v1.values,
@@ -19481,7 +19573,7 @@
               }), (0, _v6.jsx)(_v8.Route, {
                 path: _v1.paths.script,
                 render: () => (0, _v6.jsx)(_v71, {
-                  children: (0, _v6.jsx)(_v774, {
+                  children: (0, _v6.jsx)(_v778, {
                     history: _v0,
                     canSaveDraftVideos: _v35 || !1,
                     draftsCount: _v38.draftsCount,
@@ -19494,7 +19586,7 @@
               }), (0, _v6.jsx)(_v8.Route, {
                 path: _v1.paths.customize,
                 render: () => (0, _v6.jsx)(_v71, {
-                  children: (0, _v6.jsx)(_v771, {
+                  children: (0, _v6.jsx)(_v775, {
                     history: _v0,
                     canSaveDraftVideos: _v35 || !1,
                     routes: _v1.values,
@@ -19504,7 +19596,7 @@
               }), (0, _v6.jsx)(_v8.Route, {
                 path: _v1.paths.trimmer,
                 render: () => (0, _v6.jsx)(_v71, {
-                  children: (0, _v6.jsx)(_v772, {
+                  children: (0, _v6.jsx)(_v776, {
                     history: _v0,
                     routes: _v1.values
                   })
@@ -19515,11 +19607,11 @@
                   children: [_v9?.mode === _v59.PartnerAppMode.IFRAME && _v9?.iframeModeConfig?.headerConfig && (0, _v6.jsx)(_v73.default, {
                     location: "create_homepage"
                   }), (0, _v6.jsxs)("div", {
-                    children: [_v26 && (0, _v6.jsx)(_v782, {
-                      children: (0, _v6.jsx)(_v783, {
+                    children: [_v26 && (0, _v6.jsx)(_v786, {
+                      children: (0, _v6.jsx)(_v787, {
                         children: (0, _v6.jsx)(_v72.Loader, {})
                       })
-                    }), (0, _v6.jsx)(_v775, {
+                    }), (0, _v6.jsx)(_v779, {
                       templateUri: _v0.match.params.template ?? "",
                       history: _v0,
                       magistoSessionLoading: _v14,
@@ -19535,10 +19627,10 @@
                 })
               }), (0, _v6.jsx)(_v8.Route, {
                 path: "/create/fb-permissions-check",
-                render: () => (0, _v6.jsx)(_v776, {})
+                render: () => (0, _v6.jsx)(_v780, {})
               }), (0, _v6.jsx)(_v8.Route, {
                 path: "/create/shopify",
-                render: () => (0, _v6.jsx)(_v777, {
+                render: () => (0, _v6.jsx)(_v781, {
                   history: _v0
                 })
               }), (0, _v6.jsx)(_v8.Route, {
@@ -19573,13 +19665,13 @@
       loaderWithMessage: _v40
     });
   }
-  let _v781 = _v9.default.div.withConfig({
+  let _v785 = _v9.default.div.withConfig({
       displayName: "video-creation__TemplateGalleryWrapper",
       componentId: "sc-1b6984f2-0"
     })`
   min-height: calc(100vh - 60px);
 `,
-    _v782 = _v9.default.div.withConfig({
+    _v786 = _v9.default.div.withConfig({
       displayName: "video-creation__TotalOverlay",
       componentId: "sc-1b6984f2-1"
     })`
@@ -19595,7 +19687,7 @@
   overflow: hidden;
   display: block;
 `,
-    _v783 = _v9.default.div.withConfig({
+    _v787 = _v9.default.div.withConfig({
       displayName: "video-creation__InnerOverlay",
       componentId: "sc-1b6984f2-2"
     })`
@@ -19607,12 +19699,12 @@
   left: 0;
   display: block;
 `;
-  function _v784(_v0, _v1) {
+  function _v788(_v0, _v1) {
     _v1 || (_v1 = window.location.href);
     let _v2 = RegExp("[?&]" + (_v0 = _v0.replace(/[\[\]]/g, "\\$&")) + "(=([^&#]*)|&|#|$)").exec(_v1);
     return _v2 ? _v2[2] ? decodeURIComponent(_v2[2].replace(/\+/g, " ")) : "" : null;
   }
-  let _v785 = {
+  let _v789 = {
     paths: {
       preview: "/preview/:videoHash",
       category: "/create/templates/category/:category",
@@ -19641,15 +19733,15 @@
         let _v1,
           _v2 = "",
           _v3 = "?pid=";
-        _v1 = _v784("af_c") ? _v784("af_c") : _v784("utm_campaign") ? _v784("utm_campaign") : document.getElementsByTagName("title")[0] ? document.getElementsByTagName("title")[0].innerText : "unknown";
+        _v1 = _v788("af_c") ? _v788("af_c") : _v788("utm_campaign") ? _v788("utm_campaign") : document.getElementsByTagName("title")[0] ? document.getElementsByTagName("title")[0].innerText : "unknown";
         let _v4 = "&c=",
           _v5 = "&af_sub1=",
-          _v6 = _v784("gclid"),
+          _v6 = _v788("gclid"),
           _v7 = "&af_keywords=",
           _v8 = "",
-          _v9 = _v784("keyword");
-        if (_v784("af_pid") ? _v8 = _v784("af_pid") : _v784("utm_source") && (_v8 = _v784("utm_source")), _v8 && ["twitter_int", "facebook_int", "snapchat_int", "doubleclick_int", "yahoogemini_int", "yahoojapan_int"].includes(_v8)) return void alert("DO NOT USE NAMES OF SRNS IN af_pid or utm_source - use the names listed in Other SRNs: Add Parameter section in the landing page article\nhttps://support.appsflyer.com/hc/en-us/articles/360000677217#other-srns-add-parameter");
-        if (!_v784("af_redirect")) return _v6 ? (_v3 += "google_lp", _v4 += _v1, _v5 += _v6, _v9) ? (_v7 += _v9, _v2 = _v0 + _v3 + _v4 + _v5 + _v7) : _v2 = _v0 + _v3 + _v4 + _v5 : _v8 ? (_v4 += _v1, _v3 += _v8, _v2 = _v0 + _v3 + _v4) : document.referrer && "" != document.referrer && document.referrer.toLowerCase().includes("facebook") ? " " : (_v4 += _v1, _v3 += "website", _v2 = _v0 + _v3 + _v4);
+          _v9 = _v788("keyword");
+        if (_v788("af_pid") ? _v8 = _v788("af_pid") : _v788("utm_source") && (_v8 = _v788("utm_source")), _v8 && ["twitter_int", "facebook_int", "snapchat_int", "doubleclick_int", "yahoogemini_int", "yahoojapan_int"].includes(_v8)) return void alert("DO NOT USE NAMES OF SRNS IN af_pid or utm_source - use the names listed in Other SRNs: Add Parameter section in the landing page article\nhttps://support.appsflyer.com/hc/en-us/articles/360000677217#other-srns-add-parameter");
+        if (!_v788("af_redirect")) return _v6 ? (_v3 += "google_lp", _v4 += _v1, _v5 += _v6, _v9) ? (_v7 += _v9, _v2 = _v0 + _v3 + _v4 + _v5 + _v7) : _v2 = _v0 + _v3 + _v4 + _v5 : _v8 ? (_v4 += _v1, _v3 += _v8, _v2 = _v0 + _v3 + _v4) : document.referrer && "" != document.referrer && document.referrer.toLowerCase().includes("facebook") ? " " : (_v4 += _v1, _v3 += "website", _v2 = _v0 + _v3 + _v4);
       }("/mobileredirects?type=store&app=vimeo_create&pid=VC_template_page&c=Mobile_web_template_page&af_web_dp=https%3A%2F%2Fvimeo.com%2Fcreate%2Fvideo-maker") || "",
       category: _v0 => `/create/templates/category/${_v0}`,
       subCategory: (_v0, _v1) => `/create/templates/category/${_v0}/${_v1 || ""}`,
@@ -19666,11 +19758,11 @@
     playerAssetUrls: _v1
   }) {
     let _v2 = (0, _v7.useContext)(_v91.ViewerContext);
-    return (0, _v6.jsx)(_v778, {
+    return (0, _v6.jsx)(_v782, {
       playerAssetUrls: _v1,
       history: _v0,
       viewer: _v2,
-      routes: _v785
+      routes: _v789
     });
   }], 0);
 }

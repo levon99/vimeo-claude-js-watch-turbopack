@@ -285,7 +285,7 @@
         referenceId: _v2,
         onEvent: (_v0, _v1) => {
           if ("page-change" === _v0) {
-            let _v0 = (_v1?.nameDisplay).toLowerCase() || "";
+            let _v0 = "string" == typeof _v1?.nameDisplay ? _v1.nameDisplay.toLowerCase() : "";
             _v0 !== _v18 || _v8.current || (_v6(), _v8.current = !0), _v0 !== _v19 || _v9.current || (_v7(), _v9.current = !0), (_v0 === _v18 || _v0 === _v19) && _v4({
               inquiryId: _v0
             });

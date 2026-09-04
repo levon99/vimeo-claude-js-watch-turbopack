@@ -1004,7 +1004,7 @@
           id: (0, _v52.createDomName)(_v0, "input"),
           className: (0, _v52.createDomName)(_v1, "input"),
           ref: _v5,
-          maxLength: _v99.interactionToolsConfig.CHAT.MAX_MESSAGE_LENGTH,
+          maxLength: _v99.interactionToolsConfig.QNA.MAX_QUESTION_LENGTH,
           value: _v6,
           autoComplete: "off",
           isDisabled: !_v17,

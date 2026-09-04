@@ -10403,7 +10403,7 @@
           _v81.current = !1, _v82.current = !1;
           return;
         }
-        _v74 || _v26 && null !== _v60 || (_v19 || _v58 || _v30 || _v80 || _v82.current || (_v82.current = !0, _v2()), (_v80 ? null == _v60 : _v19 ? null == _v63 || _v20 && null == _v59 : null == _v58) || _v81.current || (_v50({
+        (_v80 ? null == _v60 : _v19 ? null == _v63 || _v20 && null == _v59 : null == _v58) || _v81.current || (_v50({
           tier: _v7.tier ?? null,
           periodicity: _v56,
           offerKind: _v64,
@@ -10414,7 +10414,7 @@
           layout: _v29 ? "prominent" : "standard",
           priceSegment: _v16,
           experimentName: _v25
-        }), _v81.current = !0));
+        }), _v81.current = !0), !_v74 && (!_v26 || null === _v60) && (_v19 || _v58 || _v30 || _v80 || _v82.current || (_v82.current = !0, _v2()));
       }, [_v0, _v19, _v58, _v63, _v59, _v30, _v80, _v74, _v26, _v60, _v2]);
       let _v83 = _v7.renewalDate ? new Date(_v7.renewalDate) : null,
         _v84 = _v83 && !Number.isNaN(_v83.getTime()) ? new Intl.DateTimeFormat(_v47 ?? "en", {
@@ -13900,7 +13900,7 @@
           renewalPeriodLabel: _v143,
           teamUser: _v23,
           reopenBspAtConfirmSignal: _v153,
-          ...(!!(_v6 = _v26?.productName?.toLowerCase().replace("vimeo ", "")) && ["core", "professional", "studio", "production"].includes(_v6) && !_v145 && {
+          ...(!!(_v6 = _v26?.productName?.toLowerCase().replace("vimeo ", "")) && ["core", "professional", "studio", "production"].includes(_v6) && !_v145 && !_v81 && {
             onBeforeCancel: (_v0, _v1) => {
               _v150(!0), _v152(() => _v0), _v156(!!_v1?.skipBspBackTarget);
             }

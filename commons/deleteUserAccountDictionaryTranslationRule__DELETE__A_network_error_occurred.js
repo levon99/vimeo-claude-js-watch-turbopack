@@ -71,10 +71,9 @@
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0);
-  let _v30 = "instruction",
-    _v31 = _v0 => _v0.split("/").pop() ?? "",
-    _v32 = _v0 => null === _v0.sourceLanguage && null === _v0.targetLanguage,
-    _v33 = ({
+  let _v30 = _v0 => _v0.split("/").pop() ?? "",
+    _v31 = _v0 => null === _v0.sourceLanguage && null === _v0.targetLanguage,
+    _v32 = ({
       characterLimit: _v0,
       isSaving: _v1,
       ruleText: _v2,
@@ -142,7 +141,7 @@
         })
       });
     },
-    _v34 = ({
+    _v33 = ({
       ownerUserId: _v0,
       translations: _v1
     }) => {
@@ -168,7 +167,7 @@
                 userId: _v0
               },
               query: {
-                ruleType: _v30,
+                ruleType: "instruction",
                 perPage: 100
               }
             })),
@@ -178,68 +177,69 @@
                 userId: _v0
               }
             })),
-            _v7 = _v6.data?.accountDictionaryQuota?.customRulesCharacters?.limit ?? 0,
+            _v7 = _v6.data?.accountDictionaryQuota?.customRulesCharacters?.limit,
+            _v8 = _v6.isLoading || void 0 !== _v7 ? void 0 : Error("Account dictionary custom-rules quota is missing"),
             {
-              data: _v8,
-              error: _v9,
-              isLoading: _v10,
-              isValidating: _v11,
-              mutate: _v12,
-              setSize: _v13,
-              size: _v14
+              data: _v9,
+              error: _v10,
+              isLoading: _v11,
+              isValidating: _v12,
+              mutate: _v13,
+              setSize: _v14,
+              size: _v15
             } = _v5,
-            _v15 = _v8?.[_v8.length - 1],
-            _v16 = !!_v15?.paging.next;
+            _v16 = _v9?.[_v9.length - 1],
+            _v17 = !!_v16?.paging.next;
           (0, _v3.useEffect)(() => {
-            !_v16 || _v11 || _v9 || _v13(_v14 + 1);
-          }, [_v9, _v16, _v11, _v13, _v14]);
-          let _v17 = (0, _v3.useMemo)(() => _v8?.flatMap(_v0 => _v0.data).filter(_v32) ?? [], [_v8]),
-            _v18 = _v17[0],
-            [_v19, _v20] = (0, _v3.useState)(!1),
-            [_v21, _v22] = (0, _v3.useState)(),
-            _v23 = (0, _v3.useMemo)(() => ({
+            !_v17 || _v12 || _v10 || _v14(_v15 + 1);
+          }, [_v10, _v17, _v12, _v14, _v15]);
+          let _v18 = (0, _v3.useMemo)(() => _v9?.flatMap(_v0 => _v0.data).filter(_v31) ?? [], [_v9]),
+            _v19 = _v18[0],
+            [_v20, _v21] = (0, _v3.useState)(!1),
+            [_v22, _v23] = (0, _v3.useState)(),
+            _v24 = (0, _v3.useMemo)(() => ({
               "Content-Type": "application/json",
               Authorization: _v2 ? `jwt ${_v2}` : "",
               "Vimeo-Page": `${_v3}`,
               "Accept-Language": _v4 ?? "en"
             }), [_v2, _v4, _v3]),
-            _v24 = (0, _v3.useCallback)(async _v0 => {
+            _v25 = (0, _v3.useCallback)(async _v0 => {
               for (let {
                 uri: _v0
               } of _v0) try {
                 await _v24({
                   baseUrl: _v1,
-                  headers: _v23,
+                  headers: _v24,
                   where: {
                     userId: _v0,
-                    ruleId: _v31(_v0)
+                    ruleId: _v30(_v0)
                   }
                 });
               } catch (_v0) {
                 if (!(_v0 instanceof _v22.NetworkError && 404 === _v0.status)) throw _v0;
               }
-            }, [_v1, _v23, _v0]),
-            _v25 = (0, _v3.useCallback)(async _v0 => {
+            }, [_v1, _v24, _v0]),
+            _v26 = (0, _v3.useCallback)(async _v0 => {
               let _v1 = _v0.trim();
-              _v20(!0), _v22(void 0);
+              _v21(!0), _v23(void 0);
               try {
-                "" === _v1 ? await _v24(_v17) : _v18 ? (await _v25({
+                "" === _v1 ? await _v25(_v18) : _v19 ? (await _v25({
                   baseUrl: _v1,
-                  headers: _v23,
+                  headers: _v24,
                   select: ["uri"],
                   variables: {
                     ruleText: _v1
                   },
                   where: {
                     userId: _v0,
-                    ruleId: _v31(_v18.uri)
+                    ruleId: _v30(_v19.uri)
                   }
-                }), await _v24(_v17.slice(1))) : await (0, _v26.postUserAccountDictionaryTranslationRules)({
+                }), await _v25(_v18.slice(1))) : await (0, _v26.postUserAccountDictionaryTranslationRules)({
                   baseUrl: _v1,
-                  headers: _v23,
+                  headers: _v24,
                   select: ["uri"],
                   variables: {
-                    ruleType: _v30,
+                    ruleType: "instruction",
                     sourceLanguage: null,
                     targetLanguage: null,
                     ruleText: _v1
@@ -247,25 +247,25 @@
                   where: {
                     userId: _v0
                   }
-                }), await _v12().catch(() => void 0);
+                }), await _v13().catch(() => void 0);
               } catch (_v0) {
-                _v22(_v0);
+                _v23(_v0);
               } finally {
-                _v20(!1);
+                _v21(!1);
               }
-            }, [_v1, _v24, _v18, _v17, _v23, _v12, _v0]),
-            _v26 = (0, _v3.useCallback)(async () => {
-              await _v12();
-            }, [_v12]);
+            }, [_v1, _v25, _v19, _v18, _v24, _v13, _v0]),
+            _v27 = (0, _v3.useCallback)(async () => {
+              await Promise.all([_v13(), _v6.mutate()]);
+            }, [_v13, _v6]);
           return {
-            ruleText: _v18?.ruleText ?? "",
+            ruleText: _v19?.ruleText ?? "",
             characterLimit: _v7,
-            isLoading: _v10 || _v16 && !_v9,
-            error: _v9,
-            isSaving: _v19,
-            saveError: _v21,
-            retry: _v26,
-            save: _v25
+            isLoading: _v11 || _v6.isLoading || _v17 && !_v10,
+            error: _v10 ?? _v6.error ?? _v8,
+            isSaving: _v20,
+            saveError: _v22,
+            retry: _v27,
+            save: _v26
           };
         })(_v0),
         _v10 = (0, _v3.useCallback)(() => {
@@ -282,7 +282,7 @@
           children: (0, _v1.jsx)(_v17.Spinner, {
             label: _v1.rulesLoadingLabel
           })
-        }) : _v5 ? (0, _v1.jsx)(_v6.Flex, {
+        }) : _v5 || void 0 === _v3 ? (0, _v1.jsx)(_v6.Flex, {
           minHeight: (0, _v8.rem)(168),
           alignItems: "center",
           children: (0, _v1.jsxs)(_v13.AlertRoot, {
@@ -303,7 +303,7 @@
               children: _v1.tryAgain
             })]
           })
-        }) : (0, _v1.jsx)(_v33, {
+        }) : (0, _v1.jsx)(_v32, {
           characterLimit: _v3,
           isSaving: _v6,
           ruleText: _v2,
@@ -313,7 +313,8 @@
         })
       });
     };
-  var _v35 = _v0.i(0),
+  var _v34 = _v0.i(0),
+    _v35 = _v0.i(0),
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
@@ -335,9 +336,8 @@
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),
-    _v57 = _v0.i(0),
-    _v58 = _v0.i(0);
-  let _v59 = ({
+    _v57 = _v0.i(0);
+  let _v58 = ({
     dropLabel: _v0,
     uploadLabel: _v1,
     uploadingHint: _v2,
@@ -380,7 +380,7 @@
           let _v1 = _v0.dataTransfer.files[0];
           !_v4 && _v1 && _v5(_v1);
         },
-        children: [_v4 ? (0, _v1.jsx)(_v45.Spinner, {}) : (0, _v1.jsx)(_v44.Upload, {
+        children: [_v4 ? (0, _v1.jsx)(_v44.Spinner, {}) : (0, _v1.jsx)(_v43.Upload, {
           boxSize: (0, _v8.rem)(32),
           "aria-hidden": !0
         }), (0, _v1.jsx)(_v18.Text, {
@@ -405,9 +405,9 @@
       })]
     });
   };
-  var _v60 = _v0.i(0),
-    _v61 = _v0.i(0);
-  let _v62 = ({
+  var _v59 = _v0.i(0),
+    _v60 = _v0.i(0);
+  let _v61 = ({
       count: _v0,
       translations: _v1
     }) => (0, _v1.jsx)(_v18.Text, {
@@ -422,14 +422,14 @@
         children: _v3.Children.toArray(_v0)
       }, "csv-review-count"), _v0))
     }),
-    _v63 = ({
+    _v62 = ({
       label: _v0,
       value: _v1,
       isDisabled: _v2,
       onChange: _v3
-    }) => (0, _v1.jsx)(_v61.Td, {
+    }) => (0, _v1.jsx)(_v60.Td, {
       padding: 0,
-      children: (0, _v1.jsx)(_v60.Input, {
+      children: (0, _v1.jsx)(_v59.Input, {
         "aria-label": _v0,
         value: _v1,
         isDisabled: _v2,
@@ -455,10 +455,10 @@
         onChange: _v0 => _v3(_v0.currentTarget.value)
       })
     }),
-    _v64 = ({
+    _v63 = ({
       children: _v0,
       ..._v1
-    }) => (0, _v1.jsx)(_v36.Link, {
+    }) => (0, _v1.jsx)(_v35.Link, {
       as: "button",
       type: "button",
       background: "transparent",
@@ -487,18 +487,18 @@
       ..._v1,
       children: _v0
     }),
-    _v65 = () => {
-      let _v0 = (0, _v58.useToast)();
+    _v64 = () => {
+      let _v0 = (0, _v57.useToast)();
       return (0, _v3.useCallback)((_v0, _v1) => {
         _v0({
           duration: _v1?.action ? null : 0,
           isClosable: !_v1?.action,
-          render: _v0 => (0, _v1.jsxs)(_v58.ToastRoot, {
+          render: _v0 => (0, _v1.jsxs)(_v57.ToastRoot, {
             ..._v0,
             variant: "warning",
-            children: [(0, _v1.jsx)(_v58.ToastIcon, {}), (0, _v1.jsx)(_v58.ToastTitle, {
+            children: [(0, _v1.jsx)(_v57.ToastIcon, {}), (0, _v1.jsx)(_v57.ToastTitle, {
               children: _v0
-            }), _v1?.action && (0, _v1.jsx)(_v58.ToastButton, {
+            }), _v1?.action && (0, _v1.jsx)(_v57.ToastButton, {
               onClick: () => {
                 _v0.closeAll(), _v1.action?.onClick();
               },
@@ -508,25 +508,25 @@
         });
       }, [_v0]);
     };
-  var _v66 = _v0.g,
+  var _v65 = _v0.g,
+    _v66 = [],
     _v67 = [],
-    _v68 = [],
-    _v69 = "u" > typeof Uint8Array ? Uint8Array : Array,
-    _v70 = !1;
-  function _v71() {
-    _v70 = !0;
-    for (var _v0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", _v1 = 0, _v2 = _v0.length; _v1 < _v2; ++_v1) _v67[_v1] = _v0[_v1], _v68[_v0.charCodeAt(_v1)] = _v1;
-    _v68[45] = 62, _v68[95] = 63;
+    _v68 = "u" > typeof Uint8Array ? Uint8Array : Array,
+    _v69 = !1;
+  function _v70() {
+    _v69 = !0;
+    for (var _v0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", _v1 = 0, _v2 = _v0.length; _v1 < _v2; ++_v1) _v66[_v1] = _v0[_v1], _v67[_v0.charCodeAt(_v1)] = _v1;
+    _v67[45] = 62, _v67[95] = 63;
   }
-  function _v72(_v0) {
-    _v70 || _v71();
+  function _v71(_v0) {
+    _v69 || _v70();
     for (var _v1, _v2 = _v0.length, _v3 = _v2 % 3, _v4 = "", _v5 = [], _v6 = 0, _v7 = _v2 - _v3; _v6 < _v7; _v6 += 0) _v5.push(function (_v0, _v1, _v2) {
-      for (var _v3, _v4 = [], _v5 = _v1; _v5 < _v2; _v5 += 3) _v3 = (_v0[_v5] << 16) + (_v0[_v5 + 1] << 8) + _v0[_v5 + 2], _v4.push(_v67[_v3 >> 18 & 63] + _v67[_v3 >> 12 & 63] + _v67[_v3 >> 6 & 63] + _v67[63 & _v3]);
+      for (var _v3, _v4 = [], _v5 = _v1; _v5 < _v2; _v5 += 3) _v3 = (_v0[_v5] << 16) + (_v0[_v5 + 1] << 8) + _v0[_v5 + 2], _v4.push(_v66[_v3 >> 18 & 63] + _v66[_v3 >> 12 & 63] + _v66[_v3 >> 6 & 63] + _v66[63 & _v3]);
       return _v4.join("");
     }(_v0, _v6, _v6 + 0 > _v7 ? _v7 : _v6 + 0));
-    return 1 === _v3 ? (_v4 += _v67[(_v1 = _v0[_v2 - 1]) >> 2], _v4 += _v67[_v1 << 4 & 63], _v4 += "==") : 2 === _v3 && (_v4 += _v67[(_v1 = (_v0[_v2 - 2] << 8) + _v0[_v2 - 1]) >> 10], _v4 += _v67[_v1 >> 4 & 63], _v4 += _v67[_v1 << 2 & 63], _v4 += "="), _v5.push(_v4), _v5.join("");
+    return 1 === _v3 ? (_v4 += _v66[(_v1 = _v0[_v2 - 1]) >> 2], _v4 += _v66[_v1 << 4 & 63], _v4 += "==") : 2 === _v3 && (_v4 += _v66[(_v1 = (_v0[_v2 - 2] << 8) + _v0[_v2 - 1]) >> 10], _v4 += _v66[_v1 >> 4 & 63], _v4 += _v66[_v1 << 2 & 63], _v4 += "="), _v5.push(_v4), _v5.join("");
   }
-  function _v73(_v0, _v1, _v2, _v3, _v4) {
+  function _v72(_v0, _v1, _v2, _v3, _v4) {
     var _v5,
       _v6,
       _v7 = 8 * _v4 - _v3 - 1,
@@ -544,7 +544,7 @@
     }
     return (_v13 ? -1 : 1) * _v6 * Math.pow(2, _v5 - _v3);
   }
-  function _v74(_v0, _v1, _v2, _v3, _v4, _v5) {
+  function _v73(_v0, _v1, _v2, _v3, _v4, _v5) {
     var _v6,
       _v7,
       _v8,
@@ -559,74 +559,74 @@
     for (_v6 = _v6 << _v4 | _v7, _v9 += _v4; _v9 > 0; _v0[_v2 + _v13] = 255 & _v6, _v13 += _v14, _v6 /= 256, _v9 -= 8);
     _v0[_v2 + _v13 - _v14] |= 128 * _v15;
   }
-  var _v75 = {}.toString,
-    _v76 = Array.isArray || function (_v0) {
-      return "[object Array]" == _v75.call(_v0);
+  var _v74 = {}.toString,
+    _v75 = Array.isArray || function (_v0) {
+      return "[object Array]" == _v74.call(_v0);
     };
-  function _v77() {
-    return _v79.TYPED_ARRAY_SUPPORT ? 0 : 0;
+  function _v76() {
+    return _v78.TYPED_ARRAY_SUPPORT ? 0 : 0;
   }
-  function _v78(_v0, _v1) {
-    if (_v77() < _v1) throw RangeError("Invalid typed array length");
-    return _v79.TYPED_ARRAY_SUPPORT ? (_v0 = new Uint8Array(_v1)).__proto__ = _v79.prototype : (null === _v0 && (_v0 = new _v79(_v1)), _v0.length = _v1), _v0;
+  function _v77(_v0, _v1) {
+    if (_v76() < _v1) throw RangeError("Invalid typed array length");
+    return _v78.TYPED_ARRAY_SUPPORT ? (_v0 = new Uint8Array(_v1)).__proto__ = _v78.prototype : (null === _v0 && (_v0 = new _v78(_v1)), _v0.length = _v1), _v0;
   }
-  function _v79(_v0, _v1, _v2) {
-    if (!_v79.TYPED_ARRAY_SUPPORT && !(this instanceof _v79)) return new _v79(_v0, _v1, _v2);
+  function _v78(_v0, _v1, _v2) {
+    if (!_v78.TYPED_ARRAY_SUPPORT && !(this instanceof _v78)) return new _v78(_v0, _v1, _v2);
     if ("number" == typeof _v0) {
       if ("string" == typeof _v1) throw Error("If encoding is specified then the first argument must be a string");
-      return _v82(this, _v0);
+      return _v81(this, _v0);
     }
-    return _v80(this, _v0, _v1, _v2);
+    return _v79(this, _v0, _v1, _v2);
   }
-  function _v80(_v0, _v1, _v2, _v3) {
+  function _v79(_v0, _v1, _v2, _v3) {
     if ("number" == typeof _v1) throw TypeError('"value" argument must not be a number');
     return "u" > typeof ArrayBuffer && _v1 instanceof ArrayBuffer ? function (_v0, _v1, _v2, _v3) {
       if (_v1.byteLength, _v2 < 0 || _v1.byteLength < _v2) throw RangeError("'offset' is out of bounds");
       if (_v1.byteLength < _v2 + (_v3 || 0)) throw RangeError("'length' is out of bounds");
-      return _v1 = void 0 === _v2 && void 0 === _v3 ? new Uint8Array(_v1) : void 0 === _v3 ? new Uint8Array(_v1, _v2) : new Uint8Array(_v1, _v2, _v3), _v79.TYPED_ARRAY_SUPPORT ? (_v0 = _v1).__proto__ = _v79.prototype : _v0 = _v83(_v0, _v1), _v0;
+      return _v1 = void 0 === _v2 && void 0 === _v3 ? new Uint8Array(_v1) : void 0 === _v3 ? new Uint8Array(_v1, _v2) : new Uint8Array(_v1, _v2, _v3), _v78.TYPED_ARRAY_SUPPORT ? (_v0 = _v1).__proto__ = _v78.prototype : _v0 = _v82(_v0, _v1), _v0;
     }(_v0, _v1, _v2, _v3) : "string" == typeof _v1 ? function (_v0, _v1, _v2) {
-      if (("string" != typeof _v2 || "" === _v2) && (_v2 = "utf8"), !_v79.isEncoding(_v2)) throw TypeError('"encoding" must be a valid string encoding');
-      var _v3 = 0 | _v86(_v1, _v2),
-        _v4 = (_v0 = _v78(_v0, _v3)).write(_v1, _v2);
+      if (("string" != typeof _v2 || "" === _v2) && (_v2 = "utf8"), !_v78.isEncoding(_v2)) throw TypeError('"encoding" must be a valid string encoding');
+      var _v3 = 0 | _v85(_v1, _v2),
+        _v4 = (_v0 = _v77(_v0, _v3)).write(_v1, _v2);
       return _v4 !== _v3 && (_v0 = _v0.slice(0, _v4)), _v0;
     }(_v0, _v1, _v2) : function (_v0, _v1) {
-      if (_v85(_v1)) {
+      if (_v84(_v1)) {
         var _v2,
-          _v3 = 0 | _v84(_v1.length);
-        return 0 === (_v0 = _v78(_v0, _v3)).length || _v1.copy(_v0, 0, 0, _v3), _v0;
+          _v3 = 0 | _v83(_v1.length);
+        return 0 === (_v0 = _v77(_v0, _v3)).length || _v1.copy(_v0, 0, 0, _v3), _v0;
       }
       if (_v1) {
         if ("u" > typeof ArrayBuffer && _v1.buffer instanceof ArrayBuffer || "length" in _v1) {
-          return "number" != typeof _v1.length || (_v2 = _v1.length) != _v2 ? _v78(_v0, 0) : _v83(_v0, _v1);
+          return "number" != typeof _v1.length || (_v2 = _v1.length) != _v2 ? _v77(_v0, 0) : _v82(_v0, _v1);
         }
-        if ("Buffer" === _v1.type && _v76(_v1.data)) return _v83(_v0, _v1.data);
+        if ("Buffer" === _v1.type && _v75(_v1.data)) return _v82(_v0, _v1.data);
       }
       throw TypeError("First argument must be a string, Buffer, ArrayBuffer, Array, or array-like object.");
     }(_v0, _v1);
   }
-  function _v81(_v0) {
+  function _v80(_v0) {
     if ("number" != typeof _v0) throw TypeError('"size" argument must be a number');
     if (_v0 < 0) throw RangeError('"size" argument must not be negative');
   }
-  function _v82(_v0, _v1) {
-    if (_v81(_v1), _v0 = _v78(_v0, _v1 < 0 ? 0 : 0 | _v84(_v1)), !_v79.TYPED_ARRAY_SUPPORT) for (var _v2 = 0; _v2 < _v1; ++_v2) _v0[_v2] = 0;
+  function _v81(_v0, _v1) {
+    if (_v80(_v1), _v0 = _v77(_v0, _v1 < 0 ? 0 : 0 | _v83(_v1)), !_v78.TYPED_ARRAY_SUPPORT) for (var _v2 = 0; _v2 < _v1; ++_v2) _v0[_v2] = 0;
     return _v0;
   }
-  function _v83(_v0, _v1) {
-    var _v2 = _v1.length < 0 ? 0 : 0 | _v84(_v1.length);
-    _v0 = _v78(_v0, _v2);
+  function _v82(_v0, _v1) {
+    var _v2 = _v1.length < 0 ? 0 : 0 | _v83(_v1.length);
+    _v0 = _v77(_v0, _v2);
     for (var _v3 = 0; _v3 < _v2; _v3 += 1) _v0[_v3] = 255 & _v1[_v3];
     return _v0;
   }
-  function _v84(_v0) {
-    if (_v0 >= _v77()) throw RangeError("Attempt to allocate Buffer larger than maximum size: 0x" + _v77().toString(16) + " bytes");
+  function _v83(_v0) {
+    if (_v0 >= _v76()) throw RangeError("Attempt to allocate Buffer larger than maximum size: 0x" + _v76().toString(16) + " bytes");
     return 0 | _v0;
   }
-  function _v85(_v0) {
+  function _v84(_v0) {
     return !!(null != _v0 && _v0._isBuffer);
   }
-  function _v86(_v0, _v1) {
-    if (_v85(_v0)) return _v0.length;
+  function _v85(_v0, _v1) {
+    if (_v84(_v0)) return _v0.length;
     if ("u" > typeof ArrayBuffer && "function" == typeof ArrayBuffer.isView && (ArrayBuffer.isView(_v0) || _v0 instanceof ArrayBuffer)) return _v0.byteLength;
     "string" != typeof _v0 && (_v0 = "" + _v0);
     var _v2 = _v0.length;
@@ -639,7 +639,7 @@
       case "utf8":
       case "utf-8":
       case void 0:
-        return _v100(_v0).length;
+        return _v99(_v0).length;
       case "ucs2":
       case "ucs-2":
       case "utf16le":
@@ -648,13 +648,13 @@
       case "hex":
         return _v2 >>> 1;
       case "base64":
-        return _v102(_v0).length;
+        return _v101(_v0).length;
       default:
-        if (_v3) return _v100(_v0).length;
+        if (_v3) return _v99(_v0).length;
         _v1 = ("" + _v1).toLowerCase(), _v3 = !0;
     }
   }
-  function _v87(_v0, _v1, _v2) {
+  function _v86(_v0, _v1, _v2) {
     var _v3,
       _v4,
       _v5,
@@ -673,7 +673,7 @@
         }(this, _v1, _v2);
       case "utf8":
       case "utf-8":
-        return _v91(this, _v1, _v2);
+        return _v90(this, _v1, _v2);
       case "ascii":
         return function (_v0, _v1, _v2) {
           var _v3 = "";
@@ -690,7 +690,7 @@
           return _v3;
         }(this, _v1, _v2);
       case "base64":
-        return _v3 = this, _v4 = _v1, _v5 = _v2, 0 === _v4 && _v5 === _v3.length ? _v72(_v3) : _v72(_v3.slice(_v4, _v5));
+        return _v3 = this, _v4 = _v1, _v5 = _v2, 0 === _v4 && _v5 === _v3.length ? _v71(_v3) : _v71(_v3.slice(_v4, _v5));
       case "ucs2":
       case "ucs-2":
       case "utf16le":
@@ -704,23 +704,23 @@
         _v0 = (_v0 + "").toLowerCase(), _v6 = !0;
     }
   }
-  function _v88(_v0, _v1, _v2) {
+  function _v87(_v0, _v1, _v2) {
     var _v3 = _v0[_v1];
     _v0[_v1] = _v0[_v2], _v0[_v2] = _v3;
   }
-  function _v89(_v0, _v1, _v2, _v3, _v4) {
+  function _v88(_v0, _v1, _v2, _v3, _v4) {
     if (0 === _v0.length) return -1;
     if ("string" == typeof _v2 ? (_v3 = _v2, _v2 = 0) : _v2 > 0 ? _v2 = 0 : _v2 < 0 && (_v2 = 0), isNaN(_v2 *= 1) && (_v2 = _v4 ? 0 : _v0.length - 1), _v2 < 0 && (_v2 = _v0.length + _v2), _v2 >= _v0.length) {
       if (_v4) return -1;else _v2 = _v0.length - 1;
     } else if (_v2 < 0) if (!_v4) return -1;else _v2 = 0;
-    if ("string" == typeof _v1 && (_v1 = _v79.from(_v1, _v3)), _v85(_v1)) return 0 === _v1.length ? -1 : _v90(_v0, _v1, _v2, _v3, _v4);
+    if ("string" == typeof _v1 && (_v1 = _v78.from(_v1, _v3)), _v84(_v1)) return 0 === _v1.length ? -1 : _v89(_v0, _v1, _v2, _v3, _v4);
     if ("number" == typeof _v1) {
-      if (_v1 &= 255, _v79.TYPED_ARRAY_SUPPORT && "function" == typeof Uint8Array.prototype.indexOf) if (_v4) return Uint8Array.prototype.indexOf.call(_v0, _v1, _v2);else return Uint8Array.prototype.lastIndexOf.call(_v0, _v1, _v2);
-      return _v90(_v0, [_v1], _v2, _v3, _v4);
+      if (_v1 &= 255, _v78.TYPED_ARRAY_SUPPORT && "function" == typeof Uint8Array.prototype.indexOf) if (_v4) return Uint8Array.prototype.indexOf.call(_v0, _v1, _v2);else return Uint8Array.prototype.lastIndexOf.call(_v0, _v1, _v2);
+      return _v89(_v0, [_v1], _v2, _v3, _v4);
     }
     throw TypeError("val must be string, number or Buffer");
   }
-  function _v90(_v0, _v1, _v2, _v3, _v4) {
+  function _v89(_v0, _v1, _v2, _v3, _v4) {
     var _v5,
       _v6 = 1,
       _v7 = _v0.length,
@@ -746,25 +746,25 @@
     }
     return -1;
   }
-  _v79.TYPED_ARRAY_SUPPORT = void 0 === _v66.TYPED_ARRAY_SUPPORT || _v66.TYPED_ARRAY_SUPPORT, _v77(), _v79.poolSize = 0, _v79._augment = function (_v0) {
-    return _v0.__proto__ = _v79.prototype, _v0;
-  }, _v79.from = function (_v0, _v1, _v2) {
-    return _v80(null, _v0, _v1, _v2);
-  }, _v79.TYPED_ARRAY_SUPPORT && (_v79.prototype.__proto__ = Uint8Array.prototype, _v79.__proto__ = Uint8Array, "u" > typeof Symbol && Symbol.species && _v79[Symbol.species]), _v79.alloc = function (_v0, _v1, _v2) {
-    return (_v81(_v0), _v0 <= 0) ? _v78(null, _v0) : void 0 !== _v1 ? "string" == typeof _v2 ? _v78(null, _v0).fill(_v1, _v2) : _v78(null, _v0).fill(_v1) : _v78(null, _v0);
-  }, _v79.allocUnsafe = function (_v0) {
-    return _v82(null, _v0);
-  }, _v79.allocUnsafeSlow = function (_v0) {
-    return _v82(null, _v0);
-  }, _v79.isBuffer = _v104, _v79.compare = function (_v0, _v1) {
-    if (!_v85(_v0) || !_v85(_v1)) throw TypeError("Arguments must be Buffers");
+  _v78.TYPED_ARRAY_SUPPORT = void 0 === _v65.TYPED_ARRAY_SUPPORT || _v65.TYPED_ARRAY_SUPPORT, _v76(), _v78.poolSize = 0, _v78._augment = function (_v0) {
+    return _v0.__proto__ = _v78.prototype, _v0;
+  }, _v78.from = function (_v0, _v1, _v2) {
+    return _v79(null, _v0, _v1, _v2);
+  }, _v78.TYPED_ARRAY_SUPPORT && (_v78.prototype.__proto__ = Uint8Array.prototype, _v78.__proto__ = Uint8Array, "u" > typeof Symbol && Symbol.species && _v78[Symbol.species]), _v78.alloc = function (_v0, _v1, _v2) {
+    return (_v80(_v0), _v0 <= 0) ? _v77(null, _v0) : void 0 !== _v1 ? "string" == typeof _v2 ? _v77(null, _v0).fill(_v1, _v2) : _v77(null, _v0).fill(_v1) : _v77(null, _v0);
+  }, _v78.allocUnsafe = function (_v0) {
+    return _v81(null, _v0);
+  }, _v78.allocUnsafeSlow = function (_v0) {
+    return _v81(null, _v0);
+  }, _v78.isBuffer = _v103, _v78.compare = function (_v0, _v1) {
+    if (!_v84(_v0) || !_v84(_v1)) throw TypeError("Arguments must be Buffers");
     if (_v0 === _v1) return 0;
     for (var _v2 = _v0.length, _v3 = _v1.length, _v4 = 0, _v5 = Math.min(_v2, _v3); _v4 < _v5; ++_v4) if (_v0[_v4] !== _v1[_v4]) {
       _v2 = _v0[_v4], _v3 = _v1[_v4];
       break;
     }
     return _v2 < _v3 ? -1 : +(_v3 < _v2);
-  }, _v79.isEncoding = function (_v0) {
+  }, _v78.isEncoding = function (_v0) {
     switch (String(_v0).toLowerCase()) {
       case "hex":
       case "utf8":
@@ -781,45 +781,45 @@
       default:
         return !1;
     }
-  }, _v79.concat = function (_v0, _v1) {
-    if (!_v76(_v0)) throw TypeError('"list" argument must be an Array of Buffers');
-    if (0 === _v0.length) return _v79.alloc(0);
+  }, _v78.concat = function (_v0, _v1) {
+    if (!_v75(_v0)) throw TypeError('"list" argument must be an Array of Buffers');
+    if (0 === _v0.length) return _v78.alloc(0);
     if (void 0 === _v1) for (_v2 = 0, _v1 = 0; _v2 < _v0.length; ++_v2) _v1 += _v0[_v2].length;
     var _v2,
-      _v3 = _v79.allocUnsafe(_v1),
+      _v3 = _v78.allocUnsafe(_v1),
       _v4 = 0;
     for (_v2 = 0; _v2 < _v0.length; ++_v2) {
       var _v5 = _v0[_v2];
-      if (!_v85(_v5)) throw TypeError('"list" argument must be an Array of Buffers');
+      if (!_v84(_v5)) throw TypeError('"list" argument must be an Array of Buffers');
       _v5.copy(_v3, _v4), _v4 += _v5.length;
     }
     return _v3;
-  }, _v79.byteLength = _v86, _v79.prototype._isBuffer = !0, _v79.prototype.swap16 = function () {
+  }, _v78.byteLength = _v85, _v78.prototype._isBuffer = !0, _v78.prototype.swap16 = function () {
     var _v0 = this.length;
     if (_v0 % 2 != 0) throw RangeError("Buffer size must be a multiple of 16-bits");
-    for (var _v1 = 0; _v1 < _v0; _v1 += 2) _v88(this, _v1, _v1 + 1);
+    for (var _v1 = 0; _v1 < _v0; _v1 += 2) _v87(this, _v1, _v1 + 1);
     return this;
-  }, _v79.prototype.swap32 = function () {
+  }, _v78.prototype.swap32 = function () {
     var _v0 = this.length;
     if (_v0 % 4 != 0) throw RangeError("Buffer size must be a multiple of 32-bits");
-    for (var _v1 = 0; _v1 < _v0; _v1 += 4) _v88(this, _v1, _v1 + 3), _v88(this, _v1 + 1, _v1 + 2);
+    for (var _v1 = 0; _v1 < _v0; _v1 += 4) _v87(this, _v1, _v1 + 3), _v87(this, _v1 + 1, _v1 + 2);
     return this;
-  }, _v79.prototype.swap64 = function () {
+  }, _v78.prototype.swap64 = function () {
     var _v0 = this.length;
     if (_v0 % 8 != 0) throw RangeError("Buffer size must be a multiple of 64-bits");
-    for (var _v1 = 0; _v1 < _v0; _v1 += 8) _v88(this, _v1, _v1 + 7), _v88(this, _v1 + 1, _v1 + 6), _v88(this, _v1 + 2, _v1 + 5), _v88(this, _v1 + 3, _v1 + 4);
+    for (var _v1 = 0; _v1 < _v0; _v1 += 8) _v87(this, _v1, _v1 + 7), _v87(this, _v1 + 1, _v1 + 6), _v87(this, _v1 + 2, _v1 + 5), _v87(this, _v1 + 3, _v1 + 4);
     return this;
-  }, _v79.prototype.toString = function () {
+  }, _v78.prototype.toString = function () {
     var _v0 = 0 | this.length;
-    return 0 === _v0 ? "" : 0 == arguments.length ? _v91(this, 0, _v0) : _v87.apply(this, arguments);
-  }, _v79.prototype.equals = function (_v0) {
-    if (!_v85(_v0)) throw TypeError("Argument must be a Buffer");
-    return this === _v0 || 0 === _v79.compare(this, _v0);
-  }, _v79.prototype.inspect = function () {
+    return 0 === _v0 ? "" : 0 == arguments.length ? _v90(this, 0, _v0) : _v86.apply(this, arguments);
+  }, _v78.prototype.equals = function (_v0) {
+    if (!_v84(_v0)) throw TypeError("Argument must be a Buffer");
+    return this === _v0 || 0 === _v78.compare(this, _v0);
+  }, _v78.prototype.inspect = function () {
     var _v0 = "";
     return this.length > 0 && (_v0 = this.toString("hex", 0, 50).match(/.{2}/g).join(" "), this.length > 50 && (_v0 += " ... ")), "<Buffer " + _v0 + ">";
-  }, _v79.prototype.compare = function (_v0, _v1, _v2, _v3, _v4) {
-    if (!_v85(_v0)) throw TypeError("Argument must be a Buffer");
+  }, _v78.prototype.compare = function (_v0, _v1, _v2, _v3, _v4) {
+    if (!_v84(_v0)) throw TypeError("Argument must be a Buffer");
     if (void 0 === _v1 && (_v1 = 0), void 0 === _v2 && (_v2 = _v0 ? _v0.length : 0), void 0 === _v3 && (_v3 = 0), void 0 === _v4 && (_v4 = this.length), _v1 < 0 || _v2 > _v0.length || _v3 < 0 || _v4 > this.length) throw RangeError("out of range index");
     if (_v3 >= _v4 && _v1 >= _v2) return 0;
     if (_v3 >= _v4) return -1;
@@ -830,14 +830,14 @@
       break;
     }
     return _v5 < _v6 ? -1 : +(_v6 < _v5);
-  }, _v79.prototype.includes = function (_v0, _v1, _v2) {
+  }, _v78.prototype.includes = function (_v0, _v1, _v2) {
     return -1 !== this.indexOf(_v0, _v1, _v2);
-  }, _v79.prototype.indexOf = function (_v0, _v1, _v2) {
-    return _v89(this, _v0, _v1, _v2, !0);
-  }, _v79.prototype.lastIndexOf = function (_v0, _v1, _v2) {
-    return _v89(this, _v0, _v1, _v2, !1);
+  }, _v78.prototype.indexOf = function (_v0, _v1, _v2) {
+    return _v88(this, _v0, _v1, _v2, !0);
+  }, _v78.prototype.lastIndexOf = function (_v0, _v1, _v2) {
+    return _v88(this, _v0, _v1, _v2, !1);
   };
-  function _v91(_v0, _v1, _v2) {
+  function _v90(_v0, _v1, _v2) {
     _v2 = Math.min(_v0.length, _v2);
     for (var _v3 = [], _v4 = _v1; _v4 < _v2;) {
       var _v5,
@@ -868,33 +868,33 @@
     for (var _v14 = "", _v15 = 0; _v15 < _v13;) _v14 += String.fromCharCode.apply(String, _v12.slice(_v15, _v15 += 0));
     return _v14;
   }
-  function _v92(_v0, _v1, _v2) {
+  function _v91(_v0, _v1, _v2) {
     if (_v0 % 1 != 0 || _v0 < 0) throw RangeError("offset is not uint");
     if (_v0 + _v1 > _v2) throw RangeError("Trying to access beyond buffer length");
   }
-  function _v93(_v0, _v1, _v2, _v3, _v4, _v5) {
-    if (!_v85(_v0)) throw TypeError('"buffer" argument must be a Buffer instance');
+  function _v92(_v0, _v1, _v2, _v3, _v4, _v5) {
+    if (!_v84(_v0)) throw TypeError('"buffer" argument must be a Buffer instance');
     if (_v1 > _v4 || _v1 < _v5) throw RangeError('"value" argument is out of bounds');
     if (_v2 + _v3 > _v0.length) throw RangeError("Index out of range");
   }
-  function _v94(_v0, _v1, _v2, _v3) {
+  function _v93(_v0, _v1, _v2, _v3) {
     _v1 < 0 && (_v1 = 0 + _v1 + 1);
     for (var _v4 = 0, _v5 = Math.min(_v0.length - _v2, 2); _v4 < _v5; ++_v4) _v0[_v2 + _v4] = (_v1 & 255 << 8 * (_v3 ? _v4 : 1 - _v4)) >>> (_v3 ? _v4 : 1 - _v4) * 8;
   }
-  function _v95(_v0, _v1, _v2, _v3) {
+  function _v94(_v0, _v1, _v2, _v3) {
     _v1 < 0 && (_v1 = 0 + _v1 + 1);
     for (var _v4 = 0, _v5 = Math.min(_v0.length - _v2, 4); _v4 < _v5; ++_v4) _v0[_v2 + _v4] = _v1 >>> (_v3 ? _v4 : 3 - _v4) * 8 & 255;
   }
-  function _v96(_v0, _v1, _v2, _v3, _v4, _v5) {
+  function _v95(_v0, _v1, _v2, _v3, _v4, _v5) {
     if (_v2 + _v3 > _v0.length || _v2 < 0) throw RangeError("Index out of range");
   }
+  function _v96(_v0, _v1, _v2, _v3, _v4) {
+    return _v4 || _v95(_v0, _v1, _v2, 4), _v73(_v0, _v1, _v2, _v3, 23, 4), _v2 + 4;
+  }
   function _v97(_v0, _v1, _v2, _v3, _v4) {
-    return _v4 || _v96(_v0, _v1, _v2, 4), _v74(_v0, _v1, _v2, _v3, 23, 4), _v2 + 4;
+    return _v4 || _v95(_v0, _v1, _v2, 8), _v73(_v0, _v1, _v2, _v3, 52, 8), _v2 + 8;
   }
-  function _v98(_v0, _v1, _v2, _v3, _v4) {
-    return _v4 || _v96(_v0, _v1, _v2, 8), _v74(_v0, _v1, _v2, _v3, 52, 8), _v2 + 8;
-  }
-  _v79.prototype.write = function (_v0, _v1, _v2, _v3) {
+  _v78.prototype.write = function (_v0, _v1, _v2, _v3) {
     if (void 0 === _v1) _v3 = "utf8", _v2 = this.length, _v1 = 0;else if (void 0 === _v2 && "string" == typeof _v1) _v3 = _v1, _v2 = this.length, _v1 = 0;else if (isFinite(_v1)) _v1 |= 0, isFinite(_v2) ? (_v2 |= 0, void 0 === _v3 && (_v3 = "utf8")) : (_v3 = _v2, _v2 = void 0);else throw Error("Buffer.write(string, encoding, offset[, length]) is no longer supported");
     var _v4,
       _v5,
@@ -925,21 +925,21 @@
         }(this, _v0, _v1, _v2);
       case "utf8":
       case "utf-8":
-        return _v4 = _v1, _v5 = _v2, _v103(_v100(_v0, this.length - _v4), this, _v4, _v5);
+        return _v4 = _v1, _v5 = _v2, _v102(_v99(_v0, this.length - _v4), this, _v4, _v5);
       case "ascii":
-        return _v6 = _v1, _v7 = _v2, _v103(_v101(_v0), this, _v6, _v7);
+        return _v6 = _v1, _v7 = _v2, _v102(_v100(_v0), this, _v6, _v7);
       case "latin1":
       case "binary":
         return function (_v0, _v1, _v2, _v3) {
-          return _v103(_v101(_v1), _v0, _v2, _v3);
+          return _v102(_v100(_v1), _v0, _v2, _v3);
         }(this, _v0, _v1, _v2);
       case "base64":
-        return _v8 = _v1, _v9 = _v2, _v103(_v102(_v0), this, _v8, _v9);
+        return _v8 = _v1, _v9 = _v2, _v102(_v101(_v0), this, _v8, _v9);
       case "ucs2":
       case "ucs-2":
       case "utf16le":
       case "utf-16le":
-        return _v10 = _v1, _v11 = _v2, _v103(function (_v0, _v1) {
+        return _v10 = _v1, _v11 = _v2, _v102(function (_v0, _v1) {
           for (var _v2, _v3, _v4 = [], _v5 = 0; _v5 < _v0.length && !((_v1 -= 2) < 0); ++_v5) _v3 = (_v2 = _v0.charCodeAt(_v5)) >> 8, _v4.push(_v2 % 256), _v4.push(_v3);
           return _v4;
         }(_v0, this.length - _v10), this, _v10, _v11);
@@ -947,135 +947,135 @@
         if (_v13) throw TypeError("Unknown encoding: " + _v3);
         _v3 = ("" + _v3).toLowerCase(), _v13 = !0;
     }
-  }, _v79.prototype.toJSON = function () {
+  }, _v78.prototype.toJSON = function () {
     return {
       type: "Buffer",
       data: Array.prototype.slice.call(this._arr || this, 0)
     };
-  }, _v79.prototype.slice = function (_v0, _v1) {
+  }, _v78.prototype.slice = function (_v0, _v1) {
     var _v2,
       _v3 = this.length;
-    if (_v0 = ~~_v0, _v1 = void 0 === _v1 ? _v3 : ~~_v1, _v0 < 0 ? (_v0 += _v3) < 0 && (_v0 = 0) : _v0 > _v3 && (_v0 = _v3), _v1 < 0 ? (_v1 += _v3) < 0 && (_v1 = 0) : _v1 > _v3 && (_v1 = _v3), _v1 < _v0 && (_v1 = _v0), _v79.TYPED_ARRAY_SUPPORT) (_v2 = this.subarray(_v0, _v1)).__proto__ = _v79.prototype;else {
+    if (_v0 = ~~_v0, _v1 = void 0 === _v1 ? _v3 : ~~_v1, _v0 < 0 ? (_v0 += _v3) < 0 && (_v0 = 0) : _v0 > _v3 && (_v0 = _v3), _v1 < 0 ? (_v1 += _v3) < 0 && (_v1 = 0) : _v1 > _v3 && (_v1 = _v3), _v1 < _v0 && (_v1 = _v0), _v78.TYPED_ARRAY_SUPPORT) (_v2 = this.subarray(_v0, _v1)).__proto__ = _v78.prototype;else {
       var _v4 = _v1 - _v0;
-      _v2 = new _v79(_v4, void 0);
+      _v2 = new _v78(_v4, void 0);
       for (var _v5 = 0; _v5 < _v4; ++_v5) _v2[_v5] = this[_v5 + _v0];
     }
     return _v2;
-  }, _v79.prototype.readUIntLE = function (_v0, _v1, _v2) {
-    _v0 |= 0, _v1 |= 0, _v2 || _v92(_v0, _v1, this.length);
+  }, _v78.prototype.readUIntLE = function (_v0, _v1, _v2) {
+    _v0 |= 0, _v1 |= 0, _v2 || _v91(_v0, _v1, this.length);
     for (var _v3 = this[_v0], _v4 = 1, _v5 = 0; ++_v5 < _v1 && (_v4 *= 256);) _v3 += this[_v0 + _v5] * _v4;
     return _v3;
-  }, _v79.prototype.readUIntBE = function (_v0, _v1, _v2) {
-    _v0 |= 0, _v1 |= 0, _v2 || _v92(_v0, _v1, this.length);
+  }, _v78.prototype.readUIntBE = function (_v0, _v1, _v2) {
+    _v0 |= 0, _v1 |= 0, _v2 || _v91(_v0, _v1, this.length);
     for (var _v3 = this[_v0 + --_v1], _v4 = 1; _v1 > 0 && (_v4 *= 256);) _v3 += this[_v0 + --_v1] * _v4;
     return _v3;
-  }, _v79.prototype.readUInt8 = function (_v0, _v1) {
-    return _v1 || _v92(_v0, 1, this.length), this[_v0];
-  }, _v79.prototype.readUInt16LE = function (_v0, _v1) {
-    return _v1 || _v92(_v0, 2, this.length), this[_v0] | this[_v0 + 1] << 8;
-  }, _v79.prototype.readUInt16BE = function (_v0, _v1) {
-    return _v1 || _v92(_v0, 2, this.length), this[_v0] << 8 | this[_v0 + 1];
-  }, _v79.prototype.readUInt32LE = function (_v0, _v1) {
-    return _v1 || _v92(_v0, 4, this.length), (this[_v0] | this[_v0 + 1] << 8 | this[_v0 + 2] << 16) + 0 * this[_v0 + 3];
-  }, _v79.prototype.readUInt32BE = function (_v0, _v1) {
-    return _v1 || _v92(_v0, 4, this.length), 0 * this[_v0] + (this[_v0 + 1] << 16 | this[_v0 + 2] << 8 | this[_v0 + 3]);
-  }, _v79.prototype.readIntLE = function (_v0, _v1, _v2) {
-    _v0 |= 0, _v1 |= 0, _v2 || _v92(_v0, _v1, this.length);
+  }, _v78.prototype.readUInt8 = function (_v0, _v1) {
+    return _v1 || _v91(_v0, 1, this.length), this[_v0];
+  }, _v78.prototype.readUInt16LE = function (_v0, _v1) {
+    return _v1 || _v91(_v0, 2, this.length), this[_v0] | this[_v0 + 1] << 8;
+  }, _v78.prototype.readUInt16BE = function (_v0, _v1) {
+    return _v1 || _v91(_v0, 2, this.length), this[_v0] << 8 | this[_v0 + 1];
+  }, _v78.prototype.readUInt32LE = function (_v0, _v1) {
+    return _v1 || _v91(_v0, 4, this.length), (this[_v0] | this[_v0 + 1] << 8 | this[_v0 + 2] << 16) + 0 * this[_v0 + 3];
+  }, _v78.prototype.readUInt32BE = function (_v0, _v1) {
+    return _v1 || _v91(_v0, 4, this.length), 0 * this[_v0] + (this[_v0 + 1] << 16 | this[_v0 + 2] << 8 | this[_v0 + 3]);
+  }, _v78.prototype.readIntLE = function (_v0, _v1, _v2) {
+    _v0 |= 0, _v1 |= 0, _v2 || _v91(_v0, _v1, this.length);
     for (var _v3 = this[_v0], _v4 = 1, _v5 = 0; ++_v5 < _v1 && (_v4 *= 256);) _v3 += this[_v0 + _v5] * _v4;
     return _v3 >= (_v4 *= 128) && (_v3 -= Math.pow(2, 8 * _v1)), _v3;
-  }, _v79.prototype.readIntBE = function (_v0, _v1, _v2) {
-    _v0 |= 0, _v1 |= 0, _v2 || _v92(_v0, _v1, this.length);
+  }, _v78.prototype.readIntBE = function (_v0, _v1, _v2) {
+    _v0 |= 0, _v1 |= 0, _v2 || _v91(_v0, _v1, this.length);
     for (var _v3 = _v1, _v4 = 1, _v5 = this[_v0 + --_v3]; _v3 > 0 && (_v4 *= 256);) _v5 += this[_v0 + --_v3] * _v4;
     return _v5 >= (_v4 *= 128) && (_v5 -= Math.pow(2, 8 * _v1)), _v5;
-  }, _v79.prototype.readInt8 = function (_v0, _v1) {
-    return (_v1 || _v92(_v0, 1, this.length), 128 & this[_v0]) ? -((255 - this[_v0] + 1) * 1) : this[_v0];
-  }, _v79.prototype.readInt16LE = function (_v0, _v1) {
-    _v1 || _v92(_v0, 2, this.length);
+  }, _v78.prototype.readInt8 = function (_v0, _v1) {
+    return (_v1 || _v91(_v0, 1, this.length), 128 & this[_v0]) ? -((255 - this[_v0] + 1) * 1) : this[_v0];
+  }, _v78.prototype.readInt16LE = function (_v0, _v1) {
+    _v1 || _v91(_v0, 2, this.length);
     var _v2 = this[_v0] | this[_v0 + 1] << 8;
     return 0 & _v2 ? 0 | _v2 : _v2;
-  }, _v79.prototype.readInt16BE = function (_v0, _v1) {
-    _v1 || _v92(_v0, 2, this.length);
+  }, _v78.prototype.readInt16BE = function (_v0, _v1) {
+    _v1 || _v91(_v0, 2, this.length);
     var _v2 = this[_v0 + 1] | this[_v0] << 8;
     return 0 & _v2 ? 0 | _v2 : _v2;
-  }, _v79.prototype.readInt32LE = function (_v0, _v1) {
-    return _v1 || _v92(_v0, 4, this.length), this[_v0] | this[_v0 + 1] << 8 | this[_v0 + 2] << 16 | this[_v0 + 3] << 24;
-  }, _v79.prototype.readInt32BE = function (_v0, _v1) {
-    return _v1 || _v92(_v0, 4, this.length), this[_v0] << 24 | this[_v0 + 1] << 16 | this[_v0 + 2] << 8 | this[_v0 + 3];
-  }, _v79.prototype.readFloatLE = function (_v0, _v1) {
-    return _v1 || _v92(_v0, 4, this.length), _v73(this, _v0, !0, 23, 4);
-  }, _v79.prototype.readFloatBE = function (_v0, _v1) {
-    return _v1 || _v92(_v0, 4, this.length), _v73(this, _v0, !1, 23, 4);
-  }, _v79.prototype.readDoubleLE = function (_v0, _v1) {
-    return _v1 || _v92(_v0, 8, this.length), _v73(this, _v0, !0, 52, 8);
-  }, _v79.prototype.readDoubleBE = function (_v0, _v1) {
-    return _v1 || _v92(_v0, 8, this.length), _v73(this, _v0, !1, 52, 8);
-  }, _v79.prototype.writeUIntLE = function (_v0, _v1, _v2, _v3) {
+  }, _v78.prototype.readInt32LE = function (_v0, _v1) {
+    return _v1 || _v91(_v0, 4, this.length), this[_v0] | this[_v0 + 1] << 8 | this[_v0 + 2] << 16 | this[_v0 + 3] << 24;
+  }, _v78.prototype.readInt32BE = function (_v0, _v1) {
+    return _v1 || _v91(_v0, 4, this.length), this[_v0] << 24 | this[_v0 + 1] << 16 | this[_v0 + 2] << 8 | this[_v0 + 3];
+  }, _v78.prototype.readFloatLE = function (_v0, _v1) {
+    return _v1 || _v91(_v0, 4, this.length), _v72(this, _v0, !0, 23, 4);
+  }, _v78.prototype.readFloatBE = function (_v0, _v1) {
+    return _v1 || _v91(_v0, 4, this.length), _v72(this, _v0, !1, 23, 4);
+  }, _v78.prototype.readDoubleLE = function (_v0, _v1) {
+    return _v1 || _v91(_v0, 8, this.length), _v72(this, _v0, !0, 52, 8);
+  }, _v78.prototype.readDoubleBE = function (_v0, _v1) {
+    return _v1 || _v91(_v0, 8, this.length), _v72(this, _v0, !1, 52, 8);
+  }, _v78.prototype.writeUIntLE = function (_v0, _v1, _v2, _v3) {
     if (_v0 *= 1, _v1 |= 0, _v2 |= 0, !_v3) {
       var _v4 = Math.pow(2, 8 * _v2) - 1;
-      _v93(this, _v0, _v1, _v2, _v4, 0);
+      _v92(this, _v0, _v1, _v2, _v4, 0);
     }
     var _v5 = 1,
       _v6 = 0;
     for (this[_v1] = 255 & _v0; ++_v6 < _v2 && (_v5 *= 256);) this[_v1 + _v6] = _v0 / _v5 & 255;
     return _v1 + _v2;
-  }, _v79.prototype.writeUIntBE = function (_v0, _v1, _v2, _v3) {
+  }, _v78.prototype.writeUIntBE = function (_v0, _v1, _v2, _v3) {
     if (_v0 *= 1, _v1 |= 0, _v2 |= 0, !_v3) {
       var _v4 = Math.pow(2, 8 * _v2) - 1;
-      _v93(this, _v0, _v1, _v2, _v4, 0);
+      _v92(this, _v0, _v1, _v2, _v4, 0);
     }
     var _v5 = _v2 - 1,
       _v6 = 1;
     for (this[_v1 + _v5] = 255 & _v0; --_v5 >= 0 && (_v6 *= 256);) this[_v1 + _v5] = _v0 / _v6 & 255;
     return _v1 + _v2;
-  }, _v79.prototype.writeUInt8 = function (_v0, _v1, _v2) {
-    return _v0 *= 1, _v1 |= 0, _v2 || _v93(this, _v0, _v1, 1, 255, 0), _v79.TYPED_ARRAY_SUPPORT || (_v0 = Math.floor(_v0)), this[_v1] = 255 & _v0, _v1 + 1;
-  }, _v79.prototype.writeUInt16LE = function (_v0, _v1, _v2) {
-    return _v0 *= 1, _v1 |= 0, _v2 || _v93(this, _v0, _v1, 2, 0, 0), _v79.TYPED_ARRAY_SUPPORT ? (this[_v1] = 255 & _v0, this[_v1 + 1] = _v0 >>> 8) : _v94(this, _v0, _v1, !0), _v1 + 2;
-  }, _v79.prototype.writeUInt16BE = function (_v0, _v1, _v2) {
-    return _v0 *= 1, _v1 |= 0, _v2 || _v93(this, _v0, _v1, 2, 0, 0), _v79.TYPED_ARRAY_SUPPORT ? (this[_v1] = _v0 >>> 8, this[_v1 + 1] = 255 & _v0) : _v94(this, _v0, _v1, !1), _v1 + 2;
-  }, _v79.prototype.writeUInt32LE = function (_v0, _v1, _v2) {
-    return _v0 *= 1, _v1 |= 0, _v2 || _v93(this, _v0, _v1, 4, 0, 0), _v79.TYPED_ARRAY_SUPPORT ? (this[_v1 + 3] = _v0 >>> 24, this[_v1 + 2] = _v0 >>> 16, this[_v1 + 1] = _v0 >>> 8, this[_v1] = 255 & _v0) : _v95(this, _v0, _v1, !0), _v1 + 4;
-  }, _v79.prototype.writeUInt32BE = function (_v0, _v1, _v2) {
-    return _v0 *= 1, _v1 |= 0, _v2 || _v93(this, _v0, _v1, 4, 0, 0), _v79.TYPED_ARRAY_SUPPORT ? (this[_v1] = _v0 >>> 24, this[_v1 + 1] = _v0 >>> 16, this[_v1 + 2] = _v0 >>> 8, this[_v1 + 3] = 255 & _v0) : _v95(this, _v0, _v1, !1), _v1 + 4;
-  }, _v79.prototype.writeIntLE = function (_v0, _v1, _v2, _v3) {
+  }, _v78.prototype.writeUInt8 = function (_v0, _v1, _v2) {
+    return _v0 *= 1, _v1 |= 0, _v2 || _v92(this, _v0, _v1, 1, 255, 0), _v78.TYPED_ARRAY_SUPPORT || (_v0 = Math.floor(_v0)), this[_v1] = 255 & _v0, _v1 + 1;
+  }, _v78.prototype.writeUInt16LE = function (_v0, _v1, _v2) {
+    return _v0 *= 1, _v1 |= 0, _v2 || _v92(this, _v0, _v1, 2, 0, 0), _v78.TYPED_ARRAY_SUPPORT ? (this[_v1] = 255 & _v0, this[_v1 + 1] = _v0 >>> 8) : _v93(this, _v0, _v1, !0), _v1 + 2;
+  }, _v78.prototype.writeUInt16BE = function (_v0, _v1, _v2) {
+    return _v0 *= 1, _v1 |= 0, _v2 || _v92(this, _v0, _v1, 2, 0, 0), _v78.TYPED_ARRAY_SUPPORT ? (this[_v1] = _v0 >>> 8, this[_v1 + 1] = 255 & _v0) : _v93(this, _v0, _v1, !1), _v1 + 2;
+  }, _v78.prototype.writeUInt32LE = function (_v0, _v1, _v2) {
+    return _v0 *= 1, _v1 |= 0, _v2 || _v92(this, _v0, _v1, 4, 0, 0), _v78.TYPED_ARRAY_SUPPORT ? (this[_v1 + 3] = _v0 >>> 24, this[_v1 + 2] = _v0 >>> 16, this[_v1 + 1] = _v0 >>> 8, this[_v1] = 255 & _v0) : _v94(this, _v0, _v1, !0), _v1 + 4;
+  }, _v78.prototype.writeUInt32BE = function (_v0, _v1, _v2) {
+    return _v0 *= 1, _v1 |= 0, _v2 || _v92(this, _v0, _v1, 4, 0, 0), _v78.TYPED_ARRAY_SUPPORT ? (this[_v1] = _v0 >>> 24, this[_v1 + 1] = _v0 >>> 16, this[_v1 + 2] = _v0 >>> 8, this[_v1 + 3] = 255 & _v0) : _v94(this, _v0, _v1, !1), _v1 + 4;
+  }, _v78.prototype.writeIntLE = function (_v0, _v1, _v2, _v3) {
     if (_v0 *= 1, _v1 |= 0, !_v3) {
       var _v4 = Math.pow(2, 8 * _v2 - 1);
-      _v93(this, _v0, _v1, _v2, _v4 - 1, -_v4);
+      _v92(this, _v0, _v1, _v2, _v4 - 1, -_v4);
     }
     var _v5 = 0,
       _v6 = 1,
       _v7 = 0;
     for (this[_v1] = 255 & _v0; ++_v5 < _v2 && (_v6 *= 256);) _v0 < 0 && 0 === _v7 && 0 !== this[_v1 + _v5 - 1] && (_v7 = 1), this[_v1 + _v5] = (_v0 / _v6 | 0) - _v7 & 255;
     return _v1 + _v2;
-  }, _v79.prototype.writeIntBE = function (_v0, _v1, _v2, _v3) {
+  }, _v78.prototype.writeIntBE = function (_v0, _v1, _v2, _v3) {
     if (_v0 *= 1, _v1 |= 0, !_v3) {
       var _v4 = Math.pow(2, 8 * _v2 - 1);
-      _v93(this, _v0, _v1, _v2, _v4 - 1, -_v4);
+      _v92(this, _v0, _v1, _v2, _v4 - 1, -_v4);
     }
     var _v5 = _v2 - 1,
       _v6 = 1,
       _v7 = 0;
     for (this[_v1 + _v5] = 255 & _v0; --_v5 >= 0 && (_v6 *= 256);) _v0 < 0 && 0 === _v7 && 0 !== this[_v1 + _v5 + 1] && (_v7 = 1), this[_v1 + _v5] = (_v0 / _v6 | 0) - _v7 & 255;
     return _v1 + _v2;
-  }, _v79.prototype.writeInt8 = function (_v0, _v1, _v2) {
-    return _v0 *= 1, _v1 |= 0, _v2 || _v93(this, _v0, _v1, 1, 127, -128), _v79.TYPED_ARRAY_SUPPORT || (_v0 = Math.floor(_v0)), _v0 < 0 && (_v0 = 255 + _v0 + 1), this[_v1] = 255 & _v0, _v1 + 1;
-  }, _v79.prototype.writeInt16LE = function (_v0, _v1, _v2) {
-    return _v0 *= 1, _v1 |= 0, _v2 || _v93(this, _v0, _v1, 2, 0, 0), _v79.TYPED_ARRAY_SUPPORT ? (this[_v1] = 255 & _v0, this[_v1 + 1] = _v0 >>> 8) : _v94(this, _v0, _v1, !0), _v1 + 2;
-  }, _v79.prototype.writeInt16BE = function (_v0, _v1, _v2) {
-    return _v0 *= 1, _v1 |= 0, _v2 || _v93(this, _v0, _v1, 2, 0, 0), _v79.TYPED_ARRAY_SUPPORT ? (this[_v1] = _v0 >>> 8, this[_v1 + 1] = 255 & _v0) : _v94(this, _v0, _v1, !1), _v1 + 2;
-  }, _v79.prototype.writeInt32LE = function (_v0, _v1, _v2) {
-    return _v0 *= 1, _v1 |= 0, _v2 || _v93(this, _v0, _v1, 4, 0, 0), _v79.TYPED_ARRAY_SUPPORT ? (this[_v1] = 255 & _v0, this[_v1 + 1] = _v0 >>> 8, this[_v1 + 2] = _v0 >>> 16, this[_v1 + 3] = _v0 >>> 24) : _v95(this, _v0, _v1, !0), _v1 + 4;
-  }, _v79.prototype.writeInt32BE = function (_v0, _v1, _v2) {
-    return _v0 *= 1, _v1 |= 0, _v2 || _v93(this, _v0, _v1, 4, 0, 0), _v0 < 0 && (_v0 = 0 + _v0 + 1), _v79.TYPED_ARRAY_SUPPORT ? (this[_v1] = _v0 >>> 24, this[_v1 + 1] = _v0 >>> 16, this[_v1 + 2] = _v0 >>> 8, this[_v1 + 3] = 255 & _v0) : _v95(this, _v0, _v1, !1), _v1 + 4;
-  }, _v79.prototype.writeFloatLE = function (_v0, _v1, _v2) {
+  }, _v78.prototype.writeInt8 = function (_v0, _v1, _v2) {
+    return _v0 *= 1, _v1 |= 0, _v2 || _v92(this, _v0, _v1, 1, 127, -128), _v78.TYPED_ARRAY_SUPPORT || (_v0 = Math.floor(_v0)), _v0 < 0 && (_v0 = 255 + _v0 + 1), this[_v1] = 255 & _v0, _v1 + 1;
+  }, _v78.prototype.writeInt16LE = function (_v0, _v1, _v2) {
+    return _v0 *= 1, _v1 |= 0, _v2 || _v92(this, _v0, _v1, 2, 0, 0), _v78.TYPED_ARRAY_SUPPORT ? (this[_v1] = 255 & _v0, this[_v1 + 1] = _v0 >>> 8) : _v93(this, _v0, _v1, !0), _v1 + 2;
+  }, _v78.prototype.writeInt16BE = function (_v0, _v1, _v2) {
+    return _v0 *= 1, _v1 |= 0, _v2 || _v92(this, _v0, _v1, 2, 0, 0), _v78.TYPED_ARRAY_SUPPORT ? (this[_v1] = _v0 >>> 8, this[_v1 + 1] = 255 & _v0) : _v93(this, _v0, _v1, !1), _v1 + 2;
+  }, _v78.prototype.writeInt32LE = function (_v0, _v1, _v2) {
+    return _v0 *= 1, _v1 |= 0, _v2 || _v92(this, _v0, _v1, 4, 0, 0), _v78.TYPED_ARRAY_SUPPORT ? (this[_v1] = 255 & _v0, this[_v1 + 1] = _v0 >>> 8, this[_v1 + 2] = _v0 >>> 16, this[_v1 + 3] = _v0 >>> 24) : _v94(this, _v0, _v1, !0), _v1 + 4;
+  }, _v78.prototype.writeInt32BE = function (_v0, _v1, _v2) {
+    return _v0 *= 1, _v1 |= 0, _v2 || _v92(this, _v0, _v1, 4, 0, 0), _v0 < 0 && (_v0 = 0 + _v0 + 1), _v78.TYPED_ARRAY_SUPPORT ? (this[_v1] = _v0 >>> 24, this[_v1 + 1] = _v0 >>> 16, this[_v1 + 2] = _v0 >>> 8, this[_v1 + 3] = 255 & _v0) : _v94(this, _v0, _v1, !1), _v1 + 4;
+  }, _v78.prototype.writeFloatLE = function (_v0, _v1, _v2) {
+    return _v96(this, _v0, _v1, !0, _v2);
+  }, _v78.prototype.writeFloatBE = function (_v0, _v1, _v2) {
+    return _v96(this, _v0, _v1, !1, _v2);
+  }, _v78.prototype.writeDoubleLE = function (_v0, _v1, _v2) {
     return _v97(this, _v0, _v1, !0, _v2);
-  }, _v79.prototype.writeFloatBE = function (_v0, _v1, _v2) {
+  }, _v78.prototype.writeDoubleBE = function (_v0, _v1, _v2) {
     return _v97(this, _v0, _v1, !1, _v2);
-  }, _v79.prototype.writeDoubleLE = function (_v0, _v1, _v2) {
-    return _v98(this, _v0, _v1, !0, _v2);
-  }, _v79.prototype.writeDoubleBE = function (_v0, _v1, _v2) {
-    return _v98(this, _v0, _v1, !1, _v2);
-  }, _v79.prototype.copy = function (_v0, _v1, _v2, _v3) {
+  }, _v78.prototype.copy = function (_v0, _v1, _v2, _v3) {
     if (_v2 || (_v2 = 0), _v3 || 0 === _v3 || (_v3 = this.length), _v1 >= _v0.length && (_v1 = _v0.length), _v1 || (_v1 = 0), _v3 > 0 && _v3 < _v2 && (_v3 = _v2), _v3 === _v2 || 0 === _v0.length || 0 === this.length) return 0;
     if (_v1 < 0) throw RangeError("targetStart out of bounds");
     if (_v2 < 0 || _v2 >= this.length) throw RangeError("sourceStart out of bounds");
@@ -1083,9 +1083,9 @@
     _v3 > this.length && (_v3 = this.length), _v0.length - _v1 < _v3 - _v2 && (_v3 = _v0.length - _v1 + _v2);
     var _v4,
       _v5 = _v3 - _v2;
-    if (this === _v0 && _v2 < _v1 && _v1 < _v3) for (_v4 = _v5 - 1; _v4 >= 0; --_v4) _v0[_v4 + _v1] = this[_v4 + _v2];else if (_v5 < 0 || !_v79.TYPED_ARRAY_SUPPORT) for (_v4 = 0; _v4 < _v5; ++_v4) _v0[_v4 + _v1] = this[_v4 + _v2];else Uint8Array.prototype.set.call(_v0, this.subarray(_v2, _v2 + _v5), _v1);
+    if (this === _v0 && _v2 < _v1 && _v1 < _v3) for (_v4 = _v5 - 1; _v4 >= 0; --_v4) _v0[_v4 + _v1] = this[_v4 + _v2];else if (_v5 < 0 || !_v78.TYPED_ARRAY_SUPPORT) for (_v4 = 0; _v4 < _v5; ++_v4) _v0[_v4 + _v1] = this[_v4 + _v2];else Uint8Array.prototype.set.call(_v0, this.subarray(_v2, _v2 + _v5), _v1);
     return _v5;
-  }, _v79.prototype.fill = function (_v0, _v1, _v2, _v3) {
+  }, _v78.prototype.fill = function (_v0, _v1, _v2, _v3) {
     if ("string" == typeof _v0) {
       if ("string" == typeof _v1 ? (_v3 = _v1, _v1 = 0, _v2 = this.length) : "string" == typeof _v2 && (_v3 = _v2, _v2 = this.length), 1 === _v0.length) {
         var _v4,
@@ -1093,19 +1093,19 @@
         _v5 < 256 && (_v0 = _v5);
       }
       if (void 0 !== _v3 && "string" != typeof _v3) throw TypeError("encoding must be a string");
-      if ("string" == typeof _v3 && !_v79.isEncoding(_v3)) throw TypeError("Unknown encoding: " + _v3);
+      if ("string" == typeof _v3 && !_v78.isEncoding(_v3)) throw TypeError("Unknown encoding: " + _v3);
     } else "number" == typeof _v0 && (_v0 &= 255);
     if (_v1 < 0 || this.length < _v1 || this.length < _v2) throw RangeError("Out of range index");
     if (_v2 <= _v1) return this;
     if (_v1 >>>= 0, _v2 = void 0 === _v2 ? this.length : _v2 >>> 0, _v0 || (_v0 = 0), "number" == typeof _v0) for (_v4 = _v1; _v4 < _v2; ++_v4) this[_v4] = _v0;else {
-      var _v6 = _v85(_v0) ? _v0 : _v100(new _v79(_v0, _v3).toString()),
+      var _v6 = _v84(_v0) ? _v0 : _v99(new _v78(_v0, _v3).toString()),
         _v7 = _v6.length;
       for (_v4 = 0; _v4 < _v2 - _v1; ++_v4) this[_v4 + _v1] = _v6[_v4 % _v7];
     }
     return this;
   };
-  var _v99 = /[^+\/0-9A-Za-z-_]/g;
-  function _v100(_v0, _v1) {
+  var _v98 = /[^+\/0-9A-Za-z-_]/g;
+  function _v99(_v0, _v1) {
     _v1 = _v1 || 1 / 0;
     for (var _v2, _v3 = _v0.length, _v4 = null, _v5 = [], _v6 = 0; _v6 < _v3; ++_v6) {
       if ((_v2 = _v0.charCodeAt(_v6)) > 0 && _v2 < 0) {
@@ -1139,13 +1139,13 @@
     }
     return _v5;
   }
-  function _v101(_v0) {
+  function _v100(_v0) {
     for (var _v1 = [], _v2 = 0; _v2 < _v0.length; ++_v2) _v1.push(255 & _v0.charCodeAt(_v2));
     return _v1;
   }
-  function _v102(_v0) {
+  function _v101(_v0) {
     return function (_v0) {
-      _v70 || _v71();
+      _v69 || _v70();
       var _v1,
         _v2,
         _v3,
@@ -1154,40 +1154,40 @@
         _v6,
         _v7 = _v0.length;
       if (_v7 % 4 > 0) throw Error("Invalid string. Length must be a multiple of 4");
-      _v5 = "=" === _v0[_v7 - 2] ? 2 : +("=" === _v0[_v7 - 1]), _v6 = new _v69(3 * _v7 / 4 - _v5), _v3 = _v5 > 0 ? _v7 - 4 : _v7;
+      _v5 = "=" === _v0[_v7 - 2] ? 2 : +("=" === _v0[_v7 - 1]), _v6 = new _v68(3 * _v7 / 4 - _v5), _v3 = _v5 > 0 ? _v7 - 4 : _v7;
       var _v8 = 0;
-      for (_v1 = 0, _v2 = 0; _v1 < _v3; _v1 += 4, _v2 += 3) _v4 = _v68[_v0.charCodeAt(_v1)] << 18 | _v68[_v0.charCodeAt(_v1 + 1)] << 12 | _v68[_v0.charCodeAt(_v1 + 2)] << 6 | _v68[_v0.charCodeAt(_v1 + 3)], _v6[_v8++] = _v4 >> 16 & 255, _v6[_v8++] = _v4 >> 8 & 255, _v6[_v8++] = 255 & _v4;
-      return 2 === _v5 ? (_v4 = _v68[_v0.charCodeAt(_v1)] << 2 | _v68[_v0.charCodeAt(_v1 + 1)] >> 4, _v6[_v8++] = 255 & _v4) : 1 === _v5 && (_v4 = _v68[_v0.charCodeAt(_v1)] << 10 | _v68[_v0.charCodeAt(_v1 + 1)] << 4 | _v68[_v0.charCodeAt(_v1 + 2)] >> 2, _v6[_v8++] = _v4 >> 8 & 255, _v6[_v8++] = 255 & _v4), _v6;
+      for (_v1 = 0, _v2 = 0; _v1 < _v3; _v1 += 4, _v2 += 3) _v4 = _v67[_v0.charCodeAt(_v1)] << 18 | _v67[_v0.charCodeAt(_v1 + 1)] << 12 | _v67[_v0.charCodeAt(_v1 + 2)] << 6 | _v67[_v0.charCodeAt(_v1 + 3)], _v6[_v8++] = _v4 >> 16 & 255, _v6[_v8++] = _v4 >> 8 & 255, _v6[_v8++] = 255 & _v4;
+      return 2 === _v5 ? (_v4 = _v67[_v0.charCodeAt(_v1)] << 2 | _v67[_v0.charCodeAt(_v1 + 1)] >> 4, _v6[_v8++] = 255 & _v4) : 1 === _v5 && (_v4 = _v67[_v0.charCodeAt(_v1)] << 10 | _v67[_v0.charCodeAt(_v1 + 1)] << 4 | _v67[_v0.charCodeAt(_v1 + 2)] >> 2, _v6[_v8++] = _v4 >> 8 & 255, _v6[_v8++] = 255 & _v4), _v6;
     }(function (_v0) {
       var _v1;
-      if ((_v0 = ((_v1 = _v0).trim ? _v1.trim() : _v1.replace(/^\s+|\s+$/g, "")).replace(_v99, "")).length < 2) return "";
+      if ((_v0 = ((_v1 = _v0).trim ? _v1.trim() : _v1.replace(/^\s+|\s+$/g, "")).replace(_v98, "")).length < 2) return "";
       for (; _v0.length % 4 != 0;) _v0 += "=";
       return _v0;
     }(_v0));
   }
-  function _v103(_v0, _v1, _v2, _v3) {
+  function _v102(_v0, _v1, _v2, _v3) {
     for (var _v4 = 0; _v4 < _v3 && !(_v4 + _v2 >= _v1.length) && !(_v4 >= _v0.length); ++_v4) _v1[_v4 + _v2] = _v0[_v4];
     return _v4;
   }
-  function _v104(_v0) {
+  function _v103(_v0) {
     var _v1;
-    return null != _v0 && (!!_v0._isBuffer || _v105(_v0) || "function" == typeof (_v1 = _v0).readFloatLE && "function" == typeof _v1.slice && _v105(_v1.slice(0, 0)));
+    return null != _v0 && (!!_v0._isBuffer || _v104(_v0) || "function" == typeof (_v1 = _v0).readFloatLE && "function" == typeof _v1.slice && _v104(_v1.slice(0, 0)));
   }
-  function _v105(_v0) {
+  function _v104(_v0) {
     return !!_v0.constructor && "function" == typeof _v0.constructor.isBuffer && _v0.constructor.isBuffer(_v0);
   }
-  class _v106 extends Error {
+  class _v105 extends Error {
     constructor(_v0, _v1, _v2, ..._v3) {
-      for (const _v0 of (Array.isArray(_v1) && (_v1 = _v1.join(" ").trim()), super(_v1), void 0 !== Error.captureStackTrace && Error.captureStackTrace(this, _v106), this.code = _v0, _v3)) for (const _v0 in _v0) {
+      for (const _v0 of (Array.isArray(_v1) && (_v1 = _v1.join(" ").trim()), super(_v1), void 0 !== Error.captureStackTrace && Error.captureStackTrace(this, _v105), this.code = _v0, _v3)) for (const _v0 in _v0) {
         const _v0 = _v0[_v0];
-        this[_v0] = _v104(_v0) ? _v0.toString(_v2.encoding) : null == _v0 ? _v0 : JSON.parse(JSON.stringify(_v0));
+        this[_v0] = _v103(_v0) ? _v0.toString(_v2.encoding) : null == _v0 ? _v0 : JSON.parse(JSON.stringify(_v0));
       }
     }
   }
-  let _v107 = function (_v0) {
+  let _v106 = function (_v0) {
       return "object" == typeof _v0 && null !== _v0 && !Array.isArray(_v0);
     },
-    _v108 = function (_v0) {
+    _v107 = function (_v0) {
       let _v1 = [];
       for (let _v0 = 0, _v1 = _v0.length; _v0 < _v1; _v0++) {
         let _v0 = _v0[_v0];
@@ -1195,23 +1195,23 @@
           disabled: !0
         };else if ("string" == typeof _v0 || "number" == typeof _v0) _v1[_v0] = {
           name: `${_v0}`
-        };else if (_v107(_v0)) {
-          if ("string" != typeof _v0.name) throw new _v106("CSV_OPTION_COLUMNS_MISSING_NAME", ["Option columns missing name:", `property "name" is required at position ${_v0}`, "when column is an object literal"]);
+        };else if (_v106(_v0)) {
+          if ("string" != typeof _v0.name) throw new _v105("CSV_OPTION_COLUMNS_MISSING_NAME", ["Option columns missing name:", `property "name" is required at position ${_v0}`, "when column is an object literal"]);
           _v1[_v0] = _v0;
-        } else throw new _v106("CSV_INVALID_COLUMN_DEFINITION", ["Invalid column definition:", "expect a string or a literal object,", `got ${JSON.stringify(_v0)} at position ${_v0}`]);
+        } else throw new _v105("CSV_INVALID_COLUMN_DEFINITION", ["Invalid column definition:", "expect a string or a literal object,", `got ${JSON.stringify(_v0)} at position ${_v0}`]);
       }
       return _v1;
     };
-  class _v109 {
+  class _v108 {
     constructor(_v0 = 100) {
-      this.size = _v0, this.length = 0, this.buf = _v79.allocUnsafe(_v0);
+      this.size = _v0, this.length = 0, this.buf = _v78.allocUnsafe(_v0);
     }
     prepend(_v0) {
-      if (_v104(_v0)) {
+      if (_v103(_v0)) {
         let _v0 = this.length + _v0.length;
         if (_v0 >= this.size && (this.resize(), _v0 >= this.size)) throw Error("INVALID_BUFFER_STATE");
         let _v1 = this.buf;
-        this.buf = _v79.allocUnsafe(this.size), _v0.copy(this.buf, 0), _v1.copy(this.buf, _v0.length), this.length += _v0.length;
+        this.buf = _v78.allocUnsafe(this.size), _v0.copy(this.buf, 0), _v1.copy(this.buf, _v0.length), this.length += _v0.length;
       } else {
         let _v0 = this.length++;
         _v0 === this.size && this.resize();
@@ -1224,12 +1224,12 @@
       _v1 === this.size && this.resize(), this.buf[_v1] = _v0;
     }
     clone() {
-      return _v79.from(this.buf.slice(0, this.length));
+      return _v78.from(this.buf.slice(0, this.length));
     }
     resize() {
       let _v0 = this.length;
       this.size = 2 * this.size;
-      let _v1 = _v79.allocUnsafe(this.size);
+      let _v1 = _v78.allocUnsafe(this.size);
       this.buf.copy(_v1, 0, 0, _v0), this.buf = _v1;
     }
     toString(_v0) {
@@ -1242,9 +1242,9 @@
       this.length = 0;
     }
   }
-  let _v110 = function (_v0) {
+  let _v109 = function (_v0) {
       let _v1 = [32, 9, 10, 13, 12, 11, 160, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0].reduce((_v0, _v1) => {
-          let _v2 = _v79.from(String.fromCharCode(_v1), _v0.encoding);
+          let _v2 = _v78.from(String.fromCharCode(_v1), _v0.encoding);
           return 63 !== _v1 && 1 === _v2.length && 63 === _v2[0] || _v0.push(_v2), _v0;
         }, []),
         _v2 = new Uint8Array(256);
@@ -1259,43 +1259,43 @@
         error: void 0,
         enabled: 1 === _v0.from_line,
         escaping: !1,
-        escapeIsQuote: _v104(_v0.escape) && _v104(_v0.quote) && 0 === _v79.compare(_v0.escape, _v0.quote),
+        escapeIsQuote: _v103(_v0.escape) && _v103(_v0.quote) && 0 === _v78.compare(_v0.escape, _v0.quote),
         expectedRecordLength: Array.isArray(_v0.columns) ? _v0.columns.length : void 0,
-        field: new _v109(20),
+        field: new _v108(20),
         firstLineToHeaders: _v0.cast_first_line_to_header,
         needMoreDataSize: Math.max(null !== _v0.comment ? _v0.comment.length : 0, ...(_v0.delimiter ? _v0.delimiter.map(_v0 => _v0.length) : []), +!!_v0.delimiter_auto, null !== _v0.quote ? _v0.quote.length : 0, ..._v1.map(_v0 => _v0.length)),
         previousBuf: void 0,
         quoting: !1,
         stop: !1,
-        rawBuffer: new _v109(100),
+        rawBuffer: new _v108(100),
         record: [],
         recordHasError: !1,
         record_length: 0,
         recordDelimiterMaxLength: 0 === _v0.record_delimiter.length ? 0 : Math.max(..._v0.record_delimiter.map(_v0 => _v0.length)),
-        trimChars: [_v79.from(" ", _v0.encoding)[0], _v79.from("	", _v0.encoding)[0]],
+        trimChars: [_v78.from(" ", _v0.encoding)[0], _v78.from("	", _v0.encoding)[0]],
         wasQuoting: !1,
         wasRowDelimiter: !1,
         timchars: _v1,
         timcharFirstBytes: _v2
       };
     },
-    _v111 = function (_v0) {
+    _v110 = function (_v0) {
       let _v1 = {};
       for (let _v0 in _v0) _v1[_v0.replace(/([A-Z])/g, function (_v0, _v1) {
         return "_" + _v1.toLowerCase();
       })] = _v0[_v0];
-      if (void 0 === _v1.encoding || !0 === _v1.encoding) _v1.encoding = "utf8";else if (null === _v1.encoding || !1 === _v1.encoding) _v1.encoding = null;else if ("string" != typeof _v1.encoding && null !== _v1.encoding) throw new _v106("CSV_INVALID_OPTION_ENCODING", ["Invalid option encoding:", "encoding must be a string or null to return a buffer,", `got ${JSON.stringify(_v1.encoding)}`], _v1);
-      if (void 0 === _v1.bom || null === _v1.bom || !1 === _v1.bom) _v1.bom = !1;else if (!0 !== _v1.bom) throw new _v106("CSV_INVALID_OPTION_BOM", ["Invalid option bom:", "bom must be true,", `got ${JSON.stringify(_v1.bom)}`], _v1);
-      if (_v1.cast_function = null, void 0 === _v1.cast || null === _v1.cast || !1 === _v1.cast || "" === _v1.cast) _v1.cast = void 0;else if ("function" == typeof _v1.cast) _v1.cast_function = _v1.cast, _v1.cast = !0;else if (!0 !== _v1.cast) throw new _v106("CSV_INVALID_OPTION_CAST", ["Invalid option cast:", "cast must be true or a function,", `got ${JSON.stringify(_v1.cast)}`], _v1);
+      if (void 0 === _v1.encoding || !0 === _v1.encoding) _v1.encoding = "utf8";else if (null === _v1.encoding || !1 === _v1.encoding) _v1.encoding = null;else if ("string" != typeof _v1.encoding && null !== _v1.encoding) throw new _v105("CSV_INVALID_OPTION_ENCODING", ["Invalid option encoding:", "encoding must be a string or null to return a buffer,", `got ${JSON.stringify(_v1.encoding)}`], _v1);
+      if (void 0 === _v1.bom || null === _v1.bom || !1 === _v1.bom) _v1.bom = !1;else if (!0 !== _v1.bom) throw new _v105("CSV_INVALID_OPTION_BOM", ["Invalid option bom:", "bom must be true,", `got ${JSON.stringify(_v1.bom)}`], _v1);
+      if (_v1.cast_function = null, void 0 === _v1.cast || null === _v1.cast || !1 === _v1.cast || "" === _v1.cast) _v1.cast = void 0;else if ("function" == typeof _v1.cast) _v1.cast_function = _v1.cast, _v1.cast = !0;else if (!0 !== _v1.cast) throw new _v105("CSV_INVALID_OPTION_CAST", ["Invalid option cast:", "cast must be true or a function,", `got ${JSON.stringify(_v1.cast)}`], _v1);
       if (void 0 === _v1.cast_date || null === _v1.cast_date || !1 === _v1.cast_date || "" === _v1.cast_date) _v1.cast_date = !1;else if (!0 === _v1.cast_date) _v1.cast_date = function (_v0) {
         let _v1 = Date.parse(_v0);
         return isNaN(_v1) ? _v0 : new Date(_v1);
-      };else if ("function" != typeof _v1.cast_date) throw new _v106("CSV_INVALID_OPTION_CAST_DATE", ["Invalid option cast_date:", "cast_date must be true or a function,", `got ${JSON.stringify(_v1.cast_date)}`], _v1);
-      if (_v1.cast_first_line_to_header = void 0, !0 === _v1.columns) _v1.cast_first_line_to_header = void 0;else if ("function" == typeof _v1.columns) _v1.cast_first_line_to_header = _v1.columns, _v1.columns = !0;else if (Array.isArray(_v1.columns)) _v1.columns = _v108(_v1.columns);else if (void 0 === _v1.columns || null === _v1.columns || !1 === _v1.columns) _v1.columns = !1;else throw new _v106("CSV_INVALID_OPTION_COLUMNS", ["Invalid option columns:", "expect an array, a function or true,", `got ${JSON.stringify(_v1.columns)}`], _v1);
-      if (void 0 === _v1.group_columns_by_name || null === _v1.group_columns_by_name || !1 === _v1.group_columns_by_name) _v1.group_columns_by_name = !1;else if (!0 !== _v1.group_columns_by_name) throw new _v106("CSV_INVALID_OPTION_GROUP_COLUMNS_BY_NAME", ["Invalid option group_columns_by_name:", "expect an boolean,", `got ${JSON.stringify(_v1.group_columns_by_name)}`], _v1);else if (!1 === _v1.columns) throw new _v106("CSV_INVALID_OPTION_GROUP_COLUMNS_BY_NAME", ["Invalid option group_columns_by_name:", "the `columns` mode must be activated."], _v1);
-      if (void 0 === _v1.comment || null === _v1.comment || !1 === _v1.comment || "" === _v1.comment) _v1.comment = null;else if ("string" == typeof _v1.comment && (_v1.comment = _v79.from(_v1.comment, _v1.encoding)), !_v104(_v1.comment)) throw new _v106("CSV_INVALID_OPTION_COMMENT", ["Invalid option comment:", "comment must be a buffer or a string,", `got ${JSON.stringify(_v1.comment)}`], _v1);
-      if (void 0 === _v1.comment_no_infix || null === _v1.comment_no_infix || !1 === _v1.comment_no_infix) _v1.comment_no_infix = !1;else if (!0 !== _v1.comment_no_infix) throw new _v106("CSV_INVALID_OPTION_COMMENT", ["Invalid option comment_no_infix:", "value must be a boolean,", `got ${JSON.stringify(_v1.comment_no_infix)}`], _v1);
-      if (void 0 === _v1.delimiter_auto || null === _v1.delimiter_auto || !1 === _v1.delimiter_auto) _v1.delimiter_auto = !1;else if (!0 === _v1.delimiter_auto) _v1.delimiter_auto = {};else if (!_v107(_v1.delimiter_auto)) throw new _v106("CSV_INVALID_OPTION_DELIMITER_AUTO", ["Invalid option delimiter_auto:", "delimiter_auto must be a boolean or a configuration object,", `got ${JSON.stringify(_v1.delimiter_auto)}`], _v1);
+      };else if ("function" != typeof _v1.cast_date) throw new _v105("CSV_INVALID_OPTION_CAST_DATE", ["Invalid option cast_date:", "cast_date must be true or a function,", `got ${JSON.stringify(_v1.cast_date)}`], _v1);
+      if (_v1.cast_first_line_to_header = void 0, !0 === _v1.columns) _v1.cast_first_line_to_header = void 0;else if ("function" == typeof _v1.columns) _v1.cast_first_line_to_header = _v1.columns, _v1.columns = !0;else if (Array.isArray(_v1.columns)) _v1.columns = _v107(_v1.columns);else if (void 0 === _v1.columns || null === _v1.columns || !1 === _v1.columns) _v1.columns = !1;else throw new _v105("CSV_INVALID_OPTION_COLUMNS", ["Invalid option columns:", "expect an array, a function or true,", `got ${JSON.stringify(_v1.columns)}`], _v1);
+      if (void 0 === _v1.group_columns_by_name || null === _v1.group_columns_by_name || !1 === _v1.group_columns_by_name) _v1.group_columns_by_name = !1;else if (!0 !== _v1.group_columns_by_name) throw new _v105("CSV_INVALID_OPTION_GROUP_COLUMNS_BY_NAME", ["Invalid option group_columns_by_name:", "expect an boolean,", `got ${JSON.stringify(_v1.group_columns_by_name)}`], _v1);else if (!1 === _v1.columns) throw new _v105("CSV_INVALID_OPTION_GROUP_COLUMNS_BY_NAME", ["Invalid option group_columns_by_name:", "the `columns` mode must be activated."], _v1);
+      if (void 0 === _v1.comment || null === _v1.comment || !1 === _v1.comment || "" === _v1.comment) _v1.comment = null;else if ("string" == typeof _v1.comment && (_v1.comment = _v78.from(_v1.comment, _v1.encoding)), !_v103(_v1.comment)) throw new _v105("CSV_INVALID_OPTION_COMMENT", ["Invalid option comment:", "comment must be a buffer or a string,", `got ${JSON.stringify(_v1.comment)}`], _v1);
+      if (void 0 === _v1.comment_no_infix || null === _v1.comment_no_infix || !1 === _v1.comment_no_infix) _v1.comment_no_infix = !1;else if (!0 !== _v1.comment_no_infix) throw new _v105("CSV_INVALID_OPTION_COMMENT", ["Invalid option comment_no_infix:", "value must be a boolean,", `got ${JSON.stringify(_v1.comment_no_infix)}`], _v1);
+      if (void 0 === _v1.delimiter_auto || null === _v1.delimiter_auto || !1 === _v1.delimiter_auto) _v1.delimiter_auto = !1;else if (!0 === _v1.delimiter_auto) _v1.delimiter_auto = {};else if (!_v106(_v1.delimiter_auto)) throw new _v105("CSV_INVALID_OPTION_DELIMITER_AUTO", ["Invalid option delimiter_auto:", "delimiter_auto must be a boolean or a configuration object,", `got ${JSON.stringify(_v1.delimiter_auto)}`], _v1);
       if (_v1.delimiter_auto) {
         if (void 0 === _v1.delimiter_auto.preferred) _v1.delimiter_auto.preferred = {
           44: 1.8,
@@ -1305,26 +1305,26 @@
           58: 1.5,
           46: 1.4,
           47: 1.4
-        };else if (!_v107(_v1.delimiter_auto.preferred)) throw new _v106("CSV_INVALID_OPTION_DELIMITER_AUTO", ["Invalid option delimiter_auto:", "preferred must be an object,", `got ${JSON.stringify(_v1.delimiter_auto.preferred)}`], _v1);
-        if (void 0 === _v1.delimiter_auto.score) _v1.delimiter_auto.score = (_v0, _v1) => (_v0.total - _v0.std) * (_v1.preferred[_v0.char_code] || 1);else if ("function" != typeof _v1.delimiter_auto.score) throw new _v106("CSV_INVALID_OPTION_DELIMITER_AUTO", ["Invalid option delimiter_auto:", "score must be a function,", `got ${JSON.stringify(_v1.delimiter_auto.score)}`], _v1);
-        if (void 0 === _v1.delimiter_auto.size) _v1.delimiter_auto.size = 0;else if ("number" != typeof _v1.delimiter_auto.size) throw new _v106("CSV_INVALID_OPTION_DELIMITER_AUTO", ["Invalid option delimiter_auto:", "size must be a number,", `got ${JSON.stringify(_v1.delimiter_auto.size)}`], _v1);
+        };else if (!_v106(_v1.delimiter_auto.preferred)) throw new _v105("CSV_INVALID_OPTION_DELIMITER_AUTO", ["Invalid option delimiter_auto:", "preferred must be an object,", `got ${JSON.stringify(_v1.delimiter_auto.preferred)}`], _v1);
+        if (void 0 === _v1.delimiter_auto.score) _v1.delimiter_auto.score = (_v0, _v1) => (_v0.total - _v0.std) * (_v1.preferred[_v0.char_code] || 1);else if ("function" != typeof _v1.delimiter_auto.score) throw new _v105("CSV_INVALID_OPTION_DELIMITER_AUTO", ["Invalid option delimiter_auto:", "score must be a function,", `got ${JSON.stringify(_v1.delimiter_auto.score)}`], _v1);
+        if (void 0 === _v1.delimiter_auto.size) _v1.delimiter_auto.size = 0;else if ("number" != typeof _v1.delimiter_auto.size) throw new _v105("CSV_INVALID_OPTION_DELIMITER_AUTO", ["Invalid option delimiter_auto:", "size must be a number,", `got ${JSON.stringify(_v1.delimiter_auto.size)}`], _v1);
       }
       let _v2 = JSON.stringify(_v1.delimiter);
-      if (!1 !== _v1.delimiter_auto && (_v1.delimiter = []), Array.isArray(_v1.delimiter) || ((void 0 === _v1.delimiter || null === _v1.delimiter || !1 === _v1.delimiter) && (_v1.delimiter = _v79.from(",", _v1.encoding)), _v1.delimiter = [_v1.delimiter]), _v1.delimiter = _v1.delimiter.map(function (_v0) {
-        if ("string" == typeof _v0 && (_v0 = _v79.from(_v0, _v1.encoding)), !_v104(_v0) || 0 === _v0.length) throw new _v106("CSV_INVALID_OPTION_DELIMITER", ["Invalid option delimiter:", "delimiter must be a non empty string or buffer or array of string|buffer,", `got ${_v2}`], _v1);
+      if (!1 !== _v1.delimiter_auto && (_v1.delimiter = []), Array.isArray(_v1.delimiter) || ((void 0 === _v1.delimiter || null === _v1.delimiter || !1 === _v1.delimiter) && (_v1.delimiter = _v78.from(",", _v1.encoding)), _v1.delimiter = [_v1.delimiter]), _v1.delimiter = _v1.delimiter.map(function (_v0) {
+        if ("string" == typeof _v0 && (_v0 = _v78.from(_v0, _v1.encoding)), !_v103(_v0) || 0 === _v0.length) throw new _v105("CSV_INVALID_OPTION_DELIMITER", ["Invalid option delimiter:", "delimiter must be a non empty string or buffer or array of string|buffer,", `got ${_v2}`], _v1);
         return _v0;
-      }), void 0 === _v1.escape || !0 === _v1.escape ? _v1.escape = _v79.from('"', _v1.encoding) : "string" == typeof _v1.escape ? _v1.escape = _v79.from(_v1.escape, _v1.encoding) : (null === _v1.escape || !1 === _v1.escape) && (_v1.escape = null), null !== _v1.escape && !_v104(_v1.escape)) throw Error(`Invalid Option: escape must be a buffer, a string or a boolean, got ${JSON.stringify(_v1.escape)}`);
+      }), void 0 === _v1.escape || !0 === _v1.escape ? _v1.escape = _v78.from('"', _v1.encoding) : "string" == typeof _v1.escape ? _v1.escape = _v78.from(_v1.escape, _v1.encoding) : (null === _v1.escape || !1 === _v1.escape) && (_v1.escape = null), null !== _v1.escape && !_v103(_v1.escape)) throw Error(`Invalid Option: escape must be a buffer, a string or a boolean, got ${JSON.stringify(_v1.escape)}`);
       if (void 0 === _v1.from || null === _v1.from) _v1.from = 1;else if ("string" == typeof _v1.from && /\d+/.test(_v1.from) && (_v1.from = parseInt(_v1.from)), Number.isInteger(_v1.from)) {
         if (_v1.from < 0) throw Error(`Invalid Option: from must be a positive integer, got ${JSON.stringify(_v0.from)}`);
       } else throw Error(`Invalid Option: from must be an integer, got ${JSON.stringify(_v1.from)}`);
       if (void 0 === _v1.from_line || null === _v1.from_line) _v1.from_line = 1;else if ("string" == typeof _v1.from_line && /\d+/.test(_v1.from_line) && (_v1.from_line = parseInt(_v1.from_line)), Number.isInteger(_v1.from_line)) {
         if (_v1.from_line <= 0) throw Error(`Invalid Option: from_line must be a positive integer greater than 0, got ${JSON.stringify(_v0.from_line)}`);
       } else throw Error(`Invalid Option: from_line must be an integer, got ${JSON.stringify(_v0.from_line)}`);
-      if (void 0 === _v1.ignore_last_delimiters || null === _v1.ignore_last_delimiters) _v1.ignore_last_delimiters = !1;else if ("number" == typeof _v1.ignore_last_delimiters) _v1.ignore_last_delimiters = Math.floor(_v1.ignore_last_delimiters), 0 === _v1.ignore_last_delimiters && (_v1.ignore_last_delimiters = !1);else if ("boolean" != typeof _v1.ignore_last_delimiters) throw new _v106("CSV_INVALID_OPTION_IGNORE_LAST_DELIMITERS", ["Invalid option `ignore_last_delimiters`:", "the value must be a boolean value or an integer,", `got ${JSON.stringify(_v1.ignore_last_delimiters)}`], _v1);
-      if (!0 === _v1.ignore_last_delimiters && !1 === _v1.columns) throw new _v106("CSV_IGNORE_LAST_DELIMITERS_REQUIRES_COLUMNS", ["The option `ignore_last_delimiters`", "requires the activation of the `columns` option"], _v1);
+      if (void 0 === _v1.ignore_last_delimiters || null === _v1.ignore_last_delimiters) _v1.ignore_last_delimiters = !1;else if ("number" == typeof _v1.ignore_last_delimiters) _v1.ignore_last_delimiters = Math.floor(_v1.ignore_last_delimiters), 0 === _v1.ignore_last_delimiters && (_v1.ignore_last_delimiters = !1);else if ("boolean" != typeof _v1.ignore_last_delimiters) throw new _v105("CSV_INVALID_OPTION_IGNORE_LAST_DELIMITERS", ["Invalid option `ignore_last_delimiters`:", "the value must be a boolean value or an integer,", `got ${JSON.stringify(_v1.ignore_last_delimiters)}`], _v1);
+      if (!0 === _v1.ignore_last_delimiters && !1 === _v1.columns) throw new _v105("CSV_IGNORE_LAST_DELIMITERS_REQUIRES_COLUMNS", ["The option `ignore_last_delimiters`", "requires the activation of the `columns` option"], _v1);
       if (void 0 === _v1.info || null === _v1.info || !1 === _v1.info) _v1.info = !1;else if (!0 !== _v1.info) throw Error(`Invalid Option: info must be true, got ${JSON.stringify(_v1.info)}`);
       if (void 0 === _v1.max_record_size || null === _v1.max_record_size || !1 === _v1.max_record_size) _v1.max_record_size = 0;else if (Number.isInteger(_v1.max_record_size) && _v1.max_record_size >= 0) ;else if ("string" == typeof _v1.max_record_size && /\d+/.test(_v1.max_record_size)) _v1.max_record_size = parseInt(_v1.max_record_size);else throw Error(`Invalid Option: max_record_size must be a positive integer, got ${JSON.stringify(_v1.max_record_size)}`);
-      if (void 0 === _v1.objname || null === _v1.objname || !1 === _v1.objname) _v1.objname = void 0;else if (_v104(_v1.objname)) {
+      if (void 0 === _v1.objname || null === _v1.objname || !1 === _v1.objname) _v1.objname = void 0;else if (_v103(_v1.objname)) {
         if (0 === _v1.objname.length) throw Error("Invalid Option: objname must be a non empty buffer");
         null === _v1.encoding || (_v1.objname = _v1.objname.toString(_v1.encoding));
       } else if ("string" == typeof _v1.objname) {
@@ -1335,19 +1335,19 @@
           if (!1 !== _v1.columns) throw Error("Invalid Option: objname index cannot be combined with columns or be defined as a field");
         } else if (!1 === _v1.columns) throw Error("Invalid Option: objname field must be combined with columns or be defined as an index");
       }
-      if (void 0 === _v1.on_record || null === _v1.on_record) _v1.on_record = void 0;else if ("function" != typeof _v1.on_record) throw new _v106("CSV_INVALID_OPTION_ON_RECORD", ["Invalid option `on_record`:", "expect a function,", `got ${JSON.stringify(_v1.on_record)}`], _v1);
+      if (void 0 === _v1.on_record || null === _v1.on_record) _v1.on_record = void 0;else if ("function" != typeof _v1.on_record) throw new _v105("CSV_INVALID_OPTION_ON_RECORD", ["Invalid option `on_record`:", "expect a function,", `got ${JSON.stringify(_v1.on_record)}`], _v1);
       if (void 0 !== _v1.on_skip && null !== _v1.on_skip && "function" != typeof _v1.on_skip) throw Error(`Invalid Option: on_skip must be a function, got ${JSON.stringify(_v1.on_skip)}`);
-      if (null === _v1.quote || !1 === _v1.quote || "" === _v1.quote) _v1.quote = null;else if (void 0 === _v1.quote || !0 === _v1.quote ? _v1.quote = _v79.from('"', _v1.encoding) : "string" == typeof _v1.quote && (_v1.quote = _v79.from(_v1.quote, _v1.encoding)), !_v104(_v1.quote)) throw Error(`Invalid Option: quote must be a buffer or a string, got ${JSON.stringify(_v1.quote)}`);
+      if (null === _v1.quote || !1 === _v1.quote || "" === _v1.quote) _v1.quote = null;else if (void 0 === _v1.quote || !0 === _v1.quote ? _v1.quote = _v78.from('"', _v1.encoding) : "string" == typeof _v1.quote && (_v1.quote = _v78.from(_v1.quote, _v1.encoding)), !_v103(_v1.quote)) throw Error(`Invalid Option: quote must be a buffer or a string, got ${JSON.stringify(_v1.quote)}`);
       if (void 0 === _v1.raw || null === _v1.raw || !1 === _v1.raw) _v1.raw = !1;else if (!0 !== _v1.raw) throw Error(`Invalid Option: raw must be true, got ${JSON.stringify(_v1.raw)}`);
-      if (void 0 === _v1.record_delimiter) _v1.record_delimiter = [];else if ("string" == typeof _v1.record_delimiter || _v104(_v1.record_delimiter)) {
-        if (0 === _v1.record_delimiter.length) throw new _v106("CSV_INVALID_OPTION_RECORD_DELIMITER", ["Invalid option `record_delimiter`:", "value must be a non empty string or buffer,", `got ${JSON.stringify(_v1.record_delimiter)}`], _v1);
+      if (void 0 === _v1.record_delimiter) _v1.record_delimiter = [];else if ("string" == typeof _v1.record_delimiter || _v103(_v1.record_delimiter)) {
+        if (0 === _v1.record_delimiter.length) throw new _v105("CSV_INVALID_OPTION_RECORD_DELIMITER", ["Invalid option `record_delimiter`:", "value must be a non empty string or buffer,", `got ${JSON.stringify(_v1.record_delimiter)}`], _v1);
         _v1.record_delimiter = [_v1.record_delimiter];
-      } else if (!Array.isArray(_v1.record_delimiter)) throw new _v106("CSV_INVALID_OPTION_RECORD_DELIMITER", ["Invalid option `record_delimiter`:", "value must be a string, a buffer or array of string|buffer,", `got ${JSON.stringify(_v1.record_delimiter)}`], _v1);
+      } else if (!Array.isArray(_v1.record_delimiter)) throw new _v105("CSV_INVALID_OPTION_RECORD_DELIMITER", ["Invalid option `record_delimiter`:", "value must be a string, a buffer or array of string|buffer,", `got ${JSON.stringify(_v1.record_delimiter)}`], _v1);
       if (_v1.record_delimiter = _v1.record_delimiter.map(function (_v0, _v1) {
-        if ("string" == typeof _v0 || _v104(_v0)) {
-          if (0 === _v0.length) throw new _v106("CSV_INVALID_OPTION_RECORD_DELIMITER", ["Invalid option `record_delimiter`:", "value must be a non empty string or buffer", `at index ${_v1},`, `got ${JSON.stringify(_v0)}`], _v1);
-        } else throw new _v106("CSV_INVALID_OPTION_RECORD_DELIMITER", ["Invalid option `record_delimiter`:", "value must be a string, a buffer or array of string|buffer", `at index ${_v1},`, `got ${JSON.stringify(_v0)}`], _v1);
-        return "string" == typeof _v0 && (_v0 = _v79.from(_v0, _v1.encoding)), _v0;
+        if ("string" == typeof _v0 || _v103(_v0)) {
+          if (0 === _v0.length) throw new _v105("CSV_INVALID_OPTION_RECORD_DELIMITER", ["Invalid option `record_delimiter`:", "value must be a non empty string or buffer", `at index ${_v1},`, `got ${JSON.stringify(_v0)}`], _v1);
+        } else throw new _v105("CSV_INVALID_OPTION_RECORD_DELIMITER", ["Invalid option `record_delimiter`:", "value must be a string, a buffer or array of string|buffer", `at index ${_v1},`, `got ${JSON.stringify(_v0)}`], _v1);
+        return "string" == typeof _v0 && (_v0 = _v78.from(_v0, _v1.encoding)), _v0;
       }), "boolean" == typeof _v1.relax_column_count) ;else if (void 0 === _v1.relax_column_count || null === _v1.relax_column_count) _v1.relax_column_count = !1;else throw Error(`Invalid Option: relax_column_count must be a boolean, got ${JSON.stringify(_v1.relax_column_count)}`);
       if ("boolean" == typeof _v1.relax_column_count_less) ;else if (void 0 === _v1.relax_column_count_less || null === _v1.relax_column_count_less) _v1.relax_column_count_less = !1;else throw Error(`Invalid Option: relax_column_count_less must be a boolean, got ${JSON.stringify(_v1.relax_column_count_less)}`);
       if ("boolean" == typeof _v1.relax_column_count_more) ;else if (void 0 === _v1.relax_column_count_more || null === _v1.relax_column_count_more) _v1.relax_column_count_more = !1;else throw Error(`Invalid Option: relax_column_count_more must be a boolean, got ${JSON.stringify(_v1.relax_column_count_more)}`);
@@ -1366,14 +1366,14 @@
       } else throw Error(`Invalid Option: to_line must be an integer, got ${JSON.stringify(_v0.to_line)}`);
       return _v1;
     },
-    _v112 = function (_v0, _v1) {
+    _v111 = function (_v0, _v1) {
       _v1 || ({
         delimiter_auto: _v1
-      } = _v111({
+      } = _v110({
         delimiter_auto: !0
-      })), "string" == typeof _v0 && (_v0 = _v79.from(_v0)), _v104(_v0) && (_v0 = (_v0 => {
+      })), "string" == typeof _v0 && (_v0 = _v78.from(_v0)), _v103(_v0) && (_v0 = (_v0 => {
         let _v1 = [],
-          _v2 = _v116({
+          _v2 = _v115({
             delimiter: []
           }).parse(_v0, !0, _v0 => _v1.push(_v0), () => {});
         if (void 0 !== _v2) throw _v2;
@@ -1388,24 +1388,24 @@
           void 0 === _v2[_v0].lines[_v1] && (_v2[_v0].lines[_v1] = 0), _v2[_v0].lines[_v1]++;
         }
       }), _v2.map((_v0, _v1) => {
-        _v0.char_code = _v1, _v0.std = _v113(_v0.lines), _v0.total = _v0.lines.reduce((_v0, _v1) => _v0 + _v1, 0), _v0.preferred = !!_v1.preferred[_v1], _v0.score = _v1.score(_v0, _v1);
+        _v0.char_code = _v1, _v0.std = _v112(_v0.lines), _v0.total = _v0.lines.reduce((_v0, _v1) => _v0 + _v1, 0), _v0.preferred = !!_v1.preferred[_v1], _v0.score = _v1.score(_v0, _v1);
       }), String.fromCharCode(_v2.reduce((_v0, _v1) => _v0.score > _v1.score ? _v0 : _v1, {}).char_code);
     },
-    _v113 = function (_v0) {
+    _v112 = function (_v0) {
       let _v1 = _v0.length;
       if (0 === _v1) return 0;
       let _v2 = _v0.reduce((_v0, _v1) => _v0 + _v1) / _v1;
       return Math.sqrt(_v0.map(_v0 => Math.pow(_v0 - _v2, 2)).reduce((_v0, _v1) => _v0 + _v1) / _v1);
     },
-    _v114 = function (_v0) {
+    _v113 = function (_v0) {
       return _v0.every(_v0 => null == _v0 || _v0.toString && "" === _v0.toString().trim());
     },
-    _v115 = {
-      utf8: _v79.from([239, 187, 191]),
-      utf16le: _v79.from([255, 254])
+    _v114 = {
+      utf8: _v78.from([239, 187, 191]),
+      utf16le: _v78.from([255, 254])
     },
-    _v116 = function (_v0 = {}) {
-      let _v1 = _v111(_v0);
+    _v115 = function (_v0 = {}) {
+      let _v1 = _v110(_v0);
       return {
         info: {
           bytes: 0,
@@ -1418,7 +1418,7 @@
         },
         original_options: _v0,
         options: _v1,
-        state: _v110(_v1),
+        state: _v109(_v1),
         __needMoreData: function (_v0, _v1, _v2) {
           if (_v2) return !1;
           let {
@@ -1431,7 +1431,7 @@
               needMoreDataSize: _v7,
               recordDelimiterMaxLength: _v8
             } = this.state;
-          return _v1 - _v0 - 1 < Math.max(_v7, 0 === _v8 ? _v79.from("\r\n", _v3).length : _v8, _v6 ? (null === _v4 ? 0 : _v4.length) + _v5.length : 0, _v6 ? _v5.length + _v8 : 0);
+          return _v1 - _v0 - 1 < Math.max(_v7, 0 === _v8 ? _v78.from("\r\n", _v3).length : _v8, _v6 ? (null === _v4 ? 0 : _v4.length) + _v5.length : 0, _v6 ? _v5.length + _v8 : 0);
         },
         parse: function (_v0, _v1, _v2, _v3) {
           let _v4,
@@ -1466,7 +1466,7 @@
             } = this.state;
           if (!_v24 && _v8) {
             let _v0;
-            if (_v0 = void 0 === _v25 ? _v0 : void 0 !== _v25 && void 0 === _v0 ? _v25 : _v79.concat([_v25, _v0]), _v0 = void 0, _v1 || _v0.length > _v8.size) this.options.delimiter = [_v79.from(_v112(_v0, this.options.delimiter_auto))], this.state.previousBuf = _v0, this.state.delimiterBufPrevious = void 0, this.state.delimiterDiscovered = !0;else {
+            if (_v0 = void 0 === _v25 ? _v0 : void 0 !== _v25 && void 0 === _v0 ? _v25 : _v78.concat([_v25, _v0]), _v0 = void 0, _v1 || _v0.length > _v8.size) this.options.delimiter = [_v78.from(_v111(_v0, this.options.delimiter_auto))], this.state.previousBuf = _v0, this.state.delimiterBufPrevious = void 0, this.state.delimiterDiscovered = !0;else {
               this.state.delimiterBufPrevious = _v0;
               return;
             }
@@ -1476,17 +1476,17 @@
           } = this.state;
           if (void 0 === _v28) {
             if (void 0 === _v0) return void _v3();else _v4 = _v0;
-          } else _v4 = void 0 !== _v28 && void 0 === _v0 ? _v28 : _v79.concat([_v28, _v0]);
+          } else _v4 = void 0 !== _v28 && void 0 === _v0 ? _v28 : _v78.concat([_v28, _v0]);
           if (!1 === _v23) if (!1 === _v6) this.state.bomSkipped = !0;else if (_v4.length < 3) {
             if (!1 === _v1) {
               this.state.previousBuf = _v4;
               return;
             }
           } else {
-            for (let _v0 in _v115) if (0 === _v115[_v0].compare(_v4, 0, _v115[_v0].length)) {
-              let _v0 = _v115[_v0].length;
+            for (let _v0 in _v114) if (0 === _v114[_v0].compare(_v4, 0, _v114[_v0].length)) {
+              let _v0 = _v114[_v0].length;
               this.state.bufBytesStart += _v0, _v4 = _v4.slice(_v0);
-              let _v1 = _v111({
+              let _v1 = _v110({
                 ...this.original_options,
                 encoding: _v0
               });
@@ -1528,14 +1528,14 @@
                   this.state.quoting = !1, this.state.wasQuoting = !0, _v5 += _v21.length - 1;
                   continue;
                 } else if (!1 === _v14) {
-                  let _v0 = this.__error(new _v106("CSV_INVALID_CLOSING_QUOTE", ["Invalid Closing Quote:", `got "${String.fromCharCode(_v0)}"`, `at line ${this.info.lines}`, "instead of delimiter, record delimiter, trimable character", "(if activated) or comment"], this.options, this.__infoField()));
+                  let _v0 = this.__error(new _v105("CSV_INVALID_CLOSING_QUOTE", ["Invalid Closing Quote:", `got "${String.fromCharCode(_v0)}"`, `at line ${this.info.lines}`, "instead of delimiter, record delimiter, trimable character", "(if activated) or comment"], this.options, this.__infoField()));
                   if (void 0 !== _v0) return _v0;
                 } else this.state.quoting = !1, this.state.wasQuoting = !0, this.state.field.prepend(_v21), _v5 += _v21.length - 1;
               } else if (0 !== this.state.field.length) {
                 if (!1 === _v14) {
                   let _v0 = this.__infoField(),
-                    _v1 = Object.keys(_v115).map(_v0 => !!_v115[_v0].equals(this.state.field.toString()) && _v0).filter(Boolean)[0],
-                    _v2 = this.__error(new _v106("INVALID_OPENING_QUOTE", ["Invalid Opening Quote:", `a quote is found on field ${JSON.stringify(_v0.column)} at line ${_v0.lines}, value is ${JSON.stringify(this.state.field.toString(_v9))}`, _v1 ? `(${_v1} bom)` : void 0], this.options, _v0, {
+                    _v1 = Object.keys(_v114).map(_v0 => !!_v114[_v0].equals(this.state.field.toString()) && _v0).filter(Boolean)[0],
+                    _v2 = this.__error(new _v105("INVALID_OPENING_QUOTE", ["Invalid Opening Quote:", `a quote is found on field ${JSON.stringify(_v0.column)} at line ${_v0.lines}, value is ${JSON.stringify(this.state.field.toString(_v9))}`, _v1 ? `(${_v1} bom)` : void 0], this.options, _v0, {
                       field: this.state.field
                     }));
                   if (void 0 !== _v2) return _v2;
@@ -1585,18 +1585,18 @@
                 }
               }
             }
-            if (!1 === this.state.commenting && 0 !== _v12 && this.state.record_length + this.state.field.length > _v12) return this.__error(new _v106("CSV_MAX_RECORD_SIZE", ["Max Record Size:", "record exceed the maximum number of tolerated bytes", `of ${_v12}`, `at line ${this.info.lines}`], this.options, this.__infoField()));
+            if (!1 === this.state.commenting && 0 !== _v12 && this.state.record_length + this.state.field.length > _v12) return this.__error(new _v105("CSV_MAX_RECORD_SIZE", ["Max Record Size:", "record exceed the maximum number of tolerated bytes", `of ${_v12}`, `at line ${this.info.lines}`], this.options, this.__infoField()));
             let _v1 = !1 === _v11 || !0 === this.state.quoting || 0 !== this.state.field.length || !this.__isCharTrimable(_v4, _v5),
               _v2 = !1 === _v15 || !1 === this.state.wasQuoting;
             if (!0 === _v1 && !0 === _v2) this.state.field.append(_v0);else {
-              if (!0 === _v15 && !this.__isCharTrimable(_v4, _v5)) return this.__error(new _v106("CSV_NON_TRIMABLE_CHAR_AFTER_CLOSING_QUOTE", ["Invalid Closing Quote:", "found non trimable byte after quote", `at line ${this.info.lines}`], this.options, this.__infoField()));
+              if (!0 === _v15 && !this.__isCharTrimable(_v4, _v5)) return this.__error(new _v105("CSV_NON_TRIMABLE_CHAR_AFTER_CLOSING_QUOTE", ["Invalid Closing Quote:", "found non trimable byte after quote", `at line ${this.info.lines}`], this.options, this.__infoField()));
               !1 === _v1 && (_v5 += this.__isCharTrimable(_v4, _v5) - 1);
               continue;
             }
           }
           if (!0 === _v1) {
             if (!0 === this.state.quoting) {
-              let _v0 = this.__error(new _v106("CSV_QUOTE_NOT_CLOSED", ["Quote Not Closed:", `the parsing is finished with an opening quote at line ${this.info.lines}`], this.options, this.__infoField()));
+              let _v0 = this.__error(new _v105("CSV_QUOTE_NOT_CLOSED", ["Quote Not Closed:", `the parsing is finished with an opening quote at line ${this.info.lines}`], this.options, this.__infoField()));
               if (void 0 !== _v0) return _v0;
             } else if (!0 === this.state.wasQuoting || 0 !== this.state.record.length || 0 !== this.state.field.length) {
               this.info.bytes = this.state.bufBytesStart + _v5;
@@ -1627,11 +1627,11 @@
             } = this.state;
           if (!1 === _v11) return this.__resetRecord();
           let _v13 = _v12.length;
-          if (!0 === _v1) return !0 === _v10 && _v114(_v12) ? void this.__resetRecord() : this.__firstLineToColumns(_v12);
+          if (!0 === _v1) return !0 === _v10 && _v113(_v12) ? void this.__resetRecord() : this.__firstLineToColumns(_v12);
           if (!1 === _v1 && 0 === this.info.records && (this.state.expectedRecordLength = _v13), _v13 !== this.state.expectedRecordLength) {
-            let _v0 = !1 === _v1 ? new _v106("CSV_RECORD_INCONSISTENT_FIELDS_LENGTH", ["Invalid Record Length:", `expect ${this.state.expectedRecordLength},`, `got ${_v13} on line ${this.info.lines}`], this.options, this.__infoField(), {
+            let _v0 = !1 === _v1 ? new _v105("CSV_RECORD_INCONSISTENT_FIELDS_LENGTH", ["Invalid Record Length:", `expect ${this.state.expectedRecordLength},`, `got ${_v13} on line ${this.info.lines}`], this.options, this.__infoField(), {
               record: _v12
-            }) : new _v106("CSV_RECORD_INCONSISTENT_COLUMNS", ["Invalid Record Length:", `columns length is ${_v1.length},`, `got ${_v13} on line ${this.info.lines}`], this.options, this.__infoField(), {
+            }) : new _v105("CSV_RECORD_INCONSISTENT_COLUMNS", ["Invalid Record Length:", `columns length is ${_v1.length},`, `got ${_v13} on line ${this.info.lines}`], this.options, this.__infoField(), {
               record: _v12
             });
             if (!0 === _v6 || !0 === _v7 && _v13 < this.state.expectedRecordLength || !0 === _v8 && _v13 > this.state.expectedRecordLength) this.info.invalid_field_length++, this.state.error = _v0;else {
@@ -1639,7 +1639,7 @@
               if (_v0) return _v0;
             }
           }
-          if (!0 === _v10 && _v114(_v12)) return void this.__resetRecord();
+          if (!0 === _v10 && _v113(_v12)) return void this.__resetRecord();
           if (!0 === this.state.recordHasError) {
             this.__resetRecord(), this.state.recordHasError = !1;
             return;
@@ -1688,10 +1688,10 @@
           } = this.state;
           try {
             let _v0 = void 0 === _v1 ? _v0 : _v1.call(null, _v0);
-            if (!Array.isArray(_v0)) return this.__error(new _v106("CSV_INVALID_COLUMN_MAPPING", ["Invalid Column Mapping:", "expect an array from column function,", `got ${JSON.stringify(_v0)}`], this.options, this.__infoField(), {
+            if (!Array.isArray(_v0)) return this.__error(new _v105("CSV_INVALID_COLUMN_MAPPING", ["Invalid Column Mapping:", "expect an array from column function,", `got ${JSON.stringify(_v0)}`], this.options, this.__infoField(), {
               headers: _v0
             }));
-            let _v1 = _v108(_v0);
+            let _v1 = _v107(_v0);
             this.state.expectedRecordLength = _v1.length, this.options.columns = _v1, this.__resetRecord();
             return;
           } catch (_v0) {
@@ -1836,7 +1836,7 @@
           let {
               encoding: _v2
             } = this.options,
-            _v3 = [_v79.from("\r\n", _v2), _v79.from("\n", _v2), _v79.from("\r", _v2)];
+            _v3 = [_v78.from("\r\n", _v2), _v78.from("\n", _v2), _v78.from("\r", _v2)];
           r: for (let _v0 = 0; _v0 < _v3.length; _v0++) {
             let _v0 = _v3[_v0].length;
             for (let _v0 = 0; _v0 < _v0; _v0++) if (_v3[_v0][_v0] !== _v0[_v1 + _v0]) continue r;
@@ -1894,33 +1894,33 @@
         }
       };
     },
-    _v117 = function (_v0, _v1 = {}) {
-      "string" == typeof _v0 && (_v0 = _v79.from(_v0));
+    _v116 = function (_v0, _v1 = {}) {
+      "string" == typeof _v0 && (_v0 = _v78.from(_v0));
       let _v2 = _v1 && _v1.objname ? Object.create(null) : [],
-        _v3 = _v116(_v1),
+        _v3 = _v115(_v1),
         _v4 = _v3.parse(_v0, !0, _v0 => {
           void 0 === _v3.options.objname ? _v2.push(_v0) : _v2[_v0[0]] = _v0[1];
         }, () => {});
       if (void 0 !== _v4) throw _v4;
       return _v2;
     },
-    _v118 = "source term";
-  class _v119 extends Error {
+    _v117 = "source term";
+  class _v118 extends Error {
     code;
     constructor(_v0) {
       super(_v0), this.code = _v0;
     }
   }
-  let _v120 = _v0 => {
+  let _v119 = _v0 => {
     let _v1;
     try {
-      _v1 = _v117(_v0, {
+      _v1 = _v116(_v0, {
         bom: !0,
         record_delimiter: ["\r\n", "\n", "\r"],
         relax_column_count: !0
       });
     } catch {
-      throw new _v119("invalid_csv");
+      throw new _v118("invalid_csv");
     }
     let _v2 = (_v0 => {
         let _v1 = [],
@@ -1943,19 +1943,16 @@
         }), _v1;
       })(_v0),
       _v3 = _v1[0]?.map(_v0 => _v0.trim().toLowerCase());
-    if (!_v3 || 1 !== _v3.length || _v3[0] !== _v118) throw new _v119("invalid_header");
+    if (!_v3 || 1 !== _v3.length || _v3[0] !== _v117) throw new _v118("invalid_header");
     let _v4 = _v1.slice(1).map((_v0, _v1) => {
-      let _v2 = _v2[_v1 + 1];
-      return {
-        isBlank: _v2?.isBlank ?? !1,
-        line: _v2?.line ?? _v1 + 2,
-        record: _v0
-      };
-    });
-    if (_v4.filter(({
-      isBlank: _v0
-    }) => !_v0).length > 0) throw new _v119("too_many_rows");
-    let _v5 = [],
+        let _v2 = _v2[_v1 + 1];
+        return {
+          isBlank: _v2?.isBlank ?? !1,
+          line: _v2?.line ?? _v1 + 2,
+          record: _v0
+        };
+      }),
+      _v5 = [],
       _v6 = [];
     return _v4.forEach(({
       isBlank: _v0,
@@ -1980,9 +1977,9 @@
       terms: _v6
     };
   };
-  var _v121 = _v0.i(0),
-    _v122 = _v0.i(0);
-  async function _v123({
+  var _v120 = _v0.i(0),
+    _v121 = _v0.i(0);
+  async function _v122({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -2004,24 +2001,24 @@
       return (0, _v22.deepCamelCase)(_v1);
     });
   }
-  var _v124 = _v0.i(0);
-  function _v125() {
+  var _v123 = _v0.i(0);
+  function _v124() {
     let {
         mutate: _v0
-      } = (0, _v124.useSWRConfig)(),
+      } = (0, _v123.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
       } = (0, _v27.useGctlConfig)(),
-      [_v5, _v6] = (0, _v122.useInternalState)();
+      [_v5, _v6] = (0, _v121.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/account_dictionary/glossary_terms/batch${(0, _v122.serializeQuery)(_v0)}`, _v123({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/account_dictionary/glossary_terms/batch${(0, _v121.serializeQuery)(_v0)}`, _v122({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -2044,20 +2041,20 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v121.default.env.STORYBOOK && (0, _v122.assignMswData)(_v125, {
+  "true" === _v120.default.env.STORYBOOK && (0, _v121.assignMswData)(_v124, {
     endpoint: "/users/:userId/account_dictionary/glossary_terms/batch",
     method: "POST"
   });
-  let _v126 = ["created", "results", "results.errors", "results.errors.message", "results.index", "results.status"],
-    _v127 = () => {
-      let _v0 = URL.createObjectURL(new Blob([`${_v118}\r
+  let _v125 = ["created", "results", "results.errors", "results.errors.message", "results.index", "results.status"],
+    _v126 = () => {
+      let _v0 = URL.createObjectURL(new Blob([`${_v117}\r
 `], {
           type: "text/csv;charset=utf-8"
         })),
         _v1 = document.createElement("a");
       _v1.href = _v0, _v1.download = "glossary-template.csv", document.body.appendChild(_v1), _v1.click(), document.body.removeChild(_v1), URL.revokeObjectURL(_v0);
     },
-    _v128 = ({
+    _v127 = ({
       ownerUserId: _v0,
       translations: _v1,
       hasExistingTerms: _v2,
@@ -2065,7 +2062,7 @@
       onImported: _v4
     }) => {
       let _v5 = (_v0 => {
-          let [_v1, _v2] = _v125(),
+          let [_v1, _v2] = _v124(),
             _v3 = (0, _v3.useRef)(void 0),
             _v4 = (0, _v3.useRef)(0);
           return (0, _v3.useEffect)(() => {
@@ -2083,7 +2080,7 @@
                 resolve: _v0,
                 reject: _v1
               }, _v1({
-                select: _v126,
+                select: _v125,
                 variables: {
                   replaceExisting: !0,
                   terms: _v0.map(({
@@ -2118,18 +2115,18 @@
         [_v12, _v13] = (0, _v3.useState)(!1),
         [_v14, _v15] = (0, _v3.useState)(),
         [_v16, _v17] = (0, _v3.useState)([]),
-        _v18 = (0, _v58.useToast)({
+        _v18 = (0, _v57.useToast)({
           duration: 0
         }),
-        _v19 = _v65(),
+        _v19 = _v64(),
         _v20 = _v10 || _v12,
         _v21 = !!_v6?.some(_v0 => !_v0.sourceText.trim()),
         _v22 = async _v0 => {
           if (_v15(void 0), _v17([]), !_v0.name.toLowerCase().endsWith(".csv")) return void _v19(_v1.glossaryCsvUnsupportedFile);
-          if (_v0.size > 0) return void _v19(_v1.glossaryCsvFileTooLarge);
+          if (_v0.size > 0) return void _v19(_v1.csvFileTooLarge);
           _v11(!0);
           try {
-            let _v0 = _v120(await _v0.text()),
+            let _v0 = _v119(await _v0.text()),
               _v1 = _v0.failures.map(_v0 => ({
                 line: _v0.line,
                 message: (({
@@ -2142,7 +2139,7 @@
             }
             _v9(_v1), _v7(_v0.terms);
           } catch (_v0) {
-            _v0 instanceof _v119 ? _v19("invalid_header" === _v0.code ? _v1.glossaryCsvInvalidHeader : "too_many_rows" === _v0.code ? _v1.glossaryCsvTooManyRows : _v1.glossaryCsvInvalidFile) : _v19(_v1.glossaryCsvImportError);
+            _v0 instanceof _v118 ? _v19("invalid_header" === _v0.code ? _v1.glossaryCsvInvalidHeader : _v1.glossaryCsvInvalidFile) : _v19(_v1.glossaryCsvImportError);
           } finally {
             _v11(!1);
           }
@@ -2167,19 +2164,19 @@
             }
           }
         };
-      return (0, _v1.jsxs)(_v46.Modal, {
+      return (0, _v1.jsxs)(_v45.Modal, {
         isOpen: !0,
         onClose: _v20 ? () => void 0 : _v3,
         closeOnEsc: !_v20,
         closeOnOverlayClick: !_v20,
-        children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v48.ModalContent, {
+        children: [(0, _v1.jsx)(_v50.ModalOverlay, {}), (0, _v1.jsxs)(_v47.ModalContent, {
           maxWidth: (0, _v8.rem)(480),
-          children: [(0, _v1.jsx)(_v50.ModalHeader, {
+          children: [(0, _v1.jsx)(_v49.ModalHeader, {
             paddingBottom: (0, _v8.rem)(16),
             children: _v6 ? _v1.csvReviewTitle : _v1.glossaryCsvTitle
-          }), (0, _v1.jsxs)(_v47.ModalBody, {
+          }), (0, _v1.jsxs)(_v46.ModalBody, {
             children: [_v6 ? (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v62, {
+              children: [(0, _v1.jsx)(_v61, {
                 count: _v6.length,
                 translations: _v1
               }), _v2 && (0, _v1.jsx)(_v13.Alert, {
@@ -2188,28 +2185,28 @@
                 children: (0, _v1.jsx)(_v11.AlertDescription, {
                   children: _v1.glossaryCsvReplaceConfirmation
                 })
-              }), (0, _v1.jsx)(_v53.TableContainer, {
+              }), (0, _v1.jsx)(_v52.TableContainer, {
                 borderWidth: "1px",
                 borderColor: "stroke",
                 borderRadius: "sm",
                 paddingX: 0,
                 maxHeight: (0, _v8.rem)(320),
                 overflowY: "auto",
-                children: (0, _v1.jsxs)(_v52.Table, {
+                children: (0, _v1.jsxs)(_v51.Table, {
                   width: "100%",
                   sx: {
                     tableLayout: "fixed"
                   },
-                  children: [(0, _v1.jsx)(_v56.Thead, {
+                  children: [(0, _v1.jsx)(_v55.Thead, {
                     backgroundColor: "fill-component",
-                    children: (0, _v1.jsx)(_v57.Tr, {
-                      children: (0, _v1.jsx)(_v55.Th, {
+                    children: (0, _v1.jsx)(_v56.Tr, {
+                      children: (0, _v1.jsx)(_v54.Th, {
                         children: _v1.glossaryTerm
                       })
                     })
-                  }), (0, _v1.jsx)(_v54.Tbody, {
-                    children: _v6.map((_v0, _v1) => (0, _v1.jsx)(_v57.Tr, {
-                      children: (0, _v1.jsx)(_v63, {
+                  }), (0, _v1.jsx)(_v53.Tbody, {
+                    children: _v6.map((_v0, _v1) => (0, _v1.jsx)(_v56.Tr, {
+                      children: (0, _v1.jsx)(_v62, {
                         label: _v1.glossaryTermNumber(_v1 + 1),
                         value: _v0.sourceText,
                         isDisabled: _v12,
@@ -2223,7 +2220,7 @@
                     }, _v0.line))
                   })]
                 })
-              }), _v8.length > 0 && (0, _v1.jsxs)(_v35.Box, {
+              }), _v8.length > 0 && (0, _v1.jsxs)(_v34.Box, {
                 marginTop: (0, _v8.rem)(16),
                 children: [(0, _v1.jsx)(_v18.Text, {
                   variant: "body-sm",
@@ -2245,8 +2242,8 @@
               }), (0, _v1.jsx)(_v18.Text, {
                 variant: "body-md",
                 color: "text-secondary",
-                children: _v1.glossaryCsvTemplatePrompt(_v0 => (0, _v1.jsx)(_v64, {
-                  onClick: _v127,
+                children: _v1.glossaryCsvTemplatePrompt(_v0 => (0, _v1.jsx)(_v63, {
+                  onClick: _v126,
                   children: _v0
                 }, "glossary-csv-template-link"))
               }), _v2 && (0, _v1.jsx)(_v13.Alert, {
@@ -2256,7 +2253,7 @@
                 children: (0, _v1.jsx)(_v11.AlertDescription, {
                   children: _v1.glossaryCsvReplaceNotice
                 })
-              }), (0, _v1.jsx)(_v59, {
+              }), (0, _v1.jsx)(_v58, {
                 dropLabel: _v1.glossaryCsvDropFile,
                 uploadLabel: _v1.glossaryCsvUploadFile,
                 uploadingHint: _v1.csvUploadingHint,
@@ -2264,9 +2261,9 @@
                 isBusy: _v10,
                 onFileSelected: _v0 => void _v22(_v0)
               })]
-            }), (0, _v1.jsxs)(_v35.Box, {
+            }), (0, _v1.jsxs)(_v34.Box, {
               "aria-live": "polite",
-              children: [void 0 !== _v14 && (0, _v1.jsxs)(_v35.Box, {
+              children: [void 0 !== _v14 && (0, _v1.jsxs)(_v34.Box, {
                 marginTop: (0, _v8.rem)(16),
                 children: [(0, _v1.jsx)(_v18.Text, {
                   variant: "body-sm",
@@ -2275,7 +2272,7 @@
                   variant: "body-sm",
                   children: _v1.glossaryCsvRowsFailed(_v16.length)
                 })]
-              }), _v16.length > 0 && (0, _v1.jsx)(_v35.Box, {
+              }), _v16.length > 0 && (0, _v1.jsx)(_v34.Box, {
                 marginTop: (0, _v8.rem)(8),
                 children: _v16.map(({
                   line: _v0,
@@ -2287,7 +2284,7 @@
                 }, `${_v0}-${_v1}`))
               })]
             })]
-          }), _v6 && (0, _v1.jsxs)(_v49.ModalFooter, {
+          }), _v6 && (0, _v1.jsxs)(_v48.ModalFooter, {
             gap: (0, _v8.rem)(12),
             children: [(0, _v1.jsx)(_v14.Button, {
               variant: "tertiary",
@@ -2305,7 +2302,8 @@
         })]
       });
     };
-  var _v129 = _v0.i(0),
+  var _v128 = _v0.i(0),
+    _v129 = _v0.i(0),
     _v130 = _v0.i(0),
     _v131 = _v0.i(0),
     _v132 = _v0.i(0),
@@ -2314,9 +2312,8 @@
     _v135 = _v0.i(0),
     _v136 = _v0.i(0),
     _v137 = _v0.i(0),
-    _v138 = _v0.i(0),
-    _v139 = _v0.i(0);
-  async function _v140({
+    _v138 = _v0.i(0);
+  async function _v139({
     baseUrl: _v0,
     where: {
       userId: _v1,
@@ -2336,7 +2333,7 @@
       return (0, _v22.deepCamelCase)(_v1);
     });
   }
-  async function _v141({
+  async function _v140({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -2359,8 +2356,8 @@
       return (0, _v22.deepCamelCase)(_v1);
     });
   }
-  var _v142 = _v0.i(0);
-  async function _v143({
+  var _v141 = _v0.i(0);
+  async function _v142({
     baseUrl: _v0,
     variables: _v1,
     where: {
@@ -2381,8 +2378,9 @@
       return (0, _v22.deepCamelCase)(_v1);
     });
   }
-  var _v144 = _v0.i(0);
-  let _v145 = ["uri", "sourceLanguage", "sourceText"],
+  var _v143 = _v0.i(0);
+  let _v144 = ["uri", "sourceLanguage", "sourceText"],
+    _v145 = "The complete glossary could not be loaded.",
     _v146 = _v0 => _v0.split("/").pop() ?? "",
     _v147 = _v0 => _v0.flatMap(_v0 => _v0.uri ? [_v0.uri] : []),
     _v148 = (_v0, _v1) => _v0.length === _v1.length && _v0.every((_v0, _v1) => _v0 === _v1[_v1]),
@@ -2430,7 +2428,7 @@
           setNodeRef: _v14,
           transform: _v15,
           transition: _v16
-        } = (0, _v130.useSortable)({
+        } = (0, _v129.useSortable)({
           id: _v5.clientId,
           disabled: {
             draggable: _v1 || !_v4,
@@ -2441,7 +2439,7 @@
           onKeyDown: _v17,
           ..._v18
         } = _v12 ?? {};
-      return (0, _v1.jsxs)(_v132.Grid, {
+      return (0, _v1.jsxs)(_v131.Grid, {
         ref: _v14,
         role: "group",
         position: "relative",
@@ -2450,7 +2448,7 @@
         borderBottom: _v3 ? void 0 : "1px solid",
         borderColor: "stroke",
         style: {
-          transform: _v131.CSS.Transform.toString(_v15),
+          transform: _v130.CSS.Transform.toString(_v15),
           transition: _v16
         },
         sx: {
@@ -2459,14 +2457,14 @@
             outlineOffset: "-2px"
           }
         },
-        children: [_v4 && (0, _v1.jsxs)(_v134.Menu, {
+        children: [_v4 && (0, _v1.jsxs)(_v133.Menu, {
           placement: "left-start",
           strategy: "fixed",
-          children: [(0, _v1.jsx)(_v135.MenuButton, {
-            as: _v133.IconButton,
+          children: [(0, _v1.jsx)(_v134.MenuButton, {
+            as: _v132.IconButton,
             className: "row-handle",
             "aria-label": _v6.removeGlossaryTermNumber(_v0 + 1),
-            icon: (0, _v1.jsx)(_v139.EllipsisV, {
+            icon: (0, _v1.jsx)(_v138.EllipsisV, {
               boxSize: 16
             }),
             variant: "primary",
@@ -2495,10 +2493,10 @@
             },
             ..._v18,
             onKeyDown: _v0 => _v9(_v0, _v5.clientId)
-          }), (0, _v1.jsx)(_v137.MenuList, {
+          }), (0, _v1.jsx)(_v136.MenuList, {
             minWidth: (0, _v8.rem)(151),
             paddingY: (0, _v8.rem)(8),
-            children: (0, _v1.jsx)(_v136.MenuItem, {
+            children: (0, _v1.jsx)(_v135.MenuItem, {
               onClick: () => _v8(_v5.clientId),
               children: _v6.removeTerm
             })
@@ -2517,11 +2515,11 @@
             variant: "heading-xs",
             color: "text-primary",
             children: _v0 + 1
-          }), _v4 && (0, _v1.jsx)(_v133.IconButton, {
+          }), _v4 && (0, _v1.jsx)(_v132.IconButton, {
             ref: _v13,
             ..._v11,
             "aria-label": _v6.moveGlossaryTermNumber(_v0 + 1),
-            icon: (0, _v1.jsx)(_v138.DragV, {}),
+            icon: (0, _v1.jsx)(_v137.DragV, {}),
             variant: "tertiary",
             size: "xs",
             isDisabled: _v1,
@@ -2533,7 +2531,7 @@
             },
             onKeyDown: _v0 => _v17?.(_v0)
           })]
-        }), (0, _v1.jsx)(_v60.Input, {
+        }), (0, _v1.jsx)(_v59.Input, {
           "aria-label": _v6.glossaryTermNumber(_v0 + 1),
           value: _v5.sourceText,
           maxLength: 500,
@@ -2598,11 +2596,11 @@
             _v8 = (0, _v3.useCallback)(async () => {
               let _v0,
                 _v1 = [];
-              for (let _v0 = 1; _v0 <= 20; _v0 += 1) {
-                let _v0 = await (0, _v142.getUserAccountDictionaryGlossaryTerms)({
+              for (let _v0 = 1;; _v0 += 1) {
+                let _v0 = await (0, _v141.getUserAccountDictionaryGlossaryTerms)({
                   baseUrl: _v1,
                   headers: _v7,
-                  select: _v145,
+                  select: _v144,
                   where: {
                     userId: _v0
                   },
@@ -2612,9 +2610,10 @@
                   }
                 });
                 if (_v0 ??= _v0.total, _v1.push(..._v0.data), !_v0.paging.next) break;
+                if (0 === _v0.data.length || _v1.length >= _v0) throw Error(_v145);
               }
               let _v2 = _v147(_v1);
-              if (_v1.length !== _v0 || new Set(_v2).size !== _v2.length) throw Error("The complete glossary could not be loaded.");
+              if (_v1.length !== _v0 || new Set(_v2).size !== _v2.length) throw Error(_v145);
               return _v1;
             }, [_v1, _v7, _v0]);
           (0, _v3.useEffect)(() => {
@@ -2639,14 +2638,14 @@
             }, [_v8]),
             _v10 = (0, _v3.useCallback)(async (_v0, _v1) => {
               let _v2 = _v149(_v0, _v1);
-              await Promise.all([..._v2.deleted.map(_v0 => _v140({
+              await Promise.all([..._v2.deleted.map(_v0 => _v139({
                 baseUrl: _v1,
                 headers: _v7,
                 where: {
                   userId: _v0,
                   termId: _v146(_v0.uri ?? "")
                 }
-              })), ..._v2.updated.map(_v0 => _v141({
+              })), ..._v2.updated.map(_v0 => _v140({
                 baseUrl: _v1,
                 headers: _v7,
                 select: ["uri"],
@@ -2660,7 +2659,7 @@
               }))]);
               let _v3 = new Map();
               if (_v2.created.length > 0) {
-                let _v0 = await _v123({
+                let _v0 = await _v122({
                   baseUrl: _v1,
                   headers: _v7,
                   select: ["failed", "results"],
@@ -2686,7 +2685,7 @@
                   return _v1;
                 }),
                 _v5 = new Set(_v147(_v1));
-              _v148(_v4, [..._v147(_v0).filter(_v0 => _v5.has(_v0)), ..._v2.created.map(_v0 => _v3.get(_v0) ?? "")]) || (await _v143({
+              _v148(_v4, [..._v147(_v0).filter(_v0 => _v5.has(_v0)), ..._v2.created.map(_v0 => _v3.get(_v0) ?? "")]) || (await _v142({
                 baseUrl: _v1,
                 headers: _v7,
                 variables: {
@@ -2713,18 +2712,18 @@
         [_v19, _v20] = (0, _v3.useState)(!1),
         _v21 = (0, _v3.useRef)(!1),
         _v22 = (0, _v3.useRef)(!1),
-        _v23 = (0, _v58.useToast)({
+        _v23 = (0, _v57.useToast)({
           title: _v1.changesSaved,
           duration: 0
         }),
-        _v24 = _v65(),
+        _v24 = _v64(),
         _v25 = (0, _v3.useCallback)(() => `new-glossary-term-${_v12.current++}`, []),
-        _v26 = (0, _v129.useSensors)((0, _v129.useSensor)(_v129.PointerSensor, {
+        _v26 = (0, _v128.useSensors)((0, _v128.useSensor)(_v128.PointerSensor, {
           activationConstraint: {
             distance: 8
           }
-        }), (0, _v129.useSensor)(_v129.KeyboardSensor, {
-          coordinateGetter: _v130.sortableKeyboardCoordinates
+        }), (0, _v128.useSensor)(_v128.KeyboardSensor, {
+          coordinateGetter: _v129.sortableKeyboardCoordinates
         }));
       (0, _v3.useEffect)(() => {
         _v7 || !_v8 || _v9 || _v22.current || (_v14(_v6), _v16(_v150(_v6, _v25)), _v22.current = !0);
@@ -2799,10 +2798,10 @@
         _v38 = (_v0, _v1) => {
           let _v2 = _v0.clipboardData.getData("text");
           if (!/[\r\n]/.test(_v2)) return;
-          let _v3 = _v2.trimStart().split(/\r\n|\r|\n/, 1)[0]?.trim().toLowerCase() === _v118 ? _v2 : `${_v118}
+          let _v3 = _v2.trimStart().split(/\r\n|\r|\n/, 1)[0]?.trim().toLowerCase() === _v117 ? _v2 : `${_v117}
 ${_v2}`;
           try {
-            let _v0 = _v120(_v3);
+            let _v0 = _v119(_v3);
             if (_v0.failures.length > 0 || 0 === _v0.terms.length) return;
             _v0.preventDefault(), _v16(_v0 => {
               let _v1 = _v0.terms.map(({
@@ -2815,7 +2814,7 @@ ${_v2}`;
               return _v33([..._v0.slice(0, _v1), ..._v1, ..._v0.slice(_v1 + 1)]);
             });
           } catch (_v0) {
-            if (!(_v0 instanceof _v119)) throw _v0;
+            if (!(_v0 instanceof _v118)) throw _v0;
           }
         },
         _v39 = _v0 => {
@@ -2855,19 +2854,19 @@ ${_v2}`;
             _v18(!1);
           }
         };
-      return (0, _v1.jsxs)(_v46.Modal, {
+      return (0, _v1.jsxs)(_v45.Modal, {
         isOpen: _v4,
         closeOnEsc: !_v17,
         closeOnOverlayClick: !_v17,
         onClose: _v17 ? () => void 0 : _v2,
-        children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v48.ModalContent, {
+        children: [(0, _v1.jsx)(_v50.ModalOverlay, {}), (0, _v1.jsxs)(_v47.ModalContent, {
           width: `calc(100vw - ${(0, _v8.rem)(32)})`,
           maxWidth: (0, _v8.rem)(480),
           height: (0, _v8.rem)(700),
           maxHeight: `calc(100vh - ${(0, _v8.rem)(32)})`,
-          children: [(0, _v1.jsx)(_v50.ModalHeader, {
+          children: [(0, _v1.jsx)(_v49.ModalHeader, {
             children: _v1.glossaryTitle
-          }), (0, _v1.jsxs)(_v47.ModalBody, {
+          }), (0, _v1.jsxs)(_v46.ModalBody, {
             overflowY: "auto",
             paddingX: (0, _v8.rem)(32),
             paddingY: (0, _v8.rem)(24),
@@ -2875,8 +2874,8 @@ ${_v2}`;
               status: "info",
               marginBottom: (0, _v8.rem)(24),
               children: (0, _v1.jsxs)(_v11.AlertDescription, {
-                children: [_v1.glossaryEditorDescription, " ", (0, _v1.jsx)(_v64, {
-                  onClick: _v127,
+                children: [_v1.glossaryEditorDescription, " ", (0, _v1.jsx)(_v63, {
+                  onClick: _v126,
                   children: _v1.glossaryDownloadTemplate
                 })]
               })
@@ -2884,8 +2883,8 @@ ${_v2}`;
               minHeight: (0, _v8.rem)(240),
               alignItems: "center",
               justifyContent: "center",
-              children: (0, _v1.jsx)(_v45.Spinner, {})
-            }) : (0, _v1.jsx)(_v129.DndContext, {
+              children: (0, _v1.jsx)(_v44.Spinner, {})
+            }) : (0, _v1.jsx)(_v128.DndContext, {
               accessibility: _v36,
               sensors: _v26,
               onDragEnd: ({
@@ -2895,13 +2894,13 @@ ${_v2}`;
                 _v1 && _v0.id !== _v1.id && _v16(_v0 => {
                   let _v1 = _v0.findIndex(_v0 => _v0.clientId === _v0.id),
                     _v2 = _v0.findIndex(_v0 => _v0.clientId === _v1.id);
-                  return _v1 < 0 || _v2 < 0 ? _v0 : (0, _v130.arrayMove)(_v0, _v1, _v2);
+                  return _v1 < 0 || _v2 < 0 ? _v0 : (0, _v129.arrayMove)(_v0, _v1, _v2);
                 });
               },
-              children: (0, _v1.jsx)(_v130.SortableContext, {
+              children: (0, _v1.jsx)(_v129.SortableContext, {
                 items: _v29,
-                strategy: _v130.verticalListSortingStrategy,
-                children: (0, _v1.jsx)(_v35.Box, {
+                strategy: _v129.verticalListSortingStrategy,
+                children: (0, _v1.jsx)(_v34.Box, {
                   border: "1px solid",
                   borderColor: "stroke",
                   borderRadius: "sm",
@@ -2922,7 +2921,7 @@ ${_v2}`;
                 })
               })
             })]
-          }), (0, _v1.jsxs)(_v49.ModalFooter, {
+          }), (0, _v1.jsxs)(_v48.ModalFooter, {
             alignItems: {
               base: "stretch",
               sm: "center"
@@ -2936,7 +2935,7 @@ ${_v2}`;
             gap: (0, _v8.rem)(12),
             children: [_v5 && (0, _v1.jsx)(_v14.Button, {
               variant: "secondary",
-              leftIcon: (0, _v1.jsx)(_v44.Upload, {}),
+              leftIcon: (0, _v1.jsx)(_v43.Upload, {}),
               width: {
                 base: "100%",
                 sm: "auto"
@@ -2987,7 +2986,7 @@ ${_v2}`;
           isLoading: _v16,
           error: _v17,
           retry: _v18
-        } = (_v2 = (0, _v144.useGetUserAccountDictionaryGlossaryTerms)(() => ({
+        } = (_v2 = (0, _v143.useGetUserAccountDictionaryGlossaryTerms)(() => ({
           select: ["uri", "sourceText"],
           where: {
             userId: _v0
@@ -3024,20 +3023,20 @@ ${_v2}`;
           headerActions: !_v16 && !_v17 && (0, _v1.jsxs)(_v6.Flex, {
             gap: (0, _v8.rem)(8),
             flexWrap: "wrap",
-            children: [(0, _v1.jsx)(_v40.Tooltip, {
+            children: [(0, _v1.jsx)(_v39.Tooltip, {
               label: _v1.glossaryCsvDescription,
               placement: "top",
               children: (0, _v1.jsx)(_v14.Button, {
                 variant: "tertiary",
                 size: "sm",
-                leftIcon: (0, _v1.jsx)(_v44.Upload, {}),
+                leftIcon: (0, _v1.jsx)(_v43.Upload, {}),
                 onClick: () => _v8(!0),
                 children: _v1.csv
               })
             }), (0, _v1.jsx)(_v14.Button, {
               variant: "secondary",
               size: "sm",
-              leftIcon: 0 === _v12 ? (0, _v1.jsx)(_v43.Plus, {}) : (0, _v1.jsx)(_v42.EditPencil, {}),
+              leftIcon: 0 === _v12 ? (0, _v1.jsx)(_v42.Plus, {}) : (0, _v1.jsx)(_v41.EditPencil, {}),
               onClick: () => _v10(!0),
               children: _v12 > 0 ? _v1.edit : _v1.addTerm
             })]
@@ -3046,7 +3045,7 @@ ${_v2}`;
             minHeight: (0, _v8.rem)(140),
             alignItems: "center",
             justifyContent: "center",
-            children: (0, _v1.jsx)(_v45.Spinner, {})
+            children: (0, _v1.jsx)(_v44.Spinner, {})
           }) : _v17 ? (0, _v1.jsxs)(_v13.Alert, {
             status: "error",
             marginTop: (0, _v8.rem)(24),
@@ -3066,7 +3065,7 @@ ${_v2}`;
             justifyContent: "center",
             flexDirection: "column",
             textAlign: "center",
-            children: [(0, _v1.jsx)(_v41.ClipboardNotes, {
+            children: [(0, _v1.jsx)(_v40.ClipboardNotes, {
               boxSize: 32
             }), (0, _v1.jsx)(_v18.Text, {
               variant: "heading-sm",
@@ -3078,12 +3077,12 @@ ${_v2}`;
               marginTop: (0, _v8.rem)(4),
               children: _v1.glossaryEmptyDescription
             })]
-          }) : (0, _v1.jsxs)(_v35.Box, {
+          }) : (0, _v1.jsxs)(_v34.Box, {
             marginTop: (0, _v8.rem)(24),
             children: [(0, _v1.jsx)(_v6.Flex, {
               flexWrap: "wrap",
               gap: (0, _v8.rem)(8),
-              children: _v11.map(_v0 => (0, _v1.jsx)(_v39.Tag, {
+              children: _v11.map(_v0 => (0, _v1.jsx)(_v38.Tag, {
                 size: "md",
                 height: "auto",
                 paddingX: (0, _v8.rem)(10),
@@ -3097,14 +3096,14 @@ ${_v2}`;
                     backgroundColor: "background"
                   }
                 },
-                children: (0, _v1.jsx)(_v39.TagLabel, {
+                children: (0, _v1.jsx)(_v38.TagLabel, {
                   children: _v0.sourceText
                 })
               }, _v0.uri))
             }), _v12 > _v14 && (0, _v1.jsx)(_v6.Flex, {
               justifyContent: "center",
               marginTop: (0, _v8.rem)(24),
-              children: (0, _v1.jsx)(_v37.Pagination, {
+              children: (0, _v1.jsx)(_v36.Pagination, {
                 size: "sm",
                 count: _v12,
                 pageSize: _v14,
@@ -3134,7 +3133,7 @@ ${_v2}`;
                 variant: "heading-xs",
                 whiteSpace: "nowrap",
                 children: _v1.glossaryCount(_v19, _v20)
-              }), (0, _v1.jsx)(_v38.Progress, {
+              }), (0, _v1.jsx)(_v37.Progress, {
                 "aria-label": _v1.glossaryCount(_v19, _v20),
                 flex: "1",
                 width: "auto",
@@ -3144,7 +3143,7 @@ ${_v2}`;
               }), (0, _v1.jsxs)(_v18.Text, {
                 variant: "body-sm",
                 whiteSpace: "nowrap",
-                children: [_v1.needMorePrompt, " ", (0, _v1.jsx)(_v36.Link, {
+                children: [_v1.needMorePrompt, " ", (0, _v1.jsx)(_v35.Link, {
                   href: "/enterprise/contact-us",
                   color: "text-primary",
                   textDecoration: "underline",
@@ -3165,7 +3164,7 @@ ${_v2}`;
           onSaved: async () => {
             _v6(1), await _v18();
           }
-        }), _v7 && (0, _v1.jsx)(_v128, {
+        }), _v7 && (0, _v1.jsx)(_v127, {
           ownerUserId: _v0,
           translations: _v1,
           hasExistingTerms: _v12 > 0,
@@ -3177,9 +3176,8 @@ ${_v2}`;
       });
     };
   var _v154 = _v0.i(0),
-    _v155 = _v0.i(0),
-    _v156 = _v0.i(0);
-  let _v157 = _v0 => (0, _v1.jsx)(_v156.Icon, {
+    _v155 = _v0.i(0);
+  let _v156 = _v0 => (0, _v1.jsx)(_v155.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -3190,8 +3188,8 @@ ${_v2}`;
       })
     })
   });
-  var _v158 = _v0.i(0);
-  let _v159 = [{
+  var _v157 = _v0.i(0);
+  let _v158 = [{
       feature: "autocaptioning",
       glossary: 0,
       termsTranslations: "not-applicable",
@@ -3205,7 +3203,7 @@ ${_v2}`;
       feature: "liveCaptioning",
       glossary: 50,
       termsTranslations: "not-applicable",
-      customRules: "not-applicable"
+      customRules: "unsupported"
     }, {
       feature: "liveCaptionTranslation",
       glossary: 50,
@@ -3217,172 +3215,250 @@ ${_v2}`;
       termsTranslations: "unsupported",
       customRules: "unsupported"
     }],
-    _v160 = ({
+    _v159 = ({
       support: _v0,
       translations: _v1
     }) => {
-      if ("supported" === _v0) return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v158.CheckSmall, {
-          boxSize: (0, _v8.rem)(20),
-          color: "text-primary",
-          "aria-hidden": "true"
-        }), (0, _v1.jsx)(_v155.VisuallyHidden, {
-          children: _v1.supported
-        })]
-      });
       let _v2 = "unsupported" === _v0 || "not-applicable" === _v0,
-        _v3 = "unsupported" === _v0 ? _v1.notSupportedYet : "not-applicable" === _v0 ? _v1.notApplicable : _v1.processingLimit(_v0);
-      return (0, _v1.jsx)(_v18.Text, {
-        variant: "body-md",
-        color: _v2 ? "text-tertiary" : "text-primary",
-        children: _v3
+        _v3 = "unsupported" === _v0 ? _v1.notSupportedYet : "not-applicable" === _v0 ? _v1.notApplicable : "supported" === _v0 ? _v1.customRulesCharacters(0) : _v1.featureLimitTerms(_v0);
+      return (0, _v1.jsxs)(_v6.Flex, {
+        alignItems: "center",
+        gap: (0, _v8.rem)(4),
+        children: [(0, _v1.jsx)(_v18.Text, {
+          variant: "body-md",
+          color: _v2 ? "text-tertiary" : "text-primary",
+          children: _v3
+        }), (0, _v1.jsx)(_v160, {
+          support: _v0,
+          translations: _v1
+        })]
       });
     },
+    _v160 = ({
+      support: _v0,
+      translations: _v1
+    }) => 50 !== _v0 ? null : (0, _v1.jsx)(_v39.Tooltip, {
+      label: _v1.liveCaptioningCharacterLimit,
+      placement: "top",
+      children: (0, _v1.jsx)(_v6.Flex, {
+        "aria-label": _v1.liveCaptioningCharacterLimit,
+        children: (0, _v1.jsx)(_v157.InfoCircle, {
+          width: "2xs",
+          color: "text-secondary"
+        })
+      })
+    }),
     _v161 = ({
-      isOpen: _v0,
-      onClose: _v1,
+      limit: _v0,
+      unit: _v1,
       translations: _v2
-    }) => (0, _v1.jsxs)(_v46.Modal, {
+    }) => void 0 === _v0 ? (0, _v1.jsx)(_v18.Text, {
+      variant: "body-md",
+      color: "text-tertiary",
+      children: "—"
+    }) : (0, _v1.jsx)(_v18.Text, {
+      variant: "body-md",
+      fontWeight: "medium",
+      children: "terms" === _v1 ? _v2.featureLimitTerms(_v0) : _v2.customRulesCharacters(_v0)
+    }),
+    _v162 = ({
       isOpen: _v0,
       onClose: _v1,
-      isCentered: !0,
-      scrollBehavior: "inside",
-      children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v48.ModalContent, {
-        maxWidth: {
-          base: "calc(100vw - 32px)",
-          md: (0, _v8.rem)(656)
-        },
-        width: "100%",
-        children: [(0, _v1.jsx)(_v50.ModalHeader, {
-          paddingBottom: "2",
-          paddingRight: "7",
-          children: _v2.limitsByFeatureTitle
-        }), (0, _v1.jsx)(_v154.ModalCloseButton, {
-          top: "6",
-          right: "7"
-        }), (0, _v1.jsx)(_v47.ModalBody, {
-          paddingTop: "5",
-          paddingBottom: "6",
-          children: (0, _v1.jsxs)(_v6.Flex, {
-            flexDirection: "column",
-            gap: "4",
-            children: [(0, _v1.jsx)(_v18.Text, {
-              variant: "body-md",
-              children: _v2.limitsByFeatureDescription
-            }), (0, _v1.jsxs)(_v6.Flex, {
-              gap: "3",
-              alignItems: "center",
-              padding: "3",
-              borderRadius: "md",
-              backgroundColor: "fill-component",
-              children: [(0, _v1.jsx)(_v157, {
-                boxSize: (0, _v8.rem)(24),
-                flexShrink: 0,
-                color: "text-secondary",
-                "aria-hidden": "true"
-              }), (0, _v1.jsx)(_v18.Text, {
+      ownerUserId: _v2,
+      translations: _v3
+    }) => {
+      let _v4 = (0, _v28.useGetUser)(() => _v0 ? {
+          select: ["accountDictionaryQuota.customRulesCharacters.limit", "accountDictionaryQuota.glossaryTerms.limit", "accountDictionaryQuota.languageReplacementTerms.limit"],
+          where: {
+            userId: _v2
+          }
+        } : null),
+        _v5 = (0, _v3.useMemo)(() => {
+          let _v0 = _v4.data?.accountDictionaryQuota;
+          if (!_v0) return;
+          let _v1 = (_v0, _v1) => void 0 === _v0 ? void 0 : Math.min(_v0, _v1);
+          return {
+            glossary: _v1(_v0.glossaryTerms?.limit, 0),
+            termsTranslations: _v1(_v0.languageReplacementTerms?.limit, 0),
+            customRules: _v1(_v0.customRulesCharacters?.limit, 0)
+          };
+        }, [_v4.data]);
+      return (0, _v1.jsxs)(_v45.Modal, {
+        isOpen: _v0,
+        onClose: _v1,
+        isCentered: !0,
+        scrollBehavior: "inside",
+        children: [(0, _v1.jsx)(_v50.ModalOverlay, {}), (0, _v1.jsxs)(_v47.ModalContent, {
+          maxWidth: {
+            base: "calc(100vw - 32px)",
+            md: (0, _v8.rem)(656)
+          },
+          width: "100%",
+          children: [(0, _v1.jsx)(_v49.ModalHeader, {
+            paddingBottom: "2",
+            paddingRight: "7",
+            children: _v3.processingLimitsByFeatureTitle
+          }), (0, _v1.jsx)(_v154.ModalCloseButton, {
+            top: "6",
+            right: "7"
+          }), (0, _v1.jsx)(_v46.ModalBody, {
+            paddingTop: "5",
+            paddingBottom: "6",
+            children: (0, _v1.jsxs)(_v6.Flex, {
+              flexDirection: "column",
+              gap: "4",
+              children: [(0, _v1.jsx)(_v18.Text, {
                 variant: "body-md",
-                color: "text-secondary",
-                children: _v2.orderingExplanation
-              })]
-            }), (0, _v1.jsx)(_v35.Box, {
-              role: "region",
-              tabIndex: 0,
-              "aria-label": _v2.featureLimitsTableScrollLabel,
-              borderRadius: "sm",
-              overflowX: "auto",
-              _focusVisible: {
-                outline: `${(0, _v8.rem)(2)} solid`,
-                outlineColor: "focus",
-                outlineOffset: (0, _v8.rem)(2)
-              },
-              children: (0, _v1.jsx)(_v35.Box, {
-                minWidth: (0, _v8.rem)(560),
-                borderWidth: (0, _v8.rem)(1),
-                borderColor: "stroke",
+                children: _v3.limitsByFeatureDescription
+              }), (0, _v1.jsxs)(_v6.Flex, {
+                gap: "3",
+                alignItems: "center",
+                padding: "3",
+                borderRadius: "md",
+                backgroundColor: "fill-component",
+                children: [(0, _v1.jsx)(_v156, {
+                  boxSize: (0, _v8.rem)(24),
+                  flexShrink: 0,
+                  color: "text-secondary",
+                  "aria-hidden": "true"
+                }), (0, _v1.jsx)(_v18.Text, {
+                  variant: "body-md",
+                  color: "text-secondary",
+                  children: _v3.orderingExplanation
+                })]
+              }), (0, _v1.jsx)(_v34.Box, {
+                role: "region",
+                tabIndex: 0,
+                "aria-label": _v3.featureLimitsTableScrollLabel,
                 borderRadius: "sm",
-                overflow: "hidden",
-                children: (0, _v1.jsxs)(_v52.Table, {
-                  variant: "unstyled",
-                  width: "100%",
-                  "aria-label": _v2.limitsByFeatureTitle,
-                  sx: {
-                    tableLayout: "fixed",
-                    "th, td": {
-                      height: (0, _v8.rem)(44),
-                      padding: (0, _v8.rem)(12),
-                      borderRightWidth: (0, _v8.rem)(1),
-                      borderBottomWidth: (0, _v8.rem)(1),
-                      borderColor: "stroke",
-                      verticalAlign: "middle",
-                      textAlign: "start"
+                overflowX: "auto",
+                _focusVisible: {
+                  outline: `${(0, _v8.rem)(2)} solid`,
+                  outlineColor: "focus",
+                  outlineOffset: (0, _v8.rem)(2)
+                },
+                children: (0, _v1.jsx)(_v34.Box, {
+                  minWidth: (0, _v8.rem)(560),
+                  borderWidth: (0, _v8.rem)(1),
+                  borderColor: "stroke",
+                  borderRadius: "sm",
+                  overflow: "hidden",
+                  children: (0, _v1.jsxs)(_v51.Table, {
+                    variant: "unstyled",
+                    width: "100%",
+                    "aria-label": _v3.processingLimitsByFeatureTitle,
+                    sx: {
+                      tableLayout: "fixed",
+                      "th, td": {
+                        height: (0, _v8.rem)(44),
+                        padding: (0, _v8.rem)(12),
+                        borderRightWidth: (0, _v8.rem)(1),
+                        borderBottomWidth: (0, _v8.rem)(1),
+                        borderColor: "stroke",
+                        verticalAlign: "middle",
+                        textAlign: "start"
+                      },
+                      th: {
+                        backgroundColor: "fill-component",
+                        color: "text-secondary",
+                        textStyle: "heading-xs",
+                        fontVariantNumeric: "normal",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis"
+                      },
+                      "th:last-of-type, td:last-of-type": {
+                        borderRightWidth: 0
+                      },
+                      "tbody tr:last-of-type td": {
+                        borderBottomWidth: 0
+                      }
                     },
-                    th: {
-                      backgroundColor: "fill-component",
-                      color: "text-secondary",
-                      textStyle: "heading-xs",
-                      whiteSpace: "nowrap",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis"
-                    },
-                    "th:last-of-type, td:last-of-type": {
-                      borderRightWidth: 0
-                    },
-                    "tbody tr:last-of-type td": {
-                      borderBottomWidth: 0
-                    }
-                  },
-                  children: [(0, _v1.jsx)(_v56.Thead, {
-                    children: (0, _v1.jsxs)(_v57.Tr, {
-                      children: [(0, _v1.jsx)(_v55.Th, {
-                        "aria-label": _v2.featureColumnLabel
-                      }), (0, _v1.jsx)(_v55.Th, {
-                        children: _v2.glossaryTitle
-                      }), (0, _v1.jsx)(_v55.Th, {
-                        children: _v2.replacementsTitle
-                      }), (0, _v1.jsx)(_v55.Th, {
-                        children: _v2.rulesTitle
+                    children: [(0, _v1.jsx)(_v55.Thead, {
+                      children: (0, _v1.jsxs)(_v56.Tr, {
+                        children: [(0, _v1.jsx)(_v54.Th, {
+                          "aria-label": _v3.featureColumnLabel
+                        }), (0, _v1.jsx)(_v54.Th, {
+                          children: _v3.glossaryTitle
+                        }), (0, _v1.jsx)(_v54.Th, {
+                          children: _v3.replacementsTitle
+                        }), (0, _v1.jsx)(_v54.Th, {
+                          children: _v3.rulesTitle
+                        })]
+                      })
+                    }), (0, _v1.jsxs)(_v53.Tbody, {
+                      children: [_v158.map(({
+                        feature: _v0,
+                        glossary: _v1,
+                        termsTranslations: _v2,
+                        customRules: _v3
+                      }) => (0, _v1.jsxs)(_v56.Tr, {
+                        children: [(0, _v1.jsx)(_v60.Td, {
+                          children: (0, _v1.jsx)(_v18.Text, {
+                            variant: "heading-xs",
+                            children: _v3.featureNames[_v0]
+                          })
+                        }), (0, _v1.jsx)(_v60.Td, {
+                          children: (0, _v1.jsx)(_v159, {
+                            support: _v1,
+                            translations: _v3
+                          })
+                        }), (0, _v1.jsx)(_v60.Td, {
+                          children: (0, _v1.jsx)(_v159, {
+                            support: _v2,
+                            translations: _v3
+                          })
+                        }), (0, _v1.jsx)(_v60.Td, {
+                          children: (0, _v1.jsx)(_v159, {
+                            support: _v3,
+                            translations: _v3
+                          })
+                        })]
+                      }, _v0)), (0, _v1.jsxs)(_v56.Tr, {
+                        backgroundColor: "fill-component-hover",
+                        children: [(0, _v1.jsx)(_v60.Td, {
+                          children: (0, _v1.jsx)(_v18.Text, {
+                            variant: "heading-xs",
+                            children: _v3.accountLimitsLabel
+                          })
+                        }), (0, _v1.jsx)(_v60.Td, {
+                          children: (0, _v1.jsx)(_v161, {
+                            limit: _v5?.glossary,
+                            unit: "terms",
+                            translations: _v3
+                          })
+                        }), (0, _v1.jsx)(_v60.Td, {
+                          children: (0, _v1.jsx)(_v161, {
+                            limit: _v5?.termsTranslations,
+                            unit: "terms",
+                            translations: _v3
+                          })
+                        }), (0, _v1.jsx)(_v60.Td, {
+                          children: (0, _v1.jsx)(_v161, {
+                            limit: _v5?.customRules,
+                            unit: "characters",
+                            translations: _v3
+                          })
+                        })]
                       })]
-                    })
-                  }), (0, _v1.jsx)(_v54.Tbody, {
-                    children: _v159.map(({
-                      feature: _v0,
-                      glossary: _v1,
-                      termsTranslations: _v2,
-                      customRules: _v3
-                    }) => (0, _v1.jsxs)(_v57.Tr, {
-                      children: [(0, _v1.jsx)(_v61.Td, {
-                        children: (0, _v1.jsx)(_v18.Text, {
-                          variant: "heading-xs",
-                          children: _v2.featureNames[_v0]
-                        })
-                      }), (0, _v1.jsx)(_v61.Td, {
-                        children: (0, _v1.jsx)(_v160, {
-                          support: _v1,
-                          translations: _v2
-                        })
-                      }), (0, _v1.jsx)(_v61.Td, {
-                        children: (0, _v1.jsx)(_v160, {
-                          support: _v2,
-                          translations: _v2
-                        })
-                      }), (0, _v1.jsx)(_v61.Td, {
-                        children: (0, _v1.jsx)(_v160, {
-                          support: _v3,
-                          translations: _v2
-                        })
-                      })]
-                    }, _v0))
-                  })]
+                    })]
+                  })
                 })
-              })
-            })]
-          })
+              }), (0, _v1.jsxs)(_v18.Text, {
+                variant: "body-md",
+                children: [_v3.accountLimitsFootnotePrefix, " ", (0, _v1.jsx)(_v35.Link, {
+                  href: "/enterprise/contact-us",
+                  color: "text-primary",
+                  textDecoration: "underline",
+                  children: _v3.contactSales
+                }), " ", _v3.accountLimitsFootnoteSuffix]
+              })]
+            })
+          })]
         })]
-      })]
-    });
-  var _v162 = _v0.i(0),
-    _v163 = _v0.i(0),
+      });
+    };
+  var _v163 = _v0.i(0),
     _v164 = _v0.i(0),
     _v165 = _v0.i(0),
     _v166 = _v0.i(0),
@@ -3390,39 +3466,40 @@ ${_v2}`;
     _v168 = _v0.i(0),
     _v169 = _v0.i(0),
     _v170 = _v0.i(0),
-    _v171 = _v0.i(0);
-  let _v172 = new Map(),
-    _v173 = _v0 => _v0.trim().toLowerCase().replaceAll("_", "-"),
-    _v174 = (_v0, _v1) => {
+    _v171 = _v0.i(0),
+    _v172 = _v0.i(0);
+  let _v173 = new Map(),
+    _v174 = _v0 => _v0.trim().toLowerCase().replaceAll("_", "-"),
+    _v175 = (_v0, _v1) => {
       try {
         return (_v0 => {
-          let _v1 = _v172.get(_v0);
+          let _v1 = _v173.get(_v0);
           if (_v1) return _v1;
           let _v2 = new Intl.DisplayNames([_v0], {
             type: "language"
           });
-          return _v172.set(_v0, _v2), _v2;
+          return _v173.set(_v0, _v2), _v2;
         })(_v1).of(_v0) ?? _v0.toUpperCase();
       } catch (_v0) {
         if (_v0 instanceof RangeError) return _v0.toUpperCase();
         throw _v0;
       }
     },
-    _v175 = _v0 => new Map(_v0.map(({
+    _v176 = _v0 => new Map(_v0.map(({
       code: _v0,
       name: _v1
-    }) => [_v173(_v0), _v1])),
-    _v176 = (_v0, _v1, _v2) => _v2.get(_v173(_v0)) ?? _v174(_v0, _v1),
-    _v177 = ["source language", "source term", "target language", "target term"];
-  class _v178 extends Error {
+    }) => [_v174(_v0), _v1])),
+    _v177 = (_v0, _v1, _v2) => _v2.get(_v174(_v0)) ?? _v175(_v0, _v1),
+    _v178 = ["source language", "source term", "target language", "target term"];
+  class _v179 extends Error {
     code;
     constructor(_v0) {
       super(_v0), this.code = _v0;
     }
   }
-  let _v179 = _v0 => _v0.trim().toLocaleLowerCase().replaceAll("_", "-");
-  var _v180 = _v0.i(0);
-  async function _v181({
+  let _v180 = _v0 => _v0.trim().toLocaleLowerCase().replaceAll("_", "-");
+  var _v181 = _v0.i(0);
+  async function _v182({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -3444,8 +3521,8 @@ ${_v2}`;
       return (0, _v22.deepCamelCase)(_v1);
     });
   }
-  let _v182 = ["created", "results", "results.errors", "results.errors.message", "results.index", "results.status"],
-    _v183 = (_v0, _v1, _v2) => {
+  let _v183 = ["created", "results", "results.errors", "results.errors.message", "results.index", "results.status"],
+    _v184 = (_v0, _v1, _v2) => {
       let _v3 = (_v2?.results ?? []).flatMap(_v0 => {
         if ("failed" !== _v0.status) return [];
         let _v1 = _v0[_v0.index]?.line ?? 0;
@@ -3465,16 +3542,16 @@ ${_v2}`;
         failures: [..._v1, ..._v3].sort((_v0, _v1) => _v0.line - _v1.line)
       };
     },
-    _v184 = (_v0, _v1) => "column_count" === _v0.code ? _v1.replacementsCsvColumnCountError : "required" === _v0.code ? _v1.replacementsCsvRequiredError : "field_length" === _v0.code ? _v1.replacementsCsvFieldLengthError : "invalid_source_language" === _v0.code ? _v1.replacementsCsvInvalidSourceLanguage(_v0.language) : "invalid_target_language" === _v0.code ? _v1.replacementsCsvInvalidTargetLanguage(_v0.language) : "matching_source_target_language" === _v0.code ? _v1.replacementsCsvMatchingLanguages : _v0.message ?? _v1.replacementsCsvServerError,
-    _v185 = (_v0, _v1) => "empty" === _v0 ? _v1.replacementsCsvEmpty : "header" === _v0 ? _v1.replacementsCsvInvalidHeader : "malformed" === _v0 ? _v1.replacementsCsvMalformed : "too_many_rows" === _v0 ? _v1.replacementsCsvTooManyRows : "file" === _v0 ? _v1.replacementsCsvInvalidFile : _v1.replacementsCsvImportError,
-    _v186 = ({
+    _v185 = (_v0, _v1) => "column_count" === _v0.code ? _v1.replacementsCsvColumnCountError : "required" === _v0.code ? _v1.replacementsCsvRequiredError : "field_length" === _v0.code ? _v1.replacementsCsvFieldLengthError : "invalid_source_language" === _v0.code ? _v1.replacementsCsvInvalidSourceLanguage(_v0.language) : "invalid_target_language" === _v0.code ? _v1.replacementsCsvInvalidTargetLanguage(_v0.language) : "matching_source_target_language" === _v0.code ? _v1.replacementsCsvMatchingLanguages : _v0.message ?? _v1.replacementsCsvServerError,
+    _v186 = (_v0, _v1) => "empty" === _v0 ? _v1.replacementsCsvEmpty : "header" === _v0 ? _v1.replacementsCsvInvalidHeader : "malformed" === _v0 ? _v1.replacementsCsvMalformed : "file" === _v0 ? _v1.replacementsCsvInvalidFile : _v1.replacementsCsvImportError,
+    _v187 = ({
       ownerUserId: _v0,
       translations: _v1,
       hasExistingEntries: _v2,
       onClose: _v3,
       onImported: _v4
     }) => {
-      let _v5 = (0, _v171.useLocale)(),
+      let _v5 = (0, _v172.useLocale)(),
         _v6 = (0, _v3.useRef)(null),
         _v7 = (_v0 => {
           let {
@@ -3485,7 +3562,7 @@ ${_v2}`;
           } = (0, _v27.useGctlConfig)();
           return (0, _v3.useCallback)(async (_v0, _v1) => {
             let _v2;
-            if (0 === _v0.length) return _v183(_v0, _v1);
+            if (0 === _v0.length) return _v184(_v0, _v1);
             let _v3 = {
                 "Content-Type": "application/json",
                 Authorization: _v2 ? `jwt ${_v2}` : "",
@@ -3495,7 +3572,7 @@ ${_v2}`;
               _v4 = [],
               _v5 = 1;
             for (;;) {
-              let _v0 = await (0, _v180.getLanguages)({
+              let _v0 = await (0, _v181.getLanguages)({
                 baseUrl: _v1,
                 headers: _v3,
                 query: {
@@ -3510,9 +3587,9 @@ ${_v2}`;
               }) => _v0)), !_v0.paging.next) break;
               _v5 += 1;
             }
-            let _v6 = (_v2 = new Set(_v4.map(_v179)), _v0.reduce((_v0, _v1) => {
-                let _v2 = _v179(_v1.sourceLanguage),
-                  _v3 = _v179(_v1.targetLanguage),
+            let _v6 = (_v2 = new Set(_v4.map(_v180)), _v0.reduce((_v0, _v1) => {
+                let _v2 = _v180(_v1.sourceLanguage),
+                  _v3 = _v180(_v1.targetLanguage),
                   _v4 = _v2.has(_v2),
                   _v5 = _v2.has(_v3);
                 return _v4 || _v0.failures.push({
@@ -3532,11 +3609,11 @@ ${_v2}`;
                 failures: []
               })),
               _v7 = [..._v1, ..._v6.failures];
-            if (0 === _v6.entries.length) return _v183(_v6.entries, _v7);
-            let _v8 = await _v181({
+            if (0 === _v6.entries.length) return _v184(_v6.entries, _v7);
+            let _v8 = await _v182({
               baseUrl: _v1,
               headers: _v3,
-              select: _v182,
+              select: _v183,
               variables: {
                 replaceExisting: !0,
                 rules: _v6.entries.map(_v0 => ({
@@ -3551,7 +3628,7 @@ ${_v2}`;
                 userId: _v0
               }
             });
-            return _v183(_v6.entries, _v7, _v8);
+            return _v184(_v6.entries, _v7, _v8);
           }, [_v1, _v2, _v4, _v0, _v3]);
         })(_v0),
         [_v8, _v9] = (0, _v3.useState)(),
@@ -3559,12 +3636,12 @@ ${_v2}`;
         [_v12, _v13] = (0, _v3.useState)(),
         [_v14, _v15] = (0, _v3.useState)(!1),
         [_v16, _v17] = (0, _v3.useState)(!1),
-        _v18 = (0, _v58.useToast)({
+        _v18 = (0, _v57.useToast)({
           title: _v1.replacementsChangesSaved,
           duration: 0
         }),
-        _v19 = _v65(),
-        _v20 = (0, _v3.useMemo)(() => `data:text/csv;charset=utf-8,${encodeURIComponent(`${_v177.join(",")}\r
+        _v19 = _v64(),
+        _v20 = (0, _v3.useMemo)(() => `data:text/csv;charset=utf-8,${encodeURIComponent(`${_v178.join(",")}\r
 `)}`, []),
         _v21 = (0, _v3.useMemo)(() => {
           var _v0;
@@ -3593,7 +3670,8 @@ ${_v2}`;
         _v12 && _v6.current?.focus();
       }, [_v12]);
       let _v24 = async _v0 => {
-          if (_v13(void 0), !_v0.name.toLowerCase().endsWith(".csv")) return void _v19(_v185("file", _v1));
+          if (_v13(void 0), !_v0.name.toLowerCase().endsWith(".csv")) return void _v19(_v186("file", _v1));
+          if (_v0.size > 0) return void _v19(_v1.csvFileTooLarge);
           _v15(!0);
           try {
             let _v0 = (_v0 => {
@@ -3618,21 +3696,18 @@ ${_v2}`;
                     line: _v3
                   }), _v1;
                 })(_v0);
-              if (_v2.filter(({
-                isBlank: _v0
-              }) => !_v0).length - 1 > 0) throw new _v178("too_many_rows");
               try {
-                _v1 = _v117(_v0, {
+                _v1 = _v116(_v0, {
                   bom: !0,
                   record_delimiter: ["\r\n", "\n", "\r"],
                   relax_column_count: !0
                 });
               } catch {
-                throw new _v178("malformed");
+                throw new _v179("malformed");
               }
               let _v3 = _v1[0]?.map(_v0 => _v0.trim().toLowerCase());
-              if (!_v3) throw new _v178("empty");
-              if (_v3.length !== _v177.length || _v3.some((_v0, _v1) => _v0 !== _v177[_v1])) throw new _v178("header");
+              if (!_v3) throw new _v179("empty");
+              if (_v3.length !== _v178.length || _v3.some((_v0, _v1) => _v0 !== _v178[_v1])) throw new _v179("header");
               let _v4 = _v1.slice(1).map((_v0, _v1) => ({
                 isBlank: _v2[_v1 + 1]?.isBlank ?? !1,
                 line: _v2[_v1 + 1]?.line ?? _v1 + 2,
@@ -3640,14 +3715,14 @@ ${_v2}`;
               })).filter(({
                 isBlank: _v0
               }) => !_v0);
-              if (0 === _v4.length) throw new _v178("empty");
+              if (0 === _v4.length) throw new _v179("empty");
               let _v5 = [],
                 _v6 = [];
               return _v4.forEach(({
                 line: _v0,
                 record: _v1
               }) => {
-                if (_v1.length !== _v177.length) return void _v6.push({
+                if (_v1.length !== _v178.length) return void _v6.push({
                   code: "column_count",
                   line: _v0
                 });
@@ -3676,7 +3751,7 @@ ${_v2}`;
             });
             _v11(_v0.failures), _v9(_v0.entries);
           } catch (_v0) {
-            _v19(_v185(_v0 instanceof _v178 ? _v0.code : "network", _v1));
+            _v19(_v186(_v0 instanceof _v179 ? _v0.code : "network", _v1));
           } finally {
             _v15(!1);
           }
@@ -3699,24 +3774,24 @@ ${_v2}`;
                 _v1 = await _v7(_v0, _v10);
               _v1.created > 0 && (await _v4().catch(() => void 0)), _v1.failures.length > 0 ? (_v9(void 0), _v13(_v1)) : (_v18(), _v3());
             } catch {
-              _v19(_v185("network", _v1));
+              _v19(_v186("network", _v1));
             } finally {
               _v17(!1);
             }
           }
         };
-      return (0, _v1.jsxs)(_v46.Modal, {
+      return (0, _v1.jsxs)(_v45.Modal, {
         isOpen: !0,
         closeOnEsc: !_v23,
         closeOnOverlayClick: !_v23,
         onClose: _v23 ? () => void 0 : _v3,
-        children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v48.ModalContent, {
+        children: [(0, _v1.jsx)(_v50.ModalOverlay, {}), (0, _v1.jsxs)(_v47.ModalContent, {
           maxWidth: (0, _v8.rem)(480),
-          children: [(0, _v1.jsx)(_v50.ModalHeader, {
+          children: [(0, _v1.jsx)(_v49.ModalHeader, {
             children: _v8 ? _v1.csvReviewTitle : _v1.replacementsCsvImport
-          }), (0, _v1.jsxs)(_v47.ModalBody, {
+          }), (0, _v1.jsxs)(_v46.ModalBody, {
             children: [_v8 ? (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v62, {
+              children: [(0, _v1.jsx)(_v61, {
                 count: _v8.length,
                 translations: _v1
               }), _v2 && (0, _v1.jsx)(_v13.Alert, {
@@ -3726,8 +3801,8 @@ ${_v2}`;
                   children: _v1.replacementsCsvReplaceConfirmation
                 })
               }), _v21.map(_v0 => {
-                let _v1 = _v174(_v0.targetLanguage, _v5);
-                return (0, _v1.jsx)(_v53.TableContainer, {
+                let _v1 = _v175(_v0.targetLanguage, _v5);
+                return (0, _v1.jsx)(_v52.TableContainer, {
                   borderWidth: "1px",
                   borderColor: "stroke",
                   borderRadius: "sm",
@@ -3735,31 +3810,31 @@ ${_v2}`;
                   marginBottom: (0, _v8.rem)(16),
                   maxHeight: (0, _v8.rem)(320),
                   overflowY: "auto",
-                  children: (0, _v1.jsxs)(_v52.Table, {
+                  children: (0, _v1.jsxs)(_v51.Table, {
                     width: "100%",
                     sx: {
                       tableLayout: "fixed"
                     },
-                    children: [(0, _v1.jsx)(_v56.Thead, {
+                    children: [(0, _v1.jsx)(_v55.Thead, {
                       backgroundColor: "fill-component",
-                      children: (0, _v1.jsxs)(_v57.Tr, {
-                        children: [(0, _v1.jsx)(_v55.Th, {
-                          children: _v1.replacementsOriginalLanguage(_v174(_v0.sourceLanguage, _v5))
-                        }), (0, _v1.jsx)(_v55.Th, {
+                      children: (0, _v1.jsxs)(_v56.Tr, {
+                        children: [(0, _v1.jsx)(_v54.Th, {
+                          children: _v1.replacementsOriginalLanguage(_v175(_v0.sourceLanguage, _v5))
+                        }), (0, _v1.jsx)(_v54.Th, {
                           children: _v1
                         })]
                       })
-                    }), (0, _v1.jsx)(_v54.Tbody, {
+                    }), (0, _v1.jsx)(_v53.Tbody, {
                       children: _v0.rows.map(({
                         entry: _v0,
                         index: _v1
-                      }, _v2) => (0, _v1.jsxs)(_v57.Tr, {
-                        children: [(0, _v1.jsx)(_v63, {
+                      }, _v2) => (0, _v1.jsxs)(_v56.Tr, {
+                        children: [(0, _v1.jsx)(_v62, {
                           label: _v1.replacementsSourceTerm(_v2 + 1),
                           value: _v0.sourceText,
                           isDisabled: _v16,
                           onChange: _v0 => _v25(_v1, "sourceText", _v0)
-                        }), (0, _v1.jsx)(_v63, {
+                        }), (0, _v1.jsx)(_v62, {
                           label: _v1.replacementsTargetTerm(_v1, _v2 + 1),
                           value: _v0.replacementText,
                           isDisabled: _v16,
@@ -3773,19 +3848,19 @@ ${_v2}`;
                 status: "warning",
                 marginBottom: (0, _v8.rem)(8),
                 alignItems: "flex-start",
-                children: (0, _v1.jsxs)(_v35.Box, {
+                children: (0, _v1.jsxs)(_v34.Box, {
                   children: [(0, _v1.jsx)(_v11.AlertDescription, {
                     children: (0, _v1.jsx)(_v18.Text, {
                       variant: "body-sm",
                       children: _v1.replacementsCsvPartialFailure
                     })
-                  }), (0, _v1.jsx)(_v35.Box, {
+                  }), (0, _v1.jsx)(_v34.Box, {
                     maxHeight: (0, _v8.rem)(120),
                     overflowY: "auto",
                     marginTop: (0, _v8.rem)(8),
                     children: _v10.map((_v0, _v1) => (0, _v1.jsx)(_v18.Text, {
                       variant: "body-sm",
-                      children: _v1.replacementsCsvFailureLine(_v0.line, _v184(_v0, _v1))
+                      children: _v1.replacementsCsvFailureLine(_v0.line, _v185(_v0, _v1))
                     }, `${_v0.line}:${_v1}`))
                   })]
                 })
@@ -3798,7 +3873,7 @@ ${_v2}`;
               }), (0, _v1.jsx)(_v18.Text, {
                 variant: "body-md",
                 color: "text-secondary",
-                children: _v3.Children.toArray(_v1.replacementsCsvTemplatePrompt(_v0 => (0, _v1.jsx)(_v36.Link, {
+                children: _v3.Children.toArray(_v1.replacementsCsvTemplatePrompt(_v0 => (0, _v1.jsx)(_v35.Link, {
                   href: _v20,
                   download: "terms-translations-template.csv",
                   textDecoration: "underline",
@@ -3813,9 +3888,9 @@ ${_v2}`;
                 children: (0, _v1.jsx)(_v11.AlertDescription, {
                   children: _v1.replacementsCsvReplaceNotice
                 })
-              }), (0, _v1.jsx)(_v35.Box, {
+              }), (0, _v1.jsx)(_v34.Box, {
                 marginTop: (0, _v8.rem)(24),
-                children: (0, _v1.jsx)(_v59, {
+                children: (0, _v1.jsx)(_v58, {
                   dropLabel: _v1.replacementsCsvDropzone,
                   uploadLabel: _v1.replacementsCsvUploadFile,
                   uploadingHint: _v1.csvUploadingHint,
@@ -3830,7 +3905,7 @@ ${_v2}`;
               marginTop: (0, _v8.rem)(24),
               alignItems: "flex-start",
               tabIndex: -1,
-              children: (0, _v1.jsxs)(_v35.Box, {
+              children: (0, _v1.jsxs)(_v34.Box, {
                 children: [(0, _v1.jsxs)(_v11.AlertDescription, {
                   children: [_v12.created > 0 && (0, _v1.jsx)(_v18.Text, {
                     variant: "body-sm",
@@ -3839,18 +3914,18 @@ ${_v2}`;
                     variant: "body-sm",
                     children: _v12.created > 0 ? _v1.replacementsCsvPartialFailure : _v1.replacementsCsvAllFailed
                   })]
-                }), (0, _v1.jsx)(_v35.Box, {
+                }), (0, _v1.jsx)(_v34.Box, {
                   maxHeight: (0, _v8.rem)(160),
                   overflowY: "auto",
                   marginTop: (0, _v8.rem)(8),
                   children: _v12.failures.map((_v0, _v1) => (0, _v1.jsx)(_v18.Text, {
                     variant: "body-sm",
-                    children: _v1.replacementsCsvFailureLine(_v0.line, _v184(_v0, _v1))
+                    children: _v1.replacementsCsvFailureLine(_v0.line, _v185(_v0, _v1))
                   }, `${_v0.line}:${_v1}`))
                 })]
               })
             })]
-          }), _v8 && (0, _v1.jsxs)(_v49.ModalFooter, {
+          }), _v8 && (0, _v1.jsxs)(_v48.ModalFooter, {
             gap: (0, _v8.rem)(12),
             children: [(0, _v1.jsx)(_v14.Button, {
               variant: "tertiary",
@@ -3868,16 +3943,16 @@ ${_v2}`;
         })]
       });
     };
-  var _v187 = _v0.i(0),
-    _v188 = _v0.i(0);
-  let _v189 = (_v0, _v1) => _v0.filter(({
+  var _v188 = _v0.i(0),
+    _v189 = _v0.i(0);
+  let _v190 = (_v0, _v1) => _v0.filter(({
       code: _v0
     }) => !_v1.includes(_v0)).map(({
       code: _v0,
       localized: _v1,
       native: _v2
     }) => {
-      let _v3 = _v174(_v0, _v0),
+      let _v3 = _v175(_v0, _v0),
         _v4 = _v2 || _v3;
       return {
         label: 0 === _v3.localeCompare(_v0, void 0, {
@@ -3888,7 +3963,7 @@ ${_v2}`;
         value: _v0
       };
     }).sort((_v0, _v1) => _v0.label.localeCompare(_v1.label)),
-    _v190 = {
+    _v191 = {
       border: 0,
       clip: "rect(0, 0, 0, 0)",
       height: "1px",
@@ -3899,28 +3974,28 @@ ${_v2}`;
       whiteSpace: "nowrap",
       width: "1px"
     },
-    _v191 = ({
+    _v192 = ({
       existingLanguages: _v0,
       languages: _v1,
       translations: _v2,
       onClose: _v3,
       onSelect: _v4
     }) => {
-      let _v5 = (0, _v171.useLocale)(),
+      let _v5 = (0, _v172.useLocale)(),
         [_v6, _v7] = (0, _v3.useState)([]),
         [_v8, _v9] = (0, _v3.useState)(!1),
-        _v10 = (0, _v3.useMemo)(() => _v189(_v1, _v0), [_v0, _v1]),
+        _v10 = (0, _v3.useMemo)(() => _v190(_v1, _v0), [_v0, _v1]),
         _v11 = _v10.filter(({
           value: _v0
         }) => !_v6.includes(_v0));
-      return (0, _v1.jsxs)(_v46.Modal, {
+      return (0, _v1.jsxs)(_v45.Modal, {
         isOpen: !0,
         onClose: _v3,
-        children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v48.ModalContent, {
+        children: [(0, _v1.jsx)(_v50.ModalOverlay, {}), (0, _v1.jsxs)(_v47.ModalContent, {
           maxWidth: (0, _v8.rem)(480),
-          children: [(0, _v1.jsx)(_v50.ModalHeader, {
+          children: [(0, _v1.jsx)(_v49.ModalHeader, {
             children: _v2.replacementsAddLanguage
-          }), (0, _v1.jsxs)(_v47.ModalBody, {
+          }), (0, _v1.jsxs)(_v46.ModalBody, {
             children: [(0, _v1.jsx)(_v18.Text, {
               variant: "body-md",
               color: "text-secondary",
@@ -3948,16 +4023,16 @@ ${_v2}`;
                 return (0, _v1.jsxs)(_v6.Flex, {
                   gap: (0, _v8.rem)(8),
                   alignItems: "flex-end",
-                  children: [(0, _v1.jsx)(_v35.Box, {
+                  children: [(0, _v1.jsx)(_v34.Box, {
                     flex: "1",
                     sx: {
-                      '& [data-part="label"]': _v190,
+                      '& [data-part="label"]': _v191,
                       '& [role="listbox"]': {
                         maxHeight: (0, _v8.rem)(160),
                         overflowY: "auto"
                       }
                     },
-                    children: (0, _v1.jsx)(_v164.Select, {
+                    children: (0, _v1.jsx)(_v165.Select, {
                       items: _v2,
                       label: _v2.replacementsPendingLanguage(_v1 + 1),
                       value: [_v0],
@@ -3973,16 +4048,16 @@ ${_v2}`;
                         let _v1 = _v0[0];
                         _v1 && _v7(_v0 => _v0.map((_v0, _v1) => _v1 === _v1 ? _v1 : _v0));
                       },
-                      children: _v0 => (0, _v1.jsx)(_v164.SelectItem, {
+                      children: _v0 => (0, _v1.jsx)(_v165.SelectItem, {
                         item: _v0,
-                        children: (0, _v1.jsx)(_v164.SelectItemText, {
+                        children: (0, _v1.jsx)(_v165.SelectItemText, {
                           children: _v0.label
                         })
                       })
                     })
-                  }), (0, _v1.jsx)(_v133.IconButton, {
+                  }), (0, _v1.jsx)(_v132.IconButton, {
                     "aria-label": _v2.replacementsRemoveLanguage(_v3),
-                    icon: (0, _v1.jsx)(_v165.CloseX, {}),
+                    icon: (0, _v1.jsx)(_v166.CloseX, {}),
                     variant: "primary",
                     onClick: () => {
                       _v7(_v0 => _v0.filter(_v0 => _v0 !== _v0));
@@ -3992,16 +4067,16 @@ ${_v2}`;
               }), _v11.length > 0 && (0, _v1.jsxs)(_v6.Flex, {
                 gap: (0, _v8.rem)(8),
                 alignItems: "flex-end",
-                children: [(0, _v1.jsx)(_v35.Box, {
+                children: [(0, _v1.jsx)(_v34.Box, {
                   flex: "1",
                   sx: {
-                    '& [data-part="label"]': _v190,
+                    '& [data-part="label"]': _v191,
                     '& [role="listbox"]': {
                       maxHeight: (0, _v8.rem)(160),
                       overflowY: "auto"
                     }
                   },
-                  children: (0, _v1.jsx)(_v164.Select, {
+                  children: (0, _v1.jsx)(_v165.Select, {
                     items: _v11,
                     label: _v2.replacementsSelectLanguage,
                     placeholder: _v2.replacementsSelectLanguage,
@@ -4018,22 +4093,22 @@ ${_v2}`;
                       let _v1 = _v0[0];
                       _v1 && _v7(_v0 => [..._v0, _v1]);
                     },
-                    children: _v0 => (0, _v1.jsx)(_v164.SelectItem, {
+                    children: _v0 => (0, _v1.jsx)(_v165.SelectItem, {
                       item: _v0,
-                      children: (0, _v1.jsx)(_v164.SelectItemText, {
+                      children: (0, _v1.jsx)(_v165.SelectItemText, {
                         children: _v0.label
                       })
                     })
                   })
-                }), (0, _v1.jsx)(_v133.IconButton, {
+                }), (0, _v1.jsx)(_v132.IconButton, {
                   "aria-label": _v2.replacementsRemoveLanguage(_v2.replacementsSelectLanguage),
-                  icon: (0, _v1.jsx)(_v165.CloseX, {}),
+                  icon: (0, _v1.jsx)(_v166.CloseX, {}),
                   variant: "tertiary",
                   isDisabled: !0
                 })]
               })]
             })]
-          }), (0, _v1.jsxs)(_v49.ModalFooter, {
+          }), (0, _v1.jsxs)(_v48.ModalFooter, {
             gap: (0, _v8.rem)(8),
             children: [(0, _v1.jsx)(_v14.Button, {
               variant: "tertiary",
@@ -4046,14 +4121,14 @@ ${_v2}`;
               children: _v2.add
             })]
           })]
-        }), _v8 && (0, _v1.jsxs)(_v46.Modal, {
+        }), _v8 && (0, _v1.jsxs)(_v45.Modal, {
           isOpen: !0,
           onClose: () => _v9(!1),
-          children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v48.ModalContent, {
+          children: [(0, _v1.jsx)(_v50.ModalOverlay, {}), (0, _v1.jsxs)(_v47.ModalContent, {
             maxWidth: (0, _v8.rem)(480),
-            children: [(0, _v1.jsx)(_v50.ModalHeader, {
+            children: [(0, _v1.jsx)(_v49.ModalHeader, {
               children: _v2.replacementsNewLanguagesTitle
-            }), (0, _v1.jsx)(_v47.ModalBody, {
+            }), (0, _v1.jsx)(_v46.ModalBody, {
               children: (0, _v1.jsx)(_v18.Text, {
                 variant: "body-md",
                 color: "text-secondary",
@@ -4064,7 +4139,7 @@ ${_v2}`;
                   value: _v0
                 }) => _v0 === _v0)?.label ?? _v0)))
               })
-            }), (0, _v1.jsxs)(_v49.ModalFooter, {
+            }), (0, _v1.jsxs)(_v48.ModalFooter, {
               gap: (0, _v8.rem)(8),
               children: [(0, _v1.jsx)(_v14.Button, {
                 variant: "tertiary",
@@ -4080,35 +4155,35 @@ ${_v2}`;
         })]
       });
     },
-    _v192 = ({
+    _v193 = ({
       languageItems: _v0,
       translations: _v1,
       onClose: _v2,
       onSave: _v3
     }) => {
       let [_v4, _v5] = (0, _v3.useState)();
-      return (0, _v1.jsxs)(_v46.Modal, {
+      return (0, _v1.jsxs)(_v45.Modal, {
         isOpen: !0,
         onClose: _v2,
-        children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v48.ModalContent, {
+        children: [(0, _v1.jsx)(_v50.ModalOverlay, {}), (0, _v1.jsxs)(_v47.ModalContent, {
           maxWidth: (0, _v8.rem)(480),
-          children: [(0, _v1.jsx)(_v50.ModalHeader, {
+          children: [(0, _v1.jsx)(_v49.ModalHeader, {
             children: _v1.replacementsNewLanguageTitle
-          }), (0, _v1.jsxs)(_v47.ModalBody, {
+          }), (0, _v1.jsxs)(_v46.ModalBody, {
             overflow: "visible",
             children: [(0, _v1.jsx)(_v18.Text, {
               variant: "body-md",
               color: "text-secondary",
               marginBottom: (0, _v8.rem)(24),
               children: _v1.replacementsNewLanguageDescription
-            }), (0, _v1.jsx)(_v35.Box, {
+            }), (0, _v1.jsx)(_v34.Box, {
               sx: {
                 '& [role="listbox"]': {
                   maxHeight: (0, _v8.rem)(160),
                   overflowY: "auto"
                 }
               },
-              children: (0, _v1.jsx)(_v164.Select, {
+              children: (0, _v1.jsx)(_v165.Select, {
                 items: [..._v0],
                 label: _v1.replacementsLanguage,
                 placeholder: _v1.replacementsSelectLanguage,
@@ -4125,15 +4200,15 @@ ${_v2}`;
                   let _v1 = _v0[0];
                   _v1 && _v5(_v1);
                 },
-                children: _v0 => (0, _v1.jsx)(_v164.SelectItem, {
+                children: _v0 => (0, _v1.jsx)(_v165.SelectItem, {
                   item: _v0,
-                  children: (0, _v1.jsx)(_v164.SelectItemText, {
+                  children: (0, _v1.jsx)(_v165.SelectItemText, {
                     children: _v0.label
                   })
                 })
               })
             })]
-          }), (0, _v1.jsxs)(_v49.ModalFooter, {
+          }), (0, _v1.jsxs)(_v48.ModalFooter, {
             gap: (0, _v8.rem)(8),
             children: [(0, _v1.jsx)(_v14.Button, {
               variant: "tertiary",
@@ -4151,23 +4226,23 @@ ${_v2}`;
         })]
       });
     };
-  class _v193 extends Error {
+  class _v194 extends Error {
     isConflict;
     snapshot;
     constructor(_v0, _v1) {
       super("Terms translations could not be saved"), this.name = "TermsTranslationsSaveError", this.isConflict = _v0.some(_v0 => _v0 instanceof _v22.NetworkError && 409 === _v0.status), this.snapshot = _v1;
     }
   }
-  let _v194 = _v0 => _v0.split("/").pop() ?? "",
-    _v195 = _v0 => _v0.flatMap(_v0 => _v0.mappings.map(_v0 => ({
+  let _v195 = _v0 => _v0.split("/").pop() ?? "",
+    _v196 = _v0 => _v0.flatMap(_v0 => _v0.mappings.map(_v0 => ({
       ..._v0,
       sourceLanguage: _v0.sourceLanguage,
       sourceText: _v0.sourceText.trim(),
       replacementText: _v0.replacementText.trim()
     }))),
-    _v196 = (_v0, _v1) => {
-      let _v2 = _v195(_v0),
-        _v3 = _v195(_v1),
+    _v197 = (_v0, _v1) => {
+      let _v2 = _v196(_v0),
+        _v3 = _v196(_v1),
         _v4 = new Map(_v2.filter(_v0 => _v0.uri).map(_v0 => [_v0.uri, _v0])),
         _v5 = new Map(_v3.filter(_v0 => _v0.uri).map(_v0 => [_v0.uri, _v0]));
       return {
@@ -4184,7 +4259,7 @@ ${_v2}`;
         })
       };
     },
-    _v197 = (_v0, _v1) => {
+    _v198 = (_v0, _v1) => {
       let _v2 = new Map(),
         _v3 = new Set();
       return _v0.forEach(_v0 => {
@@ -4210,9 +4285,9 @@ ${_v2}`;
         targetLanguages: Array.from(_v3)
       };
     },
-    _v198 = _v0 => _v0.flatMap(_v0 => "rejected" === _v0.status ? [_v0.reason] : []),
-    _v199 = _v0 => `new-terms-translation-row-${_v0}`,
-    _v200 = (_v0, _v1, _v2, _v3) => [..._v0.map(_v0 => ({
+    _v199 = _v0 => _v0.flatMap(_v0 => "rejected" === _v0.status ? [_v0.reason] : []),
+    _v200 = _v0 => `new-terms-translation-row-${_v0}`,
+    _v201 = (_v0, _v1, _v2, _v3) => [..._v0.map(_v0 => ({
       ..._v0,
       mappings: _v2.map(_v0 => _v0.mappings.find(_v0 => _v0.targetLanguage === _v0) ?? {
         targetLanguage: _v0,
@@ -4227,13 +4302,13 @@ ${_v2}`;
       sourceLanguage: _v1,
       sourceText: ""
     }],
-    _v201 = _v0 => {
+    _v202 = _v0 => {
       let _v1 = _v0.trim().toLowerCase().replaceAll("_", "-"),
         _v2 = _v1.indexOf("-x-");
       return -1 === _v2 ? _v1 : _v1.slice(0, _v2);
     },
-    _v202 = (_v0, _v1, _v2) => `${_v201(_v0)}\u0000${_v1.trim()}\u0000${_v201(_v2)}`,
-    _v203 = ({
+    _v203 = (_v0, _v1, _v2) => `${_v202(_v0)}\u0000${_v1.trim()}\u0000${_v202(_v2)}`,
+    _v204 = ({
       editor: _v0,
       sourceLanguage: _v1,
       sourceLanguages: _v2,
@@ -4243,20 +4318,20 @@ ${_v2}`;
       onSaved: _v6,
       onSourceLanguageChange: _v7
     }) => {
-      let _v8 = (0, _v171.useLocale)(),
-        _v9 = (0, _v3.useMemo)(() => _v175(_v3.map(({
+      let _v8 = (0, _v172.useLocale)(),
+        _v9 = (0, _v3.useMemo)(() => _v176(_v3.map(({
           code: _v0,
           localized: _v1
         }) => ({
           code: _v0,
           name: _v1
         }))), [_v3]),
-        _v10 = (0, _v3.useCallback)(_v0 => _v176(_v0, _v8, _v9), [_v9, _v8]),
+        _v10 = (0, _v3.useCallback)(_v0 => _v177(_v0, _v8, _v9), [_v9, _v8]),
         _v11 = (0, _v3.useRef)(1),
         _v12 = (0, _v3.useRef)(null),
-        _v13 = (0, _v3.useCallback)(() => _v199(_v11.current++), []),
+        _v13 = (0, _v3.useCallback)(() => _v200(_v11.current++), []),
         _v14 = _v0.targetLanguages,
-        [_v15, _v16] = (0, _v3.useState)(() => _v200(_v0.rows, _v1, _v14, _v199(0))),
+        [_v15, _v16] = (0, _v3.useState)(() => _v201(_v0.rows, _v1, _v14, _v200(0))),
         [_v17, _v18] = (0, _v3.useState)(_v15),
         [_v19, _v20] = (0, _v3.useState)(_v14),
         [_v21, _v22] = (0, _v3.useState)(!1),
@@ -4269,20 +4344,20 @@ ${_v2}`;
         _v35 = (0, _v3.useRef)(_v0.isLoading ? void 0 : _v1),
         _v36 = (0, _v3.useRef)(!1),
         _v37 = (0, _v3.useRef)(() => Promise.resolve()),
-        _v38 = (0, _v58.useToast)({
+        _v38 = (0, _v57.useToast)({
           title: _v4.replacementsChangesSaved,
           duration: 0
         }),
-        _v39 = _v65(),
+        _v39 = _v64(),
         _v40 = (0, _v3.useMemo)(() => Array.from(new Set([_v1, ..._v2])).map(_v0 => ({
           label: _v10(_v0),
           value: _v0
         })).sort((_v0, _v1) => _v0.label.localeCompare(_v1.label, _v8)), [_v10, _v8, _v1, _v2]),
         _v41 = (0, _v3.useMemo)(() => _v17.filter(_v0 => _v0.sourceText.trim() || _v0.mappings.some(_v0 => _v0.uri || _v0.replacementText.trim())), [_v17]),
-        _v42 = _v196(_v15, _v41),
+        _v42 = _v197(_v15, _v41),
         _v43 = !!(_v42.created.length || _v42.updated.length || _v42.deleted.length),
         _v44 = (0, _v3.useCallback)(_v0 => {
-          let _v1 = _v200(_v0.rows, _v1, _v0.targetLanguages, _v13());
+          let _v1 = _v201(_v0.rows, _v1, _v0.targetLanguages, _v13());
           _v16(_v1), _v18(_v1), _v20(_v0.targetLanguages);
         }, [_v13, _v1]);
       (0, _v3.useEffect)(() => {
@@ -4293,12 +4368,12 @@ ${_v2}`;
       }, [_v44, _v0.error, _v0.isLoading, _v0.rows, _v0.targetLanguages, _v1]);
       let _v45 = (0, _v3.useCallback)(_v0 => {
           let _v1 = new Set(_v0.rows.flatMap(_v0 => _v0.mappings.flatMap(_v0 => _v0.uri ? [_v0.uri] : []))),
-            _v2 = new Map(_v0.rows.flatMap(_v0 => _v0.mappings.flatMap(_v0 => _v0.uri ? [[_v202(_v0.sourceLanguage, _v0.sourceText, _v0.targetLanguage), _v0.uri]] : [])));
-          _v16(_v200(_v0.rows, _v1, _v0.targetLanguages, _v13())), _v18(_v0 => _v0.map(_v0 => ({
+            _v2 = new Map(_v0.rows.flatMap(_v0 => _v0.mappings.flatMap(_v0 => _v0.uri ? [[_v203(_v0.sourceLanguage, _v0.sourceText, _v0.targetLanguage), _v0.uri]] : [])));
+          _v16(_v201(_v0.rows, _v1, _v0.targetLanguages, _v13())), _v18(_v0 => _v0.map(_v0 => ({
             ..._v0,
             mappings: _v0.mappings.map(_v0 => ({
               ..._v0,
-              uri: (_v0.uri && _v1.has(_v0.uri) ? _v0.uri : void 0) ?? _v2.get(_v202(_v0.sourceLanguage, _v0.sourceText, _v0.targetLanguage))
+              uri: (_v0.uri && _v1.has(_v0.uri) ? _v0.uri : void 0) ?? _v2.get(_v203(_v0.sourceLanguage, _v0.sourceText, _v0.targetLanguage))
             }))
           }))), _v20(_v0 => [...new Set([..._v0, ..._v0.targetLanguages])]), _v34(!1);
         }, [_v13, _v1]),
@@ -4323,7 +4398,7 @@ ${_v2}`;
             await _v0.save(_v15, _v41), await _v6().catch(() => void 0), _v38(), _v5();
           } catch (_v0) {
             var _v0;
-            let _v1 = _v0 instanceof _v193 ? _v0.snapshot : void 0;
+            let _v1 = _v0 instanceof _v194 ? _v0.snapshot : void 0;
             _v1 ? _v45(_v1) : _v34(!0), _v0 = !_v1, _v39(_v4.replacementsChangesCouldNotBeSaved, _v0 ? {
               action: {
                 label: _v4.tryAgain,
@@ -4368,21 +4443,21 @@ ${_v2}`;
           }
         }));
       }, [_v0.error, _v50, _v39, _v4.replacementsLoadingError, _v4.tryAgain]), (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v46.Modal, {
+        children: [(0, _v1.jsxs)(_v45.Modal, {
           isOpen: !0,
           blockScrollOnMount: !_v21,
           onClose: _v31 ? () => void 0 : _v5,
           closeOnOverlayClick: !_v31,
-          children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v48.ModalContent, {
+          children: [(0, _v1.jsx)(_v50.ModalOverlay, {}), (0, _v1.jsxs)(_v47.ModalContent, {
             ref: _v12,
             width: `calc(100vw - ${(0, _v8.rem)(32)})`,
             maxWidth: (0, _v8.rem)(700),
             height: `min(${(0, _v8.rem)(700)}, calc(100vh - ${(0, _v8.rem)(32)}))`,
             maxHeight: `calc(100vh - ${(0, _v8.rem)(32)})`,
-            children: [(0, _v1.jsx)(_v50.ModalHeader, {
+            children: [(0, _v1.jsx)(_v49.ModalHeader, {
               paddingBottom: (0, _v8.rem)(16),
               children: _v4.replacementsTitle
-            }), (0, _v1.jsxs)(_v47.ModalBody, {
+            }), (0, _v1.jsxs)(_v46.ModalBody, {
               display: "flex",
               flexDirection: "column",
               minHeight: 0,
@@ -4394,7 +4469,7 @@ ${_v2}`;
                 color: "text-secondary",
                 marginBottom: (0, _v8.rem)(16),
                 children: _v4.replacementsEditorDescription
-              }), (0, _v1.jsx)(_v35.Box, {
+              }), (0, _v1.jsx)(_v34.Box, {
                 width: {
                   base: "100%",
                   md: (0, _v8.rem)(252)
@@ -4406,7 +4481,7 @@ ${_v2}`;
                     overflowY: "auto"
                   }
                 },
-                children: (0, _v1.jsx)(_v164.Select, {
+                children: (0, _v1.jsx)(_v165.Select, {
                   items: _v40,
                   label: _v4.replacementsSourceLanguage,
                   value: [_v1],
@@ -4418,16 +4493,16 @@ ${_v2}`;
                   }) => {
                     let _v1,
                       _v2 = _v0[0];
-                    _v2 && (_v16(_v1 = _v200([], _v2, [], _v13())), _v18(_v1), _v20([]), _v34(!1), _v7(_v2));
+                    _v2 && (_v16(_v1 = _v201([], _v2, [], _v13())), _v18(_v1), _v20([]), _v34(!1), _v7(_v2));
                   },
-                  children: _v0 => (0, _v1.jsx)(_v164.SelectItem, {
+                  children: _v0 => (0, _v1.jsx)(_v165.SelectItem, {
                     item: _v0,
-                    children: (0, _v1.jsx)(_v164.SelectItemText, {
+                    children: (0, _v1.jsx)(_v165.SelectItemText, {
                       children: _v0.label
                     })
                   })
                 })
-              }), (0, _v1.jsxs)(_v35.Box, {
+              }), (0, _v1.jsxs)(_v34.Box, {
                 position: "relative",
                 flex: "1",
                 marginLeft: (0, _v8.rem)(-24),
@@ -4437,7 +4512,7 @@ ${_v2}`;
                   base: `calc(${(0, _v8.rem)(160)} + ${(0, _v8.rem)(16)})`,
                   md: `calc(${(0, _v8.rem)(260)} + ${(0, _v8.rem)(16)})`
                 },
-                children: [(0, _v1.jsx)(_v53.TableContainer, {
+                children: [(0, _v1.jsx)(_v52.TableContainer, {
                   height: "100%",
                   width: "100%",
                   maxWidth: "100%",
@@ -4447,17 +4522,17 @@ ${_v2}`;
                   borderRadius: 0,
                   backgroundColor: "transparent",
                   "aria-busy": _v0.isLoading,
-                  children: (0, _v1.jsx)(_v35.Box, {
+                  children: (0, _v1.jsx)(_v34.Box, {
                     paddingLeft: (0, _v8.rem)(24),
                     paddingTop: (0, _v8.rem)(24),
                     minWidth: (0, _v8.rem)(_v49 + 24),
                     minHeight: "100%",
-                    children: (0, _v1.jsx)(_v35.Box, {
+                    children: (0, _v1.jsx)(_v34.Box, {
                       border: "1px solid",
                       borderColor: "stroke",
                       borderRadius: "sm",
                       minHeight: "100%",
-                      children: (0, _v1.jsxs)(_v52.Table, {
+                      children: (0, _v1.jsxs)(_v51.Table, {
                         width: "100%",
                         height: "auto",
                         sx: {
@@ -4524,13 +4599,13 @@ ${_v2}`;
                             zIndex: 0
                           }
                         },
-                        children: [(0, _v1.jsx)(_v56.Thead, {
+                        children: [(0, _v1.jsx)(_v55.Thead, {
                           backgroundColor: "fill-component",
-                          children: (0, _v1.jsxs)(_v57.Tr, {
+                          children: (0, _v1.jsxs)(_v56.Tr, {
                             height: (0, _v8.rem)(44),
-                            children: [(0, _v1.jsxs)(_v55.Th, {
+                            children: [(0, _v1.jsxs)(_v54.Th, {
                               backgroundColor: "fill-surface",
-                              children: [(0, _v1.jsx)(_v35.Box, {
+                              children: [(0, _v1.jsx)(_v34.Box, {
                                 position: "absolute",
                                 inset: 0,
                                 backgroundColor: "fill-surface",
@@ -4538,7 +4613,7 @@ ${_v2}`;
                                 borderTopLeftRadius: (0, _v8.rem)(8),
                                 pointerEvents: "none",
                                 zIndex: 1
-                              }), (0, _v1.jsx)(_v35.Box, {
+                              }), (0, _v1.jsx)(_v34.Box, {
                                 position: "relative",
                                 zIndex: 2,
                                 overflow: "hidden",
@@ -4549,27 +4624,27 @@ ${_v2}`;
                             }), _v19.map(_v0 => {
                               let _v1 = _v10(_v0),
                                 _v2 = _v27 === _v0 || _v29 === _v0;
-                              return (0, _v1.jsxs)(_v55.Th, {
+                              return (0, _v1.jsxs)(_v54.Th, {
                                 className: "target-language-header",
                                 position: "relative",
                                 backgroundColor: "fill-surface",
                                 boxShadow: _v2 ? `inset ${(0, _v8.rem)(2)} 0 var(--vimeo-colors-text-primary),inset -${(0, _v8.rem)(2)} 0 var(--vimeo-colors-text-primary),inset 0 ${(0, _v8.rem)(2)} var(--vimeo-colors-text-primary)` : "inset 0 0 0 999px var(--vimeo-colors-fill-component)",
                                 borderTopRadius: _v2 ? (0, _v8.rem)(8) : void 0,
                                 zIndex: _v2 ? 2 : void 0,
-                                children: [(0, _v1.jsxs)(_v134.Menu, {
+                                children: [(0, _v1.jsxs)(_v133.Menu, {
                                   placement: "bottom-end",
                                   strategy: "fixed",
                                   onOpen: () => _v30(_v0),
                                   onClose: () => _v30(void 0),
-                                  children: [(0, _v1.jsx)(_v135.MenuButton, {
-                                    as: _v133.IconButton,
+                                  children: [(0, _v1.jsx)(_v134.MenuButton, {
+                                    as: _v132.IconButton,
                                     "aria-label": _v4.replacementsLanguageOptions(_v1),
                                     className: "column-options",
                                     onMouseEnter: () => _v28(_v0),
                                     onMouseLeave: () => _v28(void 0),
                                     onFocus: () => _v28(_v0),
                                     onBlur: () => _v28(void 0),
-                                    icon: (0, _v1.jsx)(_v188.EllipsisH, {
+                                    icon: (0, _v1.jsx)(_v189.EllipsisH, {
                                       boxSize: 16
                                     }),
                                     variant: "primary",
@@ -4597,11 +4672,11 @@ ${_v2}`;
                                       opacity: 1
                                     },
                                     isDisabled: _v31 || _v0.isLoading
-                                  }), (0, _v1.jsx)(_v187.Portal, {
+                                  }), (0, _v1.jsx)(_v188.Portal, {
                                     containerRef: _v12,
-                                    children: (0, _v1.jsx)(_v137.MenuList, {
+                                    children: (0, _v1.jsx)(_v136.MenuList, {
                                       zIndex: "popover",
-                                      children: (0, _v1.jsx)(_v136.MenuItem, {
+                                      children: (0, _v1.jsx)(_v135.MenuItem, {
                                         onClick: () => {
                                           _v20(_v0 => _v0.filter(_v0 => _v0 !== _v0)), _v18(_v0 => _v0.map(_v0 => ({
                                             ..._v0,
@@ -4612,7 +4687,7 @@ ${_v2}`;
                                       })
                                     })
                                   })]
-                                }), (0, _v1.jsx)(_v35.Box, {
+                                }), (0, _v1.jsx)(_v34.Box, {
                                   as: "span",
                                   display: "block",
                                   overflow: "hidden",
@@ -4621,17 +4696,17 @@ ${_v2}`;
                                   children: _v1
                                 })]
                               }, _v0);
-                            }), (0, _v1.jsx)(_v55.Th, {
+                            }), (0, _v1.jsx)(_v54.Th, {
                               width: (0, _v8.rem)(44),
                               padding: (0, _v8.rem)(4),
                               backgroundColor: "fill-surface",
                               boxShadow: "inset 0 0 0 999px var(--vimeo-colors-fill-component)",
                               borderTopRightRadius: (0, _v8.rem)(8),
-                              children: (0, _v1.jsx)(_v40.Tooltip, {
+                              children: (0, _v1.jsx)(_v39.Tooltip, {
                                 label: _v4.replacementsAddLanguageTooltip,
-                                children: (0, _v1.jsx)(_v133.IconButton, {
+                                children: (0, _v1.jsx)(_v132.IconButton, {
                                   "aria-label": _v4.replacementsAddLanguage,
-                                  icon: (0, _v1.jsx)(_v43.Plus, {}),
+                                  icon: (0, _v1.jsx)(_v42.Plus, {}),
                                   variant: "tertiary",
                                   size: "sm",
                                   isDisabled: _v31 || _v0.isLoading,
@@ -4640,37 +4715,37 @@ ${_v2}`;
                               })
                             })]
                           })
-                        }), (0, _v1.jsx)(_v54.Tbody, {
+                        }), (0, _v1.jsx)(_v53.Tbody, {
                           children: _v17.map((_v0, _v1) => {
                             let _v2 = _v1 === _v17.length - 1,
                               _v3 = _v23 === _v0.clientId || _v25 === _v0.clientId,
                               _v4 = _v3 ? `inset 0 ${(0, _v8.rem)(2)} var(--vimeo-colors-text-primary),inset 0 -${(0, _v8.rem)(2)} var(--vimeo-colors-text-primary)` : void 0;
-                            return (0, _v1.jsxs)(_v57.Tr, {
+                            return (0, _v1.jsxs)(_v56.Tr, {
                               height: (0, _v8.rem)(44),
                               sx: {
                                 "&:hover .remove-row, &:focus-within .remove-row": {
                                   opacity: 1
                                 }
                               },
-                              children: [(0, _v1.jsxs)(_v61.Td, {
+                              children: [(0, _v1.jsxs)(_v60.Td, {
                                 height: (0, _v8.rem)(44),
                                 padding: "0",
                                 position: "relative",
                                 boxShadow: _v3 ? `${_v4},inset ${(0, _v8.rem)(2)} 0 var(--vimeo-colors-text-primary)` : void 0,
                                 borderBottomLeftRadius: _v2 ? (0, _v8.rem)(8) : 0,
-                                children: [!!(_v0.sourceText || _v0.mappings.some(_v0 => _v0.uri || _v0.replacementText)) && (0, _v1.jsxs)(_v134.Menu, {
+                                children: [!!(_v0.sourceText || _v0.mappings.some(_v0 => _v0.uri || _v0.replacementText)) && (0, _v1.jsxs)(_v133.Menu, {
                                   placement: "left-start",
                                   strategy: "fixed",
                                   onOpen: () => _v26(_v0.clientId),
                                   onClose: () => _v26(void 0),
-                                  children: [(0, _v1.jsx)(_v135.MenuButton, {
-                                    as: _v133.IconButton,
+                                  children: [(0, _v1.jsx)(_v134.MenuButton, {
+                                    as: _v132.IconButton,
                                     "aria-label": _v4.replacementsRemoveRow(_v1 + 1),
                                     onMouseEnter: () => _v24(_v0.clientId),
                                     onMouseLeave: () => _v24(void 0),
                                     onFocus: () => _v24(_v0.clientId),
                                     onBlur: () => _v24(void 0),
-                                    icon: (0, _v1.jsx)(_v139.EllipsisV, {
+                                    icon: (0, _v1.jsx)(_v138.EllipsisV, {
                                       boxSize: 16
                                     }),
                                     variant: "primary",
@@ -4701,19 +4776,19 @@ ${_v2}`;
                                     onKeyDown: _v0 => {
                                       "Delete" === _v0.key && (_v0.preventDefault(), _v47(_v0.clientId));
                                     }
-                                  }), (0, _v1.jsx)(_v187.Portal, {
+                                  }), (0, _v1.jsx)(_v188.Portal, {
                                     containerRef: _v12,
-                                    children: (0, _v1.jsx)(_v137.MenuList, {
+                                    children: (0, _v1.jsx)(_v136.MenuList, {
                                       zIndex: "popover",
                                       minWidth: (0, _v8.rem)(151),
                                       paddingY: (0, _v8.rem)(8),
-                                      children: (0, _v1.jsx)(_v136.MenuItem, {
+                                      children: (0, _v1.jsx)(_v135.MenuItem, {
                                         onClick: () => _v47(_v0.clientId),
                                         children: _v4.removeTerm
                                       })
                                     })
                                   })]
-                                }), (0, _v1.jsx)(_v60.Input, {
+                                }), (0, _v1.jsx)(_v59.Input, {
                                   "aria-label": _v4.replacementsSourceTerm(_v1 + 1),
                                   value: _v0.sourceText,
                                   placeholder: _v4.replacementsEnterTerm,
@@ -4758,13 +4833,13 @@ ${_v2}`;
                                 let _v1 = _v0.mappings.find(_v0 => _v0.targetLanguage === _v0),
                                   _v2 = _v27 === _v0 || _v29 === _v0,
                                   _v3 = [_v2 ? `inset ${(0, _v8.rem)(2)} 0 var(--vimeo-colors-text-primary),inset -${(0, _v8.rem)(2)} 0 var(--vimeo-colors-text-primary)` + (_v2 ? `, inset 0 -${(0, _v8.rem)(2)} var(--vimeo-colors-text-primary)` : "") : void 0, _v4].filter(Boolean).join(",");
-                                return (0, _v1.jsx)(_v61.Td, {
+                                return (0, _v1.jsx)(_v60.Td, {
                                   height: (0, _v8.rem)(44),
                                   padding: "0",
                                   boxShadow: _v3 || void 0,
                                   borderBottomRadius: _v2 && _v2 ? (0, _v8.rem)(8) : void 0,
                                   zIndex: _v2 || _v3 ? 2 : void 0,
-                                  children: (0, _v1.jsx)(_v60.Input, {
+                                  children: (0, _v1.jsx)(_v59.Input, {
                                     "aria-label": _v4.replacementsTargetTerm(_v10(_v0), _v1 + 1),
                                     value: _v1?.replacementText ?? "",
                                     placeholder: _v0.sourceText.trim() ? _v4.replacementsEnterTerm : void 0,
@@ -4805,7 +4880,7 @@ ${_v2}`;
                                     }
                                   })
                                 }, _v0);
-                              }), (0, _v1.jsx)(_v61.Td, {
+                              }), (0, _v1.jsx)(_v60.Td, {
                                 width: (0, _v8.rem)(44),
                                 height: (0, _v8.rem)(44),
                                 padding: (0, _v8.rem)(4),
@@ -4824,10 +4899,10 @@ ${_v2}`;
                   alignItems: "center",
                   justifyContent: "center",
                   pointerEvents: "none",
-                  children: (0, _v1.jsx)(_v45.Spinner, {})
+                  children: (0, _v1.jsx)(_v44.Spinner, {})
                 })]
               })]
-            }), (0, _v1.jsxs)(_v49.ModalFooter, {
+            }), (0, _v1.jsxs)(_v48.ModalFooter, {
               justifyContent: "space-between",
               alignItems: {
                 base: "stretch",
@@ -4866,7 +4941,7 @@ ${_v2}`;
               })]
             })]
           })]
-        }), _v21 && (0, _v1.jsx)(_v191, {
+        }), _v21 && (0, _v1.jsx)(_v192, {
           existingLanguages: [_v1, ..._v19],
           languages: _v3,
           translations: _v4,
@@ -4883,7 +4958,7 @@ ${_v2}`;
         })]
       });
     },
-    _v204 = ({
+    _v205 = ({
       initialSourceLanguage: _v0,
       mode: _v1,
       ownerUserId: _v2,
@@ -4892,7 +4967,7 @@ ${_v2}`;
       translations: _v5,
       onClose: _v6,
       onSaved: _v7
-    }) => "create" === _v1 ? (0, _v1.jsx)(_v206, {
+    }) => "create" === _v1 ? (0, _v1.jsx)(_v207, {
       initialSourceLanguage: _v0,
       ownerUserId: _v2,
       sourceLanguages: _v3,
@@ -4900,7 +4975,7 @@ ${_v2}`;
       translations: _v5,
       onClose: _v6,
       onSaved: _v7
-    }) : (0, _v1.jsx)(_v205, {
+    }) : (0, _v1.jsx)(_v206, {
       initialSourceLanguage: _v0,
       ownerUserId: _v2,
       sourceLanguages: _v3,
@@ -4909,7 +4984,7 @@ ${_v2}`;
       onClose: _v6,
       onSaved: _v7
     }),
-    _v205 = ({
+    _v206 = ({
       initialSourceLanguage: _v0,
       ownerUserId: _v1,
       sourceLanguages: _v2,
@@ -4952,7 +5027,7 @@ ${_v2}`;
           (0, _v3.useEffect)(() => {
             !_v14 || _v9 || _v7 || _v11(_v12 + 1);
           }, [_v7, _v14, _v9, _v11, _v12]);
-          let _v15 = (0, _v3.useMemo)(() => _v197(_v6?.flatMap(_v0 => _v0.data) ?? [], _v1), [_v6, _v1]),
+          let _v15 = (0, _v3.useMemo)(() => _v198(_v6?.flatMap(_v0 => _v0.data) ?? [], _v1), [_v6, _v1]),
             _v16 = (0, _v3.useMemo)(() => ({
               "Content-Type": "application/json",
               Authorization: _v3 ? `jwt ${_v3}` : "",
@@ -4966,20 +5041,20 @@ ${_v2}`;
                 if (!_v0 || _v0.length <= _v0.length) throw Error("Unable to load every terms translation page");
                 _v0 = _v0;
               }
-              return _v197(_v0?.flatMap(_v0 => _v0.data) ?? [], _v1);
+              return _v198(_v0?.flatMap(_v0 => _v0.data) ?? [], _v1);
             }, [_v10, _v11, _v1]),
             _v18 = (0, _v3.useCallback)(async (_v0, _v1) => {
-              let _v2 = _v196(_v0, _v1);
+              let _v2 = _v197(_v0, _v1);
               try {
                 let _v0 = await Promise.allSettled(_v2.deleted.map(_v0 => _v24({
                     baseUrl: _v2,
                     headers: _v16,
                     where: {
                       userId: _v0,
-                      ruleId: _v194(_v0.uri ?? "")
+                      ruleId: _v195(_v0.uri ?? "")
                     }
                   }))),
-                  _v1 = _v198(_v0);
+                  _v1 = _v199(_v0);
                 if (_v1.length) throw _v1;
                 let _v2 = await Promise.allSettled(_v2.updated.map(_v0 => _v25({
                     baseUrl: _v2,
@@ -4993,10 +5068,10 @@ ${_v2}`;
                     },
                     where: {
                       userId: _v0,
-                      ruleId: _v194(_v0.uri ?? "")
+                      ruleId: _v195(_v0.uri ?? "")
                     }
                   }))),
-                  _v3 = _v198(_v2);
+                  _v3 = _v199(_v2);
                 if (_v3.length) throw _v3;
                 let _v4 = await Promise.allSettled(_v2.created.map(_v0 => (0, _v26.postUserAccountDictionaryTranslationRules)({
                     baseUrl: _v2,
@@ -5013,14 +5088,14 @@ ${_v2}`;
                       userId: _v0
                     }
                   }))),
-                  _v5 = _v198(_v4);
+                  _v5 = _v199(_v4);
                 if (_v5.length) throw _v5;
               } catch (_v0) {
                 let _v1;
                 try {
                   _v1 = await _v17();
                 } catch {}
-                throw new _v193(Array.isArray(_v0) ? _v0 : [_v0], _v1);
+                throw new _v194(Array.isArray(_v0) ? _v0 : [_v0], _v1);
               }
               return _v17().catch(() => void 0);
             }, [_v2, _v16, _v0, _v17]);
@@ -5033,7 +5108,7 @@ ${_v2}`;
             save: _v18
           };
         })(_v1, _v7);
-      return (0, _v1.jsx)(_v203, {
+      return (0, _v1.jsx)(_v204, {
         editor: _v9,
         sourceLanguage: _v7,
         sourceLanguages: _v2,
@@ -5044,26 +5119,26 @@ ${_v2}`;
         onSourceLanguageChange: _v8
       });
     },
-    _v206 = ({
+    _v207 = ({
       initialSourceLanguage: _v0,
       sourceLanguages: _v1,
       supportedLanguages: _v2,
       translations: _v3,
       ..._v4
     }) => {
-      let _v5 = _v189(_v2, _v1),
+      let _v5 = _v190(_v2, _v1),
         [_v6, _v7] = (0, _v3.useState)(_v5.some(({
           value: _v0
         }) => _v0 === _v0) ? _v0 : void 0);
-      return 0 === _v5.length ? (0, _v1.jsxs)(_v46.Modal, {
+      return 0 === _v5.length ? (0, _v1.jsxs)(_v45.Modal, {
         isOpen: !0,
         onClose: _v4.onClose,
-        children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v48.ModalContent, {
+        children: [(0, _v1.jsx)(_v50.ModalOverlay, {}), (0, _v1.jsxs)(_v47.ModalContent, {
           width: `calc(100vw - ${(0, _v8.rem)(32)})`,
           maxWidth: (0, _v8.rem)(700),
-          children: [(0, _v1.jsx)(_v50.ModalHeader, {
+          children: [(0, _v1.jsx)(_v49.ModalHeader, {
             children: _v3.replacementsTitle
-          }), (0, _v1.jsx)(_v47.ModalBody, {
+          }), (0, _v1.jsx)(_v46.ModalBody, {
             children: (0, _v1.jsx)(_v13.Alert, {
               status: "info",
               children: (0, _v1.jsx)(_v11.AlertDescription, {
@@ -5071,7 +5146,7 @@ ${_v2}`;
                 children: _v3.replacementsNoLanguagesAvailable
               })
             })
-          }), (0, _v1.jsx)(_v49.ModalFooter, {
+          }), (0, _v1.jsx)(_v48.ModalFooter, {
             children: (0, _v1.jsx)(_v14.Button, {
               variant: "tertiary",
               onClick: _v4.onClose,
@@ -5079,12 +5154,12 @@ ${_v2}`;
             })
           })]
         })]
-      }) : void 0 === _v6 ? (0, _v1.jsx)(_v192, {
+      }) : void 0 === _v6 ? (0, _v1.jsx)(_v193, {
         languageItems: _v5,
         translations: _v3,
         onClose: _v4.onClose,
         onSave: _v7
-      }) : (0, _v3.createElement)(_v205, {
+      }) : (0, _v3.createElement)(_v206, {
         ..._v4,
         key: _v6,
         initialSourceLanguage: _v6,
@@ -5095,7 +5170,7 @@ ${_v2}`;
         translations: _v3
       });
     };
-  async function _v207({
+  async function _v208({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -5116,8 +5191,8 @@ ${_v2}`;
       return (0, _v22.deepCamelCase)(_v1);
     });
   }
-  var _v208 = _v0.i(0);
-  function _v209(_v0, _v1) {
+  var _v209 = _v0.i(0);
+  function _v210(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
@@ -5125,7 +5200,7 @@ ${_v2}`;
         xVimeoPage: _v5,
         locale: _v6
       } = (0, _v27.useGctlConfig)();
-    return (0, _v208.default)(_v2 ? `/users/${_v2.where.userId}/account_dictionary/translation_rules/matrix${(0, _v122.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v207({
+    return (0, _v209.default)(_v2 ? `/users/${_v2.where.userId}/account_dictionary/translation_rules/matrix${(0, _v121.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v208({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -5137,26 +5212,26 @@ ${_v2}`;
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v121.default.env.STORYBOOK && (0, _v122.assignMswData)(_v209, {
+  "true" === _v120.default.env.STORYBOOK && (0, _v121.assignMswData)(_v210, {
     endpoint: "/users/:userId/account_dictionary/translation_rules/matrix",
     method: "GET"
-  }), "true" === _v121.default.env.STORYBOOK && (0, _v122.assignMswData)(function () {
+  }), "true" === _v120.default.env.STORYBOOK && (0, _v121.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v124.useSWRConfig)(),
+      } = (0, _v123.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
       } = (0, _v27.useGctlConfig)(),
-      [_v5, _v6] = (0, _v122.useInternalState)();
+      [_v5, _v6] = (0, _v121.useInternalState)();
     return [(0, _v3.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/account_dictionary/translation_rules/matrix${(0, _v122.serializeQuery)(_v0)}`, _v207({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/account_dictionary/translation_rules/matrix${(0, _v121.serializeQuery)(_v0)}`, _v208({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -5182,8 +5257,8 @@ ${_v2}`;
     endpoint: "/users/:userId/account_dictionary/translation_rules/matrix",
     method: "GET"
   });
-  let _v210 = "__new-translations-set__",
-    _v211 = ({
+  let _v211 = "__new-translations-set__",
+    _v212 = ({
       ownerUserId: _v0,
       translations: _v1
     }) => {
@@ -5192,15 +5267,15 @@ ${_v2}`;
         _v4,
         _v5,
         _v6,
-        _v7 = (0, _v171.useLocale)(),
+        _v7 = (0, _v172.useLocale)(),
         [_v8, _v9] = (0, _v3.useState)(1),
         [_v10, _v11] = (0, _v3.useState)("en"),
         [_v12, _v13] = (0, _v3.useState)(""),
         [_v14, _v15] = (0, _v3.useState)(""),
         [_v16, _v17] = (0, _v3.useState)(!1),
-        _v18 = (0, _v170.useDebouncedValue)(_v14, 300),
+        _v18 = (0, _v171.useDebouncedValue)(_v14, 300),
         [_v19, _v20] = (0, _v3.useState)(),
-        _v21 = (0, _v169.useGetVideosTranslationsLanguages)({
+        _v21 = (0, _v170.useGetVideosTranslationsLanguages)({
           query: {
             type: "subtitling",
             perPage: 100
@@ -5210,14 +5285,14 @@ ${_v2}`;
           revalidateOnFocus: !1
         }),
         _v22 = (0, _v3.useMemo)(() => _v21.data?.data ?? [], [_v21.data?.data]),
-        _v23 = (0, _v3.useMemo)(() => _v175(_v22.map(({
+        _v23 = (0, _v3.useMemo)(() => _v176(_v22.map(({
           code: _v0,
           localized: _v1
         }) => ({
           code: _v0,
           name: _v1
         }))), [_v22]),
-        _v24 = (0, _v3.useCallback)(_v0 => _v176(_v0, _v7, _v23), [_v23, _v7]),
+        _v24 = (0, _v3.useCallback)(_v0 => _v177(_v0, _v7, _v23), [_v23, _v7]),
         [_v25, _v26] = (0, _v3.useState)(!1),
         {
           rows: _v27,
@@ -5231,7 +5306,7 @@ ${_v2}`;
           hasData: _v35,
           error: _v36,
           retry: _v37
-        } = (_v2 = _v18.trim(), _v3 = _v209(() => ({
+        } = (_v2 = _v18.trim(), _v3 = _v210(() => ({
           select: ["data.mappings.replacementText", "data.mappings.targetLanguage", "data.sourceLanguage", "data.sourceText", "page", "perPage", "sourceLanguages", "sourceTotal", "targetLanguages", "total"],
           where: {
             userId: _v0
@@ -5277,7 +5352,7 @@ ${_v2}`;
         _v42 = _v28.includes(_v10) ? _v28 : [_v10, ..._v28],
         _v43 = [{
           label: _v1.replacementsNewTranslationsSet,
-          value: _v210
+          value: _v211
         }, ..._v42.map(_v0 => ({
           label: _v24(_v0),
           value: _v0
@@ -5308,7 +5383,7 @@ ${_v2}`;
             gap: (0, _v8.rem)(8),
             flexWrap: "wrap",
             children: [(0, _v1.jsx)(_v14.Button, {
-              leftIcon: (0, _v1.jsx)(_v44.Upload, {}),
+              leftIcon: (0, _v1.jsx)(_v43.Upload, {}),
               variant: "tertiary",
               size: "sm",
               onClick: () => _v26(!0),
@@ -5316,7 +5391,7 @@ ${_v2}`;
             }), (0, _v1.jsx)(_v14.Button, {
               variant: "secondary",
               size: "sm",
-              leftIcon: (0, _v1.jsx)(_v43.Plus, {}),
+              leftIcon: (0, _v1.jsx)(_v42.Plus, {}),
               isLoading: _v21.isLoading,
               onClick: () => _v46("create", "en"),
               children: _v1.replacementsNewTranslationsSet
@@ -5326,7 +5401,7 @@ ${_v2}`;
             minHeight: (0, _v8.rem)(180),
             alignItems: "center",
             justifyContent: "center",
-            children: (0, _v1.jsx)(_v45.Spinner, {})
+            children: (0, _v1.jsx)(_v44.Spinner, {})
           }) : _v36 && !_v35 ? (0, _v1.jsxs)(_v13.Alert, {
             status: "error",
             marginTop: (0, _v8.rem)(24),
@@ -5340,22 +5415,22 @@ ${_v2}`;
               onClick: _v37,
               children: _v1.tryAgain
             })]
-          }) : 0 !== _v30 || _v40 || _v41 ? (0, _v1.jsxs)(_v35.Box, {
+          }) : 0 !== _v30 || _v40 || _v41 ? (0, _v1.jsxs)(_v34.Box, {
             marginTop: (0, _v8.rem)(24),
             children: [_v16 || _v40 ? (0, _v1.jsxs)(_v6.Flex, {
               gap: (0, _v8.rem)(8),
               alignItems: "center",
               marginBottom: (0, _v8.rem)(24),
-              children: [(0, _v1.jsxs)(_v162.InputGroup, {
+              children: [(0, _v1.jsxs)(_v163.InputGroup, {
                 size: "sm",
                 flex: "1",
-                children: [(0, _v1.jsx)(_v163.InputLeftElement, {
+                children: [(0, _v1.jsx)(_v164.InputLeftElement, {
                   pointerEvents: "none",
-                  children: (0, _v1.jsx)(_v167.SearchMagnifier, {
+                  children: (0, _v1.jsx)(_v168.SearchMagnifier, {
                     boxSize: 20,
                     color: "text-secondary"
                   })
-                }), (0, _v1.jsx)(_v60.Input, {
+                }), (0, _v1.jsx)(_v59.Input, {
                   autoFocus: !0,
                   value: _v14,
                   onChange: _v0 => _v45(_v0.currentTarget.value),
@@ -5366,9 +5441,9 @@ ${_v2}`;
                   "aria-label": _v1.replacementsSearchLabel,
                   paddingLeft: (0, _v8.rem)(40)
                 })]
-              }), (0, _v1.jsx)(_v133.IconButton, {
+              }), (0, _v1.jsx)(_v132.IconButton, {
                 "aria-label": _v1.replacementsClearSearch,
-                icon: (0, _v1.jsx)(_v165.CloseX, {}),
+                icon: (0, _v1.jsx)(_v166.CloseX, {}),
                 size: "sm",
                 variant: "tertiary",
                 onClick: () => {
@@ -5381,51 +5456,51 @@ ${_v2}`;
               justifyContent: "space-between",
               flexWrap: "wrap",
               marginBottom: (0, _v8.rem)(24),
-              children: [_v41 ? (0, _v1.jsx)(_v35.Box, {
+              children: [_v41 ? (0, _v1.jsx)(_v34.Box, {
                 width: "fit-content",
                 maxWidth: {
                   base: "100%",
                   md: (0, _v8.rem)(280)
                 },
-                children: (0, _v1.jsx)(_v164.Select, {
+                children: (0, _v1.jsx)(_v165.Select, {
                   items: _v43,
                   value: [],
                   placeholder: _v1.replacementsTranslationsSetValue(_v24(_v10)),
-                  leftIcon: (0, _v1.jsx)(_v166.CommentList, {}),
+                  leftIcon: (0, _v1.jsx)(_v167.CommentList, {}),
                   size: "sm",
                   onValueChange: ({
                     value: _v0
                   }) => {
                     let _v1 = _v0[0];
                     if ("string" == typeof _v1) {
-                      if (_v1 === _v210) return void _v46("create", "en");
+                      if (_v1 === _v211) return void _v46("create", "en");
                       _v11(_v1), _v9(1);
                     }
                   },
-                  children: _v0 => _v0.value === _v210 ? (0, _v1.jsx)(_v164.SelectItem, {
+                  children: _v0 => _v0.value === _v211 ? (0, _v1.jsx)(_v165.SelectItem, {
                     item: _v0,
                     children: (0, _v1.jsxs)(_v6.Flex, {
                       alignItems: "center",
                       gap: (0, _v8.rem)(8),
-                      children: [(0, _v1.jsx)(_v43.Plus, {
+                      children: [(0, _v1.jsx)(_v42.Plus, {
                         boxSize: 16
-                      }), (0, _v1.jsx)(_v164.SelectItemText, {
+                      }), (0, _v1.jsx)(_v165.SelectItemText, {
                         children: _v0.label
                       })]
                     })
-                  }) : (0, _v1.jsx)(_v164.SelectItem, {
+                  }) : (0, _v1.jsx)(_v165.SelectItem, {
                     item: _v0,
-                    children: (0, _v1.jsx)(_v164.SelectItemText, {
+                    children: (0, _v1.jsx)(_v165.SelectItemText, {
                       children: _v0.label
                     })
                   })
                 })
-              }) : (0, _v1.jsx)(_v35.Box, {}), (0, _v1.jsxs)(_v6.Flex, {
+              }) : (0, _v1.jsx)(_v34.Box, {}), (0, _v1.jsxs)(_v6.Flex, {
                 gap: (0, _v8.rem)(8),
                 alignItems: "center",
-                children: [(0, _v1.jsx)(_v133.IconButton, {
+                children: [(0, _v1.jsx)(_v132.IconButton, {
                   "aria-label": _v1.replacementsOpenSearch,
-                  icon: (0, _v1.jsx)(_v167.SearchMagnifier, {
+                  icon: (0, _v1.jsx)(_v168.SearchMagnifier, {
                     boxSize: 20
                   }),
                   size: "sm",
@@ -5434,7 +5509,7 @@ ${_v2}`;
                 }), (0, _v1.jsx)(_v14.Button, {
                   variant: "primary",
                   size: "sm",
-                  leftIcon: (0, _v1.jsx)(_v43.Plus, {}),
+                  leftIcon: (0, _v1.jsx)(_v42.Plus, {}),
                   onClick: () => _v46(_v41 ? "edit" : "create", _v10),
                   children: _v1.addTerm
                 })]
@@ -5456,12 +5531,12 @@ ${_v2}`;
                 children: _v1.replacementsEmptyDescription
               })]
             }) : (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v53.TableContainer, {
+              children: [(0, _v1.jsx)(_v52.TableContainer, {
                 borderWidth: "1px",
                 borderColor: "stroke",
                 borderRadius: "md",
                 padding: 0,
-                children: (0, _v1.jsxs)(_v52.Table, {
+                children: (0, _v1.jsxs)(_v51.Table, {
                   width: "100%",
                   minWidth: (0, _v8.rem)((_v29.length + 1) * 140 + 112),
                   sx: {
@@ -5487,25 +5562,25 @@ ${_v2}`;
                       padding: 0
                     }
                   },
-                  children: [(0, _v1.jsx)(_v56.Thead, {
+                  children: [(0, _v1.jsx)(_v55.Thead, {
                     backgroundColor: "fill-component",
-                    children: (0, _v1.jsxs)(_v57.Tr, {
-                      children: [(0, _v1.jsx)(_v55.Th, {
+                    children: (0, _v1.jsxs)(_v56.Tr, {
+                      children: [(0, _v1.jsx)(_v54.Th, {
                         backgroundColor: "fill-surface",
                         boxShadow: "inset 0 0 0 999px var(--vimeo-colors-fill-component)",
                         children: _v24(_v10)
-                      }), _v29.map(_v0 => (0, _v1.jsx)(_v55.Th, {
+                      }), _v29.map(_v0 => (0, _v1.jsx)(_v54.Th, {
                         children: _v24(_v0)
-                      }, _v0)), (0, _v1.jsx)(_v55.Th, {
+                      }, _v0)), (0, _v1.jsx)(_v54.Th, {
                         width: (0, _v8.rem)(112),
                         backgroundColor: "fill-surface",
                         boxShadow: "inset 0 0 0 999px var(--vimeo-colors-fill-component)"
                       })]
                     })
-                  }), (0, _v1.jsx)(_v54.Tbody, {
+                  }), (0, _v1.jsx)(_v53.Tbody, {
                     children: _v27.map(_v0 => {
                       let _v1 = new Map(_v0.mappings.map(_v0 => [_v0.targetLanguage, _v0.replacementText]));
-                      return (0, _v1.jsxs)(_v57.Tr, {
+                      return (0, _v1.jsxs)(_v56.Tr, {
                         height: (0, _v8.rem)(60),
                         cursor: "pointer",
                         tabIndex: 0,
@@ -5519,18 +5594,18 @@ ${_v2}`;
                             opacity: 1
                           }
                         },
-                        children: [(0, _v1.jsx)(_v61.Td, {
+                        children: [(0, _v1.jsx)(_v60.Td, {
                           fontFamily: "heading",
                           children: _v0.sourceText
-                        }), _v29.map(_v0 => (0, _v1.jsx)(_v61.Td, {
+                        }), _v29.map(_v0 => (0, _v1.jsx)(_v60.Td, {
                           color: "text-secondary",
                           children: _v1.get(_v0) ?? "-"
-                        }, _v0)), (0, _v1.jsx)(_v61.Td, {
+                        }, _v0)), (0, _v1.jsx)(_v60.Td, {
                           position: "relative",
                           height: (0, _v8.rem)(60),
                           width: (0, _v8.rem)(112),
                           backgroundColor: "fill-surface",
-                          children: (0, _v1.jsx)(_v35.Box, {
+                          children: (0, _v1.jsx)(_v34.Box, {
                             className: "edit-row",
                             position: "absolute",
                             inset: 0,
@@ -5544,7 +5619,7 @@ ${_v2}`;
                               "aria-label": _v1.replacementsEditTerm(_v0.sourceText),
                               variant: "secondary",
                               size: "sm",
-                              leftIcon: (0, _v1.jsx)(_v42.EditPencil, {}),
+                              leftIcon: (0, _v1.jsx)(_v41.EditPencil, {}),
                               _focusVisible: {
                                 opacity: 1
                               },
@@ -5562,7 +5637,7 @@ ${_v2}`;
               }), _v30 > _v32 && (0, _v1.jsx)(_v6.Flex, {
                 justifyContent: "center",
                 marginTop: (0, _v8.rem)(24),
-                children: (0, _v1.jsx)(_v37.Pagination, {
+                children: (0, _v1.jsx)(_v36.Pagination, {
                   size: "sm",
                   count: _v30,
                   pageSize: _v32,
@@ -5586,7 +5661,7 @@ ${_v2}`;
                 variant: "heading-xs",
                 whiteSpace: "nowrap",
                 children: _v1.replacementsCount(_v38, _v39)
-              }), (0, _v1.jsx)(_v38.Progress, {
+              }), (0, _v1.jsx)(_v37.Progress, {
                 flex: "1",
                 width: "auto",
                 minWidth: 0,
@@ -5595,7 +5670,7 @@ ${_v2}`;
               }), (0, _v1.jsxs)(_v18.Text, {
                 variant: "body-sm",
                 whiteSpace: "nowrap",
-                children: [_v1.needMorePrompt, " ", (0, _v1.jsx)(_v36.Link, {
+                children: [_v1.needMorePrompt, " ", (0, _v1.jsx)(_v35.Link, {
                   href: "/enterprise/contact-us",
                   color: "text-primary",
                   textDecoration: "underline",
@@ -5612,7 +5687,7 @@ ${_v2}`;
             justifyContent: "center",
             flexDirection: "column",
             textAlign: "center",
-            children: [(0, _v1.jsx)(_v168.Translate, {
+            children: [(0, _v1.jsx)(_v169.Translate, {
               boxSize: 32,
               color: "text-secondary",
               marginBottom: (0, _v8.rem)(16)
@@ -5626,7 +5701,7 @@ ${_v2}`;
               children: _v1.replacementsEmptyDescription
             })]
           })
-        }), _v19 && (0, _v1.jsx)(_v204, {
+        }), _v19 && (0, _v1.jsx)(_v205, {
           initialSourceLanguage: _v19.sourceLanguage,
           mode: _v19.mode,
           ownerUserId: _v0,
@@ -5637,7 +5712,7 @@ ${_v2}`;
           onSaved: async () => {
             _v9(1), await _v37();
           }
-        }), _v25 && (0, _v1.jsx)(_v186, {
+        }), _v25 && (0, _v1.jsx)(_v187, {
           ownerUserId: _v0,
           translations: _v1,
           hasExistingEntries: _v41,
@@ -5648,14 +5723,14 @@ ${_v2}`;
         })]
       });
     };
-  var _v212 = _v0.i(0);
-  let _v213 = {
+  var _v213 = _v0.i(0);
+  let _v214 = {
       SOURCE_LANGUAGE: "source language",
       SOURCE_TERM: "source term",
       TARGET_LANGUAGE: "target language",
       TARGET_TERM: "target term"
     },
-    _v214 = ({
+    _v215 = ({
       ownerUserId: _v0
     }) => {
       let {
@@ -5663,7 +5738,7 @@ ${_v2}`;
         } = (0, _v2.useRouter)(),
         [_v2, _v3] = (0, _v3.useState)(!1),
         _v4 = (0, _v3.useMemo)(() => ({
-          vimeoAi: (0, _v212.translate)({
+          vimeoAi: (0, _v213.translate)({
             singular: "Vimeo AI",
             dictionary: {
               "fr-FR": {
@@ -5671,7 +5746,7 @@ ${_v2}`;
               }
             }
           }),
-          title: (0, _v212.translate)({
+          title: (0, _v213.translate)({
             singular: "Custom dictionary",
             dictionary: {
               es: {
@@ -5697,7 +5772,7 @@ ${_v2}`;
               }
             }
           }),
-          description: (0, _v212.translate)({
+          description: (0, _v213.translate)({
             singular: "Define your brand names, product terms, and acronyms once, and they'll be applied consistently across all AI-generated content.",
             dictionary: {
               es: {
@@ -5723,7 +5798,7 @@ ${_v2}`;
               }
             }
           }),
-          limitsSummary: (0, _v212.translate)({
+          limitsSummary: (0, _v213.translate)({
             singular: "Some features have terms limits.",
             dictionary: {
               es: {
@@ -5749,7 +5824,7 @@ ${_v2}`;
               }
             }
           }),
-          learnMore: (0, _v212.translate)({
+          learnMore: (0, _v213.translate)({
             singular: "Learn more",
             dictionary: {
               es: {
@@ -5775,7 +5850,7 @@ ${_v2}`;
               }
             }
           }),
-          notice: (0, _v212.translate)({
+          notice: (0, _v213.translate)({
             singular: "Dictionary support for dubbing is coming soon — for now, your terms apply to AI Transcription and Subtitle Translations.",
             dictionary: {
               es: {
@@ -5801,7 +5876,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryTitle: (0, _v212.translate)({
+          glossaryTitle: (0, _v213.translate)({
             singular: "Glossary",
             dictionary: {
               es: {
@@ -5827,7 +5902,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryDescription: (0, _v212.translate)({
+          glossaryDescription: (0, _v213.translate)({
             singular: "Ensures specific terms are spelled and capitalized correctly during AI generation.",
             dictionary: {
               es: {
@@ -5853,7 +5928,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCount: (_v0, _v1) => (0, _v212.translate)({
+          glossaryCount: (_v0, _v1) => (0, _v213.translate)({
             singular: "{USED}/{LIMIT} terms",
             replacements: {
               USED: _v0,
@@ -5883,7 +5958,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryEmptyTitle: (0, _v212.translate)({
+          glossaryEmptyTitle: (0, _v213.translate)({
             singular: "No terms added yet.",
             dictionary: {
               es: {
@@ -5909,7 +5984,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryEmptyDescription: (0, _v212.translate)({
+          glossaryEmptyDescription: (0, _v213.translate)({
             singular: "Start adding your custom glossary",
             dictionary: {
               es: {
@@ -5935,7 +6010,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryTerm: (0, _v212.translate)({
+          glossaryTerm: (0, _v213.translate)({
             singular: "Term",
             dictionary: {
               es: {
@@ -5961,7 +6036,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryEditorDescription: (0, _v212.translate)({
+          glossaryEditorDescription: (0, _v213.translate)({
             singular: "You can paste a CSV-formatted list into the first input field to enter multiple terms at once.",
             dictionary: {
               es: {
@@ -5987,7 +6062,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryDownloadTemplate: (0, _v212.translate)({
+          glossaryDownloadTemplate: (0, _v213.translate)({
             singular: "Download template",
             dictionary: {
               es: {
@@ -6013,7 +6088,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryTermNumber: _v0 => (0, _v212.translate)({
+          glossaryTermNumber: _v0 => (0, _v213.translate)({
             singular: "Glossary term {NUMBER}",
             replacements: {
               NUMBER: _v0
@@ -6042,7 +6117,7 @@ ${_v2}`;
               }
             }
           }),
-          moveGlossaryTermNumber: _v0 => (0, _v212.translate)({
+          moveGlossaryTermNumber: _v0 => (0, _v213.translate)({
             singular: "Move glossary term {NUMBER}",
             replacements: {
               NUMBER: _v0
@@ -6071,7 +6146,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryDragInstructions: (0, _v212.translate)({
+          glossaryDragInstructions: (0, _v213.translate)({
             singular: "To move a glossary term, press Space. Use the arrow keys to choose a new position, then press Space again to drop.",
             dictionary: {
               es: {
@@ -6097,7 +6172,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryTermPickedUp: _v0 => (0, _v212.translate)({
+          glossaryTermPickedUp: _v0 => (0, _v213.translate)({
             singular: "Picked up glossary term {NUMBER}.",
             replacements: {
               NUMBER: _v0
@@ -6126,7 +6201,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryTermMoved: (_v0, _v1) => (0, _v212.translate)({
+          glossaryTermMoved: (_v0, _v1) => (0, _v213.translate)({
             singular: "Glossary term {FROM} moved to position {TO}.",
             replacements: {
               FROM: _v0,
@@ -6156,7 +6231,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryTermDropped: (_v0, _v1) => (0, _v212.translate)({
+          glossaryTermDropped: (_v0, _v1) => (0, _v213.translate)({
             singular: "Glossary term {FROM} was dropped at position {TO}.",
             replacements: {
               FROM: _v0,
@@ -6186,7 +6261,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryTermMoveCanceled: _v0 => (0, _v212.translate)({
+          glossaryTermMoveCanceled: _v0 => (0, _v213.translate)({
             singular: "Moving glossary term {NUMBER} was canceled.",
             replacements: {
               NUMBER: _v0
@@ -6215,7 +6290,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryOrderConflict: (0, _v212.translate)({
+          glossaryOrderConflict: (0, _v213.translate)({
             singular: "The glossary changed while you were editing. Review the latest terms and try again.",
             dictionary: {
               es: {
@@ -6241,7 +6316,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryLoadingError: (0, _v212.translate)({
+          glossaryLoadingError: (0, _v213.translate)({
             singular: "Unable to load the glossary.",
             dictionary: {
               es: {
@@ -6267,7 +6342,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvTitle: (0, _v212.translate)({
+          glossaryCsvTitle: (0, _v213.translate)({
             singular: "Import CSV",
             dictionary: {
               es: {
@@ -6293,7 +6368,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvDescription: (0, _v212.translate)({
+          glossaryCsvDescription: (0, _v213.translate)({
             singular: "Upload a CSV with a single source term column.",
             dictionary: {
               es: {
@@ -6319,7 +6394,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvInstructions: (0, _v212.translate)({
+          glossaryCsvInstructions: (0, _v213.translate)({
             singular: "Upload a CSV with a single source term column.",
             dictionary: {
               es: {
@@ -6345,7 +6420,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvReplaceNotice: (0, _v212.translate)({
+          glossaryCsvReplaceNotice: (0, _v213.translate)({
             singular: "Uploading a CSV replaces all existing glossary terms.",
             dictionary: {
               es: {
@@ -6371,7 +6446,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvReplaceConfirmation: (0, _v212.translate)({
+          glossaryCsvReplaceConfirmation: (0, _v213.translate)({
             singular: "Saving will replace all existing glossary terms with the terms in this CSV.",
             dictionary: {
               es: {
@@ -6397,7 +6472,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvTemplatePrompt: _v0 => (0, _v212.translate)({
+          glossaryCsvTemplatePrompt: _v0 => (0, _v213.translate)({
             singular: "{LINK}Download the template{/LINK} file to start.",
             replacements: {
               LINK: _v0
@@ -6426,7 +6501,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvUploadFile: (0, _v212.translate)({
+          glossaryCsvUploadFile: (0, _v213.translate)({
             singular: "Upload file",
             dictionary: {
               es: {
@@ -6452,7 +6527,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvDropFile: (0, _v212.translate)({
+          glossaryCsvDropFile: (0, _v213.translate)({
             singular: "Drop file here or click to browse file.",
             dictionary: {
               es: {
@@ -6478,7 +6553,7 @@ ${_v2}`;
               }
             }
           }),
-          csvReviewTitle: (0, _v212.translate)({
+          csvReviewTitle: (0, _v213.translate)({
             singular: "Review",
             dictionary: {
               es: {
@@ -6504,7 +6579,7 @@ ${_v2}`;
               }
             }
           }),
-          csvReviewSummary: (_v0, _v1) => (0, _v212.translate)({
+          csvReviewSummary: (_v0, _v1) => (0, _v213.translate)({
             count: _v1,
             singular: "{STRONG}{COUNT} term{/STRONG} was found. Confirm the terms look correct, or adjust them now.",
             plural: "{STRONG}{COUNT} terms{/STRONG} were found. Confirm the terms look correct, or adjust them now.",
@@ -6543,7 +6618,7 @@ ${_v2}`;
               }
             }
           }),
-          csvUploading: (0, _v212.translate)({
+          csvUploading: (0, _v213.translate)({
             singular: "Uploading...",
             dictionary: {
               es: {
@@ -6569,7 +6644,7 @@ ${_v2}`;
               }
             }
           }),
-          csvUploadingHint: (0, _v212.translate)({
+          csvUploadingHint: (0, _v213.translate)({
             singular: "Big files might take up to a minute.",
             dictionary: {
               es: {
@@ -6595,7 +6670,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvUnsupportedFile: (0, _v212.translate)({
+          glossaryCsvUnsupportedFile: (0, _v213.translate)({
             singular: "Upload a CSV file.",
             dictionary: {
               es: {
@@ -6621,7 +6696,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvFileTooLarge: (0, _v212.translate)({
+          csvFileTooLarge: (0, _v213.translate)({
             singular: "The CSV file is too large. Upload a file under 5 MB.",
             dictionary: {
               es: {
@@ -6647,7 +6722,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvInvalidFile: (0, _v212.translate)({
+          glossaryCsvInvalidFile: (0, _v213.translate)({
             singular: "The CSV file is invalid.",
             dictionary: {
               es: {
@@ -6673,7 +6748,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvInvalidHeader: (0, _v212.translate)({
+          glossaryCsvInvalidHeader: (0, _v213.translate)({
             singular: "The CSV must contain a single source term column.",
             dictionary: {
               es: {
@@ -6699,33 +6774,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvTooManyRows: (0, _v212.translate)({
-            singular: "The CSV can contain at most 1,000 terms.",
-            dictionary: {
-              es: {
-                singular: "El CSV puede contener como máximo 1,000 términos."
-              },
-              "de-DE": {
-                singular: "Die CSV darf höchstens 1.000 Begriffe enthalten."
-              },
-              "fr-FR": {
-                singular: "Le CSV peut contenir au maximum 1 000 termes."
-              },
-              "ja-JP": {
-                singular: "CSVには最大1,000件の用語を含めることができます。"
-              },
-              "ko-KR": {
-                singular: "CSV에는 최대 1,000개의 용어만 포함할 수 있습니다."
-              },
-              "pt-BR": {
-                singular: "O CSV pode conter no máximo 1,000 termos."
-              },
-              "zh-CN": {
-                singular: "CSV 最多可包含 1,000 个术语。"
-              }
-            }
-          }),
-          glossaryCsvSourceTermRequired: (0, _v212.translate)({
+          glossaryCsvSourceTermRequired: (0, _v213.translate)({
             singular: "A source term is required.",
             dictionary: {
               es: {
@@ -6751,7 +6800,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvSingleColumnRequired: (0, _v212.translate)({
+          glossaryCsvSingleColumnRequired: (0, _v213.translate)({
             singular: "Each row must contain one source term.",
             dictionary: {
               es: {
@@ -6777,7 +6826,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvImportError: (0, _v212.translate)({
+          glossaryCsvImportError: (0, _v213.translate)({
             singular: "The CSV could not be imported.",
             dictionary: {
               es: {
@@ -6803,7 +6852,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvImported: _v0 => 0 === _v0 ? (0, _v212.translate)({
+          glossaryCsvImported: _v0 => 0 === _v0 ? (0, _v213.translate)({
             singular: "No terms imported",
             dictionary: {
               es: {
@@ -6828,7 +6877,7 @@ ${_v2}`;
                 singular: "未导入任何术语"
               }
             }
-          }) : (0, _v212.translate)({
+          }) : (0, _v213.translate)({
             singular: "{COUNT} term imported",
             plural: "{COUNT} terms imported",
             count: _v0,
@@ -6866,7 +6915,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvRowsFailed: _v0 => (0, _v212.translate)({
+          glossaryCsvRowsFailed: _v0 => (0, _v213.translate)({
             singular: "{COUNT} row could not be imported",
             plural: "{COUNT} rows could not be imported",
             count: _v0,
@@ -6904,7 +6953,7 @@ ${_v2}`;
               }
             }
           }),
-          glossaryCsvLineError: (_v0, _v1) => (0, _v212.translate)({
+          glossaryCsvLineError: (_v0, _v1) => (0, _v213.translate)({
             singular: "Line {LINE}: {MESSAGE}",
             replacements: {
               LINE: _v0,
@@ -6934,8 +6983,8 @@ ${_v2}`;
               }
             }
           }),
-          csv: (0, _v212.translate)("CSV"),
-          addTerm: (0, _v212.translate)({
+          csv: (0, _v213.translate)("CSV"),
+          addTerm: (0, _v213.translate)({
             singular: "Add term",
             dictionary: {
               es: {
@@ -6961,7 +7010,7 @@ ${_v2}`;
               }
             }
           }),
-          edit: (0, _v212.translate)({
+          edit: (0, _v213.translate)({
             singular: "Edit",
             dictionary: {
               es: {
@@ -6987,7 +7036,7 @@ ${_v2}`;
               }
             }
           }),
-          uploadCsv: (0, _v212.translate)({
+          uploadCsv: (0, _v213.translate)({
             singular: "Upload CSV",
             dictionary: {
               es: {
@@ -7013,7 +7062,7 @@ ${_v2}`;
               }
             }
           }),
-          removeTerm: (0, _v212.translate)({
+          removeTerm: (0, _v213.translate)({
             singular: "Remove term",
             dictionary: {
               es: {
@@ -7039,7 +7088,7 @@ ${_v2}`;
               }
             }
           }),
-          removeGlossaryTermNumber: _v0 => (0, _v212.translate)({
+          removeGlossaryTermNumber: _v0 => (0, _v213.translate)({
             singular: "Remove glossary term {NUMBER}",
             replacements: {
               NUMBER: _v0
@@ -7068,7 +7117,7 @@ ${_v2}`;
               }
             }
           }),
-          cancel: (0, _v212.translate)({
+          cancel: (0, _v213.translate)({
             singular: "Cancel",
             dictionary: {
               es: {
@@ -7094,7 +7143,7 @@ ${_v2}`;
               }
             }
           }),
-          save: (0, _v212.translate)({
+          save: (0, _v213.translate)({
             singular: "Save",
             dictionary: {
               es: {
@@ -7120,7 +7169,7 @@ ${_v2}`;
               }
             }
           }),
-          replaceGlossary: (0, _v212.translate)({
+          replaceGlossary: (0, _v213.translate)({
             singular: "Replace glossary",
             dictionary: {
               es: {
@@ -7146,7 +7195,7 @@ ${_v2}`;
               }
             }
           }),
-          replaceTermsTranslations: (0, _v212.translate)({
+          replaceTermsTranslations: (0, _v213.translate)({
             singular: "Replace terms translations",
             dictionary: {
               es: {
@@ -7172,7 +7221,7 @@ ${_v2}`;
               }
             }
           }),
-          changesSaved: (0, _v212.translate)({
+          changesSaved: (0, _v213.translate)({
             singular: "Changes saved",
             dictionary: {
               es: {
@@ -7198,7 +7247,7 @@ ${_v2}`;
               }
             }
           }),
-          changesCouldNotBeSaved: (0, _v212.translate)({
+          changesCouldNotBeSaved: (0, _v213.translate)({
             singular: "Changes could not be saved",
             dictionary: {
               es: {
@@ -7224,7 +7273,7 @@ ${_v2}`;
               }
             }
           }),
-          close: (0, _v212.translate)({
+          close: (0, _v213.translate)({
             singular: "Close",
             dictionary: {
               es: {
@@ -7250,7 +7299,7 @@ ${_v2}`;
               }
             }
           }),
-          tryAgain: (0, _v212.translate)({
+          tryAgain: (0, _v213.translate)({
             singular: "Try again",
             dictionary: {
               es: {
@@ -7276,7 +7325,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsTitle: (0, _v212.translate)({
+          replacementsTitle: (0, _v213.translate)({
             singular: "Terms translations",
             dictionary: {
               es: {
@@ -7302,7 +7351,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsDescription: (0, _v212.translate)({
+          replacementsDescription: (0, _v213.translate)({
             singular: "Controls how specific terms are translated, or kept unchanged, across languages.",
             dictionary: {
               es: {
@@ -7328,7 +7377,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCount: (_v0, _v1) => (0, _v212.translate)({
+          replacementsCount: (_v0, _v1) => (0, _v213.translate)({
             singular: "{USED}/{LIMIT} terms",
             replacements: {
               USED: _v0,
@@ -7358,7 +7407,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsSearchPlaceholder: (0, _v212.translate)({
+          replacementsSearchPlaceholder: (0, _v213.translate)({
             singular: "Search term",
             dictionary: {
               es: {
@@ -7384,7 +7433,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsSearchLabel: (0, _v212.translate)({
+          replacementsSearchLabel: (0, _v213.translate)({
             singular: "Search terms translations",
             dictionary: {
               es: {
@@ -7410,7 +7459,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsOpenSearch: (0, _v212.translate)({
+          replacementsOpenSearch: (0, _v213.translate)({
             singular: "Open search",
             dictionary: {
               es: {
@@ -7436,7 +7485,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsSourceLanguage: (0, _v212.translate)({
+          replacementsSourceLanguage: (0, _v213.translate)({
             singular: "Source language",
             dictionary: {
               es: {
@@ -7462,7 +7511,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsTranslationsSet: (0, _v212.translate)({
+          replacementsTranslationsSet: (0, _v213.translate)({
             singular: "Translations set",
             dictionary: {
               es: {
@@ -7488,7 +7537,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsTranslationsSetValue: _v0 => (0, _v212.translate)({
+          replacementsTranslationsSetValue: _v0 => (0, _v213.translate)({
             singular: "Translations set: {LANGUAGE}",
             replacements: {
               LANGUAGE: _v0
@@ -7517,7 +7566,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsClearSearch: (0, _v212.translate)({
+          replacementsClearSearch: (0, _v213.translate)({
             singular: "Clear search",
             dictionary: {
               es: {
@@ -7543,7 +7592,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsEditorDescription: (0, _v212.translate)({
+          replacementsEditorDescription: (0, _v213.translate)({
             singular: "Choose the language your content is spoken in, add your terms, and set how each should appear in the languages you translate to. Leave a language blank and the AI translates it as usual.",
             dictionary: {
               es: {
@@ -7569,7 +7618,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsOriginalLanguage: _v0 => (0, _v212.translate)({
+          replacementsOriginalLanguage: _v0 => (0, _v213.translate)({
             singular: "{LANGUAGE} (original)",
             replacements: {
               LANGUAGE: _v0
@@ -7592,7 +7641,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsSourceTerm: _v0 => (0, _v212.translate)({
+          replacementsSourceTerm: _v0 => (0, _v213.translate)({
             singular: "Source term {NUMBER}",
             replacements: {
               NUMBER: _v0
@@ -7621,7 +7670,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsTargetTerm: (_v0, _v1) => (0, _v212.translate)({
+          replacementsTargetTerm: (_v0, _v1) => (0, _v213.translate)({
             singular: "{LANGUAGE} translation for source term {NUMBER}",
             replacements: {
               LANGUAGE: _v0,
@@ -7651,7 +7700,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsAddLanguage: (0, _v212.translate)({
+          replacementsAddLanguage: (0, _v213.translate)({
             singular: "Add language",
             dictionary: {
               es: {
@@ -7677,7 +7726,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsAddLanguageTooltip: (0, _v212.translate)({
+          replacementsAddLanguageTooltip: (0, _v213.translate)({
             singular: "Add a new language to set language-specific replacements for the terms that need it.",
             dictionary: {
               es: {
@@ -7703,7 +7752,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNewTranslationsSet: (0, _v212.translate)({
+          replacementsNewTranslationsSet: (0, _v213.translate)({
             singular: "New translations set",
             dictionary: {
               es: {
@@ -7729,7 +7778,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNewLanguageTitle: (0, _v212.translate)({
+          replacementsNewLanguageTitle: (0, _v213.translate)({
             singular: "New language",
             dictionary: {
               es: {
@@ -7755,7 +7804,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNewLanguageDescription: (0, _v212.translate)({
+          replacementsNewLanguageDescription: (0, _v213.translate)({
             singular: "Select a source language and create a new set of terms for videos spoken in that language.",
             dictionary: {
               es: {
@@ -7781,7 +7830,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNewLanguagesTitle: (0, _v212.translate)({
+          replacementsNewLanguagesTitle: (0, _v213.translate)({
             singular: "New languages",
             dictionary: {
               es: {
@@ -7807,7 +7856,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNewLanguagesDescription: _v0 => (0, _v212.translate)({
+          replacementsNewLanguagesDescription: _v0 => (0, _v213.translate)({
             singular: "You're about to add {LANGUAGES}. All existing terms will translate normally unless you manually edit it.",
             replacements: {
               LANGUAGES: _v0
@@ -7836,7 +7885,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsAddLanguages: (0, _v212.translate)({
+          replacementsAddLanguages: (0, _v213.translate)({
             singular: "Add languages",
             dictionary: {
               es: {
@@ -7862,7 +7911,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsDeleteLanguage: (0, _v212.translate)({
+          replacementsDeleteLanguage: (0, _v213.translate)({
             singular: "Delete language",
             dictionary: {
               es: {
@@ -7888,7 +7937,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsLanguageOptions: _v0 => (0, _v212.translate)({
+          replacementsLanguageOptions: _v0 => (0, _v213.translate)({
             singular: "Options for {LANGUAGE}",
             replacements: {
               LANGUAGE: _v0
@@ -7917,7 +7966,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsTargetLanguageDescription: (0, _v212.translate)({
+          replacementsTargetLanguageDescription: (0, _v213.translate)({
             singular: "Adding a language lets you define a language-specific replacement for every term. Leave a language blank and the AI translates it as usual.",
             dictionary: {
               es: {
@@ -7943,7 +7992,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsLanguage: (0, _v212.translate)({
+          replacementsLanguage: (0, _v213.translate)({
             singular: "Language",
             dictionary: {
               es: {
@@ -7969,7 +8018,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsLanguages: (0, _v212.translate)({
+          replacementsLanguages: (0, _v213.translate)({
             singular: "Languages",
             dictionary: {
               es: {
@@ -7992,7 +8041,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsPendingLanguage: _v0 => (0, _v212.translate)({
+          replacementsPendingLanguage: _v0 => (0, _v213.translate)({
             singular: "Language {NUMBER}",
             replacements: {
               NUMBER: _v0
@@ -8021,7 +8070,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsRemoveLanguage: _v0 => (0, _v212.translate)({
+          replacementsRemoveLanguage: _v0 => (0, _v213.translate)({
             singular: "Remove {LANGUAGE}",
             replacements: {
               LANGUAGE: _v0
@@ -8050,7 +8099,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsSelectLanguage: (0, _v212.translate)({
+          replacementsSelectLanguage: (0, _v213.translate)({
             singular: "Select language",
             dictionary: {
               es: {
@@ -8076,7 +8125,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNoLanguagesAvailable: (0, _v212.translate)({
+          replacementsNoLanguagesAvailable: (0, _v213.translate)({
             singular: "No additional languages are available.",
             dictionary: {
               es: {
@@ -8102,7 +8151,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsLanguagesLoadingError: (0, _v212.translate)({
+          replacementsLanguagesLoadingError: (0, _v213.translate)({
             singular: "Unable to load languages.",
             dictionary: {
               es: {
@@ -8128,7 +8177,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsRemoveRow: _v0 => (0, _v212.translate)({
+          replacementsRemoveRow: _v0 => (0, _v213.translate)({
             singular: "Remove source term {NUMBER}",
             replacements: {
               NUMBER: _v0
@@ -8157,7 +8206,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsEditTerm: _v0 => (0, _v212.translate)({
+          replacementsEditTerm: _v0 => (0, _v213.translate)({
             singular: "Edit {TERM}",
             replacements: {
               TERM: _v0
@@ -8186,7 +8235,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsEnterTerm: (0, _v212.translate)({
+          replacementsEnterTerm: (0, _v213.translate)({
             singular: "Enter term",
             dictionary: {
               es: {
@@ -8212,7 +8261,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsChangesSaved: (0, _v212.translate)({
+          replacementsChangesSaved: (0, _v213.translate)({
             singular: "Terms translations saved",
             dictionary: {
               es: {
@@ -8238,7 +8287,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsChangesCouldNotBeSaved: (0, _v212.translate)({
+          replacementsChangesCouldNotBeSaved: (0, _v213.translate)({
             singular: "Terms translations could not be saved",
             dictionary: {
               es: {
@@ -8264,7 +8313,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvImport: (0, _v212.translate)({
+          replacementsCsvImport: (0, _v213.translate)({
             singular: "Import CSV",
             dictionary: {
               es: {
@@ -8290,9 +8339,9 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvInstructions: (0, _v212.translate)({
+          replacementsCsvInstructions: (0, _v213.translate)({
             singular: "Upload a CSV with the following columns: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Use the language codes supported for captions, such as en, pt-BR, or zh-HK.",
-            replacements: _v213,
+            replacements: _v214,
             dictionary: {
               es: {
                 singular: "Suba un CSV con las siguientes columnas: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Utilice los códigos de idioma compatibles con los subtítulos, como en, pt-BR o zh-HK."
@@ -8317,7 +8366,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvReplaceNotice: (0, _v212.translate)({
+          replacementsCsvReplaceNotice: (0, _v213.translate)({
             singular: "Uploading a CSV replaces all existing terms translations.",
             dictionary: {
               es: {
@@ -8343,7 +8392,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvReplaceConfirmation: (0, _v212.translate)({
+          replacementsCsvReplaceConfirmation: (0, _v213.translate)({
             singular: "Saving will replace all existing terms translations with the entries in this CSV.",
             dictionary: {
               es: {
@@ -8369,7 +8418,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvTemplatePrompt: _v0 => (0, _v212.translate)({
+          replacementsCsvTemplatePrompt: _v0 => (0, _v213.translate)({
             singular: "{A}Download the template{/A} file to start.",
             replacements: {
               A: _v0
@@ -8398,7 +8447,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvUploadFile: (0, _v212.translate)({
+          replacementsCsvUploadFile: (0, _v213.translate)({
             singular: "Upload file",
             dictionary: {
               es: {
@@ -8424,7 +8473,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvDropzone: (0, _v212.translate)({
+          replacementsCsvDropzone: (0, _v213.translate)({
             singular: "Drop file here or click to browse file.",
             dictionary: {
               es: {
@@ -8450,7 +8499,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvImported: _v0 => (0, _v212.translate)({
+          replacementsCsvImported: _v0 => (0, _v213.translate)({
             singular: "{COUNT} row imported",
             plural: "{COUNT} rows imported",
             count: _v0,
@@ -8488,7 +8537,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvPartialFailure: (0, _v212.translate)({
+          replacementsCsvPartialFailure: (0, _v213.translate)({
             singular: "Some rows could not be imported.",
             dictionary: {
               es: {
@@ -8514,7 +8563,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvAllFailed: (0, _v212.translate)({
+          replacementsCsvAllFailed: (0, _v213.translate)({
             singular: "No rows were imported.",
             dictionary: {
               es: {
@@ -8540,7 +8589,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvFailureLine: (_v0, _v1) => (0, _v212.translate)({
+          replacementsCsvFailureLine: (_v0, _v1) => (0, _v213.translate)({
             singular: "Line {LINE}: {MESSAGE}",
             replacements: {
               LINE: _v0,
@@ -8570,7 +8619,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvEmpty: (0, _v212.translate)({
+          replacementsCsvEmpty: (0, _v213.translate)({
             singular: "The CSV file is empty.",
             dictionary: {
               es: {
@@ -8596,9 +8645,9 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvInvalidHeader: (0, _v212.translate)({
+          replacementsCsvInvalidHeader: (0, _v213.translate)({
             singular: "The CSV header must be: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}.",
-            replacements: _v213,
+            replacements: _v214,
             dictionary: {
               es: {
                 singular: "El encabezado del CSV debe ser: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}."
@@ -8623,7 +8672,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvMalformed: (0, _v212.translate)({
+          replacementsCsvMalformed: (0, _v213.translate)({
             singular: "The CSV contains malformed quoted content.",
             dictionary: {
               es: {
@@ -8649,7 +8698,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvInvalidFile: (0, _v212.translate)({
+          replacementsCsvInvalidFile: (0, _v213.translate)({
             singular: "Select a CSV file.",
             dictionary: {
               es: {
@@ -8675,7 +8724,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvImportError: (0, _v212.translate)({
+          replacementsCsvImportError: (0, _v213.translate)({
             singular: "The CSV could not be imported.",
             dictionary: {
               es: {
@@ -8701,7 +8750,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvColumnCountError: (0, _v212.translate)({
+          replacementsCsvColumnCountError: (0, _v213.translate)({
             singular: "The row must contain exactly four columns.",
             dictionary: {
               es: {
@@ -8727,7 +8776,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvRequiredError: (0, _v212.translate)({
+          replacementsCsvRequiredError: (0, _v213.translate)({
             singular: "All four columns are required.",
             dictionary: {
               es: {
@@ -8753,7 +8802,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvFieldLengthError: (0, _v212.translate)({
+          replacementsCsvFieldLengthError: (0, _v213.translate)({
             singular: "One or more fields exceed the maximum length.",
             dictionary: {
               es: {
@@ -8779,7 +8828,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvInvalidSourceLanguage: _v0 => (0, _v212.translate)({
+          replacementsCsvInvalidSourceLanguage: _v0 => (0, _v213.translate)({
             singular: "{LANGUAGE} is not a supported source language code.",
             replacements: {
               LANGUAGE: _v0
@@ -8808,7 +8857,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvInvalidTargetLanguage: _v0 => (0, _v212.translate)({
+          replacementsCsvInvalidTargetLanguage: _v0 => (0, _v213.translate)({
             singular: "{LANGUAGE} is not a supported target language code.",
             replacements: {
               LANGUAGE: _v0
@@ -8837,7 +8886,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvMatchingLanguages: (0, _v212.translate)({
+          replacementsCsvMatchingLanguages: (0, _v213.translate)({
             singular: "Source and target languages must be different.",
             dictionary: {
               es: {
@@ -8863,33 +8912,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvTooManyRows: (0, _v212.translate)({
-            singular: "Only 1,000 rows can be imported at once.",
-            dictionary: {
-              es: {
-                singular: "Solo se pueden importar 1,000 filas a la vez."
-              },
-              "de-DE": {
-                singular: "Es können nur 1,000 Zeilen gleichzeitig importiert werden."
-              },
-              "fr-FR": {
-                singular: "Seules 1,000 lignes peuvent être importées à la fois."
-              },
-              "ja-JP": {
-                singular: "一度にインポートできるのは最大1,000行です。"
-              },
-              "ko-KR": {
-                singular: "한 번에 최대 1,000개의 행만 가져올 수 있습니다."
-              },
-              "pt-BR": {
-                singular: "Somente 1.000 linhas podem ser importadas de cada vez."
-              },
-              "zh-CN": {
-                singular: "一次最多只能导入 1,000 行。"
-              }
-            }
-          }),
-          replacementsCsvServerError: (0, _v212.translate)({
+          replacementsCsvServerError: (0, _v213.translate)({
             singular: "The row could not be imported.",
             dictionary: {
               es: {
@@ -8915,7 +8938,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsEmptyTitle: (0, _v212.translate)({
+          replacementsEmptyTitle: (0, _v213.translate)({
             singular: "No terms added yet.",
             dictionary: {
               es: {
@@ -8941,7 +8964,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsEmptyDescription: (0, _v212.translate)({
+          replacementsEmptyDescription: (0, _v213.translate)({
             singular: "Start adding your first term translation.",
             dictionary: {
               es: {
@@ -8967,7 +8990,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsNoResults: (0, _v212.translate)({
+          replacementsNoResults: (0, _v213.translate)({
             singular: "No matching terms found.",
             dictionary: {
               es: {
@@ -8993,7 +9016,7 @@ ${_v2}`;
               }
             }
           }),
-          replacementsLoadingError: (0, _v212.translate)({
+          replacementsLoadingError: (0, _v213.translate)({
             singular: "Unable to load terms translations.",
             dictionary: {
               es: {
@@ -9019,7 +9042,7 @@ ${_v2}`;
               }
             }
           }),
-          add: (0, _v212.translate)({
+          add: (0, _v213.translate)({
             singular: "Add",
             dictionary: {
               es: {
@@ -9045,7 +9068,7 @@ ${_v2}`;
               }
             }
           }),
-          import: (0, _v212.translate)({
+          import: (0, _v213.translate)({
             singular: "Import",
             dictionary: {
               es: {
@@ -9071,7 +9094,7 @@ ${_v2}`;
               }
             }
           }),
-          needMorePrompt: (0, _v212.translate)({
+          needMorePrompt: (0, _v213.translate)({
             singular: "Need more?",
             dictionary: {
               es: {
@@ -9097,7 +9120,7 @@ ${_v2}`;
               }
             }
           }),
-          contactSales: (0, _v212.translate)({
+          contactSales: (0, _v213.translate)({
             singular: "Contact Sales",
             dictionary: {
               es: {
@@ -9123,7 +9146,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesTitle: (0, _v212.translate)({
+          rulesTitle: (0, _v213.translate)({
             singular: "Custom rules",
             dictionary: {
               es: {
@@ -9149,7 +9172,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesDescription: (0, _v212.translate)({
+          rulesDescription: (0, _v213.translate)({
             singular: "Add your own instructions in plain language to guide how words are captioned or translated. (example: always spell out numbers under ten).",
             dictionary: {
               es: {
@@ -9175,7 +9198,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesInputLabel: (0, _v212.translate)({
+          rulesInputLabel: (0, _v213.translate)({
             singular: "Rules",
             dictionary: {
               es: {
@@ -9201,14 +9224,14 @@ ${_v2}`;
               }
             }
           }),
-          rulesCharacterCount: (_v0, _v1) => (0, _v212.translate)({
+          rulesCharacterCount: (_v0, _v1) => (0, _v213.translate)({
             singular: "{USED}/{LIMIT}",
             replacements: {
               USED: _v0,
               LIMIT: _v1
             }
           }),
-          rulesPlaceholder: (0, _v212.translate)({
+          rulesPlaceholder: (0, _v213.translate)({
             singular: "Describe any rules with simple words",
             dictionary: {
               es: {
@@ -9234,7 +9257,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesHelper: (0, _v212.translate)({
+          rulesHelper: (0, _v213.translate)({
             singular: "Write one rule per line.",
             dictionary: {
               es: {
@@ -9260,7 +9283,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesSaving: (0, _v212.translate)({
+          rulesSaving: (0, _v213.translate)({
             singular: "Saving...",
             dictionary: {
               es: {
@@ -9286,7 +9309,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesLoadingLabel: (0, _v212.translate)({
+          rulesLoadingLabel: (0, _v213.translate)({
             singular: "Loading custom rules",
             dictionary: {
               es: {
@@ -9312,7 +9335,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesLoadingError: (0, _v212.translate)({
+          rulesLoadingError: (0, _v213.translate)({
             singular: "Unable to load custom rules.",
             dictionary: {
               es: {
@@ -9338,7 +9361,7 @@ ${_v2}`;
               }
             }
           }),
-          rulesSaveError: (0, _v212.translate)({
+          rulesSaveError: (0, _v213.translate)({
             singular: "Changes could not be saved.",
             dictionary: {
               es: {
@@ -9364,59 +9387,201 @@ ${_v2}`;
               }
             }
           }),
-          limitsByFeatureTitle: (0, _v212.translate)({
-            singular: "Limits by feature",
+          customRulesCharacters: _v0 => (0, _v213.translate)({
+            count: _v0,
+            singular: "{COUNT} character",
+            plural: "{COUNT} characters",
+            replacements: {
+              COUNT: _v0.toLocaleString()
+            },
             dictionary: {
               es: {
-                singular: "Límites por función"
+                singular: "{COUNT} caracter",
+                plural: "{COUNT} caracteres"
               },
               "de-DE": {
-                singular: "Grenzwerte nach Funktion"
+                singular: "{COUNT} Zeichen",
+                plural: "{COUNT} Zeichen"
               },
               "fr-FR": {
-                singular: "Limites par fonctionnalité"
+                singular: "{COUNT} caractère",
+                plural: "{COUNT} caractères"
               },
               "ja-JP": {
-                singular: "機能ごとの制限"
+                singular: "{COUNT} 文字",
+                plural: "{COUNT} 文字"
               },
               "ko-KR": {
-                singular: "기능별 제한"
+                singular: "{COUNT}자",
+                plural: "{COUNT}자"
               },
               "pt-BR": {
-                singular: "Limites por recurso"
+                singular: "{COUNT} caractere",
+                plural: "{COUNT} caracteres"
               },
               "zh-CN": {
-                singular: "各功能限制"
+                singular: "{COUNT} 个字符",
+                plural: "{COUNT} 个字符"
               }
             }
           }),
-          limitsByFeatureDescription: (0, _v212.translate)({
-            singular: "Each feature uses a limited number of words during processing. You can add more words, up to your account's maximum limit, but only the first entries within the processing limit are applied. For live captioning and live caption translations, glossary keywords are limited to 50 words, with up to 50 characters per word.",
+          processingLimitsByFeatureTitle: (0, _v213.translate)({
+            singular: "Processing limits by feature",
             dictionary: {
               es: {
-                singular: "Cada función utiliza un número limitado de palabras durante el procesamiento. Puedes añadir más palabras, hasta el límite máximo de tu cuenta, pero solo se aplican las primeras entradas dentro del límite de procesamiento. Para el subtitulado en directo y las traducciones de subtítulos en directo, las palabras clave del glosario están limitadas a 50 palabras, con un máximo de 50 caracteres por palabra."
+                singular: "Límites de procesamiento por función"
               },
               "de-DE": {
-                singular: "Jede Funktion verwendet während der Verarbeitung eine begrenzte Anzahl von Wörtern. Sie können bis zu Ihrem maximalen Kontolimit weitere Wörter hinzufügen, jedoch werden nur die ersten Einträge innerhalb des Verarbeitungslimits angewendet. Für Live-Untertitel und Live-Untertitelübersetzungen sind Glossarbegriffe auf 50 Wörter mit jeweils bis zu 50 Zeichen begrenzt."
+                singular: "Verarbeitungsgrenzen pro Funktion"
               },
               "fr-FR": {
-                singular: "Chaque fonctionnalité utilise un nombre limité de mots lors du traitement. Vous pouvez ajouter davantage de mots, jusqu'à la limite maximale de votre compte, mais seules les premières entrées situées dans la limite de traitement sont prises en compte. Pour le sous-titrage en direct et les traductions de sous-titres en direct, les mots-clés du glossaire sont limités à 50 mots, avec un maximum de 50 caractères par mot."
+                singular: "Limites de traitement par fonctionnalité"
               },
               "ja-JP": {
-                singular: "各機能は処理中に使用できる語数に制限があります。アカウントの最大制限まで語を追加できますが、処理制限内の最初のエントリのみが適用されます。ライブ字幕とライブ字幕翻訳では、用語集のキーワードは50語まで、各単語は50文字までに制限されます。"
+                singular: "機能ごとの処理上限"
               },
               "ko-KR": {
-                singular: "각 기능은 처리 중에 제한된 수의 단어를 사용합니다. 계정의 최대 한도까지 단어를 추가할 수 있으나, 처리 한도 내의 처음 항목들만 적용됩니다. 실시간 자막 및 실시간 자막 번역에서는 용어집 키워드가 50개 단어로 제한되며, 각 단어는 최대 50자까지 사용할 수 있습니다."
+                singular: "기능별 처리 한도"
               },
               "pt-BR": {
-                singular: "Cada recurso usa um número limitado de palavras durante o processamento. Você pode adicionar mais palavras, até o limite máximo da sua conta, mas apenas as primeiras entradas dentro do limite de processamento são aplicadas. Para legendas ao vivo e traduções de legendas ao vivo, as palavras-chave do glossário são limitadas a 50 palavras, com até 50 caracteres por palavra."
+                singular: "Limites de processamento por recurso"
               },
               "zh-CN": {
-                singular: "每个功能在处理过程中使用的词数有限。您可以添加更多词语，最多不超过您账户的最大限制，但只有在处理限制范围内的首批条目会被应用。对于实时字幕和实时字幕翻译，术语表关键词最多为50个词，每个词最多50个字符。"
+                singular: "按功能的处理限制"
               }
             }
           }),
-          orderingExplanation: (0, _v212.translate)({
+          liveCaptioningCharacterLimit: (0, _v213.translate)({
+            singular: "Terms longer than 50 characters can't be used in live captioning and live caption translations.",
+            dictionary: {
+              es: {
+                singular: "Los términos con más de 50 caracteres no pueden usarse en subtitulado en vivo ni en las traducciones de subtítulos en vivo."
+              },
+              "de-DE": {
+                singular: "Begriffe, die länger als 50 Zeichen sind, können in Live-Untertiteln und deren Übersetzungen nicht verwendet werden."
+              },
+              "fr-FR": {
+                singular: "Les termes de plus de 50 caractères ne peuvent pas être utilisés dans le sous-titrage en direct ni dans les traductions des sous-titres en direct."
+              },
+              "ja-JP": {
+                singular: "50文字を超える用語は、ライブキャプションおよびライブキャプション翻訳では使用できません。"
+              },
+              "ko-KR": {
+                singular: "50자보다 긴 용어는 라이브 자막 및 라이브 자막 번역에서 사용할 수 없습니다."
+              },
+              "pt-BR": {
+                singular: "Termos com mais de 50 caracteres não podem ser usados em legendas ao vivo e em traduções de legendas ao vivo."
+              },
+              "zh-CN": {
+                singular: "长度超过50个字符的术语不能用于实时字幕和实时字幕翻译。"
+              }
+            }
+          }),
+          accountLimitsLabel: (0, _v213.translate)({
+            singular: "Your account limits",
+            dictionary: {
+              es: {
+                singular: "Límites de tu cuenta"
+              },
+              "de-DE": {
+                singular: "Limits Ihres Kontos"
+              },
+              "fr-FR": {
+                singular: "Limites de votre compte"
+              },
+              "ja-JP": {
+                singular: "アカウントの上限"
+              },
+              "ko-KR": {
+                singular: "계정 한도"
+              },
+              "pt-BR": {
+                singular: "Limites da sua conta"
+              },
+              "zh-CN": {
+                singular: "您的账户限制"
+              }
+            }
+          }),
+          accountLimitsFootnotePrefix: (0, _v213.translate)({
+            singular: "Some features can process more than your dictionary holds.",
+            dictionary: {
+              es: {
+                singular: "Algunas funciones pueden procesar más de lo que contiene tu diccionario."
+              },
+              "de-DE": {
+                singular: "Einige Funktionen können mehr verarbeiten, als Ihr Wörterbuch enthält."
+              },
+              "fr-FR": {
+                singular: "Certaines fonctionnalités peuvent traiter plus que ce que contient votre dictionnaire."
+              },
+              "ja-JP": {
+                singular: "一部の機能は辞書に登録されている語数より多くを処理できます。"
+              },
+              "ko-KR": {
+                singular: "일부 기능은 사전이 보유한 것보다 더 많은 항목을 처리할 수 있습니다."
+              },
+              "pt-BR": {
+                singular: "Alguns recursos podem processar mais do que seu dicionário comporta."
+              },
+              "zh-CN": {
+                singular: "某些功能可以处理超过您词典所包含的词条。"
+              }
+            }
+          }),
+          accountLimitsFootnoteSuffix: (0, _v213.translate)({
+            singular: "to increase your maximum terms.",
+            dictionary: {
+              es: {
+                singular: "para aumentar tu número máximo de términos."
+              },
+              "de-DE": {
+                singular: "um Ihre maximale Anzahl an Begriffen zu erhöhen."
+              },
+              "fr-FR": {
+                singular: "pour augmenter votre nombre maximal de termes."
+              },
+              "ja-JP": {
+                singular: "最大用語数を増やすには。"
+              },
+              "ko-KR": {
+                singular: "최대 용어 수를 늘리려면."
+              },
+              "pt-BR": {
+                singular: "para aumentar o número máximo de termos."
+              },
+              "zh-CN": {
+                singular: "以增加您的最大词条数。"
+              }
+            }
+          }),
+          limitsByFeatureDescription: (0, _v213.translate)({
+            singular: "Each feature uses a limited number of words during processing. You can add more words, up to your account's maximum limit, but only the first entries within the processing limit are applied.",
+            dictionary: {
+              es: {
+                singular: "Cada función utiliza un número limitado de palabras durante el procesamiento. Puedes añadir más palabras, hasta el límite máximo de tu cuenta, pero solo se aplican las primeras entradas dentro del límite de procesamiento."
+              },
+              "de-DE": {
+                singular: "Jede Funktion verwendet während der Verarbeitung nur eine begrenzte Anzahl von Wörtern. Sie können weitere Wörter hinzufügen, bis zum maximalen Limit Ihres Kontos, aber es werden nur die ersten Einträge innerhalb des Verarbeitungslimits angewendet."
+              },
+              "fr-FR": {
+                singular: "Chaque fonctionnalité utilise un nombre limité de mots lors du traitement. Vous pouvez ajouter davantage de mots, jusqu'à la limite maximale de votre compte, mais seules les premières entrées comprises dans la limite de traitement sont appliquées."
+              },
+              "ja-JP": {
+                singular: "各機能は処理時に使用できる語数が制限されています。アカウントの最大上限まで語を追加できますが、処理の制限内で最初のエントリのみが適用されます。"
+              },
+              "ko-KR": {
+                singular: "각 기능은 처리 중에 제한된 수의 단어를 사용합니다. 계정의 최대 한도까지 단어를 추가할 수 있지만, 처리 한도 내의 첫 번째 항목들만 적용됩니다."
+              },
+              "pt-BR": {
+                singular: "Cada recurso usa um número limitado de palavras durante o processamento. Você pode adicionar mais palavras, até o limite máximo da sua conta, mas apenas as primeiras entradas dentro do limite de processamento são aplicadas."
+              },
+              "zh-CN": {
+                singular: "每项功能在处理时使用的词数是有限的。您可以添加更多词条，最多不超过您的账户最大限制，但只有位于处理限制内的前若干条会被应用。"
+              }
+            }
+          }),
+          orderingExplanation: (0, _v213.translate)({
             singular: "Words are selected by order, top to bottom. To include or leave out specific words, reorder the list so the ones you want come first.",
             dictionary: {
               es: {
@@ -9442,7 +9607,7 @@ ${_v2}`;
               }
             }
           }),
-          featureLimitsTableScrollLabel: (0, _v212.translate)({
+          featureLimitsTableScrollLabel: (0, _v213.translate)({
             singular: "Feature limits table. Scroll horizontally to view all columns.",
             dictionary: {
               es: {
@@ -9468,7 +9633,7 @@ ${_v2}`;
               }
             }
           }),
-          featureColumnLabel: (0, _v212.translate)({
+          featureColumnLabel: (0, _v213.translate)({
             singular: "Feature",
             dictionary: {
               es: {
@@ -9495,7 +9660,7 @@ ${_v2}`;
             }
           }),
           featureNames: {
-            autocaptioning: (0, _v212.translate)({
+            autocaptioning: (0, _v213.translate)({
               singular: "Autocaptioning",
               dictionary: {
                 es: {
@@ -9521,7 +9686,7 @@ ${_v2}`;
                 }
               }
             }),
-            liveCaptioning: (0, _v212.translate)({
+            liveCaptioning: (0, _v213.translate)({
               singular: "Live captioning",
               dictionary: {
                 es: {
@@ -9547,7 +9712,7 @@ ${_v2}`;
                 }
               }
             }),
-            subtitleTranslation: (0, _v212.translate)({
+            subtitleTranslation: (0, _v213.translate)({
               singular: "Subtitle translation",
               dictionary: {
                 es: {
@@ -9573,7 +9738,7 @@ ${_v2}`;
                 }
               }
             }),
-            liveCaptionTranslation: (0, _v212.translate)({
+            liveCaptionTranslation: (0, _v213.translate)({
               singular: "Live caption translation",
               dictionary: {
                 es: {
@@ -9599,7 +9764,7 @@ ${_v2}`;
                 }
               }
             }),
-            dubbing: (0, _v212.translate)({
+            dubbing: (0, _v213.translate)({
               singular: "Dubbing",
               dictionary: {
                 es: {
@@ -9626,7 +9791,7 @@ ${_v2}`;
               }
             })
           },
-          notSupportedYet: (0, _v212.translate)({
+          notSupportedYet: (0, _v213.translate)({
             singular: "not supported yet",
             dictionary: {
               es: {
@@ -9652,7 +9817,7 @@ ${_v2}`;
               }
             }
           }),
-          notApplicable: (0, _v212.translate)({
+          notApplicable: (0, _v213.translate)({
             singular: "not applicable",
             dictionary: {
               es: {
@@ -9678,71 +9843,45 @@ ${_v2}`;
               }
             }
           }),
-          supported: (0, _v212.translate)({
-            singular: "supported",
-            dictionary: {
-              es: {
-                singular: "compatible"
-              },
-              "de-DE": {
-                singular: "unterstützt"
-              },
-              "fr-FR": {
-                singular: "pris en charge"
-              },
-              "ja-JP": {
-                singular: "対応済み"
-              },
-              "ko-KR": {
-                singular: "지원됨"
-              },
-              "pt-BR": {
-                singular: "compatível"
-              },
-              "zh-CN": {
-                singular: "支持"
-              }
-            }
-          }),
-          processingLimit: _v0 => (0, _v212.translate)({
+          featureLimitTerms: _v0 => (0, _v213.translate)({
             count: _v0,
-            singular: "{COUNT} word",
-            plural: "{COUNT} words",
+            singular: "{COUNT} term",
+            plural: "{COUNT} terms",
             replacements: {
               COUNT: _v0.toLocaleString()
             },
             dictionary: {
               es: {
-                singular: "{COUNT} palabra",
-                plural: "{COUNT} palabras"
+                singular: "{COUNT} término",
+                plural: "{COUNT} términos"
               },
               "de-DE": {
-                singular: "{COUNT} Wort",
-                plural: "{COUNT} Wörter"
+                singular: "{COUNT} Begriff",
+                plural: "{COUNT} Begriffe"
               },
               "fr-FR": {
-                singular: "{COUNT} mot",
-                plural: "{COUNT} mots"
+                singular: "{COUNT} terme",
+                plural: "{COUNT} termes"
               },
               "ja-JP": {
-                singular: "{COUNT}語",
-                plural: "{COUNT}語"
+                singular: "{COUNT} 用語",
+                plural: "{COUNT} 用語"
               },
               "ko-KR": {
-                singular: "{COUNT}개의 단어",
-                plural: "{COUNT}개의 단어"
+                singular: "{COUNT}개의 용어",
+                plural: "{COUNT}개의 용어"
               },
               "pt-BR": {
-                singular: "{COUNT} palavra",
-                plural: "{COUNT} palavras"
+                singular: "{COUNT} termo",
+                plural: "{COUNT} termos"
               },
               "zh-CN": {
-                singular: "{COUNT} 个词",
-                plural: "{COUNT} 个词"
+                singular: "{COUNT} 个词条",
+                plural: "{COUNT} 个词条"
               }
             }
           }),
-          replacementsNewLanguage: (0, _v212.translate)({
+          replacementsNewLanguage: (0, _v213.translate)({
             singular: "New language",
             dictionary: {
               es: {
@@ -9796,7 +9935,7 @@ ${_v2}`;
           title: _v4.title,
           marginTop: (0, _v8.rem)(16),
           description: (0, _v1.jsxs)(_v1.Fragment, {
-            children: [_v4.description, " ", _v4.limitsSummary, " ", (0, _v1.jsx)(_v64, {
+            children: [_v4.description, " ", _v4.limitsSummary, " ", (0, _v1.jsx)(_v63, {
               onClick: () => _v3(!0),
               children: _v4.learnMore
             })]
@@ -9810,34 +9949,35 @@ ${_v2}`;
           children: [(0, _v1.jsx)(_v153, {
             ownerUserId: _v0,
             translations: _v4
-          }), (0, _v1.jsx)(_v211, {
+          }), (0, _v1.jsx)(_v212, {
             ownerUserId: _v0,
             translations: _v4
-          }), (0, _v1.jsx)(_v34, {
+          }), (0, _v1.jsx)(_v33, {
             ownerUserId: _v0,
             translations: _v4
           })]
-        }), (0, _v1.jsx)(_v161, {
+        }), (0, _v1.jsx)(_v162, {
           isOpen: _v2,
           onClose: () => _v3(!1),
+          ownerUserId: _v0,
           translations: _v4
         })]
       });
     };
-  var _v215 = _v0.i(0),
-    _v216 = _v0.i(0),
-    _v217 = _v0.i(0);
+  var _v216 = _v0.i(0),
+    _v217 = _v0.i(0),
+    _v218 = _v0.i(0);
   _v0.s(["AccountDictionaryRoute", 0, ({
     ownerUserId: _v0
   }) => {
     let {
       settings: _v1,
       isLoadingResponse: _v2
-    } = (0, _v216.useOrionSettings)();
-    return _v2 ? (0, _v1.jsx)(_v45.Spinner, {}) : _v1.enable_account_wide_dictionary_management ? (0, _v1.jsx)(_v214, {
+    } = (0, _v217.useOrionSettings)();
+    return _v2 ? (0, _v1.jsx)(_v44.Spinner, {}) : _v1.enable_account_wide_dictionary_management ? (0, _v1.jsx)(_v215, {
       ownerUserId: _v0
-    }) : (0, _v1.jsx)(_v217.ErrorPage, {
-      error: new _v215.ResourceNotFoundError()
+    }) : (0, _v1.jsx)(_v218.ErrorPage, {
+      error: new _v216.ResourceNotFoundError()
     });
   }], 0);
 }

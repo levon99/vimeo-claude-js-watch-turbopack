@@ -115,7 +115,9 @@
           filesize: _v0.filesize,
           upload_status: _v0.uploadStatus,
           version_transcode_status: _v0.versionTranscodeStatus,
-          status: _v0.status,
+          ...(void 0 !== _v0.status && {
+            status: _v0.status
+          }),
           error: _v0.error
         });
       }, [_v0]),
@@ -130,7 +132,9 @@
           filesize: _v0.filesize,
           upload_status: _v0.uploadStatus,
           version_transcode_status: _v0.versionTranscodeStatus,
-          status: _v0.status,
+          ...(void 0 !== _v0.status && {
+            status: _v0.status
+          }),
           error: _v0.error
         });
       }, [_v0]),
@@ -145,7 +149,9 @@
           filesize: _v0.filesize,
           upload_status: _v0.uploadStatus,
           version_transcode_status: _v0.versionTranscodeStatus,
-          status: _v0.status,
+          ...(void 0 !== _v0.status && {
+            status: _v0.status
+          }),
           error: _v0.error
         });
       }, [_v0]),

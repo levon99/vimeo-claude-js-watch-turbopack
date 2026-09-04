@@ -5,8 +5,9 @@
     _v2 = _v0.i(0),
     _v3 = _v0.i(0),
     _v4 = _v0.i(0),
-    _v5 = _v0.i(0),
-    _v6 = _v0.i(0),
+    _v5 = _v0.i(0);
+  _v0.i(0);
+  var _v6 = _v0.i(0),
     _v7 = _v0.i(0);
   _v0.s(["PaymentMethodAddressFormContainer", 0, ({
     onSubmitVatId: _v0,

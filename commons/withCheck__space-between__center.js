@@ -114,6 +114,7 @@
       userRolePermissionAiScriptGeneration: "userRolePermissionAiScriptGeneration",
       enableParentPermissionAiLiveCaptions: "enableParentPermissionAiLiveCaptions",
       userRolePermissionAiLiveCaptions: "userRolePermissionAiLiveCaptions",
+      enableRegistrationFormAiUserTranslation: "enableRegistrationFormAiUserTranslation",
       userRolePermissionTranscriptionKeywords: "userRolePermissionTranscriptionKeywords",
       enableTranscriptionGeneration: "enableTranscriptionGeneration",
       ..._v36
@@ -144,6 +145,7 @@
         enableParentPermissionAiVideoDetails: "vimeo.ai_team_members_generate_definitions",
         enableParentPermissionAiHighlights: "vimeo.ai_team_members_generate_definitions",
         enableParentPermissionAiLiveCaptions: "vimeo.ai_team_members_generate_definitions",
+        enableRegistrationFormAiUserTranslation: "vimeo.ai_team_members_generate_definitions",
         userRolePermissionAiTranslate: "vimeo.ai_team_members_generate_role_definitions",
         userRolePermissionAiVideoDetails: "vimeo.ai_team_members_generate_role_definitions",
         userRolePermissionAiHighlights: "vimeo.ai_team_members_generate_role_definitions",
@@ -168,6 +170,7 @@
         [_v37.enableAiScriptGeneration]: _v41,
         [_v37.userRolePermissionAiScriptGeneration]: _v41,
         [_v37.enableParentPermissionAiLiveCaptions]: _v43,
+        [_v37.enableRegistrationFormAiUserTranslation]: _v38,
         [_v37.userRolePermissionAiLiveCaptions]: _v43,
         [_v37.prefEnableAskAiAnalytics]: _v42,
         [_v37.userRolePermissionTranscriptionKeywords]: _v43,
@@ -357,6 +360,57 @@
             },
             "zh-CN": {
               singular: "为视频和您的库启用 AI 驱动的搜索"
+            }
+          }
+        })
+      },
+      aiTitleLocalisation: {
+        title: (0, _v47.translate)({
+          singular: "Localisation",
+          dictionary: {
+            es: {
+              singular: "Localización"
+            },
+            "de-DE": {
+              singular: "Lokalisierung"
+            },
+            "ja-JP": {
+              singular: "ローカライズ"
+            },
+            "ko-KR": {
+              singular: "현지화"
+            },
+            "pt-BR": {
+              singular: "Localização"
+            },
+            "zh-CN": {
+              singular: "本地化"
+            }
+          }
+        }),
+        description: (0, _v47.translate)({
+          singular: "Team members can use AI to translate content across your account.",
+          dictionary: {
+            es: {
+              singular: "Los miembros del equipo pueden usar IA para traducir contenido en toda su cuenta."
+            },
+            "de-DE": {
+              singular: "Teammitglieder können KI verwenden, um Inhalte in Ihrem Konto zu übersetzen."
+            },
+            "fr-FR": {
+              singular: "Les membres de l'équipe peuvent utiliser l'IA pour traduire le contenu de l’ensemble de votre compte."
+            },
+            "ja-JP": {
+              singular: "チームメンバーはAIを使用して、アカウント全体のコンテンツを翻訳できます。"
+            },
+            "ko-KR": {
+              singular: "팀 구성원은 AI를 사용하여 귀하의 계정 전반의 콘텐츠를 번역할 수 있습니다."
+            },
+            "pt-BR": {
+              singular: "Membros da equipe podem usar IA para traduzir o conteúdo em toda a sua conta."
+            },
+            "zh-CN": {
+              singular: "团队成员可以使用 AI 翻译整个帐户中的内容。"
             }
           }
         })
@@ -1079,6 +1133,60 @@
           }
         }),
         description: ""
+      },
+      enableRegistrationFormAiUserTranslation: {
+        title: (0, _v47.translate)({
+          singular: "Registration form localisation",
+          dictionary: {
+            es: {
+              singular: "Localización del formulario de registro"
+            },
+            "de-DE": {
+              singular: "Lokalisierung des Registrierungsformulars"
+            },
+            "fr-FR": {
+              singular: "Localisation du formulaire d'inscription"
+            },
+            "ja-JP": {
+              singular: "登録フォームのローカライズ"
+            },
+            "ko-KR": {
+              singular: "등록 양식 현지화"
+            },
+            "pt-BR": {
+              singular: "Localização do formulário de inscrição"
+            },
+            "zh-CN": {
+              singular: "注册表单本地化"
+            }
+          }
+        }),
+        description: (0, _v47.translate)({
+          singular: "Team members can use AI to translate registration form labels and answer options.",
+          dictionary: {
+            es: {
+              singular: "Los miembros del equipo pueden usar IA para traducir las etiquetas del formulario de registro y las opciones de respuesta."
+            },
+            "de-DE": {
+              singular: "Teammitglieder können KI verwenden, um Beschriftungen und Antwortoptionen des Registrierungsformulars zu übersetzen."
+            },
+            "fr-FR": {
+              singular: "Les membres de l'équipe peuvent utiliser l'IA pour traduire les libellés et les options de réponse du formulaire d'inscription."
+            },
+            "ja-JP": {
+              singular: "チームメンバーはAIを使用して、登録フォームのラベルや回答オプションを翻訳できます。"
+            },
+            "ko-KR": {
+              singular: "팀 구성원은 AI를 사용하여 등록 양식의 레이블 및 응답 옵션을 번역할 수 있습니다."
+            },
+            "pt-BR": {
+              singular: "Membros da equipe podem usar IA para traduzir rótulos e opções de resposta do formulário de inscrição."
+            },
+            "zh-CN": {
+              singular: "团队成员可以使用 AI 翻译注册表单标签和答案选项。"
+            }
+          }
+        })
       },
       userRolePermissionAiVideoDetails: {
         title: (0, _v47.translate)({
@@ -2191,7 +2299,8 @@
     _v89 = "role",
     _v90 = {
       aiTitleGeneral: "aiTitleGeneral",
-      aiTitleSearchAndAskAi: "aiTitleSearchAndAskAi"
+      aiTitleSearchAndAskAi: "aiTitleSearchAndAskAi",
+      aiTitleLocalisation: "aiTitleLocalisation"
     },
     _v91 = {
       transcript: [{
@@ -2259,6 +2368,22 @@
         key: _v37.userRolePermissionAiTranslate,
         value: _v33,
         type: _v89
+      }],
+      localisations: [{
+        key: _v90.aiTitleLocalisation,
+        value: !1,
+        isSectionTitle: !0,
+        type: _v87,
+        sectionVisibility: {
+          orionFlagToCheck: "enable_registration_form_localization"
+        }
+      }, {
+        key: _v37.enableRegistrationFormAiUserTranslation,
+        value: !1,
+        type: _v86,
+        sectionVisibility: {
+          orionFlagToCheck: "enable_registration_form_localization"
+        }
       }],
       videoDetails: [{
         key: _v37.enableParentPermissionAiVideoDetails,
@@ -2380,35 +2505,42 @@
               _v3.includes(_v0) || _v3.push(_v0);
             });
           });
-        }), _v3), _v2);
+        }), _v3), _v2),
+        {
+          settings: _v5
+        } = (0, _v23.useOrionSettings)();
       return {
-        SETTINGS: (0, _v7.useMemo)(() => function (_v0, _v1, _v2) {
+        SETTINGS: (0, _v7.useMemo)(() => function (_v0, _v1, _v2, _v3) {
           if (!_v0) return null;
-          let _v3 = {};
+          let _v4 = {};
           for (let _v0 in _v91) {
             let _v0 = _v91[_v0];
-            _v0.some(_v0 => function (_v0, _v1, _v2) {
+            _v0.some(_v0 => function (_v0, _v1, _v2, _v3) {
               if (!_v0.sectionVisibility) return !1;
               let {
-                capabilitiesToCheck: _v3,
-                capabilitiesToHide: _v4,
-                preferencesToCheck: _v5,
-                alwaysShow: _v6
-              } = _v0.sectionVisibility;
-              if (_v6) return _v0.key in _v90 || _v0.key in _v2;
-              if (!((_v3?.length ?? 0) > 0 || (_v5?.length ?? 0) > 0)) return !1;
-              if (_v4?.length) {
-                if (_v4.some(_v0 => _v1[_v0])) return !1;
-                if (!_v3?.length) return !0;
+                  capabilitiesToCheck: _v4,
+                  capabilitiesToHide: _v5,
+                  preferencesToCheck: _v6,
+                  orionFlagToCheck: _v7,
+                  alwaysShow: _v8
+                } = _v0.sectionVisibility,
+                _v9 = void 0 !== _v7;
+              if (_v8) return _v0.key in _v90 || _v0.key in _v2;
+              if (!((_v4?.length ?? 0) > 0 || (_v6?.length ?? 0) > 0 || _v9)) return !1;
+              if (_v5?.length) {
+                if (_v5.some(_v0 => _v1[_v0])) return !1;
+                if (!_v4?.length && !_v9) return !0;
               }
-              return _v3?.length ? _v3.some(_v0 => _v1[_v0]) : !!_v5?.length && _v5.some(_v0 => _v0 in _v2);
-            }(_v0, _v2, _v0)) && (_v3[_v0] = _v0.reduce((_v0, _v1) => {
+              return _v4?.length || _v9 ? !!_v4?.some(_v0 => _v1[_v0]) || void 0 !== _v7 && !0 === _v3[_v7] : !!_v6?.length && _v6.some(_v0 => _v0 in _v2);
+            }(_v0, _v2, _v0, _v3)) && (_v4[_v0] = _v0.reduce((_v0, _v1) => {
               let _v2 = _v1.key in _v90 || _v1.key in _v0,
                 _v3 = _v1.key in _v36,
                 _v4 = _v3 ? _v85(_v0, _v1.key) : void 0,
                 _v5 = _v3 && !0 === _v4,
-                _v6 = !_v3 || _v5;
-              return _v2 && _v6 && (!_v1 || _v1.key !== _v37.userRolePermissionAiTranslate) && _v0.push(function (_v0) {
+                _v6 = !_v3 || _v5,
+                _v7 = _v1.sectionVisibility?.orionFlagToCheck,
+                _v8 = void 0 === _v7 || !0 === _v3[_v7];
+              return _v2 && _v6 && _v8 && (!_v1 || _v1.key !== _v37.userRolePermissionAiTranslate) && _v0.push(function (_v0) {
                 return _v0 => {
                   let _v1 = _v0.value;
                   return _v0.key in _v90 || (_v1 = _v0 ? _v85(_v0, _v0.key) : _v0.value), {
@@ -2432,8 +2564,8 @@
               }(_v0)(_v1)), _v0;
             }, []));
           }
-          return _v3;
-        }(_v0, _v1, _v4), [_v0, _v1, _v4])
+          return _v4;
+        }(_v0, _v1, _v4, _v5), [_v0, _v1, _v4, _v5])
       };
     },
     _v97 = ({

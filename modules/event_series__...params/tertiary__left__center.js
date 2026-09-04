@@ -66,6 +66,7 @@
       top: 0,
       width: "100%",
       zIndex: 2,
+      minHeight: _v11 ? (0, _v14.rem)(72) : (0, _v14.rem)(64),
       ..._v5,
       children: [(0, _v1.jsxs)(_v11.Flex, {
         align: "center",

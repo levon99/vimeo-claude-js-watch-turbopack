@@ -215,6 +215,7 @@
 - https://vimeo.com/record/start-recording
 - https://vimeo.com/record/teleprompter
 - https://vimeo.com/record/thank-you
+- https://vimeo.com/redeem-code
 - https://vimeo.com/region-check/[clipName]
 - https://vimeo.com/report-illegal-content
 - https://vimeo.com/reviews/[reviewId]/users/[userId]/folders/[folderId]

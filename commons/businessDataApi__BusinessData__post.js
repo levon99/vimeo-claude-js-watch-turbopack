@@ -145,7 +145,19 @@
             isSystem: _v3
           }) => {
             let _v4 = {
-              storyboard: (0, _v3.lowerCaseUnderscore)(_v0),
+              storyboard: (0, _v3.lowerCaseUnderscore)({
+                ..._v0,
+                sources: _v0.sources.map(_v0 => "streamyard" !== _v0.service ? _v0 : {
+                  ..._v0,
+                  previewUrl: "",
+                  ...(_v0.thumb && {
+                    thumb: {
+                      ..._v0.thumb,
+                      thumbUrl: ""
+                    }
+                  })
+                })
+              }),
               editing_tool: _v2 ? _v11.INTERACTIVE : _v11.EDITOR,
               ...(!0 === _v3 && {
                 save_as_system_user: !0
@@ -284,13 +296,17 @@
             let {
               editing_tool: _v18,
               last_user_saved_storyboard: _v19,
-              vimeo_video: _v20
+              streamyard_context: _v20,
+              vimeo_video: _v21
             } = _v14?.data || {};
             return {
               data: {
                 storyboard: _v17,
                 createdBy: _v10,
-                vimeoVideo: _v20,
+                vimeoVideo: _v21,
+                ...(_v20 && {
+                  streamyardContext: (0, _v3.camelize)(_v20)
+                }),
                 ...(_v18 && {
                   editingTool: _v18
                 }),
