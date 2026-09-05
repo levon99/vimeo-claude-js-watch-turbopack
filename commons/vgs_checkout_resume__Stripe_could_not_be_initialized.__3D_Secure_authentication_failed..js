@@ -897,7 +897,7 @@
       billingAddress: _v17
     }) => {
       let _v18 = (0, _v3.useRouter)(),
-        _v19 = (0, _v14.useViewer)(),
+        _v19 = (0, _v15.useViewer)(),
         {
           state: {
             order: _v20,
@@ -1397,15 +1397,17 @@
         _v39.current || (_v39.current = !0, _v49({
           stage: "form_ready",
           outcome: "completed"
-        })), _v38.current || (_v38.current = !0, _v3?.(_v22.PaymentFormTypes.TYPE_CREDIT_CARD));
+        })), _v38.current || (_v38.current = !0, _v3?.(_v22.PaymentFormTypes.TYPE_CREDIT_CARD)), _v6?.({
+          status: "ready"
+        });
       }, [_v45, _v68, _v3, _v6, _v49]), !_v20 && !_v10) return null;
       let _v71 = {
           type: _v22.PaymentFormTypes.TYPE_CREDIT_CARD,
-          data: (0, _v15.getFormType)(_v22.PaymentFormTypes.TYPE_CREDIT_CARD)
+          data: (0, _v16.getFormType)(_v22.PaymentFormTypes.TYPE_CREDIT_CARD)
         },
         _v72 = {
           type: _v22.PaymentFormTypes.TYPE_PAYPAL,
-          data: (0, _v15.getFormType)(_v22.PaymentFormTypes.TYPE_PAYPAL)
+          data: (0, _v16.getFormType)(_v22.PaymentFormTypes.TYPE_PAYPAL)
         },
         _v73 = _v13 ? [_v71, _v72] : [_v71],
         _v74 = _v45 === _v22.PaymentFormTypes.TYPE_PAYPAL ? _v72 : _v71;
@@ -1573,7 +1575,7 @@
       flex: _v0,
       label: _v1
     }, _v2) {
-      return (0, _v1.jsx)(_v16.LabelContainer, {
+      return (0, _v1.jsx)(_v17.LabelContainer, {
         flex: _v0 ?? "1",
         labelCopy: _v1,
         useBoldLabel: !1,
@@ -1596,7 +1598,7 @@
     _v78 = ({
       value: _v0,
       onChange: _v1
-    }) => (0, _v1.jsx)(_v16.LabelContainer, {
+    }) => (0, _v1.jsx)(_v17.LabelContainer, {
       flex: "1",
       labelCopy: (0, _v12.translate)({
         singular: "Cardholder Name",
@@ -1684,7 +1686,7 @@
             };
           });
         }, []);
-      return (0, _v1.jsx)(_v16.LabelContainer, {
+      return (0, _v1.jsx)(_v17.LabelContainer, {
         flex: "2.3",
         labelCopy: (0, _v12.translate)({
           singular: "Expiration Date",
@@ -1960,7 +1962,7 @@
           transition: "0.2s ease all",
           children: (0, _v1.jsx)(_v8.Text, {
             sx: {
-              ...(_v2 ? _v17.floatingLabelTypography : _v17.floatingPlaceholderTypography),
+              ...(_v2 ? _v14.floatingLabelTypography : _v14.floatingPlaceholderTypography),
               color: "inherit"
             },
             children: _v1
@@ -1972,7 +1974,7 @@
       value: _v0,
       onChange: _v1,
       inputRef: _v2
-    }) => (0, _v1.jsx)(_v17.FloatingInput, {
+    }) => (0, _v1.jsx)(_v14.FloatingInput, {
       label: (0, _v12.translate)({
         singular: "Cardholder name",
         dictionary: {
@@ -2019,7 +2021,7 @@
           md: `0 0 ${(0, _v9.rem)(100)}`
         },
         minWidth: 0,
-        children: (0, _v1.jsx)(_v17.FloatingInput, {
+        children: (0, _v1.jsx)(_v14.FloatingInput, {
           label: (0, _v12.translate)({
             singular: "MM / YY",
             dictionary: {
@@ -2045,7 +2047,7 @@
     _v87 = _v0.i(0),
     _v88 = _v0.i(0);
   let _v89 = () => {
-    let _v0 = (0, _v15.getFormType)(_v22.PaymentFormTypes.TYPE_PAYPAL);
+    let _v0 = (0, _v16.getFormType)(_v22.PaymentFormTypes.TYPE_PAYPAL);
     return (0, _v1.jsxs)(_v6.Flex, {
       align: "center",
       justify: "center",
@@ -2113,18 +2115,18 @@
       } = (0, _v73.useStateContext)(),
       [_v13, _v14] = (0, _v4.useState)({
         type: _v22.PaymentFormTypes.TYPE_STRIPE,
-        data: (0, _v15.getFormType)(_v22.PaymentFormTypes.TYPE_STRIPE)
+        data: (0, _v16.getFormType)(_v22.PaymentFormTypes.TYPE_STRIPE)
       });
     if (!_v11 && !_v4) return null;
     let _v15 = _v6 ? [{
       type: _v22.PaymentFormTypes.TYPE_STRIPE,
-      data: (0, _v15.getFormType)(_v22.PaymentFormTypes.TYPE_STRIPE)
+      data: (0, _v16.getFormType)(_v22.PaymentFormTypes.TYPE_STRIPE)
     }, {
       type: _v22.PaymentFormTypes.TYPE_PAYPAL,
-      data: (0, _v15.getFormType)(_v22.PaymentFormTypes.TYPE_PAYPAL)
+      data: (0, _v16.getFormType)(_v22.PaymentFormTypes.TYPE_PAYPAL)
     }] : [{
       type: _v22.PaymentFormTypes.TYPE_STRIPE,
-      data: (0, _v15.getFormType)(_v22.PaymentFormTypes.TYPE_STRIPE)
+      data: (0, _v16.getFormType)(_v22.PaymentFormTypes.TYPE_STRIPE)
     }];
     return (0, _v1.jsxs)(_v18.PaymentMethodForm, {
       formAlert: _v1?.message ? _v1 : void 0,
@@ -2136,7 +2138,7 @@
       onPaymentTypeChanged: _v0 => {
         _v14({
           type: _v0,
-          data: (0, _v15.getFormType)(_v0)
+          data: (0, _v16.getFormType)(_v0)
         }), _v7?.(_v0), _v0 === _v22.PaymentFormTypes.TYPE_PAYPAL && _v2?.(_v0);
       },
       children: [_v5 && (0, _v1.jsxs)(_v6.Flex, {
@@ -2206,7 +2208,7 @@
       }), _v9 ? null : _v13.type === _v22.PaymentFormTypes.TYPE_PAYPAL ? (0, _v1.jsx)(_v89, {}) : (0, _v1.jsxs)(_v5.Box, {
         as: "form",
         width: "100%",
-        children: [(0, _v1.jsx)(_v16.LabelContainer, {
+        children: [(0, _v1.jsx)(_v17.LabelContainer, {
           flex: "1",
           labelCopy: (0, _v12.translate)({
             singular: "Cardholder name",
@@ -2322,7 +2324,7 @@
     onStatusChange: _v22
   }) => {
     let [_v23] = (0, _v91.useTrackCheckoutFormAction)(),
-      _v24 = (0, _v14.useViewer)(),
+      _v24 = (0, _v15.useViewer)(),
       {
         state: {
           tier: _v25,
@@ -2661,7 +2663,7 @@
         let _v0 = _v55();
         if (_v41({
           type: _v2,
-          data: (0, _v15.getFormType)(_v2)
+          data: (0, _v16.getFormType)(_v2)
         }), _v2 === _v95.PaymentFormTypes.TYPE_PAYPAL) {
           _v43(!1), _v6?.(_v2), _v54({
             status: "ready"
@@ -2734,18 +2736,18 @@
       hidePaymentTypeSelector: _v16,
       formTypes: _v14 ? [{
         type: _v95.PaymentFormTypes.TYPE_CREDIT_CARD,
-        data: (0, _v15.getFormType)(_v95.PaymentFormTypes.TYPE_CREDIT_CARD)
+        data: (0, _v16.getFormType)(_v95.PaymentFormTypes.TYPE_CREDIT_CARD)
       }, {
         type: _v95.PaymentFormTypes.TYPE_PAYPAL,
-        data: (0, _v15.getFormType)(_v95.PaymentFormTypes.TYPE_PAYPAL)
+        data: (0, _v16.getFormType)(_v95.PaymentFormTypes.TYPE_PAYPAL)
       }] : [{
         type: _v95.PaymentFormTypes.TYPE_CREDIT_CARD,
-        data: (0, _v15.getFormType)(_v95.PaymentFormTypes.TYPE_CREDIT_CARD)
+        data: (0, _v16.getFormType)(_v95.PaymentFormTypes.TYPE_CREDIT_CARD)
       }],
       renderedFormType: _v40,
       bspStyling: _v15,
       onPaymentTypeChanged: _v0 => {
-        let _v1 = (0, _v15.getFormType)(_v0);
+        let _v1 = (0, _v16.getFormType)(_v0);
         _v23(_v93.CHECKOUT_FORM_ACTION_TYPE_CLICK, _v0 === _v95.PaymentFormTypes.TYPE_PAYPAL ? _v93.CHECKOUT_FORM_ACTION_LOCATION_PAYMENT_TYPE_PAYPAL : _v93.CHECKOUT_FORM_ACTION_LOCATION_PAYMENT_TYPE_CREDIT_CARD), _v7?.(_v0);
         let _v2 = _v55();
         if (_v44.current && (_v44.current.innerHTML = ""), _v31({

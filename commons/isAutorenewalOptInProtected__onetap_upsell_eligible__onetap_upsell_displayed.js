@@ -261,7 +261,7 @@
             singular: "por mês, cobrado mensalmente"
           },
           "zh-CN": {
-            singular: "每月，按月计费"
+            singular: "每月, 按月计费"
           }
         }
       }) : (0, _v13.translate)({
@@ -843,22 +843,22 @@
                     singular: "Ver otros planes"
                   },
                   "de-DE": {
-                    singular: "Weitere Pläne ansehen"
+                    singular: "Andere Pläne anzeigen"
                   },
                   "fr-FR": {
-                    singular: "Voir les autres forfaits"
+                    singular: "Voir d'autres forfaits"
                   },
                   "ja-JP": {
-                    singular: "他のプランを見る"
+                    singular: "他のプランを見る."
                   },
                   "ko-KR": {
                     singular: "다른 요금제 보기"
                   },
                   "pt-BR": {
-                    singular: "Ver outros planos"
+                    singular: "Veja outros planos"
                   },
                   "zh-CN": {
-                    singular: "查看其他套餐"
+                    singular: "查看其他方案"
                   }
                 }
               })

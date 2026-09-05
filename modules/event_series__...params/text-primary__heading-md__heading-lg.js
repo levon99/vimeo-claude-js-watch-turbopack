@@ -367,7 +367,7 @@
             height: (0, _v8.rem)(24),
             sx: {
               "& > div": {
-                display: "unset"
+                display: "unset !important"
               }
             },
             children: (0, _v1.jsx)(_v19.Avatar, {

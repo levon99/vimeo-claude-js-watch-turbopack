@@ -24,6 +24,7 @@
       }), !0), [_v0]),
       _v5 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_channel_card_clicked", {
         watch_channel_name: _v0.watchChannelName,
+        watch_channel_id: _v0.watchChannelId,
         watch_channel_card_action: _v0.watchChannelCardAction
       }), !0), [_v0]),
       _v6 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("sidebar_nav_clicked", {
@@ -39,23 +40,30 @@
       }), !0), [_v0]),
       _v8 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_video_thumbnail_clicked", {
         clip_id: _v0.clipId,
-        watch_section: _v0.watchSection
+        watch_section: _v0.watchSection,
+        watch_section_id: _v0.watchSectionId,
+        watch_video_position: _v0.watchVideoPosition
       }), !0), [_v0]),
       _v9 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_section_header_clicked", {
-        watch_section: _v0.watchSection
+        watch_section: _v0.watchSection,
+        watch_section_id: _v0.watchSectionId
       }), !0), [_v0]),
       _v10 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_section_follow_clicked", {
         watch_section: _v0.watchSection,
+        watch_section_id: _v0.watchSectionId,
         watch_channel_name: _v0.watchChannelName,
+        watch_channel_id: _v0.watchChannelId,
         watch_section_follow_effect: _v0.watchSectionFollowEffect
       }), !0), [_v0]),
       _v11 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_section_impression", {
         watch_section: _v0.watchSection,
+        watch_section_id: _v0.watchSectionId,
         watch_section_position: _v0.watchSectionPosition
       }), !0), [_v0]),
       _v12 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_video_thumbnail_impression", {
         clip_id: _v0.clipId,
         watch_section: _v0.watchSection,
+        watch_section_id: _v0.watchSectionId,
         watch_video_position: _v0.watchVideoPosition
       }), !0), [_v0]),
       _v13 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_hero_slide_impression", {
@@ -70,6 +78,7 @@
       }), !0), [_v0]),
       _v15 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_section_carousel_navigated", {
         watch_section: _v0.watchSection,
+        watch_section_id: _v0.watchSectionId,
         watch_section_direction: _v0.watchSectionDirection,
         watch_section_page: _v0.watchSectionPage
       }), !0), [_v0]),
@@ -80,6 +89,7 @@
       }), !0), [_v0]),
       _v17 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_section_follow_state", {
         watch_section: _v0.watchSection,
+        watch_section_id: _v0.watchSectionId,
         watch_section_followable: _v0.watchSectionFollowable,
         watch_section_is_following: _v0.watchSectionIsFollowing
       }), !0), [_v0]),

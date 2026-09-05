@@ -717,94 +717,40 @@
                 children: (0, _v1.jsxs)(_v15.VStack, {
                   spacing: 4,
                   alignItems: "stretch",
-                  children: [(0, _v1.jsxs)(_v23.InputWrapper, {
+                  children: [(0, _v1.jsx)(_v23.FloatingInput, {
+                    label: (0, _v6.translate)({
+                      singular: "Enter your voucher code",
+                      dictionary: {
+                        es: {
+                          singular: "Introduce tu código de cupón"
+                        },
+                        "de-DE": {
+                          singular: "Geben Sie Ihren Gutscheincode ein"
+                        },
+                        "fr-FR": {
+                          singular: "Saisissez votre code voucher"
+                        },
+                        "ja-JP": {
+                          singular: "バウチャーコードを入力してください"
+                        },
+                        "ko-KR": {
+                          singular: "바우처 코드를 입력하세요"
+                        },
+                        "pt-BR": {
+                          singular: "Insira seu código do voucher"
+                        },
+                        "zh-CN": {
+                          singular: "输入您的兑换码"
+                        }
+                      }
+                    }),
+                    name: "gift-code",
+                    value: _v2,
+                    onValueChange: _v0 => {
+                      _v3(_v0), _v4 && _v5(!1);
+                    },
                     isInvalid: _v21,
-                    children: [(0, _v1.jsx)(_v23.StyledInput, {
-                      value: _v2,
-                      onChange: _v0 => {
-                        _v3(_v0.target.value), _v4 && _v5(!1);
-                      },
-                      placeholder: (0, _v6.translate)({
-                        singular: "Enter your voucher code",
-                        dictionary: {
-                          es: {
-                            singular: "Introduce tu código de cupón"
-                          },
-                          "de-DE": {
-                            singular: "Geben Sie Ihren Gutscheincode ein"
-                          },
-                          "fr-FR": {
-                            singular: "Saisissez votre code voucher"
-                          },
-                          "ja-JP": {
-                            singular: "バウチャーコードを入力してください"
-                          },
-                          "ko-KR": {
-                            singular: "바우처 코드를 입력하세요"
-                          },
-                          "pt-BR": {
-                            singular: "Insira seu código do voucher"
-                          },
-                          "zh-CN": {
-                            singular: "输入您的兑换码"
-                          }
-                        }
-                      }),
-                      "aria-label": (0, _v6.translate)({
-                        singular: "Enter your voucher code",
-                        dictionary: {
-                          es: {
-                            singular: "Introduce tu código de cupón"
-                          },
-                          "de-DE": {
-                            singular: "Geben Sie Ihren Gutscheincode ein"
-                          },
-                          "fr-FR": {
-                            singular: "Saisissez votre code voucher"
-                          },
-                          "ja-JP": {
-                            singular: "バウチャーコードを入力してください"
-                          },
-                          "ko-KR": {
-                            singular: "바우처 코드를 입력하세요"
-                          },
-                          "pt-BR": {
-                            singular: "Insira seu código do voucher"
-                          },
-                          "zh-CN": {
-                            singular: "输入您的兑换码"
-                          }
-                        }
-                      }),
-                      "data-testid": "gift-code-input"
-                    }), (0, _v1.jsx)(_v23.Label, {
-                      children: (0, _v6.translate)({
-                        singular: "Enter your voucher code",
-                        dictionary: {
-                          es: {
-                            singular: "Introduce tu código de cupón"
-                          },
-                          "de-DE": {
-                            singular: "Geben Sie Ihren Gutscheincode ein"
-                          },
-                          "fr-FR": {
-                            singular: "Saisissez votre code voucher"
-                          },
-                          "ja-JP": {
-                            singular: "バウチャーコードを入力してください"
-                          },
-                          "ko-KR": {
-                            singular: "바우처 코드를 입력하세요"
-                          },
-                          "pt-BR": {
-                            singular: "Insira seu código do voucher"
-                          },
-                          "zh-CN": {
-                            singular: "输入您的兑换码"
-                          }
-                        }
-                      })
-                    })]
+                    "data-testid": "gift-code-input"
                   }), (0, _v1.jsx)(_v11.Button, {
                     type: "submit",
                     variant: "primary",

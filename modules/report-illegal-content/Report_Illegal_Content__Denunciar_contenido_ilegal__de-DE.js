@@ -572,19 +572,19 @@
         singular: "Reason",
         dictionary: {
           es: {
-            singular: "Razón"
+            singular: "Motivo"
           },
           "de-DE": {
             singular: "Grund"
           },
           "fr-FR": {
-            singular: "Motif"
+            singular: "Raison"
           },
           "ja-JP": {
             singular: "理由"
           },
           "ko-KR": {
-            singular: "이유"
+            singular: "사유"
           },
           "pt-BR": {
             singular: "Motivo"

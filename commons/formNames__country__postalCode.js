@@ -42,112 +42,9 @@
     _v7 = _v0.i(0),
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
-    _v10 = _v0.i(0);
-  let _v11 = {
-      color: "var(--vimeo-colors-text-tertiary)",
-      fontFamily: "var(--vimeo-fonts-heading)",
-      fontSize: "var(--vimeo-fontSizes-heading-2xs)",
-      fontStyle: "normal",
-      fontWeight: "var(--vimeo-fontWeights-bold)",
-      lineHeight: "var(--vimeo-lineHeights-heading-2xs)",
-      letterSpacing: "var(--vimeo-letterSpacings-heading-2xs)"
-    },
-    _v12 = {
-      ..._v11,
-      top: (0, _v9.rem)(-8)
-    },
-    _v13 = {
-      color: "var(--vimeo-colors-text-secondary)",
-      fontFamily: "var(--vimeo-fonts-body)",
-      fontSize: "var(--vimeo-fontSizes-body-md)",
-      fontStyle: "normal",
-      fontWeight: "var(--vimeo-fontWeights-regular)",
-      lineHeight: "var(--vimeo-lineHeights-body-md)",
-      letterSpacing: "var(--vimeo-letterSpacings-body-md)"
-    },
-    _v14 = ({
-      label: _v0,
-      placeholder: _v1 = _v0,
-      value: _v2,
-      name: _v3,
-      onValueChange: _v4,
-      isInvalid: _v5,
-      isDisabled: _v6,
-      inputMode: _v7,
-      autoComplete: _v8,
-      children: _v9,
-      onFocus: _v10,
-      onKeyDown: _v11,
-      inputRef: _v12
-    }) => (0, _v1.jsxs)(_v2.Box, {
-      position: "relative",
-      flex: "1",
-      minWidth: "0",
-      width: "100%",
-      "data-has-value": _v2 ? "" : void 0,
-      sx: {
-        _focusWithin: {
-          'label[data-floating-label="true"]': _v12
-        },
-        '&[data-has-value] label[data-floating-label="true"]': _v12,
-        '&:focus-within label[data-invalid="true"], &[data-has-value] label[data-invalid="true"]': {
-          color: "var(--vimeo-colors-status-destructive-primary)"
-        },
-        'label[data-invalid="true"]': {
-          color: "var(--vimeo-colors-status-destructive-primary)"
-        },
-        "& input::placeholder": {
-          color: "transparent"
-        },
-        "& input": {
-          backgroundColor: "var(--vimeo-colors-surface)"
-        },
-        zIndex: 1
-      },
-      children: [(0, _v1.jsx)(_v7.Input, {
-        type: "text",
-        name: _v3,
-        "aria-label": _v0,
-        placeholder: _v1,
-        isInvalid: _v5,
-        isDisabled: _v6,
-        inputMode: _v7,
-        autoComplete: _v8,
-        value: _v2,
-        ref: _v12,
-        onFocus: _v10,
-        onKeyDown: _v11,
-        onChange: _v0 => _v4(_v0.currentTarget.value),
-        size: "md",
-        height: (0, _v9.rem)(40),
-        width: "100%"
-      }), (0, _v1.jsx)(_v2.Box, {
-        as: "label",
-        htmlFor: _v3,
-        "data-invalid": _v5 ? "true" : void 0,
-        "data-floating-label": "true",
-        position: "absolute",
-        top: (0, _v9.rem)(10),
-        left: (0, _v9.rem)(12),
-        paddingX: (0, _v9.rem)(4),
-        marginX: (0, _v9.rem)(3),
-        backgroundColor: "var(--vimeo-colors-surface)",
-        zIndex: 1,
-        pointerEvents: "none",
-        transformOrigin: "left top",
-        transition: "0.2s ease all",
-        ..._v13,
-        children: _v1
-      }), _v9 && (0, _v1.jsx)(_v2.Box, {
-        position: "absolute",
-        right: (0, _v9.rem)(16),
-        top: "50%",
-        transform: "translateY(-50%)",
-        children: _v9
-      })]
-    });
-  _v0.s(["FloatingInput", 0, _v14, "floatingLabelTypography", 0, _v11, "floatingPlaceholderTypography", 0, _v13], 0);
-  let _v15 = ({
+    _v10 = _v0.i(0),
+    _v11 = _v0.i(0);
+  let _v12 = ({
       isVatInvalid: _v0,
       isVatServiceDown: _v1,
       isSlow: _v2,
@@ -251,7 +148,7 @@
         })
       })]
     }),
-    _v16 = ({
+    _v13 = ({
       showInput: _v0,
       toggleInput: _v1,
       onVatSubmitted: _v2,
@@ -311,7 +208,7 @@
           name: "vat",
           isInvalid: _v4,
           marginBottom: "75"
-        }), (0, _v1.jsx)(_v15, {
+        }), (0, _v1.jsx)(_v12, {
           isVatInvalid: _v4,
           isVatServiceDown: _v5,
           isSlow: _v6,
@@ -351,7 +248,7 @@
         })]
       })]
     }),
-    _v17 = ({
+    _v14 = ({
       showInput: _v0,
       onVatSubmitted: _v1,
       isLoading: _v2,
@@ -371,7 +268,7 @@
           textAlign: "right",
           onSubmit: _v1,
           "data-testid": "vat-form",
-          children: [(0, _v1.jsx)(_v14, {
+          children: [(0, _v1.jsx)(_v11.FloatingInput, {
             label: (0, _v10.translate)({
               singular: "VAT number",
               dictionary: {
@@ -436,7 +333,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v15, {
+          }), (0, _v1.jsx)(_v12, {
             isVatInvalid: _v3,
             isVatServiceDown: _v4,
             isSlow: _v5,
@@ -477,15 +374,15 @@
         })
       });
     },
-    _v18 = ({
+    _v15 = ({
       wetransferInspired: _v0 = !1,
       ..._v1
-    }) => _v0 ? (0, _v1.jsx)(_v17, {
+    }) => _v0 ? (0, _v1.jsx)(_v14, {
       ..._v1
-    }) : (0, _v1.jsx)(_v16, {
+    }) : (0, _v1.jsx)(_v13, {
       ..._v1
     }),
-    _v19 = ({
+    _v16 = ({
       vat: _v0,
       isLoading: _v1,
       cancelAppliedVat: _v2
@@ -532,9 +429,9 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v20, {})]
+      }), (0, _v1.jsx)(_v17, {})]
     }),
-    _v20 = () => (0, _v1.jsx)(_v2.Box, {
+    _v17 = () => (0, _v1.jsx)(_v2.Box, {
       as: "svg",
       viewBox: "0 0 20 20",
       width: (0, _v9.rem)(14),
@@ -593,13 +490,13 @@
         _v3 = await _v16(_v1.value, _v0);
       clearTimeout(_v2), _v12(!1), !1 === _v3 ? (_v8(!1), _v6(!1), _v14(_v1.value), _v1(_v1.value)) : ("service_down" === _v3 ? _v10(!0) : _v8(!0), _v6(!1));
     };
-    return !_v7 && _v13 ? (0, _v1.jsx)(_v19, {
+    return !_v7 && _v13 ? (0, _v1.jsx)(_v16, {
       vat: _v13,
       isLoading: _v5,
       cancelAppliedVat: () => {
         _v14(void 0), _v1(void 0), _v8(!1);
       }
-    }) : (0, _v1.jsx)(_v16, {
+    }) : (0, _v1.jsx)(_v13, {
       showInput: _v3,
       toggleInput: () => _v4(!_v3),
       onVatSubmitted: _v17,
@@ -609,9 +506,9 @@
       isSlow: _v11
     });
   }], 0);
-  var _v21 = _v0.i(0),
-    _v22 = _v0.i(0),
-    _v23 = _v0.i(0);
+  var _v18 = _v0.i(0),
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
   _v0.s(["VatContainer", 0, ({
     wetransferInspired: _v0 = !1
   }) => {
@@ -628,8 +525,8 @@
           isBusinessUserEntity: _v14
         },
         dispatch: _v15
-      } = (0, _v23.useStateContext)(),
-      [_v16, _v17] = (0, _v21.useUpdateOrderPreview)(),
+      } = (0, _v20.useStateContext)(),
+      [_v16, _v17] = (0, _v18.useUpdateOrderPreview)(),
       [_v18, _v19] = (0, _v4.useState)(_v17.callCount);
     (0, _v4.useEffect)(() => {
       !_v17.loading && _v4 && _v18 !== _v17.callCount && (_v17.error && _v7(!0), _v5(!1), _v19(_v17.callCount));
@@ -676,7 +573,7 @@
       if (clearTimeout(_v2), _v11(!1), !1 === _v3) {
         let _v0 = _v1.value;
         _v7(!1), _v14 || _v15({
-          type: _v22.ActionTypes.TOGGLE_USER_ENTITY,
+          type: _v19.ActionTypes.TOGGLE_USER_ENTITY,
           payload: !0
         }), _v16({
           ..._v12,
@@ -684,7 +581,7 @@
         });
       } else "service_down" === _v3 ? _v9(!0) : _v7(!0), _v5(!1);
     };
-    return _v12.vatId ? (0, _v1.jsx)(_v19, {
+    return _v12.vatId ? (0, _v1.jsx)(_v16, {
       vat: _v12.vatId,
       isLoading: _v4,
       cancelAppliedVat: () => {
@@ -693,7 +590,7 @@
         };
         delete _v0.vatId, _v5(!0), _v16(_v0);
       }
-    }) : (0, _v1.jsx)(_v18, {
+    }) : (0, _v1.jsx)(_v15, {
       showInput: _v2,
       toggleInput: () => _v3(!_v2),
       onVatSubmitted: _v23,

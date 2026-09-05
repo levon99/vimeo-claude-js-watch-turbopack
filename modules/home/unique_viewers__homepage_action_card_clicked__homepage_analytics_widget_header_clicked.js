@@ -16973,34 +16973,39 @@
             }), !0), [_v0])
           }),
           _v6 = (0, _v3.useRef)(!1),
-          _v7 = (0, _v3.useRef)(_v5);
-        _v7.current = _v5;
-        let _v8 = _v2?.user?.id ?? null,
-          _v9 = _v2?.user?.createdTime ?? null,
-          _v10 = _v3.viewer_segmentation_redirect_to_watch,
-          _v11 = _v2?.teamUser?.ownerId ?? _v2?.user?.id,
+          _v7 = (0, _v3.useRef)(new Set()),
+          _v8 = (0, _v3.useRef)(_v5);
+        _v8.current = _v5;
+        let _v9 = _v2?.user?.id ?? null,
+          _v10 = _v2?.user?.createdTime ?? null,
+          _v11 = _v3.viewer_segmentation_redirect_to_watch,
+          _v12 = _v2?.teamUser?.ownerId ?? _v2?.user?.id,
           {
-            capabilities: _v12,
-            loading: _v13,
-            ready: _v14
-          } = (0, _v6.useCapability)(["hasWatchButton"], _v11),
+            capabilities: _v13,
+            loading: _v14,
+            ready: _v15
+          } = (0, _v6.useCapability)(["hasWatchButton"], _v12),
           {
-            capabilities: _v15,
-            loading: _v16,
-            ready: _v17
+            capabilities: _v16,
+            loading: _v17,
+            ready: _v18
           } = (0, _v6.useCapability)(["hasSimplifiedEnterpriseAccount"]),
-          _v18 = !_v14 || !_v17 || [_v13, _v16].some(Boolean),
-          _v19 = !_v4 && !_v18 && !!_v2,
-          _v20 = _v19 && !_v2?.isEnterpriseSite && !_v2?.isSimplifiedSite && !_v15.hasSimplifiedEnterpriseAccount && _v12.hasWatchButton && !_v2?.isFromCopyrightRestrictedRegion;
+          _v19 = !_v15 || !_v18 || [_v14, _v17].some(Boolean),
+          _v20 = !_v4 && !_v19 && !!_v2,
+          _v21 = _v20 && !_v2?.isEnterpriseSite && !_v2?.isSimplifiedSite && !_v16.hasSimplifiedEnterpriseAccount && _v13.hasWatchButton && !_v2?.isFromCopyrightRestrictedRegion;
         (0, _v3.useEffect)(() => {
-          if (_v6.current || !_v19 || null === _v8) return;
+          if (_v6.current || !_v20 || null === _v9) return;
           let {
-            trackHomeToWatchRedirectTriggered: _v0,
-            trackHomeToWatchRedirectSkipped: _v1
-          } = _v7.current;
-          if (!_v10 || !(_v9 && Date.now() - new Date(_v9).getTime() > 0)) return void _v1("flag_disabled_or_account_new");
+              trackHomeToWatchRedirectTriggered: _v0,
+              trackHomeToWatchRedirectSkipped: _v1
+            } = _v8.current,
+            _v2 = _v0 => {
+              _v7.current.has(_v0) || (_v7.current.add(_v0), _v1(_v0));
+            };
+          if (!_v11) return void _v2("flag_disabled");
+          if (!(_v10 && Date.now() - new Date(_v10).getTime() > 0)) return void _v2("account_new");
           _v6.current = !0;
-          let _v2 = function () {
+          let _v3 = function () {
             try {
               let _v0 = sessionStorage.getItem(_v48);
               if (!_v0) return null;
@@ -17009,15 +17014,15 @@
               return null;
             }
           }();
-          if (_v2?.userId === _v8) return void _v1("already_redirected");
-          if (!_v20) return void _v1("watch_not_eligible");
+          if (_v3?.userId === _v9) return void _v2("already_redirected");
+          if (!_v21) return void _v2("watch_not_eligible");
           try {
             sessionStorage.setItem(_v48, JSON.stringify({
-              userId: _v8
+              userId: _v9
             }));
           } catch {}
           _v0(), _v1.replace("/watch");
-        }, [_v19, _v10, _v9, _v8, _v20, _v1]);
+        }, [_v20, _v11, _v10, _v9, _v21, _v1]);
       }();
       let _v1 = (0, _v42.useViewer)(),
         _v2 = (0, _v11.usePico)(),

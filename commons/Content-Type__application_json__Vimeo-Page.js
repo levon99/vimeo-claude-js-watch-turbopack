@@ -16,7 +16,7 @@
         xVimeoPage: _v5,
         locale: _v6
       } = (0, _v7.useGctlConfig)();
-    return (0, _v3.default)(_v2 ? `/me/capabilities${(0, _v5.serializeQuery)(_v2)}` : () => null, _v2 ? () => (0, _v2.getMeCapabilities)({
+    return (0, _v5.default)(_v2 ? `/me/subscriptions/${_v2.where.subscriptionId}/scheduled_order${(0, _v2.serializeQuery)(_v2)}` : () => null, _v2 ? () => (0, _v3.getMeSubscriptionScheduledOrder)({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -28,26 +28,26 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v1.default.env.STORYBOOK && (0, _v5.assignMswData)(_v8, {
-    endpoint: "/me/capabilities",
+  "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(_v8, {
+    endpoint: "/me/subscriptions/:subscriptionId/scheduled_order",
     method: "GET"
-  }), "true" === _v1.default.env.STORYBOOK && (0, _v5.assignMswData)(function () {
+  }), "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v4.useSWRConfig)(),
+      } = (0, _v6.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
       } = (0, _v7.useGctlConfig)(),
-      [_v5, _v6] = (0, _v5.useInternalState)();
-    return [(0, _v6.useCallback)(async _v0 => {
+      [_v5, _v6] = (0, _v2.useInternalState)();
+    return [(0, _v4.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/capabilities${(0, _v5.serializeQuery)(_v0)}`, (0, _v2.getMeCapabilities)({
+        let _v0 = await _v0(`/me/subscriptions/${_v0.where.subscriptionId}/scheduled_order${(0, _v2.serializeQuery)(_v0)}`, (0, _v3.getMeSubscriptionScheduledOrder)({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -70,7 +70,48 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }, {
-    endpoint: "/me/capabilities",
+    endpoint: "/me/subscriptions/:subscriptionId/scheduled_order",
     method: "GET"
-  }), _v0.s(["useGetMeCapabilities", 0, _v8]);
+  }), "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(function () {
+    let {
+        mutate: _v0
+      } = (0, _v6.useSWRConfig)(),
+      {
+        baseUrl: _v1,
+        jwt: _v2,
+        xVimeoPage: _v3,
+        locale: _v4
+      } = (0, _v7.useGctlConfig)(),
+      [_v5, _v6] = (0, _v2.useInternalState)();
+    return [(0, _v4.useCallback)(async _v0 => {
+      _v6({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await _v0(`/me/subscriptions/${_v0.where.subscriptionId}/scheduled_order${(0, _v2.serializeQuery)(_v0)}`, (0, _v3.putMeSubscriptionScheduledOrder)({
+          ..._v0,
+          baseUrl: _v1,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v2 ? `jwt ${_v2}` : "",
+            "Vimeo-Page": `${_v3}`,
+            "Accept-Language": _v4 ?? "en"
+          }
+        }), !1);
+        _v6({
+          type: "SUCCESS",
+          payload: _v0
+        });
+      } catch (_v0) {
+        _v6({
+          type: "FAILURE",
+          payload: _v0
+        });
+      }
+    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+  }, {
+    endpoint: "/me/subscriptions/:subscriptionId/scheduled_order",
+    method: "PUT"
+  }), _v0.s(["useGetMeSubscriptionScheduledOrder", 0, _v8]);
 }

@@ -623,20 +623,7 @@
             return `${_v32(_v2)} — ${_v32(_v3)}`;
           }
           return null;
-        })(_v0.landingPageConfig?.startDate, _v0.landingPageConfig?.endDate) ?? (_v0 => {
-          let _v1 = _v0.map(_v0 => _v25(_v0.nextOccurrenceTime)).filter(_v0 => null !== _v0).sort((_v0, _v1) => _v0 - _v1);
-          if (0 === _v1.length) return null;
-          let _v2 = new Date(_v1[0]),
-            _v3 = new Date(_v1[_v1.length - 1]),
-            _v4 = new Intl.DateTimeFormat("en", {
-              year: "numeric"
-            }).format(_v3),
-            _v5 = _v0 => new Intl.DateTimeFormat("en", {
-              month: "short",
-              day: "numeric"
-            }).format(_v0);
-          return _v1[0] === _v1[_v1.length - 1] ? `${_v5(_v2)}, ${_v4}` : `${_v5(_v2)} — ${_v5(_v3)}, ${_v4}`;
-        })(_v0.events),
+        })(_v0.landingPageConfig?.startDate, _v0.landingPageConfig?.endDate),
         _v10 = (_v0 => {
           if (!_v0) return null;
           let _v1 = _v0 => {

@@ -8,7 +8,8 @@
     _v5 = _v0.i(0);
   _v0.i(0);
   var _v6 = _v0.i(0),
-    _v7 = _v0.i(0);
+    _v7 = _v0.i(0),
+    _v8 = _v0.i(0);
   _v0.s(["PaymentMethodAddressFormContainer", 0, ({
     onSubmitVatId: _v0,
     billingAddress: _v1,
@@ -33,10 +34,11 @@
       onPostalCodeChange: _v0 => {
         if (!_v1?.country) return;
         let _v1 = _v1.country,
-          _v2 = _v0.length < ("US" === _v1 ? 5 : 6 * ("CA" === _v1)),
-          _v3 = _v8 && "US" === _v1 && !_v2 && !(0, _v7.isUsZipCodeFormatValid)(_v0),
-          _v4 = _v2 || _v3,
-          _v5 = _v8 && _v4 ? "US" === _v1 ? (0, _v3.translate)({
+          _v2 = "US" === _v1 ? 5 : "CA" === _v1 ? 6 : +!!(0, _v6.isPostalCodeRequired)(_v1),
+          _v3 = _v0.length < _v2,
+          _v4 = _v8 && "US" === _v1 && !_v3 && !(0, _v8.isUsZipCodeFormatValid)(_v0),
+          _v5 = _v3 || _v4,
+          _v6 = _v8 && _v5 ? "US" === _v1 ? (0, _v3.translate)({
             singular: "Please enter a valid ZIP code, for example 12345 or 12345-6789.",
             dictionary: {
               es: {
@@ -87,7 +89,7 @@
               }
             }
           }) : void 0;
-        _v10(_v4), _v6?.(_v4, _v5, !(_v8 && _v4)), _v2({
+        _v10(_v5), _v6?.(_v5, _v6, !(_v8 && _v5)), _v2({
           ..._v1,
           postalCode: _v0
         });
@@ -95,7 +97,7 @@
       onSubmitVatId: _v0,
       postalCodeIsInvalid: _v9,
       isCheckout: !1,
-      showAsRequired: _v3 !== _v6.PaymentFormTypes.TYPE_STRIPE,
+      showAsRequired: _v3 !== _v7.PaymentFormTypes.TYPE_STRIPE,
       disableCountry: _v4?.country,
       disablePostalCode: _v4?.postalCode
     });
