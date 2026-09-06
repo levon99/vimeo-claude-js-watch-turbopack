@@ -180,14 +180,14 @@
         null !== _v0 && _v0.track("agentic_search_submitted", {
           search_id: _v0.searchId,
           search_request_id: _v0.searchRequestId,
-          search_text: _v0.searchText,
+          search_text: null,
           max_results: _v0.maxResults
         });
       }, [_v0]),
       _v22 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_page_viewed", {
           search_id: _v0.searchId,
-          search_text: _v0.searchText,
+          search_text: null,
           library_owner_id: _v0.libraryOwnerId,
           content_type: _v0.contentType,
           overview_state: _v0.overviewState
@@ -197,7 +197,7 @@
         null !== _v0 && _v0.track("agentic_search_response", {
           search_id: _v0.searchId,
           search_request_id: _v0.searchRequestId,
-          search_text: _v0.searchText,
+          search_text: null,
           status: _v0.status,
           results_qty: _v0.resultsQty,
           other_results_qty: _v0.otherResultsQty,
@@ -206,7 +206,7 @@
           cited_qty: _v0.citedQty,
           latency_ms: _v0.latencyMs,
           error_message: _v0.errorMessage,
-          summary: _v0.summary
+          summary: null
         });
       }, [_v0]),
       _v24 = (0, _v1.useCallback)(_v0 => {

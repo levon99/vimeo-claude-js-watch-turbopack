@@ -7241,7 +7241,6 @@
               _v9(_v2), _v16({
                 searchId: _v15,
                 searchRequestId: _v2,
-                searchText: _v0.query,
                 maxResults: _v3
               }), _v7(!0), _v5(null);
               try {
@@ -7281,7 +7280,6 @@
                   _v17({
                     searchId: _v15,
                     searchRequestId: _v2,
-                    searchText: _v0.query,
                     status: _v0 || _v1 + _v2 > 0 ? "success" : "empty",
                     resultsQty: _v1,
                     otherResultsQty: _v2,
@@ -7289,8 +7287,7 @@
                     partial: _v3.partial ?? null,
                     citedQty: "cited_titles" in _v3 ? Object.keys(_v3.cited_titles ?? {}).length : null,
                     latencyMs: Date.now() - _v4,
-                    errorMessage: null,
-                    summary: "answer" in _v3 ? _v3.answer : _v3.summary ?? null
+                    errorMessage: null
                   });
                 }
               } catch (_v0) {
@@ -7301,7 +7298,6 @@
                   _v5(_v0), _v17({
                     searchId: _v15,
                     searchRequestId: _v2,
-                    searchText: _v0.query,
                     status: "error",
                     resultsQty: null,
                     otherResultsQty: null,
@@ -7309,8 +7305,7 @@
                     partial: null,
                     citedQty: null,
                     latencyMs: Date.now() - _v4,
-                    errorMessage: _v0.message,
-                    summary: null
+                    errorMessage: _v0.message
                   });
                 }
               } finally {
@@ -8714,7 +8709,6 @@
         let _v2 = _v14.current ? "collapsed" : "expanded";
         _v11({
           searchId: _v9.searchId,
-          searchText: _v0,
           libraryOwnerId: _v0 ?? null,
           contentType: _v2 ?? null,
           overviewState: _v2
@@ -9290,30 +9284,32 @@
           total: _v5,
           uuidStr: _v6,
           isAiRequest: _v7,
-          filters: _v8,
-          searchType: _v9
+          hasAgenticSearch: _v8,
+          filters: _v9,
+          searchType: _v10
         } = _v280(),
-        _v10 = (0, _v259.useAnalyticsEvent)(),
+        _v11 = _v8 ? null : _v2,
+        _v12 = (0, _v259.useAnalyticsEvent)(),
         {
-          trackSearchResultsPage: _v11,
-          trackSearchResultHover: _v12,
-          trackSearchResultClick: _v13,
-          trackSearchWatchLater: _v14,
-          trackSearchFilter: _v15,
-          trackSearchSorting: _v16,
-          trackSearchModeSwitch: _v17,
-          trackNotificationView: _v18,
-          trackNotificationAction: _v19,
-          trackViewGenerateAiSearch: _v20,
-          trackViewSuggestedAiSearch: _v21,
-          trackSelectSuggestedAiSearch: _v22,
-          trackAiSearchWidgetActions: _v23,
-          trackThumbsRate: _v24,
-          trackMomentsTimelineClick: _v25,
-          trackMomentsPanelClick: _v26,
-          trackMomentsResultsImpressions: _v27,
-          trackMomentsTimelineImpressions: _v28,
-          trackMomentsPanelImpressions: _v29
+          trackSearchResultsPage: _v13,
+          trackSearchResultHover: _v14,
+          trackSearchResultClick: _v15,
+          trackSearchWatchLater: _v16,
+          trackSearchFilter: _v17,
+          trackSearchSorting: _v18,
+          trackSearchModeSwitch: _v19,
+          trackNotificationView: _v20,
+          trackNotificationAction: _v21,
+          trackViewGenerateAiSearch: _v22,
+          trackViewSuggestedAiSearch: _v23,
+          trackSelectSuggestedAiSearch: _v24,
+          trackAiSearchWidgetActions: _v25,
+          trackThumbsRate: _v26,
+          trackMomentsTimelineClick: _v27,
+          trackMomentsPanelClick: _v28,
+          trackMomentsResultsImpressions: _v29,
+          trackMomentsTimelineImpressions: _v30,
+          trackMomentsPanelImpressions: _v31
         } = (0, _v12.useSearchTracking)();
       return {
         sendHoverEvent: ({
@@ -9334,7 +9330,7 @@
             version: 4,
             additionalFields: {
               ..._v275,
-              search_text: _v2,
+              search_text: _v11,
               default_search_type: _v0,
               search_id: _v3,
               results_page_number: _v4,
@@ -9344,9 +9340,9 @@
               results_qty: _v5,
               is_ai_request: _v7
             }
-          }), _v12({
+          }), _v14({
             searchId: _v3,
-            searchText: _v2,
+            searchText: _v11,
             defaultSearchType: _v0,
             resultsPageNumber: _v4,
             resultPosition: _v1,
@@ -9373,7 +9369,7 @@
             version: 4,
             additionalFields: {
               ..._v275,
-              search_text: _v2,
+              search_text: _v11,
               default_search_type: _v0,
               search_id: _v3,
               results_page_number: _v4,
@@ -9383,9 +9379,9 @@
               results_qty: _v5,
               is_ai_request: _v7
             }
-          }), _v13({
+          }), _v15({
             searchId: _v3,
-            searchText: _v2,
+            searchText: _v11,
             defaultSearchType: _v0,
             resultsPageNumber: _v4,
             resultPosition: _v1,
@@ -9412,7 +9408,7 @@
             version: 4,
             additionalFields: {
               ..._v275,
-              search_text: _v2,
+              search_text: _v11,
               default_search_type: _v0,
               search_id: _v2,
               result_position: _v0,
@@ -9421,9 +9417,9 @@
               results_qty: _v5,
               is_ai_request: _v7
             }
-          }), _v13({
+          }), _v15({
             searchId: _v2,
-            searchText: _v2,
+            searchText: _v11,
             defaultSearchType: _v0,
             resultPosition: _v0,
             entityId: _v1,
@@ -9448,7 +9444,7 @@
             version: 4,
             additionalFields: {
               ..._v275,
-              search_text: _v2,
+              search_text: _v11,
               default_search_type: _v0,
               search_id: _v3,
               results_page_number: _v4,
@@ -9457,9 +9453,9 @@
               order_by: _v3,
               results_qty: _v5
             }
-          }), _v14({
+          }), _v16({
             searchId: _v3,
-            searchText: _v2,
+            searchText: _v11,
             defaultSearchType: _v0,
             resultsPageNumber: _v4,
             resultPosition: _v1,
@@ -9485,7 +9481,7 @@
             version: 4,
             additionalFields: {
               ..._v275,
-              search_text: _v2,
+              search_text: _v11,
               default_search_type: _v0,
               search_id: _v4,
               results_page_number: _v4,
@@ -9496,9 +9492,9 @@
               results_qty: _v5,
               is_ai_request: _v7
             }
-          }), _v15({
+          }), _v17({
             searchId: _v4,
-            searchText: _v2,
+            searchText: _v11,
             defaultSearchType: _v0,
             resultsPageNumber: _v4,
             previousValue: _v3,
@@ -9524,7 +9520,7 @@
             version: 4,
             additionalFields: {
               ..._v275,
-              search_text: _v2,
+              search_text: _v11,
               default_search_type: _v0,
               search_id: _v3,
               results_page_number: _v4,
@@ -9535,9 +9531,9 @@
               results_qty: _v5,
               is_ai_request: _v7
             }
-          }), _v16({
+          }), _v18({
             searchId: _v3,
-            searchText: _v2,
+            searchText: _v11,
             defaultSearchType: _v0,
             resultsPageNumber: _v4,
             previousValue: [_v2],
@@ -9549,8 +9545,8 @@
           });
         },
         sendSearchResultsPage: _v0 => {
-          let _v1 = Object.keys(_v8).filter(_v0 => void 0 !== _v8[_v0]),
-            _v2 = _v1.map(_v0 => _v8[_v0]),
+          let _v1 = Object.keys(_v9).filter(_v0 => void 0 !== _v9[_v0]),
+            _v2 = _v1.map(_v0 => _v9[_v0]),
             _v3 = (0, _v258.default)(_v6, _v28),
             _v4 = _v0 ? null : _v4,
             _v5 = _v1.length && !_v0 ? _v1 : null,
@@ -9562,22 +9558,22 @@
             version: 5,
             additionalFields: {
               ..._v276,
-              search_text: _v2,
+              search_text: _v11,
               search_id: _v3,
               results_page_number: _v4,
               order_by: _v3,
               results_qty: _v5,
               filters: _v5
             }
-          }), _v11({
+          }), _v13({
             searchId: _v3,
-            searchText: _v2,
+            searchText: _v11,
             resultsPageNumber: _v4,
             orderBy: _v3,
             resultsQty: _v5,
             filters: _v5,
             filterValues: _v6,
-            searchType: _v9
+            searchType: _v10
           });
         },
         sendModeSwitchEvent: ({
@@ -9594,14 +9590,14 @@
             version: 4,
             additionalFields: {
               ..._v275,
-              search_text: _v2,
+              search_text: _v11,
               default_search_type: _v0,
               search_id: _v1,
               results_qty: _v5
             }
-          }), _v17({
+          }), _v19({
             searchId: _v1,
-            searchText: _v2,
+            searchText: _v11,
             defaultSearchType: _v0,
             resultsQty: _v5,
             copy: _v0
@@ -9618,7 +9614,7 @@
               notification_name: "search_load_error",
               notification_copy: _v29
             }
-          }), _v18({
+          }), _v20({
             notificationName: "search_load_error",
             notificationCopy: _v29
           });
@@ -9635,7 +9631,7 @@
               notification_name: "search_load_error",
               notification_copy: _v29
             }
-          }), _v19({
+          }), _v21({
             notificationName: "search_load_error",
             notificationCopy: _v29
           });
@@ -9655,7 +9651,7 @@
               error_value: null,
               service_version: null
             }
-          }), _v20();
+          }), _v22();
         },
         sendViewAiSearch: (_v0, _v1) => {
           let _v2 = _v127(_v0 || "");
@@ -9673,7 +9669,7 @@
               error_value: _v1 ?? null,
               service_version: null
             }
-          }), _v21({
+          }), _v23({
             videoId: _v2,
             errorValue: _v1 ?? null
           });
@@ -9690,7 +9686,7 @@
           }).withTeamCtx().withThirdPartyIntegrationCtx().withVideoCtx(_v2).send({
             eventName: "vimeo.select_suggested_ai_search",
             version: 4
-          }), _v22({
+          }), _v24({
             entityType: _v0,
             videoId: _v2
           });
@@ -9707,7 +9703,7 @@
           }).withTeamCtx().withThirdPartyIntegrationCtx().withVideoCtx(_v2).send({
             eventName: "vimeo.ai_search_widget_actions",
             version: 4
-          }), _v23({
+          }), _v25({
             copy: _v0,
             videoId: _v2
           });
@@ -9729,7 +9725,7 @@
               thumbs_down_state: _v0.thumbsDown,
               rated_language: null
             }
-          }), (_v0.thumbsUp || _v0.thumbsDown) && _v24({
+          }), (_v0.thumbsUp || _v0.thumbsDown) && _v26({
             ratedFeature: "ai_search",
             isPositive: _v0.thumbsUp,
             videoId: _v2
@@ -9751,7 +9747,7 @@
               thumbs_down_state: _v0.thumbsDown,
               rated_language: null
             }
-          }), (_v0.thumbsUp || _v0.thumbsDown) && _v24({
+          }), (_v0.thumbsUp || _v0.thumbsDown) && _v26({
             ratedFeature: "ai_generated_moments",
             isPositive: _v0.thumbsUp
           });
@@ -9776,7 +9772,7 @@
               result_position: _v0,
               entity_id: _v1
             }
-          }), _v25({
+          }), _v27({
             searchId: _v2,
             resultsPageNumber: _v4,
             resultPosition: _v0,
@@ -9804,7 +9800,7 @@
               entity_id: _v1,
               value_name: _v0
             }
-          }), _v26({
+          }), _v28({
             searchId: _v2,
             resultsPageNumber: _v4,
             entityId: _v1,
@@ -9823,7 +9819,7 @@
               search_id: _v0,
               results_page_number: _v4
             }
-          }), _v27({
+          }), _v29({
             searchId: _v0,
             resultsPageNumber: _v4
           });
@@ -9840,7 +9836,7 @@
               search_id: _v0,
               results_page_number: _v4
             }
-          }), _v28({
+          }), _v30({
             searchId: _v0,
             resultsPageNumber: _v4
           });
@@ -9857,13 +9853,13 @@
               search_id: _v0,
               results_page_number: _v4
             }
-          }), _v29({
+          }), _v31({
             searchId: _v0,
             resultsPageNumber: _v4
           });
         },
         sendDeleteVideo: () => {
-          _v10(_v260.VideoActionAnalytics.clickDeleteVideo({
+          _v12(_v260.VideoActionAnalytics.clickDeleteVideo({
             live_event_id: null,
             origin_folder_id: null,
             origin_type: null,
@@ -9881,57 +9877,60 @@
         } = (0, _v3.useContext)(_v155),
         {
           hasEnterprise: _v3,
-          hasPublicSearchDisabled: _v4
+          hasPublicSearchDisabled: _v4,
+          hasAgenticSearch: _v5
         } = _v68(),
         {
           filters: {
-            query: _v5 = null,
-            sort: _v6 = null,
-            page: _v7,
-            ..._v8
+            query: _v6 = null,
+            sort: _v7 = null,
+            page: _v8,
+            ..._v9
           }
         } = _v261(),
         {
-          data: _v9
+          data: _v10
         } = _v272(),
         {
           filters: {
-            query: _v10 = null,
-            sort: _v11 = null,
-            page: _v12,
-            ..._v13
+            query: _v11 = null,
+            sort: _v12 = null,
+            page: _v13,
+            ..._v14
           }
         } = _v165(),
         {
-          data: _v14
+          data: _v15
         } = _v274(),
-        _v15 = () => {
+        _v16 = () => {
           if (!_v0?.user) return _v153;
           if (!_v4) return _v152;
           let _v0 = _v0.user.account.toLowerCase();
           return "free" !== _v0 && "basic" !== _v0 || _v3 || _v0?.teamUser?.ownerId ? _v152 : _v153;
         };
       return _v1 === _v152 ? {
-        query: _v10,
-        sort: _v11 ?? _v106.relevance.value,
-        page: _v12,
-        total: _v14?.total ?? null,
-        uuidStr: _v10 || "",
+        query: _v11,
+        sort: _v12 ?? _v106.relevance.value,
+        page: _v13,
+        total: _v15?.total ?? null,
+        uuidStr: _v11 || "",
         feature: _v2,
-        defaultSearchType: _v15(),
+        defaultSearchType: _v16(),
         isAiRequest: !1,
-        filters: _v13,
+        hasAgenticSearch: _v5,
+        filters: _v14,
         searchType: _v1
       } : {
-        query: _v5,
-        sort: _v6 ?? _v106.relevance.value,
-        page: _v7,
-        total: _v9?.total ?? null,
-        uuidStr: _v5 || "",
+        query: _v6,
+        sort: _v7 ?? _v106.relevance.value,
+        page: _v8,
+        total: _v10?.total ?? null,
+        uuidStr: _v6 || "",
         feature: _v2,
-        defaultSearchType: _v15(),
+        defaultSearchType: _v16(),
         isAiRequest: null,
-        filters: _v8,
+        hasAgenticSearch: !1,
+        filters: _v9,
         searchType: _v1
       };
     },
@@ -17468,12 +17467,12 @@
         _v7.current = _v9;
         let _v0 = _v136(_v3.query.type);
         _v6({
-          searchQuery: _v9,
+          searchQuery: _v1 && !_v8 ? null : _v9,
           searchActiveTab: _v8 ? "vimeo" : "library",
           searchResultType: _v0 && "default" !== _v0 ? _v0 : "all",
           searchPageViewerAuthStatus: (0, _v10.deriveViewerAuthStatus)(_v5)
         });
-      }, [_v3.isReady, _v9, _v3.query.type, _v8, _v5]), (_v5?.isFromCopyrightRestrictedRegion || _v5?.isSimplifiedSite) && _v8) ? (0, _v1.jsx)(_v13.PageNotAvailablePage, {}) : _v3.isReady ? !_v9 && _v8 ? (0, _v1.jsx)(_v461, {}) : (0, _v1.jsx)(_v8.Flex, {
+      }, [_v3.isReady, _v9, _v3.query.type, _v1, _v8, _v5]), (_v5?.isFromCopyrightRestrictedRegion || _v5?.isSimplifiedSite) && _v8) ? (0, _v1.jsx)(_v13.PageNotAvailablePage, {}) : _v3.isReady ? !_v9 && _v8 ? (0, _v1.jsx)(_v461, {}) : (0, _v1.jsx)(_v8.Flex, {
         flexDir: "column",
         paddingBottom: {
           base: "md",
