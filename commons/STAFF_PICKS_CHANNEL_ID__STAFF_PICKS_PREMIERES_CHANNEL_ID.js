@@ -1,0 +1,5 @@
+{
+  "use strict";
+
+  _v0.s(["STAFF_PICKS_CHANNEL_ID", 0, 927, "STAFF_PICKS_PREMIERES_CHANNEL_ID", 0, 0]);
+}

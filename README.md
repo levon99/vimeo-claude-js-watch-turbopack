@@ -100,6 +100,7 @@
 - https://vimeo.com/lms/content/[customerId]/video/[clipId]/[clipHash]
 - https://vimeo.com/log_in
 - https://vimeo.com/login/custom
+- https://vimeo.com/manage/bundle-library
 - https://vimeo.com/manage/event_series/[...slug]
 - https://vimeo.com/manage/events/[eventId]/appearance
 - https://vimeo.com/manage/organization/analytics/[[...slug]]

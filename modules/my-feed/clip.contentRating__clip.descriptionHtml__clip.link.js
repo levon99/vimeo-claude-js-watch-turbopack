@@ -2804,225 +2804,8 @@
       });
     };
   var _v124 = _v0.i(0),
-    _v125 = _v0.i(0),
-    _v126 = _v0.i(0),
-    _v127 = _v0.i(0),
-    _v128 = _v0.i(0);
-  async function _v129({
-    baseUrl: _v0,
-    select: _v1,
-    where: {
-      userId: _v2,
-      videoId: _v3
-    },
-    ..._v4
-  }) {
-    return (0, _v127.measureLatency)("getUserWatchlater", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/watchlater/${_v3}?fields=${_v1.map(_v128.intoSnakeCase).join(",")}`, {
-        ..._v4,
-        method: "GET"
-      });
-      if (!_v0.ok) throw new _v128.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v128.deepCamelCase)(_v1);
-    });
-  }
-  async function _v130({
-    baseUrl: _v0,
-    where: {
-      userId: _v1,
-      videoId: _v2
-    },
-    query: _v3,
-    ..._v4
-  }) {
-    return (0, _v127.measureLatency)("putUserWatchlater", "PUT", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v1}/watchlater/${_v2}?${(0, _v128.searchQueryString)(_v3)}`, {
-        ..._v4,
-        method: "PUT"
-      });
-      if (!_v0.ok) throw new _v128.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v128.deepCamelCase)(_v1);
-    });
-  }
-  async function _v131({
-    baseUrl: _v0,
-    where: {
-      userId: _v1,
-      videoId: _v2
-    },
-    query: _v3,
-    ..._v4
-  }) {
-    return (0, _v127.measureLatency)("deleteUserWatchlater", "DELETE", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v1}/watchlater/${_v2}?${(0, _v128.searchQueryString)(_v3)}`, {
-        ..._v4,
-        method: "DELETE"
-      });
-      if (!_v0.ok) throw new _v128.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v128.deepCamelCase)(_v1);
-    });
-  }
-  var _v132 = _v0.i(0),
-    _v133 = _v0.i(0),
-    _v134 = _v0.i(0);
-  function _v135() {
-    let {
-        mutate: _v0
-      } = (0, _v133.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v134.useGctlConfig)(),
-      [_v5, _v6] = (0, _v126.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/watchlater/${_v0.where.videoId}${(0, _v126.serializeQuery)(_v0)}`, _v130({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  function _v136() {
-    let {
-        mutate: _v0
-      } = (0, _v133.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v134.useGctlConfig)(),
-      [_v5, _v6] = (0, _v126.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/watchlater/${_v0.where.videoId}${(0, _v126.serializeQuery)(_v0)}`, _v131({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v125.default.env.STORYBOOK && (0, _v126.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v134.useGctlConfig)();
-    return (0, _v132.default)(_v2 ? `/users/${_v2.where.userId}/watchlater/${_v2.where.videoId}${(0, _v126.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v129({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/users/:userId/watchlater/:videoId",
-    method: "GET"
-  }), "true" === _v125.default.env.STORYBOOK && (0, _v126.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v133.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v134.useGctlConfig)(),
-      [_v5, _v6] = (0, _v126.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/watchlater/${_v0.where.videoId}${(0, _v126.serializeQuery)(_v0)}`, _v129({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/users/:userId/watchlater/:videoId",
-    method: "GET"
-  }), "true" === _v125.default.env.STORYBOOK && (0, _v126.assignMswData)(_v135, {
-    endpoint: "/users/:userId/watchlater/:videoId",
-    method: "PUT"
-  }), "true" === _v125.default.env.STORYBOOK && (0, _v126.assignMswData)(_v136, {
-    endpoint: "/users/:userId/watchlater/:videoId",
-    method: "DELETE"
-  });
-  let _v137 = ({
+    _v125 = _v0.i(0);
+  let _v126 = ({
       isMobile: _v0,
       initialState: _v1,
       videoId: _v2,
@@ -3033,11 +2816,11 @@
         [_v7, {
           loading: _v8,
           error: _v9
-        }] = _v135(),
+        }] = (0, _v125.usePutUserWatchlater)(),
         [_v10, {
           loading: _v11,
           error: _v12
-        }] = _v136(),
+        }] = (0, _v125.useDeleteUserWatchlater)(),
         _v13 = (0, _v6.useViewer)(),
         _v14 = (0, _v115.useToast)(),
         _v15 = async () => {
@@ -3221,7 +3004,7 @@
         })
       });
     },
-    _v138 = ({
+    _v127 = ({
       engagements: _v0,
       player: _v1,
       title: _v2,
@@ -3289,7 +3072,7 @@
           isMobile: _v10,
           activityType: _v4,
           position: _v5
-        }), _v13 && (0, _v1.jsx)(_v137, {
+        }), _v13 && (0, _v1.jsx)(_v126, {
           initialState: _v18,
           isMobile: _v10,
           videoId: _v6,
@@ -3308,15 +3091,15 @@
         })]
       });
     };
-  var _v139 = _v0.i(0),
-    _v140 = _v0.i(0),
-    _v141 = _v0.i(0),
-    _v142 = _v0.i(0);
-  let _v143 = ({
+  var _v128 = _v0.i(0),
+    _v129 = _v0.i(0),
+    _v130 = _v0.i(0),
+    _v131 = _v0.i(0);
+  let _v132 = ({
     user: _v0,
     onProfileClick: _v1,
     children: _v2
-  }) => _v0.link ? (0, _v1.jsx)(_v142.UserCard, {
+  }) => _v0.link ? (0, _v1.jsx)(_v131.UserCard, {
     user: _v0,
     profileUrl: _v0.link,
     openDelay: 500,
@@ -3329,17 +3112,17 @@
   }) : (0, _v1.jsx)(_v1.Fragment, {
     children: _v2
   });
-  var _v144 = _v0.i(0),
-    _v145 = _v0.i(0),
-    _v146 = _v0.i(0);
-  let _v147 = ({
+  var _v133 = _v0.i(0),
+    _v134 = _v0.i(0),
+    _v135 = _v0.i(0);
+  let _v136 = ({
       subject: _v0,
       onProfileClick: _v1,
       textVariant: _v2
     }) => {
       let {
           data: _v3
-        } = (0, _v146.useGetUser)(() => _v0.id ? {
+        } = (0, _v135.useGetUser)(() => _v0.id ? {
           where: {
             userId: _v0.id
           },
@@ -3353,7 +3136,7 @@
           ..._v3,
           link: (_v3?.profileDiscovery && _v3?.link) ?? ""
         };
-      return (0, _v1.jsx)(_v143, {
+      return (0, _v1.jsx)(_v132, {
         user: _v4,
         onProfileClick: _v1,
         children: (0, _v1.jsx)(_v64.Text, {
@@ -3366,7 +3149,7 @@
         })
       });
     },
-    _v148 = ({
+    _v137 = ({
       activityType: _v0,
       subject: _v1,
       likes: _v2,
@@ -3384,7 +3167,7 @@
       switch (_v0) {
         case _v32.APPEARANCE:
         case _v32.LIKE:
-          _v5 = (0, _v1.jsx)(_v147, {
+          _v5 = (0, _v1.jsx)(_v136, {
             subject: _v1,
             textVariant: _v3,
             onProfileClick: _v4
@@ -3579,7 +3362,7 @@
           return "Performed an action";
       }
     },
-    _v149 = ({
+    _v138 = ({
       creator: _v0,
       followButton: _v1,
       activityType: _v2,
@@ -3615,18 +3398,18 @@
         children: [(0, _v1.jsxs)(_v13.Flex, {
           gap: "sm",
           alignItems: "center",
-          children: [(0, _v1.jsx)(_v143, {
+          children: [(0, _v1.jsx)(_v132, {
             user: _v0,
             onProfileClick: _v6,
             children: (0, _v1.jsx)(_v64.Text, {
               variant: ["heading-2xs", "heading-2xs", "heading-xs"],
               children: _v0.name
             })
-          }), _v0.membership?.badge?.text && (0, _v1.jsx)(_v144.Badge, {
+          }), _v0.membership?.badge?.text && (0, _v1.jsx)(_v133.Badge, {
             size: "sm",
             variant: _v0.membership?.badge.type ?? "default",
             children: _v0.membership?.badge.text
-          }), (0, _v1.jsx)(_v145.Show, {
+          }), (0, _v1.jsx)(_v134.Show, {
             above: "md",
             children: _v1
           })]
@@ -3639,7 +3422,7 @@
             color: "text-secondary",
             display: _v8 ? "none" : "block",
             children: "·"
-          }), (0, _v1.jsx)(_v148, {
+          }), (0, _v1.jsx)(_v137, {
             activityType: _v2,
             subject: _v3,
             likes: _v4,
@@ -3661,78 +3444,85 @@
         })]
       });
     };
-  var _v150 = _v0.i(0),
-    _v151 = _v0.i(0),
-    _v152 = _v0.i(0),
-    _v153 = _v0.i(0),
-    _v154 = _v0.i(0),
-    _v155 = _v0.i(0);
-  async function _v156({
+  var _v139 = _v0.i(0),
+    _v140 = _v0.i(0),
+    _v141 = _v0.i(0),
+    _v142 = _v0.i(0),
+    _v143 = _v0.i(0),
+    _v144 = _v0.i(0),
+    _v145 = _v0.i(0),
+    _v146 = _v0.i(0),
+    _v147 = _v0.i(0),
+    _v148 = _v0.i(0);
+  async function _v149({
     baseUrl: _v0,
     where: {
       word: _v1
     },
     ..._v2
   }) {
-    return (0, _v127.measureLatency)("getMeTag", "GET", async () => {
+    return (0, _v147.measureLatency)("getMeTag", "GET", async () => {
       let _v0 = await fetch(`${_v0}/me/tags/${_v1}`, {
         ..._v2,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v128.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v148.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v128.deepCamelCase)(_v1);
+      return (0, _v148.deepCamelCase)(_v1);
     });
   }
-  async function _v157({
+  async function _v150({
     baseUrl: _v0,
     where: {
       word: _v1
     },
     ..._v2
   }) {
-    return (0, _v127.measureLatency)("putMeTag", "PUT", async () => {
+    return (0, _v147.measureLatency)("putMeTag", "PUT", async () => {
       let _v0 = await fetch(`${_v0}/me/tags/${_v1}`, {
         ..._v2,
         method: "PUT"
       });
-      if (!_v0.ok) throw new _v128.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v148.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v128.deepCamelCase)(_v1);
+      return (0, _v148.deepCamelCase)(_v1);
     });
   }
-  async function _v158({
+  async function _v151({
     baseUrl: _v0,
     where: {
       word: _v1
     },
     ..._v2
   }) {
-    return (0, _v127.measureLatency)("deleteMeTag", "DELETE", async () => {
+    return (0, _v147.measureLatency)("deleteMeTag", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/me/tags/${_v1}`, {
         ..._v2,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v128.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v148.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v128.deepCamelCase)(_v1);
+      return (0, _v148.deepCamelCase)(_v1);
     });
   }
-  function _v159(_v0, _v1) {
+  var _v152 = _v0.i(0),
+    _v153 = _v0.i(0),
+    _v154 = _v0.i(0);
+  function _v155(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v134.useGctlConfig)();
-    return (0, _v132.default)(_v2 ? `/me/tags/${_v2.where.word}${(0, _v126.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v156({
+      } = (0, _v154.useGctlConfig)();
+    return (0, _v152.default)(_v2 ? `/me/tags/${_v2.where.word}${(0, _v146.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v149({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -3744,23 +3534,23 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  function _v160() {
+  function _v156() {
     let {
         mutate: _v0
-      } = (0, _v133.useSWRConfig)(),
+      } = (0, _v153.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v134.useGctlConfig)(),
-      [_v5, _v6] = (0, _v126.useInternalState)();
+      } = (0, _v154.useGctlConfig)(),
+      [_v5, _v6] = (0, _v146.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/tags/${_v0.where.word}${(0, _v126.serializeQuery)(_v0)}`, _v157({
+        let _v0 = await _v0(`/me/tags/${_v0.where.word}${(0, _v146.serializeQuery)(_v0)}`, _v150({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -3783,23 +3573,23 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  function _v161() {
+  function _v157() {
     let {
         mutate: _v0
-      } = (0, _v133.useSWRConfig)(),
+      } = (0, _v153.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v134.useGctlConfig)(),
-      [_v5, _v6] = (0, _v126.useInternalState)();
+      } = (0, _v154.useGctlConfig)(),
+      [_v5, _v6] = (0, _v146.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/tags/${_v0.where.word}${(0, _v126.serializeQuery)(_v0)}`, _v158({
+        let _v0 = await _v0(`/me/tags/${_v0.where.word}${(0, _v146.serializeQuery)(_v0)}`, _v151({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -3822,26 +3612,26 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v125.default.env.STORYBOOK && (0, _v126.assignMswData)(_v159, {
+  "true" === _v145.default.env.STORYBOOK && (0, _v146.assignMswData)(_v155, {
     endpoint: "/me/tags/:word",
     method: "GET"
-  }), "true" === _v125.default.env.STORYBOOK && (0, _v126.assignMswData)(function () {
+  }), "true" === _v145.default.env.STORYBOOK && (0, _v146.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v133.useSWRConfig)(),
+      } = (0, _v153.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v134.useGctlConfig)(),
-      [_v5, _v6] = (0, _v126.useInternalState)();
+      } = (0, _v154.useGctlConfig)(),
+      [_v5, _v6] = (0, _v146.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/tags/${_v0.where.word}${(0, _v126.serializeQuery)(_v0)}`, _v156({
+        let _v0 = await _v0(`/me/tags/${_v0.where.word}${(0, _v146.serializeQuery)(_v0)}`, _v149({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -3866,14 +3656,14 @@
   }, {
     endpoint: "/me/tags/:word",
     method: "GET"
-  }), "true" === _v125.default.env.STORYBOOK && (0, _v126.assignMswData)(_v160, {
+  }), "true" === _v145.default.env.STORYBOOK && (0, _v146.assignMswData)(_v156, {
     endpoint: "/me/tags/:word",
     method: "PUT"
-  }), "true" === _v125.default.env.STORYBOOK && (0, _v126.assignMswData)(_v161, {
+  }), "true" === _v145.default.env.STORYBOOK && (0, _v146.assignMswData)(_v157, {
     endpoint: "/me/tags/:word",
     method: "DELETE"
   });
-  let _v162 = (_v0, _v1, _v2) => {
+  let _v158 = (_v0, _v1, _v2) => {
       let [_v3, _v4] = (0, _v2.useState)(_v0),
         {
           putHook: _v5,
@@ -3881,29 +3671,29 @@
           getHook: _v7
         } = (_v0 => {
           if (void 0 !== _v0.category) return {
-            putHook: _v152.usePutMeCategory,
-            deleteHook: _v152.useDeleteMeCategory,
-            getHook: _v152.useGetMeCategory
+            putHook: _v141.usePutMeCategory,
+            deleteHook: _v141.useDeleteMeCategory,
+            getHook: _v141.useGetMeCategory
           };
           if (void 0 !== _v0.channelId) return {
-            putHook: _v153.usePutMeChannel,
-            deleteHook: _v153.useDeleteMeChannel,
-            getHook: _v153.useGetMeChannel
+            putHook: _v142.usePutMeChannel,
+            deleteHook: _v142.useDeleteMeChannel,
+            getHook: _v142.useGetMeChannel
           };
           if (void 0 !== _v0.groupId) return {
-            putHook: _v155.usePutMeGroup,
-            deleteHook: _v155.useDeleteMeGroup,
-            getHook: _v155.useGetMeGroup
+            putHook: _v144.usePutMeGroup,
+            deleteHook: _v144.useDeleteMeGroup,
+            getHook: _v144.useGetMeGroup
           };
           if (void 0 !== _v0.word) return {
-            putHook: _v160,
-            deleteHook: _v161,
-            getHook: _v159
+            putHook: _v156,
+            deleteHook: _v157,
+            getHook: _v155
           };
           if (void 0 !== _v0.followUserId) return {
-            putHook: _v154.usePutMeFollowing,
-            deleteHook: _v154.useDeleteMeFollowing,
-            getHook: _v154.useGetMeFollowing
+            putHook: _v143.usePutMeFollowing,
+            deleteHook: _v143.useDeleteMeFollowing,
+            getHook: _v143.useGetMeFollowing
           };
           throw Error("Invalid where type");
         })(_v2),
@@ -4003,7 +3793,7 @@
         updateFollow: _v17
       };
     },
-    _v163 = ({
+    _v159 = ({
       subjectName: _v0,
       where: _v1
     }) => {
@@ -4011,9 +3801,9 @@
         isFollowingSubject: _v2,
         isLoadingFollow: _v3,
         updateFollow: _v4
-      } = _v162(!0, !0, _v1);
+      } = _v158(!0, !0, _v1);
       return (0, _v1.jsx)(_v40.MenuItem, {
-        icon: _v2 ? (0, _v1.jsx)(_v150.CloseXCircle, {}) : void 0,
+        icon: _v2 ? (0, _v1.jsx)(_v139.CloseXCircle, {}) : void 0,
         onClick: _v4,
         isDisabled: _v3,
         children: _v2 ? (0, _v11.translate)({
@@ -4075,7 +3865,7 @@
         })
       });
     },
-    _v164 = ({
+    _v160 = ({
       isFollowingCreator: _v0,
       isLoadingFollowCreator: _v1,
       creatorName: _v2,
@@ -4086,7 +3876,7 @@
     }) => {
       let _v7 = [];
       switch (_v0 && _v7.push((0, _v1.jsx)(_v40.MenuItem, {
-        icon: (0, _v1.jsx)(_v150.CloseXCircle, {}),
+        icon: (0, _v1.jsx)(_v139.CloseXCircle, {}),
         onClick: _v3,
         isDisabled: _v1,
         children: (0, _v11.translate)({
@@ -4120,7 +3910,7 @@
         })
       })), _v4) {
         case _v32.GROUP:
-          _v7.push((0, _v1.jsx)(_v163, {
+          _v7.push((0, _v1.jsx)(_v159, {
             subjectName: _v6,
             where: {
               groupId: _v5
@@ -4128,7 +3918,7 @@
           }));
           break;
         case _v32.CHANNEL:
-          _v7.push((0, _v1.jsx)(_v163, {
+          _v7.push((0, _v1.jsx)(_v159, {
             subjectName: _v6,
             where: {
               channelId: _v5
@@ -4136,7 +3926,7 @@
           }));
           break;
         case _v32.CATEGORY_FEATURED:
-          _v7.push((0, _v1.jsx)(_v163, {
+          _v7.push((0, _v1.jsx)(_v159, {
             subjectName: _v6,
             where: {
               category: _v6
@@ -4144,7 +3934,7 @@
           }));
           break;
         case _v32.TAG:
-          _v7.push((0, _v1.jsx)(_v163, {
+          _v7.push((0, _v1.jsx)(_v159, {
             subjectName: _v6,
             where: {
               word: _v6
@@ -4156,7 +3946,7 @@
           as: _v39.IconButton,
           variant: "tertiary",
           size: "sm",
-          icon: (0, _v1.jsx)(_v151.EllipsisV, {}),
+          icon: (0, _v1.jsx)(_v140.EllipsisV, {}),
           onFocus: _v0 => _v0.preventDefault(),
           title: "Overflow menu"
         }), (0, _v1.jsx)(_v17.MenuList, {
@@ -4164,7 +3954,7 @@
         })]
       });
     },
-    _v165 = ({
+    _v161 = ({
       creator: _v0,
       activityType: _v1,
       subject: _v2,
@@ -4178,10 +3968,10 @@
           isFollowingSubject: _v8,
           isLoadingFollow: _v9,
           updateFollow: _v10
-        } = _v162(_v0.isFollowing, _v0.canFollow, {
+        } = _v158(_v0.isFollowing, _v0.canFollow, {
           followUserId: parseInt(_v0.id)
         }),
-        [_v11, _v12] = (0, _v141.getAvatarImages)(_v0.pictures?.sizes),
+        [_v11, _v12] = (0, _v130.getAvatarImages)(_v0.pictures?.sizes),
         _v13 = _v0.canFollow && (!_v8 || _v9) && (0, _v1.jsx)(_v9.Button, {
           size: "xs",
           variant: "secondary",
@@ -4254,10 +4044,10 @@
         gap: "sm",
         alignItems: "center",
         w: "100%",
-        children: [(0, _v1.jsx)(_v143, {
+        children: [(0, _v1.jsx)(_v132, {
           user: _v0,
           onProfileClick: _v14,
-          children: (0, _v1.jsx)(_v139.Avatar, {
+          children: (0, _v1.jsx)(_v128.Avatar, {
             alt: _v0.name,
             nameProps: {
               color: "blue.500",
@@ -4267,7 +4057,7 @@
             src: _v11,
             srcSet: _v12
           })
-        }), (0, _v1.jsx)(_v149, {
+        }), (0, _v1.jsx)(_v138, {
           creator: _v0,
           followButton: _v13,
           activityType: _v1,
@@ -4275,10 +4065,10 @@
           likes: _v4,
           activityTime: _v3,
           onProfileClick: _v14
-        }), (0, _v1.jsx)(_v140.Hide, {
+        }), (0, _v1.jsx)(_v129.Hide, {
           above: "md",
           children: _v13
-        }), (0, _v1.jsx)(_v164, {
+        }), (0, _v1.jsx)(_v160, {
           isFollowingCreator: _v8,
           isLoadingFollowCreator: _v9,
           creatorName: _v0.name,
@@ -4289,7 +4079,7 @@
         })]
       });
     },
-    _v166 = ({
+    _v162 = ({
       videoId: _v0,
       contentRating: _v1,
       privacy: _v2,
@@ -4519,9 +4309,9 @@
         })]
       });
     };
-  var _v167 = _v0.i(0),
-    _v168 = _v0.i(0);
-  let _v169 = ({
+  var _v163 = _v0.i(0),
+    _v164 = _v0.i(0);
+  let _v165 = ({
       setShowThumbnail: _v0,
       name: _v1,
       playerEmbedUrl: _v2,
@@ -4534,7 +4324,7 @@
       let [_v8, _v9] = (0, _v2.useState)(!1),
         _v10 = (0, _v2.useRef)(null),
         _v11 = (0, _v2.useRef)(!1),
-        _v12 = _v168.EmbedPlayerUtility.createEmbedUrl(_v2);
+        _v12 = _v164.EmbedPlayerUtility.createEmbedUrl(_v2);
       return (0, _v2.useEffect)(() => {
         if (!window.IntersectionObserver) return;
         let _v0 = new IntersectionObserver(_v0 => {
@@ -4557,7 +4347,7 @@
         className: "my-feed-player",
         h: "100%",
         ref: _v10,
-        children: (0, _v1.jsx)(_v167.EmbedPlayer, {
+        children: (0, _v1.jsx)(_v163.EmbedPlayer, {
           title: _v1,
           src: _v12,
           onPlayerAPIReady: _v0 => {
@@ -4575,7 +4365,7 @@
         })
       });
     },
-    _v170 = ({
+    _v166 = ({
       isMuted: _v0,
       setIsMuted: _v1,
       player: _v2,
@@ -4594,7 +4384,7 @@
         aspectRatio: _v7.aspectRatio,
         position: "relative",
         overflow: "hidden",
-        children: [_v5 && (0, _v1.jsx)(_v169, {
+        children: [_v5 && (0, _v1.jsx)(_v165, {
           setShowThumbnail: _v9,
           name: _v6,
           playerEmbedUrl: _v5,
@@ -4623,7 +4413,7 @@
         })]
       });
     },
-    _v171 = ({
+    _v167 = ({
       videoId: _v0,
       isMuted: _v1,
       setIsMuted: _v2,
@@ -4658,7 +4448,7 @@
         aspectRatio: _v12.aspectRatio,
         position: "relative",
         overflow: "hidden",
-        children: _v14 ? (0, _v1.jsx)(_v166, {
+        children: _v14 ? (0, _v1.jsx)(_v162, {
           videoId: _v0,
           contentRating: _v8,
           privacy: _v9,
@@ -4667,7 +4457,7 @@
           onConfirm: () => {
             _v15(!1);
           }
-        }) : (0, _v1.jsx)(_v170, {
+        }) : (0, _v1.jsx)(_v166, {
           playerEmbedUrl: _v10,
           name: _v11,
           thumbnail: _v12,
@@ -4679,7 +4469,7 @@
         })
       });
     },
-    _v172 = ({
+    _v168 = ({
       activity: _v0,
       isMuted: _v1,
       setIsMuted: _v2,
@@ -4797,7 +4587,7 @@
         gap: "md",
         alignItems: "start",
         ref: _v10,
-        children: [_v14 ? (0, _v1.jsx)(_v165, {
+        children: [_v14 ? (0, _v1.jsx)(_v161, {
           creator: _v14,
           activityTime: _v6.time,
           activityType: _v6.type,
@@ -4807,7 +4597,7 @@
           videoId: _v9.id
         }) : (0, _v1.jsx)(_v77.Skeleton, {
           h: "2rem"
-        }), (0, _v1.jsx)(_v171, {
+        }), (0, _v1.jsx)(_v167, {
           videoId: _v9.id,
           isMuted: _v1,
           setIsMuted: _v2,
@@ -4838,7 +4628,7 @@
           aiContent: _v12?.metadata.aiContent,
           isAdvert: _v9.contentRating.includes("advertisement"),
           isLoading: _v13
-        }), (0, _v1.jsx)(_v138, {
+        }), (0, _v1.jsx)(_v127, {
           engagements: {
             canShare: !!_v12?.page?.share,
             canLike: !!(_v12?.metadata?.interactions?.like?.showCount && _v12?.page?.like),
@@ -4862,8 +4652,8 @@
         })]
       });
     },
-    _v173 = "ptfec",
-    _v174 = ({
+    _v169 = "ptfec",
+    _v170 = ({
       activities: _v0,
       done: _v1,
       isLoadingMore: _v2,
@@ -4882,15 +4672,15 @@
         }] = (0, _v44.usePatchMePreferences)();
       return (0, _v2.useEffect)(() => {
         _v10 || _v9({
-          select: [_v173]
+          select: [_v169]
         });
       }, [_v9, _v10]), (0, _v2.useEffect)(() => {
         if (_v10 && !_v12 && _v11 && !_v14) {
-          let _v0 = _v11[_v173];
+          let _v0 = _v11[_v169];
           _v0 < 3 && (_v8(!0), _v13({
-            select: [_v173],
+            select: [_v169],
             variables: {
-              [_v173]: _v0 + 1
+              [_v169]: _v0 + 1
             }
           }));
         }
@@ -4900,15 +4690,15 @@
         children: [_v7 && (0, _v1.jsx)(_v76, {
           onDismiss: () => {
             _v13({
-              select: [_v173],
+              select: [_v169],
               variables: {
-                [_v173]: 3
+                [_v169]: 3
               }
             }), _v8(!1);
           }
         }, "explore-card"), _v0.map((_v0, _v1) => (0, _v1.jsx)(_v74.ErrorBoundary, {
           errorPage: () => (0, _v1.jsx)("div", {}),
-          children: (0, _v1.jsx)(_v172, {
+          children: (0, _v1.jsx)(_v168, {
             activity: _v0,
             isMuted: _v5,
             setIsMuted: _v6,
@@ -4924,7 +4714,7 @@
         }, "infinite-loading-zone"))]
       });
     },
-    _v175 = ({
+    _v171 = ({
       filterIndex: _v0
     }) => {
       if (0 === _v0) return (0, _v1.jsx)(_v76, {});
@@ -4950,7 +4740,7 @@
         Icon: _v1
       });
     },
-    _v176 = () => {
+    _v172 = () => {
       let _v0 = (0, _v6.useViewer)(),
         _v1 = (0, _v2.useRef)(!1),
         [_v2, _v3] = (0, _v2.useState)(1),
@@ -5020,9 +4810,9 @@
             },
             isAutoplayEnabled: _v2,
             setIsAutoplayEnabled: _v3
-          }), _v17 && (0, _v1.jsx)(_v175, {
+          }), _v17 && (0, _v1.jsx)(_v171, {
             filterIndex: _v4
-          }), (0, _v1.jsx)(_v174, {
+          }), (0, _v1.jsx)(_v170, {
             activities: _v6,
             done: _v14,
             isLoadingMore: _v10,
@@ -5034,21 +4824,21 @@
         })
       });
     };
-  var _v177 = _v0.i(0),
-    _v178 = _v0.i(0),
-    _v179 = _v0.i(0);
-  let _v180 = {
+  var _v173 = _v0.i(0),
+    _v174 = _v0.i(0),
+    _v175 = _v0.i(0);
+  let _v176 = {
       base: "100%",
       md: 720,
       lg: 640,
       "2xl": 960
     },
-    _v181 = ({
+    _v177 = ({
       children: _v0
     }) => {
-      let _v1 = (0, _v2.useContext)(_v178.SideNavWidthContext),
-        _v2 = (0, _v179.useWindowSize)().width,
-        _v3 = (0, _v177.useBreakpointValue)(_v180),
+      let _v1 = (0, _v2.useContext)(_v174.SideNavWidthContext),
+        _v2 = (0, _v175.useWindowSize)().width,
+        _v3 = (0, _v173.useBreakpointValue)(_v176),
         _v4 = (_v2 - ("number" == typeof _v3 ? _v3 : _v2)) / 2,
         _v5 = _v4 > _v1;
       return (0, _v1.jsxs)(_v13.Flex, {
@@ -5056,7 +4846,7 @@
         flexGrow: 1,
         marginRight: _v5 ? `${_v4}px` : void 0,
         children: [(0, _v1.jsx)(_v78.Stack, {
-          w: _v180,
+          w: _v176,
           gap: "xl",
           children: (0, _v1.jsx)(_v73.VStack, {
             px: {
@@ -5078,21 +4868,21 @@
         }), " "]
       });
     },
-    _v182 = () => {
+    _v178 = () => {
       let _v0 = (0, _v6.useViewer)();
-      return _v0 ? (0, _v1.jsx)(_v181, {
-        children: _v0.user ? (0, _v1.jsx)(_v176, {}) : (0, _v1.jsx)(_v67, {})
+      return _v0 ? (0, _v1.jsx)(_v177, {
+        children: _v0.user ? (0, _v1.jsx)(_v172, {}) : (0, _v1.jsx)(_v67, {})
       }) : (0, _v1.jsx)(_v1.Fragment, {});
     };
-  var _v183 = _v0.i(0),
-    _v184 = _v0.i(0);
-  let _v185 = () => {
-    let _v0 = (0, _v2.useContext)(_v184.ViewerContext),
+  var _v179 = _v0.i(0),
+    _v180 = _v0.i(0);
+  let _v181 = () => {
+    let _v0 = (0, _v2.useContext)(_v180.ViewerContext),
       {
         capabilities: _v1,
         ready: _v2
       } = (0, _v4.useCapability)(["hasSimplifiedEnterpriseAccount"]);
-    return _v0?.isFromCopyrightRestrictedRegion || _v0?.isSimplifiedSite || _v0?.isEnterpriseSite ? (0, _v1.jsx)(_v183.PageNotAvailablePage, {}) : _v0?.user && !_v2 ? null : _v1.hasSimplifiedEnterpriseAccount ? (0, _v1.jsx)(_v183.PageNotAvailablePage, {}) : (0, _v1.jsx)(_v182, {});
+    return _v0?.isFromCopyrightRestrictedRegion || _v0?.isSimplifiedSite || _v0?.isEnterpriseSite ? (0, _v1.jsx)(_v179.PageNotAvailablePage, {}) : _v0?.user && !_v2 ? null : _v1.hasSimplifiedEnterpriseAccount ? (0, _v1.jsx)(_v179.PageNotAvailablePage, {}) : (0, _v1.jsx)(_v178, {});
   };
   (0, _v5.withPageSetup)(() => ({
     props: {
@@ -5103,5 +4893,5 @@
   }), {
     inlineViewer: !0,
     inlinePlayerAssets: !0
-  }), _v185.getLayout = _v3.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v185], 0);
+  }), _v181.getLayout = _v3.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v181], 0);
 }

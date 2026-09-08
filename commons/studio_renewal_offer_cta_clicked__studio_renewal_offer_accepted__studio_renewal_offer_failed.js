@@ -52,18 +52,13 @@
       {
         trackStudioRenewalOfferDismissed: _v5
       } = _v4(),
-      _v6 = (0, _v1.useRef)(!1),
-      _v7 = _v3.current;
-    (0, _v1.useEffect)(() => {
-      if (_v1) {
-        _v6.current = !0;
-        return;
-      }
-      _v6.current && !_v7 && (_v6.current = !1, _v5({
+      _v6 = (0, _v1.useRef)(!1);
+    (0, _v1.useEffect)(() => _v1 ? (_v6.current = !0, () => {
+      _v6.current && !_v3.current && (_v6.current = !1, _v5({
         savingsPercent: _v2,
         location: _v4
       }));
-    }, [_v1, _v7]);
+    }) : void 0, [_v1]);
   }, "useStudioRenewalOfferDisplayed", 0, _v0 => {
     let {
         isOpen: _v1,

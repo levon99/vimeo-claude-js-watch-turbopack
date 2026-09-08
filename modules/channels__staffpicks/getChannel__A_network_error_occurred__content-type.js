@@ -612,8 +612,9 @@
     _v48 = _v0.i(0),
     _v49 = _v0.i(0),
     _v50 = _v0.i(0),
-    _v51 = _v0.i(0);
-  let _v52 = ({
+    _v51 = _v0.i(0),
+    _v52 = _v0.i(0);
+  let _v53 = ({
     channel: _v0,
     channelId: _v1
   }) => {
@@ -664,17 +665,17 @@
     return (0, _v10.useEffect)(() => {
       _v5 > _v12 - 2 && !_v16 && _v13(_v12 + 1);
     }, [_v5, _v12, _v13, _v16]), (0, _v10.useEffect)(() => {
-      _v14 || _v9.current || !_v11 || (_v9.current = !0, (0, _v49.trackWidgetViewEvent)({
+      _v14 || _v9.current || !_v11 || (_v9.current = !0, (0, _v50.trackWidgetViewEvent)({
         viewer: _v2,
         widgetName: "Recently added",
         widgetPlacement: 2,
-        ..._v49.staffPicksBpValues
+        ..._v50.staffPicksBpValues
       }));
     }, [_v14, _v11, _v2]), (0, _v1.jsxs)(_v42.Playlist, {
       w: "100%",
       gap: "sm",
       minHeight: "300px",
-      children: [(0, _v1.jsx)(_v53, {
+      children: [(0, _v1.jsx)(_v54, {
         data: _v11?.[_v5 + 1]?.data ?? [],
         rel: "prefetch"
       }), (0, _v1.jsx)(_v43.PlaylistHeader, {
@@ -708,11 +709,11 @@
           to: `${_v0.link}/videos`
         },
         onClick: () => {
-          (0, _v49.trackPlaylistClick)({
+          (0, _v50.trackPlaylistClick)({
             copy: "Recently added",
             source: {
               sourceType: "channel",
-              sourceId: 927
+              sourceId: _v49.STAFF_PICKS_CHANNEL_ID
             },
             element: "button",
             location: "header",
@@ -720,7 +721,7 @@
             widgetName: "Recently added",
             widgetPlacement: 2,
             viewer: _v2,
-            ..._v49.staffPicksBpValues
+            ..._v50.staffPicksBpValues
           });
         },
         pt: 0,
@@ -732,21 +733,21 @@
             disableNextButton: _v16 && _v5 === (_v11?.length ?? 1) - 1,
             disablePrevButton: 0 === _v5,
             onNextClick: () => {
-              (0, _v49.trackPlaylistNavigation)({
+              (0, _v50.trackPlaylistNavigation)({
                 flow: "forward",
                 viewer: _v2,
                 widgetName: "Recently added",
                 widgetPlacement: 2,
-                ..._v49.staffPicksBpValues
+                ..._v50.staffPicksBpValues
               }), _v6(_v5 + 1);
             },
             onPrevClick: () => {
-              (0, _v49.trackPlaylistNavigation)({
+              (0, _v50.trackPlaylistNavigation)({
                 flow: "backward",
                 viewer: _v2,
                 widgetName: "Recently added",
                 widgetPlacement: 2,
-                ..._v49.staffPicksBpValues
+                ..._v50.staffPicksBpValues
               }), _v6(_v5 - 1);
             },
             marginLeft: "auto"
@@ -756,7 +757,7 @@
         dir: "row",
         ref: _v8,
         gap: "sm",
-        children: (0, _v1.jsx)(_v50.ResponsiveWrapper, {
+        children: (0, _v1.jsx)(_v51.ResponsiveWrapper, {
           isLoading: _v14 || _v15 && _v5 > 0,
           numOfRows: _v4,
           numOfColumns: _v3,
@@ -803,7 +804,7 @@
               _v2 = _v0?.stats?.plays ? _v1 : "",
               _v3 = _v0.badge?.type && ["staffpick", "staffpick-premiere", "staffpick-best-of-the-year", "staffpick-best-of-the-month"].includes(_v0.badge.type);
             return (0, _v1.jsx)(_v34.VideoCard, {
-              hoverActions: (0, _v1.jsx)(_v51.WatchPlaylistHoverActions, {
+              hoverActions: (0, _v1.jsx)(_v52.WatchPlaylistHoverActions, {
                 video: _v0
               }),
               title: _v0.name,
@@ -833,24 +834,24 @@
                 user: _v0.user,
                 showCard: _v10,
                 onClick: () => {
-                  (0, _v49.trackCreatorNameClick)({
+                  (0, _v50.trackCreatorNameClick)({
                     target: _v0.user.link,
                     viewer: _v2,
                     widgetName: "Recently added",
                     widgetPlacement: 2,
-                    ..._v49.staffPicksBpValues
+                    ..._v50.staffPicksBpValues
                   });
                 }
               },
               shouldUseNextLink: !1,
               onClick: () => {
-                (0, _v49.trackPlaylistVideoClick)({
+                (0, _v50.trackPlaylistVideoClick)({
                   target: _v0.link,
                   videoId: (0, _v48.idFromUri)(_v0.uri),
                   viewer: _v2,
                   widgetName: "Recently added",
                   widgetPlacement: 2,
-                  ..._v49.staffPicksBpValues
+                  ..._v50.staffPicksBpValues
                 });
               },
               titleStyles: {
@@ -870,7 +871,7 @@
       })]
     });
   };
-  function _v53({
+  function _v54({
     data: _v0,
     rel: _v1
   }) {
@@ -885,8 +886,7 @@
       })
     });
   }
-  var _v54 = _v0.i(0),
-    _v55 = _v0.i(0),
+  var _v55 = _v0.i(0),
     _v56 = _v0.i(0),
     _v57 = _v0.i(0),
     _v58 = _v0.i(0),
@@ -903,10 +903,11 @@
     _v69 = _v0.i(0),
     _v70 = _v0.i(0),
     _v71 = _v0.i(0),
-    _v72 = _v0.i(0);
-  let _v73 = ({
+    _v72 = _v0.i(0),
+    _v73 = _v0.i(0);
+  let _v74 = ({
       ..._v0
-    }) => (0, _v1.jsxs)(_v55.bokeh.svg, {
+    }) => (0, _v1.jsxs)(_v56.bokeh.svg, {
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 96 96",
       fill: "none",
@@ -953,7 +954,7 @@
         })]
       })]
     }),
-    _v74 = ({
+    _v75 = ({
       authModalType: _v0,
       channelId: _v1,
       channel: _v2,
@@ -980,21 +981,21 @@
         }),
         _v8 = (0, _v9.useRouter)(),
         [_v9, _v10] = (0, _v10.useState)(_v2.metadata.interactions?.follow.added),
-        [_v11, _v12] = (0, _v70.usePutMeChannel)(),
-        [_v13, _v14] = (0, _v70.useDeleteMeChannel)(),
+        [_v11, _v12] = (0, _v71.usePutMeChannel)(),
+        [_v13, _v14] = (0, _v71.useDeleteMeChannel)(),
         [_v15, _v16] = _v25(),
         [_v17, _v18] = (0, _v10.useState)(!1);
       (0, _v10.useEffect)(() => {
         _v16.data?.metadata.interactions?.follow && _v10(_v16.data.metadata.interactions?.follow?.added);
       }, [_v16.data]);
-      let _v19 = (0, _v72.useMarginXValue)({
+      let _v19 = (0, _v73.useMarginXValue)({
           base: "0",
           md: "0",
-          lg: (0, _v61.rem)(32)
+          lg: (0, _v62.rem)(32)
         }),
         _v20 = (0, _v33.useBreakpointValue)({
-          base: (0, _v61.rem)(16),
-          lg: (0, _v61.rem)(24)
+          base: (0, _v62.rem)(16),
+          lg: (0, _v62.rem)(24)
         }),
         _v21 = (0, _v10.useRef)(!1),
         _v22 = _v6?.data,
@@ -1003,7 +1004,7 @@
           if (_v22 && _v22[_v0]) return (0, _v48.idFromUri)(_v22[_v0].uri);
         }, [_v22]);
       (0, _v10.useEffect)(() => {
-        _v7 || _v21.current || (_v21.current = !0, _v24(0), (0, _v49.trackWidgetViewEvent)({
+        _v7 || _v21.current || (_v21.current = !0, _v24(0), (0, _v50.trackWidgetViewEvent)({
           feature: "staffpicks",
           pageName: "staffpicks",
           videoId: _v25(0),
@@ -1016,18 +1017,18 @@
         base: !0,
         md: !1
       });
-      if (_v7) return (0, _v1.jsx)(_v75, {});
+      if (_v7) return (0, _v1.jsx)(_v76, {});
       let _v27 = {
           base: "linear-gradient(0deg, #000 15%, rgba(0, 0, 0, 0.00) 75%)",
           lg: "linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 75%)"
         },
-        _v28 = 927 === _v1,
+        _v28 = _v1 === _v49.STAFF_PICKS_CHANNEL_ID,
         _v29 = _v23 ? _v22?.[_v23] : void 0;
-      return (0, _v1.jsxs)(_v57.Carousel, {
+      return (0, _v1.jsxs)(_v58.Carousel, {
         slideCount: _v22?.length || 0,
         height: {
-          base: (0, _v61.rem)(400),
-          "2xl": (0, _v61.rem)(480)
+          base: (0, _v62.rem)(400),
+          "2xl": (0, _v62.rem)(480)
         },
         padding: _v19,
         spacing: _v20,
@@ -1038,7 +1039,7 @@
         },
         flexShrink: "0",
         onPageChange: _v0 => {
-          (0, _v49.trackWidgetViewEvent)({
+          (0, _v50.trackWidgetViewEvent)({
             feature: "staffpicks",
             pageName: "staffpicks",
             videoId: _v25(_v0.page),
@@ -1052,13 +1053,13 @@
             delay: 0
           }
         }),
-        children: [!_v5 && (0, _v1.jsxs)(_v57.CarouselControl, {
+        children: [!_v5 && (0, _v1.jsxs)(_v58.CarouselControl, {
           width: "100%",
           display: {
             base: "none",
             md: "flex"
           },
-          children: [(0, _v1.jsx)(_v57.CarouselPrevTrigger, {
+          children: [(0, _v1.jsx)(_v58.CarouselPrevTrigger, {
             height: "100% !important",
             size: "lg",
             bg: "transparent",
@@ -1075,11 +1076,11 @@
               }
             },
             width: {
-              base: (0, _v61.rem)(32),
-              xl: (0, _v61.rem)(48)
+              base: (0, _v62.rem)(32),
+              xl: (0, _v62.rem)(48)
             },
             zIndex: "2"
-          }), (0, _v1.jsx)(_v57.CarouselNextTrigger, {
+          }), (0, _v1.jsx)(_v58.CarouselNextTrigger, {
             height: "100% !important",
             size: "lg",
             bg: "transparent",
@@ -1096,13 +1097,13 @@
               }
             },
             width: {
-              base: (0, _v61.rem)(32),
-              xl: (0, _v61.rem)(48)
+              base: (0, _v62.rem)(32),
+              xl: (0, _v62.rem)(48)
             },
             zIndex: "2",
             justifyContent: "flex-end"
           })]
-        }), (0, _v1.jsxs)(_v57.CarouselItemGroup, {
+        }), (0, _v1.jsxs)(_v58.CarouselItemGroup, {
           width: "100%",
           marginBottom: {
             base: 0,
@@ -1116,7 +1117,7 @@
               transition: "opacity 0.5s ease-in"
             }
           },
-          children: [_v22?.map((_v0, _v1) => (0, _v1.jsx)(_v57.CarouselItem, {
+          children: [_v22?.map((_v0, _v1) => (0, _v1.jsx)(_v58.CarouselItem, {
             index: _v1,
             borderRadius: {
               base: "none",
@@ -1128,10 +1129,10 @@
             overflow: "hidden",
             opacity: .25,
             transition: "opacity 0.5s ease-out",
-            children: (0, _v1.jsxs)(_v54.default, {
+            children: (0, _v1.jsxs)(_v55.default, {
               href: _v0.link,
               onClick: () => {
-                (0, _v49.trackCarouselVideoClickEvent)({
+                (0, _v50.trackCarouselVideoClickEvent)({
                   copy: null,
                   feature: "staffpicks",
                   pageName: "staffpicks",
@@ -1155,11 +1156,11 @@
                 right: "0",
                 height: "100%",
                 background: _v27
-              }), (0, _v1.jsx)(_v62.Show, {
+              }), (0, _v1.jsx)(_v63.Show, {
                 above: "lg",
-                children: _v29 ? (0, _v1.jsx)(_v58.DarkMode, {
-                  children: (0, _v1.jsx)(_v56.Button, {
-                    leftIcon: (0, _v1.jsx)(_v68.PlayFilled, {}),
+                children: _v29 ? (0, _v1.jsx)(_v59.DarkMode, {
+                  children: (0, _v1.jsx)(_v57.Button, {
+                    leftIcon: (0, _v1.jsx)(_v69.PlayFilled, {}),
                     position: "absolute",
                     right: "lg",
                     variant: "blur",
@@ -1167,7 +1168,7 @@
                     py: "xs",
                     height: "unset",
                     onClick: () => {
-                      (0, _v49.trackCarouselVideoClickEvent)({
+                      (0, _v50.trackCarouselVideoClickEvent)({
                         copy: `${_v29.name}`,
                         element: "button",
                         feature: "staffpicks",
@@ -1177,11 +1178,11 @@
                         viewer: _v4
                       });
                     },
-                    children: (0, _v1.jsxs)(_v65.VStack, {
+                    children: (0, _v1.jsxs)(_v66.VStack, {
                       dir: "column",
                       gap: "0",
                       alignItems: "flex-start",
-                      children: [(0, _v1.jsx)(_v64.Text, {
+                      children: [(0, _v1.jsx)(_v65.Text, {
                         variant: {
                           base: "heading-2xs",
                           "3xl": "heading-xs"
@@ -1190,7 +1191,7 @@
                         overflow: "hidden",
                         textOverflow: "ellipsis",
                         children: _v29.name
-                      }), (0, _v1.jsx)(_v64.Text, {
+                      }), (0, _v1.jsx)(_v65.Text, {
                         variant: "body-sm",
                         maxWidth: "160px",
                         overflow: "hidden",
@@ -1202,10 +1203,10 @@
                 }) : (0, _v1.jsx)(_v1.Fragment, {})
               })]
             })
-          }, _v0.uri)), (0, _v1.jsx)(_v54.default, {
+          }, _v0.uri)), (0, _v1.jsx)(_v55.default, {
             href: _v29 ? _v29.link : "",
             onClick: () => {
-              (0, _v49.trackCarouselVideoClickEvent)({
+              (0, _v50.trackCarouselVideoClickEvent)({
                 copy: null,
                 element: "text",
                 feature: "staffpicks",
@@ -1243,20 +1244,20 @@
                 lg: "lg"
               },
               maxW: "45rem",
-              children: [_v28 ? (0, _v1.jsx)(_v73, {
+              children: [_v28 ? (0, _v1.jsx)(_v74, {
                 width: {
-                  base: (0, _v61.rem)(64),
-                  lg: (0, _v61.rem)(96)
+                  base: (0, _v62.rem)(64),
+                  lg: (0, _v62.rem)(96)
                 },
                 height: {
-                  base: (0, _v61.rem)(64),
-                  lg: (0, _v61.rem)(96)
+                  base: (0, _v62.rem)(64),
+                  lg: (0, _v62.rem)(96)
                 }
-              }) : (0, _v1.jsx)(_v55.bokeh.img, {
+              }) : (0, _v1.jsx)(_v56.bokeh.img, {
                 src: _v2.pictures.sizes[0].link,
                 height: {
-                  base: (0, _v61.rem)(64),
-                  lg: (0, _v61.rem)(96)
+                  base: (0, _v62.rem)(64),
+                  lg: (0, _v62.rem)(96)
                 },
                 borderRadius: "round",
                 width: "fit-content",
@@ -1264,7 +1265,7 @@
               }), (0, _v1.jsxs)(_v13.Flex, {
                 direction: "column",
                 gap: "sm",
-                children: [(0, _v1.jsx)(_v59.Header, {
+                children: [(0, _v1.jsx)(_v60.Header, {
                   as: "p",
                   size: {
                     base: "md",
@@ -1276,8 +1277,8 @@
                   color: "gray.50",
                   noOfLines: 3,
                   children: _v2.name
-                }), (0, _v1.jsx)(_v58.DarkMode, {
-                  children: (0, _v1.jsx)(_v71.VideoAndFollowersCount, {
+                }), (0, _v1.jsx)(_v59.DarkMode, {
+                  children: (0, _v1.jsx)(_v72.VideoAndFollowersCount, {
                     textVariant: {
                       base: "body-sm",
                       md: "body-md"
@@ -1288,7 +1289,7 @@
                     videosHref: `${_v2.link}/videos`,
                     followersHref: `${_v2.link}/followers`
                   })
-                }), _v2.description && (0, _v1.jsx)(_v64.Text, {
+                }), _v2.description && (0, _v1.jsx)(_v65.Text, {
                   variant: {
                     base: "body-md",
                     xl: "body-lg"
@@ -1297,11 +1298,11 @@
                   noOfLines: 3,
                   children: _v2.description
                 })]
-              }), _v22 ? (0, _v1.jsx)(_v58.DarkMode, {
-                children: (0, _v1.jsxs)(_v60.HStack, {
-                  children: [(0, _v1.jsx)(_v56.Button, {
+              }), _v22 ? (0, _v1.jsx)(_v59.DarkMode, {
+                children: (0, _v1.jsxs)(_v61.HStack, {
+                  children: [(0, _v1.jsx)(_v57.Button, {
                     variant: "primary",
-                    leftIcon: (0, _v1.jsx)(_v68.PlayFilled, {}),
+                    leftIcon: (0, _v1.jsx)(_v69.PlayFilled, {}),
                     width: {
                       base: "unset",
                       md: "fit-content"
@@ -1309,7 +1310,7 @@
                     as: "a",
                     href: _v22?.[0]?.link,
                     onClick: _v0 => {
-                      _v0.preventDefault(), _v8.push(_v22?.[0]?.link), (0, _v49.trackCarouselVideoClickEvent)({
+                      _v0.preventDefault(), _v8.push(_v22?.[0]?.link), (0, _v50.trackCarouselVideoClickEvent)({
                         copy: "start watching",
                         feature: "staffpicks",
                         pageName: "staffpicks",
@@ -1344,16 +1345,16 @@
                         }
                       }
                     })
-                  }), (0, _v1.jsx)(_v56.Button, {
+                  }), (0, _v1.jsx)(_v57.Button, {
                     variant: "blur",
                     onMouseEnter: () => _v18(!0),
                     onMouseLeave: () => _v18(!1),
                     isLoading: _v12.loading || _v14.loading || _v16.loading,
                     isDisabled: _v12.loading || _v14.loading || _v16.loading,
-                    leftIcon: _v9 ? _v17 ? (0, _v1.jsx)(_v67.CloseXSmall, {}) : (0, _v1.jsx)(_v66.Checkmark, {}) : (0, _v1.jsx)(_v69.Plus, {}),
-                    width: _v9 ? (0, _v61.rem)(125) : "unset",
+                    leftIcon: _v9 ? _v17 ? (0, _v1.jsx)(_v68.CloseXSmall, {}) : (0, _v1.jsx)(_v67.Checkmark, {}) : (0, _v1.jsx)(_v70.Plus, {}),
+                    width: _v9 ? (0, _v62.rem)(125) : "unset",
                     onClick: async _v0 => {
-                      _v0.preventDefault(), (0, _v49.trackFollowClick)({
+                      _v0.preventDefault(), (0, _v50.trackFollowClick)({
                         channelId: _v1,
                         copy: _v9 ? "unfollow" : "follow",
                         entityType: "channel",
@@ -1372,7 +1373,7 @@
                           channelId: _v1
                         },
                         select: ["metadata.interactions.follow.added"]
-                      }), _v18(!1)) : ((0, _v49.trackTriggerAuthFlow)({
+                      }), _v18(!1)) : ((0, _v50.trackTriggerAuthFlow)({
                         flow: _v0,
                         feature: "staffpicks",
                         pageName: "staffpicks"
@@ -1459,13 +1460,13 @@
               }) : (0, _v1.jsx)(_v1.Fragment, {})]
             })
           })]
-        }), !_v5 && (0, _v1.jsx)(_v57.CarouselIndicatorGroup, {
+        }), !_v5 && (0, _v1.jsx)(_v58.CarouselIndicatorGroup, {
           bottom: {
             base: "0",
             lg: "5%"
           },
           height: "30px",
-          children: _v22?.map((_v0, _v1) => (0, _v1.jsx)(_v57.CarouselIndicator, {
+          children: _v22?.map((_v0, _v1) => (0, _v1.jsx)(_v58.CarouselIndicator, {
             bgColor: {
               base: "text-secondary",
               lg: "whiteAlpha.500"
@@ -1494,16 +1495,16 @@
         })]
       }, _v22?.length);
     },
-    _v75 = () => {
-      let _v0 = (0, _v72.useMarginXValue)({
+    _v76 = () => {
+      let _v0 = (0, _v73.useMarginXValue)({
         base: "0",
         md: "0",
-        lg: (0, _v61.rem)(32)
+        lg: (0, _v62.rem)(32)
       });
-      return (0, _v1.jsx)(_v63.Skeleton, {
+      return (0, _v1.jsx)(_v64.Skeleton, {
         height: {
-          base: (0, _v61.rem)(400),
-          "2xl": (0, _v61.rem)(480)
+          base: (0, _v62.rem)(400),
+          "2xl": (0, _v62.rem)(480)
         },
         width: "unset",
         borderRadius: {
@@ -1513,11 +1514,11 @@
         marginX: _v0
       });
     };
-  var _v76 = _v0.i(0),
-    _v77 = _v0.i(0),
+  var _v77 = _v0.i(0),
     _v78 = _v0.i(0),
-    _v79 = _v0.i(0);
-  let _v80 = (0, _v7.default)(async () => {
+    _v79 = _v0.i(0),
+    _v80 = _v0.i(0);
+  let _v81 = (0, _v7.default)(async () => {
     let {
       LoginJoinModal: _v0
     } = await _v0.A(0);
@@ -1529,7 +1530,7 @@
       modules: [0]
     }
   });
-  function _v81({
+  function _v82({
     channelId: _v0,
     playerAssetUrls: _v1
   }) {
@@ -1549,17 +1550,17 @@
         },
         select: ["name", "description", "metadata.connections.users.total", "metadata.connections.videos.total", "metadata.interactions.follow.added", "pictures", "link"]
       } : null),
-      _v10 = (0, _v72.useMarginXValue)(),
+      _v10 = (0, _v73.useMarginXValue)(),
       {
         data: _v11
-      } = _v28(() => 927 === _v0 && _v2 ? {
+      } = _v28(() => _v0 === _v49.STAFF_PICKS_CHANNEL_ID && _v2 ? {
         where: {
           channelId: _v0
         },
         select: ["uri", "title", "flairUrl", "artUrl", "shortTitle", "sourceDescription", "showCard", "link", "metadata.interactions.follow.added", "sourceId", "sourceType", "metadata.connections.videos.total", "metadata.connections.users.total"]
       } : null),
       [_v12, _v13] = (0, _v10.useState)(null),
-      _v14 = (0, _v79.useShowCard)();
+      _v14 = (0, _v80.useShowCard)();
     return (0, _v1.jsxs)(_v12.Box, {
       children: [(0, _v1.jsxs)(_v13.Flex, {
         minHeight: "calc(100vh - 64px)",
@@ -1568,12 +1569,12 @@
           xl: "lg"
         },
         flexDir: "column",
-        children: [_v9 ? (0, _v1.jsx)(_v74, {
+        children: [_v9 ? (0, _v1.jsx)(_v75, {
           authModalType: _v5,
           channelId: _v0,
           channel: _v9,
           setShowLoginJoinModal: _v4
-        }) : (0, _v1.jsx)(_v75, {}), (0, _v1.jsx)(_v82, {
+        }) : (0, _v1.jsx)(_v76, {}), (0, _v1.jsx)(_v83, {
           type: _v31.PlayerType.BarebonePlayer,
           assetUrls: _v1,
           children: (0, _v1.jsxs)(_v13.Flex, {
@@ -1585,10 +1586,10 @@
             },
             mx: _v10,
             minHeight: "400px",
-            children: [_v9 ? (0, _v1.jsx)(_v52, {
+            children: [_v9 ? (0, _v1.jsx)(_v53, {
               channel: _v9,
               channelId: _v0
-            }) : (0, _v1.jsx)(_v1.Fragment, {}), _v11?.data.map((_v0, _v1) => (0, _v1.jsx)(_v78.WatchPlaylist, {
+            }) : (0, _v1.jsx)(_v1.Fragment, {}), _v11?.data.map((_v0, _v1) => (0, _v1.jsx)(_v79.WatchPlaylist, {
               curationComponent: _v0,
               setShowLoginJoinModal: _v4,
               authModalType: _v5,
@@ -1596,15 +1597,15 @@
               shouldPreload: _v1 - 1 === _v12,
               onIntersection: () => _v13(_v1),
               hasSingleRow: !_v14 || !_v0.showCard,
-              bpData: _v49.staffPicksBpValues
+              bpData: _v50.staffPicksBpValues
             }, _v0.uri))]
           })
         })]
-      }), null !== _v2 && !_v2?.user && (0, _v1.jsx)(_v77.LoggedOutBanner, {
+      }), null !== _v2 && !_v2?.user && (0, _v1.jsx)(_v78.LoggedOutBanner, {
         page: "staffpicks"
       }), (0, _v1.jsx)(_v11.ThemeProvider, {
         theme: _v29.themes.light,
-        children: (0, _v1.jsx)(_v80, {
+        children: (0, _v1.jsx)(_v81, {
           isShowing: _v3,
           type: _v5,
           onDismiss: () => _v4(!1),
@@ -1616,13 +1617,13 @@
           },
           bpData: {}
         })
-      }), (0, _v1.jsx)(_v76.FooterContainer, {
+      }), (0, _v1.jsx)(_v77.FooterContainer, {
         viewer: _v2,
         onLoginSuccess: () => _v8.reload()
       })]
     });
   }
-  let _v82 = ({
+  let _v83 = ({
       children: _v0,
       assetUrls: _v1,
       type: _v2
@@ -1631,7 +1632,7 @@
       type: _v2,
       children: _v0
     }) : _v0,
-    _v83 = ({
+    _v84 = ({
       playerAssetUrls: _v0
     }) => (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v2.default, {
@@ -1693,12 +1694,12 @@
           rel: "canonical",
           href: "https://vimeo.com/staffpicks"
         })]
-      }), (0, _v1.jsx)(_v81, {
+      }), (0, _v1.jsx)(_v82, {
         playerAssetUrls: _v0,
         channelId: 927
       })]
     });
-  _v83.getLayout = _v3.getLayout, (0, _v5.withPageSetup)(async _v0 => (await (0, _v4.isFromCopyrightRestrictedRegion)(_v0)) ? {
+  _v84.getLayout = _v3.getLayout, (0, _v5.withPageSetup)(async _v0 => (await (0, _v4.isFromCopyrightRestrictedRegion)(_v0)) ? {
     redirect: {
       destination: "/europeanfilmacademy",
       permanent: !1
@@ -1711,5 +1712,5 @@
   }, {
     inlineViewer: "all",
     inlinePlayerAssets: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v83], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v84], 0);
 }

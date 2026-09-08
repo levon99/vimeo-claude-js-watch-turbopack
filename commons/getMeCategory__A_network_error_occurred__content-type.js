@@ -221,165 +221,9 @@
     endpoint: "/me/categories/:category",
     method: "DELETE"
   }), _v0.s(["useDeleteMeCategory", 0, _v20, "useGetMeCategory", 0, _v18, "usePutMeCategory", 0, _v19], 0);
-  var _v21 = _v0.i(0);
-  async function _v22({
-    baseUrl: _v0,
-    where: {
-      followUserId: _v1
-    },
-    ..._v2
-  }) {
-    return (0, _v10.measureLatency)("getMeFollowing", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/me/following/${_v1}`, {
-        ..._v2,
-        method: "GET"
-      });
-      if (!_v0.ok) throw new _v11.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v11.deepCamelCase)(_v1);
-    });
-  }
+  var _v21 = _v0.i(0),
+    _v22 = _v0.i(0);
   async function _v23({
-    baseUrl: _v0,
-    where: {
-      followUserId: _v1
-    },
-    query: _v2,
-    ..._v3
-  }) {
-    return (0, _v10.measureLatency)("putMeFollowing", "PUT", async () => {
-      let _v0 = await fetch(`${_v0}/me/following/${_v1}?${(0, _v11.searchQueryString)(_v2)}`, {
-        ..._v3,
-        method: "PUT"
-      });
-      if (!_v0.ok) throw new _v11.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v11.deepCamelCase)(_v1);
-    });
-  }
-  async function _v24({
-    baseUrl: _v0,
-    where: {
-      followUserId: _v1
-    },
-    query: _v2,
-    ..._v3
-  }) {
-    return (0, _v10.measureLatency)("deleteMeFollowing", "DELETE", async () => {
-      let _v0 = await fetch(`${_v0}/me/following/${_v1}?${(0, _v11.searchQueryString)(_v2)}`, {
-        ..._v3,
-        method: "DELETE"
-      });
-      if (!_v0.ok) throw new _v11.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v11.deepCamelCase)(_v1);
-    });
-  }
-  function _v25(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v17.useGctlConfig)();
-    return (0, _v15.default)(_v2 ? `/me/following/${_v2.where.followUserId}${(0, _v9.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v22({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  function _v26() {
-    let {
-        mutate: _v0
-      } = (0, _v16.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v17.useGctlConfig)(),
-      [_v5, _v6] = (0, _v9.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/me/following/${_v0.where.followUserId}${(0, _v9.serializeQuery)(_v0)}`, _v23({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  function _v27() {
-    let {
-        mutate: _v0
-      } = (0, _v16.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v17.useGctlConfig)(),
-      [_v5, _v6] = (0, _v9.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/me/following/${_v0.where.followUserId}${(0, _v9.serializeQuery)(_v0)}`, _v24({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  async function _v28({
     baseUrl: _v0,
     where: {
       groupId: _v1
@@ -398,7 +242,7 @@
       return (0, _v11.deepCamelCase)(_v1);
     });
   }
-  async function _v29({
+  async function _v24({
     baseUrl: _v0,
     where: {
       groupId: _v1
@@ -417,7 +261,7 @@
       return (0, _v11.deepCamelCase)(_v1);
     });
   }
-  async function _v30({
+  async function _v25({
     baseUrl: _v0,
     where: {
       groupId: _v1
@@ -436,7 +280,7 @@
       return (0, _v11.deepCamelCase)(_v1);
     });
   }
-  function _v31(_v0, _v1) {
+  function _v26(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
@@ -444,7 +288,7 @@
         xVimeoPage: _v5,
         locale: _v6
       } = (0, _v17.useGctlConfig)();
-    return (0, _v15.default)(_v2 ? `/me/groups/${_v2.where.groupId}${(0, _v9.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v28({
+    return (0, _v15.default)(_v2 ? `/me/groups/${_v2.where.groupId}${(0, _v9.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v23({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -456,7 +300,7 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  function _v32() {
+  function _v27() {
     let {
         mutate: _v0
       } = (0, _v16.useSWRConfig)(),
@@ -472,7 +316,7 @@
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/groups/${_v0.where.groupId}${(0, _v9.serializeQuery)(_v0)}`, _v29({
+        let _v0 = await _v0(`/me/groups/${_v0.where.groupId}${(0, _v9.serializeQuery)(_v0)}`, _v24({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -495,7 +339,7 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  function _v33() {
+  function _v28() {
     let {
         mutate: _v0
       } = (0, _v16.useSWRConfig)(),
@@ -511,7 +355,7 @@
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/groups/${_v0.where.groupId}${(0, _v9.serializeQuery)(_v0)}`, _v30({
+        let _v0 = await _v0(`/me/groups/${_v0.where.groupId}${(0, _v9.serializeQuery)(_v0)}`, _v25({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -534,8 +378,8 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  _v0.s(["deleteMeFollowing", 0, _v24, "getMeFollowing", 0, _v22, "putMeFollowing", 0, _v23], 0), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(_v25, {
-    endpoint: "/me/following/:followUserId",
+  "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(_v26, {
+    endpoint: "/me/groups/:groupId",
     method: "GET"
   }), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(function () {
     let {
@@ -553,7 +397,7 @@
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/following/${_v0.where.followUserId}${(0, _v9.serializeQuery)(_v0)}`, _v22({
+        let _v0 = await _v0(`/me/groups/${_v0.where.groupId}${(0, _v9.serializeQuery)(_v0)}`, _v23({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -576,65 +420,15 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }, {
-    endpoint: "/me/following/:followUserId",
+    endpoint: "/me/groups/:groupId",
     method: "GET"
-  }), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(_v26, {
-    endpoint: "/me/following/:followUserId",
-    method: "PUT"
   }), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(_v27, {
-    endpoint: "/me/following/:followUserId",
-    method: "DELETE"
-  }), _v0.s(["useDeleteMeFollowing", 0, _v27, "useGetMeFollowing", 0, _v25, "usePutMeFollowing", 0, _v26], 0), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(_v31, {
-    endpoint: "/me/groups/:groupId",
-    method: "GET"
-  }), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v16.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v17.useGctlConfig)(),
-      [_v5, _v6] = (0, _v9.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/me/groups/${_v0.where.groupId}${(0, _v9.serializeQuery)(_v0)}`, _v28({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/me/groups/:groupId",
-    method: "GET"
-  }), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(_v32, {
     endpoint: "/me/groups/:groupId",
     method: "PUT"
-  }), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(_v33, {
+  }), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(_v28, {
     endpoint: "/me/groups/:groupId",
     method: "DELETE"
-  }), _v0.s(["useDeleteMeGroup", 0, _v33, "useGetMeGroup", 0, _v31, "usePutMeGroup", 0, _v32], 0), _v0.s(["FollowButton", 0, function ({
+  }), _v0.s(["useDeleteMeGroup", 0, _v28, "useGetMeGroup", 0, _v26, "usePutMeGroup", 0, _v27], 0), _v0.s(["FollowButton", 0, function ({
     user: _v0,
     source: _v1
   }) {
@@ -668,14 +462,14 @@
               getHook: _v21.useGetMeChannel
             };
             if (void 0 !== _v0.groupId) return {
-              putHook: _v32,
-              deleteHook: _v33,
-              getHook: _v31
+              putHook: _v27,
+              deleteHook: _v28,
+              getHook: _v26
             };
             if (void 0 !== _v0.followUserId) return {
-              putHook: _v26,
-              deleteHook: _v27,
-              getHook: _v25
+              putHook: _v22.usePutMeFollowing,
+              deleteHook: _v22.useDeleteMeFollowing,
+              getHook: _v22.useGetMeFollowing
             };
             throw Error("Invalid where type");
           })(_v0),
@@ -896,8 +690,8 @@
       children: _v4
     });
   }], 0);
-  var _v34 = _v0.i(0),
-    _v35 = _v0.i(0);
+  var _v29 = _v0.i(0),
+    _v30 = _v0.i(0);
   _v0.s(["default", 0, function ({
     backgroundVideo: _v0,
     elemWidth: _v1,
@@ -917,7 +711,7 @@
       [_v12, _v13] = (0, _v2.useState)(!0),
       {
         player: _v14
-      } = (0, _v35.usePlayer)(_v10, _v4, !0, _v5 || "", !0, "auto");
+      } = (0, _v30.usePlayer)(_v10, _v4, !0, _v5 || "", !0, "auto");
     (0, _v2.useEffect)(() => {
       let _v0 = () => {
         _v14.currentTime >= _v6 - .501 && (_v14.currentTime = _v8);
@@ -932,13 +726,13 @@
       }) : _v14.pause());
     }, [_v2, _v14]);
     let _v15 = `${-80 * (_v9 || 50) / 100}px`;
-    return (0, _v1.jsxs)(_v34.Box, {
+    return (0, _v1.jsxs)(_v29.Box, {
       w: _v1,
       h: 80,
       position: "absolute",
       overflow: "hidden",
       borderTopRadius: "drawer",
-      children: [_v12 ? (0, _v1.jsx)(_v34.Box, {
+      children: [_v12 ? (0, _v1.jsx)(_v29.Box, {
         display: "block",
         sx: {
           video: {
@@ -956,7 +750,7 @@
           width: _v1,
           height: "auto"
         })
-      }) : null, (0, _v1.jsx)(_v34.Box, {
+      }) : null, (0, _v1.jsx)(_v29.Box, {
         sx: {
           display: _v12 ? "none" : "block",
           video: {

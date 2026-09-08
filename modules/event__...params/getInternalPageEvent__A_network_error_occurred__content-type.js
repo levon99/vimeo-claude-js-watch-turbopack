@@ -6935,7 +6935,7 @@
       _v38 = (0, _v7.useMemo)(() => _v64(), []),
       _v39 = (0, _v115.useIsPortraitScreenOrientation)(),
       _v40 = (0, _v107.useAnalyticsEvent)(),
-      _v41 = _v6?.contentRating,
+      _v41 = _v6?.contentRating ?? _v9?.contentRating ?? _v17?.contentRating,
       _v42 = !!_v41?.includes(_v46),
       _v43 = !!_v41?.includes(_v45),
       _v44 = !!_v41?.includes(_v47),
@@ -7659,53 +7659,54 @@
         metadata: _v12,
         chatEnabled: _v13,
         streamPrivacy: _v14,
-        settingsLink: _v15
+        settingsLink: _v15,
+        streamableClip: _v16
       } = _v3,
-      _v16 = (0, _v85.useRouter)(),
-      _v17 = (0, _v22.useViewer)(),
-      _v18 = _v17?.user ?? null,
-      _v19 = _v17?.ofcomQualifies,
-      _v20 = !!_v12?.interactions?.edit,
-      _v21 = (0, _v7.useRef)(null),
-      _v22 = (0, _v7.useMemo)(() => _v64(), []),
-      _v23 = (0, _v115.useIsPortraitScreenOrientation)(),
-      _v24 = (0, _v107.useAnalyticsEvent)(),
-      _v25 = _v6?.contentRating,
-      _v26 = !!_v25?.includes(_v46),
-      _v27 = !!_v25?.includes(_v45),
-      _v28 = !!_v25?.includes(_v47),
-      _v29 = null === _v18 && _v19 && (_v14?.view === _v49 || _v14?.view === _v50 || _v14?.view === _v51) && !_v26,
-      _v30 = _v6 ? `${window.location.origin}/event/${_v4}${_v6.uri}` : window.location.href,
-      _v31 = _v1 ? _v24.PREVIEW_TYPE.CONFIRMATION : _v8,
+      _v17 = (0, _v85.useRouter)(),
+      _v18 = (0, _v22.useViewer)(),
+      _v19 = _v18?.user ?? null,
+      _v20 = _v18?.ofcomQualifies,
+      _v21 = !!_v12?.interactions?.edit,
+      _v22 = (0, _v7.useRef)(null),
+      _v23 = (0, _v7.useMemo)(() => _v64(), []),
+      _v24 = (0, _v115.useIsPortraitScreenOrientation)(),
+      _v25 = (0, _v107.useAnalyticsEvent)(),
+      _v26 = _v6?.contentRating ?? _v9?.contentRating ?? _v16?.contentRating,
+      _v27 = !!_v26?.includes(_v46),
+      _v28 = !!_v26?.includes(_v45),
+      _v29 = !!_v26?.includes(_v47),
+      _v30 = null === _v19 && _v20 && (_v14?.view === _v49 || _v14?.view === _v50 || _v14?.view === _v51) && !_v27,
+      _v31 = _v6 ? `${window.location.origin}/event/${_v4}${_v6.uri}` : window.location.href,
+      _v32 = _v1 ? _v24.PREVIEW_TYPE.CONFIRMATION : _v8,
       {
-        registrant: _v32,
+        registrant: _v33,
         liveStatus: {
           data: {
-            status: _v33
+            status: _v34
           },
-          initialDataLoaded: _v34
+          initialDataLoaded: _v35
         }
       } = _v83(),
-      _v35 = (_v32.data.isBlocked && _v32.called || !_v32.initialDataLoaded) && _v33 !== _v53,
-      _v36 = _v33 === _v53 || _v33 === _v52 && _v1 || _v1 && [4, 2].includes(_v5),
-      _v37 = _v0 => {
+      _v36 = (_v33.data.isBlocked && _v33.called || !_v33.initialDataLoaded) && _v34 !== _v53,
+      _v37 = _v34 === _v53 || _v34 === _v52 && _v1 || _v1 && [4, 2].includes(_v5),
+      _v38 = _v0 => {
         if (![_v24.PREVIEW_TYPE.FORM, _v24.PREVIEW_TYPE.LOGIN_SCREEN].includes(_v0)) return;
-        let _v1 = _v16.asPath.split("?"),
+        let _v1 = _v17.asPath.split("?"),
           _v2 = _v1[0].replace(/\/$/, ""),
           _v3 = _v2.split("/").pop(),
           _v4 = void 0 !== _v1[1] ? `?${_v1[1]}` : "",
           _v5 = _v0 === _v24.PREVIEW_TYPE.FORM ? _v54.REGISTER : _v54.SIGNIN;
         if (Object.values(_v54).includes(_v3)) {
           let _v0 = _v2.replace(_v3, _v5);
-          _v16.push(`${_v0}${_v4}`);
-        } else _v16.push(`${_v2}/${_v5}${_v4}`);
+          _v17.push(`${_v0}${_v4}`);
+        } else _v17.push(`${_v2}/${_v5}${_v4}`);
       };
     return ((0, _v7.useEffect)(() => {
-      !_v32.loading && _v32.called && !_v32.data.isValidRegistrant && (_v0?.(""), _v2 && (0, _v114.deleteCookie)(_v2));
-    }, [_v32, _v2]), (0, _v7.useEffect)(() => {
-      _v18 && 5 === _v5 && _v86.GoogleTagManager.trackEvent("live_event_ended_for_viewer");
-    }, [_v5, _v18]), (0, _v7.useEffect)(() => {
-      _v24(_v168("workflow.visit_svv_recipient", 7, {
+      !_v33.loading && _v33.called && !_v33.data.isValidRegistrant && (_v0?.(""), _v2 && (0, _v114.deleteCookie)(_v2));
+    }, [_v33, _v2]), (0, _v7.useEffect)(() => {
+      _v19 && 5 === _v5 && _v86.GoogleTagManager.trackEvent("live_event_ended_for_viewer");
+    }, [_v5, _v19]), (0, _v7.useEffect)(() => {
+      _v25(_v168("workflow.visit_svv_recipient", 7, {
         customizations: null,
         referer: window.location.href,
         speed_controls_enabled: _v9?.embed?.speed || null,
@@ -7713,56 +7714,56 @@
         live_event_privacy: _v3.streamPrivacy?.view || null,
         live_event_embed_privacy: _v3.streamPrivacy?.embed || null,
         is_live_chat_enabled: _v13,
-        is_mobile_web: _v22
+        is_mobile_web: _v23
       }));
-    }, [_v13, _v9?.embed?.speed, _v3.streamPrivacy?.embed, _v3.streamPrivacy?.view, _v4, _v22, _v24]), (!_v36 || _v35) && _v7) ? (0, _v5.jsxs)(_v5.Fragment, {
-      children: [_v20 && !_v22 && (0, _v5.jsx)(_v320, {
+    }, [_v13, _v9?.embed?.speed, _v3.streamPrivacy?.embed, _v3.streamPrivacy?.view, _v4, _v23, _v25]), (!_v37 || _v36) && _v7) ? (0, _v5.jsxs)(_v5.Fragment, {
+      children: [_v21 && !_v23 && (0, _v5.jsx)(_v320, {
         href: _v15
-      }), _v34 ? (0, _v5.jsx)(_v324.LeadCaptureView, {
-        previewType: _v31,
+      }), _v35 ? (0, _v5.jsx)(_v324.LeadCaptureView, {
+        previewType: _v32,
         type: _v176.ENTITY_TYPE.EVENT,
         entityId: _v2,
         setLeadUuid: _v0,
-        onPreviewTypeChanged: _v37,
+        onPreviewTypeChanged: _v38,
         onMount: () => {
-          _v37(_v31);
+          _v38(_v32);
         },
         onUnmount: () => {
-          let _v0 = _v16.asPath.split("?"),
+          let _v0 = _v17.asPath.split("?"),
             _v1 = _v0[0].replace(/\/$/, ""),
             _v2 = _v1.split("/").pop(),
             _v3 = void 0 !== _v0[1] ? `?${_v0[1]}` : "";
           if (Object.values(_v54).includes(_v2)) {
             let _v0 = _v1.replace(_v2, "");
-            _v16.push(`${_v0}${_v3}`);
+            _v17.push(`${_v0}${_v3}`);
           }
         }
       }) : (0, _v5.jsx)(_v354, {
         children: (0, _v5.jsx)(_v156.Spinner, {})
       })]
     }) : (0, _v5.jsxs)(_v5.Fragment, {
-      children: [_v20 && !_v22 && (0, _v5.jsx)(_v320, {
+      children: [_v21 && !_v23 && (0, _v5.jsx)(_v320, {
         href: _v15
       }), (0, _v5.jsx)(_v342, {
         children: (0, _v5.jsxs)(_v343, {
-          isMobile: _v22,
+          isMobile: _v23,
           children: [(0, _v5.jsx)(_v339, {}), (0, _v5.jsxs)(_v344, {
-            isMobile: _v22,
-            isPortrait: _v23,
+            isMobile: _v23,
+            isPortrait: _v24,
             children: [(0, _v5.jsxs)(_v345, {
-              isMobile: _v22,
-              isPortrait: _v23,
+              isMobile: _v23,
+              isPortrait: _v24,
               children: [(0, _v5.jsxs)(_v346, {
-                isMobile: _v22,
-                isPortrait: _v23,
-                children: [_v29 ? (0, _v5.jsx)(_v317, {
-                  isUnrated: _v27,
-                  redirectUrl: _v30
+                isMobile: _v23,
+                isPortrait: _v24,
+                children: [_v30 ? (0, _v5.jsx)(_v317, {
+                  isUnrated: _v28,
+                  redirectUrl: _v31
                 }) : (0, _v5.jsx)(_v316, {
-                  ref: _v21
+                  ref: _v22
                 }), (0, _v5.jsx)(_v350, {
-                  isMobile: _v22,
-                  isPortrait: _v23,
+                  isMobile: _v23,
+                  isPortrait: _v24,
                   paddingEnabled: !1,
                   children: (0, _v5.jsxs)(_v347, {
                     isFullWidth: !1,
@@ -7772,26 +7773,26 @@
                       contentEditable: !1,
                       shouldDisplayLinks: !1
                     }), (0, _v5.jsx)(_v323, {
-                      display: !_v26 && _v14?.view === _v49,
-                      isUnrated: _v27
+                      display: !_v27 && _v14?.view === _v49,
+                      isUnrated: _v28
                     }), _v11 && (0, _v5.jsx)(_v109, {
                       contentEditable: !1,
                       text: _v11
-                    }), _v28 && (0, _v5.jsxs)(_v351, {
+                    }), _v29 && (0, _v5.jsxs)(_v351, {
                       children: [(0, _v5.jsx)(_v353, {}), (0, _v5.jsx)(_v352, {
                         children: _v36.thisVideoContainsAdvertisment
                       })]
                     })]
                   })
                 })]
-              }), _v22 || !_v17 ? null : (0, _v5.jsx)(_v116.EssentialFooter, {
-                ..._v17,
+              }), _v23 || !_v18 ? null : (0, _v5.jsx)(_v116.EssentialFooter, {
+                ..._v18,
                 enableQuotaMenu: !1,
                 position: "absolute"
               })]
             }), (0, _v5.jsx)(_v337, {
-              isPortrait: _v23,
-              playerRef: _v21
+              isPortrait: _v24,
+              playerRef: _v22
             })]
           })]
         })

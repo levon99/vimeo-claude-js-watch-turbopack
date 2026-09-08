@@ -109,7 +109,8 @@
     showcase_cms: "showcase_cms",
     "Viewer Home": "viewer_home",
     library: "video_library",
-    my_feed: "my_feed"
+    my_feed: "my_feed",
+    watch: "watch"
   }, "PermissionActions", () => _v12, "PermissionLevel", () => _v10, "ResourcePrivacy", () => _v11, "ResourceType", 0, {
     Video: "video",
     Folder: "folder",

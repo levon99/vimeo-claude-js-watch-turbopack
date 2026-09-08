@@ -1689,7 +1689,7 @@
           rootMargin: "800px"
         });
         return _v11.current && _v0.observe(_v11.current), () => _v0.disconnect();
-      }, [_v3, _v4]), (0, _v1.jsxs)(_v13.Flex, {
+      }, [_v3, _v2, _v4]), (0, _v1.jsxs)(_v13.Flex, {
         flexDir: "column",
         gap: "lg",
         children: [(0, _v1.jsx)(_v84.SimpleGrid, {
@@ -1847,9 +1847,1316 @@
     };
   var _v92 = _v0.i(0),
     _v93 = _v0.i(0),
-    _v94 = _v0.i(0);
-  let _v95 = (_v0, _v1) => _v0 && _v1 ? "linear-gradient(to right, transparent, black 48px, black calc(100% - 48px), transparent)" : _v0 ? "linear-gradient(to right, transparent, black 48px)" : _v1 ? "linear-gradient(to right, black calc(100% - 48px), transparent)" : "none",
-    _v96 = ({
+    _v94 = _v0.i(0),
+    _v95 = _v0.i(0),
+    _v96 = _v0.i(0),
+    _v97 = _v0.i(0),
+    _v98 = _v0.i(0),
+    _v99 = _v0.i(0),
+    _v100 = _v0.i(0),
+    _v101 = _v0.i(0),
+    _v102 = _v0.i(0);
+  let _v103 = "showcases",
+    _v104 = "channels",
+    _v105 = "groups",
+    _v106 = (0, _v8.default)(async () => {
+      let {
+        PublicChannels: _v0
+      } = await _v0.A(0);
+      return {
+        default: _v0
+      };
+    }, {
+      loadableGenerated: {
+        modules: [0]
+      }
+    }),
+    _v107 = (0, _v8.default)(async () => {
+      let {
+        PublicGroups: _v0
+      } = await _v0.A(0);
+      return {
+        default: _v0
+      };
+    }, {
+      loadableGenerated: {
+        modules: [0]
+      }
+    }),
+    _v108 = ({
+      canAddToCollections: _v0,
+      videoId: _v1,
+      videoName: _v2
+    }) => {
+      let {
+          openAddToShowcaseModal: _v3,
+          closeAddToShowcaseModal: _v4
+        } = (0, _v101.useAddToShowcaseModal)(),
+        _v5 = (0, _v102.useViewer)(),
+        _v6 = _v5?.user?.id ?? 0,
+        _v7 = _v5?.isFromCopyrightRestrictedRegion ?? !0,
+        _v8 = [{
+          id: _v1,
+          name: _v2 || "video",
+          type: "video"
+        }],
+        [_v9, _v10] = (0, _v11.useState)(""),
+        _v11 = _v0 => {
+          _v0 && (_v0 === _v103 ? _v3({
+            onClose: () => {
+              _v4(), _v10("");
+            },
+            showcaseItems: _v8,
+            ownerId: _v6,
+            pageName: "watch",
+            pageUrl: window.location.href,
+            isPublic: !0
+          }) : _v10(_v0));
+        };
+      return _v0 ? (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsxs)(_v93.Menu, {
+          children: [(0, _v1.jsx)(_v99.Tooltip, {
+            label: (0, _v74.translate)({
+              singular: "Add to collections",
+              dictionary: {
+                es: {
+                  singular: "Agregar a las colecciones"
+                },
+                "de-DE": {
+                  singular: "Zu Sammlungen hinzufügen"
+                },
+                "fr-FR": {
+                  singular: "Ajouter aux collections"
+                },
+                "ja-JP": {
+                  singular: "コレクションに追加"
+                },
+                "ko-KR": {
+                  singular: "컬렉션에 추가"
+                },
+                "pt-BR": {
+                  singular: "Adicionar às coleções"
+                },
+                "zh-CN": {
+                  singular: "添加到合集中"
+                }
+              }
+            }),
+            placement: "top",
+            children: (0, _v1.jsx)(_v94.MenuButton, {
+              as: _v92.IconButton,
+              "aria-label": (0, _v74.translate)({
+                singular: "Add to collections",
+                dictionary: {
+                  es: {
+                    singular: "Agregar a las colecciones"
+                  },
+                  "de-DE": {
+                    singular: "Zu Sammlungen hinzufügen"
+                  },
+                  "fr-FR": {
+                    singular: "Ajouter aux collections"
+                  },
+                  "ja-JP": {
+                    singular: "コレクションに追加"
+                  },
+                  "ko-KR": {
+                    singular: "컬렉션에 추가"
+                  },
+                  "pt-BR": {
+                    singular: "Adicionar às coleções"
+                  },
+                  "zh-CN": {
+                    singular: "添加到合集中"
+                  }
+                }
+              }),
+              variant: "tertiary",
+              size: "sm",
+              icon: (0, _v1.jsx)(_v100.HoverAnimatedIcon, {
+                iconName: "3-layers"
+              }),
+              onFocus: _v0 => _v0.preventDefault()
+            })
+          }), (0, _v1.jsxs)(_v98.MenuList, {
+            children: [(0, _v1.jsxs)(_v96.MenuGroup, {
+              title: (0, _v74.translate)({
+                singular: "Add to",
+                dictionary: {
+                  es: {
+                    singular: "Añadir a"
+                  },
+                  "de-DE": {
+                    singular: "Hinzufügen zu"
+                  },
+                  "fr-FR": {
+                    singular: "Ajouter à"
+                  },
+                  "ja-JP": {
+                    singular: "追加"
+                  },
+                  "ko-KR": {
+                    singular: "다음에 추가"
+                  },
+                  "pt-BR": {
+                    singular: "Adicionar a"
+                  },
+                  "zh-CN": {
+                    singular: "添加到"
+                  }
+                }
+              }),
+              children: [(0, _v1.jsx)(_v97.MenuItem, {
+                onClick: () => _v11(_v103),
+                children: (0, _v74.translate)({
+                  singular: "Showcase",
+                  dictionary: {
+                    es: {
+                      singular: "Presentaciones"
+                    },
+                    "de-DE": {
+                      singular: "Präsentation"
+                    },
+                    "fr-FR": {
+                      singular: "Présentation"
+                    },
+                    "ja-JP": {
+                      singular: "作品集"
+                    },
+                    "ko-KR": {
+                      singular: "쇼케이스"
+                    },
+                    "pt-BR": {
+                      singular: "Vitrine"
+                    },
+                    "zh-CN": {
+                      singular: "橱窗"
+                    }
+                  }
+                })
+              }), (0, _v1.jsx)(_v97.MenuItem, {
+                onClick: () => _v11(_v104),
+                children: (0, _v74.translate)({
+                  singular: "Channel",
+                  dictionary: {
+                    es: {
+                      singular: "Canal"
+                    },
+                    "de-DE": {
+                      singular: "Kanal"
+                    },
+                    "fr-FR": {
+                      singular: "Chaîne"
+                    },
+                    "ja-JP": {
+                      singular: "チャンネル"
+                    },
+                    "ko-KR": {
+                      singular: "채널"
+                    },
+                    "pt-BR": {
+                      singular: "Canal"
+                    },
+                    "zh-CN": {
+                      singular: "频道"
+                    }
+                  }
+                })
+              }), (0, _v1.jsx)(_v97.MenuItem, {
+                onClick: () => _v11(_v105),
+                children: (0, _v74.translate)({
+                  singular: "Group",
+                  dictionary: {
+                    es: {
+                      singular: "Grupo"
+                    },
+                    "de-DE": {
+                      singular: "Gruppe"
+                    },
+                    "fr-FR": {
+                      singular: "Groupe"
+                    },
+                    "ja-JP": {
+                      singular: "グループ"
+                    },
+                    "ko-KR": {
+                      singular: "그룹"
+                    },
+                    "pt-BR": {
+                      singular: "Grupo"
+                    },
+                    "zh-CN": {
+                      singular: "群组"
+                    }
+                  }
+                })
+              })]
+            }), (0, _v1.jsx)(_v95.MenuDivider, {}), !_v7 && (0, _v1.jsx)(_v97.MenuItem, {
+              onClick: () => {
+                window.location.href = `/${_v1}/collections/`;
+              },
+              children: (0, _v74.translate)({
+                singular: "Explore collections",
+                dictionary: {
+                  es: {
+                    singular: "Explora las colecciones"
+                  },
+                  "de-DE": {
+                    singular: "Kollektionen entdecken"
+                  },
+                  "fr-FR": {
+                    singular: "Explorez des collections"
+                  },
+                  "ja-JP": {
+                    singular: "コレクション全体を探索してみる"
+                  },
+                  "ko-KR": {
+                    singular: "컬렉션 탐색"
+                  },
+                  "pt-BR": {
+                    singular: "Explore coleções"
+                  },
+                  "zh-CN": {
+                    singular: "浏览收藏集"
+                  }
+                }
+              })
+            })]
+          })]
+        }), _v9 === _v104 ? (0, _v1.jsx)(_v106, {
+          onClose: () => _v10(""),
+          videoId: _v1,
+          videoName: _v2 || "video",
+          ownerId: _v6,
+          pageName: "watch"
+        }) : null, _v9 === _v105 ? (0, _v1.jsx)(_v107, {
+          onClose: () => _v10(""),
+          videoId: _v1,
+          videoName: _v2 || "video",
+          ownerId: _v6,
+          pageName: "watch"
+        }) : null]
+      }) : null;
+    },
+    _v109 = ({
+      videoLink: _v0,
+      totalComments: _v1
+    }) => {
+      let _v2 = `${_v0}#comments`,
+        _v3 = _v0 => {
+          _v0.preventDefault(), window.open(_v2, "_blank", "noopener,noreferrer");
+        };
+      return (0, _v1.jsx)(_v99.Tooltip, {
+        label: (0, _v74.translate)({
+          singular: "Comments",
+          dictionary: {
+            es: {
+              singular: "Comentarios"
+            },
+            "de-DE": {
+              singular: "Kommentare"
+            },
+            "fr-FR": {
+              singular: "Commentaires"
+            },
+            "ja-JP": {
+              singular: "コメント"
+            },
+            "ko-KR": {
+              singular: "소감"
+            },
+            "pt-BR": {
+              singular: "Comentários"
+            },
+            "zh-CN": {
+              singular: "评论"
+            }
+          }
+        }),
+        placement: "top",
+        children: _v1 ? (0, _v1.jsx)(_v46.Button, {
+          as: "a",
+          href: _v2,
+          variant: "tertiary",
+          size: "sm",
+          leftIcon: (0, _v1.jsx)(_v100.HoverAnimatedIcon, {
+            iconName: "comment"
+          }),
+          onClick: _v3,
+          children: (0, _v74.humanize)(_v1)
+        }) : (0, _v1.jsx)(_v92.IconButton, {
+          as: "a",
+          "aria-label": (0, _v74.translate)({
+            singular: "Comments",
+            dictionary: {
+              es: {
+                singular: "Comentarios"
+              },
+              "de-DE": {
+                singular: "Kommentare"
+              },
+              "fr-FR": {
+                singular: "Commentaires"
+              },
+              "ja-JP": {
+                singular: "コメント"
+              },
+              "ko-KR": {
+                singular: "소감"
+              },
+              "pt-BR": {
+                singular: "Comentários"
+              },
+              "zh-CN": {
+                singular: "评论"
+              }
+            }
+          }),
+          href: _v2,
+          variant: "tertiary",
+          size: "sm",
+          icon: (0, _v1.jsx)(_v100.HoverAnimatedIcon, {
+            iconName: "comment"
+          }),
+          onClick: _v3
+        })
+      });
+    };
+  var _v110 = _v0.i(0),
+    _v111 = _v0.i(0),
+    _v112 = _v0.i(0),
+    _v113 = _v0.i(0);
+  let _v114 = _v0 => {
+      _v0({
+        title: (0, _v74.translate)({
+          singular: "Oops! Something went wrong. Please try again.",
+          dictionary: {
+            es: {
+              singular: "¡Ups, algo salió mal! Vuelve a intentarlo."
+            },
+            "de-DE": {
+              singular: "Hoppla! Etwas ist schief gelaufen. Bitte versuche es nochmal."
+            },
+            "fr-FR": {
+              singular: "Oups ! Une erreur s'est produite. Veuillez essayer à nouveau."
+            },
+            "ja-JP": {
+              singular: "エラーが発生しました。再度お試しください。"
+            },
+            "ko-KR": {
+              singular: "죄송합니다. 문제가 발생했습니다. 다시 시도해주세요."
+            },
+            "pt-BR": {
+              singular: "Oh! Alguma coisa deu errado. Por favor, tente novamente."
+            },
+            "zh-CN": {
+              singular: "哎呀，出错了。请重试。"
+            }
+          }
+        }),
+        status: "error",
+        icon: (0, _v1.jsx)(_v111.CircleExclamationFilled, {})
+      });
+    },
+    _v115 = ({
+      initialState: _v0,
+      canLike: _v1,
+      videoId: _v2,
+      totalLikes: _v3
+    }) => {
+      let [_v4, _v5] = (0, _v11.useState)(_v0),
+        [_v6] = (0, _v113.usePutUserLike)(),
+        [_v7] = (0, _v113.useDeleteUserLike)(),
+        _v8 = (0, _v102.useViewer)(),
+        _v9 = (0, _v110.useToast)();
+      if (!_v1) return null;
+      let _v10 = async () => {
+          if (_v8?.user?.id) if (_v4) {
+            _v5(!1);
+            try {
+              await _v7({
+                where: {
+                  userId: _v8.user.id,
+                  videoId: _v2
+                }
+              });
+            } catch {
+              _v5(!0), _v114(_v9);
+            }
+          } else {
+            _v5(!0);
+            try {
+              await _v6({
+                where: {
+                  userId: _v8.user.id,
+                  videoId: _v2
+                }
+              });
+            } catch {
+              _v5(!1), _v114(_v9);
+            }
+          }
+        },
+        _v11 = _v0 === _v4 ? _v3 : _v4 ? _v3 + 1 : Math.max(_v3 - 1, 0);
+      return (0, _v1.jsx)(_v112.AnimatedLikeButton, {
+        isLiked: _v4,
+        onLikeClick: () => {
+          _v10();
+        },
+        likesCount: _v11
+      });
+    };
+  var _v116 = _v0.i(0),
+    _v117 = _v0.i(0);
+  let _v118 = ({
+      setShowThumbnail: _v0,
+      name: _v1,
+      playerEmbedUrl: _v2,
+      player: _v3,
+      setPlayer: _v4
+    }) => {
+      let [_v5, _v6] = (0, _v11.useState)(!1),
+        _v7 = (0, _v11.useRef)(null),
+        _v8 = (0, _v11.useRef)(!1),
+        _v9 = _v117.EmbedPlayerUtility.createEmbedUrl(_v2);
+      return (0, _v11.useEffect)(() => {
+        if (!window.IntersectionObserver) return;
+        let _v0 = new IntersectionObserver(_v0 => {
+          _v6(_v0.some(_v0 => _v0.isIntersecting));
+        }, {
+          threshold: .8
+        });
+        return _v7.current && _v0.observe(_v7.current), () => {
+          _v0.disconnect();
+        };
+      }, []), (0, _v11.useEffect)(() => ((async () => {
+        if (_v3) if (_v5 && !_v8.current) try {
+          await _v3.setMuted(!0), await _v3.play();
+        } catch {
+          _v8.current = !0, _v0(!0);
+        } else await _v3.pause();
+      })(), () => {
+        _v3?.pause();
+      }), [_v5, _v3, _v0]), (0, _v1.jsx)(_v13.Flex, {
+        h: "100%",
+        ref: _v7,
+        children: (0, _v1.jsx)(_v116.EmbedPlayer, {
+          title: _v1,
+          src: _v9,
+          onPlayerAPIReady: _v0 => {
+            _v4(_v0);
+          },
+          onLoaded: () => {
+            _v0(!1);
+          },
+          onError: () => {
+            _v0(!0);
+          }
+        })
+      });
+    },
+    _v119 = ({
+      videoId: _v0,
+      name: _v1,
+      thumbnail: _v2,
+      playerEmbedUrl: _v3,
+      player: _v4,
+      setPlayer: _v5,
+      topLeftDecoration: _v6
+    }) => {
+      let _v7 = (0, _v11.useRef)(null),
+        [_v8, _v9] = (0, _v11.useState)(!1),
+        [_v10, _v11] = (0, _v11.useState)(!0);
+      return (0, _v11.useEffect)(() => {
+        if (!window.IntersectionObserver || _v8) return;
+        let _v0 = new IntersectionObserver(_v0 => {
+          _v0.some(_v0 => _v0.isIntersecting) && (_v9(!0), _v0.disconnect());
+        }, {
+          rootMargin: "400px"
+        });
+        return _v7.current && _v0.observe(_v7.current), () => _v0.disconnect();
+      }, [_v8]), (0, _v1.jsxs)(_v35.Box, {
+        borderRadius: ["none", "none", "lg"],
+        borderWidth: "1px",
+        borderColor: "stroke",
+        minW: "100%",
+        aspectRatio: _v2.aspectRatio,
+        position: "relative",
+        overflow: "hidden",
+        ref: _v7,
+        "data-id": `feed-player-area-${_v0}`,
+        children: [_v6 && (0, _v1.jsx)(_v13.Flex, {
+          position: "absolute",
+          top: "2",
+          left: "2",
+          zIndex: 1,
+          children: _v6
+        }), _v8 && _v3 && (0, _v1.jsx)(_v118, {
+          setShowThumbnail: _v11,
+          name: _v1,
+          playerEmbedUrl: _v3,
+          player: _v4,
+          setPlayer: _v5
+        }), (0, _v1.jsx)(_v35.Box, {
+          as: "img",
+          alt: "",
+          src: _v2.src,
+          display: _v10 ? "block" : "none",
+          position: "absolute",
+          inset: "0",
+          width: "100%",
+          height: "100%",
+          aspectRatio: _v2.aspectRatio,
+          objectFit: "cover"
+        })]
+      });
+    };
+  var _v120 = _v0.i(0),
+    _v121 = _v0.i(0);
+  let _v122 = ({
+    canReport: _v0,
+    videoId: _v1
+  }) => {
+    let {
+      isOpen: _v2,
+      onClose: _v3,
+      onOpen: _v4
+    } = (0, _v120.useDisclosure)();
+    return _v0 ? (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(0, _v1.jsx)(_v99.Tooltip, {
+        label: (0, _v74.translate)({
+          singular: "Report",
+          dictionary: {
+            es: {
+              singular: "Denunciar"
+            },
+            "de-DE": {
+              singular: "Melden"
+            },
+            "fr-FR": {
+              singular: "Signaler"
+            },
+            "ja-JP": {
+              singular: "通報"
+            },
+            "ko-KR": {
+              singular: "신고"
+            },
+            "pt-BR": {
+              singular: "Denunciar"
+            },
+            "zh-CN": {
+              singular: "报告"
+            }
+          }
+        }),
+        placement: "top",
+        children: (0, _v1.jsx)(_v92.IconButton, {
+          "aria-label": (0, _v74.translate)({
+            singular: "Report",
+            dictionary: {
+              es: {
+                singular: "Denunciar"
+              },
+              "de-DE": {
+                singular: "Melden"
+              },
+              "fr-FR": {
+                singular: "Signaler"
+              },
+              "ja-JP": {
+                singular: "通報"
+              },
+              "ko-KR": {
+                singular: "신고"
+              },
+              "pt-BR": {
+                singular: "Denunciar"
+              },
+              "zh-CN": {
+                singular: "报告"
+              }
+            }
+          }),
+          onClick: _v4,
+          variant: "tertiary",
+          size: "sm",
+          icon: (0, _v1.jsx)(_v100.HoverAnimatedIcon, {
+            iconName: "flag"
+          })
+        })
+      }), (0, _v1.jsx)(_v121.ReportVideoModal, {
+        clipId: _v1.toString(),
+        isOpen: _v2,
+        onClose: _v3,
+        onSubmitReport: () => {}
+      })]
+    }) : null;
+  };
+  var _v123 = _v0.i(0);
+  let _v124 = (0, _v8.default)(async () => {
+      let {
+        VideoShareModal: _v0
+      } = await _v0.A(0);
+      return {
+        default: _v0
+      };
+    }, {
+      loadableGenerated: {
+        modules: [0]
+      }
+    }),
+    _v125 = ({
+      videoId: _v0,
+      player: _v1
+    }) => {
+      let [_v2, _v3] = (0, _v11.useState)(!1),
+        [_v4, _v5] = (0, _v11.useState)(0);
+      return (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsx)(_v99.Tooltip, {
+          label: (0, _v74.translate)({
+            singular: "Share",
+            dictionary: {
+              es: {
+                singular: "Compartir"
+              },
+              "de-DE": {
+                singular: "Teilen"
+              },
+              "fr-FR": {
+                singular: "Partager"
+              },
+              "ja-JP": {
+                singular: "共有"
+              },
+              "ko-KR": {
+                singular: "공유"
+              },
+              "pt-BR": {
+                singular: "Compartilhar"
+              },
+              "zh-CN": {
+                singular: "分享"
+              }
+            }
+          }),
+          placement: "top",
+          children: (0, _v1.jsx)(_v92.IconButton, {
+            "aria-label": (0, _v74.translate)({
+              singular: "Share",
+              dictionary: {
+                es: {
+                  singular: "Compartir"
+                },
+                "de-DE": {
+                  singular: "Teilen"
+                },
+                "fr-FR": {
+                  singular: "Partager"
+                },
+                "ja-JP": {
+                  singular: "共有"
+                },
+                "ko-KR": {
+                  singular: "공유"
+                },
+                "pt-BR": {
+                  singular: "Compartilhar"
+                },
+                "zh-CN": {
+                  singular: "分享"
+                }
+              }
+            }),
+            onClick: _v0 => {
+              (async () => {
+                await _v1?.pause(), _v5((await _v1?.getCurrentTime()) ?? 0), _v3(!0), _v0.currentTarget?.blur();
+              })();
+            },
+            variant: "tertiary",
+            size: "sm",
+            icon: (0, _v1.jsx)(_v123.Share, {})
+          })
+        }), (0, _v1.jsx)(_v124, {
+          uri: `video/${_v0}`,
+          page: "watch",
+          entryPoint: null,
+          isResourceShareModalOpen: _v2,
+          closeResourceShareModal: () => {
+            _v3(!1);
+          },
+          getPlayerCurrentTime: () => _v4,
+          showPrivacyRedesign: !0
+        })]
+      });
+    };
+  var _v126 = _v0.i(0),
+    _v127 = _v0.i(0);
+  let _v128 = ({
+    initialState: _v0,
+    canWatchLater: _v1,
+    videoId: _v2
+  }) => {
+    let [_v3, _v4] = (0, _v11.useState)(_v0),
+      [_v5] = (0, _v127.usePutUserWatchlater)(),
+      [_v6] = (0, _v127.useDeleteUserWatchlater)(),
+      _v7 = (0, _v102.useViewer)(),
+      _v8 = (0, _v110.useToast)();
+    if (!_v1) return null;
+    let _v9 = async () => {
+      if (_v7?.user?.id) {
+        _v4(!_v3);
+        try {
+          _v3 ? await _v6({
+            where: {
+              userId: _v7.user.id,
+              videoId: _v2
+            }
+          }) : await _v5({
+            where: {
+              userId: _v7.user.id,
+              videoId: _v2
+            }
+          });
+        } catch {
+          _v4(_v3), _v8({
+            title: (0, _v74.translate)({
+              singular: "Oops! Something went wrong. Please try again.",
+              dictionary: {
+                es: {
+                  singular: "¡Ups, algo salió mal! Vuelve a intentarlo."
+                },
+                "de-DE": {
+                  singular: "Hoppla! Etwas ist schief gelaufen. Bitte versuche es nochmal."
+                },
+                "fr-FR": {
+                  singular: "Oups ! Une erreur s'est produite. Veuillez essayer à nouveau."
+                },
+                "ja-JP": {
+                  singular: "エラーが発生しました。再度お試しください。"
+                },
+                "ko-KR": {
+                  singular: "죄송합니다. 문제가 발생했습니다. 다시 시도해주세요."
+                },
+                "pt-BR": {
+                  singular: "Oh! Alguma coisa deu errado. Por favor, tente novamente."
+                },
+                "zh-CN": {
+                  singular: "哎呀，出错了。请重试。"
+                }
+              }
+            }),
+            status: "error",
+            icon: (0, _v1.jsx)(_v111.CircleExclamationFilled, {})
+          });
+        }
+      }
+    };
+    return (0, _v1.jsx)(_v99.Tooltip, {
+      label: _v3 ? (0, _v74.translate)({
+        singular: "Remove from Watch later",
+        dictionary: {
+          es: {
+            singular: "Quitar de la lista “Ver después”"
+          },
+          "de-DE": {
+            singular: "Aus „Später anschauen“ entfernen"
+          },
+          "fr-FR": {
+            singular: "Supprimer de la liste Regarder plus tard"
+          },
+          "ja-JP": {
+            singular: "「後で見る」から削除"
+          },
+          "ko-KR": {
+            singular: "나중에 보기에서 제거"
+          },
+          "pt-BR": {
+            singular: "Remover da lista Assistir Depois"
+          },
+          "zh-CN": {
+            singular: "从稍后观看中移除"
+          }
+        }
+      }) : (0, _v74.translate)({
+        singular: "Add to Watch later",
+        dictionary: {
+          es: {
+            singular: 'Agregar a "Ver después"'
+          },
+          "de-DE": {
+            singular: 'Zu „Später anschauen" hinzufügen'
+          },
+          "fr-FR": {
+            singular: "Ajouter à la liste Regarder plus tard"
+          },
+          "ja-JP": {
+            singular: "後で見るに追加"
+          },
+          "ko-KR": {
+            singular: "나중에 보기"
+          },
+          "pt-BR": {
+            singular: "Adicionar ao Assistir Depois"
+          },
+          "zh-CN": {
+            singular: "添加到稍后观看"
+          }
+        }
+      }),
+      placement: "top",
+      closeOnClick: !1,
+      children: (0, _v1.jsx)(_v92.IconButton, {
+        "aria-label": (0, _v74.translate)({
+          singular: "Add to Watch later",
+          dictionary: {
+            es: {
+              singular: 'Agregar a "Ver después"'
+            },
+            "de-DE": {
+              singular: 'Zu „Später anschauen" hinzufügen'
+            },
+            "fr-FR": {
+              singular: "Ajouter à la liste Regarder plus tard"
+            },
+            "ja-JP": {
+              singular: "後で見るに追加"
+            },
+            "ko-KR": {
+              singular: "나중에 보기"
+            },
+            "pt-BR": {
+              singular: "Adicionar ao Assistir Depois"
+            },
+            "zh-CN": {
+              singular: "添加到稍后观看"
+            }
+          }
+        }),
+        onClick: () => {
+          _v9();
+        },
+        variant: "tertiary",
+        size: "sm",
+        icon: _v3 ? (0, _v1.jsx)(_v126.ClockFilled, {}) : (0, _v1.jsx)(_v100.HoverAnimatedIcon, {
+          iconName: "clock"
+        })
+      })
+    });
+  };
+  var _v129 = _v0.i(0);
+  let _v130 = ["staffpick", "staffpick-premiere", "staffpick-best-of-the-year", "staffpick-best-of-the-month"],
+    _v131 = ({
+      video: _v0,
+      curationComponent: _v1,
+      widgetPlacement: _v2
+    }) => {
+      let _v3 = (0, _v20.useOptionalViewer)(),
+        {
+          trackWatchVideoThumbnailClicked: _v4
+        } = (0, _v17.useWatchTracking)(),
+        _v5 = (0, _v62.useCommunityLoopParams)(),
+        [_v6, _v7] = (0, _v11.useState)(null),
+        _v8 = (0, _v63.idFromUri)(_v0.uri),
+        _v9 = _v0.user?.metadata?.interactions?.follow,
+        _v10 = _v0.badge?.type && _v130.includes(_v0.badge.type),
+        {
+          isFollowing: _v11,
+          isLoadingFollow: _v12,
+          updateFollow: _v13
+        } = ((_v0, _v1, _v2) => {
+          let [_v3, _v4] = (0, _v11.useState)(_v2),
+            [_v5, {
+              loading: _v6
+            }] = (0, _v129.usePutMeFollowing)(),
+            [_v7, {
+              loading: _v8
+            }] = (0, _v129.useDeleteMeFollowing)(),
+            {
+              mutate: _v9,
+              isValidating: _v10
+            } = (0, _v129.useGetMeFollowing)(() => _v1 ? {
+              where: {
+                followUserId: _v0
+              },
+              query: {
+                source: "Watch feed"
+              }
+            } : null, {
+              revalidateOnFocus: !1,
+              shouldRetryOnError: !1,
+              revalidateIfStale: !1,
+              revalidateOnMount: !1
+            }),
+            _v11 = (0, _v110.useToast)(),
+            _v12 = async () => {
+              _v4(!_v3);
+              let _v0 = _v3 ? _v7 : _v5;
+              try {
+                await _v0({
+                  where: {
+                    followUserId: _v0
+                  }
+                }), _v9();
+              } catch {
+                _v4(_v3), _v11({
+                  title: (0, _v74.translate)({
+                    singular: "Oops! Something went wrong. Please try again.",
+                    dictionary: {
+                      es: {
+                        singular: "¡Ups, algo salió mal! Vuelve a intentarlo."
+                      },
+                      "de-DE": {
+                        singular: "Hoppla! Etwas ist schief gelaufen. Bitte versuche es nochmal."
+                      },
+                      "fr-FR": {
+                        singular: "Oups ! Une erreur s'est produite. Veuillez essayer à nouveau."
+                      },
+                      "ja-JP": {
+                        singular: "エラーが発生しました。再度お試しください。"
+                      },
+                      "ko-KR": {
+                        singular: "죄송합니다. 문제가 발생했습니다. 다시 시도해주세요."
+                      },
+                      "pt-BR": {
+                        singular: "Oh! Alguma coisa deu errado. Por favor, tente novamente."
+                      },
+                      "zh-CN": {
+                        singular: "哎呀，出错了。请重试。"
+                      }
+                    }
+                  }),
+                  status: "error"
+                });
+              }
+            };
+          return {
+            isFollowing: _v3,
+            isLoadingFollow: _v10 || _v6 || _v8,
+            updateFollow: _v12
+          };
+        })((0, _v63.idFromUri)(_v0.user?.uri), null != _v9, _v9?.added === !0),
+        _v14 = (0, _v34.toWatchSection)(_v1),
+        _v15 = (0, _v63.idFromUri)(_v1.uri) > 0 ? String((0, _v63.idFromUri)(_v1.uri)) : null,
+        _v16 = _v0.description?.replace(/<[^>]*>/g, "").trim() ?? "",
+        _v17 = {
+          src: _v0.pictures?.sizes[0].link ?? "",
+          aspectRatio: 16 / 9
+        };
+      return (0, _v1.jsxs)(_v42.VStack, {
+        w: "100%",
+        gap: "md",
+        alignItems: "start",
+        children: [(0, _v1.jsx)(_v119, {
+          videoId: _v8,
+          name: _v0.name,
+          thumbnail: _v17,
+          playerEmbedUrl: _v0.playerEmbedUrl ?? "",
+          player: _v6,
+          setPlayer: _v7,
+          topLeftDecoration: _v10 ? (0, _v1.jsx)(_v88.StaffPickBadge, {}) : void 0
+        }), (0, _v1.jsxs)(_v13.Flex, {
+          w: "100%",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: "sm",
+          children: [(0, _v1.jsxs)(_v13.Flex, {
+            alignItems: "center",
+            gap: "sm",
+            minW: 0,
+            children: [(0, _v1.jsx)(_v69.Avatar, {
+              alt: _v0.user?.name ?? "",
+              size: "sm",
+              src: _v0.user?.pictures?.sizes?.[0].link ?? "",
+              nameProps: {
+                name: _v0.user?.name ?? ""
+              }
+            }), (0, _v1.jsx)(_v44.Text, {
+              as: "a",
+              href: _v0.user?.link ?? void 0,
+              variant: "body-md",
+              isTruncated: !0,
+              maxW: "16rem",
+              onClick: () => {
+                _v3 && _v0.user?.link && (0, _v34.trackCreatorNameClick)({
+                  target: _v0.user.link,
+                  viewer: _v3,
+                  widgetName: _v1.title,
+                  widgetPlacement: _v2
+                });
+              },
+              _hover: {
+                textDecoration: "underline"
+              },
+              children: _v0.user?.name ?? ""
+            }), _v9 && (!_v11 || _v12) && (0, _v1.jsx)(_v46.Button, {
+              size: "xs",
+              variant: "secondary",
+              onClick: () => {
+                _v13();
+              },
+              isLoading: _v12,
+              children: (0, _v74.translate)({
+                singular: "Follow",
+                dictionary: {
+                  es: {
+                    singular: "Seguir"
+                  },
+                  "de-DE": {
+                    singular: "Folgen"
+                  },
+                  "fr-FR": {
+                    singular: "Suivre"
+                  },
+                  "ja-JP": {
+                    singular: "フォロー"
+                  },
+                  "ko-KR": {
+                    singular: "팔로우"
+                  },
+                  "pt-BR": {
+                    singular: "Seguir"
+                  },
+                  "zh-CN": {
+                    singular: "关注"
+                  }
+                }
+              })
+            })]
+          }), (0, _v1.jsxs)(_v13.Flex, {
+            alignItems: "center",
+            flexWrap: "wrap",
+            children: [(0, _v1.jsxs)(_v13.Flex, {
+              alignItems: "center",
+              gap: "xs",
+              children: [(0, _v1.jsx)(_v115, {
+                initialState: _v0.metadata?.interactions?.like?.added,
+                canLike: _v0.page?.like ?? !1,
+                videoId: _v8,
+                totalLikes: _v0.metadata?.connections?.likes?.total ?? 0
+              }), (0, _v1.jsx)(_v109, {
+                videoLink: _v0.link,
+                totalComments: _v0.metadata?.connections?.comments?.total ?? 0
+              })]
+            }), (0, _v1.jsxs)(_v13.Flex, {
+              alignItems: "center",
+              gap: "xs",
+              ml: "lg",
+              children: [_v0.page?.share && (0, _v1.jsx)(_v125, {
+                videoId: _v8,
+                player: _v6
+              }), (0, _v1.jsx)(_v108, {
+                canAddToCollections: !!(_v0.page?.collections && _v0.privacy?.add),
+                videoId: _v8,
+                videoName: _v0.name
+              }), (0, _v1.jsx)(_v128, {
+                initialState: _v0.metadata?.interactions?.watchlater?.added,
+                canWatchLater: _v0.page?.watchLater ?? !1,
+                videoId: _v8
+              }), (0, _v1.jsx)(_v122, {
+                canReport: !!_v0.metadata?.interactions?.flagClip,
+                videoId: _v8
+              })]
+            })]
+          })]
+        }), (0, _v1.jsxs)(_v42.VStack, {
+          w: "100%",
+          gap: "md",
+          alignItems: "start",
+          children: [(0, _v1.jsxs)(_v13.Flex, {
+            alignItems: "baseline",
+            gap: "sm",
+            flexWrap: "wrap",
+            children: [(0, _v1.jsx)(_v44.Text, {
+              as: "a",
+              href: `${_v0.link}${_v5}`,
+              variant: "heading-sm",
+              onClick: _v0 => {
+                _v0.preventDefault(), (async () => {
+                  let _v0 = 0;
+                  try {
+                    _v6 && (await _v6.pause(), _v0 = await _v6.getCurrentTime());
+                  } catch {}
+                  _v3 && (0, _v34.trackPlaylistVideoClick)({
+                    target: _v0.link,
+                    videoId: _v8,
+                    viewer: _v3,
+                    widgetName: _v1.title,
+                    widgetPlacement: _v2
+                  }), _v4({
+                    clipId: _v8.toString(),
+                    watchSection: _v14,
+                    watchSectionId: _v15,
+                    watchVideoPosition: _v2
+                  }), window.open(`${_v0.link}${_v5}#t=${_v0}`, "_blank", "noopener,noreferrer");
+                })();
+              },
+              _hover: {
+                textDecoration: "underline"
+              },
+              children: _v0.name
+            }), (0, _v1.jsx)(_v44.Text, {
+              variant: "body-xs",
+              color: "text-secondary",
+              children: (0, _v86.fromNow)(new Date(_v0.createdTime))
+            })]
+          }), _v16 && (0, _v1.jsx)(_v44.Text, {
+            variant: "body-md",
+            color: "text-secondary",
+            sx: {
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              "-webkit-box-orient": "vertical",
+              overflow: "hidden"
+            },
+            children: _v16
+          })]
+        })]
+      });
+    },
+    _v132 = ["skeleton-post-1", "skeleton-post-2", "skeleton-post-3"],
+    _v133 = ["skeleton-action-1", "skeleton-action-2", "skeleton-action-3", "skeleton-action-4", "skeleton-action-5"],
+    _v134 = ({
+      keyName: _v0
+    }) => (0, _v1.jsxs)(_v42.VStack, {
+      w: "100%",
+      gap: "md",
+      alignItems: "start",
+      children: [(0, _v1.jsx)(_v56.Skeleton, {
+        w: "100%",
+        h: "auto",
+        aspectRatio: "16/9",
+        borderRadius: "lg"
+      }), (0, _v1.jsxs)(_v13.Flex, {
+        w: "100%",
+        alignItems: "center",
+        justifyContent: "space-between",
+        flexWrap: "wrap",
+        gap: "sm",
+        children: [(0, _v1.jsxs)(_v13.Flex, {
+          alignItems: "center",
+          gap: "sm",
+          minW: 0,
+          children: [(0, _v1.jsx)(_v56.Skeleton, {
+            w: "2rem",
+            h: "2rem",
+            borderRadius: "full",
+            flexShrink: 0
+          }), (0, _v1.jsx)(_v56.Skeleton, {
+            w: "10rem",
+            h: "1.25rem",
+            borderRadius: "sm"
+          }), (0, _v1.jsx)(_v56.Skeleton, {
+            w: "4.5rem",
+            h: "1.5rem",
+            borderRadius: "sm"
+          })]
+        }), (0, _v1.jsx)(_v13.Flex, {
+          alignItems: "center",
+          gap: "xs",
+          ml: "lg",
+          children: _v133.map(_v0 => (0, _v1.jsx)(_v56.Skeleton, {
+            w: "2rem",
+            h: "2rem",
+            borderRadius: "sm"
+          }, _v0))
+        })]
+      }), (0, _v1.jsxs)(_v42.VStack, {
+        w: "100%",
+        gap: "xs",
+        alignItems: "start",
+        children: [(0, _v1.jsx)(_v56.Skeleton, {
+          w: "100%",
+          h: "1.25rem",
+          borderRadius: "sm"
+        }), (0, _v1.jsx)(_v56.Skeleton, {
+          w: "60%",
+          h: "1.25rem",
+          borderRadius: "sm"
+        })]
+      })]
+    }, _v0),
+    _v135 = ({
+      curationComponent: _v0,
+      videos: _v1,
+      isLoading: _v2,
+      isDone: _v3,
+      loadMore: _v4,
+      widgetPlacement: _v5
+    }) => {
+      let _v6 = (0, _v11.useRef)(null);
+      return (0, _v11.useEffect)(() => {
+        if (!window.IntersectionObserver || _v3) return;
+        let _v0 = new IntersectionObserver(_v0 => {
+          _v0.some(_v0 => _v0.isIntersecting) && _v4();
+        }, {
+          rootMargin: "800px"
+        });
+        return _v6.current && _v0.observe(_v6.current), () => _v0.disconnect();
+      }, [_v3, _v2, _v4]), (0, _v1.jsxs)(_v13.Flex, {
+        flexDir: "column",
+        gap: "2xl",
+        w: "100%",
+        maxW: {
+          base: "100%",
+          xl: "calc(100% - 2 * 7.5rem)"
+        },
+        mx: "auto",
+        children: [_v2 && 0 === _v1.length ? _v132.map(_v0 => (0, _v1.jsx)(_v134, {
+          keyName: _v0
+        }, _v0)) : _v1.map(_v0 => (0, _v1.jsx)(_v131, {
+          video: _v0,
+          curationComponent: _v0,
+          widgetPlacement: _v5
+        }, _v0.uri)), !_v3 && !_v2 && (0, _v1.jsx)(_v13.Flex, {
+          ref: _v6,
+          justifyContent: "center",
+          py: "md",
+          children: (0, _v1.jsx)(_v56.Skeleton, {
+            w: "100%",
+            aspectRatio: "16/9",
+            borderRadius: "lg"
+          })
+        }), !_v2 && 0 === _v1.length && (0, _v1.jsx)(_v13.Flex, {
+          justifyContent: "center",
+          py: "2xl",
+          children: (0, _v74.translate)({
+            singular: "No videos found",
+            dictionary: {
+              es: {
+                singular: "No se han encontrado vídeos"
+              },
+              "de-DE": {
+                singular: "Keine Videos gefunden"
+              },
+              "fr-FR": {
+                singular: "Aucune vidéo trouvée"
+              },
+              "ja-JP": {
+                singular: "動画が見つかりませんでした"
+              },
+              "ko-KR": {
+                singular: "동영상을 찾을 수 없습니다"
+              },
+              "pt-BR": {
+                singular: "Nenhum vídeo encontrado"
+              },
+              "zh-CN": {
+                singular: "未找到视频"
+              }
+            }
+          })
+        })]
+      });
+    };
+  var _v136 = _v0.i(0),
+    _v137 = _v0.i(0),
+    _v138 = _v0.i(0),
+    _v139 = _v0.i(0),
+    _v140 = _v0.i(0);
+  let _v141 = (_v0, _v1) => _v0 && _v1 ? "linear-gradient(to right, transparent, black 48px, black calc(100% - 48px), transparent)" : _v0 ? "linear-gradient(to right, transparent, black 48px)" : _v1 ? "linear-gradient(to right, black calc(100% - 48px), transparent)" : "none",
+    _v142 = ({
       categories: _v0,
       activeIndex: _v1,
       onSelect: _v2
@@ -1880,37 +3187,12 @@
         alignItems: "center",
         w: "100%",
         children: [_v4 && (0, _v1.jsx)(_v92.IconButton, {
-          "aria-label": (0, _v74.translate)({
-            singular: "Scroll to previous categories",
-            dictionary: {
-              es: {
-                singular: "Desplazarse a categorías anteriores"
-              },
-              "de-DE": {
-                singular: "Zu vorherigen Kategorien scrollen"
-              },
-              "fr-FR": {
-                singular: "Faire défiler vers les catégories précédentes"
-              },
-              "ja-JP": {
-                singular: "前のカテゴリにスクロール"
-              },
-              "ko-KR": {
-                singular: "이전 카테고리로 스크롤"
-              },
-              "pt-BR": {
-                singular: "Role para categorias anteriores"
-              },
-              "zh-CN": {
-                singular: "滚动到之前的类别"
-              }
-            }
-          }),
+          "aria-label": "Scroll to previous categories",
           size: "md",
           variant: "tertiary",
           bg: "fill-surface",
           borderRadius: "md",
-          icon: (0, _v1.jsx)(_v93.ChevronLeftSmall, {}),
+          icon: (0, _v1.jsx)(_v137.ChevronLeftSmall, {}),
           marginRight: 8,
           flexShrink: 0,
           _hover: {
@@ -1930,15 +3212,16 @@
             "&::-webkit-scrollbar": {
               display: "none"
             },
-            maskImage: _v95(_v4, _v6),
-            WebkitMaskImage: _v95(_v4, _v6)
+            maskImage: _v141(_v4, _v6),
+            WebkitMaskImage: _v141(_v4, _v6)
           },
           children: _v0.map((_v0, _v1) => {
-            let _v2 = _v1 === _v1;
+            let _v2 = _v1 === _v1,
+              _v3 = "popular" === _v0.sourceType ? "trending" : "channel" !== _v0.sourceType ? "other" : _v0.sourceId === _v140.STAFF_PICKS_CHANNEL_ID ? "staff_picks" : _v0.sourceId === _v140.STAFF_PICKS_PREMIERES_CHANNEL_ID ? "premieres" : "other";
             return (0, _v1.jsx)(_v46.Button, {
               size: "md",
               variant: "tertiary",
-              bg: _v2 ? "button-tertiary-hover" : "fill-surface",
+              bg: _v2 ? "button-tertiary-hover" : "whiteAlpha.700",
               borderRadius: "md",
               flexShrink: 0,
               sx: _v2 ? {
@@ -1952,68 +3235,32 @@
                 _active: {
                   bg: "button-tertiary-hover"
                 }
-              } : void 0,
-              onClick: () => _v2(_v1),
-              children: _v0.title || (0, _v74.translate)({
-                singular: "Untitled",
-                dictionary: {
-                  es: {
-                    singular: "Sin título"
-                  },
-                  "de-DE": {
-                    singular: "Ohne Titel"
-                  },
-                  "fr-FR": {
-                    singular: "Sans titre"
-                  },
-                  "ja-JP": {
-                    singular: "無題"
-                  },
-                  "ko-KR": {
-                    singular: "제목 없음"
-                  },
-                  "pt-BR": {
-                    singular: "Sem título"
-                  },
-                  "zh-CN": {
-                    singular: "未命名"
-                  }
+              } : {
+                _dark: {
+                  bg: "gray.800"
+                },
+                _hover: {
+                  bg: "button-tertiary-hover"
+                },
+                _active: {
+                  bg: "button-tertiary-hover"
                 }
+              },
+              onClick: () => _v2(_v1),
+              children: (0, _v1.jsxs)(_v13.Flex, {
+                alignItems: "center",
+                gap: "xs",
+                children: ["staff_picks" === _v3 && (0, _v1.jsx)(_v139.StaffPicks, {}), "trending" === _v3 && (0, _v1.jsx)(_v136.ChartUp, {}), "premieres" === _v3 && "SP Premieres", "staff_picks" === _v3 && "Staff Picks", "trending" === _v3 && "Trending", "other" === _v3 && (_v0.title || "Untitled")]
               })
             }, _v0.uri);
           })
         }), _v6 && (0, _v1.jsx)(_v92.IconButton, {
-          "aria-label": (0, _v74.translate)({
-            singular: "Scroll to see more categories",
-            dictionary: {
-              es: {
-                singular: "Desplázate para ver más categorías"
-              },
-              "de-DE": {
-                singular: "Scrollen, um weitere Kategorien anzuzeigen"
-              },
-              "fr-FR": {
-                singular: "Faites défiler pour voir plus de catégories"
-              },
-              "ja-JP": {
-                singular: "カテゴリをもっと見るにはスクロールしてください"
-              },
-              "ko-KR": {
-                singular: "더 많은 카테고리를 보려면 스크롤하세요"
-              },
-              "pt-BR": {
-                singular: "Role para ver mais categorias"
-              },
-              "zh-CN": {
-                singular: "向下滚动以查看更多类别"
-              }
-            }
-          }),
+          "aria-label": "Scroll to see more categories",
           size: "md",
           variant: "tertiary",
           bg: "fill-surface",
           borderRadius: "md",
-          icon: (0, _v1.jsx)(_v94.ChevronRightSmall, {}),
+          icon: (0, _v1.jsx)(_v138.ChevronRightSmall, {}),
           marginLeft: 8,
           flexShrink: 0,
           _hover: {
@@ -2026,43 +3273,44 @@
         })]
       });
     };
-  var _v97 = _v0.i(0);
-  let _v98 = ["uri", "title", "sourceType", "sourceId"];
-  function _v99({
-    playerAssetUrls: _v0
+  var _v143 = _v0.i(0);
+  let _v144 = ["uri", "title", "sourceType", "sourceId"];
+  function _v145({
+    playerAssetUrls: _v0,
+    arm: _v1
   }) {
-    let _v1 = (0, _v20.useOptionalViewer)(),
-      [_v2, _v3] = (0, _v11.useState)(0),
-      _v4 = (0, _v10.useRouter)(),
-      _v5 = (0, _v33.useMarginXValue)(),
+    let _v2 = (0, _v20.useOptionalViewer)(),
+      [_v3, _v4] = (0, _v11.useState)(0),
+      _v5 = (0, _v10.useRouter)(),
+      _v6 = (0, _v33.useMarginXValue)(),
       {
-        data: _v6
-      } = _v32(() => _v1 ? {
+        data: _v7
+      } = _v32(() => _v2 ? {
         where: {
           contentId: 1
         },
-        select: [..._v98]
+        select: [..._v144]
       } : null, {
         revalidateOnFocus: !1,
         revalidateOnReconnect: !1
       }),
-      _v7 = _v6?.data ?? [],
-      _v8 = _v7[_v2] ?? null,
+      _v8 = _v7?.data ?? [],
+      _v9 = _v8[_v3] ?? null,
       {
-        videos: _v9,
-        isLoading: _v10,
-        isDone: _v11,
-        loadMore: _v12
+        videos: _v10,
+        isLoading: _v11,
+        isDone: _v12,
+        loadMore: _v13
       } = (_v0 => {
         let {
             data: _v1,
             setSize: _v2,
             isLoading: _v3
-          } = (0, _v97.useGetCurationComponentVideosInfinite)(() => null === _v0 ? null : {
+          } = (0, _v143.useGetCurationComponentVideosInfinite)(() => null === _v0 ? null : {
             where: {
               componentId: _v0
             },
-            select: ["name", "link", "pictures.sizes.link", "uri", "stats.plays", "user.link", "user.name", "user.pictures.sizes.link", "duration", "createdTime", "configUrl", "badge.type"],
+            select: ["name", "link", "pictures.sizes.link", "uri", "stats.plays", "user.link", "user.name", "user.pictures.sizes.link", "duration", "createdTime", "configUrl", "badge.type", "description", "playerEmbedUrl", "metadata.connections.likes.total", "metadata.connections.comments.total", "metadata.interactions.like", "metadata.interactions.watchlater", "metadata.interactions.flagClip", "page.share", "page.watchLater", "page.like", "page.collections", "privacy.add", "user.metadata.interactions.follow", "user.uri"],
             query: {
               sizes: "640",
               perPage: 12
@@ -2081,44 +3329,51 @@
             _v2(_v0 => _v0 + 1);
           }, [_v2])
         };
-      })(_v8 ? (0, _v63.idFromUri)(_v8.uri) : null),
-      _v13 = (0, _v11.useCallback)(_v0 => {
-        _v3(_v0);
+      })(_v9 ? (0, _v63.idFromUri)(_v9.uri) : null),
+      _v14 = (0, _v11.useCallback)(_v0 => {
+        _v4(_v0);
       }, []);
     return (0, _v1.jsxs)(_v13.Flex, {
       flexDir: "column",
       gap: "lg",
       minHeight: "100%",
       flexGrow: 1,
-      children: [(0, _v1.jsx)(_v100, {
+      children: [(0, _v1.jsx)(_v146, {
         type: _v19.PlayerType.BarebonePlayer,
         assetUrls: _v0,
         children: (0, _v1.jsxs)(_v13.Flex, {
           flexDir: "column",
           gap: "lg",
-          mx: _v5,
+          mx: _v6,
           pt: "lg",
           flexGrow: 1,
-          children: [(0, _v1.jsx)(_v96, {
-            categories: _v7,
-            activeIndex: _v2,
-            onSelect: _v13
-          }), _v8 && (0, _v1.jsx)(_v91, {
-            curationComponent: _v8,
-            videos: _v9,
-            isLoading: _v10,
-            isDone: _v11,
-            loadMore: _v12,
-            widgetPlacement: _v2 + 2
-          })]
+          children: [(0, _v1.jsx)(_v142, {
+            categories: _v8,
+            activeIndex: _v3,
+            onSelect: _v14
+          }), _v9 && ("t2" === _v1 ? (0, _v1.jsx)(_v135, {
+            curationComponent: _v9,
+            videos: _v10,
+            isLoading: _v11,
+            isDone: _v12,
+            loadMore: _v13,
+            widgetPlacement: _v3 + 2
+          }) : (0, _v1.jsx)(_v91, {
+            curationComponent: _v9,
+            videos: _v10,
+            isLoading: _v11,
+            isDone: _v12,
+            loadMore: _v13,
+            widgetPlacement: _v3 + 2
+          }))]
         })
-      }), null !== _v1 && !_v1?.user && (0, _v1.jsx)(_v22.LoggedOutBanner, {}), (0, _v1.jsx)(_v21.FooterContainer, {
-        viewer: _v1,
-        onLoginSuccess: () => _v4.reload()
+      }), null !== _v2 && !_v2?.user && (0, _v1.jsx)(_v22.LoggedOutBanner, {}), (0, _v1.jsx)(_v21.FooterContainer, {
+        viewer: _v2,
+        onLoginSuccess: () => _v5.reload()
       })]
     });
   }
-  let _v100 = ({
+  let _v146 = ({
     children: _v0,
     assetUrls: _v1,
     type: _v2
@@ -2127,19 +3382,23 @@
     type: _v2,
     children: _v0
   }) : _v0;
-  function _v101({
+  function _v147({
     playerAssetUrls: _v0
   }) {
     let {
       settings: _v1
     } = (0, _v7.useOrionSettings)();
-    return "t1" === _v1.watch_page_categories_arm ? (0, _v1.jsx)(_v99, {
-      playerAssetUrls: _v0
+    return "t1" === _v1.watch_page_categories_arm ? (0, _v1.jsx)(_v145, {
+      playerAssetUrls: _v0,
+      arm: "t1"
+    }) : "t2" === _v1.watch_page_categories_arm ? (0, _v1.jsx)(_v145, {
+      playerAssetUrls: _v0,
+      arm: "t2"
     }) : (0, _v1.jsx)(_v82, {
       playerAssetUrls: _v0
     });
   }
-  let _v102 = ({
+  let _v148 = ({
     playerAssetUrls: _v0
   }) => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsxs)(_v2.default, {
@@ -2251,11 +3510,11 @@
         rel: "canonical",
         href: "https://vimeo.com/watch"
       })]
-    }), (0, _v1.jsx)(_v101, {
+    }), (0, _v1.jsx)(_v147, {
       playerAssetUrls: _v0
     })]
   });
-  _v102.getLayout = _v3.getLayout, (0, _v5.withPageSetup)(async _v0 => (await (0, _v4.isFromCopyrightRestrictedRegion)(_v0)) ? {
+  _v148.getLayout = _v3.getLayout, (0, _v5.withPageSetup)(async _v0 => (await (0, _v4.isFromCopyrightRestrictedRegion)(_v0)) ? {
     redirect: {
       destination: "/europeanfilmacademy",
       permanent: !1
@@ -2268,5 +3527,5 @@
   }, {
     inlineViewer: "all",
     inlinePlayerAssets: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v102], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v148], 0);
 }

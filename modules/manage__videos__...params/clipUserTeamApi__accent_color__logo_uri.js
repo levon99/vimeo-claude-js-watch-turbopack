@@ -875,28 +875,28 @@
       },
       [_v151.CUSTOM_PAGE]: {
         title: (0, _v150.translate)({
-          singular: "Video page customization",
+          singular: "Page theme customization",
           dictionary: {
             es: {
-              singular: "Personalización de la página de vídeo"
+              singular: "Personalización del tema de la página"
             },
             "de-DE": {
-              singular: "Anpassung der Videoseite"
+              singular: "Seitenthema-Anpassung"
             },
             "fr-FR": {
-              singular: "Personnalisation de la page vidéo"
+              singular: "Personnalisation du thème de la page"
             },
             "ja-JP": {
-              singular: "動画ページのカスタマイズ"
+              singular: "ページテーマのカスタマイズ"
             },
             "ko-KR": {
-              singular: "동영상 페이지 사용자 지정"
+              singular: "페이지 테마 사용자 지정"
             },
             "pt-BR": {
-              singular: "Personalização da página de vídeo"
+              singular: "Personalização do tema da página"
             },
             "zh-CN": {
-              singular: "视频页面自定义"
+              singular: "页面主题自定义"
             }
           }
         })
@@ -25343,28 +25343,28 @@
     _v773 = {
       [_v771.CUSTOM_PAGE]: {
         ariaLabel: (0, _v150.translate)({
-          singular: "Video page",
+          singular: "Page theme",
           dictionary: {
             es: {
-              singular: "Página de video"
+              singular: "Tema de la página"
             },
             "de-DE": {
-              singular: "Videoseite"
+              singular: "Seitendesign"
             },
             "fr-FR": {
-              singular: "Page vidéo "
+              singular: "Thème de la page"
             },
             "ja-JP": {
-              singular: "動画ページ"
+              singular: "ページのテーマ"
             },
             "ko-KR": {
-              singular: "동영상 페이지"
+              singular: "페이지 테마"
             },
             "pt-BR": {
-              singular: "Página de Vídeos"
+              singular: "Tema da página"
             },
             "zh-CN": {
-              singular: "视频页面"
+              singular: "页面主题"
             }
           }
         }),
