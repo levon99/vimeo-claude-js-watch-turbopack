@@ -509,19 +509,19 @@
               singular: "Contenido para adultos"
             },
             "de-DE": {
-              singular: "Inhalte mit Jugendfilter"
+              singular: "Inhalte für Erwachsene"
             },
             "fr-FR": {
-              singular: "Contenu pour adultes"
+              singular: "Contenu réservé aux adultes"
             },
             "ja-JP": {
               singular: "成人向けコンテンツ"
             },
             "ko-KR": {
-              singular: "성인 콘텐츠"
+              singular: "성인용 콘텐츠"
             },
             "pt-BR": {
-              singular: "Conteúdo adulto"
+              singular: "Conteúdo maduro"
             },
             "zh-CN": {
               singular: "成人内容"

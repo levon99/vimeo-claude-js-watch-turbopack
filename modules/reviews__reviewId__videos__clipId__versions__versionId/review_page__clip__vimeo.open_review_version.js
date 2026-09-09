@@ -149,7 +149,8 @@
             showResolvedComments: _v23,
             isPreviousVersion: !0,
             isShowAdvancedPlayBar: !0,
-            clipOwnerId: _v26
+            clipOwnerId: _v26,
+            videoContentAspectRatio: _v5?.width != null && _v5.width > 0 && _v5?.height != null && _v5.height > 0 ? _v5.width / _v5.height : void 0
           })
         }), !_v16 && (0, _v1.jsx)(_v19.DownloadVersionModal, {
           isOpen: _v14,

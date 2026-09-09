@@ -806,24 +806,19 @@
         let _v4 = [...new Set(_v3.map(_v0 => _v0.sectionUri))];
         return await Promise.all(_v4.map(_v0 => _v23(_v0))), _v2;
       }, [_v24, _v23, _v10]),
-      {
-        settings: _v26
-      } = (0, _v39.useOrionSettings)(),
-      _v27 = _v26.profile_likes_activity,
-      _v28 = (0, _v16.useCallback)((_v0, _v1) => `${_v0.substring(1)}/videos${(0, _v94.buildQueryString)((0, _v29.decamelizeDeep)({
+      _v26 = (0, _v16.useCallback)((_v0, _v1) => `${_v0.substring(1)}/videos${(0, _v94.buildQueryString)((0, _v29.decamelizeDeep)({
         ..._v49.VIDEO_VARIABLES,
-        fields: (0, _v49.getVideoFields)(_v27),
         page: _v1,
         perPage: _v16
-      }))}`, [_v16, _v27]),
+      }))}`, [_v16]),
       {
-        isValidating: _v29,
-        mutate: _v30,
-        data: _v31,
-        error: _v32,
-        setSize: _v33,
-        size: _v34
-      } = (0, _v91.default)(_v0 => _v3 ? _v28(_v0, _v0 + 1) : null, _v7, {
+        isValidating: _v27,
+        mutate: _v28,
+        data: _v29,
+        error: _v30,
+        setSize: _v31,
+        size: _v32
+      } = (0, _v91.default)(_v0 => _v3 ? _v26(_v0, _v0 + 1) : null, _v7, {
         revalidateAll: _v17,
         revalidateOnMount: !0,
         fallbackData: [_v22()],
@@ -831,17 +826,17 @@
           revalidateOnFocus: _v18
         })
       }),
-      _v35 = (0, _v16.useMemo)(() => _v31?.map(_v0 => _v0 ? {
+      _v33 = (0, _v16.useMemo)(() => _v29?.map(_v0 => _v0 ? {
         ..._v0,
         items: _v0.items.filter(_v0 => null != _v0.clip)
-      } : _v0), [_v31]),
-      _v36 = (0, _v16.useCallback)(_v0 => {
+      } : _v0), [_v29]),
+      _v34 = (0, _v16.useCallback)(_v0 => {
         _v0 && _v0.json && _v0.json().then(_v0 => _v11({
           content: _v0.error,
           status: "negative"
-        })), _v12(), _v30();
-      }, [_v30, _v11, _v12]),
-      _v37 = (0, _v16.useCallback)(async (_v0, _v1) => {
+        })), _v12(), _v28();
+      }, [_v28, _v11, _v12]),
+      _v35 = (0, _v16.useCallback)(async (_v0, _v1) => {
         let _v2 = _v65(_v13),
           _v3 = _v59(_v0),
           _v4 = _v2.findIndex(_v0 => _v0.uri === _v0);
@@ -862,17 +857,17 @@
           }
           return [];
         } catch (_v0) {
-          return _v36(_v0), [];
+          return _v34(_v0), [];
         }
-      }, [_v36, _v9, _v13, _v12]),
-      _v38 = (0, _v16.useCallback)(async (_v0, _v1, _v2) => {
+      }, [_v34, _v9, _v13, _v12]),
+      _v36 = (0, _v16.useCallback)(async (_v0, _v1, _v2) => {
         if (_v2) {
           let _v0 = await _v20(_v0);
-          if (!_v0.every((_v0, _v1) => _v1[_v1] === _v0)) return await _v37(_v0, _v0);
+          if (!_v0.every((_v0, _v1) => _v1[_v1] === _v0)) return await _v35(_v0, _v0);
         }
         return [...new Set(_v1)];
-      }, [_v20, _v37]),
-      _v39 = (0, _v16.useCallback)(async (_v0, _v1, _v2, _v3, _v4 = !0) => {
+      }, [_v20, _v35]),
+      _v37 = (0, _v16.useCallback)(async (_v0, _v1, _v2, _v3, _v4 = !0) => {
         _v15(!0);
         try {
           let _v0 = await _v21(_v0),
@@ -882,19 +877,19 @@
             let _v0 = {
                 ..._v1[_v2]
               },
-              _v1 = await _v38(_v0, [..._v0.clipUris], _v0.unbounded);
+              _v1 = await _v36(_v0, [..._v0.clipUris], _v0.unbounded);
             _v1.splice(_v1, 0, ..._v2);
             let _v2 = [...new Set(_v1)];
-            await _v37(_v0.uri, _v2);
+            await _v35(_v0.uri, _v2);
             let _v3 = _v4 ? _v23(_v0) : Promise.resolve();
             return Promise.all([_v3(), _v3]).then(() => (_v11(), _v15(!1), _v2));
           }
         } catch (_v0) {
-          _v36(_v0);
+          _v34(_v0);
         }
         return _v15(!1), [];
-      }, [_v21, _v13, _v38, _v37, _v11, _v23, _v36]),
-      _v40 = (0, _v16.useCallback)(async (_v0, _v1, _v2) => {
+      }, [_v21, _v13, _v36, _v35, _v11, _v23, _v34]),
+      _v38 = (0, _v16.useCallback)(async (_v0, _v1, _v2) => {
         _v15(!0);
         try {
           let _v0 = await _v21(_v0),
@@ -904,25 +899,25 @@
             let _v0 = {
                 ..._v1[_v2]
               },
-              _v1 = await _v38(_v0, [..._v0.clipUris], _v0.unbounded),
+              _v1 = await _v36(_v0, [..._v0.clipUris], _v0.unbounded),
               _v2 = _v1.findIndex(_v0 => _v0 === _v1);
-            if (-1 !== _v2 && _v35) {
+            if (-1 !== _v2 && _v33) {
               _v1.splice(_v2, 1);
-              let _v0 = _v65(_v35);
+              let _v0 = _v65(_v33);
               _v0.splice(_v2, 1);
-              let _v1 = _v62(_v0, _v35, _v16),
-                _v2 = _v35.length - _v1.length,
-                _v3 = await _v37(_v0, _v1),
+              let _v1 = _v62(_v0, _v33, _v16),
+                _v2 = _v33.length - _v1.length,
+                _v3 = await _v35(_v0, _v1),
                 _v4 = RegExp(`^${_v0.substring(1)}/videos`);
-              return _v63(_v5, _v4), Promise.all([_v2(), 0 !== _v2 ? _v33(Math.max(_v1.length, 1)) : _v30()]).then(() => (_v11(), _v15(!1), _v3));
+              return _v63(_v5, _v4), Promise.all([_v2(), 0 !== _v2 ? _v31(Math.max(_v1.length, 1)) : _v28()]).then(() => (_v11(), _v15(!1), _v3));
             }
           }
         } catch (_v0) {
-          _v36(_v0);
+          _v34(_v0);
         }
         return _v15(!1), [];
-      }, [_v5, _v21, _v13, _v38, _v35, _v37, _v33, _v30, _v11, _v36, _v16]),
-      _v41 = (0, _v16.useCallback)(async ({
+      }, [_v5, _v21, _v13, _v36, _v33, _v35, _v31, _v28, _v11, _v34, _v16]),
+      _v39 = (0, _v16.useCallback)(async ({
         title: _v0
       }) => {
         _v15(!0);
@@ -938,13 +933,13 @@
           if (!_v2) return;
           return await _v12(), _v2;
         } catch (_v0) {
-          _v36(_v0);
+          _v34(_v0);
           return;
         } finally {
           _v15(!1);
         }
-      }, [_v13, _v9, _v12, _v36]),
-      _v42 = (0, _v16.useCallback)(async _v0 => {
+      }, [_v13, _v9, _v12, _v34]),
+      _v40 = (0, _v16.useCallback)(async _v0 => {
         let _v1 = _v65(_v13),
           _v2 = _v1[_v0];
         if (!_v2) throw Error(`No section at index ${_v0}`);
@@ -960,12 +955,12 @@
             revalidate: !1
           }), _v3 && (await _v23(_v3.uri)), await _v12(), _v11();
         } catch (_v0) {
-          _v36(_v0);
+          _v34(_v0);
         } finally {
           _v15(!1);
         }
-      }, [_v13, _v9, _v12, _v23, _v11, _v36]),
-      _v43 = (0, _v16.useCallback)(async (_v0, _v1) => {
+      }, [_v13, _v9, _v12, _v23, _v11, _v34]),
+      _v41 = (0, _v16.useCallback)(async (_v0, _v1) => {
         let _v2 = "me/profile_sections",
           _v3 = (0, _v29.decamelizeDeep)({
             containerUri: _v0,
@@ -991,7 +986,7 @@
           revalidate: !1
         })), _v11();
       }, [_v19, _v9, _v13, _v12, _v11]),
-      _v44 = (0, _v16.useCallback)((_v0, _v1) => {
+      _v42 = (0, _v16.useCallback)((_v0, _v1) => {
         _v12(_v0 => {
           if (!_v0) return _v0;
           let _v1 = _v65(_v0),
@@ -1019,7 +1014,7 @@
           revalidate: !1
         });
       }, [_v9, _v11, _v12]),
-      _v45 = (0, _v16.useCallback)(async (_v0, _v1) => {
+      _v43 = (0, _v16.useCallback)(async (_v0, _v1) => {
         let _v2 = null != _v1.video && _v0.video.clip.uri === _v1.video.clip.uri;
         if (_v15(!0), _v2) return void _v15(!1);
         try {
@@ -1028,19 +1023,19 @@
             _v2 = _v65(_v13),
             _v3 = _v2.find(_v0 => _v0.uri === _v0),
             _v4 = _v2.find(_v0 => _v0.uri === _v1);
-          _v3 && _v4 && (await _v38(_v0, [..._v3.clipUris], _v3.unbounded), _v0 !== _v1 && (await _v38(_v1, [..._v4.clipUris], _v4.unbounded)), await _v25([{
+          _v3 && _v4 && (await _v36(_v0, [..._v3.clipUris], _v3.unbounded), _v0 !== _v1 && (await _v36(_v1, [..._v4.clipUris], _v4.unbounded)), await _v25([{
             videoUri: _v0.video.clip.uri,
             fromSectionUri: _v0,
             toSectionUri: _v1,
             toVideoIndex: _v1.videoIndex
           }])), _v11();
         } catch (_v0) {
-          _v36(_v0);
+          _v34(_v0);
         } finally {
           _v15(!1);
         }
-      }, [_v38, _v21, _v36, _v25, _v11, _v13]),
-      _v46 = (0, _v16.useCallback)(async (_v0, _v1) => {
+      }, [_v36, _v21, _v34, _v25, _v11, _v13]),
+      _v44 = (0, _v16.useCallback)(async (_v0, _v1) => {
         try {
           let _v0 = (0, _v29.decamelizeDeep)({
               columnWidth: _v1
@@ -1050,37 +1045,37 @@
             _v3 = `me/profile_sections/${_v2}/videos/${_v0}`;
           await _v8(_v3, void 0, _v49.HTTPMethods.PATCH, _v0), _v11();
         } catch (_v0) {
-          _v36(_v0);
+          _v34(_v0);
         }
-      }, [_v21, _v36, _v11, _v8, _v0]),
-      _v47 = (0, _v16.useCallback)((_v0, _v1) => _v46(_v59(_v0.clip.uri), _v1).then(() => {
-        let _v0 = _v65(_v35),
+      }, [_v21, _v34, _v11, _v8, _v0]),
+      _v45 = (0, _v16.useCallback)((_v0, _v1) => _v44(_v59(_v0.clip.uri), _v1).then(() => {
+        let _v0 = _v65(_v33),
           _v1 = _v0.findIndex(_v0 => _v0.clip.uri === _v0.clip.uri);
         if (-1 !== _v1) {
           let _v0 = {
             ..._v0[_v1]
           };
-          _v0.columnWidth = _v1, _v0[_v1] = _v0, _v30(_v0 => _v0 ? _v62(_v0, _v0, _v16) : _v0, {
+          _v0.columnWidth = _v1, _v0[_v1] = _v0, _v28(_v0 => _v0 ? _v62(_v0, _v0, _v16) : _v0, {
             revalidate: !1
           });
         }
-      }), [_v46, _v35, _v30, _v16]);
+      }), [_v44, _v33, _v28, _v16]);
     return {
-      addVideosToSection: _v39,
-      createSection: _v41,
-      data: _v35,
-      error: _v32,
-      isValidating: _v29,
-      moveSection: _v44,
-      mutate: _v30,
-      onDrop: _v45,
-      removeSection: _v42,
-      removeVideoFromSection: _v40,
-      revalidate: _v30,
-      setSize: _v33,
-      size: _v34,
-      toggleVideoData: _v47,
-      updateSectionTitle: _v43,
+      addVideosToSection: _v37,
+      createSection: _v39,
+      data: _v33,
+      error: _v30,
+      isValidating: _v27,
+      moveSection: _v42,
+      mutate: _v28,
+      onDrop: _v43,
+      removeSection: _v40,
+      removeVideoFromSection: _v38,
+      revalidate: _v28,
+      setSize: _v31,
+      size: _v32,
+      toggleVideoData: _v45,
+      updateSectionTitle: _v41,
       videoLoading: _v14
     };
   }
@@ -7104,7 +7099,7 @@
                 })
               })
             })]
-          }) : _v20 && !_v16 && !_v200 && _v25 ? (0, _v6.jsx)(_v33.Flex, {
+          }) : _v20 && !_v16 && !_v200 && _v25 && _v0.clip.page?.like !== !1 ? (0, _v6.jsx)(_v33.Flex, {
             position: "absolute",
             top: (0, _v47.rem)(8),
             right: (0, _v47.rem)(8),
@@ -8926,73 +8921,67 @@
   }) {
     let _v3,
       _v4,
-      _v5 = (0, _v16.useContext)(_v26.ViewerContext),
+      _v5,
+      _v6 = (0, _v16.useContext)(_v26.ViewerContext),
       {
-        capabilities: _v6
+        capabilities: _v7
       } = (0, _v19.useCapability)(["canEditPersonalInfo"]),
-      _v7 = (0, _v15.useRouter)(),
-      [_v8, _v9] = (0, _v16.useState)(!1),
+      _v8 = (0, _v15.useRouter)(),
+      [_v9, _v10] = (0, _v16.useState)(!1),
       {
-        trackUserProfilePageDisplayed: _v10
+        trackUserProfilePageDisplayed: _v11
       } = (0, _v24.useProfileTracking)(),
-      _v11 = _v5?.user?.id.toString() === _v1 || _v5?.user?.link.endsWith(_v1) || !1,
-      _v12 = _v6?.canEditPersonalInfo ?? !1;
+      _v12 = _v6?.user?.id.toString() === _v1 || _v6?.user?.link.endsWith(_v1) || !1,
+      _v13 = _v7?.canEditPersonalInfo ?? !1;
     (0, _v16.useEffect)(() => {
       let _v0 = location.search.includes("preview");
-      _v11 && !_v0 && _v9(!0), !_v11 && _v0 && _v7.replace(location.pathname);
-    }, [_v11]);
+      _v12 && !_v0 && _v10(!0), !_v12 && _v0 && _v8.replace(location.pathname);
+    }, [_v12]);
     let {
-        data: _v13,
-        error: _v14,
-        mutate: _v15,
-        isValidating: _v16
+        data: _v14,
+        error: _v15,
+        mutate: _v16,
+        isValidating: _v17
       } = (_v3 = (0, _v92.default)(), _v4 = (0, _v16.useCallback)(_v0 => _v3(_v0, {
         fields: _v385,
         fetch_user_profile: "1"
       }), [_v3]), (0, _v124.default)(`users/${_v1}`, _v4)),
-      _v17 = function (_v0) {
-        let _v1 = (0, _v92.default)(),
-          {
-            settings: _v2
-          } = (0, _v39.useOrionSettings)(),
-          _v3 = _v2.profile_likes_activity;
-        return (0, _v91.default)(_v0 => {
-          let _v1 = {
-              ...(0, _v49.getSectionVariables)(_v3),
-              page: _v0 + 1
-            },
-            _v2 = (0, _v94.buildQueryString)((0, _v29.decamelizeDeep)(_v1));
-          return `users/${_v0}/profile_sections${_v2}`;
-        }, _v1);
-      }(_v1),
-      _v18 = !_v13 && !_v14;
+      _v18 = (_v5 = (0, _v92.default)(), (0, _v91.default)(_v0 => {
+        let _v1 = {
+            ..._v49.SECTION_VARIABLES,
+            page: _v0 + 1
+          },
+          _v2 = (0, _v94.buildQueryString)((0, _v29.decamelizeDeep)(_v1));
+        return `users/${_v1}/profile_sections${_v2}`;
+      }, _v5)),
+      _v19 = !_v14 && !_v15;
     if ((0, _v23.usePicoEffect)(() => {
-      if (!_v13 || !_v5) return !1;
+      if (!_v14 || !_v6) return !1;
       let _v0 = /^\d+$/.test(_v1) ? "default_url" : "custom_url";
-      _v10({
-        userProfilePageUserId: _v59(_v13.uri).toString(),
+      _v11({
+        userProfilePageUserId: _v59(_v14.uri).toString(),
         referrerPage: (0, _v22.deriveReferrerPage)(),
         userProfilePageType: _v0,
-        userProfilePageViewerAuthStatus: (0, _v22.deriveViewerAuthStatus)(_v5)
+        userProfilePageViewerAuthStatus: (0, _v22.deriveViewerAuthStatus)(_v6)
       });
-    }, [_v13, _v1, _v5], {
+    }, [_v14, _v1, _v6], {
       once: !0
-    }), !_v5 || _v18) return (0, _v6.jsx)(_v383, {});
-    if (_v14 && 404 === _v14.status) throw new _v20.ResourceNotFoundError(_v14);
-    return _v14 || !_v13 ? null : (0, _v6.jsx)(_v88.Provider, {
+    }), !_v6 || _v19) return (0, _v6.jsx)(_v383, {});
+    if (_v15 && 404 === _v15.status) throw new _v20.ResourceNotFoundError(_v15);
+    return _v15 || !_v14 ? null : (0, _v6.jsx)(_v88.Provider, {
       value: {
-        data: _v13,
-        error: _v14,
-        mutate: _v15,
-        isValidating: _v16
+        data: _v14,
+        error: _v15,
+        mutate: _v16,
+        isValidating: _v17
       },
       children: (0, _v6.jsx)(_v89.Provider, {
-        value: _v17,
+        value: _v18,
         children: (0, _v6.jsxs)(_v50.default.Provider, {
           value: {
             idOrUserName: _v1,
-            editMode: _v8,
-            userId: _v59(_v13.uri)
+            editMode: _v9,
+            userId: _v59(_v14.uri)
           },
           children: [_v2 && (0, _v6.jsx)(_v17.Alert, {
             status: "error",
@@ -9055,12 +9044,12 @@
               })]
             })
           }), (0, _v6.jsx)(_v375, {
-            profile: _v13,
-            editMode: _v8,
+            profile: _v14,
+            editMode: _v9,
             playerAssetUrls: _v0,
-            canEditPersonalInfo: _v12,
+            canEditPersonalInfo: _v13,
             Footer: (0, _v6.jsx)(_v25.default, {
-              ..._v5
+              ..._v6
             })
           })]
         })

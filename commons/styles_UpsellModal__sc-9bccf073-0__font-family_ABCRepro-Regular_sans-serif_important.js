@@ -253,15 +253,18 @@
     _v61 = _v0.i(0);
   let _v62 = ({
     planData: _v0,
-    displayMonthlyPlan: _v1
+    displayMonthlyPlan: _v1,
+    showAnnualAlternativeForMonthly: _v2
   }) => {
     let {
-        entitlements: _v2
+        entitlements: _v3
       } = _v0.metadata,
-      _v3 = _v0.metadata.isBandwidthProduct,
-      _v4 = (0, _v61.useViewer)(),
-      _v5 = (0, _v60.isUkLocation)(_v4?.location),
-      _v6 = (_v5 ? (0, _v47.getUkVatDisplayPrice)(_v0, _v1, _v3) : null) ?? (0, _v47.getPlanDisplayPrice)(_v0, _v1, _v3);
+      _v4 = _v0.metadata.isBandwidthProduct,
+      _v5 = (0, _v61.useViewer)(),
+      _v6 = (0, _v60.isUkLocation)(_v5?.location),
+      _v7 = (_v6 ? (0, _v47.getUkVatDisplayPrice)(_v0, _v1, _v4) : null) ?? (0, _v47.getPlanDisplayPrice)(_v0, _v1, _v4),
+      _v8 = (0, _v47.getPlanBillingFrequencyCopy)(_v1, _v0, _v4, _v2),
+      _v9 = _v1 && _v2 ? _v44.default.perMonthBilledMonthly : _v44.default.perMonthBilledAnually;
     return (0, _v1.jsx)(_v7.Flex, {
       flexDirection: "column",
       gap: {
@@ -309,7 +312,7 @@
             md: "heading-2xl",
             xl: "heading-xl"
           },
-          children: _v6
+          children: _v7
         }), (0, _v1.jsxs)(_v32.Text, {
           variant: {
             base: "body-sm",
@@ -322,9 +325,11 @@
             md: "sm",
             xl: "md"
           },
-          children: [_v3 ? null : (0, _v1.jsxs)(_v1.Fragment, {
-            children: [_v56.SEAT_TIER_PLANS.includes(_v0.tier) ? _v2?.params?.videoStorageQuotaUnit === "video_size" ? _v44.default.perMonthBilledAnually : _v44.default.perSeatPerMonth : _v44.default.perMonth, (0, _v1.jsx)("br", {})]
-          }), (0, _v47.getPlanBillingFrequencyCopy)(_v1, _v0, _v3), (0, _v1.jsx)("br", {}), _v5 ? _v44.default.inclVat20 : _v44.default.plusApplicableTax]
+          children: [_v4 ? null : (0, _v1.jsxs)(_v1.Fragment, {
+            children: [_v56.SEAT_TIER_PLANS.includes(_v0.tier) ? _v3?.params?.videoStorageQuotaUnit === "video_size" ? _v9 : _v44.default.perSeatPerMonth : _v44.default.perMonth, (0, _v1.jsx)("br", {})]
+          }), _v8 && (0, _v1.jsxs)(_v1.Fragment, {
+            children: [_v8, (0, _v1.jsx)("br", {})]
+          }), _v6 ? _v44.default.inclVat20 : _v44.default.plusApplicableTax]
         })]
       })
     });
@@ -365,7 +370,11 @@
         _v9 = _v2.tier === _v56.PLANS.ENTERPRISE,
         _v10 = "free_trial_secondary" === _v1 && _v0,
         _v11 = "purchase_secondary" === _v1,
-        _v12 = (0, _v2.useCallback)(() => {
+        _v12 = (0, _v47.getPlanFreeTrialLink)(_v2, {
+          isMonthly: _v3,
+          allowMonthlyTrial: _v8.allowMonthlyTrial
+        }),
+        _v13 = (0, _v2.useCallback)(() => {
           let {
               tier: _v0,
               price: _v1,
@@ -395,13 +404,13 @@
             free_trial: _v10
           });
         }, [_v3, _v10, _v2, _v8]),
-        _v13 = (0, _v2.useMemo)(() => (0, _v35.translate)({
+        _v14 = (0, _v2.useMemo)(() => (0, _v35.translate)({
           singular: "or {A}start free trial{/A}",
           replacements: {
             A: _v0 => (0, _v1.jsx)("a", {
               target: "_blank",
-              href: (0, _v47.appendPaywallParams)((0, _v47.appendExtraQueryParams)((0, _v47.appendTrackingQueryParams)(_v2.metadata.interactions.purchase.uri.freeTrial, _v8.params), (0, _v64.getSatelliteCheckoutParamsFromCurrentLocation)()), _v8.paywallTracking),
-              onClick: _v12,
+              href: (0, _v47.appendPaywallParams)((0, _v47.appendExtraQueryParams)((0, _v47.appendTrackingQueryParams)(_v12, _v8.params), (0, _v64.getSatelliteCheckoutParamsFromCurrentLocation)()), _v8.paywallTracking),
+              onClick: _v13,
               rel: "noreferrer",
               children: _v0
             }, "start-fee-trial-link")
@@ -429,14 +438,14 @@
               singular: "或{A}开始免费试用{/A}"
             }
           }
-        }), [_v12, _v2.metadata.interactions.purchase.uri.freeTrial, _v8.params, _v8.paywallTracking]),
-        _v14 = (0, _v2.useMemo)(() => (0, _v35.translate)({
+        }), [_v13, _v12, _v8.params, _v8.paywallTracking]),
+        _v15 = (0, _v2.useMemo)(() => (0, _v35.translate)({
           singular: "or {A}purchase now{/A}",
           replacements: {
             A: _v0 => (0, _v1.jsx)("a", {
               target: "_blank",
               href: (0, _v47.appendPaywallParams)((0, _v47.appendExtraQueryParams)((0, _v47.appendTrackingQueryParams)((0, _v47.getPlanCTALink)(_v2, _v3, _v8.campaignOverride), _v8.params), (0, _v64.getSatelliteCheckoutParamsFromCurrentLocation)()), _v8.paywallTracking),
-              onClick: _v12,
+              onClick: _v13,
               rel: "noreferrer",
               children: _v0
             }, "purchase-now-link")
@@ -464,13 +473,13 @@
               singular: "或者{A}立即购买{/A}"
             }
           }
-        }), [_v12, _v2, _v3, _v8.params, _v8.campaignOverride, _v8.paywallTracking]);
+        }), [_v13, _v2, _v3, _v8.params, _v8.campaignOverride, _v8.paywallTracking]);
       return (0, _v2.useEffect)(() => {
         let _v0,
           _v1 = "",
           _v2 = "";
-        _v10 ? (_v0 = _v13, _v1 = "or start free trial", _v2 = _v2.metadata.interactions.purchase.uri.freeTrial) : _v11 && (_v0 = _v14, _v1 = "or {A}purchase now{/A}", _v2 = (0, _v47.getPlanCTALink)(_v2, _v3, _v8.campaignOverride)), _v4.current = _v1, _v5.current = _v2, _v7(_v0);
-      }, [_v10, _v11, _v3, _v2, _v13, _v14]), _v6 && !_v9 ? (0, _v1.jsx)(_v65, {
+        _v10 ? (_v0 = _v14, _v1 = "or start free trial", _v2 = _v12) : _v11 && (_v0 = _v15, _v1 = "or {A}purchase now{/A}", _v2 = (0, _v47.getPlanCTALink)(_v2, _v3, _v8.campaignOverride)), _v4.current = _v1, _v5.current = _v2, _v7(_v0);
+      }, [_v10, _v11, _v3, _v2, _v14, _v15, _v12]), _v6 && !_v9 ? (0, _v1.jsx)(_v65, {
         "data-testid": "upsell-cta",
         children: _v6
       }) : (0, _v1.jsx)(_v65, {
@@ -497,7 +506,10 @@
         _v15,
         _v16 = (0, _v2.useContext)(_v28.default),
         _v17 = _v1.tier === _v56.PLANS.ENTERPRISE;
-      _v0 || (_v0 = _v12 ? "purchase_secondary" : "free_trial_secondary"), _v17 ? (_v13 = _v44.default.contactSales, _v14 = "/enterprise/contact?mkc=ent-upgrade-plan-modal", _v15 = "direct") : _v12 && ("free_trial_only" === _v0 || "purchase_secondary" === _v0) ? (_v13 = _v44.default.startFreeTrial, _v14 = _v1.metadata.interactions.purchase.uri.freeTrial, _v15 = "trial") : (_v13 = _v44.default.upgrade, _v14 = (0, _v47.getPlanCTALink)(_v1, _v2, _v16.campaignOverride), _v15 = "direct"), _v3 && (_v13 = _v3);
+      _v0 || (_v0 = _v12 ? "purchase_secondary" : "free_trial_secondary"), _v17 ? (_v13 = _v44.default.contactSales, _v14 = "/enterprise/contact?mkc=ent-upgrade-plan-modal", _v15 = "direct") : _v12 && ("free_trial_only" === _v0 || "purchase_secondary" === _v0) ? (_v13 = _v44.default.startFreeTrial, _v14 = (0, _v47.getPlanFreeTrialLink)(_v1, {
+        isMonthly: _v2,
+        allowMonthlyTrial: _v16.allowMonthlyTrial
+      }), _v15 = "trial") : (_v13 = _v44.default.upgrade, _v14 = (0, _v47.getPlanCTALink)(_v1, _v2, _v16.campaignOverride), _v15 = "direct"), _v3 && (_v13 = _v3);
       let _v18 = "purchase_secondary" === _v0 || "free_trial_secondary" === _v0 && _v12;
       return (0, _v1.jsxs)(_v30.Box, {
         w: "100%",
@@ -626,7 +638,8 @@
             hideSubheading: _v0.hideSubheading
           }), (0, _v1.jsx)(_v62, {
             planData: _v0.planData,
-            displayMonthlyPlan: _v0.displayMonthlyPlan
+            displayMonthlyPlan: _v0.displayMonthlyPlan,
+            showAnnualAlternativeForMonthly: _v0.showAnnualAlternativeForMonthly
           }), (0, _v1.jsx)(_v67, {
             planData: _v0.planData,
             ctaTreatment: _v0.modalConfig?.ctaTreatment,
@@ -659,12 +672,17 @@
           coldStorageReorder: _v2,
           coldStorageResolving: _v3
         } = _v0,
-        _v4 = !_v1,
-        _v5 = [...(_v0.modalConfig?.excludePlans ?? []), ...(_v4 ? [_v56.PLANS.CREATOR, _v56.PLANS.PROFESSIONAL] : []), ...(_v2 ? [_v56.PLANS.STARTER, _v56.PLANS.PLUS] : [])];
+        {
+          settings: _v4
+        } = (0, _v14.useOrionSettings)(),
+        _v5 = !_v1,
+        _v6 = [...(_v0.modalConfig?.excludePlans ?? []), ...(_v5 ? [_v56.PLANS.CREATOR, _v56.PLANS.PROFESSIONAL] : []), ...(_v2 ? [_v56.PLANS.STARTER, _v56.PLANS.PLUS] : [])];
       if (_v3) return null;
-      let _v6 = (0, _v3.filterB2BRepackagingPlans)((0, _v47.filterPlansData)(_v0.plansData, _v0.userData, _v5), _v1),
-        _v7 = _v0.modalConfig?.hidePlansSummary || _v6.length > 0 && (0, _v54.isSolutionTier)(_v6[0].tier),
-        _v8 = (0, _v47.isEligibleForFreeTrial)(_v0.userData) && _v6 && !!_v6[0].metadata.interactions.purchase.uri.freeTrial;
+      let _v7 = (0, _v3.filterB2BRepackagingPlans)((0, _v47.filterPlansData)(_v0.plansData, _v0.userData, _v6), _v1),
+        _v8 = _v0.modalConfig?.hidePlansSummary || _v7.length > 0 && (0, _v54.isSolutionTier)(_v7[0].tier),
+        _v9 = (0, _v47.isEligibleForFreeTrial)(_v0.userData),
+        _v10 = (0, _v47.showMonthlyPlans)(_v0.plansData, _v4.default_modal_monthly),
+        _v11 = _v9 && _v7 && !!_v7[0].metadata.interactions.purchase.uri.freeTrial && (!_v10 || _v4.homepage_paywall_monthly_free_trial);
       return (0, _v1.jsx)(_v50.Stack, {
         position: "relative",
         zIndex: 1,
@@ -675,18 +693,19 @@
         },
         gap: "md",
         justifyContent: "center",
-        children: _v6.map((_v0, _v1) => {
-          let _v2 = (0, _v47.getPreviousPlanTierCopy)(_v6, _v0, _v1),
-            _v3 = _v1 > 0 ? _v6[_v1 - 1].tier : null;
+        children: _v7.map((_v0, _v1) => {
+          let _v2 = (0, _v47.getPreviousPlanTierCopy)(_v7, _v0, _v1),
+            _v3 = _v1 > 0 ? _v7[_v1 - 1].tier : null;
           return _v1 < 4 && (0, _v1.jsx)(_v68, {
             planData: _v0,
             userData: _v0.userData,
             previousCardPlan: _v2,
             modalConfig: _v0.modalConfig,
             showRecommendedBadge: _v0.modalConfig?.recommendedPlan ? _v0.tier === _v0.modalConfig?.recommendedPlan : (0, _v47.showRecommendedBadge)(_v0, _v1, _v3),
-            displayMonthlyPlan: (0, _v47.showMonthlyPlans)(_v0.plansData),
-            hideSubheading: _v7,
-            allowFreeTrial: _v8
+            displayMonthlyPlan: _v10,
+            showAnnualAlternativeForMonthly: _v4.default_modal_monthly,
+            hideSubheading: _v8,
+            allowFreeTrial: _v11
           }, `plan-card-${_v0.tier}`);
         })
       });
@@ -756,32 +775,35 @@
         plansData: _v2
       } = _v0,
       {
-        showIndividualPlans: _v3
+        settings: _v3
+      } = (0, _v14.useOrionSettings)(),
+      {
+        showIndividualPlans: _v4
       } = (0, _v5.useB2BRepackagingContext)(),
       {
-        shouldReorder: _v4,
-        isResolving: _v5
+        shouldReorder: _v5,
+        isResolving: _v6
       } = _v74(),
-      _v6 = (0, _v2.useMemo)(() => {
+      _v7 = (0, _v2.useMemo)(() => {
         if (!_v0.userData || !_v2) return [];
-        let _v0 = [...(_v1?.excludePlans ?? []), ...(_v3 ? [] : [_v56.PLANS.CREATOR, _v56.PLANS.PROFESSIONAL]), ...(_v4 ? [_v56.PLANS.STARTER, _v56.PLANS.PLUS] : [])];
-        return (0, _v3.filterB2BRepackagingPlans)((0, _v47.filterPlansData)(_v2, _v0.userData, _v0), _v3).slice(0, 4);
-      }, [_v0.userData, _v2, _v1?.excludePlans, _v3, _v4]),
-      _v7 = (0, _v2.useMemo)(() => _v2 && 0 !== _v6.length ? (0, _v47.showMonthlyPlans)(_v2) ? ["monthly"] : ["yearly"] : [], [_v2, _v6]),
+        let _v0 = [...(_v1?.excludePlans ?? []), ...(_v4 ? [] : [_v56.PLANS.CREATOR, _v56.PLANS.PROFESSIONAL]), ...(_v5 ? [_v56.PLANS.STARTER, _v56.PLANS.PLUS] : [])];
+        return (0, _v3.filterB2BRepackagingPlans)((0, _v47.filterPlansData)(_v2, _v0.userData, _v0), _v4).slice(0, 4);
+      }, [_v0.userData, _v2, _v1?.excludePlans, _v4, _v5]),
+      _v8 = (0, _v2.useMemo)(() => _v2 && 0 !== _v7.length ? (0, _v47.showMonthlyPlans)(_v2, _v3.default_modal_monthly) ? ["monthly"] : ["yearly"] : [], [_v2, _v7, _v3.default_modal_monthly]),
       {
-        trackPaywallDismissed: _v8
+        trackPaywallDismissed: _v9
       } = (0, _v24.usePaywallTracking)({
         ..._v0.tracking.paywallTracking,
         paywallStyle: "default_modal",
-        paywallPlansDisplayed: _v6.map(_v0 => _v0.tier),
-        paywallPeriodicitiesDisplayed: _v7,
-        isVisible: !_v5
+        paywallPlansDisplayed: _v7.map(_v0 => _v0.tier),
+        paywallPeriodicitiesDisplayed: _v8,
+        isVisible: !_v6
       }),
-      _v9 = () => {
-        _v8(), window.dispatchEvent(new CustomEvent(_v75)), _v0.onClose();
+      _v10 = () => {
+        _v9(), window.dispatchEvent(new CustomEvent(_v75)), _v0.onClose();
       },
-      _v10 = _v1?.featuredBannerText,
-      _v11 = !_v1?.suppressAllPaidPlansBanner && _v2?.length && (0, _v47.isSeatTierPlan)(_v2[0].tier) ? _v10 ?? (0, _v35.translate)({
+      _v11 = _v1?.featuredBannerText,
+      _v12 = !_v1?.suppressAllPaidPlansBanner && _v2?.length && (0, _v47.isSeatTierPlan)(_v2[0].tier) ? _v11 ?? (0, _v35.translate)({
         singular: "This feature is included in all paid plans",
         dictionary: {
           es: {
@@ -832,12 +854,12 @@
           }
         }
       });
-    _v1 && (_v1.hasFreeFeaturedBanner = _v1?.hasFreeFeaturedBanner || void 0 !== _v10);
-    let _v12 = _v1?.hasFreeFeaturedBanner;
+    _v1 && (_v1.hasFreeFeaturedBanner = _v1?.hasFreeFeaturedBanner || void 0 !== _v11);
+    let _v13 = _v1?.hasFreeFeaturedBanner;
     return (0, _v1.jsxs)(_v8.Modal, {
       "data-testid": "default-upsell-container",
       isOpen: !0,
-      onClose: _v9,
+      onClose: _v10,
       scrollBehavior: "outside",
       children: [(0, _v1.jsx)(_v12.ModalOverlay, {}), (0, _v1.jsx)(_v11.ModalContent, {
         top: {
@@ -846,7 +868,7 @@
           md: "lg",
           xl: "initial"
         },
-        marginTop: _v12 ? (0, _v33.rem)(40) : void 0,
+        marginTop: _v13 ? (0, _v33.rem)(40) : void 0,
         alignSelf: {
           base: "flex-start",
           xl: "center"
@@ -862,7 +884,7 @@
             base: "md",
             xl: "lg"
           },
-          children: [_v12 && (0, _v1.jsx)(_v30.Box, {
+          children: [_v13 && (0, _v1.jsx)(_v30.Box, {
             borderRadius: "xl",
             position: "absolute",
             width: "100%",
@@ -888,20 +910,20 @@
               }), (0, _v1.jsx)(_v32.Text, {
                 variant: "body-lg",
                 color: "text-primary",
-                children: _v11
+                children: _v12
               })]
             })
           }), (0, _v1.jsx)(_v49, {
             modalConfig: _v1,
-            onClose: _v9,
+            onClose: _v10,
             userName: _v0.userData?.name
           }), _v0.userData && _v2 && (0, _v1.jsx)(_v69, {
             modalConfig: _v1,
             userData: _v0.userData,
             plansData: _v2,
-            showIndividualPlans: _v3,
-            coldStorageReorder: _v4,
-            coldStorageResolving: _v5
+            showIndividualPlans: _v4,
+            coldStorageReorder: _v5,
+            coldStorageResolving: _v6
           }), (0, _v1.jsx)(_v45, {})]
         })
       })]
@@ -2151,7 +2173,9 @@
                     privacyOption: _v5,
                     isUserEligibleForFreeTrial: _v6,
                     showOtherPlans: _v7,
-                    onCtaClick: _v8
+                    defaultPeriodicity: _v8,
+                    monthlyFreeTrial: _v9,
+                    onCtaClick: _v10
                   }) => {
                     if (_v111(_v0)) return (0, _v1.jsx)(_v17.LateStagePcpPaywall, {
                       variant: _v2,
@@ -2160,9 +2184,11 @@
                       paywallTracking: _v1,
                       isUserEligibleForFreeTrial: _v6,
                       showOtherPlans: _v7,
+                      defaultPeriodicity: _v8,
+                      monthlyFreeTrial: _v9,
                       isExistingSubscriber: null !== _v4 && _v4 !== _v56.PLANS.FREE,
                       isLimitTriggered: "storage_limit" === _v1.paywallFeature,
-                      onCtaClick: _v8
+                      onCtaClick: _v10
                     });
                     switch (_v2) {
                       case "storage":
@@ -2170,7 +2196,7 @@
                           tier: _v3,
                           paywallTracking: _v1,
                           isUserEligibleForFreeTrial: _v6,
-                          onCtaClick: _v8
+                          onCtaClick: _v10
                         });
                       case "privacy":
                         return _v5 ? (0, _v1.jsx)(_v19.PrivacyLimitPaywall, {
@@ -2211,6 +2237,8 @@
                     privacyOption: _v23,
                     isUserEligibleForFreeTrial: _v44,
                     showOtherPlans: _v4.pcp_other_plans_enabled,
+                    defaultPeriodicity: _v4.pcp_paywall_default_periodicity,
+                    monthlyFreeTrial: _v4.homepage_paywall_monthly_free_trial,
                     onCtaClick: _v53
                   })
                 })
@@ -2260,7 +2288,8 @@
         value: {
           ..._v0.tracking,
           device_type: (0, _v47.getDeviceType)(),
-          campaignOverride: _v9
+          campaignOverride: _v9,
+          allowMonthlyTrial: _v4.homepage_paywall_monthly_free_trial
         },
         children: _v1
       });

@@ -173,11 +173,11 @@
       _v21 = _v2?.metadata?.connections?.showcase?.total ?? 0,
       _v22 = _v19 + _v20 + _v21,
       _v23 = !!_v2?.isApproved,
-      _v24 = _v23 || _v22 > 0,
-      _v25 = _v3.filter(_v0 => _v0.uuid !== _v2?.uuid).map(_v0 => ({
+      _v24 = _v3.filter(_v0 => _v0.uuid !== _v2?.uuid).map(_v0 => ({
         label: _v0.presetName ?? "-",
         value: _v0.uuid
-      }));
+      })),
+      _v25 = _v24.length > 0;
     return (0, _v1.jsxs)(_v26.Modal, {
       isOpen: _v0,
       size: "lg",
@@ -200,10 +200,13 @@
             }), _v23 && (0, _v1.jsx)(_v17.Text, {
               variant: "body-md",
               children: _v6.DeletePresetApprovalWarning
-            }), !_v24 && (0, _v1.jsx)(_v17.Text, {
+            }), !_v23 && (0, _v1.jsx)(_v17.Text, {
               variant: "body-md",
               children: _v6.DeletePresetConfirmation
-            }), _v24 && (0, _v1.jsxs)(_v1.Fragment, {
+            }), _v23 && !_v25 && (0, _v1.jsx)(_v17.Text, {
+              variant: "body-md",
+              children: _v6.DeletePresetNoReplacementAvailable
+            }), _v23 && _v25 && (0, _v1.jsxs)(_v1.Fragment, {
               children: [(0, _v1.jsx)(_v17.Text, {
                 variant: "body-md",
                 children: _v6.DeletePresetReplacementHint
@@ -213,7 +216,7 @@
                   marginBottom: "50",
                   children: _v6.ReplacePreset
                 }), (0, _v1.jsx)(_v37.Select, {
-                  items: _v25,
+                  items: _v24,
                   placeholder: _v6.SelectPreset,
                   value: _v8 ? [_v8] : [],
                   onValueChange: _v0 => _v9(_v0.value[0] ?? ""),
@@ -230,13 +233,13 @@
             minW: 100,
             onClick: _v4,
             children: _v6.Cancel
-          }), (0, _v1.jsx)(_v25.Button, {
+          }), (!_v23 || _v25) && (0, _v1.jsx)(_v25.Button, {
             isLoading: _v10,
-            isDisabled: _v10 || _v24 && !_v8,
+            isDisabled: _v10 || _v23 && !_v8,
             variant: "destructive",
             minW: 100,
             onClick: () => {
-              _v2?.uuid && (!_v24 || _v8) && (_v16.current = _v2.uuid, _v11(!0), _v24 ? (_v17.current = _v13.callCount + 1, _v12({
+              _v2?.uuid && (!_v23 || _v8) && (_v16.current = _v2.uuid, _v11(!0), _v23 ? (_v17.current = _v13.callCount + 1, _v12({
                 select: [],
                 where: {
                   userId: _v1,
@@ -252,7 +255,7 @@
                 }
               })));
             },
-            children: _v24 ? _v6.DeletePresetAndReplaceBySelected : _v6.DeletePreset
+            children: _v23 ? _v6.DeletePresetAndReplaceBySelected : _v6.DeletePreset
           })]
         })]
       })]

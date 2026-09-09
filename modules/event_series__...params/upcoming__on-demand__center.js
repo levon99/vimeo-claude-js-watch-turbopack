@@ -26,7 +26,10 @@
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
     _v18 = _v0.i(0);
-  let _v19 = () => (0, _v1.jsxs)(_v13.Flex, {
+  let _v19 = ({
+    title: _v0,
+    message: _v1
+  }) => (0, _v1.jsxs)(_v13.Flex, {
     align: "center",
     backgroundColor: "fill-component",
     borderRadius: "lg",
@@ -39,62 +42,12 @@
     children: [(0, _v1.jsx)(_v14.Text, {
       color: "text-primary",
       variant: "heading-sm",
-      children: (0, _v17.translate)({
-        singular: "No events scheduled",
-        dictionary: {
-          es: {
-            singular: "No hay eventos programados"
-          },
-          "de-DE": {
-            singular: "Keine Veranstaltungen geplant"
-          },
-          "fr-FR": {
-            singular: "Aucun événement prévu"
-          },
-          "ja-JP": {
-            singular: "予定されているイベントはありません"
-          },
-          "ko-KR": {
-            singular: "예정된 이벤트가 없습니다"
-          },
-          "pt-BR": {
-            singular: "Nenhum evento agendado"
-          },
-          "zh-CN": {
-            singular: "暂无活动安排"
-          }
-        }
-      })
+      children: _v0
     }), (0, _v1.jsx)(_v14.Text, {
       color: "text-secondary",
       textAlign: "center",
       variant: "body-md",
-      children: (0, _v17.translate)({
-        singular: "Check back soon for upcoming and on-demand events.",
-        dictionary: {
-          es: {
-            singular: "Vuelve pronto para los próximos eventos y los disponibles bajo demanda."
-          },
-          "de-DE": {
-            singular: "Schauen Sie bald wieder vorbei für bevorstehende und auf Abruf verfügbare Veranstaltungen."
-          },
-          "fr-FR": {
-            singular: "Revenez bientôt pour les événements à venir et à la demande."
-          },
-          "ja-JP": {
-            singular: "近日中に開催予定およびオンデマンドのイベント情報を掲載します。しばらくしてから再度ご確認ください。"
-          },
-          "ko-KR": {
-            singular: "예정된 이벤트 및 주문형 이벤트는 곧 확인하실 수 있습니다. 잠시 후 다시 확인해 주세요."
-          },
-          "pt-BR": {
-            singular: "Volte em breve para conferir os eventos futuros e sob demanda."
-          },
-          "zh-CN": {
-            singular: "请稍后查看即将举行和点播的活动。"
-          }
-        }
-      })
+      children: _v1
     })]
   });
   var _v20 = _v0.i(0),
@@ -525,7 +478,60 @@
                 recording: _v0
               }, _v0.uri))
             })
-          }) : (0, _v1.jsx)(_v19, {})]
+          }) : (0, _v1.jsx)(_v19, {
+            title: (0, _v17.translate)({
+              singular: "No on-demand videos available",
+              dictionary: {
+                es: {
+                  singular: "No hay vídeos bajo demanda disponibles"
+                },
+                "de-DE": {
+                  singular: "Keine Videos auf Abruf verfügbar"
+                },
+                "fr-FR": {
+                  singular: "Aucune vidéo à la demande disponible"
+                },
+                "ja-JP": {
+                  singular: "利用可能なオンデマンド動画はありません"
+                },
+                "ko-KR": {
+                  singular: "사용 가능한 온디맨드 비디오가 없습니다"
+                },
+                "pt-BR": {
+                  singular: "Nenhum vídeo sob demanda disponível"
+                },
+                "zh-CN": {
+                  singular: "暂无可用的点播视频"
+                }
+              }
+            }),
+            message: (0, _v17.translate)({
+              singular: "No past stream recordings yet",
+              dictionary: {
+                es: {
+                  singular: "Aún no hay grabaciones de transmisiones pasadas"
+                },
+                "de-DE": {
+                  singular: "Noch keine Aufzeichnungen vergangener Streams"
+                },
+                "fr-FR": {
+                  singular: "Pas encore d'enregistrements de streams"
+                },
+                "ja-JP": {
+                  singular: "過去の配信録画はまだありません"
+                },
+                "ko-KR": {
+                  singular: "지난 스트림 녹화본이 아직 없습니다"
+                },
+                "pt-BR": {
+                  singular: "Ainda não há gravações de transmissões anteriores"
+                },
+                "zh-CN": {
+                  singular: "尚无往期直播录制"
+                }
+              }
+            })
+          })]
         }), _v1.length > 8 && (0, _v1.jsx)(_v13.Flex, {
           justify: "center",
           width: "100%",
@@ -734,16 +740,18 @@
                     event: _v1
                   } = _v0,
                   _v2 = _v0.occurrenceTime ?? _v1.startTime,
-                  _v3 = _v2 && null !== _v25(_v2) ? _v2 : _v0.isLive ? _v2 : null;
-                if (null === _v3) return;
-                let _v4 = _v30({
+                  _v3 = _v2 ? _v25(_v2) : null,
+                  _v4 = _v0.isLive && (null === _v3 || _v3 < Date.now()),
+                  _v5 = _v4 ? _v2 : null !== _v3 ? _v2 : null;
+                if (null === _v5) return;
+                let _v6 = _v30({
                     year: "numeric",
                     month: "2-digit",
                     day: "2-digit"
-                  }, _v13).format(new Date(_v3)),
-                  _v5 = _v1.get(_v4);
-                _v5 || (_v5 = {
-                  key: _v4,
+                  }, _v13).format(new Date(_v5)),
+                  _v7 = _v1.get(_v6);
+                _v7 || (_v7 = {
+                  key: _v6,
                   label: ((_v0, _v1) => {
                     let _v2 = _v25(_v0);
                     if (null === _v2) return null;
@@ -771,12 +779,12 @@
                           return "th";
                       }
                     })(_v8)}`;
-                  })(_v3, _v13) ?? "",
+                  })(_v5, _v13) ?? "",
                   events: []
-                }, _v1.set(_v4, _v5), _v0.push(_v5)), _v5.events.push({
+                }, _v1.set(_v6, _v7), _v0.push(_v7)), _v7.events.push({
                   key: _v0.key,
                   title: _v24(_v1),
-                  time: _v2 ? ((_v0, _v1) => {
+                  time: _v4 ? null : ((_v0, _v1) => {
                     let _v2 = _v25(_v0);
                     if (null === _v2) return null;
                     let _v3 = new Date(_v2),
@@ -795,7 +803,7 @@
                         }
                       })(_v3, _v1) : null;
                     return _v5 ? `${_v4} ${_v5}` : _v4;
-                  })(_v2, _v13) : null,
+                  })(_v2, _v13),
                   description: _v1.description,
                   thumbnailSrc: _v23(_v1),
                   isLive: _v0.isLive,
@@ -876,7 +884,60 @@
         }).filter(Boolean);
       return (0, _v1.jsxs)(_v36, {
         series: _v0,
-        children: [_v17, _v15 && !_v16 ? (0, _v1.jsx)(_v19, {}) : null]
+        children: [_v17, _v15 && !_v16 ? (0, _v1.jsx)(_v19, {
+          title: (0, _v17.translate)({
+            singular: "No events scheduled",
+            dictionary: {
+              es: {
+                singular: "No hay eventos programados"
+              },
+              "de-DE": {
+                singular: "Keine Veranstaltungen geplant"
+              },
+              "fr-FR": {
+                singular: "Aucun événement prévu"
+              },
+              "ja-JP": {
+                singular: "予定されているイベントはありません"
+              },
+              "ko-KR": {
+                singular: "예정된 이벤트가 없습니다"
+              },
+              "pt-BR": {
+                singular: "Nenhum evento agendado"
+              },
+              "zh-CN": {
+                singular: "暂无活动安排"
+              }
+            }
+          }),
+          message: (0, _v17.translate)({
+            singular: "Check back soon for upcoming events and on-demand videos.",
+            dictionary: {
+              es: {
+                singular: "Vuelve pronto para ver los próximos eventos y los vídeos bajo demanda."
+              },
+              "de-DE": {
+                singular: "Schauen Sie bald wieder vorbei für bevorstehende Veranstaltungen und Videos auf Abruf."
+              },
+              "fr-FR": {
+                singular: "Revenez bientôt pour les événements à venir et les vidéos à la demande."
+              },
+              "ja-JP": {
+                singular: "近日中に開催予定のイベントとオンデマンド動画をチェックしてください。"
+              },
+              "ko-KR": {
+                singular: "예정된 이벤트 및 온디맨드 비디오를 확인하려면 나중에 다시 방문해 주세요."
+              },
+              "pt-BR": {
+                singular: "Volte em breve para eventos futuros e vídeos sob demanda."
+              },
+              "zh-CN": {
+                singular: "请稍后回来查看即将举行的活动和点播视频。"
+              }
+            }
+          })
+        }) : null]
       });
     };
   var _v46 = _v0.i(0),
@@ -886,14 +947,17 @@
     _v50 = _v0.i(0);
   let _v51 = _v0 => "object" == typeof _v0 && null !== _v0 ? _v0 : null,
     _v52 = async _v0 => {
-      let _v1 = _v51(_v0);
-      if (_v1?.status !== 403 || !_v1.res) return !1;
+      let _v1,
+        _v2 = _v51(_v0);
+      if (_v2?.status === 404) return "not-found";
+      if (_v2?.status !== 403 || !_v2.res) return "transient";
       try {
-        let _v0 = await _v1.res.json();
-        return _v0?.error_code === 0;
+        let _v0 = await _v2.res.json();
+        _v1 = _v0?.error_code;
       } catch {
-        return !1;
+        return "transient";
       }
+      return 0 === _v1 ? "password-required" : "number" == typeof _v1 ? "not-found" : "transient";
     };
   var _v53 = _v0.i(0),
     _v54 = _v0.i(0);
@@ -1324,7 +1388,60 @@
                 ..._v28(_v0)
               }, _v0.key))
             })
-          }) : (0, _v1.jsx)(_v19, {})]
+          }) : (0, _v1.jsx)(_v19, {
+            title: (0, _v17.translate)({
+              singular: "No events scheduled",
+              dictionary: {
+                es: {
+                  singular: "No hay eventos programados"
+                },
+                "de-DE": {
+                  singular: "Keine Veranstaltungen geplant"
+                },
+                "fr-FR": {
+                  singular: "Aucun événement prévu"
+                },
+                "ja-JP": {
+                  singular: "予定されているイベントはありません"
+                },
+                "ko-KR": {
+                  singular: "예정된 이벤트가 없습니다"
+                },
+                "pt-BR": {
+                  singular: "Nenhum evento agendado"
+                },
+                "zh-CN": {
+                  singular: "暂无活动安排"
+                }
+              }
+            }),
+            message: (0, _v17.translate)({
+              singular: "No upcoming events",
+              dictionary: {
+                es: {
+                  singular: "No hay eventos próximos"
+                },
+                "de-DE": {
+                  singular: "Keine bevorstehenden Veranstaltungen"
+                },
+                "fr-FR": {
+                  singular: "Aucun événement à venir"
+                },
+                "ja-JP": {
+                  singular: "今後のイベントはありません"
+                },
+                "ko-KR": {
+                  singular: "예정된 이벤트가 없습니다"
+                },
+                "pt-BR": {
+                  singular: "Nenhum evento futuro"
+                },
+                "zh-CN": {
+                  singular: "暂无即将举行的活动"
+                }
+              }
+            })
+          })]
         }), _v1.length > 8 && (0, _v1.jsx)(_v13.Flex, {
           justify: "center",
           width: "100%",
@@ -1374,7 +1491,8 @@
         }
       };
     } catch (_v0) {
-      if (await _v52(_v0)) return {
+      let _v1 = await _v52(_v0);
+      if ("password-required" === _v1) return {
         props: {
           series: null,
           seriesIdOrUrl: _v5,
@@ -1383,9 +1501,10 @@
           hasThemeSupport: !0
         }
       };
-      return {
+      if ("not-found" === _v1) return {
         notFound: !0
       };
+      throw _v0;
     }
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, ({
     series: _v0,

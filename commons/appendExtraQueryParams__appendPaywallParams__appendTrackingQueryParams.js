@@ -80,7 +80,7 @@
   }, "getEnterpriseFooterLinkText", 0, _v0 => void 0 === _v0 ? _v6.default.morePlanDetails : _v0, "getEnterpriseModalTitle", 0, _v0 => _v0 || _v6.default.doMoreWithEnterprise, "getEnterpriseSubtitle", 0, _v0 => void 0 === _v0 ? _v6.default.productBenefits : _v0, "getLanguage", 0, () => {
     let _v0 = document.cookie.match(/language=(\w+);?/);
     return _v0 && _v0.length >= 2 ? _v0[1] : null;
-  }, "getModalHeader", 0, _v0 => _v0 || _v6.default.defaultHeader, "getModalSubheader", 0, _v0 => void 0 === _v0 ? _v6.default.defaultSubHeader : _v0, "getPlanBillingFrequencyCopy", 0, (_v0, _v1, _v2) => _v0 ? _v6.default.billedMonthly : !_v1 || [_v5.PLANS.PRO, _v5.PLANS.BUSINESS, _v5.PLANS.PREMIUM].includes(_v1.tier) || _v2 ? _v6.default.billedAnnually : _v6.default.orPriceBilledMonthly(_v1), "getPlanCTALink", 0, (_v0, _v1, _v2) => {
+  }, "getModalHeader", 0, _v0 => _v0 || _v6.default.defaultHeader, "getModalSubheader", 0, _v0 => void 0 === _v0 ? _v6.default.defaultSubHeader : _v0, "getPlanBillingFrequencyCopy", 0, (_v0, _v1, _v2, _v3 = !1) => !_v1 || _v2 ? _v0 ? _v6.default.billedMonthly : _v6.default.billedAnnually : _v0 ? _v3 ? _v6.default.orPriceBilledAnnually(_v1) : _v6.default.billedMonthly : [_v5.PLANS.PRO, _v5.PLANS.BUSINESS, _v5.PLANS.PREMIUM].includes(_v1.tier) ? _v6.default.billedAnnually : _v6.default.orPriceBilledMonthly(_v1), "getPlanCTALink", 0, (_v0, _v1, _v2) => {
     let {
         annual: _v3,
         monthly: _v4
@@ -160,6 +160,9 @@
         });
       })(_v1);
     return void 0 !== _v2 ? _v2 : (0, _v3.isCreatorV2Plan)(_v1) ? _v5.CREATOR_V2_FEATURES : (0, _v3.isCreatorJuly2026Plan)(_v1) ? _v5.CREATOR_JULY_2026_FEATURES : _v3 ? [_v3, ..._v5.PLANS_DEFAULT_FEATURES[_v1.tier]] : _v5.PLANS_DEFAULT_FEATURES[_v1.tier];
+  }, "getPlanFreeTrialLink", 0, (_v0, _v1 = {}) => {
+    let _v2 = _v0.metadata.interactions.purchase.uri.freeTrial;
+    return _v1.isMonthly && _v1.allowMonthlyTrial && _v2 ? _v2.replace(/\/trial(\?|$)/, "/monthly/trial$1") : _v2;
   }, "getPlanQuota", 0, _v0 => _v5.PLANS_DEFAULT_VIDEO_QUOTAS[_v0.tier] || null, "getPlanSubHeading", 0, (_v0, _v1) => {
     let _v2 = _v0?.planOverrides?.[_v1.tier]?.subHeading;
     return void 0 === _v2 ? _v5.PLANS_SUBHEADING[_v1.tier] : _v2;
@@ -184,5 +187,5 @@
       return void 0 === _v2 || void 0 === _v3 ? null : _v2 > _v3 ? 1 : _v2 < _v3 ? -1 : 0;
     })(_v0, _v1);
     return 1 === _v2 || 0 === _v2;
-  }, "showMonthlyPlans", 0, _v0 => void 0 !== _v0.find(_v0 => _v0.metadata?.purchasedProduct?.isMonthly) && _v7(_v0[0].tier), "showRecommendedBadge", 0, (_v0, _v1, _v2) => 0 === (_v2 && [_v5.PLANS.STARTER, _v5.PLANS.PLUS].includes(_v2) ? _v1 - 1 : _v1) && (_v5.SEAT_TIER_PLANS.includes(_v0.tier) || _v5.LEGACY_PLANS.includes(_v0.tier)) && _v0.tier !== _v5.PLANS.STARTER && _v0.tier !== _v5.PLANS.PLUS]);
+  }, "showMonthlyPlans", 0, (_v0, _v1 = !1) => _v7(_v0[0]?.tier) && (_v1 || void 0 !== _v0.find(_v0 => _v0.metadata?.purchasedProduct?.isMonthly)), "showRecommendedBadge", 0, (_v0, _v1, _v2) => 0 === (_v2 && [_v5.PLANS.STARTER, _v5.PLANS.PLUS].includes(_v2) ? _v1 - 1 : _v1) && (_v5.SEAT_TIER_PLANS.includes(_v0.tier) || _v5.LEGACY_PLANS.includes(_v0.tier)) && _v0.tier !== _v5.PLANS.STARTER && _v0.tier !== _v5.PLANS.PLUS]);
 }

@@ -26,16 +26,17 @@
     _v6 = _v0.i(0);
   _v0.s(["PurchaseButton", 0, function ({
     isTrial: _v0,
-    planName: _v1,
-    paywallTracking: _v2,
-    subscriptionTier: _v3,
-    postCheckoutUrl: _v4
+    planPeriodicity: _v1 = "yearly",
+    planName: _v2,
+    paywallTracking: _v3,
+    subscriptionTier: _v4,
+    postCheckoutUrl: _v5
   }) {
-    let _v5 = _v1 ?? (_v3 ? (0, _v3.default)(`${_v3}`) : ""),
-      _v6 = _v5 ? _v0 ? (0, _v5.translate)({
+    let _v6 = _v2 ?? (_v4 ? (0, _v3.default)(`${_v4}`) : ""),
+      _v7 = _v6 ? _v0 ? (0, _v5.translate)({
         singular: "Try {PLAN_NAME} for free",
         replacements: {
-          PLAN_NAME: _v5
+          PLAN_NAME: _v6
         },
         dictionary: {
           es: {
@@ -63,7 +64,7 @@
       }) : (0, _v5.translate)({
         singular: "Join Vimeo {PLAN_NAME}",
         replacements: {
-          PLAN_NAME: _v5
+          PLAN_NAME: _v6
         },
         dictionary: {
           es: {
@@ -144,16 +145,17 @@
       variant: "primary",
       width: "100%",
       onClick: () => {
-        if (!_v3) return;
+        if (!_v4) return;
         let _v0 = (0, _v6.buildCheckoutUrl)({
-          ..._v2,
-          tier: _v3,
+          ..._v3,
+          tier: _v4,
+          isMonthly: "monthly" === _v1,
           isTrial: _v0,
-          postCheckoutUrl: _v4
+          postCheckoutUrl: _v5
         });
         window.location.assign(_v0);
       },
-      children: _v6
+      children: _v7
     });
   }], 0);
 }

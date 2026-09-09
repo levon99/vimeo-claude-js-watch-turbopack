@@ -81,39 +81,41 @@
           children: [(0, _v1.jsx)(_v19.Navigation.Logo, {
             customLogoUrl: _v1.url,
             type: _v1.type
-          }), _v8 ? (0, _v1.jsx)(_v6.Divider, {
-            height: (0, _v14.rem)(16),
-            orientation: "vertical"
-          }) : null, (0, _v1.jsx)(_v13.Text, {
-            color: "text-primary",
-            noOfLines: 1,
-            variant: "heading-md",
-            children: _v0 || (0, _v18.translate)({
-              singular: "Untitled event series",
-              dictionary: {
-                es: {
-                  singular: "Serie de eventos sin título"
-                },
-                "de-DE": {
-                  singular: "Unbenannte Veranstaltungsreihe"
-                },
-                "fr-FR": {
-                  singular: "Série d'événements sans titre"
-                },
-                "ja-JP": {
-                  singular: "無題のイベントシリーズ"
-                },
-                "ko-KR": {
-                  singular: "제목 없는 이벤트 시리즈"
-                },
-                "pt-BR": {
-                  singular: "Série de eventos sem título"
-                },
-                "zh-CN": {
-                  singular: "未命名的活动系列"
+          }), !_v11 && (0, _v1.jsxs)(_v1.Fragment, {
+            children: [_v8 ? (0, _v1.jsx)(_v6.Divider, {
+              height: (0, _v14.rem)(16),
+              orientation: "vertical"
+            }) : null, (0, _v1.jsx)(_v13.Text, {
+              color: "text-primary",
+              noOfLines: 1,
+              variant: "heading-md",
+              children: _v0 || (0, _v18.translate)({
+                singular: "Untitled event series",
+                dictionary: {
+                  es: {
+                    singular: "Serie de eventos sin título"
+                  },
+                  "de-DE": {
+                    singular: "Unbenannte Veranstaltungsreihe"
+                  },
+                  "fr-FR": {
+                    singular: "Série d'événements sans titre"
+                  },
+                  "ja-JP": {
+                    singular: "無題のイベントシリーズ"
+                  },
+                  "ko-KR": {
+                    singular: "제목 없는 이벤트 시리즈"
+                  },
+                  "pt-BR": {
+                    singular: "Série de eventos sem título"
+                  },
+                  "zh-CN": {
+                    singular: "未命名的活动系列"
+                  }
                 }
-              }
-            })
+              })
+            })]
           })]
         }), (0, _v1.jsx)(_v11.Flex, {
           align: "center",

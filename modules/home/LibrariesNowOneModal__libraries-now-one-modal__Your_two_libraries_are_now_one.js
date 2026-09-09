@@ -79,6 +79,58 @@
           }
         }
       }),
+      teamInvitationDescription: (0, _v4.translate)({
+        singular: "Invite someone to your team to automatically restore a separate Team library.",
+        dictionary: {
+          es: {
+            singular: "Invita a alguien a tu equipo para restaurar automáticamente una biblioteca de equipo separada."
+          },
+          "de-DE": {
+            singular: "Laden Sie jemanden in Ihr Team ein, um automatisch eine separate Team-Bibliothek wiederherzustellen."
+          },
+          "fr-FR": {
+            singular: "Invitez quelqu'un dans votre équipe pour restaurer automatiquement une bibliothèque d'équipe distincte."
+          },
+          "ja-JP": {
+            singular: "チームに誰かを招待すると、別のチームライブラリが自動的に復元されます。"
+          },
+          "ko-KR": {
+            singular: "별도의 팀 라이브러리를 자동으로 복원하려면 팀에 누군가를 초대하세요."
+          },
+          "pt-BR": {
+            singular: "Convide alguém para sua equipe para restaurar automaticamente uma biblioteca separada da equipe."
+          },
+          "zh-CN": {
+            singular: "邀请某人加入你的团队，以自动恢复一个独立的团队库。"
+          }
+        }
+      }),
+      whyDescription: (0, _v4.translate)({
+        singular: "Two libraries are for teams, but you're not currently sharing with anyone.",
+        dictionary: {
+          es: {
+            singular: "Dos bibliotecas son para equipos, pero actualmente no las compartes con nadie."
+          },
+          "de-DE": {
+            singular: "Zwei Bibliotheken sind für Teams vorgesehen, aber Sie teilen sie derzeit mit niemandem."
+          },
+          "fr-FR": {
+            singular: "Deux bibliothèques sont destinées aux équipes, mais vous ne les partagez actuellement avec personne."
+          },
+          "ja-JP": {
+            singular: "2つのライブラリはチーム用ですが、現在は誰とも共有していません。"
+          },
+          "ko-KR": {
+            singular: "두 개의 라이브러리는 팀용이지만, 현재 누구와도 공유하고 있지 않습니다."
+          },
+          "pt-BR": {
+            singular: "Duas bibliotecas são para equipes, mas você não está compartilhando com ninguém no momento."
+          },
+          "zh-CN": {
+            singular: "两个库是为团队准备的，但你当前并未与任何人共享。"
+          }
+        }
+      }),
       footer: (0, _v1.jsxs)(_v3.VStack, {
         gap: "sm",
         align: "center",

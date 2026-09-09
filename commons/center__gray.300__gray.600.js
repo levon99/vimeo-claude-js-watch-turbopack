@@ -90,20 +90,42 @@
     isReviewPageReworkEnabled: _v14,
     fillAvailableHeight: _v15
   }) {
-    let _v16 = _v1 ? "0px" : "8px",
-      {
-        colorMode: _v17
+    let {
+        colorMode: _v16
       } = (0, _v5.useColorMode)(),
-      _v18 = _v2 || _v11,
-      _v19 = (0, _v6.useTheme)(),
+      _v17 = _v2 || _v11,
+      _v18 = (0, _v6.useTheme)(),
       {
-        reviewId: _v20
+        reviewId: _v19
       } = (0, _v2.useContext)(_v9.ReviewLinkContext),
-      _v21 = (0, _v8.useShowAdvancedControlsFeature)(_v12),
-      _v22 = () => {
-        _v5 && !_v21 && _v4?.played.length > 0 && _v4._setControlbarVisibility(!0);
+      _v20 = (0, _v8.useShowAdvancedControlsFeature)(_v12),
+      _v21 = () => {
+        _v5 && !_v20 && _v4?.played.length > 0 && _v4._setControlbarVisibility(!0);
+      },
+      _v22 = !_v14 && _v1 ? "0px" : "8px",
+      [_v23, _v24] = (0, _v2.useState)(null),
+      _v25 = _v14 && _v13 ? _v13 : null;
+    return (0, _v2.useEffect)(() => {
+      if (!_v14 || !_v23) return;
+      let _v0 = ["--review-video-w", "--review-video-h", "--review-video-x", "--review-video-y", "--review-video-radius"],
+        _v1 = () => {
+          _v0.forEach(_v0 => _v23.style.removeProperty(_v0));
+        };
+      if (_v23.style.setProperty("--review-video-radius", _v22), !_v25 || _v25 <= 0) return _v1;
+      let _v2 = () => {
+        let _v0 = _v23.clientWidth,
+          _v1 = _v23.clientHeight;
+        if (0 === _v0 || 0 === _v1) return;
+        let _v2 = Math.min(_v0, _v1 * _v25),
+          _v3 = Math.min(_v1, _v0 / _v25);
+        _v23.style.setProperty("--review-video-w", `${_v2}px`), _v23.style.setProperty("--review-video-h", `${_v3}px`), _v23.style.setProperty("--review-video-x", `${(_v0 - _v2) / 2}px`), _v23.style.setProperty("--review-video-y", `${(_v1 - _v3) / 2}px`), _v23.style.setProperty("--review-video-radius", _v22);
       };
-    return (0, _v1.jsxs)(_v3.Box, {
+      _v2();
+      let _v3 = new window.ResizeObserver(_v2);
+      return _v3.observe(_v23), () => {
+        _v3.disconnect(), _v1();
+      };
+    }, [_v14, _v25, _v22, _v23]), (0, _v1.jsxs)(_v3.Box, {
       position: "relative",
       width: "100%",
       maxHeight: _v8,
@@ -113,10 +135,10 @@
         aspectRatio: _v9
       }),
       ref: _v0,
-      onMouseEnter: _v22,
-      onMouseOver: _v22,
+      onMouseEnter: _v21,
+      onMouseOver: _v21,
       onMouseLeave: () => {
-        _v5 && !_v21 && _v4?.played.length > 0 && _v4._setControlbarVisibility(!1);
+        _v5 && !_v20 && _v4?.played.length > 0 && _v4._setControlbarVisibility(!1);
       },
       children: [_v4 && _v5 && (0, _v1.jsx)(_v7.AnnotationsOverlay, {
         playerContainerRef: _v0,
@@ -125,13 +147,14 @@
         clipRequestId: _v6,
         teamAccentColor: _v7,
         isViewOnly: !_v10,
-        reviewId: _v20,
+        reviewId: _v19,
         videoAspectRatio: _v14 ? _v13 : void 0
       }), (0, _v1.jsx)(_v3.Box, {
+        ref: _v24,
         width: "100%",
         height: "100%",
         maxHeight: _v8,
-        display: _v18 ? "block" : "none",
+        display: _v17 ? "block" : "none",
         sx: {
           position: "relative",
           ...(_v14 ? {
@@ -139,6 +162,21 @@
               backgroundColor: "transparent !important",
               ".vp-video-wrapper": {
                 backgroundColor: "transparent !important"
+              },
+              '[class*="Outro_module_outroWrapper"]': {
+                width: "var(--review-video-w, 100%) !important",
+                height: "var(--review-video-h, 100%) !important",
+                left: "var(--review-video-x, 0) !important",
+                top: "var(--review-video-y, 0) !important",
+                right: "auto !important",
+                bottom: "auto !important",
+                transform: "none !important",
+                borderRadius: "var(--review-video-radius, 8px)",
+                overflow: "hidden"
+              },
+              ".vp-telecine video, .vp-video-wrapper .vp-video, .vp-preview": {
+                borderRadius: "var(--review-video-radius, 8px)",
+                clipPath: "inset(var(--review-video-y, 0) var(--review-video-x, 0) var(--review-video-y, 0) var(--review-video-x, 0) round var(--review-video-radius, 8px))"
               }
             }
           } : {}),
@@ -147,9 +185,9 @@
               content: '""',
               position: "absolute",
               pointerEvents: "none",
-              borderRadius: _v16,
+              borderRadius: _v22,
               border: "2px solid",
-              borderColor: "dark" === _v17 ? _v19.colors.gray[900] : _v19.colors.gray[100],
+              borderColor: "dark" === _v16 ? _v18.colors.gray[900] : _v18.colors.gray[100],
               top: "-0.5px",
               left: "-0.5px",
               bottom: "-0.5px",
@@ -171,10 +209,18 @@
           }
         })
       }), (0, _v1.jsx)(_v4.Skeleton, {
-        w: "100%",
-        h: "100%",
-        borderRadius: _v16,
-        display: _v18 ? "none" : "block"
+        ...(_v14 ? {
+          position: "absolute",
+          top: "var(--review-video-y, 0)",
+          left: "var(--review-video-x, 0)",
+          width: "var(--review-video-w, 100%)",
+          height: "var(--review-video-h, 100%)"
+        } : {
+          w: "100%",
+          h: "100%"
+        }),
+        borderRadius: _v22,
+        display: _v17 ? "none" : "block"
       })]
     });
   }], 0);

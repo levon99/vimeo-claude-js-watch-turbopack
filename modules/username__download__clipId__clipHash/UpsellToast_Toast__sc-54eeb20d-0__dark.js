@@ -2930,7 +2930,7 @@
         thumbnail: _v2,
         aspectRatio: _v3
       } = this.props;
-      return _v0 ? (0, _v9.jsx)(_v192, {
+      return _v0 || !_v1 ? (0, _v9.jsx)(_v192, {
         aspectRatio: _v3,
         children: (0, _v9.jsx)(_v71.Spinner, {})
       }) : (0, _v9.jsxs)(_v192, {

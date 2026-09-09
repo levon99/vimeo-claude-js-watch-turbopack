@@ -1484,25 +1484,25 @@
           singular: "Contact support",
           dictionary: {
             es: {
-              singular: "Contactar con soporte"
+              singular: "Contactar al equipo de asistencia"
             },
             "de-DE": {
               singular: "Support kontaktieren"
             },
             "fr-FR": {
-              singular: "Contacter le support"
+              singular: "Contacter l'assistance"
             },
             "ja-JP": {
-              singular: "サポートにお問い合わせください"
+              singular: "サポートへのお問い合わせ"
             },
             "ko-KR": {
               singular: "지원팀에 문의"
             },
             "pt-BR": {
-              singular: "Contate o suporte"
+              singular: "Entre em contato com o suporte"
             },
             "zh-CN": {
-              singular: "联系客服"
+              singular: "联系支持团队"
             }
           }
         })

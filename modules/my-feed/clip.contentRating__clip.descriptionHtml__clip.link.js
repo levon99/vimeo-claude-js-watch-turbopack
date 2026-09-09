@@ -4161,19 +4161,19 @@
                   singular: "Contenido para adultos"
                 },
                 "de-DE": {
-                  singular: "Inhalte mit Jugendfilter"
+                  singular: "Inhalte für Erwachsene"
                 },
                 "fr-FR": {
-                  singular: "Contenu pour adultes"
+                  singular: "Contenu réservé aux adultes"
                 },
                 "ja-JP": {
                   singular: "成人向けコンテンツ"
                 },
                 "ko-KR": {
-                  singular: "성인 콘텐츠"
+                  singular: "성인용 콘텐츠"
                 },
                 "pt-BR": {
-                  singular: "Conteúdo adulto"
+                  singular: "Conteúdo maduro"
                 },
                 "zh-CN": {
                   singular: "成人内容"
@@ -4186,50 +4186,50 @@
               singular: "This video may contain profanity, sexually suggestive content, drugs or alcohol use, nudity, or violence.",
               dictionary: {
                 es: {
-                  singular: "Este video puede contener blasfemias, contenido sexualmente sugerente, consumo de drogas o alcohol, desnudos o violencia."
+                  singular: "Este vídeo puede contener lenguaje soez, contenido sexualmente sugerente, consumo de drogas o alcohol, desnudez o violencia."
                 },
                 "de-DE": {
-                  singular: "Dieses Video kann Obszönitäten, sexuell anzügliche Inhalte, Drogen oder Alkoholkonsum, Nacktheit oder Gewalt enthalten."
+                  singular: "Dieses Video kann obszöne Sprache, sexuell anzügliche Inhalte, Drogen- oder Alkoholkonsum, Nacktheit oder Gewalt enthalten."
                 },
                 "fr-FR": {
-                  singular: "Cette vidéo peut contenir du contenu à caractère injurieux, sexuellement suggestif, relatif à la drogue ou à l'alcool, ainsi que de la nudité ou de la violence."
+                  singular: "Cette vidéo peut contenir des propos grossiers, du contenu à connotation sexuelle, de la consommation de drogues ou d'alcool, de la nudité ou de la violence."
                 },
                 "ja-JP": {
-                  singular: "この動画には、冒涜的な表現、性的示唆を与えるコンテンツ、薬物やアルコールの使用、ヌード、暴力が含まれている可能性があります。"
+                  singular: "この動画には、不適切な言葉、性的示唆を含む表現、薬物やアルコールの使用、ヌード、または暴力が含まれている可能性があります。"
                 },
                 "ko-KR": {
-                  singular: "이 동영상에는 욕설, 성적 표현, 약물 또는 알코올 사용, 과도한 노출 또는 폭력이 포함될 수 있습니다."
+                  singular: "이 동영상에는 욕설, 성적으로 암시적인 내용, 약물 또는 알코올 사용, 누드 또는 폭력이 포함될 수 있습니다."
                 },
                 "pt-BR": {
-                  singular: "Esse vídeo pode conter palavrões, conteúdo sexualmente sugestivo, uso de drogas ou álcool, nudez ou violência."
+                  singular: "Este vídeo pode conter palavrões, conteúdo sexualmente sugestivo, uso de drogas ou álcool, nudez ou violência."
                 },
                 "zh-CN": {
-                  singular: "此视频可能包含粗言秽语、性暗示、吸毒或酗酒、裸体或暴力的内容。"
+                  singular: "该视频可能包含亵渎言语、性暗示、药物或酒精使用、裸露或暴力内容。"
                 }
               }
             }) : (0, _v11.translate)({
               singular: "This video is not available due to your permissions",
               dictionary: {
                 es: {
-                  singular: "Este video no está disponible debido a sus permisos."
+                  singular: "Este vídeo no está disponible debido a tus permisos"
                 },
                 "de-DE": {
-                  singular: "Dieses Video ist aufgrund Ihrer Berechtigungen nicht verfügbar."
+                  singular: "Dieses Video ist aufgrund Ihrer Zugriffsrechte nicht verfügbar"
                 },
                 "fr-FR": {
                   singular: "Cette vidéo n'est pas disponible en raison de vos autorisations"
                 },
                 "ja-JP": {
-                  singular: "この動画はお客様の権限により視聴できません"
+                  singular: "この動画はアクセス権限により利用できません"
                 },
                 "ko-KR": {
-                  singular: "권한이 없어 이 동영상을 시청할 수 없습니다."
+                  singular: "이 동영상은 권한으로 인해 이용할 수 없습니다"
                 },
                 "pt-BR": {
                   singular: "Este vídeo não está disponível devido às suas permissões"
                 },
                 "zh-CN": {
-                  singular: "由于您的权限问题，此视频不可用"
+                  singular: "由于权限限制，您无法访问此视频"
                 }
               }
             }), " ", _v7 && (0, _v11.translate)({
@@ -4248,22 +4248,22 @@
               },
               dictionary: {
                 es: {
-                  singular: "Puede {A}actualizar sus preferencias de contenido para adultos{/A} en cualquier momento."
+                  singular: "Puedes {A}actualizar tus preferencias de contenido para adultos{/A} en cualquier momento."
                 },
                 "de-DE": {
-                  singular: "Sie können {A}Ihre Einstellungen für nicht jugendfreie Inhalte{/A} jederzeit aktualisieren."
+                  singular: "Sie können {A}Ihre Einstellungen für Inhalte für Erwachsene aktualisieren{/A} jederzeit."
                 },
                 "fr-FR": {
-                  singular: "Vous pouvez {A}mettre à jour vos préférences en matière de contenu pour adultes{/A} à tout moment."
+                  singular: "Vous pouvez {A}mettre à jour vos préférences de contenu réservé aux adultes{/A} à tout moment."
                 },
                 "ja-JP": {
-                  singular: "いつでも{A}成人向けコンテンツの設定をアップデート{/A}することができます。"
+                  singular: "いつでも{A}成人向けコンテンツの設定を更新できます{/A}。"
                 },
                 "ko-KR": {
-                  singular: "언제든지 {A}성인 콘텐츠 개인 설정을 업데이트{/A}할 수 있습니다."
+                  singular: "언제든지 {A}성인용 콘텐츠 환경설정을 업데이트{/A}할 수 있습니다."
                 },
                 "pt-BR": {
-                  singular: "Você pode {A}atualizar suas preferências de conteúdo adulto{/A} a qualquer momento."
+                  singular: "Você pode {A}atualizar suas preferências de conteúdo maduro{/A} a qualquer momento."
                 },
                 "zh-CN": {
                   singular: "您可以随时{A}更新您的成人内容偏好{/A}。"
@@ -4284,25 +4284,25 @@
             singular: "Show me the video",
             dictionary: {
               es: {
-                singular: "Mostrar el video"
+                singular: "Muéstrame el vídeo"
               },
               "de-DE": {
-                singular: "Zeige mir das Video"
+                singular: "Video anzeigen"
               },
               "fr-FR": {
-                singular: "Montrez-moi la vidéo"
+                singular: "Afficher la vidéo"
               },
               "ja-JP": {
-                singular: "動画を見る"
+                singular: "動画を表示"
               },
               "ko-KR": {
-                singular: "동영상 표시"
+                singular: "동영상을 보여주세요"
               },
               "pt-BR": {
-                singular: "Mostre-me o vídeo"
+                singular: "Mostrar o vídeo"
               },
               "zh-CN": {
-                singular: "为我展示视频"
+                singular: "显示视频"
               }
             }
           })

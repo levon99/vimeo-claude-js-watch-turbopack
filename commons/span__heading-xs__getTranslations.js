@@ -5983,6 +5983,32 @@
         }
       }
     }),
+    DeletePresetNoReplacementAvailable: (0, _v5.translate)({
+      singular: "There is no other approved preset to replace it with. Approve another preset first, then delete this one.",
+      dictionary: {
+        es: {
+          singular: "No existe otro preset aprobado con el que reemplazarlo. Apruebe primero otro preset y luego elimine este."
+        },
+        "de-DE": {
+          singular: "Es gibt keine andere genehmigte Voreinstellung, die als Ersatz dienen könnte. Genehmigen Sie zuerst eine andere Voreinstellung und löschen Sie dann diese."
+        },
+        "fr-FR": {
+          singular: "Il n'existe aucun autre préréglage approuvé pour le remplacer. Approuvez d'abord un autre préréglage, puis supprimez celui-ci."
+        },
+        "ja-JP": {
+          singular: "これを置き換えるための他の承認済みプリセットがありません。先に別のプリセットを承認してから、このプリセットを削除してください。"
+        },
+        "ko-KR": {
+          singular: "대체할 다른 승인된 프리셋이 없습니다. 먼저 다른 프리셋을 승인한 다음 이 프리셋을 삭제하세요."
+        },
+        "pt-BR": {
+          singular: "Não há outro preset aprovado para substituí-lo. Aprove outro preset primeiro, então exclua este."
+        },
+        "zh-CN": {
+          singular: "没有其他已批准的预设可用于替换。请先批准另一个预设，然后再删除此预设。"
+        }
+      }
+    }),
     DeletePresetConfirmation: (0, _v5.translate)({
       singular: "This preset will be permanently deleted. This action cannot be undone.",
       dictionary: {

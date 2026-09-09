@@ -3341,7 +3341,7 @@
               children: _v0.label
             }, _v0.type)), (0, _v2.jsx)(_v173.TabIndicator, {})]
           })
-        })]
+        }, _v5.length)]
       });
     },
     _v188 = (0, _v79.default)(async () => {

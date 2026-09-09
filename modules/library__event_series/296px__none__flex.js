@@ -513,8 +513,8 @@
                 gap: "md",
                 children: [(0, _v1.jsxs)(_v32.FormControl, {
                   isRequired: !0,
-                  size: "sm",
                   children: [(0, _v1.jsx)(_v33.FormLabel, {
+                    size: "sm",
                     children: (0, _v13.translate)({
                       singular: "Name",
                       dictionary: {

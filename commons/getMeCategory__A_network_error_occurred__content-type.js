@@ -11,76 +11,95 @@
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
-    _v11 = _v0.i(0);
-  async function _v12({
-    baseUrl: _v0,
-    where: {
-      category: _v1
-    },
-    ..._v2
-  }) {
-    return (0, _v10.measureLatency)("getMeCategory", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/me/categories/${_v1}`, {
-        ..._v2,
-        method: "GET"
-      });
-      if (!_v0.ok) throw new _v11.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v11.deepCamelCase)(_v1);
-    });
-  }
-  async function _v13({
-    baseUrl: _v0,
-    where: {
-      category: _v1
-    },
-    ..._v2
-  }) {
-    return (0, _v10.measureLatency)("putMeCategory", "PUT", async () => {
-      let _v0 = await fetch(`${_v0}/me/categories/${_v1}`, {
-        ..._v2,
-        method: "PUT"
-      });
-      if (!_v0.ok) throw new _v11.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v11.deepCamelCase)(_v1);
-    });
-  }
-  async function _v14({
-    baseUrl: _v0,
-    where: {
-      category: _v1
-    },
-    ..._v2
-  }) {
-    return (0, _v10.measureLatency)("deleteMeCategory", "DELETE", async () => {
-      let _v0 = await fetch(`${_v0}/me/categories/${_v1}`, {
-        ..._v2,
-        method: "DELETE"
-      });
-      if (!_v0.ok) throw new _v11.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v11.deepCamelCase)(_v1);
-    });
-  }
-  var _v15 = _v0.i(0),
+    _v11 = _v0.i(0),
+    _v12 = _v0.i(0),
+    _v13 = _v0.i(0),
+    _v14 = _v0.i(0),
+    _v15 = _v0.i(0),
     _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  function _v18(_v0, _v1) {
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0),
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0),
+    _v22 = _v0.i(0),
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0),
+    _v25 = _v0.i(0),
+    _v26 = _v0.i(0),
+    _v27 = _v0.i(0),
+    _v28 = _v0.i(0),
+    _v29 = _v0.i(0),
+    _v30 = _v0.i(0);
+  async function _v31({
+    baseUrl: _v0,
+    where: {
+      category: _v1
+    },
+    ..._v2
+  }) {
+    return (0, _v29.measureLatency)("getMeCategory", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/me/categories/${_v1}`, {
+        ..._v2,
+        method: "GET"
+      });
+      if (!_v0.ok) throw new _v30.NetworkError("A network error occurred", _v0.status, _v0);
+      if (204 === _v0.status) return null;
+      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
+      let _v1 = await _v0.json();
+      return (0, _v30.deepCamelCase)(_v1);
+    });
+  }
+  async function _v32({
+    baseUrl: _v0,
+    where: {
+      category: _v1
+    },
+    ..._v2
+  }) {
+    return (0, _v29.measureLatency)("putMeCategory", "PUT", async () => {
+      let _v0 = await fetch(`${_v0}/me/categories/${_v1}`, {
+        ..._v2,
+        method: "PUT"
+      });
+      if (!_v0.ok) throw new _v30.NetworkError("A network error occurred", _v0.status, _v0);
+      if (204 === _v0.status) return null;
+      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
+      let _v1 = await _v0.json();
+      return (0, _v30.deepCamelCase)(_v1);
+    });
+  }
+  async function _v33({
+    baseUrl: _v0,
+    where: {
+      category: _v1
+    },
+    ..._v2
+  }) {
+    return (0, _v29.measureLatency)("deleteMeCategory", "DELETE", async () => {
+      let _v0 = await fetch(`${_v0}/me/categories/${_v1}`, {
+        ..._v2,
+        method: "DELETE"
+      });
+      if (!_v0.ok) throw new _v30.NetworkError("A network error occurred", _v0.status, _v0);
+      if (204 === _v0.status) return null;
+      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
+      let _v1 = await _v0.json();
+      return (0, _v30.deepCamelCase)(_v1);
+    });
+  }
+  var _v34 = _v0.i(0),
+    _v35 = _v0.i(0),
+    _v36 = _v0.i(0);
+  function _v37(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v17.useGctlConfig)();
-    return (0, _v15.default)(_v2 ? `/me/categories/${_v2.where.category}${(0, _v9.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v12({
+      } = (0, _v36.useGctlConfig)();
+    return (0, _v34.default)(_v2 ? `/me/categories/${_v2.where.category}${(0, _v28.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v31({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -92,23 +111,23 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  function _v19() {
+  function _v38() {
     let {
         mutate: _v0
-      } = (0, _v16.useSWRConfig)(),
+      } = (0, _v35.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v17.useGctlConfig)(),
-      [_v5, _v6] = (0, _v9.useInternalState)();
+      } = (0, _v36.useGctlConfig)(),
+      [_v5, _v6] = (0, _v28.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/categories/${_v0.where.category}${(0, _v9.serializeQuery)(_v0)}`, _v13({
+        let _v0 = await _v0(`/me/categories/${_v0.where.category}${(0, _v28.serializeQuery)(_v0)}`, _v32({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -131,23 +150,23 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  function _v20() {
+  function _v39() {
     let {
         mutate: _v0
-      } = (0, _v16.useSWRConfig)(),
+      } = (0, _v35.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v17.useGctlConfig)(),
-      [_v5, _v6] = (0, _v9.useInternalState)();
+      } = (0, _v36.useGctlConfig)(),
+      [_v5, _v6] = (0, _v28.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/categories/${_v0.where.category}${(0, _v9.serializeQuery)(_v0)}`, _v14({
+        let _v0 = await _v0(`/me/categories/${_v0.where.category}${(0, _v28.serializeQuery)(_v0)}`, _v33({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -170,26 +189,26 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(_v18, {
+  "true" === _v27.default.env.STORYBOOK && (0, _v28.assignMswData)(_v37, {
     endpoint: "/me/categories/:category",
     method: "GET"
-  }), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(function () {
+  }), "true" === _v27.default.env.STORYBOOK && (0, _v28.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v16.useSWRConfig)(),
+      } = (0, _v35.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v17.useGctlConfig)(),
-      [_v5, _v6] = (0, _v9.useInternalState)();
+      } = (0, _v36.useGctlConfig)(),
+      [_v5, _v6] = (0, _v28.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/categories/${_v0.where.category}${(0, _v9.serializeQuery)(_v0)}`, _v12({
+        let _v0 = await _v0(`/me/categories/${_v0.where.category}${(0, _v28.serializeQuery)(_v0)}`, _v31({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -214,81 +233,81 @@
   }, {
     endpoint: "/me/categories/:category",
     method: "GET"
-  }), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(_v19, {
+  }), "true" === _v27.default.env.STORYBOOK && (0, _v28.assignMswData)(_v38, {
     endpoint: "/me/categories/:category",
     method: "PUT"
-  }), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(_v20, {
+  }), "true" === _v27.default.env.STORYBOOK && (0, _v28.assignMswData)(_v39, {
     endpoint: "/me/categories/:category",
     method: "DELETE"
-  }), _v0.s(["useDeleteMeCategory", 0, _v20, "useGetMeCategory", 0, _v18, "usePutMeCategory", 0, _v19], 0);
-  var _v21 = _v0.i(0),
-    _v22 = _v0.i(0);
-  async function _v23({
+  }), _v0.s(["useDeleteMeCategory", 0, _v39, "useGetMeCategory", 0, _v37, "usePutMeCategory", 0, _v38], 0);
+  var _v40 = _v0.i(0),
+    _v41 = _v0.i(0);
+  async function _v42({
     baseUrl: _v0,
     where: {
       groupId: _v1
     },
     ..._v2
   }) {
-    return (0, _v10.measureLatency)("getMeGroup", "GET", async () => {
+    return (0, _v29.measureLatency)("getMeGroup", "GET", async () => {
       let _v0 = await fetch(`${_v0}/me/groups/${_v1}`, {
         ..._v2,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v11.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v30.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v11.deepCamelCase)(_v1);
+      return (0, _v30.deepCamelCase)(_v1);
     });
   }
-  async function _v24({
+  async function _v43({
     baseUrl: _v0,
     where: {
       groupId: _v1
     },
     ..._v2
   }) {
-    return (0, _v10.measureLatency)("putMeGroup", "PUT", async () => {
+    return (0, _v29.measureLatency)("putMeGroup", "PUT", async () => {
       let _v0 = await fetch(`${_v0}/me/groups/${_v1}`, {
         ..._v2,
         method: "PUT"
       });
-      if (!_v0.ok) throw new _v11.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v30.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v11.deepCamelCase)(_v1);
+      return (0, _v30.deepCamelCase)(_v1);
     });
   }
-  async function _v25({
+  async function _v44({
     baseUrl: _v0,
     where: {
       groupId: _v1
     },
     ..._v2
   }) {
-    return (0, _v10.measureLatency)("deleteMeGroup", "DELETE", async () => {
+    return (0, _v29.measureLatency)("deleteMeGroup", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/me/groups/${_v1}`, {
         ..._v2,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v11.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v30.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v11.deepCamelCase)(_v1);
+      return (0, _v30.deepCamelCase)(_v1);
     });
   }
-  function _v26(_v0, _v1) {
+  function _v45(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v17.useGctlConfig)();
-    return (0, _v15.default)(_v2 ? `/me/groups/${_v2.where.groupId}${(0, _v9.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v23({
+      } = (0, _v36.useGctlConfig)();
+    return (0, _v34.default)(_v2 ? `/me/groups/${_v2.where.groupId}${(0, _v28.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v42({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -300,23 +319,23 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  function _v27() {
+  function _v46() {
     let {
         mutate: _v0
-      } = (0, _v16.useSWRConfig)(),
+      } = (0, _v35.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v17.useGctlConfig)(),
-      [_v5, _v6] = (0, _v9.useInternalState)();
+      } = (0, _v36.useGctlConfig)(),
+      [_v5, _v6] = (0, _v28.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/groups/${_v0.where.groupId}${(0, _v9.serializeQuery)(_v0)}`, _v24({
+        let _v0 = await _v0(`/me/groups/${_v0.where.groupId}${(0, _v28.serializeQuery)(_v0)}`, _v43({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -339,23 +358,23 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  function _v28() {
+  function _v47() {
     let {
         mutate: _v0
-      } = (0, _v16.useSWRConfig)(),
+      } = (0, _v35.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v17.useGctlConfig)(),
-      [_v5, _v6] = (0, _v9.useInternalState)();
+      } = (0, _v36.useGctlConfig)(),
+      [_v5, _v6] = (0, _v28.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/groups/${_v0.where.groupId}${(0, _v9.serializeQuery)(_v0)}`, _v25({
+        let _v0 = await _v0(`/me/groups/${_v0.where.groupId}${(0, _v28.serializeQuery)(_v0)}`, _v44({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -378,57 +397,7 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(_v26, {
-    endpoint: "/me/groups/:groupId",
-    method: "GET"
-  }), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v16.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v17.useGctlConfig)(),
-      [_v5, _v6] = (0, _v9.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/me/groups/${_v0.where.groupId}${(0, _v9.serializeQuery)(_v0)}`, _v23({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/me/groups/:groupId",
-    method: "GET"
-  }), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(_v27, {
-    endpoint: "/me/groups/:groupId",
-    method: "PUT"
-  }), "true" === _v8.default.env.STORYBOOK && (0, _v9.assignMswData)(_v28, {
-    endpoint: "/me/groups/:groupId",
-    method: "DELETE"
-  }), _v0.s(["useDeleteMeGroup", 0, _v28, "useGetMeGroup", 0, _v26, "usePutMeGroup", 0, _v27], 0), _v0.s(["FollowButton", 0, function ({
+  function _v48({
     user: _v0,
     source: _v1
   }) {
@@ -452,24 +421,24 @@
             getHook: _v8
           } = (_v0 => {
             if (void 0 !== _v0.category) return {
-              putHook: _v19,
-              deleteHook: _v20,
-              getHook: _v18
+              putHook: _v38,
+              deleteHook: _v39,
+              getHook: _v37
             };
             if (void 0 !== _v0.channelId) return {
-              putHook: _v21.usePutMeChannel,
-              deleteHook: _v21.useDeleteMeChannel,
-              getHook: _v21.useGetMeChannel
+              putHook: _v40.usePutMeChannel,
+              deleteHook: _v40.useDeleteMeChannel,
+              getHook: _v40.useGetMeChannel
             };
             if (void 0 !== _v0.groupId) return {
-              putHook: _v27,
-              deleteHook: _v28,
-              getHook: _v26
+              putHook: _v46,
+              deleteHook: _v47,
+              getHook: _v45
             };
             if (void 0 !== _v0.followUserId) return {
-              putHook: _v22.usePutMeFollowing,
-              deleteHook: _v22.useDeleteMeFollowing,
-              getHook: _v22.useGetMeFollowing
+              putHook: _v41.usePutMeFollowing,
+              deleteHook: _v41.useDeleteMeFollowing,
+              getHook: _v41.useGetMeFollowing
             };
             throw Error("Invalid where type");
           })(_v0),
@@ -502,10 +471,10 @@
               where: _v0
             }), _v15();
           },
-          _v19 = (0, _v7.useToast)();
+          _v19 = (0, _v26.useToast)();
         return (0, _v2.useEffect)(() => {
           _v11 && (_v5(!1), _v19({
-            title: (0, _v6.translate)({
+            title: (0, _v20.translate)({
               singular: "Oops! Something went wrong. Please try again.",
               dictionary: {
                 es: {
@@ -535,7 +504,7 @@
           }));
         }, [_v11, _v19]), (0, _v2.useEffect)(() => {
           _v14 && (_v5(!0), _v19({
-            title: (0, _v6.translate)({
+            title: (0, _v20.translate)({
               singular: "Oops! Something went wrong. Please try again.",
               dictionary: {
                 es: {
@@ -581,7 +550,7 @@
       if (_v0) return _v0.addEventListener("mouseover", () => _v9(!0)), _v0.addEventListener("mouseout", () => _v9(!1)), () => {
         _v0.removeEventListener("mouseover", () => _v9(!0)), _v0.removeEventListener("mouseout", () => _v9(!1));
       };
-    }, [_v5]), (0, _v1.jsx)(_v3.Button, {
+    }, [_v5]), (0, _v1.jsx)(_v4.Button, {
       ref: _v5,
       size: "sm",
       w: "100%",
@@ -590,7 +559,7 @@
       },
       variant: "secondary",
       children: _v7 ? _v8 ? (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v5.CloseXSmall, {}), (0, _v6.translate)({
+        children: [(0, _v1.jsx)(_v25.CloseXSmall, {}), (0, _v20.translate)({
           singular: "Unfollow",
           dictionary: {
             es: {
@@ -617,7 +586,7 @@
           }
         })]
       }) : (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v4.CheckSmall, {}), (0, _v6.translate)({
+        children: [(0, _v1.jsx)(_v24.CheckSmall, {}), (0, _v20.translate)({
           singular: "Following",
           dictionary: {
             es: {
@@ -644,7 +613,7 @@
           }
         })]
       }) : (0, _v1.jsx)(_v1.Fragment, {
-        children: (0, _v6.translate)({
+        children: (0, _v20.translate)({
           singular: "Follow",
           dictionary: {
             es: {
@@ -672,7 +641,8 @@
         })
       })
     });
-  }], 0), _v0.s(["LinkOrStaticElem", 0, function ({
+  }
+  function _v49({
     label: _v0,
     newTab: _v1,
     onClick: _v2,
@@ -689,10 +659,61 @@
     }) : (0, _v1.jsx)(_v1.Fragment, {
       children: _v4
     });
-  }], 0);
-  var _v29 = _v0.i(0),
-    _v30 = _v0.i(0);
-  _v0.s(["default", 0, function ({
+  }
+  "true" === _v27.default.env.STORYBOOK && (0, _v28.assignMswData)(_v45, {
+    endpoint: "/me/groups/:groupId",
+    method: "GET"
+  }), "true" === _v27.default.env.STORYBOOK && (0, _v28.assignMswData)(function () {
+    let {
+        mutate: _v0
+      } = (0, _v35.useSWRConfig)(),
+      {
+        baseUrl: _v1,
+        jwt: _v2,
+        xVimeoPage: _v3,
+        locale: _v4
+      } = (0, _v36.useGctlConfig)(),
+      [_v5, _v6] = (0, _v28.useInternalState)();
+    return [(0, _v2.useCallback)(async _v0 => {
+      _v6({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await _v0(`/me/groups/${_v0.where.groupId}${(0, _v28.serializeQuery)(_v0)}`, _v42({
+          ..._v0,
+          baseUrl: _v1,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v2 ? `jwt ${_v2}` : "",
+            "Vimeo-Page": `${_v3}`,
+            "Accept-Language": _v4 ?? "en"
+          }
+        }));
+        _v6({
+          type: "SUCCESS",
+          payload: _v0
+        });
+      } catch (_v0) {
+        _v6({
+          type: "FAILURE",
+          payload: _v0
+        });
+      }
+    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+  }, {
+    endpoint: "/me/groups/:groupId",
+    method: "GET"
+  }), "true" === _v27.default.env.STORYBOOK && (0, _v28.assignMswData)(_v46, {
+    endpoint: "/me/groups/:groupId",
+    method: "PUT"
+  }), "true" === _v27.default.env.STORYBOOK && (0, _v28.assignMswData)(_v47, {
+    endpoint: "/me/groups/:groupId",
+    method: "DELETE"
+  }), _v0.s(["useDeleteMeGroup", 0, _v47, "useGetMeGroup", 0, _v45, "usePutMeGroup", 0, _v46], 0), _v0.s(["LinkOrStaticElem", 0, _v49], 0);
+  var _v50 = _v0.i(0),
+    _v51 = _v0.i(0);
+  let _v52 = function ({
     backgroundVideo: _v0,
     elemWidth: _v1,
     isVisible: _v2
@@ -711,7 +732,7 @@
       [_v12, _v13] = (0, _v2.useState)(!0),
       {
         player: _v14
-      } = (0, _v30.usePlayer)(_v10, _v4, !0, _v5 || "", !0, "auto");
+      } = (0, _v51.usePlayer)(_v10, _v4, !0, _v5 || "", !0, "auto");
     (0, _v2.useEffect)(() => {
       let _v0 = () => {
         _v14.currentTime >= _v6 - .501 && (_v14.currentTime = _v8);
@@ -726,13 +747,13 @@
       }) : _v14.pause());
     }, [_v2, _v14]);
     let _v15 = `${-80 * (_v9 || 50) / 100}px`;
-    return (0, _v1.jsxs)(_v29.Box, {
+    return (0, _v1.jsxs)(_v50.Box, {
       w: _v1,
       h: 80,
       position: "absolute",
       overflow: "hidden",
       borderTopRadius: "drawer",
-      children: [_v12 ? (0, _v1.jsx)(_v29.Box, {
+      children: [_v12 ? (0, _v1.jsx)(_v50.Box, {
         display: "block",
         sx: {
           video: {
@@ -750,7 +771,7 @@
           width: _v1,
           height: "auto"
         })
-      }) : null, (0, _v1.jsx)(_v29.Box, {
+      }) : null, (0, _v1.jsx)(_v50.Box, {
         sx: {
           display: _v12 ? "none" : "block",
           video: {
@@ -765,78 +786,312 @@
         ref: _v10
       })]
     });
-  }], 0), _v0.s(["T", 0, {
-    followersCount: _v0 => (0, _v6.translate)({
-      singular: "{COUNT} follower",
-      plural: "{COUNT} followers",
-      count: _v0,
-      replacements: {
-        COUNT: (0, _v6.humanize)(_v0 ?? 0)
-      },
-      dictionary: {
-        es: {
-          singular: "{COUNT} seguidor",
-          plural: "{COUNT} seguidores"
+  };
+  var _v53 = _v0.i(0);
+  _v0.s(["UserCard", 0, function ({
+    onProfileClick: _v0,
+    openDelay: _v1,
+    placement: _v2 = "top-start",
+    profileUrl: _v3,
+    hasFollow: _v4,
+    followSource: _v5 = "",
+    user: _v6,
+    children: _v7,
+    ..._v8
+  }) {
+    let _v9,
+      _v10,
+      [_v11, _v12] = _v2.default.useState(!1),
+      {
+        settings: _v13
+      } = (0, _v21.useOrionSettings)(),
+      _v14 = _v13.enable_search_people_avatar_image_fix ? _v12.Portal : _v2.default.Fragment,
+      _v15 = (_v9 = _v6?.metadata?.connections?.followers?.total, (0, _v20.translate)({
+        singular: "{COUNT} follower",
+        plural: "{COUNT} followers",
+        count: _v9,
+        replacements: {
+          COUNT: (0, _v20.humanize)(_v9 ?? 0)
         },
-        "de-DE": {
-          singular: "{COUNT} Follower",
-          plural: "{COUNT} Follower"
-        },
-        "fr-FR": {
-          singular: "{COUNT} abonné",
-          plural: "{COUNT} abonnés"
-        },
-        "ja-JP": {
-          singular: "{COUNT} 人のフォロワー",
-          plural: "{COUNT} 人のフォロワー"
-        },
-        "ko-KR": {
-          singular: "팔로워 {COUNT}명",
-          plural: "팔로워 {COUNT}명"
-        },
-        "pt-BR": {
-          singular: "{COUNT} seguidor",
-          plural: "{COUNT} seguidores"
-        },
-        "zh-CN": {
-          singular: "{COUNT} 名粉丝",
-          plural: "{COUNT} 名粉丝"
+        dictionary: {
+          es: {
+            singular: "{COUNT} seguidor",
+            plural: "{COUNT} seguidores"
+          },
+          "de-DE": {
+            singular: "{COUNT} Follower",
+            plural: "{COUNT} Follower"
+          },
+          "fr-FR": {
+            singular: "{COUNT} abonné",
+            plural: "{COUNT} abonnés"
+          },
+          "ja-JP": {
+            singular: "{COUNT} 人のフォロワー",
+            plural: "{COUNT} 人のフォロワー"
+          },
+          "ko-KR": {
+            singular: "팔로워 {COUNT}명",
+            plural: "팔로워 {COUNT}명"
+          },
+          "pt-BR": {
+            singular: "{COUNT} seguidor",
+            plural: "{COUNT} seguidores"
+          },
+          "zh-CN": {
+            singular: "{COUNT} 名粉丝",
+            plural: "{COUNT} 名粉丝"
+          }
         }
-      }
-    }),
-    videosCount: _v0 => (0, _v6.translate)({
-      singular: "{COUNT} video",
-      plural: "{COUNT} videos",
-      count: _v0,
-      replacements: {
-        COUNT: (0, _v6.humanize)(_v0 ?? 0)
-      },
-      dictionary: {
-        "de-DE": {
-          singular: "{COUNT} Video",
-          plural: "{COUNT} Videos"
+      })),
+      _v16 = (_v10 = _v6?.metadata?.publicVideos?.total, (0, _v20.translate)({
+        singular: "{COUNT} video",
+        plural: "{COUNT} videos",
+        count: _v10,
+        replacements: {
+          COUNT: (0, _v20.humanize)(_v10 ?? 0)
         },
-        "fr-FR": {
-          singular: "{COUNT} vidéo",
-          plural: "{COUNT} vidéos"
-        },
-        "ja-JP": {
-          singular: "{COUNT} 件の動画",
-          plural: "{COUNT}件の動画"
-        },
-        "ko-KR": {
-          singular: "동영상 {COUNT}개",
-          plural: "동영상 {COUNT}개"
-        },
-        "pt-BR": {
-          singular: "{COUNT} vídeo",
-          plural: "{COUNT} vídeos"
-        },
-        "zh-CN": {
-          singular: "{COUNT} 个视频",
-          plural: "{COUNT} 个视频"
+        dictionary: {
+          "de-DE": {
+            singular: "{COUNT} Video",
+            plural: "{COUNT} Videos"
+          },
+          "fr-FR": {
+            singular: "{COUNT} vidéo",
+            plural: "{COUNT} vidéos"
+          },
+          "ja-JP": {
+            singular: "{COUNT} 件の動画",
+            plural: "{COUNT}件の動画"
+          },
+          "ko-KR": {
+            singular: "동영상 {COUNT}개",
+            plural: "동영상 {COUNT}개"
+          },
+          "pt-BR": {
+            singular: "{COUNT} vídeo",
+            plural: "{COUNT} vídeos"
+          },
+          "zh-CN": {
+            singular: "{COUNT} 个视频",
+            plural: "{COUNT} 个视频"
+          }
         }
-      }
-    })
+      })),
+      _v17 = void 0 !== _v6?.metadata?.publicVideos?.total,
+      _v18 = _v6?.skills ?? [],
+      [_v19, _v20] = (0, _v53.getAvatarImages)(_v6?.pictures?.sizes),
+      _v21 = (0, _v20.translate)({
+        singular: "Link to user profile",
+        dictionary: {
+          es: {
+            singular: "Enlace al perfil del usuario"
+          },
+          "de-DE": {
+            singular: "Link zum Benutzerprofil"
+          },
+          "fr-FR": {
+            singular: "Lien vers le profil de l'utilisateur"
+          },
+          "ja-JP": {
+            singular: "ユーザーのプロフィールにリンク"
+          },
+          "ko-KR": {
+            singular: "사용자 프로필 바로가기"
+          },
+          "pt-BR": {
+            singular: "Link para o perfil do usuário"
+          },
+          "zh-CN": {
+            singular: "链接到用户个人资料"
+          }
+        }
+      }),
+      _v22 = _v6?.backgroundVideo?.[0];
+    return (0, _v1.jsxs)(_v7.Popover, {
+      placement: _v2,
+      trigger: "hover",
+      openDelay: _v1,
+      onOpen: () => _v12(!0),
+      onClose: () => _v12(!1),
+      ..._v8,
+      children: [(0, _v1.jsx)(_v11.PopoverTrigger, {
+        children: _v7
+      }), (0, _v1.jsx)(_v14, {
+        children: (0, _v1.jsxs)(_v9.PopoverContent, {
+          w: 320,
+          borderRadius: "drawer",
+          p: 0,
+          onClick: _v0 => _v0.stopPropagation(),
+          children: [_v22 && (0, _v19.getPlayerAssetUrls)() ? (0, _v1.jsx)(_v22.PlayerContextProvider, {
+            type: _v23.PlayerType.BarebonePlayer,
+            assetUrls: (0, _v19.getPlayerAssetUrls)(),
+            children: (0, _v1.jsx)(_v10.PopoverHeader, {
+              textStyle: "heading-sm",
+              display: "flex",
+              justifyContent: "space-between",
+              children: (0, _v1.jsx)(_v52, {
+                backgroundVideo: _v22,
+                elemWidth: 320,
+                isVisible: _v11
+              })
+            })
+          }) : null, (0, _v1.jsx)(_v8.PopoverBody, {
+            px: 50,
+            pb: 50,
+            children: (0, _v1.jsxs)(_v15.VStack, {
+              w: "100%",
+              p: 200,
+              pt: 400,
+              spacing: 200,
+              children: [(0, _v1.jsx)(_v49, {
+                label: _v21,
+                newTab: !0,
+                onClick: _v0,
+                url: _v3,
+                children: (0, _v1.jsx)(_v3.Avatar, {
+                  size: "2xl",
+                  alt: _v6.name,
+                  src: _v19,
+                  srcSet: _v20,
+                  nameProps: {
+                    name: _v6.name
+                  }
+                })
+              }), (0, _v1.jsxs)(_v15.VStack, {
+                children: [(0, _v1.jsx)(_v49, {
+                  label: _v21,
+                  newTab: !0,
+                  onClick: _v0,
+                  url: _v3,
+                  children: (0, _v1.jsx)(_v14.Text, {
+                    as: "h4",
+                    variant: "heading-md",
+                    align: "center",
+                    children: _v6.name
+                  })
+                }), _v6.locationDetails?.formattedAddress && (0, _v1.jsxs)(_v6.HStack, {
+                  spacing: 50,
+                  textAlign: "center",
+                  children: [(0, _v1.jsx)(_v18.UserLocation, {
+                    color: "text-secondary"
+                  }), (0, _v1.jsx)(_v14.Text, {
+                    variant: "body-md",
+                    color: "text-secondary",
+                    children: _v6.locationDetails?.formattedAddress
+                  })]
+                })]
+              }), _v18.length > 0 ? (0, _v1.jsx)(_v6.HStack, {
+                wrap: "wrap",
+                justify: "center",
+                children: _v18.map(_v0 => (0, _v1.jsx)(_v13.Tag, {
+                  size: "sm",
+                  fontSize: "text-sm",
+                  fontWeight: "regular",
+                  cursor: "default",
+                  px: 200,
+                  children: _v0.name
+                }, _v0.name))
+              }) : null, (0, _v1.jsxs)(_v15.VStack, {
+                w: "100%",
+                spacing: 100,
+                children: [(0, _v1.jsx)(_v5.Divider, {
+                  borderColor: "stroke",
+                  _dark: {
+                    borderColor: "stroke"
+                  }
+                }), (0, _v1.jsxs)(_v6.HStack, {
+                  spacing: 200,
+                  children: [_v17 ? (0, _v1.jsxs)(_v6.HStack, {
+                    spacing: 75,
+                    children: [(0, _v1.jsx)(_v16.VideosStack, {}), (0, _v1.jsx)(_v14.Text, {
+                      variant: "body-xl",
+                      fontSize: "text-sm",
+                      children: _v16
+                    })]
+                  }) : null, (0, _v1.jsxs)(_v6.HStack, {
+                    spacing: 75,
+                    children: [(0, _v1.jsx)(_v17.PersonUser, {}), (0, _v1.jsx)(_v14.Text, {
+                      variant: "body-xl",
+                      fontSize: "text-sm",
+                      children: _v15
+                    })]
+                  })]
+                }), (0, _v1.jsx)(_v5.Divider, {
+                  borderColor: "stroke",
+                  _dark: {
+                    borderColor: "stroke"
+                  }
+                })]
+              }), _v3 ? (0, _v1.jsx)(_v4.Button, {
+                as: "a",
+                href: _v3,
+                rel: "noopener noreferrer",
+                target: "_blank",
+                "aria-label": (0, _v20.translate)({
+                  singular: "View profile",
+                  dictionary: {
+                    es: {
+                      singular: "Ver perfil"
+                    },
+                    "de-DE": {
+                      singular: "Profil anzeigen"
+                    },
+                    "fr-FR": {
+                      singular: "Voir le profil"
+                    },
+                    "ja-JP": {
+                      singular: "プロフィールを見る"
+                    },
+                    "ko-KR": {
+                      singular: "프로필 보기"
+                    },
+                    "pt-BR": {
+                      singular: "Ver perfil"
+                    },
+                    "zh-CN": {
+                      singular: "查看个人资料"
+                    }
+                  }
+                }),
+                size: "sm",
+                w: "100%",
+                onClick: _v0,
+                variant: "primary",
+                children: (0, _v20.translate)({
+                  singular: "View profile",
+                  dictionary: {
+                    es: {
+                      singular: "Ver perfil"
+                    },
+                    "de-DE": {
+                      singular: "Profil anzeigen"
+                    },
+                    "fr-FR": {
+                      singular: "Voir le profil"
+                    },
+                    "ja-JP": {
+                      singular: "プロフィールを見る"
+                    },
+                    "ko-KR": {
+                      singular: "프로필 보기"
+                    },
+                    "pt-BR": {
+                      singular: "Ver perfil"
+                    },
+                    "zh-CN": {
+                      singular: "查看个人资料"
+                    }
+                  }
+                })
+              }) : null, _v4 && _v6 && (0, _v1.jsx)(_v48, {
+                user: _v6,
+                source: _v5
+              })]
+            })
+          })]
+        })
+      })]
+    });
   }], 0);
 }
