@@ -6475,28 +6475,28 @@
       })
     },
     _v136 = (0, _v13.translate)({
-      singular: "Bandwidth is the data that gets used when someone interacts with your video content. Many factors can count toward your bandwidth usage. The more popular your video is, and the more times it is loaded and played, the more bandwidth you will be using.",
+      singular: "Bandwidth is the data that gets used when someone interacts with your video content. Many factors can count toward your bandwidth usage. The more popular your video is, and the more times it is loaded and played, the more bandwidth you will be using. Bandwidth data for a given day may take up to 36 hours to appear in these reports.",
       dictionary: {
         es: {
-          singular: "El ancho de banda son los datos que se utilizan cuando alguien interactúa con tu contenido de video. Hay muchos factores que afectan tu uso del ancho de banda. Cuanto más popular sea tu video, y cuantas más veces se cargue y reproduzca, más ancho de banda usarás."
+          singular: "El ancho de banda son los datos que se utilizan cuando alguien interactúa con su contenido de vídeo. Muchos factores pueden influir en el uso de su ancho de banda. Cuanto más popular sea su vídeo y cuantas más veces se cargue y reproduzca, más ancho de banda consumirá. Los datos de ancho de banda correspondientes a un día determinado pueden tardar hasta 36 horas en aparecer en estos informes."
         },
         "de-DE": {
-          singular: "Als Bandbreite wird das Datenvolumen bezeichnet, das genutzt wird, wenn jemand mit deinen Videoinhalten interagiert. Viele Faktoren können zu deiner Bandbreitennutzung beitragen. Je beliebter dein Video ist und je häufiger es geladen und abgespielt wird, desto mehr Bandbreite nutzt du."
+          singular: "Bandbreite ist die Datenmenge, die verwendet wird, wenn jemand mit Ihren Videoinhalten interagiert. Viele Faktoren können zu Ihrem Bandbreitenverbrauch beitragen. Je beliebter Ihr Video ist und je öfter es geladen und abgespielt wird, desto mehr Bandbreite wird verbraucht. Es kann bis zu 36 Stunden dauern, bis Bandbreitendaten für einen bestimmten Tag in diesen Berichten erscheinen."
         },
         "fr-FR": {
-          singular: "La bande passante représente les données utilisées lorsqu'un utilisateur interagit avec votre contenu vidéo. De nombreux facteurs influent sur votre utilisation de la bande passante. Plus votre vidéo est populaire, chargée et lue, plus vous utilisez de bande passante."
+          singular: "La bande passante correspond aux données utilisées lorsqu'une personne interagit avec votre contenu vidéo. Plusieurs facteurs peuvent contribuer à votre consommation de bande passante. Plus votre vidéo est populaire, et plus elle est chargée et lue, plus vous consommerez de bande passante. Les données de bande passante d'une journée donnée peuvent prendre jusqu'à 36 heures pour apparaître dans ces rapports."
         },
         "ja-JP": {
-          singular: "帯域幅は、誰かがあなたの動画コンテンツに関わる際に使用されるデータです。多くの要因が帯域幅の使用にカウントされます。動画の人気が高くなり、読み込みと再生回数が増えるほど、使用する帯域幅が増えます。"
+          singular: "帯域幅は、誰かがあなたの動画コンテンツとやり取りした際に消費されるデータ量です。帯域幅の使用量には多くの要因が影響します。動画の人気が高く、読み込みや再生が多いほど、使用する帯域幅は増加します。特定の日の帯域幅データがこれらのレポートに反映されるまでに最大36時間かかる場合があります。"
         },
         "ko-KR": {
-          singular: "대역폭은 누군가가 동영상 콘텐츠와 상호 작용할 때 사용되는 데이터입니다. 많은 요인이 대역폭 사용량에 포함될 수 있습니다. 동영상의 인기가 높을수록, 로드 및 재생 횟수가 많을수록 더 많은 대역폭을 사용하게 됩니다."
+          singular: "대역폭은 사용자가 비디오 콘텐츠와 상호작용할 때 사용되는 데이터입니다. 대역폭 사용량에는 여러 요인이 영향을 미칠 수 있습니다. 비디오가 인기가 있을수록, 로드되고 재생되는 횟수가 많을수록 더 많은 대역폭을 사용하게 됩니다. 특정 날짜의 대역폭 데이터가 이 보고서에 나타나기까지 최대 36시간이 소요될 수 있습니다."
         },
         "pt-BR": {
-          singular: "Largura de banda são os dados que são usados quando alguém interage com seu conteúdo de vídeo. Muitos fatores podem contar para o seu uso de largura de banda. Quanto mais popular for o seu vídeo, e quanto mais vezes ele for carregado e reproduzido, mais largura de banda você usará."
+          singular: "A largura de banda são os dados que são utilizados quando alguém interage com seu conteúdo de vídeo. Muitos fatores podem contribuir para o uso da sua largura de banda. Quanto mais popular for o seu vídeo e quanto mais vezes ele for carregado e reproduzido, mais largura de banda você estará consumindo. Os dados de largura de banda de um determinado dia podem levar até 36 horas para aparecer nestes relatórios."
         },
         "zh-CN": {
-          singular: "带宽是用户与您的视频内容互动时使用的数据量。许多因素都可以计入您的带宽使用量。您的视频越受欢迎，加载和播放的次数越多，您使用的带宽就越多。"
+          singular: "带宽是指当有人与您的视频内容交互时所使用的数据。许多因素都可能计入您的带宽使用量。视频越受欢迎，被加载和播放的次数越多，使用的带宽就越多。某一天的带宽数据在这些报告中显示可能需要最多 36 小时。"
         }
       }
     });

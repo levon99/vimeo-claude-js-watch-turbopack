@@ -4440,21 +4440,20 @@
           state: _v3,
           infoPopUpContent: _v4,
           reportFilters: _v5,
-          lastUpdatedStaticText: _v6,
-          dispatch: _v7,
-          calendarMinDate: _v8,
-          calendarPresets: _v9,
-          leftAlignFilters: _v10,
-          marginX: _v11,
-          showFilterPanel: _v12
+          dispatch: _v6,
+          calendarMinDate: _v7,
+          calendarPresets: _v8,
+          leftAlignFilters: _v9,
+          marginX: _v10,
+          showFilterPanel: _v11
         } = _v0,
-        _v13 = (0, _v93.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
-        _v14 = (0, _v25.matchPath)(location.pathname, "/analytics/bandwidth"),
+        _v12 = (0, _v93.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
+        _v13 = (0, _v25.matchPath)(location.pathname, "/analytics/bandwidth"),
         {
-          trackAnalyticsBandwidthViewChanged: _v15
+          trackAnalyticsBandwidthViewChanged: _v14
         } = (0, _v13.useAnalyticsTracking)();
       return (0, _v3.jsxs)(_v5.Box, {
-        marginX: _v11 ?? "1.5rem",
+        marginX: _v10 ?? "1.5rem",
         paddingTop: "1.5rem",
         display: "flex",
         justifyContent: "space-between",
@@ -4485,22 +4484,22 @@
                   children: _v4
                 })]
               })
-            }), _v14 && (0, _v3.jsx)(_v92.Tabs, {
+            }), _v13 && (0, _v3.jsx)(_v92.Tabs, {
               size: "sm",
               width: "18.75rem",
               variant: "soft",
-              index: +!_v14?.isExact,
+              index: +!_v13?.isExact,
               children: (0, _v3.jsxs)(_v91.TabList, {
                 children: [(0, _v3.jsx)(_v90.Tab, {
                   as: _v88.Link,
                   to: "/analytics/bandwidth",
                   _selected: {
                     color: "text-primary",
-                    bg: _v13
+                    bg: _v12
                   },
                   fontSize: "heading-xs",
                   onClick: () => {
-                    _v14?.isExact || _v15({
+                    _v13?.isExact || _v14({
                       analyticsBandwidthView: "date"
                     });
                   },
@@ -4510,11 +4509,11 @@
                   to: "/analytics/bandwidth/video",
                   _selected: {
                     color: "text-primary",
-                    bg: _v13
+                    bg: _v12
                   },
                   fontSize: "heading-xs",
                   onClick: () => {
-                    _v14?.isExact && _v15({
+                    _v13?.isExact && _v14({
                       analyticsBandwidthView: "video"
                     });
                   },
@@ -4526,17 +4525,16 @@
         }), (0, _v3.jsx)(_v172, {
           userInUse: _v3.userInUse,
           reportType: _v1,
-          calendarMinDate: _v8,
-          calendarPresets: _v9,
+          calendarMinDate: _v7,
+          calendarPresets: _v8,
           disabled: _v3.isLoading,
           filters: _v3.filters[_v3.reportGroup],
-          lastUpdatedStaticText: _v6,
           reportFilters: _v5,
-          dispatch: _v7,
-          leftAlign: _v10,
+          dispatch: _v6,
+          leftAlign: _v9,
           organizationUuid: _v3?.organizationUuid,
           organizationInternalId: _v3?.organizationInternalId,
-          showFilterPanel: _v12
+          showFilterPanel: _v11
         })]
       });
     };
@@ -4956,6 +4954,7 @@
         }
       }, {
         revalidateOnFocus: !1,
+        revalidateIfStale: !1,
         errorRetryInterval: 0,
         errorRetryCount: 1
       }),
@@ -4980,6 +4979,7 @@
         }
       }, {
         revalidateOnFocus: !1,
+        revalidateIfStale: !1,
         errorRetryInterval: 0,
         errorRetryCount: 1
       });
@@ -5065,6 +5065,7 @@
         };
       }, {
         revalidateOnFocus: !1,
+        revalidateIfStale: !1,
         errorRetryInterval: 0,
         errorRetryCount: 1
       }),
@@ -5086,6 +5087,7 @@
         }
       }, {
         revalidateOnFocus: !1,
+        revalidateIfStale: !1,
         errorRetryInterval: 0,
         errorRetryCount: 1
       });
@@ -7955,7 +7957,7 @@
           isLoading: _v16,
           isError: _v17
         } = _v188(_v3, _v1, _v5, !1);
-      if (!_v7 && void 0 !== _v6 && !0 !== _v6) return (0, _v3.jsx)(_v27.ErrorPage, {
+      if (!_v7 && void 0 !== _v6 && !_v6) return (0, _v3.jsx)(_v27.ErrorPage, {
         error: new _v26.UnauthorizedError()
       });
       let _v18 = _v6 ? {
@@ -7996,32 +7998,6 @@
         children: [(0, _v3.jsx)(_v173, {
           title: _v82.REPORT_NAME_DISPLAY_MAP[_v82.REPORT_TYPE_BANDWIDTH],
           infoPopUpContent: (0, _v3.jsx)(_v257, {}),
-          lastUpdatedStaticText: (0, _v30.translate)({
-            singular: "Bandwidth data is typically 4 days delayed",
-            dictionary: {
-              es: {
-                singular: "Los datos de banda ancha generalmente tienen un retraso de 4 días"
-              },
-              "de-DE": {
-                singular: "Bandbreitendaten sind in der Regel um 4 Tage verzögert"
-              },
-              "fr-FR": {
-                singular: "Les données de la bande passante sont mises à jour avec un délai de 4 jours"
-              },
-              "ja-JP": {
-                singular: "帯域幅データは通常 4日遅れます"
-              },
-              "ko-KR": {
-                singular: "대역폭 데이터는 일반적으로 4일 지연됩니다."
-              },
-              "pt-BR": {
-                singular: "Os dados de largura de banda normalmente atrasam 4 dias"
-              },
-              "zh-CN": {
-                singular: "带宽数据通常会延迟 4 天"
-              }
-            }
-          }),
           reportFilters: _v5,
           state: _v1,
           dispatch: _v2,
@@ -8145,7 +8121,7 @@
           payload: [..._v9.slice(0, 5)],
           isInitialLoad: !0
         });
-      }, [_v2, _v9, _v11]), !_v8 && void 0 !== _v7 && !0 !== _v7) return (0, _v3.jsx)(_v25.Redirect, {
+      }, [_v2, _v9, _v11]), !_v8 && void 0 !== _v7 && !_v7) return (0, _v3.jsx)(_v25.Redirect, {
         to: "/analytics"
       });
       let _v20 = _v8 || _v15 || _v18,
@@ -8159,32 +8135,6 @@
         children: [(0, _v3.jsx)(_v173, {
           title: _v82.REPORT_NAME_DISPLAY_MAP[_v82.REPORT_TYPE_BANDWIDTH],
           infoPopUpContent: (0, _v3.jsx)(_v257, {}),
-          lastUpdatedStaticText: (0, _v30.translate)({
-            singular: "Bandwidth data is typically 4 days delayed",
-            dictionary: {
-              es: {
-                singular: "Los datos de banda ancha generalmente tienen un retraso de 4 días"
-              },
-              "de-DE": {
-                singular: "Bandbreitendaten sind in der Regel um 4 Tage verzögert"
-              },
-              "fr-FR": {
-                singular: "Les données de la bande passante sont mises à jour avec un délai de 4 jours"
-              },
-              "ja-JP": {
-                singular: "帯域幅データは通常 4日遅れます"
-              },
-              "ko-KR": {
-                singular: "대역폭 데이터는 일반적으로 4일 지연됩니다."
-              },
-              "pt-BR": {
-                singular: "Os dados de largura de banda normalmente atrasam 4 dias"
-              },
-              "zh-CN": {
-                singular: "带宽数据通常会延迟 4 天"
-              }
-            }
-          }),
           reportFilters: _v4,
           state: _v1,
           dispatch: _v2,

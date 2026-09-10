@@ -9703,26 +9703,27 @@
       originalPrice: _v10,
       savingsPercent: _v11,
       renewalPriceLabel: _v12,
-      planFeatures: _v13,
-      exploreOtherOptionsHref: _v14 = _v212
+      renewalMonthlyPriceLabel: _v13 = _v12,
+      planFeatures: _v14,
+      exploreOtherOptionsHref: _v15 = _v212
     }) => {
-      let _v15 = _v3.default.useRef(!1);
+      let _v16 = _v3.default.useRef(!1);
       _v3.default.useEffect(() => {
         if (!_v0) {
-          _v15.current = !1;
+          _v16.current = !1;
           return;
         }
         let _v0 = window.setTimeout(() => {
-          _v15.current = !0;
+          _v16.current = !0;
         }, 400);
         return () => {
           window.clearTimeout(_v0);
         };
       }, [_v0]);
-      let _v16 = _v0 => () => {
-          _v15.current && _v0();
+      let _v17 = _v0 => () => {
+          _v16.current && _v0();
         },
-        _v17 = (_v0, _v1) => _v0 => (0, _v1.jsx)(_v43.Link, {
+        _v18 = (_v0, _v1) => _v0 => (0, _v1.jsx)(_v43.Link, {
           href: _v0,
           textDecoration: "underline",
           color: "text-primary",
@@ -9730,10 +9731,11 @@
           rel: "noopener noreferrer",
           children: _v0
         }, _v1),
-        _v18 = _v0 => (0, _v1.jsxs)(_v133.Stack, {
+        _v19 = (_v0, _v1) => (0, _v1.jsxs)(_v133.Stack, {
           spacing: "6px",
           width: "100%",
           align: "flex-start",
+          marginTop: _v1,
           children: [null !== _v0.teamSeats && (0, _v1.jsxs)(_v8.Flex, {
             gap: "4px",
             alignItems: "center",
@@ -10064,8 +10066,10 @@
               }), (0, _v1.jsx)(_v7.Button, {
                 variant: "secondary",
                 size: "sm",
+                backgroundColor: "status-info-primary",
+                color: "white",
                 as: "a",
-                href: _v14,
+                href: _v15,
                 target: "_blank",
                 rel: "noopener noreferrer",
                 children: (0, _v12.translate)({
@@ -10151,13 +10155,13 @@
                     color: "text-primary",
                     children: (0, _v12.translate)("$0")
                   })
-                }), _v18({
+                }), _v19({
                   teamSeats: 1,
                   adminSeats: null,
                   restrictedStorage: "1 GB",
                   bandwidth: "1 TB",
                   bandwidthIsYearly: !1
-                }), (0, _v1.jsx)(_v52.Text, {
+                }, "auto"), (0, _v1.jsx)(_v52.Text, {
                   variant: "body-xs",
                   color: "text-secondary",
                   children: (0, _v12.translate)({
@@ -10190,8 +10194,7 @@
                   variant: "destructive",
                   size: "md",
                   width: "100%",
-                  marginTop: "auto",
-                  onClick: _v16(_v3),
+                  onClick: _v17(_v3),
                   isLoading: _v5,
                   disabled: _v5 || _v6,
                   children: (0, _v12.translate)({
@@ -10344,13 +10347,13 @@
                         }
                       }
                     })
-                  }), _v12 && (0, _v1.jsx)(_v52.Text, {
+                  }), _v13 && (0, _v1.jsx)(_v52.Text, {
                     variant: "body-xs",
                     color: "text-secondary",
                     children: _v7 ? (0, _v12.translate)({
                       singular: "Renews at {AMOUNT}/month, billed annually",
                       replacements: {
-                        AMOUNT: _v12
+                        AMOUNT: _v13
                       },
                       dictionary: {
                         es: {
@@ -10378,39 +10381,99 @@
                     }) : (0, _v12.translate)({
                       singular: "Renews at {AMOUNT}/month, billed monthly",
                       replacements: {
-                        AMOUNT: _v12
-                      },
-                      dictionary: {
-                        es: {
-                          singular: "Se renueva a {AMOUNT}/mes, facturado mensualmente"
-                        },
-                        "de-DE": {
-                          singular: "Verlängert sich zu {AMOUNT}/Monat, monatlich abgerechnet"
-                        },
-                        "fr-FR": {
-                          singular: "Renouvellement à {AMOUNT}/mois, facturé mensuellement"
-                        },
-                        "ja-JP": {
-                          singular: "月額{AMOUNT}で更新されます, 請求は毎月です"
-                        },
-                        "ko-KR": {
-                          singular: "{AMOUNT}/month에 갱신되며, 매월 청구됩니다"
-                        },
-                        "pt-BR": {
-                          singular: "Renova por {AMOUNT}/mês, cobrado mensalmente"
-                        },
-                        "zh-CN": {
-                          singular: "续订价为 {AMOUNT}/月，按月计费"
-                        }
+                        AMOUNT: _v13
                       }
                     })
                   })]
-                }), _v18(_v13), (0, _v1.jsx)(_v7.Button, {
+                }), _v19(_v14), _v12 && (0, _v1.jsx)(_v52.Text, {
+                  variant: "body-xs",
+                  color: "text-secondary",
+                  children: (0, _v12.translate)({
+                    singular: "Renews automatically at {RENEWAL_PRICE}/{PERIOD} (plus tax) unless canceled. Promotional price may change with prior notice.",
+                    replacements: {
+                      RENEWAL_PRICE: _v12,
+                      PERIOD: _v7 ? (0, _v12.translate)({
+                        singular: "year",
+                        dictionary: {
+                          es: {
+                            singular: "año"
+                          },
+                          "de-DE": {
+                            singular: "Jahr"
+                          },
+                          "fr-FR": {
+                            singular: "année"
+                          },
+                          "ja-JP": {
+                            singular: "年"
+                          },
+                          "ko-KR": {
+                            singular: "년"
+                          },
+                          "pt-BR": {
+                            singular: "Ano"
+                          },
+                          "zh-CN": {
+                            singular: "年"
+                          }
+                        }
+                      }) : (0, _v12.translate)({
+                        singular: "month",
+                        dictionary: {
+                          es: {
+                            singular: "mes"
+                          },
+                          "de-DE": {
+                            singular: "Monat"
+                          },
+                          "fr-FR": {
+                            singular: "mois"
+                          },
+                          "ja-JP": {
+                            singular: "月"
+                          },
+                          "ko-KR": {
+                            singular: "월"
+                          },
+                          "pt-BR": {
+                            singular: "Mês"
+                          },
+                          "zh-CN": {
+                            singular: "月"
+                          }
+                        }
+                      })
+                    },
+                    dictionary: {
+                      es: {
+                        singular: "Se renueva automáticamente a {RENEWAL_PRICE}/{PERIOD} (más impuestos) a menos que se cancele. El precio promocional puede cambiar con aviso previo."
+                      },
+                      "de-DE": {
+                        singular: "Verlängert sich automatisch zu {RENEWAL_PRICE}/{PERIOD} (zzgl. Steuern), sofern nicht gekündigt. Der Aktionspreis kann nach vorheriger Ankündigung geändert werden."
+                      },
+                      "fr-FR": {
+                        singular: "Se renouvelle automatiquement au tarif de {RENEWAL_PRICE}/{PERIOD} (taxes en sus) sauf en cas d’annulation. Le prix promotionnel peut être modifié moyennant un préavis."
+                      },
+                      "ja-JP": {
+                        singular: "キャンセルされない限り、{RENEWAL_PRICE}/{PERIOD} (税別)で自動更新されます。 プロモーション価格は事前の通知により変更される場合があります。"
+                      },
+                      "ko-KR": {
+                        singular: "취소하지 않으면 {RENEWAL_PRICE}/{PERIOD} (세금 별도)로 자동 갱신됩니다. 프로모션 가격은 사전 통지 후 변경될 수 있습니다."
+                      },
+                      "pt-BR": {
+                        singular: "Renova automaticamente por {RENEWAL_PRICE}/{PERIOD} (mais impostos) a menos que seja cancelado. O preço promocional pode ser alterado mediante aviso prévio."
+                      },
+                      "zh-CN": {
+                        singular: "按 {RENEWAL_PRICE}/{PERIOD} 自动续订 (另加税)，除非已取消。促销价格可能会在提前通知后变更。"
+                      }
+                    }
+                  })
+                }), (0, _v1.jsx)(_v7.Button, {
                   variant: "primary",
                   size: "md",
                   width: "100%",
                   marginTop: "auto",
-                  onClick: _v16(_v4),
+                  onClick: _v17(_v4),
                   isLoading: _v6,
                   disabled: _v6 || _v5,
                   children: (0, _v12.translate)({
@@ -10499,8 +10562,8 @@
                       }
                     }
                   }),
-                  TOS_URL: _v17("/terms", "tos"),
-                  PP_URL: _v17("/privacy", "privacy")
+                  TOS_URL: _v18("/terms", "tos"),
+                  PP_URL: _v18("/privacy", "privacy")
                 },
                 dictionary: {
                   es: {
@@ -11149,8 +11212,9 @@
             minimumFractionDigits: 0,
             maximumFractionDigits: 2
           }).format(_v4) : null,
-          _v6 = _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v59?.landedPlan.priceFormatted?.annualMonthly ?? null : _v5,
-          _v7 = _v59?.landedPlan.metadata?.entitlements?.params;
+          _v6 = _v0 ? _v6?.originalPrice?.formatted ?? _v59?.landedPlan.priceFormatted?.annual ?? null : _v5,
+          _v7 = _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v59?.landedPlan.priceFormatted?.annualMonthly ?? null : _v5,
+          _v8 = _v59?.landedPlan.metadata?.entitlements?.params;
         return (0, _v1.jsx)(_v213, {
           isOpen: _v0,
           onClose: _v1,
@@ -11167,12 +11231,13 @@
           originalPrice: _v2,
           savingsPercent: _v74,
           renewalPriceLabel: _v6,
+          renewalMonthlyPriceLabel: _v7,
           planFeatures: {
-            teamSeats: _v7?.teamSeats ?? null,
-            adminSeats: _v7?.seats?.admin ?? null,
-            restrictedStorage: _v7?.restrictedVideoStorageLimit ?? null,
-            bandwidth: _v7?.bandwidth?.periodicQuota ?? null,
-            bandwidthIsYearly: _v7?.bandwidth?.quotaPeriod === "year"
+            teamSeats: _v8?.teamSeats ?? null,
+            adminSeats: _v8?.seats?.admin ?? null,
+            restrictedStorage: _v8?.restrictedVideoStorageLimit ?? null,
+            bandwidth: _v8?.bandwidth?.periodicQuota ?? null,
+            bandwidthIsYearly: _v8?.bandwidth?.quotaPeriod === "year"
           }
         });
       }
@@ -11195,7 +11260,8 @@
           _v10 = _v6?.bandwidth?.periodicQuota ?? null,
           _v11 = _v6?.bandwidth?.quotaPeriod === "year";
         if (_v73) {
-          let _v0 = _v0 ? _v6?.originalPrice?.formatted ?? _v62?.priceFormatted?.annual ?? null : _v5;
+          let _v0 = _v0 ? _v6?.originalPrice?.formatted ?? _v62?.priceFormatted?.annual ?? null : _v5,
+            _v1 = _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v62?.priceFormatted?.annualMonthly ?? null : _v5;
           return (0, _v1.jsx)(_v213, {
             isOpen: _v0,
             onClose: _v1,
@@ -11212,6 +11278,7 @@
             originalPrice: _v2 ?? null,
             savingsPercent: _v74,
             renewalPriceLabel: _v0,
+            renewalMonthlyPriceLabel: _v1,
             planFeatures: {
               teamSeats: _v7,
               adminSeats: _v8,
@@ -11904,6 +11971,8 @@
                     }), (0, _v1.jsx)(_v7.Button, {
                       variant: "secondary",
                       size: "sm",
+                      backgroundColor: "status-info-primary",
+                      color: "white",
                       onClick: _v91,
                       children: (0, _v12.translate)({
                         singular: "Request individual plan",

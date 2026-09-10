@@ -1693,6 +1693,7 @@
       }, [_v3, _v2, _v4]), (0, _v1.jsxs)(_v13.Flex, {
         flexDir: "column",
         gap: "lg",
+        paddingX: "10px",
         children: [(0, _v1.jsx)(_v85.SimpleGrid, {
           columns: {
             base: 1,
@@ -3466,16 +3467,22 @@
           "aria-label": "Scroll to previous categories",
           size: "md",
           variant: "tertiary",
-          bg: "fill-surface",
+          bg: "whiteAlpha.700",
           borderRadius: "md",
           icon: (0, _v1.jsx)(_v145.ChevronLeftSmall, {}),
+          marginLeft: "10px",
           marginRight: 8,
           flexShrink: 0,
-          _hover: {
-            bg: "fill-component-hover"
-          },
-          _active: {
-            bg: "fill-component-hover"
+          sx: {
+            _dark: {
+              bg: "gray.800",
+              _hover: {
+                bg: "lightBlueAlpha.300"
+              },
+              _active: {
+                bg: "lightBlueAlpha.300"
+              }
+            }
           },
           onClick: () => _v9("left")
         }), (0, _v1.jsx)(_v13.Flex, {
@@ -3483,6 +3490,7 @@
           gap: "sm",
           w: "100%",
           overflowX: "auto",
+          paddingX: "10px",
           sx: {
             scrollbarWidth: "none",
             "&::-webkit-scrollbar": {
@@ -3513,13 +3521,13 @@
                 }
               } : {
                 _dark: {
-                  bg: "gray.800"
-                },
-                _hover: {
-                  bg: "button-tertiary-hover"
-                },
-                _active: {
-                  bg: "button-tertiary-hover"
+                  bg: "gray.800",
+                  _hover: {
+                    bg: "lightBlueAlpha.300"
+                  },
+                  _active: {
+                    bg: "lightBlueAlpha.300"
+                  }
                 }
               },
               onClick: () => _v2(_v1),
@@ -3534,16 +3542,22 @@
           "aria-label": "Scroll to see more categories",
           size: "md",
           variant: "tertiary",
-          bg: "fill-surface",
+          bg: "whiteAlpha.700",
           borderRadius: "md",
           icon: (0, _v1.jsx)(_v146.ChevronRightSmall, {}),
+          marginRight: "10px",
           marginLeft: 8,
           flexShrink: 0,
-          _hover: {
-            bg: "fill-component-hover"
-          },
-          _active: {
-            bg: "fill-component-hover"
+          sx: {
+            _dark: {
+              bg: "gray.800",
+              _hover: {
+                bg: "lightBlueAlpha.300"
+              },
+              _active: {
+                bg: "lightBlueAlpha.300"
+              }
+            }
           },
           onClick: () => _v9("right")
         })]

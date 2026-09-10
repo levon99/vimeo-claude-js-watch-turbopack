@@ -1399,7 +1399,7 @@
                 text: _v28.T.Owner
               }), (0, _v2.jsx)(_v83, {})]
             })
-          }), _v9.length > 0 && !_v1.currentTeamSize && !_v6 && (0, _v2.jsx)(_v116, {
+          }), _v9.length > 0 && !_v3 && !_v5 && (0, _v2.jsx)(_v116, {
             children: (0, _v2.jsx)(_v117, {
               children: _v28.T.NoResults(_v9)
             })

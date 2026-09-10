@@ -7,13 +7,11 @@
   async function _v4({
     baseUrl: _v0,
     select: _v1,
-    where: {
-      userId: _v2
-    },
+    query: _v2,
     ..._v3
   }) {
-    return (0, _v2.measureLatency)("getUserFoldersDefault", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/folders/default?fields=${_v1.map(_v3.intoSnakeCase).join(",")}`, {
+    return (0, _v2.measureLatency)("getMeStripeConfig", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/me/stripe/config?${(0, _v3.searchQueryString)(_v2)}&fields=${_v1.map(_v3.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
       });
@@ -24,6 +22,7 @@
       return (0, _v3.deepCamelCase)(_v1);
     });
   }
+  _v0.s(["getMeStripeConfig", 0, _v4], 0);
   var _v5 = _v0.i(0),
     _v6 = _v0.i(0),
     _v7 = _v0.i(0),
@@ -37,7 +36,7 @@
         xVimeoPage: _v5,
         locale: _v6
       } = (0, _v9.useGctlConfig)();
-    return (0, _v5.default)(_v2 ? `/users/${_v2.where.userId}/folders/default${(0, _v7.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v4({
+    return (0, _v5.default)(_v2 ? `/me/stripe/config${(0, _v7.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v4({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -50,7 +49,7 @@
     }) : null, _v1);
   }
   "true" === _v1.default.env.STORYBOOK && (0, _v7.assignMswData)(_v10, {
-    endpoint: "/users/:userId/folders/default",
+    endpoint: "/me/stripe/config",
     method: "GET"
   }), "true" === _v1.default.env.STORYBOOK && (0, _v7.assignMswData)(function () {
     let {
@@ -68,7 +67,7 @@
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/folders/default${(0, _v7.serializeQuery)(_v0)}`, _v4({
+        let _v0 = await _v0(`/me/stripe/config${(0, _v7.serializeQuery)(_v0)}`, _v4({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -91,7 +90,7 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }, {
-    endpoint: "/users/:userId/folders/default",
+    endpoint: "/me/stripe/config",
     method: "GET"
-  }), _v0.s(["useGetUserFoldersDefault", 0, _v10], 0);
+  }), _v0.s(["useGetMeStripeConfig", 0, _v10], 0);
 }

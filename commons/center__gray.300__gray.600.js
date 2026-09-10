@@ -111,19 +111,31 @@
         _v1 = () => {
           _v0.forEach(_v0 => _v23.style.removeProperty(_v0));
         };
-      if (_v23.style.setProperty("--review-video-radius", _v22), !_v25 || _v25 <= 0) return _v1;
-      let _v2 = () => {
-        let _v0 = _v23.clientWidth,
-          _v1 = _v23.clientHeight;
-        if (0 === _v0 || 0 === _v1) return;
-        let _v2 = Math.min(_v0, _v1 * _v25),
-          _v3 = Math.min(_v1, _v0 / _v25);
-        _v23.style.setProperty("--review-video-w", `${_v2}px`), _v23.style.setProperty("--review-video-h", `${_v3}px`), _v23.style.setProperty("--review-video-x", `${(_v0 - _v2) / 2}px`), _v23.style.setProperty("--review-video-y", `${(_v1 - _v3) / 2}px`), _v23.style.setProperty("--review-video-radius", _v22);
+      _v23.style.setProperty("--review-video-radius", _v22);
+      let _v2 = null,
+        _v3 = () => {
+          _v2?.removeEventListener("resize", _v4), _v2?.removeEventListener("loadedmetadata", _v4), _v2 = null;
+        };
+      if (!_v25 || _v25 <= 0) return _v1;
+      let _v4 = () => {
+        let _v0,
+          _v1 = _v23.getBoundingClientRect();
+        if (0 === _v1.width || 0 === _v1.height) return;
+        let _v2 = ((_v0 = _v23.querySelector("video")) !== _v2 && (_v3(), _v2 = _v0, _v0?.addEventListener("resize", _v4), _v0?.addEventListener("loadedmetadata", _v4)), (_v0 && _v0.videoWidth > 0 && _v0.videoHeight > 0 ? _v0.videoWidth / _v0.videoHeight : null) ?? _v25);
+        if (_v2 <= 0) return;
+        let _v3 = Math.min(_v1.width, _v1.height * _v2),
+          _v4 = Math.min(_v1.height, _v1.width / _v2);
+        _v23.style.setProperty("--review-video-w", `${_v3}px`), _v23.style.setProperty("--review-video-h", `${_v4}px`), _v23.style.setProperty("--review-video-x", `${(_v1.width - _v3) / 2}px`), _v23.style.setProperty("--review-video-y", `${(_v1.height - _v4) / 2}px`), _v23.style.setProperty("--review-video-radius", _v22);
       };
-      _v2();
-      let _v3 = new window.ResizeObserver(_v2);
-      return _v3.observe(_v23), () => {
-        _v3.disconnect(), _v1();
+      _v4();
+      let _v5 = new window.ResizeObserver(_v4);
+      _v5.observe(_v23);
+      let _v6 = new window.MutationObserver(_v4);
+      return _v6.observe(_v23, {
+        childList: !0,
+        subtree: !0
+      }), () => {
+        _v5.disconnect(), _v6.disconnect(), _v3(), _v1();
       };
     }, [_v14, _v25, _v22, _v23]), (0, _v1.jsxs)(_v3.Box, {
       position: "relative",
@@ -160,8 +172,22 @@
           ...(_v14 ? {
             ".player.js-player:not(:fullscreen):not(.js-player-fullscreen-api)": {
               backgroundColor: "transparent !important",
+              ".vp-content-area-background": {
+                display: "none !important"
+              },
+              "[data-content-area-sibling-eligible]": {
+                transition: "none !important"
+              },
               ".vp-video-wrapper": {
-                backgroundColor: "transparent !important"
+                backgroundColor: "transparent !important",
+                width: "var(--review-video-w, 100%) !important",
+                height: "var(--review-video-h, 100%) !important",
+                left: "var(--review-video-x, 0) !important",
+                top: "var(--review-video-y, 0) !important",
+                right: "auto !important",
+                bottom: "auto !important",
+                borderRadius: "var(--review-video-radius, 8px)",
+                overflow: "hidden"
               },
               '[class*="Outro_module_outroWrapper"]': {
                 width: "var(--review-video-w, 100%) !important",
@@ -174,9 +200,8 @@
                 borderRadius: "var(--review-video-radius, 8px)",
                 overflow: "hidden"
               },
-              ".vp-telecine video, .vp-video-wrapper .vp-video, .vp-preview": {
-                borderRadius: "var(--review-video-radius, 8px)",
-                clipPath: "inset(var(--review-video-y, 0) var(--review-video-x, 0) var(--review-video-y, 0) var(--review-video-x, 0) round var(--review-video-radius, 8px))"
+              ".vp-video-wrapper .vp-video, .vp-preview": {
+                borderRadius: "var(--review-video-radius, 8px)"
               }
             }
           } : {}),

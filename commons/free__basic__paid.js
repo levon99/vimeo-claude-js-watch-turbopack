@@ -479,13 +479,102 @@
         track: _v26
       };
     },
-    _v31 = (0, _v2.createContext)({
+    _v31 = "utmParameters",
+    _v32 = "utmParametersTracked",
+    _v33 = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "utm_adgroup", "gclid", "fbclid", "msclkid", "ttclid", "vcid", "mkc", "pid", "wpsrc", "wpsn", "t_s", "t_network", "t_cid", "t_cname", "t_agid", "t_agname", "t_crid", "t_crname", "t_match_type", "t_medium", "t_device", "t_gcid", "t_validation"];
+  function _v34(_v0) {
+    if (null === _v0 || "" === _v0) return {};
+    try {
+      let _v0 = JSON.parse(_v0);
+      if (_v0 instanceof Object && !Array.isArray(_v0)) {
+        let _v0 = {};
+        for (let [_v0, _v1] of Object.entries(_v0)) "string" == typeof _v1 && (_v0[_v0] = _v1);
+        return _v0;
+      }
+      return {};
+    } catch {
+      return {};
+    }
+  }
+  function _v35(_v0, _v1) {
+    try {
+      return ("localStorage" === _v0 ? window.localStorage : window.sessionStorage).getItem(_v1);
+    } catch {
+      return null;
+    }
+  }
+  function _v36(_v0, _v1, _v2) {
+    try {
+      ("localStorage" === _v0 ? window.localStorage : window.sessionStorage).setItem(_v1, _v2);
+    } catch {}
+  }
+  let _v37 = async _v0 => {
+      try {
+        if ("true" === _v35("sessionStorage", _v32)) return;
+        let {
+          sessionParams: _v0,
+          persistentParams: _v1
+        } = function () {
+          let _v0,
+            _v1 = function () {
+              if ("" === document.referrer) return !1;
+              try {
+                let _v0 = new URL(document.referrer);
+                return _v0.hostname.endsWith(".vimeo.com") || "vimeo.com" === _v0.hostname || _v0.hostname.endsWith(".livestream.com") || "livestream.com" === _v0.hostname;
+              } catch {
+                return !1;
+              }
+            }(),
+            _v2 = (_v0 = {}, new URLSearchParams(window.location.search).forEach((_v0, _v1) => {
+              _v33.includes(_v1) && _v0 && (_v0[_v1] = _v0);
+            }), _v0),
+            _v3 = _v34(_v35("localStorage", _v31)),
+            _v4 = _v34(_v35("sessionStorage", _v31)),
+            _v5 = Object.keys(_v2).length > 0 ? {
+              ..._v2
+            } : {
+              ..._v4
+            };
+          if (_v5.t_lp ??= window.location.href, void 0 === _v5.t_wsource) {
+            let _v0 = function () {
+              if ("" === document.referrer) return null;
+              try {
+                return new URL(document.referrer).hostname;
+              } catch {
+                return null;
+              }
+            }();
+            null !== _v0 && (_v5.t_wsource = _v0);
+          }
+          let _v6 = void 0 !== _v5.t_s || void 0 !== _v3.t_s || void 0 !== _v5.utm_source || void 0 !== _v3.utm_source;
+          if (void 0 === _v5.t_network && void 0 === _v3.t_network && !_v6 && "" !== document.referrer && /google|bing|yahoo|duckduckgo|ask|baidu|yandex/i.test(document.referrer) && (_v5.t_network = "seo"), !_v1) {
+            _v36("sessionStorage", _v31, JSON.stringify(_v5));
+            let _v0 = Object.keys(_v5).length > 0 ? _v5 : _v3;
+            return _v36("localStorage", _v31, JSON.stringify(_v0)), {
+              sessionParams: _v5,
+              persistentParams: _v0
+            };
+          }
+          return {
+            sessionParams: _v4,
+            persistentParams: _v3
+          };
+        }();
+        await _v0.track("utm_params_tracked", {
+          landing_page_info: _v0,
+          persistent: _v1
+        }), _v36("sessionStorage", _v32, "true");
+      } catch (_v0) {
+        console.error("Error tracking UTM params event", _v0);
+      }
+    },
+    _v38 = (0, _v2.createContext)({
       track: async () => {
         let _v0 = "usePico() was called outside of <PicoProvider>. Track calls will be dropped.";
-        if (console.error(_v0), _v32()) throw Error(_v0);
+        if (console.error(_v0), _v39()) throw Error(_v0);
       }
     });
-  function _v32() {
+  function _v39() {
     let _v0 = window.location?.hostname ?? "";
     return "vimeo.dev" === _v0 || _v0.endsWith(".vimeows.com");
   }
@@ -604,7 +693,7 @@
             is_in_grace_period: _v8()
           };
         },
-        _v2 = _v2 || _v32(),
+        _v2 = _v2 || _v39(),
         _v3 = `https://vimeo.com/flarepoint/${function () {
           let _v0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
             _v1 = "";
@@ -622,14 +711,14 @@
             syncIntervalMilliseconds: _v1,
             endpoint: _v3
           });
-          _v27(_v0);
+          _v27(_v0), _v37(_v0);
         } catch (_v0) {
           console.error("Error initializing PicoX client", _v0), _v28(_v0);
         }
       })();
-    }, [_v21]), (0, _v1.jsx)(_v31.Provider, {
+    }, [_v21]), (0, _v1.jsx)(_v38.Provider, {
       value: _v26,
       children: _v0
     });
-  }, "usePico", 0, () => (0, _v2.useContext)(_v31)], 0);
+  }, "usePico", 0, () => (0, _v2.useContext)(_v38)], 0);
 }

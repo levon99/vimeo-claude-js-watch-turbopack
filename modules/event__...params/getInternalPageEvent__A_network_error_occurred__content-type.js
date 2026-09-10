@@ -5009,18 +5009,18 @@
     })`
   width: ${(0, _v30.rem)(24)};
   height: ${(0, _v30.rem)(24)};
-`;
-  _v14.default.div.withConfig({
-    displayName: "Layout__LeadCaptureLoading",
-    componentId: "sc-8e9ba6d2-24"
-  })`
+`,
+    _v240 = _v14.default.div.withConfig({
+      displayName: "Layout__LeadCaptureLoading",
+      componentId: "sc-8e9ba6d2-24"
+    })`
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-  let _v240 = _v14.createGlobalStyle`
+`,
+    _v241 = _v14.createGlobalStyle`
   ${_v219}:fullscreen {
     width: 100vw;
     height: 100vh;
@@ -5165,11 +5165,11 @@
     padding-left: 8px;
   }
 `;
-  function _v241() {
-    return (_v241 = Object.assign.bind()).apply(null, arguments);
+  function _v242() {
+    return (_v242 = Object.assign.bind()).apply(null, arguments);
   }
-  let _v242 = function (_v0) {
-    return _v7.createElement("svg", _v241({
+  let _v243 = function (_v0) {
+    return _v7.createElement("svg", _v242({
       viewBox: "0 0 20 20",
       xmlns: "http://www.w3.org/2000/svg"
     }, _v0), _v3 || (_v3 = _v7.createElement("path", {
@@ -5177,11 +5177,11 @@
       fill: "#fff"
     })));
   };
-  function _v243() {
-    return (_v243 = Object.assign.bind()).apply(null, arguments);
+  function _v244() {
+    return (_v244 = Object.assign.bind()).apply(null, arguments);
   }
-  let _v244 = function (_v0) {
-      return _v7.createElement("svg", _v243({
+  let _v245 = function (_v0) {
+      return _v7.createElement("svg", _v244({
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 24 24"
       }, _v0), _v4 || (_v4 = _v7.createElement("path", {
@@ -5189,7 +5189,7 @@
         fill: "#fff"
       })));
     },
-    _v245 = _v14.default.div.withConfig({
+    _v246 = _v14.default.div.withConfig({
       displayName: "PlaylistPlayBar__PlayBarWrapper",
       componentId: "sc-2bc51816-0"
     })`
@@ -5199,7 +5199,7 @@
   display: flex;
   align-items: center;
 `,
-    _v246 = (0, _v14.default)(_v34.Header).withConfig({
+    _v247 = (0, _v14.default)(_v34.Header).withConfig({
       displayName: "PlaylistPlayBar__PlayBarText",
       componentId: "sc-2bc51816-1"
     })`
@@ -5210,13 +5210,13 @@
   line-height: 1.25;
   letter-spacing: ${(0, _v30.rem)(.2)};
 `,
-    _v247 = (0, _v14.default)(_v246).withConfig({
+    _v248 = (0, _v14.default)(_v247).withConfig({
       displayName: "PlaylistPlayBar__ClipIndexLabel",
       componentId: "sc-2bc51816-2"
     })`
   color: ${_v90.bokehTheme.colors.gray["300"]};
 `,
-    _v248 = _v14.default.div.withConfig({
+    _v249 = _v14.default.div.withConfig({
       displayName: "PlaylistPlayBar__TextSection",
       componentId: "sc-2bc51816-3"
     })`
@@ -5225,7 +5225,7 @@
   flex-direction: row;
   align-items: center;
 `,
-    _v249 = (0, _v14.default)(_v246).withConfig({
+    _v250 = (0, _v14.default)(_v247).withConfig({
       displayName: "PlaylistPlayBar__ClipNameLabel",
       componentId: "sc-2bc51816-4"
     })`
@@ -5235,7 +5235,7 @@
   overflow: hidden;
   width: 65%;
 `,
-    _v250 = (0, _v14.default)(_v33.Button).withConfig({
+    _v251 = (0, _v14.default)(_v33.Button).withConfig({
       displayName: "PlaylistPlayBar__ExpandButton",
       componentId: "sc-2bc51816-5"
     })`
@@ -5250,20 +5250,20 @@
     ${_v0 => _v0.isExpanded && "transform: rotate(180deg);"}
   }
 `,
-    _v251 = _v14.default.div.withConfig({
+    _v252 = _v14.default.div.withConfig({
       displayName: "PlaylistPlayBar__Navigation",
       componentId: "sc-2bc51816-6"
     })`
   display: flex;
   margin-right: ${(0, _v30.rem)(12)};
 `,
-    _v252 = (0, _v14.default)(_v242).withConfig({
+    _v253 = (0, _v14.default)(_v243).withConfig({
       displayName: "PlaylistPlayBar__RightArrowIcon",
       componentId: "sc-2bc51816-7"
     })`
   transform: rotate(180deg);
 `,
-    _v253 = (0, _v14.default)(_v33.Button).withConfig({
+    _v254 = (0, _v14.default)(_v33.Button).withConfig({
       displayName: "PlaylistPlayBar__NavigationButton",
       componentId: "sc-2bc51816-8"
     })`
@@ -5275,7 +5275,7 @@
     height: 80%;
   }
 `,
-    _v254 = _v14.default.div.withConfig({
+    _v255 = _v14.default.div.withConfig({
       displayName: "PlaylistPlayBar__LiveIndicator",
       componentId: "sc-2bc51816-9"
     })`
@@ -5287,7 +5287,7 @@
       isLive: _v0
     }) => _v0 ? _v90.bokehTheme.colors.red["500"] : "transparent"};
 `;
-  function _v255({
+  function _v256({
     items: _v0,
     activeClip: _v1,
     isExpanded: _v2,
@@ -5303,44 +5303,44 @@
       _v9 = _v0.findIndex(_v0 => _v0.uri === _v8),
       _v10 = _v36.clipIndexText(_v9, _v0.length),
       _v11 = _v36.totalClipsCountText(_v0.length);
-    return (0, _v5.jsxs)(_v245, {
-      children: [(0, _v5.jsx)(_v250, {
+    return (0, _v5.jsxs)(_v246, {
+      children: [(0, _v5.jsx)(_v251, {
         isExpanded: _v2,
         variant: "minimalTransparent",
         onClick: _v4,
         format: "secondary",
         size: "xs",
-        icon: (0, _v5.jsx)(_v244, {})
-      }), (0, _v5.jsxs)(_v248, {
-        children: [(0, _v5.jsx)(_v247, {
+        icon: (0, _v5.jsx)(_v245, {})
+      }), (0, _v5.jsxs)(_v249, {
+        children: [(0, _v5.jsx)(_v248, {
           children: _v2 ? _v11 : _v10
         }), !_v2 && (0, _v5.jsxs)(_v5.Fragment, {
-          children: [(0, _v5.jsx)(_v254, {
+          children: [(0, _v5.jsx)(_v255, {
             isLive: _v3
-          }), (0, _v5.jsx)(_v249, {
+          }), (0, _v5.jsx)(_v250, {
             children: _v7
           })]
         })]
-      }), (0, _v5.jsxs)(_v251, {
-        children: [(0, _v5.jsx)(_v253, {
+      }), (0, _v5.jsxs)(_v252, {
+        children: [(0, _v5.jsx)(_v254, {
           size: "xs",
           variant: "minimalTransparent",
           format: "secondary",
           disabled: !_v6 || _v9 < 1,
           onClick: () => _v5(_v0[_v9 - 1]),
-          icon: (0, _v5.jsx)(_v242, {})
-        }), (0, _v5.jsx)(_v253, {
+          icon: (0, _v5.jsx)(_v243, {})
+        }), (0, _v5.jsx)(_v254, {
           size: "xs",
           variant: "minimalTransparent",
           format: "secondary",
           disabled: !_v6 || _v9 + 1 >= _v0.length,
           onClick: () => _v5(_v0[_v9 + 1]),
-          icon: (0, _v5.jsx)(_v252, {})
+          icon: (0, _v5.jsx)(_v253, {})
         })]
       })]
     });
   }
-  let _v256 = _v14.default.div.withConfig({
+  let _v257 = _v14.default.div.withConfig({
       displayName: "ThumbnailGrid__Container",
       componentId: "sc-7c440263-0"
     })`
@@ -5348,14 +5348,14 @@
   height: 100%;
   display: flex;
 `,
-    _v257 = _v14.default.div.withConfig({
+    _v258 = _v14.default.div.withConfig({
       displayName: "ThumbnailGrid__PrimaryWrapper",
       componentId: "sc-7c440263-1"
     })`
   width: 100%;
   height: 100%;
 `,
-    _v258 = _v14.default.div.withConfig({
+    _v259 = _v14.default.div.withConfig({
       displayName: "ThumbnailGrid__StackContainer",
       componentId: "sc-7c440263-2"
     })`
@@ -5364,7 +5364,7 @@
   display: flex;
   flex-direction: column;
 `,
-    _v259 = _v14.default.div.withConfig({
+    _v260 = _v14.default.div.withConfig({
       displayName: "ThumbnailGrid__Thumbnail",
       componentId: "sc-7c440263-3"
     })`
@@ -5376,24 +5376,24 @@
   background-position: center;
   background-size: cover;
 `;
-  function _v260({
+  function _v261({
     items: _v0
   }) {
     let _v1 = _v0 => {
       let _v1 = (0, _v62.default)(_v0[_v0]?.pictures?.sizes);
-      return _v1 || (_v1 = (0, _v61.default)(_v0[0]?.pictures?.sizes)), _v1 ? (0, _v5.jsx)(_v259, {
+      return _v1 || (_v1 = (0, _v61.default)(_v0[0]?.pictures?.sizes)), _v1 ? (0, _v5.jsx)(_v260, {
         src: _v1.link
       }) : null;
     };
-    return (0, _v5.jsxs)(_v256, {
-      children: [(0, _v5.jsx)(_v257, {
+    return (0, _v5.jsxs)(_v257, {
+      children: [(0, _v5.jsx)(_v258, {
         children: _v1(1)
-      }), _v0.length > 1 && (0, _v5.jsxs)(_v258, {
+      }), _v0.length > 1 && (0, _v5.jsxs)(_v259, {
         children: [_v1(2), _v1(3)]
       })]
     });
   }
-  let _v261 = _v14.default.span.withConfig({
+  let _v262 = _v14.default.span.withConfig({
     displayName: "LiveNowBadge__LiveNowBadgeContainer",
     componentId: "sc-ce84f7b8-0"
   })`
@@ -5410,8 +5410,8 @@
     fill: ${_v90.bokehTheme.colors.white};
   }
 `;
-  function _v262() {
-    return (0, _v5.jsxs)(_v261, {
+  function _v263() {
+    return (0, _v5.jsxs)(_v262, {
       children: [(0, _v5.jsx)("svg", {
         viewBox: "0 0 20 20",
         width: "10",
@@ -5424,9 +5424,9 @@
       }), "LIVE NOW"]
     });
   }
-  var _v263 = _v0.i(0),
-    _v264 = _v0.i(0);
-  let _v265 = _v14.default.div.withConfig({
+  var _v264 = _v0.i(0),
+    _v265 = _v0.i(0);
+  let _v266 = _v14.default.div.withConfig({
       displayName: "LiveThumbnail__Thumbnail",
       componentId: "sc-9dfd8e69-0"
     })`
@@ -5441,7 +5441,7 @@
   background-position: center;
   background-size: cover;
 `,
-    _v266 = _v14.default.div.withConfig({
+    _v267 = _v14.default.div.withConfig({
       displayName: "LiveThumbnail__PlayIconOverlay",
       componentId: "sc-9dfd8e69-1"
     })`
@@ -5455,7 +5455,7 @@
   opacity: 0.7;
   z-index: 14;
 `,
-    _v267 = (0, _v14.default)(_v263.Play).withConfig({
+    _v268 = (0, _v14.default)(_v264.Play).withConfig({
       displayName: "LiveThumbnail__PlayIcon",
       componentId: "sc-9dfd8e69-2"
     })`
@@ -5466,7 +5466,7 @@
   width: ${(0, _v30.rem)(16)};
   height: ${(0, _v30.rem)(16)};
 `,
-    _v268 = (0, _v14.default)(_v264.Pause).withConfig({
+    _v269 = (0, _v14.default)(_v265.Pause).withConfig({
       displayName: "LiveThumbnail__PauseIcon",
       componentId: "sc-9dfd8e69-3"
     })`
@@ -5476,25 +5476,25 @@
   width: ${(0, _v30.rem)(16)};
   height: ${(0, _v30.rem)(16)};
 `;
-  function _v269({
+  function _v270({
     src: _v0,
     isPlaying: _v1
   }) {
-    return (0, _v5.jsx)(_v265, {
+    return (0, _v5.jsx)(_v266, {
       src: _v0,
-      children: (0, _v5.jsx)(_v266, {
-        children: _v1 ? (0, _v5.jsx)(_v268, {}) : (0, _v5.jsx)(_v267, {})
+      children: (0, _v5.jsx)(_v267, {
+        children: _v1 ? (0, _v5.jsx)(_v269, {}) : (0, _v5.jsx)(_v268, {})
       })
     });
   }
-  let _v270 = _v14.default.div.withConfig({
+  let _v271 = _v14.default.div.withConfig({
       displayName: "TrackList__ItemsContainer",
       componentId: "sc-c7b16db8-0"
     })`
   display: flex;
   flex-direction: column;
 `,
-    _v271 = _v14.default.div.withConfig({
+    _v272 = _v14.default.div.withConfig({
       displayName: "TrackList__ClipInfo",
       componentId: "sc-c7b16db8-1"
     })`
@@ -5504,7 +5504,7 @@
   display: flex;
   flex-direction: column;
 `,
-    _v272 = _v14.default.div.withConfig({
+    _v273 = _v14.default.div.withConfig({
       displayName: "TrackList__Item",
       componentId: "sc-c7b16db8-2"
     })`
@@ -5537,7 +5537,7 @@
     }
   }
 `,
-    _v273 = _v14.default.div.withConfig({
+    _v274 = _v14.default.div.withConfig({
       displayName: "TrackList__ClipTitle",
       componentId: "sc-c7b16db8-3"
     })`
@@ -5550,14 +5550,14 @@
   margin-bottom: ${(0, _v30.rem)(4)};
   font-weight: 500;
 `,
-    _v274 = _v14.default.div.withConfig({
+    _v275 = _v14.default.div.withConfig({
       displayName: "TrackList__ClipDetails",
       componentId: "sc-c7b16db8-4"
     })`
   display: flex;
   width: 100%;
 `,
-    _v275 = _v14.default.span.withConfig({
+    _v276 = _v14.default.span.withConfig({
       displayName: "TrackList__ClipStat",
       componentId: "sc-c7b16db8-5"
     })`
@@ -5565,19 +5565,19 @@
   font-size: ${(0, _v30.rem)(14)};
   font-weight: normal;
 `,
-    _v276 = (0, _v14.default)(_v275).withConfig({
+    _v277 = (0, _v14.default)(_v276).withConfig({
       displayName: "TrackList__ClipStatDivider",
       componentId: "sc-c7b16db8-6"
     })`
   padding: 0 ${(0, _v30.rem)(4)};
 `;
-  function _v277({
+  function _v278({
     items: _v0,
     isPlaying: _v1,
     activeClipUri: _v2,
     onClipSwitch: _v3
   }) {
-    return (0, _v5.jsx)(_v270, {
+    return (0, _v5.jsx)(_v271, {
       children: _v0.map(_v0 => function (_v0, _v1) {
         let _v2,
           _v3,
@@ -5595,22 +5595,22 @@
           } = _v0,
           _v10 = _v36.trackViewCountText(_v7),
           _v11 = (0, _v61.default)(_v8)?.link;
-        return (0, _v5.jsxs)(_v272, {
+        return (0, _v5.jsxs)(_v273, {
           isSelected: _v1,
           onClick: () => _v3(_v0),
-          children: [(0, _v5.jsx)(_v269, {
+          children: [(0, _v5.jsx)(_v270, {
             src: _v11,
             isPlaying: _v1 && _v1
-          }), (0, _v5.jsxs)(_v271, {
-            children: [(0, _v5.jsx)(_v273, {
+          }), (0, _v5.jsxs)(_v272, {
+            children: [(0, _v5.jsx)(_v274, {
               children: _v4
-            }), (0, _v5.jsx)(_v274, {
-              children: _v9?.status === _v48 ? (0, _v5.jsx)(_v262, {}) : (0, _v5.jsxs)(_v5.Fragment, {
-                children: [(0, _v5.jsx)(_v275, {
+            }), (0, _v5.jsx)(_v275, {
+              children: _v9?.status === _v48 ? (0, _v5.jsx)(_v263, {}) : (0, _v5.jsxs)(_v5.Fragment, {
+                children: [(0, _v5.jsx)(_v276, {
                   children: (_v2 = String(Math.floor(_v5 / 60)).padStart(2, "0"), _v3 = String(_v5 % 60).padStart(2, "0"), `${_v2}:${_v3}`)
-                }), (0, _v5.jsx)(_v276, {
+                }), (0, _v5.jsx)(_v277, {
                   children: "•"
-                }), (0, _v5.jsx)(_v275, {
+                }), (0, _v5.jsx)(_v276, {
                   children: _v10
                 })]
               })
@@ -5620,7 +5620,7 @@
       }(_v0, _v0.uri === _v2))
     });
   }
-  let _v278 = _v14.default.div.withConfig({
+  let _v279 = _v14.default.div.withConfig({
       displayName: "EmbedPlaylist__EmbedPlaylistContainer",
       componentId: "sc-1d80e40c-0"
     })`
@@ -5651,7 +5651,7 @@
     display: none;
   }
 `,
-    _v279 = _v14.default.div.withConfig({
+    _v280 = _v14.default.div.withConfig({
       displayName: "EmbedPlaylist__PlaylistHeader",
       componentId: "sc-1d80e40c-1"
     })`
@@ -5660,14 +5660,14 @@
   max-height: 70%;
   width: 100%;
 `,
-    _v280 = _v14.default.div.withConfig({
+    _v281 = _v14.default.div.withConfig({
       displayName: "EmbedPlaylist__ThumbnailSection",
       componentId: "sc-1d80e40c-2"
     })`
   height: ${(0, _v30.rem)(52)};
   width: ${(0, _v30.rem)(88)};
 `,
-    _v281 = _v14.default.div.withConfig({
+    _v282 = _v14.default.div.withConfig({
       displayName: "EmbedPlaylist__EventDetails",
       componentId: "sc-1d80e40c-3"
     })`
@@ -5677,7 +5677,7 @@
   justify-content: center;
   max-width: 65%;
 `,
-    _v282 = (0, _v14.default)(_v34.Header).withConfig({
+    _v283 = (0, _v14.default)(_v34.Header).withConfig({
       displayName: "EmbedPlaylist__EventTitle",
       componentId: "sc-1d80e40c-4"
     })`
@@ -5690,7 +5690,7 @@
   color: ${_v90.bokehTheme.colors.white};
   letter-spacing: ${(0, _v30.rem)(.2)};
 `,
-    _v283 = (0, _v14.default)(_v215.Paragraph).withConfig({
+    _v284 = (0, _v14.default)(_v215.Paragraph).withConfig({
       displayName: "EmbedPlaylist__OwnerLabel",
       componentId: "sc-1d80e40c-5"
     })`
@@ -5699,7 +5699,7 @@
   line-height: 1.4;
   color: ${_v90.bokehTheme.colors.gray["300"]};
 `,
-    _v284 = _v14.default.div.withConfig({
+    _v285 = _v14.default.div.withConfig({
       displayName: "EmbedPlaylist__TrackListContainer",
       componentId: "sc-1d80e40c-6"
     })`
@@ -5708,7 +5708,7 @@
   width: 100%;
   overflow-y: auto;
 `;
-  function _v285({
+  function _v286({
     videos: _v0,
     eventData: _v1,
     activeClip: _v2,
@@ -5737,24 +5737,24 @@
       _v17 = (0, _v7.useCallback)(_v0 => {
         _v9 && _v7(_v0);
       }, [_v9, _v7]);
-    return (0, _v5.jsxs)(_v278, {
+    return (0, _v5.jsxs)(_v279, {
       isPlaying: _v3,
       isHover: _v4,
       isExpanded: _v13,
       isToastDisplayed: _v6,
-      children: [(0, _v5.jsxs)(_v279, {
-        children: [(0, _v5.jsx)(_v280, {
-          children: (0, _v5.jsx)(_v260, {
+      children: [(0, _v5.jsxs)(_v280, {
+        children: [(0, _v5.jsx)(_v281, {
+          children: (0, _v5.jsx)(_v261, {
             items: _v0
           })
-        }), (0, _v5.jsxs)(_v281, {
-          children: [(0, _v5.jsx)(_v282, {
+        }), (0, _v5.jsxs)(_v282, {
+          children: [(0, _v5.jsx)(_v283, {
             children: _v11
-          }), (0, _v5.jsx)(_v283, {
+          }), (0, _v5.jsx)(_v284, {
             children: _v16
           })]
         })]
-      }), (0, _v5.jsx)(_v255, {
+      }), (0, _v5.jsx)(_v256, {
         items: _v0,
         activeClip: _v2,
         isExpanded: _v13,
@@ -5762,9 +5762,9 @@
         canSwitchClip: _v9,
         onClipSwitch: _v17,
         isLive: _v5
-      }), (0, _v5.jsx)(_v284, {
+      }), (0, _v5.jsx)(_v285, {
         isExpanded: _v13,
-        children: (0, _v5.jsx)(_v277, {
+        children: (0, _v5.jsx)(_v278, {
           activeClipUri: _v2.uri,
           items: _v0,
           isPlaying: _v3,
@@ -5773,8 +5773,8 @@
       })]
     });
   }
-  var _v286 = _v0.i(0);
-  let _v287 = _v14.default.div.withConfig({
+  var _v287 = _v0.i(0);
+  let _v288 = _v14.default.div.withConfig({
       displayName: "NextLiveClip__ClipTitle",
       componentId: "sc-eca46192-0"
     })`
@@ -5787,14 +5787,14 @@
   font-weight: 500;
   margin: 0;
 `,
-    _v288 = (0, _v14.default)(_v215.Paragraph).withConfig({
+    _v289 = (0, _v14.default)(_v215.Paragraph).withConfig({
       displayName: "NextLiveClip__ClickToWatch",
       componentId: "sc-eca46192-1"
     })`
   padding-left: ${(0, _v30.rem)(8)};
   color: ${_v90.bokehTheme.colors.gray["100"]};
 `,
-    _v289 = _v14.default.div.withConfig({
+    _v290 = _v14.default.div.withConfig({
       displayName: "NextLiveClip__ThumbnailWrapper",
       componentId: "sc-eca46192-2"
     })`
@@ -5802,7 +5802,7 @@
   opacity: 0.75;
   display: flex;
 `,
-    _v290 = _v14.default.div.withConfig({
+    _v291 = _v14.default.div.withConfig({
       displayName: "NextLiveClip__NextLiveClipContainer",
       componentId: "sc-eca46192-3"
     })`
@@ -5818,18 +5818,18 @@
   cursor: pointer;
 
   &:hover {
-    ${_v287} {
-      color: ${_v90.bokehTheme.colors.white};
-    }
     ${_v288} {
       color: ${_v90.bokehTheme.colors.white};
     }
-    ${_v289} div {
+    ${_v289} {
+      color: ${_v90.bokehTheme.colors.white};
+    }
+    ${_v290} div {
       display: flex;
     }
   }
 `,
-    _v291 = _v14.default.div.withConfig({
+    _v292 = _v14.default.div.withConfig({
       displayName: "NextLiveClip__ClipDetailsWrapper",
       componentId: "sc-eca46192-4"
     })`
@@ -5838,7 +5838,7 @@
   margin-left: ${(0, _v30.rem)(12)};
   justify-content: center;
 `,
-    _v292 = (0, _v14.default)(_v33.Button).withConfig({
+    _v293 = (0, _v14.default)(_v33.Button).withConfig({
       displayName: "NextLiveClip__DismissButton",
       componentId: "sc-eca46192-5"
     })`
@@ -5846,7 +5846,7 @@
   z-index: 13;
   right: 2.5%;
 `,
-    _v293 = _v14.default.div.withConfig({
+    _v294 = _v14.default.div.withConfig({
       displayName: "NextLiveClip__TopWrapper",
       componentId: "sc-eca46192-6"
     })`
@@ -5854,11 +5854,11 @@
   align-items: center;
   margin-bottom: ${(0, _v30.rem)(4)};
 `,
-    _v294 = _v14.default.div.withConfig({
+    _v295 = _v14.default.div.withConfig({
       displayName: "NextLiveClip__BottomWrapper",
       componentId: "sc-eca46192-7"
     })``;
-  function _v295({
+  function _v296({
     streamableClip: _v0,
     onClipSwitch: _v1,
     onDismiss: _v2
@@ -5869,29 +5869,29 @@
         pictures: _v5
       } = _v0,
       _v6 = (0, _v61.default)(_v5?.sizes)?.link;
-    return (0, _v5.jsxs)(_v290, {
+    return (0, _v5.jsxs)(_v291, {
       onClick: _v3,
-      children: [(0, _v5.jsx)(_v289, {
-        children: (0, _v5.jsx)(_v269, {
+      children: [(0, _v5.jsx)(_v290, {
+        children: (0, _v5.jsx)(_v270, {
           src: _v6,
           isPlaying: !1
         })
-      }), (0, _v5.jsxs)(_v291, {
-        children: [(0, _v5.jsxs)(_v293, {
-          children: [(0, _v5.jsx)(_v287, {
+      }), (0, _v5.jsxs)(_v292, {
+        children: [(0, _v5.jsxs)(_v294, {
+          children: [(0, _v5.jsx)(_v288, {
             children: _v4
-          }), (0, _v5.jsx)(_v292, {
+          }), (0, _v5.jsx)(_v293, {
             variant: "minimalTransparent",
             size: "xs",
-            icon: (0, _v5.jsx)(_v286.DismissX, {
+            icon: (0, _v5.jsx)(_v287.DismissX, {
               color: _v90.bokehTheme.colors.white,
               width: 20,
               height: 20
             }),
             onClick: _v2
           })]
-        }), (0, _v5.jsxs)(_v294, {
-          children: [(0, _v5.jsx)(_v262, {}), (0, _v5.jsx)(_v288, {
+        }), (0, _v5.jsxs)(_v295, {
+          children: [(0, _v5.jsx)(_v263, {}), (0, _v5.jsx)(_v289, {
             size: 3,
             children: _v36.nextClipLabelText
           })]
@@ -5899,7 +5899,7 @@
       })]
     });
   }
-  let _v296 = _v14.default.div.withConfig({
+  let _v297 = _v14.default.div.withConfig({
       displayName: "NextVideoPreview__NextVideoPreviewContainer",
       componentId: "sc-cb38d70a-0"
     })`
@@ -5924,7 +5924,7 @@
     display: none;
   }
 `,
-    _v297 = _v14.default.div.withConfig({
+    _v298 = _v14.default.div.withConfig({
       displayName: "NextVideoPreview__ThumbnailContainer",
       componentId: "sc-cb38d70a-1"
     })`
@@ -5935,7 +5935,7 @@
     opacity: 0.7;
   }
 `,
-    _v298 = _v14.default.div.withConfig({
+    _v299 = _v14.default.div.withConfig({
       displayName: "NextVideoPreview__Thumbnail",
       componentId: "sc-cb38d70a-2"
     })`
@@ -5954,14 +5954,14 @@
   background-repeat: no-repeat;
   background-size: cover;
 `,
-    _v299 = (0, _v14.default)(_v34.Header).withConfig({
+    _v300 = (0, _v14.default)(_v34.Header).withConfig({
       displayName: "NextVideoPreview__UpNext",
       componentId: "sc-cb38d70a-3"
     })`
   color: ${_v90.bokehTheme.colors.white};
   margin-bottom: ${(0, _v30.rem)(8)};
 `,
-    _v300 = (0, _v14.default)(_v215.Paragraph).withConfig({
+    _v301 = (0, _v14.default)(_v215.Paragraph).withConfig({
       displayName: "NextVideoPreview__Duration",
       componentId: "sc-cb38d70a-4"
     })`
@@ -5975,7 +5975,7 @@
   margin-left: 60%;
   opacity: 0.7;
 `,
-    _v301 = (0, _v14.default)(_v263.Play).withConfig({
+    _v302 = (0, _v14.default)(_v264.Play).withConfig({
       displayName: "NextVideoPreview__PlayIcon",
       componentId: "sc-cb38d70a-5"
     })`
@@ -5986,7 +5986,7 @@
   width: ${(0, _v30.rem)(24)};
   height: ${(0, _v30.rem)(24)};
 `,
-    _v302 = _v14.default.div.withConfig({
+    _v303 = _v14.default.div.withConfig({
       displayName: "NextVideoPreview__PlayIconContainer",
       componentId: "sc-cb38d70a-6"
     })`
@@ -6002,7 +6002,7 @@
   z-index: 14;
   display: flex;
 `,
-    _v303 = _v14.default.div.withConfig({
+    _v304 = _v14.default.div.withConfig({
       displayName: "NextVideoPreview__Description",
       componentId: "sc-cb38d70a-7"
     })`
@@ -6010,7 +6010,7 @@
   padding: 0 ${(0, _v30.rem)(12)};
   background-color: ${_v90.bokehTheme.colors.gray["900"]};
 `,
-    _v304 = (0, _v14.default)(_v34.Header).withConfig({
+    _v305 = (0, _v14.default)(_v34.Header).withConfig({
       displayName: "NextVideoPreview__VideoTitle",
       componentId: "sc-cb38d70a-8"
     })`
@@ -6018,14 +6018,14 @@
   margin: ${(0, _v30.rem)(12)} 0;
   font-weight: 500;
 `,
-    _v305 = (0, _v14.default)(_v34.Header).withConfig({
+    _v306 = (0, _v14.default)(_v34.Header).withConfig({
       displayName: "NextVideoPreview__Author",
       componentId: "sc-cb38d70a-9"
     })`
   color: ${_v90.bokehTheme.colors.gray["300"]};
   margin: ${(0, _v30.rem)(12)} 0;
 `;
-  function _v306({
+  function _v307({
     video: _v0,
     author: _v1,
     onNextVideoToggled: _v2
@@ -6039,34 +6039,34 @@
       _v7 = String(Math.floor(_v4 / 60)).padStart(2, "0"),
       _v8 = String(_v4 % 60).padStart(2, "0"),
       _v9 = (0, _v7.useCallback)(() => _v2(_v0, !0), [_v2, _v0]);
-    return (0, _v5.jsxs)(_v296, {
-      children: [(0, _v5.jsx)(_v299, {
+    return (0, _v5.jsxs)(_v297, {
+      children: [(0, _v5.jsx)(_v300, {
         size: "4",
         children: _v36.upNextHeaderText
-      }), (0, _v5.jsx)(_v297, {
+      }), (0, _v5.jsx)(_v298, {
         onClick: _v9,
-        children: (0, _v5.jsxs)(_v298, {
+        children: (0, _v5.jsxs)(_v299, {
           src: _v6,
-          children: [(0, _v5.jsx)(_v302, {
-            children: (0, _v5.jsx)(_v301, {})
-          }), (0, _v5.jsx)(_v300, {
+          children: [(0, _v5.jsx)(_v303, {
+            children: (0, _v5.jsx)(_v302, {})
+          }), (0, _v5.jsx)(_v301, {
             size: "2",
             children: `${_v7}:${_v8}`
           })]
         })
-      }), (0, _v5.jsxs)(_v303, {
-        children: [(0, _v5.jsx)(_v304, {
+      }), (0, _v5.jsxs)(_v304, {
+        children: [(0, _v5.jsx)(_v305, {
           size: "6",
           children: _v5
-        }), (0, _v5.jsx)(_v305, {
+        }), (0, _v5.jsx)(_v306, {
           size: "6",
           children: _v1
         })]
       })]
     });
   }
-  var _v307 = _v0.i(0);
-  let _v308 = _v14.default.div.withConfig({
+  var _v308 = _v0.i(0);
+  let _v309 = _v14.default.div.withConfig({
       displayName: "schedule-bubble__ScheduleContainer",
       componentId: "sc-bf18c264-0"
     })`
@@ -6088,7 +6088,7 @@
     display: none;
   }
 `,
-    _v309 = _v14.default.div.withConfig({
+    _v310 = _v14.default.div.withConfig({
       displayName: "schedule-bubble__UpperText",
       componentId: "sc-bf18c264-1"
     })`
@@ -6097,31 +6097,31 @@
   margin-bottom: ${(0, _v30.rem)(4)};
   color: ${_v90.bokehTheme.colors.white};
 `,
-    _v310 = _v14.default.div.withConfig({
+    _v311 = _v14.default.div.withConfig({
       displayName: "schedule-bubble__MainText",
       componentId: "sc-bf18c264-2"
     })`
   font-size: ${(0, _v30.rem)(20)};
 `;
-  function _v311({
+  function _v312({
     schedule: _v0
   }) {
-    return (0, _v5.jsxs)(_v308, {
-      children: [(0, _v5.jsx)(_v309, {
-        children: (0, _v307.getScheduleAvailability)(_v0)
-      }), (0, _v5.jsx)(_v310, {
-        children: (0, _v307.getScheduleTime)(_v0)
+    return (0, _v5.jsxs)(_v309, {
+      children: [(0, _v5.jsx)(_v310, {
+        children: (0, _v308.getScheduleAvailability)(_v0)
+      }), (0, _v5.jsx)(_v311, {
+        children: (0, _v308.getScheduleTime)(_v0)
       })]
     });
   }
-  let _v312 = _v14.default.div.withConfig({
+  let _v313 = _v14.default.div.withConfig({
       displayName: "EventRecipientPlayer__BackstageFill",
       componentId: "sc-51e55c7f-0"
     })`
   position: absolute;
   inset: 0;
 `,
-    _v313 = _v14.default.video.withConfig({
+    _v314 = _v14.default.video.withConfig({
       displayName: "EventRecipientPlayer__CameraPreview",
       componentId: "sc-51e55c7f-1"
     })`
@@ -6138,7 +6138,7 @@
   transform: scaleX(-1);
   z-index: ${2};
 `,
-    _v314 = _v14.default.div.withConfig({
+    _v315 = _v14.default.div.withConfig({
       displayName: "EventRecipientPlayer__CameraPreviewLetter",
       componentId: "sc-51e55c7f-2"
     })`
@@ -6156,10 +6156,10 @@
   justify-content: center;
   z-index: ${2};
 `,
-    _v315 = (0, _v7.lazy)(() => _v0.A(0).then(_v0 => ({
+    _v316 = (0, _v7.lazy)(() => _v0.A(0).then(_v0 => ({
       default: _v0.EmbeddedAudienceSpeakerSession
     }))),
-    _v316 = (0, _v7.forwardRef)(function ({
+    _v317 = (0, _v7.forwardRef)(function ({
       fullscreenTargetRef: _v0,
       roundedCorners: _v1 = !1
     }, _v2) {
@@ -6528,7 +6528,7 @@
           viewerName: _v30
         }) : null,
         _v63 = (0, _v5.jsxs)(_v5.Fragment, {
-          children: [_v7 && _v19 && _v56 && (0, _v5.jsx)(_v285, {
+          children: [_v7 && _v19 && _v56 && (0, _v5.jsx)(_v286, {
             canSwitchClip: _v41,
             videos: _v56,
             eventData: _v3,
@@ -6540,13 +6540,13 @@
             onClipSwitch: _v58,
             onPlaylistExpandedChange: _v34,
             sendLiveSVVRPlayerBPEvent: _v57
-          }), !_v59 && _v60 && !_v39 && (0, _v5.jsx)(_v295, {
+          }), !_v59 && _v60 && !_v39 && (0, _v5.jsx)(_v296, {
             streamableClip: _v17,
             onClipSwitch: _v58,
             onDismiss: _v0 => {
               _v0.stopPropagation(), _v40(!0);
             }
-          }), _v23 && !_v31 && !_v33 && (0, _v5.jsx)(_v311, {
+          }), _v23 && !_v31 && !_v33 && (0, _v5.jsx)(_v312, {
             schedule: _v18
           })]
         }),
@@ -6556,10 +6556,10 @@
           },
           children: (0, _v5.jsx)(_v231, {
             scaleup: !1,
-            children: _v13 && _v11 ? (0, _v5.jsx)(_v312, {
+            children: _v13 && _v11 ? (0, _v5.jsx)(_v313, {
               children: (0, _v5.jsx)(_v7.Suspense, {
                 fallback: null,
-                children: (0, _v5.jsx)(_v315, {
+                children: (0, _v5.jsx)(_v316, {
                   sessionId: _v11.eventId,
                   sessionCode: _v11.joinToken,
                   isAudioMuted: _v14.isAudioMuted,
@@ -6572,16 +6572,16 @@
               children: [(0, _v5.jsx)("div", {
                 ref: _v55,
                 className: "player js-player"
-              }), _v37 && (0, _v5.jsx)(_v306, {
+              }), _v37 && (0, _v5.jsx)(_v307, {
                 video: _v37,
                 author: _v25,
                 onNextVideoToggled: _v58
-              }), _v61 && _v12?.isRequestPending ? _v14.isCameraOn && _v14.videoStream ? (0, _v5.jsx)(_v313, {
+              }), _v61 && _v12?.isRequestPending ? _v14.isCameraOn && _v14.videoStream ? (0, _v5.jsx)(_v314, {
                 ref: _v15,
                 autoPlay: !0,
                 playsInline: !0,
                 muted: !0
-              }) : (0, _v5.jsx)(_v314, {
+              }) : (0, _v5.jsx)(_v315, {
                 children: (0, _v5.jsx)(_v179, {
                   name: _v30
                 })
@@ -6610,7 +6610,7 @@
         })
       });
     }),
-    _v317 = ({
+    _v318 = ({
       isUnrated: _v0
     }) => {
       let _v1 = (0, _v7.useContext)(_v29.ViewerContext);
@@ -6635,7 +6635,7 @@
         })
       });
     },
-    _v318 = _v14.default.div.withConfig({
+    _v319 = _v14.default.div.withConfig({
       displayName: "PreviewBar__Container",
       componentId: "sc-f4816654-0"
     })`
@@ -6656,7 +6656,7 @@
     padding: ${(0, _v30.rem)(14)};
   }
 `,
-    _v319 = (0, _v14.default)(_v33.Button).withConfig({
+    _v320 = (0, _v14.default)(_v33.Button).withConfig({
       displayName: "PreviewBar__EditButton",
       componentId: "sc-f4816654-1"
     })`
@@ -6667,11 +6667,11 @@
     margin-top: ${(0, _v30.rem)(14)};
   }
 `,
-    _v320 = ({
+    _v321 = ({
       href: _v0
-    }) => (0, _v5.jsxs)(_v318, {
+    }) => (0, _v5.jsxs)(_v319, {
       id: "preview-banner",
-      children: [_v36.previewBarText, (0, _v5.jsx)(_v319, {
+      children: [_v36.previewBarText, (0, _v5.jsx)(_v320, {
         format: "alternative",
         variant: "transparent",
         pill: !0,
@@ -6680,30 +6680,30 @@
         children: _v36.previewBarButtonText
       })]
     });
-  var _v321 = _v0.i(0);
-  let _v322 = _v14.default.div.withConfig({
+  var _v322 = _v0.i(0);
+  let _v323 = _v14.default.div.withConfig({
       displayName: "styles__BadgeContainer",
       componentId: "sc-83e7baae-0"
     })`
   display: flex;
   margin-left: ${(0, _v30.rem)(10)};
 `,
-    _v323 = ({
+    _v324 = ({
       display: _v0,
       promptRating: _v1 = () => {},
       isUnrated: _v2
-    }) => _v0 ? (0, _v5.jsx)(_v322, {
-      children: (0, _v5.jsx)(_v321.Badge, {
+    }) => _v0 ? (0, _v5.jsx)(_v323, {
+      children: (0, _v5.jsx)(_v322.Badge, {
         onClick: _v1,
         format: _v2 ? "not-yet-rated" : "mature",
         size: "sm",
         children: _v2 ? _v36.ratingsBadgeLabel.unrated : _v36.ratingsBadgeLabel.mature
       })
     }) : null;
-  var _v324 = _v0.i(0);
-  let _v325 = "#141414",
-    _v326 = "56.25%";
-  function _v327({
+  var _v325 = _v0.i(0);
+  let _v326 = "#141414",
+    _v327 = "56.25%";
+  function _v328({
     isSmallScreen: _v0,
     isPortrait: _v1,
     isLoading: _v2,
@@ -6716,10 +6716,11 @@
     onUnmount: _v9,
     isMobileFormOpen: _v10,
     onOpenMobileForm: _v11,
-    onCloseMobileForm: _v12
+    onCloseMobileForm: _v12,
+    isFullScreen: _v13 = !1
   }) {
-    let _v13,
-      _v14 = _v0 => (0, _v5.jsx)(_v324.LeadCaptureView, {
+    let _v14,
+      _v15 = _v0 => (0, _v5.jsx)(_v325.LeadCaptureView, {
         previewType: _v4,
         type: _v176.ENTITY_TYPE.EVENT,
         entityId: _v5,
@@ -6729,16 +6730,19 @@
         onMount: _v8,
         onUnmount: _v9
       }),
-      _v15 = (0, _v5.jsx)(_v120.Flex, {
+      _v16 = (0, _v5.jsx)(_v120.Flex, {
         alignItems: "center",
         height: "100%",
         justifyContent: "center",
         width: "100%",
         children: (0, _v5.jsx)(_v156.Spinner, {})
-      }),
-      _v16 = _v4 === _v24.PREVIEW_TYPE.CONFIRMATION;
-    if (_v0 && _v10 && !_v16) return (0, _v5.jsxs)(_v118.Box, {
-      backgroundColor: _v325,
+      });
+    if (_v13) return _v2 ? (0, _v5.jsx)(_v240, {
+      children: (0, _v5.jsx)(_v156.Spinner, {})
+    }) : _v15();
+    let _v17 = _v4 === _v24.PREVIEW_TYPE.CONFIRMATION;
+    if (_v0 && _v10 && !_v17) return (0, _v5.jsxs)(_v118.Box, {
+      backgroundColor: _v326,
       bottom: 0,
       left: 0,
       overflow: "auto",
@@ -6757,10 +6761,10 @@
         top: (0, _v122.rem)(16),
         variant: "tertiary",
         zIndex: 1
-      }), _v2 ? _v15 : _v14()]
+      }), _v2 ? _v16 : _v15()]
     });
-    let _v17 = _v0 && !_v16;
-    return _v13 = _v2 ? _v15 : _v17 ? (0, _v5.jsxs)(_v120.Flex, {
+    let _v18 = _v0 && !_v17;
+    return _v14 = _v2 ? _v16 : _v18 ? (0, _v5.jsxs)(_v120.Flex, {
       alignItems: "center",
       direction: "column",
       gap: "xl",
@@ -6791,17 +6795,17 @@
           children: _v36.register
         })
       })]
-    }) : _v14({
+    }) : _v15({
       height: "100%",
       width: "100%"
     }), (0, _v5.jsx)(_v232, {
       isMobile: _v0,
       isPortrait: _v1,
       children: (0, _v5.jsx)(_v118.Box, {
-        backgroundColor: _v325,
+        backgroundColor: _v326,
         borderRadius: "2xl",
         overflow: "hidden",
-        paddingBottom: _v326,
+        paddingBottom: _v327,
         position: "relative",
         width: "100%",
         children: (0, _v5.jsx)(_v118.Box, {
@@ -6810,19 +6814,19 @@
           position: "absolute",
           right: 0,
           top: 0,
-          children: _v13
+          children: _v14
         })
       })
     });
   }
-  var _v328 = _v0.i(0),
-    _v329 = _v0.i(0);
-  let _v330 = ({
+  var _v329 = _v0.i(0),
+    _v330 = _v0.i(0);
+  let _v331 = ({
     eventId: _v0
   }) => {
     let {
         data: _v1
-      } = (0, _v328.useGetLiveEventSpeakerProfiles)(() => _v0 ? {
+      } = (0, _v329.useGetLiveEventSpeakerProfiles)(() => _v0 ? {
         select: ["uri", "personProfile.id", "personProfile.name", "personProfile.role", "personProfile.description", "personProfile.pictures.baseLink"],
         where: {
           liveEventId: Number(_v0)
@@ -6875,7 +6879,7 @@
         flexDirection: "row",
         gap: "md",
         overflow: "auto",
-        children: _v2.map(_v0 => (0, _v5.jsx)(_v329.SpeakerProfileCard, {
+        children: _v2.map(_v0 => (0, _v5.jsx)(_v330.SpeakerProfileCard, {
           name: _v0.personProfile.name,
           role: _v0.personProfile.role,
           description: _v0.personProfile.description,
@@ -6884,7 +6888,7 @@
       })]
     });
   };
-  function _v331({
+  function _v332({
     setLeadUuid: _v0,
     leadUuid: _v1
   }) {
@@ -6955,7 +6959,9 @@
       _v52 = _v49 === _v53 || _v49 === _v52 && _v1 || _v1 && [4, 2].includes(_v5),
       _v53 = _v31.asPath.split("?")[0].replace(/\/+$/, "").split("/").pop() ?? "",
       _v54 = Object.values(_v54).includes(_v53),
-      _v55 = _v0 => {
+      _v55 = new URLSearchParams(_v31.asPath.split("?")[1] ?? "").get("fullscreen"),
+      _v56 = null === _v55 ? _v20 : ["1", "true"].includes(_v55.toLowerCase()),
+      _v57 = _v0 => {
         if (![_v24.PREVIEW_TYPE.FORM, _v24.PREVIEW_TYPE.LOGIN_SCREEN].includes(_v0)) return;
         let _v1 = _v31.asPath.split("?"),
           _v2 = _v1[0].replace(/\/$/, ""),
@@ -6967,7 +6973,7 @@
           _v31.push(`${_v0}${_v4}`);
         } else _v31.push(`${_v2}/${_v5}${_v4}`);
       },
-      _v56 = () => {
+      _v58 = () => {
         let _v0 = _v31.asPath.split("?"),
           _v1 = _v0[0].replace(/\/$/, ""),
           _v2 = _v1.split("/").pop(),
@@ -6977,7 +6983,7 @@
           _v31.push(`${_v0}${_v3}`);
         }
       };
-    return (0, _v7.useEffect)(() => {
+    (0, _v7.useEffect)(() => {
       !_v48.loading && _v48.called && !_v48.data.isValidRegistrant && (_v0?.(""), _v2 && (0, _v114.deleteCookie)(_v2));
     }, [_v48, _v2]), (0, _v7.useEffect)(() => {
       _v33 && 5 === _v5 && _v86.GoogleTagManager.trackEvent("live_event_ended_for_viewer");
@@ -7005,8 +7011,33 @@
         is_live_chat_enabled: _v13,
         is_mobile_web: _v38
       }));
-    }, [_v13, _v9.embed?.speed, _v3.streamPrivacy?.embed, _v3.streamPrivacy?.view, _v4, _v38, _v40]), (0, _v5.jsxs)(_v5.Fragment, {
-      children: [(0, _v5.jsx)(_v216, {}), (0, _v5.jsx)(_v240, {}), _v35 && !_v20 && (0, _v5.jsx)(_v320, {
+    }, [_v13, _v9.embed?.speed, _v3.streamPrivacy?.embed, _v3.streamPrivacy?.view, _v4, _v38, _v40]);
+    let _v59 = (!_v52 || _v51) && _v7 ? (0, _v5.jsx)(_v328, {
+      isSmallScreen: _v20,
+      isPortrait: _v39,
+      isLoading: !_v50,
+      title: _v10,
+      previewType: _v47,
+      entityId: _v2,
+      setLeadUuid: _v0,
+      onPreviewTypeChanged: _v57,
+      onMount: () => {
+        _v57(_v47);
+      },
+      onUnmount: _v58,
+      isMobileFormOpen: _v25 || _v54,
+      onOpenMobileForm: () => _v26(!0),
+      onCloseMobileForm: () => {
+        _v26(!1), _v58();
+      },
+      isFullScreen: _v56
+    }) : null;
+    return _v59 && _v56 ? (0, _v5.jsxs)(_v5.Fragment, {
+      children: [_v35 && !_v20 && (0, _v5.jsx)(_v321, {
+        href: _v15
+      }), _v59]
+    }) : (0, _v5.jsxs)(_v5.Fragment, {
+      children: [(0, _v5.jsx)(_v216, {}), (0, _v5.jsx)(_v241, {}), _v35 && !_v20 && (0, _v5.jsx)(_v321, {
         href: _v15
       }), (0, _v5.jsx)(_v217, {
         children: (0, _v5.jsxs)(_v218, {
@@ -7022,32 +7053,14 @@
               children: [(0, _v5.jsxs)(_v221, {
                 isMobile: _v20,
                 isPortrait: _v39,
-                children: [(!_v52 || _v51) && _v7 ? (0, _v5.jsx)(_v327, {
-                  isSmallScreen: _v20,
-                  isPortrait: _v39,
-                  isLoading: !_v50,
-                  title: _v10,
-                  previewType: _v47,
-                  entityId: _v2,
-                  setLeadUuid: _v0,
-                  onPreviewTypeChanged: _v55,
-                  onMount: () => {
-                    _v55(_v47);
-                  },
-                  onUnmount: _v56,
-                  isMobileFormOpen: _v25 || _v54,
-                  onOpenMobileForm: () => _v26(!0),
-                  onCloseMobileForm: () => {
-                    _v26(!1), _v56();
-                  }
-                }) : _v45 ? (0, _v5.jsx)(_v317, {
+                children: [_v59 ?? (_v45 ? (0, _v5.jsx)(_v318, {
                   isUnrated: _v43,
                   redirectUrl: _v46
-                }) : (0, _v5.jsx)(_v316, {
+                }) : (0, _v5.jsx)(_v317, {
                   ref: _v36,
                   fullscreenTargetRef: _v20 ? void 0 : _v37,
                   roundedCorners: !0
-                }), (0, _v5.jsx)(_v233, {
+                })), (0, _v5.jsx)(_v233, {
                   isMobile: _v20,
                   isPortrait: _v39,
                   paddingEnabled: !1,
@@ -7069,7 +7082,7 @@
                         allowNewLines: !1,
                         contentEditable: !1,
                         shouldDisplayLinks: !1
-                      }), (0, _v5.jsx)(_v323, {
+                      }), (0, _v5.jsx)(_v324, {
                         display: !_v42 && _v14?.view === _v49,
                         isUnrated: _v43
                       }), _v11 && (0, _v5.jsx)(_v109, {
@@ -7090,7 +7103,7 @@
                   onClose: () => _v22(!1),
                   onPanelOpenChange: _v24
                 })]
-              }), _v18.release_single_event_customization && _v4 ? (0, _v5.jsx)(_v330, {
+              }), _v18.release_single_event_customization && _v4 ? (0, _v5.jsx)(_v331, {
                 eventId: _v4
               }) : null, _v32 ? (0, _v5.jsx)(_v230, {
                 children: (0, _v5.jsx)(_v116.EssentialFooter, {
@@ -7113,10 +7126,10 @@
     });
   }
   var _v114 = _v114,
-    _v332 = _v0.i(0),
     _v333 = _v0.i(0),
-    _v334 = _v0.i(0);
-  let _v335 = _v14.default.div.withConfig({
+    _v334 = _v0.i(0),
+    _v335 = _v0.i(0);
+  let _v336 = _v14.default.div.withConfig({
       displayName: "EventInteractionToolsLegacy__InteractionToolsContainerDesktop",
       componentId: "sc-fcf4bbc4-0"
     })`
@@ -7125,9 +7138,9 @@
   position: relative;
   overflow: hidden;
   max-width: ${(0, _v30.rem)(420)};
-  border-left: 1px solid ${_v332.core.color.stroke};
+  border-left: 1px solid ${_v333.core.color.stroke};
 `,
-    _v336 = _v14.default.div.withConfig({
+    _v337 = _v14.default.div.withConfig({
       displayName: "EventInteractionToolsLegacy__InteractionToolsContainerMobile",
       componentId: "sc-fcf4bbc4-1"
     })`
@@ -7141,12 +7154,12 @@
           bottom: ${_v2 ? (0, _v30.rem)(-72) : 0};
           left: 0;
           z-index: 5;
-          border-top: 1px solid ${_v332.core.color.stroke};
+          border-top: 1px solid ${_v333.core.color.stroke};
         ` : _v14.css`
           position: relative;
           z-index: 5;
           flex-shrink: 0;
-          border-left: 1px solid ${_v332.core.color.stroke};
+          border-left: 1px solid ${_v333.core.color.stroke};
           margin-left: ${_v1};
           transition: margin-left 200ms ease;
 
@@ -7159,7 +7172,7 @@
           }
         `};
 `,
-    _v337 = (0, _v7.memo)(function ({
+    _v338 = (0, _v7.memo)(function ({
       isPortrait: _v0,
       playerRef: _v1
     }) {
@@ -7174,8 +7187,8 @@
         _v10 = function (_v0 = 300) {
           let [_v1, _v2] = (0, _v7.useState)(!1);
           return (0, _v7.useLayoutEffect)(() => {
-            if (_v334.browserConfig.BROWSER?.isMobile && "visualViewport" in window) {
-              let _v0 = (0, _v333.default)(() => {
+            if (_v335.browserConfig.BROWSER?.isMobile && "visualViewport" in window) {
+              let _v0 = (0, _v334.default)(() => {
                 _v2(_v0 => {
                   let _v1 = window.screen.height - _v0 > window.visualViewport.height;
                   return _v0 !== _v1 ? _v1 : _v0;
@@ -7190,7 +7203,7 @@
         _v11 = (0, _v7.useMemo)(() => _v64(), []),
         _v12 = _v126.EComposerSessionType.LIVE_EVENT,
         _v13 = !!_v9?.hasRegistration,
-        _v14 = (0, _v7.useMemo)(() => _v11 ? _v336 : _v335, [_v11]),
+        _v14 = (0, _v7.useMemo)(() => _v11 ? _v337 : _v336, [_v11]),
         _v15 = (0, _v7.useMemo)(() => (_v0 ? window.visualViewport.height : window.visualViewport.width) * .75, [_v0]),
         _v16 = (0, _v7.useMemo)(() => _v0 ? "0" : _v4 ? `-${(0, _v30.rem)(_v15 - _v2)}` : "0", [_v15, _v4, _v0, _v2]),
         _v17 = _v143(_v9?.streamableClip),
@@ -7237,14 +7250,14 @@
         })
       });
     }),
-    _v338 = (0, _v155.default)(async () => ({
+    _v339 = (0, _v155.default)(async () => ({
       default: (await _v0.A(0)).AccountMenuWithModals
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v339 = ({
+    _v340 = ({
       setTeamAccentColor: _v0
     }) => {
       let _v1 = (0, _v7.useContext)(_v29.ViewerContext),
@@ -7267,14 +7280,14 @@
         } : null);
       if ((0, _v7.useEffect)(() => {
         _v8?.accentColor && _v0 && _v0(_v8.accentColor);
-      }, [_v8?.accentColor, _v0]), _v5) return (0, _v5.jsx)(_v341, {
+      }, [_v8?.accentColor, _v0]), _v5) return (0, _v5.jsx)(_v342, {
         children: (0, _v5.jsx)(_v161.Header, {
           clickJoinAnalyticsEvent: () => _v7(_v170())
         })
       });
       let _v10 = _v8?.pictures?.sizes,
         _v11 = _v10?.length ? _v10.length - 1 : 0;
-      return (0, _v5.jsxs)(_v340, {
+      return (0, _v5.jsxs)(_v341, {
         children: [(0, _v5.jsx)(_v163.HeaderLeftContent, {
           children: !_v9 && (0, _v5.jsx)(_v162.default, {
             teamLogoUrl: _v8?.pictures?.sizes?.[_v11]?.link,
@@ -7285,7 +7298,7 @@
             fallback: (0, _v5.jsx)(_v156.Spinner, {
               size: "sm"
             }),
-            children: (0, _v5.jsx)(_v338, {})
+            children: (0, _v5.jsx)(_v339, {})
           }) : _v3 ? (0, _v5.jsx)(_v14.ThemeProvider, {
             theme: _v158.themes.light,
             children: (0, _v5.jsx)(_v160.LoginJoinModal, {
@@ -7306,7 +7319,7 @@
         })]
       });
     },
-    _v340 = (0, _v14.default)(_v163.HeaderMinimalWrapper).withConfig({
+    _v341 = (0, _v14.default)(_v163.HeaderMinimalWrapper).withConfig({
       displayName: "EventRecipientHeaderLegacy__StyledHeaderContainer",
       componentId: "sc-caa53fa0-0"
     })`
@@ -7322,7 +7335,7 @@
   position: absolute;
   border-bottom: none;
 `,
-    _v341 = _v14.default.div.withConfig({
+    _v342 = _v14.default.div.withConfig({
       displayName: "EventRecipientHeaderLegacy__AppShellNavContainer",
       componentId: "sc-caa53fa0-1"
     })`
@@ -7337,7 +7350,7 @@
     z-index: 15;
   }
 `,
-    _v342 = _v14.default.div.withConfig({
+    _v343 = _v14.default.div.withConfig({
       displayName: "LayoutLegacy__PageContainer",
       componentId: "sc-a6aba083-0"
     })`
@@ -7351,7 +7364,7 @@
   flex-flow: row nowrap;
   position: relative;
 `,
-    _v343 = _v14.default.div.withConfig({
+    _v344 = _v14.default.div.withConfig({
       displayName: "LayoutLegacy__PageContainerContent",
       componentId: "sc-a6aba083-1"
     })`
@@ -7361,13 +7374,13 @@
   min-height: 100vh;
   position: relative;
 `,
-    _v344 = _v14.default.div.withConfig({
+    _v345 = _v14.default.div.withConfig({
       displayName: "LayoutLegacy__ContentContainer",
       componentId: "sc-a6aba083-2"
     })`
   display: flex;
   margin: ${(0, _v30.rem)(63)} 0 0 0;
-  border-top: 1px solid ${_v332.core.color.stroke};
+  border-top: 1px solid ${_v333.core.color.stroke};
   justify-content: flex-end;
   overflow: auto;
 
@@ -7379,7 +7392,7 @@
       height: ${_v0 ? `calc(100vh - ${(0, _v30.rem)(63)})` : "100%"};
     `}
 `,
-    _v345 = _v14.default.div.withConfig({
+    _v346 = _v14.default.div.withConfig({
       displayName: "LayoutLegacy__MainContentContainer",
       componentId: "sc-a6aba083-3"
     })`
@@ -7405,7 +7418,7 @@
             ` : ""}
     `}
 `,
-    _v346 = _v14.default.div.withConfig({
+    _v347 = _v14.default.div.withConfig({
       displayName: "LayoutLegacy__EmbedContainer",
       componentId: "sc-a6aba083-4"
     })`
@@ -7436,7 +7449,7 @@
           }
         `};
 `,
-    _v347 = _v14.default.div.withConfig({
+    _v348 = _v14.default.div.withConfig({
       displayName: "LayoutLegacy__TitleAndDescription",
       componentId: "sc-a6aba083-5"
     })`
@@ -7457,7 +7470,7 @@
     padding-bottom: ${(0, _v30.rem)(72)};
   }
 `,
-    _v348 = (0, _v14.default)(_v97).withConfig({
+    _v349 = (0, _v14.default)(_v97).withConfig({
       displayName: "LayoutLegacy__Title",
       componentId: "sc-a6aba083-6"
     })`
@@ -7481,7 +7494,7 @@
     theme: _v0
   }) => `${(0, _v30.rem)(1)} solid ${_v0.additions.content.border3}`};
 `;
-  let _v349 = _v14.default.div.withConfig({
+  let _v350 = _v14.default.div.withConfig({
     displayName: "LayoutLegacy__Inner",
     componentId: "sc-a6aba083-8"
   })`
@@ -7519,7 +7532,7 @@
     }
   `};
 
-  ${_v349} {
+  ${_v350} {
     position: relative;
     background-color: black;
     > div {
@@ -7530,7 +7543,7 @@
     padding-bottom: ${56.25}%;
   }
 `;
-  let _v350 = _v14.default.div.withConfig({
+  let _v351 = _v14.default.div.withConfig({
     displayName: "LayoutLegacy__EventInfoContainer",
     componentId: "sc-a6aba083-10"
   })`
@@ -7604,7 +7617,7 @@
   margin-bottom: ${(0, _v30.rem)(25)};
   color: white;
 `;
-  let _v351 = _v14.default.div.withConfig({
+  let _v352 = _v14.default.div.withConfig({
       displayName: "LayoutLegacy__AdvertisingLabelWrapper",
       componentId: "sc-a6aba083-15"
     })`
@@ -7612,7 +7625,7 @@
   align-items: center;
   padding: ${(0, _v30.rem)(5)};
 `,
-    _v352 = _v14.default.span.withConfig({
+    _v353 = _v14.default.span.withConfig({
       displayName: "LayoutLegacy__AdvertisingLabel",
       componentId: "sc-a6aba083-16"
     })`
@@ -7622,14 +7635,14 @@
   font-weight: 500;
   color: #496073;
 `,
-    _v353 = (0, _v14.default)(_v214.CircleInfoSmall).withConfig({
+    _v354 = (0, _v14.default)(_v214.CircleInfoSmall).withConfig({
       displayName: "LayoutLegacy__InfoIcon",
       componentId: "sc-a6aba083-17"
     })`
   width: ${(0, _v30.rem)(24)};
   height: ${(0, _v30.rem)(24)};
 `,
-    _v354 = _v14.default.div.withConfig({
+    _v355 = _v14.default.div.withConfig({
       displayName: "LayoutLegacy__LeadCaptureLoading",
       componentId: "sc-a6aba083-18"
     })`
@@ -7639,7 +7652,7 @@
   justify-content: center;
   align-items: center;
 `;
-  function _v355({
+  function _v356({
     setLeadUuid: _v0,
     leadUuid: _v1
   }) {
@@ -7717,9 +7730,9 @@
         is_mobile_web: _v23
       }));
     }, [_v13, _v9?.embed?.speed, _v3.streamPrivacy?.embed, _v3.streamPrivacy?.view, _v4, _v23, _v25]), (!_v37 || _v36) && _v7) ? (0, _v5.jsxs)(_v5.Fragment, {
-      children: [_v21 && !_v23 && (0, _v5.jsx)(_v320, {
+      children: [_v21 && !_v23 && (0, _v5.jsx)(_v321, {
         href: _v15
-      }), _v35 ? (0, _v5.jsx)(_v324.LeadCaptureView, {
+      }), _v35 ? (0, _v5.jsx)(_v325.LeadCaptureView, {
         previewType: _v32,
         type: _v176.ENTITY_TYPE.EVENT,
         entityId: _v2,
@@ -7738,48 +7751,48 @@
             _v17.push(`${_v0}${_v3}`);
           }
         }
-      }) : (0, _v5.jsx)(_v354, {
+      }) : (0, _v5.jsx)(_v355, {
         children: (0, _v5.jsx)(_v156.Spinner, {})
       })]
     }) : (0, _v5.jsxs)(_v5.Fragment, {
-      children: [_v21 && !_v23 && (0, _v5.jsx)(_v320, {
+      children: [_v21 && !_v23 && (0, _v5.jsx)(_v321, {
         href: _v15
-      }), (0, _v5.jsx)(_v342, {
-        children: (0, _v5.jsxs)(_v343, {
+      }), (0, _v5.jsx)(_v343, {
+        children: (0, _v5.jsxs)(_v344, {
           isMobile: _v23,
-          children: [(0, _v5.jsx)(_v339, {}), (0, _v5.jsxs)(_v344, {
+          children: [(0, _v5.jsx)(_v340, {}), (0, _v5.jsxs)(_v345, {
             isMobile: _v23,
             isPortrait: _v24,
-            children: [(0, _v5.jsxs)(_v345, {
+            children: [(0, _v5.jsxs)(_v346, {
               isMobile: _v23,
               isPortrait: _v24,
-              children: [(0, _v5.jsxs)(_v346, {
+              children: [(0, _v5.jsxs)(_v347, {
                 isMobile: _v23,
                 isPortrait: _v24,
-                children: [_v30 ? (0, _v5.jsx)(_v317, {
+                children: [_v30 ? (0, _v5.jsx)(_v318, {
                   isUnrated: _v28,
                   redirectUrl: _v31
-                }) : (0, _v5.jsx)(_v316, {
+                }) : (0, _v5.jsx)(_v317, {
                   ref: _v22
-                }), (0, _v5.jsx)(_v350, {
+                }), (0, _v5.jsx)(_v351, {
                   isMobile: _v23,
                   isPortrait: _v24,
                   paddingEnabled: !1,
-                  children: (0, _v5.jsxs)(_v347, {
+                  children: (0, _v5.jsxs)(_v348, {
                     isFullWidth: !1,
-                    children: [(0, _v5.jsx)(_v348, {
+                    children: [(0, _v5.jsx)(_v349, {
                       content: _v10,
                       allowNewLines: !1,
                       contentEditable: !1,
                       shouldDisplayLinks: !1
-                    }), (0, _v5.jsx)(_v323, {
+                    }), (0, _v5.jsx)(_v324, {
                       display: !_v27 && _v14?.view === _v49,
                       isUnrated: _v28
                     }), _v11 && (0, _v5.jsx)(_v109, {
                       contentEditable: !1,
                       text: _v11
-                    }), _v29 && (0, _v5.jsxs)(_v351, {
-                      children: [(0, _v5.jsx)(_v353, {}), (0, _v5.jsx)(_v352, {
+                    }), _v29 && (0, _v5.jsxs)(_v352, {
+                      children: [(0, _v5.jsx)(_v354, {}), (0, _v5.jsx)(_v353, {
                         children: _v36.thisVideoContainsAdvertisment
                       })]
                     })]
@@ -7790,7 +7803,7 @@
                 enableQuotaMenu: !1,
                 position: "absolute"
               })]
-            }), (0, _v5.jsx)(_v337, {
+            }), (0, _v5.jsx)(_v338, {
               isPortrait: _v24,
               playerRef: _v22
             })]
@@ -7799,7 +7812,7 @@
       })]
     });
   }
-  let _v356 = _v0 => {
+  let _v357 = _v0 => {
       let {
           eventId: _v1,
           eventHash: _v2
@@ -7824,10 +7837,10 @@
         children: (0, _v5.jsx)(_v82, {
           leadUuid: _v5,
           children: (0, _v5.jsx)(_v20.AudienceSpeakerPromotionProvider, {
-            children: _v9.enable_single_event_new_ux || _v10.hasEventSeriesEnabled ? (0, _v5.jsx)(_v331, {
+            children: _v9.enable_single_event_new_ux || _v10.hasEventSeriesEnabled ? (0, _v5.jsx)(_v332, {
               setLeadUuid: _v6,
               leadUuid: _v5
-            }) : (0, _v5.jsx)(_v355, {
+            }) : (0, _v5.jsx)(_v356, {
               setLeadUuid: _v6,
               leadUuid: _v5
             })
@@ -7835,12 +7848,12 @@
         })
       }) : null;
     },
-    _v357 = _v0 => (0, _v5.jsx)(_v14.ThemeProvider, {
+    _v358 = _v0 => (0, _v5.jsx)(_v14.ThemeProvider, {
       theme: _v15.applyCustomThemeSVV,
       children: (0, _v5.jsx)(_v16.PlayerContextProvider, {
         type: _v17.PlayerType.VimeoPlayer,
         assetUrls: _v0.playerAssetUrls,
-        children: (0, _v5.jsx)(_v356, {
+        children: (0, _v5.jsx)(_v357, {
           ..._v0
         })
       })
@@ -7971,7 +7984,7 @@
         }) : (0, _v5.jsx)("title", {
           children: "Vimeo"
         })
-      }), _v3 && _v2.playerAssetUrls ? (0, _v5.jsx)(_v357, {
+      }), _v3 && _v2.playerAssetUrls ? (0, _v5.jsx)(_v358, {
         ..._v2
       }) : null]
     });

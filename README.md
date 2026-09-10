@@ -263,4 +263,5 @@
 - https://vimeo.com/welcome/mobile/[[...plans]]
 - https://vimeo.com/welcome/[[...plans]]
 - https://vimeo.com/welcome-survey
+- https://vimeo.com/whats-new
 - https://vimeo.com/[username]/download/[clipId]/[clipHash]
