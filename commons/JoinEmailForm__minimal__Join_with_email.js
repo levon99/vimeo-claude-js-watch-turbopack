@@ -29,7 +29,8 @@
     _v26 = _v0.i(0),
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
-    _v29 = _v0.i(0);
+    _v29 = _v0.i(0),
+    _v30 = _v0.i(0);
   _v0.s(["JoinEmailForm", 0, function ({
     xsrft: _v0,
     optIn: _v1,
@@ -99,7 +100,7 @@
       [_v42, _v43] = (0, _v4.useState)(!1),
       [_v44, _v45] = (0, _v4.useState)(!1),
       [_v46, _v47] = (0, _v4.useState)(!1),
-      _v48 = (0, _v22.useRecaptchaEnterpriseToken)(!1),
+      _v48 = (0, _v23.useRecaptchaEnterpriseToken)(!1),
       _v49 = (0, _v20.useViewer)(),
       {
         trackSignupCompleted: _v50
@@ -109,7 +110,7 @@
     (0, _v4.useEffect)(() => {
       _v26 && _v37(_v26);
     }, [_v26]), (0, _v4.useEffect)(() => {
-      (0, _v25.trackJoinPageImpressionRegFlow0625)({
+      (0, _v26.trackJoinPageImpressionRegFlow0625)({
         location: "join_page_step_2"
       });
     }, []);
@@ -172,7 +173,7 @@
       _v55 = (0, _v17.translate)({
         singular: "Password must be at least {MIN} characters and contain at least one number and at least one symbol.",
         replacements: {
-          MIN: _v24.MIN_PASSWORD_LENGTH
+          MIN: _v25.MIN_PASSWORD_LENGTH
         },
         dictionary: {
           es: {
@@ -276,10 +277,10 @@
             }
           }
         })),
-        password: _v5.string().min(_v24.MIN_PASSWORD_LENGTH, _v55).matches(/[0-9]/, _v55).matches(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/, _v55).max(_v24.MAX_PASSWORD_LENGTH, (0, _v17.translate)({
+        password: _v5.string().min(_v25.MIN_PASSWORD_LENGTH, _v55).matches(/[0-9]/, _v55).matches(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/, _v55).max(_v25.MAX_PASSWORD_LENGTH, (0, _v17.translate)({
           singular: "Password must be less than {MAX} characters and contain at least one number and at least one symbol.",
           replacements: {
-            MAX: _v24.MAX_PASSWORD_LENGTH
+            MAX: _v25.MAX_PASSWORD_LENGTH
           },
           dictionary: {
             es: {
@@ -550,7 +551,8 @@
             }
           }
           if (!_v3) try {
-            let _v0 = await (0, _v28.Login)(_v2, "/join");
+            let _v0 = await (0, _v29.Login)(_v2, "/join");
+            if (_v0?.force_redirect) return void (_v0.redirect_url && (0, _v21.isVimeoRedirectableUrl)(_v0.redirect_url) ? window.location.href = _v0.redirect_url : window.location.href = "/");
             if (_v0?.status === 429) {
               _v37((0, _v17.translate)({
                 singular: "Sorry, but you have made too many attempts. Please wait a few minutes and try again.",
@@ -815,7 +817,7 @@
         },
         color: "text-secondary"
       },
-      _v69 = _v60.iris.value ? (0, _v2.zxcvbn)(_v60.iris.value.slice(0, _v24.MAX_PASSWORD_LENGTH)).score : void 0,
+      _v69 = _v60.iris.value ? (0, _v2.zxcvbn)(_v60.iris.value.slice(0, _v25.MAX_PASSWORD_LENGTH)).score : void 0,
       _v70 = _v32?.desktopTermsMarginTop != null ? (0, _v3.rem)(_v32.desktopTermsMarginTop - 12 * !!_v31) : void 0,
       _v71 = _v35 ? (0, _v1.jsx)(_v7.Button, {
         w: "100%",
@@ -825,19 +827,19 @@
         isLoading: _v57.submitting,
         isDisabled: _v57.submitting,
         children: _v13
-      }) : (0, _v1.jsx)(_v29.ContinueButton, {
+      }) : (0, _v1.jsx)(_v30.ContinueButton, {
         disabled: !_v19 && !_v57.valid,
         loading: _v57.submitting,
         onClick: () => {
-          (0, _v25.trackFinishAuthFlow)({
+          (0, _v26.trackFinishAuthFlow)({
             ..._v30
-          }), (0, _v25.trackRegistration)("password", _v5), _v31 ? (0, _v25.trackJoinPageClickRegFlow0625)({
+          }), (0, _v26.trackRegistration)("password", _v5), _v31 ? (0, _v26.trackJoinPageClickRegFlow0625)({
             location: "join_page_step_2",
             event_name: "join_with_email",
             copy: "join_with_email",
             target: "email_auth_join",
             password_strength_score: _v69
-          }) : (0, _v25.trackJoinWithEmailClick)(!!_v22, _v4);
+          }) : (0, _v26.trackJoinWithEmailClick)(!!_v22, _v4);
         },
         pill: _v14,
         format: _v19 ? "basic" : void 0,
@@ -845,7 +847,7 @@
         "data-testid": "join-continue-button",
         children: _v13
       });
-    return (0, _v1.jsxs)(_v29.Form, {
+    return (0, _v1.jsxs)(_v30.Form, {
       onSubmit: _v57.handleSubmit,
       noValidate: !0,
       style: {
@@ -860,10 +862,10 @@
       children: [_v32?.active && (0, _v1.jsx)(_v6.Box, {
         marginTop: "auto"
       }), _v33, _v31 ? (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v22 ? null : (0, _v1.jsxs)(_v23.InputWrapper, {
+        children: [_v22 ? null : (0, _v1.jsxs)(_v24.InputWrapper, {
           formFieldErrorMessage: _v36,
           isInvalid: _v38.hasOwnProperty("has_error_user_exists") || _v38.hasOwnProperty("has_error_invalid_email"),
-          children: [(0, _v1.jsx)(_v23.StyledInput, {
+          children: [(0, _v1.jsx)(_v24.StyledInput, {
             isRequired: !0,
             order: _v15?.email,
             id: "email_login",
@@ -871,12 +873,12 @@
             ..._v59.iris,
             isDisabled: _v8,
             onChange: _v63
-          }), (0, _v1.jsx)(_v23.Label, {
+          }), (0, _v1.jsx)(_v24.Label, {
             htmlFor: "email_login",
             children: _v65.placeholder
           })]
-        }), _v23 ? null : (0, _v1.jsxs)(_v23.InputWrapper, {
-          children: [(0, _v1.jsx)(_v23.StyledInput, {
+        }), _v23 ? null : (0, _v1.jsxs)(_v24.InputWrapper, {
+          children: [(0, _v1.jsx)(_v24.StyledInput, {
             isRequired: !0,
             order: _v15?.name,
             id: "name",
@@ -884,15 +886,15 @@
             autoComplete: "name",
             ..._v58.iris,
             autoFocus: !0
-          }), (0, _v1.jsx)(_v23.Label, {
+          }), (0, _v1.jsx)(_v24.Label, {
             htmlFor: "name",
             children: _v64.placeholder
           })]
-        }), (0, _v1.jsx)(_v23.InputWrapper, {
+        }), (0, _v1.jsx)(_v24.InputWrapper, {
           formFieldErrorMessage: _v36,
           isInvalid: _v38.hasOwnProperty("has_error_password_missmatch"),
           children: (0, _v1.jsxs)(_v8.InputGroup, {
-            children: [(0, _v1.jsx)(_v23.StyledInput, {
+            children: [(0, _v1.jsx)(_v24.StyledInput, {
               isRequired: !0,
               order: _v15?.password,
               id: "password_login",
@@ -902,7 +904,7 @@
               onChange: _v0 => {
                 _v60.iris.onChange(_v0), _v41(!_v0.target.value);
               }
-            }), (0, _v1.jsx)(_v23.Label, {
+            }), (0, _v1.jsx)(_v24.Label, {
               htmlFor: "password_login",
               children: _v66.placeholder
             }), (0, _v1.jsx)(_v9.InputRightElement, {
@@ -920,16 +922,16 @@
           exitDuration: "2xl",
           in: !_v40 && _v31,
           unmountOnExit: !0,
-          children: [(0, _v1.jsx)(_v23.InputWrapper, {
+          children: [(0, _v1.jsx)(_v24.InputWrapper, {
             children: (0, _v1.jsxs)(_v8.InputGroup, {
-              children: [(0, _v1.jsx)(_v23.StyledInput, {
+              children: [(0, _v1.jsx)(_v24.StyledInput, {
                 isRequired: !0,
                 order: _v15?.confirmPassword,
                 id: "confirm_password_login",
                 type: _v44 ? "text" : "password",
                 autoComplete: "new-password",
                 ..._v61.iris
-              }), (0, _v1.jsx)(_v23.Label, {
+              }), (0, _v1.jsx)(_v24.Label, {
                 htmlFor: "confirm_password_login",
                 children: (0, _v17.translate)({
                   singular: "Confirm password",
@@ -963,7 +965,7 @@
             })
           }), (0, _v1.jsx)(_v6.Box, {
             marginTop: (0, _v3.rem)(12),
-            children: (0, _v1.jsx)(_v27.PasswordStrengthIndicator, {
+            children: (0, _v1.jsx)(_v28.PasswordStrengthIndicator, {
               passwordScore: _v69
             })
           }), (0, _v1.jsx)(_v6.Box, {
@@ -974,8 +976,8 @@
               children: _v55
             })
           })]
-        }), _v36 && !_v67 && (0, _v1.jsx)(_v29.FormSection, {
-          children: (0, _v1.jsx)(_v29.Notice, {
+        }), _v36 && !_v67 && (0, _v1.jsx)(_v30.FormSection, {
+          children: (0, _v1.jsx)(_v30.Notice, {
             format: "negative",
             children: (0, _v1.jsx)(_v18.Paragraph, {
               size: "3",
@@ -991,7 +993,7 @@
             id: "turnstile-container"
           })
         }), _v19 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [_v20, (0, _v1.jsx)(_v26.AgeCertificationCheckbox, {
+          children: [_v20, (0, _v1.jsx)(_v27.AgeCertificationCheckbox, {
             overEighteenCertification: _v62.input.value,
             setOverEighteenCertification: _v62.handlers.setValue,
             setError: _v37,
@@ -999,7 +1001,7 @@
             shouldShowAgeCertification: _v51,
             isInvalid: _v46,
             setAgeCertificationInvalid: _v47
-          }), _v17 && (0, _v1.jsxs)(_v29.FormSection, {
+          }), _v17 && (0, _v1.jsxs)(_v30.FormSection, {
             className: "termsandconditions",
             children: [(0, _v1.jsx)(_v11.Text, {
               variant: "body-sm",
@@ -1013,7 +1015,7 @@
           })]
         })]
       }) : (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v23 ? null : (0, _v1.jsx)(_v29.Input, {
+        children: [_v23 ? null : (0, _v1.jsx)(_v30.Input, {
           inputFieldVariant: _v9,
           formType: _v12,
           order: _v15?.name,
@@ -1048,7 +1050,7 @@
           id: "name",
           type: "text",
           ..._v58.iris
-        }), _v22 ? null : (0, _v1.jsx)(_v29.Input, {
+        }), _v22 ? null : (0, _v1.jsx)(_v30.Input, {
           inputFieldVariant: _v9,
           emailRef: _v10,
           formType: _v12,
@@ -1085,7 +1087,7 @@
           ..._v59.iris,
           disabled: _v8,
           onChange: _v63
-        }), (0, _v1.jsx)(_v29.Input, {
+        }), (0, _v1.jsx)(_v30.Input, {
           inputFieldVariant: _v9,
           formType: _v12,
           order: _v15?.password,
@@ -1120,8 +1122,8 @@
           autoComplete: "new-password",
           type: "password",
           ..._v60.iris
-        }), _v36 && (0, _v1.jsx)(_v29.FormSection, {
-          children: (0, _v1.jsx)(_v29.Notice, {
+        }), _v36 && (0, _v1.jsx)(_v30.FormSection, {
+          children: (0, _v1.jsx)(_v30.Notice, {
             format: "negative",
             children: (0, _v1.jsx)(_v18.Paragraph, {
               size: "3",
@@ -1137,7 +1139,7 @@
             id: "turnstile-container"
           })
         }), _v19 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [_v20, (0, _v1.jsx)(_v26.AgeCertificationCheckbox, {
+          children: [_v20, (0, _v1.jsx)(_v27.AgeCertificationCheckbox, {
             overEighteenCertification: _v62.input.value,
             setOverEighteenCertification: _v62.handlers.setValue,
             setError: _v37,
@@ -1145,7 +1147,7 @@
             shouldShowAgeCertification: _v51,
             isInvalid: _v46,
             setAgeCertificationInvalid: _v47
-          }), _v17 && (0, _v1.jsxs)(_v29.FormSection, {
+          }), _v17 && (0, _v1.jsxs)(_v30.FormSection, {
             className: "termsandconditions",
             children: [(0, _v1.jsx)(_v18.Paragraph, {
               format: "soft",
@@ -1157,7 +1159,7 @@
             })]
           })]
         })]
-      }), _v32 ? (0, _v1.jsx)(_v21.MobileStickyFooter, {
+      }), _v32 ? (0, _v1.jsx)(_v22.MobileStickyFooter, {
         active: _v32.active,
         background: _v32.background,
         terms: _v32.terms,

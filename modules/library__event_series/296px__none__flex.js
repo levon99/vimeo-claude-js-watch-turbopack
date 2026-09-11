@@ -471,6 +471,7 @@
                 select: _v59,
                 variables: {
                   name: _v16,
+                  privacy: "team",
                   ...(_v1 ? {
                     description: _v1
                   } : {})

@@ -478,10 +478,10 @@
       return _v23.startScheduling(), _v27.start(), {
         track: _v26
       };
-    },
-    _v31 = "utmParameters",
-    _v32 = "utmParametersTracked",
-    _v33 = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "utm_adgroup", "gclid", "fbclid", "msclkid", "ttclid", "vcid", "mkc", "pid", "wpsrc", "wpsn", "t_s", "t_network", "t_cid", "t_cname", "t_agid", "t_agname", "t_crid", "t_crname", "t_match_type", "t_medium", "t_device", "t_gcid", "t_validation"];
+    };
+  var _v31 = _v0.i(0);
+  let _v32 = "utmParameters",
+    _v33 = "utmParametersTracked";
   function _v34(_v0) {
     if (null === _v0 || "" === _v0) return {};
     try {
@@ -510,7 +510,7 @@
   }
   let _v37 = async _v0 => {
       try {
-        if ("true" === _v35("sessionStorage", _v32)) return;
+        if ("true" === _v35("sessionStorage", _v33)) return;
         let {
           sessionParams: _v0,
           persistentParams: _v1
@@ -526,10 +526,10 @@
               }
             }(),
             _v2 = (_v0 = {}, new URLSearchParams(window.location.search).forEach((_v0, _v1) => {
-              _v33.includes(_v1) && _v0 && (_v0[_v1] = _v0);
+              _v31.ATTRIBUTION_PARAM_NAMES.includes(_v1) && _v0 && (_v0[_v1] = _v0);
             }), _v0),
-            _v3 = _v34(_v35("localStorage", _v31)),
-            _v4 = _v34(_v35("sessionStorage", _v31)),
+            _v3 = _v34(_v35("localStorage", _v32)),
+            _v4 = _v34(_v35("sessionStorage", _v32)),
             _v5 = Object.keys(_v2).length > 0 ? {
               ..._v2
             } : {
@@ -548,9 +548,9 @@
           }
           let _v6 = void 0 !== _v5.t_s || void 0 !== _v3.t_s || void 0 !== _v5.utm_source || void 0 !== _v3.utm_source;
           if (void 0 === _v5.t_network && void 0 === _v3.t_network && !_v6 && "" !== document.referrer && /google|bing|yahoo|duckduckgo|ask|baidu|yandex/i.test(document.referrer) && (_v5.t_network = "seo"), !_v1) {
-            _v36("sessionStorage", _v31, JSON.stringify(_v5));
+            _v36("sessionStorage", _v32, JSON.stringify(_v5));
             let _v0 = Object.keys(_v5).length > 0 ? _v5 : _v3;
-            return _v36("localStorage", _v31, JSON.stringify(_v0)), {
+            return _v36("localStorage", _v32, JSON.stringify(_v0)), {
               sessionParams: _v5,
               persistentParams: _v0
             };
@@ -563,7 +563,7 @@
         await _v0.track("utm_params_tracked", {
           landing_page_info: _v0,
           persistent: _v1
-        }), _v36("sessionStorage", _v32, "true");
+        }), _v36("sessionStorage", _v33, "true");
       } catch (_v0) {
         console.error("Error tracking UTM params event", _v0);
       }

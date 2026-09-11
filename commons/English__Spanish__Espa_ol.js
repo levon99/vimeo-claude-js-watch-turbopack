@@ -5,8 +5,11 @@
     _v2 = _v0.i(0),
     _v3 = _v0.i(0);
   let _v4 = _v2.Locales.en,
-    _v5 = "English",
-    _v6 = [{
+    _v5 = [{
+      code: _v2.Locales.en,
+      englishName: "English",
+      nativeName: "English"
+    }, {
       code: _v2.Locales.es,
       englishName: "Spanish",
       nativeName: "Español"
@@ -35,8 +38,8 @@
       englishName: "Korean",
       nativeName: "한국어"
     }],
-    _v7 = _v6.length,
-    _v8 = _v0 => ({
+    _v6 = _v5.length - 1,
+    _v7 = _v0 => ({
       cid: _v0.cid,
       name: _v0.name,
       type: _v0.type,
@@ -53,27 +56,182 @@
         }))
       }
     }),
-    _v9 = _v0 => ({
+    _v8 = _v0 => ({
       joinPageTitle: _v0.joinPageTitle.tagsUnresolved ?? _v0.joinPageTitle.tagsResolved,
       loginPageTitle: _v0.loginPageTitle.tagsUnresolved ?? _v0.loginPageTitle.tagsResolved,
       confirmationPageTitle: _v0.confirmationPageTitle.tagsUnresolved ?? _v0.confirmationPageTitle.tagsResolved,
       confirmationPageDescription: _v0.confirmationPageDescription.tagsUnresolved ?? _v0.confirmationPageDescription.tagsResolved,
       primaryButtonStyle: _v0.primaryButtonStyle,
       secondaryButtonStyle: _v0.secondaryButtonStyle,
-      customFields: _v0.customFields.map(_v8),
-      hiddenFields: _v0.hiddenFields.map(_v8)
+      customFields: _v0.customFields.map(_v7),
+      hiddenFields: _v0.hiddenFields.map(_v7)
     }),
-    _v10 = new Set(["utm_source", "utm_campaign", "utm_term", "utm_content", "utm_medium"]),
-    _v11 = [["joinPageTitle", "join_page_title"], ["loginPageTitle", "login_page_title"], ["confirmationPageTitle", "confirmation_page_title"], ["confirmationPageDescription", "confirmation_page_description"]],
-    _v12 = [["primaryButtonStyle", _v3.BUTTON_TEXT_TYPE.REGISTER, "primary_button_style.register_button_text"], ["primaryButtonStyle", _v3.BUTTON_TEXT_TYPE.NEXT, "primary_button_style.next_button_text"], ["primaryButtonStyle", _v3.BUTTON_TEXT_TYPE.LOGIN, "primary_button_style.login_button_text"], ["secondaryButtonStyle", _v3.BUTTON_TEXT_TYPE.BACK, "secondary_button_style.back_button_text"]],
-    _v13 = _v0 => _v0.replace(/[^a-z0-9]/gi, "").toLowerCase(),
-    _v14 = Object.fromEntries(_v6.map(({
+    _v9 = new Set(["utm_source", "utm_campaign", "utm_term", "utm_content", "utm_medium"]),
+    _v10 = ["Register to attend", "Sign up", "Sign in", "You're registered for this event", "Thanks for signing up", "We’ll see you here when the event begins.", "Your information was submitted."],
+    _v11 = new Set(["Register", "Sign up", "Sign in", "Log In", "Log in", "Next", "Back"]),
+    _v12 = _v0 => _v0.replace(/<[^>]*>/g, " ").replace(/{{[^}]*}}/g, "").replace(/&#0?39;|&apos;/g, "'").replace(/\s+/g, " ").trim(),
+    _v13 = new Set(_v10.map(_v12)),
+    _v14 = _v0 => _v13.has(_v12(_v0)),
+    _v15 = [["joinPageTitle", "join_page_title"], ["loginPageTitle", "login_page_title"], ["confirmationPageTitle", "confirmation_page_title"], ["confirmationPageDescription", "confirmation_page_description"]],
+    _v16 = [["primaryButtonStyle", _v3.BUTTON_TEXT_TYPE.REGISTER, "primary_button_style.register_button_text"], ["primaryButtonStyle", _v3.BUTTON_TEXT_TYPE.NEXT, "primary_button_style.next_button_text"], ["primaryButtonStyle", _v3.BUTTON_TEXT_TYPE.LOGIN, "primary_button_style.login_button_text"], ["secondaryButtonStyle", _v3.BUTTON_TEXT_TYPE.BACK, "secondary_button_style.back_button_text"]],
+    _v17 = _v0 => _v0.replace(/[^a-z0-9]/gi, "").toLowerCase(),
+    _v18 = Object.fromEntries(_v5.map(({
       code: _v0
-    }) => [_v13(_v0), _v0])),
-    _v15 = _v0 => Array.isArray(_v0) ? _v0.map(_v15) : null == _v0 || "object" != typeof _v0 ? _v0 : Object.fromEntries(Object.entries(_v0).map(([_v0, _v1]) => [_v14[_v13(_v0)] ?? _v0, _v15(_v1)])),
-    _v16 = (_v0, _v1) => null == _v0 || "" === _v0 ? _v1 : _v0,
-    _v17 = ["Register to attend", "Sign up", "Sign in", "You're registered for this event", "Thanks for signing up", "We’ll see you here when the event begins.", "Your information was submitted."],
-    _v18 = (_v0, _v1) => {
+    }) => [_v17(_v0), _v0])),
+    _v19 = _v0 => Array.isArray(_v0) ? _v0.map(_v19) : null == _v0 || "object" != typeof _v0 ? _v0 : Object.fromEntries(Object.entries(_v0).map(([_v0, _v1]) => [_v18[_v17(_v0)] ?? _v0, _v19(_v1)])),
+    _v20 = (_v0, _v1) => null != _v0 && _v14(_v0) ? ((_v0, _v1) => {
+      for (let _v0 of _v10) for (let _v0 of [_v0, _v0.replaceAll("'", "&#039;")]) if (_v0.includes(_v0)) return _v0.replace(_v0, _v22(_v0, _v1));
+      return _v0;
+    })(_v0, _v1) : null,
+    _v21 = (_v0, _v1) => {
+      switch (_v0) {
+        case "Register":
+          return (0, _v1.translate)({
+            singular: "Register",
+            locale: _v1,
+            dictionary: {
+              es: {
+                singular: "Registrarse"
+              },
+              "de-DE": {
+                singular: "Registrieren"
+              },
+              "fr-FR": {
+                singular: "S'inscrire"
+              },
+              "ja-JP": {
+                singular: "登録"
+              },
+              "ko-KR": {
+                singular: "등록"
+              },
+              "pt-BR": {
+                singular: "Inscrever-se"
+              },
+              "zh-CN": {
+                singular: "报名"
+              }
+            }
+          });
+        case "Sign up":
+          return (0, _v1.translate)({
+            singular: "Sign up",
+            locale: _v1,
+            dictionary: {
+              es: {
+                singular: "Regístrate"
+              },
+              "de-DE": {
+                singular: "Registrieren"
+              },
+              "fr-FR": {
+                singular: "Inscrivez-vous"
+              },
+              "ja-JP": {
+                singular: "サインアップ"
+              },
+              "ko-KR": {
+                singular: "가입하기"
+              },
+              "pt-BR": {
+                singular: "Inscreva-se"
+              },
+              "zh-CN": {
+                singular: "注册"
+              }
+            }
+          });
+        case "Sign in":
+        case "Log In":
+        case "Log in":
+          return (0, _v1.translate)({
+            singular: "Sign in",
+            locale: _v1,
+            dictionary: {
+              es: {
+                singular: "Ingresar"
+              },
+              "de-DE": {
+                singular: "Anmelden"
+              },
+              "fr-FR": {
+                singular: "Se connecter"
+              },
+              "ja-JP": {
+                singular: "サインイン"
+              },
+              "ko-KR": {
+                singular: "로그인"
+              },
+              "pt-BR": {
+                singular: "Entrar"
+              },
+              "zh-CN": {
+                singular: "登录"
+              }
+            }
+          });
+        case "Next":
+          return (0, _v1.translate)({
+            singular: "Next",
+            locale: _v1,
+            dictionary: {
+              es: {
+                singular: "Siguiente"
+              },
+              "de-DE": {
+                singular: "Weiter"
+              },
+              "fr-FR": {
+                singular: "Suivant"
+              },
+              "ja-JP": {
+                singular: "次へ"
+              },
+              "ko-KR": {
+                singular: "다음"
+              },
+              "pt-BR": {
+                singular: "Próxima"
+              },
+              "zh-CN": {
+                singular: "下一步"
+              }
+            }
+          });
+        case "Back":
+          return (0, _v1.translate)({
+            singular: "Back",
+            locale: _v1,
+            dictionary: {
+              es: {
+                singular: "Atrás"
+              },
+              "de-DE": {
+                singular: "Zurück"
+              },
+              "fr-FR": {
+                singular: "Retour"
+              },
+              "ja-JP": {
+                singular: "戻る"
+              },
+              "ko-KR": {
+                singular: "뒤로"
+              },
+              "pt-BR": {
+                singular: "Voltar"
+              },
+              "zh-CN": {
+                singular: "返回"
+              }
+            }
+          });
+        default:
+          return _v0;
+      }
+    },
+    _v22 = (_v0, _v1) => {
       switch (_v0) {
         case "Register to attend":
           return (0, _v1.translate)({
@@ -165,25 +323,25 @@
             locale: _v1,
             dictionary: {
               es: {
-                singular: "Estás registrado para este evento"
+                singular: "Está registrado en este evento"
               },
               "de-DE": {
                 singular: "Sie sind für diese Veranstaltung registriert"
               },
               "fr-FR": {
-                singular: "Vous êtes inscrit(e) à cet événement"
+                singular: "Vous êtes inscrit à cet événement."
               },
               "ja-JP": {
-                singular: "このイベントへの登録が完了しました"
+                singular: "このイベントに登録されています。"
               },
               "ko-KR": {
-                singular: "이 이벤트에 등록되었습니다"
+                singular: "이 이벤트에 등록되었습니다."
               },
               "pt-BR": {
                 singular: "Você está inscrito neste evento"
               },
               "zh-CN": {
-                singular: "您已成功报名参加此活动"
+                singular: "您已注册参加此活动"
               }
             }
           });
@@ -193,7 +351,7 @@
             locale: _v1,
             dictionary: {
               es: {
-                singular: "Gracias por registrarte"
+                singular: "Gracias por registrarse"
               },
               "de-DE": {
                 singular: "Danke für Ihre Anmeldung"
@@ -202,7 +360,7 @@
                 singular: "Merci pour votre inscription"
               },
               "ja-JP": {
-                singular: "お申し込みありがとうございます"
+                singular: "ご登録ありがとうございます"
               },
               "ko-KR": {
                 singular: "등록해 주셔서 감사합니다"
@@ -221,25 +379,25 @@
             locale: _v1,
             dictionary: {
               es: {
-                singular: "Te esperamos aquí cuando comience el evento."
+                singular: "Le esperamos aquí cuando comience el evento."
               },
               "de-DE": {
-                singular: "Wir sehen Sie hier, wenn die Veranstaltung beginnt."
+                singular: "Wir sehen uns hier, wenn die Veranstaltung beginnt."
               },
               "fr-FR": {
                 singular: "Nous vous retrouverons ici lorsque l'événement commencera."
               },
               "ja-JP": {
-                singular: "イベントが始まるときにこちらでお待ちしています。"
+                singular: "イベント開始時にこちらでお待ちしています。"
               },
               "ko-KR": {
-                singular: "이벤트가 시작되면 여기에서 뵙겠습니다."
+                singular: "행사가 시작되면 여기서 뵙겠습니다."
               },
               "pt-BR": {
-                singular: "A gente se vê aqui quando o evento começar."
+                singular: "Nos vemos aqui quando o evento começar."
               },
               "zh-CN": {
-                singular: "活动开始时我们会在此见到您。"
+                singular: "活动开始时我们会在这里等您。"
               }
             }
           });
@@ -249,19 +407,19 @@
             locale: _v1,
             dictionary: {
               es: {
-                singular: "Tu información ha sido enviada."
+                singular: "Su información ha sido enviada."
               },
               "de-DE": {
                 singular: "Ihre Angaben wurden übermittelt."
               },
               "fr-FR": {
-                singular: "Vos informations ont été envoyées."
+                singular: "Vos informations ont été soumises."
               },
               "ja-JP": {
                 singular: "情報が送信されました。"
               },
               "ko-KR": {
-                singular: "귀하의 정보가 제출되었습니다."
+                singular: "정보가 제출되었습니다."
               },
               "pt-BR": {
                 singular: "Suas informações foram enviadas."
@@ -275,7 +433,97 @@
           return _v0;
       }
     },
-    _v19 = (_v0, _v1, _v2, _v3) => ({
+    _v23 = (_v0, _v1) => {
+      switch (_v0) {
+        case "Email address":
+          return (0, _v1.translate)({
+            singular: "Email address",
+            locale: _v1,
+            dictionary: {
+              es: {
+                singular: "Correo electrónico"
+              },
+              "de-DE": {
+                singular: "E-Mail-Adresse"
+              },
+              "fr-FR": {
+                singular: "Adresse e-mail"
+              },
+              "ja-JP": {
+                singular: "メールアドレス"
+              },
+              "ko-KR": {
+                singular: "이메일 주소"
+              },
+              "pt-BR": {
+                singular: "Endereço de e-mail"
+              },
+              "zh-CN": {
+                singular: "电子邮件地址"
+              }
+            }
+          });
+        case "First name":
+          return (0, _v1.translate)({
+            singular: "First name",
+            locale: _v1,
+            dictionary: {
+              es: {
+                singular: "Nombre"
+              },
+              "de-DE": {
+                singular: "Vorname"
+              },
+              "fr-FR": {
+                singular: "Prénom"
+              },
+              "ja-JP": {
+                singular: "名"
+              },
+              "ko-KR": {
+                singular: "이름"
+              },
+              "pt-BR": {
+                singular: "Nome"
+              },
+              "zh-CN": {
+                singular: "名字"
+              }
+            }
+          });
+        case "Last name":
+          return (0, _v1.translate)({
+            singular: "Last name",
+            locale: _v1,
+            dictionary: {
+              es: {
+                singular: "Apellidos"
+              },
+              "de-DE": {
+                singular: "Nachname"
+              },
+              "fr-FR": {
+                singular: "Nom"
+              },
+              "ja-JP": {
+                singular: "姓"
+              },
+              "ko-KR": {
+                singular: "성"
+              },
+              "pt-BR": {
+                singular: "Sobrenome"
+              },
+              "zh-CN": {
+                singular: "姓氏"
+              }
+            }
+          });
+        default:
+          return _v0;
+      }
+    },
+    _v24 = (_v0, _v1, _v2, _v3) => ({
       ..._v0,
       [_v1]: {
         ..._v0?.[_v1],
@@ -285,19 +533,21 @@
         }
       }
     }),
-    _v20 = (_v0, _v1, _v2, _v3) => ({
+    _v25 = (_v0, _v1, _v2, _v3) => ({
       ..._v0,
       [_v1]: {
         ..._v0?.[_v1],
         [_v2]: _v3
       }
     }),
-    _v21 = (_v0, _v1) => {
+    _v26 = (_v0, _v1) => {
       if (null == _v0 || 0 === _v1.length) return _v0 ?? {};
       let _v2 = new Set(_v1.map(String));
       return Object.fromEntries(Object.entries(_v0).map(([_v0, _v1]) => [_v0, Object.fromEntries(Object.entries(_v1 ?? {}).filter(([_v0]) => !_v2.has(_v0)))]).filter(([, _v0]) => Object.keys(_v0).length > 0));
     },
-    _v22 = (_v0, _v1, _v2) => {
+    _v27 = (_v0, _v1) => _v26(_v0, _v1),
+    _v28 = (_v0, _v1) => _v26(_v0, _v1),
+    _v29 = (_v0, _v1, _v2) => {
       let _v3 = _v0.localizations?.options ?? [],
         _v4 = [..._v3.filter(({
           optionCid: _v0
@@ -319,29 +569,116 @@
         }
       };
     },
-    _v23 = _v0 => null != _v0 && "object" == typeof _v0 && !Array.isArray(_v0),
-    _v24 = {
+    _v30 = (_v0, _v1) => {
+      if (null == _v0.localizations || 0 === _v1.length) return _v0;
+      let _v2 = new Set(_v1),
+        _v3 = _v0 => Object.fromEntries(Object.entries(_v0).filter(([_v0]) => !_v2.has(_v0))),
+        _v4 = _v0.localizations.name ? _v3(_v0.localizations.name) : void 0,
+        _v5 = _v0.localizations.description ? _v3(_v0.localizations.description) : void 0,
+        _v6 = _v0.localizations.options?.map(_v3).filter(_v0 => Object.keys(_v0).some(_v0 => "optionCid" !== _v0 && "optionPosition" !== _v0)),
+        _v7 = Object.keys(_v4 ?? {}).length > 0 || Object.keys(_v5 ?? {}).length > 0 || (_v6?.length ?? 0) > 0;
+      return {
+        ..._v0,
+        localizations: _v7 ? {
+          name: _v4,
+          description: _v5,
+          options: _v6
+        } : null
+      };
+    },
+    _v31 = (_v0, _v1, _v2, _v3) => {
+      let _v4 = _v0[_v3];
+      if (null == _v4) return {
+        base: _v1,
+        values: _v0
+      };
+      let {
+        [_v3]: _v5,
+        ..._v6
+      } = {
+        ..._v0,
+        [_v2]: _v1
+      };
+      return {
+        base: _v4,
+        values: _v6
+      };
+    },
+    _v32 = (_v0, _v1, _v2) => {
+      if (null == _v0.localizations) return _v0;
+      let _v3 = _v0.localizations.name ? _v31(_v0.localizations.name, _v0.name, _v1, _v2) : null,
+        _v4 = _v0.localizations.description && _v0.metadata?.description != null ? _v31(_v0.localizations.description, _v0.metadata.description, _v1, _v2) : null,
+        _v5 = _v0.localizations.options?.map(_v0 => {
+          let _v1 = _v0.metadata?.options?.find(({
+            optionCid: _v0
+          }) => _v0 === _v0.optionCid);
+          if (null == _v1) return _v0;
+          let {
+            optionCid: _v2,
+            optionPosition: _v3,
+            ..._v4
+          } = _v0;
+          return {
+            ..._v31(_v4, _v1.optionLabel, _v1, _v2).values,
+            optionCid: _v2,
+            optionPosition: _v3
+          };
+        });
+      return {
+        ..._v0,
+        ...(_v3 ? {
+          name: _v3.base
+        } : {}),
+        metadata: _v0.metadata ? {
+          ..._v0.metadata,
+          ...(_v4 ? {
+            description: _v4.base
+          } : {}),
+          options: _v0.metadata.options?.map(_v0 => {
+            let _v1 = _v0.localizations?.options?.find(({
+              optionCid: _v0
+            }) => _v0 === _v0.optionCid);
+            return _v1?.[_v2] == null ? _v0 : {
+              ..._v0,
+              optionLabel: _v1[_v2]
+            };
+          })
+        } : _v0.metadata,
+        localizations: {
+          ..._v0.localizations,
+          ...(_v3 ? {
+            name: _v3.values
+          } : {}),
+          ...(_v4 ? {
+            description: _v4.values
+          } : {}),
+          options: _v5
+        }
+      };
+    },
+    _v33 = _v0 => null != _v0 && "object" == typeof _v0 && !Array.isArray(_v0),
+    _v34 = {
       join_page_title: "joinPageTitle",
       login_page_title: "loginPageTitle",
       confirmation_page_title: "confirmationPageTitle",
       confirmation_page_description: "confirmationPageDescription"
     },
-    _v25 = {
+    _v35 = {
       "primary_button_style.register_button_text": _v3.BUTTON_TEXT_TYPE.REGISTER,
       "primary_button_style.next_button_text": _v3.BUTTON_TEXT_TYPE.NEXT,
       "primary_button_style.login_button_text": _v3.BUTTON_TEXT_TYPE.LOGIN,
       "secondary_button_style.back_button_text": _v3.BUTTON_TEXT_TYPE.BACK
     };
-  _v0.s(["DEFAULT_LANGUAGE", 0, _v4, "LANGUAGE_OPTIONS", 0, _v6, "TOTAL_LANGUAGES", 0, _v7, "applyTranslations", 0, (_v0, _v1, _v2) => Object.entries(_v1).reduce((_v0, [_v1, _v2]) => ((_v0, _v1, _v2, _v3) => {
-    let _v4 = _v24[_v1];
+  _v0.s(["FALLBACK_LOCALE", 0, _v4, "LANGUAGE_OPTIONS", 0, _v5, "TOTAL_LANGUAGES", 0, _v6, "applyTranslations", 0, (_v0, _v1, _v2) => Object.entries(_v1).reduce((_v0, [_v1, _v2]) => ((_v0, _v1, _v2, _v3) => {
+    let _v4 = _v34[_v1];
     if (_v4) return {
       ..._v0,
-      htmlLocalizations: _v19(_v0.htmlLocalizations, _v4, _v2, _v3)
+      htmlLocalizations: _v24(_v0.htmlLocalizations, _v4, _v2, _v3)
     };
-    let _v5 = _v25[_v1];
+    let _v5 = _v35[_v1];
     if (_v5) return {
       ..._v0,
-      buttonLocalizations: _v20(_v0.buttonLocalizations, _v5, _v2, _v3)
+      buttonLocalizations: _v25(_v0.buttonLocalizations, _v5, _v2, _v3)
     };
     let _v6 = /^(custom_fields|hidden_fields)\.(\d+)\.(name|description)$/.exec(_v1);
     if (_v6) {
@@ -371,7 +708,7 @@
           let _v1;
           return String(_v0.cid) === _v1 ? (_v1 = _v0.metadata?.options?.find(({
             optionCid: _v0
-          }) => String(_v0) === _v2)) ? _v22(_v0, _v2, [{
+          }) => String(_v0) === _v2)) ? _v29(_v0, _v2, [{
             ..._v1,
             optionLabel: _v3
           }]) : _v0 : _v0;
@@ -385,33 +722,37 @@
       };
     }
     return _v0;
-  })(_v0, _v1, _v2, _v2), _v0), "buildEnglishDraft", 0, _v9, "buildTranslationStrings", 0, _v0 => {
-    let _v1 = _v9(_v0),
+  })(_v0, _v1, _v2, _v2), _v0), "buildEnglishDraft", 0, _v8, "buildTranslationStrings", 0, _v0 => {
+    let _v1 = _v8(_v0),
       _v2 = {};
-    _v11.forEach(([_v0, _v1]) => {
-      "" !== _v1[_v0] && (_v2[_v1] = _v1[_v0]);
-    }), _v12.forEach(([_v0, _v1, _v2]) => {
-      let _v3 = _v1[_v0][_v1];
-      "string" == typeof _v3 && "" !== _v3 && (_v2[_v2] = _v3);
+    _v15.forEach(([_v0, _v1]) => {
+      let _v2,
+        _v3 = _v1[_v0];
+      "" === _v3 || _v14(_v3) || (_v2 = _v0.defaultLocale, _v10.some(_v0 => _v12(_v3) === _v12(_v22(_v0, _v2)))) || (_v2[_v1] = _v3);
+    }), _v16.forEach(([_v0, _v1, _v2]) => {
+      let _v3,
+        _v4 = _v1[_v0][_v1];
+      "string" != typeof _v4 || "" === _v4 || _v11.has(_v4) || (_v3 = _v0.defaultLocale, [..._v11].some(_v0 => _v4 === _v21(_v0, _v3))) || (_v2[_v2] = _v4);
     });
     let _v3 = (_v0, _v1) => {
       _v0.forEach(_v0 => {
+        let _v1, _v2;
         if (_v0.type === _v3.CustomFieldTypes.Checkbox) {
           let _v0 = _v0.metadata?.description;
           null != _v0 && "" !== _v0 && (_v2[`${_v1}.${_v0.cid}.description`] = _v0);
           return;
         }
-        "" === _v0.name || _v10.has(_v0.name) || (_v2[`${_v1}.${_v0.cid}.name`] = _v0.name), _v0.type === _v3.CustomFieldTypes.Dropdown && _v0.metadata?.options?.forEach(_v0 => {
+        "" === _v0.name || _v9.has(_v0.name) || Object.values(_v3.FORM_FIELD_NAME_VALUES).includes(_v0.name) || (_v1 = _v0.name, _v2 = _v0.defaultLocale, Object.values(_v3.FORM_FIELD_NAME_VALUES).some(_v0 => _v1 === _v23(_v0, _v2))) || (_v2[`${_v1}.${_v0.cid}.name`] = _v0.name), _v0.type === _v3.CustomFieldTypes.Dropdown && _v0.metadata?.options?.forEach(_v0 => {
           "" !== _v0.optionLabel && null != _v0.optionCid && (_v2[`${_v1}.${_v0.cid}.options.${_v0.optionCid}`] = _v0.optionLabel);
         });
       });
     };
     return _v3(_v0.customFields, "custom_fields"), _v3(_v0.hiddenFields, "hidden_fields"), Object.keys(_v2).length > 0 ? _v2 : null;
-  }, "canonicalizeLocaleKeys", 0, _v15, "flattenHtmlLocalizations", 0, _v0 => Object.fromEntries(Object.entries(_v0).map(([_v0, _v1]) => [_v0, Object.fromEntries(Object.entries(_v1 ?? {}).map(([_v0, _v1]) => [_v0, _v1.tagsUnresolved ?? ""]))])), "getLanguageEnglishName", 0, _v0 => _v0 === _v4.valueOf() ? _v5 : _v6.find(_v0 => _v0.code.valueOf() === _v0)?.englishName ?? _v0, "getLanguageNativeName", 0, _v0 => _v0 === _v4.valueOf() ? _v5 : _v6.find(_v0 => _v0.code.valueOf() === _v0)?.nativeName ?? _v0, "getTranslatedLocales", 0, (_v0, _v1, _v2, _v3, _v4) => _v6.filter(({
+  }, "canonicalizeLocaleKeys", 0, _v19, "flattenHtmlLocalizations", 0, _v0 => Object.fromEntries(Object.entries(_v0).map(([_v0, _v1]) => [_v0, Object.fromEntries(Object.entries(_v1 ?? {}).map(([_v0, _v1]) => [_v0, _v1.tagsUnresolved ?? ""]))])), "getLanguageEnglishName", 0, _v0 => _v5.find(_v0 => _v0.code.valueOf() === _v0)?.englishName ?? _v0, "getLanguageNativeName", 0, _v0 => _v5.find(_v0 => _v0.code.valueOf() === _v0)?.nativeName ?? _v0, "getLocalizedStockPageCopy", 0, _v20, "getTranslatedLocales", 0, (_v0, _v1, _v2) => _v5.filter(({
     code: _v0
   }) => _v0.some(({
     localizations: _v0
-  }) => [_v0?.name, _v0?.description].some(_v0 => !!_v0?.[_v0]) || (_v0?.options ?? []).some(_v0 => !!_v0[_v0])) || [_v1, _v3].some(_v0 => Object.values(_v0 ?? {}).some(_v0 => _v0?.[_v0]?.tagsResolved)) || [_v2, _v4].some(_v0 => Object.values(_v0 ?? {}).some(_v0 => _v0?.[_v0]))).map(({
+  }) => [_v0?.name, _v0?.description].some(_v0 => !!_v0?.[_v0]) || (_v0?.options ?? []).some(_v0 => !!_v0[_v0])) || Object.values(_v1 ?? {}).some(_v0 => _v0?.[_v0]?.tagsResolved) || Object.values(_v2 ?? {}).some(_v0 => _v0?.[_v0])).map(({
     code: _v0
   }) => _v0), "getViewerStrings", 0, _v0 => ({
     AddToCalendar: (0, _v1.translate)({
@@ -803,179 +1144,17 @@
         }
       }
     })
-  }), "isLocalizationLocale", 0, _v0 => _v6.some(({
+  }), "isLocalizationLocale", 0, _v0 => _v5.some(({
     code: _v0
-  }) => _v0.valueOf() === _v0), "removeButtonLocales", 0, (_v0, _v1) => _v21(_v0, _v1), "removeFieldLocales", 0, (_v0, _v1) => {
-    if (null == _v0.localizations || 0 === _v1.length) return _v0;
-    let _v2 = new Set(_v1),
-      _v3 = _v0 => Object.fromEntries(Object.entries(_v0).filter(([_v0]) => !_v2.has(_v0))),
-      _v4 = _v0.localizations.name ? _v3(_v0.localizations.name) : void 0,
-      _v5 = _v0.localizations.description ? _v3(_v0.localizations.description) : void 0,
-      _v6 = _v0.localizations.options?.map(_v3).filter(_v0 => Object.keys(_v0).some(_v0 => "optionCid" !== _v0 && "optionPosition" !== _v0)),
-      _v7 = Object.keys(_v4 ?? {}).length > 0 || Object.keys(_v5 ?? {}).length > 0 || (_v6?.length ?? 0) > 0;
-    return {
-      ..._v0,
-      localizations: _v7 ? {
-        name: _v4,
-        description: _v5,
-        options: _v6
-      } : null
-    };
-  }, "removeHtmlLocales", 0, (_v0, _v1) => _v21(_v0, _v1), "resolveDefaultButtonText", 0, (_v0, _v1) => {
-    if (_v0 === _v2.Locales.en) return _v1;
-    switch (_v1) {
-      case "Register":
-        return (0, _v1.translate)({
-          singular: "Register",
-          locale: _v0,
-          dictionary: {
-            es: {
-              singular: "Registrarse"
-            },
-            "de-DE": {
-              singular: "Registrieren"
-            },
-            "fr-FR": {
-              singular: "S'inscrire"
-            },
-            "ja-JP": {
-              singular: "登録"
-            },
-            "ko-KR": {
-              singular: "등록"
-            },
-            "pt-BR": {
-              singular: "Inscrever-se"
-            },
-            "zh-CN": {
-              singular: "报名"
-            }
-          }
-        });
-      case "Sign up":
-        return (0, _v1.translate)({
-          singular: "Sign up",
-          locale: _v0,
-          dictionary: {
-            es: {
-              singular: "Regístrate"
-            },
-            "de-DE": {
-              singular: "Registrieren"
-            },
-            "fr-FR": {
-              singular: "Inscrivez-vous"
-            },
-            "ja-JP": {
-              singular: "サインアップ"
-            },
-            "ko-KR": {
-              singular: "가입하기"
-            },
-            "pt-BR": {
-              singular: "Inscreva-se"
-            },
-            "zh-CN": {
-              singular: "注册"
-            }
-          }
-        });
-      case "Sign in":
-      case "Log In":
-      case "Log in":
-        return (0, _v1.translate)({
-          singular: "Sign in",
-          locale: _v0,
-          dictionary: {
-            es: {
-              singular: "Ingresar"
-            },
-            "de-DE": {
-              singular: "Anmelden"
-            },
-            "fr-FR": {
-              singular: "Se connecter"
-            },
-            "ja-JP": {
-              singular: "サインイン"
-            },
-            "ko-KR": {
-              singular: "로그인"
-            },
-            "pt-BR": {
-              singular: "Entrar"
-            },
-            "zh-CN": {
-              singular: "登录"
-            }
-          }
-        });
-      case "Next":
-        return (0, _v1.translate)({
-          singular: "Next",
-          locale: _v0,
-          dictionary: {
-            es: {
-              singular: "Siguiente"
-            },
-            "de-DE": {
-              singular: "Weiter"
-            },
-            "fr-FR": {
-              singular: "Suivant"
-            },
-            "ja-JP": {
-              singular: "次へ"
-            },
-            "ko-KR": {
-              singular: "다음"
-            },
-            "pt-BR": {
-              singular: "Próxima"
-            },
-            "zh-CN": {
-              singular: "下一步"
-            }
-          }
-        });
-      case "Back":
-        return (0, _v1.translate)({
-          singular: "Back",
-          locale: _v0,
-          dictionary: {
-            es: {
-              singular: "Atrás"
-            },
-            "de-DE": {
-              singular: "Zurück"
-            },
-            "fr-FR": {
-              singular: "Retour"
-            },
-            "ja-JP": {
-              singular: "戻る"
-            },
-            "ko-KR": {
-              singular: "뒤로"
-            },
-            "pt-BR": {
-              singular: "Voltar"
-            },
-            "zh-CN": {
-              singular: "返回"
-            }
-          }
-        });
-      default:
-        return _v1;
-    }
-  }, "resolveDefaultPageCopy", 0, (_v0, _v1, _v2) => {
-    if (_v1 === _v2.Locales.en || !_v2) return _v2;
-    for (let _v0 of _v17) if (_v2.includes(_v0)) return _v2.replace(_v0, _v18(_v0, _v1));
-    return _v2;
-  }, "resolveLocalizedButtonText", 0, (_v0, _v1, _v2, _v3) => _v2 === _v2.Locales.en ? _v3 : _v16(_v0?.[_v1]?.[_v2], _v3), "resolveLocalizedField", 0, (_v0, _v1) => {
-    if (_v1 === _v2.Locales.en || null == _v0.localizations) return _v0;
-    let _v2 = _v0.metadata?.options?.map(_v0 => {
+  }) => _v0.valueOf() === _v0), "removeButtonLocales", 0, _v28, "removeFieldLocales", 0, _v30, "removeHtmlLocales", 0, _v27, "resolveLocalizedButtonText", 0, ({
+    authored: _v0
+  }, _v1, _v2, _v3, _v4 = _v4) => {
+    if (_v2 === _v4) return _v3;
+    let _v5 = _v0?.[_v1]?.[_v2];
+    return null != _v5 && "" !== _v5 ? _v5 : _v3;
+  }, "resolveLocalizedField", 0, (_v0, _v1, _v2 = _v4) => {
+    if (_v1 === _v2 || null == _v0.localizations) return _v0;
+    let _v3 = _v0.metadata?.options?.map(_v0 => {
       let _v1 = _v0.localizations?.options?.find(({
         optionCid: _v0
       }) => _v0 === _v0.optionCid);
@@ -991,10 +1170,16 @@
       metadata: _v0.metadata ? {
         ..._v0.metadata,
         description: _v0.localizations.description?.[_v1] ?? _v0.metadata.description,
-        options: _v2
+        options: _v3
       } : void 0
     };
-  }, "resolveLocalizedPageCopy", 0, (_v0, _v1, _v2, _v3) => _v2 === _v2.Locales.en ? _v3 : _v16(_v0?.[_v1]?.[_v2]?.tagsResolved, _v3), "resolveSelectedLocale", 0, (_v0, _v1) => _v1.some(_v0 => _v0 === _v0) ? _v0 : _v4, "setLocalizedButtonText", 0, _v20, "setLocalizedFieldName", 0, (_v0, _v1, _v2) => {
+  }, "resolveLocalizedPageCopy", 0, ({
+    authored: _v0
+  }, _v1, _v2, _v3, _v4 = _v4) => {
+    if (_v2 === _v4) return _v3;
+    let _v5 = _v0?.[_v1]?.[_v2]?.tagsResolved;
+    return null != _v5 && "" !== _v5 ? _v5 : _v20(_v0?.[_v1]?.[_v4]?.tagsResolved, _v2) ?? _v3;
+  }, "resolveSelectedLocale", 0, (_v0, _v1, _v2 = _v4) => _v1.some(_v0 => _v0 === _v0) ? _v0 : _v2, "setLocalizedButtonText", 0, _v25, "setLocalizedFieldName", 0, (_v0, _v1, _v2) => {
     let _v3 = "checkbox" === _v0.type ? "description" : "name";
     return {
       ..._v0,
@@ -1006,9 +1191,9 @@
         }
       }
     };
-  }, "setLocalizedOptions", 0, _v22, "setLocalizedPageCopy", 0, _v19, "summarizeTranslation", 0, (_v0, _v1) => {
-    let _v2 = _v23(_v0.syncStatus) ? _v0.syncStatus : {},
-      _v3 = _v23(_v0.failures) ? _v0.failures : {};
+  }, "setLocalizedOptions", 0, _v29, "setLocalizedPageCopy", 0, _v24, "summarizeTranslation", 0, (_v0, _v1) => {
+    let _v2 = _v33(_v0.syncStatus) ? _v0.syncStatus : {},
+      _v3 = _v33(_v0.failures) ? _v0.failures : {};
     return Object.fromEntries(_v1.map(_v0 => {
       let _v1 = Array.isArray(_v3[_v0]) ? _v3[_v0] : [],
         _v2 = 0 === _v1.length && (_v2[_v0] || null == _v2[_v0]);
@@ -1017,6 +1202,66 @@
         failures: _v1
       }];
     }));
+  }, "swapLeadCaptureLocale", 0, (_v0, _v1, _v2 = [..._v0.enabledLocales.filter(_v0 => _v0 !== _v1), _v0.defaultLocale]) => {
+    let _v3 = _v0.defaultLocale,
+      _v4 = Object.fromEntries(_v15.map(([_v0]) => {
+        let _v1 = _v0.htmlLocalizations?.[_v0] ?? {},
+          _v2 = _v0[_v0],
+          {
+            [_v1]: _v3,
+            ..._v4
+          } = {
+            ..._v1,
+            [_v3]: _v2
+          };
+        return [_v0, _v4];
+      })),
+      _v5 = Object.fromEntries(_v15.map(([_v0]) => {
+        let _v1, _v2, _v3;
+        return [_v0, _v0.htmlLocalizations?.[_v0]?.[_v1] ?? (_v2 = (_v1 = _v0[_v0]).tagsUnresolved ?? _v1.tagsResolved, _v3 = _v0.htmlLocalizations?.[_v0]?.[_v4] ?? (_v3 === _v4 ? _v1 : void 0), {
+          tagsResolved: _v20(_v3?.tagsResolved, _v1) ?? _v1.tagsResolved,
+          tagsUnresolved: _v20(_v3?.tagsUnresolved ?? _v3?.tagsResolved, _v1) ?? _v2
+        })];
+      })),
+      _v6 = Object.fromEntries(Object.entries(_v0.buttonLocalizations ?? {}).map(([_v0, _v1]) => {
+        let _v2 = _v0 === _v3.BUTTON_TEXT_TYPE.BACK ? _v0.secondaryButtonStyle : _v0.primaryButtonStyle,
+          {
+            [_v1]: _v3,
+            ..._v4
+          } = {
+            ..._v1,
+            [_v3]: _v2[_v0]
+          };
+        return [_v0, _v4];
+      })),
+      _v7 = {
+        ..._v0.primaryButtonStyle
+      },
+      _v8 = {
+        ..._v0.secondaryButtonStyle
+      };
+    Object.entries(_v0.buttonLocalizations ?? {}).forEach(([_v0, _v1]) => {
+      let _v2 = _v0 === _v3.BUTTON_TEXT_TYPE.BACK ? _v8 : _v7,
+        _v3 = _v1?.[_v1] ?? _v21(_v2[_v0], _v1);
+      "" !== _v3 && (_v0 === _v3.BUTTON_TEXT_TYPE.BACK ? _v8[_v0] = _v3 : _v7[_v0] = _v3);
+    });
+    let _v9 = Object.fromEntries(_v2.map(_v0 => [_v0, _v0 === _v3 || (_v0.localizationSyncStatus?.[_v0] ?? !1)])),
+      _v10 = _v5.map(({
+        code: _v0
+      }) => _v0).filter(_v0 => !_v2.includes(_v0));
+    return {
+      ..._v0,
+      ..._v5,
+      defaultLocale: _v1,
+      enabledLocales: _v2,
+      htmlLocalizations: _v27(_v4, _v10),
+      buttonLocalizations: _v28(_v6, _v10),
+      primaryButtonStyle: _v7,
+      secondaryButtonStyle: _v8,
+      customFields: _v0.customFields.map(_v0 => _v30(_v32(_v0, _v3, _v1), _v10)),
+      hiddenFields: _v0.hiddenFields.map(_v0 => _v30(_v32(_v0, _v3, _v1), _v10)),
+      localizationSyncStatus: _v9
+    };
   }, "syncOptionLocalizations", 0, (_v0, _v1) => {
     let _v2 = _v0.localizations?.options?.map(_v0 => {
       let _v1 = _v1.find(({
@@ -1038,94 +1283,5 @@
         options: _v2
       } : _v0.localizations
     };
-  }, "translateFieldName", 0, (_v0, _v1) => {
-    switch (_v0) {
-      case "Email address":
-        return (0, _v1.translate)({
-          singular: "Email address",
-          locale: _v1,
-          dictionary: {
-            es: {
-              singular: "Correo electrónico"
-            },
-            "de-DE": {
-              singular: "E-Mail-Adresse"
-            },
-            "fr-FR": {
-              singular: "Adresse e-mail"
-            },
-            "ja-JP": {
-              singular: "メールアドレス"
-            },
-            "ko-KR": {
-              singular: "이메일 주소"
-            },
-            "pt-BR": {
-              singular: "Endereço de e-mail"
-            },
-            "zh-CN": {
-              singular: "电子邮件地址"
-            }
-          }
-        });
-      case "First name":
-        return (0, _v1.translate)({
-          singular: "First name",
-          locale: _v1,
-          dictionary: {
-            es: {
-              singular: "Nombre"
-            },
-            "de-DE": {
-              singular: "Vorname"
-            },
-            "fr-FR": {
-              singular: "Prénom"
-            },
-            "ja-JP": {
-              singular: "名"
-            },
-            "ko-KR": {
-              singular: "이름"
-            },
-            "pt-BR": {
-              singular: "Nome"
-            },
-            "zh-CN": {
-              singular: "名字"
-            }
-          }
-        });
-      case "Last name":
-        return (0, _v1.translate)({
-          singular: "Last name",
-          locale: _v1,
-          dictionary: {
-            es: {
-              singular: "Apellidos"
-            },
-            "de-DE": {
-              singular: "Nachname"
-            },
-            "fr-FR": {
-              singular: "Nom"
-            },
-            "ja-JP": {
-              singular: "姓"
-            },
-            "ko-KR": {
-              singular: "성"
-            },
-            "pt-BR": {
-              singular: "Sobrenome"
-            },
-            "zh-CN": {
-              singular: "姓氏"
-            }
-          }
-        });
-      default:
-        return _v0;
-    }
-  }]);
+  }, "translateFieldName", 0, _v23, "translateStockButtonLabel", 0, _v21]);
 }

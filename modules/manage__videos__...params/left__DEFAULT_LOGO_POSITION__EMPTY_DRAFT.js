@@ -6,6 +6,7 @@
     _v3 = {
       ambientBacklight: !1,
       hideVimeoHeader: !1,
+      matchPlayerBackground: void 0,
       backgroundColor: null,
       titleFontFamily: null,
       titleFontWeight: null,
@@ -27,6 +28,7 @@
     return _v1 ? {
       ambientBacklight: !!_v1.ambientBacklight,
       hideVimeoHeader: !!_v1.hideVimeoHeader,
+      matchPlayerBackground: _v1.matchPlayerBackground ?? !0,
       backgroundColor: _v1.backgroundColor ?? null,
       titleFontFamily: (0, _v1.asTitleFontId)(_v1.titleFontFamily),
       titleFontWeight: (0, _v1.asTitleFontWeight)(_v1.titleFontWeight),

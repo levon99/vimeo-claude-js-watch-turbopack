@@ -18,19 +18,21 @@
     _v15 = _v0.i(0);
   let _v16 = (_v0, _v1) => {
       let _v2 = (0, _v14.useGlobalStore)(_v0 => _v0.leadCapture.htmlLocalizations),
-        _v3 = (0, _v14.useGlobalStore)(_v0 => _v0.leadCapture.defaultHtmlLocalizations),
+        _v3 = (0, _v14.useGlobalStore)(_v0 => _v0.leadCapture.defaultLocale),
         _v4 = (0, _v11.useFormLocale)();
-      return (0, _v13.resolveLocalizedPageCopy)(_v2, _v0, _v4, (0, _v13.resolveLocalizedPageCopy)(_v3, _v0, _v4, (0, _v13.resolveDefaultPageCopy)(_v0, _v4, _v1)));
+      return (0, _v13.resolveLocalizedPageCopy)({
+        authored: _v2
+      }, _v0, _v4, _v1, _v3);
     },
     _v17 = (_v0, _v1) => {
       let _v2 = (0, _v14.useGlobalStore)(_v0 => _v0.leadCapture.htmlLocalizations),
-        _v3 = (0, _v14.useGlobalStore)(_v0 => _v0.leadCapture.defaultHtmlLocalizations),
-        _v4 = (0, _v14.useGlobalStore)(_v0 => _v0.selectedLanguage);
-      if (_v4 === _v13.DEFAULT_LANGUAGE) return _v1;
-      let _v5 = _v2?.[_v0]?.[_v4];
+        _v3 = (0, _v14.useGlobalStore)(_v0 => _v0.selectedLanguage),
+        _v4 = (0, _v14.useGlobalStore)(_v0 => _v0.leadCapture.defaultLocale);
+      if (_v3 === _v4) return _v1;
+      let _v5 = _v2?.[_v0]?.[_v3];
       if (_v5?.tagsUnresolved || _v5?.tagsResolved) return _v5.tagsUnresolved ?? _v5.tagsResolved;
-      let _v6 = _v3?.[_v0]?.[_v4];
-      return _v6?.tagsUnresolved || _v6?.tagsResolved ? _v6.tagsUnresolved ?? _v6.tagsResolved : (0, _v13.resolveDefaultPageCopy)(_v0, _v4, _v1);
+      let _v6 = _v2?.[_v0]?.[_v13.FALLBACK_LOCALE]?.tagsUnresolved ?? _v2?.[_v0]?.[_v13.FALLBACK_LOCALE]?.tagsResolved ?? (_v4 === _v13.FALLBACK_LOCALE ? _v1 : void 0);
+      return (0, _v13.getLocalizedStockPageCopy)(_v6, _v3) ?? _v1;
     },
     _v18 = () => {
       let {
@@ -38,20 +40,21 @@
         } = (0, _v12.usePatchLeadCapture)(),
         _v1 = (0, _v14.useGlobalStore)(_v0 => _v0.selectedLanguage);
       return (0, _v2.useCallback)((_v0, _v1, _v2 = "") => {
-        if (_v1 === _v13.DEFAULT_LANGUAGE) return void _v0(`${_v0}.tagsUnresolved`, _v2);
+        if (_v1 === _v14.useGlobalStore.getState().leadCapture.defaultLocale) return void _v0(`${_v0}.tagsUnresolved`, _v2);
         let {
-            htmlLocalizations: _v3,
-            defaultHtmlLocalizations: _v4
-          } = _v14.useGlobalStore.getState().leadCapture,
-          _v5 = _v3?.[_v0]?.[_v1];
-        _v2 !== (_v5?.tagsUnresolved ?? _v5?.tagsResolved ?? _v4?.[_v0]?.[_v1]?.tagsUnresolved ?? _v4?.[_v0]?.[_v1]?.tagsResolved ?? (0, _v13.resolveDefaultPageCopy)(_v0, _v1, _v1)) && _v0(_v15.HTML_LOCALIZATIONS_KEY, (0, _v13.setLocalizedPageCopy)(_v3, _v0, _v1, _v2));
+          htmlLocalizations: _v3
+        } = _v14.useGlobalStore.getState().leadCapture;
+        _v2 !== _v3?.[_v0]?.[_v1]?.tagsUnresolved && _v0(_v15.HTML_LOCALIZATIONS_KEY, (0, _v13.setLocalizedPageCopy)(_v3, _v0, _v1, _v2));
       }, [_v0, _v1]);
     },
     _v19 = (_v0, _v1) => {
       let _v2 = (0, _v14.useGlobalStore)(_v0 => _v0.leadCapture.buttonLocalizations),
-        _v3 = (0, _v14.useGlobalStore)(_v0 => _v0.leadCapture.defaultButtonLocalizations),
-        _v4 = (0, _v11.useFormLocale)();
-      return (0, _v13.resolveLocalizedButtonText)(_v2, _v0, _v4, (0, _v13.resolveLocalizedButtonText)(_v3, _v0, _v4, (0, _v13.resolveDefaultButtonText)(_v4, _v1)));
+        _v3 = (0, _v14.useGlobalStore)(_v0 => _v0.leadCapture.defaultLocale),
+        _v4 = (0, _v11.useFormLocale)(),
+        _v5 = (0, _v13.resolveLocalizedButtonText)({
+          authored: _v2
+        }, _v0, _v4, _v1, _v3);
+      return _v2?.[_v0]?.[_v4] != null || _v4 === _v3 ? _v5 : (0, _v13.translateStockButtonLabel)(_v1, _v4);
     };
   _v0.s(["useAuthoredPageCopy", 0, _v17, "useLocalizedButtonText", 0, _v19, "useLocalizedPageCopy", 0, _v16, "useSavePageCopy", 0, _v18], 0);
   var _v20 = _v0.i(0);
@@ -1331,7 +1334,7 @@
               resourceId: _v0,
               resourceType: _v7.ENTITY_TO_PATH_MAP[_v1]
             },
-            select: ["confirmationPageDescription", "confirmationPageTitle", "htmlLocalizations", "defaultHtmlLocalizations"],
+            select: ["confirmationPageDescription", "confirmationPageTitle", "htmlLocalizations"],
             query: {
               ...(_v0 && {
                 leadId: _v0
@@ -1351,7 +1354,7 @@
         loading: _v0,
         data: _v1
       } = _v6;
-      !_v0 && _v1 && (_v2(_v24.PREVIEW_HTML_KEYS.confirmationPageTitle, _v1?.confirmationPageTitle), _v2(_v24.PREVIEW_HTML_KEYS.confirmationPageDescription, _v1?.confirmationPageDescription), _v2("htmlLocalizations", (0, _v13.canonicalizeLocaleKeys)(_v1.htmlLocalizations)), _v2("defaultHtmlLocalizations", (0, _v13.canonicalizeLocaleKeys)(_v1.defaultHtmlLocalizations)));
+      !_v0 && _v1 && (_v2(_v24.PREVIEW_HTML_KEYS.confirmationPageTitle, _v1?.confirmationPageTitle), _v2(_v24.PREVIEW_HTML_KEYS.confirmationPageDescription, _v1?.confirmationPageDescription), _v2("htmlLocalizations", (0, _v13.canonicalizeLocaleKeys)(_v1.htmlLocalizations)));
     }, [_v1, _v6, _v2]), {
       refreshConfirmationPageHTML: _v7,
       refreshConfirmationPageHTMLState: _v6

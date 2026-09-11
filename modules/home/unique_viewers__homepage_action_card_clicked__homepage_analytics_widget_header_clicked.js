@@ -13476,32 +13476,33 @@
       } = function () {
         let {
             arm: _v0,
-            isEligibleAudience: _v1,
-            userId: _v2
+            tier: _v1,
+            isEligibleAudience: _v2,
+            userId: _v3
           } = (0, _v176.useSpontaneousPaywallEligibility)(),
           {
-            trackEligible: _v3
+            trackEligible: _v4
           } = (0, _v177.useSpontaneousPaywallTracking)(),
-          _v4 = "t1" === _v0 || "t3" === _v0,
-          [_v5, _v6] = (0, _v3.useState)(!1);
+          _v5 = "t1" === _v0 || "t3" === _v0,
+          [_v6, _v7] = (0, _v3.useState)(!1);
         (0, _v3.useEffect)(() => {
-          _v6(!1);
-        }, [_v2]), (0, _v3.useEffect)(() => {
-          if (!_v1 || null == _v2) return;
-          let _v0 = `spontaneous_login_pcp_day:${_v2}`,
+          _v7(!1);
+        }, [_v3]), (0, _v3.useEffect)(() => {
+          if (!_v2 || null == _v3) return;
+          let _v0 = `spontaneous_login_pcp_day:${_v3}`,
             _v1 = new Date().toDateString();
-          window.localStorage.getItem(_v0) !== _v1 && (window.localStorage.setItem(_v0, _v1), _v3(_v178), _v4 && _v6(!0));
-        }, [_v1, _v2, _v4, _v3]);
-        let _v7 = (0, _v3.useCallback)(() => _v6(!1), []);
+          window.localStorage.getItem(_v0) !== _v1 && (window.localStorage.setItem(_v0, _v1), _v4(_v178), _v5 && _v7(!0));
+        }, [_v2, _v3, _v5, _v4]);
+        let _v8 = (0, _v3.useCallback)(() => _v7(!1), []);
         return {
-          spontaneousLoginPaywall: _v5 ? {
+          spontaneousLoginPaywall: _v6 ? {
             isOpen: !0,
-            tier: _v176.SPONTANEOUS_PAYWALL_TIER,
+            tier: _v1,
             isFreeTrialEligible: _v176.SPONTANEOUS_PAYWALL_FREE_TRIAL_ELIGIBLE,
             checkoutTarget: "_self",
             postCheckoutUrl: "/home",
             paywallTracking: _v178,
-            onDismiss: _v7
+            onDismiss: _v8
           } : null
         };
       }(),

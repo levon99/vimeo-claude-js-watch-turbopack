@@ -493,9 +493,10 @@
       errorMessage: _v7
     }) => {
       let _v8 = (0, _v48.useFormLocale)(),
-        _v9 = (0, _v39.useViewerStrings)();
+        _v9 = (0, _v35.useGlobalStore)(_v0 => _v0.leadCapture.defaultLocale),
+        _v10 = (0, _v39.useViewerStrings)();
       if (!_v0) return null;
-      let _v10 = (0, _v49.resolveLocalizedField)(_v0, _v8);
+      let _v11 = (0, _v49.resolveLocalizedField)(_v0, _v8, _v9);
       return (0, _v1.jsx)(_v70, {
         children: (() => {
           let {
@@ -503,7 +504,7 @@
             name: _v1,
             metadata: _v2,
             isRequired: _v3
-          } = _v10;
+          } = _v11;
           switch (_v0) {
             case _v34.CustomFieldTypes.Text:
               return (0, _v1.jsx)(_v68.Input, {
@@ -518,7 +519,7 @@
                 value: "string" == typeof _v1 ? _v1 : void 0,
                 placeholder: _v1,
                 required: _v3,
-                validator: (0, _v50.getValidator)(_v1, _v9, _v3),
+                validator: (0, _v50.getValidator)(_v1, _v10, _v3),
                 errorMessage: _v7
               });
             case _v34.CustomFieldTypes.Dropdown:
@@ -534,17 +535,17 @@
                   },
                   selected: _v0,
                   placeholder: _v1,
-                  required: _v10.isRequired,
+                  required: _v11.isRequired,
                   options: _v2?.options || [],
-                  validator: (0, _v50.getValidator)(_v1, _v9, _v3)
+                  validator: (0, _v50.getValidator)(_v1, _v10, _v3)
                 });
               }
             case _v34.CustomFieldTypes.Checkbox:
               return (0, _v1.jsx)(_v63, {
                 index: _v4,
-                label: _v10.metadata?.description || "",
-                isRequired: _v10.isRequired,
-                color: _v10.metadata?.color || "white",
+                label: _v11.metadata?.description || "",
+                isRequired: _v11.isRequired,
+                color: _v11.metadata?.color || "white",
                 ref: _v0 => {
                   _v3[_v4] = _v0;
                 },

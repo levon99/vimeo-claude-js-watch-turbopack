@@ -2416,7 +2416,7 @@
     };
   }
   let _v224 = `#${_v216.PLAYER_COLOR_DEFAULTS.colorFour}`,
-    _v225 = ["page.player.colors.colorOne", "page.player.colors.colorTwo", "page.player.colors.colorThree", "page.player.colors.colorFour", "page.comments", "width", "height"],
+    _v225 = ["page.player.colors.colorOne", "page.player.colors.colorTwo", "page.player.colors.colorThree", "page.player.colors.colorFour", "page.matchPlayerBackground", "page.comments", "width", "height"],
     _v226 = ["embedPlayerConfigUrl"];
   function _v227({
     w: _v0,
@@ -2549,21 +2549,22 @@
     bandColor: _v2,
     ambient: _v3,
     posterUrl: _v4,
-    videoAspectRatio: _v5
+    videoAspectRatio: _v5,
+    matchPlayerBackground: _v6
   }) {
     let {
-        player: _v6,
-        playerElementRef: _v7
+        player: _v7,
+        playerElementRef: _v8
       } = _v223(_v0, _v1),
-      [_v8, _v9] = (0, _v29.useState)(!1),
-      _v10 = (0, _v80.useOrionSettings)().settings.clip_page_rework,
-      _v11 = _v10 ? "transparent" : _v2;
+      [_v9, _v10] = (0, _v29.useState)(!1),
+      _v11 = (0, _v80.useOrionSettings)().settings.clip_page_rework,
+      _v12 = _v11 && !1 !== _v6 ? "transparent" : _v2;
     return (0, _v29.useEffect)(() => {
-      _v6 && "function" == typeof _v6.ready && _v6.ready(() => _v9(!0));
-    }, [_v6]), (0, _v16.jsxs)(_v134.Box, {
+      _v7 && "function" == typeof _v7.ready && _v7.ready(() => _v10(!0));
+    }, [_v7]), (0, _v16.jsxs)(_v134.Box, {
       position: "relative",
       w: "100%",
-      mt: _v10 ? {
+      mt: _v11 ? {
         base: 0,
         md: 200,
         lg: 300
@@ -2573,21 +2574,21 @@
         aspectRatio: "890 / 396"
       },
       children: [_v3 ? (0, _v16.jsx)(_v230, {
-        player: _v6,
-        playerReady: _v8,
-        playerContainerRef: _v7,
+        player: _v7,
+        playerReady: _v9,
+        playerContainerRef: _v8,
         aspectRatio: _v5,
         posterUrl: _v4,
-        bandColor: _v11
+        bandColor: _v12
       }) : (0, _v16.jsx)(_v134.Box, {
         position: "absolute",
         inset: 0,
         zIndex: -1,
         overflow: "hidden",
-        bgColor: _v11,
+        bgColor: _v12,
         pointerEvents: "none"
       }), (0, _v16.jsx)(_v134.Box, {
-        ref: _v7,
+        ref: _v8,
         className: "player js-player",
         position: "relative",
         w: "100%",
@@ -2862,32 +2863,33 @@
     playerConfigUrl: _v1,
     bandColor: _v2,
     videoAspectRatio: _v3,
-    showComments: _v4
+    showComments: _v4,
+    matchPlayerBackground: _v5
   }) {
     let {
-        state: _v5,
-        videoTitle: _v6,
-        previewDark: _v7,
-        thumbnailUrl: _v8
+        state: _v6,
+        videoTitle: _v7,
+        previewDark: _v8,
+        thumbnailUrl: _v9
       } = (0, _v219.useCustomPageContext)(),
-      _v9 = _v5.draft,
-      _v10 = _v7 ? "dark" : "light",
-      _v11 = (0, _v210.useColorModeValue)("darkBlueAlpha.100", "lightBlueAlpha.100"),
-      _v12 = _v9.backgroundColor,
-      _v13 = _v12 ? (0, _v217.surfaceMixFor)(_v12) : null,
-      _v14 = (0, _v214.asTitleFontId)(_v9.titleFontFamily);
+      _v10 = _v6.draft,
+      _v11 = _v8 ? "dark" : "light",
+      _v12 = (0, _v210.useColorModeValue)("darkBlueAlpha.100", "lightBlueAlpha.100"),
+      _v13 = _v10.backgroundColor,
+      _v14 = _v13 ? (0, _v217.surfaceMixFor)(_v13) : null,
+      _v15 = (0, _v214.asTitleFontId)(_v10.titleFontFamily);
     (0, _v29.useEffect)(() => {
-      (0, _v215.ensureTitleFontStylesheet)(_v14);
-    }, [_v14]);
-    let _v15 = {};
-    _v12 && (_v15["--page-customization-bg"] = _v12), _v13 && (_v15["--page-customization-surface"] = _v13);
+      (0, _v215.ensureTitleFontStylesheet)(_v15);
+    }, [_v15]);
     let _v16 = {};
-    _v12 && (_v16["--vimeo-colors-background"] = "var(--page-customization-bg)"), _v13 && (_v16["--vimeo-colors-surface"] = "var(--page-customization-surface)");
-    let _v17 = _v0 => (0, _v16.jsx)(_v134.Box, {
-      "data-theme": _v10,
-      style: _v15,
+    _v13 && (_v16["--page-customization-bg"] = _v13), _v14 && (_v16["--page-customization-surface"] = _v14);
+    let _v17 = {};
+    _v13 && (_v17["--vimeo-colors-background"] = "var(--page-customization-bg)"), _v14 && (_v17["--vimeo-colors-surface"] = "var(--page-customization-surface)");
+    let _v18 = _v0 => (0, _v16.jsx)(_v134.Box, {
+      "data-theme": _v11,
+      style: _v16,
       children: (0, _v16.jsx)(_v134.Box, {
-        style: _v16,
+        style: _v17,
         children: _v0
       })
     });
@@ -2900,27 +2902,28 @@
         bgColor: "surface",
         p: "200",
         children: (0, _v16.jsxs)(_v134.Box, {
-          "data-theme": _v10,
+          "data-theme": _v11,
           position: "relative",
           borderRadius: "md",
           overflow: "hidden",
           bgColor: "background",
           outline: "1px solid",
-          outlineColor: _v11,
-          style: _v12 ? {
-            backgroundColor: _v12
+          outlineColor: _v12,
+          style: _v13 ? {
+            backgroundColor: _v13
           } : void 0,
           sx: {
             isolation: "isolate"
           },
-          children: [!_v9.hideVimeoHeader && _v17((0, _v16.jsx)(_v229, {})), (0, _v16.jsx)(_v231, {
+          children: [!_v10.hideVimeoHeader && _v18((0, _v16.jsx)(_v229, {})), (0, _v16.jsx)(_v231, {
             clipId: _v0,
             configUrl: _v1,
             bandColor: _v2,
-            ambient: _v9.ambientBacklight,
-            posterUrl: _v8,
-            videoAspectRatio: _v3
-          }), _v17((0, _v16.jsxs)(_v134.Box, {
+            ambient: _v10.ambientBacklight,
+            posterUrl: _v9,
+            videoAspectRatio: _v3,
+            matchPlayerBackground: _v10.matchPlayerBackground ?? _v5
+          }), _v18((0, _v16.jsxs)(_v134.Box, {
             display: "grid",
             gridTemplateColumns: {
               base: "1fr",
@@ -2933,8 +2936,8 @@
               spacing: "200",
               minW: 0,
               children: [(0, _v16.jsx)(_v232, {
-                draft: _v9,
-                title: _v6
+                draft: _v10,
+                title: _v7
               }), (0, _v16.jsx)(_v233, {})]
             }), _v4 ? (0, _v16.jsx)(_v134.Box, {
               minW: 0,
@@ -3003,7 +3006,8 @@
       playerConfigUrl: _v9,
       bandColor: _v6,
       videoAspectRatio: _v7,
-      showComments: _v10
+      showComments: _v10,
+      matchPlayerBackground: _v4?.page?.matchPlayerBackground
     });
   }
   function _v238({

@@ -65,10 +65,11 @@
           capabilities: _v4,
           ready: _v5
         } = (0, _v33.useCapability)(["hasEventSeriesEnabled"], _v3),
+        _v6 = _v1.enable_event_series || _v1.release_event_series_v1,
         {
-          data: _v6,
-          isLoading: _v7
-        } = (0, _v51.useGetUserTeamRole)(() => _v3 && !_v2 && _v1.enable_event_series ? {
+          data: _v7,
+          isLoading: _v8
+        } = (0, _v51.useGetUserTeamRole)(() => _v3 && !_v2 && _v6 ? {
           select: ["permissionLevel"],
           where: {
             userId: _v3
@@ -76,12 +77,12 @@
         } : null, {
           revalidateOnFocus: !1
         }),
-        _v8 = _v2 || _v7 || !_v5,
-        _v9 = _v1.enable_event_series && !!_v6?.permissionLevel && _v53.includes(_v6.permissionLevel),
-        _v10 = _v4.hasEventSeriesEnabled;
+        _v9 = _v2 || _v8 || !_v5,
+        _v10 = _v6 && !!_v7?.permissionLevel && _v53.includes(_v7.permissionLevel),
+        _v11 = _v4.hasEventSeriesEnabled;
       return {
-        canAccessEventSeriesEditor: !_v8 && (_v9 || _v10),
-        isLoading: _v8
+        canAccessEventSeriesEditor: !_v9 && (_v10 || _v11),
+        isLoading: _v9
       };
     };
   _v0.s(["useAccessEventSeriesEditor", 0, _v54], 0);

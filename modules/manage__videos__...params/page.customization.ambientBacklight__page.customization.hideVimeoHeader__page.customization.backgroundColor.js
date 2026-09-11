@@ -30,7 +30,7 @@
       isSubmitting: !1,
       isLoading: !0
     },
-    _v14 = ["page.customization.ambientBacklight", "page.customization.hideVimeoHeader", "page.customization.backgroundColor", "page.customization.titleFontFamily", "page.customization.titleFontWeight", "page.customization.logo.enabled", "page.customization.logo.customLogoUrl", "page.customization.logo.position", "user", "link"],
+    _v14 = ["page.customization.ambientBacklight", "page.customization.hideVimeoHeader", "page.customization.backgroundColor", "page.customization.titleFontFamily", "page.customization.titleFontWeight", "page.customization.logo.enabled", "page.customization.logo.customLogoUrl", "page.customization.logo.position", "page.matchPlayerBackground", "user", "link"],
     _v15 = ["name"],
     _v16 = ["uri", "active", "baseLink", "sizes"],
     _v17 = ["142x80"],
@@ -122,6 +122,15 @@
                 draft: {
                   ..._v0.draft,
                   hideVimeoHeader: _v1.payload,
+                  selectedPresetId: null
+                }
+              };
+            case "SET_MATCH_PLAYER_BACKGROUND":
+              return {
+                ..._v0,
+                draft: {
+                  ..._v0.draft,
+                  matchPlayerBackground: _v1.payload,
                   selectedPresetId: null
                 }
               };
@@ -247,6 +256,7 @@
           payload: (_v0 = _v2?.page?.customization) ? {
             ambientBacklight: !!_v0.ambientBacklight,
             hideVimeoHeader: !!_v0.hideVimeoHeader,
+            matchPlayerBackground: _v2?.page?.matchPlayerBackground,
             backgroundColor: _v0.backgroundColor ?? null,
             titleFontFamily: (0, _v10.asTitleFontId)(_v0.titleFontFamily),
             titleFontWeight: (0, _v10.asTitleFontWeight)(_v0.titleFontWeight),
@@ -264,6 +274,7 @@
         let _v0 = _v0 => ({
           ambientBacklight: _v0.ambientBacklight,
           hideVimeoHeader: _v0.hideVimeoHeader,
+          matchPlayerBackground: _v0.matchPlayerBackground,
           backgroundColor: _v0.backgroundColor,
           titleFontFamily: _v0.titleFontFamily,
           titleFontWeight: _v0.titleFontWeight,
@@ -312,13 +323,15 @@
                     customLogoUrl: _v1.logo.customLogoUrl,
                     position: (0, _v11.logoPositionToPersist)(_v1)
                   }
-                }
+                },
+                matchPlayerBackground: _v1.matchPlayerBackground ?? !0
               }
             }
           }), await _v3(_v0 => _v0 && {
             ..._v0,
             page: {
               ..._v0.page,
+              matchPlayerBackground: _v1.matchPlayerBackground ?? !0,
               customization: {
                 ambientBacklight: _v1.ambientBacklight,
                 hideVimeoHeader: _v1.hideVimeoHeader,
@@ -379,6 +392,7 @@
               customization: {
                 ambientBacklight: _v0.ambientBacklight,
                 hideVimeoHeader: _v0.hideVimeoHeader,
+                matchPlayerBackground: _v0.matchPlayerBackground ?? !0,
                 backgroundColor: _v0.backgroundColor,
                 titleFontFamily: _v0.titleFontFamily,
                 titleFontWeight: _v0.titleFontWeight,
@@ -394,6 +408,7 @@
             ..._v0,
             page: {
               ..._v0.page,
+              matchPlayerBackground: _v0.matchPlayerBackground ?? !0,
               customization: {
                 ambientBacklight: _v0.ambientBacklight,
                 hideVimeoHeader: _v0.hideVimeoHeader,

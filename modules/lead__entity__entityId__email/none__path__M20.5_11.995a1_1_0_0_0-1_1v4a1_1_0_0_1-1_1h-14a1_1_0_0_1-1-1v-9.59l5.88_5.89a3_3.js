@@ -1274,13 +1274,17 @@
       children: [(0, _v1.jsx)(_v7.Flex, {
         p: "sm",
         justifyContent: "center",
-        children: (0, _v1.jsx)("strong", {
-          children: "View this email in your browser."
-        })
+        children: "View this email in your browser."
       }), (0, _v1.jsxs)(_v5.Box, {
         p: "sm",
         textAlign: "center",
-        children: [_v8 && _v3 ? `You're receiving this email in connection with ${_v3}. It was sent by Vimeo on behalf of ${_v7}.` : `This email was sent to you by ${_v7}.`, _v0.useReplyEmail && _v0?.replyEmail && ` You can respond to the sender at ${_v0?.replyEmail}.`]
+        children: [_v8 && _v3 ? `You're receiving this email in connection with ${_v3}.` : `This email was sent to you by ${_v7}.`, _v0.useReplyEmail && _v0?.replyEmail && ` You can respond to the sender at ${_v0?.replyEmail}.`]
+      }), _v8 && _v3 && (0, _v1.jsx)(_v5.Box, {
+        p: "sm",
+        textAlign: "center",
+        children: (0, _v1.jsx)("strong", {
+          children: "This message was sent by the event organizer using Vimeo. Vimeo did not create or verify the content of this message. Be cautious when sharing information or following unfamiliar links."
+        })
       }), _v8 && _v3 && (0, _v1.jsx)(_v5.Box, {
         p: "sm",
         textAlign: "center",

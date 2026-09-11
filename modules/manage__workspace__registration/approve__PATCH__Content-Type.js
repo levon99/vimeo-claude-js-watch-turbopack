@@ -92,6 +92,7 @@
       size: "lg",
       onClose: _v4,
       children: [(0, _v1.jsx)(_v31.ModalOverlay, {}), (0, _v1.jsxs)(_v28.ModalContent, {
+        minH: (0, _v15.rem)(264),
         children: [(0, _v1.jsx)(_v30.ModalHeader, {
           children: (0, _v1.jsx)(_v13.Header, {
             size: "lg",
@@ -183,6 +184,7 @@
       size: "lg",
       onClose: _v4,
       children: [(0, _v1.jsx)(_v31.ModalOverlay, {}), (0, _v1.jsxs)(_v28.ModalContent, {
+        minH: (0, _v15.rem)(264),
         children: [(0, _v1.jsx)(_v30.ModalHeader, {
           children: (0, _v1.jsx)(_v13.Header, {
             size: "lg",
@@ -417,6 +419,7 @@
         size: "lg",
         onClose: _v4,
         children: [(0, _v1.jsx)(_v31.ModalOverlay, {}), (0, _v1.jsxs)(_v28.ModalContent, {
+          minH: (0, _v15.rem)(264),
           children: [(0, _v1.jsx)(_v30.ModalHeader, {
             children: (0, _v1.jsx)(_v13.Header, {
               size: "lg",
