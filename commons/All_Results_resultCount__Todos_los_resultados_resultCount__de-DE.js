@@ -151,8 +151,9 @@
     folderURI: _v0,
     isPrivateToUser: _v1,
     hasContentSpaceEnabled: _v2,
-    isUnifiedLibrary: _v3
-  }) => _v0 ? _v1 ? _v3 ? (0, _v1.jsx)(_v29.VideosStack, {}) : _v2 ? (0, _v1.jsx)(_v25.MyLibrary, {}) : (0, _v1.jsx)(_v28, {}) : (0, _v1.jsx)(_v26.Folder, {}) : _v2 ? (0, _v1.jsx)(_v24.TeamLibrary, {}) : (0, _v1.jsx)(_v29.VideosStack, {});
+    isUnifiedLibrary: _v3,
+    isRootPrivateToUserFolder: _v4 = !1
+  }) => _v0 ? _v1 && _v4 ? _v3 ? (0, _v1.jsx)(_v29.VideosStack, {}) : _v2 ? (0, _v1.jsx)(_v25.MyLibrary, {}) : (0, _v1.jsx)(_v28, {}) : (0, _v1.jsx)(_v26.Folder, {}) : _v2 ? (0, _v1.jsx)(_v24.TeamLibrary, {}) : (0, _v1.jsx)(_v29.VideosStack, {});
   var _v31 = _v0.i(0),
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
@@ -278,7 +279,8 @@
             }
           }
         }),
-        _v16 = _v0 && _v14 && _v0.isPrivateToUser ? (0, _v21.translate)({
+        _v16 = _v0 && _v0.isPrivateToUser && !_v0.metadata?.connections?.ancestorPath?.length,
+        _v17 = _v0 && _v14 && _v16 ? (0, _v21.translate)({
           singular: "Library",
           dictionary: {
             es: {
@@ -304,14 +306,14 @@
             }
           }
         }) : _v0?.name ?? _v15,
-        _v17 = (_v0?.metadata?.connections?.folders?.total || 0) > 0,
-        _v18 = _v5 ? _v6.some(_v0 => _v0?.uri === _v0?.uri) : _v3?.uri === _v0?.uri,
-        _v19 = _v3 && _v3.metadata?.connections?.ancestorPath?.some(_v0 => _v0?.uri === _v0?.uri) || !1,
-        [_v20, _v21] = (0, _v2.useState)(_v19),
-        _v22 = (0, _v2.useMemo)(() => [], []);
-      _v4?.metadata?.connections?.ancestorPath?.find(_v0 => _v0.uri === _v0?.uri) && (_v17 = !0, _v22 = [_v4]);
+        _v18 = (_v0?.metadata?.connections?.folders?.total || 0) > 0,
+        _v19 = _v5 ? _v6.some(_v0 => _v0?.uri === _v0?.uri) : _v3?.uri === _v0?.uri,
+        _v20 = _v3 && _v3.metadata?.connections?.ancestorPath?.some(_v0 => _v0?.uri === _v0?.uri) || !1,
+        [_v21, _v22] = (0, _v2.useState)(_v20),
+        _v23 = (0, _v2.useMemo)(() => [], []);
+      _v4?.metadata?.connections?.ancestorPath?.find(_v0 => _v0.uri === _v0?.uri) && (_v18 = !0, _v23 = [_v4]);
       let {
-        projectItems: _v23
+        projectItems: _v24
       } = (_v0 => {
         let _v1 = "function" == typeof _v0 ? _v0() : _v0,
           {
@@ -392,7 +394,7 @@
           _v7.complete || _v7.pending || _v0();
         }, [_v1, _v1?.query, _v1?.select, _v7.complete, _v7.currentPage, _v7.pending, _v7.totalPages, _v2, _v3, _v4, _v5]), _v7;
       })(() => {
-        if (!_v17 || !_v0) return null;
+        if (!_v18 || !_v0) return null;
         let _v0 = _v0.uri.split("/");
         return {
           where: {
@@ -406,31 +408,31 @@
           select: ["folder.isPrivateToUser", "folder.metadata.connections.folders.total", "folder.metadata.connections.ancestorPath", "folder.privacy", "folder.name", "folder.uri"]
         };
       });
-      _v23 && (_v22 = [..._v22, ..._v23.map(_v0 => _v0.folder)]), (0, _v2.useEffect)(() => {
-        if (!_v18 || !_v7 || !_v0) return;
+      _v24 && (_v23 = [..._v23, ..._v24.map(_v0 => _v0.folder)]), (0, _v2.useEffect)(() => {
+        if (!_v19 || !_v7 || !_v0) return;
         let _v0 = _v6.map(_v0 => _v0.uri);
         _v0.metadata?.connections?.ancestorPath?.some(_v0 => _v0.includes(_v0.uri)) && setTimeout(() => _v7([{
           folder: _v0,
           remove: !0
         }]), 500);
-      }, [_v0, _v18, _v7, _v6, _v22]), (0, _v2.useEffect)(() => {
-        if (!_v9 || !_v0 || !_v7 || !_v17 || _v22.length < 1) return;
+      }, [_v0, _v19, _v7, _v6, _v23]), (0, _v2.useEffect)(() => {
+        if (!_v9 || !_v0 || !_v7 || !_v18 || _v23.length < 1) return;
         let _v0 = _v6.map(_v0 => _v0.uri);
-        if (_v22.reduce((_v0, _v1) => _v0.includes(_v1.uri) ? _v0 + 1 : _v0, 0) === _v22.length) {
+        if (_v23.reduce((_v0, _v1) => _v0.includes(_v1.uri) ? _v0 + 1 : _v0, 0) === _v23.length) {
           let _v0 = [];
-          _v18 || (_v0 = [{
+          _v19 || (_v0 = [{
             folder: _v0,
             add: !0
-          }]), _v22.forEach(_v0 => _v0 = [..._v0, {
+          }]), _v23.forEach(_v0 => _v0 = [..._v0, {
             folder: _v0,
             remove: !0
           }]), setTimeout(() => _v7([..._v0]), 500);
         }
-      }, [_v9, _v0, _v17, _v18, _v7, _v6, _v22]);
-      let _v24 = _v17 ? 4 : 28;
+      }, [_v9, _v0, _v18, _v19, _v7, _v6, _v23]);
+      let _v25 = _v18 ? 4 : 28;
       return (0, _v1.jsxs)(_v3.Box, {
         "data-testid": "folder-item-container",
-        marginLeft: (0, _v11.rem)(7 * !!_v10 + _v24),
+        marginLeft: (0, _v11.rem)(7 * !!_v10 + _v25),
         marginRight: _v10 ? void 0 : "sm",
         children: [(0, _v1.jsx)(_v4.Button, {
           borderRadius: "sm",
@@ -444,8 +446,8 @@
           onMouseLeave: () => _v2(null),
           onClick: () => _v5 && _v8 ? null : void (_v5 && _v7 && _v0 ? _v7([{
             folder: _v0,
-            add: !_v18,
-            remove: !!_v18
+            add: !_v19,
+            remove: !!_v19
           }]) : _v1 && _v1(_v0)),
           children: (0, _v1.jsxs)(_v5.Flex, {
             alignItems: "center",
@@ -453,14 +455,14 @@
             children: [(0, _v1.jsx)(_v5.Flex, {
               marginRight: "sm",
               alignItems: "center",
-              onClick: _v17 ? _v0 => {
-                _v0.stopPropagation(), _v21(!_v20);
+              onClick: _v18 ? _v0 => {
+                _v0.stopPropagation(), _v22(!_v21);
               } : void 0,
-              children: _v17 && (_v20 ? (0, _v1.jsx)(_v15.ChevronDownSmall, {}) : (0, _v1.jsx)(_v36.ChevronRightSmall, {}))
+              children: _v18 && (_v21 ? (0, _v1.jsx)(_v15.ChevronDownSmall, {}) : (0, _v1.jsx)(_v36.ChevronRightSmall, {}))
             }), _v5 && (0, _v1.jsx)(_v35.Checkbox, {
               margin: (0, _v11.rem)(12),
               pointerEvents: "none",
-              isChecked: _v8 || _v18,
+              isChecked: _v8 || _v19,
               isDisabled: _v8,
               id: _v0?.uri
             }), (0, _v1.jsx)(_v3.Box, {
@@ -469,15 +471,16 @@
                 folderURI: _v0?.uri,
                 isPrivateToUser: _v0?.isPrivateToUser,
                 hasContentSpaceEnabled: _v11,
-                isUnifiedLibrary: _v14
+                isUnifiedLibrary: _v14,
+                isRootPrivateToUserFolder: !0 === _v16
               })
             }), (0, _v1.jsx)(_v6.Paragraph, {
               size: "md",
-              children: _v16
+              children: _v17
             })]
           })
-        }), _v20 && (0, _v1.jsx)(_v1.Fragment, {
-          children: _v22.map(_v0 => (0, _v1.jsx)(_v42, {
+        }), _v21 && (0, _v1.jsx)(_v1.Fragment, {
+          children: _v23.map(_v0 => (0, _v1.jsx)(_v42, {
             folder: _v0,
             setSelectedFolder: _v1,
             setFocusedFolder: _v2,
@@ -486,7 +489,7 @@
             multiSelect: _v5,
             selectedFolderList: _v6,
             onChangeList: _v7,
-            isParentSelected: !!_v5 && !!_v8 || _v18,
+            isParentSelected: !!_v5 && !!_v8 || _v19,
             isSubFolder: !0
           }, _v0.uri))
         })]
@@ -644,32 +647,33 @@
       });
     if (!_v0) return _v1 || _v6;
     {
-      let _v0 = _v5 && _v0.isPrivateToUser ? (0, _v21.translate)({
-        singular: "Library",
-        dictionary: {
-          es: {
-            singular: "Biblioteca"
-          },
-          "de-DE": {
-            singular: "Bibliothek"
-          },
-          "fr-FR": {
-            singular: "Bibliothèque"
-          },
-          "ja-JP": {
-            singular: "ライブラリ"
-          },
-          "ko-KR": {
-            singular: "라이브러리"
-          },
-          "pt-BR": {
-            singular: "Biblioteca"
-          },
-          "zh-CN": {
-            singular: "视频库"
+      let _v0 = !_v0.metadata?.connections?.ancestorPath?.length,
+        _v1 = _v5 && _v0.isPrivateToUser && _v0 ? (0, _v21.translate)({
+          singular: "Library",
+          dictionary: {
+            es: {
+              singular: "Biblioteca"
+            },
+            "de-DE": {
+              singular: "Bibliothek"
+            },
+            "fr-FR": {
+              singular: "Bibliothèque"
+            },
+            "ja-JP": {
+              singular: "ライブラリ"
+            },
+            "ko-KR": {
+              singular: "라이브러리"
+            },
+            "pt-BR": {
+              singular: "Biblioteca"
+            },
+            "zh-CN": {
+              singular: "视频库"
+            }
           }
-        }
-      }) : _v0.name;
+        }) : _v0.name;
       return (0, _v1.jsxs)(_v5.Flex, {
         alignItems: "center",
         overflow: "hidden",
@@ -680,14 +684,15 @@
             folderURI: _v0?.uri,
             isPrivateToUser: _v0.isPrivateToUser,
             hasContentSpaceEnabled: _v2,
-            isUnifiedLibrary: _v5
+            isUnifiedLibrary: _v5,
+            isRootPrivateToUserFolder: _v0.isPrivateToUser && _v0
           })
         }), (0, _v1.jsx)(_v6.Paragraph, {
           size: "md",
           textOverflow: "ellipsis",
           overflow: "hidden",
-          title: _v0,
-          children: _v0
+          title: _v1,
+          children: _v1
         })]
       });
     }

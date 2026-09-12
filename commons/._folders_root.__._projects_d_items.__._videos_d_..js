@@ -183,8 +183,7 @@
             privacy: _v0
           });
         },
-        transferInlineLinkSurface: "video_setting",
-        reviewLinkSurface: "video_setting"
+        transferInlineLinkSurface: "video_setting"
       })]
     });
   }], 0);

@@ -19,6 +19,9 @@
       },
       revalidateSetOfFolderItems: _v0 => {
         for (let _v0 of _v0) _v0(`.*${_v0}/items.*`);
+      },
+      revalidateFolderSettingsConsumers: () => {
+        _v0(".*/folders/root.*"), _v0(".*/projects/\\d+/items.*"), _v0(".*/users/\\d+/items.*"), _v0(".*/projects/\\d+\\?.*");
       }
     };
   }]);

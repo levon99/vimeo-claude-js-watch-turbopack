@@ -20,15 +20,14 @@
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
-    _v20 = _v0.i(0),
-    _v21 = _v0.i(0);
-  let _v22 = ({
+    _v20 = _v0.i(0);
+  let _v21 = ({
     playerAssetUrls: _v0,
     userId: _v1,
     folderId: _v2,
     folderData: _v3
   }) => {
-    let _v4 = (0, _v3.useContext)(_v21.ViewerContext),
+    let _v4 = (0, _v3.useContext)(_v20.ViewerContext),
       _v5 = (0, _v1.jsxs)(_v2.default, {
         children: [(0, _v1.jsx)("title", {
           children: _v3?.name ? (0, _v14.translate)({
@@ -114,15 +113,15 @@
           revalidateOnFocus: !1,
           revalidateOnReconnect: !1
         },
-        children: (0, _v1.jsxs)(_v9.ConfigContext.Provider, {
+        children: (0, _v1.jsx)(_v9.ConfigContext.Provider, {
           value: _v6,
-          children: [(0, _v1.jsx)(_v8.App, {
+          children: (0, _v1.jsx)(_v8.App, {
             folderId: _v2,
             folderData: _v3,
             playerAssetUrls: _v0,
             userId: _v1,
             viewer: _v4
-          }), (0, _v1.jsx)(_v20.VimeoReviewUpsellPromo, {})]
+          })
         })
       })]
     });
@@ -214,7 +213,7 @@
   }, {
     inlineViewer: "all",
     inlinePlayerAssets: !0
-  }), _v22.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v18.VideoLibraryLayout, {
+  }), _v21.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v18.VideoLibraryLayout, {
     hasUploader: _v1.hasUploader,
     searchContentAlignment: _v19.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
     sideNavContent: (0, _v1.jsx)(_v17.SideNavContent, {
@@ -222,5 +221,5 @@
     }),
     sideNavSurface: "library",
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v22], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v21], 0);
 }

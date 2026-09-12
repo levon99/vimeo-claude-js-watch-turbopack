@@ -1169,11 +1169,12 @@
     _v111 = _v0.i(0),
     _v112 = _v0.i(0),
     _v113 = _v0.i(0),
-    _v114 = _v0.i(0);
-  let _v115 = (0, _v3.lazy)(() => _v0.A(0).then(_v0 => ({
+    _v114 = _v0.i(0),
+    _v115 = _v0.i(0);
+  let _v116 = (0, _v3.lazy)(() => _v0.A(0).then(_v0 => ({
       default: _v0.EmojiPanel
     }))),
-    _v116 = [{
+    _v117 = [{
       emoji: "❤️",
       label: "Heart"
     }, {
@@ -1198,30 +1199,61 @@
       emoji: "🎉",
       label: "Party"
     }];
-  function _v117() {
+  function _v118() {
     let {
         isEnabled: _v0,
+        isRateLimited: _v1,
         reactionActions: {
-          sendReaction: _v1
+          sendReaction: _v2
         }
       } = (0, _v2.useManager)(_v16.ReactionManager),
       {
-        isOpen: _v2,
-        onOpen: _v3,
-        onClose: _v4
+        isOpen: _v3,
+        onOpen: _v4,
+        onClose: _v5
       } = (0, _v112.useDisclosure)(),
-      _v5 = (0, _v3.useRef)(null),
-      _v6 = (0, _v111.useBreakpointValue)({
+      _v6 = (0, _v3.useRef)(null);
+    (0, _v3.useEffect)(() => {
+      _v1 && _v3 && _v5();
+    }, [_v1, _v3, _v5]);
+    let _v7 = (0, _v111.useBreakpointValue)({
         base: !0,
         md: !1
       }) ?? !1,
-      _v7 = (0, _v3.useCallback)(_v0 => {
-        _v1(_v0);
-      }, [_v1]),
       _v8 = (0, _v3.useCallback)(_v0 => {
-        _v0?.native && _v1(_v0.native);
-      }, [_v1]);
-    return _v0 ? (0, _v1.jsxs)(_v24.Flex, {
+        _v1 || _v2(_v0);
+      }, [_v1, _v2]),
+      _v9 = (0, _v3.useCallback)(_v0 => {
+        "string" != typeof _v0?.native || "" === _v0.native || _v1 || _v2(_v0.native);
+      }, [_v1, _v2]);
+    if (!0 !== _v0) return null;
+    let _v10 = (0, _v114.translate)({
+      singular: "Emoji break! Try again in a moment.",
+      dictionary: {
+        es: {
+          singular: "¡Pausa de emoji! Vuelve a intentarlo en un momento."
+        },
+        "de-DE": {
+          singular: "Emoji-Pause! Bitte versuchen Sie es in einem Moment erneut."
+        },
+        "fr-FR": {
+          singular: "Pause Emoji ! Réessayez dans un instant."
+        },
+        "ja-JP": {
+          singular: "絵文字の不具合が発生しました。しばらくしてからもう一度お試しください。"
+        },
+        "ko-KR": {
+          singular: "이모지 오류입니다! 잠시 후에 다시 시도해 주세요."
+        },
+        "pt-BR": {
+          singular: "Pausa do Emoji! Tente novamente daqui a pouco."
+        },
+        "zh-CN": {
+          singular: "表情符号服务出现问题！请稍后再试。"
+        }
+      }
+    });
+    return (0, _v1.jsxs)(_v24.Flex, {
       flexDirection: {
         base: "row",
         md: "column"
@@ -1254,52 +1286,84 @@
         },
         scrollbarWidth: "none"
       },
-      children: [_v116.map(({
+      children: [_v117.map(({
         emoji: _v0,
         label: _v1
-      }) => (0, _v1.jsx)(_v114.BokehTooltip, {
-        label: _v1,
-        placement: "left",
-        shouldWrapChildren: !0,
-        children: (0, _v1.jsx)(_v23.Box, {
-          as: "button",
-          width: (0, _v25.rem)(44),
-          height: (0, _v25.rem)(44),
-          flexShrink: 0,
-          fontSize: (0, _v25.rem)(28),
-          lineHeight: 1,
-          cursor: "pointer",
-          borderRadius: "sm",
-          background: "none",
-          border: "none",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          _hover: {
-            transform: "scale(1.2)",
-            background: "var(--vimeo-colors-fill-component)"
-          },
-          transition: "transform 0.1s",
-          "aria-label": _v1,
-          onClick: () => _v7(_v0),
-          children: _v0
-        })
-      }, _v0)), (0, _v1.jsxs)(_v105.Popover, {
+      }) => {
+        let _v2 = _v1 ? _v10 : _v1;
+        return (0, _v1.jsx)(_v115.BokehTooltip, {
+          label: _v2,
+          placement: "left",
+          shouldWrapChildren: !0,
+          children: (0, _v1.jsx)(_v23.Box, {
+            as: "button",
+            width: (0, _v25.rem)(44),
+            height: (0, _v25.rem)(44),
+            flexShrink: 0,
+            fontSize: (0, _v25.rem)(28),
+            lineHeight: 1,
+            cursor: _v1 ? "not-allowed" : "pointer",
+            opacity: _v1 ? .4 : 1,
+            borderRadius: "sm",
+            background: "none",
+            border: "none",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            _hover: _v1 ? void 0 : {
+              transform: "scale(1.2)",
+              background: "var(--vimeo-colors-fill-component)"
+            },
+            transition: "transform 0.1s, opacity 0.2s",
+            "aria-label": _v2,
+            "aria-disabled": _v1,
+            disabled: _v1,
+            onClick: () => _v8(_v0),
+            children: _v0
+          })
+        }, _v0);
+      }), (0, _v1.jsxs)(_v105.Popover, {
         isLazy: !0,
-        placement: _v6 ? "top-end" : "left-end",
+        placement: _v7 ? "top-end" : "left-end",
         gutter: 16,
-        isOpen: _v2,
-        onOpen: _v3,
-        onClose: _v4,
+        isOpen: _v3 && !_v1,
+        onOpen: _v4,
+        onClose: _v5,
         children: [(0, _v1.jsx)(_v108.PopoverTrigger, {
           children: (0, _v1.jsx)(_v95.IconButton, {
-            "aria-label": "More emojis",
+            "aria-label": _v1 ? _v10 : (0, _v114.translate)({
+              singular: "More emojis",
+              dictionary: {
+                es: {
+                  singular: "Más emojis"
+                },
+                "de-DE": {
+                  singular: "Mehr Emojis"
+                },
+                "fr-FR": {
+                  singular: "Plus d'émojis"
+                },
+                "ja-JP": {
+                  singular: "絵文字をもっと見る"
+                },
+                "ko-KR": {
+                  singular: "이모지 더 보기"
+                },
+                "pt-BR": {
+                  singular: "Mais emojis"
+                },
+                "zh-CN": {
+                  singular: "更多表情"
+                }
+              }
+            }),
             type: "button",
             size: "sm",
             variant: "tertiary",
             borderRadius: "sm",
             flexShrink: 0,
-            icon: (0, _v1.jsx)(_v113.EllipsisH, {})
+            icon: (0, _v1.jsx)(_v113.EllipsisH, {}),
+            isDisabled: _v1
           })
         }), (0, _v1.jsx)(_v109.Portal, {
           children: (0, _v1.jsx)(_v107.PopoverContent, {
@@ -1318,19 +1382,19 @@
                     size: "xs"
                   })
                 }),
-                children: (0, _v1.jsx)(_v115, {
-                  ref: _v5,
-                  isOpen: _v2,
-                  onSelect: _v8
+                children: (0, _v1.jsx)(_v116, {
+                  ref: _v6,
+                  isOpen: _v3,
+                  onSelect: _v9
                 })
               })
             })
           })
         })]
       })]
-    }) : null;
+    });
   }
-  function _v118({
+  function _v119({
     id: _v0 = "reactions-manage"
   }) {
     let {
@@ -1456,7 +1520,7 @@
             header: _v11 ? "Reactions" : void 0,
             panelWidth: _v11 ? void 0 : 60,
             panelAutoHeight: !_v11,
-            Content: _v11 ? _v118 : _v117
+            Content: _v11 ? _v119 : _v118
           };
         return [].concat(_v12 ? _v0 : [], _v13 ? _v1 : [], _v14 ? _v2 : [], _v15 ? _v3 : []);
       }, [_v11, _v12, _v13, _v14, _v15, _v0]),

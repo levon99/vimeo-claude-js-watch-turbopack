@@ -11,11 +11,9 @@
         settings: _v1,
         isLoadingResponse: _v2
       } = (0, _v4.useOrionSettings)(),
-      _v3 = (0, _v3.useViewer)(),
-      _v4 = (_v0 = _v3?.teamUser, (0, _v1.useMemo)(() => _v0?.accountType === _v2.AccountType.Enterprise, [_v0?.accountType]));
+      _v3 = (0, _v3.useViewer)();
     return {
-      maximizeVideoFileTransferAdoption: !_v4 && _v1.maximize_video_file_transfer_adoption,
-      maximizeReviewAdoption: !_v4 && _v1.maximize_review_adoption,
+      maximizeVideoFileTransferAdoption: (_v0 = _v3?.teamUser, !(0, _v1.useMemo)(() => _v0?.accountType === _v2.AccountType.Enterprise, [_v0?.accountType]) && _v1.maximize_video_file_transfer_adoption),
       isLoadingResponse: _v2
     };
   }]);

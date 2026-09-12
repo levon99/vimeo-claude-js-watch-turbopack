@@ -113,13 +113,12 @@
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0);
-  let _v34 = ({
+    _v32 = _v0.i(0);
+  let _v33 = ({
     cta: _v0,
     children: _v1,
     ..._v2
-  }) => _v0 ? (0, _v1.jsx)(_v22.Link, {
+  }) => _v0 ? (0, _v1.jsx)(_v21.Link, {
     as: _v0.href ? void 0 : "button",
     href: _v0.href,
     target: _v0.target,
@@ -130,32 +129,32 @@
   }) : (0, _v1.jsx)(_v1.Fragment, {
     children: _v1
   });
-  var _v35 = _v0.i(0);
-  let _v36 = ({
+  var _v34 = _v0.i(0);
+  let _v35 = ({
     children: _v0,
     ..._v1
-  }) => (0, _v1.jsx)(_v35.Container, {
-    maxW: (0, _v23.rem)(0),
+  }) => (0, _v1.jsx)(_v34.Container, {
+    maxW: (0, _v22.rem)(0),
     px: {
-      base: (0, _v23.rem)(20),
-      md: (0, _v23.rem)(40)
+      base: (0, _v22.rem)(20),
+      md: (0, _v22.rem)(40)
     },
     py: {
-      base: (0, _v23.rem)(48),
-      md: (0, _v23.rem)(80)
+      base: (0, _v22.rem)(48),
+      md: (0, _v22.rem)(80)
     },
     ..._v1,
     children: _v0
   });
-  var _v37 = _v0.i(0);
-  let _v38 = ({
+  var _v36 = _v0.i(0);
+  let _v37 = ({
       label: _v0,
       href: _v1,
       onClick: _v2,
       target: _v3,
       variant: _v4 = "secondary",
       size: _v5
-    }) => (0, _v1.jsx)(_v37.Button, {
+    }) => (0, _v1.jsx)(_v36.Button, {
       as: _v1 ? "a" : void 0,
       href: _v1,
       target: _v1 ? _v3 : void 0,
@@ -165,17 +164,17 @@
       onClick: _v2,
       children: _v0
     }),
-    _v39 = ({
+    _v38 = ({
       children: _v0
-    }) => (0, _v1.jsx)(_v21.Header, {
+    }) => (0, _v1.jsx)(_v20.Header, {
       as: "h2",
       variant: "heading-2xl",
       textAlign: "center",
       color: "text-primary",
-      mb: (0, _v23.rem)(32),
+      mb: (0, _v22.rem)(32),
       children: _v0
     }),
-    _v40 = ({
+    _v39 = ({
       imgSrc: _v0,
       imgAlt: _v1,
       title: _v2,
@@ -183,48 +182,48 @@
       subDescription: _v4,
       cta: _v5,
       background: _v6
-    }) => (0, _v1.jsxs)(_v29.Card, {
+    }) => (0, _v1.jsxs)(_v28.Card, {
       role: "group",
       overflow: "hidden",
       bg: _v6,
-      borderRadius: (0, _v23.rem)(16),
+      borderRadius: (0, _v22.rem)(16),
       height: "100%",
-      children: [_v0 && (0, _v1.jsx)(_v34, {
+      children: [_v0 && (0, _v1.jsx)(_v33, {
         cta: _v5,
         display: "block",
         border: "none",
         p: 0,
         bg: "transparent",
-        children: (0, _v1.jsx)(_v31.Image, {
+        children: (0, _v1.jsx)(_v30.Image, {
           src: _v0,
           alt: _v1 ?? "",
           w: "100%",
           objectFit: "cover",
           aspectRatio: 16 / 9
         })
-      }), (0, _v1.jsxs)(_v30.CardBody, {
+      }), (0, _v1.jsxs)(_v29.CardBody, {
         pt: {
-          base: (0, _v23.rem)(64),
-          md: (0, _v23.rem)(40)
+          base: (0, _v22.rem)(64),
+          md: (0, _v22.rem)(40)
         },
         pb: {
-          base: (0, _v23.rem)(72),
-          md: (0, _v23.rem)(40)
+          base: (0, _v22.rem)(72),
+          md: (0, _v22.rem)(40)
         },
         px: {
-          base: (0, _v23.rem)(32),
-          md: (0, _v23.rem)(64)
+          base: (0, _v22.rem)(32),
+          md: (0, _v22.rem)(64)
         },
         flex: "1",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        gap: (0, _v23.rem)(24),
-        children: [(0, _v1.jsx)(_v21.Header, {
+        gap: (0, _v22.rem)(24),
+        children: [(0, _v1.jsx)(_v20.Header, {
           as: "h3",
           variant: "heading-xl",
           color: "text-primary",
-          children: (0, _v1.jsx)(_v34, {
+          children: (0, _v1.jsx)(_v33, {
             cta: _v5,
             textAlign: "left",
             color: "text-primary",
@@ -237,93 +236,93 @@
             },
             children: _v2
           })
-        }), (_v3 || _v4) && (0, _v1.jsxs)(_v33.Stack, {
-          spacing: (0, _v23.rem)(8),
+        }), (_v3 || _v4) && (0, _v1.jsxs)(_v32.Stack, {
+          spacing: (0, _v22.rem)(8),
           flexGrow: 1,
-          children: [_v3 && (0, _v1.jsx)(_v24.Text, {
-            fontSize: (0, _v23.rem)(20),
+          children: [_v3 && (0, _v1.jsx)(_v23.Text, {
+            fontSize: (0, _v22.rem)(20),
             color: "text-secondary",
             children: _v3
-          }), _v4 && (0, _v1.jsx)(_v24.Text, {
-            fontSize: (0, _v23.rem)(20),
+          }), _v4 && (0, _v1.jsx)(_v23.Text, {
+            fontSize: (0, _v22.rem)(20),
             color: "text-secondary",
             children: _v4
           })]
-        }), _v5 && (0, _v1.jsx)(_v19.Box, {
-          mt: (0, _v23.rem)(8),
+        }), _v5 && (0, _v1.jsx)(_v18.Box, {
+          mt: (0, _v22.rem)(8),
           flex: "1",
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-end",
           alignItems: "flex-start",
-          children: (0, _v1.jsx)(_v38, {
+          children: (0, _v1.jsx)(_v37, {
             ..._v5,
             size: _v5.size ?? "lg"
           })
         })]
       })]
     }),
-    _v41 = ({
+    _v40 = ({
       title: _v0,
       cards: _v1,
       cardBackground: _v2 = "background"
     }) => {
       let _v3;
-      return (0, _v1.jsxs)(_v36, {
+      return (0, _v1.jsxs)(_v35, {
         as: "section",
-        children: [_v0 && (0, _v1.jsx)(_v39, {
+        children: [_v0 && (0, _v1.jsx)(_v38, {
           children: _v0
-        }), (0, _v1.jsx)(_v32.SimpleGrid, {
+        }), (0, _v1.jsx)(_v31.SimpleGrid, {
           columns: {
             base: 1,
             md: Math.min(_v1.length, 2),
             lg: Math.max(1, (_v3 = _v1.length) < 4 ? _v3 : 4 === _v3 ? 2 : 3)
           },
-          spacing: (0, _v23.rem)(16),
-          children: _v1.map((_v0, _v1) => (0, _v1.jsx)(_v40, {
+          spacing: (0, _v22.rem)(16),
+          children: _v1.map((_v0, _v1) => (0, _v1.jsx)(_v39, {
             ..._v0,
             background: _v2
           }, _v1))
         })]
       });
     };
-  var _v42 = _v0.i(0),
+  var _v41 = _v0.i(0),
+    _v42 = _v0.i(0),
     _v43 = _v0.i(0),
     _v44 = _v0.i(0),
     _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  let _v48 = ({
+    _v46 = _v0.i(0);
+  let _v47 = ({
       eyebrow: _v0,
       title: _v1,
       faqs: _v2
-    }) => (0, _v1.jsx)(_v36, {
+    }) => (0, _v1.jsx)(_v35, {
       as: "section",
-      children: (0, _v1.jsxs)(_v46.Grid, {
+      children: (0, _v1.jsxs)(_v45.Grid, {
         templateColumns: {
           base: "1fr",
           md: "2fr 3fr"
         },
         gap: {
-          base: (0, _v23.rem)(32),
-          md: (0, _v23.rem)(64)
+          base: (0, _v22.rem)(32),
+          md: (0, _v22.rem)(64)
         },
-        children: [(0, _v1.jsxs)(_v20.Flex, {
+        children: [(0, _v1.jsxs)(_v19.Flex, {
           direction: "column",
-          gap: (0, _v23.rem)(16),
+          gap: (0, _v22.rem)(16),
           align: "flex-start",
           alignSelf: "start",
           position: {
             md: "sticky"
           },
           top: {
-            md: (0, _v23.rem)(96)
+            md: (0, _v22.rem)(96)
           },
-          children: [_v0 && (0, _v1.jsx)(_v24.Text, {
+          children: [_v0 && (0, _v1.jsx)(_v23.Text, {
             fontSize: "heading-md",
             color: "text-secondary",
             children: _v0
-          }), _v1 && (0, _v1.jsx)(_v21.Header, {
+          }), _v1 && (0, _v1.jsx)(_v20.Header, {
             as: "h2",
             variant: "heading-2xl",
             fontSize: {
@@ -333,30 +332,30 @@
             color: "text-primary",
             children: _v1
           })]
-        }), (0, _v1.jsx)(_v42.Accordion, {
+        }), (0, _v1.jsx)(_v41.Accordion, {
           allowToggle: !0,
-          children: _v2.map((_v0, _v1) => (0, _v1.jsx)(_v44.AccordionItem, {
+          children: _v2.map((_v0, _v1) => (0, _v1.jsx)(_v43.AccordionItem, {
             children: ({
               isExpanded: _v0
             }) => (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v21.Header, {
+              children: [(0, _v1.jsx)(_v20.Header, {
                 as: "h3",
-                children: (0, _v1.jsxs)(_v43.AccordionButton, {
+                children: (0, _v1.jsxs)(_v42.AccordionButton, {
                   p: 6,
-                  children: [(0, _v1.jsx)(_v19.Box, {
+                  children: [(0, _v1.jsx)(_v18.Box, {
                     flex: "1",
                     textAlign: "left",
                     fontSize: "heading-md",
                     color: "text-primary",
                     children: _v0.question
-                  }), !_v0 && (0, _v1.jsx)(_v47.Plus, {
-                    boxSize: (0, _v23.rem)(20)
+                  }), !_v0 && (0, _v1.jsx)(_v46.Plus, {
+                    boxSize: (0, _v22.rem)(20)
                   })]
                 })
-              }), (0, _v1.jsx)(_v45.AccordionPanel, {
+              }), (0, _v1.jsx)(_v44.AccordionPanel, {
                 p: 6,
                 pt: 2,
-                children: (0, _v1.jsx)(_v24.Text, {
+                children: (0, _v1.jsx)(_v23.Text, {
                   variant: "body-xl",
                   fontWeight: "bold",
                   color: "text-secondary",
@@ -368,31 +367,31 @@
         })]
       })
     }),
-    _v49 = ({
+    _v48 = ({
       icon: _v0,
       title: _v1,
       description: _v2,
       cta: _v3
-    }) => (0, _v1.jsx)(_v29.Card, {
+    }) => (0, _v1.jsx)(_v28.Card, {
       role: "group",
       bg: "transparent",
       boxShadow: "none",
-      borderRadius: (0, _v23.rem)(16),
+      borderRadius: (0, _v22.rem)(16),
       height: "100%",
-      children: (0, _v1.jsxs)(_v30.CardBody, {
-        px: (0, _v23.rem)(24),
-        py: (0, _v23.rem)(32),
+      children: (0, _v1.jsxs)(_v29.CardBody, {
+        px: (0, _v22.rem)(24),
+        py: (0, _v22.rem)(32),
         flex: "1",
         display: "flex",
         flexDirection: "column",
-        gap: (0, _v23.rem)(16),
-        children: [(0, _v1.jsx)(_v19.Box, {
+        gap: (0, _v22.rem)(16),
+        children: [(0, _v1.jsx)(_v18.Box, {
           color: "text-primary",
           lineHeight: 0,
           _groupHover: {
             color: "vimeoBlue.500"
           },
-          children: (0, _v1.jsx)(_v34, {
+          children: (0, _v1.jsx)(_v33, {
             cta: _v3,
             display: "inline-flex",
             border: "none",
@@ -401,11 +400,11 @@
             color: "inherit",
             children: _v0
           })
-        }), (0, _v1.jsx)(_v21.Header, {
+        }), (0, _v1.jsx)(_v20.Header, {
           as: "h3",
           variant: "heading-lg",
           color: "text-primary",
-          children: (0, _v1.jsx)(_v34, {
+          children: (0, _v1.jsx)(_v33, {
             cta: _v3,
             textAlign: "left",
             color: "text-primary",
@@ -416,95 +415,95 @@
             },
             children: _v1
           })
-        }), _v2 && (0, _v1.jsx)(_v24.Text, {
-          fontSize: (0, _v23.rem)(18),
+        }), _v2 && (0, _v1.jsx)(_v23.Text, {
+          fontSize: (0, _v22.rem)(18),
           color: "text-secondary",
           flexGrow: 1,
           children: _v2
-        }), _v3 && (0, _v1.jsx)(_v19.Box, {
+        }), _v3 && (0, _v1.jsx)(_v18.Box, {
           mt: "auto",
           display: "flex",
           justifyContent: "flex-start",
-          children: (0, _v1.jsx)(_v38, {
+          children: (0, _v1.jsx)(_v37, {
             ..._v3,
             size: _v3.size ?? "lg"
           })
         })]
       })
     }),
-    _v50 = ({
+    _v49 = ({
       title: _v0,
       cards: _v1
-    }) => (0, _v1.jsxs)(_v36, {
+    }) => (0, _v1.jsxs)(_v35, {
       as: "section",
-      children: [_v0 && (0, _v1.jsx)(_v39, {
+      children: [_v0 && (0, _v1.jsx)(_v38, {
         children: _v0
-      }), (0, _v1.jsx)(_v32.SimpleGrid, {
+      }), (0, _v1.jsx)(_v31.SimpleGrid, {
         columns: {
           base: 1,
           md: Math.min(Math.max(1, _v1.length), 4)
         },
-        spacing: (0, _v23.rem)(16),
-        children: _v1.map((_v0, _v1) => (0, _v1.jsx)(_v49, {
+        spacing: (0, _v22.rem)(16),
+        children: _v1.map((_v0, _v1) => (0, _v1.jsx)(_v48, {
           ..._v0
         }, _v1))
       })]
     });
-  var _v51 = _v0.i(0),
+  var _v50 = _v0.i(0),
+    _v51 = _v0.i(0),
     _v52 = _v0.i(0),
     _v53 = _v0.i(0),
     _v54 = _v0.i(0),
-    _v55 = _v0.i(0),
-    _v56 = _v0.i(0);
-  let _v57 = "video/*,.mkv,.m2ts",
-    _v58 = _v57.split(","),
-    _v59 = _v58.filter(_v0 => _v0.endsWith("/*")).map(_v0 => _v0.slice(0, -1)),
-    _v60 = _v58.filter(_v0 => _v0.startsWith(".")).map(_v0 => _v0.toLowerCase()),
-    _v61 = _v0 => Array.from(_v0).filter(_v0 => {
-      if (_v59.some(_v0 => _v0.type.startsWith(_v0))) return !0;
+    _v55 = _v0.i(0);
+  let _v56 = "video/*,.mkv,.m2ts",
+    _v57 = _v56.split(","),
+    _v58 = _v57.filter(_v0 => _v0.endsWith("/*")).map(_v0 => _v0.slice(0, -1)),
+    _v59 = _v57.filter(_v0 => _v0.startsWith(".")).map(_v0 => _v0.toLowerCase()),
+    _v60 = _v0 => Array.from(_v0).filter(_v0 => {
+      if (_v58.some(_v0 => _v0.type.startsWith(_v0))) return !0;
       let _v1 = _v0.name.toLowerCase();
-      return _v60.some(_v0 => _v1.endsWith(_v0));
+      return _v59.some(_v0 => _v1.endsWith(_v0));
     }),
-    _v62 = () => {
-      let _v0 = (0, _v52.useColorModeValue)("black", "white");
-      return (0, _v1.jsxs)(_v51.Center, {
-        width: (0, _v23.rem)(170),
-        height: (0, _v23.rem)(100),
+    _v61 = () => {
+      let _v0 = (0, _v51.useColorModeValue)("black", "white");
+      return (0, _v1.jsxs)(_v50.Center, {
+        width: (0, _v22.rem)(170),
+        height: (0, _v22.rem)(100),
         position: "relative",
-        children: [(0, _v1.jsx)(_v54.Cloud, {
+        children: [(0, _v1.jsx)(_v53.Cloud, {
           width: "100%",
           height: "100%"
-        }), (0, _v1.jsx)(_v19.Box, {
+        }), (0, _v1.jsx)(_v18.Box, {
           position: "absolute",
-          bottom: (0, _v23.rem)(20),
-          children: (0, _v1.jsx)(_v56.ArrowUpFilled, {
+          bottom: (0, _v22.rem)(20),
+          children: (0, _v1.jsx)(_v55.ArrowUpFilled, {
             boxSize: "md",
             stroke: _v0,
             strokeWidth: "2"
           })
-        }), (0, _v1.jsx)(_v19.Box, {
+        }), (0, _v1.jsx)(_v18.Box, {
           position: "absolute",
-          left: (0, _v23.rem)(-4),
-          bottom: (0, _v23.rem)(18),
-          children: (0, _v1.jsx)(_v55.PlusSmallFilled, {
+          left: (0, _v22.rem)(-4),
+          bottom: (0, _v22.rem)(18),
+          children: (0, _v1.jsx)(_v54.PlusSmallFilled, {
             boxSize: "xs",
             stroke: _v0,
             strokeWidth: "3"
           })
-        }), (0, _v1.jsx)(_v19.Box, {
+        }), (0, _v1.jsx)(_v18.Box, {
           position: "absolute",
-          right: (0, _v23.rem)(8),
-          top: (0, _v23.rem)(14),
-          children: (0, _v1.jsx)(_v55.PlusSmallFilled, {
+          right: (0, _v22.rem)(8),
+          top: (0, _v22.rem)(14),
+          children: (0, _v1.jsx)(_v54.PlusSmallFilled, {
             boxSize: "xs",
             stroke: _v0,
             strokeWidth: "3"
           })
-        }), (0, _v1.jsx)(_v19.Box, {
+        }), (0, _v1.jsx)(_v18.Box, {
           position: "absolute",
-          right: (0, _v23.rem)(-2),
-          top: (0, _v23.rem)(40),
-          children: (0, _v1.jsx)(_v55.PlusSmallFilled, {
+          right: (0, _v22.rem)(-2),
+          top: (0, _v22.rem)(40),
+          children: (0, _v1.jsx)(_v54.PlusSmallFilled, {
             boxSize: "xs",
             stroke: _v0,
             strokeWidth: "3"
@@ -512,7 +511,7 @@
         })]
       });
     },
-    _v63 = ({
+    _v62 = ({
       isDragging: _v0,
       onDragOver: _v1,
       onDragLeave: _v2,
@@ -525,19 +524,19 @@
       stagedList: _v9
     }) => {
       let _v10 = (0, _v10.useRef)(null);
-      return (0, _v1.jsxs)(_v20.Flex, {
+      return (0, _v1.jsxs)(_v19.Flex, {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         flex: "1",
-        gap: (0, _v23.rem)(16),
+        gap: (0, _v22.rem)(16),
         backgroundColor: _v0 ? "surface" : "transparent",
-        padding: (0, _v23.rem)(48),
+        padding: (0, _v22.rem)(48),
         textAlign: "center",
         onDragOver: _v1,
         onDragLeave: _v2,
         onDrop: _v3,
-        children: [(0, _v1.jsx)(_v62, {}), (0, _v1.jsx)(_v21.Header, {
+        children: [(0, _v1.jsx)(_v61, {}), (0, _v1.jsx)(_v20.Header, {
           size: "2xl",
           color: "text-primary",
           as: "h2",
@@ -567,11 +566,11 @@
               }
             }
           })
-        }), _v9 ? (0, _v1.jsx)(_v19.Box, {
+        }), _v9 ? (0, _v1.jsx)(_v18.Box, {
           width: "100%",
           children: _v9
-        }) : null, (0, _v1.jsx)(_v53.FileInput, {
-          label: (0, _v1.jsx)(_v37.Button, {
+        }) : null, (0, _v1.jsx)(_v52.FileInput, {
+          label: (0, _v1.jsx)(_v36.Button, {
             size: "lg",
             variant: "primary",
             onClick: () => {
@@ -581,29 +580,29 @@
           }),
           ref: _v10,
           multiple: !0,
-          accept: _v57,
+          accept: _v56,
           variant: "filled",
           size: "lg",
           onChange: _v4,
           "data-testid": "staged-file-input"
-        }), _v8 ? (0, _v1.jsx)(_v19.Box, {
+        }), _v8 ? (0, _v1.jsx)(_v18.Box, {
           width: "100%",
           children: _v8
         }) : null]
       });
     };
-  var _v64 = _v0.i(0),
-    _v65 = _v0.i(0),
-    _v66 = _v0.i(0);
-  let _v67 = ({
+  var _v63 = _v0.i(0),
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0);
+  let _v66 = ({
       files: _v0,
       onRemoveFile: _v1
-    }) => 0 === _v0.length ? null : (0, _v1.jsx)(_v20.Flex, {
+    }) => 0 === _v0.length ? null : (0, _v1.jsx)(_v19.Flex, {
       as: "ul",
       flexDirection: "row",
-      gap: (0, _v23.rem)(8),
+      gap: (0, _v22.rem)(8),
       padding: 0,
-      paddingBottom: (0, _v23.rem)(4),
+      paddingBottom: (0, _v22.rem)(4),
       margin: 0,
       listStyleType: "none",
       width: "100%",
@@ -611,37 +610,37 @@
       children: _v0.map(({
         id: _v0,
         file: _v1
-      }) => (0, _v1.jsxs)(_v20.Flex, {
+      }) => (0, _v1.jsxs)(_v19.Flex, {
         as: "li",
         alignItems: "center",
-        gap: (0, _v23.rem)(8),
+        gap: (0, _v22.rem)(8),
         flexShrink: 0,
         maxWidth: {
-          base: (0, _v23.rem)(180),
-          md: (0, _v23.rem)(240)
+          base: (0, _v22.rem)(180),
+          md: (0, _v22.rem)(240)
         },
         border: "1px solid",
         borderColor: "stroke",
         borderRadius: "md",
-        paddingY: (0, _v23.rem)(4),
-        paddingLeft: (0, _v23.rem)(12),
-        paddingRight: (0, _v23.rem)(4),
-        children: [(0, _v1.jsx)(_v24.Text, {
+        paddingY: (0, _v22.rem)(4),
+        paddingLeft: (0, _v22.rem)(12),
+        paddingRight: (0, _v22.rem)(4),
+        children: [(0, _v1.jsx)(_v23.Text, {
           variant: "body-sm",
           color: "text-primary",
           isTruncated: !0,
           title: _v1.name,
           children: _v1.name
-        }), (0, _v1.jsx)(_v24.Text, {
+        }), (0, _v1.jsx)(_v23.Text, {
           variant: "body-sm",
           color: "text-secondary",
           flexShrink: 0,
           whiteSpace: "nowrap",
-          children: (0, _v66.bytesToSize)(_v1.size)
-        }), (0, _v1.jsx)(_v64.IconButton, {
+          children: (0, _v65.bytesToSize)(_v1.size)
+        }), (0, _v1.jsx)(_v63.IconButton, {
           variant: "tertiary",
           size: "sm",
-          icon: (0, _v1.jsx)(_v65.CloseXSmall, {}),
+          icon: (0, _v1.jsx)(_v64.CloseXSmall, {}),
           "aria-label": (0, _v7.translate)({
             singular: "Remove {FILE_NAME}",
             replacements: {
@@ -675,15 +674,15 @@
         })]
       }, _v0))
     }),
-    _v68 = ({
+    _v67 = ({
       onRestart: _v0,
       onGoToFolder: _v1
-    }) => (0, _v1.jsxs)(_v20.Flex, {
+    }) => (0, _v1.jsxs)(_v19.Flex, {
       justifyContent: "center",
-      gap: (0, _v23.rem)(12),
-      padding: (0, _v23.rem)(24),
+      gap: (0, _v22.rem)(12),
+      padding: (0, _v22.rem)(24),
       paddingTop: 0,
-      children: [(0, _v1.jsx)(_v37.Button, {
+      children: [(0, _v1.jsx)(_v36.Button, {
         variant: "secondary",
         onClick: _v0,
         children: (0, _v7.translate)({
@@ -712,7 +711,7 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v37.Button, {
+      }), (0, _v1.jsx)(_v36.Button, {
         variant: "primary",
         onClick: _v1,
         children: (0, _v7.translate)({
@@ -743,33 +742,33 @@
         })
       })]
     }),
-    _v69 = (0, _v23.rem)(360),
-    _v70 = ({
+    _v68 = (0, _v22.rem)(360),
+    _v69 = ({
       phase: _v0,
       isDragging: _v1 = !1,
       children: _v2
     }) => {
       let _v3 = "staging" === _v0;
-      return (0, _v1.jsx)(_v20.Flex, {
+      return (0, _v1.jsx)(_v19.Flex, {
         flexDirection: "column",
-        minHeight: _v69,
+        minHeight: _v68,
         border: _v3 ? "1px dashed" : "1px solid",
         borderColor: _v3 && _v1 ? "text-primary" : "stroke",
         borderRadius: "md",
         children: _v2
       });
     };
-  var _v71 = _v0.i(0),
+  var _v70 = _v0.i(0),
+    _v71 = _v0.i(0),
     _v72 = _v0.i(0),
+    _v72 = _v72,
     _v73 = _v0.i(0),
-    _v73 = _v73,
     _v74 = _v0.i(0),
     _v75 = _v0.i(0),
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
-    _v78 = _v0.i(0),
-    _v79 = _v0.i(0);
-  let _v80 = ({
+    _v78 = _v0.i(0);
+  let _v79 = ({
       privacy: _v0,
       isLoading: _v1,
       capabilities: _v2,
@@ -782,22 +781,22 @@
       updateContentRating: _v9,
       onClose: _v10
     }) => {
-      let _v11 = (0, _v10.useContext)(_v79.ViewerContext),
+      let _v11 = (0, _v10.useContext)(_v78.ViewerContext),
         {
           trackUploadLinkPrivacyChanged: _v12
-        } = (0, _v76.useUploadPageTracking)(),
+        } = (0, _v75.useUploadPageTracking)(),
         _v13 = _v3 === _v11?.user?.id,
         _v14 = _v2?.hasEnterprise,
         {
           data: _v15
-        } = (0, _v75.useGetUserPreferences)(() => _v14 && _v3 ? {
+        } = (0, _v74.useGetUserPreferences)(() => _v14 && _v3 ? {
           where: {
             userId: _v3
           },
           select: ["tapa", "tapc"]
         } : null),
-        _v16 = _v14 ? (0, _v77.getAllowedEnterprisePrivacyOptions)(_v4, _v15) : void 0;
-      return (0, _v1.jsx)(_v78.PrivacyDrawer, {
+        _v16 = _v14 ? (0, _v76.getAllowedEnterprisePrivacyOptions)(_v4, _v15) : void 0;
+      return (0, _v1.jsx)(_v77.PrivacyDrawer, {
         video: {
           privacy: {
             ..._v0,
@@ -849,7 +848,7 @@
         onClose: _v10
       });
     },
-    _v81 = ({
+    _v80 = ({
       privacy: _v0,
       setPrivacy: _v1,
       contentRating: _v2,
@@ -863,14 +862,14 @@
     }) => {
       let [_v10, _v11] = (0, _v10.useState)(!1);
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v73.default, {
+        children: [(0, _v1.jsx)(_v72.default, {
           privacy: _v0.view ?? "nobody",
           onClick: () => _v11(!0)
-        }), (0, _v1.jsx)(_v74.SideDrawer, {
+        }), (0, _v1.jsx)(_v73.SideDrawer, {
           isOpen: _v10,
           onClose: () => _v11(!1),
           side: "right",
-          children: (0, _v1.jsx)(_v80, {
+          children: (0, _v1.jsx)(_v79, {
             privacy: _v0,
             isLoading: _v5,
             capabilities: _v4,
@@ -886,18 +885,18 @@
         })]
       });
     },
-    _v82 = ({
+    _v81 = ({
       knobs: _v0
-    }) => (0, _v1.jsxs)(_v20.Flex, {
+    }) => (0, _v1.jsxs)(_v19.Flex, {
       flexDirection: "column",
       alignItems: "center",
-      gap: (0, _v23.rem)(12),
-      children: [(0, _v1.jsx)(_v20.Flex, {
+      gap: (0, _v22.rem)(12),
+      children: [(0, _v1.jsx)(_v19.Flex, {
         alignItems: "center",
         justifyContent: "center",
-        gap: (0, _v23.rem)(8),
+        gap: (0, _v22.rem)(8),
         flexWrap: "wrap",
-        children: (0, _v1.jsx)(_v72.TeamSwitcher, {
+        children: (0, _v1.jsx)(_v71.TeamSwitcher, {
           teams: _v0.teams,
           selectedTeamId: _v0.selectedTeamId,
           selectTeam: _v0.selectTeam,
@@ -905,9 +904,9 @@
           selectFolder: _v0.selectFolder,
           isLoading: _v0.isLoadingTeams,
           disabled: !1,
-          enabledRoles: _v71.ALL_TEAM_ROLES
+          enabledRoles: _v70.ALL_TEAM_ROLES
         })
-      }), (0, _v1.jsx)(_v81, {
+      }), (0, _v1.jsx)(_v80, {
         privacy: _v0.privacy,
         setPrivacy: _v0.setPrivacy,
         contentRating: _v0.contentRating,
@@ -920,29 +919,29 @@
         uploadingFileSize: _v0.uploadingFileSize
       })]
     }),
-    _v83 = ({
+    _v82 = ({
       percent: _v0,
       failed: _v1
-    }) => (0, _v1.jsx)(_v19.Box, {
+    }) => (0, _v1.jsx)(_v18.Box, {
       width: "100%",
-      height: (0, _v23.rem)(4),
+      height: (0, _v22.rem)(4),
       backgroundColor: "fill-component",
       borderRadius: "sm",
       overflow: "hidden",
-      children: (0, _v1.jsx)(_v19.Box, {
+      children: (0, _v1.jsx)(_v18.Box, {
         width: `${_v1 ? 100 : _v0}%`,
         height: "100%",
         backgroundColor: _v1 ? "status-destructive-primary" : "fill-brand"
       })
     }),
-    _v84 = ({
+    _v83 = ({
       uploads: _v0,
       uploaderSummary: _v1
-    }) => 0 === _v0.length ? null : (0, _v1.jsxs)(_v20.Flex, {
+    }) => 0 === _v0.length ? null : (0, _v1.jsxs)(_v19.Flex, {
       flexDirection: "column",
-      gap: (0, _v23.rem)(12),
-      padding: (0, _v23.rem)(24),
-      children: [(0, _v1.jsx)(_v24.Text, {
+      gap: (0, _v22.rem)(12),
+      padding: (0, _v22.rem)(24),
+      children: [(0, _v1.jsx)(_v23.Text, {
         variant: "heading-5",
         color: "text-primary",
         children: _v1.isComplete ? _v1.hasFailures ? (0, _v7.translate)({
@@ -1021,14 +1020,14 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v20.Flex, {
+      }), (0, _v1.jsx)(_v19.Flex, {
         as: "ul",
         flexDirection: "column",
-        gap: (0, _v23.rem)(8),
+        gap: (0, _v22.rem)(8),
         padding: 0,
         margin: 0,
         listStyleType: "none",
-        maxHeight: (0, _v23.rem)(280),
+        maxHeight: (0, _v22.rem)(280),
         overflowY: "auto",
         children: _v0.map(_v0 => {
           let _v1 = "FAILED" === _v0.state,
@@ -1037,24 +1036,24 @@
               initialSize: _v1,
               state: _v2
             }) => "COMPLETED" === _v2 ? 100 : _v1 <= 0 ? 0 : Math.min(100, Math.round(_v0 / _v1 * 100)))(_v0);
-          return (0, _v1.jsxs)(_v20.Flex, {
+          return (0, _v1.jsxs)(_v19.Flex, {
             as: "li",
             flexDirection: "column",
-            gap: (0, _v23.rem)(8),
+            gap: (0, _v22.rem)(8),
             border: "1px solid",
             borderColor: "stroke",
             borderRadius: "md",
-            padding: (0, _v23.rem)(12),
-            children: [(0, _v1.jsxs)(_v20.Flex, {
+            padding: (0, _v22.rem)(12),
+            children: [(0, _v1.jsxs)(_v19.Flex, {
               alignItems: "center",
               justifyContent: "space-between",
-              gap: (0, _v23.rem)(12),
-              children: [(0, _v1.jsx)(_v24.Text, {
+              gap: (0, _v22.rem)(12),
+              children: [(0, _v1.jsx)(_v23.Text, {
                 variant: "body-sm",
                 color: "text-primary",
                 isTruncated: !0,
                 children: _v0.file.name
-              }), (0, _v1.jsx)(_v24.Text, {
+              }), (0, _v1.jsx)(_v23.Text, {
                 variant: "body-sm",
                 color: _v1 ? "status-destructive-primary" : "text-secondary",
                 children: (_v0 => {
@@ -1252,10 +1251,10 @@
                   }
                 })(_v0.state)
               })]
-            }), (0, _v1.jsx)(_v83, {
+            }), (0, _v1.jsx)(_v82, {
               percent: _v2,
               failed: _v1
-            }), (0, _v1.jsx)(_v24.Text, {
+            }), (0, _v1.jsx)(_v23.Text, {
               variant: "body-sm",
               color: "text-secondary",
               children: _v1 ? _v0.error || (0, _v7.translate)({
@@ -1286,8 +1285,8 @@
               }) : (0, _v7.translate)({
                 singular: "{UPLOADED} of {TOTAL}",
                 replacements: {
-                  UPLOADED: (0, _v66.bytesToSize)(_v0.bytesUploaded),
-                  TOTAL: (0, _v66.bytesToSize)(_v0.initialSize)
+                  UPLOADED: (0, _v65.bytesToSize)(_v0.bytesUploaded),
+                  TOTAL: (0, _v65.bytesToSize)(_v0.initialSize)
                 },
                 dictionary: {
                   es: {
@@ -1318,25 +1317,25 @@
         })
       })]
     }),
-    _v85 = () => (0, _v1.jsx)(_v24.Text, {
+    _v84 = () => (0, _v1.jsx)(_v23.Text, {
       variant: "body-sm",
       color: "text-secondary",
       textAlign: "center",
       children: (0, _v7.translate)({
         singular: "By submitting a video, you agree to our {TERMS}Terms of Service{/TERMS} and {GUIDE}Community Guidelines{/GUIDE}.",
         replacements: {
-          TERMS: _v0 => (0, _v1.jsx)(_v22.Link, {
+          TERMS: _v0 => (0, _v1.jsx)(_v21.Link, {
             href: "/terms",
             target: "_blank",
             variant: "inline-secondary",
-            fontSize: (0, _v23.rem)(12),
+            fontSize: (0, _v22.rem)(12),
             children: _v0
           }),
-          GUIDE: _v0 => (0, _v1.jsx)(_v22.Link, {
+          GUIDE: _v0 => (0, _v1.jsx)(_v21.Link, {
             href: "/help/guidelines",
             target: "_blank",
             variant: "inline-secondary",
-            fontSize: (0, _v23.rem)(12),
+            fontSize: (0, _v22.rem)(12),
             children: _v0
           })
         },
@@ -1365,7 +1364,7 @@
         }
       })
     }),
-    _v86 = (0, _v10.memo)(function () {
+    _v85 = (0, _v10.memo)(function () {
       let _v0 = [{
           imgSrc: "https://i.vimeocdn.com/custom_asset/41c190163f6117e8313cd91f48f5fef5",
           imgAlt: (0, _v7.translate)({
@@ -1808,8 +1807,8 @@
           }
         }],
         _v1 = [{
-          icon: (0, _v1.jsx)(_v25.CreateVideo, {
-            boxSize: (0, _v23.rem)(40)
+          icon: (0, _v1.jsx)(_v24.CreateVideo, {
+            boxSize: (0, _v22.rem)(40)
           }),
           title: (0, _v7.translate)({
             singular: "Select a template or use stock footage",
@@ -1868,8 +1867,8 @@
             variant: "secondary"
           }
         }, {
-          icon: (0, _v1.jsx)(_v27.Record, {
-            boxSize: (0, _v23.rem)(40)
+          icon: (0, _v1.jsx)(_v26.Record, {
+            boxSize: (0, _v22.rem)(40)
           }),
           title: (0, _v7.translate)({
             singular: "Record your screen, yourself, or both",
@@ -1928,8 +1927,8 @@
             variant: "secondary"
           }
         }, {
-          icon: (0, _v1.jsx)(_v26.MagicWand, {
-            boxSize: (0, _v23.rem)(40)
+          icon: (0, _v1.jsx)(_v25.MagicWand, {
+            boxSize: (0, _v22.rem)(40)
           }),
           title: (0, _v7.translate)({
             singular: "Edit your video directly within your web browser",
@@ -1988,8 +1987,8 @@
             variant: "secondary"
           }
         }, {
-          icon: (0, _v1.jsx)(_v28.Upload, {
-            boxSize: (0, _v23.rem)(40)
+          icon: (0, _v1.jsx)(_v27.Upload, {
+            boxSize: (0, _v22.rem)(40)
           }),
           title: (0, _v7.translate)({
             singular: "Host and store extra (extra) large video files",
@@ -2078,7 +2077,7 @@
           answer: (0, _v7.translate)({
             singular: "Uploading a video online is easy with Vimeo. To upload a video that is saved on your computer, you can click on Select files on our {UPLOAD}Upload{/UPLOAD} page. You can also upload videos from Dropbox, Google Drive, Box, Zoom, Webex, or other apps. Then, select where in your library the newly uploaded video will be saved.",
             replacements: {
-              UPLOAD: _v0 => (0, _v1.jsx)(_v22.Link, {
+              UPLOAD: _v0 => (0, _v1.jsx)(_v21.Link, {
                 href: "/upload",
                 variant: "inline-secondary",
                 children: _v0
@@ -2350,7 +2349,7 @@
           answer: (0, _v7.translate)({
             singular: "To share a video, first select it from your {LIBRARY}Library{/LIBRARY} to open the video settings page. Then, click the Share button in the top right corner. A new modal will appear with options for sharing, embedding, and changing the privacy settings for your video. Select the Copy link button in the lower right corner of the modal to copy the link and share your video, or select the Embed tab to copy the embed code by clicking the Copy embed code button.",
             replacements: {
-              LIBRARY: _v0 => (0, _v1.jsx)(_v22.Link, {
+              LIBRARY: _v0 => (0, _v1.jsx)(_v21.Link, {
                 href: "/library",
                 variant: "inline-secondary",
                 children: _v0
@@ -2381,14 +2380,14 @@
             }
           })
         }];
-      return (0, _v1.jsxs)(_v19.Box, {
+      return (0, _v1.jsxs)(_v18.Box, {
         bg: "surface",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        children: [(0, _v1.jsx)(_v41, {
+        children: [(0, _v1.jsx)(_v40, {
           cards: _v0
-        }), (0, _v1.jsx)(_v50, {
+        }), (0, _v1.jsx)(_v49, {
           title: (0, _v7.translate)({
             singular: "Go beyond uploading with our all-in-one video platform",
             dictionary: {
@@ -2416,7 +2415,7 @@
             }
           }),
           cards: _v1
-        }), (0, _v1.jsx)(_v48, {
+        }), (0, _v1.jsx)(_v47, {
           eyebrow: (0, _v7.translate)({
             singular: "FAQ",
             dictionary: {
@@ -2464,7 +2463,7 @@
         })]
       });
     }),
-    _v87 = ({
+    _v86 = ({
       files: _v0,
       onRemoveFile: _v1,
       label: _v2,
@@ -2481,13 +2480,13 @@
       let _v12 = 0 === _v7.length ? "staging" : _v8.completeCount + _v8.failedCount + _v8.canceledCount >= _v7.length ? "terminal" : "uploading",
         _v13 = "staging" === _v12;
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v20.Flex, {
+        children: [(0, _v1.jsxs)(_v19.Flex, {
           flexDirection: "column",
-          maxWidth: (0, _v23.rem)(896),
+          maxWidth: (0, _v22.rem)(896),
           margin: "0 auto",
-          padding: (0, _v23.rem)(24),
-          gap: (0, _v23.rem)(24),
-          children: [(0, _v1.jsx)(_v21.Header, {
+          padding: (0, _v22.rem)(24),
+          gap: (0, _v22.rem)(24),
+          children: [(0, _v1.jsx)(_v20.Header, {
             as: "h1",
             variant: "heading-3xl",
             fontSize: {
@@ -2522,10 +2521,15 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v70, {
+          }), _v5 ? (0, _v1.jsx)(_v16.Alert, {
+            status: "error",
+            children: (0, _v1.jsx)(_v17.AlertDescription, {
+              children: _v5
+            })
+          }) : null, (0, _v1.jsx)(_v69, {
             phase: _v12,
             isDragging: _v6.isDragging,
-            children: _v13 ? (0, _v1.jsx)(_v63, {
+            children: _v13 ? (0, _v1.jsx)(_v62, {
               isDragging: _v6.isDragging,
               onDragOver: _v6.onDragOver,
               onDragLeave: _v6.onDragLeave,
@@ -2534,56 +2538,51 @@
               label: _v2,
               action: _v3,
               onPrimaryAction: _v4,
-              knobs: _v9 ? (0, _v1.jsx)(_v82, {
+              knobs: _v9 ? (0, _v1.jsx)(_v81, {
                 knobs: _v9
               }) : null,
-              stagedList: _v0.length > 0 ? (0, _v1.jsx)(_v67, {
+              stagedList: _v0.length > 0 ? (0, _v1.jsx)(_v66, {
                 files: _v0,
                 onRemoveFile: _v1
               }) : null
             }) : (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v84, {
+              children: [(0, _v1.jsx)(_v83, {
                 uploads: _v7,
                 uploaderSummary: _v8
-              }), "terminal" === _v12 ? (0, _v1.jsx)(_v68, {
+              }), "terminal" === _v12 ? (0, _v1.jsx)(_v67, {
                 onRestart: _v10,
                 onGoToFolder: _v11
               }) : null]
             })
-          }), _v5 ? (0, _v1.jsxs)(_v16.Alert, {
-            status: "error",
-            children: [(0, _v1.jsx)(_v18.AlertIcon, {}), (0, _v1.jsx)(_v17.AlertDescription, {
-              children: _v5
-            })]
-          }) : null, (0, _v1.jsx)(_v85, {})]
-        }), (0, _v1.jsx)(_v86, {})]
+          }), (0, _v1.jsx)(_v84, {})]
+        }), (0, _v1.jsx)(_v85, {})]
       });
     };
-  var _v88 = _v0.i(0),
+  var _v87 = _v0.i(0),
+    _v88 = _v0.i(0),
     _v89 = _v0.i(0),
     _v90 = _v0.i(0),
     _v91 = _v0.i(0),
     _v92 = _v0.i(0),
     _v93 = _v0.i(0),
     _v94 = _v0.i(0),
-    _v95 = _v0.i(0),
-    _v96 = _v0.i(0);
-  let _v97 = {
+    _v95 = _v0.i(0);
+  let _v96 = {
       add: !1,
       comments: "nobody",
       download: !1,
       embed: "private",
       view: "nobody"
     },
-    _v98 = ["canAllowDownloads", "canUnlistVideo", "canHideVideos", "hasExtraEmbedOptions", "hasPrivateModeOff", "hasProEmbedOptions", "hasVideoPasswordPrivacyUpsell", "hasCreation", "hasEnterprise"];
-  var _v99 = _v0.i(0);
-  let _v100 = "Upload in progress: navigation aborted. Please ignore this error.";
-  function _v101(_v0) {
-    _v0.reason === _v100 && _v0.preventDefault();
+    _v97 = ["canAllowDownloads", "canUnlistVideo", "canHideVideos", "hasExtraEmbedOptions", "hasPrivateModeOff", "hasProEmbedOptions", "hasVideoPasswordPrivacyUpsell", "hasCreation", "hasEnterprise"];
+  var _v98 = _v0.i(0);
+  let _v99 = "Upload in progress: navigation aborted. Please ignore this error.";
+  function _v100(_v0) {
+    _v0.reason === _v99 && _v0.preventDefault();
   }
-  var _v102 = _v0.i(0),
-    _v103 = _v0.i(0);
-  let _v104 = {
+  var _v101 = _v0.i(0),
+    _v102 = _v0.i(0);
+  let _v103 = {
       barebone_js: "",
       chromeless_css: "",
       chromeless_js: "",
@@ -2591,11 +2590,11 @@
       js: "",
       player_url: ""
     },
-    _v105 = ({
+    _v104 = ({
       children: _v0
     }) => {
       let _v1 = (0, _v15.useViewer)();
-      return (0, _v102.useHasMounted)() ? (0, _v1.jsx)(_v103.default, {
+      return (0, _v101.useHasMounted)() ? (0, _v1.jsx)(_v102.default, {
         user: _v1?.user ?? null,
         jwt: _v1?.jwt ?? "",
         apiUrl: _v1?.apiUrl ?? "",
@@ -2603,28 +2602,28 @@
         vuid: _v1?.vuid ?? "",
         xsrft: "",
         magistoApiHost: "",
-        playerAssetUrls: _v104,
+        playerAssetUrls: _v103,
         children: _v0
       }) : (0, _v1.jsx)(_v1.Fragment, {
         children: _v0
       });
     },
-    _v106 = {
+    _v105 = {
       paywallTrigger: "satellite_upload_button",
       paywallLocation: "satellite_upload",
       paywallType: "popup",
       paywallFeature: "upload"
     },
-    _v107 = () => {
+    _v106 = () => {
       let {
           files: _v0,
           removeFile: _v1,
           clear: _v2
-        } = (0, _v88.useStagedFiles)(),
+        } = (0, _v87.useStagedFiles)(),
         _v3 = (() => {
           let {
               addFiles: _v0
-            } = (0, _v88.useStagedFiles)(),
+            } = (0, _v87.useStagedFiles)(),
             [_v1, _v2] = (0, _v10.useState)(!1),
             _v3 = (0, _v10.useCallback)(_v0 => {
               _v0.preventDefault(), _v2(!0);
@@ -2637,10 +2636,10 @@
             onDragOver: _v3,
             onDragLeave: _v4,
             onDrop: (0, _v10.useCallback)(_v0 => {
-              _v0.preventDefault(), _v2(!1), _v0.dataTransfer?.files?.length && _v0(_v61(_v0.dataTransfer.files), !0);
+              _v0.preventDefault(), _v2(!1), _v0.dataTransfer?.files?.length && _v0(_v60(_v0.dataTransfer.files), !0);
             }, [_v0]),
             onSelectFiles: (0, _v10.useCallback)(_v0 => {
-              _v0.target.files?.length && _v0(_v61(_v0.target.files), !1), _v0.target.value = "";
+              _v0.target.files?.length && _v0(_v60(_v0.target.files), !1), _v0.target.value = "";
             }, [_v0])
           };
         })(),
@@ -2648,11 +2647,11 @@
           let _v0 = (0, _v15.useViewer)(),
             {
               files: _v1
-            } = (0, _v88.useStagedFiles)(),
+            } = (0, _v87.useStagedFiles)(),
             {
               data: _v2,
               isLoading: _v3
-            } = (0, _v93.useGetAllWorkspacesForUser)(),
+            } = (0, _v92.useGetAllWorkspacesForUser)(),
             [_v4, _v5] = (0, _v10.useState)(null),
             [_v6, _v7] = (0, _v10.useState)(null),
             [_v8, _v9] = (0, _v10.useState)({}),
@@ -2661,7 +2660,7 @@
             _v14 = _v4 ?? _v0?.user?.id ?? null,
             {
               data: _v15
-            } = (0, _v92.useGetUser)(() => _v14 ? {
+            } = (0, _v91.useGetUser)(() => _v14 ? {
               where: {
                 userId: _v14
               },
@@ -2669,7 +2668,7 @@
             } : null),
             {
               config: _v16
-            } = (0, _v95.useUploadPageConfig)(_v14),
+            } = (0, _v94.useUploadPageConfig)(_v14),
             _v17 = (0, _v10.useMemo)(() => _v16?.teamConfigs?.find(_v0 => _v0.ownerId === _v14), [_v16, _v14]),
             _v18 = (0, _v10.useMemo)(() => (_v2?.data ?? []).map(_v0 => ({
               id: _v0.teamOwnerId,
@@ -2686,7 +2685,7 @@
             _v22 = _v17?.permissionLevel ?? null,
             _v23 = (0, _v10.useMemo)(() => {
               var _v0;
-              return _v0 = _v15?.preferences?.videos, _v22 === _v96.TeamUserPermissionLevel.Uploader ? _v97 : {
+              return _v0 = _v15?.preferences?.videos, _v22 === _v95.TeamUserPermissionLevel.Uploader ? _v96 : {
                 ..._v0?.privacy,
                 password: _v0?.password,
                 embedDomains: _v0?.privacy?.clipEmbedAllowedDomains?.map(_v0 => ({
@@ -2696,7 +2695,7 @@
                 }))
               };
             }, [_v15, _v22]),
-            _v24 = _v22 === _v96.TeamUserPermissionLevel.Uploader ? void 0 : _v15?.preferences?.videos?.rating;
+            _v24 = _v22 === _v95.TeamUserPermissionLevel.Uploader ? void 0 : _v15?.preferences?.videos?.rating;
           _v14 !== _v12 && (_v13(_v14), _v9({}), _v11(void 0), _v7(null));
           let _v25 = (0, _v10.useMemo)(() => ({
               ..._v23,
@@ -2706,12 +2705,12 @@
             {
               capabilities: _v27,
               loading: _v28
-            } = (0, _v90.useCapability)([..._v98], _v14),
+            } = (0, _v89.useCapability)([..._v97], _v14),
             {
               isDisabled: _v29
-            } = (0, _v94.useGetEditEmbedPrivacyDisabled)(),
+            } = (0, _v93.useGetEditEmbedPrivacyDisabled)(),
             _v30 = _v1.length > 0 ? _v1.reduce((_v0, _v1) => _v0 + _v1.file.size, 0) : void 0,
-            _v31 = _v6?.uri != null ? (0, _v91.getProjectId)({
+            _v31 = _v6?.uri != null ? (0, _v90.getProjectId)({
               uri: _v6.uri
             }) ?? void 0 : void 0,
             _v32 = (0, _v10.useMemo)(() => ((_v0, _v1, _v2 = !0) => {
@@ -2766,7 +2765,7 @@
             } = (0, _v11.useUploader)(),
             {
               clear: _v5
-            } = (0, _v88.useStagedFiles)(),
+            } = (0, _v87.useStagedFiles)(),
             _v6 = (_v3?.user ?? null) !== null,
             _v7 = (_v2 = _v3?.user?.uploadQuota?.space, (0, _v10.useMemo)(() => ((_v0, _v1) => {
               if (0 === _v0.length || !_v1) return {
@@ -2839,7 +2838,7 @@
             [_v10, _v11] = (0, _v10.useState)(_v0);
           _v0 !== _v10 && (_v11(_v0), _v9(null));
           let _v12 = 0 === _v0.length ? "selectFiles" : _v6 ? "upload" : "login",
-            _v13 = (0, _v10.useCallback)(() => (0, _v89.openSatelliteAuthTab)("upload-poc", "login"), []),
+            _v13 = (0, _v10.useCallback)(() => (0, _v88.openSatelliteAuthTab)("upload-poc", "login"), []),
             _v14 = (0, _v10.useCallback)(() => {
               if (!_v7.ok) return void _v9(_v7.error ?? null);
               let _v0 = _v0.filter(_v0 => _v0.isDropzone).map(_v0 => _v0.file),
@@ -2966,7 +2965,7 @@
         _v17 = !(0, _v12.isUserPlanHigherOrEqualThan)(_v14?.user?.account, _v13.PLANS.STANDARD),
         _v18 = _v14?.user?.capabilities?.hasFreeTrialEligibility ?? !1;
       !function () {
-        let _v0 = (0, _v99.useRouter)(),
+        let _v0 = (0, _v98.useRouter)(),
           {
             uploaderSummary: _v1
           } = (0, _v11.useUploader)(),
@@ -3005,10 +3004,10 @@
                 }
               }))) throw _v0.events.emit("routeChangeError", "", "", {
                 shallow: !1
-              }), _v100;
+              }), _v99;
             };
-          return window.addEventListener("beforeunload", _v1), window.addEventListener("unhandledrejection", _v101), _v0.events.on("routeChangeStart", _v2), () => {
-            window.removeEventListener("beforeunload", _v1), window.removeEventListener("unhandledrejection", _v101), _v0.events.off("routeChangeStart", _v2);
+          return window.addEventListener("beforeunload", _v1), window.addEventListener("unhandledrejection", _v100), _v0.events.on("routeChangeStart", _v2), () => {
+            window.removeEventListener("beforeunload", _v1), window.removeEventListener("unhandledrejection", _v100), _v0.events.off("routeChangeStart", _v2);
           };
         }, [_v2, _v0]);
       }();
@@ -3037,8 +3036,8 @@
             teamId: _v4.targetUserId
           }));
         }, [_v4.folderId, _v4.targetUserId]);
-      return (0, _v1.jsxs)(_v105, {
-        children: [(0, _v1.jsx)(_v87, {
+      return (0, _v1.jsxs)(_v104, {
+        children: [(0, _v1.jsx)(_v86, {
           files: _v0,
           onRemoveFile: _v1,
           label: _v6,
@@ -3057,7 +3056,7 @@
           isFreeTrialEligible: _v18,
           checkoutTarget: "_blank",
           postCheckoutUrl: "/satellite/auth-complete?source=upload-poc",
-          paywallTracking: _v106,
+          paywallTracking: _v105,
           onDismiss: _v20
         })]
       });
@@ -3121,6 +3120,6 @@
         }
       }),
       publicBasePath: "/video-uploader"
-    }), (0, _v1.jsx)(_v107, {})]
+    }), (0, _v1.jsx)(_v106, {})]
   })], 0);
 }

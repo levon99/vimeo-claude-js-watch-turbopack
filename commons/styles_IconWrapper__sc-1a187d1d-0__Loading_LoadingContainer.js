@@ -271,7 +271,7 @@
           revalidateOnFocus: !1
         }),
         _v32 = (0, _v5.useMemo)(() => {
-          let _v0 = _v0 => !(_v18.flattenPrivateToMe && _v0?.isPrivateToUser);
+          let _v0 = _v0 => !(_v18.flattenPrivateToMe && _v0?.isPrivateToUser && !_v0?.metadata?.connections?.ancestorPath?.length);
           return _v22 ? _v22.flatMap(_v0 => _v0.data).filter(_v0 => null !== _v0).filter(_v0) : _v27 ? _v27.flatMap(_v0 => _v0.data).map(_v0 => _v0.folder).filter(_v0 => _v0 && _v0.metadata?.interactions?.invite).filter(_v0) : [];
         }, [_v22, _v27, _v18.flattenPrivateToMe]),
         _v33 = !!_v15;

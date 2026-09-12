@@ -299,18 +299,26 @@
     _v60 = {
       current: !1
     };
-  var _v61 = _v0.i(0),
-    _v62 = _v0.i(0),
+  function _v61() {
+    if (_v60.current = !0, _v58.isBrowser) if (window.matchMedia) {
+      let _v0 = window.matchMedia("(prefers-reduced-motion)"),
+        _v1 = () => _v59.current = _v0.matches;
+      _v0.addListener(_v1), _v1();
+    } else _v59.current = !1;
+  }
+  _v0.s(["hasReducedMotionListener", 0, _v60, "prefersReducedMotion", 0, _v59], 0), _v0.s(["initPrefersReducedMotion", 0, _v61], 0);
+  var _v62 = _v0.i(0),
     _v63 = _v0.i(0),
     _v64 = _v0.i(0),
     _v65 = _v0.i(0),
     _v66 = _v0.i(0),
-    _v67 = _v0.i(0);
-  let _v68 = [..._v66.dimensionValueTypes, _v65.color, _v63.complex],
-    _v69 = new WeakMap();
-  var _v70 = _v0.i(0);
-  let _v71 = ["AnimationStart", "AnimationComplete", "Update", "BeforeLayoutMeasure", "LayoutMeasure", "LayoutAnimationStart", "LayoutAnimationComplete"];
-  class _v72 {
+    _v67 = _v0.i(0),
+    _v68 = _v0.i(0);
+  let _v69 = [..._v67.dimensionValueTypes, _v66.color, _v64.complex],
+    _v70 = new WeakMap();
+  var _v71 = _v0.i(0);
+  let _v72 = ["AnimationStart", "AnimationComplete", "Update", "BeforeLayoutMeasure", "LayoutMeasure", "LayoutAnimationStart", "LayoutAnimationComplete"];
+  class _v73 {
     scrapeMotionValuesFromProps(_v0, _v1, _v2) {
       return {};
     }
@@ -322,7 +330,7 @@
       blockInitialAnimation: _v4,
       visualState: _v5
     }, _v6 = {}) {
-      this.current = null, this.children = new Set(), this.isVariantNode = !1, this.isControllingVariants = !1, this.shouldReduceMotion = null, this.values = new Map(), this.KeyframeResolver = _v70.KeyframeResolver, this.features = {}, this.valueSubscriptions = new Map(), this.prevMotionValues = {}, this.events = {}, this.propEventSubscriptions = {}, this.notifyUpdate = () => this.notify("Update", this.latestValues), this.render = () => {
+      this.current = null, this.children = new Set(), this.isVariantNode = !1, this.isControllingVariants = !1, this.shouldReduceMotion = null, this.values = new Map(), this.KeyframeResolver = _v71.KeyframeResolver, this.features = {}, this.valueSubscriptions = new Map(), this.prevMotionValues = {}, this.events = {}, this.propEventSubscriptions = {}, this.notifyUpdate = () => this.notify("Update", this.latestValues), this.render = () => {
         this.current && (this.triggerBuild(), this.renderInstance(this.current, this.renderState, this.props.style, this.projection));
       }, this.renderScheduledAt = 0, this.scheduleRender = () => {
         let _v0 = _v53.time.now();
@@ -348,16 +356,10 @@
       }
     }
     mount(_v0) {
-      this.current = _v0, _v69.set(_v0, this), this.projection && !this.projection.instance && this.projection.mount(_v0), this.parent && this.isVariantNode && !this.isControllingVariants && (this.removeFromVariantTree = this.parent.addVariantChild(this)), this.values.forEach((_v0, _v1) => this.bindToMotionValue(_v1, _v0)), _v60.current || function () {
-        if (_v60.current = !0, _v58.isBrowser) if (window.matchMedia) {
-          let _v0 = window.matchMedia("(prefers-reduced-motion)"),
-            _v1 = () => _v59.current = _v0.matches;
-          _v0.addListener(_v1), _v1();
-        } else _v59.current = !1;
-      }(), this.shouldReduceMotion = "never" !== this.reducedMotionConfig && ("always" === this.reducedMotionConfig || _v59.current), this.parent && this.parent.children.add(this), this.update(this.props, this.presenceContext);
+      this.current = _v0, _v70.set(_v0, this), this.projection && !this.projection.instance && this.projection.mount(_v0), this.parent && this.isVariantNode && !this.isControllingVariants && (this.removeFromVariantTree = this.parent.addVariantChild(this)), this.values.forEach((_v0, _v1) => this.bindToMotionValue(_v1, _v0)), _v60.current || _v61(), this.shouldReduceMotion = "never" !== this.reducedMotionConfig && ("always" === this.reducedMotionConfig || _v59.current), this.parent && this.parent.children.add(this), this.update(this.props, this.presenceContext);
     }
     unmount() {
-      for (let _v0 in _v69.delete(this.current), this.projection && this.projection.unmount(), (0, _v11.cancelFrame)(this.notifyUpdate), (0, _v11.cancelFrame)(this.render), this.valueSubscriptions.forEach(_v0 => _v0()), this.valueSubscriptions.clear(), this.removeFromVariantTree && this.removeFromVariantTree(), this.parent && this.parent.children.delete(this), this.events) this.events[_v0].clear();
+      for (let _v0 in _v70.delete(this.current), this.projection && this.projection.unmount(), (0, _v11.cancelFrame)(this.notifyUpdate), (0, _v11.cancelFrame)(this.render), this.valueSubscriptions.forEach(_v0 => _v0()), this.valueSubscriptions.clear(), this.removeFromVariantTree && this.removeFromVariantTree(), this.parent && this.parent.children.delete(this), this.events) this.events[_v0].clear();
       for (let _v0 in this.features) {
         let _v0 = this.features[_v0];
         _v0 && (_v0.unmount(), _v0.isMounted = !1);
@@ -408,8 +410,8 @@
     }
     update(_v0, _v1) {
       (_v0.transformTemplate || this.props.transformTemplate) && this.scheduleRender(), this.prevProps = this.props, this.props = _v0, this.prevPresenceContext = this.presenceContext, this.presenceContext = _v1;
-      for (let _v0 = 0; _v0 < _v71.length; _v0++) {
-        let _v0 = _v71[_v0];
+      for (let _v0 = 0; _v0 < _v72.length; _v0++) {
+        let _v0 = _v72[_v0];
         this.propEventSubscriptions[_v0] && (this.propEventSubscriptions[_v0](), delete this.propEventSubscriptions[_v0]);
         let _v1 = _v0["on" + _v0];
         _v1 && (this.propEventSubscriptions[_v0] = this.on(_v0, _v1));
@@ -418,14 +420,14 @@
         for (let _v0 in _v1) {
           let _v0 = _v1[_v0],
             _v1 = _v2[_v0];
-          if ((0, _v40.isMotionValue)(_v0)) _v0.addValue(_v0, _v0);else if ((0, _v40.isMotionValue)(_v1)) _v0.addValue(_v0, (0, _v62.motionValue)(_v0, {
+          if ((0, _v40.isMotionValue)(_v0)) _v0.addValue(_v0, _v0);else if ((0, _v40.isMotionValue)(_v1)) _v0.addValue(_v0, (0, _v63.motionValue)(_v0, {
             owner: _v0
           }));else if (_v1 !== _v0) if (_v0.hasValue(_v0)) {
             let _v0 = _v0.getValue(_v0);
             !0 === _v0.liveStyle ? _v0.jump(_v0) : _v0.hasAnimated || _v0.set(_v0);
           } else {
             let _v0 = _v0.getStaticValue(_v0);
-            _v0.addValue(_v0, (0, _v62.motionValue)(void 0 !== _v0 ? _v0 : _v0, {
+            _v0.addValue(_v0, (0, _v63.motionValue)(void 0 !== _v0 ? _v0 : _v0, {
               owner: _v0
             }));
           }
@@ -468,7 +470,7 @@
     getValue(_v0, _v1) {
       if (this.props.values && this.props.values[_v0]) return this.props.values[_v0];
       let _v2 = this.values.get(_v0);
-      return void 0 === _v2 && void 0 !== _v1 && (_v2 = (0, _v62.motionValue)(null === _v1 ? void 0 : _v1, {
+      return void 0 === _v2 && void 0 !== _v1 && (_v2 = (0, _v63.motionValue)(null === _v1 ? void 0 : _v1, {
         owner: this
       }), this.addValue(_v0, _v2)), _v2;
     }
@@ -478,7 +480,7 @@
       if (null != _v3) {
         if ("string" == typeof _v3 && ((0, _v56.isNumericalString)(_v3) || (0, _v57.isZeroValueString)(_v3))) _v3 = parseFloat(_v3);else {
           let _v0;
-          _v0 = _v3, !_v68.find((0, _v67.testValueType)(_v0)) && _v63.complex.test(_v1) && (_v3 = (0, _v64.getAnimatableNone)(_v0, _v1));
+          _v0 = _v3, !_v69.find((0, _v68.testValueType)(_v0)) && _v64.complex.test(_v1) && (_v3 = (0, _v65.getAnimatableNone)(_v0, _v1));
         }
         this.setBaseTarget(_v0, (0, _v40.isMotionValue)(_v3) ? _v3.get() : _v3);
       }
@@ -502,16 +504,16 @@
       return void 0 === _v4 || (0, _v40.isMotionValue)(_v4) ? void 0 !== this.initialValues[_v0] && void 0 === _v2 ? void 0 : this.baseTarget[_v0] : _v4;
     }
     on(_v0, _v1) {
-      return this.events[_v0] || (this.events[_v0] = new _v61.SubscriptionManager()), this.events[_v0].add(_v1);
+      return this.events[_v0] || (this.events[_v0] = new _v62.SubscriptionManager()), this.events[_v0].add(_v1);
     }
     notify(_v0, ..._v1) {
       this.events[_v0] && this.events[_v0].notify(..._v1);
     }
   }
-  var _v73 = _v0.i(0);
-  class _v74 extends _v72 {
+  var _v74 = _v0.i(0);
+  class _v75 extends _v73 {
     constructor() {
-      super(...arguments), this.KeyframeResolver = _v73.DOMKeyframesResolver;
+      super(...arguments), this.KeyframeResolver = _v74.DOMKeyframesResolver;
     }
     sortInstanceNodePosition(_v0, _v1) {
       return 2 & _v0.compareDocumentPosition(_v1) ? 1 : -1;
@@ -535,14 +537,14 @@
       }));
     }
   }
-  var _v75 = _v0.i(0);
-  class _v76 extends _v74 {
+  var _v76 = _v0.i(0);
+  class _v77 extends _v75 {
     constructor() {
       super(...arguments), this.type = "html", this.renderInstance = _v37;
     }
     readValueFromInstance(_v0, _v1) {
       if (_v21.transformProps.has(_v1)) {
-        let _v0 = (0, _v75.getDefaultValueType)(_v1);
+        let _v0 = (0, _v76.getDefaultValueType)(_v1);
         return _v0 && _v0.default || 0;
       }
       {
@@ -563,7 +565,7 @@
       return _v43(_v0, _v1, _v2);
     }
   }
-  class _v77 extends _v74 {
+  class _v78 extends _v75 {
     constructor() {
       super(...arguments), this.type = "svg", this.isSVGTag = !1, this.measureInstanceViewportBox = _v55.createBox;
     }
@@ -572,7 +574,7 @@
     }
     readValueFromInstance(_v0, _v1) {
       if (_v21.transformProps.has(_v1)) {
-        let _v0 = (0, _v75.getDefaultValueType)(_v1);
+        let _v0 = (0, _v76.getDefaultValueType)(_v1);
         return _v0 && _v0.default || 0;
       }
       return _v1 = _v38.has(_v1) ? _v1 : (0, _v36.camelToDash)(_v1), _v0.getAttribute(_v1);
@@ -590,12 +592,12 @@
       this.isSVGTag = _v35(_v0.tagName), super.mount(_v0);
     }
   }
-  let _v78 = (_v2 = {
+  let _v79 = (_v2 = {
       ..._v5.animations,
       ..._v7.gestureAnimations,
       ..._v6.drag,
       ..._v8.layout
-    }, _v3 = (_v0, _v1) => (0, _v10.isSVGComponent)(_v0) ? new _v77(_v1) : new _v76(_v1, {
+    }, _v3 = (_v0, _v1) => (0, _v10.isSVGComponent)(_v0) ? new _v78(_v1) : new _v77(_v1, {
       allowProjection: _v0 !== _v12.Fragment
     }), function (_v0, {
       forwardMotionProps: _v1
@@ -666,6 +668,6 @@
       };
       return (0, _v9.createRendererMotionComponent)(_v2);
     }),
-    _v79 = (0, _v4.createDOMMotionComponentProxy)(_v78);
-  _v0.s(["motion", 0, _v79], 0);
+    _v80 = (0, _v4.createDOMMotionComponentProxy)(_v79);
+  _v0.s(["motion", 0, _v80], 0);
 }

@@ -49,13 +49,13 @@
             singular: "レビューリンクをコピー"
           },
           "ko-KR": {
-            singular: "검토 링크 복사"
+            singular: "검토용 링크 복사"
           },
           "pt-BR": {
-            singular: "Copiar link de revisão"
+            singular: "Copiar link para revisão"
           },
           "zh-CN": {
-            singular: "复制审阅链接"
+            singular: "复制评审链接"
           }
         }
       }),

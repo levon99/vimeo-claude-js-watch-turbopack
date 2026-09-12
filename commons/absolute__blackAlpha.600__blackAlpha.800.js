@@ -111,12 +111,11 @@
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),
-    _v57 = _v0.i(0),
-    _v58 = _v0.i(0);
-  function _v59({
+    _v57 = _v0.i(0);
+  function _v58({
     overlayStyle: _v0
   }) {
-    return _v0 ? (0, _v1.jsx)(_v58.Box, {
+    return _v0 ? (0, _v1.jsx)(_v57.Box, {
       position: "absolute",
       top: 0,
       left: 0,
@@ -131,23 +130,23 @@
       height: _v0.height
     }) : null;
   }
-  var _v60 = _v0.i(0),
-    _v61 = _v0.i(0),
-    _v62 = _v0.i(0);
-  let _v63 = "video-library:wayfinder-side-nav-open",
-    _v64 = (_v0, _v1) => _v1 ? `${_v63}:${_v0}:${_v1}` : `${_v63}:${_v0}`,
-    _v65 = (_v0, _v1) => {
+  var _v59 = _v0.i(0),
+    _v60 = _v0.i(0),
+    _v61 = _v0.i(0);
+  let _v62 = "video-library:wayfinder-side-nav-open",
+    _v63 = (_v0, _v1) => _v1 ? `${_v62}:${_v0}:${_v1}` : `${_v62}:${_v0}`,
+    _v64 = (_v0, _v1) => {
       if (!_v0) return;
-      let _v2 = window.localStorage.getItem(_v64(_v0, _v1));
+      let _v2 = window.localStorage.getItem(_v63(_v0, _v1));
       return "true" === _v2 || "false" !== _v2 && void 0;
     };
-  var _v66 = _v0.i(0),
+  var _v65 = _v0.i(0),
+    _v66 = _v0.i(0),
     _v67 = _v0.i(0),
     _v68 = _v0.i(0),
     _v69 = _v0.i(0),
-    _v70 = _v0.i(0),
-    _v71 = _v0.i(0);
-  let _v72 = ({
+    _v70 = _v0.i(0);
+  let _v71 = ({
       isOpen: _v0,
       isMobile: _v1,
       onClose: _v2,
@@ -161,12 +160,12 @@
       collapsed: _v10,
       hideWhatsNewAnnouncementCount: _v11
     }) => {
-      let _v12 = (0, _v71.useWayfinderPageName)(),
-        _v13 = (0, _v70.useSideNavUpgradeClick)();
-      return (0, _v1.jsx)(_v73, {
-        type: _v68.PlayerType.BarebonePlayer,
+      let _v12 = (0, _v70.useWayfinderPageName)(),
+        _v13 = (0, _v69.useSideNavUpgradeClick)();
+      return (0, _v1.jsx)(_v72, {
+        type: _v67.PlayerType.BarebonePlayer,
         assetUrls: _v8,
-        children: (0, _v1.jsx)(_v69.WayfinderSideNav, {
+        children: (0, _v1.jsx)(_v68.WayfinderSideNav, {
           isOpen: _v0,
           isMobile: _v1,
           onClose: _v2,
@@ -182,16 +181,16 @@
         })
       });
     },
-    _v73 = ({
+    _v72 = ({
       children: _v0,
       assetUrls: _v1,
       type: _v2
-    }) => _v1 ? (0, _v1.jsx)(_v67.PlayerContextProvider, {
+    }) => _v1 ? (0, _v1.jsx)(_v66.PlayerContextProvider, {
       assetUrls: _v1,
       type: _v2,
       children: _v0
     }) : _v0,
-    _v74 = (0, _v2.default)(async () => ({
+    _v73 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).DefaultNavigation
     }), {
       loadableGenerated: {
@@ -221,7 +220,7 @@
       {
         uploads: _v19
       } = (0, _v18.useUploader)(),
-      _v20 = (0, _v55.useUpsellAnalyticsPage)(),
+      _v20 = (0, _v54.useUpsellAnalyticsPage)(),
       {
         userId: _v21
       } = _v14.query,
@@ -241,20 +240,20 @@
         handleToggleState: _v30,
         collapsed: _v31
       } = ((_v0, _v1, _v2 = !0) => {
-        let _v3 = (0, _v4.useContext)(_v60.ViewerContext),
-          _v4 = (0, _v61.usePageName)() === _v62.PAGE.SEARCH,
+        let _v3 = (0, _v4.useContext)(_v59.ViewerContext),
+          _v4 = (0, _v60.usePageName)() === _v61.PAGE.SEARCH,
           _v5 = !_v1,
-          [_v6, _v7] = (0, _v4.useState)(!!_v5 && !_v4 && (!_v2 || (_v65(_v3?.user?.id, _v0) ?? !0)));
+          [_v6, _v7] = (0, _v4.useState)(!!_v5 && !_v4 && (!_v2 || (_v64(_v3?.user?.id, _v0) ?? !0)));
         (0, _v4.useEffect)(() => {
           (_v1 || _v4) && _v7(!1);
         }, [_v1, _v4]), (0, _v4.useEffect)(() => {
-          !_v4 && _v3?.user?.id && _v0 && _v5 && _v7(!_v2 || (_v65(_v3.user.id, _v0) ?? !0));
+          !_v4 && _v3?.user?.id && _v0 && _v5 && _v7(!_v2 || (_v64(_v3.user.id, _v0) ?? !0));
         }, [_v3?.user?.id, _v0, _v5, _v4, _v2]);
         let _v8 = (0, _v4.useCallback)(() => {
             if (!_v3?.user?.id || !_v0) return;
             let _v0 = !_v6;
             if (_v2) try {
-              window.localStorage.setItem(_v64(_v3.user.id, _v0), _v0 ? "true" : "false");
+              window.localStorage.setItem(_v63(_v3.user.id, _v0), _v0 ? "true" : "false");
             } catch (_v0) {}
             _v7(_v0);
           }, [_v3, _v6, _v0, _v2]),
@@ -347,102 +346,100 @@
           },
           children: (0, _v1.jsx)(_v51, {
             children: (0, _v1.jsxs)(_v17.OmnisearchContextProvider, {
-              children: [(0, _v1.jsx)(_v56.StarredItemsProvider, {
-                children: (0, _v1.jsx)(_v54.TransferFileModalProvider, {
-                  children: (0, _v1.jsx)(_v53.ReviewModalProvider, {
-                    children: (0, _v1.jsx)(_v57.VideoLibraryLayoutContext.Provider, {
-                      value: {
-                        isSideNavOpen: !!_v29,
-                        setIsSideNavOpen: _v30,
-                        isPersonalTeamFolderAdminView: _v41,
-                        setIsPersonalTeamFolderAdminView: _v42,
-                        loadingSideNavFolderURIs: _v43,
-                        setLoadingSideNavFolderURIs: _v44,
-                        shouldShowSideNav: _v39,
-                        isScrolling: _v49,
-                        teamOwnerId: _v61
-                      },
-                      children: (0, _v1.jsxs)(_v10.Flex, {
-                        overflow: "hidden",
-                        height: "100vh",
-                        width: "100vw",
-                        children: [_v39 && (0, _v1.jsx)(_v22.NewSidebarIntroContext.Provider, {
-                          value: _v65,
-                          children: "library" === _v4 ? (0, _v1.jsx)(_v66.SecondarySideNav, {
-                            isOpen: !!_v29,
-                            isMobile: _v17,
-                            collapsed: _v31,
-                            onClose: _v30,
-                            children: _v3
-                          }) : (0, _v1.jsx)(_v72, {
-                            isOpen: !!_v29,
-                            isMobile: _v17,
-                            collapsed: _v31,
-                            onClose: _v30,
-                            sideNavContent: _v3,
-                            sideNavSurface: _v4,
-                            showWatchMenuItemAtTheBottom: !!_v13?.isFromCopyrightRestrictedRegion,
-                            teamOwnerId: _v61,
-                            playerAssetUrls: _v5,
-                            footerVariant: "full",
-                            hideWhatsNewAnnouncementCount: _v11
-                          })
-                        }), (0, _v1.jsx)(_v10.Flex, {
+              children: [(0, _v1.jsx)(_v55.StarredItemsProvider, {
+                children: (0, _v1.jsx)(_v53.TransferFileModalProvider, {
+                  children: (0, _v1.jsx)(_v56.VideoLibraryLayoutContext.Provider, {
+                    value: {
+                      isSideNavOpen: !!_v29,
+                      setIsSideNavOpen: _v30,
+                      isPersonalTeamFolderAdminView: _v41,
+                      setIsPersonalTeamFolderAdminView: _v42,
+                      loadingSideNavFolderURIs: _v43,
+                      setLoadingSideNavFolderURIs: _v44,
+                      shouldShowSideNav: _v39,
+                      isScrolling: _v49,
+                      teamOwnerId: _v61
+                    },
+                    children: (0, _v1.jsxs)(_v10.Flex, {
+                      overflow: "hidden",
+                      height: "100vh",
+                      width: "100vw",
+                      children: [_v39 && (0, _v1.jsx)(_v22.NewSidebarIntroContext.Provider, {
+                        value: _v65,
+                        children: "library" === _v4 ? (0, _v1.jsx)(_v65.SecondarySideNav, {
+                          isOpen: !!_v29,
+                          isMobile: _v17,
+                          collapsed: _v31,
+                          onClose: _v30,
+                          children: _v3
+                        }) : (0, _v1.jsx)(_v71, {
+                          isOpen: !!_v29,
+                          isMobile: _v17,
+                          collapsed: _v31,
+                          onClose: _v30,
+                          sideNavContent: _v3,
+                          sideNavSurface: _v4,
+                          showWatchMenuItemAtTheBottom: !!_v13?.isFromCopyrightRestrictedRegion,
+                          teamOwnerId: _v61,
+                          playerAssetUrls: _v5,
+                          footerVariant: "full",
+                          hideWhatsNewAnnouncementCount: _v11
+                        })
+                      }), (0, _v1.jsx)(_v10.Flex, {
+                        flexDir: "column",
+                        flex: "1 1 auto",
+                        width: _v37 ? "50%" : "100%",
+                        transition: "width 180ms ease-in-out 180ms",
+                        sx: _v10 ? {
+                          containerType: "inline-size"
+                        } : void 0,
+                        children: (0, _v1.jsxs)(_v10.Flex, {
+                          ref: _v53,
+                          onScroll: _v59,
                           flexDir: "column",
-                          flex: "1 1 auto",
-                          width: _v37 ? "50%" : "100%",
-                          transition: "width 180ms ease-in-out 180ms",
-                          sx: _v10 ? {
-                            containerType: "inline-size"
-                          } : void 0,
-                          children: (0, _v1.jsxs)(_v10.Flex, {
-                            ref: _v53,
-                            onScroll: _v59,
-                            flexDir: "column",
-                            minHeight: "100vh",
-                            position: "relative",
-                            overflowY: _v51 ? "hidden" : "auto",
-                            children: [(0, _v1.jsx)(_v74, {
-                              hasSearch: _v2,
-                              alwaysMinimiseSearch: _v9,
-                              isSideNavActive: !!_v29,
-                              setIsSideNavActive: _v39 && _v17 ? () => {
-                                _v64("open", _v17), _v30();
-                              } : void 0,
-                              hasSideNavLayout: !_v17,
-                              searchContentAlignment: _v10,
-                              hasThemeSupport: _v7,
-                              hasUploader: _v8
-                            }), _v0, (0, _v1.jsx)(_v59, {
-                              overlayStyle: _v51
-                            }), (0, _v1.jsxs)(_v8.ActivitiesContainer, {
-                              isShowing: _v33 || _v47 || _v63.visible,
-                              isMobile: _v18,
-                              children: [(0, _v1.jsx)(_v7.AiActivityCenter, {
-                                inProgressJobs: _v32,
-                                onClose: _v35,
-                                doneJobs: _v34
-                              }), (_v47 || _v19.length > 0) && (0, _v1.jsx)(_v26.ProgressToastContainer, {
-                                isShowing: _v47,
-                                uploadClipId: _v45,
-                                setShowProgressToast: _v48,
-                                setUploadClipId: _v46,
-                                isMobile: _v17,
-                                teamOwnerId: String(_v61),
-                                page: _v20,
-                                isPrivateModeOn: !_v25.privateModeOff
-                              }), _v63.visible && (0, _v1.jsx)(_v13.MigrationProgressWidget, {
-                                phase: _v63.phase,
-                                collapsed: _v63.collapsed,
-                                onToggleCollapse: _v63.onToggleCollapse,
-                                onRunInBackground: _v63.onRunInBackground,
-                                onDismiss: _v63.onDismiss,
-                                onOpenTeamLibrary: _v63.onOpenTeamLibrary
-                              })]
+                          minHeight: "100vh",
+                          position: "relative",
+                          overflowY: _v51 ? "hidden" : "auto",
+                          children: [(0, _v1.jsx)(_v73, {
+                            hasSearch: _v2,
+                            alwaysMinimiseSearch: _v9,
+                            isSideNavActive: !!_v29,
+                            setIsSideNavActive: _v39 && _v17 ? () => {
+                              _v64("open", _v17), _v30();
+                            } : void 0,
+                            hasSideNavLayout: !_v17,
+                            searchContentAlignment: _v10,
+                            hasThemeSupport: _v7,
+                            hasUploader: _v8
+                          }), _v0, (0, _v1.jsx)(_v58, {
+                            overlayStyle: _v51
+                          }), (0, _v1.jsxs)(_v8.ActivitiesContainer, {
+                            isShowing: _v33 || _v47 || _v63.visible,
+                            isMobile: _v18,
+                            children: [(0, _v1.jsx)(_v7.AiActivityCenter, {
+                              inProgressJobs: _v32,
+                              onClose: _v35,
+                              doneJobs: _v34
+                            }), (_v47 || _v19.length > 0) && (0, _v1.jsx)(_v26.ProgressToastContainer, {
+                              isShowing: _v47,
+                              uploadClipId: _v45,
+                              setShowProgressToast: _v48,
+                              setUploadClipId: _v46,
+                              isMobile: _v17,
+                              teamOwnerId: String(_v61),
+                              page: _v20,
+                              isPrivateModeOn: !_v25.privateModeOff
+                            }), _v63.visible && (0, _v1.jsx)(_v13.MigrationProgressWidget, {
+                              phase: _v63.phase,
+                              collapsed: _v63.collapsed,
+                              onToggleCollapse: _v63.onToggleCollapse,
+                              onRunInBackground: _v63.onRunInBackground,
+                              onDismiss: _v63.onDismiss,
+                              onOpenTeamLibrary: _v63.onOpenTeamLibrary
                             })]
-                          })
-                        })]
-                      })
+                          })]
+                        })
+                      })]
                     })
                   })
                 })

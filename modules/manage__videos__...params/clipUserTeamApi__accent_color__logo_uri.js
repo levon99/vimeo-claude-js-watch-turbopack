@@ -25072,7 +25072,6 @@
         onEmbedChange: _v3,
         layoutType: "modal",
         transferInlineLinkSurface: "home_upload_completed",
-        reviewLinkSurface: "home_upload_completed",
         expiryPickerEntryPoint: "svv"
       }, `${_v0}-modal`), (0, _v16.jsx)(_v757.PublishModal, {
         activeModal: _v4,
@@ -39250,34 +39249,35 @@
     });
   }
   let _v1012 = ({
-    playerAssetUrls: _v0,
-    initialVideoData: _v1,
-    clipId: _v2,
-    clipHash: _v3
-  }) => {
-    let _v4 = parseInt(_v2, 10);
-    return (0, _v16.jsx)(_v19.ThemeProvider, {
-      theme: _v20.applyCustomThemeSVV,
-      children: (0, _v16.jsx)(_v27.UpsellModalProvider, {
-        children: (0, _v16.jsx)(_v26.AddToShowcaseModalContextProvider, {
-          children: (0, _v16.jsx)(_v52, {
-            children: (0, _v16.jsx)(_v25.AnalyticsEventProvider, {
-              eventData: {
-                product: "workflow",
-                video_id: _v2,
-                upload_id: null
-              },
-              children: (0, _v16.jsx)(_v22.PlayerContextProvider, {
-                type: _v23.PlayerType.VimeoPlayer,
-                assetUrls: _v0,
-                children: (0, _v16.jsx)(_v28.default, {
-                  children: (0, _v16.jsx)(_v66, {
-                    children: (0, _v16.jsx)(_v24.SvvDateRangeProvider, {
-                      children: (0, _v16.jsx)(_v21.CommentsTrackingProvider, {
-                        children: (0, _v16.jsx)(_v1011, {
-                          clipId: _v4,
-                          clipHash: _v3,
-                          initialVideoData: _v1
+      playerAssetUrls: _v0,
+      initialVideoData: _v1,
+      clipId: _v2,
+      clipHash: _v3
+    }) => {
+      let _v4 = parseInt(_v2, 10);
+      return (0, _v16.jsx)(_v19.ThemeProvider, {
+        theme: _v20.applyCustomThemeSVV,
+        children: (0, _v16.jsx)(_v27.UpsellModalProvider, {
+          children: (0, _v16.jsx)(_v26.AddToShowcaseModalContextProvider, {
+            children: (0, _v16.jsx)(_v52, {
+              children: (0, _v16.jsx)(_v25.AnalyticsEventProvider, {
+                eventData: {
+                  product: "workflow",
+                  video_id: _v2,
+                  upload_id: null
+                },
+                children: (0, _v16.jsx)(_v22.PlayerContextProvider, {
+                  type: _v23.PlayerType.VimeoPlayer,
+                  assetUrls: _v0,
+                  children: (0, _v16.jsx)(_v28.default, {
+                    children: (0, _v16.jsx)(_v66, {
+                      children: (0, _v16.jsx)(_v24.SvvDateRangeProvider, {
+                        children: (0, _v16.jsx)(_v21.CommentsTrackingProvider, {
+                          children: (0, _v16.jsx)(_v1011, {
+                            clipId: _v4,
+                            clipHash: _v3,
+                            initialVideoData: _v1
+                          })
                         })
                       })
                     })
@@ -39287,12 +39287,10 @@
             })
           })
         })
-      })
-    });
-  };
-  var _v1013 = _v0.i(0);
-  let _v1014 = ["isPlayable", "status", "transcode", "upload.size", "upload.status", "transcript.language", "transcript.status", "pictures.uri", "metadata.connections.versions", "editSession", "embedPlayerConfigUrl", "allowedPrivacies", "countsTowardManagedStorage", "name", "app.uri", "categories.uri", "contentRating", "duration", "embed.uri", "embed.chapters", "embed.airplay", "embed.askAi", "embed.audioTracks", "embed.autoplay", "embed.chromecast", "embed.closedCaptions", "embed.color", "embed.colors.colorOne", "embed.colors.colorTwo", "embed.colors.colorThree", "embed.colors.colorFour", "embed.buttons.reaction", "embed.buttons.embed", "embed.buttons.fullscreen", "embed.buttons.like", "embed.buttons.share", "embed.buttons.watchlater", "embed.html", "embed.interactive", "embed.logos.custom.active", "embed.logos.custom.url", "embed.logos.custom.link", "embed.logos.custom.sticky", "embed.logos.custom.useLink", "embed.logos.vimeo", "embed.qualitySelector", "embed.playbar", "embed.muted", "embed.pip", "embed.autopip", "embed.skippingForward", "embed.contextMenu", "embed.ccTrackMenu", "embed.speed", "embed.title.name", "embed.title.owner", "embed.title.portrait", "embed.transcript", "embed.playButton", "embed.playButton.position", "embed.volume", "fileTransfer.link", "height", "uri", "isColdStorage", "link", "live.activeTime", "live.status", "live.recurringEvent.settingsLink", "manageLink", "uploader.link", "metadata.aiContent", "metadata.connections.likes.uri", "metadata.connections.likes.total", "metadata.connections.pictures.uri", "metadata.connections.privateComments.isEnabled", "metadata.connections.privateComments.total", "metadata.connections.privateComments.uri", "metadata.connections.privateComments.options", "metadata.interactions.delete", "metadata.interactions.edit", "metadata.interactions.canComment", "metadata.interactions.canUpdatePrivacyToPublic", "metadata.interactions.hasRestrictedPrivacyOptions", "metadata.interactions.invite", "metadata.interactions.viewTeamMembers", "metadata.interactions.watchlater.added", "metadata.interactions.legalHold", "metadata.isScreenRecord", "metadata.isVimeoCreate", "metadata.hasChapterSuggestions", "metadata.hasMandatoryEmailCapture", "parentProject.uri", "parentProject.isPrivateToUser", "parentProject.metadata.interactions.canComment", "parentProject.metadata.interactions.delete.uri", "parentProject.metadata.interactions.edit.uri", "parentProject.metadata.interactions.view.uri", "password", "pictures", "privacy.add", "privacy.comments", "privacy.download", "privacy.embed", "privacy.view", "privacy.originalView", "privacy.allowShareLink", "ratingModLocked", "showSvvTimecodedComments", "allowMultipleReviewLinks", "stats.plays", "spatial", "type", "upload", "user.link", "user.name", "user.pictures", "user.uri", "user.capabilities", "user.metadata.connections.permissionPolicies", "vod", "width", "disabledProperties", "createdTime", "reviewPage", "hasTextTracks", "hasChapters", "hasAudioTracks", "usesDrm", "customMetadata"],
-    _v1015 = {
+      });
+    },
+    _v1013 = ["isPlayable", "status", "transcode", "upload.size", "upload.status", "transcript.language", "transcript.status", "pictures.uri", "metadata.connections.versions", "editSession", "embedPlayerConfigUrl", "allowedPrivacies", "countsTowardManagedStorage", "name", "app.uri", "categories.uri", "contentRating", "duration", "embed.uri", "embed.chapters", "embed.airplay", "embed.askAi", "embed.audioTracks", "embed.autoplay", "embed.chromecast", "embed.closedCaptions", "embed.color", "embed.colors.colorOne", "embed.colors.colorTwo", "embed.colors.colorThree", "embed.colors.colorFour", "embed.buttons.reaction", "embed.buttons.embed", "embed.buttons.fullscreen", "embed.buttons.like", "embed.buttons.share", "embed.buttons.watchlater", "embed.html", "embed.interactive", "embed.logos.custom.active", "embed.logos.custom.url", "embed.logos.custom.link", "embed.logos.custom.sticky", "embed.logos.custom.useLink", "embed.logos.vimeo", "embed.qualitySelector", "embed.playbar", "embed.muted", "embed.pip", "embed.autopip", "embed.skippingForward", "embed.contextMenu", "embed.ccTrackMenu", "embed.speed", "embed.title.name", "embed.title.owner", "embed.title.portrait", "embed.transcript", "embed.playButton", "embed.playButton.position", "embed.volume", "fileTransfer.link", "height", "uri", "isColdStorage", "link", "live.activeTime", "live.status", "live.recurringEvent.settingsLink", "manageLink", "uploader.link", "metadata.aiContent", "metadata.connections.likes.uri", "metadata.connections.likes.total", "metadata.connections.pictures.uri", "metadata.connections.privateComments.isEnabled", "metadata.connections.privateComments.total", "metadata.connections.privateComments.uri", "metadata.connections.privateComments.options", "metadata.interactions.delete", "metadata.interactions.edit", "metadata.interactions.canComment", "metadata.interactions.canUpdatePrivacyToPublic", "metadata.interactions.hasRestrictedPrivacyOptions", "metadata.interactions.invite", "metadata.interactions.viewTeamMembers", "metadata.interactions.watchlater.added", "metadata.interactions.legalHold", "metadata.isScreenRecord", "metadata.isVimeoCreate", "metadata.hasChapterSuggestions", "metadata.hasMandatoryEmailCapture", "parentProject.uri", "parentProject.isPrivateToUser", "parentProject.metadata.interactions.canComment", "parentProject.metadata.interactions.delete.uri", "parentProject.metadata.interactions.edit.uri", "parentProject.metadata.interactions.view.uri", "password", "pictures", "privacy.add", "privacy.comments", "privacy.download", "privacy.embed", "privacy.view", "privacy.originalView", "privacy.allowShareLink", "ratingModLocked", "showSvvTimecodedComments", "allowMultipleReviewLinks", "stats.plays", "spatial", "type", "upload", "user.link", "user.name", "user.pictures", "user.uri", "user.capabilities", "user.metadata.connections.permissionPolicies", "vod", "width", "disabledProperties", "createdTime", "reviewPage", "hasTextTracks", "hasChapters", "hasAudioTracks", "usesDrm", "customMetadata"],
+    _v1014 = {
       hasThemeSupport: !0,
       hasUploader: !0
     };
@@ -39306,7 +39304,7 @@
           where: {
             videoId: _v3
           },
-          select: _v1014,
+          select: _v1013,
           query: {
             transparent: 0,
             accessGates: 0,
@@ -39328,7 +39326,7 @@
       };
       return {
         props: {
-          ..._v1015,
+          ..._v1014,
           initialVideoData: _v0,
           clipId: _v2,
           ...(_v4 && {
@@ -39339,7 +39337,7 @@
     } catch {
       return {
         props: {
-          ..._v1015,
+          ..._v1014,
           clipId: _v2,
           ...(_v4 && {
             clipHash: _v4
@@ -39356,18 +39354,10 @@
     initialVideoData: _v1,
     clipId: _v2,
     clipHash: _v3
-  }) => {
-    let _v4 = Number(_v2),
-      _v5 = Number.isInteger(_v4) && _v4 > 0 ? _v4 : void 0;
-    return (0, _v16.jsxs)(_v16.Fragment, {
-      children: [(0, _v16.jsx)(_v1012, {
-        playerAssetUrls: _v0,
-        initialVideoData: _v1,
-        clipId: _v2,
-        clipHash: _v3
-      }), (0, _v16.jsx)(_v1013.VimeoReviewUpsellPromo, {
-        reviewVideoId: _v5
-      })]
-    });
-  }], 0);
+  }) => (0, _v16.jsx)(_v1012, {
+    playerAssetUrls: _v0,
+    initialVideoData: _v1,
+    clipId: _v2,
+    clipHash: _v3
+  })], 0);
 }

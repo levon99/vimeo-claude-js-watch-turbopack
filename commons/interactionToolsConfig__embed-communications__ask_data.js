@@ -25,6 +25,10 @@
       MAX_OPTION_LENGTH: 120,
       MAX_OPTION_COUNT: 4
     },
+    REACTIONS: {
+      MAX_REACTIONS_PER_WINDOW: 20,
+      RATE_LIMIT_WINDOW_MS: 0
+    },
     EXPORT_DOWNLOAD_THROTTLE_DELAY: 0,
     REGEXP: {
       DEFAULT_LINK: /(?:(?:(?:https?|ftp):)?\/\/)?(?:\S+(?::\S*)?@)?(?:(?:[\da-z\u00A1-\uFFFF][\w\u00A1-\uFFFF-]{0,62})?[\da-z\u00A1-\uFFFF]\.)*(?:(?:\d(?!\.)|[a-z\u00A1-\uFFFF])(?:[\da-z\u00A1-\uFFFF][\w\u00A1-\uFFFF-]{0,62})?[\da-z\u00A1-\uFFFF]\.)+[a-z\u00A1-\uFFFF]{2,}(?::\d{2,5})?(?:[#/?]\S*)?/gi,

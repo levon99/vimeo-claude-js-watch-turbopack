@@ -865,7 +865,7 @@
         singular: "Review",
         dictionary: {
           es: {
-            singular: "Revisar"
+            singular: "Revisión"
           },
           "de-DE": {
             singular: "Überprüfung"
@@ -877,13 +877,13 @@
             singular: "レビュー"
           },
           "ko-KR": {
-            singular: "리뷰"
+            singular: "검토"
           },
           "pt-BR": {
             singular: "Revisar"
           },
           "zh-CN": {
-            singular: "审阅"
+            singular: "评论"
           }
         }
       }),

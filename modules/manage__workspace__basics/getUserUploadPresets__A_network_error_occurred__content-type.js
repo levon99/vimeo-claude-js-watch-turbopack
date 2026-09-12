@@ -116,7 +116,41 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  function _v39() {
+  function _v39(_v0, _v1) {
+    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
+      {
+        baseUrl: _v3,
+        jwt: _v4,
+        xVimeoPage: _v5,
+        locale: _v6
+      } = (0, _v37.useGctlConfig)();
+    return (0, _v36.default)((_v0, _v1) => {
+      if (null === _v2 || _v1 && !_v1.paging.next) return null;
+      let {
+          perPage: _v2 = 25,
+          page: _v3,
+          ..._v4
+        } = _v2.query ?? {},
+        _v5 = _v2.select.join(","),
+        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
+      return [`/users/${_v2.where.userId}/upload_presets?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
+    }, null !== _v2 ? ([_v0, _v1]) => _v31({
+      ..._v2,
+      baseUrl: _v3,
+      headers: {
+        ..._v2.headers,
+        "Content-Type": "application/json",
+        Authorization: _v4 ? `jwt ${_v4}` : "",
+        "Vimeo-Page": `${_v5}`,
+        "Accept-Language": _v6 ?? "en"
+      },
+      query: {
+        ..._v2.query,
+        page: _v1 + 1
+      }
+    }) : null, _v1);
+  }
+  function _v40() {
     let {
         baseUrl: _v0,
         jwt: _v1,
@@ -152,7 +186,7 @@
       }
     }, [_v0, _v2, _v1, _v3, _v5]), _v4];
   }
-  function _v40() {
+  function _v41() {
     let {
         baseUrl: _v0,
         jwt: _v1,
@@ -232,51 +266,17 @@
   }, {
     endpoint: "/users/:userId/upload_presets",
     method: "GET"
-  }), "true" === _v27.default.env.STORYBOOK && (0, _v28.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v37.useGctlConfig)();
-    return (0, _v36.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/users/${_v2.where.userId}/upload_presets?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v31({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }, {
-    endpoint: "/users/:userId/upload_presets",
-    method: "GET"
   }), "true" === _v27.default.env.STORYBOOK && (0, _v28.assignMswData)(_v39, {
     endpoint: "/users/:userId/upload_presets",
-    method: "PUT"
+    method: "GET"
   }), "true" === _v27.default.env.STORYBOOK && (0, _v28.assignMswData)(_v40, {
+    endpoint: "/users/:userId/upload_presets",
+    method: "PUT"
+  }), "true" === _v27.default.env.STORYBOOK && (0, _v28.assignMswData)(_v41, {
     endpoint: "/users/:userId/upload_presets",
     method: "DELETE"
   });
-  var _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
+  var _v42 = _v0.i(0),
     _v43 = _v0.i(0),
     _v44 = _v0.i(0),
     _v45 = _v0.i(0),
@@ -290,10 +290,11 @@
     _v53 = _v0.i(0),
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
-    _v56 = _v0.i(0);
-  let _v57 = ["language", "drugs", "violence", "nudity"],
-    _v58 = ["preferences.videos.license", "preferences.videos.privacy.add", "preferences.videos.privacy.allowShareLink", "preferences.videos.privacy.clipEmbedAllowedDomains", "preferences.videos.privacy.comments", "preferences.videos.privacy.download", "preferences.videos.privacy.embed", "preferences.videos.privacy.password", "preferences.videos.privacy.view", "preferences.videos.password", "preferences.videos.hideStats", "preferences.videos.rating", "preferences.videos.autoccDisplayEnabledByDefault", "preferences.videos.sharingLinkDefaultExpiryDays"],
-    _v59 = ({
+    _v56 = _v0.i(0),
+    _v57 = _v0.i(0);
+  let _v58 = ["language", "drugs", "violence", "nudity"],
+    _v59 = ["preferences.videos.license", "preferences.videos.privacy.add", "preferences.videos.privacy.allowShareLink", "preferences.videos.privacy.clipEmbedAllowedDomains", "preferences.videos.privacy.comments", "preferences.videos.privacy.download", "preferences.videos.privacy.embed", "preferences.videos.privacy.password", "preferences.videos.privacy.view", "preferences.videos.password", "preferences.videos.hideStats", "preferences.videos.rating", "preferences.videos.autoccDisplayEnabledByDefault", "preferences.videos.sharingLinkDefaultExpiryDays"],
+    _v60 = ({
       addDomainToWhitelist: _v0,
       domainWhitelist: _v1,
       removeDomainFromWhitelist: _v2
@@ -301,7 +302,7 @@
       let [_v3, _v4] = (0, _v2.useState)(""),
         [_v5, _v6] = (0, _v2.useState)(null),
         _v7 = (0, _v2.useMemo)(() => ({
-          listEmpty: (0, _v41.translate)({
+          listEmpty: (0, _v42.translate)({
             singular: "At least 1 domain must be allowed",
             dictionary: {
               es: {
@@ -327,7 +328,7 @@
               }
             }
           }),
-          invalidUrl: (0, _v41.translate)({
+          invalidUrl: (0, _v42.translate)({
             singular: "Enter a valid URL",
             dictionary: {
               es: {
@@ -353,7 +354,7 @@
               }
             }
           }),
-          alreadyAdded: (0, _v41.translate)({
+          alreadyAdded: (0, _v42.translate)({
             singular: "Domain already added",
             dictionary: {
               es: {
@@ -403,21 +404,21 @@
           })(_v3);
           _v0 ? _v1.includes(_v0) ? _v6("alreadyAdded") : (_v6(null), _v0(_v0)) : _v6("invalidUrl");
         },
-        _v11 = (0, _v2.useMemo)(() => _v1.map(_v0 => (0, _v1.jsxs)(_v53.Tag, {
+        _v11 = (0, _v2.useMemo)(() => _v1.map(_v0 => (0, _v1.jsxs)(_v54.Tag, {
           size: "sm",
-          children: [(0, _v1.jsx)(_v53.TagLabel, {
+          children: [(0, _v1.jsx)(_v54.TagLabel, {
             children: _v0
-          }), (0, _v1.jsx)(_v53.TagCloseButton, {
+          }), (0, _v1.jsx)(_v54.TagCloseButton, {
             onClick: () => _v2(_v0)
           })]
         }, _v0)), [_v1, _v2]);
-      return (0, _v1.jsxs)(_v55.VStack, {
+      return (0, _v1.jsxs)(_v56.VStack, {
         w: "100%",
         gap: "sm",
         align: "flex-start",
         children: [(0, _v1.jsx)(_v22.Text, {
           variant: "heading-xs",
-          children: (0, _v41.translate)({
+          children: (0, _v42.translate)({
             singular: "Allowed domains",
             dictionary: {
               es: {
@@ -446,9 +447,9 @@
         }), (0, _v1.jsxs)(_v13.FormControl, {
           w: "100%",
           isInvalid: !!_v5,
-          children: [(0, _v1.jsxs)(_v51.InputGroup, {
+          children: [(0, _v1.jsxs)(_v52.InputGroup, {
             size: "md",
-            children: [(0, _v1.jsx)(_v50.Input, {
+            children: [(0, _v1.jsx)(_v51.Input, {
               autoFocus: !0,
               variant: "outlined",
               placeholder: "domain.com",
@@ -459,9 +460,9 @@
               },
               onKeyDown: _v0 => "Enter" === _v0.key && _v10(),
               onBlur: _v10
-            }), (0, _v1.jsx)(_v52.InputRightElement, {
-              children: (0, _v1.jsx)(_v54.Tooltip, {
-                label: (0, _v41.translate)({
+            }), (0, _v1.jsx)(_v53.InputRightElement, {
+              children: (0, _v1.jsx)(_v55.Tooltip, {
+                label: (0, _v42.translate)({
                   singular: "Add to list",
                   dictionary: {
                     es: {
@@ -488,8 +489,8 @@
                   }
                 }),
                 placement: "top",
-                children: (0, _v1.jsx)(_v49.IconButton, {
-                  "aria-label": (0, _v41.translate)({
+                children: (0, _v1.jsx)(_v50.IconButton, {
+                  "aria-label": (0, _v42.translate)({
                     singular: "Add domain",
                     dictionary: {
                       es: {
@@ -517,7 +518,7 @@
                   }),
                   size: "sm",
                   variant: "tertiary",
-                  icon: (0, _v1.jsx)(_v56.PlusCircle, {
+                  icon: (0, _v1.jsx)(_v57.PlusCircle, {
                     cursor: "pointer"
                   }),
                   onClick: _v10
@@ -527,7 +528,7 @@
           }), (0, _v1.jsx)(_v14.FormErrorMessage, {
             children: _v8
           })]
-        }), _v9 && (0, _v1.jsx)(_v48.HStack, {
+        }), _v9 && (0, _v1.jsx)(_v49.HStack, {
           flexWrap: "wrap",
           maxH: (0, _v21.rem)(120),
           overflowY: "auto",
@@ -536,11 +537,11 @@
         })]
       });
     };
-  var _v60 = _v0.i(0),
-    _v61 = _v0.i(0);
-  let _v62 = [{
+  var _v61 = _v0.i(0),
+    _v62 = _v0.i(0);
+  let _v63 = [{
       value: "keep-skip",
-      label: () => (0, _v41.translate)({
+      label: () => (0, _v42.translate)({
         singular: "Keep folder defaults and skip their videos",
         dictionary: {
           es: {
@@ -566,7 +567,7 @@
           }
         }
       }),
-      description: () => (0, _v41.translate)({
+      description: () => (0, _v42.translate)({
         singular: "Folder defaults are preserved and existing videos in those folders are not updated. The new account default only applies to videos that are not part of folders with custom defaults.",
         dictionary: {
           es: {
@@ -594,7 +595,7 @@
       })
     }, {
       value: "keep-update",
-      label: () => (0, _v41.translate)({
+      label: () => (0, _v42.translate)({
         singular: "Keep folder defaults, but update their videos anyway",
         dictionary: {
           es: {
@@ -620,7 +621,7 @@
           }
         }
       }),
-      description: () => (0, _v41.translate)({
+      description: () => (0, _v42.translate)({
         singular: "Folder defaults are preserved, but all existing videos, including those in folders with custom defaults, are updated to the new account default.",
         dictionary: {
           es: {
@@ -648,7 +649,7 @@
       })
     }, {
       value: "reset",
-      label: () => (0, _v41.translate)({
+      label: () => (0, _v42.translate)({
         singular: "Reset folder defaults to the new account default",
         dictionary: {
           es: {
@@ -674,7 +675,7 @@
           }
         }
       }),
-      description: () => (0, _v41.translate)({
+      description: () => (0, _v42.translate)({
         singular: "Folder defaults are replaced, and all existing videos, including those in folders with custom defaults, are updated to the new account default.",
         dictionary: {
           es: {
@@ -701,7 +702,7 @@
         }
       })
     }],
-    _v63 = ({
+    _v64 = ({
       isOpen: _v0,
       onCancel: _v1,
       onSave: _v2
@@ -715,7 +716,7 @@
           children: [(0, _v1.jsx)(_v10.ModalHeader, {
             children: (0, _v1.jsx)(_v22.Text, {
               variant: "heading-md",
-              children: (0, _v41.translate)({
+              children: (0, _v42.translate)({
                 singular: "Reset folder defaults",
                 dictionary: {
                   es: {
@@ -748,7 +749,7 @@
               gap: "md",
               children: [(0, _v1.jsx)(_v22.Text, {
                 variant: "body-md",
-                children: (0, _v41.translate)({
+                children: (0, _v42.translate)({
                   singular: "Some folders have their own custom privacy defaults. How do you want to manage them?",
                   dictionary: {
                     es: {
@@ -774,13 +775,13 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v61.RadioGroup, {
+              }), (0, _v1.jsx)(_v62.RadioGroup, {
                 value: _v3,
                 onChange: _v0 => _v4(_v0),
                 children: (0, _v1.jsx)(_v12.Flex, {
                   direction: "column",
                   gap: "md",
-                  children: _v62.map(_v0 => (0, _v1.jsx)(_v60.Radio, {
+                  children: _v63.map(_v0 => (0, _v1.jsx)(_v61.Radio, {
                     value: _v0.value,
                     alignItems: "flex-start",
                     children: (0, _v1.jsxs)(_v12.Flex, {
@@ -803,7 +804,7 @@
             children: [(0, _v1.jsx)(_v3.Button, {
               variant: "secondary",
               onClick: _v1,
-              children: (0, _v41.translate)({
+              children: (0, _v42.translate)({
                 singular: "Cancel",
                 dictionary: {
                   es: {
@@ -832,7 +833,528 @@
             }), (0, _v1.jsx)(_v3.Button, {
               variant: "primary",
               onClick: () => _v2(_v3),
-              children: (0, _v41.translate)({
+              children: (0, _v42.translate)({
+                singular: "Save",
+                dictionary: {
+                  es: {
+                    singular: "Guardar"
+                  },
+                  "de-DE": {
+                    singular: "Speichern"
+                  },
+                  "fr-FR": {
+                    singular: "Enregistrer"
+                  },
+                  "ja-JP": {
+                    singular: "保存"
+                  },
+                  "ko-KR": {
+                    singular: "저장"
+                  },
+                  "pt-BR": {
+                    singular: "Salvar"
+                  },
+                  "zh-CN": {
+                    singular: "保存"
+                  }
+                }
+              })
+            })]
+          })]
+        })]
+      });
+    };
+  var _v65 = _v0.i(0),
+    _v66 = _v0.i(0),
+    _v67 = _v0.i(0),
+    _v68 = _v0.i(0),
+    _v69 = _v0.i(0),
+    _v70 = _v0.i(0),
+    _v71 = _v0.i(0),
+    _v72 = _v0.i(0);
+  let _v73 = ({
+      isOpen: _v0,
+      ownerId: _v1,
+      onCancel: _v2,
+      onSave: _v3
+    }) => {
+      let [_v4, _v5] = (0, _v2.useState)(""),
+        [_v6, _v7] = (0, _v2.useState)("desc"),
+        [_v8, _v9] = (0, _v2.useState)(new Set()),
+        _v10 = (0, _v71.useDebouncedValue)(_v4, 400),
+        {
+          data: _v11,
+          error: _v12,
+          isValidating: _v13,
+          setSize: _v14
+        } = _v39({
+          where: {
+            userId: _v1
+          },
+          select: ["uri", "name", "settings.color"],
+          query: {
+            sort: "modified_time",
+            direction: _v6,
+            perPage: 25,
+            ...("" === _v10 ? {} : {
+              query: _v10
+            })
+          }
+        }, {
+          revalidateOnFocus: !1
+        }),
+        _v15 = (0, _v2.useMemo)(() => (_v11 ?? []).flatMap(_v0 => _v0.data.map(_v0 => {
+          let _v1;
+          return {
+            id: (_v1 = _v0.uri).substring(_v1.lastIndexOf("/") + 1),
+            name: _v0.name,
+            color: _v0.settings?.color == null || "" === _v0.settings.color ? void 0 : _v0.settings.color
+          };
+        })), [_v11]),
+        _v16 = _v11?.[_v11.length - 1],
+        _v17 = _v16?.paging.next != null && !_v13,
+        _v18 = null == _v11 && null == _v12,
+        [_v19, _v20, _v21] = (0, _v72.useInfiniteScroll)(_v17),
+        _v22 = _v18 || _v13 && 1 === _v19;
+      (0, _v2.useEffect)(() => {
+        _v14(_v19);
+      }, [_v19, _v14]);
+      let _v23 = `${_v10}|${_v6}`,
+        [_v24, _v25] = (0, _v2.useState)(_v23);
+      _v23 !== _v24 && (_v25(_v23), _v21(1), _v9(new Set()));
+      let _v26 = _v15.length > 0 && _v15.every(_v0 => _v8.has(_v0.id)),
+        _v27 = () => {
+          _v5(""), _v7("desc"), _v9(new Set()), _v21(1);
+        },
+        _v28 = () => {
+          _v27(), _v2();
+        };
+      return (0, _v1.jsxs)(_v6.Modal, {
+        isOpen: _v0,
+        onClose: _v28,
+        isCentered: !0,
+        children: [(0, _v1.jsx)(_v11.ModalOverlay, {}), (0, _v1.jsxs)(_v8.ModalContent, {
+          maxW: (0, _v21.rem)(700),
+          h: (0, _v21.rem)(700),
+          maxH: "calc(100vh - 4rem)",
+          minH: (0, _v21.rem)(400),
+          children: [(0, _v1.jsx)(_v10.ModalHeader, {
+            children: (0, _v1.jsx)(_v22.Text, {
+              variant: "heading-md",
+              children: (0, _v42.translate)({
+                singular: "Update folder defaults",
+                dictionary: {
+                  es: {
+                    singular: "Actualizar valores predeterminados de las carpetas"
+                  },
+                  "de-DE": {
+                    singular: "Standardeinstellungen der Ordner aktualisieren"
+                  },
+                  "fr-FR": {
+                    singular: "Mettre à jour les paramètres par défaut des dossiers"
+                  },
+                  "ja-JP": {
+                    singular: "フォルダのデフォルトを更新"
+                  },
+                  "ko-KR": {
+                    singular: "폴더 기본값 업데이트"
+                  },
+                  "pt-BR": {
+                    singular: "Atualizar padrões de pasta"
+                  },
+                  "zh-CN": {
+                    singular: "更新文件夹默认设置"
+                  }
+                }
+              })
+            })
+          }), (0, _v1.jsx)(_v7.ModalCloseButton, {}), (0, _v1.jsxs)(_v19.ModalBody, {
+            display: "flex",
+            flexDirection: "column",
+            gap: "lg",
+            overflow: "hidden",
+            minH: "0",
+            children: [(0, _v1.jsx)(_v22.Text, {
+              variant: "body-md",
+              color: "text-secondary",
+              children: (0, _v42.translate)({
+                singular: "These folders have their own custom privacy defaults. Select a folder if you want to reset its current values to the new account default you just set. Unselected folders will keep their overrides.",
+                dictionary: {
+                  es: {
+                    singular: "Estas carpetas tienen sus propios valores predeterminados de privacidad personalizados. Selecciona una carpeta si deseas restablecer sus valores actuales al nuevo valor predeterminado de la cuenta que acabas de establecer. Las carpetas no seleccionadas conservarán sus anulaciones."
+                  },
+                  "de-DE": {
+                    singular: "Diese Ordner haben eigene Standardwerte für die Privatsphäre. Wählen Sie einen Ordner aus, wenn Sie dessen aktuelle Werte auf den soeben gesetzten neuen Konto-Standard zurücksetzen möchten. Nicht ausgewählte Ordner behalten ihre Überschreibungen."
+                  },
+                  "fr-FR": {
+                    singular: "Ces dossiers ont leurs propres paramètres de confidentialité par défaut personnalisés. Sélectionnez un dossier si vous souhaitez réinitialiser ses valeurs actuelles sur la nouvelle valeur par défaut du compte que vous venez de définir. Les dossiers non sélectionnés conserveront leurs paramètres personnalisés."
+                  },
+                  "ja-JP": {
+                    singular: "これらのフォルダには独自のプライバシーの既定値が設定されています。現在の値を先ほど設定したアカウントの新しい既定値にリセットするには、フォルダを選択してください。選択されていないフォルダは上書き設定を維持します。"
+                  },
+                  "ko-KR": {
+                    singular: "이 폴더들은 자체 사용자 지정 프라이버시 기본값을 가지고 있습니다. 방금 설정한 새 계정 기본값으로 현재 값을 재설정하려면 폴더를 선택하세요. 선택되지 않은 폴더는 개별 오버라이드를 유지합니다."
+                  },
+                  "pt-BR": {
+                    singular: "Essas pastas têm seus próprios padrões de privacidade personalizados. Selecione uma pasta se quiser redefinir seus valores atuais para o novo padrão da conta que você acabou de definir. As pastas não selecionadas manterão suas configurações personalizadas."
+                  },
+                  "zh-CN": {
+                    singular: "这些文件夹有其自定义的隐私默认设置。如果您想将某个文件夹的当前值重置为刚刚设置的账户新默认值，请选择该文件夹。未选中文件夹将保留其覆盖设置。"
+                  }
+                }
+              })
+            }), (0, _v1.jsxs)(_v12.Flex, {
+              direction: "column",
+              gap: "md",
+              flex: "1",
+              minH: "0",
+              children: [(0, _v1.jsx)(_v66.Search, {
+                value: _v4,
+                onChange: _v0 => _v5(_v0.currentTarget.value),
+                placeholder: (0, _v42.translate)({
+                  singular: "Search folders",
+                  dictionary: {
+                    es: {
+                      singular: "Buscar en carpetas"
+                    },
+                    "de-DE": {
+                      singular: "Ordner durchsuchen"
+                    },
+                    "fr-FR": {
+                      singular: "Recherche dans les dossiers"
+                    },
+                    "ja-JP": {
+                      singular: "検索フォルダー"
+                    },
+                    "ko-KR": {
+                      singular: "폴더 검색"
+                    },
+                    "pt-BR": {
+                      singular: "Pesquisar Pastas"
+                    },
+                    "zh-CN": {
+                      singular: "搜索文件夹"
+                    }
+                  }
+                }),
+                "data-lpignore": "true"
+              }), (0, _v1.jsxs)(_v12.Flex, {
+                align: "center",
+                justify: "space-between",
+                children: [(0, _v1.jsx)(_v4.Checkbox, {
+                  size: "sm",
+                  isChecked: _v26,
+                  isIndeterminate: !_v26 && _v8.size > 0,
+                  isDisabled: 0 === _v15.length,
+                  onChange: () => {
+                    _v9(_v0 => {
+                      let _v1 = new Set(_v0);
+                      return _v15.forEach(_v0 => {
+                        _v26 ? _v1.delete(_v0.id) : _v1.add(_v0.id);
+                      }), _v1;
+                    });
+                  },
+                  children: (0, _v1.jsx)(_v22.Text, {
+                    variant: "body-sm",
+                    children: (0, _v42.translate)({
+                      singular: "{COUNT} selected",
+                      replacements: {
+                        COUNT: _v8.size
+                      },
+                      dictionary: {
+                        es: {
+                          singular: "{COUNT} seleccionadas"
+                        },
+                        "de-DE": {
+                          singular: "{COUNT} ausgewählt"
+                        },
+                        "fr-FR": {
+                          singular: "{COUNT} sélectionnés"
+                        },
+                        "ja-JP": {
+                          singular: "{COUNT} 個選択されています"
+                        },
+                        "ko-KR": {
+                          singular: "{COUNT}개 선택됨"
+                        },
+                        "pt-BR": {
+                          singular: "{COUNT} selecionadas"
+                        },
+                        "zh-CN": {
+                          singular: "已选择 {COUNT} 个"
+                        }
+                      }
+                    })
+                  })
+                }), (0, _v1.jsxs)(_v15.Menu, {
+                  children: [(0, _v1.jsx)(_v16.MenuButton, {
+                    as: _v3.Button,
+                    variant: "tertiary",
+                    size: "sm",
+                    rightIcon: (0, _v1.jsx)(_v69.SortSmall, {}),
+                    children: (0, _v42.translate)({
+                      singular: "Last added",
+                      dictionary: {
+                        es: {
+                          singular: "Último agregado"
+                        },
+                        "de-DE": {
+                          singular: "Zuletzt hinzugefügt"
+                        },
+                        "fr-FR": {
+                          singular: "Ajoutées en dernier"
+                        },
+                        "ja-JP": {
+                          singular: "最終追加日"
+                        },
+                        "ko-KR": {
+                          singular: "마지막 추가"
+                        },
+                        "pt-BR": {
+                          singular: "Adicionado por último"
+                        },
+                        "zh-CN": {
+                          singular: "最后添加"
+                        }
+                      }
+                    })
+                  }), (0, _v1.jsxs)(_v18.MenuList, {
+                    children: [(0, _v1.jsx)(_v17.MenuItem, {
+                      onClick: () => _v7("desc"),
+                      children: (0, _v1.jsx)(_v22.Text, {
+                        variant: "body-md",
+                        children: (0, _v42.translate)({
+                          singular: "Newest first",
+                          dictionary: {
+                            es: {
+                              singular: "Más recientes primero"
+                            },
+                            "de-DE": {
+                              singular: "Neueste zuerst"
+                            },
+                            "fr-FR": {
+                              singular: "Les plus récents d'abord"
+                            },
+                            "ja-JP": {
+                              singular: "新しい順"
+                            },
+                            "ko-KR": {
+                              singular: "최신순"
+                            },
+                            "pt-BR": {
+                              singular: "Mais recentes primeiro"
+                            },
+                            "zh-CN": {
+                              singular: "最新在前"
+                            }
+                          }
+                        })
+                      })
+                    }), (0, _v1.jsx)(_v17.MenuItem, {
+                      onClick: () => _v7("asc"),
+                      children: (0, _v1.jsx)(_v22.Text, {
+                        variant: "body-md",
+                        children: (0, _v42.translate)({
+                          singular: "Oldest first",
+                          dictionary: {
+                            es: {
+                              singular: "Más antiguos primero"
+                            },
+                            "de-DE": {
+                              singular: "Älteste zuerst"
+                            },
+                            "fr-FR": {
+                              singular: "Les plus anciens d'abord"
+                            },
+                            "ja-JP": {
+                              singular: "古い順"
+                            },
+                            "ko-KR": {
+                              singular: "오래된 순"
+                            },
+                            "pt-BR": {
+                              singular: "Mais antigas primeiro"
+                            },
+                            "zh-CN": {
+                              singular: "最早在前"
+                            }
+                          }
+                        })
+                      })
+                    })]
+                  })]
+                })]
+              }), (0, _v1.jsxs)(_v12.Flex, {
+                direction: "column",
+                flex: "1",
+                minH: "0",
+                overflowY: "auto",
+                children: [!_v22 && _v15.map((_v0, _v1) => (0, _v1.jsxs)(_v70.ContentRow, {
+                  dragDropRef: _v1 === _v15.length - 1 ? _v0 => {
+                    _v0 instanceof HTMLDivElement && _v20(_v0);
+                  } : void 0,
+                  listGridColumns: `min-content ${(0, _v21.rem)(100)} minmax(0, 1fr)`,
+                  gridColumnGap: "md",
+                  isSelected: _v8.has(_v0.id),
+                  flexShrink: 0,
+                  width: "100%",
+                  children: [(0, _v1.jsx)(_v4.Checkbox, {
+                    size: "md",
+                    isChecked: _v8.has(_v0.id),
+                    onChange: _v0 => {
+                      var _v1, _v2;
+                      return _v1 = _v0.id, _v2 = _v0.target.checked, void _v9(_v0 => {
+                        let _v1 = new Set(_v0);
+                        return _v2 ? _v1.add(_v1) : _v1.delete(_v1), _v1;
+                      });
+                    },
+                    "aria-label": _v0.name
+                  }), (0, _v1.jsx)(_v70.ContentRow.DefaultThumbnail, {
+                    background: _v0.color,
+                    borderRadius: "sm",
+                    minWidth: (0, _v21.rem)(100),
+                    children: (0, _v1.jsx)(_v68.FolderFilled, {
+                      color: void 0 === _v0.color ? "text-secondary" : (0, _v65.readableColor)(_v0.color),
+                      opacity: "0.4",
+                      boxSize: "md"
+                    })
+                  }), (0, _v1.jsx)(_v22.Text, {
+                    variant: "heading-xs",
+                    noOfLines: 1,
+                    children: _v0.name
+                  })]
+                }, _v0.id)), !_v22 && null != _v12 && (0, _v1.jsx)(_v22.Text, {
+                  variant: "body-md",
+                  color: "text-secondary",
+                  children: (0, _v42.translate)({
+                    singular: "Something went wrong. Please try again.",
+                    dictionary: {
+                      es: {
+                        singular: "Algo salió mal. Inténtalo de nuevo."
+                      },
+                      "de-DE": {
+                        singular: "Hier ist etwas schiefgelaufen. Bitte nochmal versuchen"
+                      },
+                      "fr-FR": {
+                        singular: "Une erreur s'est produite. Veuillez essayer à nouveau."
+                      },
+                      "ja-JP": {
+                        singular: "エラーが発生しました。 再度お試しください。"
+                      },
+                      "ko-KR": {
+                        singular: "문제가 발생했습니다. 다시 시도해주세요."
+                      },
+                      "pt-BR": {
+                        singular: "Alguma coisa deu errado. Por favor, tente novamente."
+                      },
+                      "zh-CN": {
+                        singular: "出错了。请重试。"
+                      }
+                    }
+                  })
+                }), !_v22 && 0 === _v15.length && null == _v12 && (0, _v1.jsx)(_v22.Text, {
+                  variant: "body-md",
+                  color: "text-secondary",
+                  children: (0, _v42.translate)({
+                    singular: "No folders found",
+                    dictionary: {
+                      es: {
+                        singular: "No se encontraron carpetas"
+                      },
+                      "de-DE": {
+                        singular: "Keine Ordner gefunden"
+                      },
+                      "fr-FR": {
+                        singular: "Aucun dossier trouvé"
+                      },
+                      "ja-JP": {
+                        singular: "フォルダが見つかりません"
+                      },
+                      "ko-KR": {
+                        singular: "폴더를 찾을 수 없습니다."
+                      },
+                      "pt-BR": {
+                        singular: "Nenhuma pasta encontrada"
+                      },
+                      "zh-CN": {
+                        singular: "未找到文件夹"
+                      }
+                    }
+                  })
+                }), (_v22 || _v13) && (0, _v1.jsx)(_v12.Flex, {
+                  justify: "center",
+                  py: "md",
+                  flexShrink: 0,
+                  children: (0, _v1.jsx)(_v67.Spinner, {
+                    size: "md",
+                    "aria-label": (0, _v42.translate)({
+                      singular: "Loading folders",
+                      dictionary: {
+                        es: {
+                          singular: "Cargando carpetas"
+                        },
+                        "de-DE": {
+                          singular: "Ordner werden geladen"
+                        },
+                        "fr-FR": {
+                          singular: "Chargement des dossiers"
+                        },
+                        "ja-JP": {
+                          singular: "フォルダを読み込み中"
+                        },
+                        "ko-KR": {
+                          singular: "폴더 불러오는 중"
+                        },
+                        "pt-BR": {
+                          singular: "Carregando pastas"
+                        },
+                        "zh-CN": {
+                          singular: "正在加载文件夹"
+                        }
+                      }
+                    })
+                  })
+                })]
+              })]
+            })]
+          }), (0, _v1.jsxs)(_v9.ModalFooter, {
+            children: [(0, _v1.jsx)(_v3.Button, {
+              variant: "tertiary",
+              onClick: _v28,
+              children: (0, _v42.translate)({
+                singular: "Cancel",
+                dictionary: {
+                  es: {
+                    singular: "Cancelar"
+                  },
+                  "de-DE": {
+                    singular: "Abbrechen"
+                  },
+                  "fr-FR": {
+                    singular: "Annuler"
+                  },
+                  "ja-JP": {
+                    singular: "キャンセル"
+                  },
+                  "ko-KR": {
+                    singular: "취소"
+                  },
+                  "pt-BR": {
+                    singular: "Cancelar"
+                  },
+                  "zh-CN": {
+                    singular: "取消"
+                  }
+                }
+              })
+            }), (0, _v1.jsx)(_v3.Button, {
+              variant: "primary",
+              isLoading: _v18 || _v13,
+              onClick: () => {
+                let _v0 = [..._v8];
+                _v27(), _v3(_v0);
+              },
+              children: (0, _v42.translate)({
                 singular: "Save",
                 dictionary: {
                   es: {
@@ -863,140 +1385,7 @@
         })]
       });
     },
-    _v64 = ({
-      isOpen: _v0,
-      onCancel: _v1,
-      onKeepOverrides: _v2,
-      onResetFolderValues: _v3
-    }) => (0, _v1.jsxs)(_v6.Modal, {
-      isOpen: _v0,
-      onClose: _v1,
-      isCentered: !0,
-      children: [(0, _v1.jsx)(_v11.ModalOverlay, {}), (0, _v1.jsxs)(_v8.ModalContent, {
-        children: [(0, _v1.jsx)(_v10.ModalHeader, {
-          children: (0, _v1.jsx)(_v22.Text, {
-            variant: "heading-md",
-            children: (0, _v41.translate)({
-              singular: "Update folder defaults",
-              dictionary: {
-                es: {
-                  singular: "Actualizar valores predeterminados de las carpetas"
-                },
-                "de-DE": {
-                  singular: "Standardeinstellungen der Ordner aktualisieren"
-                },
-                "fr-FR": {
-                  singular: "Mettre à jour les paramètres par défaut des dossiers"
-                },
-                "ja-JP": {
-                  singular: "フォルダのデフォルトを更新"
-                },
-                "ko-KR": {
-                  singular: "폴더 기본값 업데이트"
-                },
-                "pt-BR": {
-                  singular: "Atualizar padrões de pasta"
-                },
-                "zh-CN": {
-                  singular: "更新文件夹默认设置"
-                }
-              }
-            })
-          })
-        }), (0, _v1.jsx)(_v19.ModalBody, {
-          children: (0, _v1.jsx)(_v22.Text, {
-            variant: "body-md",
-            children: (0, _v41.translate)({
-              singular: "Some folders have their own custom privacy defaults that override your account default. Do you want to reset their current values to the new account default?",
-              dictionary: {
-                es: {
-                  singular: "Algunas carpetas tienen sus propios valores predeterminados de privacidad personalizados que anulan el valor predeterminado de su cuenta. ¿Desea restablecer sus valores actuales al nuevo valor predeterminado de la cuenta?"
-                },
-                "de-DE": {
-                  singular: "Einige Ordner haben eigene, benutzerdefinierte Datenschutzeinstellungen, die Ihren Kontostandard überschreiben. Möchten Sie deren aktuelle Werte auf den neuen Kontostandard zurücksetzen?"
-                },
-                "fr-FR": {
-                  singular: "Certains dossiers ont leurs propres paramètres de confidentialité par défaut personnalisés qui remplacent le paramètre par défaut de votre compte. Voulez-vous réinitialiser leurs valeurs actuelles sur le nouveau paramètre par défaut du compte ?"
-                },
-                "ja-JP": {
-                  singular: "一部のフォルダにはアカウントのデフォルトを上書きする独自のプライバシーデフォルトがあります。これらの現在の値を新しいアカウントのデフォルトにリセットしますか？"
-                },
-                "ko-KR": {
-                  singular: "일부 폴더는 계정 기본값을 덮어쓰는 자체 사용자 지정 프라이버시 기본값을 가지고 있습니다. 현재 값을 새 계정 기본값으로 재설정하시겠습니까?"
-                },
-                "pt-BR": {
-                  singular: "Algumas pastas têm seus próprios padrões personalizados de privacidade que substituem o padrão da sua conta. Deseja redefinir os valores atuais delas para o novo padrão da conta?"
-                },
-                "zh-CN": {
-                  singular: "有些文件夹具有覆盖您账户默认设置的自定义隐私默认值。您是否要将它们当前的值重置为新的账户默认值？"
-                }
-              }
-            })
-          })
-        }), (0, _v1.jsxs)(_v9.ModalFooter, {
-          children: [(0, _v1.jsx)(_v3.Button, {
-            variant: "tertiary",
-            onClick: _v3,
-            children: (0, _v41.translate)({
-              singular: "Reset folder values",
-              dictionary: {
-                es: {
-                  singular: "Restablecer valores de las carpetas"
-                },
-                "de-DE": {
-                  singular: "Ordnerwerte zurücksetzen"
-                },
-                "fr-FR": {
-                  singular: "Réinitialiser les valeurs des dossiers"
-                },
-                "ja-JP": {
-                  singular: "フォルダの値をリセット"
-                },
-                "ko-KR": {
-                  singular: "폴더 값 재설정"
-                },
-                "pt-BR": {
-                  singular: "Redefinir valores das pastas"
-                },
-                "zh-CN": {
-                  singular: "重置文件夹值"
-                }
-              }
-            })
-          }), (0, _v1.jsx)(_v3.Button, {
-            variant: "primary",
-            onClick: _v2,
-            children: (0, _v41.translate)({
-              singular: "Keep folder overrides",
-              dictionary: {
-                es: {
-                  singular: "Conservar las anulaciones de las carpetas"
-                },
-                "de-DE": {
-                  singular: "Ordnerüberschreibungen beibehalten"
-                },
-                "fr-FR": {
-                  singular: "Conserver les paramètres personnalisés des dossiers"
-                },
-                "ja-JP": {
-                  singular: "フォルダのオーバーライドを保持する"
-                },
-                "ko-KR": {
-                  singular: "폴더 재정의 유지"
-                },
-                "pt-BR": {
-                  singular: "Manter as substituições de pasta"
-                },
-                "zh-CN": {
-                  singular: "保留文件夹覆盖设置"
-                }
-              }
-            })
-          })]
-        })]
-      })]
-    }),
-    _v65 = _v0 => {
+    _v74 = _v0 => {
       let [_v1, _v2] = (0, _v2.useState)(_v0),
         _v3 = (0, _v2.useRef)(_v0),
         _v4 = (0, _v2.useCallback)(function (_v0, _v1) {
@@ -1026,19 +1415,19 @@
         resetState: _v6
       };
     };
-  var _v66 = _v0.i(0);
-  let _v67 = () => {
-    let _v0 = (0, _v47.useViewer)(),
+  var _v75 = _v0.i(0);
+  let _v76 = () => {
+    let _v0 = (0, _v48.useViewer)(),
       _v1 = _v0?.teamUser?.ownerId ?? _v0?.user?.id,
       {
         data: _v2,
         mutate: _v3,
         isLoading: _v4
-      } = (0, _v66.useGetUser)(() => _v1 ? {
+      } = (0, _v75.useGetUser)(() => _v1 ? {
         where: {
           userId: _v1
         },
-        select: _v58,
+        select: _v59,
         headers: {
           Accept: "application/vnd.vimeo.*+json;version=3.4.1"
         }
@@ -1047,10 +1436,10 @@
         loading: _v6,
         error: _v7,
         data: _v8
-      }] = (0, _v66.usePatchUser)(),
+      }] = (0, _v75.usePatchUser)(),
       _v9 = async _v0 => {
         _v1 && (await _v5({
-          select: _v58,
+          select: _v59,
           variables: _v0,
           headers: {
             Accept: "application/vnd.vimeo.*+json;version=3.4.1"
@@ -1068,9 +1457,9 @@
       updateUploadDefaults: _v9
     };
   };
-  var _v68 = _v0.i(0);
-  let _v69 = () => ({
-      videoPrivacyLabel: (0, _v41.translate)({
+  var _v77 = _v0.i(0);
+  let _v78 = () => ({
+      videoPrivacyLabel: (0, _v42.translate)({
         singular: "Privacy",
         dictionary: {
           es: {
@@ -1096,7 +1485,7 @@
           }
         }
       }),
-      passwordPlaceholder: (0, _v41.translate)({
+      passwordPlaceholder: (0, _v42.translate)({
         singular: "Enter password",
         dictionary: {
           es: {
@@ -1122,7 +1511,7 @@
           }
         }
       }),
-      embedLocationLabel: (0, _v41.translate)({
+      embedLocationLabel: (0, _v42.translate)({
         singular: "Where can content be embedded?",
         dictionary: {
           es: {
@@ -1148,7 +1537,7 @@
           }
         }
       }),
-      folderDefaultsSettings: (0, _v41.translate)({
+      folderDefaultsSettings: (0, _v42.translate)({
         singular: "Folder defaults settings",
         dictionary: {
           es: {
@@ -1174,7 +1563,7 @@
           }
         }
       }),
-      passwordErrorMsg: (0, _v41.translate)({
+      passwordErrorMsg: (0, _v42.translate)({
         singular: "Required",
         dictionary: {
           es: {
@@ -1200,7 +1589,7 @@
           }
         }
       }),
-      applyToAllExistingVideos: (0, _v41.translate)({
+      applyToAllExistingVideos: (0, _v42.translate)({
         singular: "Apply to all existing videos",
         dictionary: {
           es: {
@@ -1226,7 +1615,7 @@
           }
         }
       }),
-      save: (0, _v41.translate)({
+      save: (0, _v42.translate)({
         singular: "Save",
         dictionary: {
           es: {
@@ -1252,10 +1641,10 @@
           }
         }
       }),
-      description: (0, _v41.translate)({
+      description: (0, _v42.translate)({
         singular: "These settings apply to all new videos, showcases, and events. You can manage which privacies are available in {LINK}Security and data{/LINK}.",
         replacements: {
-          LINK: _v0 => (0, _v1.jsx)(_v68.Link, {
+          LINK: _v0 => (0, _v1.jsx)(_v77.Link, {
             href: "https://vimeo.com/manage/workspace/security-and-data/privacy-restrictions",
             variant: "inline-primary",
             fontSize: "inherit",
@@ -1287,7 +1676,7 @@
           }
         }
       }),
-      viewerPermissions: (0, _v41.translate)({
+      viewerPermissions: (0, _v42.translate)({
         singular: "Viewer permissions",
         dictionary: {
           es: {
@@ -1313,7 +1702,7 @@
           }
         }
       }),
-      viewerPermissionsDescription: (0, _v41.translate)({
+      viewerPermissionsDescription: (0, _v42.translate)({
         singular: "These settings apply to all new videos and events",
         dictionary: {
           es: {
@@ -1339,10 +1728,10 @@
           }
         }
       }),
-      ccLicenseLink: (0, _v41.translate)({
+      ccLicenseLink: (0, _v42.translate)({
         singular: "{LINK}About Creative Commons licenses{/LINK}",
         replacements: {
-          LINK: _v0 => (0, _v1.jsx)(_v68.Link, {
+          LINK: _v0 => (0, _v1.jsx)(_v77.Link, {
             target: "_blank",
             href: "https://help.vimeo.com/hc/en-us/articles/12427652203153-What-do-the-different-Creative-Commons-licenses-mean",
             fontSize: "inherit",
@@ -1374,7 +1763,7 @@
           }
         }
       }),
-      contentRating: (0, _v41.translate)({
+      contentRating: (0, _v42.translate)({
         singular: "Content rating",
         dictionary: {
           es: {
@@ -1400,7 +1789,7 @@
           }
         }
       }),
-      contentRatingTooltip: (0, _v41.translate)({
+      contentRatingTooltip: (0, _v42.translate)({
         singular: "Labeling the contents of your video keeps Vimeo safe and accessible to as many audiences as possible",
         dictionary: {
           es: {
@@ -1426,7 +1815,7 @@
           }
         }
       }),
-      creativeCommonsTooltip: (0, _v41.translate)({
+      creativeCommonsTooltip: (0, _v42.translate)({
         singular: "Creative Commons licenses let viewers know how they're allowed to use your videos",
         dictionary: {
           es: {
@@ -1452,7 +1841,7 @@
           }
         }
       }),
-      copyright: (0, _v41.translate)({
+      copyright: (0, _v42.translate)({
         singular: "Copyright",
         dictionary: {
           es: {
@@ -1478,7 +1867,7 @@
           }
         }
       }),
-      selectLicense: (0, _v41.translate)({
+      selectLicense: (0, _v42.translate)({
         singular: "Select a license...",
         dictionary: {
           es: {
@@ -1504,7 +1893,7 @@
           }
         }
       }),
-      selectRating: (0, _v41.translate)({
+      selectRating: (0, _v42.translate)({
         singular: "Select a rating...",
         dictionary: {
           es: {
@@ -1530,7 +1919,7 @@
           }
         }
       }),
-      changesSaved: (0, _v41.translate)({
+      changesSaved: (0, _v42.translate)({
         singular: "Changes saved",
         dictionary: {
           es: {
@@ -1556,7 +1945,7 @@
           }
         }
       }),
-      changesWereNotSaved: (0, _v41.translate)({
+      changesWereNotSaved: (0, _v42.translate)({
         singular: "Changes were not saved. Please try again.",
         dictionary: {
           es: {
@@ -1583,8 +1972,8 @@
         }
       })
     }),
-    _v70 = "uds-privacy-update",
-    _v71 = {
+    _v79 = "uds-privacy-update",
+    _v80 = {
       view: "anybody",
       embed: "public",
       password: "",
@@ -1594,9 +1983,9 @@
       applyEmbedPrivacyToAll: !1,
       sharingLinkExpiryDays: 0
     },
-    _v72 = [{
+    _v81 = [{
       value: 0,
-      label: () => (0, _v41.translate)({
+      label: () => (0, _v42.translate)({
         singular: "No expiration",
         dictionary: {
           es: {
@@ -1624,7 +2013,7 @@
       })
     }, {
       value: 1,
-      label: () => (0, _v41.translate)({
+      label: () => (0, _v42.translate)({
         singular: "1 day",
         dictionary: {
           es: {
@@ -1652,7 +2041,7 @@
       })
     }, {
       value: 7,
-      label: () => (0, _v41.translate)({
+      label: () => (0, _v42.translate)({
         singular: "1 week",
         dictionary: {
           es: {
@@ -1680,7 +2069,7 @@
       })
     }, {
       value: 30,
-      label: () => (0, _v41.translate)({
+      label: () => (0, _v42.translate)({
         singular: "30 days",
         dictionary: {
           es: {
@@ -1716,22 +2105,22 @@
         defaults: _v3,
         isLoading: _v4,
         updateUploadDefaults: _v5
-      } = _v67(),
+      } = _v76(),
       {
         initializeState: _v6,
         resetState: _v7,
         updateState: _v8,
         state: _v9,
         hasChanges: _v10
-      } = _v65(_v71),
-      _v11 = (0, _v47.useViewer)(),
+      } = _v74(_v80),
+      _v11 = (0, _v48.useViewer)(),
       _v12 = _v11?.teamUser?.ownerId ?? _v11?.user?.id,
       {
         allowedPrivacies: _v13
-      } = (0, _v44.useUserAllowedPrivacies)(),
+      } = (0, _v45.useUserAllowedPrivacies)(),
       {
         settings: _v14
-      } = (0, _v42.useOrionSettings)(),
+      } = (0, _v43.useOrionSettings)(),
       {
         capabilities: _v15,
         ready: _v16,
@@ -1752,12 +2141,12 @@
         loading: _v23,
         error: _v24,
         called: _v25
-      }] = _v40(),
+      }] = _v41(),
       [_v26, {
         loading: _v27,
         error: _v28,
         called: _v29
-      }] = _v39(),
+      }] = _v40(),
       [_v30, _v31] = (0, _v2.useState)(!1),
       [_v32, _v33] = (0, _v2.useState)(!1),
       _v34 = (0, _v2.useRef)(!1),
@@ -1772,11 +2161,11 @@
       _v43 = (0, _v2.useRef)(_v42),
       {
         trackPrivacyChanged: _v44
-      } = (0, _v43.useViewPrivacyChangeTracking)(),
-      _v45 = (0, _v2.useMemo)(() => _v69(), []),
+      } = (0, _v44.useViewPrivacyChangeTracking)(),
+      _v45 = (0, _v2.useMemo)(() => _v78(), []),
       _v46 = "password" === _v9.view,
       _v47 = "whitelist" === _v9.embed,
-      _v48 = (0, _v46.useEmbedPrivacyOptions)(!0),
+      _v48 = (0, _v47.useEmbedPrivacyOptions)(!0),
       _v49 = _v14?.bi_expiring_links_default_expiry_days ?? 0;
     (0, _v2.useEffect)(() => {
       if (!_v3) return;
@@ -1791,16 +2180,16 @@
       });
     }, [_v3, _v6, _v49]);
     let _v50 = (0, _v2.useCallback)((_v0, _v1) => {
-        _v43.current.isActive(_v70) || _v43.current({
+        _v43.current.isActive(_v79) || _v43.current({
           title: _v0,
           status: _v1,
-          id: _v70
+          id: _v79
         });
       }, []),
       _v51 = () => {
         _v7(), _v1();
       },
-      _v52 = async (_v0 = !1, _v1 = !1) => {
+      _v52 = async (_v0 = !1, _v1 = []) => {
         let {
             view: _v2,
             embed: _v3,
@@ -1840,10 +2229,13 @@
             entityType: "workspace_default",
             previousPrivacy: _v8,
             newPrivacy: _v2
-          }), _v1 && _v12) {
+          }), _v1.length > 0 && _v12) {
             _v35.current = !0, _v26({
               where: {
                 userId: _v12
+              },
+              variables: {
+                folderIds: [..._v1]
               }
             });
             return;
@@ -1888,13 +2280,14 @@
         }
         await _v52("keep-skip" === _v0);
       },
-      _v60 = (0, _v45.useDefaultPrivacyOptions)(_v11, !0).map(_v0 => ({
+      _v60 = (0, _v46.useDefaultPrivacyOptions)(_v11, !0).map(_v0 => ({
         ..._v0,
         isDisabled: !_v13.includes(_v0.privacy)
       }));
     return (0, _v1.jsxs)(_v6.Modal, {
       isOpen: _v0,
       onClose: _v51,
+      blockScrollOnMount: !_v32,
       children: [(0, _v1.jsx)(_v11.ModalOverlay, {}), (0, _v1.jsxs)(_v8.ModalContent, {
         children: [(0, _v1.jsx)(_v10.ModalHeader, {
           children: (0, _v1.jsx)(_v22.Text, {
@@ -1968,7 +2361,7 @@
                 onSelect: _v0 => _v8("embed", _v0),
                 privacyOptions: _v48,
                 variant: "outlined"
-              }), _v47 && (0, _v1.jsx)(_v59, {
+              }), _v47 && (0, _v1.jsx)(_v60, {
                 addDomainToWhitelist: _v0 => _v8("domainAllowlist", [..._v9.domainAllowlist, _v0]),
                 domainWhitelist: _v9.domainAllowlist,
                 removeDomainFromWhitelist: _v0 => _v8("domainAllowlist", _v9.domainAllowlist.filter(_v0 => _v0 !== _v0))
@@ -1988,7 +2381,7 @@
                 gap: "xs",
                 children: [(0, _v1.jsx)(_v22.Text, {
                   variant: "heading-xs",
-                  children: (0, _v41.translate)({
+                  children: (0, _v42.translate)({
                     singular: "Sharing link expiration",
                     dictionary: {
                       es: {
@@ -2017,7 +2410,7 @@
                 }), (0, _v1.jsx)(_v22.Text, {
                   variant: "body-md",
                   color: "text-secondary",
-                  children: (0, _v41.translate)({
+                  children: (0, _v42.translate)({
                     singular: "Set the default expiration for new sharing links",
                     dictionary: {
                       es: {
@@ -2052,7 +2445,7 @@
                       boxSize: (0, _v21.rem)(16)
                     }),
                     w: "fit-content",
-                    children: _v72.find(_v0 => _v0.value === _v9.sharingLinkExpiryDays)?.label() ?? (0, _v41.translate)({
+                    children: _v81.find(_v0 => _v0.value === _v9.sharingLinkExpiryDays)?.label() ?? (0, _v42.translate)({
                       singular: "1 week",
                       dictionary: {
                         es: {
@@ -2079,7 +2472,7 @@
                       }
                     })
                   }), (0, _v1.jsx)(_v18.MenuList, {
-                    children: _v72.map(_v0 => (0, _v1.jsx)(_v17.MenuItem, {
+                    children: _v81.map(_v0 => (0, _v1.jsx)(_v17.MenuItem, {
                       onClick: () => _v8("sharingLinkExpiryDays", _v0.value),
                       children: (0, _v1.jsx)(_v22.Text, {
                         variant: "body-md",
@@ -2101,24 +2494,24 @@
             children: _v45.save
           })
         })]
-      }), _v32 && (0, _v1.jsx)(_v64, {
+      }), _v32 && null != _v12 && (0, _v1.jsx)(_v73, {
         isOpen: !0,
+        ownerId: _v12,
         onCancel: () => _v33(!1),
-        onKeepOverrides: () => void _v58(!1),
-        onResetFolderValues: () => void _v58(!0)
-      }), _v30 && (0, _v1.jsx)(_v63, {
+        onSave: _v0 => void _v58(_v0)
+      }), _v30 && (0, _v1.jsx)(_v64, {
         isOpen: !0,
         onCancel: () => _v31(!1),
         onSave: _v0 => void _v59(_v0)
       })]
     });
   }], 0);
-  var _v73 = _v0.i(0),
-    _v74 = _v0.i(0),
-    _v75 = _v0.i(0),
-    _v76 = _v0.i(0);
-  let _v77 = {
-      violence: (0, _v41.translate)({
+  var _v82 = _v0.i(0),
+    _v83 = _v0.i(0),
+    _v84 = _v0.i(0),
+    _v85 = _v0.i(0);
+  let _v86 = {
+      violence: (0, _v42.translate)({
         singular: "Violence",
         dictionary: {
           es: {
@@ -2141,7 +2534,7 @@
           }
         }
       }),
-      language: (0, _v41.translate)({
+      language: (0, _v42.translate)({
         singular: "Profanity",
         dictionary: {
           es: {
@@ -2167,7 +2560,7 @@
           }
         }
       }),
-      nudity: (0, _v41.translate)({
+      nudity: (0, _v42.translate)({
         singular: "Nudity",
         dictionary: {
           es: {
@@ -2193,7 +2586,7 @@
           }
         }
       }),
-      drugs: (0, _v41.translate)({
+      drugs: (0, _v42.translate)({
         singular: "Drug or alcohol use",
         dictionary: {
           es: {
@@ -2219,7 +2612,7 @@
           }
         }
       }),
-      safe: (0, _v41.translate)({
+      safe: (0, _v42.translate)({
         singular: "All audiences",
         dictionary: {
           es: {
@@ -2245,7 +2638,7 @@
           }
         }
       }),
-      mature: (0, _v41.translate)({
+      mature: (0, _v42.translate)({
         singular: "Mature",
         dictionary: {
           es: {
@@ -2271,7 +2664,7 @@
           }
         }
       }),
-      unrated: (0, _v41.translate)({
+      unrated: (0, _v42.translate)({
         singular: "Select rating",
         dictionary: {
           es: {
@@ -2298,56 +2691,56 @@
         }
       })
     },
-    _v78 = [{
+    _v87 = [{
       value: "safe",
-      label: _v77.safe
+      label: _v86.safe
     }, {
       value: "mature",
-      label: _v77.mature
+      label: _v86.mature
     }],
-    _v79 = ({
+    _v88 = ({
       contentRating: _v0,
       isRatingModlocked: _v1,
       onRatingChange: _v2
     }) => {
-      let _v3 = _v69(),
-        _v4 = (0, _v2.useMemo)(() => _v0?.includes("safe") ? "safe" : _v0?.some(_v0 => _v57.includes(_v0)) ? "mature" : "unrated", [_v0]);
+      let _v3 = _v78(),
+        _v4 = (0, _v2.useMemo)(() => _v0?.includes("safe") ? "safe" : _v0?.some(_v0 => _v58.includes(_v0)) ? "mature" : "unrated", [_v0]);
       return (0, _v1.jsxs)(_v12.Flex, {
         direction: "column",
         gap: "sm",
-        children: [(0, _v1.jsx)(_v75.Select, {
+        children: [(0, _v1.jsx)(_v84.Select, {
           placeholder: _v3.selectRating,
-          items: _v78,
+          items: _v87,
           value: [_v4 ?? ""],
           disabled: _v1,
           onValueChange: _v0 => {
             _v2(_v0.value[0]);
           },
-          children: _v0 => (0, _v1.jsx)(_v75.SelectItem, {
+          children: _v0 => (0, _v1.jsx)(_v84.SelectItem, {
             display: "flex",
             "data-testid": `${_v0.value}-option`,
-            children: (0, _v1.jsx)(_v75.SelectItemText, {
+            children: (0, _v1.jsx)(_v84.SelectItemText, {
               children: _v0.label
             })
           })
         }), "mature" === _v4 && (0, _v1.jsx)(_v12.Flex, {
           direction: "column",
           gap: "xs",
-          children: _v57.map(_v0 => (0, _v1.jsx)(_v4.Checkbox, {
+          children: _v58.map(_v0 => (0, _v1.jsx)(_v4.Checkbox, {
             isChecked: _v0.includes(_v0),
             onChange: _v0 => _v2(_v0, _v0.target.checked),
             alignItems: "flex-start",
             name: _v0,
             "data-testid": `${_v0}-checkbox`,
             value: _v0,
-            children: _v77[_v0]
+            children: _v86[_v0]
           }, `${_v0}-checkbox`))
         })]
       });
     };
-  var _v80 = _v0.i(0);
-  let _v81 = [{
-      label: (0, _v41.translate)({
+  var _v89 = _v0.i(0);
+  let _v90 = [{
+      label: (0, _v42.translate)({
         singular: "Downloads",
         dictionary: {
           es: {
@@ -2370,7 +2763,7 @@
       key: "download",
       info: null
     }, {
-      label: (0, _v41.translate)({
+      label: (0, _v42.translate)({
         singular: "Add to collections",
         dictionary: {
           es: {
@@ -2397,7 +2790,7 @@
         }
       }),
       key: "add",
-      info: (0, _v41.translate)({
+      info: (0, _v42.translate)({
         singular: "Showcases, channels, or groups",
         dictionary: {
           es: {
@@ -2424,7 +2817,7 @@
         }
       })
     }, {
-      label: (0, _v41.translate)({
+      label: (0, _v42.translate)({
         singular: "Auto-generated captions",
         dictionary: {
           es: {
@@ -2453,7 +2846,7 @@
       key: "cc",
       info: null
     }, {
-      label: (0, _v41.translate)({
+      label: (0, _v42.translate)({
         singular: "Comments",
         dictionary: {
           es: {
@@ -2482,7 +2875,7 @@
       key: "comments",
       info: null
     }, {
-      label: (0, _v41.translate)({
+      label: (0, _v42.translate)({
         singular: "Video stats and views",
         dictionary: {
           es: {
@@ -2511,8 +2904,8 @@
       key: "videoStats",
       info: null
     }],
-    _v82 = (0, _v21.rem)(250),
-    _v83 = {
+    _v91 = (0, _v21.rem)(250),
+    _v92 = {
       add: !0,
       cc: !1,
       comments: !1,
@@ -2533,7 +2926,7 @@
       } = (() => {
         let {
           data: _v0
-        } = (0, _v80.useGetCreativecommons)({
+        } = (0, _v89.useGetCreativecommons)({
           select: ["code", "name"]
         });
         return {
@@ -2546,22 +2939,22 @@
         updateUploadDefaults: _v7,
         patchError: _v8,
         patchData: _v9
-      } = _v67(),
+      } = _v76(),
       {
         state: _v10,
         hasChanges: _v11,
         updateState: _v12,
         initializeState: _v13,
         resetState: _v14
-      } = _v65(_v83),
-      _v15 = _v69(),
+      } = _v74(_v92),
+      _v15 = _v78(),
       _v16 = (0, _v2.useMemo)(() => {
         let _v0 = _v4?.map(_v0 => ({
           label: _v0.name,
           value: _v0.code
         }));
         return _v0?.unshift({
-          label: (0, _v41.translate)({
+          label: (0, _v42.translate)({
             singular: "Select a license...",
             dictionary: {
               es: {
@@ -2599,7 +2992,7 @@
         videoStats: !(_v5.hideStats ?? !0),
         cc: _v5.autoccDisplayEnabledByDefault ?? !1,
         license: _v5.license || "none",
-        rating: 0 === (_v0 = _v5.rating).length || _v0.includes("safe") && _v57.some(_v0 => _v0.includes(_v0)) ? ["unrated"] : _v0,
+        rating: 0 === (_v0 = _v5.rating).length || _v0.includes("safe") && _v58.some(_v0 => _v0.includes(_v0)) ? ["unrated"] : _v0,
         applyToAll: !1
       });
     }, [_v5, _v13]);
@@ -2648,24 +3041,24 @@
         }), (0, _v1.jsx)(_v7.ModalCloseButton, {
           onClick: _v1
         }), (0, _v1.jsxs)(_v19.ModalBody, {
-          children: [(0, _v1.jsxs)(_v48.HStack, {
+          children: [(0, _v1.jsxs)(_v49.HStack, {
             mb: "xs",
             gap: "xs",
             children: [(0, _v1.jsx)(_v22.Text, {
               variant: "heading-xs",
               children: _v15.contentRating
-            }), (0, _v1.jsx)(_v54.Tooltip, {
+            }), (0, _v1.jsx)(_v55.Tooltip, {
               label: _v15.contentRatingTooltip,
-              maxW: _v82,
+              maxW: _v91,
               placement: "top",
               shouldWrapChildren: !0,
-              children: (0, _v1.jsx)(_v76.InfoCircle, {
+              children: (0, _v1.jsx)(_v85.InfoCircle, {
                 cursor: "pointer",
                 display: "flex",
                 boxSize: "2xs"
               })
             })]
-          }), (0, _v1.jsx)(_v79, {
+          }), (0, _v1.jsx)(_v88, {
             onRatingChange: (_v0, _v1) => {
               let {
                 rating: _v2
@@ -2688,13 +3081,13 @@
           }), (0, _v1.jsx)(_v5.Divider, {
             borderColor: "stroke",
             my: "md"
-          }), (0, _v1.jsx)(_v55.VStack, {
+          }), (0, _v1.jsx)(_v56.VStack, {
             gap: "md",
-            children: _v81.map(({
+            children: _v90.map(({
               label: _v0,
               key: _v1,
               info: _v2
-            }) => (0, _v1.jsx)(_v73.Toggle, {
+            }) => (0, _v1.jsx)(_v82.Toggle, {
               label: _v0,
               info: _v2,
               size: "md",
@@ -2706,24 +3099,24 @@
           }), (0, _v1.jsx)(_v5.Divider, {
             borderColor: "stroke",
             my: "md"
-          }), (0, _v1.jsxs)(_v48.HStack, {
+          }), (0, _v1.jsxs)(_v49.HStack, {
             gap: "xs",
             mb: "xs",
             children: [(0, _v1.jsx)(_v22.Text, {
               variant: "heading-xs",
               children: _v15.copyright
-            }), (0, _v1.jsx)(_v54.Tooltip, {
+            }), (0, _v1.jsx)(_v55.Tooltip, {
               label: _v15.creativeCommonsTooltip,
-              maxW: _v82,
+              maxW: _v91,
               placement: "top",
               shouldWrapChildren: !0,
-              children: (0, _v1.jsx)(_v76.InfoCircle, {
+              children: (0, _v1.jsx)(_v85.InfoCircle, {
                 cursor: "pointer",
                 display: "flex",
                 boxSize: "2xs"
               })
             })]
-          }), (0, _v1.jsx)(_v75.Select, {
+          }), (0, _v1.jsx)(_v84.Select, {
             variant: "withCheck",
             placeholder: _v15.selectLicense,
             items: _v16,
@@ -2739,7 +3132,7 @@
           })]
         }), (0, _v1.jsx)(_v9.ModalFooter, {
           justifyContent: "space-between",
-          children: (0, _v1.jsx)(_v74.DefaultFooterContent, {
+          children: (0, _v1.jsx)(_v83.DefaultFooterContent, {
             isSaveDisabled: !_v11,
             isLoading: _v6,
             onSave: _v17,

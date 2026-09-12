@@ -1671,59 +1671,8 @@
       ..._v2
     });
   var _v118 = _v0.i(0),
-    _v119 = _v0.i(0),
-    _v120 = _v0.i(0),
-    _v121 = _v0.i(0),
-    _v122 = _v0.i(0);
-  let _v123 = ({
-    searchQuery: _v0,
-    onSearchChange: _v1
-  }) => {
-    let _v2 = (0, _v3.useRef)(null),
-      [_v3, _v4] = (0, _v3.useState)(!1);
-    return ((0, _v3.useEffect)(() => {
-      _v3 && _v2.current?.focus();
-    }, [_v3]), _v3) ? (0, _v1.jsxs)(_v119.InputGroup, {
-      maxWidth: "350px",
-      minWidth: "0",
-      flex: 1,
-      children: [(0, _v1.jsx)(_v120.InputLeftElement, {
-        pointerEvents: "none",
-        children: (0, _v1.jsx)(_v122.SearchMagnifier, {
-          boxSize: "1.25rem",
-          color: "text-secondary"
-        })
-      }), (0, _v1.jsx)(_v118.Input, {
-        ref: _v2,
-        size: "md",
-        placeholder: _v79,
-        value: _v0,
-        onChange: _v0 => _v1(_v0.currentTarget.value),
-        onBlur: () => {
-          _v0 || _v4(!1);
-        },
-        variant: "filled"
-      }), _v0 && (0, _v1.jsx)(_v120.InputRightElement, {
-        children: (0, _v1.jsx)(_v86.IconButton, {
-          "aria-label": _v77,
-          icon: (0, _v1.jsx)(_v121.CloseXCircleFilled, {}),
-          onMouseDown: _v0 => _v0.preventDefault(),
-          onClick: () => {
-            _v1(""), _v2.current?.focus();
-          },
-          variant: "ghost",
-          size: "xs"
-        })
-      })]
-    }) : (0, _v1.jsx)(_v86.IconButton, {
-      "aria-label": _v79,
-      icon: (0, _v1.jsx)(_v122.SearchMagnifier, {}),
-      onClick: () => _v4(!0),
-      variant: "tertiary"
-    });
-  };
-  var _v124 = _v0.i(0);
-  function _v125() {
+    _v119 = _v0.i(0);
+  function _v120() {
     let {
         trackShowcasesListPageDisplayed: _v0,
         trackShowcaseCreated: _v1
@@ -1782,7 +1731,7 @@
             mutate: _v7,
             setSize: _v8,
             size: _v9
-          } = (0, _v124.useGetUserAlbumsInfinite)(() => _v0 ? {
+          } = (0, _v119.useGetUserAlbumsInfinite)(() => _v0 ? {
             select: ["createdTime", "embed.html", "hasChosenThumbnail", "link", "metadata.connections.videos.total", "metadata.interactions.delete", "name", "pictures.sizes.link", "privacy.view", "uri", "modifiedTime"],
             where: {
               userId: _v0
@@ -2123,9 +2072,11 @@
                 sort: _v11,
                 setSort: _v12,
                 sortOptions: _v23.SHOWCASES_SORT_OPTIONS,
-                searchElement: _v8 ? (0, _v1.jsx)(_v123, {
+                searchElement: _v8 ? (0, _v1.jsx)(_v118.ShowcaseSearchBar, {
                   searchQuery: _v13,
-                  onSearchChange: _v14
+                  onSearchChange: _v14,
+                  searchLabel: _v79,
+                  clearSearchLabel: _v77
                 }) : void 0
               }),
               title: (0, _v7.translate)({
@@ -2249,14 +2200,14 @@
       })]
     });
   }
-  var _v126 = _v0.i(0),
-    _v127 = _v0.i(0),
-    _v128 = _v0.i(0),
-    _v129 = _v0.i(0),
-    _v130 = _v0.i(0);
-  let _v131 = ({
+  var _v121 = _v0.i(0),
+    _v122 = _v0.i(0),
+    _v123 = _v0.i(0),
+    _v124 = _v0.i(0),
+    _v125 = _v0.i(0);
+  let _v126 = ({
     playerAssetUrls: _v0
-  }) => (0, _v1.jsx)(_v126.PlayerContextProvider, {
+  }) => (0, _v1.jsx)(_v121.PlayerContextProvider, {
     assetUrls: _v0 ?? {
       barebone_js: "",
       chromeless_css: "",
@@ -2265,16 +2216,16 @@
       js: "",
       player_url: ""
     },
-    type: _v127.PlayerType.VimeoPlayer,
-    children: (0, _v1.jsx)(_v130.VideoModalContextProvider, {
-      children: (0, _v1.jsx)(_v125, {})
+    type: _v122.PlayerType.VimeoPlayer,
+    children: (0, _v1.jsx)(_v125.VideoModalContextProvider, {
+      children: (0, _v1.jsx)(_v120, {})
     })
   });
-  _v131.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v129.VideoLibraryLayout, {
+  _v126.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v124.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
     searchContentAlignment: _v22.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
-    sideNavContent: (0, _v1.jsx)(_v128.SideNavContent, {
+    sideNavContent: (0, _v1.jsx)(_v123.SideNavContent, {
       surface: "home"
     }),
     sideNavSurface: "home",
@@ -2289,5 +2240,5 @@
     capability: "canManageTeamCollections",
     inlineViewer: !0,
     inlinePlayerAssets: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v131], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v126], 0);
 }

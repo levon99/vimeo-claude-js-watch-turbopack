@@ -48,22 +48,23 @@
           style: _v5,
           disableAPI: _v6 = !1,
           onPlayerAPIReady: _v7,
-          ..._v8
+          onIframeLoad: _v8,
+          ..._v9
         } = _v0,
-        [_v9, _v10] = (0, _v2.useState)(!_v6),
-        [_v11, _v12] = (0, _v2.useState)(!1),
-        _v13 = (0, _v4.useHasMounted)(),
-        _v14 = (0, _v2.useRef)(null),
-        _v15 = (0, _v2.useRef)(null);
+        [_v10, _v11] = (0, _v2.useState)(!_v6),
+        [_v12, _v13] = (0, _v2.useState)(!1),
+        _v14 = (0, _v4.useHasMounted)(),
+        _v15 = (0, _v2.useRef)(null),
+        _v16 = (0, _v2.useRef)(null);
       (0, _v2.useEffect)(() => {
-        if (!_v13 || !_v14.current) return;
-        if (_v6 || !window.Vimeo?.Player) return void _v10(!1);
+        if (!_v14 || !_v15.current) return;
+        if (_v6 || !window.Vimeo?.Player) return void _v11(!1);
         let _v0 = !0,
           _v1 = null;
         try {
           var _v2;
           let _v0,
-            _v1 = (_v2 = _v1 = new window.Vimeo.Player(_v14.current), _v0 = (_v0, _v1) => {
+            _v1 = (_v2 = _v1 = new window.Vimeo.Player(_v15.current), _v0 = (_v0, _v1) => {
               try {
                 let _v0 = _v1();
                 if (_v0 instanceof Promise) return _v0.catch(_v0 => {
@@ -93,49 +94,50 @@
               }
             }));
           _v1.on("loaded", () => {
-            _v0 && _v12(!0);
-          }), _v0 && (_v15.current = _v1, _v6 && console.log("DEBUG:: Player API initialized."));
+            _v0 && _v13(!0);
+          }), _v0 && (_v16.current = _v1, _v6 && console.log("DEBUG:: Player API initialized."));
         } catch (_v0) {
-          console.error("Error initializing player:", _v0), _v0 && _v10(!1);
+          console.error("Error initializing player:", _v0), _v0 && _v11(!1);
         }
         return () => {
-          _v0 = !1, _v1 && _v1.off("loaded"), _v15.current = null;
+          _v0 = !1, _v1 && _v1.off("loaded"), _v16.current = null;
         };
-      }, [_v13, _v6]);
-      let _v16 = (0, _v2.useRef)(_v2);
+      }, [_v14, _v6]);
+      let _v17 = (0, _v2.useRef)(_v2);
       (0, _v2.useEffect)(() => {
-        let _v0 = _v15.current;
-        _v0 && _v3 && (_v12(!1), _v0.loadVideo(_v3).then(() => _v12(!0)));
+        let _v0 = _v16.current;
+        _v0 && _v3 && (_v13(!1), _v0.loadVideo(_v3).then(() => _v13(!0)));
       }, [_v3]), (0, _v2.useEffect)(() => {
-        let _v0 = _v15.current;
-        _v11 && _v0 && _v7 && (_v6 && console.log("DEBUG:: Player API Ready."), _v7(_v0));
-      }, [_v11, _v7]);
-      let _v17 = (0, _v2.useMemo)(() => Object.keys(_v8).reduce((_v0, _v1) => {
-        let _v2 = _v8[_v1],
+        let _v0 = _v16.current;
+        _v12 && _v0 && _v7 && (_v6 && console.log("DEBUG:: Player API Ready."), _v7(_v0));
+      }, [_v12, _v7]);
+      let _v18 = (0, _v2.useMemo)(() => Object.keys(_v9).reduce((_v0, _v1) => {
+        let _v2 = _v9[_v1],
           _v3 = _v5[_v1];
         return _v2 && _v3 && _v0.push({
           eventName: _v3,
           callback: _v2
         }), _v0;
-      }, []), [_v8]);
+      }, []), [_v9]);
       return (0, _v2.useEffect)(() => {
-        let _v0 = _v15.current;
-        return _v11 && _v0 && _v17.forEach(({
+        let _v0 = _v16.current;
+        return _v12 && _v0 && _v18.forEach(({
           eventName: _v0,
           callback: _v1
         }) => {
           _v0.on(_v0, _v1);
         }), () => {
-          _v0 && _v11 && _v17.forEach(({
+          _v0 && _v12 && _v18.forEach(({
             eventName: _v0
           }) => {
             _v0.off(_v0);
           });
         };
-      }, [_v11, _v17]), (0, _v2.useImperativeHandle)(_v1, () => _v14.current, []), (0, _v1.jsx)("iframe", {
-        ref: _v14,
+      }, [_v12, _v18]), (0, _v2.useImperativeHandle)(_v1, () => _v15.current, []), (0, _v1.jsx)("iframe", {
+        ref: _v15,
         title: _v4,
-        src: _v9 ? _v16.current : _v2,
+        src: _v10 ? _v17.current : _v2,
+        onLoad: _v8,
         allow: "autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share",
         style: {
           width: "100%",

@@ -2521,8 +2521,7 @@
         onEmbedChange: _v30,
         privacyChangePageSource: _v35,
         privacyChangeEntryPoint: "share_button",
-        transferInlineLinkSurface: "home_upload_completed",
-        reviewLinkSurface: "home_upload_completed"
+        transferInlineLinkSurface: "home_upload_completed"
       })]
     });
   }], 0);

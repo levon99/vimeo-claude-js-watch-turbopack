@@ -4399,20 +4399,17 @@
   }) : _v0;
   var _v212 = _v0.i(0),
     _v213 = _v0.i(0),
-    _v214 = _v0.i(0),
-    _v215 = _v0.i(0);
-  let _v216 = ({
+    _v214 = _v0.i(0);
+  let _v215 = ({
     playerAssetUrls: _v0
   }) => {
-    let _v1 = (0, _v215.useViewer)();
-    return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v210, {
-        playerAssetUrls: _v0,
-        viewer: _v1
-      }), (0, _v1.jsx)(_v214.VimeoReviewUpsellPromo, {})]
+    let _v1 = (0, _v214.useViewer)();
+    return (0, _v1.jsx)(_v210, {
+      playerAssetUrls: _v0,
+      viewer: _v1
     });
   };
-  _v216.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v213.VideoLibraryLayout, {
+  _v215.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v213.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
     searchContentAlignment: _v66.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
@@ -4432,5 +4429,5 @@
     noIndex: !0,
     inlineViewer: !0,
     inlinePlayerAssets: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v216], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v215], 0);
 }

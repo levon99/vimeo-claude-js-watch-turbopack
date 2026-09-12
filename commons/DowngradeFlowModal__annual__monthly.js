@@ -23,7 +23,8 @@
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
-    _v23 = _v0.i(0);
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0);
   _v0.s(["DowngradeFlowModal", 0, ({
     isOpen: _v0,
     onClose: _v1,
@@ -41,22 +42,23 @@
         jwt: _v11,
         xVimeoPage: _v12,
         locale: _v13
-      } = (0, _v19.useGctlConfig)(),
+      } = (0, _v20.useGctlConfig)(),
       [_v14, _v15] = (0, _v2.useState)(!1),
       {
         trackUserScheduledDowngrade: _v16,
         trackDowngradeModalDowngradeClicked: _v17,
         trackDowngradeFailed: _v18
-      } = (0, _v21.usePricingTracking)(),
-      _v19 = _v4.billingPeriod === _v23.UserPlanType.Year ? "annual" : "monthly",
+      } = (0, _v22.usePricingTracking)(),
+      _v19 = _v4.billingPeriod === _v24.UserPlanType.Year ? "annual" : "monthly",
       _v20 = _v4.subscriptionId,
-      _v21 = (0, _v2.useCallback)(async () => {
+      _v21 = !!_v4.gracePeriodType,
+      _v22 = (0, _v2.useCallback)(async () => {
         if (_v17({
           currentPlan: _v4.tier ?? "",
           targetPlan: _v7,
           targetPeriodicity: _v19
-        }), !_v4.hasAutorenew) {
-          _v3?.((0, _v20.translate)({
+        }), !_v21 && !_v4.hasAutorenew) {
+          _v3?.((0, _v21.translate)({
             singular: "To change your plan, please turn auto-renew back on first.",
             dictionary: {
               es: {
@@ -84,9 +86,29 @@
           })), _v1();
           return;
         }
+        if (!_v20) {
+          _v3?.(), _v1();
+          return;
+        }
         _v15(!0);
         try {
-          await (0, _v18.putMeSubscriptionScheduledOrder)({
+          _v21 ? await (0, _v18.postMeOrdersSubscription)({
+            select: [],
+            where: {
+              subscriptionId: _v20
+            },
+            variables: {
+              billingPlanId: _v9,
+              type: "downgrade"
+            },
+            baseUrl: _v10,
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: _v11 ? `jwt ${_v11}` : "",
+              "Vimeo-Page": `${_v12}`,
+              "Accept-Language": _v13 ?? "en"
+            }
+          }) : await (0, _v19.putMeSubscriptionScheduledOrder)({
             where: {
               subscriptionId: _v20
             },
@@ -104,7 +126,9 @@
             currentPlan: _v4.tier ?? "",
             newPlan: _v7,
             newPeriodicity: _v19
-          }), _v2?.(), _v1();
+          }), _v2?.({
+            isImmediate: _v21
+          }), _v1();
         } catch (_v0) {
           _v18({
             currentPlan: _v4.tier ?? "",
@@ -115,8 +139,8 @@
         } finally {
           _v15(!1);
         }
-      }, [_v20, _v9, _v10, _v11, _v12, _v13, _v1, _v16, _v17, _v18, _v4.tier, _v4.hasAutorenew, _v7, _v19, _v2, _v3]),
-      _v22 = [...(0, _v22.getLostFeatures)(_v6, _v7).slice(0, _v22.MAX_LOST_FEATURES), (0, _v20.translate)({
+      }, [_v20, _v9, _v10, _v11, _v12, _v13, _v1, _v16, _v17, _v18, _v4.tier, _v4.hasAutorenew, _v21, _v7, _v19, _v2, _v3]),
+      _v23 = [...(0, _v23.getLostFeatures)(_v6, _v7).slice(0, _v23.MAX_LOST_FEATURES), (0, _v21.translate)({
         singular: "...and much more",
         dictionary: {
           es: {
@@ -142,7 +166,64 @@
           }
         }
       })],
-      _v23 = _v22.length - 1;
+      _v24 = _v23.length - 1,
+      _v25 = _v21 ? (0, _v21.translate)({
+        singular: "Downgrade to {PLAN} plan now",
+        replacements: {
+          PLAN: _v8
+        },
+        dictionary: {
+          es: {
+            singular: "Cambiar al plan {PLAN} ahora"
+          },
+          "de-DE": {
+            singular: "Jetzt auf den {PLAN}-Tarif herabstufen"
+          },
+          "fr-FR": {
+            singular: "Rétrogradez maintenant vers le forfait {PLAN}"
+          },
+          "ja-JP": {
+            singular: "今すぐ{PLAN}プランにダウングレードする"
+          },
+          "ko-KR": {
+            singular: "지금 {PLAN} 요금제로 다운그레이드"
+          },
+          "pt-BR": {
+            singular: "Mudar para o plano {PLAN} agora"
+          },
+          "zh-CN": {
+            singular: "立即降级到{PLAN}计划"
+          }
+        }
+      }) : (0, _v21.translate)({
+        singular: "Downgrade to {PLAN} plan",
+        replacements: {
+          PLAN: _v8
+        },
+        dictionary: {
+          es: {
+            singular: "Cambiar al plan {PLAN}"
+          },
+          "de-DE": {
+            singular: "Downgrade auf den {PLAN}-Plan"
+          },
+          "fr-FR": {
+            singular: "Rétrograder vers le forfait {PLAN}"
+          },
+          "ja-JP": {
+            singular: "{PLAN} プランにダウングレード"
+          },
+          "ko-KR": {
+            singular: "{PLAN} 플랜으로 다운그레이드"
+          },
+          "pt-BR": {
+            singular: "Rebaixar para o plano {PLAN}"
+          },
+          "zh-CN": {
+            singular: "降级到 {PLAN} 计划"
+          }
+        }
+      });
     return (0, _v1.jsxs)(_v8.Modal, {
       isOpen: _v0,
       onClose: _v1,
@@ -188,7 +269,7 @@
           children: (0, _v1.jsx)(_v7.Header, {
             size: "md",
             textAlign: "left",
-            children: (0, _v20.translate)({
+            children: (0, _v21.translate)({
               singular: "Are you sure you want to downgrade?",
               dictionary: {
                 es: {
@@ -232,7 +313,32 @@
               width: "100%",
               children: [(0, _v1.jsx)(_v16.Text, {
                 variant: "heading-sm",
-                children: (0, _v20.translate)({
+                children: _v21 ? (0, _v21.translate)({
+                  singular: "Your downgrade takes effect immediately. You will lose access to",
+                  dictionary: {
+                    es: {
+                      singular: "Su cambio de plan entra en vigor de inmediato. Perderá el acceso a"
+                    },
+                    "de-DE": {
+                      singular: "Ihre Herabstufung tritt sofort in Kraft. Sie verlieren den Zugriff auf"
+                    },
+                    "fr-FR": {
+                      singular: "Votre rétrogradation prend effet immédiatement. Vous perdrez l'accès à"
+                    },
+                    "ja-JP": {
+                      singular: "ダウングレードは即時に適用されます。以下へのアクセス権が失われます"
+                    },
+                    "ko-KR": {
+                      singular: "하향 조정은 즉시 적용됩니다. 다음 항목에 대한 접근 권한을 잃게 됩니다"
+                    },
+                    "pt-BR": {
+                      singular: "A mudança para um plano inferior entra em vigor imediatamente. Você perderá acesso a"
+                    },
+                    "zh-CN": {
+                      singular: "您的降级将立即生效。您将失去对"
+                    }
+                  }
+                }) : (0, _v21.translate)({
                   singular: "At the end of the current billing cycle, you will lose access to",
                   dictionary: {
                     es: {
@@ -266,8 +372,8 @@
                 columnGap: "4",
                 rowGap: "2",
                 width: "100%",
-                children: _v22.map((_v0, _v1) => {
-                  let _v2 = _v1 === _v23;
+                children: _v23.map((_v0, _v1) => {
+                  let _v2 = _v1 === _v24;
                   return (0, _v1.jsxs)(_v5.Flex, {
                     gap: "2",
                     align: "flex-start",
@@ -296,7 +402,7 @@
               size: "md",
               variant: "primary",
               width: "100%",
-              children: (0, _v20.translate)({
+              children: (0, _v21.translate)({
                 singular: "Keep {PLAN} plan",
                 replacements: {
                   PLAN: _v5
@@ -326,41 +432,13 @@
                 }
               })
             }), (0, _v1.jsx)(_v4.Button, {
-              onClick: _v21,
+              onClick: _v22,
               size: "md",
               variant: "destructive",
               width: "100%",
               isLoading: _v14,
               disabled: _v14,
-              children: (0, _v20.translate)({
-                singular: "Downgrade to {PLAN} plan",
-                replacements: {
-                  PLAN: _v8
-                },
-                dictionary: {
-                  es: {
-                    singular: "Cambiar al plan {PLAN}"
-                  },
-                  "de-DE": {
-                    singular: "Downgrade auf den {PLAN}-Plan"
-                  },
-                  "fr-FR": {
-                    singular: "Rétrograder vers le forfait {PLAN}"
-                  },
-                  "ja-JP": {
-                    singular: "{PLAN} プランにダウングレード"
-                  },
-                  "ko-KR": {
-                    singular: "{PLAN} 플랜으로 다운그레이드"
-                  },
-                  "pt-BR": {
-                    singular: "Rebaixar para o plano {PLAN}"
-                  },
-                  "zh-CN": {
-                    singular: "降级到 {PLAN} 计划"
-                  }
-                }
-              })
+              children: _v25
             })]
           })
         })]
