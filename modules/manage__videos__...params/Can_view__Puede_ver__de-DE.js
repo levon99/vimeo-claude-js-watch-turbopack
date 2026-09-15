@@ -735,7 +735,7 @@
     revalidateAll: !1,
     revalidateOnFocus: !1,
     revalidateOnReconnect: !1
-  }, "ApplicableViewerPermissionPolicies", 0, _v9, "BULK_INVITE_WARNING_THRESHOLD", 0, 100, "CLIP_COMMENT_POLICY_URI", 0, "/users/0/permission_policies/15", "DEFAULT_AVATAR_SRC", 0, "/assets/images_v6/avatar_pending.png", "DEFAULT_TOOLTIP_OFFSET", 0, [0, 8], "EMAIL_REGEX", 0, /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, "EntityTypes", 0, _v8, "FOLDER_COMMENT_POLICY_URI", 0, "/users/0/permission_policies/16", "GroupEntityTypes", 0, _v10, "KEY_CODES", 0, {
+  }, "ApplicableViewerPermissionPolicies", 0, _v9, "BULK_INVITE_WARNING_THRESHOLD", 0, 100, "CLIP_COMMENT_POLICY_URI", 0, "/users/0/permission_policies/15", "DEFAULT_AVATAR_SRC", 0, "https://f.vimeocdn.com/images_v6/avatar_pending.png", "DEFAULT_TOOLTIP_OFFSET", 0, [0, 8], "EMAIL_REGEX", 0, /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, "EntityTypes", 0, _v8, "FOLDER_COMMENT_POLICY_URI", 0, "/users/0/permission_policies/16", "GroupEntityTypes", 0, _v10, "KEY_CODES", 0, {
     ENTER: "Enter",
     SPACE: "Space",
     LEFT_ARROW: "ArrowLeft",

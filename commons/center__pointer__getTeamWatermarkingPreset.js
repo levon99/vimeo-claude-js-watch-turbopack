@@ -1244,7 +1244,7 @@
           alignItems: "center",
           justifyContent: "center",
           children: [(0, _v1.jsx)(_v69.Image, {
-            src: "/assets/images_v6/watermark_presets/preview_preset_image.jpg",
+            src: "https://f.vimeocdn.com/images_v6/watermark_presets/preview_preset_image.jpg",
             alt: "",
             position: "absolute",
             top: "0",

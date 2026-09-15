@@ -29,6 +29,12 @@
   }
   _v0.s(["getViewerBootstrap", 0, _v4, "getViewerPromise", 0, () => new Promise(_v0 => {
     let _v1 = _v4();
-    _v0(_v1 || fetch("/_next/viewer").then(_v0 => _v0.json()).then(_v5));
+    if (_v1) _v0(_v1);else {
+      let _v0 = () => fetch("/_next/viewer").then(_v0 => {
+        if (!_v0.ok) throw Error(`Viewer bootstrap request failed: ${_v0.status}`);
+        return _v0.json();
+      });
+      _v0(_v0().catch(() => (_v3("Viewer bootstrap request failed, retrying once"), _v0())).then(_v5).catch(_v0 => (_v3(`Viewer bootstrap unavailable: ${String(_v0)}`), null)));
+    }
   })]);
 }

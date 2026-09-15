@@ -28,12 +28,40 @@
     folderData: _v3
   }) => {
     let _v4 = (0, _v3.useContext)(_v20.ViewerContext),
-      _v5 = (0, _v1.jsxs)(_v2.default, {
+      _v5 = _v3?.isPrivateToUser === !0 && _v3?.metadata?.connections?.ancestorPath?.length === 0,
+      _v6 = _v3?.name,
+      _v7 = _v5 ? (0, _v14.translate)({
+        singular: "My library",
+        dictionary: {
+          es: {
+            singular: "Mi biblioteca"
+          },
+          "de-DE": {
+            singular: "Meine Bibliothek"
+          },
+          "fr-FR": {
+            singular: "Ma bibliothèque"
+          },
+          "ja-JP": {
+            singular: "マイ ライブラリ"
+          },
+          "ko-KR": {
+            singular: "내 라이브러리"
+          },
+          "pt-BR": {
+            singular: "Minha Biblioteca"
+          },
+          "zh-CN": {
+            singular: "我的视频库"
+          }
+        }
+      }) : _v6,
+      _v8 = (0, _v1.jsxs)(_v2.default, {
         children: [(0, _v1.jsx)("title", {
-          children: _v3?.name ? (0, _v14.translate)({
+          children: _v7 ? (0, _v14.translate)({
             singular: "{PAGE_TITLE} on Vimeo",
             replacements: {
-              PAGE_TITLE: _v3.name
+              PAGE_TITLE: _v7
             },
             dictionary: {
               es: {
@@ -92,29 +120,29 @@
           })
         })]
       });
-    if (!_v4) return _v5;
+    if (!_v4) return _v8;
     if (!_v3) return _v4?.user ? (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v5, (0, _v1.jsx)(_v16.ErrorPage, {
+      children: [_v8, (0, _v1.jsx)(_v16.ErrorPage, {
         error: new _v5.ResourceNotFoundError()
       })]
     }) : (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v5, (0, _v1.jsx)(_v15.BrandedLogin, {
+      children: [_v8, (0, _v1.jsx)(_v15.BrandedLogin, {
         metaUrl: `/sso/project/${_v2}/meta`,
         errorConstructor: _v5.UnauthorizedError
       })]
     });
     (0, _v10.setCdnUrl)(_v4.viewmasterCdnUrl);
-    let _v6 = {
+    let _v9 = {
       locale: _v4.locale
     };
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v5, (0, _v1.jsx)(_v4.SWRConfig, {
+      children: [_v8, (0, _v1.jsx)(_v4.SWRConfig, {
         value: {
           revalidateOnFocus: !1,
           revalidateOnReconnect: !1
         },
         children: (0, _v1.jsx)(_v9.ConfigContext.Provider, {
-          value: _v6,
+          value: _v9,
           children: (0, _v1.jsx)(_v8.App, {
             folderId: _v2,
             folderData: _v3,

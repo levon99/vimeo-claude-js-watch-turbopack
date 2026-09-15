@@ -4,29 +4,17 @@
   var _v1 = _v0.i(0);
   let _v2 = {
       free: {
-        price: null,
-        fullPrice: {
-          amount: 350,
-          currency: "USD"
-        }
+        price: null
       },
       low: {
         price: {
           amount: 7,
-          currency: "USD"
-        },
-        fullPrice: {
-          amount: 350,
           currency: "USD"
         }
       },
       high: {
         price: {
           amount: 15,
-          currency: "USD"
-        },
-        fullPrice: {
-          amount: 350,
           currency: "USD"
         }
       }
@@ -36,7 +24,6 @@
       isEnabled: !1,
       bundleType: null,
       price: null,
-      fullPrice: null,
       isBundleActive: !1,
       isOfferModalOpen: !1,
       hasDismissedOffer: !1,
@@ -65,13 +52,11 @@
         _v0 ? _v0({
           isEnabled: !0,
           bundleType: _v0.bundleType,
-          price: _v0.price,
-          fullPrice: _v0.fullPrice
+          price: _v0.price
         }) : (_v1 = null, _v0({
           isEnabled: !1,
           bundleType: null,
           price: null,
-          fullPrice: null,
           isBundleActive: !1,
           isOfferModalOpen: !1
         }));
@@ -132,7 +117,6 @@
           isEnabled: !1,
           bundleType: null,
           price: null,
-          fullPrice: null,
           isBundleActive: !1,
           isOfferModalOpen: !1,
           hasDismissedOffer: !1
@@ -144,8 +128,7 @@
     let _v1 = _v0.price;
     return {
       bundleType: _v0.bundleType,
-      price: _v2[_v1].price,
-      fullPrice: _v2[_v1].fullPrice
+      price: _v2[_v1].price
     };
   }], 0);
 }

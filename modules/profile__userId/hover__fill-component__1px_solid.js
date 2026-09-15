@@ -6959,17 +6959,20 @@
       {
         settings: _v19
       } = (0, _v39.useOrionSettings)(),
-      _v20 = _v19.profile_likes_activity,
-      _v21 = (0, _v16.useContext)(_v101),
       {
-        trackUserProfilePageThumbnailClicked: _v22,
-        trackUserProfileVideoThumbnailResized: _v23,
-        trackUserProfileVideoLikeClicked: _v24
+        isFromCopyrightRestrictedRegion: _v20
+      } = (0, _v16.useContext)(_v26.ViewerContext),
+      _v21 = _v19.profile_likes_activity && !_v20,
+      _v22 = (0, _v16.useContext)(_v101),
+      {
+        trackUserProfilePageThumbnailClicked: _v23,
+        trackUserProfileVideoThumbnailResized: _v24,
+        trackUserProfileVideoLikeClicked: _v25
       } = (0, _v24.useProfileTracking)(),
       {
-        canLike: _v25,
-        liked: _v26,
-        toggleLike: _v27
+        canLike: _v26,
+        liked: _v27,
+        toggleLike: _v28
       } = function ({
         clip: _v0,
         viewerId: _v1,
@@ -7033,14 +7036,14 @@
       }({
         clip: _v0.clip,
         viewerId: _v18?.user?.id ?? 0,
-        onError: () => _v21({
+        onError: () => _v22({
           content: _v51.default.LikeError,
           status: "negative"
         })
       }),
-      _v28 = (0, _v16.useMemo)(() => _v59(_v0.clip.uri), [_v0.clip.uri]);
+      _v29 = (0, _v16.useMemo)(() => _v59(_v0.clip.uri), [_v0.clip.uri]);
     _v142(_v11 ? _v0 => _v61(_v0, () => _v12(!1)) : void 0, [_v11]);
-    let _v29 = (0, _v16.useMemo)(() => {
+    let _v30 = (0, _v16.useMemo)(() => {
         if ("masonry" === _v9) {
           let {
             width: _v0,
@@ -7050,39 +7053,39 @@
         }
         return _v273(_v0.clip);
       }, [_v0.clip, _v9]),
-      _v30 = (0, _v16.useMemo)(() => _v29[0], [_v29]),
-      _v31 = (0, _v16.useMemo)(() => _v29.length > 1 ? _v29.slice(1).map((_v0, _v1) => `${_v0} ${_v1 + 2}x`).join(", ") : "", [_v29]),
-      _v32 = (0, _v16.useMemo)(() => _v59(_v0.clip.user.uri) === _v17, [_v17, _v0.clip.user.uri]),
-      _v33 = (0, _v16.useMemo)(() => {
-        let _v0 = _v0.clip.user.name;
-        if (_v10) return _v32 ? "" : _v0;
-        let _v1 = _v83(_v0.clip.createdTime);
-        return _v32 ? _v1 : `${_v1} \xb7 ${_v0}`;
-      }, [_v10, _v32, _v0.clip.user.name, _v0.clip.createdTime]),
+      _v31 = (0, _v16.useMemo)(() => _v30[0], [_v30]),
+      _v32 = (0, _v16.useMemo)(() => _v30.length > 1 ? _v30.slice(1).map((_v0, _v1) => `${_v0} ${_v1 + 2}x`).join(", ") : "", [_v30]),
+      _v33 = (0, _v16.useMemo)(() => _v59(_v0.clip.user.uri) === _v17, [_v17, _v0.clip.user.uri]),
       _v34 = (0, _v16.useMemo)(() => {
+        let _v0 = _v0.clip.user.name;
+        if (_v10) return _v33 ? "" : _v0;
+        let _v1 = _v83(_v0.clip.createdTime);
+        return _v33 ? _v1 : `${_v1} \xb7 ${_v0}`;
+      }, [_v10, _v33, _v0.clip.user.name, _v0.clip.createdTime]),
+      _v35 = (0, _v16.useMemo)(() => {
         let _v0 = _v0.clip.live && _v0.clip.live?.status !== _v49.LIVE_STATUS.DONE ? _v0.clip.live?.recurringEvent?.link : _v0.clip.link;
-        return _v16 && _v32 && !_v207 ? `/manage/${_v28}/general` : _v0;
-      }, [_v32, _v28, _v16, _v0]),
-      _v35 = (0, _v16.useCallback)(() => {
-        _v23({
+        return _v16 && _v33 && !_v207 ? `/manage/${_v29}/general` : _v0;
+      }, [_v33, _v29, _v16, _v0]),
+      _v36 = (0, _v16.useCallback)(() => {
+        _v24({
           userProfileResizeAction: _v13 ? "shrink" : "expand"
         }), _v15(!0), _v3 && _v3(!_v13).then(() => _v15(!1)).catch(() => _v15(!1));
-      }, [_v13, _v3, _v23]),
-      _v36 = (0, _v16.useMemo)(() => _v0.clip.live?.status === _v49.LIVE_STATUS.STREAMING, [_v0.clip.live?.status]),
-      _v37 = (0, _v16.useMemo)(() => {
+      }, [_v13, _v3, _v24]),
+      _v37 = (0, _v16.useMemo)(() => _v0.clip.live?.status === _v49.LIVE_STATUS.STREAMING, [_v0.clip.live?.status]),
+      _v38 = (0, _v16.useMemo)(() => {
         let _v0 = "live" === _v0.clip.type,
           _v1 = _v0.clip.live?.status === _v49.LIVE_STATUS.DONE,
           _v2 = _v0.clip.duration > 0;
-        return _v0 && (!_v1 && !_v2 || _v36);
-      }, [_v0.clip.type, _v0.clip.live, _v0.clip.duration, _v36]),
-      _v38 = (0, _v16.useMemo)(() => !!_v37 && (!!_v36 || !!_v0.clip.live?.scheduledStartTime && new Date(_v0.clip.live.scheduledStartTime) < new Date()), [_v37, _v36, _v0.clip.live]),
-      _v39 = (0, _v16.useMemo)(() => _v37 ? _v38 ? _v51.default.Live : _v51.default.Upcoming : _v82(_v0.clip.duration), [_v37, _v38, _v0.clip.duration]),
-      _v40 = _v37 && _v38 ? "mature" : void 0,
-      _v41 = !_v207 && !!_v0.clip.configUrl && !_v37;
+        return _v0 && (!_v1 && !_v2 || _v37);
+      }, [_v0.clip.type, _v0.clip.live, _v0.clip.duration, _v37]),
+      _v39 = (0, _v16.useMemo)(() => !!_v38 && (!!_v37 || !!_v0.clip.live?.scheduledStartTime && new Date(_v0.clip.live.scheduledStartTime) < new Date()), [_v38, _v37, _v0.clip.live]),
+      _v40 = (0, _v16.useMemo)(() => _v38 ? _v39 ? _v51.default.Live : _v51.default.Upcoming : _v82(_v0.clip.duration), [_v38, _v39, _v0.clip.duration]),
+      _v41 = _v38 && _v39 ? "mature" : void 0,
+      _v42 = !_v207 && !!_v0.clip.configUrl && !_v38;
     (0, _v16.useEffect)(() => {
       _v6 || _v12(!1);
     }, [_v6]);
-    let _v42 = (0, _v16.useMemo)(() => {
+    let _v43 = (0, _v16.useMemo)(() => {
       if (_v0.clip.badge?.type) return "vod" === _v0.clip.badge.type ? (0, _v6.jsx)("img", {
         src: "https://i.vimeocdn.com/video_badge/vod_60x66",
         srcSet: "https://i.vimeocdn.com/video_badge/vod_300x328 2x",
@@ -7114,27 +7117,27 @@
         position: "relative",
         children: [(0, _v6.jsx)(_v338.VideoCard, {
           title: _v0.clip.name,
-          subtitle: _v33,
+          subtitle: _v34,
           titleStyles: _v347,
-          href: _v34,
-          thumbnailSrc: _v30,
-          thumbnailSrcSet: _v31,
+          href: _v35,
+          thumbnailSrc: _v31,
+          thumbnailSrcSet: _v32,
           avatarSrc: "",
           showAvatar: !1,
-          tagText: _v39,
-          tagTextVariant: _v40,
-          clipId: _v28,
+          tagText: _v40,
+          tagTextVariant: _v41,
+          clipId: _v29,
           configUrl: _v0.clip.configUrl,
           quality: "540p",
           objectFit: "contain",
           aspectRatio: _v8,
-          hasPlayOnHover: _v41,
+          hasPlayOnHover: _v42,
           shouldUseNextLink: !1,
           pageName: "profile",
           onClick: () => {
-            _v22({
+            _v23({
               userProfilePageUserId: String(_v17),
-              clipId: String(_v28),
+              clipId: String(_v29),
               userProfilePageThumbnailPosition: _v7 + 1,
               userProfilePageThumbnailSection: "masonry" === _v9 ? "masonry" : "grid"
             });
@@ -7157,7 +7160,7 @@
                   icon: _v13 ? (0, _v6.jsx)(_v334, {}) : (0, _v6.jsx)(_v333.ExpandAlt, {}),
                   variant: "blur",
                   size: "sm",
-                  onClick: _v35,
+                  onClick: _v36,
                   isLoading: _v0.loading || _v14,
                   isDisabled: _v0.loading || _v14
                 })
@@ -7176,7 +7179,7 @@
                 })
               })
             })]
-          }) : _v20 && !_v16 && !_v207 && _v25 && _v0.clip.page?.like !== !1 ? (0, _v6.jsx)(_v33.Flex, {
+          }) : _v21 && !_v16 && !_v207 && _v26 && _v0.clip.page?.like !== !1 ? (0, _v6.jsx)(_v33.Flex, {
             position: "absolute",
             top: (0, _v47.rem)(8),
             right: (0, _v47.rem)(8),
@@ -7187,28 +7190,28 @@
             },
             children: (0, _v6.jsx)(_v337.ContentCard.HoverAction, {
               children: (0, _v6.jsx)(_v86.Tooltip, {
-                label: _v26 ? _v51.default.Unlike : _v51.default.Like,
+                label: _v27 ? _v51.default.Unlike : _v51.default.Like,
                 children: (0, _v6.jsx)(_v44.IconButton, {
-                  "aria-label": _v26 ? _v51.default.Unlike : _v51.default.Like,
-                  icon: _v26 ? (0, _v6.jsx)(_v336.HeartFilled, {
+                  "aria-label": _v27 ? _v51.default.Unlike : _v51.default.Like,
+                  icon: _v27 ? (0, _v6.jsx)(_v336.HeartFilled, {
                     color: "#FB1409"
                   }) : (0, _v6.jsx)(_v335.Heart, {}),
                   variant: "blur",
                   size: "sm",
                   onClick: () => {
-                    _v24({
+                    _v25({
                       userProfilePageUserId: String(_v17),
-                      clipId: String(_v28),
+                      clipId: String(_v29),
                       userProfilePageThumbnailPosition: _v7 + 1,
                       userProfilePageThumbnailSection: "masonry" === _v9 ? "masonry" : "grid",
-                      userProfileVideoLikeAction: _v26 ? "unlike" : "like"
-                    }), _v27();
+                      userProfileVideoLikeAction: _v27 ? "unlike" : "like"
+                    }), _v28();
                   }
                 })
               })
             })
           }) : void 0,
-          topLeftDecoration: _v42
+          topLeftDecoration: _v43
         }), _v16 && !_v207 && !_v6 && (0, _v6.jsx)(_v31.Box, {
           className: "drag-handle",
           position: "absolute",
@@ -8658,8 +8661,8 @@
               totalShowcases: _v13.total,
               totalFollowers: _v14.total,
               totalFollowing: _v15.total,
-              totalLikes: _v37.profile_likes_activity ? _v16?.total ?? 0 : 0,
-              likesEnabled: _v37.profile_likes_activity,
+              totalLikes: _v37.profile_likes_activity && !_v54 ? _v16?.total ?? 0 : 0,
+              likesEnabled: _v37.profile_likes_activity && !_v54,
               totalCollections: _v30,
               membership: _v12,
               createdTime: _v8 || "",

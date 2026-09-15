@@ -10,7 +10,7 @@
     teamEntity: _v1
   }) => {
     let _v2 = _v1.displayName ?? _v1.email,
-      _v3 = _v1.pictures?.sizes[1]?.link ?? "/assets/images_v6/avatar_pending.png",
+      _v3 = _v1.pictures?.sizes[1]?.link ?? "https://f.vimeocdn.com/images_v6/avatar_pending.png",
       _v4 = !!_v1.metadata.connections.teamUser && !_v1.metadata.connections.user;
     return (0, _v1.jsx)(_v4.ItemBox, {
       iconBox: (0, _v1.jsx)(_v2.Avatar, {

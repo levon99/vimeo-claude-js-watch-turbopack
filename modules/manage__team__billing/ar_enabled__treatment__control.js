@@ -10863,7 +10863,14 @@
                 currentPlan: _v7.tier ?? "",
                 targetPlan: _v29 ?? "",
                 targetPeriodicity: _v55,
-                errorMessage: _v0 instanceof Error ? _v0.message : String(_v0)
+                errorMessage: _v0 instanceof Error ? _v0.message : String(_v0),
+                offerKind: "downgrade",
+                offerDuration: "one_term",
+                discountPercent: _v66,
+                experimentArm: _v23 ? _v20.b2c_cancellation_discount_offer_variant : _v20.b2b_cancellation_discount_type,
+                layout: "standard",
+                priceSegment: _v15,
+                experimentName: _v24
               }), _v5?.(), _v1();
             } finally {
               _v48(!1);
@@ -10959,7 +10966,14 @@
                 currentPlan: _v7.tier ?? "",
                 targetPlan: _v16 ?? "",
                 targetPeriodicity: _v55,
-                errorMessage: _v0 instanceof Error ? _v0.message : String(_v0)
+                errorMessage: _v0 instanceof Error ? _v0.message : String(_v0),
+                offerKind: "discount",
+                offerDuration: _v75 ? "permanent" : "one_term",
+                discountPercent: _v74,
+                experimentArm: _v23 ? _v20.b2c_cancellation_discount_offer_variant : _v20.b2b_cancellation_discount_type,
+                layout: _v28 ? "prominent" : "standard",
+                priceSegment: _v15,
+                experimentName: _v24
               }), _v5?.(), _v1();
             } finally {
               _v48(!1);

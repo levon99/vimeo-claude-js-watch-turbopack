@@ -1522,20 +1522,36 @@
           headers: _v10,
           baseUrl: _v0.baseUrl
         }),
-        {
-          recordings: _v1,
-          total: _v2
-        } = await _v60({
-          series: _v0,
-          view: _v8,
-          headers: _v10,
-          baseUrl: _v0.baseUrl
-        });
+        _v1 = _v7(_v0);
+      if (_v4 && 1 === _v2.length && _v1.startsWith("/") && !_v1.startsWith("//") && _v1 !== `/event_series/${_v5}`) {
+        let _v0 = _v0.resolvedUrl.split("?")[1];
+        return {
+          redirect: {
+            destination: _v0 ? `${_v1}?${_v0}` : _v1,
+            permanent: !1
+          }
+        };
+      }
+      if (_v4 && _v2.length >= 2) {
+        let [, _v0, _v1, _v2] = _v1.split("/");
+        if ("event_series" === _v0 && _v1 === String(_v5) && (_v2 ?? null) !== _v2[1]) return {
+          notFound: !0
+        };
+      }
+      let {
+        recordings: _v2,
+        total: _v3
+      } = await _v60({
+        series: _v0,
+        view: _v8,
+        headers: _v10,
+        baseUrl: _v0.baseUrl
+      });
       return {
         props: {
           series: _v0,
-          recordings: _v1,
-          recordingsTotal: _v2,
+          recordings: _v2,
+          recordingsTotal: _v3,
           seriesIdOrUrl: _v5,
           view: _v8,
           baseUrl: _v0.baseUrl,
@@ -1613,7 +1629,7 @@
       _v17 = "upcoming" === _v4 ? "Upcoming events" : "on-demand" === _v4 ? "On demand" : null,
       _v18 = _v17 ? `${_v17} \xb7 ${_v16}` : _v16,
       _v19 = (_v13.description ?? "").replace(/\s+/g, " ").trim().slice(0, 200),
-      _v20 = null == _v13.link ? null : "upcoming" === _v4 ? `${_v13.link}/${_v5}` : "on-demand" === _v4 ? `${_v13.link}/${_v6}` : _v13.link;
+      _v20 = null == _v13.link ? null : `${_v13.link}${"upcoming" === _v4 ? `/${_v5}` : "on-demand" === _v4 ? `/${_v6}` : ""}`;
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v2.default, {
         children: [(0, _v1.jsx)("title", {

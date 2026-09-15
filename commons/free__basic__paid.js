@@ -127,52 +127,47 @@
   }
   var _v12 = _v0.i(0),
     _v13 = _v0.i(0);
-  let _v14 = _v0 => {
-      let _v1 = `SESSION_STORAGE_ID_${_v0}`;
-      return () => {
-        let _v0 = window.sessionStorage.getItem(_v1);
-        if (null == _v0) {
-          let _v0 = (0, _v12.v4)();
-          return window.sessionStorage.setItem(_v1, _v0), _v0;
-        }
-        return _v0;
-      };
-    },
-    _v15 = "ping_web";
-  function _v16(_v0) {
+  let _v14 = "ping_web";
+  function _v15(_v0) {
     return _v0 instanceof Error && "code" in _v0;
   }
-  function _v17(_v0) {
-    return _v16(_v0) && "PicoXPayloadTooLargeError" === _v0.code;
+  function _v16(_v0) {
+    return _v15(_v0) && "PicoXClientError" === _v0.code;
   }
-  let _v18 = "events",
-    _v19 = "event_timestamp",
-    _v20 = async _v0 => {
-      let _v1 = await _v26(_v0.dbName),
+  function _v17(_v0) {
+    return _v15(_v0) && "PicoXSerializationError" === _v0.code;
+  }
+  function _v18(_v0) {
+    return _v15(_v0) && "PicoXPayloadTooLargeError" === _v0.code;
+  }
+  let _v19 = "events",
+    _v20 = "event_timestamp",
+    _v21 = async _v0 => {
+      let _v1 = await _v27(_v0.dbName),
         _v2 = async _v0 => {
           let _v1 = _v0.map(_v0 => _v0.event_id),
-            _v2 = await _v27(_v0.dbName, _v1);
-          await _v25(_v2, _v18, _v1);
+            _v2 = await _v28(_v0.dbName, _v1);
+          await _v26(_v2, _v19, _v1);
         };
       return {
         storeEvent: async _v0 => {
-          let _v1 = await _v27(_v0.dbName, _v1),
-            _v2 = await _v24(_v1, _v18);
+          let _v1 = await _v28(_v0.dbName, _v1),
+            _v2 = await _v25(_v1, _v19);
           if (_v2 >= _v0.maxEventsStored) {
             let _v0 = _v2 - _v0.targetEventsNumberAfterClearingSpace,
-              _v1 = await _v23(_v1, _v18, _v19, _v0, "next");
+              _v1 = await _v24(_v1, _v19, _v20, _v0, "next");
             await _v2(_v1);
           }
-          await _v22(_v1, _v18, _v0.event_id, _v0);
+          await _v23(_v1, _v19, _v0.event_id, _v0);
         },
         retrieveEvents: async _v0 => {
-          let _v1 = await _v27(_v0.dbName, _v1);
-          return await _v23(_v1, _v18, _v19, _v0, "next");
+          let _v1 = await _v28(_v0.dbName, _v1);
+          return await _v24(_v1, _v19, _v20, _v0, "next");
         },
         removeEvents: _v2
       };
     },
-    _v21 = async (_v0, _v1, _v2) => new Promise((_v0, _v1) => {
+    _v22 = async (_v0, _v1, _v2) => new Promise((_v0, _v1) => {
       let _v2 = indexedDB.open(_v0, _v1);
       _v2.onerror = () => {
         _v1(_v2.error);
@@ -182,7 +177,7 @@
         _v2(_v2.result);
       };
     }),
-    _v22 = async (_v0, _v1, _v2, _v3) => new Promise((_v0, _v1) => {
+    _v23 = async (_v0, _v1, _v2, _v3) => new Promise((_v0, _v1) => {
       let _v2 = _v0.transaction(_v1, "readwrite").objectStore(_v1).put(_v3, _v2);
       _v2.onerror = () => {
         _v1(_v2.error);
@@ -190,7 +185,7 @@
         _v0();
       };
     }),
-    _v23 = async (_v0, _v1, _v2, _v3, _v4) => new Promise((_v0, _v1) => {
+    _v24 = async (_v0, _v1, _v2, _v3, _v4) => new Promise((_v0, _v1) => {
       let _v2 = _v0.transaction(_v1, "readonly").objectStore(_v1).index(_v2).openCursor(null, _v4),
         _v3 = [];
       _v2.onerror = () => {
@@ -200,7 +195,7 @@
         _v0 && _v3.length < _v3 ? (_v3.push(_v0.value), _v0.continue()) : _v0(_v3);
       };
     }),
-    _v24 = async (_v0, _v1) => new Promise((_v0, _v1) => {
+    _v25 = async (_v0, _v1) => new Promise((_v0, _v1) => {
       let _v2 = _v0.transaction(_v1, "readonly").objectStore(_v1).count();
       _v2.onerror = () => {
         _v1(_v2.error);
@@ -208,7 +203,7 @@
         _v0(_v2.result);
       };
     }),
-    _v25 = async (_v0, _v1, _v2) => new Promise((_v0, _v1) => {
+    _v26 = async (_v0, _v1, _v2) => new Promise((_v0, _v1) => {
       let _v2 = _v0.transaction(_v1, "readwrite").objectStore(_v1),
         _v3 = [];
       _v2.forEach(_v0 => {
@@ -222,17 +217,17 @@
         }));
       }), Promise.all(_v3).then(() => _v0()).catch(_v1);
     }),
-    _v26 = async _v0 => _v21(_v0, 1, _v0 => {
-      _v0.objectStoreNames.contains(_v18) || _v0.createObjectStore(_v18).createIndex(_v19, "event_timestamp");
+    _v27 = async _v0 => _v22(_v0, 1, _v0 => {
+      _v0.objectStoreNames.contains(_v19) || _v0.createObjectStore(_v19).createIndex(_v20, "event_timestamp");
     }),
-    _v27 = async (_v0, _v1) => _v1 && (_v0 => {
+    _v28 = async (_v0, _v1) => _v1 && (_v0 => {
       try {
-        return _v0.transaction([_v18], "readwrite"), !0;
+        return _v0.transaction([_v19], "readwrite"), !0;
       } catch (_v0) {
         return "InvalidStateError" !== _v0.name;
       }
-    })(_v1) ? _v1 : _v1 = await _v26(_v0);
-  class _v28 {
+    })(_v1) ? _v1 : _v1 = await _v27(_v0);
+  class _v29 {
     mutex = Promise.resolve();
     async run(_v0) {
       return new Promise((_v0, _v1) => {
@@ -246,7 +241,7 @@
       });
     }
   }
-  let _v29 = {
+  let _v30 = {
       additionalContext: () => ({}),
       additionalIdentifiers: () => ({}),
       cookieDomain: "https://api.picox.bendingspoons.com",
@@ -273,7 +268,7 @@
       },
       identifiersSuffix: "PICOX_ID"
     },
-    _v30 = async _v0 => {
+    _v31 = async _v0 => {
       var _v1, _v2;
       let _v3,
         _v4,
@@ -291,25 +286,27 @@
         _v16,
         _v17,
         _v18,
-        _v19 = {
-          ..._v29,
+        _v19,
+        _v20,
+        _v21 = {
+          ..._v30,
           ..._v0
         },
-        _v20 = "__picox_storage_probe__";
+        _v22 = "__picox_storage_probe__";
       try {
-        window.localStorage.setItem(_v20, _v20), window.localStorage.removeItem(_v20), window.sessionStorage.setItem(_v20, _v20), window.sessionStorage.removeItem(_v20);
+        window.localStorage.setItem(_v22, _v22), window.localStorage.removeItem(_v22), window.sessionStorage.setItem(_v22, _v22), window.sessionStorage.removeItem(_v22);
       } catch (_v0) {
         throw Error("PicoX cannot initialize: web storage is unavailable", {
           cause: _v0
         });
       }
-      let _v21 = await _v20(_v19),
-        _v22 = ((_v0, _v1 = () => new Date()) => ({
-          sendEvents: async (_v0, _v1) => {
-            let _v2;
+      let _v23 = await _v21(_v21),
+        _v24 = ((_v0, _v1 = () => new Date()) => ({
+          sendEvents: async (_v0, _v1, _v2) => {
+            let _v3;
             if (0 === _v0.length) return _v1;
             try {
-              _v2 = JSON.stringify({
+              _v3 = JSON.stringify({
                 events: _v0,
                 delta: _v1.delta,
                 last_event_timestamp: _v1.last_event_timestamp,
@@ -319,59 +316,60 @@
               let _v1;
               throw _v0.logger.error(`Failed to serialize events: ${_v0}`), (_v1 = Error("SerializationError")).code = "PicoXSerializationError", _v1;
             }
-            let _v3 = {
+            let _v4 = {
               "X-Pico-Auth": _v0.identificationToken,
               "Content-Type": "application/json"
             };
-            !0 === _v0.isDevelopment && (_v3["X-Pico-Is-Development"] = "true");
-            let _v4 = await fetch(_v0.endpoint, {
+            !0 === _v0.isDevelopment && (_v4["X-Pico-Is-Development"] = "true");
+            let _v5 = await fetch(_v0.endpoint, {
               method: "POST",
-              headers: _v3,
-              body: _v2
+              headers: _v4,
+              body: _v3,
+              keepalive: _v2?.keepalive === !0
             });
-            if (200 !== _v4.status) {
+            if (200 !== _v5.status) {
               let _v0;
-              if (_v0.logger.error(`Received invalid response: ${_v4.status}`), 413 === _v4.status) {
+              if (_v0.logger.error(`Received invalid response: ${_v5.status}`), 413 === _v5.status) {
                 let _v0;
                 throw (_v0 = Error("ClientError")).code = "PicoXPayloadTooLargeError", _v0;
               }
-              if (400 <= _v4.status && _v4.status < 500) {
+              if (400 <= _v5.status && _v5.status < 500) {
                 let _v0;
                 throw (_v0 = Error("ClientError")).code = "PicoXClientError", _v0;
               }
               throw (_v0 = Error("ServerError")).code = "PicoXServerError", _v0;
             }
-            let _v5 = await _v4.json();
+            let _v6 = await _v5.json();
             return {
-              delta: _v5.delta ?? 0,
-              last_event_timestamp: _v5.last_event_timestamp ?? null
+              delta: _v6.delta ?? 0,
+              last_event_timestamp: _v6.last_event_timestamp ?? null
             };
           }
-        }))(_v19),
-        _v23 = (_v3 = !1, _v4 = 0, _v5 = null, _v6 = _v19.syncIntervalMilliseconds, _v7 = {
+        }))(_v21),
+        _v25 = (_v3 = !1, _v4 = 0, _v5 = null, _v6 = _v21.syncIntervalMilliseconds, _v7 = {
           delta: 0,
           last_event_timestamp: null
-        }, _v8 = _v19.eventsBatchSize, _v9 = new _v28(), _v10 = async () => {
+        }, _v8 = _v21.eventsBatchSize, _v9 = new _v29(), _v10 = async () => {
           let _v0 = [];
           return _v9.run(async () => {
             _v4++;
             try {
-              if (!(_v0 = await _v21.retrieveEvents(_v8)) || 0 === _v0.length) {
-                _v4 = 0, _v6 = _v19.syncIntervalMilliseconds;
+              if (!(_v0 = await _v23.retrieveEvents(_v8)) || 0 === _v0.length) {
+                _v4 = 0, _v6 = _v21.syncIntervalMilliseconds;
                 return;
               }
-              let _v0 = await _v22.sendEvents(_v0, _v7);
+              let _v0 = await _v24.sendEvents(_v0, _v7);
               return await _v11(_v0, _v0);
             } catch (_v0) {
-              if (_v19.logger.error(`Event sync operation failed: ${_v0}`), _v16(_v0) && "PicoXClientError" === _v0.code || _v16(_v0) && "PicoXSerializationError" === _v0.code || _v17(_v0) && 1 === _v8) return await _v11(_v7, _v0);
-              _v17(_v0) && (_v8 = Math.max(1, Math.floor(_v8 / 2))), _v6 = (({
+              if (_v21.logger.error(`Event sync operation failed: ${_v0}`), _v16(_v0) || _v17(_v0) || _v18(_v0) && 1 === _v8) return await _v11(_v7, _v0);
+              _v18(_v0) && (_v8 = Math.max(1, Math.floor(_v8 / 2))), _v6 = (({
                 baseInterval: _v0,
                 currentAttempt: _v1,
                 maxInterval: _v2
               }) => Math.random() * Math.min(_v2, _v0 * Math.pow(2, Math.min(_v1 - 1, 64))))({
-                baseInterval: _v19.retryBaseInterval,
+                baseInterval: _v21.retryBaseInterval,
                 currentAttempt: _v4,
-                maxInterval: _v19.maxExponentialBackoffInterval
+                maxInterval: _v21.maxExponentialBackoffInterval
               });
               return;
             } finally {
@@ -379,41 +377,63 @@
             }
           });
         }, _v11 = async (_v0, _v1) => {
-          await _v21.removeEvents(_v1), _v4 = 0, _v7 = _v0, _v6 = _v19.syncIntervalMilliseconds, 0 === _v19.syncIntervalMilliseconds && _v1.length === _v8 && (_v6 = 1), _v8 < _v19.eventsBatchSize && (_v8 = Math.min(_v19.eventsBatchSize, _v8 + 1));
+          await _v23.removeEvents(_v1), _v4 = 0, _v7 = _v0, _v6 = _v21.syncIntervalMilliseconds, 0 === _v21.syncIntervalMilliseconds && _v1.length === _v8 && (_v6 = 1), _v8 < _v21.eventsBatchSize && (_v8 = Math.min(_v21.eventsBatchSize, _v8 + 1));
         }, _v12 = () => {
           _v3 && (_v5 = window.setTimeout(_v10, _v6));
+        }, _v13 = async _v0 => {
+          try {
+            _v7 = await _v24.sendEvents([_v0], _v7, {
+              keepalive: !0
+            });
+          } catch (_v0) {
+            if (_v16(_v0) || _v17(_v0) || _v18(_v0)) return void _v21.logger.error(`Immediate send failed permanently: ${_v0}`);
+            _v21.logger.error(`Immediate send failed, persisting for retry: ${_v0}`);
+            try {
+              await _v23.storeEvent(_v0);
+            } catch (_v0) {
+              _v21.logger.error(`Failed to persist event for retry: ${_v0}`);
+            }
+          }
         }, {
-          configuration: _v19,
-          startScheduling: () => _v3 ? Promise.resolve() : (_v3 = !0, _v19.webLockApiRunner("picoXSendEvents", _v10)),
+          configuration: _v21,
+          sendImmediately: _v13,
+          startScheduling: () => _v3 ? Promise.resolve() : (_v3 = !0, _v21.webLockApiRunner("picoXSendEvents", _v10)),
           stopScheduling: () => {
-            _v3 = !1, _v5 && (window.clearTimeout(_v5), _v5 = null), _v6 = _v19.syncIntervalMilliseconds;
+            _v3 = !1, _v5 && (window.clearTimeout(_v5), _v5 = null), _v6 = _v21.syncIntervalMilliseconds;
           }
         }),
-        _v24 = (_v1 = _v19.identifiersSuffix, _v2 = _v19.cookieDomain, _v13 = `LOCAL_STORAGE_ID_${_v1}`, _v14 = () => {
-          let _v0 = window.localStorage.getItem(_v13);
+        _v26 = (_v1 = _v21.identifiersSuffix, _v2 = _v21.cookieDomain, _v14 = `LOCAL_STORAGE_ID_${_v1}`, _v15 = () => {
+          let _v0 = window.localStorage.getItem(_v14);
           if (null == _v0) {
             let _v0 = (0, _v12.v4)();
-            return window.localStorage.setItem(_v13, _v0), _v0;
+            return window.localStorage.setItem(_v14, _v0), _v0;
           }
           return _v0;
-        }, _v15 = _v14(_v1), _v16 = `COOKIE_ID_${_v1}`, _v17 = () => {
-          let _v0 = _v5.default.get(_v16) ?? (0, _v12.v4)();
-          return _v5.default.set(_v16, _v0, {
+        }, _v16 = `SESSION_STORAGE_ID_${_v1}`, _v17 = () => {
+          let _v0 = window.sessionStorage.getItem(_v16);
+          if (null == _v0) {
+            let _v0 = (0, _v12.v4)();
+            return window.sessionStorage.setItem(_v16, _v0), _v0;
+          }
+          return _v0;
+        }, _v18 = `COOKIE_ID_${_v1}`, _v19 = () => {
+          let _v0 = _v5.default.get(_v18) ?? (0, _v12.v4)();
+          return _v5.default.set(_v18, _v0, {
             expires: 365,
             domain: _v2
           }), _v0;
         }, {
           currentIdentifiers: () => ({
-            local_storage_id: _v14(),
-            session_storage_id: _v15(),
-            cookie_storage_id: _v17()
+            local_storage_id: _v15(),
+            session_storage_id: _v17(),
+            cookie_storage_id: _v19()
           })
         }),
-        _v25 = {
+        _v27 = {
           currentContext: _v0 => {
             let _v1 = new _v13.UAParser(window.navigator.userAgent).getResult(),
               _v2 = Intl.DateTimeFormat().resolvedOptions(),
-              _v3 = _v19.sdkVersion,
+              _v3 = _v21.sdkVersion,
               _v4 = _v1.browser.name ?? null,
               _v5 = _v1.os.name ?? null,
               _v6 = _v1.os.version ?? null,
@@ -430,7 +450,18 @@
               device_type: _v7,
               language: _v8,
               locale: _v9,
-              session_id: _v14("PICOX_SESSION_ID")(),
+              session_id: ((_v0, _v1 = new Date()) => {
+                let _v2 = `SESSION_STORAGE_ID_${_v0}`,
+                  _v3 = `${_v2}__LAST_ACTIVITY`,
+                  _v4 = window.sessionStorage.getItem(_v3);
+                null !== _v4 && _v1.getTime() - Number(_v4) > 0 && window.sessionStorage.removeItem(_v2), window.sessionStorage.setItem(_v3, String(_v1.getTime()));
+                let _v5 = window.sessionStorage.getItem(_v2);
+                if (null == _v5) {
+                  let _v0 = (0, _v12.v4)();
+                  return window.sessionStorage.setItem(_v2, _v0), _v0;
+                }
+                return _v5;
+              })("PICOX_SESSION_ID", _v0),
               sdk_version: _v3,
               timezone_daylight_saving: _v10,
               timezone_name: _v11,
@@ -438,51 +469,51 @@
             };
           }
         },
-        _v26 = async (_v0, _v1, _v2) => {
-          let _v3 = new Date(),
-            _v4 = _v24.currentIdentifiers(),
-            _v5 = _v19.additionalIdentifiers(),
-            _v6 = {
-              ..._v4,
+        _v28 = async (_v0, _v1, _v2, _v3) => {
+          let _v4 = new Date(),
+            _v5 = _v26.currentIdentifiers(),
+            _v6 = _v21.additionalIdentifiers(),
+            _v7 = {
               ..._v5,
+              ..._v6,
               ...(_v2 ?? {})
             },
-            _v7 = _v25.currentContext(_v3),
-            _v8 = _v19.additionalContext(),
-            _v9 = {
-              ..._v7,
-              ..._v8
-            },
+            _v8 = _v27.currentContext(_v4),
+            _v9 = _v21.additionalContext(),
             _v10 = {
+              ..._v8,
+              ..._v9
+            },
+            _v11 = {
               event_id: (0, _v12.v4)(),
               event_name: _v0,
               payload: _v1,
-              identifiers: _v6,
-              context: _v9,
-              event_timestamp: _v3
+              identifiers: _v7,
+              context: _v10,
+              event_timestamp: _v4
             };
-          for (let _v0 of _v19.eventProcessors) if (!(_v10 = _v0.processEvent(_v10))) return;
-          await _v21.storeEvent(_v10);
+          for (let _v0 of _v21.eventProcessors) if (!(_v11 = _v0.processEvent(_v11))) return;
+          _v3?.delivery === "immediate" ? await _v25.sendImmediately(_v11) : await _v23.storeEvent(_v11);
         },
-        _v27 = (_v18 = {
+        _v29 = (_v20 = {
           start: () => {
-            null === window.sessionStorage.getItem("PICOX_PING") && (window.sessionStorage.setItem("PICOX_PING", (0, _v12.v4)()), _v26(_v15, {
+            null === window.sessionStorage.getItem("PICOX_PING") && (window.sessionStorage.setItem("PICOX_PING", (0, _v12.v4)()), _v28(_v14, {
               ping_type: "tab_created"
             }));
           }
         }, {
           start: () => {
-            _v18.start();
+            _v20.start();
           }
         });
-      return _v23.startScheduling(), _v27.start(), {
-        track: _v26
+      return _v25.startScheduling(), _v29.start(), {
+        track: _v28
       };
     };
-  var _v31 = _v0.i(0);
-  let _v32 = "utmParameters",
-    _v33 = "utmParametersTracked";
-  function _v34(_v0) {
+  var _v32 = _v0.i(0);
+  let _v33 = "utmParameters",
+    _v34 = "utmParametersTracked";
+  function _v35(_v0) {
     if (null === _v0 || "" === _v0) return {};
     try {
       let _v0 = JSON.parse(_v0);
@@ -496,21 +527,21 @@
       return {};
     }
   }
-  function _v35(_v0, _v1) {
+  function _v36(_v0, _v1) {
     try {
       return ("localStorage" === _v0 ? window.localStorage : window.sessionStorage).getItem(_v1);
     } catch {
       return null;
     }
   }
-  function _v36(_v0, _v1, _v2) {
+  function _v37(_v0, _v1, _v2) {
     try {
       ("localStorage" === _v0 ? window.localStorage : window.sessionStorage).setItem(_v1, _v2);
     } catch {}
   }
-  let _v37 = async _v0 => {
+  let _v38 = async _v0 => {
       try {
-        if ("true" === _v35("sessionStorage", _v33)) return;
+        if ("true" === _v36("sessionStorage", _v34)) return;
         let {
           sessionParams: _v0,
           persistentParams: _v1
@@ -526,10 +557,10 @@
               }
             }(),
             _v2 = (_v0 = {}, new URLSearchParams(window.location.search).forEach((_v0, _v1) => {
-              _v31.ATTRIBUTION_PARAM_NAMES.includes(_v1) && _v0 && (_v0[_v1] = _v0);
+              _v32.ATTRIBUTION_PARAM_NAMES.includes(_v1) && _v0 && (_v0[_v1] = _v0);
             }), _v0),
-            _v3 = _v34(_v35("localStorage", _v32)),
-            _v4 = _v34(_v35("sessionStorage", _v32)),
+            _v3 = _v35(_v36("localStorage", _v33)),
+            _v4 = _v35(_v36("sessionStorage", _v33)),
             _v5 = Object.keys(_v2).length > 0 ? {
               ..._v2
             } : {
@@ -548,9 +579,9 @@
           }
           let _v6 = void 0 !== _v5.t_s || void 0 !== _v3.t_s || void 0 !== _v5.utm_source || void 0 !== _v3.utm_source;
           if (void 0 === _v5.t_network && void 0 === _v3.t_network && !_v6 && "" !== document.referrer && /google|bing|yahoo|duckduckgo|ask|baidu|yandex/i.test(document.referrer) && (_v5.t_network = "seo"), !_v1) {
-            _v36("sessionStorage", _v32, JSON.stringify(_v5));
+            _v37("sessionStorage", _v33, JSON.stringify(_v5));
             let _v0 = Object.keys(_v5).length > 0 ? _v5 : _v3;
-            return _v36("localStorage", _v32, JSON.stringify(_v0)), {
+            return _v37("localStorage", _v33, JSON.stringify(_v0)), {
               sessionParams: _v5,
               persistentParams: _v0
             };
@@ -563,18 +594,18 @@
         await _v0.track("utm_params_tracked", {
           landing_page_info: _v0,
           persistent: _v1
-        }), _v36("sessionStorage", _v33, "true");
+        }), _v37("sessionStorage", _v34, "true");
       } catch (_v0) {
         console.error("Error tracking UTM params event", _v0);
       }
     },
-    _v38 = (0, _v2.createContext)({
+    _v39 = (0, _v2.createContext)({
       track: async () => {
         let _v0 = "usePico() was called outside of <PicoProvider>. Track calls will be dropped.";
-        if (console.error(_v0), _v39()) throw Error(_v0);
+        if (console.error(_v0), _v40()) throw Error(_v0);
       }
     });
-  function _v39() {
+  function _v40() {
     let _v0 = window.location?.hostname ?? "";
     return "vimeo.dev" === _v0 || _v0.endsWith(".vimeows.com");
   }
@@ -641,10 +672,10 @@
         buffer: []
       }, {
         proxy: {
-          track: async (_v0, _v1, _v2) => {
+          track: async (_v0, _v1, _v2, _v3) => {
             switch (_v0.type) {
               case "bound":
-                return _v0.pico.track(_v0, _v1, _v2);
+                return _v0.pico.track(_v0, _v1, _v2, _v3);
               case "buffering":
                 {
                   let _v0 = _v0.buffer;
@@ -653,6 +684,7 @@
                       eventName: _v0,
                       payload: _v1,
                       additionalIdentifiers: _v2,
+                      delivery: _v3?.delivery,
                       resolve: _v0
                     });
                   });
@@ -668,7 +700,9 @@
           for (let _v0 of (_v0 = {
             type: "bound",
             pico: _v0
-          }, _v1)) _v0.track(_v0.eventName, _v0.payload, _v0.additionalIdentifiers).catch(_v0 => console.warn(`Failed to persist buffered PicoX event: ${_v0}`)).finally(_v0.resolve);
+          }, _v1)) _v0.track(_v0.eventName, _v0.payload, _v0.additionalIdentifiers, void 0 === _v0.delivery ? void 0 : {
+            delivery: _v0.delivery
+          }).catch(_v0 => console.warn(`Failed to persist buffered PicoX event: ${_v0}`)).finally(_v0.resolve);
         },
         fail: _v0 => {
           let _v1 = "buffering" === _v0.type ? _v0.buffer : [];
@@ -693,7 +727,7 @@
             is_in_grace_period: _v8()
           };
         },
-        _v2 = _v2 || _v39(),
+        _v2 = _v2 || _v40(),
         _v3 = `https://vimeo.com/flarepoint/${function () {
           let _v0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
             _v1 = "";
@@ -702,7 +736,7 @@
         }()}`;
       (async () => {
         try {
-          let _v0 = await _v30({
+          let _v0 = await _v31({
             additionalIdentifiers: _v0,
             additionalContext: _v1,
             cookieDomain: `.${window.location.hostname.split(".").slice(-2).join(".")}`,
@@ -711,14 +745,14 @@
             syncIntervalMilliseconds: _v1,
             endpoint: _v3
           });
-          _v27(_v0), _v37(_v0);
+          _v27(_v0), _v38(_v0);
         } catch (_v0) {
           console.error("Error initializing PicoX client", _v0), _v28(_v0);
         }
       })();
-    }, [_v21]), (0, _v1.jsx)(_v38.Provider, {
+    }, [_v21]), (0, _v1.jsx)(_v39.Provider, {
       value: _v26,
       children: _v0
     });
-  }, "usePico", 0, () => (0, _v2.useContext)(_v38)], 0);
+  }, "usePico", 0, () => (0, _v2.useContext)(_v39)], 0);
 }

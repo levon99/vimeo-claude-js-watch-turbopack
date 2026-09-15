@@ -3124,11 +3124,16 @@ Error:`, _v0);
     }(100),
     _v281 = _v17.GLOBAL_OBJ,
     _v282 = !1,
-    _v283 = _v17.GLOBAL_OBJ,
-    _v284 = _v15.default.env.SENTRY_ENVIRONMENT ?? ("true" === _v15.default.env.IS_STAGING ? "staging" : "production"),
-    _v285 = "production" === _v284;
+    _v283 = _v17.GLOBAL_OBJ;
+  function _v284(_v0) {
+    return "development" === _v0 || "production" === _v0 || "staging" === _v0;
+  }
+  let _v285 = _v15.default.env.SENTRY_ENVIRONMENT,
+    _v286 = globalThis.__SENTRY_ENV__,
+    _v287 = _v284(_v285) ? _v285 : "true" === _v15.default.env.IS_STAGING ? "staging" : _v284(_v286) ? _v286 : "production",
+    _v288 = "production" === _v287;
   globalThis._sentryRouteManifest = '{"isrRoutes":[],"dynamicRoutes":[],"staticRoutes":[]}', globalThis._sentryNextJsVersion = "16.3.1";
-  let _v286 = Promise.reject.bind(Promise);
+  let _v289 = Promise.reject.bind(Promise);
   Promise.reject = function (_v0) {
     if (void 0 === _v0) try {
       _v111({
@@ -3140,14 +3145,14 @@ Error:`, _v0);
         }
       });
     } catch {}
-    return _v286(_v0);
+    return _v289(_v0);
   };
-  let _v287 = 0,
-    _v288 = 0,
-    _v289 = 0,
-    _v290 = 0,
+  let _v290 = 0,
     _v291 = 0,
-    _v292 = 0;
+    _v292 = 0,
+    _v293 = 0,
+    _v294 = 0,
+    _v295 = 0;
   !function (_v0) {
     let _v1, _v2, _v3, _v4, _v5;
     _v282 && (0, _v16.consoleSandbox)(() => {
@@ -4500,7 +4505,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "86848dfa3707afefb68de7ea2fd77558db9e5f39",
+      release: "3c49a89e06b6d47ebfb7206a4afd585a9f0ba34c",
       ..._v0
     };
     !function (_v0) {
@@ -4579,8 +4584,8 @@ Error:`, _v0);
     } catch {}
   }({
     dsn: "https://0a37e74b815884a9b93905d42fd36619@o6787.ingest.us.sentry.io/4511274141876224",
-    environment: _v284,
-    tracesSampleRate: _v285 ? .01 : 1,
+    environment: _v287,
+    tracesSampleRate: _v288 ? .01 : 1,
     ignoreErrors: ["fresnel-events.vimeocdn.com", "browser-intake-datadoghq.com", "zaloJSV2", "JsInternal", "telemetry.transcend.io"],
     beforeBreadcrumb: _v0 => "xhr" === _v0.category && "string" == typeof _v0.data?.url && _v0.data.url.includes("vimeocdn.com") && 200 === _v0.data.status_code ? null : _v0,
     beforeSend(_v0, _v1) {
@@ -4655,7 +4660,7 @@ Error:`, _v0);
             let _v2 = _v0.filename ?? _v0.abs_path ?? "";
             return _v2.includes("/cm/") || _v2.includes("airgap.js");
           }));
-        if (-1 !== _v1 && !_v2 || (_v288 += 1) > 1) return null;
+        if (-1 !== _v1 && !_v2 || (_v291 += 1) > 1) return null;
       }
       let _v11 = _v0.exception?.values?.[0];
       if (_v11?.type === "TypeError" && _v11.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && /\.split is not a function/.test(_v11.value ?? "")) {
@@ -4692,9 +4697,9 @@ Error:`, _v0);
         if (_v0.length > 0 && _v0.every(_v0 => (_v0.filename ?? _v0.abs_path ?? "") === "<anonymous>")) return null;
       }
       let _v17 = _v0.exception?.values?.[0];
-      if (_v17?.type === "InvalidStateError" && "The object is in an invalid state." === _v17.value && _v17.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v17.mechanism?.handled === !1 && _v17.mechanism?.data?.handler === "<anonymous>" && (_v290 += 1) > 1) return null;
+      if (_v17?.type === "InvalidStateError" && "The object is in an invalid state." === _v17.value && _v17.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v17.mechanism?.handled === !1 && _v17.mechanism?.data?.handler === "<anonymous>" && (_v293 += 1) > 1) return null;
       let _v18 = _v0.exception?.values?.[0];
-      if (_v18?.type === "TypeError" && _v18.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v18.mechanism?.handled === !1 && /tagName\.toLowerCase/.test(_v18.value ?? "") && (_v291 += 1) > 1) return null;
+      if (_v18?.type === "TypeError" && _v18.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v18.mechanism?.handled === !1 && /tagName\.toLowerCase/.test(_v18.value ?? "") && (_v294 += 1) > 1) return null;
       let _v19 = _v0.exception?.values?.[0];
       if (_v19?.type === "InvalidStateError" && _v19.mechanism?.type === "auto.browser.browserapierrors.addEventListener" && _v19.mechanism?.handled === !1 && /Failed to read the 'responseText' property from 'XMLHttpRequest'/.test(_v19.value ?? "") && /was '(arraybuffer|json|blob|document)'/.test(_v19.value ?? "")) return null;
       let _v20 = _v0.exception?.values?.[0];
@@ -4711,11 +4716,11 @@ Error:`, _v0);
       let _v24 = _v0.exception?.values?.[0];
       if (_v24?.type === "AbortError" && "signal is aborted without reason" === _v24.value && _v24.mechanism?.handled === !1 && (_v24.mechanism?.type === "auto.browser.global_handlers.onunhandledrejection" || _v24.mechanism?.type === "onunhandledrejection") || _v0.exception?.values?.some(_v0 => "HsBackgroundServiceWorkerUnavailableError" === _v0.type || _v0.value?.includes("background service worker unavailable"))) return null;
       let _v25 = _v0.exception?.values?.[0];
-      if (_v25?.type === "ReferenceError" && _v25.mechanism?.handled === !1 && _v25.mechanism?.type?.startsWith("auto.browser.browserapierrors.") && (_v289 += 1) > 1) return null;
+      if (_v25?.type === "ReferenceError" && _v25.mechanism?.handled === !1 && _v25.mechanism?.type?.startsWith("auto.browser.browserapierrors.") && (_v292 += 1) > 1) return null;
       let _v26 = _v0.exception?.values?.[0];
-      if (_v26?.value?.startsWith("Module load timeout") && (_v287 += 1) > 1) return null;
+      if (_v26?.value?.startsWith("Module load timeout") && (_v290 += 1) > 1) return null;
       let _v27 = _v0.exception?.values?.[0];
-      if (_v27?.value === "Please use the NodeViewWrapper component for your node view." && (_v292 += 1) > 1) return null;
+      if (_v27?.value === "Please use the NodeViewWrapper component for your node view." && (_v295 += 1) > 1) return null;
       let _v28 = _v0.exception?.values?.[0];
       if (_v28?.type === "TypeError" && "Cannot read properties of undefined (reading 'M_ID')" === _v28.value) return null;
       if (_v0.exception?.values?.[0]?.type === "UnhandledRejection" && void 0 === _v1.originalException) try {

@@ -501,5 +501,5 @@
       value: "team_allowed_ip.deleted",
       applied: !1
     }];
-  _v0.s(["DAYS", 0, "days", "EMPTY_THUMBNAIL_SRC", 0, "https://vimeo.com/assets/images_v6/icons/icon_extend_v6_default.png?1650529706", "EVENT_NAMES_FILTER_LIST", 0, _v4, "MONTHS", 0, "months", "NOTIFICATION_DURATION", 0, 0, "SETTING_PAGES_MAX_WIDTH", 0, _v3, "UPSELL_GRADIENT", 0, "linear-gradient(270deg, rgb(18, 163, 171) 0%, rgb(31, 168, 77) 100%)", "YEARS", 0, "years"]);
+  _v0.s(["DAYS", 0, "days", "EMPTY_THUMBNAIL_SRC", 0, "https://f.vimeocdn.com/images_v6/icons/icon_extend_v6_default.png", "EVENT_NAMES_FILTER_LIST", 0, _v4, "MONTHS", 0, "months", "NOTIFICATION_DURATION", 0, 0, "SETTING_PAGES_MAX_WIDTH", 0, _v3, "UPSELL_GRADIENT", 0, "linear-gradient(270deg, rgb(18, 163, 171) 0%, rgb(31, 168, 77) 100%)", "YEARS", 0, "years"]);
 }
