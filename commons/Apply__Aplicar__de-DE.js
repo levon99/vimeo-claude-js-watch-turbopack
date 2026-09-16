@@ -502,16 +502,30 @@
       offset: _v0,
       onClick: _v1,
       isErrors: _v2,
-      isMobile: _v3
+      isMobile: _v3,
+      maxSpanDays: _v4
     }) => {
-      let _v4 = (0, _v11.useDatePickerContext)(),
-        _v5 = _v4?.getOffset({
+      let _v5 = (0, _v11.useDatePickerContext)(),
+        _v6 = _v5?.getOffset({
           months: _v0
         }),
-        [_v6, _v7] = _v4?.value,
-        [_v8, _v9] = _v4?.valueAsString,
-        _v10 = _v6 && _v7 && _v8 !== _v9 && !_v2,
-        _v11 = (0, _v2.useCallback)(_v0 => !_v7 && _v6 && _v0?.compare(_v6) > 0, [_v7, _v6]);
+        [_v7, _v8] = _v5?.value,
+        [_v9, _v10] = _v5?.valueAsString,
+        _v11 = _v7 && _v8 && _v9 !== _v10 && !_v2,
+        _v12 = (0, _v2.useCallback)(_v0 => !_v8 && _v7 && _v0?.compare(_v7) > 0, [_v8, _v7]),
+        _v13 = (0, _v2.useMemo)(() => {
+          if (void 0 === _v4 || !_v7 || _v8) return null;
+          let _v0 = Math.max(_v4 - 1, 0);
+          return {
+            before: _v7.subtract({
+              days: _v0
+            }),
+            after: _v7.add({
+              days: _v0
+            })
+          };
+        }, [_v4, _v7, _v8]),
+        _v14 = (0, _v2.useCallback)(_v0 => null !== _v13 && (0 > _v0.compare(_v13.before) || _v0.compare(_v13.after) > 0), [_v13]);
       return (0, _v1.jsx)(_v4.Box, {
         children: (0, _v1.jsxs)(_v5.DatePickerTable, {
           width: "100%",
@@ -525,7 +539,7 @@
                 boxSize: _v3 ? "sm" : void 0,
                 overflow: "hidden",
                 width: "100%",
-                children: _v4?.weekDays?.map((_v0, _v1) => (0, _v1.jsx)(_v36.Grid, {
+                children: _v5?.weekDays?.map((_v0, _v1) => (0, _v1.jsx)(_v36.Grid, {
                   as: _v5.DatePickerTableHeader,
                   placeItems: "center",
                   children: _v0?.narrow
@@ -533,7 +547,7 @@
               })
             })
           }), (0, _v1.jsx)(_v5.DatePickerTableBody, {
-            children: _v5?.weeks?.map((_v0, _v1) => (0, _v1.jsx)(_v5.DatePickerTableRow, {
+            children: _v6?.weeks?.map((_v0, _v1) => (0, _v1.jsx)(_v5.DatePickerTableRow, {
               asChild: !0,
               children: (0, _v1.jsx)(_v4.Box, {
                 borderRadius: "sm",
@@ -546,31 +560,37 @@
                 children: _v0.map((_v0, _v1) => (0, _v1.jsxs)(_v4.Box, {
                   as: _v5.DatePickerCell,
                   value: _v0,
-                  visibleRange: _v5.visibleRange,
+                  visibleRange: _v6.visibleRange,
+                  disabled: _v14(_v0),
                   onClick: _v1,
                   height: _v3 ? {
                     base: (0, _v37.rem)(32),
                     md: (0, _v37.rem)(24)
                   } : void 0,
                   sx: {
+                    "&[data-disabled]:not([data-selected])": {
+                      color: "text-tertiary",
+                      opacity: .5,
+                      pointerEvents: "none"
+                    },
                     "&[data-selected][data-range-start]": {
-                      borderRadius: _v10 ? "9999px 0 0 9999px" : "9999px"
+                      borderRadius: _v11 ? "9999px 0 0 9999px" : "9999px"
                     },
                     "&[data-selected][data-range-end]": {
-                      borderRadius: _v10 ? "0 9999px 9999px 0" : "9999px"
+                      borderRadius: _v11 ? "0 9999px 9999px 0" : "9999px"
                     },
                     "&[data-focus][data-in-range]:not([data-range-start]):not([data-range-end])": {
-                      borderRadius: _v2 ? "0px" : _v11(_v0) ? "0 8px 8px 0" : "8px 0 0 8px",
+                      borderRadius: _v2 ? "0px" : _v12(_v0) ? "0 8px 8px 0" : "8px 0 0 8px",
                       _before: {
                         width: 0
                       }
                     }
                   },
-                  children: [_v0?.day === _v6?.day + 1 && _v0?.month === _v6?.month && (0, _v1.jsx)(_v4.Box, {
+                  children: [_v0?.day === _v7?.day + 1 && _v0?.month === _v7?.month && (0, _v1.jsx)(_v4.Box, {
                     "data-f": !0
-                  }), _v0?.day === _v6?.day - 1 && _v0?.month === _v6?.month && (0, _v1.jsx)(_v4.Box, {
-                    "data-b": !0
                   }), _v0?.day === _v7?.day - 1 && _v0?.month === _v7?.month && (0, _v1.jsx)(_v4.Box, {
+                    "data-b": !0
+                  }), _v0?.day === _v8?.day - 1 && _v0?.month === _v8?.month && (0, _v1.jsx)(_v4.Box, {
                     "data-b": !0
                   }), _v0?.day]
                 }, _v1))
@@ -752,106 +772,137 @@
     defaultRange: _v0,
     maxDate: _v1,
     minDate: _v2,
-    isMobile: _v3 = !1,
-    isOpen: _v4 = !0,
-    locale: _v5 = "en-US",
-    onApply: _v6,
-    presetValues: _v7,
-    presetsMultiline: _v8 = !1,
-    onValueChange: _v9,
-    value: _v10,
-    ..._v11
+    maxSpanDays: _v3,
+    isMobile: _v4 = !1,
+    isOpen: _v5 = !0,
+    locale: _v6 = "en-US",
+    onApply: _v7,
+    presetValues: _v8,
+    presetsMultiline: _v9 = !1,
+    onValueChange: _v10,
+    value: _v11,
+    ..._v12
   }) => {
-    let [_v12, _v13] = (0, _v2.useState)(_v49),
-      [_v14, _v15] = (0, _v2.useState)(null),
-      [_v16, _v17] = (0, _v2.useState)(null),
-      [_v18, _v19] = (0, _v2.useState)([]),
-      _v20 = !!(_v12?.start || _v12?.end),
-      _v21 = (0, _v2.useMemo)(() => _v3.BokehDate?.today("UTC"), []),
-      _v22 = {
+    let [_v13, _v14] = (0, _v2.useState)(_v49),
+      [_v15, _v16] = (0, _v2.useState)(null),
+      [_v17, _v18] = (0, _v2.useState)(null),
+      [_v19, _v20] = (0, _v2.useState)([]),
+      _v21 = !!(_v13?.start || _v13?.end),
+      _v22 = (0, _v2.useMemo)(() => _v3.BokehDate?.today("UTC"), []),
+      _v23 = {
         '&[aria-disabled="true"], &[data-disabled], &[data-disabled="true"]': {
           pointerEvents: "none",
           cursor: "not-allowed"
         }
       },
-      _v23 = ({
+      _v24 = ({
         field: _v0,
         startDate: _v1,
         endDate: _v2
       }) => {
         if (_v1 && _v2) {
-          _v12.isApplyDisabled = !1;
+          _v13.isApplyDisabled = !1;
           let _v0 = _v1 < _v2,
-            _v1 = _v21 < _v2,
-            _v2 = _v2 < _v1;
-          _v0 || _v0 || (_v12.start = ""), _v1 || _v2 || (_v12.end = ""), _v0 && (_v12.isApplyDisabled = !0, _v12.start = _v20), _v1 && (_v12.isApplyDisabled = !0, _v12.end = _v21), (_v1 > _v2 || _v2) && (_v12.isApplyDisabled = !0, _v12[_v0] = _v22);
-        } else _v12[_v0] = "", _v12.isApplyDisabled = !0;
-        _v13({
-          ..._v12,
-          ..._v12
+            _v1 = _v1 > _v2,
+            _v2 = _v22 < _v2,
+            _v3 = _v2 < _v1,
+            _v4 = void 0 !== _v3 && _v2.compare(_v1) > _v3 - 1;
+          (_v0 || _v0 || (_v13.start = ""), _v2 || _v3 || _v4 || (_v13.end = ""), _v0 && (_v13.isApplyDisabled = !0, _v13.start = _v20), _v2 && (_v13.isApplyDisabled = !0, _v13.end = _v21), (_v1 || _v3) && (_v13.isApplyDisabled = !0, _v13[_v0] = _v22), _v4) && (_v13.isApplyDisabled = !0, _v13.end = (0, _v12.translate)({
+            singular: "The date range can be at most {maxDays} days long.",
+            replacements: {
+              maxDays: _v3
+            },
+            dictionary: {
+              es: {
+                singular: "El rango de fechas puede tener como máximo {maxDays} días."
+              },
+              "de-DE": {
+                singular: "Der Datumsbereich darf höchstens {maxDays} Tage umfassen."
+              },
+              "fr-FR": {
+                singular: "La plage de dates peut avoir une durée maximale de {maxDays} jours."
+              },
+              "ja-JP": {
+                singular: "日付範囲は最大で{maxDays}日間です。"
+              },
+              "ko-KR": {
+                singular: "날짜 범위는 최대 {maxDays}일까지 가능합니다."
+              },
+              "pt-BR": {
+                singular: "O intervalo de datas pode ter no máximo {maxDays} dias."
+              },
+              "zh-CN": {
+                singular: "日期范围最多为 {maxDays} 天。"
+              }
+            }
+          }));
+        } else _v13[_v0] = "", _v13.isApplyDisabled = !0;
+        _v14({
+          ..._v13,
+          ..._v13
         });
       },
-      _v24 = () => {
-        _v15(null), _v19(null), _v13(_v49);
+      _v25 = () => {
+        _v16(null), _v20(null), _v14(_v49);
       },
-      _v25 = _v0 => {
-        if (_v17(_v0), !_v18?.length) return;
-        let [_v1, _v2] = _v18;
-        _v23({
+      _v26 = _v0 => {
+        if (_v18(_v0), !_v19?.length) return;
+        let [_v1, _v2] = _v19;
+        _v24({
           ..._v0,
           startDate: _v1,
           endDate: _v2
         });
       },
-      _v26 = _v0 => {
-        _v15(null), _v23(_v0);
+      _v27 = _v0 => {
+        _v16(null), _v24(_v0);
       },
-      _v27 = _v10?.[0]?.toString() ?? "",
-      _v28 = _v10?.[1]?.toString() ?? "",
-      [_v29, _v30] = (0, _v2.useState)(_v27),
-      [_v31, _v32] = (0, _v2.useState)(_v28);
-    return (_v29 !== _v27 || _v31 !== _v28) && (_v30(_v27), _v32(_v28), _v15(null), _v19(null), _v13(_v49)), (0, _v1.jsx)(_v4.Box, {
+      _v28 = _v11?.[0]?.toString() ?? "",
+      _v29 = _v11?.[1]?.toString() ?? "",
+      [_v30, _v31] = (0, _v2.useState)(_v28),
+      [_v32, _v33] = (0, _v2.useState)(_v29);
+    return (_v30 !== _v28 || _v32 !== _v29) && (_v31(_v28), _v33(_v29), _v16(null), _v20(null), _v14(_v49)), (0, _v1.jsx)(_v4.Box, {
       borderRadius: "lg",
       bg: "fill-blur",
       padding: "lg",
       backdropFilter: "blur-lg",
       boxShadow: "md",
-      width: _v3 ? "100%" : "37.5rem",
-      ..._v11,
+      width: _v4 ? "100%" : "37.5rem",
+      ..._v12,
       children: (0, _v1.jsx)(_v5.DatePicker, {
-        open: _v4,
-        numOfMonths: _v3 ? 1 : 2,
+        open: _v5,
+        numOfMonths: _v4 ? 1 : 2,
         selectionMode: "range",
         max: _v1,
         min: _v2,
-        locale: _v5,
+        locale: _v6,
         defaultValue: _v0,
         onValueChange: ({
           valueAsString: [_v0, _v1],
           value: _v2
         }) => {
-          if (_v16) {
-            let _v0 = _v34(_v0, _v16?.format),
-              _v1 = _v34(_v1, _v16?.format),
+          if (_v17) {
+            let _v0 = _v34(_v0, _v17?.format),
+              _v1 = _v34(_v1, _v17?.format),
               _v2 = {
-                ..._v16,
+                ..._v17,
                 startDate: _v0,
                 endDate: _v1
               };
-            _v19([_v0, _v1]), _v23(_v2);
+            _v20([_v0, _v1]), _v24(_v2);
           }
-          _v9 && _v9(_v2, _v14);
+          _v10 && _v10(_v2, _v15);
         },
-        value: _v10,
+        value: _v11,
         children: (0, _v1.jsxs)(_v5.DatePickerContent, {
-          children: [_v7?.length ? (0, _v1.jsx)(_v47, {
-            isMobile: _v3,
-            presetValues: _v7,
+          children: [_v8?.length ? (0, _v1.jsx)(_v47, {
+            isMobile: _v4,
+            presetValues: _v8,
             onPresetClick: _v0 => {
-              _v13(_v49), _v15(_v0);
+              _v14(_v49), _v16(_v0);
             },
-            activePreset: _v14,
-            presetsMultiline: _v8
+            activePreset: _v15,
+            presetsMultiline: _v9
           }) : null, (0, _v1.jsx)(_v4.Box, {
             children: (0, _v1.jsxs)(_v5.DatePickerView, {
               view: "day",
@@ -860,13 +911,13 @@
                   display: "flex",
                   gap: "var(--vimeo-space-lg)"
                 },
-                children: _v3 ? (0, _v1.jsx)(_v44, {
-                  locale: _v5
+                children: _v4 ? (0, _v1.jsx)(_v44, {
+                  locale: _v6
                 }) : (0, _v1.jsx)(_v1.Fragment, {
                   children: _v48.map(_v0 => (0, _v1.jsx)(_v35, {
-                    error: _v12?.[_v0],
-                    onInputBlur: _v25,
-                    onInputChange: _v26,
+                    error: _v13?.[_v0],
+                    onInputBlur: _v26,
+                    onInputChange: _v27,
                     type: _v0
                   }, _v0))
                 })
@@ -878,7 +929,7 @@
                     alignItems: "center",
                     pt: "sm",
                     pb: "md",
-                    justifyContent: _v3 ? "space-between" : "",
+                    justifyContent: _v4 ? "space-between" : "",
                     children: [(0, _v1.jsx)(_v5.DatePickerPrevTriggerBase, {
                       asChild: !0,
                       children: (0, _v1.jsx)(_v7.IconButton, {
@@ -886,28 +937,29 @@
                         "aria-label": "previous month",
                         size: "sm",
                         icon: (0, _v1.jsx)(_v8.ChevronLeft, {}),
-                        sx: _v22
+                        sx: _v23
                       })
                     }), (0, _v1.jsx)(_v27, {
                       type: "start",
-                      isMobile: _v3
-                    }), _v3 ? (0, _v1.jsx)(_v5.DatePickerNextTriggerBase, {
+                      isMobile: _v4
+                    }), _v4 ? (0, _v1.jsx)(_v5.DatePickerNextTriggerBase, {
                       asChild: !0,
                       children: (0, _v1.jsx)(_v7.IconButton, {
                         variant: "tertiary",
                         "aria-label": "next month",
                         size: "sm",
                         icon: (0, _v1.jsx)(_v9.ChevronRight, {}),
-                        sx: _v22
+                        sx: _v23
                       })
                     }) : null]
                   }), (0, _v1.jsx)(_v39, {
                     offset: 0,
-                    onClick: _v24,
-                    isErrors: _v20,
-                    isMobile: _v3
+                    onClick: _v25,
+                    isErrors: _v21,
+                    isMobile: _v4,
+                    maxSpanDays: _v3
                   })]
-                }), _v3 ? null : (0, _v1.jsxs)(_v4.Box, {
+                }), _v4 ? null : (0, _v1.jsxs)(_v4.Box, {
                   flexGrow: "1",
                   children: [(0, _v1.jsxs)(_v6.Flex, {
                     alignItems: "center",
@@ -923,21 +975,22 @@
                         "aria-label": "next month",
                         size: "sm",
                         icon: (0, _v1.jsx)(_v9.ChevronRight, {}),
-                        sx: _v22
+                        sx: _v23
                       })
                     })]
                   }), (0, _v1.jsx)(_v39, {
                     offset: 1,
-                    onClick: _v24,
-                    isErrors: _v20
+                    onClick: _v25,
+                    isErrors: _v21,
+                    maxSpanDays: _v3
                   })]
                 })]
               })]
             })
-          }), !_v3 && _v6 ? (0, _v1.jsx)(_v24, {
-            isApplyDisabled: _v12?.isApplyDisabled,
-            onApply: _v0 => _v6 && _v6(_v0, _v14),
-            onClear: _v24
+          }), !_v4 && _v7 ? (0, _v1.jsx)(_v24, {
+            isApplyDisabled: _v13?.isApplyDisabled,
+            onApply: _v0 => _v7 && _v7(_v0, _v15),
+            onClear: _v25
           }) : null]
         })
       })

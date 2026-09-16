@@ -30,7 +30,6 @@
   }
   function _v26(_v0, _v1) {
     return {
-      refund_offer_variant: _v0.refundOfferVariant,
       refund_offer_entry_point: _v1
     };
   }
@@ -89,12 +88,11 @@
     (0, _v3.useEffect)(() => {
       let _v0 = _v0 => {
         var _v1, _v2, _v3;
-        if (_v0.origin !== window.location.origin || _v0.source !== window.parent || !_v25(_v0.data) || _v8.current || "refund_offer_data" !== _v0.data.type || !(_v25(_v1 = _v0.data.offer) && !0 === _v1.eligible && "treatment" === _v1.refund_offer_variant && "string" == typeof _v1.current_tier && "string" == typeof _v1.target_tier && "string" == typeof _v1.target_price_formatted && "string" == typeof _v1.current_payment_formatted && "string" == typeof _v1.target_monthly_price_formatted && "string" == typeof _v1.current_monthly_price_formatted && "string" == typeof _v1.refund_amount_formatted && "number" == typeof _v1.refund_percentage && "string" == typeof _v1.renewal_date && "number" == typeof _v1.billing_period_months && "string" == typeof _v1.currency)) return;
+        if (_v0.origin !== window.location.origin || _v0.source !== window.parent || !_v25(_v0.data) || _v8.current || "refund_offer_data" !== _v0.data.type || !(_v25(_v1 = _v0.data.offer) && !0 === _v1.eligible && "string" == typeof _v1.current_tier && "string" == typeof _v1.target_tier && "string" == typeof _v1.target_price_formatted && "string" == typeof _v1.current_payment_formatted && "string" == typeof _v1.target_monthly_price_formatted && "string" == typeof _v1.current_monthly_price_formatted && "string" == typeof _v1.refund_amount_formatted && "number" == typeof _v1.refund_percentage && "string" == typeof _v1.renewal_date && "number" == typeof _v1.billing_period_months && "string" == typeof _v1.currency)) return;
         _v8.current = !0;
         let _v4 = {
             eligible: !0,
-            refundOfferVariant: (_v2 = _v0.data.offer).refund_offer_variant,
-            currentTier: _v2.current_tier,
+            currentTier: (_v2 = _v0.data.offer).current_tier,
             targetTier: _v2.target_tier,
             targetPriceFormatted: _v2.target_price_formatted,
             currentPaymentFormatted: _v2.current_payment_formatted,

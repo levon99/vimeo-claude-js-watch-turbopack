@@ -73,6 +73,7 @@
     try {
       let _v0 = new URL(document.referrer);
       if ("vimeo.com" !== _v0.hostname && !_v0.hostname.endsWith(".vimeo.com")) return "external";
+      if (("/" === _v0.pathname || "" === _v0.pathname) && !_v0.search && !_v0.hash) return "origin_only";
       return _v7(_v0);
     } catch {
       return "unknown";

@@ -4505,7 +4505,7 @@ Error:`, _v0);
         rewriteFramesAssetPrefixPath: "/next-server/vimeo-next",
         experimentalThirdPartyOriginStackFrames: _v5
       })), _v3),
-      release: "3c49a89e06b6d47ebfb7206a4afd585a9f0ba34c",
+      release: "72959a61893358bbb9d56f2ede46203b8c88b735",
       ..._v0
     };
     !function (_v0) {
