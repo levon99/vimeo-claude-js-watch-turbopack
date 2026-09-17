@@ -2084,11 +2084,6 @@
       })]
     }) : (0, _v1.jsx)(_v64, {
       "data-testid": "ai-credits-total-count",
-      ...(_v3 ? {
-        minHeight: (0, _v7.rem)(120)
-      } : {
-        height: (0, _v7.rem)(120)
-      }),
       ..._v5,
       children: _v8
     });

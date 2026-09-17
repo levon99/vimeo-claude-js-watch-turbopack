@@ -19,7 +19,7 @@
     _v14 = ((_v1 = {}).NONE = "none", _v1.DAY = "day", _v1.WEEK = "week", _v1.MONTH = "month", _v1.YEAR = "year", _v1),
     _v15 = ((_v2 = {}).DATE = "date", _v2.VIDEO = "video", _v2.REGION = "region", _v2.SOURCE_URL = "source_url", _v2.DEVICE = "device", _v2.BANDWIDTH = "bandwidth", _v2.STREAMING_TYPE = "streaming_type", _v2.BANDWIDTH_VIDEO = "bandwidth_video", _v2.TEXT_TRACK = "text_track", _v2.AUDIO_TRACK = "audio_track", _v2),
     _v16 = ((_v3 = {})[_v3.INTIAL_DATA = 0] = "INTIAL_DATA", _v3[_v3.SET_FILTER_LIST = 1] = "SET_FILTER_LIST", _v3[_v3.UPDATE_FILTERS = 2] = "UPDATE_FILTERS", _v3[_v3.RESET_FILTERS = 3] = "RESET_FILTERS", _v3[_v3.SET_GRAPH_ITEMS = 4] = "SET_GRAPH_ITEMS", _v3[_v3.UPDATE_DATE_RANGE = 5] = "UPDATE_DATE_RANGE", _v3[_v3.SET_PRIMARY_DIMENSION = 6] = "SET_PRIMARY_DIMENSION", _v3[_v3.ERROR_STATE_UPDATE = 7] = "ERROR_STATE_UPDATE", _v3[_v3.UPDATE_LOADING_STATE = 8] = "UPDATE_LOADING_STATE", _v3[_v3.UPDATE_USER_IN_USE = 9] = "UPDATE_USER_IN_USE", _v3[_v3.SET_AGGREGATE_INTERVAL = 10] = "SET_AGGREGATE_INTERVAL", _v3[_v3.SET_USER_PREFERENCES = 11] = "SET_USER_PREFERENCES", _v3[_v3.SET_REPORT_TYPE = 12] = "SET_REPORT_TYPE", _v3),
-    _v17 = ((_v4 = {}).DASHBOARD = "dashboard", _v4.VIDEO = "video", _v4.ENGAGEMENT = "engagement", _v4.REGION = "region", _v4.SOURCE = "source", _v4.DEVICE = "device", _v4.DATE = "date", _v4.BANDWIDTH_DATE = "bandwidth_date", _v4.STREAMING_TYPE = "streaming_type", _v4.BANDWIDTH_VIDEO = "bandwidth_video", _v4.SINGLE_VIDEO = "single_video", _v4.TEAM = "team", _v4.VIDEO_RATING = "video_rating", _v4),
+    _v17 = ((_v4 = {}).DASHBOARD = "dashboard", _v4.VIDEO = "video", _v4.ENGAGEMENT = "engagement", _v4.REGION = "region", _v4.SOURCE = "source", _v4.DEVICE = "device", _v4.DATE = "date", _v4.BANDWIDTH_DATE = "bandwidth_date", _v4.STREAMING_TYPE = "streaming_type", _v4.BANDWIDTH_VIDEO = "bandwidth_video", _v4.SINGLE_VIDEO = "single_video", _v4.TEAM = "team", _v4.VIDEO_RATING = "video_rating", _v4.AI = "ai", _v4),
     _v18 = ((_v5 = {}).DATE = "date", _v5.SOURCE_URL = "embed_domains", _v5.DEVICE = "device", _v5.REGION = "region", _v5.STREAMING_TYPE = "streaming_type", _v5.CONTENT = "content", _v5.MEMBER = "member", _v5.AUDIO_LANGUAGE = "audio_language", _v5.AUDIO_TYPE_AND_PROVENANCE = "audio_type_and_provenance", _v5.TEXT_LANGUAGE = "text_language", _v5.TEXT_TYPE_AND_PROVENANCE = "text_type_and_provenance", _v5.WORKSPACES = "workspaces", _v5.CUSTOM_METADATA = "custom_metadata", _v5),
     _v19 = ((_v6 = {}).VIMEO = "vimeo", _v6.BANDWIDTH = "bandwidth", _v6);
   _v0.s(["AggregateIntervalType", () => _v14, "Filters", () => _v18, "REPORT_ACTION_TYPE", () => _v16, "ReportGroup", () => _v19, "Reports", () => _v17, "TablePayloadItemType", () => _v15], 0);
@@ -3487,15 +3487,26 @@
       [_v17.BANDWIDTH_VIDEO]: _v19.BANDWIDTH,
       [_v17.SINGLE_VIDEO]: _v19.VIMEO,
       [_v17.TEAM]: _v19.VIMEO,
-      [_v17.VIDEO_RATING]: _v19.VIMEO
+      [_v17.VIDEO_RATING]: _v19.VIMEO,
+      [_v17.AI]: _v19.VIMEO
     };
   _v17.BANDWIDTH_VIDEO, _v17.BANDWIDTH_DATE;
   let _v106 = {
       division: "past",
       group: "days",
+      count: 7
+    },
+    _v107 = {
+      division: "past",
+      group: "days",
+      count: 30
+    },
+    _v108 = {
+      division: "past",
+      group: "days",
       count: 365
     },
-    _v107 = [{
+    _v109 = [{
       label: _v51,
       value: "yesterday"
     }, {
@@ -3503,42 +3514,48 @@
       value: "today"
     }, {
       label: _v54(7),
-      value: {
-        division: "past",
-        group: "days",
-        count: 7
-      }
+      value: _v106
     }, {
       label: _v54(30),
-      value: {
-        division: "past",
-        group: "days",
-        count: 30
-      }
+      value: _v107
     }, {
       label: _v54(365),
-      value: _v106
+      value: _v108
     }],
-    _v108 = [{
+    _v110 = [{
+      label: _v51,
+      value: "yesterday"
+    }, {
+      label: _v52,
+      value: "today"
+    }, {
+      label: _v54(7),
+      value: _v106
+    }, {
+      label: _v54(30),
+      value: _v107
+    }],
+    _v111 = [{
       label: _v54(365),
-      value: _v106
+      value: _v108
     }],
-    _v109 = {
-      [_v17.DASHBOARD]: _v107,
-      [_v17.DATE]: _v107,
-      [_v17.VIDEO]: _v107,
-      [_v17.ENGAGEMENT]: _v107,
-      [_v17.REGION]: _v107,
-      [_v17.SOURCE]: _v107,
-      [_v17.DEVICE]: _v107,
-      [_v17.BANDWIDTH_DATE]: _v108,
-      [_v17.STREAMING_TYPE]: _v107,
-      [_v17.BANDWIDTH_VIDEO]: _v107,
-      [_v17.SINGLE_VIDEO]: _v107,
-      [_v17.TEAM]: _v107,
-      [_v17.VIDEO_RATING]: _v107
+    _v112 = {
+      [_v17.DASHBOARD]: _v109,
+      [_v17.DATE]: _v109,
+      [_v17.VIDEO]: _v109,
+      [_v17.ENGAGEMENT]: _v109,
+      [_v17.REGION]: _v109,
+      [_v17.SOURCE]: _v109,
+      [_v17.DEVICE]: _v109,
+      [_v17.BANDWIDTH_DATE]: _v111,
+      [_v17.STREAMING_TYPE]: _v109,
+      [_v17.BANDWIDTH_VIDEO]: _v109,
+      [_v17.SINGLE_VIDEO]: _v109,
+      [_v17.TEAM]: _v109,
+      [_v17.VIDEO_RATING]: _v109,
+      [_v17.AI]: _v110
     },
-    _v110 = {
+    _v113 = {
       [_v93]: (0, _v13.translate)({
         singular: "Dashboard",
         dictionary: {
@@ -3821,23 +3838,43 @@
             singular: "视频评分"
           }
         }
+      }),
+      ai: (0, _v13.translate)({
+        singular: "AI Analytics",
+        dictionary: {
+          "de-DE": {
+            singular: "KI-Analysen"
+          },
+          "ja-JP": {
+            singular: "AIアナリティクス"
+          },
+          "ko-KR": {
+            singular: "AI 분석"
+          },
+          "pt-BR": {
+            singular: "Análises de IA"
+          },
+          "zh-CN": {
+            singular: "AI 分析"
+          }
+        }
       })
     },
-    _v111 = "shares",
-    _v112 = "unique_loads",
-    _v113 = "unique_viewers",
-    _v114 = "averageviewduration",
-    _v115 = "averageviewpercentage",
-    _v116 = "totalviewduration",
-    _v117 = "liveBandwidth",
-    _v118 = "videoBandwidth",
-    _v119 = "combinedBandwidth",
-    _v120 = "meanSecondsWatched",
-    _v121 = "totalSecondsWatched",
-    _v122 = "meanPercentWatched",
-    _v123 = "totalSecondsWatchedIncludingRepeats";
-  var _v124 = ((_v8 = {})[_v8.mobile = 0] = "mobile", _v8[_v8.tablet = 1] = "tablet", _v8[_v8.desktop = 2] = "desktop", _v8[_v8.tv = 3] = "tv", _v8[_v8.other = 4] = "other", _v8[_v8.unknown = 5] = "unknown", _v8);
-  let _v125 = {
+    _v114 = "shares",
+    _v115 = "unique_loads",
+    _v116 = "unique_viewers",
+    _v117 = "averageviewduration",
+    _v118 = "averageviewpercentage",
+    _v119 = "totalviewduration",
+    _v120 = "liveBandwidth",
+    _v121 = "videoBandwidth",
+    _v122 = "combinedBandwidth",
+    _v123 = "meanSecondsWatched",
+    _v124 = "totalSecondsWatched",
+    _v125 = "meanPercentWatched",
+    _v126 = "totalSecondsWatchedIncludingRepeats";
+  var _v127 = ((_v8 = {})[_v8.mobile = 0] = "mobile", _v8[_v8.tablet = 1] = "tablet", _v8[_v8.desktop = 2] = "desktop", _v8[_v8.tv = 3] = "tv", _v8[_v8.other = 4] = "other", _v8[_v8.unknown = 5] = "unknown", _v8);
+  let _v128 = {
     0: (0, _v13.translate)({
       singular: "Phone",
       dictionary: {
@@ -4106,7 +4143,7 @@
       }
     }
   });
-  let _v126 = {
+  let _v129 = {
       tv: (0, _v13.translate)({
         singular: "TV apps",
         dictionary: {
@@ -4190,7 +4227,7 @@
         }
       })
     },
-    _v127 = {
+    _v130 = {
       plays: (0, _v13.translate)({
         singular: "Views",
         dictionary: {
@@ -4318,7 +4355,7 @@
           }
         }
       }),
-      [_v112]: (0, _v13.translate)({
+      [_v115]: (0, _v13.translate)({
         singular: "Unique impressions",
         dictionary: {
           es: {
@@ -4344,7 +4381,7 @@
           }
         }
       }),
-      [_v113]: (0, _v13.translate)({
+      [_v116]: (0, _v13.translate)({
         singular: "Unique viewers",
         dictionary: {
           es: {
@@ -5331,7 +5368,7 @@
         }
       })
     },
-    _v128 = {
+    _v131 = {
       plays: (0, _v13.translate)({
         singular: "The number of sessions in which a video starts playing.",
         dictionary: {
@@ -5410,7 +5447,7 @@
           }
         }
       }),
-      [_v112]: (0, _v13.translate)({
+      [_v115]: (0, _v13.translate)({
         singular: "The number of people who have loaded a video player given the filters applied.",
         dictionary: {
           es: {
@@ -5436,7 +5473,7 @@
           }
         }
       }),
-      [_v113]: (0, _v13.translate)({
+      [_v116]: (0, _v13.translate)({
         singular: "The number of people who have watched a video given the filters applied.",
         dictionary: {
           es: {
@@ -5488,7 +5525,7 @@
           }
         }
       }),
-      [_v115]: (0, _v13.translate)({
+      [_v118]: (0, _v13.translate)({
         singular: "The total time watched divided by the video’s length.",
         dictionary: {
           es: {
@@ -5514,7 +5551,7 @@
           }
         }
       }),
-      [_v114]: (0, _v13.translate)({
+      [_v117]: (0, _v13.translate)({
         singular: "The total time watched divided by the number of sessions.",
         dictionary: {
           es: {
@@ -5540,7 +5577,7 @@
           }
         }
       }),
-      [_v116]: (0, _v13.translate)({
+      [_v119]: (0, _v13.translate)({
         singular: "Total time watched for a video across all sessions.",
         dictionary: {
           es: {
@@ -5879,12 +5916,12 @@
         }
       })
     },
-    _v129 = {
-      ..._v127,
+    _v132 = {
+      ..._v130,
       "video.name": "Name",
       "watched.mean_percent": "Avg. % watched",
       "watched.total_seconds": "Total time watched",
-      [_v111]: (0, _v13.translate)({
+      [_v114]: (0, _v13.translate)({
         singular: "Shares",
         dictionary: {
           es: {
@@ -5910,7 +5947,7 @@
           }
         }
       }),
-      [_v116]: (0, _v13.translate)({
+      [_v119]: (0, _v13.translate)({
         singular: "Total time watched",
         dictionary: {
           es: {
@@ -5936,7 +5973,7 @@
           }
         }
       }),
-      [_v115]: (0, _v13.translate)({
+      [_v118]: (0, _v13.translate)({
         singular: "Avg. % watched",
         dictionary: {
           es: {
@@ -5962,7 +5999,7 @@
           }
         }
       }),
-      [_v114]: (0, _v13.translate)({
+      [_v117]: (0, _v13.translate)({
         singular: "Avg. time watched",
         dictionary: {
           es: {
@@ -5989,7 +6026,7 @@
         }
       })
     },
-    _v130 = {
+    _v133 = {
       Live: (0, _v13.translate)({
         singular: "Live",
         dictionary: {
@@ -6040,7 +6077,7 @@
         }
       })
     },
-    _v131 = {
+    _v134 = {
       [_v15.DATE]: (0, _v13.translate)({
         singular: "Date",
         dictionary: {
@@ -6238,7 +6275,7 @@
         }
       })
     },
-    _v132 = {
+    _v135 = {
       [_v14.DAY]: (0, _v13.translate)({
         singular: "Day",
         dictionary: {
@@ -6392,9 +6429,9 @@
       }
     }
   });
-  let _v133 = [_v119, _v117, _v118],
-    _v134 = ["plays", _v111, "likes", "comments", _v116, _v115, _v114],
-    _v135 = {
+  let _v136 = [_v122, _v120, _v121],
+    _v137 = ["plays", _v114, "likes", "comments", _v119, _v118, _v117],
+    _v138 = {
       [_v95]: (0, _v13.translate)({
         singular: "Upgrade to break down your data in even more ways, including by region/state and city.",
         dictionary: {
@@ -6474,7 +6511,7 @@
         }
       })
     },
-    _v136 = (0, _v13.translate)({
+    _v139 = (0, _v13.translate)({
       singular: "Bandwidth is the data that gets used when someone interacts with your video content. Many factors can count toward your bandwidth usage. The more popular your video is, and the more times it is loaded and played, the more bandwidth you will be using. Bandwidth data for a given day may take up to 36 hours to appear in these reports.",
       dictionary: {
         es: {
@@ -6523,14 +6560,14 @@
       }
     }
   });
-  let _v137 = Object.values({
+  let _v140 = Object.values({
       VIDEO_REPORT_BANNER: "vav2rm"
     }),
-    _v138 = {
+    _v141 = {
       TEAM_ACTIVITY_ANALYTICS: "taa"
     };
-  Object.values(_v138);
-  let _v139 = (0, _v13.translate)({
+  Object.values(_v141);
+  let _v142 = (0, _v13.translate)({
       singular: "Bandwidth (GB)",
       dictionary: {
         es: {
@@ -6556,28 +6593,28 @@
         }
       }
     }),
-    _v140 = {
+    _v143 = {
       meanPercentWatched: 0,
       uniqueMembers: 0,
       uniqueVideos: 0,
       views: 0
     },
-    _v141 = {
+    _v144 = {
       DAY: "day",
       WEEK: "week",
       MONTH: "month",
       YEAR: "year"
     },
-    _v142 = {
+    _v145 = {
       PLUS: "PLUS",
       MINUS: "MINUS"
     };
-  _v0.s(["AGGREGATE_INTERVALS", 0, _v132, "API_FIELD_KEY_WATCHED_MEAN_PERCENT", 0, _v122, "API_FIELD_KEY_WATCHED_MEAN_SECOND", 0, _v120, "API_FIELD_KEY_WATCHED_SUM_SECOND", 0, _v121, "API_FIELD_KEY_WATCHED_SUM_SECOND_WITH_REPEATS", 0, _v123, "BANDWIDTH_GRAPH_YAXIS_TEXT", 0, _v139, "BANDWIDTH_INFO_TEXT", 0, _v136, "BANDWIDTH_REPORT_SORT_MAP", 0, {
-    [_v119]: "combined_bandwidth",
-    [_v117]: "live_bandwidth",
-    [_v118]: "video_bandwidth"
-  }, "BANDWIDTH_REPORT_TABLE_FIELDS", 0, _v133, "CALENDAR_PRESETS", 0, _v109, "DATE_GROUP_BY", 0, _v141, "DATE_LINE_ID", 0, "date-line-id", "DATE_LINE_NAME", 0, "Total", "DATE_OPERATOR", 0, _v142, "DEFAULT_VIDEO_THUMBNAIL", 0, "https://i.vimeocdn.com/video/default.jpg", "DEVICE_DISPLAY_MAP", 0, _v125, "DEVICE_NAMES_DISPLAY_MAP", 0, _v126, "DEVICE_TYPES", () => _v124, "DISPLAY_MAP", 0, _v127, "FILTER_LIST_STRING_MAP", 0, _v104, "MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER", 0, 0, "MULTI_LINE_GRAPH_COLORS", 0, ["var(--vimeo-colors-vimeoBlue-400)", "var(--vimeo-colors-orange-400)", "var(--vimeo-colors-purple-400)", "var(--vimeo-colors-green-400)", "var(--vimeo-colors-red-400)", "var(--vimeo-colors-yellow-400)", "var(--vimeo-colors-red-200)", "var(--vimeo-colors-vimeoBlue-600)", "var(--vimeo-colors-green-200)", "var(--vimeo-colors-blue-400)"], "NON_TOURPOINT_USER_PREFERENCES", 0, _v138, "REPORT_GROUP_BY_FILTER_MAP", 0, _v103, "REPORT_GROUP_MAP", 0, _v105, "REPORT_LINKS", 0, ["video", "engagement", "region", "source", "device", "date"], "REPORT_NAME_DISPLAY_MAP", 0, _v110, "REPORT_TYPE_BANDWIDTH", 0, _v100, "REPORT_TYPE_DASHBOARD", 0, _v93, "REPORT_TYPE_DATE", 0, _v94, "REPORT_TYPE_DEVICE", 0, _v97, "REPORT_TYPE_ENGAGEMENT", 0, _v99, "REPORT_TYPE_REGION", 0, _v95, "REPORT_TYPE_SOURCE", 0, _v96, "REPORT_TYPE_TEAM", 0, _v101, "REPORT_TYPE_VIDEO", 0, _v98, "REPORT_TYPE_VIDEO_RATING", 0, _v102, "SOCIAL_DISPLAY_MAP", 0, _v129, "SORT_VALUE", () => _v92, "STREAMING_TYPES_DISPLAY_MAP", 0, _v130, "TABLE_FIELD_MINUTES_WATCHED", 0, "minutes_watched", "TABLE_FIELD_SOCIAL_MEAN_PERCENT_WATCHED", 0, _v115, "TABLE_FIELD_SOCIAL_MEAN_WATCH_TIME", 0, _v114, "TABLE_FIELD_SOCIAL_TOTAL_TIME_WATCHED", 0, _v116, "TABLE_FIELD_VIEWS", 0, "views", "TABLE_HEADERS_INFO_DISPLAY_MAP", 0, _v128, "TABLE_SEGMENT_NAME_DISPLAY_MAP", 0, _v131, "TOTAL_ROW_ID", 0, "total-row-id", "TOTAL_ROW_NAME", 0, _v91, "TOUR_POINT_USER_PREFERENCES_KEYS", 0, _v137, "UNIFIED_REPORT_TABLE_FIELDS", 0, _v134, "UPSELL_TEXT", 0, _v135, "ZERO_FILL_TEAM_ANALYTICS_ITEM", 0, _v140], 0);
-  let _v143 = [{
+  _v0.s(["AGGREGATE_INTERVALS", 0, _v135, "AI_DATE_RANGE_MAX_SPAN_DAYS", 0, 31, "API_FIELD_KEY_WATCHED_MEAN_PERCENT", 0, _v125, "API_FIELD_KEY_WATCHED_MEAN_SECOND", 0, _v123, "API_FIELD_KEY_WATCHED_SUM_SECOND", 0, _v124, "API_FIELD_KEY_WATCHED_SUM_SECOND_WITH_REPEATS", 0, _v126, "BANDWIDTH_GRAPH_YAXIS_TEXT", 0, _v142, "BANDWIDTH_INFO_TEXT", 0, _v139, "BANDWIDTH_REPORT_SORT_MAP", 0, {
+    [_v122]: "combined_bandwidth",
+    [_v120]: "live_bandwidth",
+    [_v121]: "video_bandwidth"
+  }, "BANDWIDTH_REPORT_TABLE_FIELDS", 0, _v136, "CALENDAR_PRESETS", 0, _v112, "DATE_GROUP_BY", 0, _v144, "DATE_LINE_ID", 0, "date-line-id", "DATE_LINE_NAME", 0, "Total", "DATE_OPERATOR", 0, _v145, "DEFAULT_VIDEO_THUMBNAIL", 0, "https://i.vimeocdn.com/video/default.jpg", "DEVICE_DISPLAY_MAP", 0, _v128, "DEVICE_NAMES_DISPLAY_MAP", 0, _v129, "DEVICE_TYPES", () => _v127, "DISPLAY_MAP", 0, _v130, "FILTER_LIST_STRING_MAP", 0, _v104, "MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER", 0, 0, "MULTI_LINE_GRAPH_COLORS", 0, ["var(--vimeo-colors-vimeoBlue-400)", "var(--vimeo-colors-orange-400)", "var(--vimeo-colors-purple-400)", "var(--vimeo-colors-green-400)", "var(--vimeo-colors-red-400)", "var(--vimeo-colors-yellow-400)", "var(--vimeo-colors-red-200)", "var(--vimeo-colors-vimeoBlue-600)", "var(--vimeo-colors-green-200)", "var(--vimeo-colors-blue-400)"], "NON_TOURPOINT_USER_PREFERENCES", 0, _v141, "REPORT_GROUP_BY_FILTER_MAP", 0, _v103, "REPORT_GROUP_MAP", 0, _v105, "REPORT_LINKS", 0, ["video", "engagement", "region", "source", "device", "date"], "REPORT_NAME_DISPLAY_MAP", 0, _v113, "REPORT_TYPE_AI", 0, "ai", "REPORT_TYPE_BANDWIDTH", 0, _v100, "REPORT_TYPE_DASHBOARD", 0, _v93, "REPORT_TYPE_DATE", 0, _v94, "REPORT_TYPE_DEVICE", 0, _v97, "REPORT_TYPE_ENGAGEMENT", 0, _v99, "REPORT_TYPE_REGION", 0, _v95, "REPORT_TYPE_SOURCE", 0, _v96, "REPORT_TYPE_TEAM", 0, _v101, "REPORT_TYPE_VIDEO", 0, _v98, "REPORT_TYPE_VIDEO_RATING", 0, _v102, "SOCIAL_DISPLAY_MAP", 0, _v132, "SORT_VALUE", () => _v92, "STREAMING_TYPES_DISPLAY_MAP", 0, _v133, "TABLE_FIELD_MINUTES_WATCHED", 0, "minutes_watched", "TABLE_FIELD_SOCIAL_MEAN_PERCENT_WATCHED", 0, _v118, "TABLE_FIELD_SOCIAL_MEAN_WATCH_TIME", 0, _v117, "TABLE_FIELD_SOCIAL_TOTAL_TIME_WATCHED", 0, _v119, "TABLE_FIELD_VIEWS", 0, "views", "TABLE_HEADERS_INFO_DISPLAY_MAP", 0, _v131, "TABLE_SEGMENT_NAME_DISPLAY_MAP", 0, _v134, "TOTAL_ROW_ID", 0, "total-row-id", "TOTAL_ROW_NAME", 0, _v91, "TOUR_POINT_USER_PREFERENCES_KEYS", 0, _v140, "UNIFIED_REPORT_TABLE_FIELDS", 0, _v137, "UPSELL_TEXT", 0, _v138, "ZERO_FILL_TEAM_ANALYTICS_ITEM", 0, _v143], 0);
+  let _v146 = [{
       name: "name",
       apiName: "start_date",
       displayName: (0, _v13.translate)({
@@ -6703,7 +6740,7 @@
       isSortable: !0,
       totalFormatter: _v0 => Number(parseFloat(_v0 + "")?.toFixed(1)).toLocaleString()
     }],
-    _v144 = [{
+    _v147 = [{
       name: "cid",
       apiName: "metadata.connections.video.uri",
       isVisible: !1,
@@ -6811,7 +6848,7 @@
       isSortable: !0,
       totalFormatter: _v0 => Number(parseFloat(_v0 + "")?.toFixed(2)).toLocaleString()
     }],
-    _v145 = [{
+    _v148 = [{
       name: "plays",
       apiName: "views",
       isVisible: !0,
@@ -6880,7 +6917,7 @@
       isSortable: !0,
       totalFormatter: _v0 => isNaN(_v0) || 0 > Number(_v0) ? "-" : Number(_v0).toLocaleString()
     }],
-    _v146 = [{
+    _v149 = [{
       name: "cid",
       apiName: "metadata.connections.video.uri",
       isVisible: !1,
@@ -6900,7 +6937,7 @@
       apiName: "metadata.connections.video.title",
       isVisible: !0,
       isSortable: !1
-    }, ..._v145, {
+    }, ..._v148, {
       name: "likes",
       apiName: "metadata.connections.video.likes",
       isVisible: !0,
@@ -6913,81 +6950,81 @@
       isSortable: !0,
       totalFormatter: _v0 => isNaN(_v0) || 0 > Number(_v0) ? 0 : Number(_v0).toLocaleString()
     }],
-    _v147 = [{
+    _v150 = [{
       name: "name",
       apiName: "embedDomain,embedDomainPath",
       isVisible: !0,
       isSortable: !1
-    }, ..._v145],
-    _v148 = [{
+    }, ..._v148],
+    _v151 = [{
       name: "name",
       apiName: "countryCode,countryName",
       isVisible: !0,
       isSortable: !1
-    }, ..._v145],
-    _v149 = [{
+    }, ..._v148],
+    _v152 = [{
       name: "name",
       apiName: "deviceType",
       isVisible: !0,
       isSortable: !1
-    }, ..._v145],
-    _v150 = [{
+    }, ..._v148],
+    _v153 = [{
       name: "name",
       apiName: "startDate,endDate",
       isVisible: !0,
       isSortable: !1
-    }, ..._v145],
-    _v151 = [{
+    }, ..._v148],
+    _v154 = [{
       name: "name",
       apiName: "streamingType",
       isVisible: !0,
       isSortable: !1
-    }, ..._v145],
-    _v152 = [_v150, _v146, _v149, _v148, _v147, _v151, _v143];
-  _v0.s(["ALL_TABLE_FIELDS", 0, _v152, "DateReportTableFields", 0, _v150, "DeviceReportTableFields", 0, _v149, "RegionReportTableFields", 0, _v148, "SourceReportTableFields", 0, _v147, "VideoReportTableFields", 0, _v146, "getTableFieldsByReportType", 0, _v0 => {
+    }, ..._v148],
+    _v155 = [_v153, _v149, _v152, _v151, _v150, _v154, _v146];
+  _v0.s(["ALL_TABLE_FIELDS", 0, _v155, "DateReportTableFields", 0, _v153, "DeviceReportTableFields", 0, _v152, "RegionReportTableFields", 0, _v151, "SourceReportTableFields", 0, _v150, "VideoReportTableFields", 0, _v149, "getTableFieldsByReportType", 0, _v0 => {
     switch (_v0) {
       case _v17.DATE:
-        return _v150;
+        return _v153;
       case _v17.VIDEO:
-        return _v146;
-      case _v17.DEVICE:
         return _v149;
+      case _v17.DEVICE:
+        return _v152;
       case _v17.REGION:
-        return _v148;
-      case _v17.SOURCE:
-        return _v147;
-      case _v17.BANDWIDTH_DATE:
-        return _v143;
-      case _v17.BANDWIDTH_VIDEO:
-        return _v144;
-      case _v17.STREAMING_TYPE:
         return _v151;
+      case _v17.SOURCE:
+        return _v150;
+      case _v17.BANDWIDTH_DATE:
+        return _v146;
+      case _v17.BANDWIDTH_VIDEO:
+        return _v147;
+      case _v17.STREAMING_TYPE:
+        return _v154;
     }
     throw Error(`[VA] Invalid Report Types to getTableFields for ${_v0}`);
   }], 0);
-  let _v153 = _v0 => {
+  let _v156 = _v0 => {
       let _v1 = new Map();
       return _v1.set("plays", "views"), _v1.set("uniqueViewers", "unique_viewers"), _v1.set("uniqueImpressions", "unique_impressions"), _v1.set("meanPercentWatched", "mean_percent_watched"), _v1.set("meanSecondsWatched", "mean_seconds_watched"), _v1.set("totalSecondsWatched", "total_seconds_watched"), _v1.set("thirdPartyImpressions", "third_party_impressions"), _v1.set("drmLicensesUsed", "drm_licenses_used"), _v1.has(_v0) ? _v1.get(_v0) : _v0;
     },
-    _v154 = (_v0, _v1) => _v0[_v1] && _v0[_v1].map ? _v0[_v1].map(_v0 => _v0.id).join(",") : "",
-    _v155 = _v0 => _v104[_v0],
-    _v156 = (_v0, _v1, _v2, _v3) => {
+    _v157 = (_v0, _v1) => _v0[_v1] && _v0[_v1].map ? _v0[_v1].map(_v0 => _v0.id).join(",") : "",
+    _v158 = _v0 => _v104[_v0],
+    _v159 = (_v0, _v1, _v2, _v3) => {
       let _v4 = new Date(_v0);
-      return _v1 === _v141.DAY && (_v2 === _v142.PLUS ? _v4.setDate(_v4.getDate() + _v3) : _v4.setDate(_v4.getDate() - _v3)), _v1 === _v141.WEEK && (_v2 === _v142.PLUS ? _v4.setDate(_v4.getDate() + 7 * _v3) : _v4.setDate(_v4.getDate() - 7 * _v3)), _v1 === _v141.MONTH && (_v2 === _v142.PLUS ? _v4.setUTCMonth(_v4.getUTCMonth() + _v3) : _v4.setUTCMonth(_v4.getUTCMonth() - _v3)), _v1 === _v141.YEAR && (_v2 === _v142.PLUS ? _v4.setFullYear(_v4.getFullYear() + _v3) : _v4.setFullYear(_v4.getFullYear() - _v3)), _v4;
+      return _v1 === _v144.DAY && (_v2 === _v145.PLUS ? _v4.setDate(_v4.getDate() + _v3) : _v4.setDate(_v4.getDate() - _v3)), _v1 === _v144.WEEK && (_v2 === _v145.PLUS ? _v4.setDate(_v4.getDate() + 7 * _v3) : _v4.setDate(_v4.getDate() - 7 * _v3)), _v1 === _v144.MONTH && (_v2 === _v145.PLUS ? _v4.setUTCMonth(_v4.getUTCMonth() + _v3) : _v4.setUTCMonth(_v4.getUTCMonth() - _v3)), _v1 === _v144.YEAR && (_v2 === _v145.PLUS ? _v4.setFullYear(_v4.getFullYear() + _v3) : _v4.setFullYear(_v4.getFullYear() - _v3)), _v4;
     },
-    _v157 = _v0 => {
+    _v160 = _v0 => {
       let _v1 = String(_v0.getFullYear()).padStart(4, "0"),
         _v2 = String(_v0.getMonth() + 1).padStart(2, "0"),
         _v3 = String(_v0.getDate()).padStart(2, "0");
       return `${_v1}-${_v2}-${_v3}`;
     },
-    _v158 = (_v0, _v1, _v2) => {
-      if (_v1 === _v141.MONTH) {
+    _v161 = (_v0, _v1, _v2) => {
+      if (_v1 === _v144.MONTH) {
         let _v0 = new Date(_v0.getFullYear(), _v0.getMonth() + 1, 1),
           _v1 = new Date(_v0.getFullYear(), _v0.getMonth(), 1);
-        return "START" === _v2 ? _v157(_v1) : _v157(_v0);
+        return "START" === _v2 ? _v160(_v1) : _v160(_v0);
       }
-      if (_v1 !== _v141.WEEK) return _v0.toISOString().slice(0, 10);
+      if (_v1 !== _v144.WEEK) return _v0.toISOString().slice(0, 10);
       {
         let _v0 = new Date(_v0.getFullYear(), 0, 1),
           _v1 = Math.floor((_v0.valueOf() - _v0.valueOf()) / 0),
@@ -6995,7 +7032,7 @@
           _v3 = new Date(_v0);
         _v3.setDate(_v3.getDate() + _v2);
         let _v4 = new Date(_v0);
-        return _v4.setDate(_v4.getDate() + _v2 + 1), "START" === _v2 ? _v157(_v4) : _v157(_v3);
+        return _v4.setDate(_v4.getDate() + _v2 + 1), "START" === _v2 ? _v160(_v4) : _v160(_v3);
       }
     };
   _v0.s(["formatPercent", 0, (_v0, _v1 = 1) => _v0 ? +parseFloat(`${_v0}`).toFixed(_v1) : 0, "getDateRangeArray", 0, (_v0, _v1, _v2) => {
@@ -7026,7 +7063,7 @@
     ["filter_" + _v104[_v1]]: _v1[_v1].map(_v0 => _v0.id).join(",")
   } : _v0, {}), "getFiltersObjectForAPI", 0, (_v0, _v1) => _v0.reduce((_v0, _v1) => _v1[_v1.filterKey] && _v1[_v1.filterKey].length > 0 ? {
     ..._v0,
-    ["filter_" + _v155(_v1.filterKey)]: _v154(_v1, _v1.filterKey)
+    ["filter_" + _v158(_v1.filterKey)]: _v157(_v1, _v1.filterKey)
   } : _v0, {}), "getGraphDateLabel", 0, ({
     dateString: _v0,
     selectedDateSegment: _v1,
@@ -7059,37 +7096,37 @@
   }, "getGroupByTimeLiteral", 0, (_v0, _v1) => {
     let _v2 = _v1.diff(_v0, "days");
     return _v2.days < 50 ? "day" : _v2.days > 720 ? "year" : _v2.days > 180 ? "month" : "week";
-  }, "getMemberDetailReportUrlPath", 0, _v0 => `${_v0?.uri?.slice(1, _v0?.uri?.length)}`, "getSortValueForApi", 0, (_v0, _v1) => _v152.flatMap(_v0 => _v0.filter(_v0 => "name" === _v0.name).map(_v0 => _v0.apiName)).includes(_v0) ? _v153(_v1) : _v153(_v0), "getTeamsFiltersObject", 0, (_v0, _v1) => _v0.reduce((_v0, _v1) => _v1[_v1] && _v1[_v1].length > 0 ? {
+  }, "getMemberDetailReportUrlPath", 0, _v0 => `${_v0?.uri?.slice(1, _v0?.uri?.length)}`, "getSortValueForApi", 0, (_v0, _v1) => _v155.flatMap(_v0 => _v0.filter(_v0 => "name" === _v0.name).map(_v0 => _v0.apiName)).includes(_v0) ? _v156(_v1) : _v156(_v0), "getTeamsFiltersObject", 0, (_v0, _v1) => _v0.reduce((_v0, _v1) => _v1[_v1] && _v1[_v1].length > 0 ? {
     ..._v0,
-    ["filter_" + _v155(_v1)]: _v154(_v1, _v1)
+    ["filter_" + _v158(_v1)]: _v157(_v1, _v1)
   } : _v0, {}), "getTotalRowColor", 0, () => "var(--vimeo-colors-text-primary)", "getValueToDisplay", 0, (_v0, _v1 = "") => {
     if (0 > Number(_v0)) return (0, _v12.logError)("Got -ve Value to Display for Graph", null, {
       value: _v0,
       dimensionName: _v1
     }), "-";
     switch (_v1) {
-      case _v122:
-      case _v115:
+      case _v125:
+      case _v118:
         return parseFloat(_v0).toFixed(1) + "%";
-      case _v120:
-      case _v121:
       case _v123:
-      case _v114:
-      case _v116:
+      case _v124:
+      case _v126:
+      case _v117:
+      case _v119:
         return (0, _v11.formatDuration)(0 * Number(_v0));
       default:
         return (0, _v11.aggregateNumberToString)(Number(_v0), 1);
     }
   }, "getVideoDetailReportUrlPath", 0, _v0 => `${_v0?.uri?.slice(1, _v0?.uri?.length)}`, "getZeroFilledGraphData", 0, (_v0, _v1, _v2, _v3) => {
     let _v4 = _v3 ?? [],
-      _v5 = _v158(new Date(Date.parse(_v1)), _v2, "END"),
-      _v6 = _v158(new Date(Date.parse(_v0)), _v2, "START"),
+      _v5 = _v161(new Date(Date.parse(_v1)), _v2, "END"),
+      _v6 = _v161(new Date(Date.parse(_v0)), _v2, "START"),
       _v7 = _v4?.find(_v0 => _v0?.range?.endDate === _v5),
       _v8 = _v4?.find(_v0 => _v0?.range?.startDate === _v6);
     if (!_v7) {
-      let _v0 = _v156(Date.parse(_v5), _v2, "MINUS", 1);
+      let _v0 = _v159(Date.parse(_v5), _v2, "MINUS", 1);
       _v4?.unshift({
-        ..._v140,
+        ..._v143,
         range: {
           startDate: _v0.toISOString().slice(0, 10),
           endDate: _v5
@@ -7097,9 +7134,9 @@
       });
     }
     if (!_v8) {
-      let _v0 = _v156(Date.parse(_v6), _v2, "PLUS", 1);
+      let _v0 = _v159(Date.parse(_v6), _v2, "PLUS", 1);
       _v4?.push({
-        ..._v140,
+        ..._v143,
         range: {
           startDate: _v6,
           endDate: _v0.toISOString().slice(0, 10)
@@ -7114,13 +7151,13 @@
         _v5 = (_v2 = _v3 && _v4 ? ((_v0, _v1, _v2) => {
           let _v3 = [],
             _v4 = _v0;
-          for (; _v4 > _v1;) _v4 !== _v0 && _v3.push(_v4), _v4 = _v156(_v4.valueOf(), _v2, _v142.MINUS, 1);
+          for (; _v4 > _v1;) _v4 !== _v0 && _v3.push(_v4), _v4 = _v159(_v4.valueOf(), _v2, _v145.MINUS, 1);
           return _v3;
         })(new Date(Date.parse(_v3)), new Date(Date.parse(_v4)), _v2) : [], _v2.map(_v0 => {
-          let _v1 = _v156(_v0.valueOf(), _v2, _v142.MINUS, 1),
-            _v2 = _v156(_v0.valueOf(), _v2, _v142.MINUS, 0);
-          return _v2 === _v141.WEEK && _v1.setDate(_v1.getDate() + 1), {
-            ..._v140,
+          let _v1 = _v159(_v0.valueOf(), _v2, _v145.MINUS, 1),
+            _v2 = _v159(_v0.valueOf(), _v2, _v145.MINUS, 0);
+          return _v2 === _v144.WEEK && _v1.setDate(_v1.getDate() + 1), {
+            ..._v143,
             range: {
               startDate: _v1.toISOString().slice(0, 10),
               endDate: _v2.toISOString().slice(0, 10)
@@ -7136,7 +7173,7 @@
       _v4 = _v2(_v1[_v0]);
     return _v1 === _v92.ASCENDING_ORDER ? _v3 >= _v4 ? 1 : -1 : _v3 <= _v4 ? 1 : -1;
   }), "tableFieldsToGraphMetrics", 0, _v0 => _v0.filter(_v0 => _v0.isSortable).map(_v0 => ({
-    label: _v129[_v0.name],
+    label: _v132[_v0.name],
     value: _v0.apiName
   }))], 0);
 }

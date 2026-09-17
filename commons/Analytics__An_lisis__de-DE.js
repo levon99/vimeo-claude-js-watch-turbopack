@@ -163,16 +163,16 @@
           singular: "Copier le lien de révision"
         },
         "ja-JP": {
-          singular: "レビューリンクをコピー"
+          singular: "レビュー用リンクをコピー"
         },
         "ko-KR": {
-          singular: "검토용 링크 복사"
+          singular: "검토 링크 복사"
         },
         "pt-BR": {
-          singular: "Copiar link para revisão"
+          singular: "Copiar link de revisão"
         },
         "zh-CN": {
-          singular: "复制评审链接"
+          singular: "复制审阅链接"
         }
       }
     }),

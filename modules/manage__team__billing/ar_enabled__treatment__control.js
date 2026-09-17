@@ -16590,16 +16590,78 @@
     _v264 = _v0.i(0),
     _v265 = _v0.i(0),
     _v266 = _v0.i(0),
-    _v267 = _v0.i(0);
-  let _v268 = ["creator", "core", "professional", "studio"],
-    _v269 = ["creator", "core", "professional"];
-  function _v270(_v0, _v1) {
+    _v267 = _v0.i(0),
+    _v268 = _v0.i(0),
+    _v269 = _v0.i(0),
+    _v270 = _v0.i(0),
+    _v271 = _v0.i(0);
+  let _v272 = ({
+      periodicity: _v0,
+      children: _v1
+    }) => {
+      let [_v2] = (0, _v3.useState)(() => (0, _v271.createBundleOfferStore)(!1, {
+          intercepts: !1
+        })),
+        {
+          offer: _v3,
+          isResolving: _v4
+        } = (0, _v269.useTriggeredBundleOffer)({
+          trigger: "late_stage_paywalls",
+          periodicity: _v0,
+          priceDisplay: "monthly-equivalent"
+        });
+      return (0, _v3.useEffect)(() => {
+        _v4 || _v2.getState().setOffer(null === _v3 ? null : {
+          bundleType: _v3.bundleType,
+          price: _v3.price
+        });
+      }, [_v3, _v4, _v2]), (0, _v3.useEffect)(() => () => _v2.getState().reset(), [_v2]), (0, _v1.jsx)(_v270.BundleOfferStoreContext.Provider, {
+        value: _v2,
+        children: _v1
+      });
+    },
+    _v273 = ({
+      periodicity: _v0
+    }) => {
+      let _v1 = (0, _v270.useBundleOfferSelector)(_v0 => _v0.isEnabled),
+        _v2 = (0, _v270.useBundleOfferSelector)(_v0 => _v0.bundleType),
+        _v3 = (0, _v270.useBundleOfferSelector)(_v0 => _v0.price),
+        _v4 = (0, _v270.useBundleOfferSelector)(_v0 => _v0.isBundleActive),
+        _v5 = (0, _v270.useBundleOfferSelector)(_v0 => _v0.toggleBundle),
+        {
+          offer: _v6
+        } = (0, _v269.useTriggeredBundleOffer)({
+          trigger: "late_stage_paywalls",
+          periodicity: _v0,
+          priceDisplay: "monthly-equivalent"
+        });
+      return _v1 && null !== _v2 ? (0, _v1.jsx)(_v6.Box, {
+        width: "100%",
+        marginBottom: {
+          base: (0, _v26.rem)(16),
+          md: (0, _v26.rem)(24)
+        },
+        children: (0, _v1.jsx)(_v267.BundleToggleBanner, {
+          bundleType: _v2,
+          isBundleActive: _v4,
+          onToggleBundle: _v5,
+          price: _v3,
+          fullPrice: _v6?.fullPrice ?? void 0,
+          onLearnMoreClick: _v268.openBundleLibrary
+        })
+      }) : null;
+    };
+  var _v274 = _v0.i(0);
+  let _v275 = ["creator", "core", "professional", "studio"],
+    _v276 = ["creator", "core", "professional"],
+    _v277 = new Set(["starter", "standard", "advanced", "creator", "core", "professional"]);
+  function _v278(_v0, _v1) {
     let _v2 = _v1.indexOf(_v0);
     if (-1 === _v2) return [];
     let _v3 = Math.max(0, _v2 - 1);
     return _v1.slice(_v3, _v3 + 3);
   }
-  let _v271 = ({
+  let _v279 = ({
     isOpen: _v0,
     onClose: _v1,
     scheduledTier: _v2
@@ -16619,7 +16681,7 @@
     (0, _v3.useEffect)(() => {
       !_v6 && _v8 && _v1();
     }, [_v6, _v8, _v1]);
-    let _v9 = (0, _v3.useMemo)(() => _v5.core_tier_enabled ? _v270(_v2, _v268) : _v270("core" === _v2 ? "creator" : _v2, _v268.filter(_v0 => "core" !== _v0)), [_v2, _v5.core_tier_enabled]),
+    let _v9 = (0, _v3.useMemo)(() => _v5.core_tier_enabled ? _v278(_v2, _v275) : _v278("core" === _v2 ? "creator" : _v2, _v275.filter(_v0 => "core" !== _v0)), [_v2, _v5.core_tier_enabled]),
       {
         capabilities: {
           hasMonthlyBilling: _v10
@@ -16651,7 +16713,7 @@
       }), [_v9]),
       _v20 = !!_v3?.user,
       _v21 = !!_v17 && _v11 && !_v15;
-    return !_v269.includes(_v2) || !_v3 || _v6 || _v8 ? null : (0, _v1.jsxs)(_v78.Modal, {
+    return !_v276.includes(_v2) || !_v3 || _v6 || _v8 ? null : (0, _v1.jsxs)(_v78.Modal, {
       isOpen: _v0,
       onClose: _v1,
       children: [(0, _v1.jsx)(_v84.ModalOverlay, {}), (0, _v1.jsxs)(_v81.ModalContent, {
@@ -16718,31 +16780,38 @@
           })
         }), (0, _v1.jsx)(_v79.ModalBody, {
           paddingTop: 0,
-          children: _v21 ? (0, _v1.jsx)(_v263.OverridesContextProvider, {
-            showYearly: _v12,
-            viewer: _v3,
-            overrides: _v19,
-            children: (0, _v1.jsx)(_v264.PlansDataProvider, {
+          children: _v21 ? (0, _v1.jsxs)(_v272, {
+            periodicity: _v12 ? "annual" : "monthly",
+            children: [(0, _v1.jsx)(_v273, {
+              periodicity: _v12 ? "annual" : "monthly"
+            }), (0, _v1.jsx)(_v263.OverridesContextProvider, {
+              showYearly: _v12,
+              viewer: _v3,
               overrides: _v19,
-              plansData: _v17,
-              isLoggedIn: _v20,
-              capabilitiesReady: _v11,
-              isPricingRedesign: !0,
-              downgradeEnabled: !0,
-              effectiveTier: _v2,
-              upcomingTier: _v2,
-              usageCheckData: _v18,
-              hideIndividualPlans: !1,
-              children: (0, _v1.jsx)(_v267.default, {
-                showYearly: _v12,
-                isBillingFreqToggleAvailable: !1,
-                isPageTopToggleVisible: !1,
-                showStrikePrice: !1,
-                isMobileBreakpoint: _v4 <= 0,
-                showCrossSellCard: !1,
-                badgePlan: "core"
+              children: (0, _v1.jsx)(_v264.PlansDataProvider, {
+                overrides: _v19,
+                plansData: _v17,
+                isLoggedIn: _v20,
+                capabilitiesReady: _v11,
+                isPricingRedesign: !0,
+                downgradeEnabled: !0,
+                effectiveTier: _v2,
+                upcomingTier: _v2,
+                usageCheckData: _v18,
+                hideIndividualPlans: !1,
+                children: (0, _v1.jsx)(_v274.default, {
+                  showYearly: _v12,
+                  isBillingFreqToggleAvailable: !1,
+                  isPageTopToggleVisible: !1,
+                  showStrikePrice: !1,
+                  isMobileBreakpoint: _v4 <= 0,
+                  showCrossSellCard: !1,
+                  badgePlan: "core",
+                  bundleStripTiers: _v277,
+                  bundleStripAvailableOnly: !0
+                })
               })
-            })
+            })]
           }) : (0, _v1.jsx)(_v6.Box, {
             display: "flex",
             justifyContent: "center",
@@ -16791,13 +16860,13 @@
       })]
     });
   };
-  var _v272 = _v0.i(0),
-    _v273 = _v0.i(0),
-    _v274 = _v0.i(0),
-    _v275 = _v0.i(0),
-    _v276 = _v0.i(0),
-    _v277 = _v0.i(0);
-  function _v278() {
+  var _v280 = _v0.i(0),
+    _v281 = _v0.i(0),
+    _v282 = _v0.i(0),
+    _v283 = _v0.i(0),
+    _v284 = _v0.i(0),
+    _v285 = _v0.i(0);
+  function _v286() {
     let _v0,
       _v1,
       _v2,
@@ -16856,7 +16925,7 @@
       {
         open: _v34,
         modal: _v35
-      } = (0, _v272.useIndividualEligibilityModal)({
+      } = (0, _v280.useIndividualEligibilityModal)({
         initialStep: _v29 && !_v28 ? "not_qualified" : void 0
       }),
       [_v36, _v37] = (0, _v3.useState)(!1),
@@ -17005,12 +17074,12 @@
               backgroundColor: "red.100"
             },
             onClick: () => {
-              (0, _v273.sendBpEventWithContexts)("vimeo.update_payment_method_click", {
-                ...(0, _v274.buildActionBpContext)({
+              (0, _v281.sendBpEventWithContexts)("vimeo.update_payment_method_click", {
+                ...(0, _v282.buildActionBpContext)({
                   action_type: "click",
                   feature: null
                 }),
-                ...(0, _v275.buildProductAnalyticsBpContext)({
+                ...(0, _v283.buildProductAnalyticsBpContext)({
                   location: "upper_banner",
                   device_type: (0, _v169.default)(),
                   element: "button",
@@ -17020,10 +17089,10 @@
                   is_user_facing_data: !1,
                   entity_type: null
                 }),
-                ...(0, _v276.buildTeamBpContext)({
+                ...(0, _v284.buildTeamBpContext)({
                   is_team_member: !0
                 }),
-                ...(0, _v277.buildThirdPartyIntegrationBpContext)({
+                ...(0, _v285.buildThirdPartyIntegrationBpContext)({
                   integration_id: null,
                   integration_name: null,
                   is_partner: null
@@ -17064,12 +17133,12 @@
               backgroundColor: "red.100"
             },
             onClick: () => {
-              (0, _v273.sendBpEventWithContexts)("vimeo.update_payment_method_click", {
-                ...(0, _v274.buildActionBpContext)({
+              (0, _v281.sendBpEventWithContexts)("vimeo.update_payment_method_click", {
+                ...(0, _v282.buildActionBpContext)({
                   action_type: "click",
                   feature: null
                 }),
-                ...(0, _v275.buildProductAnalyticsBpContext)({
+                ...(0, _v283.buildProductAnalyticsBpContext)({
                   location: "upper_banner",
                   device_type: (0, _v169.default)(),
                   element: "button",
@@ -17079,10 +17148,10 @@
                   is_user_facing_data: !1,
                   entity_type: null
                 }),
-                ...(0, _v276.buildTeamBpContext)({
+                ...(0, _v284.buildTeamBpContext)({
                   is_team_member: !0
                 }),
-                ...(0, _v277.buildThirdPartyIntegrationBpContext)({
+                ...(0, _v285.buildThirdPartyIntegrationBpContext)({
                   integration_id: null,
                   integration_name: null,
                   is_partner: null
@@ -17192,12 +17261,12 @@
         }) => _v11 && (0, _v1.jsx)(_v258, {
           hasScheduledDowngrade: _v0
         })
-      }), null !== _v38 && (0, _v1.jsx)(_v271, {
+      }), null !== _v38 && (0, _v1.jsx)(_v279, {
         isOpen: !0,
         scheduledTier: _v38,
         onClose: () => _v39(null)
       })]
     });
   }
-  _v278.getLayout = _v259.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v278], 0);
+  _v286.getLayout = _v259.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v286], 0);
 }

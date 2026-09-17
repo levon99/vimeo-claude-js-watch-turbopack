@@ -17,7 +17,10 @@
     TOGGLE_USER_ENTITY: "toggle_user_entity",
     SET_CREATOR_PRODUCT_THUMBNAIL_URL: "set_creator_product_thumbnail_url",
     SET_CREATOR_PRODUCT_TITLE_PAGE_URL: "set_creator_product_title_page_url",
-    TOGGLE_STORE_PAYMENT_METHOD: "toggle_store_payment_method"
+    TOGGLE_STORE_PAYMENT_METHOD: "toggle_store_payment_method",
+    TOGGLE_BUNDLE: "toggle_bundle",
+    SET_BUNDLE_ADD_ON: "set_bundle_add_on",
+    SET_ORDER_PREVIEW_LOADING: "set_order_preview_loading"
   }, "ApiActionTypes", 0, {
     ORDER_PREVIEW: "order_preview",
     SUBMIT_ORDER: "submit_order"

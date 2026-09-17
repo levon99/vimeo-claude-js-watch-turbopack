@@ -30,132 +30,132 @@
       }
     })),
     wetransfer: String((0, _v1.translate)({
-      singular: "Send large files quickly, without an account.",
+      singular: "Send unlimited files up to 1TB—whether video, or anything else.",
       dictionary: {
         es: {
-          singular: "Envía archivos grandes rápidamente, sin una cuenta."
+          singular: "Envía archivos ilimitados de hasta 1TB—ya sean videos o cualquier otra cosa."
         },
         "de-DE": {
-          singular: "Senden Sie große Dateien schnell, ganz ohne Konto."
+          singular: "Senden Sie unbegrenzt Dateien bis zu 1 TB—egal ob Video oder etwas anderes."
         },
         "fr-FR": {
-          singular: "Envoyez de gros fichiers rapidement, sans compte."
+          singular: "Envoyez des fichiers illimités jusqu'à 1 To—qu'il s'agisse de vidéos ou de tout autre fichier."
         },
         "ja-JP": {
-          singular: "アカウント不要で大容量ファイルを素早く送信する。"
+          singular: "動画でもその他のファイルでも、最大1TBまでのファイルを無制限に送信できます。"
         },
         "ko-KR": {
-          singular: "계정 없이 대용량 파일을 빠르게 전송하세요."
+          singular: "동영상이든 그 외 어떤 파일이든 최대 1TB까지 파일을 무제한으로 전송하세요—"
         },
         "pt-BR": {
-          singular: "Envie arquivos grandes rapidamente, sem precisar de conta."
+          singular: "Envie arquivos ilimitados de até 1TB—sejam vídeos ou qualquer outra coisa."
         },
         "zh-CN": {
-          singular: "快速发送大文件，无需注册帐号。"
+          singular: "发送不限数量、每个文件最大 1TB 的文件—无论是视频还是其他任何类型。"
         }
       }
     })),
     evernote: String((0, _v1.translate)({
-      singular: "Notes, tasks, and to-do lists in one place.",
+      singular: "Organize your pre-production, production and post-production in one place.",
       dictionary: {
         es: {
-          singular: "Notas, tareas y listas de tareas en un solo lugar."
+          singular: "Organiza tu preproducción, producción y posproducción en un solo lugar."
         },
         "de-DE": {
-          singular: "Notizen, Aufgaben und To‑Do‑Listen an einem Ort."
+          singular: "Organisieren Sie Ihre Vorproduktion, Produktion und Postproduktion an einem Ort."
         },
         "fr-FR": {
-          singular: "Notes, tâches et listes de choses à faire, réunies au même endroit."
+          singular: "Organisez votre pré-production, votre production et votre post-production au même endroit."
         },
         "ja-JP": {
-          singular: "ノート、タスク、やることリストを1か所で管理。"
+          singular: "プリプロダクション、プロダクション、ポストプロダクションを1か所で管理できます。"
         },
         "ko-KR": {
-          singular: "메모, 작업 및 할 일 목록을 한곳에서."
+          singular: "프리프로덕션, 프로덕션, 포스트프로덕션을 한곳에서 정리하세요."
         },
         "pt-BR": {
-          singular: "Notas, tarefas e listas de afazeres em um só lugar."
+          singular: "Organize sua pré-produção, produção e pós-produção em um só lugar."
         },
         "zh-CN": {
-          singular: "在同一处管理笔记、任务和待办事项。"
+          singular: "将前期制作、制作和后期制作集中在一个地方进行管理。"
         }
       }
     })),
     harvest: String((0, _v1.translate)({
-      singular: "Time tracking and invoicing for your projects.",
+      singular: "Track hours across shoots and edits, and bill clients straight from the timesheet invoices.",
       dictionary: {
         es: {
-          singular: "Seguimiento de tiempo y facturación para tus proyectos."
+          singular: "Registra horas de rodajes y ediciones, y factura a los clientes directamente desde las hojas de tiempo."
         },
         "de-DE": {
-          singular: "Zeiterfassung und Rechnungsstellung für Ihre Projekte."
+          singular: "Erfassen Sie Stunden für Drehs und Schnittarbeiten und fakturieren Sie Kunden direkt aus den Stundenzetteln."
         },
         "fr-FR": {
-          singular: "Suivi du temps et facturation pour vos projets."
+          singular: "Suivez les heures des tournages et des montages, et facturez les clients directement depuis les feuilles de temps."
         },
         "ja-JP": {
-          singular: "プロジェクトの時間追跡と請求書発行。"
+          singular: "撮影や編集での作業時間を追跡し、タイムシートの請求書から直接クライアントに請求できます。"
         },
         "ko-KR": {
-          singular: "프로젝트의 시간 추적 및 청구서 발행."
+          singular: "촬영과 편집 전반의 근무 시간을 추적하고, 타임시트 인보이스에서 바로 고객에게 청구하세요."
         },
         "pt-BR": {
-          singular: "Controle de tempo e faturamento para seus projetos."
+          singular: "Controle as horas de filmagens e edições e emita faturas aos clientes diretamente a partir da folha de ponto."
         },
         "zh-CN": {
-          singular: "用于项目的时间追踪与开具发票。"
+          singular: "跟踪拍摄和剪辑的工时，并可直接从工时表开具发票向客户收费。"
         }
       }
     })),
     splice: String((0, _v1.translate)({
-      singular: "Royalty-free music and sound effects for video.",
+      singular: "Edit and polish videos on your phone with pro-grade tools.",
       dictionary: {
         es: {
-          singular: "Música libre de derechos y efectos de sonido para video."
+          singular: "Edita y perfecciona videos en tu teléfono con herramientas de nivel profesional."
         },
         "de-DE": {
-          singular: "Lizenzfreie Musik und Soundeffekte für Videos."
+          singular: "Bearbeiten und veredeln Sie Videos auf Ihrem Smartphone mit Profi-Tools."
         },
         "fr-FR": {
-          singular: "Musique et effets sonores libres de droits pour la vidéo."
+          singular: "Montez et peaufinez des vidéos sur votre téléphone grâce à des outils de qualité professionnelle."
         },
         "ja-JP": {
-          singular: "動画向けのロイヤリティフリー音楽と効果音。"
+          singular: "プロ仕様のツールでスマートフォンの動画を編集・仕上げます。"
         },
         "ko-KR": {
-          singular: "비디오용 로열티 프리 음악 및 음향 효과."
+          singular: "휴대폰에서 전문가급 도구로 동영상을 편집하고 다듬으세요."
         },
         "pt-BR": {
-          singular: "Música livre de royalties e efeitos sonoros para vídeo."
+          singular: "Edite e aprimore vídeos no seu celular com ferramentas de nível profissional."
         },
         "zh-CN": {
-          singular: "视频用免版权音乐与音效。"
+          singular: "在手机上使用专业级工具编辑和润色视频。"
         }
       }
     })),
     mileiq: String((0, _v1.translate)({
-      singular: "Automatic mileage tracking for your business drives.",
+      singular: "Automatically track drives and turn mileage into tax-ready reports.",
       dictionary: {
         es: {
-          singular: "Registro automático del kilometraje para tus desplazamientos de negocios."
+          singular: "Rastrea automáticamente los trayectos y convierte el kilometraje en informes listos para impuestos."
         },
         "de-DE": {
-          singular: "Automatisches Fahrtenbuch für Geschäftsfahrten."
+          singular: "Fahrten automatisch erfassen und Kilometer in steuerfertige Berichte umwandeln."
         },
         "fr-FR": {
-          singular: "Suivi automatique du kilométrage de vos trajets professionnels."
+          singular: "Suivez automatiquement vos déplacements et transformez le kilométrage en rapports prêts pour les impôts."
         },
         "ja-JP": {
-          singular: "業務での走行を自動でマイレージ追跡。"
+          singular: "走行を自動で記録し、走行距離を税務申告用のレポートに変換します。"
         },
         "ko-KR": {
-          singular: "업무 운행에 대한 자동 주행 거리 추적."
+          singular: "운행을 자동으로 추적하여 주행 거리를 세금 신고용 보고서로 변환하세요."
         },
         "pt-BR": {
-          singular: "Rastreamento automático de quilometragem para suas viagens de negócios."
+          singular: "Rastreie viagens automaticamente e converta a quilometragem em relatórios prontos para a declaração de impostos."
         },
         "zh-CN": {
-          singular: "自动里程追踪，适用于您的商务出行。"
+          singular: "自动追踪行程并将里程转换为可用于报税的报告。"
         }
       }
     })),
@@ -186,28 +186,28 @@
       }
     })),
     komoot: String((0, _v1.translate)({
-      singular: "Plan and navigate hikes, rides, and runs.",
+      singular: "Plan and navigate hikes, bike rides, and runs with turn-by-turn routes.",
       dictionary: {
         es: {
-          singular: "Planifica y navega rutas de senderismo, ciclismo y carrera."
+          singular: "Planifica y navega rutas de senderismo, paseos en bicicleta y carreras con indicaciones giro a giro."
         },
         "de-DE": {
-          singular: "Planen und navigieren Sie Wanderungen, Radtouren und Läufe."
+          singular: "Planen und navigieren Sie Wanderungen, Radtouren und Läufe mit Turn-by-Turn-Routen."
         },
         "fr-FR": {
-          singular: "Planifiez et suivez vos randonnées, sorties à vélo et courses."
+          singular: "Planifiez et suivez vos randonnées, sorties à vélo et courses grâce à des itinéraires pas à pas."
         },
         "ja-JP": {
-          singular: "ハイキング、サイクリング、ランニングの計画とナビゲーション。"
+          singular: "ターンバイターン方式のルートでハイキング、サイクリング、ランニングを計画・ナビゲートできます。"
         },
         "ko-KR": {
-          singular: "하이킹, 자전거 라이딩, 러닝의 경로를 계획하고 길안내를 받으세요."
+          singular: "턴바이턴 경로로 하이킹, 자전거 라이딩, 달리기를 계획하고 길을 안내받으세요."
         },
         "pt-BR": {
-          singular: "Planeje e navegue por trilhas, passeios e corridas."
+          singular: "Planeje e navegue por trilhas, passeios de bicicleta e corridas com rotas curva a curva."
         },
         "zh-CN": {
-          singular: "规划并导航徒步、骑行和跑步路线。"
+          singular: "使用逐段导航路线规划并导航徒步、骑行和跑步行程。"
         }
       }
     })),
@@ -238,132 +238,132 @@
       }
     })),
     remini: String((0, _v1.translate)({
-      singular: "AI photo enhancement and retouching.",
+      singular: "AI that turns blurry photos into sharp, print-ready images.",
       dictionary: {
         es: {
-          singular: "Mejora y retoque fotográfico con IA."
+          singular: "IA que convierte fotos borrosas en imágenes nítidas, listas para imprimir."
         },
         "de-DE": {
-          singular: "KI‑gestützte Fotoverbesserung und Retusche."
+          singular: "KI, die unscharfe Fotos in scharfe, druckfertige Bilder verwandelt."
         },
         "fr-FR": {
-          singular: "Amélioration et retouche photo par IA."
+          singular: "IA qui transforme les photos floues en images nettes, prêtes à l'impression."
         },
         "ja-JP": {
-          singular: "AIによる写真の強化とレタッチ。"
+          singular: "ぼやけた写真を鮮明で印刷に適した画像に変換するAI。"
         },
         "ko-KR": {
-          singular: "AI 사진 향상 및 보정."
+          singular: "흐릿한 사진을 선명하고 인쇄용으로 바로 쓸 수 있는 이미지로 바꿔주는 AI."
         },
         "pt-BR": {
-          singular: "Aprimoramento e retoque de fotos com IA."
+          singular: "IA que transforma fotos borradas em imagens nítidas, prontas para impressão."
         },
         "zh-CN": {
-          singular: "AI 照片增强与修图。"
+          singular: "将模糊照片转换为清晰、可直接打印的图像的 AI。"
         }
       }
     })),
     meetup: String((0, _v1.translate)({
-      singular: "Find events and groups near you.",
+      singular: "Find local groups and events for whatever you love.",
       dictionary: {
         es: {
-          singular: "Encuentra eventos y grupos cerca de ti."
+          singular: "Encuentra grupos y eventos locales para todo lo que te apasiona."
         },
         "de-DE": {
-          singular: "Finden Sie Veranstaltungen und Gruppen in Ihrer Nähe."
+          singular: "Finden Sie lokale Gruppen und Veranstaltungen für das, was Sie lieben."
         },
         "fr-FR": {
-          singular: "Trouvez des événements et des groupes près de chez vous."
+          singular: "Trouvez des groupes et des événements locaux pour tout ce que vous aimez."
         },
         "ja-JP": {
-          singular: "近くのイベントやグループを見つける。"
+          singular: "好きなことに関する地域のグループやイベントを見つけましょう。"
         },
         "ko-KR": {
-          singular: "주변의 이벤트 및 모임을 찾아보세요."
+          singular: "관심 있는 모든 것에 대한 지역 모임과 이벤트를 찾아보세요."
         },
         "pt-BR": {
-          singular: "Encontre eventos e grupos próximos a você."
+          singular: "Encontre grupos e eventos locais para tudo o que você ama."
         },
         "zh-CN": {
-          singular: "查找您附近的活动和群组。"
+          singular: "查找本地群组和活动，满足你的各种兴趣。"
         }
       }
     })),
     streamyard: String((0, _v1.translate)({
-      singular: "Live streaming studio in your browser.",
+      singular: "Go live to multiple platforms at once—all in your browser.",
       dictionary: {
         es: {
-          singular: "Estudio de transmisión en vivo en tu navegador."
+          singular: "Transmite en vivo a múltiples plataformas a la vez—todo desde tu navegador."
         },
         "de-DE": {
-          singular: "Live‑Streaming‑Studio in Ihrem Browser."
+          singular: "Gleichzeitig auf mehreren Plattformen live gehen—alles in Ihrem Browser."
         },
         "fr-FR": {
-          singular: "Studio de streaming en direct dans votre navigateur."
+          singular: "Diffusez en direct sur plusieurs plateformes à la fois—le tout depuis votre navigateur."
         },
         "ja-JP": {
-          singular: "ブラウザ上で利用できるライブ配信スタジオ。"
+          singular: "ブラウザだけで複数のプラットフォームへ同時にライブ配信できます。"
         },
         "ko-KR": {
-          singular: "브라우저 기반 라이브 스트리밍 스튜디오."
+          singular: "여러 플랫폼으로 동시에 라이브 방송하세요—모두 브라우저에서."
         },
         "pt-BR": {
-          singular: "Estúdio de transmissão ao vivo no seu navegador."
+          singular: "Transmita ao vivo para várias plataformas ao mesmo tempo—tudo no seu navegador."
         },
         "zh-CN": {
-          singular: "浏览器中的直播工作室。"
+          singular: "在浏览器中同时向多个平台直播—全部在浏览器内完成。"
         }
       }
     })),
     airtable: String((0, _v1.translate)({
-      singular: "Build apps and workflows on top of your data.",
+      singular: "Build flexible databases and workflows without code.",
       dictionary: {
         es: {
-          singular: "Crea aplicaciones y flujos de trabajo sobre tus datos."
+          singular: "Crea bases de datos y flujos de trabajo flexibles sin código."
         },
         "de-DE": {
-          singular: "Erstellen Sie Apps und Workflows auf Basis Ihrer Daten."
+          singular: "Erstellen Sie flexible Datenbanken und Workflows ohne Code."
         },
         "fr-FR": {
-          singular: "Créez des applications et des flux de travail à partir de vos données."
+          singular: "Créez des bases de données et des flux de travail flexibles sans écrire de code."
         },
         "ja-JP": {
-          singular: "データを基にアプリやワークフローを構築する。"
+          singular: "コード不要で柔軟なデータベースとワークフローを構築します。"
         },
         "ko-KR": {
-          singular: "데이터를 기반으로 앱과 워크플로를 구축하세요."
+          singular: "코드 없이 유연한 데이터베이스와 워크플로를 구축하세요."
         },
         "pt-BR": {
-          singular: "Crie apps e fluxos de trabalho sobre seus dados."
+          singular: "Crie bancos de dados e fluxos de trabalho flexíveis sem código."
         },
         "zh-CN": {
-          singular: "基于您的数据构建应用和工作流程。"
+          singular: "无需编码即可构建灵活的数据库和工作流程。"
         }
       }
     })),
     tractive: String((0, _v1.translate)({
-      singular: "GPS trackers to keep tabs on your pets.",
+      singular: "Keep tabs on your dog or cat with live GPS tracking.",
       dictionary: {
         es: {
-          singular: "Rastreadores GPS para vigilar a tus mascotas."
+          singular: "Controla a tu perro o gato con seguimiento GPS en tiempo real."
         },
         "de-DE": {
-          singular: "GPS‑Tracker, um Ihre Haustiere im Blick zu behalten."
+          singular: "Behalten Sie Ihren Hund oder Ihre Katze mit Live-GPS-Tracking im Blick."
         },
         "fr-FR": {
-          singular: "Traceurs GPS pour garder un œil sur vos animaux de compagnie."
+          singular: "Surveillez votre chien ou votre chat grâce à la localisation GPS en temps réel."
         },
         "ja-JP": {
-          singular: "ペットの位置を把握するためのGPSトラッカー。"
+          singular: "ライブGPS追跡で犬や猫の居場所を把握できます。"
         },
         "ko-KR": {
-          singular: "반려동물 위치를 확인할 수 있는 GPS 트래커."
+          singular: "실시간 GPS로 반려견 또는 반려묘를 추적하세요."
         },
         "pt-BR": {
-          singular: "Rastreadores GPS para monitorar seus animais de estimação."
+          singular: "Monitore seu cachorro ou gato com rastreamento GPS em tempo real."
         },
         "zh-CN": {
-          singular: "用于跟踪宠物的 GPS 定位器。"
+          singular: "通过实时 GPS 跟踪随时掌握你的狗或猫的位置。"
         }
       }
     }))

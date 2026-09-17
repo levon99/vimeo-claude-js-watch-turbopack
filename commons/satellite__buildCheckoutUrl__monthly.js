@@ -14,7 +14,7 @@
   };
   _v0.s(["buildCheckoutUrl", 0, (_v0, _v1) => {
     let _v2 = [`/checkout/${_v0.tier}`];
-    _v0.isMonthly && _v2.push("/monthly"), _v0.isTrial && _v2.push("/trial");
+    !0 === _v0.isMonthly && _v2.push("/monthly"), !0 === _v0.isTrial && _v2.push("/trial");
     let _v3 = _v2.join(""),
       _v4 = (0, _v2.serializePaywallAttribution)({
         paywallTrigger: _v0.paywallTrigger,
@@ -50,12 +50,37 @@
           tier: _v0.tier,
           periodicity: _v0.periodicity,
           is_free_trial: _v0.isFreeTrial ?? !1,
+          checkout_bundle_checked: _v0.bundleChecked ?? null,
           ..._v5()
+        });
+      }, [_v4]),
+      _v8 = (0, _v1.useCallback)(_v0 => {
+        _v4("checkout_bundle_box_displayed", {
+          tier: _v0.tier,
+          periodicity: _v0.periodicity,
+          is_free_trial: _v0.isFreeTrial ?? !1,
+          checkout_experience: _v0.checkoutExperience,
+          checkout_bundle_checked: _v0.bundleChecked,
+          checkout_bundle_price_amount: _v0.bundlePriceAmount,
+          checkout_bundle_price_currency: _v0.bundlePriceCurrency
+        });
+      }, [_v4]),
+      _v9 = (0, _v1.useCallback)(_v0 => {
+        _v4("checkout_bundle_checkbox_toggled", {
+          tier: _v0.tier,
+          periodicity: _v0.periodicity,
+          is_free_trial: _v0.isFreeTrial ?? !1,
+          checked: _v0.checked,
+          checkout_experience: _v0.checkoutExperience,
+          checkout_bundle_price_amount: _v0.bundlePriceAmount,
+          checkout_bundle_price_currency: _v0.bundlePriceCurrency
         });
       }, [_v4]);
     return {
       trackCheckoutOpen: _v6,
       trackCheckoutPurchaseButtonClicked: _v7,
+      trackCheckoutBundleBoxDisplayed: _v8,
+      trackCheckoutBundleCheckboxToggled: _v9,
       trackCheckoutFailed: (0, _v1.useCallback)(_v0 => {
         _v4("checkout_failed", {
           tier: _v0.tier,

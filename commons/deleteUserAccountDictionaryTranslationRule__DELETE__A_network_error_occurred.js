@@ -3498,8 +3498,7 @@ ${_v2}`;
     }
   }
   let _v180 = _v0 => _v0.trim().toLocaleLowerCase().replaceAll("_", "-");
-  var _v181 = _v0.i(0);
-  async function _v182({
+  async function _v181({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -3521,6 +3520,7 @@ ${_v2}`;
       return (0, _v23.deepCamelCase)(_v1);
     });
   }
+  var _v182 = _v0.i(0);
   let _v183 = ["created", "results", "results.errors", "results.errors.message", "results.index", "results.status"],
     _v184 = (_v0, _v1, _v2) => {
       let _v3 = (_v2?.results ?? []).flatMap(_v0 => {
@@ -3572,11 +3572,11 @@ ${_v2}`;
               _v4 = [],
               _v5 = 1;
             for (;;) {
-              let _v0 = await (0, _v181.getLanguages)({
+              let _v0 = await (0, _v182.getVideosTranslationsLanguages)({
                 baseUrl: _v1,
                 headers: _v3,
                 query: {
-                  filter: "texttracks",
+                  type: "subtitling",
                   page: _v5,
                   perPage: 100
                 },
@@ -3610,7 +3610,7 @@ ${_v2}`;
               })),
               _v7 = [..._v1, ..._v6.failures];
             if (0 === _v6.entries.length) return _v184(_v6.entries, _v7);
-            let _v8 = await _v182({
+            let _v8 = await _v181({
               baseUrl: _v1,
               headers: _v3,
               select: _v183,
@@ -8314,29 +8314,29 @@ ${_v2}`;
             }
           }),
           replacementsCsvInstructions: (0, _v213.translate)({
-            singular: "Upload a CSV with the following columns: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Use the language codes supported for captions, such as en, pt-BR, or zh-HK.",
+            singular: "Upload a CSV with the following columns: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Use the language codes supported for AI subtitle translations, such as en, pt, or zh-HK.",
             replacements: _v214,
             dictionary: {
               es: {
-                singular: "Suba un CSV con las siguientes columnas: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Utilice los códigos de idioma compatibles con los subtítulos, como en, pt-BR o zh-HK."
+                singular: "Suba un CSV con las siguientes columnas: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Utilice los códigos de idioma compatibles con las traducciones de subtítulos por IA, como en, pt, o zh-HK."
               },
               "de-DE": {
-                singular: "Laden Sie eine CSV-Datei mit den folgenden Spalten hoch: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Verwenden Sie die für Untertitel unterstützten Sprachcodes, z. B. en, pt-BR oder zh-HK."
+                singular: "Laden Sie eine CSV mit den folgenden Spalten hoch: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Verwenden Sie die Sprachcodes, die für KI-Untertitelübersetzungen unterstützt werden, z. B. en, pt oder zh-HK."
               },
               "fr-FR": {
-                singular: "Téléversez un CSV avec les colonnes suivantes : {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Utilisez les codes de langue pris en charge pour les sous-titres, tels que en, pt-BR ou zh-HK."
+                singular: "Téléversez un CSV comportant les colonnes suivantes : {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Utilisez les codes de langue pris en charge pour les traductions de sous-titres par IA, tels que en, pt ou zh-HK."
               },
               "ja-JP": {
-                singular: "次の列を含むCSVをアップロードしてください: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. キャプションでサポートされている言語コードを使用してください, 例: en, pt-BR, または zh-HK."
+                singular: "次の列を含むCSVをアップロードしてください: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. AI字幕翻訳でサポートされている言語コード（例: en, pt, zh-HK）を使用してください."
               },
               "ko-KR": {
-                singular: "다음 열을 포함한 CSV를 업로드하세요: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. 캡션에 지원되는 언어 코드를 사용하세요(예: en, pt-BR, zh-HK)."
+                singular: "다음 열을 포함하는 CSV를 업로드하세요: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. AI 자막 번역에서 지원되는 언어 코드(예: en, pt, zh-HK)를 사용하세요."
               },
               "pt-BR": {
-                singular: "Faça o upload de um CSV com as seguintes colunas: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Use os códigos de idioma compatíveis com legendas, como en, pt-BR ou zh-HK."
+                singular: "Faça upload de um CSV com as seguintes colunas: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Use os códigos de idioma compatíveis para traduções de legendas por IA, como en, pt ou zh-HK."
               },
               "zh-CN": {
-                singular: "上传一个 CSV，包含以下列：{SOURCE_LANGUAGE}、{SOURCE_TERM}、{TARGET_LANGUAGE}、{TARGET_TERM}。使用支持字幕的语言代码，例如 en、pt-BR 或 zh-HK。"
+                singular: "上传一个 CSV 文件: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. 使用 AI 字幕翻译支持的语言代码, 例如 en, pt, 或 zh-HK."
               }
             }
           }),

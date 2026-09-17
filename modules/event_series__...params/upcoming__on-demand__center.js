@@ -8,64 +8,67 @@
   let _v5 = "upcoming",
     _v6 = "on-demand",
     _v7 = _v0 => {
-      let _v1 = _v0.link ?? "";
+      let _v1,
+        _v2 = _v0.link ?? "";
       try {
-        return new URL(_v1).pathname;
+        _v1 = new URL(_v2).pathname;
       } catch {
-        return _v1;
+        return _v2;
       }
+      let [, _v3] = _v1.split("/"),
+        [, _v4] = window.location.pathname.split("/");
+      return _v4 === _v3 ? _v1 : "/";
     },
-    _v8 = _v0 => `${_v7(_v0)}/${_v5}`,
-    _v9 = _v0 => `${_v7(_v0)}/${_v6}`;
-  var _v10 = _v0.i(0),
+    _v8 = (_v0, _v1) => `${_v0.replace(/\/+$/, "")}/${_v1}`;
+  var _v9 = _v0.i(0),
+    _v10 = _v0.i(0),
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
-    _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  let _v18 = ({
+    _v16 = _v0.i(0);
+  let _v17 = ({
     title: _v0,
     message: _v1
-  }) => (0, _v1.jsxs)(_v13.Flex, {
+  }) => (0, _v1.jsxs)(_v12.Flex, {
     align: "center",
     backgroundColor: "fill-component",
     borderRadius: "lg",
     direction: "column",
     gap: "sm",
     justify: "center",
-    minHeight: (0, _v17.rem)(200),
+    minHeight: (0, _v16.rem)(200),
     padding: "xl",
     width: "100%",
-    children: [(0, _v1.jsx)(_v14.Text, {
+    children: [(0, _v1.jsx)(_v13.Text, {
       color: "text-primary",
       variant: "heading-sm",
       children: _v0
-    }), (0, _v1.jsx)(_v14.Text, {
+    }), (0, _v1.jsx)(_v13.Text, {
       color: "text-secondary",
       textAlign: "center",
       variant: "body-md",
       children: _v1
     })]
   });
-  var _v19 = _v0.i(0),
-    _v20 = _v0.i(0);
-  let _v21 = ({
+  var _v18 = _v0.i(0),
+    _v19 = _v0.i(0);
+  let _v20 = ({
       label: _v0
-    }) => (0, _v1.jsx)(_v11.Box, {
+    }) => (0, _v1.jsx)(_v10.Box, {
       alignItems: "center",
       backdropFilter: "blur(20px)",
       backgroundColor: "rgba(14, 18, 22, 0.48)",
-      borderRadius: (0, _v17.rem)(4),
-      bottom: (0, _v17.rem)(7.5),
+      borderRadius: (0, _v16.rem)(4),
+      bottom: (0, _v16.rem)(7.5),
       display: "flex",
-      height: (0, _v17.rem)(20),
+      height: (0, _v16.rem)(20),
       justifyContent: "center",
       position: "absolute",
-      px: (0, _v17.rem)(4),
-      right: (0, _v17.rem)(7.5),
-      children: (0, _v1.jsx)(_v14.Text, {
+      px: (0, _v16.rem)(4),
+      right: (0, _v16.rem)(7.5),
+      children: (0, _v1.jsx)(_v13.Text, {
         color: "white",
         fontWeight: "medium",
         variant: "body-sm",
@@ -73,11 +76,11 @@
         children: _v0
       })
     }),
-    _v22 = _v0 => {
+    _v21 = _v0 => {
       let _v1 = _v0.pictures?.sizes;
       if (_v1 && 0 !== _v1.length) return _v1[_v1.length - 1]?.link ?? void 0;
     },
-    _v23 = _v0 => _v0.title?.trim() || (0, _v16.translate)({
+    _v22 = _v0 => _v0.title?.trim() || (0, _v15.translate)({
       singular: "Untitled event",
       dictionary: {
         es: {
@@ -103,13 +106,13 @@
         }
       }
     }),
-    _v24 = _v0 => {
+    _v23 = _v0 => {
       if (!_v0) return null;
       let _v1 = new Date(_v0).getTime();
       return Number.isNaN(_v1) ? null : _v1;
     },
-    _v25 = (_v0, _v1) => {
-      let _v2 = _v24(_v1 ?? _v0.nextOccurrenceTime ?? _v0.startTime);
+    _v24 = (_v0, _v1) => {
+      let _v2 = _v23(_v1 ?? _v0.nextOccurrenceTime ?? _v0.startTime);
       if (null === _v2) return null;
       let _v3 = new Date(_v2),
         _v4 = new Intl.DateTimeFormat("en", {
@@ -123,12 +126,12 @@
         }).format(_v3);
       return `${_v4} \xb7 ${_v5}`;
     },
-    _v26 = _v0 => {
+    _v25 = _v0 => {
       let _v1 = Date.now(),
         _v2 = [];
       return _v0.forEach(_v0 => {
         let _v1 = (_v0.upcomingOccurrences ?? []).filter(_v0 => {
-          let _v1 = _v24(_v0);
+          let _v1 = _v23(_v0);
           return null !== _v1 && _v1 >= _v1;
         });
         (_v1.length > 0 ? _v1 : [_v0.nextOccurrenceTime ?? null]).forEach((_v0, _v1) => {
@@ -139,38 +142,38 @@
             isLive: 0 === _v1 && _v0.isLive
           });
         });
-      }), _v2.sort((_v0, _v1) => _v0.isLive !== _v1.isLive ? _v0.isLive ? -1 : 1 : (_v24(_v0.occurrenceTime) ?? 0) - (_v24(_v1.occurrenceTime) ?? 0)), _v2;
+      }), _v2.sort((_v0, _v1) => _v0.isLive !== _v1.isLive ? _v0.isLive ? -1 : 1 : (_v23(_v0.occurrenceTime) ?? 0) - (_v23(_v1.occurrenceTime) ?? 0)), _v2;
     },
-    _v27 = _v0 => {
+    _v26 = _v0 => {
       let _v1;
       return {
         ...{
-          title: _v23(_v1 = _v0.event),
+          title: _v22(_v1 = _v0.event),
           description: _v1.description,
-          date: _v25(_v1),
+          date: _v24(_v1),
           isLive: _v1.isLive,
           link: _v1.link,
-          thumbnailSrc: _v22(_v1),
+          thumbnailSrc: _v21(_v1),
           speakers: (_v1.speakers ?? []).filter(_v0 => !!_v0?.name)
         },
-        date: _v25(_v0.event, _v0.occurrenceTime),
+        date: _v24(_v0.event, _v0.occurrenceTime),
         isLive: _v0.isLive
       };
     },
-    _v28 = _v0 => {
+    _v27 = _v0 => {
       let _v1 = Date.now(),
         _v2 = [],
         _v3 = [];
       return _v0.forEach(_v0 => {
-        let _v1 = _v24(_v0.nextOccurrenceTime);
+        let _v1 = _v23(_v0.nextOccurrenceTime);
         _v0.isLive || null !== _v1 && _v1 >= _v1 ? _v2.push(_v0) : _v3.push(_v0);
-      }), _v2.sort((_v0, _v1) => _v0.isLive !== _v1.isLive ? _v0.isLive ? -1 : 1 : (_v24(_v0.nextOccurrenceTime) ?? 0) - (_v24(_v1.nextOccurrenceTime) ?? 0)), {
+      }), _v2.sort((_v0, _v1) => _v0.isLive !== _v1.isLive ? _v0.isLive ? -1 : 1 : (_v23(_v0.nextOccurrenceTime) ?? 0) - (_v23(_v1.nextOccurrenceTime) ?? 0)), {
         upcoming: _v2,
         onDemand: _v3
       };
     },
-    _v29 = (_v0, _v1) => {
-      let _v2 = (0, _v16.getCurrentLocale)();
+    _v28 = (_v0, _v1) => {
+      let _v2 = (0, _v15.getCurrentLocale)();
       if (_v1) try {
         return new Intl.DateTimeFormat(_v2, {
           ..._v0,
@@ -179,17 +182,17 @@
       } catch {}
       return new Intl.DateTimeFormat(_v2, _v0);
     },
-    _v30 = _v0 => {
+    _v29 = _v0 => {
       if (!_v0) return null;
       let _v1 = new Date(`${_v0.slice(0, 10)}T00:00:00`);
       return Number.isNaN(_v1.getTime()) ? null : _v1;
     },
-    _v31 = _v0 => new Intl.DateTimeFormat("en", {
+    _v30 = _v0 => new Intl.DateTimeFormat("en", {
       month: "short",
       day: "numeric",
       year: "numeric"
     }).format(_v0),
-    _v32 = ({
+    _v31 = ({
       recording: _v0
     }) => {
       let _v1 = (_v0 => {
@@ -209,7 +212,7 @@
             _v4 = String(_v1 % 60).padStart(2, "0");
           return _v2 > 0 ? `${_v2}:${String(_v3).padStart(2, "0")}:${_v4}` : `${_v3}:${_v4}`;
         })(_v0.duration);
-      return (0, _v1.jsxs)(_v13.Flex, {
+      return (0, _v1.jsxs)(_v12.Flex, {
         as: "a",
         borderRadius: "xl",
         direction: "column",
@@ -223,30 +226,30 @@
         _hover: {
           backgroundColor: "fill-component-hover"
         },
-        children: [(0, _v1.jsx)(_v20.EventThumbnail, {
+        children: [(0, _v1.jsx)(_v19.EventThumbnail, {
           borderRadius: "md",
           src: (_v0 => {
             let _v1 = _v0.pictures?.sizes;
             if (_v1 && 0 !== _v1.length) return _v1[_v1.length - 1]?.link ?? void 0;
           })(_v0),
-          children: _v2 ? (0, _v1.jsx)(_v21, {
+          children: _v2 ? (0, _v1.jsx)(_v20, {
             label: _v2
           }) : null
-        }), (0, _v1.jsxs)(_v13.Flex, {
+        }), (0, _v1.jsxs)(_v12.Flex, {
           align: "center",
           gap: "sm",
           pl: "xs",
           width: "100%",
-          children: [(0, _v1.jsxs)(_v13.Flex, {
+          children: [(0, _v1.jsxs)(_v12.Flex, {
             direction: "column",
             flex: "1 0 0",
             gap: "xs",
             minWidth: 0,
-            children: [(0, _v1.jsx)(_v14.Text, {
+            children: [(0, _v1.jsx)(_v13.Text, {
               color: "text-primary",
               noOfLines: 1,
               variant: "heading-sm",
-              children: _v0.name?.trim() || (0, _v16.translate)({
+              children: _v0.name?.trim() || (0, _v15.translate)({
                 singular: "Untitled video",
                 dictionary: {
                   es: {
@@ -272,13 +275,13 @@
                   }
                 }
               })
-            }), _v1 ? (0, _v1.jsx)(_v14.Text, {
+            }), _v1 ? (0, _v1.jsx)(_v13.Text, {
               color: "text-secondary",
               noOfLines: 1,
               variant: "body-sm",
               children: _v1
             }) : null]
-          }), (0, _v1.jsx)(_v13.Flex, {
+          }), (0, _v1.jsx)(_v12.Flex, {
             align: "center",
             "aria-hidden": !0,
             color: "text-primary",
@@ -289,14 +292,14 @@
             _groupHover: {
               opacity: 1
             },
-            children: (0, _v1.jsx)(_v19.ArrowRight, {})
+            children: (0, _v1.jsx)(_v18.ArrowRight, {})
           })]
         })]
       });
     };
-  var _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  let _v35 = ({
+  var _v32 = _v0.i(0),
+    _v33 = _v0.i(0);
+  let _v34 = ({
       series: _v0,
       children: _v1
     }) => {
@@ -305,11 +308,11 @@
           type: _v0.landingPageConfig?.logo?.type ?? "vimeo",
           url: _v0.landingPageConfig?.logo?.url ?? null
         },
-        _v4 = _v0.landingPageConfig?.theme === "dark" ? _v33.DarkMode : _v33.LightMode,
+        _v4 = _v0.landingPageConfig?.theme === "dark" ? _v32.DarkMode : _v32.LightMode,
         _v5 = _v0.landingPageConfig?.navConfig ?? ["upcoming", "on-demand"],
         _v6 = [{
           id: "upcoming",
-          label: (0, _v16.translate)({
+          label: (0, _v15.translate)({
             singular: "Upcoming events",
             dictionary: {
               es: {
@@ -335,10 +338,10 @@
               }
             }
           }),
-          href: _v8(_v0)
+          href: _v8(_v7(_v0), _v5)
         }, {
           id: "on-demand",
-          label: (0, _v16.translate)({
+          label: (0, _v15.translate)({
             singular: "On demand",
             dictionary: {
               es: {
@@ -364,23 +367,23 @@
               }
             }
           }),
-          href: _v9(_v0)
+          href: _v8(_v7(_v0), _v6)
         }].filter(_v0 => _v5.includes(_v0.id));
       return (0, _v1.jsx)(_v4, {
-        children: (0, _v1.jsxs)(_v13.Flex, {
+        children: (0, _v1.jsxs)(_v12.Flex, {
           backgroundColor: "background",
           direction: "column",
           align: "center",
           minHeight: "100vh",
           width: "100%",
-          children: [(0, _v1.jsx)(_v34.Navbar, {
+          children: [(0, _v1.jsx)(_v33.Navbar, {
             logo: _v3,
             menuItems: _v6,
             name: _v2
-          }), (0, _v1.jsx)(_v13.Flex, {
+          }), (0, _v1.jsx)(_v12.Flex, {
             direction: "column",
             gap: "xl",
-            maxWidth: (0, _v17.rem)(0),
+            maxWidth: (0, _v16.rem)(0),
             p: "md",
             width: "100%",
             children: _v1
@@ -388,12 +391,12 @@
         })
       });
     },
-    _v36 = ({
+    _v35 = ({
       series: _v0,
       recordings: _v1
     }) => {
       let _v2 = _v7(_v0),
-        _v3 = (0, _v16.translate)({
+        _v3 = (0, _v15.translate)({
           singular: "Back to overview",
           dictionary: {
             es: {
@@ -419,30 +422,30 @@
             }
           }
         });
-      return (0, _v1.jsxs)(_v35, {
+      return (0, _v1.jsxs)(_v34, {
         series: _v0,
-        children: [(0, _v1.jsxs)(_v13.Flex, {
+        children: [(0, _v1.jsxs)(_v12.Flex, {
           align: "flex-start",
           direction: "column",
           gap: "lg",
           width: "100%",
-          children: [(0, _v1.jsx)(_v12.Button, {
-            as: _v10.default,
+          children: [(0, _v1.jsx)(_v11.Button, {
+            as: _v9.default,
             href: _v2,
             size: "sm",
             variant: "tertiary",
             children: _v3
-          }), (0, _v1.jsx)(_v13.Flex, {
+          }), (0, _v1.jsx)(_v12.Flex, {
             align: "center",
             pb: "md",
             pl: "xs",
             pr: "md",
             pt: "lg",
             width: "100%",
-            children: (0, _v1.jsx)(_v14.Text, {
+            children: (0, _v1.jsx)(_v13.Text, {
               color: "text-primary",
               variant: "heading-2xl",
-              children: (0, _v16.translate)({
+              children: (0, _v15.translate)({
                 singular: "On demand",
                 dictionary: {
                   es: {
@@ -469,16 +472,16 @@
                 }
               })
             })
-          }), _v1.length > 0 ? (0, _v1.jsx)(_v11.Box, {
+          }), _v1.length > 0 ? (0, _v1.jsx)(_v10.Box, {
             pb: "md",
             width: "100%",
-            children: (0, _v1.jsx)(_v15.EventsGrid, {
-              children: _v1.map(_v0 => (0, _v1.jsx)(_v32, {
+            children: (0, _v1.jsx)(_v14.EventsGrid, {
+              children: _v1.map(_v0 => (0, _v1.jsx)(_v31, {
                 recording: _v0
               }, _v0.uri))
             })
-          }) : (0, _v1.jsx)(_v18, {
-            title: (0, _v16.translate)({
+          }) : (0, _v1.jsx)(_v17, {
+            title: (0, _v15.translate)({
               singular: "No on-demand videos available",
               dictionary: {
                 es: {
@@ -504,7 +507,7 @@
                 }
               }
             }),
-            message: (0, _v16.translate)({
+            message: (0, _v15.translate)({
               singular: "No past stream recordings yet",
               dictionary: {
                 es: {
@@ -531,11 +534,11 @@
               }
             })
           })]
-        }), _v1.length > 8 && (0, _v1.jsx)(_v13.Flex, {
+        }), _v1.length > 8 && (0, _v1.jsx)(_v12.Flex, {
           justify: "center",
           width: "100%",
-          children: (0, _v1.jsx)(_v12.Button, {
-            as: _v10.default,
+          children: (0, _v1.jsx)(_v11.Button, {
+            as: _v9.default,
             href: _v2,
             size: "lg",
             variant: "secondary",
@@ -544,15 +547,15 @@
         })]
       });
     };
-  var _v37 = _v0.i(0),
+  var _v36 = _v0.i(0),
+    _v37 = _v0.i(0),
     _v38 = _v0.i(0),
     _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0);
-  let _v42 = ({
+    _v40 = _v0.i(0);
+  let _v41 = ({
       count: _v0,
       href: _v1
-    }) => (0, _v1.jsxs)(_v13.Flex, {
+    }) => (0, _v1.jsxs)(_v12.Flex, {
       align: "center",
       backgroundColor: "fill-component",
       borderRadius: "lg",
@@ -563,16 +566,16 @@
       minHeight: 0,
       p: "xl",
       width: "100%",
-      children: [(0, _v1.jsx)(_v14.Text, {
+      children: [(0, _v1.jsx)(_v13.Text, {
         color: "text-primary",
         variant: "heading-2xl",
         children: `+${_v0}`
-      }), (0, _v1.jsx)(_v12.Button, {
-        as: _v10.default,
+      }), (0, _v1.jsx)(_v11.Button, {
+        as: _v9.default,
         href: _v1,
         size: "lg",
         variant: "secondary",
-        children: (0, _v16.translate)({
+        children: (0, _v15.translate)({
           singular: "See all",
           dictionary: {
             es: {
@@ -600,8 +603,8 @@
         })
       })]
     }),
-    _v43 = ["banner", "upcoming"],
-    _v44 = ({
+    _v42 = ["banner", "upcoming"],
+    _v43 = ({
       series: _v0,
       recordings: _v1,
       recordingsTotal: _v2
@@ -609,22 +612,22 @@
       let _v3 = _v0.description?.trim() ?? "",
         {
           upcoming: _v4
-        } = _v28(_v0.events),
-        _v5 = _v26(_v4),
+        } = _v27(_v0.events),
+        _v5 = _v25(_v4),
         _v6 = _v5.slice(0, 5),
         _v7 = _v5.length > _v6.length,
         _v8 = ((_v0, _v1) => {
-          let _v2 = _v30(_v0),
-            _v3 = _v30(_v1);
+          let _v2 = _v29(_v0),
+            _v3 = _v29(_v1);
           if (!_v2 && !_v3) return null;
-          if (_v2 && !_v3) return _v31(_v2);
-          if (!_v2 && _v3) return _v31(_v3);
+          if (_v2 && !_v3) return _v30(_v2);
+          if (!_v2 && _v3) return _v30(_v3);
           if (_v2 && _v3) {
             if (_v2.getFullYear() === _v3.getFullYear()) return `${new Intl.DateTimeFormat("en", {
               month: "short",
               day: "numeric"
-            }).format(_v2)} — ${_v31(_v3)}`;
-            return `${_v31(_v2)} — ${_v31(_v3)}`;
+            }).format(_v2)} — ${_v30(_v3)}`;
+            return `${_v30(_v2)} — ${_v30(_v3)}`;
           }
           return null;
         })(_v0.landingPageConfig?.startDate, _v0.landingPageConfig?.endDate),
@@ -650,7 +653,7 @@
           let _v2 = [..._v1].sort((_v0, _v1) => (_v1.width ?? 0) - (_v0.width ?? 0));
           return _v2[0]?.link ?? _v0?.baseLink ?? null;
         })(_v0.pictures),
-        _v11 = _v0.landingPageConfig?.contentConfig ?? _v43,
+        _v11 = _v0.landingPageConfig?.contentConfig ?? _v42,
         _v12 = _v0.landingPageConfig?.timeZone,
         _v13 = _v0.landingPageConfig?.faqConfig ?? [],
         _v14 = _v11.includes("on-demand"),
@@ -658,20 +661,20 @@
         _v16 = _v11.includes("upcoming") || _v14 || _v11.includes("agenda"),
         _v17 = (_v11.includes("upcoming") || _v11.includes("agenda")) && _v4.length > 0 || _v14 && _v1.length > 0,
         _v18 = _v11.map(_v0 => {
-          if ("banner" === _v0) return (0, _v1.jsx)(_v41.Hero, {
+          if ("banner" === _v0) return (0, _v1.jsx)(_v40.Hero, {
             dateRange: _v8,
             description: _v3,
             heroImageSrc: _v10,
             name: _v0.name?.trim() ?? "",
             timeZoneLabel: _v9
           }, _v0);
-          if ("upcoming" === _v0 && _v6.length > 0) return (0, _v1.jsxs)(_v39.EventsSection, {
-            action: _v7 ? (0, _v1.jsx)(_v12.Button, {
-              as: _v10.default,
-              href: _v8(_v0),
+          if ("upcoming" === _v0 && _v6.length > 0) return (0, _v1.jsxs)(_v38.EventsSection, {
+            action: _v7 ? (0, _v1.jsx)(_v11.Button, {
+              as: _v9.default,
+              href: _v8(_v7(_v0), _v5),
               size: "lg",
               variant: "tertiary",
-              children: (0, _v16.translate)({
+              children: (0, _v15.translate)({
                 singular: "Explore all",
                 dictionary: {
                   es: {
@@ -699,7 +702,7 @@
               })
             }) : null,
             id: "upcoming-events",
-            title: (0, _v16.translate)({
+            title: (0, _v15.translate)({
               singular: "Upcoming events",
               dictionary: {
                 es: {
@@ -725,26 +728,26 @@
                 }
               }
             }),
-            children: [_v6.map(_v0 => (0, _v1.jsx)(_v38.EventCard, {
-              ..._v27(_v0)
-            }, _v0.key)), _v7 ? (0, _v1.jsx)(_v42, {
+            children: [_v6.map(_v0 => (0, _v1.jsx)(_v37.EventCard, {
+              ..._v26(_v0)
+            }, _v0.key)), _v7 ? (0, _v1.jsx)(_v41, {
               count: _v5.length - _v6.length,
-              href: _v8(_v0)
+              href: _v8(_v7(_v0), _v5)
             }, "see-more") : null]
           }, _v0);
           if ("agenda" === _v0 && _v4.length > 0) {
             let _v0, _v1, _v2;
-            return (0, _v1.jsx)(_v37.AgendaSection, {
+            return (0, _v1.jsx)(_v36.AgendaSection, {
               groups: (_v0 = [], _v1 = new Map(), _v2 = new Date().toISOString(), _v5.forEach(_v0 => {
                 let {
                     event: _v1
                   } = _v0,
                   _v2 = _v0.occurrenceTime ?? _v1.startTime,
-                  _v3 = _v2 ? _v24(_v2) : null,
+                  _v3 = _v2 ? _v23(_v2) : null,
                   _v4 = _v0.isLive && (null === _v3 || _v3 < Date.now()),
                   _v5 = _v4 ? _v2 : null !== _v3 ? _v2 : null;
                 if (null === _v5) return;
-                let _v6 = _v29({
+                let _v6 = _v28({
                     year: "numeric",
                     month: "2-digit",
                     day: "2-digit"
@@ -753,14 +756,14 @@
                 _v7 || (_v7 = {
                   key: _v6,
                   label: ((_v0, _v1) => {
-                    let _v2 = _v24(_v0);
+                    let _v2 = _v23(_v0);
                     if (null === _v2) return null;
                     let _v3 = new Date(_v2),
-                      _v4 = _v29({
+                      _v4 = _v28({
                         month: "short",
                         day: "numeric"
                       }, _v1);
-                    if (!(0, _v16.getCurrentLocale)().startsWith("en")) return _v4.format(_v3);
+                    if (!(0, _v15.getCurrentLocale)().startsWith("en")) return _v4.format(_v3);
                     let _v5 = _v4.formatToParts(_v3),
                       _v6 = _v5.find(_v0 => "month" === _v0.type)?.value ?? "",
                       _v7 = _v5.find(_v0 => "day" === _v0.type)?.value ?? "",
@@ -783,18 +786,18 @@
                   events: []
                 }, _v1.set(_v6, _v7), _v0.push(_v7)), _v7.events.push({
                   key: _v0.key,
-                  title: _v23(_v1),
+                  title: _v22(_v1),
                   time: _v4 ? null : ((_v0, _v1) => {
-                    let _v2 = _v24(_v0);
+                    let _v2 = _v23(_v0);
                     if (null === _v2) return null;
                     let _v3 = new Date(_v2),
-                      _v4 = _v29({
+                      _v4 = _v28({
                         hour: "numeric",
                         minute: "2-digit"
                       }, _v1).format(_v3),
                       _v5 = _v1 ? ((_v0, _v1) => {
                         try {
-                          return new Intl.DateTimeFormat((0, _v16.getCurrentLocale)(), {
+                          return new Intl.DateTimeFormat((0, _v15.getCurrentLocale)(), {
                             timeZone: _v1,
                             timeZoneName: "short"
                           }).formatToParts(_v0).find(_v0 => "timeZoneName" === _v0.type)?.value ?? null;
@@ -805,22 +808,22 @@
                     return _v5 ? `${_v4} ${_v5}` : _v4;
                   })(_v2, _v12),
                   description: _v1.description,
-                  thumbnailSrc: _v22(_v1),
+                  thumbnailSrc: _v21(_v1),
                   isLive: _v0.isLive,
                   link: _v1.link
                 });
               }), _v0)
             }, _v0);
           }
-          return "faq" === _v0 && _v13.length > 0 ? (0, _v1.jsx)(_v40.FaqSection, {
+          return "faq" === _v0 && _v13.length > 0 ? (0, _v1.jsx)(_v39.FaqSection, {
             items: _v13
-          }, _v0) : "on-demand" === _v0 && _v1.length > 0 ? (0, _v1.jsxs)(_v39.EventsSection, {
-            action: _v15 ? (0, _v1.jsx)(_v12.Button, {
-              as: _v10.default,
-              href: _v9(_v0),
+          }, _v0) : "on-demand" === _v0 && _v1.length > 0 ? (0, _v1.jsxs)(_v38.EventsSection, {
+            action: _v15 ? (0, _v1.jsx)(_v11.Button, {
+              as: _v9.default,
+              href: _v8(_v7(_v0), _v6),
               size: "lg",
               variant: "tertiary",
-              children: (0, _v16.translate)({
+              children: (0, _v15.translate)({
                 singular: "Explore all",
                 dictionary: {
                   es: {
@@ -848,7 +851,7 @@
               })
             }) : null,
             id: "on-demand",
-            title: (0, _v16.translate)({
+            title: (0, _v15.translate)({
               singular: "On demand",
               dictionary: {
                 es: {
@@ -874,18 +877,18 @@
                 }
               }
             }),
-            children: [_v1.map(_v0 => (0, _v1.jsx)(_v32, {
+            children: [_v1.map(_v0 => (0, _v1.jsx)(_v31, {
               recording: _v0
-            }, _v0.uri)), _v15 ? (0, _v1.jsx)(_v42, {
+            }, _v0.uri)), _v15 ? (0, _v1.jsx)(_v41, {
               count: _v2 - _v1.length,
-              href: _v9(_v0)
+              href: _v8(_v7(_v0), _v6)
             }, "see-more") : null]
           }, _v0) : null;
         }).filter(Boolean);
-      return (0, _v1.jsxs)(_v35, {
+      return (0, _v1.jsxs)(_v34, {
         series: _v0,
-        children: [_v18, _v16 && !_v17 ? (0, _v1.jsx)(_v18, {
-          title: (0, _v16.translate)({
+        children: [_v18, _v16 && !_v17 ? (0, _v1.jsx)(_v17, {
+          title: (0, _v15.translate)({
             singular: "No events scheduled",
             dictionary: {
               es: {
@@ -911,7 +914,7 @@
               }
             }
           }),
-          message: (0, _v16.translate)({
+          message: (0, _v15.translate)({
             singular: "Check back soon for upcoming events and on-demand videos.",
             dictionary: {
               es: {
@@ -940,15 +943,15 @@
         }) : null]
       });
     };
-  var _v45 = _v0.i(0),
+  var _v44 = _v0.i(0),
+    _v45 = _v0.i(0),
     _v46 = _v0.i(0),
     _v47 = _v0.i(0),
-    _v48 = _v0.i(0),
-    _v49 = _v0.i(0);
-  let _v50 = _v0 => "object" == typeof _v0 && null !== _v0 ? _v0 : null,
-    _v51 = async _v0 => {
+    _v48 = _v0.i(0);
+  let _v49 = _v0 => "object" == typeof _v0 && null !== _v0 ? _v0 : null,
+    _v50 = async _v0 => {
       let _v1,
-        _v2 = _v50(_v0);
+        _v2 = _v49(_v0);
       if (_v2?.status === 404) return "not-found";
       if (_v2?.status !== 403 || !_v2.res) return "transient";
       try {
@@ -959,9 +962,9 @@
       }
       return 0 === _v1 ? "password-required" : "number" == typeof _v1 ? "not-found" : "transient";
     };
-  var _v52 = _v0.i(0),
-    _v53 = _v0.i(0);
-  async function _v54({
+  var _v51 = _v0.i(0),
+    _v52 = _v0.i(0);
+  async function _v53({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -970,27 +973,27 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v52.measureLatency)("getEventSery", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/event_series/${_v2}?${(0, _v53.searchQueryString)(_v3)}&fields=${_v1.map(_v53.intoSnakeCase).join(",")}`, {
+    return (0, _v51.measureLatency)("getEventSery", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/event_series/${_v2}?${(0, _v52.searchQueryString)(_v3)}&fields=${_v1.map(_v52.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v53.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v52.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v53.deepCamelCase)(_v1);
+      return (0, _v52.deepCamelCase)(_v1);
     });
   }
-  let _v55 = ["id", "name", "description", "link", "status", "landingPageConfig", "landingPageConfig.theme", "landingPageConfig.startDate", "landingPageConfig.endDate", "landingPageConfig.timeZone", "landingPageConfig.logo", "landingPageConfig.logo.type", "landingPageConfig.logo.uri", "landingPageConfig.logo.url", "landingPageConfig.contentConfig", "landingPageConfig.navConfig", "landingPageConfig.faqConfig", "pictures", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "pictures.baseLink", "pictures.uri", "events.uri", "events.title", "events.link", "events.description", "events.nextOccurrenceTime", "events.startTime", "events.upcomingOccurrences", "events.isLive", "events.pictures", "events.pictures.sizes", "events.pictures.sizes.link", "events.pictures.sizes.width", "events.speakers", "events.speakers.name", "events.speakers.avatar"],
-    _v56 = async ({
+  let _v54 = ["id", "name", "description", "link", "status", "landingPageConfig", "landingPageConfig.theme", "landingPageConfig.startDate", "landingPageConfig.endDate", "landingPageConfig.timeZone", "landingPageConfig.logo", "landingPageConfig.logo.type", "landingPageConfig.logo.uri", "landingPageConfig.logo.url", "landingPageConfig.contentConfig", "landingPageConfig.navConfig", "landingPageConfig.faqConfig", "pictures", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "pictures.baseLink", "pictures.uri", "events.uri", "events.title", "events.link", "events.description", "events.nextOccurrenceTime", "events.startTime", "events.upcomingOccurrences", "events.isLive", "events.pictures", "events.pictures.sizes", "events.pictures.sizes.link", "events.pictures.sizes.width", "events.speakers", "events.speakers.name", "events.speakers.avatar"],
+    _v55 = async ({
       baseUrl: _v0,
       headers: _v1,
       seriesIdOrUrl: _v2,
       password: _v3,
       credentials: _v4,
       signal: _v5
-    }) => _v54({
+    }) => _v53({
       baseUrl: _v0,
       headers: _v1,
       credentials: _v4,
@@ -1003,15 +1006,15 @@
           password: _v3
         }
       } : {}),
-      select: _v55
+      select: _v54
     });
-  var _v57 = _v0.i(0);
-  let _v58 = ["uri", "name", "link", "duration", "streamedOn", "pictures.sizes.link"],
-    _v59 = () => ({
+  var _v56 = _v0.i(0);
+  let _v57 = ["uri", "name", "link", "duration", "streamedOn", "pictures.sizes.link"],
+    _v58 = () => ({
       recordings: [],
       total: 0
     }),
-    _v60 = async ({
+    _v59 = async ({
       baseUrl: _v0,
       headers: _v1,
       series: _v2,
@@ -1020,12 +1023,12 @@
       credentials: _v5,
       signal: _v6
     }) => {
-      if ("upcoming" === _v3 || !_v2.landingPageConfig?.contentConfig?.includes("on-demand")) return _v59();
+      if ("upcoming" === _v3 || !_v2.landingPageConfig?.contentConfig?.includes("on-demand")) return _v58();
       try {
         let {
           data: _v0,
           total: _v1
-        } = await (0, _v57.getEventSeryVideos)({
+        } = await (0, _v56.getEventSeryVideos)({
           baseUrl: _v0,
           headers: _v1,
           credentials: _v5,
@@ -1033,7 +1036,7 @@
           where: {
             eventSeriesId: _v2.id
           },
-          select: _v58,
+          select: _v57,
           query: {
             sort: "newest",
             perPage: "on-demand" === _v3 ? 100 : 5,
@@ -1047,10 +1050,10 @@
           total: _v1
         };
       } catch {
-        return _v59();
+        return _v58();
       }
     },
-    _v61 = async () => {
+    _v60 = async () => {
       let _v0 = await fetch("/_next/jwt", {
         headers: {
           "X-Requested-With": "XMLHttpRequest"
@@ -1062,41 +1065,50 @@
       } = await _v0.json();
       return _v1;
     },
-    _v62 = ({
+    _v61 = ({
       seriesIdOrUrl: _v0,
       baseUrl: _v1,
       view: _v2,
-      onUnlock: _v3
+      onUnlock: _v3,
+      fetchSeries: _v4
     }) => {
-      let [_v4, _v5] = (0, _v3.useState)(""),
-        [_v6, _v7] = (0, _v3.useState)(null),
-        [_v8, _v9] = (0, _v3.useState)(!1),
-        _v10 = async _v0 => {
-          if (_v0.preventDefault(), _v4.trim() && !_v8) {
-            _v9(!0), _v7(null);
+      let [_v5, _v6] = (0, _v3.useState)(""),
+        [_v7, _v8] = (0, _v3.useState)(null),
+        [_v9, _v10] = (0, _v3.useState)(!1),
+        _v11 = async _v0 => {
+          if (_v0.preventDefault(), _v5.trim() && !_v9) {
+            _v10(!0), _v8(null);
             try {
-              let _v0 = await _v61(),
-                _v1 = {
-                  Authorization: `jwt ${_v0}`
-                },
-                _v2 = await _v56({
-                  baseUrl: _v1,
-                  seriesIdOrUrl: _v0,
-                  password: _v4,
-                  headers: _v1,
-                  credentials: "include"
-                }),
-                _v3 = await _v60({
-                  baseUrl: _v1,
-                  headers: _v1,
-                  series: _v2,
-                  view: _v2,
-                  password: _v4,
-                  credentials: "include"
+              if (_v4) {
+                let _v0 = await _v4(_v5);
+                _v3(_v0, {
+                  recordings: [],
+                  total: 0
                 });
-              _v3(_v2, _v3);
+              } else {
+                let _v0 = await _v60(),
+                  _v1 = {
+                    Authorization: `jwt ${_v0}`
+                  },
+                  _v2 = await _v55({
+                    baseUrl: _v1,
+                    seriesIdOrUrl: _v0,
+                    password: _v5,
+                    headers: _v1,
+                    credentials: "include"
+                  }),
+                  _v3 = await _v59({
+                    baseUrl: _v1,
+                    headers: _v1,
+                    series: _v2,
+                    view: _v2,
+                    password: _v5,
+                    credentials: "include"
+                  });
+                _v3(_v2, _v3);
+              }
             } catch (_v0) {
-              _v50(_v0)?.status === 403 ? _v7((0, _v16.translate)({
+              _v49(_v0)?.status === 403 ? _v8((0, _v15.translate)({
                 singular: "Sorry, that password was incorrect. Please try again.",
                 dictionary: {
                   es: {
@@ -1121,7 +1133,7 @@
                     singular: "抱歉，密码不正确。请重试。"
                   }
                 }
-              })) : _v7((0, _v16.translate)({
+              })) : _v8((0, _v15.translate)({
                 singular: "Something went wrong. Please try again.",
                 dictionary: {
                   es: {
@@ -1146,12 +1158,12 @@
                     singular: "出错了。请重试。"
                   }
                 }
-              })), _v9(!1);
+              })), _v10(!1);
             }
           }
         };
-      return (0, _v1.jsx)(_v33.LightMode, {
-        children: (0, _v1.jsx)(_v13.Flex, {
+      return (0, _v1.jsx)(_v32.LightMode, {
+        children: (0, _v1.jsx)(_v12.Flex, {
           align: "center",
           backgroundColor: "background",
           justify: "center",
@@ -1159,27 +1171,27 @@
           p: "md",
           width: "100%",
           children: (0, _v1.jsx)("form", {
-            onSubmit: _v10,
+            onSubmit: _v11,
             style: {
-              maxWidth: (0, _v17.rem)(420),
+              maxWidth: (0, _v16.rem)(420),
               width: "100%"
             },
-            children: (0, _v1.jsxs)(_v13.Flex, {
+            children: (0, _v1.jsxs)(_v12.Flex, {
               backgroundColor: "fill-component",
               borderRadius: "lg",
               direction: "column",
               gap: "lg",
-              p: (0, _v17.rem)(32),
+              p: (0, _v16.rem)(32),
               width: "100%",
-              children: [(0, _v1.jsxs)(_v13.Flex, {
+              children: [(0, _v1.jsxs)(_v12.Flex, {
                 align: "center",
                 gap: "sm",
-                children: [(0, _v1.jsx)(_v49.Lock, {
+                children: [(0, _v1.jsx)(_v48.Lock, {
                   color: "text-primary"
-                }), (0, _v1.jsx)(_v14.Text, {
+                }), (0, _v1.jsx)(_v13.Text, {
                   color: "text-primary",
                   variant: "heading-md",
-                  children: (0, _v16.translate)({
+                  children: (0, _v15.translate)({
                     singular: "This event series is password protected",
                     dictionary: {
                       es: {
@@ -1206,10 +1218,10 @@
                     }
                   })
                 })]
-              }), (0, _v1.jsx)(_v14.Text, {
+              }), (0, _v1.jsx)(_v13.Text, {
                 color: "text-secondary",
                 variant: "body-md",
-                children: (0, _v16.translate)({
+                children: (0, _v15.translate)({
                   singular: "Enter the password to view the landing page.",
                   dictionary: {
                     es: {
@@ -1235,11 +1247,11 @@
                     }
                   }
                 })
-              }), (0, _v1.jsxs)(_v45.FormControl, {
-                isInvalid: !!_v6,
-                children: [(0, _v1.jsx)(_v46.FormLabel, {
+              }), (0, _v1.jsxs)(_v44.FormControl, {
+                isInvalid: !!_v7,
+                children: [(0, _v1.jsx)(_v45.FormLabel, {
                   size: "sm",
-                  children: (0, _v16.translate)({
+                  children: (0, _v15.translate)({
                     singular: "Password",
                     dictionary: {
                       es: {
@@ -1265,13 +1277,13 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v48.Input, {
+                }), (0, _v1.jsx)(_v47.Input, {
                   autoComplete: "current-password",
                   autoFocus: !0,
                   onChange: _v0 => {
-                    _v5(_v0.target.value), _v6 && _v7(null);
+                    _v6(_v0.target.value), _v7 && _v8(null);
                   },
-                  placeholder: (0, _v16.translate)({
+                  placeholder: (0, _v15.translate)({
                     singular: "Enter a password",
                     dictionary: {
                       es: {
@@ -1298,16 +1310,16 @@
                     }
                   }),
                   type: "password",
-                  value: _v4
-                }), _v6 ? (0, _v1.jsx)(_v47.FormErrorMessage, {
-                  children: _v6
+                  value: _v5
+                }), _v7 ? (0, _v1.jsx)(_v46.FormErrorMessage, {
+                  children: _v7
                 }) : null]
-              }), (0, _v1.jsx)(_v12.Button, {
-                isDisabled: !_v4.trim(),
-                isLoading: _v8,
+              }), (0, _v1.jsx)(_v11.Button, {
+                isDisabled: !_v5.trim(),
+                isLoading: _v9,
                 type: "submit",
                 variant: "primary",
-                children: (0, _v16.translate)({
+                children: (0, _v15.translate)({
                   singular: "Continue",
                   dictionary: {
                     es: {
@@ -1339,12 +1351,12 @@
         })
       });
     },
-    _v63 = ({
+    _v62 = ({
       series: _v0
     }) => {
-      let _v1 = _v26(_v28(_v0.events).upcoming),
+      let _v1 = _v25(_v27(_v0.events).upcoming),
         _v2 = _v7(_v0),
-        _v3 = (0, _v16.translate)({
+        _v3 = (0, _v15.translate)({
           singular: "Back to overview",
           dictionary: {
             es: {
@@ -1370,30 +1382,30 @@
             }
           }
         });
-      return (0, _v1.jsxs)(_v35, {
+      return (0, _v1.jsxs)(_v34, {
         series: _v0,
-        children: [(0, _v1.jsxs)(_v13.Flex, {
+        children: [(0, _v1.jsxs)(_v12.Flex, {
           align: "flex-start",
           direction: "column",
           gap: "lg",
           width: "100%",
-          children: [(0, _v1.jsx)(_v12.Button, {
-            as: _v10.default,
+          children: [(0, _v1.jsx)(_v11.Button, {
+            as: _v9.default,
             href: _v2,
             size: "sm",
             variant: "tertiary",
             children: _v3
-          }), (0, _v1.jsx)(_v13.Flex, {
+          }), (0, _v1.jsx)(_v12.Flex, {
             align: "center",
             pb: "md",
             pl: "xs",
             pr: "md",
             pt: "lg",
             width: "100%",
-            children: (0, _v1.jsx)(_v14.Text, {
+            children: (0, _v1.jsx)(_v13.Text, {
               color: "text-primary",
               variant: "heading-2xl",
-              children: (0, _v16.translate)({
+              children: (0, _v15.translate)({
                 singular: "Upcoming events",
                 dictionary: {
                   es: {
@@ -1420,16 +1432,16 @@
                 }
               })
             })
-          }), _v1.length > 0 ? (0, _v1.jsx)(_v11.Box, {
+          }), _v1.length > 0 ? (0, _v1.jsx)(_v10.Box, {
             pb: "md",
             width: "100%",
-            children: (0, _v1.jsx)(_v15.EventsGrid, {
-              children: _v1.map(_v0 => (0, _v1.jsx)(_v38.EventCard, {
-                ..._v27(_v0)
+            children: (0, _v1.jsx)(_v14.EventsGrid, {
+              children: _v1.map(_v0 => (0, _v1.jsx)(_v37.EventCard, {
+                ..._v26(_v0)
               }, _v0.key))
             })
-          }) : (0, _v1.jsx)(_v18, {
-            title: (0, _v16.translate)({
+          }) : (0, _v1.jsx)(_v17, {
+            title: (0, _v15.translate)({
               singular: "No events scheduled",
               dictionary: {
                 es: {
@@ -1455,7 +1467,7 @@
                 }
               }
             }),
-            message: (0, _v16.translate)({
+            message: (0, _v15.translate)({
               singular: "No upcoming events",
               dictionary: {
                 es: {
@@ -1482,11 +1494,11 @@
               }
             })
           })]
-        }), _v1.length > 8 && (0, _v1.jsx)(_v13.Flex, {
+        }), _v1.length > 8 && (0, _v1.jsx)(_v12.Flex, {
           justify: "center",
           width: "100%",
-          children: (0, _v1.jsx)(_v12.Button, {
-            as: _v10.default,
+          children: (0, _v1.jsx)(_v11.Button, {
+            as: _v9.default,
             href: _v2,
             size: "lg",
             variant: "secondary",
@@ -1495,16 +1507,16 @@
         })]
       });
     };
-  var _v64 = _v0.i(0),
-    _v65 = _v0.i(0),
-    _v66 = _v0.i(0);
-  let _v67 = /^[A-Za-z0-9-]{1,128}$/;
+  var _v63 = _v0.i(0),
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0);
+  let _v66 = /^[A-Za-z0-9-]{1,128}$/;
   (0, _v4.withPageSetup)(async _v0 => {
     let _v1 = _v0.params?.params,
       _v2 = Array.isArray(_v1) ? _v1 : _v1 ? [_v1] : [],
       _v3 = _v2[0] ?? "",
       _v4 = /^\d+$/.test(_v3);
-    if (!_v4 && !_v67.test(_v3)) return {
+    if (!_v4 && !_v66.test(_v3)) return {
       notFound: !0
     };
     let _v5 = _v4 ? Number.parseInt(_v3, 10) : _v3,
@@ -1517,7 +1529,7 @@
         cookie: _v9
       } : _v0.headers;
     try {
-      let _v0 = await _v56({
+      let _v0 = await _v55({
           seriesIdOrUrl: _v5,
           headers: _v10,
           baseUrl: _v0.baseUrl
@@ -1541,7 +1553,7 @@
       let {
         recordings: _v2,
         total: _v3
-      } = await _v60({
+      } = await _v59({
         series: _v0,
         view: _v8,
         headers: _v10,
@@ -1559,7 +1571,7 @@
         }
       };
     } catch (_v0) {
-      let _v1 = await _v51(_v0);
+      let _v1 = await _v50(_v0);
       if ("password-required" === _v1) return {
         props: {
           series: null,
@@ -1590,10 +1602,10 @@
         recordings: _v1,
         recordingsTotal: _v2
       } : _v6,
-      _v9 = (0, _v66.useViewer)(),
+      _v9 = (0, _v65.useViewer)(),
       {
         trackEventSeriesLandingPageDisplayed: _v10
-      } = (0, _v64.useEventSeriesTracking)(),
+      } = (0, _v63.useEventSeriesTracking)(),
       _v11 = (0, _v3.useRef)(null),
       _v12 = _v8?.series.id;
     if ((0, _v3.useEffect)(() => {
@@ -1601,15 +1613,15 @@
       let _v0 = `${_v12}:${_v4}`;
       _v11.current !== _v0 && (_v11.current = _v0, _v10({
         eventSeriesId: String(_v12),
-        landingPage: (0, _v64.deriveEventSeriesLandingPage)(_v4),
-        viewerAuthStatus: (0, _v65.deriveViewerAuthStatus)(_v9)
+        landingPage: (0, _v63.deriveEventSeriesLandingPage)(_v4),
+        viewerAuthStatus: (0, _v64.deriveViewerAuthStatus)(_v9)
       }));
     }, [_v12, _v4, _v9, _v10]), !_v8) return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
           children: "Event series"
         })
-      }), (0, _v1.jsx)(_v62, {
+      }), (0, _v1.jsx)(_v61, {
         baseUrl: _v5,
         onUnlock: (_v0, _v1) => _v7({
           series: _v0,
@@ -1653,12 +1665,12 @@
           href: _v20,
           rel: "canonical"
         }) : null]
-      }), "upcoming" === _v4 ? (0, _v1.jsx)(_v63, {
+      }), "upcoming" === _v4 ? (0, _v1.jsx)(_v62, {
         series: _v13
-      }) : "on-demand" === _v4 ? (0, _v1.jsx)(_v36, {
+      }) : "on-demand" === _v4 ? (0, _v1.jsx)(_v35, {
         recordings: _v14,
         series: _v13
-      }) : (0, _v1.jsx)(_v44, {
+      }) : (0, _v1.jsx)(_v43, {
         recordings: _v14,
         recordingsTotal: _v15,
         series: _v13

@@ -90,35 +90,44 @@
         watch_video_position: _v0.watchVideoPosition,
         watch_page_arm: _v0.watchPageArm ?? "control"
       })), !0), [_v0]),
-      _v13 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_hero_slide_impression", {
+      _v13 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_feed_video_played", _v4({
+        clip_id: _v0.clipId,
+        watch_section: _v0.watchSection,
+        watch_section_id: _v0.watchSectionId,
+        watch_video_position: _v0.watchVideoPosition,
+        watch_page_arm: _v0.watchPageArm ?? "control",
+        is_autoplay: _v0.isAutoplay
+      })), !0), [_v0]),
+      _v14 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_hero_slide_impression", {
         clip_id: _v0.clipId,
         watch_hero_slide_index: _v0.watchHeroSlideIndex,
         watch_hero_slide_method: _v0.watchHeroSlideMethod
       }), !0), [_v0]),
-      _v14 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_hero_carousel_navigated", {
+      _v15 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_hero_carousel_navigated", {
         watch_hero_direction: _v0.watchHeroDirection,
         watch_hero_method: _v0.watchHeroMethod,
         watch_hero_slide_index: _v0.watchHeroSlideIndex
       }), !0), [_v0]),
-      _v15 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_section_carousel_navigated", _v4({
+      _v16 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_section_carousel_navigated", _v4({
         watch_section: _v0.watchSection,
         watch_section_id: _v0.watchSectionId,
         watch_section_direction: _v0.watchSectionDirection,
         watch_section_page: _v0.watchSectionPage,
+        watch_section_carousel_method: _v0.watchSectionMethod ?? "arrow",
         watch_page_arm: _v0.watchPageArm ?? "control"
       })), !0), [_v0]),
-      _v16 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_hero_clicked", {
+      _v17 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_hero_clicked", {
         clip_id: _v0.clipId,
         watch_hero_slide_index: _v0.watchHeroSlideIndex,
         watch_hero_element: _v0.watchHeroElement
       }), !0), [_v0]),
-      _v17 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_section_follow_state", _v4({
+      _v18 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_section_follow_state", _v4({
         watch_section: _v0.watchSection,
         watch_section_id: _v0.watchSectionId,
         watch_section_followable: _v0.watchSectionFollowable,
         watch_section_is_following: _v0.watchSectionIsFollowing
       })), !0), [_v0]),
-      _v18 = (0, _v1.useCallback)(_v0 => {
+      _v19 = (0, _v1.useCallback)(_v0 => {
         if (null === _v0) return !1;
         let {
           sendImmediately: _v1,
@@ -133,17 +142,17 @@
           delivery: "immediate"
         } : void 0), !0;
       }, [_v0]),
-      _v19 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_page_lineup_rendered", {
+      _v20 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_page_lineup_rendered", {
         watch_lineup_sections: _v0.watchLineupSections,
         watch_lineup_clip_ids_by_section: _v0.watchLineupClipIdsBySection,
         watch_lineup_ranking_source: _v0.watchLineupRankingSource
       }), !0), [_v0]),
-      _v20 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_search_submitted", {
+      _v21 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_search_submitted", {
         watch_search_query: _v0.watchSearchQuery,
         watch_search_selection_type: _v0.watchSearchSelectionType,
         watch_search_time_to_find_ms: _v0.watchSearchTimeToFindMs
       }), !0), [_v0]),
-      _v21 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_category_tabs_rendered", {
+      _v22 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_category_tabs_rendered", {
         watch_category_count: _v0.watchCategoryCount,
         watch_category_slugs: _v0.watchCategorySlugs,
         watch_page_arm: _v0.watchPageArm
@@ -161,15 +170,16 @@
       trackWatchSectionFollowClicked: _v10,
       trackWatchSectionImpression: _v11,
       trackWatchVideoThumbnailImpression: _v12,
-      trackWatchHeroSlideImpression: _v13,
-      trackWatchHeroCarouselNavigated: _v14,
-      trackWatchSectionCarouselNavigated: _v15,
-      trackWatchHeroClicked: _v16,
-      trackWatchSectionFollowState: _v17,
-      trackWatchPageExited: _v18,
-      trackWatchPageLineupRendered: _v19,
-      trackWatchSearchSubmitted: _v20,
-      trackCategoryTabsRendered: _v21,
+      trackWatchFeedVideoPlayed: _v13,
+      trackWatchHeroSlideImpression: _v14,
+      trackWatchHeroCarouselNavigated: _v15,
+      trackWatchSectionCarouselNavigated: _v16,
+      trackWatchHeroClicked: _v17,
+      trackWatchSectionFollowState: _v18,
+      trackWatchPageExited: _v19,
+      trackWatchPageLineupRendered: _v20,
+      trackWatchSearchSubmitted: _v21,
+      trackCategoryTabsRendered: _v22,
       trackWatchCategoryTabClicked: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_category_tab_clicked", {
         watch_section: _v0.watchSection,
         watch_section_id: _v0.watchSectionId,

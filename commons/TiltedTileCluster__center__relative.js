@@ -9,8 +9,7 @@
     _v6 = _v0.i(0),
     _v7 = _v0.i(0),
     _v8 = _v0.i(0);
-  let _v9 = -10,
-    _v10 = (0, _v4.rem)(17.23);
+  let _v9 = -10;
   _v0.s(["TiltedTileCluster", 0, ({
     tileSize: _v0,
     clusterTiles: _v1,
@@ -67,16 +66,16 @@
       }), void 0 !== _v5 && (0, _v1.jsx)(_v2.Box, {
         alignSelf: "flex-start",
         flexShrink: 0,
+        marginLeft: (0, _v4.rem)(4),
         children: (0, _v1.jsx)(_v5.Tooltip, {
           label: _v5,
           placement: "top",
           hasArrow: !0,
           shouldWrapChildren: !0,
           children: (0, _v1.jsx)(_v6.InfoCircle, {
-            color: "text-primary",
-            width: _v10,
-            height: _v10,
-            marginRight: `-${(0, _v4.rem)(.0587 * _v0)}`
+            color: "text-secondary",
+            width: (0, _v4.rem)(.34 * _v0),
+            height: (0, _v4.rem)(.34 * _v0)
           })
         })
       })]

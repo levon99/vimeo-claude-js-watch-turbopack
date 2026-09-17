@@ -2489,79 +2489,80 @@
       }) : null]
     });
   }
-  let _v100 = (0, _v0.i(0).buildUpgradePlanUrl)({
-      paywallTrigger: "top_nav_bar_pricing_button",
-      paywallLocation: "top_navigation",
-      paywallFeature: "general"
-    }),
-    _v101 = () => {
-      let _v0 = (0, _v3.useRef)(!1),
-        _v1 = (0, _v12.useTrackNavigationEvent)();
-      return (0, _v3.useEffect)(() => {
-        _v0.current || _v1({
-          viewType: "impression",
+  var _v100 = _v0.i(0);
+  let _v101 = () => {
+    let _v0 = (0, _v3.useRef)(!1),
+      _v1 = (0, _v12.useTrackNavigationEvent)(),
+      _v2 = (0, _v100.buildUpgradePlanUrl)({
+        paywallTrigger: "top_nav_bar_pricing_button",
+        paywallLocation: "top_navigation",
+        paywallFeature: "general"
+      });
+    return (0, _v3.useEffect)(() => {
+      _v0.current || _v1({
+        viewType: "impression",
+        copy: "pricing",
+        additionalFields: {
+          upsell_name: "top_nav_bar_upgrade"
+        },
+        feature: "general",
+        element: "button",
+        eventName: "vimeo.upsell_trigger_impression",
+        version: 5
+      });
+    }, [_v1]), (0, _v1.jsx)(_v25.Button, {
+      variant: "tertiary",
+      as: "a",
+      href: _v2,
+      onClick: () => {
+        _v1({
+          actionType: "click",
+          feature: "general",
+          element: "button",
           copy: "pricing",
+          eventName: "vimeo.trigger_upsell",
           additionalFields: {
             upsell_name: "top_nav_bar_upgrade"
           },
-          feature: "general",
+          version: 7
+        }), _v1({
+          copy: "pricing",
           element: "button",
-          eventName: "vimeo.upsell_trigger_impression",
-          version: 5
+          feature: "pricing"
         });
-      }, [_v1]), (0, _v1.jsx)(_v25.Button, {
-        variant: "tertiary",
-        as: "a",
-        href: _v100,
-        onClick: () => {
-          _v1({
-            actionType: "click",
-            feature: "general",
-            element: "button",
-            copy: "pricing",
-            eventName: "vimeo.trigger_upsell",
-            additionalFields: {
-              upsell_name: "top_nav_bar_upgrade"
-            },
-            version: 7
-          }), _v1({
-            copy: "pricing",
-            element: "button",
-            feature: "pricing"
-          });
-        },
-        size: {
-          base: "sm",
-          sm: "md"
-        },
-        children: (0, _v20.translate)({
-          singular: "Pricing",
-          dictionary: {
-            es: {
-              singular: "Precio"
-            },
-            "de-DE": {
-              singular: "Preise"
-            },
-            "fr-FR": {
-              singular: "Tarifs"
-            },
-            "ja-JP": {
-              singular: "料金"
-            },
-            "ko-KR": {
-              singular: "가격 책정"
-            },
-            "pt-BR": {
-              singular: "Preços"
-            },
-            "zh-CN": {
-              singular: "定价"
-            }
+      },
+      size: {
+        base: "sm",
+        sm: "md"
+      },
+      children: (0, _v20.translate)({
+        singular: "Pricing",
+        dictionary: {
+          es: {
+            singular: "Precio"
+          },
+          "de-DE": {
+            singular: "Preise"
+          },
+          "fr-FR": {
+            singular: "Tarifs"
+          },
+          "ja-JP": {
+            singular: "料金"
+          },
+          "ko-KR": {
+            singular: "가격 책정"
+          },
+          "pt-BR": {
+            singular: "Preços"
+          },
+          "zh-CN": {
+            singular: "定价"
           }
-        })
-      });
-    };
+        }
+      })
+    });
+  };
   _v0.s(["PricingCTA", 0, _v101], 0);
   var _v102 = _v0.i(0),
     _v103 = _v0.i(0);

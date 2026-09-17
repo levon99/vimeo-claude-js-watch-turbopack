@@ -60,6 +60,9 @@
       })]
     }), (0, _v1.jsx)(_v3.Flex, {
       background: "rgba(26, 54, 93, 0.08)",
+      _dark: {
+        background: "rgba(228, 233, 239, 0.12)"
+      },
       borderRadius: (0, _v4.rem)(_v0 * _v12),
       padding: (0, _v4.rem)(_v0 * _v11),
       alignItems: "center",

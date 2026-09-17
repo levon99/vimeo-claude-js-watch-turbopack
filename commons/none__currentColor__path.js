@@ -2,281 +2,165 @@
   "use strict";
 
   var _v1 = _v0.i(0),
-    _v2 = _v0.i(0),
-    _v3 = _v0.i(0);
-  let _v4 = _v0 => (0, _v1.jsx)(_v3.Icon, {
+    _v2 = _v0.i(0);
+  let _v3 = _v0 => (0, _v1.jsx)(_v2.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
     children: (0, _v1.jsxs)("g", {
       fill: "currentColor",
       children: [(0, _v1.jsx)("path", {
-        d: "M6.25 9.99a3.643 3.643 0 0 0-2.24-2.24l-1.96-.68a.07.07 0 0 1-.045-.047.07.07 0 0 1 .045-.091l1.96-.681A3.639 3.639 0 0 0 6.25 4.01l.681-1.961a.074.074 0 0 1 .047-.045.072.072 0 0 1 .092.045l.68 1.96a3.634 3.634 0 0 0 2.242 2.242l1.96.68c.022.006.037.023.044.046a.075.075 0 0 1-.045.093l-1.96.68a3.639 3.639 0 0 0-2.24 2.24l-.681 1.961a.07.07 0 0 1-.047.045.072.072 0 0 1-.092-.045l-.68-1.96Z"
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        d: "M12.495 6.99v10.012h1.433v-4.29h1.432c.788 0 1.433-.637 1.433-1.432V8.422c0-.787-.638-1.432-1.433-1.432h-2.865Zm1.433 4.297h1.432V8.43h-1.432v2.857ZM11.543 9.855V8.422c0-.787-.638-1.432-1.433-1.432H8.677c-.787 0-1.432.637-1.432 1.432v2.858c0 .787.637 1.432 1.432 1.432h1.433v2.858H8.677v-1.433H7.245v1.433c0 .787.637 1.432 1.432 1.432h1.433c.788 0 1.433-.637 1.433-1.432v-2.858c0-.787-.638-1.432-1.433-1.432H8.677V8.422h1.433v1.433h1.433Z"
       }), (0, _v1.jsx)("path", {
-        d: "M4 12a1 1 0 0 0-1 1v4a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4h-4a1 1 0 1 0 0 2h4a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4a1 1 0 0 0-1-1Z"
+        d: "M3.885 11.19a7.74 7.74 0 0 0-1.035.96 9.076 9.076 0 0 1-.953-1.155c.075-.78.24-1.545.495-2.288.188.48.405.93.66 1.343a8.06 8.06 0 0 1 1.23-.698 8.03 8.03 0 0 0-.397 1.838Z"
       }), (0, _v1.jsx)("path", {
-        d: "M11.08 9.108c-.475-.3-1.08.06-1.08.643v4.498c0 .582.605.943 1.08.643l3.569-2.242c.468-.294.468-1.006 0-1.3L11.08 9.108Z"
+        d: "M4.05 13.815a7.574 7.574 0 0 0-.683 1.237 8.11 8.11 0 0 1-1.267-.795 10.567 10.567 0 0 1-.255-2.325c.337.39.682.75 1.057 1.065a9.12 9.12 0 0 1 .945-1.05c0 .63.068 1.26.203 1.868Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M5.04 16.245c-.12.442-.203.907-.248 1.387a8.697 8.697 0 0 1-1.455-.345 10.122 10.122 0 0 1-.99-2.122c.443.27.885.487 1.343.667.157-.457.345-.892.562-1.297.195.592.465 1.17.795 1.702l-.007.008Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M6.75 18.24c.03.457.097.922.202 1.402a8.707 8.707 0 0 1-1.492.128 9.862 9.862 0 0 1-1.605-1.703c.502.113.997.18 1.477.21 0-.487.038-.952.12-1.41.375.503.81.968 1.29 1.373h.008ZM4.56 8.655a8.51 8.51 0 0 0-1.29.577 9.101 9.101 0 0 1-.533-1.395c.323-.712.728-1.387 1.2-2.01.023.51.09 1.005.195 1.485.465-.135.93-.225 1.388-.262a8.358 8.358 0 0 0-.968 1.612l.008-.007Z"
+      }), (0, _v1.jsx)("path", {
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        d: "M5.265 4.942a9.305 9.305 0 0 0-.66 1.658c.48-.323.99-.578 1.485-.788.232-.495.517-.975.862-1.447a10.02 10.02 0 0 0-1.687.585v-.008Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M22.102 10.995c-.285.42-.614.81-.952 1.155a8.267 8.267 0 0 0-1.035-.96 8.118 8.118 0 0 0-.397-1.838c.412.188.832.42 1.23.698a8.27 8.27 0 0 0 .66-1.343c.255.743.42 1.508.494 2.288Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M21.9 14.257a8.71 8.71 0 0 1-1.267.795 7.574 7.574 0 0 0-.683-1.237 7.83 7.83 0 0 0 .203-1.868c.33.315.652.66.945 1.05.375-.315.72-.667 1.057-1.065 0 .78-.082 1.56-.255 2.325Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M20.663 17.287a8.697 8.697 0 0 1-1.456.345 8.247 8.247 0 0 0-.247-1.387c.33-.533.592-1.11.795-1.703.21.398.405.833.563 1.298.45-.18.892-.405 1.342-.668a10.122 10.122 0 0 1-.99 2.123l-.008-.008Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M18.532 19.77a9.611 9.611 0 0 1-1.492-.128c.105-.48.172-.945.203-1.402.48-.405.915-.863 1.29-1.373.082.45.12.923.12 1.41.48-.03.982-.097 1.477-.21a9.862 9.862 0 0 1-1.605 1.703h.008ZM21.262 7.837c-.142.495-.322.96-.532 1.395a8.51 8.51 0 0 0-1.29-.577 7.997 7.997 0 0 0-.968-1.613c.458.045.923.135 1.388.263.105-.473.172-.975.195-1.485.473.622.878 1.297 1.2 2.01l.008.007Z"
+      }), (0, _v1.jsx)("path", {
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        d: "M17.902 5.812c.503.21 1.005.473 1.485.788a9.305 9.305 0 0 0-.66-1.658 10.02 10.02 0 0 0-1.687-.585c.338.473.63.96.863 1.448v.007Z"
       })]
     })
   });
-  _v0.s(["StyleSparkle", 0, _v4], 0);
-  let _v5 = _v0 => (0, _v1.jsx)(_v3.Icon, {
+  _v0.s(["StaffPicks", 0, _v3], 0);
+  let _v4 = _v0 => (0, _v1.jsx)(_v2.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
-    children: (0, _v1.jsx)("path", {
-      fillRule: "evenodd",
-      clipRule: "evenodd",
-      d: "M9.811 3.222a2.655 2.655 0 0 1 4.378 0 .655.655 0 0 0 .794.233 2.655 2.655 0 0 1 3.683 2.367c.01.31.235.572.541.625a2.655 2.655 0 0 1 1.819 3.982.655.655 0 0 0 .118.82 2.655 2.655 0 0 1-.623 4.333.655.655 0 0 0-.344.752 2.655 2.655 0 0 1-2.867 3.309.655.655 0 0 0-.696.447 2.655 2.655 0 0 1-4.2 1.233.655.655 0 0 0-.828 0 2.655 2.655 0 0 1-4.2-1.233.655.655 0 0 0-.696-.447 2.655 2.655 0 0 1-2.867-3.309.655.655 0 0 0-.343-.752 2.655 2.655 0 0 1-.623-4.334.655.655 0 0 0 .117-.819 2.655 2.655 0 0 1 1.819-3.982.655.655 0 0 0 .542-.625 2.655 2.655 0 0 1 3.682-2.367c.287.12.618.023.794-.233Zm2.73 1.132a.655.655 0 0 0-1.08 0 2.655 2.655 0 0 1-3.219.945.655.655 0 0 0-.908.584 2.655 2.655 0 0 1-2.196 2.534.655.655 0 0 0-.45.983 2.655 2.655 0 0 1-.476 3.32.655.655 0 0 0 .153 1.068 2.655 2.655 0 0 1 1.393 3.051.655.655 0 0 0 .708.816 2.655 2.655 0 0 1 2.821 1.813.655.655 0 0 0 1.036.305 2.655 2.655 0 0 1 3.354 0 .655.655 0 0 0 1.036-.305 2.655 2.655 0 0 1 2.822-1.813.655.655 0 0 0 .707-.816 2.655 2.655 0 0 1 1.393-3.05.655.655 0 0 0 .154-1.07 2.655 2.655 0 0 1-.478-3.32.655.655 0 0 0-.448-.982 2.655 2.655 0 0 1-2.196-2.534.655.655 0 0 0-.909-.584 2.655 2.655 0 0 1-3.218-.945Zm3.256 5.002a1 1 0 0 1 .027 1.414l-3.198 3.323c-.8.831-2.132.831-2.932 0l-1-1.04a1 1 0 1 1 1.44-1.386l1 1.039a.033.033 0 0 0 .012.008.037.037 0 0 0 .014.002c.005 0 .01 0 .014-.002a.033.033 0 0 0 .01-.008l3.199-3.323a1 1 0 0 1 1.414-.027Z",
-      fill: "currentColor"
+    children: (0, _v1.jsxs)("g", {
+      fill: "currentColor",
+      children: [(0, _v1.jsx)("path", {
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        d: "M12.495 6.99v10.012h1.433v-4.29h1.432c.788 0 1.433-.637 1.433-1.432V8.422c0-.787-.638-1.432-1.433-1.432h-2.865Zm1.433 4.297h1.432V8.43h-1.432v2.857ZM11.543 9.855V8.422c0-.787-.638-1.432-1.433-1.432H8.677c-.787 0-1.432.637-1.432 1.432v2.858c0 .787.637 1.432 1.432 1.432h1.433v2.858H8.677v-1.433H7.245v1.433c0 .787.637 1.432 1.432 1.432h1.433c.788 0 1.433-.637 1.433-1.432v-2.858c0-.787-.638-1.432-1.433-1.432H8.677V8.422h1.433v1.433h1.433Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M3.885 11.19a7.74 7.74 0 0 0-1.035.96 9.076 9.076 0 0 1-.953-1.155c.075-.78.24-1.545.495-2.288.188.48.405.93.66 1.343a8.06 8.06 0 0 1 1.23-.698 8.03 8.03 0 0 0-.397 1.838Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M4.05 13.815a7.574 7.574 0 0 0-.683 1.237 8.11 8.11 0 0 1-1.267-.795 10.567 10.567 0 0 1-.255-2.325c.337.39.682.75 1.057 1.065a9.12 9.12 0 0 1 .945-1.05c0 .63.068 1.26.203 1.868Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M5.04 16.245c-.12.442-.203.907-.248 1.387a8.697 8.697 0 0 1-1.455-.345 10.122 10.122 0 0 1-.99-2.122c.443.27.885.487 1.343.667.157-.457.345-.892.562-1.297.195.592.465 1.17.795 1.702l-.007.008Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M6.75 18.24c.03.457.097.922.202 1.402a8.707 8.707 0 0 1-1.492.128 9.862 9.862 0 0 1-1.605-1.703c.502.113.997.18 1.477.21 0-.487.038-.952.12-1.41.375.503.81.968 1.29 1.373h.008ZM4.56 8.655a8.51 8.51 0 0 0-1.29.577 9.101 9.101 0 0 1-.533-1.395c.323-.712.728-1.387 1.2-2.01.023.51.09 1.005.195 1.485.465-.135.93-.225 1.388-.262a8.358 8.358 0 0 0-.968 1.612l.008-.007Z"
+      }), (0, _v1.jsx)("path", {
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        d: "M5.265 4.942a9.305 9.305 0 0 0-.66 1.658c.48-.323.99-.578 1.485-.788.232-.495.517-.975.862-1.447a10.02 10.02 0 0 0-1.687.585v-.008Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M22.102 10.995c-.285.42-.614.81-.952 1.155a8.267 8.267 0 0 0-1.035-.96 8.118 8.118 0 0 0-.397-1.838c.412.188.832.42 1.23.698a8.27 8.27 0 0 0 .66-1.343c.255.743.42 1.508.494 2.288Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M21.9 14.257a8.71 8.71 0 0 1-1.267.795 7.574 7.574 0 0 0-.683-1.237 7.83 7.83 0 0 0 .203-1.868c.33.315.652.66.945 1.05.375-.315.72-.667 1.057-1.065 0 .78-.082 1.56-.255 2.325Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M20.663 17.287a8.697 8.697 0 0 1-1.456.345 8.247 8.247 0 0 0-.247-1.387c.33-.533.592-1.11.795-1.703.21.398.405.833.563 1.298.45-.18.892-.405 1.342-.668a10.122 10.122 0 0 1-.99 2.123l-.008-.008Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M18.532 19.77a9.611 9.611 0 0 1-1.492-.128c.105-.48.172-.945.203-1.402.48-.405.915-.863 1.29-1.373.082.45.12.923.12 1.41.48-.03.982-.097 1.477-.21a9.862 9.862 0 0 1-1.605 1.703h.008ZM21.262 7.837c-.142.495-.322.96-.532 1.395a8.51 8.51 0 0 0-1.29-.577 7.997 7.997 0 0 0-.968-1.613c.458.045.923.135 1.388.263.105-.473.172-.975.195-1.485.473.622.878 1.297 1.2 2.01l.008.007Z"
+      }), (0, _v1.jsx)("path", {
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        d: "M17.902 5.812c.503.21 1.005.473 1.485.788a9.305 9.305 0 0 0-.66-1.658 10.02 10.02 0 0 0-1.687-.585c.338.473.63.96.863 1.448v.007Z"
+      })]
     })
   });
-  _v0.s(["Verified", 0, _v5], 0);
-  var _v6 = _v0.i(0),
-    _v7 = _v0.i(0);
-  _v0.s(["getFeatures", 0, _v0 => {
-    let _v1 = _v0 ? (0, _v7.translate)({
-      singular: "{STORAGE} of storage, 4K ultra-HD, and our always ad-free player",
-      replacements: {
-        STORAGE: _v0
-      },
+  _v0.s(["StaffPicksFilled", 0, _v4], 0);
+  var _v5 = _v0.i(0);
+  let _v6 = _v0 => (0, _v1.jsx)(_v2.Icon, {
+    viewBox: "0 0 24 24",
+    ..._v0,
+    fill: "none",
+    children: (0, _v1.jsxs)("g", {
+      fill: "currentColor",
+      children: [(0, _v1.jsx)("path", {
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        d: "M2 7a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V7Zm9.08.108c-.475-.3-1.08.06-1.08.643v4.497c0 .583.605.944 1.08.645l3.569-2.243c.468-.294.468-1.006 0-1.3L11.08 7.108Z"
+      }), (0, _v1.jsx)("path", {
+        d: "M5 20a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z"
+      })]
+    })
+  });
+  var _v7 = _v0.i(0);
+  _v0.s(["getWatchSectionItems", 0, () => [{
+    key: "watch",
+    label: (0, _v7.translate)({
+      singular: "Watch",
       dictionary: {
         es: {
-          singular: "{STORAGE} de almacenamiento, 4K Ultra HD y nuestro reproductor siempre sin anuncios."
+          singular: "Ver"
         },
         "de-DE": {
-          singular: "{STORAGE} Speicherplatz, 4K Ultra HD und unser stets werbefreier Player"
+          singular: "Anschauen"
         },
         "fr-FR": {
-          singular: "{STORAGE} de stockage, une qualité 4K Ultra-HD et notre lecteur toujours sans publicités"
+          singular: "Regarder"
         },
         "ja-JP": {
-          singular: "{STORAGE}のストレージ、4K Ultra HD、常に広告なしのプレーヤー"
+          singular: "鑑賞"
         },
         "ko-KR": {
-          singular: "{STORAGE} 저장 공간, 4K 울트라 HD, 언제나 광고 없는 애드 프리 플레이어"
+          singular: "시청하기"
         },
         "pt-BR": {
-          singular: "{STORAGE} de armazenamento, 4K Ultra HD e nosso player sempre sem anúncios"
+          singular: "Assistir"
         },
         "zh-CN": {
-          singular: "{STORAGE}存储空间、4K 超高清，以及我们始终无广告的播放器"
+          singular: "观看"
         }
       }
-    }) : (0, _v7.translate)({
-      singular: "Lots of storage, 4K ultra-HD, and our always ad-free player",
+    }),
+    href: "/watch",
+    icon: (0, _v1.jsx)(_v5.WatchPlay, {}),
+    iconActive: (0, _v1.jsx)(_v6, {}),
+    destination: "watch",
+    isActive: _v0 => "/watch" === _v0
+  }, {
+    key: "staff_picks",
+    label: (0, _v7.translate)({
+      singular: "Staff Picks",
       dictionary: {
         es: {
-          singular: "Mucho espacio de almacenamiento, 4K Ultra HD y nuestro reproductor siempre sin anuncios."
+          singular: "Selecciones del equipo"
         },
         "de-DE": {
-          singular: "Viel Speicherplatz, 4K Ultra HD und unser stets werbefreier Player"
+          singular: "Empfehlungen des Teams"
         },
         "fr-FR": {
-          singular: "Un grand espace de stockage, une qualité 4K Ultra-HD et notre lecteur toujours sans publicités"
+          singular: "Sélections de l'équipe"
         },
         "ja-JP": {
-          singular: "大容量のストレージ、4K Ultra HD、常に広告なしのプレーヤー"
+          singular: "スタッフのおすすめ"
         },
         "ko-KR": {
-          singular: "넉넉한 저장 공간, 4K 울트라 HD, 언제나 광고 없는 애드 프리 플레이어"
+          singular: "스태프 픽"
         },
         "pt-BR": {
-          singular: "Muito espaço de armazenamento, 4K Ultra HD e nosso player sempre sem anúncios"
+          singular: "Escolhas da Equipe"
         },
         "zh-CN": {
-          singular: "大量存储空间、4K 超高清，以及我们始终无广告的播放器"
+          singular: "编辑精选"
         }
       }
-    });
-    return [{
-      Icon: (0, _v1.jsx)(_v4, {}),
-      title: (0, _v7.translate)({
-        singular: "Make your videos shine",
-        dictionary: {
-          es: {
-            singular: "Haga que sus videos brillen"
-          },
-          "de-DE": {
-            singular: "Lassen Sie Ihre Videos strahlen"
-          },
-          "fr-FR": {
-            singular: "Mettez vos vidéos en valeur"
-          },
-          "ja-JP": {
-            singular: "動画をさらに魅力的に"
-          },
-          "ko-KR": {
-            singular: "동영상을 명작으로 만들기"
-          },
-          "pt-BR": {
-            singular: "Faça seus vídeos brilharem"
-          },
-          "zh-CN": {
-            singular: "让您的视频熠熠生辉"
-          }
-        }
-      }),
-      description: _v1
-    }, {
-      Icon: (0, _v1.jsx)(_v6.WatchPlay, {}),
-      title: (0, _v7.translate)({
-        singular: "Showcase your work",
-        dictionary: {
-          es: {
-            singular: "Presenta tu trabajo"
-          },
-          "de-DE": {
-            singular: "Präsentiere dein Werk"
-          },
-          "fr-FR": {
-            singular: "Présentez votre travail"
-          },
-          "ja-JP": {
-            singular: "自分の作品を披露"
-          },
-          "ko-KR": {
-            singular: "작품 선보이기"
-          },
-          "pt-BR": {
-            singular: "Mostre seu trabalho"
-          }
-        }
-      }),
-      description: (0, _v7.translate)({
-        singular: "Embeddable video portfolio with customizable layouts and designs",
-        dictionary: {
-          es: {
-            singular: "Portafolio de videos insertables con diseños y maquetaciones personalizables"
-          },
-          "de-DE": {
-            singular: "Einbettbares Video-Portfolio mit anpassbaren Layouts und Designs"
-          },
-          "fr-FR": {
-            singular: "Portfolio vidéo intégrable avec mises en page et designs personnalisables"
-          },
-          "ja-JP": {
-            singular: "埋め込み可能な動画ポートフォリオ。レイアウトやデザインも自由にカスタマイズ。"
-          },
-          "ko-KR": {
-            singular: "임베딩할 수 있는 커스텀 가능 레이아웃과 디자인의 동영상 포트폴리오"
-          },
-          "pt-BR": {
-            singular: "Portfólio de vídeo incorporável com layouts e designs personalizáveis"
-          },
-          "zh-CN": {
-            singular: "可定制布局与设计的嵌入式视频作品集"
-          }
-        }
-      })
-    }, {
-      Icon: (0, _v1.jsx)(_v2.ReviewCheck, {}),
-      title: (0, _v7.translate)({
-        singular: "Streamline feedback and approvals",
-        dictionary: {
-          es: {
-            singular: "Optimice los comentarios y las aprobaciones"
-          },
-          "de-DE": {
-            singular: "Optimieren Sie Feedback und Genehmigungen"
-          },
-          "fr-FR": {
-            singular: "Rationalisez le partage d'avis et les approbations"
-          },
-          "ja-JP": {
-            singular: "フィードバックと承認をスムーズに"
-          },
-          "ko-KR": {
-            singular: "피드백과 승인 절차 간소화"
-          },
-          "pt-BR": {
-            singular: "Simplifique o feedback e as aprovações"
-          },
-          "zh-CN": {
-            singular: "简化反馈和审批"
-          }
-        }
-      }),
-      description: (0, _v7.translate)({
-        singular: "Time-coded comments and easy downloads for coworkers and clients",
-        dictionary: {
-          es: {
-            singular: "Comentarios con códigos de tiempo y descargas fáciles para compañeros de trabajo y clientes"
-          },
-          "de-DE": {
-            singular: "Zeitcodierte Kommentare und einfache Downloads für Mitarbeitende und Kunden"
-          },
-          "fr-FR": {
-            singular: "Commentaires avec timecode et téléchargements faciles pour les collègues et les clients"
-          },
-          "ja-JP": {
-            singular: "同僚やクライアントも使える、タイムコード付きコメントと簡単ダウンロード機能"
-          },
-          "ko-KR": {
-            singular: "동료 및 고객을 위해 타임코드가 있는 댓글과 간편한 다운로드 제공"
-          },
-          "pt-BR": {
-            singular: "Comentários com códigos de tempo e downloads fáceis para colegas de trabalho e clientes"
-          },
-          "zh-CN": {
-            singular: "为同事和客户提供时间码评论和轻松下载"
-          }
-        }
-      })
-    }, {
-      Icon: (0, _v1.jsx)(_v5, {}),
-      title: (0, _v7.translate)({
-        singular: "Cancel anytime",
-        dictionary: {
-          es: {
-            singular: "Cancele cuando quiera"
-          },
-          "de-DE": {
-            singular: "Jederzeit kündbar"
-          },
-          "fr-FR": {
-            singular: "Annulation possible à tout moment"
-          },
-          "ja-JP": {
-            singular: "いつでもキャンセル可能"
-          },
-          "ko-KR": {
-            singular: "언제든지 취소할 수 있습니다."
-          },
-          "pt-BR": {
-            singular: "Cancele a qualquer momento"
-          },
-          "zh-CN": {
-            singular: "可随时取消"
-          }
-        }
-      }),
-      description: (0, _v7.translate)({
-        singular: "We’ll remind you before your trial ends",
-        dictionary: {
-          es: {
-            singular: "Se lo recordaremos antes de que finalice su período de prueba"
-          },
-          "de-DE": {
-            singular: "Wir werden Sie erinnern, bevor Ihr Probeabo endet"
-          },
-          "fr-FR": {
-            singular: "Nous vous enverrons un rappel avant la fin de votre essai"
-          },
-          "ja-JP": {
-            singular: "トライアル終了前にリマインダーをお送りします"
-          },
-          "ko-KR": {
-            singular: "체험 종료 전 알림 제공"
-          },
-          "pt-BR": {
-            singular: "Avisaremos quando o teste estiver terminando"
-          },
-          "zh-CN": {
-            singular: "我们会在试用期结束前提醒您。"
-          }
-        }
-      })
-    }];
-  }], 0);
+    }),
+    href: "/channels/staffpicks",
+    icon: (0, _v1.jsx)(_v3, {}),
+    iconActive: (0, _v1.jsx)(_v4, {}),
+    destination: "staff_picks",
+    isActive: _v0 => _v0.startsWith("/channels/staffpicks")
+  }]], 0);
 }

@@ -20,7 +20,7 @@
         children: "Analytics Home"
       })
     }), (0, _v1.jsx)(_v6.ReactRouterLayout, {
-      path: ["/analytics/teams/:teamOwnerId/users/:userOrVideoId", "/analytics/teams/:teamOwnerId/videos/:userOrVideoId", "/analytics/teams/:teamOwnerId/users", "/analytics/teams/:teamOwnerId/videos", "/analytics/teams", "/analytics/video", "/analytics/region", "/analytics/source", "/analytics/device", "/analytics/date", "/analytics/bandwidth/video", "/analytics/bandwidth", "/analytics/v2/:reportName", "/analytics"],
+      path: ["/analytics/teams/:teamOwnerId/users/:userOrVideoId", "/analytics/teams/:teamOwnerId/videos/:userOrVideoId", "/analytics/teams/:teamOwnerId/users", "/analytics/teams/:teamOwnerId/videos", "/analytics/teams", "/analytics/ai", "/analytics/video", "/analytics/region", "/analytics/source", "/analytics/device", "/analytics/date", "/analytics/bandwidth/video", "/analytics/bandwidth", "/analytics/v2/:reportName", "/analytics"],
       children: _v0
     })]
   }), (0, _v4.withPageSetup)(() => ({

@@ -16,7 +16,11 @@
         query: {
           status: "SUBSCRIPTION_STATUS_ACTIVE"
         }
-      } : null),
+      } : null, {
+        revalidateIfStale: !1,
+        revalidateOnFocus: !1,
+        revalidateOnReconnect: !1
+      }),
       _v3 = _v2?.data?.[0]?.id,
       _v4 = void 0 === _v2 || _v2?.data?.[0]?.autoRenew,
       {
@@ -27,7 +31,11 @@
         where: {
           subscriptionId: _v3
         }
-      } : null),
+      } : null, {
+        revalidateIfStale: !1,
+        revalidateOnFocus: !1,
+        revalidateOnReconnect: !1
+      }),
       _v7 = void 0 === _v2 || _v6;
     return _v5?.productName ? {
       tier: (0, _v4.normalizeTier)(_v5.productName),

@@ -1931,12 +1931,14 @@
     _v137 = _v0.i(0);
   let _v138 = ({
       clipId: _v0,
-      isOpen: _v1,
-      onClose: _v2
+      clipRequestId: _v1,
+      isOpen: _v2,
+      onClose: _v3
     }) => (0, _v1.jsx)(_v137.ReportVideoModal, {
       clipId: _v0,
-      isOpen: _v1,
-      onClose: _v2,
+      clipRequestId: _v1,
+      isOpen: _v2,
+      onClose: _v3,
       onSubmitReport: () => {
         console.log("Report submitted");
       }
@@ -2540,6 +2542,7 @@
           }
         }) : null, (0, _v1.jsx)(_v138, {
           clipId: _v0.clipId,
+          clipRequestId: _v0.clipRequestId,
           isOpen: _v4,
           onClose: _v10.onReportClose
         }), (0, _v1.jsx)(_v87, {

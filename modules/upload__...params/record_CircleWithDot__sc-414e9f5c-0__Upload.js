@@ -4142,9 +4142,7 @@
           isTranslatorOnboarding: _v9,
           search: window.location.search
         }));
-      }, [_v8, _v22, _v30, _v16, _v9]), (0, _v6.useEffect)(() => {
-        _v23(_v44);
-      }, [_v23, _v44]), (0, _v2.jsx)(_v77.PullUploadProvider, {
+      }, [_v8, _v22, _v30, _v16, _v9]), (0, _v6.useEffect)(() => _v23(_v44), [_v23, _v44]), (0, _v2.jsx)(_v77.PullUploadProvider, {
         pickerTokens: _v3.pickerTokens,
         children: (0, _v2.jsxs)(_v44.Flex, {
           bgColor: "background",
@@ -4392,18 +4390,15 @@
           }
         } : null);
       return ((0, _v6.useEffect)(() => {
-        if (_v16) {
-          let _v0 = _v15?.permissionLevel === "Uploader";
-          _v0 && _v11(_v220), _v0 || (_v9(_v16.preferences?.videos?.rating), _v11({
-            ..._v16.preferences?.videos?.privacy,
-            password: _v16.preferences?.videos?.password,
-            embedDomains: _v16.preferences?.videos?.privacy?.clipEmbedAllowedDomains?.map(_v0 => ({
-              domain: _v0,
-              allowHd: !1,
-              uri: _v0
-            }))
-          }));
-        }
+        _v15?.permissionLevel === "Uploader" ? _v11(_v220) : _v16 && (_v9(_v16.preferences?.videos?.rating), _v11({
+          ..._v16.preferences?.videos?.privacy,
+          password: _v16.preferences?.videos?.password,
+          embedDomains: _v16.preferences?.videos?.privacy?.clipEmbedAllowedDomains?.map(_v0 => ({
+            domain: _v0,
+            allowHd: !1,
+            uri: _v0
+          }))
+        }));
       }, [_v16, _v15]), (0, _v6.useEffect)(() => {
         if (!_v3.isReady || "reselect" !== _v3.query[_v88.UploadPageQueryParam.Notice] || _v4.isActive(_v219)) return;
         _v4({
@@ -4484,7 +4479,7 @@
       _v1 = await (0, _v5.getMeWorkspaces)({
         headers: _v0.headers,
         baseUrl: _v0.baseUrl,
-        select: ["untranslatedUserRole"]
+        select: ["untranslatedUserRole", "teamOwnerId"]
       });
     } catch {
       return {
@@ -4500,8 +4495,12 @@
     let {
         query: _v3
       } = _v0,
-      _v4 = _v3.teamId ? parseInt(_v3.teamId, 10) : void 0,
-      _v5 = _v3.folderId ? parseInt(_v3.folderId, 10) : void 0;
+      _v4 = _v3.team_id ?? _v3.teamId,
+      _v5 = _v3.folder_id ?? _v3.folderId,
+      _v6 = _v4 ? parseInt(_v4, 10) : void 0,
+      _v7 = _v5 ? parseInt(_v5, 10) : void 0,
+      _v8 = _v1?.data?.find(_v0 => "Uploader" === _v0.untranslatedUserRole),
+      _v9 = _v6 ?? _v8?.teamOwnerId;
     return {
       props: {
         hasThemeSupport: !0,
@@ -4509,11 +4508,11 @@
         layoutOptions: {
           globalNotifications: !1
         },
-        ...(void 0 !== _v4 && {
-          teamIdQueryParam: _v4
+        ...(void 0 !== _v9 && {
+          teamIdQueryParam: _v9
         }),
-        ...(void 0 !== _v5 && {
-          defaultFolderId: _v5
+        ...(void 0 !== _v7 && {
+          defaultFolderId: _v7
         })
       }
     };

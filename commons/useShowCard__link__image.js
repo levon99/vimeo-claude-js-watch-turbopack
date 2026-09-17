@@ -112,8 +112,20 @@
       _v32 = _v23 > 0 ? String(_v23) : null,
       _v33 = "channel" === _v0.sourceType ? _v0.sourceId : null,
       _v34 = _v24 ? 4 : _v19 * _v20,
-      _v35 = _v0.metadata.interactions?.hasOwnProperty("follow"),
-      _v36 = _v0.metadata.interactions?.follow;
+      _v35 = (0, _v3.useCallback)(({
+        direction: _v0,
+        page: _v1
+      }) => {
+        _v17({
+          watchSection: _v31,
+          watchSectionId: _v32,
+          watchSectionDirection: _v0,
+          watchSectionPage: _v1,
+          watchSectionMethod: "swipe"
+        });
+      }, [_v17, _v31, _v32]),
+      _v36 = _v0.metadata.interactions?.hasOwnProperty("follow"),
+      _v37 = _v0.metadata.interactions?.follow;
     (0, _v3.useEffect)(() => {
       _v25 && !_v29.current && (_v29.current = !0, _v14({
         watchSection: _v31,
@@ -122,21 +134,21 @@
       }), _v15({
         watchSection: _v31,
         watchSectionId: _v32,
-        watchSectionFollowable: _v35,
-        watchSectionIsFollowing: !!_v35 && !!_v36?.added
+        watchSectionFollowable: _v36,
+        watchSectionIsFollowing: !!_v36 && !!_v37?.added
       }));
-    }, [_v25, _v14, _v15, _v31, _v32, _v3, _v35, _v36]);
-    let _v37 = "desktop" === (0, _v21.default)(),
+    }, [_v25, _v14, _v15, _v31, _v32, _v3, _v36, _v37]);
+    let _v38 = "desktop" === (0, _v21.default)(),
       {
-        data: _v38,
-        size: _v39,
-        setSize: _v40,
-        isLoading: _v41
+        data: _v39,
+        size: _v40,
+        setSize: _v41,
+        isLoading: _v42
       } = (0, _v12.useGetCurationComponentVideosInfinite)(() => _v25 || _v4 ? {
         where: {
           componentId: _v23
         },
-        select: ["name", "link", "pictures.sizes.link", "uri", "stats.plays", "user.link", "user.name", "user.pictures.sizes.link", "duration", "createdTime", "configUrl", "badge.type", ...(_v37 ? ["user.backgroundVideo.aspectRatio", "user.backgroundVideo.clipId", "user.backgroundVideo.configUrl", "user.backgroundVideo.endTime", "user.backgroundVideo.firstFrameUrl", "user.backgroundVideo.startTime", "user.backgroundVideo.yPosition", "user.locationDetails.formattedAddress", "user.membership", "user.skills.name", "user.metadata.connections.followers.total", "user.metadata.interactions.follow", "user.uri", "user.pictures.sizes.width"] : [])],
+        select: ["name", "link", "pictures.sizes.link", "uri", "stats.plays", "user.link", "user.name", "user.pictures.sizes.link", "duration", "createdTime", "configUrl", "badge.type", ...(_v38 ? ["user.backgroundVideo.aspectRatio", "user.backgroundVideo.clipId", "user.backgroundVideo.configUrl", "user.backgroundVideo.endTime", "user.backgroundVideo.firstFrameUrl", "user.backgroundVideo.startTime", "user.backgroundVideo.yPosition", "user.locationDetails.formattedAddress", "user.membership", "user.skills.name", "user.metadata.connections.followers.total", "user.metadata.interactions.follow", "user.uri", "user.pictures.sizes.width"] : [])],
         query: {
           sizes: _v24 ? "270x152" : "640",
           perPage: _v24 ? 4 : _v19 * _v20
@@ -148,35 +160,35 @@
         revalidateAll: !1,
         revalidateFirstPage: !1
       }),
-      _v42 = !!(_v38 && void 0 === _v38[_v21]),
-      _v43 = !_v38?.[_v38?.length - 1]?.paging?.next;
+      _v43 = !!(_v39 && void 0 === _v39[_v21]),
+      _v44 = !_v39?.[_v39?.length - 1]?.paging?.next;
     (0, _v3.useEffect)(() => {
-      _v21 > _v39 - 2 && !_v43 && _v40(_v39 + 1);
-    }, [_v21, _v39, _v40, _v43]), (0, _v3.useEffect)(() => {
-      !_v41 && !_v28.current && _v25 && _v38 && _v9 && (_v28.current = !0, (0, _v29.trackWidgetViewEvent)({
+      _v21 > _v40 - 2 && !_v44 && _v41(_v40 + 1);
+    }, [_v21, _v40, _v41, _v44]), (0, _v3.useEffect)(() => {
+      !_v42 && !_v28.current && _v25 && _v39 && _v9 && (_v28.current = !0, (0, _v29.trackWidgetViewEvent)({
         viewer: _v9,
         widgetName: _v0.title,
         widgetPlacement: _v3,
         ..._v8
       }));
-    }, [_v0.title, _v41, _v9, _v3, _v25, _v38, _v8]), (0, _v3.useEffect)(() => {
-      if (!_v41 && _v38?.[0]?.data?.length) {
-        let _v0 = _v38[0].data.map(_v0 => String((0, _v28.idFromUri)(_v0.uri)));
+    }, [_v0.title, _v42, _v9, _v3, _v25, _v39, _v8]), (0, _v3.useEffect)(() => {
+      if (!_v42 && _v39?.[0]?.data?.length) {
+        let _v0 = _v39[0].data.map(_v0 => String((0, _v28.idFromUri)(_v0.uri)));
         _v6?.(_v31, _v0);
       }
-    }, [_v41, _v38, _v31, _v6]);
-    let [_v44, _v45] = (0, _v13.usePutMeCurationComponent)(),
-      [_v46, _v47] = (0, _v13.useDeleteMeCurationComponent)(),
-      [_v48, _v49] = (0, _v11.useGetCurationComponentLazy)(),
-      [_v50, _v51] = (0, _v3.useState)(_v36?.added),
-      [_v52, _v53] = (0, _v3.useState)(!1),
-      _v54 = _v0.flairUrl ? _v0.flairUrl : null;
+    }, [_v42, _v39, _v31, _v6]);
+    let [_v45, _v46] = (0, _v13.usePutMeCurationComponent)(),
+      [_v47, _v48] = (0, _v13.useDeleteMeCurationComponent)(),
+      [_v49, _v50] = (0, _v11.useGetCurationComponentLazy)(),
+      [_v51, _v52] = (0, _v3.useState)(_v37?.added),
+      [_v53, _v54] = (0, _v3.useState)(!1),
+      _v55 = _v0.flairUrl ? _v0.flairUrl : null;
     (0, _v3.useEffect)(() => {
-      _v49.data?.metadata.interactions?.follow && _v51(_v49.data.metadata.interactions?.follow?.added);
-    }, [_v49.data]);
-    let _v55 = _v38?.[0].data[0],
-      _v56 = (0, _v26.useCommunityLoopParams)(),
-      _v57 = (0, _v6.useBreakpointValue)({
+      _v50.data?.metadata.interactions?.follow && _v52(_v50.data.metadata.interactions?.follow?.added);
+    }, [_v50.data]);
+    let _v56 = _v39?.[0].data[0],
+      _v57 = (0, _v26.useCommunityLoopParams)(),
+      _v58 = (0, _v6.useBreakpointValue)({
         base: _v0.shortTitle,
         sm: _v0.title
       }) ?? _v0.title;
@@ -185,12 +197,12 @@
       gap: "sm",
       minHeight: "300px",
       children: [(0, _v1.jsx)(_v32, {
-        data: _v38?.[_v21 + 1]?.data ?? [],
+        data: _v39?.[_v21 + 1]?.data ?? [],
         rel: "prefetch"
       }), (0, _v1.jsx)(_v18.PlaylistHeader, {
         header: {
-          text: _v57,
-          to: _v0.link && `${_v0.link}${_v56}`
+          text: _v58,
+          to: _v0.link && `${_v0.link}${_v57}`
         },
         onClick: () => {
           _v0.link && _v9 && (0, _v29.trackPlaylistClick)({
@@ -214,21 +226,21 @@
           alignItems: "center",
           grow: {
             base: 0,
-            md: +!!_v35
+            md: +!!_v36
           },
           width: "fit-content",
-          children: [_v35 && (0, _v1.jsx)(_v4.Button, {
+          children: [_v36 && (0, _v1.jsx)(_v4.Button, {
             size: "xs",
             variant: "secondary",
-            style: _v50 ? {
+            style: _v51 ? {
               minWidth: "100px"
             } : void 0,
-            leftIcon: _v50 ? _v52 ? (0, _v1.jsx)(_v8.CloseXSmall, {}) : (0, _v1.jsx)(_v7.CheckSmall, {}) : void 0,
-            onMouseEnter: () => _v53(!0),
-            onMouseLeave: () => _v53(!1),
+            leftIcon: _v51 ? _v53 ? (0, _v1.jsx)(_v8.CloseXSmall, {}) : (0, _v1.jsx)(_v7.CheckSmall, {}) : void 0,
+            onMouseEnter: () => _v54(!0),
+            onMouseLeave: () => _v54(!1),
             onClick: async () => {
               _v9 && (0, _v29.trackFollowClick)({
-                copy: _v50 ? "unfollow" : "follow",
+                copy: _v51 ? "unfollow" : "follow",
                 viewer: _v9,
                 entityType: _v0.sourceType,
                 channelId: "channel" === _v0.sourceType ? _v0.sourceId : void 0,
@@ -240,24 +252,24 @@
                 watchSectionId: _v32,
                 watchChannelName: _v0.sourceTitle ?? null,
                 watchChannelId: _v33,
-                watchSectionFollowEffect: _v50 ? "unfollow" : "follow"
-              }), _v9?.user ? (await (_v50 ? _v46 : _v44)({
+                watchSectionFollowEffect: _v51 ? "unfollow" : "follow"
+              }), _v9?.user ? (await (_v51 ? _v47 : _v45)({
                 where: {
                   curationComponentId: _v23
                 }
-              }), await _v48({
+              }), await _v49({
                 where: {
                   componentId: _v23
                 },
                 select: ["metadata.interactions.follow.added"]
-              }), _v53(!1)) : ((0, _v29.trackTriggerAuthFlow)({
+              }), _v54(!1)) : ((0, _v29.trackTriggerAuthFlow)({
                 flow: _v1,
                 ..._v8
               }), _v2(!0));
             },
-            isLoading: _v45.loading || _v47.loading || _v49.loading,
-            isDisabled: _v45.loading || _v47.loading || _v49.loading,
-            children: _v50 ? _v52 ? (0, _v14.translate)({
+            isLoading: _v46.loading || _v48.loading || _v50.loading,
+            isDisabled: _v46.loading || _v48.loading || _v50.loading,
+            children: _v51 ? _v53 ? (0, _v14.translate)({
               singular: "Unfollow",
               dictionary: {
                 es: {
@@ -334,7 +346,7 @@
               }
             })
           }), !_v24 && (0, _v1.jsx)(_v19.NavigationButtons, {
-            disableNextButton: _v43 && _v21 === (_v38?.length ?? 1) - 1,
+            disableNextButton: _v44 && _v21 === (_v39?.length ?? 1) - 1,
             disablePrevButton: 0 === _v21,
             onNextClick: () => {
               _v17({
@@ -372,17 +384,18 @@
         ref: _v27,
         gap: "sm",
         children: (0, _v1.jsx)(_v23.ResponsiveWrapper, {
-          isLoading: _v41 || _v42 && _v21 > 0,
+          isLoading: _v42 || _v43 && _v21 > 0,
           numOfRows: _v20,
           numOfColumns: _v19,
           isMobile: _v24,
+          onCarouselSwipe: _v35,
           coverCard: _v18 ? (0, _v1.jsx)(_v30, {
             name: _v0.shortTitle,
             description: _v0.sourceDescription,
             src: _v0.artUrl,
-            href: `${_v0.link}${_v56}`,
+            href: `${_v0.link}${_v57}`,
             as: "a",
-            flairUrl: _v54,
+            flairUrl: _v55,
             totalVideos: _v0.metadata?.connections?.videos?.total,
             totalFollowers: _v0.metadata?.connections?.users?.total,
             onClick: () => {
@@ -404,12 +417,12 @@
             },
             children: (0, _v1.jsx)(_v31, {
               as: "a",
-              href: _v32 ? (0, _v26.appendProvenanceParams)(`${_v55?.link}${_v56}`, _v32, 1) : `${_v55?.link}${_v56}`,
-              isDisabled: _v41,
+              href: _v32 ? (0, _v26.appendProvenanceParams)(`${_v56?.link}${_v57}`, _v32, 1) : `${_v56?.link}${_v57}`,
+              isDisabled: _v42,
               onClick: _v0 => {
-                _v0.stopPropagation(), _v55 && _v9 && (0, _v29.trackPlaylistWatchClick)({
-                  target: _v55.link,
-                  videoId: (0, _v28.idFromUri)(_v55.uri),
+                _v0.stopPropagation(), _v56 && _v9 && (0, _v29.trackPlaylistWatchClick)({
+                  target: _v56.link,
+                  videoId: (0, _v28.idFromUri)(_v56.uri),
                   viewer: _v9,
                   widgetName: _v0.title,
                   widgetPlacement: _v3,
@@ -422,7 +435,7 @@
               }
             })
           }) : null,
-          children: _v38?.[_v21]?.data?.map((_v0, _v1) => {
+          children: _v39?.[_v21]?.data?.map((_v0, _v1) => {
             let _v2 = (0, _v14.translate)({
                 singular: "{COUNT} view",
                 plural: "{COUNT} views",
@@ -478,7 +491,7 @@
                   video: _v0
                 }),
                 title: _v0.name,
-                href: _v32 ? (0, _v26.appendProvenanceParams)(`${_v0.link}${_v56}`, _v32, _v21 * _v34 + _v1 + 1) : `${_v0.link}${_v56}`,
+                href: _v32 ? (0, _v26.appendProvenanceParams)(`${_v0.link}${_v57}`, _v32, _v21 * _v34 + _v1 + 1) : `${_v0.link}${_v57}`,
                 thumbnailSrc: _v0.pictures?.sizes[0].link,
                 subtitle: _v3,
                 avatarSrc: _v0.user.pictures?.sizes[0].link || "",
@@ -502,7 +515,7 @@
                   name: _v0.user.name,
                   link: _v0.user.link,
                   user: _v0.user,
-                  showCard: _v37,
+                  showCard: _v38,
                   onClick: () => {
                     _v9 && (0, _v29.trackCreatorNameClick)({
                       target: _v0.user.link,
@@ -536,7 +549,7 @@
                   },
                   minWidth: "9rem"
                 },
-                hasPlayOnHover: _v37,
+                hasPlayOnHover: _v38,
                 ...(_v4 && {
                   topLeftDecoration: (0, _v1.jsx)(_v20.StaffPickBadge, {})
                 })

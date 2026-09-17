@@ -9,10 +9,11 @@
   _v0.s(["PlansComparisonPaywallNavigation", 0, function ({
     dismissButtonPosition: _v0 = "top_right",
     dismissButtonVariant: _v1 = "skip",
-    onDismiss: _v2
+    skipLabel: _v2,
+    onDismiss: _v3
   }) {
     if ("none" === _v1) return null;
-    let _v3 = (0, _v1.jsx)(_v3.IconButton, {
+    let _v4 = (0, _v1.jsx)(_v3.IconButton, {
         "aria-label": (0, _v5.translate)({
           singular: "Dismiss",
           dictionary: {
@@ -42,17 +43,43 @@
         icon: (0, _v1.jsx)(_v4.CloseX, {}),
         variant: "tertiary",
         size: "sm",
-        onClick: _v2,
+        onClick: _v3,
         position: "absolute",
         top: "2rem",
         left: "2rem"
       }),
-      _v4 = (0, _v1.jsx)(_v2.Button, {
+      _v5 = _v2 ?? (0, _v5.translate)({
+        singular: "Skip",
+        dictionary: {
+          es: {
+            singular: "Omitir"
+          },
+          "de-DE": {
+            singular: "Überspringen"
+          },
+          "fr-FR": {
+            singular: "Sauter"
+          },
+          "ja-JP": {
+            singular: "スキップ"
+          },
+          "ko-KR": {
+            singular: "건너뛰기"
+          },
+          "pt-BR": {
+            singular: "PULAR"
+          },
+          "zh-CN": {
+            singular: "跳过"
+          }
+        }
+      }),
+      _v6 = (0, _v1.jsx)(_v2.Button, {
         size: "sm",
         p: "1.25rem",
         borderRadius: "md",
         variant: "tertiary",
-        onClick: _v2,
+        onClick: _v3,
         position: "absolute",
         width: "auto",
         padding: "md",
@@ -81,35 +108,10 @@
             md: void 0
           }
         }),
-        children: (0, _v5.translate)({
-          singular: "Skip",
-          dictionary: {
-            es: {
-              singular: "Omitir"
-            },
-            "de-DE": {
-              singular: "Überspringen"
-            },
-            "fr-FR": {
-              singular: "Sauter"
-            },
-            "ja-JP": {
-              singular: "スキップ"
-            },
-            "ko-KR": {
-              singular: "건너뛰기"
-            },
-            "pt-BR": {
-              singular: "PULAR"
-            },
-            "zh-CN": {
-              singular: "跳过"
-            }
-          }
-        })
+        children: _v5
       });
-    return "close" === _v1 ? _v3 : "both" === _v1 ? (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v3, _v4]
-    }) : _v4;
+    return "close" === _v1 ? _v4 : "both" === _v1 ? (0, _v1.jsxs)(_v1.Fragment, {
+      children: [_v4, _v6]
+    }) : _v6;
   }]);
 }
