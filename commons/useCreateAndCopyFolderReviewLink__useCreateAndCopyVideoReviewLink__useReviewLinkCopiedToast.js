@@ -7,23 +7,26 @@
     _v4 = _v0.i(0);
   _v0.s(["useCreateAndCopyFolderReviewLink", 0, _v0 => {
     let [_v1, {
-        data: _v2
+        data: _v2,
+        error: _v3
       }] = (0, _v3.useCreateFolderReviewLink)(),
-      _v3 = (0, _v1.useRef)(null),
-      _v4 = (0, _v1.useRef)(!1),
-      _v5 = (0, _v1.useEffectEvent)(_v0 => {
-        if (!_v3.current) return;
+      _v4 = (0, _v1.useRef)(null),
+      _v5 = (0, _v1.useRef)(!1),
+      _v6 = (0, _v1.useEffectEvent)(_v0 => {
+        if (!_v4.current) return;
         let {
           folderId: _v1,
           folderOwnerId: _v2,
           folderUri: _v3
-        } = _v3.current;
-        (0, _v2.default)((0, _v4.getFolderReviewPageUrl)(_v0, _v1, _v2)), _v0(_v3, _v0), _v3.current = null;
+        } = _v4.current;
+        (0, _v2.default)((0, _v4.getFolderReviewPageUrl)(_v0, _v1, _v2)), _v0(_v3, _v0), _v4.current = null;
       });
     return (0, _v1.useEffect)(() => {
-      _v2?.uri && _v5(_v2.uri);
-    }, [_v2]), (0, _v1.useCallback)((_v0, _v1, _v2) => {
-      _v4.current || (_v4.current = !0, _v3.current = {
+      _v2?.uri && _v6(_v2.uri);
+    }, [_v2]), (0, _v1.useEffect)(() => {
+      _v3 && (_v4.current = null);
+    }, [_v3]), (0, _v1.useCallback)((_v0, _v1, _v2) => {
+      _v5.current || (_v5.current = !0, _v4.current = {
         folderId: _v0,
         folderOwnerId: _v1,
         folderUri: _v2
@@ -34,27 +37,30 @@
         select: ["uri"],
         variables: {}
       }).finally(() => {
-        _v4.current = !1;
+        _v5.current = !1;
       }));
     }, [_v1]);
   }, "useCreateAndCopyVideoReviewLink", 0, _v0 => {
     let [_v1, {
-        data: _v2
+        data: _v2,
+        error: _v3
       }] = (0, _v3.useCreateVideoReviewLink)(),
-      _v3 = (0, _v1.useRef)(null),
-      _v4 = (0, _v1.useRef)(!1),
-      _v5 = (0, _v1.useEffectEvent)(_v0 => {
-        if (!_v3.current) return;
+      _v4 = (0, _v1.useRef)(null),
+      _v5 = (0, _v1.useRef)(!1),
+      _v6 = (0, _v1.useEffectEvent)(_v0 => {
+        if (!_v4.current) return;
         let {
           videoId: _v1,
           videoUri: _v2
-        } = _v3.current;
-        (0, _v2.default)((0, _v4.getVideoReviewPageUrl)(_v0, _v1)), _v0(_v2, _v0), _v3.current = null;
+        } = _v4.current;
+        (0, _v2.default)((0, _v4.getVideoReviewPageUrl)(_v0, _v1)), _v0(_v2, _v0), _v4.current = null;
       });
     return (0, _v1.useEffect)(() => {
-      _v2?.uri && _v5(_v2.uri);
-    }, [_v2]), (0, _v1.useCallback)((_v0, _v1) => {
-      _v4.current || (_v4.current = !0, _v3.current = {
+      _v2?.uri && _v6(_v2.uri);
+    }, [_v2]), (0, _v1.useEffect)(() => {
+      _v3 && (_v4.current = null);
+    }, [_v3]), (0, _v1.useCallback)((_v0, _v1) => {
+      _v5.current || (_v5.current = !0, _v4.current = {
         videoId: _v0,
         videoUri: _v1
       }, _v1({
@@ -64,7 +70,7 @@
         select: ["uri"],
         variables: {}
       }).finally(() => {
-        _v4.current = !1;
+        _v5.current = !1;
       }));
     }, [_v1]);
   }], 0);

@@ -38,8 +38,13 @@
         watch_page_arm: _v0.watchPageArm ?? "control",
         ...(void 0 !== _v0.watchPageUrl ? {
           url: _v0.watchPageUrl
+        } : {}),
+        ...(void 0 !== _v0.watchVisitId ? {
+          watch_visit_id: _v0.watchVisitId
         } : {})
-      }), !0), [_v0]),
+      }, void 0, !0 === _v0.sendImmediately ? {
+        delivery: "immediate"
+      } : void 0), !0), [_v0]),
       _v4 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_hero_button_clicked", {
         clip_id: _v0.clipId
       }), !0), [_v0]),
@@ -135,9 +140,13 @@
         } = _v0;
         return _v0.track("watch_page_exited", {
           watch_time_on_page_ms: _v2.watchTimeOnPageMs,
+          watch_active_time_ms: _v2.watchActiveTimeMs,
           watch_max_scroll_depth_percent: _v2.watchMaxScrollDepthPercent,
           watch_sections_reached: _v2.watchSectionsReached,
-          watch_page_arm: _v2.watchPageArm ?? "control"
+          watch_page_arm: _v2.watchPageArm ?? "control",
+          ...(void 0 !== _v2.watchVisitId ? {
+            watch_visit_id: _v2.watchVisitId
+          } : {})
         }, void 0, !0 === _v1 ? {
           delivery: "immediate"
         } : void 0), !0;
@@ -151,11 +160,6 @@
         watch_search_query: _v0.watchSearchQuery,
         watch_search_selection_type: _v0.watchSearchSelectionType,
         watch_search_time_to_find_ms: _v0.watchSearchTimeToFindMs
-      }), !0), [_v0]),
-      _v22 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_category_tabs_rendered", {
-        watch_category_count: _v0.watchCategoryCount,
-        watch_category_slugs: _v0.watchCategorySlugs,
-        watch_page_arm: _v0.watchPageArm
       }), !0), [_v0]);
     return {
       trackLoggedOutBannerDisplayed: _v1,
@@ -179,7 +183,6 @@
       trackWatchPageExited: _v19,
       trackWatchPageLineupRendered: _v20,
       trackWatchSearchSubmitted: _v21,
-      trackCategoryTabsRendered: _v22,
       trackWatchCategoryTabClicked: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_category_tab_clicked", {
         watch_section: _v0.watchSection,
         watch_section_id: _v0.watchSectionId,

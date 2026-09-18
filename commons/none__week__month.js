@@ -3840,22 +3840,28 @@
         }
       }),
       ai: (0, _v13.translate)({
-        singular: "AI Analytics",
+        singular: "Custom analytics",
         dictionary: {
+          es: {
+            singular: "Analíticas personalizadas"
+          },
           "de-DE": {
-            singular: "KI-Analysen"
+            singular: "Benutzerdefinierte Analysen"
+          },
+          "fr-FR": {
+            singular: "Analyses personnalisées"
           },
           "ja-JP": {
-            singular: "AIアナリティクス"
+            singular: "カスタムアナリティクス"
           },
           "ko-KR": {
-            singular: "AI 분석"
+            singular: "맞춤형 분석"
           },
           "pt-BR": {
-            singular: "Análises de IA"
+            singular: "Análises personalizadas"
           },
           "zh-CN": {
-            singular: "AI 分析"
+            singular: "自定义分析"
           }
         }
       })

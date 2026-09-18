@@ -183,8 +183,7 @@
     });
   }
   var _v24 = _v0.i(0);
-  let _v25 = () => {},
-    _v26 = (0, _v8.rem)(360);
+  let _v25 = () => {};
   _v0.s(["LeftPanel", 0, function ({
     id: _v0 = (0, _v19.createDomName)("left-panel"),
     className: _v1 = (0, _v19.createDomName)("left-panel"),
@@ -244,7 +243,7 @@
         sx: {
           "--panel-width": _v13 ? (0, _v8.rem)(324) : (0, _v8.rem)(0),
           "& > div:nth-of-type(2) > *": {
-            height: _v14 ? _v26 : "100%"
+            height: _v14 ? "auto" : "100%"
           }
         },
         children: [(0, _v1.jsx)(_v23, {
@@ -271,7 +270,7 @@
             }
           },
           sx: {
-            height: _v14 ? _v26 : "100%",
+            height: _v14 ? "auto" : "100%",
             maxHeight: _v6
           },
           children: (0, _v1.jsx)(_v7.PanelBody, {
@@ -280,10 +279,10 @@
             overflowY: "auto",
             display: "flex",
             flexDirection: "column",
-            flexWrap: "wrap",
+            flexWrap: "nowrap",
             justifyContent: "space-around",
             width: "100%",
-            height: _v14 ? _v26 : "100%",
+            height: _v14 ? "auto" : "100%",
             maxHeight: "100%",
             padding: 0,
             children: (0, _v1.jsx)(_v22.LiveErrorBoundary, {

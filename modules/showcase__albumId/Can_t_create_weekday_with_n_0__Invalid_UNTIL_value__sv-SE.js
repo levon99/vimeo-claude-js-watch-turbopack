@@ -1807,7 +1807,15 @@
       let _v1 = _v87.parseString(_v0.rrule);
       return _v0.startTime && (_v1.dtstart = new Date(_v0.startTime)), _v0.endTime && (_v1.until = new Date(_v0.endTime)), new _v87(_v1);
     };
-  _v0.s(["getScheduleAvailability", 0, _v0 => {
+  _v0.s(["getNextOccurrenceStartTime", 0, (_v0, _v1 = new Date()) => {
+    if (_v0?.rrule) try {
+      let _v0 = _v87.parseString(_v0.rrule);
+      _v0.startTime && (_v0.dtstart = new Date(_v0.startTime));
+      let _v1 = new _v87(_v0).after(_v1, !0);
+      if (_v1) return _v1.toISOString();
+    } catch {}
+    return _v0?.startTime ?? null;
+  }, "getScheduleAvailability", 0, _v0 => {
     if (!_v0) return _v98.watchLive;
     if (_v0?.type) {
       let _v0;

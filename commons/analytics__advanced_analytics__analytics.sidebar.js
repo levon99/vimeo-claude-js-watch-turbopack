@@ -25,7 +25,7 @@
       REPORTS: "analytics_reports",
       TEAM_REPORT: "analytics_team_report"
     };
-  var _v16 = ((_v1 = {}).DASHBOARD = "dashboard", _v1.REGION = "region", _v1.DATE = "date", _v1.VIDEO = "video", _v1.SOURCE = "source_url", _v1.DEVICE = "device", _v1.BANDWIDTH = "bandwidth", _v1.TEAM = "team", _v1.TEAM_MEMBER = "team_member", _v1.TEAM_VIDEO = "team_video", _v1);
+  var _v16 = ((_v1 = {}).AI = "ai", _v1.DASHBOARD = "dashboard", _v1.REGION = "region", _v1.DATE = "date", _v1.VIDEO = "video", _v1.SOURCE = "source_url", _v1.DEVICE = "device", _v1.BANDWIDTH = "bandwidth", _v1.TEAM = "team", _v1.TEAM_MEMBER = "team_member", _v1.TEAM_VIDEO = "team_video", _v1);
   let _v17 = _v0 => RegExp("^/{0,1}analytics/video/{0,1}$").test(_v0) || RegExp("^/{0,1}analytics/video/{0,1}$").test(_v0) ? "video" : RegExp("^/{0,1}analytics/region/{0,1}$").test(_v0) ? "region" : RegExp("^/{0,1}analytics/source/{0,1}$").test(_v0) ? "source_url" : RegExp("^/{0,1}analytics/device/{0,1}$").test(_v0) ? "device" : RegExp("^/{0,1}analytics/date/{0,1}$").test(_v0) ? "date" : RegExp("^/{0,1}analytics/region/{0,1}$").test(_v0) ? "region" : RegExp("^/{0,1}analytics/source/{0,1}$").test(_v0) ? "source_url" : RegExp("^/{0,1}analytics/device/{0,1}$").test(_v0) ? "device" : RegExp("^/{0,1}analytics/bandwidth/{0,1}$").test(_v0) ? "bandwidth" : RegExp("/analytics/teams/[0-9]+/[users | videos]").test(_v0) ? "team" : RegExp("/analytics/teams/[0-9]+/users/[0-9]+").test(_v0) ? "team_member" : RegExp("/analytics/teams/[0-9]+/videos/[0-9]+").test(_v0) ? "team_video" : "dashboard",
     _v18 = _v0 => ({
       ...(0, _v7.buildTeamBpContextFromTeamUser)(_v0)

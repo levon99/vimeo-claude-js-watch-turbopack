@@ -2837,8 +2837,9 @@
       [_v10, _v11] = (0, _v8.useState)(null),
       _v12 = _v5.video_upload_onboarding_arm,
       _v13 = "t1" === _v5.single_question_survey_arm,
-      _v14 = "pricing_page_at_dismiss" === _v5.onboarding_paywall_flow && "plansComparison" === _v5.onboarding_paywall_kind && "control" === _v5.reverse_free_trial_arm && _v7?.hasPaid === !1,
-      _v15 = (0, _v8.useMemo)(() => function (_v0, _v1 = "control") {
+      _v14 = _v5.onboarding_paywall_flow,
+      _v15 = "control" !== _v14 && "plansComparison" === _v5.onboarding_paywall_kind && "control" === _v5.reverse_free_trial_arm && _v7?.hasPaid === !1,
+      _v16 = (0, _v8.useMemo)(() => function (_v0, _v1 = "control") {
         let _v2 = (() => {
           switch (_v0) {
             case "t1":
@@ -2850,51 +2851,60 @@
               return ["survey", "paywall"];
           }
         })();
-        return "pricing_page_at_dismiss" === _v1 ? [..._v2, "paywall_step_2"] : [..._v2];
-      }(_v12, _v14 ? "pricing_page_at_dismiss" : "control"), [_v12, _v14]),
-      _v16 = (_v2 = _v4.get("phase")) ? _v15.find(_v0 => _v0 === _v2) ?? null : _v15[0],
-      _v17 = _v10 && (0, _v12.isVimeoRedirectableUrl)(_v10) ? _v10 : void 0,
-      [_v18] = (0, _v8.useState)(() => (0, _v13.peekPostSurveyRedirect)()),
-      _v19 = _v17 ?? _v18,
-      _v20 = () => {
-        _v9(!0), (0, _v13.clearPostSurveyRedirect)(), _v3.push(_v19 ?? "/home");
-      },
+        return "control" !== _v1 ? [..._v2, "paywall_step_2"] : [..._v2];
+      }(_v12, _v15 ? _v14 : "control"), [_v12, _v15, _v14]),
+      _v17 = null === (_v2 = _v4.get("phase")) || "" === _v2 ? _v16[0] : _v16.find(_v0 => _v0 === _v2) ?? null,
+      _v18 = _v10 && (0, _v12.isVimeoRedirectableUrl)(_v10) ? _v10 : void 0,
+      [_v19] = (0, _v8.useState)(() => (0, _v13.peekPostSurveyRedirect)()),
+      _v20 = _v18 ?? _v19,
       _v21 = () => {
-        if (!_v16) return;
-        let _v0 = _v87(_v15, _v16);
-        if (!_v0) return void _v20();
+        _v9(!0), (0, _v13.clearPostSurveyRedirect)(), _v3.push(_v20 ?? "/home");
+      },
+      _v22 = () => {
+        if (!_v17) return;
+        let _v0 = _v87(_v16, _v17);
+        if (!_v0) return void _v21();
         let _v1 = new URLSearchParams(_v4.toString());
         _v1.delete("page"), _v1.set("phase", _v0), _v3.push({
           pathname: _v3.pathname,
           search: _v1.toString()
         });
       };
-    return _v6 || _v8 ? (0, _v1.jsx)(_v34.default, {}) : "paywall_step_2" === _v16 ? _v1 ? _v1({
-      onBackToIntroOffer: () => {
-        let _v0;
-        (_v0 = new URLSearchParams(_v4.toString())).delete("page"), _v0.set("phase", "paywall"), _v3.push({
-          pathname: _v3.pathname,
-          search: _v0.toString()
-        });
-      },
-      onContinueWithFreePlan: _v20
-    }) : (0, _v1.jsx)(_v34.default, {}) : (0, _v1.jsxs)(_v38.OnboardingShell, {
-      children: ["survey" === _v16 && (0, _v1.jsx)(_v73, {
+    if (_v6 || _v8) return (0, _v1.jsx)(_v34.default, {});
+    if ("paywall_step_2" === _v17) {
+      let _v0 = _v1 ? _v1({
+        paywallFlow: _v14,
+        postCheckoutUrl: _v20,
+        onBackToIntroOffer: () => {
+          let _v0;
+          (_v0 = new URLSearchParams(_v4.toString())).delete("page"), _v0.set("phase", "paywall"), _v3.push({
+            pathname: _v3.pathname,
+            search: _v0.toString()
+          });
+        },
+        onContinueWithFreePlan: _v21
+      }) : (0, _v1.jsx)(_v34.default, {});
+      return "pricing_page_at_dismiss" === _v14 ? _v0 : (0, _v1.jsx)(_v38.OnboardingShell, {
+        children: _v0
+      });
+    }
+    return (0, _v1.jsxs)(_v38.OnboardingShell, {
+      children: ["survey" === _v17 && (0, _v1.jsx)(_v73, {
         randomizeAnswers: _v0,
-        isFinalPhase: null === _v87(_v15, "survey"),
+        isFinalPhase: null === _v87(_v16, "survey"),
         useSingleQuestionSurvey: _v13,
-        onComplete: _v21
-      }), "upload" === _v16 && (0, _v1.jsx)(_v86, {
+        onComplete: _v22
+      }), "upload" === _v17 && (0, _v1.jsx)(_v86, {
         showCreate: _v7?.hasCreation === !0,
         enableFileSelector: "t3" === _v12,
         onComplete: _v0 => {
-          _v11(_v0), _v21();
+          _v11(_v0), _v22();
         },
-        onSkip: _v21
-      }), ("paywall" === _v16 || null === _v16) && (0, _v1.jsx)(_v37, {
-        postCheckoutUrl: _v19,
-        onDismiss: _v20,
-        dismissButtonLabel: _v14 ? (0, _v10.translate)({
+        onSkip: _v22
+      }), ("paywall" === _v17 || null === _v17) && (0, _v1.jsx)(_v37, {
+        postCheckoutUrl: _v20,
+        onDismiss: _v21,
+        dismissButtonLabel: "pricing_page_at_dismiss" === _v14 && _v15 ? (0, _v10.translate)({
           singular: "Check other plans",
           dictionary: {
             es: {
@@ -2920,11 +2930,224 @@
             }
           }
         }) : void 0,
-        onSkipInsteadOfDismiss: _v14 ? _v21 : void 0
+        onSkipInsteadOfDismiss: _v15 ? _v22 : void 0
       })]
     });
   }
-  var _v89 = _v0.i(0);
+  var _v89 = _v0.i(0),
+    _v90 = _v0.i(0),
+    _v91 = _v0.i(0),
+    _v92 = _v0.i(0),
+    _v93 = _v0.i(0),
+    _v94 = _v0.i(0),
+    _v95 = _v0.i(0);
+  let _v96 = ["starter", "standard", "advanced"],
+    _v97 = [],
+    _v98 = {
+      paywallTrigger: "registration_survey_comparison_page_at_dismiss",
+      paywallLocation: "registration_survey",
+      paywallType: "page",
+      paywallFeature: "registration_survey"
+    };
+  function _v99({
+    onDismiss: _v0
+  }) {
+    let _v1 = (0, _v33.useViewer)(),
+      {
+        width: _v2
+      } = (0, _v91.useWindowSize)(),
+      _v3 = (0, _v21.useGetSubscriptionPlansData)([..._v96]),
+      {
+        trackPaywallCtaClicked: _v4,
+        trackPaywallDismissed: _v5
+      } = (0, _v32.usePaywallTracking)({
+        ..._v98,
+        paywallStyle: "onboarding_comparison_page",
+        paywallPlansDisplayed: [..._v96],
+        paywallPeriodicitiesDisplayed: ["yearly"],
+        isVisible: null !== _v1 && void 0 !== _v3
+      }),
+      _v6 = _v3 ?? _v97,
+      _v7 = (0, _v8.useMemo)(() => _v96.reduce((_v0, _v1) => {
+        let _v2 = _v6.find(_v0 => _v0.tier === _v1);
+        return void 0 !== _v2 && _v0.push(_v2), _v0;
+      }, []), [_v6]),
+      _v8 = _v2 < 768,
+      _v9 = (0, _v8.useMemo)(() => ({
+        cardSurface: "onboarding",
+        showCardBorder: !0,
+        showMonthlyDropdown: !1,
+        paidPlanCtaLabel: (0, _v90.translate)({
+          singular: "Start 7 days free trial",
+          dictionary: {
+            es: {
+              singular: "Iniciar prueba gratuita de 7 días"
+            },
+            "de-DE": {
+              singular: "7 Tage kostenlos testen"
+            },
+            "fr-FR": {
+              singular: "Commencer l'essai gratuit de 7 jours"
+            },
+            "ja-JP": {
+              singular: "7日間の無料トライアルを開始する"
+            },
+            "ko-KR": {
+              singular: "7일 무료 체험 시작"
+            },
+            "pt-BR": {
+              singular: "Iniciar teste gratuito de 7 dias"
+            },
+            "zh-CN": {
+              singular: "开始 7 天免费试用"
+            }
+          }
+        }),
+        hidePaidPlanSecondaryLinks: !0,
+        ctaTreatment: "free_trial_primary"
+      }), []),
+      _v10 = (0, _v8.useMemo)(() => ({
+        plansData: _v6,
+        isFlatRateData: (0, _v95.areFlatRatePlans)(_v6),
+        isSolutionData: !1,
+        isRepackagingData: !1,
+        downgradeEnabled: !1,
+        hideFreePlan: !0,
+        hideIndividualPlans: !1
+      }), [_v6]);
+    return null === _v1 || void 0 === _v3 ? null : (0, _v1.jsxs)(_v17.Box, {
+      width: "100%",
+      children: [(0, _v1.jsx)(_v29.PlansComparisonPaywallNavigation, {
+        dismissButtonPosition: "top_right",
+        skipLabel: (0, _v90.translate)({
+          singular: "I'm not interested",
+          dictionary: {
+            es: {
+              singular: "No me interesa"
+            },
+            "de-DE": {
+              singular: "Nicht interessiert"
+            },
+            "fr-FR": {
+              singular: "Ça ne m'intéresse pas"
+            },
+            "ja-JP": {
+              singular: "興味がありません"
+            },
+            "ko-KR": {
+              singular: "관심이 없습니다"
+            },
+            "pt-BR": {
+              singular: "Não tenho interesse"
+            },
+            "zh-CN": {
+              singular: "我不感兴趣"
+            }
+          }
+        }),
+        onDismiss: () => {
+          _v5(), _v0();
+        }
+      }), (0, _v1.jsxs)(_v14.Flex, {
+        direction: "column",
+        alignItems: "center",
+        width: "100%",
+        children: [(0, _v1.jsx)(_v17.Box, {
+          marginTop: (0, _v75.rem)(48),
+          marginBottom: "lg",
+          children: (0, _v1.jsx)(_v18.Text, {
+            variant: "heading-xl",
+            fontSize: (0, _v75.rem)(30),
+            textAlign: "center",
+            children: (0, _v90.translate)({
+              singular: "Compare plans before you go",
+              dictionary: {
+                es: {
+                  singular: "Compara los planes antes de irte"
+                },
+                "de-DE": {
+                  singular: "Pläne vergleichen, bevor Sie gehen"
+                },
+                "fr-FR": {
+                  singular: "Comparez les forfaits avant de partir"
+                },
+                "ja-JP": {
+                  singular: "ご退会前にプランを比較する"
+                },
+                "ko-KR": {
+                  singular: "떠나기 전에 요금제 비교"
+                },
+                "pt-BR": {
+                  singular: "Compare os planos antes de sair"
+                },
+                "zh-CN": {
+                  singular: "在您离开前比较套餐"
+                }
+              }
+            })
+          })
+        }), (0, _v1.jsx)(_v93.OverridesContext.Provider, {
+          value: _v9,
+          children: (0, _v1.jsx)(_v94.PlansDataContext.Provider, {
+            value: _v10,
+            children: (0, _v1.jsx)(_v17.Box, {
+              display: _v8 ? "block" : "table",
+              width: "100%",
+              paddingY: "md",
+              paddingX: "lg",
+              marginBottom: (0, _v75.rem)(12),
+              sx: _v8 ? void 0 : {
+                tableLayout: "fixed"
+              },
+              children: _v7.map(_v0 => (0, _v1.jsx)(_v92.PlanCard, {
+                planData: _v0,
+                showBadge: "advanced" === _v0.tier,
+                showYearly: !0,
+                isBillingFreqToggleAvailable: !1,
+                showStrikePrice: !1,
+                isMobileBreakpoint: _v8,
+                ignoreCurrentPlanState: !0
+              }, _v0.tier))
+            })
+          })
+        }), (0, _v1.jsx)(_v17.Box, {
+          marginY: "md",
+          children: (0, _v1.jsx)(_v68.Button, {
+            as: "a",
+            href: "/upgrade-plan",
+            variant: "minimal",
+            onClick: () => _v4("compare_features"),
+            children: (0, _v90.translate)({
+              singular: "Compare all plan features",
+              dictionary: {
+                es: {
+                  singular: "Comparar todas las características del plan"
+                },
+                "de-DE": {
+                  singular: "Alle Planfunktionen vergleichen"
+                },
+                "fr-FR": {
+                  singular: "Comparez toutes les fonctionnalités des abonnements"
+                },
+                "ja-JP": {
+                  singular: "すべてのプランの機能を比較"
+                },
+                "ko-KR": {
+                  singular: "모든 요금제 혜택 비교하기"
+                },
+                "pt-BR": {
+                  singular: "Compare todos os recursos do plano"
+                },
+                "zh-CN": {
+                  singular: "比较所有套餐功能"
+                }
+              }
+            })
+          })
+        })]
+      })]
+    });
+  }
   (0, _v3.withPageSetup)(async _v0 => {
     if (!(await (0, _v4.getMeCapabilities)({
       baseUrl: _v0.baseUrl,
@@ -2966,18 +3189,34 @@
     inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => (0, _v1.jsx)(_v88, {
     renderPaywallStep2: ({
-      onBackToIntroOffer: _v0,
-      onContinueWithFreePlan: _v1
-    }) => (0, _v1.jsx)(_v89.default, {
-      onDismiss: _v0,
-      disableLogoLink: !0,
-      onContinueWithFreePlan: _v1,
-      paywallTracking: {
-        paywallTrigger: "registration_survey_pricing_page_at_dismiss",
-        paywallLocation: "registration_survey",
-        paywallType: "page",
-        paywallFeature: "registration_survey"
+      paywallFlow: _v0,
+      postCheckoutUrl: _v1,
+      onBackToIntroOffer: _v2,
+      onContinueWithFreePlan: _v3
+    }) => {
+      switch (_v0) {
+        case "pricing_page_at_dismiss":
+          return (0, _v1.jsx)(_v89.default, {
+            onDismiss: _v2,
+            disableLogoLink: !0,
+            onContinueWithFreePlan: _v3,
+            paywallTracking: {
+              paywallTrigger: "registration_survey_pricing_page_at_dismiss",
+              paywallLocation: "registration_survey",
+              paywallType: "page",
+              paywallFeature: "registration_survey"
+            }
+          });
+        case "comparison_modal_at_dismiss":
+          return (0, _v1.jsx)(_v99, {
+            onDismiss: _v3,
+            postCheckoutUrl: _v1
+          });
+        case "control":
+          return null;
+        default:
+          return _v0;
       }
-    })
+    }
   })], 0);
 }

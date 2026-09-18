@@ -96,8 +96,9 @@
     _v39 = _v0.i(0),
     _v40 = _v0.i(0),
     _v41 = _v0.i(0),
-    _v42 = _v0.i(0);
-  let _v43 = ({
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0);
+  let _v44 = ({
       target: _v0,
       targetPath: _v1,
       copy: _v2
@@ -112,11 +113,11 @@
           _v5 = "watch";
       }
       let _v6 = {
-        ...(0, _v37.buildActionBpContext)({
+        ...(0, _v38.buildActionBpContext)({
           action_type: "click",
           feature: null
         }),
-        ...(0, _v40.buildWebBpContext)({
+        ...(0, _v41.buildWebBpContext)({
           page_name: _v5 ?? "other",
           referrer_page_name: null,
           referrer: document.referrer,
@@ -124,7 +125,7 @@
           target: _v0,
           target_path: _v1
         }),
-        ...(0, _v38.buildProductAnalyticsBpContext)({
+        ...(0, _v39.buildProductAnalyticsBpContext)({
           flow: null,
           modal_name: null,
           entity_type: null,
@@ -133,10 +134,10 @@
           feature: _v5 ?? "test",
           product: "community",
           copy: _v2,
-          device_type: (0, _v36.default)()
+          device_type: (0, _v37.default)()
         }),
-        ...(0, _v39.buildTeamBpContextFromTeamUser)(_v3),
-        ...(0, _v42.buildThirdPartyIntegrationBpContext)({
+        ...(0, _v40.buildTeamBpContextFromTeamUser)(_v3),
+        ...(0, _v43.buildThirdPartyIntegrationBpContext)({
           is_integration: !1,
           integration_id: null,
           integration_name: null,
@@ -147,16 +148,16 @@
           is_partner: null
         })
       };
-      (0, _v41.sendBpEventWithContexts)("vimeo.content_navigation", _v6);
+      (0, _v42.sendBpEventWithContexts)("vimeo.content_navigation", _v6);
     },
-    _v44 = {
+    _v45 = {
       iconSize: (0, _v17.rem)(24),
       iconMarginRight: (0, _v17.rem)(12),
       borderRadius: (0, _v17.rem)(12),
       paddingX: (0, _v17.rem)(8),
       paddingLeft: (0, _v17.rem)(6)
     },
-    _v45 = ({
+    _v46 = ({
       icon: _v0,
       label: _v1,
       link: _v2,
@@ -166,10 +167,10 @@
       let _v5 = (0, _v12.useViewer)(),
         {
           trackSidebarNavClicked: _v6
-        } = (0, _v34.useWatchTracking)(),
+        } = (0, _v35.useWatchTracking)(),
         _v7 = _v2.slice(1) + "_link",
         _v8 = _v0 => {
-          _v0?.preventDefault(), window.open(_v2, "_blank", "noopener,noreferrer"), document.getElementsByClassName(_v7)[0].blur(), _v43({
+          _v0?.preventDefault(), window.open(_v2, "_blank", "noopener,noreferrer"), document.getElementsByClassName(_v7)[0].blur(), _v44({
             target: _v3,
             targetPath: _v2,
             copy: _v3.split("_").join(" ")
@@ -185,8 +186,8 @@
         onKeyDown: _v0 => {
           "Enter" === _v0.key && _v8(_v0);
         },
-        children: (0, _v1.jsx)(_v35.MenuItem, {
-          ..._v44,
+        children: (0, _v1.jsx)(_v36.MenuItem, {
+          ..._v45,
           className: _v7,
           icon: _v0,
           label: _v1,
@@ -200,7 +201,7 @@
         })
       });
     },
-    _v46 = ({
+    _v47 = ({
       userId: _v0,
       navContext: _v1
     }) => {
@@ -211,8 +212,14 @@
         _v4 = (0, _v12.useViewer)(),
         {
           trackSidebarNavClicked: _v5
-        } = (0, _v34.useWatchTracking)(),
-        _v6 = [{
+        } = (0, _v35.useWatchTracking)(),
+        {
+          settings: _v6
+        } = (0, _v34.useOrionSettings)(),
+        {
+          watch_page_categories_arm: _v7
+        } = _v6,
+        _v8 = [{
           key: "explore",
           label: (0, _v33.translate)({
             singular: "Explore",
@@ -281,7 +288,7 @@
           copy: "Staff Picks",
           destination: "staff_picks",
           active: "staffpicks" === _v3
-        }, {
+        }, ...("t1" === _v7 || "t2" === _v7 ? [] : [{
           key: "feed",
           label: (0, _v33.translate)({
             singular: "Feed",
@@ -308,7 +315,7 @@
           copy: "Feed",
           destination: "my_feed",
           active: "my-feed" === _v3
-        }];
+        }])];
       return (0, _v1.jsx)(_v3.Box, {
         style: {
           flexGrow: 1,
@@ -322,17 +329,17 @@
             customStyles: {
               gap: (0, _v17.rem)(2)
             },
-            children: _v6.map(_v0 => (0, _v1.jsx)(_v3.Box, {
+            children: _v8.map(_v0 => (0, _v1.jsx)(_v3.Box, {
               as: "li",
               listStyleType: "none",
-              children: (0, _v1.jsx)(_v35.MenuItem, {
-                ..._v44,
+              children: (0, _v1.jsx)(_v36.MenuItem, {
+                ..._v45,
                 icon: _v0.active ? _v0.iconActive : _v0.icon,
                 label: _v0.label,
                 active: _v0.active,
                 href: _v0.href,
                 onClick: () => {
-                  _v43({
+                  _v44({
                     target: _v0.target,
                     targetPath: _v0.targetPath,
                     copy: _v0.copy
@@ -443,7 +450,7 @@
                 label: _v1,
                 link: _v2,
                 target: _v3
-              }) => (0, _v1.jsx)(_v45, {
+              }) => (0, _v1.jsx)(_v46, {
                 icon: _v0,
                 label: _v1,
                 link: _v2,
@@ -567,7 +574,7 @@
               label: _v1,
               link: _v2,
               target: _v3
-            }) => (0, _v1.jsx)(_v45, {
+            }) => (0, _v1.jsx)(_v46, {
               icon: _v0,
               label: _v1,
               link: _v2,
@@ -578,9 +585,9 @@
         })
       });
     },
-    _v47 = (0, _v2.createContext)(256);
-  _v0.s(["SideNavWidthContext", 0, _v47], 0);
-  let _v48 = ({
+    _v48 = (0, _v2.createContext)(256);
+  _v0.s(["SideNavWidthContext", 0, _v48], 0);
+  let _v49 = ({
     children: _v0
   }) => {
     let _v1 = (0, _v12.useViewer)(),
@@ -617,7 +624,7 @@
               onClose: _v5,
               isMobile: _v3,
               hideWhatsNew: !0,
-              children: (0, _v1.jsx)(_v46, {
+              children: (0, _v1.jsx)(_v47, {
                 userId: _v1?.user?.id,
                 navContext: "watchpage"
               })
@@ -635,7 +642,7 @@
           } : void 0,
           isSideNavActive: _v4,
           hasSideNavLayout: !_v3
-        }), (0, _v1.jsx)(_v47.Provider, {
+        }), (0, _v1.jsx)(_v48.Provider, {
           value: _v10,
           children: _v0
         }), _v3 && _v4 && (0, _v1.jsx)(_v3.Box, {
@@ -655,14 +662,14 @@
       })]
     });
   };
-  _v0.s(["getLayout", 0, _v0 => (0, _v1.jsx)(_v48, {
+  _v0.s(["getLayout", 0, _v0 => (0, _v1.jsx)(_v49, {
     children: _v0
   })], 0);
-  var _v49 = _v0.i(0);
-  let _v50 = (0, _v41.createNullObject)(["object_actor_type", "object_placement", "object_actor_title"]);
+  var _v50 = _v0.i(0);
+  let _v51 = (0, _v42.createNullObject)(["object_actor_type", "object_placement", "object_actor_title"]);
   _v0.s(["buildCommunityBpContext", 0, _v0 => ({
-    community_context: new _v49.EventContext("community_context", 2, {
-      ..._v50,
+    community_context: new _v50.EventContext("community_context", 2, {
+      ..._v51,
       ..._v0
     })
   })], 0);

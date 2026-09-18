@@ -1345,17 +1345,15 @@
     _v72 = _v0.i(0),
     _v73 = _v0.i(0),
     _v74 = _v0.i(0),
-    _v75 = _v0.i(0),
-    _v76 = _v0.i(0),
-    _v77 = _v0.i(0);
-  let _v78 = (0, _v76.bokeh)(_v5.Box, {
+    _v75 = _v0.i(0);
+  let _v76 = (0, _v74.bokeh)(_v5.Box, {
       baseStyle: {
         width: "100%",
         overflowY: "scroll",
         flex: 1
       }
     }),
-    _v79 = (0, _v76.bokeh)(_v5.Box, {
+    _v77 = (0, _v74.bokeh)(_v5.Box, {
       baseStyle: {
         borderSpacing: 0,
         tableLayout: "fixed",
@@ -1372,13 +1370,13 @@
         }
       }
     }),
-    _v80 = (0, _v76.bokeh)(_v5.Box, {
+    _v78 = (0, _v74.bokeh)(_v5.Box, {
       baseStyle: {
         cursor: "pointer",
         height: (0, _v9.rem)(60)
       }
     }),
-    _v81 = (0, _v76.bokeh)(_v5.Box, {
+    _v79 = (0, _v74.bokeh)(_v5.Box, {
       baseStyle: {
         "&:first-child": {
           position: "sticky",
@@ -1390,14 +1388,14 @@
         }
       }
     }),
-    _v82 = (0, _v76.bokeh)(_v77.Text, {
+    _v80 = (0, _v74.bokeh)(_v75.Text, {
       baseStyle: {
         textOverflow: "ellipsis",
         whiteSpace: "nowrap",
         overflow: "hidden"
       }
     }),
-    _v83 = (0, _v76.bokeh)(_v5.Box, {
+    _v81 = (0, _v74.bokeh)(_v5.Box, {
       baseStyle: {
         zIndex: 2,
         position: "sticky",
@@ -1415,12 +1413,12 @@
         }
       }
     });
-  var _v84 = _v0.i(0),
-    _v85 = _v0.i(0);
-  let _v86 = {
+  var _v82 = _v0.i(0),
+    _v83 = _v0.i(0);
+  let _v84 = {
       mkcCode: "ent-upgrade-webinar-advanced-analytics"
     },
-    _v87 = ({
+    _v85 = ({
       fields: _v0
     }) => {
       let {
@@ -1455,29 +1453,29 @@
         children: (0, _v1.jsx)("tr", {
           children: _v0.filter(_v0 => !!_v0.isVisible && !_v30.HIDDEN_COLUMNS_FOR_ENTITY[_v2].includes(_v0.name)).map((_v0, _v1) => {
             let _v2 = _v0.align;
-            return "viewPercentage" === _v0.name && _v1 !== _v30.EVENT_STATUS.ENDED && (_v2 = _v30.ALIGN.CENTER), (0, _v1.jsx)(_v83, {
+            return "viewPercentage" === _v0.name && _v1 !== _v30.EVENT_STATUS.ENDED && (_v2 = _v30.ALIGN.CENTER), (0, _v1.jsx)(_v81, {
               borderStyle: _v6 ? "none" : "solid",
               as: "th",
               width: _v0.minWidth || (0, _v9.rem)(36),
               children: (0, _v1.jsxs)(_v7.Flex, {
                 justifyContent: _v2 || _v30.ALIGN.LEFT,
                 alignItems: "center",
-                children: [(0, _v1.jsx)(_v77.Text, {
+                children: [(0, _v1.jsx)(_v75.Text, {
                   variant: "body-md",
                   children: _v16.DISPLAY_MAP[_v0.name] ?? _v0.name
                 }), _v3 && _v0.name === _v30.ATTENDEE_TABLE_FIELDS.VIEW_PERCENTAGE && (0, _v1.jsx)(_v55.Tooltip, {
                   maxWidth: (0, _v9.rem)(280),
                   label: _v16.default.VideoWatchTime,
                   children: (0, _v1.jsx)(_v5.Box, {
-                    children: (0, _v1.jsx)(_v84.InfoCircle, {
+                    children: (0, _v1.jsx)(_v82.InfoCircle, {
                       ml: "x"
                     })
                   })
                 }), !_v4 && _v0.name === _v30.ATTENDEE_TABLE_FIELDS.VIEW_PERCENTAGE && (0, _v1.jsx)(_v5.Box, {
                   pl: (0, _v9.rem)(8),
-                  children: (0, _v1.jsx)(_v85.UpsellBadge, {
+                  children: (0, _v1.jsx)(_v83.UpsellBadge, {
                     enterpriseFeatureOverride: _v2 === _v14.ENTITY_TYPE.EVENT ? _v16.default.AdvancedWebinarAnalytics : void 0,
-                    modalConfig: _v2 === _v14.ENTITY_TYPE.EVENT ? _v86 : void 0,
+                    modalConfig: _v2 === _v14.ENTITY_TYPE.EVENT ? _v84 : void 0,
                     onClick: _v7
                   })
                 })]
@@ -1487,77 +1485,69 @@
         })
       });
     };
-  var _v88 = _v0.i(0);
-  let _v89 = ({
+  var _v86 = _v0.i(0),
+    _v87 = _v0.i(0);
+  let _v88 = ({
       isLoading: _v0,
       noData: _v1
     }) => {
-      let {
-          status: _v2,
-          entityLink: _v3
-        } = (0, _v43.useEntityStore)(),
-        [_v4, _v5] = (0, _v2.useState)(!1),
-        _v6 = (0, _v2.useRef)(null),
-        _v7 = (0, _v2.useRef)(null),
+      let [_v2, _v3] = (0, _v2.useState)(!1),
+        _v4 = (0, _v2.useRef)(null),
+        _v5 = (0, _v2.useRef)(null),
         {
-          hasUpsell: _v8,
-          hasEnterprise: _v9
+          hasUpsell: _v6,
+          hasEnterprise: _v7
         } = (0, _v39.useEventCapability)(),
-        _v10 = (0, _v10.useToast)(),
         {
-          sendUpsellEvent: _v11
+          sendUpsellEvent: _v8
         } = (0, _v12.useUpsellAnalytics)(),
-        [_v12, _v13] = (0, _v25.useIsVisible)({
+        [_v9, _v10] = (0, _v25.useIsVisible)({
           threshold: 1
         }),
-        _v14 = (0, _v15.useConfigStore)(_v0 => _v0.entityType),
-        _v15 = _v14 === _v14.ENTITY_TYPE.VIDEO,
-        _v16 = _v14 === _v14.ENTITY_TYPE.EVENT,
-        _v17 = _v16 ? `${window.location.origin}${_v3}` : _v3,
+        _v11 = (0, _v15.useConfigStore)(_v0 => _v0.entityType),
+        _v12 = _v11 === _v14.ENTITY_TYPE.VIDEO,
         {
-          isOwner: _v18
+          isOwner: _v13
         } = (0, _v66.useTeamStore)(),
         {
-          sendShareLinkBpEvent: _v19
-        } = (0, _v27.useAnalytics)(),
-        {
-          trackLiveStreamRegistrantsActionClicked: _v20
-        } = (0, _v74.useLiveStreamBroadcasterTracking)();
-      return (0, _v75.default)([_v6, _v7], () => {
-        _v4 && _v5(!1);
-      }, null, [_v4]), (0, _v2.useEffect)(() => {
-        _v8 && [_v14.ENTITY_TYPE.VIDEO, _v14.ENTITY_TYPE.SHOWCASE].includes(_v14) && _v13 && _v11({
+          shareEntity: _v14,
+          canShare: _v15
+        } = (0, _v86.useShareEntity)();
+      return (0, _v73.default)([_v4, _v5], () => {
+        _v2 && _v3(!1);
+      }, null, [_v2]), (0, _v2.useEffect)(() => {
+        _v6 && [_v14.ENTITY_TYPE.VIDEO, _v14.ENTITY_TYPE.SHOWCASE].includes(_v11) && _v10 && _v8({
           eventName: _v29.BP_EVENT_NAME.UPSELL_TRIGGER_IMPRESSION,
-          pageName: _v15 ? _v29.BP_PAGE_NAME.SINGLE_VIDEO_VIEW_MANAGE : _v29.BP_PAGE_NAME.SHOWCASE_MANAGER,
+          pageName: _v12 ? _v29.BP_PAGE_NAME.SINGLE_VIDEO_VIEW_MANAGE : _v29.BP_PAGE_NAME.SHOWCASE_MANAGER,
           target: null,
           targetPath: null,
-          upsellName: _v15 ? _v29.UPSELL_NAME.ADD_VIDEO_REG_CAPABILITY : _v29.UPSELL_NAME.ADD_SHOWCASE_REG_CAPABILITY,
+          upsellName: _v12 ? _v29.UPSELL_NAME.ADD_VIDEO_REG_CAPABILITY : _v29.UPSELL_NAME.ADD_SHOWCASE_REG_CAPABILITY,
           interfaceType: "page",
           product: "gates",
           feature: "registration",
           location: _v29.BP_LOCATION.CONTENT_AREA,
-          entityType: _v14,
+          entityType: _v11,
           copy: _v29.BP_COPY.UPGRADE,
           flow: _v29.BP_FLOW.REGISTRANTS_TAB,
           element: "button"
         });
-      }, [_v13]), (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v79, {
+      }, [_v10]), (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsxs)(_v77, {
           as: "table",
-          children: [(0, _v1.jsx)(_v87, {
+          children: [(0, _v1.jsx)(_v85, {
             fields: _v64
           }), _v0 && (0, _v1.jsx)(_v5.Box, {
             as: "tbody",
             overflowY: "scroll",
-            children: Array.from(Array(_v30.ATTENDEES_PAGE_SIZE)).map((_v0, _v1) => (0, _v1.jsx)(_v80, {
+            children: Array.from(Array(_v30.ATTENDEES_PAGE_SIZE)).map((_v0, _v1) => (0, _v1.jsx)(_v78, {
               as: "tr",
-              children: _v64.filter(_v0 => _v0.isVisible).map((_v0, _v1) => _v30.HIDDEN_COLUMNS_FOR_ENTITY[_v14].includes(_v0.name) ? null : (0, _v1.jsx)(_v81, {
+              children: _v64.filter(_v0 => _v0.isVisible).map((_v0, _v1) => _v30.HIDDEN_COLUMNS_FOR_ENTITY[_v11].includes(_v0.name) ? null : (0, _v1.jsx)(_v79, {
                 as: "td",
                 w: _v0.minWidth,
                 children: (0, _v1.jsx)(_v7.Flex, {
                   justifyContent: _v0.align,
                   children: (0, _v1.jsx)(_v5.Box, {
-                    sx: (0, _v88.PlaceholderStyles)()
+                    sx: (0, _v87.PlaceholderStyles)()
                   })
                 })
               }, _v1))
@@ -1571,27 +1561,27 @@
             mt: (0, _v9.rem)(100),
             justifyContent: "center",
             flex: 1,
-            children: _v8 ? (0, _v1.jsx)(_v7.Flex, {
+            children: _v6 ? (0, _v1.jsx)(_v7.Flex, {
               flexDir: "column",
-              ref: _v12,
+              ref: _v9,
               alignItems: "center",
               w: (0, _v9.rem)(350),
-              children: (0, _v1.jsx)(_v73.Upsell, {
-                hasEnterprise: _v9 ?? !1,
-                isEntityOwner: _v18,
+              children: (0, _v1.jsx)(_v72.Upsell, {
+                hasEnterprise: _v7 ?? !1,
+                isEntityOwner: _v13,
                 showExploreButton: !1,
-                entityType: _v14,
+                entityType: _v11,
                 onUpsellClick: () => {
-                  _v11({
-                    pageName: _v15 ? _v29.BP_PAGE_NAME.SINGLE_VIDEO_VIEW_MANAGE : _v29.BP_PAGE_NAME.SHOWCASE_MANAGER,
+                  _v8({
+                    pageName: _v12 ? _v29.BP_PAGE_NAME.SINGLE_VIDEO_VIEW_MANAGE : _v29.BP_PAGE_NAME.SHOWCASE_MANAGER,
                     target: _v29.BP_TARGET.UPGRADE_PAGE,
                     targetPath: window.location.pathname,
-                    upsellName: _v15 ? _v29.UPSELL_NAME.ADD_VIDEO_REG_CAPABILITY : _v29.UPSELL_NAME.ADD_SHOWCASE_REG_CAPABILITY,
+                    upsellName: _v12 ? _v29.UPSELL_NAME.ADD_VIDEO_REG_CAPABILITY : _v29.UPSELL_NAME.ADD_SHOWCASE_REG_CAPABILITY,
                     interfaceType: "page",
                     product: "gates",
                     feature: "registration",
                     location: _v29.BP_LOCATION.CONTENT_AREA,
-                    entityType: _v14,
+                    entityType: _v11,
                     copy: _v29.BP_COPY.UPGRADE,
                     flow: _v29.BP_FLOW.REGISTRANTS_TAB,
                     element: "button"
@@ -1601,38 +1591,28 @@
             }) : (0, _v1.jsxs)(_v7.Flex, {
               flexDir: "column",
               alignItems: "center",
-              children: [(0, _v1.jsx)(_v72.Registration, {
+              children: [(0, _v1.jsx)(_v71.Registration, {
                 boxSize: (0, _v9.rem)(54),
                 mb: 3
-              }), (0, _v1.jsx)(_v70.Paragraph, {
+              }), (0, _v1.jsx)(_v69.Paragraph, {
                 size: "md",
                 textAlign: "center",
                 w: (0, _v9.rem)(280),
                 color: "text-secondary",
-                children: _v16.default.TableEmptyState[_v14]
-              }), (_v2 !== _v30.EVENT_STATUS.ENDED || _v15) && (0, _v1.jsx)(_v69.Button, {
+                children: _v16.default.TableEmptyState[_v11]
+              }), _v15 && (0, _v1.jsx)(_v68.Button, {
                 mt: (0, _v9.rem)(12),
                 variant: "primary",
-                leftIcon: (0, _v1.jsx)(_v71.Link, {}),
-                onClick: () => {
-                  (0, _v68.default)(_v17 || ""), _v10({
-                    title: _v16.default.LinkCopied,
-                    status: "info"
-                  }), _v19({
-                    copy: _v29.BP_COPY.SHARE[_v14],
-                    version: 8
-                  }), _v16 && _v20({
-                    liveStreamRegistrantsAction: "share_event"
-                  });
-                },
-                children: _v16.default.ShareEntity[_v14]
+                leftIcon: (0, _v1.jsx)(_v70.Link, {}),
+                onClick: () => _v14(),
+                children: _v16.default.ShareEntity[_v11]
               })]
             })
           })
         })]
       });
     },
-    _v90 = ({
+    _v89 = ({
       fields: _v0,
       payload: _v1,
       onRowClick: _v2,
@@ -1653,22 +1633,22 @@
           top: 0,
           behavior: "smooth"
         });
-      }, [_v3]), !_v1.length || _v3) ? (0, _v1.jsx)(_v78, {
-        children: (0, _v1.jsx)(_v89, {
+      }, [_v3]), !_v1.length || _v3) ? (0, _v1.jsx)(_v76, {
+        children: (0, _v1.jsx)(_v88, {
           isLoading: _v3,
           noData: !0
         })
-      }) : (0, _v1.jsx)(_v78, {
+      }) : (0, _v1.jsx)(_v76, {
         ref: _v10,
-        children: (0, _v1.jsxs)(_v79, {
+        children: (0, _v1.jsxs)(_v77, {
           as: "table",
-          children: [(0, _v1.jsx)(_v87, {
+          children: [(0, _v1.jsx)(_v85, {
             fields: _v0
           }), (0, _v1.jsx)(_v5.Box, {
             overflowY: "scroll",
             ref: _v8,
             as: "tbody",
-            children: _v1.filter(_v0 => !!_v0.uri).map(_v0 => (0, _v1.jsx)(_v80, {
+            children: _v1.filter(_v0 => !!_v0.uri).map(_v0 => (0, _v1.jsx)(_v78, {
               tabIndex: 0,
               as: "tr",
               onKeyDown: _v0 => {
@@ -1680,7 +1660,7 @@
                 let _v2 = (Array.isArray(_v1 = _v0.apiName) ? _v1 : _v1.split(".").filter(_v0 => _v0)).flatMap(_v0 => "string" == typeof _v0 ? _v0.split(".") : _v0).reduce((_v0, _v1) => _v0 && _v0[_v1], _v0) ?? "-",
                   _v3 = "-" === _v2 ? "-" : _v0.displayFunc?.(_v2, _v0, _v11 ?? void 0) || _v2,
                   _v4 = _v0.align;
-                return _v0.name === _v30.ATTENDEE_TABLE_FIELDS.VIEW_PERCENTAGE && _v6 !== _v30.EVENT_STATUS.ENDED && (_v4 = _v30.ALIGN.CENTER), (0, _v1.jsx)(_v81, {
+                return _v0.name === _v30.ATTENDEE_TABLE_FIELDS.VIEW_PERCENTAGE && _v6 !== _v30.EVENT_STATUS.ENDED && (_v4 = _v30.ALIGN.CENTER), (0, _v1.jsx)(_v79, {
                   as: "td",
                   w: _v0.minWidth || (0, _v9.rem)(36),
                   style: _v0.style,
@@ -1708,7 +1688,7 @@
                         payloadUri: _v0.uri,
                         setDeleteRecordUri: _v5
                       }, _v0.uri)
-                    }) : (0, _v1.jsx)(_v82, {
+                    }) : (0, _v1.jsx)(_v80, {
                       variant: [_v30.ATTENDEE_TABLE_FIELDS.FIRST_NAME, _v30.ATTENDEE_TABLE_FIELDS.LAST_NAME].includes(_v0.name) ? "heading-sm" : "body-md",
                       children: _v3
                     })
@@ -1720,7 +1700,7 @@
         })
       });
     },
-    _v91 = {
+    _v90 = {
       data: [],
       total: 0,
       page: 1,
@@ -1732,7 +1712,7 @@
         last: null
       }
     },
-    _v92 = () => {
+    _v91 = () => {
       let {
           PROCESSING: _v0,
           PENDING: _v1
@@ -1763,7 +1743,7 @@
         {
           setMessage: _v19
         } = (0, _v13.useUpsellContext)(),
-        [_v20, _v21] = (0, _v2.useState)(_v91),
+        [_v20, _v21] = (0, _v2.useState)(_v90),
         [_v22, _v23] = (0, _v2.useState)(!1),
         [_v24, _v25] = (0, _v2.useState)(1),
         [_v26, _v27] = (0, _v2.useState)(null),
@@ -1950,7 +1930,7 @@
               isCRMLoading: _v52,
               isCRMStatusLoading: _v55
             }
-          }), (0, _v1.jsx)(_v90, {
+          }), (0, _v1.jsx)(_v89, {
             fields: _v64,
             payload: _v20 ? _v20.data : [],
             onRowClick: _v27,
@@ -2006,13 +1986,13 @@
         })]
       });
     };
-  var _v93 = _v0.i(0),
+  var _v92 = _v0.i(0),
+    _v93 = _v0.i(0),
     _v94 = _v0.i(0),
     _v95 = _v0.i(0),
     _v96 = _v0.i(0),
     _v97 = _v0.i(0),
-    _v98 = _v0.i(0),
-    _v99 = _v0.i(0);
+    _v98 = _v0.i(0);
   _v0.s(["LeadCaptureDashboard", 0, ({
     entityId: _v0,
     entityOwnerId: _v1,
@@ -2030,18 +2010,18 @@
         let [_v3, {
             loading: _v4,
             data: _v5
-          }] = (0, _v98.useGetUserLiveEventLazy)(),
+          }] = (0, _v97.useGetUserLiveEventLazy)(),
           [_v6, {
             loading: _v7,
             data: _v8
-          }] = (0, _v99.useGetVideoLazy)(),
+          }] = (0, _v98.useGetVideoLazy)(),
           [_v9, {
             data: _v10,
             loading: _v11
-          }] = (0, _v96.useGetAlbumLazy)(),
+          }] = (0, _v95.useGetAlbumLazy)(),
           [_v12, {
             data: _v13
-          }] = (0, _v97.useGetLeadCaptureResourceIdFormLazy)(),
+          }] = (0, _v96.useGetLeadCaptureResourceIdFormLazy)(),
           _v14 = (0, _v2.useCallback)(() => {
             if (_v0 && _v1) {
               switch (_v1) {
@@ -2157,7 +2137,7 @@
       _v10 = (0, _v2.useMemo)(() => _v8 && _v9 ? {
         ..._v8,
         entityLink: _v9
-      } : _v93.defaultValue, [_v8, _v9]);
+      } : _v92.defaultValue, [_v8, _v9]);
     return ((0, _v2.useEffect)(() => {
       _v15.useConfigStore.setState({
         entityType: _v2,
@@ -2166,15 +2146,15 @@
         canCompleteEvent: _v4,
         setSelectedSection: _v5
       });
-    }, [_v4, _v0, _v2, _v8?.uri, _v3, _v5]), _v8) ? (0, _v1.jsx)(_v93.default, {
+    }, [_v4, _v0, _v2, _v8?.uri, _v3, _v5]), _v8) ? (0, _v1.jsx)(_v92.default, {
       initialValue: _v10,
       children: (0, _v1.jsx)(_v39.default, {
-        children: (0, _v1.jsx)(_v94.default, {
+        children: (0, _v1.jsx)(_v93.default, {
           isOwner: _v8?.user?.uri === _v7?.uri,
           canEdit: !!_v8?.metadata?.interactions.edit?.uri,
-          children: (0, _v1.jsx)(_v95.default, {
+          children: (0, _v1.jsx)(_v94.default, {
             entityLink: _v8?.uri,
-            children: (0, _v1.jsx)(_v92, {})
+            children: (0, _v1.jsx)(_v91, {})
           })
         })
       })
