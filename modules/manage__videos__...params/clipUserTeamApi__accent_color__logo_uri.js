@@ -6786,22 +6786,22 @@
       singular: "View video page",
       dictionary: {
         es: {
-          singular: "Ver la página de video"
+          singular: "Ver la página del video"
         },
         "de-DE": {
-          singular: "Videoseite ansehen"
+          singular: "Videoseite anzeigen"
         },
         "fr-FR": {
           singular: "Voir la page de la vidéo"
         },
         "ja-JP": {
-          singular: "動画ページを表示する"
+          singular: "動画ページを表示"
         },
         "ko-KR": {
           singular: "동영상 페이지 보기"
         },
         "pt-BR": {
-          singular: "Ver página de vídeo"
+          singular: "Visualizar página do vídeo"
         },
         "zh-CN": {
           singular: "查看视频页面"
@@ -12255,10 +12255,10 @@
                 singular: "Dateiaktionen"
               },
               "fr-FR": {
-                singular: "Actions sur les fichiers"
+                singular: "Actions du fichier"
               },
               "ja-JP": {
-                singular: "ファイルアクション"
+                singular: "ファイル操作"
               },
               "ko-KR": {
                 singular: "파일 작업"

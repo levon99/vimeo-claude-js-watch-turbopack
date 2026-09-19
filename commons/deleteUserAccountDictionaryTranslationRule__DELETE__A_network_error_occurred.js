@@ -2048,8 +2048,7 @@
   });
   let _v126 = ["created", "results", "results.errors", "results.errors.message", "results.index", "results.status"],
     _v127 = () => {
-      let _v0 = URL.createObjectURL(new Blob([`${_v118}\r
-`], {
+      let _v0 = URL.createObjectURL(new Blob([[_v118, "Vimeo AI", "OTT", ""].join("\r\n")], {
           type: "text/csv;charset=utf-8"
         })),
         _v1 = document.createElement("a");
@@ -3641,8 +3640,7 @@ ${_v2}`;
           duration: 0
         }),
         _v19 = _v65(),
-        _v20 = (0, _v3.useMemo)(() => `data:text/csv;charset=utf-8,${encodeURIComponent(`${_v178.join(",")}\r
-`)}`, []),
+        _v20 = (0, _v3.useMemo)(() => `data:text/csv;charset=utf-8,${encodeURIComponent([_v178.join(","), "en,Review page,es,Página de revisión", "en,Live event,fr,Événement en direct", ""].join("\r\n"))}`, []),
         _v21 = (0, _v3.useMemo)(() => {
           var _v0;
           let _v1;
@@ -3665,11 +3663,12 @@ ${_v2}`;
           }), [..._v1.values()];
         }, [_v8]),
         _v22 = !!_v8?.some(_v0 => !_v0.sourceText.trim() || !_v0.replacementText.trim()),
-        _v23 = _v14 || _v16;
+        _v23 = _v14 || _v16,
+        _v24 = _v1.replacementsCsvInstructions;
       (0, _v3.useEffect)(() => {
         _v12 && _v6.current?.focus();
       }, [_v12]);
-      let _v24 = async _v0 => {
+      let _v25 = async _v0 => {
           if (_v13(void 0), !_v0.name.toLowerCase().endsWith(".csv")) return void _v19(_v186("file", _v1));
           if (_v0.size > 0) return void _v19(_v1.csvFileTooLarge);
           _v15(!0);
@@ -3756,13 +3755,13 @@ ${_v2}`;
             _v15(!1);
           }
         },
-        _v25 = (_v0, _v1, _v2) => {
+        _v26 = (_v0, _v1, _v2) => {
           _v9(_v0 => _v0?.map((_v0, _v1) => _v1 === _v0 ? {
             ..._v0,
             [_v1]: _v2
           } : _v0));
         },
-        _v26 = async () => {
+        _v27 = async () => {
           if (_v8) {
             _v17(!0);
             try {
@@ -3833,12 +3832,12 @@ ${_v2}`;
                           label: _v1.replacementsSourceTerm(_v2 + 1),
                           value: _v0.sourceText,
                           isDisabled: _v16,
-                          onChange: _v0 => _v25(_v1, "sourceText", _v0)
+                          onChange: _v0 => _v26(_v1, "sourceText", _v0)
                         }), (0, _v1.jsx)(_v63, {
                           label: _v1.replacementsTargetTerm(_v1, _v2 + 1),
                           value: _v0.replacementText,
                           isDisabled: _v16,
-                          onChange: _v0 => _v25(_v1, "replacementText", _v0)
+                          onChange: _v0 => _v26(_v1, "replacementText", _v0)
                         })]
                       }, _v0.line))
                     })]
@@ -3869,7 +3868,14 @@ ${_v2}`;
               children: [(0, _v1.jsx)(_v10.Text, {
                 variant: "body-md",
                 color: "text-secondary",
-                children: _v1.replacementsCsvInstructions
+                children: _v3.Children.toArray(_v24(_v0 => (0, _v1.jsx)(_v36.Link, {
+                  href: "https://help.vimeo.com/hc/en-us/articles/51019307091985",
+                  textDecoration: "underline",
+                  _hover: {
+                    textDecoration: "none"
+                  },
+                  children: _v3.Children.toArray(_v0)
+                }, "language-codes-link")))
               }), (0, _v1.jsx)(_v10.Text, {
                 variant: "body-md",
                 color: "text-secondary",
@@ -3896,7 +3902,7 @@ ${_v2}`;
                   uploadingHint: _v1.csvUploadingHint,
                   uploadingLabel: _v1.csvUploading,
                   isBusy: _v14,
-                  onFileSelected: _v0 => void _v24(_v0)
+                  onFileSelected: _v0 => void _v25(_v0)
                 })
               })]
             }), _v12 && (0, _v1.jsx)(_v16.Alert, {
@@ -3936,7 +3942,7 @@ ${_v2}`;
               variant: "primary",
               isLoading: _v16,
               isDisabled: _v22,
-              onClick: () => void _v26(),
+              onClick: () => void _v27(),
               children: _v2 ? _v1.replaceTermsTranslations : _v1.save
             })]
           })]
@@ -8313,30 +8319,36 @@ ${_v2}`;
               }
             }
           }),
-          replacementsCsvInstructions: (0, _v213.translate)({
-            singular: "Upload a CSV with the following columns: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Use the language codes supported for AI subtitle translations, such as en, pt, or zh-HK.",
-            replacements: _v214,
+          replacementsCsvInstructions: _v0 => (0, _v213.translate)({
+            singular: "Upload a CSV with the following columns: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Use the {A}language codes{/A} supported for AI subtitle translations.",
+            replacements: {
+              A: _v0,
+              SOURCE_LANGUAGE: _v214.SOURCE_LANGUAGE,
+              SOURCE_TERM: _v214.SOURCE_TERM,
+              TARGET_LANGUAGE: _v214.TARGET_LANGUAGE,
+              TARGET_TERM: _v214.TARGET_TERM
+            },
             dictionary: {
               es: {
-                singular: "Suba un CSV con las siguientes columnas: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Utilice los códigos de idioma compatibles con las traducciones de subtítulos por IA, como en, pt, o zh-HK."
+                singular: "Suba un CSV con las siguientes columnas: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Utilice los {A}códigos de idioma{/A} compatibles para las traducciones de subtítulos con IA."
               },
               "de-DE": {
-                singular: "Laden Sie eine CSV mit den folgenden Spalten hoch: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Verwenden Sie die Sprachcodes, die für KI-Untertitelübersetzungen unterstützt werden, z. B. en, pt oder zh-HK."
+                singular: "Laden Sie eine CSV mit den folgenden Spalten hoch: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Verwenden Sie die {A}Sprachcodes{/A}, die für KI-Untertitelübersetzungen unterstützt werden."
               },
               "fr-FR": {
-                singular: "Téléversez un CSV comportant les colonnes suivantes : {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Utilisez les codes de langue pris en charge pour les traductions de sous-titres par IA, tels que en, pt ou zh-HK."
+                singular: "Importez un fichier CSV contenant les colonnes suivantes : {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Utilisez les {A}codes de langue{/A} pris en charge pour les traductions de sous-titres par IA."
               },
               "ja-JP": {
-                singular: "次の列を含むCSVをアップロードしてください: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. AI字幕翻訳でサポートされている言語コード（例: en, pt, zh-HK）を使用してください."
+                singular: "次の列を含むCSVをアップロードしてください: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. AI字幕翻訳でサポートされている{A}言語コード{/A}を使用してください。"
               },
               "ko-KR": {
-                singular: "다음 열을 포함하는 CSV를 업로드하세요: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. AI 자막 번역에서 지원되는 언어 코드(예: en, pt, zh-HK)를 사용하세요."
+                singular: "다음 열을 포함한 CSV 파일을 업로드하세요: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. AI 자막 번역에 지원되는 {A}언어 코드{/A}를 사용하세요."
               },
               "pt-BR": {
-                singular: "Faça upload de um CSV com as seguintes colunas: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Use os códigos de idioma compatíveis para traduções de legendas por IA, como en, pt ou zh-HK."
+                singular: "Envie um CSV com as seguintes colunas: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. Use os {A}códigos de idioma{/A} suportados para traduções de legendas por IA."
               },
               "zh-CN": {
-                singular: "上传一个 CSV 文件: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. 使用 AI 字幕翻译支持的语言代码, 例如 en, pt, 或 zh-HK."
+                singular: "上传包含以下列的 CSV: {SOURCE_LANGUAGE}, {SOURCE_TERM}, {TARGET_LANGUAGE}, {TARGET_TERM}. 使用支持 AI 字幕翻译的 {A}language codes{/A}."
               }
             }
           }),

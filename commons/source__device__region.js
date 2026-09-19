@@ -73,6 +73,20 @@
       _v10 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_breakdown_changed", {
         analytics_report_type: _v0.analyticsReportType,
         analytics_breakdown_value: _v0.analyticsBreakdownValue
+      }), !0), [_v0]),
+      _v11 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_bandwidth_view_changed", {
+        analytics_bandwidth_view: _v0.analyticsBandwidthView
+      }), !0), [_v0]),
+      _v12 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("video_analytics_page_displayed", {
+        clip_id: _v0.clipId
+      }), !0), [_v0]),
+      _v13 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_dashboard_displayed", {
+        analytics_ai_widget_count: _v0.widgetCount,
+        analytics_ai_has_widgets: _v0.hasWidgets
+      }), !0), [_v0]),
+      _v14 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_prompt_submitted", {
+        analytics_ai_prompt: _v0.prompt,
+        analytics_ai_prompt_source: _v0.promptSource
       }), !0), [_v0]);
     return {
       trackAnalyticsPageDisplayed: _v1,
@@ -85,11 +99,27 @@
       trackAnalyticsMetricChanged: _v8,
       trackAnalyticsGranularityChanged: _v9,
       trackAnalyticsBreakdownChanged: _v10,
-      trackAnalyticsBandwidthViewChanged: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_bandwidth_view_changed", {
-        analytics_bandwidth_view: _v0.analyticsBandwidthView
+      trackAnalyticsBandwidthViewChanged: _v11,
+      trackVideoAnalyticsPageDisplayed: _v12,
+      trackAnalyticsAiDashboardDisplayed: _v13,
+      trackAnalyticsAiPromptSubmitted: _v14,
+      trackAnalyticsAiGenerationCompleted: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_generation_completed", {
+        analytics_ai_generation_status: _v0.generationStatus,
+        analytics_ai_prompt: _v0.prompt,
+        analytics_ai_query_spec: _v0.querySpec,
+        analytics_ai_dataset: _v0.dataset,
+        analytics_ai_chart_type: _v0.chartType,
+        analytics_ai_title: _v0.title,
+        analytics_ai_suggestions_count: _v0.suggestionsCount,
+        error: _v0.error
       }), !0), [_v0]),
-      trackVideoAnalyticsPageDisplayed: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("video_analytics_page_displayed", {
-        clip_id: _v0.clipId
+      trackAnalyticsAiWidgetDataRequested: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_widget_data_requested", {
+        analytics_ai_dataset: _v0.dataset,
+        analytics_ai_chart_type: _v0.chartType,
+        analytics_ai_query_spec: _v0.querySpec,
+        surface: _v0.surface,
+        analytics_ai_widget_id: _v0.widgetId,
+        analytics_ai_request_outcome: _v0.requestOutcome
       }), !0), [_v0])
     };
   }]);

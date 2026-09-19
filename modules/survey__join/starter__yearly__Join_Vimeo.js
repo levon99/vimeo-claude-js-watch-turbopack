@@ -337,7 +337,7 @@
       }), !_v20 && !(_v17 && "none" === _v12) && (0, _v1.jsx)(_v29.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: _v11,
         dismissButtonVariant: _v17 ? _v12 : "skip",
-        skipLabel: _v17 ? void 0 : _v0,
+        skipLabel: _v0,
         onDismiss: _v27
       })]
     });
@@ -2823,23 +2823,23 @@
     randomizeAnswers: _v0 = !0,
     renderPaywallStep2: _v1
   }) {
-    var _v2;
-    let _v3 = (0, _v7.useRouter)(),
-      _v4 = (0, _v6.useSearchParams)(),
+    var _v2, _v3;
+    let _v4 = (0, _v7.useRouter)(),
+      _v5 = (0, _v6.useSearchParams)(),
       {
-        settings: _v5,
-        isLoadingResponse: _v6
+        settings: _v6,
+        isLoadingResponse: _v7
       } = (0, _v11.useOrionSettings)(),
       {
-        capabilities: _v7
+        capabilities: _v8
       } = (0, _v9.useCapability)(["hasCreation", "hasPaid"]),
-      [_v8, _v9] = (0, _v8.useState)(!1),
-      [_v10, _v11] = (0, _v8.useState)(null),
-      _v12 = _v5.video_upload_onboarding_arm,
-      _v13 = "t1" === _v5.single_question_survey_arm,
-      _v14 = _v5.onboarding_paywall_flow,
-      _v15 = "control" !== _v14 && "plansComparison" === _v5.onboarding_paywall_kind && "control" === _v5.reverse_free_trial_arm && _v7?.hasPaid === !1,
-      _v16 = (0, _v8.useMemo)(() => function (_v0, _v1 = "control") {
+      [_v9, _v10] = (0, _v8.useState)(!1),
+      [_v11, _v12] = (0, _v8.useState)(null),
+      _v13 = _v6.video_upload_onboarding_arm,
+      _v14 = "t1" === _v6.single_question_survey_arm,
+      _v15 = _v6.onboarding_paywall_flow,
+      _v16 = (_v2 = _v6.onboarding_paywall_kind, "control" !== _v15 && "featureList" !== _v2 && ("welcomeOffer" !== _v2 || "welcome_offer_at_dismiss" !== _v15) && "control" === _v6.reverse_free_trial_arm && _v8?.hasPaid === !1),
+      _v17 = (0, _v8.useMemo)(() => function (_v0, _v1 = "control") {
         let _v2 = (() => {
           switch (_v0) {
             case "t1":
@@ -2852,59 +2852,59 @@
           }
         })();
         return "control" !== _v1 ? [..._v2, "paywall_step_2"] : [..._v2];
-      }(_v12, _v15 ? _v14 : "control"), [_v12, _v15, _v14]),
-      _v17 = null === (_v2 = _v4.get("phase")) || "" === _v2 ? _v16[0] : _v16.find(_v0 => _v0 === _v2) ?? null,
-      _v18 = _v10 && (0, _v12.isVimeoRedirectableUrl)(_v10) ? _v10 : void 0,
-      [_v19] = (0, _v8.useState)(() => (0, _v13.peekPostSurveyRedirect)()),
-      _v20 = _v18 ?? _v19,
-      _v21 = () => {
-        _v9(!0), (0, _v13.clearPostSurveyRedirect)(), _v3.push(_v20 ?? "/home");
-      },
+      }(_v13, _v16 ? _v15 : "control"), [_v13, _v16, _v15]),
+      _v18 = null === (_v3 = _v5.get("phase")) || "" === _v3 ? _v17[0] : _v17.find(_v0 => _v0 === _v3) ?? null,
+      _v19 = _v11 && (0, _v12.isVimeoRedirectableUrl)(_v11) ? _v11 : void 0,
+      [_v20] = (0, _v8.useState)(() => (0, _v13.peekPostSurveyRedirect)()),
+      _v21 = _v19 ?? _v20,
       _v22 = () => {
-        if (!_v17) return;
-        let _v0 = _v87(_v16, _v17);
-        if (!_v0) return void _v21();
-        let _v1 = new URLSearchParams(_v4.toString());
-        _v1.delete("page"), _v1.set("phase", _v0), _v3.push({
-          pathname: _v3.pathname,
+        _v10(!0), (0, _v13.clearPostSurveyRedirect)(), _v4.push(_v21 ?? "/home");
+      },
+      _v23 = () => {
+        if (!_v18) return;
+        let _v0 = _v87(_v17, _v18);
+        if (!_v0) return void _v22();
+        let _v1 = new URLSearchParams(_v5.toString());
+        _v1.delete("page"), _v1.set("phase", _v0), _v4.push({
+          pathname: _v4.pathname,
           search: _v1.toString()
         });
       };
-    if (_v6 || _v8) return (0, _v1.jsx)(_v34.default, {});
-    if ("paywall_step_2" === _v17) {
+    if (_v7 || _v9) return (0, _v1.jsx)(_v34.default, {});
+    if ("paywall_step_2" === _v18) {
       let _v0 = _v1 ? _v1({
-        paywallFlow: _v14,
-        postCheckoutUrl: _v20,
+        paywallFlow: _v15,
+        postCheckoutUrl: _v21,
         onBackToIntroOffer: () => {
           let _v0;
-          (_v0 = new URLSearchParams(_v4.toString())).delete("page"), _v0.set("phase", "paywall"), _v3.push({
-            pathname: _v3.pathname,
+          (_v0 = new URLSearchParams(_v5.toString())).delete("page"), _v0.set("phase", "paywall"), _v4.push({
+            pathname: _v4.pathname,
             search: _v0.toString()
           });
         },
-        onContinueWithFreePlan: _v21
+        onContinueWithFreePlan: _v22
       }) : (0, _v1.jsx)(_v34.default, {});
-      return "pricing_page_at_dismiss" === _v14 ? _v0 : (0, _v1.jsx)(_v38.OnboardingShell, {
+      return "pricing_page_at_dismiss" === _v15 ? _v0 : (0, _v1.jsx)(_v38.OnboardingShell, {
         children: _v0
       });
     }
     return (0, _v1.jsxs)(_v38.OnboardingShell, {
-      children: ["survey" === _v17 && (0, _v1.jsx)(_v73, {
+      children: ["survey" === _v18 && (0, _v1.jsx)(_v73, {
         randomizeAnswers: _v0,
-        isFinalPhase: null === _v87(_v16, "survey"),
-        useSingleQuestionSurvey: _v13,
-        onComplete: _v22
-      }), "upload" === _v17 && (0, _v1.jsx)(_v86, {
-        showCreate: _v7?.hasCreation === !0,
-        enableFileSelector: "t3" === _v12,
+        isFinalPhase: null === _v87(_v17, "survey"),
+        useSingleQuestionSurvey: _v14,
+        onComplete: _v23
+      }), "upload" === _v18 && (0, _v1.jsx)(_v86, {
+        showCreate: _v8?.hasCreation === !0,
+        enableFileSelector: "t3" === _v13,
         onComplete: _v0 => {
-          _v11(_v0), _v22();
+          _v12(_v0), _v23();
         },
-        onSkip: _v22
-      }), ("paywall" === _v17 || null === _v17) && (0, _v1.jsx)(_v37, {
-        postCheckoutUrl: _v20,
-        onDismiss: _v21,
-        dismissButtonLabel: "pricing_page_at_dismiss" === _v14 && _v15 ? (0, _v10.translate)({
+        onSkip: _v23
+      }), ("paywall" === _v18 || null === _v18) && (0, _v1.jsx)(_v37, {
+        postCheckoutUrl: _v21,
+        onDismiss: _v22,
+        dismissButtonLabel: "pricing_page_at_dismiss" === _v15 && _v16 ? (0, _v10.translate)({
           singular: "Check other plans",
           dictionary: {
             es: {
@@ -2930,45 +2930,104 @@
             }
           }
         }) : void 0,
-        onSkipInsteadOfDismiss: _v15 ? _v22 : void 0
+        onSkipInsteadOfDismiss: _v16 ? _v23 : void 0
       })]
     });
   }
-  var _v89 = _v0.i(0),
-    _v90 = _v0.i(0),
+  function _v89({
+    paywallTracking: _v0,
+    postCheckoutUrl: _v1,
+    onDismiss: _v2
+  }) {
+    let _v3 = (0, _v33.useViewer)(),
+      {
+        settings: _v4
+      } = (0, _v11.useOrionSettings)(),
+      {
+        trackPaywallDismissed: _v5
+      } = (0, _v32.usePaywallTracking)({
+        ..._v0,
+        isVisible: null !== _v3
+      }),
+      _v6 = () => {
+        _v5(), _v2();
+      };
+    return (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(0, _v1.jsx)(_v30.WelcomeOfferModalPaywall, {
+        isOpen: !0,
+        isPage: !0,
+        showContinueLink: _v4.onboarding_welcome_offer_show_continue_link,
+        paywallTracking: _v0,
+        postCheckoutUrl: _v1,
+        onClose: _v6
+      }), (0, _v1.jsx)(_v29.PlansComparisonPaywallNavigation, {
+        dismissButtonPosition: "top_right",
+        dismissButtonVariant: _v4.onboarding_welcome_offer_dismiss_variant,
+        skipLabel: (0, _v10.translate)({
+          singular: "I'm not interested",
+          dictionary: {
+            es: {
+              singular: "No me interesa"
+            },
+            "de-DE": {
+              singular: "Nicht interessiert"
+            },
+            "fr-FR": {
+              singular: "Ça ne m'intéresse pas"
+            },
+            "ja-JP": {
+              singular: "興味がありません"
+            },
+            "ko-KR": {
+              singular: "관심이 없습니다"
+            },
+            "pt-BR": {
+              singular: "Não tenho interesse"
+            },
+            "zh-CN": {
+              singular: "我不感兴趣"
+            }
+          }
+        }),
+        onDismiss: _v6
+      })]
+    });
+  }
+  var _v90 = _v0.i(0),
     _v91 = _v0.i(0),
     _v92 = _v0.i(0),
     _v93 = _v0.i(0),
     _v94 = _v0.i(0),
-    _v95 = _v0.i(0);
-  let _v96 = ["starter", "standard", "advanced"],
-    _v97 = [],
-    _v98 = {
+    _v95 = _v0.i(0),
+    _v96 = _v0.i(0);
+  let _v97 = ["starter", "standard", "advanced"],
+    _v98 = [],
+    _v99 = {
       paywallTrigger: "registration_survey_comparison_page_at_dismiss",
       paywallLocation: "registration_survey",
       paywallType: "page",
       paywallFeature: "registration_survey"
     };
-  function _v99({
+  function _v100({
     onDismiss: _v0
   }) {
     let _v1 = (0, _v33.useViewer)(),
       {
         width: _v2
-      } = (0, _v91.useWindowSize)(),
-      _v3 = (0, _v21.useGetSubscriptionPlansData)([..._v96]),
+      } = (0, _v92.useWindowSize)(),
+      _v3 = (0, _v21.useGetSubscriptionPlansData)([..._v97]),
       {
         trackPaywallCtaClicked: _v4,
         trackPaywallDismissed: _v5
       } = (0, _v32.usePaywallTracking)({
-        ..._v98,
+        ..._v99,
         paywallStyle: "onboarding_comparison_page",
-        paywallPlansDisplayed: [..._v96],
+        paywallPlansDisplayed: [..._v97],
         paywallPeriodicitiesDisplayed: ["yearly"],
         isVisible: null !== _v1 && void 0 !== _v3
       }),
-      _v6 = _v3 ?? _v97,
-      _v7 = (0, _v8.useMemo)(() => _v96.reduce((_v0, _v1) => {
+      _v6 = _v3 ?? _v98,
+      _v7 = (0, _v8.useMemo)(() => _v97.reduce((_v0, _v1) => {
         let _v2 = _v6.find(_v0 => _v0.tier === _v1);
         return void 0 !== _v2 && _v0.push(_v2), _v0;
       }, []), [_v6]),
@@ -2977,7 +3036,7 @@
         cardSurface: "onboarding",
         showCardBorder: !0,
         showMonthlyDropdown: !1,
-        paidPlanCtaLabel: (0, _v90.translate)({
+        paidPlanCtaLabel: (0, _v91.translate)({
           singular: "Start 7 days free trial",
           dictionary: {
             es: {
@@ -3008,7 +3067,7 @@
       }), []),
       _v10 = (0, _v8.useMemo)(() => ({
         plansData: _v6,
-        isFlatRateData: (0, _v95.areFlatRatePlans)(_v6),
+        isFlatRateData: (0, _v96.areFlatRatePlans)(_v6),
         isSolutionData: !1,
         isRepackagingData: !1,
         downgradeEnabled: !1,
@@ -3019,7 +3078,7 @@
       width: "100%",
       children: [(0, _v1.jsx)(_v29.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: "top_right",
-        skipLabel: (0, _v90.translate)({
+        skipLabel: (0, _v91.translate)({
           singular: "I'm not interested",
           dictionary: {
             es: {
@@ -3053,13 +3112,13 @@
         alignItems: "center",
         width: "100%",
         children: [(0, _v1.jsx)(_v17.Box, {
-          marginTop: (0, _v75.rem)(48),
-          marginBottom: "lg",
+          marginTop: (0, _v75.rem)(16),
+          marginBottom: "sm",
           children: (0, _v1.jsx)(_v18.Text, {
             variant: "heading-xl",
             fontSize: (0, _v75.rem)(30),
             textAlign: "center",
-            children: (0, _v90.translate)({
+            children: (0, _v91.translate)({
               singular: "Compare plans before you go",
               dictionary: {
                 es: {
@@ -3086,20 +3145,19 @@
               }
             })
           })
-        }), (0, _v1.jsx)(_v93.OverridesContext.Provider, {
+        }), (0, _v1.jsx)(_v94.OverridesContext.Provider, {
           value: _v9,
-          children: (0, _v1.jsx)(_v94.PlansDataContext.Provider, {
+          children: (0, _v1.jsx)(_v95.PlansDataContext.Provider, {
             value: _v10,
             children: (0, _v1.jsx)(_v17.Box, {
               display: _v8 ? "block" : "table",
               width: "100%",
               paddingY: "md",
               paddingX: "lg",
-              marginBottom: (0, _v75.rem)(12),
               sx: _v8 ? void 0 : {
                 tableLayout: "fixed"
               },
-              children: _v7.map(_v0 => (0, _v1.jsx)(_v92.PlanCard, {
+              children: _v7.map(_v0 => (0, _v1.jsx)(_v93.PlanCard, {
                 planData: _v0,
                 showBadge: "advanced" === _v0.tier,
                 showYearly: !0,
@@ -3111,13 +3169,12 @@
             })
           })
         }), (0, _v1.jsx)(_v17.Box, {
-          marginY: "md",
           children: (0, _v1.jsx)(_v68.Button, {
             as: "a",
             href: "/upgrade-plan",
             variant: "minimal",
             onClick: () => _v4("compare_features"),
-            children: (0, _v90.translate)({
+            children: (0, _v91.translate)({
               singular: "Compare all plan features",
               dictionary: {
                 es: {
@@ -3145,6 +3202,662 @@
             })
           })
         })]
+      })]
+    });
+  }
+  var _v101 = _v0.i(0),
+    _v102 = _v0.i(0),
+    _v103 = _v0.i(0),
+    _v104 = _v0.i(0),
+    _v105 = _v0.i(0),
+    _v106 = _v0.i(0),
+    _v107 = _v0.i(0),
+    _v108 = _v0.i(0),
+    _v109 = _v0.i(0);
+  let _v110 = [],
+    _v111 = {
+      paywallTrigger: "registration_survey_downsell_page_at_dismiss",
+      paywallLocation: "registration_survey",
+      paywallType: "page",
+      paywallFeature: "registration_survey"
+    };
+  function _v112({
+    onDismiss: _v0,
+    postCheckoutUrl: _v1,
+    tier: _v2 = "starter"
+  }) {
+    let _v3 = (0, _v33.useViewer)(),
+      {
+        settings: _v4
+      } = (0, _v11.useOrionSettings)(),
+      _v5 = (0, _v21.useGetSubscriptionPlansData)([_v2]),
+      [_v6, _v7] = (0, _v8.useState)(!1),
+      _v8 = (0, _v20.useColorModeValue)("background", "surface"),
+      _v9 = (0, _v20.useColorModeValue)("green.50", "green.950"),
+      _v10 = "monthly" === _v4.onboarding_paywall_default_periodicity,
+      _v11 = !_v10 || _v4.onboarding_paywall_monthly_free_trial,
+      _v12 = (0, _v8.useMemo)(() => (_v5 ?? _v110).find(_v0 => _v0.tier === _v2), [_v5, _v2]),
+      {
+        trackPaywallCtaClicked: _v13,
+        trackPaywallDismissed: _v14
+      } = (0, _v32.usePaywallTracking)({
+        ..._v111,
+        paywallStyle: "onboarding_downsell_page",
+        paywallPlansDisplayed: [_v2],
+        paywallPeriodicitiesDisplayed: [_v10 ? "monthly" : "yearly"],
+        isVisible: null !== _v3 && void 0 !== _v5 && void 0 !== _v12
+      }),
+      _v15 = (0, _v8.useRef)(!1);
+    (0, _v8.useEffect)(() => {
+      null === _v3 || void 0 === _v5 || void 0 !== _v12 || _v15.current || (_v15.current = !0, _v0());
+    }, [_v0, _v12, _v5, _v3]);
+    let _v16 = (0, _v106.isUkLocation)(_v3?.location) && _v12?.currency?.currencyCode ? (0, _v106.formatUkVatPrice)(_v10 ? _v12.price.monthly : _v12.price.annualMonthly, _v12.currency.currencyCode) ?? (_v10 ? _v12.priceFormatted.monthly : _v12.priceFormatted.annualMonthly) : _v10 ? _v12?.priceFormatted.monthly : _v12?.priceFormatted.annualMonthly,
+      _v17 = _v12 ? (0, _v105.buildCheckoutUrl)({
+        ..._v111,
+        tier: _v2,
+        isMonthly: _v10,
+        isTrial: _v6,
+        postCheckoutUrl: _v1
+      }) : void 0;
+    if (null === _v3 || void 0 === _v5 || void 0 === _v12) return null;
+    let _v18 = _v12.metadata.entitlements?.params,
+      _v19 = _v18?.teamSeats ?? 1,
+      _v20 = _v18?.videoStoragePeriodicQuota ?? 0,
+      _v21 = _v18?.bandwidth?.periodicQuota ?? 0,
+      _v22 = _v18?.bandwidth?.quotaPeriod,
+      _v23 = (0, _v109.getFeatureListByTier)(_v2) ?? [],
+      _v24 = "year" === _v22 ? (0, _v91.translate)({
+        singular: "{AMOUNT} yearly bandwidth",
+        replacements: {
+          AMOUNT: _v21
+        },
+        dictionary: {
+          es: {
+            singular: "{AMOUNT} de ancho de banda anual"
+          },
+          "de-DE": {
+            singular: "{AMOUNT} Bandbreite pro Jahr"
+          },
+          "fr-FR": {
+            singular: "{AMOUNT} de bande passante annuelle"
+          },
+          "ja-JP": {
+            singular: "{AMOUNT} の年間帯域幅"
+          },
+          "ko-KR": {
+            singular: "{AMOUNT} 연간 대역폭"
+          },
+          "pt-BR": {
+            singular: "{AMOUNT} de largura de banda anual"
+          },
+          "zh-CN": {
+            singular: "{AMOUNT} 年带宽"
+          }
+        }
+      }) : (0, _v91.translate)({
+        singular: "{AMOUNT} monthly bandwidth",
+        replacements: {
+          AMOUNT: _v21
+        },
+        dictionary: {
+          es: {
+            singular: "{AMOUNT} de ancho de banda mensual"
+          },
+          "de-DE": {
+            singular: "{AMOUNT} monatliche Bandbreite"
+          },
+          "fr-FR": {
+            singular: "{AMOUNT} de bande passante mensuelle"
+          },
+          "ja-JP": {
+            singular: "{AMOUNT}の月間帯域幅"
+          },
+          "ko-KR": {
+            singular: "{AMOUNT} 월간 대역폭"
+          },
+          "pt-BR": {
+            singular: "{AMOUNT} de largura de banda mensal"
+          },
+          "zh-CN": {
+            singular: "{AMOUNT} 每月带宽"
+          }
+        }
+      });
+    return (0, _v1.jsxs)(_v17.Box, {
+      width: "100%",
+      children: [(0, _v1.jsx)(_v29.PlansComparisonPaywallNavigation, {
+        dismissButtonPosition: "top_right",
+        skipLabel: (0, _v91.translate)({
+          singular: "I'm not interested",
+          dictionary: {
+            es: {
+              singular: "No me interesa"
+            },
+            "de-DE": {
+              singular: "Nicht interessiert"
+            },
+            "fr-FR": {
+              singular: "Ça ne m'intéresse pas"
+            },
+            "ja-JP": {
+              singular: "興味がありません"
+            },
+            "ko-KR": {
+              singular: "관심이 없습니다"
+            },
+            "pt-BR": {
+              singular: "Não tenho interesse"
+            },
+            "zh-CN": {
+              singular: "我不感兴趣"
+            }
+          }
+        }),
+        onDismiss: () => {
+          _v14(), _v0();
+        }
+      }), (0, _v1.jsx)(_v14.Flex, {
+        direction: "column",
+        alignItems: "center",
+        width: "100%",
+        marginTop: (0, _v75.rem)(32),
+        paddingX: {
+          base: "0",
+          md: "lg"
+        },
+        children: (0, _v1.jsxs)(_v17.Box, {
+          width: "100%",
+          maxWidth: {
+            base: "100%",
+            md: (0, _v75.rem)(536)
+          },
+          position: "relative",
+          marginTop: (0, _v75.rem)(22),
+          border: `${(0, _v75.rem)(8)} solid transparent`,
+          children: [(0, _v1.jsx)(_v107.default, {
+            color: "var(--vimeo-colors-upsell-primary)",
+            text: (0, _v91.translate)({
+              singular: "Recommended",
+              dictionary: {
+                es: {
+                  singular: "Recomendado"
+                },
+                "de-DE": {
+                  singular: "Empfohlen"
+                },
+                "fr-FR": {
+                  singular: "Recommandé"
+                },
+                "ja-JP": {
+                  singular: "おすすめ"
+                },
+                "ko-KR": {
+                  singular: "추천"
+                },
+                "pt-BR": {
+                  singular: "Recomendados"
+                },
+                "zh-CN": {
+                  singular: "推荐"
+                }
+              }
+            }),
+            compact: !0
+          }), (0, _v1.jsx)(_v108.CardBorder, {
+            purchaseStatus: "available",
+            showBadge: !0,
+            compact: !0
+          }), (0, _v1.jsxs)(_v14.Flex, {
+            position: "relative",
+            direction: "column",
+            alignItems: "center",
+            padding: {
+              base: "lg",
+              md: (0, _v75.rem)(36)
+            },
+            gap: (0, _v75.rem)(24),
+            children: [(0, _v1.jsxs)(_v14.Flex, {
+              direction: "column",
+              alignItems: "center",
+              gap: "xs",
+              children: [(0, _v1.jsx)(_v18.Text, {
+                variant: "heading-xl",
+                textAlign: "center",
+                children: (0, _v91.translate)({
+                  singular: "Need something simpler?",
+                  dictionary: {
+                    es: {
+                      singular: "¿Necesitas algo más sencillo?"
+                    },
+                    "de-DE": {
+                      singular: "Brauchen Sie etwas Einfacheres?"
+                    },
+                    "fr-FR": {
+                      singular: "Besoin de quelque chose de plus simple ?"
+                    },
+                    "ja-JP": {
+                      singular: "もっと簡単なプランが必要ですか？"
+                    },
+                    "ko-KR": {
+                      singular: "더 간단한 것이 필요하신가요?"
+                    },
+                    "pt-BR": {
+                      singular: "Precisa de algo mais simples?"
+                    },
+                    "zh-CN": {
+                      singular: "需要更简单的方案吗？"
+                    }
+                  }
+                })
+              }), (0, _v1.jsx)(_v18.Text, {
+                variant: "body-lg",
+                textAlign: "center",
+                color: "text-secondary",
+                children: (0, _v91.translate)({
+                  singular: "Start with {PLAN_NAME} at {PRICE}/month — the essential tools to create and share.",
+                  replacements: {
+                    PLAN_NAME: _v12.name,
+                    PRICE: _v16 ?? ""
+                  },
+                  dictionary: {
+                    es: {
+                      singular: "Comienza con {PLAN_NAME} por {PRICE}/mes — las herramientas esenciales para crear y compartir."
+                    },
+                    "de-DE": {
+                      singular: "Beginnen Sie mit {PLAN_NAME} für {PRICE}/Monat — die grundlegenden Werkzeuge zum Erstellen und Teilen."
+                    },
+                    "fr-FR": {
+                      singular: "Commencez avec {PLAN_NAME} à {PRICE}/mois — les outils essentiels pour créer et partager."
+                    },
+                    "ja-JP": {
+                      singular: "{PLAN_NAME}を{PRICE}/月から始めましょう — 作成と共有に必要な基本ツールが揃っています。"
+                    },
+                    "ko-KR": {
+                      singular: "{PLAN_NAME}을 {PRICE}/월로 시작하세요 — 창작 및 공유를 위한 필수 도구입니다."
+                    },
+                    "pt-BR": {
+                      singular: "Comece com {PLAN_NAME} por {PRICE}/mês — as ferramentas essenciais para criar e compartilhar."
+                    },
+                    "zh-CN": {
+                      singular: "以 {PLAN_NAME} 起步，{PRICE}/月 — 创建和分享的必备工具。"
+                    }
+                  }
+                })
+              })]
+            }), (0, _v1.jsxs)(_v14.Flex, {
+              direction: "column",
+              width: "100%",
+              padding: (0, _v75.rem)(20),
+              gap: "md",
+              borderWidth: "1px",
+              borderColor: "stroke",
+              borderRadius: (0, _v75.rem)(16),
+              backgroundColor: _v8,
+              children: [(0, _v1.jsxs)(_v14.Flex, {
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: "md",
+                children: [(0, _v1.jsx)(_v18.Text, {
+                  variant: "heading-md",
+                  children: _v12.name
+                }), (0, _v1.jsxs)(_v14.Flex, {
+                  alignItems: "baseline",
+                  gap: "xs",
+                  whiteSpace: "nowrap",
+                  children: [(0, _v1.jsx)(_v18.Text, {
+                    variant: "heading-xl",
+                    children: _v16
+                  }), (0, _v1.jsx)(_v18.Text, {
+                    variant: "body-md",
+                    color: "text-secondary",
+                    children: _v10 ? (0, _v91.translate)({
+                      singular: "/month",
+                      dictionary: {
+                        es: {
+                          singular: "/mes"
+                        },
+                        "de-DE": {
+                          singular: "/Monat"
+                        },
+                        "fr-FR": {
+                          singular: "/mois"
+                        },
+                        "ja-JP": {
+                          singular: "/月"
+                        },
+                        "ko-KR": {
+                          singular: "/월"
+                        },
+                        "pt-BR": {
+                          singular: "/mês"
+                        },
+                        "zh-CN": {
+                          singular: "/月"
+                        }
+                      }
+                    }) : (0, _v91.translate)({
+                      singular: "/month, billed annually",
+                      dictionary: {
+                        es: {
+                          singular: "/mes, facturado anualmente"
+                        },
+                        "de-DE": {
+                          singular: "/Monat, jährlich abgerechnet"
+                        },
+                        "fr-FR": {
+                          singular: "/mois, facturé annuellement"
+                        },
+                        "ja-JP": {
+                          singular: "/月、年額請求"
+                        },
+                        "ko-KR": {
+                          singular: "/월, 연간 결제"
+                        },
+                        "pt-BR": {
+                          singular: "/mês, cobrado anualmente"
+                        },
+                        "zh-CN": {
+                          singular: "/月, 按年计费"
+                        }
+                      }
+                    })
+                  })]
+                })]
+              }), (0, _v1.jsxs)(_v14.Flex, {
+                direction: "column",
+                gap: "sm",
+                children: [(0, _v1.jsx)(_v113, {
+                  icon: (0, _v1.jsx)(_v104.Users, {}),
+                  text: (0, _v91.translate)({
+                    singular: "{AMOUNT} user",
+                    plural: "{AMOUNT} users",
+                    count: _v19,
+                    replacements: {
+                      AMOUNT: _v19
+                    },
+                    dictionary: {
+                      es: {
+                        singular: "{AMOUNT} usuario",
+                        plural: "{AMOUNT} usuarios"
+                      },
+                      "de-DE": {
+                        singular: "{AMOUNT} Nutzer",
+                        plural: "{AMOUNT} Nutzer"
+                      },
+                      "fr-FR": {
+                        singular: "{AMOUNT} utilisateur",
+                        plural: "{AMOUNT} utilisateurs"
+                      },
+                      "ja-JP": {
+                        singular: "{AMOUNT}ユーザー",
+                        plural: "{AMOUNT}ユーザー"
+                      },
+                      "ko-KR": {
+                        singular: "{AMOUNT} 사용자",
+                        plural: "{AMOUNT} 사용자"
+                      },
+                      "pt-BR": {
+                        singular: "{AMOUNT} usuário",
+                        plural: "{AMOUNT} usuários"
+                      },
+                      "zh-CN": {
+                        singular: "{AMOUNT} 用户",
+                        plural: "{AMOUNT} 用户"
+                      }
+                    }
+                  })
+                }), (0, _v1.jsx)(_v113, {
+                  icon: (0, _v1.jsx)(_v102.Database, {}),
+                  text: (0, _v91.translate)({
+                    singular: "{AMOUNT} storage",
+                    replacements: {
+                      AMOUNT: _v20
+                    },
+                    dictionary: {
+                      es: {
+                        singular: "{AMOUNT} de almacenamiento"
+                      },
+                      "de-DE": {
+                        singular: "{AMOUNT} Speicherplatz"
+                      },
+                      "fr-FR": {
+                        singular: "{AMOUNT} de stockage"
+                      },
+                      "ja-JP": {
+                        singular: "{AMOUNT}のストレージ"
+                      },
+                      "ko-KR": {
+                        singular: "총 저장 공간 {AMOUNT}"
+                      },
+                      "pt-BR": {
+                        singular: "{AMOUNT} de armazenamento"
+                      },
+                      "zh-CN": {
+                        singular: "{AMOUNT} 存储空间"
+                      }
+                    }
+                  })
+                }), (0, _v1.jsx)(_v113, {
+                  icon: (0, _v1.jsx)(_v103.Speedometer, {}),
+                  text: _v24
+                })]
+              }), (0, _v1.jsx)(_v17.Box, {
+                borderTopWidth: "1px",
+                borderColor: "stroke",
+                paddingTop: "md",
+                children: (0, _v1.jsx)(_v14.Flex, {
+                  direction: "column",
+                  gap: "sm",
+                  children: _v23.map(_v0 => (0, _v1.jsxs)(_v14.Flex, {
+                    alignItems: "flex-start",
+                    gap: "sm",
+                    children: [(0, _v1.jsx)(_v101.Checkmark, {
+                      boxSize: (0, _v75.rem)(20),
+                      flexShrink: 0,
+                      "aria-hidden": "true"
+                    }), (0, _v1.jsx)(_v18.Text, {
+                      variant: "body-md",
+                      children: _v0
+                    })]
+                  }, _v0))
+                })
+              })]
+            }), _v11 && (0, _v1.jsxs)(_v14.Flex, {
+              as: "button",
+              type: "button",
+              role: "radio",
+              "aria-checked": _v6,
+              onClick: () => _v7(!0),
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "100%",
+              padding: (0, _v75.rem)(16),
+              borderWidth: "1px",
+              borderColor: _v6 ? _v9 : "check-radio-stroke",
+              borderRadius: (0, _v75.rem)(16),
+              backgroundColor: _v6 ? _v9 : "surface",
+              cursor: "pointer",
+              textAlign: "left",
+              _hover: {
+                backgroundColor: _v6 ? _v9 : "input-fill-hover"
+              },
+              children: [(0, _v1.jsxs)(_v14.Flex, {
+                direction: "column",
+                gap: "xs",
+                children: [(0, _v1.jsx)(_v18.Text, {
+                  variant: "heading-sm",
+                  color: _v6 ? "status-positive-primary" : "text-primary",
+                  children: _v6 ? (0, _v91.translate)({
+                    singular: "7 days free trial enabled!",
+                    dictionary: {
+                      es: {
+                        singular: "¡Prueba gratuita de 7 días activada!"
+                      },
+                      "de-DE": {
+                        singular: "7 Tage kostenlose Testphase aktiviert!"
+                      },
+                      "fr-FR": {
+                        singular: "Essai gratuit de 7 jours activé !"
+                      },
+                      "ja-JP": {
+                        singular: "7日間の無料トライアルが有効になりました！"
+                      },
+                      "ko-KR": {
+                        singular: "7일 무료 체험이 활성화되었습니다!"
+                      },
+                      "pt-BR": {
+                        singular: "Teste gratuito de 7 dias ativado!"
+                      },
+                      "zh-CN": {
+                        singular: "已启用 7 天免费试用!"
+                      }
+                    }
+                  }) : (0, _v91.translate)({
+                    singular: "Not sure yet?",
+                    dictionary: {
+                      es: {
+                        singular: "¿Todavía no estás seguro?"
+                      },
+                      "de-DE": {
+                        singular: "Noch nicht sicher?"
+                      },
+                      "fr-FR": {
+                        singular: "Pas encore sûr ?"
+                      },
+                      "ja-JP": {
+                        singular: "まだ決めていませんか？"
+                      },
+                      "ko-KR": {
+                        singular: "아직 확실하지 않으신가요?"
+                      },
+                      "pt-BR": {
+                        singular: "Ainda não tem certeza?"
+                      },
+                      "zh-CN": {
+                        singular: "还不确定？"
+                      }
+                    }
+                  })
+                }), (0, _v1.jsx)(_v18.Text, {
+                  variant: "body-md",
+                  color: "text-tertiary",
+                  children: _v6 ? (0, _v91.translate)({
+                    singular: "Nothing to pay for the first 7 days",
+                    dictionary: {
+                      es: {
+                        singular: "No pagarás nada durante los primeros 7 días"
+                      },
+                      "de-DE": {
+                        singular: "In den ersten 7 Tagen keine Zahlung erforderlich"
+                      },
+                      "fr-FR": {
+                        singular: "Rien à payer pendant les 7 premiers jours"
+                      },
+                      "ja-JP": {
+                        singular: "最初の7日間は料金は発生しません"
+                      },
+                      "ko-KR": {
+                        singular: "첫 7일 동안은 비용을 결제하실 필요가 없습니다."
+                      },
+                      "pt-BR": {
+                        singular: "Não há pagamento nos primeiros 7 dias"
+                      },
+                      "zh-CN": {
+                        singular: "前 7 天无需支付"
+                      }
+                    }
+                  }) : (0, _v91.translate)({
+                    singular: "Enable free trial",
+                    dictionary: {
+                      es: {
+                        singular: "Activar la prueba gratuita"
+                      },
+                      "de-DE": {
+                        singular: "Kostenlose Testversion aktivieren"
+                      },
+                      "fr-FR": {
+                        singular: "Activer l'essai gratuit"
+                      },
+                      "ja-JP": {
+                        singular: "無料トライアルを有効にする"
+                      },
+                      "ko-KR": {
+                        singular: "무료 체험 활성화"
+                      },
+                      "pt-BR": {
+                        singular: "Ativar avaliação gratuita"
+                      },
+                      "zh-CN": {
+                        singular: "启用免费试用"
+                      }
+                    }
+                  })
+                })]
+              }), !_v6 && (0, _v1.jsx)(_v17.Box, {
+                width: (0, _v75.rem)(30),
+                height: (0, _v75.rem)(30),
+                borderRadius: "50%",
+                borderWidth: "1px",
+                borderColor: "check-radio-stroke",
+                backgroundColor: "surface",
+                flexShrink: 0
+              })]
+            }), (0, _v1.jsx)(_v68.Button, {
+              as: "a",
+              href: _v17,
+              width: "100%",
+              size: "lg",
+              variant: "brand",
+              onClick: () => {
+                _v13(_v6 ? "free_trial" : "primary");
+              },
+              children: (0, _v91.translate)({
+                singular: "Get Started",
+                dictionary: {
+                  es: {
+                    singular: "Empezar"
+                  },
+                  "de-DE": {
+                    singular: "Hier geht's los"
+                  },
+                  "fr-FR": {
+                    singular: "Démarrer"
+                  },
+                  "ja-JP": {
+                    singular: "スタート"
+                  },
+                  "ko-KR": {
+                    singular: "시작하기"
+                  },
+                  "pt-BR": {
+                    singular: "Começar"
+                  },
+                  "zh-CN": {
+                    singular: "开始使用"
+                  }
+                }
+              })
+            })]
+          })]
+        })
+      })]
+    });
+  }
+  function _v113({
+    icon: _v0,
+    text: _v1
+  }) {
+    return (0, _v1.jsxs)(_v14.Flex, {
+      alignItems: "center",
+      gap: "sm",
+      children: [(0, _v1.jsx)(_v17.Box, {
+        display: "flex",
+        flexShrink: 0,
+        "aria-hidden": "true",
+        children: _v0
+      }), (0, _v1.jsx)(_v18.Text, {
+        variant: "body-md",
+        children: _v1
       })]
     });
   }
@@ -3196,7 +3909,7 @@
     }) => {
       switch (_v0) {
         case "pricing_page_at_dismiss":
-          return (0, _v1.jsx)(_v89.default, {
+          return (0, _v1.jsx)(_v90.default, {
             onDismiss: _v2,
             disableLogoLink: !0,
             onContinueWithFreePlan: _v3,
@@ -3208,9 +3921,28 @@
             }
           });
         case "comparison_modal_at_dismiss":
-          return (0, _v1.jsx)(_v99, {
+          return (0, _v1.jsx)(_v100, {
             onDismiss: _v3,
             postCheckoutUrl: _v1
+          });
+        case "downsell_at_dismiss":
+          return (0, _v1.jsx)(_v112, {
+            onDismiss: _v3,
+            postCheckoutUrl: _v1
+          });
+        case "welcome_offer_at_dismiss":
+          return (0, _v1.jsx)(_v89, {
+            onDismiss: _v3,
+            postCheckoutUrl: _v1,
+            paywallTracking: {
+              paywallTrigger: "registration_survey_welcome_offer_at_dismiss",
+              paywallLocation: "registration_survey",
+              paywallType: "page",
+              paywallFeature: "registration_survey",
+              paywallStyle: "welcome_offer_modal",
+              paywallPlansDisplayed: ["starter"],
+              paywallPeriodicitiesDisplayed: ["yearly"]
+            }
           });
         case "control":
           return null;

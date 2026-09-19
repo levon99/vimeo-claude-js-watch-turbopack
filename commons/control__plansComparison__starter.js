@@ -201,7 +201,8 @@
     onboarding_paywall_flow: "control",
     onboarding_paywall_pricing_page_show_back_link: !0,
     review_adoption_v3_arm: "control",
-    enable_ai_analytics_dashboard: !1
+    enable_ai_analytics_dashboard: !1,
+    replace_in_review: !1
   };
   function _v12() {
     return "vimeo.dev" === window.location.hostname || window.location.hostname.endsWith(".vimeows.com");

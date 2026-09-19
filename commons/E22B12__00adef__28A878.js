@@ -346,7 +346,7 @@
         return .1;
     }
   }
-  _v0.s(["amethyst", 0, _v24, "black", 0, "#000000", "blue", 0, _v9, "grayscale", 0, _v13, "green", 0, _v7, "red", 0, function (_v0) {
+  _v0.s(["black", 0, "#000000", "blue", 0, _v9, "grayscale", 0, _v13, "green", 0, _v7, "red", 0, function (_v0) {
     return _v4[_v0] || _v28(_v2.Red, _v0);
   }, "slate", 0, _v11, "violet", 0, function (_v0) {
     return _v27[_v0] || _v28(_v2.Violet, _v0);

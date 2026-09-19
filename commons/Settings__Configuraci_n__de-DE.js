@@ -5382,34 +5382,6 @@
         singular: "{CREDITS} /分钟"
       }
     }
-  }), "creditsPerMinWithDictionaryPremium", 0, _v0 => (0, _v3.translate)({
-    singular: "{CREDITS} per min + dictionary premium",
-    replacements: {
-      CREDITS: _v0
-    },
-    dictionary: {
-      es: {
-        singular: "{CREDITS} por min + diccionario premium"
-      },
-      "de-DE": {
-        singular: "{CREDITS} pro Min. + Wörterbuch-Premium"
-      },
-      "fr-FR": {
-        singular: "{CREDITS} par min + dictionnaire premium"
-      },
-      "ja-JP": {
-        singular: "{CREDITS} 分あたり + 辞書プレミアム"
-      },
-      "ko-KR": {
-        singular: "{CREDITS}분당 + 사전 프리미엄"
-      },
-      "pt-BR": {
-        singular: "{CREDITS} por min + dicionário premium"
-      },
-      "zh-CN": {
-        singular: "{CREDITS} 每分钟 + 词典高级版"
-      }
-    }
   }), "description", 0, _v7, "detectedAudioUnSupported", 0, (_v0, _v1) => (0, _v3.translate)({
     singular: "The detected audio is in {LANGUAGE}, which isn’t supported for these AI features. If this audio isn’t {LANGUAGE}, {A}re-transcribe the video{/A}.",
     replacements: {

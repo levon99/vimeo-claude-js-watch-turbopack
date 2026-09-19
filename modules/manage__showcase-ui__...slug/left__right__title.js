@@ -437,10 +437,10 @@
                 singular: "Dateiaktionen"
               },
               "fr-FR": {
-                singular: "Actions sur les fichiers"
+                singular: "Actions du fichier"
               },
               "ja-JP": {
-                singular: "ファイルアクション"
+                singular: "ファイル操作"
               },
               "ko-KR": {
                 singular: "파일 작업"

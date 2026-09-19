@@ -2130,35 +2130,7 @@
         doneJobs: _v1
       })]
     }) : null;
-  }], 0), _v0.s(["ActivitiesContainer", 0, ({
-    children: _v0,
-    maxHeight: _v1,
-    isShowing: _v2 = !1,
-    isMobile: _v3
-  }) => _v2 ? (0, _v4.jsx)(_v83.Grid, {
-    pointerEvents: "none",
-    templateColumns: "1fr",
-    maxHeight: _v1,
-    gridAutoFlow: "row",
-    alignContent: "flex-end",
-    zIndex: _v2 ? "10" : "0",
-    position: "fixed",
-    left: _v3 ? "50%" : "auto",
-    top: _v1 ? "unset" : (0, _v70.rem)(64),
-    transform: _v3 ? "translateX(-50%)" : "none",
-    right: _v3 ? "auto" : (0, _v70.rem)(30),
-    bottom: (0, _v70.rem)(52),
-    gap: (0, _v70.rem)(8),
-    sx: {
-      "& > div": {
-        height: "100%"
-      },
-      "& > *": {
-        pointerEvents: "auto"
-      }
-    },
-    children: _v0
-  }) : null], 0);
+  }], 0);
   var _v108 = _v0.i(0),
     _v109 = _v0.i(0),
     _v110 = _v0.i(0),
@@ -2254,286 +2226,15 @@
       })
     });
   }], 0);
-  var _v113 = _v0.i(0),
-    _v114 = _v0.i(0),
-    _v115 = _v0.i(0),
-    _v116 = _v0.i(0),
-    _v117 = _v0.i(0),
-    _v118 = _v0.i(0),
-    _v119 = _v0.i(0),
-    _v120 = _v0.i(0),
-    _v121 = _v0.i(0),
-    _v122 = _v0.i(0),
-    _v123 = _v0.i(0),
-    _v124 = _v0.i(0),
-    _v125 = _v0.i(0),
-    _v126 = _v0.i(0),
-    _v127 = _v0.i(0),
-    _v128 = _v0.i(0),
-    _v129 = _v0.i(0);
-  let _v130 = {
-    view: void 0,
-    password: void 0
-  };
-  _v0.s(["ProgressToastContainer", 0, ({
-    isShowing: _v0,
-    uploadClipId: _v1,
-    setUploadClipId: _v2,
-    setShowProgressToast: _v3,
-    isMobile: _v4,
-    teamOwnerId: _v5,
-    page: _v6,
-    isPrivateModeOn: _v7
-  }) => {
-    let _v8 = (0, _v72.useViewer)(),
-      _v9 = (0, _v113.useRouter)(),
-      {
-        contentSpaceEnabled: _v10
-      } = (0, _v115.useContentSpaceEnabled)(_v5),
-      {
-        mutate: _v11
-      } = (0, _v118.useUserQuotaApi)(),
-      _v12 = (0, _v129.getLinkPrivacyOptionsMap)(_v8?.teamUser?.teamName, _v8?.teamUser?.isWorkspace),
-      {
-        uploads: _v13,
-        uploaderSummary: _v14
-      } = (0, _v120.useUploader)(),
-      [_v15] = (0, _v116.usePatchUserItems)(),
-      {
-        open: _v16,
-        close: _v17
-      } = (0, _v125.useUpsellModal)(),
-      [_v18, _v19] = (0, _v5.useState)(_v130),
-      [_v20, _v21] = (0, _v5.useState)(0),
-      [_v22, _v23] = (0, _v5.useState)(null),
-      [_v24, _v25] = (0, _v5.useState)({
-        clipId: "",
-        privacy: _v130.view
-      }),
-      {
-        showEmbedToggle: _v26,
-        isEmbeddable: _v27,
-        onEmbedToggle: _v28,
-        clearEmbeddable: _v29
-      } = (0, _v121.useUploadEmbeddable)({
-        userId: _v8?.teamUser?.ownerId ?? _v8?.user?.id ?? 0,
-        hasRestrictedStorage: _v8?.user?.uploadQuota?.restricted != null,
-        defaultEmbedPreference: _v8?.user?.preferences?.videos?.privacy?.embed,
-        onQuotaRevalidate: () => _v11(void 0, {
-          revalidate: !0
-        })
-      }),
-      _v30 = (0, _v5.useCallback)(_v0 => {
-        _v22 && _v122.embeddableStore.set(_v22, _v0);
-      }, [_v22]),
-      {
-        data: _v31
-      } = (0, _v117.useGetVideo)(() => _v1 ? {
-        where: {
-          videoId: _v1
-        },
-        select: ["allowedPrivacies", "app.uri", "customMetadata", "manageLink", "uri", "parentProject.isPrivateToUser", "password", "privacy", "metadata.interactions.hasRestrictedPrivacyOptions"],
-        headers: {
-          Accept: "application/vnd.vimeo.*+json;version=3.4.1"
-        }
-      } : null),
-      {
-        isLocked: _v32,
-        showLockedToast: _v33
-      } = (0, _v126.useVideoMetadataLock)(_v31),
-      _v34 = "/home" === _v9.pathname || "/wayfinder-home" === _v9.pathname,
-      _v35 = (0, _v127.getPrivacyChangePageSource)(_v9.pathname),
-      _v36 = _v34 ? "homepage" : (0, _v123.getLibraryUploadSurface)({
-        contentSpaceEnabled: _v10,
-        isPrivateToUser: _v31?.parentProject?.isPrivateToUser
-      }),
-      _v37 = _v8?.user?.capabilities?.hasEnterprise && _v8.team?.ownerId === _v8.user.id,
-      _v38 = _v8?.teamUser?.accountType === "enterprise" || _v37,
-      _v39 = (0, _v5.useMemo)(() => {
-        if (!_v31) return [];
-        let _v0 = _v31.metadata.interactions.hasRestrictedPrivacyOptions,
-          _v1 = _v31.parentProject?.isPrivateToUser;
-        return _v7 || _v0 || _v1 || _v38 ? Object.keys(_v12).filter(_v0 => _v31.allowedPrivacies?.find(_v0 => _v0 === _v0)).map(_v0 => ({
-          value: _v0,
-          label: _v12[_v0].title,
-          showUpgradeBadge: !1
-        })) : _v12.hasOwnProperty(_v31.privacy.view) ? Object.keys(_v12).map(_v0 => {
-          let _v1 = _v31.allowedPrivacies?.find(_v0 => _v0 === _v0);
-          return {
-            value: _v0,
-            label: _v12[_v0].title,
-            showUpgradeBadge: !_v1
-          };
-        }) : [];
-      }, [_v31, _v7, _v38, _v12]),
-      _v40 = _v0 => {
-        _v0 && _v114.BigPictureClient.sendEvent(new _v114.Event("vimeo.upgrade_action", 30, {
-          copy: _v0,
-          action_type: "click",
-          location: "embeddable_uploader",
-          page: _v6,
-          target: null,
-          plan_selected: null,
-          purchase_type: null,
-          duration: null,
-          price: null,
-          currency: null,
-          is_discount: null,
-          discount_offer: null,
-          path: window.location.pathname,
-          target_path: null,
-          device_type: null,
-          upsell_name: _v0,
-          feature: "privacy",
-          is_new_pricing: null,
-          upgrade_flags: null,
-          loading_time: null,
-          promo_code_id: null
-        }));
-      },
-      _v41 = (_v0, _v1) => {
-        if (_v0 || _v1) {
-          if (_v32) return void _v33();
-          if (_v39.find(_v0 => _v0.value === _v0 && _v0.showUpgradeBadge)) {
-            var _v2;
-            (_v2 = `${_v0}_privacy`) && (_v16({
-              tracking: {
-                params: {
-                  feature: "privacy",
-                  location: "embeddable_uploader",
-                  page: _v6,
-                  upsell_name: _v2
-                },
-                paywallTracking: {
-                  paywallTrigger: `upload_progress_toast_${_v2}_button`,
-                  paywallLocation: "embeddable_uploader",
-                  paywallType: "popup",
-                  paywallFeature: "privacy"
-                }
-              },
-              onClose: _v17
-            }), _v40(_v2));
-          } else {
-            let _v0 = _v13.filter(_v0 => _v0.clipId).map(_v0 => _v0.clipId),
-              _v1 = _v0.map(_v0 => `/videos/${_v0}`).join(),
-              _v2 = {
-                privacy: {}
-              };
-            _v0 && (_v2.privacy.view = _v0), _v1 && (_v2.password = _v1), _v15({
-              where: {
-                userId: _v8?.teamUser?.ownerId ?? _v8?.user?.id ?? 0
-              },
-              query: {
-                uris: _v1
-              },
-              variables: _v2
-            }).then(() => {
-              _v19({
-                view: _v0,
-                password: _v1
-              });
-            }).then(() => {
-              (_v0 !== _v18.view || _v1 !== _v18.password) && _v114.BigPictureClient.sendEvent(new _v114.Event("workflow.change_link_privacy", 2, {
-                path: window.location.pathname,
-                entry_page: null,
-                page: _v6,
-                location: "embeddable_uploader",
-                video_id: _v0.join(", "),
-                video_privacy: _v0 ?? null,
-                video_embed_privacy: null,
-                is_preset_applied: null,
-                is_video_password_protected: !!_v1,
-                video_app_id: (0, _v128.idFromUri)(_v31?.app?.uri) ? String((0, _v128.idFromUri)(_v31?.app?.uri)) : null,
-                team_owner_id: _v5,
-                team_size: null,
-                team_subscription_type: null,
-                actor_team_role: null,
-                video_status: null,
-                upload_id: null,
-                product: "upload",
-                old_video_privacy: _v31?.privacy.view ?? null,
-                video_type: null,
-                actor_resource_role: null
-              }));
-            });
-          }
-        }
-      };
-    return ((0, _v5.useEffect)(() => {
-      _v14.completeCount > _v20 && (_v114.BigPictureClient.sendEvent(new _v114.Event("vimeo.embeddable_uploader_upload_complete", 1, {
-        video_id: _v1,
-        privacy: _v18.view ?? _v31?.privacy.view
-      })), _v21(_v20 + 1));
-    }, [_v14.completeCount]), (0, _v5.useEffect)(() => {
-      _v14.isComplete && (_v41(_v18.view, _v18.password), _v21(0));
-    }, [_v14.isComplete]), 0 === _v13.length) ? null : (0, _v4.jsxs)(_v69.Box, {
-      width: "100%",
-      height: "100%",
-      children: [(0, _v4.jsx)(_v69.Box, {
-        pointerEvents: "auto",
-        left: _v4 ? "50%" : "auto",
-        right: _v4 ? "none" : (0, _v70.rem)(30),
-        bottom: (0, _v70.rem)(52),
-        children: (0, _v4.jsx)(_v119.ProgressWidgetModule, {
-          isShowing: _v0,
-          page: _v6,
-          uploadSurface: _v36,
-          revalidatePrivacy: _v24,
-          showPrivacySettings: !_v32,
-          getPrivacyState: () => ({
-            view: _v18.view ?? _v31?.privacy.view,
-            password: _v18.password ?? _v31?.password
-          }),
-          setPrivacy: _v0 => {
-            _v41(_v0.view, _v0.password), _v25({
-              clipId: "",
-              privacy: _v130.view
-            });
-          },
-          onClose: () => {
-            _v3(!1), _v19(_v130), _v2(""), _v25({
-              clipId: "",
-              privacy: _v130.view
-            }), _v29();
-          },
-          onPrivacyUpsellClick: _v40,
-          onShareClick: _v0 => {
-            _v0.clipId === _v1 && _v32 ? _v33() : _v23(_v0.clipId);
-          },
-          onUploadClick: _v0 => {
-            _v0.clipId && _v9.push(`/manage/videos/${_v0.clipId}${_v4 ? "" : "/privacy"}`);
-          },
-          onEditClick: _v0 => {
-            _v0.clipId && _v9.push(`/manage/videos/${_v0.clipId}`);
-          },
-          showEmbedToggle: _v26,
-          isEmbeddable: _v27,
-          onEmbedToggle: _v28
-        })
-      }), _v22 && (0, _v4.jsx)(_v124.VideoShareViewModule, {
-        clipId: _v22,
-        isOpen: !!_v22,
-        onClose: () => _v23(null),
-        onPrivacyChange: _v0 => _v25({
-          clipId: _v22 || "",
-          privacy: _v0.view
-        }),
-        onEmbedChange: _v30,
-        privacyChangePageSource: _v35,
-        privacyChangeEntryPoint: "share_button",
-        transferInlineLinkSurface: "home_upload_completed"
-      })]
-    });
-  }], 0);
-  let _v131 = (0, _v0.i(0).default)(() => _v0.A(0).then(_v0 => _v0.ReorderFeaturedFoldersModal), {
+  let _v113 = (0, _v0.i(0).default)(() => _v0.A(0).then(_v0 => _v0.ReorderFeaturedFoldersModal), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v132 = (0, _v5.createContext)({
+    _v114 = (0, _v5.createContext)({
       setModalContextState: () => console.log("noop")
     });
-  _v0.s(["ModalContextDispatch", 0, _v132, "ReorderFeaturedFOldersModalContextProvider", 0, ({
+  _v0.s(["ModalContextDispatch", 0, _v114, "ReorderFeaturedFOldersModalContextProvider", 0, ({
     children: _v0
   }) => {
     let [_v1, _v2] = (0, _v5.useState)({
@@ -2544,11 +2245,11 @@
         isOpen: _v3,
         state: _v4
       } = _v1;
-    return (0, _v4.jsxs)(_v132.Provider, {
+    return (0, _v4.jsxs)(_v114.Provider, {
       value: {
         setModalContextState: _v2
       },
-      children: [_v0, _v3 && (0, _v4.jsx)(_v131, {
+      children: [_v0, _v3 && (0, _v4.jsx)(_v113, {
         ..._v4,
         isOpen: !0,
         setIsOpen: () => _v2({

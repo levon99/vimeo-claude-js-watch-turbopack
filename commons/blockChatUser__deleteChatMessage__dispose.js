@@ -18,6 +18,10 @@
     if (!_v2) throw new _v4.LiveError("No message id supplied for removal.", {
       code: _v2.ELiveErrorCode.INVALID_PARAMETERS
     });
+    if (_v1 === _v3.EChatType.PUBLIC && _v0.proxyTransport) {
+      _v0.log.info("Deleting public message via proxy:", _v2), await _v0.proxyTransport.deleteMessage(_v2);
+      return;
+    }
     _v0.assertIsInitialized();
     let _v3 = _v0.getChatRef(_v1);
     _v0.log.info("Deleting message", _v2), await (0, _v5.removeRefValue)(_v0.firebase, (0, _v5.getRefChild)(_v0.firebase, _v3, _v2));
@@ -28,6 +32,15 @@
     if (!_v3) throw new _v4.LiveError("User should be authorized to send chat messages.", {
       code: _v2.ELiveErrorCode.UNAUTHORIZED
     });
+    if (_v1 === _v3.EChatType.PUBLIC && _v0.proxyTransport) {
+      _v0.log.info("Sending public message via proxy"), await _v0.proxyTransport.sendMessage(_v2, {
+        id: _v3.id,
+        displayName: _v3.displayName,
+        avatarUrl: _v3.avatarUrl,
+        isCreator: !!_v3.isCreator
+      });
+      return;
+    }
     let _v4 = _v0.getChatRef(_v1),
       _v5 = (0, _v6.createMessageInteractionObject)({
         contents: _v2,
@@ -52,6 +65,10 @@
     if (!_v2) throw new _v4.LiveError("No user id supplied to block user.", {
       code: _v2.ELiveErrorCode.INVALID_PARAMETERS
     });
+    if (_v1 === _v3.EChatType.PUBLIC && _v0.proxyTransport) {
+      _v0.log.info("Blocking public chat user via proxy:", _v2), await _v0.proxyTransport.banUser(_v2);
+      return;
+    }
     _v0.assertIsInitialized();
     let _v3 = _v0.getChatBanListRef(_v1);
     _v3 && (_v0.log.info("Blocking chat user:", _v2), await (0, _v5.pushRefValue)(_v0.firebase, _v3, {
@@ -62,12 +79,16 @@
     if (!_v2) throw new _v4.LiveError("No user id supplied to unblock user.", {
       code: _v2.ELiveErrorCode.INVALID_PARAMETERS
     });
+    if (_v1 === _v3.EChatType.PUBLIC && _v0.proxyTransport) {
+      _v0.log.info("Unblocking public chat user via proxy:", _v2), await _v0.proxyTransport.unbanUser(_v2);
+      return;
+    }
     _v0.assertIsInitialized();
     let _v3 = _v0.getChatBanListRef(_v1);
     _v3 && (_v0.log.info("Unblocking chat user:", _v2), (await _v0.firebase.database.get(_v0.firebase.database.query(_v3, _v0.firebase.database.orderByChild("userId"), _v0.firebase.database.equalTo(_v2)))).forEach(_v0 => !!(0, _v5.removeRefValue)(_v0.firebase, (0, _v5.getRefChild)(_v0.firebase, _v3, _v0.key))));
   }
   function _v15(_v0) {
-    _v0.log.info("Disposing manager"), _v0.disposeSubscribers(), _v0.publicChatBanListRef = null, _v0.metaChatEnabledRef = null, _v0.publicChatRef = null, _v0.guestsChatRef = null, _v0.setContext({
+    _v0.log.info("Disposing manager"), _v0.disposeSubscribers(), _v0.proxyTransport && (_v0.proxyTransport.dispose(), _v0.proxyTransport = null), _v0.proxyTokenManager && (_v0.proxyTokenManager.dispose(), _v0.proxyTokenManager = null), _v0.firebaseTokenManager && (_v0.firebaseTokenManager.dispose(), _v0.firebaseTokenManager = null), _v0.publicChatBanListRef = null, _v0.metaChatEnabledRef = null, _v0.publicChatRef = null, _v0.guestsChatRef = null, _v0.setContext({
       [_v3.EChatType.PUBLIC]: _v1.ChatManager.createNewChatDescriptor(),
       [_v3.EChatType.BACKSTAGE]: _v1.ChatManager.createNewChatDescriptor(),
       isEnabled: null,

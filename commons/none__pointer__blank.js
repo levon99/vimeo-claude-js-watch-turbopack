@@ -39,7 +39,7 @@
         })
       })
     }),
-    _v18 = (0, _v4.default)(_v9.Pop.Item).withConfig({
+    _v18 = (0, _v4.default)(_v10.Pop.Item).withConfig({
       displayName: "PopLink__PopItem",
       componentId: "sc-a4890402-0"
     })`
@@ -89,32 +89,15 @@
       theme: _v0
     }) => _v0.elements.color1};
 `,
-    _v24 = (0, _v4.default)(_v10.Button).withConfig({
-      displayName: "EssentialLegalMenu__StyledButton",
-      componentId: "sc-77e4e3ab-3"
-    })`
-  span {
-    font-size: ${(0, _v2.rem)(12)};
-    transition: 170ms color ease-in-out;
-  }
-
-  &:hover {
-    span {
-      color: ${({
-      theme: _v0
-    }) => _v0.elements.color2};
-    }
-  }
-`,
-    _v25 = (0, _v4.default)(_v8.PopOver).withConfig({
+    _v24 = (0, _v4.default)(_v9.PopOver).withConfig({
       displayName: "EssentialLegalMenu__StyledPopOver",
-      componentId: "sc-77e4e3ab-4"
+      componentId: "sc-77e4e3ab-3"
     })`
   border-radius: ${(0, _v2.rem)(8)};
 `,
-    _v26 = _v4.default.a.withConfig({
+    _v25 = _v4.default.a.withConfig({
       displayName: "EssentialLegalMenu__TerminateLink",
-      componentId: "sc-77e4e3ab-5"
+      componentId: "sc-77e4e3ab-4"
     })`
   text-decoration: none;
   &:hover {
@@ -131,8 +114,8 @@
     line-height: 1.25;
   }
 `,
-    _v27 = ({
-      title: _v0 = (0, _v7.translate)({
+    _v26 = ({
+      title: _v0 = (0, _v8.translate)({
         singular: "Terms & Privacy",
         dictionary: {
           es: {
@@ -175,7 +158,7 @@
           _v10(_v0), _v0 && _v5?.();
         };
       return (0, _v13.default)([_v7, _v8], () => _v14(!1), null, [_v9]), (0, _v1.jsxs)(_v21, {
-        children: [_v2 ? (0, _v1.jsx)(_v26, {
+        children: [_v2 ? (0, _v1.jsx)(_v25, {
           href: "/settings/billing/membership_plan/optout",
           role: "link",
           onClick: () => {
@@ -187,7 +170,7 @@
             });
           },
           children: (0, _v1.jsx)(_v23, {
-            children: (0, _v7.translate)({
+            children: (0, _v8.translate)({
               singular: "Terminate contracts here",
               dictionary: {
                 es: {
@@ -214,12 +197,12 @@
               }
             })
           })
-        }) : null, (0, _v1.jsx)(_v25, {
+        }) : null, (0, _v1.jsx)(_v24, {
           active: _v9,
           attach: _v4,
           content: (0, _v1.jsx)(_v22, {
             ref: _v7,
-            children: (0, _v1.jsxs)(_v9.Pop.List, {
+            children: (0, _v1.jsxs)(_v10.Pop.List, {
               role: "menu",
               children: [_v13.map(_v0 => (0, _v1.jsx)(_v17, {
                 role: "menuitem",
@@ -233,26 +216,24 @@
           }),
           children: (0, _v1.jsx)("div", {
             ref: _v8,
-            children: (0, _v1.jsx)(_v24, {
+            children: (0, _v1.jsx)(_v7.Button, {
               id: "essential-footer-legal-menu-button",
               onClick: () => _v14(!_v9),
               title: _v0,
-              format: "secondary",
-              variant: "hyperminimal",
-              tabIndex: 0,
+              variant: "tertiary",
+              size: "md",
               onKeyDown: _v0 => {
-                "Enter" === _v0.code || _v0.code;
+                ("Enter" === _v0.code || "Space" === _v0.code) && _v14(!_v9);
               },
               className: _v6,
-              children: (0, _v1.jsx)(_v23, {
-                children: _v0
-              })
+              children: _v0
             })
           })
         })]
       });
     };
-  var _v28 = _v0.i(0),
+  var _v27 = _v0.i(0),
+    _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
@@ -274,15 +255,15 @@
     }) => {
       let {
           setColorMode: _v2
-        } = (0, _v30.useColorMode)(),
+        } = (0, _v29.useColorMode)(),
         {
           toggleTheme: _v3
-        } = (0, _v3.useContext)(_v31.ThemeDispatchContext),
+        } = (0, _v3.useContext)(_v30.ThemeDispatchContext),
         _v4 = (0, _v3.useContext)(_v4.ThemeContext),
         _v5 = _v4?.name;
       return (0, _v1.jsx)(_v32.Tip, {
         id: "lightDarkTip",
-        content: "dark" === _v5 ? (0, _v7.translate)({
+        content: "dark" === _v5 ? (0, _v8.translate)({
           singular: "Light mode",
           dictionary: {
             es: {
@@ -307,7 +288,7 @@
               singular: "浅色模式"
             }
           }
-        }) : (0, _v7.translate)({
+        }) : (0, _v8.translate)({
           singular: "Dark mode",
           dictionary: {
             es: {
@@ -334,7 +315,7 @@
           }
         }),
         children: (0, _v1.jsx)(_v36, {
-          "aria-label": "dark" === _v5 ? (0, _v7.translate)({
+          "aria-label": "dark" === _v5 ? (0, _v8.translate)({
             singular: "Light mode",
             dictionary: {
               es: {
@@ -359,7 +340,7 @@
                 singular: "浅色模式"
               }
             }
-          }) : (0, _v7.translate)({
+          }) : (0, _v8.translate)({
             singular: "Dark mode",
             dictionary: {
               es: {
@@ -399,7 +380,7 @@
         })
       });
     },
-    _v36 = (0, _v4.default)(_v10.Button).withConfig({
+    _v36 = (0, _v4.default)(_v31.Button).withConfig({
       displayName: "ThemeSwitcher__ButtonIcon",
       componentId: "sc-d9d3d188-0"
     })`
@@ -494,12 +475,12 @@
     return (0, _v3.useEffect)(() => {
       window.onload = () => _v15(!0);
     }, []), (0, _v1.jsx)(_v4.ThemeProvider, {
-      theme: _v29.applyCustomThemeEssentialFooter,
+      theme: _v28.applyCustomThemeEssentialFooter,
       children: (0, _v1.jsxs)(_v38, {
         className: _v0,
         position: _v1,
         children: [(0, _v1.jsx)(_v39, {
-          children: (0, _v1.jsx)(_v28.EssentialQuotaMenu, {
+          children: (0, _v1.jsx)(_v27.EssentialQuotaMenu, {
             user: _v8,
             jwt: _v9,
             apiUrl: _v10,
@@ -507,7 +488,7 @@
             enableQuotaMenu: _v12
           })
         }), (0, _v1.jsxs)(_v39, {
-          children: [(0, _v1.jsx)(_v27, {
+          children: [(0, _v1.jsx)(_v26, {
             impressumQualifies: _v3,
             terminateContractQualifies: _v13,
             isDoNotSellReady: _v14
