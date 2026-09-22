@@ -361,31 +361,32 @@
       } = (0, _v23.useOrionSettings)(),
       _v3 = (0, _v25.useViewer)(),
       _v4 = _v3?.user?.id,
-      _v5 = _v3?.user?.teamUserPermissionLevel,
-      _v6 = void 0 !== _v4 && (null == _v5 || _v5 === _v24.TeamUserPermissionLevel.Owner),
+      _v5 = _v3?.teamUser?.ownerId == null || _v3.teamUser.ownerId === _v4,
+      _v6 = _v3?.user?.teamUserPermissionLevel,
+      _v7 = void 0 !== _v4 && _v5 && (null == _v6 || _v6 === _v24.TeamUserPermissionLevel.Owner),
       {
-        capabilities: _v7
+        capabilities: _v8
       } = (0, _v21.useCapability)(["hasContentSpaceEnabled", "hasContentSpaceEnabledTeamGated"], _v4),
-      _v8 = !!_v7?.hasContentSpaceEnabled && !_v7?.hasContentSpaceEnabledTeamGated,
+      _v9 = !!_v8?.hasContentSpaceEnabled && !_v8?.hasContentSpaceEnabledTeamGated,
       {
-        data: _v9,
-        mutate: _v10
+        data: _v10,
+        mutate: _v11
       } = (0, _v22.useGetUserPreferences)(() => _v4 ? {
         where: {
           userId: _v4
         },
         select: [_v27, _v28]
       } : null),
-      [_v11] = (0, _v22.usePatchUserPreferences)(),
-      [_v12, _v13] = (0, _v19.useState)({
+      [_v12] = (0, _v22.usePatchUserPreferences)(),
+      [_v13, _v14] = (0, _v19.useState)({
         becoming: !1,
         now: !1
       }),
-      _v14 = (0, _v19.useSyncExternalStore)(_v26, () => !0, () => !1),
-      _v15 = void 0 !== _v9,
-      _v16 = !!_v9?.[_v27] || _v12.becoming,
-      _v17 = !!_v9?.[_v28] || _v12.now,
-      _v18 = (_v0 => {
+      _v15 = (0, _v19.useSyncExternalStore)(_v26, () => !0, () => !1),
+      _v16 = void 0 !== _v10,
+      _v17 = !!_v10?.[_v27] || _v13.becoming,
+      _v18 = !!_v10?.[_v28] || _v13.now,
+      _v19 = (_v0 => {
         if (!_v0) return "";
         let _v1 = new Date(/^\d{8}$/.test(_v0) ? `${_v0.slice(0, 4)}-${_v0.slice(4, 6)}-${_v0.slice(6, 8)}` : _v0);
         return Number.isNaN(_v1.getTime()) ? "" : _v1.toLocaleDateString("en-US", {
@@ -395,41 +396,41 @@
           timeZone: "UTC"
         });
       })(_v2.pre_libraries_merge_date),
-      _v19 = null;
-    if (_v1 && _v14 && _v15 && _v6 && _v8) {
+      _v20 = null;
+    if (_v1 && _v15 && _v16 && _v7 && _v9) {
       let _v0 = null;
-      _v2.enable_content_space_team_gate && !_v17 ? _v0 = "now" : _v18 && !_v16 && (_v0 = "becoming"), _v19 = _v0 === ("home" === _v0 ? "now" : "becoming") ? _v0 : null;
+      _v2.enable_content_space_team_gate && !_v18 ? _v0 = "now" : _v19 && !_v17 && (_v0 = "becoming"), _v20 = _v0 === ("home" === _v0 ? "now" : "becoming") ? _v0 : null;
     }
-    let _v20 = (0, _v19.useRef)(!1);
+    let _v21 = (0, _v19.useRef)(!1);
     (0, _v19.useEffect)(() => {
-      if (_v19) {
+      if (_v20) {
         try {
           let _v0 = window.pendo;
-          "function" == typeof _v0?.stopGuides && (_v0.stopGuides(), _v20.current = !0);
+          "function" == typeof _v0?.stopGuides && (_v0.stopGuides(), _v21.current = !0);
         } catch {}
         return () => {
-          if (_v20.current) {
+          if (_v21.current) {
             try {
               let _v0 = window.pendo;
               "function" == typeof _v0?.startGuides && _v0.startGuides();
             } catch {}
-            _v20.current = !1;
+            _v21.current = !1;
           }
         };
       }
-    }, [_v19]);
-    let _v21 = (0, _v19.useCallback)(_v0 => {
-      if (_v13(_v0 => ({
+    }, [_v20]);
+    let _v22 = (0, _v19.useCallback)(_v0 => {
+      if (_v14(_v0 => ({
         ..._v0,
         [_v0]: !0
       })), !_v4) return Promise.resolve();
       let _v1 = "now" === _v0 ? _v28 : _v27;
-      return _v10(_v0 => ({
+      return _v11(_v0 => ({
         ..._v0,
         [_v1]: 1
       }), {
         revalidate: !1
-      }), _v11({
+      }), _v12({
         where: {
           userId: _v4
         },
@@ -438,13 +439,13 @@
           [_v1]: 1
         }
       }).then(() => {
-        _v10();
+        _v11();
       });
-    }, [_v4, _v11, _v10]);
+    }, [_v4, _v12, _v11]);
     return {
-      active: _v19,
-      mergeDate: _v18,
-      dismiss: _v21
+      active: _v20,
+      mergeDate: _v19,
+      dismiss: _v22
     };
   }, "useSuppressNowOneAnnouncement", 0, function () {
     let [_v0] = (0, _v22.usePatchUserPreferences)(),

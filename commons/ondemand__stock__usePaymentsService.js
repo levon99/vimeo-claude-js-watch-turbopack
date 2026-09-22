@@ -72,24 +72,28 @@
         _v13 = "string" == typeof _v3.product ? Number(_v3.product) : void 0,
         _v14 = (0, _v11.getFakeDoorConfig)(_v3.fdsource),
         {
-          data: _v15,
-          isLoading: _v16,
-          isValidating: _v17
-        } = (0, _v15.useGetMeCapabilities)(() => _v1 ? {
-          select: ["usePaymentsService", "beenInFreeTrial", "isLapsed", "useStripeCheckout", "hasUsedStripeCheckout", "inAppSubscription"]
-        } : null, {
+          settings: _v15,
+          isLoadingResponse: _v16
+        } = (0, _v16.useOrionSettings)(),
+        {
+          data: _v17,
+          isLoading: _v18,
+          isValidating: _v19
+        } = (0, _v15.useGetMeCapabilities)(() => {
+          if (!_v1) return null;
+          let _v0 = ["usePaymentsService", "beenInFreeTrial", "isLapsed", "useStripeCheckout", "hasUsedStripeCheckout", "inAppSubscription"];
+          return _v15.second_free_trial_enabled && _v0.push("secondFreeTrialEligibility"), {
+            select: _v0
+          };
+        }, {
           revalidateOnMount: !0,
           revalidateOnFocus: !1,
           revalidateOnReconnect: !1
         }),
-        _v18 = _v15?.usePaymentsService,
-        _v19 = _v15?.useStripeCheckout || !1,
-        _v20 = _v15?.hasUsedStripeCheckout || !1,
-        _v21 = _v15?.inAppSubscription,
-        {
-          settings: _v22,
-          isLoadingResponse: _v23
-        } = (0, _v16.useOrionSettings)(),
+        _v20 = _v17?.usePaymentsService,
+        _v21 = _v17?.useStripeCheckout || !1,
+        _v22 = _v17?.hasUsedStripeCheckout || !1,
+        _v23 = _v17?.inAppSubscription,
         _v24 = "string" == typeof _v2.query.post_checkout_url ? _v2.query.post_checkout_url : void 0,
         _v25 = _v24 && (0, _v20.isVimeoRedirectableUrl)(_v24) ? _v24 : void 0;
       (0, _v4.useEffect)(() => {
@@ -101,42 +105,43 @@
         }));
       }, [_v8, _v10, _v2, _v25]);
       let _v26 = _v2.pathname.includes("/trial"),
-        _v27 = _v26 && (_v15?.beenInFreeTrial || _v15?.isLapsed),
-        _v28 = null === _v7 || _v8 || _v10 || _v16 || _v17 || _v23 || void 0 === _v18 || _v11 && (!_v12 || !_v13),
-        _v29 = _v11 ? "rent" === _v12 ? "rental" : "buy" === _v12 ? "onetime" : "monthly" : _v0.isMonthly ? "monthly" : "annual",
-        _v30 = _v22.checkout_default_payment_method,
-        _v31 = _v19 || _v20 || _v22.force_stripe_checkout ? _v10.PaymentFormTypes.TYPE_STRIPE : _v3.type ? Number(_v3.type) : "paypal" === _v30 ? _v10.PaymentFormTypes.TYPE_PAYPAL : _v10.PaymentFormTypes.TYPE_CREDIT_CARD,
-        _v32 = _v31 === _v10.PaymentFormTypes.TYPE_STRIPE ? "stripe" : _v31 === _v10.PaymentFormTypes.TYPE_PAYPAL ? "paypal" : "credit_card";
+        _v27 = _v15.second_free_trial_enabled && !!_v17?.secondFreeTrialEligibility,
+        _v28 = _v26 && (_v17?.beenInFreeTrial || _v17?.isLapsed) && !_v27 && !_v18 && !_v19 && !_v16,
+        _v29 = null === _v7 || _v8 || _v10 || _v18 || _v19 || _v16 || void 0 === _v20 || _v11 && (!_v12 || !_v13),
+        _v30 = _v11 ? "rent" === _v12 ? "rental" : "buy" === _v12 ? "onetime" : "monthly" : _v0.isMonthly ? "monthly" : "annual",
+        _v31 = _v15.checkout_default_payment_method,
+        _v32 = _v21 || _v22 || _v15.force_stripe_checkout ? _v10.PaymentFormTypes.TYPE_STRIPE : _v3.type ? Number(_v3.type) : "paypal" === _v31 ? _v10.PaymentFormTypes.TYPE_PAYPAL : _v10.PaymentFormTypes.TYPE_CREDIT_CARD,
+        _v33 = _v32 === _v10.PaymentFormTypes.TYPE_STRIPE ? "stripe" : _v32 === _v10.PaymentFormTypes.TYPE_PAYPAL ? "paypal" : "credit_card";
       (0, _v19.usePicoEffect)(() => {
-        if (_v28) return !1;
+        if (_v29) return !1;
         _v4({
           tier: _v7,
-          periodicity: _v29,
+          periodicity: _v30,
           isFreeTrial: _v26,
-          defaultPaymentMethod: _v32
+          defaultPaymentMethod: _v33
         });
-      }, [_v28, _v7, _v29, _v26, _v32], {
+      }, [_v29, _v7, _v30, _v26, _v33], {
         once: !0
       });
-      let _v33 = _v28 || !_v14;
+      let _v34 = _v29 || !_v14;
       return ((0, _v19.usePicoEffect)(() => {
-        if (_v33 || !_v14) return !1;
+        if (_v34 || !_v14) return !1;
         _v5(_v14);
-      }, [_v33, _v14], {
+      }, [_v34, _v14], {
         once: !0
-      }), _v27 && !_v14 && _v2.push((0, _v17.buildUpgradePlanUrl)({
+      }), _v28 && !_v14 && _v2.push((0, _v17.buildUpgradePlanUrl)({
         paywallTrigger: "checkout_lapsed_or_trial_upgrade_redirect",
         paywallLocation: "checkout",
         paywallFeature: "subscription",
         postCheckoutUrl: _v25
-      })), !_v7 || _v8 || _v10 || (_v21 && !_v11 && (window.location.href = "/settings/billing/membership_plan"), _v16 || _v17 || void 0 === _v18 || _v23 || !_v11 && "custom_self_serve" !== _v7 && !_v18 || _v11 && (!_v12 || !_v13))) ? null : (0, _v1.jsx)(_v25, {
+      })), !_v7 || _v8 || _v10 || (_v23 && !_v11 && (window.location.href = "/settings/billing/membership_plan"), _v18 || _v19 || void 0 === _v20 || _v16 || !_v11 && "custom_self_serve" !== _v7 && !_v20 || _v11 && (!_v12 || !_v13))) ? null : (0, _v1.jsx)(_v25, {
         ..._v0,
-        defaultPaymentType: _v31,
-        isIndianUser: _v19,
+        defaultPaymentType: _v32,
+        isIndianUser: _v21,
         defaultPromoCodeId: _v3.promo ?? void 0,
         currencyQuery: _v3.currency ?? void 0,
         plan: _v7,
-        canUsePaymentsService: _v18,
+        canUsePaymentsService: _v20,
         creatorProductAction: _v12,
         creatorProductId: _v13,
         inPlayer: !!_v3.player ?? !1,

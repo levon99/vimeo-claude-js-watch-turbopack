@@ -13,7 +13,6 @@
     enable_subscription_withdrawal: !1,
     enable_workspace_defaults_page: !1,
     repackaging_cancellation_position: !0,
-    enable_webinar_viewer_anonymization: !1,
     hide_storage_banner_video_page: !1,
     sidebar_hide_storage_bar: !1,
     onboarding_paywall_kind: "plansComparison",
@@ -202,6 +201,9 @@
     onboarding_paywall_pricing_page_show_back_link: !0,
     review_adoption_v3_arm: "control",
     enable_ai_analytics_dashboard: !1,
+    second_free_trial_enabled: !1,
+    second_free_trial_ui_treatment: "modal",
+    second_free_trial_plan_tier: "starter",
     replace_in_review: !1
   };
   function _v12() {

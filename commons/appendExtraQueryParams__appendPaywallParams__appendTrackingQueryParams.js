@@ -179,7 +179,7 @@
   }, "getVuid", 0, () => {
     let _v0 = document.cookie.match(/vuid=(\w+\.\w+);?/);
     return _v0 && _v0.length >= 2 ? _v0[1] : null;
-  }, "hasDisplayPlan", 0, _v0 => _v0 && _v0.hasOwnProperty("displayPlan"), "isEligibleForFreeTrial", 0, _v0 => (_v0.membership?.type === _v5.PLANS.FREE || _v0.membership?.type === _v5.PLANS.BASIC) && !_v0.membership?.subscription?.trial?.hasBeenInFreeTrial, "isRepackagingTier", 0, _v0 => (0, _v4.isRepackagingSelfServeTier)(_v0), "isSeatTierPlan", 0, _v7, "isUserPlanHigherOrEqualThan", 0, (_v0, _v1) => {
+  }, "hasDisplayPlan", 0, _v0 => _v0 && _v0.hasOwnProperty("displayPlan"), "isEligibleForFreeTrial", 0, (_v0, _v1 = !1) => !!_v1 || (_v0.membership?.type === _v5.PLANS.FREE || _v0.membership?.type === _v5.PLANS.BASIC) && !_v0.membership?.subscription?.trial?.hasBeenInFreeTrial, "isRepackagingTier", 0, _v0 => (0, _v4.isRepackagingSelfServeTier)(_v0), "isSeatTierPlan", 0, _v7, "isUserPlanHigherOrEqualThan", 0, (_v0, _v1) => {
     let _v2 = ((_v0, _v1) => {
       if (!_v0 || !_v1) return null;
       let _v2 = _v5.PLANS_ORDER[_v0],

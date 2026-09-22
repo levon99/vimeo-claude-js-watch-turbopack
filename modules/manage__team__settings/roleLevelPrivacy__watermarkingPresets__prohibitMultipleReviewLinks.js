@@ -203,10 +203,9 @@
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
-    _v40 = _v0.i(0);
-  let _v41 = () => ({
-    privacySettings: (0, _v40.translate)({
+    _v39 = _v0.i(0);
+  let _v40 = () => ({
+    privacySettings: (0, _v39.translate)({
       singular: "Privacy",
       dictionary: {
         es: {
@@ -234,7 +233,7 @@
     }),
     settingControls: {
       applyDrpExtensionAfterMigration: {
-        name: (0, _v40.translate)({
+        name: (0, _v39.translate)({
           singular: "Reset data retention schedules for migrated videos",
           dictionary: {
             es: {
@@ -260,7 +259,7 @@
             }
           }
         }),
-        description: (0, _v40.translate)({
+        description: (0, _v39.translate)({
           singular: "After migrating videos from existing accounts into your Vimeo Enterprise account, reset their data retention schedules to begin on the date of their migration",
           dictionary: {
             es: {
@@ -288,7 +287,7 @@
         })
       },
       reviewPagePreferences: {
-        name: (0, _v40.translate)({
+        name: (0, _v39.translate)({
           singular: "Review page privacy",
           dictionary: {
             es: {
@@ -314,7 +313,7 @@
             }
           }
         }),
-        description: (0, _v40.translate)({
+        description: (0, _v39.translate)({
           singular: "Set a default privacy for your Review pages",
           dictionary: {
             es: {
@@ -342,7 +341,7 @@
         })
       },
       prohibitMultipleReviewLinks: {
-        name: (0, _v40.translate)({
+        name: (0, _v39.translate)({
           singular: "Prohibit review links",
           dictionary: {
             es: {
@@ -368,7 +367,7 @@
             }
           }
         }),
-        description: (0, _v40.translate)({
+        description: (0, _v39.translate)({
           singular: "Prevent review links from being created and accessed",
           dictionary: {
             es: {
@@ -396,7 +395,7 @@
         })
       },
       [_v21]: {
-        name: (0, _v40.translate)({
+        name: (0, _v39.translate)({
           singular: "Privacy restrictions by role",
           dictionary: {
             es: {
@@ -422,7 +421,7 @@
             }
           }
         }),
-        description: (0, _v40.translate)({
+        description: (0, _v39.translate)({
           singular: "Decide which privacy settings team members can use based on their role",
           dictionary: {
             es: {
@@ -450,7 +449,7 @@
         })
       },
       [_v22]: {
-        name: (0, _v40.translate)({
+        name: (0, _v39.translate)({
           singular: "Overlay Watermark Presets",
           dictionary: {
             es: {
@@ -476,7 +475,7 @@
             }
           }
         }),
-        description: (0, _v40.translate)({
+        description: (0, _v39.translate)({
           singular: "Create and manage watermark presets for your team videos",
           dictionary: {
             es: {
@@ -504,7 +503,7 @@
         })
       },
       disablePublicSearch: {
-        name: (0, _v40.translate)({
+        name: (0, _v39.translate)({
           singular: "Prohibit public search",
           dictionary: {
             es: {
@@ -530,7 +529,7 @@
             }
           }
         }),
-        description: (0, _v40.translate)({
+        description: (0, _v39.translate)({
           singular: "Prevent team members from searching public content created by the Vimeo community",
           dictionary: {
             es: {
@@ -558,7 +557,7 @@
         })
       },
       disableAccountEditing: {
-        name: (0, _v40.translate)({
+        name: (0, _v39.translate)({
           singular: "Limit account editing",
           dictionary: {
             es: {
@@ -584,7 +583,7 @@
             }
           }
         }),
-        description: (0, _v40.translate)({
+        description: (0, _v39.translate)({
           singular: "Prevent team members from changing the name and email address associated with their account",
           dictionary: {
             es: {
@@ -612,7 +611,7 @@
         })
       },
       enableDrm: {
-        name: (0, _v40.translate)({
+        name: (0, _v39.translate)({
           singular: "Digital rights management (DRM)",
           dictionary: {
             es: {
@@ -638,10 +637,10 @@
             }
           }
         }),
-        description: (0, _v40.translate)({
+        description: (0, _v39.translate)({
           singular: "Protect videos on your account from unauthorized use or copying. {ARTICLE_LINK}Learn more{/ARTICLE_LINK}",
           replacements: {
-            ARTICLE_LINK: _v0 => (0, _v1.jsx)(_v39.Link, {
+            ARTICLE_LINK: _v0 => (0, _v1.jsx)(_v38.Link, {
               href: "https://vimeo.com/help/zendesk_sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/31622243101969",
               target: "_blank",
               rel: "noopener noreferrer",
@@ -676,7 +675,7 @@
         })
       },
       teamActivityAnalytics: {
-        name: (0, _v40.translate)({
+        name: (0, _v39.translate)({
           singular: "Team activity analytics",
           dictionary: {
             es: {
@@ -702,7 +701,7 @@
             }
           }
         }),
-        description: (0, _v40.translate)({
+        description: (0, _v39.translate)({
           singular: "Admins can view analytics about team members' viewing activity in the Library",
           dictionary: {
             es: {
@@ -730,7 +729,7 @@
         })
       }
     },
-    SomethingWentWrong: (0, _v40.translate)({
+    SomethingWentWrong: (0, _v39.translate)({
       singular: "Something went wrong",
       dictionary: {
         es: {
@@ -756,7 +755,7 @@
         }
       }
     }),
-    TeamOnly: (0, _v40.translate)({
+    TeamOnly: (0, _v39.translate)({
       singular: "Team only",
       dictionary: {
         es: {
@@ -782,7 +781,7 @@
         }
       }
     }),
-    Everyone: (0, _v40.translate)({
+    Everyone: (0, _v39.translate)({
       singular: "Everyone",
       dictionary: {
         es: {
@@ -808,7 +807,7 @@
         }
       }
     }),
-    drmModalHeader: (0, _v40.translate)({
+    drmModalHeader: (0, _v39.translate)({
       singular: "Turn on digital rights management (DRM)",
       dictionary: {
         es: {
@@ -834,7 +833,7 @@
         }
       }
     }),
-    drmModalBody: (0, _v40.translate)({
+    drmModalBody: (0, _v39.translate)({
       singular: "DRM will be applied to all videos in your team's account. New videos will have DRM on by default.",
       dictionary: {
         es: {
@@ -860,7 +859,7 @@
         }
       }
     }),
-    drmModalBulletHeader: (0, _v40.translate)({
+    drmModalBulletHeader: (0, _v39.translate)({
       singular: "How DRM affects videos on this account:",
       dictionary: {
         es: {
@@ -886,7 +885,7 @@
         }
       }
     }),
-    drmModalBullet1: (0, _v40.translate)({
+    drmModalBullet1: (0, _v39.translate)({
       singular: "Prevents viewers from downloading videos",
       dictionary: {
         es: {
@@ -912,7 +911,7 @@
         }
       }
     }),
-    drmModalBullet2: (0, _v40.translate)({
+    drmModalBullet2: (0, _v39.translate)({
       singular: "Blocks playback in third-party players",
       dictionary: {
         es: {
@@ -938,7 +937,7 @@
         }
       }
     }),
-    drmModalTurnOn: (0, _v40.translate)({
+    drmModalTurnOn: (0, _v39.translate)({
       singular: "Turn on",
       dictionary: {
         es: {
@@ -964,7 +963,7 @@
         }
       }
     }),
-    drmModalCancel: (0, _v40.translate)({
+    drmModalCancel: (0, _v39.translate)({
       singular: "Cancel",
       dictionary: {
         es: {
@@ -990,7 +989,7 @@
         }
       }
     }),
-    Manage: (0, _v40.translate)({
+    Manage: (0, _v39.translate)({
       singular: "Manage",
       dictionary: {
         es: {
@@ -1016,7 +1015,7 @@
         }
       }
     }),
-    PublicSearchMustBeProhibitedWhenYourAreUsing: _v0 => (0, _v40.translate)({
+    PublicSearchMustBeProhibitedWhenYourAreUsing: _v0 => (0, _v39.translate)({
       singular: "Public search must be prohibited when you are using {DOMAIN}",
       replacements: {
         DOMAIN: _v0
@@ -1046,19 +1045,19 @@
       }
     })
   });
-  var _v42 = _v0.i(0),
-    _v43 = _v0.i(0);
-  let _v44 = {
-      title: _v37.T.Allowlist,
-      description: _v37.T.AllowlistMenuDescription,
+  var _v41 = _v0.i(0),
+    _v42 = _v0.i(0);
+  let _v43 = {
+      title: _v36.T.Allowlist,
+      description: _v36.T.AllowlistMenuDescription,
       path: "/manage/team/settings/allowlist"
     },
-    _v45 = {
-      title: _v37.T.SingleSignOn,
-      description: _v37.T.SingleSignOnPageMenuDescription,
+    _v44 = {
+      title: _v36.T.SingleSignOn,
+      description: _v36.T.SingleSignOnPageMenuDescription,
       path: "/manage/team/settings/sso"
     },
-    _v46 = {
+    _v45 = {
       modalConfig: {
         mkcCode: "109208"
       },
@@ -1071,37 +1070,38 @@
         }
       }
     },
-    _v47 = ({
+    _v46 = ({
       canViewSsoTeamSettings: _v0,
       hasEnterprise: _v1,
       hasSessionManagement: _v2,
       hasTeamAllowedIpsEnabled: _v3,
       ownerId: _v4
     }) => _v0 || !_v1 || _v2 ? (0, _v1.jsxs)(_v7.TeamSettingsPageCategory, {
-      title: _v37.T.Authentication,
+      title: _v36.T.Authentication,
       children: [_v0 || !_v1 ? (0, _v1.jsx)(_v27, {
-        title: _v45.title,
-        description: _v45.description,
-        path: _v45.path,
-        disabled: !_v1,
-        upsell: _v1 ? void 0 : _v46,
-        dataId: `teamSettingsPageOption${_v45.title.replace(/\s/g, "")}`
-      }, _v45.title) : null, _v3 && (0, _v1.jsx)(_v27, {
         title: _v44.title,
         description: _v44.description,
         path: _v44.path,
+        disabled: !_v1,
+        upsell: _v1 ? void 0 : _v45,
         dataId: `teamSettingsPageOption${_v44.title.replace(/\s/g, "")}`
-      }, _v44.title), _v2 && (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v43.TeamSettingsSessionDuration, {
+      }, _v44.title) : null, _v3 && (0, _v1.jsx)(_v27, {
+        title: _v43.title,
+        description: _v43.description,
+        path: _v43.path,
+        dataId: `teamSettingsPageOption${_v43.title.replace(/\s/g, "")}`
+      }, _v43.title), _v2 && (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsx)(_v42.TeamSettingsSessionDuration, {
           ownerId: _v4,
           type: "team"
-        }), (0, _v1.jsx)(_v42.TeamSettingsForceLogout, {
+        }), (0, _v1.jsx)(_v41.TeamSettingsForceLogout, {
           ownerId: _v4,
           type: "team"
         })]
       })]
     }) : null;
-  var _v48 = _v0.i(0),
+  var _v47 = _v0.i(0),
+    _v48 = _v0.i(0),
     _v49 = _v0.i(0),
     _v50 = _v0.i(0),
     _v51 = _v0.i(0),
@@ -1110,9 +1110,8 @@
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),
-    _v57 = _v0.i(0),
-    _v58 = _v0.i(0);
-  let _v59 = ({
+    _v57 = _v0.i(0);
+  let _v58 = ({
     disabled: _v0,
     userId: _v1,
     title: _v2,
@@ -1131,7 +1130,7 @@
       } = (0, _v28.useUpdateTeamSettings)({
         userId: _v1
       }),
-      _v13 = (0, _v3.useMemo)(() => _v41(), []),
+      _v13 = (0, _v3.useMemo)(() => _v40(), []),
       [_v14, _v15] = (0, _v3.useState)(null),
       [_v16, _v17] = (0, _v3.useState)(!1),
       [_v18, _v19] = (0, _v3.useState)(!1),
@@ -1146,13 +1145,13 @@
           hasEnterprise: _v29,
           hasCanUseOverlayWatermarking: _v30
         }
-      } = (0, _v3.useContext)(_v36.ManageTeamStateCtx),
+      } = (0, _v3.useContext)(_v35.ManageTeamStateCtx),
       {
         presets: _v31,
         isLoading: _v32,
         deletePreset: _v33,
         refreshPresets: _v34
-      } = (0, _v57.useWatermarkingPresets)({
+      } = (0, _v56.useWatermarkingPresets)({
         ownerId: _v1 || 0,
         isModalOpen: _v20,
         sortBy: _v22,
@@ -1205,20 +1204,20 @@
             maybeOpenDrmModal: _v37,
             changeTeamSetting: _v36,
             value: _v2,
-            schevronText: _v26 === _v0 && (0, _v58.getPrivacyText)(_v3[_v0]?.privacy),
+            schevronText: _v26 === _v0 && (0, _v57.getPrivacyText)(_v3[_v0]?.privacy),
             disabled: !!_v1 || _v0,
             tooltip: _v3,
             name: _v13.settingControls[_v0].name,
             description: _v13.settingControls[_v0].description
           }, _v0) : null;
         })
-      }), (0, _v1.jsxs)(_v50.Modal, {
+      }), (0, _v1.jsxs)(_v49.Modal, {
         isOpen: _v18,
         onClose: () => _v19(!1),
-        children: [(0, _v1.jsx)(_v51.ModalOverlay, {}), (0, _v1.jsxs)(_v52.ModalContent, {
-          children: [(0, _v1.jsx)(_v53.ModalHeader, {
+        children: [(0, _v1.jsx)(_v50.ModalOverlay, {}), (0, _v1.jsxs)(_v51.ModalContent, {
+          children: [(0, _v1.jsx)(_v52.ModalHeader, {
             children: _v13.drmModalHeader
-          }), (0, _v1.jsxs)(_v54.ModalBody, {
+          }), (0, _v1.jsxs)(_v53.ModalBody, {
             children: [(0, _v1.jsx)(_v11.Paragraph, {
               size: "md",
               children: _v13.drmModalBody
@@ -1240,7 +1239,7 @@
                 children: _v13.drmModalBullet2
               })]
             })]
-          }), (0, _v1.jsxs)(_v55.ModalFooter, {
+          }), (0, _v1.jsxs)(_v54.ModalFooter, {
             children: [(0, _v1.jsx)(_v15.Button, {
               onClick: () => _v19(!1),
               variant: "tertiary",
@@ -1253,7 +1252,7 @@
             })]
           })]
         })]
-      }), (0, _v1.jsx)(_v56.PresetListModal, {
+      }), (0, _v1.jsx)(_v55.PresetListModal, {
         isOpen: _v20,
         onClose: () => {
           _v21(!1), _v23(void 0), _v25(void 0);
@@ -1271,7 +1270,8 @@
       })]
     }) : (0, _v1.jsx)(_v1.Fragment, {});
   };
-  var _v60 = _v0.i(0),
+  var _v59 = _v0.i(0),
+    _v60 = _v0.i(0),
     _v61 = _v0.i(0),
     _v62 = _v0.i(0),
     _v63 = _v0.i(0),
@@ -1279,24 +1279,23 @@
     _v65 = _v0.i(0),
     _v66 = _v0.i(0),
     _v67 = _v0.i(0),
-    _v68 = _v0.i(0),
-    _v69 = _v0.i(0);
-  let _v70 = ({
+    _v68 = _v0.i(0);
+  let _v69 = ({
       isOwner: _v0
     }) => {
       let _v1,
         _v2,
         {
           sendOpenFederatedSearchManageEvent: _v3
-        } = (_v1 = (0, _v69.useViewer)(), _v2 = (0, _v3.useMemo)(() => (0, _v66.buildTeamBpContextFromTeamUser)(_v1?.teamUser), [_v1?.teamUser]), {
+        } = (_v1 = (0, _v68.useViewer)(), _v2 = (0, _v3.useMemo)(() => (0, _v65.buildTeamBpContextFromTeamUser)(_v1?.teamUser), [_v1?.teamUser]), {
           sendOpenFederatedSearchManageEvent: () => {
-            let _v0 = (0, _v63.default)();
-            (0, _v68.sendBpEventWithContexts)("vimeo.open_federated_search_manage", {
-              ...(0, _v64.buildActionBpContext)({
+            let _v0 = (0, _v62.default)();
+            (0, _v67.sendBpEventWithContexts)("vimeo.open_federated_search_manage", {
+              ...(0, _v63.buildActionBpContext)({
                 action_type: "click",
                 feature: null
               }),
-              ...(0, _v65.buildProductAnalyticsBpContext)({
+              ...(0, _v64.buildProductAnalyticsBpContext)({
                 entity_type: null,
                 element: "button",
                 location: "workspace",
@@ -1305,7 +1304,7 @@
                 copy: "manage",
                 device_type: _v0
               }),
-              ...(0, _v67.buildWebBpContext)({
+              ...(0, _v66.buildWebBpContext)({
                 page_name: "team_management_page",
                 path: window.location.pathname
               }),
@@ -1314,32 +1313,32 @@
           }
         });
       return (0, _v1.jsx)(_v7.TeamSettingsPageCategory, {
-        title: _v37.T.API,
+        title: _v36.T.API,
         children: (0, _v1.jsx)(_v26.TeamSettingsPageOptionCustom, {
-          title: _v37.T.FederatedSearch,
-          description: _v37.T.MakeContentOnThisAccountSearchable,
-          footer: _v0 ? null : (0, _v1.jsx)(_v60.Alert, {
+          title: _v36.T.FederatedSearch,
+          description: _v36.T.MakeContentOnThisAccountSearchable,
+          footer: _v0 ? null : (0, _v1.jsx)(_v59.Alert, {
             size: "sm",
             marginTop: "200",
-            children: (0, _v1.jsx)(_v61.AlertDescription, {
+            children: (0, _v1.jsx)(_v60.AlertDescription, {
               marginTop: "50",
-              children: _v37.T.OnlyTheAccountOwnerCanSetUpFederatedSearch
+              children: _v36.T.OnlyTheAccountOwnerCanSetUpFederatedSearch
             })
           }),
           children: (0, _v1.jsx)(_v15.Button, {
             variant: "secondary",
             size: "sm",
-            leftIcon: (0, _v1.jsx)(_v62.PopOut, {}),
+            leftIcon: (0, _v1.jsx)(_v61.PopOut, {}),
             isDisabled: !_v0,
             onClick: () => {
               _v0 && (_v3(), window.open("https://developer.vimeo.com/apps", "_blank"));
             },
-            children: _v37.T.ManageFederatedSearchLabel
+            children: _v36.T.ManageFederatedSearchLabel
           })
         })
       });
     },
-    _v71 = ({
+    _v70 = ({
       userId: _v0,
       hasEnterprise: _v1,
       isOwner: _v2,
@@ -1362,12 +1361,12 @@
             _v0 && _v1(_v0);
           }, [_v2]), _v0;
         }(),
-        _v13 = (0, _v48.useToast)(),
-        _v14 = (0, _v3.useMemo)(() => _v41(), []),
+        _v13 = (0, _v47.useToast)(),
+        _v14 = (0, _v3.useMemo)(() => _v40(), []),
         _v15 = (0, _v3.useCallback)(() => {
           _v13({
             duration: _v30.NOTIFICATION_DURATION,
-            title: (0, _v40.translate)({
+            title: (0, _v39.translate)({
               singular: "Something went wrong. Please try again.",
               dictionary: {
                 es: {
@@ -1397,8 +1396,8 @@
         }, [_v13]);
       return ((0, _v3.useEffect)(() => {
         _v6 && _v15();
-      }, [_v15, _v6]), !_v0 || _v4 || _v5) ? (0, _v1.jsx)(_v49.Spinner, {}) : (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v59, {
+      }, [_v15, _v6]), !_v0 || _v4 || _v5) ? (0, _v1.jsx)(_v48.Spinner, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsx)(_v58, {
           disabled: _v10,
           settings: _v7,
           userId: _v0,
@@ -1409,14 +1408,14 @@
           shouldScrollIntoView: "privacy-settings" === _v12,
           itemsWithContainerDataId: _v8,
           hasEnterpriseCustomDomainEnabled: _v9
-        }), _v1 && (0, _v1.jsx)(_v70, {
+        }), _v1 && (0, _v1.jsx)(_v69, {
           isOwner: _v2
         })]
       });
     },
-    _v72 = ["prohibitMultipleReviewLinks", "reviewPagePreferences", "disablePublicSearch", "disableAccountEditing", "enableDrm", "teamActivityAnalytics"],
-    _v73 = ["applyDrpExtensionAfterMigration"],
-    _v74 = () => {
+    _v71 = ["prohibitMultipleReviewLinks", "reviewPagePreferences", "disablePublicSearch", "disableAccountEditing", "enableDrm", "teamActivityAnalytics"],
+    _v72 = ["applyDrpExtensionAfterMigration"],
+    _v73 = () => {
       let {
           teamCapabilities: {
             hasLegalHoldsActive: _v0,
@@ -1430,7 +1429,7 @@
             canEnableEnterpriseCustomDomain: _v8,
             canLmsExport: _v9,
             hasTeamAllowedIpsEnabled: _v10,
-            createLiveEvents: _v11
+            hasWebinarViewerAnonymizationEnabled: _v11
           },
           teamInfo: {
             teamData: {
@@ -1438,46 +1437,43 @@
             }
           },
           isTeamInfoLoading: _v13
-        } = (0, _v3.useContext)(_v36.ManageTeamStateCtx),
-        _v14 = (0, _v3.useMemo)(() => _v41(), []),
-        _v15 = (0, _v3.useContext)(_v38.ViewerContext),
+        } = (0, _v3.useContext)(_v35.ManageTeamStateCtx),
+        _v14 = (0, _v3.useMemo)(() => _v40(), []),
+        _v15 = (0, _v3.useContext)(_v37.ViewerContext),
+        [_v16, _v17] = (0, _v3.useState)({}),
         {
-          settings: _v16
-        } = (0, _v33.useOrionSettings)(),
-        [_v17, _v18] = (0, _v3.useState)({}),
-        {
-          teamSettingsResult: _v19,
-          teamSettingsLoading: _v20,
-          teamSettingsError: _v21
-        } = (0, _v34.useGetTeamSettings)({
+          teamSettingsResult: _v18,
+          teamSettingsLoading: _v19,
+          teamSettingsError: _v20
+        } = (0, _v33.useGetTeamSettings)({
           userId: _v12,
-          settings: [..._v72, ..._v73]
+          settings: [..._v71, ..._v72]
         }),
         {
-          privacySettings: _v22,
-          drpSettings: _v23,
-          privacyItemsWithContainerDataId: _v24
+          privacySettings: _v21,
+          drpSettings: _v22,
+          privacyItemsWithContainerDataId: _v23
         } = (0, _v3.useMemo)(() => {
           let _v0 = [],
-            _v1 = (0, _v2.default)(_v17 ?? {}, _v72);
+            _v1 = (0, _v2.default)(_v16 ?? {}, _v71);
           return _v1[_v21] = !0, _v1[_v22] = !0, _v4 && _v0.push(_v21), _v7 || delete _v1.enableDrm, {
             privacySettings: _v1,
-            drpSettings: (0, _v2.default)(_v17 ?? {}, _v73),
+            drpSettings: (0, _v2.default)(_v16 ?? {}, _v72),
             privacyItemsWithContainerDataId: _v0
           };
-        }, [_v17, _v7, _v4]),
-        _v25 = (0, _v3.useCallback)((_v0, _v1) => {
-          _v18({
-            ..._v17,
+        }, [_v16, _v7, _v4]),
+        _v24 = (0, _v3.useCallback)((_v0, _v1) => {
+          _v17({
+            ..._v16,
             [_v0]: _v1
           });
-        }, [_v18, _v17]);
+        }, [_v17, _v16]);
       (0, _v3.useEffect)(() => {
-        _v19 && _v18(_v19);
-      }, [_v19, _v18]);
-      let _v26 = [{
-        title: _v37.T.AuditLogs,
-        description: _v37.T.AuditLogsMenuDescription,
+        _v18 && _v17(_v18);
+      }, [_v18, _v17]);
+      let _v25 = [{
+        title: _v36.T.AuditLogs,
+        description: _v36.T.AuditLogsMenuDescription,
         path: "/manage/team/settings/audit-logs",
         disabled: !_v4,
         upsell: _v4 ? void 0 : {
@@ -1495,39 +1491,39 @@
         },
         ownerId: _v12
       }, ...(_v2 ? [{
-        title: _v37.T.DeactivatedMemberFolders,
-        description: _v37.T.ManageAndViewContentText,
+        title: _v36.T.DeactivatedMemberFolders,
+        description: _v36.T.ManageAndViewContentText,
         path: "/manage/team/my-videos/deactivated",
         ownerId: _v12
       }] : []), ...(_v1 ? [{
-        title: _v37.T.DataRetention,
-        description: _v37.T.ManagePolicies,
+        title: _v36.T.DataRetention,
+        description: _v36.T.ManagePolicies,
         path: "/manage/team/settings/data-retention",
         ownerId: _v12
       }, {
-        title: _v37.T.ClipExtension,
-        description: _v37.T.ClipExtensionDescription,
+        title: _v36.T.ClipExtension,
+        description: _v36.T.ClipExtensionDescription,
         path: "/manage/team/settings/clip-extension",
         ownerId: _v12
       }, {
         title: _v14.settingControls.applyDrpExtensionAfterMigration.name,
         description: _v14.settingControls.applyDrpExtensionAfterMigration.description,
         setting: "applyDrpExtensionAfterMigration",
-        settingValue: _v23.applyDrpExtensionAfterMigration,
+        settingValue: _v22.applyDrpExtensionAfterMigration,
         ownerId: _v12
       }, {
-        title: _v37.T.HistoryAndRecovery,
-        description: _v37.T.ViewHistorical,
+        title: _v36.T.HistoryAndRecovery,
+        description: _v36.T.ViewHistorical,
         path: "/manage/team/settings/history",
         ownerId: _v12
       }] : []), ...(_v0 ? [{
-        title: _v37.T.LegalHold,
-        description: _v37.T.ManageContentText,
+        title: _v36.T.LegalHold,
+        description: _v36.T.ManageContentText,
         path: "/manage/team/settings/legal-hold",
         ownerId: _v12
-      }] : []), ...(_v4 && _v11 && _v16.enable_webinar_viewer_anonymization ? [{
-        title: _v37.T.WebinarViewerAnonymisation,
-        description: _v37.T.WebinarViewerAnonymisationDescription,
+      }] : []), ...(_v11 ? [{
+        title: _v36.T.WebinarViewerAnonymisation,
+        description: _v36.T.WebinarViewerAnonymisationDescription,
         path: "/manage/team/settings/webinar-viewer-anonymisation",
         ownerId: _v12
       }] : [])];
@@ -1543,43 +1539,43 @@
           }
         },
         children: [(0, _v1.jsx)(_v31.SettingsPageContentHeader, {
-          title: _v37.T.Settings
-        }), (0, _v1.jsx)(_v47, {
+          title: _v36.T.Settings
+        }), (0, _v1.jsx)(_v46, {
           canViewSsoTeamSettings: _v3,
           hasEnterprise: _v4,
           hasSessionManagement: _v6,
           ownerId: _v12,
           hasTeamAllowedIpsEnabled: _v10
         }), (0, _v1.jsx)(_v7.TeamSettingsPageCategory, {
-          title: _v37.T.ActivityAndDataRetention,
-          visible: !!_v26.length,
-          children: _v26.map(_v0 => (0, _v1.jsx)(_v29, {
+          title: _v36.T.ActivityAndDataRetention,
+          visible: !!_v25.length,
+          children: _v25.map(_v0 => (0, _v1.jsx)(_v29, {
             ownerId: _v12,
             title: _v0.title,
             description: _v0.description,
             path: _v0.path,
             setting: _v0.setting,
             settingValue: _v0.settingValue,
-            onUpdateTeamSettings: _v25,
+            onUpdateTeamSettings: _v24,
             disabled: _v0.disabled,
             upsell: _v0.upsell,
             dataId: _v0.title ? `teamSettingsPageOption${_v0.title.replace(/\s/g, "")}` : void 0,
             betaBadge: _v0.betaBadge
           }, _v0.title))
-        }), (0, _v1.jsx)(_v71, {
+        }), (0, _v1.jsx)(_v70, {
           userId: _v12,
           hasEnterprise: !!_v4,
           isOwner: _v12 === _v15?.user?.id,
-          updateTeamSettings: _v25,
+          updateTeamSettings: _v24,
           isTeamInfoLoading: _v13,
-          teamSettingsLoading: _v20,
-          teamSettingsError: !!_v21,
-          privacySettings: _v22,
-          privacyItemsWithContainerDataId: _v24,
+          teamSettingsLoading: _v19,
+          teamSettingsError: !!_v20,
+          privacySettings: _v21,
+          privacyItemsWithContainerDataId: _v23,
           hasEnterpriseCustomDomainEnabled: _v8
         }), _v9 && (0, _v1.jsx)(_v7.TeamSettingsPageCategory, {
-          title: _v37.T.ELearning,
-          description: _v37.T.ELearningDescription,
+          title: _v36.T.ELearning,
+          description: _v36.T.ELearningDescription,
           children: (0, _v1.jsx)(_v6.LMSTeamSettings, {
             userId: _v12
           })
@@ -1594,7 +1590,7 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v74.getLayout = _v0 => (0, _v35.getLayout)(_v0, {
+  }), _v73.getLayout = _v0 => (0, _v34.getLayout)(_v0, {
     contentColumn: "compactSettings"
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v74], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v73], 0);
 }

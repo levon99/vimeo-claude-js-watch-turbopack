@@ -167,7 +167,7 @@
       _v40 = (0, _v5.useRef)(null),
       _v41 = (0, _v5.useRef)(null),
       _v42 = (0, _v5.useRef)(null),
-      _v43 = (0, _v29.getVersionNumber)(_v9 || _v35.DEFAULT_VERSION_NUMBER),
+      _v43 = (0, _v29.formatVersionNumber)(_v9 || _v35.DEFAULT_VERSION_NUMBER),
       _v44 = _v23?.reduce((_v0, _v1) => Math.max(_v0, _v1.sequenceNumber?.toString().length ?? 0), 1) ?? 1,
       _v45 = _v35.MIN_WIDTH_FOR_SEQUENCE_NUMBER + _v44 * _v35.SEQUENCE_NUMBER_WIDTH_FOR_EACH_DIGIT,
       _v46 = _v23.some(_v0 => "in_progress" === _v0.versionTranscodeStatus),

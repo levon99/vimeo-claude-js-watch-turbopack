@@ -1122,7 +1122,7 @@
           singular: "Preferências"
         },
         "zh-CN": {
-          singular: "首选项"
+          singular: "偏好设置"
         }
       }
     }),

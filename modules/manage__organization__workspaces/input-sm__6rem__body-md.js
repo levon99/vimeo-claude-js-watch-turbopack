@@ -272,7 +272,7 @@
       })]
     });
   };
-  (0, _v6.withPageSetup)(_v32.getOrgAndWspUuidServerSideProps, {
+  (0, _v6.withPageSetup)(_v32.getOrgUuidServerSideProps, {
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0

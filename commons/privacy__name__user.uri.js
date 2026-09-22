@@ -11,7 +11,8 @@
       {
         data: _v3,
         isLoading: _v4,
-        error: _v5
+        error: _v5,
+        mutate: _v6
       } = (0, _v1.useGetUnlockedVideo)(() => {
         if (!_v2) return null;
         let _v0 = (0, _v4.getReviewPasswordHashFromCookie)(_v1);
@@ -31,18 +32,19 @@
       }, {
         revalidateOnFocus: !1
       }),
-      _v6 = (0, _v4.idFromUri)(_v3?.metadata?.connections?.versions?.currentUri),
-      _v7 = _v3?.metadata?.connections?.versions?.sequenceNumber ?? _v3.DEFAULT_VERSION_NUMBER,
-      _v8 = _v3?.metadata?.connections?.versions?.totalIncludingDeleted ?? 0;
+      _v7 = (0, _v4.idFromUri)(_v3?.metadata?.connections?.versions?.currentUri),
+      _v8 = _v3?.metadata?.connections?.versions?.sequenceNumber ?? _v3.DEFAULT_VERSION_NUMBER,
+      _v9 = _v3?.metadata?.connections?.versions?.totalIncludingDeleted ?? 0;
     return {
       videoData: _v3,
       videoDataLoading: _v4 || !_v3,
       user: _v3?.user,
-      currentVersionId: _v6,
+      currentVersionId: _v7,
       hasEnterprise: !!_v3?.user?.capabilities?.hasEnterprise,
       error: _v5,
-      sequenceNumber: _v7,
-      totalVersionsCount: _v8
+      revalidateVideoData: _v6,
+      sequenceNumber: _v8,
+      totalVersionsCount: _v9
     };
   }]);
 }

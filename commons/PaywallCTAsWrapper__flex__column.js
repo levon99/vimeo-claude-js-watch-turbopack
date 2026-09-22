@@ -24,7 +24,8 @@
     _v4 = _v0.i(0),
     _v5 = _v0.i(0),
     _v6 = _v0.i(0),
-    _v7 = _v0.i(0);
+    _v7 = _v0.i(0),
+    _v8 = _v0.i(0);
   _v0.s(["PurchaseButton", 0, function ({
     isTrial: _v0,
     planPeriodicity: _v1 = "yearly",
@@ -32,13 +33,17 @@
     paywallTracking: _v3,
     subscriptionTier: _v4,
     postCheckoutUrl: _v5,
-    isBundleIncluded: _v6 = !1
+    isBundleIncluded: _v6 = !1,
+    bundleSurface: _v7
   }) {
-    let _v7 = _v2 ?? (_v4 ? (0, _v3.default)(`${_v4}`) : ""),
-      _v8 = _v7 ? _v0 ? (0, _v6.translate)({
+    let {
+        trackBundleOfferCtaClick: _v8
+      } = (0, _v8.useBundleTracking)(),
+      _v9 = _v2 ?? (_v4 ? (0, _v3.default)(`${_v4}`) : ""),
+      _v10 = _v9 ? _v0 ? (0, _v6.translate)({
         singular: "Try {PLAN_NAME} for free",
         replacements: {
-          PLAN_NAME: _v7
+          PLAN_NAME: _v9
         },
         dictionary: {
           es: {
@@ -66,7 +71,7 @@
       }) : (0, _v6.translate)({
         singular: "Join Vimeo {PLAN_NAME}",
         replacements: {
-          PLAN_NAME: _v7
+          PLAN_NAME: _v9
         },
         dictionary: {
           es: {
@@ -148,6 +153,11 @@
       width: "100%",
       onClick: () => {
         if (!_v4) return;
+        _v6 && void 0 !== _v7 && _v8({
+          surface: _v7,
+          cta: "checkout",
+          bundleIncluded: !0
+        });
         let _v0 = (0, _v5.withBundleOfferToggleParam)((0, _v7.buildCheckoutUrl)({
           ..._v3,
           tier: _v4,
@@ -157,46 +167,46 @@
         }), _v6);
         window.location.assign(_v0);
       },
-      children: _v8
+      children: _v10
     });
   }], 0);
-  var _v8 = _v0.i(0),
-    _v9 = _v0.i(0),
+  var _v9 = _v0.i(0),
     _v10 = _v0.i(0),
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
-    _v16 = _v0.i(0);
+    _v16 = _v0.i(0),
+    _v17 = _v0.i(0);
   _v0.s(["PlanTileBundleRow", 0, ({
     bundleType: _v0,
     price: _v1
   }) => {
-    let _v2 = (0, _v15.getBundleActivationCluster)(_v0);
-    return (0, _v1.jsxs)(_v9.Flex, {
+    let _v2 = (0, _v16.getBundleActivationCluster)(_v0);
+    return (0, _v1.jsxs)(_v10.Flex, {
       width: "100%",
-      paddingTop: (0, _v10.rem)(4),
-      paddingBottom: (0, _v10.rem)(2),
+      paddingTop: (0, _v11.rem)(4),
+      paddingBottom: (0, _v11.rem)(2),
       alignItems: "center",
       justifyContent: "space-between",
-      gap: (0, _v10.rem)(8),
+      gap: (0, _v11.rem)(8),
       flexWrap: "wrap",
-      children: [(0, _v1.jsx)(_v14.TiltedTileCluster, {
+      children: [(0, _v1.jsx)(_v15.TiltedTileCluster, {
         tileSize: 28,
         clusterTiles: _v2.clusterTiles,
         otherProductsCount: _v2.otherProductsCount,
         infoTooltip: _v2.infoTooltip
-      }), (0, _v1.jsxs)(_v8.Badge, {
+      }), (0, _v1.jsxs)(_v9.Badge, {
         variant: "info",
         size: "sm",
         gap: "4px",
         flexShrink: 0,
-        children: [null === _v1 ? (0, _v1.jsx)(_v11.Gift, {
+        children: [null === _v1 ? (0, _v1.jsx)(_v12.Gift, {
           boxSize: "12px"
-        }) : (0, _v1.jsx)(_v12.Plus, {
+        }) : (0, _v1.jsx)(_v13.Plus, {
           boxSize: "12px"
-        }), null === _v1 ? String((0, _v13.translate)({
+        }), null === _v1 ? String((0, _v14.translate)({
           singular: "Included at no extra cost",
           dictionary: {
             es: {
@@ -221,7 +231,7 @@
               singular: "包含在内，无需额外费用"
             }
           }
-        })) : (0, _v16.getBundlePriceBadgeLabel)(_v1)]
+        })) : (0, _v17.getBundlePriceBadgeLabel)(_v1)]
       })]
     });
   }], 0);

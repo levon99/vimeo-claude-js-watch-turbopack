@@ -636,21 +636,26 @@
     _v79 = _v0.i(0),
     _v80 = _v0.i(0),
     _v81 = _v0.i(0),
-    _v82 = _v0.i(0);
-  let _v83 = {
+    _v82 = _v0.i(0),
+    _v83 = _v0.i(0);
+  let _v84 = {
       amount: 0,
       currency: "USD"
     },
-    _v84 = ({
+    _v85 = ({
       isOpen: _v0,
       onClose: _v1,
       onAddBundle: _v2,
       onContinueWithoutBundle: _v3,
       bundleType: _v4,
       price: _v5,
-      fullPrice: _v6
+      fullPrice: _v6,
+      bundlePrice: _v7
     }) => {
-      let _v7 = (0, _v81.getBundleMemberCount)();
+      let _v8 = (0, _v82.getBundleMemberCount)(),
+        {
+          trackBundleOfferCtaClick: _v9
+        } = (0, _v80.useBundleTracking)();
       return (0, _v1.jsxs)(_v73.Modal, {
         isOpen: _v0,
         onClose: _v1,
@@ -695,7 +700,7 @@
               lineHeight: 1.2,
               letterSpacing: (0, _v16.rem)(-1.2),
               color: "text-primary",
-              children: (0, _v80.getBundleOfferModalTitle)(_v5, _v7)
+              children: (0, _v81.getBundleOfferModalTitle)(_v5, _v8)
             })
           }), (0, _v1.jsx)(_v74.ModalBody, {
             padding: (0, _v16.rem)(0),
@@ -703,12 +708,14 @@
             children: (0, _v1.jsxs)(_v54.Flex, {
               direction: "column",
               gap: (0, _v16.rem)(8),
-              children: [(0, _v1.jsx)(_v82.BundlePaywallBanner, {
+              children: [_v0 && (0, _v1.jsx)(_v83.BundlePaywallBanner, {
                 bundleType: _v4,
                 surface: "offer",
-                price: _v5 ?? _v83,
+                price: _v5 ?? _v84,
                 fullPrice: _v6,
                 showLink: !0,
+                trackingSurface: "bundle_offer_modal",
+                bundlePrice: _v7 ?? null,
                 onSeeAllClick: () => {
                   _v1(), window.location.assign(_v72.BUNDLE_LIBRARY_PATH);
                 }
@@ -716,75 +723,91 @@
                 variant: "brand",
                 size: "lg",
                 width: "100%",
-                onClick: _v2,
-                children: (0, _v80.getBundleOfferAddCtaLabel)(_v5)
+                onClick: () => {
+                  _v9({
+                    surface: "bundle_offer_modal",
+                    cta: "add_bundle",
+                    bundleIncluded: !0
+                  }), _v2();
+                },
+                children: (0, _v81.getBundleOfferAddCtaLabel)(_v5)
               }), (0, _v1.jsx)(_v14.Button, {
                 variant: "tertiary",
                 size: "lg",
                 width: "100%",
-                onClick: _v3,
-                children: (0, _v80.getBundleOfferDismissCtaLabel)()
+                onClick: () => {
+                  _v9({
+                    surface: "bundle_offer_modal",
+                    cta: "continue_without_bundle",
+                    bundleIncluded: !1
+                  }), _v3();
+                },
+                children: (0, _v81.getBundleOfferDismissCtaLabel)()
               })]
             })
           })]
         })]
       });
     };
-  var _v85 = _v0.i(0),
-    _v86 = _v0.i(0);
-  let _v87 = () => {
+  var _v86 = _v0.i(0),
+    _v87 = _v0.i(0);
+  let _v88 = () => {
       window.location.assign(_v72.BUNDLE_LIBRARY_PATH);
     },
-    _v88 = ({
+    _v89 = ({
       currency: _v0
     }) => {
       let _v1 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.isEnabled),
         _v2 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.bundleType),
         _v3 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.price),
-        _v4 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.isBundleActive),
-        _v5 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.toggleBundle),
-        _v6 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.isOfferModalOpen),
-        _v7 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.closeOfferModal),
-        _v8 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.addBundleAndContinue),
-        _v9 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.continueWithoutBundle),
+        _v4 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.priceTier),
+        _v5 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.isBundleActive),
+        _v6 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.toggleBundle),
+        _v7 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.isOfferModalOpen),
+        _v8 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.closeOfferModal),
+        _v9 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.addBundleAndContinue),
+        _v10 = (0, _v71.useBundleOfferSelector)(_v0 => _v0.continueWithoutBundle),
         {
-          width: _v10
+          width: _v11
         } = (0, _v40.useWindowSize)();
       if (!_v1 || !_v2) return null;
-      let _v11 = void 0 !== _v0 ? (0, _v86.resolveBundleIdealAmount)({
+      let _v12 = void 0 !== _v0 ? (0, _v87.resolveBundleIdealAmount)({
           periodicity: "annual",
           currency: _v0
         }) ?? void 0 : void 0,
-        _v12 = _v10 <= 768 ? "100%" : `min(100%, ${(0, _v16.rem)(586)})`;
+        _v13 = _v11 <= 768 ? "100%" : `min(100%, ${(0, _v16.rem)(586)})`;
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v13.Box, {
           width: "100%",
-          maxWidth: _v10 > 0 ? "1440px" : _v12,
+          maxWidth: _v11 > 0 ? "1440px" : _v13,
           margin: `${(0, _v16.rem)(24)} auto 0`,
           padding: `0 ${(0, _v16.rem)(2)}`,
-          children: (0, _v1.jsx)(_v85.BundleToggleBanner, {
+          children: (0, _v1.jsx)(_v86.BundleToggleBanner, {
             bundleType: _v2,
-            isBundleActive: _v4,
-            onToggleBundle: _v5,
+            isBundleActive: _v5,
+            onToggleBundle: _v6,
             price: _v3,
-            fullPrice: _v11,
-            onLearnMoreClick: _v87
+            fullPrice: _v12,
+            onLearnMoreClick: _v88,
+            surface: "pricing_page",
+            bundlePrice: _v4
           })
-        }), (0, _v1.jsx)(_v84, {
-          isOpen: _v6,
-          onClose: _v7,
-          onAddBundle: _v8,
-          onContinueWithoutBundle: _v9,
+        }), (0, _v1.jsx)(_v85, {
+          isOpen: _v7,
+          onClose: _v8,
+          onAddBundle: _v9,
+          onContinueWithoutBundle: _v10,
           bundleType: _v2,
           price: _v3,
-          fullPrice: _v11
+          fullPrice: _v12,
+          bundlePrice: _v4
         })]
       });
     };
-  var _v89 = _v0.i(0),
-    _v90 = _v0.i(0),
-    _v91 = _v0.i(0);
-  let _v92 = _v0 => {
+  var _v90 = _v0.i(0),
+    _v91 = _v0.i(0),
+    _v92 = _v0.i(0);
+  let _v93 = _v0 => {
     let _v1 = (0, _v4.useContext)(_v41.ViewerContext),
       _v2 = (0, _v4.useContext)(_v45.OverridesContext),
       _v3 = _v2.description || !_v1?.user,
@@ -793,41 +816,41 @@
         redirectUrl: _v5
       } = _v0;
     return (0, _v1.jsxs)(_v13.Box, {
-      padding: `0 ${(0, _v90.space)(600)}`,
+      padding: `0 ${(0, _v91.space)(600)}`,
       children: [(0, _v1.jsx)(_v13.Box, {
         textAlign: "center",
-        children: (0, _v1.jsx)(_v89.Header, {
+        children: (0, _v1.jsx)(_v90.Header, {
           size: "xl",
           fontSize: _v4 ? (0, _v16.rem)(30) : _v2?.titleSize ?? (0, _v16.rem)(92),
           lineHeight: _v4 ? (0, _v16.rem)(36) : (0, _v16.rem)(92),
           fontWeight: 500,
-          children: _v2?.title ? _v2.title : _v91.PRIMARY_HEADERS.theUltimateAdFreePlayer
+          children: _v2?.title ? _v2.title : _v92.PRIMARY_HEADERS.theUltimateAdFreePlayer
         })
       }), _v2?.displayRedirect && _v5 && (0, _v1.jsx)(_v13.Box, {
         textAlign: "center",
         margin: `${(0, _v16.rem)(10)} 0 ${(0, _v16.rem)(15)}`,
-        children: (0, _v1.jsx)(_v89.Header, {
+        children: (0, _v1.jsx)(_v90.Header, {
           size: "sm",
           fontWeight: 400,
-          children: _v91.SECONDARY_HEADERS.getStartedWithFreeConcise(_v5)
+          children: _v92.SECONDARY_HEADERS.getStartedWithFreeConcise(_v5)
         })
       }), _v3 && (0, _v1.jsx)(_v13.Box, {
         textAlign: "center",
         margin: `${(0, _v16.rem)(10)} 0 ${(0, _v16.rem)(15)}`,
-        children: (0, _v1.jsx)(_v89.Header, {
+        children: (0, _v1.jsx)(_v90.Header, {
           size: _v4 ? "sm" : "md",
           fontFamily: "body",
-          children: _v2?.description !== void 0 && _v2?.description !== null ? _v2.description : _v91.SECONDARY_HEADERS.getStartedWithBasic
+          children: _v2?.description !== void 0 && _v2?.description !== null ? _v2.description : _v92.SECONDARY_HEADERS.getStartedWithBasic
         })
       })]
     });
   };
-  var _v93 = _v0.i(0),
-    _v94 = _v0.i(0),
-    _v95 = _v0.i(0);
-  let _v96 = ({
+  var _v94 = _v0.i(0),
+    _v95 = _v0.i(0),
+    _v96 = _v0.i(0);
+  let _v97 = ({
       onRequestEligibility: _v0
-    }) => (0, _v1.jsxs)(_v95.AlertRoot, {
+    }) => (0, _v1.jsxs)(_v96.AlertRoot, {
       variant: "info",
       size: "md",
       borderRadius: "1.25rem",
@@ -963,11 +986,6 @@
         })
       })]
     }),
-    _v97 = (0, _v2.default)(async () => _v0.A(0), {
-      loadableGenerated: {
-        modules: [0]
-      }
-    }),
     _v98 = (0, _v2.default)(async () => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
@@ -978,12 +996,17 @@
         modules: [0]
       }
     }),
-    _v100 = (0, _v2.default)(() => _v0.A(0), {
+    _v100 = (0, _v2.default)(async () => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v101 = ["ES", "FR", "BR", "NL", "NO", "FI", "MX", "SE", "DK", "BE"];
+    _v101 = (0, _v2.default)(() => _v0.A(0), {
+      loadableGenerated: {
+        modules: [0]
+      }
+    }),
+    _v102 = ["ES", "FR", "BR", "NL", "NO", "FI", "MX", "SE", "DK", "BE"];
   _v0.s(["default", 0, _v0 => {
     let {
         context: _v1,
@@ -1372,7 +1395,7 @@
         path: window.location.href
       }), _v15(null))), _v12 && void 0 !== _v12.showMonthlyToggle && (_v9(_v12.showMonthlyToggle), _v11(!0));
     }, [_v68, _v14, _v12, _v35]), (0, _v4.useEffect)(() => {
-      !_v35 && _v16?.location && _v101.includes(_v16.location.toUpperCase()) && (window.location.href = "/log_in");
+      !_v35 && _v16?.location && _v102.includes(_v16.location.toUpperCase()) && (window.location.href = "/log_in");
     }, [_v35, _v16?.location]), (0, _v4.useEffect)(() => {
       void 0 === _v12 && (async _v0 => {
         _v13((0, (await _v0.A(0)).default)(_v0));
@@ -1512,7 +1535,7 @@
         hidePaidPlanSecondaryLinks: !0,
         description: _v44.PLAN_HEADER_DESCRIPTION.getStartedWithFreePlan
       } : _v12, [_v4, _v12]);
-    return null === _v16 || void 0 === _v68 || _v41 || !_v35 && _v12?.redirectLoggedOut ? (0, _v1.jsx)(_v93.default, {}) : (0, _v1.jsxs)(_v42.default, {
+    return null === _v16 || void 0 === _v68 || _v41 || !_v35 && _v12?.redirectLoggedOut ? (0, _v1.jsx)(_v94.default, {}) : (0, _v1.jsxs)(_v42.default, {
       isMobileBreakpoint: _v59,
       onLogoClick: () => _v106.open("pricing_logo_click"),
       disableLogoLink: !!_v3,
@@ -1569,7 +1592,7 @@
           hideIndividualPlans: _v78,
           children: (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v13.Box, {
-              children: (0, _v1.jsx)(_v92, {
+              children: (0, _v1.jsx)(_v93, {
                 isMobileBreakpoint: _v59,
                 redirectUrl: _v60
               })
@@ -1578,7 +1601,7 @@
               maxWidth: (0, _v16.rem)(0),
               margin: "0 auto",
               padding: `0 ${(0, _v16.rem)(16)}`,
-              children: (0, _v1.jsx)(_v96, {
+              children: (0, _v1.jsx)(_v97, {
                 onRequestEligibility: () => {
                   _v64({
                     location: "upgrade_plan_banner"
@@ -1588,7 +1611,7 @@
             }), (0, _v1.jsxs)(_v71.BundleOfferProvider, {
               periodicity: _v59 && !_v76 || _v18 ? "annual" : "monthly",
               initialIsBundleActive: _v34,
-              children: [(0, _v1.jsx)(_v88, {
+              children: [(0, _v1.jsx)(_v89, {
                 currency: _v69
               }), _v103 && (0, _v1.jsx)(_v13.Box, {
                 width: "100%",
@@ -1608,7 +1631,7 @@
                     showYearly: _v18
                   })]
                 })
-              }), (0, _v1.jsx)(_v94.default, {
+              }), (0, _v1.jsx)(_v95.default, {
                 showYearly: !!_v59 && !_v76 || _v18,
                 isBillingFreqToggleAvailable: _v8 && !_v59,
                 isPageTopToggleVisible: _v103,
@@ -1671,8 +1694,8 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v99, {})]
-            }), !_v59 && (0, _v1.jsx)(_v97, {
+              }), (0, _v1.jsx)(_v100, {})]
+            }), !_v59 && (0, _v1.jsx)(_v98, {
               showYearly: _v18,
               badgePlan: _v93,
               theme: _v62.colorMode,
@@ -1685,12 +1708,12 @@
                 variant: "body-xl",
                 children: _v110.terms
               })
-            }), !_v110.hideFaq && (0, _v1.jsx)(_v98, {
+            }), !_v110.hideFaq && (0, _v1.jsx)(_v99, {
               isMobileBreakpoint: _v59
             })]
           })
         })
-      }), _v54 && (0, _v1.jsx)(_v100, {}), _v106.isOpen && "wt_offer" === _v106.variant && (0, _v1.jsx)(_v24.PricingDismissOfferPaywall, {
+      }), _v54 && (0, _v1.jsx)(_v101, {}), _v106.isOpen && "wt_offer" === _v106.variant && (0, _v1.jsx)(_v24.PricingDismissOfferPaywall, {
         isOpen: !0,
         onClose: () => {
           _v106.close(), "pricing_logo_click" === _v106.tracking.paywallTrigger && window.location.assign("/");

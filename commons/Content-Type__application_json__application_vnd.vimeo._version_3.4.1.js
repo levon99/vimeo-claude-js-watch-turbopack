@@ -124,15 +124,15 @@
   let _v15 = new Set();
   var _v16 = _v0.i(0);
   let _v17 = () => window.location.assign("/upgrade");
-  _v0.s(["navigateToUpgrade", 0, _v17, "useReplaceWithModal", 0, function (_v0, _v1, _v2, _v3 = _v17, _v4, _v5 = "library") {
-    let [_v6, _v7] = (0, _v2.useState)(null);
+  _v0.s(["navigateToUpgrade", 0, _v17, "useReplaceWithModal", 0, function (_v0, _v1, _v2, _v3 = _v17, _v4, _v5 = "library", _v6) {
+    let [_v7, _v8] = (0, _v2.useState)(null);
     _v12({
       targetUserId: _v4,
       onQuotaReached: _v1 ? _v3 : void 0
     });
     let {
-      triggerReplace: _v8,
-      replaceInput: _v9
+      triggerReplace: _v9,
+      replaceInput: _v10
     } = function (_v0, _v1, _v2, _v3, _v4 = "library") {
       let {
           upload: _v5
@@ -178,17 +178,17 @@
           }
         })
       };
-    }(_v0, _v1 ? (_v0, _v1) => _v7({
+    }(_v0, _v1 ? (_v0, _v1) => _v8({
       file: _v0,
       proceed: _v1
     }) : void 0, _v4, _v1, _v5);
     return {
-      triggerReplace: _v8,
-      replaceInput: _v9,
-      replaceModal: _v6 ? (0, _v1.jsx)(_v16.ReplaceModal, {
-        onCancel: () => _v7(null),
+      triggerReplace: _v9,
+      replaceInput: _v10,
+      replaceModal: _v7 ? (0, _v1.jsx)(_v16.ReplaceModal, {
+        onCancel: () => _v8(null),
         onConfirm: () => {
-          _v6.proceed(), _v7(null);
+          _v7.proceed() && _v6?.(), _v8(null);
         },
         primaryCtaText: (0, _v3.translate)({
           singular: "Replace",
@@ -216,7 +216,7 @@
             }
           }
         }),
-        fileToReplaceName: _v6.file.name,
+        fileToReplaceName: _v7.file.name,
         isInteractive: _v2
       }) : null
     };

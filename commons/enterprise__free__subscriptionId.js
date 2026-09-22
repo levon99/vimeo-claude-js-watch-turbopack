@@ -311,12 +311,14 @@
         _v0.metadata.isPsPlan && _v1 !== _v60 && _v61(_v1);
       },
       _v72 = !0 === _v12.hidePaidPlanSecondaryLinks,
-      _v73 = !_v72 && _v2 && !_v36 && !_v37,
-      _v74 = !_v72 && !_v36 && !_v37 && (_v2 || _v66 === _v25.CTA_TREATMENT.free_trial_secondary || _v66 === _v25.CTA_TREATMENT.free_trial_only) && _v66 !== _v25.CTA_TREATMENT.purchase_only,
-      _v75 = _v36 || "available" !== _v67 || _v57,
-      _v76 = _v4 ? "yearly" : "monthly",
-      _v77 = _v35 ? "contact_sales" : _v34,
-      _v78 = _v69 ? {
+      _v73 = !_v16.second_free_trial_enabled && !!_v38?.user?.capabilities?.hasSecondFreeTrialEligibility,
+      _v74 = _v2 && !_v73,
+      _v75 = !_v72 && _v74 && !_v36 && !_v37,
+      _v76 = !_v72 && !_v36 && !_v37 && (_v74 || _v66 === _v25.CTA_TREATMENT.free_trial_secondary || _v66 === _v25.CTA_TREATMENT.free_trial_only) && _v66 !== _v25.CTA_TREATMENT.purchase_only,
+      _v77 = _v36 || "available" !== _v67 || _v57,
+      _v78 = _v4 ? "yearly" : "monthly",
+      _v79 = _v35 ? "contact_sales" : _v34,
+      _v80 = _v69 ? {
         variant: "secondary",
         bgColor: "transparent",
         borderColor: "darkBlueAlpha.300",
@@ -362,12 +364,12 @@
         }
       } : {
         variant: "tertiary",
-        bgColor: _v75 ? "text-primary" : "fill-brand",
+        bgColor: _v77 ? "text-primary" : "fill-brand",
         _hover: {
           backgroundColor: "vimeoBlue.300"
         },
         _dark: {
-          bgColor: _v75 ? "text-primary" : "vimeoBlue.500",
+          bgColor: _v77 ? "text-primary" : "vimeoBlue.500",
           color: "gray.900",
           _disabled: {
             bgColor: "stroke",
@@ -382,7 +384,7 @@
           pointerEvents: "none"
         }
       },
-      _v79 = (_v0, _v1) => {
+      _v81 = (_v0, _v1) => {
         if (!_v10) return void _v1();
         let _v2 = _v0.currentTarget,
           _v3 = _v2 instanceof HTMLAnchorElement && _v2.href ? _v2.getAttribute("href") : null;
@@ -391,7 +393,7 @@
           _v1 && window.location.assign(_v1), _v1();
         }, _v3);
       },
-      _v80 = (0, _v1.jsx)(_v5.Button, {
+      _v82 = (0, _v1.jsx)(_v5.Button, {
         as: "a",
         size: _v17,
         width: "100%",
@@ -402,7 +404,7 @@
           }
         }),
         _dark: {
-          bgColor: _v35 || "free" === _v1.tier || _v75 ? "text-primary" : "vimeoBlue.500",
+          bgColor: _v35 || "free" === _v1.tier || _v77 ? "text-primary" : "vimeoBlue.500",
           color: "gray.900",
           _hover: {
             backgroundColor: _v35 ? "gray.200" : "vimeoBlue.300"
@@ -410,10 +412,10 @@
         },
         bgColor: _v35 ? "text-primary" : "fill-brand",
         variant: _v35 ? "primary" : "tertiary",
-        onClick: _v0 => _v79(_v0, () => {
+        onClick: _v0 => _v81(_v0, () => {
           _v19({
-            plan: _v77,
-            periodicity: _v76,
+            plan: _v79,
+            periodicity: _v78,
             freeTrial: !_v35
           }), _v71(_v1), (0, _v29.emitBPEvent)({
             copy: _v35 ? "contact sales" : "start free trial",
@@ -507,7 +509,7 @@
           }
         })
       }),
-      _v81 = (0, _v1.jsx)(_v4.Box, {
+      _v83 = (0, _v1.jsx)(_v4.Box, {
         width: "100%",
         textAlign: "center",
         fontWeight: 500,
@@ -520,10 +522,10 @@
               href: _v63(),
               variant: "inline-primary",
               fontWeight: 500,
-              onClick: _v0 => _v79(_v0, () => {
+              onClick: _v0 => _v81(_v0, () => {
                 _v19({
-                  plan: _v77,
-                  periodicity: _v76,
+                  plan: _v79,
+                  periodicity: _v78,
                   freeTrial: !1
                 }), _v71(_v1), (0, _v29.emitBPEvent)({
                   copy: "purchase now",
@@ -602,12 +604,12 @@
             children: (0, _v1.jsx)(_v5.Button, {
               size: _v17,
               width: "100%",
-              ..._v78,
+              ..._v80,
               isDisabled: _v58 || _v59,
               onClick: () => {
                 _v19({
-                  plan: _v77,
-                  periodicity: _v76,
+                  plan: _v79,
+                  periodicity: _v78,
                   freeTrial: !1
                 }), (0, _v29.emitBPEvent)({
                   copy: _v70,
@@ -735,13 +737,13 @@
         size: _v17,
         width: "100%",
         href: _v63(),
-        isDisabled: _v75,
-        "aria-disabled": _v75,
-        ..._v78,
-        onClick: _v0 => _v79(_v0, () => {
+        isDisabled: _v77,
+        "aria-disabled": _v77,
+        ..._v80,
+        onClick: _v0 => _v81(_v0, () => {
           _v19({
-            plan: _v77,
-            periodicity: _v76,
+            plan: _v79,
+            periodicity: _v78,
             freeTrial: !1
           }), _v71(_v1), (0, _v29.emitBPEvent)({
             copy: _v70,
@@ -759,7 +761,7 @@
         }),
         ..._v0,
         children: _v70
-      })), _v74 && (0, _v1.jsx)(() => !_v55 && (_v4 || _v16.pricing_page_monthly_free_trial) ? (0, _v1.jsx)(_v4.Box, {
+      })), _v76 && (0, _v1.jsx)(() => !_v55 && (_v4 || _v16.pricing_page_monthly_free_trial) ? (0, _v1.jsx)(_v4.Box, {
         width: "100%",
         textAlign: "center",
         fontWeight: 500,
@@ -772,10 +774,10 @@
               href: _v62(_v31.interactions?.purchase?.uri?.freeTrial),
               variant: "inline-primary",
               fontWeight: 500,
-              onClick: _v0 => _v79(_v0, () => {
+              onClick: _v0 => _v81(_v0, () => {
                 _v19({
-                  plan: _v77,
-                  periodicity: _v76,
+                  plan: _v79,
+                  periodicity: _v78,
                   freeTrial: !0
                 }), _v71(_v1), (0, _v29.emitBPEvent)({
                   copy: "start free trial",
@@ -820,7 +822,7 @@
         })
       }) : (0, _v1.jsx)(_v1.Fragment, {}), {})]
     }) : (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v80, _v73 && _v81]
+      children: [_v82, _v75 && _v83]
     });
   }], 0);
   var _v31 = _v0.i(0),

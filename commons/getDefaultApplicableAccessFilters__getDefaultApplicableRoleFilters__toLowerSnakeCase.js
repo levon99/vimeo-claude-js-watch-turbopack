@@ -194,6 +194,7 @@
         hasBusiness: !1,
         hasLegalHoldsActive: !1,
         hasDataRetention: !1,
+        hasWebinarViewerAnonymizationEnabled: !1,
         hasPerSeatPricingModelTeamMember: !1,
         hasTeamAllowedIpsEnabled: !1,
         hasMultipleReviewLinks: !1,

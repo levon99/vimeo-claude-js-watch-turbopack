@@ -145,7 +145,7 @@
       _v46 = (0, _v3.useRef)(null),
       _v47 = (0, _v3.useRef)(null),
       _v48 = (0, _v3.useRef)(null),
-      _v49 = (0, _v24.getVersionNumber)(_v9 || _v31.DEFAULT_VERSION_NUMBER),
+      _v49 = (0, _v24.formatVersionNumber)(_v9 || _v31.DEFAULT_VERSION_NUMBER),
       _v50 = _v35?.reduce((_v0, _v1) => Math.max(_v0, _v1.sequenceNumber?.toString().length ?? 0), 1) ?? 1,
       _v51 = _v31.MIN_WIDTH_FOR_SEQUENCE_NUMBER + _v50 * _v31.SEQUENCE_NUMBER_WIDTH_FOR_EACH_DIGIT,
       _v52 = _v14 ? !!_v15 : !_v4,

@@ -4321,19 +4321,19 @@
         singular: "Customize appearance",
         dictionary: {
           es: {
-            singular: "Personalizar apariencia"
+            singular: "Personalizar la apariencia"
           },
           "de-DE": {
             singular: "Erscheinungsbild anpassen"
           },
           "fr-FR": {
-            singular: "Personnaliser l’apparence"
+            singular: "Personnaliser l'apparence"
           },
           "ja-JP": {
             singular: "外観をカスタマイズ"
           },
           "ko-KR": {
-            singular: "외관 사용자 지정"
+            singular: "모양 사용자 지정"
           },
           "pt-BR": {
             singular: "Personalizar aparência"

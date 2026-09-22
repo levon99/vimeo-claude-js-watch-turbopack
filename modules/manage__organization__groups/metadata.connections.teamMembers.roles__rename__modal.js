@@ -92,7 +92,7 @@
     organizationInternalId: _v0,
     organizationUuid: _v1
   });
-  (0, _v2.withPageSetup)(_v16.getOrgAndWspUuidServerSideProps, {
+  (0, _v2.withPageSetup)(_v16.getOrgUuidServerSideProps, {
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0

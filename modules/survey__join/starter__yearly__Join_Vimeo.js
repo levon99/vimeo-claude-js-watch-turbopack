@@ -40,7 +40,7 @@
       _v8 = _v7?.metadata?.entitlements?.params?.videoStoragePeriodicQuota,
       _v9 = _v7?.name ?? (0, _v16.default)(`${_v0}`),
       _v10 = (0, _v22.hasFreeTrialPurchasePath)(_v7),
-      _v11 = (0, _v10.translate)({
+      _v11 = (0, _v11.translate)({
         singular: "Join Vimeo",
         dictionary: {
           es: {
@@ -68,13 +68,13 @@
       }),
       _v12 = _v11.length > 12,
       _v13 = (0, _v20.useColorModeValue)("https://i.vimeocdn.com/custom_asset/4a6f0f615c4cf9d30b48f79df970438e", "https://i.vimeocdn.com/custom_asset/edb2ec4f5620a90adb065894bbb08419");
-    return (0, _v1.jsxs)(_v14.Flex, {
+    return (0, _v1.jsxs)(_v9.Flex, {
       direction: "column",
       alignItems: "center",
       width: "100%",
       maxHeight: "calc(100vh - 120px)",
       position: "relative",
-      children: [(0, _v1.jsxs)(_v14.Flex, {
+      children: [(0, _v1.jsxs)(_v9.Flex, {
         direction: "column",
         alignItems: "center",
         width: "100%",
@@ -90,13 +90,13 @@
           md: "32px"
         },
         overflow: "auto",
-        children: [(0, _v1.jsxs)(_v14.Flex, {
+        children: [(0, _v1.jsxs)(_v9.Flex, {
           direction: "column",
           alignItems: "center",
           gap: "md",
           width: "100%",
           paddingX: "32px",
-          children: [(0, _v1.jsxs)(_v14.Flex, {
+          children: [(0, _v1.jsxs)(_v9.Flex, {
             direction: {
               base: "column",
               md: "row"
@@ -140,7 +140,7 @@
             fontWeight: "medium",
             color: "text-primary",
             textAlign: "center",
-            children: (0, _v10.translate)({
+            children: (0, _v11.translate)({
               singular: "All the tools to create, manage, and showcase video.",
               dictionary: {
                 es: {
@@ -236,7 +236,7 @@
       _v5 = _v4?.user?.capabilities?.hasFreeTrialEligibility ?? !1,
       {
         settings: _v6
-      } = (0, _v11.useOrionSettings)(),
+      } = (0, _v12.useOrionSettings)(),
       _v7 = _v6.onboarding_paywall_kind,
       _v8 = _v6.onboarding_paywall_tier,
       _v9 = _v6.onboarding_paywall_default_periodicity,
@@ -281,7 +281,7 @@
       (_v25(), _v17 && !_v14 && !_v18 && _v6.onboarding_welcome_offer_reverse_trial_on_dismiss && _v5) ? _v19(!0) : _v2 ? _v2() : _v1();
     };
     return _v16 ? (0, _v1.jsx)(_v34.default, {}) : (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsxs)(_v14.Flex, {
+      children: [(0, _v1.jsxs)(_v9.Flex, {
         grow: "1",
         gap: "3",
         flexDirection: "column",
@@ -291,7 +291,7 @@
           in: !0,
           transition: _v35,
           children: (0, _v1.jsx)(_v1.Fragment, {})
-        }, "animate-title"), (0, _v1.jsx)(_v14.Flex, {
+        }, "animate-title"), (0, _v1.jsx)(_v9.Flex, {
           width: "100%",
           alignItems: "center",
           justifyContent: "center",
@@ -381,7 +381,7 @@
       "aria-selected": _v2,
       "aria-label": _v0,
       tabIndex: 0,
-      children: (0, _v1.jsxs)(_v14.Flex, {
+      children: (0, _v1.jsxs)(_v9.Flex, {
         justifyContent: "space-between",
         alignItems: {
           base: "center",
@@ -427,7 +427,7 @@
             isSelected: _v0.isSelected,
             onToggle: () => _v1(_v0.id)
           });
-        return _v2 ? (0, _v1.jsxs)(_v14.Flex, {
+        return _v2 ? (0, _v1.jsxs)(_v9.Flex, {
           direction: "column",
           gap: "3",
           children: [_v3, _v2]
@@ -475,7 +475,7 @@
     _v63 = "video_professional",
     _v64 = [{
       id: "video_professional_freelance",
-      label: (0, _v10.translate)({
+      label: (0, _v11.translate)({
         singular: "Freelance",
         dictionary: {
           "de-DE": {
@@ -501,7 +501,7 @@
       icon: _v52.PersonUser
     }, {
       id: "video_professional_agency",
-      label: (0, _v10.translate)({
+      label: (0, _v11.translate)({
         singular: "Agency / production company",
         dictionary: {
           es: {
@@ -530,7 +530,7 @@
       icon: _v56
     }, {
       id: "video_professional_in_house",
-      label: (0, _v10.translate)({
+      label: (0, _v11.translate)({
         singular: "In-house at a business",
         dictionary: {
           es: {
@@ -560,7 +560,7 @@
     }],
     _v65 = [{
       id: _v57,
-      question: (0, _v10.translate)({
+      question: (0, _v11.translate)({
         singular: "Which best describes you?",
         dictionary: {
           es: {
@@ -590,7 +590,7 @@
       isMultiChoice: !1,
       answers: [{
         id: _v63,
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Video professional",
           dictionary: {
             es: {
@@ -619,7 +619,7 @@
         icon: _v53.PresentationPlay
       }, {
         id: "independent_filmmaker",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Independent filmmaker",
           dictionary: {
             es: {
@@ -648,7 +648,7 @@
         icon: _v53.PresentationPlay
       }, {
         id: "non_video_freelancer",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Non-video freelancer",
           dictionary: {
             es: {
@@ -677,7 +677,7 @@
         icon: _v52.PersonUser
       }, {
         id: "business_owner_employee",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Business owner or employee",
           dictionary: {
             es: {
@@ -706,7 +706,7 @@
         icon: _v47.Building
       }, {
         id: "viewer_only",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Viewer only",
           dictionary: {
             es: {
@@ -736,7 +736,7 @@
       }]
     }, {
       id: _v58,
-      question: (0, _v10.translate)({
+      question: (0, _v11.translate)({
         singular: "Do you upload videos? Who are these videos for?",
         dictionary: {
           es: {
@@ -762,7 +762,7 @@
           }
         }
       }),
-      description: (0, _v10.translate)({
+      description: (0, _v11.translate)({
         singular: "Choose as many as you like",
         dictionary: {
           es: {
@@ -792,7 +792,7 @@
       isMultiChoice: !0,
       answers: [{
         id: "clients",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Clients",
           dictionary: {
             es: {
@@ -818,7 +818,7 @@
         icon: _v48.Chats
       }, {
         id: "own_brand",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "My own brand or business",
           dictionary: {
             es: {
@@ -847,7 +847,7 @@
         icon: _v51
       }, {
         id: "my_company",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "My company",
           dictionary: {
             es: {
@@ -876,7 +876,7 @@
         icon: _v47.Building
       }, {
         id: "creative_audience",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "A creative audience",
           dictionary: {
             es: {
@@ -905,7 +905,7 @@
         icon: _v55.Share
       }, {
         id: "just_me",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Just me",
           dictionary: {
             es: {
@@ -934,7 +934,7 @@
         icon: _v52.PersonUser
       }, {
         id: "mainly_watch",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "I mainly watch videos",
           dictionary: {
             es: {
@@ -964,7 +964,7 @@
       }]
     }, {
       id: _v59,
-      question: (0, _v10.translate)({
+      question: (0, _v11.translate)({
         singular: "What are you using Vimeo for?",
         dictionary: {
           es: {
@@ -990,7 +990,7 @@
           }
         }
       }),
-      description: (0, _v10.translate)({
+      description: (0, _v11.translate)({
         singular: "Choose as many as you like",
         dictionary: {
           es: {
@@ -1020,7 +1020,7 @@
       isMultiChoice: !0,
       answers: [{
         id: "share_links",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Share video links and files",
           dictionary: {
             es: {
@@ -1049,7 +1049,7 @@
         icon: _v55.Share
       }, {
         id: "review_feedback",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Review videos for feedback with others",
           dictionary: {
             es: {
@@ -1078,7 +1078,7 @@
         icon: _v48.Chats
       }, {
         id: "embed_videos",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Embed videos",
           dictionary: {
             es: {
@@ -1107,7 +1107,7 @@
         icon: _v53.PresentationPlay
       }, {
         id: "store_organize",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Store and organize videos",
           dictionary: {
             es: {
@@ -1136,7 +1136,7 @@
         icon: _v56
       }, {
         id: "showcase_portfolio",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Showcase my work/portfolio",
           dictionary: {
             es: {
@@ -1165,7 +1165,7 @@
         icon: _v56
       }, {
         id: "share_films",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Share films on vimeo.com",
           dictionary: {
             es: {
@@ -1194,7 +1194,7 @@
         icon: _v55.Share
       }, {
         id: "inspiration_discovery",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Inspiration or discovery",
           dictionary: {
             es: {
@@ -1223,7 +1223,7 @@
         icon: _v54.SearchMagnifier
       }, {
         id: "other",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Other",
           dictionary: {
             es: {
@@ -1253,7 +1253,7 @@
       }]
     }, {
       id: _v60,
-      question: (0, _v10.translate)({
+      question: (0, _v11.translate)({
         singular: "Organization size?",
         dictionary: {
           es: {
@@ -1283,7 +1283,7 @@
       isMultiChoice: !1,
       answers: [{
         id: "only_me",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Just me",
           dictionary: {
             es: {
@@ -1312,29 +1312,29 @@
         icon: _v52.PersonUser
       }, {
         id: "2_10",
-        label: (0, _v10.translate)("2-10"),
+        label: (0, _v11.translate)("2-10"),
         icon: _v52.PersonUser
       }, {
         id: "11_50",
-        label: (0, _v10.translate)("11-50"),
+        label: (0, _v11.translate)("11-50"),
         icon: _v52.PersonUser
       }, {
         id: "51_200",
-        label: (0, _v10.translate)("51-200"),
+        label: (0, _v11.translate)("51-200"),
         icon: _v52.PersonUser
       }, {
         id: "201_1000",
-        label: (0, _v10.translate)("201-1,000"),
+        label: (0, _v11.translate)("201-1,000"),
         icon: _v52.PersonUser
       }, {
         id: "1000_plus",
-        label: (0, _v10.translate)("1,000+"),
+        label: (0, _v11.translate)("1,000+"),
         icon: _v52.PersonUser
       }]
     }],
     _v66 = {
       id: _v61,
-      question: (0, _v10.translate)({
+      question: (0, _v11.translate)({
         singular: "What brings you to Vimeo today?",
         dictionary: {
           es: {
@@ -1360,7 +1360,7 @@
           }
         }
       }),
-      description: (0, _v10.translate)({
+      description: (0, _v11.translate)({
         singular: "Choose as many as you like",
         dictionary: {
           es: {
@@ -1390,7 +1390,7 @@
       isMultiChoice: !0,
       answers: [{
         id: "watch_received_link",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Watch a video I received the link for",
           dictionary: {
             es: {
@@ -1419,7 +1419,7 @@
         icon: _v53.PresentationPlay
       }, {
         id: "embed_on_site",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Embed a video on my site",
           dictionary: {
             es: {
@@ -1448,7 +1448,7 @@
         icon: _v51
       }, {
         id: "share_via_link",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Share a video via link",
           dictionary: {
             es: {
@@ -1477,7 +1477,7 @@
         icon: _v55.Share
       }, {
         id: "store_videos",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Store my videos",
           dictionary: {
             es: {
@@ -1506,7 +1506,7 @@
         icon: _v56
       }, {
         id: "record_video",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Record a video",
           dictionary: {
             es: {
@@ -1535,7 +1535,7 @@
         icon: _v53.PresentationPlay
       }, {
         id: "create_portfolio",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Create my portfolio",
           dictionary: {
             es: {
@@ -1564,7 +1564,7 @@
         icon: _v47.Building
       }, {
         id: "get_feedback",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Get feedback / review on my video",
           dictionary: {
             es: {
@@ -1593,7 +1593,7 @@
         icon: _v48.Chats
       }, {
         id: "find_inspiration",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Find creators/videos for inspiration",
           dictionary: {
             es: {
@@ -1622,7 +1622,7 @@
         icon: _v54.SearchMagnifier
       }, {
         id: "run_live_event",
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Run a live event",
           dictionary: {
             es: {
@@ -1651,7 +1651,7 @@
         icon: _v52.PersonUser
       }, {
         id: _v62,
-        label: (0, _v10.translate)({
+        label: (0, _v11.translate)({
           singular: "Other",
           dictionary: {
             es: {
@@ -1692,7 +1692,7 @@
     showFinishLabel: _v6 = !0,
     activeNavigation: _v7
   }) {
-    return (0, _v1.jsxs)(_v14.Flex, {
+    return (0, _v1.jsxs)(_v9.Flex, {
       flexDirection: "column",
       gap: "6",
       grow: "1",
@@ -1722,12 +1722,12 @@
             width: `${_v0}%`
           }
         })
-      }), (0, _v1.jsxs)(_v14.Flex, {
+      }), (0, _v1.jsxs)(_v9.Flex, {
         flexDirection: "column",
         justifyContent: "space-between",
         gap: "40",
         width: "100%",
-        children: [(0, _v1.jsxs)(_v14.Flex, {
+        children: [(0, _v1.jsxs)(_v9.Flex, {
           justifyContent: "center",
           gap: "2",
           width: "100%",
@@ -1738,7 +1738,7 @@
             isDisabled: _v4,
             loading: "back" === _v7,
             width: "100%",
-            children: (0, _v10.translate)({
+            children: (0, _v11.translate)({
               singular: "Back",
               dictionary: {
                 es: {
@@ -1770,7 +1770,7 @@
             isDisabled: _v4 || _v5,
             loading: "next" === _v7,
             width: "100%",
-            children: 100 === _v0 && _v6 ? (0, _v10.translate)({
+            children: 100 === _v0 && _v6 ? (0, _v11.translate)({
               singular: "Finish",
               dictionary: {
                 es: {
@@ -1795,7 +1795,7 @@
                   singular: "完成"
                 }
               }
-            }) : (0, _v10.translate)({
+            }) : (0, _v11.translate)({
               singular: "Next",
               dictionary: {
                 es: {
@@ -1832,7 +1832,7 @@
           position: "absolute",
           width: "auto",
           padding: "md",
-          children: (0, _v10.translate)({
+          children: (0, _v11.translate)({
             singular: "Skip",
             dictionary: {
               es: {
@@ -2098,7 +2098,7 @@
         isSelected: _v17.includes(_v0.id)
       }));
     return _v28 ? null : (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsxs)(_v14.Flex, {
+      children: [(0, _v1.jsxs)(_v9.Flex, {
         gap: "3",
         flexDirection: "column",
         alignItems: "center",
@@ -2107,7 +2107,7 @@
           in: !_v11,
           transition: _v71,
           children: (0, _v1.jsx)(_v1.Fragment, {
-            children: _v29 && (0, _v1.jsxs)(_v14.Flex, {
+            children: _v29 && (0, _v1.jsxs)(_v9.Flex, {
               flexDirection: "column",
               alignItems: "center",
               gap: 3,
@@ -2129,7 +2129,7 @@
               })]
             })
           })
-        }, `animate-title-${_v27}`), (0, _v1.jsx)(_v14.Flex, {
+        }, `animate-title-${_v27}`), (0, _v1.jsx)(_v9.Flex, {
           width: "100%",
           alignItems: "center",
           justifyContent: "center",
@@ -2234,7 +2234,7 @@
                 in: _v33,
                 transition: _v71,
                 offsetY: "-20px",
-                children: (0, _v1.jsxs)(_v14.Flex, {
+                children: (0, _v1.jsxs)(_v9.Flex, {
                   visibility: _v33 ? "visible" : "hidden",
                   mt: 5,
                   width: "100%",
@@ -2248,7 +2248,7 @@
                     width: "fit-content",
                     children: (0, _v1.jsx)(_v18.Text, {
                       variant: "heading-2xs",
-                      children: (0, _v10.translate)({
+                      children: (0, _v11.translate)({
                         singular: "Other",
                         dictionary: {
                           es: {
@@ -2355,7 +2355,7 @@
     _v83 = `${_v82.upload}?upload_notice=reselect`,
     _v84 = [{
       id: "upload",
-      label: (0, _v10.translate)({
+      label: (0, _v11.translate)({
         singular: "Upload",
         dictionary: {
           es: {
@@ -2381,7 +2381,7 @@
           }
         }
       }),
-      heading: (0, _v10.translate)({
+      heading: (0, _v11.translate)({
         singular: "Upload your first video",
         dictionary: {
           es: {
@@ -2407,7 +2407,7 @@
           }
         }
       }),
-      ctaLabel: (0, _v10.translate)({
+      ctaLabel: (0, _v11.translate)({
         singular: "Upload now",
         dictionary: {
           es: {
@@ -2436,7 +2436,7 @@
       Icon: _v81.Upload
     }, {
       id: "record",
-      label: (0, _v10.translate)({
+      label: (0, _v11.translate)({
         singular: "Record",
         dictionary: {
           es: {
@@ -2462,7 +2462,7 @@
           }
         }
       }),
-      heading: (0, _v10.translate)({
+      heading: (0, _v11.translate)({
         singular: "Record your screen, webcam, or both",
         dictionary: {
           es: {
@@ -2488,7 +2488,7 @@
           }
         }
       }),
-      ctaLabel: (0, _v10.translate)({
+      ctaLabel: (0, _v11.translate)({
         singular: "Record video",
         dictionary: {
           es: {
@@ -2517,7 +2517,7 @@
       Icon: _v80.Record
     }, {
       id: "create",
-      label: (0, _v10.translate)({
+      label: (0, _v11.translate)({
         singular: "Create",
         dictionary: {
           es: {
@@ -2543,7 +2543,7 @@
           }
         }
       }),
-      heading: (0, _v10.translate)({
+      heading: (0, _v11.translate)({
         singular: "Start editing videos from scratch or choose a template",
         dictionary: {
           es: {
@@ -2569,7 +2569,7 @@
           }
         }
       }),
-      ctaLabel: (0, _v10.translate)({
+      ctaLabel: (0, _v11.translate)({
         singular: "Create now",
         dictionary: {
           es: {
@@ -2703,7 +2703,7 @@
         position: "absolute",
         top: "2rem",
         right: "2rem",
-        children: (0, _v10.translate)({
+        children: (0, _v11.translate)({
           singular: "Skip",
           dictionary: {
             es: {
@@ -2729,7 +2729,7 @@
             }
           }
         })
-      }), (0, _v1.jsxs)(_v14.Flex, {
+      }), (0, _v1.jsxs)(_v9.Flex, {
         grow: "1",
         flexDirection: "column",
         alignItems: "center",
@@ -2743,7 +2743,7 @@
           },
           textAlign: "center",
           marginBottom: "2",
-          children: (0, _v10.translate)({
+          children: (0, _v11.translate)({
             singular: "Everything you build starts with a video",
             dictionary: {
               es: {
@@ -2809,7 +2809,7 @@
             (_v0.target.files?.[0] ?? _v0.dataTransfer?.files?.[0]) && _v21(_v83);
           },
           children: _v22
-        }) : (0, _v1.jsx)(_v14.Flex, {
+        }) : (0, _v1.jsx)(_v9.Flex, {
           ..._v85,
           children: _v22
         })]
@@ -2829,10 +2829,10 @@
       {
         settings: _v6,
         isLoadingResponse: _v7
-      } = (0, _v11.useOrionSettings)(),
+      } = (0, _v12.useOrionSettings)(),
       {
         capabilities: _v8
-      } = (0, _v9.useCapability)(["hasCreation", "hasPaid"]),
+      } = (0, _v10.useCapability)(["hasCreation", "hasPaid"]),
       [_v9, _v10] = (0, _v8.useState)(!1),
       [_v11, _v12] = (0, _v8.useState)(null),
       _v13 = _v6.video_upload_onboarding_arm,
@@ -2854,11 +2854,11 @@
         return "control" !== _v1 ? [..._v2, "paywall_step_2"] : [..._v2];
       }(_v13, _v16 ? _v15 : "control"), [_v13, _v16, _v15]),
       _v18 = null === (_v3 = _v5.get("phase")) || "" === _v3 ? _v17[0] : _v17.find(_v0 => _v0 === _v3) ?? null,
-      _v19 = _v11 && (0, _v12.isVimeoRedirectableUrl)(_v11) ? _v11 : void 0,
-      [_v20] = (0, _v8.useState)(() => (0, _v13.peekPostSurveyRedirect)()),
+      _v19 = _v11 && (0, _v13.isVimeoRedirectableUrl)(_v11) ? _v11 : void 0,
+      [_v20] = (0, _v8.useState)(() => (0, _v14.peekPostSurveyRedirect)()),
       _v21 = _v19 ?? _v20,
       _v22 = () => {
-        _v10(!0), (0, _v13.clearPostSurveyRedirect)(), _v4.push(_v21 ?? "/home");
+        _v10(!0), (0, _v14.clearPostSurveyRedirect)(), _v4.push(_v21 ?? "/home");
       },
       _v23 = () => {
         if (!_v18) return;
@@ -2885,7 +2885,12 @@
         onContinueWithFreePlan: _v22
       }) : (0, _v1.jsx)(_v34.default, {});
       return "pricing_page_at_dismiss" === _v15 ? _v0 : (0, _v1.jsx)(_v38.OnboardingShell, {
-        children: _v0
+        growLogo: !1,
+        children: (0, _v1.jsx)(_v9.Flex, {
+          marginY: "auto",
+          width: "100%",
+          children: _v0
+        })
       });
     }
     return (0, _v1.jsxs)(_v38.OnboardingShell, {
@@ -2904,7 +2909,7 @@
       }), ("paywall" === _v18 || null === _v18) && (0, _v1.jsx)(_v37, {
         postCheckoutUrl: _v21,
         onDismiss: _v22,
-        dismissButtonLabel: "pricing_page_at_dismiss" === _v15 && _v16 ? (0, _v10.translate)({
+        dismissButtonLabel: "pricing_page_at_dismiss" === _v15 && _v16 ? (0, _v11.translate)({
           singular: "Check other plans",
           dictionary: {
             es: {
@@ -2942,7 +2947,7 @@
     let _v3 = (0, _v33.useViewer)(),
       {
         settings: _v4
-      } = (0, _v11.useOrionSettings)(),
+      } = (0, _v12.useOrionSettings)(),
       {
         trackPaywallDismissed: _v5
       } = (0, _v32.usePaywallTracking)({
@@ -2963,7 +2968,7 @@
       }), (0, _v1.jsx)(_v29.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: "top_right",
         dismissButtonVariant: _v4.onboarding_welcome_offer_dismiss_variant,
-        skipLabel: (0, _v10.translate)({
+        skipLabel: (0, _v11.translate)({
           singular: "I'm not interested",
           dictionary: {
             es: {
@@ -3107,7 +3112,7 @@
         onDismiss: () => {
           _v5(), _v0();
         }
-      }), (0, _v1.jsxs)(_v14.Flex, {
+      }), (0, _v1.jsxs)(_v9.Flex, {
         direction: "column",
         alignItems: "center",
         width: "100%",
@@ -3229,7 +3234,7 @@
     let _v3 = (0, _v33.useViewer)(),
       {
         settings: _v4
-      } = (0, _v11.useOrionSettings)(),
+      } = (0, _v12.useOrionSettings)(),
       _v5 = (0, _v21.useGetSubscriptionPlansData)([_v2]),
       [_v6, _v7] = (0, _v8.useState)(!1),
       _v8 = (0, _v20.useColorModeValue)("background", "surface"),
@@ -3356,7 +3361,7 @@
         onDismiss: () => {
           _v14(), _v0();
         }
-      }), (0, _v1.jsx)(_v14.Flex, {
+      }), (0, _v1.jsx)(_v9.Flex, {
         direction: "column",
         alignItems: "center",
         width: "100%",
@@ -3407,7 +3412,7 @@
             purchaseStatus: "available",
             showBadge: !0,
             compact: !0
-          }), (0, _v1.jsxs)(_v14.Flex, {
+          }), (0, _v1.jsxs)(_v9.Flex, {
             position: "relative",
             direction: "column",
             alignItems: "center",
@@ -3416,7 +3421,7 @@
               md: (0, _v75.rem)(36)
             },
             gap: (0, _v75.rem)(24),
-            children: [(0, _v1.jsxs)(_v14.Flex, {
+            children: [(0, _v1.jsxs)(_v9.Flex, {
               direction: "column",
               alignItems: "center",
               gap: "xs",
@@ -3484,7 +3489,7 @@
                   }
                 })
               })]
-            }), (0, _v1.jsxs)(_v14.Flex, {
+            }), (0, _v1.jsxs)(_v9.Flex, {
               direction: "column",
               width: "100%",
               padding: (0, _v75.rem)(20),
@@ -3493,14 +3498,14 @@
               borderColor: "stroke",
               borderRadius: (0, _v75.rem)(16),
               backgroundColor: _v8,
-              children: [(0, _v1.jsxs)(_v14.Flex, {
+              children: [(0, _v1.jsxs)(_v9.Flex, {
                 justifyContent: "space-between",
                 alignItems: "center",
                 gap: "md",
                 children: [(0, _v1.jsx)(_v18.Text, {
                   variant: "heading-md",
                   children: _v12.name
-                }), (0, _v1.jsxs)(_v14.Flex, {
+                }), (0, _v1.jsxs)(_v9.Flex, {
                   alignItems: "baseline",
                   gap: "xs",
                   whiteSpace: "nowrap",
@@ -3563,7 +3568,7 @@
                     })
                   })]
                 })]
-              }), (0, _v1.jsxs)(_v14.Flex, {
+              }), (0, _v1.jsxs)(_v9.Flex, {
                 direction: "column",
                 gap: "sm",
                 children: [(0, _v1.jsx)(_v113, {
@@ -3645,10 +3650,10 @@
                 borderTopWidth: "1px",
                 borderColor: "stroke",
                 paddingTop: "md",
-                children: (0, _v1.jsx)(_v14.Flex, {
+                children: (0, _v1.jsx)(_v9.Flex, {
                   direction: "column",
                   gap: "sm",
-                  children: _v23.map(_v0 => (0, _v1.jsxs)(_v14.Flex, {
+                  children: _v23.map(_v0 => (0, _v1.jsxs)(_v9.Flex, {
                     alignItems: "flex-start",
                     gap: "sm",
                     children: [(0, _v1.jsx)(_v101.Checkmark, {
@@ -3662,7 +3667,7 @@
                   }, _v0))
                 })
               })]
-            }), _v11 && (0, _v1.jsxs)(_v14.Flex, {
+            }), _v11 && (0, _v1.jsxs)(_v9.Flex, {
               as: "button",
               type: "button",
               role: "radio",
@@ -3681,7 +3686,7 @@
               _hover: {
                 backgroundColor: _v6 ? _v9 : "input-fill-hover"
               },
-              children: [(0, _v1.jsxs)(_v14.Flex, {
+              children: [(0, _v1.jsxs)(_v9.Flex, {
                 direction: "column",
                 gap: "xs",
                 children: [(0, _v1.jsx)(_v18.Text, {
@@ -3847,7 +3852,7 @@
     icon: _v0,
     text: _v1
   }) {
-    return (0, _v1.jsxs)(_v14.Flex, {
+    return (0, _v1.jsxs)(_v9.Flex, {
       alignItems: "center",
       gap: "sm",
       children: [(0, _v1.jsx)(_v17.Box, {

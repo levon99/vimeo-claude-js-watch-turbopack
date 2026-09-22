@@ -91,7 +91,7 @@
             width: "100%",
             gap: "sm",
             children: [(0, _v1.jsx)(_v12.Playbar, {
-              framesPreview: _v1.config.request.thumb_preview,
+              framesPreview: _v1?.config?.request?.thumb_preview,
               enableLinks: _v8
             }), (0, _v1.jsxs)(_v4.HStack, {
               ref: _v17,

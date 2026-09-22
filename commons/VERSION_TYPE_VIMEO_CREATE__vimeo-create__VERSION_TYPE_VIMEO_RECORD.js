@@ -106,7 +106,7 @@
         }
       }
     });
-  }, "getNextVersionSequenceNumber", 0, _v0 => _v0.reduce((_v0, _v1) => Math.max(_v0, _v1.sequenceNumber ?? 0), 0) + 1, "getVersionLabel", 0, _v0 => null === _v0 ? (0, _v1.translate)({
+  }, "formatVersionNumber", 0, _v3, "getNextVersionSequenceNumber", 0, _v0 => _v0.reduce((_v0, _v1) => Math.max(_v0, _v1.sequenceNumber ?? 0), 0) + 1, "getVersionLabel", 0, _v0 => null === _v0 ? (0, _v1.translate)({
     singular: "Failed",
     dictionary: {
       es: {
@@ -131,7 +131,7 @@
         singular: "失败"
       }
     }
-  }) : _v3(_v0), "getVersionNumber", 0, _v3, "isStaleIncompleteVersion", 0, ({
+  }) : _v3(_v0), "isStaleIncompleteVersion", 0, ({
     createdTime: _v0,
     sequenceNumber: _v1,
     versionTranscodeStatus: _v2

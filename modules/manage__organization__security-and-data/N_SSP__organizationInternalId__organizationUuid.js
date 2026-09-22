@@ -18,7 +18,7 @@
       organizationInternalId: _v0
     })
   });
-  (0, _v3.withPageSetup)(_v6.getOrgAndWspUuidServerSideProps, {
+  (0, _v3.withPageSetup)(_v6.getOrgUuidServerSideProps, {
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0

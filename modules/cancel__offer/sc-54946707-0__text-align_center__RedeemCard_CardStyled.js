@@ -73,16 +73,16 @@
               singular: "Einlösen"
             },
             "fr-FR": {
-              singular: "Utiliser"
+              singular: "Échanger"
             },
             "ja-JP": {
-              singular: "使用する"
+              singular: "引き換える"
             },
             "ko-KR": {
-              singular: "VIP 코드 사용"
+              singular: "사용하기"
             },
             "pt-BR": {
-              singular: "Utilizar"
+              singular: "Resgatar"
             },
             "zh-CN": {
               singular: "兑换"

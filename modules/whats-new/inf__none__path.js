@@ -2747,9 +2747,12 @@
       let _v0 = (0, _v3.useRouter)(),
         _v1 = (0, _v12.useViewer)(),
         {
-          settings: _v2,
+          identity: _v2,
           isLoadingResponse: _v3
-        } = (0, _v8.useOrionSettings)();
+        } = (0, _v8.useOrion)(),
+        {
+          settings: _v4
+        } = _v2;
       return ((0, _v4.useEffect)(() => {
         if ("true" === _v0.query.changelog) {
           let _v0 = {
@@ -2762,7 +2765,7 @@
             shallow: !0
           });
         }
-      }, [_v0]), _v3 || !_v1) ? null : _v2.enable_whats_new_page ? (0, _v1.jsxs)(_v1.Fragment, {
+      }, [_v0]), _v3 || !_v1) ? null : _v2.isDefaultIdentity || _v4.enable_whats_new_page ? (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v2.default, {
           children: (0, _v1.jsx)("title", {
             children: (0, _v7.translate)({

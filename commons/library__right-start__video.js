@@ -883,19 +883,21 @@
       marginY: (0, _v5.rem)(8)
     }),
     _v69 = ({
-      variant: _v0
+      variant: _v0,
+      promoCard: _v1
     }) => {
-      let _v1 = "icons" === _v0,
+      let _v2 = "icons" === _v0,
         {
-          appSections: _v2,
-          hasStarredItems: _v3,
-          isInitialLoading: _v4
+          appSections: _v3,
+          hasStarredItems: _v4,
+          isInitialLoading: _v5,
+          isMobile: _v6
         } = (0, _v15.useHomePrimaryNavItems)(),
-        _v5 = _v2[0]?.[0]?.key,
-        _v6 = (0, _v2.useCallback)(_v0 => _v1 ? _v0.map(_v0 => (0, _v1.jsx)(_v14.PrimaryNavItem, {
+        _v7 = _v3[0]?.[0]?.key,
+        _v8 = (0, _v2.useCallback)(_v0 => _v2 ? _v0.map(_v0 => (0, _v1.jsx)(_v14.PrimaryNavItem, {
           item: _v0,
           variant: "icons",
-          isFirst: _v0.key === _v5
+          isFirst: _v0.key === _v7
         }, _v0.key)) : (0, _v1.jsx)(_v6.ResizableSideNav.MenuItems, {
           customStyles: {
             gap: (0, _v5.rem)(2)
@@ -903,39 +905,46 @@
           children: _v0.map(_v0 => (0, _v1.jsx)(_v14.PrimaryNavItem, {
             item: _v0,
             variant: "full",
-            isFirst: _v0.key === _v5
+            isFirst: _v0.key === _v7
           }, _v0.key))
-        }), [_v1, _v5]);
-      return (0, _v1.jsx)(_v3.Box, {
+        }), [_v2, _v7]);
+      return (0, _v1.jsxs)(_v3.Box, {
         style: {
           flexGrow: 1,
           display: "flex",
           flexDirection: "column"
         },
-        ...(_v1 ? {
+        ...(_v2 ? {
           alignItems: "center"
         } : {}),
-        children: (0, _v1.jsxs)(_v4.Flex, {
+        children: [(0, _v1.jsxs)(_v4.Flex, {
           flexDirection: "column",
           gap: (0, _v5.rem)(2),
           paddingBottom: (0, _v5.rem)(8),
-          alignItems: _v1 ? "center" : void 0,
-          children: [_v4 ? Array.from({
+          alignItems: _v2 ? "center" : void 0,
+          children: [_v5 ? Array.from({
             length: 6
-          }).map((_v0, _v1) => _v1 ? (0, _v1.jsx)(_v67, {}, _v1) : (0, _v1.jsx)(_v66, {
+          }).map((_v0, _v1) => _v2 ? (0, _v1.jsx)(_v67, {}, _v1) : (0, _v1.jsx)(_v66, {
             width: "75%"
-          }, _v1)) : _v2.map((_v0, _v1) => (0, _v1.jsxs)(_v2.Fragment, {
-            children: [_v1 > 0 && (_v1 ? (0, _v1.jsx)(_v68, {}) : (0, _v1.jsx)(_v6.ResizableSideNav.Divider, {
+          }, _v1)) : _v3.map((_v0, _v1) => (0, _v1.jsxs)(_v2.Fragment, {
+            children: [_v1 > 0 && (_v2 ? (0, _v1.jsx)(_v68, {}) : (0, _v1.jsx)(_v6.ResizableSideNav.Divider, {
               my: (0, _v5.rem)(8)
-            })), _v6(_v0)]
-          }, _v1)), !_v1 && _v3 && (0, _v1.jsxs)(_v1.Fragment, {
+            })), _v8(_v0)]
+          }, _v1)), !_v2 && _v4 && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v6.ResizableSideNav.Divider, {
               my: (0, _v5.rem)(8)
             }), (0, _v1.jsx)(_v6.ResizableSideNav.Section, {
               children: (0, _v1.jsx)(_v64, {})
             })]
           })]
-        })
+        }), !_v6 && null != _v1 && (0, _v1.jsx)(_v3.Box, {
+          marginTop: "auto",
+          paddingTop: (0, _v5.rem)(16),
+          sx: _v2 ? {
+            display: "none"
+          } : void 0,
+          children: _v1
+        })]
       });
     };
   _v0.s(["HomePrimaryNavbar", 0, _v69], 0);

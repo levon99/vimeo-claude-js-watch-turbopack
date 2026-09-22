@@ -365,116 +365,133 @@
   _v0.s(["Destinations", 0, function ({
     id: _v0 = (0, _v15.createDomName)("live-destinations-settings"),
     className: _v1 = (0, _v15.createDomName)("live-destinations-settings"),
+    isStreamYardEvent: _v2 = !1,
     composerSessionContext: {
-      permissions: _v2
+      permissions: _v3
     } = (0, _v2.useManager)(_v11.ComposerSessionManager),
     eventSettingsContext: {
       settings: {
-        value: _v3
+        value: _v4
       }
     } = (0, _v2.useManager)(_v13.EventSettingsManager),
     destinationsContext: {
       hasAnyDestinationsCreated: {
-        value: _v4
+        value: _v5
       },
       connections: {
-        youtube: _v5,
-        facebook: _v6,
-        linkedin: _v7
+        youtube: _v6,
+        facebook: _v7,
+        linkedin: _v8,
+        ott: _v9
       }
-    } = (0, _v2.useManager)(_v12.DestinationsManager)
+    } = (0, _v2.useManager)(_v12.DestinationsManager),
+    hideVimeoDestination: _v10 = !1
   }) {
-    let _v8 = (0, _v16.useViewer)(),
-      _v9 = !!_v8?.isEnterpriseSite,
-      _v10 = (0, _v10.useIsPublishToSocialRestricted)(),
-      _v11 = !!_v3?.fromShowcase,
-      _v12 = !!_v3?.hasRegistration,
-      _v13 = !!_v3?.unlimitedDuration,
-      _v14 = !!(_v10 || _v13 && !_v2.canUseExtendedStreamWithSimulcast),
-      _v15 = (0, _v3.useMemo)(() => _v10 && _v4 ? _v55.sharedTranslations.destinationsAreRestrictedByOwner : _v10 ? _v55.sharedTranslations.destinationsStreamRestrictedByOwner : null, [_v10, _v4]);
-    return (0, _v1.jsxs)(_v4.Flex, {
+    let _v11 = (0, _v16.useViewer)(),
+      _v12 = !!_v11?.isEnterpriseSite,
+      _v13 = _v2 && !!_v9.value?.isConnected,
+      _v14 = (0, _v10.useIsPublishToSocialRestricted)(),
+      _v15 = !!_v4?.fromShowcase,
+      _v16 = !!_v4?.hasRegistration,
+      _v17 = !!_v4?.unlimitedDuration,
+      _v18 = !!(_v14 || _v17 && !_v3.canUseExtendedStreamWithSimulcast),
+      _v19 = (0, _v3.useMemo)(() => _v14 && _v5 ? _v55.sharedTranslations.destinationsAreRestrictedByOwner : _v14 ? _v55.sharedTranslations.destinationsStreamRestrictedByOwner : null, [_v14, _v5]);
+    return _v13 ? (0, _v1.jsxs)(_v4.Flex, {
       id: _v0,
       className: _v1,
       direction: "column",
       width: "100%",
       gap: (0, _v8.rem)(20),
-      children: [_v13 && !_v2.canUseExtendedStreamWithSimulcast ? (0, _v1.jsx)(_v5.Alert, {
+      children: [(0, _v1.jsx)(_v20.OttDestination, {
+        id: (0, _v15.createDomName)(_v0, "ott"),
+        className: (0, _v15.createDomName)(_v1, "ott"),
+        isDisabled: _v14
+      }), (0, _v1.jsx)(_v17.DestinationModals, {
+        id: (0, _v15.createDomName)(_v0, "modal")
+      })]
+    }) : (0, _v1.jsxs)(_v4.Flex, {
+      id: _v0,
+      className: _v1,
+      direction: "column",
+      width: "100%",
+      gap: (0, _v8.rem)(20),
+      children: [_v17 && !_v3.canUseExtendedStreamWithSimulcast ? (0, _v1.jsx)(_v5.Alert, {
         children: (0, _v1.jsx)(_v6.AlertDescription, {
           margin: 0,
           children: _v55.sharedTranslations.destinationsAreNotWithExtended
         })
-      }) : null, _v10 ? (0, _v1.jsx)(_v5.Alert, {
+      }) : null, _v14 ? (0, _v1.jsx)(_v5.Alert, {
         children: (0, _v1.jsx)(_v6.AlertDescription, {
           margin: 0,
-          children: _v15
+          children: _v19
         })
-      }) : null, _v12 ? (0, _v1.jsx)(_v5.Alert, {
+      }) : null, _v16 ? (0, _v1.jsx)(_v5.Alert, {
         children: (0, _v1.jsx)(_v6.AlertDescription, {
           margin: 0,
           children: _v55.sharedTranslations.viewersAtDestinationsWillNot
         })
-      }) : null, (0, _v1.jsx)(_v35, {
+      }) : null, _v10 ? null : (0, _v1.jsx)(_v35, {
         id: (0, _v15.createDomName)(_v0, "vimeo"),
         className: (0, _v15.createDomName)(_v1, "vimeo")
       }), (0, _v1.jsx)(_v9.RemoveConnectionSharingNotificationForNonOwners, {
-        shouldShow: _v8?.user?.id !== _v8?.team?.ownerId,
+        shouldShow: _v11?.user?.id !== _v11?.team?.ownerId,
         from: "LIVE",
         marginY: (0, _v8.rem)(5)
       }), (0, _v1.jsx)(_v7.Divider, {
         borderColor: "stroke"
-      }), _v11 ? (0, _v1.jsxs)(_v1.Fragment, {
+      }), _v15 ? (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v22.ShowcaseDestination, {
           id: (0, _v15.createDomName)(_v0, "showcase"),
           className: (0, _v15.createDomName)(_v1, "showcase")
         }), (0, _v1.jsx)(_v7.Divider, {
           borderColor: "stroke"
         })]
-      }) : null, !_v9 && (0, _v1.jsxs)(_v1.Fragment, {
+      }) : null, !_v12 && (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v18.FacebookDestination, {
           id: (0, _v15.createDomName)(_v0, "facebook"),
           className: (0, _v15.createDomName)(_v1, "facebook"),
-          isDisabled: _v14
+          isDisabled: _v18
         }), (0, _v1.jsx)(_v7.Divider, {
           borderColor: "stroke"
         })]
       }), (0, _v1.jsx)(_v54, {
         id: (0, _v15.createDomName)(_v0, "youtube"),
         className: (0, _v15.createDomName)(_v1, "youtube"),
-        isDisabled: _v14
+        isDisabled: _v18
       }), (0, _v1.jsx)(_v7.Divider, {
         borderColor: "stroke"
-      }), !_v9 && (0, _v1.jsxs)(_v1.Fragment, {
+      }), !_v12 && (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v19.LinkedinDestination, {
           id: (0, _v15.createDomName)(_v0, "linkedin"),
           className: (0, _v15.createDomName)(_v1, "linkedin"),
-          isDisabled: _v14
+          isDisabled: _v18
         }), (0, _v1.jsx)(_v7.Divider, {
           borderColor: "stroke"
         }), (0, _v1.jsx)(_v20.OttDestination, {
           id: (0, _v15.createDomName)(_v0, "ott"),
           className: (0, _v15.createDomName)(_v1, "ott"),
-          isDisabled: _v10
+          isDisabled: _v14
         }), (0, _v1.jsx)(_v7.Divider, {
           borderColor: "stroke"
         }), (0, _v1.jsx)(_v21.CustomRtmpDestinations, {
           id: (0, _v15.createDomName)(_v0, "instagram"),
           className: (0, _v15.createDomName)(_v1, "instagram"),
           type: _v14.ECustomRtmpType.INSTAGRAM,
-          isDisabled: _v14
+          isDisabled: _v18
         }), (0, _v1.jsx)(_v7.Divider, {
           borderColor: "stroke"
         }), (0, _v1.jsx)(_v21.CustomRtmpDestinations, {
           id: (0, _v15.createDomName)(_v0, "tiktok"),
           className: (0, _v15.createDomName)(_v1, "tiktok"),
           type: _v14.ECustomRtmpType.TIK_TOK,
-          isDisabled: _v14
+          isDisabled: _v18
         }), (0, _v1.jsx)(_v7.Divider, {
           borderColor: "stroke"
         }), (0, _v1.jsx)(_v21.CustomRtmpDestinations, {
           id: (0, _v15.createDomName)(_v0, "twitter"),
           className: (0, _v15.createDomName)(_v1, "twitter"),
           type: _v14.ECustomRtmpType.TWITTER_X,
-          isDisabled: _v14
+          isDisabled: _v18
         }), (0, _v1.jsx)(_v7.Divider, {
           borderColor: "stroke"
         })]
@@ -482,8 +499,8 @@
         id: (0, _v15.createDomName)(_v0, "custom-rtmp"),
         className: (0, _v15.createDomName)(_v1, "custom-rtmp"),
         type: _v14.ECustomRtmpType.CUSTOM,
-        isDisabled: _v14,
-        isRestricted: _v10
+        isDisabled: _v18,
+        isRestricted: _v14
       }), (0, _v1.jsx)(_v17.DestinationModals, {
         id: (0, _v15.createDomName)(_v0, "modal")
       })]

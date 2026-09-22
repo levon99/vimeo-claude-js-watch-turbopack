@@ -31,7 +31,7 @@
     });
   };
   (0, _v7.withPageSetup)(async _v0 => {
-    let _v1 = await (0, _v9.getOrgAndWspUuidServerSideProps)(_v0);
+    let _v1 = await (0, _v9.getOrgUuidServerSideProps)(_v0);
     return "notFound" in _v1 ? _v1 : {
       props: {
         hasThemeSupport: !0,

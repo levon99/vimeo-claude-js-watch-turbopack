@@ -4,9 +4,10 @@
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
     _v3 = _v0.i(0),
-    _v4 = _v0.i(0);
-  let _v5 = {
-      chooseAPlan: (0, _v3.translate)({
+    _v4 = _v0.i(0),
+    _v5 = _v0.i(0);
+  let _v6 = {
+      chooseAPlan: (0, _v4.translate)({
         singular: "Choose a plan",
         dictionary: {
           es: {
@@ -32,7 +33,7 @@
           }
         }
       }),
-      chooseYourPlan: (0, _v3.translate)({
+      chooseYourPlan: (0, _v4.translate)({
         singular: "Choose your plan",
         dictionary: {
           es: {
@@ -58,7 +59,7 @@
           }
         }
       }),
-      upgradeYourPlan: (0, _v3.translate)({
+      upgradeYourPlan: (0, _v4.translate)({
         singular: "Upgrade your plan",
         dictionary: {
           es: {
@@ -84,7 +85,7 @@
           }
         }
       }),
-      theUltimateAdFreePlayer: (0, _v3.translate)({
+      theUltimateAdFreePlayer: (0, _v4.translate)({
         singular: "The ultimate ad-free player",
         dictionary: {
           es: {
@@ -111,11 +112,11 @@
         }
       })
     },
-    _v6 = {
-      getStartedWithFree: (0, _v3.translate)({
+    _v7 = {
+      getStartedWithFree: (0, _v4.translate)({
         singular: "Try any of the plans below for free. Or, if you’re a beginner, get started with our {LINK}Free plan.{/LINK}",
         replacements: {
-          LINK: _v0 => (0, _v1.jsx)(_v4.FreePlanTextLink, {
+          LINK: _v0 => (0, _v1.jsx)(_v5.FreePlanTextLink, {
             children: _v0
           })
         },
@@ -143,10 +144,10 @@
           }
         }
       }),
-      getStartedWithFreeConcise: _v0 => (0, _v3.translate)({
+      getStartedWithFreeConcise: _v0 => (0, _v4.translate)({
         singular: "Or get started with our {LINK}Free plan.{/LINK}",
         replacements: {
-          LINK: _v0 => (0, _v1.jsx)(_v4.FreePlanTextLink, {
+          LINK: _v0 => (0, _v1.jsx)(_v5.FreePlanTextLink, {
             href: _v0,
             children: _v0
           })
@@ -175,10 +176,10 @@
           }
         }
       }),
-      getStartedWithBasic: (0, _v3.translate)({
+      getStartedWithBasic: (0, _v4.translate)({
         singular: "Start a free trial, or get started with {LINK}Vimeo Basic.{/LINK}",
         replacements: {
-          LINK: _v0 => (0, _v1.jsx)(_v4.FreePlanTextLink, {
+          LINK: _v0 => (0, _v1.jsx)(_v5.FreePlanTextLink, {
             children: _v0
           })
         },
@@ -206,10 +207,10 @@
           }
         }
       }),
-      getStartedWithBasicPlan: (0, _v3.translate)({
+      getStartedWithBasicPlan: (0, _v4.translate)({
         singular: "Start a free trial, or get started with our {LINK}basic plan{/LINK}",
         replacements: {
-          LINK: _v0 => (0, _v1.jsx)(_v4.FreePlanTextLink, {
+          LINK: _v0 => (0, _v1.jsx)(_v5.FreePlanTextLink, {
             children: _v0
           })
         },
@@ -238,20 +239,24 @@
         }
       })
     };
-  _v0.s(["PRIMARY_HEADERS", 0, _v5, "SECONDARY_HEADERS", 0, _v6], 0);
-  let _v7 = _v2.default.createContext({});
-  _v0.s(["OverridesContext", 0, _v7, "OverridesContextProvider", 0, function ({
+  _v0.s(["PRIMARY_HEADERS", 0, _v6, "SECONDARY_HEADERS", 0, _v7], 0);
+  let _v8 = _v2.default.createContext({});
+  _v0.s(["OverridesContext", 0, _v8, "OverridesContextProvider", 0, function ({
     overrides: _v0,
     viewer: _v1,
     showYearly: _v2,
     children: _v3
   }) {
-    let _v4 = {};
-    return (_v1?.user?.account === "free" && _v1?.user?.capabilities?.hasFreeTrialEligibility || _v1?.user === null) && _v2 && (_v4 = {
+    let {
+        settings: _v4
+      } = (0, _v3.useOrionSettings)(),
+      _v5 = {},
+      _v6 = _v4.second_free_trial_enabled && !!_v1?.user?.capabilities?.hasSecondFreeTrialEligibility;
+    return (_v1?.user?.account === "free" && (_v1?.user?.capabilities?.hasFreeTrialEligibility || _v6) || _v1?.user === null) && _v2 && (_v5 = {
       ctaTreatment: "free_trial_primary"
-    }), _v1?.user === null && (_v4.description = _v6.getStartedWithBasicPlan), (0, _v1.jsx)(_v7.Provider, {
+    }), _v1?.user === null && (_v5.description = _v7.getStartedWithBasicPlan), (0, _v1.jsx)(_v8.Provider, {
       value: {
-        ..._v4,
+        ..._v5,
         ..._v0
       },
       children: _v3

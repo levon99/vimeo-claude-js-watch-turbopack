@@ -671,7 +671,8 @@
         return [_v33.length > 0 ? [_v20, ..._v33] : [_v20, ..._v34], ...(_v33.length > 0 ? [_v34] : []), ...(_v18 ? [_v32] : [])].filter(_v0 => _v0.length > 0);
       }, [_v2, _v0, _v3, _v8, _v4, _v17, _v7, _v16, _v15, _v13, _v20, _v18, _v19, _v5, _v24, _v27, _v33, _v34, _v35, _v28, _v30, _v31, _v32]),
       hasStarredItems: _v12,
-      isInitialLoading: _v14 || _v16 || _v21 || _v23 || _v29 || _v26
+      isInitialLoading: _v14 || _v16 || _v21 || _v23 || _v29 || _v26,
+      isMobile: _v2
     };
   }], 0);
   var _v55 = _v0.i(0),

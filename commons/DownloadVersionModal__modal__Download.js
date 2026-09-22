@@ -60,7 +60,7 @@
                 singular: "下载"
               }
             }
-          })} ${(0, _v10.getVersionNumber)(_v1)}`
+          })} ${(0, _v10.formatVersionNumber)(_v1)}`
         }), (0, _v1.jsx)(_v4.ModalCloseButton, {}), (0, _v1.jsx)(_v3.ModalBody, {
           paddingBottom: "md",
           children: (0, _v1.jsx)(_v8.DownloadFilesContent, {

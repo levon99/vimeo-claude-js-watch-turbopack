@@ -2,18 +2,19 @@
   "use strict";
 
   var _v1 = _v0.i(0),
-    _v2 = _v0.i(0);
-  function _v3(_v0) {
+    _v2 = _v0.i(0),
+    _v3 = _v0.i(0);
+  function _v4(_v0) {
     return null === _v0 ? null : String(_v0);
   }
-  function _v4(_v0) {
+  function _v5(_v0) {
     return Number(_v0);
   }
-  let _v5 = () => {
-    let _v0 = (0, _v2.usePico)(),
+  let _v6 = () => {
+    let _v0 = (0, _v3.usePico)(),
       _v1 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_upload_started", {
-          file_size_bytes: _v4(_v0.fileSizeBytes),
+          file_size_bytes: _v5(_v0.fileSizeBytes),
           total_in_batch: _v0.totalInBatch,
           is_dropzone: _v0.isDropzone,
           surface: _v0.surface
@@ -21,8 +22,8 @@
       }, [_v0]),
       _v2 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_upload_completed", {
-          video_id: _v3(_v0.videoId),
-          file_size_bytes: _v4(_v0.fileSizeBytes),
+          video_id: _v4(_v0.videoId),
+          file_size_bytes: _v5(_v0.fileSizeBytes),
           total_in_batch: _v0.totalInBatch,
           is_dropzone: _v0.isDropzone,
           surface: _v0.surface
@@ -30,8 +31,8 @@
       }, [_v0]),
       _v3 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_upload_failed", {
-          video_id: _v3(_v0.videoId),
-          file_size_bytes: _v4(_v0.fileSizeBytes),
+          video_id: _v4(_v0.videoId),
+          file_size_bytes: _v5(_v0.fileSizeBytes),
           total_in_batch: _v0.totalInBatch,
           is_dropzone: _v0.isDropzone,
           surface: _v0.surface
@@ -39,8 +40,8 @@
       }, [_v0]),
       _v4 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_upload_cancelled", {
-          video_id: _v3(_v0.videoId),
-          file_size_bytes: _v4(_v0.fileSizeBytes),
+          video_id: _v4(_v0.videoId),
+          file_size_bytes: _v5(_v0.fileSizeBytes),
           total_in_batch: _v0.totalInBatch,
           is_dropzone: _v0.isDropzone,
           surface: _v0.surface
@@ -88,9 +89,8 @@
       }, [_v0])
     };
   };
-  _v0.s(["useUploadTracking", 0, _v5], 0);
-  var _v6 = _v0.i(0),
-    _v7 = _v0.i(0),
+  _v0.s(["useUploadTracking", 0, _v6], 0);
+  var _v7 = _v0.i(0),
     _v8 = _v0.i(0),
     _v9 = _v0.i(0);
   let _v10 = 0,
@@ -103,7 +103,7 @@
         trackVideoUploadSessionStarted: _v0,
         trackVideoUploadSessionCompleted: _v1,
         trackVideoUploadSessionAbandoned: _v2
-      } = _v5(),
+      } = _v6(),
       {
         uploads: _v3
       } = (0, _v8.useUploader)(),
@@ -143,7 +143,7 @@
       } = _v0;
       (_v2 === _v7.STATES.COMPLETED || _v2 === _v7.STATES.FAILED || _v2 === _v7.STATES.CANCELED) && (_v1.terminatedFileIds.add(_v0.id), _v2 === _v7.STATES.COMPLETED && (_v1.completedCount += 1), _v2 === _v7.STATES.FAILED && (_v1.errorCount += 1), _v2 === _v7.STATES.CANCELED && (_v1.canceledCount += 1));
     }
-    (0, _v6.usePicoEffect)(() => {
+    (0, _v2.usePicoEffect)(() => {
       if (0 === _v3.length) {
         _v5.current = null, _v12 = null, _v6.current.clear();
         return;

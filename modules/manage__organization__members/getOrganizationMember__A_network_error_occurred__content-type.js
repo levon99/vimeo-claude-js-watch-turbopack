@@ -2342,7 +2342,7 @@
       })]
     }) : (0, _v1.jsx)(_v6.default, {});
   };
-  (0, _v5.withPageSetup)(_v135.getOrgAndWspUuidServerSideProps, {
+  (0, _v5.withPageSetup)(_v135.getOrgUuidServerSideProps, {
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0

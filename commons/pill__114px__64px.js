@@ -125,7 +125,7 @@
           variant: "heading-xs",
           p: "sm",
           minW: `${_v6}px`,
-          children: null === _v3 ? "X" : (0, _v13.getVersionNumber)(_v3)
+          children: null === _v3 ? "X" : (0, _v13.formatVersionNumber)(_v3)
         }), (0, _v1.jsx)(_v3.Box, {
           display: "flex",
           alignItems: "center",

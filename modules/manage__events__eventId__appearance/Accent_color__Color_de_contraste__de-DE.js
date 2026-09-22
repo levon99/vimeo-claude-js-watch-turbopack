@@ -872,19 +872,19 @@
           singular: "Wiederkehrenden Zeitplan anzeigen"
         },
         "fr-FR": {
-          singular: "Afficher le programme récurrent"
+          singular: "Afficher le planning récurrent"
         },
         "ja-JP": {
-          singular: "定期的なスケジュールを表示"
+          singular: "繰り返しスケジュールを表示"
         },
         "ko-KR": {
           singular: "반복 일정 표시"
         },
         "pt-BR": {
-          singular: "Exibir agenda recorrente"
+          singular: "Mostrar programação recorrente"
         },
         "zh-CN": {
-          singular: "显示定期时间表"
+          singular: "显示重复日程"
         }
       }
     }),

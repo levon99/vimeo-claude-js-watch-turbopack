@@ -27,24 +27,17 @@
         height: "100%",
         p: "2rem",
         alignItems: "center",
-        justifyContent: "flex-start",
+        justifyContent: _v1 ? "space-between" : "flex-start",
         gap: "3",
         backgroundColor: _v3,
         position: "relative",
         children: [(0, _v1.jsx)(_v3.Flex, {
-          flexShrink: 0,
+          grow: _v1 ? "1" : "0",
           children: (0, _v1.jsx)(_v6.default, {
             height: "32",
             width: "74"
           })
-        }), _v1 ? (0, _v1.jsx)(_v3.Flex, {
-          grow: "1",
-          minHeight: "0",
-          width: "100%",
-          alignItems: "center",
-          justifyContent: "center",
-          children: _v0
-        }) : _v0]
+        }), _v0]
       }), (0, _v1.jsx)(_v3.Flex, {
         hideBelow: "lg",
         height: "100%",
