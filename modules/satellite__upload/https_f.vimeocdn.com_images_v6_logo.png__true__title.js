@@ -1759,7 +1759,7 @@
                 singular: "Übernehmen Sie die volle Kontrolle darüber, wer auf Ihre Videos zugreifen kann – mit unseren Sicherheitseinstellungen. Betten Sie Inhalte auf einer Website zur öffentlichen Ansicht ein oder legen Sie fest, welche Websites die Berechtigung zum Einbetten haben. Teilen Sie Videos mit Teammitgliedern, indem Sie sie direkt zu Videos hinzufügen, oder teilen Sie einen nicht gelisteten Link. Benötigen Sie zusätzliche Sicherheit? Schützen Sie Ihre Videos mit einem Passwort."
               },
               "fr-FR": {
-                singular: "Prenez le contrôle total sur qui peut accéder à vos vidéos grâce à nos paramètres de sécurité. Intégrez du contenu sur un site web pour une diffusion publique, ou spécifiez quels sites sont autorisés à intégrer. Partagez des vidéos avec des membres de l’équipe en les ajoutant directement aux vidéos, ou partagez un lien non répertorié. Besoin d’une sécurité renforcée\x0f? Verrouillez vos vidéos par mot de passe."
+                singular: "Prenez le contrôle total sur qui peut accéder à vos vidéos grâce à nos paramètres de sécurité. Intégrez du contenu sur un site web pour une diffusion publique, ou spécifiez quels sites sont autorisés à intégrer. Partagez des vidéos avec des membres de l’équipe en les ajoutant directement aux vidéos, ou partagez un lien non répertorié. Besoin d’une sécurité renforcée ? Verrouillez vos vidéos par mot de passe."
               },
               "ja-JP": {
                 singular: "セキュリティ設定により、動画へのアクセス権を完全に管理できます。ウェブサイトに埋め込んで公開再生する、あるいは埋め込みを許可するサイトを指定することも可能です。動画にチームメンバーを直接追加して共有するか、非公開リンクを共有できます。さらにセキュリティが必要な場合は、パスワードで動画をロックしてください。"
@@ -2058,7 +2058,7 @@
                 singular: "Wie lade ich ein Video online hoch?"
               },
               "fr-FR": {
-                singular: "Comment téléverser une vidéo en ligne\x0f?"
+                singular: "Comment téléverser une vidéo en ligne ?"
               },
               "ja-JP": {
                 singular: "オンラインで動画をアップロードするにはどうすればよいですか？"
@@ -2118,7 +2118,7 @@
                 singular: "Gibt es eine Größenbegrenzung für Videodateien beim Upload?"
               },
               "fr-FR": {
-                singular: "Y a‑t‑il une limite de taille pour les fichiers vidéo téléversés\x0f?"
+                singular: "Y a‑t‑il une limite de taille pour les fichiers vidéo téléversés ?"
               },
               "ja-JP": {
                 singular: "動画ファイルのアップロードサイズに制限はありますか？"
@@ -2144,7 +2144,7 @@
                 singular: "Kostenlose Pläne erlauben zwei Videos pro Monat mit einer Gesamtbegrenzung von 25 Videos. Es gibt jedoch keine Größenbeschränkung für einzelne Videodateien. Vimeos wöchentliche Upload-Quoten für andere Pläne sind wie folgt: Basic: 500MB/Woche. Plus: 5GB/Woche. Pro: 20GB/Woche. Der gesamte Videospeicher hängt ebenfalls von Ihrem Plan ab: Basic: 5GB. Pro Unlimited: 3TB. Business: 5TB. Premium: 7TB."
               },
               "fr-FR": {
-                singular: "Les forfaits gratuits permettent deux vidéos par mois, avec une limite de 25 vidéos au total sur la durée de vie du compte. Toutefois, il n’y a pas de limite de taille pour le fichier vidéo. Le quota d’envoi hebdomadaire de Vimeo pour les autres forfaits est le suivant\x0f\x1a Basic\x0f\x1a 500 Mo/semaine. Plus\x0f\x1a 5 Go/semaine. Pro\x0f\x1a 20 Go/semaine. Le stockage total de vidéos dépend également de votre forfait\x0f\x1a Basic\x0f\x1a 5 Go. Pro Unlimited\x0f\x1a 3 To. Business\x0f\x1a 5 To. Premium\x0f\x1a 7 To."
+                singular: "Les forfaits gratuits permettent deux vidéos par mois, avec une limite de 25 vidéos au total sur la durée de vie du compte. Toutefois, il n’y a pas de limite de taille pour le fichier vidéo. Le quota d’envoi hebdomadaire de Vimeo pour les autres forfaits est le suivant  Basic  500 Mo/semaine. Plus  5 Go/semaine. Pro  20 Go/semaine. Le stockage total de vidéos dépend également de votre forfait  Basic  5 Go. Pro Unlimited  3 To. Business  5 To. Premium  7 To."
               },
               "ja-JP": {
                 singular: "無料プランでは月に2本まで、かつ生涯合計25本の制限があります。ただし、動画ファイルのサイズ制限はありません。Vimeoの他のプランの週間アップロード割当は以下の通りです：Basic：500MB/週、Plus：5GB/週、Pro：20GB/週。総ストレージ容量もプランによって異なります：Basic：5GB、Pro Unlimited：3TB、Business：5TB、Premium：7TB。"
@@ -2171,7 +2171,7 @@
                 singular: "Welche Arten von Videodateien kann ich hochladen?"
               },
               "fr-FR": {
-                singular: "Quels types de fichiers vidéo puis‑je téléverser\x0f?"
+                singular: "Quels types de fichiers vidéo puis‑je téléverser ?"
               },
               "ja-JP": {
                 singular: "どのような種類の動画ファイルをアップロードできますか？"
@@ -2197,7 +2197,7 @@
                 singular: "Vimeo unterstützt das Hochladen einer Vielzahl von Videodateitypen, einschließlich: WMV, MOV, AVI, FLV und MP4."
               },
               "fr-FR": {
-                singular: "Vimeo prend en charge l’importation d’un large éventail de types de fichiers vidéo, notamment\x0f\x1a WMV, MOV, AVI, FLV et MP4."
+                singular: "Vimeo prend en charge l’importation d’un large éventail de types de fichiers vidéo, notamment  WMV, MOV, AVI, FLV et MP4."
               },
               "ja-JP": {
                 singular: "Vimeoは、WMV、MOV、AVI、FLV、MP4など、さまざまな動画ファイル形式のアップロードに対応しています。"
@@ -2224,7 +2224,7 @@
                 singular: "Kann ich Videos mit dem Smartphone hochladen?"
               },
               "fr-FR": {
-                singular: "Puis-je téléverser des vidéos depuis un téléphone\x0f?"
+                singular: "Puis-je téléverser des vidéos depuis un téléphone ?"
               },
               "ja-JP": {
                 singular: "スマートフォンから動画をアップロードできますか？"
@@ -2277,7 +2277,7 @@
                 singular: "Kann ich hochgeladene Videos bearbeiten?"
               },
               "fr-FR": {
-                singular: "Puis-je modifier les vidéos téléversées\x0f?"
+                singular: "Puis-je modifier les vidéos téléversées ?"
               },
               "ja-JP": {
                 singular: "アップロードした動画を編集できますか？"
@@ -2303,7 +2303,7 @@
                 singular: "Ja, Sie können Videos direkt in Ihrem Webbrowser oder über die Vimeo-App bearbeiten. Schneiden, trimmen, skalieren, Text hinzufügen, Musik einfügen, komprimieren, herunterladen und mehr. Wenn Sie fertig sind, teilen Sie den Videolink überall oder behalten Sie das Video privat – ganz wie Sie möchten!"
               },
               "fr-FR": {
-                singular: "Oui, vous pouvez monter des vidéos directement dans votre navigateur web ou via l’application Vimeo. Coupez, rognez, redimensionnez, ajoutez du texte, ajoutez de la musique, compressez, téléchargez et plus encore. Lorsque vous avez terminé, partagez le lien de la vidéo où vous le souhaitez, ou gardez la vidéo privée — c’est vous qui décidez\x0f!"
+                singular: "Oui, vous pouvez monter des vidéos directement dans votre navigateur web ou via l’application Vimeo. Coupez, rognez, redimensionnez, ajoutez du texte, ajoutez de la musique, compressez, téléchargez et plus encore. Lorsque vous avez terminé, partagez le lien de la vidéo où vous le souhaitez, ou gardez la vidéo privée — c’est vous qui décidez !"
               },
               "ja-JP": {
                 singular: "はい、ウェブブラウザ内またはVimeoアプリで動画を編集できます。カット、トリミング、リサイズ、テキスト追加、音楽追加、圧縮、ダウンロードなどが可能です。編集が完了したら、動画のリンクをどこでも共有するか、動画を非公開にするかを選べます。"
@@ -2330,7 +2330,7 @@
                 singular: "Wie kann ich das hochgeladene Video teilen?"
               },
               "fr-FR": {
-                singular: "Comment puis‑je partager la vidéo que j’ai téléversée\x0f?"
+                singular: "Comment puis‑je partager la vidéo que j’ai téléversée ?"
               },
               "ja-JP": {
                 singular: "アップロードした動画をどのように共有できますか？"

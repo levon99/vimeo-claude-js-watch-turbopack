@@ -240,7 +240,10 @@
           ...(_v1.chatProxy ? {
             chatProxy: _v1.chatProxy
           } : {}),
-          refreshCredentials: () => _v26(_v0)
+          refreshCredentials: () => _v26(_v0),
+          ...(_v0.isProxyOnly ? {
+            isProxyOnly: !0
+          } : {})
         }
       });
     } catch (_v0) {
@@ -400,11 +403,12 @@
     log = new _v4.Logger("🌴ISM");
     connections = null;
     isAuthAutoSignInDisabled = !1;
+    isProxyOnly = !1;
     constructor(_v0) {
       if (super(), !_v0?.sessionId || !_v0.sessionType || !_v0.sessionApplicationType) throw new _v15.LiveError("Cannot initialize room session context.", {
         code: _v10.ELiveErrorCode.INITIALIZATION
       });
-      this.context.sessionId = _v0.sessionId, this.context.sessionType = _v0.sessionType, this.context.sessionApplicationType = _v0.sessionApplicationType, this.isAuthAutoSignInDisabled = !!_v0.interaction?.auth?.noAutoSignIn, this.context.roomRegistrantUuid = _v0?.interaction?.auth?.roomRegistrantUuid || null, this.context.roomUnlistedHash = _v0?.interaction?.auth?.roomUnlistedHash || null, this.context.roomPassword = _v0?.interaction?.auth?.roomPassword || null, this.context.roomHashedPassword = _v0?.interaction?.auth?.roomHashedPassword || null, this.context.roomInjectedAuthToken = _v0?.interaction?.auth?.roomInjectedAuthToken || null, this.context.roomDisabledAuthOptions = _v0?.interaction?.auth?.roomDisabledOptions || [], this.log.info("Initializing room session manager for:", this.context.sessionType, this.context.sessionId);
+      this.context.sessionId = _v0.sessionId, this.context.sessionType = _v0.sessionType, this.context.sessionApplicationType = _v0.sessionApplicationType, this.isAuthAutoSignInDisabled = !!_v0.interaction?.auth?.noAutoSignIn, this.isProxyOnly = !!_v0.interaction?.feature?.isProxyOnly, this.context.roomRegistrantUuid = _v0?.interaction?.auth?.roomRegistrantUuid || null, this.context.roomUnlistedHash = _v0?.interaction?.auth?.roomUnlistedHash || null, this.context.roomPassword = _v0?.interaction?.auth?.roomPassword || null, this.context.roomHashedPassword = _v0?.interaction?.auth?.roomHashedPassword || null, this.context.roomInjectedAuthToken = _v0?.interaction?.auth?.roomInjectedAuthToken || null, this.context.roomDisabledAuthOptions = _v0?.interaction?.auth?.roomDisabledOptions || [], this.log.info("Initializing room session manager for:", this.context.sessionType, this.context.sessionId);
     }
     async onProvisionStarted() {
       await this.loadSessionInfo();

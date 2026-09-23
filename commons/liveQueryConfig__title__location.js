@@ -24,6 +24,7 @@
       AUTH_INJECTED_JWT_TOKEN: "jwt",
       IS_MANAGEMENT_DISABLED: "is_management_disabled",
       MODULE: "module",
+      PROXY_ONLY: "proxy_only",
       THEME: "theme",
       SIDEBAR_ATTACH_POSITION: "sidebar_attach_position"
     },

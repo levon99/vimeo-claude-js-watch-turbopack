@@ -1323,18 +1323,177 @@
     })]
   });
   var _v92 = _v0.i(0);
-  let _v93 = () => () => void 0,
-    _v94 = () => new URLSearchParams(window.location.search).get("changelog"),
-    _v95 = ({
+  let _v93 = "wnpi",
+    _v94 = new Date("2026-09-20T00:00:00Z"),
+    _v95 = new Date("2026-11-01T00:00:00Z"),
+    _v96 = new Date() > _v95;
+  var _v97 = _v0.i(0);
+  function _v98({
+    isOpen: _v0,
+    onAcknowledge: _v1,
+    children: _v2
+  }) {
+    return _v0 ? (0, _v1.jsx)(_v97.AnnouncementPopover, {
+      isOpen: _v0,
+      onAcknowledge: _v1,
+      placement: "right-start",
+      offset: [-8, 16],
+      badge: (0, _v1.jsx)(_v52.Badge, {
+        variant: "new",
+        size: "sm",
+        children: (0, _v1.jsx)(_v22.Text, {
+          color: "text-primary",
+          variant: "heading-2xs",
+          children: (0, _v12.translate)({
+            singular: "New",
+            dictionary: {
+              es: {
+                singular: "Nuevo"
+              },
+              "de-DE": {
+                singular: "Neu"
+              },
+              "fr-FR": {
+                singular: "Nouveau"
+              },
+              "ja-JP": {
+                singular: "新規作成"
+              },
+              "ko-KR": {
+                singular: "신규"
+              },
+              "pt-BR": {
+                singular: "Novo"
+              },
+              "zh-CN": {
+                singular: "新"
+              }
+            }
+          })
+        })
+      }),
+      title: (0, _v12.translate)({
+        singular: "All your updates, in one place",
+        dictionary: {
+          es: {
+            singular: "Todas tus actualizaciones, en un solo lugar"
+          },
+          "de-DE": {
+            singular: "Alle Ihre Aktualisierungen an einem Ort"
+          },
+          "fr-FR": {
+            singular: "Toutes vos mises à jour, au même endroit"
+          },
+          "ja-JP": {
+            singular: "すべての更新情報を一か所で"
+          },
+          "ko-KR": {
+            singular: "모든 업데이트를 한곳에서 확인하세요"
+          },
+          "pt-BR": {
+            singular: "Todas as suas atualizações, em um só lugar"
+          },
+          "zh-CN": {
+            singular: "所有更新，尽在一处"
+          }
+        }
+      }),
+      body: (0, _v12.translate)({
+        singular: "See what's new and what's landing next, all filtered by product area.",
+        dictionary: {
+          es: {
+            singular: "Vea qué hay de nuevo y qué llegará a continuación, todo filtrado por área de producto."
+          },
+          "de-DE": {
+            singular: "Sehen Sie, was neu ist und was als Nächstes kommt, gefiltert nach Produktbereich."
+          },
+          "fr-FR": {
+            singular: "Découvrez ce qui est nouveau et ce qui arrive ensuite, le tout filtré par domaine produit."
+          },
+          "ja-JP": {
+            singular: "新着と今後導入予定の項目を、製品領域ごとにフィルタリングしてご覧ください。"
+          },
+          "ko-KR": {
+            singular: "제품 영역별로 필터링된 새로운 소식과 다음 출시 예정 항목을 확인하세요."
+          },
+          "pt-BR": {
+            singular: "Veja o que há de novo e o que será lançado a seguir, tudo filtrado por área de produto."
+          },
+          "zh-CN": {
+            singular: "查看有哪些新内容以及即将推出的功能，全部可按产品领域筛选。"
+          }
+        }
+      }),
+      children: (0, _v1.jsx)(_v16.Box, {
+        children: _v2
+      })
+    }) : (0, _v1.jsx)(_v1.Fragment, {
+      children: _v2
+    });
+  }
+  let _v99 = () => () => void 0,
+    _v100 = () => new URLSearchParams(window.location.search).get("changelog"),
+    _v101 = ({
       variant: _v0 = "full",
-      hideAnnouncementCount: _v1 = !1
+      hideAnnouncementCount: _v1 = !1,
+      isMobile: _v2 = !1,
+      hideIntroPopover: _v3 = !1
     }) => {
-      let _v2 = (0, _v20.useViewer)(),
-        _v3 = (0, _v51.useRouter)(),
+      let _v4 = (0, _v20.useViewer)(),
+        _v5 = (0, _v51.useRouter)(),
         {
-          settings: _v4
+          acknowledge: _v6,
+          showIntro: _v7
+        } = function () {
+          let _v0 = (0, _v20.useViewer)(),
+            _v1 = (0, _v51.useRouter)(),
+            _v2 = _v0?.user?.createdTime,
+            {
+              settings: _v3
+            } = (0, _v13.useOrionSettings)(),
+            _v4 = null != _v2 && new Date(_v2) > _v94,
+            _v5 = _v3.enable_whats_new_page && !_v4 && !_v96,
+            _v6 = "/whats-new" === _v1.pathname,
+            {
+              data: _v7,
+              mutate: _v8
+            } = (0, _v35.useGetMePreferences)(() => _v5 ? {
+              select: [_v93]
+            } : null, {
+              revalidateOnFocus: !1,
+              revalidateIfStale: !1
+            }),
+            [_v9] = (0, _v35.usePatchMePreferences)(),
+            _v10 = void 0 !== _v7,
+            _v11 = !!_v7?.[_v93],
+            _v12 = _v5 && _v10 && !_v11,
+            _v13 = _v12 && !_v6,
+            _v14 = (0, _v2.useCallback)(() => {
+              _v12 && (_v8({
+                ..._v7,
+                [_v93]: !0
+              }, {
+                revalidate: !1
+              }), _v9({
+                select: [_v93],
+                variables: {
+                  [_v93]: 1
+                }
+              }).then(() => _v8()));
+            }, [_v7, _v12, _v8, _v9]),
+            _v15 = (0, _v2.useRef)(!1);
+          return (0, _v2.useEffect)(() => {
+            _v12 && _v6 && !_v15.current && (_v15.current = !0, _v14());
+          }, [_v14, _v6, _v12]), {
+            acknowledge: _v14,
+            showIntro: _v13
+          };
+        }(),
+        _v8 = _v7 && !_v2 && !_v3,
+        {
+          settings: _v9
         } = (0, _v13.useOrionSettings)(),
-        _v5 = _v85(_v2, {
+        _v10 = _v85(_v4, {
           productAnalyticsContextOverrides: {
             copy: "whats new",
             location: "side_nav"
@@ -1344,56 +1503,62 @@
           }
         }),
         {
-          trackWhatsNewModalOpened: _v6
+          trackWhatsNewModalOpened: _v11
         } = _v67(),
-        [_v7, _v8] = (0, _v2.useState)(!1),
-        _v9 = (0, _v2.useSyncExternalStore)(_v93, _v94, () => null),
+        [_v12, _v13] = (0, _v2.useState)(!1),
+        _v14 = (0, _v2.useSyncExternalStore)(_v99, _v100, () => null),
         {
-          newAnnouncementsCount: _v10,
-          isLoading: _v11
+          newAnnouncementsCount: _v15,
+          isLoading: _v16
         } = (0, _v8.useChangelog)(),
-        _v12 = _v7 || "true" === _v9,
-        _v13 = _v4.enable_whats_new_page && "/whats-new" === _v3.pathname;
-      (0, _v92.usePicoEffect)(() => "true" === _v9 && (_v6({
+        _v17 = _v12 || "true" === _v14,
+        _v18 = _v9.enable_whats_new_page && "/whats-new" === _v5.pathname;
+      (0, _v92.usePicoEffect)(() => "true" === _v14 && (_v11({
         whatsNewModalOpenedManually: !1
-      }), !0), [_v9], {
+      }), !0), [_v14], {
         once: !0
       });
-      let _v14 = (0, _v42.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
-        _v15 = !_v1 && !!_v10 && parseInt(_v10.count) > 0,
-        _v16 = () => {
-          _v8(!0), _v86({
-            contexts: _v5
-          }), _v6({
+      let _v19 = (0, _v42.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
+        _v20 = !_v1 && !!_v15 && parseInt(_v15.count) > 0,
+        _v21 = () => {
+          _v13(!0), _v86({
+            contexts: _v10
+          }), _v11({
             whatsNewModalOpenedManually: !0
           });
         },
-        _v17 = _v0 => {
-          ("Enter" === _v0.key || " " === _v0.key) && (_v0.preventDefault(), _v16());
+        _v22 = _v0 => {
+          ("Enter" === _v0.key || " " === _v0.key) && (_v0.preventDefault(), _v21());
         },
-        _v18 = () => {
+        _v23 = () => {
           let _v0 = new URLSearchParams(window.location.search);
           _v0.delete("changelog");
           let _v1 = _v0.toString(),
             _v2 = _v1 ? `${window.location.pathname}?${_v1}` : window.location.pathname;
-          window.history.replaceState(null, "", _v2), _v8(!1);
+          window.history.replaceState(null, "", _v2), _v13(!1);
         },
-        _v19 = () => {
-          _v86({
-            contexts: _v5
-          }), _v6({
+        _v24 = () => {
+          _v7 && _v6(), _v86({
+            contexts: _v10
+          }), _v11({
             whatsNewModalOpenedManually: !0
           });
-        };
-      return _v11 ? (0, _v1.jsx)(_v9.LoadingBlock, {
+        },
+        _v25 = _v0 => _v8 ? (0, _v1.jsx)(_v98, {
+          isOpen: !0,
+          onAcknowledge: _v6,
+          children: _v0
+        }) : _v0;
+      if (_v16) return (0, _v1.jsx)(_v9.LoadingBlock, {
         style: {
           borderRadius: (0, _v6.rem)(10),
           height: (0, _v6.rem)(28),
           marginBottom: (0, _v6.rem)(20),
           width: "icons" === _v0 ? (0, _v6.rem)(28) : "50%"
         }
-      }) : "icons" === _v0 ? (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v5.Tooltip, {
+      });
+      if ("icons" === _v0) {
+        let _v0 = (0, _v1.jsx)(_v5.Tooltip, {
           label: (0, _v12.translate)({
             singular: "What's new",
             dictionary: {
@@ -1451,7 +1616,7 @@
                   }
                 }
               }),
-              icon: _v13 ? (0, _v1.jsx)(_v54, {}) : (0, _v1.jsx)(_v53, {}),
+              icon: _v18 ? (0, _v1.jsx)(_v54, {}) : (0, _v1.jsx)(_v53, {}),
               variant: "tertiary",
               size: "md",
               fontSize: (0, _v6.rem)(24),
@@ -1460,24 +1625,24 @@
                   width: (0, _v6.rem)(24),
                   height: (0, _v6.rem)(24)
                 },
-                ...(_v13 ? {
+                ...(_v18 ? {
                   backgroundColor: "button-tertiary-hover",
                   _dark: {
                     backgroundColor: "button-tertiary-hover"
                   }
                 } : {})
               },
-              ...(_v4.enable_whats_new_page ? {
+              ...(_v9.enable_whats_new_page ? {
                 onClick: () => {
-                  _v19(), _v3.push("/whats-new");
+                  _v24(), _v5.push("/whats-new");
                 }
               } : {
-                onClick: _v16,
-                onKeyDown: _v17,
+                onClick: _v21,
+                onKeyDown: _v22,
                 "aria-haspopup": "dialog",
-                "aria-expanded": _v12
+                "aria-expanded": _v17
               })
-            }), _v15 && (0, _v1.jsx)(_v52.Badge, {
+            }), _v20 && (0, _v1.jsx)(_v52.Badge, {
               variant: "new",
               size: "sm",
               borderRadius: "full",
@@ -1489,21 +1654,25 @@
               textAlign: "center",
               pointerEvents: "none",
               children: (0, _v1.jsx)(_v91, {
-                count: _v10.count,
-                showPlus: _v10.showPlus
+                count: _v15.count,
+                showPlus: _v15.showPlus
               })
             })]
           })
-        }), !_v4.enable_whats_new_page && (0, _v1.jsx)(_v90, {
-          isOpen: _v12,
-          onClose: _v18
-        })]
-      }) : (0, _v1.jsxs)(_v3.Flex, {
+        });
+        return (0, _v1.jsxs)(_v1.Fragment, {
+          children: [_v25(_v0), !_v9.enable_whats_new_page && (0, _v1.jsx)(_v90, {
+            isOpen: _v17,
+            onClose: _v23
+          })]
+        });
+      }
+      return (0, _v1.jsxs)(_v3.Flex, {
         flexDirection: "column",
         gap: 10,
         marginTop: -10,
-        children: [_v4.enable_whats_new_page ? (0, _v1.jsx)(_v50.MenuItem, {
-          icon: _v13 ? (0, _v1.jsx)(_v54, {
+        children: [_v9.enable_whats_new_page ? _v25((0, _v1.jsx)(_v50.MenuItem, {
+          icon: _v18 ? (0, _v1.jsx)(_v54, {
             boxSize: "lg"
           }) : (0, _v1.jsx)(_v53, {
             boxSize: "lg"
@@ -1536,11 +1705,11 @@
             }
           }),
           href: "/whats-new",
-          onClick: _v19,
+          onClick: _v24,
           dataId: "side_nav_whats_new_menu_item",
-          active: _v13,
+          active: _v18,
           borderRadius: (0, _v6.rem)(12),
-          action: _v15 ? (0, _v1.jsx)(_v52.Badge, {
+          action: _v20 ? (0, _v1.jsx)(_v52.Badge, {
             variant: "new",
             size: "sm",
             borderRadius: "full",
@@ -1548,24 +1717,24 @@
             height: (0, _v6.rem)(20),
             textAlign: "center",
             children: (0, _v1.jsx)(_v91, {
-              count: _v10.count,
-              showPlus: _v10.showPlus
+              count: _v15.count,
+              showPlus: _v15.showPlus
             })
           }) : void 0
-        }) : (0, _v1.jsxs)(_v3.Flex, {
+        })) : (0, _v1.jsxs)(_v3.Flex, {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
           _hover: {
-            backgroundColor: _v14,
+            backgroundColor: _v19,
             cursor: "pointer"
           },
           borderRadius: "input-sm",
           paddingRight: 3,
-          onClick: _v16,
-          onKeyDown: _v17,
+          onClick: _v21,
+          onKeyDown: _v22,
           "aria-haspopup": "dialog",
-          "aria-expanded": _v12,
+          "aria-expanded": _v17,
           children: [(0, _v1.jsx)(_v50.MenuItem, {
             icon: (0, _v1.jsx)(_v53, {
               boxSize: "lg"
@@ -1599,7 +1768,7 @@
             }),
             dataId: "side_nav_whats_new_menu_item",
             hoverBackgroundColor: "none"
-          }), _v15 && (0, _v1.jsx)(_v52.Badge, {
+          }), _v20 && (0, _v1.jsx)(_v52.Badge, {
             variant: "new",
             size: "sm",
             borderRadius: "full",
@@ -1607,13 +1776,13 @@
             height: (0, _v6.rem)(20),
             textAlign: "center",
             children: (0, _v1.jsx)(_v91, {
-              count: _v10.count,
-              showPlus: _v10.showPlus
+              count: _v15.count,
+              showPlus: _v15.showPlus
             })
           })]
-        }), !_v4.enable_whats_new_page && (0, _v1.jsx)(_v90, {
-          isOpen: _v12,
-          onClose: _v18
+        }), !_v9.enable_whats_new_page && (0, _v1.jsx)(_v90, {
+          isOpen: _v17,
+          onClose: _v23
         })]
       });
     };
@@ -1626,32 +1795,33 @@
     isLoadingQuota: _v5,
     quota: _v6,
     onUpgradeClick: _v7,
-    hideWhatsNewAnnouncementCount: _v8 = !1
+    hideWhatsNewAnnouncementCount: _v8 = !1,
+    hideWhatsNewIntroPopover: _v9 = !1
   }) => {
-    let _v9 = (0, _v2.useContext)(_v49.ViewerContext),
+    let _v10 = (0, _v2.useContext)(_v49.ViewerContext),
       {
-        settings: _v10
+        settings: _v11
       } = (0, _v13.useOrionSettings)(),
       {
-        trackSidebarNavClicked: _v11
+        trackSidebarNavClicked: _v12
       } = (0, _v15.useWatchTracking)(),
       {
-        capabilities: _v12,
-        loading: _v13
+        capabilities: _v13,
+        loading: _v14
       } = (0, _v11.useCapability)(["hasSimplifiedEnterpriseAccount"]),
       {
-        capabilities: _v14
-      } = (0, _v11.useCapability)(["hasWatchButton"], _v9?.teamUser?.ownerId),
-      _v15 = _v9?.isSimplifiedSite ?? !1,
-      _v16 = !!(_v2 && !_v9?.isEnterpriseSite && !_v15 && !_v12?.hasSimplifiedEnterpriseAccount && _v14.hasWatchButton),
-      _v17 = _v10.enable_whats_new_page ? "server" : "local",
-      _v18 = _v5 || _v4 && !!_v6.uploadQuota,
-      _v19 = _v3 && !_v18,
-      _v20 = () => {
-        _v11({
+        capabilities: _v15
+      } = (0, _v11.useCapability)(["hasWatchButton"], _v10?.teamUser?.ownerId),
+      _v16 = _v10?.isSimplifiedSite ?? !1,
+      _v17 = !!(_v2 && !_v10?.isEnterpriseSite && !_v16 && !_v13?.hasSimplifiedEnterpriseAccount && _v15.hasWatchButton),
+      _v18 = _v11.enable_whats_new_page ? "server" : "local",
+      _v19 = _v5 || _v4 && !!_v6.uploadQuota,
+      _v20 = _v3 && !_v19,
+      _v21 = () => {
+        _v12({
           sidebarNavDestination: "watch",
           sidebarNavContext: (0, _v14.deriveCanonicalPage)(new URL(window.location.href), {
-            is_team_user: _v9?.user?.isTeamUser ?? !1
+            is_team_user: _v10?.user?.isTeamUser ?? !1
           }),
           version: "2"
         });
@@ -1662,7 +1832,7 @@
       gap: 12,
       padding: "0.5rem",
       paddingBottom: 0,
-      children: [_v16 && !_v13 && (0, _v1.jsx)(_v5.Tooltip, {
+      children: [_v17 && !_v14 && (0, _v1.jsx)(_v5.Tooltip, {
         label: (0, _v12.translate)({
           singular: "Watch",
           dictionary: {
@@ -1693,7 +1863,7 @@
         children: (0, _v1.jsx)(_v4.IconButton, {
           as: "a",
           href: "/watch",
-          onClick: _v20,
+          onClick: _v21,
           "aria-label": (0, _v12.translate)({
             singular: "Watch",
             dictionary: {
@@ -1732,10 +1902,12 @@
           }
         })
       }), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
-        lastSeenSource: _v17,
-        children: (0, _v1.jsx)(_v95, {
+        lastSeenSource: _v18,
+        children: (0, _v1.jsx)(_v101, {
           variant: "icons",
-          hideAnnouncementCount: _v8
+          hideAnnouncementCount: _v8,
+          isMobile: _v1,
+          hideIntroPopover: _v9
         })
       }), _v5 ? (0, _v1.jsx)(_v9.LoadingBlock, {
         style: {
@@ -1754,8 +1926,8 @@
       direction: "column",
       gap: (0, _v6.rem)(16),
       padding: "1rem",
-      paddingBottom: _v4 ? "1rem" : _v19 ? (0, _v6.rem)(10) : 0,
-      children: [_v16 && (_v13 ? (0, _v1.jsx)(_v9.LoadingBlock, {
+      paddingBottom: _v4 ? "1rem" : _v20 ? (0, _v6.rem)(10) : 0,
+      children: [_v17 && (_v14 ? (0, _v1.jsx)(_v9.LoadingBlock, {
         style: {
           borderRadius: (0, _v6.rem)(10),
           height: (0, _v6.rem)(28),
@@ -1796,12 +1968,14 @@
           }),
           href: "/watch",
           "data-id": "side_nav_watch_menu_item",
-          onClick: _v20
+          onClick: _v21
         }), (0, _v1.jsx)(_v10.ResizableSideNav.Divider, {})]
       })), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
-        lastSeenSource: _v17,
-        children: (0, _v1.jsx)(_v95, {
-          hideAnnouncementCount: _v8
+        lastSeenSource: _v18,
+        children: (0, _v1.jsx)(_v101, {
+          hideAnnouncementCount: _v8,
+          isMobile: _v1,
+          hideIntroPopover: _v9
         })
       }), _v5 ? (0, _v1.jsx)(_v9.LoadingBlock, {
         style: {

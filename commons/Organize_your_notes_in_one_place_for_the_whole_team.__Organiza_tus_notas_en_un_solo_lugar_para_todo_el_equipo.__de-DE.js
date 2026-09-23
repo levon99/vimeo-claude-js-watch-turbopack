@@ -76,38 +76,30 @@
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
-    _v23 = _v0.i(0);
-  let _v24 = ({
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0);
+  let _v25 = ({
       productId: _v0
-    }) => {
-      let _v1 = _v16.PRODUCT_TIER_LABELS[_v0];
-      return (0, _v1.jsxs)(_v7.Flex, {
-        alignItems: "center",
-        gap: (0, _v13.rem)(12),
-        children: [(0, _v1.jsx)(_v23.ProductTileView, {
+    }) => (0, _v1.jsxs)(_v7.Flex, {
+      alignItems: "center",
+      gap: (0, _v13.rem)(12),
+      children: [(0, _v1.jsx)(_v24.ProductTileView, {
+        productId: _v0,
+        size: 45
+      }), (0, _v1.jsxs)(_v7.Flex, {
+        direction: "column",
+        minWidth: 0,
+        children: [(0, _v1.jsx)(_v23.ProductNameWithTier, {
           productId: _v0,
-          size: 45
-        }), (0, _v1.jsxs)(_v7.Flex, {
-          direction: "column",
-          minWidth: 0,
-          children: [(0, _v1.jsxs)(_v14.Text, {
-            variant: "heading-sm",
-            color: "text-primary",
-            children: [_v16.PRODUCT_NAMES[_v0], void 0 !== _v1 && (0, _v1.jsx)(_v14.Text, {
-              as: "span",
-              variant: "heading-sm",
-              color: "text-secondary",
-              children: ` ${_v1}`
-            })]
-          }), (0, _v1.jsx)(_v14.Text, {
-            variant: "body-md",
-            color: "text-secondary",
-            children: _v18[_v0] ?? _v16.PRODUCT_DESCRIPTIONS[_v0]
-          })]
+          variant: "heading-sm"
+        }), (0, _v1.jsx)(_v14.Text, {
+          variant: "body-md",
+          color: "text-secondary",
+          children: _v18[_v0] ?? _v16.PRODUCT_DESCRIPTIONS[_v0]
         })]
-      });
-    },
-    _v25 = ({
+      })]
+    }),
+    _v26 = ({
       isOpen: _v0,
       bundleType: _v1,
       onCtaClick: _v2,
@@ -293,7 +285,7 @@
                   direction: "column",
                   gap: (0, _v13.rem)(16),
                   paddingTop: (0, _v13.rem)(24),
-                  children: [_v5.map(_v0 => (0, _v1.jsx)(_v24, {
+                  children: [_v5.map(_v0 => (0, _v1.jsx)(_v25, {
                     productId: _v0.productId
                   }, _v0.productId)), void 0 !== _v6 && (0, _v1.jsx)(_v14.Text, {
                     variant: "heading-sm",
@@ -403,21 +395,21 @@
         })]
       });
     };
-  var _v26 = _v0.i(0);
-  let _v27 = _v0 => `bsp_bundle_intro_modal_shown_at_${_v0}`;
-  var _v28 = _v0.i(0),
-    _v29 = _v0.i(0),
+  var _v27 = _v0.i(0);
+  let _v28 = _v0 => `bsp_bundle_intro_modal_shown_at_${_v0}`;
+  var _v29 = _v0.i(0),
     _v30 = _v0.i(0),
-    _v31 = _v0.i(0);
+    _v31 = _v0.i(0),
+    _v32 = _v0.i(0);
   _v0.s(["BundleIntroModalContainer", 0, ({
     isSuppressed: _v0 = !1
   }) => {
-    let _v1 = (0, _v29.useBundleOffer)(),
+    let _v1 = (0, _v30.useBundleOffer)(),
       _v2 = "enabled" === _v1.status && "free" === _v1.price,
       {
         ownsBundle: _v3,
         isResolving: _v4
-      } = (0, _v30.useBundleOwnership)({
+      } = (0, _v31.useBundleOwnership)({
         enabled: _v2
       }),
       _v5 = _v2 && !_v4 && !_v3 && !_v0,
@@ -427,14 +419,14 @@
       } = (({
         enabled: _v0
       }) => {
-        let _v1 = (0, _v26.useViewer)(),
+        let _v1 = (0, _v27.useViewer)(),
           _v2 = _v1?.user?.id ?? null,
           [_v3, _v4] = (0, _v2.useState)(!1),
           _v5 = (0, _v2.useRef)(null);
         return (0, _v2.useEffect)(() => {
           !_v0 || null === _v2 || _v5.current === _v2 || (_v5.current = _v2, (_v0 => {
             try {
-              let _v0 = window.localStorage.getItem(_v27(_v0));
+              let _v0 = window.localStorage.getItem(_v28(_v0));
               if (null === _v0) return !1;
               let _v1 = Number(_v0);
               return Number.isFinite(_v1) && Date.now() - _v1 < 0;
@@ -443,7 +435,7 @@
             }
           })(_v2) || ((_v0 => {
             try {
-              window.localStorage.setItem(_v27(_v0), String(Date.now()));
+              window.localStorage.setItem(_v28(_v0), String(Date.now()));
             } catch {
               return;
             }
@@ -460,7 +452,7 @@
         trackBundleIntroModalCtaClick: _v9,
         trackBundleIntroModalDismissed: _v10
       } = (0, _v3.useBundleTracking)(),
-      _v11 = (0, _v28.useBundleExperimentKey)(),
+      _v11 = (0, _v29.useBundleExperimentKey)(),
       _v12 = "enabled" === _v1.status ? _v1.bundleType : null;
     (0, _v4.usePicoEffect)(() => !!_v6 && !!_v5 && null !== _v12 && (_v8({
       bundleType: _v12,
@@ -482,9 +474,9 @@
           bundleType: _v12,
           bundlePrice: "free",
           experimentKey: _v11
-        }), _v7(), (0, _v31.openBundleLibrary)();
+        }), _v7(), (0, _v32.openBundleLibrary)();
       }, [_v12, _v9, _v7, _v11]);
-    return null === _v12 ? null : (0, _v1.jsx)(_v25, {
+    return null === _v12 ? null : (0, _v1.jsx)(_v26, {
       isOpen: _v6 && _v5,
       bundleType: _v12,
       onCtaClick: _v14,

@@ -27,7 +27,7 @@
     _v0.log.info("Deleting message", _v2), await (0, _v5.removeRefValue)(_v0.firebase, (0, _v5.getRefChild)(_v0.firebase, _v3, _v2));
   }
   async function _v12(_v0, _v1, _v2) {
-    _v0.log.info("Sending chat message"), _v0.assertIsInitialized();
+    _v0.log.info("Sending chat message");
     let _v3 = (0, _v8.queryInteractionUserSync)(_v0);
     if (!_v3) throw new _v4.LiveError("User should be authorized to send chat messages.", {
       code: _v2.ELiveErrorCode.UNAUTHORIZED
@@ -41,6 +41,7 @@
       });
       return;
     }
+    _v0.assertIsInitialized();
     let _v4 = _v0.getChatRef(_v1),
       _v5 = (0, _v6.createMessageInteractionObject)({
         contents: _v2,

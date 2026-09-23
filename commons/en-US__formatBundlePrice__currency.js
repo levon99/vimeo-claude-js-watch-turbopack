@@ -8,7 +8,8 @@
     currency: _v1
   }) => new Intl.NumberFormat("" !== (0, _v1.getCurrentLocale)() ? (0, _v1.getCurrentLocale)() : _v2, {
     style: "currency",
-    currency: _v1
+    currency: _v1,
+    maximumFractionDigits: Number.isInteger(_v0) ? 0 : void 0
   }).format(_v0), "roundBundlePriceAmount", 0, (_v0, _v1) => {
     let {
         maximumFractionDigits: _v2

@@ -49,10 +49,8 @@
     _v46 = _v0.i(0),
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
-    _v49 = _v0.i(0);
-  function _v50() {
-    return (_v50 = Object.assign.bind()).apply(null, arguments);
-  }
+    _v49 = _v0.i(0),
+    _v50 = _v0.i(0);
   function _v51() {
     return (_v51 = Object.assign.bind()).apply(null, arguments);
   }
@@ -89,7 +87,10 @@
   function _v62() {
     return (_v62 = Object.assign.bind()).apply(null, arguments);
   }
-  let _v63 = {
+  function _v63() {
+    return (_v63 = Object.assign.bind()).apply(null, arguments);
+  }
+  let _v64 = {
       vimeo: {
         background: "#17d5ff",
         foreground: "#0e1216"
@@ -147,9 +148,9 @@
         foreground: "#ffffff"
       }
     },
-    _v64 = {
+    _v65 = {
       wetransfer: function (_v0) {
-        return _v31.createElement("svg", _v62({
+        return _v31.createElement("svg", _v63({
           viewBox: "0 0 120 30",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg"
@@ -165,7 +166,7 @@
         })));
       },
       evernote: function (_v0) {
-        return _v31.createElement("svg", _v52({
+        return _v31.createElement("svg", _v53({
           viewBox: "0 0 120 30",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg"
@@ -180,7 +181,7 @@
         })));
       },
       harvest: function (_v0) {
-        return _v31.createElement("svg", _v53({
+        return _v31.createElement("svg", _v54({
           viewBox: "0 0 120 30",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg"
@@ -198,7 +199,7 @@
         })));
       },
       splice: function (_v0) {
-        return _v31.createElement("svg", _v59({
+        return _v31.createElement("svg", _v60({
           width: 120,
           height: 30,
           fill: "none",
@@ -209,7 +210,7 @@
         })));
       },
       mileiq: function (_v0) {
-        return _v31.createElement("svg", _v57({
+        return _v31.createElement("svg", _v58({
           width: 120,
           height: 30,
           fill: "none",
@@ -220,7 +221,7 @@
         })));
       },
       komoot: function (_v0) {
-        return _v31.createElement("svg", _v55({
+        return _v31.createElement("svg", _v56({
           viewBox: "0 0 120 30",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg"
@@ -241,7 +242,7 @@
         })));
       },
       issuu: function (_v0) {
-        return _v31.createElement("svg", _v54({
+        return _v31.createElement("svg", _v55({
           viewBox: "0 0 120 30",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg"
@@ -254,7 +255,7 @@
         })));
       },
       streamyard: function (_v0) {
-        return _v31.createElement("svg", _v60({
+        return _v31.createElement("svg", _v61({
           viewBox: "0 0 120 30",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg"
@@ -272,7 +273,7 @@
         })));
       },
       airtable: function (_v0) {
-        return _v31.createElement("svg", _v50({
+        return _v31.createElement("svg", _v51({
           viewBox: "0 0 120 30",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg"
@@ -285,7 +286,7 @@
         }))));
       },
       aol: function (_v0) {
-        return _v31.createElement("svg", _v51({
+        return _v31.createElement("svg", _v52({
           viewBox: "0 0 120 30",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg"
@@ -295,7 +296,7 @@
         })));
       },
       remini: function (_v0) {
-        return _v31.createElement("svg", _v58({
+        return _v31.createElement("svg", _v59({
           viewBox: "0 0 120 30",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg"
@@ -308,7 +309,7 @@
         })));
       },
       meetup: function (_v0) {
-        return _v31.createElement("svg", _v56({
+        return _v31.createElement("svg", _v57({
           viewBox: "0 0 120 30",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg"
@@ -322,7 +323,7 @@
         })));
       },
       tractive: function (_v0) {
-        return _v31.createElement("svg", _v61({
+        return _v31.createElement("svg", _v62({
           viewBox: "0 0 120 30",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg"
@@ -338,14 +339,14 @@
         })));
       }
     };
-  Object.keys(_v64);
-  let _v65 = (0, _v33.rem)(12),
-    _v66 = (0, _v33.rem)(197),
-    _v67 = (0, _v33.rem)(21),
-    _v68 = (0, _v33.rem)(445),
-    _v69 = (0, _v33.rem)(333),
-    _v70 = (0, _v33.rem)(96),
-    _v71 = ({
+  Object.keys(_v65);
+  let _v66 = (0, _v33.rem)(12),
+    _v67 = (0, _v33.rem)(197),
+    _v68 = (0, _v33.rem)(21),
+    _v69 = (0, _v33.rem)(445),
+    _v70 = (0, _v33.rem)(333),
+    _v71 = (0, _v33.rem)(96),
+    _v72 = ({
       product: _v0,
       cardState: _v1,
       onRedeem: _v2,
@@ -355,22 +356,22 @@
       let _v5,
         _v6,
         _v7,
-        _v8 = (_v5 = (0, _v49.useBundleSurfaceTokens)().border, _v6 = (0, _v46.useColorModeValue)("1px solid rgba(26, 54, 93, 0.24)", "1px solid rgba(159, 182, 204, 0.32)"), "comingSoon" === _v1 ? _v6 : _v5),
+        _v8 = (_v5 = (0, _v50.useBundleSurfaceTokens)().border, _v6 = (0, _v46.useColorModeValue)("1px solid rgba(26, 54, 93, 0.24)", "1px solid rgba(159, 182, 204, 0.32)"), "comingSoon" === _v1 ? _v6 : _v5),
         _v9 = "ready" === _v1,
-        _v10 = _v48.PRODUCT_IDS.find(_v0 => _v0 === _v0.id),
-        _v11 = void 0 !== _v10 ? _v63[_v10] : void 0,
-        _v12 = void 0 !== _v10 ? _v48.PRODUCT_ENTRY_URLS[_v10] : void 0,
-        _v13 = _v0.heroUrl ?? (void 0 !== _v10 ? _v48.PRODUCT_HERO_URLS[_v10] : void 0);
+        _v10 = _v49.PRODUCT_IDS.find(_v0 => _v0 === _v0.id),
+        _v11 = void 0 !== _v10 ? _v64[_v10] : void 0,
+        _v12 = void 0 !== _v10 ? _v49.PRODUCT_ENTRY_URLS[_v10] : void 0,
+        _v13 = _v0.heroUrl ?? (void 0 !== _v10 ? _v49.PRODUCT_HERO_URLS[_v10] : void 0);
       return (0, _v28.jsxs)(_v32.Flex, {
         direction: "column",
         background: "surface",
         border: _v8,
-        borderRadius: _v67,
+        borderRadius: _v68,
         overflow: "hidden",
-        height: "locked" === _v1 ? _v69 : _v68,
+        height: "locked" === _v1 ? _v70 : _v69,
         paddingBottom: (0, _v33.rem)(24),
         children: [(0, _v28.jsx)(_v35.Box, {
-          height: _v66,
+          height: _v67,
           width: "100%",
           position: "relative",
           flexShrink: 0,
@@ -380,12 +381,12 @@
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            borderBottomRadius: _v67
+            borderBottomRadius: _v68
           }) : (0, _v28.jsx)(_v35.Box, {
             width: "100%",
             height: "100%",
             background: "#5867ed",
-            borderBottomRadius: _v67
+            borderBottomRadius: _v68
           })
         }), (0, _v28.jsx)(_v32.Flex, {
           marginLeft: (0, _v33.rem)(25),
@@ -396,7 +397,7 @@
           height: (0, _v33.rem)(42.5),
           background: _v11?.background ?? "text-primary",
           color: _v11?.foreground ?? "surface",
-          borderRadius: _v65,
+          borderRadius: _v66,
           alignItems: "center",
           justifyContent: "center",
           overflow: "hidden",
@@ -411,14 +412,14 @@
                 maxWidth: "100%",
                 maxHeight: "100%"
               }
-            }, (void 0 !== (_v7 = _v64[_v10]) ? (0, _v28.jsx)(_v7, {
+            }, (void 0 !== (_v7 = _v65[_v10]) ? (0, _v28.jsx)(_v7, {
               ..._v4,
               viewBox: "0 0 120 30"
             }) : null) ?? (0, _v28.jsx)(_v44.Text, {
               variant: "body-md",
               color: "surface",
               fontWeight: "medium",
-              children: _v48.PRODUCT_NAMES[_v10]
+              children: _v49.PRODUCT_NAMES[_v10]
             }))
           }) : (0, _v28.jsx)(_v44.Text, {
             variant: "body-md",
@@ -437,17 +438,16 @@
             direction: "column",
             gap: (0, _v33.rem)(4),
             width: "100%",
-            children: [(0, _v28.jsx)(_v44.Text, {
+            children: [(0, _v28.jsx)(_v48.ProductNameWithTier, {
+              productId: _v0.id,
               variant: "heading-md",
-              color: "text-primary",
-              noOfLines: 1,
-              children: void 0 !== _v10 ? _v48.PRODUCT_NAMES[_v10] : _v0.id
+              noOfLines: 1
             }), (0, _v28.jsx)(_v44.Text, {
               variant: "body-md",
               color: "text-secondary",
               noOfLines: 2,
               children: void 0 !== _v10 ? (0, _v28.jsxs)(_v28.Fragment, {
-                children: [_v48.PRODUCT_DESCRIPTIONS[_v10], " ", void 0 !== _v12 && (0, _v28.jsx)(_v43.Link, {
+                children: [_v49.PRODUCT_DESCRIPTIONS[_v10], " ", void 0 !== _v12 && (0, _v28.jsx)(_v43.Link, {
                   href: _v12,
                   isExternal: !0,
                   color: "text-secondary",
@@ -490,7 +490,7 @@
             gap: (0, _v33.rem)(16),
             width: "100%",
             marginTop: "auto",
-            height: _v70,
+            height: _v71,
             justifyContent: "flex-end",
             children: "comingSoon" === _v1 ? (0, _v28.jsx)(_v45.Tooltip, {
               label: String((0, _v47.translate)({
@@ -591,7 +591,7 @@
         })]
       });
     },
-    _v72 = ({
+    _v73 = ({
       products: _v0,
       unlockStatus: _v1,
       bundleType: _v2,
@@ -621,7 +621,7 @@
         columnGap: (0, _v33.rem)(16),
         children: _v5.map(_v0 => {
           let _v1 = "locked" === _v1 ? "locked" : "ready" === _v0.condition ? "ready" : "comingSoon";
-          return (0, _v28.jsx)(_v71, {
+          return (0, _v28.jsx)(_v72, {
             product: _v0,
             cardState: _v1,
             onRedeem: void 0 !== _v3 ? () => _v3(_v0) : void 0,
@@ -630,8 +630,7 @@
         })
       });
     };
-  var _v73 = _v0.i(0),
-    _v74 = _v0.i(0),
+  var _v74 = _v0.i(0),
     _v75 = _v0.i(0),
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
@@ -639,8 +638,9 @@
     _v79 = _v0.i(0),
     _v80 = _v0.i(0),
     _v81 = _v0.i(0),
-    _v82 = _v0.i(0);
-  async function _v83({
+    _v82 = _v0.i(0),
+    _v83 = _v0.i(0);
+  async function _v84({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -648,23 +648,23 @@
     },
     ..._v3
   }) {
-    return (0, _v81.measureLatency)("postMeBspBundleProductRedeem", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/me/bsp_bundle/products/${_v2}/redeem?fields=${_v1.map(_v82.intoSnakeCase).join(",")}`, {
+    return (0, _v82.measureLatency)("postMeBspBundleProductRedeem", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/me/bsp_bundle/products/${_v2}/redeem?fields=${_v1.map(_v83.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "POST"
       });
-      if (!_v0.ok) throw new _v82.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v83.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v82.deepCamelCase)(_v1);
+      return (0, _v83.deepCamelCase)(_v1);
     });
   }
-  var _v84 = _v0.i(0);
-  let _v85 = (_v0, _v1) => _v0[_v1]?.status === "fetching",
-    _v86 = (_v0, _v1) => _v0[_v1]?.status === "error",
-    _v87 = _v0 => "coming_soon" === _v0 || "exhausted" === _v0 || "internal" === _v0,
-    _v88 = async _v0 => {
+  var _v85 = _v0.i(0);
+  let _v86 = (_v0, _v1) => _v0[_v1]?.status === "fetching",
+    _v87 = (_v0, _v1) => _v0[_v1]?.status === "error",
+    _v88 = _v0 => "coming_soon" === _v0 || "exhausted" === _v0 || "internal" === _v0,
+    _v89 = async _v0 => {
       try {
         let _v0 = await _v0.res.json();
         if ("object" != typeof _v0 || null === _v0 || Array.isArray(_v0) || !("developer_message" in _v0)) return;
@@ -676,8 +676,8 @@
         return;
       }
     },
-    _v89 = async _v0 => {
-      if (!(_v0 instanceof _v82.NetworkError)) return {
+    _v90 = async _v0 => {
+      if (!(_v0 instanceof _v83.NetworkError)) return {
         reason: "network",
         httpStatus: null
       };
@@ -694,32 +694,32 @@
         reason: (_v0 => {
           if (void 0 === _v0) return "internal";
           let _v1 = _v0.replace(/\.$/, "");
-          if (_v87(_v1)) return _v1;
+          if (_v88(_v1)) return _v1;
           let _v2 = _v1.slice(_v1.lastIndexOf(".") + 1).trim();
-          return _v87(_v2) ? _v2 : "internal";
-        })(await _v88(_v0)),
+          return _v88(_v2) ? _v2 : "internal";
+        })(await _v89(_v0)),
         httpStatus: _v1
       } : {
         reason: "internal",
         httpStatus: _v1
       };
     },
-    _v90 = {};
-  var _v91 = _v0.i(0),
-    _v92 = _v0.i(0),
+    _v91 = {};
+  var _v92 = _v0.i(0),
     _v93 = _v0.i(0),
     _v94 = _v0.i(0),
     _v95 = _v0.i(0),
     _v96 = _v0.i(0),
     _v97 = _v0.i(0),
-    _v98 = _v0.i(0);
-  let _v99 = ({
+    _v98 = _v0.i(0),
+    _v99 = _v0.i(0);
+  let _v100 = ({
     platforms: _v0,
     selectedId: _v1,
     label: _v2,
     onSelect: _v3
   }) => {
-    let _v4 = (0, _v49.useBundleSurfaceTokens)();
+    let _v4 = (0, _v50.useBundleSurfaceTokens)();
     return (0, _v28.jsxs)(_v32.Flex, {
       alignItems: "center",
       justifyContent: "space-between",
@@ -754,7 +754,7 @@
               background: _v1 ? "surface" : "fill-component-hover"
             },
             onClick: () => _v3(_v0.id),
-            children: [_v1 && (0, _v28.jsx)(_v98.CheckSmall, {
+            children: [_v1 && (0, _v28.jsx)(_v99.CheckSmall, {
               boxSize: (0, _v33.rem)(14)
             }), _v0.label]
           }, _v0.id);
@@ -762,8 +762,8 @@
       })]
     });
   };
-  var _v100 = _v0.i(0);
-  let _v101 = _v0 => (0, _v28.jsx)(_v100.Icon, {
+  var _v101 = _v0.i(0);
+  let _v102 = _v0 => (0, _v28.jsx)(_v101.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -772,7 +772,7 @@
         fill: "currentColor"
       })
     }),
-    _v102 = String((0, _v47.translate)({
+    _v103 = String((0, _v47.translate)({
       singular: "If you think this is a mistake, contact support.",
       dictionary: {
         es: {
@@ -798,10 +798,10 @@
         }
       }
     })),
-    _v103 = ({
+    _v104 = ({
       value: _v0
     }) => {
-      let _v1 = (0, _v49.useBundleSurfaceTokens)();
+      let _v1 = (0, _v50.useBundleSurfaceTokens)();
       return (0, _v28.jsx)(_v35.Box, {
         position: "relative",
         overflow: "hidden",
@@ -863,7 +863,7 @@
         })
       });
     },
-    _v104 = ({
+    _v105 = ({
       platform: _v0
     }) => {
       let _v1 = ((_v0, _v1) => {
@@ -1423,7 +1423,7 @@
                   }
                 }
               })),
-              help: _v102
+              help: _v103
             } : "not_in_bundle" === _v5 ? {
               title: _v0 ? String((0, _v47.translate)({
                 singular: "This reward isn't part of your bundle.",
@@ -1476,7 +1476,7 @@
                   }
                 }
               })),
-              help: _v102
+              help: _v103
             } : {
               title: _v0 ? String((0, _v47.translate)({
                 singular: "There's an error getting your reward",
@@ -1632,7 +1632,7 @@
               onClick: _v0.onAction,
               variant: "primary",
               isLoading: !1,
-              icon: _v0 ? (0, _v28.jsx)(_v101, {
+              icon: _v0 ? (0, _v28.jsx)(_v102, {
                 boxSize: (0, _v33.rem)(16)
               }) : void 0
             }
@@ -1791,7 +1791,7 @@
           alignItems: "stretch",
           gap: (0, _v33.rem)(8),
           flexShrink: 0,
-          children: [void 0 !== _v1.code && (0, _v28.jsx)(_v103, {
+          children: [void 0 !== _v1.code && (0, _v28.jsx)(_v104, {
             value: _v1.code
           }), (0, _v28.jsx)(_v41.Button, {
             variant: _v1.action.variant,
@@ -1809,18 +1809,18 @@
         })]
       });
     };
-  var _v105 = _v0.i(0);
-  let _v106 = (0, _v33.rem)(28),
-    _v107 = ({
+  var _v106 = _v0.i(0);
+  let _v107 = (0, _v33.rem)(28),
+    _v108 = ({
       index: _v0
     }) => {
-      let _v1 = (0, _v49.useBundleSurfaceTokens)();
+      let _v1 = (0, _v50.useBundleSurfaceTokens)();
       return (0, _v28.jsx)(_v32.Flex, {
         alignItems: "center",
         justifyContent: "center",
         flexShrink: 0,
-        width: _v106,
-        height: _v106,
+        width: _v107,
+        height: _v107,
         borderRadius: "full",
         background: _v1.background,
         border: _v1.border,
@@ -1832,7 +1832,7 @@
         })
       });
     },
-    _v108 = ({
+    _v109 = ({
       store: _v0
     }) => (0, _v28.jsx)(_v41.Button, {
       as: "a",
@@ -1844,7 +1844,7 @@
       onClick: _v0.onStoreClick,
       children: _v0.label
     }),
-    _v109 = ({
+    _v110 = ({
       step: _v0,
       layout: _v1,
       store: _v2
@@ -1866,7 +1866,7 @@
         children: _v0.action
       }) : void 0 !== _v2 && (0, _v28.jsx)(_v32.Flex, {
         marginTop: (0, _v33.rem)(6),
-        children: (0, _v28.jsx)(_v108, {
+        children: (0, _v28.jsx)(_v109, {
           store: _v2
         })
       }), "activation" === _v1 && void 0 !== _v0.media && (0, _v28.jsx)(_v32.Flex, {
@@ -1875,7 +1875,7 @@
         children: _v0.media
       })]
     }),
-    _v110 = ({
+    _v111 = ({
       steps: _v0,
       layout: _v1,
       store: _v2
@@ -1900,9 +1900,9 @@
           alignItems: "flex-start",
           gap: (0, _v33.rem)(16),
           minWidth: 0,
-          children: [(0, _v28.jsx)(_v107, {
+          children: [(0, _v28.jsx)(_v108, {
             index: _v1
-          }), (0, _v28.jsx)(_v109, {
+          }), (0, _v28.jsx)(_v110, {
             step: _v0,
             layout: _v1,
             store: _v2
@@ -1918,7 +1918,7 @@
           padding: 0,
           margin: 0,
           children: _v4.map(_v6)
-        }), _v5.length > 0 && (0, _v28.jsx)(_v105.SimpleGrid, {
+        }), _v5.length > 0 && (0, _v28.jsx)(_v106.SimpleGrid, {
           as: "ol",
           role: "list",
           columns: {
@@ -1935,7 +1935,7 @@
         })]
       });
     },
-    _v111 = ({
+    _v112 = ({
       isOpen: _v0,
       onClose: _v1,
       title: _v2,
@@ -1949,14 +1949,14 @@
     }) => {
       let [_v10, _v11] = (0, _v31.useState)(_v7),
         _v12 = _v6.find(_v0 => _v0.id === _v10) ?? _v6[0];
-      return void 0 === _v12 ? null : (0, _v28.jsxs)(_v91.Modal, {
+      return void 0 === _v12 ? null : (0, _v28.jsxs)(_v92.Modal, {
         isOpen: _v0,
         onClose: _v1,
         isCentered: !0,
         size: _v5,
         scrollBehavior: "inside",
-        children: [(0, _v28.jsx)(_v97.ModalOverlay, {}), (0, _v28.jsxs)(_v94.ModalContent, {
-          children: [(0, _v28.jsx)(_v93.ModalCloseButton, {
+        children: [(0, _v28.jsx)(_v98.ModalOverlay, {}), (0, _v28.jsxs)(_v95.ModalContent, {
+          children: [(0, _v28.jsx)(_v94.ModalCloseButton, {
             "aria-label": String((0, _v47.translate)({
               singular: "Close",
               dictionary: {
@@ -1983,14 +1983,14 @@
                 }
               }
             }))
-          }), (0, _v28.jsxs)(_v96.ModalHeader, {
+          }), (0, _v28.jsxs)(_v97.ModalHeader, {
             paddingRight: (0, _v33.rem)(40),
             children: [_v2, void 0 !== _v3 && (0, _v28.jsx)(_v44.Text, {
               variant: "body-md",
               color: "text-secondary",
               marginTop: (0, _v33.rem)(8),
               children: _v3
-            }), _v6.length > 1 && (0, _v28.jsx)(_v99, {
+            }), _v6.length > 1 && (0, _v28.jsx)(_v100, {
               platforms: _v6,
               selectedId: _v12.id,
               label: _v8,
@@ -1998,8 +1998,8 @@
                 _v11(_v0), _v9?.(_v0);
               }
             })]
-          }), (0, _v28.jsxs)(_v92.ModalBody, {
-            children: [(0, _v28.jsx)(_v110, {
+          }), (0, _v28.jsxs)(_v93.ModalBody, {
+            children: [(0, _v28.jsx)(_v111, {
               steps: _v12.steps,
               layout: _v4,
               store: _v12.store
@@ -2010,25 +2010,25 @@
               marginTop: (0, _v33.rem)(16),
               children: _v12.footnote
             })]
-          }), (0, _v28.jsx)(_v95.ModalFooter, {
-            children: (0, _v28.jsx)(_v104, {
+          }), (0, _v28.jsx)(_v96.ModalFooter, {
+            children: (0, _v28.jsx)(_v105, {
               platform: _v12
             })
           })]
         })]
       });
     },
-    _v112 = {
+    _v113 = {
       ios: "iOS",
       android: "Android"
     },
-    _v113 = (_v0, _v1) => {
+    _v114 = (_v0, _v1) => {
       void 0 === _v1 ? console.error(`Missing redeem URL for ${_v0}.`) : window.open(_v1, "_blank", "noopener");
     },
-    _v114 = _v0 => {
+    _v115 = _v0 => {
       void 0 !== _v0 && navigator.clipboard?.writeText(_v0).catch(() => void 0);
     },
-    _v115 = _v0 => void 0 === _v0 ? {
+    _v116 = _v0 => void 0 === _v0 ? {
       status: "masked"
     } : _v0.isCodeFetching ? {
       status: "fetching"
@@ -2043,69 +2043,69 @@
     } : {
       status: "masked"
     },
-    _v116 = (_v0, _v1, _v2, _v3, _v4) => "link" === _v0.kind ? {
+    _v117 = (_v0, _v1, _v2, _v3, _v4) => "link" === _v0.kind ? {
       appName: _v0.appName,
       action: "link",
-      state: _v115(_v1),
+      state: _v116(_v1),
       onAssign: () => {
         _v3?.onActionClick("fetch", _v2), (async () => {
           let _v0 = await _v1?.onFetch();
-          void 0 !== _v0 && _v4() && (_v3?.onActionClick("link", _v2), _v113(_v0.appName, _v0.redeemUrl));
+          void 0 !== _v0 && _v4() && (_v3?.onActionClick("link", _v2), _v114(_v0.appName, _v0.redeemUrl));
         })();
       },
       onAction: () => {
-        _v3?.onActionClick("link", _v2), _v113(_v0.appName, _v1?.redeemUrl);
+        _v3?.onActionClick("link", _v2), _v114(_v0.appName, _v1?.redeemUrl);
       }
     } : "copy" === _v0.redeemAction ? {
       appName: _v0.appName,
       action: "copy",
       copy: _v0.codeCopy,
-      state: _v115(_v1),
+      state: _v116(_v1),
       onAssign: () => {
         _v3?.onActionClick("fetch", _v2), _v1?.onFetch();
       },
       onAction: () => {
-        _v3?.onActionClick("copy", _v2), _v114(_v1?.code);
+        _v3?.onActionClick("copy", _v2), _v115(_v1?.code);
       }
     } : {
       appName: _v0.appName,
       action: "redeem",
       copy: _v0.codeCopy,
-      state: _v115(_v1),
+      state: _v116(_v1),
       onAssign: () => {
         _v3?.onActionClick("fetch", _v2), (async () => {
           let _v0 = await _v1?.onFetch();
-          void 0 !== _v0 && _v4() && (_v3?.onActionClick("copy", _v2), _v114(_v0.code), _v113(_v0.appName, _v0.redeemUrl));
+          void 0 !== _v0 && _v4() && (_v3?.onActionClick("copy", _v2), _v115(_v0.code), _v114(_v0.appName, _v0.redeemUrl));
         })();
       },
       onAction: () => {
-        _v3?.onActionClick("copy", _v2), _v114(_v1?.code), _v3?.onActionClick("redeem", _v2), _v113(_v0.appName, _v1?.redeemUrl);
+        _v3?.onActionClick("copy", _v2), _v115(_v1?.code), _v3?.onActionClick("redeem", _v2), _v114(_v0.appName, _v1?.redeemUrl);
       }
     },
-    _v117 = _v0 => _v0 => (0, _v28.jsx)(_v43.Link, {
+    _v118 = _v0 => _v0 => (0, _v28.jsx)(_v43.Link, {
       href: _v0,
       isExternal: !0,
       children: _v0
     }),
-    _v118 = (0, _v33.rem)(178),
-    _v119 = (0, _v33.rem)(386),
-    _v120 = {
+    _v119 = (0, _v33.rem)(178),
+    _v120 = (0, _v33.rem)(386),
+    _v121 = {
       iOS: ["https://i.vimeocdn.com/custom_asset/e2a07dc1814db21f4c35d26f394c0a88", "https://i.vimeocdn.com/custom_asset/10d2072e6d45a940f3919d4623a6448a"],
       Android: ["https://i.vimeocdn.com/custom_asset/5cb4ae4a0e00651aae55b866e666535c", "https://i.vimeocdn.com/custom_asset/acdecf75c8bb73d5d1c50aa5c63b2185"]
     },
-    _v121 = (_v0, _v1, _v2) => {
-      let _v3 = _v120[_v2]?.[_v1];
+    _v122 = (_v0, _v1, _v2) => {
+      let _v3 = _v121[_v2]?.[_v1];
       if (void 0 === _v3) return (0, _v28.jsx)(_v32.Flex, {
         alignItems: "center",
         justifyContent: "center",
-        width: _v118,
-        height: _v119,
+        width: _v119,
+        height: _v120,
         borderRadius: (0, _v33.rem)(12),
         background: "fill-component",
         children: (0, _v28.jsx)(_v44.Text, {
           variant: "body-sm",
           color: "text-secondary",
-          children: String((0, _v77.translate)({
+          children: String((0, _v78.translate)({
             singular: "{platform} screen",
             replacements: {
               platform: _v2
@@ -2138,7 +2138,7 @@
       });
       return (0, _v28.jsx)(_v42.Image, {
         src: _v3,
-        alt: String((0, _v77.translate)({
+        alt: String((0, _v78.translate)({
           singular: "{appName} on {platform}",
           replacements: {
             appName: _v0,
@@ -2168,15 +2168,15 @@
             }
           }
         })),
-        width: _v118,
-        height: _v119,
+        width: _v119,
+        height: _v120,
         objectFit: "contain",
         borderRadius: (0, _v33.rem)(12)
       });
     },
-    _v122 = _v0 => [{
+    _v123 = _v0 => [{
       id: "redeem",
-      title: (0, _v77.translate)({
+      title: (0, _v78.translate)({
         singular: "Click on Redeem to navigate to the checkout page.",
         dictionary: {
           es: {
@@ -2204,7 +2204,7 @@
       })
     }, {
       id: "account",
-      title: (0, _v77.translate)({
+      title: (0, _v78.translate)({
         singular: "Create a new {appName} account, or log in to your existing one.",
         replacements: {
           appName: _v0
@@ -2235,7 +2235,7 @@
       })
     }, {
       id: "promo",
-      title: (0, _v77.translate)({
+      title: (0, _v78.translate)({
         singular: "Paste your code, or use the one already filled in. This ensures your new subscription costs 0.",
         dictionary: {
           es: {
@@ -2263,7 +2263,7 @@
       })
     }, {
       id: "payment",
-      title: (0, _v77.translate)({
+      title: (0, _v78.translate)({
         singular: "Enter your payment details and complete checkout: you won't be charged for your subscription.",
         dictionary: {
           es: {
@@ -2291,7 +2291,7 @@
       })
     }, {
       id: "activated",
-      title: (0, _v77.translate)({
+      title: (0, _v78.translate)({
         singular: "Your plan is activated!",
         dictionary: {
           es: {
@@ -2318,9 +2318,9 @@
         }
       })
     }],
-    _v123 = _v0 => [{
+    _v124 = _v0 => [{
       id: "redeem",
-      title: (0, _v77.translate)({
+      title: (0, _v78.translate)({
         singular: "Click on Redeem to navigate to the code redemption page.",
         dictionary: {
           es: {
@@ -2348,7 +2348,7 @@
       })
     }, {
       id: "account",
-      title: (0, _v77.translate)({
+      title: (0, _v78.translate)({
         singular: "Create a new {appName} account, or log in to your existing one.",
         replacements: {
           appName: _v0
@@ -2379,7 +2379,7 @@
       })
     }, {
       id: "code",
-      title: (0, _v77.translate)({
+      title: (0, _v78.translate)({
         singular: "Paste your code, or use the one already filled in.",
         dictionary: {
           es: {
@@ -2407,7 +2407,7 @@
       })
     }, {
       id: "activated",
-      title: (0, _v77.translate)({
+      title: (0, _v78.translate)({
         singular: "Your plan is activated!",
         dictionary: {
           es: {
@@ -2434,9 +2434,9 @@
         }
       })
     }],
-    _v124 = (_v0, _v1) => [{
+    _v125 = (_v0, _v1) => [{
       id: "install",
-      title: (0, _v77.translate)({
+      title: (0, _v78.translate)({
         singular: "Install and open {appName}",
         replacements: {
           appName: _v0
@@ -2467,7 +2467,7 @@
       })
     }, {
       id: "menu",
-      title: "Android" === _v1 ? (0, _v77.translate)({
+      title: "Android" === _v1 ? (0, _v78.translate)({
         singular: "Hold four fingers on the screen",
         dictionary: {
           es: {
@@ -2492,7 +2492,7 @@
             singular: "在屏幕上按住四根手指"
           }
         }
-      }) : (0, _v77.translate)({
+      }) : (0, _v78.translate)({
         singular: "Hold three fingers on the screen",
         dictionary: {
           es: {
@@ -2518,7 +2518,7 @@
           }
         }
       }),
-      description: "Android" === _v1 ? (0, _v77.translate)({
+      description: "Android" === _v1 ? (0, _v78.translate)({
         singular: "On the home screen, touch and hold with four fingers to open the menu.",
         dictionary: {
           es: {
@@ -2543,7 +2543,7 @@
             singular: "在主屏幕上，用四根手指触摸并按住以打开菜单。"
           }
         }
-      }) : (0, _v77.translate)({
+      }) : (0, _v78.translate)({
         singular: "On the home screen, touch and hold with three fingers to open the menu.",
         dictionary: {
           es: {
@@ -2571,7 +2571,7 @@
       })
     }, {
       id: "redeem",
-      title: (0, _v77.translate)({
+      title: (0, _v78.translate)({
         singular: "Tap ‘Redeem Gift Code’",
         dictionary: {
           es: {
@@ -2597,7 +2597,7 @@
           }
         }
       }),
-      description: (0, _v77.translate)({
+      description: (0, _v78.translate)({
         singular: "Choose this option from the menu that appears.",
         dictionary: {
           es: {
@@ -2623,10 +2623,10 @@
           }
         }
       }),
-      media: _v121(_v0, 0, _v1)
+      media: _v122(_v0, 0, _v1)
     }, {
       id: "enter",
-      title: (0, _v77.translate)({
+      title: (0, _v78.translate)({
         singular: "Enter your code",
         dictionary: {
           es: {
@@ -2652,7 +2652,7 @@
           }
         }
       }),
-      description: (0, _v77.translate)({
+      description: (0, _v78.translate)({
         singular: "Enter the code below in {appName} to activate your plan.",
         replacements: {
           appName: _v0
@@ -2681,9 +2681,9 @@
           }
         }
       }),
-      media: _v121(_v0, 1, _v1)
+      media: _v122(_v0, 1, _v1)
     }],
-    _v125 = () => String((0, _v77.translate)({
+    _v126 = () => String((0, _v78.translate)({
       singular: "Redeem to reveal your code, then enter it in the dedicated page.",
       dictionary: {
         es: {
@@ -2709,168 +2709,72 @@
         }
       }
     })),
-    _v126 = {
+    _v127 = _v0 => String((0, _v78.translate)({
+      singular: "How to redeem your subscription to {productName}:",
+      replacements: {
+        productName: (0, _v49.getProductDisplayName)(_v0)
+      },
+      dictionary: {
+        es: {
+          singular: "Cómo canjear tu suscripción a {productName}:"
+        },
+        "de-DE": {
+          singular: "So lösen Sie Ihr Abonnement für {productName} ein:"
+        },
+        "fr-FR": {
+          singular: "Comment activer votre abonnement à {productName}:"
+        },
+        "ja-JP": {
+          singular: "{productName} のサブスクリプションの引き換え方法:"
+        },
+        "ko-KR": {
+          singular: "{productName} 구독을 등록하는 방법:"
+        },
+        "pt-BR": {
+          singular: "Como resgatar sua assinatura do {productName}:"
+        },
+        "zh-CN": {
+          singular: "如何兑换您对 {productName} 的订阅:"
+        }
+      }
+    })),
+    _v128 = {
       wetransfer: {
-        title: (0, _v77.translate)({
-          singular: "How to redeem your year of WeTransfer:",
-          dictionary: {
-            es: {
-              singular: "Cómo canjear tu año de WeTransfer:"
-            },
-            "de-DE": {
-              singular: "So lösen Sie Ihr Jahr bei WeTransfer ein:"
-            },
-            "fr-FR": {
-              singular: "Comment activer votre année WeTransfer :"
-            },
-            "ja-JP": {
-              singular: "WeTransferの1年分の引き換え方法:"
-            },
-            "ko-KR": {
-              singular: "WeTransfer 1년 이용권을 교환하는 방법:"
-            },
-            "pt-BR": {
-              singular: "Como resgatar seu ano do WeTransfer:"
-            },
-            "zh-CN": {
-              singular: "如何兑换您的 WeTransfer 一年订阅："
-            }
-          }
-        }),
+        title: _v127("wetransfer"),
         appName: "WeTransfer",
         codeCopy: {
-          initialHelp: _v125()
+          initialHelp: _v126()
         },
-        stepBuilder: () => _v123("WeTransfer")
+        stepBuilder: () => _v124("WeTransfer")
       },
       evernote: {
-        title: (0, _v77.translate)({
-          singular: "How to redeem your year of Evernote:",
-          dictionary: {
-            es: {
-              singular: "Cómo canjear tu año de Evernote:"
-            },
-            "de-DE": {
-              singular: "So lösen Sie Ihr Jahr bei Evernote ein:"
-            },
-            "fr-FR": {
-              singular: "Comment activer votre année Evernote :"
-            },
-            "ja-JP": {
-              singular: "Evernoteの1年分の引き換え方法:"
-            },
-            "ko-KR": {
-              singular: "Evernote 1년 이용권을 교환하는 방법:"
-            },
-            "pt-BR": {
-              singular: "Como resgatar seu ano do Evernote:"
-            },
-            "zh-CN": {
-              singular: "如何兑换您的 Evernote 一年订阅："
-            }
-          }
-        }),
+        title: _v127("evernote"),
         appName: "Evernote",
-        stepBuilder: () => _v122("Evernote")
+        stepBuilder: () => _v123("Evernote")
       },
       issuu: {
-        title: (0, _v77.translate)({
-          singular: "How to redeem your year of Issuu:",
-          dictionary: {
-            es: {
-              singular: "Cómo canjear tu año de Issuu:"
-            },
-            "de-DE": {
-              singular: "So lösen Sie Ihr Jahr bei Issuu ein:"
-            },
-            "fr-FR": {
-              singular: "Comment activer votre année Issuu :"
-            },
-            "ja-JP": {
-              singular: "Issuuの1年分の引き換え方法:"
-            },
-            "ko-KR": {
-              singular: "Issuu 1년 이용권을 교환하는 방법:"
-            },
-            "pt-BR": {
-              singular: "Como resgatar seu ano do Issuu:"
-            },
-            "zh-CN": {
-              singular: "如何兑换您的 Issuu 一年订阅："
-            }
-          }
-        }),
+        title: _v127("issuu"),
         appName: "Issuu",
-        stepBuilder: () => _v122("Issuu")
+        stepBuilder: () => _v123("Issuu")
       },
       komoot: {
-        title: (0, _v77.translate)({
-          singular: "How to redeem your year of Komoot:",
-          dictionary: {
-            es: {
-              singular: "Cómo canjear tu año de Komoot:"
-            },
-            "de-DE": {
-              singular: "So lösen Sie Ihr Jahr bei Komoot ein:"
-            },
-            "fr-FR": {
-              singular: "Comment activer votre année Komoot :"
-            },
-            "ja-JP": {
-              singular: "Komootの1年分の引き換え方法:"
-            },
-            "ko-KR": {
-              singular: "Komoot 1년 이용권을 교환하는 방법:"
-            },
-            "pt-BR": {
-              singular: "Como resgatar seu ano do Komoot:"
-            },
-            "zh-CN": {
-              singular: "如何兑换您的 Komoot 一年订阅："
-            }
-          }
-        }),
+        title: _v127("komoot"),
         appName: "Komoot",
         codeCopy: {
-          initialHelp: _v125()
+          initialHelp: _v126()
         },
-        stepBuilder: () => _v123("Komoot")
+        stepBuilder: () => _v124("Komoot")
       },
       harvest: {
-        title: (0, _v77.translate)({
-          singular: "How to redeem your year of Harvest:",
-          dictionary: {
-            es: {
-              singular: "Cómo canjear tu año de Harvest:"
-            },
-            "de-DE": {
-              singular: "So lösen Sie Ihr Jahr bei Harvest ein:"
-            },
-            "fr-FR": {
-              singular: "Comment activer votre année Harvest :"
-            },
-            "ja-JP": {
-              singular: "Harvestの1年分の引き換え方法:"
-            },
-            "ko-KR": {
-              singular: "Harvest 1년 이용권을 교환하는 방법:"
-            },
-            "pt-BR": {
-              singular: "Como resgatar seu ano do Harvest:"
-            },
-            "zh-CN": {
-              singular: "如何兑换您的 Harvest 一年订阅："
-            }
-          }
-        }),
+        title: _v127("harvest"),
         appName: "Harvest",
         redeemAction: "copy",
         stepBuilder: () => [{
           id: "account",
-          title: (0, _v77.translate)({
+          title: (0, _v78.translate)({
             singular: "Create your Harvest account at {LINK}signup link{/LINK}.",
             replacements: {
-              LINK: _v117("https://www.getharvest.com/signup?ref=vimeo_bundle")
+              LINK: _v118("https://www.getharvest.com/signup?ref=vimeo_bundle")
             },
             dictionary: {
               es: {
@@ -2898,7 +2802,7 @@
           })
         }, {
           id: "setup",
-          title: (0, _v77.translate)({
+          title: (0, _v78.translate)({
             singular: "Complete the quick setup. When the subscription screen pops up, close it without subscribing (just click the “X”).",
             dictionary: {
               es: {
@@ -2926,7 +2830,7 @@
           })
         }, {
           id: "upgrade",
-          title: (0, _v77.translate)({
+          title: (0, _v78.translate)({
             singular: "Go to Settings > Billing > Upgrade and choose the Teams plan with yearly billing.",
             dictionary: {
               es: {
@@ -2954,7 +2858,7 @@
           })
         }, {
           id: "promo",
-          title: (0, _v77.translate)({
+          title: (0, _v78.translate)({
             singular: "At the payment step, click “Apply a promotion code”, enter your code, and confirm. Up to 10 seats will amount to 0 for your first year.",
             dictionary: {
               es: {
@@ -2982,7 +2886,7 @@
           })
         }, {
           id: "activated",
-          title: (0, _v77.translate)({
+          title: (0, _v78.translate)({
             singular: "Your plan is activated!",
             dictionary: {
               es: {
@@ -3011,35 +2915,10 @@
         }]
       },
       mileiq: {
-        title: (0, _v77.translate)({
-          singular: "How to redeem your year of MileIQ:",
-          dictionary: {
-            es: {
-              singular: "Cómo canjear tu año de MileIQ:"
-            },
-            "de-DE": {
-              singular: "So lösen Sie Ihr Jahr bei MileIQ ein:"
-            },
-            "fr-FR": {
-              singular: "Comment activer votre année MileIQ :"
-            },
-            "ja-JP": {
-              singular: "MileIQの1年分の引き換え方法:"
-            },
-            "ko-KR": {
-              singular: "MileIQ 1년 이용권을 교환하는 방법:"
-            },
-            "pt-BR": {
-              singular: "Como resgatar seu ano do MileIQ:"
-            },
-            "zh-CN": {
-              singular: "如何兑换您的 MileIQ 一年订阅："
-            }
-          }
-        }),
+        title: _v127("mileiq"),
         appName: "MileIQ",
         codeCopy: {
-          initialHelp: String((0, _v77.translate)({
+          initialHelp: String((0, _v78.translate)({
             singular: "Redeem to reveal your code, then enter it in the App Store.",
             dictionary: {
               es: {
@@ -3065,7 +2944,7 @@
               }
             }
           })),
-          readyHelp: String((0, _v77.translate)({
+          readyHelp: String((0, _v78.translate)({
             singular: "Redeem your gift code in the App Store.",
             dictionary: {
               es: {
@@ -3094,7 +2973,7 @@
         },
         stepBuilder: () => [{
           id: "redeem",
-          title: (0, _v77.translate)({
+          title: (0, _v78.translate)({
             singular: "Click on Redeem to open the App Store with your code already filled in.",
             dictionary: {
               es: {
@@ -3122,10 +3001,10 @@
           })
         }, {
           id: "trouble",
-          title: (0, _v77.translate)({
+          title: (0, _v78.translate)({
             singular: "Having trouble? Follow the {LINK}App Store gift code redemption guide{/LINK}.",
             replacements: {
-              LINK: _v117("https://support.apple.com/118242")
+              LINK: _v118("https://support.apple.com/118242")
             },
             dictionary: {
               es: {
@@ -3154,7 +3033,7 @@
         }]
       },
       splice: {
-        title: (0, _v77.translate)({
+        title: (0, _v78.translate)({
           singular: "Activate your Splice subscription",
           dictionary: {
             es: {
@@ -3180,7 +3059,7 @@
             }
           }
         }),
-        subtitle: (0, _v77.translate)({
+        subtitle: (0, _v78.translate)({
           singular: "Follow these steps on your phone, then use your code below to activate your plan.",
           dictionary: {
             es: {
@@ -3209,8 +3088,8 @@
         layout: "activation",
         appName: "Splice",
         redeemAction: "copy",
-        stepBuilder: _v0 => _v124("Splice", _v0 ?? "iOS"),
-        footnote: _v0 => String((0, _v77.translate)({
+        stepBuilder: _v0 => _v125("Splice", _v0 ?? "iOS"),
+        footnote: _v0 => String((0, _v78.translate)({
           singular: "Screens shown on {platformLabel}.",
           replacements: {
             platformLabel: _v0
@@ -3241,7 +3120,7 @@
         }))
       },
       remini: {
-        title: (0, _v77.translate)({
+        title: (0, _v78.translate)({
           singular: "Activate your Remini subscription",
           dictionary: {
             es: {
@@ -3267,7 +3146,7 @@
             }
           }
         }),
-        subtitle: (0, _v77.translate)({
+        subtitle: (0, _v78.translate)({
           singular: "Follow these steps on your phone, then use your code below to activate your plan.",
           dictionary: {
             es: {
@@ -3296,8 +3175,8 @@
         layout: "activation",
         appName: "Remini",
         redeemAction: "copy",
-        stepBuilder: _v0 => _v124("Remini", _v0 ?? "iOS"),
-        footnote: _v0 => String((0, _v77.translate)({
+        stepBuilder: _v0 => _v125("Remini", _v0 ?? "iOS"),
+        footnote: _v0 => String((0, _v78.translate)({
           singular: "Screens shown on {platformLabel}.",
           replacements: {
             platformLabel: _v0
@@ -3328,37 +3207,12 @@
         }))
       },
       streamyard: {
-        title: (0, _v77.translate)({
-          singular: "How to redeem your year of StreamYard:",
-          dictionary: {
-            es: {
-              singular: "Cómo canjear tu año de StreamYard:"
-            },
-            "de-DE": {
-              singular: "So lösen Sie Ihr Jahr bei StreamYard ein:"
-            },
-            "fr-FR": {
-              singular: "Comment activer votre année StreamYard :"
-            },
-            "ja-JP": {
-              singular: "StreamYardの1年分の引き換え方法:"
-            },
-            "ko-KR": {
-              singular: "StreamYard 1년 이용권을 교환하는 방법:"
-            },
-            "pt-BR": {
-              singular: "Como resgatar seu ano do StreamYard:"
-            },
-            "zh-CN": {
-              singular: "如何兑换您的 StreamYard 一年订阅："
-            }
-          }
-        }),
+        title: _v127("streamyard"),
         appName: "StreamYard",
         kind: "link",
         stepBuilder: () => [{
           id: "redeem",
-          title: (0, _v77.translate)({
+          title: (0, _v78.translate)({
             singular: "Click on Redeem to navigate to the redemption page.",
             dictionary: {
               es: {
@@ -3386,7 +3240,7 @@
           })
         }, {
           id: "account",
-          title: (0, _v77.translate)({
+          title: (0, _v78.translate)({
             singular: "Create a new {appName} account, or log in to your existing one.",
             replacements: {
               appName: "StreamYard"
@@ -3417,7 +3271,7 @@
           })
         }, {
           id: "reward",
-          title: (0, _v77.translate)({
+          title: (0, _v78.translate)({
             singular: "Redeem your reward to activate your subscription.",
             dictionary: {
               es: {
@@ -3445,7 +3299,7 @@
           })
         }, {
           id: "activated",
-          title: (0, _v77.translate)({
+          title: (0, _v78.translate)({
             singular: "Your plan is activated!",
             dictionary: {
               es: {
@@ -3474,47 +3328,19 @@
         }]
       }
     },
-    _v127 = ({
+    _v129 = ({
       productId: _v0,
       getEntitlementProps: _v1,
       onClose: _v2
     }) => {
       let _v3 = (0, _v31.useMemo)(() => {
           let _v0;
-          return _v126[_v0] ?? (_v0 = (0, _v48.isProductId)(_v0) ? _v48.PRODUCT_NAMES[_v0] : _v0, {
-            title: String((0, _v77.translate)({
-              singular: "How to redeem your {appName} reward:",
-              replacements: {
-                appName: _v0
-              },
-              dictionary: {
-                es: {
-                  singular: "Cómo canjear tu recompensa de {appName}:"
-                },
-                "de-DE": {
-                  singular: "So lösen Sie Ihre {appName}-Belohnung ein:"
-                },
-                "fr-FR": {
-                  singular: "Comment activer votre récompense {appName} :"
-                },
-                "ja-JP": {
-                  singular: "{appName}の特典の引き換え方法:"
-                },
-                "ko-KR": {
-                  singular: "{appName} 보상 교환 방법:"
-                },
-                "pt-BR": {
-                  singular: "Como resgatar sua recompensa do {appName}:"
-                },
-                "zh-CN": {
-                  singular: "如何兑换您的 {appName} 奖励："
-                }
-              }
-            })),
+          return _v128[_v0] ?? (_v0 = (0, _v49.isProductId)(_v0) ? _v49.PRODUCT_NAMES[_v0] : _v0, {
+            title: _v127(_v0),
             appName: _v0,
             stepBuilder: () => [{
               id: "redeem",
-              title: (0, _v77.translate)({
+              title: (0, _v78.translate)({
                 singular: "Redeem your {appName} reward from the link below",
                 replacements: {
                   appName: _v0
@@ -3545,7 +3371,7 @@
               })
             }, {
               id: "activated",
-              title: (0, _v77.translate)({
+              title: (0, _v78.translate)({
                 singular: "Your plan is activated!",
                 dictionary: {
                   es: {
@@ -3579,24 +3405,24 @@
           trackBundleRedeemPlatformSelect: _v5,
           trackBundleRedeemActionClick: _v6,
           trackBundleRedeemStoreClick: _v7
-        } = (0, _v78.useBundleTracking)(),
+        } = (0, _v79.useBundleTracking)(),
         _v8 = (0, _v31.useRef)(!0);
       (0, _v31.useEffect)(() => (_v8.current = !0, () => {
         _v8.current = !1;
       }), []);
       let _v9 = (0, _v31.useCallback)(() => _v8.current, []),
         _v10 = (0, _v31.useMemo)(() => ((_v0, _v1, _v2, _v3, _v4 = () => !0) => {
-          let _v5 = (0, _v73.getProductPlatforms)(_v0);
+          let _v5 = (0, _v74.getProductPlatforms)(_v0);
           return "link" === _v1.kind || 0 === _v5.length ? [{
             id: _v0,
             steps: _v1.stepBuilder(),
-            code: _v116(_v1, _v2(_v0), null, _v3, _v4)
+            code: _v117(_v1, _v2(_v0), null, _v3, _v4)
           }] : _v5.map(_v0 => {
-            let _v1 = (0, _v73.getEntitlementId)(_v0, _v0),
-              _v2 = _v112[_v0],
-              _v3 = (0, _v48.isProductId)(_v0) ? (0, _v48.getProductStoreUrl)(_v0, _v0) : void 0,
+            let _v1 = (0, _v74.getEntitlementId)(_v0, _v0),
+              _v2 = _v113[_v0],
+              _v3 = (0, _v49.isProductId)(_v0) ? (0, _v49.getProductStoreUrl)(_v0, _v0) : void 0,
               _v4 = void 0 === _v3 ? void 0 : {
-                label: String((0, _v77.translate)({
+                label: String((0, _v78.translate)({
                   singular: "Get {appName} for {platform}",
                   replacements: {
                     appName: _v1.appName,
@@ -3635,7 +3461,7 @@
               store: _v4,
               steps: _v1.stepBuilder(_v2),
               footnote: _v1.footnote?.(_v2),
-              code: _v116(_v1, _v2(_v1), _v0, _v3, _v4)
+              code: _v117(_v1, _v2(_v1), _v0, _v3, _v4)
             };
           });
         })(_v0, _v3, _v1, {
@@ -3657,7 +3483,7 @@
           codeAvailable: _v10.some(_v0 => "ready" === _v0.code.state.status),
           hasPicker: _v11
         }));
-      }, [_v0, _v11, _v10, _v4]), (0, _v28.jsx)(_v111, {
+      }, [_v0, _v11, _v10, _v4]), (0, _v28.jsx)(_v112, {
         isOpen: !0,
         onClose: _v2,
         title: _v3.title,
@@ -3665,7 +3491,7 @@
         layout: _v3.layout,
         platforms: _v10,
         ...(_v11 ? {
-          platformPickerLabel: String((0, _v77.translate)({
+          platformPickerLabel: String((0, _v78.translate)({
             singular: "Choose your phone",
             dictionary: {
               es: {
@@ -3694,34 +3520,34 @@
           defaultPlatformId: _v10[0]?.id,
           onPlatformChange: _v0 => _v5({
             productId: _v0,
-            platform: (0, _v73.getProductPlatforms)(_v0).find(_v0 => (0, _v73.getEntitlementId)(_v0, _v0) === _v0) ?? null
+            platform: (0, _v74.getProductPlatforms)(_v0).find(_v0 => (0, _v74.getEntitlementId)(_v0, _v0) === _v0) ?? null
           })
         } : {})
       });
     };
-  var _v128 = _v0.i(0),
-    _v129 = _v0.i(0),
-    _v130 = _v0.i(0),
+  var _v130 = _v0.i(0),
     _v131 = _v0.i(0),
     _v132 = _v0.i(0),
     _v133 = _v0.i(0),
-    _v134 = _v0.i(0);
-  let _v135 = _v0 => _v0 => (0, _v28.jsx)(_v43.Link, {
+    _v134 = _v0.i(0),
+    _v135 = _v0.i(0),
+    _v136 = _v0.i(0);
+  let _v137 = _v0 => _v0 => (0, _v28.jsx)(_v43.Link, {
       href: _v0,
       variant: "inline-primary",
       children: _v0
     }, "link"),
-    _v136 = (0, _v33.rem)(80),
-    _v137 = (0, _v33.rem)(860),
-    _v138 = (0, _v33.rem)(24),
-    _v139 = (0, _v33.rem)(24),
-    _v140 = (0, _v33.rem)(32),
-    _v141 = (0, _v33.rem)(10),
-    _v142 = (0, _v33.rem)(16),
-    _v143 = () => {
-      let _v0 = (0, _v49.useBundleSurfaceTokens)(),
+    _v138 = (0, _v33.rem)(80),
+    _v139 = (0, _v33.rem)(860),
+    _v140 = (0, _v33.rem)(24),
+    _v141 = (0, _v33.rem)(24),
+    _v142 = (0, _v33.rem)(32),
+    _v143 = (0, _v33.rem)(10),
+    _v144 = (0, _v33.rem)(16),
+    _v145 = () => {
+      let _v0 = (0, _v50.useBundleSurfaceTokens)(),
         _v1 = [{
-          question: String((0, _v77.translate)({
+          question: String((0, _v78.translate)({
             singular: "How do I redeem my bundle benefits?",
             dictionary: {
               es: {
@@ -3747,7 +3573,7 @@
               }
             }
           })),
-          answer: String((0, _v77.translate)({
+          answer: String((0, _v78.translate)({
             singular: "Everything you can redeem with your plan is listed on your bundle page. Open a product from there and your code will be applied automatically. For most products you'll create an account or sign in, then complete a $0 checkout to activate it. Each code can be used once, on one account.",
             dictionary: {
               es: {
@@ -3774,7 +3600,7 @@
             }
           }))
         }, {
-          question: String((0, _v77.translate)({
+          question: String((0, _v78.translate)({
             singular: "How long do I have access?",
             dictionary: {
               es: {
@@ -3800,10 +3626,10 @@
               }
             }
           })),
-          answer: (0, _v77.translate)({
+          answer: (0, _v78.translate)({
             singular: "Once redeemed, your access will run for the same duration as your current Vimeo subscription, at no extra cost. See the {LINK}Bundle Promotion Conditions{/LINK} for more details.",
             replacements: {
-              LINK: _v135(_v134.BUNDLE_LIBRARY_TERMS_PATH)
+              LINK: _v137(_v136.BUNDLE_LIBRARY_TERMS_PATH)
             },
             dictionary: {
               es: {
@@ -3830,7 +3656,7 @@
             }
           })
         }, {
-          question: String((0, _v77.translate)({
+          question: String((0, _v78.translate)({
             singular: "What happens if I unsubscribe?",
             dictionary: {
               es: {
@@ -3856,7 +3682,7 @@
               }
             }
           })),
-          answer: String((0, _v77.translate)({
+          answer: String((0, _v78.translate)({
             singular: "Your promotional, premium access to each product is linked to your Vimeo subscription. If your Vimeo subscription ends, any promotional access you're eligible for will also end, and you'll revert to the free version of each product, where available. On Harvest, your account will be fully deactivated if you revert to a free Vimeo plan.",
             dictionary: {
               es: {
@@ -3883,7 +3709,7 @@
             }
           }))
         }, {
-          question: String((0, _v77.translate)({
+          question: String((0, _v78.translate)({
             singular: "My redeem code is not working.",
             dictionary: {
               es: {
@@ -3909,10 +3735,10 @@
               }
             }
           })),
-          answer: (0, _v77.translate)({
+          answer: (0, _v78.translate)({
             singular: "Each code works on one product only and can be used once, so it's worth checking you're using the right one and that it hasn't already been redeemed. A few of the products also aren't available in every country. If it still doesn't work, {LINK}contact support{/LINK} with the code and we'll look into it.",
             replacements: {
-              LINK: _v135("https://vimeo.com/help/contact")
+              LINK: _v137("https://vimeo.com/help/contact")
             },
             dictionary: {
               es: {
@@ -3939,7 +3765,7 @@
             }
           })
         }, {
-          question: String((0, _v77.translate)({
+          question: String((0, _v78.translate)({
             singular: "Why do I need to enter payment details to redeem my subscription?",
             dictionary: {
               es: {
@@ -3965,7 +3791,7 @@
               }
             }
           })),
-          answer: String((0, _v77.translate)({
+          answer: String((0, _v78.translate)({
             singular: "Some products ask for payment details as part of their normal sign-up and checkout. So long as your redeem code is applied, your card will not be charged.",
             dictionary: {
               es: {
@@ -3992,7 +3818,7 @@
             }
           }))
         }, {
-          question: String((0, _v77.translate)({
+          question: String((0, _v78.translate)({
             singular: "I already pay for one of these products. Can I still redeem my code?",
             dictionary: {
               es: {
@@ -4018,7 +3844,7 @@
               }
             }
           })),
-          answer: String((0, _v77.translate)({
+          answer: String((0, _v78.translate)({
             singular: "Codes can't be applied to a paid subscription you're already using.",
             dictionary: {
               es: {
@@ -4048,18 +3874,18 @@
       return (0, _v28.jsxs)(_v32.Flex, {
         direction: "column",
         gap: (0, _v33.rem)(40),
-        marginTop: _v136,
+        marginTop: _v138,
         children: [(0, _v28.jsxs)(_v32.Flex, {
           direction: "column",
           gap: (0, _v33.rem)(12),
-          paddingX: _v139,
+          paddingX: _v141,
           paddingY: (0, _v33.rem)(4),
-          children: [(0, _v28.jsx)(_v132.Header, {
+          children: [(0, _v28.jsx)(_v134.Header, {
             as: "h2",
             variant: "heading-xl",
             fontSize: (0, _v33.rem)(40),
             lineHeight: 1,
-            children: String((0, _v77.translate)({
+            children: String((0, _v78.translate)({
               singular: "Frequently asked questions",
               dictionary: {
                 es: {
@@ -4088,7 +3914,7 @@
           }), (0, _v28.jsx)(_v44.Text, {
             variant: "body-xl",
             color: "text-secondary",
-            children: String((0, _v77.translate)({
+            children: String((0, _v78.translate)({
               singular: "Quick answers on redeeming your codes and setting up each app.",
               dictionary: {
                 es: {
@@ -4115,28 +3941,28 @@
               }
             }))
           })]
-        }), (0, _v28.jsx)(_v128.Accordion, {
+        }), (0, _v28.jsx)(_v130.Accordion, {
           allowMultiple: !0,
           width: "100%",
-          maxWidth: _v137,
-          gap: _v138,
+          maxWidth: _v139,
+          gap: _v140,
           children: _v1.map(({
             question: _v0,
             answer: _v1
-          }) => (0, _v28.jsx)(_v130.AccordionItem, {
+          }) => (0, _v28.jsx)(_v132.AccordionItem, {
             border: "none",
             background: "transparent",
             children: ({
               isExpanded: _v0
             }) => (0, _v28.jsxs)(_v35.Box, {
-              paddingX: _v139,
-              paddingY: _v0 ? _v139 : 0,
+              paddingX: _v141,
+              paddingY: _v0 ? _v141 : 0,
               border: _v0 ? _v0.border : "none",
-              borderRadius: _v142,
+              borderRadius: _v144,
               background: _v0 ? "surface" : "transparent",
-              children: [(0, _v28.jsx)(_v132.Header, {
+              children: [(0, _v28.jsx)(_v134.Header, {
                 as: "h3",
-                children: (0, _v28.jsxs)(_v129.AccordionButton, {
+                children: (0, _v28.jsxs)(_v131.AccordionButton, {
                   px: 0,
                   py: 0,
                   gap: (0, _v33.rem)(16),
@@ -4149,17 +3975,17 @@
                     color: "text-primary",
                     children: _v0
                   }), (0, _v28.jsx)(_v35.Box, {
-                    boxSize: _v140,
+                    boxSize: _v142,
                     flexShrink: 0,
                     opacity: +!_v0,
-                    children: (0, _v28.jsx)(_v133.Plus, {
-                      boxSize: _v140
+                    children: (0, _v28.jsx)(_v135.Plus, {
+                      boxSize: _v142
                     })
                   })]
                 })
-              }), (0, _v28.jsx)(_v131.AccordionPanel, {
+              }), (0, _v28.jsx)(_v133.AccordionPanel, {
                 p: 0,
-                marginTop: _v141,
+                marginTop: _v143,
                 children: (0, _v28.jsx)(_v44.Text, {
                   variant: "body-xl",
                   color: "text-secondary",
@@ -4171,16 +3997,16 @@
         })]
       });
     },
-    _v144 = ({
+    _v146 = ({
       unlockStatus: _v0,
       productCount: _v1
     }) => (0, _v28.jsxs)(_v32.Flex, {
       direction: "column",
       gap: (0, _v33.rem)(8),
       paddingBottom: "400",
-      children: [(0, _v28.jsx)(_v132.Header, {
+      children: [(0, _v28.jsx)(_v134.Header, {
         variant: "heading-xl",
-        children: "unlocked" === _v0 ? String((0, _v77.translate)({
+        children: "unlocked" === _v0 ? String((0, _v78.translate)({
           singular: "Your Vimeo plan grants you access to these products",
           dictionary: {
             es: {
@@ -4205,40 +4031,40 @@
               singular: "您的 Vimeo 计划可让您访问以下产品"
             }
           }
-        })) : String((0, _v77.translate)({
-          singular: "Vimeo paid plans now offer you much more than just video",
+        })) : String((0, _v78.translate)({
+          singular: "Vimeo subscriptions now offer you much more than just video",
           dictionary: {
             es: {
-              singular: "Los planes de pago de Vimeo ahora te ofrecen mucho más que solo vídeo"
+              singular: "Las suscripciones de Vimeo ahora le ofrecen mucho más que solo vídeo"
             },
             "de-DE": {
-              singular: "Vimeo‑Bezahlpläne bieten Ihnen jetzt weit mehr als nur Video"
+              singular: "Vimeo-Abonnements bieten Ihnen jetzt viel mehr als nur Videoinhalte"
             },
             "fr-FR": {
-              singular: "Les formules payantes Vimeo vous offrent désormais bien plus que de la vidéo"
+              singular: "Les abonnements Vimeo vous offrent désormais bien plus que la simple vidéo"
             },
             "ja-JP": {
-              singular: "Vimeo の有料プランは、動画以上の価値を提供します"
+              singular: "Vimeoのサブスクリプションは、単なる動画提供を超え、多彩な機能と価値を提供します"
             },
             "ko-KR": {
-              singular: "Vimeo 유료 플랜은 이제 비디오 이상의 혜택을 제공합니다"
+              singular: "Vimeo 구독은 이제 단순한 동영상 그 이상을 제공합니다"
             },
             "pt-BR": {
-              singular: "Os planos pagos do Vimeo agora oferecem muito mais do que apenas vídeo"
+              singular: "As assinaturas do Vimeo agora oferecem a você muito mais do que apenas vídeo"
             },
             "zh-CN": {
-              singular: "Vimeo 付费套餐现在为您提供的不仅仅是视频"
+              singular: "Vimeo 订阅现在为您提供远不止视频的内容"
             }
           }
         }))
       }), (0, _v28.jsx)(_v44.Text, {
         variant: "body-lg",
         color: "text-secondary",
-        children: "unlocked" === _v0 ? (0, _v77.translate)({
+        children: "unlocked" === _v0 ? (0, _v78.translate)({
           singular: "Explore your curated selection of subscriptions. Reveal a code and redeem each one anytime. By redeeming your first product, you accept our {LINK}Bundle Promotion Terms and Conditions{/LINK}.",
           replacements: {
             LINK: _v0 => (0, _v28.jsx)(_v43.Link, {
-              href: _v134.BUNDLE_LIBRARY_TERMS_PATH,
+              href: _v136.BUNDLE_LIBRARY_TERMS_PATH,
               variant: "inline-primary",
               fontFamily: "heading",
               children: _v0
@@ -4267,7 +4093,7 @@
               singular: "探索为您精心挑选的订阅。查看兑换码并随时兑换。通过兑换您的第一个产品，您即表示接受我们的 {LINK}捆绑促销条款与条件{/LINK}。"
             }
           }
-        }) : String((0, _v77.translate)({
+        }) : String((0, _v78.translate)({
           singular: "Get up to {COUNT} product — one bill, nothing more to set up. Active for as long as your Vimeo plan stays active.",
           plural: "Get up to {COUNT} products — one bill, nothing more to set up. Active for as long as your Vimeo plan stays active.",
           count: _v1,
@@ -4307,23 +4133,33 @@
         }))
       })]
     });
-  var _v145 = _v0.i(0),
-    _v146 = _v0.i(0),
-    _v146 = _v146,
-    _v147 = _v0.i(0),
-    _v147 = _v147,
+  var _v147 = _v0.i(0),
     _v148 = _v0.i(0),
+    _v148 = _v148,
     _v149 = _v0.i(0),
-    _v150 = _v0.i(0);
-  let _v151 = [53.14, 50.41, 46.46, 43.6],
-    _v152 = ({
+    _v149 = _v149,
+    _v150 = _v0.i(0),
+    _v151 = _v0.i(0),
+    _v152 = _v0.i(0);
+  let _v153 = [53.14, 50.41, 46.46, 43.6],
+    _v154 = {
+      textDecoration: "underline",
+      textUnderlineOffset: (0, _v33.rem)(2)
+    },
+    _v155 = _v0 => (0, _v28.jsx)(_v43.Link, {
+      href: _v136.BUNDLE_LIBRARY_TERMS_PATH,
+      color: "text-secondary",
+      sx: _v154,
+      children: _v0
+    }),
+    _v156 = ({
       clusterTiles: _v0,
       otherProductsCount: _v1,
       onClaim: _v2,
       bundleType: _v3
     }) => {
       let _v4,
-        _v5 = (0, _v49.useBundleSurfaceTokens)();
+        _v5 = (0, _v50.useBundleSurfaceTokens)();
       return (0, _v28.jsxs)(_v35.Box, {
         position: "relative",
         width: "100%",
@@ -4340,7 +4176,7 @@
           md: (0, _v33.rem)(20)
         },
         marginBottom: (0, _v33.rem)(32),
-        children: [(0, _v28.jsx)(_v145.BannerGlow, {
+        children: [(0, _v28.jsx)(_v147.BannerGlow, {
           geometry: {
             top: {
               base: 10,
@@ -4355,8 +4191,8 @@
               md: 540
             }
           },
-          asset: _v146.default
-        }), (0, _v28.jsx)(_v145.BannerGlow, {
+          asset: _v148.default
+        }), (0, _v28.jsx)(_v147.BannerGlow, {
           geometry: {
             top: {
               base: -120,
@@ -4371,7 +4207,7 @@
               md: 470
             }
           },
-          asset: _v147.default
+          asset: _v149.default
         }), (0, _v28.jsx)(_v35.Box, {
           width: "100%",
           sx: {
@@ -4399,12 +4235,12 @@
                   display: "block"
                 }
               },
-              children: (0, _v28.jsx)(_v148.BundleTileCluster, {
+              children: (0, _v28.jsx)(_v150.BundleTileCluster, {
                 hostTileSize: 67.5,
-                partnerTileSizes: _v151,
+                partnerTileSizes: _v153,
                 clusterTiles: _v0,
                 otherProductsCount: _v1,
-                infoTooltip: (0, _v150.getBundleIncludesTooltip)((0, _v40.getBundleProductOrder)(_v3 ?? "utility"))
+                infoTooltip: (0, _v152.getBundleIncludesTooltip)((0, _v40.getBundleProductOrder)(_v3 ?? "utility"))
               })
             }), (0, _v28.jsxs)(_v32.Flex, {
               flex: "1 1 34rem",
@@ -4428,7 +4264,7 @@
                   variant: "heading-lg",
                   color: "text-primary",
                   letterSpacing: (0, _v33.rem)(-1.2),
-                  children: (_v4 = (0, _v40.getBundleMemberCount)() + 1, String((0, _v77.translate)({
+                  children: (_v4 = (0, _v40.getBundleMemberCount)(), String((0, _v78.translate)({
                     singular: "{COUNT} essential product. One add-on.",
                     plural: "{COUNT} essential products. One add-on.",
                     count: _v4,
@@ -4470,7 +4306,39 @@
                   variant: "body-lg",
                   color: "text-secondary",
                   noOfLines: 2,
-                  children: (0, _v149.getBundleAppsBodyCopy)(_v0, _v1 ?? 0)
+                  children: (0, _v151.getBundleAppsBodyCopy)(_v0, _v1 ?? 0)
+                }), (0, _v28.jsx)(_v44.Text, {
+                  variant: "body-xs",
+                  color: "text-secondary",
+                  children: (0, _v78.translate)({
+                    singular: "Offer subject to {LINK}conditions{/LINK}.",
+                    replacements: {
+                      LINK: _v155
+                    },
+                    dictionary: {
+                      es: {
+                        singular: "Oferta sujeta a {LINK}condiciones{/LINK}."
+                      },
+                      "de-DE": {
+                        singular: "Das Angebot unterliegt den {LINK}Bedingungen{/LINK}."
+                      },
+                      "fr-FR": {
+                        singular: "Offre soumise aux {LINK}conditions{/LINK}."
+                      },
+                      "ja-JP": {
+                        singular: "オファーには{LINK}条件{/LINK}が適用されます。"
+                      },
+                      "ko-KR": {
+                        singular: "제안은 {LINK}약관{/LINK}의 적용을 받습니다."
+                      },
+                      "pt-BR": {
+                        singular: "Oferta sujeita às {LINK}condições{/LINK}."
+                      },
+                      "zh-CN": {
+                        singular: "优惠受{LINK}条款{/LINK}约束."
+                      }
+                    }
+                  })
                 })]
               }), (0, _v28.jsx)(_v41.Button, {
                 variant: "brand",
@@ -4482,7 +4350,7 @@
                     width: "100%"
                   }
                 },
-                children: String((0, _v77.translate)({
+                children: String((0, _v78.translate)({
                   singular: "Claim your products",
                   dictionary: {
                     es: {
@@ -4514,7 +4382,7 @@
         })]
       });
     },
-    _v153 = ({
+    _v157 = ({
       clusterTiles: _v0,
       otherProductsCount: _v1,
       onClaim: _v2,
@@ -4544,7 +4412,7 @@
           boxShadow: "0 8px 24px rgba(2, 6, 10, 0.48)"
         },
         pointerEvents: "auto",
-        children: (0, _v28.jsx)(_v152, {
+        children: (0, _v28.jsx)(_v156, {
           clusterTiles: _v0,
           otherProductsCount: _v1,
           onClaim: _v2,
@@ -4552,7 +4420,7 @@
         })
       })
     }),
-    _v154 = _v0 => {
+    _v158 = _v0 => {
       let _v1 = _v0.parentElement;
       for (; null !== _v1;) {
         let {
@@ -4563,8 +4431,8 @@
       }
       return null;
     },
-    _v155 = "bundle_library",
-    _v156 = ({
+    _v159 = "bundle_library",
+    _v160 = ({
       data: _v0,
       onNavigate: _v1
     }) => {
@@ -4580,7 +4448,7 @@
           getEntitlementProps: _v9,
           resetFetchError: _v10
         } = (({
-          entitlements: _v0 = _v90,
+          entitlements: _v0 = _v91,
           onFetchError: _v1
         }) => {
           let {
@@ -4588,10 +4456,10 @@
               jwt: _v3,
               xVimeoPage: _v4,
               locale: _v5
-            } = (0, _v84.useGctlConfig)(),
+            } = (0, _v85.useGctlConfig)(),
             {
               trackBundleProductCodeFetchResult: _v6
-            } = (0, _v78.useBundleTracking)(),
+            } = (0, _v79.useBundleTracking)(),
             [_v7, _v8] = (0, _v31.useState)({}),
             _v9 = (0, _v31.useRef)(new Set()),
             _v10 = (0, _v31.useCallback)(async _v0 => {
@@ -4600,7 +4468,7 @@
               } = _v0;
               if (_v9.current.has(_v1)) return;
               _v9.current.add(_v1);
-              let _v2 = _v86(_v7, _v1) ? "retry" : "first_attempt";
+              let _v2 = _v87(_v7, _v1) ? "retry" : "first_attempt";
               _v8(_v0 => ({
                 ..._v0,
                 [_v1]: {
@@ -4609,7 +4477,7 @@
                 }
               }));
               try {
-                let _v0 = await _v83({
+                let _v0 = await _v84({
                     baseUrl: _v2,
                     where: {
                       productId: _v1
@@ -4649,7 +4517,7 @@
                 let {
                   reason: _v1,
                   httpStatus: _v2
-                } = await _v89(_v0);
+                } = await _v90(_v0);
                 _v8(_v0 => ({
                   ..._v0,
                   [_v1]: {
@@ -4677,8 +4545,8 @@
                   entitlement: _v1,
                   code: _v0?.code ?? _v1.code,
                   redeemUrl: _v0?.redeemUrl ?? _v1.redeemUrl,
-                  isCodeFetching: _v85(_v7, _v0),
-                  fetchFailed: _v86(_v7, _v0),
+                  isCodeFetching: _v86(_v7, _v0),
+                  fetchFailed: _v87(_v7, _v0),
                   failureReason: _v0?.reason,
                   onFetch: () => _v10(_v1)
                 };
@@ -4704,7 +4572,7 @@
           entitlements: _v5,
           onFetchError: (0, _v31.useCallback)(() => {
             _v6({
-              title: String((0, _v77.translate)({
+              title: String((0, _v78.translate)({
                 singular: "We couldn't fetch your code. Please try again in a few moments.",
                 dictionary: {
                   es: {
@@ -4741,10 +4609,10 @@
           trackBundleProductComingSoonHover: _v12,
           trackBundleRedeemModalOpenClick: _v13,
           trackBundleRedeemModalClose: _v14
-        } = (0, _v78.useBundleTracking)(),
-        _v15 = (0, _v80.useViewer)(),
-        _v16 = (0, _v74.useBundleAddOnClaim)({
-          source: _v155,
+        } = (0, _v79.useBundleTracking)(),
+        _v15 = (0, _v81.useViewer)(),
+        _v16 = (0, _v75.useBundleAddOnClaim)({
+          source: _v159,
           onNavigate: _v1,
           onPurchased: () => {
             _v0.refresh?.();
@@ -4764,13 +4632,13 @@
             let _v0 = _v0.current;
             if (!window.IntersectionObserver || !_v0) return;
             let _v1 = new IntersectionObserver(([_v0]) => _v2(_v0.isIntersecting), {
-              root: _v154(_v0),
+              root: _v158(_v0),
               threshold: 0
             });
             return _v1.observe(_v0), () => _v1.disconnect();
           }, [_v0]), (0, _v31.useEffect)(() => {
             let _v0 = _v0.current,
-              _v1 = null != _v0 ? _v154(_v0) : null,
+              _v1 = null != _v0 ? _v158(_v0) : null,
               _v2 = () => {
                 _v4(!0);
               };
@@ -4785,8 +4653,8 @@
             showSticky: _v3 && !_v1
           };
         })(_v19),
-        _v21 = (0, _v75.useBundleExperimentKey)(),
-        _v22 = (0, _v76.useBundleOffer)(),
+        _v21 = (0, _v76.useBundleExperimentKey)(),
+        _v22 = (0, _v77.useBundleOffer)(),
         _v23 = (0, _v31.useRef)(!1);
       (0, _v31.useEffect)(() => {
         _v23.current || (_v23.current = !0, _v11({
@@ -4806,10 +4674,10 @@
             md: (0, _v33.rem)(40)
           },
           paddingY: (0, _v33.rem)(24),
-          children: [(0, _v28.jsx)(_v144, {
+          children: [(0, _v28.jsx)(_v146, {
             unlockStatus: _v2,
-            productCount: (0, _v40.getBundleMemberCount)() + 1
-          }), _v18 && (0, _v28.jsx)(_v152, {
+            productCount: (0, _v40.getBundleMemberCount)()
+          }), _v18 && (0, _v28.jsx)(_v156, {
             clusterTiles: _v24,
             otherProductsCount: _v25,
             onClaim: _v16.openClaim,
@@ -4818,7 +4686,7 @@
             ref: _v19,
             "aria-hidden": "true",
             height: 0
-          }), (0, _v28.jsx)(_v72, {
+          }), (0, _v28.jsx)(_v73, {
             products: _v4,
             unlockStatus: _v2,
             bundleType: _v3,
@@ -4830,31 +4698,31 @@
             onComingSoonHover: _v0 => _v12({
               productId: _v0.id
             })
-          }), (0, _v28.jsx)(_v143, {}), _v18 && _v20 && (0, _v28.jsxs)(_v28.Fragment, {
+          }), (0, _v28.jsx)(_v145, {}), _v18 && _v20 && (0, _v28.jsxs)(_v28.Fragment, {
             children: [(0, _v28.jsx)(_v35.Box, {
               height: {
                 base: 0,
                 md: (0, _v33.rem)(168)
               },
               "aria-hidden": "true"
-            }), (0, _v28.jsx)(_v153, {
+            }), (0, _v28.jsx)(_v157, {
               clusterTiles: _v24,
               otherProductsCount: _v25,
               onClaim: _v16.openClaim,
               bundleType: _v3
             })]
-          }), void 0 !== _v7 && (0, _v28.jsx)(_v127, {
+          }), void 0 !== _v7 && (0, _v28.jsx)(_v129, {
             productId: _v7,
             getEntitlementProps: _v9,
             onClose: () => {
-              void 0 !== _v7 && ((0, _v73.getEntitlementIds)(_v7).forEach(_v10), _v14({
+              void 0 !== _v7 && ((0, _v74.getEntitlementIds)(_v7).forEach(_v10), _v14({
                 productId: _v7
               })), _v8(void 0);
             }
           }), (0, _v28.jsx)(_v38.BundleAddOnModalContainer, {
             ..._v16.addOnModalProps
           })]
-        }), _v16.isUpgradeOpen && null !== _v15 && (0, _v28.jsx)(_v79.default, {
+        }), _v16.isUpgradeOpen && null !== _v15 && (0, _v28.jsx)(_v80.default, {
           apiUrl: _v15.apiUrl,
           userConfig: {
             jwt: _v15.jwt,
@@ -4868,13 +4736,13 @@
           tracking: {
             params: {
               upsell_name: "bundle_add_on_claim",
-              page: _v155,
+              page: _v159,
               feature: "bundle_add_on_claim",
-              location: _v155
+              location: _v159
             },
             paywallTracking: {
               paywallTrigger: "bundle_add_on_claim",
-              paywallLocation: _v155,
+              paywallLocation: _v159,
               paywallType: "popup",
               paywallFeature: "bundle_add_on_claim"
             }
@@ -4883,47 +4751,47 @@
         })]
       });
     },
-    _v157 = ({
+    _v161 = ({
       data: _v0,
       onNavigate: _v1
     }) => (0, _v28.jsx)(_v36.ToastProvider, {
-      children: (0, _v28.jsx)(_v156, {
+      children: (0, _v28.jsx)(_v160, {
         data: _v0,
         onNavigate: _v1
       })
     });
-  var _v158 = _v0.i(0),
-    _v159 = _v0.i(0),
-    _v160 = _v0.i(0);
-  async function _v161({
+  var _v162 = _v0.i(0),
+    _v163 = _v0.i(0),
+    _v164 = _v0.i(0);
+  async function _v165({
     baseUrl: _v0,
     select: _v1,
     ..._v2
   }) {
-    return (0, _v81.measureLatency)("getMeBspBundleProducts", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/me/bsp_bundle/products?fields=${_v1.map(_v82.intoSnakeCase).join(",")}`, {
+    return (0, _v82.measureLatency)("getMeBspBundleProducts", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/me/bsp_bundle/products?fields=${_v1.map(_v83.intoSnakeCase).join(",")}`, {
         ..._v2,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v82.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v83.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v82.deepCamelCase)(_v1);
+      return (0, _v83.deepCamelCase)(_v1);
     });
   }
-  var _v162 = _v0.i(0),
-    _v163 = _v0.i(0),
-    _v164 = _v0.i(0);
-  function _v165(_v0, _v1) {
+  var _v166 = _v0.i(0),
+    _v167 = _v0.i(0),
+    _v168 = _v0.i(0);
+  function _v169(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v84.useGctlConfig)();
-    return (0, _v162.default)(_v2 ? `/me/bsp_bundle/products${(0, _v164.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v161({
+      } = (0, _v85.useGctlConfig)();
+    return (0, _v166.default)(_v2 ? `/me/bsp_bundle/products${(0, _v168.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v165({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -4935,26 +4803,26 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v160.default.env.STORYBOOK && (0, _v164.assignMswData)(_v165, {
+  "true" === _v164.default.env.STORYBOOK && (0, _v168.assignMswData)(_v169, {
     endpoint: "/me/bsp_bundle/products",
     method: "GET"
-  }), "true" === _v160.default.env.STORYBOOK && (0, _v164.assignMswData)(function () {
+  }), "true" === _v164.default.env.STORYBOOK && (0, _v168.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v163.useSWRConfig)(),
+      } = (0, _v167.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v84.useGctlConfig)(),
-      [_v5, _v6] = (0, _v164.useInternalState)();
+      } = (0, _v85.useGctlConfig)(),
+      [_v5, _v6] = (0, _v168.useInternalState)();
     return [(0, _v31.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/bsp_bundle/products${(0, _v164.serializeQuery)(_v0)}`, _v161({
+        let _v0 = await _v0(`/me/bsp_bundle/products${(0, _v168.serializeQuery)(_v0)}`, _v165({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -4980,30 +4848,30 @@
     endpoint: "/me/bsp_bundle/products",
     method: "GET"
   });
-  let _v166 = ["membership.subscription.addOns"],
-    _v167 = _v0 => {
+  let _v170 = ["membership.subscription.addOns"],
+    _v171 = _v0 => {
       let _v1;
       if ("object" != typeof _v0 || null === _v0 || !("state" in _v0) || "unlocked" !== (_v1 = _v0.state) && "available" !== _v1 && "coming_soon" !== _v1) return !1;
       let _v2 = "code" in _v0 ? _v0.code : void 0,
         _v3 = "redeemUrl" in _v0 ? _v0.redeemUrl : void 0;
       return (void 0 === _v2 || "string" == typeof _v2) && (null == _v3 || "string" == typeof _v3);
     };
-  var _v168 = _v0.i(0),
-    _v169 = _v0.i(0);
-  let _v170 = (0, _v33.rem)(64),
-    _v171 = () => {
+  var _v172 = _v0.i(0),
+    _v173 = _v0.i(0);
+  let _v174 = (0, _v33.rem)(64),
+    _v175 = () => {
       let _v0 = (0, _v30.useRouter)(),
         {
           isLoadingResponse: _v1
-        } = (0, _v169.useOrionSettings)(),
-        _v2 = (0, _v76.useBundleOffer)(),
+        } = (0, _v173.useOrionSettings)(),
+        _v2 = (0, _v77.useBundleOffer)(),
         _v3 = (_v0 => {
           let {
               data: _v1,
               error: _v2,
               isLoading: _v3,
               mutate: _v4
-            } = _v165(() => ({
+            } = _v169(() => ({
               select: ["products"]
             })),
             {
@@ -5011,8 +4879,8 @@
               error: _v6,
               isLoading: _v7,
               mutate: _v8
-            } = (0, _v159.useGetMe)(() => ({
-              select: _v166,
+            } = (0, _v163.useGetMe)(() => ({
+              select: _v170,
               headers: {
                 Accept: "application/vnd.vimeo.*+json;version=3.4.14"
               }
@@ -5026,23 +4894,23 @@
               entitlements: _v1
             } = (_v0 => {
               let _v1 = {};
-              for (let _v0 of _v158.BUNDLE_PRODUCT_IDS) for (let _v0 of (0, _v73.getEntitlementIds)(_v0)) {
+              for (let _v0 of _v162.BUNDLE_PRODUCT_IDS) for (let _v0 of (0, _v74.getEntitlementIds)(_v0)) {
                 let _v0 = _v0[_v0],
-                  _v1 = _v167(_v0) ? _v0 : void 0,
+                  _v1 = _v171(_v0) ? _v0 : void 0,
                   _v2 = void 0 !== _v1 && "unlocked" === _v1.state && "string" == typeof _v1.code ? _v1.code : void 0,
                   _v3 = void 0 !== _v1 && "string" == typeof _v1.redeemUrl ? _v1.redeemUrl : void 0;
                 _v1[_v0] = {
                   id: _v0,
                   appId: _v0,
-                  platformId: (0, _v73.parseEntitlementId)(_v0).platformId,
+                  platformId: (0, _v74.parseEntitlementId)(_v0).platformId,
                   condition: _v1?.state === "coming_soon" ? "comingSoon" : "ready",
                   code: _v2,
                   redeemUrl: _v3
                 };
               }
               return {
-                products: _v158.BUNDLE_PRODUCT_IDS.map(_v0 => {
-                  let _v1 = (0, _v73.getEntitlementIds)(_v0).map(_v0 => _v1[_v0]).every(_v0 => "comingSoon" === _v0.condition);
+                products: _v162.BUNDLE_PRODUCT_IDS.map(_v0 => {
+                  let _v1 = (0, _v74.getEntitlementIds)(_v0).map(_v0 => _v1[_v0]).every(_v0 => "comingSoon" === _v0.condition);
                   return {
                     id: _v0,
                     condition: _v1 ? "comingSoon" : "ready"
@@ -5054,7 +4922,7 @@
             return {
               unlockStatus: (_v5?.membership?.subscription?.addOns ?? []).some(_v0 => {
                 let _v1;
-                return _v1 = _v0.name, _v158.BUNDLE_TYPES.some(_v0 => _v1.startsWith(`bsp-${_v0}-bundle`)) && "expired" !== _v0.status;
+                return _v1 = _v0.name, _v162.BUNDLE_TYPES.some(_v0 => _v1.startsWith(`bsp-${_v0}-bundle`)) && "expired" !== _v0.status;
               }) ? "unlocked" : "locked",
               bundleType: _v0,
               products: _v0,
@@ -5069,56 +4937,66 @@
       return ((0, _v31.useEffect)(() => {
         !_v1 && _v4 && _v0.replace("/");
       }, [_v1, _v4, _v0]), _v5) ? (0, _v28.jsx)(_v32.Flex, {
-        minHeight: `calc(100vh - ${_v170})`,
+        minHeight: `calc(100vh - ${_v174})`,
         alignItems: "center",
         justifyContent: "center",
-        children: (0, _v28.jsx)(_v168.Spinner, {})
-      }) : _v4 ? null : (0, _v28.jsx)(_v157, {
+        children: (0, _v28.jsx)(_v172.Spinner, {})
+      }) : _v4 ? null : (0, _v28.jsx)(_v161, {
         data: _v3,
         onNavigate: _v0 => void _v0.push(_v0)
       });
     };
-  var _v172 = _v0.i(0),
-    _v173 = _v0.i(0),
-    _v174 = _v0.i(0),
-    _v175 = _v0.i(0),
-    _v176 = _v0.i(0),
+  var _v176 = _v0.i(0),
     _v177 = _v0.i(0),
     _v178 = _v0.i(0),
     _v179 = _v0.i(0),
     _v180 = _v0.i(0),
     _v181 = _v0.i(0),
-    _v182 = _v0.i(0);
-  let _v183 = ({
+    _v182 = _v0.i(0),
+    _v183 = _v0.i(0),
+    _v184 = _v0.i(0),
+    _v185 = _v0.i(0),
+    _v186 = _v0.i(0),
+    _v187 = _v0.i(0);
+  let _v188 = ({
       children: _v0
     }) => {
-      let _v1 = (0, _v80.useViewer)(),
-        _v2 = (0, _v174.useIsMobile)(),
-        [_v3, _v4] = (0, _v31.useState)(!_v2),
+      let _v1 = (0, _v81.useViewer)(),
+        _v2 = (0, _v178.useIsMobile)(),
         {
-          uploads: _v5
-        } = (0, _v178.useUploader)(),
-        [_v6, _v7] = (0, _v31.useState)(() => _v5.find(_v0 => void 0 !== _v0.clipId)?.clipId ?? ""),
-        [_v8, _v9] = (0, _v31.useState)(!0);
-      return (0, _v177.useUploadLifecycle)((_v0, _v1) => {
-        _v1.clipId && _v7(_v1.clipId);
+          isOpen: _v3,
+          open: _v4,
+          close: _v5
+        } = (0, _v187.useSideNavSurfaceState)({
+          surface: "bundle-library",
+          userId: _v1?.user?.id,
+          isMobile: _v2,
+          persist: !1
+        }),
+        {
+          uploads: _v6
+        } = (0, _v182.useUploader)(),
+        [_v7, _v8] = (0, _v31.useState)(() => _v6.find(_v0 => void 0 !== _v0.clipId)?.clipId ?? ""),
+        [_v9, _v10] = (0, _v31.useState)(!0);
+      return (0, _v181.useUploadLifecycle)((_v0, _v1) => {
+        _v1.clipId && _v8(_v1.clipId);
       }, []), (0, _v28.jsxs)(_v28.Fragment, {
         children: [(0, _v28.jsxs)(_v32.Flex, {
           width: "100vw",
           height: "100vh",
           overflow: "hidden",
-          children: [(0, _v28.jsx)(_v181.WayfinderSideNav, {
+          children: [(0, _v28.jsx)(_v185.WayfinderSideNav, {
             isOpen: _v3,
-            onClose: () => _v4(!1),
+            onClose: _v5,
             isMobile: _v2,
             teamOwnerId: _v1?.team?.ownerId ?? 0,
             children: (0, _v28.jsx)(_v32.Flex, {
               flexGrow: 1,
               direction: "column",
-              children: (0, _v28.jsx)(_v182.MenuItem, {
-                icon: (0, _v28.jsx)(_v173.ArrowLeft, {}),
+              children: (0, _v28.jsx)(_v186.MenuItem, {
+                icon: (0, _v28.jsx)(_v177.ArrowLeft, {}),
                 label: "Back to home",
-                href: _v179.Path.Home
+                href: _v183.Path.Home
               })
             })
           }), (0, _v28.jsx)(_v32.Flex, {
@@ -5127,10 +5005,10 @@
             width: "50%",
             children: (0, _v28.jsxs)(_v35.Box, {
               overflowY: "auto",
-              children: [(0, _v28.jsx)(_v175.DefaultNavigation, {
-                setIsSideNavActive: () => _v4(!0),
+              children: [(0, _v28.jsx)(_v179.DefaultNavigation, {
+                setIsSideNavActive: _v4,
                 isSideNavActive: _v3,
-                hasSideNavLayout: !0
+                hasSideNavLayout: !_v2
               }), (0, _v28.jsx)(_v35.Box, {
                 width: "100%",
                 maxWidth: (0, _v33.rem)(0),
@@ -5138,21 +5016,21 @@
                 backgroundColor: "background",
                 children: _v0
               }), (0, _v28.jsx)(_v35.Box, {
-                children: _v1 && (0, _v28.jsx)(_v176.EssentialFooter, {
+                children: _v1 && (0, _v28.jsx)(_v180.EssentialFooter, {
                   ..._v1,
                   enableQuotaMenu: !1
                 })
               })]
             })
           })]
-        }), (0, _v28.jsx)(_v172.ActivitiesContainer, {
-          isShowing: _v8 && _v5.length > 0,
+        }), (0, _v28.jsx)(_v176.ActivitiesContainer, {
+          isShowing: _v9 && _v6.length > 0,
           isMobile: _v2,
-          children: (0, _v28.jsx)(_v180.ProgressToastContainer, {
-            isShowing: _v8,
-            uploadClipId: _v6,
-            setUploadClipId: _v7,
-            setShowProgressToast: _v9,
+          children: (0, _v28.jsx)(_v184.ProgressToastContainer, {
+            isShowing: _v9,
+            uploadClipId: _v7,
+            setUploadClipId: _v8,
+            setShowProgressToast: _v10,
             isMobile: _v2,
             teamOwnerId: String(_v1?.team?.ownerId ?? 0),
             page: "manage_bundle_library",
@@ -5161,7 +5039,7 @@
         })]
       });
     },
-    _v184 = () => (0, _v28.jsx)(_v171, {});
+    _v189 = () => (0, _v28.jsx)(_v175, {});
   (0, _v29.withPageSetup)(() => ({
     props: {
       hasThemeSupport: !0,
@@ -5171,7 +5049,7 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v184.getLayout = _v0 => (0, _v28.jsx)(_v183, {
+  }), _v189.getLayout = _v0 => (0, _v28.jsx)(_v188, {
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v184], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v189], 0);
 }

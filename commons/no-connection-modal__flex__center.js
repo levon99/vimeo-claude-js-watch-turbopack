@@ -8857,33 +8857,40 @@
         settings: _v4
       } = (0, _v130.useOrionSettings)(),
       {
-        trackLiveStreamSidebarPanelClicked: _v5
+        trackLiveStreamSidebarPanelClicked: _v5,
+        trackLiveStreamReactionsToggled: _v6
       } = (0, _v75.useLiveStreamBroadcasterTracking)(),
-      [_v6, _v7] = (0, _v21.useState)(() => {
+      [_v7, _v8] = (0, _v21.useState)(() => {
         var _v0;
         return (_v0 = _v2?.subview) ? _v511(_v0) : _v512 === _v46.ELeftPanelHash.QNA ? 1 : 2 * (_v512 === _v46.ELeftPanelHash.POLLS);
       }),
-      _v8 = _v4.enable_live_reactions,
-      _v9 = () => _v7(0),
-      [_v10, _v11] = (0, _v21.useState)(_v2);
-    return (_v2 !== _v10 && (_v11(_v2), _v2 && _v7(_v511(_v2.subview))), (0, _v21.useEffect)(() => {
+      _v9 = _v4.enable_live_reactions,
+      _v10 = () => _v8(0),
+      _v11 = (0, _v21.useCallback)(() => {
+        let _v0 = !0 !== _v0;
+        !0 === _v0 ? _v1.disableReactions() : _v1.enableReactions(), _v6({
+          liveStreamNewStatus: _v0
+        });
+      }, [_v0, _v1, _v6]),
+      [_v12, _v13] = (0, _v21.useState)(_v2);
+    return (_v2 !== _v12 && (_v13(_v2), _v2 && _v8(_v511(_v2.subview))), (0, _v21.useEffect)(() => {
       _v2 && _v3.clearEngagementSubviewRequest();
     }, [_v2, _v3]), (0, _v21.useEffect)(() => {
-      let _v0 = 1 === _v6 ? "qna" : 2 === _v6 ? "polls" : null;
+      let _v0 = 1 === _v7 ? "qna" : 2 === _v7 ? "polls" : null;
       _v3.setEngagementActiveTool(_v0);
-    }, [_v6, _v3]), (0, _v21.useEffect)(() => () => _v3.setEngagementActiveTool(null), [_v3]), (0, _v21.useEffect)(() => {
-      let _v0 = 1 === _v6 ? _v46.ELeftPanelHash.QNA : 2 === _v6 ? _v46.ELeftPanelHash.POLLS : _v46.ELeftPanelHash.ENGAGEMENT;
+    }, [_v7, _v3]), (0, _v21.useEffect)(() => () => _v3.setEngagementActiveTool(null), [_v3]), (0, _v21.useEffect)(() => {
+      let _v0 = 1 === _v7 ? _v46.ELeftPanelHash.QNA : 2 === _v7 ? _v46.ELeftPanelHash.POLLS : _v46.ELeftPanelHash.ENGAGEMENT;
       window.location.hash = _v0;
-    }, [_v6]), (0, _v21.useEffect)(() => {
+    }, [_v7]), (0, _v21.useEffect)(() => {
       let _v0 = () => {
         let _v0 = (0, _v471.extractHash)(window.location.hash);
-        _v0 === _v46.ELeftPanelHash.QNA ? _v7(1) : _v0 === _v46.ELeftPanelHash.POLLS ? _v7(2) : _v0 === _v46.ELeftPanelHash.ENGAGEMENT && _v7(0);
+        _v0 === _v46.ELeftPanelHash.QNA ? _v8(1) : _v0 === _v46.ELeftPanelHash.POLLS ? _v8(2) : _v0 === _v46.ELeftPanelHash.ENGAGEMENT && _v8(0);
       };
       return window.addEventListener("hashchange", _v0), () => window.removeEventListener("hashchange", _v0);
-    }, []), 1 === _v6) ? (0, _v17.jsx)(_v509, {
-      onBack: _v9
-    }) : 2 === _v6 ? (0, _v17.jsx)(_v495, {
-      onBack: _v9
+    }, []), 1 === _v7) ? (0, _v17.jsx)(_v509, {
+      onBack: _v10
+    }) : 2 === _v7 ? (0, _v17.jsx)(_v495, {
+      onBack: _v10
     }) : (0, _v17.jsxs)(_v17.Fragment, {
       children: [(0, _v17.jsx)(_v441.LeftPanelHeader, {
         label: (0, _v111.translate)({
@@ -8994,7 +9001,7 @@
             onClick: () => {
               _v5({
                 liveStreamPanel: "q_and_a"
-              }), _v7(1);
+              }), _v8(1);
             },
             pt: (0, _v61.rem)(16),
             pb: (0, _v61.rem)(16),
@@ -9061,14 +9068,14 @@
             onClick: () => {
               _v5({
                 liveStreamPanel: "polls"
-              }), _v7(2);
+              }), _v8(2);
             },
             pt: (0, _v61.rem)(16),
             pb: (0, _v61.rem)(16),
             pr: (0, _v61.rem)(8),
             pl: 0,
             gap: (0, _v61.rem)(16)
-          }), _v8 ? (0, _v17.jsxs)(_v95.Flex, {
+          }), _v9 ? (0, _v17.jsxs)(_v95.Flex, {
             alignItems: "center",
             justifyContent: "space-between",
             pt: (0, _v61.rem)(16),
@@ -9221,7 +9228,7 @@
               }),
               isChecked: !!_v0,
               isDisabled: null === _v0,
-              onChange: () => _v0 ? _v1.disableReactions() : _v1.enableReactions()
+              onChange: _v11
             })]
           }) : null]
         })]
@@ -13244,9 +13251,20 @@ ${_v9}
           disableReactions: _v4
         }
       } = (0, _v28.useManager)(_v470.ReactionManager),
-      _v5 = (0, _v21.useCallback)(() => {
-        _v2 ? _v4() : _v3();
-      }, [_v2, _v3, _v4]);
+      {
+        trackLiveStreamReactionsToggled: _v5
+      } = (0, _v75.useLiveStreamBroadcasterTracking)(),
+      _v6 = (0, _v21.useCallback)(_v0 => {
+        _v0 ? _v3() : _v4(), _v5({
+          liveStreamNewStatus: _v0
+        });
+      }, [_v3, _v4, _v5]),
+      _v7 = (0, _v21.useCallback)(() => {
+        _v6(!0 !== _v2);
+      }, [_v2, _v6]),
+      _v8 = (0, _v21.useCallback)(() => {
+        _v6(!0);
+      }, [_v6]);
     return (0, _v17.jsxs)(_v17.Fragment, {
       children: [(0, _v17.jsx)(_v441.LeftPanelHeader, {
         label: "Reactions",
@@ -13257,7 +13275,7 @@ ${_v9}
           "aria-label": "Enable emoji reactions",
           isChecked: !!_v2,
           isDisabled: null === _v2,
-          onChange: _v5
+          onChange: _v7
         })
       }), (0, _v17.jsx)(_v439.LeftPanelContent, {
         withTopPadding: !0,
@@ -13275,7 +13293,7 @@ ${_v9}
           }),
           description: "Turn on emoji reactions so viewers can react during your event.",
           buttonLabel: "Turn on",
-          onButtonClick: _v3
+          onButtonClick: _v8
         })
       })]
     });
@@ -13345,20 +13363,24 @@ ${_v9}
         audienceSpeakerActions: _v7
       } = (0, _v28.useManager)(_v621.AudienceSpeakersManager),
       {
-        trackLiveStreamBackstageToggled: _v8
+        trackLiveStreamBackstageToggled: _v8,
+        trackLiveStreamAudienceSpeakersToggled: _v9
       } = (0, _v75.useLiveStreamBroadcasterTracking)(),
-      _v9 = _v4.canEnableAudienceSpeaker,
-      _v10 = (0, _v21.useCallback)(_v0 => {
+      _v10 = _v4.canEnableAudienceSpeaker,
+      _v11 = (0, _v21.useCallback)(_v0 => {
         let _v1 = _v0.target.checked;
         (0, _v237.trackToggleAudioMode)(_v1), _v8({
           liveStreamNewStatus: _v1
         }), _v3.setAudioMode(_v1 ? _v300.EAudioMixingMode.SCENE : _v300.EAudioMixingMode.ALL);
       }, [_v3, _v8]),
-      _v11 = _v2 === _v300.EAudioMixingMode.SCENE,
-      _v12 = (0, _v21.useCallback)(_v0 => {
-        _v7.setEnabled(_v0.target.checked);
-      }, [_v7]),
+      _v12 = _v2 === _v300.EAudioMixingMode.SCENE,
       _v13 = (0, _v21.useCallback)(_v0 => {
+        let _v1 = _v0.target.checked;
+        _v7.setEnabled(_v1), _v9({
+          liveStreamNewStatus: _v1
+        });
+      }, [_v7, _v9]),
+      _v14 = (0, _v21.useCallback)(_v0 => {
         _v7.setCameraEnabled(_v0.target.checked);
       }, [_v7]);
     return (0, _v17.jsx)(_v250.BokehPopover, {
@@ -13387,11 +13409,11 @@ ${_v9}
         children: [(0, _v17.jsx)(_v624, {
           title: _v66.translations.backstage,
           description: _v66.translations.backstageModeDescription,
-          isChecked: _v11,
-          onSwitchChange: _v10,
+          isChecked: _v12,
+          onSwitchChange: _v11,
           badgeEnabled: _v66.translations.open,
           badgeDisabled: _v66.translations.closed
-        }), _v9 ? (0, _v17.jsx)(_v624, {
+        }), _v10 ? (0, _v17.jsx)(_v624, {
           title: (0, _v111.translate)({
             singular: "Audience speakers",
             dictionary: {
@@ -13445,7 +13467,7 @@ ${_v9}
             }
           }),
           isChecked: _v5,
-          onSwitchChange: _v12,
+          onSwitchChange: _v13,
           badgeEnabled: _v66.translations.on,
           badgeDisabled: _v66.translations.off
         }) : null, _v5 ? (0, _v17.jsx)(_v624, {
@@ -13502,7 +13524,7 @@ ${_v9}
             }
           }),
           isChecked: _v6,
-          onSwitchChange: _v13,
+          onSwitchChange: _v14,
           badgeEnabled: _v66.translations.on,
           badgeDisabled: _v66.translations.off
         }) : null]
@@ -17412,9 +17434,11 @@ ${_v9}
     } = (0, _v28.useManager)(_v225.PanelsManager, _v0 => [_v0.leftPanel, _v0.engagementActiveTool])
   }) {
     let {
-        trackLiveStreamSidebarPanelClicked: _v7
+        trackLiveStreamSidebarPanelClicked: _v7,
+        trackLiveStreamEngagementMenuOpened: _v8
       } = (0, _v75.useLiveStreamBroadcasterTracking)(),
-      _v8 = (0, _v21.useCallback)(_v0 => {
+      _v9 = (0, _v21.useCallback)(_v0 => {
+        _v0 === _v46.ELeftPanelId.ENGAGEMENT && _v8();
         let _v1 = (() => {
           switch (_v0) {
             case _v46.ELeftPanelId.SPEAKERS:
@@ -17438,17 +17462,17 @@ ${_v9}
         null !== _v1 && _v7({
           liveStreamPanel: _v1
         });
-      }, [_v7]),
-      _v9 = (0, _v44.useIsVpaas)(),
-      _v10 = _v2 === _v39.EComposerStreamModeType.RECORD,
+      }, [_v7, _v8]),
+      _v10 = (0, _v44.useIsVpaas)(),
+      _v11 = _v2 === _v39.EComposerStreamModeType.RECORD,
       {
-        settings: _v11
+        settings: _v12
       } = (0, _v130.useOrionSettings)(),
-      _v12 = (0, _v438.useCanSeeDebugTools)(),
-      _v13 = !_v9,
-      _v14 = _v5 === _v46.ELeftPanelId.ENGAGEMENT ? _v6 : null,
-      _v15 = (0, _v21.useCallback)(() => (0, _v17.jsx)(_v513, {}), []),
-      _v16 = (0, _v21.useMemo)(() => {
+      _v13 = (0, _v438.useCanSeeDebugTools)(),
+      _v14 = !_v10,
+      _v15 = _v5 === _v46.ELeftPanelId.ENGAGEMENT ? _v6 : null,
+      _v16 = (0, _v21.useCallback)(() => (0, _v17.jsx)(_v513, {}), []),
+      _v17 = (0, _v21.useMemo)(() => {
         let _v0 = [{
           id: _v46.ELeftPanelId.SPEAKERS,
           icon: (0, _v17.jsx)(_v432.Users, {}),
@@ -17479,10 +17503,10 @@ ${_v9}
           header: _v66.translations.brand,
           hash: _v46.ELeftPanelHash.BRAND,
           content: _v464
-        }, _v10 ? null : _v11.enabled_new_live_engagement_ui ? {
+        }, _v11 ? null : _v12.enabled_new_live_engagement_ui ? {
           id: _v46.ELeftPanelId.ENGAGEMENT,
           icon: (0, _v17.jsx)(_v436, {
-            activeTool: _v14,
+            activeTool: _v15,
             isManagementAccessed: !0
           }),
           header: (0, _v111.translate)({
@@ -17511,10 +17535,10 @@ ${_v9}
               }
             }
           }),
-          content: _v15,
+          content: _v16,
           hash: [_v46.ELeftPanelHash.ENGAGEMENT, _v46.ELeftPanelHash.QNA, _v46.ELeftPanelHash.POLLS, _v46.ELeftPanelHash.REACTIONS],
           isNew: !0,
-          contentHeight: null === _v14 ? "fit" : "full"
+          contentHeight: null === _v15 ? "fit" : "full"
         } : {
           id: _v46.ELeftPanelId.QNA,
           icon: (0, _v17.jsx)(_v228.PanelQnaIcon, {
@@ -17524,7 +17548,7 @@ ${_v9}
           header: _v199.T_QNA,
           content: _v509,
           hash: _v46.ELeftPanelHash.QNA
-        }, _v10 || _v11.enabled_new_live_engagement_ui ? null : {
+        }, _v11 || _v12.enabled_new_live_engagement_ui ? null : {
           id: _v46.ELeftPanelId.POLLS,
           icon: (0, _v17.jsx)(_v227.PanelPollIcon, {
             isActive: _v5 === _v46.ELeftPanelId.POLLS
@@ -17532,13 +17556,13 @@ ${_v9}
           header: _v199.T_POLLS,
           content: _v495,
           hash: _v46.ELeftPanelHash.POLLS
-        }, _v10 || _v11.enabled_new_live_engagement_ui || !_v11.enable_live_reactions ? null : {
+        }, _v11 || _v12.enabled_new_live_engagement_ui || !_v12.enable_live_reactions ? null : {
           id: _v46.ELeftPanelId.REACTIONS,
           icon: (0, _v17.jsx)(_v431.Smile, {}),
           header: _v66.translations.reactions,
           content: _v617,
           hash: _v46.ELeftPanelHash.REACTIONS
-        }, _v9 || _v10 || !_v4.hasLandingPageCustomizations || !_v11.release_single_event_customization ? null : {
+        }, _v10 || _v11 || !_v4.hasLandingPageCustomizations || !_v12.release_single_event_customization ? null : {
           id: _v46.ELeftPanelId.LANDING_PAGE,
           icon: (0, _v17.jsx)(_v426.BrowserWindow, {}),
           header: _v66.translations.landingPage,
@@ -17546,7 +17570,7 @@ ${_v9}
           isNew: !0,
           hash: _v46.ELeftPanelHash.LANDING_PAGE
         }];
-        return _v12 && _v0.push({
+        return _v13 && _v0.push({
           id: _v46.ELeftPanelId.DEBUG,
           icon: (0, _v17.jsx)(_v430.Processor, {}),
           header: _v66.translations.debug,
@@ -17556,14 +17580,14 @@ ${_v9}
             children: (0, _v17.jsx)(_v708, {})
           })
         }), _v0.filter(_v0 => !!_v0);
-      }, [_v4.canSeeTemplatesTab, _v4.hasLandingPageCustomizations, _v12, _v10, _v5, _v11.enable_live_reactions, _v11.enabled_new_live_engagement_ui, _v15, _v14, _v11.release_single_event_customization, _v9]);
+      }, [_v4.canSeeTemplatesTab, _v4.hasLandingPageCustomizations, _v13, _v11, _v5, _v12.enable_live_reactions, _v12.enabled_new_live_engagement_ui, _v16, _v15, _v12.release_single_event_customization, _v10]);
     return (0, _v17.jsx)(_v437.LeftPanel, {
       id: _v0,
       className: _v1,
       isLoading: !_v3,
-      items: _v16,
-      footer: _v13 ? (0, _v17.jsx)(_v433.FooterHelpMenu, {}) : null,
-      onUserActivateLeftPanel: _v8
+      items: _v17,
+      footer: _v14 ? (0, _v17.jsx)(_v433.FooterHelpMenu, {}) : null,
+      onUserActivateLeftPanel: _v9
     });
   }
   var _v710 = _v0.i(0),

@@ -2008,6 +2008,8 @@
                 return "registration";
               case _v149.EAccordionItemId.DESTINATIONS:
                 return "destinations";
+              case _v149.EAccordionItemId.PLAYER:
+                return "player";
               default:
                 return null;
             }

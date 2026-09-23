@@ -9043,7 +9043,7 @@
                 singular: "Suchen Sie nach einer günstigeren Option?"
               },
               "fr-FR": {
-                singular: "Vous cherchez une option moins chère\x0f?"
+                singular: "Vous cherchez une option moins chère ?"
               },
               "ja-JP": {
                 singular: "より安価なオプションをお探しですか?"
@@ -11535,7 +11535,7 @@
                   singular: "Wenn Sie diesen Rabatt annehmen, stimmen Sie zu: Sie erhalten einen Aktionsrabatt auf ein sich automatisch verlängerndes Abonnement zu einem Gesamtpreis von {DISCOUNTED_AMOUNT}. Wenn Sie nicht vor dem {RENEWAL_DATE} kündigen, wird Ihr Abonnement an diesem Datum zum Aktionspreis von {DISCOUNTED_AMOUNT} (zuzüglich Steuern) verlängert und verlängert sich anschließend alle {PERIOD} automatisch zum Aktionspreis, sofern Sie nicht in den Abrechnungseinstellungen kündigen. Der Abonnementpreis kann sich gemäß unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} ändern. Ihre Inhalte können bei Kündigung gelöscht werden. Mit dem Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsvereinbarung und des Verzichts auf Sammelklagen, und erkennen unsere {PP_URL}Datenschutzerklärung{/PP_URL} an."
                 },
                 "fr-FR": {
-                  singular: "En acceptant cette remise\x0f, vous acceptez : Vous bénéficierez d'une remise promotionnelle sur un abonnement à renouvellement automatique, pour un prix total de {DISCOUNTED_AMOUNT}. Si vous n'annulez pas avant {RENEWAL_DATE}, votre abonnement sera renouvelé au prix promotionnel de {DISCOUNTED_AMOUNT} (plus taxes) à cette date et continuera d'être automatiquement renouvelé au prix promotionnel tous les {PERIOD} sauf si vous annulez dans les Paramètres de facturation. Le prix de l'abonnement peut changer conformément à nos Conditions d'utilisation. Votre contenu peut être supprimé à l'annulation. En finalisant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux recours collectifs, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
+                  singular: "En acceptant cette remise , vous acceptez : Vous bénéficierez d'une remise promotionnelle sur un abonnement à renouvellement automatique, pour un prix total de {DISCOUNTED_AMOUNT}. Si vous n'annulez pas avant {RENEWAL_DATE}, votre abonnement sera renouvelé au prix promotionnel de {DISCOUNTED_AMOUNT} (plus taxes) à cette date et continuera d'être automatiquement renouvelé au prix promotionnel tous les {PERIOD} sauf si vous annulez dans les Paramètres de facturation. Le prix de l'abonnement peut changer conformément à nos Conditions d'utilisation. Votre contenu peut être supprimé à l'annulation. En finalisant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux recours collectifs, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
                 },
                 "ja-JP": {
                   singular: "この割引を受け入れることで、次のことに同意するものとします：自動更新されるサブスクリプションにプロモーション割引が適用され、合計金額は {DISCOUNTED_AMOUNT} になります。{RENEWAL_DATE} より前にキャンセルしない場合、サブスクリプションはその日にプロモーション価格 {DISCOUNTED_AMOUNT}（税別）で更新され、その後も請求設定でキャンセルしない限り {PERIOD} ごとにプロモーション価格で自動更新され続けます。サブスクリプション価格は当社の利用規約に従って変更される場合があります。解約時にコンテンツが削除されることがあります。本購入を完了することで、仲裁合意および集団訴訟放棄を含む当社の {TOS_URL}利用規約{/TOS_URL} に同意し、{PP_URL}プライバシーポリシー{/PP_URL} を確認したことを承認するものとします。"
@@ -16210,11 +16210,15 @@
       } = (0, _v3.useContext)(_v114.ManageTeamStateCtx),
       {
         updateSeatCount: _v4
-      } = (0, _v3.useContext)(_v114.ManageTeamDispatchCtx);
+      } = (0, _v3.useContext)(_v114.ManageTeamDispatchCtx),
+      _v5 = (0, _v3.useCallback)(_v0 => {
+        let _v1 = Number(_v0);
+        _v1(_v1), _v4(_v1);
+      }, [_v4]);
     (0, _v3.useEffect)(() => {
       _v4(_v0);
     }, [_v0, _v4]);
-    let _v5 = _v3?.additionalPurchasedCount || _v2;
+    let _v6 = _v3?.additionalPurchasedCount || _v2;
     return (0, _v1.jsxs)(_v6.Box, {
       display: "flex",
       alignItems: "baseline",
@@ -16222,11 +16226,11 @@
         border: "input-stroke",
         defaultValue: 1,
         min: 1,
-        max: _v5,
+        max: _v6,
         size: "sm",
         width: (0, _v26.rem)("78px"),
         marginRight: (0, _v26.rem)("10px"),
-        onChange: _v0 => _v1(Number(_v0)),
+        onChange: _v5,
         children: [(0, _v1.jsx)(_v266.NumberInputField, {
           value: _v0
         }), (0, _v1.jsxs)(_v266.NumberInputStepper, {
@@ -16243,7 +16247,7 @@
       }), (0, _v1.jsx)(_v23.Header, {
         as: "h6",
         size: "xs",
-        children: _v76.T.SeatDenominator(_v5)
+        children: _v76.T.SeatDenominator(_v6)
       })]
     });
   }
@@ -16838,7 +16842,7 @@
                 singular: "Sie sind kein Unternehmen oder Non-Profit, aber Ihnen ist eine Planänderung aufgefallen?"
               },
               "fr-FR": {
-                singular: "Vous n'êtes pas une entreprise ni une organisation à but non lucratif, mais vous avez remarqué un changement de plan\x02f?"
+                singular: "Vous n'êtes pas une entreprise ni une organisation à but non lucratif, mais vous avez remarqué un changement de plan ?"
               },
               "ja-JP": {
                 singular: "事業者でも非営利団体でもないのにプランの変更に気付きましたか？"

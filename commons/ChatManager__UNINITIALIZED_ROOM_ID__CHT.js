@@ -78,6 +78,7 @@
     log = new _v3.Logger("🥨CHT");
     isBackstageAllowed = !1;
     isModuleActive = !1;
+    isProxyOnly = !1;
     firebase;
     publicChatBuffer = null;
     backstageChatBuffer = null;
@@ -89,7 +90,7 @@
     proxyTokenManager = null;
     firebaseTokenManager = null;
     constructor(_v0) {
-      super(), this.isBackstageAllowed = !!(_v0?.interaction?.feature?.isBackstageAllowed && !_v0?.interaction?.feature?.isManagementDisabled), this.isModuleActive = (0, _v14.checkModuleIsActive)(_v0?.interaction?.feature?.module, _v9.EInteractionModule.CHAT);
+      super(), this.isProxyOnly = !!_v0?.interaction?.feature?.isProxyOnly, this.isBackstageAllowed = !!(!this.isProxyOnly && _v0?.interaction?.feature?.isBackstageAllowed && !_v0?.interaction?.feature?.isManagementDisabled), this.isModuleActive = (0, _v14.checkModuleIsActive)(_v0?.interaction?.feature?.module, _v9.EInteractionModule.CHAT);
     }
     onProvisionEnded() {
       return (0, _v4.dispose)(this);
@@ -153,25 +154,29 @@
       }
     }) {
       if (this.firebase = _v0, this.isModuleActive) {
-        this.log.info("🚀Initializing chat connection:", _v2, _v3), (0, _v20.trackLiveAction)("fb_init_chat_manager");
-        let _v0 = (0, _v11.getRealtimeDatabase)(_v0, _v1);
-        this.publicChatRef = (0, _v11.getDatabaseRef)(_v0, _v0, _v6.firebaseConfig.REFS.INTERACTION.CHAT.PUBLIC(_v2)), this.guestsChatRef = (0, _v11.getDatabaseRef)(_v0, _v0, _v6.firebaseConfig.REFS.INTERACTION.CHAT.GUEST(_v2)), this.metaChatEnabledRef = (0, _v11.getDatabaseRef)(_v0, _v0, _v6.firebaseConfig.REFS.INTERACTION.CHAT.META_ENABLED(_v2)), this.publicChatBanListRef = (0, _v11.getDatabaseRef)(_v0, _v0, _v6.firebaseConfig.REFS.INTERACTION.CHAT.PUBLIC_BANS(_v2));
-        let _v1 = this.isBackstageAllowed;
-        this.log.info("🚀Backstage access status:", _v1), this.setContext({
-          isBackstageEnabled: _v1,
+        if (this.log.info("🚀Initializing chat connection:", _v2, _v3), (0, _v20.trackLiveAction)("fb_init_chat_manager"), !this.isProxyOnly) {
+          let _v0 = (0, _v11.getRealtimeDatabase)(_v0, _v1);
+          this.publicChatRef = (0, _v11.getDatabaseRef)(_v0, _v0, _v6.firebaseConfig.REFS.INTERACTION.CHAT.PUBLIC(_v2)), this.guestsChatRef = (0, _v11.getDatabaseRef)(_v0, _v0, _v6.firebaseConfig.REFS.INTERACTION.CHAT.GUEST(_v2)), this.metaChatEnabledRef = (0, _v11.getDatabaseRef)(_v0, _v0, _v6.firebaseConfig.REFS.INTERACTION.CHAT.META_ENABLED(_v2)), this.publicChatBanListRef = (0, _v11.getDatabaseRef)(_v0, _v0, _v6.firebaseConfig.REFS.INTERACTION.CHAT.PUBLIC_BANS(_v2));
+        }
+        let _v0 = this.isBackstageAllowed;
+        this.log.info("🚀Backstage access status:", _v0), this.setContext({
+          isBackstageEnabled: _v0,
           chatSessionsHistory: _v4?.connections?.chatHistory || [],
           config: {
             roomId: _v2,
             isCreator: !!_v3.isCreator
           }
         }), this.publicChatBuffer = new _v17.InMemoryBuffer(_v23.createBufferConfig(this, "publicChatBuffer", _v9.EChatType.PUBLIC));
-        let _v2 = _v4?.chatProxy;
-        if (_v2 && _v2.url && _v2.jwt) {
-          this.log.info("Using CDN chat proxy transport:", _v2.url);
+        let _v1 = _v4?.chatProxy;
+        if (this.isProxyOnly && (!_v1?.url || !_v1.jwt)) throw new _v10.LiveError("Proxy-only chat requires proxy credentials.", {
+          code: _v8.ELiveErrorCode.INITIALIZATION
+        });
+        if (_v1 && _v1.url && _v1.jwt) {
+          this.log.info("Using CDN chat proxy transport:", _v1.url);
           let _v0 = _v5?.refreshCredentials,
-            _v1 = new _v16.ChatProxyTokenManager(_v2, async () => {
+            _v1 = new _v16.ChatProxyTokenManager(_v1, async () => {
               let _v0 = await _v0?.();
-              return _v0?.chatProxy ?? _v2;
+              return _v0?.chatProxy ?? _v1;
             }),
             _v2 = new _v12.FirebaseRestTokenManager(_v5?.config?.apiKey ?? "", _v5?.token ?? "", _v0 ? {
               refreshCustomToken: async () => (await _v0()).firebase.jwt
@@ -200,9 +205,10 @@
                 enabledAt: (0, _v13.getAbsoluteNow)()
               });
             }
-          }), await this.proxyTransport.start(), this.IS_DISPOSED || !this.metaChatEnabledRef) return void this.log.info("Manager disposed during proxy startup, skipping subscriptions");
-          let _v3 = [(0, _v5.subscribeToChatStatus)(this, this.metaChatEnabledRef)];
-          if (_v1) {
+          }), await this.proxyTransport.start(), this.IS_DISPOSED || !this.isProxyOnly && !this.metaChatEnabledRef) return void this.log.info("Manager disposed during proxy startup, skipping subscriptions");
+          let _v3 = this.isProxyOnly || !this.metaChatEnabledRef ? [] : [(0, _v5.subscribeToChatStatus)(this, this.metaChatEnabledRef)];
+          if (_v0) {
+            this.assertIsInitialized();
             let _v0 = new _v17.InMemoryBuffer(_v23.createBufferConfig(this, "backstageChatBuffer", _v9.EChatType.BACKSTAGE));
             if (this.backstageChatBuffer = _v0, await (0, _v5.hydrateChatHistory)(this, _v9.EChatType.BACKSTAGE, this.guestsChatRef, _v0), this.IS_DISPOSED) return void _v3.forEach(_v0 => _v0());
             _v3.push((0, _v5.subscribeToChatMessages)(this, _v9.EChatType.BACKSTAGE, this.guestsChatRef, _v0));
@@ -212,16 +218,17 @@
             hydratedAt: (0, _v13.getAbsoluteNow)()
           }), this.addUnSubscribers(_v3), this.publicChatBuffer?.flush(), void this.backstageChatBuffer?.flush();
         }
-        let _v3 = [(0, _v5.hydrateChatHistory)(this, _v9.EChatType.PUBLIC, this.publicChatRef, this.publicChatBuffer), (0, _v5.hydrateBanList)(this, _v9.EChatType.PUBLIC)],
-          _v4 = [(0, _v5.subscribeToChatStatus)(this, this.metaChatEnabledRef), (0, _v5.subscribeToChatMessages)(this, _v9.EChatType.PUBLIC, this.publicChatRef, this.publicChatBuffer), (0, _v5.subscribeToBanList)(this, _v9.EChatType.PUBLIC)];
-        if (_v1 && (this.backstageChatBuffer = new _v17.InMemoryBuffer(_v23.createBufferConfig(this, "backstageChatBuffer", _v9.EChatType.BACKSTAGE)), _v3.push((0, _v5.hydrateChatHistory)(this, _v9.EChatType.BACKSTAGE, this.guestsChatRef, this.backstageChatBuffer)), _v4.push((0, _v5.subscribeToChatMessages)(this, _v9.EChatType.BACKSTAGE, this.guestsChatRef, this.backstageChatBuffer))), await Promise.all(_v3), this.IS_DISPOSED) {
-          this.log.info("Manager disposed during hydration, unsubscribing"), _v4.forEach(_v0 => _v0());
+        this.assertIsInitialized();
+        let _v2 = [(0, _v5.hydrateChatHistory)(this, _v9.EChatType.PUBLIC, this.publicChatRef, this.publicChatBuffer), (0, _v5.hydrateBanList)(this, _v9.EChatType.PUBLIC)],
+          _v3 = [(0, _v5.subscribeToChatStatus)(this, this.metaChatEnabledRef), (0, _v5.subscribeToChatMessages)(this, _v9.EChatType.PUBLIC, this.publicChatRef, this.publicChatBuffer), (0, _v5.subscribeToBanList)(this, _v9.EChatType.PUBLIC)];
+        if (_v0 && (this.backstageChatBuffer = new _v17.InMemoryBuffer(_v23.createBufferConfig(this, "backstageChatBuffer", _v9.EChatType.BACKSTAGE)), _v2.push((0, _v5.hydrateChatHistory)(this, _v9.EChatType.BACKSTAGE, this.guestsChatRef, this.backstageChatBuffer)), _v3.push((0, _v5.subscribeToChatMessages)(this, _v9.EChatType.BACKSTAGE, this.guestsChatRef, this.backstageChatBuffer))), await Promise.all(_v2), this.IS_DISPOSED) {
+          this.log.info("Manager disposed during hydration, unsubscribing"), _v3.forEach(_v0 => _v0());
           return;
         }
         this.setContext({
           isHydrated: !0,
           hydratedAt: (0, _v13.getAbsoluteNow)()
-        }), this.addUnSubscribers(_v4), this.publicChatBuffer?.flush(), this.backstageChatBuffer?.flush();
+        }), this.addUnSubscribers(_v3), this.publicChatBuffer?.flush(), this.backstageChatBuffer?.flush();
       } else this.log.info("🚀Skipping chat connection");
     }
     onInteractionSessionLogout() {

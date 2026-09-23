@@ -59,7 +59,9 @@
           _v1 = "string" == typeof _v0 ? "true" === _v0 : _v10.environmentConfig.IS_IFRAME,
           _v2 = (0, _v16.getUrlQueryValue)(_v11.liveQueryConfig.INTERACTION.SIDEBAR_ATTACH_POSITION);
         _v2 || (_v2 = _v10.environmentConfig.IS_IFRAME ? _v9.ESidebarAttach.BOTTOM : _v9.ESidebarAttach.TOP);
-        let _v3 = (0, _v16.getUrlQueryValue)(_v11.liveQueryConfig.INTERACTION.AUTH_ROOM_DISABLED_OPTIONS);
+        let _v3 = (0, _v16.getUrlQueryValue)(_v11.liveQueryConfig.INTERACTION.AUTH_ROOM_DISABLED_OPTIONS),
+          _v4 = "true" === (0, _v16.getUrlQueryValue)(_v11.liveQueryConfig.INTERACTION.PROXY_ONLY),
+          _v5 = (0, _v16.getUrlQueryValue)(_v11.liveQueryConfig.INTERACTION.MODULE) || _v15.EInteractionModule.AUTO;
         return {
           renderAt: _v4,
           sessionApplicationType: _v14.EComposerApplicationType.INTERACTION_TOOLS,
@@ -79,7 +81,8 @@
             feature: {
               isBackstageAllowed: !1,
               isManagementDisabled: _v1,
-              module: (0, _v16.getUrlQueryValue)(_v11.liveQueryConfig.INTERACTION.MODULE) || _v15.EInteractionModule.AUTO
+              module: _v4 ? _v15.EInteractionModule.CHAT : _v5,
+              isProxyOnly: _v4
             },
             toolbar: {
               attachPosition: _v2,

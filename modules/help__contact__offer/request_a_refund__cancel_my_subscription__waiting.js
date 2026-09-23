@@ -589,7 +589,7 @@
                     singular: "Behalten Sie {currentTier} und erhalten Sie eine Rückerstattung von {refundPercentage}%"
                   },
                   "fr-FR": {
-                    singular: "Conserver {currentTier} avec un remboursement de {refundPercentage}\x02F%"
+                    singular: "Conserver {currentTier} avec un remboursement de {refundPercentage} %"
                   },
                   "ja-JP": {
                     singular: "{currentTier}を維持し、{refundPercentage}%の返金を受ける"
@@ -624,7 +624,7 @@
                     singular: "Um Ihnen den Übergang zu unseren Business-Tarifen zu erleichtern, möchten wir Ihnen eine einmalige Kulanzrückerstattung von {refundPercentage}% in Höhe von {refundAmountFormatted} auf Ihre letzte Zahlung von {currentPaymentFormatted} für {currentTier} anbieten."
                   },
                   "fr-FR": {
-                    singular: "Pour vous aider dans la transition vers nos offres professionnelles, nous souhaitons vous offrir un remboursement ponctuel de courtoisie de {refundPercentage}\x02F% soit {refundAmountFormatted} sur votre récent paiement de {currentPaymentFormatted} pour {currentTier}."
+                    singular: "Pour vous aider dans la transition vers nos offres professionnelles, nous souhaitons vous offrir un remboursement ponctuel de courtoisie de {refundPercentage} % soit {refundAmountFormatted} sur votre récent paiement de {currentPaymentFormatted} pour {currentTier}."
                   },
                   "ja-JP": {
                     singular: "ビジネスプランへの移行を支援するため、直近の{currentTier}への{currentPaymentFormatted}のお支払いに対して、1回限りの善意による{refundPercentage}%（{refundAmountFormatted}）の返金を提供いたします。"

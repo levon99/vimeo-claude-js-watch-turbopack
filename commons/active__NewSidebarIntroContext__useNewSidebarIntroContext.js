@@ -20,48 +20,55 @@
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
-    _v16 = _v0.i(0);
-  let _v17 = new Date("2026-07-20T00:00:00Z");
-  function _v18() {
-    let _v0 = (0, _v16.useViewer)()?.user?.createdTime;
-    return !!_v0 && new Date(_v0) > _v17;
+    _v16 = _v0.i(0),
+    _v17 = _v0.i(0);
+  let _v18 = new Date("2026-07-20T00:00:00Z");
+  function _v19() {
+    let _v0 = (0, _v17.useViewer)()?.user?.createdTime;
+    return !!_v0 && new Date(_v0) > _v18;
   }
-  _v0.s(["useIsNewSidebarUser", 0, _v18], 0);
-  let _v19 = [-8, 16],
-    _v20 = [-8, 280];
-  function _v21({
+  _v0.s(["useIsNewSidebarUser", 0, _v19], 0);
+  let _v20 = [-8, 16],
+    _v21 = [-8, 280];
+  function _v22({
     children: _v0
   }) {
     let {
         isOpen: _v1,
         acknowledge: _v2
       } = function () {
-        let _v0 = (0, _v16.useViewer)(),
+        let _v0 = (0, _v17.useViewer)(),
           _v1 = _v0?.user?.id,
-          _v2 = _v18(),
+          _v2 = _v19(),
           {
-            data: _v3,
-            mutate: _v4
-          } = (0, _v14.useGetUserPreferences)(() => _v1 && !_v2 ? {
+            settings: _v3,
+            isLoadingResponse: _v4
+          } = (0, _v16.useOrionSettings)(),
+          {
+            data: _v5,
+            mutate: _v6
+          } = (0, _v14.useGetUserPreferences)(() => void 0 === _v1 || _v2 ? null : {
             where: {
               userId: _v1
             },
-            select: ["nsim"]
-          } : null, {
+            select: ["nsim", "wnpi"]
+          }, {
             revalidateOnFocus: !1,
             revalidateIfStale: !1
           }),
-          [_v5] = (0, _v14.usePatchUserPreferences)(),
-          _v6 = void 0 !== _v3,
-          _v7 = !!_v3?.nsim;
+          [_v7] = (0, _v14.usePatchUserPreferences)(),
+          _v8 = void 0 !== _v5,
+          _v9 = _v5?.nsim === !0,
+          _v10 = (_v4 || _v3.enable_whats_new_page) && _v5?.wnpi !== !0;
         return {
-          isOpen: _v6 && !_v7 && !_v2,
+          isOpen: _v8 && !_v9 && !_v2 && !_v10,
           acknowledge: (0, _v8.useCallback)(() => {
-            _v1 && (_v4({
-              nsim: !0
+            void 0 !== _v1 && (_v6({
+              nsim: !0,
+              wnpi: _v5?.wnpi === !0
             }, {
               revalidate: !1
-            }), _v5({
+            }), _v7({
               where: {
                 userId: _v1
               },
@@ -69,8 +76,8 @@
               variables: {
                 nsim: 1
               }
-            }).then(() => _v4()));
-          }, [_v1, _v5, _v4])
+            }).then(() => _v6()));
+          }, [_v5, _v1, _v7, _v6])
         };
       }(),
       {
@@ -80,7 +87,7 @@
       isOpen: _v1,
       onAcknowledge: _v2,
       placement: "right-start",
-      offset: "first" === _v3 ? _v20 : _v19,
+      offset: "first" === _v3 ? _v21 : _v20,
       badge: (0, _v1.jsx)(_v12.Badge, {
         variant: "new",
         size: "sm",
@@ -174,12 +181,12 @@
       children: _v0
     });
   }
-  _v0.s(["NewSidebarIntroPopover", 0, _v21], 0);
-  let _v22 = (0, _v6.rem)(24),
-    _v23 = (0, _v6.rem)(12),
+  _v0.s(["NewSidebarIntroPopover", 0, _v22], 0);
+  let _v23 = (0, _v6.rem)(24),
     _v24 = (0, _v6.rem)(12),
-    _v25 = (0, _v6.rem)(8),
-    _v26 = (0, _v6.rem)(6);
+    _v25 = (0, _v6.rem)(12),
+    _v26 = (0, _v6.rem)(8),
+    _v27 = (0, _v6.rem)(6);
   _v0.s(["PrimaryNavItem", 0, ({
     item: _v0,
     variant: _v1,
@@ -190,7 +197,7 @@
         anchor: _v4
       } = _v10(),
       _v5 = _v3 && ("active" === _v4 ? !!_v0.active : _v2),
-      _v6 = _v0 => _v5 ? (0, _v1.jsx)(_v21, {
+      _v6 = _v0 => _v5 ? (0, _v1.jsx)(_v22, {
         children: _v0
       }) : _v0;
     if ("icons" === _v1) {
@@ -211,13 +218,13 @@
             icon: _v0.icon,
             variant: "tertiary",
             size: "md",
-            borderRadius: _v24,
+            borderRadius: _v25,
             onClick: _v0.onClick,
             "data-id": _v0.dataId,
             sx: {
               "> svg": {
-                width: _v22,
-                height: _v22
+                width: _v23,
+                height: _v23
               },
               ...(_v0.active && {
                 backgroundColor: "button-tertiary-hover",
@@ -241,11 +248,11 @@
       listStyleType: "none",
       children: _v6((0, _v1.jsx)(_v7.MenuItem, {
         icon: _v0.icon,
-        iconSize: _v22,
-        iconMarginRight: _v23,
-        borderRadius: _v24,
-        paddingX: _v25,
-        paddingLeft: _v26,
+        iconSize: _v23,
+        iconMarginRight: _v24,
+        borderRadius: _v25,
+        paddingX: _v26,
+        paddingLeft: _v27,
         label: _v0.label,
         href: _v0.href,
         active: _v0.active,

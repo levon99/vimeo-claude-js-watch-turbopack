@@ -14575,7 +14575,7 @@
           alignItems: "center",
           gap: (0, _v45.rem)(4),
           children: [(0, _v1.jsx)(_v32.Text, {
-            variant: "body-sm",
+            variant: "body-md",
             fontFamily: "heading",
             color: "text-primary",
             children: "unlocked" === _v1 ? String((0, _v500.translate)({
@@ -16474,7 +16474,7 @@
                             singular: "Was ist der Hauptgrund? (optional)"
                           },
                           "fr-FR": {
-                            singular: "Quelle est la raison principale\x0e9? (facultatif)"
+                            singular: "Quelle est la raison principale ? (facultatif)"
                           },
                           "ja-JP": {
                             singular: "主な理由は何ですか？（任意）"
@@ -16536,7 +16536,7 @@
                             singular: "Was ist der Hauptgrund? (optional)"
                           },
                           "fr-FR": {
-                            singular: "Quelle est la raison principale\x0e9? (facultatif)"
+                            singular: "Quelle est la raison principale ? (facultatif)"
                           },
                           "ja-JP": {
                             singular: "主な理由は何ですか？（任意）"

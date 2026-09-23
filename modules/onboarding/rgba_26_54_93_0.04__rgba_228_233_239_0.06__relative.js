@@ -139,14 +139,13 @@
     onCtaClick: _v3
   }) => {
     let _v4,
-      _v5,
-      _v6 = (0, _v5.getBundleActivationCluster)(_v0),
-      _v7 = (0, _v4.resolveBundleIdealAmount)({
+      _v5 = (0, _v5.getBundleActivationCluster)(_v0),
+      _v6 = (0, _v4.resolveBundleIdealAmount)({
         periodicity: _v1,
         display: "period",
         currency: _v2
       }),
-      _v8 = (0, _v6.formatBundlePrice)(_v7 ?? {
+      _v7 = (0, _v6.formatBundlePrice)(_v6 ?? {
         amount: 0,
         currency: "USD"
       });
@@ -159,118 +158,108 @@
           periodicity: _v0,
           price: _v1
         }) => "monthly" === _v0 ? String((0, _v18.translate)({
-          singular: "Subscriptions worth {PRICE} a month, all included",
+          singular: "You now have access to subscriptions worth up to {PRICE} a month",
           replacements: {
             PRICE: _v1
           },
           dictionary: {
             es: {
-              singular: "Suscripciones por valor de {PRICE} al mes, todas incluidas"
+              singular: "Ahora tienes acceso a suscripciones por valor de hasta {PRICE} al mes"
             },
             "de-DE": {
-              singular: "Abonnements im Wert von {PRICE} pro Monat, alle enthalten"
+              singular: "Sie haben jetzt Zugriff auf Abonnements im Wert von bis zu {PRICE} pro Monat"
             },
             "fr-FR": {
-              singular: "Abonnements d'une valeur de {PRICE} par mois, tous inclus"
+              singular: "Vous avez désormais accès à des abonnements d'une valeur allant jusqu'à {PRICE} par mois"
             },
             "ja-JP": {
-              singular: "月額{PRICE}相当のサブスクリプションがすべて含まれます."
+              singular: "月額最大{PRICE}相当のサブスクリプションにアクセスできるようになりました"
             },
             "ko-KR": {
-              singular: "월 {PRICE} 상당의 구독이 모두 포함됩니다"
+              singular: "이제 월 최대 {PRICE} 상당의 구독을 이용할 수 있습니다"
             },
             "pt-BR": {
-              singular: "Assinaturas no valor de {PRICE} por mês, todas incluídas"
+              singular: "Agora você tem acesso a assinaturas no valor de até {PRICE} por mês"
             },
             "zh-CN": {
-              singular: "每月价值 {PRICE} 的订阅，全部包含在内"
+              singular: "您现在可获得价值高达每月 {PRICE} 的订阅服务"
             }
           }
         })) : String((0, _v18.translate)({
-          singular: "Subscriptions worth {PRICE} a year, all included",
+          singular: "You now have access to subscriptions worth up to {PRICE} a year",
           replacements: {
             PRICE: _v1
           },
           dictionary: {
             es: {
-              singular: "Suscripciones por valor de {PRICE} al año, todas incluidas"
+              singular: "Ahora tienes acceso a suscripciones por valor de hasta {PRICE} al año"
             },
             "de-DE": {
-              singular: "Abonnements im Wert von {PRICE} pro Jahr, alle enthalten"
+              singular: "Sie haben jetzt Zugriff auf Abonnements im Wert von bis zu {PRICE} pro Jahr"
             },
             "fr-FR": {
-              singular: "Abonnements d'une valeur de {PRICE} par an, tous inclus"
+              singular: "Vous avez désormais accès à des abonnements d'une valeur allant jusqu'à {PRICE} par an"
             },
             "ja-JP": {
-              singular: "年間{PRICE}相当のサブスクリプションがすべて含まれます."
+              singular: "年間最大{PRICE}相当のサブスクリプションにアクセスできるようになりました"
             },
             "ko-KR": {
-              singular: "연 {PRICE} 상당의 구독이 모두 포함됩니다"
+              singular: "이제 연간 최대 {PRICE} 상당의 구독을 이용할 수 있습니다"
             },
             "pt-BR": {
-              singular: "Assinaturas no valor de {PRICE} por ano, todas incluídas"
+              singular: "Agora você tem acesso a assinaturas no valor de até {PRICE} por ano"
             },
             "zh-CN": {
-              singular: "每年价值 {PRICE} 的订阅，全部包含在内"
+              singular: "您现在可获得价值高达每年 {PRICE} 的订阅服务"
             }
           }
         })))({
           periodicity: _v1,
-          price: _v8
+          price: _v7
         }),
-        body: (_v4 = _v6.clusterTiles, _v5 = _v6.otherProductsCount ?? 0, String((0, _v18.translate)({
-          singular: "{APPS} and one more app, fully included in your plan.",
-          plural: "{APPS} and {COUNT} more apps, fully included in your plan.",
-          count: _v5,
+        body: (_v4 = _v5.clusterTiles, String((0, _v18.translate)({
+          singular: "Premium access to {APPS} and more",
           replacements: {
-            APPS: (0, _v19.getBundleAppNames)(_v4),
-            COUNT: `${_v5}`
+            APPS: (0, _v19.getBundleAppNames)(_v4)
           },
           dictionary: {
             es: {
-              singular: "{APPS} y una aplicación más, totalmente incluida en tu plan.",
-              plural: "{APPS} y {COUNT} aplicaciones más, totalmente incluidas en tu plan."
+              singular: "Acceso premium a {APPS} y más"
             },
             "de-DE": {
-              singular: "{APPS} und eine weitere App, vollständig in Ihrem Plan enthalten.",
-              plural: "{APPS} und {COUNT} weitere Apps, vollständig in Ihrem Plan enthalten."
+              singular: "Premiumzugang zu {APPS} und mehr"
             },
             "fr-FR": {
-              singular: "{APPS} et une application supplémentaire, entièrement incluse dans votre forfait.",
-              plural: "{APPS} et {COUNT} applications supplémentaires, entièrement incluses dans votre forfait."
+              singular: "Accès Premium à {APPS} et plus"
             },
             "ja-JP": {
-              singular: "{APPS} ともう1つのアプリがプランに完全に含まれます。",
-              plural: "{APPS} とさらに{COUNT}個のアプリがプランに完全に含まれます。"
+              singular: "{APPS}へのプレミアムアクセスなど"
             },
             "ko-KR": {
-              singular: "{APPS} 및 추가 1개의 앱이 귀하의 요금제에 완전히 포함됩니다.",
-              plural: "{APPS} 및 추가 {COUNT}개의 앱이 귀하의 요금제에 완전히 포함됩니다."
+              singular: "{APPS} 및 그 외 콘텐츠에 대한 프리미엄 액세스"
             },
             "pt-BR": {
-              singular: "{APPS} e mais um aplicativo, totalmente incluído no seu plano.",
-              plural: "{APPS} e mais {COUNT} aplicativos, totalmente incluídos no seu plano."
+              singular: "Acesso Premium a {APPS} e muito mais"
             },
             "zh-CN": {
-              singular: "{APPS} 和另外一个应用，已完全包含在您的计划中。",
-              plural: "{APPS} 和另外 {COUNT} 个应用，已完全包含在您的计划中。"
+              singular: "尊享 {APPS} 及更多权益"
             }
           }
         }))),
         ctaLabel: String((0, _v18.translate)({
-          singular: "Claim your subscriptions",
+          singular: "Redeem your subscriptions",
           dictionary: {
             es: {
-              singular: "Reclama tus suscripciones"
+              singular: "Canjea tus suscripciones"
             },
             "de-DE": {
-              singular: "Beanspruchen Sie Ihre Abonnements"
+              singular: "Lösen Sie Ihre Abonnements ein"
             },
             "fr-FR": {
-              singular: "Réclamez vos abonnements"
+              singular: "Récupérez vos abonnements"
             },
             "ja-JP": {
-              singular: "サブスクリプションを取得する"
+              singular: "サブスクリプションを引き換える"
             },
             "ko-KR": {
               singular: "구독을 등록하세요"
@@ -279,7 +268,7 @@
               singular: "Resgatar suas assinaturas"
             },
             "zh-CN": {
-              singular: "认领您的订阅"
+              singular: "兑换您的订阅"
             }
           }
         })),

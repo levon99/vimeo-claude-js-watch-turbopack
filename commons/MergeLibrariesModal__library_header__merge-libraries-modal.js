@@ -159,7 +159,7 @@
                 singular: "Was passiert, wenn ich sie zusammenführe?"
               },
               "fr-FR": {
-                singular: "Que se passe-t-il lorsque je fusionne\x0f?"
+                singular: "Que se passe-t-il lorsque je fusionne ?"
               },
               "ja-JP": {
                 singular: "統合するとどうなりますか？"

@@ -1102,6 +1102,7 @@
             isMobile: _v1,
             showWatchMenuItem: !!_v7?.isFromCopyrightRestrictedRegion,
             showWhatsNew: !_v22 && !_v6,
+            hideWhatsNewIntroPopover: !_v4,
             showQuota: _v21,
             isLoadingQuota: _v18,
             quota: {

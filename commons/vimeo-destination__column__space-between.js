@@ -437,7 +437,7 @@
         shouldShow: _v11?.user?.id !== _v11?.team?.ownerId,
         from: "LIVE",
         marginY: (0, _v8.rem)(5)
-      }), (0, _v1.jsx)(_v7.Divider, {
+      }), _v10 ? null : (0, _v1.jsx)(_v7.Divider, {
         borderColor: "stroke"
       }), _v15 ? (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v22.ShowcaseDestination, {

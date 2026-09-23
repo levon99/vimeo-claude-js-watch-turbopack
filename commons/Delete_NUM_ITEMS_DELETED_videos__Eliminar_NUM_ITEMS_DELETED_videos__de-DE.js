@@ -324,8 +324,8 @@
             plural: "{NUM_ITEMS_DELETED} Videos dauerhaft löschen?"
           },
           "fr-FR": {
-            singular: "Supprimer définitivement 1 vidéo\x0202F?",
-            plural: "Supprimer définitivement {NUM_ITEMS_DELETED} vidéos\x0202F?"
+            singular: "Supprimer définitivement 1 vidéo ?",
+            plural: "Supprimer définitivement {NUM_ITEMS_DELETED} vidéos ?"
           },
           "ja-JP": {
             singular: "1件のビデオを永久に削除しますか？",

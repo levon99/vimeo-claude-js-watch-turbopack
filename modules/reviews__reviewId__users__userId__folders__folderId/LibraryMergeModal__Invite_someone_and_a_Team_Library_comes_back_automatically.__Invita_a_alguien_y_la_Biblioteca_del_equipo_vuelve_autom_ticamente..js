@@ -280,7 +280,7 @@
                     singular: "Willst du später ein Team?"
                   },
                   "fr-FR": {
-                    singular: "Vous voulez une équipe plus tard\x0f?"
+                    singular: "Vous voulez une équipe plus tard ?"
                   },
                   "ja-JP": {
                     singular: "後でチームが必要ですか？"
@@ -315,7 +315,7 @@
                     singular: "Warum?"
                   },
                   "fr-FR": {
-                    singular: "Pourquoi\x0f?"
+                    singular: "Pourquoi ?"
                   },
                   "ja-JP": {
                     singular: "なぜ？"

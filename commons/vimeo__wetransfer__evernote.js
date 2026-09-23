@@ -4,7 +4,33 @@
   var _v1 = _v0.i(0);
   let _v2 = ["vimeo", "wetransfer", "evernote", "harvest", "splice", "mileiq", "issuu", "komoot", "aol", "remini", "meetup", "streamyard", "airtable", "tractive"],
     _v3 = new Set(_v2),
-    _v4 = {
+    _v4 = _v0 => _v3.has(_v0),
+    _v5 = {
+      vimeo: "Vimeo",
+      wetransfer: "WeTransfer",
+      evernote: "Evernote",
+      harvest: "Harvest",
+      splice: "Splice",
+      mileiq: "MileIQ",
+      issuu: "Issuu",
+      komoot: "komoot",
+      aol: "AOL",
+      remini: "Remini",
+      meetup: "Meetup",
+      streamyard: "StreamYard",
+      airtable: "Airtable",
+      tractive: "Tractive"
+    },
+    _v6 = {
+      wetransfer: "Ultimate",
+      streamyard: "Advanced",
+      evernote: "Advanced",
+      harvest: "Teams",
+      mileiq: "Unlimited",
+      issuu: "Unlimited",
+      komoot: "Premium"
+    },
+    _v7 = {
       vimeo: String((0, _v1.translate)({
         singular: "Video hosting, editing, and distribution.",
         dictionary: {
@@ -370,7 +396,7 @@
         }
       }))
     },
-    _v5 = {
+    _v8 = {
       remini: {
         ios: "https://apps.apple.com/app/id1470373330",
         android: "https://play.google.com/store/apps/details?id=com.bigwinepot.nwdn.international"
@@ -380,11 +406,11 @@
         android: "https://play.google.com/store/apps/details?id=com.splice.video.editor"
       }
     };
-  _v0.s(["PRODUCT_DESCRIPTIONS", 0, _v4, "PRODUCT_ENTRY_URLS", 0, {
+  _v0.s(["PRODUCT_DESCRIPTIONS", 0, _v7, "PRODUCT_ENTRY_URLS", 0, {
     wetransfer: "https://wetransfer.com",
     evernote: "https://evernote.com",
     harvest: "https://www.getharvest.com",
-    splice: "https://splice.com",
+    splice: "https://spliceapp.com",
     mileiq: "https://www.mileiq.com",
     issuu: "https://issuu.com",
     komoot: "https://komoot.com",
@@ -408,25 +434,9 @@
     streamyard: "https://i.vimeocdn.com/custom_asset/056e247efd30ffac6a73d3df25dbae0c",
     airtable: "https://i.vimeocdn.com/custom_asset/ce7bfdd19ffcdc97c2b47832a7a434d4",
     tractive: "https://i.vimeocdn.com/custom_asset/1ca9e9e94181a58ec2a0e69a70c9e83e"
-  }, "PRODUCT_IDS", 0, _v2, "PRODUCT_NAMES", 0, {
-    vimeo: "Vimeo",
-    wetransfer: "WeTransfer",
-    evernote: "Evernote",
-    harvest: "Harvest",
-    splice: "Splice",
-    mileiq: "MileIQ",
-    issuu: "Issuu",
-    komoot: "komoot",
-    aol: "AOL",
-    remini: "Remini",
-    meetup: "Meetup",
-    streamyard: "StreamYard",
-    airtable: "Airtable",
-    tractive: "Tractive"
-  }, "PRODUCT_TIER_LABELS", 0, {
-    wetransfer: "Ultimate",
-    streamyard: "Advanced",
-    evernote: "Advanced",
-    harvest: "Teams"
-  }, "getProductStoreUrl", 0, (_v0, _v1) => _v5[_v0]?.[_v1], "isProductId", 0, _v0 => _v3.has(_v0)]);
+  }, "PRODUCT_IDS", 0, _v2, "PRODUCT_NAMES", 0, _v5, "PRODUCT_TIER_LABELS", 0, _v6, "getProductDisplayName", 0, _v0 => {
+    if (!_v4(_v0)) return _v0;
+    let _v1 = _v6[_v0];
+    return void 0 === _v1 ? _v5[_v0] : `${_v5[_v0]} ${_v1}`;
+  }, "getProductStoreUrl", 0, (_v0, _v1) => _v8[_v0]?.[_v1], "isProductId", 0, _v4]);
 }
