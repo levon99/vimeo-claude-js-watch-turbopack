@@ -1814,7 +1814,7 @@
               display: "flex",
               flexDirection: "column",
               children: (0, _v6.jsx)(_v139, {
-                queryUrl: `/users/${_v16?.user?.id}/videos`,
+                queryUrl: `users/${_v16?.user?.id}/videos`,
                 authToken: _v6 ? `jwt ${_v6}` : void 0,
                 parentLoading: !_v6,
                 selectedClips: _v4,
@@ -1828,7 +1828,7 @@
               display: "flex",
               flexDirection: "column",
               children: (0, _v6.jsx)(_v139, {
-                queryUrl: `/users/${_v16?.user?.id}/appearances`,
+                queryUrl: `users/${_v16?.user?.id}/appearances`,
                 selectedClips: _v4,
                 onSelectedClipsChange: _v5,
                 emptyStateText: _v51.default.CreditsEmptyText,

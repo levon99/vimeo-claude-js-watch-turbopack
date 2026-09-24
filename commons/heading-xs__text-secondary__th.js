@@ -320,6 +320,33 @@
             }
           }
         });
+      case "ai_analytics":
+        return (0, _v13.translate)({
+          singular: "AI analytics",
+          dictionary: {
+            es: {
+              singular: "analítica de IA"
+            },
+            "de-DE": {
+              singular: "KI-Analytik"
+            },
+            "fr-FR": {
+              singular: "Analytique par IA"
+            },
+            "ja-JP": {
+              singular: "AIアナリティクス"
+            },
+            "ko-KR": {
+              singular: "AI 분석"
+            },
+            "pt-BR": {
+              singular: "Análises de IA"
+            },
+            "zh-CN": {
+              singular: "AI 分析"
+            }
+          }
+        });
       default:
         return (0, _v13.translate)({
           singular: "AI credits usage",

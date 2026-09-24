@@ -350,6 +350,7 @@
     vendor: _v0.vendor ?? null,
     totalPrice: _v0.totalPrice,
     totalPriceForDisplay: _v0.totalPriceForDisplay,
+    paymentServiceAddOns: Array.isArray(_v0.paymentServiceAddOns) ? _v0.paymentServiceAddOns : [],
     currency: _v0.currency,
     currentUnassignedSeatCount: _v0.currentUnassignedSeatCount,
     nextCycle: {

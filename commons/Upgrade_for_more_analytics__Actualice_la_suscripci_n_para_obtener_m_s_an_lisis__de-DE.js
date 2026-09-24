@@ -857,40 +857,40 @@
                 fontSize: "heading-xs",
                 lineHeight: "1.4",
                 children: (_v0 = _v0.available, (0, _v30.translate)({
-                  singular: "You’ve used all {count} free prompt this week",
-                  plural: "You’ve used all {count} free prompts this week",
+                  singular: "You’ve used all {count} prompt this week",
+                  plural: "You’ve used all {count} prompts this week",
                   replacements: {
                     count: _v0
                   },
                   count: _v0,
                   dictionary: {
                     es: {
-                      singular: "Ha utilizado el {count} prompt gratuito esta semana",
-                      plural: "Ha utilizado los {count} prompts gratuitos esta semana"
+                      singular: "Has usado el {count} prompt esta semana",
+                      plural: "Has usado los {count} prompts esta semana"
                     },
                     "de-DE": {
-                      singular: "Sie haben diese Woche {count} kostenloses Prompt verwendet",
-                      plural: "Sie haben diese Woche alle {count} kostenlosen Prompts verwendet"
+                      singular: "Du hast diese Woche {count} Prompt verwendet",
+                      plural: "Du hast diese Woche alle {count} Prompts verwendet"
                     },
                     "fr-FR": {
-                      singular: "Vous avez utilisé votre {count} prompt gratuit cette semaine",
-                      plural: "Vous avez utilisé vos {count} prompts gratuits cette semaine"
+                      singular: "Vous avez utilisé {count} requête cette semaine",
+                      plural: "Vous avez utilisé les {count} requêtes cette semaine"
                     },
                     "ja-JP": {
-                      singular: "今週は{count}個の無料プロンプトをすべて使い切りました",
-                      plural: "今週は{count}個の無料プロンプトをすべて使い切りました"
+                      singular: "今週、{count}件のプロンプトをすべて使用しました",
+                      plural: "今週、{count}件のプロンプトをすべて使用しました"
                     },
                     "ko-KR": {
-                      singular: "이번 주에 무료 프롬프트 {count}개를 모두 사용하셨습니다",
-                      plural: "이번 주에 무료 프롬프트 {count}개를 모두 사용하셨습니다"
+                      singular: "이번 주에 {count}개의 프롬프트를 모두 사용했습니다",
+                      plural: "이번 주에 {count}개의 프롬프트를 모두 사용했습니다"
                     },
                     "pt-BR": {
-                      singular: "Você usou {count} prompt gratuito esta semana",
-                      plural: "Você usou todos os {count} prompts gratuitos esta semana"
+                      singular: "Você usou {count} prompt esta semana",
+                      plural: "Você usou todos os {count} prompts esta semana"
                     },
                     "zh-CN": {
-                      singular: "您本周已用完 {count} 个免费提示",
-                      plural: "您本周已用完 {count} 个免费提示"
+                      singular: "本周您已用完全部 {count} 条提示",
+                      plural: "本周您已用完全部 {count} 条提示"
                     }
                   }
                 }))
@@ -931,40 +931,40 @@
             variant: "heading-xs",
             color: "text-primary",
             children: (_v1 = _v0.remaining, (0, _v30.translate)({
-              singular: "{count} free prompt left this week",
-              plural: "{count} free prompts left this week",
+              singular: "{count} prompt left this week",
+              plural: "{count} prompts left this week",
               replacements: {
                 count: _v1
               },
               count: _v1,
               dictionary: {
                 es: {
-                  singular: "Queda {count} prompt gratuito esta semana",
-                  plural: "Quedan {count} prompts gratuitos esta semana"
+                  singular: "Queda {count} prompt esta semana",
+                  plural: "Quedan {count} prompts esta semana"
                 },
                 "de-DE": {
-                  singular: "Diese Woche bleibt noch {count} kostenloses Prompt übrig",
-                  plural: "Diese Woche sind noch {count} kostenlose Prompts übrig"
+                  singular: "{count} Prompt verbleibt diese Woche",
+                  plural: "{count} Prompts verbleiben diese Woche"
                 },
                 "fr-FR": {
-                  singular: "{count} prompt gratuit restant cette semaine",
-                  plural: "{count} prompts gratuits restants cette semaine"
+                  singular: "Il vous reste {count} requête cette semaine",
+                  plural: "Il vous reste {count} requêtes cette semaine"
                 },
                 "ja-JP": {
-                  singular: "今週は{count}個の無料プロンプトが残っています",
-                  plural: "今週は{count}個の無料プロンプトが残っています"
+                  singular: "今週、{count}件のプロンプトが残っています",
+                  plural: "今週、{count}件のプロンプトが残っています"
                 },
                 "ko-KR": {
-                  singular: "이번 주에 무료 프롬프트 {count}개가 남아 있습니다",
-                  plural: "이번 주에 무료 프롬프트 {count}개가 남아 있습니다"
+                  singular: "이번 주에 {count}개의 프롬프트가 남았습니다",
+                  plural: "이번 주에 {count}개의 프롬프트가 남았습니다"
                 },
                 "pt-BR": {
-                  singular: "Resta {count} prompt gratuito esta semana",
-                  plural: "Faltam {count} prompts gratuitos esta semana"
+                  singular: "{count} prompt restante esta semana",
+                  plural: "{count} prompts restantes esta semana"
                 },
                 "zh-CN": {
-                  singular: "本周还剩 {count} 个免费提示",
-                  plural: "本周还剩 {count} 个免费提示"
+                  singular: "本周还剩 {count} 条提示",
+                  plural: "本周还剩 {count} 条提示"
                 }
               }
             }))
@@ -12515,48 +12515,50 @@
           trackAnalyticsAiDashboardDisplayed: _v4
         } = (0, _v13.useAnalyticsTracking)(),
         {
-          data: _v5,
-          isLoading: _v6,
-          isValidating: _v7,
-          mutate: _v8
-        } = _v72(() => ({
+          capabilities: {
+            aiAnalyticsFullAccess: _v5,
+            aiAnalyticsDashboard: _v6
+          },
+          ready: _v7,
+          error: _v8
+        } = (0, _v11.useCapability)(["aiAnalyticsFullAccess", "aiAnalyticsDashboard"], _v2),
+        _v9 = !0 === _v6,
+        {
+          data: _v10,
+          isLoading: _v11,
+          isValidating: _v12,
+          mutate: _v13
+        } = _v72(() => _v9 ? {
           select: _v100,
           where: {
             userId: _v2
           }
-        }), {
+        } : null, {
           revalidateOnFocus: !1
         }),
         {
-          data: _v9,
-          isLoading: _v10,
-          mutate: _v11
-        } = (0, _v23.useGetUser)(() => ({
+          data: _v14,
+          isLoading: _v15,
+          mutate: _v16
+        } = (0, _v23.useGetUser)(() => _v9 ? {
           where: {
             userId: _v2
           },
           select: ["aiAnalyticsWidgetQuota", "aiAnalyticsWidgetQuota.available", "aiAnalyticsWidgetQuota.period", "aiAnalyticsWidgetQuota.remaining", "aiAnalyticsWidgetQuota.resetDate", "aiAnalyticsWidgetQuota.used"]
-        })),
-        {
-          capabilities: {
-            aiAnalyticsFullAccess: _v12
-          },
-          ready: _v13,
-          error: _v14
-        } = (0, _v11.useCapability)(["aiAnalyticsFullAccess"], _v2),
-        _v15 = _v6 || _v10 || !_v13 && null === _v14,
-        _v16 = (0, _v4.useMemo)(() => _v423(_v5), [_v5]),
-        _v17 = !0 === _v12,
-        _v18 = (0, _v4.useMemo)(() => {
+        } : null),
+        _v17 = _v11 || _v15 || !_v7 && null === _v8,
+        _v18 = (0, _v4.useMemo)(() => _v423(_v10), [_v10]),
+        _v19 = !0 === _v5,
+        _v20 = (0, _v4.useMemo)(() => {
           var _v0;
-          return _v17 ? null : (_v0 = _v9?.aiAnalyticsWidgetQuota, _v0?.available === void 0 || void 0 === _v0.remaining || void 0 === _v0.used ? null : {
+          return _v19 ? null : (_v0 = _v14?.aiAnalyticsWidgetQuota, _v0?.available === void 0 || void 0 === _v0.remaining || void 0 === _v0.used ? null : {
             available: _v0.available,
             remaining: _v0.remaining,
             used: _v0.used
           });
-        }, [_v17, _v9]),
-        _v19 = (0, _v4.useCallback)(_v0 => {
-          _v8(_v0 => {
+        }, [_v19, _v14]),
+        _v21 = (0, _v4.useCallback)(_v0 => {
+          _v13(_v0 => {
             let _v1 = _v0(_v423(_v0));
             return {
               total: _v1.length,
@@ -12565,49 +12567,51 @@
           }, {
             revalidate: !1
           });
-        }, [_v8]),
-        _v20 = (0, _v4.useCallback)(() => {
-          _v8();
-        }, [_v8]),
-        _v21 = (0, _v4.useCallback)(_v0 => {
-          _v11(_v0 => void 0 === _v0 ? _v0 : {
+        }, [_v13]),
+        _v22 = (0, _v4.useCallback)(() => {
+          _v13();
+        }, [_v13]),
+        _v23 = (0, _v4.useCallback)(_v0 => {
+          _v16(_v0 => void 0 === _v0 ? _v0 : {
             ..._v0,
             aiAnalyticsWidgetQuota: _v0
           }, {
             revalidate: !1
           });
-        }, [_v11]);
+        }, [_v16]);
       return ((0, _v14.usePicoEffect)(() => {
-        if (_v6 || _v7) return !1;
+        if (!_v9 || _v11 || _v12) return !1;
         _v4({
-          widgetCount: _v16.length,
-          hasWidgets: _v16.length > 0
+          widgetCount: _v18.length,
+          hasWidgets: _v18.length > 0
         });
-      }, [_v6, _v7, _v16.length], {
+      }, [_v9, _v11, _v12, _v18.length], {
         once: !0
       }), (0, _v4.useEffect)(() => {
         _v1({
           type: _v314.REPORT_ACTION_TYPE.UPDATE_LOADING_STATE,
           payload: !1
         });
-      }, [_v1]), _v15) ? (0, _v3.jsx)(_v6.Flex, {
+      }, [_v1]), _v17) ? (0, _v3.jsx)(_v6.Flex, {
         height: "31.25rem",
         alignItems: "center",
         justifyContent: "center",
         children: (0, _v3.jsx)(_v10.Spinner, {
           size: "md"
         })
-      }) : (0, _v3.jsx)(_v440, {
+      }) : _v9 ? (0, _v3.jsx)(_v440, {
         state: _v0,
         dispatch: _v1,
         userId: _v2,
-        widgets: _v16,
-        hasFullAiAccess: _v17,
-        promptQuota: _v18,
+        widgets: _v18,
+        hasFullAiAccess: _v19,
+        promptQuota: _v20,
         datasetAccess: _v3,
-        onUpdateWidgets: _v19,
-        onRefreshWidgets: _v20,
-        onSyncQuota: _v21
+        onUpdateWidgets: _v21,
+        onRefreshWidgets: _v22,
+        onSyncQuota: _v23
+      }) : (0, _v3.jsx)(_v27.ErrorPage, {
+        error: new _v25.ResourceNotFoundError()
       });
     };
   var _v442 = _v0.i(0),
@@ -24976,31 +24980,32 @@
             hasAdvancedStats: _v11,
             hasTeamAnalytics: _v12,
             canSeeTeamAnalyticsUpsell: _v13,
-            canUseSentimentWidgets: _v14
+            canUseSentimentWidgets: _v14,
+            aiAnalyticsDashboard: _v15
           },
-          loading: _v15
-        } = (0, _v11.useCapability)(["hasAdvancedStats", "hasTeamAnalytics", "canSeeTeamAnalyticsUpsell", "canUseSentimentWidgets"], _v8),
+          loading: _v16
+        } = (0, _v11.useCapability)(["hasAdvancedStats", "hasTeamAnalytics", "canSeeTeamAnalyticsUpsell", "canUseSentimentWidgets", "aiAnalyticsDashboard"], _v8),
         {
-          data: _v16
+          data: _v17
         } = (0, _v726.useGetUserPreferences)(() => _v8 ? {
           where: {
             userId: _v8
           },
           select: ["taa"]
         } : null),
-        _v17 = (0, _v93.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
-        _v18 = (0, _v7.rem)(40),
-        _v19 = `${(0, _v7.rem)(8)} ${(0, _v7.rem)(16)}`,
-        _v20 = (0, _v7.rem)(12),
-        _v21 = (0, _v7.rem)(4),
-        _v22 = _v0 => _v2 ? _v0.replace("/analytics", "/manage/organization/analytics") : _v0,
-        _v23 = _v16?.taa,
-        _v24 = _v10 || _v15,
-        _v25 = _v1 && _v2 ? _v1 : _v4?.teamUser?.ownerId || _v4?.user?.id,
-        _v26 = !!(0, _v24.matchPath)(location.pathname, {
-          path: [_v22("/analytics/teams/:teamOwnerId/users"), _v22("/analytics/teams/:teamOwnerId/videos")]
+        _v18 = (0, _v93.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
+        _v19 = (0, _v7.rem)(40),
+        _v20 = `${(0, _v7.rem)(8)} ${(0, _v7.rem)(16)}`,
+        _v21 = (0, _v7.rem)(12),
+        _v22 = (0, _v7.rem)(4),
+        _v23 = _v0 => _v2 ? _v0.replace("/analytics", "/manage/organization/analytics") : _v0,
+        _v24 = _v17?.taa,
+        _v25 = _v10 || _v16,
+        _v26 = _v1 && _v2 ? _v1 : _v4?.teamUser?.ownerId || _v4?.user?.id,
+        _v27 = !!(0, _v24.matchPath)(location.pathname, {
+          path: [_v23("/analytics/teams/:teamOwnerId/users"), _v23("/analytics/teams/:teamOwnerId/videos")]
         })?.isExact,
-        _v27 = !_v24 && _v23 && (_v12 || _v13);
+        _v28 = !_v25 && _v24 && (_v12 || _v13);
       return (0, _v3.jsx)(_v6.Flex, {
         flexGrow: "1",
         direction: "column",
@@ -25017,9 +25022,9 @@
                 to: _v2 ? "/manage/organization/members" : "/",
                 children: (0, _v3.jsxs)(_v74.Button, {
                   width: "100%",
-                  minHeight: _v18,
-                  padding: _v19,
-                  borderRadius: _v20,
+                  minHeight: _v19,
+                  padding: _v20,
+                  borderRadius: _v21,
                   justifyContent: "flex-start",
                   marginTop: (0, _v7.rem)(8),
                   variant: "tertiary",
@@ -25034,7 +25039,7 @@
                 })
               }), (0, _v3.jsx)(_v88.Link, {
                 as: _v310.Link,
-                to: _v22("/analytics"),
+                to: _v23("/analytics"),
                 onClick: () => {
                   (0, _v32.trackSideBar)("dashboard"), _v6({
                     analyticsReportType: "dashboard"
@@ -25042,15 +25047,15 @@
                 },
                 children: (0, _v3.jsx)(_v74.Button, {
                   width: "100%",
-                  minHeight: _v18,
-                  padding: _v19,
-                  borderRadius: _v20,
+                  minHeight: _v19,
+                  padding: _v20,
+                  borderRadius: _v21,
                   justifyContent: "flex-start",
                   variant: "tertiary",
-                  isActive: location.pathname === _v22("/analytics"),
+                  isActive: location.pathname === _v23("/analytics"),
                   fontWeight: "400",
                   _active: {
-                    backgroundColor: `${_v17} !important`
+                    backgroundColor: `${_v18} !important`
                   },
                   onClick: _v5,
                   children: (0, _v3.jsx)(_v46.Text, {
@@ -25059,9 +25064,9 @@
                     children: _v206.DISPLAY_MAP.dashboard
                   })
                 })
-              }), _v7.enable_ai_analytics_dashboard && (0, _v3.jsx)(_v88.Link, {
+              }), _v7.enable_ai_analytics_dashboard && _v15 && (0, _v3.jsx)(_v88.Link, {
                 as: _v310.Link,
-                to: _v22("/analytics/ai"),
+                to: _v23("/analytics/ai"),
                 onClick: () => {
                   (0, _v32.trackSideBar)(_v206.REPORT_TYPE_AI), _v6({
                     analyticsReportType: _v206.REPORT_TYPE_AI
@@ -25069,15 +25074,15 @@
                 },
                 children: (0, _v3.jsx)(_v74.Button, {
                   width: "100%",
-                  minHeight: _v18,
-                  padding: _v19,
-                  borderRadius: _v20,
+                  minHeight: _v19,
+                  padding: _v20,
+                  borderRadius: _v21,
                   justifyContent: "flex-start",
                   variant: "tertiary",
-                  isActive: location.pathname === _v22("/analytics/ai"),
+                  isActive: location.pathname === _v23("/analytics/ai"),
                   fontWeight: "400",
                   _active: {
-                    backgroundColor: `${_v17} !important`
+                    backgroundColor: `${_v18} !important`
                   },
                   onClick: _v5,
                   children: (0, _v3.jsxs)(_v6.Flex, {
@@ -25156,7 +25161,7 @@
                     })]
                   })
                 })
-              }), !_v15 && !_v11 && (0, _v3.jsx)(_v801.SmallUpgradeBanner, {
+              }), !_v16 && !_v11 && (0, _v3.jsx)(_v801.SmallUpgradeBanner, {
                 button: {
                   label: _v217.T_UPGRADE,
                   onClick: () => {
@@ -25182,11 +25187,11 @@
                 children: _v217.T_REPORTS_SIDE_NAV
               }), (0, _v3.jsxs)(_v6.Flex, {
                 direction: "column",
-                gap: _v21,
+                gap: _v22,
                 paddingTop: "0",
                 children: [_v206.REPORT_LINKS.map((_v0, _v1) => (0, _v3.jsx)(_v88.Link, {
                   as: _v310.Link,
-                  to: _v22("/analytics/" + _v0),
+                  to: _v23("/analytics/" + _v0),
                   onClick: () => {
                     (0, _v32.trackSideBar)(`${_v0}`), _v6({
                       analyticsReportType: _v0
@@ -25194,14 +25199,14 @@
                   },
                   children: (0, _v3.jsx)(_v74.Button, {
                     width: "100%",
-                    minHeight: _v18,
-                    padding: _v19,
-                    borderRadius: _v20,
+                    minHeight: _v19,
+                    padding: _v20,
+                    borderRadius: _v21,
                     justifyContent: "flex-start",
                     variant: "tertiary",
-                    isActive: !!(0, _v24.matchPath)(location.pathname, _v22(`/analytics/${_v0}`))?.isExact,
+                    isActive: !!(0, _v24.matchPath)(location.pathname, _v23(`/analytics/${_v0}`))?.isExact,
                     _active: {
-                      backgroundColor: `${_v17} !important`
+                      backgroundColor: `${_v18} !important`
                     },
                     onClick: _v5,
                     children: (0, _v3.jsx)(_v46.Text, {
@@ -25210,19 +25215,19 @@
                       children: _v206.DISPLAY_MAP[_v0]
                     })
                   })
-                }, _v0 + _v1)), _v27 && (0, _v3.jsx)(_v74.Button, {
+                }, _v0 + _v1)), _v28 && (0, _v3.jsx)(_v74.Button, {
                   as: _v310.Link,
-                  to: _v22(`/analytics/teams/${_v25}/videos`),
+                  to: _v23(`/analytics/teams/${_v26}/videos`),
                   width: "100%",
-                  minHeight: _v18,
-                  padding: _v19,
-                  borderRadius: _v20,
+                  minHeight: _v19,
+                  padding: _v20,
+                  borderRadius: _v21,
                   justifyContent: "flex-start",
                   variant: "tertiary",
-                  isActive: _v26,
+                  isActive: _v27,
                   _active: {
                     fontWeight: "500",
-                    backgroundColor: `${_v17} !important`
+                    backgroundColor: `${_v18} !important`
                   },
                   onClick: () => {
                     (0, _v32.trackSideBar)("team"), _v6({
@@ -25275,17 +25280,17 @@
                   })
                 }), _v14 && (0, _v3.jsx)(_v74.Button, {
                   as: _v310.Link,
-                  to: _v22("/analytics/video-rating"),
+                  to: _v23("/analytics/video-rating"),
                   width: "100%",
-                  minHeight: _v18,
-                  padding: _v19,
-                  borderRadius: _v20,
+                  minHeight: _v19,
+                  padding: _v20,
+                  borderRadius: _v21,
                   justifyContent: "flex-start",
                   variant: "tertiary",
-                  isActive: !!(0, _v24.matchPath)(location.pathname, _v22("/analytics/video-rating"))?.isExact,
+                  isActive: !!(0, _v24.matchPath)(location.pathname, _v23("/analytics/video-rating"))?.isExact,
                   _active: {
                     fontWeight: "500",
-                    backgroundColor: `${_v17} !important`
+                    backgroundColor: `${_v18} !important`
                   },
                   onClick: () => {
                     (0, _v32.trackSideBar)("video_rating"), _v5();
@@ -25322,17 +25327,17 @@
                   })
                 }), (0, _v3.jsx)(_v74.Button, {
                   as: _v310.Link,
-                  to: _v22("/analytics/bandwidth"),
+                  to: _v23("/analytics/bandwidth"),
                   width: "100%",
-                  minHeight: _v18,
-                  padding: _v19,
-                  borderRadius: _v20,
+                  minHeight: _v19,
+                  padding: _v20,
+                  borderRadius: _v21,
                   justifyContent: "flex-start",
                   variant: "tertiary",
-                  isActive: !!(0, _v24.matchPath)(location.pathname, _v22("/analytics/bandwidth")),
+                  isActive: !!(0, _v24.matchPath)(location.pathname, _v23("/analytics/bandwidth")),
                   _active: {
                     fontWeight: "500",
-                    backgroundColor: `${_v17} !important`
+                    backgroundColor: `${_v18} !important`
                   },
                   onClick: () => {
                     (0, _v32.trackSideBar)("bandwidth"), _v6({
@@ -25374,15 +25379,15 @@
                       })
                     })
                   })
-                }), !_v24 && _v9 && (0, _v3.jsx)(_v88.Link, {
+                }), !_v25 && _v9 && (0, _v3.jsx)(_v88.Link, {
                   as: "a",
                   href: `/stats/ondemand?user_id=${_v0}`,
                   onClick: () => (0, _v32.trackVOD)(),
                   children: (0, _v3.jsx)(_v74.Button, {
                     width: "100%",
-                    minHeight: _v18,
-                    padding: _v19,
-                    borderRadius: _v20,
+                    minHeight: _v19,
+                    padding: _v20,
+                    borderRadius: _v21,
                     justifyContent: "flex-start",
                     variant: "tertiary",
                     children: (0, _v3.jsx)(_v46.Text, {

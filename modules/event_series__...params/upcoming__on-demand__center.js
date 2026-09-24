@@ -53,30 +53,9 @@
     })]
   });
   var _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
-  let _v20 = ({
-      label: _v0
-    }) => (0, _v1.jsx)(_v10.Box, {
-      alignItems: "center",
-      backdropFilter: "blur(20px)",
-      backgroundColor: "rgba(14, 18, 22, 0.48)",
-      borderRadius: (0, _v16.rem)(4),
-      bottom: (0, _v16.rem)(7.5),
-      display: "flex",
-      height: (0, _v16.rem)(20),
-      justifyContent: "center",
-      position: "absolute",
-      px: (0, _v16.rem)(4),
-      right: (0, _v16.rem)(7.5),
-      children: (0, _v1.jsx)(_v13.Text, {
-        color: "white",
-        fontWeight: "medium",
-        variant: "body-sm",
-        whiteSpace: "nowrap",
-        children: _v0
-      })
-    }),
-    _v21 = _v0 => {
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
+  let _v21 = _v0 => {
       let _v1 = _v0.pictures?.sizes;
       if (_v1 && 0 !== _v1.length) return _v1[_v1.length - 1]?.link ?? void 0;
     },
@@ -232,7 +211,7 @@
             let _v1 = _v0.pictures?.sizes;
             if (_v1 && 0 !== _v1.length) return _v1[_v1.length - 1]?.link ?? void 0;
           })(_v0),
-          children: _v2 ? (0, _v1.jsx)(_v20, {
+          children: _v2 ? (0, _v1.jsx)(_v20.DurationBadge, {
             label: _v2
           }) : null
         }), (0, _v1.jsxs)(_v12.Flex, {
@@ -551,72 +530,25 @@
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
     _v39 = _v0.i(0),
-    _v40 = _v0.i(0);
-  let _v41 = ({
-      count: _v0,
-      href: _v1
-    }) => (0, _v1.jsxs)(_v12.Flex, {
-      align: "center",
-      backgroundColor: "fill-component",
-      borderRadius: "lg",
-      direction: "column",
-      gap: "md",
-      height: "100%",
-      justify: "center",
-      minHeight: 0,
-      p: "xl",
-      width: "100%",
-      children: [(0, _v1.jsx)(_v13.Text, {
-        color: "text-primary",
-        variant: "heading-2xl",
-        children: `+${_v0}`
-      }), (0, _v1.jsx)(_v11.Button, {
-        as: _v9.default,
-        href: _v1,
-        size: "lg",
-        variant: "secondary",
-        children: (0, _v15.translate)({
-          singular: "See all",
-          dictionary: {
-            es: {
-              singular: "Ver todo"
-            },
-            "de-DE": {
-              singular: "Alle anzeigen"
-            },
-            "fr-FR": {
-              singular: "Voir tout"
-            },
-            "ja-JP": {
-              singular: "すべて表示"
-            },
-            "ko-KR": {
-              singular: "모두 보기"
-            },
-            "pt-BR": {
-              singular: "Ver todos"
-            },
-            "zh-CN": {
-              singular: "查看全部"
-            }
-          }
-        })
-      })]
-    }),
-    _v42 = ["banner", "upcoming"],
-    _v43 = ({
+    _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0);
+  let _v44 = ["banner", "upcoming"],
+    _v45 = ({
       series: _v0,
       recordings: _v1,
       recordingsTotal: _v2
     }) => {
-      let _v3 = _v0.description?.trim() ?? "",
+      let _v3 = (0, _v43.useViewer)(),
+        _v4 = _v0.description?.trim() ?? "",
         {
-          upcoming: _v4
+          upcoming: _v5
         } = _v27(_v0.events),
-        _v5 = _v25(_v4),
-        _v6 = _v5.slice(0, 5),
-        _v7 = _v5.length > _v6.length,
-        _v8 = ((_v0, _v1) => {
+        _v6 = _v25(_v5),
+        _v7 = _v6.slice(0, 5),
+        _v8 = _v6.length > _v7.length,
+        _v9 = ((_v0, _v1) => {
           let _v2 = _v29(_v0),
             _v3 = _v29(_v1);
           if (!_v2 && !_v3) return null;
@@ -631,7 +563,7 @@
           }
           return null;
         })(_v0.landingPageConfig?.startDate, _v0.landingPageConfig?.endDate),
-        _v9 = (_v0 => {
+        _v10 = (_v0 => {
           if (!_v0) return null;
           let _v1 = _v0 => {
               try {
@@ -647,29 +579,29 @@
             _v3 = _v1("short");
           return _v2 ? _v3 && _v3 !== _v2 ? `${_v2} (${_v3})` : _v2 : _v0;
         })(_v0.landingPageConfig?.timeZone),
-        _v10 = (_v0 => {
+        _v11 = (_v0 => {
           let _v1 = _v0?.sizes;
           if (!_v1 || 0 === _v1.length) return _v0?.baseLink ?? null;
           let _v2 = [..._v1].sort((_v0, _v1) => (_v1.width ?? 0) - (_v0.width ?? 0));
           return _v2[0]?.link ?? _v0?.baseLink ?? null;
         })(_v0.pictures),
-        _v11 = _v0.landingPageConfig?.contentConfig ?? _v42,
-        _v12 = _v0.landingPageConfig?.timeZone,
-        _v13 = _v0.landingPageConfig?.faqConfig ?? [],
-        _v14 = _v11.includes("on-demand"),
-        _v15 = _v2 > _v1.length,
-        _v16 = _v11.includes("upcoming") || _v14 || _v11.includes("agenda"),
-        _v17 = (_v11.includes("upcoming") || _v11.includes("agenda")) && _v4.length > 0 || _v14 && _v1.length > 0,
-        _v18 = _v11.map(_v0 => {
+        _v12 = _v0.landingPageConfig?.contentConfig ?? _v44,
+        _v13 = _v0.landingPageConfig?.timeZone,
+        _v14 = _v0.landingPageConfig?.faqConfig ?? [],
+        _v15 = _v12.includes("on-demand"),
+        _v16 = _v2 > _v1.length,
+        _v17 = _v12.includes("upcoming") || _v15 || _v12.includes("agenda"),
+        _v18 = (_v12.includes("upcoming") || _v12.includes("agenda")) && _v5.length > 0 || _v15 && _v1.length > 0,
+        _v19 = _v12.map(_v0 => {
           if ("banner" === _v0) return (0, _v1.jsx)(_v40.Hero, {
-            dateRange: _v8,
-            description: _v3,
-            heroImageSrc: _v10,
+            dateRange: _v9,
+            description: _v4,
+            heroImageSrc: _v11,
             name: _v0.name?.trim() ?? "",
-            timeZoneLabel: _v9
+            timeZoneLabel: _v10
           }, _v0);
-          if ("upcoming" === _v0 && _v6.length > 0) return (0, _v1.jsxs)(_v38.EventsSection, {
-            action: _v7 ? (0, _v1.jsx)(_v11.Button, {
+          if ("upcoming" === _v0 && _v7.length > 0) return (0, _v1.jsxs)(_v38.EventsSection, {
+            action: _v8 ? (0, _v1.jsx)(_v11.Button, {
               as: _v9.default,
               href: _v8(_v7(_v0), _v5),
               size: "lg",
@@ -728,17 +660,17 @@
                 }
               }
             }),
-            children: [_v6.map(_v0 => (0, _v1.jsx)(_v37.EventCard, {
+            children: [_v7.map(_v0 => (0, _v1.jsx)(_v37.EventCard, {
               ..._v26(_v0)
-            }, _v0.key)), _v7 ? (0, _v1.jsx)(_v41, {
-              count: _v5.length - _v6.length,
+            }, _v0.key)), _v8 ? (0, _v1.jsx)(_v41.SeeMoreCard, {
+              count: _v6.length - _v7.length,
               href: _v8(_v7(_v0), _v5)
             }, "see-more") : null]
           }, _v0);
-          if ("agenda" === _v0 && _v4.length > 0) {
+          if ("agenda" === _v0 && _v5.length > 0) {
             let _v0, _v1, _v2;
             return (0, _v1.jsx)(_v36.AgendaSection, {
-              groups: (_v0 = [], _v1 = new Map(), _v2 = new Date().toISOString(), _v5.forEach(_v0 => {
+              groups: (_v0 = [], _v1 = new Map(), _v2 = new Date().toISOString(), _v6.forEach(_v0 => {
                 let {
                     event: _v1
                   } = _v0,
@@ -751,7 +683,7 @@
                     year: "numeric",
                     month: "2-digit",
                     day: "2-digit"
-                  }, _v12).format(new Date(_v5)),
+                  }, _v13).format(new Date(_v5)),
                   _v7 = _v1.get(_v6);
                 _v7 || (_v7 = {
                   key: _v6,
@@ -782,7 +714,7 @@
                           return "th";
                       }
                     })(_v8)}`;
-                  })(_v5, _v12) ?? "",
+                  })(_v5, _v13) ?? "",
                   events: []
                 }, _v1.set(_v6, _v7), _v0.push(_v7)), _v7.events.push({
                   key: _v0.key,
@@ -806,7 +738,7 @@
                         }
                       })(_v3, _v1) : null;
                     return _v5 ? `${_v4} ${_v5}` : _v4;
-                  })(_v2, _v12),
+                  })(_v2, _v13),
                   description: _v1.description,
                   thumbnailSrc: _v21(_v1),
                   isLive: _v0.isLive,
@@ -815,10 +747,10 @@
               }), _v0)
             }, _v0);
           }
-          return "faq" === _v0 && _v13.length > 0 ? (0, _v1.jsx)(_v39.FaqSection, {
-            items: _v13
+          return "faq" === _v0 && _v14.length > 0 ? (0, _v1.jsx)(_v39.FaqSection, {
+            items: _v14
           }, _v0) : "on-demand" === _v0 && _v1.length > 0 ? (0, _v1.jsxs)(_v38.EventsSection, {
-            action: _v15 ? (0, _v1.jsx)(_v11.Button, {
+            action: _v16 ? (0, _v1.jsx)(_v11.Button, {
               as: _v9.default,
               href: _v8(_v7(_v0), _v6),
               size: "lg",
@@ -879,7 +811,7 @@
             }),
             children: [_v1.map(_v0 => (0, _v1.jsx)(_v31, {
               recording: _v0
-            }, _v0.uri)), _v15 ? (0, _v1.jsx)(_v41, {
+            }, _v0.uri)), _v16 ? (0, _v1.jsx)(_v41.SeeMoreCard, {
               count: _v2 - _v1.length,
               href: _v8(_v7(_v0), _v6)
             }, "see-more") : null]
@@ -887,7 +819,7 @@
         }).filter(Boolean);
       return (0, _v1.jsxs)(_v34, {
         series: _v0,
-        children: [_v18, _v16 && !_v17 ? (0, _v1.jsx)(_v17, {
+        children: [_v19, _v17 && !_v18 ? (0, _v1.jsx)(_v17, {
           title: (0, _v15.translate)({
             singular: "No events scheduled",
             dictionary: {
@@ -940,18 +872,30 @@
               }
             }
           })
+        }) : null, _v3 ? (0, _v1.jsx)(_v12.Flex, {
+          as: "footer",
+          justify: "flex-end",
+          width: "100%",
+          children: (0, _v1.jsx)(_v42.EssentialFooterMenu, {
+            contentViewingPrefs: _v3.contentViewingPrefs,
+            impressumQualifies: _v3.impressumQualifies,
+            locale: _v3.locale,
+            locales: _v3.locales,
+            localeLabels: _v3.localeLabels,
+            token: _v3.xsrft
+          })
         }) : null]
       });
     };
-  var _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
+  var _v46 = _v0.i(0),
     _v47 = _v0.i(0),
-    _v48 = _v0.i(0);
-  let _v49 = _v0 => "object" == typeof _v0 && null !== _v0 ? _v0 : null,
-    _v50 = async _v0 => {
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0),
+    _v50 = _v0.i(0);
+  let _v51 = _v0 => "object" == typeof _v0 && null !== _v0 ? _v0 : null,
+    _v52 = async _v0 => {
       let _v1,
-        _v2 = _v49(_v0);
+        _v2 = _v51(_v0);
       if (_v2?.status === 404) return "not-found";
       if (_v2?.status !== 403 || !_v2.res) return "transient";
       try {
@@ -962,9 +906,9 @@
       }
       return 0 === _v1 ? "password-required" : "number" == typeof _v1 ? "not-found" : "transient";
     };
-  var _v51 = _v0.i(0),
-    _v52 = _v0.i(0);
-  async function _v53({
+  var _v53 = _v0.i(0),
+    _v54 = _v0.i(0);
+  async function _v55({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -973,48 +917,48 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v51.measureLatency)("getEventSery", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/event_series/${_v2}?${(0, _v52.searchQueryString)(_v3)}&fields=${_v1.map(_v52.intoSnakeCase).join(",")}`, {
+    return (0, _v53.measureLatency)("getEventSery", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/event_series/${_v2}?${(0, _v54.searchQueryString)(_v3)}&fields=${_v1.map(_v54.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v52.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v54.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v52.deepCamelCase)(_v1);
+      return (0, _v54.deepCamelCase)(_v1);
     });
   }
-  let _v54 = ["id", "name", "description", "link", "status", "landingPageConfig", "landingPageConfig.theme", "landingPageConfig.startDate", "landingPageConfig.endDate", "landingPageConfig.timeZone", "landingPageConfig.logo", "landingPageConfig.logo.type", "landingPageConfig.logo.uri", "landingPageConfig.logo.url", "landingPageConfig.contentConfig", "landingPageConfig.navConfig", "landingPageConfig.faqConfig", "pictures", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "pictures.baseLink", "pictures.uri", "events.uri", "events.title", "events.link", "events.description", "events.nextOccurrenceTime", "events.startTime", "events.upcomingOccurrences", "events.isLive", "events.pictures", "events.pictures.sizes", "events.pictures.sizes.link", "events.pictures.sizes.width", "events.speakers", "events.speakers.name", "events.speakers.avatar"],
-    _v55 = async ({
+  let _v56 = ["id", "name", "description", "link", "status", "landingPageConfig", "landingPageConfig.theme", "landingPageConfig.startDate", "landingPageConfig.endDate", "landingPageConfig.timeZone", "landingPageConfig.logo", "landingPageConfig.logo.type", "landingPageConfig.logo.uri", "landingPageConfig.logo.url", "landingPageConfig.contentConfig", "landingPageConfig.navConfig", "landingPageConfig.faqConfig", "pictures", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "pictures.baseLink", "pictures.uri", "events.uri", "events.title", "events.link", "events.description", "events.nextOccurrenceTime", "events.startTime", "events.upcomingOccurrences", "events.isLive", "events.pictures", "events.pictures.sizes", "events.pictures.sizes.link", "events.pictures.sizes.width", "events.speakers", "events.speakers.name", "events.speakers.avatar"],
+    _v57 = async ({
       baseUrl: _v0,
       headers: _v1,
       seriesIdOrUrl: _v2,
       password: _v3,
-      credentials: _v4,
-      signal: _v5
-    }) => _v53({
+      contentLocale: _v4,
+      credentials: _v5,
+      signal: _v6
+    }) => _v55({
       baseUrl: _v0,
       headers: _v1,
-      credentials: _v4,
-      signal: _v5,
+      credentials: _v5,
+      signal: _v6,
       where: {
         eventSeriesId: _v2
       },
-      ...(_v3 ? {
-        query: {
-          password: _v3
-        }
-      } : {}),
-      select: _v54
+      query: {
+        password: _v3,
+        contentLocale: _v4 ?? void 0
+      },
+      select: _v56
     });
-  var _v56 = _v0.i(0);
-  let _v57 = ["uri", "name", "link", "duration", "streamedOn", "pictures.sizes.link"],
-    _v58 = () => ({
+  var _v58 = _v0.i(0);
+  let _v59 = ["uri", "name", "link", "duration", "streamedOn", "pictures.sizes.link"],
+    _v60 = () => ({
       recordings: [],
       total: 0
     }),
-    _v59 = async ({
+    _v61 = async ({
       baseUrl: _v0,
       headers: _v1,
       series: _v2,
@@ -1023,12 +967,12 @@
       credentials: _v5,
       signal: _v6
     }) => {
-      if ("upcoming" === _v3 || !_v2.landingPageConfig?.contentConfig?.includes("on-demand")) return _v58();
+      if ("upcoming" === _v3 || !_v2.landingPageConfig?.contentConfig?.includes("on-demand")) return _v60();
       try {
         let {
           data: _v0,
           total: _v1
-        } = await (0, _v56.getEventSeryVideos)({
+        } = await (0, _v58.getEventSeryVideos)({
           baseUrl: _v0,
           headers: _v1,
           credentials: _v5,
@@ -1036,7 +980,7 @@
           where: {
             eventSeriesId: _v2.id
           },
-          select: _v57,
+          select: _v59,
           query: {
             sort: "newest",
             perPage: "on-demand" === _v3 ? 100 : 5,
@@ -1050,10 +994,10 @@
           total: _v1
         };
       } catch {
-        return _v58();
+        return _v60();
       }
     },
-    _v60 = async () => {
+    _v62 = async () => {
       let _v0 = await fetch("/_next/jwt", {
         headers: {
           "X-Requested-With": "XMLHttpRequest"
@@ -1065,50 +1009,52 @@
       } = await _v0.json();
       return _v1;
     },
-    _v61 = ({
+    _v63 = ({
       seriesIdOrUrl: _v0,
       baseUrl: _v1,
       view: _v2,
-      onUnlock: _v3,
-      fetchSeries: _v4
+      contentLocale: _v3,
+      onUnlock: _v4,
+      fetchSeries: _v5
     }) => {
-      let [_v5, _v6] = (0, _v3.useState)(""),
-        [_v7, _v8] = (0, _v3.useState)(null),
-        [_v9, _v10] = (0, _v3.useState)(!1),
-        _v11 = async _v0 => {
-          if (_v0.preventDefault(), _v5.trim() && !_v9) {
-            _v10(!0), _v8(null);
+      let [_v6, _v7] = (0, _v3.useState)(""),
+        [_v8, _v9] = (0, _v3.useState)(null),
+        [_v10, _v11] = (0, _v3.useState)(!1),
+        _v12 = async _v0 => {
+          if (_v0.preventDefault(), _v6.trim() && !_v10) {
+            _v11(!0), _v9(null);
             try {
-              if (_v4) {
-                let _v0 = await _v4(_v5);
-                _v3(_v0, {
+              if (_v5) {
+                let _v0 = await _v5(_v6);
+                _v4(_v0, {
                   recordings: [],
                   total: 0
                 });
               } else {
-                let _v0 = await _v60(),
+                let _v0 = await _v62(),
                   _v1 = {
                     Authorization: `jwt ${_v0}`
                   },
-                  _v2 = await _v55({
+                  _v2 = await _v57({
                     baseUrl: _v1,
                     seriesIdOrUrl: _v0,
-                    password: _v5,
+                    password: _v6,
+                    contentLocale: _v3,
                     headers: _v1,
                     credentials: "include"
                   }),
-                  _v3 = await _v59({
+                  _v3 = await _v61({
                     baseUrl: _v1,
                     headers: _v1,
                     series: _v2,
                     view: _v2,
-                    password: _v5,
+                    password: _v6,
                     credentials: "include"
                   });
-                _v3(_v2, _v3);
+                _v4(_v2, _v3);
               }
             } catch (_v0) {
-              _v49(_v0)?.status === 403 ? _v8((0, _v15.translate)({
+              _v51(_v0)?.status === 403 ? _v9((0, _v15.translate)({
                 singular: "Sorry, that password was incorrect. Please try again.",
                 dictionary: {
                   es: {
@@ -1133,7 +1079,7 @@
                     singular: "抱歉，密码不正确。请重试。"
                   }
                 }
-              })) : _v8((0, _v15.translate)({
+              })) : _v9((0, _v15.translate)({
                 singular: "Something went wrong. Please try again.",
                 dictionary: {
                   es: {
@@ -1158,7 +1104,7 @@
                     singular: "出错了。请重试。"
                   }
                 }
-              })), _v10(!1);
+              })), _v11(!1);
             }
           }
         };
@@ -1171,7 +1117,7 @@
           p: "md",
           width: "100%",
           children: (0, _v1.jsx)("form", {
-            onSubmit: _v11,
+            onSubmit: _v12,
             style: {
               maxWidth: (0, _v16.rem)(420),
               width: "100%"
@@ -1186,7 +1132,7 @@
               children: [(0, _v1.jsxs)(_v12.Flex, {
                 align: "center",
                 gap: "sm",
-                children: [(0, _v1.jsx)(_v48.Lock, {
+                children: [(0, _v1.jsx)(_v50.Lock, {
                   color: "text-primary"
                 }), (0, _v1.jsx)(_v13.Text, {
                   color: "text-primary",
@@ -1247,9 +1193,9 @@
                     }
                   }
                 })
-              }), (0, _v1.jsxs)(_v44.FormControl, {
-                isInvalid: !!_v7,
-                children: [(0, _v1.jsx)(_v45.FormLabel, {
+              }), (0, _v1.jsxs)(_v46.FormControl, {
+                isInvalid: !!_v8,
+                children: [(0, _v1.jsx)(_v47.FormLabel, {
                   size: "sm",
                   children: (0, _v15.translate)({
                     singular: "Password",
@@ -1277,11 +1223,11 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v47.Input, {
+                }), (0, _v1.jsx)(_v49.Input, {
                   autoComplete: "current-password",
                   autoFocus: !0,
                   onChange: _v0 => {
-                    _v6(_v0.target.value), _v7 && _v8(null);
+                    _v7(_v0.target.value), _v8 && _v9(null);
                   },
                   placeholder: (0, _v15.translate)({
                     singular: "Enter a password",
@@ -1310,13 +1256,13 @@
                     }
                   }),
                   type: "password",
-                  value: _v5
-                }), _v7 ? (0, _v1.jsx)(_v46.FormErrorMessage, {
-                  children: _v7
+                  value: _v6
+                }), _v8 ? (0, _v1.jsx)(_v48.FormErrorMessage, {
+                  children: _v8
                 }) : null]
               }), (0, _v1.jsx)(_v11.Button, {
-                isDisabled: !_v5.trim(),
-                isLoading: _v9,
+                isDisabled: !_v6.trim(),
+                isLoading: _v10,
                 type: "submit",
                 variant: "primary",
                 children: (0, _v15.translate)({
@@ -1351,7 +1297,7 @@
         })
       });
     },
-    _v62 = ({
+    _v64 = ({
       series: _v0
     }) => {
       let _v1 = _v25(_v27(_v0.events).upcoming),
@@ -1507,16 +1453,15 @@
         })]
       });
     };
-  var _v63 = _v0.i(0),
-    _v64 = _v0.i(0),
-    _v65 = _v0.i(0);
-  let _v66 = /^[A-Za-z0-9-]{1,128}$/;
+  var _v65 = _v0.i(0),
+    _v66 = _v0.i(0);
+  let _v67 = /^[A-Za-z0-9-]{1,128}$/;
   (0, _v4.withPageSetup)(async _v0 => {
     let _v1 = _v0.params?.params,
       _v2 = Array.isArray(_v1) ? _v1 : _v1 ? [_v1] : [],
       _v3 = _v2[0] ?? "",
       _v4 = /^\d+$/.test(_v3);
-    if (!_v4 && !_v66.test(_v3)) return {
+    if (!_v4 && !_v67.test(_v3)) return {
       notFound: !0
     };
     let _v5 = _v4 ? Number.parseInt(_v3, 10) : _v3,
@@ -1527,12 +1472,15 @@
       _v10 = _v9 ? {
         ..._v0.headers,
         cookie: _v9
-      } : _v0.headers;
+      } : _v0.headers,
+      _v11 = _v0.req.headers["crossroads-language"],
+      _v12 = ("string" == typeof _v11 && "" !== _v11 ? _v11 : _v0.locale) ?? null;
     try {
-      let _v0 = await _v55({
+      let _v0 = await _v57({
           seriesIdOrUrl: _v5,
           headers: _v10,
-          baseUrl: _v0.baseUrl
+          baseUrl: _v0.baseUrl,
+          contentLocale: _v12
         }),
         _v1 = _v7(_v0);
       if (_v4 && 1 === _v2.length && _v1.startsWith("/") && !_v1.startsWith("//") && _v1 !== `/event_series/${_v5}`) {
@@ -1553,7 +1501,7 @@
       let {
         recordings: _v2,
         total: _v3
-      } = await _v59({
+      } = await _v61({
         series: _v0,
         view: _v8,
         headers: _v10,
@@ -1567,11 +1515,12 @@
           seriesIdOrUrl: _v5,
           view: _v8,
           baseUrl: _v0.baseUrl,
+          contentLocale: _v12,
           hasThemeSupport: !0
         }
       };
     } catch (_v0) {
-      let _v1 = await _v50(_v0);
+      let _v1 = await _v52(_v0);
       if ("password-required" === _v1) return {
         props: {
           series: null,
@@ -1580,6 +1529,7 @@
           seriesIdOrUrl: _v5,
           view: _v8,
           baseUrl: _v0.baseUrl,
+          contentLocale: _v12,
           hasThemeSupport: !0
         }
       };
@@ -1594,36 +1544,38 @@
     recordingsTotal: _v2,
     seriesIdOrUrl: _v3,
     view: _v4,
-    baseUrl: _v5
+    baseUrl: _v5,
+    contentLocale: _v6
   }) => {
-    let [_v6, _v7] = (0, _v3.useState)(null),
-      _v8 = _v0 ? {
+    let [_v7, _v8] = (0, _v3.useState)(null),
+      _v9 = _v0 ? {
         series: _v0,
         recordings: _v1,
         recordingsTotal: _v2
-      } : _v6,
-      _v9 = (0, _v65.useViewer)(),
+      } : _v7,
+      _v10 = (0, _v43.useViewer)(),
       {
-        trackEventSeriesLandingPageDisplayed: _v10
-      } = (0, _v63.useEventSeriesTracking)(),
-      _v11 = (0, _v3.useRef)(null),
-      _v12 = _v8?.series.id;
+        trackEventSeriesLandingPageDisplayed: _v11
+      } = (0, _v65.useEventSeriesTracking)(),
+      _v12 = (0, _v3.useRef)(null),
+      _v13 = _v9?.series.id;
     if ((0, _v3.useEffect)(() => {
-      if (null == _v12 || !_v9) return;
-      let _v0 = `${_v12}:${_v4}`;
-      _v11.current !== _v0 && (_v11.current = _v0, _v10({
-        eventSeriesId: String(_v12),
-        landingPage: (0, _v63.deriveEventSeriesLandingPage)(_v4),
-        viewerAuthStatus: (0, _v64.deriveViewerAuthStatus)(_v9)
+      if (null == _v13 || !_v10) return;
+      let _v0 = `${_v13}:${_v4}`;
+      _v12.current !== _v0 && (_v12.current = _v0, _v11({
+        eventSeriesId: String(_v13),
+        landingPage: (0, _v65.deriveEventSeriesLandingPage)(_v4),
+        viewerAuthStatus: (0, _v66.deriveViewerAuthStatus)(_v10)
       }));
-    }, [_v12, _v4, _v9, _v10]), !_v8) return (0, _v1.jsxs)(_v1.Fragment, {
+    }, [_v13, _v4, _v10, _v11]), !_v9) return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
           children: "Event series"
         })
-      }), (0, _v1.jsx)(_v61, {
+      }), (0, _v1.jsx)(_v63, {
         baseUrl: _v5,
-        onUnlock: (_v0, _v1) => _v7({
+        contentLocale: _v6,
+        onUnlock: (_v0, _v1) => _v8({
           series: _v0,
           recordings: _v1.recordings,
           recordingsTotal: _v1.total
@@ -1633,47 +1585,47 @@
       })]
     });
     let {
-        series: _v13,
-        recordings: _v14,
-        recordingsTotal: _v15
-      } = _v8,
-      _v16 = _v13.name?.trim() || "Event series",
-      _v17 = "upcoming" === _v4 ? "Upcoming events" : "on-demand" === _v4 ? "On demand" : null,
-      _v18 = _v17 ? `${_v17} \xb7 ${_v16}` : _v16,
-      _v19 = (_v13.description ?? "").replace(/\s+/g, " ").trim().slice(0, 200),
-      _v20 = null == _v13.link ? null : `${_v13.link}${"upcoming" === _v4 ? `/${_v5}` : "on-demand" === _v4 ? `/${_v6}` : ""}`;
+        series: _v14,
+        recordings: _v15,
+        recordingsTotal: _v16
+      } = _v9,
+      _v17 = _v14.name?.trim() || "Event series",
+      _v18 = "upcoming" === _v4 ? "Upcoming events" : "on-demand" === _v4 ? "On demand" : null,
+      _v19 = _v18 ? `${_v18} \xb7 ${_v17}` : _v17,
+      _v20 = (_v14.description ?? "").replace(/\s+/g, " ").trim().slice(0, 200),
+      _v21 = null == _v14.link ? null : `${_v14.link}${"upcoming" === _v4 ? `/${_v5}` : "on-demand" === _v4 ? `/${_v6}` : ""}`;
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v2.default, {
         children: [(0, _v1.jsx)("title", {
-          children: _v18
-        }), _v19 ? (0, _v1.jsx)("meta", {
-          content: _v19,
+          children: _v19
+        }), _v20 ? (0, _v1.jsx)("meta", {
+          content: _v20,
           name: "description"
         }) : null, (0, _v1.jsx)("meta", {
-          content: _v18,
-          property: "og:title"
-        }), _v19 ? (0, _v1.jsx)("meta", {
           content: _v19,
+          property: "og:title"
+        }), _v20 ? (0, _v1.jsx)("meta", {
+          content: _v20,
           property: "og:description"
         }) : null, (0, _v1.jsx)("meta", {
           content: "website",
           property: "og:type"
-        }), _v20 ? (0, _v1.jsx)("meta", {
-          content: _v20,
+        }), _v21 ? (0, _v1.jsx)("meta", {
+          content: _v21,
           property: "og:url"
-        }) : null, _v20 ? (0, _v1.jsx)("link", {
-          href: _v20,
+        }) : null, _v21 ? (0, _v1.jsx)("link", {
+          href: _v21,
           rel: "canonical"
         }) : null]
-      }), "upcoming" === _v4 ? (0, _v1.jsx)(_v62, {
-        series: _v13
+      }), "upcoming" === _v4 ? (0, _v1.jsx)(_v64, {
+        series: _v14
       }) : "on-demand" === _v4 ? (0, _v1.jsx)(_v35, {
-        recordings: _v14,
-        series: _v13
-      }) : (0, _v1.jsx)(_v43, {
-        recordings: _v14,
-        recordingsTotal: _v15,
-        series: _v13
+        recordings: _v15,
+        series: _v14
+      }) : (0, _v1.jsx)(_v45, {
+        recordings: _v15,
+        recordingsTotal: _v16,
+        series: _v14
       })]
     });
   }], 0);

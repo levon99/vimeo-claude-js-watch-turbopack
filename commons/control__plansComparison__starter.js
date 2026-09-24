@@ -204,7 +204,10 @@
     second_free_trial_enabled: !1,
     second_free_trial_ui_treatment: "modal",
     second_free_trial_plan_tier: "starter",
-    replace_in_review: !1
+    replace_in_review: !1,
+    reverse_ft_delay_offer_paywall_on_trigger: !1,
+    reverse_ft_delay_announcement_on_trigger: !1,
+    reverse_ft_delay_trial_days: 7
   };
   function _v12() {
     return "vimeo.dev" === window.location.hostname || window.location.hostname.endsWith(".vimeows.com");

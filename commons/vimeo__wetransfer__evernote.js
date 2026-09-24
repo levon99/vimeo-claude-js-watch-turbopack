@@ -25,7 +25,7 @@
       wetransfer: "Ultimate",
       streamyard: "Advanced",
       evernote: "Advanced",
-      harvest: "Teams",
+      harvest: "Teams (10 seats)",
       mileiq: "Unlimited",
       issuu: "Unlimited",
       komoot: "Premium"

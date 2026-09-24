@@ -87,6 +87,16 @@
       _v14 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_prompt_submitted", {
         analytics_ai_prompt: _v0.prompt,
         analytics_ai_prompt_source: _v0.promptSource
+      }), !0), [_v0]),
+      _v15 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_generation_completed", {
+        analytics_ai_generation_status: _v0.generationStatus,
+        analytics_ai_prompt: _v0.prompt,
+        analytics_ai_query_spec: _v0.querySpec,
+        analytics_ai_dataset: _v0.dataset,
+        analytics_ai_chart_type: _v0.chartType,
+        analytics_ai_title: _v0.title,
+        analytics_ai_suggestions_count: _v0.suggestionsCount,
+        error: _v0.error
       }), !0), [_v0]);
     return {
       trackAnalyticsPageDisplayed: _v1,
@@ -103,16 +113,7 @@
       trackVideoAnalyticsPageDisplayed: _v12,
       trackAnalyticsAiDashboardDisplayed: _v13,
       trackAnalyticsAiPromptSubmitted: _v14,
-      trackAnalyticsAiGenerationCompleted: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_generation_completed", {
-        analytics_ai_generation_status: _v0.generationStatus,
-        analytics_ai_prompt: _v0.prompt,
-        analytics_ai_query_spec: _v0.querySpec,
-        analytics_ai_dataset: _v0.dataset,
-        analytics_ai_chart_type: _v0.chartType,
-        analytics_ai_title: _v0.title,
-        analytics_ai_suggestions_count: _v0.suggestionsCount,
-        error: _v0.error
-      }), !0), [_v0]),
+      trackAnalyticsAiGenerationCompleted: _v15,
       trackAnalyticsAiWidgetDataRequested: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_widget_data_requested", {
         analytics_ai_dataset: _v0.dataset,
         analytics_ai_chart_type: _v0.chartType,
@@ -120,6 +121,10 @@
         surface: _v0.surface,
         analytics_ai_widget_id: _v0.widgetId,
         analytics_ai_request_outcome: _v0.requestOutcome
+      }), !0), [_v0]),
+      trackAnalyticsAiSettingsToggled: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_settings_toggled", {
+        analytics_ai_enabled: _v0.enabled,
+        analytics_ai_setting_scope: _v0.scope
       }), !0), [_v0])
     };
   }]);

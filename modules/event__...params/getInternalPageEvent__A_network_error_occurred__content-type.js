@@ -1157,7 +1157,7 @@
     };
   var _v55 = _v0.i(0),
     _v56 = _v0.i(0);
-  let _v57 = ["chat_enabled", "embed.autoplay", "embed.byline", "embed.loop", "embed.playlist", "embed.portrait", "embed.schedule", "embed.show_latest_archived_clip", "embed.title", "embed.logos", "user.uri", "user.name", "user.account", "title", "uri", "schedule", "stream_description", "lead_uuid", "settings_link", "metadata.connections.team_member", "metadata.interactions.edit", "clip_to_play.name", "clip_to_play.uri", "clip_to_play.embed.speed", "clip_to_play.config_url", "clip_to_play.pictures", "clip_to_play.live.status", "clip_to_play.live.chat.room_id", "clip_to_play.live.chat.database_url", "clip_to_play.privacy.embed", "clip_to_play.privacy.view", "clip_to_play.user.account", "clip_to_play.user.uri", "clip_to_play.app.uri", "clip_to_play.password", "clip_to_play.content_rating", "streamable_clip.name", "streamable_clip.uri", "streamable_clip.config_url", "streamable_clip.pictures", "streamable_clip.live.status", "streamable_clip.live.chat.room_id", "streamable_clip.live.chat.database_url", "streamable_clip.content_rating", "stream_privacy.embed", "stream_privacy.view", "has_registration", "has_forced_lead_capture_form", "can_enable_audience_speaker", "landing_page_logo.type", "landing_page_logo.uri", "landing_page_logo.url"],
+  let _v57 = ["chat_enabled", "embed.autoplay", "embed.byline", "embed.loop", "embed.playlist", "embed.portrait", "embed.schedule", "embed.show_latest_archived_clip", "embed.title", "embed.logos", "user.uri", "user.name", "user.account", "title", "uri", "schedule", "stream_description", "lead_uuid", "settings_link", "metadata.connections.team_member", "metadata.interactions.edit", "clip_to_play.name", "clip_to_play.uri", "clip_to_play.embed.speed", "clip_to_play.config_url", "clip_to_play.pictures", "clip_to_play.live.status", "clip_to_play.live.chat.room_id", "clip_to_play.live.chat.database_url", "clip_to_play.privacy.embed", "clip_to_play.privacy.view", "clip_to_play.user.account", "clip_to_play.user.uri", "clip_to_play.app.uri", "clip_to_play.password", "clip_to_play.content_rating", "streamable_clip.name", "streamable_clip.uri", "streamable_clip.config_url", "streamable_clip.pictures", "streamable_clip.live.status", "streamable_clip.live.chat.room_id", "streamable_clip.live.chat.database_url", "streamable_clip.content_rating", "stream_privacy.embed", "stream_privacy.view", "has_registration", "has_forced_lead_capture_form", "can_enable_audience_speaker", "can_enable_reactions", "landing_page_logo.type", "landing_page_logo.uri", "landing_page_logo.url"],
     _v58 = ["items", "content_rating", "uri", "name", "config_url", "duration", "stats.plays", "pictures.sizes.link", "live.status"];
   var _v59 = _v0.i(0),
     _v60 = _v0.i(0);
@@ -2522,30 +2522,30 @@
       _v5(!!(_v6 && _v2));
     }, [_v6, _v2]), _v4;
   }
-  function _v149(_v0) {
-    let _v1 = _v0?.live?.chat?.roomId,
-      _v2 = _v0?.live?.chat?.databaseUrl,
-      _v3 = _v1 && _v2 ? `${_v2}/${_v1}` : null,
-      [_v4, _v5] = (0, _v7.useState)({
+  function _v149(_v0, _v1) {
+    let _v2 = _v0?.live?.chat?.roomId,
+      _v3 = _v0?.live?.chat?.databaseUrl,
+      _v4 = _v2 && _v3 ? `${_v3}/${_v2}` : null,
+      [_v5, _v6] = (0, _v7.useState)({
         key: null,
         isEnabled: !1
       });
     return (0, _v7.useEffect)(() => {
-      if (!_v1 || !_v2) return;
-      let _v0 = new EventSource(`${_v2}/chats/${_v1}/meta/reactionsEnabled.json`),
+      if (!_v1 || !_v2 || !_v3) return;
+      let _v0 = new EventSource(`${_v3}/chats/${_v2}/meta/reactionsEnabled.json`),
         _v1 = _v0 => {
           try {
             let {
               data: _v0
             } = JSON.parse(_v0.data);
-            _v5({
-              key: _v3,
+            _v6({
+              key: _v4,
               isEnabled: !0 === _v0
             });
           } catch {}
         };
       return _v0.addEventListener("put", _v1), _v0.addEventListener("patch", _v1), () => _v0.close();
-    }, [_v1, _v2, _v3]), _v4.key === _v3 && null !== _v3 && _v4.isEnabled;
+    }, [_v1, _v2, _v3, _v4]), !!_v1 && _v5.key === _v4 && null !== _v4 && _v5.isEnabled;
   }
   let _v150 = "0px 8px 24px var(--vimeo-colors-popover-shadow), 0 0 0 0.5px var(--vimeo-colors-popover-border)",
     _v151 = {
@@ -3054,10 +3054,11 @@
         _v14 = (0, _v116.useViewer)(),
         _v15 = !!_v14?.user,
         _v16 = !!_v9?.canEnableAudienceSpeaker,
-        _v17 = _v148(_v9?.streamableClip),
-        _v18 = _v149(_v9?.streamableClip),
-        _v19 = _v17 || _v18,
-        _v20 = _v0 && _v15 && _v16 && !_v19;
+        _v17 = !!_v9?.canEnableReactions,
+        _v18 = _v148(_v9?.streamableClip),
+        _v19 = _v149(_v9?.streamableClip, _v17),
+        _v20 = _v18 || _v19,
+        _v21 = _v0 && _v15 && _v16 && !_v20;
       (0, _v7.useEffect)(() => {
         let _v0 = _v0 => {
           let _v1 = _v0.target;
@@ -3067,9 +3068,9 @@
         };
         return document.addEventListener("click", _v0, !0), () => document.removeEventListener("click", _v0, !0);
       }, []);
-      let _v21 = (0, _v7.useMemo)(() => _v2 ? .6 * window.innerHeight : _v13 ? window.innerHeight : window.innerHeight - 96, [_v2, _v13]),
-        _v22 = (0, _v7.useCallback)(() => {}, []),
-        _v23 = (0, _v7.useCallback)(_v0 => (0, _v5.jsx)(_v153, {
+      let _v22 = (0, _v7.useMemo)(() => _v2 ? .6 * window.innerHeight : _v13 ? window.innerHeight : window.innerHeight - 96, [_v2, _v13]),
+        _v23 = (0, _v7.useCallback)(() => {}, []),
+        _v24 = (0, _v7.useCallback)(_v0 => (0, _v5.jsx)(_v153, {
           application: _v0,
           isChatSheetView: _v2,
           isFullscreen: _v13,
@@ -3078,8 +3079,8 @@
           onClose: _v4,
           onPanelOpenChange: _v5
         }), [_v2, _v13, _v1, _v3, _v4, _v5]);
-      if (!(_v0 && _v19 || _v20)) return null;
-      let _v24 = `${_v6}_${_v9?.streamableClip?.uri ?? ""}_${_v10?.uri ?? ""}`;
+      if (!(_v0 && _v20 || _v21)) return null;
+      let _v25 = `${_v6}_${_v9?.streamableClip?.uri ?? ""}_${_v10?.uri ?? ""}`;
       return (0, _v5.jsx)(_v137.InteractionToolsRegistrantObserver, {
         isActive: _v12,
         sessionId: _v6,
@@ -3087,7 +3088,7 @@
           isStandalone: !0,
           isOnsite: !0,
           isAudienceSpeakerEnabled: _v16,
-          isAudienceSpeakerOnly: _v20,
+          isAudienceSpeakerOnly: _v21,
           isCustomThemeEnabled: !0,
           isFooterEnabled: !1,
           isManagementDisabled: !0,
@@ -3101,10 +3102,10 @@
           backgroundColor: "surface",
           toolbarAttachPosition: _v125.ESidebarAttach.TOP,
           toolbarPanelIsFluid: !0,
-          toolbarPanelMaxSize: _v21,
-          toolbarPanelOnToggleExtend: _v22,
-          renderApplicationShell: _v23
-        }, _v24)
+          toolbarPanelMaxSize: _v22,
+          toolbarPanelOnToggleExtend: _v23,
+          renderApplicationShell: _v24
+        }, _v25)
       });
     });
   var _v155 = _v0.i(0),
@@ -3419,28 +3420,28 @@
             children: [(0, _v5.jsx)(_v195.Paragraph, {
               variant: "body-md",
               children: (0, _v33.translate)({
-                singular: "You’re requesting to join the live stream.",
+                singular: "You’re requesting to join the live stream. By asking to join, you consent that your audio and video may be recorded.",
                 dictionary: {
                   es: {
-                    singular: "Está solicitando unirse a la transmisión en vivo."
+                    singular: "Solicitas unirte a la transmisión en vivo. Al solicitar unirte, consientes que tu audio y tu vídeo pueden ser grabados."
                   },
                   "de-DE": {
-                    singular: "Sie beantragen, dem Livestream beizutreten."
+                    singular: "Sie beantragen, dem Livestream beizutreten. Mit Ihrer Anfrage erklären Sie sich damit einverstanden, dass Ihr Audio und Ihr Video aufgezeichnet werden können."
                   },
                   "fr-FR": {
-                    singular: "Vous demandez à rejoindre la diffusion en direct."
+                    singular: "Vous demandez à rejoindre la diffusion en direct. En demandant à rejoindre, vous consentez à l’enregistrement de votre audio et de votre vidéo."
                   },
                   "ja-JP": {
-                    singular: "ライブ配信への参加をリクエストしています。"
+                    singular: "ライブ配信への参加をリクエストしています。参加をリクエストすることで、音声および映像が録画される場合があることに同意したものとみなされます。"
                   },
                   "ko-KR": {
-                    singular: "라이브 스트림 참가를 요청하고 있습니다."
+                    singular: "라이브 스트림에 참여를 요청하고 있습니다. 참여를 요청하면 귀하의 오디오 및 비디오가 녹화될 수 있음에 동의하게 됩니다."
                   },
                   "pt-BR": {
-                    singular: "Você está solicitando participar da transmissão ao vivo."
+                    singular: "Você está solicitando participar da transmissão ao vivo. Ao solicitar participar, você consente que seu áudio e vídeo podem ser gravados."
                   },
                   "zh-CN": {
-                    singular: "您正在请求加入直播。"
+                    singular: "您正在请求加入直播。通过请求加入，您同意您的音频和视频可能会被录制。"
                   }
                 }
               })
@@ -7188,7 +7189,7 @@
         _v16 = (0, _v7.useMemo)(() => (_v0 ? window.visualViewport.height : window.visualViewport.width) * .75, [_v0]),
         _v17 = (0, _v7.useMemo)(() => _v0 ? "0" : _v4 ? `-${(0, _v28.rem)(_v16 - _v2)}` : "0", [_v16, _v4, _v0, _v2]),
         _v18 = _v148(_v9?.streamableClip),
-        _v19 = _v149(_v9?.streamableClip),
+        _v19 = _v149(_v9?.streamableClip, !!_v9?.canEnableReactions),
         _v20 = _v18 || _v19,
         _v21 = _v19 && !_v18,
         _v22 = (0, _v7.useCallback)(_v0 => {

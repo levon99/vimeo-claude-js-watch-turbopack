@@ -115,8 +115,10 @@
       enableParentPermissionAiLiveCaptions: "enableParentPermissionAiLiveCaptions",
       userRolePermissionAiLiveCaptions: "userRolePermissionAiLiveCaptions",
       enableRegistrationFormAiUserTranslation: "enableRegistrationFormAiUserTranslation",
+      enableEventSeriesAiUserTranslation: "enableEventSeriesAiUserTranslation",
       userRolePermissionTranscriptionKeywords: "userRolePermissionTranscriptionKeywords",
       enableTranscriptionGeneration: "enableTranscriptionGeneration",
+      enableAiAnalyticsDashboard: "enableAiAnalyticsDashboard",
       ..._v36
     },
     _v38 = "ai_translate",
@@ -146,6 +148,7 @@
         enableParentPermissionAiHighlights: "vimeo.ai_team_members_generate_definitions",
         enableParentPermissionAiLiveCaptions: "vimeo.ai_team_members_generate_definitions",
         enableRegistrationFormAiUserTranslation: "vimeo.ai_team_members_generate_definitions",
+        enableEventSeriesAiUserTranslation: "vimeo.ai_team_members_generate_definitions",
         userRolePermissionAiTranslate: "vimeo.ai_team_members_generate_role_definitions",
         userRolePermissionAiVideoDetails: "vimeo.ai_team_members_generate_role_definitions",
         userRolePermissionAiHighlights: "vimeo.ai_team_members_generate_role_definitions",
@@ -171,6 +174,7 @@
         [_v37.userRolePermissionAiScriptGeneration]: _v41,
         [_v37.enableParentPermissionAiLiveCaptions]: _v43,
         [_v37.enableRegistrationFormAiUserTranslation]: _v38,
+        [_v37.enableEventSeriesAiUserTranslation]: _v38,
         [_v37.userRolePermissionAiLiveCaptions]: _v43,
         [_v37.prefEnableAskAiAnalytics]: _v42,
         [_v37.userRolePermissionTranscriptionKeywords]: _v43,
@@ -1188,6 +1192,60 @@
           }
         })
       },
+      enableEventSeriesAiUserTranslation: {
+        title: (0, _v47.translate)({
+          singular: "Event series localisation",
+          dictionary: {
+            es: {
+              singular: "Localización de series de eventos"
+            },
+            "de-DE": {
+              singular: "Lokalisierung von Veranstaltungsserien"
+            },
+            "fr-FR": {
+              singular: "Localisation des séries d'événements"
+            },
+            "ja-JP": {
+              singular: "イベントシリーズのローカライズ"
+            },
+            "ko-KR": {
+              singular: "이벤트 시리즈 현지화"
+            },
+            "pt-BR": {
+              singular: "Localização de séries de eventos"
+            },
+            "zh-CN": {
+              singular: "活动系列本地化"
+            }
+          }
+        }),
+        description: (0, _v47.translate)({
+          singular: "Team members can use AI to translate event series content.",
+          dictionary: {
+            es: {
+              singular: "Los miembros del equipo pueden usar IA para traducir el contenido de las series de eventos."
+            },
+            "de-DE": {
+              singular: "Teammitglieder können KI verwenden, um Inhalte von Veranstaltungsserien zu übersetzen."
+            },
+            "fr-FR": {
+              singular: "Les membres de l'équipe peuvent utiliser l'IA pour traduire le contenu des séries d'événements."
+            },
+            "ja-JP": {
+              singular: "チームメンバーはAIを使用してイベントシリーズのコンテンツを翻訳できます。"
+            },
+            "ko-KR": {
+              singular: "팀 구성원은 AI를 사용하여 이벤트 시리즈 콘텐츠를 번역할 수 있습니다."
+            },
+            "pt-BR": {
+              singular: "Membros da equipe podem usar IA para traduzir o conteúdo da série de eventos."
+            },
+            "zh-CN": {
+              singular: "团队成员可以使用 AI 翻译活动系列内容。"
+            }
+          }
+        })
+      },
       userRolePermissionAiVideoDetails: {
         title: (0, _v47.translate)({
           singular: "Who can generate video details",
@@ -1433,6 +1491,114 @@
             },
             "zh-CN": {
               singular: "团队成员可以使用搜索栏更快地查找视频，并向 Vimeo AI 提出有关其库的具体问题"
+            }
+          }
+        })
+      },
+      aiTitleCustomAnalytics: {
+        title: (0, _v47.translate)({
+          singular: "Custom analytics",
+          dictionary: {
+            es: {
+              singular: "Analíticas personalizadas"
+            },
+            "de-DE": {
+              singular: "Benutzerdefinierte Analysen"
+            },
+            "fr-FR": {
+              singular: "Analyses personnalisées"
+            },
+            "ja-JP": {
+              singular: "カスタムアナリティクス"
+            },
+            "ko-KR": {
+              singular: "맞춤형 분석"
+            },
+            "pt-BR": {
+              singular: "Análises personalizadas"
+            },
+            "zh-CN": {
+              singular: "自定义分析"
+            }
+          }
+        }),
+        description: (0, _v47.translate)({
+          singular: "Let team members build custom dashboards from their analytics data with AI.",
+          dictionary: {
+            es: {
+              singular: "Permite a los miembros del equipo crear paneles personalizados a partir de sus datos analíticos con IA."
+            },
+            "de-DE": {
+              singular: "Ermöglichen Sie Teammitgliedern, mithilfe von KI benutzerdefinierte Dashboards aus ihren Analysedaten zu erstellen."
+            },
+            "fr-FR": {
+              singular: "Permettez aux membres de l'équipe de créer des tableaux de bord personnalisés à partir de leurs données analytiques, grâce à l'IA."
+            },
+            "ja-JP": {
+              singular: "チームメンバーがAIを使って、自分の分析データからカスタムダッシュボードを作成できるようにします。"
+            },
+            "ko-KR": {
+              singular: "팀원들이 AI를 사용해 자신의 분석 데이터로 맞춤형 대시보드를 구축할 수 있도록 합니다."
+            },
+            "pt-BR": {
+              singular: "Permita que os membros da equipe criem painéis personalizados a partir de seus dados analíticos com IA."
+            },
+            "zh-CN": {
+              singular: "让团队成员使用 AI 根据其分析数据构建自定义仪表板。"
+            }
+          }
+        })
+      },
+      enableAiAnalyticsDashboard: {
+        title: (0, _v47.translate)({
+          singular: "Enable Custom analytics",
+          dictionary: {
+            es: {
+              singular: "Activar analítica personalizada"
+            },
+            "de-DE": {
+              singular: "Benutzerdefinierte Analysen aktivieren"
+            },
+            "fr-FR": {
+              singular: "Activer les analyses personnalisées"
+            },
+            "ja-JP": {
+              singular: "カスタムアナリティクスを有効にする"
+            },
+            "ko-KR": {
+              singular: "사용자 정의 분석 활성화"
+            },
+            "pt-BR": {
+              singular: "Ativar Análises personalizadas"
+            },
+            "zh-CN": {
+              singular: "启用自定义分析"
+            }
+          }
+        }),
+        description: (0, _v47.translate)({
+          singular: "Team members can generate and combine AI-powered data widgets into their own custom dashboard.",
+          dictionary: {
+            es: {
+              singular: "Los miembros del equipo pueden generar y combinar widgets de datos impulsados por IA en su propio panel personalizado."
+            },
+            "de-DE": {
+              singular: "Teammitglieder können KI-gestützte Daten-Widgets erstellen und zu ihrem eigenen benutzerdefinierten Dashboard kombinieren."
+            },
+            "fr-FR": {
+              singular: "Les membres de l'équipe peuvent générer et combiner des widgets de données propulsés par l'IA pour constituer leur propre tableau de bord personnalisé."
+            },
+            "ja-JP": {
+              singular: "チームメンバーはAI搭載のデータウィジェットを生成・組み合わせて、自分専用のカスタムダッシュボードに統合できます。"
+            },
+            "ko-KR": {
+              singular: "팀원들은 AI 기반 데이터 위젯을 생성하고 결합하여 자신만의 맞춤형 대시보드로 구성할 수 있습니다."
+            },
+            "pt-BR": {
+              singular: "Os membros da equipe podem gerar e combinar widgets de dados com IA em seu próprio painel personalizado."
+            },
+            "zh-CN": {
+              singular: "团队成员可以生成并组合由 AI 驱动的数据组件，创建自己的自定义仪表板。"
             }
           }
         })
@@ -2300,7 +2466,8 @@
     _v90 = {
       aiTitleGeneral: "aiTitleGeneral",
       aiTitleSearchAndAskAi: "aiTitleSearchAndAskAi",
-      aiTitleLocalisation: "aiTitleLocalisation"
+      aiTitleLocalisation: "aiTitleLocalisation",
+      aiTitleCustomAnalytics: "aiTitleCustomAnalytics"
     },
     _v91 = {
       transcript: [{
@@ -2375,14 +2542,21 @@
         isSectionTitle: !0,
         type: _v87,
         sectionVisibility: {
-          orionFlagToCheck: "enable_registration_form_localization"
+          orionFlagsToCheck: ["enable_registration_form_localization", "enable_event_series_in_dev_features"]
         }
       }, {
         key: _v37.enableRegistrationFormAiUserTranslation,
         value: !1,
         type: _v86,
         sectionVisibility: {
-          orionFlagToCheck: "enable_registration_form_localization"
+          orionFlagsToCheck: ["enable_registration_form_localization"]
+        }
+      }, {
+        key: _v37.enableEventSeriesAiUserTranslation,
+        value: !1,
+        type: _v86,
+        sectionVisibility: {
+          orionFlagsToCheck: ["enable_event_series_in_dev_features"]
         }
       }],
       videoDetails: [{
@@ -2482,6 +2656,22 @@
         key: _v37.userRolePermissionAiLiveCaptions,
         value: _v33,
         type: _v89
+      }],
+      customAnalytics: [{
+        key: _v90.aiTitleCustomAnalytics,
+        value: !1,
+        isSectionTitle: !0,
+        type: _v87,
+        sectionVisibility: {
+          orionFlagsToCheck: ["enable_ai_analytics_dashboard"]
+        }
+      }, {
+        key: _v37.enableAiAnalyticsDashboard,
+        value: !0,
+        type: _v86,
+        sectionVisibility: {
+          orionFlagsToCheck: ["enable_ai_analytics_dashboard"]
+        }
       }]
     },
     _v92 = [];
@@ -2521,25 +2711,25 @@
                   capabilitiesToCheck: _v4,
                   capabilitiesToHide: _v5,
                   preferencesToCheck: _v6,
-                  orionFlagToCheck: _v7,
+                  orionFlagsToCheck: _v7,
                   alwaysShow: _v8
                 } = _v0.sectionVisibility,
-                _v9 = void 0 !== _v7;
+                _v9 = (_v7?.length ?? 0) > 0;
               if (_v8) return _v0.key in _v90 || _v0.key in _v2;
               if (!((_v4?.length ?? 0) > 0 || (_v6?.length ?? 0) > 0 || _v9)) return !1;
               if (_v5?.length) {
                 if (_v5.some(_v0 => _v1[_v0])) return !1;
                 if (!_v4?.length && !_v9) return !0;
               }
-              return _v4?.length || _v9 ? !!_v4?.some(_v0 => _v1[_v0]) || void 0 !== _v7 && !0 === _v3[_v7] : !!_v6?.length && _v6.some(_v0 => _v0 in _v2);
+              return _v4?.length || _v9 ? !!_v4?.some(_v0 => _v1[_v0]) || !!_v7?.some(_v0 => !0 === _v3[_v0]) : !!_v6?.length && _v6.some(_v0 => _v0 in _v2);
             }(_v0, _v2, _v0, _v3)) && (_v4[_v0] = _v0.reduce((_v0, _v1) => {
               let _v2 = _v1.key in _v90 || _v1.key in _v0,
                 _v3 = _v1.key in _v36,
                 _v4 = _v3 ? _v85(_v0, _v1.key) : void 0,
                 _v5 = _v3 && !0 === _v4,
                 _v6 = !_v3 || _v5,
-                _v7 = _v1.sectionVisibility?.orionFlagToCheck,
-                _v8 = void 0 === _v7 || !0 === _v3[_v7];
+                _v7 = _v1.sectionVisibility?.orionFlagsToCheck,
+                _v8 = void 0 === _v7 || _v7.some(_v0 => !0 === _v3[_v0]);
               return _v2 && _v6 && _v8 && (!_v1 || _v1.key !== _v37.userRolePermissionAiTranslate) && _v0.push(function (_v0) {
                 return _v0 => {
                   let _v1 = _v0.value;
@@ -2677,7 +2867,9 @@
         })
       });
     };
-  var _v98 = _v0.i(0);
+  var _v98 = _v0.i(0),
+    _v99 = _v0.i(0),
+    _v100 = _v0.i(0);
   _v0.s(["default", 0, ({
     ownerId: _v0,
     workspaceInternalId: _v1,
@@ -2698,70 +2890,94 @@
         let _v3 = (0, _v7.useMemo)(() => _v48(), []),
           _v4 = (0, _v56.useToast)(),
           _v5 = _v46(),
-          _v6 = (0, _v7.useRef)(0),
           {
-            teamSettingsUpdateError: _v7,
-            teamSettingsUpdateLoading: _v8,
-            onUpdateSetting: _v9
+            trackAnalyticsAiSettingsToggled: _v6
+          } = (0, _v100.useAnalyticsTracking)(),
+          _v7 = (0, _v7.useRef)(0),
+          {
+            teamSettingsUpdateError: _v8,
+            teamSettingsUpdateLoading: _v9,
+            onUpdateSetting: _v10
           } = (0, _v59.useUpdateTeamSettings)({
             userId: _v0,
             workspaceUuid: _v2
           }),
           {
-            data: _v10,
-            error: _v11,
-            isLoading: _v12,
-            isValidating: _v13,
-            mutate: _v14
+            data: _v11,
+            error: _v12,
+            isLoading: _v13,
+            isValidating: _v14,
+            mutate: _v15
           } = (0, _v60.useGetTeamSettingsWithMutate)({
             settings: _v95,
             userId: _v0,
             workspaceUuid: _v2
           }),
-          _v15 = (0, _v31.useViewer)(),
-          _v16 = _v15?.teamUser ? "enterprise" === _v15.teamUser.accountType : !!_v15?.user && "enterprise" === _v15.user.account,
+          _v16 = (0, _v31.useViewer)(),
+          _v17 = _v16?.teamUser ? "enterprise" === _v16.teamUser.accountType : !!_v16?.user && "enterprise" === _v16.user.account,
           {
-            data: _v17
-          } = (0, _v98.useGetMePreferences)({
+            data: _v18
+          } = (0, _v99.useGetMePreferences)({
             select: Object.values(_v35)
           }),
-          _v18 = (0, _v7.useMemo)(() => {
-            if (!_v10) return null;
+          _v19 = (0, _v7.useMemo)(() => {
+            if (!_v11) return null;
             let _v0 = {};
-            return _v17 && (_v0 = Object.entries(_v35).reduce((_v0, _v1) => {
+            return _v18 && (_v0 = Object.entries(_v35).reduce((_v0, _v1) => {
               let [_v2, _v3] = _v1;
-              return _v3 in _v17 && (_v0[_v2] = _v17[_v3]), _v0;
+              return _v3 in _v18 && (_v0[_v2] = _v18[_v3]), _v0;
             }, {})), {
-              ..._v10,
+              ..._v11,
               ..._v0
             };
-          }, [_v10, _v17]),
+          }, [_v11, _v18]),
           {
-            SETTINGS: _v19
+            SETTINGS: _v20
           } = _v96({
-            mergedSettingsPrefs: _v18,
-            isSelfServe: !_v16,
+            mergedSettingsPrefs: _v19,
+            isSelfServe: !_v17,
             ownerId: _v0 || _v1
           }),
-          _v20 = (0, _v7.useCallback)(async (_v0, _v1, _v2) => {
-            await _v9({
+          _v21 = (0, _v7.useCallback)(async (_v0, _v1, _v2) => {
+            await _v10({
               [_v0]: _v1
-            }), _v14(), _v2 === _v86 ? _v5.toggleEvent(_v0, _v1) : _v2 === _v89 && _v5.dropdownEvent(_v0, _v1);
-          }, [_v9, _v14, _v5]);
+            }), _v15(), _v0 === _v37.enableAiAnalyticsDashboard ? (_v6({
+              enabled: !!_v1,
+              scope: _v2 ? "workspace" : "team"
+            }), _v16?.jwt && _v16.apiUrl && function (_v0, {
+              capabilities: _v1,
+              jwt: _v2,
+              apiUrl: _v3
+            }) {
+              for (let _v0 of Object.keys(_v0.users).map(_v0 => Number(_v0))) {
+                let _v0 = _v0.getCapabilities(_v0);
+                _v0 && _v1.some(_v0 => void 0 !== _v0.currentCapabilities[_v0]) && (_v0.remove(_v1), (0, _v98.prefetchCapabilities)(_v0, {
+                  capabilities: _v1,
+                  userId: _v0,
+                  jwt: _v2,
+                  apiUrl: _v3
+                }));
+              }
+            }(_v84.userCache, {
+              capabilities: ["aiAnalyticsDashboard"],
+              jwt: _v16.jwt,
+              apiUrl: _v16.apiUrl
+            })) : _v2 === _v86 ? _v5.toggleEvent(_v0, _v1) : _v2 === _v89 && _v5.dropdownEvent(_v0, _v1);
+          }, [_v10, _v15, _v5, _v6, _v2, _v16]);
         (0, _v7.useEffect)(function () {
           let _v0 = Date.now();
-          (_v11 || _v7) && _v0 - _v6.current > 0 && (_v4({
+          (_v12 || _v8) && _v0 - _v7.current > 0 && (_v4({
             duration: 0,
             title: _v3.notifications.error
-          }), _v6.current = _v0);
-        }, [_v11, _v7, _v4, _v3]);
-        let _v21 = !_v18 && (_v12 || _v13);
+          }), _v7.current = _v0);
+        }, [_v12, _v8, _v4, _v3]);
+        let _v22 = !_v19 && (_v13 || _v14);
         return {
-          settingsCofig: _v19,
-          updateTeamSettings: _v20,
-          isDisabled: _v8 || _v13 || _v12,
-          isFirstLoad: _v21,
-          isSettingsResults: !!_v18,
+          settingsCofig: _v20,
+          updateTeamSettings: _v21,
+          isDisabled: _v9 || _v14 || _v13,
+          isFirstLoad: _v22,
+          isSettingsResults: !!_v19,
           userId: _v0 || _v1
         };
       }({

@@ -912,7 +912,7 @@
                       singular: "Ver todo"
                     },
                     "de-DE": {
-                      singular: "Alle anzeigen"
+                      singular: "Alle ansehen"
                     },
                     "fr-FR": {
                       singular: "Voir tout"
@@ -924,7 +924,7 @@
                       singular: "모두 보기"
                     },
                     "pt-BR": {
-                      singular: "Ver todos"
+                      singular: "Ver tudo"
                     },
                     "zh-CN": {
                       singular: "查看全部"

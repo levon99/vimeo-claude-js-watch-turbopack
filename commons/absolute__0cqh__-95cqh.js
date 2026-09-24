@@ -78,8 +78,10 @@
         if (_v1) return _v1;
         let _v2 = document.getElementById("preview-scene-canvas");
         if (_v2) return _v2;
-        let _v3 = document.querySelector(".js-player");
-        return _v3?.parentElement ?? null;
+        let _v3 = document.getElementById("rtmp-preview-scene-canvas");
+        if (_v3) return _v3;
+        let _v4 = document.querySelector(".js-player");
+        return _v4?.parentElement ?? null;
       }() : null;
     return _v0 && _v2 ? (0, _v6.createPortal)((0, _v1.jsx)(_v7.Box, {
       position: "absolute",

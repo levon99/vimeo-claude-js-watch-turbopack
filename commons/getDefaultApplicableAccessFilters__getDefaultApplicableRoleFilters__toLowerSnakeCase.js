@@ -263,6 +263,7 @@
         rejoinOfferEligible: !1,
         totalPrice: 0,
         totalPriceForDisplay: "",
+        paymentServiceAddOns: [],
         nextCycle: {
           tier: _v3.Tier.Starter,
           billingPeriod: _v3.UserPlanType.Month,

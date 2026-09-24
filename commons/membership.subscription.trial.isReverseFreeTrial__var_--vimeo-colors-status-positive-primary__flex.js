@@ -1051,7 +1051,7 @@
       _v31 = _v30 ? _v30.get("upsell") : null,
       _v32 = _v30 ? _v30.get("extole_coupon") : null,
       _v33 = _v30 ? _v30.get("promo_code_id") : null,
-      _v34 = _v30?.get("bundle_offer_toggle") === "1",
+      _v34 = (0, _v71.resolveInitialBundleToggle)(_v30),
       _v35 = !!_v16?.user,
       _v36 = _v5?.paywallTrigger ?? _v30?.get("paywall_trigger") ?? "unknown",
       _v37 = _v5?.paywallLocation ?? _v30?.get("paywall_location") ?? "unknown",

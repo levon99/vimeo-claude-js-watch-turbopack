@@ -26,8 +26,10 @@
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
-    _v26 = _v0.i(0);
-  function _v27({
+    _v26 = _v0.i(0),
+    _v27 = _v0.i(0),
+    _v28 = _v0.i(0);
+  function _v29({
     tier: _v0 = "starter",
     paywallTracking: _v1,
     isUserEligibleForFreeTrial: _v2 = !1,
@@ -35,11 +37,11 @@
     monthlyFreeTrial: _v4 = !1,
     postCheckoutUrl: _v5
   }) {
-    let _v6 = (0, _v21.useGetSubscriptionPlansData)([_v0], void 0, !1),
+    let _v6 = (0, _v23.useGetSubscriptionPlansData)([_v0], void 0, !1),
       _v7 = _v6?.find(_v0 => _v0.tier === _v0) ?? _v6?.[0],
       _v8 = _v7?.metadata?.entitlements?.params?.videoStoragePeriodicQuota,
-      _v9 = _v7?.name ?? (0, _v16.default)(`${_v0}`),
-      _v10 = (0, _v22.hasFreeTrialPurchasePath)(_v7),
+      _v9 = _v7?.name ?? (0, _v18.default)(`${_v0}`),
+      _v10 = (0, _v24.hasFreeTrialPurchasePath)(_v7),
       _v11 = (0, _v11.translate)({
         singular: "Join Vimeo",
         dictionary: {
@@ -67,7 +69,7 @@
         }
       }),
       _v12 = _v11.length > 12,
-      _v13 = (0, _v20.useColorModeValue)("https://i.vimeocdn.com/custom_asset/4a6f0f615c4cf9d30b48f79df970438e", "https://i.vimeocdn.com/custom_asset/edb2ec4f5620a90adb065894bbb08419");
+      _v13 = (0, _v22.useColorModeValue)("https://i.vimeocdn.com/custom_asset/4a6f0f615c4cf9d30b48f79df970438e", "https://i.vimeocdn.com/custom_asset/edb2ec4f5620a90adb065894bbb08419");
     return (0, _v1.jsxs)(_v9.Flex, {
       direction: "column",
       alignItems: "center",
@@ -107,19 +109,19 @@
               md: "sm"
             },
             justifyContent: "center",
-            children: [(0, _v1.jsx)(_v18.Text, {
+            children: [(0, _v1.jsx)(_v20.Text, {
               variant: {
                 base: "heading-lg",
                 md: _v12 ? "heading-xl" : "heading-2xl"
               },
               whiteSpace: "nowrap",
               children: _v11
-            }), (0, _v1.jsx)(_v17.Box, {
+            }), (0, _v1.jsx)(_v19.Box, {
               pt: {
                 base: "0",
                 md: _v12 ? "4px" : "8px"
               },
-              children: (0, _v1.jsx)(_v17.Box, {
+              children: (0, _v1.jsx)(_v19.Box, {
                 bg: "#8a5ee8",
                 px: "6px",
                 height: "28px",
@@ -127,15 +129,15 @@
                 alignItems: "center",
                 justifyContent: "center",
                 borderRadius: "4px",
-                children: (0, _v1.jsx)(_v18.Text, {
+                children: (0, _v1.jsx)(_v20.Text, {
                   fontSize: "14px",
                   fontWeight: "medium",
                   color: "white",
-                  children: (0, _v16.default)(`${_v0}`)
+                  children: (0, _v18.default)(`${_v0}`)
                 })
               })
             })]
-          }), (0, _v1.jsx)(_v18.Text, {
+          }), (0, _v1.jsx)(_v20.Text, {
             variant: "heading-sm",
             fontWeight: "medium",
             color: "text-primary",
@@ -167,7 +169,7 @@
               }
             })
           })]
-        }), (0, _v1.jsx)(_v17.Box, {
+        }), (0, _v1.jsx)(_v19.Box, {
           width: "100%",
           maxWidth: "252px",
           maxHeight: "200px",
@@ -182,16 +184,16 @@
               objectFit: "contain"
             }
           })
-        }), (0, _v1.jsx)(_v19.VStack, {
+        }), (0, _v1.jsx)(_v21.VStack, {
           gap: "md",
           alignItems: "start",
           width: "100%",
-          children: (0, _v26.getFeatures)(_v8).map((_v0, _v1) => (0, _v1.jsx)(_v23.FeatureRow, {
+          children: (0, _v28.getFeatures)(_v8).map((_v0, _v1) => (0, _v1.jsx)(_v25.FeatureRow, {
             ..._v0
           }, `row${_v1}`))
         })]
-      }), (0, _v1.jsx)(_v24.PaywallCTAsWrapper, {
-        children: (0, _v1.jsx)(_v25.PurchaseButton, {
+      }), (0, _v1.jsx)(_v26.PaywallCTAsWrapper, {
+        children: (0, _v1.jsx)(_v27.PurchaseButton, {
           subscriptionTier: _v0,
           planPeriodicity: _v3,
           isTrial: _v10 && _v2 && ("monthly" !== _v3 || _v4),
@@ -202,14 +204,14 @@
       })]
     });
   }
-  var _v28 = _v0.i(0),
-    _v29 = _v0.i(0),
-    _v30 = _v0.i(0),
+  var _v30 = _v0.i(0),
     _v31 = _v0.i(0),
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  let _v35 = {
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0),
+    _v36 = _v0.i(0);
+  let _v37 = {
       exit: {
         duration: .16
       },
@@ -217,7 +219,7 @@
         duration: .16
       }
     },
-    _v36 = {
+    _v38 = {
       exit: {
         duration: .16
       },
@@ -226,13 +228,13 @@
         delay: .16
       }
     };
-  function _v37({
+  function _v39({
     dismissButtonLabel: _v0,
     onDismiss: _v1,
     onSkipInsteadOfDismiss: _v2,
     postCheckoutUrl: _v3
   }) {
-    let _v4 = (0, _v33.useViewer)(),
+    let _v4 = (0, _v35.useViewer)(),
       _v5 = _v4?.user?.capabilities?.hasFreeTrialEligibility ?? !1,
       {
         settings: _v6
@@ -269,7 +271,7 @@
       },
       {
         trackPaywallDismissed: _v25
-      } = (0, _v32.usePaywallTracking)({
+      } = (0, _v34.usePaywallTracking)({
         ..._v24,
         isVisible: !_v16 && !_v20
       }),
@@ -280,48 +282,48 @@
     let _v27 = () => {
       (_v25(), _v17 && !_v14 && !_v18 && _v6.onboarding_welcome_offer_reverse_trial_on_dismiss && _v5) ? _v19(!0) : _v2 ? _v2() : _v1();
     };
-    return _v16 ? (0, _v1.jsx)(_v34.default, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+    return _v16 ? (0, _v1.jsx)(_v36.default, {}) : (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v9.Flex, {
         grow: "1",
         gap: "3",
         flexDirection: "column",
         alignItems: "center",
         width: "100%",
-        children: [(0, _v1.jsx)(_v15.SlideFade, {
+        children: [(0, _v1.jsx)(_v17.SlideFade, {
           in: !0,
-          transition: _v35,
+          transition: _v37,
           children: (0, _v1.jsx)(_v1.Fragment, {})
         }, "animate-title"), (0, _v1.jsx)(_v9.Flex, {
           width: "100%",
           alignItems: "center",
           justifyContent: "center",
-          children: (0, _v1.jsxs)(_v15.SlideFade, {
+          children: (0, _v1.jsxs)(_v17.SlideFade, {
             in: !0,
-            transition: _v36,
+            transition: _v38,
             style: {
               width: "100%"
             },
-            children: [_v20 && (0, _v1.jsx)(_v31.ReverseTrialPaywall, {
+            children: [_v20 && (0, _v1.jsx)(_v33.ReverseTrialPaywall, {
               trialDays: "14d" === _v13 ? 14 : 7,
               paywallTracking: _v24,
               onComplete: _v27,
               onActivated: () => _v22(!0),
               postActivationUrl: _v3
-            }), !_v20 && "plansComparison" === _v7 && (0, _v1.jsx)(_v28.PlansComparisonPaywall, {
+            }), !_v20 && "plansComparison" === _v7 && (0, _v1.jsx)(_v30.PlansComparisonPaywall, {
               tier: _v8,
               paywallTracking: _v24,
               defaultPeriodicity: _v9,
               monthlyFreeTrial: _v10,
               postCheckoutUrl: _v3,
               allowBundleOffer: !0
-            }), !_v20 && "featureList" === _v7 && (0, _v1.jsx)(_v27, {
+            }), !_v20 && "featureList" === _v7 && (0, _v1.jsx)(_v29, {
               tier: _v8,
               paywallTracking: _v24,
               defaultPeriodicity: _v9,
               monthlyFreeTrial: _v10,
               isUserEligibleForFreeTrial: _v5,
               postCheckoutUrl: _v3
-            }), !_v20 && _v17 && (0, _v1.jsx)(_v30.WelcomeOfferModalPaywall, {
+            }), !_v20 && _v17 && (0, _v1.jsx)(_v32.WelcomeOfferModalPaywall, {
               isOpen: !0,
               isPage: !0,
               showContinueLink: _v6.onboarding_welcome_offer_show_continue_link,
@@ -331,10 +333,10 @@
             })]
           }, "animate-content")
         })]
-      }), _v20 && !_v21 && (0, _v1.jsx)(_v29.PlansComparisonPaywallNavigation, {
+      }), _v20 && !_v21 && (0, _v1.jsx)(_v31.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: "responsive",
         onDismiss: _v27
-      }), !_v20 && !(_v17 && "none" === _v12) && (0, _v1.jsx)(_v29.PlansComparisonPaywallNavigation, {
+      }), !_v20 && !(_v17 && "none" === _v12) && (0, _v1.jsx)(_v31.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: _v11,
         dismissButtonVariant: _v17 ? _v12 : "skip",
         skipLabel: _v0,
@@ -342,25 +344,25 @@
       })]
     });
   }
-  var _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
-    _v40 = _v0.i(0);
-  let _v41 = _v0 => ({
+  var _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0);
+  let _v43 = _v0 => ({
     question_id: _v0.id,
     question_text: _v0.question,
     question_description: _v0.description ?? null
   });
-  var _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0);
-  function _v45({
+  var _v44 = _v0.i(0),
+    _v45 = _v0.i(0),
+    _v46 = _v0.i(0);
+  function _v47({
     text: _v0,
     Icon: _v1,
     isSelected: _v2,
     onToggle: _v3,
     ..._v4
   }) {
-    return (0, _v1.jsx)(_v44.Card, {
+    return (0, _v1.jsx)(_v46.Card, {
       onKeyDown: _v0 => {
         "Enter" === _v0.key && _v3();
       },
@@ -393,7 +395,7 @@
         },
         textAlign: _v1 ? "left" : "center",
         height: "100%",
-        children: [_v1 && (0, _v1.jsx)(_v1, {}), (0, _v1.jsx)(_v18.Text, {
+        children: [_v1 && (0, _v1.jsx)(_v1, {}), (0, _v1.jsx)(_v20.Text, {
           variant: {
             base: "heading-xs",
             md: "heading-sm"
@@ -404,13 +406,13 @@
       })
     });
   }
-  function _v46({
+  function _v48({
     answers: _v0,
     onToggleAnswer: _v1,
     gridProps: _v2,
     renderSubAnswers: _v3
   }) {
-    return _v0 && 0 !== _v0.length ? (0, _v1.jsx)(_v42.Grid, {
+    return _v0 && 0 !== _v0.length ? (0, _v1.jsx)(_v44.Grid, {
       gap: 3,
       ..._v2,
       width: "100%",
@@ -421,7 +423,7 @@
       children: _v0.map(_v0 => {
         let _v1 = _v0.icon,
           _v2 = _v3?.(_v0.id),
-          _v3 = (0, _v1.jsx)(_v45, {
+          _v3 = (0, _v1.jsx)(_v47, {
             text: _v0.label,
             Icon: _v1,
             isSelected: _v0.isSelected,
@@ -431,20 +433,20 @@
           direction: "column",
           gap: "3",
           children: [_v3, _v2]
-        }, _v0.id) : (0, _v1.jsx)(_v45, {
+        }, _v0.id) : (0, _v1.jsx)(_v47, {
           text: _v0.label,
           Icon: _v1,
           isSelected: _v0.isSelected,
           onToggle: () => _v1(_v0.id)
         }, _v0.id);
       })
-    }) : (0, _v1.jsx)(_v43.Spinner, {});
+    }) : (0, _v1.jsx)(_v45.Spinner, {});
   }
-  var _v47 = _v0.i(0),
-    _v48 = _v0.i(0),
-    _v49 = _v0.i(0),
-    _v50 = _v0.i(0);
-  let _v51 = _v0 => (0, _v1.jsx)(_v50.Icon, {
+  var _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0),
+    _v52 = _v0.i(0);
+  let _v53 = _v0 => (0, _v1.jsx)(_v52.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -453,11 +455,11 @@
       fill: "currentColor"
     })
   });
-  var _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
-    _v54 = _v0.i(0),
-    _v55 = _v0.i(0);
-  let _v56 = _v0 => (0, _v1.jsx)(_v50.Icon, {
+  var _v54 = _v0.i(0),
+    _v55 = _v0.i(0),
+    _v56 = _v0.i(0),
+    _v57 = _v0.i(0);
+  let _v58 = _v0 => (0, _v1.jsx)(_v52.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -466,14 +468,14 @@
         fill: "currentColor"
       })
     }),
-    _v57 = "profile",
-    _v58 = "upload_audience",
-    _v59 = "usage",
-    _v60 = "org_size",
-    _v61 = "what_brings_you",
-    _v62 = "other",
-    _v63 = "video_professional",
-    _v64 = [{
+    _v59 = "profile",
+    _v60 = "upload_audience",
+    _v61 = "usage",
+    _v62 = "org_size",
+    _v63 = "what_brings_you",
+    _v64 = "other",
+    _v65 = "video_professional",
+    _v66 = [{
       id: "video_professional_freelance",
       label: (0, _v11.translate)({
         singular: "Freelance",
@@ -498,7 +500,7 @@
           }
         }
       }),
-      icon: _v52.PersonUser
+      icon: _v54.PersonUser
     }, {
       id: "video_professional_agency",
       label: (0, _v11.translate)({
@@ -527,7 +529,7 @@
           }
         }
       }),
-      icon: _v56
+      icon: _v58
     }, {
       id: "video_professional_in_house",
       label: (0, _v11.translate)({
@@ -556,10 +558,10 @@
           }
         }
       }),
-      icon: _v47.Building
+      icon: _v49.Building
     }],
-    _v65 = [{
-      id: _v57,
+    _v67 = [{
+      id: _v59,
       question: (0, _v11.translate)({
         singular: "Which best describes you?",
         dictionary: {
@@ -589,7 +591,7 @@
       placeholder: "",
       isMultiChoice: !1,
       answers: [{
-        id: _v63,
+        id: _v65,
         label: (0, _v11.translate)({
           singular: "Video professional",
           dictionary: {
@@ -616,7 +618,7 @@
             }
           }
         }),
-        icon: _v53.PresentationPlay
+        icon: _v55.PresentationPlay
       }, {
         id: "independent_filmmaker",
         label: (0, _v11.translate)({
@@ -645,7 +647,7 @@
             }
           }
         }),
-        icon: _v53.PresentationPlay
+        icon: _v55.PresentationPlay
       }, {
         id: "non_video_freelancer",
         label: (0, _v11.translate)({
@@ -674,7 +676,7 @@
             }
           }
         }),
-        icon: _v52.PersonUser
+        icon: _v54.PersonUser
       }, {
         id: "business_owner_employee",
         label: (0, _v11.translate)({
@@ -703,7 +705,7 @@
             }
           }
         }),
-        icon: _v47.Building
+        icon: _v49.Building
       }, {
         id: "viewer_only",
         label: (0, _v11.translate)({
@@ -732,10 +734,10 @@
             }
           }
         }),
-        icon: _v54.SearchMagnifier
+        icon: _v56.SearchMagnifier
       }]
     }, {
-      id: _v58,
+      id: _v60,
       question: (0, _v11.translate)({
         singular: "Do you upload videos? Who are these videos for?",
         dictionary: {
@@ -815,7 +817,7 @@
             }
           }
         }),
-        icon: _v48.Chats
+        icon: _v50.Chats
       }, {
         id: "own_brand",
         label: (0, _v11.translate)({
@@ -844,7 +846,7 @@
             }
           }
         }),
-        icon: _v51
+        icon: _v53
       }, {
         id: "my_company",
         label: (0, _v11.translate)({
@@ -873,7 +875,7 @@
             }
           }
         }),
-        icon: _v47.Building
+        icon: _v49.Building
       }, {
         id: "creative_audience",
         label: (0, _v11.translate)({
@@ -902,7 +904,7 @@
             }
           }
         }),
-        icon: _v55.Share
+        icon: _v57.Share
       }, {
         id: "just_me",
         label: (0, _v11.translate)({
@@ -931,7 +933,7 @@
             }
           }
         }),
-        icon: _v52.PersonUser
+        icon: _v54.PersonUser
       }, {
         id: "mainly_watch",
         label: (0, _v11.translate)({
@@ -960,10 +962,10 @@
             }
           }
         }),
-        icon: _v54.SearchMagnifier
+        icon: _v56.SearchMagnifier
       }]
     }, {
-      id: _v59,
+      id: _v61,
       question: (0, _v11.translate)({
         singular: "What are you using Vimeo for?",
         dictionary: {
@@ -1046,7 +1048,7 @@
             }
           }
         }),
-        icon: _v55.Share
+        icon: _v57.Share
       }, {
         id: "review_feedback",
         label: (0, _v11.translate)({
@@ -1075,7 +1077,7 @@
             }
           }
         }),
-        icon: _v48.Chats
+        icon: _v50.Chats
       }, {
         id: "embed_videos",
         label: (0, _v11.translate)({
@@ -1104,7 +1106,7 @@
             }
           }
         }),
-        icon: _v53.PresentationPlay
+        icon: _v55.PresentationPlay
       }, {
         id: "store_organize",
         label: (0, _v11.translate)({
@@ -1133,7 +1135,7 @@
             }
           }
         }),
-        icon: _v56
+        icon: _v58
       }, {
         id: "showcase_portfolio",
         label: (0, _v11.translate)({
@@ -1162,7 +1164,7 @@
             }
           }
         }),
-        icon: _v56
+        icon: _v58
       }, {
         id: "share_films",
         label: (0, _v11.translate)({
@@ -1191,7 +1193,7 @@
             }
           }
         }),
-        icon: _v55.Share
+        icon: _v57.Share
       }, {
         id: "inspiration_discovery",
         label: (0, _v11.translate)({
@@ -1220,7 +1222,7 @@
             }
           }
         }),
-        icon: _v54.SearchMagnifier
+        icon: _v56.SearchMagnifier
       }, {
         id: "other",
         label: (0, _v11.translate)({
@@ -1249,10 +1251,10 @@
             }
           }
         }),
-        icon: _v49.EllipsisV
+        icon: _v51.EllipsisV
       }]
     }, {
-      id: _v60,
+      id: _v62,
       question: (0, _v11.translate)({
         singular: "Organization size?",
         dictionary: {
@@ -1309,31 +1311,31 @@
             }
           }
         }),
-        icon: _v52.PersonUser
+        icon: _v54.PersonUser
       }, {
         id: "2_10",
         label: (0, _v11.translate)("2-10"),
-        icon: _v52.PersonUser
+        icon: _v54.PersonUser
       }, {
         id: "11_50",
         label: (0, _v11.translate)("11-50"),
-        icon: _v52.PersonUser
+        icon: _v54.PersonUser
       }, {
         id: "51_200",
         label: (0, _v11.translate)("51-200"),
-        icon: _v52.PersonUser
+        icon: _v54.PersonUser
       }, {
         id: "201_1000",
         label: (0, _v11.translate)("201-1,000"),
-        icon: _v52.PersonUser
+        icon: _v54.PersonUser
       }, {
         id: "1000_plus",
         label: (0, _v11.translate)("1,000+"),
-        icon: _v52.PersonUser
+        icon: _v54.PersonUser
       }]
     }],
-    _v66 = {
-      id: _v61,
+    _v68 = {
+      id: _v63,
       question: (0, _v11.translate)({
         singular: "What brings you to Vimeo today?",
         dictionary: {
@@ -1416,7 +1418,7 @@
             }
           }
         }),
-        icon: _v53.PresentationPlay
+        icon: _v55.PresentationPlay
       }, {
         id: "embed_on_site",
         label: (0, _v11.translate)({
@@ -1445,7 +1447,7 @@
             }
           }
         }),
-        icon: _v51
+        icon: _v53
       }, {
         id: "share_via_link",
         label: (0, _v11.translate)({
@@ -1474,7 +1476,7 @@
             }
           }
         }),
-        icon: _v55.Share
+        icon: _v57.Share
       }, {
         id: "store_videos",
         label: (0, _v11.translate)({
@@ -1503,7 +1505,7 @@
             }
           }
         }),
-        icon: _v56
+        icon: _v58
       }, {
         id: "record_video",
         label: (0, _v11.translate)({
@@ -1532,7 +1534,7 @@
             }
           }
         }),
-        icon: _v53.PresentationPlay
+        icon: _v55.PresentationPlay
       }, {
         id: "create_portfolio",
         label: (0, _v11.translate)({
@@ -1561,7 +1563,7 @@
             }
           }
         }),
-        icon: _v47.Building
+        icon: _v49.Building
       }, {
         id: "get_feedback",
         label: (0, _v11.translate)({
@@ -1590,7 +1592,7 @@
             }
           }
         }),
-        icon: _v48.Chats
+        icon: _v50.Chats
       }, {
         id: "find_inspiration",
         label: (0, _v11.translate)({
@@ -1619,7 +1621,7 @@
             }
           }
         }),
-        icon: _v54.SearchMagnifier
+        icon: _v56.SearchMagnifier
       }, {
         id: "run_live_event",
         label: (0, _v11.translate)({
@@ -1648,9 +1650,9 @@
             }
           }
         }),
-        icon: _v52.PersonUser
+        icon: _v54.PersonUser
       }, {
-        id: _v62,
+        id: _v64,
         label: (0, _v11.translate)({
           singular: "Other",
           dictionary: {
@@ -1677,12 +1679,12 @@
             }
           }
         }),
-        icon: _v49.EllipsisV
+        icon: _v51.EllipsisV
       }]
     };
-  var _v67 = _v0.i(0),
-    _v68 = _v0.i(0);
-  function _v69({
+  var _v69 = _v0.i(0),
+    _v70 = _v0.i(0);
+  function _v71({
     progressPct: _v0,
     onBack: _v1,
     onNext: _v2,
@@ -1703,7 +1705,7 @@
         md: "148px"
       },
       mb: "4rem",
-      children: [(0, _v1.jsx)(_v17.Box, {
+      children: [(0, _v1.jsx)(_v19.Box, {
         bg: "fill-component",
         borderRadius: "4px",
         flexShrink: "0",
@@ -1714,8 +1716,8 @@
           base: "240px",
           md: "120px"
         },
-        children: (0, _v1.jsx)(_v17.Box, {
-          as: _v67.motion.div,
+        children: (0, _v1.jsx)(_v19.Box, {
+          as: _v69.motion.div,
           bg: "fill-brand",
           height: "100%",
           animate: {
@@ -1731,7 +1733,7 @@
           justifyContent: "center",
           gap: "2",
           width: "100%",
-          children: [(0, _v1.jsx)(_v70, {
+          children: [(0, _v1.jsx)(_v72, {
             variant: "secondary",
             onClick: _v1,
             hidden: 0 === _v0,
@@ -1764,7 +1766,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v70, {
+          }), (0, _v1.jsx)(_v72, {
             variant: "primary",
             onClick: _v2,
             isDisabled: _v4 || _v5,
@@ -1822,7 +1824,7 @@
               }
             })
           })]
-        }), (0, _v1.jsx)(_v70, {
+        }), (0, _v1.jsx)(_v72, {
           variant: "tertiary",
           onClick: _v3,
           isDisabled: _v4,
@@ -1862,27 +1864,27 @@
       })]
     });
   }
-  let _v70 = ({
+  let _v72 = ({
       children: _v0,
       loading: _v1,
       ..._v2
-    }) => (0, _v1.jsxs)(_v68.Button, {
+    }) => (0, _v1.jsxs)(_v70.Button, {
       size: "sm",
       p: "1.25rem",
       borderRadius: "md",
       ..._v2,
-      children: [_v1 && (0, _v1.jsx)(_v43.Spinner, {
+      children: [_v1 && (0, _v1.jsx)(_v45.Spinner, {
         size: "sm",
         position: "absolute"
-      }), (0, _v1.jsx)(_v17.Box, {
-        as: _v67.motion.div,
+      }), (0, _v1.jsx)(_v19.Box, {
+        as: _v69.motion.div,
         animate: {
           opacity: +!_v1
         },
         children: _v0
       })]
     }),
-    _v71 = {
+    _v73 = {
       exit: {
         duration: .16
       },
@@ -1890,7 +1892,7 @@
         duration: .16
       }
     },
-    _v72 = {
+    _v74 = {
       exit: {
         duration: .16
       },
@@ -1899,7 +1901,7 @@
         delay: .16
       }
     };
-  function _v73({
+  function _v75({
     randomizeAnswers: _v0 = !0,
     isFinalPhase: _v1,
     useSingleQuestionSurvey: _v2 = !1,
@@ -1912,13 +1914,13 @@
         trackOnboardingSurveyViewed: _v7,
         trackOnboardingSurveyAnswered: _v8,
         trackOnboardingSurveySkipped: _v9
-      } = (_v4 = (0, _v40.usePico)(), _v5 = (0, _v8.useRef)(!1), _v6 = (0, _v8.useCallback)(() => {
+      } = (_v4 = (0, _v42.usePico)(), _v5 = (0, _v8.useRef)(!1), _v6 = (0, _v8.useCallback)(() => {
         null === _v4 || _v5.current || (_v4.track("onboarding_survey_viewed", {}), _v5.current = !0);
       }, [_v4]), {
         trackOnboardingSurveyViewed: _v6,
         trackOnboardingSurveyAnswered: (0, _v8.useCallback)(_v0 => {
           null !== _v4 && _v4.track("onboarding_survey_answered", {
-            ..._v41(_v0.question),
+            ..._v43(_v0.question),
             answers: _v0.answers.map(_v0 => ({
               answer_id: _v0.id,
               answer_text: _v0.label,
@@ -1929,35 +1931,35 @@
         }, [_v4]),
         trackOnboardingSurveySkipped: (0, _v8.useCallback)((_v0, _v1 = !1) => {
           null !== _v4 && _v4.track("onboarding_survey_skipped", {
-            ..._v41(_v0),
+            ..._v43(_v0),
             skipped_to_paywall: _v1
           });
         }, [_v4])
       }),
       {
         colorMode: _v10
-      } = (0, _v20.useColorMode)(),
+      } = (0, _v22.useColorMode)(),
       [_v11, _v12] = (0, _v8.useState)(),
       [_v13, _v14] = (0, _v8.useState)({}),
       [_v15, _v16] = (0, _v8.useState)({}),
-      _v17 = _v13[_v57] ?? [],
-      _v18 = _v17.find(_v0 => !_v64.some(_v0 => _v0.id === _v0)) ?? null,
-      _v19 = _v64.find(_v0 => _v17.includes(_v0.id))?.id ?? null,
-      _v20 = _v18 === _v63,
+      _v17 = _v13[_v59] ?? [],
+      _v18 = _v17.find(_v0 => !_v66.some(_v0 => _v0.id === _v0)) ?? null,
+      _v19 = _v66.find(_v0 => _v17.includes(_v0.id))?.id ?? null,
+      _v20 = _v18 === _v65,
       _v21 = _v20 || "non_video_freelancer" === _v18 || "business_owner_employee" === _v18;
     (0, _v8.useEffect)(() => {
       !_v20 && _v19 && _v14(_v0 => ({
         ..._v0,
-        [_v57]: (_v0[_v57] ?? []).filter(_v0 => !_v64.some(_v0 => _v0.id === _v0))
+        [_v59]: (_v0[_v59] ?? []).filter(_v0 => !_v66.some(_v0 => _v0.id === _v0))
       }));
     }, [_v20, _v19]), (0, _v8.useEffect)(() => {
-      let _v0 = _v13[_v60] ?? [];
+      let _v0 = _v13[_v62] ?? [];
       !_v21 && _v0.length > 0 && _v14(_v0 => ({
         ..._v0,
-        [_v60]: []
+        [_v62]: []
       }));
     }, [_v13, _v21]);
-    let _v22 = (0, _v8.useMemo)(() => _v2 ? [_v66] : _v21 ? _v65 : _v65.filter(_v0 => _v0.id !== _v60), [_v21, _v2]),
+    let _v22 = (0, _v8.useMemo)(() => _v2 ? [_v68] : _v21 ? _v67 : _v67.filter(_v0 => _v0.id !== _v62), [_v21, _v2]),
       _v23 = (0, _v8.useRef)({}),
       _v24 = (0, _v8.useMemo)(() => _v22.map(_v0 => {
         let _v1 = _v13[_v0.id] ?? [],
@@ -1972,7 +1974,7 @@
             randomizedOrders: _v3
           }) => {
             let _v4;
-            if (!_v2 || _v0 === _v60) return _v1;
+            if (!_v2 || _v0 === _v62) return _v1;
             let _v5 = _v1.map(_v0 => _v0.id),
               _v6 = _v3.current?.[_v0],
               _v7 = _v6 && _v6.length === _v5.length && _v5.every(_v0 => _v6.includes(_v0)),
@@ -1983,7 +1985,7 @@
                   [_v1[_v0], _v1[_v0]] = [_v1[_v0], _v1[_v0]];
                 }
                 return _v1;
-              })(_v5.filter(_v0 => _v0 !== _v62)), _v5.includes(_v62) && _v4.push(_v62), _v4);
+              })(_v5.filter(_v0 => _v0 !== _v64)), _v5.includes(_v64) && _v4.push(_v64), _v4);
             !_v7 && _v3.current && (_v3.current[_v0] = _v8);
             let _v9 = new Map(_v1.map(_v0 => [_v0.id, _v0]));
             return _v8.map(_v0 => _v9.get(_v0)).filter(_v0 => !!_v0);
@@ -2054,26 +2056,26 @@
     }, [_v28, _v3]), (0, _v8.useEffect)(() => {
       _v28 || _v7();
     }, [_v7, _v28]);
-    let _v31 = !!_v29?.answers.some(_v0 => _v0.id === _v62),
+    let _v31 = !!_v29?.answers.some(_v0 => _v0.id === _v64),
       _v32 = _v29 ? _v13[_v29.id] ?? [] : [],
-      _v33 = _v31 && _v32.includes(_v62),
-      _v34 = _v29 ? _v15[_v29.id]?.[_v62] ?? "" : "",
+      _v33 = _v31 && _v32.includes(_v64),
+      _v34 = _v29 ? _v15[_v29.id]?.[_v64] ?? "" : "",
       _v35 = (() => {
         if (!_v29) return !1;
         switch (_v29.id) {
-          case _v57:
-            if (!_v18) return !1;
-            if (_v18 === _v63) return !!_v19;
-            return !0;
-          case _v58:
-            return (_v13[_v58] ?? []).length > 0;
           case _v59:
-          case _v61:
-            if (0 === _v32.length) return !1;
-            if (_v33) return _v34.trim().length > 0;
+            if (!_v18) return !1;
+            if (_v18 === _v65) return !!_v19;
             return !0;
           case _v60:
             return (_v13[_v60] ?? []).length > 0;
+          case _v61:
+          case _v63:
+            if (0 === _v32.length) return !1;
+            if (_v33) return _v34.trim().length > 0;
+            return !0;
+          case _v62:
+            return (_v13[_v62] ?? []).length > 0;
           default:
             return !1;
         }
@@ -2086,14 +2088,14 @@
       },
       _v38 = _v0 => {
         _v14(_v0 => {
-          let _v1 = (_v0[_v57] ?? []).includes(_v0) ? [] : [_v0];
+          let _v1 = (_v0[_v59] ?? []).includes(_v0) ? [] : [_v0];
           return {
             ..._v0,
-            [_v57]: [_v63, ..._v1]
+            [_v59]: [_v65, ..._v1]
           };
         });
       },
-      _v39 = _v64.map(_v0 => ({
+      _v39 = _v66.map(_v0 => ({
         ..._v0,
         isSelected: _v17.includes(_v0.id)
       }));
@@ -2103,9 +2105,9 @@
         flexDirection: "column",
         alignItems: "center",
         width: "100%",
-        children: [(0, _v1.jsx)(_v15.SlideFade, {
+        children: [(0, _v1.jsx)(_v17.SlideFade, {
           in: !_v11,
-          transition: _v71,
+          transition: _v73,
           children: (0, _v1.jsx)(_v1.Fragment, {
             children: _v29 && (0, _v1.jsxs)(_v9.Flex, {
               flexDirection: "column",
@@ -2113,13 +2115,13 @@
               gap: 3,
               width: "100%",
               marginBottom: 5,
-              children: [(0, _v1.jsx)(_v18.Text, {
+              children: [(0, _v1.jsx)(_v20.Text, {
                 variant: {
                   base: "heading-md",
                   md: "heading-lg"
                 },
                 children: _v29.question
-              }), _v29.description && (0, _v1.jsx)(_v18.Text, {
+              }), _v29.description && (0, _v1.jsx)(_v20.Text, {
                 variant: {
                   base: "body-sm",
                   md: "body-md"
@@ -2141,66 +2143,60 @@
               }
             }
           },
-          children: (0, _v1.jsx)(_v15.SlideFade, {
+          children: (0, _v1.jsx)(_v17.SlideFade, {
             in: !_v11,
-            transition: _v72,
+            transition: _v74,
             children: _v29 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v46, {
+              children: [(0, _v1.jsx)(_v48, {
                 answers: _v29.answers,
                 onToggleAnswer: _v0 => {
                   var _v1;
-                  _v29.id === _v57 ? _v14(_v0 => {
-                    let _v1 = _v0[_v57] ?? [],
-                      _v2 = _v64.find(_v0 => _v1.includes(_v0.id))?.id ?? null;
+                  _v29.id === _v59 ? _v14(_v0 => {
+                    let _v1 = _v0[_v59] ?? [],
+                      _v2 = _v66.find(_v0 => _v1.includes(_v0.id))?.id ?? null;
                     if (_v1.includes(_v0)) return {
                       ..._v0,
-                      [_v57]: [],
-                      [_v60]: []
+                      [_v59]: [],
+                      [_v62]: []
                     };
-                    let _v3 = _v0 === _v63 ? [_v63, ...(_v2 ? [_v2] : [])] : [_v0];
+                    let _v3 = _v0 === _v65 ? [_v65, ...(_v2 ? [_v2] : [])] : [_v0];
                     return {
                       ..._v0,
-                      [_v57]: _v3
+                      [_v59]: _v3
                     };
-                  }) : _v29.id === _v58 ? _v14(_v0 => {
-                    let _v1 = _v0[_v58] ?? [];
+                  }) : _v29.id === _v60 ? _v14(_v0 => {
+                    let _v1 = _v0[_v60] ?? [];
                     if ("mainly_watch" === _v0) return {
                       ..._v0,
-                      [_v58]: _v1.includes(_v0) ? [] : [_v0]
+                      [_v60]: _v1.includes(_v0) ? [] : [_v0]
                     };
                     let _v2 = _v1.includes(_v0) ? _v1.filter(_v0 => _v0 !== _v0) : [..._v1, _v0];
                     return {
                       ..._v0,
-                      [_v58]: _v2.filter(_v0 => "mainly_watch" !== _v0)
+                      [_v60]: _v2.filter(_v0 => "mainly_watch" !== _v0)
                     };
-                  }) : _v29.id === _v59 || _v29.id === _v61 ? (_v1 = _v29.id, _v14(_v0 => {
+                  }) : _v29.id === _v61 || _v29.id === _v63 ? (_v1 = _v29.id, _v14(_v0 => {
                     let _v1 = _v0[_v1] ?? [],
                       _v2 = _v1.includes(_v0) ? _v1.filter(_v0 => _v0 !== _v0) : [..._v1, _v0];
-                    return _v2.includes(_v62) || _v16(_v0 => ({
+                    return _v2.includes(_v64) || _v16(_v0 => ({
                       ..._v0,
                       [_v1]: {
                         ...(_v0[_v1] ?? {}),
-                        [_v62]: ""
+                        [_v64]: ""
                       }
                     })), {
                       ..._v0,
                       [_v1]: _v2
                     };
-                  })) : _v29.id === _v60 && _v14(_v0 => {
-                    let _v1 = _v0[_v60] ?? [];
+                  })) : _v29.id === _v62 && _v14(_v0 => {
+                    let _v1 = _v0[_v62] ?? [];
                     return {
                       ..._v0,
-                      [_v60]: _v1.includes(_v0) ? [] : [_v0]
+                      [_v62]: _v1.includes(_v0) ? [] : [_v0]
                     };
                   });
                 },
                 gridProps: {
-                  [_v57]: {
-                    gridAutoFlow: "row"
-                  },
-                  [_v58]: {
-                    gridAutoFlow: "row"
-                  },
                   [_v59]: {
                     gridAutoFlow: "row"
                   },
@@ -2209,19 +2205,25 @@
                   },
                   [_v61]: {
                     gridAutoFlow: "row"
+                  },
+                  [_v62]: {
+                    gridAutoFlow: "row"
+                  },
+                  [_v63]: {
+                    gridAutoFlow: "row"
                   }
                 }[_v29.id],
-                renderSubAnswers: _v0 => _v29.id === _v57 && _v0 === _v63 && _v20 ? (0, _v1.jsx)(_v15.SlideFade, {
+                renderSubAnswers: _v0 => _v29.id === _v59 && _v0 === _v65 && _v20 ? (0, _v1.jsx)(_v17.SlideFade, {
                   in: _v20,
-                  transition: _v71,
+                  transition: _v73,
                   offsetY: "-20px",
-                  children: (0, _v1.jsx)(_v17.Box, {
+                  children: (0, _v1.jsx)(_v19.Box, {
                     width: "100%",
                     pl: {
                       base: 2,
                       md: 4
                     },
-                    children: (0, _v1.jsx)(_v46, {
+                    children: (0, _v1.jsx)(_v48, {
                       answers: _v39,
                       onToggleAnswer: _v38,
                       gridProps: {
@@ -2230,23 +2232,23 @@
                     })
                   })
                 }) : null
-              }), (0, _v1.jsx)(_v15.SlideFade, {
+              }), (0, _v1.jsx)(_v17.SlideFade, {
                 in: _v33,
-                transition: _v71,
+                transition: _v73,
                 offsetY: "-20px",
                 children: (0, _v1.jsxs)(_v9.Flex, {
                   visibility: _v33 ? "visible" : "hidden",
                   mt: 5,
                   width: "100%",
                   position: "relative",
-                  children: [(0, _v1.jsx)(_v17.Box, {
+                  children: [(0, _v1.jsx)(_v19.Box, {
                     position: "absolute",
                     left: "12px",
                     top: "-8px",
                     p: "0 4px",
                     bg: "dark" === _v10 ? "background" : "#fff",
                     width: "fit-content",
-                    children: (0, _v1.jsx)(_v18.Text, {
+                    children: (0, _v1.jsx)(_v20.Text, {
                       variant: "heading-2xs",
                       children: (0, _v11.translate)({
                         singular: "Other",
@@ -2275,7 +2277,7 @@
                         }
                       })
                     })
-                  }), (0, _v1.jsx)(_v39.Input, {
+                  }), (0, _v1.jsx)(_v41.Input, {
                     autoFocus: !0,
                     bg: "transparent",
                     value: _v34,
@@ -2283,7 +2285,7 @@
                       ..._v0,
                       [_v29.id]: {
                         ...(_v0[_v29.id] ?? {}),
-                        [_v62]: _v0.target.value
+                        [_v64]: _v0.target.value
                       }
                     }))
                   }, `autoFocus-${_v33}`)]
@@ -2292,7 +2294,7 @@
             })
           }, `animate-content-${_v27}`)
         })]
-      }), (0, _v1.jsx)(_v69, {
+      }), (0, _v1.jsx)(_v71, {
         progressPct: _v26 > 1 ? (_v27 - 1) / (_v26 - 1) * 100 : 0,
         showFinishLabel: _v1,
         isNextDisabled: !_v35,
@@ -2308,10 +2310,10 @@
               question: _v29.question,
               description: _v29.description
             },
-            answers: (_v2 = _v13[_v1 = (_v0 = _v29).id] ?? [], _v3 = _v1 === _v57 ? [..._v0.answers, ..._v64] : _v0.answers, _v4 = _v1 === _v57 && _v2.includes(_v63) ? _v2.filter(_v0 => _v0 !== _v63) : _v2, _v3.filter(_v0 => _v4.includes(_v0.id)).map(_v0 => ({
+            answers: (_v2 = _v13[_v1 = (_v0 = _v29).id] ?? [], _v3 = _v1 === _v59 ? [..._v0.answers, ..._v66] : _v0.answers, _v4 = _v1 === _v59 && _v2.includes(_v65) ? _v2.filter(_v0 => _v0 !== _v65) : _v2, _v3.filter(_v0 => _v4.includes(_v0.id)).map(_v0 => ({
               id: _v0.id,
               label: _v0.label,
-              text: _v0.id === _v62 ? _v15[_v1]?.[_v62] : void 0
+              text: _v0.id === _v64 ? _v15[_v1]?.[_v64] : void 0
             })))
           }), _v36());
         },
@@ -2323,14 +2325,14 @@
           }), _v29 && (_v14(_v0 => ({
             ..._v0,
             [_v29.id]: [],
-            ...(_v29.id === _v57 ? {
-              [_v60]: []
+            ...(_v29.id === _v59 ? {
+              [_v62]: []
             } : {})
-          })), _v29.answers.some(_v0 => _v0.id === _v62) && _v16(_v0 => ({
+          })), _v29.answers.some(_v0 => _v0.id === _v64) && _v16(_v0 => ({
             ..._v0,
             [_v29.id]: {
               ...(_v0[_v29.id] ?? {}),
-              [_v62]: ""
+              [_v64]: ""
             }
           }))), _v36());
         },
@@ -2339,21 +2341,21 @@
       })]
     });
   }
-  var _v74 = _v0.i(0),
-    _v75 = _v0.i(0),
-    _v76 = _v0.i(0),
+  var _v76 = _v0.i(0),
     _v77 = _v0.i(0),
     _v78 = _v0.i(0),
     _v79 = _v0.i(0),
     _v80 = _v0.i(0),
-    _v81 = _v0.i(0);
-  let _v82 = {
+    _v81 = _v0.i(0),
+    _v82 = _v0.i(0),
+    _v83 = _v0.i(0);
+  let _v84 = {
       upload: "/upload/videos",
       record: "/upload/screen-recording",
       create: "/upload/video-maker"
     },
-    _v83 = `${_v82.upload}?upload_notice=reselect`,
-    _v84 = [{
+    _v85 = `${_v84.upload}?upload_notice=reselect`,
+    _v86 = [{
       id: "upload",
       label: (0, _v11.translate)({
         singular: "Upload",
@@ -2433,7 +2435,7 @@
           }
         }
       }),
-      Icon: _v81.Upload
+      Icon: _v83.Upload
     }, {
       id: "record",
       label: (0, _v11.translate)({
@@ -2514,7 +2516,7 @@
           }
         }
       }),
-      Icon: _v80.Record
+      Icon: _v82.Record
     }, {
       id: "create",
       label: (0, _v11.translate)({
@@ -2595,12 +2597,12 @@
           }
         }
       }),
-      Icon: _v79.CreateVideo
+      Icon: _v81.CreateVideo
     }],
-    _v85 = {
+    _v87 = {
       position: "relative",
       width: "100%",
-      height: `clamp(${(0, _v75.rem)(400)}, 56vh, ${(0, _v75.rem)(518)})`,
+      height: `clamp(${(0, _v77.rem)(400)}, 56vh, ${(0, _v77.rem)(518)})`,
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -2613,7 +2615,7 @@
       borderColor: "stroke",
       borderRadius: "2xl"
     };
-  function _v86({
+  function _v88({
     onComplete: _v0,
     onSkip: _v1,
     defaultTab: _v2 = "upload",
@@ -2630,7 +2632,7 @@
         trackOnboardingUploadTabSelected: _v12,
         trackOnboardingUploadCtaClicked: _v13,
         trackOnboardingUploadSkipped: _v14
-      } = (_v5 = (0, _v40.usePico)(), _v6 = (0, _v8.useRef)(!1), _v7 = (0, _v8.useCallback)(_v0 => {
+      } = (_v5 = (0, _v42.usePico)(), _v6 = (0, _v8.useRef)(!1), _v7 = (0, _v8.useCallback)(_v0 => {
         null === _v5 || _v6.current || (_v5.track("onboarding_upload_viewed", {
           default_tab: _v0.defaultTab,
           show_create: _v0.showCreate
@@ -2661,7 +2663,7 @@
         showCreate: _v3
       });
     }, [_v11, _v2, _v3]);
-    let _v15 = _v84.filter(_v0 => "create" !== _v0.id || _v3),
+    let _v15 = _v86.filter(_v0 => "create" !== _v0.id || _v3),
       _v16 = Math.max(0, _v15.findIndex(_v0 => _v0.id === _v9)),
       _v17 = _v15[_v16],
       _v18 = _v17.Icon,
@@ -2677,7 +2679,7 @@
         children: [(0, _v1.jsx)(_v18, {
           width: 40,
           height: 40
-        }), (0, _v1.jsx)(_v18.Text, {
+        }), (0, _v1.jsx)(_v20.Text, {
           variant: {
             base: "heading-md",
             md: "heading-lg"
@@ -2685,14 +2687,14 @@
           textAlign: "center",
           maxWidth: "520px",
           children: _v17.heading
-        }), (0, _v1.jsx)(_v68.Button, {
+        }), (0, _v1.jsx)(_v70.Button, {
           variant: "brand",
-          onClick: _v19 ? () => _v20.current?.click() : () => _v21(_v82[_v17.id]),
+          onClick: _v19 ? () => _v20.current?.click() : () => _v21(_v84[_v17.id]),
           children: _v17.ctaLabel
         })]
       });
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v68.Button, {
+      children: [(0, _v1.jsx)(_v70.Button, {
         variant: "tertiary",
         size: "sm",
         onClick: () => {
@@ -2735,8 +2737,8 @@
         alignItems: "center",
         gap: "6",
         width: "100%",
-        maxWidth: (0, _v75.rem)(896),
-        children: [(0, _v1.jsx)(_v18.Text, {
+        maxWidth: (0, _v77.rem)(896),
+        children: [(0, _v1.jsx)(_v20.Text, {
           variant: {
             base: "heading-md",
             md: "heading-lg"
@@ -2769,12 +2771,12 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v77.Tabs, {
+        }), (0, _v1.jsx)(_v79.Tabs, {
           variant: "default",
           size: "md",
           width: {
             base: "100%",
-            md: (0, _v75.rem)(576)
+            md: (0, _v77.rem)(576)
           },
           maxWidth: "100%",
           index: _v16,
@@ -2785,15 +2787,15 @@
               toTab: _v1
             }), _v10(_v1);
           },
-          children: (0, _v1.jsxs)(_v78.TabList, {
-            children: [_v15.map(_v0 => (0, _v1.jsx)(_v76.Tab, {
+          children: (0, _v1.jsxs)(_v80.TabList, {
+            children: [_v15.map(_v0 => (0, _v1.jsx)(_v78.Tab, {
               children: _v0.label
-            }, _v0.id)), (0, _v1.jsx)(_v77.TabIndicator, {})]
+            }, _v0.id)), (0, _v1.jsx)(_v79.TabIndicator, {})]
           })
-        }, _v15.length), _v19 ? (0, _v1.jsx)(_v74.Dropzone, {
+        }, _v15.length), _v19 ? (0, _v1.jsx)(_v76.Dropzone, {
           ref: _v20,
           accept: "video/*",
-          ..._v85,
+          ..._v87,
           sx: {
             input: {
               position: "absolute",
@@ -2806,20 +2808,20 @@
             }
           },
           onChange: _v0 => {
-            (_v0.target.files?.[0] ?? _v0.dataTransfer?.files?.[0]) && _v21(_v83);
+            (_v0.target.files?.[0] ?? _v0.dataTransfer?.files?.[0]) && _v21(_v85);
           },
           children: _v22
         }) : (0, _v1.jsx)(_v9.Flex, {
-          ..._v85,
+          ..._v87,
           children: _v22
         })]
       })]
     });
   }
-  function _v87(_v0, _v1) {
+  function _v89(_v0, _v1) {
     return _v0[_v0.indexOf(_v1) + 1] ?? null;
   }
-  function _v88({
+  function _v90({
     randomizeAnswers: _v0 = !0,
     renderPaywallStep2: _v1
   }) {
@@ -2839,7 +2841,18 @@
       _v14 = "t1" === _v6.single_question_survey_arm,
       _v15 = _v6.onboarding_paywall_flow,
       _v16 = (_v2 = _v6.onboarding_paywall_kind, "control" !== _v15 && "featureList" !== _v2 && ("welcomeOffer" !== _v2 || "welcome_offer_at_dismiss" !== _v15) && "control" === _v6.reverse_free_trial_arm && _v8?.hasPaid === !1),
-      _v17 = (0, _v8.useMemo)(() => function (_v0, _v1 = "control") {
+      {
+        shouldScheduleEmail: _v17,
+        trialDays: _v18
+      } = (0, _v13.useReverseFreeTrialDelay)(),
+      {
+        scheduleEmail: _v19
+      } = (0, _v14.useReverseTrialDelayApi)(),
+      _v20 = (0, _v8.useRef)(!1);
+    (0, _v8.useEffect)(() => {
+      _v17 && !_v20.current && (_v20.current = !0, _v19(_v18).catch(() => void 0));
+    }, [_v17, _v18, _v19]);
+    let _v21 = (0, _v8.useMemo)(() => function (_v0, _v1 = "control") {
         let _v2 = (() => {
           switch (_v0) {
             case "t1":
@@ -2853,28 +2866,28 @@
         })();
         return "control" !== _v1 ? [..._v2, "paywall_step_2"] : [..._v2];
       }(_v13, _v16 ? _v15 : "control"), [_v13, _v16, _v15]),
-      _v18 = null === (_v3 = _v5.get("phase")) || "" === _v3 ? _v17[0] : _v17.find(_v0 => _v0 === _v3) ?? null,
-      _v19 = _v11 && (0, _v13.isVimeoRedirectableUrl)(_v11) ? _v11 : void 0,
-      [_v20] = (0, _v8.useState)(() => (0, _v14.peekPostSurveyRedirect)()),
-      _v21 = _v19 ?? _v20,
-      _v22 = () => {
-        _v10(!0), (0, _v14.clearPostSurveyRedirect)(), _v4.push(_v21 ?? "/home");
+      _v22 = null === (_v3 = _v5.get("phase")) || "" === _v3 ? _v21[0] : _v21.find(_v0 => _v0 === _v3) ?? null,
+      _v23 = _v11 && (0, _v15.isVimeoRedirectableUrl)(_v11) ? _v11 : void 0,
+      [_v24] = (0, _v8.useState)(() => (0, _v16.peekPostSurveyRedirect)()),
+      _v25 = _v23 ?? _v24,
+      _v26 = () => {
+        _v10(!0), (0, _v16.clearPostSurveyRedirect)(), _v4.push(_v25 ?? "/home");
       },
-      _v23 = () => {
-        if (!_v18) return;
-        let _v0 = _v87(_v17, _v18);
-        if (!_v0) return void _v22();
+      _v27 = () => {
+        if (!_v22) return;
+        let _v0 = _v89(_v21, _v22);
+        if (!_v0) return void _v26();
         let _v1 = new URLSearchParams(_v5.toString());
         _v1.delete("page"), _v1.set("phase", _v0), _v4.push({
           pathname: _v4.pathname,
           search: _v1.toString()
         });
       };
-    if (_v7 || _v9) return (0, _v1.jsx)(_v34.default, {});
-    if ("paywall_step_2" === _v18) {
+    if (_v7 || _v9) return (0, _v1.jsx)(_v36.default, {});
+    if ("paywall_step_2" === _v22) {
       let _v0 = _v1 ? _v1({
         paywallFlow: _v15,
-        postCheckoutUrl: _v21,
+        postCheckoutUrl: _v25,
         onBackToIntroOffer: () => {
           let _v0;
           (_v0 = new URLSearchParams(_v5.toString())).delete("page"), _v0.set("phase", "paywall"), _v4.push({
@@ -2882,9 +2895,9 @@
             search: _v0.toString()
           });
         },
-        onContinueWithFreePlan: _v22
-      }) : (0, _v1.jsx)(_v34.default, {});
-      return "pricing_page_at_dismiss" === _v15 ? _v0 : (0, _v1.jsx)(_v38.OnboardingShell, {
+        onContinueWithFreePlan: _v26
+      }) : (0, _v1.jsx)(_v36.default, {});
+      return "pricing_page_at_dismiss" === _v15 ? _v0 : (0, _v1.jsx)(_v40.OnboardingShell, {
         growLogo: !1,
         children: (0, _v1.jsx)(_v9.Flex, {
           marginY: "auto",
@@ -2893,22 +2906,22 @@
         })
       });
     }
-    return (0, _v1.jsxs)(_v38.OnboardingShell, {
-      children: ["survey" === _v18 && (0, _v1.jsx)(_v73, {
+    return (0, _v1.jsxs)(_v40.OnboardingShell, {
+      children: ["survey" === _v22 && (0, _v1.jsx)(_v75, {
         randomizeAnswers: _v0,
-        isFinalPhase: null === _v87(_v17, "survey"),
+        isFinalPhase: null === _v89(_v21, "survey"),
         useSingleQuestionSurvey: _v14,
-        onComplete: _v23
-      }), "upload" === _v18 && (0, _v1.jsx)(_v86, {
+        onComplete: _v27
+      }), "upload" === _v22 && (0, _v1.jsx)(_v88, {
         showCreate: _v8?.hasCreation === !0,
         enableFileSelector: "t3" === _v13,
         onComplete: _v0 => {
-          _v12(_v0), _v23();
+          _v12(_v0), _v27();
         },
-        onSkip: _v23
-      }), ("paywall" === _v18 || null === _v18) && (0, _v1.jsx)(_v37, {
-        postCheckoutUrl: _v21,
-        onDismiss: _v22,
+        onSkip: _v27
+      }), ("paywall" === _v22 || null === _v22) && (0, _v1.jsx)(_v39, {
+        postCheckoutUrl: _v25,
+        onDismiss: _v26,
         dismissButtonLabel: "pricing_page_at_dismiss" === _v15 && _v16 ? (0, _v11.translate)({
           singular: "Check other plans",
           dictionary: {
@@ -2935,22 +2948,22 @@
             }
           }
         }) : void 0,
-        onSkipInsteadOfDismiss: _v16 ? _v23 : void 0
+        onSkipInsteadOfDismiss: _v16 ? _v27 : void 0
       })]
     });
   }
-  function _v89({
+  function _v91({
     paywallTracking: _v0,
     postCheckoutUrl: _v1,
     onDismiss: _v2
   }) {
-    let _v3 = (0, _v33.useViewer)(),
+    let _v3 = (0, _v35.useViewer)(),
       {
         settings: _v4
       } = (0, _v12.useOrionSettings)(),
       {
         trackPaywallDismissed: _v5
-      } = (0, _v32.usePaywallTracking)({
+      } = (0, _v34.usePaywallTracking)({
         ..._v0,
         isVisible: null !== _v3
       }),
@@ -2958,14 +2971,14 @@
         _v5(), _v2();
       };
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v30.WelcomeOfferModalPaywall, {
+      children: [(0, _v1.jsx)(_v32.WelcomeOfferModalPaywall, {
         isOpen: !0,
         isPage: !0,
         showContinueLink: _v4.onboarding_welcome_offer_show_continue_link,
         paywallTracking: _v0,
         postCheckoutUrl: _v1,
         onClose: _v6
-      }), (0, _v1.jsx)(_v29.PlansComparisonPaywallNavigation, {
+      }), (0, _v1.jsx)(_v31.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: "top_right",
         dismissButtonVariant: _v4.onboarding_welcome_offer_dismiss_variant,
         skipLabel: (0, _v11.translate)({
@@ -2998,41 +3011,41 @@
       })]
     });
   }
-  var _v90 = _v0.i(0),
-    _v91 = _v0.i(0),
-    _v92 = _v0.i(0),
+  var _v92 = _v0.i(0),
     _v93 = _v0.i(0),
     _v94 = _v0.i(0),
     _v95 = _v0.i(0),
-    _v96 = _v0.i(0);
-  let _v97 = ["starter", "standard", "advanced"],
-    _v98 = [],
-    _v99 = {
+    _v96 = _v0.i(0),
+    _v97 = _v0.i(0),
+    _v98 = _v0.i(0);
+  let _v99 = ["starter", "standard", "advanced"],
+    _v100 = [],
+    _v101 = {
       paywallTrigger: "registration_survey_comparison_page_at_dismiss",
       paywallLocation: "registration_survey",
       paywallType: "page",
       paywallFeature: "registration_survey"
     };
-  function _v100({
+  function _v102({
     onDismiss: _v0
   }) {
-    let _v1 = (0, _v33.useViewer)(),
+    let _v1 = (0, _v35.useViewer)(),
       {
         width: _v2
-      } = (0, _v92.useWindowSize)(),
-      _v3 = (0, _v21.useGetSubscriptionPlansData)([..._v97]),
+      } = (0, _v94.useWindowSize)(),
+      _v3 = (0, _v23.useGetSubscriptionPlansData)([..._v99]),
       {
         trackPaywallCtaClicked: _v4,
         trackPaywallDismissed: _v5
-      } = (0, _v32.usePaywallTracking)({
-        ..._v99,
+      } = (0, _v34.usePaywallTracking)({
+        ..._v101,
         paywallStyle: "onboarding_comparison_page",
-        paywallPlansDisplayed: [..._v97],
+        paywallPlansDisplayed: [..._v99],
         paywallPeriodicitiesDisplayed: ["yearly"],
         isVisible: null !== _v1 && void 0 !== _v3
       }),
-      _v6 = _v3 ?? _v98,
-      _v7 = (0, _v8.useMemo)(() => _v97.reduce((_v0, _v1) => {
+      _v6 = _v3 ?? _v100,
+      _v7 = (0, _v8.useMemo)(() => _v99.reduce((_v0, _v1) => {
         let _v2 = _v6.find(_v0 => _v0.tier === _v1);
         return void 0 !== _v2 && _v0.push(_v2), _v0;
       }, []), [_v6]),
@@ -3041,7 +3054,7 @@
         cardSurface: "onboarding",
         showCardBorder: !0,
         showMonthlyDropdown: !1,
-        paidPlanCtaLabel: (0, _v91.translate)({
+        paidPlanCtaLabel: (0, _v93.translate)({
           singular: "Start 7 days free trial",
           dictionary: {
             es: {
@@ -3072,18 +3085,18 @@
       }), []),
       _v10 = (0, _v8.useMemo)(() => ({
         plansData: _v6,
-        isFlatRateData: (0, _v96.areFlatRatePlans)(_v6),
+        isFlatRateData: (0, _v98.areFlatRatePlans)(_v6),
         isSolutionData: !1,
         isRepackagingData: !1,
         downgradeEnabled: !1,
         hideFreePlan: !0,
         hideIndividualPlans: !1
       }), [_v6]);
-    return null === _v1 || void 0 === _v3 ? null : (0, _v1.jsxs)(_v17.Box, {
+    return null === _v1 || void 0 === _v3 ? null : (0, _v1.jsxs)(_v19.Box, {
       width: "100%",
-      children: [(0, _v1.jsx)(_v29.PlansComparisonPaywallNavigation, {
+      children: [(0, _v1.jsx)(_v31.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: "top_right",
-        skipLabel: (0, _v91.translate)({
+        skipLabel: (0, _v93.translate)({
           singular: "I'm not interested",
           dictionary: {
             es: {
@@ -3116,14 +3129,14 @@
         direction: "column",
         alignItems: "center",
         width: "100%",
-        children: [(0, _v1.jsx)(_v17.Box, {
-          marginTop: (0, _v75.rem)(16),
+        children: [(0, _v1.jsx)(_v19.Box, {
+          marginTop: (0, _v77.rem)(16),
           marginBottom: "sm",
-          children: (0, _v1.jsx)(_v18.Text, {
+          children: (0, _v1.jsx)(_v20.Text, {
             variant: "heading-xl",
-            fontSize: (0, _v75.rem)(30),
+            fontSize: (0, _v77.rem)(30),
             textAlign: "center",
-            children: (0, _v91.translate)({
+            children: (0, _v93.translate)({
               singular: "Compare plans before you go",
               dictionary: {
                 es: {
@@ -3150,11 +3163,11 @@
               }
             })
           })
-        }), (0, _v1.jsx)(_v94.OverridesContext.Provider, {
+        }), (0, _v1.jsx)(_v96.OverridesContext.Provider, {
           value: _v9,
-          children: (0, _v1.jsx)(_v95.PlansDataContext.Provider, {
+          children: (0, _v1.jsx)(_v97.PlansDataContext.Provider, {
             value: _v10,
-            children: (0, _v1.jsx)(_v17.Box, {
+            children: (0, _v1.jsx)(_v19.Box, {
               display: _v8 ? "block" : "table",
               width: "100%",
               paddingY: "md",
@@ -3162,7 +3175,7 @@
               sx: _v8 ? void 0 : {
                 tableLayout: "fixed"
               },
-              children: _v7.map(_v0 => (0, _v1.jsx)(_v93.PlanCard, {
+              children: _v7.map(_v0 => (0, _v1.jsx)(_v95.PlanCard, {
                 planData: _v0,
                 showBadge: "advanced" === _v0.tier,
                 showYearly: !0,
@@ -3173,13 +3186,13 @@
               }, _v0.tier))
             })
           })
-        }), (0, _v1.jsx)(_v17.Box, {
-          children: (0, _v1.jsx)(_v68.Button, {
+        }), (0, _v1.jsx)(_v19.Box, {
+          children: (0, _v1.jsx)(_v70.Button, {
             as: "a",
             href: "/upgrade-plan",
             variant: "minimal",
             onClick: () => _v4("compare_features"),
-            children: (0, _v91.translate)({
+            children: (0, _v93.translate)({
               singular: "Compare all plan features",
               dictionary: {
                 es: {
@@ -3210,43 +3223,43 @@
       })]
     });
   }
-  var _v101 = _v0.i(0),
-    _v102 = _v0.i(0),
-    _v103 = _v0.i(0),
+  var _v103 = _v0.i(0),
     _v104 = _v0.i(0),
     _v105 = _v0.i(0),
     _v106 = _v0.i(0),
     _v107 = _v0.i(0),
     _v108 = _v0.i(0),
-    _v109 = _v0.i(0);
-  let _v110 = [],
-    _v111 = {
+    _v109 = _v0.i(0),
+    _v110 = _v0.i(0),
+    _v111 = _v0.i(0);
+  let _v112 = [],
+    _v113 = {
       paywallTrigger: "registration_survey_downsell_page_at_dismiss",
       paywallLocation: "registration_survey",
       paywallType: "page",
       paywallFeature: "registration_survey"
     };
-  function _v112({
+  function _v114({
     onDismiss: _v0,
     postCheckoutUrl: _v1,
     tier: _v2 = "starter"
   }) {
-    let _v3 = (0, _v33.useViewer)(),
+    let _v3 = (0, _v35.useViewer)(),
       {
         settings: _v4
       } = (0, _v12.useOrionSettings)(),
-      _v5 = (0, _v21.useGetSubscriptionPlansData)([_v2]),
+      _v5 = (0, _v23.useGetSubscriptionPlansData)([_v2]),
       [_v6, _v7] = (0, _v8.useState)(!1),
-      _v8 = (0, _v20.useColorModeValue)("background", "surface"),
-      _v9 = (0, _v20.useColorModeValue)("green.50", "green.950"),
+      _v8 = (0, _v22.useColorModeValue)("background", "surface"),
+      _v9 = (0, _v22.useColorModeValue)("green.50", "green.950"),
       _v10 = "monthly" === _v4.onboarding_paywall_default_periodicity,
       _v11 = !_v10 || _v4.onboarding_paywall_monthly_free_trial,
-      _v12 = (0, _v8.useMemo)(() => (_v5 ?? _v110).find(_v0 => _v0.tier === _v2), [_v5, _v2]),
+      _v12 = (0, _v8.useMemo)(() => (_v5 ?? _v112).find(_v0 => _v0.tier === _v2), [_v5, _v2]),
       {
         trackPaywallCtaClicked: _v13,
         trackPaywallDismissed: _v14
-      } = (0, _v32.usePaywallTracking)({
-        ..._v111,
+      } = (0, _v34.usePaywallTracking)({
+        ..._v113,
         paywallStyle: "onboarding_downsell_page",
         paywallPlansDisplayed: [_v2],
         paywallPeriodicitiesDisplayed: [_v10 ? "monthly" : "yearly"],
@@ -3256,9 +3269,9 @@
     (0, _v8.useEffect)(() => {
       null === _v3 || void 0 === _v5 || void 0 !== _v12 || _v15.current || (_v15.current = !0, _v0());
     }, [_v0, _v12, _v5, _v3]);
-    let _v16 = (0, _v106.isUkLocation)(_v3?.location) && _v12?.currency?.currencyCode ? (0, _v106.formatUkVatPrice)(_v10 ? _v12.price.monthly : _v12.price.annualMonthly, _v12.currency.currencyCode) ?? (_v10 ? _v12.priceFormatted.monthly : _v12.priceFormatted.annualMonthly) : _v10 ? _v12?.priceFormatted.monthly : _v12?.priceFormatted.annualMonthly,
-      _v17 = _v12 ? (0, _v105.buildCheckoutUrl)({
-        ..._v111,
+    let _v16 = (0, _v108.isUkLocation)(_v3?.location) && _v12?.currency?.currencyCode ? (0, _v108.formatUkVatPrice)(_v10 ? _v12.price.monthly : _v12.price.annualMonthly, _v12.currency.currencyCode) ?? (_v10 ? _v12.priceFormatted.monthly : _v12.priceFormatted.annualMonthly) : _v10 ? _v12?.priceFormatted.monthly : _v12?.priceFormatted.annualMonthly,
+      _v17 = _v12 ? (0, _v107.buildCheckoutUrl)({
+        ..._v113,
         tier: _v2,
         isMonthly: _v10,
         isTrial: _v6,
@@ -3270,8 +3283,8 @@
       _v20 = _v18?.videoStoragePeriodicQuota ?? 0,
       _v21 = _v18?.bandwidth?.periodicQuota ?? 0,
       _v22 = _v18?.bandwidth?.quotaPeriod,
-      _v23 = (0, _v109.getFeatureListByTier)(_v2) ?? [],
-      _v24 = "year" === _v22 ? (0, _v91.translate)({
+      _v23 = (0, _v111.getFeatureListByTier)(_v2) ?? [],
+      _v24 = "year" === _v22 ? (0, _v93.translate)({
         singular: "{AMOUNT} yearly bandwidth",
         replacements: {
           AMOUNT: _v21
@@ -3299,7 +3312,7 @@
             singular: "{AMOUNT} 年带宽"
           }
         }
-      }) : (0, _v91.translate)({
+      }) : (0, _v93.translate)({
         singular: "{AMOUNT} monthly bandwidth",
         replacements: {
           AMOUNT: _v21
@@ -3328,11 +3341,11 @@
           }
         }
       });
-    return (0, _v1.jsxs)(_v17.Box, {
+    return (0, _v1.jsxs)(_v19.Box, {
       width: "100%",
-      children: [(0, _v1.jsx)(_v29.PlansComparisonPaywallNavigation, {
+      children: [(0, _v1.jsx)(_v31.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: "top_right",
-        skipLabel: (0, _v91.translate)({
+        skipLabel: (0, _v93.translate)({
           singular: "I'm not interested",
           dictionary: {
             es: {
@@ -3365,23 +3378,23 @@
         direction: "column",
         alignItems: "center",
         width: "100%",
-        marginTop: (0, _v75.rem)(32),
+        marginTop: (0, _v77.rem)(32),
         paddingX: {
           base: "0",
           md: "lg"
         },
-        children: (0, _v1.jsxs)(_v17.Box, {
+        children: (0, _v1.jsxs)(_v19.Box, {
           width: "100%",
           maxWidth: {
             base: "100%",
-            md: (0, _v75.rem)(536)
+            md: (0, _v77.rem)(536)
           },
           position: "relative",
-          marginTop: (0, _v75.rem)(22),
-          border: `${(0, _v75.rem)(8)} solid transparent`,
-          children: [(0, _v1.jsx)(_v107.default, {
+          marginTop: (0, _v77.rem)(22),
+          border: `${(0, _v77.rem)(8)} solid transparent`,
+          children: [(0, _v1.jsx)(_v109.default, {
             color: "var(--vimeo-colors-upsell-primary)",
-            text: (0, _v91.translate)({
+            text: (0, _v93.translate)({
               singular: "Recommended",
               dictionary: {
                 es: {
@@ -3408,7 +3421,7 @@
               }
             }),
             compact: !0
-          }), (0, _v1.jsx)(_v108.CardBorder, {
+          }), (0, _v1.jsx)(_v110.CardBorder, {
             purchaseStatus: "available",
             showBadge: !0,
             compact: !0
@@ -3418,17 +3431,17 @@
             alignItems: "center",
             padding: {
               base: "lg",
-              md: (0, _v75.rem)(36)
+              md: (0, _v77.rem)(36)
             },
-            gap: (0, _v75.rem)(24),
+            gap: (0, _v77.rem)(24),
             children: [(0, _v1.jsxs)(_v9.Flex, {
               direction: "column",
               alignItems: "center",
               gap: "xs",
-              children: [(0, _v1.jsx)(_v18.Text, {
+              children: [(0, _v1.jsx)(_v20.Text, {
                 variant: "heading-xl",
                 textAlign: "center",
-                children: (0, _v91.translate)({
+                children: (0, _v93.translate)({
                   singular: "Need something simpler?",
                   dictionary: {
                     es: {
@@ -3454,11 +3467,11 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v18.Text, {
+              }), (0, _v1.jsx)(_v20.Text, {
                 variant: "body-lg",
                 textAlign: "center",
                 color: "text-secondary",
-                children: (0, _v91.translate)({
+                children: (0, _v93.translate)({
                   singular: "Start with {PLAN_NAME} at {PRICE}/month — the essential tools to create and share.",
                   replacements: {
                     PLAN_NAME: _v12.name,
@@ -3492,30 +3505,30 @@
             }), (0, _v1.jsxs)(_v9.Flex, {
               direction: "column",
               width: "100%",
-              padding: (0, _v75.rem)(20),
+              padding: (0, _v77.rem)(20),
               gap: "md",
               borderWidth: "1px",
               borderColor: "stroke",
-              borderRadius: (0, _v75.rem)(16),
+              borderRadius: (0, _v77.rem)(16),
               backgroundColor: _v8,
               children: [(0, _v1.jsxs)(_v9.Flex, {
                 justifyContent: "space-between",
                 alignItems: "center",
                 gap: "md",
-                children: [(0, _v1.jsx)(_v18.Text, {
+                children: [(0, _v1.jsx)(_v20.Text, {
                   variant: "heading-md",
                   children: _v12.name
                 }), (0, _v1.jsxs)(_v9.Flex, {
                   alignItems: "baseline",
                   gap: "xs",
                   whiteSpace: "nowrap",
-                  children: [(0, _v1.jsx)(_v18.Text, {
+                  children: [(0, _v1.jsx)(_v20.Text, {
                     variant: "heading-xl",
                     children: _v16
-                  }), (0, _v1.jsx)(_v18.Text, {
+                  }), (0, _v1.jsx)(_v20.Text, {
                     variant: "body-md",
                     color: "text-secondary",
-                    children: _v10 ? (0, _v91.translate)({
+                    children: _v10 ? (0, _v93.translate)({
                       singular: "/month",
                       dictionary: {
                         es: {
@@ -3540,7 +3553,7 @@
                           singular: "/月"
                         }
                       }
-                    }) : (0, _v91.translate)({
+                    }) : (0, _v93.translate)({
                       singular: "/month, billed annually",
                       dictionary: {
                         es: {
@@ -3571,9 +3584,9 @@
               }), (0, _v1.jsxs)(_v9.Flex, {
                 direction: "column",
                 gap: "sm",
-                children: [(0, _v1.jsx)(_v113, {
-                  icon: (0, _v1.jsx)(_v104.Users, {}),
-                  text: (0, _v91.translate)({
+                children: [(0, _v1.jsx)(_v115, {
+                  icon: (0, _v1.jsx)(_v106.Users, {}),
+                  text: (0, _v93.translate)({
                     singular: "{AMOUNT} user",
                     plural: "{AMOUNT} users",
                     count: _v19,
@@ -3611,9 +3624,9 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v113, {
-                  icon: (0, _v1.jsx)(_v102.Database, {}),
-                  text: (0, _v91.translate)({
+                }), (0, _v1.jsx)(_v115, {
+                  icon: (0, _v1.jsx)(_v104.Database, {}),
+                  text: (0, _v93.translate)({
                     singular: "{AMOUNT} storage",
                     replacements: {
                       AMOUNT: _v20
@@ -3642,11 +3655,11 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v113, {
-                  icon: (0, _v1.jsx)(_v103.Speedometer, {}),
+                }), (0, _v1.jsx)(_v115, {
+                  icon: (0, _v1.jsx)(_v105.Speedometer, {}),
                   text: _v24
                 })]
-              }), (0, _v1.jsx)(_v17.Box, {
+              }), (0, _v1.jsx)(_v19.Box, {
                 borderTopWidth: "1px",
                 borderColor: "stroke",
                 paddingTop: "md",
@@ -3656,11 +3669,11 @@
                   children: _v23.map(_v0 => (0, _v1.jsxs)(_v9.Flex, {
                     alignItems: "flex-start",
                     gap: "sm",
-                    children: [(0, _v1.jsx)(_v101.Checkmark, {
-                      boxSize: (0, _v75.rem)(20),
+                    children: [(0, _v1.jsx)(_v103.Checkmark, {
+                      boxSize: (0, _v77.rem)(20),
                       flexShrink: 0,
                       "aria-hidden": "true"
-                    }), (0, _v1.jsx)(_v18.Text, {
+                    }), (0, _v1.jsx)(_v20.Text, {
                       variant: "body-md",
                       children: _v0
                     })]
@@ -3676,10 +3689,10 @@
               alignItems: "center",
               justifyContent: "space-between",
               width: "100%",
-              padding: (0, _v75.rem)(16),
+              padding: (0, _v77.rem)(16),
               borderWidth: "1px",
               borderColor: _v6 ? _v9 : "check-radio-stroke",
-              borderRadius: (0, _v75.rem)(16),
+              borderRadius: (0, _v77.rem)(16),
               backgroundColor: _v6 ? _v9 : "surface",
               cursor: "pointer",
               textAlign: "left",
@@ -3689,10 +3702,10 @@
               children: [(0, _v1.jsxs)(_v9.Flex, {
                 direction: "column",
                 gap: "xs",
-                children: [(0, _v1.jsx)(_v18.Text, {
+                children: [(0, _v1.jsx)(_v20.Text, {
                   variant: "heading-sm",
                   color: _v6 ? "status-positive-primary" : "text-primary",
-                  children: _v6 ? (0, _v91.translate)({
+                  children: _v6 ? (0, _v93.translate)({
                     singular: "7 days free trial enabled!",
                     dictionary: {
                       es: {
@@ -3717,7 +3730,7 @@
                         singular: "已启用 7 天免费试用!"
                       }
                     }
-                  }) : (0, _v91.translate)({
+                  }) : (0, _v93.translate)({
                     singular: "Not sure yet?",
                     dictionary: {
                       es: {
@@ -3743,10 +3756,10 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v18.Text, {
+                }), (0, _v1.jsx)(_v20.Text, {
                   variant: "body-md",
                   color: "text-tertiary",
-                  children: _v6 ? (0, _v91.translate)({
+                  children: _v6 ? (0, _v93.translate)({
                     singular: "Nothing to pay for the first 7 days",
                     dictionary: {
                       es: {
@@ -3771,7 +3784,7 @@
                         singular: "前 7 天无需支付"
                       }
                     }
-                  }) : (0, _v91.translate)({
+                  }) : (0, _v93.translate)({
                     singular: "Enable free trial",
                     dictionary: {
                       es: {
@@ -3798,16 +3811,16 @@
                     }
                   })
                 })]
-              }), !_v6 && (0, _v1.jsx)(_v17.Box, {
-                width: (0, _v75.rem)(30),
-                height: (0, _v75.rem)(30),
+              }), !_v6 && (0, _v1.jsx)(_v19.Box, {
+                width: (0, _v77.rem)(30),
+                height: (0, _v77.rem)(30),
                 borderRadius: "50%",
                 borderWidth: "1px",
                 borderColor: "check-radio-stroke",
                 backgroundColor: "surface",
                 flexShrink: 0
               })]
-            }), (0, _v1.jsx)(_v68.Button, {
+            }), (0, _v1.jsx)(_v70.Button, {
               as: "a",
               href: _v17,
               width: "100%",
@@ -3816,7 +3829,7 @@
               onClick: () => {
                 _v13(_v6 ? "free_trial" : "primary");
               },
-              children: (0, _v91.translate)({
+              children: (0, _v93.translate)({
                 singular: "Get Started",
                 dictionary: {
                   es: {
@@ -3848,19 +3861,19 @@
       })]
     });
   }
-  function _v113({
+  function _v115({
     icon: _v0,
     text: _v1
   }) {
     return (0, _v1.jsxs)(_v9.Flex, {
       alignItems: "center",
       gap: "sm",
-      children: [(0, _v1.jsx)(_v17.Box, {
+      children: [(0, _v1.jsx)(_v19.Box, {
         display: "flex",
         flexShrink: 0,
         "aria-hidden": "true",
         children: _v0
-      }), (0, _v1.jsx)(_v18.Text, {
+      }), (0, _v1.jsx)(_v20.Text, {
         variant: "body-md",
         children: _v1
       })]
@@ -3905,7 +3918,7 @@
     requireLogin: !0,
     noIndex: !0,
     inlineViewer: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => (0, _v1.jsx)(_v88, {
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => (0, _v1.jsx)(_v90, {
     renderPaywallStep2: ({
       paywallFlow: _v0,
       postCheckoutUrl: _v1,
@@ -3914,7 +3927,7 @@
     }) => {
       switch (_v0) {
         case "pricing_page_at_dismiss":
-          return (0, _v1.jsx)(_v90.default, {
+          return (0, _v1.jsx)(_v92.default, {
             onDismiss: _v2,
             disableLogoLink: !0,
             onContinueWithFreePlan: _v3,
@@ -3926,17 +3939,17 @@
             }
           });
         case "comparison_modal_at_dismiss":
-          return (0, _v1.jsx)(_v100, {
+          return (0, _v1.jsx)(_v102, {
             onDismiss: _v3,
             postCheckoutUrl: _v1
           });
         case "downsell_at_dismiss":
-          return (0, _v1.jsx)(_v112, {
+          return (0, _v1.jsx)(_v114, {
             onDismiss: _v3,
             postCheckoutUrl: _v1
           });
         case "welcome_offer_at_dismiss":
-          return (0, _v1.jsx)(_v89, {
+          return (0, _v1.jsx)(_v91, {
             onDismiss: _v3,
             postCheckoutUrl: _v1,
             paywallTracking: {
