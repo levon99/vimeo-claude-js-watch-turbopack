@@ -10091,7 +10091,16 @@
     _v350 = _v0.i(0),
     _v351 = _v0.i(0),
     _v352 = _v0.i(0);
-  let _v353 = () => (0, _v1.jsx)(_v125.Badge, {
+  let _v353 = "rfftip",
+    _v354 = "lead-capture:fields-translation-promo-seen",
+    _v355 = () => {
+      try {
+        return _v352.safeLocalStorage?.getItem(_v354) === "true";
+      } catch {
+        return !1;
+      }
+    },
+    _v356 = () => (0, _v1.jsx)(_v125.Badge, {
       variant: "new",
       size: "sm",
       children: (0, _v1.jsx)(_v17.Text, {
@@ -10100,23 +10109,70 @@
         children: _v57.default.ExclusiveAccess
       })
     }),
-    _v354 = ({
+    _v357 = ({
       children: _v0
     }) => {
-      let [_v1, _v2] = (0, _v352.default)("lead-capture:fields-translation-promo-seen", !1);
-      return (0, _v1.jsx)(_v124.AnnouncementPopover, {
-        isOpen: !_v1,
-        onAcknowledge: () => _v2(!0),
+      let _v1 = (0, _v31.useViewer)(),
+        _v2 = _v1?.user?.id,
+        _v3 = (0, _v56.useSectionStore)(_v0 => _v0.selectedSection),
+        _v4 = (0, _v39.useGlobalStore)(_v0 => _v0.selectedSettingsTab),
+        {
+          data: _v5,
+          mutate: _v6
+        } = (0, _v127.useGetUserPreferences)(() => null != _v2 ? {
+          where: {
+            userId: _v2
+          },
+          select: [_v353]
+        } : null, {
+          revalidateOnFocus: !1,
+          revalidateIfStale: !1
+        }),
+        [_v7] = (0, _v127.usePatchUserPreferences)(),
+        [_v8] = (0, _v4.useState)(_v355),
+        _v9 = (0, _v4.useRef)(!1),
+        _v10 = void 0 !== _v5,
+        _v11 = !!_v5?.[_v353],
+        _v12 = (0, _v4.useCallback)(() => {
+          null != _v2 && (_v6({
+            [_v353]: !0
+          }, {
+            revalidate: !1
+          }), _v7({
+            where: {
+              userId: _v2
+            },
+            select: [_v353],
+            variables: {
+              [_v353]: 1
+            }
+          }).then(() => _v6()).then(_v0 => {
+            _v0?.[_v353] === !0 && (() => {
+              try {
+                _v352.safeLocalStorage?.removeItem(_v354);
+              } catch {}
+            })();
+          }));
+        }, [_v6, _v7, _v2]);
+      (0, _v4.useEffect)(() => {
+        _v8 && !_v11 && _v10 && !_v9.current && (_v9.current = !0, _v12());
+      }, [_v12, _v11, _v10, _v8]);
+      let _v13 = _v3 === _v37.SECTION_TYPES.FORM && _v4 === _v37.FORM_TAB_OPTIONS.FIELDS;
+      return _v10 && !_v11 && !_v8 && _v13 ? (0, _v1.jsx)(_v124.AnnouncementPopover, {
+        isOpen: !0,
+        onAcknowledge: _v12,
         placement: "right-start",
-        badge: (0, _v1.jsx)(_v353, {}),
+        badge: (0, _v1.jsx)(_v356, {}),
         title: _v57.default.FieldsTranslationPromoTitle,
         body: _v57.default.FieldsTranslationPromoBody,
         children: _v0
+      }) : (0, _v1.jsx)(_v1.Fragment, {
+        children: _v0
       });
     },
-    _v355 = (0, _v16.rem)(40),
-    _v356 = (0, _v16.rem)(2),
-    _v357 = () => {
+    _v358 = (0, _v16.rem)(40),
+    _v359 = (0, _v16.rem)(2),
+    _v360 = () => {
       let _v0 = (0, _v351.useLocale)(),
         _v1 = (0, _v4.useMemo)(() => new Intl.DisplayNames([_v0], {
           type: "language"
@@ -10159,8 +10215,8 @@
         mb: "md",
         children: [_v13 && (0, _v1.jsx)(_v8.Flex, {
           flexShrink: 0,
-          height: _v355,
-          mb: _v356,
+          height: _v358,
+          mb: _v359,
           alignItems: "center",
           justifyContent: "center",
           borderBottom: "1px solid",
@@ -10183,7 +10239,7 @@
             ref: _v12,
             onScroll: _v19,
             overflowX: "auto",
-            pb: _v356,
+            pb: _v359,
             sx: {
               scrollbarWidth: "none",
               "&::-webkit-scrollbar": {
@@ -10236,8 +10292,8 @@
           })]
         }), _v13 && (0, _v1.jsx)(_v8.Flex, {
           flexShrink: 0,
-          height: _v355,
-          mb: _v356,
+          height: _v358,
+          mb: _v359,
           alignItems: "center",
           justifyContent: "center",
           borderBottom: "1px solid",
@@ -10252,11 +10308,11 @@
             isDisabled: !_v17,
             onClick: () => _v20(1)
           })
-        }), (0, _v1.jsx)(_v354, {
+        }), (0, _v1.jsx)(_v357, {
           children: (0, _v1.jsx)(_v8.Flex, {
             flexShrink: 0,
-            height: _v355,
-            mb: _v356,
+            height: _v358,
+            mb: _v359,
             px: (0, _v16.rem)(8),
             alignItems: "center",
             justifyContent: "center",
@@ -10282,7 +10338,7 @@
         })]
       });
     },
-    _v358 = ({
+    _v361 = ({
       locale: _v0,
       isTranslating: _v1,
       onSync: _v2,
@@ -10323,7 +10379,7 @@
         })]
       }) : null;
     },
-    _v359 = ({
+    _v362 = ({
       locale: _v0,
       onClose: _v1,
       onSyncAll: _v2,
@@ -10377,8 +10433,8 @@
         })]
       });
     };
-  var _v360 = _v0.i(0);
-  let _v361 = () => {
+  var _v363 = _v0.i(0);
+  let _v364 = () => {
       let _v0 = (0, _v18.useToast)(),
         _v1 = (0, _v39.useGlobalStore)(_v0 => _v0.leadCapture.logo.uri),
         _v2 = (0, _v39.useGlobalStore)(_v0 => _v0.leadCapture.logo.url),
@@ -10524,7 +10580,7 @@
             })]
           }), (_v47 || _v48) && !_v44 && (0, _v1.jsx)("div", {
             ref: _v41,
-            children: (0, _v1.jsx)(_v360.SmallUpgradeBanner, {
+            children: (0, _v1.jsx)(_v363.SmallUpgradeBanner, {
               cta: _v57.default.Upgrade,
               hasLiveSubscription: _v49,
               hasEnterprise: _v46,
@@ -10646,7 +10702,7 @@
             }), (0, _v1.jsxs)(_v265.TabPanels, {
               children: [(0, _v1.jsxs)(_v264.TabPanel, {
                 children: [_v45.enable_registration_form_localization && (0, _v1.jsxs)(_v1.Fragment, {
-                  children: [(0, _v1.jsx)(_v357, {}), _v32 !== _v33 && (0, _v1.jsx)(_v358, {
+                  children: [(0, _v1.jsx)(_v360, {}), _v32 !== _v33 && (0, _v1.jsx)(_v361, {
                     locale: _v32,
                     isTranslating: _v29,
                     onSync: () => {
@@ -10663,7 +10719,7 @@
                         languages: _v0
                       });
                     }
-                  }), (0, _v1.jsx)(_v347, {}), (0, _v1.jsx)(_v359, {
+                  }), (0, _v1.jsx)(_v347, {}), (0, _v1.jsx)(_v362, {
                     locale: _v36,
                     onClose: () => _v37(null),
                     onSyncAll: () => _v40(_v38),
@@ -10754,7 +10810,7 @@
         })
       });
     },
-    _v362 = ({
+    _v365 = ({
       position: _v0 = _v151.PANEL_POSITION.LEFT
     }) => {
       let _v1 = (0, _v39.useGlobalStore)((0, _v149.useShallow)(_v0 => _v0.sideMenuType)),
@@ -10787,7 +10843,7 @@
         children: [(0, _v1.jsx)(_v231, {
           show: _v1 === _v151.SIDE_MENU_CONTENT.SETTINGS,
           position: _v0,
-          children: (0, _v1.jsx)(_v361, {})
+          children: (0, _v1.jsx)(_v364, {})
         }), (0, _v1.jsx)(_v231, {
           animate: !0,
           hasBackgroundDropdown: !0,
@@ -10839,7 +10895,7 @@
         })]
       });
     },
-    _v363 = ({
+    _v366 = ({
       position: _v0,
       showUpgradeNotice: _v1
     }) => {
@@ -10859,7 +10915,7 @@
         _v13 = !1 === _v2 && _v6 === _v27.ENTITY_TYPE.VIDEO && _v5 && !_v3 && _v8,
         _v14 = !1 === _v2 && _v6 === _v27.ENTITY_TYPE.SHOWCASE && _v5 && !_v3;
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v10 && (0, _v1.jsx)(_v362, {
+        children: [_v10 && (0, _v1.jsx)(_v365, {
           position: _v0
         }), (0, _v1.jsxs)(_v8.Flex, {
           height: "100%",
@@ -10969,13 +11025,13 @@
               children: (0, _v1.jsx)(_v140.Preview, {})
             })]
           })]
-        }), _v9 && (0, _v1.jsx)(_v362, {
+        }), _v9 && (0, _v1.jsx)(_v365, {
           position: _v0
         })]
       });
     };
-  var _v364 = _v0.i(0);
-  let _v365 = _v0 => (0, _v1.jsx)(_v92.Icon, {
+  var _v367 = _v0.i(0);
+  let _v368 = _v0 => (0, _v1.jsx)(_v92.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -10984,12 +11040,12 @@
       fill: "currentColor"
     })
   });
-  var _v366 = _v0.i(0),
-    _v367 = _v0.i(0);
-  let _v368 = () => {
+  var _v369 = _v0.i(0),
+    _v370 = _v0.i(0);
+  let _v371 = () => {
       let _v0 = (0, _v4.useContext)(_v142.ViewerContext),
         _v1 = (0, _v71.useIsBokeh)();
-      return (0, _v1.jsx)(_v367.EssentialFooterMenu, {
+      return (0, _v1.jsx)(_v370.EssentialFooterMenu, {
         impressumQualifies: _v0?.impressumQualifies,
         locale: _v0?.locale ?? "en",
         locales: _v0?.locales,
@@ -11027,7 +11083,7 @@
           placement: "right",
           children: _v1 ? (0, _v1.jsx)(_v290.MenuButton, {
             as: _v65.IconButton,
-            icon: (0, _v1.jsx)(_v366.QuestionCircle, {}),
+            icon: (0, _v1.jsx)(_v369.QuestionCircle, {}),
             size: "lg",
             "aria-label": (0, _v72.translate)({
               singular: "Help and preferences",
@@ -11060,7 +11116,7 @@
             borderRadius: "round"
           }) : (0, _v1.jsx)(_v290.MenuButton, {
             as: _v65.IconButton,
-            icon: (0, _v1.jsx)(_v366.QuestionCircle, {
+            icon: (0, _v1.jsx)(_v369.QuestionCircle, {
               boxSize: (0, _v16.rem)(24)
             }),
             "aria-label": (0, _v72.translate)({
@@ -11102,7 +11158,7 @@
         })
       });
     },
-    _v369 = _v0 => (0, _v1.jsx)(_v92.Icon, {
+    _v372 = _v0 => (0, _v1.jsx)(_v92.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -11111,15 +11167,15 @@
         fill: "currentColor"
       })
     });
-  var _v370 = _v0.i(0);
-  let _v371 = () => {
+  var _v373 = _v0.i(0);
+  let _v374 = () => {
       let {
           colorMode: _v0,
           setColorMode: _v1
         } = (0, _v68.useColorMode)(),
         {
           toggleTheme: _v2
-        } = (0, _v4.useContext)(_v370.ThemeDispatchContext),
+        } = (0, _v4.useContext)(_v373.ThemeDispatchContext),
         _v3 = "dark" === _v0 ? (0, _v72.translate)({
           singular: "Switch to light mode",
           dictionary: {
@@ -11175,7 +11231,7 @@
         label: _v3,
         placement: "right",
         children: (0, _v1.jsx)(_v65.IconButton, {
-          icon: (0, _v1.jsx)(_v369, {
+          icon: (0, _v1.jsx)(_v372, {
             boxSize: `${(0, _v16.rem)(20)} !important`
           }),
           onClick: () => {
@@ -11190,11 +11246,11 @@
         })
       });
     },
-    _v372 = () => (0, _v1.jsxs)(_v77.VStack, {
+    _v375 = () => (0, _v1.jsxs)(_v77.VStack, {
       gap: (0, _v16.rem)(8),
-      children: [(0, _v1.jsx)(_v371, {}), (0, _v1.jsx)(_v368, {})]
+      children: [(0, _v1.jsx)(_v374, {}), (0, _v1.jsx)(_v371, {})]
     }),
-    _v373 = () => {
+    _v376 = () => {
       let _v0 = (0, _v18.useToast)(),
         {
           selectedSection: _v1,
@@ -11241,12 +11297,12 @@
           isSelected: _v1 === _v37.SECTION_TYPES.ATTENDEES
         }, {
           sectionType: _v37.SECTION_TYPES.FORM,
-          Icon: _v364.ClipboardNotes,
+          Icon: _v367.ClipboardNotes,
           name: _v57.default.Form,
           isSelected: _v1 === _v37.SECTION_TYPES.FORM && null !== _v5
         }, ...(_v14 ? [] : [{
           sectionType: _v37.SECTION_TYPES.EMAILS,
-          Icon: _v365,
+          Icon: _v368,
           name: _v57.default.Email,
           isSelected: _v1 === _v37.SECTION_TYPES.EMAILS
         }])];
@@ -11283,7 +11339,7 @@
             })]
           }, _v0))
         }), (0, _v1.jsx)(_v152.Center, {
-          children: (0, _v1.jsx)(_v368, {})
+          children: (0, _v1.jsx)(_v371, {})
         })]
       }) : (0, _v1.jsxs)(_v8.Flex, {
         flexDirection: "column",
@@ -11336,11 +11392,11 @@
             })]
           }, _v0))
         }), (0, _v1.jsx)(_v5.Box, {
-          children: (0, _v1.jsx)(_v372, {})
+          children: (0, _v1.jsx)(_v375, {})
         })]
       });
     },
-    _v374 = (0, _v2.default)(async () => {
+    _v377 = (0, _v2.default)(async () => {
       let {
         EmailLayout: _v0
       } = await _v0.A(0);
@@ -11354,7 +11410,7 @@
       ssr: !1,
       loading: _v21.FullScreenLoader
     }),
-    _v375 = ({
+    _v378 = ({
       onClose: _v0,
       showUpgradeNotice: _v1,
       position: _v2 = _v55.PANEL_POSITION.LEFT,
@@ -11617,18 +11673,18 @@
           justifyContent: "flex-start",
           height: `calc(100% - ${(0, _v16.rem)(_v55.TOP_NAV_BAR_HEIGHT + 48 * !!_v44)})`,
           minWidth: 0,
-          children: [(0, _v1.jsx)(_v373, {}), (0, _v1.jsx)(_v376, {
+          children: [(0, _v1.jsx)(_v376, {}), (0, _v1.jsx)(_v379, {
             show: _v20 === _v55.SECTION_TYPES.FORM,
-            children: (0, _v1.jsx)(_v363, {
+            children: (0, _v1.jsx)(_v366, {
               position: _v2,
               showUpgradeNotice: _v1
             })
-          }), _v21 === _v27.ENTITY_TYPE.EVENT && (0, _v1.jsx)(_v376, {
+          }), _v21 === _v27.ENTITY_TYPE.EVENT && (0, _v1.jsx)(_v379, {
             show: _v20 === _v55.SECTION_TYPES.EMAILS,
-            children: (0, _v1.jsx)(_v374, {
+            children: (0, _v1.jsx)(_v377, {
               showUpgradeNotice: _v1
             })
-          }), (0, _v1.jsx)(_v376, {
+          }), (0, _v1.jsx)(_v379, {
             show: _v20 === _v55.SECTION_TYPES.ATTENDEES,
             children: (0, _v1.jsx)(_v139, {
               showUpgradeNotice: _v1
@@ -11637,7 +11693,7 @@
         })]
       });
     },
-    _v376 = ({
+    _v379 = ({
       children: _v0,
       ..._v1
     }) => (0, _v1.jsx)(_v5.Box, {
@@ -11650,11 +11706,11 @@
       ..._v1,
       children: _v0
     });
-  var _v377 = _v0.i(0),
-    _v378 = _v0.i(0),
-    _v379 = _v0.i(0);
-  let _v380 = (0, _v378.default)((0, _v379.default)((0, _v377.default)(_v0 => (_v297(), (0, _v1.jsx)(_v375, {
+  var _v380 = _v0.i(0),
+    _v381 = _v0.i(0),
+    _v382 = _v0.i(0);
+  let _v383 = (0, _v381.default)((0, _v382.default)((0, _v380.default)(_v0 => (_v297(), (0, _v1.jsx)(_v378, {
     ..._v0
   })), _v37.PAGE_TYPES.ADMIN), _v37.PAGE_TYPES.ADMIN), _v37.PAGE_TYPES.ADMIN);
-  _v0.s(["default", 0, _v380], 0);
+  _v0.s(["default", 0, _v383], 0);
 }

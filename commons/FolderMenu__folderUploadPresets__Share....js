@@ -91,7 +91,7 @@
         settings: _v46
       } = (0, _v25.useOrionSettings)(),
       _v47 = (0, _v21.useIsMobile)(),
-      _v48 = _v46.enable_compact_folder_menu && !_v47,
+      _v48 = !_v47,
       _v49 = (0, _v27.useViewer)(),
       {
         capabilities: _v50
@@ -666,7 +666,7 @@
         } : void 0,
         delete: _v6 ? {
           icon: _v24,
-          label: _v46.enable_compact_folder_menu ? (0, _v22.translate)({
+          label: (0, _v22.translate)({
             singular: "Delete",
             dictionary: {
               es: {
@@ -689,31 +689,6 @@
               },
               "zh-CN": {
                 singular: "删除"
-              }
-            }
-          }) : (0, _v22.translate)({
-            singular: "Delete folder",
-            dictionary: {
-              es: {
-                singular: "Eliminar la carpeta"
-              },
-              "de-DE": {
-                singular: "Ordner löschen"
-              },
-              "fr-FR": {
-                singular: "Supprimer dossier"
-              },
-              "ja-JP": {
-                singular: "フォルダーを削除"
-              },
-              "ko-KR": {
-                singular: "폴더 삭제"
-              },
-              "pt-BR": {
-                singular: "Excluir pasta"
-              },
-              "zh-CN": {
-                singular: "删除文件夹"
               }
             }
           }),

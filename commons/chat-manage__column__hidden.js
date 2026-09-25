@@ -113,20 +113,24 @@
       interactionCredentials: _v0
     }) => [_v0]),
     chatContext: {
-      isEnabled: _v5
+      isEnabled: _v5,
+      [_v2]: {
+        banList: _v6
+      }
     } = (0, _v2.useManager)(_v13.ChatManager)
   }) {
     let {
-        initialState: _v6
+        initialState: _v7
       } = (0, _v12.useLiveGlobals)(),
-      _v7 = _v3?.user?.id;
+      _v8 = _v3?.user?.id,
+      _v9 = !!_v8 && Object.values(_v6 ?? {}).some(_v0 => _v0.userId === _v8);
     return (0, _v1.jsx)(_v24.Flex, {
       id: _v0,
       flexGrow: 1,
       flexDirection: "column",
       overflow: "hidden",
       paddingTop: (0, _v25.rem)(4),
-      children: _v7 ? _v5 ? (0, _v1.jsxs)(_v24.Flex, {
+      children: _v8 ? _v5 ? (0, _v1.jsxs)(_v24.Flex, {
         id: (0, _v27.createInteractionDomName)(_v0, "content"),
         flexDirection: "column",
         flexGrow: 1,
@@ -134,8 +138,8 @@
         padding: `0 ${(0, _v25.rem)(16)} ${(0, _v25.rem)(16)} ${(0, _v25.rem)(16)}`,
         children: [(0, _v1.jsx)(_v29.ChatHistory, {
           chatType: _v2,
-          currentUserId: _v7,
-          scrollBackground: _v6?.interaction?.backgroundColor || "background",
+          currentUserId: _v8,
+          scrollBackground: _v7?.interaction?.backgroundColor || "background",
           placeholder: (0, _v1.jsx)(_v32.EmptyStatePlaceholder, {
             id: (0, _v27.createInteractionDomName)(_v0, "chat-history-placeholder"),
             icon: (0, _v1.jsx)(_v26.Chats, {
@@ -146,8 +150,8 @@
           })
         }), (0, _v1.jsx)(_v30.ChatInput, {
           chatType: _v2,
-          isDisabled: !_v4,
-          placeholderText: _v28.translations.sendMessage
+          isDisabled: !_v4 || _v9,
+          placeholderText: _v9 ? _v18.T_CHAT_BANNED : _v28.translations.sendMessage
         })]
       }) : (0, _v1.jsx)(_v32.EmptyStatePlaceholder, {
         id: (0, _v27.createInteractionDomName)(_v0, "placeholder"),

@@ -28152,6 +28152,7 @@
                 updateMetadata: _v66,
                 panelRef: _v92,
                 isRedesign: _v18.enable_svv_redesign,
+                isUiRefresh: _v18.ask_ai_panel_ui_refresh,
                 onClose: () => {
                   _v136.current = "button", _v125();
                 }

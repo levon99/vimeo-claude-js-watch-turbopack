@@ -16,7 +16,7 @@
         xVimeoPage: _v5,
         locale: _v6
       } = (0, _v7.useGctlConfig)();
-    return (0, _v3.default)(_v2 ? `/me/capabilities${(0, _v5.serializeQuery)(_v2)}` : () => null, _v2 ? () => (0, _v2.getMeCapabilities)({
+    return (0, _v3.default)(_v2 ? `/users/${_v2.where.userId}/capabilities${(0, _v5.serializeQuery)(_v2)}` : () => null, _v2 ? () => (0, _v2.getUserCapabilities)({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -28,10 +28,7 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v1.default.env.STORYBOOK && (0, _v5.assignMswData)(_v8, {
-    endpoint: "/me/capabilities",
-    method: "GET"
-  }), "true" === _v1.default.env.STORYBOOK && (0, _v5.assignMswData)(function () {
+  function _v9() {
     let {
         mutate: _v0
       } = (0, _v4.useSWRConfig)(),
@@ -47,7 +44,7 @@
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/capabilities${(0, _v5.serializeQuery)(_v0)}`, (0, _v2.getMeCapabilities)({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/capabilities${(0, _v5.serializeQuery)(_v0)}`, (0, _v2.getUserCapabilities)({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -69,8 +66,12 @@
         });
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/me/capabilities",
+  }
+  "true" === _v1.default.env.STORYBOOK && (0, _v5.assignMswData)(_v8, {
+    endpoint: "/users/:userId/capabilities",
     method: "GET"
-  }), _v0.s(["useGetMeCapabilities", 0, _v8]);
+  }), "true" === _v1.default.env.STORYBOOK && (0, _v5.assignMswData)(_v9, {
+    endpoint: "/users/:userId/capabilities",
+    method: "GET"
+  }), _v0.s(["useGetUserCapabilities", 0, _v8, "useGetUserCapabilitiesLazy", 0, _v9]);
 }

@@ -105,6 +105,7 @@
 - https://vimeo.com/manage/event_series/preview
 - https://vimeo.com/manage/event_series/[...slug]
 - https://vimeo.com/manage/events/[eventId]/appearance
+- https://vimeo.com/manage/files/[publicId]
 - https://vimeo.com/manage/organization/analytics/[[...slug]]
 - https://vimeo.com/manage/organization/brand-kits
 - https://vimeo.com/manage/organization/brand-kits/[brand_kit_id]
@@ -128,6 +129,7 @@
 - https://vimeo.com/manage/team/brand-kits/[brand_kit_id]
 - https://vimeo.com/manage/team/branding
 - https://vimeo.com/manage/team/custom-metadata
+- https://vimeo.com/manage/team/defaults
 - https://vimeo.com/manage/team/groups
 - https://vimeo.com/manage/team/manage-ai
 - https://vimeo.com/manage/team/manage-ai/custom-dictionary
@@ -139,6 +141,7 @@
 - https://vimeo.com/manage/team/members/[member_id]/team-library
 - https://vimeo.com/manage/team/members/[member_id]/team-library/folders/[folder_id]
 - https://vimeo.com/manage/team/my-videos/deactivated
+- https://vimeo.com/manage/team/presets
 - https://vimeo.com/manage/team/settings
 - https://vimeo.com/manage/team/settings/allowlist
 - https://vimeo.com/manage/team/settings/audit-logs

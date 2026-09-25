@@ -68,7 +68,7 @@
         children: (0, _v1.jsxs)(_v6.PopoverContent, {
           width: (0, _v10.rem)(320),
           backgroundColor: _v13,
-          borderRadius: (0, _v10.rem)(8),
+          borderRadius: (0, _v10.rem)(12),
           boxShadow: _v13,
           padding: (0, _v10.rem)(16),
           border: "none",
@@ -103,7 +103,7 @@
                   children: _v3
                 }), (0, _v1.jsx)(_v9.Text, {
                   variant: "body-md",
-                  color: "text-primary",
+                  color: "text-secondary",
                   children: _v4
                 }), _v5 ? (0, _v1.jsx)(_v9.Text, {
                   fontSize: (0, _v10.rem)(12),

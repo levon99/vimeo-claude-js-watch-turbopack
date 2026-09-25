@@ -66,7 +66,9 @@
     usage: "usage",
     "brand-kits": "brand-kits",
     "[brand_kit_id]": "brand-kits",
-    "custom-metadata": "custom-metadata"
+    "custom-metadata": "custom-metadata",
+    defaults: "defaults",
+    presets: "presets"
   }, "TRACK_UPSELL_FEATURE", 0, "contact_us_for_enterprise", "TRACK_UPSELL_LOCATIONS", () => _v10, "TeamEvents", () => _v8], 0);
   var _v11 = _v0.i(0);
   (0, _v6.translate)({

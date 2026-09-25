@@ -290,7 +290,7 @@
       _v10.metrics.gaugeInc("vimeo_nextjs_http_requests_active");
       try {
         let _v0 = (_v0 => {
-            let _v1 = _v0.req.headers["crossroads-language"] ?? _v0.locale ?? "en";
+            let _v1 = _v0.req.headers["crossroads-language"] || _v0.locale || "en";
             (0, _v2.setLocale)(_v1);
             try {
               let _v0 = _v0.req.headers[_v8.EDGE_LANGUAGE_HEADER],

@@ -35,7 +35,7 @@
     flex-direction: column;
     padding: 0.75rem 1.5rem;
 
-    div {
+    > div {
       margin: 0;
       display: block;
     }
@@ -48,7 +48,19 @@
   }
 `;
   var _v16 = _v0.i(0);
-  let _v17 = (0, _v6.default)(_v16.Radio).withConfig({
+  let _v17 = (0, _v6.default)(({
+      label: _v0,
+      checked: _v1,
+      isChecked: _v2,
+      children: _v3,
+      onChange: _v4,
+      ..._v5
+    }) => (0, _v1.jsx)(_v16.Radio, {
+      isChecked: _v1 ?? _v2,
+      onChange: _v4,
+      ..._v5,
+      children: _v0 ?? _v3
+    })).withConfig({
       displayName: "Radio",
       componentId: "sc-a69a968a-0"
     })``,
@@ -100,8 +112,7 @@
     ..._v1
   }) => (0, _v1.jsx)("div", {
     hidden: _v0,
-    children: (0, _v1.jsx)(_v26.TextArea, {
-      label: "",
+    children: (0, _v1.jsx)(_v26.Textarea, {
       ..._v1
     })
   })).withConfig({
@@ -112,6 +123,7 @@
     hidden: _v0
   }) => _v0 ? "none" : "block"};
   width: 100%;
+  margin-top: 0.75rem !important;
 
   &:focus {
     border-color: initial;
@@ -121,7 +133,6 @@
     resize: vertical;
     min-height: 3rem;
     max-height: 6rem;
-    margin-top: 0.5rem;
   }
 `;
   var _v28 = _v0.i(0);

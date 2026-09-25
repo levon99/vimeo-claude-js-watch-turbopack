@@ -8572,16 +8572,16 @@
           singular: "Paramètres par défaut"
         },
         "ja-JP": {
-          singular: "デフォルト"
+          singular: "既定値"
         },
         "ko-KR": {
-          singular: "기본값"
+          singular: "기본 설정"
         },
         "pt-BR": {
           singular: "Padrões"
         },
         "zh-CN": {
-          singular: "默认值"
+          singular: "默认设置"
         }
       }
     }),
@@ -8852,22 +8852,22 @@
           singular: "Valores predeterminados actualizados"
         },
         "de-DE": {
-          singular: "Standardeinstellungen wurden aktualisiert."
+          singular: "Standardeinstellungen aktualisiert"
         },
         "fr-FR": {
           singular: "Paramètres par défaut mis à jour"
         },
         "ja-JP": {
-          singular: "デフォルト設定が更新されました"
+          singular: "既定値が更新されました"
         },
         "ko-KR": {
-          singular: "기본값 업데이트 완료"
+          singular: "기본 설정이 업데이트되었습니다"
         },
         "pt-BR": {
           singular: "Padrões atualizados"
         },
         "zh-CN": {
-          singular: "默认值已更新"
+          singular: "默认设置已更新"
         }
       }
     }),

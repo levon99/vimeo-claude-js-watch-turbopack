@@ -9471,7 +9471,7 @@
         pageUrl: _v7,
         name: _v9,
         userId: _v13,
-        portrait: _v15,
+        portrait: _v15 ?? null,
         rssTitle: `${_v9}'s Videos`,
         hasPublicVideos: _v18 > 0,
         jsonLd: JSON.stringify(_v19).replace(/[<>&]/g, _v0 => `\\u${_v0.charCodeAt(0).toString(16).padStart(4, "0")}`)

@@ -176,7 +176,7 @@
                 display: "none !important"
               },
               "[data-content-area-sibling-eligible]": {
-                transition: "none !important"
+                transitionProperty: "opacity !important"
               },
               ".vp-video-wrapper": {
                 backgroundColor: "transparent !important",

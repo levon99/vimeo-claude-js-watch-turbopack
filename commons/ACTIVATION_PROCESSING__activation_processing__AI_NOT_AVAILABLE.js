@@ -5,6 +5,9 @@
   radial-gradient(#82FFEB 0%, #17D5FF 30%, #0BA1FF 45%, #9E00FF 75%, #9E00FF 0%);
 `,
     _v2 = `
+  linear-gradient(90deg, var(--vimeo-colors-stroke) 0%, var(--vimeo-colors-stroke) 70%, transparent 100%);
+`,
+    _v3 = `
   animation: loading 3s linear infinite;
   @keyframes loading {
     0% {background-position: 200% 0}
@@ -25,7 +28,12 @@
       disabled: "#808080 !important",
       textColor: "#FFFFFF !important"
     }
-  }, "AVAILABLE_WINDOW_HEIGHT", 0, "calc(100vh - 146px)", "FEATURE_DISABLED", 0, "feature_disabled", "GRANULAR_METADATA_GENERATING", 0, "granular_metadata_generating", "LOADER_BAR_HEIGHT", 0, 48, "MENU_SHOW_ANIMATION_DURATION_S", 0, .06, "PENDO_EDITABLE_DUBBING_GUID_ID", 0, "HBhCWeBpico0-vnRiEdAx_g9GU8", "PENDO_UPDATE_PAYMENT_METHODS_MODAL_GUIDE_ID", 0, "10Fh7-3sYselCXGGIGdf1qa_fgs", "POLLING_INTERVAL", 0, 0, "POLLING_INTERVAL_SHORT", 0, 0, "POLLING_SERVICE_KEY", 0, "polling_service", "POLLING_START_DELAY", 0, 800, "QNA_LIMIT_ERRORS", 0, [0, 0, 0], "SCROLLBAR_STYLE_SX", 0, {
+  }, "AVAILABLE_WINDOW_HEIGHT", 0, "calc(100vh - 146px)", "ChapterPresets", 0, {
+    STANDARD: "standard",
+    FINE_GRAINED: "fine_grained",
+    HIGH_LEVEL: "high_level",
+    CUSTOM: "custom"
+  }, "FEATURE_DISABLED", 0, "feature_disabled", "GRANULAR_METADATA_GENERATING", 0, "granular_metadata_generating", "LOADER_BAR_HEIGHT", 0, 48, "MENU_SHOW_ANIMATION_DURATION_S", 0, .06, "NEUTRAL_SHIMMER_GRADIENT", 0, _v2, "PENDO_EDITABLE_DUBBING_GUID_ID", 0, "HBhCWeBpico0-vnRiEdAx_g9GU8", "PENDO_UPDATE_PAYMENT_METHODS_MODAL_GUIDE_ID", 0, "10Fh7-3sYselCXGGIGdf1qa_fgs", "POLLING_INTERVAL", 0, 0, "POLLING_INTERVAL_SHORT", 0, 0, "POLLING_SERVICE_KEY", 0, "polling_service", "POLLING_START_DELAY", 0, 800, "QNA_LIMIT_ERRORS", 0, [0, 0, 0], "SCROLLBAR_STYLE_SX", 0, {
     "::-webkit-scrollbar-track": {
       background: "transparent",
       border: "none",
@@ -64,7 +72,7 @@
     TYPE_SELECTION: "type_selection",
     SUBTITLING: "subtitling",
     DUBBING: "dubbing"
-  }, "VIEWER_QNA_ANSWER_PLACEHOLDER_ANIMATION", 0, _v2, "Z_INDEX", 0, {
+  }, "VIEWER_QNA_ANSWER_PLACEHOLDER_ANIMATION", 0, _v3, "Z_INDEX", 0, {
     BOKEH_MODAL: 0,
     BOKEH_DROPDOWN_MENU: 0
   }]);
