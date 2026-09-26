@@ -18,11 +18,12 @@
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
-    _v18 = _v0.i(0);
-  let _v19 = null,
-    _v20 = () => (null === _v19 && (_v19 = Object.freeze(_v21())), _v19),
-    _v21 = () => ({
-      PageTitle: (0, _v18.translate)({
+    _v18 = _v0.i(0),
+    _v19 = _v0.i(0);
+  let _v20 = null,
+    _v21 = () => (null === _v20 && (_v20 = Object.freeze(_v22())), _v20),
+    _v22 = () => ({
+      PageTitle: (0, _v19.translate)({
         singular: "Report Illegal Content",
         dictionary: {
           es: {
@@ -48,7 +49,7 @@
           }
         }
       }),
-      PageDescription: (0, _v18.translate)({
+      PageDescription: (0, _v19.translate)({
         singular: "This form is for reporting content that you believe is illegal.",
         dictionary: {
           es: {
@@ -74,7 +75,7 @@
           }
         }
       }),
-      PageSubDescription: (0, _v18.translate)({
+      PageSubDescription: (0, _v19.translate)({
         singular: "For all other violations, please utilize our Terms of Service reporting systems or our dedicated forms for copyright, trademark, or privacy matters.",
         dictionary: {
           es: {
@@ -100,7 +101,7 @@
           }
         }
       }),
-      ContactDetailsTitle: (0, _v18.translate)({
+      ContactDetailsTitle: (0, _v19.translate)({
         singular: "Contact Details",
         dictionary: {
           es: {
@@ -126,7 +127,7 @@
           }
         }
       }),
-      ContactDetailsDescription1: (0, _v18.translate)({
+      ContactDetailsDescription1: (0, _v19.translate)({
         singular: "Pursuant to our legal obligations, we ask you to provide contact details (name and email), except in case you want to report an issue related to child sexual exploitation or abuse.",
         dictionary: {
           es: {
@@ -152,7 +153,7 @@
           }
         }
       }),
-      ContactDetailsDescription2: (0, _v18.translate)({
+      ContactDetailsDescription2: (0, _v19.translate)({
         singular: "We may be obligated to provide your contact details to the content owner, if found to be legally necessary.",
         dictionary: {
           es: {
@@ -178,33 +179,33 @@
           }
         }
       }),
-      ContactDetailsDescription3: (0, _v18.translate)({
-        singular: 'If you wish to report anonymously, then please write "Anonymous" in the name and/or email fields.',
+      AnonymousCheckboxLabel: (0, _v19.translate)({
+        singular: "Submit this report anonymously",
         dictionary: {
           es: {
-            singular: "Si desea denunciar de forma anónima, escriba “Anónimo” en los campos de nombre o correo electrónico."
+            singular: "Enviar este informe de forma anónima"
           },
           "de-DE": {
-            singular: "Wenn Sie anonym berichten möchten, tragen Sie bitte „Anonym“ in die Felder „Name“ und/oder „E-Mail“ ein."
+            singular: "Diesen Bericht anonym einreichen"
           },
           "fr-FR": {
-            singular: "Si vous souhaitez signaler un incident de manière anonyme, veuillez inscrire « Anonyme » dans les champs du nom et/ou de l'adresse e-mail."
+            singular: "Soumettez ce rapport de manière anonyme"
           },
           "ja-JP": {
-            singular: "匿名で通報したい場合は、名前欄やメールアドレス欄に「匿名」と入力してください。"
+            singular: "この報告を匿名で送信する"
           },
           "ko-KR": {
-            singular: '익명으로 신고하려면 이름 및/또는 이메일 필드에 "익명"이라고 입력해 주세요.'
+            singular: "이 보고서를 익명으로 제출하세요"
           },
           "pt-BR": {
-            singular: 'Se desejar informar a denúncia de forma anônima, escreva "Anônimo" nos campos de nome e/ou e-mail.'
+            singular: "Enviar este relatório de forma anônima"
           },
           "zh-CN": {
-            singular: "如果您希望匿名报告，请在姓名和/或电子邮件字段中写入“匿名”。"
+            singular: "以匿名方式提交此报告"
           }
         }
       }),
-      NameFieldLabel: (0, _v18.translate)({
+      NameFieldLabel: (0, _v19.translate)({
         singular: "Your Full Name",
         dictionary: {
           es: {
@@ -230,33 +231,33 @@
           }
         }
       }),
-      NameFieldPlaceholder: (0, _v18.translate)({
-        singular: 'Enter your full name or "Anonymous"',
+      NameFieldPlaceholder: (0, _v19.translate)({
+        singular: "Enter your full name",
         dictionary: {
           es: {
-            singular: "Escriba su nombre completo o “Anónimo”."
+            singular: "Introduzca su nombre completo"
           },
           "de-DE": {
-            singular: "Geben Sie Ihren vollständigen Namen oder „Anonym“ ein."
+            singular: "Geben Sie Ihren vollständigen Namen ein"
           },
           "fr-FR": {
-            singular: "Saisissez votre nom complet ou « Anonyme »"
+            singular: "Saisissez votre nom complet"
           },
           "ja-JP": {
-            singular: "氏名を入力するか「匿名」と入力してください"
+            singular: "氏名を入力してください"
           },
           "ko-KR": {
-            singular: '성명 또는 "익명"을 입력하세요.'
+            singular: "전체 이름을 입력하세요"
           },
           "pt-BR": {
-            singular: 'Insira seu nome completo ou "Anônimo"'
+            singular: "Digite seu nome completo"
           },
           "zh-CN": {
-            singular: "输入您的全名或“匿名”"
+            singular: "请输入您的全名"
           }
         }
       }),
-      EmailFieldLabel: (0, _v18.translate)({
+      EmailFieldLabel: (0, _v19.translate)({
         singular: "Your Email Address",
         dictionary: {
           es: {
@@ -282,33 +283,33 @@
           }
         }
       }),
-      EmailFieldPlaceholder: (0, _v18.translate)({
-        singular: 'Enter your email address or "Anonymous"',
+      EmailFieldPlaceholder: (0, _v19.translate)({
+        singular: "Enter your email address",
         dictionary: {
           es: {
-            singular: "Ingrese su dirección de correo electrónico o “Anónimo”."
+            singular: "Introduzca su dirección de correo electrónico"
           },
           "de-DE": {
-            singular: "Geben Sie Ihre E-Mail-Adresse ein oder wählen Sie „Anonym“."
+            singular: "Geben Sie Ihre E-Mail-Adresse ein"
           },
           "fr-FR": {
-            singular: "Saisissez votre adresse e-mail ou « Anonyme »"
+            singular: "Saisissez votre adresse e-mail"
           },
           "ja-JP": {
-            singular: "メールアドレスを入力するか「匿名」と入力してください"
+            singular: "メールアドレスを入力してください"
           },
           "ko-KR": {
-            singular: '이메일 주소를 입력하거나 "익명"을 입력하세요.'
+            singular: "이메일 주소를 입력하세요"
           },
           "pt-BR": {
-            singular: 'Insira seu endereço de e-mail ou "Anônimo"'
+            singular: "Digite seu endereço de e-mail"
           },
           "zh-CN": {
-            singular: "请输入您的电子邮件地址或“匿名”"
+            singular: "请输入您的电子邮件地址"
           }
         }
       }),
-      ReportDetailsTitle: (0, _v18.translate)({
+      ReportDetailsTitle: (0, _v19.translate)({
         singular: "Report Details",
         dictionary: {
           es: {
@@ -334,7 +335,7 @@
           }
         }
       }),
-      UrlFieldLabel: (0, _v18.translate)({
+      UrlFieldLabel: (0, _v19.translate)({
         singular: "Exact URL or Unique Identifier of the content",
         dictionary: {
           es: {
@@ -360,7 +361,7 @@
           }
         }
       }),
-      UrlFieldPlaceholder: (0, _v18.translate)({
+      UrlFieldPlaceholder: (0, _v19.translate)({
         singular: "Please provide the exact URL or unique identifier of the content you are reporting",
         dictionary: {
           es: {
@@ -386,7 +387,7 @@
           }
         }
       }),
-      CountryFieldLabel: (0, _v18.translate)({
+      CountryFieldLabel: (0, _v19.translate)({
         singular: "Country of Breach",
         dictionary: {
           es: {
@@ -412,7 +413,7 @@
           }
         }
       }),
-      CountryFieldPlaceholder: (0, _v18.translate)({
+      CountryFieldPlaceholder: (0, _v19.translate)({
         singular: "Select the country where you think the content is illegal",
         dictionary: {
           es: {
@@ -438,7 +439,7 @@
           }
         }
       }),
-      MemberStateFieldLabel: (0, _v18.translate)({
+      MemberStateFieldLabel: (0, _v19.translate)({
         singular: "Member State",
         dictionary: {
           es: {
@@ -464,7 +465,7 @@
           }
         }
       }),
-      EuMemberStatePlaceholder: (0, _v18.translate)({
+      EuMemberStatePlaceholder: (0, _v19.translate)({
         singular: "Select the EU member state",
         dictionary: {
           es: {
@@ -490,7 +491,7 @@
           }
         }
       }),
-      EeaMemberStatePlaceholder: (0, _v18.translate)({
+      EeaMemberStatePlaceholder: (0, _v19.translate)({
         singular: "Select the EEA member state",
         dictionary: {
           es: {
@@ -516,7 +517,7 @@
           }
         }
       }),
-      StateFieldLabel: (0, _v18.translate)({
+      StateFieldLabel: (0, _v19.translate)({
         singular: "State",
         dictionary: {
           es: {
@@ -542,7 +543,7 @@
           }
         }
       }),
-      UsStatePlaceholder: (0, _v18.translate)({
+      UsStatePlaceholder: (0, _v19.translate)({
         singular: "Select Federal or a US state",
         dictionary: {
           es: {
@@ -568,7 +569,7 @@
           }
         }
       }),
-      ReasonFieldLabel: (0, _v18.translate)({
+      ReasonFieldLabel: (0, _v19.translate)({
         singular: "Reason",
         dictionary: {
           es: {
@@ -594,7 +595,7 @@
           }
         }
       }),
-      ReasonFieldPlaceholder: (0, _v18.translate)({
+      ReasonFieldPlaceholder: (0, _v19.translate)({
         singular: "Select the reason for reporting",
         dictionary: {
           es: {
@@ -620,7 +621,7 @@
           }
         }
       }),
-      ReasonExplanationLabel: (0, _v18.translate)({
+      ReasonExplanationLabel: (0, _v19.translate)({
         singular: "Reason why the content is illegal",
         dictionary: {
           es: {
@@ -646,7 +647,7 @@
           }
         }
       }),
-      ReasonExplanationPlaceholder: (0, _v18.translate)({
+      ReasonExplanationPlaceholder: (0, _v19.translate)({
         singular: "Please explain why you believe the content violates the law. Include reference to specific laws if possible.",
         dictionary: {
           es: {
@@ -672,7 +673,7 @@
           }
         }
       }),
-      DeclarationTitle: (0, _v18.translate)({
+      DeclarationTitle: (0, _v19.translate)({
         singular: "Declaration in Good Faith",
         dictionary: {
           es: {
@@ -698,7 +699,7 @@
           }
         }
       }),
-      DeclarationText: (0, _v18.translate)({
+      DeclarationText: (0, _v19.translate)({
         singular: "By checking this box, I declare that I have a good faith belief that the information in this report is accurate and complete.",
         dictionary: {
           es: {
@@ -724,7 +725,7 @@
           }
         }
       }),
-      DeclarationTextNcii: (0, _v18.translate)({
+      DeclarationTextNcii: (0, _v19.translate)({
         singular: "By checking this box, I declare that I am the individual depicted in this report, or an authorized person acting on their behalf. I have a good-faith belief that the intimate depiction is not consensual and the information in this report is accurate and complete.",
         dictionary: {
           es: {
@@ -750,7 +751,7 @@
           }
         }
       }),
-      SubmitButtonDefault: (0, _v18.translate)({
+      SubmitButtonDefault: (0, _v19.translate)({
         singular: "Submit Report",
         dictionary: {
           es: {
@@ -776,7 +777,7 @@
           }
         }
       }),
-      SubmitButtonSubmitting: (0, _v18.translate)({
+      SubmitButtonSubmitting: (0, _v19.translate)({
         singular: "Submitting...",
         dictionary: {
           es: {
@@ -802,7 +803,7 @@
           }
         }
       }),
-      SuccessAlertTitle: (0, _v18.translate)({
+      SuccessAlertTitle: (0, _v19.translate)({
         singular: "Thank you for your report",
         dictionary: {
           es: {
@@ -828,7 +829,7 @@
           }
         }
       }),
-      SuccessAlertMessage: (0, _v18.translate)({
+      SuccessAlertMessage: (0, _v19.translate)({
         singular: "Your report has been submitted successfully. We will review it within 48 hours and take appropriate action.",
         dictionary: {
           es: {
@@ -854,7 +855,7 @@
           }
         }
       }),
-      SubmitAnotherReport: (0, _v18.translate)({
+      SubmitAnotherReport: (0, _v19.translate)({
         singular: "Submit another report",
         dictionary: {
           es: {
@@ -880,7 +881,7 @@
           }
         }
       }),
-      ErrorAlertTitle: (0, _v18.translate)({
+      ErrorAlertTitle: (0, _v19.translate)({
         singular: "Submission failed",
         dictionary: {
           es: {
@@ -906,7 +907,7 @@
           }
         }
       }),
-      ErrorMissingToken: (0, _v18.translate)({
+      ErrorMissingToken: (0, _v19.translate)({
         singular: "Unable to submit form. Please refresh the page and try again.",
         dictionary: {
           es: {
@@ -932,7 +933,7 @@
           }
         }
       }),
-      ValidationNameRequired: (0, _v18.translate)({
+      ValidationNameRequired: (0, _v19.translate)({
         singular: "Name is required",
         dictionary: {
           es: {
@@ -958,7 +959,7 @@
           }
         }
       }),
-      ValidationEmailRequired: (0, _v18.translate)({
+      ValidationEmailRequired: (0, _v19.translate)({
         singular: "Email is required",
         dictionary: {
           es: {
@@ -984,7 +985,7 @@
           }
         }
       }),
-      ValidationEmailInvalid: (0, _v18.translate)({
+      ValidationEmailInvalid: (0, _v19.translate)({
         singular: "Please enter a valid email address",
         dictionary: {
           es: {
@@ -1010,7 +1011,7 @@
           }
         }
       }),
-      ValidationUrlRequired: (0, _v18.translate)({
+      ValidationUrlRequired: (0, _v19.translate)({
         singular: "URL or identifier is required",
         dictionary: {
           es: {
@@ -1036,7 +1037,7 @@
           }
         }
       }),
-      ValidationCountryRequired: (0, _v18.translate)({
+      ValidationCountryRequired: (0, _v19.translate)({
         singular: "Country of breach is required",
         dictionary: {
           es: {
@@ -1062,7 +1063,7 @@
           }
         }
       }),
-      ValidationReasonExplanationRequired: (0, _v18.translate)({
+      ValidationReasonExplanationRequired: (0, _v19.translate)({
         singular: "Reason explanation is required",
         dictionary: {
           es: {
@@ -1088,7 +1089,7 @@
           }
         }
       }),
-      ValidationEuMemberStateRequired: (0, _v18.translate)({
+      ValidationEuMemberStateRequired: (0, _v19.translate)({
         singular: "EU member state is required",
         dictionary: {
           es: {
@@ -1114,7 +1115,7 @@
           }
         }
       }),
-      ValidationEeaMemberStateRequired: (0, _v18.translate)({
+      ValidationEeaMemberStateRequired: (0, _v19.translate)({
         singular: "EEA member state is required",
         dictionary: {
           es: {
@@ -1140,7 +1141,7 @@
           }
         }
       }),
-      ValidationUsStateRequired: (0, _v18.translate)({
+      ValidationUsStateRequired: (0, _v19.translate)({
         singular: "US state is required",
         dictionary: {
           es: {
@@ -1166,7 +1167,7 @@
           }
         }
       }),
-      ValidationConditionalReasonRequired: (0, _v18.translate)({
+      ValidationConditionalReasonRequired: (0, _v19.translate)({
         singular: "Reason is required",
         dictionary: {
           es: {
@@ -1192,7 +1193,7 @@
           }
         }
       }),
-      ValidationDeclarationRequired: (0, _v18.translate)({
+      ValidationDeclarationRequired: (0, _v19.translate)({
         singular: "You must confirm this declaration to proceed",
         dictionary: {
           es: {
@@ -1218,7 +1219,7 @@
           }
         }
       }),
-      CountryUnitedStates: (0, _v18.translate)({
+      CountryUnitedStates: (0, _v19.translate)({
         singular: "United States",
         dictionary: {
           es: {
@@ -1241,7 +1242,7 @@
           }
         }
       }),
-      CountryEuropeanUnion: (0, _v18.translate)({
+      CountryEuropeanUnion: (0, _v19.translate)({
         singular: "European Union (EU)",
         dictionary: {
           es: {
@@ -1267,7 +1268,7 @@
           }
         }
       }),
-      CountryEuropeanEconomicArea: (0, _v18.translate)({
+      CountryEuropeanEconomicArea: (0, _v19.translate)({
         singular: "European Economic Area (EEA)",
         dictionary: {
           es: {
@@ -1293,7 +1294,7 @@
           }
         }
       }),
-      CountryUnitedKingdom: (0, _v18.translate)({
+      CountryUnitedKingdom: (0, _v19.translate)({
         singular: "United Kingdom",
         dictionary: {
           es: {
@@ -1319,7 +1320,7 @@
           }
         }
       }),
-      CountryCanada: (0, _v18.translate)({
+      CountryCanada: (0, _v19.translate)({
         singular: "Canada",
         dictionary: {
           es: {
@@ -1342,7 +1343,7 @@
           }
         }
       }),
-      CountryAustralia: (0, _v18.translate)({
+      CountryAustralia: (0, _v19.translate)({
         singular: "Australia",
         dictionary: {
           "de-DE": {
@@ -1365,7 +1366,7 @@
           }
         }
       }),
-      CountryJapan: (0, _v18.translate)({
+      CountryJapan: (0, _v19.translate)({
         singular: "Japan",
         dictionary: {
           es: {
@@ -1388,7 +1389,7 @@
           }
         }
       }),
-      CountryIndia: (0, _v18.translate)({
+      CountryIndia: (0, _v19.translate)({
         singular: "India",
         dictionary: {
           "de-DE": {
@@ -1411,7 +1412,7 @@
           }
         }
       }),
-      CountryBrazil: (0, _v18.translate)({
+      CountryBrazil: (0, _v19.translate)({
         singular: "Brazil",
         dictionary: {
           es: {
@@ -1434,7 +1435,7 @@
           }
         }
       }),
-      CountryChina: (0, _v18.translate)({
+      CountryChina: (0, _v19.translate)({
         singular: "China",
         dictionary: {
           "fr-FR": {
@@ -1451,7 +1452,7 @@
           }
         }
       }),
-      CountryOther: (0, _v18.translate)({
+      CountryOther: (0, _v19.translate)({
         singular: "Other",
         dictionary: {
           es: {
@@ -1477,7 +1478,7 @@
           }
         }
       }),
-      EuAustria: (0, _v18.translate)({
+      EuAustria: (0, _v19.translate)({
         singular: "Austria",
         dictionary: {
           "de-DE": {
@@ -1500,7 +1501,7 @@
           }
         }
       }),
-      EuBelgium: (0, _v18.translate)({
+      EuBelgium: (0, _v19.translate)({
         singular: "Belgium",
         dictionary: {
           es: {
@@ -1526,7 +1527,7 @@
           }
         }
       }),
-      EuBulgaria: (0, _v18.translate)({
+      EuBulgaria: (0, _v19.translate)({
         singular: "Bulgaria",
         dictionary: {
           "de-DE": {
@@ -1549,7 +1550,7 @@
           }
         }
       }),
-      EuCroatia: (0, _v18.translate)({
+      EuCroatia: (0, _v19.translate)({
         singular: "Croatia",
         dictionary: {
           es: {
@@ -1575,7 +1576,7 @@
           }
         }
       }),
-      EuCyprus: (0, _v18.translate)({
+      EuCyprus: (0, _v19.translate)({
         singular: "Cyprus",
         dictionary: {
           es: {
@@ -1601,7 +1602,7 @@
           }
         }
       }),
-      EuCzechRepublic: (0, _v18.translate)({
+      EuCzechRepublic: (0, _v19.translate)({
         singular: "Czech Republic",
         dictionary: {
           es: {
@@ -1624,7 +1625,7 @@
           }
         }
       }),
-      EuDenmark: (0, _v18.translate)({
+      EuDenmark: (0, _v19.translate)({
         singular: "Denmark",
         dictionary: {
           es: {
@@ -1650,7 +1651,7 @@
           }
         }
       }),
-      EuEstonia: (0, _v18.translate)({
+      EuEstonia: (0, _v19.translate)({
         singular: "Estonia",
         dictionary: {
           "de-DE": {
@@ -1673,7 +1674,7 @@
           }
         }
       }),
-      EuFinland: (0, _v18.translate)({
+      EuFinland: (0, _v19.translate)({
         singular: "Finland",
         dictionary: {
           es: {
@@ -1699,7 +1700,7 @@
           }
         }
       }),
-      EuFrance: (0, _v18.translate)({
+      EuFrance: (0, _v19.translate)({
         singular: "France",
         dictionary: {
           es: {
@@ -1722,7 +1723,7 @@
           }
         }
       }),
-      EuGermany: (0, _v18.translate)({
+      EuGermany: (0, _v19.translate)({
         singular: "Germany",
         dictionary: {
           es: {
@@ -1748,7 +1749,7 @@
           }
         }
       }),
-      EuGreece: (0, _v18.translate)({
+      EuGreece: (0, _v19.translate)({
         singular: "Greece",
         dictionary: {
           es: {
@@ -1774,7 +1775,7 @@
           }
         }
       }),
-      EuHungary: (0, _v18.translate)({
+      EuHungary: (0, _v19.translate)({
         singular: "Hungary",
         dictionary: {
           es: {
@@ -1800,7 +1801,7 @@
           }
         }
       }),
-      EuIreland: (0, _v18.translate)({
+      EuIreland: (0, _v19.translate)({
         singular: "Ireland",
         dictionary: {
           es: {
@@ -1826,7 +1827,7 @@
           }
         }
       }),
-      EuItaly: (0, _v18.translate)({
+      EuItaly: (0, _v19.translate)({
         singular: "Italy",
         dictionary: {
           es: {
@@ -1852,7 +1853,7 @@
           }
         }
       }),
-      EuLatvia: (0, _v18.translate)({
+      EuLatvia: (0, _v19.translate)({
         singular: "Latvia",
         dictionary: {
           es: {
@@ -1878,7 +1879,7 @@
           }
         }
       }),
-      EuLithuania: (0, _v18.translate)({
+      EuLithuania: (0, _v19.translate)({
         singular: "Lithuania",
         dictionary: {
           es: {
@@ -1904,7 +1905,7 @@
           }
         }
       }),
-      EuLuxembourg: (0, _v18.translate)({
+      EuLuxembourg: (0, _v19.translate)({
         singular: "Luxembourg",
         dictionary: {
           es: {
@@ -1927,7 +1928,7 @@
           }
         }
       }),
-      EuMalta: (0, _v18.translate)({
+      EuMalta: (0, _v19.translate)({
         singular: "Malta",
         dictionary: {
           "fr-FR": {
@@ -1944,7 +1945,7 @@
           }
         }
       }),
-      EuNetherlands: (0, _v18.translate)({
+      EuNetherlands: (0, _v19.translate)({
         singular: "Netherlands",
         dictionary: {
           es: {
@@ -1970,7 +1971,7 @@
           }
         }
       }),
-      EuPoland: (0, _v18.translate)({
+      EuPoland: (0, _v19.translate)({
         singular: "Poland",
         dictionary: {
           es: {
@@ -1996,7 +1997,7 @@
           }
         }
       }),
-      EuPortugal: (0, _v18.translate)({
+      EuPortugal: (0, _v19.translate)({
         singular: "Portugal",
         dictionary: {
           "ja-JP": {
@@ -2010,7 +2011,7 @@
           }
         }
       }),
-      EuRomania: (0, _v18.translate)({
+      EuRomania: (0, _v19.translate)({
         singular: "Romania",
         dictionary: {
           es: {
@@ -2036,7 +2037,7 @@
           }
         }
       }),
-      EuSlovakia: (0, _v18.translate)({
+      EuSlovakia: (0, _v19.translate)({
         singular: "Slovakia",
         dictionary: {
           es: {
@@ -2062,7 +2063,7 @@
           }
         }
       }),
-      EuSlovenia: (0, _v18.translate)({
+      EuSlovenia: (0, _v19.translate)({
         singular: "Slovenia",
         dictionary: {
           es: {
@@ -2088,7 +2089,7 @@
           }
         }
       }),
-      EuSpain: (0, _v18.translate)({
+      EuSpain: (0, _v19.translate)({
         singular: "Spain",
         dictionary: {
           es: {
@@ -2114,7 +2115,7 @@
           }
         }
       }),
-      EuSweden: (0, _v18.translate)({
+      EuSweden: (0, _v19.translate)({
         singular: "Sweden",
         dictionary: {
           es: {
@@ -2140,7 +2141,7 @@
           }
         }
       }),
-      EeaIceland: (0, _v18.translate)({
+      EeaIceland: (0, _v19.translate)({
         singular: "Iceland",
         dictionary: {
           es: {
@@ -2166,7 +2167,7 @@
           }
         }
       }),
-      EeaLiechtenstein: (0, _v18.translate)({
+      EeaLiechtenstein: (0, _v19.translate)({
         singular: "Liechtenstein",
         dictionary: {
           "ja-JP": {
@@ -2180,7 +2181,7 @@
           }
         }
       }),
-      EeaNorway: (0, _v18.translate)({
+      EeaNorway: (0, _v19.translate)({
         singular: "Norway",
         dictionary: {
           es: {
@@ -2206,7 +2207,7 @@
           }
         }
       }),
-      UsFederal: (0, _v18.translate)({
+      UsFederal: (0, _v19.translate)({
         singular: "Federal",
         dictionary: {
           "de-DE": {
@@ -2226,7 +2227,7 @@
           }
         }
       }),
-      UsAlabama: (0, _v18.translate)({
+      UsAlabama: (0, _v19.translate)({
         singular: "Alabama",
         dictionary: {
           "ja-JP": {
@@ -2240,7 +2241,7 @@
           }
         }
       }),
-      UsAlaska: (0, _v18.translate)({
+      UsAlaska: (0, _v19.translate)({
         singular: "Alaska",
         dictionary: {
           "ja-JP": {
@@ -2254,7 +2255,7 @@
           }
         }
       }),
-      UsArizona: (0, _v18.translate)({
+      UsArizona: (0, _v19.translate)({
         singular: "Arizona",
         dictionary: {
           "ja-JP": {
@@ -2268,7 +2269,7 @@
           }
         }
       }),
-      UsArkansas: (0, _v18.translate)({
+      UsArkansas: (0, _v19.translate)({
         singular: "Arkansas",
         dictionary: {
           "ja-JP": {
@@ -2282,7 +2283,7 @@
           }
         }
       }),
-      UsCalifornia: (0, _v18.translate)({
+      UsCalifornia: (0, _v19.translate)({
         singular: "California",
         dictionary: {
           "de-DE": {
@@ -2302,7 +2303,7 @@
           }
         }
       }),
-      UsColorado: (0, _v18.translate)({
+      UsColorado: (0, _v19.translate)({
         singular: "Colorado",
         dictionary: {
           "ja-JP": {
@@ -2316,7 +2317,7 @@
           }
         }
       }),
-      UsConnecticut: (0, _v18.translate)({
+      UsConnecticut: (0, _v19.translate)({
         singular: "Connecticut",
         dictionary: {
           "ja-JP": {
@@ -2330,7 +2331,7 @@
           }
         }
       }),
-      UsDelaware: (0, _v18.translate)({
+      UsDelaware: (0, _v19.translate)({
         singular: "Delaware",
         dictionary: {
           "ja-JP": {
@@ -2344,7 +2345,7 @@
           }
         }
       }),
-      UsFlorida: (0, _v18.translate)({
+      UsFlorida: (0, _v19.translate)({
         singular: "Florida",
         dictionary: {
           "ja-JP": {
@@ -2361,7 +2362,7 @@
           }
         }
       }),
-      UsGeorgia: (0, _v18.translate)({
+      UsGeorgia: (0, _v19.translate)({
         singular: "Georgia",
         dictionary: {
           "de-DE": {
@@ -2384,7 +2385,7 @@
           }
         }
       }),
-      UsHawaii: (0, _v18.translate)({
+      UsHawaii: (0, _v19.translate)({
         singular: "Hawaii",
         dictionary: {
           es: {
@@ -2404,7 +2405,7 @@
           }
         }
       }),
-      UsIdaho: (0, _v18.translate)({
+      UsIdaho: (0, _v19.translate)({
         singular: "Idaho",
         dictionary: {
           "ja-JP": {
@@ -2418,7 +2419,7 @@
           }
         }
       }),
-      UsIllinois: (0, _v18.translate)({
+      UsIllinois: (0, _v19.translate)({
         singular: "Illinois",
         dictionary: {
           "ja-JP": {
@@ -2432,7 +2433,7 @@
           }
         }
       }),
-      UsIndiana: (0, _v18.translate)({
+      UsIndiana: (0, _v19.translate)({
         singular: "Indiana",
         dictionary: {
           "ja-JP": {
@@ -2446,7 +2447,7 @@
           }
         }
       }),
-      UsIowa: (0, _v18.translate)({
+      UsIowa: (0, _v19.translate)({
         singular: "Iowa",
         dictionary: {
           "ja-JP": {
@@ -2460,7 +2461,7 @@
           }
         }
       }),
-      UsKansas: (0, _v18.translate)({
+      UsKansas: (0, _v19.translate)({
         singular: "Kansas",
         dictionary: {
           "ja-JP": {
@@ -2474,7 +2475,7 @@
           }
         }
       }),
-      UsKentucky: (0, _v18.translate)({
+      UsKentucky: (0, _v19.translate)({
         singular: "Kentucky",
         dictionary: {
           "ja-JP": {
@@ -2488,7 +2489,7 @@
           }
         }
       }),
-      UsLouisiana: (0, _v18.translate)({
+      UsLouisiana: (0, _v19.translate)({
         singular: "Louisiana",
         dictionary: {
           "ja-JP": {
@@ -2502,7 +2503,7 @@
           }
         }
       }),
-      UsMaine: (0, _v18.translate)({
+      UsMaine: (0, _v19.translate)({
         singular: "Maine",
         dictionary: {
           "ja-JP": {
@@ -2516,7 +2517,7 @@
           }
         }
       }),
-      UsMaryland: (0, _v18.translate)({
+      UsMaryland: (0, _v19.translate)({
         singular: "Maryland",
         dictionary: {
           "ja-JP": {
@@ -2530,7 +2531,7 @@
           }
         }
       }),
-      UsMassachusetts: (0, _v18.translate)({
+      UsMassachusetts: (0, _v19.translate)({
         singular: "Massachusetts",
         dictionary: {
           "ja-JP": {
@@ -2544,7 +2545,7 @@
           }
         }
       }),
-      UsMichigan: (0, _v18.translate)({
+      UsMichigan: (0, _v19.translate)({
         singular: "Michigan",
         dictionary: {
           "ja-JP": {
@@ -2558,7 +2559,7 @@
           }
         }
       }),
-      UsMinnesota: (0, _v18.translate)({
+      UsMinnesota: (0, _v19.translate)({
         singular: "Minnesota",
         dictionary: {
           "ja-JP": {
@@ -2572,7 +2573,7 @@
           }
         }
       }),
-      UsMississippi: (0, _v18.translate)({
+      UsMississippi: (0, _v19.translate)({
         singular: "Mississippi",
         dictionary: {
           "ja-JP": {
@@ -2586,7 +2587,7 @@
           }
         }
       }),
-      UsMissouri: (0, _v18.translate)({
+      UsMissouri: (0, _v19.translate)({
         singular: "Missouri",
         dictionary: {
           "ja-JP": {
@@ -2600,7 +2601,7 @@
           }
         }
       }),
-      UsMontana: (0, _v18.translate)({
+      UsMontana: (0, _v19.translate)({
         singular: "Montana",
         dictionary: {
           "ja-JP": {
@@ -2614,7 +2615,7 @@
           }
         }
       }),
-      UsNebraska: (0, _v18.translate)({
+      UsNebraska: (0, _v19.translate)({
         singular: "Nebraska",
         dictionary: {
           "ja-JP": {
@@ -2628,7 +2629,7 @@
           }
         }
       }),
-      UsNevada: (0, _v18.translate)({
+      UsNevada: (0, _v19.translate)({
         singular: "Nevada",
         dictionary: {
           "ja-JP": {
@@ -2642,7 +2643,7 @@
           }
         }
       }),
-      UsNewHampshire: (0, _v18.translate)({
+      UsNewHampshire: (0, _v19.translate)({
         singular: "New Hampshire",
         dictionary: {
           "ja-JP": {
@@ -2656,7 +2657,7 @@
           }
         }
       }),
-      UsNewJersey: (0, _v18.translate)({
+      UsNewJersey: (0, _v19.translate)({
         singular: "New Jersey",
         dictionary: {
           "ja-JP": {
@@ -2670,7 +2671,7 @@
           }
         }
       }),
-      UsNewMexico: (0, _v18.translate)({
+      UsNewMexico: (0, _v19.translate)({
         singular: "New Mexico",
         dictionary: {
           es: {
@@ -2690,7 +2691,7 @@
           }
         }
       }),
-      UsNewYork: (0, _v18.translate)({
+      UsNewYork: (0, _v19.translate)({
         singular: "New York",
         dictionary: {
           es: {
@@ -2710,7 +2711,7 @@
           }
         }
       }),
-      UsNorthCarolina: (0, _v18.translate)({
+      UsNorthCarolina: (0, _v19.translate)({
         singular: "North Carolina",
         dictionary: {
           es: {
@@ -2733,7 +2734,7 @@
           }
         }
       }),
-      UsNorthDakota: (0, _v18.translate)({
+      UsNorthDakota: (0, _v19.translate)({
         singular: "North Dakota",
         dictionary: {
           es: {
@@ -2753,7 +2754,7 @@
           }
         }
       }),
-      UsOhio: (0, _v18.translate)({
+      UsOhio: (0, _v19.translate)({
         singular: "Ohio",
         dictionary: {
           "ja-JP": {
@@ -2767,7 +2768,7 @@
           }
         }
       }),
-      UsOklahoma: (0, _v18.translate)({
+      UsOklahoma: (0, _v19.translate)({
         singular: "Oklahoma",
         dictionary: {
           "ja-JP": {
@@ -2781,7 +2782,7 @@
           }
         }
       }),
-      UsOregon: (0, _v18.translate)({
+      UsOregon: (0, _v19.translate)({
         singular: "Oregon",
         dictionary: {
           "ja-JP": {
@@ -2795,7 +2796,7 @@
           }
         }
       }),
-      UsPennsylvania: (0, _v18.translate)({
+      UsPennsylvania: (0, _v19.translate)({
         singular: "Pennsylvania",
         dictionary: {
           es: {
@@ -2815,7 +2816,7 @@
           }
         }
       }),
-      UsRhodeIsland: (0, _v18.translate)({
+      UsRhodeIsland: (0, _v19.translate)({
         singular: "Rhode Island",
         dictionary: {
           "ja-JP": {
@@ -2829,7 +2830,7 @@
           }
         }
       }),
-      UsSouthCarolina: (0, _v18.translate)({
+      UsSouthCarolina: (0, _v19.translate)({
         singular: "South Carolina",
         dictionary: {
           es: {
@@ -2852,7 +2853,7 @@
           }
         }
       }),
-      UsSouthDakota: (0, _v18.translate)({
+      UsSouthDakota: (0, _v19.translate)({
         singular: "South Dakota",
         dictionary: {
           es: {
@@ -2875,7 +2876,7 @@
           }
         }
       }),
-      UsTennessee: (0, _v18.translate)({
+      UsTennessee: (0, _v19.translate)({
         singular: "Tennessee",
         dictionary: {
           "ja-JP": {
@@ -2889,7 +2890,7 @@
           }
         }
       }),
-      UsTexas: (0, _v18.translate)({
+      UsTexas: (0, _v19.translate)({
         singular: "Texas",
         dictionary: {
           "ja-JP": {
@@ -2903,7 +2904,7 @@
           }
         }
       }),
-      UsUtah: (0, _v18.translate)({
+      UsUtah: (0, _v19.translate)({
         singular: "Utah",
         dictionary: {
           "ja-JP": {
@@ -2917,7 +2918,7 @@
           }
         }
       }),
-      UsVermont: (0, _v18.translate)({
+      UsVermont: (0, _v19.translate)({
         singular: "Vermont",
         dictionary: {
           "ja-JP": {
@@ -2931,7 +2932,7 @@
           }
         }
       }),
-      UsVirginia: (0, _v18.translate)({
+      UsVirginia: (0, _v19.translate)({
         singular: "Virginia",
         dictionary: {
           "ja-JP": {
@@ -2948,7 +2949,7 @@
           }
         }
       }),
-      UsWashington: (0, _v18.translate)({
+      UsWashington: (0, _v19.translate)({
         singular: "Washington",
         dictionary: {
           "ja-JP": {
@@ -2962,7 +2963,7 @@
           }
         }
       }),
-      UsWestVirginia: (0, _v18.translate)({
+      UsWestVirginia: (0, _v19.translate)({
         singular: "West Virginia",
         dictionary: {
           es: {
@@ -2982,7 +2983,7 @@
           }
         }
       }),
-      UsWisconsin: (0, _v18.translate)({
+      UsWisconsin: (0, _v19.translate)({
         singular: "Wisconsin",
         dictionary: {
           "ja-JP": {
@@ -2996,7 +2997,7 @@
           }
         }
       }),
-      UsWyoming: (0, _v18.translate)({
+      UsWyoming: (0, _v19.translate)({
         singular: "Wyoming",
         dictionary: {
           "ja-JP": {
@@ -3010,8 +3011,8 @@
           }
         }
       }),
-      ReasonNcii: (0, _v18.translate)("NCII"),
-      ReasonTerrorism: (0, _v18.translate)({
+      ReasonNcii: (0, _v19.translate)("NCII"),
+      ReasonTerrorism: (0, _v19.translate)({
         singular: "Terrorism",
         dictionary: {
           es: {
@@ -3037,7 +3038,7 @@
           }
         }
       }),
-      ReasonSelfHarm: (0, _v18.translate)({
+      ReasonSelfHarm: (0, _v19.translate)({
         singular: "Self-Harm",
         dictionary: {
           es: {
@@ -3064,15 +3065,20 @@
         }
       })
     }),
-    _v22 = ({
+    _v23 = ({
       contactDetails: _v0,
       onNameChange: _v1,
       onEmailChange: _v2,
       hasSubmitted: _v3,
       nameError: _v4,
-      emailError: _v5
+      emailError: _v5,
+      isLoggedIn: _v6 = !1,
+      showAnonymousOption: _v7 = !1,
+      isAnonymous: _v8 = !1,
+      onAnonymousChange: _v9
     }) => {
-      let _v6 = _v20();
+      let _v10 = _v21(),
+        _v11 = _v6 || _v8;
       return (0, _v1.jsxs)(_v7.VStack, {
         spacing: "md",
         align: "stretch",
@@ -3083,57 +3089,71 @@
           children: [(0, _v1.jsx)(_v8.Header, {
             as: "h2",
             size: "lg",
-            children: _v6.ContactDetailsTitle
+            children: _v10.ContactDetailsTitle
           }), (0, _v1.jsx)(_v13.Paragraph, {
             size: "lg",
             color: "text-secondary",
-            children: _v6.ContactDetailsDescription1
+            children: _v10.ContactDetailsDescription1
           }), (0, _v1.jsx)(_v13.Paragraph, {
             size: "lg",
             color: "text-secondary",
-            children: _v6.ContactDetailsDescription2
-          }), (0, _v1.jsx)(_v13.Paragraph, {
-            size: "lg",
-            color: "text-secondary",
-            children: _v6.ContactDetailsDescription3
+            children: _v10.ContactDetailsDescription2
+          })]
+        }), _v7 && (0, _v1.jsxs)(_v16.FormLabel, {
+          htmlFor: "anonymous-checkbox",
+          display: "flex",
+          alignItems: "flex-start",
+          gap: "sm",
+          cursor: "pointer",
+          children: [(0, _v1.jsx)(_v18.Checkbox, {
+            id: "anonymous-checkbox",
+            checked: _v8,
+            onChange: _v0 => _v9?.(_v0.target.checked)
+          }), (0, _v1.jsx)(_v9.Text, {
+            size: "sm",
+            children: _v10.AnonymousCheckboxLabel
           })]
         }), (0, _v1.jsxs)(_v7.VStack, {
           spacing: "md",
           align: "stretch",
           children: [(0, _v1.jsxs)(_v15.FormControl, {
-            isInvalid: _v3 && !!_v4,
+            isInvalid: _v3 && !_v8 && !!_v4,
+            isDisabled: _v8,
             children: [(0, _v1.jsx)(_v16.FormLabel, {
               htmlFor: "contact-name",
-              children: _v6.NameFieldLabel
+              children: _v10.NameFieldLabel
             }), (0, _v1.jsx)(_v14.Input, {
               id: "contact-name",
               type: "text",
-              placeholder: _v6.NameFieldPlaceholder,
+              placeholder: _v10.NameFieldPlaceholder,
               value: _v0.name,
-              onChange: _v0 => _v1(_v0.target.value)
-            }), _v3 && _v4 && (0, _v1.jsx)(_v17.FormErrorMessage, {
+              onChange: _v0 => _v1(_v0.target.value),
+              isDisabled: _v8
+            }), _v3 && !_v8 && _v4 && (0, _v1.jsx)(_v17.FormErrorMessage, {
               children: _v4
             })]
           }), (0, _v1.jsxs)(_v15.FormControl, {
-            isInvalid: _v3 && !!_v5,
+            isInvalid: _v3 && !_v8 && !!_v5,
+            isDisabled: _v8,
             children: [(0, _v1.jsx)(_v16.FormLabel, {
               htmlFor: "contact-email",
-              children: _v6.EmailFieldLabel
+              children: _v10.EmailFieldLabel
             }), (0, _v1.jsx)(_v14.Input, {
               id: "contact-email",
               type: "text",
-              placeholder: _v6.EmailFieldPlaceholder,
+              placeholder: _v10.EmailFieldPlaceholder,
               value: _v0.email,
-              onChange: _v0 => _v2(_v0.target.value)
-            }), _v3 && _v5 && (0, _v1.jsx)(_v17.FormErrorMessage, {
+              onChange: _v0 => _v2(_v0.target.value),
+              isDisabled: _v8,
+              readOnly: _v11
+            }), _v3 && !_v8 && _v5 && (0, _v1.jsx)(_v17.FormErrorMessage, {
               children: _v5
             })]
           })]
         })]
       });
-    };
-  var _v23 = _v0.i(0);
-  let _v24 = "Child Sexual Abuse or Exploitation",
+    },
+    _v24 = "Child Sexual Abuse or Exploitation",
     _v25 = "Non-Consensual Intimate Images (NCII)",
     _v26 = "contactDetails",
     _v27 = "reportDetails",
@@ -3157,7 +3177,7 @@
       declarationError: _v4,
       reason: _v5
     }) => {
-      let _v6 = _v20(),
+      let _v6 = _v21(),
         _v7 = _v5 === _v25 ? _v6.DeclarationTextNcii : _v6.DeclarationText;
       return (0, _v1.jsxs)(_v7.VStack, {
         spacing: "md",
@@ -3176,7 +3196,7 @@
               display: "flex",
               alignItems: "flex-start",
               gap: "sm",
-              children: [(0, _v1.jsx)(_v23.Checkbox, {
+              children: [(0, _v1.jsx)(_v18.Checkbox, {
                 id: "good-faith-declaration",
                 checked: _v0.goodFaithDeclaration,
                 onChange: _v0 => _v1(_v0.target.checked)
@@ -3286,7 +3306,7 @@
       usStateError: _v11,
       conditionalReasonError: _v12
     }) => {
-      let _v13 = _v20();
+      let _v13 = _v21();
       return (0, _v1.jsxs)(_v7.VStack, {
         spacing: "md",
         align: "stretch",
@@ -3418,12 +3438,12 @@
     _v56 = {
       [_v30]: !1
     };
-  function _v57(_v0, _v1, _v2) {
-    let _v3 = {
+  function _v57(_v0, _v1, _v2, _v3) {
+    let _v4 = {
       ..._v53
     };
-    return _v0 && (_v3[_v32] = _v0), {
-      [_v26]: _v3,
+    return _v0 && (_v4[_v32] = _v0), _v3 && (_v4[_v31] = _v3), {
+      [_v26]: _v4,
       [_v27]: _v1 || _v2 ? {
         ..._v55,
         ...(_v2 && {
@@ -3447,7 +3467,7 @@
     _v66 = "reportDetails.conditionalFields.reason",
     _v67 = "declaration.goodFaithDeclaration",
     _v68 = () => {
-      let _v0 = _v20();
+      let _v0 = _v21();
       return {
         NAME_REQUIRED: _v0.ValidationNameRequired,
         EMAIL_REQUIRED: _v0.ValidationEmailRequired,
@@ -3543,23 +3563,26 @@
     _v70 = ({
       xsrft: _v0,
       userEmail: _v1,
-      initialReasonParam: _v2,
-      initialUrlParam: _v3,
-      onSubmitSuccess: _v4,
-      onSubmitError: _v5
+      userName: _v2,
+      initialReasonParam: _v3,
+      initialUrlParam: _v4,
+      onSubmitSuccess: _v5,
+      onSubmitError: _v6
     } = {}) => {
-      let _v6 = (_v0 => {
+      let _v7 = (_v0 => {
           if (_v0) return _v49[_v0.toLowerCase()];
-        })(_v2),
-        [_v7, _v8] = (0, _v5.useState)(() => _v57(_v1, _v6, _v3)),
-        [_v9, _v10] = (0, _v5.useState)({}),
-        [_v11, _v12] = (0, _v5.useState)(!1),
-        [_v13, _v14] = (0, _v5.useState)(!1),
-        [_v15, _v16] = (0, _v5.useState)(null),
-        [_v17, _v18] = (0, _v5.useState)(!1),
-        _v19 = _v20(),
-        _v20 = (_v0, _v1) => {
-          _v8(_v0 => ({
+        })(_v3),
+        [_v8, _v9] = (0, _v5.useState)(() => _v57(_v1, _v7, _v4, _v2)),
+        [_v10, _v11] = (0, _v5.useState)(!1),
+        [_v12, _v13] = (0, _v5.useState)({}),
+        [_v14, _v15] = (0, _v5.useState)(!1),
+        [_v16, _v17] = (0, _v5.useState)(!1),
+        [_v18, _v19] = (0, _v5.useState)(null),
+        [_v20, _v21] = (0, _v5.useState)(!1),
+        _v22 = _v21(),
+        _v23 = _v8.reportDetails.conditionalFields.reason === _v24,
+        _v24 = (_v0, _v1) => {
+          _v9(_v0 => ({
             ..._v0,
             [_v26]: {
               ..._v0[_v26],
@@ -3567,8 +3590,8 @@
             }
           }));
         },
-        _v21 = (_v0, _v1) => {
-          _v8(_v0 => ({
+        _v25 = (_v0, _v1) => {
+          _v9(_v0 => ({
             ..._v0,
             [_v27]: {
               ..._v0[_v27],
@@ -3576,44 +3599,45 @@
             }
           }));
         },
-        _v22 = _v0 => _v11 ? _v9[_v0] : void 0,
-        _v23 = async () => {
-          _v12(!0), _v16(null);
-          let _v0 = (_v0 => {
-            let _v1 = {};
-            if (_v0.contactDetails?.name?.trim() || (_v1[_v58] = _v68().NAME_REQUIRED), _v0.reportDetails?.conditionalFields?.reason !== _v24) {
+        _v26 = _v0 => _v14 ? _v12[_v0] : void 0,
+        _v27 = async () => {
+          _v15(!0), _v19(null);
+          let _v0 = ((_v0, _v1 = !1) => {
+            let _v2 = {},
+              _v3 = _v0.reportDetails?.conditionalFields?.reason === _v24;
+            if (!(_v3 && _v1) && (_v0.contactDetails?.name?.trim() || (_v2[_v58] = _v68().NAME_REQUIRED), !_v3)) {
               let _v0 = _v0.contactDetails?.email?.trim() ?? "";
-              if (_v0) /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(_v0) || (_v1[_v59] = _v68().EMAIL_INVALID);else _v1[_v59] = _v68().EMAIL_REQUIRED;
+              if (_v0) /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(_v0) || (_v2[_v59] = _v68().EMAIL_INVALID);else _v2[_v59] = _v68().EMAIL_REQUIRED;
             }
-            _v0.reportDetails?.urlOrIdentifier?.trim() || (_v1[_v60] = _v68().URL_REQUIRED), _v0.reportDetails?.countryOfBreach || (_v1[_v61] = _v68().COUNTRY_REQUIRED), _v0.reportDetails?.conditionalFields?.reason || (_v1[_v66] = _v68().CONDITIONAL_REASON_REQUIRED), _v0.reportDetails?.reasonExplanation?.trim() || (_v1[_v62] = _v68().REASON_EXPLANATION_REQUIRED), _v0.declaration?.goodFaithDeclaration || (_v1[_v67] = _v68().DECLARATION_REQUIRED);
-            let _v2 = _v0.reportDetails?.countryOfBreach;
-            return _v2 !== _v38 || _v0.reportDetails?.conditionalFields?.euMemberState || (_v1[_v63] = _v68().EU_MEMBER_STATE_REQUIRED), _v2 !== _v39 || _v0.reportDetails?.conditionalFields?.eeaMemberState || (_v1[_v64] = _v68().EEA_MEMBER_STATE_REQUIRED), _v2 !== _v37 || _v0.reportDetails?.conditionalFields?.usState || (_v1[_v65] = _v68().US_STATE_REQUIRED), {
-              isValid: 0 === Object.keys(_v1).length,
-              errors: _v1
+            _v0.reportDetails?.urlOrIdentifier?.trim() || (_v2[_v60] = _v68().URL_REQUIRED), _v0.reportDetails?.countryOfBreach || (_v2[_v61] = _v68().COUNTRY_REQUIRED), _v0.reportDetails?.conditionalFields?.reason || (_v2[_v66] = _v68().CONDITIONAL_REASON_REQUIRED), _v0.reportDetails?.reasonExplanation?.trim() || (_v2[_v62] = _v68().REASON_EXPLANATION_REQUIRED), _v0.declaration?.goodFaithDeclaration || (_v2[_v67] = _v68().DECLARATION_REQUIRED);
+            let _v4 = _v0.reportDetails?.countryOfBreach;
+            return _v4 !== _v38 || _v0.reportDetails?.conditionalFields?.euMemberState || (_v2[_v63] = _v68().EU_MEMBER_STATE_REQUIRED), _v4 !== _v39 || _v0.reportDetails?.conditionalFields?.eeaMemberState || (_v2[_v64] = _v68().EEA_MEMBER_STATE_REQUIRED), _v4 !== _v37 || _v0.reportDetails?.conditionalFields?.usState || (_v2[_v65] = _v68().US_STATE_REQUIRED), {
+              isValid: 0 === Object.keys(_v2).length,
+              errors: _v2
             };
-          })(_v7);
-          if (!_v0.isValid) return void _v10(_v0.errors);
-          if (_v10({}), !_v0) {
-            _v16(_v19.ErrorMissingToken), _v5?.("Missing XSRF token");
+          })(_v8, _v10);
+          if (!_v0.isValid) return void _v13(_v0.errors);
+          if (_v13({}), !_v0) {
+            _v19(_v22.ErrorMissingToken), _v6?.("Missing XSRF token");
             return;
           }
-          _v14(!0);
+          _v17(!0);
           try {
-            let _v0 = await _v69(_v7, _v0);
-            if (_v0.success) _v18(!0), _v12(!1), _v4?.(), _v8(_v57(_v1, _v6, _v3));else if (_v16(_v0.error || "An unexpected error occurred. Please try again."), _v5?.(_v0.error || "Submission failed"), _v0.validationErrors) {
+            let _v0 = await _v69(_v8, _v0);
+            if (_v0.success) _v21(!0), _v15(!1), _v11(!1), _v5?.(), _v9(_v57(_v1, _v7, _v4, _v2));else if (_v19(_v0.error ?? "An unexpected error occurred. Please try again."), _v6?.(_v0.error ?? "Submission failed"), _v0.validationErrors) {
               let _v0 = {};
               Object.entries(_v0.validationErrors).forEach(([_v0, _v1]) => {
                 _v0[_v0] = _v1.join(", ");
-              }), _v10(_v0);
+              }), _v13(_v0);
             }
           } catch (_v0) {
             let _v1 = "An unexpected error occurred. Please try again later.";
-            _v16(_v1), _v5?.(_v1);
+            _v19(_v1), _v6?.(_v1);
           } finally {
-            _v14(!1);
+            _v17(!1);
           }
         };
-      return _v17 ? (0, _v1.jsx)(_v6.Box, {
+      return _v20 ? (0, _v1.jsx)(_v6.Box, {
         as: "main",
         maxW: (0, _v10.rem)(600),
         mx: "auto",
@@ -3629,19 +3653,19 @@
             children: [(0, _v1.jsx)(_v8.Header, {
               as: "h1",
               size: "2xl",
-              children: _v19.SuccessAlertTitle
+              children: _v22.SuccessAlertTitle
             }), (0, _v1.jsx)(_v9.Text, {
               size: "lg",
               color: "text-secondary",
-              children: _v19.SuccessAlertMessage
+              children: _v22.SuccessAlertMessage
             })]
           }), (0, _v1.jsx)(_v12.Button, {
             size: "lg",
             variant: "secondary",
             onClick: () => {
-              _v18(!1), _v8(_v57(_v1, _v6, _v3));
+              _v21(!1), _v11(!1), _v9(_v57(_v1, _v7, _v4, _v2));
             },
-            children: _v19.SubmitAnotherReport
+            children: _v22.SubmitAnotherReport
           })]
         })
       }) : (0, _v1.jsx)(_v6.Box, {
@@ -3652,24 +3676,24 @@
         py: "3xl",
         children: (0, _v1.jsx)("form", {
           onSubmit: _v0 => {
-            _v0.preventDefault(), _v23();
+            _v0.preventDefault(), _v27();
           },
           children: (0, _v1.jsxs)(_v7.VStack, {
             spacing: "lg",
             align: "stretch",
-            children: [_v15 && (0, _v1.jsx)(_v11.Alert, {
+            children: [_v18 && (0, _v1.jsx)(_v11.Alert, {
               status: "error",
-              onClose: () => _v16(null),
+              onClose: () => _v19(null),
               children: (0, _v1.jsxs)(_v7.VStack, {
                 spacing: "sm",
                 align: "left",
                 children: [(0, _v1.jsx)(_v9.Text, {
                   size: "md",
                   fontWeight: "semibold",
-                  children: _v19.ErrorAlertTitle
+                  children: _v22.ErrorAlertTitle
                 }), (0, _v1.jsx)(_v9.Text, {
                   size: "sm",
-                  children: _v15
+                  children: _v18
                 })]
               })
             }), (0, _v1.jsxs)(_v7.VStack, {
@@ -3678,28 +3702,21 @@
               children: [(0, _v1.jsx)(_v8.Header, {
                 as: "h1",
                 size: "2xl",
-                children: _v19.PageTitle
+                children: _v22.PageTitle
               }), (0, _v1.jsx)(_v9.Text, {
                 size: "lg",
                 color: "text-secondary",
-                children: _v19.PageDescription
+                children: _v22.PageDescription
               }), (0, _v1.jsx)(_v9.Text, {
                 size: "lg",
                 color: "text-secondary",
-                children: _v19.PageSubDescription
+                children: _v22.PageSubDescription
               })]
-            }), (0, _v1.jsx)(_v22, {
-              contactDetails: _v7.contactDetails,
-              onNameChange: _v0 => _v20(_v31, _v0),
-              onEmailChange: _v0 => _v20(_v32, _v0),
-              hasSubmitted: _v11,
-              nameError: _v22(_v58),
-              emailError: _v22(_v59)
             }), (0, _v1.jsx)(_v52, {
-              reportDetails: _v7.reportDetails,
-              onUrlChange: _v0 => _v21(_v33, _v0),
+              reportDetails: _v8.reportDetails,
+              onUrlChange: _v0 => _v25(_v33, _v0),
               onCountryChange: _v0 => {
-                _v8(_v0 => ({
+                _v9(_v0 => ({
                   ..._v0,
                   [_v27]: {
                     ..._v0[_v27],
@@ -3708,10 +3725,16 @@
                       [_v36]: _v0[_v27][_v29][_v36]
                     }
                   }
-                })), _v12(!1), _v10({});
+                })), _v15(!1), _v13({});
               },
               onConditionalFieldChange: (_v0, _v1) => {
-                _v8(_v0 => ({
+                _v0 === _v36 && _v1 !== _v24 && _v10 && (_v11(!1), _v9(_v0 => ({
+                  ..._v0,
+                  [_v26]: {
+                    name: _v2 ?? "",
+                    email: _v1 ?? ""
+                  }
+                }))), _v9(_v0 => ({
                   ..._v0,
                   ...(_v0 === _v36 && {
                     [_v28]: {
@@ -3728,19 +3751,44 @@
                   }
                 }));
               },
-              onReasonChange: _v0 => _v21(_v35, _v0),
-              hasSubmitted: _v11,
-              urlError: _v22(_v60),
-              countryError: _v22(_v61),
-              reasonExplanationError: _v22(_v62),
-              euMemberStateError: _v22(_v63),
-              eeaMemberStateError: _v22(_v64),
-              usStateError: _v22(_v65),
-              conditionalReasonError: _v22(_v66)
+              onReasonChange: _v0 => _v25(_v35, _v0),
+              hasSubmitted: _v14,
+              urlError: _v26(_v60),
+              countryError: _v26(_v61),
+              reasonExplanationError: _v26(_v62),
+              euMemberStateError: _v26(_v63),
+              eeaMemberStateError: _v26(_v64),
+              usStateError: _v26(_v65),
+              conditionalReasonError: _v26(_v66)
+            }), (0, _v1.jsx)(_v23, {
+              contactDetails: _v8.contactDetails,
+              onNameChange: _v0 => _v24(_v31, _v0),
+              onEmailChange: _v0 => _v24(_v32, _v0),
+              hasSubmitted: _v14,
+              nameError: _v26(_v58),
+              emailError: _v26(_v59),
+              isLoggedIn: !!_v1,
+              showAnonymousOption: _v23,
+              isAnonymous: _v10,
+              onAnonymousChange: _v0 => {
+                _v11(_v0), _v0 ? _v9(_v0 => ({
+                  ..._v0,
+                  [_v26]: {
+                    name: "",
+                    email: ""
+                  }
+                })) : _v9(_v0 => ({
+                  ..._v0,
+                  [_v26]: {
+                    name: _v2 ?? "",
+                    email: _v1 ?? ""
+                  }
+                }));
+              }
             }), (0, _v1.jsx)(_v40, {
-              declaration: _v7.declaration,
+              declaration: _v8.declaration,
               onDeclarationChange: _v0 => {
-                _v8(_v0 => ({
+                _v9(_v0 => ({
                   ..._v0,
                   [_v28]: {
                     ..._v0[_v28],
@@ -3748,10 +3796,10 @@
                   }
                 }));
               },
-              isSubmitting: _v13,
-              hasSubmitted: _v11,
-              declarationError: _v22(_v67),
-              reason: _v7.reportDetails.conditionalFields.reason
+              isSubmitting: _v16,
+              hasSubmitted: _v14,
+              declarationError: _v26(_v67),
+              reason: _v8.reportDetails.conditionalFields.reason
             })]
           })
         })
@@ -3773,10 +3821,11 @@
       children: [(0, _v1.jsx)(_v70, {
         xsrft: _v0?.xsrft,
         userEmail: _v0?.user?.email,
+        userName: _v0?.user?.name,
         initialReasonParam: _v2,
         initialUrlParam: _v3,
         onSubmitSuccess: () => (0, _v73.emitReportComplete)("submitted")
-      }), _v0 && (0, _v1.jsx)(_v71.EssentialFooter, {
+      }, _v0?.user?.id ?? "guest"), _v0 && (0, _v1.jsx)(_v71.EssentialFooter, {
         ..._v0
       })]
     });

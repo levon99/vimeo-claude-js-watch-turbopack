@@ -132,38 +132,25 @@
   var _v24 = _v0.i(0),
     _v25 = _v0.i(0),
     _v26 = _v0.i(0),
-    _v27 = _v0.i(0);
-  let _v28 = _v0 => (0, _v1.jsx)(_v27.Icon, {
-    viewBox: "0 0 24 24",
-    ..._v0,
-    fill: "none",
-    children: (0, _v1.jsxs)("g", {
-      fill: "currentColor",
-      children: [(0, _v1.jsx)("path", {
-        d: "M22 14.18V13a3 3 0 0 0-6 0v1.18A3 3 0 0 0 14 17v2a3 3 0 0 0 3 3h4a3 3 0 0 0 3-3v-2a3 3 0 0 0-2-2.82ZM18 13a1 1 0 0 1 2 0v1h-2v-1Zm4 6a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2Z"
-      }), (0, _v1.jsx)("path", {
-        d: "M10.224 6.055C10.021 6.006 9.794 6 9.012 6H7.8c-.857 0-1.439 0-1.889.038-.438.035-.663.1-.819.18a2 2 0 0 0-.874.874c-.08.156-.145.38-.18.82C4 8.361 4 8.942 4 9.8v4.4c0 .857 0 1.439.038 1.889.035.438.1.663.18.819a2 2 0 0 0 .874.874c.156.08.38.145.819.18C6.361 18 6.943 18 7.8 18H12a1 1 0 1 1 0 2H7.759c-.805 0-1.47 0-2.01-.044-.563-.046-1.08-.145-1.565-.392a4 4 0 0 1-1.748-1.748c-.247-.485-.346-1.002-.392-1.564C2 15.71 2 15.046 2 14.242V9.758c0-.805 0-1.47.044-2.01.046-.563.145-1.08.392-1.565a4 4 0 0 1 1.748-1.748c.485-.247 1.002-.346 1.564-.392C6.29 4 6.954 4 7.758 4h1.356c.635 0 1.114 0 1.577.11a4 4 0 0 1 1.156.48c.406.248.745.588 1.194 1.037l.373.373h2.827c.805 0 1.47 0 2.01.044.563.046 1.08.145 1.565.392a4 4 0 0 1 1.748 1.748c.134.262.224.533.286.816h-.614c-.55-.614-1.348-1-2.236-1h-6.011a1 1 0 0 1-.696-.293l-.594-.594c-.553-.552-.718-.709-.897-.818a2.002 2.002 0 0 0-.578-.24Z"
-      })]
-    })
-  });
-  var _v29 = _v0.i(0);
-  let _v30 = ({
+    _v27 = _v0.i(0),
+    _v28 = _v0.i(0);
+  let _v29 = ({
     folderURI: _v0,
     isPrivateToUser: _v1,
     hasContentSpaceEnabled: _v2,
     isUnifiedLibrary: _v3,
     isRootPrivateToUserFolder: _v4 = !1
-  }) => _v0 ? _v1 && _v4 ? _v3 ? (0, _v1.jsx)(_v29.VideosStack, {}) : _v2 ? (0, _v1.jsx)(_v25.MyLibrary, {}) : (0, _v1.jsx)(_v28, {}) : (0, _v1.jsx)(_v26.Folder, {}) : _v2 ? (0, _v1.jsx)(_v24.TeamLibrary, {}) : (0, _v1.jsx)(_v29.VideosStack, {});
-  var _v31 = _v0.i(0),
+  }) => _v0 ? _v1 && _v4 ? _v3 ? (0, _v1.jsx)(_v28.VideosStack, {}) : _v2 ? (0, _v1.jsx)(_v25.MyLibrary, {}) : (0, _v1.jsx)(_v27.FolderLock, {}) : (0, _v1.jsx)(_v26.Folder, {}) : _v2 ? (0, _v1.jsx)(_v24.TeamLibrary, {}) : (0, _v1.jsx)(_v28.VideosStack, {});
+  var _v30 = _v0.i(0),
+    _v31 = _v0.i(0),
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
     _v34 = _v0.i(0),
     _v35 = _v0.i(0),
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0);
-  let _v40 = {
+    _v38 = _v0.i(0);
+  let _v39 = {
       pending: !1,
       loading: !0,
       complete: !1,
@@ -172,7 +159,7 @@
       totalPages: 1,
       error: void 0
     },
-    _v41 = (_v0, _v1) => {
+    _v40 = (_v0, _v1) => {
       switch (_v1.type) {
         case 0:
           return {
@@ -204,12 +191,12 @@
             pending: !0
           };
         case 4:
-          return _v40;
+          return _v39;
         default:
           return _v0;
       }
     },
-    _v42 = ({
+    _v41 = ({
       folder: _v0,
       setSelectedFolder: _v1,
       setFocusedFolder: _v2,
@@ -321,9 +308,9 @@
             xVimeoPage: _v3,
             jwt: _v4,
             locale: _v5
-          } = (0, _v38.useGctlConfig)(),
-          _v6 = (0, _v39.usePrevious)(_v1?.where.userId),
-          [_v7, _v8] = (0, _v2.useReducer)(_v41, _v40),
+          } = (0, _v37.useGctlConfig)(),
+          _v6 = (0, _v38.usePrevious)(_v1?.where.userId),
+          [_v7, _v8] = (0, _v2.useReducer)(_v40, _v39),
           _v9 = (0, _v2.useRef)(void 0);
         return (0, _v2.useEffect)(() => {
           _v6 !== _v1?.where.userId && (_v9.current && (_v9.current.abort(), _v9.current = void 0), _v8({
@@ -334,7 +321,7 @@
             let _v0 = [];
             window.AbortController && (_v9.current = new AbortController());
             for (let _v0 = _v7.currentPage; _v0 <= _v7.currentPage + 3 && !(_v0 > _v7.totalPages); _v0++) if (_v1) {
-              let _v0 = (0, _v37.getUserProjectItems)({
+              let _v0 = (0, _v36.getUserProjectItems)({
                 ..._v1,
                 baseUrl: _v2,
                 query: {
@@ -458,8 +445,8 @@
               onClick: _v18 ? _v0 => {
                 _v0.stopPropagation(), _v22(!_v21);
               } : void 0,
-              children: _v18 && (_v21 ? (0, _v1.jsx)(_v15.ChevronDownSmall, {}) : (0, _v1.jsx)(_v36.ChevronRightSmall, {}))
-            }), _v5 && (0, _v1.jsx)(_v35.Checkbox, {
+              children: _v18 && (_v21 ? (0, _v1.jsx)(_v15.ChevronDownSmall, {}) : (0, _v1.jsx)(_v35.ChevronRightSmall, {}))
+            }), _v5 && (0, _v1.jsx)(_v34.Checkbox, {
               margin: (0, _v11.rem)(12),
               pointerEvents: "none",
               isChecked: _v8 || _v19,
@@ -467,7 +454,7 @@
               id: _v0?.uri
             }), (0, _v1.jsx)(_v3.Box, {
               marginRight: "sm",
-              children: (0, _v1.jsx)(_v30, {
+              children: (0, _v1.jsx)(_v29, {
                 folderURI: _v0?.uri,
                 isPrivateToUser: _v0?.isPrivateToUser,
                 hasContentSpaceEnabled: _v11,
@@ -480,7 +467,7 @@
             })]
           })
         }), _v21 && (0, _v1.jsx)(_v1.Fragment, {
-          children: _v23.map(_v0 => (0, _v1.jsx)(_v42, {
+          children: _v23.map(_v0 => (0, _v1.jsx)(_v41, {
             folder: _v0,
             setSelectedFolder: _v1,
             setFocusedFolder: _v2,
@@ -495,7 +482,7 @@
         })]
       });
     },
-    _v43 = ({
+    _v42 = ({
       loading: _v0,
       folders: _v1 = [],
       setSelectedFolder: _v2,
@@ -509,7 +496,7 @@
       onChangeList: _v10,
       autoSelectParent: _v11
     }) => {
-      let [_v12] = (0, _v34.useScrollWatch)(_v1, () => null, () => null, () => _v4());
+      let [_v12] = (0, _v33.useScrollWatch)(_v1, () => null, () => null, () => _v4());
       return (0, _v1.jsx)(_v5.Flex, {
         ref: _v12,
         height: `calc(100% - ${(0, _v11.rem)(60)})`,
@@ -521,13 +508,13 @@
         flexDirection: "column",
         "data-testid": "folder-select-container",
         paddingY: "sm",
-        children: _v0 ? (0, _v1.jsx)(_v45, {}) : _v1.length || _v6 ? (0, _v1.jsxs)(_v1.Fragment, {
-          children: [_v6 && (0, _v1.jsx)(_v42, {
+        children: _v0 ? (0, _v1.jsx)(_v44, {}) : _v1.length || _v6 ? (0, _v1.jsxs)(_v1.Fragment, {
+          children: [_v6 && (0, _v1.jsx)(_v41, {
             folder: null,
             setSelectedFolder: _v2,
             setFocusedFolder: _v3,
             selectedFolder: _v5
-          }, "root"), _v1.map(_v0 => (0, _v1.jsx)(_v42, {
+          }, "root"), _v1.map(_v0 => (0, _v1.jsx)(_v41, {
             folder: _v0,
             setSelectedFolder: _v2,
             setFocusedFolder: _v3,
@@ -538,13 +525,13 @@
             onChangeList: _v10,
             autoSelectParent: _v11
           }, _v0.uri))]
-        }) : (0, _v1.jsx)(_v44, {})
+        }) : (0, _v1.jsx)(_v43, {})
       });
     },
-    _v44 = () => (0, _v1.jsxs)(_v31.Center, {
+    _v43 = () => (0, _v1.jsxs)(_v30.Center, {
       flexDirection: "column",
       height: "100%",
-      children: [(0, _v1.jsx)(_v33.SearchMagnifier, {
+      children: [(0, _v1.jsx)(_v32.SearchMagnifier, {
         boxSize: "lg",
         color: "text-secondary"
       }), (0, _v1.jsx)(_v6.Paragraph, {
@@ -577,14 +564,14 @@
         })
       })]
     }),
-    _v45 = () => (0, _v1.jsx)(_v31.Center, {
+    _v44 = () => (0, _v1.jsx)(_v30.Center, {
       height: "100%",
-      children: (0, _v1.jsx)(_v32.Spinner, {
+      children: (0, _v1.jsx)(_v31.Spinner, {
         size: "lg"
       })
     });
-  var _v46 = _v0.i(0);
-  let _v47 = ({
+  var _v45 = _v0.i(0);
+  let _v46 = ({
     selectedFolder: _v0,
     placeholderText: _v1
   }) => {
@@ -680,7 +667,7 @@
         children: [(0, _v1.jsx)(_v5.Flex, {
           marginRight: "sm",
           alignItems: "center",
-          children: (0, _v1.jsx)(_v30, {
+          children: (0, _v1.jsx)(_v29, {
             folderURI: _v0?.uri,
             isPrivateToUser: _v0.isPrivateToUser,
             hasContentSpaceEnabled: _v2,
@@ -735,7 +722,7 @@
         data: _v30
       } = (0, _v19.useGetUserProject)(() => {
         if (!_v4 || _v3 || !_v2) return null;
-        let _v0 = (0, _v46.getProjectId)({
+        let _v0 = (0, _v45.getProjectId)({
           uri: _v2
         });
         return _v0 ? {
@@ -828,7 +815,7 @@
         }), (0, _v1.jsx)(_v23, {
           project: _v23 || _v31,
           searchResultCount: _v41
-        }), (0, _v1.jsx)(_v43, {
+        }), (0, _v1.jsx)(_v42, {
           loading: _v42 || _v28,
           folders: _v40,
           setSelectedFolder: _v1,
@@ -885,7 +872,7 @@
             outline: "2px solid",
             outlineColor: ["rgba(249, 250, 251, 1) !important", "rgba(14, 18, 22, 0.9) !important"]
           },
-          children: (0, _v1.jsx)(_v47, {
+          children: (0, _v1.jsx)(_v46, {
             selectedFolder: _v31,
             placeholderText: _v5
           })
@@ -902,7 +889,7 @@
           borderRadius: "xs",
           justifyContent: _v44 ? "center" : "space-between",
           paddingRight: "sm",
-          children: (0, _v1.jsx)(_v47, {
+          children: (0, _v1.jsx)(_v46, {
             selectedFolder: _v31,
             placeholderText: _v5
           })

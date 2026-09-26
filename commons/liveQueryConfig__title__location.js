@@ -25,6 +25,9 @@
       IS_MANAGEMENT_DISABLED: "is_management_disabled",
       MODULE: "module",
       PROXY_ONLY: "proxy_only",
+      FORCE_TAILING: "force_tailing",
+      HIDE_COMPOSER: "hide_composer",
+      OVERLAY: "overlay",
       THEME: "theme",
       SIDEBAR_ATTACH_POSITION: "sidebar_attach_position"
     },

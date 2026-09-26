@@ -3702,6 +3702,68 @@
         }
       }
     }),
+    RemoveFromWorkspaceBulkActionConfirmation: ({
+      member: _v0,
+      workspaceName: _v1
+    }) => _v0 ? (0, _v5.translate)({
+      singular: "{BOLD}{MEMBER}{/BOLD} will lose access to {WORKSPACE_NAME}. Any videos they added to shared folders and comments they added stay accessible to the remaining members.",
+      replacements: {
+        MEMBER: _v0,
+        WORKSPACE_NAME: _v1,
+        BOLD: _v6
+      },
+      dictionary: {
+        es: {
+          singular: "{BOLD}{MEMBER}{/BOLD} perderá el acceso a {WORKSPACE_NAME}. Cualquier vídeo que haya añadido a las carpetas compartidas y los comentarios que haya escrito seguirán siendo accesibles para los miembros restantes."
+        },
+        "de-DE": {
+          singular: "{BOLD}{MEMBER}{/BOLD} verliert den Zugriff auf {WORKSPACE_NAME}. Alle Videos, die {BOLD}{MEMBER}{/BOLD} zu gemeinsamen Ordnern hinzugefügt hat, und alle Kommentare, die {BOLD}{MEMBER}{/BOLD} hinzugefügt hat, bleiben für die verbleibenden Mitglieder zugänglich."
+        },
+        "fr-FR": {
+          singular: "{BOLD}{MEMBER}{/BOLD} perdra l'accès à {WORKSPACE_NAME}. Les vidéos et les commentaires qu'il/elle a ajoutés resteront accessibles aux autres membres."
+        },
+        "ja-JP": {
+          singular: "{BOLD}{MEMBER}{/BOLD} は {WORKSPACE_NAME} へのアクセスを失います。彼らが共有フォルダに追加した動画や投稿したコメントは、他のメンバーが引き続きアクセスできます。"
+        },
+        "ko-KR": {
+          singular: "{BOLD}{MEMBER}{/BOLD}이(가) {WORKSPACE_NAME}에 대한 접근 권한을 잃게 됩니다. 이들이 공유 폴더에 추가한 동영상과 작성한 댓글은 다른 구성원들이 계속 접근할 수 있습니다."
+        },
+        "pt-BR": {
+          singular: "{BOLD}{MEMBER}{/BOLD} perderá acesso a {WORKSPACE_NAME}. Quaisquer vídeos que adicionou a pastas compartilhadas e comentários que adicionou permanecerão acessíveis aos demais membros."
+        },
+        "zh-CN": {
+          singular: "{BOLD}{MEMBER}{/BOLD} 将失去对 {WORKSPACE_NAME} 的访问权限。他们添加到共享文件夹的视频及其添加的评论仍对其余成员可访问。"
+        }
+      }
+    }) : (0, _v5.translate)({
+      singular: "These members will lose access to {WORKSPACE_NAME}. Any videos they added to shared folders and comments they added stay accessible to the remaining members.",
+      replacements: {
+        WORKSPACE_NAME: _v1
+      },
+      dictionary: {
+        es: {
+          singular: "Estos miembros perderán el acceso a {WORKSPACE_NAME}. Cualquier vídeo que añadieron a las carpetas compartidas y los comentarios que añadieron seguirán siendo accesibles para los miembros restantes."
+        },
+        "de-DE": {
+          singular: "Diese Mitglieder verlieren den Zugriff auf {WORKSPACE_NAME}. Alle Videos, die sie zu gemeinsamen Ordnern hinzugefügt haben, und alle Kommentare, die sie verfasst haben, bleiben für die verbleibenden Mitglieder zugänglich."
+        },
+        "fr-FR": {
+          singular: "Ces membres perdront l'accès à {WORKSPACE_NAME}. Les vidéos qu'ils ont ajoutées aux dossiers partagés et les commentaires qu'ils ont ajoutés resteront accessibles aux autres membres."
+        },
+        "ja-JP": {
+          singular: "これらのメンバーは {WORKSPACE_NAME} へのアクセスを失います。彼らが共有フォルダに追加した動画や投稿したコメントは、他のメンバーが引き続きアクセスできます。"
+        },
+        "ko-KR": {
+          singular: "이 멤버들은 {WORKSPACE_NAME}에 대한 접근 권한을 잃게 됩니다. 이들이 공유 폴더에 추가한 동영상과 작성한 댓글은 다른 구성원들이 계속 접근할 수 있습니다."
+        },
+        "pt-BR": {
+          singular: "Esses membros perderão acesso a {WORKSPACE_NAME}. Quaisquer vídeos que eles adicionaram a pastas compartilhadas e comentários que adicionaram permanecerão acessíveis aos membros restantes."
+        },
+        "zh-CN": {
+          singular: "这些成员将失去对 {WORKSPACE_NAME} 的访问权限。他们添加到共享文件夹的视频及其添加的评论仍对其余成员可访问。"
+        }
+      }
+    }),
     RemoveXMembersFromWorkspace: (_v0, _v1) => (0, _v5.translate)({
       singular: "Remove {count} member from {workspaceName}",
       plural: "Remove {count} members from {workspaceName}",
@@ -3764,6 +3826,61 @@
         },
         "zh-CN": {
           singular: "重新发送邀请"
+        }
+      }
+    }),
+    GroupFilter: (0, _v5.translate)({
+      singular: "Group",
+      dictionary: {
+        es: {
+          singular: "Grupo"
+        },
+        "de-DE": {
+          singular: "Gruppe"
+        },
+        "fr-FR": {
+          singular: "Groupe"
+        },
+        "ja-JP": {
+          singular: "グループ"
+        },
+        "ko-KR": {
+          singular: "그룹"
+        },
+        "pt-BR": {
+          singular: "Grupo"
+        },
+        "zh-CN": {
+          singular: "群组"
+        }
+      }
+    }),
+    GroupsFilterWithCount: _v0 => (0, _v5.translate)({
+      singular: "Groups ({COUNT})",
+      replacements: {
+        COUNT: _v0
+      },
+      dictionary: {
+        es: {
+          singular: "Grupos ({COUNT})"
+        },
+        "de-DE": {
+          singular: "Gruppen ({COUNT})"
+        },
+        "fr-FR": {
+          singular: "Groupes ({COUNT})"
+        },
+        "ja-JP": {
+          singular: "グループ ({COUNT})"
+        },
+        "ko-KR": {
+          singular: "그룹 ({COUNT})"
+        },
+        "pt-BR": {
+          singular: "Grupos ({COUNT})"
+        },
+        "zh-CN": {
+          singular: "组 ({COUNT})"
         }
       }
     }),
@@ -4911,28 +5028,54 @@
       }
     }),
     ViewAccess: (0, _v5.translate)({
-      singular: "View access",
+      singular: "View content access",
       dictionary: {
         es: {
-          singular: "Ver acceso"
+          singular: "Ver acceso al contenido"
         },
         "de-DE": {
-          singular: "Zugang anzeigen"
+          singular: "Zugriff auf Inhalte anzeigen"
         },
         "fr-FR": {
-          singular: "Afficher l'accès"
+          singular: "Voir l'accès au contenu"
         },
         "ja-JP": {
-          singular: "アクセスを表示"
+          singular: "コンテンツへのアクセスを表示"
         },
         "ko-KR": {
-          singular: "액세스 보기"
+          singular: "콘텐츠 접근 권한 보기"
         },
         "pt-BR": {
-          singular: "Ver acesso"
+          singular: "Ver acesso ao conteúdo"
         },
         "zh-CN": {
-          singular: "查看访问权限"
+          singular: "查看内容访问权限"
+        }
+      }
+    }),
+    ManageFeaturesAccess: (0, _v5.translate)({
+      singular: "Manage features access",
+      dictionary: {
+        es: {
+          singular: "Administrar el acceso a funciones"
+        },
+        "de-DE": {
+          singular: "Zugriff auf Funktionen verwalten"
+        },
+        "fr-FR": {
+          singular: "Gérer l'accès aux fonctionnalités"
+        },
+        "ja-JP": {
+          singular: "機能へのアクセスを管理"
+        },
+        "ko-KR": {
+          singular: "기능 접근 권한 관리"
+        },
+        "pt-BR": {
+          singular: "Gerenciar acesso às funcionalidades"
+        },
+        "zh-CN": {
+          singular: "管理功能访问权限"
         }
       }
     }),

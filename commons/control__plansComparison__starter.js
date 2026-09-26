@@ -42,6 +42,7 @@
     vgs_checkout_enabled: !1,
     enable_new_library_drag_and_drop_upload: !1,
     add_to_folders_modal_select_all_folders: !1,
+    show_granular_permissions: !1,
     showcase_autoplay_video_preview: !1,
     bi_managed_client_accounts_fake_door_enabled: !1,
     bi_white_label_clip_pages_fake_door_enabled: !1,

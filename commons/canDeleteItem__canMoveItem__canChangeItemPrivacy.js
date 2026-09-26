@@ -7,7 +7,7 @@
     _v4 = _v0.i(0),
     _v5 = _v0.i(0),
     _v6 = _v0.i(0);
-  let _v7 = _v0 => _v0.video?.uri || _v0.liveEvent?.uri || _v0.folder?.uri || _v0.showcase?.uri;
+  let _v7 = _v0 => _v0.video?.uri || _v0.liveEvent?.uri || _v0.folder?.uri || _v0.showcase?.uri || _v0.file?.uri;
   var _v8 = _v5;
   let _v9 = ["canDeleteItem", "canMoveItem", "canChangeItemPrivacy", "canAddToShowcases", "hasLegalHold"],
     _v10 = _v0 => ({

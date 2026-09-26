@@ -205,28 +205,28 @@
         switch (_v0) {
           case "core":
             return [(0, _v20.translate)({
-              singular: "1 user (up to 3)",
+              singular: "3 users",
               dictionary: {
                 es: {
-                  singular: "1 usuario (hasta 3)"
+                  singular: "3 usuarios"
                 },
                 "de-DE": {
-                  singular: "1 Benutzer (bis zu 3)"
+                  singular: "3 Nutzer"
                 },
                 "fr-FR": {
-                  singular: "1 utilisateur (jusqu'à 3)"
+                  singular: "3 utilisateurs"
                 },
                 "ja-JP": {
-                  singular: "1ユーザー（最大3人）"
+                  singular: "3人のユーザー"
                 },
                 "ko-KR": {
-                  singular: "사용자 1명(최대 3명)"
+                  singular: "사용자 3명"
                 },
                 "pt-BR": {
-                  singular: "1 usuário (até 3)"
+                  singular: "3 usuários"
                 },
                 "zh-CN": {
-                  singular: "1 名用户（最多 3 名）"
+                  singular: "3 位用户"
                 }
               }
             }), (0, _v20.translate)({

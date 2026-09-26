@@ -39,46 +39,6 @@
         _v4 = _v4?.params?.bandwidth?.quotaPeriod === "year",
         _v5 = _v5 ? `${_v0} ${_v5}` : (() => {
           switch (_v1.tier) {
-            case _v11.PLANS.CORE:
-              return (0, _v8.translate)({
-                singular: "{AMOUNT} user (up to {ADD_USERS})",
-                plural: "{AMOUNT} users (up to {ADD_USERS})",
-                count: _v0 ?? 0,
-                replacements: {
-                  AMOUNT: _v0,
-                  ADD_USERS: 3
-                },
-                dictionary: {
-                  es: {
-                    singular: "{AMOUNT} usuario (hasta {ADD_USERS})",
-                    plural: "{AMOUNT} usuarios (hasta {ADD_USERS})"
-                  },
-                  "de-DE": {
-                    singular: "{AMOUNT} Benutzer (bis zu {ADD_USERS})",
-                    plural: "{AMOUNT} Benutzer (bis zu {ADD_USERS})"
-                  },
-                  "fr-FR": {
-                    singular: "{AMOUNT} utilisateur (jusqu'à {ADD_USERS})",
-                    plural: "{AMOUNT} utilisateurs (jusqu'à {ADD_USERS})"
-                  },
-                  "ja-JP": {
-                    singular: "{AMOUNT} ユーザー (最大 {ADD_USERS} 名まで)",
-                    plural: "{AMOUNT} ユーザー (最大 {ADD_USERS} 名まで)"
-                  },
-                  "ko-KR": {
-                    singular: "{AMOUNT}명 사용자 (최대 {ADD_USERS}명)",
-                    plural: "{AMOUNT}명 사용자 (최대 {ADD_USERS}명)"
-                  },
-                  "pt-BR": {
-                    singular: "{AMOUNT} usuário (até {ADD_USERS})",
-                    plural: "{AMOUNT} usuários (até {ADD_USERS})"
-                  },
-                  "zh-CN": {
-                    singular: "{AMOUNT} 位用户 (最多 {ADD_USERS})",
-                    plural: "{AMOUNT} 位用户 (最多 {ADD_USERS})"
-                  }
-                }
-              });
             case _v11.PLANS.PROFESSIONAL:
               return (0, _v8.translate)({
                 singular: "{AMOUNT} users (up to {ADD_USERS})",

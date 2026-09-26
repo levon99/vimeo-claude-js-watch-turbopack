@@ -34,16 +34,16 @@
     },
     ..._v3
   }) {
-    return (0, _v23.measureLatency)("getUserTranscriptPhrases", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/transcript_phrases?fields=${_v1.map(_v24.intoSnakeCase).join(",")}`, {
+    return (0, _v24.measureLatency)("getUserTranscriptPhrases", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/transcript_phrases?fields=${_v1.map(_v23.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v24.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v23.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v24.deepCamelCase)(_v1);
+      return (0, _v23.deepCamelCase)(_v1);
     });
   }
   async function _v26({
@@ -55,17 +55,17 @@
     },
     ..._v4
   }) {
-    return (0, _v23.measureLatency)("postUserTranscriptPhrases", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/transcript_phrases?fields=${_v1.map(_v24.intoSnakeCase).join(",")}`, {
+    return (0, _v24.measureLatency)("postUserTranscriptPhrases", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v3}/transcript_phrases?fields=${_v1.map(_v23.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "POST",
-        body: JSON.stringify((0, _v24.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v23.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v24.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v23.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v24.deepCamelCase)(_v1);
+      return (0, _v23.deepCamelCase)(_v1);
     });
   }
   _v0.s(["getUserTranscriptPhrases", 0, _v25, "postUserTranscriptPhrases", 0, _v26], 0);
@@ -80,17 +80,17 @@
     },
     ..._v3
   }) {
-    return (0, _v23.measureLatency)("postUserTranscriptPhrasesBatch", "POST", async () => {
+    return (0, _v24.measureLatency)("postUserTranscriptPhrasesBatch", "POST", async () => {
       let _v0 = await fetch(`${_v0}/users/${_v2}/transcript_phrases/batch`, {
         ..._v3,
         method: "POST",
-        body: JSON.stringify((0, _v24.deepSnakeCase)(_v1))
+        body: JSON.stringify((0, _v23.deepSnakeCase)(_v1))
       });
-      if (!_v0.ok) throw new _v24.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v23.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v24.deepCamelCase)(_v1);
+      return (0, _v23.deepCamelCase)(_v1);
     });
   }
   async function _v31({
@@ -101,17 +101,17 @@
     },
     ..._v3
   }) {
-    return (0, _v23.measureLatency)("deleteUserTranscriptPhrasesBatch", "DELETE", async () => {
+    return (0, _v24.measureLatency)("deleteUserTranscriptPhrasesBatch", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/users/${_v2}/transcript_phrases/batch`, {
         ..._v3,
         method: "DELETE",
-        body: JSON.stringify((0, _v24.deepSnakeCase)(_v1))
+        body: JSON.stringify((0, _v23.deepSnakeCase)(_v1))
       });
-      if (!_v0.ok) throw new _v24.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v23.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v24.deepCamelCase)(_v1);
+      return (0, _v23.deepCamelCase)(_v1);
     });
   }
   var _v32 = _v0.i(0);
@@ -1185,122 +1185,129 @@
       onCancel: _v0,
       userId: _v1,
       onOpenEnterpriseModal: _v2,
-      transcriptPhrasesLimit: _v3
+      transcriptPhrasesLimit: _v3,
+      onMigrationConflict: _v4
     }) => {
       let {
-          baseUrl: _v4,
-          jwt: _v5,
-          xVimeoPage: _v6,
-          locale: _v7
+          baseUrl: _v5,
+          jwt: _v6,
+          xVimeoPage: _v7,
+          locale: _v8
         } = (0, _v27.useGctlConfig)(),
-        _v8 = (0, _v2.useRef)(!1),
-        _v9 = (0, _v2.useRef)(null),
+        _v9 = (0, _v2.useRef)(!1),
+        _v10 = (0, _v2.useRef)(null),
         {
-          trackViewModal: _v10,
-          trackViewModalSaveCancel: _v11,
-          trackViewUpgradeBadge: _v12,
-          trackClickUpgradeBadge: _v13
+          trackViewModal: _v11,
+          trackViewModalSaveCancel: _v12,
+          trackViewUpgradeBadge: _v13,
+          trackClickUpgradeBadge: _v14
         } = _v45(),
-        [_v14, _v15] = (0, _v2.useState)(!1),
-        [_v16, _v17] = (0, _v2.useState)([]),
-        [_v18, _v19] = (0, _v2.useState)([]),
-        [_v20, _v21] = (0, _v2.useState)([]),
-        [_v22, _v23] = (0, _v2.useState)(""),
-        _v24 = (0, _v2.useMemo)(() => _v3 && _v3 < 0, [_v3]),
-        [_v25] = _v33(),
-        [_v26] = _v34(),
-        _v27 = (0, _v2.useCallback)((_v0, _v1) => -1 !== _v0.findIndex(_v0 => _v0.uri === _v1.uri), []),
-        _v28 = (0, _v13.useToast)({
+        [_v15, _v16] = (0, _v2.useState)(!1),
+        [_v17, _v18] = (0, _v2.useState)([]),
+        [_v19, _v20] = (0, _v2.useState)([]),
+        [_v21, _v22] = (0, _v2.useState)([]),
+        [_v23, _v24] = (0, _v2.useState)(""),
+        _v25 = (0, _v2.useMemo)(() => _v3 && _v3 < 0, [_v3]),
+        [_v26, _v27] = _v33(),
+        [_v28, _v29] = _v34(),
+        _v30 = (0, _v2.useRef)(_v4);
+      (0, _v2.useEffect)(() => {
+        _v30.current = _v4;
+      }, [_v4]), (0, _v2.useEffect)(() => {
+        (_v27.error instanceof _v23.NetworkError && 409 === _v27.error.status || _v29.error instanceof _v23.NetworkError && 409 === _v29.error.status) && _v30.current?.();
+      }, [_v29.error, _v27.error]);
+      let _v31 = (0, _v2.useCallback)((_v0, _v1) => -1 !== _v0.findIndex(_v0 => _v0.uri === _v1.uri), []),
+        _v32 = (0, _v13.useToast)({
           title: _v47.changesSaved,
           duration: 0,
           icon: (0, _v1.jsx)(_v19.InfoCircle, {})
         }),
-        _v29 = (0, _v13.useToast)({
+        _v33 = (0, _v13.useToast)({
           title: _v47.changesCouldNotBeSaved,
           duration: 0,
           icon: (0, _v1.jsx)(_v20.CircleExclamation, {})
         }),
-        _v30 = (0, _v2.useCallback)(() => {
-          _v11("cancel", _v16.length), _v0();
-        }, [_v0, _v11, _v16]),
-        _v31 = (0, _v2.useCallback)(() => _v25({
+        _v34 = (0, _v2.useCallback)(() => {
+          _v12("cancel", _v17.length), _v0();
+        }, [_v0, _v12, _v17]),
+        _v35 = (0, _v2.useCallback)(() => _v25({
           select: ["uri", "phrase"],
           where: {
             userId: _v1
           },
           headers: {
             "Content-Type": "application/json",
-            Authorization: _v5 ? `jwt ${_v5}` : "",
-            "Vimeo-Page": `${_v6}`,
-            "Accept-Language": _v7 ?? "en"
+            Authorization: _v6 ? `jwt ${_v6}` : "",
+            "Vimeo-Page": `${_v7}`,
+            "Accept-Language": _v8 ?? "en"
           },
-          baseUrl: _v4
+          baseUrl: _v5
         }).then(_v0 => {
           let _v1 = _v0.data;
-          _v17(_v1), _v1 && !_v8.current && (_v8.current = !0, _v10(_v1.length), _v24 && _v12(_v1.length));
-        }), [_v1, _v5, _v6, _v7, _v4, _v10, _v24, _v12]),
-        _v32 = (0, _v2.useCallback)(_v0 => {
-          let _v1 = _v18.length - 1,
+          _v18(_v1), _v1 && !_v9.current && (_v9.current = !0, _v11(_v1.length), _v25 && _v13(_v1.length));
+        }), [_v1, _v6, _v7, _v8, _v5, _v11, _v25, _v13]),
+        _v36 = (0, _v2.useCallback)(_v0 => {
+          let _v1 = _v19.length - 1,
             _v2 = _v0.map((_v0, _v1) => ({
               phrase: _v0,
               uri: `add_phrase#${_v1 + _v1}`
             }));
-          _v19(_v0 => [..._v0, ..._v2]);
-        }, [_v18.length]),
-        _v33 = (0, _v2.useCallback)(_v0 => {
-          _v27(_v18, _v0) ? _v19(_v0 => _v0.filter(_v0 => _v0.uri !== _v0.uri)) : _v21(_v0 => [..._v0, _v0]);
-        }, [_v27, _v18]),
-        _v34 = (0, _v2.useMemo)(() => [..._v16.filter(_v0 => !_v27(_v20, _v0)), ..._v18], [_v27, _v16, _v18, _v20]),
-        _v35 = (0, _v2.useCallback)(() => {
-          _v11("save", _v34.length), _v15(!0);
+          _v20(_v0 => [..._v0, ..._v2]);
+        }, [_v19.length]),
+        _v37 = (0, _v2.useCallback)(_v0 => {
+          _v31(_v19, _v0) ? _v20(_v0 => _v0.filter(_v0 => _v0.uri !== _v0.uri)) : _v22(_v0 => [..._v0, _v0]);
+        }, [_v31, _v19]),
+        _v38 = (0, _v2.useMemo)(() => [..._v17.filter(_v0 => !_v31(_v21, _v0)), ..._v19], [_v31, _v17, _v19, _v21]),
+        _v39 = (0, _v2.useCallback)(() => {
+          _v12("save", _v38.length), _v16(!0);
           let _v0 = [];
-          _v20.length && _v0.push(_v26({
+          _v21.length && _v0.push(_v28({
             where: {
               userId: _v1
             },
             variables: {
-              uuids: _v20.map(_v0 => String(_v0.uri.split("/").pop()))
+              uuids: _v21.map(_v0 => String(_v0.uri.split("/").pop()))
             }
-          })), _v18.length && _v0.push(_v25({
+          })), _v19.length && _v0.push(_v26({
             where: {
               userId: _v1
             },
             variables: {
-              phrases: _v18.map(_v0 => _v0.phrase)
+              phrases: _v19.map(_v0 => _v0.phrase)
             }
-          })), Promise.allSettled(_v0).then(_v31).then(() => {
-            _v19([]), _v21([]), _v15(!1), _v28();
-          }).catch(() => _v29());
-        }, [_v26, _v18, _v34.length, _v20, _v25, _v31, _v29, _v28, _v11, _v1]),
-        _v36 = (0, _v2.useCallback)(() => {
-          _v21(_v16), _v19([]);
-        }, [_v16]),
-        _v37 = (0, _v2.useCallback)(() => {
-          let _v0 = new Blob([_v16.map(_v0 => _v0.phrase).join(",")], {
+          })), Promise.allSettled(_v0).then(_v35).then(() => {
+            _v20([]), _v22([]), _v16(!1), _v32();
+          }).catch(() => _v33());
+        }, [_v28, _v19, _v38.length, _v21, _v26, _v35, _v33, _v32, _v12, _v1]),
+        _v40 = (0, _v2.useCallback)(() => {
+          _v22(_v17), _v20([]);
+        }, [_v17]),
+        _v41 = (0, _v2.useCallback)(() => {
+          let _v0 = new Blob([_v17.map(_v0 => _v0.phrase).join(",")], {
               type: "text/csv;charset=utf-8;"
             }),
             _v1 = URL.createObjectURL(_v0);
           (0, _v35.downloadFile)(_v1);
-        }, [_v16]),
-        _v38 = (0, _v2.useCallback)(_v0 => {
-          let _v1 = _v67(_v0, [..._v16, ..._v18], _v3);
-          (!_v1?.error || (_v23(_v1.error), _v1.phrases)) && _v1?.phrases && _v32(_v1?.phrases);
-        }, [_v16, _v18, _v3, _v32]),
-        _v39 = (0, _v2.useCallback)(() => {
-          _v2(), _v13();
-        }, [_v2, _v13]);
+        }, [_v17]),
+        _v42 = (0, _v2.useCallback)(_v0 => {
+          let _v1 = _v67(_v0, [..._v17, ..._v19], _v3);
+          (!_v1?.error || (_v24(_v1.error), _v1.phrases)) && _v1?.phrases && _v36(_v1?.phrases);
+        }, [_v17, _v19, _v3, _v36]),
+        _v43 = (0, _v2.useCallback)(() => {
+          _v2(), _v14();
+        }, [_v2, _v14]);
       (0, _v2.useEffect)(() => {
-        _v15(!0), _v31().then(() => _v15(!1));
+        _v16(!0), _v35().then(() => _v16(!1));
       }, []), (0, _v14.useOutsideClick)({
-        ref: _v9,
+        ref: _v10,
         handler: () => {
-          _v18.length || _v20.length || _v0();
+          _v19.length || _v21.length || _v0();
         }
       });
-      let _v40 = !_v14 && !!(_v18.length || _v20.length),
-        _v41 = _v16.length + _v18.length - _v20.length;
+      let _v44 = !_v15 && !!(_v19.length || _v21.length),
+        _v45 = _v17.length + _v19.length - _v21.length;
       return (0, _v1.jsxs)(_v9.Box, {
-        ref: _v9,
+        ref: _v10,
         children: [(0, _v1.jsx)(_v10.Text, {
           variant: "heading-md",
           mb: (0, _v6.rem)(12),
@@ -1310,28 +1317,28 @@
           color: "text-secondary",
           mb: (0, _v6.rem)(16),
           children: _v47.addUniqueWordsOrPhrasesToHelpVimeoAI
-        }), _v22 && (0, _v1.jsx)(_v17.Alert, {
+        }), _v23 && (0, _v1.jsx)(_v17.Alert, {
           status: "error",
           mb: (0, _v6.rem)(12),
-          onClose: () => _v23(""),
+          onClose: () => _v24(""),
           children: (0, _v1.jsx)(_v18.AlertDescription, {
-            children: _v22
+            children: _v23
           })
         }), (0, _v1.jsx)(_v68, {
-          setIsLoading: _v15,
-          isLoading: _v14,
-          phrases: _v34,
-          onAddPhrases: _v32,
+          setIsLoading: _v16,
+          isLoading: _v15,
+          phrases: _v38,
+          onAddPhrases: _v36,
           phrasesLimit: Number(_v3),
-          onRemovePhrase: _v33
+          onRemovePhrase: _v37
         }), _v3 && (0, _v1.jsxs)(_v10.Text, {
           variant: "body-xl",
           fontSize: "text-xs",
           ml: (0, _v6.rem)(4),
           mt: (0, _v6.rem)(16),
           color: "text-secondary",
-          children: [_v47.countOfCount(_v41, _v3), _v24 && (0, _v1.jsx)(_v70, {
-            onClick: _v39
+          children: [_v47.countOfCount(_v45, _v3), _v25 && (0, _v1.jsx)(_v70, {
+            onClick: _v43
           })]
         }), (0, _v1.jsxs)(_v12.HStack, {
           justifyContent: "space-between",
@@ -1339,35 +1346,35 @@
             justifyContent: "start",
             children: [(0, _v1.jsx)(_v15.Tooltip, {
               label: _v47.importCSV,
-              isDisabled: _v14,
+              isDisabled: _v15,
               placement: "top",
               children: (0, _v1.jsx)(_v51, {
-                onUpload: _v38,
-                onError: _v23
+                onUpload: _v42,
+                onError: _v24
               })
             }), (0, _v1.jsx)(_v15.Tooltip, {
               label: _v47.download,
-              isDisabled: !_v16.length,
+              isDisabled: !_v17.length,
               placement: "top",
               children: (0, _v1.jsx)(_v16.IconButton, {
-                isDisabled: !_v16.length,
+                isDisabled: !_v17.length,
                 "aria-label": _v47.download,
                 variant: "tertiary",
                 icon: (0, _v1.jsx)(_v22.DownloadImport, {}),
                 size: "sm",
-                onClick: _v37
+                onClick: _v41
               })
             }), (0, _v1.jsx)(_v15.Tooltip, {
               label: _v47.deleteAll,
-              isDisabled: !_v34.length,
+              isDisabled: !_v38.length,
               placement: "top",
               children: (0, _v1.jsx)(_v16.IconButton, {
-                isDisabled: !_v34.length,
+                isDisabled: !_v38.length,
                 "aria-label": _v47.deleteAll,
                 variant: "tertiary",
                 icon: (0, _v1.jsx)(_v21.TrashBin, {}),
                 size: "sm",
-                onClick: _v36
+                onClick: _v40
               })
             })]
           }), (0, _v1.jsxs)(_v12.HStack, {
@@ -1375,13 +1382,13 @@
             children: [(0, _v1.jsx)(_v11.Button, {
               size: "md",
               variant: "tertiary",
-              onClick: _v30,
+              onClick: _v34,
               children: _v47.cancel
             }), (0, _v1.jsx)(_v11.Button, {
-              isDisabled: !_v40,
+              isDisabled: !_v44,
               size: "md",
               variant: "primary",
-              onClick: _v35,
+              onClick: _v39,
               children: _v47.save
             })]
           })]
@@ -1427,59 +1434,64 @@
     _v74 = (0, _v2.createContext)({
       page: "single_video_view_manage"
     }),
-    _v75 = (0, _v2.forwardRef)(({}, _v0) => {
-      let _v1 = (0, _v8.useViewer)(),
-        [_v2, _v3] = (0, _v2.useState)(!1),
-        [_v4, _v5] = (0, _v2.useState)(!1),
-        _v6 = _v1?.teamUser?.ownerId ?? _v1?.user?.id,
+    _v75 = (0, _v2.forwardRef)(({
+      onMigrationConflict: _v0
+    }, _v1) => {
+      let _v2 = (0, _v8.useViewer)(),
+        [_v3, _v4] = (0, _v2.useState)(!1),
+        [_v5, _v6] = (0, _v2.useState)(!1),
+        _v7 = _v2?.teamUser?.ownerId ?? _v2?.user?.id,
         {
-          data: _v7
+          data: _v8
         } = (0, _v7.useGetUser)(() => ({
           where: {
-            userId: Number(_v6)
+            userId: Number(_v7)
           },
           select: ["transcriptPhrasesLimit"]
         })),
-        _v8 = _v7?.transcriptPhrasesLimit;
-      (0, _v2.useImperativeHandle)(_v0, () => ({
+        _v9 = _v8?.transcriptPhrasesLimit;
+      (0, _v2.useImperativeHandle)(_v1, () => ({
         openModal() {
-          _v3(!0);
+          _v4(!0);
         }
       }), []);
-      let _v9 = (0, _v2.useCallback)(() => {
-          _v3(!1);
+      let _v10 = (0, _v2.useCallback)(() => {
+          _v4(!1);
         }, []),
-        _v10 = (0, _v2.useCallback)(() => {
-          _v3(!1), _v5(!1);
+        _v11 = (0, _v2.useCallback)(() => {
+          _v4(!1), _v6(!1);
         }, []);
-      return _v4 ? (0, _v1.jsx)(_v73, {
-        onClose: _v10
+      return _v5 ? (0, _v1.jsx)(_v73, {
+        onClose: _v11
       }) : (0, _v1.jsxs)(_v3.Modal, {
-        isOpen: _v2,
-        onClose: _v9,
+        isOpen: _v3,
+        onClose: _v10,
         closeOnOverlayClick: !1,
         children: [(0, _v1.jsx)(_v5.ModalOverlay, {}), (0, _v1.jsx)(_v4.ModalContent, {
           p: `${(0, _v6.rem)(16)} ${(0, _v6.rem)(24)}`,
           maxWidth: (0, _v6.rem)(480),
           maxHeight: (0, _v6.rem)(660),
-          children: _v6 && _v8 && (0, _v1.jsx)(_v71, {
-            onCancel: _v9,
-            userId: _v6,
-            onOpenEnterpriseModal: () => _v5(!0),
-            transcriptPhrasesLimit: _v8
+          children: _v7 && _v9 && (0, _v1.jsx)(_v71, {
+            onCancel: _v10,
+            userId: _v7,
+            onOpenEnterpriseModal: () => _v6(!0),
+            transcriptPhrasesLimit: _v9,
+            onMigrationConflict: _v0
           })
         })]
       });
     }),
     _v76 = ({
       forwardRef: _v0,
-      location: _v1
+      location: _v1,
+      onMigrationConflict: _v2
     }) => (0, _v1.jsx)(_v74.Provider, {
       value: {
         page: _v1
       },
       children: (0, _v1.jsx)(_v75, {
-        ref: _v0
+        ref: _v0,
+        onMigrationConflict: _v2
       })
     });
 }

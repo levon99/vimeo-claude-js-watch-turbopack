@@ -575,6 +575,11 @@
           label: _v0.TeamMembersAccess,
           priority: 4
         }, {
+          key: "access",
+          href: _v3 ? "/manage/workspace/members" : "/manage/team/members",
+          label: _v0.TeamMembersAccess,
+          priority: 4
+        }, {
           key: "legal-hold",
           href: "/manage/team/settings/legal-hold",
           label: _v0.LegalHold,

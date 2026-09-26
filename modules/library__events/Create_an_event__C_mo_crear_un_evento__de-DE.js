@@ -2938,10 +2938,10 @@
       _v11 = (0, _v6.useRef)(null),
       _v12 = _v98();
     (0, _v6.useEffect)(() => {
-      if (!_v11.current) return;
+      if (_v7 || !_v11.current) return;
       let _v0 = Math.max(0, (new Date().getHours() - _v104.START_HOUR) * _v104.HOUR_HEIGHT);
       _v11.current.scrollTop = _v0;
-    }, [_v1]);
+    }, [_v1, _v7]);
     let _v13 = "week" === _v2 && _v3 ? _v3 : [_v1],
       _v14 = Date.now(),
       _v15 = [],

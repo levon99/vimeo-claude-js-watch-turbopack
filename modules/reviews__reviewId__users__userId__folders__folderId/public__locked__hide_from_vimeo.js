@@ -23,9 +23,8 @@
     shouldUseClientPipeline: _v4,
     videoAvailabilityFilter: _v5
   }) => {
-    if (!_v4) return !0;
     if (!(0, _v4.passesContentTypeSelection)(_v3, _v1, _v2)) return !1;
-    if (!_v3.video) return !0;
+    if (!_v4 || !_v3.video) return !0;
     let _v6 = _v3.video,
       _v7 = 0 === _v0.size || (() => {
         if (_v0.has("cold_privacy")) {

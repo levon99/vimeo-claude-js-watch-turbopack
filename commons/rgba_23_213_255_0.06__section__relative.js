@@ -501,37 +501,38 @@
   _v22.Footer = ({
     actions: _v0,
     avatar: _v1,
-    subtitle: _v2,
-    title: _v3,
-    creator: _v4,
-    titleStyles: _v5 = {
+    leadingIcon: _v2,
+    subtitle: _v3,
+    title: _v4,
+    creator: _v5,
+    titleStyles: _v6 = {
       maxWidth: (0, _v13.rem)(180)
     },
-    titleRowStyles: _v6,
-    onTitleClick: _v7,
-    editableTitle: _v8,
-    isEditingContentTitle: _v9,
-    isLocked: _v10 = !1,
-    hasFollow: _v11,
-    followSource: _v12,
-    href: _v13,
-    shouldUseNextLink: _v14 = !0
+    titleRowStyles: _v7,
+    onTitleClick: _v8,
+    editableTitle: _v9,
+    isEditingContentTitle: _v10,
+    isLocked: _v11 = !1,
+    hasFollow: _v12,
+    followSource: _v13,
+    href: _v14,
+    shouldUseNextLink: _v15 = !0
   }) => {
     let {
-        showCard: _v15
-      } = _v4 || {},
-      _v16 = _v10 ? .6 : 1,
-      _v17 = (0, _v17.useColorModeValue)("darkBlueAlpha.500", "lightBlueAlpha.500"),
-      _v18 = !!_v13 && !_v8 && !_v9,
-      _v19 = {
+        showCard: _v16
+      } = _v5 || {},
+      _v17 = _v11 ? .6 : 1,
+      _v18 = (0, _v17.useColorModeValue)("darkBlueAlpha.500", "lightBlueAlpha.500"),
+      _v19 = !!_v14 && !_v9 && !_v10,
+      _v20 = {
         variant: "heading-xs",
         noOfLines: 1,
         whiteSpace: "nowrap",
         textOverflow: "ellipsis",
         display: "block",
-        sx: _v5,
-        ...(_v10 && {
-          color: _v17
+        sx: _v6,
+        ...(_v11 && {
+          color: _v18
         })
       };
     return (0, _v1.jsx)(_v8.Flex, {
@@ -545,20 +546,20 @@
           grow: "1",
           gap: "sm",
           width: "100%",
-          children: [!!_v1 && (0, _v1.jsx)(_v26, {
-            creator: _v4,
-            showCard: !!_v15,
+          children: [_v2, !!_v1 && (0, _v1.jsx)(_v26, {
+            creator: _v5,
+            showCard: !!_v16,
             showOverflow: !1,
-            hasFollow: _v11,
-            followSource: _v12,
+            hasFollow: _v12,
+            followSource: _v13,
             children: (0, _v1.jsx)(_v5.Box, {
               display: "block",
-              opacity: _v16,
-              ...(_v4?.link && {
+              opacity: _v17,
+              ...(_v5?.link && {
                 as: "a",
-                href: _v4.link,
+                href: _v5.link,
                 onClick: _v0 => {
-                  _v0.stopPropagation(), _v4.onClick?.();
+                  _v0.stopPropagation(), _v5.onClick?.();
                 }
               }),
               children: _v1
@@ -572,75 +573,81 @@
               alignItems: "center",
               direction: "row",
               gap: "0.5rem",
-              ..._v6,
-              pointerEvents: _v18 ? void 0 : "auto",
-              onClick: _v18 ? void 0 : _v7,
+              ..._v7,
+              pointerEvents: _v19 ? void 0 : "auto",
+              onClick: _v19 ? void 0 : _v8,
               children: (0, _v1.jsx)(_v18.OverflowToolTip, {
-                labelToolTip: _v3,
+                labelToolTip: _v4,
                 maxW: (0, _v13.rem)(480),
-                children: _v8 ? (0, _v1.jsx)(_v5.Box, {
+                children: _v9 ? (0, _v1.jsx)(_v5.Box, {
                   onClick: _v0 => {
                     _v0.preventDefault(), _v0.stopPropagation();
                   },
                   width: "100%",
-                  children: _v8
-                }) : _v13 && !_v9 && _v14 ? (0, _v1.jsx)(_v10.Text, {
+                  children: _v9
+                }) : _v14 && !_v10 && _v15 ? (0, _v1.jsx)(_v10.Text, {
                   as: _v3.default,
-                  href: _v13,
-                  onClick: _v7,
+                  href: _v14,
+                  onClick: _v8,
                   cursor: "pointer",
                   "data-testid": "content-card-title",
-                  ..._v19,
-                  children: _v3
-                }) : _v13 && !_v9 ? (0, _v1.jsx)(_v10.Text, {
+                  ..._v20,
+                  children: _v4
+                }) : _v14 && !_v10 ? (0, _v1.jsx)(_v10.Text, {
                   as: "a",
-                  href: _v13,
-                  onClick: _v7,
+                  href: _v14,
+                  onClick: _v8,
                   cursor: "pointer",
                   "data-testid": "content-card-title",
-                  ..._v19,
-                  children: _v3
+                  ..._v20,
+                  children: _v4
                 }) : (0, _v1.jsx)(_v10.Text, {
                   "data-testid": "content-card-title",
-                  ..._v19,
-                  children: _v3
+                  ..._v20,
+                  children: _v4
                 })
               })
-            }), _v4?.name && (0, _v1.jsx)(_v26, {
-              creator: _v4,
-              showCard: !!_v15,
-              showOverflow: !_v15,
-              hasFollow: _v11,
-              followSource: _v12,
+            }), _v5?.name && (0, _v1.jsx)(_v26, {
+              creator: _v5,
+              showCard: !!_v16,
+              showOverflow: !_v16,
+              hasFollow: _v12,
+              followSource: _v13,
               children: (0, _v1.jsx)("object", {
                 children: (0, _v1.jsx)(_v10.Text, {
-                  opacity: _v16,
+                  opacity: _v17,
                   variant: "body-sm",
                   noOfLines: 1,
                   maxW: "200px",
-                  ...(_v10 && {
-                    color: _v17,
+                  ...(_v11 && {
+                    color: _v18,
                     opacity: 1
                   }),
-                  ...(_v4.link && {
+                  ...(_v5.link && {
                     as: "a",
-                    href: _v4.link,
+                    href: _v5.link,
                     onClick: _v0 => {
-                      _v0.stopPropagation(), _v4.onClick?.();
+                      _v0.stopPropagation(), _v5.onClick?.();
                     }
                   }),
-                  children: _v4.name
+                  children: _v5.name
                 })
               })
-            }), !_v9 && _v2 && (0, _v1.jsx)(_v9.Paragraph, {
+            }), !_v10 && _v3 && ("string" == typeof _v3 ? (0, _v1.jsx)(_v9.Paragraph, {
               "data-testid": "content-card-subtitle",
               variant: "body-sm",
-              color: _v10 ? _v17 : "text-secondary",
-              opacity: _v10 ? 1 : _v16,
+              color: _v11 ? _v18 : "text-tertiary",
+              opacity: _v11 ? 1 : _v17,
               noOfLines: 1,
-              children: _v2
-            })]
-          }), !_v9 && _v0 && (0, _v1.jsx)(_v5.Box, {
+              children: _v3
+            }) : (0, _v1.jsx)(_v8.Flex, {
+              "data-testid": "content-card-subtitle",
+              alignItems: "center",
+              minW: 0,
+              opacity: _v11 ? 1 : _v17,
+              children: _v3
+            }))]
+          }), !_v10 && _v0 && (0, _v1.jsx)(_v5.Box, {
             display: "block",
             justifySelf: "right",
             children: _v0

@@ -1796,32 +1796,33 @@
     quota: _v6,
     onUpgradeClick: _v7,
     hideWhatsNewAnnouncementCount: _v8 = !1,
-    hideWhatsNewIntroPopover: _v9 = !1
+    hideWhatsNewIntroPopover: _v9 = !1,
+    bundlePromo: _v10
   }) => {
-    let _v10 = (0, _v2.useContext)(_v49.ViewerContext),
+    let _v11 = (0, _v2.useContext)(_v49.ViewerContext),
       {
-        settings: _v11
+        settings: _v12
       } = (0, _v13.useOrionSettings)(),
       {
-        trackSidebarNavClicked: _v12
+        trackSidebarNavClicked: _v13
       } = (0, _v15.useWatchTracking)(),
       {
-        capabilities: _v13,
-        loading: _v14
+        capabilities: _v14,
+        loading: _v15
       } = (0, _v11.useCapability)(["hasSimplifiedEnterpriseAccount"]),
       {
-        capabilities: _v15
-      } = (0, _v11.useCapability)(["hasWatchButton"], _v10?.teamUser?.ownerId),
-      _v16 = _v10?.isSimplifiedSite ?? !1,
-      _v17 = !!(_v2 && !_v10?.isEnterpriseSite && !_v16 && !_v13?.hasSimplifiedEnterpriseAccount && _v15.hasWatchButton),
-      _v18 = _v11.enable_whats_new_page ? "server" : "local",
-      _v19 = _v5 || _v4 && !!_v6.uploadQuota,
-      _v20 = _v3 && !_v19,
-      _v21 = () => {
-        _v12({
+        capabilities: _v16
+      } = (0, _v11.useCapability)(["hasWatchButton"], _v11?.teamUser?.ownerId),
+      _v17 = _v11?.isSimplifiedSite ?? !1,
+      _v18 = !!(_v2 && !_v11?.isEnterpriseSite && !_v17 && !_v14?.hasSimplifiedEnterpriseAccount && _v16.hasWatchButton),
+      _v19 = _v12.enable_whats_new_page ? "server" : "local",
+      _v20 = _v5 || _v4 && !!_v6.uploadQuota,
+      _v21 = _v3 && !_v20,
+      _v22 = () => {
+        _v13({
           sidebarNavDestination: "watch",
           sidebarNavContext: (0, _v14.deriveCanonicalPage)(new URL(window.location.href), {
-            is_team_user: _v10?.user?.isTeamUser ?? !1
+            is_team_user: _v11?.user?.isTeamUser ?? !1
           }),
           version: "2"
         });
@@ -1832,7 +1833,7 @@
       gap: 12,
       padding: "0.5rem",
       paddingBottom: 0,
-      children: [_v17 && !_v14 && (0, _v1.jsx)(_v5.Tooltip, {
+      children: [_v18 && !_v15 && (0, _v1.jsx)(_v5.Tooltip, {
         label: (0, _v12.translate)({
           singular: "Watch",
           dictionary: {
@@ -1863,7 +1864,7 @@
         children: (0, _v1.jsx)(_v4.IconButton, {
           as: "a",
           href: "/watch",
-          onClick: _v21,
+          onClick: _v22,
           "aria-label": (0, _v12.translate)({
             singular: "Watch",
             dictionary: {
@@ -1901,8 +1902,10 @@
             }
           }
         })
-      }), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
-        lastSeenSource: _v18,
+      }), null != _v10 && (0, _v1.jsx)(_v2.Fragment, {
+        children: _v10
+      }, "bundle-promo"), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
+        lastSeenSource: _v19,
         children: (0, _v1.jsx)(_v101, {
           variant: "icons",
           hideAnnouncementCount: _v8,
@@ -1926,8 +1929,8 @@
       direction: "column",
       gap: (0, _v6.rem)(16),
       padding: "1rem",
-      paddingBottom: _v4 ? "1rem" : _v20 ? (0, _v6.rem)(10) : 0,
-      children: [_v17 && (_v14 ? (0, _v1.jsx)(_v9.LoadingBlock, {
+      paddingBottom: _v4 ? "1rem" : _v21 ? (0, _v6.rem)(10) : 0,
+      children: [_v18 && (_v15 ? (0, _v1.jsx)(_v9.LoadingBlock, {
         style: {
           borderRadius: (0, _v6.rem)(10),
           height: (0, _v6.rem)(28),
@@ -1968,10 +1971,12 @@
           }),
           href: "/watch",
           "data-id": "side_nav_watch_menu_item",
-          onClick: _v21
+          onClick: _v22
         }), (0, _v1.jsx)(_v10.ResizableSideNav.Divider, {})]
-      })), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
-        lastSeenSource: _v18,
+      })), null != _v10 && (0, _v1.jsx)(_v2.Fragment, {
+        children: _v10
+      }, "bundle-promo"), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
+        lastSeenSource: _v19,
         children: (0, _v1.jsx)(_v101, {
           hideAnnouncementCount: _v8,
           isMobile: _v1,

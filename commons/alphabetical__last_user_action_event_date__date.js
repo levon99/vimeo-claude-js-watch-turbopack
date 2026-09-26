@@ -1081,6 +1081,35 @@
         }),
         value: "folder"
       },
+      file: {
+        label: (0, _v7.translate)({
+          singular: "Files",
+          dictionary: {
+            es: {
+              singular: "Archivos"
+            },
+            "de-DE": {
+              singular: "Dateien"
+            },
+            "fr-FR": {
+              singular: "Fichiers"
+            },
+            "ja-JP": {
+              singular: "ファイル"
+            },
+            "ko-KR": {
+              singular: "파일"
+            },
+            "pt-BR": {
+              singular: "Arquivos"
+            },
+            "zh-CN": {
+              singular: "文件"
+            }
+          }
+        }),
+        value: "file"
+      },
       showcase: {
         label: (0, _v7.translate)({
           singular: "Showcases",
@@ -1404,7 +1433,8 @@
     FOLDER: "folder",
     VIDEO: "video",
     LIVE_EVENT: "live_event",
-    SHOWCASE: "showcase"
+    SHOWCASE: "showcase",
+    FILE: "file"
   }, "CONTENT_TYPE_FILTER_OPTIONS_BY_VALUE", 0, _v33, "DEFAULT_DATE_DISPLAY", 0, _v22, "DEFAULT_EVENTS_SORT", 0, {
     type: _v19,
     direction: _v18

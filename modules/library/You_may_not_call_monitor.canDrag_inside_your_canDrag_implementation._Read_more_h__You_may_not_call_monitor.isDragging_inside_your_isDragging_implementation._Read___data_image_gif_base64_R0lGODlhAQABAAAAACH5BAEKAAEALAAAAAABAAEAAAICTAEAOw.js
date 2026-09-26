@@ -533,7 +533,7 @@
               }),
               children: _v34
             })
-          }), !_v32 && _v1 && (0, _v2.jsx)(_v9.Text, {
+          }), !_v32 && _v1 && ("string" == typeof _v1 ? (0, _v2.jsx)(_v9.Text, {
             variant: "body-md",
             color: _v13 ? _v37 : "text-secondary",
             noOfLines: 1,
@@ -541,7 +541,11 @@
             textOverflow: "ellipsis",
             display: "block",
             children: _v1
-          })]
+          }) : (0, _v2.jsx)(_v5.Flex, {
+            alignItems: "center",
+            minW: 0,
+            children: _v1
+          }))]
         })
       }), (0, _v2.jsx)(_v28.ContentRow.Column, {
         href: "string" == typeof _v5 || "number" == typeof _v5 ? _v12 : void 0,

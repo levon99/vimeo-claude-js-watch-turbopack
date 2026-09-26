@@ -15,8 +15,9 @@
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
-    _v15 = _v0.i(0);
-  let _v16 = (0, _v2.default)(async () => {
+    _v15 = _v0.i(0),
+    _v16 = _v0.i(0);
+  let _v17 = (0, _v2.default)(async () => {
       let {
         VideoCardPlayer: _v0
       } = await _v0.A(0);
@@ -28,7 +29,7 @@
         modules: [0]
       }
     }),
-    _v17 = ({
+    _v18 = ({
       hasPlayOnHover: _v0,
       clipId: _v1,
       configUrl: _v2,
@@ -69,7 +70,7 @@
           position: "absolute",
           inset: "0",
           border: "0",
-          children: _v1 && _v2 && (0, _v1.jsx)(_v16, {
+          children: _v1 && _v2 && (0, _v1.jsx)(_v17, {
             clipId: _v1,
             configUrl: _v2,
             initEvent: _v3,
@@ -92,11 +93,11 @@
         children: (0, _v1.jsx)(_v6.Box, {
           background: "background",
           opacity: "0.6",
-          children: (0, _v1.jsx)(_v14.ContentCard.DefaultThumbnail, {
+          children: (0, _v1.jsx)(_v15.ContentCard.DefaultThumbnail, {
             background: "fill-component",
             isLocked: _v15,
             onClick: _v18,
-            children: (0, _v1.jsx)(_v12.PlayerFilled, {
+            children: (0, _v1.jsx)(_v13.PlayerFilled, {
               color: "text-secondary",
               boxSize: "2xl",
               opacity: "0.4",
@@ -104,7 +105,7 @@
             })
           })
         })
-      }) : (0, _v1.jsx)(_v14.ContentCard.Thumbnail, {
+      }) : (0, _v1.jsx)(_v15.ContentCard.Thumbnail, {
         alt: "",
         src: _v10,
         srcSet: _v11,
@@ -131,26 +132,26 @@
         onClick: _v0 => {
           _v0.stopPropagation();
         },
-        children: "checkbox" === _v20 ? (0, _v1.jsx)(_v14.ContentCard.SelectCheckbox, {
+        children: "checkbox" === _v20 ? (0, _v1.jsx)(_v15.ContentCard.SelectCheckbox, {
           size: "md"
-        }) : (0, _v1.jsx)(_v14.ContentCard.SelectRadio, {
+        }) : (0, _v1.jsx)(_v15.ContentCard.SelectRadio, {
           size: "lg"
         })
-      }), _v21, (0, _v1.jsx)(_v14.ContentCard.VideoPrivacyBadge, {
+      }), _v21, (0, _v1.jsx)(_v15.ContentCard.VideoPrivacyBadge, {
         videoPrivacy: _v22,
         variant: _v23,
         onClick: _v24,
         layout: "overlay",
         tooltipLabel: _v25
-      }), _v26, (0, _v1.jsx)(_v14.ContentCard.Badge, {
+      }), _v26, (0, _v1.jsx)(_v15.ContentCard.Badge, {
         variant: _v28,
         sx: _v29,
         children: _v27
-      }), _v30 && (0, _v1.jsx)(_v14.ContentCard.Badge, {
+      }), _v30 && (0, _v1.jsx)(_v15.ContentCard.Badge, {
         bgColor: "transparent",
         backdropFilter: "none",
-        top: (0, _v11.rem)(16),
-        left: (0, _v11.rem)(8),
+        top: (0, _v12.rem)(16),
+        left: (0, _v12.rem)(8),
         border: "none",
         children: _v30
       }), _v31 > 0 && (0, _v1.jsx)(_v8.Progress, {
@@ -178,59 +179,61 @@
     avatarSrc: _v6,
     avatarName: _v7,
     showAvatar: _v8 = !0,
-    tagText: _v9,
-    tagTextStyles: _v10,
-    tagTextVariant: _v11,
-    actionsMenu: _v12,
-    hoverActions: _v13,
-    isSelectable: _v14 = !1,
-    isSelected: _v15 = !1,
-    onClick: _v16,
-    onToggleSelected: _v17,
-    onMouseEnter: _v18,
-    playerInitEvent: _v19 = "hover",
-    selectionType: _v20 = "checkbox",
-    clipId: _v21,
-    configUrl: _v22,
-    quality: _v23,
-    objectFit: _v24,
-    aspectRatio: _v25,
-    spinnerSize: _v26 = "md",
-    topLeftDecoration: _v27,
-    titleStyles: _v28,
-    defaultIconProps: _v29,
-    tabIndex: _v30,
-    creator: _v31,
-    shouldUseNextLink: _v32 = !0,
-    pageName: _v33 = "",
-    hasPlayOnHover: _v34 = !0,
-    progress: _v35 = 0,
-    hasFollow: _v36,
-    followSource: _v37,
-    isColdStorage: _v38 = !1,
-    lockedTooltipLabel: _v39,
-    videoPrivacy: _v40,
-    privacyBadgeVariant: _v41 = "default",
-    onPrivacyBadgeClick: _v42,
-    privacyBadgeTooltip: _v43,
-    managedStorageIndicator: _v44,
-    editableTitle: _v45,
-    isEditingContentTitle: _v46
+    showAvatarInSubtitle: _v9 = !1,
+    typeIcon: _v10,
+    tagText: _v11,
+    tagTextStyles: _v12,
+    tagTextVariant: _v13,
+    actionsMenu: _v14,
+    hoverActions: _v15,
+    isSelectable: _v16 = !1,
+    isSelected: _v17 = !1,
+    onClick: _v18,
+    onToggleSelected: _v19,
+    onMouseEnter: _v20,
+    playerInitEvent: _v21 = "hover",
+    selectionType: _v22 = "checkbox",
+    clipId: _v23,
+    configUrl: _v24,
+    quality: _v25,
+    objectFit: _v26,
+    aspectRatio: _v27,
+    spinnerSize: _v28 = "md",
+    topLeftDecoration: _v29,
+    titleStyles: _v30,
+    defaultIconProps: _v31,
+    tabIndex: _v32,
+    creator: _v33,
+    shouldUseNextLink: _v34 = !0,
+    pageName: _v35 = "",
+    hasPlayOnHover: _v36 = !0,
+    progress: _v37 = 0,
+    hasFollow: _v38,
+    followSource: _v39,
+    isColdStorage: _v40 = !1,
+    lockedTooltipLabel: _v41,
+    videoPrivacy: _v42,
+    privacyBadgeVariant: _v43 = "default",
+    onPrivacyBadgeClick: _v44,
+    privacyBadgeTooltip: _v45,
+    managedStorageIndicator: _v46,
+    editableTitle: _v47,
+    isEditingContentTitle: _v48
   }) => {
     let {
-        settings: _v47
-      } = (0, _v13.useOrionSettings)(),
-      [_v48, _v49] = (0, _v3.useState)(!1),
+        settings: _v49
+      } = (0, _v14.useOrionSettings)(),
       [_v50, _v51] = (0, _v3.useState)(!1),
       [_v52, _v53] = (0, _v3.useState)(!1),
-      _v54 = "sm" === _v26,
-      _v55 = () => {
+      [_v54, _v55] = (0, _v3.useState)(!1),
+      _v56 = "sm" === _v28,
+      _v57 = () => {
         _v4.BigPictureClient.sendEvent(new _v4.Event("vimeo.click", 151, {
           copy: _v0,
           feature: "video_library",
           location: "video_card",
           name: "video_card_thumbnail",
-          page: _v33,
+          page: _v35,
           path: null,
           target: _v2 ?? null,
           target_path: null,
@@ -240,8 +243,8 @@
           third_party_integration: null
         }));
       },
-      _v56 = null;
-    if (_v8) {
+      _v58 = null;
+    if ("" !== _v6 && (_v8 || _v9)) {
       let _v0 = (0, _v1.jsx)(_v5.Avatar, {
         alt: _v7 || "",
         size: "xs",
@@ -250,7 +253,7 @@
           name: _v7 || ""
         }
       });
-      _v56 = _v7 && _v47.enable_uploader_tooltip ? (0, _v1.jsx)(_v10.Tooltip, {
+      _v58 = _v7 && _v49.enable_uploader_tooltip ? (0, _v1.jsx)(_v11.Tooltip, {
         label: _v7,
         children: (0, _v1.jsx)(_v6.Box, {
           display: "inline-flex",
@@ -259,113 +262,124 @@
         })
       }) : _v0;
     }
-    return (0, _v1.jsx)(_v14.ContentCard, {
-      isSelected: _v15,
-      onClick: _v16,
-      onToggleSelected: _v17,
+    let _v59 = _v9 && null != _v58 ? (0, _v1.jsxs)(_v7.Flex, {
+      alignItems: "center",
+      gap: "xs",
+      children: [_v58, (0, _v1.jsx)(_v10.Text, {
+        variant: "body-sm",
+        color: "text-tertiary",
+        noOfLines: 1,
+        children: `\xb7 ${_v1}`
+      })]
+    }) : _v1;
+    return (0, _v1.jsx)(_v15.ContentCard, {
+      isSelected: _v17,
+      onClick: _v18,
+      onToggleSelected: _v19,
       href: _v2,
       ariaLabel: "Video card",
-      tabIndex: _v30,
-      shouldUseNextLink: _v32,
-      hoverZIndex: _v38 && _v39 || _v31?.showCard ? 25 : void 0,
+      tabIndex: _v32,
+      shouldUseNextLink: _v34,
+      hoverZIndex: _v40 && _v41 || _v33?.showCard ? 25 : void 0,
       onMouseEnter: _v0 => {
-        _v18?.(_v0), _v34 && _v53(!0);
+        _v20?.(_v0), _v36 && _v55(!0);
       },
-      onMouseLeave: _v34 ? () => {
-        _v53(!1);
+      onMouseLeave: _v36 ? () => {
+        _v55(!1);
       } : void 0,
-      isEditingContentTitle: _v46,
+      isEditingContentTitle: _v48,
       children: (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v14.ContentCard.Body, {
-          aspectRatio: _v25,
-          children: _v38 && _v39 ? (0, _v1.jsx)(_v15.ColdStorageThumbTooltip, {
-            label: _v39,
-            compactGridTooltip: _v54,
-            children: (0, _v1.jsx)(_v17, {
-              hasPlayOnHover: _v34,
-              clipId: _v21,
-              configUrl: _v22,
-              playerInitEvent: _v19,
-              isHovering: _v52,
-              quality: _v23,
-              objectFit: _v24,
-              setIsPlayerReady: _v49,
-              setIsPlayerBroken: _v51,
+        children: [(0, _v1.jsx)(_v15.ContentCard.Body, {
+          aspectRatio: _v27,
+          children: _v40 && _v41 ? (0, _v1.jsx)(_v16.ColdStorageThumbTooltip, {
+            label: _v41,
+            compactGridTooltip: _v56,
+            children: (0, _v1.jsx)(_v18, {
+              hasPlayOnHover: _v36,
+              clipId: _v23,
+              configUrl: _v24,
+              playerInitEvent: _v21,
+              isHovering: _v54,
+              quality: _v25,
+              objectFit: _v26,
+              setIsPlayerReady: _v51,
+              setIsPlayerBroken: _v53,
               isDefaultPicture: !!_v3,
               thumbnailSrc: _v4,
               thumbnailSrcSet: _v5,
-              aspectRatio: _v25,
-              isPlayerReady: _v48,
-              isPlayerBroken: _v50,
-              isColdStorage: _v38,
-              spinnerSize: _v26,
-              defaultIconProps: _v29,
-              thumbnailClickEvent: _v55,
-              isSelectable: _v14,
-              selectionType: _v20,
-              hoverActions: _v13,
-              videoPrivacy: _v40,
-              privacyBadgeVariant: _v41,
-              onPrivacyBadgeClick: _v42,
-              privacyBadgeTooltip: _v43,
-              managedStorageIndicator: _v44,
-              tagText: _v9,
-              tagTextVariant: _v11,
-              tagTextStyles: _v10,
-              topLeftDecoration: _v27,
-              progress: _v35
+              aspectRatio: _v27,
+              isPlayerReady: _v50,
+              isPlayerBroken: _v52,
+              isColdStorage: _v40,
+              spinnerSize: _v28,
+              defaultIconProps: _v31,
+              thumbnailClickEvent: _v57,
+              isSelectable: _v16,
+              selectionType: _v22,
+              hoverActions: _v15,
+              videoPrivacy: _v42,
+              privacyBadgeVariant: _v43,
+              onPrivacyBadgeClick: _v44,
+              privacyBadgeTooltip: _v45,
+              managedStorageIndicator: _v46,
+              tagText: _v11,
+              tagTextVariant: _v13,
+              tagTextStyles: _v12,
+              topLeftDecoration: _v29,
+              progress: _v37
             })
-          }) : (0, _v1.jsx)(_v17, {
-            hasPlayOnHover: _v34,
-            clipId: _v21,
-            configUrl: _v22,
-            playerInitEvent: _v19,
-            isHovering: _v52,
-            quality: _v23,
-            objectFit: _v24,
-            setIsPlayerReady: _v49,
-            setIsPlayerBroken: _v51,
+          }) : (0, _v1.jsx)(_v18, {
+            hasPlayOnHover: _v36,
+            clipId: _v23,
+            configUrl: _v24,
+            playerInitEvent: _v21,
+            isHovering: _v54,
+            quality: _v25,
+            objectFit: _v26,
+            setIsPlayerReady: _v51,
+            setIsPlayerBroken: _v53,
             isDefaultPicture: !!_v3,
             thumbnailSrc: _v4,
             thumbnailSrcSet: _v5,
-            aspectRatio: _v25,
-            isPlayerReady: _v48,
-            isPlayerBroken: _v50,
-            isColdStorage: _v38,
-            spinnerSize: _v26,
-            defaultIconProps: _v29,
-            thumbnailClickEvent: _v55,
-            isSelectable: _v14,
-            selectionType: _v20,
-            hoverActions: _v13,
-            videoPrivacy: _v40,
-            privacyBadgeVariant: _v41,
-            onPrivacyBadgeClick: _v42,
-            privacyBadgeTooltip: _v43,
-            managedStorageIndicator: _v44,
-            tagText: _v9,
-            tagTextVariant: _v11,
-            tagTextStyles: _v10,
-            topLeftDecoration: _v27,
-            progress: _v35
+            aspectRatio: _v27,
+            isPlayerReady: _v50,
+            isPlayerBroken: _v52,
+            isColdStorage: _v40,
+            spinnerSize: _v28,
+            defaultIconProps: _v31,
+            thumbnailClickEvent: _v57,
+            isSelectable: _v16,
+            selectionType: _v22,
+            hoverActions: _v15,
+            videoPrivacy: _v42,
+            privacyBadgeVariant: _v43,
+            onPrivacyBadgeClick: _v44,
+            privacyBadgeTooltip: _v45,
+            managedStorageIndicator: _v46,
+            tagText: _v11,
+            tagTextVariant: _v13,
+            tagTextStyles: _v12,
+            topLeftDecoration: _v29,
+            progress: _v37
           })
-        }), (0, _v1.jsx)(_v14.ContentCard.Footer, {
-          actions: _v12,
-          avatar: _v56,
+        }), (0, _v1.jsx)(_v15.ContentCard.Footer, {
+          actions: _v14,
+          avatar: null != _v10 ? void 0 : _v58,
+          leadingIcon: _v10,
           title: _v0,
-          subtitle: _v1,
-          isLocked: _v38,
-          titleStyles: _v28,
-          creator: _v31,
+          subtitle: _v59,
+          isLocked: _v40,
+          titleStyles: _v30,
+          creator: _v33,
           href: _v2,
-          shouldUseNextLink: _v32,
+          shouldUseNextLink: _v34,
           onTitleClick: () => {
             _v4.BigPictureClient.sendEvent(new _v4.Event("vimeo.click", 151, {
               copy: _v0,
               feature: "video_library",
               location: "video_card",
               name: "video_card_title",
-              page: _v33,
+              page: _v35,
               path: null,
               target: _v2 ?? null,
               target_path: null,
@@ -375,10 +389,10 @@
               third_party_integration: null
             }));
           },
-          editableTitle: _v45,
-          isEditingContentTitle: _v46,
-          hasFollow: _v36,
-          followSource: _v37
+          editableTitle: _v47,
+          isEditingContentTitle: _v48,
+          hasFollow: _v38,
+          followSource: _v39
         })]
       })
     });

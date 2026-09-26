@@ -79,6 +79,7 @@
     isBackstageAllowed = !1;
     isModuleActive = !1;
     isProxyOnly = !1;
+    isForcedTailing = !1;
     firebase;
     publicChatBuffer = null;
     backstageChatBuffer = null;
@@ -90,7 +91,7 @@
     proxyTokenManager = null;
     firebaseTokenManager = null;
     constructor(_v0) {
-      super(), this.isProxyOnly = !!_v0?.interaction?.feature?.isProxyOnly, this.isBackstageAllowed = !!(!this.isProxyOnly && _v0?.interaction?.feature?.isBackstageAllowed && !_v0?.interaction?.feature?.isManagementDisabled), this.isModuleActive = (0, _v14.checkModuleIsActive)(_v0?.interaction?.feature?.module, _v9.EInteractionModule.CHAT);
+      super(), this.isProxyOnly = !!_v0?.interaction?.feature?.isProxyOnly, this.isForcedTailing = !!_v0?.interaction?.feature?.isForcedTailing, this.isBackstageAllowed = !!(!this.isProxyOnly && _v0?.interaction?.feature?.isBackstageAllowed && !_v0?.interaction?.feature?.isManagementDisabled), this.isModuleActive = (0, _v14.checkModuleIsActive)(_v0?.interaction?.feature?.module, _v9.EInteractionModule.CHAT);
     }
     onProvisionEnded() {
       return (0, _v4.dispose)(this);
@@ -186,6 +187,7 @@
             proxyTokenManager: _v1,
             firebaseTokenManager: _v2,
             buffer: this.publicChatBuffer,
+            isForcedTailing: this.isForcedTailing,
             onBansChange: _v0 => {
               let _v1 = _v0.reduce((_v0, _v1) => ({
                 ..._v0,

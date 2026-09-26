@@ -134,6 +134,7 @@
 - https://vimeo.com/manage/team/manage-ai
 - https://vimeo.com/manage/team/manage-ai/custom-dictionary
 - https://vimeo.com/manage/team/members
+- https://vimeo.com/manage/team/members/[member_id]/access
 - https://vimeo.com/manage/team/members/[member_id]/my-library
 - https://vimeo.com/manage/team/members/[member_id]/my-library/folders/[folder_id]
 - https://vimeo.com/manage/team/members/[member_id]/shared-resources
@@ -170,6 +171,7 @@
 - https://vimeo.com/manage/workspace/manage-ai
 - https://vimeo.com/manage/workspace/manage-ai/custom-dictionary
 - https://vimeo.com/manage/workspace/members
+- https://vimeo.com/manage/workspace/members/[member_id]/access
 - https://vimeo.com/manage/workspace/members/[member_id]/my-library
 - https://vimeo.com/manage/workspace/members/[member_id]/my-library/folders/[folder_id]
 - https://vimeo.com/manage/workspace/members/[member_id]/shared-resources

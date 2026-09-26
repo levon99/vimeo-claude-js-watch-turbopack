@@ -21,31 +21,32 @@
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
-    _v21 = _v0.i(0);
-  let _v22 = () => {
-      let _v0 = (0, _v19.useColorModeValue)("slate.800", "white");
-      return (0, _v1.jsx)(_v21.VimeoV, {
-        height: (0, _v20.rem)(26.7),
+    _v21 = _v0.i(0),
+    _v22 = _v0.i(0);
+  let _v23 = () => {
+      let _v0 = (0, _v20.useColorModeValue)("slate.800", "white");
+      return (0, _v1.jsx)(_v22.VimeoV, {
+        height: (0, _v21.rem)(26.7),
         color: _v0
       });
     },
-    _v23 = ({
+    _v24 = ({
       name: _v0
     }) => {
-      let _v1 = (0, _v10.useRef)(null);
-      return (0, _v1.jsxs)(_v15.Navigation, {
+      let _v1 = (0, _v11.useRef)(null);
+      return (0, _v1.jsxs)(_v16.Navigation, {
         id: "header",
-        children: [(0, _v1.jsx)(_v15.Navigation.LeftContent, {
+        children: [(0, _v1.jsx)(_v16.Navigation.LeftContent, {
           children: (0, _v1.jsx)("div", {
             ref: _v1,
             children: (0, _v1.jsxs)(_v4.Flex, {
               alignItems: "center",
               gap: "sm",
-              children: [(0, _v1.jsx)(_v17.default, {
-                vimeoLogo: (0, _v1.jsx)(_v22, {})
-              }), (0, _v1.jsx)(_v12.Text, {
+              children: [(0, _v1.jsx)(_v18.default, {
+                vimeoLogo: (0, _v1.jsx)(_v23, {})
+              }), (0, _v1.jsx)(_v13.Text, {
                 variant: "body-md",
-                children: (0, _v14.translate)({
+                children: (0, _v15.translate)({
                   singular: "My library",
                   dictionary: {
                     es: {
@@ -71,23 +72,23 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v12.Text, {
+              }), (0, _v1.jsx)(_v13.Text, {
                 variant: "body-md",
                 children: "/"
-              }), (0, _v1.jsx)(_v12.Text, {
+              }), (0, _v1.jsx)(_v13.Text, {
                 variant: "body-md",
                 children: _v0
               })]
             })
           })
-        }), (0, _v1.jsx)(_v15.Navigation.RightContent, {
+        }), (0, _v1.jsx)(_v16.Navigation.RightContent, {
           children: (0, _v1.jsxs)(_v4.Flex, {
             alignItems: "center",
             gap: "sm",
-            children: [(0, _v1.jsx)(_v11.Button, {
+            children: [(0, _v1.jsx)(_v12.Button, {
               variant: "primary",
-              leftIcon: (0, _v1.jsx)(_v13.Share, {}),
-              children: (0, _v14.translate)({
+              leftIcon: (0, _v1.jsx)(_v14.Share, {}),
+              children: (0, _v15.translate)({
                 singular: "Share",
                 dictionary: {
                   es: {
@@ -113,35 +114,30 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v18.SearchField, {
+            }), (0, _v1.jsx)(_v19.SearchField, {
               fadeOutLeftNav: !0,
               leftNavbarRef: _v1,
               withToggle: !0
-            }), (0, _v1.jsx)(_v16.AccountMenu, {})]
+            }), (0, _v1.jsx)(_v17.AccountMenu, {})]
           })
         })]
       });
     },
-    _v24 = ({
+    _v25 = ({
       publicId: _v0
     }) => {
-      let _v1 = (0, _v9.useViewer)(),
+      let _v1 = (0, _v10.useViewer)(),
         _v2 = (0, _v5.useIsStaff)(),
         {
           isLoadingResponse: _v3
         } = (0, _v8.useOrionSettings)(),
-        _v4 = (() => {
-          let {
-            settings: _v0
-          } = (0, _v8.useOrionSettings)();
-          return (0, _v5.useIsStaff)() || _v0.universal_hosting_enabled;
-        })(),
+        _v4 = (0, _v9.useUniversalHostingEnabled)(),
         _v5 = (_v0 => {
-          let _v1 = (0, _v9.useViewer)(),
-            [_v2, _v3] = (0, _v10.useState)({
+          let _v1 = (0, _v10.useViewer)(),
+            [_v2, _v3] = (0, _v11.useState)({
               status: "loading"
             });
-          return (0, _v10.useEffect)(() => {
+          return (0, _v11.useEffect)(() => {
             let _v0 = !1;
             return _v1?.user && fetch(`https://${_v1.apiUrl}/users/${_v1.user.id}/files/${_v0}`, {
               headers: {
@@ -168,7 +164,7 @@
       return _v1?.user && (_v2 || !_v3) && "loading" !== _v5.status ? _v4 && "error" !== _v5.status ? (0, _v1.jsxs)(_v4.Flex, {
         direction: "column",
         minHeight: "100vh",
-        children: [(0, _v1.jsx)(_v23, {
+        children: [(0, _v1.jsx)(_v24, {
           name: _v5.name
         }), (0, _v1.jsx)(_v3.Box, {
           as: "main",
@@ -205,7 +201,7 @@
     inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, ({
     publicId: _v0
-  }) => (0, _v1.jsx)(_v24, {
+  }) => (0, _v1.jsx)(_v25, {
     publicId: _v0
   }, _v0)], 0);
 }

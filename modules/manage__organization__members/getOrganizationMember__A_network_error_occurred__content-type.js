@@ -256,23 +256,9 @@
     _v46 = _v0.i(0),
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
-    _v49 = _v0.i(0);
-  let _v50 = _v0 => (0, _v1.jsx)(_v49.Icon, {
-    viewBox: "0 0 24 24",
-    ..._v0,
-    fill: "none",
-    children: (0, _v1.jsxs)("g", {
-      fill: "currentColor",
-      children: [(0, _v1.jsx)("path", {
-        fillRule: "evenodd",
-        clipRule: "evenodd",
-        d: "M10.015 5a2.265 2.265 0 1 0 0 4.53 2.265 2.265 0 0 0 0-4.53ZM5.75 7.265a4.265 4.265 0 1 1 8.53 0 4.265 4.265 0 0 1-8.53 0Zm-1.46 6.857c1.327-1.023 3.093-1.643 4.913-1.643h.035l.034.003c.173.012.655.006 1.059.002.184-.003.351-.005.466-.005 1.82 0 3.586.62 4.913 1.643 1.325 1.02 2.29 2.512 2.29 4.256 0 1.51-1.282 2.632-2.734 2.632H4.734C3.282 21.01 2 19.887 2 18.377c0-1.743.965-3.234 2.29-4.255Zm1.22 1.584c-.975.752-1.51 1.71-1.51 2.672 0 .293.271.632.734.632h10.532c.463 0 .734-.34.734-.633 0-.962-.535-1.919-1.51-2.67-.974-.751-2.31-1.228-3.693-1.228l-.286.003c-.397.005-1.049.012-1.336-.002-1.373.006-2.697.481-3.664 1.226Z"
-      }), (0, _v1.jsx)("path", {
-        d: "M21 9.5a1 1 0 1 1 0 2h-5a1 1 0 1 1 0-2h5Z"
-      })]
-    })
-  });
-  var _v51 = _v0.i(0),
+    _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0),
     _v52 = _v0.i(0),
     _v53 = _v0.i(0),
     _v54 = _v0.i(0),
@@ -283,13 +269,12 @@
     _v59 = _v0.i(0),
     _v60 = _v0.i(0),
     _v61 = _v0.i(0),
-    _v62 = _v0.i(0),
-    _v63 = _v0.i(0);
-  let _v64 = "selectWorkspaceRoleAndInvitationNote",
-    _v65 = "shareFolders",
-    _v66 = {
+    _v62 = _v0.i(0);
+  let _v63 = "selectWorkspaceRoleAndInvitationNote",
+    _v64 = "shareFolders",
+    _v65 = {
       applicableFolderPolicies: [],
-      currentStep: _v64,
+      currentStep: _v63,
       invitationNote: "",
       invitedWorkspaceMembers: [],
       isDataValid: !1,
@@ -307,19 +292,19 @@
         uri: ""
       }
     },
-    _v67 = "ADD_INVITED_WORKSPACE_MEMBERS",
-    _v68 = "SET_INVITATION_NOTE",
-    _v69 = "SET_LIST_OF_WORKSPACES",
-    _v70 = "SET_SELECTED_FOLDERS_TREE",
-    _v71 = "SET_SELECTED_PERMISSION_POLICY",
-    _v72 = "SET_SELECTED_ROLE",
-    _v73 = "SET_SELECTED_WORKSPACE",
-    _v74 = "UPDATE_CURRENT_STEP_TO_NEXT";
-  function _v75(_v0, _v1) {
+    _v66 = "ADD_INVITED_WORKSPACE_MEMBERS",
+    _v67 = "SET_INVITATION_NOTE",
+    _v68 = "SET_LIST_OF_WORKSPACES",
+    _v69 = "SET_SELECTED_FOLDERS_TREE",
+    _v70 = "SET_SELECTED_PERMISSION_POLICY",
+    _v71 = "SET_SELECTED_ROLE",
+    _v72 = "SET_SELECTED_WORKSPACE",
+    _v73 = "UPDATE_CURRENT_STEP_TO_NEXT";
+  function _v74(_v0, _v1) {
     switch (_v1.type) {
-      case _v67:
+      case _v66:
         let _v0 = [..._v0.invitedWorkspaceMembers, ..._v1.payload],
-          _v1 = (0, _v63.getApplicableFolderPolicies)(_v0),
+          _v1 = (0, _v62.getApplicableFolderPolicies)(_v0),
           _v2 = _v1.length ? _v1[0] : null;
         return {
           ..._v0,
@@ -327,7 +312,7 @@
           invitedWorkspaceMembers: _v0,
           selectedPermissionPolicy: _v2
         };
-      case _v68:
+      case _v67:
         return {
           ..._v0,
           invitationNote: _v1.payload
@@ -337,40 +322,40 @@
           ..._v0,
           isDataValid: _v1.payload
         };
-      case _v69:
+      case _v68:
         return {
           ..._v0,
           listOfWorkspaces: [..._v0.listOfWorkspaces, ..._v1.payload]
         };
-      case _v70:
+      case _v69:
         let _v3 = Object.keys(_v1.payload.children).length > 0;
         return {
           ..._v0,
           selectedFoldersTree: _v1.payload,
           isDataValid: _v3
         };
-      case _v71:
+      case _v70:
         return {
           ..._v0,
           selectedPermissionPolicy: _v1.payload
         };
-      case _v72:
+      case _v71:
         return {
           ..._v0,
           selectedRole: _v1.payload
         };
-      case _v73:
+      case _v72:
         let _v4 = !!_v1.payload.uri;
         return {
           ..._v0,
           selectedWorkspace: _v1.payload,
           isDataValid: _v4
         };
-      case _v74:
+      case _v73:
         return {
           ..._v0,
           currentStep: (_v0 => {
-            if (_v0 === _v64) return _v65;
+            if (_v0 === _v63) return _v64;
             throw Error(`Unknown step: ${_v0}`);
           })(_v0.currentStep),
           isDataValid: !1
@@ -379,10 +364,10 @@
         return _v0;
     }
   }
-  var _v76 = _v0.i(0),
-    _v77 = _v0.i(0),
-    _v78 = _v0.i(0);
-  let _v79 = ({
+  var _v75 = _v0.i(0),
+    _v76 = _v0.i(0),
+    _v77 = _v0.i(0);
+  let _v78 = ({
       addToWorkspaceAndShareModalData: _v0,
       members: _v1,
       onChangeSelectedFoldersTree: _v2,
@@ -397,8 +382,8 @@
         selectedWorkspace: _v9
       } = _v0;
       switch (_v0.currentStep) {
-        case _v64:
-          return (0, _v1.jsx)(_v80, {
+        case _v63:
+          return (0, _v1.jsx)(_v79, {
             invitationNote: _v0.invitationNote,
             listOfWorkspaces: _v0.listOfWorkspaces,
             members: _v1,
@@ -410,8 +395,8 @@
             selectedRole: _v0.selectedRole,
             selectedWorkspaceUri: _v9.uri
           });
-        case _v65:
-          return (0, _v1.jsx)(_v81, {
+        case _v64:
+          return (0, _v1.jsx)(_v80, {
             applicableFolderPolicies: _v0.applicableFolderPolicies,
             handleChangeSelectedFoldersTree: _v2,
             handleChangeSelectedPermissionPolicy: _v3,
@@ -424,7 +409,7 @@
           return null;
       }
     },
-    _v80 = ({
+    _v79 = ({
       invitationNote: _v0,
       listOfWorkspaces: _v1,
       members: _v2,
@@ -437,9 +422,9 @@
       selectedWorkspaceUri: _v9
     }) => {
       let _v10 = (0, _v9.getTranslations)(),
-        [_v11] = (0, _v62.useToken)("colors", ["fill-surface"]),
+        [_v11] = (0, _v61.useToken)("colors", ["fill-surface"]),
         _v12 = _v2.slice(0, 3).map(_v0 => (0, _v36.getMemberAvatarLink)(_v0));
-      return (0, _v1.jsxs)(_v61.ModalBody, {
+      return (0, _v1.jsxs)(_v60.ModalBody, {
         display: "flex",
         flexDirection: "column",
         gap: "md",
@@ -453,7 +438,7 @@
           children: [(0, _v1.jsx)(_v12.Box, {
             display: "flex",
             alignItems: "center",
-            children: _v12.map((_v0, _v1) => (0, _v1.jsx)(_v82, {
+            children: _v12.map((_v0, _v1) => (0, _v1.jsx)(_v81, {
               alt: "org member",
               size: "xs",
               src: _v0,
@@ -483,7 +468,7 @@
               })()
             })
           })]
-        }), (0, _v1.jsx)(_v76.SelectWorkspaceAndRole, {
+        }), (0, _v1.jsx)(_v75.SelectWorkspaceAndRole, {
           handleSelectedRoleChange: _v5,
           handleSelectedWorkspaceUriChange: _v0 => {
             let _v1 = _v1.find(_v0 => _v0.uri === _v0);
@@ -494,13 +479,13 @@
           orgUuid: _v7,
           selectedRole: _v8,
           selectedWorkspaceUri: _v9
-        }), (0, _v1.jsx)(_v77.AddInvitationNote, {
+        }), (0, _v1.jsx)(_v76.AddInvitationNote, {
           handleInvitationNoteChange: _v3,
           invitationNote: _v0
         })]
       });
     },
-    _v81 = ({
+    _v80 = ({
       applicableFolderPolicies: _v0,
       handleChangeSelectedFoldersTree: _v1,
       handleChangeSelectedPermissionPolicy: _v2,
@@ -510,12 +495,12 @@
       selectedWorkspace: _v6
     }) => {
       let _v7 = (0, _v9.getTranslations)();
-      return (0, _v1.jsx)(_v61.ModalBody, {
+      return (0, _v1.jsx)(_v60.ModalBody, {
         pt: 0,
-        children: (0, _v1.jsx)(_v59.AddToFoldersModalBodyContent, {
+        children: (0, _v1.jsx)(_v58.AddToFoldersModalBodyContent, {
           applicableFolderPolicies: _v0,
           error: null,
-          header: (0, _v1.jsx)(_v78.AddToFolderModalBodyHeader, {}),
+          header: (0, _v1.jsx)(_v77.AddToFolderModalBodyHeader, {}),
           ownerId: _v6?.internalId,
           searchPlaceHolderText: _v7.Search,
           selectedFoldersTree: _v4,
@@ -526,7 +511,7 @@
         })
       });
     };
-  var _v82 = (0, _v58.default)(_v60.Avatar).withConfig({
+  var _v81 = (0, _v57.default)(_v59.Avatar).withConfig({
       displayName: "ModalBodySection___StyledAvatar",
       componentId: "sc-af3cd8e6-0"
     })(_v0 => ({
@@ -545,8 +530,8 @@
         backgroundColor: _v0.$_css5
       }
     })),
-    _v83 = _v0.i(0);
-  let _v84 = ({
+    _v82 = _v0.i(0);
+  let _v83 = ({
       currentStep: _v0,
       disabled: _v1,
       handlePrimaryButtonClick: _v2,
@@ -554,15 +539,15 @@
       onClose: _v4
     }) => {
       switch (_v0) {
-        case _v64:
-          return (0, _v1.jsx)(_v85, {
+        case _v63:
+          return (0, _v1.jsx)(_v84, {
             disabled: _v1,
             handlePrimaryButtonClick: _v2,
             loading: _v3,
             onClose: _v4
           });
-        case _v65:
-          return (0, _v1.jsx)(_v86, {
+        case _v64:
+          return (0, _v1.jsx)(_v85, {
             disabled: _v1,
             loading: _v3,
             onClose: _v4,
@@ -572,14 +557,14 @@
           return null;
       }
     },
-    _v85 = ({
+    _v84 = ({
       disabled: _v0,
       handlePrimaryButtonClick: _v1,
       loading: _v2,
       onClose: _v3
     }) => {
       let _v4 = (0, _v9.getTranslations)();
-      return (0, _v1.jsxs)(_v83.ModalFooter, {
+      return (0, _v1.jsxs)(_v82.ModalFooter, {
         px: "lg",
         pb: 0,
         children: [(0, _v1.jsx)(_v45.Button, {
@@ -596,14 +581,14 @@
         })]
       });
     },
-    _v86 = ({
+    _v85 = ({
       disabled: _v0,
       loading: _v1,
       onClose: _v2,
       handlePrimaryButtonClick: _v3
     }) => {
       let _v4 = (0, _v9.getTranslations)();
-      return (0, _v1.jsxs)(_v83.ModalFooter, {
+      return (0, _v1.jsxs)(_v82.ModalFooter, {
         children: [(0, _v1.jsx)(_v45.Button, {
           isDisabled: _v1,
           onClick: _v2,
@@ -620,36 +605,36 @@
         })]
       });
     };
-  var _v87 = _v0.i(0);
-  let _v88 = ({
+  var _v86 = _v0.i(0);
+  let _v87 = ({
       currentStep: _v0,
       selectedMembersCount: _v1
     }) => {
       switch (_v0) {
-        case _v64:
-          return (0, _v1.jsx)(_v89, {
+        case _v63:
+          return (0, _v1.jsx)(_v88, {
             selectedMembersCount: _v1
           });
-        case _v65:
-          return (0, _v1.jsx)(_v90, {});
+        case _v64:
+          return (0, _v1.jsx)(_v89, {});
         default:
           return null;
       }
     },
-    _v89 = ({
+    _v88 = ({
       selectedMembersCount: _v0
     }) => {
       let _v1 = (0, _v9.getTranslations)();
-      return (0, _v1.jsx)(_v87.ModalHeader, {
+      return (0, _v1.jsx)(_v86.ModalHeader, {
         fontSize: "heading-md",
         p: 0,
         px: "lg",
         children: _v1.AddXMembers(_v0)
       });
     },
-    _v90 = () => {
+    _v89 = () => {
       let _v0 = (0, _v9.getTranslations)();
-      return (0, _v1.jsxs)(_v87.ModalHeader, {
+      return (0, _v1.jsxs)(_v86.ModalHeader, {
         px: "lg",
         children: [(0, _v1.jsx)(_v4.Text, {
           variant: "heading-md",
@@ -660,8 +645,8 @@
         })]
       });
     },
-    _v91 = ["applicablePermissionPolicies.folder.createdOn", "applicablePermissionPolicies.folder.displayDescription", "applicablePermissionPolicies.folder.displayName", "applicablePermissionPolicies.folder.modifiedOn", "applicablePermissionPolicies.folder.name", "applicablePermissionPolicies.folder.permissionActions", "applicablePermissionPolicies.folder.uri", "email", "permissionLevel", "role", "uri"],
-    _v92 = ({
+    _v90 = ["applicablePermissionPolicies.folder.createdOn", "applicablePermissionPolicies.folder.displayDescription", "applicablePermissionPolicies.folder.displayName", "applicablePermissionPolicies.folder.modifiedOn", "applicablePermissionPolicies.folder.name", "applicablePermissionPolicies.folder.permissionActions", "applicablePermissionPolicies.folder.uri", "email", "permissionLevel", "role", "uri"],
+    _v91 = ({
       isOpen: _v0,
       onClose: _v1,
       onAdd: _v2,
@@ -679,39 +664,39 @@
           onSelectedWorkspaceChange: _v12,
           onListOfWorkspacesChange: _v13
         } = (() => {
-          let [_v0, _v1] = (0, _v2.useReducer)(_v75, _v66),
+          let [_v0, _v1] = (0, _v2.useReducer)(_v74, _v65),
             _v2 = (0, _v2.useCallback)(_v0 => {
               _v1({
-                type: _v67,
+                type: _v66,
                 payload: _v0
               });
             }, []),
             _v3 = (0, _v2.useCallback)(_v0 => {
               _v1({
-                type: _v70,
+                type: _v69,
                 payload: _v0
               });
             }, []),
             _v4 = (0, _v2.useCallback)(_v0 => {
               _v1({
-                type: _v71,
+                type: _v70,
                 payload: _v0
               });
             }, []),
             _v5 = (0, _v2.useCallback)(() => {
               _v1({
-                type: _v74
+                type: _v73
               });
             }, []),
             _v6 = (0, _v2.useCallback)(_v0 => {
               _v1({
-                type: _v68,
+                type: _v67,
                 payload: _v0
               });
             }, []),
             _v7 = (0, _v2.useCallback)(_v0 => {
               _v1({
-                type: _v69,
+                type: _v68,
                 payload: _v0
               });
             }, []);
@@ -724,13 +709,13 @@
             onInvitationNoteChange: _v6,
             onSelectedRoleChange: (0, _v2.useCallback)(_v0 => {
               _v1({
-                type: _v72,
+                type: _v71,
                 payload: _v0
               });
             }, []),
             onSelectedWorkspaceChange: (0, _v2.useCallback)(_v0 => {
               _v1({
-                type: _v73,
+                type: _v72,
                 payload: _v0
               });
             }, []),
@@ -749,17 +734,17 @@
           data: _v21,
           error: _v22,
           loading: _v23
-        }] = (0, _v57.usePostWorkspaceMembers)(),
+        }] = (0, _v56.usePostWorkspaceMembers)(),
         [_v24, {
           called: _v25,
           data: _v26,
           loading: _v27
-        }] = (0, _v56.useGetUserProjectsLazy)(),
+        }] = (0, _v55.useGetUserProjectsLazy)(),
         [_v28, {
           loading: _v29,
           error: _v30,
           complete: _v31
-        }] = (0, _v52.usePutBatchFolderTeamPermissions)(),
+        }] = (0, _v51.usePutBatchFolderTeamPermissions)(),
         _v32 = (0, _v16.useToast)(),
         _v33 = (0, _v2.useRef)(!1),
         _v34 = (0, _v2.useMemo)(() => {
@@ -787,18 +772,18 @@
           variant: "warning",
           id: "share-folder-error"
         }), _v1());
-      }, [_v1, _v14, _v32, _v31, _v30, _v29]), (0, _v1.jsxs)(_v53.Modal, {
+      }, [_v1, _v14, _v32, _v31, _v30, _v29]), (0, _v1.jsxs)(_v52.Modal, {
         closeOnOverlayClick: !1,
         isOpen: _v0,
         onClose: _v1,
-        children: [(0, _v1.jsx)(_v55.ModalOverlay, {}), (0, _v1.jsxs)(_v54.ModalContent, {
+        children: [(0, _v1.jsx)(_v54.ModalOverlay, {}), (0, _v1.jsxs)(_v53.ModalContent, {
           minH: (0, _v14.rem)(264),
           maxW: (0, _v14.rem)(500),
           py: "md",
-          children: [(0, _v1.jsx)(_v88, {
+          children: [(0, _v1.jsx)(_v87, {
             currentStep: _v15,
             selectedMembersCount: _v4.length
-          }), (0, _v1.jsx)(_v79, {
+          }), (0, _v1.jsx)(_v78, {
             addToWorkspaceAndShareModalData: _v5,
             members: _v4,
             onChangeSelectedFoldersTree: _v7,
@@ -808,12 +793,12 @@
             onSelectedWorkspaceChange: _v12,
             organizationUuid: _v3,
             onListOfWorkspacesChange: _v13
-          }), (0, _v1.jsx)(_v84, {
+          }), (0, _v1.jsx)(_v83, {
             currentStep: _v15,
             disabled: !_v5.isDataValid,
             handlePrimaryButtonClick: () => {
-              _v15 === _v64 ? (_v33.current = !0, _v19({
-                select: _v91,
+              _v15 === _v63 ? (_v33.current = !0, _v19({
+                select: _v90,
                 variables: {
                   customMessage: _v5.invitationNote,
                   existingOrgMemberUris: _v4.map(_v0 => _v0.uri),
@@ -833,7 +818,7 @@
                 where: {
                   userId: _v17.internalId
                 }
-              })) : _v15 === _v65 && _v28(_v5.invitedWorkspaceMembers, (0, _v51.getSelectedFolderUrisFromTree)(_v5.selectedFoldersTree), _v17?.internalId, _v5.selectedPermissionPolicy?.uri);
+              })) : _v15 === _v64 && _v28(_v5.invitedWorkspaceMembers, (0, _v50.getSelectedFolderUrisFromTree)(_v5.selectedFoldersTree), _v17?.internalId, _v5.selectedPermissionPolicy?.uri);
             },
             loading: _v23 || _v29,
             onClose: _v1
@@ -841,8 +826,8 @@
         })]
       });
     };
-  var _v93 = _v0.i(0);
-  let _v94 = ({
+  var _v92 = _v0.i(0);
+  let _v93 = ({
       isOpen: _v0,
       onClose: _v1,
       orgName: _v2,
@@ -857,7 +842,7 @@
           loading: _v10,
           error: _v11,
           called: _v12
-        }] = (0, _v93.useDeleteOrganizationMembers)(),
+        }] = (0, _v92.useDeleteOrganizationMembers)(),
         _v13 = (0, _v2.useCallback)(() => {
           _v7.isActive("remove-success") || _v7({
             title: _v8.XMembersRemoved(_v4.length),
@@ -897,7 +882,7 @@
         })
       });
     },
-    _v95 = ({
+    _v94 = ({
       organizationUuid: _v0,
       organizationMembers: _v1,
       revalidateOrgMembers: _v2
@@ -956,7 +941,7 @@
                   onClick: () => _v15(),
                   children: _v5.AddToWorkspace
                 }, "bulk-action-add-to-workspace"), (0, _v1.jsx)(_v45.Button, {
-                  leftIcon: (0, _v1.jsx)(_v50, {}),
+                  leftIcon: (0, _v1.jsx)(_v49.UserMinus, {}),
                   size: "sm",
                   onClick: () => _v12(),
                   children: _v5.Remove
@@ -969,14 +954,14 @@
               })]
             })
           })
-        }), _v10 && (0, _v1.jsx)(_v94, {
+        }), _v10 && (0, _v1.jsx)(_v93, {
           isOpen: _v10,
           onClose: _v11,
           orgName: _v8?.displayName ?? "",
           selectedMembers: _v6,
           orgUuid: _v0 ?? "",
           onRemoval: _v17
-        }), _v13 && (0, _v1.jsx)(_v92, {
+        }), _v13 && (0, _v1.jsx)(_v91, {
           isOpen: _v13,
           onClose: _v14,
           organizationUuid: _v0 ?? "",
@@ -985,29 +970,29 @@
         })]
       });
     };
-  var _v96 = _v0.i(0),
+  var _v95 = _v0.i(0),
+    _v96 = _v0.i(0),
     _v97 = _v0.i(0),
     _v98 = _v0.i(0),
     _v99 = _v0.i(0),
-    _v100 = _v0.i(0),
-    _v101 = _v0.i(0);
-  let _v102 = (0, _v2.memo)(() => {
+    _v100 = _v0.i(0);
+  let _v101 = (0, _v2.memo)(() => {
     let _v0 = (0, _v9.getTranslations)(),
       {
         organizationUuid: _v1
-      } = (0, _v100.useCurrentWorkspaceDetails)(),
+      } = (0, _v99.useCurrentWorkspaceDetails)(),
       {
         data: _v2,
         isLoading: _v3,
         setSize: _v4,
         size: _v5
-      } = (0, _v98.useGetOrganizationWorkspacesInfinite)(() => _v1 ? {
+      } = (0, _v97.useGetOrganizationWorkspacesInfinite)(() => _v1 ? {
         select: ["uri", "displayName"],
         where: {
           orgUuid: _v1
         }
       } : null);
-    (0, _v101.useInfiniteAutoFetching)(_v2, _v3, _v5, _v4);
+    (0, _v100.useInfiniteAutoFetching)(_v2, _v3, _v5, _v4);
     let _v6 = (0, _v2.useMemo)(() => _v2?.flatMap(_v0 => _v0.data) ?? [], [_v2]),
       {
         handleFiltersChange: _v7,
@@ -1100,7 +1085,7 @@
         filterKey: "workspaces",
         filterName: _v0.WorkspacesFilter,
         filterDisplayName: _v16,
-        popoverContent: (0, _v1.jsx)(_v97.CheckboxGroup, {
+        popoverContent: (0, _v1.jsx)(_v96.CheckboxGroup, {
           value: _v11.workspaces,
           onChange: _v0 => _v12(_v0 => ({
             ..._v0,
@@ -1111,7 +1096,7 @@
             minW: (0, _v14.rem)(200),
             gap: "md",
             m: "sm",
-            children: [(0, _v1.jsx)(_v96.Checkbox, {
+            children: [(0, _v1.jsx)(_v95.Checkbox, {
               size: "md",
               id: "none",
               value: "none",
@@ -1119,7 +1104,7 @@
                 variant: "body-md",
                 children: _v0.NoWorkspace
               })
-            }), _v6.map(_v0 => (0, _v1.jsx)(_v96.Checkbox, {
+            }), _v6.map(_v0 => (0, _v1.jsx)(_v95.Checkbox, {
               size: "md",
               id: _v0.uri,
               value: _v0.uri,
@@ -1149,7 +1134,7 @@
         filterKey: "roles",
         filterName: _v0.RoleFilter,
         filterDisplayName: _v17,
-        popoverContent: (0, _v1.jsx)(_v97.CheckboxGroup, {
+        popoverContent: (0, _v1.jsx)(_v96.CheckboxGroup, {
           value: _v11.roles,
           onChange: _v0 => _v12(_v0 => ({
             ..._v0,
@@ -1167,7 +1152,7 @@
             }), (0, _v1.jsx)(_v3.VStack, {
               align: "start",
               gap: "md",
-              children: (0, _v1.jsx)(_v96.Checkbox, {
+              children: (0, _v1.jsx)(_v95.Checkbox, {
                 size: "md",
                 id: "admin",
                 value: "admin",
@@ -1182,7 +1167,7 @@
             }), (0, _v1.jsxs)(_v3.VStack, {
               align: "start",
               gap: "md",
-              children: [(0, _v1.jsx)(_v96.Checkbox, {
+              children: [(0, _v1.jsx)(_v95.Checkbox, {
                 size: "md",
                 id: "workspace_admin",
                 value: "workspace_admin",
@@ -1190,7 +1175,7 @@
                   variant: "body-md",
                   children: _v0.AdminRole
                 })
-              }), (0, _v1.jsx)(_v96.Checkbox, {
+              }), (0, _v1.jsx)(_v95.Checkbox, {
                 size: "md",
                 id: "contributor_plus",
                 value: "contributor_plus",
@@ -1198,7 +1183,7 @@
                   variant: "body-md",
                   children: _v0.ContributorPlusRole
                 })
-              }), (0, _v1.jsx)(_v96.Checkbox, {
+              }), (0, _v1.jsx)(_v95.Checkbox, {
                 size: "md",
                 id: "contributor",
                 value: "contributor",
@@ -1206,7 +1191,7 @@
                   variant: "body-md",
                   children: _v0.ContributorRole
                 })
-              }), (0, _v1.jsx)(_v96.Checkbox, {
+              }), (0, _v1.jsx)(_v95.Checkbox, {
                 size: "md",
                 id: "viewer",
                 value: "viewer",
@@ -1237,7 +1222,7 @@
         filterKey: "status",
         filterName: _v0.StatusFilter,
         filterDisplayName: _v18,
-        popoverContent: (0, _v1.jsx)(_v97.CheckboxGroup, {
+        popoverContent: (0, _v1.jsx)(_v96.CheckboxGroup, {
           value: _v11.status,
           onChange: _v0 => _v12(_v0 => ({
             ..._v0,
@@ -1249,7 +1234,7 @@
             gap: "md",
             mx: "sm",
             my: "xs",
-            children: [(0, _v1.jsx)(_v96.Checkbox, {
+            children: [(0, _v1.jsx)(_v95.Checkbox, {
               size: "md",
               id: "pending",
               value: "pending",
@@ -1257,7 +1242,7 @@
                 variant: "body-md",
                 children: _v0.Pending
               })
-            }), (0, _v1.jsx)(_v96.Checkbox, {
+            }), (0, _v1.jsx)(_v95.Checkbox, {
               size: "md",
               id: "accepted",
               value: "accepted",
@@ -1296,7 +1281,7 @@
           status: []
         }),
         children: _v0.ClearFilters
-      }), (0, _v1.jsx)(_v99.ResponsivePopoverFilters, {
+      }), (0, _v1.jsx)(_v98.ResponsivePopoverFilters, {
         filters: _v24,
         getFilterCount: _v20,
         filterFooterProps: {
@@ -1306,17 +1291,17 @@
       })]
     });
   });
-  var _v103 = _v0.i(0),
-    _v104 = _v0.i(0),
-    _v105 = _v0.i(0);
-  let _v106 = ({
+  var _v102 = _v0.i(0),
+    _v103 = _v0.i(0),
+    _v104 = _v0.i(0);
+  let _v105 = ({
       direction: _v0
-    }) => "desc" === _v0 ? (0, _v1.jsx)(_v104.ArrowDown, {}) : (0, _v1.jsx)(_v105.ArrowUp, {}),
-    _v107 = () => {
+    }) => "desc" === _v0 ? (0, _v1.jsx)(_v103.ArrowDown, {}) : (0, _v1.jsx)(_v104.ArrowUp, {}),
+    _v106 = () => {
       let {
           organizationUuid: _v0,
           isLoading: _v1
-        } = (0, _v100.useCurrentWorkspaceDetails)(),
+        } = (0, _v99.useCurrentWorkspaceDetails)(),
         {
           parsedFilters: _v2,
           toggleSortBy: _v3,
@@ -1339,13 +1324,13 @@
           });
         }, [_v3, _v8, _v7]);
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v103.Th, {
+        children: [(0, _v1.jsx)(_v102.Th, {
           children: (0, _v1.jsx)(_v45.Button, {
             variant: "tertiary",
             size: "sm",
             paddingInline: "md",
             onClick: _v9,
-            rightIcon: (0, _v1.jsx)(_v106, {
+            rightIcon: (0, _v1.jsx)(_v105, {
               direction: "name" === _v6 ? _v7 : "asc"
             }),
             isDisabled: _v1 || _v4,
@@ -1354,15 +1339,15 @@
               children: _v5.Name
             })
           })
-        }), (0, _v1.jsx)(_v103.Th, {})]
+        }), (0, _v1.jsx)(_v102.Th, {})]
       });
     };
-  var _v108 = _v0.i(0);
-  let _v109 = () => {
+  var _v107 = _v0.i(0);
+  let _v108 = () => {
     let {
         organizationUuid: _v0,
         isLoading: _v1
-      } = (0, _v100.useCurrentWorkspaceDetails)(),
+      } = (0, _v99.useCurrentWorkspaceDetails)(),
       {
         data: _v2,
         isLoading: _v3,
@@ -1380,19 +1365,19 @@
       _v8 = (0, _v2.useCallback)(_v0 => {
         _v6 !== _v0.page && _v5(_v0.page);
       }, [_v5, _v6]);
-    return _v7 ? (0, _v1.jsx)(_v108.Pagination, {
+    return _v7 ? (0, _v1.jsx)(_v107.Pagination, {
       count: _v7,
       pageSize: _v20.ORG_MEMBERS_PER_PAGE_ITEM_COUNT,
       onPageChange: _v8,
       page: _v6
     }) : null;
   };
-  var _v110 = _v0.i(0),
-    _v111 = _v0.i(0);
-  let _v112 = () => {
+  var _v109 = _v0.i(0),
+    _v110 = _v0.i(0);
+  let _v111 = () => {
       let {
           organizationUuid: _v0
-        } = (0, _v100.useCurrentWorkspaceDetails)(),
+        } = (0, _v99.useCurrentWorkspaceDetails)(),
         {
           handleQueryBy: _v1,
           parsedFilters: _v2
@@ -1407,10 +1392,10 @@
         {
           debouncedCallback: _v7,
           cancel: _v8
-        } = (0, _v110.useDebouncedCallback)(_v0 => _v1(_v0), 400);
+        } = (0, _v109.useDebouncedCallback)(_v0 => _v1(_v0), 400);
       return (0, _v2.useEffect)(() => {
         _v4 || _v6("");
-      }, [_v4]), (0, _v1.jsx)(_v111.SearchWithLeftIcon, {
+      }, [_v4]), (0, _v1.jsx)(_v110.SearchWithLeftIcon, {
         variant: "minimal",
         size: "md",
         placeholder: _v3.SearchMembers,
@@ -1420,43 +1405,43 @@
         }
       });
     },
-    _v113 = (0, _v10.default)(() => _v0.A(0).then(_v0 => _v0.OrganizationPendingMemberOptions), {
+    _v112 = (0, _v10.default)(() => _v0.A(0).then(_v0 => _v0.OrganizationPendingMemberOptions), {
       loadableGenerated: {
         modules: [0]
       },
       loading: () => (0, _v1.jsx)(_v15.Spinner, {}),
       ssr: !1
     }),
-    _v114 = (0, _v10.default)(() => _v0.A(0).then(_v0 => _v0.OrganizationPendingAdminOptions), {
+    _v113 = (0, _v10.default)(() => _v0.A(0).then(_v0 => _v0.OrganizationPendingAdminOptions), {
       loadableGenerated: {
         modules: [0]
       },
       loading: () => (0, _v1.jsx)(_v15.Spinner, {}),
       ssr: !1
     }),
-    _v115 = (0, _v10.default)(() => _v0.A(0).then(_v0 => _v0.OrganizationMemberOptions), {
+    _v114 = (0, _v10.default)(() => _v0.A(0).then(_v0 => _v0.OrganizationMemberOptions), {
       loadableGenerated: {
         modules: [0]
       },
       loading: () => (0, _v1.jsx)(_v15.Spinner, {}),
       ssr: !1
     }),
-    _v116 = (0, _v10.default)(() => _v0.A(0).then(_v0 => _v0.OrganizationAdminOptions), {
+    _v115 = (0, _v10.default)(() => _v0.A(0).then(_v0 => _v0.OrganizationAdminOptions), {
       loadableGenerated: {
         modules: [0]
       },
       loading: () => (0, _v1.jsx)(_v15.Spinner, {}),
       ssr: !1
     }),
-    _v117 = (0, _v10.default)(() => _v0.A(0).then(_v0 => _v0.WorkspaceAccessModal), {
+    _v116 = (0, _v10.default)(() => _v0.A(0).then(_v0 => _v0.WorkspaceAccessModal), {
       loadableGenerated: {
         modules: [0]
       },
       loading: () => (0, _v1.jsx)(_v15.Spinner, {}),
       ssr: !1
     }),
-    _v118 = _v0 => [_v20.ORGANIZATION_ROLES.OWNER, _v20.ORGANIZATION_ROLES.ADMIN].some(_v0 => _v0.permissionLevel === _v0),
-    _v119 = ({
+    _v117 = _v0 => [_v20.ORGANIZATION_ROLES.OWNER, _v20.ORGANIZATION_ROLES.ADMIN].some(_v0 => _v0.permissionLevel === _v0),
+    _v118 = ({
       organizationUuid: _v0
     }) => {
       let _v1 = (0, _v16.useToast)(),
@@ -1932,15 +1917,15 @@
               isSendingReminder: _v21,
               reminderAlreadySent: _v0.recentlyReminded
             };
-          return _v0.permissionLevel === _v20.ORGANIZATION_ROLES.MEMBER && "pending" === _v0.status ? (0, _v1.jsx)(_v113, {
+          return _v0.permissionLevel === _v20.ORGANIZATION_ROLES.MEMBER && "pending" === _v0.status ? (0, _v1.jsx)(_v112, {
             ..._v2,
             ..._v4
-          }) : _v0.permissionLevel === _v20.ORGANIZATION_ROLES.ADMIN && "pending" === _v0.status ? (0, _v1.jsx)(_v114, {
+          }) : _v0.permissionLevel === _v20.ORGANIZATION_ROLES.ADMIN && "pending" === _v0.status ? (0, _v1.jsx)(_v113, {
             ..._v3,
             ..._v4
-          }) : _v0.permissionLevel === _v20.ORGANIZATION_ROLES.MEMBER && "accepted" === _v0.status ? (0, _v1.jsx)(_v115, {
+          }) : _v0.permissionLevel === _v20.ORGANIZATION_ROLES.MEMBER && "accepted" === _v0.status ? (0, _v1.jsx)(_v114, {
             ..._v2
-          }) : _v0.permissionLevel === _v20.ORGANIZATION_ROLES.ADMIN && "accepted" === _v0.status ? (0, _v1.jsx)(_v116, {
+          }) : _v0.permissionLevel === _v20.ORGANIZATION_ROLES.ADMIN && "accepted" === _v0.status ? (0, _v1.jsx)(_v115, {
             ..._v3
           }) : null;
         }, [_v31, _v28, _v22, _v26, _v24, _v11, _v20, _v21, _v29, _v14, _v30]);
@@ -1959,12 +1944,12 @@
               alignItems: "center",
               children: [(0, _v1.jsx)(_v12.Box, {
                 maxWidth: (0, _v14.rem)(350),
-                children: (0, _v1.jsx)(_v112, {})
+                children: (0, _v1.jsx)(_v111, {})
               }), (0, _v1.jsx)(_v13.HStack, {
                 gap: "md",
-                children: (0, _v1.jsx)(_v102, {}, _v4.toString())
+                children: (0, _v1.jsx)(_v101, {}, _v4.toString())
               })]
-            }), (0, _v1.jsx)(_v95, {
+            }), (0, _v1.jsx)(_v94, {
               organizationMembers: _v15?.data ?? [],
               organizationUuid: _v0,
               revalidateOrgMembers: _v16
@@ -1973,13 +1958,13 @@
             }) : (0, _v1.jsx)(_v40.MembersList, {
               members: _v15?.data ?? [],
               showCheckboxes: !0,
-              shouldShowBadge: _v118,
+              shouldShowBadge: _v117,
               getBadge: _v0 => _v3[_v0.permissionLevel] ?? null,
               shouldBeSelectable: _v35,
               shouldShowOptionsMenu: _v36,
               getMenuContent: _v38,
               isLoading: _v17,
-              headerSlot: (0, _v1.jsx)(_v107, {}),
+              headerSlot: (0, _v1.jsx)(_v106, {}),
               onOpenMemberOptionsMenu: _v0 => {
                 let {
                   orgMemberId: _v1
@@ -1990,12 +1975,12 @@
                 });
               }
             })]
-          }), (0, _v1.jsx)(_v109, {})]
+          }), (0, _v1.jsx)(_v108, {})]
         }), (0, _v1.jsx)(_v41.ConfirmationModal, {
           ..._v25
         }), (0, _v1.jsx)(_v43.RemovalConfirmationModal, {
           ..._v27
-        }), !!_v32.member && (0, _v1.jsx)(_v117, {
+        }), !!_v32.member && (0, _v1.jsx)(_v116, {
           displayToast: _v19,
           ..._v32,
           member: _v32.member
@@ -2010,11 +1995,11 @@
         })]
       });
     };
-  var _v120 = _v0.i(0),
+  var _v119 = _v0.i(0),
+    _v120 = _v0.i(0),
     _v121 = _v0.i(0),
-    _v122 = _v0.i(0),
-    _v123 = _v0.i(0);
-  async function _v124({
+    _v122 = _v0.i(0);
+  async function _v123({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -2035,7 +2020,7 @@
       return (0, _v27.deepCamelCase)(_v1);
     });
   }
-  function _v125() {
+  function _v124() {
     let {
         mutate: _v0
       } = (0, _v32.useSWRConfig)(),
@@ -2051,7 +2036,7 @@
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/organizations/${_v0.where.orgUuid}/members/export${(0, _v25.serializeQuery)(_v0)}`, _v124({
+        let _v0 = await _v0(`/organizations/${_v0.where.orgUuid}/members/export${(0, _v25.serializeQuery)(_v0)}`, _v123({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -2074,20 +2059,20 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v24.default.env.STORYBOOK && (0, _v25.assignMswData)(_v125, {
+  "true" === _v24.default.env.STORYBOOK && (0, _v25.assignMswData)(_v124, {
     endpoint: "/organizations/:orgUuid/members/export",
     method: "POST"
   });
-  var _v126 = _v0.i(0);
-  let _v127 = (0, _v10.default)(() => _v0.A(0).then(_v0 => _v0.ExportCSVModal), {
+  var _v125 = _v0.i(0);
+  let _v126 = (0, _v10.default)(() => _v0.A(0).then(_v0 => _v0.ExportCSVModal), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v128 = () => {
+    _v127 = () => {
       let {
           pathname: _v0
-        } = (0, _v123.useRouter)(),
+        } = (0, _v122.useRouter)(),
         _v1 = (0, _v7.useViewer)(),
         _v2 = _v1?.user?.email ?? "",
         _v3 = (0, _v9.getTranslations)(),
@@ -2096,12 +2081,12 @@
         } = (0, _v37.useTrackEvents)(),
         {
           organizationUuid: _v5
-        } = (0, _v100.useCurrentWorkspaceDetails)(),
+        } = (0, _v99.useCurrentWorkspaceDetails)(),
         [_v6, {
           data: _v7,
           loading: _v8,
           error: _v9
-        }] = _v125(),
+        }] = _v124(),
         {
           parsedFilters: {
             query: _v10,
@@ -2131,7 +2116,7 @@
       }, [_v9, _v19, _v3.ErrorExportingCSV]), (0, _v2.useEffect)(() => {
         _v7 && _v17();
       }, [_v7, _v17]), (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v126.ExportCSVButton, {
+        children: [(0, _v1.jsx)(_v125.ExportCSVButton, {
           onClick: () => {
             _v2 && _v5 && (_v6({
               select: [],
@@ -2154,58 +2139,58 @@
           },
           isLoading: _v8,
           disabled: !_v2
-        }), !!_v2 && (0, _v1.jsx)(_v127, {
+        }), !!_v2 && (0, _v1.jsx)(_v126, {
           email: _v2,
           isOpen: _v16,
           onClose: _v18
         })]
       });
     };
-  var _v129 = _v0.i(0);
-  let _v130 = (0, _v10.default)(() => _v0.A(0).then(_v0 => _v0.InviteModal), {
+  var _v128 = _v0.i(0);
+  let _v129 = (0, _v10.default)(() => _v0.A(0).then(_v0 => _v0.InviteModal), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v131 = "org-invite-toast-msg",
-    _v132 = ({
+    _v130 = "org-invite-toast-msg",
+    _v131 = ({
       standardAssigned: _v0,
       standardUnassigned: _v1,
       adminAssigned: _v2,
       adminUnassigned: _v3
     }) => {
       let _v4 = (0, _v9.getTranslations)();
-      return (0, _v1.jsxs)(_v129.SeatCount.Container, {
-        children: [(0, _v1.jsxs)(_v129.SeatCount.Group, {
+      return (0, _v1.jsxs)(_v128.SeatCount.Container, {
+        children: [(0, _v1.jsxs)(_v128.SeatCount.Group, {
           title: _v4.AdminSeats,
           tooltip: _v4.AdminSeatsTooltip,
           tooltipProps: {
             maxWidth: (0, _v14.rem)(235)
           },
-          children: [(0, _v1.jsx)(_v129.SeatCount.Tile, {
+          children: [(0, _v1.jsx)(_v128.SeatCount.Tile, {
             label: _v4.Assigned,
             value: _v2
-          }), (0, _v1.jsx)(_v129.SeatCount.Tile, {
+          }), (0, _v1.jsx)(_v128.SeatCount.Tile, {
             label: _v4.Unassigned,
             value: _v3
           })]
-        }), (0, _v1.jsxs)(_v129.SeatCount.Group, {
+        }), (0, _v1.jsxs)(_v128.SeatCount.Group, {
           title: _v4.StandardSeats,
           tooltip: _v4.StandardSeatsTooltip,
           tooltipProps: {
             maxWidth: (0, _v14.rem)(225)
           },
-          children: [(0, _v1.jsx)(_v129.SeatCount.Tile, {
+          children: [(0, _v1.jsx)(_v128.SeatCount.Tile, {
             label: _v4.Assigned,
             value: _v0
-          }), (0, _v1.jsx)(_v129.SeatCount.Tile, {
+          }), (0, _v1.jsx)(_v128.SeatCount.Tile, {
             label: _v4.Unassigned,
             value: _v1
           })]
         })]
       });
     },
-    _v133 = ({
+    _v132 = ({
       organizationUuid: _v0
     }) => {
       let [_v1, _v2] = (0, _v2.useState)(!1),
@@ -2236,7 +2221,7 @@
           organizationUuid: _v0
         }),
         _v11 = (0, _v7.useViewer)(),
-        _v12 = _v6?.seatDetails?.[(0, _v120.default)(_v11?.teamUser?.ownerTeamSeatsMode ?? "admin_and_authenticated")] ?? {
+        _v12 = _v6?.seatDetails?.[(0, _v119.default)(_v11?.teamUser?.ownerTeamSeatsMode ?? "admin_and_authenticated")] ?? {
           admin: {
             assigned: 0,
             unassigned: 0
@@ -2257,31 +2242,31 @@
         borderRadius: "md",
         paddingBlock: 4,
         paddingInline: 6,
-        children: [_v1 && _v0 && (0, _v1.jsx)(_v130, {
+        children: [_v1 && _v0 && (0, _v1.jsx)(_v129, {
           closeModal: () => _v2(!1),
           displayToast: (_v0, _v1 = "neutral") => {
-            _v13.isActive(_v131) || _v13({
+            _v13.isActive(_v130) || _v13({
               title: _v0,
               variant: _v1,
               duration: 0,
               isClosable: !0,
-              id: _v131
+              id: _v130
             });
           },
           isOpen: _v1,
           organizationUuid: _v0,
           onInviteSuccess: _v14
-        }), _v7 ? (0, _v1.jsx)(_v134, {}) : (0, _v1.jsx)(_v132, {
+        }), _v7 ? (0, _v1.jsx)(_v133, {}) : (0, _v1.jsx)(_v131, {
           adminAssigned: _v12?.admin.assigned,
           adminUnassigned: _v12?.admin.unassigned,
           standardAssigned: _v12?.authenticated.assigned,
           standardUnassigned: _v12?.authenticated.unassigned
         }), (0, _v1.jsxs)(_v13.HStack, {
           spacing: 4,
-          children: [(0, _v1.jsx)(_v128, {}), (0, _v1.jsx)(_v45.Button, {
+          children: [(0, _v1.jsx)(_v127, {}), (0, _v1.jsx)(_v45.Button, {
             isDisabled: !_v0,
             fontWeight: "medium",
-            leftIcon: (0, _v1.jsx)(_v122.PersonUserAdd, {}),
+            leftIcon: (0, _v1.jsx)(_v121.PersonUserAdd, {}),
             onClick: () => {
               _v9({
                 orgId: _v0,
@@ -2294,27 +2279,27 @@
         })]
       });
     },
-    _v134 = () => (0, _v1.jsxs)(_v129.SeatCount.Container, {
+    _v133 = () => (0, _v1.jsxs)(_v128.SeatCount.Container, {
       children: [(0, _v1.jsxs)(_v3.VStack, {
-        children: [(0, _v1.jsx)(_v121.Skeleton, {
+        children: [(0, _v1.jsx)(_v120.Skeleton, {
           minW: (0, _v14.rem)(150),
           maxH: "xs"
-        }), (0, _v1.jsx)(_v121.Skeleton, {
+        }), (0, _v1.jsx)(_v120.Skeleton, {
           minW: (0, _v14.rem)(150),
           maxH: "lg"
         })]
       }), (0, _v1.jsxs)(_v3.VStack, {
-        children: [(0, _v1.jsx)(_v121.Skeleton, {
+        children: [(0, _v1.jsx)(_v120.Skeleton, {
           minW: (0, _v14.rem)(150),
           maxH: "xs"
-        }), (0, _v1.jsx)(_v121.Skeleton, {
+        }), (0, _v1.jsx)(_v120.Skeleton, {
           minW: (0, _v14.rem)(150),
           maxH: "lg"
         })]
       })]
     });
-  var _v135 = _v0.i(0);
-  let _v136 = ({
+  var _v134 = _v0.i(0);
+  let _v135 = ({
     organizationUuid: _v0
   }) => {
     let _v1 = (0, _v9.getTranslations)(),
@@ -2335,16 +2320,16 @@
         fontWeight: "medium",
         alignSelf: "flex-start",
         children: _v1.Members
-      }), (0, _v1.jsx)(_v133, {
+      }), (0, _v1.jsx)(_v132, {
         organizationUuid: _v0
-      }), (0, _v1.jsx)(_v119, {
+      }), (0, _v1.jsx)(_v118, {
         organizationUuid: _v0
       })]
     }) : (0, _v1.jsx)(_v6.default, {});
   };
-  (0, _v5.withPageSetup)(_v135.getOrgUuidServerSideProps, {
+  (0, _v5.withPageSetup)(_v134.getOrgUuidServerSideProps, {
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v136.getLayout = (_v0, _v1) => (0, _v8.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v136], 0);
+  }), _v135.getLayout = (_v0, _v1) => (0, _v8.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v135], 0);
 }

@@ -45,35 +45,36 @@
     hideWhatsNew: _v11 = !1,
     hideWhatsNewAnnouncementCount: _v12 = !1,
     footerVariant: _v13 = "full",
-    collapsed: _v14 = !1
+    collapsed: _v14 = !1,
+    bundlePromo: _v15
   }) => {
-    let _v15 = (0, _v2.useContext)(_v9.ViewerContext),
+    let _v16 = (0, _v2.useContext)(_v9.ViewerContext),
       {
-        capabilities: _v16
-      } = (0, _v7.useCapability)(["hasTotalStorageCap", "canUpgrade"], _v15?.teamUser?.ownerId),
-      _v17 = _v9 || _v15?.teamUser?.ownerId || _v15?.user?.id,
-      _v18 = _v15?.user?.id != null && _v15?.user?.id === _v17,
-      _v19 = _v15?.teamUser?.plainTextPermissionLevel === "Admin",
+        capabilities: _v17
+      } = (0, _v7.useCapability)(["hasTotalStorageCap", "canUpgrade"], _v16?.teamUser?.ownerId),
+      _v18 = _v9 || _v16?.teamUser?.ownerId || _v16?.user?.id,
+      _v19 = _v16?.user?.id != null && _v16?.user?.id === _v18,
+      _v20 = _v16?.teamUser?.plainTextPermissionLevel === "Admin",
       {
-        uploadQuota: _v20,
-        aiCreditsQuota: _v21,
-        drmLicensesQuota: _v22,
-        isLoading: _v23
+        uploadQuota: _v21,
+        aiCreditsQuota: _v22,
+        drmLicensesQuota: _v23,
+        isLoading: _v24
       } = (0, _v8.useUserQuotaApi)(),
-      _v24 = !!((_v18 || _v19) && _v20 && !_v10),
-      [_v25, _v26] = (0, _v2.useState)(!1),
-      _v27 = (0, _v2.useRef)(_v14);
+      _v25 = !!((_v19 || _v20) && _v21 && !_v10),
+      [_v26, _v27] = (0, _v2.useState)(!1),
+      _v28 = (0, _v2.useRef)(_v14);
     (0, _v2.useLayoutEffect)(() => {
-      if (_v27.current === _v14) return;
-      _v27.current = _v14, _v26(!0);
-      let _v0 = setTimeout(() => _v26(!1), 360);
+      if (_v28.current === _v14) return;
+      _v28.current = _v14, _v27(!0);
+      let _v0 = setTimeout(() => _v27(!1), 360);
       return () => clearTimeout(_v0);
     }, [_v14]);
-    let _v28 = _v15?.isSimplifiedSite ?? !1,
-      _v29 = (0, _v13.useTrackSidebarToggled)(),
-      _v30 = (0, _v2.useCallback)(() => {
-        _v29("open", _v4), _v5();
-      }, [_v4, _v5, _v29]);
+    let _v29 = _v16?.isSimplifiedSite ?? !1,
+      _v30 = (0, _v13.useTrackSidebarToggled)(),
+      _v31 = (0, _v2.useCallback)(() => {
+        _v30("open", _v4), _v5();
+      }, [_v4, _v5, _v30]);
     return (0, _v1.jsx)(_v10.SideNavCollapsedContext.Provider, {
       value: _v14,
       children: (0, _v1.jsxs)(_v6.ResizableSideNav, {
@@ -84,7 +85,7 @@
         onResize: (_v0, {
           current: _v1
         }) => _v6?.(_v1),
-        onCollapsedRailClick: _v30,
+        onCollapsedRailClick: _v31,
         role: "group",
         children: [(0, _v1.jsx)(_v6.ResizableSideNav.Header, {
           children: (0, _v1.jsx)(_v12.SideNavHeader, {
@@ -109,8 +110,8 @@
           children: _v0
         }), (0, _v1.jsx)(_v6.ResizableSideNav.Footer, {
           children: (0, _v1.jsx)(_v3.Box, {
-            opacity: +!_v25,
-            sx: _v25 ? {
+            opacity: +!_v26,
+            sx: _v26 ? {
               animation: _v14 ? `${_v14} 360ms ease-in-out forwards` : `${_v15} 180ms ease-in-out forwards`
             } : void 0,
             paddingBottom: _v14 ? (0, _v5.rem)(16) : void 0,
@@ -118,18 +119,19 @@
               variant: _v14 ? "icons" : _v13,
               isMobile: _v4,
               showWatchMenuItem: _v8,
-              showWhatsNew: !_v11 && !_v28,
+              showWhatsNew: !_v11 && !_v29,
               hideWhatsNewAnnouncementCount: _v12,
-              showQuota: _v24,
-              isLoadingQuota: _v23,
+              showQuota: _v25,
+              isLoadingQuota: _v24,
               quota: {
-                uploadQuota: _v20,
-                aiCreditsQuota: _v21,
-                drmLicensesQuota: _v22,
-                showTotal: _v16.hasTotalStorageCap,
-                showUpgrade: _v16.canUpgrade
+                uploadQuota: _v21,
+                aiCreditsQuota: _v22,
+                drmLicensesQuota: _v23,
+                showTotal: _v17.hasTotalStorageCap,
+                showUpgrade: _v17.canUpgrade
               },
-              onUpgradeClick: _v7
+              onUpgradeClick: _v7,
+              bundlePromo: _v15
             })
           })
         })]

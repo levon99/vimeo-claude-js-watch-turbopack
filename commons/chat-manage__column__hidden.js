@@ -148,7 +148,7 @@
             description: _v28.translations.sendMessageToStartChat,
             control: null
           })
-        }), (0, _v1.jsx)(_v30.ChatInput, {
+        }), _v7?.interaction?.feature?.isComposerHidden ? null : (0, _v1.jsx)(_v30.ChatInput, {
           chatType: _v2,
           isDisabled: !_v4 || _v9,
           placeholderText: _v9 ? _v18.T_CHAT_BANNED : _v28.translations.sendMessage

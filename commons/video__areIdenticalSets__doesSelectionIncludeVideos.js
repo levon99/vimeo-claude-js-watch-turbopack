@@ -21,7 +21,7 @@
     return _v2.delete("video"), _v2;
   }, "getContentTypeApiFilterParam", 0, (_v0, _v1) => {
     if (!_v1(_v0, _v1) && 1 === _v1.size) return [..._v1][0];
-  }, "includeVideosInSelection", 0, _v3, "isContentTypeOptionChecked", 0, (_v0, _v1, _v2) => 0 !== _v1.size && (_v1.size === _v0.length || _v1.has(_v2)), "isContentTypeSelectionDefault", 0, _v1, "passesContentTypeSelection", 0, (_v0, _v1, _v2) => !!_v1(_v1, _v2) || (_v0.video ? _v2.has("video") : _v0.folder ? _v2.has("folder") : !_v0.showcase || _v2.has("showcase")), "toggleContentTypeSelection", 0, _v2, "toggleContentTypeSelectionWithAvailabilityAwareFolder", 0, (_v0, _v1, _v2, _v3) => {
+  }, "includeVideosInSelection", 0, _v3, "isContentTypeOptionChecked", 0, (_v0, _v1, _v2) => 0 !== _v1.size && (_v1.size === _v0.length || _v1.has(_v2)), "isContentTypeSelectionDefault", 0, _v1, "passesContentTypeSelection", 0, (_v0, _v1, _v2) => !!_v1(_v1, _v2) || (_v0.file ? _v2.has("file") : _v0.video ? _v2.has("video") : _v0.folder ? _v2.has("folder") : !_v0.showcase || _v2.has("showcase")), "toggleContentTypeSelection", 0, _v2, "toggleContentTypeSelectionWithAvailabilityAwareFolder", 0, (_v0, _v1, _v2, _v3) => {
     let _v4 = _v2(_v0, _v1, _v2);
     return _v3 && "folder" === _v2 && !_v1.has("folder") && _v4.has("folder") && !_v4.has("video") ? _v3(_v0, _v4) : _v4;
   }]);

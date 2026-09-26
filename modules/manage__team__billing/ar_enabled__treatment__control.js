@@ -864,28 +864,40 @@
                   }
                 }),
                 seats: (0, _v12.translate)({
-                  singular: "1 user",
+                  singular: "{AMOUNT} user",
+                  plural: "{AMOUNT} users",
+                  count: _v3?.teamSeats ?? 3,
+                  replacements: {
+                    AMOUNT: _v3?.teamSeats ?? 3
+                  },
                   dictionary: {
                     es: {
-                      singular: "1 usuario"
+                      singular: "{AMOUNT} usuario",
+                      plural: "{AMOUNT} usuarios"
                     },
                     "de-DE": {
-                      singular: "1 Nutzer"
+                      singular: "{AMOUNT} Nutzer",
+                      plural: "{AMOUNT} Nutzer"
                     },
                     "fr-FR": {
-                      singular: "1 utilisateur"
+                      singular: "{AMOUNT} utilisateur",
+                      plural: "{AMOUNT} utilisateurs"
                     },
                     "ja-JP": {
-                      singular: "1ユーザー"
+                      singular: "{AMOUNT}ユーザー",
+                      plural: "{AMOUNT}ユーザー"
                     },
                     "ko-KR": {
-                      singular: "사용자 1명"
+                      singular: "{AMOUNT} 사용자",
+                      plural: "{AMOUNT} 사용자"
                     },
                     "pt-BR": {
-                      singular: "1 usuário"
+                      singular: "{AMOUNT} usuário",
+                      plural: "{AMOUNT} usuários"
                     },
                     "zh-CN": {
-                      singular: "1 个用户"
+                      singular: "{AMOUNT} 用户",
+                      plural: "{AMOUNT} 用户"
                     }
                   }
                 }),

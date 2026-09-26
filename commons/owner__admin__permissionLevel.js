@@ -18,21 +18,23 @@
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
-    _v18 = _v0.i(0);
-  let _v19 = ({
+    _v18 = _v0.i(0),
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
+  let _v21 = ({
     onRevalidate: _v0,
     teamUserId: _v1
   }) => {
-    let _v2 = (0, _v16.useViewer)(),
+    let _v2 = (0, _v18.useViewer)(),
       _v3 = _v2?.teamUser?.ownerId ?? _v2?.user?.id,
       _v4 = _v2?.teamUser?.permissionLevel,
       {
         userId: _v5,
         email: _v6,
         permissionLevel: _v7
-      } = (0, _v5.useContext)(_v11.TeamUserInfoState),
-      _v8 = _v4 === _v15.TEAM_PERMISSION.ADMIN,
-      _v9 = _v4 === _v15.TEAM_PERMISSION.OWNER,
+      } = (0, _v2.useContext)(_v13.TeamUserInfoState),
+      _v8 = _v4 === _v17.TEAM_PERMISSION.ADMIN,
+      _v9 = _v4 === _v17.TEAM_PERMISSION.OWNER,
       _v10 = _v9 ? "owner" : "admin",
       _v11 = {
         apiUrl: _v2?.apiUrl || "",
@@ -42,23 +44,23 @@
       },
       {
         updateSelectedTeamMembers: _v12
-      } = (0, _v5.useContext)(_v13.ManageTeamDispatchCtx),
-      [_v13, _v14] = (0, _v5.useState)(!1),
+      } = (0, _v2.useContext)(_v15.ManageTeamDispatchCtx),
+      [_v13, _v14] = (0, _v2.useState)(!1),
       {
         data: _v15
-      } = (0, _v9.useGetUserTeamUser)(() => _v3 && _v1 && (_v8 || _v9) ? {
+      } = (0, _v11.useGetUserTeamUser)(() => _v3 && _v1 && (_v8 || _v9) ? {
         where: {
           userId: _v3,
           teamUserId: parseInt(_v1, 10)
         },
         select: ["uri", "permissionLevel", "email", "status", "metadata", "applicablePermissionPolicies.folder.name", "applicablePermissionPolicies.folder.displayName", "applicablePermissionPolicies.folder.displayDescription", "applicablePermissionPolicies.folder.uri", "applicablePermissionPolicies.folder.permissionActions", "user", "role", "region", "inviteUrl"]
       } : null);
-    if (!_v8 && !_v9) return (0, _v1.jsx)(_v7.Box, {
+    if (!_v8 && !_v9) return (0, _v1.jsx)(_v3.Box, {
       padding: "20%",
-      children: (0, _v1.jsx)(_v8.Header, {
+      children: (0, _v1.jsx)(_v10.Header, {
         variant: "heading-lg",
         textAlign: "center",
-        children: (0, _v10.translate)({
+        children: (0, _v12.translate)({
           singular: "This page can only be used by team owners or admins.",
           dictionary: {
             es: {
@@ -90,7 +92,7 @@
       uri: _v15.uri,
       permissionLevel: _v15.permissionLevel,
       email: _v15.email,
-      status: "pending" === _v15.status ? _v14.MemberStatus.Pending : _v14.MemberStatus.Accepted,
+      status: "pending" === _v15.status ? _v16.MemberStatus.Pending : _v16.MemberStatus.Accepted,
       metadata: _v15.metadata,
       role: _v15.role,
       region: _v15.region,
@@ -113,10 +115,10 @@
         regionalDelivery: []
       }
     }] : [];
-    return "number" != typeof _v3 ? null : (0, _v1.jsxs)(_v12.TeamApiConfigCtx.Provider, {
+    return "number" != typeof _v3 ? null : (0, _v1.jsxs)(_v14.TeamApiConfigCtx.Provider, {
       value: _v11,
-      children: [(0, _v1.jsx)(_v17.EmptyStateBase, {
-        description: (0, _v10.translate)({
+      children: [(0, _v1.jsx)(_v19.EmptyStateBase, {
+        description: (0, _v12.translate)({
           singular: "Share folders with this team member to grant access to Team library content",
           dictionary: {
             es: {
@@ -142,7 +144,7 @@
             }
           }
         }),
-        buttonText: (0, _v10.translate)({
+        buttonText: (0, _v12.translate)({
           singular: "Share folders",
           dictionary: {
             es: {
@@ -172,7 +174,7 @@
           if (_v5 && _v7 && _v6 && "number" == typeof _v3) {
             _v12(_v16), _v14(!0);
             try {
-              (0, _v18.sendClickUserAccessEmptyStateEvent)({
+              (0, _v20.sendClickUserAccessEmptyStateEvent)({
                 teamOwnerId: _v3,
                 currentTeamUserRole: _v10,
                 member: {
@@ -191,7 +193,7 @@
             teamOwnerId: _v3
           });
         }
-      }), (0, _v1.jsx)(_v6.AddToFoldersModal, {
+      }), (0, _v1.jsx)(_v9.AddToFoldersModal, {
         isOpen: _v13 && !!_v1,
         teamOwnerId: _v3,
         selectedTeamMembers: _v16,
@@ -204,55 +206,80 @@
       })]
     });
   };
-  var _v20 = _v0.i(0),
-    _v21 = _v0.i(0);
+  var _v22 = _v0.i(0),
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0);
   _v0.s(["PermissionsListRoot", 0, function ({
     teamUserId: _v0,
-    ownerId: _v1
+    ownerId: _v1,
+    isScrollable: _v2 = !1,
+    breadcrumbName: _v3
   }) {
-    let {
-        data: _v2,
-        error: _v3,
-        size: _v4,
-        setSize: _v5,
-        isLoading: _v6,
-        mutate: _v7
-      } = (0, _v2.useGetUserFoldersRootInfinite)(() => _v1 ? {
+    let [_v4, _v5] = (0, _v2.useState)(""),
+      {
+        data: _v6,
+        error: _v7,
+        size: _v8,
+        setSize: _v9,
+        isLoading: _v10,
+        mutate: _v11
+      } = (0, _v5.useGetUserFoldersRootInfinite)(() => _v1 ? {
         where: {
           userId: _v1
         },
-        select: _v3.ITEM_FIELDS,
+        select: _v6.ITEM_FIELDS,
         query: {
-          perPage: _v3.ITEMS_PER_PAGE,
+          perPage: _v6.ITEMS_PER_PAGE,
           excludePersonalTeamFolder: !0,
           inspectedTeamUserUri: `/users/${_v1}/team_users/${_v0}`,
-          sort: "alphabetical"
+          sort: "alphabetical",
+          query: "" === _v4 ? void 0 : _v4
         },
         headers: {
           Accept: "application/vnd.vimeo.*+json;version=3.4"
         }
       } : null),
       {
-        isLoadingMore: _v8,
-        isDone: _v9
-      } = (0, _v4.getLoadMoreStates)(_v2, _v4, _v3),
-      _v10 = (0, _v4.useFlattenedResponse)(_v2)?.map((0, _v4.itemsAdapter)(_v0)) ?? [];
+        isLoadingMore: _v12,
+        isDone: _v13
+      } = (0, _v7.getLoadMoreStates)(_v6, _v8, _v7),
+      _v14 = (0, _v7.useFlattenedResponse)(_v6)?.map((0, _v7.itemsAdapter)(_v0)) ?? [],
+      _v15 = (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsx)(_v24.StateManager, {
+          items: _v14,
+          isLoading: _v10,
+          error: _v7,
+          emptyState: (0, _v1.jsx)(_v21, {
+            onRevalidate: _v11,
+            teamUserId: _v0
+          })
+        }), (0, _v1.jsx)(_v23.LoadMore, {
+          canLoadMore: !_v13,
+          isLoadingMore: !!_v12,
+          onClick: () => {
+            _v9(_v8 + 1);
+          }
+        })]
+      });
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v21.StateManager, {
-        items: _v10,
-        isLoading: _v6,
-        error: _v3,
-        emptyState: (0, _v1.jsx)(_v19, {
-          onRevalidate: _v7,
-          teamUserId: _v0
-        })
-      }), (0, _v1.jsx)(_v20.LoadMore, {
-        canLoadMore: !_v9,
-        isLoadingMore: !!_v8,
-        onClick: () => {
-          _v5(_v4 + 1);
+      children: [(0, _v1.jsx)(_v22.FolderSearch, {
+        searchTerm: _v4,
+        onSearch: _v0 => {
+          _v5(_v0), _v9(1);
         }
-      })]
+      }), _v3 && (0, _v1.jsx)(_v3.Box, {
+        pb: (0, _v4.rem)(8),
+        children: (0, _v1.jsx)(_v8.Breadcrumbs, {
+          pathItems: [{
+            name: _v3
+          }]
+        })
+      }), _v2 ? (0, _v1.jsx)(_v3.Box, {
+        maxH: (0, _v4.rem)(640),
+        overflowY: "auto",
+        pr: (0, _v4.rem)(4),
+        children: _v15
+      }) : _v15]
     });
   }], 0);
 }

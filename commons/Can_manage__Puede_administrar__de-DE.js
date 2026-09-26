@@ -146,7 +146,7 @@
       isLoadingMore: _v4,
       isDone: !_v0?.[_v0?.length - 1]?.paging?.next
     };
-  }, "getSharedResourceLink", 0, _v6, "isTabbedView", 0, () => !!location.pathname.includes(_v4.ROUTE_SEGMENT.TEAM_LIBRARY) || location.pathname.includes(_v4.ROUTE_SEGMENT.MY_LIBRARY), "itemsAdapter", 0, _v0 => _v0 => {
+  }, "getSharedResourceLink", 0, _v6, "isTabbedView", 0, () => !!(location.pathname.includes(_v4.ROUTE_SEGMENT.TEAM_LIBRARY) || location.pathname.includes(_v4.ROUTE_SEGMENT.ACCESS)) || location.pathname.includes(_v4.ROUTE_SEGMENT.MY_LIBRARY), "itemsAdapter", 0, _v0 => _v0 => {
     switch (_v0.type) {
       case "folder":
         return {
@@ -190,19 +190,123 @@
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
-    _v14 = _v0.i(0);
+    _v14 = _v0.i(0),
+    _v15 = _v0.i(0),
+    _v16 = _v0.i(0);
+  let _v17 = ({
+      items: _v0
+    }) => (0, _v7.jsxs)(_v12.Menu, {
+      isLazy: !0,
+      children: [(0, _v7.jsx)(_v13.MenuButton, {
+        as: _v11.IconButton,
+        size: "xs",
+        variant: "tertiary",
+        "aria-label": (0, _v3.translate)({
+          singular: "Expand parent folders list",
+          dictionary: {
+            es: {
+              singular: "Ampliar la lista de carpetas principales"
+            },
+            "de-DE": {
+              singular: "Liste der übergeordneten Ordner erweitern"
+            },
+            "fr-FR": {
+              singular: "Développer la liste des dossiers parents"
+            },
+            "ja-JP": {
+              singular: "親フォルダーのリストを展開する"
+            },
+            "ko-KR": {
+              singular: "상위 폴더 목록 확장"
+            },
+            "pt-BR": {
+              singular: "Expandir a lista de pastas principais"
+            },
+            "zh-CN": {
+              singular: "展开父文件夹列表"
+            }
+          }
+        }),
+        icon: (0, _v7.jsx)(_v16.EllipsisH, {})
+      }), (0, _v7.jsx)(_v15.MenuList, {
+        children: (0, _v7.jsx)(_v18, {
+          items: _v0
+        })
+      })]
+    }),
+    _v18 = ({
+      items: _v0
+    }) => (0, _v7.jsx)(_v7.Fragment, {
+      children: _v0.map(({
+        name: _v0,
+        link: _v1
+      }) => _v1 ? (0, _v7.jsx)(_v14.MenuItem, {
+        children: (0, _v7.jsx)(_v10.default, {
+          href: _v1,
+          children: _v0
+        })
+      }, _v1) : (0, _v7.jsx)(_v14.MenuItem, {
+        isDisabled: !0,
+        children: _v0
+      }, _v0))
+    });
+  var _v19 = _v0.i(0);
+  let _v20 = ({
+    name: _v0,
+    link: _v1
+  }) => _v1 ? (0, _v7.jsx)(_v19.Header, {
+    size: "xs",
+    color: "text-secondary",
+    cursor: "pointer",
+    fontWeight: 500,
+    children: (0, _v7.jsx)(_v10.default, {
+      href: _v1,
+      children: _v0
+    })
+  }) : (0, _v7.jsx)(_v19.Header, {
+    size: "xs",
+    fontWeight: 500,
+    children: _v0
+  });
+  _v0.s(["Breadcrumbs", 0, ({
+    pathItems: _v0
+  }) => {
+    let _v1 = _v0[0],
+      _v2 = _v0.slice(1, _v0.length - 1);
+    return (0, _v7.jsxs)(_v8.HStack, {
+      gap: "0",
+      flexWrap: "nowrap",
+      children: [(0, _v7.jsx)(_v20, {
+        name: _v1.name,
+        link: _v0.length > 1 ? _v1.link : null
+      }), _v0.length > 1 && (0, _v7.jsx)(_v9.ChevronRightSmall, {}), _v0.length > 3 && (0, _v7.jsx)(_v17, {
+        items: _v2
+      }), 3 === _v0.length && (0, _v7.jsx)(_v20, {
+        name: _v0[1].name,
+        link: _v0[1].link
+      }), _v0.length > 2 && (0, _v7.jsx)(_v9.ChevronRightSmall, {}), _v0.length > 1 && (0, _v7.jsx)(_v20, {
+        name: _v0[_v0.length - 1].name
+      })]
+    });
+  }], 0);
+  var _v21 = _v0.i(0),
+    _v22 = _v0.i(0),
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0),
+    _v25 = _v0.i(0),
+    _v26 = _v0.i(0);
   _v0.s(["EmptyStateBase", 0, ({
     description: _v0,
     buttonText: _v1,
     onButtonClick: _v2
-  }) => (0, _v7.jsxs)(_v10.VStack, {
-    py: (0, _v11.rem)(200),
-    children: [(0, _v7.jsx)(_v14.TeamLibrary, {
+  }) => (0, _v7.jsxs)(_v22.VStack, {
+    py: (0, _v23.rem)(200),
+    children: [(0, _v7.jsx)(_v26.TeamLibrary, {
       h: "lg",
       w: "lg",
       boxSize: "lg"
-    }), (0, _v7.jsx)(_v9.Header, {
-      py: (0, _v11.rem)(16),
+    }), (0, _v7.jsx)(_v19.Header, {
+      py: (0, _v23.rem)(16),
       fontWeight: "medium",
       size: "md",
       children: (0, _v3.translate)({
@@ -231,15 +335,15 @@
           }
         }
       })
-    }), (0, _v7.jsx)(_v12.Paragraph, {
-      paddingBottom: (0, _v11.rem)(24),
+    }), (0, _v7.jsx)(_v24.Paragraph, {
+      paddingBottom: (0, _v23.rem)(24),
       color: "text-secondary",
       textAlign: "center",
       size: "md",
       children: _v0
-    }), (0, _v7.jsx)(_v8.Button, {
+    }), (0, _v7.jsx)(_v21.Button, {
       variant: "primary",
-      leftIcon: (0, _v7.jsx)(_v13.FolderPlus, {}),
+      leftIcon: (0, _v7.jsx)(_v25.FolderPlus, {}),
       onClick: _v2,
       children: _v1
     })]

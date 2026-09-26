@@ -196,12 +196,12 @@
       id: _v0,
       height: "100%",
       width: "100%",
-      maxWidth: (0, _v19.rem)(640),
+      maxWidth: _v4?.interaction?.feature?.isOverlay ? "100%" : (0, _v19.rem)(640),
       flexDirection: "column",
       flexGrow: 1,
       flexBasis: 0,
       overflow: "hidden",
-      backgroundColor: _v4?.interaction?.backgroundColor || "background",
+      backgroundColor: _v4?.interaction?.feature?.isOverlay ? "transparent" : _v4?.interaction?.backgroundColor || "background",
       children: _v3 ? (0, _v1.jsxs)(_v1.Fragment, {
         children: [_v2 ? (0, _v1.jsxs)(_v4.Flex, {
           id: (0, _v5.createInteractionDomName)(_v0, "content-header", _v5),
@@ -286,7 +286,7 @@
       _v20(), _v6.info("Close channel"), _v19();
     }, [_v6, _v20, _v19]), _v15 ? (0, _v1.jsx)(_v24, {}) : (0, _v1.jsx)(_v4.Flex, {
       id: _v0,
-      sx: _v17.PAGE_WRAPPER_STYLE,
+      sx: (0, _v17.getPageWrapperStyle)(!!_v7?.feature?.isOverlay),
       children: (0, _v1.jsx)(_v42, {
         id: (0, _v5.createInteractionDomName)(_v0, "content"),
         activeModule: _v14,
