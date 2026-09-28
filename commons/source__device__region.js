@@ -97,6 +97,18 @@
         analytics_ai_title: _v0.title,
         analytics_ai_suggestions_count: _v0.suggestionsCount,
         error: _v0.error
+      }), !0), [_v0]),
+      _v16 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_widget_data_requested", {
+        analytics_ai_dataset: _v0.dataset,
+        analytics_ai_chart_type: _v0.chartType,
+        analytics_ai_query_spec: _v0.querySpec,
+        surface: _v0.surface,
+        analytics_ai_widget_id: _v0.widgetId,
+        analytics_ai_request_outcome: _v0.requestOutcome
+      }), !0), [_v0]),
+      _v17 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_settings_toggled", {
+        analytics_ai_enabled: _v0.enabled,
+        analytics_ai_setting_scope: _v0.scope
       }), !0), [_v0]);
     return {
       trackAnalyticsPageDisplayed: _v1,
@@ -114,18 +126,12 @@
       trackAnalyticsAiDashboardDisplayed: _v13,
       trackAnalyticsAiPromptSubmitted: _v14,
       trackAnalyticsAiGenerationCompleted: _v15,
-      trackAnalyticsAiWidgetDataRequested: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_widget_data_requested", {
-        analytics_ai_dataset: _v0.dataset,
-        analytics_ai_chart_type: _v0.chartType,
-        analytics_ai_query_spec: _v0.querySpec,
-        surface: _v0.surface,
-        analytics_ai_widget_id: _v0.widgetId,
-        analytics_ai_request_outcome: _v0.requestOutcome
+      trackAnalyticsAiWidgetDataRequested: _v16,
+      trackAnalyticsAiSettingsToggled: _v17,
+      trackAnalyticsAiFeedback: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_feedback", {
+        analytics_ai_feedback_comment: _v0.comment
       }), !0), [_v0]),
-      trackAnalyticsAiSettingsToggled: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_settings_toggled", {
-        analytics_ai_enabled: _v0.enabled,
-        analytics_ai_setting_scope: _v0.scope
-      }), !0), [_v0])
+      trackAnalyticsAiFeedbackDismissed: (0, _v1.useCallback)(() => null !== _v0 && (_v0.track("analytics_ai_feedback_dismissed", {}), !0), [_v0])
     };
   }]);
 }
