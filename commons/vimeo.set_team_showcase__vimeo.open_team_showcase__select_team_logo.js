@@ -188,12 +188,17 @@
       }
     }
   });
-  let _v12 = {
-    [_v7.PURCHASE_TRIGGERED_FROM.INVITE_MODAL]: !1,
-    [_v7.PURCHASE_TRIGGERED_FROM.ROLE_CHANGE_MENU]: !0,
-    [_v7.PURCHASE_TRIGGERED_FROM.BILLING_PAGE_ADD_SEATS]: !0,
-    [_v7.PURCHASE_TRIGGERED_FROM.UPSELL_BANNER]: !0
-  };
+  let _v12 = (_v0, _v1, _v2) => _v1.length ? new Intl.NumberFormat(navigator.language, {
+      minimumFractionDigits: _v2,
+      style: "currency",
+      currency: _v1
+    }).format(_v0).replace(String.fromCharCode(0), " ") : "",
+    _v13 = {
+      [_v7.PURCHASE_TRIGGERED_FROM.INVITE_MODAL]: !1,
+      [_v7.PURCHASE_TRIGGERED_FROM.ROLE_CHANGE_MENU]: !0,
+      [_v7.PURCHASE_TRIGGERED_FROM.BILLING_PAGE_ADD_SEATS]: !0,
+      [_v7.PURCHASE_TRIGGERED_FROM.UPSELL_BANNER]: !0
+    };
   _v0.s(["convertDateToMMDDYY", 0, _v0 => {
     if (!_v0) return "";
     let _v1 = new Date(_v0),
@@ -201,17 +206,37 @@
       _v3 = (_v1.getMonth() + 1).toString(),
       _v4 = _v1.getDate().toString();
     return (1 === _v3.length ? "0" : "") + _v3 + "/" + (1 === _v4.length ? "0" : "") + _v4 + "/" + _v2;
-  }, "formatAmountWithCurrency", 0, (_v0, _v1, _v2) => _v1.length ? new Intl.NumberFormat(navigator.language, {
-    minimumFractionDigits: _v2,
-    style: "currency",
-    currency: _v1
-  }).format(_v0).replace(String.fromCharCode(0), " ") : "", "formatDate", 0, _v0 => new Date(null !== _v0.match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})$/) ? _v0 : `${_v0} 12:00:00`).toLocaleDateString(navigator.language || "en-US", {
+  }, "formatAmountWithCurrency", 0, _v12, "formatDate", 0, _v0 => new Date(null !== _v0.match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})$/) ? _v0 : `${_v0} 12:00:00`).toLocaleDateString(navigator.language || "en-US", {
     year: "numeric",
     month: "long",
     day: "numeric"
   }), "formatNumber", 0, (_v0, _v1 = 0) => new Intl.NumberFormat(navigator.language, {
     minimumFractionDigits: _v1
-  }).format(_v0).replace(String.fromCharCode(0), " "), "getDaysBetween", 0, function (_v0, _v1) {
+  }).format(_v0).replace(String.fromCharCode(0), " "), "getAboutPlanPricing", 0, ({
+    hasScheduledDowngrade: _v0,
+    scheduledOrder: _v1,
+    membershipBillingPeriod: _v2,
+    membershipPricePerSeat: _v3,
+    currency: _v4
+  }) => {
+    let _v5 = !!(_v0 && _v1),
+      _v6 = _v5 ? _v1?.billingPeriod : null,
+      _v7 = _v5 ? "year" === _v6 : _v2 === _v11.UserPlanType.Year,
+      _v8 = _v7 ? "year" : "month";
+    if ("week" !== _v6 && (_v5 || _v2 !== _v11.UserPlanType.Week) || (_v8 = "week"), _v5) {
+      let _v0 = "week" !== _v6 && _v7 ? _v1?.monthlyPrice?.formatted : _v1?.price?.formatted;
+      return {
+        billedAnnually: _v7,
+        billingPeriod: _v8,
+        monthlyPrice: _v0 ?? ""
+      };
+    }
+    return {
+      billedAnnually: _v7,
+      billingPeriod: _v8,
+      monthlyPrice: _v12(_v7 ? _v3 / 12 : _v3, _v4, 0)
+    };
+  }, "getDaysBetween", 0, function (_v0, _v1) {
     let _v2 = "string" == typeof _v0 ? new Date(_v0) : _v0,
       _v3 = Math.ceil((("string" == typeof _v1 ? new Date(_v1) : _v1).getTime() - _v2.getTime()) / 0);
     return _v3 > 0 ? _v3 : 0;
@@ -296,7 +321,7 @@
         singular: "仅限公司"
       }
     }
-  }), "handleRemoveMember", 0, (_v0, _v1, _v2, _v3, _v4, _v5, _v6) => {
+  }), "getTrackingPeriodicity", 0, _v0 => _v0 === _v11.UserPlanType.Year ? "annual" : _v0 === _v11.UserPlanType.Week ? "weekly" : "monthly", "handleRemoveMember", 0, (_v0, _v1, _v2, _v3, _v4, _v5, _v6) => {
     _v0(), _v3({
       currentModalInDisplay: _v11.TeamManagementModals.UNASSIGN_MEMBER_CONFIRM_MODAL,
       data: {
@@ -312,7 +337,7 @@
     let _v1 = new Date(),
       _v2 = new Date();
     return _v2.setFullYear(0 + _v0.expirationYear, _v0.expirationMonth - 1, 1), _v2.getTime() < _v1.getTime();
-  }, "makeMembershipCall", 0, _v12, "mapMembershipResponse", 0, _v0 => ({
+  }, "makeMembershipCall", 0, _v13, "mapMembershipResponse", 0, _v0 => ({
     status: _v11.AccountStatus[(0, _v4.default)(String(_v0.status))],
     tier: _v11.Tier[(0, _v5.default)(String(_v0.tier).replaceAll("_", " ")).replaceAll(" ", "")],
     billingAddress: _v0.billingAddress ? {

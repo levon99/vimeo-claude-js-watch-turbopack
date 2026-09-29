@@ -42,5 +42,43 @@
         plural: "解锁 {APPS} 的高级访问权限以及另外 {COUNT} 个产品。"
       }
     }
+  })), "getBundleAppsSubscriptionsBodyCopy", 0, (_v0, _v1) => String((0, _v1.translate)({
+    singular: "Enjoy complimentary access to {APPS} and one more subscription.",
+    plural: "Enjoy complimentary access to {APPS} and {COUNT} more subscriptions.",
+    count: _v1,
+    replacements: {
+      APPS: _v3(_v0),
+      COUNT: `${_v1}`
+    },
+    dictionary: {
+      es: {
+        singular: "Disfruta de acceso gratuito a {APPS} y una suscripción adicional.",
+        plural: "Disfruta de acceso gratuito a {APPS} y {COUNT} suscripciones adicionales."
+      },
+      "de-DE": {
+        singular: "Sie erhalten kostenlosen Zugriff auf {APPS} und ein weiteres Abonnement.",
+        plural: "Sie erhalten kostenlosen Zugriff auf {APPS} und {COUNT} weitere Abonnements."
+      },
+      "fr-FR": {
+        singular: "Profitez d'un accès gratuit à {APPS} et à un abonnement supplémentaire.",
+        plural: "Profitez d'un accès gratuit à {APPS} et à {COUNT} abonnements supplémentaires."
+      },
+      "ja-JP": {
+        singular: "無料で{APPS}とさらに1つのサブスクリプションにアクセスできます。",
+        plural: "無料で{APPS}とさらに{COUNT}件のサブスクリプションにアクセスできます。"
+      },
+      "ko-KR": {
+        singular: "무료로 {APPS} 및 추가 구독 1개를 이용할 수 있습니다.",
+        plural: "무료로 {APPS} 및 추가 구독 {COUNT}개를 이용할 수 있습니다."
+      },
+      "pt-BR": {
+        singular: "Desfrute de acesso gratuito a {APPS} e mais uma assinatura.",
+        plural: "Desfrute de acesso gratuito a {APPS} e mais {COUNT} assinaturas."
+      },
+      "zh-CN": {
+        singular: "可免费访问 {APPS} 及另一个订阅。",
+        plural: "可免费访问 {APPS} 及另外 {COUNT} 个订阅。"
+      }
+    }
   }))]);
 }

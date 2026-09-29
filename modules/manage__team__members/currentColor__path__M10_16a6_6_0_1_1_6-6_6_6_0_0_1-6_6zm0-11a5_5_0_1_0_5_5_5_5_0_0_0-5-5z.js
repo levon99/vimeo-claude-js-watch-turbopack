@@ -1361,7 +1361,7 @@
           trackTeamMemberChangeRole: _v33
         } = (0, _v3.useContext)(_v20.ManageTeamAnalytics),
         [_v34, _v35] = (0, _v3.useState)(!0),
-        [_v36, _v37] = (0, _v65.useInfiniteScroll)(_v34),
+        [_v36, _v37] = (0, _v63.useInfiniteScroll)(_v34),
         _v38 = _v1.owner,
         _v39 = 0 === _v9.length && (!_v10 || 1 === _v4),
         _v40 = (0, _v66.useWindowSize)(),
@@ -1426,8 +1426,8 @@
             return;
           }
           if (_v4 !== _v0) {
-            let _v0 = (0, _v63.camelizeString)(_v4.toLowerCase()),
-              _v1 = (0, _v63.camelizeString)(_v0.toLowerCase());
+            let _v0 = (0, _v64.camelizeString)(_v4.toLowerCase()),
+              _v1 = (0, _v64.camelizeString)(_v0.toLowerCase());
             _v26({
               ..._v1.teamMembersCount,
               [_v0]: _v1.teamMembersCount[_v0] - 1,
@@ -1474,7 +1474,7 @@
               ..._v12,
               currentUnassignedSeatCount: _v12.currentUnassignedSeatCount + 1
             }));
-            let _v1 = (0, _v63.camelizeString)(_v0.toLowerCase());
+            let _v1 = (0, _v64.camelizeString)(_v0.toLowerCase());
             _v26({
               ..._v1.teamMembersCount,
               [_v1]: _v1.teamMembersCount[_v1] - 1,
@@ -1713,7 +1713,7 @@
               _v0 <= 0 || _v3 <= (_v0 - 1) * 25 || _v17(_v0);
             }
           })
-        }), _v0?.user?.id && _v45 ? (0, _v2.jsx)(_v64.UserGroupsModal, {
+        }), _v0?.user?.id && _v45 ? (0, _v2.jsx)(_v65.UserGroupsModal, {
           teamMemberUri: _v45.uri,
           ownerId: (0, _v69.getIdFromLink)(_v38.uri),
           onClose: () => _v46(null),

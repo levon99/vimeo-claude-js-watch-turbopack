@@ -90,12 +90,12 @@
     let {
         settings: _v46
       } = (0, _v25.useOrionSettings)(),
-      _v47 = (0, _v21.useIsMobile)(),
+      _v47 = (0, _v22.useIsMobile)(),
       _v48 = !_v47,
       _v49 = (0, _v27.useViewer)(),
       {
         capabilities: _v50
-      } = (0, _v20.useCapability)(["folderUploadPresets"], _v49?.teamUser?.ownerId ?? _v49?.user?.id),
+      } = (0, _v21.useCapability)(["folderUploadPresets"], _v49?.teamUser?.ownerId ?? _v49?.user?.id),
       _v51 = _v46.enable_folder_upload_presets || !0 === _v50.folderUploadPresets,
       _v52 = _v3 && !_v42 && (_v35 || _v37 || _v40),
       _v53 = {
@@ -103,7 +103,7 @@
           icon: (0, _v1.jsx)(_v11.Share, {
             boxSize: _v34
           }),
-          label: (0, _v22.translate)({
+          label: (0, _v23.translate)({
             singular: "Share...",
             dictionary: {
               es: {
@@ -138,7 +138,7 @@
         } : void 0,
         copyLink: _v13 ? {
           content: _v13,
-          label: (0, _v22.translate)({
+          label: (0, _v23.translate)({
             singular: "Copy link",
             dictionary: {
               es: {
@@ -199,7 +199,7 @@
           icon: (0, _v1.jsx)(_v18.ReviewCheck, {
             boxSize: _v34
           }),
-          label: (0, _v22.translate)({
+          label: (0, _v23.translate)({
             singular: "Review pages",
             dictionary: {
               es: {
@@ -231,7 +231,7 @@
           icon: (0, _v1.jsx)(_v15.Link, {
             boxSize: _v34
           }),
-          label: (0, _v22.translate)({
+          label: (0, _v23.translate)({
             singular: "Create review links",
             dictionary: {
               es: {
@@ -263,7 +263,7 @@
           icon: (0, _v1.jsx)(_v5.Analytics, {
             boxSize: _v34
           }),
-          label: (0, _v22.translate)({
+          label: (0, _v23.translate)({
             singular: "Analytics",
             dictionary: {
               es: {
@@ -296,7 +296,7 @@
           icon: (0, _v1.jsx)(_v7.Eye, {
             boxSize: _v34
           }),
-          label: (0, _v22.translate)({
+          label: (0, _v23.translate)({
             singular: "Override privacy settings",
             dictionary: {
               es: {
@@ -328,7 +328,7 @@
           icon: (0, _v1.jsx)(_v19._3GridLeftLayout, {
             boxSize: _v34
           }),
-          actionCopy: (0, _v22.translate)({
+          actionCopy: (0, _v23.translate)({
             singular: "Add to showcase",
             dictionary: {
               es: {
@@ -356,13 +356,13 @@
           }),
           onClick: _v45,
           showTooltip: !_v43,
-          tooltipCopy: _v43 ? void 0 : (0, _v22.translate)("Folders added to a Showcase must contain between 1 and 100 items.")
+          tooltipCopy: _v43 ? void 0 : (0, _v23.translate)("Folders added to a Showcase must contain between 1 and 100 items.")
         } : void 0,
         move: _v8 ? {
           icon: (0, _v1.jsx)(_v9.FolderOpen, {
             boxSize: _v34
           }),
-          label: (0, _v22.translate)({
+          label: (0, _v23.translate)({
             singular: "Move folder...",
             dictionary: {
               es: {
@@ -394,7 +394,7 @@
           icon: (0, _v1.jsx)(_v8.RenamePencil, {
             boxSize: _v34
           }),
-          label: (0, _v22.translate)({
+          label: (0, _v23.translate)({
             singular: "Rename",
             dictionary: {
               es: {
@@ -426,7 +426,7 @@
           icon: (0, _v1.jsx)(_v6.ColorPicker, {
             boxSize: _v34
           }),
-          label: (0, _v22.translate)({
+          label: (0, _v23.translate)({
             singular: "Change color...",
             dictionary: {
               es: {
@@ -458,7 +458,7 @@
           icon: (0, _v1.jsx)(_v10.SettingsGear, {
             boxSize: _v34
           }),
-          label: (0, _v22.translate)({
+          label: (0, _v23.translate)({
             singular: "Folder defaults",
             dictionary: {
               es: {
@@ -495,7 +495,7 @@
           icon: (0, _v1.jsx)(_v16.Palette, {
             boxSize: _v34
           }),
-          label: (0, _v22.translate)({
+          label: (0, _v23.translate)({
             singular: "Folder style",
             dictionary: {
               es: {
@@ -531,13 +531,13 @@
               }
             },
             boxSize: _v34,
-            children: (0, _v1.jsx)(_v23.SlackMark, {
+            children: (0, _v1.jsx)(_v20.Slack, {
               style: {
                 transform: "scale(0.9)"
               }
             })
           }),
-          label: _v22 ? (0, _v22.translate)({
+          label: _v22 ? (0, _v23.translate)({
             singular: "Slack settings",
             dictionary: {
               es: {
@@ -562,7 +562,7 @@
                 singular: "Slack 设置"
               }
             }
-          }) : (0, _v22.translate)({
+          }) : (0, _v23.translate)({
             singular: "Connect to Slack",
             dictionary: {
               es: {
@@ -594,7 +594,7 @@
           icon: (0, _v1.jsx)(_v10.SettingsGear, {
             boxSize: _v34
           }),
-          label: (0, _v22.translate)({
+          label: (0, _v23.translate)({
             singular: "Folder settings",
             dictionary: {
               es: {
@@ -626,7 +626,7 @@
           icon: (0, _v1.jsx)(_v14.AiSparkles, {
             boxSize: _v34
           }),
-          label: (0, _v22.translate)({
+          label: (0, _v23.translate)({
             singular: "Translate folder",
             dictionary: {
               es: {
@@ -666,7 +666,7 @@
         } : void 0,
         delete: _v6 ? {
           icon: _v24,
-          label: (0, _v22.translate)({
+          label: (0, _v23.translate)({
             singular: "Delete",
             dictionary: {
               es: {
@@ -761,7 +761,7 @@
         icon: (0, _v1.jsx)(_v17.EditPencil, {
           boxSize: _v34
         }),
-        label: (0, _v22.translate)({
+        label: (0, _v23.translate)({
           singular: "Edit folder",
           dictionary: {
             es: {
@@ -796,7 +796,7 @@
         icon: (0, _v1.jsx)(_v9.FolderOpen, {
           boxSize: _v34
         }),
-        label: (0, _v22.translate)({
+        label: (0, _v23.translate)({
           singular: "Organize",
           dictionary: {
             es: {
@@ -831,7 +831,7 @@
         icon: (0, _v1.jsx)(_v10.SettingsGear, {
           boxSize: _v34
         }),
-        label: (0, _v22.translate)({
+        label: (0, _v23.translate)({
           singular: "Settings",
           dictionary: {
             es: {

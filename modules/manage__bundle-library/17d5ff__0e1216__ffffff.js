@@ -4211,15 +4211,16 @@
       clusterTiles: _v0,
       otherProductsCount: _v1,
       onClaim: _v2,
-      bundleType: _v3
+      bundleType: _v3,
+      showClaimCta: _v4 = !0
     }) => {
-      let _v4,
-        _v5 = (0, _v50.useBundleSurfaceTokens)();
+      let _v5,
+        _v6 = (0, _v50.useBundleSurfaceTokens)();
       return (0, _v28.jsxs)(_v35.Box, {
         position: "relative",
         width: "100%",
         background: "surface",
-        border: _v5.border,
+        border: _v6.border,
         borderRadius: (0, _v33.rem)(24),
         overflow: "hidden",
         paddingX: {
@@ -4319,12 +4320,12 @@
                   variant: "heading-lg",
                   color: "text-primary",
                   letterSpacing: (0, _v33.rem)(-1.2),
-                  children: (_v4 = (0, _v40.getBundleMemberCount)(), String((0, _v77.translate)({
+                  children: (_v5 = (0, _v40.getBundleMemberCount)(), String((0, _v77.translate)({
                     singular: "{COUNT} essential product. One add-on.",
                     plural: "{COUNT} essential products. One add-on.",
-                    count: _v4,
+                    count: _v5,
                     replacements: {
-                      COUNT: `${_v4}`
+                      COUNT: `${_v5}`
                     },
                     dictionary: {
                       es: {
@@ -4395,7 +4396,7 @@
                     }
                   })
                 })]
-              }), (0, _v28.jsx)(_v41.Button, {
+              }), _v4 && (0, _v28.jsx)(_v41.Button, {
                 variant: "brand",
                 size: "md",
                 onClick: _v2,
@@ -4441,7 +4442,8 @@
       clusterTiles: _v0,
       otherProductsCount: _v1,
       onClaim: _v2,
-      bundleType: _v3
+      bundleType: _v3,
+      showClaimCta: _v4
     }) => (0, _v28.jsx)(_v35.Box, {
       position: "fixed",
       bottom: 0,
@@ -4471,11 +4473,17 @@
           clusterTiles: _v0,
           otherProductsCount: _v1,
           onClaim: _v2,
-          bundleType: _v3
+          bundleType: _v3,
+          showClaimCta: _v4
         })
       })
-    }),
-    _v157 = _v0 => {
+    });
+  var _v157 = _v0.i(0),
+    _v158 = _v0.i(0),
+    _v159 = _v0.i(0);
+  let _v160 = ["free", "starter", "standard", "advanced"],
+    _v161 = "studio",
+    _v162 = _v0 => {
       let _v1 = _v0.parentElement;
       for (; null !== _v1;) {
         let {
@@ -4486,8 +4494,8 @@
       }
       return null;
     },
-    _v158 = "bundle_library",
-    _v159 = ({
+    _v163 = "bundle_library",
+    _v164 = ({
       data: _v0,
       onNavigate: _v1
     }) => {
@@ -4667,7 +4675,7 @@
         } = (0, _v78.useBundleTracking)(),
         _v15 = (0, _v80.useViewer)(),
         _v16 = (0, _v74.useBundleAddOnClaim)({
-          source: _v158,
+          source: _v163,
           onNavigate: _v1,
           onPurchased: () => {
             _v0.refresh?.();
@@ -4676,10 +4684,35 @@
         {
           isEligible: _v17
         } = (0, _v34.useIsPermanentDiscountOfferEligible)(),
-        _v18 = "locked" === _v2 && !_v17,
-        _v19 = (0, _v31.useRef)(null),
         {
-          showSticky: _v20
+          showClaimCta: _v18
+        } = function () {
+          let _v0 = (0, _v80.useViewer)(),
+            _v1 = _v0?.user?.id ?? null,
+            {
+              data: _v2
+            } = (0, _v158.useGetUserSettingsBillingMembership)(() => null === _v1 ? null : {
+              select: ["tier"],
+              where: {
+                userId: _v1
+              }
+            }),
+            {
+              tier: _v3
+            } = (0, _v157.useUpcomingTier)(),
+            _v4 = (0, _v159.useCampaignIdOverride)(),
+            _v5 = _v2?.tier,
+            _v6 = _v3 === _v161 && _v5 !== _v161,
+            _v7 = null !== _v4 && _v159.REPACKAGING_CAMPAIGN_IDS.includes(_v4),
+            _v8 = void 0 !== _v5 && _v160.includes(_v5);
+          return {
+            showClaimCta: !_v6 && (_v5 === _v161 || _v8 && !_v7)
+          };
+        }(),
+        _v19 = "locked" === _v2 && !_v17,
+        _v20 = (0, _v31.useRef)(null),
+        {
+          showSticky: _v21
         } = (_v0 => {
           let [_v1, _v2] = (0, _v31.useState)(!0),
             [_v3, _v4] = (0, _v31.useState)(!1);
@@ -4687,13 +4720,13 @@
             let _v0 = _v0.current;
             if (!window.IntersectionObserver || !_v0) return;
             let _v1 = new IntersectionObserver(([_v0]) => _v2(_v0.isIntersecting), {
-              root: _v157(_v0),
+              root: _v162(_v0),
               threshold: 0
             });
             return _v1.observe(_v0), () => _v1.disconnect();
           }, [_v0]), (0, _v31.useEffect)(() => {
             let _v0 = _v0.current,
-              _v1 = null != _v0 ? _v157(_v0) : null,
+              _v1 = null != _v0 ? _v162(_v0) : null,
               _v2 = () => {
                 _v4(!0);
               };
@@ -4707,20 +4740,20 @@
           }, [_v0]), {
             showSticky: _v3 && !_v1
           };
-        })(_v19),
-        _v21 = (0, _v75.useBundleExperimentKey)(),
-        _v22 = (0, _v76.useBundleOffer)(),
-        _v23 = (0, _v31.useRef)(!1);
+        })(_v20),
+        _v22 = (0, _v75.useBundleExperimentKey)(),
+        _v23 = (0, _v76.useBundleOffer)(),
+        _v24 = (0, _v31.useRef)(!1);
       (0, _v31.useEffect)(() => {
-        _v23.current || (_v23.current = !0, _v11({
+        _v24.current || (_v24.current = !0, _v11({
           unlockStatus: _v2,
           bundleType: _v3,
-          bundlePrice: "enabled" === _v22.status ? _v22.price : null,
-          experimentKey: _v21
+          bundlePrice: "enabled" === _v23.status ? _v23.price : null,
+          experimentKey: _v22
         }));
-      }, [_v2, _v3, _v22, _v11, _v21]);
-      let _v24 = _v0.clusterTiles ?? (0, _v40.getClusterTiles)(_v3),
-        _v25 = _v0.otherProductsCount ?? (0, _v40.getOtherProductsCount)();
+      }, [_v2, _v3, _v23, _v11, _v22]);
+      let _v25 = _v0.clusterTiles ?? (0, _v40.getClusterTiles)(_v3),
+        _v26 = _v0.otherProductsCount ?? (0, _v40.getOtherProductsCount)();
       return (0, _v28.jsxs)(_v28.Fragment, {
         children: [(0, _v28.jsxs)(_v32.Flex, {
           direction: "column",
@@ -4732,13 +4765,14 @@
           children: [(0, _v28.jsx)(_v145, {
             unlockStatus: _v2,
             productCount: (0, _v40.getBundleMemberCount)()
-          }), _v18 && (0, _v28.jsx)(_v155, {
-            clusterTiles: _v24,
-            otherProductsCount: _v25,
+          }), _v19 && (0, _v28.jsx)(_v155, {
+            clusterTiles: _v25,
+            otherProductsCount: _v26,
             onClaim: _v16.openClaim,
-            bundleType: _v3
-          }), _v18 && (0, _v28.jsx)(_v35.Box, {
-            ref: _v19,
+            bundleType: _v3,
+            showClaimCta: _v18
+          }), _v19 && (0, _v28.jsx)(_v35.Box, {
+            ref: _v20,
             "aria-hidden": "true",
             height: 0
           }), (0, _v28.jsx)(_v72, {
@@ -4753,7 +4787,7 @@
             onComingSoonHover: _v0 => _v12({
               productId: _v0.id
             })
-          }), (0, _v28.jsx)(_v144, {}), _v18 && _v20 && (0, _v28.jsxs)(_v28.Fragment, {
+          }), (0, _v28.jsx)(_v144, {}), _v19 && _v21 && (0, _v28.jsxs)(_v28.Fragment, {
             children: [(0, _v28.jsx)(_v35.Box, {
               height: {
                 base: 0,
@@ -4761,10 +4795,11 @@
               },
               "aria-hidden": "true"
             }), (0, _v28.jsx)(_v156, {
-              clusterTiles: _v24,
-              otherProductsCount: _v25,
+              clusterTiles: _v25,
+              otherProductsCount: _v26,
               onClaim: _v16.openClaim,
-              bundleType: _v3
+              bundleType: _v3,
+              showClaimCta: _v18
             })]
           }), void 0 !== _v7 && (0, _v28.jsx)(_v128, {
             productId: _v7,
@@ -4791,13 +4826,13 @@
           tracking: {
             params: {
               upsell_name: "bundle_add_on_claim",
-              page: _v158,
+              page: _v163,
               feature: "bundle_add_on_claim",
-              location: _v158
+              location: _v163
             },
             paywallTracking: {
               paywallTrigger: "bundle_add_on_claim",
-              paywallLocation: _v158,
+              paywallLocation: _v163,
               paywallType: "popup",
               paywallFeature: "bundle_add_on_claim"
             }
@@ -4806,19 +4841,19 @@
         })]
       });
     },
-    _v160 = ({
+    _v165 = ({
       data: _v0,
       onNavigate: _v1
     }) => (0, _v28.jsx)(_v36.ToastProvider, {
-      children: (0, _v28.jsx)(_v159, {
+      children: (0, _v28.jsx)(_v164, {
         data: _v0,
         onNavigate: _v1
       })
     });
-  var _v161 = _v0.i(0),
-    _v162 = _v0.i(0),
-    _v163 = _v0.i(0);
-  async function _v164({
+  var _v166 = _v0.i(0),
+    _v167 = _v0.i(0),
+    _v168 = _v0.i(0);
+  async function _v169({
     baseUrl: _v0,
     select: _v1,
     ..._v2
@@ -4835,10 +4870,10 @@
       return (0, _v82.deepCamelCase)(_v1);
     });
   }
-  var _v165 = _v0.i(0),
-    _v166 = _v0.i(0),
-    _v167 = _v0.i(0);
-  function _v168(_v0, _v1) {
+  var _v170 = _v0.i(0),
+    _v171 = _v0.i(0),
+    _v172 = _v0.i(0);
+  function _v173(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
@@ -4846,7 +4881,7 @@
         xVimeoPage: _v5,
         locale: _v6
       } = (0, _v84.useGctlConfig)();
-    return (0, _v165.default)(_v2 ? `/me/bsp_bundle/products${(0, _v167.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v164({
+    return (0, _v170.default)(_v2 ? `/me/bsp_bundle/products${(0, _v172.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v169({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -4858,26 +4893,26 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v163.default.env.STORYBOOK && (0, _v167.assignMswData)(_v168, {
+  "true" === _v168.default.env.STORYBOOK && (0, _v172.assignMswData)(_v173, {
     endpoint: "/me/bsp_bundle/products",
     method: "GET"
-  }), "true" === _v163.default.env.STORYBOOK && (0, _v167.assignMswData)(function () {
+  }), "true" === _v168.default.env.STORYBOOK && (0, _v172.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v166.useSWRConfig)(),
+      } = (0, _v171.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
       } = (0, _v84.useGctlConfig)(),
-      [_v5, _v6] = (0, _v167.useInternalState)();
+      [_v5, _v6] = (0, _v172.useInternalState)();
     return [(0, _v31.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/bsp_bundle/products${(0, _v167.serializeQuery)(_v0)}`, _v164({
+        let _v0 = await _v0(`/me/bsp_bundle/products${(0, _v172.serializeQuery)(_v0)}`, _v169({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -4903,22 +4938,22 @@
     endpoint: "/me/bsp_bundle/products",
     method: "GET"
   });
-  let _v169 = ["membership.subscription.addOns"],
-    _v170 = _v0 => {
+  let _v174 = ["membership.subscription.addOns"],
+    _v175 = _v0 => {
       let _v1;
       if ("object" != typeof _v0 || null === _v0 || !("state" in _v0) || "unlocked" !== (_v1 = _v0.state) && "available" !== _v1 && "coming_soon" !== _v1) return !1;
       let _v2 = "code" in _v0 ? _v0.code : void 0,
         _v3 = "redeemUrl" in _v0 ? _v0.redeemUrl : void 0;
       return (void 0 === _v2 || "string" == typeof _v2) && (null == _v3 || "string" == typeof _v3);
     };
-  var _v171 = _v0.i(0),
-    _v172 = _v0.i(0);
-  let _v173 = (0, _v33.rem)(64),
-    _v174 = () => {
+  var _v176 = _v0.i(0),
+    _v177 = _v0.i(0);
+  let _v178 = (0, _v33.rem)(64),
+    _v179 = () => {
       let _v0 = (0, _v30.useRouter)(),
         {
           isLoadingResponse: _v1
-        } = (0, _v172.useOrionSettings)(),
+        } = (0, _v177.useOrionSettings)(),
         _v2 = (0, _v76.useBundleOffer)(),
         _v3 = (_v0 => {
           let {
@@ -4926,7 +4961,7 @@
               error: _v2,
               isLoading: _v3,
               mutate: _v4
-            } = _v168(() => ({
+            } = _v173(() => ({
               select: ["products"]
             })),
             {
@@ -4934,8 +4969,8 @@
               error: _v6,
               isLoading: _v7,
               mutate: _v8
-            } = (0, _v162.useGetMe)(() => ({
-              select: _v169,
+            } = (0, _v167.useGetMe)(() => ({
+              select: _v174,
               headers: {
                 Accept: "application/vnd.vimeo.*+json;version=3.4.14"
               }
@@ -4949,9 +4984,9 @@
               entitlements: _v1
             } = (_v0 => {
               let _v1 = {};
-              for (let _v0 of _v161.BUNDLE_PRODUCT_IDS) for (let _v0 of (0, _v73.getEntitlementIds)(_v0)) {
+              for (let _v0 of _v166.BUNDLE_PRODUCT_IDS) for (let _v0 of (0, _v73.getEntitlementIds)(_v0)) {
                 let _v0 = _v0[_v0],
-                  _v1 = _v170(_v0) ? _v0 : void 0,
+                  _v1 = _v175(_v0) ? _v0 : void 0,
                   _v2 = void 0 !== _v1 && "unlocked" === _v1.state && "string" == typeof _v1.code ? _v1.code : void 0,
                   _v3 = void 0 !== _v1 && "string" == typeof _v1.redeemUrl ? _v1.redeemUrl : void 0;
                 _v1[_v0] = {
@@ -4964,7 +4999,7 @@
                 };
               }
               return {
-                products: _v161.BUNDLE_PRODUCT_IDS.map(_v0 => {
+                products: _v166.BUNDLE_PRODUCT_IDS.map(_v0 => {
                   let _v1 = (0, _v73.getEntitlementIds)(_v0).map(_v0 => _v1[_v0]).every(_v0 => "comingSoon" === _v0.condition);
                   return {
                     id: _v0,
@@ -4977,7 +5012,7 @@
             return {
               unlockStatus: (_v5?.membership?.subscription?.addOns ?? []).some(_v0 => {
                 let _v1;
-                return _v1 = _v0.name, _v161.BUNDLE_TYPES.some(_v0 => _v1.startsWith(`bsp-${_v0}-bundle`)) && "expired" !== _v0.status;
+                return _v1 = _v0.name, _v166.BUNDLE_TYPES.some(_v0 => _v1.startsWith(`bsp-${_v0}-bundle`)) && "expired" !== _v0.status;
               }) ? "unlocked" : "locked",
               bundleType: _v0,
               products: _v0,
@@ -4992,37 +5027,37 @@
       return ((0, _v31.useEffect)(() => {
         !_v1 && _v4 && _v0.replace("/");
       }, [_v1, _v4, _v0]), _v5) ? (0, _v28.jsx)(_v32.Flex, {
-        minHeight: `calc(100vh - ${_v173})`,
+        minHeight: `calc(100vh - ${_v178})`,
         alignItems: "center",
         justifyContent: "center",
-        children: (0, _v28.jsx)(_v171.Spinner, {})
-      }) : _v4 ? null : (0, _v28.jsx)(_v160, {
+        children: (0, _v28.jsx)(_v176.Spinner, {})
+      }) : _v4 ? null : (0, _v28.jsx)(_v165, {
         data: _v3,
         onNavigate: _v0 => void _v0.push(_v0)
       });
     };
-  var _v175 = _v0.i(0),
-    _v176 = _v0.i(0),
-    _v177 = _v0.i(0),
-    _v178 = _v0.i(0),
-    _v179 = _v0.i(0),
-    _v180 = _v0.i(0),
+  var _v180 = _v0.i(0),
     _v181 = _v0.i(0),
     _v182 = _v0.i(0),
     _v183 = _v0.i(0),
     _v184 = _v0.i(0),
     _v185 = _v0.i(0),
-    _v186 = _v0.i(0);
-  let _v187 = ({
+    _v186 = _v0.i(0),
+    _v187 = _v0.i(0),
+    _v188 = _v0.i(0),
+    _v189 = _v0.i(0),
+    _v190 = _v0.i(0),
+    _v191 = _v0.i(0);
+  let _v192 = ({
       children: _v0
     }) => {
       let _v1 = (0, _v80.useViewer)(),
-        _v2 = (0, _v177.useIsMobile)(),
+        _v2 = (0, _v182.useIsMobile)(),
         {
           isOpen: _v3,
           open: _v4,
           close: _v5
-        } = (0, _v186.useSideNavSurfaceState)({
+        } = (0, _v191.useSideNavSurfaceState)({
           surface: "bundle-library",
           userId: _v1?.user?.id,
           isMobile: _v2,
@@ -5030,17 +5065,17 @@
         }),
         {
           uploads: _v6
-        } = (0, _v181.useUploader)(),
+        } = (0, _v186.useUploader)(),
         [_v7, _v8] = (0, _v31.useState)(() => _v6.find(_v0 => void 0 !== _v0.clipId)?.clipId ?? ""),
         [_v9, _v10] = (0, _v31.useState)(!0);
-      return (0, _v180.useUploadLifecycle)((_v0, _v1) => {
+      return (0, _v185.useUploadLifecycle)((_v0, _v1) => {
         _v1.clipId && _v8(_v1.clipId);
       }, []), (0, _v28.jsxs)(_v28.Fragment, {
         children: [(0, _v28.jsxs)(_v32.Flex, {
           width: "100vw",
           height: "100vh",
           overflow: "hidden",
-          children: [(0, _v28.jsx)(_v184.WayfinderSideNav, {
+          children: [(0, _v28.jsx)(_v189.WayfinderSideNav, {
             isOpen: _v3,
             onClose: _v5,
             isMobile: _v2,
@@ -5048,10 +5083,10 @@
             children: (0, _v28.jsx)(_v32.Flex, {
               flexGrow: 1,
               direction: "column",
-              children: (0, _v28.jsx)(_v185.MenuItem, {
-                icon: (0, _v28.jsx)(_v176.ArrowLeft, {}),
+              children: (0, _v28.jsx)(_v190.MenuItem, {
+                icon: (0, _v28.jsx)(_v181.ArrowLeft, {}),
                 label: "Back to home",
-                href: _v182.Path.Home
+                href: _v187.Path.Home
               })
             })
           }), (0, _v28.jsx)(_v32.Flex, {
@@ -5060,7 +5095,7 @@
             width: "50%",
             children: (0, _v28.jsxs)(_v35.Box, {
               overflowY: "auto",
-              children: [(0, _v28.jsx)(_v178.DefaultNavigation, {
+              children: [(0, _v28.jsx)(_v183.DefaultNavigation, {
                 setIsSideNavActive: _v4,
                 isSideNavActive: _v3,
                 hasSideNavLayout: !_v2
@@ -5071,17 +5106,17 @@
                 backgroundColor: "background",
                 children: _v0
               }), (0, _v28.jsx)(_v35.Box, {
-                children: _v1 && (0, _v28.jsx)(_v179.EssentialFooter, {
+                children: _v1 && (0, _v28.jsx)(_v184.EssentialFooter, {
                   ..._v1,
                   enableQuotaMenu: !1
                 })
               })]
             })
           })]
-        }), (0, _v28.jsx)(_v175.ActivitiesContainer, {
+        }), (0, _v28.jsx)(_v180.ActivitiesContainer, {
           isShowing: _v9 && _v6.length > 0,
           isMobile: _v2,
-          children: (0, _v28.jsx)(_v183.ProgressToastContainer, {
+          children: (0, _v28.jsx)(_v188.ProgressToastContainer, {
             isShowing: _v9,
             uploadClipId: _v7,
             setUploadClipId: _v8,
@@ -5094,7 +5129,7 @@
         })]
       });
     },
-    _v188 = () => (0, _v28.jsx)(_v174, {});
+    _v193 = () => (0, _v28.jsx)(_v179, {});
   (0, _v29.withPageSetup)(() => ({
     props: {
       hasThemeSupport: !0,
@@ -5104,7 +5139,7 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v188.getLayout = _v0 => (0, _v28.jsx)(_v187, {
+  }), _v193.getLayout = _v0 => (0, _v28.jsx)(_v192, {
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v188], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v193], 0);
 }

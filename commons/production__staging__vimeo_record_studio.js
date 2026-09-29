@@ -7126,12 +7126,7 @@
       result: _v0.didFallBack ? "fallback" : "injected"
     }), _v0.didFallBack && _v2.warn("sidx injection fell back to passthrough for tus_stream upload");
   }
-  function _v306(_v0) {
-    let _v1 = (0, _v26.useRef)(_v0);
-    return (0, _v26.useEffect)(() => {
-      _v1.current = _v0;
-    }, [_v0]), (0, _v26.useCallback)(_v0 => _v1.current(_v0), []);
-  }
+  var _v306 = _v0.i(0);
   let _v307 = ["recording", "uploading", "paused"],
     _v308 = {
       "4K": 0,
@@ -7635,7 +7630,7 @@
                   trackRecordingStarted: _v14,
                   trackRecordingCompleted: _v15
                 } = (0, _v46.useRecordingTracking)();
-              return _v306(_v0 => {
+              return (0, _v306.useLastVersion)(_v0 => {
                 switch (_v0.type) {
                   case "upload":
                     _v209({
@@ -30079,21 +30074,22 @@
             getWidth: (0, _v26.useCallback)(() => 256, []),
             getHeight: _v7,
             onSwitchState: _v8
-          });
-        return _v306((0, _v26.useCallback)(async _v0 => {
-          if (_v2) try {
-            let _v0 = void 0 !== _v0 ? _v0 : !_v3;
-            _v0 && _v1.current ? (_v5(!0), await _v10().finally(() => _v5(!1))) : await _v9(_v0), _v0 && (_v52({
-              name: "view_picture_in_picture",
-              eventType: "impression",
-              location: "picture_in_picture_modal"
-            }), _v4(!0), _v1.current = !0);
-          } catch (_v0) {
-            _v0.warn("Failed to toggle PiP", {
-              error: _v0
-            });
-          }
-        }, [_v2, _v3, _v5, _v10, _v9, _v4, _v0]));
+          }),
+          _v11 = (0, _v26.useCallback)(async _v0 => {
+            if (_v2) try {
+              let _v0 = void 0 !== _v0 ? _v0 : !_v3;
+              _v0 && _v1.current ? (_v5(!0), await _v10().finally(() => _v5(!1))) : await _v9(_v0), _v0 && (_v52({
+                name: "view_picture_in_picture",
+                eventType: "impression",
+                location: "picture_in_picture_modal"
+              }), _v4(!0), _v1.current = !0);
+            } catch (_v0) {
+              _v0.warn("Failed to toggle PiP", {
+                error: _v0
+              });
+            }
+          }, [_v2, _v3, _v5, _v10, _v9, _v4, _v0]);
+        return (0, _v306.useLastVersion)(_v11);
       })();
     _v1224();
     let _v34 = (0, _v26.useCallback)(() => {

@@ -232,6 +232,8 @@
               "aria-label": "lock"
             })
           }), _v5 && !_v0.isLocked && (0, _v1.jsxs)(_v20.Menu, {
+            strategy: "fixed",
+            placement: "bottom-end",
             children: [(0, _v1.jsx)(_v22.Tooltip, {
               label: _v12.BRANDKIT_LOCKED_TOOLTIP,
               placement: "top",

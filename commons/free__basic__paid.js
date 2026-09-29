@@ -228,20 +228,7 @@
         return "InvalidStateError" !== _v0.name;
       }
     })(_v1) ? _v1 : _v1 = await _v27(_v0);
-  class _v29 {
-    mutex = Promise.resolve();
-    async run(_v0) {
-      return new Promise((_v0, _v1) => {
-        this.mutex = this.mutex.then(async () => {
-          try {
-            _v0(await _v0());
-          } catch (_v0) {
-            _v1(_v0);
-          }
-        });
-      });
-    }
-  }
+  var _v29 = _v0.i(0);
   let _v30 = {
       additionalContext: () => ({}),
       additionalIdentifiers: () => ({}),
@@ -350,7 +337,7 @@
         _v25 = (_v3 = !1, _v4 = 0, _v5 = null, _v6 = _v21.syncIntervalMilliseconds, _v7 = {
           delta: 0,
           last_event_timestamp: null
-        }, _v8 = _v21.eventsBatchSize, _v9 = new _v29(), _v10 = async () => {
+        }, _v8 = _v21.eventsBatchSize, _v9 = new _v29.Mutex(), _v10 = async () => {
           let _v0 = [];
           return _v9.run(async () => {
             _v4++;

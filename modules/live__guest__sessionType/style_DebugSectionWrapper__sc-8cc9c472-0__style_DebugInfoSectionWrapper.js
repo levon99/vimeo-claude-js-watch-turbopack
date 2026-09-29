@@ -32,26 +32,26 @@
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0);
-  let _v32 = _v22.default.div.withConfig({
+  let _v32 = _v23.default.div.withConfig({
       displayName: "style__DebugSectionWrapper",
       componentId: "sc-8cc9c472-0"
     })`
-  border: solid 1px ${_v23.bokehTheme.colors.white};
-  padding: ${(0, _v21.rem)(16)};
-  margin-bottom: ${(0, _v21.rem)(12)};
+  border: solid 1px ${_v25.bokehTheme.colors.white};
+  padding: ${(0, _v22.rem)(16)};
+  margin-bottom: ${(0, _v22.rem)(12)};
   overflow-x: hidden;
-  background-color: ${_v23.bokehTheme.colors.gray["800"]};
+  background-color: ${_v25.bokehTheme.colors.gray["800"]};
 `,
-    _v33 = _v22.default.div.withConfig({
+    _v33 = _v23.default.div.withConfig({
       displayName: "style__DebugInfoSectionWrapper",
       componentId: "sc-8cc9c472-1"
     })`
-  padding: ${(0, _v21.rem)(12)};
-  margin: ${(0, _v21.rem)(8)} 0;
-  border: 1px solid ${_v23.bokehTheme.colors.white};
+  padding: ${(0, _v22.rem)(12)};
+  margin: ${(0, _v22.rem)(8)} 0;
+  border: 1px solid ${_v25.bokehTheme.colors.white};
   overflow-x: auto;
 `,
-    _v34 = _v22.default.div.withConfig({
+    _v34 = _v23.default.div.withConfig({
       displayName: "style__DebugInfoControlsWrapper",
       componentId: "sc-8cc9c472-2"
     })`
@@ -59,10 +59,10 @@
   flex-direction: row;
 
   & > * {
-    margin: ${(0, _v21.rem)(4)};
+    margin: ${(0, _v22.rem)(4)};
   }
 `,
-    _v35 = (0, _v22.default)(_v28.Header).withConfig({
+    _v35 = (0, _v23.default)(_v27.Header).withConfig({
       displayName: "style__DebugModalUpdateSection",
       componentId: "sc-8cc9c472-3"
     })`
@@ -71,7 +71,7 @@
   align-items: center;
   justify-content: space-between;
 `,
-    _v36 = (0, _v22.default)(_v29.Text).withConfig({
+    _v36 = (0, _v23.default)(_v28.Text).withConfig({
       displayName: "style__Colored",
       componentId: "sc-8cc9c472-4"
     })`
@@ -79,51 +79,43 @@
       color: _v0
     }) => _v0};
 `,
-    _v37 = (0, _v22.default)(_v27.Button).attrs({
+    _v37 = (0, _v23.default)(_v29.Button).attrs({
       size: "sm",
-      format: "basic",
-      variant: "minimalTransparent",
-      theme: _v25.themes.dark,
-      icon: (0, _v10.jsx)(_v31.CloseX, {})
+      colorScheme: "gray",
+      variant: "ghost",
+      leftIcon: (0, _v10.jsx)(_v31.CloseX, {})
     }).withConfig({
       displayName: "style__DebugDismiss",
       componentId: "sc-8cc9c472-5"
     })`
   position: absolute;
-  top: ${(0, _v21.rem)(12)};
-  right: ${(0, _v21.rem)(12)};
-  color: ${_v23.bokehTheme.colors.white};
+  top: ${(0, _v22.rem)(12)};
+  right: ${(0, _v22.rem)(12)};
+  color: ${_v25.bokehTheme.colors.white};
 `;
   function _v38(_v0, _v1) {
     let _v2 = _v1 ? _v1.getSettings() : null;
     return (0, _v10.jsxs)(_v10.Fragment, {
-      children: [(0, _v10.jsx)(_v28.Header, {
-        theme: _v25.themes.dark,
-        size: "5",
+      children: [(0, _v10.jsx)(_v27.Header, {
+        as: "h5",
+        size: "sm",
         children: _v0
       }), (0, _v10.jsx)(_v33, {
         children: _v1 && _v2 ? (0, _v10.jsxs)(_v10.Fragment, {
-          children: [(0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          children: [(0, _v10.jsxs)(_v28.Text, {
             children: [" ID: ", _v1.id, " "]
-          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: [" Enabled: ", _v1.enabled.toString(), " "]
-          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: ["Size: ", _v2.width, " x ", _v2.height]
-          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: [" FPS: ", _v2.frameRate, " "]
-          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: [" Aspect ratio: ", _v2.aspectRatio || "unknown", " "]
-          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: [" Content hint: ", _v1.contentHint || "-", " "]
           })]
-        }) : (0, _v10.jsx)(_v29.Text, {
-          theme: _v25.themes.dark,
+        }) : (0, _v10.jsx)(_v28.Text, {
           children: " none "
         })
       })]
@@ -132,42 +124,32 @@
   function _v39(_v0, _v1) {
     let _v2 = _v1 ? _v1.getSettings() : null;
     return (0, _v10.jsxs)(_v10.Fragment, {
-      children: [(0, _v10.jsx)(_v28.Header, {
-        theme: _v25.themes.dark,
-        size: "5",
+      children: [(0, _v10.jsx)(_v27.Header, {
+        as: "h5",
+        size: "sm",
         children: _v0
       }), (0, _v10.jsx)(_v33, {
         children: _v1 && _v2 ? (0, _v10.jsxs)(_v10.Fragment, {
-          children: [(0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          children: [(0, _v10.jsxs)(_v28.Text, {
             children: [" ID: ", _v1.id, " "]
-          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: [" Enabled: ", _v1.enabled.toString(), " "]
-          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: [" Channel count: ", _v2.channelCount, " "]
-          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: ["Autogain: ", (!!_v2.autoGainControl).toString()]
-          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: ["Echo cancellation: ", (!!_v2.echoCancellation).toString()]
-          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: ["Noise suppression: ", (!!_v2.noiseSuppression).toString()]
-          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: [" Sample size: ", _v2.sampleSize || "unknown", " "]
-          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: ["Sample rate: ", _v2.sampleRate || "unknown", " "]
-          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: [" Content hint: ", _v1.contentHint || "-", " "]
           })]
-        }) : (0, _v10.jsx)(_v29.Text, {
-          theme: _v25.themes.dark,
+        }) : (0, _v10.jsx)(_v28.Text, {
           children: " none "
         })
       })]
@@ -185,39 +167,32 @@
     let [_v7, _v8] = (0, _v17.useState)(!1),
       _v9 = (0, _v17.useCallback)(() => _v8(!_v7), [_v7]);
     return (0, _v10.jsxs)(_v32, {
-      children: [(0, _v10.jsx)(_v28.Header, {
-        theme: _v25.themes.dark,
-        size: "4",
+      children: [(0, _v10.jsx)(_v27.Header, {
+        as: "h4",
+        size: "md",
         children: "Media info:"
-      }), (0, _v10.jsx)(_v27.Button, {
+      }), (0, _v10.jsx)(_v29.Button, {
         onClick: _v9,
         size: "sm",
         children: _v7 ? "Hide" : "Show"
       }), _v7 ? (0, _v10.jsxs)(_v10.Fragment, {
-        children: [(0, _v10.jsx)("br", {}), (0, _v10.jsx)(_v28.Header, {
-          theme: _v25.themes.dark,
-          size: "5",
+        children: [(0, _v10.jsx)("br", {}), (0, _v10.jsx)(_v27.Header, {
+          as: "h5",
+          size: "sm",
           children: "General:"
-        }), (0, _v10.jsxs)(_v29.Text, {
-          theme: _v25.themes.dark,
+        }), (0, _v10.jsxs)(_v28.Text, {
           children: [" Is screen sharing: ", _v0.toString(), " "]
-        }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-          theme: _v25.themes.dark,
+        }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
           children: [" Is video muted: ", _v4.toString(), " "]
-        }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-          theme: _v25.themes.dark,
+        }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
           children: [" Is audio muted: ", _v3.toString(), " "]
-        }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-          theme: _v25.themes.dark,
+        }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
           children: [" Has local preview: ", (!!_v5).toString(), " "]
-        }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-          theme: _v25.themes.dark,
+        }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
           children: ["Has remote preview: ", (!!_v6).toString(), " "]
-        }), (0, _v10.jsx)("br", {}), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-          theme: _v25.themes.dark,
+        }), (0, _v10.jsx)("br", {}), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
           children: [" Video device: ", _v2, " "]
-        }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-          theme: _v25.themes.dark,
+        }), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
           children: [" Audio device: ", _v1, " "]
         }), (0, _v10.jsx)("br", {}), (0, _v10.jsx)("br", {}), _v38("Local video track:", (0, _v30.getStreamVideoTrack)(_v5)), _v39("Local audio track:", (0, _v30.getStreamAudioTrack)(_v5)), _v38("Remote video track:", (0, _v30.getStreamVideoTrack)(_v6)), _v39("Remote audio track:", (0, _v30.getStreamAudioTrack)(_v6))]
       }) : null]
@@ -230,23 +205,23 @@
     onSave: _v3
   }) {
     return (0, _v10.jsxs)(_v32, {
-      children: [(0, _v10.jsxs)(_v28.Header, {
-        theme: _v25.themes.dark,
-        size: "4",
+      children: [(0, _v10.jsxs)(_v27.Header, {
+        as: "h4",
+        size: "md",
         children: ["Report: [", _v0 ? (0, _v10.jsx)(_v36, {
-          color: _v23.bokehTheme.colors.green["500"],
+          color: _v25.bokehTheme.colors.green["500"],
           children: " Active "
         }) : (0, _v10.jsx)(_v36, {
-          color: _v23.bokehTheme.colors.red["500"],
+          color: _v25.bokehTheme.colors.red["500"],
           children: " Inactive "
         }), "]"]
       }), (0, _v10.jsxs)(_v34, {
-        children: [(0, _v10.jsx)(_v27.Button, {
+        children: [(0, _v10.jsx)(_v29.Button, {
           onClick: _v0 ? _v2 : _v1,
           size: "sm",
           children: _v0 ? "Disable" : "Enable"
-        }), (0, _v10.jsx)(_v27.Button, {
-          disabled: !_v0,
+        }), (0, _v10.jsx)(_v29.Button, {
+          isDisabled: !_v0,
           size: "sm",
           onClick: _v3,
           children: "Save"
@@ -264,24 +239,23 @@
   }) {
     let _v4 = [];
     return _v1 && (_v1.forEach(_v0 => _v4.push(_v0)), _v4 = _v4.filter(_v0 => _v42.some(_v0 => _v0?.id?.startsWith(_v0)))), (0, _v10.jsxs)(_v32, {
-      children: [(0, _v10.jsx)(_v28.Header, {
-        theme: _v25.themes.dark,
-        size: "4",
+      children: [(0, _v10.jsx)(_v27.Header, {
+        as: "h4",
+        size: "md",
         children: "RTC info:"
-      }), (0, _v10.jsx)(_v27.Button, {
+      }), (0, _v10.jsx)(_v29.Button, {
         onClick: _v0 ? _v3 : _v2,
         size: "sm",
         children: _v0 ? "Stop" : "Start"
       }), _v1 ? _v4.map(_v0 => (0, _v10.jsxs)(_v33, {
-        children: [(0, _v10.jsxs)(_v28.Header, {
-          theme: _v25.themes.dark,
-          size: "5",
+        children: [(0, _v10.jsxs)(_v27.Header, {
+          as: "h5",
+          size: "sm",
           children: [_v0.id, ":"]
         }), Object.entries(_v0).filter(([_v0]) => !_v43.includes(_v0)).map(([_v0, _v1]) => (0, _v10.jsxs)(_v17.Fragment, {
-          children: [(0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          children: [(0, _v10.jsxs)(_v28.Text, {
             children: [(0, _v10.jsx)(_v36, {
-              color: _v23.bokehTheme.colors.green["500"],
+              color: _v25.bokehTheme.colors.green["500"],
               children: _v0
             }), ": ", _v1]
           }), (0, _v10.jsx)("br", {})]
@@ -294,7 +268,7 @@
       var _v2;
       return (0, _v10.jsxs)(_v17.Fragment, {
         children: [(0, _v10.jsx)(_v36, {
-          color: (_v2 = _v0).startsWith("m=") ? _v23.bokehTheme.colors.green["500"] : _v2.startsWith("a=msid") || _v2.startsWith("a=ssrc") ? _v23.bokehTheme.colors.blue["500"] : _v2.startsWith("a=candidate") ? _v23.bokehTheme.colors.yellow["600"] : _v2.startsWith("a=rtpmap") ? _v23.bokehTheme.colors.yellow["200"] : _v23.bokehTheme.colors.white,
+          color: (_v2 = _v0).startsWith("m=") ? _v25.bokehTheme.colors.green["500"] : _v2.startsWith("a=msid") || _v2.startsWith("a=ssrc") ? _v25.bokehTheme.colors.blue["500"] : _v2.startsWith("a=candidate") ? _v25.bokehTheme.colors.yellow["600"] : _v2.startsWith("a=rtpmap") ? _v25.bokehTheme.colors.yellow["200"] : _v25.bokehTheme.colors.white,
           children: _v0
         }), (0, _v10.jsx)("br", {})]
       }, _v1);
@@ -306,31 +280,29 @@
     let [_v1, _v2] = (0, _v17.useState)(!1),
       _v3 = (0, _v17.useCallback)(() => _v2(!_v1), [_v1]);
     return (0, _v10.jsxs)(_v32, {
-      children: [(0, _v10.jsx)(_v28.Header, {
-        theme: _v25.themes.dark,
-        size: "4",
+      children: [(0, _v10.jsx)(_v27.Header, {
+        as: "h4",
+        size: "md",
         children: "SDP session:"
-      }), (0, _v10.jsx)(_v27.Button, {
+      }), (0, _v10.jsx)(_v29.Button, {
         onClick: _v3,
         size: "sm",
         children: _v1 ? "Hide" : "Show"
       }), _v1 ? (0, _v10.jsxs)(_v10.Fragment, {
-        children: [(0, _v10.jsx)("br", {}), (0, _v10.jsx)(_v28.Header, {
-          theme: _v25.themes.dark,
-          size: "5",
+        children: [(0, _v10.jsx)("br", {}), (0, _v10.jsx)(_v27.Header, {
+          as: "h5",
+          size: "sm",
           children: "Local description:"
         }), (0, _v10.jsxs)(_v33, {
-          children: [(0, _v10.jsx)(_v29.Text, {
-            theme: _v25.themes.dark,
+          children: [(0, _v10.jsx)(_v28.Text, {
             children: _v0.local ? _v45(_v0.local) : "none"
           }), (0, _v10.jsx)("br", {})]
-        }), (0, _v10.jsx)(_v28.Header, {
-          theme: _v25.themes.dark,
-          size: "5",
+        }), (0, _v10.jsx)(_v27.Header, {
+          as: "h5",
+          size: "sm",
           children: "Remote description:"
         }), (0, _v10.jsx)(_v33, {
-          children: (0, _v10.jsx)(_v29.Text, {
-            theme: _v25.themes.dark,
+          children: (0, _v10.jsx)(_v28.Text, {
             children: _v0.remote ? _v45(_v0.remote) : "none"
           })
         })]
@@ -345,47 +317,38 @@
     let [_v3, _v4] = (0, _v17.useState)(!1),
       _v5 = (0, _v17.useCallback)(() => _v4(!_v3), [_v3]);
     return (0, _v10.jsxs)(_v32, {
-      children: [(0, _v10.jsx)(_v28.Header, {
-        theme: _v25.themes.dark,
-        size: "4",
+      children: [(0, _v10.jsx)(_v27.Header, {
+        as: "h4",
+        size: "md",
         children: "Connection:"
-      }), (0, _v10.jsx)(_v27.Button, {
+      }), (0, _v10.jsx)(_v29.Button, {
         onClick: _v5,
         size: "sm",
         children: _v3 ? "Hide" : "Show"
       }), _v3 ? (0, _v10.jsxs)(_v10.Fragment, {
-        children: [(0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-          theme: _v25.themes.dark,
+        children: [(0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
           children: [" PN: ", _v1 ? "connected" : "disconnected", " "]
-        }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-          theme: _v25.themes.dark,
+        }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
           children: [" RTC: ", _v0, " "]
-        }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsx)("br", {}), (0, _v10.jsx)(_v28.Header, {
-          theme: _v25.themes.dark,
-          size: "4",
+        }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsx)("br", {}), (0, _v10.jsx)(_v27.Header, {
+          as: "h4",
+          size: "md",
           children: "Config:"
         }), _v2 ? (0, _v10.jsxs)(_v10.Fragment, {
-          children: [(0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          children: [(0, _v10.jsxs)(_v28.Text, {
             children: [" UUID: ", _v2.uuid, " "]
-          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: [" Auth: ", _v2.authKey, " "]
-          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: [" Publish: ", _v2.publishKey, " "]
-          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: [" Subscribe: ", _v2.subscribeKey, " "]
-          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: [" Discovery: ", _v2.channels.discovery, " "]
-          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v29.Text, {
-            theme: _v25.themes.dark,
+          }), " ", (0, _v10.jsx)("br", {}), (0, _v10.jsxs)(_v28.Text, {
             children: [" Connection: ", _v2.channels.connection, " "]
           }), " ", (0, _v10.jsx)("br", {})]
-        }) : (0, _v10.jsx)(_v29.Text, {
-          theme: _v25.themes.dark,
+        }) : (0, _v10.jsx)(_v28.Text, {
           children: " Config: loading or corrupted "
         })]
       }) : null]
@@ -401,32 +364,31 @@
     let _v4 = _v0 === _v48.ERTCConnectionState.DISCONNECTED || _v0 === _v48.ERTCConnectionState.NEW,
       _v5 = !_v4 && _v0 !== _v48.ERTCConnectionState.CONNECTED;
     return (0, _v10.jsxs)(_v32, {
-      children: [(0, _v10.jsx)(_v28.Header, {
-        theme: _v25.themes.dark,
-        size: "4",
+      children: [(0, _v10.jsx)(_v27.Header, {
+        as: "h4",
+        size: "md",
         children: "Studio info:"
       }), (0, _v10.jsxs)(_v34, {
-        children: [(0, _v10.jsx)(_v27.Button, {
-          loading: _v5,
+        children: [(0, _v10.jsx)(_v29.Button, {
+          isLoading: _v5,
           size: "sm",
-          status: _v4 ? "negative" : void 0,
-          disabled: _v4,
+          colorScheme: _v4 ? "red" : void 0,
+          isDisabled: _v4,
           onClick: _v3,
           children: "Send Activate"
-        }), (0, _v10.jsx)(_v27.Button, {
-          loading: _v5,
+        }), (0, _v10.jsx)(_v29.Button, {
+          isLoading: _v5,
           size: "sm",
-          disabled: _v4,
-          status: _v4 ? "negative" : void 0,
+          isDisabled: _v4,
+          colorScheme: _v4 ? "red" : void 0,
           onClick: _v2,
           children: "Send Deactivate"
         })]
       }), _v1 ? (0, _v10.jsx)(_v33, {
-        children: (0, _v10.jsx)(_v29.Text, {
-          theme: _v25.themes.dark,
+        children: (0, _v10.jsx)(_v28.Text, {
           children: _v1.replace(/<br\/>/g, "\n").replace(/(<b>)|(<\/b>)/g, "").split("\n").filter(_v0 => _v0.length).map((_v0, _v1) => (0, _v10.jsxs)(_v17.Fragment, {
             children: [(0, _v10.jsx)(_v36, {
-              color: _v0.trim().endsWith(":") || _v0.trim().startsWith("[[") ? _v23.bokehTheme.colors.green["500"] : _v23.bokehTheme.colors.white,
+              color: _v0.trim().endsWith(":") || _v0.trim().startsWith("[[") ? _v25.bokehTheme.colors.green["500"] : _v25.bokehTheme.colors.white,
               children: _v0
             }), (0, _v10.jsx)("br", {})]
           }, _v1))
@@ -1538,14 +1500,14 @@
     }
   }
   (0, _v50._)([(0, _v96.OnQuery)(_v54.CURRENT_RTC_STATE)], _v101.prototype, "onRTCStateQueries", null), (0, _v50._)([(0, _v96.OnQuery)(_v54.CURRENT_STUDIO_SERVICE)], _v101.prototype, "onCurrentStudioServiceQueried", null), (0, _v50._)([(0, _v96.OnSignal)(_v55.GUEST_VIDEO_RECEIVED)], _v101.prototype, "onGuestVideoReceived", null), (0, _v50._)([(0, _v96.OnSignal)(_v55.GUEST_STREAM_RECEIVED)], _v101.prototype, "onGuestStreamReceived", null), (0, _v50._)([(0, _v96.OnSignal)(_v55.INTERVIEW_JOINED)], _v101.prototype, "onInterviewJoined", null), (0, _v50._)([(0, _v96.OnSignal)(_v55.INTERVIEW_LEFT)], _v101.prototype, "onInterviewLeft", null);
-  let _v102 = _v22.default.div.withConfig({
+  let _v102 = _v23.default.div.withConfig({
     displayName: "DebugModal__DebugModalWrapper",
     componentId: "sc-2ac90024-0"
   })`
-  padding: ${(0, _v21.rem)(20)};
-  background: ${_v23.bokehTheme.colors.gray["700"]};
-  min-width: ${(0, _v21.rem)(600)};
-  max-height: ${(0, _v21.rem)(600)};
+  padding: ${(0, _v22.rem)(20)};
+  background: ${_v25.bokehTheme.colors.gray["700"]};
+  min-width: ${(0, _v22.rem)(600)};
+  max-height: ${(0, _v22.rem)(600)};
   overflow-y: auto;
 `;
   function _v103({
@@ -1567,7 +1529,7 @@
     debugContext: {
       debugActions: _v9,
       isFileLoggingEnabled: _v10
-    } = (0, _v16.useManager)(_v20.DebugControlManager),
+    } = (0, _v16.useManager)(_v21.DebugControlManager),
     mediaContext: {
       isScreenSharing: _v11,
       activeAudioDeviceId: _v12,
@@ -1583,13 +1545,13 @@
       _v18 = (0, _v17.useCallback)(() => {
         _v9.setFileReporting(!0);
       }, []);
-    return (0, _v10.jsx)(_v24.Modal, {
+    return (0, _v10.jsx)(_v26.Modal, {
       size: "lg",
       active: _v4,
       content: (0, _v10.jsxs)(_v102, {
         children: [(0, _v10.jsxs)(_v35, {
-          theme: _v25.themes.dark,
-          size: "5",
+          as: "h5",
+          size: "sm",
           children: ["Last update: ", new Date().toLocaleString()]
         }), (0, _v10.jsx)(_v37, {
           onClick: _v8.toggleModalVisibility
@@ -1624,7 +1586,7 @@
             onDisable: _v8.disableStudioDebugInforming,
             onEnable: _v8.enableStudioDebugInforming
           })]
-        }) : null, (0, _v10.jsx)(_v26.Link, {
+        }) : null, (0, _v10.jsx)(_v24.Link, {
           href: "chrome://webrtc-internals/",
           children: " chrome://webrtc-internals/ "
         })]
@@ -2722,64 +2684,63 @@
   };
   var _v118 = _v0.i(0),
     _v119 = _v0.i(0);
-  let _v120 = _v22.default.div.withConfig({
+  let _v120 = _v23.default.div.withConfig({
       displayName: "GuestInterviewSettingsModal__GuestInterviewSettingsModalWrapper",
       componentId: "sc-e9b05ae-0"
     })`
-  background: ${_v23.bokehTheme.colors.gray["800"]};
-  padding: ${(0, _v21.rem)(24)};
+  background: ${_v25.bokehTheme.colors.gray["800"]};
+  padding: ${(0, _v22.rem)(24)};
 
   h6,
   h2,
   select,
   button:first-child {
-    color: ${_v23.bokehTheme.colors.gray["100"]};
+    color: ${_v25.bokehTheme.colors.gray["100"]};
   }
 
   path {
-    fill: ${_v23.bokehTheme.colors.gray["100"]};
+    fill: ${_v25.bokehTheme.colors.gray["100"]};
   }
 `,
-    _v121 = _v22.default.div.withConfig({
+    _v121 = _v23.default.div.withConfig({
       displayName: "GuestInterviewSettingsModal__SourceConfigBlock",
       componentId: "sc-e9b05ae-1"
     })`
   flex-grow: 1;
-  margin-bottom: ${(0, _v21.rem)(44)};
-  margin-top: ${(0, _v21.rem)(32)};
+  margin-bottom: ${(0, _v22.rem)(44)};
+  margin-top: ${(0, _v22.rem)(32)};
 
   label {
-    color: ${_v23.bokehTheme.colors.white};
+    color: ${_v25.bokehTheme.colors.white};
   }
 
   select {
-    background-color: ${_v23.bokehTheme.colors.gray["700"]};
-    border: ${(0, _v21.rem)(1)} solid ${_v23.bokehTheme.colors.gray["600"]};
-    border-radius: ${(0, _v21.rem)(4)};
+    background-color: ${_v25.bokehTheme.colors.gray["700"]};
+    border: ${(0, _v22.rem)(1)} solid ${_v25.bokehTheme.colors.gray["600"]};
+    border-radius: ${(0, _v22.rem)(4)};
   }
 `,
-    _v122 = _v22.default.div.withConfig({
+    _v122 = _v23.default.div.withConfig({
       displayName: "GuestInterviewSettingsModal__SelectGroup",
       componentId: "sc-e9b05ae-2"
     })`
-  margin-bottom: ${(0, _v21.rem)(16)};
+  margin-bottom: ${(0, _v22.rem)(16)};
 `,
-    _v123 = (0, _v22.default)(_v27.Button).attrs({
+    _v123 = (0, _v23.default)(_v29.Button).attrs({
       size: "sm",
-      format: "basic",
-      variant: "minimalTransparent",
-      theme: _v25.themes.dark,
-      icon: (0, _v10.jsx)(_v31.CloseX, {})
+      colorScheme: "gray",
+      variant: "ghost",
+      leftIcon: (0, _v10.jsx)(_v31.CloseX, {})
     }).withConfig({
       displayName: "GuestInterviewSettingsModal__Dismiss",
       componentId: "sc-e9b05ae-3"
     })`
   position: absolute;
-  top: ${(0, _v21.rem)(12)};
-  right: ${(0, _v21.rem)(12)};
-  color: ${_v23.bokehTheme.colors.white};
+  top: ${(0, _v22.rem)(12)};
+  right: ${(0, _v22.rem)(12)};
+  color: ${_v25.bokehTheme.colors.white};
 `,
-    _v124 = _v22.default.div.withConfig({
+    _v124 = _v23.default.div.withConfig({
       displayName: "GuestInterviewSettingsModal__ControlButtonsGroup",
       componentId: "sc-e9b05ae-4"
     })`
@@ -2787,8 +2748,8 @@
   justify-content: flex-end;
 
   button:first-child {
-    background-color: ${_v23.bokehTheme.colors.gray["700"]};
-    margin-right: ${(0, _v21.rem)(20)};
+    background-color: ${_v25.bokehTheme.colors.gray["700"]};
+    margin-right: ${(0, _v22.rem)(20)};
   }
 
   button:first-child {
@@ -2834,7 +2795,7 @@
       children: _v1
     }, _v0));
     return (0, _v10.jsxs)(_v120, {
-      children: [(0, _v10.jsxs)(_v24.Modal.Header, {
+      children: [(0, _v10.jsxs)(_v26.Modal.Header, {
         children: [_v107.settings, (0, _v10.jsx)(_v123, {
           onClick: _v1
         })]
@@ -2855,21 +2816,21 @@
           })
         })]
       }), (0, _v10.jsxs)(_v124, {
-        children: [(0, _v10.jsx)(_v27.Button, {
-          format: "secondary",
+        children: [(0, _v10.jsx)(_v29.Button, {
+          variant: "outline",
+          colorScheme: "gray",
           onClick: _v1,
-          theme: _v25.themes.dark,
           children: _v119.T_CANCEL
-        }), (0, _v10.jsx)(_v27.Button, {
-          disabled: _v11,
-          format: "primary",
+        }), (0, _v10.jsx)(_v29.Button, {
+          isDisabled: _v11,
+          colorScheme: "vimeoBlue",
           onClick: _v12,
           children: _v107.save
         })]
       })]
     });
   }
-  let _v126 = (0, _v22.default)(_v27.Button).attrs({
+  let _v126 = (0, _v23.default)(_v29.Button).attrs({
       size: "md"
     }).withConfig({
       displayName: "GuestInterviewMediaControls__MediaControlButton",
@@ -2877,8 +2838,8 @@
     })`
   background-color: rgba(0, 0, 0, 0.3);
   border: none;
-  margin-left: ${(0, _v21.rem)(12)};
-  color: ${_v23.bokehTheme.colors.white};
+  margin-left: ${(0, _v22.rem)(12)};
+  color: ${_v25.bokehTheme.colors.white};
 
   &:hover,
   &:hover:not(:active) {
@@ -2889,26 +2850,26 @@
     background-color: rgba(100, 100, 100, 0.45);
   }
 `,
-    _v127 = (0, _v22.default)(_v126).withConfig({
+    _v127 = (0, _v23.default)(_v126).withConfig({
       displayName: "GuestInterviewMediaControls__ScreenShareButton",
       componentId: "sc-8c9b88f8-1"
     })`
-  color: ${_v23.bokehTheme.colors.white};
+  color: ${_v25.bokehTheme.colors.white};
   width: auto;
   font-weight: 700;
-  font-size: ${(0, _v21.rem)(14)};
-  padding: 0 ${(0, _v21.rem)(16)};
+  font-size: ${(0, _v22.rem)(14)};
+  padding: 0 ${(0, _v22.rem)(16)};
 
   ${({
       isActive: _v0
-    }) => _v0 ? `background: ${_v23.bokehTheme.colors.blue["500"]};` : ""}
+    }) => _v0 ? `background: ${_v25.bokehTheme.colors.blue["500"]};` : ""}
 
   & svg {
     position: relative;
-    margin-right: ${(0, _v21.rem)(8)};
-    width: ${(0, _v21.rem)(20)};
-    min-width: ${(0, _v21.rem)(20)};
-    top: ${(0, _v21.rem)(-1)};
+    margin-right: ${(0, _v22.rem)(8)};
+    width: ${(0, _v22.rem)(20)};
+    min-width: ${(0, _v22.rem)(20)};
+    top: ${(0, _v22.rem)(-1)};
   }
 `;
   function _v128({
@@ -2922,7 +2883,7 @@
     } = (0, _v16.useManager)(_v95),
     debugControlContext: {
       isEnabled: _v6
-    } = (0, _v16.useManager)(_v20.DebugControlManager),
+    } = (0, _v16.useManager)(_v21.DebugControlManager),
     studioDebugContext: {
       debugActions: _v7
     } = (0, _v16.useManager)(_v56)
@@ -2943,91 +2904,91 @@
       }, []);
     return (0, _v10.jsxs)(_v10.Fragment, {
       children: [_v90.IS_SCREENSHARE_SUPPORTED ? (0, _v10.jsx)(_v127, {
-        icon: (0, _v10.jsx)(_v117, {}),
+        leftIcon: (0, _v10.jsx)(_v117, {}),
         isActive: _v2,
-        disabled: _v4,
+        isDisabled: _v4,
         onClick: _v2 ? _v5.stopDisplaySharing : _v5.startDisplaySharing,
         children: _v2 ? _v107.stopSharing : _v107.shareScreen
       }) : null, (0, _v10.jsx)(_v126, {
-        loading: _v4,
-        disabled: _v4,
-        icon: _v1 ? (0, _v10.jsx)(_v109, {}) : (0, _v10.jsx)(_v111, {}),
+        isLoading: _v4,
+        isDisabled: _v4,
+        leftIcon: _v1 ? (0, _v10.jsx)(_v109, {}) : (0, _v10.jsx)(_v111, {}),
         onClick: _v5.toggleVideoMute
       }), (0, _v10.jsx)(_v126, {
-        loading: _v3,
-        icon: _v0 ? (0, _v10.jsx)(_v113, {}) : (0, _v10.jsx)(_v115, {}),
+        isLoading: _v3,
+        leftIcon: _v0 ? (0, _v10.jsx)(_v113, {}) : (0, _v10.jsx)(_v115, {}),
         onClick: _v5.toggleAudioMute
       }), _v6 ? (0, _v10.jsx)(_v126, {
-        icon: "D",
+        leftIcon: "D",
         onClick: _v7.toggleModalVisibility
-      }) : null, (0, _v10.jsx)(_v24.Modal, {
+      }) : null, (0, _v10.jsx)(_v26.Modal, {
         active: _v8,
         content: (0, _v10.jsx)(_v125, {
           onSave: _v10,
           onCancel: _v12
         }),
         children: (0, _v10.jsx)(_v126, {
-          icon: (0, _v10.jsx)(_v105.SettingsGear, {}),
-          disabled: _v3 || _v4,
+          leftIcon: (0, _v10.jsx)(_v105.SettingsGear, {}),
+          isDisabled: _v3 || _v4,
           onClick: _v11
         })
       })]
     });
   }
-  let _v129 = _v22.default.header.withConfig({
+  let _v129 = _v23.default.header.withConfig({
       displayName: "GuestInterviewHeader__GuestInterviewHeaderWrapper",
       componentId: "sc-11632862-0"
     })`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: ${(0, _v21.rem)(24)};
-  max-height: ${(0, _v21.rem)(88)};
+  padding: ${(0, _v22.rem)(24)};
+  max-height: ${(0, _v22.rem)(88)};
   z-index: 10;
 `,
-    _v130 = _v22.default.div.withConfig({
+    _v130 = _v23.default.div.withConfig({
       displayName: "GuestInterviewHeader__GuestInterviewStageLabel",
       componentId: "sc-11632862-1"
     })`
-  border-radius: ${(0, _v21.rem)(4)};
+  border-radius: ${(0, _v22.rem)(4)};
   align-items: center;
   justify-content: center;
   display: flex;
-  padding: 0 ${(0, _v21.rem)(12)};
+  padding: 0 ${(0, _v22.rem)(12)};
   white-space: nowrap;
   background-color: rgba(0, 0, 0, 0.3);
   border: none;
-  color: ${_v23.bokehTheme.colors.white};
+  color: ${_v25.bokehTheme.colors.white};
   font-weight: 500;
-  height: ${(0, _v21.rem)(40)};
+  height: ${(0, _v22.rem)(40)};
 
   svg {
-    margin-right: ${(0, _v21.rem)(8)};
-    height: ${(0, _v21.rem)(20)};
-    width: ${(0, _v21.rem)(20)};
+    margin-right: ${(0, _v22.rem)(8)};
+    height: ${(0, _v22.rem)(20)};
+    width: ${(0, _v22.rem)(20)};
   }
 `,
-    _v131 = _v22.default.div.withConfig({
+    _v131 = _v23.default.div.withConfig({
       displayName: "GuestInterviewHeader__ButtonsControlsWrapper",
       componentId: "sc-11632862-2"
     })`
   display: flex;
 `,
-    _v132 = (0, _v22.default)(_v27.Button).withConfig({
+    _v132 = (0, _v23.default)(_v29.Button).withConfig({
       displayName: "GuestInterviewHeader__LeaveButton",
       componentId: "sc-11632862-3"
     })`
-  margin-left: ${(0, _v21.rem)(12)};
-  background-color: ${_v23.bokehTheme.colors.red["500"]};
+  margin-left: ${(0, _v22.rem)(12)};
+  background-color: ${_v25.bokehTheme.colors.red["500"]};
 
   &:hover,
   &:hover:not(:active),
   &:active {
-    background-color: ${_v23.bokehTheme.colors.red["500"]};
+    background-color: ${_v25.bokehTheme.colors.red["500"]};
   }
 
   &:active {
-    background-color: ${_v23.bokehTheme.colors.red["600"]};
+    background-color: ${_v25.bokehTheme.colors.red["600"]};
   }
 `;
   function _v133({
@@ -3101,26 +3062,26 @@
     });
   }
   var _v134 = _v0.i(0);
-  let _v135 = _v22.default.div.withConfig({
+  let _v135 = _v23.default.div.withConfig({
       displayName: "JoinForm__JoinFormWrapper",
       componentId: "sc-dc6117a5-0"
     })`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: ${(0, _v21.rem)(52)};
+  padding: ${(0, _v22.rem)(52)};
 
   h3 {
-    color: ${_v23.bokehTheme.colors.gray["50"]};
+    color: ${_v25.bokehTheme.colors.gray["50"]};
   }
 `,
-    _v136 = _v22.default.div.withConfig({
+    _v136 = _v23.default.div.withConfig({
       displayName: "JoinForm__HeaderWrapper",
       componentId: "sc-dc6117a5-1"
     })`
-  margin-bottom: ${(0, _v21.rem)(36)};
+  margin-bottom: ${(0, _v22.rem)(36)};
 `,
-    _v137 = _v22.default.div.withConfig({
+    _v137 = _v23.default.div.withConfig({
       displayName: "JoinForm__ControlsWrapper",
       componentId: "sc-dc6117a5-2"
     })`
@@ -3128,18 +3089,18 @@
   align-items: center;
   width: 100%;
 `,
-    _v138 = _v22.default.div.withConfig({
+    _v138 = _v23.default.div.withConfig({
       displayName: "JoinForm__InputWrapper",
       componentId: "sc-dc6117a5-3"
     })`
   width: 100%;
-  margin-right: ${(0, _v21.rem)(16)};
+  margin-right: ${(0, _v22.rem)(16)};
 
   input {
-    color: ${_v23.bokehTheme.colors.gray["200"]};
+    color: ${_v25.bokehTheme.colors.gray["200"]};
     background-color: rgba(255, 255, 255, 0.1);
-    border: ${(0, _v21.rem)(1)} solid ${_v23.bokehTheme.colors.gray["200"]};
-    border-radius: ${(0, _v21.rem)(4)};
+    border: ${(0, _v22.rem)(1)} solid ${_v25.bokehTheme.colors.gray["200"]};
+    border-radius: ${(0, _v22.rem)(4)};
 
     &::placeholder {
       color: rgba(227, 232, 233, 0.5);
@@ -3147,14 +3108,14 @@
   }
 
   input:hover {
-    border: ${(0, _v21.rem)(1)} solid ${_v23.bokehTheme.colors.gray["200"]};
+    border: ${(0, _v22.rem)(1)} solid ${_v25.bokehTheme.colors.gray["200"]};
   }
 `,
-    _v139 = (0, _v22.default)(_v27.Button).withConfig({
+    _v139 = (0, _v23.default)(_v29.Button).withConfig({
       displayName: "JoinForm__JoinButton",
       componentId: "sc-dc6117a5-4"
     })`
-  min-width: ${(0, _v21.rem)(104)};
+  min-width: ${(0, _v22.rem)(104)};
 `;
   function _v140({
     disabled: _v0 = !1,
@@ -3171,14 +3132,15 @@
       }, []);
     return (0, _v10.jsxs)(_v135, {
       children: [(0, _v10.jsx)(_v136, {
-        children: (0, _v10.jsx)(_v28.Header, {
-          size: "3",
+        children: (0, _v10.jsx)(_v27.Header, {
+          as: "h3",
+          size: "md",
           children: _v107.addYourNameToJoinAsAGuest
         })
       }), (0, _v10.jsxs)(_v137, {
         children: [(0, _v10.jsx)(_v138, {
           children: (0, _v10.jsx)(_v134.Input, {
-            disabled: _v0,
+            isDisabled: _v0,
             value: _v2,
             placeholder: "Enter your name",
             size: "md",
@@ -3186,8 +3148,8 @@
             onKeyDown: _v6
           })
         }), (0, _v10.jsx)(_v139, {
-          disabled: _v0 || !_v2,
-          loading: _v1,
+          isDisabled: _v0 || !_v2,
+          isLoading: _v1,
           onClick: _v3,
           children: _v107.joinEvent
         })]
@@ -3196,7 +3158,7 @@
   }
   var _v141 = _v0.i(0),
     _v142 = _v0.i(0);
-  let _v143 = _v22.default.div.withConfig({
+  let _v143 = _v23.default.div.withConfig({
       displayName: "VideoPreview__LocalPreviewWrapper",
       componentId: "sc-bbf6970c-0"
     })`
@@ -3205,10 +3167,10 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.3);
-  color: ${_v23.bokehTheme.colors.white};
+  color: ${_v25.bokehTheme.colors.white};
   position: relative;
 `,
-    _v144 = _v22.default.div.withConfig({
+    _v144 = _v23.default.div.withConfig({
       displayName: "VideoPreview__ContentWrapper",
       componentId: "sc-bbf6970c-1"
     })`
@@ -3218,7 +3180,7 @@
   align-items: center;
   padding: 0 ${({
       hasPadding: _v0
-    }) => _v0 ? (0, _v21.rem)(16) : 0};
+    }) => _v0 ? (0, _v22.rem)(16) : 0};
   text-align: center;
 
   video {
@@ -3232,7 +3194,7 @@
     }) => _v0 ? "contain" : "fill"};
   }
 `,
-    _v145 = _v22.default.div.withConfig({
+    _v145 = _v23.default.div.withConfig({
       displayName: "VideoPreview__NestedContentWrapper",
       componentId: "sc-bbf6970c-2"
     })`
@@ -3295,13 +3257,12 @@
           hasPadding: !!_v1,
           contain: _v0,
           children: [_v10 ? (0, _v10.jsxs)(_v10.Fragment, {
-            children: [(0, _v10.jsx)(_v28.Header, {
-              size: "4",
-              theme: _v25.themes.dark,
+            children: [(0, _v10.jsx)(_v27.Header, {
+              as: "h4",
+              size: "md",
               children: _v10.title
             }), (0, _v10.jsx)(_v141.Paragraph, {
-              size: "2",
-              theme: _v25.themes.dark,
+              size: "md",
               children: _v10.value
             })]
           }) : (0, _v10.jsx)("video", {
@@ -3314,24 +3275,24 @@
         })
       });
     }),
-    _v148 = _v22.default.div.withConfig({
+    _v148 = _v23.default.div.withConfig({
       displayName: "GuestInterviewJoin__GuestInterviewJoinWrapper",
       componentId: "sc-92bbdd2d-0"
     })`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  background-color: ${_v23.bokehTheme.colors.gray["800"]};
-  min-width: ${(0, _v21.rem)(840)};
+  background-color: ${_v25.bokehTheme.colors.gray["800"]};
+  min-width: ${(0, _v22.rem)(840)};
 `,
-    _v149 = _v22.default.main.withConfig({
+    _v149 = _v23.default.main.withConfig({
       displayName: "GuestInterviewJoin__GuestInterviewJoinContent",
       componentId: "sc-92bbdd2d-1"
     })`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: ${(0, _v21.rem)(16)};
+  padding: ${(0, _v22.rem)(16)};
   align-items: center;
 `;
   function _v150({
@@ -3377,40 +3338,40 @@
     _v153 = _v0.i(0),
     _v154 = _v0.i(0),
     _v155 = _v17;
-  let _v156 = _v22.default.div.withConfig({
+  let _v156 = _v23.default.div.withConfig({
       displayName: "GuestInterviewLocalPreview__GuestInterviewLocalPreviewWrapper",
       componentId: "sc-424ae985-0"
     })`
   cursor: move;
   position: absolute;
   background-color: black;
-  border: ${(0, _v21.rem)(3)} solid ${_v23.bokehTheme.colors.white};
-  right: ${(0, _v21.rem)(36)};
-  bottom: ${(0, _v21.rem)(36)};
+  border: ${(0, _v22.rem)(3)} solid ${_v25.bokehTheme.colors.white};
+  right: ${(0, _v22.rem)(36)};
+  bottom: ${(0, _v22.rem)(36)};
   box-shadow: ${({
       isSelected: _v0
-    }) => _v0 ? `${(0, _v21.rem)(2)} ${(0, _v21.rem)(2)} ${(0, _v21.rem)(6)} 0 ${_v23.bokehTheme.colors.gray["300"]}` : "unset"};
+    }) => _v0 ? `${(0, _v22.rem)(2)} ${(0, _v22.rem)(2)} ${(0, _v22.rem)(6)} 0 ${_v25.bokehTheme.colors.gray["300"]}` : "unset"};
   z-index: 20;
 `,
-    _v157 = _v22.default.div.withConfig({
+    _v157 = _v23.default.div.withConfig({
       displayName: "GuestInterviewLocalPreview__PreviewTitleWrapper",
       componentId: "sc-424ae985-1"
     })`
   position: absolute;
   background-color: rgba(31, 31, 31, 0.7);
-  border-radius: ${(0, _v21.rem)(4)};
-  left: ${(0, _v21.rem)(4)};
-  top: ${(0, _v21.rem)(4)};
-  height: ${(0, _v21.rem)(32)};
-  padding-left: ${(0, _v21.rem)(12)};
-  padding-right: ${(0, _v21.rem)(12)};
-  padding-top: ${(0, _v21.rem)(4)};
+  border-radius: ${(0, _v22.rem)(4)};
+  left: ${(0, _v22.rem)(4)};
+  top: ${(0, _v22.rem)(4)};
+  height: ${(0, _v22.rem)(32)};
+  padding-left: ${(0, _v22.rem)(12)};
+  padding-right: ${(0, _v22.rem)(12)};
+  padding-top: ${(0, _v22.rem)(4)};
 
   user-select: none;
   max-width: 100%;
-  font-size: ${(0, _v21.rem)(16)};
+  font-size: ${(0, _v22.rem)(16)};
   font-weight: 500;
-  color: ${_v23.bokehTheme.colors.white};
+  color: ${_v25.bokehTheme.colors.white};
   z-index: 20;
 `;
   class _v158 extends _v155.PureComponent {
@@ -3493,18 +3454,18 @@
     }, 40);
   }
   var _v159 = _v0.i(0);
-  let _v160 = _v22.default.div.withConfig({
+  let _v160 = _v23.default.div.withConfig({
       displayName: "GuestInterviewChatHeader__GuestInterviewChatHeaderWrapper",
       componentId: "sc-564ca575-0"
     })`
   display: flex;
-  padding: ${(0, _v21.rem)(24)};
+  padding: ${(0, _v22.rem)(24)};
   align-items: center;
   position: relative;
 
   button {
     position: absolute;
-    top: ${(0, _v21.rem)(24)};
+    top: ${(0, _v22.rem)(24)};
   }
 
   h3 {
@@ -3513,14 +3474,14 @@
     margin: 0;
   }
 `,
-    _v161 = (0, _v22.default)(_v27.Button).withConfig({
+    _v161 = (0, _v23.default)(_v29.Button).withConfig({
       displayName: "GuestInterviewChatHeader__GuestInterviewChatToggle",
       componentId: "sc-564ca575-1"
     })`
-  color: ${_v23.bokehTheme.colors.white};
+  color: ${_v25.bokehTheme.colors.white};
 
   &:hover {
-    background-color: ${_v23.bokehTheme.colors.gray["600"]};
+    background-color: ${_v25.bokehTheme.colors.gray["600"]};
   }
 `;
   function _v162({
@@ -3528,16 +3489,16 @@
   }) {
     return (0, _v10.jsxs)(_v160, {
       children: [(0, _v10.jsx)(_v161, {
-        icon: (0, _v10.jsx)(_v159.ChevronRightSmall, {}),
+        leftIcon: (0, _v10.jsx)(_v159.ChevronRightSmall, {}),
         onClick: _v0
-      }), (0, _v10.jsx)(_v28.Header, {
-        size: "3",
-        theme: _v25.themes.dark,
+      }), (0, _v10.jsx)(_v27.Header, {
+        as: "h3",
+        size: "md",
         children: _v119.T_CHAT
       })]
     });
   }
-  let _v163 = _v22.default.div.withConfig({
+  let _v163 = _v23.default.div.withConfig({
       displayName: "GuestInterviewChatMessage__GuestInterviewMessage",
       componentId: "sc-84fed8de-0"
     })`
@@ -3546,31 +3507,31 @@
   word-wrap: break-word;
   margin: ${({
       isFromHost: _v0
-    }) => _v0 ? `0 0 ${(0, _v21.rem)(12)} 0` : `0 ${(0, _v21.rem)(20)} ${(0, _v21.rem)(12)} ${(0, _v21.rem)(20)}`};
+    }) => _v0 ? `0 0 ${(0, _v22.rem)(12)} 0` : `0 ${(0, _v22.rem)(20)} ${(0, _v22.rem)(12)} ${(0, _v22.rem)(20)}`};
   background-color: ${({
       isFromHost: _v0
-    }) => _v0 ? _v23.bokehTheme.colors.gray["700"] : "transparent"};
+    }) => _v0 ? _v25.bokehTheme.colors.gray["700"] : "transparent"};
   padding: ${({
       isFromHost: _v0
-    }) => _v0 ? `${(0, _v21.rem)(12)} ${(0, _v21.rem)(20)}` : 0};
+    }) => _v0 ? `${(0, _v22.rem)(12)} ${(0, _v22.rem)(20)}` : 0};
 
   > :last-child {
     margin: 0;
   }
 `,
-    _v164 = _v22.default.div.withConfig({
+    _v164 = _v23.default.div.withConfig({
       displayName: "GuestInterviewChatMessage__GuestInterviewOwnMessage",
       componentId: "sc-84fed8de-1"
     })`
   display: flex;
   flex-direction: column;
   word-wrap: break-word;
-  margin: 0 ${(0, _v21.rem)(20)} ${(0, _v21.rem)(12)} ${(0, _v21.rem)(20)};
-  color: ${_v23.bokehTheme.colors.white};
+  margin: 0 ${(0, _v22.rem)(20)} ${(0, _v22.rem)(12)} ${(0, _v22.rem)(20)};
+  color: ${_v25.bokehTheme.colors.white};
   align-self: flex-end;
-  background-color: ${_v23.bokehTheme.colors.gray["600"]};
-  border-radius: ${(0, _v21.rem)(8)};
-  padding: ${(0, _v21.rem)(12)};
+  background-color: ${_v25.bokehTheme.colors.gray["600"]};
+  border-radius: ${(0, _v22.rem)(8)};
+  padding: ${(0, _v22.rem)(12)};
   max-width: 75%;
 
   > :last-child {
@@ -3591,21 +3552,22 @@
       _v5 = _v3 === _v48.EConnectionType.STUDIO;
     return _v4 ? (0, _v10.jsx)(_v164, {
       children: (0, _v10.jsx)(_v141.Paragraph, {
-        size: "2",
+        size: "md",
         children: _v1
       })
     }) : (0, _v10.jsxs)(_v163, {
       isFromHost: _v5,
-      children: [(0, _v10.jsx)(_v28.Header, {
-        size: "5",
+      children: [(0, _v10.jsx)(_v27.Header, {
+        as: "h5",
+        size: "sm",
         children: _v5 ? _v107.host : _v2
       }), (0, _v10.jsx)(_v141.Paragraph, {
-        size: "2",
+        size: "md",
         children: _v1
       })]
     });
   }
-  let _v166 = _v22.default.div.withConfig({
+  let _v166 = _v23.default.div.withConfig({
       displayName: "GuestInterviewChatHistory__GuestInterviewChatHistoryWrapper",
       componentId: "sc-f98966ee-0"
     })`
@@ -3613,19 +3575,19 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  color: ${_v23.bokehTheme.colors.white};
+  color: ${_v25.bokehTheme.colors.white};
   overflow: auto;
-  padding: ${(0, _v21.rem)(12)} 0;
+  padding: ${(0, _v22.rem)(12)} 0;
 
   > :first-child {
     margin-top: auto;
   }
 
   * {
-    color: ${_v23.bokehTheme.colors.white};
+    color: ${_v25.bokehTheme.colors.white};
   }
 `,
-    _v167 = _v22.default.div.withConfig({
+    _v167 = _v23.default.div.withConfig({
       displayName: "GuestInterviewChatHistory__GuestInterviewNoMessagesNotification",
       componentId: "sc-f98966ee-1"
     })`
@@ -3633,9 +3595,9 @@
   flex-grow: 1;
   justify-content: center;
   align-items: center;
-  color: ${_v23.bokehTheme.colors.white};
+  color: ${_v25.bokehTheme.colors.white};
 `,
-    _v168 = _v22.default.div.withConfig({
+    _v168 = _v23.default.div.withConfig({
       displayName: "GuestInterviewChatHistory__GuestInterviewMoreMessagesBelow",
       componentId: "sc-f98966ee-2"
     })`
@@ -3643,27 +3605,27 @@
     180deg,
     #1d242c10 0%,
     #1d242caa 45%,
-    ${_v23.bokehTheme.colors.gray["750"]} 100%
+    ${_v25.bokehTheme.colors.gray["750"]} 100%
   );
   position: absolute;
   width: 100%;
   display: flex;
   font-weight: 700;
   justify-content: center;
-  padding: ${(0, _v21.rem)(8)} ${(0, _v21.rem)(40)};
+  padding: ${(0, _v22.rem)(8)} ${(0, _v22.rem)(40)};
   bottom: 80px;
   z-index: 10;
 `,
-    _v169 = _v22.default.div.withConfig({
+    _v169 = _v23.default.div.withConfig({
       displayName: "GuestInterviewChatHistory__GuestInterviewMoreMessagesButton",
       componentId: "sc-f98966ee-3"
     })`
   cursor: pointer;
-  color: ${_v23.bokehTheme.colors.white};
+  color: ${_v25.bokehTheme.colors.white};
   background-color: black;
-  padding: ${(0, _v21.rem)(12)} ${(0, _v21.rem)(16)};
+  padding: ${(0, _v22.rem)(12)} ${(0, _v22.rem)(16)};
   width: 100%;
-  border-radius: ${(0, _v21.rem)(4)};
+  border-radius: ${(0, _v22.rem)(4)};
   display: flex;
   justify-content: center;
 `;
@@ -3713,18 +3675,18 @@
   }
   var _v171 = _v0.i(0),
     _v172 = _v0.i(0);
-  let _v173 = _v22.default.div.withConfig({
+  let _v173 = _v23.default.div.withConfig({
       displayName: "GuestInterviewChatInput__GuestInterviewChatInputWrapper",
       componentId: "sc-19108983-0"
     })`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: ${(0, _v21.rem)(20)};
+  padding: ${(0, _v22.rem)(20)};
 
   > :first-child {
     flex-grow: 1;
-    margin: 0 ${(0, _v21.rem)(8)} 0 0;
+    margin: 0 ${(0, _v22.rem)(8)} 0 0;
 
     * {
       margin: 0;
@@ -3740,7 +3702,7 @@
     filter: contrast(0.5) brightness(0.5);
   }
 `,
-    _v174 = (0, _v22.default)(_v134.Input).withConfig({
+    _v174 = (0, _v23.default)(_v134.Input).withConfig({
       displayName: "GuestInterviewChatInput__ChatInput",
       componentId: "sc-19108983-1"
     })`
@@ -3778,78 +3740,76 @@
       children: [(0, _v10.jsx)(_v174, {
         ref: _v7,
         value: _v2,
-        theme: _v25.themes.dark,
-        label: !1,
         placeholder: _v107.typeMessage,
         onKeyDown: _v11,
         onChange: _v9
-      }), (0, _v10.jsx)(_v27.Button, {
+      }), (0, _v10.jsx)(_v29.Button, {
         size: "sm",
-        format: "secondary",
-        theme: _v25.themes.dark,
-        icon: (0, _v10.jsx)(_v171.ArrowDown, {
-          color: _v23.bokehTheme.colors.white
+        variant: "outline",
+        colorScheme: "gray",
+        leftIcon: (0, _v10.jsx)(_v171.ArrowDown, {
+          color: _v25.bokehTheme.colors.white
         }),
-        disabled: !_v8,
+        isDisabled: !_v8,
         onClick: _v10
       })]
     });
   }
-  let _v176 = _v22.default.div.withConfig({
+  let _v176 = _v23.default.div.withConfig({
       displayName: "GuestInterviewChat__GuestInterviewChatWrapper",
       componentId: "sc-5cfda14f-0"
     })`
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: ${_v23.bokehTheme.colors.gray["750"]};
+  background-color: ${_v25.bokehTheme.colors.gray["750"]};
   flex-grow: ${({
       isOpen: _v0
     }) => 4 * !!_v0};
   transition-duration: 400ms;
   min-width: ${({
       isOpen: _v0
-    }) => _v0 ? (0, _v21.rem)(280) : 0};
+    }) => _v0 ? (0, _v22.rem)(280) : 0};
   max-width: 25%;
   max-height: 100vh;
   overflow: hidden;
 `,
-    _v177 = _v22.default.div.withConfig({
+    _v177 = _v23.default.div.withConfig({
       displayName: "GuestInterviewChat__GuestInterviewChatPreview",
       componentId: "sc-5cfda14f-1"
     })`
   display: flex;
-  padding: ${(0, _v21.rem)(4)};
+  padding: ${(0, _v22.rem)(4)};
 
   button {
-    top: ${(0, _v21.rem)(20)};
+    top: ${(0, _v22.rem)(20)};
   }
 
   svg {
     transform: rotate(180deg);
   }
 `,
-    _v178 = (0, _v22.default)(_v27.Button).withConfig({
+    _v178 = (0, _v23.default)(_v29.Button).withConfig({
       displayName: "GuestInterviewChat__GuestInterviewChatToggle",
       componentId: "sc-5cfda14f-2"
     })`
-  color: ${_v23.bokehTheme.colors.white};
+  color: ${_v25.bokehTheme.colors.white};
 
   &:hover {
-    background-color: ${_v23.bokehTheme.colors.gray["600"]};
+    background-color: ${_v25.bokehTheme.colors.gray["600"]};
   }
 `,
-    _v179 = _v22.default.hr.withConfig({
+    _v179 = _v23.default.hr.withConfig({
       displayName: "GuestInterviewChat__GuestInterviewChatDivider",
       componentId: "sc-5cfda14f-3"
     })`
   border-bottom: 0;
-  color: ${_v23.bokehTheme.colors.gray["600"]};
-  margin: 0 ${(0, _v21.rem)(20)};
-  height: ${(0, _v21.rem)(1)};
+  color: ${_v25.bokehTheme.colors.gray["600"]};
+  margin: 0 ${(0, _v22.rem)(20)};
+  height: ${(0, _v22.rem)(1)};
   z-index: 15;
 `,
-    _v180 = _v22.default.div.withConfig({
+    _v180 = _v23.default.div.withConfig({
       displayName: "GuestInterviewChat__Spacer",
       componentId: "sc-5cfda14f-4"
     })`
@@ -3879,24 +3839,24 @@
         }), (0, _v10.jsx)(_v179, {}), _v2 ? (0, _v10.jsx)(_v180, {}) : (0, _v10.jsx)(_v170, {}), (0, _v10.jsx)(_v179, {}), (0, _v10.jsx)(_v175, {})]
       }) : (0, _v10.jsx)(_v177, {
         children: (0, _v10.jsx)(_v178, {
-          icon: (0, _v10.jsx)(_v159.ChevronRightSmall, {}),
+          leftIcon: (0, _v10.jsx)(_v159.ChevronRightSmall, {}),
           onClick: _v4
         })
       })
     });
   }
-  let _v182 = _v22.default.div.withConfig({
+  let _v182 = _v23.default.div.withConfig({
       displayName: "ShutdownNotification__ShutdownNotificationBody",
       componentId: "sc-effb2f94-0"
     })`
   display: flex;
   flex-direction: column;
-  padding: ${(0, _v21.rem)(16)};
-  background: ${_v23.bokehTheme.colors.gray["700"]};
+  padding: ${(0, _v22.rem)(16)};
+  background: ${_v25.bokehTheme.colors.gray["700"]};
 
   h6,
   h2 {
-    color: ${_v23.bokehTheme.colors.gray["100"]};
+    color: ${_v25.bokehTheme.colors.gray["100"]};
   }
 
   button {
@@ -3936,36 +3896,35 @@
         }
         _v1.leaveInterview();
       }, []);
-    return null === _v0 ? null : (0, _v10.jsx)(_v24.Modal, {
+    return null === _v0 ? null : (0, _v10.jsx)(_v26.Modal, {
       active: !0,
       size: "md",
       content: (0, _v10.jsxs)(_v182, {
-        children: [(0, _v10.jsx)(_v24.Modal.Header, {
+        children: [(0, _v10.jsx)(_v26.Modal.Header, {
           children: _v183[_v0]
         }), (0, _v10.jsx)(_v141.Paragraph, {
-          size: "2",
-          theme: _v25.themes.dark,
+          size: "md",
           children: _v184[_v0]
-        }), (0, _v10.jsx)(_v27.Button, {
-          format: "primary",
+        }), (0, _v10.jsx)(_v29.Button, {
+          colorScheme: "vimeoBlue",
           onClick: _v2,
           children: _v107.okay
         })]
       })
     });
   }
-  let _v186 = _v22.default.div.withConfig({
+  let _v186 = _v23.default.div.withConfig({
       displayName: "GuestInterviewPreview__GuestInterviewPreviewWrapper",
       componentId: "sc-34d64ae1-0"
     })`
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  background-color: ${_v23.bokehTheme.colors.gray["800"]};
-  min-width: ${(0, _v21.rem)(840)};
+  background-color: ${_v25.bokehTheme.colors.gray["800"]};
+  min-width: ${(0, _v22.rem)(840)};
   height: 100vh;
 `,
-    _v187 = _v22.default.div.withConfig({
+    _v187 = _v23.default.div.withConfig({
       displayName: "GuestInterviewPreview__GuestInterviewContentWrapper",
       componentId: "sc-34d64ae1-1"
     })`
@@ -3976,7 +3935,7 @@
   align-items: center;
   height: 100%;
 `,
-    _v188 = _v22.default.main.withConfig({
+    _v188 = _v23.default.main.withConfig({
       displayName: "GuestInterviewPreview__GuestInterviewPreviewVideoWrapper",
       componentId: "sc-34d64ae1-2"
     })`
@@ -3987,7 +3946,7 @@
   justify-content: center;
   align-items: center;
 `,
-    _v189 = _v22.default.div.withConfig({
+    _v189 = _v23.default.div.withConfig({
       displayName: "GuestInterviewPreview__LoaderWrapper",
       componentId: "sc-34d64ae1-3"
     })`
@@ -3998,7 +3957,7 @@
   align-items: center;
   justify-content: center;
 `,
-    _v190 = (0, _v22.default)(_v151.Spinner).withConfig({
+    _v190 = (0, _v23.default)(_v151.Spinner).withConfig({
       displayName: "GuestInterviewPreview__GuestLoader",
       componentId: "sc-34d64ae1-4"
     })`
@@ -4073,7 +4032,7 @@
   function _v192({
     debugControlContext: {
       isEnabled: _v0
-    } = (0, _v16.useManager)(_v20.DebugControlManager, ({
+    } = (0, _v16.useManager)(_v21.DebugControlManager, ({
       isEnabled: _v0
     }) => [_v0]),
     interviewContext: {
@@ -4082,11 +4041,11 @@
       isJoined: _v0
     }) => [_v0])
   }) {
-    return (0, _v10.jsxs)(_v10.Fragment, {
+    return (0, _v10.jsxs)(_v20.DarkMode, {
       children: [_v1 ? (0, _v10.jsx)(_v191, {}) : (0, _v10.jsx)(_v150, {}), _v0 ? (0, _v10.jsx)(_v103, {}) : null]
     });
   }
-  let _v193 = (0, _v16.createProvider)([_v84, _v95, _v101, _v56, _v20.DebugControlManager]);
+  let _v193 = (0, _v16.createProvider)([_v84, _v95, _v101, _v56, _v21.DebugControlManager]);
   function _v194({
     initialState: _v0,
     children: _v1

@@ -905,24 +905,26 @@
       })
     });
   }
-  let _v85 = _v24.default.div.withConfig({
+  var _v85 = _v0.i(0);
+  let _v86 = _v24.default.div.withConfig({
       displayName: "LoadMore__LoadMoreWrapper",
       componentId: "sc-b062ef88-0"
     })`
   margin: ${(0, _v23.rem)(40)} 0 ${(0, _v23.rem)(48)};
 `,
-    _v86 = _v0 => {
+    _v87 = _v0 => {
       let {
         isLoadingMore: _v1,
         onClick: _v2
       } = _v0;
-      return (0, _v1.jsx)(_v85, {
-        children: (0, _v1.jsx)(_v27.Button, {
-          format: "secondary",
-          fluid: !0,
-          disabled: _v1,
+      return (0, _v1.jsx)(_v86, {
+        children: (0, _v1.jsx)(_v85.Button, {
+          variant: "outline",
+          colorScheme: "gray",
+          width: "full",
+          isLoading: _v1,
           onClick: _v2,
-          children: _v1 ? (0, _v1.jsx)(_v76.Spinner, {}) : (0, _v21.translate)({
+          children: (0, _v21.translate)({
             singular: "Load more…",
             dictionary: {
               es: {
@@ -951,17 +953,20 @@
         })
       });
     };
-  var _v87 = _v0.i(0),
-    _v88 = _v0.i(0),
-    _v89 = _v0.i(0);
-  function _v90({
+  var _v88 = _v0.i(0),
+    _v89 = _v0.i(0),
+    _v90 = _v0.i(0);
+  function _v91({
     onChange: _v0,
     searchValue: _v1
   }) {
     let [_v2, _v3] = (0, _v3.useState)(!1),
       _v4 = (0, _v3.useRef)(null);
-    (0, _v89.useOutsideClick)([_v4], () => {
-      _v2 && !_v1 && _v3(!1);
+    (0, _v89.useOutsideClick)({
+      ref: _v4,
+      handler: () => {
+        _v2 && !_v1 && _v3(!1);
+      }
     });
     let _v5 = (0, _v3.useCallback)(_v0 => {
       _v0(_v0.target.value);
@@ -998,18 +1003,18 @@
           }
         }),
         id: "ptfSearchToggle",
-        icon: (0, _v1.jsx)(_v88.SearchMagnifier, {}),
+        icon: (0, _v1.jsx)(_v90.SearchMagnifier, {}),
         variant: "tertiary",
         onClick: () => _v3(!0)
-      }), _v2 && (0, _v1.jsx)(_v92, {
-        children: (0, _v1.jsx)(_v87.Search, {
+      }), _v2 && (0, _v1.jsx)(_v93, {
+        children: (0, _v1.jsx)(_v88.Search, {
           autoFocus: !0,
           onChange: _v5
         })
       })]
     });
   }
-  let _v91 = _v24.keyframes`
+  let _v92 = _v24.keyframes`
   from {
     width: ${(0, _v9.rem)(35)};
     opacity: 0
@@ -1020,7 +1025,7 @@
     opacity: 1
   }
 `,
-    _v92 = _v24.default.div.withConfig({
+    _v93 = _v24.default.div.withConfig({
       displayName: "SearchField__InputWrapper",
       componentId: "sc-92f9ae7d-0"
     })`
@@ -1028,13 +1033,13 @@
   top: 50%;
   transform: translateY(-50%);
   max-width: ${(0, _v9.rem)(500)};
-  animation: ${_v91} 250ms ease forwards;
+  animation: ${_v92} 250ms ease forwards;
 
   input {
     height: ${(0, _v9.rem)(40)};
   }
 `,
-    _v93 = ["uri", "name", "creatorUri", "modifiedTime", "metadata.connections.items", "metadata.connections.personalTeamFolderOwner", "metadata.interactions"];
+    _v94 = ["uri", "name", "creatorUri", "modifiedTime", "metadata.connections.items", "metadata.connections.personalTeamFolderOwner", "metadata.interactions"];
   _v0.s(["DeactivatedPtf", 0, function ({
     ownerUserId: _v0
   }) {
@@ -1056,7 +1061,7 @@
         where: {
           userId: _v0
         },
-        select: _v93,
+        select: _v94,
         query: {
           query: _v7 ?? null,
           sort: _v5,
@@ -1196,7 +1201,7 @@
                 })
               })
             })]
-          }), (0, _v1.jsx)(_v90, {
+          }), (0, _v1.jsx)(_v91, {
             searchValue: _v7,
             onChange: _v19
           })]
@@ -1210,7 +1215,7 @@
           setSortDirection: _v0 => _v4(_v0),
           sortValue: _v5,
           setSortValue: _v6
-        }) : (0, _v1.jsx)(_v56, {}), !_v14 && _v16 && (0, _v1.jsx)(_v86, {
+        }) : (0, _v1.jsx)(_v56, {}), !_v14 && _v16 && (0, _v1.jsx)(_v87, {
           isLoadingMore: !!_v15,
           onClick: () => {
             _v11(_v10 + 1);

@@ -590,6 +590,61 @@
           }
         }
       })
+    }, {
+      key: "ai_analytics",
+      policyName: "AI Analytics",
+      label: (0, _v11.translate)({
+        singular: "Custom analytics",
+        dictionary: {
+          es: {
+            singular: "Analítica personalizada"
+          },
+          "de-DE": {
+            singular: "Benutzerdefinierte Analysen"
+          },
+          "fr-FR": {
+            singular: "Analyses personnalisées"
+          },
+          "ja-JP": {
+            singular: "カスタムアナリティクス"
+          },
+          "ko-KR": {
+            singular: "맞춤형 분석"
+          },
+          "pt-BR": {
+            singular: "Análises personalizadas"
+          },
+          "zh-CN": {
+            singular: "自定义分析"
+          }
+        }
+      }),
+      description: (0, _v11.translate)({
+        singular: "Generate and combine AI-powered data widgets into custom dashboards",
+        dictionary: {
+          es: {
+            singular: "Genera y combina widgets de datos impulsados por IA en paneles personalizados"
+          },
+          "de-DE": {
+            singular: "KI-gestützte Daten-Widgets erstellen und zu benutzerdefinierten Dashboards kombinieren"
+          },
+          "fr-FR": {
+            singular: "Générez et combinez des widgets de données alimentés par l'IA dans des tableaux de bord personnalisés"
+          },
+          "ja-JP": {
+            singular: "AIを活用したデータウィジェットを生成して組み合わせ、カスタムダッシュボードに統合する"
+          },
+          "ko-KR": {
+            singular: "AI 기반 데이터 위젯을 생성하고 결합하여 맞춤형 대시보드로 구성합니다"
+          },
+          "pt-BR": {
+            singular: "Gere e combine widgets de dados com recursos de IA em painéis personalizados"
+          },
+          "zh-CN": {
+            singular: "生成并组合由 AI 驱动的数据小部件，以构建自定义仪表板"
+          }
+        }
+      })
     }],
     _v43 = (_v0, _v1) => !!_v0?.some(_v0 => _v0.name === _v1);
   var _v44 = _v0.i(0),

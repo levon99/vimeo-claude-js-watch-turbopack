@@ -27,6 +27,7 @@
 - https://vimeo.com/checkout/[plan]/monthly/trial
 - https://vimeo.com/checkout/[plan]/renew-now
 - https://vimeo.com/checkout/[plan]/trial
+- https://vimeo.com/checkout/[plan]/weekly
 - https://vimeo.com/create/templates/[[...params]]
 - https://vimeo.com/create/[path]
 - https://vimeo.com/demo/baseline/blank

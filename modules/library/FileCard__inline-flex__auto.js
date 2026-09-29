@@ -20,15 +20,17 @@
     showAvatarInSubtitle: _v7 = !1,
     actionsMenu: _v8,
     hoverActions: _v9,
-    isSelectable: _v10 = !1,
-    isSelected: _v11 = !1,
-    onToggleSelected: _v12,
-    onClick: _v13,
-    onMouseEnter: _v14,
-    width: _v15,
-    titleStyles: _v16
+    filePrivacy: _v10,
+    onPrivacyBadgeClick: _v11,
+    isSelectable: _v12 = !1,
+    isSelected: _v13 = !1,
+    onToggleSelected: _v14,
+    onClick: _v15,
+    onMouseEnter: _v16,
+    width: _v17,
+    titleStyles: _v18
   }) => {
-    let _v17;
+    let _v19;
     if (_v5 && (_v7 || null == _v4)) {
       let _v0 = (0, _v1.jsx)(_v2.Avatar, {
         alt: _v6 ?? "",
@@ -38,7 +40,7 @@
           name: _v6 ?? ""
         }
       });
-      _v17 = _v6 ? (0, _v1.jsx)(_v6.Tooltip, {
+      _v19 = _v6 ? (0, _v1.jsx)(_v6.Tooltip, {
         label: _v6,
         children: (0, _v1.jsx)(_v3.Box, {
           display: "inline-flex",
@@ -47,10 +49,10 @@
         })
       }) : _v0;
     }
-    let _v18 = _v7 && null != _v17 ? (0, _v1.jsxs)(_v4.Flex, {
+    let _v20 = _v7 && null != _v19 ? (0, _v1.jsxs)(_v4.Flex, {
       alignItems: "center",
       gap: "xs",
-      children: [_v17, null != _v1 && "" !== _v1 && (0, _v1.jsx)(_v5.Text, {
+      children: [_v19, null != _v1 && "" !== _v1 && (0, _v1.jsx)(_v5.Text, {
         variant: "body-sm",
         color: "text-tertiary",
         noOfLines: 1,
@@ -59,11 +61,11 @@
     }) : _v1;
     return (0, _v1.jsxs)(_v7.ContentCard, {
       href: _v2,
-      onClick: _v13,
-      onMouseEnter: _v14,
-      onToggleSelected: _v12,
-      isSelected: _v11,
-      width: _v15,
+      onClick: _v15,
+      onMouseEnter: _v16,
+      onToggleSelected: _v14,
+      isSelected: _v13,
+      width: _v17,
       ariaLabel: "File card",
       children: [(0, _v1.jsxs)(_v7.ContentCard.Body, {
         children: [(0, _v1.jsx)(_v7.ContentCard.DefaultThumbnail, {
@@ -72,7 +74,7 @@
             name: _v0,
             contentType: _v3
           })
-        }), _v10 && (0, _v1.jsx)(_v4.Flex, {
+        }), _v12 && (0, _v1.jsx)(_v4.Flex, {
           position: "absolute",
           top: "8px",
           left: "8px",
@@ -82,14 +84,18 @@
           children: (0, _v1.jsx)(_v7.ContentCard.SelectCheckbox, {
             size: "md"
           })
-        }), _v9]
+        }), _v9, (0, _v1.jsx)(_v7.ContentCard.VideoPrivacyBadge, {
+          videoPrivacy: _v10,
+          layout: "overlay",
+          onClick: _v11
+        })]
       }), (0, _v1.jsx)(_v7.ContentCard.Footer, {
         actions: _v8,
-        avatar: null != _v4 ? void 0 : _v17,
+        avatar: null != _v4 ? void 0 : _v19,
         leadingIcon: _v4,
         title: _v0,
-        subtitle: _v18,
-        titleStyles: _v16
+        subtitle: _v20,
+        titleStyles: _v18
       })]
     });
   }]);

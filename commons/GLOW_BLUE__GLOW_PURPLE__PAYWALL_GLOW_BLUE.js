@@ -17,5 +17,13 @@
     left: 252.6,
     top: -75.4,
     size: 436.8
+  }, "PLAN_BUNDLE_GLOW_BLUE", 0, {
+    left: -407.2,
+    top: -344.2,
+    size: 735.4
+  }, "PLAN_BUNDLE_GLOW_PURPLE", 0, {
+    left: 21.8,
+    top: -409.2,
+    size: 673.4
   }]);
 }

@@ -2362,10 +2362,11 @@
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
     _v78 = _v0.i(0),
-    _v79 = _v0.i(0),
-    _v80 = _v0.i(0),
-    _v81 = _v0.i(0);
-  let _v82 = ({
+    _v79 = _v0.i(0);
+  let _v80 = /\.(mp4|avi|mov|wmv|flv|MP4|AVI|MOV|WMV|FLV)$/;
+  var _v81 = _v0.i(0),
+    _v82 = _v0.i(0);
+  let _v83 = ({
     upload: _v0
   }) => {
     let _v1 = _v42({
@@ -2377,30 +2378,29 @@
       children: _v1?.description
     });
   };
-  var _v83 = _v0.i(0);
-  let _v84 = ({
-      upload: _v0
-    }) => {
-      let _v1 = (0, _v2.useRef)(void 0),
-        _v2 = Math.ceil(_v0.bytesUploaded / _v0.initialSize * 10);
-      (0, _v2.useEffect)(() => (_v0.file instanceof File && (_v1.current = new _v83.ThumbnailGenerator(_v0.file)), () => {
-        _v1.current && _v1.current.removeAllListeners();
-      }), [_v0.file, _v0.id]);
-      let _v3 = (_v0.file instanceof File ? "" : _v0.file.thumbnailLink) || "https://i.vimeocdn.com/video/default-2308240_92x56";
-      return _v1.current && _v1.current.frames.length && (_v3 = _v1.current.frames[_v2] ? _v1.current.frames[_v2] : _v1.current.frames[_v1.current.frames.length - 1]), (0, _v1.jsx)(_v8.Flex, {
-        borderRadius: "xs",
-        minHeight: (0, _v12.rem)(40),
-        minWidth: (0, _v12.rem)(72),
-        maxHeight: (0, _v12.rem)(40),
-        maxWidth: (0, _v12.rem)(72),
-        backgroundImage: _v3,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundColor: "stroke"
-      });
-    },
-    _v85 = /\.(mp4|avi|mov|wmv|flv|MP4|AVI|MOV|WMV|FLV)$/;
+  var _v84 = _v0.i(0);
+  let _v85 = ({
+    upload: _v0
+  }) => {
+    let _v1 = (0, _v2.useRef)(void 0),
+      _v2 = Math.ceil(_v0.bytesUploaded / _v0.initialSize * 10);
+    (0, _v2.useEffect)(() => (_v0.file instanceof File && (_v1.current = new _v84.ThumbnailGenerator(_v0.file)), () => {
+      _v1.current && _v1.current.removeAllListeners();
+    }), [_v0.file, _v0.id]);
+    let _v3 = (_v0.file instanceof File ? "" : _v0.file.thumbnailLink) || "https://i.vimeocdn.com/video/default-2308240_92x56";
+    return _v1.current && _v1.current.frames.length && (_v3 = _v1.current.frames[_v2] ? _v1.current.frames[_v2] : _v1.current.frames[_v1.current.frames.length - 1]), (0, _v1.jsx)(_v8.Flex, {
+      borderRadius: "xs",
+      minHeight: (0, _v12.rem)(40),
+      minWidth: (0, _v12.rem)(72),
+      maxHeight: (0, _v12.rem)(40),
+      maxWidth: (0, _v12.rem)(72),
+      backgroundImage: _v3,
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+      backgroundColor: "stroke"
+    });
+  };
   var _v86 = _v0.i(0),
     _v87 = _v0.i(0),
     _v88 = _v0.i(0);
@@ -2653,17 +2653,17 @@
         } = (_v0 => {
           let {
               trackPrivacyChanged: _v1
-            } = (0, _v81.useViewPrivacyChangeTracking)(),
+            } = (0, _v82.useViewPrivacyChangeTracking)(),
             [_v2, {
               data: _v3,
               called: _v4,
               loading: _v5,
               error: _v6
-            }] = (0, _v80.usePatchVideo)(),
+            }] = (0, _v81.usePatchVideo)(),
             {
               data: _v7,
               mutate: _v8
-            } = (0, _v80.useGetVideo)(() => _v0 ? {
+            } = (0, _v81.useGetVideo)(() => _v0 ? {
               select: ["name", "privacy.view", "password", "link"],
               where: {
                 videoId: Number(_v0)
@@ -3094,7 +3094,7 @@
           },
           onMouseEnter: _v29,
           onMouseLeave: _v30,
-          children: [(0, _v1.jsx)(_v84, {
+          children: [(0, _v1.jsx)(_v85, {
             upload: _v0
           }), (0, _v1.jsxs)(_v76.Box, {
             overflow: "hidden",
@@ -3105,7 +3105,7 @@
               textOverflow: "ellipsis",
               whiteSpace: "nowrap",
               size: "xs",
-              children: _v0.file.name.replace(_v85, "")
+              children: _v0.file.name.replace(_v80, "")
             }), (0, _v1.jsxs)(_v8.Flex, {
               display: "flex",
               justifyContent: "flex-start",
@@ -3143,7 +3143,7 @@
                   children: _v31
                 })
               }) : null, _v0.state === _v4.STATES.FAILED && (0, _v1.jsx)(_v8.Flex, {
-                children: (0, _v1.jsx)(_v82, {
+                children: (0, _v1.jsx)(_v83, {
                   upload: _v0
                 })
               })]

@@ -104,7 +104,7 @@
       };
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [_v0 === _v6 && (0, _v1.jsx)(_v34.ErrorAlertBanner, {
-          message: (0, _v24.translate)({
+          message: (0, _v25.translate)({
             singular: '{FAILED} row out of {TOTAL} from "{FILE_NAME}" failed to upload. {LINK}Download errors.{/LINK}',
             plural: '{FAILED} rows out of {TOTAL} from "{FILE_NAME}" failed to upload. {LINK}Download errors.{/LINK}',
             replacements: {
@@ -172,7 +172,7 @@
           message: ((_v0, _v1) => {
             switch (_v1) {
               case _v30.UPLOAD_CSV_ERRORS.EXCEEDS_MAX_ALLOWED_REGISTRANTS:
-                return (0, _v24.translate)({
+                return (0, _v25.translate)({
                   singular: "{FILE_NAME} exceeds the max allowed number of rows. Please upload a file under {MAX_REGISTRANTS} rows.",
                   replacements: {
                     FILE_NAME: () => (0, _v1.jsx)("strong", {
@@ -196,7 +196,7 @@
                   }
                 });
               case _v30.UPLOAD_CSV_ERRORS.TOO_MANY_REGISTRANTS:
-                return (0, _v24.translate)({
+                return (0, _v25.translate)({
                   singular: "{FILE_NAME} exceeds the max number of attendees.",
                   replacements: {
                     FILE_NAME: () => (0, _v1.jsx)("strong", {
@@ -219,7 +219,7 @@
                   }
                 });
               case _v30.UPLOAD_CSV_ERRORS.EVENT_COMPLETED:
-                return (0, _v24.translate)({
+                return (0, _v25.translate)({
                   singular: "Upload of {FILE_NAME} was interrupted by event completion.",
                   replacements: {
                     FILE_NAME: () => (0, _v1.jsx)("strong", {
@@ -242,7 +242,7 @@
                   }
                 });
               default:
-                return (0, _v24.translate)({
+                return (0, _v25.translate)({
                   singular: "Something went wrong with {FILE_NAME}. Please try again.",
                   replacements: {
                     FILE_NAME: () => (0, _v1.jsx)("strong", {
@@ -300,24 +300,24 @@
         {
           sendAlertBpEvent: _v17
         } = (0, _v27.useAnalytics)(),
-        [_v18, _v19] = (0, _v25.useIsVisible)({
+        [_v18, _v19] = (0, _v22.useIsVisible)({
           threshold: 1
         }),
         [_v20, {
           data: _v21,
           loading: _v22,
           error: _v23
-        }] = (0, _v23.useGetLeadCaptureResourceIdRegistrantsUploadsLazy)(),
+        }] = (0, _v24.useGetLeadCaptureResourceIdRegistrantsUploadsLazy)(),
         [_v24, {
           data: _v25,
           loading: _v26,
           error: _v27
-        }] = (0, _v22.useGetLeadCaptureRegistrantsUploadLazy)(),
+        }] = (0, _v23.useGetLeadCaptureRegistrantsUploadLazy)(),
         [_v28, {
           data: _v29,
           loading: _v30,
           error: _v31
-        }] = (0, _v22.usePatchLeadCaptureRegistrantsUpload)(),
+        }] = (0, _v23.usePatchLeadCaptureRegistrantsUpload)(),
         _v32 = () => {
           clearInterval(_v14.current);
         },
@@ -430,7 +430,7 @@
           }), _v16({
             render: () => (0, _v1.jsx)(_v32.ToastMessage, {
               status: "info",
-              title: (0, _v24.translate)({
+              title: (0, _v25.translate)({
                 singular: 'Importing registrants from "{NAME}"...',
                 replacements: {
                   NAME: (0, _v31.getFileName)(_v1)
@@ -472,7 +472,7 @@
           }, 0), _v16({
             render: () => (0, _v1.jsx)(_v32.ToastMessage, {
               status: "success",
-              title: (0, _v24.translate)({
+              title: (0, _v25.translate)({
                 singular: 'Registrants imported from "{NAME}"',
                 replacements: {
                   NAME: (0, _v31.getFileName)(_v1)
@@ -513,7 +513,7 @@
         _v0.apiPending && _v0.showModalType === _v30.IMPORT_TYPE.CSV && !_v16.isActive(_v0) && _v16({
           render: () => (0, _v1.jsx)(_v32.ToastMessage, {
             status: "info",
-            title: (0, _v24.translate)({
+            title: (0, _v25.translate)({
               singular: 'Importing registrants from "{NAME}"...',
               replacements: {
                 NAME: (0, _v31.getFileName)(_v0)
@@ -673,7 +673,7 @@
         }), window.open(_v0, "_blank");
       };
       return _v8 === _v50.EVENT_STATUS.ENDED && _v4 === _v50.IMPORT ? (0, _v1.jsx)(_v34.ErrorAlertBanner, {
-        message: (0, _v24.translate)({
+        message: (0, _v25.translate)({
           singular: 'Import of "{FILE_NAME}" was interrupted by event completion',
           replacements: {
             FILE_NAME: (0, _v31.getFileName)(_v2)
@@ -714,7 +714,7 @@
           }), _v10?.(_v0, _v4);
         }
       }) : (0, _v1.jsx)(_v34.ErrorAlertBanner, {
-        message: ((_v0, _v1, _v2, _v3 = _v50.IMPORT, _v4, _v5) => _v0 === _v50.ERROR_CATEGORY.AUTHENTICATION ? (0, _v24.translate)({
+        message: ((_v0, _v1, _v2, _v3 = _v50.IMPORT, _v4, _v5) => _v0 === _v50.ERROR_CATEGORY.AUTHENTICATION ? (0, _v25.translate)({
           singular: "Unable to connect to {PROVIDER_NAME}.",
           replacements: {
             PROVIDER_NAME: _v1
@@ -742,7 +742,7 @@
               singular: "无法连接到 {PROVIDER_NAME}。"
             }
           }
-        }) : _v3 === _v50.IMPORT ? (0, _v24.translate)({
+        }) : _v3 === _v50.IMPORT ? (0, _v25.translate)({
           singular: 'Unable to import data from "{LIST_NAME}".{LINK}Download errors{/LINK} for details and try again when errors are fixed.',
           replacements: {
             LIST_NAME: _v2,
@@ -778,7 +778,7 @@
               singular: "无法从“{LIST_NAME}”导入数据。{LINK}下载错误{/LINK}以了解详情，并在错误修复后重试。"
             }
           }
-        }) : (0, _v24.translate)({
+        }) : (0, _v25.translate)({
           singular: 'Unable to export data to "{LIST_NAME}". {LINK}Download errors{/LINK} for details and try again when errors are fixed.',
           replacements: {
             LIST_NAME: _v2,
@@ -893,7 +893,7 @@
           data: _v26,
           error: _v27
         }] = (0, _v41.usePatchLeadCaptureResourceIdRegistrantStatuses)(),
-        [_v28, _v29] = (0, _v25.useIsVisible)({
+        [_v28, _v29] = (0, _v22.useIsVisible)({
           threshold: 1
         }),
         {
@@ -995,7 +995,7 @@
                 _v6 = `processing_${_v1}_${_v2}`;
               if (_v0 !== _v6 || _v11.isActive(_v5)) {
                 let _v0;
-                [_v9, _v5].includes(_v0) && !_v11.isActive(_v6) && (_v0 = _v1 === _v46.SYNC_TYPE.EXPORT ? (0, _v24.translate)({
+                [_v9, _v5].includes(_v0) && !_v11.isActive(_v6) && (_v0 = _v1 === _v46.SYNC_TYPE.EXPORT ? (0, _v25.translate)({
                   singular: 'Exporting registrants to "{NAME}"...',
                   replacements: {
                     NAME: _v2
@@ -1023,7 +1023,7 @@
                       singular: "正在将注册者导出到 “{NAME}”..."
                     }
                   }
-                }) : (0, _v24.translate)({
+                }) : (0, _v25.translate)({
                   singular: 'Syncing registrants from "{NAME}"...',
                   replacements: {
                     NAME: _v2
@@ -1069,7 +1069,7 @@
                 let _v0;
                 setTimeout(() => {
                   _v11.isActive(_v5) && _v33(_v3, _v5, _v1, _v2, _v4, (0, _v29.buildNotificationCopy)(_v10, _v1, _v6, _v2), !1);
-                }, 0), _v0 = _v1 === _v46.SYNC_TYPE.EXPORT ? (0, _v24.translate)({
+                }, 0), _v0 = _v1 === _v46.SYNC_TYPE.EXPORT ? (0, _v25.translate)({
                   singular: 'Registrants exported to "{NAME}"',
                   replacements: {
                     NAME: _v2
@@ -1097,7 +1097,7 @@
                       singular: "已导出注册者至“{NAME}”"
                     }
                   }
-                }) : (0, _v24.translate)({
+                }) : (0, _v25.translate)({
                   singular: 'Registrants synced from "{NAME}"',
                   replacements: {
                     NAME: _v2
@@ -1501,7 +1501,7 @@
         {
           sendUpsellEvent: _v8
         } = (0, _v12.useUpsellAnalytics)(),
-        [_v9, _v10] = (0, _v25.useIsVisible)({
+        [_v9, _v10] = (0, _v22.useIsVisible)({
           threshold: 1
         }),
         _v11 = (0, _v15.useConfigStore)(_v0 => _v0.entityType),

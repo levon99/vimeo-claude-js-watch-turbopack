@@ -240,10 +240,10 @@
       excludedAncestorUrisSet: _v12 = new Set()
     }) => {
       let [_v13, _v14] = (0, _v5.useState)(),
-        _v15 = (0, _v16.useDebouncedValue)(_v13, 400),
+        _v15 = (0, _v12.useDebouncedValue)(_v13, 400),
         {
           settings: _v16
-        } = (0, _v15.useOrionSettings)(),
+        } = (0, _v16.useOrionSettings)(),
         _v17 = _v16.add_to_folders_modal_select_all_folders,
         {
           listingParams: _v18,
@@ -258,7 +258,7 @@
           size: _v24,
           setSize: _v25,
           error: _v26
-        } = (0, _v13.useGetUserProjectsInfinite)(() => (0, _v24.getUserProjectsInfiniteOptions)(_v1, _v15, _v18, _v19), {
+        } = (0, _v14.useGetUserProjectsInfinite)(() => (0, _v24.getUserProjectsInfiniteOptions)(_v1, _v15, _v18, _v19), {
           revalidateOnFocus: !1
         }),
         {
@@ -267,7 +267,7 @@
           size: _v29,
           setSize: _v30,
           error: _v31
-        } = (0, _v12.useGetUserItemsInfinite)(() => (0, _v24.getUserItemsInfiniteOptions)(_v1, _v15), {
+        } = (0, _v13.useGetUserItemsInfinite)(() => (0, _v24.getUserItemsInfiniteOptions)(_v1, _v15), {
           revalidateOnFocus: !1
         }),
         _v32 = (0, _v5.useMemo)(() => {
@@ -294,7 +294,7 @@
         _v6 && !_v33 && 0 === _v36 && _v32.length > 0 && (_v7?.(!1), _v4((0, _v25.unselectAllFolders)()), _v20.current.clear());
       }, [_v6, _v33, _v36, _v32.length, _v7, _v4]);
       let _v37 = _v36 > 0 && !_v34;
-      return (0, _v1.jsx)(_v14.Tour, {
+      return (0, _v1.jsx)(_v15.Tour, {
         id: "folder-tour",
         steps: 2,
         automated: !0,

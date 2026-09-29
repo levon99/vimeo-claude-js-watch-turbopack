@@ -123,16 +123,19 @@
         })
       })
     }), (0, _v1.jsx)(_v9.ContentRow.Column, {
-      href: _v10,
+      href: "string" == typeof _v4 || "number" == typeof _v4 ? _v10 : void 0,
       shouldUseNextLink: _v18,
       hideAtWidth: _v8.bokehTheme.breakpoints.xl,
       children: (0, _v1.jsx)(_v3.Flex, {
         alignItems: "center",
-        children: (0, _v1.jsx)(_v4.Text, {
+        children: "string" == typeof _v4 || "number" == typeof _v4 ? (0, _v1.jsx)(_v4.Text, {
           "data-testid": "row-privacy",
           variant: "body-md",
           marginRight: "10px",
           color: "text-secondary",
+          children: _v4
+        }) : (0, _v1.jsx)(_v2.Box, {
+          "data-testid": "row-privacy",
           children: _v4
         })
       })

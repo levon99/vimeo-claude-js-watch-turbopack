@@ -124,6 +124,7 @@
     reverse_free_trial_arm: "control",
     welcome_offer_modal_arm: "control",
     video_upload_onboarding_arm: "control",
+    email_verification_gate: "control",
     single_question_survey_arm: "control",
     spontaneous_paywall_arm: "control",
     spontaneous_paywall_basic_enabled: !1,
@@ -211,7 +212,8 @@
     replace_in_review: !1,
     reverse_ft_delay_offer_paywall_on_trigger: !1,
     reverse_ft_delay_announcement_on_trigger: !1,
-    reverse_ft_delay_trial_days: 7
+    reverse_ft_delay_trial_days: 7,
+    onboarding_paywall_weekly_enabled: !1
   };
   function _v12() {
     return "vimeo.dev" === window.location.hostname || window.location.hostname.endsWith(".vimeows.com");
@@ -348,22 +350,9 @@
       }
     };
   }
-  class _v20 {
-    mutex = Promise.resolve();
-    async run(_v0) {
-      return new Promise((_v0, _v1) => {
-        this.mutex = this.mutex.then(async () => {
-          try {
-            _v0(await _v0());
-          } catch (_v0) {
-            _v1(_v0);
-          }
-        });
-      });
-    }
-  }
+  var _v20 = _v0.i(0);
   async function _v21(_v0) {
-    let _v1 = new _v20(),
+    let _v1 = new _v20.Mutex(),
       _v2 = _v0 => ({
         isDefaultIdentity: _v0?.isDefaultIdentity ?? !0,
         settings: {

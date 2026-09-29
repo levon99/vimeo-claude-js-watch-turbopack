@@ -3299,57 +3299,57 @@
       })]
     });
   }
-  let _v118 = ({
+  var _v118 = _v0.i(0);
+  let _v119 = ({
       onSuccess: _v0 = async () => void 0,
       onClick: _v1,
       disabled: _v2 = !1,
       hideModalOverlay: _v3 = !1,
       children: _v4
     }) => {
-      let _v5,
-        [_v6, _v7] = (0, _v2.useState)(!1),
-        [_v8, _v9] = (0, _v2.useState)(!1),
-        _v10 = (0, _v2.useRef)(void 0),
-        _v11 = (0, _v2.useContext)(_v16.ViewerContext),
+      let [_v5, _v6] = (0, _v2.useState)(!1),
+        [_v7, _v8] = (0, _v2.useState)(!1),
+        _v9 = (0, _v2.useRef)(void 0),
+        _v10 = (0, _v2.useContext)(_v16.ViewerContext),
         {
-          updateTeamApiConfig: _v12,
-          updateTeamCapabilities: _v13
+          updateTeamApiConfig: _v11,
+          updateTeamCapabilities: _v12
         } = (0, _v2.useContext)(_v39),
-        [_v14, _v15] = (0, _v2.useState)([]),
-        _v16 = "invite-sent-toast",
-        _v17 = {
-          apiUrl: _v11?.apiUrl || "",
-          jwt: _v11?.jwt || "",
-          ownerUri: _v11?.teamUser && _v11.teamUser.plainTextPermissionLevel === _v15.TeamUserPermissionLevel.Admin ? `/users/${_v11?.teamUser?.ownerId}` : _v11?.user?.uri,
-          ownerId: _v11?.teamUser && _v11.teamUser.plainTextPermissionLevel === _v15.TeamUserPermissionLevel.Admin ? _v11?.teamUser.ownerId : _v11?.user?.id ?? 0
+        [_v13, _v14] = (0, _v2.useState)([]),
+        _v15 = "invite-sent-toast",
+        _v16 = {
+          apiUrl: _v10?.apiUrl || "",
+          jwt: _v10?.jwt || "",
+          ownerUri: _v10?.teamUser && _v10.teamUser.plainTextPermissionLevel === _v15.TeamUserPermissionLevel.Admin ? `/users/${_v10?.teamUser?.ownerId}` : _v10?.user?.uri,
+          ownerId: _v10?.teamUser && _v10.teamUser.plainTextPermissionLevel === _v15.TeamUserPermissionLevel.Admin ? _v10?.teamUser.ownerId : _v10?.user?.id ?? 0
         };
       (0, _v2.useEffect)(() => {
-        _v11?.user && _v12(_v17);
-      }, [_v11?.user]);
+        _v10?.user && _v11(_v16);
+      }, [_v10?.user]);
       let {
         capabilities: {
-          canUsePaymentsService: _v18,
-          hasContributorPlusEnabled: _v19,
-          hasEnterprise: _v20,
-          hasLiveSubscription: _v21,
-          haveMoreAdminTeamMembers: _v22,
-          hasPerSeatPricingModelTeamMember: _v23
+          canUsePaymentsService: _v17,
+          hasContributorPlusEnabled: _v18,
+          hasEnterprise: _v19,
+          hasLiveSubscription: _v20,
+          haveMoreAdminTeamMembers: _v21,
+          hasPerSeatPricingModelTeamMember: _v22
         },
-        loading: _v24
-      } = (0, _v13.useCapability)(["canUsePaymentsService", "hasContributorPlusEnabled", "hasEnterprise", "hasLiveSubscription", "haveMoreAdminTeamMembers", "hasPerSeatPricingModelTeamMember"], _v17.ownerUri);
+        loading: _v23
+      } = (0, _v13.useCapability)(["canUsePaymentsService", "hasContributorPlusEnabled", "hasEnterprise", "hasLiveSubscription", "haveMoreAdminTeamMembers", "hasPerSeatPricingModelTeamMember"], _v16.ownerUri);
       (0, _v2.useEffect)(() => {
-        _v13({
-          canUsePaymentsService: _v18,
-          hasContributorPlusEnabled: _v19,
-          hasEnterprise: _v20,
-          hasLiveSubscription: _v21,
-          haveMoreAdminTeamMembers: _v22,
-          hasPerSeatPricingModelTeamMember: _v23
+        _v12({
+          canUsePaymentsService: _v17,
+          hasContributorPlusEnabled: _v18,
+          hasEnterprise: _v19,
+          hasLiveSubscription: _v20,
+          haveMoreAdminTeamMembers: _v21,
+          hasPerSeatPricingModelTeamMember: _v22
         });
-      }, [_v18, _v19, _v20, _v21, _v22, _v23, _v24]);
+      }, [_v17, _v18, _v19, _v20, _v21, _v22, _v23]);
       let {
-        data: _v25,
-        isValidating: _v26
+        data: _v24,
+        isValidating: _v25
       } = (0, _v14.useGetUserProjects)({
         query: {
           excludePrivateToMeFolder: !0,
@@ -3359,15 +3359,15 @@
         },
         select: ["uri"],
         where: {
-          userId: _v17.ownerId
+          userId: _v16.ownerId
         }
       }, {
         revalidateOnFocus: !1
       });
       (0, _v2.useEffect)(() => {
-        !_v26 && _v25 && _v25?.total > 0 && _v7(!0);
-      }, [_v25, _v26]);
-      let [_v27, _v28, _v29] = function () {
+        !_v25 && _v24 && _v24?.total > 0 && _v6(!0);
+      }, [_v24, _v25]);
+      let [_v26, _v27, _v28] = function () {
           let {
               clearEmails: _v0
             } = (0, _v2.useContext)(_v39),
@@ -3381,24 +3381,22 @@
             _v0 && (_v0.style.overflow = "hidden"), _v2(!0);
           }, []), _v3];
         }(),
-        _v30 = (_v5 = (0, _v2.useRef)(null), (0, _v2.useEffect)(() => {
-          _v5.current = window.parent.document.querySelector(".iris_modal-btn--close");
-        }), _v5),
-        _v31 = (0, _v2.useCallback)(() => {
-          _v29(), _v30.current?.click();
-        }, [_v29, _v30]),
-        _v32 = (0, _v2.useCallback)((_v0, _v1) => {
-          _v0?.(_v0, _v1), _v31(), _v9(!0), setTimeout(() => _v9(!1), 0);
-        }, [_v0, _v31]),
-        _v33 = (0, _v2.useCallback)(() => (0, _v1.jsx)(_v1.Fragment, {
-          children: _v14.length > 0 && _v6 ? (0, _v1.jsx)(_v5.AddToFoldersModalContent, {
+        _v29 = (0, _v118.useCloseModalButtonRef)(),
+        _v30 = (0, _v2.useCallback)(() => {
+          _v28(), _v29.current?.click();
+        }, [_v28, _v29]),
+        _v31 = (0, _v2.useCallback)((_v0, _v1) => {
+          _v0?.(_v0, _v1), _v30(), _v8(!0), setTimeout(() => _v8(!1), 0);
+        }, [_v0, _v30]),
+        _v32 = (0, _v2.useCallback)(() => (0, _v1.jsx)(_v1.Fragment, {
+          children: _v13.length > 0 && _v5 ? (0, _v1.jsx)(_v5.AddToFoldersModalContent, {
             onClose: () => {
-              _v15([]), _v0?.(), _v31();
+              _v14([]), _v0?.(), _v30();
             },
-            ownerId: _v17.ownerId,
-            teamUsers: _v14,
+            ownerId: _v16.ownerId,
+            teamUsers: _v13,
             onSuccess: () => {
-              _v15([]), _v32();
+              _v14([]), _v31();
             },
             actionButtonOverrides: {
               cancelButtonLabel: _v52.SkipForNow,
@@ -3408,34 +3406,34 @@
                 feature: "team_management",
                 location: "invite_modal",
                 cancelEventName: "click_skip_inviting_to_folders",
-                teamUser: _v11?.teamUser
+                teamUser: _v10?.teamUser
               }
             }
           }) : (0, _v1.jsx)(_v6.Box, {
             height: "100%",
             overflow: "auto",
             children: (0, _v1.jsx)(_v117, {
-              closeModal: _v31,
-              inviteFormRef: _v10,
+              closeModal: _v30,
+              inviteFormRef: _v9,
               onSubmitSuccess: _v0 => {
-                _v0.length && _v6 ? (_v9(!0), setTimeout(() => _v9(!1), 0), _v15(_v0)) : _v32();
+                _v0.length && _v5 ? (_v8(!0), setTimeout(() => _v8(!1), 0), _v14(_v0)) : _v31();
               }
             })
           })
-        }), [_v10, _v6, _v14]),
-        _v34 = (0, _v11.useToast)(),
-        _v35 = () => {
-          _v1?.(), _v28(), _v15([]), _v4.GoogleTagManager.trackEvent("team_open_invite_modal");
+        }), [_v9, _v5, _v13]),
+        _v33 = (0, _v11.useToast)(),
+        _v34 = () => {
+          _v1?.(), _v27(), _v14([]), _v4.GoogleTagManager.trackEvent("team_open_invite_modal");
         };
       return (0, _v2.useEffect)(() => {
-        _v8 && !_v34.isActive(_v16) && _v34({
-          id: _v16,
+        _v7 && !_v33.isActive(_v15) && _v33({
+          id: _v15,
           title: _v52.InviteSent,
           status: "neutral"
         });
-      }, [_v8, _v34]), (0, _v1.jsxs)(_v1.Fragment, {
+      }, [_v7, _v33]), (0, _v1.jsxs)(_v1.Fragment, {
         children: [_v4 ? _v2.default.cloneElement(_v4, {
-          onClick: _v35,
+          onClick: _v34,
           isDisabled: _v2,
           "data-id": "inviteButton"
         }) : (0, _v1.jsx)(_v7.Button, {
@@ -3443,7 +3441,7 @@
           py: (0, _v3.rem)(4),
           "data-id": "inviteButton",
           isDisabled: _v2,
-          onClick: _v35,
+          onClick: _v34,
           leftIcon: (0, _v1.jsx)(_v12.PersonUserAdd, {
             boxSize: "2xs"
           }),
@@ -3452,23 +3450,23 @@
           variant: "primary",
           children: _v52.Invite
         }), (0, _v1.jsxs)(_v8.Modal, {
-          isOpen: _v27,
+          isOpen: _v26,
           closeOnOverlayClick: !_v3,
           onClose: () => {
-            _v14.length > 0 && (_v15([]), _v0?.()), _v31();
+            _v13.length > 0 && (_v14([]), _v0?.()), _v30();
           },
           children: [!_v3 && (0, _v1.jsx)(_v10.ModalOverlay, {}), (0, _v1.jsx)(_v9.ModalContent, {
             maxW: (0, _v3.rem)(500),
             borderRadius: "xl",
-            children: _v33()
+            children: _v32()
           })]
         })]
       });
     },
-    _v119 = ({
+    _v120 = ({
       untranslatedUserRole: _v0
     }) => _v0 === _v15.TeamUserPermissionLevel.Owner || _v0 === _v15.TeamUserPermissionLevel.Admin,
-    _v120 = {
+    _v121 = {
       FetchTeamInfoInit: _v0 => ({
         ..._v0,
         isTeamInfoLoading: !0
@@ -3476,7 +3474,7 @@
       FetchTeamInfoComplete: (_v0, _v1) => {
         if (!_v1.payload || !_v1.payload.viewer || !_v1.payload?.teamsInfo) throw Error("no payload");
         let _v2 = _v1.payload.viewer.teamUser?.ownerId,
-          _v3 = _v1.payload.teamsInfo.data.filter(_v119),
+          _v3 = _v1.payload.teamsInfo.data.filter(_v120),
           _v4 = _v3.find(({
             untranslatedUserRole: _v0
           }) => _v0 === _v15.TeamUserPermissionLevel.Owner),
@@ -3610,11 +3608,11 @@
         planQuota: _v1.payload
       })
     },
-    _v121 = (_v0, _v1) => {
-      let _v2 = _v120[_v1.type];
+    _v122 = (_v0, _v1) => {
+      let _v2 = _v121[_v1.type];
       return _v2 ? _v2(_v0, _v1) : _v0;
     },
-    _v122 = ({
+    _v123 = ({
       children: _v0
     }) => {
       let _v1,
@@ -3622,7 +3620,7 @@
         _v3,
         _v4,
         _v5 = (0, _v2.useContext)(_v16.ViewerContext),
-        [_v6, _v7] = (0, _v2.useReducer)(_v121, _v36()),
+        [_v6, _v7] = (0, _v2.useReducer)(_v122, _v36()),
         _v8 = (_v1 = async () => {
           if (!_v5) throw Error("no viewer");
           _v7({
@@ -3750,14 +3748,14 @@
         })
       });
     },
-    _v123 = _v2.default.memo(({
+    _v124 = _v2.default.memo(({
       onSuccess: _v0,
       onClick: _v1,
       disabled: _v2 = !1,
       children: _v3,
       hideModalOverlay: _v4 = !1
-    }) => (0, _v1.jsx)(_v122, {
-      children: (0, _v1.jsx)(_v118, {
+    }) => (0, _v1.jsx)(_v123, {
+      children: (0, _v1.jsx)(_v119, {
         onSuccess: _v0,
         onClick: _v1,
         disabled: _v2,
@@ -3765,5 +3763,5 @@
         children: _v3
       })
     }));
-  _v0.s(["default", 0, _v123], 0);
+  _v0.s(["default", 0, _v124], 0);
 }

@@ -1368,7 +1368,24 @@
     color: ${(0, _v30.blue)(500)};
   }
 `;
-  var _v119 = _v0.i(0);
+  var _v119 = (0, _v8.forwardRef)(function (_v0, _v1) {
+    return _v8.default.createElement("svg", (0, _v31.c)({
+      viewBox: "0 0 20 20",
+      ref: _v1
+    }, _v0), _v8.default.createElement("path", {
+      d: "M4.2 12.64a2.1 2.1 0 1 1-2.1-2.1h2.1zM5.26 12.64a2.1 2.1 0 1 1 4.2 0v5.26a2.1 2.1 0 0 1-4.2 0z",
+      fill: "#e01e5a"
+    }), _v8.default.createElement("path", {
+      d: "M7.36 4.2a2.1 2.1 0 1 1 2.1-2.1v2.1zM7.36 5.26a2.1 2.1 0 0 1 0 4.2H2.1a2.1 2.1 0 0 1 0-4.2z",
+      fill: "#36c5f0"
+    }), _v8.default.createElement("path", {
+      d: "M15.8 7.36a2.1 2.1 0 1 1 2.1 2.1h-2.1zM14.74 7.36a2.1 2.1 0 1 1-4.2 0V2.1a2.1 2.1 0 1 1 4.2 0z",
+      fill: "#2eb67d"
+    }), _v8.default.createElement("path", {
+      d: "M12.64 15.8a2.1 2.1 0 1 1-2.1 2.1v-2.1zM12.64 14.74a2.1 2.1 0 0 1 0-4.2h5.26a2.1 2.1 0 0 1 0 4.2z",
+      fill: "#ecb22e"
+    }));
+  });
   let _v120 = function () {
       return (0, _v6.jsx)("svg", {
         width: "24",
@@ -1401,7 +1418,7 @@
           children: _v0.JoinFacebook
         }), (0, _v6.jsx)(_v123, {
           size: "lg",
-          icon: (0, _v6.jsx)(_v119.SlackMark, {}),
+          icon: (0, _v6.jsx)(_v119, {}),
           format: "basic",
           element: "a",
           href: "https://join.slack.com/t/vimeo-experts/shared_invite/zt-sdc4xk9s-5JUVNiX1ejIm5ny27zBifg",

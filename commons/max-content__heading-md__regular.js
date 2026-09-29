@@ -238,6 +238,8 @@
                 onKeyDown: _v0 => _v0.stopPropagation(),
                 alignContent: "center",
                 children: (0, _v1.jsxs)(_v12.Menu, {
+                  strategy: "fixed",
+                  placement: "bottom-end",
                   children: [(0, _v1.jsx)(_v13.MenuButton, {
                     as: _v11.IconButton,
                     size: "md",
@@ -366,6 +368,8 @@
                 onKeyDown: _v0 => _v0.stopPropagation(),
                 alignContent: "center",
                 children: (0, _v1.jsxs)(_v12.Menu, {
+                  strategy: "fixed",
+                  placement: "bottom-end",
                   children: [(0, _v1.jsx)(_v13.MenuButton, {
                     as: _v11.IconButton,
                     size: "md",
@@ -545,6 +549,8 @@
             children: _v0?.name
           })
         }), !_v3 && _v5 && !_v0?.isLocked && (0, _v1.jsxs)(_v12.Menu, {
+          strategy: "fixed",
+          placement: "bottom-end",
           children: [(0, _v1.jsx)(_v44.Tooltip, {
             label: "Brand kit actions",
             placement: "top",

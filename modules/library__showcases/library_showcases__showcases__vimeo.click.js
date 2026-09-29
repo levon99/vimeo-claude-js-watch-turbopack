@@ -228,7 +228,7 @@
     _v57 = _v0.i(0),
     _v58 = _v0.i(0),
     _v59 = _v0.i(0);
-  let _v60 = (0, _v7.translate)({
+  let _v60 = (0, _v8.translate)({
       singular: "Added",
       dictionary: {
         es: {
@@ -254,7 +254,7 @@
         }
       }
     }),
-    _v61 = (0, _v7.translate)({
+    _v61 = (0, _v8.translate)({
       singular: "Modified",
       dictionary: {
         es: {
@@ -280,7 +280,7 @@
         }
       }
     }),
-    _v62 = ((0, _v7.translate)({
+    _v62 = ((0, _v8.translate)({
       singular: "Cancel",
       dictionary: {
         es: {
@@ -305,7 +305,7 @@
           singular: "取消"
         }
       }
-    }), (0, _v7.translate)({
+    }), (0, _v8.translate)({
       singular: "Close",
       dictionary: {
         es: {
@@ -330,7 +330,7 @@
           singular: "关闭"
         }
       }
-    }), (0, _v7.translate)({
+    }), (0, _v8.translate)({
       singular: "Copy embed code",
       dictionary: {
         es: {
@@ -355,7 +355,7 @@
           singular: "复制嵌入代码"
         }
       }
-    }), (0, _v7.translate)({
+    }), (0, _v8.translate)({
       singular: "Update your showcase settings to enable embedding",
       dictionary: {
         es: {
@@ -380,7 +380,7 @@
           singular: "更新您的橱窗设置，启用嵌入"
         }
       }
-    }), (0, _v7.translate)({
+    }), (0, _v8.translate)({
       singular: "Copy link",
       dictionary: {
         es: {
@@ -405,7 +405,7 @@
           singular: "复制链接"
         }
       }
-    }), (0, _v7.translate)({
+    }), (0, _v8.translate)({
       singular: "Edit the privacy settings to enable link sharing",
       dictionary: {
         es: {
@@ -430,7 +430,7 @@
           singular: "编辑隐私设置以启用链接共享"
         }
       }
-    }), (0, _v7.translate)({
+    }), (0, _v8.translate)({
       singular: "Delete",
       dictionary: {
         es: {
@@ -455,7 +455,7 @@
           singular: "删除"
         }
       }
-    }), (0, _v7.translate)({
+    }), (0, _v8.translate)({
       singular: "Embed code copied",
       dictionary: {
         es: {
@@ -481,7 +481,7 @@
         }
       }
     })),
-    _v63 = (0, _v7.translate)({
+    _v63 = (0, _v8.translate)({
       singular: "Embed only",
       dictionary: {
         es: {
@@ -507,7 +507,7 @@
         }
       }
     }),
-    _v64 = (0, _v7.translate)({
+    _v64 = (0, _v8.translate)({
       singular: "Create a showcase",
       dictionary: {
         es: {
@@ -533,7 +533,7 @@
         }
       }
     }),
-    _v65 = (0, _v7.translate)({
+    _v65 = (0, _v8.translate)({
       singular: "Easily organize your videos into shareable collections.",
       dictionary: {
         es: {
@@ -559,7 +559,7 @@
         }
       }
     }),
-    _v66 = (0, _v7.translate)({
+    _v66 = (0, _v8.translate)({
       singular: "Sorry, something weird happened. Please try again.",
       dictionary: {
         es: {
@@ -585,7 +585,7 @@
         }
       }
     }),
-    _v67 = (0, _v7.translate)({
+    _v67 = (0, _v8.translate)({
       singular: "Learn more",
       dictionary: {
         es: {
@@ -611,7 +611,7 @@
         }
       }
     }),
-    _v68 = (0, _v7.translate)({
+    _v68 = (0, _v8.translate)({
       singular: "Link copied",
       dictionary: {
         es: {
@@ -637,7 +637,7 @@
         }
       }
     }),
-    _v69 = (0, _v7.translate)({
+    _v69 = (0, _v8.translate)({
       singular: "Make a copy",
       dictionary: {
         es: {
@@ -663,7 +663,7 @@
         }
       }
     }),
-    _v70 = (0, _v7.translate)({
+    _v70 = (0, _v8.translate)({
       singular: "New showcase",
       dictionary: {
         es: {
@@ -689,7 +689,7 @@
         }
       }
     }),
-    _v71 = (0, _v7.translate)({
+    _v71 = (0, _v8.translate)({
       singular: "Private",
       dictionary: {
         es: {
@@ -715,7 +715,7 @@
         }
       }
     }),
-    _v72 = (0, _v7.translate)({
+    _v72 = (0, _v8.translate)({
       singular: "Password",
       dictionary: {
         es: {
@@ -741,7 +741,7 @@
         }
       }
     }),
-    _v73 = (0, _v7.translate)({
+    _v73 = (0, _v8.translate)({
       singular: "Privacy",
       dictionary: {
         es: {
@@ -767,7 +767,7 @@
         }
       }
     }),
-    _v74 = (0, _v7.translate)({
+    _v74 = (0, _v8.translate)({
       singular: "Public",
       dictionary: {
         es: {
@@ -790,7 +790,7 @@
         }
       }
     }),
-    _v75 = ((0, _v7.translate)({
+    _v75 = ((0, _v8.translate)({
       singular: "Showcase copied successfully",
       dictionary: {
         es: {
@@ -815,7 +815,7 @@
           singular: "Showcase 已成功复制"
         }
       }
-    }), (0, _v7.translate)({
+    }), (0, _v8.translate)({
       singular: "Team",
       dictionary: {
         es: {
@@ -837,7 +837,7 @@
           singular: "团队"
         }
       }
-    }), (0, _v7.translate)({
+    }), (0, _v8.translate)({
       singular: "Title",
       dictionary: {
         es: {
@@ -863,7 +863,7 @@
         }
       }
     })),
-    _v76 = (0, _v7.translate)({
+    _v76 = (0, _v8.translate)({
       singular: "Unlisted",
       dictionary: {
         es: {
@@ -889,7 +889,7 @@
         }
       }
     }),
-    _v77 = ((0, _v7.translate)({
+    _v77 = ((0, _v8.translate)({
       singular: "View showcase",
       dictionary: {
         es: {
@@ -914,7 +914,7 @@
           singular: "查看橱窗"
         }
       }
-    }), (0, _v7.translate)({
+    }), (0, _v8.translate)({
       singular: "Clear search",
       dictionary: {
         es: {
@@ -940,7 +940,7 @@
         }
       }
     })),
-    _v78 = (0, _v7.translate)({
+    _v78 = (0, _v8.translate)({
       singular: "No showcases match your search.",
       dictionary: {
         es: {
@@ -966,7 +966,7 @@
         }
       }
     }),
-    _v79 = (0, _v7.translate)({
+    _v79 = (0, _v8.translate)({
       singular: "Search showcase",
       dictionary: {
         es: {
@@ -992,7 +992,7 @@
         }
       }
     }),
-    _v80 = ((0, _v7.translate)({
+    _v80 = ((0, _v8.translate)({
       singular: "Hidden showcases can't be previewed",
       dictionary: {
         es: {
@@ -1126,7 +1126,7 @@
         format: "secondary",
         loading: _v0,
         onClick: _v1,
-        children: (0, _v7.translate)({
+        children: (0, _v8.translate)({
           singular: "Load more…",
           dictionary: {
             es: {
@@ -1273,7 +1273,7 @@
         _v5 = _v101(_v1.uri, !!_v1.embed);
       return (0, _v1.jsx)(_v98.ShowcaseCard, {
         title: _v1.name,
-        subtitle: `${(0, _v7.translate)({
+        subtitle: `${(0, _v8.translate)({
           singular: "{NUM} video",
           plural: "{NUM} videos",
           count: _v1.metadata.connections.videos.total,
@@ -1509,7 +1509,7 @@
         _v17 = "showcase_list",
         {
           settings: _v18
-        } = (0, _v8.useOrionSettings)(),
+        } = (0, _v9.useOrionSettings)(),
         [_v19, _v20] = (0, _v3.useState)(!1),
         [_v21, _v22] = (0, _v3.useState)(_v10),
         _v23 = (0, _v106.getResourceIdFromUri)(_v13),
@@ -1532,7 +1532,7 @@
           fontSize: "header-sm",
           fontWeight: "bold"
         }) : void 0,
-        subTitle: (0, _v7.translate)({
+        subTitle: (0, _v8.translate)({
           singular: "{NUM} video",
           plural: "{NUM} videos",
           count: _v9.connections.videos.total,
@@ -1676,7 +1676,7 @@
     let {
         trackShowcasesListPageDisplayed: _v0,
         trackShowcaseCreated: _v1
-      } = (0, _v9.useShowcaseManageTracking)(),
+      } = (0, _v10.useShowcaseManageTracking)(),
       _v2 = (0, _v3.useContext)(_v32.ViewerContext),
       _v3 = (0, _v17.useNotification)(),
       _v4 = (0, _v27.useShowcaseDeleteModal)(),
@@ -1684,12 +1684,12 @@
       _v6 = (0, _v19.useVideoModal)(),
       {
         settings: _v7
-      } = (0, _v8.useOrionSettings)(),
+      } = (0, _v9.useOrionSettings)(),
       _v8 = !!_v7.enable_showcase_search,
       [_v9, _v10] = (0, _v16.useLayoutPreference)(),
       [_v11, _v12] = (0, _v28.useSortPreference)(_v23.DEFAULT_SHOWCASES_SORT, _v23.VL_SHOWCASES_SORT_LOCAL_STORAGE_KEY),
       [_v13, _v14] = (0, _v3.useState)(""),
-      _v15 = (0, _v11.useDebouncedValue)(_v13, 400),
+      _v15 = (0, _v7.useDebouncedValue)(_v13, 400),
       [_v16, _v17] = (0, _v3.useState)(null),
       [_v18, _v19] = (0, _v3.useState)(""),
       [_v20, _v21] = (0, _v3.useState)(void 0),
@@ -1815,7 +1815,7 @@
         noOfShowcases: _v32,
         teamUser: _v2?.teamUser
       });
-    }, [_v32]), (0, _v10.usePicoEffect)(() => {
+    }, [_v32]), (0, _v11.usePicoEffect)(() => {
       if (void 0 === _v32 || _v15) return !1;
       _v0({
         showcasesListCount: _v32
@@ -1858,7 +1858,7 @@
         let _v2 = _v0 ?? _v18,
           _v3 = _v101(_v1, !0);
         _v40(), _v30(), _v3({
-          content: (0, _v7.translate)({
+          content: (0, _v8.translate)({
             singular: 'Created "{SHOWCASE_NAME}". {LINK}Open page{/LINK}',
             replacements: {
               SHOWCASE_NAME: _v2,
@@ -1896,7 +1896,7 @@
       }, [_v40, _v18, _v3, _v30]),
       _v43 = (0, _v3.useCallback)(_v0 => {
         let _v1;
-        "invalid_name" === _v0 ? _v21((_v1 = _v23.SHOWCASE_TITLE_MAX_LENGTH, (0, _v7.translate)({
+        "invalid_name" === _v0 ? _v21((_v1 = _v23.SHOWCASE_TITLE_MAX_LENGTH, (0, _v8.translate)({
           singular: "Your title is invalid or longer than {LIMIT} characters.",
           replacements: {
             LIMIT: _v1
@@ -1978,7 +1978,7 @@
         }) => {
           let _v2;
           _v3({
-            content: (_v2 = _v0, (0, _v7.translate)({
+            content: (_v2 = _v0, (0, _v8.translate)({
               singular: "Deleted {SHOWCASE_NAME}",
               replacements: {
                 SHOWCASE_NAME: _v2
@@ -2027,7 +2027,7 @@
               bottomBar: (0, _v1.jsx)(_v20.FilterSortBar, {
                 checkbox: (0, _v1.jsx)(_v24.CheckboxItemCount, {
                   isLoading: _v26 && !_v13 && !_v36,
-                  subtitle: !!_v32 && (0, _v7.translate)({
+                  subtitle: !!_v32 && (0, _v8.translate)({
                     count: _v32,
                     singular: "{NUM} showcase",
                     plural: "{NUM} showcases",
@@ -2079,7 +2079,7 @@
                   clearSearchLabel: _v77
                 }) : void 0
               }),
-              title: (0, _v7.translate)({
+              title: (0, _v8.translate)({
                 singular: "Showcases",
                 dictionary: {
                   es: {

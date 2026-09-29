@@ -512,21 +512,9 @@
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),
-    _v57 = _v0.i(0);
-  let _v58 = _v0 => {
-      let [_v1, _v2] = (0, _v5.useState)(!1),
-        _v3 = (0, _v5.useRef)(null);
-      return (0, _v5.useEffect)(() => {
-        let _v0 = new IntersectionObserver(([_v0]) => {
-            _v2(_v0.isIntersecting);
-          }, _v0),
-          _v1 = _v3.current;
-        return _v1 && _v0.observe(_v1), () => {
-          _v1 && _v0.unobserve(_v1);
-        };
-      }, [_v3, _v0]), [_v3, _v1];
-    },
-    _v59 = [{
+    _v57 = _v0.i(0),
+    _v58 = _v0.i(0);
+  let _v59 = [{
       value: "All",
       text: (0, _v29.translate)({
         singular: "All",
@@ -822,10 +810,10 @@
           base: !0,
           sm: !1
         }),
-        [_v8, _v9] = _v58({
+        [_v8, _v9] = (0, _v58.useIsVisible)({
           threshold: 1
         }),
-        [_v10, _v11] = _v58({
+        [_v10, _v11] = (0, _v58.useIsVisible)({
           threshold: .8
         }),
         _v12 = _v0 => {

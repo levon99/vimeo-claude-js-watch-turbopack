@@ -23,7 +23,7 @@
     position: "relative",
     children: _v0
   });
-  (0, _v4.withPageSetup)(() => ({
+  (0, _v5.withPageSetup)(() => ({
     props: {
       layoutOptions: {
         globalNotifications: !1
@@ -34,9 +34,9 @@
     requireLogin: !0,
     inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => {
-    let _v0 = (0, _v6.useCloseModalButtonRef)()?.current;
+    let _v0 = (0, _v4.useCloseModalButtonRef)()?.current;
     return (0, _v1.jsx)(_v7, {
-      children: (0, _v1.jsx)(_v5.EventCreationWizard, {
+      children: (0, _v1.jsx)(_v6.EventCreationWizard, {
         isCreatePage: !0,
         onCancel: () => _v0?.click()
       })

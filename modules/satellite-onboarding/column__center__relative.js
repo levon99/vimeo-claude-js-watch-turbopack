@@ -17,8 +17,9 @@
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  function _v18({
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0);
+  function _v19({
     tier: _v0,
     paywallTracking: _v1,
     defaultPeriodicity: _v2,
@@ -27,7 +28,7 @@
     postCheckoutUrl: _v5,
     onSkip: _v6
   }) {
-    return (0, _v1.jsxs)(_v14.Flex, {
+    return (0, _v1.jsxs)(_v15.Flex, {
       direction: "column",
       alignItems: "center",
       position: "relative",
@@ -39,19 +40,19 @@
         base: "1rem",
         md: "2rem"
       },
-      children: [(0, _v1.jsx)(_v17.default, {
+      children: [(0, _v1.jsx)(_v18.default, {
         color: "text-primary",
         width: "74px"
-      }), (0, _v1.jsx)(_v16.PlansComparisonPaywallNavigation, {
+      }), (0, _v1.jsx)(_v17.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: "top_right",
         onDismiss: _v6
-      }), (0, _v1.jsx)(_v14.Flex, {
+      }), (0, _v1.jsx)(_v15.Flex, {
         flex: "1",
         width: "100%",
         alignItems: "center",
         justifyContent: "center",
         paddingTop: "2rem",
-        children: (0, _v1.jsx)(_v15.PlansComparisonPaywall, {
+        children: (0, _v1.jsx)(_v16.PlansComparisonPaywall, {
           tier: _v0,
           paywallTracking: _v1,
           defaultPeriodicity: _v2,
@@ -62,7 +63,7 @@
       })]
     });
   }
-  function _v19({
+  function _v20({
     tier: _v0,
     isFreeTrialEligible: _v1,
     postCheckoutUrl: _v2,
@@ -75,25 +76,29 @@
       } = (0, _v12.useOrionSettings)(),
       _v7 = (0, _v3.useMemo)(() => [_v0], [_v0]),
       {
-        trackPaywallDismissed: _v8
-      } = (0, _v13.usePaywallTracking)({
+        isReady: _v8,
+        hasWeeklyPlan: _v9
+      } = (0, _v13.useWeeklyPlanAvailability)(_v0),
+      {
+        trackPaywallDismissed: _v10
+      } = (0, _v14.usePaywallTracking)({
         ..._v3,
         paywallStyle: "plans_comparison",
         paywallPlansDisplayed: _v7,
-        paywallPeriodicitiesDisplayed: ["monthly", "yearly"],
-        isVisible: !_v4
+        paywallPeriodicitiesDisplayed: _v9 ? ["monthly", "yearly", "weekly"] : ["monthly", "yearly"],
+        isVisible: !_v4 && _v8
       }),
-      _v9 = (0, _v3.useRef)(!1);
+      _v11 = (0, _v3.useRef)(!1);
     return ((0, _v3.useEffect)(() => {
-      _v4 && !_v9.current && (_v9.current = !0, _v8(), _v5());
-    }, [_v4, _v8, _v5]), _v4) ? null : (0, _v1.jsx)(_v18, {
+      _v4 && !_v11.current && (_v11.current = !0, _v10(), _v5());
+    }, [_v4, _v10, _v5]), _v4) ? null : (0, _v1.jsx)(_v19, {
       tier: _v0,
       paywallTracking: _v3,
       isFreeTrialEligible: _v1,
       monthlyFreeTrial: _v6.onboarding_paywall_monthly_free_trial,
       postCheckoutUrl: _v2,
       onSkip: () => {
-        _v8(), _v5();
+        _v10(), _v5();
       }
     });
   }
@@ -129,7 +134,7 @@
     }) : "page" === _v6.paywall ? (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)("div", {
         "data-testid": "satellite-onboarding-shell"
-      }), (0, _v1.jsx)(_v19, {
+      }), (0, _v1.jsx)(_v20, {
         tier: _v6.tier,
         isFreeTrialEligible: _v1.user?.capabilities?.hasFreeTrialEligibility ?? !1,
         postCheckoutUrl: _v6.next,

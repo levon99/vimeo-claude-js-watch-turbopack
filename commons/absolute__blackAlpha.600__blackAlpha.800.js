@@ -50,40 +50,43 @@
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
     _v49 = _v0.i(0),
-    _v50 = _v0.i(0);
-  let _v51 = ({
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0);
+  let _v52 = ({
     children: _v0
   }) => {
     let _v1 = (0, _v21.useViewer)(),
-      _v2 = (0, _v50.useActivityCenterStore)(_v0 => _v0.fetchBatchSessions),
+      _v2 = (0, _v51.useActivityCenterStore)(_v0 => _v0.fetchBatchSessions),
       {
         isEnabled: _v3
       } = (0, _v29.useEnableFolderBulkPrivacy)();
     return (0, _v1.jsx)(_v37.DownloadModalProvider, {
-      children: (0, _v1.jsx)(_v48.UpsellModalProvider, {
+      children: (0, _v1.jsx)(_v49.UpsellModalProvider, {
         children: (0, _v1.jsx)(_v36.DeleteVideoModalContextProvider, {
-          children: (0, _v1.jsx)(_v40.LiveEventDeleteModalProvider, {
+          children: (0, _v1.jsx)(_v41.LiveEventDeleteModalProvider, {
             children: (0, _v1.jsx)(_v32.AddToShowcaseModalContextProvider, {
               children: (0, _v1.jsx)(_v31.AddFolderToShowcaseModalContextProvider, {
-                children: (0, _v1.jsx)(_v42.MoveModalContextProvider, {
-                  children: (0, _v1.jsx)(_v39.FolderSettingsContextProvider, {
+                children: (0, _v1.jsx)(_v43.MoveModalContextProvider, {
+                  children: (0, _v1.jsx)(_v40.FolderSettingsContextProvider, {
                     children: (0, _v1.jsx)(_v35.default, {
-                      children: (0, _v1.jsx)(_v46.SlackIntegrationContextProvider, {
+                      children: (0, _v1.jsx)(_v47.SlackIntegrationContextProvider, {
                         children: (0, _v1.jsx)(_v33.BulkPrivacyModalContextProvider, {
                           children: (0, _v1.jsx)(_v34.BulkShareInChinaModalContextProvider, {
-                            children: (0, _v1.jsx)(_v41.ManageFeaturedFoldersModalContextProvider, {
-                              children: (0, _v1.jsx)(_v43.ReorderFeaturedFOldersModalContextProvider, {
+                            children: (0, _v1.jsx)(_v42.ManageFeaturedFoldersModalContextProvider, {
+                              children: (0, _v1.jsx)(_v44.ReorderFeaturedFOldersModalContextProvider, {
                                 children: (0, _v1.jsx)(_v27.BulkAiModalProvider, {
                                   onJobActionComplete: _v0 => {
                                     let _v1 = _v1?.teamUser?.ownerId ?? _v1?.user?.id;
                                     _v1 && _v2(_v1, _v0);
                                   },
-                                  children: (0, _v1.jsx)(_v44.default, {
-                                    children: (0, _v1.jsx)(_v45.ShowcaseDeleteModalProvider, {
-                                      children: (0, _v1.jsx)(_v38.FolderDefaultsModalContextProvider, {
-                                        children: (0, _v1.jsx)(_v49.VideoPrivacyModalContextProvider, {
-                                          children: (0, _v1.jsxs)(_v47.ThumbnailChangeModalContextProvider, {
-                                            children: [_v0, (0, _v1.jsx)(_v30.BulkSentimentModalHost, {}), _v3 && (0, _v1.jsx)(_v28.BulkPrivacyModalHost, {})]
+                                  children: (0, _v1.jsx)(_v45.default, {
+                                    children: (0, _v1.jsx)(_v46.ShowcaseDeleteModalProvider, {
+                                      children: (0, _v1.jsx)(_v39.FolderDefaultsModalContextProvider, {
+                                        children: (0, _v1.jsx)(_v50.VideoPrivacyModalContextProvider, {
+                                          children: (0, _v1.jsx)(_v38.FilePrivacyModalContextProvider, {
+                                            children: (0, _v1.jsxs)(_v48.ThumbnailChangeModalContextProvider, {
+                                              children: [_v0, (0, _v1.jsx)(_v30.BulkSentimentModalHost, {}), _v3 && (0, _v1.jsx)(_v28.BulkPrivacyModalHost, {})]
+                                            })
                                           })
                                         })
                                       })
@@ -105,17 +108,17 @@
       })
     });
   };
-  _v0.s(["default", 0, _v51], 0);
-  var _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
+  _v0.s(["default", 0, _v52], 0);
+  var _v53 = _v0.i(0),
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),
-    _v57 = _v0.i(0);
-  function _v58({
+    _v57 = _v0.i(0),
+    _v58 = _v0.i(0);
+  function _v59({
     overlayStyle: _v0
   }) {
-    return _v0 ? (0, _v1.jsx)(_v57.Box, {
+    return _v0 ? (0, _v1.jsx)(_v58.Box, {
       position: "absolute",
       top: 0,
       left: 0,
@@ -130,23 +133,23 @@
       height: _v0.height
     }) : null;
   }
-  var _v59 = _v0.i(0),
-    _v60 = _v0.i(0),
-    _v61 = _v0.i(0);
-  let _v62 = "video-library:wayfinder-side-nav-open",
-    _v63 = (_v0, _v1) => _v1 ? `${_v62}:${_v0}:${_v1}` : `${_v62}:${_v0}`,
-    _v64 = (_v0, _v1) => {
+  var _v60 = _v0.i(0),
+    _v61 = _v0.i(0),
+    _v62 = _v0.i(0);
+  let _v63 = "video-library:wayfinder-side-nav-open",
+    _v64 = (_v0, _v1) => _v1 ? `${_v63}:${_v0}:${_v1}` : `${_v63}:${_v0}`,
+    _v65 = (_v0, _v1) => {
       if (!_v0) return;
-      let _v2 = window.localStorage.getItem(_v63(_v0, _v1));
+      let _v2 = window.localStorage.getItem(_v64(_v0, _v1));
       return "true" === _v2 || "false" !== _v2 && void 0;
     };
-  var _v65 = _v0.i(0),
-    _v66 = _v0.i(0),
+  var _v66 = _v0.i(0),
     _v67 = _v0.i(0),
     _v68 = _v0.i(0),
     _v69 = _v0.i(0),
-    _v70 = _v0.i(0);
-  let _v71 = ({
+    _v70 = _v0.i(0),
+    _v71 = _v0.i(0);
+  let _v72 = ({
       isOpen: _v0,
       isMobile: _v1,
       onClose: _v2,
@@ -162,12 +165,12 @@
       hideWhatsNew: _v12,
       bundlePromo: _v13
     }) => {
-      let _v14 = (0, _v70.useWayfinderPageName)(),
-        _v15 = (0, _v69.useSideNavUpgradeClick)();
-      return (0, _v1.jsx)(_v72, {
-        type: _v67.PlayerType.BarebonePlayer,
+      let _v14 = (0, _v71.useWayfinderPageName)(),
+        _v15 = (0, _v70.useSideNavUpgradeClick)();
+      return (0, _v1.jsx)(_v73, {
+        type: _v68.PlayerType.BarebonePlayer,
         assetUrls: _v8,
-        children: (0, _v1.jsx)(_v68.WayfinderSideNav, {
+        children: (0, _v1.jsx)(_v69.WayfinderSideNav, {
           isOpen: _v0,
           isMobile: _v1,
           onClose: _v2,
@@ -185,16 +188,16 @@
         })
       });
     },
-    _v72 = ({
+    _v73 = ({
       children: _v0,
       assetUrls: _v1,
       type: _v2
-    }) => _v1 ? (0, _v1.jsx)(_v66.PlayerContextProvider, {
+    }) => _v1 ? (0, _v1.jsx)(_v67.PlayerContextProvider, {
       assetUrls: _v1,
       type: _v2,
       children: _v0
     }) : _v0,
-    _v73 = (0, _v2.default)(async () => ({
+    _v74 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).DefaultNavigation
     }), {
       loadableGenerated: {
@@ -226,7 +229,7 @@
       {
         uploads: _v21
       } = (0, _v18.useUploader)(),
-      _v22 = (0, _v54.useUpsellAnalyticsPage)(),
+      _v22 = (0, _v55.useUpsellAnalyticsPage)(),
       {
         userId: _v23
       } = _v16.query,
@@ -246,20 +249,20 @@
         handleToggleState: _v32,
         collapsed: _v33
       } = ((_v0, _v1, _v2 = !0) => {
-        let _v3 = (0, _v4.useContext)(_v59.ViewerContext),
-          _v4 = (0, _v60.usePageName)() === _v61.PAGE.SEARCH,
+        let _v3 = (0, _v4.useContext)(_v60.ViewerContext),
+          _v4 = (0, _v61.usePageName)() === _v62.PAGE.SEARCH,
           _v5 = !_v1,
-          [_v6, _v7] = (0, _v4.useState)(!!_v5 && !_v4 && (!_v2 || (_v64(_v3?.user?.id, _v0) ?? !0)));
+          [_v6, _v7] = (0, _v4.useState)(!!_v5 && !_v4 && (!_v2 || (_v65(_v3?.user?.id, _v0) ?? !0)));
         (0, _v4.useEffect)(() => {
           (_v1 || _v4) && _v7(!1);
         }, [_v1, _v4]), (0, _v4.useEffect)(() => {
-          !_v4 && _v3?.user?.id && _v0 && _v5 && _v7(!_v2 || (_v64(_v3.user.id, _v0) ?? !0));
+          !_v4 && _v3?.user?.id && _v0 && _v5 && _v7(!_v2 || (_v65(_v3.user.id, _v0) ?? !0));
         }, [_v3?.user?.id, _v0, _v5, _v4, _v2]);
         let _v8 = (0, _v4.useCallback)(() => {
             if (!_v3?.user?.id || !_v0) return;
             let _v0 = !_v6;
             if (_v2) try {
-              window.localStorage.setItem(_v63(_v3.user.id, _v0), _v0 ? "true" : "false");
+              window.localStorage.setItem(_v64(_v3.user.id, _v0), _v0 ? "true" : "false");
             } catch (_v0) {}
             _v7(_v0);
           }, [_v3, _v6, _v0, _v2]),
@@ -271,11 +274,11 @@
         };
       })(_v4, _v19, "library" !== _v4),
       _v34 = _v13 && !_v33 && !_v19,
-      _v35 = (0, _v50.useActivityCenterStore)(_v0 => _v0.inProgressJobs),
-      _v36 = (0, _v50.useActivityCenterStore)(_v0 => _v0.isVisible),
-      _v37 = (0, _v50.useActivityCenterStore)(_v0 => _v0.doneJobs),
-      _v38 = (0, _v50.useActivityCenterStore)(_v0 => _v0.hide),
-      _v39 = (0, _v50.useActivityCenterStore)(_v0 => _v0.fetchBatchSessions);
+      _v35 = (0, _v51.useActivityCenterStore)(_v0 => _v0.inProgressJobs),
+      _v36 = (0, _v51.useActivityCenterStore)(_v0 => _v0.isVisible),
+      _v37 = (0, _v51.useActivityCenterStore)(_v0 => _v0.doneJobs),
+      _v38 = (0, _v51.useActivityCenterStore)(_v0 => _v0.hide),
+      _v39 = (0, _v51.useActivityCenterStore)(_v0 => _v0.fetchBatchSessions);
     (0, _v4.useEffect)(() => {
       _v26 && _v30 && _v39(_v26);
     }, [_v39, _v26, _v30]);
@@ -345,17 +348,17 @@
     return (0, _v1.jsxs)(_v5.DndProvider, {
       backend: _v6.HTML5Backend,
       context: _v63,
-      children: [(0, _v1.jsx)(_v52.default, {
+      children: [(0, _v1.jsx)(_v53.default, {
         children: (0, _v1.jsx)(_v20.AnalyticsEventProvider, {
           ref: _v57,
           eventData: {
             product: "Video Library"
           },
-          children: (0, _v1.jsx)(_v51, {
+          children: (0, _v1.jsx)(_v52, {
             children: (0, _v1.jsxs)(_v17.OmnisearchContextProvider, {
-              children: [(0, _v1.jsx)(_v55.StarredItemsProvider, {
-                children: (0, _v1.jsx)(_v53.TransferFileModalProvider, {
-                  children: (0, _v1.jsx)(_v56.VideoLibraryLayoutContext.Provider, {
+              children: [(0, _v1.jsx)(_v56.StarredItemsProvider, {
+                children: (0, _v1.jsx)(_v54.TransferFileModalProvider, {
+                  children: (0, _v1.jsx)(_v57.VideoLibraryLayoutContext.Provider, {
                     value: {
                       isSideNavOpen: !!_v31,
                       setIsSideNavOpen: _v32,
@@ -373,13 +376,13 @@
                       width: "100vw",
                       children: [_v42 && (0, _v1.jsx)(_v22.NewSidebarIntroContext.Provider, {
                         value: _v68,
-                        children: "library" === _v4 ? (0, _v1.jsx)(_v65.SecondarySideNav, {
+                        children: "library" === _v4 ? (0, _v1.jsx)(_v66.SecondarySideNav, {
                           isOpen: !!_v31,
                           isMobile: _v19,
                           collapsed: _v33,
                           onClose: _v32,
                           children: _v3
-                        }) : (0, _v1.jsx)(_v71, {
+                        }) : (0, _v1.jsx)(_v72, {
                           isOpen: !!_v31,
                           isMobile: _v19,
                           collapsed: _v33,
@@ -409,7 +412,7 @@
                           minHeight: "100vh",
                           position: "relative",
                           overflowY: _v54 ? "hidden" : "auto",
-                          children: [(0, _v1.jsx)(_v73, {
+                          children: [(0, _v1.jsx)(_v74, {
                             hasSearch: _v2,
                             alwaysMinimiseSearch: _v9,
                             isSideNavActive: !!_v31,
@@ -420,7 +423,7 @@
                             searchContentAlignment: _v10,
                             hasThemeSupport: _v7,
                             hasUploader: _v8
-                          }), _v0, (0, _v1.jsx)(_v58, {
+                          }), _v0, (0, _v1.jsx)(_v59, {
                             overlayStyle: _v54
                           }), (0, _v1.jsxs)(_v8.ActivitiesContainer, {
                             isShowing: _v36 || _v50 || _v66.visible,

@@ -78,7 +78,7 @@
         _v10 = _v6 && !!_v7?.permissionLevel && _v50.includes(_v7.permissionLevel),
         _v11 = _v4.hasEventSeriesEnabled;
       return {
-        canAccessEventSeriesEditor: !_v9 && (_v10 || _v11),
+        canAccessEventSeriesEditor: !_v9 && _v10 && _v11,
         isLoading: _v9
       };
     };

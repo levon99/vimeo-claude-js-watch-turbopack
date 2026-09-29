@@ -339,7 +339,8 @@
     _v34 = _v0.i(0),
     _v35 = _v0.i(0),
     _v36 = _v0.i(0),
-    _v37 = _v0.i(0);
+    _v37 = _v0.i(0),
+    _v38 = _v0.i(0);
   _v0.s(["BrandkitMenuList", 0, ({
     onRename: _v0,
     onDownload: _v1,
@@ -356,33 +357,35 @@
         divider: !1
       }, {
         label: _v17.RENAME,
-        icon: (0, _v1.jsx)(_v35.EditPencil, {}),
+        icon: (0, _v1.jsx)(_v36.EditPencil, {}),
         onClick: _v0,
         divider: !0
       }, {
         label: _v17.DOWNLOAD,
-        icon: (0, _v1.jsx)(_v37.DownloadImport, {}),
+        icon: (0, _v1.jsx)(_v38.DownloadImport, {}),
         onClick: _v1,
         divider: !0
       }, {
         label: _v17.DELETE,
-        icon: (0, _v1.jsx)(_v36.TrashBin, {}),
+        icon: (0, _v1.jsx)(_v37.TrashBin, {}),
         onClick: _v2,
         divider: !1
       }].filter(_v0 => _v0.onClick);
-    return (0, _v1.jsx)(_v33.MenuList, {
-      children: _v5.map((_v0, _v1) => (0, _v1.jsxs)(_v2.default.Fragment, {
-        children: [(0, _v1.jsx)(_v32.MenuItem, {
-          width: "222px",
-          padding: "sm",
-          isDisabled: _v4,
-          icon: _v0.icon,
-          onClick: _v0 => {
-            _v0.stopPropagation(), _v0.preventDefault(), _v0.onClick?.(_v0);
-          },
-          children: _v0.label
-        }), _v1 < _v5.length - 1 && _v0.divider && (0, _v1.jsx)(_v34.MenuDivider, {})]
-      }, _v0.label))
+    return (0, _v1.jsx)(_v35.Portal, {
+      children: (0, _v1.jsx)(_v33.MenuList, {
+        children: _v5.map((_v0, _v1) => (0, _v1.jsxs)(_v2.default.Fragment, {
+          children: [(0, _v1.jsx)(_v32.MenuItem, {
+            width: "222px",
+            padding: "sm",
+            isDisabled: _v4,
+            icon: _v0.icon,
+            onClick: _v0 => {
+              _v0.stopPropagation(), _v0.preventDefault(), _v0.onClick?.(_v0);
+            },
+            children: _v0.label
+          }), _v1 < _v5.length - 1 && _v0.divider && (0, _v1.jsx)(_v34.MenuDivider, {})]
+        }, _v0.label))
+      })
     });
   }], 0);
 }

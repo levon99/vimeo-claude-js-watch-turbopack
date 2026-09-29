@@ -28,7 +28,7 @@
       disabled: "#808080 !important",
       textColor: "#FFFFFF !important"
     }
-  }, "AVAILABLE_WINDOW_HEIGHT", 0, "calc(100vh - 146px)", "ChapterPresets", 0, {
+  }, "AVAILABLE_WINDOW_HEIGHT", 0, "calc(100vh - 146px)", "CHAPTERS_ENRICHMENT_RETRY_TIMEOUT", 0, 0, "CHAPTERS_IN_FLIGHT_KEY", 0, "chapters_in_flight", "ChapterPresets", 0, {
     STANDARD: "standard",
     FINE_GRAINED: "fine_grained",
     HIGH_LEVEL: "high_level",

@@ -1170,7 +1170,7 @@
       children: [(0, _v3.jsx)(_v130.VimeoCoin, {
         boxSize: "0.75rem",
         color: "text-primary",
-        transform: "translateY(-1px)"
+        transform: "translateY(-0.5px)"
       }), (0, _v3.jsx)(_v46.Text, {
         variant: "heading-xs",
         color: "text-primary",
@@ -1569,7 +1569,7 @@
       singular: "Custom analytics",
       dictionary: {
         es: {
-          singular: "Analíticas personalizadas"
+          singular: "Analítica personalizada"
         },
         "de-DE": {
           singular: "Benutzerdefinierte Analysen"
@@ -25930,7 +25930,7 @@
                           singular: "Custom analytics",
                           dictionary: {
                             es: {
-                              singular: "Analíticas personalizadas"
+                              singular: "Analítica personalizada"
                             },
                             "de-DE": {
                               singular: "Benutzerdefinierte Analysen"

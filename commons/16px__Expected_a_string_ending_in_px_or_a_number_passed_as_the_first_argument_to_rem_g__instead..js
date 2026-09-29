@@ -9043,7 +9043,7 @@
             trackingFeature: "logo"
           }));
         }, [_v0, _v7, _v5, _v4]);
-      return (0, _v490.default)(() => {
+      return (0, _v490.useEffectOnce)(() => {
         _v5 && (0, _v204.sendTrackLogoPlaceholderImpression)();
       }), (0, _v6.jsxs)(_v185.Box, {
         position: "absolute",
@@ -18615,7 +18615,7 @@
           }
         }, [_v21, _v22, _v13, _v23, _v9]), (0, _v7.useLayoutEffect)(() => {
           _v8((0, _v165.setInspectorInitialWidthAction)(_v45 ? _v734.INSPECTOR_WIDTH_LG : _v734.INSPECTOR_WIDTH));
-        }, [_v8, _v45]), (0, _v490.default)(() => {
+        }, [_v8, _v45]), (0, _v490.useEffectOnce)(() => {
           _v15(_v4), _v8((0, _v405.setIsShowGuidesStageAction)(_v31)), _v8((0, _v405.setIsSnapStageAction)(_v32)), _v323.default.setIsStaff(_v14), _v164.default.sendPageView();
         }), (0, _v7.useLayoutEffect)(() => {
           _v46();
@@ -18745,7 +18745,7 @@
             });
           }
           _v10.data?.metadata?.interactions?.uploadVideo ? _v230.default.dispatch((0, _v256.setFolderUriAction)(_v10.data?.uri || "")) : _v230.default.dispatch((0, _v256.setFolderUriAction)((_v12?.teamUser?.ownerId ? _v1 || _v0 : _v3) || ""));
-        }, [_v2, _v6, _v4, _v8, _v13, _v12?.teamUser?.ownerId, _v10.data, _v0]), (0, _v490.default)(() => {
+        }, [_v2, _v6, _v4, _v8, _v13, _v12?.teamUser?.ownerId, _v10.data, _v0]), (0, _v490.useEffectOnce)(() => {
           let _v0 = new URLSearchParams(window.location.search),
             _v1 = _v0.get("hash"),
             _v2 = "true" === _v0.get("et"),
@@ -18789,7 +18789,7 @@
         });
       })({
         vimeoVideoId: _v2.location.query?.vid
-      }), (0, _v490.default)(() => {
+      }), (0, _v490.useEffectOnce)(() => {
         if (_v236.default.logInitialAuth(), _v3.interactive || (0, _v150.initScripts)(), 0 === _v402.default.editorLoadStartTime) {
           let _v0 = !_v2.location.query?.hash && _v2.location.query?.vid,
             _v1 = performance.now();

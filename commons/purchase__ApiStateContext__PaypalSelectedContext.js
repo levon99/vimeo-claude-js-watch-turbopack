@@ -17,6 +17,7 @@
       isOrderPreviewLoading: !1,
       isFreeTrial: !1,
       isMonthly: !1,
+      isWeekly: !1,
       isRenewNow: !1,
       order: void 0,
       subscriptionProduct: void 0,

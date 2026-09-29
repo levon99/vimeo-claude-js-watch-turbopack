@@ -108,7 +108,7 @@
         _v27 = _v15.second_free_trial_enabled && !!_v17?.secondFreeTrialEligibility,
         _v28 = _v26 && (_v17?.beenInFreeTrial || _v17?.isLapsed) && !_v27 && !_v18 && !_v19 && !_v16,
         _v29 = null === _v7 || _v8 || _v10 || _v18 || _v19 || _v16 || void 0 === _v20 || _v11 && (!_v12 || !_v13),
-        _v30 = _v11 ? "rent" === _v12 ? "rental" : "buy" === _v12 ? "onetime" : "monthly" : _v0.isMonthly ? "monthly" : "annual",
+        _v30 = (0, _v9.getCheckoutPeriodicity)(_v11, _v12, !!_v0.isMonthly, _v0.isWeekly),
         _v31 = _v15.checkout_default_payment_method,
         _v32 = _v21 || _v22 || _v15.force_stripe_checkout ? _v10.PaymentFormTypes.TYPE_STRIPE : _v3.type ? Number(_v3.type) : "paypal" === _v31 ? _v10.PaymentFormTypes.TYPE_PAYPAL : _v10.PaymentFormTypes.TYPE_CREDIT_CARD,
         _v33 = _v32 === _v10.PaymentFormTypes.TYPE_STRIPE ? "stripe" : _v32 === _v10.PaymentFormTypes.TYPE_PAYPAL ? "paypal" : "credit_card";

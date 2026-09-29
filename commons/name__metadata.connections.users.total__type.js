@@ -58,7 +58,7 @@
         [_v11, {
           data: _v12,
           loading: _v13
-        }] = (0, _v25.useGetUserTeamGroupsLazy)();
+        }] = (0, _v26.useGetUserTeamGroupsLazy)();
       (0, _v2.useEffect)(() => {
         _v8.current = _v11;
       }, [_v11]), (0, _v2.useEffect)(() => {
@@ -128,12 +128,12 @@
                 alignItems: "center",
                 gap: "75",
                 overflow: "hidden",
-                children: [(0, _v1.jsx)(_v27.GroupIcon, {}), (0, _v1.jsxs)(_v17.Box, {
+                children: [(0, _v1.jsx)(_v28.GroupIcon, {}), (0, _v1.jsxs)(_v17.Box, {
                   overflow: "hidden",
-                  children: [(0, _v1.jsx)(_v26.ShrinkableText, {
+                  children: [(0, _v1.jsx)(_v27.ShrinkableText, {
                     variant: "heading-xs",
                     children: _v0.name
-                  }), (0, _v1.jsx)(_v26.ShrinkableText, {
+                  }), (0, _v1.jsx)(_v27.ShrinkableText, {
                     variant: "body-md",
                     color: "text-secondary",
                     children: (0, _v1.jsxs)(_v1.Fragment, {
@@ -162,7 +162,7 @@
                   })
                 }), (0, _v1.jsx)(_v17.Box, {
                   overflow: "hidden",
-                  children: (0, _v1.jsx)(_v26.ShrinkableText, {
+                  children: (0, _v1.jsx)(_v27.ShrinkableText, {
                     variant: "heading-xs",
                     children: _v10.CreateGroupNameGroup(_v7)
                   })
@@ -223,7 +223,7 @@
       [_v10, _v11] = (0, _v2.useState)(null),
       [_v12, _v13] = (0, _v2.useState)(!1),
       _v14 = (0, _v32.getTranslations)(),
-      [_v15, _v16] = (0, _v28.useInfiniteScroll)(!0),
+      [_v15, _v16] = (0, _v25.useInfiniteScroll)(!0),
       {
         data: _v17,
         size: _v18,
@@ -231,7 +231,7 @@
         isValidating: _v20,
         isLoading: _v21,
         mutate: _v22
-      } = (0, _v25.useGetUserTeamGroupsInfinite)({
+      } = (0, _v26.useGetUserTeamGroupsInfinite)({
         where: {
           userId: _v0
         },
@@ -382,14 +382,14 @@
                     width: (0, _v11.rem)(32),
                     minWidth: (0, _v11.rem)(32),
                     alignItems: "center",
-                    children: (0, _v1.jsx)(_v27.GroupIcon, {
+                    children: (0, _v1.jsx)(_v28.GroupIcon, {
                       "data-id": "modal-groupIcon",
                       name: _v0.name
                     })
                   }), (0, _v1.jsxs)(_v17.Box, {
                     marginLeft: "75",
                     overflow: "hidden",
-                    children: [(0, _v1.jsx)(_v26.ShrinkableText, {
+                    children: [(0, _v1.jsx)(_v27.ShrinkableText, {
                       variant: "heading-xs",
                       "data-id": "modal-groupName",
                       children: _v0.name

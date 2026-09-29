@@ -1908,8 +1908,9 @@
     _v89 = _v0.i(0),
     _v90 = _v0.i(0),
     _v91 = _v0.i(0),
-    _v92 = _v0.i(0);
-  let _v93 = (0, _v20.translate)({
+    _v92 = _v0.i(0),
+    _v93 = _v0.i(0);
+  let _v94 = (0, _v20.translate)({
       singular: "Untitled showcase",
       dictionary: {
         es: {
@@ -1935,18 +1936,18 @@
         }
       }
     }),
-    _v94 = (0, _v2.default)(() => _v0.A(0), {
+    _v95 = (0, _v2.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v95 = (0, _v2.default)(() => _v0.A(0), {
+    _v96 = (0, _v2.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       },
       ssr: !1
     }),
-    _v96 = (0, _v2.default)(async () => {
+    _v97 = (0, _v2.default)(async () => {
       let {
         EventCreationWizardModal: _v0
       } = await _v0.A(0);
@@ -1959,7 +1960,7 @@
       },
       ssr: !1
     }),
-    _v97 = (0, _v2.default)(async () => {
+    _v98 = (0, _v2.default)(async () => {
       let {
         MobileContentMenu: _v0
       } = await _v0.A(0);
@@ -1972,16 +1973,16 @@
       },
       ssr: !1
     });
-  function _v98({
+  function _v99({
     hasUploader: _v0
   }) {
     let _v1 = (0, _v11.useViewer)();
-    return !_v1 || _v1.teamUser?.plainTextPermissionLevel === "Viewer" || _v1.isSimplifiedSite ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsx)(_v99, {
+    return !_v1 || _v1.teamUser?.plainTextPermissionLevel === "Viewer" || _v1.isSimplifiedSite ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsx)(_v100, {
       viewer: _v1,
       hasUploader: _v0
     });
   }
-  function _v99({
+  function _v100({
     viewer: _v0,
     hasUploader: _v1
   }) {
@@ -1989,48 +1990,49 @@
         base: !0,
         sm: !1
       }),
-      _v3 = _v0.teamUser?.ownerId ?? _v0.user?.id,
+      _v3 = (0, _v89.useEmailVerificationGateRequest)(),
+      _v4 = _v0.teamUser?.ownerId ?? _v0.user?.id,
       {
-        capabilities: _v4,
-        loading: _v5,
-        error: _v6
+        capabilities: _v5,
+        loading: _v6,
+        error: _v7
       } = (0, _v19.useCapability)(["hasCreation", "canManageTeamCollections"]),
-      _v7 = _v4.hasCreation && !_v5 && !_v6,
-      _v8 = _v4.canManageTeamCollections && !_v5 && !_v6,
-      [_v9, _v10] = (0, _v3.useState)(!1),
-      [_v11, _v12] = (0, _v3.useState)(!1),
+      _v8 = _v5.hasCreation && !_v6 && !_v7,
+      _v9 = _v5.canManageTeamCollections && !_v6 && !_v7,
+      [_v10, _v11] = (0, _v3.useState)(!1),
+      [_v12, _v13] = (0, _v3.useState)(!1),
       {
-        capabilities: _v13,
-        loading: _v14,
-        error: _v15
-      } = (0, _v19.useCapability)(["canCreateLiveEvents"], _v3),
-      _v16 = _v13.canCreateLiveEvents && !_v14 && !_v15,
-      _v17 = window.location.pathname.match(/\/folders?\/(\d+)/),
-      _v18 = _v17?.[1],
-      _v19 = _v18 ? `folder_id=${_v18}` : "",
-      _v20 = _v18 ? `/upload/videos?${_v19}` : "/upload/videos",
-      _v21 = `/create/edit?blank=true${_v18 ? `&${_v19}` : ""}`,
-      _v22 = "/library" === window.location.pathname,
-      _v23 = _v0?.user?.id === _v3,
-      _v24 = _v0?.teamUser?.plainTextPermissionLevel === "Admin",
-      _v25 = _v0.isRecordToolSupported ? `/record/start-recording${_v18 ? `?${_v19}` : _v22 && (_v23 || _v24) ? "?folder_id=root" : ""}` : "/features/screen-recorder",
-      _v26 = _v2 ? "https://vimeo.page.link/createvideo" : _v21,
+        capabilities: _v14,
+        loading: _v15,
+        error: _v16
+      } = (0, _v19.useCapability)(["canCreateLiveEvents"], _v4),
+      _v17 = _v14.canCreateLiveEvents && !_v15 && !_v16,
+      _v18 = window.location.pathname.match(/\/folders?\/(\d+)/),
+      _v19 = _v18?.[1],
+      _v20 = _v19 ? `folder_id=${_v19}` : "",
+      _v21 = _v19 ? `/upload/videos?${_v20}` : "/upload/videos",
+      _v22 = `/create/edit?blank=true${_v19 ? `&${_v20}` : ""}`,
+      _v23 = "/library" === window.location.pathname,
+      _v24 = _v0?.user?.id === _v4,
+      _v25 = _v0?.teamUser?.plainTextPermissionLevel === "Admin",
+      _v26 = _v0.isRecordToolSupported ? `/record/start-recording${_v19 ? `?${_v20}` : _v23 && (_v24 || _v25) ? "?folder_id=root" : ""}` : "/features/screen-recorder",
+      _v27 = _v2 ? "https://vimeo.page.link/createvideo" : _v22,
       {
-        isOpen: _v27,
-        onOpen: _v28,
-        onClose: _v29
+        isOpen: _v28,
+        onOpen: _v29,
+        onClose: _v30
       } = (0, _v80.useDisclosure)(),
       {
-        canCreateShowcase: _v30,
-        isCreatingShowcase: _v31,
-        isShowcaseUpsellModalActive: _v32,
-        onCreateShowcaseClick: _v33,
-        setIsShowcaseUpsellModalActive: _v34
+        canCreateShowcase: _v31,
+        isCreatingShowcase: _v32,
+        isShowcaseUpsellModalActive: _v33,
+        onCreateShowcaseClick: _v34,
+        setIsShowcaseUpsellModalActive: _v35
       } = (({
         canManageTeamCollections: _v0,
         viewer: _v1
       }) => {
-        let _v2 = (0, _v90.useToast)(),
+        let _v2 = (0, _v91.useToast)(),
           [_v3, _v4] = (0, _v3.useState)(!1),
           _v5 = _v1?.teamUser?.ownerId || _v1?.user?.id,
           {
@@ -2055,7 +2057,7 @@
               data: _v5,
               error: _v6,
               loading: _v7
-            }] = (0, _v92.usePostUserAlbums)();
+            }] = (0, _v93.usePostUserAlbums)();
             return (0, _v3.useEffect)(() => {
               _v4 && !_v7 && (_v5 && _v1?.({
                 uri: _v5.uri
@@ -2067,7 +2069,7 @@
                 },
                 select: ["uri"],
                 variables: {
-                  name: _v93
+                  name: _v94
                 }
               });
             }, {
@@ -2103,7 +2105,7 @@
                   }
                 }),
                 variant: "warning",
-                icon: (0, _v1.jsx)(_v91.CircleExclamationFilled, {
+                icon: (0, _v1.jsx)(_v92.CircleExclamationFilled, {
                   color: "status-destructive-primary"
                 }),
                 isClosable: !1
@@ -2136,12 +2138,12 @@
           setIsShowcaseUpsellModalActive: _v4
         };
       })({
-        canManageTeamCollections: _v8,
+        canManageTeamCollections: _v9,
         viewer: _v0
       }),
       {
-        trackHeaderCreateButtonClicked: _v35,
-        trackHeaderCreateMenuItemClicked: _v36
+        trackHeaderCreateButtonClicked: _v36,
+        trackHeaderCreateMenuItemClicked: _v37
       } = (0, _v10.useHeaderTracking)();
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v81.NestedMenu, {
@@ -2150,11 +2152,11 @@
         },
         children: [(0, _v1.jsx)(_v81.NestedMenuTrigger, {
           onClick: _v0 => {
-            _v2 && (_v0.preventDefault(), _v28()), (0, _v12.trackNavigationActionEvent)({
+            _v2 && (_v0.preventDefault(), _v29()), (0, _v12.trackNavigationActionEvent)({
               copy: "new",
               element: "dropdown_header",
               viewer: _v0
-            }), _v35();
+            }), _v36();
           },
           as: _v25.Button,
           variant: "primary",
@@ -2197,7 +2199,7 @@
               id: "upload",
               value: "upload",
               as: _v79.default,
-              href: _v20,
+              href: _v21,
               prefetch: !1,
               onClick: () => {
                 (0, _v12.trackNavigationActionEvent)({
@@ -2209,7 +2211,7 @@
                   targetPath: "/upload",
                   target: "upload_page",
                   viewer: _v0
-                }), _v36({
+                }), _v37({
                   createMenuItem: "upload"
                 });
               },
@@ -2243,9 +2245,9 @@
               id: "import",
               value: "import",
               onClick: () => {
-                _v12(!0), _v36({
+                _v3("import") && (_v13(!0), _v37({
                   createMenuItem: "import"
-                });
+                }));
               },
               children: [(0, _v1.jsx)(_v87.DownloadImport, {}), " ", (0, _v20.translate)({
                 singular: "Import",
@@ -2273,11 +2275,11 @@
                   }
                 }
               })]
-            }) : null, (0, _v1.jsx)(_v81.NestedMenuDivider, {}), _v7 && (0, _v1.jsxs)(_v81.NestedMenuItem, {
+            }) : null, (0, _v1.jsx)(_v81.NestedMenuDivider, {}), _v8 && (0, _v1.jsxs)(_v81.NestedMenuItem, {
               id: "create",
               value: "create",
               as: _v79.default,
-              href: _v26,
+              href: _v27,
               prefetch: !1,
               onClick: () => {
                 (0, _v12.trackNavigationActionEvent)({
@@ -2288,7 +2290,7 @@
                   targetPath: "/create/edit?blank=true",
                   target: "vimeo_create",
                   viewer: _v0
-                }), _v36({
+                }), _v37({
                   createMenuItem: "video_project"
                 });
               },
@@ -2322,7 +2324,7 @@
               id: "record",
               value: "record",
               as: _v79.default,
-              href: _v25,
+              href: _v26,
               prefetch: !1,
               onClick: () => {
                 (0, _v12.trackNavigationActionEvent)({
@@ -2333,7 +2335,7 @@
                   targetPath: "/features/screen-recorder",
                   target: "vimeo_record",
                   viewer: _v0
-                }), _v36({
+                }), _v37({
                   createMenuItem: "recording"
                 });
               },
@@ -2363,7 +2365,7 @@
                   }
                 }
               })]
-            }), _v16 && (0, _v1.jsxs)(_v81.NestedMenuItem, {
+            }), _v17 && (0, _v1.jsxs)(_v81.NestedMenuItem, {
               id: "host",
               value: "host",
               onClick: () => {
@@ -2374,9 +2376,9 @@
                   element: "dropdown",
                   target: "live_unified_event_entry",
                   viewer: _v0
-                }), _v36({
+                }), _v37({
                   createMenuItem: "event"
-                }), _v10(!0);
+                }), _v11(!0);
               },
               children: [(0, _v1.jsx)(_v85.CameraOn, {}), " ", (0, _v20.translate)({
                 singular: "Event",
@@ -2401,14 +2403,14 @@
                   }
                 }
               })]
-            }), _v30 && (0, _v1.jsxs)(_v81.NestedMenuItem, {
+            }), _v31 && (0, _v1.jsxs)(_v81.NestedMenuItem, {
               id: "showcase",
               value: "showcase",
-              disabled: _v31,
+              disabled: _v32,
               onClick: () => {
-                _v36({
+                _v37({
                   createMenuItem: "showcase"
-                }), _v33();
+                }), _v34();
               },
               children: [(0, _v1.jsx)(_v82._3GridLeftLayout, {}), " ", (0, _v20.translate)({
                 singular: "Showcase",
@@ -2438,33 +2440,33 @@
               })]
             })]
           })
-        }), (0, _v1.jsx)(_v96, {
-          active: _v9,
-          activeSet: _v10
+        }), (0, _v1.jsx)(_v97, {
+          active: _v10,
+          activeSet: _v11
         })]
-      }), (0, _v1.jsx)(_v97, {
-        isOpen: _v27,
-        onClose: _v29,
+      }), (0, _v1.jsx)(_v98, {
+        isOpen: _v28,
+        onClose: _v30,
         canCreateLiveEvents: !0,
-        uploadLink: _v20,
-        recordLink: _v25,
+        uploadLink: _v21,
+        recordLink: _v26,
         createShowcaseProps: {
-          canCreateShowcase: _v30,
-          isCreatingShowcase: _v31,
-          onCreateShowcaseClick: _v33
+          canCreateShowcase: _v31,
+          isCreatingShowcase: _v32,
+          onCreateShowcaseClick: _v34
         },
-        ...(_v7 && {
-          creationLink: _v26
+        ...(_v8 && {
+          creationLink: _v27
         })
-      }), _v32 && (0, _v1.jsx)(_v94, {
+      }), _v33 && (0, _v1.jsx)(_v95, {
         apiUrl: _v0?.apiUrl,
-        onClose: () => _v34(!1),
+        onClose: () => _v35(!1),
         templateType: "default",
         tracking: {
           params: {
             feature: "showcases",
             location: "top_navigation_bar",
-            page: (0, _v89.getPageNameFromPath)(window.location.pathname, _v0?.user) || "ss_lihp",
+            page: (0, _v90.getPageNameFromPath)(window.location.pathname, _v0?.user) || "ss_lihp",
             upsell_name: "showcase_limit"
           },
           paywallTracking: {
@@ -2481,19 +2483,19 @@
         modalConfig: {
           mkcCode: "unified-top-nav-legacy"
         }
-      }), _v11 ? (0, _v1.jsx)(_v95, {
-        isOpen: _v11,
-        setIsOpen: _v12,
+      }), _v12 ? (0, _v1.jsx)(_v96, {
+        isOpen: _v12,
+        setIsOpen: _v13,
         referrerPage: "create_menu",
         isAutomatic: !1
       }) : null]
     });
   }
-  var _v100 = _v0.i(0);
-  let _v101 = () => {
+  var _v101 = _v0.i(0);
+  let _v102 = () => {
     let _v0 = (0, _v3.useRef)(!1),
       _v1 = (0, _v12.useTrackNavigationEvent)(),
-      _v2 = (0, _v100.buildUpgradePlanUrl)({
+      _v2 = (0, _v101.buildUpgradePlanUrl)({
         paywallTrigger: "top_nav_bar_pricing_button",
         paywallLocation: "top_navigation",
         paywallFeature: "general"
@@ -2563,17 +2565,17 @@
       })
     });
   };
-  _v0.s(["PricingCTA", 0, _v101], 0);
-  var _v102 = _v0.i(0),
-    _v103 = _v0.i(0);
-  let _v104 = ({
+  _v0.s(["PricingCTA", 0, _v102], 0);
+  var _v103 = _v0.i(0),
+    _v104 = _v0.i(0);
+  let _v105 = ({
     isSideNavActive: _v0,
     setIsSideNavActive: _v1
   }) => {
     let _v2 = (0, _v11.useViewer)();
     return (0, _v1.jsx)(_v15.IconButton, {
       "aria-label": "open-sidenav",
-      icon: (0, _v1.jsx)(_v103.Menu, {}),
+      icon: (0, _v1.jsx)(_v104.Menu, {}),
       variant: "tertiary",
       display: _v0 ? "none" : "flex",
       onClick: () => {
@@ -2591,8 +2593,8 @@
       "data-testid": "open-sidenav"
     });
   };
-  _v0.s(["SideNavToggle", 0, _v104], 0);
-  let _v105 = _v0 => (0, _v1.jsx)(_v58.Icon, {
+  _v0.s(["SideNavToggle", 0, _v105], 0);
+  let _v106 = _v0 => (0, _v1.jsx)(_v58.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -2601,7 +2603,7 @@
         fill: "currentColor"
       })
     }),
-    _v106 = ({
+    _v107 = ({
       itemsCount: _v0
     }) => {
       let _v1 = (0, _v12.useTrackNavigationEvent)();
@@ -2634,7 +2636,7 @@
         }),
         children: (0, _v1.jsx)(_v15.IconButton, {
           "aria-label": "cart_link",
-          icon: (0, _v1.jsx)(_v105, {}),
+          icon: (0, _v1.jsx)(_v106, {}),
           as: "a",
           href: "/store/stock",
           variant: "tertiary",
@@ -2646,14 +2648,14 @@
         })
       }) : (0, _v1.jsx)(_v1.Fragment, {});
     },
-    _v107 = (0, _v2.default)(async () => ({
+    _v108 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).LoginJoinModal
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v108 = (0, _v5.rem)(24);
+    _v109 = (0, _v5.rem)(24);
   _v0.s(["DefaultNavigation", 0, ({
     fixed: _v0 = !0,
     hasSearch: _v1 = !0,
@@ -2688,7 +2690,7 @@
       _v21 = _v9?.isSimplifiedSite,
       _v22 = _v9?.isEnterpriseSite,
       _v23 = _v7 && !_v3,
-      _v24 = _v7 && _v8 ? `calc(max(0px, calc((100cqw - var(--search-content-max-width)) / 2)) + var(--search-content-inline-start) - ${_v108})` : _v23 ? (0, _v5.rem)(24) : void 0;
+      _v24 = _v7 && _v8 ? `calc(max(0px, calc((100cqw - var(--search-content-max-width)) / 2)) + var(--search-content-inline-start) - ${_v109})` : _v23 ? (0, _v5.rem)(24) : void 0;
     return (0, _v1.jsxs)(_v7.Navigation, {
       position: _v0 ? "sticky" : "unset",
       top: "0",
@@ -2714,7 +2716,7 @@
         },
         flexShrink: _v17 ? void 0 : 0,
         zIndex: 1,
-        children: [_v4 && (0, _v1.jsx)(_v104, {
+        children: [_v4 && (0, _v1.jsx)(_v105, {
           isSideNavActive: !!_v3,
           setIsSideNavActive: _v4
         }), (0, _v1.jsx)(_v7.Navigation.VimeoLogo, {
@@ -2724,7 +2726,7 @@
           flexGrow: 1,
           minWidth: 0,
           marginLeft: _v24,
-          children: (0, _v1.jsx)(_v102.Search, {})
+          children: (0, _v1.jsx)(_v103.Search, {})
         })]
       }), (0, _v1.jsx)(_v7.Navigation.RightContent, {
         justifyContent: "end",
@@ -2748,20 +2750,20 @@
             justifyContent: "end",
             children: [!_v18 && (0, _v1.jsx)(_v7.Navigation.Upgrade, {
               viewer: _v9
-            }), _v1 && !_v17 && (0, _v1.jsx)(_v102.Search, {
+            }), _v1 && !_v17 && (0, _v1.jsx)(_v103.Search, {
               withToggle: !0,
               updateGlobalNavSearchState: _v12
             }), !_v16 && !_v21 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v76, {}), (0, _v1.jsx)(_v13, {}), (0, _v1.jsx)(_v106, {
+              children: [(0, _v1.jsx)(_v76, {}), (0, _v1.jsx)(_v13, {}), (0, _v1.jsx)(_v107, {
                 itemsCount: _v9?.cart?.itemsCount
               })]
             }), _v9 && !_v10 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [!_v18 && !_v22 && (0, _v1.jsx)(_v101, {}), !(_v15 && _v11) && (0, _v1.jsx)(_v77.Login, {})]
-            }), !_v16 && (_v10 ? (0, _v1.jsx)(_v98, {
+              children: [!_v18 && !_v22 && (0, _v1.jsx)(_v102, {}), !(_v15 && _v11) && (0, _v1.jsx)(_v77.Login, {})]
+            }), !_v16 && (_v10 ? (0, _v1.jsx)(_v99, {
               hasUploader: _v5
             }) : _v9 && !_v22 && (0, _v1.jsx)(_v77.Join, {})), !(_v15 && _v11) && (0, _v1.jsx)(_v8.AccountMenu, {
               hasThemeSupport: _v2
-            }), _v9 && !_v10 && _v19 && (0, _v1.jsx)(_v107, {})]
+            }), _v9 && !_v10 && _v19 && (0, _v1.jsx)(_v108, {})]
           })
         })
       })]

@@ -3843,7 +3843,7 @@
         singular: "Custom analytics",
         dictionary: {
           es: {
-            singular: "Analíticas personalizadas"
+            singular: "Analítica personalizada"
           },
           "de-DE": {
             singular: "Benutzerdefinierte Analysen"

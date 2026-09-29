@@ -903,40 +903,41 @@
             order: _v20,
             tier: _v21,
             isMonthly: _v22,
-            isFreeTrial: _v23,
-            subscriptionProduct: _v24,
-            creatorProductAction: _v25,
-            iosUserId: _v26,
-            paymentAlert: _v27
+            isWeekly: _v23,
+            isFreeTrial: _v24,
+            subscriptionProduct: _v25,
+            creatorProductAction: _v26,
+            iosUserId: _v27,
+            paymentAlert: _v28
           },
-          dispatch: _v28
+          dispatch: _v29
         } = (0, _v73.useStateContext)(),
-        _v29 = (0, _v4.useRef)(null),
         _v30 = (0, _v4.useRef)(null),
         _v31 = (0, _v4.useRef)(null),
-        _v32 = (0, _v4.useRef)({}),
-        _v33 = (0, _v4.useRef)(""),
-        _v34 = (0, _v4.useRef)(null),
+        _v32 = (0, _v4.useRef)(null),
+        _v33 = (0, _v4.useRef)({}),
+        _v34 = (0, _v4.useRef)(""),
         _v35 = (0, _v4.useRef)(null),
-        [_v36, _v37] = (0, _v4.useState)(""),
-        _v38 = (0, _v4.useRef)(!1),
+        _v36 = (0, _v4.useRef)(null),
+        [_v37, _v38] = (0, _v4.useState)(""),
         _v39 = (0, _v4.useRef)(!1),
         _v40 = (0, _v4.useRef)(!1),
-        _v41 = (0, _v4.useRef)(_v7),
-        _v42 = (0, _v4.useRef)(_v8),
-        _v43 = (0, _v4.useRef)(_v9),
-        _v44 = (0, _v4.useRef)(_v10),
-        [_v45, _v46] = (0, _v4.useState)(_v1),
-        [_v47, _v48] = (0, _v4.useState)({}),
+        _v41 = (0, _v4.useRef)(!1),
+        _v42 = (0, _v4.useRef)(_v7),
+        _v43 = (0, _v4.useRef)(_v8),
+        _v44 = (0, _v4.useRef)(_v9),
+        _v45 = (0, _v4.useRef)(_v10),
+        [_v46, _v47] = (0, _v4.useState)(_v1),
+        [_v48, _v49] = (0, _v4.useState)({}),
         {
-          trackStep: _v49
-        } = (0, _v20.useJunoSetupCheckoutTracking)(_v10 ? "add_payment_method" : "purchase", _v26),
+          trackStep: _v50
+        } = (0, _v20.useJunoSetupCheckoutTracking)(_v10 ? "add_payment_method" : "purchase", _v27),
         {
-          trackCheckoutFailed: _v50
-        } = (0, _v13.useCheckoutTracking)(_v26),
-        _v51 = (0, _v23.getCheckoutPeriodicity)(_v24?.isCreatorProduct, _v25, _v22),
-        _v52 = (0, _v4.useCallback)((_v0, _v1) => {
-          if (_v44.current || !(0, _v21.acquireCheckoutFailedLatch)()) return;
+          trackCheckoutFailed: _v51
+        } = (0, _v13.useCheckoutTracking)(_v27),
+        _v52 = (0, _v23.getCheckoutPeriodicity)(_v25?.isCreatorProduct, _v26, _v22, _v23),
+        _v53 = (0, _v4.useCallback)((_v0, _v1) => {
+          if (_v45.current || !(0, _v21.acquireCheckoutFailedLatch)()) return;
           let _v2 = _v0?.category === "decline" ? _v0.declineKind : void 0,
             _v3 = (0, _v21.classifyClientDecline)({
               source: "juno_vgs",
@@ -945,41 +946,41 @@
               code: _v0?.code,
               message: _v1 ?? _v75(_v0)
             });
-          _v50({
-            tier: _v24?.tier ?? _v21 ?? "unknown",
-            periodicity: _v51,
-            isFreeTrial: _v23,
+          _v51({
+            tier: _v25?.tier ?? _v21 ?? "unknown",
+            periodicity: _v52,
+            isFreeTrial: _v24,
             source: _v3.source,
             decline_category: _v3.decline_category,
             failing_field: _v3.failing_field,
             error_code: _v3.error_code,
             error_message: _v3.error_message
           });
-        }, [_v23, _v51, _v24, _v21, _v50]),
-        _v53 = _v18.query?.token ? String(_v18.query.token) : void 0,
-        _v54 = _v19?.user?.id ?? _v26,
+        }, [_v24, _v52, _v25, _v21, _v51]),
+        _v54 = _v18.query?.token ? String(_v18.query.token) : void 0,
+        _v55 = _v19?.user?.id ?? _v27,
         {
-          preauthorize: _v55,
-          ensureCustomer: _v56,
-          createPaymentMethod: _v57
+          preauthorize: _v56,
+          ensureCustomer: _v57,
+          createPaymentMethod: _v58
         } = (0, _v19.useJunoSetupCheckoutApi)({
           isAddingPaymentMethod: !!_v10,
           setPaymentMethodAsActive: !_v10 || (_v11 ?? !0),
           billingAddress: _v17,
-          iosJwt: _v53,
-          trackStep: _v49
+          iosJwt: _v54,
+          trackStep: _v50
         });
       (0, _v4.useEffect)(() => {
-        _v44.current = _v10, _v43.current = _v9, _v41.current = _v7, _v42.current = _v8;
+        _v45.current = _v10, _v44.current = _v9, _v42.current = _v7, _v43.current = _v8;
       });
-      let _v58 = (0, _v4.useCallback)(_v0 => {
-          _v33.current = _v0, _v37(_v0);
+      let _v59 = (0, _v4.useCallback)(_v0 => {
+          _v34.current = _v0, _v38(_v0);
         }, []),
-        _v59 = (0, _v4.useCallback)(() => {
+        _v60 = (0, _v4.useCallback)(() => {
           let {
             month: _v0,
             year: _v1
-          } = _v32.current;
+          } = _v33.current;
           if (!_v0 || !_v1) return null;
           let _v2 = new Date();
           return _v1 < _v2.getFullYear() || _v1 === _v2.getFullYear() && _v0 < _v2.getMonth() + 1 ? null : {
@@ -987,19 +988,19 @@
             year: _v1
           };
         }, []),
-        _v60 = (0, _v4.useCallback)(() => _v33.current.trim() || null, []),
-        _v61 = (0, _v4.useCallback)((_v0, _v1) => {
-          _v48(_v0 => {
+        _v61 = (0, _v4.useCallback)(() => _v34.current.trim() || null, []),
+        _v62 = (0, _v4.useCallback)((_v0, _v1) => {
+          _v49(_v0 => {
             let _v1 = {
               ..._v0,
               [_v0]: Number(_v1)
             };
-            return _v32.current = _v1, _v1;
+            return _v33.current = _v1, _v1;
           });
         }, []),
-        [_v62, _v63] = (0, _v4.useState)({}),
-        _v64 = (0, _v4.useCallback)(_v0 => {
-          _v63(_v0 => {
+        [_v63, _v64] = (0, _v4.useState)({}),
+        _v65 = (0, _v4.useCallback)(_v0 => {
+          _v64(_v0 => {
             let _v1 = _v0.pan_alias,
               _v2 = _v0.cvv_alias;
             return _v0.pan_alias?.isEmpty === _v1?.isEmpty && _v0.pan_alias?.isFocused === _v1?.isFocused && _v0.cvv_alias?.isEmpty === _v2?.isEmpty && _v0.cvv_alias?.isFocused === _v2?.isFocused ? _v0 : {
@@ -1008,14 +1009,14 @@
             };
           });
         }, []),
-        _v65 = (0, _v4.useCallback)(_v0 => {
-          _v44.current && _v41.current?.({
+        _v66 = (0, _v4.useCallback)(_v0 => {
+          _v45.current && _v42.current?.({
             kind: "juno",
             ..._v0
           });
         }, []),
-        _v66 = (0, _v4.useCallback)(() => {
-          _v28({
+        _v67 = (0, _v4.useCallback)(() => {
+          _v29({
             type: _v22.ActionTypes.PAYMENT_ALERT,
             payload: {
               status: "error",
@@ -1047,12 +1048,12 @@
               })
             }
           });
-        }, [_v28]),
-        _v67 = (0, _v4.useCallback)((_v0, _v1) => {
-          if ((_v39.current || _v1) && ("succeeded" === _v0.status ? _v49({
+        }, [_v29]),
+        _v68 = (0, _v4.useCallback)((_v0, _v1) => {
+          if ((_v40.current || _v1) && ("succeeded" === _v0.status ? _v50({
             stage: "setup_succeeded",
             outcome: "completed"
-          }) : _v49({
+          }) : _v50({
             stage: _v0.failure.stage,
             outcome: "failed",
             failure: {
@@ -1062,10 +1063,10 @@
             }
           })), "succeeded" !== _v0.status) {
             let _v0 = _v75(_v0.failure);
-            _v52(_v0.failure), _v65({
+            _v53(_v0.failure), _v66({
               success: !1,
               errorMessage: _v0
-            }), _v28({
+            }), _v29({
               type: _v22.ActionTypes.PAYMENT_ALERT,
               payload: {
                 status: "error",
@@ -1074,22 +1075,22 @@
             });
             return;
           }
-          _v1 && _v57(_v0.setupIntentId).then(_v0 => {
-            ((0, _v24.clearCachedToken)(), _v44.current) ? _v65({
+          _v1 && _v58(_v0.setupIntentId).then(_v0 => {
+            ((0, _v24.clearCachedToken)(), _v45.current) ? _v66({
               success: !0,
               paymentMethodId: _v0,
               setupIntentId: _v0.setupIntentId
-            }) : _v43.current?.(_v0);
+            }) : _v44.current?.(_v0);
           }).catch(_v0 => {
-            _v65({
+            _v66({
               success: !1,
               errorMessage: _v0 instanceof Error ? _v0.message : "Payment method creation failed."
-            }), _v66();
+            }), _v67();
           });
-        }, [_v57, _v28, _v66, _v65, _v52, _v49]),
+        }, [_v58, _v29, _v67, _v66, _v53, _v50]),
         {
-          state: _v68,
-          submit: _v69
+          state: _v69,
+          submit: _v70
         } = function ({
           cardFieldRefs: _v0,
           cardFieldStyle: _v1,
@@ -1278,40 +1279,40 @@
             submit: (0, _v4.useCallback)(() => _v14.current?.submit() ?? Promise.resolve(null), [])
           };
         }({
-          isActive: _v45 === _v22.PaymentFormTypes.TYPE_CREDIT_CARD,
+          isActive: _v46 === _v22.PaymentFormTypes.TYPE_CREDIT_CARD,
           junoEnvironment: "production" !== (0, _v10.default)() || (0, _v11.isClientNonProduction)() ? "preproduction" : "production",
-          userId: void 0 === _v54 ? void 0 : String(_v54),
-          preauthorize: _v55,
-          getCardholderName: _v60,
-          getExpiration: _v59,
+          userId: void 0 === _v55 ? void 0 : String(_v55),
+          preauthorize: _v56,
+          getCardholderName: _v61,
+          getExpiration: _v60,
           cardFieldRefs: {
-            cardNumber: _v29,
-            securityCode: _v30,
-            captcha: _v31
+            cardNumber: _v30,
+            securityCode: _v31,
+            captcha: _v32
           },
           returnUrl: window.location.href,
-          onResult: _v67,
+          onResult: _v68,
           cardFieldStyle: _v15 ? _v81 : void 0,
           cardFieldPlaceholders: _v15 ? _v80 : void 0,
-          onCardFieldsStateChange: _v15 ? _v64 : void 0
+          onCardFieldsStateChange: _v15 ? _v65 : void 0
         }),
-        _v70 = (0, _v4.useMemo)(() => ({
+        _v71 = (0, _v4.useMemo)(() => ({
           prepare: async (_v0, _v1) => {
             let _v2;
-            _v42.current?.(), _v49({
+            _v43.current?.(), _v50({
               stage: "submission_started",
               outcome: "completed"
             });
             try {
-              await _v56();
+              await _v57();
             } catch (_v0) {
               let _v1 = _v0 instanceof Error ? _v0.message : "Failed to ensure customer account.";
-              throw _v52(void 0, _v1), _v65({
+              throw _v53(void 0, _v1), _v66({
                 success: !1,
                 errorMessage: _v1
-              }), _v66(), _v0;
+              }), _v67(), _v0;
             }
-            let _v3 = await _v69();
+            let _v3 = await _v70();
             if (null === _v3) {
               let _v0 = (0, _v12.translate)({
                 singular: "Card setup did not complete.",
@@ -1339,35 +1340,35 @@
                   }
                 }
               });
-              throw _v52({
+              throw _v53({
                 stage: "capture",
                 category: "validation",
                 code: "card_setup_incomplete",
                 validation: {
                   invalidInputs: []
                 }
-              }, _v0), _v65({
+              }, _v0), _v66({
                 success: !1,
                 errorMessage: _v0
               }), Error(_v0);
             }
             if ("succeeded" !== _v3.status) {
               let _v0 = _v75(_v3.failure);
-              throw _v52(_v3.failure), _v65({
+              throw _v53(_v3.failure), _v66({
                 success: !1,
                 errorMessage: _v0
               }), Error(_v0);
             }
             try {
-              _v2 = await _v57(_v3.setupIntentId, _v1), (0, _v24.clearCachedToken)();
+              _v2 = await _v58(_v3.setupIntentId, _v1), (0, _v24.clearCachedToken)();
             } catch (_v0) {
               let _v1 = _v0 instanceof Error ? _v0.message : "Payment method creation failed.";
-              throw _v52(void 0, _v1), _v65({
+              throw _v53(void 0, _v1), _v66({
                 success: !1,
                 errorMessage: _v1
-              }), _v66(), Error("Payment method creation failed.");
+              }), _v67(), Error("Payment method creation failed.");
             }
-            return _v65({
+            return _v66({
               success: !0,
               paymentMethodId: _v2,
               setupIntentId: _v3.setupIntentId
@@ -1378,15 +1379,15 @@
             };
           },
           dispose: () => void 0
-        }), [_v57, _v66, _v56, _v65, _v69, _v52, _v49]);
-      if ((0, _v4.useEffect)(() => (_v5?.(_v70), () => _v5?.(null)), [_v70, _v5]), (0, _v4.useEffect)(() => {
-        if (_v45 === _v22.PaymentFormTypes.TYPE_PAYPAL) return void _v3?.(_v22.PaymentFormTypes.TYPE_PAYPAL);
-        if ("ready" !== _v68) {
-          _v38.current = !1, "terminal" !== _v68 || _v39.current || _v40.current || (_v40.current = !0, _v49({
+        }), [_v58, _v67, _v57, _v66, _v70, _v53, _v50]);
+      if ((0, _v4.useEffect)(() => (_v5?.(_v71), () => _v5?.(null)), [_v71, _v5]), (0, _v4.useEffect)(() => {
+        if (_v46 === _v22.PaymentFormTypes.TYPE_PAYPAL) return void _v3?.(_v22.PaymentFormTypes.TYPE_PAYPAL);
+        if ("ready" !== _v69) {
+          _v39.current = !1, "terminal" !== _v69 || _v40.current || _v41.current || (_v41.current = !0, _v50({
             stage: "form_ready",
             outcome: "failed",
             failure: void 0
-          })), _v6?.("submitting" === _v68 || "resuming" === _v68 ? {
+          })), _v6?.("submitting" === _v69 || "resuming" === _v69 ? {
             status: "preparing",
             attemptId: ""
           } : {
@@ -1394,44 +1395,44 @@
           });
           return;
         }
-        _v39.current || (_v39.current = !0, _v49({
+        _v40.current || (_v40.current = !0, _v50({
           stage: "form_ready",
           outcome: "completed"
-        })), _v38.current || (_v38.current = !0, _v3?.(_v22.PaymentFormTypes.TYPE_CREDIT_CARD)), _v6?.({
+        })), _v39.current || (_v39.current = !0, _v3?.(_v22.PaymentFormTypes.TYPE_CREDIT_CARD)), _v6?.({
           status: "ready"
         });
-      }, [_v45, _v68, _v3, _v6, _v49]), !_v20 && !_v10) return null;
-      let _v71 = {
+      }, [_v46, _v69, _v3, _v6, _v50]), !_v20 && !_v10) return null;
+      let _v72 = {
           type: _v22.PaymentFormTypes.TYPE_CREDIT_CARD,
           data: (0, _v16.getFormType)(_v22.PaymentFormTypes.TYPE_CREDIT_CARD)
         },
-        _v72 = {
+        _v73 = {
           type: _v22.PaymentFormTypes.TYPE_PAYPAL,
           data: (0, _v16.getFormType)(_v22.PaymentFormTypes.TYPE_PAYPAL)
         },
-        _v73 = _v13 ? [_v71, _v72] : [_v71],
-        _v74 = _v45 === _v22.PaymentFormTypes.TYPE_PAYPAL ? _v72 : _v71;
+        _v74 = _v13 ? [_v72, _v73] : [_v72],
+        _v75 = _v46 === _v22.PaymentFormTypes.TYPE_PAYPAL ? _v73 : _v72;
       return (0, _v1.jsxs)(_v18.PaymentMethodForm, {
         formAlert: _v2?.message ? _v2 : void 0,
-        formIsLoading: "loading" === _v68 || "resuming" === _v68,
-        formTypes: _v73,
-        renderedFormType: _v74,
+        formIsLoading: "loading" === _v69 || "resuming" === _v69,
+        formTypes: _v74,
+        renderedFormType: _v75,
         showExistingPaymentMethods: _v12,
         bspStyling: _v14,
         wetransferInspired: _v15,
-        hasError: _v15 && _v27?.status === "error",
+        hasError: _v15 && _v28?.status === "error",
         storedMethod: _v15 ? _v16 : void 0,
         onPaymentTypeChanged: _v0 => {
-          _v46(_v0), _v4?.(_v0), _v0 === _v22.PaymentFormTypes.TYPE_PAYPAL && _v3?.(_v0);
+          _v47(_v0), _v4?.(_v0), _v0 === _v22.PaymentFormTypes.TYPE_PAYPAL && _v3?.(_v0);
         },
-        children: [_v45 === _v22.PaymentFormTypes.TYPE_CREDIT_CARD && (_v15 ? (0, _v1.jsxs)(_v6.Flex, {
+        children: [_v46 === _v22.PaymentFormTypes.TYPE_CREDIT_CARD && (_v15 ? (0, _v1.jsxs)(_v6.Flex, {
           flexDirection: "column",
           gap: (0, _v9.rem)(8),
           width: "100%",
           children: [(0, _v1.jsx)(_v83, {
-            value: _v36,
-            onChange: _v58,
-            inputRef: _v34
+            value: _v37,
+            onChange: _v59,
+            inputRef: _v35
           }), (0, _v1.jsxs)(_v6.Flex, {
             flexDirection: {
               base: "column",
@@ -1445,7 +1446,7 @@
                 base: "none",
                 md: "1"
               },
-              ref: _v29,
+              ref: _v30,
               label: (0, _v12.translate)({
                 singular: "Card number",
                 dictionary: {
@@ -1472,8 +1473,8 @@
                   }
                 }
               }),
-              isFloating: _v62.pan_alias?.isEmpty === !1 || _v62.pan_alias?.isFocused === !0,
-              isFocused: _v62.pan_alias?.isFocused === !0
+              isFloating: _v63.pan_alias?.isEmpty === !1 || _v63.pan_alias?.isFocused === !0,
+              isFocused: _v63.pan_alias?.isFocused === !0
             }), (0, _v1.jsxs)(_v6.Flex, {
               gap: (0, _v9.rem)(6),
               alignItems: "stretch",
@@ -1482,10 +1483,10 @@
                 md: "auto"
               },
               children: [(0, _v1.jsx)(_v84, {
-                onChange: _v61,
-                inputRef: _v35,
+                onChange: _v62,
+                inputRef: _v36,
                 onComplete: () => {
-                  let _v0 = _v30.current?.querySelector("iframe");
+                  let _v0 = _v31.current?.querySelector("iframe");
                   _v0 instanceof HTMLIFrameElement && _v0.focus();
                 }
               }), (0, _v1.jsx)(_v82, {
@@ -1493,7 +1494,7 @@
                   base: "1",
                   md: `0 0 ${(0, _v9.rem)(76)}`
                 },
-                ref: _v30,
+                ref: _v31,
                 label: (0, _v12.translate)({
                   singular: "CVV",
                   dictionary: {
@@ -1502,20 +1503,20 @@
                     }
                   }
                 }),
-                isFloating: _v62.cvv_alias?.isEmpty === !1 || _v62.cvv_alias?.isFocused === !0,
-                isFocused: _v62.cvv_alias?.isFocused === !0
+                isFloating: _v63.cvv_alias?.isEmpty === !1 || _v63.cvv_alias?.isFocused === !0,
+                isFocused: _v63.cvv_alias?.isFocused === !0
               })]
             })]
           }), (0, _v1.jsx)("div", {
-            ref: _v31
+            ref: _v32
           })]
         }) : (0, _v1.jsxs)(_v6.Flex, {
           flexDirection: "column",
           gap: "100",
           width: "100%",
           children: [(0, _v1.jsx)(_v78, {
-            value: _v36,
-            onChange: _v58
+            value: _v37,
+            onChange: _v59
           }), (0, _v1.jsx)(_v77, {
             label: (0, _v12.translate)({
               singular: "Card Number",
@@ -1543,7 +1544,7 @@
                 }
               }
             }),
-            ref: _v29
+            ref: _v30
           }), (0, _v1.jsxs)(_v6.Flex, {
             flexDirection: {
               base: "column",
@@ -1552,8 +1553,8 @@
             gap: "100",
             width: "100%",
             children: [(0, _v1.jsx)(_v79, {
-              value: _v47,
-              onChange: _v61
+              value: _v48,
+              onChange: _v62
             }), (0, _v1.jsx)(_v77, {
               label: (0, _v12.translate)({
                 singular: "CVV",
@@ -1563,10 +1564,10 @@
                   }
                 }
               }),
-              ref: _v30
+              ref: _v31
             })]
           }), (0, _v1.jsx)("div", {
-            ref: _v31
+            ref: _v32
           })]
         })), _v0]
       });

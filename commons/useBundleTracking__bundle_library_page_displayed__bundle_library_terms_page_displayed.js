@@ -137,6 +137,7 @@
       }, [_v0]),
       _v19 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("bundle_intro_modal_displayed", {
+          surface: _v0.surface,
           bundle_type: _v0.bundleType,
           bundle_price: _v0.bundlePrice,
           experiment_key: _v0.experimentKey
@@ -152,6 +153,7 @@
       }, [_v0]),
       _v21 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("bundle_intro_modal_cta_click", {
+          surface: _v0.surface,
           bundle_type: _v0.bundleType,
           bundle_price: _v0.bundlePrice,
           experiment_key: _v0.experimentKey
@@ -165,6 +167,7 @@
       }, [_v0]),
       _v23 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("bundle_intro_modal_dismissed", {
+          surface: _v0.surface,
           bundle_type: _v0.bundleType,
           bundle_price: _v0.bundlePrice,
           dismiss_method: _v0.dismissMethod,

@@ -334,7 +334,7 @@
       _v11 = (0, _v2.useRef)(_v5?.startTime && _v5?.endTime),
       [_v12, _v13] = (0, _v2.useState)(!1),
       _v14 = !(_v5?.startTime && _v5?.endTime),
-      _v15 = (0, _v45.usePrevious)(_v0);
+      _v15 = (0, _v44.usePrevious)(_v0);
     (0, _v2.useEffect)(() => {
       _v10(_v3), _v13(!1);
     }, [_v3]);
@@ -378,7 +378,7 @@
                 size: "sm",
                 mb: (0, _v34.rem)(10),
                 children: _v35.default.Schedule
-              }), (0, _v1.jsx)(_v44.EventSchedule, {
+              }), (0, _v1.jsx)(_v45.EventSchedule, {
                 isVertical: !0,
                 hideRecurring: !0,
                 isVerticalDate: !1,

@@ -32,7 +32,7 @@
         notTeamGatedContentSpaceEnabled: _v3,
         loading: _v4
       } = (0, _v16.useContentSpaceEnabled)(_v0?.uri),
-      _v5 = _v1 > 0 ? (0, _v21.translate)({
+      _v5 = _v1 > 0 ? (0, _v22.translate)({
         singular: "All Results ({resultCount})",
         replacements: {
           resultCount: _v1
@@ -60,7 +60,7 @@
             singular: "所有结果 ({resultCount})"
           }
         }
-      }) : (0, _v21.translate)({
+      }) : (0, _v22.translate)({
         singular: "Folders",
         dictionary: {
           es: {
@@ -93,7 +93,7 @@
         _v1 = _v0.length,
         _v2 = _v0[0],
         _v3 = _v0[_v1 - 1],
-        _v4 = _v4 || !_v3 || _v2 ? _v3.name : (0, _v21.translate)({
+        _v4 = _v4 || !_v3 || _v2 ? _v3.name : (0, _v22.translate)({
           singular: "Library",
           dictionary: {
             es: {
@@ -215,7 +215,7 @@
           loading: _v13
         } = (0, _v16.useContentSpaceEnabled)(_v0?.uri),
         _v14 = !_v13 && _v12 && !_v11,
-        _v15 = _v11 ? (0, _v21.translate)({
+        _v15 = _v11 ? (0, _v22.translate)({
           singular: "Team library",
           dictionary: {
             es: {
@@ -240,7 +240,7 @@
               singular: "团队视频库"
             }
           }
-        }) : (0, _v21.translate)({
+        }) : (0, _v22.translate)({
           singular: "Library",
           dictionary: {
             es: {
@@ -267,7 +267,7 @@
           }
         }),
         _v16 = _v0 && _v0.isPrivateToUser && !_v0.metadata?.connections?.ancestorPath?.length,
-        _v17 = _v0 && _v14 && _v16 ? (0, _v21.translate)({
+        _v17 = _v0 && _v14 && _v16 ? (0, _v22.translate)({
           singular: "Library",
           dictionary: {
             es: {
@@ -308,8 +308,8 @@
             xVimeoPage: _v3,
             jwt: _v4,
             locale: _v5
-          } = (0, _v37.useGctlConfig)(),
-          _v6 = (0, _v38.usePrevious)(_v1?.where.userId),
+          } = (0, _v38.useGctlConfig)(),
+          _v6 = (0, _v36.usePrevious)(_v1?.where.userId),
           [_v7, _v8] = (0, _v2.useReducer)(_v40, _v39),
           _v9 = (0, _v2.useRef)(void 0);
         return (0, _v2.useEffect)(() => {
@@ -321,7 +321,7 @@
             let _v0 = [];
             window.AbortController && (_v9.current = new AbortController());
             for (let _v0 = _v7.currentPage; _v0 <= _v7.currentPage + 3 && !(_v0 > _v7.totalPages); _v0++) if (_v1) {
-              let _v0 = (0, _v36.getUserProjectItems)({
+              let _v0 = (0, _v37.getUserProjectItems)({
                 ..._v1,
                 baseUrl: _v2,
                 query: {
@@ -536,7 +536,7 @@
         color: "text-secondary"
       }), (0, _v1.jsx)(_v6.Paragraph, {
         size: "sm",
-        children: (0, _v21.translate)({
+        children: (0, _v22.translate)({
           singular: "Sorry, no results found.",
           dictionary: {
             es: {
@@ -581,7 +581,7 @@
         loading: _v4
       } = (0, _v16.useContentSpaceEnabled)(_v0?.uri),
       _v5 = !_v4 && _v3 && !_v2,
-      _v6 = _v2 ? (0, _v21.translate)({
+      _v6 = _v2 ? (0, _v22.translate)({
         singular: "Team library",
         dictionary: {
           es: {
@@ -606,7 +606,7 @@
             singular: "团队视频库"
           }
         }
-      }) : (0, _v21.translate)({
+      }) : (0, _v22.translate)({
         singular: "Library",
         dictionary: {
           es: {
@@ -635,7 +635,7 @@
     if (!_v0) return _v1 || _v6;
     {
       let _v0 = !_v0.metadata?.connections?.ancestorPath?.length,
-        _v1 = _v5 && _v0.isPrivateToUser && _v0 ? (0, _v21.translate)({
+        _v1 = _v5 && _v0.isPrivateToUser && _v0 ? (0, _v22.translate)({
           singular: "Library",
           dictionary: {
             es: {
@@ -704,10 +704,10 @@
     dropdownWidth: _v16,
     isSettingsPage: _v17
   }) => {
-    let _v18 = (0, _v17.useIsBokeh)(),
+    let _v18 = (0, _v18.useIsBokeh)(),
       _v19 = (0, _v2.useRef)(null),
       [_v20, _v21] = (0, _v2.useState)(),
-      _v22 = (0, _v22.useDebouncedValue)(_v20, 400),
+      _v22 = (0, _v17.useDebouncedValue)(_v20, 400),
       [_v23, _v24] = (0, _v2.useState)(null),
       {
         colorMode: _v25
@@ -720,7 +720,7 @@
       _v29 = !_v28 && _v27 && !_v26,
       {
         data: _v30
-      } = (0, _v19.useGetUserProject)(() => {
+      } = (0, _v20.useGetUserProject)(() => {
         if (!_v4 || _v3 || !_v2) return null;
         let _v0 = (0, _v45.getProjectId)({
           uri: _v2
@@ -739,7 +739,7 @@
         isValidating: _v33,
         size: _v34,
         setSize: _v35
-      } = (0, _v20.useGetUserProjectsInfinite)(() => _v22 ? null : {
+      } = (0, _v21.useGetUserProjectsInfinite)(() => _v22 ? null : {
         query: {
           perPage: 20,
           topLevelOnly: !0,
@@ -757,7 +757,7 @@
         isValidating: _v37,
         size: _v38,
         setSize: _v39
-      } = (0, _v18.useGetUserItemsInfinite)(() => _v22 ? {
+      } = (0, _v19.useGetUserItemsInfinite)(() => _v22 ? {
         query: {
           filter: "folder",
           perPage: 20,
@@ -782,7 +782,7 @@
           marginBottom: "sm",
           children: (0, _v1.jsx)(_v12.Search, {
             onChange: _v0 => _v21(_v0.currentTarget.value),
-            placeholder: (0, _v21.translate)({
+            placeholder: (0, _v22.translate)({
               singular: "Search Folders",
               dictionary: {
                 es: {

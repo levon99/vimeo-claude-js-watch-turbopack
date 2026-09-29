@@ -962,7 +962,7 @@
       _v19 = (0, _v2.useCallback)(_v0 => {
         _v0 === _v2?.id || _v3(_v16.find(_v0 => _v0.id === _v0));
       }, [_v16, _v2]);
-    if ((0, _v67.default)(() => {
+    if ((0, _v67.useEffectOnce)(() => {
       _v8(_v13);
     }), (0, _v66.useDebouncedEffect)(() => {
       _v14.length && _v10(_v15);

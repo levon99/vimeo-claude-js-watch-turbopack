@@ -397,6 +397,115 @@
       }))
     },
     _v8 = {
+      default: {},
+      b2bStudioRepackaging: {
+        wetransfer: String((0, _v1.translate)({
+          singular: "Send clients unlimited files up to 1TB—whether video, or anything else.",
+          dictionary: {
+            es: {
+              singular: "Envía a tus clientes archivos ilimitados de hasta 1TB—ya sean videos o cualquier otra cosa."
+            },
+            "de-DE": {
+              singular: "Senden Sie Kunden unbegrenzt viele Dateien bis zu 1TB—sei es Video oder etwas anderes."
+            },
+            "fr-FR": {
+              singular: "Envoyez aux clients des fichiers illimités jusqu'à 1TB—qu'il s'agisse de vidéos ou de tout autre fichier."
+            },
+            "ja-JP": {
+              singular: "クライアントへ最大1TBまでのファイルを無制限で送信できます—動画でもその他のファイルでも。"
+            },
+            "ko-KR": {
+              singular: "클라이언트에게 최대 1TB까지 무제한 파일을 전송하세요—비디오든 그 외의 무엇이든 상관없습니다."
+            },
+            "pt-BR": {
+              singular: "Envie aos clientes arquivos ilimitados de até 1TB—sejam vídeos ou qualquer outra coisa."
+            },
+            "zh-CN": {
+              singular: "向客户发送高达 1TB 的不限量文件——无论是视频还是其他任何类型。"
+            }
+          }
+        })),
+        evernote: String((0, _v1.translate)({
+          singular: "Organize your pre-production, production, and post-production in one place the whole team can search.",
+          dictionary: {
+            es: {
+              singular: "Organiza tu preproducción, producción y posproducción en un solo lugar que todo el equipo pueda buscar."
+            },
+            "de-DE": {
+              singular: "Organisieren Sie Ihre Vorproduktion, Produktion und Postproduktion an einem Ort, den das gesamte Team durchsuchen kann."
+            },
+            "fr-FR": {
+              singular: "Organisez votre pré-production, votre production et votre post-production au même endroit, consultable par toute l'équipe."
+            },
+            "ja-JP": {
+              singular: "プリプロダクション、プロダクション、ポストプロダクションをチーム全員が検索できる一か所にまとめましょう。"
+            },
+            "ko-KR": {
+              singular: "사전 제작, 제작, 후반 제작을 팀 전체가 검색할 수 있는 한 곳에 정리하세요."
+            },
+            "pt-BR": {
+              singular: "Organize sua pré-produção, produção, e pós-produção em um só lugar que toda a equipe pode pesquisar."
+            },
+            "zh-CN": {
+              singular: "在一个整个团队都可以搜索的地方，统一组织你的前期制作、制作和后期制作。"
+            }
+          }
+        })),
+        harvest: String((0, _v1.translate)({
+          singular: "Track hours across shoots and edits, and bill clients straight from the timesheet invoices.",
+          dictionary: {
+            es: {
+              singular: "Registra horas de rodajes y ediciones, y factura a los clientes directamente desde las hojas de tiempo."
+            },
+            "de-DE": {
+              singular: "Erfassen Sie Stunden für Drehs und Schnittarbeiten und fakturieren Sie Kunden direkt aus den Stundenzetteln."
+            },
+            "fr-FR": {
+              singular: "Suivez les heures des tournages et des montages, et facturez les clients directement depuis les feuilles de temps."
+            },
+            "ja-JP": {
+              singular: "撮影や編集での作業時間を追跡し、タイムシートの請求書から直接クライアントに請求できます。"
+            },
+            "ko-KR": {
+              singular: "촬영과 편집 전반의 근무 시간을 추적하고, 타임시트 인보이스에서 바로 고객에게 청구하세요."
+            },
+            "pt-BR": {
+              singular: "Controle as horas de filmagens e edições e emita faturas aos clientes diretamente a partir da folha de ponto."
+            },
+            "zh-CN": {
+              singular: "跟踪拍摄和剪辑的工时，并可直接从工时表开具发票向客户收费。"
+            }
+          }
+        })),
+        streamyard: String((0, _v1.translate)({
+          singular: "Go live to multiple platforms at once—all in your browser.",
+          dictionary: {
+            es: {
+              singular: "Transmite en vivo a múltiples plataformas a la vez—todo desde tu navegador."
+            },
+            "de-DE": {
+              singular: "Gleichzeitig auf mehreren Plattformen live gehen—alles in Ihrem Browser."
+            },
+            "fr-FR": {
+              singular: "Diffusez en direct sur plusieurs plateformes à la fois—le tout depuis votre navigateur."
+            },
+            "ja-JP": {
+              singular: "ブラウザだけで複数のプラットフォームへ同時にライブ配信できます。"
+            },
+            "ko-KR": {
+              singular: "여러 플랫폼으로 동시에 라이브 방송하세요—모두 브라우저에서."
+            },
+            "pt-BR": {
+              singular: "Transmita ao vivo para várias plataformas ao mesmo tempo—tudo no seu navegador."
+            },
+            "zh-CN": {
+              singular: "在浏览器中同时向多个平台直播—全部在浏览器内完成。"
+            }
+          }
+        }))
+      }
+    },
+    _v9 = {
       remini: {
         ios: "https://apps.apple.com/app/id1470373330",
         android: "https://play.google.com/store/apps/details?id=com.bigwinepot.nwdn.international"
@@ -434,9 +543,9 @@
     streamyard: "https://i.vimeocdn.com/custom_asset/056e247efd30ffac6a73d3df25dbae0c",
     airtable: "https://i.vimeocdn.com/custom_asset/ce7bfdd19ffcdc97c2b47832a7a434d4",
     tractive: "https://i.vimeocdn.com/custom_asset/1ca9e9e94181a58ec2a0e69a70c9e83e"
-  }, "PRODUCT_IDS", 0, _v2, "PRODUCT_NAMES", 0, _v5, "PRODUCT_TIER_LABELS", 0, _v6, "getProductDisplayName", 0, _v0 => {
+  }, "PRODUCT_IDS", 0, _v2, "PRODUCT_NAMES", 0, _v5, "PRODUCT_TIER_LABELS", 0, _v6, "getProductDescription", 0, (_v0, _v1 = "default") => _v8[_v1][_v0] ?? _v7[_v0], "getProductDisplayName", 0, _v0 => {
     if (!_v4(_v0)) return _v0;
     let _v1 = _v6[_v0];
     return void 0 === _v1 ? _v5[_v0] : `${_v5[_v0]} ${_v1}`;
-  }, "getProductStoreUrl", 0, (_v0, _v1) => _v8[_v0]?.[_v1], "isProductId", 0, _v4]);
+  }, "getProductStoreUrl", 0, (_v0, _v1) => _v9[_v0]?.[_v1], "isProductId", 0, _v4]);
 }

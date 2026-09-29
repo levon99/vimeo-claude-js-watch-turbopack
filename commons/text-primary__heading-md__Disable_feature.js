@@ -266,9 +266,10 @@
       userRolePermissionTranscriptionKeywords: "userRolePermissionTranscriptionKeywords",
       enableTranscriptionGeneration: "enableTranscriptionGeneration",
       enableAiAnalyticsDashboard: "enableAiAnalyticsDashboard",
+      userRolePermissionAiAnalytics: "userRolePermissionAiAnalytics",
       ..._v44
     },
-    _v46 = [_v45.enableParentPermissionAiTranslate, _v45.enableParentPermissionAiVideoDetails, _v45.enableParentPermissionAiHighlights, _v45.enableParentPermissionAiLiveCaptions],
+    _v46 = [_v45.enableParentPermissionAiTranslate, _v45.enableParentPermissionAiVideoDetails, _v45.enableParentPermissionAiHighlights, _v45.enableParentPermissionAiLiveCaptions, _v45.enableAiAnalyticsDashboard],
     _v47 = "ai_translate",
     _v48 = "video_details",
     _v49 = "highlights",
@@ -302,6 +303,7 @@
         userRolePermissionAiHighlights: "vimeo.ai_team_members_generate_role_definitions",
         userRolePermissionAiScriptGeneration: "vimeo.ai_team_members_generate_role_definitions",
         userRolePermissionAiLiveCaptions: "vimeo.ai_team_members_generate_role_definitions",
+        userRolePermissionAiAnalytics: "vimeo.ai_team_members_generate_role_definitions",
         prefEnableAskAiAnalytics: "vimeo.export_ask_ai",
         userRolePermissionTranscriptionKeywords: "vimeo.ai_team_members_generate_role_definitions"
       },
@@ -326,7 +328,8 @@
         [_v45.userRolePermissionAiLiveCaptions]: _v52,
         [_v45.prefEnableAskAiAnalytics]: _v51,
         [_v45.userRolePermissionTranscriptionKeywords]: _v52,
-        [_v45.enableTranscriptionGeneration]: _v52
+        [_v45.enableTranscriptionGeneration]: _v52,
+        [_v45.userRolePermissionAiAnalytics]: "analytics_widget"
       }
     },
     _v54 = _v0 => _v53.eventFeature[_v0],
@@ -1650,7 +1653,7 @@
             singular: "Custom analytics",
             dictionary: {
               es: {
-                singular: "Analíticas personalizadas"
+                singular: "Analítica personalizada"
               },
               "de-DE": {
                 singular: "Benutzerdefinierte Analysen"
@@ -1752,6 +1755,35 @@
               }
             }
           })
+        },
+        userRolePermissionAiAnalytics: {
+          title: (0, _v22.translate)({
+            singular: "Who can use custom analytics",
+            dictionary: {
+              es: {
+                singular: "Quién puede usar análisis personalizados"
+              },
+              "de-DE": {
+                singular: "Wer kann benutzerdefinierte Analysen nutzen"
+              },
+              "fr-FR": {
+                singular: "Qui peut utiliser les analyses personnalisées"
+              },
+              "ja-JP": {
+                singular: "カスタム分析を利用できるのは誰ですか"
+              },
+              "ko-KR": {
+                singular: "맞춤형 분석을 누가 사용할 수 있나요?"
+              },
+              "pt-BR": {
+                singular: "Quem pode usar análises personalizadas"
+              },
+              "zh-CN": {
+                singular: "谁可以使用自定义分析"
+              }
+            }
+          }),
+          description: ""
         }
       },
       settingTooltips: {
@@ -2821,7 +2853,19 @@
       }, {
         key: _v45.enableAiAnalyticsDashboard,
         value: !0,
+        isParentPreference: !0,
         type: _v89,
+        sectionVisibility: {
+          orionFlagsToCheck: ["enable_ai_analytics_dashboard"],
+          userPropertyToCheck: {
+            key: "aiAnalyticsAccess",
+            values: ["free", "full", "disabled"]
+          }
+        }
+      }, {
+        key: _v45.userRolePermissionAiAnalytics,
+        value: _v41,
+        type: _v92,
         sectionVisibility: {
           orionFlagsToCheck: ["enable_ai_analytics_dashboard"],
           userPropertyToCheck: {
@@ -3137,14 +3181,13 @@
           _v22 = (0, _v7.useCallback)(async (_v0, _v1, _v2) => {
             if (await _v11({
               [_v0]: _v1
-            }), _v16(), _v0 === _v45.enableAiAnalyticsDashboard) {
-              _v6({
-                enabled: !!_v1,
-                scope: _v2 ? "workspace" : "team"
-              });
+            }), _v16(), _v0 === _v45.enableAiAnalyticsDashboard ? _v6({
+              enabled: !!_v1,
+              scope: _v2 ? "workspace" : "team"
+            }) : _v2 === _v89 ? _v5.toggleEvent(_v0, _v1) : _v2 === _v92 && _v5.dropdownEvent(_v0, _v1), _v0 === _v45.enableAiAnalyticsDashboard || _v0 === _v45.userRolePermissionAiAnalytics) {
               let _v0 = _v1 ?? _v0;
               _v0 && _v7(_v0 => "string" == typeof _v0 && _v0.startsWith(`/users/${_v0}`));
-            } else _v2 === _v89 ? _v5.toggleEvent(_v0, _v1) : _v2 === _v92 && _v5.dropdownEvent(_v0, _v1);
+            }
           }, [_v11, _v16, _v5, _v6, _v2, _v1, _v0, _v7]);
         (0, _v7.useEffect)(function () {
           let _v0 = Date.now();

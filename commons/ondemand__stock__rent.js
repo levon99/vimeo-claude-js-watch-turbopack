@@ -1,11 +1,12 @@
 {
   "use strict";
 
-  var _v1 = _v0.i(0);
-  let _v2 = /^[A-Z]\d[A-Z] ?\d[A-Z]\d$/,
-    _v3 = _v0 => ["ondemand", "stock"].includes(_v0),
-    _v4 = _v0 => "rent" === _v0 ? "rental" : "buy" === _v0 ? "onetime" : "monthly",
-    _v5 = _v0 => {
+  var _v1 = _v0.i(0),
+    _v2 = _v0.i(0);
+  let _v3 = /^[A-Z]\d[A-Z] ?\d[A-Z]\d$/,
+    _v4 = _v0 => ["ondemand", "stock"].includes(_v0),
+    _v5 = _v0 => "rent" === _v0 ? "rental" : "buy" === _v0 ? "onetime" : "monthly",
+    _v6 = _v0 => {
       let _v1 = _v0.match(/^(\d+(?:\.\d+)?)([a-zA-Z]+)$/);
       if (!_v1) return _v0;
       let [, _v2, _v3] = _v1;
@@ -28,8 +29,33 @@
         _v3.setFullYear(_v3.getFullYear() + _v0);
     }
     return _v3;
-  }, "getBillingPeriod", 0, (_v0, _v1, _v2, _v3) => _v0 && _v1 ? _v0 === _v1.plans.monthly ? _v2 : _v0 === _v1.plans.annual ? _v3 : "" : "", "getCheckoutPeriodicity", 0, (_v0, _v1, _v2) => _v0 ? _v4(_v1) : _v2 ? "monthly" : "annual", "getErrorRedirectPath", 0, (_v0, _v1, _v2) => {
-    if (_v0 && _v3(_v0)) try {
+  }, "getBillingPeriod", 0, (_v0, _v1, _v2, _v3) => _v0 && _v1 ? _v0 === _v1.plans.monthly ? _v2 : _v0 === _v1.plans.annual ? _v3 : _v0 === _v1.plans.weekly ? `/${(0, _v1.translate)({
+    singular: "week",
+    dictionary: {
+      es: {
+        singular: "semana"
+      },
+      "de-DE": {
+        singular: "Woche"
+      },
+      "fr-FR": {
+        singular: "semaine"
+      },
+      "ja-JP": {
+        singular: "週"
+      },
+      "ko-KR": {
+        singular: "주"
+      },
+      "pt-BR": {
+        singular: "semana"
+      },
+      "zh-CN": {
+        singular: "周"
+      }
+    }
+  })}` : "" : "", "getCheckoutPeriodicity", 0, (_v0, _v1, _v2, _v3) => _v0 ? _v5(_v1) : _v3 ? "weekly" : _v2 ? "monthly" : "annual", "getErrorRedirectPath", 0, (_v0, _v1, _v2) => {
+    if (_v0 && _v4(_v0)) try {
       let _v0 = _v1 ?? (document?.referrer !== "" ? document?.referrer : `${window.location.origin}/ondemand`),
         _v1 = new URL(_v0, window.location.origin);
       return _v1?.pathname;
@@ -54,10 +80,10 @@
       _v5 = _v2;
     if (_v4) {
       let _v0 = _v3[_v1 ? "altAnnual" : "annual"].features.bandwidth.periodicQuota || "";
-      _v5 = `${_v2} ${_v5(_v0)} annual bandwidth`;
+      _v5 = `${_v2} ${_v6(_v0)} annual bandwidth`;
     }
     return _v5;
-  }, "getPlanType", 0, _v4, "isCreatorProductAction", 0, _v0 => "string" == typeof _v0 && ["rent", "buy", "subscribe"].includes(_v0), "isCreatorProductTier", 0, _v3, "isPayPalToken", 0, _v0 => _v0.startsWith("EC-") || _v0.startsWith("BA-"), "isRentalPlan", 0, _v0 => void 0 !== _v0.rentalTerms, "isUpgradeToPlanAlreadyOnSubscription", 0, (_v0, _v1) => !!_v0 && !!_v1?.plans?.length && _v1.plans.some(_v0 => _v0.billingPlanId === _v0), "separateNumberAndUnit", 0, _v5, "transformToOrderItemOptions", 0, _v0 => {
+  }, "getPlanType", 0, _v5, "isCreatorProductAction", 0, _v0 => "string" == typeof _v0 && ["rent", "buy", "subscribe"].includes(_v0), "isCreatorProductTier", 0, _v4, "isPayPalToken", 0, _v0 => _v0.startsWith("EC-") || _v0.startsWith("BA-"), "isRentalPlan", 0, _v0 => void 0 !== _v0.rentalTerms, "isUpgradeToPlanAlreadyOnSubscription", 0, (_v0, _v1) => !!_v0 && !!_v1?.plans?.length && _v1.plans.some(_v0 => _v0.billingPlanId === _v0), "separateNumberAndUnit", 0, _v6, "transformToOrderItemOptions", 0, _v0 => {
     let {
       billingPlanId: _v1,
       productId: _v2,
@@ -74,9 +100,9 @@
     if (!_v3) return null;
     switch (_v2) {
       case "US":
-        return (0, _v1.isUsZipCodeFormatValid)(_v3) ? _v3 : null;
+        return (0, _v2.isUsZipCodeFormatValid)(_v3) ? _v3 : null;
       case "CA":
-        return _v2.test(_v3) ? _v3 : null;
+        return _v3.test(_v3) ? _v3 : null;
       default:
         return _v3;
     }

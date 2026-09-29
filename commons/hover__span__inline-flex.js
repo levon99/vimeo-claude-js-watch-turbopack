@@ -74,7 +74,7 @@
           })
         }), (0, _v1.jsx)(_v9.Text, {
           as: "a",
-          href: "https://help.vimeo.com/hc/en-us/articles/12426960030353-Automatic-closed-captioning-for-live-events",
+          href: "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/51019307091985",
           target: "_blank",
           textDecoration: "underline",
           marginTop: (0, _v8.rem)(4),

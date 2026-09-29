@@ -395,7 +395,67 @@
                     [_v0]: _v1
                   }
                 }, _v19.EventSettingsManager.EVENT_PLAYER_FIELDS).then(() => {
-                  _v3();
+                  _v3(), _v9({
+                    status: "success",
+                    duration: 0,
+                    title: _v1 ? (0, _v14.translate)({
+                      singular: "{feature} enabled",
+                      replacements: {
+                        feature: _v2
+                      },
+                      dictionary: {
+                        es: {
+                          singular: "{feature} activado"
+                        },
+                        "de-DE": {
+                          singular: "{feature} aktiviert"
+                        },
+                        "fr-FR": {
+                          singular: "{feature} activé"
+                        },
+                        "ja-JP": {
+                          singular: "{feature}が有効です"
+                        },
+                        "ko-KR": {
+                          singular: "{feature} 활성화됨"
+                        },
+                        "pt-BR": {
+                          singular: "{feature} ativado"
+                        },
+                        "zh-CN": {
+                          singular: "{feature} 已启用"
+                        }
+                      }
+                    }) : (0, _v14.translate)({
+                      singular: "{feature} disabled",
+                      replacements: {
+                        feature: _v2
+                      },
+                      dictionary: {
+                        es: {
+                          singular: "{feature} desactivado"
+                        },
+                        "de-DE": {
+                          singular: "{feature} deaktiviert"
+                        },
+                        "fr-FR": {
+                          singular: "{feature} désactivé"
+                        },
+                        "ja-JP": {
+                          singular: "{feature}が無効です"
+                        },
+                        "ko-KR": {
+                          singular: "{feature} 비활성화됨"
+                        },
+                        "pt-BR": {
+                          singular: "{feature} desativado"
+                        },
+                        "zh-CN": {
+                          singular: "{feature} 已禁用"
+                        }
+                      }
+                    })
+                  });
                 }).catch(_v0 => (_v9({
                   status: "error",
                   duration: 0,

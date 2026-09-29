@@ -252,7 +252,12 @@
         let _v67 = (_v45 ?? 0) + _v24,
           _v68 = null != _v31 && null != _v30 ? _v31 + Math.max(0, _v67 - 1) * _v30 : _v67 * (_v44 ?? 0),
           _v69 = (0, _v7.formatAmountWithCurrency)(_v68, _v34 ?? "", 2),
-          _v70 = (0, _v2.useRef)(null);
+          _v70 = "";
+        if (_v32) {
+          let _v0 = _v32.toLowerCase();
+          _v70 = _v21.default.Year, "week" === _v0 || "weekly" === _v0 ? _v70 = _v21.default.Week : ("month" === _v0 || "monthly" === _v0) && (_v70 = _v21.default.Month);
+        }
+        let _v71 = (0, _v2.useRef)(null);
         return (0, _v1.jsxs)(_v13.ModalContent, {
           children: [(0, _v1.jsx)(_v14.ModalHeader, {
             children: (0, _v1.jsx)(_v9.Header, {
@@ -318,12 +323,12 @@
                     children: _v21.default.PaymentMethod
                   }), (0, _v1.jsx)(_v8.Box, {
                     as: "span",
-                    ref: _v70,
+                    ref: _v71,
                     children: (0, _v1.jsx)(_v11.Tooltip, {
                       label: _v21.default.PaymentMethodTip,
                       placement: "bottom",
                       portalProps: {
-                        containerRef: _v70
+                        containerRef: _v71
                       },
                       children: (0, _v1.jsx)(_v8.Box, {
                         display: "flex",
@@ -376,12 +381,12 @@
                   children: [(0, _v1.jsx)(_v27.InfoTextTypeB, {
                     children: _v21.default.Subtotal
                   }), (0, _v1.jsx)(_v8.Box, {
-                    ref: _v70,
+                    ref: _v71,
                     children: (0, _v1.jsx)(_v11.Tooltip, {
                       label: _v21.default.SubtotalTip(_v48, _v32),
                       placement: "bottom",
                       portalProps: {
-                        containerRef: _v70
+                        containerRef: _v71
                       },
                       children: (0, _v1.jsx)(_v27.StyledInfoButton, {
                         variant: "hyperminimal",
@@ -403,12 +408,12 @@
                   children: [(0, _v1.jsx)(_v27.InfoTextTypeASuccess, {
                     children: _v21.default.BillingAdjustment
                   }), (0, _v1.jsx)(_v8.Box, {
-                    ref: _v70,
+                    ref: _v71,
                     children: (0, _v1.jsx)(_v11.Tooltip, {
                       label: _v21.default.BillingAdjustmentTip,
                       placement: "bottom",
                       portalProps: {
-                        containerRef: _v70
+                        containerRef: _v71
                       },
                       children: (0, _v1.jsx)(_v27.StyledInfoButton, {
                         variant: "hyperminimal",
@@ -507,7 +512,7 @@
                 marginBottom: (0, _v17.rem)(8),
                 variant: "body-sm",
                 color: "text-secondary",
-                children: _v3 ? _v21.default.TermsConditionsTrial("/terms", "/privacy", _v69, _v66, _v32 ? "monthly" === _v32.toLowerCase() || "month" === _v32.toLowerCase() ? _v21.default.Month : _v21.default.Year : "", () => void 0, () => void 0) : _v36 ? _v21.default.TermsConditionsOptedIn("/terms", "/privacy", _v69, _v32 ? "monthly" === _v32.toLowerCase() || "month" === _v32.toLowerCase() ? _v21.default.Month : _v21.default.Year : "", () => void 0, () => void 0) : _v21.default.TermsConditionsOptedOut("/terms", "/privacy", _v69, () => void 0, () => void 0)
+                children: _v3 ? _v21.default.TermsConditionsTrial("/terms", "/privacy", _v69, _v66, _v70, () => void 0, () => void 0) : _v36 ? _v21.default.TermsConditionsOptedIn("/terms", "/privacy", _v69, _v70, () => void 0, () => void 0) : _v21.default.TermsConditionsOptedOut("/terms", "/privacy", _v69, () => void 0, () => void 0)
               }), _v3 ? (0, _v1.jsx)(_v16.Text, {
                 variant: "body-sm",
                 color: "text-secondary",
