@@ -398,7 +398,14 @@
       upsellEvent: "disable privacy"
     }],
     _v13 = _v11("xs"),
-    _v14 = new Set(["password", "unlisted", "disable"]);
+    _v14 = new Set(["password", "unlisted", "disable"]),
+    _v15 = new Set(["nobody", "team", "unlisted"]),
+    _v16 = _v12.filter(_v0 => _v15.has(_v0.privacy)).map(_v0 => ({
+      privacy: _v0.privacy,
+      title: _v0.title,
+      description: _v0.description,
+      icon: _v13[_v0.privacy]?.icon
+    }));
   _v0.s(["DEFAULT_PRIVACY_OPTIONS", 0, _v12, "DEFAULT_PRIVACY_VALUES", 0, {
     UNLISTED: "unlisted",
     PASSWORD: "password",
@@ -417,7 +424,7 @@
     TEAM: "team",
     PRIVATE: "nobody",
     PUBLIC: "anybody"
-  }, "PAID_PRIVACY_UPSELL_MODAL_VALUES", 0, _v14, "PRIVACY_VALUE_TO_UPSELL", 0, {
+  }, "FILE_PRIVACY_OPTIONS", 0, _v16, "PAID_PRIVACY_UPSELL_MODAL_VALUES", 0, _v14, "PRIVACY_VALUE_TO_UPSELL", 0, {
     password: "password privacy",
     unlisted: "unlisted privacy",
     disable: "disable privacy"

@@ -430,7 +430,7 @@
           }], _v0;
         }();
       }, function (_v0) {
-        _v0.exports = JSON.parse('{"name":"vimeo-uploader","version":"2.26.0","log_to_console":false,"tomdawg":{"url":"https://devu.cloud.vimeo.com"},"lighthouse":{"url":"https://lighthouse.vimeocdn.com"},"leatherback":{"url":"https://leatherback.vimeo-prod.appspot.com"},"user":{"id":1,"account_type":"basic","is_mod":true,"use_leatherback":false}}');
+        _v0.exports = JSON.parse('{"name":"vimeo-uploader","version":"2.27.0","log_to_console":false,"tomdawg":{"url":"https://devu.cloud.vimeo.com"},"lighthouse":{"url":"https://lighthouse.vimeocdn.com"},"leatherback":{"url":"https://leatherback.vimeo-prod.appspot.com"},"user":{"id":1,"account_type":"basic","is_mod":true,"use_leatherback":false}}');
       }, function (_v0, _v1, _v2) {
         var _v3 = _v2(11),
           _v4 = _v2(12);
@@ -782,9 +782,9 @@
         "use strict";
 
         _v2.r(_v1), _v2.d(_v1, "SERVICE_APP_IDS", function () {
-          return _v109;
+          return _v122;
         }), _v2.d(_v1, "API_APPS", function () {
-          return _v110;
+          return _v123;
         }), _v2.d(_v1, "ERRORS", function () {
           return _v29;
         }), _v2.d(_v1, "ERROR_CODES", function () {
@@ -829,7 +829,8 @@
             API_PULL_CLIP: "api_pull_clip",
             API_PULL_CLIP_REPLACE: "api_pull_clip_replace",
             DRM_CLIP: "drm_clip",
-            DRM_CLIP_REPLACE: "drm_clip_replace"
+            DRM_CLIP_REPLACE: "drm_clip_replace",
+            FILE: "file"
           },
           _v10 = {
             UPLOAD_SERVICE_SITE: "UPLOAD_SERVICE_SITE",
@@ -1109,7 +1110,8 @@
             RANGE_RESUME_FAILED: null,
             TOTAL_CAP_EXCEEDED: null,
             RANGE_RESUME_HEADERS_MISSING: null,
-            RANGE_HEADERS_MISSING: null
+            RANGE_HEADERS_MISSING: null,
+            FILE_MIME_UNSUPPORTED: null
           }),
           _v30 = [_v29.VIDEO_FILE_INVALID, _v29.VIDEO_FILE_SIZE_CHANGED, _v29.VIDEO_FILE_REMOVED],
           _v31 = [_v29.VIDEO_FILE_REMOVED, _v29.VIDEO_FILE_SIZE_CHANGED],
@@ -1137,7 +1139,8 @@
             LIGHTHOUSE_LOAD_ERROR: 921,
             LIGHTHOUSE_RACE_ERROR: 922,
             RANGE_RESUME_FAILED: 923,
-            TOTAL_CAP_EXCEEDED: 924
+            TOTAL_CAP_EXCEEDED: 924,
+            FILE_MIME_UNSUPPORTED: 925
           };
         function _v33(_v0) {
           return (_v33 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (_v0) {
@@ -3297,8 +3300,402 @@
             }(_v2, "string"), "symbol" === _v90(_v3) ? _v3 : String(_v3)), _v5);
           }
         }
-        var _v92 = [_v7.CANCELED, _v7.COMPLETED, _v7.FAILED],
-          _v93 = function () {
+        function _v92() {
+          return (_v92 = "u" > typeof Reflect && Reflect.get ? Reflect.get.bind() : function (_v0, _v1, _v2) {
+            var _v3 = function (_v0, _v1) {
+              for (; !Object.prototype.hasOwnProperty.call(_v0, _v1) && null !== (_v0 = _v94(_v0)););
+              return _v0;
+            }(_v0, _v1);
+            if (_v3) {
+              var _v4 = Object.getOwnPropertyDescriptor(_v3, _v1);
+              return _v4.get ? _v4.get.call(arguments.length < 3 ? _v0 : _v2) : _v4.value;
+            }
+          }).apply(this, arguments);
+        }
+        function _v93(_v0, _v1) {
+          return (_v93 = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (_v0, _v1) {
+            return _v0.__proto__ = _v1, _v0;
+          })(_v0, _v1);
+        }
+        function _v94(_v0) {
+          return (_v94 = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (_v0) {
+            return _v0.__proto__ || Object.getPrototypeOf(_v0);
+          })(_v0);
+        }
+        var _v95 = function (_v0) {
+          if ("function" != typeof _v0 && null !== _v0) throw TypeError("Super expression must either be null or a function");
+          _v5.prototype = Object.create(_v0 && _v0.prototype, {
+            constructor: {
+              value: _v5,
+              writable: !0,
+              configurable: !0
+            }
+          }), Object.defineProperty(_v5, "prototype", {
+            writable: !1
+          }), _v0 && _v93(_v5, _v0);
+          var _v1,
+            _v2,
+            _v3,
+            _v4 = (_v1 = function () {
+              if ("u" < typeof Reflect || !Reflect.construct || Reflect.construct.sham) return !1;
+              if ("function" == typeof Proxy) return !0;
+              try {
+                return Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})), !0;
+              } catch (_v0) {
+                return !1;
+              }
+            }(), function () {
+              var _v0,
+                _v1 = _v94(_v5);
+              return _v0 = _v1 ? Reflect.construct(_v1, arguments, _v94(this).constructor) : _v1.apply(this, arguments), function (_v0, _v1) {
+                if (_v1 && ("object" === _v90(_v1) || "function" == typeof _v1)) return _v1;
+                if (void 0 !== _v1) throw TypeError("Derived constructors may only return object or undefined");
+                if (void 0 === _v0) throw ReferenceError("this hasn't been initialised - super() hasn't been called");
+                return _v0;
+              }(this, _v0);
+            });
+          function _v5(_v0, _v1, _v2) {
+            var _v3,
+              _v4 = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : window.console;
+            return function (_v0, _v1) {
+              if (!(_v0 instanceof _v1)) throw TypeError("Cannot call a class as a function");
+            }(this, _v5), (_v3 = _v4.call(this, _v0, _v1, _v2, _v4))._xhr = null, _v3;
+          }
+          return _v2 = [{
+            key: "_bindMethods",
+            value: function () {
+              this._onUploadProgress = this._onUploadProgress.bind(this), this._onRequestResolve = this._onRequestResolve.bind(this), this._onRequestReject = this._onRequestReject.bind(this), _v92(_v94(_v5.prototype), "_bindMethods", this).call(this);
+            }
+          }, {
+            key: "_buildFormData",
+            value: function () {
+              var _v0 = new FormData();
+              return _v0.append("file_data", this.file, this.file.name), _v0;
+            }
+          }, {
+            key: "_onRequestReject",
+            value: function (_v0) {
+              var _v1 = this.logger,
+                _v2 = this._xhr;
+              return _v0 && "object" === _v90(_v0) && "target" in _v0 && _v0.target instanceof XMLHttpRequest ? _v1.warn("[PostUploader] _onRequestReject: ".concat(_v0.target.status, ": ").concat(_v0.target.statusText)) : _v1.warn("[PostUploader] _onRequestReject: ".concat(_v0)), _v2 && 404 === _v2.status ? this.fail(_v29.INVALID_UPLOAD_ENDPOINT) : this.fail(_v29.ATTACH_FAILED);
+            }
+          }, {
+            key: "_onRequestResolve",
+            value: function (_v0) {
+              var _v1 = _v0 && _v0.target ? _v0.target.status : null;
+              return "number" == typeof _v1 && (_v1 < 200 || _v1 >= 300) ? this._onRequestReject(_v0) : this._complete();
+            }
+          }, {
+            key: "upload",
+            value: function () {
+              _v92(_v94(_v5.prototype), "upload", this).call(this);
+              var _v0 = this.endpoint,
+                _v1 = this._onUploadProgress,
+                _v2 = this._onRequestResolve,
+                _v3 = this._onRequestReject;
+              this.state = _v7.UPLOADING;
+              var _v4 = new XMLHttpRequest();
+              this._xhr = _v4, _v4.open("POST", _v0), _v4.upload.addEventListener("progress", _v1), _v4.addEventListener("load", _v2), _v4.addEventListener("error", _v3), _v4.addEventListener("timeout", _v3), _v4.send(this._buildFormData());
+            }
+          }, {
+            key: "pause",
+            value: function () {
+              this.logger.warn("[PostUploader] pause is not supported");
+            }
+          }, {
+            key: "resume",
+            value: function () {
+              this.logger.warn("[PostUploader] resume is not supported");
+            }
+          }, {
+            key: "_abortRequests",
+            value: function () {
+              this._xhr ? this._xhr.abort() : this.logger.info("[PostUploader] no xhr to cancel");
+            }
+          }, {
+            key: "fail",
+            value: function (_v0) {
+              _v92(_v94(_v5.prototype), "fail", this).call(this, _v0), this._abortRequests();
+            }
+          }, {
+            key: "cancel",
+            value: function () {
+              this._abortRequests(), _v92(_v94(_v5.prototype), "cancel", this).call(this);
+            }
+          }], _v91(_v5.prototype, _v2), _v3 && _v91(_v5, _v3), Object.defineProperty(_v5, "prototype", {
+            writable: !1
+          }), _v5;
+        }(_v44);
+        function _v96(_v0) {
+          return (_v96 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (_v0) {
+            return typeof _v0;
+          } : function (_v0) {
+            return _v0 && "function" == typeof Symbol && _v0.constructor === Symbol && _v0 !== Symbol.prototype ? "symbol" : typeof _v0;
+          })(_v0);
+        }
+        function _v97(_v0, _v1) {
+          for (var _v2, _v3, _v4 = 0; _v4 < _v1.length; _v4++) {
+            var _v5 = _v1[_v4];
+            _v5.enumerable = _v5.enumerable || !1, _v5.configurable = !0, "value" in _v5 && (_v5.writable = !0), Object.defineProperty(_v0, (_v2 = _v5.key, _v3 = void 0, _v3 = function (_v0, _v1) {
+              if ("object" !== _v96(_v0) || null === _v0) return _v0;
+              var _v2 = _v0[Symbol.toPrimitive];
+              if (void 0 !== _v2) {
+                var _v3 = _v2.call(_v0, _v1 || "default");
+                if ("object" !== _v96(_v3)) return _v3;
+                throw TypeError("@@toPrimitive must return a primitive value.");
+              }
+              return String(_v0);
+            }(_v2, "string"), "symbol" === _v96(_v3) ? _v3 : String(_v3)), _v5);
+          }
+        }
+        function _v98() {
+          return (_v98 = "u" > typeof Reflect && Reflect.get ? Reflect.get.bind() : function (_v0, _v1, _v2) {
+            var _v3 = function (_v0, _v1) {
+              for (; !Object.prototype.hasOwnProperty.call(_v0, _v1) && null !== (_v0 = _v101(_v0)););
+              return _v0;
+            }(_v0, _v1);
+            if (_v3) {
+              var _v4 = Object.getOwnPropertyDescriptor(_v3, _v1);
+              return _v4.get ? _v4.get.call(arguments.length < 3 ? _v0 : _v2) : _v4.value;
+            }
+          }).apply(this, arguments);
+        }
+        function _v99(_v0, _v1) {
+          return (_v99 = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (_v0, _v1) {
+            return _v0.__proto__ = _v1, _v0;
+          })(_v0, _v1);
+        }
+        function _v100(_v0) {
+          if (void 0 === _v0) throw ReferenceError("this hasn't been initialised - super() hasn't been called");
+          return _v0;
+        }
+        function _v101(_v0) {
+          return (_v101 = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (_v0) {
+            return _v0.__proto__ || Object.getPrototypeOf(_v0);
+          })(_v0);
+        }
+        var _v102 = function (_v0) {
+          if ("function" != typeof _v0 && null !== _v0) throw TypeError("Super expression must either be null or a function");
+          _v5.prototype = Object.create(_v0 && _v0.prototype, {
+            constructor: {
+              value: _v5,
+              writable: !0,
+              configurable: !0
+            }
+          }), Object.defineProperty(_v5, "prototype", {
+            writable: !1
+          }), _v0 && _v99(_v5, _v0);
+          var _v1,
+            _v2,
+            _v3,
+            _v4 = (_v1 = function () {
+              if ("u" < typeof Reflect || !Reflect.construct || Reflect.construct.sham) return !1;
+              if ("function" == typeof Proxy) return !0;
+              try {
+                return Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})), !0;
+              } catch (_v0) {
+                return !1;
+              }
+            }(), function () {
+              var _v0,
+                _v1 = _v101(_v5);
+              return _v0 = _v1 ? Reflect.construct(_v1, arguments, _v101(this).constructor) : _v1.apply(this, arguments), function (_v0, _v1) {
+                if (_v1 && ("object" === _v96(_v1) || "function" == typeof _v1)) return _v1;
+                if (void 0 !== _v1) throw TypeError("Derived constructors may only return object or undefined");
+                return _v100(_v0);
+              }(this, _v0);
+            });
+          function _v5(_v0, _v1, _v2, _v3) {
+            var _v4;
+            return function (_v0, _v1) {
+              if (!(_v0 instanceof _v1)) throw TypeError("Cannot call a class as a function");
+            }(this, _v5), (_v4 = _v4.call(this, _v0, _v1, _v2, _v3)).uploader = null, _v4.public_id = null, _v4.file_uri = null, _v4.upload_state = null, _v4.poll_attempts = 0, _v4._poll_completion = _v4._poll_completion.bind(_v100(_v4)), _v4._create = _v4._create.bind(_v100(_v4)), _v4._start = _v4._start.bind(_v100(_v4)), _v4._beginUploading = _v4._beginUploading.bind(_v100(_v4)), _v4._onUploaderComplete = _v4._onUploaderComplete.bind(_v100(_v4)), _v4._setFileSizeChangeListener(), _v4;
+          }
+          return _v2 = [{
+            key: "_bindMethods",
+            value: function () {
+              this._create = this._create.bind(this), this._poll_completion = this._poll_completion.bind(this), this._beginUploading = this._beginUploading.bind(this), this._onUploaderComplete = this._onUploaderComplete.bind(this), this._setFileSizeChangeListener = this._setFileSizeChangeListener.bind(this), _v98(_v101(_v5.prototype), "_bindMethods", this).call(this);
+            }
+          }, {
+            key: "_apiUrl",
+            value: function (_v0) {
+              return "https://".concat(this.config.api.url).concat(_v0);
+            }
+          }, {
+            key: "_authHeaders",
+            value: function () {
+              return {
+                Authorization: "jwt ".concat(this.config.api.jwt),
+                Accept: "application/vnd.vimeo.*+json;version=3.4",
+                "Content-Type": "application/json"
+              };
+            }
+          }, {
+            key: "_create",
+            value: function () {
+              var _v0 = this.file,
+                _v1 = this.config,
+                _v2 = this.logger,
+                _v3 = _v0.target_user_id ? _v0.target_user_id : _v1.user.id,
+                _v4 = {
+                  name: _v0.name,
+                  folder_id: _v0.folder_id,
+                  upload: {
+                    approach: "post",
+                    size: _v0.size,
+                    mime_type: _v0.type
+                  }
+                };
+              return _v2.info("[FileClient] _create: Creating hosted file for user ".concat(_v3)), _v21(this._apiUrl("/users/".concat(_v3, "/files?fields=upload,uri,public_id,upload_state")), {
+                method: "POST",
+                headers: this._authHeaders(),
+                body: JSON.stringify(_v4),
+                withCredentials: !0,
+                successCode: 201
+              });
+            }
+          }, {
+            key: "_parseApiError",
+            value: function (_v0) {
+              try {
+                var _v1 = JSON.parse(_v0.target.responseText);
+                if ("error_code" in _v1) {
+                  if (0 === _v1.error_code || 0 === _v1.error_code) return _v29.VERIFICATION_FAILED;
+                  if (0 === _v1.error_code && "invalid_parameters" in _v1 && _v1.invalid_parameters[0] && "upload" === _v1.invalid_parameters[0].field) return _v29.FILE_MIME_UNSUPPORTED;
+                }
+                if ("error" in _v1) return _v1.error;
+              } catch (_v0) {}
+              return _v29.ATTACH_FAILED;
+            }
+          }, {
+            key: "_start",
+            value: function (_v0) {
+              var _v1,
+                _v2 = this.logger;
+              try {
+                _v1 = JSON.parse(_v0.target.responseText);
+              } catch (_v0) {
+                return _v2.warn("[FileClient] _start: failed to parse create response"), void this._onUploaderFail(_v29.ATTACH_FAILED);
+              }
+              this.public_id = _v1.public_id, this.file_uri = _v1.uri, this.upload_state = _v1.upload_state, this._beginUploading(_v1);
+            }
+          }, {
+            key: "_beginUploading",
+            value: function (_v0) {
+              var _v1 = this.file,
+                _v2 = this.config,
+                _v3 = this.logger,
+                _v4 = this._onUploaderProgress,
+                _v5 = this._onUploaderStateChange,
+                _v6 = _v0.upload && _v0.upload.upload_link;
+              _v6 ? (_v3.info("[FileClient] _beginUploading: Uploading to ".concat(_v6)), this.uploader = new _v95(_v2, _v6, _v1, _v3), this.uploader.on(_v8.PROGRESS, _v4), this.uploader.on(_v8.STATE_CHANGE, _v5), this.uploader.upload()) : this._onUploaderFail(_v29.ATTACH_FAILED);
+            }
+          }, {
+            key: "_onUploaderComplete",
+            value: function () {
+              this.bytes_uploaded = this.file.size, this._poll_completion();
+            }
+          }, {
+            key: "_poll_completion",
+            value: function () {
+              var _v0 = this;
+              if (this.state !== _v7.CANCELED && this.state !== _v7.FAILED) {
+                var _v1 = this.logger;
+                this.public_id ? this.poll_attempts >= 40 ? _v98(_v101(_v5.prototype), "_onUploaderFail", this).call(this, _v29.COMPLETE_CALL_FAILED) : (this.poll_attempts += 1, _v21(this._apiUrl("".concat(this.file_uri, "?fields=upload_state,upload")), {
+                  method: "GET",
+                  headers: this._authHeaders(),
+                  withCredentials: !0,
+                  successCode: 200
+                }).then(function (_v0) {
+                  try {
+                    var _v1 = JSON.parse(_v0.target.responseText).upload_state;
+                    "complete" === _v1 ? _v98(_v101(_v5.prototype), "_onUploaderComplete", _v0).call(_v0) : "failed" === _v1 ? _v98(_v101(_v5.prototype), "_onUploaderFail", _v0).call(_v0, _v29.VERIFICATION_FAILED) : setTimeout(_v0._poll_completion, 0);
+                  } catch (_v0) {
+                    _v1.warn("[FileClient] _poll_completion: failed to parse response"), setTimeout(_v0._poll_completion, 0);
+                  }
+                  return null;
+                }).catch(function (_v0) {
+                  return _v1.warn("[FileClient] _poll_completion: ".concat(_v0)), setTimeout(_v0._poll_completion, 0), null;
+                })) : _v98(_v101(_v5.prototype), "_onUploaderComplete", this).call(this);
+              }
+            }
+          }, {
+            key: "_setFileSizeChangeListener",
+            value: function () {
+              var _v0 = this;
+              this.on(_v8.FILE_SIZE_CHANGED, function (_v0) {
+                _v0.fail(_v0);
+              });
+            }
+          }, {
+            key: "start",
+            value: function () {
+              var _v0 = this;
+              _v98(_v101(_v5.prototype), "start", this).call(this), this._create().then(this._start).catch(function (_v0) {
+                _v0._onUploaderFail(_v0._parseApiError(_v0));
+              });
+            }
+          }, {
+            key: "pause",
+            value: function () {
+              this.logger.warn("[FileClient] pause is not supported for hosted files");
+            }
+          }, {
+            key: "resume",
+            value: function () {
+              this.logger.warn("[FileClient] resume is not supported for hosted files");
+            }
+          }, {
+            key: "fail",
+            value: function (_v0) {
+              this.uploader ? this.uploader.fail(_v0) : _v98(_v101(_v5.prototype), "_onUploaderFail", this).call(this, _v0);
+            }
+          }, {
+            key: "cancel",
+            value: function () {
+              var _v0 = this;
+              if (_v98(_v101(_v5.prototype), "cancel", this).call(this), this.uploader && this.uploader.cancel(), this.file_uri) {
+                var _v1 = {
+                  method: "DELETE",
+                  headers: this._authHeaders(),
+                  withCredentials: !0,
+                  successCode: 204
+                };
+                _v22(this._apiUrl(this.file_uri), _v1).then(function () {
+                  return _v98(_v101(_v5.prototype), "finishCancel", _v0).call(_v0);
+                }).catch(function (_v0) {
+                  _v0.logger.warn("[FileClient] cancel: file deletion failed: ".concat(_v0)), _v98(_v101(_v5.prototype), "finishCancel", _v0).call(_v0);
+                });
+              } else _v98(_v101(_v5.prototype), "finishCancel", this).call(this);
+            }
+          }], _v97(_v5.prototype, _v2), _v3 && _v97(_v5, _v3), Object.defineProperty(_v5, "prototype", {
+            writable: !1
+          }), _v5;
+        }(_v39);
+        function _v103(_v0) {
+          return (_v103 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (_v0) {
+            return typeof _v0;
+          } : function (_v0) {
+            return _v0 && "function" == typeof Symbol && _v0.constructor === Symbol && _v0 !== Symbol.prototype ? "symbol" : typeof _v0;
+          })(_v0);
+        }
+        function _v104(_v0, _v1) {
+          for (var _v2, _v3, _v4 = 0; _v4 < _v1.length; _v4++) {
+            var _v5 = _v1[_v4];
+            _v5.enumerable = _v5.enumerable || !1, _v5.configurable = !0, "value" in _v5 && (_v5.writable = !0), Object.defineProperty(_v0, (_v2 = _v5.key, _v3 = void 0, _v3 = function (_v0, _v1) {
+              if ("object" !== _v103(_v0) || null === _v0) return _v0;
+              var _v2 = _v0[Symbol.toPrimitive];
+              if (void 0 !== _v2) {
+                var _v3 = _v2.call(_v0, _v1 || "default");
+                if ("object" !== _v103(_v3)) return _v3;
+                throw TypeError("@@toPrimitive must return a primitive value.");
+              }
+              return String(_v0);
+            }(_v2, "string"), "symbol" === _v103(_v3) ? _v3 : String(_v3)), _v5);
+          }
+        }
+        var _v105 = [_v7.CANCELED, _v7.COMPLETED, _v7.FAILED],
+          _v106 = function () {
             var _v0, _v1;
             function _v2(_v0) {
               !function (_v0, _v1) {
@@ -3313,7 +3710,7 @@
               set: function (_v0) {
                 var _v1 = this;
                 this._uploads !== _v0 && (this._uploads = [], _v0.forEach(function (_v0) {
-                  -1 === _v92.indexOf(_v0.state) && _v1._uploads.push(_v0);
+                  -1 === _v105.indexOf(_v0.state) && _v1._uploads.push(_v0);
                 }), this._uploads.length > 0 ? this._setWarning() : this._removeWarning());
               }
             }, {
@@ -3360,7 +3757,7 @@
                     statusText: _v3,
                     responseText: _v4,
                     responseType: _v5,
-                    typeofResponse: _v90(_v6)
+                    typeofResponse: _v103(_v6)
                   });
                 }
                 return null;
@@ -3374,7 +3771,7 @@
                   _v5 = _v1.uid,
                   _v6 = "id" in _v3 ? _v3.id : null,
                   _v7 = _v0 ? "revive" : "abort";
-                _v5 ? _v1.apiToken ? _v6 ? "object" === _v90(_v4) && _v4.url ? (this.logger.debug("[AttemptAborter] fetching ".concat(_v7, " for upload attempt: "), _v5), this._makeAborterRequest(_v0, _v5, _v6, _v1.apiToken, _v4.url)) : this.logger.warn("[AttemptAborter] skip ".concat(_v7, "; reason: missing Vimeo API URL")) : this.logger.warn("[AttemptAborter] skip ".concat(_v7, "; reason: config missing user ID"), _v3) : this.logger.warn("[AttemptAborter] skip ".concat(_v7, "; reason: missing API token")) : this.logger.warn("[AttemptAborter] skip ".concat(_v7, "; reason: missing upload attempt ID"), _v1);
+                _v5 ? _v1.apiToken ? _v6 ? "object" === _v103(_v4) && _v4.url ? (this.logger.debug("[AttemptAborter] fetching ".concat(_v7, " for upload attempt: "), _v5), this._makeAborterRequest(_v0, _v5, _v6, _v1.apiToken, _v4.url)) : this.logger.warn("[AttemptAborter] skip ".concat(_v7, "; reason: missing Vimeo API URL")) : this.logger.warn("[AttemptAborter] skip ".concat(_v7, "; reason: config missing user ID"), _v3) : this.logger.warn("[AttemptAborter] skip ".concat(_v7, "; reason: missing API token")) : this.logger.warn("[AttemptAborter] skip ".concat(_v7, "; reason: missing upload attempt ID"), _v1);
               }
             }, {
               key: "_onBeforeWindowUnload",
@@ -3396,24 +3793,24 @@
               value: function (_v0) {
                 clearTimeout(this._timeout);
               }
-            }], _v91(_v2.prototype, _v0), _v1 && _v91(_v2, _v1), Object.defineProperty(_v2, "prototype", {
+            }], _v104(_v2.prototype, _v0), _v1 && _v104(_v2, _v1), Object.defineProperty(_v2, "prototype", {
               writable: !1
             }), _v2;
           }(),
-          _v94 = "127.0.0.1",
-          _v95 = [{
+          _v107 = "127.0.0.1",
+          _v108 = [{
             PingUrl: "https://storage.googleapis.com/vimeo-prod-src-std-us/0.png",
             Region: "gs-us"
           }],
-          _v96 = _v95[0];
-        function _v97(_v0) {
-          return (_v97 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (_v0) {
+          _v109 = _v108[0];
+        function _v110(_v0) {
+          return (_v110 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (_v0) {
             return typeof _v0;
           } : function (_v0) {
             return _v0 && "function" == typeof Symbol && _v0.constructor === Symbol && _v0 !== Symbol.prototype ? "symbol" : typeof _v0;
           })(_v0);
         }
-        function _v98(_v0, _v1) {
+        function _v111(_v0, _v1) {
           var _v2 = Object.keys(_v0);
           if (Object.getOwnPropertySymbols) {
             var _v3 = Object.getOwnPropertySymbols(_v0);
@@ -3423,43 +3820,43 @@
           }
           return _v2;
         }
-        function _v99(_v0) {
+        function _v112(_v0) {
           for (var _v1 = 1; _v1 < arguments.length; _v1++) {
             var _v2 = null != arguments[_v1] ? arguments[_v1] : {};
-            _v1 % 2 ? _v98(Object(_v2), !0).forEach(function (_v0) {
+            _v1 % 2 ? _v111(Object(_v2), !0).forEach(function (_v0) {
               var _v1, _v2, _v3;
-              _v1 = _v0, _v2 = _v0, _v3 = _v2[_v0], (_v2 = _v101(_v2)) in _v1 ? Object.defineProperty(_v1, _v2, {
+              _v1 = _v0, _v2 = _v0, _v3 = _v2[_v0], (_v2 = _v114(_v2)) in _v1 ? Object.defineProperty(_v1, _v2, {
                 value: _v3,
                 enumerable: !0,
                 configurable: !0,
                 writable: !0
               }) : _v1[_v2] = _v3;
-            }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(_v0, Object.getOwnPropertyDescriptors(_v2)) : _v98(Object(_v2)).forEach(function (_v0) {
+            }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(_v0, Object.getOwnPropertyDescriptors(_v2)) : _v111(Object(_v2)).forEach(function (_v0) {
               Object.defineProperty(_v0, _v0, Object.getOwnPropertyDescriptor(_v2, _v0));
             });
           }
           return _v0;
         }
-        function _v100(_v0, _v1) {
+        function _v113(_v0, _v1) {
           for (var _v2 = 0; _v2 < _v1.length; _v2++) {
             var _v3 = _v1[_v2];
-            _v3.enumerable = _v3.enumerable || !1, _v3.configurable = !0, "value" in _v3 && (_v3.writable = !0), Object.defineProperty(_v0, _v101(_v3.key), _v3);
+            _v3.enumerable = _v3.enumerable || !1, _v3.configurable = !0, "value" in _v3 && (_v3.writable = !0), Object.defineProperty(_v0, _v114(_v3.key), _v3);
           }
         }
-        function _v101(_v0) {
+        function _v114(_v0) {
           var _v1 = function (_v0, _v1) {
-            if ("object" !== _v97(_v0) || null === _v0) return _v0;
+            if ("object" !== _v110(_v0) || null === _v0) return _v0;
             var _v2 = _v0[Symbol.toPrimitive];
             if (void 0 !== _v2) {
               var _v3 = _v2.call(_v0, _v1 || "default");
-              if ("object" !== _v97(_v3)) return _v3;
+              if ("object" !== _v110(_v3)) return _v3;
               throw TypeError("@@toPrimitive must return a primitive value.");
             }
             return String(_v0);
           }(_v0, "string");
-          return "symbol" === _v97(_v1) ? _v1 : String(_v1);
+          return "symbol" === _v110(_v1) ? _v1 : String(_v1);
         }
-        var _v102 = function () {
+        var _v115 = function () {
           var _v0, _v1;
           function _v2(_v0) {
             var _v1 = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : window.console;
@@ -3486,12 +3883,12 @@
               var _v1 = _v0.target,
                 _v2 = _v1.status,
                 _v3 = _v1.responseText;
-              if (200 !== _v2) return this.regions = _v95, this.ip = _v94, Promise.resolve(this.regions);
+              if (200 !== _v2) return this.regions = _v108, this.ip = _v107, Promise.resolve(this.regions);
               var _v4 = null;
               try {
                 _v4 = JSON.parse(_v3);
               } catch (_v0) {
-                return this._warn("[GETREGIONS] ".concat(_v0)), this.regions = _v95, this.ip = _v94, Promise.resolve(this.regions);
+                return this._warn("[GETREGIONS] ".concat(_v0)), this.regions = _v108, this.ip = _v107, Promise.resolve(this.regions);
               }
               return this.regions = _v4.Regions, this.ip = _v4.Ip, Promise.resolve(_v4.Regions);
             }
@@ -3523,7 +3920,7 @@
                     return _v1(_v0.PingUrl).then(function (_v0) {
                       var _v1 = window.performance.now() - _v2,
                         _v2 = 200 !== _v0.target.status ? 0 : _v1;
-                      return _v3.push(_v99(_v99({}, _v0), {}, {
+                      return _v3.push(_v112(_v112({}, _v0), {}, {
                         distance_index: _v1,
                         rtt: _v2
                       })), _v1 >= 0 && _v0(_v3), _v0;
@@ -3558,7 +3955,7 @@
           }, {
             key: "_onRegionsGetFail",
             value: function (_v0) {
-              return (0, this._warn)("_onRegionsGetFail: ".concat(_v0.toString())), this.ip = _v94, this.regions = _v95, this.sorted_regions = _v95, this.fastest_region = _v96, Promise.resolve([this.fastest_region, this.ip]);
+              return (0, this._warn)("_onRegionsGetFail: ".concat(_v0.toString())), this.ip = _v107, this.regions = _v108, this.sorted_regions = _v108, this.fastest_region = _v109, Promise.resolve([this.fastest_region, this.ip]);
             }
           }, {
             key: "_onIpGetFail",
@@ -3614,34 +4011,34 @@
                 method: "HEAD"
               });
             }
-          }], _v100(_v2.prototype, _v0), _v1 && _v100(_v2, _v1), Object.defineProperty(_v2, "prototype", {
+          }], _v113(_v2.prototype, _v0), _v1 && _v113(_v2, _v1), Object.defineProperty(_v2, "prototype", {
             writable: !1
           }), _v2;
         }();
-        function _v103(_v0) {
-          return (_v103 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (_v0) {
+        function _v116(_v0) {
+          return (_v116 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (_v0) {
             return typeof _v0;
           } : function (_v0) {
             return _v0 && "function" == typeof Symbol && _v0.constructor === Symbol && _v0 !== Symbol.prototype ? "symbol" : typeof _v0;
           })(_v0);
         }
-        function _v104(_v0, _v1) {
+        function _v117(_v0, _v1) {
           for (var _v2, _v3, _v4 = 0; _v4 < _v1.length; _v4++) {
             var _v5 = _v1[_v4];
             _v5.enumerable = _v5.enumerable || !1, _v5.configurable = !0, "value" in _v5 && (_v5.writable = !0), Object.defineProperty(_v0, (_v2 = _v5.key, _v3 = void 0, _v3 = function (_v0, _v1) {
-              if ("object" !== _v103(_v0) || null === _v0) return _v0;
+              if ("object" !== _v116(_v0) || null === _v0) return _v0;
               var _v2 = _v0[Symbol.toPrimitive];
               if (void 0 !== _v2) {
                 var _v3 = _v2.call(_v0, _v1 || "default");
-                if ("object" !== _v103(_v3)) return _v3;
+                if ("object" !== _v116(_v3)) return _v3;
                 throw TypeError("@@toPrimitive must return a primitive value.");
               }
               return String(_v0);
-            }(_v2, "string"), "symbol" === _v103(_v3) ? _v3 : String(_v3)), _v5);
+            }(_v2, "string"), "symbol" === _v116(_v3) ? _v3 : String(_v3)), _v5);
           }
         }
-        var _v105,
-          _v106 = function () {
+        var _v118,
+          _v119 = function () {
             var _v0, _v1;
             function _v2(_v0) {
               if (function (_v0, _v1) {
@@ -3657,37 +4054,37 @@
                 var _v2 = new XMLHttpRequest();
                 return _v2.open("POST", _v1, !0), _v2.setRequestHeader("Content-Type", "text/plain;charset=UTF-8"), _v2.send(_v0);
               }
-            }], _v104(_v2.prototype, _v0), _v1 && _v104(_v2, _v1), Object.defineProperty(_v2, "prototype", {
+            }], _v117(_v2.prototype, _v0), _v1 && _v117(_v2, _v1), Object.defineProperty(_v2, "prototype", {
               writable: !1
             }), _v2;
           }();
-        function _v107(_v0) {
-          return (_v107 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (_v0) {
+        function _v120(_v0) {
+          return (_v120 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (_v0) {
             return typeof _v0;
           } : function (_v0) {
             return _v0 && "function" == typeof Symbol && _v0.constructor === Symbol && _v0 !== Symbol.prototype ? "symbol" : typeof _v0;
           })(_v0);
         }
-        function _v108(_v0, _v1, _v2) {
+        function _v121(_v0, _v1, _v2) {
           var _v3;
           return (_v3 = function (_v0, _v1) {
-            if ("object" !== _v107(_v0) || null === _v0) return _v0;
+            if ("object" !== _v120(_v0) || null === _v0) return _v0;
             var _v2 = _v0[Symbol.toPrimitive];
             if (void 0 !== _v2) {
               var _v3 = _v2.call(_v0, _v1 || "default");
-              if ("object" !== _v107(_v3)) return _v3;
+              if ("object" !== _v120(_v3)) return _v3;
               throw TypeError("@@toPrimitive must return a primitive value.");
             }
             return String(_v0);
-          }(_v1, "string"), (_v1 = "symbol" === _v107(_v3) ? _v3 : String(_v3)) in _v0) ? Object.defineProperty(_v0, _v1, {
+          }(_v1, "string"), (_v1 = "symbol" === _v120(_v3) ? _v3 : String(_v3)) in _v0) ? Object.defineProperty(_v0, _v1, {
             value: _v2,
             enumerable: !0,
             configurable: !0,
             writable: !0
           }) : _v0[_v1] = _v2, _v0;
         }
-        var _v109 = (_v108(_v105 = {}, "UPLOAD_SERVICE_SITE", 3), _v108(_v105, "UPLOAD_SERVICE_LEATHERBACK", 0), _v108(_v105, "UPLOAD_SERVICE_API", 0), _v105),
-          _v110 = {
+        var _v122 = (_v121(_v118 = {}, "UPLOAD_SERVICE_SITE", 3), _v121(_v118, "UPLOAD_SERVICE_LEATHERBACK", 0), _v121(_v118, "UPLOAD_SERVICE_API", 0), _v118),
+          _v123 = {
             GCS_RESUMABLE_UPLOADER_APP: 3,
             DROPBOX_APP: 0,
             BOX_APP: 0,
@@ -3695,14 +4092,14 @@
             GOOGLE_DRIVE_APP: 0,
             PARALLEL_UPLOADER_APP: 0
           };
-        function _v111(_v0) {
-          return (_v111 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (_v0) {
+        function _v124(_v0) {
+          return (_v124 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (_v0) {
             return typeof _v0;
           } : function (_v0) {
             return _v0 && "function" == typeof Symbol && _v0.constructor === Symbol && _v0 !== Symbol.prototype ? "symbol" : typeof _v0;
           })(_v0);
         }
-        function _v112(_v0, _v1) {
+        function _v125(_v0, _v1) {
           var _v2 = Object.keys(_v0);
           if (Object.getOwnPropertySymbols) {
             var _v3 = Object.getOwnPropertySymbols(_v0);
@@ -3712,49 +4109,50 @@
           }
           return _v2;
         }
-        function _v113(_v0) {
+        function _v126(_v0) {
           for (var _v1 = 1; _v1 < arguments.length; _v1++) {
             var _v2 = null != arguments[_v1] ? arguments[_v1] : {};
-            _v1 % 2 ? _v112(Object(_v2), !0).forEach(function (_v0) {
+            _v1 % 2 ? _v125(Object(_v2), !0).forEach(function (_v0) {
               var _v1, _v2, _v3;
-              _v1 = _v0, _v2 = _v0, _v3 = _v2[_v0], (_v2 = _v115(_v2)) in _v1 ? Object.defineProperty(_v1, _v2, {
+              _v1 = _v0, _v2 = _v0, _v3 = _v2[_v0], (_v2 = _v128(_v2)) in _v1 ? Object.defineProperty(_v1, _v2, {
                 value: _v3,
                 enumerable: !0,
                 configurable: !0,
                 writable: !0
               }) : _v1[_v2] = _v3;
-            }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(_v0, Object.getOwnPropertyDescriptors(_v2)) : _v112(Object(_v2)).forEach(function (_v0) {
+            }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(_v0, Object.getOwnPropertyDescriptors(_v2)) : _v125(Object(_v2)).forEach(function (_v0) {
               Object.defineProperty(_v0, _v0, Object.getOwnPropertyDescriptor(_v2, _v0));
             });
           }
           return _v0;
         }
-        function _v114(_v0, _v1) {
+        function _v127(_v0, _v1) {
           for (var _v2 = 0; _v2 < _v1.length; _v2++) {
             var _v3 = _v1[_v2];
-            _v3.enumerable = _v3.enumerable || !1, _v3.configurable = !0, "value" in _v3 && (_v3.writable = !0), Object.defineProperty(_v0, _v115(_v3.key), _v3);
+            _v3.enumerable = _v3.enumerable || !1, _v3.configurable = !0, "value" in _v3 && (_v3.writable = !0), Object.defineProperty(_v0, _v128(_v3.key), _v3);
           }
         }
-        function _v115(_v0) {
+        function _v128(_v0) {
           var _v1 = function (_v0, _v1) {
-            if ("object" !== _v111(_v0) || null === _v0) return _v0;
+            if ("object" !== _v124(_v0) || null === _v0) return _v0;
             var _v2 = _v0[Symbol.toPrimitive];
             if (void 0 !== _v2) {
               var _v3 = _v2.call(_v0, _v1 || "default");
-              if ("object" !== _v111(_v3)) return _v3;
+              if ("object" !== _v124(_v3)) return _v3;
               throw TypeError("@@toPrimitive must return a primitive value.");
             }
             return String(_v0);
           }(_v0, "string");
-          return "symbol" === _v111(_v1) ? _v1 : String(_v1);
+          return "symbol" === _v124(_v1) ? _v1 : String(_v1);
         }
-        var _v116 = [_v7.CANCELED, _v7.COMPLETED, _v7.FAILED];
+        var _v129 = [_v9.FILE],
+          _v130 = [_v7.CANCELED, _v7.COMPLETED, _v7.FAILED];
         _v1.default = function () {
           var _v0, _v1;
           function _v2(_v0, _v1) {
             !function (_v0, _v1) {
               if (!(_v0 instanceof _v1)) throw TypeError("Cannot call a class as a function");
-            }(this, _v2), this.config = _v113(_v113({}, _v3), _v0), this.uploads = new Map(), this.site_config = _v1, this._aborter = new _v93(this.config), this.config.lighthouse = new _v102(this.config.lighthouse.url), this.fresnel = new _v106("upload-stats");
+            }(this, _v2), this.config = _v126(_v126({}, _v3), _v0), this.uploads = new Map(), this.site_config = _v1, this._aborter = new _v106(this.config), this.config.lighthouse = new _v115(this.config.lighthouse.url), this.fresnel = new _v119("upload-stats");
             var _v2,
               _v3 = "production" == (_v2 = "u" > typeof window ? window.location.hostname : "localhost", RegExp(/\bvimeo.com\b/).test(_v2) ? "production" : "development") ? _v80.Service.FRESNEL_PROD : _v80.Service.FRESNEL_DEV;
             _v80.BigPictureClient.configure(new _v80.Configuration(_v3)), this._setSessionId(), this._setUserId(), this.config.use_core_count && this._setParallelRequestsCount(), this._onUploadStateChange = this._onUploadStateChange.bind(this), this.clear = this.clear.bind(this);
@@ -3852,13 +4250,13 @@
             value: function () {
               var _v0 = this;
               void 0 === this._session_id && setTimeout(function () {
-                void 0 === window.__fa_session ? void 0 === window.vimeo || "object" !== _v111(window.vimeo.cur_user) ? _v0._session_id = "undefined.".concat(Date.now()) : _v0._session_id = "".concat(window.vimeo.cur_user.id, ".").concat(Date.now()) : _v0._session_id = window.__fa_session;
+                void 0 === window.__fa_session ? void 0 === window.vimeo || "object" !== _v124(window.vimeo.cur_user) ? _v0._session_id = "undefined.".concat(Date.now()) : _v0._session_id = "".concat(window.vimeo.cur_user.id, ".").concat(Date.now()) : _v0._session_id = window.__fa_session;
               }, 0);
             }
           }, {
             key: "_setUserId",
             value: function () {
-              void 0 === this._user_id && (void 0 === window.vimeo || "object" !== _v111(window.vimeo.cur_user) ? this._user_id = 0 : this._user_id = window.vimeo.cur_user.id);
+              void 0 === this._user_id && (void 0 === window.vimeo || "object" !== _v124(window.vimeo.cur_user) ? this._user_id = 0 : this._user_id = window.vimeo.cur_user.id);
             }
           }, {
             key: "_setParallelRequestsCount",
@@ -3881,6 +4279,9 @@
                 case _v9.API_PULL_CLIP:
                 case _v9.API_PULL_CLIP_REPLACE:
                   _v6 = new _v79(_v5, _v1, _v2, _v0, _v3);
+                  break;
+                case _v9.FILE:
+                  _v6 = new _v102(_v5, _v1, _v2, _v0);
                   break;
                 default:
                   throw Error("".concat(_v1, " upload not implemented yet"));
@@ -3977,21 +4378,21 @@
             key: "pauseAll",
             value: function () {
               this.uploads.forEach(function (_v0) {
-                _v0.state === _v7.UPLOADING && _v0.pause();
+                _v0.state === _v7.UPLOADING && -1 === _v129.indexOf(_v0.upload_type) && _v0.pause();
               });
             }
           }, {
             key: "resumeAll",
             value: function () {
               this.uploads.forEach(function (_v0) {
-                _v0.state === _v7.PAUSED && _v0.resume();
+                _v0.state === _v7.PAUSED && -1 === _v129.indexOf(_v0.upload_type) && _v0.resume();
               });
             }
           }, {
             key: "cancelAll",
             value: function () {
               this.uploads.forEach(function (_v0) {
-                _v116.includes(_v0.state) || _v0.cancel();
+                _v130.includes(_v0.state) || _v0.cancel();
               });
             }
           }, {
@@ -4002,9 +4403,9 @@
           }, {
             key: "clear",
             value: function (_v0) {
-              _v116.includes(_v0.state) || _v0.cancel(), this.uploads.delete(_v0.id), _v0.state = _v7.REMOVED;
+              _v130.includes(_v0.state) || _v0.cancel(), this.uploads.delete(_v0.id), _v0.state = _v7.REMOVED;
             }
-          }], _v114(_v2.prototype, _v0), _v1 && _v114(_v2, _v1), Object.defineProperty(_v2, "prototype", {
+          }], _v127(_v2.prototype, _v0), _v1 && _v127(_v2, _v1), Object.defineProperty(_v2, "prototype", {
             writable: !1
           }), _v2;
         }();

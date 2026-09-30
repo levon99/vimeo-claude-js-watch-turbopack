@@ -16,8 +16,9 @@
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
-    _v16 = _v0.i(0);
-  let _v17 = {
+    _v16 = _v0.i(0),
+    _v17 = _v0.i(0);
+  let _v18 = {
       barebone_js: "",
       chromeless_css: "",
       chromeless_js: "",
@@ -25,26 +26,29 @@
       js: "",
       player_url: ""
     },
-    _v18 = ({
+    _v19 = ({
       playerAssetUrls: _v0
     }) => {
-      let _v1 = (0, _v15.useTeamPresetsPageAvailability)();
-      return "loading" === _v1.status ? (0, _v1.jsx)(_v10.Spinner, {}) : "unavailable" === _v1.status ? (0, _v1.jsx)(_v16.ErrorPage, {
+      let _v1 = (0, _v16.useTeamPresetsPageAvailability)();
+      return "loading" === _v1.status ? (0, _v1.jsx)(_v11.Spinner, {}) : "unavailable" === _v1.status ? (0, _v1.jsx)(_v17.ErrorPage, {
         error: new _v6.UnauthorizedError()
-      }) : (0, _v1.jsx)(_v11.PlayerContextProvider, {
-        type: _v12.PlayerType.VimeoPlayer,
-        assetUrls: _v0 ?? _v17,
+      }) : (0, _v1.jsx)(_v12.PlayerContextProvider, {
+        type: _v13.PlayerType.VimeoPlayer,
+        assetUrls: _v0 ?? _v18,
         children: (0, _v1.jsxs)(_v4.Box, {
-          maxW: _v8.SETTING_PAGES_MAX_WIDTH,
+          maxW: _v9.SETTING_PAGES_MAX_WIDTH,
           w: "100%",
           mx: "auto",
           py: "lg",
-          children: [(0, _v1.jsx)(_v9.SettingsPageContentHeader, {
-            title: _v14.T.Presets
+          children: [(0, _v1.jsx)(_v10.SettingsPageContentHeader, {
+            title: _v15.T.Presets
           }), (0, _v1.jsxs)(_v5.Flex, {
             direction: "column",
             gap: "xl",
-            children: [(0, _v1.jsx)(_v2.EmbedPresetListModule, {}), (0, _v1.jsx)(_v3.VideoPagePresetListModule, {})]
+            children: [(0, _v1.jsx)(_v2.EmbedPresetListModule, {}), (0, _v1.jsx)(_v3.VideoPagePresetListModule, {}), (0, _v1.jsx)(_v8.PresetsDefaultsCrossLink, {
+              scope: "team",
+              direction: "to-defaults"
+            })]
           })]
         })
       });
@@ -58,5 +62,5 @@
     inlineViewer: !0,
     inlinePlayerAssets: !0,
     noIndex: !0
-  }), _v18.getLayout = _v13.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v18], 0);
+  }), _v19.getLayout = _v14.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v19], 0);
 }

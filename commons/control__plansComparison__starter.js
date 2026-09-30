@@ -706,27 +706,29 @@
       _v8 = null,
       _v9 = null,
       _v10 = null,
-      _v11 = null;
-    _v7 || (_v3 = _v6?.user?.id?.toString() ?? null, _v4 = _v6.vuid, _v9 = (_v8 = _v6.teamUser?.ownerId?.toString() ?? null) ? `T_${_v8}` : _v3 ? `U_${_v3}` : null, _v10 = _v6.teamUser?.accountType?.toString() ?? _v6.user?.account?.toString() ?? null, _v11 = _v6.user?.productId?.toString() ?? null);
-    let _v12 = (0, _v8.useRef)(_v3),
-      _v13 = (0, _v8.useRef)(_v4),
-      _v14 = (0, _v8.useRef)(_v8),
-      _v15 = (0, _v8.useRef)(_v9),
-      _v16 = (0, _v8.useRef)(_v10),
-      _v17 = (0, _v8.useRef)(_v11),
-      _v18 = (0, _v8.useRef)(_v6);
-    _v12.current = _v3, _v13.current = _v4, _v14.current = _v8, _v15.current = _v9, _v16.current = _v10, _v17.current = _v11, _v18.current = _v6;
-    let [_v19, _v20] = (0, _v8.useState)(void 0),
-      _v21 = (0, _v8.useRef)(!1),
-      [_v22, _v23] = (0, _v8.useState)(0),
-      [_v24, _v25] = (0, _v8.useState)({
+      _v11 = null,
+      _v12 = null;
+    _v7 || (_v3 = _v6?.user?.id?.toString() ?? null, _v4 = _v6.vuid, _v9 = (_v8 = _v6.teamUser?.ownerId?.toString() ?? null) ? `T_${_v8}` : _v3 ? `U_${_v3}` : null, _v10 = _v6.teamUser?.accountType?.toString() ?? _v6.user?.account?.toString() ?? null, _v11 = _v6.user?.productId?.toString() ?? null, _v12 = _v6.user?.currency?.toUpperCase() ?? null);
+    let _v13 = (0, _v8.useRef)(_v3),
+      _v14 = (0, _v8.useRef)(_v4),
+      _v15 = (0, _v8.useRef)(_v8),
+      _v16 = (0, _v8.useRef)(_v9),
+      _v17 = (0, _v8.useRef)(_v10),
+      _v18 = (0, _v8.useRef)(_v11),
+      _v19 = (0, _v8.useRef)(_v12),
+      _v20 = (0, _v8.useRef)(_v6);
+    _v13.current = _v3, _v14.current = _v4, _v15.current = _v8, _v16.current = _v9, _v17.current = _v10, _v18.current = _v11, _v19.current = _v12, _v20.current = _v6;
+    let [_v21, _v22] = (0, _v8.useState)(void 0),
+      _v23 = (0, _v8.useRef)(!1),
+      [_v24, _v25] = (0, _v8.useState)(0),
+      [_v26, _v27] = (0, _v8.useState)({
         settings: _v11,
         segmentations: {},
         settingsHash: "",
         isDefaultIdentity: !0
       }),
-      [_v26, _v27] = (0, _v8.useState)(!0),
-      _v28 = function () {
+      [_v28, _v29] = (0, _v8.useState)(!0),
+      _v30 = function () {
         let [_v0, _v1] = (0, _v8.useState)(_v14);
         return (0, _v8.useEffect)(() => {
           if (!_v12()) return;
@@ -761,9 +763,9 @@
           };
         }, []), _v0;
       }(),
-      _v29 = (0, _v8.useRef)(!1);
+      _v31 = (0, _v8.useRef)(!1);
     (0, _v8.useEffect)(() => {
-      _v7 || _v21.current || (_v21.current = !0, (async () => {
+      _v7 || _v23.current || (_v23.current = !0, (async () => {
         try {
           let _v0 = _v12() ? "staging" : "production",
             _v1 = await _v42(),
@@ -771,17 +773,18 @@
               goesThroughOrionProxy: !0,
               appId: "vimeo_web",
               appSpecificAttributeGetters: {
-                vimeoUserId: () => Promise.resolve(_v12.current),
-                vuid: () => Promise.resolve(_v13.current),
-                teamOwnerId: () => Promise.resolve(_v14.current),
-                actorId: () => Promise.resolve(_v15.current),
-                tier: () => Promise.resolve(_v16.current),
-                vimeoProductId: () => Promise.resolve(_v17.current),
+                vimeoUserId: () => Promise.resolve(_v13.current),
+                vuid: () => Promise.resolve(_v14.current),
+                teamOwnerId: () => Promise.resolve(_v15.current),
+                actorId: () => Promise.resolve(_v16.current),
+                tier: () => Promise.resolve(_v17.current),
+                vimeoProductId: () => Promise.resolve(_v18.current),
+                currency: () => Promise.resolve(_v19.current),
                 minutesElapsedSinceRegistration: () => Promise.resolve(function (_v0) {
                   if (!_v0) return null;
                   let _v1 = Date.parse(_v0);
                   return Number.isNaN(_v1) ? null : Math.max(0, Math.floor((Date.now() - _v1) / 0));
-                }(_v18.current?.user?.createdTime)),
+                }(_v20.current?.user?.createdTime)),
                 clientEnvironment: () => Promise.resolve(_v12() ? "staging" : "production"),
                 surface: () => Promise.resolve(_v2)
               },
@@ -789,7 +792,7 @@
               defaultSettings: _v11,
               defaultSegmentations: {},
               deviceAttributeGetters: {
-                isLoggedIn: () => Promise.resolve(!!_v12.current),
+                isLoggedIn: () => Promise.resolve(!!_v13.current),
                 localStorageId: async () => {
                   let _v0;
                   return (_v0 = "LOCAL_STORAGE_ID_PICOX_ID", () => {
@@ -810,53 +813,53 @@
               userIdGenerator: _v0 => Promise.resolve(["localStorageId", "vimeoUserId", "vuid", "teamOwnerId"].filter(_v0 => void 0 !== _v0[_v0]).map(_v0 => _v0[_v0]).join("_")),
               identityCacheTtlInMs: 0
             });
-          _v20(_v2);
+          _v22(_v2);
         } catch (_v0) {
-          _v5.error("Failed to initialize Orion client", _v0), _v21.current = !1, _v23(_v0 => _v0 + 1);
+          _v5.error("Failed to initialize Orion client", _v0), _v23.current = !1, _v25(_v0 => _v0 + 1);
         }
       })());
-    }, [_v7, _v22]), (0, _v8.useEffect)(() => {
+    }, [_v7, _v24]), (0, _v8.useEffect)(() => {
       let _v0;
-      if (!_v19 || void 0 === _v3) return;
-      _v27(!0);
+      if (!_v21 || void 0 === _v3) return;
+      _v29(!0);
       let _v1 = async () => {
           try {
-            let _v0 = !_v29.current && new URLSearchParams(window.location.search).has("orion_refresh");
-            _v29.current = !0;
-            let _v1 = _v0 ? await _v19.identity.refresh() : await _v19.identity.get();
-            _v25({
+            let _v0 = !_v31.current && new URLSearchParams(window.location.search).has("orion_refresh");
+            _v31.current = !0;
+            let _v1 = _v0 ? await _v21.identity.refresh() : await _v21.identity.get();
+            _v27({
               settings: _v1.settings,
               segmentations: _v1.segmentations,
               settingsHash: _v1.settingsHash,
               isDefaultIdentity: _v1.isDefaultIdentity
-            }), _v27(!1), _v5.info("Orion identity ready");
+            }), _v29(!1), _v5.info("Orion identity ready");
           } catch (_v0) {
             _v5.error("Failed to fetch Orion identity", _v0);
           }
         },
         _v2 = new Promise(_v0 => _v0 = setTimeout(() => {
-          _v27(_v0 => _v0 ? (_v5.error("Timeout: Orion identity was not received within the timeout."), !1) : _v0), _v0(0);
+          _v29(_v0 => _v0 ? (_v5.error("Timeout: Orion identity was not received within the timeout."), !1) : _v0), _v0(0);
         }, 0));
       Promise.race([_v1(), _v2]).finally(() => clearTimeout(_v0));
-    }, [_v19, _v3, _v8]);
-    let _v30 = (0, _v8.useMemo)(() => 0 === Object.keys(_v28).length ? _v24 : {
-        ..._v24,
+    }, [_v21, _v3, _v8]);
+    let _v32 = (0, _v8.useMemo)(() => 0 === Object.keys(_v30).length ? _v26 : {
+        ..._v26,
         settings: {
-          ..._v24.settings,
-          ..._v28
+          ..._v26.settings,
+          ..._v30
         }
-      }, [_v24, _v28]),
-      _v31 = _v30.settings.orion_free_override;
+      }, [_v26, _v30]),
+      _v33 = _v32.settings.orion_free_override;
     return (0, _v8.useEffect)(() => {
-      !_v26 && _v31 && _v7.default.set("orion_free_override", "1", {
+      !_v28 && _v33 && _v7.default.set("orion_free_override", "1", {
         sameSite: "none",
         secure: !0
       });
-    }, [_v26, _v31]), (0, _v6.jsx)(_v49.Provider, {
+    }, [_v28, _v33]), (0, _v6.jsx)(_v49.Provider, {
       value: {
-        client: _v19,
-        identity: _v30,
-        isLoadingResponse: _v26
+        client: _v21,
+        identity: _v32,
+        isLoadingResponse: _v28
       },
       children: _v0
     });

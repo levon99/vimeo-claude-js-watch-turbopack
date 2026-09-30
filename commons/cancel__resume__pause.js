@@ -22,7 +22,7 @@
   let _v8 = /vuid=(\w+\.\w+);?/;
   var _v9 = _v0.i(0),
     _v10 = _v0.i(0);
-  let _v11 = ["cancel", "resume", "pause", "service", "api_app", "upload_type", "id", "bytes_uploaded", "initial_size", "video_file_id", "uid", "signature", "_state", "file", "error", "attempt_id", "clip_id"];
+  let _v11 = ["cancel", "resume", "pause", "service", "api_app", "upload_type", "id", "bytes_uploaded", "initial_size", "video_file_id", "uid", "signature", "_state", "file", "error", "attempt_id", "clip_id", "public_id"];
   function _v12(_v0) {
     let _v1 = _v7((0, _v10.default)(_v0, _v11)),
       {
@@ -100,19 +100,23 @@
     let _v2 = _v25(_v0.name.slice(_v1 + 1), 32);
     return null !== _v2 && _v24.test(_v2) ? _v2 : null;
   }
-  var _v27 = _v0.i(0);
-  let _v28 = {
+  function _v27(_v0) {
+    let _v1 = _v25(_v0.type, 100);
+    return _v1?.startsWith("video/") === !0 || (null === _v1 || _v23.has(_v1)) && _v21.has(_v26(_v0) ?? "");
+  }
+  var _v28 = _v0.i(0);
+  let _v29 = {
     frameCount: 10,
     imgQuality: .8
   };
-  class _v29 extends _v27.EventEmitter {
+  class _v30 extends _v28.EventEmitter {
     videoElement;
     supported;
     frames = [];
     frameCount;
     imgQuality;
     canvasElement;
-    constructor(_v0, _v1 = _v28) {
+    constructor(_v0, _v1 = _v29) {
       super(), this.videoElement = document.createElement("video"), this.supported = "" !== this.videoElement.canPlayType(_v0.type), "createObjectURL" in window.URL == !1 && (this.supported = !1), this.frameCount = _v1.frameCount, this.imgQuality = _v1.imgQuality, this.canvasElement = document.createElement("canvas"), this.videoElement.autoplay = !1, this.videoElement.muted = !0, this.videoElement.volume = 0, this.videoElement.addEventListener("canplay", this._onCanPlay), this.videoElement.addEventListener("error", () => {
         this.listenerCount("error") > 0 && this.emit("error", this.videoElement.error);
       }), _v0 instanceof File && (this.videoElement.src = window.URL.createObjectURL(_v0));
@@ -164,8 +168,8 @@
       }
     };
   }
-  _v0.s(["ThumbnailGenerator", 0, _v29], 0);
-  let _v30 = {
+  _v0.s(["ThumbnailGenerator", 0, _v30], 0);
+  let _v31 = {
       service: "",
       hasBeenInitialized: !1,
       loading: !1,
@@ -188,9 +192,10 @@
         totalCount: 0
       }
     },
-    _v31 = {
-      ..._v30,
+    _v32 = {
+      ..._v31,
       fileInputAccept: _v20,
+      enableUniversalHosting: !1,
       upload: () => !1,
       cancelAll: () => null,
       resumeAll: () => null,
@@ -200,11 +205,11 @@
       fileSelectStateChange: () => null,
       addShouldUploadStartCallback: () => () => null
     },
-    _v32 = _v3.default.createContext(_v31),
-    _v33 = _v3.default.createContext({
+    _v33 = _v3.default.createContext(_v32),
+    _v34 = _v3.default.createContext({
       addUploadLifecycleListener: () => () => null
     });
-  function _v34(_v0, _v1) {
+  function _v35(_v0, _v1) {
     let _v2;
     switch (_v1.type) {
       case "REMOVE":
@@ -214,7 +219,7 @@
         };
       case "RESET":
         return {
-          ..._v30,
+          ..._v31,
           hasBeenInitialized: !0
         };
       case "LOADING":
@@ -264,14 +269,29 @@
         return _v0;
     }
   }
-  function _v35(_v0, _v1) {
+  function _v36(_v0, _v1) {
     _v0 && void 0 !== _v1 && (_v0.config.max_simultaneous_uploads = _v1, _v0.startQueue());
   }
-  function _v36(_v0) {
+  function _v37(_v0) {
     return "link" in _v0 && "headers" in _v0;
   }
-  _v0.s(["UploadContext", 0, _v32, "UploadLifecycleContext", 0, _v33, "UploaderProvider", 0, function (_v0) {
-    let [_v1, _v2] = (0, _v3.useReducer)(_v34, _v30),
+  function _v38(_v0, _v1) {
+    return _v0.map(_v0 => {
+      if (_v37(_v0)) return _v0;
+      if (_v27(_v0)) {
+        let _v0 = new _v30(_v0, {
+          imgQuality: 1,
+          frameCount: 10
+        });
+        _v0.on("change", () => {
+          _v0.thumbnailLink = _v0.frames[_v0.frames.length - 1];
+        });
+      }
+      return _v0.target_user_id = _v1?.targetUserId, _v0.folder_id = _v1?.folderId, _v0;
+    });
+  }
+  _v0.s(["UploadContext", 0, _v33, "UploadLifecycleContext", 0, _v34, "UploaderProvider", 0, function (_v0) {
+    let [_v1, _v2] = (0, _v3.useReducer)(_v35, _v31),
       _v3 = (0, _v3.useRef)(void 0),
       _v4 = (0, _v3.useRef)(_v0.maxSimultaneousUploads),
       _v5 = (0, _v3.useRef)([]),
@@ -286,15 +306,54 @@
           _v4 = _v10();
         _v19(_v1), _v6.current.forEach(_v0 => _v0(_v0, _v1, _v4, _v2, _v3)), _v2(_v14(_v1, _v4)), (_v0 === _v4.STATES.COMPLETED || _v0 === _v4.STATES.FAILED || _v0 === _v4.STATES.CANCELED) && _v7.current.delete(_v1.id);
       },
-      _v12 = !!_v9?.user;
+      _v12 = (_v0, _v1, _v2, _v3, _v4) => {
+        let _v5 = _v3.current?.config?.service || _v4.SERVICES.UPLOAD_SERVICE_SITE,
+          _v6 = _v2.apiApp || _v4.SERVICE_APP_IDS[_v5],
+          _v7 = _v3.current?.upload(_v0, _v1, _v6, _v2.clipId ? _v2.clipId.toString() : null, _v3);
+        if (!_v7) return !1;
+        Array.isArray(_v7) || (_v7 = [_v7]);
+        let {
+          origin: _v8
+        } = _v2;
+        _v8 && _v7.forEach(_v0 => {
+          _v7.current.set(_v0.id, _v8);
+        }), _v7.forEach(_v0 => {
+          let _v1 = (0, _v2.default)(_v0 => {
+            _v2({
+              type: "UPLOAD_PROGRESS",
+              payload: {
+                uploadProgressEvent: {
+                  ..._v0,
+                  id: _v0.id
+                },
+                uploaderSummary: _v10()
+              }
+            });
+          }, 0);
+          _v0.on(_v4.EVENTS.STATE_CHANGE, _v0 => {
+            let _v1 = _v12(_v0.upload);
+            _v11(_v1.state, _v1, _v4);
+          }), _v0.on(_v4.EVENTS.PROGRESS, _v1);
+          let _v2 = _v12(_v0);
+          _v2.state && _v11(_v2.state, _v2, _v4);
+        });
+        let _v9 = _v7.map(_v12);
+        return _v9.forEach(_v19), _v2({
+          type: "UPLOAD",
+          payload: {
+            uploads: _v9
+          }
+        }), !0;
+      },
+      _v13 = !!_v9?.user;
     return (0, _v3.useEffect)(() => {
-      _v12 && !_v1.hasBeenInitialized && _v2({
+      _v13 && !_v1.hasBeenInitialized && _v2({
         type: "INITIALIZE"
       });
-    }, [_v12, _v1.hasBeenInitialized]), (0, _v3.useEffect)(() => {
+    }, [_v13, _v1.hasBeenInitialized]), (0, _v3.useEffect)(() => {
       _v3.current?.setVimeoJWT(_v9?.jwt);
     }, [_v9?.jwt]), (0, _v3.useEffect)(() => {
-      _v35(_v3.current, _v0.maxSimultaneousUploads);
+      _v36(_v3.current, _v0.maxSimultaneousUploads);
     }, [_v0.maxSimultaneousUploads]), (0, _v3.useEffect)(() => {
       let _v0 = async () => {
         _v2(_v13(!0));
@@ -321,7 +380,7 @@
             ..._v4,
             max_simultaneous_uploads: _v5 ?? _v4.max_simultaneous_uploads,
             embeddableUploaderVersion: "3.0.0"
-          }, void 0), _v35(_v3.current, _v4.current);
+          }, void 0), _v36(_v3.current, _v4.current);
         } catch (_v0) {
           console.error("Error configuring uploader: ", _v0);
         } finally {
@@ -331,89 +390,47 @@
       return _v1.hasBeenInitialized && !_v3.current && !_v1.loading && _v9?.apiUrl && (_v9?.jwt || _v0.basicAuthToken) && _v0(), () => {
         (_v1.uploaderSummary.isCanceled || _v1.uploaderSummary.isComplete) && (_v5.current.forEach(_v0 => _v0()), _v5.current = []);
       };
-    }, [_v1.loading, _v1.hasBeenInitialized, _v1.uploaderSummary.isCanceled, _v1.uploaderSummary.isComplete, _v9?.apiUrl, _v9?.jwt, _v0.basicAuthToken, _v0.maxSimultaneousUploads, _v9?.xsrft]), (0, _v1.jsx)(_v32.Provider, {
+    }, [_v1.loading, _v1.hasBeenInitialized, _v1.uploaderSummary.isCanceled, _v1.uploaderSummary.isComplete, _v9?.apiUrl, _v9?.jwt, _v0.basicAuthToken, _v0.maxSimultaneousUploads, _v9?.xsrft]), (0, _v1.jsx)(_v33.Provider, {
       value: {
         upload: (_v0, _v1, _v2) => {
-          var _v3, _v4, _v5, _v6;
-          let _v7 = function (_v0, _v1, _v2) {
-            let _v3 = void 0 === _v1.clipId && (void 0 === _v1.uploadType || _v1.uploadType === _v4.TYPES.CLIP);
-            if (!_v2 || !_v3) return null;
-            let _v4 = Array.isArray(_v0) ? _v0 : Array.from(_v0),
-              _v5 = _v4.filter(_v0 => !_v36(_v0));
-            if (_v5.length !== _v4.length) return null;
-            var _v6 = _v1.origin;
-            let _v7 = _v5.filter(_v0 => {
-              let _v1;
-              return _v1 = _v25(_v0.type, 100), !(_v1?.startsWith("video/") === !0 || (null === _v1 || _v23.has(_v1)) && _v21.has(_v26(_v0) ?? ""));
-            });
-            if (0 === _v7.length) return null;
-            let _v8 = _v5.length - _v7.length;
-            return {
-              files: _v7.slice(0, 100).map(_v0 => {
-                let _v1;
-                return {
-                  fileExtension: null !== (_v1 = _v26(_v0)) && _v22.has(_v1) ? _v1 : null,
-                  fileMimeType: _v25(_v0.type, 100),
-                  fileSizeBytes: _v0.size
-                };
-              }),
-              totalInBatch: _v5.length,
-              nonVideoFileCount: _v7.length,
-              videoFileCount: _v8,
-              isMixedWithVideo: _v8 > 0,
-              metadataTruncated: _v7.length > 100,
-              isDropzone: _v6?.isDropzone ?? null,
-              surface: _v6?.surface ?? null
-            };
-          }(_v0, _v1, !0 === _v0.enableNonVideoUploadFakeDoor);
-          if (_v7) return _v0.onNonVideoUploadAttempt?.(_v7), !1;
-          if (!_v8.current.every(_v0 => _v0(_v0, _v1))) return !1;
-          let _v8 = [],
-            _v9 = _v3.current?.config?.service || _v4.SERVICES.UPLOAD_SERVICE_SITE,
-            _v10 = (_v5 = _v0, _v6 = _v1, (Array.isArray(_v5) ? _v5 : Array.from(_v5)).map(_v0 => {
-              if (_v36(_v0)) return _v0;
-              let _v1 = new _v29(_v0, {
-                imgQuality: 1,
-                frameCount: 10
-              });
-              return _v1.on("change", () => {
-                _v0.thumbnailLink = _v1.frames[_v1.frames.length - 1];
-              }), _v0.target_user_id = _v6?.targetUserId, _v0.folder_id = _v6?.folderId, _v0;
-            })),
-            _v11 = _v1.apiApp || _v4.SERVICE_APP_IDS[_v9];
-          Array.isArray(_v8 = _v3.current?.upload(_v10, _v1.uploadType ?? _v4.TYPES.CLIP, _v11, _v1.clipId ? _v1.clipId.toString() : null, _v2)) || (_v8 = [_v8]);
-          let {
-            origin: _v12
-          } = _v1;
-          _v12 && _v8.forEach(_v0 => {
-            _v7.current.set(_v0.id, _v12);
-          }), _v3 = _v8, _v4 = _v8.length, _v3.forEach(_v0 => {
-            let _v1 = (0, _v2.default)(_v0 => {
-              _v2({
-                type: "UPLOAD_PROGRESS",
-                payload: {
-                  uploadProgressEvent: {
-                    ..._v0,
-                    id: _v0.id
-                  },
-                  uploaderSummary: _v10()
-                }
-              });
-            }, 0);
-            _v0.on(_v4.EVENTS.STATE_CHANGE, _v0 => {
-              let _v1 = _v12(_v0.upload);
-              _v11(_v1.state, _v1, _v4);
-            }), _v0.on(_v4.EVENTS.PROGRESS, _v1);
-            let _v2 = _v12(_v0);
-            _v2.state && _v11(_v2.state, _v2, _v4);
-          });
-          let _v13 = _v8.map(_v12);
-          return _v13.forEach(_v19), _v2({
-            type: "UPLOAD",
-            payload: {
-              uploads: _v13
-            }
-          }), !0;
+          let _v3 = Array.isArray(_v0) ? _v0 : Array.from(_v0),
+            _v4 = _v3.filter(_v0 => !_v37(_v0)),
+            _v5 = _v4.length !== _v3.length;
+          if (void 0 === _v1.clipId && (void 0 === _v1.uploadType || _v1.uploadType === _v4.TYPES.CLIP) && !_v5) if (_v0.enableUniversalHosting) {
+            let _v0 = _v4.filter(_v27),
+              _v1 = _v4.filter(_v0 => !_v27(_v0));
+            if (!_v8.current.every(_v0 => _v0(_v4, _v1))) return !1;
+            let _v2 = _v0.length + _v1.length,
+              _v3 = !1;
+            return _v0.length > 0 && (_v3 = _v12(_v38(_v0, _v1), _v4.TYPES.CLIP, _v1, _v2, _v2) || _v3), _v1.length > 0 && (_v3 = _v12(_v38(_v1, _v1), _v4.TYPES.FILE, _v1, void 0, _v2) || _v3), _v3;
+          } else {
+            let _v0 = function (_v0, _v1, _v2) {
+              if (!_v2) return null;
+              var _v3 = _v1.origin;
+              let _v4 = _v0.filter(_v0 => !_v27(_v0));
+              if (0 === _v4.length) return null;
+              let _v5 = _v0.length - _v4.length;
+              return {
+                files: _v4.slice(0, 100).map(_v0 => {
+                  let _v1;
+                  return {
+                    fileExtension: null !== (_v1 = _v26(_v0)) && _v22.has(_v1) ? _v1 : null,
+                    fileMimeType: _v25(_v0.type, 100),
+                    fileSizeBytes: _v0.size
+                  };
+                }),
+                totalInBatch: _v0.length,
+                nonVideoFileCount: _v4.length,
+                videoFileCount: _v5,
+                isMixedWithVideo: _v5 > 0,
+                metadataTruncated: _v4.length > 100,
+                isDropzone: _v3?.isDropzone ?? null,
+                surface: _v3?.surface ?? null
+              };
+            }(_v4, _v1, !0 === _v0.enableNonVideoUploadFakeDoor);
+            if (_v0) return _v0.onNonVideoUploadAttempt?.(_v0), !1;
+          }
+          return !!_v8.current.every(_v0 => _v0(_v0, _v1)) && _v12(_v38(_v3, _v1), _v1.uploadType ?? _v4.TYPES.CLIP, _v1, _v2, _v3.length);
         },
         pauseAll: () => _v3.current?.pauseAll(),
         resumeAll: () => _v3.current?.resumeAll(),
@@ -442,13 +459,14 @@
             document.body.addEventListener("focus", _v0);
           }
         },
-        fileInputAccept: _v0.enableNonVideoUploadFakeDoor ? void 0 : _v20,
+        fileInputAccept: _v0.enableUniversalHosting ? "video/*,.mkv,.m2ts,.txt,.jpg,.jpeg" : _v0.enableNonVideoUploadFakeDoor ? void 0 : _v20,
+        enableUniversalHosting: !0 === _v0.enableUniversalHosting,
         addShouldUploadStartCallback: _v0 => (_v8.current.push(_v0), () => {
           _v8.current = _v8.current.filter(_v0 => _v0 !== _v0);
         }),
         ..._v1
       },
-      children: (0, _v1.jsx)(_v33.Provider, {
+      children: (0, _v1.jsx)(_v34.Provider, {
         value: {
           addUploadLifecycleListener: _v0 => (_v6.current.push(_v0), () => {
             _v6.current = _v6.current.filter(_v0 => _v0 !== _v0);

@@ -794,6 +794,7 @@
       href: _v0.link,
       onClick: _v1,
       flex: "1 1 0",
+      maxWidth: "25%",
       minWidth: 0,
       padding: (0, _v5.rem)(6),
       borderRadius: "sm",

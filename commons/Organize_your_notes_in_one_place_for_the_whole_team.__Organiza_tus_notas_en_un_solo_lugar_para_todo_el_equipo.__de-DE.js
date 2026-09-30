@@ -16,8 +16,10 @@
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
-    _v16 = _v0.i(0);
-  let _v17 = {
+    _v16 = _v0.i(0),
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0);
+  let _v19 = {
     evernote: (0, _v14.translate)({
       singular: "Organize your notes in one place, for the whole team.",
       dictionary: {
@@ -71,15 +73,13 @@
       }
     })
   };
-  var _v18 = _v0.i(0),
-    _v19 = _v0.i(0),
-    _v20 = _v0.i(0),
+  var _v20 = _v0.i(0),
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
     _v24 = _v0.i(0);
   let _v25 = _v0 => (0, _v1.jsx)(_v7.Link, {
-      href: _v19.BUNDLE_LIBRARY_TERMS_PATH,
+      href: _v21.BUNDLE_LIBRARY_TERMS_PATH,
       target: "_blank",
       rel: "noopener noreferrer",
       color: "text-secondary",
@@ -107,7 +107,7 @@
         }), (0, _v1.jsx)(_v13.Text, {
           variant: "body-md",
           color: "text-secondary",
-          children: ((_v0, _v1 = "default") => "default" === _v1 ? _v17[_v0] ?? _v15.PRODUCT_DESCRIPTIONS[_v0] : (0, _v15.getProductDescription)(_v0, _v1))(_v0, _v1)
+          children: ((_v0, _v1 = "default") => "default" === _v1 ? _v19[_v0] ?? _v15.PRODUCT_DESCRIPTIONS[_v0] : (0, _v15.getProductDescription)(_v0, _v1))(_v0, _v1)
         })]
       })]
     });
@@ -118,17 +118,16 @@
     onDismiss: _v3,
     productDescriptionsVariant: _v4 = "default"
   }) => {
-    let _v5,
-      {
-        clusterTiles: _v6,
-        otherProductsCount: _v7
-      } = (0, _v20.getBundleActivationCluster)(_v1),
-      _v8 = (0, _v2.useRef)("dismiss"),
-      _v9 = (0, _v2.useRef)(null);
+    let {
+        clusterTiles: _v5,
+        otherProductsCount: _v6
+      } = (0, _v22.getBundleActivationCluster)(_v1),
+      _v7 = (0, _v2.useRef)("dismiss"),
+      _v8 = (0, _v2.useRef)(null);
     return (0, _v1.jsxs)(_v8.Modal, {
       isOpen: _v0,
-      onClose: () => _v3(_v8.current),
-      initialFocusRef: _v9,
+      onClose: () => _v3(_v7.current),
+      initialFocusRef: _v8,
       children: [(0, _v1.jsx)(_v11.ModalOverlay, {}), (0, _v1.jsx)(_v10.ModalContent, {
         maxWidth: (0, _v12.rem)(927),
         height: {
@@ -162,7 +161,7 @@
             overflow: "hidden",
             background: "vimeoBlue.200",
             children: (0, _v1.jsx)(_v6.Image, {
-              src: _v18.BUNDLE_SIDE_ARTWORK_URL,
+              src: _v20.BUNDLE_SIDE_ARTWORK_URL,
               alt: "",
               position: "absolute",
               top: (0, _v12.rem)(0),
@@ -210,7 +209,7 @@
                 }
               }),
               onClick: () => {
-                _v8.current = "close_button";
+                _v7.current = "close_button";
               }
             }), (0, _v1.jsxs)(_v5.Flex, {
               flex: "1 1 auto",
@@ -228,86 +227,171 @@
                 variant: "heading-xl",
                 color: "text-primary",
                 letterSpacing: (0, _v12.rem)(-1.44),
-                children: (0, _v22.getBundleAddOnModalTitle)((0, _v21.getBundleMemberCount)())
+                children: ((_v0 = "default") => "default" === _v0 ? (0, _v18.getBundleAddOnModalTitle)((0, _v17.getBundleMemberCount)()) : String((0, _v14.translate)({
+                  singular: "Your new plan comes with more than just Vimeo.",
+                  dictionary: {
+                    es: {
+                      singular: "Tu nuevo plan incluye más que solo Vimeo."
+                    },
+                    "de-DE": {
+                      singular: "Ihr neuer Plan umfasst mehr als nur Vimeo."
+                    },
+                    "fr-FR": {
+                      singular: "Votre nouveau plan offre bien plus que Vimeo."
+                    },
+                    "ja-JP": {
+                      singular: "新しいプランにはVimeoだけでなく、さらに多くのサービスが含まれます。"
+                    },
+                    "ko-KR": {
+                      singular: "새로운 요금제에는 Vimeo뿐만 아니라 그 이상의 혜택이 포함되어 있습니다."
+                    },
+                    "pt-BR": {
+                      singular: "Seu novo plano inclui mais do que apenas Vimeo."
+                    },
+                    "zh-CN": {
+                      singular: "您的新套餐不仅仅包含 Vimeo。"
+                    }
+                  }
+                })))(_v4)
               }), (0, _v1.jsx)(_v3.Box, {
                 paddingTop: (0, _v12.rem)(8),
                 children: (0, _v1.jsx)(_v13.Text, {
                   variant: "body-lg",
                   color: "text-secondary",
                   letterSpacing: (0, _v12.rem)(-.48),
-                  children: (_v5 = (0, _v16.getBundleAppNames)(_v6), void 0 === _v7 ? (0, _v14.translate)({
-                    singular: "Unlock your premium access to {PRODUCTS}, all for free with Vimeo subscriptions.",
-                    replacements: {
-                      PRODUCTS: _v5
-                    },
-                    dictionary: {
-                      es: {
-                        singular: "Desbloquea tu acceso premium a {PRODUCTS}, todo gratis con las suscripciones de Vimeo."
+                  children: ((_v0, _v1, _v2 = "default") => {
+                    let _v3 = (0, _v16.getBundleAppNames)(_v0);
+                    return "b2bStudioRepackaging" === _v2 ? void 0 === _v1 ? (0, _v14.translate)({
+                      singular: "With your Studio plan, you now have premium access to {PRODUCTS}—included at no extra cost.",
+                      replacements: {
+                        PRODUCTS: _v3
                       },
-                      "de-DE": {
-                        singular: "Schalten Sie Ihren Premium-Zugang zu {PRODUCTS} frei, alles kostenlos mit Vimeo-Abonnements."
-                      },
-                      "fr-FR": {
-                        singular: "Débloquez votre accès premium à {PRODUCTS}, le tout gratuitement avec les abonnements Vimeo."
-                      },
-                      "ja-JP": {
-                        singular: "Vimeoのサブスクリプションなら、{PRODUCTS} へのプレミアムアクセスをすべて無料でご利用いただけます."
-                      },
-                      "ko-KR": {
-                        singular: "Vimeo 구독으로 {PRODUCTS}에 대한 프리미엄 액세스를 모두 무료로 이용하세요."
-                      },
-                      "pt-BR": {
-                        singular: "Desbloqueie seu acesso premium a {PRODUCTS}, tudo gratuitamente com assinaturas Vimeo."
-                      },
-                      "zh-CN": {
-                        singular: "通过 Vimeo 订阅，免费解锁您对 {PRODUCTS} 的高级访问权限。"
+                      dictionary: {
+                        es: {
+                          singular: "Con tu plan Studio, ahora tienes acceso premium a {PRODUCTS}—incluido sin costo adicional."
+                        },
+                        "de-DE": {
+                          singular: "Mit Ihrem Studio-Plan haben Sie jetzt Premiumzugriff auf {PRODUCTS}—ohne zusätzliche Kosten."
+                        },
+                        "fr-FR": {
+                          singular: "Avec votre plan Studio, vous bénéficiez désormais d'un accès premium à {PRODUCTS}—inclus sans frais supplémentaires."
+                        },
+                        "ja-JP": {
+                          singular: "Studioプランでは、{PRODUCTS}にプレミアムアクセスできます—追加料金はかかりません。"
+                        },
+                        "ko-KR": {
+                          singular: "Studio 요금제로 이제 {PRODUCTS}에 대한 프리미엄 액세스를 이용하실 수 있습니다—추가 비용 없이 포함됩니다."
+                        },
+                        "pt-BR": {
+                          singular: "Com seu plano Studio, você agora tem acesso premium a {PRODUCTS}—incluídos sem custo adicional."
+                        },
+                        "zh-CN": {
+                          singular: "通过您的 Studio 计划，您现在可以高级访问 {PRODUCTS}——包含在内，无需额外付费。"
+                        }
                       }
-                    }
-                  }) : (0, _v14.translate)({
-                    singular: "Unlock your premium access to {PRODUCTS} and {COUNT} more products, all for free with Vimeo subscriptions.",
-                    replacements: {
-                      PRODUCTS: _v5,
-                      COUNT: `${_v7}`
-                    },
-                    dictionary: {
-                      es: {
-                        singular: "Desbloquea tu acceso premium a {PRODUCTS} y {COUNT} productos más, todo gratis con las suscripciones de Vimeo."
+                    }) : (0, _v14.translate)({
+                      singular: "With your Studio plan, you now have premium access to {PRODUCTS} and {COUNT} more products—included at no extra cost.",
+                      replacements: {
+                        PRODUCTS: _v3,
+                        COUNT: `${_v1}`
                       },
-                      "de-DE": {
-                        singular: "Schalten Sie Ihren Premium-Zugang zu {PRODUCTS} und {COUNT} weiteren Produkten frei, alles kostenlos mit Vimeo-Abonnements."
-                      },
-                      "fr-FR": {
-                        singular: "Débloquez votre accès premium à {PRODUCTS} et {COUNT} autres produits, le tout gratuitement avec les abonnements Vimeo."
-                      },
-                      "ja-JP": {
-                        singular: "Vimeoのサブスクリプションなら、{PRODUCTS} とさらに {COUNT} 件の製品へのプレミアムアクセスをすべて無料でご利用いただけます."
-                      },
-                      "ko-KR": {
-                        singular: "Vimeo 구독으로 {PRODUCTS} 및 추가 {COUNT}개의 제품에 대한 프리미엄 액세스를 모두 무료로 이용하세요."
-                      },
-                      "pt-BR": {
-                        singular: "Desbloqueie seu acesso premium a {PRODUCTS} e mais {COUNT} produtos, tudo gratuitamente com assinaturas Vimeo."
-                      },
-                      "zh-CN": {
-                        singular: "通过 Vimeo 订阅，免费解锁您对 {PRODUCTS} 以及另外 {COUNT} 个产品的高级访问权限。"
+                      dictionary: {
+                        es: {
+                          singular: "Con tu plan Studio, ahora tienes acceso premium a {PRODUCTS} y {COUNT} productos más—incluidos sin costo adicional."
+                        },
+                        "de-DE": {
+                          singular: "Mit Ihrem Studio-Plan haben Sie jetzt Premiumzugriff auf {PRODUCTS} und {COUNT} weitere Produkte—ohne zusätzliche Kosten."
+                        },
+                        "fr-FR": {
+                          singular: "Avec votre plan Studio, vous bénéficiez désormais d'un accès premium à {PRODUCTS} et à {COUNT} autres produits—inclus sans frais supplémentaires."
+                        },
+                        "ja-JP": {
+                          singular: "Studioプランでは、{PRODUCTS}とさらに{COUNT}製品にプレミアムアクセスできます—追加料金はかかりません。"
+                        },
+                        "ko-KR": {
+                          singular: "Studio 요금제로 이제 {PRODUCTS} 및 {COUNT}개의 추가 제품에 대한 프리미엄 액세스를 이용하실 수 있습니다—추가 비용 없이 포함됩니다."
+                        },
+                        "pt-BR": {
+                          singular: "Com seu plano Studio, você agora tem acesso premium a {PRODUCTS} e mais {COUNT} produtos—incluídos sem custo adicional."
+                        },
+                        "zh-CN": {
+                          singular: "通过您的 Studio 计划，您现在可以高级访问 {PRODUCTS} 以及另外 {COUNT} 个产品——包含在内，无需额外付费。"
+                        }
                       }
-                    }
-                  }))
+                    }) : void 0 === _v1 ? (0, _v14.translate)({
+                      singular: "Unlock your premium access to {PRODUCTS}, all for free with Vimeo subscriptions.",
+                      replacements: {
+                        PRODUCTS: _v3
+                      },
+                      dictionary: {
+                        es: {
+                          singular: "Desbloquea tu acceso premium a {PRODUCTS}, todo gratis con las suscripciones de Vimeo."
+                        },
+                        "de-DE": {
+                          singular: "Schalten Sie Ihren Premium-Zugang zu {PRODUCTS} frei, alles kostenlos mit Vimeo-Abonnements."
+                        },
+                        "fr-FR": {
+                          singular: "Débloquez votre accès premium à {PRODUCTS}, le tout gratuitement avec les abonnements Vimeo."
+                        },
+                        "ja-JP": {
+                          singular: "Vimeoのサブスクリプションなら、{PRODUCTS} へのプレミアムアクセスをすべて無料でご利用いただけます."
+                        },
+                        "ko-KR": {
+                          singular: "Vimeo 구독으로 {PRODUCTS}에 대한 프리미엄 액세스를 모두 무료로 이용하세요."
+                        },
+                        "pt-BR": {
+                          singular: "Desbloqueie seu acesso premium a {PRODUCTS}, tudo gratuitamente com assinaturas Vimeo."
+                        },
+                        "zh-CN": {
+                          singular: "通过 Vimeo 订阅，免费解锁您对 {PRODUCTS} 的高级访问权限。"
+                        }
+                      }
+                    }) : (0, _v14.translate)({
+                      singular: "Unlock your premium access to {PRODUCTS} and {COUNT} more products, all for free with Vimeo subscriptions.",
+                      replacements: {
+                        PRODUCTS: _v3,
+                        COUNT: `${_v1}`
+                      },
+                      dictionary: {
+                        es: {
+                          singular: "Desbloquea tu acceso premium a {PRODUCTS} y {COUNT} productos más, todo gratis con las suscripciones de Vimeo."
+                        },
+                        "de-DE": {
+                          singular: "Schalten Sie Ihren Premium-Zugang zu {PRODUCTS} und {COUNT} weiteren Produkten frei, alles kostenlos mit Vimeo-Abonnements."
+                        },
+                        "fr-FR": {
+                          singular: "Débloquez votre accès premium à {PRODUCTS} et {COUNT} autres produits, le tout gratuitement avec les abonnements Vimeo."
+                        },
+                        "ja-JP": {
+                          singular: "Vimeoのサブスクリプションなら、{PRODUCTS} とさらに {COUNT} 件の製品へのプレミアムアクセスをすべて無料でご利用いただけます."
+                        },
+                        "ko-KR": {
+                          singular: "Vimeo 구독으로 {PRODUCTS} 및 추가 {COUNT}개의 제품에 대한 프리미엄 액세스를 모두 무료로 이용하세요."
+                        },
+                        "pt-BR": {
+                          singular: "Desbloqueie seu acesso premium a {PRODUCTS} e mais {COUNT} produtos, tudo gratuitamente com assinaturas Vimeo."
+                        },
+                        "zh-CN": {
+                          singular: "通过 Vimeo 订阅，免费解锁您对 {PRODUCTS} 以及另外 {COUNT} 个产品的高级访问权限。"
+                        }
+                      }
+                    });
+                  })(_v5, _v6, _v4)
                 })
               }), (0, _v1.jsxs)(_v5.Flex, {
                 direction: "column",
                 gap: (0, _v12.rem)(16),
                 paddingTop: (0, _v12.rem)(24),
-                children: [_v6.map(_v0 => (0, _v1.jsx)(_v26, {
+                children: [_v5.map(_v0 => (0, _v1.jsx)(_v26, {
                   productId: _v0.productId,
                   productDescriptionsVariant: _v4
-                }, _v0.productId)), void 0 !== _v7 && (0, _v1.jsx)(_v13.Text, {
+                }, _v0.productId)), void 0 !== _v6 && (0, _v1.jsx)(_v13.Text, {
                   variant: "heading-sm",
                   color: "text-primary",
                   children: (0, _v14.translate)({
                     singular: "+ {COUNT} more",
                     replacements: {
-                      COUNT: `${_v7}`
+                      COUNT: `${_v6}`
                     },
                     dictionary: {
                       es: {
@@ -341,7 +425,7 @@
               paddingTop: (0, _v12.rem)(12),
               paddingBottom: (0, _v12.rem)(12),
               children: [(0, _v1.jsx)(_v4.Button, {
-                ref: _v9,
+                ref: _v8,
                 variant: "primary",
                 size: "lg",
                 width: "100%",

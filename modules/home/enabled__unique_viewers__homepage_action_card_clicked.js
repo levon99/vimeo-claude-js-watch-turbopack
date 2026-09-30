@@ -15700,9 +15700,7 @@
       })]
     });
   }
-  _v0.i(0);
-  var _v541 = _v0.i(0);
-  async function _v542(_v0) {
+  async function _v541(_v0) {
     try {
       let _v0 = await _v0.json();
       return "number" == typeof _v0.error_code ? _v0.error_code : null;
@@ -15710,22 +15708,22 @@
       return null;
     }
   }
-  let _v543 = {
+  let _v542 = {
     upsell: "managed_accounts",
     feature: "managed_accounts",
     integration: "managed_accounts"
   };
-  function _v544() {
+  function _v543() {
     let _v0 = (0, _v524.useHasMounted)(),
       _v1 = (0, _v46.useViewer)(),
       {
         payload: _v2
       } = (0, _v522.useManagedAccountsInvite)();
-    return _v0 && _v1 && null != _v2 ? (0, _v1.jsx)(_v545, {
+    return _v0 && _v1 && null != _v2 ? (0, _v1.jsx)(_v544, {
       payload: _v2
     }) : null;
   }
-  function _v545({
+  function _v544({
     payload: _v0
   }) {
     let _v1 = (0, _v46.useViewer)(),
@@ -15841,7 +15839,7 @@
           _v4 = (0, _v5.useToast)(),
           {
             mutate: _v5
-          } = (0, _v541.useSWRConfig)(),
+          } = (0, _v139.useSWRConfig)(),
           {
             clear: _v6
           } = (0, _v522.useManagedAccountsInvite)(),
@@ -16022,7 +16020,7 @@
                   })
                 });
                 if (!_v0.ok) {
-                  let _v0 = await _v542(_v0);
+                  let _v0 = await _v541(_v0);
                   _v14(_v0), _v11({
                     invitingUserId: _v2,
                     reason: function (_v0) {
@@ -16140,7 +16138,7 @@
           paywallType: "popup",
           paywallFeature: "managed_accounts",
           postCheckoutUrl: "/home"
-        }, _v543);
+        }, _v542);
         await _v6({
           action: _v19 ? "accept_and_try_standard" : "accept_and_upgrade",
           invitingUserId: _v10
@@ -16193,16 +16191,16 @@
       })
     });
   }
-  var _v546 = _v0.i(0),
+  var _v545 = _v0.i(0),
+    _v546 = _v0.i(0),
     _v547 = _v0.i(0),
     _v548 = _v0.i(0),
-    _v549 = _v0.i(0),
-    _v550 = _v0.i(0);
-  let _v551 = [.2, .8, .2, 1],
-    _v552 = "product-sentiment-pulse-question",
-    _v553 = "product-sentiment-pulse-reason",
-    _v554 = "product-sentiment-pulse-thanks";
-  function _v555({
+    _v549 = _v0.i(0);
+  let _v550 = [.2, .8, .2, 1],
+    _v551 = "product-sentiment-pulse-question",
+    _v552 = "product-sentiment-pulse-reason",
+    _v553 = "product-sentiment-pulse-thanks";
+  function _v554({
     phase: _v0,
     selectedAnswer: _v1,
     reason: _v2,
@@ -16338,7 +16336,7 @@
       children: [(0, _v1.jsx)(_v34.ModalOverlay, {}), (0, _v1.jsx)(_v32.ModalContent, {
         role: "dialog",
         "aria-modal": "true",
-        "aria-labelledby": "thanks" === _v0 ? _v554 : _v552,
+        "aria-labelledby": "thanks" === _v0 ? _v553 : _v551,
         backgroundColor: "surface",
         color: "text-primary",
         borderRadius: (0, _v48.rem)(24),
@@ -16348,10 +16346,10 @@
         my: "auto",
         p: [(0, _v48.rem)(24), (0, _v48.rem)(40)],
         overflow: "hidden",
-        children: (0, _v1.jsx)(_v546.AnimatePresence, {
+        children: (0, _v1.jsx)(_v545.AnimatePresence, {
           mode: "wait",
           initial: !1,
-          children: (0, _v1.jsx)(_v547.motion.div, {
+          children: (0, _v1.jsx)(_v546.motion.div, {
             initial: {
               opacity: 0,
               y: 8
@@ -16403,7 +16401,7 @@
                 })
               }), (0, _v1.jsx)(_v35.Text, {
                 as: "h2",
-                id: _v552,
+                id: _v551,
                 fontSize: (0, _v48.rem)(28),
                 fontWeight: 500,
                 lineHeight: "1.2",
@@ -16436,10 +16434,10 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v548.RadioGroup, {
+              }), (0, _v1.jsx)(_v547.RadioGroup, {
                 value: _v1 ?? "",
                 onChange: _v0 => _v5(_v0),
-                "aria-labelledby": _v552,
+                "aria-labelledby": _v551,
                 children: (0, _v1.jsx)(_v265.Stack, {
                   spacing: (0, _v48.rem)(4),
                   children: _v8.map(_v0 => (0, _v1.jsx)(_v269.Radio, {
@@ -16453,9 +16451,9 @@
                     })
                   }, _v0.value))
                 })
-              }), (0, _v1.jsx)(_v546.AnimatePresence, {
+              }), (0, _v1.jsx)(_v545.AnimatePresence, {
                 initial: !1,
-                children: _v4 && (0, _v1.jsx)(_v547.motion.div, {
+                children: _v4 && (0, _v1.jsx)(_v546.motion.div, {
                   initial: {
                     opacity: 0,
                     height: 0
@@ -16471,7 +16469,7 @@
                   transition: {
                     height: {
                       duration: .4,
-                      ease: _v551
+                      ease: _v550
                     },
                     opacity: {
                       duration: .3,
@@ -16486,7 +16484,7 @@
                     pt: (0, _v48.rem)(20),
                     children: [(0, _v1.jsx)(_v35.Text, {
                       as: "label",
-                      htmlFor: _v553,
+                      htmlFor: _v552,
                       display: "block",
                       fontSize: (0, _v48.rem)(13),
                       color: "text-tertiary",
@@ -16517,8 +16515,8 @@
                           }
                         }
                       })
-                    }), (0, _v1.jsx)(_v549.Textarea, {
-                      id: _v553,
+                    }), (0, _v1.jsx)(_v548.Textarea, {
+                      id: _v552,
                       size: "md",
                       rows: 3,
                       resize: "none",
@@ -16623,7 +16621,7 @@
               textAlign: "center",
               px: (0, _v48.rem)(8),
               py: (0, _v48.rem)(28),
-              children: [(0, _v1.jsx)(_v547.motion.div, {
+              children: [(0, _v1.jsx)(_v546.motion.div, {
                 initial: {
                   scale: .7
                 },
@@ -16632,7 +16630,7 @@
                 },
                 transition: {
                   duration: .42,
-                  ease: _v551
+                  ease: _v550
                 },
                 children: (0, _v1.jsx)(_v47.Flex, {
                   width: (0, _v48.rem)(64),
@@ -16644,14 +16642,14 @@
                   mb: (0, _v48.rem)(20),
                   mx: "auto",
                   color: "vimeoBlue.500",
-                  children: (0, _v1.jsx)(_v550.Checkmark, {
+                  children: (0, _v1.jsx)(_v549.Checkmark, {
                     width: 32,
                     height: 32
                   })
                 })
               }), (0, _v1.jsx)(_v35.Text, {
                 as: "h2",
-                id: _v554,
+                id: _v553,
                 fontSize: (0, _v48.rem)(26),
                 fontWeight: 700,
                 letterSpacing: "-0.035em",
@@ -16719,12 +16717,12 @@
       })]
     });
   }
-  let _v556 = "logged_in_homepage",
-    _v557 = _v0 => `product_sentiment_pulse_seen_${_v0}`;
-  var _v558 = _v0.i(0);
-  let _v559 = () => {
+  let _v555 = "logged_in_homepage",
+    _v556 = _v0 => `product_sentiment_pulse_seen_${_v0}`;
+  var _v557 = _v0.i(0);
+  let _v558 = () => {
       let _v0 = _v518(),
-        _v1 = (0, _v558.useSideNavCollapsed)(),
+        _v1 = (0, _v557.useSideNavCollapsed)(),
         [_v2] = (0, _v503.useToken)("breakpoints", ["lg"]),
         [_v3] = (0, _v305.useMediaQuery)([`(max-width: ${_v2})`]);
       return _v3 ? null : (0, _v1.jsx)(_v516, {
@@ -16733,7 +16731,7 @@
         onCtaClick: _v0
       });
     },
-    _v560 = () => {
+    _v559 = () => {
       let _v0,
         _v1,
         _v2,
@@ -16899,8 +16897,8 @@
         })]
       });
     },
-    _v561 = "pico-new-update-card-tracking",
-    _v562 = ({
+    _v560 = "pico-new-update-card-tracking",
+    _v561 = ({
       playerAssetUrls: _v0
     }) => {
       !function () {
@@ -17079,8 +17077,8 @@
           onGuideDisplayed: _v0 => _v4(_v0.guideName),
           onClick: _v0 => _v5(_v0.guide?.guideName),
           onGuideDismiss: _v0 => _v6(_v0.guide?.guideName)
-        }, _v561), () => {
-          _v14.PendoClient.removeHandler(_v561);
+        }, _v560), () => {
+          _v14.PendoClient.removeHandler(_v560);
         };
       }, [_v2, _v4, _v5, _v6]);
       let {
@@ -17115,7 +17113,7 @@
               userTier: _v0
             }) => {
               _v1?.track("product_sentiment_pulse_shown", {
-                surface: _v556,
+                surface: _v555,
                 user_tier: _v0
               });
             }, [_v1]), {
@@ -17124,7 +17122,7 @@
                 answer: _v0
               }) => {
                 _v1?.track("product_sentiment_pulse_selected", {
-                  surface: _v556,
+                  surface: _v555,
                   answer: _v0
                 });
               }, [_v1]),
@@ -17135,7 +17133,7 @@
                 reason: _v3
               }) => {
                 _v1?.track("product_sentiment_pulse_submitted", {
-                  surface: _v556,
+                  surface: _v555,
                   answer: _v0,
                   user_tier: _v1,
                   country: _v2,
@@ -17172,7 +17170,7 @@
             }();
             !_v4 && !_v0 || !_v0 && function (_v0) {
               try {
-                return "1" === window.localStorage.getItem(_v557(_v0));
+                return "1" === window.localStorage.getItem(_v556(_v0));
               } catch {
                 return !1;
               }
@@ -17202,7 +17200,7 @@
                 reason: "not_sure" !== _v14 && _v0 ? _v0 : void 0
               }), null !== _v6 && function (_v0) {
                 try {
-                  window.localStorage.setItem(_v557(_v0), "1");
+                  window.localStorage.setItem(_v556(_v0), "1");
                 } catch {}
               }(_v6), _v13("thanks"), _v19.current = setTimeout(() => _v13("closed"), 0);
             }, [_v12, _v14, _v16, _v7, _v8, _v6, _v11]);
@@ -17233,13 +17231,13 @@
           console.log("Failed to stop pendo guides for managed accounts:", _v0);
         }
       }, [_v17]), (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v544, {}), (0, _v1.jsx)(_v560, {}), !_v17 && (0, _v1.jsx)(_v501, {}), (0, _v1.jsx)(_v25, {
+        children: [(0, _v1.jsx)(_v543, {}), (0, _v1.jsx)(_v559, {}), !_v17 && (0, _v1.jsx)(_v501, {}), (0, _v1.jsx)(_v25, {
           isSuppressed: _v17
         }), (0, _v1.jsx)(_v43, {
           isSuppressed: _v17
         }), (0, _v1.jsx)(_v6.BundleIntroModalContainer, {
           isSuppressed: _v17 || !!_v15
-        }), !_v17 && _v15, (0, _v1.jsx)(_v555, {
+        }), !_v17 && _v15, (0, _v1.jsx)(_v554, {
           phase: _v18.phase,
           selectedAnswer: _v18.selectedAnswer,
           reason: _v18.reason,
@@ -17270,7 +17268,7 @@
     inlineViewer: !0,
     inlinePlayerAssets: !0
   });
-  let _v563 = ({
+  let _v562 = ({
     page: _v0,
     props: _v1
   }) => {
@@ -17282,7 +17280,7 @@
       sideNavContent: (0, _v1.jsx)(_v44.SideNavContent, {
         surface: "home"
       }),
-      bundlePromo: (0, _v1.jsx)(_v559, {}),
+      bundlePromo: (0, _v1.jsx)(_v558, {}),
       bundlePromoAvailable: _v2,
       sideNavSurface: "home",
       searchContentAlignment: _v50,
@@ -17291,8 +17289,8 @@
       children: _v0
     });
   };
-  _v562.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v563, {
+  _v561.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v562, {
     page: _v0,
     props: _v1
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v562], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v561], 0);
 }

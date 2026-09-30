@@ -4050,164 +4050,342 @@
         })]
       });
     },
-    _v145 = ({
+    _v145 = _v0 => (0, _v28.jsx)(_v43.Link, {
+      href: _v135.BUNDLE_LIBRARY_TERMS_PATH,
+      variant: "inline-primary",
+      fontFamily: "heading",
+      children: _v0
+    }, "link"),
+    _v146 = ({
       unlockStatus: _v0,
-      productCount: _v1
-    }) => (0, _v28.jsxs)(_v32.Flex, {
-      direction: "column",
-      gap: (0, _v33.rem)(8),
-      paddingBottom: "400",
-      children: [(0, _v28.jsx)(_v133.Header, {
-        variant: "heading-xl",
-        children: "unlocked" === _v0 ? String((0, _v77.translate)({
-          singular: "Your Vimeo plan grants you access to these products",
-          dictionary: {
-            es: {
-              singular: "Tu plan de Vimeo te otorga acceso a estos productos"
+      productCount: _v1,
+      isStudioOrScheduledStudio: _v2 = !1,
+      isScheduledStudio: _v3 = !1,
+      daysToRenewal: _v4 = null
+    }) => {
+      let {
+        title: _v5,
+        subtitle: _v6
+      } = (({
+        unlockStatus: _v0,
+        productCount: _v1,
+        isStudioOrScheduledStudio: _v2,
+        isScheduledStudio: _v3,
+        daysToRenewal: _v4
+      }) => {
+        if ("unlocked" === _v0 && _v2) return {
+          title: String((0, _v77.translate)({
+            singular: "Enjoy access to {COUNT} other subscription—at no extra cost",
+            plural: "Enjoy access to {COUNT} other subscriptions—at no extra cost",
+            count: _v1,
+            replacements: {
+              COUNT: `${_v1}`
             },
-            "de-DE": {
-              singular: "Ihr Vimeo‑Plan gewährt Ihnen Zugriff auf diese Produkte"
-            },
-            "fr-FR": {
-              singular: "Votre forfait Vimeo vous donne accès à ces produits"
-            },
-            "ja-JP": {
-              singular: "お使いのVimeoプランにより、以下の製品にアクセスできます"
-            },
-            "ko-KR": {
-              singular: "귀하의 Vimeo 플랜으로 다음 제품을 이용하실 수 있습니다"
-            },
-            "pt-BR": {
-              singular: "Seu plano do Vimeo concede acesso a esses produtos"
-            },
-            "zh-CN": {
-              singular: "您的 Vimeo 计划可让您访问以下产品"
+            dictionary: {
+              es: {
+                singular: "Disfruta de acceso a {COUNT} suscripción adicional—sin coste adicional",
+                plural: "Disfruta de acceso a {COUNT} suscripciones adicionales—sin coste adicional"
+              },
+              "de-DE": {
+                singular: "Genießen Sie Zugriff auf {COUNT} weiteres Abonnement—ohne zusätzliche Kosten",
+                plural: "Genießen Sie Zugriff auf {COUNT} weitere Abonnements—ohne zusätzliche Kosten"
+              },
+              "fr-FR": {
+                singular: "Profitez de l'accès à {COUNT} autre abonnement—sans frais supplémentaires",
+                plural: "Profitez de l'accès à {COUNT} autres abonnements—sans frais supplémentaires"
+              },
+              "ja-JP": {
+                singular: "他の{COUNT}件のサブスクリプションに追加料金なしでアクセスできます",
+                plural: "他の{COUNT}件のサブスクリプションに追加料金なしでアクセスできます"
+              },
+              "ko-KR": {
+                singular: "{COUNT}개의 다른 구독—추가 비용 없이 이용하실 수 있습니다",
+                plural: "{COUNT}개의 다른 구독—추가 비용 없이 이용하실 수 있습니다"
+              },
+              "pt-BR": {
+                singular: "Desfrute de acesso a {COUNT} outra assinatura—sem custo adicional",
+                plural: "Desfrute de acesso a {COUNT} outras assinaturas—sem custo adicional"
+              },
+              "zh-CN": {
+                singular: "可访问另外 {COUNT} 个订阅—无需额外费用",
+                plural: "可访问另外 {COUNT} 个订阅—无需额外费用"
+              }
             }
-          }
-        })) : String((0, _v77.translate)({
-          singular: "Vimeo subscriptions now offer you much more than just video",
-          dictionary: {
-            es: {
-              singular: "Las suscripciones de Vimeo ahora le ofrecen mucho más que solo vídeo"
+          })),
+          subtitle: (0, _v77.translate)({
+            singular: "You can redeem access to any of the subscriptions below, anytime during your current Vimeo billing cycle. Once redeemed, your access will run for the same duration as your current Vimeo subscription, at no extra cost. See the {LINK}Bundle Promotion Conditions{/LINK} for more details.",
+            replacements: {
+              LINK: _v145
             },
-            "de-DE": {
-              singular: "Vimeo-Abonnements bieten Ihnen jetzt viel mehr als nur Videoinhalte"
-            },
-            "fr-FR": {
-              singular: "Les abonnements Vimeo vous offrent désormais bien plus que la simple vidéo"
-            },
-            "ja-JP": {
-              singular: "Vimeoのサブスクリプションは、単なる動画提供を超え、多彩な機能と価値を提供します"
-            },
-            "ko-KR": {
-              singular: "Vimeo 구독은 이제 단순한 동영상 그 이상을 제공합니다"
-            },
-            "pt-BR": {
-              singular: "As assinaturas do Vimeo agora oferecem a você muito mais do que apenas vídeo"
-            },
-            "zh-CN": {
-              singular: "Vimeo 订阅现在为您提供远不止视频的内容"
+            dictionary: {
+              es: {
+                singular: "Puedes canjear el acceso a cualquiera de las suscripciones siguientes en cualquier momento durante tu ciclo de facturación actual de Vimeo. Una vez canjeado, tu acceso tendrá la misma duración que tu suscripción actual de Vimeo, sin coste adicional. Consulta las {LINK}Condiciones de la promoción del paquete{/LINK} para más detalles."
+              },
+              "de-DE": {
+                singular: "Sie können jederzeit während Ihres aktuellen Vimeo-Abrechnungszyklus Zugang zu einem der untenstehenden Abonnements einlösen. Nach Einlösung läuft Ihr Zugang für dieselbe Dauer wie Ihr aktuelles Vimeo-Abonnement, ohne zusätzliche Kosten. Weitere Einzelheiten finden Sie in den {LINK}Bundle Promotion Conditions{/LINK}."
+              },
+              "fr-FR": {
+                singular: "Vous pouvez activer l'accès à n'importe lequel des abonnements ci‑dessous, à tout moment pendant votre cycle de facturation Vimeo en cours. Une fois activé, votre accès durera la même durée que votre abonnement Vimeo actuel, sans frais supplémentaires. Consultez les {LINK}Conditions de la promotion du pack{/LINK} pour plus de détails."
+              },
+              "ja-JP": {
+                singular: "現在のVimeoの請求サイクル中であればいつでも、下のいずれかのサブスクリプションへのアクセスを引き換えることができます。引き換えると、追加料金なしで現在のVimeoサブスクリプションと同じ期間、アクセスが有効になります。詳細は{LINK}バンドルプロモーションの条件{/LINK}をご覧ください。"
+              },
+              "ko-KR": {
+                singular: "현재 Vimeo 청구 주기 동안 언제든지 아래 구독 중 원하는 항목에 대한 액세스를 교환하실 수 있습니다. 교환하면 추가 비용 없이 현재 Vimeo 구독과 동일한 기간 동안 액세스가 제공됩니다. 자세한 내용은 {LINK}Bundle Promotion Conditions{/LINK}을 참조하세요."
+              },
+              "pt-BR": {
+                singular: "Você pode resgatar o acesso a qualquer uma das assinaturas abaixo, a qualquer momento durante o seu ciclo de faturamento atual do Vimeo. Uma vez resgatado, seu acesso terá a mesma duração da sua assinatura atual do Vimeo, sem custo adicional. Consulte as {LINK}Condições da Promoção do Pacote{/LINK} para mais detalhes."
+              },
+              "zh-CN": {
+                singular: "在您当前的 Vimeo 计费周期内的任何时间，您都可以兑换下面任意订阅的访问权限。兑换后，您的访问权限将与您当前的 Vimeo 订阅保持相同的期限，且无需额外费用。有关详细信息，请参阅{LINK}捆绑促销条款{/LINK}。"
+              }
             }
-          }
-        }))
-      }), (0, _v28.jsx)(_v44.Text, {
-        variant: "body-lg",
-        color: "text-secondary",
-        children: "unlocked" === _v0 ? (0, _v77.translate)({
-          singular: "Explore your curated selection of subscriptions. Reveal a code and redeem each one anytime. By redeeming your first product, you accept our {LINK}Bundle Promotion Terms and Conditions{/LINK}.",
-          replacements: {
-            LINK: _v0 => (0, _v28.jsx)(_v43.Link, {
-              href: _v135.BUNDLE_LIBRARY_TERMS_PATH,
-              variant: "inline-primary",
-              fontFamily: "heading",
-              children: _v0
-            }, "link")
-          },
-          dictionary: {
-            es: {
-              singular: "Explora tu selección curada de suscripciones. Revela un código y canjea cada uno en cualquier momento. Al canjear tu primer producto, aceptas nuestros {LINK}Términos y condiciones de la promoción del paquete{/LINK}."
+          })
+        };
+        if ("locked" === _v0 && _v3 && null !== _v4) return {
+          title: String((0, _v77.translate)({
+            singular: "Enjoy complimentary access to {COUNT} premium subscription",
+            plural: "Enjoy complimentary access to {COUNT} premium subscriptions",
+            count: _v1,
+            replacements: {
+              COUNT: `${_v1}`
             },
-            "de-DE": {
-              singular: "Entdecken Sie Ihre kuratierte Auswahl an Abonnements. Zeigen Sie einen Code an und lösen Sie ihn jederzeit ein. Wenn Sie Ihr erstes Produkt einlösen, akzeptieren Sie unsere {LINK}Bundle Promotion Terms and Conditions{/LINK}."
-            },
-            "fr-FR": {
-              singular: "Découvrez votre sélection d'abonnements soigneusement choisie. Révélez un code et échangez-le à tout moment. En échangeant votre premier produit, vous acceptez nos {LINK}conditions de promotion du pack{/LINK}."
-            },
-            "ja-JP": {
-              singular: "厳選されたサブスクリプションの一覧をご確認ください。コードを表示して、いつでも各アイテムを引き換えられます。最初の製品を引き換えることで、{LINK}バンドルプロモーション利用規約{/LINK}に同意したものとみなされます。"
-            },
-            "ko-KR": {
-              singular: "엄선된 구독 선택 항목을 확인해 보세요. 코드를 공개하여 언제든 각 제품을 교환할 수 있습니다. 첫 제품을 교환함으로써 귀하는 당사의 {LINK}번들 프로모션 약관{/LINK}에 동의하게 됩니다."
-            },
-            "pt-BR": {
-              singular: "Explore sua seleção curada de assinaturas. Revele um código e resgate cada um a qualquer momento. Ao resgatar seu primeiro produto, você aceita nossos {LINK}Termos e Condições da Promoção do Pacote{/LINK}."
-            },
-            "zh-CN": {
-              singular: "探索为您精心挑选的订阅。查看兑换码并随时兑换。通过兑换您的第一个产品，您即表示接受我们的 {LINK}捆绑促销条款与条件{/LINK}。"
+            dictionary: {
+              es: {
+                singular: "Disfruta de acceso gratuito a {COUNT} suscripción premium",
+                plural: "Disfruta de acceso gratuito a {COUNT} suscripciones premium"
+              },
+              "de-DE": {
+                singular: "Erhalten Sie kostenlosen Zugriff auf {COUNT} Premium-Abonnement",
+                plural: "Erhalten Sie kostenlosen Zugriff auf {COUNT} Premium-Abonnements"
+              },
+              "fr-FR": {
+                singular: "Bénéficiez d'un accès gratuit à {COUNT} abonnement premium",
+                plural: "Bénéficiez d'un accès gratuit à {COUNT} abonnements premium"
+              },
+              "ja-JP": {
+                singular: "無料で{COUNT}件のプレミアムサブスクリプションにアクセスできます",
+                plural: "無料で{COUNT}件のプレミアムサブスクリプションにアクセスできます"
+              },
+              "ko-KR": {
+                singular: "{COUNT}개의 프리미엄 구독을 무료로 이용하실 수 있습니다",
+                plural: "{COUNT}개의 프리미엄 구독을 무료로 이용하실 수 있습니다"
+              },
+              "pt-BR": {
+                singular: "Desfrute de acesso gratuito a {COUNT} assinatura premium",
+                plural: "Desfrute de acesso gratuito a {COUNT} assinaturas premium"
+              },
+              "zh-CN": {
+                singular: "可免费访问 {COUNT} 个高级订阅",
+                plural: "可免费访问 {COUNT} 个高级订阅"
+              }
             }
-          }
-        }) : String((0, _v77.translate)({
-          singular: "Get up to {COUNT} product — one bill, nothing more to set up. Active for as long as your Vimeo plan stays active.",
-          plural: "Get up to {COUNT} products — one bill, nothing more to set up. Active for as long as your Vimeo plan stays active.",
-          count: _v1,
-          replacements: {
-            COUNT: `${_v1}`
-          },
-          dictionary: {
-            es: {
-              singular: "Obtén hasta {COUNT} producto — una sola factura, nada más que configurar. Activo mientras tu plan de Vimeo siga activo.",
-              plural: "Obtén hasta {COUNT} productos — una sola factura, nada más que configurar. Activo mientras tu plan de Vimeo siga activo."
+          })),
+          subtitle: (0, _v77.translate)({
+            singular: "Upon renewal of your Studio plan in {DAYS} day, you can redeem access to any of the subscriptions below. Once redeemed, your access will run for the same duration as your current Vimeo subscription, at no extra cost. See the {LINK}Bundle Promotion Conditions{/LINK} for more details.",
+            plural: "Upon renewal of your Studio plan in {DAYS} days, you can redeem access to any of the subscriptions below. Once redeemed, your access will run for the same duration as your current Vimeo subscription, at no extra cost. See the {LINK}Bundle Promotion Conditions{/LINK} for more details.",
+            count: _v4,
+            replacements: {
+              DAYS: `${_v4}`,
+              LINK: _v145
             },
-            "de-DE": {
-              singular: "Erhalten Sie bis zu {COUNT} Produkt — eine Rechnung, nichts Weiteres einzurichten. Aktiv, solange Ihr Vimeo‑Plan aktiv bleibt.",
-              plural: "Erhalten Sie bis zu {COUNT} Produkte — eine Rechnung, nichts Weiteres einzurichten. Aktiv, solange Ihr Vimeo‑Plan aktiv bleibt."
-            },
-            "fr-FR": {
-              singular: "Obtenez jusqu'à {COUNT} produit — une seule facture, rien d'autre à configurer. Valable tant que votre abonnement Vimeo reste actif.",
-              plural: "Obtenez jusqu'à {COUNT} produits — une seule facture, rien d'autre à configurer. Valable tant que votre abonnement Vimeo reste actif."
-            },
-            "ja-JP": {
-              singular: "最大{COUNT}件の製品を利用できます — 請求は1件のみで、追加の設定は不要です。Vimeoプランが有効な期間中、有効です。",
-              plural: "最大{COUNT}件の製品を利用できます — 請求は1件のみで、追加の設定は不要です。Vimeoプランが有効な期間中、有効です。"
-            },
-            "ko-KR": {
-              singular: "최대 {COUNT}개의 제품을 이용할 수 있습니다 — 청구는 한 번만, 별도 설정은 필요 없습니다. Vimeo 플랜이 활성 상태인 동안 유효합니다.",
-              plural: "최대 {COUNT}개의 제품을 이용할 수 있습니다 — 청구는 한 번만, 별도 설정은 필요 없습니다. Vimeo 플랜이 활성 상태인 동안 유효합니다."
-            },
-            "pt-BR": {
-              singular: "Obtenha até {COUNT} produto — uma fatura, nada mais para configurar. Ativo enquanto seu plano do Vimeo permanecer ativo.",
-              plural: "Obtenha até {COUNT} produtos — uma fatura, nada mais para configurar. Ativo enquanto seu plano do Vimeo permanecer ativo."
-            },
-            "zh-CN": {
-              singular: "最多可获得 {COUNT} 个产品 — 一张账单，无需额外设置。与您的 Vimeo 计划保持同样的有效期。",
-              plural: "最多可获得 {COUNT} 个产品 — 一张账单，无需额外设置。与您的 Vimeo 计划保持同样的有效期。"
+            dictionary: {
+              es: {
+                singular: "Al renovarse tu plan Studio en {DAYS} día, puedes canjear el acceso a cualquiera de las suscripciones siguientes. Una vez canjeado, tu acceso tendrá la misma duración que tu suscripción actual de Vimeo, sin coste adicional. Consulta las {LINK}Condiciones de la promoción del paquete{/LINK} para más detalles.",
+                plural: "Al renovarse tu plan Studio en {DAYS} días, puedes canjear el acceso a cualquiera de las suscripciones siguientes. Una vez canjeado, tu acceso tendrá la misma duración que tu suscripción actual de Vimeo, sin coste adicional. Consulta las {LINK}Condiciones de la promoción del paquete{/LINK} para más detalles."
+              },
+              "de-DE": {
+                singular: "Bei Verlängerung Ihres Studio-Plans in {DAYS} Tag können Sie Zugang zu einem der untenstehenden Abonnements einlösen. Nach Einlösung läuft Ihr Zugang für dieselbe Dauer wie Ihr aktuelles Vimeo-Abonnement, ohne zusätzliche Kosten. Weitere Einzelheiten finden Sie in den {LINK}Bundle Promotion Conditions{/LINK}.",
+                plural: "Bei Verlängerung Ihres Studio-Plans in {DAYS} Tagen können Sie Zugang zu einem der untenstehenden Abonnements einlösen. Nach Einlösung läuft Ihr Zugang für dieselbe Dauer wie Ihr aktuelles Vimeo-Abonnement, ohne zusätzliche Kosten. Weitere Einzelheiten finden Sie in den {LINK}Bundle Promotion Conditions{/LINK}."
+              },
+              "fr-FR": {
+                singular: "Lors du renouvellement de votre plan Studio dans {DAYS} jour, vous pourrez activer l'accès à n'importe lequel des abonnements ci‑dessous. Une fois activé, votre accès durera la même durée que votre abonnement Vimeo actuel, sans frais supplémentaires. Consultez les {LINK}Conditions de la promotion du pack{/LINK} pour plus de détails.",
+                plural: "Lors du renouvellement de votre plan Studio dans {DAYS} jours, vous pourrez activer l'accès à n'importe lequel des abonnements ci‑dessous. Une fois activé, votre accès durera la même durée que votre abonnement Vimeo actuel, sans frais supplémentaires. Consultez les {LINK}Conditions de la promotion du pack{/LINK} pour plus de détails."
+              },
+              "ja-JP": {
+                singular: "Studioプランの更新はあと{DAYS}日です。更新時に、下のいずれかのサブスクリプションのアクセスを引き換えることができます。引き換えると、追加料金なしで現在のVimeoサブスクリプションと同じ期間、アクセスが有効になります。詳細は{LINK}バンドルプロモーションの条件{/LINK}をご覧ください。",
+                plural: "Studioプランの更新はあと{DAYS}日です。更新時に、下のいずれかのサブスクリプションのアクセスを引き換えることができます。引き換えると、追加料金なしで現在のVimeoサブスクリプションと同じ期間、アクセスが有効になります。詳細は{LINK}バンドルプロモーションの条件{/LINK}をご覧ください。"
+              },
+              "ko-KR": {
+                singular: "{DAYS}일 후 Studio 요금제가 갱신되면, 아래 구독 중 원하는 항목에 대한 액세스를 교환하실 수 있습니다. 교환하면 추가 비용 없이 현재 Vimeo 구독과 동일한 기간 동안 액세스가 제공됩니다. 자세한 내용은 {LINK}Bundle Promotion Conditions{/LINK}을 참조하세요.",
+                plural: "{DAYS}일 후 Studio 요금제가 갱신되면, 아래 구독 중 원하는 항목에 대한 액세스를 교환하실 수 있습니다. 교환하면 추가 비용 없이 현재 Vimeo 구독과 동일한 기간 동안 액세스가 제공됩니다. 자세한 내용은 {LINK}Bundle Promotion Conditions{/LINK}을 참조하세요."
+              },
+              "pt-BR": {
+                singular: "Ao renovar seu plano Studio em {DAYS} dia, você poderá resgatar o acesso a qualquer uma das assinaturas abaixo. Uma vez resgatado, seu acesso terá a mesma duração da sua assinatura atual do Vimeo, sem custo adicional. Consulte as {LINK}Condições da Promoção do Pacote{/LINK} para mais detalhes.",
+                plural: "Ao renovar seu plano Studio em {DAYS} dias, você poderá resgatar o acesso a qualquer uma das assinaturas abaixo. Uma vez resgatado, seu acesso terá a mesma duração da sua assinatura atual do Vimeo, sem custo adicional. Consulte as {LINK}Condições da Promoção do Pacote{/LINK} para mais detalhes."
+              },
+              "zh-CN": {
+                singular: "您的 Studio 计划将在 {DAYS} 天后续订，届时您可以兑换下面任意订阅的访问权限。兑换后，您的访问权限将与您当前的 Vimeo 订阅保持相同的期限，且无需额外费用。有关详细信息，请参阅{LINK}捆绑促销条款{/LINK}。",
+                plural: "您的 Studio 计划将在 {DAYS} 天后续订，届时您可以兑换下面任意订阅的访问权限。兑换后，您的访问权限将与您当前的 Vimeo 订阅保持相同的期限，且无需额外费用。有关详细信息，请参阅{LINK}捆绑促销条款{/LINK}。"
+              }
             }
-          }
-        }))
-      })]
-    });
-  var _v146 = _v0.i(0),
-    _v147 = _v0.i(0),
-    _v147 = _v147,
+          })
+        };
+        return "unlocked" === _v0 ? {
+          title: String((0, _v77.translate)({
+            singular: "Your Vimeo plan grants you access to these products",
+            dictionary: {
+              es: {
+                singular: "Tu plan de Vimeo te otorga acceso a estos productos"
+              },
+              "de-DE": {
+                singular: "Ihr Vimeo‑Plan gewährt Ihnen Zugriff auf diese Produkte"
+              },
+              "fr-FR": {
+                singular: "Votre forfait Vimeo vous donne accès à ces produits"
+              },
+              "ja-JP": {
+                singular: "お使いのVimeoプランにより、以下の製品にアクセスできます"
+              },
+              "ko-KR": {
+                singular: "귀하의 Vimeo 플랜으로 다음 제품을 이용하실 수 있습니다"
+              },
+              "pt-BR": {
+                singular: "Seu plano do Vimeo concede acesso a esses produtos"
+              },
+              "zh-CN": {
+                singular: "您的 Vimeo 计划可让您访问以下产品"
+              }
+            }
+          })),
+          subtitle: (0, _v77.translate)({
+            singular: "Explore your curated selection of subscriptions. Reveal a code and redeem each one anytime. By redeeming your first product, you accept our {LINK}Bundle Promotion Terms and Conditions{/LINK}.",
+            replacements: {
+              LINK: _v145
+            },
+            dictionary: {
+              es: {
+                singular: "Explora tu selección curada de suscripciones. Revela un código y canjea cada uno en cualquier momento. Al canjear tu primer producto, aceptas nuestros {LINK}Términos y condiciones de la promoción del paquete{/LINK}."
+              },
+              "de-DE": {
+                singular: "Entdecken Sie Ihre kuratierte Auswahl an Abonnements. Zeigen Sie einen Code an und lösen Sie ihn jederzeit ein. Wenn Sie Ihr erstes Produkt einlösen, akzeptieren Sie unsere {LINK}Bundle Promotion Terms and Conditions{/LINK}."
+              },
+              "fr-FR": {
+                singular: "Découvrez votre sélection d'abonnements soigneusement choisie. Révélez un code et échangez-le à tout moment. En échangeant votre premier produit, vous acceptez nos {LINK}conditions de promotion du pack{/LINK}."
+              },
+              "ja-JP": {
+                singular: "厳選されたサブスクリプションの一覧をご確認ください。コードを表示して、いつでも各アイテムを引き換えられます。最初の製品を引き換えることで、{LINK}バンドルプロモーション利用規約{/LINK}に同意したものとみなされます。"
+              },
+              "ko-KR": {
+                singular: "엄선된 구독 선택 항목을 확인해 보세요. 코드를 공개하여 언제든 각 제품을 교환할 수 있습니다. 첫 제품을 교환함으로써 귀하는 당사의 {LINK}번들 프로모션 약관{/LINK}에 동의하게 됩니다."
+              },
+              "pt-BR": {
+                singular: "Explore sua seleção curada de assinaturas. Revele um código e resgate cada um a qualquer momento. Ao resgatar seu primeiro produto, você aceita nossos {LINK}Termos e Condições da Promoção do Pacote{/LINK}."
+              },
+              "zh-CN": {
+                singular: "探索为您精心挑选的订阅。查看兑换码并随时兑换。通过兑换您的第一个产品，您即表示接受我们的 {LINK}捆绑促销条款与条件{/LINK}。"
+              }
+            }
+          })
+        } : {
+          title: String((0, _v77.translate)({
+            singular: "Vimeo subscriptions now offer you much more than just video",
+            dictionary: {
+              es: {
+                singular: "Las suscripciones de Vimeo ahora le ofrecen mucho más que solo vídeo"
+              },
+              "de-DE": {
+                singular: "Vimeo-Abonnements bieten Ihnen jetzt viel mehr als nur Videoinhalte"
+              },
+              "fr-FR": {
+                singular: "Les abonnements Vimeo vous offrent désormais bien plus que la simple vidéo"
+              },
+              "ja-JP": {
+                singular: "Vimeoのサブスクリプションは、単なる動画提供を超え、多彩な機能と価値を提供します"
+              },
+              "ko-KR": {
+                singular: "Vimeo 구독은 이제 단순한 동영상 그 이상을 제공합니다"
+              },
+              "pt-BR": {
+                singular: "As assinaturas do Vimeo agora oferecem a você muito mais do que apenas vídeo"
+              },
+              "zh-CN": {
+                singular: "Vimeo 订阅现在为您提供远不止视频的内容"
+              }
+            }
+          })),
+          subtitle: String((0, _v77.translate)({
+            singular: "Get up to {COUNT} product — one bill, nothing more to set up. Active for as long as your Vimeo plan stays active.",
+            plural: "Get up to {COUNT} products — one bill, nothing more to set up. Active for as long as your Vimeo plan stays active.",
+            count: _v1,
+            replacements: {
+              COUNT: `${_v1}`
+            },
+            dictionary: {
+              es: {
+                singular: "Obtén hasta {COUNT} producto — una sola factura, nada más que configurar. Activo mientras tu plan de Vimeo siga activo.",
+                plural: "Obtén hasta {COUNT} productos — una sola factura, nada más que configurar. Activo mientras tu plan de Vimeo siga activo."
+              },
+              "de-DE": {
+                singular: "Erhalten Sie bis zu {COUNT} Produkt — eine Rechnung, nichts Weiteres einzurichten. Aktiv, solange Ihr Vimeo‑Plan aktiv bleibt.",
+                plural: "Erhalten Sie bis zu {COUNT} Produkte — eine Rechnung, nichts Weiteres einzurichten. Aktiv, solange Ihr Vimeo‑Plan aktiv bleibt."
+              },
+              "fr-FR": {
+                singular: "Obtenez jusqu'à {COUNT} produit — une seule facture, rien d'autre à configurer. Valable tant que votre abonnement Vimeo reste actif.",
+                plural: "Obtenez jusqu'à {COUNT} produits — une seule facture, rien d'autre à configurer. Valable tant que votre abonnement Vimeo reste actif."
+              },
+              "ja-JP": {
+                singular: "最大{COUNT}件の製品を利用できます — 請求は1件のみで、追加の設定は不要です。Vimeoプランが有効な期間中、有効です。",
+                plural: "最大{COUNT}件の製品を利用できます — 請求は1件のみで、追加の設定は不要です。Vimeoプランが有効な期間中、有効です。"
+              },
+              "ko-KR": {
+                singular: "최대 {COUNT}개의 제품을 이용할 수 있습니다 — 청구는 한 번만, 별도 설정은 필요 없습니다. Vimeo 플랜이 활성 상태인 동안 유효합니다.",
+                plural: "최대 {COUNT}개의 제품을 이용할 수 있습니다 — 청구는 한 번만, 별도 설정은 필요 없습니다. Vimeo 플랜이 활성 상태인 동안 유효합니다."
+              },
+              "pt-BR": {
+                singular: "Obtenha até {COUNT} produto — uma fatura, nada mais para configurar. Ativo enquanto seu plano do Vimeo permanecer ativo.",
+                plural: "Obtenha até {COUNT} produtos — uma fatura, nada mais para configurar. Ativo enquanto seu plano do Vimeo permanecer ativo."
+              },
+              "zh-CN": {
+                singular: "最多可获得 {COUNT} 个产品 — 一张账单，无需额外设置。与您的 Vimeo 计划保持同样的有效期。",
+                plural: "最多可获得 {COUNT} 个产品 — 一张账单，无需额外设置。与您的 Vimeo 计划保持同样的有效期。"
+              }
+            }
+          }))
+        };
+      })({
+        unlockStatus: _v0,
+        productCount: _v1,
+        isStudioOrScheduledStudio: _v2,
+        isScheduledStudio: _v3,
+        daysToRenewal: _v4
+      });
+      return (0, _v28.jsxs)(_v32.Flex, {
+        direction: "column",
+        gap: (0, _v33.rem)(8),
+        paddingBottom: "400",
+        children: [(0, _v28.jsx)(_v133.Header, {
+          variant: "heading-xl",
+          children: _v5
+        }), (0, _v28.jsx)(_v44.Text, {
+          variant: "body-lg",
+          color: "text-secondary",
+          children: _v6
+        })]
+      });
+    };
+  var _v147 = _v0.i(0),
     _v148 = _v0.i(0),
     _v148 = _v148,
     _v149 = _v0.i(0),
+    _v149 = _v149,
     _v150 = _v0.i(0),
-    _v151 = _v0.i(0);
-  let _v152 = [53.14, 50.41, 46.46, 43.6],
-    _v153 = {
+    _v151 = _v0.i(0),
+    _v152 = _v0.i(0);
+  let _v153 = [53.14, 50.41, 46.46, 43.6],
+    _v154 = {
       textDecoration: "underline",
       textUnderlineOffset: (0, _v33.rem)(2)
     },
-    _v154 = _v0 => (0, _v28.jsx)(_v43.Link, {
+    _v155 = _v0 => (0, _v28.jsx)(_v43.Link, {
       href: _v135.BUNDLE_LIBRARY_TERMS_PATH,
       target: "_blank",
       rel: "noopener noreferrer",
       color: "text-secondary",
-      sx: _v153,
+      sx: _v154,
       children: _v0
     }),
-    _v155 = ({
+    _v156 = ({
       clusterTiles: _v0,
       otherProductsCount: _v1,
       onClaim: _v2,
@@ -4232,7 +4410,7 @@
           md: (0, _v33.rem)(20)
         },
         marginBottom: (0, _v33.rem)(32),
-        children: [(0, _v28.jsx)(_v146.BannerGlow, {
+        children: [(0, _v28.jsx)(_v147.BannerGlow, {
           geometry: {
             top: {
               base: 10,
@@ -4247,8 +4425,8 @@
               md: 540
             }
           },
-          asset: _v147.default
-        }), (0, _v28.jsx)(_v146.BannerGlow, {
+          asset: _v148.default
+        }), (0, _v28.jsx)(_v147.BannerGlow, {
           geometry: {
             top: {
               base: -120,
@@ -4263,7 +4441,7 @@
               md: 470
             }
           },
-          asset: _v148.default
+          asset: _v149.default
         }), (0, _v28.jsx)(_v35.Box, {
           width: "100%",
           sx: {
@@ -4291,12 +4469,12 @@
                   display: "block"
                 }
               },
-              children: (0, _v28.jsx)(_v149.BundleTileCluster, {
+              children: (0, _v28.jsx)(_v150.BundleTileCluster, {
                 hostTileSize: 67.5,
-                partnerTileSizes: _v152,
+                partnerTileSizes: _v153,
                 clusterTiles: _v0,
                 otherProductsCount: _v1,
-                infoTooltip: (0, _v151.getBundleIncludesTooltip)((0, _v40.getBundleProductOrder)(_v3 ?? "utility"))
+                infoTooltip: (0, _v152.getBundleIncludesTooltip)((0, _v40.getBundleProductOrder)(_v3 ?? "utility"))
               })
             }), (0, _v28.jsxs)(_v32.Flex, {
               flex: "1 1 34rem",
@@ -4362,14 +4540,14 @@
                   variant: "body-lg",
                   color: "text-secondary",
                   noOfLines: 2,
-                  children: (0, _v150.getBundleAppsBodyCopy)(_v0, _v1 ?? 0)
+                  children: (0, _v151.getBundleAppsBodyCopy)(_v0, _v1 ?? 0)
                 }), (0, _v28.jsx)(_v44.Text, {
                   variant: "body-xs",
                   color: "text-secondary",
                   children: (0, _v77.translate)({
                     singular: "Offer subject to {LINK}conditions{/LINK}.",
                     replacements: {
-                      LINK: _v154
+                      LINK: _v155
                     },
                     dictionary: {
                       es: {
@@ -4438,7 +4616,7 @@
         })]
       });
     },
-    _v156 = ({
+    _v157 = ({
       clusterTiles: _v0,
       otherProductsCount: _v1,
       onClaim: _v2,
@@ -4469,7 +4647,7 @@
           boxShadow: "0 8px 24px rgba(2, 6, 10, 0.48)"
         },
         pointerEvents: "auto",
-        children: (0, _v28.jsx)(_v155, {
+        children: (0, _v28.jsx)(_v156, {
           clusterTiles: _v0,
           otherProductsCount: _v1,
           onClaim: _v2,
@@ -4478,12 +4656,12 @@
         })
       })
     });
-  var _v157 = _v0.i(0),
-    _v158 = _v0.i(0),
-    _v159 = _v0.i(0);
-  let _v160 = ["free", "starter", "standard", "advanced"],
-    _v161 = "studio",
-    _v162 = _v0 => {
+  var _v158 = _v0.i(0),
+    _v159 = _v0.i(0),
+    _v160 = _v0.i(0);
+  let _v161 = ["free", "starter", "standard", "advanced"],
+    _v162 = "studio",
+    _v163 = _v0 => {
       let _v1 = _v0.parentElement;
       for (; null !== _v1;) {
         let {
@@ -4494,8 +4672,8 @@
       }
       return null;
     },
-    _v163 = "bundle_library",
-    _v164 = ({
+    _v164 = "bundle_library",
+    _v165 = ({
       data: _v0,
       onNavigate: _v1
     }) => {
@@ -4675,7 +4853,7 @@
         } = (0, _v78.useBundleTracking)(),
         _v15 = (0, _v80.useViewer)(),
         _v16 = (0, _v74.useBundleAddOnClaim)({
-          source: _v163,
+          source: _v164,
           onNavigate: _v1,
           onPurchased: () => {
             _v0.refresh?.();
@@ -4685,34 +4863,47 @@
           isEligible: _v17
         } = (0, _v34.useIsPermanentDiscountOfferEligible)(),
         {
-          showClaimCta: _v18
+          showClaimCta: _v18,
+          isStudioOrScheduledStudio: _v19,
+          isScheduledStudio: _v20,
+          daysToRenewal: _v21
         } = function () {
           let _v0 = (0, _v80.useViewer)(),
             _v1 = _v0?.user?.id ?? null,
             {
               data: _v2
-            } = (0, _v158.useGetUserSettingsBillingMembership)(() => null === _v1 ? null : {
+            } = (0, _v159.useGetUserSettingsBillingMembership)(() => null === _v1 ? null : {
               select: ["tier"],
               where: {
                 userId: _v1
               }
             }),
             {
-              tier: _v3
-            } = (0, _v157.useUpcomingTier)(),
-            _v4 = (0, _v159.useCampaignIdOverride)(),
-            _v5 = _v2?.tier,
-            _v6 = _v3 === _v161 && _v5 !== _v161,
-            _v7 = null !== _v4 && _v159.REPACKAGING_CAMPAIGN_IDS.includes(_v4),
-            _v8 = void 0 !== _v5 && _v160.includes(_v5);
+              tier: _v3,
+              renewalDate: _v4
+            } = (0, _v158.useUpcomingTier)(),
+            _v5 = (0, _v160.useCampaignIdOverride)(),
+            _v6 = _v2?.tier,
+            _v7 = void 0 !== _v6 && _v3 === _v162 && _v6 !== _v162,
+            _v8 = null !== _v5 && _v160.REPACKAGING_CAMPAIGN_IDS.includes(_v5),
+            _v9 = void 0 !== _v6 && _v161.includes(_v6);
           return {
-            showClaimCta: !_v6 && (_v5 === _v161 || _v8 && !_v7)
+            showClaimCta: !_v7 && (_v6 === _v162 || _v9 && !_v8),
+            isStudioOrScheduledStudio: _v6 === _v162 || _v7,
+            isScheduledStudio: _v7,
+            daysToRenewal: ((_v0, _v1 = Date.now()) => {
+              if (void 0 === _v0) return null;
+              let _v2 = Date.parse(_v0);
+              if (Number.isNaN(_v2)) return null;
+              let _v3 = Math.ceil((_v2 - _v1) / 0);
+              return _v3 > 0 ? _v3 : null;
+            })(_v4)
           };
         }(),
-        _v19 = "locked" === _v2 && !_v17,
-        _v20 = (0, _v31.useRef)(null),
+        _v22 = "locked" === _v2 && !_v17,
+        _v23 = (0, _v31.useRef)(null),
         {
-          showSticky: _v21
+          showSticky: _v24
         } = (_v0 => {
           let [_v1, _v2] = (0, _v31.useState)(!0),
             [_v3, _v4] = (0, _v31.useState)(!1);
@@ -4720,13 +4911,13 @@
             let _v0 = _v0.current;
             if (!window.IntersectionObserver || !_v0) return;
             let _v1 = new IntersectionObserver(([_v0]) => _v2(_v0.isIntersecting), {
-              root: _v162(_v0),
+              root: _v163(_v0),
               threshold: 0
             });
             return _v1.observe(_v0), () => _v1.disconnect();
           }, [_v0]), (0, _v31.useEffect)(() => {
             let _v0 = _v0.current,
-              _v1 = null != _v0 ? _v162(_v0) : null,
+              _v1 = null != _v0 ? _v163(_v0) : null,
               _v2 = () => {
                 _v4(!0);
               };
@@ -4740,20 +4931,20 @@
           }, [_v0]), {
             showSticky: _v3 && !_v1
           };
-        })(_v20),
-        _v22 = (0, _v75.useBundleExperimentKey)(),
-        _v23 = (0, _v76.useBundleOffer)(),
-        _v24 = (0, _v31.useRef)(!1);
+        })(_v23),
+        _v25 = (0, _v75.useBundleExperimentKey)(),
+        _v26 = (0, _v76.useBundleOffer)(),
+        _v27 = (0, _v31.useRef)(!1);
       (0, _v31.useEffect)(() => {
-        _v24.current || (_v24.current = !0, _v11({
+        _v27.current || (_v27.current = !0, _v11({
           unlockStatus: _v2,
           bundleType: _v3,
-          bundlePrice: "enabled" === _v23.status ? _v23.price : null,
-          experimentKey: _v22
+          bundlePrice: "enabled" === _v26.status ? _v26.price : null,
+          experimentKey: _v25
         }));
-      }, [_v2, _v3, _v23, _v11, _v22]);
-      let _v25 = _v0.clusterTiles ?? (0, _v40.getClusterTiles)(_v3),
-        _v26 = _v0.otherProductsCount ?? (0, _v40.getOtherProductsCount)();
+      }, [_v2, _v3, _v26, _v11, _v25]);
+      let _v28 = _v0.clusterTiles ?? (0, _v40.getClusterTiles)(_v3),
+        _v29 = _v0.otherProductsCount ?? (0, _v40.getOtherProductsCount)();
       return (0, _v28.jsxs)(_v28.Fragment, {
         children: [(0, _v28.jsxs)(_v32.Flex, {
           direction: "column",
@@ -4762,17 +4953,20 @@
             md: (0, _v33.rem)(40)
           },
           paddingY: (0, _v33.rem)(24),
-          children: [(0, _v28.jsx)(_v145, {
+          children: [(0, _v28.jsx)(_v146, {
             unlockStatus: _v2,
-            productCount: (0, _v40.getBundleMemberCount)()
-          }), _v19 && (0, _v28.jsx)(_v155, {
-            clusterTiles: _v25,
-            otherProductsCount: _v26,
+            productCount: (0, _v40.getBundleMemberCount)(),
+            isStudioOrScheduledStudio: _v19,
+            isScheduledStudio: _v20,
+            daysToRenewal: _v21
+          }), _v22 && (0, _v28.jsx)(_v156, {
+            clusterTiles: _v28,
+            otherProductsCount: _v29,
             onClaim: _v16.openClaim,
             bundleType: _v3,
             showClaimCta: _v18
-          }), _v19 && (0, _v28.jsx)(_v35.Box, {
-            ref: _v20,
+          }), _v22 && (0, _v28.jsx)(_v35.Box, {
+            ref: _v23,
             "aria-hidden": "true",
             height: 0
           }), (0, _v28.jsx)(_v72, {
@@ -4787,16 +4981,16 @@
             onComingSoonHover: _v0 => _v12({
               productId: _v0.id
             })
-          }), (0, _v28.jsx)(_v144, {}), _v19 && _v21 && (0, _v28.jsxs)(_v28.Fragment, {
+          }), (0, _v28.jsx)(_v144, {}), _v22 && _v24 && (0, _v28.jsxs)(_v28.Fragment, {
             children: [(0, _v28.jsx)(_v35.Box, {
               height: {
                 base: 0,
                 md: (0, _v33.rem)(168)
               },
               "aria-hidden": "true"
-            }), (0, _v28.jsx)(_v156, {
-              clusterTiles: _v25,
-              otherProductsCount: _v26,
+            }), (0, _v28.jsx)(_v157, {
+              clusterTiles: _v28,
+              otherProductsCount: _v29,
               onClaim: _v16.openClaim,
               bundleType: _v3,
               showClaimCta: _v18
@@ -4826,13 +5020,13 @@
           tracking: {
             params: {
               upsell_name: "bundle_add_on_claim",
-              page: _v163,
+              page: _v164,
               feature: "bundle_add_on_claim",
-              location: _v163
+              location: _v164
             },
             paywallTracking: {
               paywallTrigger: "bundle_add_on_claim",
-              paywallLocation: _v163,
+              paywallLocation: _v164,
               paywallType: "popup",
               paywallFeature: "bundle_add_on_claim"
             }
@@ -4841,19 +5035,19 @@
         })]
       });
     },
-    _v165 = ({
+    _v166 = ({
       data: _v0,
       onNavigate: _v1
     }) => (0, _v28.jsx)(_v36.ToastProvider, {
-      children: (0, _v28.jsx)(_v164, {
+      children: (0, _v28.jsx)(_v165, {
         data: _v0,
         onNavigate: _v1
       })
     });
-  var _v166 = _v0.i(0),
-    _v167 = _v0.i(0),
-    _v168 = _v0.i(0);
-  async function _v169({
+  var _v167 = _v0.i(0),
+    _v168 = _v0.i(0),
+    _v169 = _v0.i(0);
+  async function _v170({
     baseUrl: _v0,
     select: _v1,
     ..._v2
@@ -4870,10 +5064,10 @@
       return (0, _v82.deepCamelCase)(_v1);
     });
   }
-  var _v170 = _v0.i(0),
-    _v171 = _v0.i(0),
-    _v172 = _v0.i(0);
-  function _v173(_v0, _v1) {
+  var _v171 = _v0.i(0),
+    _v172 = _v0.i(0),
+    _v173 = _v0.i(0);
+  function _v174(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
@@ -4881,7 +5075,7 @@
         xVimeoPage: _v5,
         locale: _v6
       } = (0, _v84.useGctlConfig)();
-    return (0, _v170.default)(_v2 ? `/me/bsp_bundle/products${(0, _v172.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v169({
+    return (0, _v171.default)(_v2 ? `/me/bsp_bundle/products${(0, _v173.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v170({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -4893,26 +5087,26 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v168.default.env.STORYBOOK && (0, _v172.assignMswData)(_v173, {
+  "true" === _v169.default.env.STORYBOOK && (0, _v173.assignMswData)(_v174, {
     endpoint: "/me/bsp_bundle/products",
     method: "GET"
-  }), "true" === _v168.default.env.STORYBOOK && (0, _v172.assignMswData)(function () {
+  }), "true" === _v169.default.env.STORYBOOK && (0, _v173.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v171.useSWRConfig)(),
+      } = (0, _v172.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
       } = (0, _v84.useGctlConfig)(),
-      [_v5, _v6] = (0, _v172.useInternalState)();
+      [_v5, _v6] = (0, _v173.useInternalState)();
     return [(0, _v31.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/bsp_bundle/products${(0, _v172.serializeQuery)(_v0)}`, _v169({
+        let _v0 = await _v0(`/me/bsp_bundle/products${(0, _v173.serializeQuery)(_v0)}`, _v170({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -4938,22 +5132,22 @@
     endpoint: "/me/bsp_bundle/products",
     method: "GET"
   });
-  let _v174 = ["membership.subscription.addOns"],
-    _v175 = _v0 => {
+  let _v175 = ["membership.subscription.addOns"],
+    _v176 = _v0 => {
       let _v1;
       if ("object" != typeof _v0 || null === _v0 || !("state" in _v0) || "unlocked" !== (_v1 = _v0.state) && "available" !== _v1 && "coming_soon" !== _v1) return !1;
       let _v2 = "code" in _v0 ? _v0.code : void 0,
         _v3 = "redeemUrl" in _v0 ? _v0.redeemUrl : void 0;
       return (void 0 === _v2 || "string" == typeof _v2) && (null == _v3 || "string" == typeof _v3);
     };
-  var _v176 = _v0.i(0),
-    _v177 = _v0.i(0);
-  let _v178 = (0, _v33.rem)(64),
-    _v179 = () => {
+  var _v177 = _v0.i(0),
+    _v178 = _v0.i(0);
+  let _v179 = (0, _v33.rem)(64),
+    _v180 = () => {
       let _v0 = (0, _v30.useRouter)(),
         {
           isLoadingResponse: _v1
-        } = (0, _v177.useOrionSettings)(),
+        } = (0, _v178.useOrionSettings)(),
         _v2 = (0, _v76.useBundleOffer)(),
         _v3 = (_v0 => {
           let {
@@ -4961,7 +5155,7 @@
               error: _v2,
               isLoading: _v3,
               mutate: _v4
-            } = _v173(() => ({
+            } = _v174(() => ({
               select: ["products"]
             })),
             {
@@ -4969,8 +5163,8 @@
               error: _v6,
               isLoading: _v7,
               mutate: _v8
-            } = (0, _v167.useGetMe)(() => ({
-              select: _v174,
+            } = (0, _v168.useGetMe)(() => ({
+              select: _v175,
               headers: {
                 Accept: "application/vnd.vimeo.*+json;version=3.4.14"
               }
@@ -4984,9 +5178,9 @@
               entitlements: _v1
             } = (_v0 => {
               let _v1 = {};
-              for (let _v0 of _v166.BUNDLE_PRODUCT_IDS) for (let _v0 of (0, _v73.getEntitlementIds)(_v0)) {
+              for (let _v0 of _v167.BUNDLE_PRODUCT_IDS) for (let _v0 of (0, _v73.getEntitlementIds)(_v0)) {
                 let _v0 = _v0[_v0],
-                  _v1 = _v175(_v0) ? _v0 : void 0,
+                  _v1 = _v176(_v0) ? _v0 : void 0,
                   _v2 = void 0 !== _v1 && "unlocked" === _v1.state && "string" == typeof _v1.code ? _v1.code : void 0,
                   _v3 = void 0 !== _v1 && "string" == typeof _v1.redeemUrl ? _v1.redeemUrl : void 0;
                 _v1[_v0] = {
@@ -4999,7 +5193,7 @@
                 };
               }
               return {
-                products: _v166.BUNDLE_PRODUCT_IDS.map(_v0 => {
+                products: _v167.BUNDLE_PRODUCT_IDS.map(_v0 => {
                   let _v1 = (0, _v73.getEntitlementIds)(_v0).map(_v0 => _v1[_v0]).every(_v0 => "comingSoon" === _v0.condition);
                   return {
                     id: _v0,
@@ -5012,7 +5206,7 @@
             return {
               unlockStatus: (_v5?.membership?.subscription?.addOns ?? []).some(_v0 => {
                 let _v1;
-                return _v1 = _v0.name, _v166.BUNDLE_TYPES.some(_v0 => _v1.startsWith(`bsp-${_v0}-bundle`)) && "expired" !== _v0.status;
+                return _v1 = _v0.name, _v167.BUNDLE_TYPES.some(_v0 => _v1.startsWith(`bsp-${_v0}-bundle`)) && "expired" !== _v0.status;
               }) ? "unlocked" : "locked",
               bundleType: _v0,
               products: _v0,
@@ -5027,17 +5221,16 @@
       return ((0, _v31.useEffect)(() => {
         !_v1 && _v4 && _v0.replace("/");
       }, [_v1, _v4, _v0]), _v5) ? (0, _v28.jsx)(_v32.Flex, {
-        minHeight: `calc(100vh - ${_v178})`,
+        minHeight: `calc(100vh - ${_v179})`,
         alignItems: "center",
         justifyContent: "center",
-        children: (0, _v28.jsx)(_v176.Spinner, {})
-      }) : _v4 ? null : (0, _v28.jsx)(_v165, {
+        children: (0, _v28.jsx)(_v177.Spinner, {})
+      }) : _v4 ? null : (0, _v28.jsx)(_v166, {
         data: _v3,
         onNavigate: _v0 => void _v0.push(_v0)
       });
     };
-  var _v180 = _v0.i(0),
-    _v181 = _v0.i(0),
+  var _v181 = _v0.i(0),
     _v182 = _v0.i(0),
     _v183 = _v0.i(0),
     _v184 = _v0.i(0),
@@ -5047,17 +5240,18 @@
     _v188 = _v0.i(0),
     _v189 = _v0.i(0),
     _v190 = _v0.i(0),
-    _v191 = _v0.i(0);
-  let _v192 = ({
+    _v191 = _v0.i(0),
+    _v192 = _v0.i(0);
+  let _v193 = ({
       children: _v0
     }) => {
       let _v1 = (0, _v80.useViewer)(),
-        _v2 = (0, _v182.useIsMobile)(),
+        _v2 = (0, _v183.useIsMobile)(),
         {
           isOpen: _v3,
           open: _v4,
           close: _v5
-        } = (0, _v191.useSideNavSurfaceState)({
+        } = (0, _v192.useSideNavSurfaceState)({
           surface: "bundle-library",
           userId: _v1?.user?.id,
           isMobile: _v2,
@@ -5065,17 +5259,17 @@
         }),
         {
           uploads: _v6
-        } = (0, _v186.useUploader)(),
+        } = (0, _v187.useUploader)(),
         [_v7, _v8] = (0, _v31.useState)(() => _v6.find(_v0 => void 0 !== _v0.clipId)?.clipId ?? ""),
         [_v9, _v10] = (0, _v31.useState)(!0);
-      return (0, _v185.useUploadLifecycle)((_v0, _v1) => {
+      return (0, _v186.useUploadLifecycle)((_v0, _v1) => {
         _v1.clipId && _v8(_v1.clipId);
       }, []), (0, _v28.jsxs)(_v28.Fragment, {
         children: [(0, _v28.jsxs)(_v32.Flex, {
           width: "100vw",
           height: "100vh",
           overflow: "hidden",
-          children: [(0, _v28.jsx)(_v189.WayfinderSideNav, {
+          children: [(0, _v28.jsx)(_v190.WayfinderSideNav, {
             isOpen: _v3,
             onClose: _v5,
             isMobile: _v2,
@@ -5083,10 +5277,10 @@
             children: (0, _v28.jsx)(_v32.Flex, {
               flexGrow: 1,
               direction: "column",
-              children: (0, _v28.jsx)(_v190.MenuItem, {
-                icon: (0, _v28.jsx)(_v181.ArrowLeft, {}),
+              children: (0, _v28.jsx)(_v191.MenuItem, {
+                icon: (0, _v28.jsx)(_v182.ArrowLeft, {}),
                 label: "Back to home",
-                href: _v187.Path.Home
+                href: _v188.Path.Home
               })
             })
           }), (0, _v28.jsx)(_v32.Flex, {
@@ -5095,7 +5289,7 @@
             width: "50%",
             children: (0, _v28.jsxs)(_v35.Box, {
               overflowY: "auto",
-              children: [(0, _v28.jsx)(_v183.DefaultNavigation, {
+              children: [(0, _v28.jsx)(_v184.DefaultNavigation, {
                 setIsSideNavActive: _v4,
                 isSideNavActive: _v3,
                 hasSideNavLayout: !_v2
@@ -5106,17 +5300,17 @@
                 backgroundColor: "background",
                 children: _v0
               }), (0, _v28.jsx)(_v35.Box, {
-                children: _v1 && (0, _v28.jsx)(_v184.EssentialFooter, {
+                children: _v1 && (0, _v28.jsx)(_v185.EssentialFooter, {
                   ..._v1,
                   enableQuotaMenu: !1
                 })
               })]
             })
           })]
-        }), (0, _v28.jsx)(_v180.ActivitiesContainer, {
+        }), (0, _v28.jsx)(_v181.ActivitiesContainer, {
           isShowing: _v9 && _v6.length > 0,
           isMobile: _v2,
-          children: (0, _v28.jsx)(_v188.ProgressToastContainer, {
+          children: (0, _v28.jsx)(_v189.ProgressToastContainer, {
             isShowing: _v9,
             uploadClipId: _v7,
             setUploadClipId: _v8,
@@ -5129,7 +5323,7 @@
         })]
       });
     },
-    _v193 = () => (0, _v28.jsx)(_v179, {});
+    _v194 = () => (0, _v28.jsx)(_v180, {});
   (0, _v29.withPageSetup)(() => ({
     props: {
       hasThemeSupport: !0,
@@ -5139,7 +5333,7 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v193.getLayout = _v0 => (0, _v28.jsx)(_v192, {
+  }), _v194.getLayout = _v0 => (0, _v28.jsx)(_v193, {
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v193], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v194], 0);
 }

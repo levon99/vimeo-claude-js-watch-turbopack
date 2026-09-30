@@ -2905,14 +2905,15 @@
           settings: _v5
         } = (0, _v31.useOrionSettings)(),
         {
-          data: _v6
+          data: _v6,
+          mutate: _v7
         } = (0, _v87.useGetUser)(() => _v2 ? {
           where: {
             userId: _v2
           },
           select: ["aiAnalyticsAccess"]
         } : null),
-        _v7 = (0, _v7.useMemo)(() => ({
+        _v8 = (0, _v7.useMemo)(() => ({
           aiAnalyticsAccess: _v6?.aiAnalyticsAccess
         }), [_v6]);
       return {
@@ -2975,7 +2976,8 @@
             }, []));
           }
           return _v5;
-        }(_v0, _v1, _v4, _v5, _v7), [_v0, _v1, _v4, _v5, _v7])
+        }(_v0, _v1, _v4, _v5, _v8), [_v0, _v1, _v4, _v5, _v8]),
+        mutateOwner: _v7
       };
     },
     _v101 = ({
@@ -3103,10 +3105,8 @@
         })]
       });
     };
-  _v0.i(0);
   var _v102 = _v0.i(0),
-    _v103 = _v0.i(0),
-    _v104 = _v0.i(0);
+    _v103 = _v0.i(0);
   _v0.s(["default", 0, ({
     ownerId: _v0,
     workspaceInternalId: _v1,
@@ -3129,80 +3129,75 @@
           _v5 = _v55(),
           {
             trackAnalyticsAiSettingsToggled: _v6
-          } = (0, _v104.useAnalyticsTracking)(),
+          } = (0, _v103.useAnalyticsTracking)(),
+          _v7 = (0, _v7.useRef)(0),
           {
-            mutate: _v7
-          } = (0, _v102.useSWRConfig)(),
-          _v8 = (0, _v7.useRef)(0),
-          {
-            teamSettingsUpdateError: _v9,
-            teamSettingsUpdateLoading: _v10,
-            onUpdateSetting: _v11
+            teamSettingsUpdateError: _v8,
+            teamSettingsUpdateLoading: _v9,
+            onUpdateSetting: _v10
           } = (0, _v61.useUpdateTeamSettings)({
             userId: _v0,
             workspaceUuid: _v2
           }),
           {
-            data: _v12,
-            error: _v13,
-            isLoading: _v14,
-            isValidating: _v15,
-            mutate: _v16
+            data: _v11,
+            error: _v12,
+            isLoading: _v13,
+            isValidating: _v14,
+            mutate: _v15
           } = (0, _v62.useGetTeamSettingsWithMutate)({
             settings: _v98,
             userId: _v0,
             workspaceUuid: _v2
           }),
-          _v17 = (0, _v39.useViewer)(),
-          _v18 = _v17?.teamUser ? "enterprise" === _v17.teamUser.accountType : !!_v17?.user && "enterprise" === _v17.user.account,
+          _v16 = (0, _v39.useViewer)(),
+          _v17 = _v16?.teamUser ? "enterprise" === _v16.teamUser.accountType : !!_v16?.user && "enterprise" === _v16.user.account,
           {
-            data: _v19
-          } = (0, _v103.useGetMePreferences)({
+            data: _v18
+          } = (0, _v102.useGetMePreferences)({
             select: Object.values(_v43)
           }),
-          _v20 = (0, _v7.useMemo)(() => {
-            if (!_v12) return null;
+          _v19 = (0, _v7.useMemo)(() => {
+            if (!_v11) return null;
             let _v0 = {};
-            return _v19 && (_v0 = Object.entries(_v43).reduce((_v0, _v1) => {
+            return _v18 && (_v0 = Object.entries(_v43).reduce((_v0, _v1) => {
               let [_v2, _v3] = _v1;
-              return _v3 in _v19 && (_v0[_v2] = _v19[_v3]), _v0;
+              return _v3 in _v18 && (_v0[_v2] = _v18[_v3]), _v0;
             }, {})), {
-              ..._v12,
+              ..._v11,
               ..._v0
             };
-          }, [_v12, _v19]),
+          }, [_v11, _v18]),
           {
-            SETTINGS: _v21
+            SETTINGS: _v20,
+            mutateOwner: _v21
           } = _v100({
-            mergedSettingsPrefs: _v20,
-            isSelfServe: !_v18,
+            mergedSettingsPrefs: _v19,
+            isSelfServe: !_v17,
             ownerId: _v0 || _v1
           }),
           _v22 = (0, _v7.useCallback)(async (_v0, _v1, _v2) => {
-            if (await _v11({
+            await _v10({
               [_v0]: _v1
-            }), _v16(), _v0 === _v45.enableAiAnalyticsDashboard ? _v6({
+            }), _v15(), _v0 === _v45.enableAiAnalyticsDashboard ? _v6({
               enabled: !!_v1,
               scope: _v2 ? "workspace" : "team"
-            }) : _v2 === _v89 ? _v5.toggleEvent(_v0, _v1) : _v2 === _v92 && _v5.dropdownEvent(_v0, _v1), _v0 === _v45.enableAiAnalyticsDashboard || _v0 === _v45.userRolePermissionAiAnalytics) {
-              let _v0 = _v1 ?? _v0;
-              _v0 && _v7(_v0 => "string" == typeof _v0 && _v0.startsWith(`/users/${_v0}`));
-            }
-          }, [_v11, _v16, _v5, _v6, _v2, _v1, _v0, _v7]);
+            }) : _v2 === _v89 ? _v5.toggleEvent(_v0, _v1) : _v2 === _v92 && _v5.dropdownEvent(_v0, _v1), (_v0 === _v45.enableAiAnalyticsDashboard || _v0 === _v45.userRolePermissionAiAnalytics) && _v21();
+          }, [_v10, _v15, _v5, _v6, _v2, _v21]);
         (0, _v7.useEffect)(function () {
           let _v0 = Date.now();
-          (_v13 || _v9) && _v0 - _v8.current > 0 && (_v4({
+          (_v12 || _v8) && _v0 - _v7.current > 0 && (_v4({
             duration: 0,
             title: _v3.notifications.error
-          }), _v8.current = _v0);
-        }, [_v13, _v9, _v4, _v3]);
-        let _v23 = !_v20 && (_v14 || _v15);
+          }), _v7.current = _v0);
+        }, [_v12, _v8, _v4, _v3]);
+        let _v23 = !_v19 && (_v13 || _v14);
         return {
-          settingsCofig: _v21,
+          settingsCofig: _v20,
           updateTeamSettings: _v22,
-          isDisabled: _v10 || _v15 || _v14,
+          isDisabled: _v9 || _v14 || _v13,
           isFirstLoad: _v23,
-          isSettingsResults: !!_v20,
+          isSettingsResults: !!_v19,
           userId: _v0 || _v1
         };
       }({

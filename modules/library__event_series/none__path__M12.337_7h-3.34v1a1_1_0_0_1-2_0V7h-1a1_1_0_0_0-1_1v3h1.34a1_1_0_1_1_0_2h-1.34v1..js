@@ -16,11 +16,10 @@
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
-    _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  let _v18 = {
-      trial: _v16.Calendar,
-      expired: _v0 => (0, _v1.jsx)(_v17.Icon, {
+    _v16 = _v0.i(0);
+  let _v17 = {
+      trial: _v15.Calendar,
+      expired: _v0 => (0, _v1.jsx)(_v16.Icon, {
         viewBox: "0 0 24 24",
         ..._v0,
         fill: "none",
@@ -30,14 +29,14 @@
         })
       })
     },
-    _v19 = ({
+    _v18 = ({
       variant: _v0,
       title: _v1,
       description: _v2,
       onContactSalesClick: _v3
     }) => {
-      let _v4 = (0, _v15.useColorModeValue)("upsell-secondary", "purple.800"),
-        _v5 = _v18[_v0];
+      let _v4 = (0, _v14.useColorModeValue)("upsell-secondary", "purple.800"),
+        _v5 = _v17[_v0];
       return (0, _v1.jsxs)(_v9.Flex, {
         width: "100%",
         alignItems: "center",
@@ -68,7 +67,7 @@
           variant: "upsell",
           size: "sm",
           flexShrink: 0,
-          children: (0, _v14.translate)({
+          children: (0, _v13.translate)({
             singular: "Contact sales",
             dictionary: {
               es: {
@@ -97,7 +96,8 @@
         })]
       });
     };
-  var _v20 = _v0.i(0),
+  var _v19 = _v0.i(0),
+    _v20 = _v0.i(0),
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
@@ -150,7 +150,7 @@
         value: _v0,
         onChange: _v0 => _v1(_v0.target.value),
         onBlur: _v9,
-        placeholder: (0, _v14.translate)({
+        placeholder: (0, _v13.translate)({
           singular: "Search event series",
           dictionary: {
             es: {
@@ -201,7 +201,7 @@
         })
       })]
     }) : (0, _v1.jsx)(_v31.IconButton, {
-      "aria-label": (0, _v14.translate)({
+      "aria-label": (0, _v13.translate)({
         singular: "Search event series",
         dictionary: {
           es: {
@@ -464,14 +464,14 @@
         _v14 = (0, _v6.useRef)(!1),
         {
           trackEventSeriesCreated: _v15
-        } = (0, _v21.useEventSeriesTracking)(),
+        } = (0, _v20.useEventSeriesTracking)(),
         _v16 = _v4.trim(),
         _v17 = _v16.length > 0 && !_v9 && !!_v1;
       (0, _v6.useEffect)(() => {
         if (0 === _v11 || _v9 || _v11 === _v13.current) return;
         if (_v13.current = _v11, _v10) return void _v3({
           isClosable: !0,
-          title: (0, _v14.translate)({
+          title: (0, _v13.translate)({
             singular: "Something went wrong. Your event series was not created.",
             dictionary: {
               es: {
@@ -501,7 +501,7 @@
         });
         _v3({
           isClosable: !0,
-          title: (0, _v14.translate)({
+          title: (0, _v13.translate)({
             singular: "Event series created",
             dictionary: {
               es: {
@@ -564,7 +564,7 @@
             children: [(0, _v1.jsx)(_v46.ModalHeader, {
               children: (0, _v1.jsx)(_v40.Header, {
                 size: "md",
-                children: (0, _v14.translate)({
+                children: (0, _v13.translate)({
                   singular: "New event series",
                   dictionary: {
                     es: {
@@ -599,7 +599,7 @@
                   isRequired: !0,
                   children: [(0, _v1.jsx)(_v39.FormLabel, {
                     size: "sm",
-                    children: (0, _v14.translate)({
+                    children: (0, _v13.translate)({
                       singular: "Name",
                       dictionary: {
                         es: {
@@ -626,7 +626,7 @@
                     autoFocus: !0,
                     isDisabled: _v9,
                     onChange: _v0 => _v5(_v0.target.value),
-                    placeholder: (0, _v14.translate)({
+                    placeholder: (0, _v13.translate)({
                       singular: "Event series name",
                       dictionary: {
                         es: {
@@ -657,7 +657,7 @@
                 }), (0, _v1.jsxs)(_v38.FormControl, {
                   children: [(0, _v1.jsx)(_v39.FormLabel, {
                     size: "sm",
-                    children: (0, _v14.translate)({
+                    children: (0, _v13.translate)({
                       singular: "Description",
                       dictionary: {
                         es: {
@@ -683,7 +683,7 @@
                   }), (0, _v1.jsx)(_v48.Textarea, {
                     isDisabled: _v9,
                     onChange: _v0 => _v7(_v0.target.value),
-                    placeholder: (0, _v14.translate)({
+                    placeholder: (0, _v13.translate)({
                       singular: "What is this event series about?",
                       dictionary: {
                         es: {
@@ -720,7 +720,7 @@
                   onClick: _v18,
                   type: "button",
                   variant: "tertiary",
-                  children: (0, _v14.translate)({
+                  children: (0, _v13.translate)({
                     singular: "Cancel",
                     dictionary: {
                       es: {
@@ -751,7 +751,7 @@
                   isLoading: _v9,
                   type: "submit",
                   variant: "primary",
-                  children: (0, _v14.translate)({
+                  children: (0, _v13.translate)({
                     singular: "Create",
                     dictionary: {
                       es: {
@@ -795,7 +795,7 @@
     }),
     _v72 = [{
       Icon: _v68.BrowserWindow,
-      text: (0, _v14.translate)({
+      text: (0, _v13.translate)({
         singular: "Create unlimited event series",
         dictionary: {
           es: {
@@ -823,7 +823,7 @@
       })
     }, {
       Icon: _v69._3GridTopLayout,
-      text: (0, _v14.translate)({
+      text: (0, _v13.translate)({
         singular: "Customize with your branding, FAQs, and daily agendas",
         dictionary: {
           es: {
@@ -851,7 +851,7 @@
       })
     }, {
       Icon: _v70.Translate,
-      text: (0, _v14.translate)({
+      text: (0, _v13.translate)({
         singular: "Localize your series in up to 7 languages",
         dictionary: {
           es: {
@@ -931,7 +931,7 @@
         },
         modalConfig: {
           mkcCode: "event-series",
-          enterpriseTitle: (0, _v14.translate)({
+          enterpriseTitle: (0, _v13.translate)({
             singular: "Showcase your events in one page",
             dictionary: {
               es: {
@@ -957,7 +957,7 @@
               }
             }
           }),
-          enterpriseSubtitle: (0, _v14.translate)({
+          enterpriseSubtitle: (0, _v13.translate)({
             singular: "Create branded event series that bring together your upcoming events and on-demand videos.",
             dictionary: {
               es: {
@@ -1003,7 +1003,7 @@
         onClick: _v1,
         size: "sm",
         variant: "primary",
-        children: (0, _v14.translate)({
+        children: (0, _v13.translate)({
           singular: "New event series",
           dictionary: {
             es: {
@@ -1030,7 +1030,7 @@
           }
         })
       }),
-      header: (0, _v14.translate)({
+      header: (0, _v13.translate)({
         singular: "No event series yet",
         dictionary: {
           es: {
@@ -1060,7 +1060,7 @@
         height: "2xl",
         width: "2xl"
       }),
-      subheader: (0, _v14.translate)({
+      subheader: (0, _v13.translate)({
         singular: "No event series yet. Create one to start showcasing your live events.",
         dictionary: {
           es: {
@@ -1121,12 +1121,12 @@
         _v10 = (0, _v6.useRef)(0),
         {
           trackEventSeriesDeleted: _v11
-        } = (0, _v21.useEventSeriesTracking)();
+        } = (0, _v20.useEventSeriesTracking)();
       (0, _v6.useEffect)(() => {
         if (0 !== _v9 && !_v7 && _v9 !== _v10.current) {
           if (_v10.current = _v9, _v8) return void _v5({
             isClosable: !0,
-            title: (0, _v14.translate)({
+            title: (0, _v13.translate)({
               singular: "Something went wrong. Your event series was not deleted.",
               dictionary: {
                 es: {
@@ -1156,7 +1156,7 @@
           });
           _v5({
             isClosable: !0,
-            title: (0, _v14.translate)({
+            title: (0, _v13.translate)({
               singular: "Event series deleted",
               dictionary: {
                 es: {
@@ -1199,7 +1199,7 @@
             color: "text-primary",
             fontSize: "heading-md",
             padding: "lg",
-            children: (0, _v14.translate)({
+            children: (0, _v13.translate)({
               singular: "Delete event series?",
               dictionary: {
                 es: {
@@ -1229,7 +1229,7 @@
             color: "text-primary",
             fontSize: "body-md",
             padding: "0.5rem 1.5rem",
-            children: (0, _v14.translate)({
+            children: (0, _v13.translate)({
               singular: "{NAME} will be deleted. This action can't be undone.",
               replacements: {
                 NAME: _v4
@@ -1264,7 +1264,7 @@
             children: [(0, _v1.jsx)(_v8.Button, {
               onClick: _v12,
               variant: "tertiary",
-              children: (0, _v14.translate)({
+              children: (0, _v13.translate)({
                 singular: "Cancel",
                 dictionary: {
                   es: {
@@ -1302,7 +1302,7 @@
                 });
               },
               variant: "destructive",
-              children: (0, _v14.translate)({
+              children: (0, _v13.translate)({
                 singular: "Delete",
                 dictionary: {
                   es: {
@@ -1356,7 +1356,7 @@
           children: (0, _v1.jsxs)(_v81.Menu, {
             strategy: "fixed",
             children: [(0, _v1.jsx)(_v82.MenuButton, {
-              "aria-label": (0, _v14.translate)({
+              "aria-label": (0, _v13.translate)({
                 singular: "Menu",
                 dictionary: {
                   es: {
@@ -1382,13 +1382,13 @@
               variant: "tertiary"
             }), (0, _v1.jsx)(_v86.Portal, {
               children: (0, _v1.jsxs)(_v85.MenuList, {
-                zIndex: _v24.ACTIONS_MENU_Z_INDEX,
+                zIndex: _v23.ACTIONS_MENU_Z_INDEX,
                 children: [_v10 && (0, _v1.jsx)(_v84.MenuItem, {
                   icon: (0, _v1.jsx)(_v87.EditPencil, {}),
                   onClick: () => {
                     _v10 && window.location.assign(_v10);
                   },
-                  children: (0, _v14.translate)({
+                  children: (0, _v13.translate)({
                     singular: "Edit",
                     dictionary: {
                       es: {
@@ -1419,7 +1419,7 @@
                   onClick: () => {
                     _v6((0, _v92.default)(_v0) ? {
                       isClosable: !0,
-                      title: (0, _v14.translate)({
+                      title: (0, _v13.translate)({
                         singular: "Link copied to clipboard",
                         dictionary: {
                           es: {
@@ -1447,7 +1447,7 @@
                       })
                     } : {
                       isClosable: !0,
-                      title: (0, _v14.translate)({
+                      title: (0, _v13.translate)({
                         singular: "Couldn't copy the link. Please try again.",
                         dictionary: {
                           es: {
@@ -1476,7 +1476,7 @@
                       variant: "warning"
                     });
                   },
-                  children: (0, _v14.translate)({
+                  children: (0, _v13.translate)({
                     singular: "Copy link",
                     dictionary: {
                       es: {
@@ -1507,7 +1507,7 @@
                   onClick: () => {
                     window.open(_v0, "_blank", "noopener,noreferrer");
                   },
-                  children: (0, _v14.translate)({
+                  children: (0, _v13.translate)({
                     singular: "Preview page",
                     dictionary: {
                       es: {
@@ -1537,7 +1537,7 @@
                   children: [(0, _v1.jsx)(_v83.MenuDivider, {}), (0, _v1.jsx)(_v84.MenuItem, {
                     icon: (0, _v1.jsx)(_v91.TrashBin, {}),
                     onClick: () => _v8(!0),
-                    children: (0, _v14.translate)({
+                    children: (0, _v13.translate)({
                       singular: "Delete",
                       dictionary: {
                         es: {
@@ -1604,7 +1604,7 @@
             }),
             href: _v64(_v0.uri) ?? _v0.link,
             showGrid: !!_v1,
-            subtitle: `${(0, _v14.translate)({
+            subtitle: `${(0, _v13.translate)({
               singular: "{NUM} event",
               plural: "{NUM} events",
               count: _v2,
@@ -1669,7 +1669,7 @@
         children: (0, _v1.jsx)(_v12.Text, {
           color: "text-secondary",
           variant: "heading-xs",
-          children: (0, _v14.translate)({
+          children: (0, _v13.translate)({
             singular: "Title",
             dictionary: {
               es: {
@@ -1700,7 +1700,7 @@
         children: (0, _v1.jsx)(_v12.Text, {
           color: "text-secondary",
           variant: "heading-xs",
-          children: (0, _v14.translate)({
+          children: (0, _v13.translate)({
             singular: "Added date",
             dictionary: {
               es: {
@@ -1784,7 +1784,7 @@
               textOverflow: "ellipsis",
               variant: "body-sm",
               whiteSpace: "nowrap",
-              children: (_v1 = _v0.metadata.connections.events.total, (0, _v14.translate)({
+              children: (_v1 = _v0.metadata.connections.events.total, (0, _v13.translate)({
                 singular: "{NUM} event",
                 plural: "{NUM} events",
                 count: _v1,
@@ -1847,19 +1847,17 @@
         }, _v0.uri);
       }), _v1 && (0, _v1.jsx)(_v100.LoadingStateList, {})]
     }),
-    _v104 = ["createdTime", "description", "link", "metadata.connections.events.total", "modifiedTime", "name", "pictures", "pictures.baseLink", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "status", "uri"];
-  var _v105 = _v0.i(0);
-  let _v106 = ["enterpriseAddonTrials.expiresOn", "enterpriseAddonTrials.key", "enterpriseAddonTrials.paid", "enterpriseAddonTrials.trial"],
-    _v107 = {
-      direction: _v24.SORT_DIRECTION.DESC,
-      type: _v24.SORT_OPTION.CREATED
+    _v104 = ["createdTime", "description", "link", "metadata.connections.events.total", "modifiedTime", "name", "pictures", "pictures.baseLink", "pictures.sizes", "pictures.sizes.link", "pictures.sizes.width", "status", "uri"],
+    _v105 = {
+      direction: _v23.SORT_DIRECTION.DESC,
+      type: _v23.SORT_OPTION.CREATED
     },
-    _v108 = ({
+    _v106 = ({
       isLoading: _v0,
       onLoadMore: _v1
     }) => {
       let _v2 = (0, _v6.useRef)(null),
-        _v3 = (0, _v22.useOnScreen)(_v2);
+        _v3 = (0, _v21.useOnScreen)(_v2);
       return (0, _v6.useEffect)(() => {
         _v3 && !_v0 && _v1();
       }, [_v0, _v3, _v1]), (0, _v1.jsx)(_v7.Box, {
@@ -1868,10 +1866,10 @@
         width: "100%"
       });
     },
-    _v109 = () => {
+    _v107 = () => {
       let _v0 = (0, _v29.useViewer)(),
         [_v1, _v2] = (0, _v27.useLayoutPreference)(),
-        [_v3, _v4] = (0, _v28.useSortPreference)(_v107, _v24.VL_EVENT_SERIES_SORT_LOCAL_STORAGE_KEY),
+        [_v3, _v4] = (0, _v28.useSortPreference)(_v105, _v23.VL_EVENT_SERIES_SORT_LOCAL_STORAGE_KEY),
         [_v5, _v6] = (0, _v6.useState)(!1),
         [_v7, _v8] = (0, _v6.useState)(!1),
         [_v9, _v10] = (0, _v6.useState)(""),
@@ -1879,26 +1877,27 @@
         [_v13, _v14] = (0, _v6.useState)(!1),
         _v15 = (0, _v6.useRef)(null),
         {
-          trackEventSeriesPageDisplayed: _v16
-        } = (0, _v21.useEventSeriesTracking)(),
-        _v17 = (0, _v6.useRef)(!1);
+          trackEventSeriesPageDisplayed: _v16,
+          trackEventSeriesCreateButtonClicked: _v17
+        } = (0, _v20.useEventSeriesTracking)(),
+        _v18 = (0, _v6.useRef)(!1);
       (0, _v6.useEffect)(() => {
-        _v17.current || (_v17.current = !0, _v16({
+        _v18.current || (_v18.current = !0, _v16({
           page: "library",
           eventSeriesId: null,
-          referrerPage: (0, _v20.deriveReferrerPage)()
+          referrerPage: (0, _v19.deriveReferrerPage)()
         }));
       }, [_v16]);
-      let _v18 = _v0?.teamUser?.ownerId || _v0?.user?.id,
+      let _v19 = _v0?.teamUser?.ownerId ?? _v0?.user?.id,
         {
-          series: _v19,
-          total: _v20,
-          isLoadingInitial: _v21,
-          isLoadingMore: _v22,
-          isDone: _v23,
-          error: _v24,
-          loadMore: _v25,
-          revalidate: _v26
+          series: _v20,
+          total: _v21,
+          isLoadingInitial: _v22,
+          isLoadingMore: _v23,
+          isDone: _v24,
+          error: _v25,
+          loadMore: _v26,
+          revalidate: _v27
         } = (({
           ownerId: _v0,
           sort: _v1,
@@ -1947,54 +1946,29 @@
             total: _v11
           };
         })({
-          ownerId: _v18,
+          ownerId: _v19,
           sort: _v3,
           searchQuery: _v11 || void 0
         }),
         {
-          expiresOn: _v27,
-          isLoading: _v28,
+          expiresOn: _v28,
           isTrialExpired: _v29,
-          isTrialing: _v30
-        } = (_v0 => {
-          let {
-              data: _v1,
-              isLoading: _v2
-            } = (0, _v105.useGetUser)(() => void 0 === _v0 ? null : {
-              where: {
-                userId: _v0
-              },
-              select: _v106
-            }, {
-              revalidateOnFocus: !1
-            }),
-            _v3 = _v1?.enterpriseAddonTrials?.find(({
-              key: _v0
-            }) => "event_series" === _v0);
-          return {
-            expiresOn: _v3?.expiresOn,
-            isLoading: void 0 !== _v0 && _v2,
-            isTrialExpired: null != _v3 && !!_v3.expiresOn && !_v3.trial && !_v3.paid,
-            isTrialing: _v3?.trial === !0 && !_v3.paid
-          };
-        })(_v18),
-        {
-          capabilities: _v31,
-          ready: _v32
-        } = (0, _v13.useCapability)(["hasEventSeriesEnabled"], _v18),
-        _v33 = _v30 && _v27 ? new Intl.DateTimeFormat((0, _v14.getCurrentLocale)(), {
+          isTrialing: _v30,
+          canCreateNewEventSeries: _v31
+        } = (0, _v26.useAccessEventSeriesEditor)(),
+        _v32 = _v30 && _v28 ? new Intl.DateTimeFormat((0, _v13.getCurrentLocale)(), {
           day: "numeric",
           month: "long",
           timeZone: "UTC",
           year: "numeric"
-        }).format(new Date(`${_v27}T00:00:00Z`)) : null,
-        _v34 = !!_v28 || !_v32 || _v29 && !_v31.hasEventSeriesEnabled,
-        _v35 = _v20 ?? 0,
-        _v36 = _v13 || _v11.length > 0,
-        _v37 = !!_v19 && _v19.length > 0,
-        _v38 = !!_v24 && !_v37,
-        _v39 = !_v21 && !_v38 && !_v37,
-        _v40 = (0, _v6.useCallback)(_v0 => {
+        }).format(new Date(`${_v28}T00:00:00Z`)) : null,
+        _v33 = !_v31,
+        _v34 = _v21 ?? 0,
+        _v35 = _v13 || _v11.length > 0,
+        _v36 = !!_v20 && _v20.length > 0,
+        _v37 = !!_v25 && !_v36,
+        _v38 = !_v22 && !_v37 && !_v36,
+        _v39 = (0, _v6.useCallback)(_v0 => {
           _v10(_v0), _v15.current && clearTimeout(_v15.current), _v15.current = setTimeout(() => {
             _v12(_v0);
           }, 300);
@@ -2002,59 +1976,61 @@
       (0, _v6.useEffect)(() => () => {
         _v15.current && clearTimeout(_v15.current);
       }, []);
-      let _v41 = (0, _v6.useCallback)(() => {
+      let _v40 = (0, _v6.useCallback)(() => {
           _v14(!0);
         }, []),
-        _v42 = (0, _v6.useCallback)(() => {
+        _v41 = (0, _v6.useCallback)(() => {
           _v15.current && (clearTimeout(_v15.current), _v15.current = null), _v14(!1), _v10(""), _v12("");
         }, []),
-        _v43 = () => {
-          _v6(!0);
-        },
-        _v44 = (0, _v6.useCallback)(() => {
+        _v42 = (0, _v6.useCallback)(_v0 => {
+          _v17({
+            source: _v0
+          }), _v6(!0);
+        }, [_v17, _v6]),
+        _v43 = (0, _v6.useCallback)(() => {
           _v8(!0);
         }, []),
-        _v45 = (0, _v6.useCallback)(() => {
+        _v44 = (0, _v6.useCallback)(() => {
           _v8(!1);
         }, []);
-      return (0, _v1.jsxs)(_v26.Page, {
-        children: [(0, _v1.jsxs)(_v26.Page.Main, {
-          children: [(0, _v1.jsxs)(_v26.Page.StickyTop, {
-            children: [null !== _v33 && (0, _v1.jsx)(_v19, {
+      return (0, _v1.jsxs)(_v25.Page, {
+        children: [(0, _v1.jsxs)(_v25.Page.Main, {
+          children: [(0, _v1.jsxs)(_v25.Page.StickyTop, {
+            children: [null !== _v32 && (0, _v1.jsx)(_v18, {
               variant: "trial",
-              title: (0, _v14.translate)({
+              title: (0, _v13.translate)({
                 singular: "Complimentary access until {DATE}",
                 replacements: {
-                  DATE: _v33
+                  DATE: _v32
                 },
                 dictionary: {
                   es: {
                     singular: "Acceso gratuito hasta {DATE}"
                   },
                   "de-DE": {
-                    singular: "Kostenloser Zugriff bis {DATE}"
+                    singular: "Kostenloser Zugang bis {DATE}"
                   },
                   "fr-FR": {
                     singular: "Accès gratuit jusqu'au {DATE}"
                   },
                   "ja-JP": {
-                    singular: "{DATE}まで無料でご利用いただけます"
+                    singular: "無償アクセスは {DATE} まで有効です"
                   },
                   "ko-KR": {
-                    singular: "무료 이용 가능 기간: {DATE}까지"
+                    singular: "무료 액세스는 {DATE}까지 제공됩니다."
                   },
                   "pt-BR": {
-                    singular: "Acesso gratuito até {DATE}"
+                    singular: "Acesso cortesia até {DATE}"
                   },
                   "zh-CN": {
-                    singular: "免费使用至 {DATE}"
+                    singular: "免费访问直到 {DATE}"
                   }
                 }
               }),
-              description: (0, _v14.translate)({
+              description: (0, _v13.translate)({
                 singular: "Enjoy “event series” at no additional cost until {DATE}. After that, contact Sales to add it to your plan.",
                 replacements: {
-                  DATE: _v33
+                  DATE: _v32
                 },
                 dictionary: {
                   es: {
@@ -2080,10 +2056,10 @@
                   }
                 }
               }),
-              onContactSalesClick: _v44
-            }), null === _v33 && _v29 && (0, _v1.jsx)(_v19, {
+              onContactSalesClick: _v43
+            }), null === _v32 && _v29 && (0, _v1.jsx)(_v18, {
               variant: "expired",
-              title: (0, _v14.translate)({
+              title: (0, _v13.translate)({
                 singular: "You no longer have free access to event series",
                 dictionary: {
                   es: {
@@ -2109,7 +2085,7 @@
                   }
                 }
               }),
-              description: (0, _v14.translate)({
+              description: (0, _v13.translate)({
                 singular: "You can still access your existing event series, but you can no longer create new ones. Contact Sales to keep creating.",
                 dictionary: {
                   es: {
@@ -2135,11 +2111,11 @@
                   }
                 }
               }),
-              onContactSalesClick: _v44
+              onContactSalesClick: _v43
             }), (0, _v1.jsxs)(_v30.PageHeader.Wrapper, {
               children: [(0, _v1.jsxs)(_v30.PageHeader.LeftContent, {
                 children: [(0, _v1.jsx)(_v30.PageHeader.Title, {
-                  children: (0, _v14.translate)({
+                  children: (0, _v13.translate)({
                     singular: "Event series",
                     dictionary: {
                       es: {
@@ -2168,7 +2144,7 @@
                 }), (0, _v1.jsx)(_v11.Paragraph, {
                   color: "text-secondary",
                   size: "md",
-                  children: (0, _v14.translate)({
+                  children: (0, _v13.translate)({
                     singular: "Event series are branded hubs hosting multiple events and on-demand content in one place.{BR}Individual event pages are managed in the {LINK}live events{/LINK} section.",
                     replacements: {
                       BR: () => (0, _v1.jsx)("br", {}),
@@ -2205,10 +2181,10 @@
                 })]
               }), (0, _v1.jsx)(_v30.PageHeader.Actions, {
                 children: (0, _v1.jsx)(_v8.Button, {
-                  isDisabled: _v34,
-                  onClick: _v43,
+                  isDisabled: _v33,
+                  onClick: () => _v42("header"),
                   variant: "primary",
-                  children: (0, _v14.translate)({
+                  children: (0, _v13.translate)({
                     singular: "New event series",
                     dictionary: {
                       es: {
@@ -2236,15 +2212,15 @@
                   })
                 })
               })]
-            }), (0, _v1.jsx)(_v25.FilterSortBar, {
-              checkbox: (0, _v1.jsx)(_v23.CheckboxItemCount, {
-                isLoading: _v21,
-                subtitle: (0, _v14.translate)({
-                  count: _v35,
+            }), (0, _v1.jsx)(_v24.FilterSortBar, {
+              checkbox: (0, _v1.jsx)(_v22.CheckboxItemCount, {
+                isLoading: _v22,
+                subtitle: (0, _v13.translate)({
+                  count: _v34,
                   singular: "{NUM} event series",
                   plural: "{NUM} event series",
                   replacements: {
-                    NUM: _v35
+                    NUM: _v34
                   },
                   dictionary: {
                     es: {
@@ -2281,19 +2257,19 @@
               layout: _v1,
               searchElement: (0, _v1.jsx)(_v37, {
                 value: _v9,
-                onChange: _v40,
-                initialOpen: _v36,
-                onOpen: _v41,
-                onClose: _v42
+                onChange: _v39,
+                initialOpen: _v35,
+                onOpen: _v40,
+                onClose: _v41
               }),
               setLayout: _v2,
               shouldHideViewControls: !1,
               sort: _v3,
               setSort: _v4,
-              sortOptions: _v24.EVENT_SERIES_SORT_OPTIONS,
+              sortOptions: _v23.EVENT_SERIES_SORT_OPTIONS,
               sortTriggerDataId: "event_series_sort_trigger"
             })]
-          }), _v38 ? (0, _v1.jsxs)(_v9.Flex, {
+          }), _v37 ? (0, _v1.jsxs)(_v9.Flex, {
             flex: "1",
             direction: "column",
             align: "center",
@@ -2302,7 +2278,7 @@
             padding: "xl",
             children: [(0, _v1.jsx)(_v12.Text, {
               color: "text-secondary",
-              children: (0, _v14.translate)({
+              children: (0, _v13.translate)({
                 singular: "Something went wrong loading your event series. We couldn't load them.",
                 dictionary: {
                   es: {
@@ -2329,9 +2305,9 @@
                 }
               })
             }), (0, _v1.jsx)(_v8.Button, {
-              onClick: () => _v26(),
+              onClick: () => _v27(),
               variant: "secondary",
-              children: (0, _v14.translate)({
+              children: (0, _v13.translate)({
                 singular: "Try again",
                 dictionary: {
                   es: {
@@ -2358,14 +2334,14 @@
                 }
               })
             })]
-          }) : _v39 && _v36 ? (0, _v1.jsx)(_v9.Flex, {
+          }) : _v38 && _v35 ? (0, _v1.jsx)(_v9.Flex, {
             flex: "1",
             justify: "center",
             py: "2xl",
             children: (0, _v1.jsx)(_v12.Text, {
               variant: "body-md",
               color: "text-tertiary",
-              children: (0, _v14.translate)({
+              children: (0, _v13.translate)({
                 singular: "No event series match your search.",
                 dictionary: {
                   es: {
@@ -2392,47 +2368,46 @@
                 }
               })
             })
-          }) : _v39 ? (0, _v1.jsx)(_v9.Flex, {
+          }) : _v38 ? (0, _v1.jsx)(_v9.Flex, {
             flex: "1",
             justify: "center",
             children: (0, _v1.jsx)(_v76, {
-              isCreateDisabled: _v34,
-              onCreate: _v43
+              isCreateDisabled: _v33,
+              onCreate: () => _v42("empty_state")
             })
           }) : "LIST_LAYOUT" === _v1 ? (0, _v1.jsx)(_v103, {
-            isLoading: _v21 || _v22,
-            onSeriesDeleted: _v26,
-            series: _v19 ?? []
+            isLoading: _v22 || _v23,
+            onSeriesDeleted: _v27,
+            series: _v20 ?? []
           }) : (0, _v1.jsx)(_v97, {
-            isLoading: _v21 || _v22,
-            onSeriesDeleted: _v26,
-            series: _v19 ?? []
-          }), _v37 && !_v23 && (0, _v1.jsx)(_v108, {
-            isLoading: _v22,
-            onLoadMore: _v25
+            isLoading: _v22 || _v23,
+            onSeriesDeleted: _v27,
+            series: _v20 ?? []
+          }), _v36 && !_v24 && (0, _v1.jsx)(_v106, {
+            isLoading: _v23,
+            onLoadMore: _v26
           })]
         }), _v5 && (0, _v1.jsx)(_v66, {
           onClose: () => _v6(!1),
           onCreated: () => {
-            _v26(), _v6(!1);
+            _v27(), _v6(!1);
           },
-          ownerId: _v18
+          ownerId: _v19
         }), _v7 && (0, _v1.jsx)(_v74, {
-          onClose: _v45
+          onClose: _v44
         })]
       });
     };
-  var _v110 = _v0.i(0),
-    _v111 = _v0.i(0),
-    _v112 = _v0.i(0),
-    _v113 = _v0.i(0),
-    _v114 = _v0.i(0);
-  let _v115 = () => {
+  var _v108 = _v0.i(0),
+    _v109 = _v0.i(0),
+    _v110 = _v0.i(0),
+    _v111 = _v0.i(0);
+  let _v112 = () => {
     let _v0 = (0, _v29.useViewer)(),
       {
         canAccessEventSeriesEditor: _v1,
         isLoading: _v2
-      } = (0, _v112.useAccessEventSeriesEditor)();
+      } = (0, _v26.useAccessEventSeriesEditor)();
     return _v2 || !_v0 ? null : _v1 ? (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
@@ -2463,18 +2438,18 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v114.VideoModalContextProvider, {
-        children: (0, _v1.jsx)(_v109, {})
+      }), (0, _v1.jsx)(_v111.VideoModalContextProvider, {
+        children: (0, _v1.jsx)(_v107, {})
       })]
-    }) : (0, _v1.jsx)(_v110.ErrorPage, {
+    }) : (0, _v1.jsx)(_v108.ErrorPage, {
       error: new _v3.ResourceNotFoundError()
     });
   };
-  _v115.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v113.VideoLibraryLayout, {
+  _v112.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v110.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
-    searchContentAlignment: _v26.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
-    sideNavContent: (0, _v1.jsx)(_v111.SideNavContent, {
+    searchContentAlignment: _v25.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
+    sideNavContent: (0, _v1.jsx)(_v109.SideNavContent, {
       surface: "home"
     }),
     sideNavSurface: "home",
@@ -2487,5 +2462,5 @@
   }), {
     requireLogin: !0,
     inlineViewer: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v115], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v112], 0);
 }

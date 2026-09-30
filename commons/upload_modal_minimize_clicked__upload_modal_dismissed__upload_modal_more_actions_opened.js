@@ -18,9 +18,12 @@
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
-    _v18 = _v0.i(0);
-  function _v19() {
-    let _v0 = (0, _v18.usePico)(),
+    _v18 = _v0.i(0),
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0);
+  function _v22() {
+    let _v0 = (0, _v21.usePico)(),
       _v1 = (0, _v2.useCallback)(() => null !== _v0 && (_v0.track("upload_modal_minimize_clicked", {}), !0), [_v0]),
       _v2 = (0, _v2.useCallback)(() => null !== _v0 && (_v0.track("upload_modal_dismissed", {}), !0), [_v0]),
       _v3 = (0, _v2.useCallback)(() => null !== _v0 && (_v0.track("upload_modal_more_actions_opened", {}), !0), [_v0]),
@@ -44,12 +47,11 @@
       trackUploadModalUploadMoreClicked: (0, _v2.useCallback)(() => null !== _v0 && (_v0.track("upload_modal_upload_more_clicked", {}), !0), [_v0])
     };
   }
-  var _v20 = _v0.i(0),
-    _v21 = _v0.i(0);
-  (0, _v21.rem)(4), (0, _v21.rem)(8), (0, _v21.rem)(16), (0, _v21.rem)(32), (0, _v21.rem)(64), (0, _v21.rem)(128);
-  let _v22 = "/library",
-    _v23 = () => ({
-      cancel: (0, _v17.translate)({
+  var _v23 = _v0.i(0);
+  (0, _v23.rem)(4), (0, _v23.rem)(8), (0, _v23.rem)(16), (0, _v23.rem)(32), (0, _v23.rem)(64), (0, _v23.rem)(128);
+  let _v24 = "/library",
+    _v25 = () => ({
+      cancel: (0, _v20.translate)({
         singular: "Cancel",
         dictionary: {
           es: {
@@ -75,7 +77,7 @@
           }
         }
       }),
-      checkingFiles: (0, _v17.translate)({
+      checkingFiles: (0, _v20.translate)({
         singular: "Checking files",
         dictionary: {
           es: {
@@ -101,7 +103,7 @@
           }
         }
       }),
-      clear: (0, _v17.translate)({
+      clear: (0, _v20.translate)({
         singular: "Clear",
         dictionary: {
           es: {
@@ -127,7 +129,7 @@
           }
         }
       }),
-      close: (0, _v17.translate)({
+      close: (0, _v20.translate)({
         singular: "Close",
         dictionary: {
           es: {
@@ -153,7 +155,7 @@
           }
         }
       }),
-      closeDialog: (0, _v17.translate)({
+      closeDialog: (0, _v20.translate)({
         singular: "Close dialog",
         dictionary: {
           es: {
@@ -179,7 +181,7 @@
           }
         }
       }),
-      dropboxFailed: (0, _v17.translate)({
+      dropboxFailed: (0, _v20.translate)({
         singular: "Failed. Check sharing settings on Dropbox.",
         dictionary: {
           es: {
@@ -205,7 +207,7 @@
           }
         }
       }),
-      failed: (0, _v17.translate)({
+      failed: (0, _v20.translate)({
         singular: "Failed",
         dictionary: {
           es: {
@@ -231,7 +233,7 @@
           }
         }
       }),
-      fileTypeNotSupported: (0, _v17.translate)({
+      fileTypeNotSupported: (0, _v20.translate)({
         singular: "File type not supported",
         dictionary: {
           es: {
@@ -257,7 +259,7 @@
           }
         }
       }),
-      expand: (0, _v17.translate)({
+      expand: (0, _v20.translate)({
         singular: "Expand",
         dictionary: {
           es: {
@@ -283,7 +285,7 @@
           }
         }
       }),
-      hideDialog: (0, _v17.translate)({
+      hideDialog: (0, _v20.translate)({
         singular: "Hide dialog",
         dictionary: {
           es: {
@@ -309,7 +311,7 @@
           }
         }
       }),
-      library: (0, _v17.translate)({
+      library: (0, _v20.translate)({
         singular: "Library",
         dictionary: {
           es: {
@@ -335,7 +337,7 @@
           }
         }
       }),
-      location: (0, _v17.translate)({
+      location: (0, _v20.translate)({
         singular: "Location",
         dictionary: {
           es: {
@@ -361,7 +363,7 @@
           }
         }
       }),
-      minimize: (0, _v17.translate)({
+      minimize: (0, _v20.translate)({
         singular: "Minimize",
         dictionary: {
           es: {
@@ -387,7 +389,7 @@
           }
         }
       }),
-      moreActions: (0, _v17.translate)({
+      moreActions: (0, _v20.translate)({
         singular: "More actions",
         dictionary: {
           es: {
@@ -413,7 +415,7 @@
           }
         }
       }),
-      myLibrary: (0, _v17.translate)({
+      myLibrary: (0, _v20.translate)({
         singular: "My Library",
         dictionary: {
           es: {
@@ -439,7 +441,7 @@
           }
         }
       }),
-      noInternetConnection: (0, _v17.translate)({
+      noInternetConnection: (0, _v20.translate)({
         singular: "No internet connection",
         dictionary: {
           es: {
@@ -465,7 +467,7 @@
           }
         }
       }),
-      setPrivacy: (0, _v17.translate)({
+      setPrivacy: (0, _v20.translate)({
         singular: "Set privacy",
         dictionary: {
           es: {
@@ -491,7 +493,7 @@
           }
         }
       }),
-      showDialog: (0, _v17.translate)({
+      showDialog: (0, _v20.translate)({
         singular: "Show dialog",
         dictionary: {
           es: {
@@ -517,7 +519,7 @@
           }
         }
       }),
-      storageIsFull: (0, _v17.translate)({
+      storageIsFull: (0, _v20.translate)({
         singular: "Storage is full",
         dictionary: {
           es: {
@@ -543,7 +545,7 @@
           }
         }
       }),
-      teamLibrary: (0, _v17.translate)({
+      teamLibrary: (0, _v20.translate)({
         singular: "Team library",
         dictionary: {
           es: {
@@ -569,7 +571,7 @@
           }
         }
       }),
-      uploadMore: (0, _v17.translate)({
+      uploadMore: (0, _v20.translate)({
         singular: "Upload more",
         dictionary: {
           es: {
@@ -595,7 +597,7 @@
           }
         }
       }),
-      uploadingTo: (0, _v17.translate)({
+      uploadingTo: (0, _v20.translate)({
         singular: "Uploading to",
         dictionary: {
           es: {
@@ -621,7 +623,7 @@
           }
         }
       }),
-      uploadsCanceled: (0, _v17.translate)({
+      uploadsCanceled: (0, _v20.translate)({
         singular: "Uploads canceled",
         dictionary: {
           es: {
@@ -647,7 +649,7 @@
           }
         }
       }),
-      uploading: (_v0, _v1) => (0, _v17.translate)({
+      uploading: (_v0, _v1) => (0, _v20.translate)({
         singular: "Uploading 1 video",
         plural: "Uploading {completeCount} of {totalCount} videos",
         replacements: {
@@ -686,7 +688,98 @@
           }
         }
       }),
-      uploadsComplete: _v0 => (0, _v17.translate)({
+      uploadingFiles: (_v0, _v1) => (0, _v20.translate)({
+        singular: "Uploading 1 file",
+        plural: "Uploading {completeCount} of {totalCount} files",
+        replacements: {
+          completeCount: _v0,
+          totalCount: _v1
+        },
+        count: _v1,
+        dictionary: {
+          es: {
+            singular: "Subiendo 1 archivo",
+            plural: "Subiendo {completeCount} de {totalCount} archivos"
+          },
+          "de-DE": {
+            singular: "Lade 1 Datei hoch",
+            plural: "Lade {completeCount} von {totalCount} Dateien hoch"
+          },
+          "fr-FR": {
+            singular: "Téléversement de 1 fichier",
+            plural: "Téléversement de {completeCount} sur {totalCount} fichiers"
+          },
+          "ja-JP": {
+            singular: "1個のファイルをアップロード中",
+            plural: "{totalCount}個中{completeCount}個のファイルをアップロード中"
+          },
+          "ko-KR": {
+            singular: "파일 1개 업로드 중",
+            plural: "{totalCount}개 중 {completeCount}개 업로드 중"
+          },
+          "pt-BR": {
+            singular: "Enviando 1 arquivo",
+            plural: "Enviando {completeCount} de {totalCount} arquivos"
+          },
+          "zh-CN": {
+            singular: "正在上传 1 个文件",
+            plural: "正在上传 {completeCount} / {totalCount} 个文件"
+          }
+        }
+      }),
+      videos: (0, _v20.translate)({
+        singular: "Videos",
+        dictionary: {
+          "fr-FR": {
+            singular: "Vidéos"
+          },
+          "ja-JP": {
+            singular: "動画"
+          },
+          "ko-KR": {
+            singular: "동영상"
+          },
+          "pt-BR": {
+            singular: "Vídeos"
+          },
+          "zh-CN": {
+            singular: "视频"
+          }
+        }
+      }),
+      otherFiles: (0, _v20.translate)({
+        singular: "Other files",
+        dictionary: {
+          es: {
+            singular: "Otros archivos"
+          },
+          "de-DE": {
+            singular: "Andere Dateien"
+          },
+          "fr-FR": {
+            singular: "Autres fichiers"
+          },
+          "ja-JP": {
+            singular: "その他のファイル"
+          },
+          "ko-KR": {
+            singular: "기타 파일"
+          },
+          "pt-BR": {
+            singular: "Outros arquivos"
+          },
+          "zh-CN": {
+            singular: "其他文件"
+          }
+        }
+      }),
+      sectionCount: _v0 => (0, _v20.translate)({
+        singular: "• {COUNT}",
+        replacements: {
+          COUNT: _v0
+        }
+      }),
+      uploadsComplete: _v0 => (0, _v20.translate)({
         singular: "{completeCount} upload complete",
         plural: "{completeCount} uploads complete",
         replacements: {
@@ -724,7 +817,7 @@
           }
         }
       }),
-      uploadErrorAnalysisFailed: (0, _v17.translate)({
+      uploadErrorAnalysisFailed: (0, _v20.translate)({
         singular: "We couldn't process your file. Please check our encoding guidelines to make sure your file is compatible.",
         dictionary: {
           es: {
@@ -750,7 +843,7 @@
           }
         }
       }),
-      uploadErrorDurationTooLong: (0, _v17.translate)({
+      uploadErrorDurationTooLong: (0, _v20.translate)({
         singular: "Your video exceeds the 24-hour maximum duration. Please trim it and try again.",
         dictionary: {
           es: {
@@ -776,7 +869,7 @@
           }
         }
       }),
-      uploadErrorDurationTooShort: (0, _v17.translate)({
+      uploadErrorDurationTooShort: (0, _v20.translate)({
         singular: "Your video is too short. Vimeo requires videos of at least 0.5 seconds.",
         dictionary: {
           es: {
@@ -802,7 +895,7 @@
           }
         }
       }),
-      uploadErrorMissingVideoStream: (0, _v17.translate)({
+      uploadErrorMissingVideoStream: (0, _v20.translate)({
         singular: "Your file doesn't contain a video stream. Please check our encoding guidelines for supported formats.",
         dictionary: {
           es: {
@@ -828,7 +921,7 @@
           }
         }
       }),
-      uploadErrorResolutionTooSmall: (0, _v17.translate)({
+      uploadErrorResolutionTooSmall: (0, _v20.translate)({
         singular: "Your video resolution is too small (minimum 2×2 pixels).",
         dictionary: {
           es: {
@@ -854,7 +947,7 @@
           }
         }
       }),
-      uploadErrorMaxFileSizeExceeded: (0, _v17.translate)({
+      uploadErrorMaxFileSizeExceeded: (0, _v20.translate)({
         singular: "Your file exceeds the 300 GB maximum file size. Please use a smaller file.",
         dictionary: {
           es: {
@@ -880,7 +973,7 @@
           }
         }
       }),
-      uploadErrorEmptyUpload: (0, _v17.translate)({
+      uploadErrorEmptyUpload: (0, _v20.translate)({
         singular: "Your file is empty (0 bytes). Please check the file and try again.",
         dictionary: {
           es: {
@@ -906,7 +999,7 @@
           }
         }
       }),
-      uploadErrorDisallowedContentType: (0, _v17.translate)({
+      uploadErrorDisallowedContentType: (0, _v20.translate)({
         singular: "This file type is not supported. Please check our encoding guidelines for supported formats.",
         dictionary: {
           es: {
@@ -932,7 +1025,7 @@
           }
         }
       }),
-      uploadErrorExceededRetryCount: (0, _v17.translate)({
+      uploadErrorExceededRetryCount: (0, _v20.translate)({
         singular: "Your upload failed too many times. Please try again.",
         dictionary: {
           es: {
@@ -958,7 +1051,7 @@
           }
         }
       }),
-      uploadErrorInternal: (0, _v17.translate)({
+      uploadErrorInternal: (0, _v20.translate)({
         singular: "Something went wrong on our end. Please try uploading again.",
         dictionary: {
           es: {
@@ -984,7 +1077,7 @@
           }
         }
       }),
-      uploadErrorDisallowedAddress: (0, _v17.translate)({
+      uploadErrorDisallowedAddress: (0, _v20.translate)({
         singular: "The URL you provided resolves to a restricted address.",
         dictionary: {
           es: {
@@ -1010,7 +1103,7 @@
           }
         }
       }),
-      uploadErrorInvalidRedirects: (0, _v17.translate)({
+      uploadErrorInvalidRedirects: (0, _v20.translate)({
         singular: "The URL you provided redirects too many times or to a different host.",
         dictionary: {
           es: {
@@ -1036,7 +1129,7 @@
           }
         }
       }),
-      uploadErrorRemoteNotFound: (0, _v17.translate)({
+      uploadErrorRemoteNotFound: (0, _v20.translate)({
         singular: "The file at the URL you provided could not be found (404). Please check the URL.",
         dictionary: {
           es: {
@@ -1062,7 +1155,7 @@
           }
         }
       }),
-      uploadErrorRemoteUnauthorized: (0, _v17.translate)({
+      uploadErrorRemoteUnauthorized: (0, _v20.translate)({
         singular: "Access to the URL was denied (401). Please check that the URL is publicly accessible or set authorization headers.",
         dictionary: {
           es: {
@@ -1088,7 +1181,7 @@
           }
         }
       }),
-      uploadErrorRemoteForbidden: (0, _v17.translate)({
+      uploadErrorRemoteForbidden: (0, _v20.translate)({
         singular: "Access to the URL was forbidden (403). Please check that the URL is publicly accessible or set authorization headers.",
         dictionary: {
           es: {
@@ -1114,7 +1207,7 @@
           }
         }
       }),
-      uploadErrorRemoteBadRequest: (0, _v17.translate)({
+      uploadErrorRemoteBadRequest: (0, _v20.translate)({
         singular: "The server at the URL you provided rejected the request (4xx). Please check the URL.",
         dictionary: {
           es: {
@@ -1140,7 +1233,7 @@
           }
         }
       }),
-      uploadErrorRemoteInternal: (0, _v17.translate)({
+      uploadErrorRemoteInternal: (0, _v20.translate)({
         singular: "The server at the URL you provided encountered an error (5xx). Please check the URL or try again later.",
         dictionary: {
           es: {
@@ -1166,7 +1259,7 @@
           }
         }
       }),
-      uploadErrorUnsupportedVideoProjection: (0, _v17.translate)({
+      uploadErrorUnsupportedVideoProjection: (0, _v20.translate)({
         singular: "Your video uses a spatial projection we don't support yet. Please check our encoding guidelines to make sure your file is compatible.",
         dictionary: {
           es: {
@@ -1192,7 +1285,7 @@
           }
         }
       }),
-      uploadsIncomplete: (_v0, _v1) => (0, _v17.translate)({
+      uploadsIncomplete: (_v0, _v1) => (0, _v20.translate)({
         singular: "Upload incomplete",
         plural: "{completeCount} of {totalCount} uploads complete",
         replacements: {
@@ -1227,7 +1320,7 @@
           }
         }
       }),
-      uploadsPaused: _v0 => (0, _v17.translate)({
+      uploadsPaused: _v0 => (0, _v20.translate)({
         singular: "Paused {pausedCount} upload",
         plural: "Paused {pausedCount} uploads",
         replacements: {
@@ -1265,7 +1358,7 @@
           }
         }
       }),
-      uploadsFailed: _v0 => (0, _v17.translate)({
+      uploadsFailed: _v0 => (0, _v20.translate)({
         singular: "{failedCount} failed",
         replacements: {
           failedCount: _v0
@@ -1295,23 +1388,23 @@
         }
       })
     });
-  var _v24 = _v0.i(0),
-    _v25 = _v0.i(0),
-    _v26 = _v0.i(0),
+  var _v26 = _v0.i(0),
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
-    _v29 = _v0.i(0);
-  let _v30 = ({
+    _v29 = _v0.i(0),
+    _v30 = _v0.i(0),
+    _v31 = _v0.i(0);
+  let _v32 = ({
     onCancel: _v0,
     onDelete: _v1
-  }) => (0, _v1.jsxs)(_v25.Modal, {
+  }) => (0, _v1.jsxs)(_v27.Modal, {
     isOpen: !0,
     onClose: () => null,
     id: "cancel-all-modal",
-    children: [(0, _v1.jsx)(_v29.ModalOverlay, {}), (0, _v1.jsxs)(_v26.ModalContent, {
-      width: (0, _v12.rem)(334),
-      children: [(0, _v1.jsx)(_v28.ModalHeader, {
-        children: (0, _v17.translate)({
+    children: [(0, _v1.jsx)(_v31.ModalOverlay, {}), (0, _v1.jsxs)(_v28.ModalContent, {
+      width: (0, _v15.rem)(334),
+      children: [(0, _v1.jsx)(_v30.ModalHeader, {
+        children: (0, _v20.translate)({
           singular: "Delete remaining uploads?",
           dictionary: {
             es: {
@@ -1337,11 +1430,11 @@
             }
           }
         })
-      }), (0, _v1.jsxs)(_v27.ModalFooter, {
-        children: [(0, _v1.jsx)(_v24.Button, {
+      }), (0, _v1.jsxs)(_v29.ModalFooter, {
+        children: [(0, _v1.jsx)(_v26.Button, {
           variant: "tertiary",
           onClick: _v0,
-          children: (0, _v17.translate)({
+          children: (0, _v20.translate)({
             singular: "Cancel",
             dictionary: {
               es: {
@@ -1367,10 +1460,10 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v24.Button, {
+        }), (0, _v1.jsx)(_v26.Button, {
           variant: "destructive",
           onClick: _v1,
-          children: (0, _v17.translate)({
+          children: (0, _v20.translate)({
             singular: "Delete",
             dictionary: {
               es: {
@@ -1400,9 +1493,7 @@
       })]
     })]
   });
-  var _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
+  var _v33 = _v0.i(0),
     _v34 = _v0.i(0),
     _v35 = _v0.i(0),
     _v36 = _v0.i(0),
@@ -1410,42 +1501,44 @@
     _v38 = _v0.i(0),
     _v39 = _v0.i(0),
     _v40 = _v0.i(0),
-    _v41 = _v0.i(0);
-  let _v42 = ({
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0);
+  let _v44 = ({
       upload: _v0
     }) => {
       let {
           initialSize: _v1 = -1,
           error: _v2 = null
         } = _v0 || {},
-        _v3 = _v23();
+        _v3 = _v25();
       if (null === _v2) return null;
       if (!_v2 && 0 === _v1) return {
-        code: _v4.ERROR_CODES[_v4.ERRORS.FILE_TOO_SMALL],
+        code: _v7.ERROR_CODES[_v7.ERRORS.FILE_TOO_SMALL],
         description: _v3.failed
       };
       switch (_v2) {
-        case _v4.ERRORS.VIDEO_FILE_INVALID:
+        case _v7.ERRORS.VIDEO_FILE_INVALID:
           return {
-            code: _v4.ERROR_CODES[_v2],
+            code: _v7.ERROR_CODES[_v2],
             description: _v3.fileTypeNotSupported
           };
-        case _v4.ERRORS.NETWORK_ERROR:
+        case _v7.ERRORS.NETWORK_ERROR:
           return {
-            code: _v4.ERROR_CODES[_v2],
+            code: _v7.ERROR_CODES[_v2],
             description: _v3.noInternetConnection
           };
-        case _v4.ERRORS.INVALID_DROPBOX_URL:
+        case _v7.ERRORS.INVALID_DROPBOX_URL:
           return {
-            code: _v4.ERROR_CODES[_v2],
+            code: _v7.ERROR_CODES[_v2],
             description: _v3.dropboxFailed
           };
         case "Your account doesn't have enough free space to upload this video":
         case "You have reached the storage limit for private or embeddable videos and cannot upload more. Upgrade your plan for more storage.":
-        case _v4.ERRORS.QUOTA_EXCEEDED:
+        case _v7.ERRORS.QUOTA_EXCEEDED:
         case "924":
           return {
-            code: _v4.ERROR_CODES[_v2],
+            code: _v7.ERROR_CODES[_v2],
             description: _v3.storageIsFull
           };
         case "analysis_failed":
@@ -1538,43 +1631,44 @@
             code: _v2,
             description: _v3.uploadErrorUnsupportedVideoProjection
           };
-        case _v4.ERRORS.NO_MACHINE_ID:
-        case _v4.ERRORS.VERIFICATION_FAILED:
-        case _v4.ERRORS.DNS_ERROR:
-        case _v4.ERRORS.RETRY_FAILED:
-        case _v4.ERRORS.ATTACH_FAILED:
-        case _v4.ERRORS.PROGRESS_CALL_ERROR:
-        case _v4.ERRORS.METADATA_CALL_ERROR:
-        case _v4.ERRORS.PROGRESS_STATE_MISMATCH:
-        case _v4.ERRORS.VIDEO_FILE_REMOVED:
-        case _v4.ERRORS.VIDEO_FILE_SIZE_CHANGED:
-        case _v4.ERRORS.INVALID_UPLOAD_ENDPOINT:
-        case _v4.ERRORS.RANGE_FAILED:
-        case _v4.ERRORS.RANGE_RESUME_FAILED:
-        case _v4.ERRORS.PULL_FAILED:
-        case _v4.ERRORS.VALIDATOR_CALL_ERROR:
-        case _v4.ERRORS.LIGHTHOUSE_LOAD_ERROR:
-        case _v4.ERRORS.LIGHTHOUSE_RACE_ERROR:
-        case _v4.ERRORS.FILE_TOO_SMALL:
+        case _v7.ERRORS.NO_MACHINE_ID:
+        case _v7.ERRORS.VERIFICATION_FAILED:
+        case _v7.ERRORS.DNS_ERROR:
+        case _v7.ERRORS.RETRY_FAILED:
+        case _v7.ERRORS.ATTACH_FAILED:
+        case _v7.ERRORS.PROGRESS_CALL_ERROR:
+        case _v7.ERRORS.METADATA_CALL_ERROR:
+        case _v7.ERRORS.PROGRESS_STATE_MISMATCH:
+        case _v7.ERRORS.VIDEO_FILE_REMOVED:
+        case _v7.ERRORS.VIDEO_FILE_SIZE_CHANGED:
+        case _v7.ERRORS.INVALID_UPLOAD_ENDPOINT:
+        case _v7.ERRORS.RANGE_FAILED:
+        case _v7.ERRORS.RANGE_RESUME_FAILED:
+        case _v7.ERRORS.PULL_FAILED:
+        case _v7.ERRORS.VALIDATOR_CALL_ERROR:
+        case _v7.ERRORS.LIGHTHOUSE_LOAD_ERROR:
+        case _v7.ERRORS.LIGHTHOUSE_RACE_ERROR:
+        case _v7.ERRORS.FILE_TOO_SMALL:
         default:
           return {
-            code: _v4.ERROR_CODES[_v2] || "",
+            code: _v7.ERROR_CODES[_v2] || "",
             description: _v3.failed
           };
       }
     },
-    _v43 = ({
+    _v45 = ({
       destination: _v0,
-      transcoding: _v1
+      transcoding: _v1,
+      noun: _v2 = "videos"
     }) => {
-      let _v2 = _v23(),
-        _v3 = function ({
+      let _v3 = _v25(),
+        _v4 = function ({
           transcoding: _v0
         }) {
           let {
               uploads: _v1,
               uploaderSummary: _v2
-            } = (0, _v41.useUploader)(),
+            } = (0, _v43.useUploader)(),
             {
               canceledCount: _v3,
               completeCount: _v4,
@@ -1585,86 +1679,86 @@
             } = _v2;
           return _v1.find(({
             state: _v0
-          }) => _v4.STATES.VALIDATING === _v0) ? "checking" : _v3 === _v1.length && _v1.length > 0 ? "canceled" : !_v0 && 0 === _v6 && (_v4 === _v1.length && _v1.length > 0 || 0 !== _v7 && _v7 === _v4 || _v8 > _v7) ? _v8 > 0 ? "incomplete" : "complete" : _v5 ? "paused" : "uploading";
+          }) => _v7.STATES.VALIDATING === _v0) ? "checking" : _v3 === _v1.length && _v1.length > 0 ? "canceled" : !_v0 && 0 === _v6 && (_v4 === _v1.length && _v1.length > 0 || 0 !== _v7 && _v7 === _v4 || _v8 > _v7) ? _v8 > 0 ? "incomplete" : "complete" : _v5 ? "paused" : "uploading";
         }({
           transcoding: _v1
         }),
-        _v4 = (() => {
+        _v5 = (() => {
           let {
             uploads: _v0
-          } = (0, _v41.useUploader)();
+          } = (0, _v43.useUploader)();
           return (0, _v2.useMemo)(() => _v0.some(_v0 => {
-            let _v1 = _v42({
+            let _v1 = _v44({
               upload: _v0
             });
-            return _v1?.code === _v4.ERROR_CODES.NETWORK_ERROR;
+            return _v1?.code === _v7.ERROR_CODES.NETWORK_ERROR;
           }), [_v0]);
         })(),
         {
-          uploaderSummary: _v5
-        } = (0, _v41.useUploader)(),
+          uploaderSummary: _v6
+        } = (0, _v43.useUploader)(),
         {
-          completeCount: _v6,
-          failedCount: _v7,
-          inProgressCount: _v8,
-          totalCount: _v9
-        } = _v5,
-        _v10 = _v6 + _v8,
-        _v11 = _v9 + _v7;
+          completeCount: _v7,
+          failedCount: _v8,
+          inProgressCount: _v9,
+          totalCount: _v10
+        } = _v6,
+        _v11 = _v7 + _v9,
+        _v12 = _v10 + _v8;
       return (0, _v2.useMemo)(() => {
-        if (_v4) return {
-          headerText: _v2.noInternetConnection,
+        if (_v5) return {
+          headerText: _v3.noInternetConnection,
           headerSubText: "",
-          status: _v3
+          status: _v4
         };
-        switch (_v3) {
+        switch (_v4) {
           case "canceled":
             return {
-              headerText: _v2.uploadsCanceled,
+              headerText: _v3.uploadsCanceled,
               headerSubText: "",
-              status: _v3
+              status: _v4
             };
           case "checking":
             return {
-              headerText: _v2.checkingFiles,
-              headerSubText: _v11 > 1 && _v7 > 0 ? _v2.uploadsFailed(_v7) : "",
-              status: _v3
+              headerText: _v3.checkingFiles,
+              headerSubText: _v12 > 1 && _v8 > 0 ? _v3.uploadsFailed(_v8) : "",
+              status: _v4
             };
           case "paused":
             return {
-              headerText: _v2.uploadsPaused(_v11 - _v6),
+              headerText: _v3.uploadsPaused(_v12 - _v7),
               headerSubText: "",
-              status: _v3
+              status: _v4
             };
           case "incomplete":
             return {
-              headerText: _v2.uploadsIncomplete(_v10, _v11),
-              headerSubText: _v11 > 1 && _v7 > 0 ? _v2.uploadsFailed(_v7) : "",
-              status: _v3
+              headerText: _v3.uploadsIncomplete(_v11, _v12),
+              headerSubText: _v12 > 1 && _v8 > 0 ? _v3.uploadsFailed(_v8) : "",
+              status: _v4
             };
           case "complete":
             return {
-              headerText: _v2.uploadsComplete(_v11),
-              headerSubText: _v0 ? `${_v2.location}: ${_v0?.name}` : "",
-              status: _v3
+              headerText: _v3.uploadsComplete(_v12),
+              headerSubText: _v0 ? `${_v3.location}: ${_v0?.name}` : "",
+              status: _v4
             };
           case "uploading":
             {
-              let _v0 = Math.max(_v11, _v10);
+              let _v0 = Math.max(_v12, _v11);
               return {
-                headerText: _v2.uploading(_v10, _v0),
-                headerSubText: _v7 > 0 ? _v2.uploadsFailed(_v7) : _v0 ? `${_v2.location}: ${_v0?.name}` : "",
-                status: _v3
+                headerText: "files" === _v2 ? _v3.uploadingFiles(_v11, _v0) : _v3.uploading(_v11, _v0),
+                headerSubText: _v8 > 0 ? _v3.uploadsFailed(_v8) : _v0 ? `${_v3.location}: ${_v0?.name}` : "",
+                status: _v4
               };
             }
         }
-      }, [_v6, _v0, _v7, _v10, _v11, _v4, _v3, _v2]);
+      }, [_v7, _v0, _v8, _v11, _v12, _v5, _v2, _v4, _v3]);
     },
-    _v44 = ({
+    _v46 = ({
       transcoding: _v0,
       hideLocation: _v1 = !1
     }) => {
-      let _v2 = (0, _v31.useRouter)(),
+      let _v2 = (0, _v33.useRouter)(),
         {
           uploads: _v3,
           uploaderSummary: {
@@ -1673,24 +1767,24 @@
             isCanceled: _v6,
             isComplete: _v7
           }
-        } = (0, _v41.useUploader)(),
+        } = (0, _v43.useUploader)(),
         _v8 = (({
           upload: _v0
         }) => {
           let _v1 = _v0?.folderId,
-            _v2 = (0, _v20.useViewer)(),
+            _v2 = (0, _v4.useViewer)(),
             _v3 = _v2?.teamUser?.ownerId ?? _v2?.user?.id ?? 0,
             {
               contentSpaceEnabled: _v4,
               notTeamGatedContentSpaceEnabled: _v5,
               loading: _v6
-            } = (0, _v38.useContentSpaceEnabled)(_v3),
+            } = (0, _v40.useContentSpaceEnabled)(_v3),
             _v7 = !_v6 && _v4,
             _v8 = !_v6 && _v5 && !_v4,
-            _v9 = _v23(),
+            _v9 = _v25(),
             {
               data: _v10
-            } = (0, _v40.useGetUserProject)(() => _v3 && _v1 ? {
+            } = (0, _v42.useGetUserProject)(() => _v3 && _v1 ? {
               select: ["name", "manageLink", "isPrivateToUser"],
               where: {
                 userId: _v3,
@@ -1702,7 +1796,7 @@
             } : null),
             {
               data: _v11
-            } = (0, _v39.useGetUserFoldersPrivateToMe)(() => _v3 && _v5 ? {
+            } = (0, _v41.useGetUserFoldersPrivateToMe)(() => _v3 && _v5 ? {
               where: {
                 ownerId: _v3
               },
@@ -1711,7 +1805,7 @@
           return (0, _v2.useMemo)(() => {
             if (Number.isNaN(_v1) || void 0 === _v1) return {
               name: _v7 ? _v9.teamLibrary : _v8 ? _v9.library : _v9.myLibrary,
-              uri: _v7 || _v8 ? _v22 : _v11?.manageLink,
+              uri: _v7 || _v8 ? _v24 : _v11?.manageLink,
               folderId: _v1
             };
             if (_v10?.name) {
@@ -1719,7 +1813,7 @@
                 _v1 = _v0 && _v8;
               return {
                 name: _v1 ? _v9.library : _v0 ? _v9.myLibrary : _v10.name,
-                uri: _v1 ? _v22 : _v10?.manageLink,
+                uri: _v1 ? _v24 : _v10?.manageLink,
                 folderId: _v1
               };
             }
@@ -1727,15 +1821,16 @@
         })({
           upload: _v3.find(({
             state: _v0
-          }) => [_v4.STATES.STARTING, _v4.STATES.UPLOADING, _v4.STATES.COMPLETED].includes(_v0))
+          }) => [_v7.STATES.STARTING, _v7.STATES.UPLOADING, _v7.STATES.COMPLETED].includes(_v0))
         }),
         {
           headerText: _v9,
           headerSubText: _v10,
           status: _v11
-        } = _v43({
+        } = _v45({
           destination: _v1 ? void 0 : _v8,
-          transcoding: _v0
+          transcoding: _v0,
+          noun: _v3.some(_v0 => _v0.uploadType === _v7.TYPES.FILE) ? "files" : "videos"
         }),
         _v12 = (0, _v2.useCallback)(_v0 => {
           if (!_v8?.name || !_v8?.uri || !_v7) return _v0;
@@ -1747,7 +1842,7 @@
           if (_v3 < 0) return _v0;
           let [_v4, _v5] = [_v0.slice(0, _v3), _v0.slice(_v3 + _v1.length)];
           return (0, _v1.jsxs)(_v1.Fragment, {
-            children: [_v4, (0, _v1.jsx)(_v32.Link, {
+            children: [_v4, (0, _v1.jsx)(_v34.Link, {
               href: _v2,
               onClick: _v0 => {
                 _v0.preventDefault(), _v2.push(_v2);
@@ -1758,31 +1853,31 @@
             }), _v5]
           });
         }, [_v8, _v2, _v7]),
-        _v13 = (0, _v2.useMemo)(() => _v7 ? (0, _v1.jsx)(_v34.Checkmark, {
+        _v13 = (0, _v2.useMemo)(() => _v7 ? (0, _v1.jsx)(_v36.Checkmark, {
           boxSize: "xs"
-        }) : _v6 ? (0, _v1.jsx)(_v36.CloseXCircle, {
+        }) : _v6 ? (0, _v1.jsx)(_v38.CloseXCircle, {
           boxSize: "xs"
-        }) : _v5 && 0 === _v4 ? (0, _v1.jsx)(_v35.CircleExclamationFilled, {
+        }) : _v5 && 0 === _v4 ? (0, _v1.jsx)(_v37.CircleExclamationFilled, {
           color: "status-destructive-primary",
           boxSize: "xs"
-        }) : (0, _v1.jsx)(_v37.Upload, {
+        }) : (0, _v1.jsx)(_v39.Upload, {
           boxSize: "xs"
         }), [_v4, _v5, _v6, _v7]);
-      return (0, _v1.jsxs)(_v8.Flex, {
-        h: (0, _v12.rem)(64),
+      return (0, _v1.jsxs)(_v11.Flex, {
+        h: (0, _v15.rem)(64),
         alignItems: "center",
-        gap: (0, _v12.rem)(12),
+        gap: (0, _v15.rem)(12),
         justifyContent: "start",
-        children: [_v13, (0, _v1.jsxs)(_v33.VStack, {
+        children: [_v13, (0, _v1.jsxs)(_v35.VStack, {
           gap: "xs",
           justifyContent: "center",
           alignItems: "start",
-          children: [(0, _v1.jsx)(_v11.Text, {
+          children: [(0, _v1.jsx)(_v14.Text, {
             variant: "heading-sm",
             id: "upload-progress-header",
             size: "xs",
             children: _v12(_v9)
-          }), (0, _v1.jsx)(_v11.Text, {
+          }), (0, _v1.jsx)(_v14.Text, {
             variant: "body-sm",
             color: _v5 > 0 ? "status-destructive-primary" : void 0,
             size: "xs",
@@ -1791,10 +1886,10 @@
         })]
       });
     };
-  var _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  function _v48({
+  var _v47 = _v0.i(0),
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0);
+  function _v50({
     value: _v0,
     isShowing: _v1,
     onConfirm: _v2,
@@ -1812,15 +1907,15 @@
           password: _v5
         }), _v3());
       }, [_v3, _v2, _v5]);
-    return (0, _v1.jsxs)(_v25.Modal, {
+    return (0, _v1.jsxs)(_v27.Modal, {
       isOpen: _v7,
       onClose: () => _v8(!1),
-      children: [(0, _v1.jsx)(_v29.ModalOverlay, {}), (0, _v1.jsxs)(_v26.ModalContent, {
-        width: (0, _v12.rem)(360),
-        children: [(0, _v1.jsx)(_v28.ModalHeader, {
-          children: (0, _v1.jsx)(_v11.Text, {
+      children: [(0, _v1.jsx)(_v31.ModalOverlay, {}), (0, _v1.jsxs)(_v28.ModalContent, {
+        width: (0, _v15.rem)(360),
+        children: [(0, _v1.jsx)(_v30.ModalHeader, {
+          children: (0, _v1.jsx)(_v14.Text, {
             variant: "heading-md",
-            children: (0, _v17.translate)({
+            children: (0, _v20.translate)({
               singular: "Enter password",
               dictionary: {
                 es: {
@@ -1847,8 +1942,8 @@
               }
             })
           })
-        }), (0, _v1.jsx)(_v46.ModalCloseButton, {
-          "aria-label": (0, _v17.translate)({
+        }), (0, _v1.jsx)(_v48.ModalCloseButton, {
+          "aria-label": (0, _v20.translate)({
             singular: "Close",
             dictionary: {
               es: {
@@ -1874,8 +1969,8 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v45.ModalBody, {
-          children: (0, _v1.jsx)(_v47.PasswordInput, {
+        }), (0, _v1.jsx)(_v47.ModalBody, {
+          children: (0, _v1.jsx)(_v49.PasswordInput, {
             id: "password-input",
             name: "password-input",
             placeholder: "",
@@ -1887,11 +1982,11 @@
             initialValue: _v0,
             hideRightElement: !0
           })
-        }), (0, _v1.jsxs)(_v27.ModalFooter, {
-          children: [(0, _v1.jsx)(_v24.Button, {
+        }), (0, _v1.jsxs)(_v29.ModalFooter, {
+          children: [(0, _v1.jsx)(_v26.Button, {
             variant: "tertiary",
             onClick: _v3,
-            children: (0, _v17.translate)({
+            children: (0, _v20.translate)({
               singular: "Cancel",
               dictionary: {
                 es: {
@@ -1917,10 +2012,10 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v24.Button, {
+          }), (0, _v1.jsx)(_v26.Button, {
             variant: "primary",
             onClick: _v10,
-            children: (0, _v17.translate)({
+            children: (0, _v20.translate)({
               singular: "Save",
               dictionary: {
                 es: {
@@ -1951,15 +2046,15 @@
       })]
     });
   }
-  var _v49 = _v0.i(0),
-    _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
+  var _v51 = _v0.i(0),
     _v52 = _v0.i(0),
     _v53 = _v0.i(0),
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
-    _v56 = _v0.i(0);
-  function _v57({
+    _v56 = _v0.i(0),
+    _v57 = _v0.i(0),
+    _v58 = _v0.i(0);
+  function _v59({
     privacyOptions: _v0,
     onSelectionChange: _v1,
     isDisabled: _v2 = !1,
@@ -1973,26 +2068,26 @@
       _v9,
       {
         trackUpsellTrigger: _v10
-      } = (_v5 = (0, _v2.useCallback)(() => (0, _v54.buildViewBpContext)({
+      } = (_v5 = (0, _v2.useCallback)(() => (0, _v56.buildViewBpContext)({
         view_type: "impression",
         feature: "privacy"
-      }), []), _v6 = (0, _v2.useCallback)(() => (0, _v55.buildWebBpContext)({
-        page_name: (0, _v50.getPageNameFromPath)(window.location.pathname)
-      }), []), _v7 = (0, _v2.useCallback)(() => (0, _v51.buildActionBpContext)({
+      }), []), _v6 = (0, _v2.useCallback)(() => (0, _v57.buildWebBpContext)({
+        page_name: (0, _v52.getPageNameFromPath)(window.location.pathname)
+      }), []), _v7 = (0, _v2.useCallback)(() => (0, _v53.buildActionBpContext)({
         action_type: "click",
         feature: "privacy"
-      }), []), _v8 = (0, _v2.useCallback)(() => (0, _v52.buildProductAnalyticsBpContext)({
+      }), []), _v8 = (0, _v2.useCallback)(() => (0, _v54.buildProductAnalyticsBpContext)({
         product: "collaboration",
         feature: "privacy",
         location: "dropdown"
-      }), []), _v9 = (0, _v2.useCallback)(() => (0, _v53.buildThirdPartyIntegrationBpContext)({
+      }), []), _v9 = (0, _v2.useCallback)(() => (0, _v55.buildThirdPartyIntegrationBpContext)({
         is_integration: !1,
         integration_id: null,
         integration_name: null,
         is_partner: !1
       }), []), {
         trackUpsellTriggerImpression: (0, _v2.useCallback)(() => {
-          (0, _v56.sendBpEventWithContexts)("vimeo.upsell_trigger_impression", {
+          (0, _v58.sendBpEventWithContexts)("vimeo.upsell_trigger_impression", {
             ..._v5(),
             ..._v6()
           }, 38, {
@@ -2012,7 +2107,7 @@
           });
         }, [_v5, _v6]),
         trackUpsellTrigger: (0, _v2.useCallback)(() => {
-          (0, _v56.sendBpEventWithContexts)("vimeo.trigger_upsell", {
+          (0, _v58.sendBpEventWithContexts)("vimeo.trigger_upsell", {
             ..._v7(),
             ..._v8(),
             ..._v6(),
@@ -2036,12 +2131,12 @@
       }),
       {
         trackUploadModalPrivacyDropdownClicked: _v11
-      } = _v19(),
+      } = _v22(),
       [_v12, _v13] = (0, _v2.useState)(void 0),
       _v14 = (0, _v2.useMemo)(() => _v4 ? _v0.find(_v0 => _v0.privacy === _v4) : void 0, [_v4, _v0]);
     return (0, _v2.useEffect)(() => {
       _v14 && _v13(_v0 => _v0?.privacy === _v14.privacy ? _v0 : _v14);
-    }, [_v14]), (0, _v1.jsx)(_v49.PrivacyDropdown, {
+    }, [_v14]), (0, _v1.jsx)(_v51.PrivacyDropdown, {
       isVideoPrivacy: !0,
       hasPortal: !0,
       privacyOptions: _v0,
@@ -2061,17 +2156,17 @@
       lastSelectedPrivacyOption: _v12
     });
   }
-  var _v58 = _v0.i(0);
-  let _v59 = ({
+  var _v60 = _v0.i(0);
+  let _v61 = ({
     transcoding: _v0
   }) => {
     let {
         totalBytes: _v1,
         bytesUploaded: _v2
-      } = (0, _v41.useUploader)().uploaderSummary,
+      } = (0, _v43.useUploader)().uploaderSummary,
       {
         status: _v3
-      } = _v43({
+      } = _v45({
         transcoding: _v0
       }),
       _v4 = Math.floor(100 * _v2 / _v1),
@@ -2085,7 +2180,7 @@
             return "text-primary";
         }
       }, [_v3]);
-    return (0, _v1.jsx)(_v58.Progress, {
+    return (0, _v1.jsx)(_v60.Progress, {
       variant: "neutral",
       size: "xs",
       width: "100%",
@@ -2098,39 +2193,40 @@
       }
     });
   };
-  var _v60 = _v0.i(0),
-    _v61 = _v0.i(0),
-    _v62 = _v0.i(0),
+  var _v62 = _v0.i(0),
     _v63 = _v0.i(0),
-    _v64 = _v0.i(0);
-  let _v65 = () => {
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0),
+    _v66 = _v0.i(0);
+  let _v67 = () => {
     let _v0 = "u" > typeof navigator ? navigator.userAgent : "";
     return /(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(_v0) ? "tablet" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(_v0) ? "mobile" : "desktop";
   };
-  function _v66({
+  function _v68({
     isCanceling: _v0,
     isPaused: _v1,
     page: _v2,
     pauseAll: _v3,
     resumeAll: _v4,
     toggleIsCanceling: _v5,
-    isUploading: _v6
+    isUploading: _v6,
+    showPauseResume: _v7 = !0
   }) {
-    let _v7 = _v65(),
-      _v8 = window.location.pathname,
+    let _v8 = _v67(),
+      _v9 = window.location.pathname,
       {
-        trackUploadModalMoreActionsOpened: _v9,
-        trackUploadModalPauseAllClicked: _v10,
-        trackUploadModalCancelAllClicked: _v11
-      } = _v19();
-    return (0, _v1.jsx)(_v8.Flex, {
+        trackUploadModalMoreActionsOpened: _v10,
+        trackUploadModalPauseAllClicked: _v11,
+        trackUploadModalCancelAllClicked: _v12
+      } = _v22();
+    return (0, _v1.jsx)(_v11.Flex, {
       gap: "sm",
-      children: (0, _v1.jsxs)(_v60.Menu, {
+      children: (0, _v1.jsxs)(_v62.Menu, {
         placement: "left",
-        onOpen: () => _v9(),
-        children: [(0, _v1.jsx)(_v61.MenuButton, {
-          as: _v9.IconButton,
-          "aria-label": (0, _v17.translate)({
+        onOpen: () => _v10(),
+        children: [(0, _v1.jsx)(_v63.MenuButton, {
+          as: _v12.IconButton,
+          "aria-label": (0, _v20.translate)({
             singular: "Upload controls",
             dictionary: {
               es: {
@@ -2158,11 +2254,11 @@
           }),
           variant: "tertiary",
           size: "sm",
-          icon: (0, _v1.jsx)(_v64.EllipsisV, {})
-        }), (0, _v1.jsxs)(_v63.MenuList, {
-          children: [_v1 ? (0, _v1.jsx)(_v62.MenuItem, {
+          icon: (0, _v1.jsx)(_v66.EllipsisV, {})
+        }), (0, _v1.jsxs)(_v65.MenuList, {
+          children: [_v7 && (_v1 ? (0, _v1.jsx)(_v64.MenuItem, {
             onClick: () => {
-              _v4(), _v5.BigPictureClient.sendEvent(new _v5.Event("vimeo.click", 140, {
+              _v4(), _v8.BigPictureClient.sendEvent(new _v8.Event("vimeo.click", 140, {
                 copy: null,
                 feature: "embeddable_uploader",
                 location: "embeddable_uploader",
@@ -2172,12 +2268,12 @@
                 type: "general",
                 target_path: null,
                 click_type: "click",
-                device_type: _v7,
-                path: _v8,
+                device_type: _v8,
+                path: _v9,
                 third_party_integration: null
               }));
             },
-            children: (0, _v17.translate)({
+            children: (0, _v20.translate)({
               singular: "Resume all",
               dictionary: {
                 es: {
@@ -2203,10 +2299,10 @@
                 }
               }
             })
-          }) : (0, _v1.jsx)(_v62.MenuItem, {
+          }) : (0, _v1.jsx)(_v64.MenuItem, {
             disabled: !_v6,
             onClick: () => {
-              _v10(), _v3(), _v5.BigPictureClient.sendEvent(new _v5.Event("vimeo.click", 140, {
+              _v11(), _v3(), _v8.BigPictureClient.sendEvent(new _v8.Event("vimeo.click", 140, {
                 copy: null,
                 feature: "embeddable_uploader",
                 location: "embeddable_uploader",
@@ -2216,12 +2312,12 @@
                 type: "general",
                 target_path: null,
                 click_type: "click",
-                device_type: _v7,
-                path: _v8,
+                device_type: _v8,
+                path: _v9,
                 third_party_integration: null
               }));
             },
-            children: (0, _v17.translate)({
+            children: (0, _v20.translate)({
               singular: "Pause all",
               dictionary: {
                 es: {
@@ -2247,12 +2343,12 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v62.MenuItem, {
+          })), (0, _v1.jsx)(_v64.MenuItem, {
             onClick: _v0 ? void 0 : () => {
-              _v11(), _v5();
+              _v12(), _v5();
             },
             color: "critical",
-            children: (0, _v17.translate)({
+            children: (0, _v20.translate)({
               singular: "Cancel all",
               dictionary: {
                 es: {
@@ -2283,20 +2379,20 @@
       })
     });
   }
-  var _v67 = _v0.i(0),
-    _v68 = _v0.i(0);
-  function _v69({
+  var _v69 = _v0.i(0),
+    _v70 = _v0.i(0);
+  function _v71({
     onUpload: _v0
   }) {
     let _v1 = (0, _v2.useRef)(null),
       {
         fileInputAccept: _v2
-      } = (0, _v41.useUploader)(),
+      } = (0, _v43.useUploader)(),
       {
         trackUploadModalUploadMoreClicked: _v3
-      } = _v19();
-    return (0, _v1.jsx)(_v13.Tooltip, {
-      content: (0, _v17.translate)({
+      } = _v22();
+    return (0, _v1.jsx)(_v16.Tooltip, {
+      content: (0, _v20.translate)({
         singular: "Upload",
         dictionary: {
           es: {
@@ -2323,7 +2419,7 @@
         }
       }),
       placement: "top",
-      children: (0, _v1.jsx)(_v67.FileInput, {
+      children: (0, _v1.jsx)(_v69.FileInput, {
         ref: _v1,
         accept: _v2,
         onChange: _v0 => {
@@ -2331,10 +2427,10 @@
           _v1 && _v1.length > 0 && (_v0(_v1), _v1.current && (_v1.current.value = ""));
         },
         onClick: () => _v3(),
-        label: (0, _v1.jsx)(_v8.Flex, {
+        label: (0, _v1.jsx)(_v11.Flex, {
           justifyContent: "center",
           width: "md",
-          children: (0, _v1.jsx)(_v68.Plus, {})
+          children: (0, _v1.jsx)(_v70.Plus, {})
         }),
         size: "md",
         sx: {
@@ -2345,55 +2441,91 @@
       })
     });
   }
-  var _v70 = _v0.i(0),
-    _v71 = _v0.i(0);
-  let _v72 = () => {
-    let _v0 = (0, _v20.useViewer)(),
-      _v1 = (0, _v31.useRouter)();
-    return (0, _v1.jsx)(_v70.BundlePromoTile, {
+  var _v72 = _v0.i(0),
+    _v73 = _v0.i(0);
+  let _v74 = () => {
+    let _v0 = (0, _v4.useViewer)(),
+      _v1 = (0, _v33.useRouter)();
+    return (0, _v1.jsx)(_v72.BundlePromoTile, {
       trigger: "upload_widget",
-      hasSubscription: "paid" === (0, _v71.deriveViewerAuthStatus)(_v0),
+      hasSubscription: "paid" === (0, _v73.deriveViewerAuthStatus)(_v0),
       onNavigate: _v0 => void _v1.push(_v0)
     });
   };
-  var _v73 = _v0.i(0),
-    _v74 = _v0.i(0),
-    _v75 = _v0.i(0),
+  var _v75 = _v0.i(0),
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
     _v78 = _v0.i(0),
-    _v79 = _v0.i(0);
-  let _v80 = /\.(mp4|avi|mov|wmv|flv|MP4|AVI|MOV|WMV|FLV)$/;
-  var _v81 = _v0.i(0),
+    _v79 = _v0.i(0),
+    _v80 = _v0.i(0),
+    _v81 = _v0.i(0),
     _v82 = _v0.i(0);
-  let _v83 = ({
-    upload: _v0
-  }) => {
-    let _v1 = _v42({
+  let _v83 = /\.(mp4|avi|mov|wmv|flv|MP4|AVI|MOV|WMV|FLV)$/;
+  var _v84 = _v0.i(0),
+    _v85 = _v0.i(0);
+  let _v86 = ({
       upload: _v0
-    });
-    return (0, _v1.jsx)(_v11.Text, {
-      variant: "body-sm",
-      color: "status-destructive-primary",
-      children: _v1?.description
-    });
-  };
-  var _v84 = _v0.i(0);
-  let _v85 = ({
+    }) => {
+      let _v1 = _v44({
+        upload: _v0
+      });
+      return (0, _v1.jsx)(_v14.Text, {
+        variant: "body-sm",
+        color: "status-destructive-primary",
+        children: _v1?.description
+      });
+    },
+    _v87 = ({
+      category: _v0
+    }) => {
+      let {
+        Filled: _v1
+      } = _v82.CATEGORY_CONFIG[_v0];
+      return (0, _v1.jsx)(_v11.Flex, {
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: "sm",
+        minHeight: "40px",
+        minWidth: "64px",
+        maxHeight: "40px",
+        maxWidth: "64px",
+        backgroundColor: "gray.200",
+        flexShrink: 0,
+        children: (0, _v1.jsx)(_v1, {
+          color: "gray.400",
+          boxSize: "18px"
+        })
+      });
+    },
+    _v88 = ({
+      category: _v0
+    }) => {
+      let {
+        Filled: _v1,
+        color: _v2
+      } = _v82.CATEGORY_CONFIG[_v0];
+      return (0, _v1.jsx)(_v1, {
+        color: _v2,
+        boxSize: "16px",
+        flexShrink: 0
+      });
+    };
+  var _v89 = _v0.i(0);
+  let _v90 = ({
     upload: _v0
   }) => {
     let _v1 = (0, _v2.useRef)(void 0),
       _v2 = Math.ceil(_v0.bytesUploaded / _v0.initialSize * 10);
-    (0, _v2.useEffect)(() => (_v0.file instanceof File && (_v1.current = new _v84.ThumbnailGenerator(_v0.file)), () => {
+    (0, _v2.useEffect)(() => (_v0.file instanceof File && (_v1.current = new _v89.ThumbnailGenerator(_v0.file)), () => {
       _v1.current && _v1.current.removeAllListeners();
     }), [_v0.file, _v0.id]);
     let _v3 = (_v0.file instanceof File ? "" : _v0.file.thumbnailLink) || "https://i.vimeocdn.com/video/default-2308240_92x56";
-    return _v1.current && _v1.current.frames.length && (_v3 = _v1.current.frames[_v2] ? _v1.current.frames[_v2] : _v1.current.frames[_v1.current.frames.length - 1]), (0, _v1.jsx)(_v8.Flex, {
+    return _v1.current && _v1.current.frames.length && (_v3 = _v1.current.frames[_v2] ? _v1.current.frames[_v2] : _v1.current.frames[_v1.current.frames.length - 1]), (0, _v1.jsx)(_v11.Flex, {
       borderRadius: "xs",
-      minHeight: (0, _v12.rem)(40),
-      minWidth: (0, _v12.rem)(72),
-      maxHeight: (0, _v12.rem)(40),
-      maxWidth: (0, _v12.rem)(72),
+      minHeight: (0, _v15.rem)(40),
+      minWidth: (0, _v15.rem)(72),
+      maxHeight: (0, _v15.rem)(40),
+      maxWidth: (0, _v15.rem)(72),
       backgroundImage: _v3,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
@@ -2401,10 +2533,10 @@
       backgroundColor: "stroke"
     });
   };
-  var _v86 = _v0.i(0),
-    _v87 = _v0.i(0),
-    _v88 = _v0.i(0);
-  let _v89 = _v0 => (0, _v1.jsx)(_v88.Icon, {
+  var _v91 = _v0.i(0),
+    _v92 = _v0.i(0),
+    _v93 = _v0.i(0);
+  let _v94 = _v0 => (0, _v1.jsx)(_v93.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -2413,8 +2545,8 @@
       fill: "currentColor"
     })
   });
-  var _v90 = _v0.i(0);
-  let _v91 = (0, _v2.forwardRef)(({
+  var _v95 = _v0.i(0);
+  let _v96 = (0, _v2.forwardRef)(({
       isHover: _v0,
       upload: _v1,
       isPaused: _v2,
@@ -2440,14 +2572,15 @@
             activate: () => _v2(!0)
           };
         })(),
-        _v8 = (0, _v90.useIsMobile)(),
+        _v8 = (0, _v95.useIsMobile)(),
         {
           trackUploadModalVideoRemoved: _v9
-        } = _v19(),
-        _v10 = _v1.state === _v4.STATES.COMPLETED;
+        } = _v22(),
+        _v10 = _v1.state === _v7.STATES.COMPLETED,
+        _v11 = _v10 && !!_v1.clipId;
       if (_v10 || _v0 && !_v8 || _v6 && _v8) {
-        let _v0 = _v10 ? _v87.EditPencil : _v36.CloseXCircle,
-          _v1 = _v10 ? (0, _v17.translate)({
+        let _v0 = _v11 ? _v92.EditPencil : _v38.CloseXCircle,
+          _v1 = _v11 ? (0, _v20.translate)({
             singular: "Manage",
             dictionary: {
               es: {
@@ -2472,7 +2605,7 @@
                 singular: "管理"
               }
             }
-          }) : (0, _v17.translate)({
+          }) : (0, _v20.translate)({
             singular: "Clear",
             dictionary: {
               es: {
@@ -2498,7 +2631,7 @@
               }
             }
           }),
-          _v2 = _v10 ? _v0 => {
+          _v2 = _v11 ? _v0 => {
             _v0.stopPropagation(), _v4?.(_v1);
           } : _v0 => {
             _v0.stopPropagation(), _v9(), _v3(_v1);
@@ -2508,11 +2641,11 @@
           style: {
             minWidth: "32px"
           },
-          children: (0, _v1.jsx)(_v13.Tooltip, {
+          children: (0, _v1.jsx)(_v16.Tooltip, {
             label: _v1,
             placement: "top",
             shouldWrapChildren: !0,
-            children: (0, _v1.jsx)(_v9.IconButton, {
+            children: (0, _v1.jsx)(_v12.IconButton, {
               "aria-label": _v1,
               icon: (0, _v1.jsx)(_v0, {
                 color: "text-primary",
@@ -2525,30 +2658,30 @@
           })
         });
       }
-      let _v11 = _v8 ? {
+      let _v12 = _v8 ? {
           onClick: _v7
         } : {},
-        _v12 = null;
+        _v13 = null;
       switch (_v1.state) {
-        case _v4.STATES.FAILED:
-          _v12 = (0, _v1.jsx)(_v35.CircleExclamationFilled, {
+        case _v7.STATES.FAILED:
+          _v13 = (0, _v1.jsx)(_v37.CircleExclamationFilled, {
             boxSize: "xs",
             color: "status-destructive-primary",
-            ..._v11
+            ..._v12
           });
           break;
-        case _v4.STATES.CANCELED:
+        case _v7.STATES.CANCELED:
           break;
         default:
-          if (_v2) _v12 = (0, _v1.jsx)(_v89, {
+          if (_v2) _v13 = (0, _v1.jsx)(_v94, {
             boxSize: "xs"
           });else {
             let _v0 = Math.floor(100 * _v1.bytesUploaded / _v1.initialSize);
-            _v12 = (0, _v1.jsx)(_v86.CircularProgress, {
+            _v13 = (0, _v1.jsx)(_v91.CircularProgress, {
               size: "sm",
               value: _v0,
               color: "text-primary",
-              ..._v11
+              ..._v12
             });
           }
       }
@@ -2557,10 +2690,10 @@
         style: {
           minWidth: "32px"
         },
-        children: _v12
+        children: _v13
       });
     }),
-    _v92 = (_v0, _v1 = 0, _v2 = !1) => {
+    _v97 = (_v0, _v1 = 0, _v2 = !1) => {
       if (null === _v0) return "";
       let _v3 = 0;
       for (_v3 = 0; _v0 >= 0 && _v3 < 4; _v3++) _v0 /= 0;
@@ -2569,7 +2702,7 @@
       let _v5 = _v2 ? " " : "";
       switch (_v4) {
         case "B":
-          return (0, _v17.translate)({
+          return (0, _v20.translate)({
             singular: "{BYTE_SIZE}{SPACE}B",
             replacements: {
               BYTE_SIZE: _v0.toFixed(_v1),
@@ -2577,7 +2710,7 @@
             }
           });
         case "KB":
-          return (0, _v17.translate)({
+          return (0, _v20.translate)({
             singular: "{BYTE_SIZE}{SPACE}KB",
             replacements: {
               BYTE_SIZE: _v0.toFixed(_v1),
@@ -2585,7 +2718,7 @@
             }
           });
         case "MB":
-          return (0, _v17.translate)({
+          return (0, _v20.translate)({
             singular: "{BYTE_SIZE}{SPACE}MB",
             replacements: {
               BYTE_SIZE: _v0.toFixed(_v1),
@@ -2593,7 +2726,7 @@
             }
           });
         case "GB":
-          return (0, _v17.translate)({
+          return (0, _v20.translate)({
             singular: "{BYTE_SIZE}{SPACE}GB",
             replacements: {
               BYTE_SIZE: _v0.toFixed(_v1),
@@ -2601,7 +2734,7 @@
             }
           });
         case "TB":
-          return (0, _v17.translate)({
+          return (0, _v20.translate)({
             singular: "{BYTE_SIZE}{SPACE}TB",
             replacements: {
               BYTE_SIZE: _v0.toFixed(_v1),
@@ -2612,14 +2745,14 @@
           return _v0;
       }
     },
-    _v93 = {
+    _v98 = {
       zIndex: 2,
       backgroundColor: "none",
       cursor: "default"
     },
-    _v94 = "changes-saved-toast",
-    _v95 = "changes-could-not-be-saved-toast",
-    _v96 = ({
+    _v99 = "changes-saved-toast",
+    _v100 = "changes-could-not-be-saved-toast",
+    _v101 = ({
       upload: _v0,
       isDisplayOnly: _v1 = !1,
       isPaused: _v2,
@@ -2638,32 +2771,35 @@
     }) => {
       let {
           trackUploadModalShareClicked: _v15
-        } = _v19(),
-        _v16 = (0, _v75.useToast)(),
-        _v17 = (0, _v2.useRef)(_v16),
-        _v18 = (0, _v2.useRef)(null),
+        } = _v22(),
         {
-          videoPrivacy: _v19,
-          updateVideoPrivacy: _v20,
-          mutate: _v21,
-          isPatchLoading: _v22,
-          patchCalled: _v23,
-          patchData: _v24,
-          patchError: _v25
+          enableUniversalHosting: _v16
+        } = (0, _v43.useUploader)(),
+        _v17 = (0, _v77.useToast)(),
+        _v18 = (0, _v2.useRef)(_v17),
+        _v19 = (0, _v2.useRef)(null),
+        {
+          videoPrivacy: _v20,
+          updateVideoPrivacy: _v21,
+          mutate: _v22,
+          isPatchLoading: _v23,
+          patchCalled: _v24,
+          patchData: _v25,
+          patchError: _v26
         } = (_v0 => {
           let {
               trackPrivacyChanged: _v1
-            } = (0, _v82.useViewPrivacyChangeTracking)(),
+            } = (0, _v85.useViewPrivacyChangeTracking)(),
             [_v2, {
               data: _v3,
               called: _v4,
               loading: _v5,
               error: _v6
-            }] = (0, _v81.usePatchVideo)(),
+            }] = (0, _v84.usePatchVideo)(),
             {
               data: _v7,
               mutate: _v8
-            } = (0, _v81.useGetVideo)(() => _v0 ? {
+            } = (0, _v84.useGetVideo)(() => _v0 ? {
               select: ["name", "privacy.view", "password", "link"],
               where: {
                 videoId: Number(_v0)
@@ -2710,15 +2846,15 @@
             patchError: _v6
           };
         })(_v0.clipId),
-        _v26 = (0, _v2.useCallback)(_v0 => {
-          _v0?.target?.contains(_v18.current) || _v13?.(_v0);
+        _v27 = (0, _v2.useCallback)(_v0 => {
+          _v0?.target?.contains(_v19.current) || _v13?.(_v0);
         }, [_v13, _v0]),
-        _v27 = _v10?.clipId === _v0.clipId && _v10.privacy !== _v19 || _v0.clipId === _v8 && _v9 !== _v19;
+        _v28 = _v10?.clipId === _v0.clipId && _v10.privacy !== _v20 || _v0.clipId === _v8 && _v9 !== _v20;
       (0, _v2.useEffect)(() => {
-        _v23 && !_v22 && (_v25 ? _v17.current.isActive(_v95) || _v17.current({
-          id: _v95,
+        _v24 && !_v23 && (_v26 ? _v18.current.isActive(_v100) || _v18.current({
+          id: _v100,
           duration: 0,
-          title: (0, _v17.translate)({
+          title: (0, _v20.translate)({
             singular: "Changes could not be saved",
             dictionary: {
               es: {
@@ -2744,9 +2880,9 @@
               }
             }
           })
-        }) : _v24 && !_v17.current.isActive(_v94) && _v17.current({
-          id: _v94,
-          title: (0, _v17.translate)({
+        }) : _v25 && !_v18.current.isActive(_v99) && _v18.current({
+          id: _v99,
+          title: (0, _v20.translate)({
             singular: "Changes saved",
             dictionary: {
               es: {
@@ -2774,19 +2910,19 @@
           }),
           duration: 0
         }));
-      }, [_v23, _v24, _v25, _v22]), (0, _v2.useEffect)(() => {
-        _v27 && _v21();
-      }, [_v27, _v21]), (0, _v2.useEffect)(() => {
-        _v0.clipId && _v6 && _v19 !== _v6 && _v20(_v6, _v7);
+      }, [_v24, _v25, _v26, _v23]), (0, _v2.useEffect)(() => {
+        _v28 && _v22();
+      }, [_v28, _v22]), (0, _v2.useEffect)(() => {
+        _v0.clipId && _v6 && _v20 !== _v6 && _v21(_v6, _v7);
       }, [_v6, _v0.clipId, _v7]);
       let {
-          isOpen: _v28,
-          onOpen: _v29,
-          onClose: _v30
-        } = (0, _v14.useDisclosure)(),
-        _v31 = (0, _v2.useMemo)(() => {
+          isOpen: _v29,
+          onOpen: _v30,
+          onClose: _v31
+        } = (0, _v17.useDisclosure)(),
+        _v32 = (0, _v2.useMemo)(() => {
           let _v0 = "";
-          if (_v3 || _v0.state === _v4.STATES.CANCELED) _v0 = (0, _v17.translate)({
+          if (_v3 || _v0.state === _v7.STATES.CANCELED) _v0 = (0, _v20.translate)({
             singular: "Canceled",
             dictionary: {
               es: {
@@ -2811,7 +2947,7 @@
                 singular: "已取消"
               }
             }
-          });else if (_v2 && _v0.state !== _v4.STATES.COMPLETED) _v0 = (0, _v17.translate)({
+          });else if (_v2 && _v0.state !== _v7.STATES.COMPLETED) _v0 = (0, _v20.translate)({
             singular: "Paused",
             dictionary: {
               es: {
@@ -2837,10 +2973,10 @@
               }
             }
           });else switch (_v0.state) {
-            case _v4.STATES.UPLOADING:
+            case _v7.STATES.UPLOADING:
               if (void 0 !== _v5) {
                 let _v0 = Math.floor(100 * _v0.bytesUploaded / _v0.initialSize);
-                if (_v5 < 2) _v0 = _v0 > 75 ? (0, _v17.translate)({
+                if (_v5 < 2) _v0 = _v0 > 75 ? (0, _v20.translate)({
                   singular: "Almost done",
                   dictionary: {
                     es: {
@@ -2865,7 +3001,7 @@
                       singular: "即将完成"
                     }
                   }
-                }) : (0, _v17.translate)({
+                }) : (0, _v20.translate)({
                   singular: "Starting",
                   dictionary: {
                     es: {
@@ -2891,9 +3027,9 @@
                     }
                   }
                 });else {
-                  let _v0 = _v92(_v0.bytesUploaded, 1, !0),
-                    _v1 = _v92(_v0.initialSize, 1, !0);
-                  _v0 = (0, _v17.translate)({
+                  let _v0 = _v97(_v0.bytesUploaded, 1, !0),
+                    _v1 = _v97(_v0.initialSize, 1, !0);
+                  _v0 = (0, _v20.translate)({
                     singular: "{UPLOADED_SIZE} / {TOTAL_SIZE} - {ETA} left",
                     replacements: {
                       UPLOADED_SIZE: _v0,
@@ -2934,8 +3070,8 @@
                 }
               }
               break;
-            case _v4.STATES.COMPLETED:
-              _v0 = (0, _v17.translate)({
+            case _v7.STATES.COMPLETED:
+              _v0 = (0, _v20.translate)({
                 singular: "Complete",
                 dictionary: {
                   es: {
@@ -2962,8 +3098,8 @@
                 }
               });
               break;
-            case _v4.STATES.ATTACHING:
-              _v0 = (0, _v17.translate)({
+            case _v7.STATES.ATTACHING:
+              _v0 = (0, _v20.translate)({
                 singular: "Attaching",
                 dictionary: {
                   es: {
@@ -2990,8 +3126,8 @@
                 }
               });
               break;
-            case _v4.STATES.STARTING:
-              _v0 = (0, _v17.translate)({
+            case _v7.STATES.STARTING:
+              _v0 = (0, _v20.translate)({
                 singular: "Starting",
                 dictionary: {
                   es: {
@@ -3018,8 +3154,8 @@
                 }
               });
               break;
-            case _v4.STATES.FAILED:
-              _v0 = (0, _v17.translate)({
+            case _v7.STATES.FAILED:
+              _v0 = (0, _v20.translate)({
                 singular: "Error",
                 dictionary: {
                   "de-DE": {
@@ -3044,7 +3180,7 @@
               });
               break;
             default:
-              _v0 = (0, _v17.translate)({
+              _v0 = (0, _v20.translate)({
                 singular: "Waiting",
                 dictionary: {
                   es: {
@@ -3072,41 +3208,46 @@
               });
           }
           return _v0;
-        }, [_v3, _v0.state, _v0.bytesUploaded, _v0.initialSize, _v2, _v5, _v19]);
-      return (0, _v1.jsx)(_v8.Flex, {
-        backgroundColor: _v28 ? "fill-component-hover" : "",
+        }, [_v3, _v0.state, _v0.bytesUploaded, _v0.initialSize, _v2, _v5, _v20]),
+        _v33 = _v0.uploadType === _v7.TYPES.FILE,
+        _v34 = _v0.file instanceof File ? _v0.file.type : void 0,
+        _v35 = _v33 ? (0, _v82.getContentTypeCategory)(_v34) : "video";
+      return (0, _v1.jsx)(_v11.Flex, {
+        backgroundColor: _v29 ? "fill-component-hover" : "",
         px: "md",
         py: "xs",
         flexDirection: "column",
-        children: (0, _v1.jsxs)(_v8.Flex, {
-          as: _v73.motion.div,
-          onClick: !_v4 && (0, _v74.default)(_v13) ? _v26 : void 0,
+        children: (0, _v1.jsxs)(_v11.Flex, {
+          as: _v75.motion.div,
+          onClick: !_v4 && (0, _v76.default)(_v13) ? _v27 : void 0,
           alignItems: "center",
           cursor: "pointer",
           gap: "sm",
-          height: (0, _v12.rem)(42),
+          height: (0, _v15.rem)(42),
           justifyContent: "space-between",
           transition: {
-            transform: !_v4 && (0, _v74.default)(_v13) ? "100ms ease-in-out" : void 0
+            transform: !_v4 && (0, _v76.default)(_v13) ? "100ms ease-in-out" : void 0
           },
           sx: {
-            ...(_v4 ? _v93 : {})
+            ...(_v4 ? _v98 : {})
           },
-          onMouseEnter: _v29,
-          onMouseLeave: _v30,
-          children: [(0, _v1.jsx)(_v85, {
+          onMouseEnter: _v30,
+          onMouseLeave: _v31,
+          children: [_v33 ? (0, _v1.jsx)(_v87, {
+            category: _v35
+          }) : (0, _v1.jsx)(_v90, {
             upload: _v0
-          }), (0, _v1.jsxs)(_v76.Box, {
+          }), (0, _v1.jsxs)(_v78.Box, {
             overflow: "hidden",
             width: "100%",
-            children: [(0, _v1.jsx)(_v77.Header, {
+            children: [(0, _v1.jsx)(_v79.Header, {
               className: "embeddable-uploader-file-name",
               overflow: "hidden",
               textOverflow: "ellipsis",
               whiteSpace: "nowrap",
               size: "xs",
-              children: _v0.file.name.replace(_v80, "")
-            }), (0, _v1.jsxs)(_v8.Flex, {
+              children: _v0.file.name.replace(_v83, "")
+            }), (0, _v1.jsxs)(_v11.Flex, {
               display: "flex",
               justifyContent: "flex-start",
               alignItems: "flex-start",
@@ -3114,48 +3255,48 @@
               height: "auto",
               margin: "0 auto",
               flexWrap: "wrap",
-              children: [_v0.state !== _v4.STATES.FAILED ? _v22 ? (0, _v1.jsx)(_v78.Skeleton, {
+              children: [_v0.state !== _v7.STATES.FAILED ? _v23 ? (0, _v1.jsx)(_v80.Skeleton, {
                 mt: "xs",
-                width: (0, _v12.rem)(50),
-                height: (0, _v12.rem)(12),
+                width: (0, _v15.rem)(50),
+                height: (0, _v15.rem)(12),
                 variant: "text"
-              }) : (0, _v1.jsx)(_v1.Fragment, {
-                children: _v0.state === _v4.STATES.COMPLETED ? (0, _v1.jsxs)(_v11.Text, {
-                  variant: "body-sm",
-                  className: "embeddable-uploader-progress-text",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: (0, _v12.rem)(3),
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                  children: [(0, _v1.jsx)(_v79.CircleCheckFilled, {
-                    color: "text-primary",
-                    boxSize: "2xs",
-                    flexShrink: 0
-                  }), _v31]
-                }) : (0, _v1.jsx)(_v11.Text, {
-                  variant: "body-sm",
-                  className: "embeddable-uploader-progress-text",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                  children: _v31
-                })
-              }) : null, _v0.state === _v4.STATES.FAILED && (0, _v1.jsx)(_v8.Flex, {
-                children: (0, _v1.jsx)(_v83, {
+              }) : _v0.state === _v7.STATES.COMPLETED || _v16 ? (0, _v1.jsxs)(_v14.Text, {
+                variant: "body-sm",
+                className: "embeddable-uploader-progress-text",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: (0, _v15.rem)(3),
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+                children: [_v0.state === _v7.STATES.COMPLETED ? (0, _v1.jsx)(_v81.CircleCheckFilled, {
+                  color: "text-primary",
+                  boxSize: "2xs",
+                  flexShrink: 0
+                }) : (0, _v1.jsx)(_v88, {
+                  category: _v35
+                }), _v32]
+              }) : (0, _v1.jsx)(_v14.Text, {
+                variant: "body-sm",
+                className: "embeddable-uploader-progress-text",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+                children: _v32
+              }) : null, _v0.state === _v7.STATES.FAILED && (0, _v1.jsx)(_v11.Flex, {
+                children: (0, _v1.jsx)(_v86, {
                   upload: _v0
                 })
               })]
             })]
           }), !_v1 && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [_v0.clipId && (0, _v1.jsx)(_v24.Button, {
+            children: [_v0.clipId && (0, _v1.jsx)(_v26.Button, {
               variant: "secondary",
               size: "sm",
               onClick: _v0 => {
                 _v0.stopPropagation(), _v15(), _v12?.(_v0);
               },
-              children: (0, _v17.translate)({
+              children: (0, _v20.translate)({
                 singular: "Share",
                 dictionary: {
                   es: {
@@ -3181,9 +3322,9 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v91, {
-              ref: _v18,
-              isHover: _v28,
+            }), (0, _v1.jsx)(_v96, {
+              ref: _v19,
+              isHover: _v29,
               upload: _v0,
               isPaused: _v2,
               clearUpload: _v11,
@@ -3193,7 +3334,7 @@
         })
       });
     };
-  function _v97({
+  function _v102({
     uploads: _v0,
     isDisplayOnly: _v1 = !1,
     isPaused: _v2,
@@ -3209,7 +3350,10 @@
     clipId: _v12,
     clipPrivacy: _v13
   }) {
-    return (0, _v1.jsx)(_v8.Flex, {
+    let {
+      enableUniversalHosting: _v14
+    } = (0, _v43.useUploader)();
+    return (0, _v1.jsx)(_v11.Flex, {
       role: "list",
       tabIndex: 0,
       gap: "sm",
@@ -3217,11 +3361,12 @@
       maxHeight: "calc(100vh - 17rem)",
       overflowX: "hidden",
       overflowY: "auto",
-      maxWidth: (0, _v12.rem)(466),
+      width: _v14 ? "100%" : void 0,
+      maxWidth: (0, _v15.rem)(466),
       paddingBottom: "md",
       paddingTop: _v1 ? "md" : void 0,
-      children: _v0.map(_v0 => (0, _v1.jsx)(_v96, {
-        disabled: !_v0.clipId || _v0.state === _v4.STATES.CANCELED || _v0.state === _v4.STATES.FAILED,
+      children: _v0.map(_v0 => (0, _v1.jsx)(_v101, {
+        disabled: !_v0.clipId && _v0.uploadType !== _v7.TYPES.FILE || _v0.state === _v7.STATES.CANCELED || _v0.state === _v7.STATES.FAILED,
         upload: _v0,
         isPaused: _v2,
         isDisplayOnly: _v1,
@@ -3239,12 +3384,12 @@
       }, _v0.id))
     });
   }
-  let _v98 = "UPLOADER_STATE_UPDATE",
-    _v99 = "SET_HIDE_ROWS",
-    _v100 = "SET_IS_CANCELING",
-    _v101 = "SET_SHOW_UPLOAD_CONTROLS",
-    _v102 = "RESET",
-    _v103 = {
+  let _v103 = "UPLOADER_STATE_UPDATE",
+    _v104 = "SET_HIDE_ROWS",
+    _v105 = "SET_IS_CANCELING",
+    _v106 = "SET_SHOW_UPLOAD_CONTROLS",
+    _v107 = "RESET",
+    _v108 = {
       hideRows: !1,
       isCanceling: !1,
       isCanceled: !1,
@@ -3254,14 +3399,14 @@
       transcoding: !1,
       error: ""
     };
-  function _v104(_v0, _v1) {
+  function _v109(_v0, _v1) {
     switch (_v1.type) {
-      case _v99:
+      case _v104:
         return {
           ..._v0,
           hideRows: _v1.payload
         };
-      case _v100:
+      case _v105:
         return {
           ..._v0,
           isCanceling: _v1.payload
@@ -3271,7 +3416,7 @@
           ..._v0,
           showDropdown: _v1.payload
         };
-      case _v101:
+      case _v106:
         return {
           ..._v0,
           showUploadControls: _v1.payload
@@ -3281,7 +3426,7 @@
           ..._v0,
           error: _v1.payload
         };
-      case _v98:
+      case _v103:
         return {
           ..._v0,
           ..._v1.payload
@@ -3291,170 +3436,232 @@
           ..._v0,
           transcoding: _v1.payload
         };
-      case _v102:
-        return _v103;
+      case _v107:
+        return _v108;
       default:
         return console.warn(`ProgressWidget does not recognize the action type ${_v1.type}`), _v0;
     }
   }
-  function _v105({
+  function _v110({
     privacyOptions: _v0,
-    showPrivacySettings: _v1 = !0,
-    page: _v2 = "",
-    clipId: _v3,
-    revalidatePrivacy: _v4,
-    getPrivacyState: _v5,
-    onClose: _v6,
-    onPrivacyUpsellClick: _v7,
-    onShareClick: _v8,
-    onUploadClick: _v9,
-    onEditClick: _v10,
-    setPrivacy: _v11,
-    defaultFolderId: _v12,
-    showEmbedToggle: _v13,
-    isEmbeddable: _v14,
-    onEmbedToggle: _v15,
-    isDisplayOnly: _v16 = !1,
-    uploadSurface: _v17
+    filePrivacyOptions: _v1,
+    onFilePrivacyChange: _v2,
+    showPrivacySettings: _v3 = !0,
+    page: _v4 = "",
+    clipId: _v5,
+    revalidatePrivacy: _v6,
+    getPrivacyState: _v7,
+    onClose: _v8,
+    onPrivacyUpsellClick: _v9,
+    onShareClick: _v10,
+    onUploadClick: _v11,
+    onEditClick: _v12,
+    setPrivacy: _v13,
+    defaultFolderId: _v14,
+    showEmbedToggle: _v15,
+    isEmbeddable: _v16,
+    onEmbedToggle: _v17,
+    isDisplayOnly: _v18 = !1,
+    uploadSurface: _v19
   }) {
-    let _v18,
+    let _v20,
       [{
-        hideRows: _v19,
-        isCanceling: _v20,
-        isCanceled: _v21,
-        isComplete: _v22,
-        showUploadControls: _v23,
-        transcoding: _v24
-      }, _v25] = (0, _v2.useReducer)(_v104, _v103),
-      _v26 = (0, _v20.useViewer)(),
-      _v27 = (0, _v2.useRef)(void 0),
-      [_v28, _v29] = (0, _v2.useState)(""),
-      [_v30, _v31] = (0, _v2.useState)(void 0),
+        hideRows: _v21,
+        isCanceling: _v22,
+        isCanceled: _v23,
+        isComplete: _v24,
+        showUploadControls: _v25,
+        transcoding: _v26
+      }, _v27] = (0, _v2.useReducer)(_v109, _v108),
+      _v28 = (0, _v4.useViewer)(),
+      _v29 = (0, _v2.useRef)(void 0),
+      [_v30, _v31] = (0, _v2.useState)(""),
+      [_v32, _v33] = (0, _v2.useState)(""),
+      [_v34, _v35] = (0, _v2.useState)(void 0),
       {
-        isOpen: _v32,
-        onOpen: _v33,
-        onClose: _v34
-      } = (0, _v14.useDisclosure)(),
+        isOpen: _v36,
+        onOpen: _v37,
+        onClose: _v38
+      } = (0, _v17.useDisclosure)(),
       {
-        isOpen: _v35,
-        onOpen: _v36,
-        onClose: _v37
-      } = (0, _v14.useDisclosure)(),
+        isOpen: _v39,
+        onOpen: _v40,
+        onClose: _v41
+      } = (0, _v17.useDisclosure)(),
       {
-        uploads: _v38,
-        uploaderSummary: _v39,
-        cancelAll: _v40,
-        clearAll: _v41,
-        resumeAll: _v42,
-        pauseAll: _v43,
-        clear: _v44,
-        upload: _v45
-      } = (0, _v41.useUploader)(),
+        uploads: _v42,
+        uploaderSummary: _v43,
+        cancelAll: _v44,
+        clearAll: _v45,
+        resumeAll: _v46,
+        pauseAll: _v47,
+        clear: _v48,
+        upload: _v49
+      } = (0, _v43.useUploader)(),
       {
-        trackUploadModalMinimizeClicked: _v46,
-        trackUploadModalDismissed: _v47,
-        trackUploadModalPrivacyChanged: _v48
-      } = _v19(),
+        trackUploadModalMinimizeClicked: _v50,
+        trackUploadModalDismissed: _v51,
+        trackUploadModalPrivacyChanged: _v52
+      } = _v22(),
       {
-        activeCount: _v49,
-        canceledCount: _v50,
-        completeCount: _v51,
-        failedCount: _v52,
-        isPaused: _v53,
-        eta: _v54
-      } = _v39,
-      _v55 = _v38.reduce((_v0, _v1) => _v0 || _v1.state === _v4.STATES.UPLOADING, !1),
-      _v56 = (0, _v2.useMemo)(() => {
-        let _v0 = _v38.filter(_v0 => _v0.state !== _v4.STATES.CANCELED && _v0.state !== _v4.STATES.FAILED),
+        activeCount: _v53,
+        canceledCount: _v54,
+        completeCount: _v55,
+        failedCount: _v56,
+        isPaused: _v57,
+        eta: _v58
+      } = _v43,
+      _v59 = _v42.reduce((_v0, _v1) => _v0 || _v1.state === _v7.STATES.UPLOADING, !1),
+      _v60 = (0, _v2.useMemo)(() => {
+        let _v0 = _v42.filter(_v0 => _v0.state !== _v7.STATES.CANCELED && _v0.state !== _v7.STATES.FAILED),
           _v1 = _v0.length > 0 && _v0.every(_v0 => !!_v0.clipId);
-        return _v22 || _v1;
-      }, [_v38, _v22]),
-      _v57 = (0, _v2.useMemo)(() => _v38.some(_v0 => !!_v0.clipId), [_v38]),
-      _v58 = _v28 || _v5().view || "",
-      _v59 = _v23(),
-      _v60 = (0, _v2.useCallback)(() => {
-        _v47(), "function" == typeof _v6 && _v6(), _v25({
-          type: _v102
-        }), _v41(), _v37();
-      }, [_v41, _v37, _v6, _v47]),
-      _v61 = (0, _v2.useCallback)(() => {
-        _v25({
-          type: _v100,
-          payload: !_v20
+        return _v24 || _v1;
+      }, [_v42, _v24]),
+      _v61 = (0, _v2.useMemo)(() => _v42.some(_v0 => !!_v0.clipId), [_v42]),
+      _v62 = (0, _v2.useMemo)(() => _v42.filter(_v0 => _v0.uploadType === _v7.TYPES.FILE), [_v42]),
+      _v63 = (0, _v2.useMemo)(() => _v42.filter(_v0 => _v0.uploadType !== _v7.TYPES.FILE), [_v42]),
+      _v64 = _v62.length > 0,
+      _v65 = _v64 && _v63.length > 0,
+      _v66 = _v30 || _v7().view || "",
+      _v67 = _v25(),
+      _v68 = (0, _v2.useCallback)(() => {
+        _v51(), "function" == typeof _v8 && _v8(), _v27({
+          type: _v107
+        }), _v45(), _v41();
+      }, [_v45, _v41, _v8, _v51]),
+      _v69 = (0, _v2.useCallback)(() => {
+        _v27({
+          type: _v105,
+          payload: !_v22
         });
-      }, [_v20]),
-      _v62 = (0, _v2.useCallback)(() => {
-        _v19 || _v46(), _v25({
-          type: _v99,
-          payload: !_v19
+      }, [_v22]),
+      _v70 = (0, _v2.useCallback)(() => {
+        _v21 || _v50(), _v27({
+          type: _v104,
+          payload: !_v21
         });
-      }, [_v19, _v46]),
-      _v63 = (0, _v2.useCallback)(() => _v25({
-        type: _v100,
+      }, [_v21, _v50]),
+      _v71 = (0, _v2.useCallback)(() => _v27({
+        type: _v105,
         payload: !1
       }), []),
-      _v64 = (0, _v2.useCallback)(_v0 => {
-        _v44(_v0);
-      }, [_v44]),
-      _v65 = (0, _v2.useCallback)(_v0 => {
-        0 === _v39.activeCount && _v41(), _v45(_v0, {
-          targetUserId: _v26?.teamUser?.ownerId,
-          folderId: _v12,
-          origin: _v17 ? {
+      _v72 = (0, _v2.useCallback)(_v0 => {
+        _v48(_v0);
+      }, [_v48]),
+      _v73 = (0, _v2.useCallback)(_v0 => {
+        0 === _v43.activeCount && _v45(), _v49(_v0, {
+          targetUserId: _v28?.teamUser?.ownerId,
+          folderId: _v14,
+          origin: _v19 ? {
             isDropzone: !1,
-            surface: _v17
+            surface: _v19
           } : void 0
         });
-      }, [_v41, _v12, _v45, _v17, _v39.activeCount, _v26?.teamUser?.ownerId]),
-      _v66 = (0, _v2.useCallback)(_v0 => {
-        _v48({
+      }, [_v45, _v14, _v49, _v19, _v43.activeCount, _v28?.teamUser?.ownerId]),
+      _v74 = (0, _v2.useCallback)(_v0 => {
+        _v52({
           uploadModalPrivacyNewValue: _v0
         });
-        let _v1 = _v5(),
+        let _v1 = _v7(),
           _v2 = _v0.find(_v0 => _v0.privacy === _v0);
-        _v2 && !_v2?.showUpsell && ("password" !== _v0 && (_v31(void 0), _v29(_v0)), "password" === _v0 ? _v33() : (_v1 = {
+        _v2 && !_v2?.showUpsell && ("password" !== _v0 && (_v35(void 0), _v31(_v0)), "password" === _v0 ? _v37() : (_v1 = {
           ..._v1,
           password: ""
-        }, _v34(), _v57 && _v11({
+        }, _v38(), _v61 && _v13({
           ..._v1,
           view: _v0
         })));
-      }, [_v57, _v0, _v5, _v11, _v34, _v33, _v48]),
-      _v67 = (0, _v2.useCallback)(() => {
-        _v63(), _v40(), _v5.BigPictureClient.sendEvent(new _v5.Event("vimeo.click", 140, {
+      }, [_v61, _v0, _v7, _v13, _v38, _v37, _v52]),
+      _v75 = (0, _v2.useCallback)(_v0 => {
+        _v33(_v0), _v2?.(_v0);
+      }, [_v2]),
+      _v76 = (0, _v2.useCallback)(() => {
+        _v71(), _v44(), _v8.BigPictureClient.sendEvent(new _v8.Event("vimeo.click", 140, {
           copy: null,
           feature: "embeddable_uploader",
           location: "embeddable_uploader",
           name: "cancel_upload",
-          page: _v2,
+          page: _v4,
           target: null,
           type: "general",
           target_path: null,
           click_type: "click",
-          device_type: _v65(),
+          device_type: _v67(),
           path: window.location.pathname,
           third_party_integration: null
         }));
-      }, [_v40, _v63, _v2]);
-    return (0, _v2.useEffect)(() => {
-      _v52 > 0 && _v36();
-      let _v0 = 0 === _v52 && 0 === _v49 && _v51 > 0,
-        _v1 = _v38.length > 0 && _v50 === _v38.length;
-      _v27.current && (window.clearTimeout(_v27.current), _v27.current = void 0), (_v21 !== _v1 || _v22 !== _v0) && _v25({
-        type: _v98,
+      }, [_v44, _v71, _v4]);
+    (0, _v2.useEffect)(() => {
+      _v56 > 0 && _v40();
+      let _v0 = 0 === _v56 && 0 === _v53 && _v55 > 0,
+        _v1 = _v42.length > 0 && _v54 === _v42.length;
+      _v29.current && (window.clearTimeout(_v29.current), _v29.current = void 0), (_v23 !== _v1 || _v24 !== _v0) && _v27({
+        type: _v103,
         payload: {
           isComplete: _v0,
           isCanceled: _v1,
           showUploadControls: !(_v0 || _v1)
         }
-      }), _v49 > 0 ? (_v37(), _v25({
-        type: _v101,
+      }), _v53 > 0 ? (_v41(), _v27({
+        type: _v106,
         payload: !0
-      })) : (_v36(), _v25({
-        type: _v101,
+      })) : (_v40(), _v27({
+        type: _v106,
         payload: !1
       }));
-    }, [_v49, _v50, _v51, _v52, _v21, _v22, _v23, _v38.length, _v36, _v37]), (0, _v1.jsxs)(_v8.Flex, {
+    }, [_v53, _v54, _v55, _v56, _v23, _v24, _v25, _v42.length, _v40, _v41]);
+    let _v77 = (_v0, _v1, _v2) => (0, _v1.jsx)(_v59, {
+        isDisabled: !_v3 || 0 === _v0.length,
+        onSelectionChange: _v2,
+        privacyOptions: _v0,
+        onPrivacyUpsellClick: _v9,
+        dropdownPrivacy: _v1
+      }),
+      _v78 = _v0 => _v25 ? (0, _v1.jsx)(_v16.Tooltip, {
+        label: _v67.moreActions,
+        children: (0, _v1.jsx)(_v11.Flex, {
+          alignItems: "center",
+          position: "relative",
+          children: (0, _v1.jsx)(_v68, {
+            isCanceling: _v22,
+            isPaused: _v57,
+            isUploading: _v59,
+            pauseAll: _v47,
+            resumeAll: _v46,
+            toggleIsCanceling: _v69,
+            page: _v4,
+            showPauseResume: _v0
+          })
+        })
+      }) : (0, _v1.jsx)(_v16.Tooltip, {
+        label: _v67.uploadMore,
+        children: (0, _v1.jsx)(_v11.Flex, {
+          children: (0, _v1.jsx)(_v71, {
+            onUpload: _v73
+          })
+        })
+      }),
+      _v79 = _v0 => (0, _v1.jsx)(_v11.Flex, {
+        alignItems: "center",
+        justifyContent: "space-between",
+        children: (0, _v1.jsx)(_v102, {
+          dropdownPrivacy: _v30,
+          isDisplayOnly: _v18,
+          revalidatePrivacy: _v6,
+          password: "password" === _v30 ? _v34 ?? _v7().password : void 0,
+          uploads: _v0,
+          isPaused: _v57,
+          isCanceled: _v23,
+          onUploadClick: _v11,
+          onEditClick: _v12,
+          clearUpload: _v72,
+          onShareClick: _v10,
+          uploadEta: _v58,
+          clipId: _v5,
+          clipPrivacy: _v7()?.view
+        })
+      });
+    return (0, _v1.jsxs)(_v11.Flex, {
       className: "embeddable-uploader-progress-toast",
       position: "relative",
       zIndex: "10",
@@ -3463,68 +3670,114 @@
       backdropFilter: "blur(var(--vimeo-blur-lg))",
       borderRadius: "md",
       boxShadow: "var(--vimeo-shadows-md)",
-      width: (0, _v12.rem)(400),
-      minHeight: (0, _v12.rem)(45),
+      width: (0, _v15.rem)(400),
+      minHeight: (0, _v15.rem)(45),
       maxHeight: "calc(100vh - 15rem)",
       overflow: "hidden",
-      children: [(0, _v1.jsxs)(_v8.Flex, {
+      children: [(0, _v1.jsxs)(_v11.Flex, {
         alignItems: "center",
         padding: "sm",
         paddingLeft: "md",
         justifyContent: "space-between",
-        children: [(0, _v1.jsx)(_v44, {
-          transcoding: _v24,
-          hideLocation: _v16
-        }), (0, _v1.jsxs)(_v8.Flex, {
+        children: [(0, _v1.jsx)(_v46, {
+          transcoding: _v26,
+          hideLocation: _v18
+        }), (0, _v1.jsxs)(_v11.Flex, {
           alignItems: "center",
-          children: [(0, _v1.jsx)(_v13.Tooltip, {
-            label: _v19 ? _v59.expand : _v59.minimize,
-            children: (0, _v1.jsx)(_v9.IconButton, {
-              "aria-label": _v19 ? _v59.showDialog : _v59.hideDialog,
-              onClick: _v62,
-              icon: _v19 ? (0, _v1.jsx)(_v16.ChevronUp, {
-                boxSize: (0, _v12.rem)(20)
-              }) : (0, _v1.jsx)(_v15.ChevronDown, {
-                boxSize: (0, _v12.rem)(20)
+          children: [(0, _v1.jsx)(_v16.Tooltip, {
+            label: _v21 ? _v67.expand : _v67.minimize,
+            children: (0, _v1.jsx)(_v12.IconButton, {
+              "aria-label": _v21 ? _v67.showDialog : _v67.hideDialog,
+              onClick: _v70,
+              icon: _v21 ? (0, _v1.jsx)(_v19.ChevronUp, {
+                boxSize: (0, _v15.rem)(20)
+              }) : (0, _v1.jsx)(_v18.ChevronDown, {
+                boxSize: (0, _v15.rem)(20)
               }),
               variant: "tertiary",
               color: "text-primary"
             })
-          }), _v35 && (0, _v1.jsx)(_v13.Tooltip, {
-            label: _v59.close,
-            children: (0, _v1.jsx)(_v8.Flex, {
-              children: (0, _v1.jsx)(_v6.CloseButton, {
+          }), _v39 && (0, _v1.jsx)(_v16.Tooltip, {
+            label: _v67.close,
+            children: (0, _v1.jsx)(_v11.Flex, {
+              children: (0, _v1.jsx)(_v9.CloseButton, {
                 color: "text-primary",
                 id: "progress-toast-dismiss-button",
                 size: "sm",
                 variant: "tertiary",
-                onClick: () => _v60(),
-                "aria-label": _v59.closeDialog
+                onClick: () => _v68(),
+                "aria-label": _v67.closeDialog
               })
             })
           })]
         })]
-      }), (0, _v1.jsx)(_v8.Flex, {
+      }), (0, _v1.jsx)(_v11.Flex, {
         paddingLeft: "sm",
         paddingRight: "sm",
         width: "100%",
-        children: (0, _v1.jsx)(_v59, {
-          transcoding: _v24
+        children: (0, _v1.jsx)(_v61, {
+          transcoding: _v26
         })
-      }), !_v16 && !_v19 && (0, _v1.jsxs)(_v8.Flex, {
+      }), !_v21 && !_v18 && _v65 && (0, _v1.jsxs)(_v11.Flex, {
+        flexDirection: "column",
+        width: "100%",
+        children: [(0, _v1.jsxs)(_v11.Flex, {
+          alignItems: "center",
+          padding: "md",
+          paddingRight: "sm",
+          justifyContent: "space-between",
+          width: "100%",
+          role: "toolbar",
+          children: [(0, _v1.jsxs)(_v11.Flex, {
+            alignItems: "baseline",
+            gap: "xs",
+            children: [(0, _v1.jsx)(_v14.Text, {
+              variant: "heading-sm",
+              color: "text-primary",
+              children: _v67.videos
+            }), (0, _v1.jsx)(_v14.Text, {
+              variant: "body-sm",
+              color: "text-secondary",
+              children: _v67.sectionCount(_v63.length)
+            })]
+          }), (0, _v1.jsxs)(_v11.Flex, {
+            alignItems: "center",
+            gap: "sm",
+            children: [_v77(_v0, _v66, _v74), _v78(!0)]
+          })]
+        }), _v79(_v63), (0, _v1.jsxs)(_v11.Flex, {
+          alignItems: "center",
+          padding: "md",
+          paddingRight: "sm",
+          justifyContent: "space-between",
+          width: "100%",
+          role: "toolbar",
+          children: [(0, _v1.jsxs)(_v11.Flex, {
+            alignItems: "baseline",
+            gap: "xs",
+            children: [(0, _v1.jsx)(_v14.Text, {
+              variant: "heading-sm",
+              color: "text-primary",
+              children: _v67.otherFiles
+            }), (0, _v1.jsx)(_v14.Text, {
+              variant: "body-sm",
+              color: "text-secondary",
+              children: _v67.sectionCount(_v62.length)
+            })]
+          }), (0, _v1.jsxs)(_v11.Flex, {
+            alignItems: "center",
+            gap: "sm",
+            children: [_v77(_v1, _v32, _v75), _v78(!1)]
+          })]
+        }), _v79(_v62)]
+      }), !_v21 && !_v18 && !_v65 && (0, _v1.jsxs)(_v11.Flex, {
         alignItems: "center",
         padding: "md",
         paddingRight: "sm",
         justifyContent: "space-between",
         width: "100%",
         role: "toolbar",
-        children: [(0, _v1.jsx)(_v57, {
-          isDisabled: !_v1 || 0 === _v0.length,
-          onSelectionChange: _v66,
-          privacyOptions: _v0,
-          onPrivacyUpsellClick: _v7,
-          dropdownPrivacy: _v58
-        }), _v13 && (_v18 = !_v56, (0, _v1.jsxs)(_v8.Flex, {
+        children: [_v77(_v64 ? _v1 : _v0, _v64 ? _v32 : _v66, _v64 ? _v75 : _v74), _v15 && !_v64 && (_v20 = !_v60, (0, _v1.jsxs)(_v11.Flex, {
           alignItems: "center",
           gap: "xs",
           paddingX: "sm",
@@ -3534,14 +3787,14 @@
           outlineColor: "input-stroke",
           outlineOffset: "-1px",
           borderRadius: "md",
-          opacity: _v18 ? .5 : 1,
-          cursor: _v18 ? "not-allowed" : "default",
-          _hover: _v18 ? void 0 : {
+          opacity: _v20 ? .5 : 1,
+          cursor: _v20 ? "not-allowed" : "default",
+          _hover: _v20 ? void 0 : {
             outlineColor: "input-stroke-hover"
           },
-          children: [(0, _v1.jsx)(_v11.Text, {
+          children: [(0, _v1.jsx)(_v14.Text, {
             variant: "body-md",
-            children: (0, _v17.translate)({
+            children: (0, _v20.translate)({
               singular: "Embeddable",
               dictionary: {
                 es: {
@@ -3567,12 +3820,12 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v10.Switch, {
+          }), (0, _v1.jsx)(_v13.Switch, {
             size: "sm",
-            isChecked: _v14 ?? !1,
-            isDisabled: _v18,
-            onChange: _v15,
-            "aria-label": (0, _v17.translate)({
+            isChecked: _v16 ?? !1,
+            isDisabled: _v20,
+            onChange: _v17,
+            "aria-label": (0, _v20.translate)({
               singular: "Toggle embeddable",
               dictionary: {
                 es: {
@@ -3599,70 +3852,48 @@
               }
             })
           })]
-        })), _v32 && (0, _v1.jsx)(_v48, {
-          value: _v30,
-          isShowing: _v32,
-          onClose: _v34,
+        })), _v36 && (0, _v1.jsx)(_v50, {
+          value: _v34,
+          isShowing: _v36,
+          onClose: _v38,
           onConfirm: _v0 => {
-            _v31(_v0.password), _v34(), _v29("password"), _v11 && _v57 && _v11?.(_v0);
+            _v35(_v0.password), _v38(), _v31("password"), _v13 && _v61 && _v13?.(_v0);
           },
           maxLength: 32
-        }), _v23 ? (0, _v1.jsx)(_v13.Tooltip, {
-          label: _v59.moreActions,
-          children: (0, _v1.jsx)(_v8.Flex, {
-            alignItems: "center",
-            position: "relative",
-            children: (0, _v1.jsx)(_v66, {
-              isCanceling: _v20,
-              isPaused: _v53,
-              isUploading: _v55,
-              pauseAll: _v43,
-              resumeAll: _v42,
-              toggleIsCanceling: _v61,
-              page: _v2
-            })
-          })
-        }) : (0, _v1.jsx)(_v13.Tooltip, {
-          label: _v59.uploadMore,
-          children: (0, _v1.jsx)(_v8.Flex, {
-            children: (0, _v1.jsx)(_v69, {
-              onUpload: _v65
-            })
-          })
-        })]
-      }), _v20 && (0, _v1.jsx)(_v30, {
-        onCancel: _v63,
-        onDelete: _v67
-      }), (0, _v1.jsx)(_v8.Flex, {
+        }), _v78(!_v64)]
+      }), _v22 && (0, _v1.jsx)(_v32, {
+        onCancel: _v71,
+        onDelete: _v76
+      }), !_v65 && (0, _v1.jsx)(_v11.Flex, {
         alignItems: "center",
         justifyContent: "space-between",
-        as: _v7.Collapse,
-        in: !_v19,
-        children: (0, _v1.jsx)(_v97, {
-          dropdownPrivacy: _v28,
-          isDisplayOnly: _v16,
-          revalidatePrivacy: _v4,
-          password: "password" === _v28 ? _v30 ?? _v5().password : void 0,
-          uploads: _v38,
-          isPaused: _v53,
-          isCanceled: _v21,
-          onUploadClick: _v9,
-          onEditClick: _v10,
-          clearUpload: _v64,
-          onShareClick: _v8,
-          uploadEta: _v54,
-          clipId: _v3,
-          clipPrivacy: _v5()?.view
+        as: _v10.Collapse,
+        in: !_v21,
+        children: (0, _v1.jsx)(_v102, {
+          dropdownPrivacy: _v30,
+          isDisplayOnly: _v18,
+          revalidatePrivacy: _v6,
+          password: "password" === _v30 ? _v34 ?? _v7().password : void 0,
+          uploads: _v42,
+          isPaused: _v57,
+          isCanceled: _v23,
+          onUploadClick: _v11,
+          onEditClick: _v12,
+          clearUpload: _v72,
+          onShareClick: _v10,
+          uploadEta: _v58,
+          clipId: _v5,
+          clipPrivacy: _v7()?.view
         })
-      }), !_v19 && (0, _v1.jsx)(_v8.Flex, {
-        paddingX: (0, _v12.rem)(16),
-        paddingBottom: (0, _v12.rem)(16),
-        children: (0, _v1.jsx)(_v72, {})
+      }), !_v21 && (0, _v1.jsx)(_v11.Flex, {
+        paddingX: (0, _v15.rem)(16),
+        paddingBottom: (0, _v15.rem)(16),
+        children: (0, _v1.jsx)(_v74, {})
       })]
     });
   }
-  var _v106 = _v0.i(0);
-  let _v107 = {
+  var _v111 = _v0.i(0);
+  let _v112 = {
       "disable privacy": {
         feature: "privacy",
         upsell_name: "privacy_settings_hide_from_vimeo",
@@ -3679,7 +3910,7 @@
         location: "embeddable_uploader"
       }
     },
-    _v108 = {
+    _v113 = {
       "disable privacy": {
         paywallTrigger: "upload_progress_widget_disable_privacy_button",
         paywallLocation: "embeddable_uploader",
@@ -3699,12 +3930,12 @@
         paywallFeature: "privacy"
       }
     },
-    _v109 = ({
+    _v114 = ({
       upsellType: _v0,
       isOpen: _v1,
       onClose: _v2
     }) => {
-      let _v3 = (0, _v20.useViewer)(),
+      let _v3 = (0, _v4.useViewer)(),
         _v4 = {
           hidePlansSummary: !0,
           hasFreeFeaturedBanner: !0,
@@ -3712,7 +3943,7 @@
           subHeaderText: "",
           planOverrides: {
             starter: {
-              featuresList: [(0, _v17.translate)({
+              featuresList: [(0, _v20.translate)({
                 singular: "Customizable video player",
                 dictionary: {
                   es: {
@@ -3737,7 +3968,7 @@
                     singular: "可定制的视频播放器"
                   }
                 }
-              }), (0, _v17.translate)({
+              }), (0, _v20.translate)({
                 singular: "Transfer video files",
                 dictionary: {
                   es: {
@@ -3762,7 +3993,7 @@
                     singular: "传输视频文件"
                   }
                 }
-              }), (0, _v17.translate)({
+              }), (0, _v20.translate)({
                 singular: "Password privacy & unlisted links",
                 dictionary: {
                   es: {
@@ -3787,7 +4018,7 @@
                     singular: "密码隐私与未公开发布的链接"
                   }
                 }
-              }), (0, _v17.translate)({
+              }), (0, _v20.translate)({
                 singular: "Review and collaboration tools",
                 dictionary: {
                   es: {
@@ -3812,7 +4043,7 @@
                     singular: "审查和协作工具"
                   }
                 }
-              }), (0, _v17.translate)({
+              }), (0, _v20.translate)({
                 singular: "Engagement analytics",
                 dictionary: {
                   es: {
@@ -3840,7 +4071,7 @@
               })]
             },
             standard: {
-              featuresList: [(0, _v17.translate)({
+              featuresList: [(0, _v20.translate)({
                 singular: "Branding in the player",
                 dictionary: {
                   es: {
@@ -3865,7 +4096,7 @@
                     singular: "播放器中的品牌标识"
                   }
                 }
-              }), (0, _v17.translate)({
+              }), (0, _v20.translate)({
                 singular: "Third party player support",
                 dictionary: {
                   es: {
@@ -3890,7 +4121,7 @@
                     singular: "第三方播放器支持"
                   }
                 }
-              }), (0, _v17.translate)({
+              }), (0, _v20.translate)({
                 singular: "Custom watermark",
                 dictionary: {
                   es: {
@@ -3915,7 +4146,7 @@
                     singular: "自定义水印"
                   }
                 }
-              }), (0, _v17.translate)({
+              }), (0, _v20.translate)({
                 singular: "Lead capture",
                 dictionary: {
                   es: {
@@ -3943,7 +4174,7 @@
               })]
             },
             advanced: {
-              featuresList: [(0, _v17.translate)({
+              featuresList: [(0, _v20.translate)({
                 singular: "Host livestreamed events",
                 dictionary: {
                   es: {
@@ -3968,7 +4199,7 @@
                     singular: "举办直播活动"
                   }
                 }
-              }), (0, _v17.translate)({
+              }), (0, _v20.translate)({
                 singular: "Events Q&A, polls, and chat",
                 dictionary: {
                   es: {
@@ -3993,7 +4224,7 @@
                     singular: "活动问答、投票和聊天"
                   }
                 }
-              }), (0, _v17.translate)({
+              }), (0, _v20.translate)({
                 singular: "Stream to multiple destinations",
                 dictionary: {
                   es: {
@@ -4018,7 +4249,7 @@
                     singular: "串流至多个目的地"
                   }
                 }
-              }), (0, _v17.translate)({
+              }), (0, _v20.translate)({
                 singular: "Marketing automation integrations",
                 dictionary: {
                   es: {
@@ -4046,7 +4277,7 @@
               })]
             },
             enterprise: {
-              featuresList: [(0, _v17.translate)({
+              featuresList: [(0, _v20.translate)({
                 singular: "Custom permissions",
                 dictionary: {
                   es: {
@@ -4071,7 +4302,7 @@
                     singular: "自定义权限"
                   }
                 }
-              }), (0, _v17.translate)({
+              }), (0, _v20.translate)({
                 singular: "Advanced AI capabilities",
                 dictionary: {
                   es: {
@@ -4096,7 +4327,7 @@
                     singular: "高级 AI 功能"
                   }
                 }
-              }), (0, _v17.translate)({
+              }), (0, _v20.translate)({
                 singular: "SSO (SAML) and SCIM (OKTA, AZURE)",
                 dictionary: {
                   es: {
@@ -4121,7 +4352,7 @@
                     singular: "SSO (SAML) 和 SCIM（OKTA、AZURE）"
                   }
                 }
-              }), (0, _v17.translate)({
+              }), (0, _v20.translate)({
                 singular: "Quality events (backup streams, eCDN)",
                 dictionary: {
                   es: {
@@ -4146,7 +4377,7 @@
                     singular: "高质量活动（备份流、eCDN）"
                   }
                 }
-              }), (0, _v17.translate)({
+              }), (0, _v20.translate)({
                 singular: "Dedicated support",
                 dictionary: {
                   es: {
@@ -4176,7 +4407,7 @@
           }
         };
       return (0, _v1.jsx)(_v1.Fragment, {
-        children: _v1 && (0, _v1.jsx)(_v106.default, {
+        children: _v1 && (0, _v1.jsx)(_v111.default, {
           apiUrl: _v3?.apiUrl,
           userConfig: {
             jwt: _v3?.jwt,
@@ -4186,29 +4417,31 @@
           onClose: _v2,
           modalConfig: _v4,
           tracking: {
-            params: _v107[_v0],
-            paywallTracking: _v108[_v0]
+            params: _v112[_v0],
+            paywallTracking: _v113[_v0]
           }
         })
       });
     };
-  var _v110 = _v0.i(0);
+  var _v115 = _v0.i(0);
   _v0.s(["ProgressWidgetModule", 0, _v0 => {
-    let {
-        uploads: _v1
-      } = (0, _v41.useUploader)(),
-      _v2 = _v1?.find(_v0 => _v0.state !== _v4.STATES.CANCELED && _v0.state !== _v4.STATES.FAILED && !!_v0.clipId)?.clipId,
+    let _v1,
       {
-        privacyOptions: _v3
-      } = (0, _v3.useClipPrivacyOptions)(_v2),
+        uploads: _v2
+      } = (0, _v43.useUploader)(),
+      _v3 = _v2?.find(_v0 => _v0.state !== _v7.STATES.CANCELED && _v0.state !== _v7.STATES.FAILED && !!_v0.clipId)?.clipId,
       {
-        defaultFolderId: _v4
+        privacyOptions: _v4
+      } = (0, _v3.useClipPrivacyOptions)(_v3),
+      _v5 = (_v1 = (0, _v4.useViewer)(), (0, _v2.useMemo)(() => (0, _v6.getTeamPrivacyTranslation)(_v5.FILE_PRIVACY_OPTIONS, _v1?.teamUser?.teamName, _v1?.teamUser?.isWorkspace), [_v1?.teamUser?.teamName, _v1?.teamUser?.isWorkspace])),
+      {
+        defaultFolderId: _v6
       } = (() => {
-        let _v0 = (0, _v20.useViewer)(),
+        let _v0 = (0, _v4.useViewer)(),
           _v1 = _v0?.teamUser ? _v0?.teamUser.ownerId : _v0?.user?.id,
           {
             data: _v2
-          } = (0, _v110.useGetUserFoldersDefault)(() => _v1 ? {
+          } = (0, _v115.useGetUserFoldersDefault)(() => _v1 ? {
             where: {
               userId: _v1
             },
@@ -4220,30 +4453,31 @@
           defaultFolderId: Number(_v2?.uri.split("/").pop())
         };
       })(),
-      [_v5, _v6] = (0, _v2.useState)({
+      [_v7, _v8] = (0, _v2.useState)({
         upsellType: "unlisted privacy",
         isOpen: !1
       });
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v109, {
+      children: [(0, _v1.jsx)(_v114, {
         onClose: () => {
-          _v6(_v0 => ({
+          _v8(_v0 => ({
             ..._v0,
             isOpen: !1
           }));
         },
-        upsellType: _v5.upsellType,
-        isOpen: _v5.isOpen
-      }), (0, _v1.jsx)(_v105, {
+        upsellType: _v7.upsellType,
+        isOpen: _v7.isOpen
+      }), (0, _v1.jsx)(_v110, {
         ..._v0,
-        privacyOptions: _v3,
+        privacyOptions: _v4,
+        filePrivacyOptions: _v5,
         onPrivacyUpsellClick: _v0 => {
-          _v6({
+          _v8({
             isOpen: !0,
             upsellType: _v0 || "unlisted privacy"
           });
         },
-        defaultFolderId: _v4
+        defaultFolderId: _v6
       })]
     });
   }], 0);

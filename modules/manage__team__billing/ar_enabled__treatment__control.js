@@ -769,7 +769,8 @@
           bypassTierHierarchy: !0,
           usePaymentsService: !0
         }),
-        _v9 = function (_v0, _v1, _v2) {
+        _v9 = _v8?.find(_v0 => _v0.tier === _v2)?.metadata?.entitlements,
+        _v10 = function (_v0, _v1, _v2) {
           let _v3 = _v2?.params;
           switch (_v0) {
             case _v101.Tier.Creator:
@@ -1933,8 +1934,8 @@
             default:
               throw Error(`Unhandled about-plan tier: ${_v0}`);
           }
-        }(_v2, _v7, _v8?.[0]?.metadata?.entitlements),
-        _v10 = _v4 ? (0, _v16.translate)({
+        }(_v2, _v7, _v9),
+        _v11 = _v4 ? (0, _v16.translate)({
           singular: "per month, billed annually",
           dictionary: {
             es: {
@@ -1985,7 +1986,7 @@
             }
           }
         });
-      "week" === _v5 && (_v10 = (0, _v16.translate)({
+      "week" === _v5 && (_v11 = (0, _v16.translate)({
         singular: "per week, billed weekly",
         dictionary: {
           es: {
@@ -2011,24 +2012,24 @@
           }
         }
       }));
-      let _v11 = [{
+      let _v12 = [{
         icon: (0, _v5.jsx)(_v114.Users, {
           boxSize: _v117,
           "aria-hidden": "true"
         }),
-        text: _v9.seats
+        text: _v10.seats
       }, {
         icon: (0, _v5.jsx)(_v112, {
           boxSize: _v117,
           "aria-hidden": "true"
         }),
-        text: _v9.storage
+        text: _v10.storage
       }, {
         icon: (0, _v5.jsx)(_v113, {
           boxSize: _v117,
           "aria-hidden": "true"
         }),
-        text: _v9.bandwidth
+        text: _v10.bandwidth
       }];
       return (0, _v5.jsxs)(_v104.Modal, {
         isOpen: _v0,
@@ -2041,7 +2042,7 @@
           children: [(0, _v5.jsx)(_v109.ModalHeader, {
             children: (0, _v5.jsx)(_v27.Header, {
               size: "lg",
-              children: _v9.title
+              children: _v10.title
             })
           }), (0, _v5.jsx)(_v106.ModalCloseButton, {
             "aria-label": (0, _v16.translate)({
@@ -2083,18 +2084,18 @@
                 }), (0, _v5.jsx)(_v33.Text, {
                   variant: "body-sm",
                   color: "text-secondary",
-                  children: _v10
+                  children: _v11
                 })]
               }), (0, _v5.jsx)(_v33.Text, {
                 variant: "body-md",
-                children: _v9.description
+                children: _v10.description
               }), (0, _v5.jsx)(_v33.Text, {
                 variant: "body-md",
-                children: _v9.moveDescription
+                children: _v10.moveDescription
               }), (0, _v5.jsx)(_v29.VStack, {
                 align: "stretch",
                 spacing: 3,
-                children: _v11.map((_v0, _v1) => (0, _v5.jsxs)(_v28.HStack, {
+                children: _v12.map((_v0, _v1) => (0, _v5.jsxs)(_v28.HStack, {
                   align: "flex-start",
                   spacing: 1,
                   children: [(0, _v5.jsx)(_v10.Box, {
@@ -2116,7 +2117,7 @@
                 sx: {
                   listStyleType: "disc"
                 },
-                children: _v9.features.map(_v0 => (0, _v5.jsx)(_v33.Text, {
+                children: _v10.features.map(_v0 => (0, _v5.jsx)(_v33.Text, {
                   as: "li",
                   variant: "body-md",
                   lineHeight: 1.9,

@@ -2863,9 +2863,9 @@
     _v161 = _v0.i(0),
     _v162 = _v0.i(0),
     _v163 = _v0.i(0),
-    _v164 = _v0.i(0);
-  let _v165 = "/manage/workspace/basics",
-    _v166 = (_v0, _v1) => !_v1 || null === _v0 || _v0 <= 0 ? null : _v0,
+    _v164 = _v0.i(0),
+    _v165 = _v0.i(0);
+  let _v166 = (_v0, _v1) => !_v1 || null === _v0 || _v0 <= 0 ? null : _v0,
     _v167 = [{
       label: () => (0, _v62.translate)({
         singular: "Tomorrow",
@@ -3614,7 +3614,7 @@
                     children: (0, _v1.jsx)(_v66.Text, {
                       variant: "caption",
                       color: "text-secondary",
-                      children: _v12 ? _v11 === _v165 ? (0, _v62.translate)({
+                      children: _v12 ? _v11 === _v165.WORKSPACE_BASICS_URL ? (0, _v62.translate)({
                         singular: 'Go to the "Privacy" tab in {LINK}Manage Defaults{/LINK} to change the default link expiration.',
                         replacements: {
                           LINK: _v0 => (0, _v1.jsx)(_v80.Link, {
@@ -4578,10 +4578,18 @@
             {
               data: _v1
             } = (0, _v25.useGetVideoSharingData)(),
-            _v2 = _v1?.user?.uri ? (0, _v74.idFromUri)(_v1.user.uri) : null,
-            _v3 = _v0?.teamUser?.ownerId,
-            _v4 = !!_v0?.user?.organizationId;
-          return _v3 && _v2 === _v3 && _v4 ? _v165 : "/settings/videos/upload_defaults";
+            {
+              settings: _v2
+            } = (0, _v129.useOrionSettings)(),
+            _v3 = _v1?.user?.uri ? (0, _v74.idFromUri)(_v1.user.uri) : null,
+            _v4 = _v0?.teamUser?.ownerId,
+            _v5 = !!_v0?.teamUser?.isWorkspace;
+          return (0, _v165.getVideoDefaultsUrl)({
+            isTeamOwned: !!(_v4 && _v3 === _v4),
+            isWorkspaceTeam: _v5,
+            enableTeamDefaultsPage: _v2.enable_team_defaults_page,
+            enableWorkspaceDefaultsPage: _v2.enable_workspace_defaults_page
+          });
         }(),
         {
           isEnabled: _v26,

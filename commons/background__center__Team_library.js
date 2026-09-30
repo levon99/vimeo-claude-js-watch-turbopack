@@ -262,8 +262,11 @@
     _v38 = _v0.i(0),
     _v39 = _v0.i(0),
     _v40 = _v0.i(0),
-    _v41 = _v0.i(0);
-  let _v42 = [{
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0),
+    _v44 = _v0.i(0);
+  let _v45 = [{
       key: "vocabulary",
       policyName: "AI Vocabulary",
       label: (0, _v11.translate)({
@@ -317,7 +320,9 @@
             singular: "管理词汇表、术语翻译及用于 AI 生成内容的自定义规则"
           }
         }
-      })
+      }),
+      roleSetting: "userRolePermissionTranscriptionKeywords",
+      accountSetting: null
     }, {
       key: "translation",
       policyName: "AI Translator",
@@ -372,7 +377,9 @@
             singular: "视频字幕或配音"
           }
         }
-      })
+      }),
+      roleSetting: "userRolePermissionAiTranslate",
+      accountSetting: "enableParentPermissionAiTranslate"
     }, {
       key: "video_details",
       policyName: "AI Video Details",
@@ -427,7 +434,9 @@
             singular: "生成视频标题、描述和标签。"
           }
         }
-      })
+      }),
+      roleSetting: "userRolePermissionAiVideoDetails",
+      accountSetting: "enableParentPermissionAiVideoDetails"
     }, {
       key: "scripts",
       policyName: "AI Scripts",
@@ -479,7 +488,9 @@
             singular: "生成用于录制和直播活动的脚本"
           }
         }
-      })
+      }),
+      roleSetting: "userRolePermissionAiScriptGeneration",
+      accountSetting: null
     }, {
       key: "highlights",
       policyName: "AI Highlights",
@@ -534,7 +545,9 @@
             singular: "从视频中生成视频片段。"
           }
         }
-      })
+      }),
+      roleSetting: "userRolePermissionAiHighlights",
+      accountSetting: "enableParentPermissionAiHighlights"
     }, {
       key: "live_captions",
       policyName: "AI Live Captions",
@@ -589,7 +602,9 @@
             singular: "直播活动字幕或配音"
           }
         }
-      })
+      }),
+      roleSetting: "userRolePermissionAiLiveCaptions",
+      accountSetting: "enableParentPermissionAiLiveCaptions"
     }, {
       key: "ai_analytics",
       policyName: "AI Analytics",
@@ -644,14 +659,13 @@
             singular: "生成并组合由 AI 驱动的数据小部件，以构建自定义仪表板"
           }
         }
-      })
+      }),
+      roleSetting: "userRolePermissionAiAnalytics",
+      accountSetting: "enableAiAnalyticsDashboard"
     }],
-    _v43 = (_v0, _v1) => !!_v0?.some(_v0 => _v0.name === _v1);
-  var _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0),
+    _v46 = (_v0, _v1) => !!_v0?.some(_v0 => _v0.name === _v1),
+    _v47 = (_v0, _v1) => !!_v0?.includes(_v1);
+  var _v48 = _v0.i(0),
     _v49 = _v0.i(0),
     _v50 = _v0.i(0),
     _v51 = _v0.i(0),
@@ -661,13 +675,17 @@
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),
     _v57 = _v0.i(0),
-    _v58 = _v0.i(0);
-  let _v59 = _v0 => (0, _v1.jsx)(_v19.Text, {
+    _v58 = _v0.i(0),
+    _v59 = _v0.i(0),
+    _v60 = _v0.i(0),
+    _v61 = _v0.i(0),
+    _v62 = _v0.i(0);
+  let _v63 = _v0 => (0, _v1.jsx)(_v19.Text, {
       as: "span",
       fontWeight: 700,
       children: _v0
     }),
-    _v60 = ({
+    _v64 = ({
       isOpen: _v0,
       memberName: _v1,
       currentLimit: _v2,
@@ -688,14 +706,14 @@
           month: "short",
           year: "numeric"
         }) : null;
-      return (0, _v1.jsxs)(_v51.Modal, {
+      return (0, _v1.jsxs)(_v55.Modal, {
         isOpen: _v0,
         onClose: _v6,
         size: "md",
         isCentered: !0,
-        children: [(0, _v1.jsx)(_v57.ModalOverlay, {}), (0, _v1.jsxs)(_v54.ModalContent, {
+        children: [(0, _v1.jsx)(_v61.ModalOverlay, {}), (0, _v1.jsxs)(_v58.ModalContent, {
           maxW: (0, _v8.rem)(480),
-          children: [(0, _v1.jsxs)(_v56.ModalHeader, {
+          children: [(0, _v1.jsxs)(_v60.ModalHeader, {
             pr: "7",
             pb: "sm",
             children: [(0, _v1.jsx)(_v19.Text, {
@@ -734,7 +752,7 @@
               children: (0, _v11.translate)({
                 singular: "Set the maximum number of AI credits {bold}{name}{/bold} can use during the current period. Credits aren't reserved or allocated to them.",
                 replacements: {
-                  bold: _v59,
+                  bold: _v63,
                   name: _v1
                 },
                 dictionary: {
@@ -762,11 +780,11 @@
                 }
               })
             })]
-          }), (0, _v1.jsx)(_v53.ModalCloseButton, {}), (0, _v1.jsx)(_v52.ModalBody, {
+          }), (0, _v1.jsx)(_v57.ModalCloseButton, {}), (0, _v1.jsx)(_v56.ModalBody, {
             children: (0, _v1.jsxs)(_v33.Stack, {
               spacing: (0, _v8.rem)(16),
-              children: [(0, _v1.jsxs)(_v46.FormControl, {
-                children: [(0, _v1.jsx)(_v47.FormLabel, {
+              children: [(0, _v1.jsxs)(_v50.FormControl, {
+                children: [(0, _v1.jsx)(_v51.FormLabel, {
                   fontWeight: 600,
                   children: (0, _v11.translate)({
                     singular: "Credits limits",
@@ -794,7 +812,7 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v50.Select, {
+                }), (0, _v1.jsx)(_v54.Select, {
                   size: "md",
                   items: [{
                     label: (0, _v11.translate)({
@@ -853,22 +871,22 @@
                     }),
                     value: "custom"
                   }],
-                  leftIcon: "none" === _v8 ? (0, _v1.jsx)(_v58.PersonUser, {}) : (0, _v1.jsx)(_v9.FiltersLevers, {}),
+                  leftIcon: "none" === _v8 ? (0, _v1.jsx)(_v62.PersonUser, {}) : (0, _v1.jsx)(_v9.FiltersLevers, {}),
                   onValueChange: _v0 => _v9(_v0.value[0] ?? "none"),
                   value: [_v8],
-                  children: _v0 => (0, _v1.jsx)(_v50.SelectItem, {
+                  children: _v0 => (0, _v1.jsx)(_v54.SelectItem, {
                     label: _v0.label,
                     children: (0, _v1.jsxs)(_v18.HStack, {
                       spacing: (0, _v8.rem)(8),
-                      children: ["none" === _v0.value ? (0, _v1.jsx)(_v58.PersonUser, {}) : (0, _v1.jsx)(_v9.FiltersLevers, {}), (0, _v1.jsx)(_v50.SelectItemText, {
+                      children: ["none" === _v0.value ? (0, _v1.jsx)(_v62.PersonUser, {}) : (0, _v1.jsx)(_v9.FiltersLevers, {}), (0, _v1.jsx)(_v54.SelectItemText, {
                         children: _v0.label
                       })]
                     })
                   })
                 })]
-              }), "custom" === _v8 && (0, _v1.jsx)(_v46.FormControl, {
-                children: (0, _v1.jsx)(_v49.InputGroup, {
-                  children: (0, _v1.jsx)(_v48.Input, {
+              }), "custom" === _v8 && (0, _v1.jsx)(_v50.FormControl, {
+                children: (0, _v1.jsx)(_v53.InputGroup, {
+                  children: (0, _v1.jsx)(_v52.Input, {
                     inputMode: "numeric",
                     placeholder: "2,500",
                     value: _v10,
@@ -911,7 +929,7 @@
                     }
                   }
                 })
-              }), _v14 && (0, _v1.jsx)(_v44.Alert, {
+              }), _v14 && (0, _v1.jsx)(_v48.Alert, {
                 status: "info",
                 children: (0, _v1.jsx)(_v19.Text, {
                   variant: "body-md",
@@ -945,7 +963,7 @@
                     }
                   })
                 })
-              }), _v13 && (0, _v1.jsx)(_v44.Alert, {
+              }), _v13 && (0, _v1.jsx)(_v48.Alert, {
                 status: "info",
                 children: (0, _v1.jsx)(_v19.Text, {
                   variant: "body-md",
@@ -978,7 +996,7 @@
                 })
               })]
             })
-          }), (0, _v1.jsxs)(_v55.ModalFooter, {
+          }), (0, _v1.jsxs)(_v59.ModalFooter, {
             display: "block",
             children: [(0, _v1.jsx)(_v17.Divider, {
               borderColor: "stroke",
@@ -987,7 +1005,7 @@
             }), (0, _v1.jsxs)(_v18.HStack, {
               justifyContent: "flex-end",
               gap: (0, _v8.rem)(8),
-              children: [(0, _v1.jsx)(_v45.Button, {
+              children: [(0, _v1.jsx)(_v49.Button, {
                 variant: "secondary",
                 onClick: _v6,
                 children: (0, _v11.translate)({
@@ -1016,7 +1034,7 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v45.Button, {
+              }), (0, _v1.jsx)(_v49.Button, {
                 variant: "primary",
                 isDisabled: !_v15,
                 onClick: () => {
@@ -1054,18 +1072,19 @@
         })]
       });
     };
-  var _v61 = _v0.i(0);
-  let _v62 = "account_disabled_ai_features,ai_credit_limit,user.name,current_team_permission_policies,applicable_permission_policies.ai.name",
-    _v63 = (_v0, _v1) => `/users/${_v0}/team_users/${_v1}`,
-    _v64 = (_v0, _v1, _v2) => (0, _v61.makeApiCall)(`${_v63(_v1, _v2)}?fields=${encodeURIComponent(_v62)}`, _v0),
-    _v65 = async (_v0, _v1, _v2) => {
+  var _v65 = _v0.i(0);
+  let _v66 = "account_disabled_ai_features,ai_credit_limit,user.name,permission_level,current_team_permission_policies,applicable_permission_policies.ai.name",
+    _v67 = (_v0, _v1) => `/users/${_v0}/team_users/${_v1}`,
+    _v68 = (_v0, _v1, _v2) => (0, _v65.makeApiCall)(`${_v67(_v1, _v2)}?fields=${encodeURIComponent(_v66)}`, _v0),
+    _v69 = async (_v0, _v1, _v2) => {
       try {
-        return await (0, _v61.makeApiCall)(`/users/${_v1}/ai_credits/usage?spender_user_id=${_v2}`, _v0);
+        return await (0, _v65.makeApiCall)(`/users/${_v1}/ai_credits/usage?spender_user_id=${_v2}`, _v0);
       } catch {
         return null;
       }
     },
-    _v66 = ({
+    _v70 = ["userRolePermissionTranscriptionKeywords", "userRolePermissionAiTranslate", "enableParentPermissionAiTranslate", "userRolePermissionAiVideoDetails", "enableParentPermissionAiVideoDetails", "userRolePermissionAiScriptGeneration", "userRolePermissionAiHighlights", "enableParentPermissionAiHighlights", "userRolePermissionAiLiveCaptions", "enableParentPermissionAiLiveCaptions", "userRolePermissionAiAnalytics", "enableAiAnalyticsDashboard"],
+    _v71 = ({
       teamUserId: _v0
     }) => {
       let _v1 = (0, _v37.useToast)(),
@@ -1074,16 +1093,37 @@
           userId: _v3
         } = (0, _v12.useContext)(_v24.TeamUserInfoState),
         _v4 = _v2?.teamUser?.ownerId ?? _v2?.user?.id,
-        [_v5, _v6] = (0, _v12.useState)(null),
-        [_v7, _v8] = (0, _v12.useState)(null),
-        [_v9, _v10] = (0, _v12.useState)(!1),
-        [_v11, _v12] = (0, _v12.useState)(null);
+        {
+          workspaceUuid: _v5,
+          isLoading: _v6
+        } = (0, _v44.useCurrentWorkspaceDetails)(),
+        {
+          data: _v7
+        } = (0, _v43.useGetWorkspaceSettings)(() => _v5 ? {
+          where: {
+            workspaceUuid: _v5
+          },
+          select: _v70
+        } : null),
+        {
+          data: _v8
+        } = (0, _v42.useGetTeamSettings)(() => _v6 || _v5 || !_v4 ? null : {
+          where: {
+            userId: _v4
+          },
+          select: _v70
+        }),
+        _v9 = _v5 ? _v7 : _v6 ? void 0 : _v8,
+        [_v10, _v11] = (0, _v12.useState)(null),
+        [_v12, _v13] = (0, _v12.useState)(null),
+        [_v14, _v15] = (0, _v12.useState)(!1),
+        [_v16, _v17] = (0, _v12.useState)(null);
       (0, _v12.useEffect)(() => {
         let _v0 = !1;
         return (async () => {
           if (_v2) try {
-            let _v0 = await _v64(_v2, _v4, _v0);
-            _v0 || _v6(_v0);
+            let _v0 = await _v68(_v2, _v4, _v0);
+            _v0 || _v11(_v0);
           } catch {
             _v0 || _v1({
               title: (0, _v11.translate)({
@@ -1124,20 +1164,20 @@
         let _v0 = !1;
         return (async () => {
           if (!_v2 || !_v3 || !_v4) return;
-          let _v0 = await _v65(_v2, _v4, _v3);
-          _v0 || _v8(_v0);
+          let _v0 = await _v69(_v2, _v4, _v3);
+          _v0 || _v13(_v0);
         })(), () => {
           _v0 = !0;
         };
       }, [_v2, _v3, _v4]);
-      let _v13 = async () => {
-          _v2 && (_v6(await _v64(_v2, _v4, _v0)), _v3 && _v4 && _v8(await _v65(_v2, _v4, _v3)));
+      let _v18 = async () => {
+          _v2 && (_v11(await _v68(_v2, _v4, _v0)), _v3 && _v4 && _v13(await _v69(_v2, _v4, _v3)));
         },
-        _v14 = async (_v0, _v1) => {
+        _v19 = async (_v0, _v1) => {
           if (_v2) {
-            _v12(_v0);
+            _v17(_v0);
             try {
-              await (0, _v61.makeApiCall)(`${_v63(_v4, _v0)}?fields=${encodeURIComponent(_v62)}`, _v2, "PATCH", _v1), await _v13();
+              await (0, _v65.makeApiCall)(`${_v67(_v4, _v0)}?fields=${encodeURIComponent(_v66)}`, _v2, "PATCH", _v1), await _v18();
             } catch {
               _v1({
                 title: (0, _v11.translate)({
@@ -1171,553 +1211,563 @@
                 isClosable: !0
               });
             } finally {
-              _v12(null);
+              _v17(null);
             }
           }
         },
-        _v15 = _v43(_v5?.currentTeamPermissionPolicies, "AI User"),
-        _v16 = _v5?.applicablePermissionPolicies?.ai,
-        _v17 = !!_v16?.length,
-        _v18 = _v7?.quotaEnd ? new Date(_v7.quotaEnd).toLocaleDateString(void 0, {
+        _v20 = _v46(_v10?.currentTeamPermissionPolicies, "AI Permissions Override"),
+        _v21 = _v10?.applicablePermissionPolicies?.ai,
+        _v22 = !!_v21?.length,
+        _v23 = _v10?.permissionLevel,
+        _v24 = "Owner" === _v23 || "Admin" === _v23 || "Contributor" === _v23 || "Contributor Plus" === _v23,
+        _v25 = "Owner" === _v23 || "Admin" === _v23,
+        _v26 = _v0 => {
+          if (!_v23 || !_v9) return !1;
+          let _v1 = "roleaao" === _v9[_v0.roleSetting] ? _v25 : _v24;
+          return (!_v0.accountSetting || !1 !== _v9[_v0.accountSetting]) && _v1;
+        },
+        _v27 = _v12?.quotaEnd ? new Date(_v12.quotaEnd).toLocaleDateString(void 0, {
           day: "numeric",
           month: "short",
           year: "numeric"
         }) : null,
-        _v19 = _v5?.aiCreditLimit === 0,
-        _v20 = _v5?.aiCreditLimit == null ? _v7?.accountLimit : _v7?.cap,
-        _v21 = _v7 && null != _v20 && _v20 > 0 ? Math.min(100, Math.round(_v7.usage / _v20 * 100)) : null;
-      return _v2 ? _v17 ? (0, _v1.jsxs)(_v13.Accordion, {
-        allowMultiple: !0,
-        defaultIndex: [0],
-        children: [(0, _v1.jsx)(_v15.AccordionItem, {
-          background: "background",
-          _hover: {
-            background: "background"
-          },
-          children: ({
-            isExpanded: _v0
-          }) => (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsxs)(_v18.HStack, {
-              width: "100%",
-              alignItems: "center",
-              gap: (0, _v8.rem)(8),
-              p: (0, _v8.rem)(16),
-              children: [(0, _v1.jsx)(_v30.Flex, {
+        _v28 = _v10?.aiCreditLimit === 0,
+        _v29 = _v10?.aiCreditLimit == null ? _v12?.accountLimit : _v12?.cap,
+        _v30 = _v12 && null != _v29 && _v29 > 0 ? Math.min(100, Math.round(_v12.usage / _v29 * 100)) : null;
+      return _v2 ? _v22 ? (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsxs)(_v19.Text, {
+          color: "text-secondary",
+          mb: (0, _v8.rem)(16),
+          children: [(0, _v1.jsx)(_v29.Box, {
+            as: "span",
+            fontWeight: "bold",
+            children: (0, _v11.translate)("Overrides replace this user's role-based access.")
+          }), " ", (0, _v11.translate)("Once set, later changes to their role or to feature access in Settings won't affect them.")]
+        }), (0, _v1.jsxs)(_v13.Accordion, {
+          allowMultiple: !0,
+          defaultIndex: [0],
+          children: [(0, _v1.jsx)(_v15.AccordionItem, {
+            background: "background",
+            _hover: {
+              background: "background"
+            },
+            children: ({
+              isExpanded: _v0
+            }) => (0, _v1.jsxs)(_v1.Fragment, {
+              children: [(0, _v1.jsxs)(_v18.HStack, {
+                width: "100%",
                 alignItems: "center",
-                justifyContent: "center",
-                boxSize: (0, _v8.rem)(40),
-                borderRadius: (0, _v8.rem)(8),
-                bgColor: "fill-component",
-                flexShrink: 0,
-                children: (0, _v1.jsx)(_v38.AiSparkles, {
-                  boxSize: "sm"
-                })
-              }), (0, _v1.jsxs)(_v36.VStack, {
-                alignItems: "flex-start",
-                spacing: (0, _v8.rem)(2),
-                minWidth: 0,
-                flex: "1",
-                children: [(0, _v1.jsx)(_v19.Text, {
-                  fontWeight: 700,
-                  fontSize: (0, _v8.rem)(16),
-                  children: (0, _v11.translate)({
-                    singular: "Vimeo AI",
-                    dictionary: {
-                      "fr-FR": {
-                        singular: "IA Vimeo"
-                      }
-                    }
+                gap: (0, _v8.rem)(8),
+                p: (0, _v8.rem)(16),
+                children: [(0, _v1.jsx)(_v30.Flex, {
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxSize: (0, _v8.rem)(40),
+                  borderRadius: (0, _v8.rem)(8),
+                  bgColor: "fill-component",
+                  flexShrink: 0,
+                  children: (0, _v1.jsx)(_v38.AiSparkles, {
+                    boxSize: "sm"
                   })
-                }), (0, _v1.jsx)(_v19.Text, {
-                  color: "text-secondary",
-                  fontSize: (0, _v8.rem)(13),
-                  children: (0, _v11.translate)({
-                    singular: "AI-powered tools for your video workflow",
-                    dictionary: {
-                      es: {
-                        singular: "Herramientas impulsadas por AI para su flujo de trabajo de video"
-                      },
-                      "de-DE": {
-                        singular: "AI-gestützte Tools für Ihren Video-Workflow"
-                      },
-                      "fr-FR": {
-                        singular: "Outils AI pour votre flux de travail vidéo"
-                      },
-                      "ja-JP": {
-                        singular: "動画ワークフロー向けのAI搭載ツール"
-                      },
-                      "ko-KR": {
-                        singular: "비디오 작업 흐름을 위한 AI 기반 도구"
-                      },
-                      "pt-BR": {
-                        singular: "Ferramentas com tecnologia AI para seu fluxo de trabalho de vídeo"
-                      },
-                      "zh-CN": {
-                        singular: "为您的视频工作流程提供 AI 驱动的工具"
-                      }
-                    }
-                  })
-                })]
-              }), (0, _v1.jsx)(_v34.Switch, {
-                isChecked: _v15,
-                isDisabled: "master" === _v11,
-                onChange: () => {
-                  _v14("master", {
-                    ai_permission: !_v15
-                  });
-                },
-                "aria-label": (0, _v11.translate)({
-                  singular: "Vimeo AI",
-                  dictionary: {
-                    "fr-FR": {
-                      singular: "IA Vimeo"
-                    }
-                  }
-                })
-              }), (0, _v1.jsx)(_v14.AccordionButton, {
-                width: "auto",
-                minWidth: 0,
-                p: 0,
-                backgroundColor: "transparent",
-                _hover: {
-                  background: "none"
-                },
-                "aria-label": (0, _v11.translate)({
-                  singular: "Vimeo AI",
-                  dictionary: {
-                    "fr-FR": {
-                      singular: "IA Vimeo"
-                    }
-                  }
-                }),
-                children: _v0 ? (0, _v1.jsx)(_v21.ChevronUpSmall, {}) : (0, _v1.jsx)(_v20.ChevronDownSmall, {})
-              })]
-            }), (0, _v1.jsx)(_v16.AccordionPanel, {
-              backgroundColor: "transparent",
-              children: (0, _v1.jsxs)(_v33.Stack, {
-                spacing: (0, _v8.rem)(24),
-                children: [(0, _v1.jsxs)(_v33.Stack, {
-                  spacing: (0, _v8.rem)(12),
+                }), (0, _v1.jsxs)(_v36.VStack, {
+                  alignItems: "flex-start",
+                  spacing: (0, _v8.rem)(2),
+                  minWidth: 0,
+                  flex: "1",
                   children: [(0, _v1.jsx)(_v19.Text, {
-                    fontWeight: 600,
-                    color: "text-tertiary",
+                    fontWeight: 700,
+                    fontSize: (0, _v8.rem)(16),
+                    children: (0, _v11.translate)("Vimeo AI Overrides")
+                  }), (0, _v1.jsx)(_v19.Text, {
+                    color: "text-secondary",
+                    fontSize: (0, _v8.rem)(13),
                     children: (0, _v11.translate)({
-                      singular: "Credits consumption",
+                      singular: "AI-powered tools for your video workflow",
                       dictionary: {
                         es: {
-                          singular: "Consumo de créditos"
+                          singular: "Herramientas impulsadas por AI para su flujo de trabajo de video"
                         },
                         "de-DE": {
-                          singular: "Credits-Verbrauch"
+                          singular: "AI-gestützte Tools für Ihren Video-Workflow"
                         },
                         "fr-FR": {
-                          singular: "Consommation de crédits"
+                          singular: "Outils AI pour votre flux de travail vidéo"
                         },
                         "ja-JP": {
-                          singular: "クレジット消費量"
+                          singular: "動画ワークフロー向けのAI搭載ツール"
                         },
                         "ko-KR": {
-                          singular: "크레딧 사용량"
+                          singular: "비디오 작업 흐름을 위한 AI 기반 도구"
                         },
                         "pt-BR": {
-                          singular: "Consumo de créditos"
+                          singular: "Ferramentas com tecnologia AI para seu fluxo de trabalho de vídeo"
                         },
                         "zh-CN": {
-                          singular: "积分消耗"
+                          singular: "为您的视频工作流程提供 AI 驱动的工具"
                         }
                       }
                     })
-                  }), (0, _v1.jsxs)(_v33.Stack, {
-                    spacing: (0, _v8.rem)(4),
-                    children: [(0, _v1.jsx)(_v19.Text, {
-                      fontWeight: 700,
-                      children: (0, _v11.translate)({
-                        singular: "AI credits limit",
-                        dictionary: {
-                          es: {
-                            singular: "Límite de créditos de AI"
-                          },
-                          "de-DE": {
-                            singular: "Limit für AI-Credits"
-                          },
-                          "fr-FR": {
-                            singular: "Limite de crédits AI"
-                          },
-                          "ja-JP": {
-                            singular: "AIクレジットの上限"
-                          },
-                          "ko-KR": {
-                            singular: "AI 크레딧 한도"
-                          },
-                          "pt-BR": {
-                            singular: "Limite de créditos AI"
-                          },
-                          "zh-CN": {
-                            singular: "AI 积分上限"
-                          }
-                        }
-                      })
-                    }), (0, _v1.jsxs)(_v18.HStack, {
-                      alignItems: "center",
-                      gap: (0, _v8.rem)(8),
-                      children: [(0, _v1.jsx)(_v19.Text, {
-                        fontWeight: 600,
-                        fontSize: (0, _v8.rem)(16),
-                        children: _v5?.aiCreditLimit != null ? _v5.aiCreditLimit.toLocaleString() : (0, _v11.translate)({
-                          singular: "no limits",
-                          dictionary: {
-                            es: {
-                              singular: "sin límites"
-                            },
-                            "de-DE": {
-                              singular: "keine Begrenzung"
-                            },
-                            "fr-FR": {
-                              singular: "sans limites"
-                            },
-                            "ja-JP": {
-                              singular: "制限なし"
-                            },
-                            "ko-KR": {
-                              singular: "제한 없음"
-                            },
-                            "pt-BR": {
-                              singular: "sem limites"
-                            },
-                            "zh-CN": {
-                              singular: "无限制"
-                            }
-                          }
-                        })
-                      }), (0, _v1.jsx)(_v19.Text, {
-                        color: "text-secondary",
-                        fontSize: (0, _v8.rem)(13),
-                        children: (0, _v11.translate)({
-                          singular: "per current period",
-                          dictionary: {
-                            es: {
-                              singular: "por período actual"
-                            },
-                            "de-DE": {
-                              singular: "im aktuellen Zeitraum"
-                            },
-                            "fr-FR": {
-                              singular: "pour la période en cours"
-                            },
-                            "ja-JP": {
-                              singular: "現在の期間あたり"
-                            },
-                            "ko-KR": {
-                              singular: "현재 기간 기준"
-                            },
-                            "pt-BR": {
-                              singular: "no período atual"
-                            },
-                            "zh-CN": {
-                              singular: "在当前周期内"
-                            }
-                          }
-                        })
-                      }), (0, _v1.jsx)(_v31.IconButton, {
-                        icon: (0, _v1.jsx)(_v40.EditPencil, {
-                          boxSize: "xs"
-                        }),
-                        "aria-label": (0, _v11.translate)({
-                          singular: "Edit limit",
-                          dictionary: {
-                            es: {
-                              singular: "Límite de edición"
-                            },
-                            "de-DE": {
-                              singular: "Bearbeitungslimit"
-                            },
-                            "fr-FR": {
-                              singular: "Limite d'édition"
-                            },
-                            "ja-JP": {
-                              singular: "編集上限"
-                            },
-                            "ko-KR": {
-                              singular: "편집 한도"
-                            },
-                            "pt-BR": {
-                              singular: "Limite de edição"
-                            },
-                            "zh-CN": {
-                              singular: "编辑上限"
-                            }
-                          }
-                        }),
-                        size: "sm",
-                        variant: "secondary",
-                        onClick: () => _v10(!0),
-                        isDisabled: "limit" === _v11
-                      })]
-                    })]
-                  }), !_v19 && _v7 && null != _v20 && null != _v21 && (0, _v1.jsxs)(_v33.Stack, {
+                  })]
+                }), (0, _v1.jsx)(_v34.Switch, {
+                  isChecked: _v20,
+                  isDisabled: "master" === _v16 || void 0 === _v9 && !_v20,
+                  onChange: () => (_v0 => {
+                    if (!_v0) return void _v19("master", {
+                      ai_permissions_override: !1
+                    });
+                    let _v1 = {};
+                    _v45.forEach(_v0 => {
+                      let _v1 = _v46(_v21, _v0.policyName),
+                        _v2 = _v47(_v10?.accountDisabledAiFeatures, _v0.policyName);
+                      _v1 && !_v2 && (_v1[_v0.key] = _v26(_v0));
+                    }), _v19("master", {
+                      ai_permissions_override: !0,
+                      ai_features: _v1
+                    });
+                  })(!_v20),
+                  "aria-label": (0, _v11.translate)("Vimeo AI Overrides")
+                }), (0, _v1.jsx)(_v14.AccordionButton, {
+                  width: "auto",
+                  minWidth: 0,
+                  p: 0,
+                  backgroundColor: "transparent",
+                  _hover: {
+                    background: "none"
+                  },
+                  "aria-label": (0, _v11.translate)("Vimeo AI Overrides"),
+                  children: _v0 ? (0, _v1.jsx)(_v21.ChevronUpSmall, {}) : (0, _v1.jsx)(_v20.ChevronDownSmall, {})
+                })]
+              }), (0, _v1.jsx)(_v16.AccordionPanel, {
+                backgroundColor: "transparent",
+                children: (0, _v1.jsxs)(_v33.Stack, {
+                  spacing: (0, _v8.rem)(24),
+                  children: [(0, _v1.jsxs)(_v33.Stack, {
                     spacing: (0, _v8.rem)(12),
                     children: [(0, _v1.jsx)(_v19.Text, {
-                      color: "text-secondary",
+                      fontWeight: 600,
+                      color: "text-tertiary",
                       children: (0, _v11.translate)({
-                        singular: "Usage",
+                        singular: "Credits consumption",
                         dictionary: {
                           es: {
-                            singular: "Uso"
+                            singular: "Consumo de créditos"
                           },
                           "de-DE": {
-                            singular: "Nutzung"
+                            singular: "Credits-Verbrauch"
                           },
                           "fr-FR": {
-                            singular: "Utilisation"
+                            singular: "Consommation de crédits"
                           },
                           "ja-JP": {
-                            singular: "使用状況"
+                            singular: "クレジット消費量"
                           },
                           "ko-KR": {
-                            singular: "사용량"
+                            singular: "크레딧 사용량"
                           },
                           "pt-BR": {
-                            singular: "Uso"
+                            singular: "Consumo de créditos"
                           },
                           "zh-CN": {
-                            singular: "使用情况"
+                            singular: "积分消耗"
                           }
                         }
                       })
                     }), (0, _v1.jsxs)(_v33.Stack, {
-                      spacing: (0, _v8.rem)(8),
-                      children: [(0, _v1.jsxs)(_v18.HStack, {
-                        alignItems: "center",
-                        gap: (0, _v8.rem)(4),
-                        children: [(0, _v1.jsx)(_v19.Text, {
-                          children: (0, _v11.translate)({
-                            singular: "{used} of {total} used",
-                            replacements: {
-                              used: _v7.usage.toLocaleString(),
-                              total: _v20.toLocaleString()
+                      spacing: (0, _v8.rem)(4),
+                      children: [(0, _v1.jsx)(_v19.Text, {
+                        fontWeight: 700,
+                        children: (0, _v11.translate)({
+                          singular: "AI credits limit",
+                          dictionary: {
+                            es: {
+                              singular: "Límite de créditos de AI"
                             },
-                            dictionary: {
-                              es: {
-                                singular: "{used} de {total} usados"
-                              },
-                              "de-DE": {
-                                singular: "{used} von {total} verwendet"
-                              },
-                              "fr-FR": {
-                                singular: "{used} sur {total} utilisés"
-                              },
-                              "ja-JP": {
-                                singular: "{total}中{used}使用済み"
-                              },
-                              "ko-KR": {
-                                singular: "{total} 중 {used} 사용됨"
-                              },
-                              "pt-BR": {
-                                singular: "{used} de {total} usados"
-                              },
-                              "zh-CN": {
-                                singular: "{used} / {total} 已使用"
-                              }
-                            }
-                          })
-                        }), _v18 ? (0, _v1.jsx)(_v35.Tooltip, {
-                          label: (0, _v11.translate)({
-                            singular: "Renews at {date}",
-                            replacements: {
-                              date: _v18
+                            "de-DE": {
+                              singular: "Limit für AI-Credits"
                             },
-                            dictionary: {
-                              es: {
-                                singular: "Se renueva el {date}"
-                              },
-                              "de-DE": {
-                                singular: "Erneuert sich am {date}"
-                              },
-                              "fr-FR": {
-                                singular: "Renouvelle le {date}"
-                              },
-                              "ja-JP": {
-                                singular: "{date} に更新されます"
-                              },
-                              "ko-KR": {
-                                singular: "{date}에 갱신됩니다."
-                              },
-                              "pt-BR": {
-                                singular: "Renova em {date}"
-                              },
-                              "zh-CN": {
-                                singular: "续订于 {date}"
-                              }
+                            "fr-FR": {
+                              singular: "Limite de crédits AI"
+                            },
+                            "ja-JP": {
+                              singular: "AIクレジットの上限"
+                            },
+                            "ko-KR": {
+                              singular: "AI 크레딧 한도"
+                            },
+                            "pt-BR": {
+                              singular: "Limite de créditos AI"
+                            },
+                            "zh-CN": {
+                              singular: "AI 积分上限"
                             }
-                          }),
-                          children: (0, _v1.jsx)(_v29.Box, {
-                            as: "span",
-                            display: "inline-flex",
-                            alignItems: "center",
-                            children: (0, _v1.jsx)(_v41.InfoCircle, {
-                              boxSize: (0, _v8.rem)(16),
-                              color: "text-secondary"
-                            })
-                          })
-                        }) : (0, _v1.jsx)(_v41.InfoCircle, {
-                          boxSize: (0, _v8.rem)(16),
-                          color: "text-secondary"
-                        })]
-                      }), (0, _v1.jsx)(_v32.Progress, {
-                        value: _v21,
-                        colorScheme: "vimeoBlue",
-                        height: (0, _v8.rem)(4),
-                        borderRadius: (0, _v8.rem)(2)
-                      })]
-                    })]
-                  })]
-                }), (0, _v1.jsxs)(_v33.Stack, {
-                  spacing: (0, _v8.rem)(16),
-                  children: [(0, _v1.jsx)(_v19.Text, {
-                    fontWeight: 600,
-                    color: "text-tertiary",
-                    children: (0, _v11.translate)({
-                      singular: "AI Features",
-                      dictionary: {
-                        es: {
-                          singular: "Funciones de IA"
-                        },
-                        "de-DE": {
-                          singular: "KI-Funktionen"
-                        },
-                        "fr-FR": {
-                          singular: "Fonctionnalités d'IA"
-                        },
-                        "ja-JP": {
-                          singular: "AI機能"
-                        },
-                        "ko-KR": {
-                          singular: "AI 기능"
-                        },
-                        "pt-BR": {
-                          singular: "Recursos de IA"
-                        },
-                        "zh-CN": {
-                          singular: "AI 功能"
-                        }
-                      }
-                    })
-                  }), _v42.map(_v0 => {
-                    let _v1,
-                      _v2,
-                      _v3 = _v43(_v5?.currentTeamPermissionPolicies, _v0.policyName),
-                      _v4 = _v43(_v16, _v0.policyName),
-                      _v5 = (_v1 = _v5?.accountDisabledAiFeatures, _v2 = _v0.policyName, !!_v1?.includes(_v2));
-                    return (0, _v1.jsxs)(_v18.HStack, {
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      gap: (0, _v8.rem)(16),
-                      children: [(0, _v1.jsxs)(_v33.Stack, {
-                        spacing: 0,
-                        children: [(0, _v1.jsx)(_v19.Text, {
-                          fontWeight: 700,
-                          children: _v0.label
-                        }), (0, _v1.jsx)(_v19.Text, {
-                          color: "text-secondary",
-                          fontSize: (0, _v8.rem)(13),
-                          children: _v0.description
-                        })]
+                          }
+                        })
                       }), (0, _v1.jsxs)(_v18.HStack, {
                         alignItems: "center",
                         gap: (0, _v8.rem)(8),
-                        flexShrink: 0,
-                        children: [(_v5 || !_v4) && (0, _v1.jsx)(_v35.Tooltip, {
-                          label: _v5 ? (0, _v11.translate)({
-                            singular: "This feature is disabled at the account level. To allow this user to access it, re-enable it in the account's Vimeo AI settings.",
+                        children: [(0, _v1.jsx)(_v19.Text, {
+                          fontWeight: 600,
+                          fontSize: (0, _v8.rem)(16),
+                          children: _v10?.aiCreditLimit != null ? _v10.aiCreditLimit.toLocaleString() : (0, _v11.translate)({
+                            singular: "no limits",
                             dictionary: {
                               es: {
-                                singular: "Esta función está desactivada a nivel de cuenta. Para permitir que este usuario acceda a ella, vuelva a activarla en la configuración de Vimeo AI de la cuenta."
+                                singular: "sin límites"
                               },
                               "de-DE": {
-                                singular: "Diese Funktion ist auf Kontoebene deaktiviert. Um diesem Benutzer Zugriff zu gewähren, aktivieren Sie sie in den Vimeo AI-Einstellungen des Kontos wieder."
+                                singular: "keine Begrenzung"
                               },
                               "fr-FR": {
-                                singular: "Cette fonctionnalité est désactivée au niveau du compte. Pour permettre à cet utilisateur d'y accéder, réactivez-la dans les paramètres Vimeo AI du compte."
+                                singular: "sans limites"
                               },
                               "ja-JP": {
-                                singular: "この機能はアカウントレベルで無効になっています。ユーザーにアクセスを許可するには、アカウントの Vimeo AI 設定で再度有効にしてください。"
+                                singular: "制限なし"
                               },
                               "ko-KR": {
-                                singular: "이 기능은 계정 수준에서 비활성화되어 있습니다. 이 사용자가 해당 기능에 접근할 수 있도록 하려면 계정의 Vimeo AI 설정에서 다시 활성화하세요."
+                                singular: "제한 없음"
                               },
                               "pt-BR": {
-                                singular: "Este recurso está desativado no nível da conta. Para permitir o acesso deste usuário a ele, reative-o nas Vimeo AI settings da conta."
+                                singular: "sem limites"
                               },
                               "zh-CN": {
-                                singular: "此功能在账户级别已被禁用。要允许该用户访问，请在账户的 Vimeo AI 设置中重新启用它。"
+                                singular: "无限制"
                               }
                             }
-                          }) : (0, _v11.translate)({
-                            singular: "Not available for this member",
+                          })
+                        }), (0, _v1.jsx)(_v19.Text, {
+                          color: "text-secondary",
+                          fontSize: (0, _v8.rem)(13),
+                          children: (0, _v11.translate)({
+                            singular: "per current period",
                             dictionary: {
                               es: {
-                                singular: "No disponible para este miembro"
+                                singular: "por período actual"
                               },
                               "de-DE": {
-                                singular: "Für dieses Mitglied nicht verfügbar"
+                                singular: "im aktuellen Zeitraum"
                               },
                               "fr-FR": {
-                                singular: "Non disponible pour ce membre"
+                                singular: "pour la période en cours"
                               },
                               "ja-JP": {
-                                singular: "この会員には利用できません"
+                                singular: "現在の期間あたり"
                               },
                               "ko-KR": {
-                                singular: "이 회원에게는 이용할 수 없습니다"
+                                singular: "현재 기간 기준"
                               },
                               "pt-BR": {
-                                singular: "Não disponível para este membro"
+                                singular: "no período atual"
                               },
                               "zh-CN": {
-                                singular: "对该成员不可用"
+                                singular: "在当前周期内"
+                              }
+                            }
+                          })
+                        }), (0, _v1.jsx)(_v31.IconButton, {
+                          icon: (0, _v1.jsx)(_v40.EditPencil, {
+                            boxSize: "xs"
+                          }),
+                          "aria-label": (0, _v11.translate)({
+                            singular: "Edit limit",
+                            dictionary: {
+                              es: {
+                                singular: "Límite de edición"
+                              },
+                              "de-DE": {
+                                singular: "Bearbeitungslimit"
+                              },
+                              "fr-FR": {
+                                singular: "Limite d'édition"
+                              },
+                              "ja-JP": {
+                                singular: "編集上限"
+                              },
+                              "ko-KR": {
+                                singular: "편집 한도"
+                              },
+                              "pt-BR": {
+                                singular: "Limite de edição"
+                              },
+                              "zh-CN": {
+                                singular: "编辑上限"
                               }
                             }
                           }),
-                          children: (0, _v1.jsx)("span", {
-                            children: (0, _v1.jsx)(_v39.CircleExclamation, {
-                              boxSize: (0, _v8.rem)(20),
-                              color: _v5 ? "status-caution-primary" : "text-secondary"
-                            })
-                          })
-                        }), (0, _v1.jsx)(_v34.Switch, {
-                          isChecked: _v3,
-                          isDisabled: _v11 === _v0.key || !_v15 || _v5 || !_v4,
-                          onChange: () => {
-                            var _v0;
-                            _v14(_v0 = _v0.key, {
-                              ai_features: {
-                                [_v0]: !_v3
-                              }
-                            });
-                          },
-                          "aria-label": _v0.label
+                          size: "sm",
+                          variant: "secondary",
+                          onClick: () => _v15(!0),
+                          isDisabled: "limit" === _v16
                         })]
                       })]
-                    }, _v0.key);
+                    }), !_v28 && _v12 && null != _v29 && null != _v30 && (0, _v1.jsxs)(_v33.Stack, {
+                      spacing: (0, _v8.rem)(12),
+                      children: [(0, _v1.jsx)(_v19.Text, {
+                        color: "text-secondary",
+                        children: (0, _v11.translate)({
+                          singular: "Usage",
+                          dictionary: {
+                            es: {
+                              singular: "Uso"
+                            },
+                            "de-DE": {
+                              singular: "Nutzung"
+                            },
+                            "fr-FR": {
+                              singular: "Utilisation"
+                            },
+                            "ja-JP": {
+                              singular: "使用状況"
+                            },
+                            "ko-KR": {
+                              singular: "사용량"
+                            },
+                            "pt-BR": {
+                              singular: "Uso"
+                            },
+                            "zh-CN": {
+                              singular: "使用情况"
+                            }
+                          }
+                        })
+                      }), (0, _v1.jsxs)(_v33.Stack, {
+                        spacing: (0, _v8.rem)(8),
+                        children: [(0, _v1.jsxs)(_v18.HStack, {
+                          alignItems: "center",
+                          gap: (0, _v8.rem)(4),
+                          children: [(0, _v1.jsx)(_v19.Text, {
+                            children: (0, _v11.translate)({
+                              singular: "{used} of {total} used",
+                              replacements: {
+                                used: _v12.usage.toLocaleString(),
+                                total: _v29.toLocaleString()
+                              },
+                              dictionary: {
+                                es: {
+                                  singular: "{used} de {total} usados"
+                                },
+                                "de-DE": {
+                                  singular: "{used} von {total} verwendet"
+                                },
+                                "fr-FR": {
+                                  singular: "{used} sur {total} utilisés"
+                                },
+                                "ja-JP": {
+                                  singular: "{total}中{used}使用済み"
+                                },
+                                "ko-KR": {
+                                  singular: "{total} 중 {used} 사용됨"
+                                },
+                                "pt-BR": {
+                                  singular: "{used} de {total} usados"
+                                },
+                                "zh-CN": {
+                                  singular: "{used} / {total} 已使用"
+                                }
+                              }
+                            })
+                          }), _v27 ? (0, _v1.jsx)(_v35.Tooltip, {
+                            label: (0, _v11.translate)({
+                              singular: "Renews at {date}",
+                              replacements: {
+                                date: _v27
+                              },
+                              dictionary: {
+                                es: {
+                                  singular: "Se renueva el {date}"
+                                },
+                                "de-DE": {
+                                  singular: "Erneuert sich am {date}"
+                                },
+                                "fr-FR": {
+                                  singular: "Renouvelle le {date}"
+                                },
+                                "ja-JP": {
+                                  singular: "{date} に更新されます"
+                                },
+                                "ko-KR": {
+                                  singular: "{date}에 갱신됩니다."
+                                },
+                                "pt-BR": {
+                                  singular: "Renova em {date}"
+                                },
+                                "zh-CN": {
+                                  singular: "续订于 {date}"
+                                }
+                              }
+                            }),
+                            children: (0, _v1.jsx)(_v29.Box, {
+                              as: "span",
+                              display: "inline-flex",
+                              alignItems: "center",
+                              children: (0, _v1.jsx)(_v41.InfoCircle, {
+                                boxSize: (0, _v8.rem)(16),
+                                color: "text-secondary"
+                              })
+                            })
+                          }) : (0, _v1.jsx)(_v41.InfoCircle, {
+                            boxSize: (0, _v8.rem)(16),
+                            color: "text-secondary"
+                          })]
+                        }), (0, _v1.jsx)(_v32.Progress, {
+                          value: _v30,
+                          colorScheme: "vimeoBlue",
+                          height: (0, _v8.rem)(4),
+                          borderRadius: (0, _v8.rem)(2)
+                        })]
+                      })]
+                    })]
+                  }), (0, _v1.jsxs)(_v33.Stack, {
+                    spacing: (0, _v8.rem)(16),
+                    children: [(0, _v1.jsx)(_v19.Text, {
+                      fontWeight: 600,
+                      color: "text-tertiary",
+                      children: (0, _v11.translate)({
+                        singular: "AI Features",
+                        dictionary: {
+                          es: {
+                            singular: "Funciones de IA"
+                          },
+                          "de-DE": {
+                            singular: "KI-Funktionen"
+                          },
+                          "fr-FR": {
+                            singular: "Fonctionnalités d'IA"
+                          },
+                          "ja-JP": {
+                            singular: "AI機能"
+                          },
+                          "ko-KR": {
+                            singular: "AI 기능"
+                          },
+                          "pt-BR": {
+                            singular: "Recursos de IA"
+                          },
+                          "zh-CN": {
+                            singular: "AI 功能"
+                          }
+                        }
+                      })
+                    }), _v45.map(_v0 => {
+                      let _v1 = _v46(_v10?.currentTeamPermissionPolicies, _v0.policyName),
+                        _v2 = _v46(_v21, _v0.policyName),
+                        _v3 = _v47(_v10?.accountDisabledAiFeatures, _v0.policyName),
+                        _v4 = _v20 ? _v1 : _v26(_v0);
+                      return (0, _v1.jsxs)(_v18.HStack, {
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        gap: (0, _v8.rem)(16),
+                        children: [(0, _v1.jsxs)(_v33.Stack, {
+                          spacing: 0,
+                          children: [(0, _v1.jsx)(_v19.Text, {
+                            fontWeight: 700,
+                            children: _v0.label
+                          }), (0, _v1.jsx)(_v19.Text, {
+                            color: "text-secondary",
+                            fontSize: (0, _v8.rem)(13),
+                            children: _v0.description
+                          })]
+                        }), (0, _v1.jsxs)(_v18.HStack, {
+                          alignItems: "center",
+                          gap: (0, _v8.rem)(8),
+                          flexShrink: 0,
+                          children: [(_v3 || !_v2) && (0, _v1.jsx)(_v35.Tooltip, {
+                            label: _v3 ? (0, _v11.translate)({
+                              singular: "This feature is disabled at the account level. To allow this user to access it, re-enable it in the account's Vimeo AI settings.",
+                              dictionary: {
+                                es: {
+                                  singular: "Esta función está desactivada a nivel de cuenta. Para permitir que este usuario acceda a ella, vuelva a activarla en la configuración de Vimeo AI de la cuenta."
+                                },
+                                "de-DE": {
+                                  singular: "Diese Funktion ist auf Kontoebene deaktiviert. Um diesem Benutzer Zugriff zu gewähren, aktivieren Sie sie in den Vimeo AI-Einstellungen des Kontos wieder."
+                                },
+                                "fr-FR": {
+                                  singular: "Cette fonctionnalité est désactivée au niveau du compte. Pour permettre à cet utilisateur d'y accéder, réactivez-la dans les paramètres Vimeo AI du compte."
+                                },
+                                "ja-JP": {
+                                  singular: "この機能はアカウントレベルで無効になっています。ユーザーにアクセスを許可するには、アカウントの Vimeo AI 設定で再度有効にしてください。"
+                                },
+                                "ko-KR": {
+                                  singular: "이 기능은 계정 수준에서 비활성화되어 있습니다. 이 사용자가 해당 기능에 접근할 수 있도록 하려면 계정의 Vimeo AI 설정에서 다시 활성화하세요."
+                                },
+                                "pt-BR": {
+                                  singular: "Este recurso está desativado no nível da conta. Para permitir o acesso deste usuário a ele, reative-o nas Vimeo AI settings da conta."
+                                },
+                                "zh-CN": {
+                                  singular: "此功能在账户级别已被禁用。要允许该用户访问，请在账户的 Vimeo AI 设置中重新启用它。"
+                                }
+                              }
+                            }) : (0, _v11.translate)({
+                              singular: "Not available for this member",
+                              dictionary: {
+                                es: {
+                                  singular: "No disponible para este miembro"
+                                },
+                                "de-DE": {
+                                  singular: "Für dieses Mitglied nicht verfügbar"
+                                },
+                                "fr-FR": {
+                                  singular: "Non disponible pour ce membre"
+                                },
+                                "ja-JP": {
+                                  singular: "この会員には利用できません"
+                                },
+                                "ko-KR": {
+                                  singular: "이 회원에게는 이용할 수 없습니다"
+                                },
+                                "pt-BR": {
+                                  singular: "Não disponível para este membro"
+                                },
+                                "zh-CN": {
+                                  singular: "对该成员不可用"
+                                }
+                              }
+                            }),
+                            children: (0, _v1.jsx)("span", {
+                              children: (0, _v1.jsx)(_v39.CircleExclamation, {
+                                boxSize: (0, _v8.rem)(20),
+                                color: _v3 ? "status-caution-primary" : "text-secondary"
+                              })
+                            })
+                          }), (0, _v1.jsx)(_v34.Switch, {
+                            isChecked: _v4,
+                            isDisabled: _v16 === _v0.key || !_v20 || _v3 || !_v2,
+                            onChange: () => {
+                              var _v0;
+                              _v19(_v0 = _v0.key, {
+                                ai_features: {
+                                  [_v0]: !_v4
+                                }
+                              });
+                            },
+                            sx: _v20 ? void 0 : {
+                              "& .chakra-switch__track": {
+                                backgroundColor: "rgba(182, 192, 204, 1) !important"
+                              }
+                            },
+                            "aria-label": _v0.label
+                          })]
+                        })]
+                      }, _v0.key);
+                    })]
                   })]
-                })]
-              })
-            })]
-          })
-        }), (0, _v1.jsx)(_v60, {
-          isOpen: _v9,
-          memberName: _v5?.user?.name ?? "",
-          currentLimit: _v5?.aiCreditLimit ?? null,
-          maxCredits: _v7?.accountLimit ?? null,
-          currentUsage: _v7?.usage ?? null,
-          resetDate: _v7?.quotaEnd ?? null,
-          onClose: () => _v10(!1),
-          onSave: _v0 => {
-            _v10(!1), _v14("limit", {
-              ai_credit_limit: _v0
-            });
-          }
-        }, `${_v5?.aiCreditLimit ?? "none"}-${String(_v9)}`)]
+                })
+              })]
+            })
+          }), (0, _v1.jsx)(_v64, {
+            isOpen: _v14,
+            memberName: _v10?.user?.name ?? "",
+            currentLimit: _v10?.aiCreditLimit ?? null,
+            maxCredits: _v12?.accountLimit ?? null,
+            currentUsage: _v12?.usage ?? null,
+            resetDate: _v12?.quotaEnd ?? null,
+            onClose: () => _v15(!1),
+            onSave: _v0 => {
+              _v15(!1), _v19("limit", {
+                ai_credit_limit: _v0
+              });
+            }
+          }, `${_v10?.aiCreditLimit ?? "none"}-${String(_v14)}`)]
+        })]
       }) : (0, _v1.jsx)(_v19.Text, {
         color: "text-secondary",
         py: (0, _v8.rem)(24),
@@ -1778,32 +1828,7 @@
           children: [(0, _v1.jsx)(_v9.FiltersLevers, {
             boxSize: "xs",
             mr: (0, _v8.rem)(4)
-          }), (0, _v11.translate)({
-            singular: "Features access",
-            dictionary: {
-              es: {
-                singular: "Acceso a funciones"
-              },
-              "de-DE": {
-                singular: "Zugriff auf Funktionen"
-              },
-              "fr-FR": {
-                singular: "Accès aux fonctionnalités"
-              },
-              "ja-JP": {
-                singular: "機能アクセス"
-              },
-              "ko-KR": {
-                singular: "기능 액세스"
-              },
-              "pt-BR": {
-                singular: "Acesso a recursos"
-              },
-              "zh-CN": {
-                singular: "功能访问"
-              }
-            }
-          })]
+          }), (0, _v11.translate)("Features access overrides")]
         }), (0, _v1.jsxs)(_v3.Tab, {
           width: "auto",
           px: 16,
@@ -1843,7 +1868,7 @@
         })]
       }), (0, _v1.jsxs)(_v7.TabPanels, {
         children: [(0, _v1.jsx)(_v6.TabPanel, {
-          children: (0, _v1.jsx)(_v66, {
+          children: (0, _v1.jsx)(_v71, {
             teamUserId: _v0
           })
         }), (0, _v1.jsx)(_v6.TabPanel, {

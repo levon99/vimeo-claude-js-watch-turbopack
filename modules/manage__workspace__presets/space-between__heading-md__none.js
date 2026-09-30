@@ -286,8 +286,9 @@
     _v40 = _v0.i(0),
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
-    _v43 = _v0.i(0);
-  let _v44 = {
+    _v43 = _v0.i(0),
+    _v44 = _v0.i(0);
+  let _v45 = {
       barebone_js: "",
       chromeless_css: "",
       chromeless_js: "",
@@ -295,7 +296,7 @@
       js: "",
       player_url: ""
     },
-    _v45 = ({
+    _v46 = ({
       playerAssetUrls: _v0
     }) => {
       let _v1 = (0, _v2.useMemo)(() => ({
@@ -352,28 +353,31 @@
           }
         })
       }), []);
-      return (0, _v1.jsx)(_v40.PlayerContextProvider, {
-        type: _v41.PlayerType.VimeoPlayer,
-        assetUrls: _v0 ?? _v44,
+      return (0, _v1.jsx)(_v41.PlayerContextProvider, {
+        type: _v42.PlayerType.VimeoPlayer,
+        assetUrls: _v0 ?? _v45,
         children: (0, _v1.jsxs)(_v5.Box, {
-          maxW: _v38.SETTING_PAGES_MAX_WIDTH,
+          maxW: _v39.SETTING_PAGES_MAX_WIDTH,
           w: "100%",
           mx: "auto",
           py: "lg",
-          children: [(0, _v1.jsx)(_v39.SettingsPageContentHeader, {
+          children: [(0, _v1.jsx)(_v40.SettingsPageContentHeader, {
             title: _v1.title,
             description: _v1.description
           }), (0, _v1.jsxs)(_v35.Flex, {
             direction: "column",
             gap: "xl",
-            children: [(0, _v1.jsx)(_v3.EmbedPresetListModule, {}), (0, _v1.jsx)(_v34.VideoPagePresetListModule, {}), (0, _v1.jsx)(_v33, {})]
+            children: [(0, _v1.jsx)(_v3.EmbedPresetListModule, {}), (0, _v1.jsx)(_v34.VideoPagePresetListModule, {}), (0, _v1.jsx)(_v33, {}), (0, _v1.jsx)(_v38.PresetsDefaultsCrossLink, {
+              scope: "workspace",
+              direction: "to-defaults"
+            })]
           })]
         })
       });
     };
-  (0, _v36.withPageSetup)(_v43.getWspServerSideProps, {
+  (0, _v36.withPageSetup)(_v44.getWspServerSideProps, {
     requireLogin: !0,
     inlineViewer: !0,
     inlinePlayerAssets: !0
-  }), _v45.getLayout = (_v0, _v1) => (0, _v42.getLayout)(_v0, _v1, _v42.WORKSPACE_COMPACT_SETTINGS_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v45], 0);
+  }), _v46.getLayout = (_v0, _v1) => (0, _v43.getLayout)(_v0, _v1, _v43.WORKSPACE_COMPACT_SETTINGS_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v46], 0);
 }
